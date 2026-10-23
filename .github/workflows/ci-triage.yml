@@ -1,0 +1,101 @@
+# Tự phân loại workflow đỏ (scripts/ci/triage.mjs) – thay thư "Run failed" từng lượt bằng: chạy lại 1 lần (lỗi tạm thời),
+# hoãn tới sau 00:10 UTC (hạn mức D1), 1 issue/workflow nhãn ci-failure (lỗi thật, tự đóng khi xanh lại) + bản tin ngày (Quản trị + 1 thư).
+# Không bao giờ lặp: chỉ chạy lại khi run_attempt = 1; triage tự nó luôn thoát 0. Danh sách workflows dưới đây phải khớp .github/workflows
+# (test scripts/test/ci-triage.mjs đỏ nếu thêm workflow mới mà quên thêm tên vào đây).
+name: ci-triage
+on:
+  workflow_run:
+    types: [completed]
+    workflows:
+      - 'Video quản trị – giao diện + hiệu năng'
+      - 'Build Android app'
+      - 'Tạo giọng đọc Kokoro'
+      - 'bg-gates'
+      - 'Blog daily'
+      - 'Blog images'
+      - 'Blog publish'
+      - 'Tách nền phông xanh – cả lô'
+      - 'Thử tách nền phông xanh'
+      - 'Kiểm thử tự động'
+      - 'cine-render'
+      - 'Hiệu năng thư viện clip'
+      - 'Content protection'
+      - 'Kiểm tương phản màu'
+      - 'Đăng add-on Chrome Web Store'
+      - 'd1b-migrate'
+      - 'Kênh & phân phối – giao diện + mặt tiền video'
+      - 'drive-shorts'
+      - 'Ảnh thẻ giải thích (trước/sau)'
+      - 'Lời giải đáp án (sinh + duyệt AI)'
+      - 'Kiểm thử add-on (E2E)'
+      - 'footage-archive'
+      - 'footage-verify'
+      - 'gh-models-probe'
+      - 'Rà soát hằng ngày'
+      - 'Rà soát lẫn tiếng'
+      - 'Sinh bản dịch giao diện (i18n)'
+      - 'iOS E2E (simulator)'
+      - 'iOS → ảnh App Store'
+      - 'iOS → TestFlight'
+      - 'Build iOS (simulator)'
+      - 'Nghĩa từ vựng 13 ngôn ngữ (theo nghĩa + duyệt AI)'
+      - 'library-build'
+      - 'library-ingest'
+      - 'Đo tốc độ Lighthouse'
+      - 'matte-pro'
+      - 'Native auth E2E'
+      - 'Kiểm chuyển trang (mọi trình duyệt)'
+      - 'news-voice'
+      - 'Deploy audio CDN to GitHub Pages'
+      - 'Ảnh Google Play'
+      - 'Backlink, PR & Thương hiệu'
+      - 'Chụp ảnh giao diện'
+      - 'Kho kịch bản video (sinh + QC)'
+      - 'shorts-migrate'
+      - 'shorts-rebuild'
+      - 'storage-watch'
+      - 'Ảnh Chrome Web Store'
+      - 'Video quảng cáo (viral)'
+      - 'Video giới thiệu add-on'
+      - 'Video tự động (hằng ngày)'
+      - 'Dựng video mẫu (kiểm end-to-end)'
+      - 'Dựng thử đa dạng (stress)'
+      - 'video-web'
+      - 'Dựng video (Video Studio)'
+      - 'Visual QA'
+      - 'Giọng đọc từ vựng (Kokoro)'
+      - 'Gói nghĩa từ vựng đa ngôn ngữ'
+      - 'Kho từ theo kỳ thi'
+      - 'youtube-manual'
+      - 'youtube-upload'
+  schedule:
+    - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
+  workflow_dispatch:
+    inputs:
+      daily: { description: 'Chạy luôn phần hoãn hạn mức + bản tin ngày', type: boolean, default: false }
+permissions: { contents: read, actions: write, issues: write }
+jobs:
+  triage:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency: { group: 'ci-triage-${{ github.event.workflow_run.id }}', cancel-in-progress: false }
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts/ci, sparse-checkout-cone-mode: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/triage.mjs run
+        env: { GITHUB_TOKEN: '${{ github.token }}', TRIAGE_DELAY: '300' }
+  sweep:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency: { group: ci-triage-sweep, cancel-in-progress: false }
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts, sparse-checkout-cone-mode: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/triage.mjs sweep
+        env: { GITHUB_TOKEN: '${{ github.token }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', TRIAGE_FORCE_DAILY: "${{ github.event.inputs.daily == 'true' && '1' || '' }}" }

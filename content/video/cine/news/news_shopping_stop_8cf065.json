@@ -84,8 +84,8 @@
    "line": "n_8cf065_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'I'm considering to buy a car'? -> No",
+    "kind": "x",
+    "text": "I'm considering to buy a car",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "I'm considering buying a car.",
     "sub": null,
     "label": "REPEAT",

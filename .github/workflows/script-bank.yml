@@ -4,7 +4,7 @@
 name: Kho kịch bản video (sinh + QC)
 on:
   schedule:
-    - cron: '20 0 * * *'   # 07:20 VN: neuron Workers AI vừa làm mới (trần 4.000 → lời giải còn ≥ 6.000); Gemini dùng mô hình lời giải KHÔNG dùng
+    - cron: '50 0 * * *'   # 07:20 VN: neuron Workers AI vừa làm mới (trần 4.000 → lời giải còn ≥ 6.000); Gemini dùng mô hình lời giải KHÔNG dùng
   workflow_dispatch:
     inputs:
       max: { description: 'Số kịch bản tối đa lượt này', default: '400' }

@@ -1,4 +1,5 @@
 name: gh-models-probe
+# CHỈ BẤM TAY (không cron/push). Thăm dò = thông tin, không phải cổng: job continue-on-error → không gửi thư "failed" (ci-triage 23/10).
 # 0-credit check that the CI AI gates (script_judge / vision_gate) get an answer from GitHub Models before burning cine-render runs.
 on: { workflow_dispatch: {} }
 permissions: { contents: read, models: read }
@@ -6,6 +7,7 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: scripts/cine, sparse-checkout-cone-mode: true }

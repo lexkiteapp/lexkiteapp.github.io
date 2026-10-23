@@ -6,6 +6,8 @@
  *   allowSet { target, note }              → thêm vào danh sách không giới hạn                  allowDelete { id }
  * Mọi thay đổi ghi vào quota_audit (chi tiết) + admin_log (nhật ký quản trị chung). Tài liệu: docs/QUOTAS.md */
 import { d1Usage, D1_LIMITS } from './_d1guard.js';
+import { internalDb } from './_d1b.js';
+import { setupJobs, timeline } from './_jobs.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { geminiKeys } from './ai.js';
 import { DEFAULTS, PROVIDERS, BREAKER, budget, validConfig, normId, setupQuota, resetState, dayKey } from './_quota.js';
@@ -44,6 +46,8 @@ async function snapshot(db, env) {
 
 const OPS = {
   state: (db, b, who, env) => snapshot(db, env),
+  // Lịch việc nền hôm nay (đã chạy / bỏ qua + lý do / ngân sách) – bảng job_* ở D1 nội bộ
+  async jobs(db, b, who, env) { const idb = internalDb(env); await setupJobs(idb, 'q'); return timeline(env, idb, b); },
   async blockSet(db, b, who) {
     const id = await normId(b.target); if (!id) throw new Bad('target');
     const min = Math.max(0, Math.min(Math.floor(+b.minutes || 0), 525600)), until = min ? Date.now() + min * 60e3 : 0;

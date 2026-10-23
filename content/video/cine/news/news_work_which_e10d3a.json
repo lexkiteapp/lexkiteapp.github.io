@@ -84,8 +84,8 @@
    "line": "n_e10d3a_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'I met her three years before'? -> No",
+    "kind": "x",
+    "text": "I met her three years before",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "I met her three years ago.",
     "sub": null,
     "label": "REPEAT",

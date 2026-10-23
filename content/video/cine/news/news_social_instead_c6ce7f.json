@@ -84,8 +84,8 @@
    "line": "n_c6ce7f_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'Your phone is very class'? -> No",
+    "kind": "x",
+    "text": "Your phone is very class",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "Your phone is very classy.",
     "sub": null,
     "label": "REPEAT",

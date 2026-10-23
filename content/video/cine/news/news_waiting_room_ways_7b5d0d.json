@@ -69,7 +69,7 @@
    "who": "ama",
    "line": "n_7b5d0d_c",
    "card": {
-    "kind": "p",
+    "kind": "x",
     "text": "'I want' on the phone? -> No",
     "sub": null,
     "label": "CHECK",
@@ -81,7 +81,7 @@
    "who": "carlos",
    "line": "n_7b5d0d_rs",
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "I'd like to make an appointment, please.",
     "sub": null,
     "label": "REPEAT",

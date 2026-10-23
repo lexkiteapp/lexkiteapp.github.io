@@ -15,15 +15,25 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire storage-watch
       - name: Khoá deploy
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { F: '${{ secrets.FOOTAGE_DEPLOY_KEY }}', S: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           printf '%s\n' "$F" > ~/.ssh/f && printf '%s\n' "$S" > ~/.ssh/s && chmod 600 ~/.ssh/f ~/.ssh/s
           echo "FOOTAGE_KEY_FILE=$HOME/.ssh/f" >> "$GITHUB_ENV"; echo "SHORTS_KEY_FILE=$HOME/.ssh/s" >> "$GITHUB_ENV"
       - name: Đo dung lượng
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { GITHUB_TOKEN: '${{ github.token }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/footage/repo-size.mjs --alert-gb 2
       - name: Xoá khoá
         if: always()
         run: rm -f ~/.ssh/f ~/.ssh/s
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release storage-watch --status "${{ job.status }}"

@@ -36,6 +36,15 @@
     'Độ gắn bó DAU/MAU tốt: {p}%.': 'Good DAU/MAU stickiness: {p}%.', 'Độ gắn bó DAU/MAU thấp: {p}% – người dùng ghé thưa.': 'Low DAU/MAU stickiness: {p}% – visits are infrequent.',
     'Rời bỏ cao: {p}% khách hoạt động kỳ trước không quay lại.': 'High churn: {p}% of last period’s active visitors did not return.',
     'Bước rơi nhiều nhất trong phễu: {a} → {b} (chỉ {p}).': 'Biggest funnel drop: {a} → {b} (only {p}).',
+    // CTA & chuyển đổi
+    '🎯 Nút kêu gọi & Chuyển đổi (CTA)': '🎯 Calls to Action & Conversions (CTA)',
+    'Lượt xem Add-on': 'Add-on views', 'Lượt bấm Add-on': 'Add-on clicks', 'Tỉ lệ bấm Add-on': 'Add-on CTR',
+    'Lượt xem PWA': 'PWA views', 'Lượt bấm PWA': 'PWA clicks', 'Tỉ lệ bấm PWA': 'PWA CTR',
+    'Lưu/học bộ từ': 'Save / learn topics', 'Tổng lượt bấm CTA': 'Total CTA clicks',
+    'Lượt bấm CTA theo ngôn ngữ': 'CTA clicks by language', 'Lượt bấm CTA theo loại trang': 'CTA clicks by page type',
+    'Chưa có dữ liệu chuyển đổi CTA': 'No CTA conversion data yet', 'Tỉ lệ bấm (CTR)': 'Click-through rate (CTR)',
+    'deep link mở app': 'deep links opening app', '% lượt xem': '% of views',
+    'CTA thông minh chỉ hiển thị phù hợp: Add-on trên desktop Chrome/Edge, PWA trên di động chưa cài đặt. Không thu thập PII.': 'Smart CTAs display contextually: Add-on for desktop Chrome/Edge, PWA for mobile web. No PII collected.',
   };
   const REASON = { notuse: 'Mình không còn dùng nữa', noisy: 'Popup/gạch chân gây phiền', bugs: 'Lỗi hoặc chậm', privacy: 'Lo ngại quyền riêng tư', alt: 'Chuyển công cụ khác', other: 'Lý do khác' };
   const PLAT = { web: '🌐 Web', pwa: '📲 PWA', ext: '🧩 Add-on', ios: '🍎 iOS', android: '🤖 Android', app: '📱 App' };
@@ -134,6 +143,30 @@
         <div class="card"><div class="row between"><h3 style="margin:0">${G('Thuần tập theo tuần')}</h3><span class="g-chips" style="margin:0">${[['visitors', 'Khách ẩn danh'], ['users', 'Người dùng đăng nhập']].map(([k, l]) => `<button class="chip-f ${cv === k ? 'on' : ''}" data-gcv="${k}">${G(l)}</button>`).join('')}</span></div>${heat}<p class="small muted">${G('Mỗi hàng: nhóm có lần đầu ghé (hoặc đăng ký) trong tuần đó; ô = % còn hoạt động ở tuần thứ n.')}</p></div>`;
     };
 
+    const ctaHtml = g => {
+      const cta = g.cta;
+      if (!cta) return '';
+      const c = cta.cur || {}, p = cta.prev || {};
+      const aCtr = pct1(c.addonClick, c.addonView), aCtrP = pct1(p.addonClick, p.addonView);
+      const pCtr = pct1(c.pwaClick, c.pwaView), pCtrP = pct1(p.pwaClick, p.pwaView);
+      return `<h3 class="sec-t">${G('🎯 Nút kêu gọi & Chuyển đổi (CTA)')}</h3>
+        <div class="g-tiles">
+          ${tile(G('Lượt xem Add-on'), num(c.addonView || 0), delta(c.addonView, p.addonView))}
+          ${tile(G('Lượt bấm Add-on'), num(c.addonClick || 0), delta(c.addonClick, p.addonClick), aCtr != null ? G('Tỉ lệ bấm (CTR)') + ': ' + fmtP(aCtr) : '')}
+          ${tile(G('Tỉ lệ bấm Add-on'), fmtP(aCtr), aCtr != null && aCtrP != null ? delta(aCtr, aCtrP, { pts: true }) : '', G('% lượt xem'))}
+          ${tile(G('Lượt xem PWA'), num(c.pwaView || 0), delta(c.pwaView, p.pwaView))}
+          ${tile(G('Lượt bấm PWA'), num(c.pwaClick || 0), delta(c.pwaClick, p.pwaClick), pCtr != null ? G('Tỉ lệ bấm (CTR)') + ': ' + fmtP(pCtr) : '')}
+          ${tile(G('Tỉ lệ bấm PWA'), fmtP(pCtr), pCtr != null && pCtrP != null ? delta(pCtr, pCtrP, { pts: true }) : '', G('% lượt xem'))}
+          ${tile(G('Lưu/học bộ từ'), num(c.topicClick || 0), delta(c.topicClick, p.topicClick), G('deep link mở app'))}
+          ${tile(G('Tổng lượt bấm CTA'), num(c.allClicks || 0), delta(c.allClicks, p.allClicks))}
+        </div>
+        <div class="adm-grid">
+          <div class="card"><h3>${G('Lượt bấm CTA theo ngôn ngữ')}</h3>${hb(cta.byLang, r => (r.k || '').toUpperCase())}</div>
+          <div class="card"><h3>${G('Lượt bấm CTA theo loại trang')}</h3>${hb(cta.byPage, r => r.k)}</div>
+        </div>
+        <p class="small muted">${G('CTA thông minh chỉ hiển thị phù hợp: Add-on trên desktop Chrome/Edge, PWA trên di động chưa cài đặt. Không thu thập PII.')}</p>`;
+    };
+
     const addonHtml = g => {
       const a = g.addon, td = a.today || {};
       return `<h3 class="sec-t">${G('🧩 Add-on Chrome')}</h3>
@@ -166,7 +199,7 @@
 
     const paint = () => {
       if (!data) return;
-      box.querySelector('#gBody').innerHTML = growthHtml(data) + addonHtml(data) + funnelHtml(data);
+      box.querySelector('#gBody').innerHTML = growthHtml(data) + ctaHtml(data) + addonHtml(data) + funnelHtml(data);
       box.querySelectorAll('[data-gfp]').forEach(b => b.onclick = () => { fp = b.dataset.gfp; paint(); });
       box.querySelectorAll('[data-gcv]').forEach(b => b.onclick = () => { cv = b.dataset.gcv; paint(); });
     };

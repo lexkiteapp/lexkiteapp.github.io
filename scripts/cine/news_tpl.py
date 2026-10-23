@@ -21,6 +21,7 @@ BREATH, JCUT = PACES[STYLE['pacing']]
 SIG = f"p{STYLE['pattern']}|{'+'.join(STYLE['moves'])}|{STYLE['transition']}|L{STYLE['layout']}|C{STYLE['palette']}|{STYLE['opener']}|{STYLE['pacing']}"
 QA = dict(template='news', signature=SIG, style=STYLE); AMB = f'{TL}/amb_studio.wav'; AMB_DB = -40; BG = os.environ.get('NEWS_BG') or SPEC['bg']; META['bg'] = BG   # NEWS_BG: placement / vision retry picked another background
 NW = lambda x_: len(re.findall(r"[A-Za-z0-9']+", x_)); need = lambda x_: max(1.2, 0.4 + 0.28 * NW(x_))
+exec(open(f'{HERE}/news_cards.py').read()); cap_key_map(SPEC)   # owner 23/10: text-fit engine + key-word colours (after the palette)
 def at_for(line, lo, hi, br):   # lead-in so the shot lasts lo..hi s
     s0, s1 = speech(line); return max(0.07, lo - br - s1)
 # owner 22/10 v6: cinematic coverage - punch-in single hook, singles on the thirds (Carlos alternates front / 3/4), reaction lines instead of
@@ -38,7 +39,7 @@ h = shot('hook', 'ga4_talk_natural', 'ama', 'wide', BG, line=hk['line'], at=a_, 
 assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
 SFX.append(('whoosh.wav', 0.0)); START['ga4_talk_natural'] = 0
 im, box, fs = hook_card(hk['card'], ''); ov('VHook', hk['card'] + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
-if SPEC.get('difficulty'): im, box = badge(SPEC['difficulty']); ov('Badge', SPEC['difficulty'].upper(), 0, h['dur'], box, 'hook', img=im)   # §13 difficulty badge
+# owner 23/10 one idea per screen: the difficulty badge lives inside the series tag (hook only), no separate chip
 CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural']}; use = {'ama': 0, 'carlos': 0}
 # owner 22/10: ONE outfit per host per clip (outfit tag from the clip bank; clips without a tag = outfit1); variety comes across clips
 _BG = [f'{G}/bank_gestures.json', f'{G}/bank.json']; OUTFIT = {}
@@ -73,7 +74,9 @@ for i, b in enumerate(BEATS):
     if c:
         t0 = sh['t0'] + max(0.0, sh['lines'][0]['at'])
         if prev is not None: t0 = max(t0, OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05); OV[prev]['t'][1] = round(t0, 3)
-        im, box = card_one(c['kind'], c['text'], c.get('sub'), num=c.get('label'), ic=c.get('icon'), formula=c.get('formula'))
+        ct_ = c['text'].replace('->', '→')
+        if c.get('label') == 'WHY' and NW(ct_) > 7: ct_ = SPEC['series'][1]   # owner 23/10: WHY copy <= 7 words, else the memory formula
+        im, box = card_one(c['kind'], ct_, c.get('sub'), num=c.get('label'), ic=c.get('icon'))   # owner 23/10 one idea per card: the formula lives in the WHY card / series tag, not under every tick
         ov('Card', f"|{c['kind']}:{c['text']}" + (f" {c.get('formula') or c['sub']}" if (c.get('formula') or c.get('sub')) else ''), t0, sh['t0'] + sh['dur'], box, sh['id'], img=im, pop=True)
         OV[-1]['_txt'] = c['text'] + ' ' + (c.get('formula') or c.get('sub') or ''); OV[-1]['_chain'] = prev is not None; prev = len(OV) - 1
     elif prev is not None: OV[prev]['t'][1] = round(sh['t0'] + sh['dur'], 3)
@@ -94,20 +97,25 @@ if prev is not None:
     OV[prev]['t'][1] = round(OV[prev]['t'][0] + need(OV[prev]['_txt']) + 0.05, 3) if lv < need(OV[prev]['_txt']) else round(rc['t0'], 3)
     r0 = OV[prev]['t'][1]
 else: r0 = rc['t0']
-rows = SPEC['recap']['rows']; im, box = card_recap(SPEC['recap']['title'], rows)
+rows = [r_ for r_ in SPEC['recap']['rows'] if NW(r_) <= 6][:2]; assert rows, 'Teacher tip: no example <= 6 words (shorten in the script bank)'   # owner 23/10: max 2 examples, <= 6 words
+im, box = card_recap(SPEC['recap']['title'], rows, key=key_tokens(SPEC.get('wrong_line'), SPEC.get('key_line'))[3] if SPEC.get('key_line') else None)
 ov('Recap', SPEC['recap']['title'] + '|' + '|'.join(rows), max(rc['t0'], r0), rc['t0'] + rc['dur'] - 0.26, box, 'recap', img=im, pop=True); RCO = OV[-1]   # may run into the end shot (reading time 2.5 s)
 for o in OV: o.pop('_txt', None)
-ew = 'carlos' if rw == 'ama' else 'ama'; el = SPEC['end_line'] if ew == 'ama' else SPEC['end_alt']
+ew = 'carlos'   # owner 23/10 layout: the END shot (recap spill + quiz caption + share + ring) is Carlos - his hands sit below the frame, so the card + caption zone is tall (recap+end = 2 Carlos singles, sizes differ)
+el = SPEC['end_line'] if ew == 'ama' else SPEC['end_alt']
 e = tshot('end', CL[ew][0], ew, 'mcu' if not (S[-1]['who'] == ew and S[-1]['frame'] == 'mcu') else 'wide', el, JCUT)
 lp = shot('loop', 'ga4_talk_natural', 'ama', 'wide', BG, dur=1.0, frames=list(range(0, 24)))
 RCO['t'][1] = round(min(lp['t0'] - 1.3, max(RCO['t'][1], RCO['t'][0] + 2.55)), 3)   # Save-this chip gets >= 0.8 s before the loop
-RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05); RGT = 'Comment your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, lp['t0'], rbox, 'end', part=0, img=lambda t, a=RG0, b=lp['t0']: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)
-if SPEC.get('share'): im, box = share_chip(SPEC['share']); ov('Share', 'Send this to a friend|' + SPEC['share'], e['t0'], lp['t0'], box, 'end', img=im)   # §13 share trigger
+if SPEC.get('share') and SPEC.get('wrong_line'):   # owner 23/10: share chip quotes only the mistake ('considering to buy'), short enough to read before the ring
+    _a, _b, _bad, _ = key_tokens(SPEC['wrong_line'], SPEC['key_line']); _ix = [i_ for i_, x_ in enumerate(_a) if x_ in _bad]
+    if _ix: SPEC['share'] = 'who says “' + ' '.join(_a[max(0, _ix[0] - 1):_ix[-1] + 1]) + '”'
+SH0 = max(e['t0'], RCO['t'][1] + 0.05); SH1 = SH0 + (need('Send this to a friend ' + SPEC['share']) if SPEC.get('share') else 0)   # owner 23/10: one card at a time - share chip, THEN the comment ring
+RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05, SH1 + 0.05 if SPEC.get('share') else 0); RGT = 'Comment your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, lp['t0'], rbox, 'end', part=0, img=lambda t, a=RG0, b=lp['t0']: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)
+if SPEC.get('share'): im, box = share_chip(SPEC['share']); ov('Share', 'Send this to a friend|' + SPEC['share'], SH0, SH1, box, 'end', img=im)   # §13 share trigger
 im, box, _ = hook_card('Free practice: Lexkite' if SPEC.get('v') == 7 else hk['card'], ''); ov('Follow', 'Free practice: Lexkite' if SPEC.get('v') == 7 else 'Follow for more', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
-T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; SER_T = f"{SER_T} · PART {SPEC['part']}" if SPEC.get('part') else SER_T; _, sbox = series_bar(SER_T, SER_S)
-SER_END = e['t0'] if SPEC.get('share') else T_ - 1.0
-ov('Series', f'{SER_T}|{SER_S}', h['dur'], SER_END, sbox, 'b1', img=lambda t, a=h['dur'], tp=SER_T, sb=SER_S: series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3)[0])   # payoff promise by 2 s
-SFX.append(('slide.wav', h['dur']))
+T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; SER_T = f"{SER_T} · PART {SPEC['part']}" if SPEC.get('part') else SER_T; _, sbox = series_bar(SER_T, SER_S, level=SPEC.get('difficulty'))
+ov('Series', f'{SER_T}|{SER_S}', 0.25, h['dur'], sbox, 'hook', img=lambda t, a=0.25, tp=SER_T, sb=SER_S, lv=SPEC.get('difficulty'): series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3, level=lv)[0])   # owner 23/10: series tag only under the hook (top band is head territory in MCU)   # payoff promise by 2 s
+SFX.append(('slide.wav', 0.25))
 # owner 22/10: no name lower-thirds (clutter, covers the body) - the teacher persona lives in tone, Teacher's tip, Repeat after me, the spoken intro
 P = sorted(t for f, t in SFX if f == 'pop.wav'); keep = []
 for t in P:

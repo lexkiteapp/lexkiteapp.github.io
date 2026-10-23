@@ -6,13 +6,14 @@
  * - Cảnh báo ≥ 60 %: thư + chuông Quản trị (drive_alerts kind 'd1'), tối đa 1 thư/24 h. */
 export const D1_LIMITS = { reads: 5e6, writes: 1e5 };
 export const GUARD_PCT = 0.5, ALERT_PCT = 0.6, OWN_BUDGET = 1.5e6;
-let CACHE = null;
+const CACHE = {}; // theo tài khoản: 'main' | 'b'
 export const day = (t = Date.now()) => new Date(t).toISOString().slice(0, 10);
 /** → { reads, writes|null, source: 'cloudflare'|'own', pct, at } */
-export async function d1Usage(env, db, now = Date.now(), fetcher = fetch) {
-  if (CACHE && now - CACHE.at < 300e3 && CACHE.day === day(now)) return CACHE.v;
+export async function d1Usage(env, db, now = Date.now(), fetcher = fetch, which = 'main') {
+  const C = CACHE[which];
+  if (C && now - C.at < 300e3 && C.day === day(now)) return C.v;
   let v = null;
-  const tok = env && (env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN), acct = env && env.CF_ACCOUNT_ID;
+  const tok = env && (which === 'b' ? env.D1B_TOKEN : (env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN)), acct = env && (which === 'b' ? env.D1B_ACCOUNT_ID : env.CF_ACCOUNT_ID);
   if (tok && acct) {
     try {
       const d = day(now), r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' },
@@ -27,20 +28,21 @@ export async function d1Usage(env, db, now = Date.now(), fetcher = fetch) {
   }
   const cloud = v.source === 'cloudflare'; // tự đếm chỉ thấy phần Kho Drive → dùng ngân sách riêng 1,5 M (chặn ở 100 % ngân sách đó); số liệu cả tài khoản → chặn ở 50 % của 5 M
   v.limit = cloud ? D1_LIMITS.reads : OWN_BUDGET; v.ratio = v.reads / v.limit; v.block = v.ratio >= (cloud ? GUARD_PCT : 1); v.alert = v.ratio >= ALERT_PCT;
-  v.at = now; CACHE = { at: now, day: day(now), v };
+  v.at = now; v.which = which; CACHE[which] = { at: now, day: day(now), v };
   return v;
 }
-export const resetD1Cache = () => { CACHE = null; };
-/** → null (cho qua) | Response 429. */
-export async function guardBackground(env, db, json) {
-  const u = await d1Usage(env, db);
-  if (u.block) return json(429, { error: 'quota-guard', pct: Math.round(u.ratio * 100), source: u.source });
+export const resetD1Cache = () => { for (const k of Object.keys(CACHE)) delete CACHE[k]; };
+/** which: 'main' | 'b' | ['main','b'] — mỗi tài khoản D1 đo RIÊNG. → null (cho qua) | Response 429. */
+export async function guardBackground(env, db, json, which = 'main') {
+  for (const w of [].concat(which)) {
+    const u = await d1Usage(env, db, Date.now(), fetch, w);
+    if (u.block) return json(429, { error: 'quota-guard', account: w, pct: Math.round(u.ratio * 100), source: u.source });
+  }
   return null;
 }
-
 /** Cho endpoint Pages (youtube, backlinks, studio, report admin/CLI, distribution, admin-clips, admin-shorts…): → null | Response 429 quota-guard.
  * json(request, status, data) là hàm trả Response của endpoint. Lỗi đọc số liệu → cho qua (không bao giờ chặn nhầm). Việc người dùng KHÔNG gọi hàm này. */
-export async function guardBg(request, env, json) {
-  try { const u = await d1Usage(env, env.DB); if (u.block) return json(request, 429, { error: 'quota-guard', pct: Math.round(u.ratio * 100), source: u.source }); } catch (e) { /* cho qua */ }
+export async function guardBg(request, env, json, which = 'main') {
+  try { const u = await d1Usage(env, env.DB, Date.now(), fetch, which); if (u.block) return json(request, 429, { error: 'quota-guard', pct: Math.round(u.ratio * 100), source: u.source }); } catch (e) { /* cho qua */ }
   return null;
 }

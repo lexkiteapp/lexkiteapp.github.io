@@ -42,14 +42,16 @@ def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, fra
             lo_, hi_ = 0, AVOID[clip][0]; st = START.get(clip, 0) % (2 * (hi_ - 1)); seq = [abs((st + q) % (2 * (hi_ - 1)) - (hi_ - 1)) * -1 + (hi_ - 1) for q in range(n)]   # forward / back inside [0, 53]
             frames = seq; START[clip] = st + n
         else:
-            st = START.get(clip, 0); st = 0 if st + n > 121 else st; assert n <= 121, ('shot longer than the clip', id)
-            frames = list(range(st, st + n)); START[clip] = st + n   # forward only: no reversed playback
+            st = START.get(clip, 0); st = 0 if st + n > 121 else st
+            if n <= 121: frames = list(range(st, st + n)); START[clip] = st + n   # forward only: no reversed playback
+            else: frames = [q if q < 121 else 240 - q for q in range(n)]; START[clip] = 0   # line longer than the clip (end quiz): forward, then back (ping-pong)
     S.append(dict(id=id, clip=clip, who=who, frame=frame, bg=bg, t0=t0, n=n, dur=n / FPS, frames=frames[:n], raw=raw, other=other,
                   lines=[dict(id=line, who=who, at=at, tempo=tempo, dur=wdur(line) / tempo)] if line else []))
     return S[-1]
 START = {}
 def ov(style, text, t0, t1, box, shot_id, line=None, part=None, fs=None, img=None, pop=False):
-    OV.append(dict(style=style, text=text, t=[round(t0, 3), round(t1, 3)], box=[int(v) for v in box], shot=shot_id, line=line, part=part, fs=fs, _img=img))
+    im_ = img(t1 - 1e-3) if callable(img) else img; meta = im_.info.get('meta') if im_ is not None else None   # news_cards.py layout meta (inner rect, text boxes, colours)
+    OV.append(dict(style=style, text=text, t=[round(t0, 3), round(t1, 3)], box=[int(v) for v in box], shot=shot_id, line=line, part=part, fs=fs, _img=img, meta=meta))
     if pop: SFX.append(('pop.wav', round(t0, 3)))
 # ------------------------------------------------------------------ drawing helpers (RGBA PIL layers, full frame)
 def layer(): return Image.new('RGBA', (W, H), (0, 0, 0, 0))
@@ -258,7 +260,7 @@ def captions(s):
             lines_ = cap_split([ws[x] for x in cw_]) or [[ws[x] for x in cw_]]
             for j, gi in enumerate(cw_):
                 t0 = max(a - 0.095, s['t0']) if gi == 0 else edges[gi]; t1 = b + 0.39 if gi == len(ws) - 1 else edges[gi + 1]   # a caption chunk never starts before its shot's cut
-                im, box = cap_img(lines_, j); ov('Cap', TEXT[k], t0, t1, box, s['id'], line=k, part=gi, fs=CAP_FS, img=im); OV[-1]['chunk'] = [chi, ' '.join(ws[x] for x in cw_), len(lines_)]
+                im, box = cap_img(lines_, j, idx=cw_, line=k); ov('Cap', TEXT[k], t0, t1, box, s['id'], line=k, part=gi, fs=CAP_FS, img=im); OV[-1]['chunk'] = [chi, ' '.join(ws[x] for x in cw_), len(lines_)]
 # ------------------------------------------------------------------ lesson script
 STYLE = dict(moves=['push'], transition='cut')
 HTOP = {}   # bank_gestures safe_zone.hand_top_min per clip (source px)
@@ -353,9 +355,17 @@ WIDE = set()
 if os.path.exists(f'{A}/bg/index.json'): WIDE = {w['id'] for w in json.load(open(f'{A}/bg/index.json')).get('wide', [])}
 if S[0]['bg'] in WIDE:   # owner 22/10 one location: Ama = crop L, Carlos = crop R of the SAME wide scene
     for x in S: x['bg'] = f"{x['bg']}@{'L' if x['who'] == 'ama' else 'R'}" 
-BGL = {}
+BGL = {}; BGM = {}
+def bg_match(name):   # owner 23/10: the L / R crops of one wide still graded to a shared Lab reference (mean + spread per channel) -> dE <= 8 across cuts
+    b_ = name.split('@')[0]
+    if b_ not in BGM:
+        ims = {sd: cv2.fastNlMeansDenoisingColored(cv2.imread(BGP(f'{b_}@{sd}')), None, 4, 4, 7, 21) for sd in ('L', 'R')}   # owner 23/10: the library webps carry 8x8 block artifacts (blockiness 1.88) that line up with the 1080 output grid -> light NLM deblock (1.07)
+        lab = {sd: cv2.cvtColor(v, cv2.COLOR_BGR2LAB).astype(np.float32) for sd, v in ims.items()}
+        st = {sd: (v.reshape(-1, 3).mean(0), v.reshape(-1, 3).std(0) + 1e-3) for sd, v in lab.items()}; mr = (st['L'][0] + st['R'][0]) / 2; sr = (st['L'][1] + st['R'][1]) / 2
+        BGM[b_] = {sd: cv2.cvtColor(((lab[sd] - st[sd][0]) / st[sd][1] * sr + mr).clip(0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR) for sd in lab}
+    return BGM[b_][name.split('@')[1]].copy()
 def layers(name):
-    if name not in BGL: BGL.clear() if len(BGL) > 2 else None; BGL[name] = bg3d.Layers(BGP(name), DEP(name))
+    if name not in BGL: BGL.clear() if len(BGL) > 2 else None; BGL[name] = bg3d.Layers(BGP(name), DEP(name), img=bg_match(name) if '@' in name else None)
     return BGL[name]
 MOVES = [dict(z=(1.10, 1.135), tx=(-4, 4), ty=(0, -2), rot=(0, 0)),   # owner 21/10: minimal camera = slow push-in 2-4 % per shot + barely visible drift
          dict(z=(1.11, 1.14), tx=(4, -4), ty=(2, 0), rot=(0, 0)),
@@ -456,7 +466,9 @@ def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place
     M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]]); Fp, a = MR.place(F.astype(np.float32), Al.astype(np.float32), sc, M, (1080, 1920))
     return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
-                        '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'animation', '-b:v', '10M', '-maxrate', '14M', '-bufsize', '28M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
+                        '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'animation', '-b:v', '16M', '-maxrate', '22M', '-bufsize', '44M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
+exec(open(f'{HERE}/news_layout.py').read())   # owner 23/10: overlay solver vs face / hair / hands (per frame)
+if os.environ.get('NEWS_LAYOUTONLY'): print(json.dumps(LAYOUT_LOG)); sys.exit(0)
 KEYM = {}; EQ = []; BGC = []; HB = {}; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
 _x = np.arange(256) / 255.0; _l = _x ** 0.86; _s = np.clip(_l - 0.16 * np.sin(2 * np.pi * _l) / (2 * np.pi), 0, 1)   # owner 22/10: mids lifted ~+10 %, soft S-curve
 _sh = np.clip(1 - _x * 2.2, 0, 1); _hi = np.clip(_x * 2 - 1.1, 0, 1); _fl = lambda v: 18 / 255 + np.clip(v, 0, 1) * (1 - 22 / 255)   # black floor 18/255
@@ -478,7 +490,7 @@ for s in S:
     DY = 0
     while DY < 160 and min(_band(al, xf, DY) for fr, al, xf, who in R_) < 0.95: DY += 8   # whole composition down (both hosts: equal heads + eye line kept)
     if DY:
-        print('bottom anchor: shot', s['id'], 'shifted down', DY, 'px')
+        print('bottom anchor: shot', s['id'], 'shifted down', DY, 'px (layout keep-out assumed 0 -> layout QA re-checks)')
         R_ = [(fr, al, xf[:4] + (xf[4] + DY,), who) for fr, al, xf, who in R_]; s['xfs'] = {c: v[:4] + [v[4] + DY] for c, v in s['xfs'].items()}
         s['faceboxes'] = [[b[0], b[1] + DY, b[2], b[3] + DY] for b in s['faceboxes']]; s['lowsrc'] = {w: round(v - DY / s['xfs'][c][0]) for (w, v), c in zip(s['lowsrc'].items(), s['xfs'])}
     s['bottom_dy'] = DY

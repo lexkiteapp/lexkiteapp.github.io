@@ -63,7 +63,7 @@
    "who": "ama",
    "line": "n_15d51e_rp",
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "I'd like to open an account.",
     "sub": null,
     "label": "REPEAT"

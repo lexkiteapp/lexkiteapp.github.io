@@ -124,13 +124,15 @@ async function facade({ ytOk, blocked = false, items }) {
   w.LessonVideo.YT_WAIT = 60;
   await w.LessonVideo.scan(); const slot = w.document.querySelector('.lv-slot');
   slot.querySelector('.lv-card').click();
+  await new Promise(r => setTimeout(r, 20));
   return { w, st, slot };
 }
 const it0 = { ...man.items[0], test: false }, ytItem = { ...it0, youtube_id: 'dQw4w9WgXcQ' };
 let f = await facade({ ytOk: true, items: [ytItem] });
 ok(f.st.yt === 1 && f.slot.querySelector('.lv-yt img') && !f.slot.querySelector('video'), 'facade: poster first, IFrame API loaded on click, no <video>');
-await new Promise(r => setTimeout(r, 40));
-ok(f.st.created && f.st.created.host === 'https://www.youtube-nocookie.com' && f.st.created.playerVars.rel === 0 && f.st.created.playerVars.playsinline === 1 && f.st.created.playerVars.modestbranding === 1, 'facade: youtube-nocookie + rel=0, playsinline, modestbranding');
+await new Promise(r => setTimeout(r, 60));
+const ifr = f.slot.querySelector('iframe');
+ok(f.st.created && ifr && ifr.src.startsWith('https://www.youtube-nocookie.com') && ifr.src.includes('rel=0') && ifr.src.includes('playsinline=1') && ifr.src.includes('modestbranding=1'), 'facade: youtube-nocookie + rel=0, playsinline, modestbranding');
 f.st.created.events.onStateChange({ data: 0 });
 ok(!!f.slot.querySelector('.lv-after').textContent.trim() || !!f.slot.querySelector('.lv-after button'), 'facade: ended → quiz / next shown');
 f = await facade({ ytOk: false, items: [ytItem] }); f.w.LessonVideo.YT_WAIT = 30;

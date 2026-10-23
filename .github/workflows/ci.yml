@@ -25,6 +25,8 @@ jobs:
         run: node scripts/test/unit.mjs
       - name: Chính tả tiếng Việt
         run: node scripts/vi-lint.mjs
+      - name: ci-triage + bỏ qua hạn mức D1 + workflow youtube/i18n
+        run: node scripts/test/ci-triage.mjs
       - name: Đủ bản tiếng Anh
         run: node scripts/i18n-missing.mjs --strict
       - name: Chất lượng bản dịch 13 ngôn ngữ (báo cáo)

@@ -26,19 +26,13 @@ Mẫu thẻ:
 (Antigravity hỏi ở đây · Claude trả lời trong thẻ.) Kế hoạch UI/UX GĐ0–GĐ3 đã duyệt ("mục 3" của G2): BOARD-ARCHIVE.md [HỎI DUYỆT].
 
 ### [GĐ3] Âm thanh (mở rộng Sfx) · ngọn lửa chuỗi · lấp lánh · @antigravity
-- **Claude 22/10:** G2 ✅ đã gộp main (ghi chú nghiệm thu: BOARD-ARCHIVE.md [G2]). **Tiếp theo: B5 TRƯỚC (+10 bài × 13 ngôn ngữ, lô 2 ngôn ngữ/lần), rồi mới GĐ3.** Kế hoạch GĐ3 ✅ duyệt, bắt đầu khi B5 xong:
+- **Claude 22/10:** G2 ✅ đã gộp main (ghi chú nghiệm thu: BOARD-ARCHIVE.md [G2]). **Claude 23/10: B5 xong (130 bài) → BẮT ĐẦU GĐ3 NGAY** (sau C1b/U2e đang duyệt). Kế hoạch GĐ3 ✅ duyệt:
   - Âm thanh = **mở rộng `Sfx` trong `web/js/game.js`** (không module âm thanh thứ 2), tôn trọng tắt tiếng, chỉ phát sau thao tác người dùng (iOS); ngọn lửa + lấp lánh tắt khi `prefers-reduced-motion`.
-  - Khung app **≤ 375 KB gz** (hiện 374,8 – đo byte thật bằng `gzip -9`). Mọi UI/CSS mới **tải lười** (bundle trong `App.need`), giống `study-swipe.js`.
+  - Khung app **≤ 380 KB gz, hiện 379 → GĐ3 KHÔNG được thêm byte vào khung** (đo `gzip -9`). Mọi UI/CSS mới **tải lười** (bundle trong `App.need`), giống `study-swipe.js`.
   - **Luôn rebase lên main mới nhất của lexkiteapp** trước mỗi lô/commit nộp.
   - **Không đụng file của các agent đang làm:** add-on CTA / landing / blog build / `extension/**`; `native.js` / widget (`widget-feed.js`); `classroom.js`, `functions/api/class*`; `lesson-fx.js`.
 
 ## TODO
-
-### [C1b] Nút kêu gọi trên trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ưu tiên: cao
-- Phần còn thiếu của C1 (Claude duyệt 23/10): C1 mới làm blog. Làm tiếp cho **trang từ vựng tĩnh** (cùng luật: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày, không popup, không PII, deep link chỉ khi topic có thật trong `IELTS_DATA.TOPICS`).
-- Đo: thay `quiz_cta` chung bằng sự kiện riêng (`cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click`) trong `functions/api/hit.js` + hiện ở Quản trị › Phân tích (tỉ lệ bấm theo ngôn ngữ/trang).
-- Giữ shell ≤ 380 KB gz (đang 379): nạp lười, không thêm vào shell. i18n đủ 15 ngôn ngữ. Ảnh chụp trước/sau.
-
 
 ### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
 - **Gấp:** sau 24/10 có 9 ngôn ngữ (ar, de, fr, hi, ko, ru, th, tr, zh) hết bài, pt hết 27/10 → làm **B3 đợt 3** trước: ưu tiên 6 bài/ngôn ngữ cho 9 ngôn ngữ này, xong trước 24/10 (để trống `publishAt`, Claude xếp lịch).
@@ -61,16 +55,6 @@ Mẫu thẻ:
 - Toàn văn thẻ (cơ cấu nội dung, đợt 3, nghiệm thu): BOARD-ARCHIVE.md [B3].
 - Cần sửa / Nhận xét:
 
-### [S1] Đóng băng chuỗi (Streak Freeze) – giao diện (logic đã xong) · @antigravity · ưu tiên: cao (làm sau L1)
-- ⚠️ Phạm vi này nay nằm trong **[G2]** (UI Streak Freeze) – làm theo G2, không làm riêng (verify với Claude nếu khác). Logic: `Core.Stats.freezeInfo(state.game)` (+1 lượt mỗi 7 ngày chuỗi, tối đa 2) – KHÔNG sửa logic. Toàn văn cũ: BOARD-ARCHIVE.md [S1 freeze].
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
-### [U2e] App iOS/Android – kiểm tra ảnh demo CI & sửa giao diện riêng app · @antigravity · ưu tiên: vừa
-- Xem artifact `lexkite-ios-screenshots` / `lexkite-android-screenshots` của workflow ios.yml / android.yml (lần chạy mới nhất) → sửa lỗi giao diện riêng app (safe-area dưới/trên, thanh dưới chồng home indicator, bàn phím che ô nhập, chế độ tối hệ thống). Selector dùng `html.native`.
-- File: `web/css/style.css`. Báo cáo kèm tên ảnh đã kiểm.
-- Báo cáo:
-- Cần sửa / Nhận xét:
 
 ### [N3] Cài đặt nâng cao cho tài khoản quản trị · @antigravity · ưu tiên: thấp (làm sau N2)
 - Mục tiêu: trong tab Cài đặt thêm khối **"🛡️ Tài khoản quản trị"**: tab mặc định khi mở, ngôn ngữ & giao diện mặc định (đồng bộ theo email admin, lưu D1 `config` khóa `adm_pref:<email>`), chọn **loại cảnh báo nhận qua email** (lỗi JS, workflow, hộp thư, chất lượng, bản dịch), ngưỡng cảnh báo, **tự đăng xuất sau N phút không thao tác**, xuất nhật ký quản trị CSV, danh sách phiên/thiết bị gần đây của admin (từ `admin_log`).
@@ -94,6 +78,15 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+
+### [C1b] Smart CTA trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ✅ Claude duyệt & gộp main 23/10
+- Đạt: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày (`lk.extHide`/`lk.pwaHide`), không popup/PII, deep link chỉ khi topic có thật (TOPIC_IDS = 83 bộ, khớp `loadVocab().TOPICS`). Sự kiện `cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click` (tổng + theo ngôn ngữ + theo trang) → Quản trị › Phân tích. Khung app không đổi (chỉ trang tĩnh + admin lười). i18n 15 ngôn ngữ (`SMART_CTA_I18N`).
+- Claude sửa khi gộp: `hit.js` chặn lang/page bằng danh sách cho phép (15 ngôn ngữ; vocab/samples/speaking/grammar/letters/blog) thay vì regex tự do (tránh phình `ext_events`); bỏ hunk `lesson-video.js` (không cần). Rate-limit 60/giờ/IP giữ nguyên.
+- Lưu ý: `TOPIC_IDS` là danh sách cứng – khi thêm bộ từ mới cần cập nhật (hoặc suy ra từ `loadVocab()`).
+
+### [U2e] Giao diện riêng app iOS/Android qua `html.native` · @antigravity · ✅ Claude duyệt & gộp main 23/10
+- Đạt: safe-area trên/dưới, thanh dưới không chồng home indicator, màn toàn màn hình, bàn phím/scroll-margin, nền tối hệ thống – toàn bộ dưới `html.native`.
+- Claude sửa khi gộp: quy tắc `body.bare .view` bản gốc được giữ nguyên cho web (bản của Antigravity làm web đổi padding-bottom); phần chồng nằm dưới `html.native`.
 
 ### [A1] Quản trị – làm đẹp & thống nhất giao diện các tab (trừ tab Video) · @antigravity · ưu tiên: cao
 - Yêu cầu (anh Quyền 23/10): giao diện admin "còn củ chuối" → chuyên nghiệp, trực quan, gọn. Tab **Video** do Claude đang làm lại (đừng sửa `admin-video.js`, `admin-clips.js`); khi Claude xong, theo đúng mẫu đó (thanh mục con cố định, thẻ KPI, chip trạng thái màu+chữ, 1 kiểu nút/vai trò, trạng thái rỗng/tải/lỗi).

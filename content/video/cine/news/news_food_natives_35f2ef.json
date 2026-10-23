@@ -84,8 +84,8 @@
    "line": "n_35f2ef_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'Let's divide the bill'? -> No",
+    "kind": "x",
+    "text": "Let's divide the bill",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "Let's split the bill.",
     "sub": null,
     "label": "REPEAT",

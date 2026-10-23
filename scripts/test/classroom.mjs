@@ -104,7 +104,8 @@ console.log('✓ xóa tài khoản: dọn lớp học (học sinh + giáo viên)
   w.I18N = { lang: () => 'en' };
   w.UI = { $, $$: (s, el = d) => [...el.querySelectorAll(s)], esc: x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])), toast: m => toasts.push(m),
     modal: h => { const b = $('#modalBox'); b.innerHTML = h; $('#modal').hidden = false; return b; }, closeModal: () => { $('#modal').hidden = true; }, download: () => {} };
-  w.App = { view: $('#view'), routes: {}, need: async () => {} };
+  const W = p => p; W.signal = {}; W.stale = () => false;
+  w.App = { view: $('#view'), routes: {}, need: async () => {}, W, guard: fn => (...a) => { w.App.W = W; return fn(...a); } };
   w.IELTS_DATA = { TOPICS: [{ id: 'education', name: 'Giáo dục', emoji: '🎓', group: 'topics', words: Array(12).fill({}) }], GROUPS: [{ id: 'topics', name: 'Topics', emoji: '🗂️' }] };
   const as = uid => ({ uid, displayName: uid === 'tch' ? 'Ms Lan' : 'Minh Anh', getIdToken: async () => uid });
   w.Sync = { user: as('tch'), can: true, signIn: () => {} };

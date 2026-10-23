@@ -25,7 +25,12 @@ jobs:
         with: { ref: main }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire video-web
       - name: Lấy manifest short (repo riêng lexkite-shorts, sparse)
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret SHORTS_DEPLOY_KEY"; exit 1; }
@@ -35,6 +40,7 @@ jobs:
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git shorts-repo
           git -C shorts-repo sparse-checkout set --no-cone '/shorts/index.json'; git -C shorts-repo checkout -q
       - name: Lập kế hoạch (clip đủ điều kiện, chưa có bản web)
+        if: ${{ steps.lease.outputs.skip != '1' }}
         id: plan
         env: { FORCE: "${{ inputs.force && '1' || '' }}" }
         run: |
@@ -54,9 +60,11 @@ jobs:
         env: { GITHUB_TOKEN: '${{ github.token }}', R2_ACCESS_KEY_ID: '${{ secrets.R2_ACCESS_KEY_ID }}', R2_SECRET_ACCESS_KEY: '${{ secrets.R2_SECRET_ACCESS_KEY }}' }
         run: node scripts/video/web-rendition.mjs publish
       - name: Manifest + kiểm schema
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }   # youtube_id (functions/api/youtube.js op ids)
         run: node scripts/video/web-rendition.mjs manifest shorts-repo && node scripts/test/video-web.mjs --schema-only
       - name: Commit + triển khai + IndexNow
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { HOOK: '${{ secrets.CF_PAGES_DEPLOY_HOOK }}' }
         run: |
           git add web/data/videos.json content/video/web/captions
@@ -77,3 +85,7 @@ jobs:
             .webvid/plan.json
           retention-days: 14
           if-no-files-found: ignore
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release video-web --status "${{ job.status }}"

@@ -84,8 +84,8 @@
    "line": "n_c1a128_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'If I will be rich, I would travel'? -> No",
+    "kind": "x",
+    "text": "If I will be rich, I would travel",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "If I were rich, I would travel.",
     "sub": null,
     "label": "REPEAT",
