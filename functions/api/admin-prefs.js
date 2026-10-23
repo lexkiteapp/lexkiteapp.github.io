@@ -5,7 +5,6 @@
  * Whitelist schema chặt chẽ, kiểm tra kiểu dữ liệu, bảo mật adminGate.
  */
 import { adminGate, adminAudit, adminCors } from './admin.js';
-import { internalDb } from './_d1b.js';
 import { limit } from './sync.js';
 
 const ALLOWED_TABS = new Set([
@@ -168,13 +167,14 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (b.op === 'logs') {
-    const db = internalDb(env) || env.DB;
+    // admin_log nằm ở D1 CHÍNH (adminAudit ghi env.DB) – không đọc qua D1 nội bộ
+    const db = env.DB;
     const mine = b.mine !== false;
     const limitNum = Math.min(Math.max(1, parseInt(b.limit, 10) || 100), 500);
     let rows = [];
     try {
       if (mine) {
-        rows = (await db.prepare('SELECT at, email, op, ok, ip, country FROM admin_log WHERE lower(email) = ? ORDER BY id DESC LIMIT ?').bind(String(who.email).toLowerCase(), limitNum).all()).results || [];
+        rows = (await db.prepare('SELECT at, email, op, ok, ip, country FROM (SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT 2000) WHERE lower(email) = ? LIMIT ?').bind(String(who.email).toLowerCase(), limitNum).all()).results || [];
       } else {
         rows = (await db.prepare('SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT ?').bind(limitNum).all()).results || [];
       }

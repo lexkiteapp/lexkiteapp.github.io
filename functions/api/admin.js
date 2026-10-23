@@ -353,7 +353,7 @@ const OPS = {
   async growth(db, b) { const P = [7, 30, 90].includes(+b.days) ? +b.days : 30; return cached('growth-v1?d=' + P, 600, () => growthData(db, P)); },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },
-  async config(db) { const rows = (await all(db, 'SELECT k, v, at, by FROM config')).filter(r => CONFIG_KEYS.includes(r.k)); return { keys: CONFIG_KEYS, values: Object.fromEntries(rows.map(r => [r.k, r])) }; },
+  async config(db) { const rows = (await all(db, `SELECT k, v, at, by FROM config WHERE k IN (${CONFIG_KEYS.map(() => '?').join(',')})`, ...CONFIG_KEYS)).filter(r => CONFIG_KEYS.includes(r.k)); return { keys: CONFIG_KEYS, values: Object.fromEntries(rows.map(r => [r.k, r])) }; },
   async configSet(db, b, who) {
     const batch = [];
     for (const [k, v] of Object.entries(b.values || {})) if (CONFIG_KEYS.includes(k)) batch.push(db.prepare('INSERT INTO config (k, v, at, by) VALUES (?1, ?2, ?3, ?4) ON CONFLICT (k) DO UPDATE SET v = ?2, at = ?3, by = ?4').bind(k, String(v).slice(0, 2000), Date.now(), who.email));
