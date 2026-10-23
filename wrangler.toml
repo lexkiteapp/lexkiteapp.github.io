@@ -25,7 +25,9 @@ service = "lexkite-mail"
 binding = "GEM"
 service = "lexkite-gemini"
 
-# Thống kê phiên (functions/api/hit.js aeHit): Workers Analytics Engine – miễn phí, hạn mức riêng, không tốn dòng D1 (docs/CAPACITY.md §Kiến trúc A2)
-[[analytics_engine_datasets]]
-binding = "HITS"
-dataset = "lexkite_hits"
+# Thống kê phiên (functions/api/hit.js aeHit): Workers Analytics Engine – miễn phí, hạn mức riêng, không tốn dòng D1 (docs/CAPACITY.md §Kiến trúc A2).
+# CHƯA BẬT: tài khoản phải bấm "Enable Analytics Engine" ở dash.cloudflare.com › Workers › Analytics Engine trước, nếu không Pages từ chối triển khai
+# ("You need to enable Analytics Engine" – 23/10). Bật xong mới bỏ dấu # 3 dòng dưới. Thiếu binding → hit.js tự chạy chế độ d1 như cũ.
+# [[analytics_engine_datasets]]
+# binding = "HITS"
+# dataset = "lexkite_hits"
