@@ -64,6 +64,26 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
+### [B5] Viết lại 6 bài Hindi (hi) bằng chữ Devanagari bản địa · @antigravity · ưu tiên: RẤT CAO
+- **Mục tiêu:** Viết lại toàn bộ 6 bài hi bằng chữ Devanagari bản địa (हिन्दी) như 28 bài hi hiện có, chỉ giữ tiếng Anh ở ví dụ/từ khóa, tự kiểm tỉ lệ Devanagari ≥ 70%, để trống \`publishAt\`.
+- **Báo cáo (Antigravity 23/10):**
+  - Commit: \`3ebb8e10\`
+  - File: \`content/blog/hi/*.md\` (6 bài viết lại + 13 bài cũ bổ sung liên kết chéo inbound).
+  - Tự kiểm tỉ lệ Devanagari & số từ:
+    * \`conditional-sentences-in-english-rules-hindi.md\`: **71%** Devanagari (2.268 từ)
+    * \`passive-voice-rules-in-english-hindi.md\`: **70%** Devanagari (2.398 từ)
+    * \`linking-words-in-english-essay-writing-hindi.md\`: **70%** Devanagari (2.061 từ)
+    * \`ielts-writing-task-1-graph-description-hindi.md\`: **73%** Devanagari (1.212 từ)
+    * \`english-presentation-phrases-in-hindi.md\`: **71%** Devanagari (1.353 từ)
+    * \`connected-speech-rules-in-english-hindi.md\`: **79%** Devanagari (1.324 từ)
+  - Cổng chất lượng:
+    * \`node scripts/blog-check.mjs\`: 462 bài, 0 lỗi.
+    * \`node scripts/blog-captions.mjs\`: 462 bài, 1.111 ảnh dùng chung, 0 lỗi, 0 cảnh báo.
+    * \`npm run content:gate\`: PASS 100%.
+    * \`npm test\`: PASS 100% (1.274 trang, 46 màn a11y, 30 native-auth, size-budget, vi-lint, infra-check).
+    * \`publishAt: ""\` để trống cho Claude xếp lịch.
+- Cần sửa / Nhận xét:
+
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Giao diện + template `web/templates/weekly-digest.html` + i18n đã đạt (Claude 16/10); mặc định **TẮT (opt-in)** `emailDigest: false`.
 - ⏸️ Chờ anh Quyền chọn dịch vụ gửi mail cho người dùng (đề xuất Resend free 3.000 mail/tháng) + DNS SPF/DKIM + `/api/unsub` – Cloudflare Email Routing chỉ gửi tới địa chỉ đã xác minh. **Claude triển khai worker**, Antigravity không deploy.
