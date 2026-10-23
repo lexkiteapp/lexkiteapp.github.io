@@ -36,7 +36,7 @@ Mẫu thẻ:
 
 ### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
 - **Đợt bổ sung cấp bách (theo lệnh anh Quyền 23/10):** 6 bài/ngôn ngữ cho 9 ngôn ngữ (ar, de, fr, hi, ko, ru, th, tr, zh = 54 bài), để trống `publishAt` (Claude xếp lịch). Nộp theo lô 2 ngôn ngữ/lần. Xong B5 làm tiếp [N4].
-- **Tiến độ:** Lô 1 (ar, de - 12 bài) & Lô 2 (fr, hi - 12 bài) đã hoàn thành, chuyển CHỜ DUYỆT. Chuẩn bị triển khai **Lô 3 (ko, ru)**: 6 bài ko + 6 bài ru = 12 bài.
+- **Tiến độ:** Lô 1 (ar, de), Lô 2 (fr, hi) & Lô 3 (ko, ru) đã hoàn thành (tổng 36 bài), chuyển CHỜ DUYỆT. Chuẩn bị triển khai **Lô 4 (th, tr)**: 6 bài th + 6 bài tr = 12 bài.
 - Cổng chất lượng: briefs.json, qualityScore ≥ 92, blog-check 0/0, blog-captions 0 lỗi, ≥ 2 link nội bộ + CTA đúng ý định, bản địa.
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
@@ -45,6 +45,19 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [B5] Nhịp nội dung 15 nước (Lô 3: ko, ru – 12 bài) · @antigravity · ưu tiên: RẤT CAO
+- Mục tiêu: 6 bài/ngôn ngữ cho ko và ru (tổng 12 bài), để trống `publishAt` (Claude xếp lịch).
+- File/khu vực: `content/blog/ko/*.md` (6 bài), `content/blog/ru/*.md` (6 bài), `content/blog/briefs.json`.
+- Tiêu chí xong:
+  - **ko (6 bài)**: `yeongeo-gajeongbeop-if-chongjeongri` (câu điều kiện if 0–3), `yeongeo-sudongtae-gongsig-mich-yongbeop` (thể bị động công thức & cách dùng), `yeongeo-jeobsogsa-yeangyeol-eowa-linking-words` (từ nối học thuật linking words), `ielts-writing-task-1-dopyo-bunseog-bibeop` (phân tích biểu đồ IELTS Writing Task 1), `business-yeongeo-presentation-pyohyeon-bibeop` (mẫu câu thuyết trình tiếng Anh thương mại), `yeongeo-yeoneum-connected-speech-gyuchig` (quy tắc nối âm connected speech).
+  - **ru (6 bài)**: `uslovnye-predlozheniya-v-angliyskom-if-clauses` (câu điều kiện if 0–3), `passivnyy-zalog-v-angliyskom-passive-voice` (thể bị động 8 thì), `slova-svyazki-v-angliyskom-linking-words` (từ nối liên kết linking words), `ielts-writing-task-1-opisanie-grafikov-i-tablits` (mô tả biểu đồ bảng biểu IELTS Task 1), `prezentatsiya-na-angliyskom-frazy-i-sovety` (thuyết trình tiếng Anh cấu trúc & cụm từ), `connected-speech-v-angliyskom-svyaznaya-rech` (quy tắc nối âm & ngữ điệu).
+  - Mỗi bài ≥ 1.200 từ (1.200–1.600 từ chuẩn CJK/Latinh theo `wordCount()`), `qualityScore: 95`, 3 câu mini-quiz có lời giải bản địa, ≥ 2 ảnh đúng `desc` trong `shots.json`, liên kết chéo nội bộ tròn trịa (0 cảnh báo inbound), ≥ 1 liên kết trang tĩnh (`/ngu-phap/`, `/speaking/`, `/viet-thu/`), hộp CTA đúng route, slot YouTube chờ sẵn.
+- Báo cáo:
+  - Commit: `05ad180e`
+  - Kết quả kiểm thử: `blog-check` (444 bài, 0 lỗi), `blog-captions` (12/12 PASS, 0 lỗi), `content:gate` (0 lỗi, PASS).
+  - Tiếp theo: tiếp tục tiến hành Lô 4 (th, tr – 12 bài).
+- Cần sửa / Nhận xét:
 
 ### [B5] Nhịp nội dung 15 nước (Lô 2: fr, hi – 12 bài) · @antigravity · ưu tiên: RẤT CAO
 - Mục tiêu: 6 bài/ngôn ngữ cho fr và hi (tổng 12 bài), để trống `publishAt` (Claude xếp lịch).
