@@ -177,5 +177,22 @@ for (const order of [['P', 'Q'], ['Q', 'P']]) {
   const c = M.end(); ok(c.queries <= 4, 'kéo: ≤ 4 truy vấn (người dùng, ghi sổ, docs): ' + c.queries);
 }
 
+// ---------- 8) bộ định tuyến mảnh (_shard.js): N = 1 mặc định; mảnh 1 = binding DB_S1 ----------
+{
+  const Sh = await import('../../functions/api/_shard.js');
+  ok(Sh.pickShard({ DB }, 'x') === 0 && Sh.docsDb({ DB }, 0) === DB, 'mặc định: mọi người ở env.DB');
+  const s1 = sqliteD1(), env2 = { DB, DB_S1: s1.raw, SYNC_SHARDS_OPEN: '0,1' };
+  const picks = new Set(Array.from({ length: 40 }, (_, i) => Sh.pickShard(env2, 'user' + i)));
+  ok(picks.has(0) && picks.has(1), 'mở 2 mảnh → người mới chia theo băm uid');
+  ok(Sh.pickShard({ DB, SYNC_SHARDS_OPEN: '0,1' }, 'user1') === 0, 'mảnh chưa có binding → không chọn');
+  let thrown = false; try { Sh.docsDb({ DB }, 3); } catch (e) { thrown = e.message === 'shard-missing'; } ok(thrown, 'người ở mảnh thiếu binding → lỗi, không ghi nhầm mảnh');
+  be.sql.prepare("INSERT INTO users (uid, email, name, created, seen, plat, n, shard) VALUES ('frank', 'f@x.y', 'F', 1, 1, 'web', 1, 1)").run();
+  const tk = await tok('frank');
+  const r = await S.onRequestPost({ request: new Request('https://lexkite.com/api/sync', { method: 'POST', headers: { Authorization: 'Bearer ' + tk }, body: JSON.stringify({ op: 'push', docs: { meta: { h: 'mf', body: '{"chunks":32}' } } }) }), env: env2 });
+  ok(r.status === 200 && s1.sql.prepare("SELECT k FROM docs WHERE uid = 'frank'").all().length === 1 && !rows('frank').length, 'users.shard = 1 → dữ liệu học ghi ở mảnh 1, không ở DB chính');
+  const p = await (await S.onRequestPost({ request: new Request('https://lexkite.com/api/sync', { method: 'POST', headers: { Authorization: 'Bearer ' + tk }, body: JSON.stringify({ op: 'pull', have: {} }) }), env: env2 })).json();
+  ok(p.docs && p.docs.meta, 'kéo đọc từ mảnh 1');
+}
+
 console.log(fails ? `✗ sync-pack: ${fails}/${n} lỗi` : `✓ sync-pack: ${n}/${n} đạt`);
 process.exit(fails ? 1 : 0);
