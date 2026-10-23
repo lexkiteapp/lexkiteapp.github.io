@@ -60,7 +60,7 @@ export function sqliteD1() {
 /** D1 cục bộ của Miniflare (workerd) – số đo thật. Chỉ chạy được ở nơi cho mở cổng loopback (CI). */
 export async function miniflareD1() {
   const { Miniflare } = await import('miniflare');
-  const mf = new Miniflare({ modules: true, script: 'export default { fetch() { return new Response("ok") } }', d1Databases: ['DB'], compatibilityDate: '2026-10-01' });
+  const mf = new Miniflare({ modules: true, script: 'export default { fetch() { return new Response("ok") } }', d1Databases: ['DB'], compatibilityDate: '2026-07-01' });
   const d1 = await mf.getD1Database('DB');
   return { raw: d1, kind: 'miniflare', dispose: () => mf.dispose() };
 }
