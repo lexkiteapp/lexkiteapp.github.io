@@ -36,7 +36,7 @@ Mẫu thẻ:
 
 ### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
 - **Đợt bổ sung cấp bách (theo lệnh anh Quyền 23/10):** 6 bài/ngôn ngữ cho 9 ngôn ngữ (ar, de, fr, hi, ko, ru, th, tr, zh = 54 bài), để trống `publishAt` (Claude xếp lịch). Nộp theo lô 2 ngôn ngữ/lần. Xong B5 làm tiếp [N4].
-- **Tiến độ:** Đang triển khai **Lô 2 (fr, hi)**: 6 bài fr + 6 bài hi = 12 bài. (Lô 1 ar, de đã xong, chuyển CHỜ DUYỆT).
+- **Tiến độ:** Lô 1 (ar, de - 12 bài) & Lô 2 (fr, hi - 12 bài) đã hoàn thành, chuyển CHỜ DUYỆT. Chuẩn bị triển khai **Lô 3 (ko, ru)**: 6 bài ko + 6 bài ru = 12 bài.
 - Cổng chất lượng: briefs.json, qualityScore ≥ 92, blog-check 0/0, blog-captions 0 lỗi, ≥ 2 link nội bộ + CTA đúng ý định, bản địa.
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
@@ -45,6 +45,19 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [B5] Nhịp nội dung 15 nước (Lô 2: fr, hi – 12 bài) · @antigravity · ưu tiên: RẤT CAO
+- Mục tiêu: 6 bài/ngôn ngữ cho fr và hi (tổng 12 bài), để trống `publishAt` (Claude xếp lịch).
+- File/khu vực: `content/blog/fr/*.md` (6 bài), `content/blog/hi/*.md` (6 bài), `content/blog/briefs.json`.
+- Tiêu chí xong:
+  - **fr (6 bài)**: `phrases-conditionnelles-anglais-if-clauses` (câu điều kiện if), `voix-passive-en-anglais-regles` (thể bị động), `mots-de-liaison-en-anglais-linking-words` (từ nối học thuật), `ielts-writing-task-1-decrire-un-graphique` (mô tả biểu đồ), `reussir-une-presentation-en-anglais-phrases` (thuyết trình tiếng Anh), `connected-speech-anglais-liaisons-et-rythme` (nối âm connected speech).
+  - **hi (6 bài)**: `conditional-sentences-in-english-rules-hindi` (câu điều kiện if), `passive-voice-rules-in-english-hindi` (thể bị động), `linking-words-in-english-essay-writing-hindi` (từ nối học thuật), `ielts-writing-task-1-graph-description-hindi` (mô tả biểu đồ), `english-presentation-phrases-in-hindi` (thuyết trình tiếng Anh), `connected-speech-rules-in-english-hindi` (nối âm connected speech).
+  - Mỗi bài ≥ 1.200 từ (1.200–1.600 từ), `qualityScore: 95`, 3 câu mini-quiz có lời giải bản địa, ≥ 2 ảnh đúng `desc` trong `shots.json`, liên kết chéo nội bộ tròn trịa (0 cảnh báo inbound), ≥ 1 liên kết trang tĩnh (`/ngu-phap/`, `/speaking/`, `/viet-thu/`), hộp CTA đúng route, slot YouTube chờ sẵn.
+- Báo cáo:
+  - Commit: `147db2ac`
+  - Kết quả kiểm thử: `blog-check` (432 bài, 0 lỗi), `blog-captions` (12/12 PASS), `blog-images` (17/17 PASS), `blog-schedule --verify` (hợp lệ), `content:gate` (0 lỗi).
+  - Tiếp theo: tiếp tục tiến hành Lô 3 (ko, ru – 12 bài).
+- Cần sửa / Nhận xét:
 
 ### [B5] Nhịp nội dung 15 nước (Lô 1: ar, de – 12 bài) · @antigravity · ưu tiên: RẤT CAO
 - Mục tiêu: 6 bài/ngôn ngữ cho ar và de (tổng 12 bài), để trống `publishAt` (Claude xếp lịch).
