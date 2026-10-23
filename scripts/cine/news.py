@@ -301,7 +301,7 @@ def host_frames(s, clip, who, lines, raw):
     for i in s['frames']:
         m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)], KX), ll)
         if KX > 1: m = np.clip((m - 0.5) * 1.5 + 0.5, 0, 1)   # the x2 Lanczos alpha has a 2x wider ramp -> back to the PRO matte's 1-2 px   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
-        al.append(np.concatenate([m, np.repeat(m[-1:], PADB, 0)]) * ramp if PADB else m * ramp)
+        al.append((np.concatenate([m, np.repeat(m[-1:], PADB, 0)]) * ramp if PADB else m * ramp).astype(np.float16))   # #84/#86: float32 x2 alphas of a long shot (~4 GB) got the runner OOM-killed (exit 143)
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
 HAIR = {}
@@ -318,7 +318,9 @@ SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'mws': 360, 'two': 220} if g == 'ama
 DESK_Y = 1880; VBOT = lambda frame: 1920
 GK = lambda clip, who: 'ama_s' if clip.startswith('ga') else 'carlos_q' if 'q34' in clip else 'carlos_s'
 def place(sid, who, frame, top):
-    sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']; ey = max(ey, VBOT(frame) - (SEAT[who] - sy) * sc); low = sy + (VBOT(frame) - ey) / sc   # body must still exit the frame bottom above the clip's last solid row
+    sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']
+    if sid in ('hook', 'loop') and frame == 'wide': ey += 128   # title shot: host lower so the hook card owns the top band (thirds rule applies to the lesson shots)
+    ey = max(ey, VBOT(frame) - (SEAT[who] - sy) * sc); low = sy + (VBOT(frame) - ey) / sc   # body must still exit the frame bottom above the clip's last solid row
     assert low <= SEAT[who] and sc <= 2.0 + 1e-6, ('seat/lap would be visible or body ends in frame', sid, who, low)
     return sc, ex, sy, SIDE[(who, frame)], ey
 # ------------------------------------------------------------------ backgrounds (Ken Burns + crossfade on swaps)
