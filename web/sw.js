@@ -4,12 +4,12 @@
  * không bao giờ trả app cũ ở "/", chỉ khi MẤT MẠNG mở "/" hoặc "/index.html" (PWA cài cũ có start_url "/index.html#/home",
  * iOS không cập nhật start_url) thì chuyển hướng sang /app/ (đã có trong cache của /app/) → vẫn học offline được.
  * Dữ liệu học (IndexedDB, localStorage) thuộc nguồn lexkite.com, không phụ thuộc phạm vi SW → không mất. Test: scripts/test/landing-routing.mjs */
-const CACHE = 'lexkite-20261023174913';
+const CACHE = 'lexkite-20261023180224';
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
 const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads-config.js', '/js/ads.js', '/js/kit.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png', '/icons/icon-512.png'];
-const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
+const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO || k === VIMG; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
 
 self.addEventListener('install', e => {
   if (LEGACY) { e.waitUntil(self.skipWaiting()); return; } // bản cũ: thay ngay, không cache gì
@@ -26,6 +26,9 @@ self.addEventListener('activate', e => {
 // (Worker = lượt tính hạn mức 100k/ngày – docs/CAPACITY.md §Kiến trúc A3; trước 600 file → người học nhiều bị đẩy ra rồi tải lại)
 const AUDIO = 'lk-audio', AUDIO_MAX = 2000;
 const trimAudio = c => c.keys().then(ks => { if (ks.length > AUDIO_MAX) return Promise.all(ks.slice(0, ks.length - AUDIO_MAX).map(k => c.delete(k))); });
+// Ảnh minh hoạ từ vựng (media.lexkite.com/vimg/<băm>.webp, ~12 KB, immutable): lưu khi xem, tối đa 400 ảnh (~5 MB) – offline được (docs/LEXICON.md § Ảnh minh hoạ)
+const VIMG = 'lk-vimg', VIMG_MAX = 400;
+const trimVimg = c => c.keys().then(ks => { if (ks.length > VIMG_MAX) return Promise.all(ks.slice(0, ks.length - VIMG_MAX).map(k => c.delete(k))); });
 const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$/; // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
@@ -42,6 +45,10 @@ self.addEventListener('fetch', e => {
   // Âm thanh trên CDN riêng (tên file theo nội dung, không bao giờ đổi): có sẵn thì phát ngay, nghe được cả khi offline
   if (e.request.method === 'GET' && /^(audio\.lexkite\.com|lexkiteapp\.github\.io)$/.test(url.hostname) && /\.mp3$/.test(url.pathname)) {
     e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(AUDIO).then(x => x.put(e.request, c).then(() => trimAudio(x))); } return r; })));
+    return;
+  }
+  if (e.request.method === 'GET' && url.hostname === 'media.lexkite.com' && /^\/vimg\/[0-9a-f]{16}\.webp$/.test(url.pathname)) {
+    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(VIMG).then(x => x.put(e.request, c).then(() => trimVimg(x))); } return r; })));
     return;
   }
   if (e.request.method !== 'GET' || url.origin !== location.origin) return; // API từ điển luôn đi mạng

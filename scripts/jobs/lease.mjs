@@ -1,5 +1,5 @@
 // Thuê tài nguyên cho 1 việc nền (điều phối: functions/api/jobs.js, sổ: infra/jobs.json, docs/JOBS.md).
-//   node scripts/jobs/lease.mjs acquire <job> [--wait-min N]   → GITHUB_OUTPUT skip=0|1, reason=…; (GITHUB_ENV JOB_RUN=<run>)
+//   node scripts/jobs/lease.mjs acquire <job> [--wait-min N] [--force = chạy tay việc đang paused]   → GITHUB_OUTPUT skip=0|1, reason=…; (GITHUB_ENV JOB_RUN=<run>)
 //   node scripts/jobs/lease.mjs release <job> [--status success|failure|cancelled] [--reason "…"] [--reads N]
 // Luật: bị từ chối (đang có việc khác giữ / ngân sách D1 gần cạn / 429) → skip=1, thoát 0 (bước sau `if: steps.lease.outputs.skip != '1'`); KHÔNG thử lại ngoài --wait-min.
 // Lỗi mạng/5xx của dịch vụ điều phối → chạy tiếp (skip=0) kèm cảnh báo: việc nền tự gặp cầu dao D1 nếu thật sự hết hạn mức.
@@ -20,7 +20,7 @@ if (!job || !['acquire', 'release'].includes(cmd)) { console.error('Dùng: lease
 if (cmd === 'acquire') {
   const deadline = Date.now() + (+opt('wait-min') || 0) * 60e3;
   for (;;) {
-    const { status, j } = await call({ op: 'acquire', job, run });
+    const { status, j } = await call({ op: 'acquire', job, run, force: rest.includes('--force') });
     if (status === 200 && j.ok) { console.log(`✓ lease ${job}: ${(j.leased || []).join(',') || '(không tài nguyên độc quyền)'}`); out('skip', 0); out('run', run); if (process.env.GITHUB_ENV) fs.appendFileSync(process.env.GITHUB_ENV, `JOB_RUN=${run}\n`); break; }
     if (status === 200 && j.skip) { if (Date.now() < deadline) { console.log('… chờ: ' + j.reason); await new Promise(r => setTimeout(r, 120e3)); continue; } console.log(`⏭ bỏ qua ${job}: ${j.reason}`); out('skip', 1); out('reason', j.reason); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `⏭ ${job} bỏ qua: ${j.reason}\n`); break; }
     if (status === 429 || status === 403 || status === 400) { console.log(`⏭ bỏ qua ${job}: dịch vụ điều phối trả ${status} ${j.error || ''}`); out('skip', 1); out('reason', `coordinator ${status} ${j.error || ''}`); break; }

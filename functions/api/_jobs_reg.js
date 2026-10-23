@@ -5,7 +5,8 @@ export const REG = {
   "publishing",
   "render",
   "archive",
-  "reports"
+  "reports",
+  "bulk"
  ],
  "resources": {
   "d1_main": {
@@ -41,6 +42,14 @@ export const REG = {
   "gh_minutes": {
    "label": "Phút GitHub Actions",
    "exclusive": false
+  },
+  "workers_ai_b": {
+   "label": "Workers AI tài khoản 2 (neuron)",
+   "exclusive": true
+  },
+  "grabcast_ai": {
+   "label": "GrabCast AI pool (ảnh)",
+   "exclusive": false
   }
  },
  "budget_caps": {
@@ -49,7 +58,8 @@ export const REG = {
   "publishing": 0.7,
   "render": 0.6,
   "archive": 0.5,
-  "reports": 0.4
+  "reports": 0.4,
+  "bulk": 0.3
  },
  "jobs": [
   {
@@ -574,6 +584,30 @@ export const REG = {
    },
    "lease": true,
    "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate)"
+  },
+  {
+   "id": "vocab-img",
+   "workflow": "vocab-img.yml",
+   "cron": [
+    "10 13 * * *"
+   ],
+   "priority": "bulk",
+   "resources": [
+    "workers_ai",
+    "workers_ai_b",
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {
+    "workers_ai_neurons": 864,
+    "workers_ai_b_neurons": 8640,
+    "grabcast_images": 40,
+    "images": 95
+   },
+   "lease": true,
+   "paused": true,
+   "_note": "Ảnh minh hoạ từ vựng – TẠM DỪNG tới khi chủ duyệt phong cách pilot (workflow chưa có schedule; cron = lịch dự kiến khi bật). acquire từ chối khi paused trừ --force (chạy tay)."
   }
  ]
 };

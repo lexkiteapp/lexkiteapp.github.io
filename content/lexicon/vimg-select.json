@@ -1,0 +1,7226 @@
+{
+"_note": "Sinh bởi scripts/vocab-img/select.py – KHÔNG sửa tay. items: \"từ#loại\" → [điểm, lexname WordNet, synset, bộ đầu tiên]. Chỉ mục ≥ ngưỡng.",
+"v": 1,
+"threshold": 0.6,
+"total": 8230,
+"imageable": 1202,
+"by_pos": {
+"n": 1059,
+"adj": 66,
+"v": 77
+},
+"items": {
+"abstract art#n": [
+0.85,
+"artifact",
+"abstractionism.n.01",
+"ex-toefl"
+],
+"access#n": [
+0.85,
+"artifact",
+"access.n.03",
+"ngsl3"
+],
+"accessory#n": [
+0.85,
+"artifact",
+"accessory.n.01",
+"toeic5"
+],
+"acid#n": [
+0.7,
+"substance",
+"acid.n.01",
+"nawl2"
+],
+"actuator#n": [
+0.95,
+"artifact",
+"actuator.n.01",
+"dom-eng"
+],
+"adapter#n": [
+0.95,
+"artifact",
+"adapter.n.02",
+"toeic9"
+],
+"additive#n": [
+0.95,
+"artifact",
+"additive.n.01",
+"food"
+],
+"adult#n": [
+0.65,
+"person",
+"adult.n.01",
+"ngsl4"
+],
+"aerosol#n": [
+0.95,
+"artifact",
+"aerosol.n.02",
+"nawl5"
+],
+"afraid#adj": [
+0.75,
+"all",
+"afraid.a.01",
+"ngsl5"
+],
+"agent#n": [
+0.85,
+"object",
+"agent.n.01",
+"ngsl4"
+],
+"air#n": [
+0.7,
+"substance",
+"air.n.01",
+"ngsl2"
+],
+"aircraft#n": [
+0.95,
+"artifact",
+"aircraft.n.01",
+"ngsl7"
+],
+"airline#n": [
+0.65,
+"artifact",
+"airline.n.02",
+"ngsl10"
+],
+"airplane#n": [
+0.95,
+"artifact",
+"airplane.n.01",
+"toeic1"
+],
+"airport#n": [
+0.85,
+"artifact",
+"airport.n.01",
+"toeic1"
+],
+"aisle#n": [
+0.85,
+"artifact",
+"aisle.n.02",
+"toeic2"
+],
+"album#n": [
+0.85,
+"artifact",
+"album.n.02",
+"ngsl8"
+],
+"alcohol#n": [
+0.95,
+"food",
+"alcohol.n.01",
+"ngsl8"
+],
+"algae#n": [
+1,
+"animal",
+"alga.n.01",
+"ex-toefl"
+],
+"alloy#n": [
+0.7,
+"substance",
+"alloy.n.01",
+"dom-eng"
+],
+"aluminum#n": [
+0.7,
+"substance",
+"aluminum.n.01",
+"nawl3"
+],
+"amphibian#n": [
+0.95,
+"artifact",
+"amphibian.n.01",
+"ex-toefl"
+],
+"anatomy#n": [
+0.65,
+"body",
+"human_body.n.01",
+"dom-med"
+],
+"angle#n": [
+0.6,
+"shape",
+"angle.n.01",
+"ngsl9"
+],
+"angry#adj": [
+0.75,
+"all",
+"angry.a.01",
+"ngsl7"
+],
+"antibiotic#n": [
+0.85,
+"artifact",
+"antibiotic.n.01",
+"dom-med"
+],
+"antibody#n": [
+0.7,
+"substance",
+"antibody.n.01",
+"dom-med"
+],
+"antique#n": [
+0.95,
+"artifact",
+"antique.n.02",
+"toeic7"
+],
+"apartment#n": [
+0.95,
+"artifact",
+"apartment.n.01",
+"ngsl8"
+],
+"appendix#n": [
+0.9,
+"body",
+"appendix.n.02",
+"toeic6"
+],
+"appetizer#n": [
+1,
+"food",
+"appetizer.n.01",
+"toeic9"
+],
+"apple#n": [
+1,
+"food",
+"apple.n.01",
+"toeic5"
+],
+"appliance#n": [
+0.95,
+"artifact",
+"appliance.n.02",
+"toeic1"
+],
+"aquifer#n": [
+0.85,
+"object",
+"aquifer.n.01",
+"ex-toefl-lecture"
+],
+"archive#n": [
+0.85,
+"artifact",
+"archive.n.01",
+"toeic9"
+],
+"area#n": [
+0.9,
+"body",
+"area.n.03",
+"ngsl1"
+],
+"arm#n": [
+0.9,
+"body",
+"arm.n.01",
+"ngsl3"
+],
+"arrest#v": [
+0.7,
+"contact",
+"catch.v.07",
+"ngsl6"
+],
+"arrow#n": [
+0.85,
+"artifact",
+"arrow.n.02",
+"nawl3"
+],
+"artist#n": [
+0.85,
+"person",
+"artist.n.01",
+"ngsl5"
+],
+"asleep#adj": [
+0.75,
+"all",
+"asleep.a.01",
+"toeic7"
+],
+"assembly line#n": [
+0.85,
+"artifact",
+"production_line.n.01",
+"ex-toeic-travel"
+],
+"assembly#n": [
+0.85,
+"artifact",
+"assembly.n.01",
+"toeic5"
+],
+"asteroid#n": [
+0.85,
+"object",
+"asteroid.n.01",
+"space"
+],
+"astronaut#n": [
+0.85,
+"person",
+"astronaut.n.01",
+"space"
+],
+"asylum#n": [
+0.85,
+"artifact",
+"refuge.n.03",
+"bsl5"
+],
+"athlete#n": [
+0.85,
+"person",
+"athlete.n.01",
+"ngsl10"
+],
+"atm#n": [
+0.95,
+"artifact",
+"cash_machine.n.01",
+"us-money"
+],
+"atom#n": [
+0.7,
+"substance",
+"atom.n.01",
+"dom-env"
+],
+"attire#n": [
+0.85,
+"artifact",
+"attire.n.01",
+"toeic9"
+],
+"auditorium#n": [
+0.95,
+"artifact",
+"auditorium.n.01",
+"toeic5"
+],
+"auto#n": [
+0.7,
+"artifact",
+"car.n.01",
+"toeic3"
+],
+"automobile#n": [
+0.95,
+"artifact",
+"car.n.01",
+"toeic2"
+],
+"awning#n": [
+0.85,
+"artifact",
+"awning.n.01",
+"ex-toeic-l"
+],
+"baby#n": [
+0.85,
+"person",
+"baby.n.01",
+"ngsl4"
+],
+"backpack#n": [
+0.95,
+"artifact",
+"backpack.n.01",
+"toeic9"
+],
+"backup#n": [
+0.85,
+"artifact",
+"backup.n.04",
+"office-it"
+],
+"bacteria#n": [
+1,
+"animal",
+"bacteria.n.01",
+"ex-toefl-lecture"
+],
+"bag#n": [
+0.95,
+"artifact",
+"bag.n.01",
+"ngsl5"
+],
+"baggage claim#n": [
+0.85,
+"artifact",
+"baggage_claim.n.01",
+"ex-toeic-l"
+],
+"baggage#n": [
+0.85,
+"artifact",
+"baggage.n.01",
+"toeic2"
+],
+"baker#n": [
+0.85,
+"person",
+"baker.n.02",
+"toeic8"
+],
+"bakery#n": [
+0.85,
+"artifact",
+"bakery.n.01",
+"toeic7"
+],
+"balcony#n": [
+0.95,
+"artifact",
+"balcony.n.02",
+"toeic6"
+],
+"ball#n": [
+0.95,
+"artifact",
+"ball.n.01",
+"ngsl5"
+],
+"balloon#n": [
+0.95,
+"artifact",
+"balloon.n.01",
+"toeic8"
+],
+"ballroom#n": [
+0.95,
+"artifact",
+"ballroom.n.01",
+"toeic9"
+],
+"bandstand#n": [
+0.85,
+"artifact",
+"bandstand.n.01",
+"ex-ielts-listen"
+],
+"bar#n": [
+0.95,
+"artifact",
+"bar.n.03",
+"ngsl3"
+],
+"barbecue#n": [
+1,
+"food",
+"barbecue.n.01",
+"toeic7"
+],
+"barrel#n": [
+0.95,
+"artifact",
+"barrel.n.02",
+"nawl3"
+],
+"barrier#n": [
+0.95,
+"artifact",
+"barrier.n.01",
+"ngsl9"
+],
+"base#n": [
+0.85,
+"artifact",
+"base.n.01",
+"ngsl2"
+],
+"basement#n": [
+0.95,
+"artifact",
+"basement.n.01",
+"toeic6"
+],
+"basket#n": [
+0.95,
+"artifact",
+"basket.n.01",
+"toeic5"
+],
+"bath#n": [
+0.85,
+"artifact",
+"bathtub.n.01",
+"ngsl9"
+],
+"bathroom#n": [
+0.95,
+"artifact",
+"bathroom.n.01",
+"toeic3"
+],
+"battery#n": [
+0.95,
+"artifact",
+"battery.n.02",
+"toeic2"
+],
+"beach#n": [
+0.85,
+"object",
+"beach.n.01",
+"ngsl5"
+],
+"beam#n": [
+0.85,
+"artifact",
+"beam.n.02",
+"dom-eng"
+],
+"bean#n": [
+1,
+"food",
+"bean.n.01",
+"toeic7"
+],
+"bearing#n": [
+0.85,
+"artifact",
+"bearing.n.06",
+"dom-eng"
+],
+"bed#n": [
+0.95,
+"artifact",
+"bed.n.01",
+"ngsl3"
+],
+"bedroom#n": [
+0.95,
+"artifact",
+"bedroom.n.01",
+"ngsl6"
+],
+"beer#n": [
+1,
+"food",
+"beer.n.01",
+"ngsl8"
+],
+"bell#n": [
+0.95,
+"artifact",
+"bell.n.01",
+"ngsl10"
+],
+"bellboy#n": [
+0.85,
+"person",
+"bellboy.n.01",
+"dom-hosp"
+],
+"belt#n": [
+0.85,
+"artifact",
+"belt.n.02",
+"ngsl10"
+],
+"bench#n": [
+0.85,
+"artifact",
+"bench.n.01",
+"toeic3"
+],
+"beverage#n": [
+1,
+"food",
+"beverage.n.01",
+"toeic2"
+],
+"bicycle#n": [
+0.95,
+"artifact",
+"bicycle.n.01",
+"toeic1"
+],
+"big#adj": [
+0.75,
+"all",
+"large.a.01",
+"ngsl1"
+],
+"bike#n": [
+0.95,
+"artifact",
+"motorcycle.n.01",
+"ngsl8"
+],
+"billboard#n": [
+0.85,
+"artifact",
+"billboard.n.01",
+"dom-mkt"
+],
+"bin#n": [
+0.95,
+"artifact",
+"bin.n.01",
+"ngsl10"
+],
+"bird#n": [
+1,
+"animal",
+"bird.n.01",
+"ngsl5"
+],
+"bite#v": [
+0.7,
+"contact",
+"bite.v.01",
+"ngsl10"
+],
+"black hole#n": [
+0.85,
+"object",
+"black_hole.n.01",
+"ex-toefl-lecture"
+],
+"black#adj": [
+0.75,
+"all",
+"black.a.01",
+"ngsl2"
+],
+"blanket#n": [
+0.85,
+"artifact",
+"blanket.n.01",
+"toeic7"
+],
+"block#n": [
+0.95,
+"artifact",
+"block.n.05",
+"ngsl4"
+],
+"blood#n": [
+0.9,
+"body",
+"blood.n.01",
+"ngsl4"
+],
+"blow#v": [
+0.7,
+"motion",
+"float.v.01",
+"ngsl5"
+],
+"blue#adj": [
+0.75,
+"all",
+"blue.s.01",
+"ngsl4"
+],
+"board#n": [
+0.85,
+"artifact",
+"display_panel.n.01",
+"ngsl3"
+],
+"boardroom#n": [
+0.95,
+"artifact",
+"boardroom.n.01",
+"toeic4"
+],
+"boat#n": [
+0.85,
+"artifact",
+"boat.n.01",
+"ngsl5"
+],
+"body#n": [
+0.9,
+"body",
+"body.n.03",
+"ngsl2"
+],
+"boiler#n": [
+0.95,
+"artifact",
+"boiler.n.01",
+"ex-ielts-gt-life"
+],
+"bolt#n": [
+0.85,
+"artifact",
+"bolt.n.06",
+"dom-eng"
+],
+"bomb#n": [
+0.95,
+"artifact",
+"bomb.n.01",
+"ngsl6"
+],
+"bone#n": [
+0.8,
+"substance",
+"bone.n.02",
+"ngsl7"
+],
+"bookcase#n": [
+0.95,
+"artifact",
+"bookcase.n.01",
+"toeic10"
+],
+"bookstore#n": [
+0.85,
+"artifact",
+"bookshop.n.01",
+"ex-toefl-campus"
+],
+"boot#n": [
+0.85,
+"artifact",
+"boot.n.01",
+"ngsl9"
+],
+"booth#n": [
+0.85,
+"artifact",
+"booth.n.02",
+"ex-toeic-travel"
+],
+"bottle#n": [
+0.95,
+"artifact",
+"bottle.n.01",
+"ngsl6"
+],
+"bounce#v": [
+0.7,
+"motion",
+"bounce.v.01",
+"bsl5"
+],
+"bowl#n": [
+0.95,
+"artifact",
+"bowl.n.01",
+"ngsl9"
+],
+"box office#n": [
+0.85,
+"artifact",
+"box_office.n.02",
+"ex-ielts-listen"
+],
+"box#n": [
+0.95,
+"artifact",
+"box.n.01",
+"ngsl4"
+],
+"boy#n": [
+0.85,
+"person",
+"male_child.n.01",
+"ngsl2"
+],
+"brain#n": [
+0.9,
+"body",
+"brain.n.01",
+"ngsl5"
+],
+"brake#n": [
+0.95,
+"artifact",
+"brake.n.01",
+"toeic4"
+],
+"bread#n": [
+1,
+"food",
+"bread.n.01",
+"ngsl9"
+],
+"breakfast#n": [
+0.95,
+"food",
+"breakfast.n.01",
+"ngsl7"
+],
+"breast#n": [
+0.9,
+"body",
+"breast.n.02",
+"ngsl7"
+],
+"brick#n": [
+0.95,
+"artifact",
+"brick.n.01",
+"bsl4"
+],
+"bridge#n": [
+0.85,
+"artifact",
+"bridge.n.01",
+"ngsl6"
+],
+"briefcase#n": [
+0.85,
+"artifact",
+"briefcase.n.01",
+"toeic2"
+],
+"bright#adj": [
+0.75,
+"all",
+"bright.a.01",
+"ngsl6"
+],
+"broom#n": [
+0.85,
+"artifact",
+"broom.n.01",
+"toeic9"
+],
+"brown#adj": [
+0.75,
+"all",
+"brown.s.01",
+"ngsl7"
+],
+"bubble#n": [
+0.65,
+"object",
+"bubble.n.01",
+"nawl3"
+],
+"bucket#n": [
+0.95,
+"artifact",
+"bucket.n.01",
+"nawl1"
+],
+"buffer#n": [
+0.85,
+"artifact",
+"buffer.n.06",
+"bsl3"
+],
+"buffet#n": [
+0.95,
+"food",
+"buffet.n.02",
+"ex-toeic-travel"
+],
+"build#v": [
+0.6,
+"creation",
+"construct.v.01",
+"ngsl1"
+],
+"builder#n": [
+0.85,
+"person",
+"builder.n.02",
+"bsl3"
+],
+"bulb#n": [
+0.85,
+"artifact",
+"light_bulb.n.01",
+"toeic10"
+],
+"bullet#n": [
+0.95,
+"artifact",
+"bullet.n.01",
+"nawl3"
+],
+"bulletin board#n": [
+0.85,
+"artifact",
+"bulletin_board.n.02",
+"ex-toeic-l"
+],
+"bus#n": [
+0.95,
+"artifact",
+"bus.n.01",
+"ngsl3"
+],
+"butter#n": [
+1,
+"food",
+"butter.n.01",
+"toeic9"
+],
+"button#n": [
+0.95,
+"artifact",
+"button.n.01",
+"ngsl9"
+],
+"by-product#n": [
+0.85,
+"artifact",
+"by-product.n.02",
+"ex-ielts-read"
+],
+"cab#n": [
+0.85,
+"artifact",
+"cab.n.01",
+"toeic3"
+],
+"cabin#n": [
+0.85,
+"artifact",
+"cabin.n.02",
+"toeic3"
+],
+"cabinet#n": [
+0.95,
+"artifact",
+"cabinet.n.01",
+"toeic1"
+],
+"cache#n": [
+0.85,
+"artifact",
+"cache.n.03",
+"dom-it"
+],
+"cafeteria#n": [
+0.95,
+"artifact",
+"cafeteria.n.01",
+"ex-toefl-campus"
+],
+"cage#n": [
+0.95,
+"artifact",
+"cage.n.01",
+"toeic8"
+],
+"cake#n": [
+1,
+"food",
+"cake.n.03",
+"ngsl8"
+],
+"calculator#n": [
+0.95,
+"artifact",
+"calculator.n.02",
+"toeic3"
+],
+"camera#n": [
+0.95,
+"artifact",
+"camera.n.01",
+"ngsl5"
+],
+"candy#n": [
+1,
+"food",
+"candy.n.01",
+"toeic6"
+],
+"canopy#n": [
+0.85,
+"artifact",
+"canopy.n.01",
+"ex-toefl"
+],
+"canvas#n": [
+0.85,
+"artifact",
+"canvas.n.02",
+"ex-toefl-lecture"
+],
+"canyon#n": [
+0.85,
+"object",
+"canyon.n.01",
+"ex-toefl-lecture"
+],
+"cap#n": [
+0.95,
+"artifact",
+"detonator.n.01",
+"ngsl9"
+],
+"captain#n": [
+0.95,
+"person",
+"captain.n.06",
+"toeic2"
+],
+"car park#n": [
+0.65,
+"location",
+"parking_lot.n.01",
+"ex-ielts-listen"
+],
+"car#n": [
+0.95,
+"artifact",
+"car.n.01",
+"ngsl1"
+],
+"carbon dioxide#n": [
+0.7,
+"substance",
+"carbon_dioxide.n.01",
+"dom-env"
+],
+"carbon#n": [
+0.7,
+"substance",
+"carbon.n.01",
+"ngsl10"
+],
+"caretaker#n": [
+0.65,
+"person",
+"caretaker.n.01",
+"ex-ielts-listen"
+],
+"cargo#n": [
+0.95,
+"artifact",
+"cargo.n.01",
+"toeic4"
+],
+"carnivore#n": [
+1,
+"animal",
+"carnivore.n.02",
+"ex-toefl"
+],
+"carpenter#n": [
+0.85,
+"person",
+"carpenter.n.01",
+"toeic4"
+],
+"carpet#n": [
+0.95,
+"artifact",
+"rug.n.01",
+"ngsl10"
+],
+"carry#v": [
+0.7,
+"contact",
+"transport.v.02",
+"ngsl2"
+],
+"cart#n": [
+0.95,
+"artifact",
+"handcart.n.01",
+"toeic2"
+],
+"carton#n": [
+0.95,
+"artifact",
+"carton.n.02",
+"toeic7"
+],
+"cartridge#n": [
+0.95,
+"artifact",
+"cartridge.n.01",
+"toeic2"
+],
+"cashier#n": [
+0.85,
+"person",
+"cashier.n.02",
+"toeic3"
+],
+"casino#n": [
+0.85,
+"artifact",
+"casino.n.01",
+"bsl4"
+],
+"casting#n": [
+0.85,
+"artifact",
+"cast.n.06",
+"dom-eng"
+],
+"castle#n": [
+0.95,
+"artifact",
+"castle.n.02",
+"ngsl10"
+],
+"cat#n": [
+1,
+"animal",
+"cat.n.01",
+"ngsl6"
+],
+"catalyst#n": [
+0.7,
+"substance",
+"catalyst.n.01",
+"dom-env"
+],
+"caterer#n": [
+0.65,
+"person",
+"caterer.n.01",
+"toeic4"
+],
+"cattle#n": [
+1,
+"animal",
+"cattle.n.01",
+"nawl2"
+],
+"ceiling#n": [
+0.95,
+"artifact",
+"ceiling.n.01",
+"toeic5"
+],
+"cell membrane#n": [
+0.9,
+"body",
+"cell_membrane.n.01",
+"ex-toefl"
+],
+"cellphone#n": [
+0.85,
+"artifact",
+"cellular_telephone.n.01",
+"toeic1"
+],
+"cement#n": [
+0.7,
+"substance",
+"cement.n.02",
+"dom-eng"
+],
+"chair#n": [
+0.95,
+"artifact",
+"chair.n.01",
+"ngsl4"
+],
+"chamber#n": [
+0.95,
+"artifact",
+"chamber.n.01",
+"ngsl10"
+],
+"channel#n": [
+0.85,
+"artifact",
+"channel.n.07",
+"ngsl6"
+],
+"chase#v": [
+0.7,
+"motion",
+"chase.v.01",
+"ngsl10"
+],
+"checkout#n": [
+0.85,
+"artifact",
+"checkout.n.03",
+"toeic6"
+],
+"cheek#n": [
+0.9,
+"body",
+"cheek.n.01",
+"ngsl10"
+],
+"cheese#n": [
+1,
+"food",
+"cheese.n.01",
+"ngsl10"
+],
+"cheeseburger#n": [
+0.95,
+"food",
+"cheeseburger.n.01",
+"toeic9"
+],
+"chef#n": [
+0.85,
+"person",
+"chef.n.01",
+"toeic1"
+],
+"chemical#n": [
+0.7,
+"substance",
+"chemical.n.01",
+"ngsl6"
+],
+"chest#n": [
+0.9,
+"body",
+"thorax.n.02",
+"ngsl9"
+],
+"chicken#n": [
+1,
+"animal",
+"chicken.n.02",
+"ngsl9"
+],
+"child#n": [
+0.85,
+"person",
+"child.n.01",
+"ngsl1"
+],
+"chlorophyll#n": [
+1,
+"animal",
+"chlorophyll.n.01",
+"ex-toefl"
+],
+"chocolate#n": [
+1,
+"food",
+"chocolate.n.02",
+"ngsl10"
+],
+"cholesterol#n": [
+0.7,
+"substance",
+"cholesterol.n.01",
+"dom-med"
+],
+"chromosome#n": [
+0.9,
+"body",
+"chromosome.n.01",
+"ex-toefl-lecture"
+],
+"cigarette#n": [
+0.85,
+"artifact",
+"cigarette.n.01",
+"ngsl9"
+],
+"cinema#n": [
+0.85,
+"artifact",
+"cinema.n.02",
+"toeic8"
+],
+"circuit breaker#n": [
+0.85,
+"artifact",
+"circuit_breaker.n.01",
+"dom-eng"
+],
+"classroom#n": [
+0.95,
+"artifact",
+"classroom.n.01",
+"nawl5"
+],
+"clay#n": [
+0.7,
+"substance",
+"clay.n.01",
+"nawl3"
+],
+"clean#adj": [
+0.75,
+"all",
+"clean.a.01",
+"ngsl3"
+],
+"cleaner#n": [
+0.85,
+"artifact",
+"cleansing_agent.n.01",
+"toeic2"
+],
+"climb#v": [
+0.7,
+"motion",
+"climb.v.01",
+"ngsl6"
+],
+"clinic#n": [
+0.85,
+"artifact",
+"clinic.n.03",
+"toeic4"
+],
+"clip#n": [
+0.95,
+"artifact",
+"clip.n.03",
+"toeic5"
+],
+"cloakroom#n": [
+0.95,
+"artifact",
+"cloakroom.n.02",
+"ex-ielts-listen"
+],
+"clock#n": [
+0.95,
+"artifact",
+"clock.n.01",
+"ngsl4"
+],
+"closet#n": [
+0.95,
+"artifact",
+"cupboard.n.01",
+"toeic1"
+],
+"cloth#n": [
+0.95,
+"artifact",
+"fabric.n.01",
+"toeic1"
+],
+"clothes#n": [
+0.85,
+"artifact",
+"apparel.n.01",
+"ngsl4"
+],
+"clothing#n": [
+0.85,
+"artifact",
+"clothing.n.01",
+"ngsl10"
+],
+"cloud#n": [
+0.85,
+"object",
+"cloud.n.02",
+"ngsl8"
+],
+"cloudy#adj": [
+0.75,
+"all",
+"cloudy.a.02",
+"toeic2"
+],
+"coal#n": [
+0.7,
+"substance",
+"coal.n.01",
+"ngsl9"
+],
+"coast#n": [
+0.85,
+"object",
+"seashore.n.01",
+"ngsl7"
+],
+"coat#n": [
+0.95,
+"artifact",
+"coat.n.01",
+"ngsl7"
+],
+"coffee#n": [
+1,
+"food",
+"coffee.n.01",
+"ngsl5"
+],
+"cold#adj": [
+0.75,
+"all",
+"cold.a.01",
+"ngsl4"
+],
+"colorful#adj": [
+0.75,
+"all",
+"colorful.a.01",
+"toeic5"
+],
+"comb#n": [
+0.95,
+"artifact",
+"comb.n.01",
+"toeic9"
+],
+"comet#n": [
+0.85,
+"object",
+"comet.n.01",
+"ex-toefl"
+],
+"commodity#n": [
+0.85,
+"artifact",
+"commodity.n.01",
+"awl8"
+],
+"compartment#n": [
+0.95,
+"artifact",
+"compartment.n.02",
+"toeic7"
+],
+"component#n": [
+0.85,
+"artifact",
+"component.n.03",
+"ngsl6"
+],
+"composite material#n": [
+0.7,
+"substance",
+"composite_material.n.01",
+"dom-eng"
+],
+"compost#n": [
+0.8,
+"substance",
+"compost.n.01",
+"dom-env"
+],
+"compressor#n": [
+0.95,
+"artifact",
+"compressor.n.01",
+"dom-eng"
+],
+"computer#n": [
+0.95,
+"artifact",
+"computer.n.01",
+"ngsl2"
+],
+"concrete#n": [
+0.8,
+"substance",
+"concrete.n.01",
+"ngsl10"
+],
+"conditioner#n": [
+0.85,
+"artifact",
+"conditioner.n.03",
+"toeic3"
+],
+"condominium#n": [
+0.85,
+"artifact",
+"condominium.n.02",
+"toeic8"
+],
+"conference room#n": [
+0.95,
+"artifact",
+"conference_room.n.01",
+"dom-hosp"
+],
+"conglomerate#n": [
+0.7,
+"substance",
+"pudding_stone.n.01",
+"bsl2"
+],
+"connecting rooms#n": [
+0.85,
+"artifact",
+"connecting_room.n.01",
+"dom-hosp"
+],
+"connector#n": [
+0.85,
+"artifact",
+"connection.n.03",
+"nawl1"
+],
+"consignment#n": [
+0.85,
+"artifact",
+"cargo.n.01",
+"toeic9"
+],
+"constellation#n": [
+0.85,
+"object",
+"constellation.n.02",
+"ex-toefl-lecture"
+],
+"container#n": [
+0.95,
+"artifact",
+"container.n.01",
+"toeic2"
+],
+"continent#n": [
+0.85,
+"object",
+"continent.n.01",
+"nawl2"
+],
+"contractor#n": [
+0.65,
+"person",
+"contractor.n.01",
+"ex-toeic-office"
+],
+"control system#n": [
+0.6,
+"artifact",
+"control_system.n.01",
+"dom-eng"
+],
+"conveyor belt#n": [
+0.65,
+"artifact",
+"conveyer_belt.n.01",
+"ex-toeic-travel"
+],
+"cook#v": [
+0.6,
+"creation",
+"cook.v.02",
+"ngsl5"
+],
+"cookie#n": [
+0.95,
+"food",
+"cookie.n.01",
+"toeic6"
+],
+"cooler#n": [
+0.95,
+"artifact",
+"cooler.n.01",
+"toeic7"
+],
+"copier#n": [
+0.95,
+"artifact",
+"duplicator.n.01",
+"toeic2"
+],
+"copper#n": [
+0.7,
+"substance",
+"copper.n.01",
+"bsl4"
+],
+"copy#n": [
+0.85,
+"artifact",
+"copy.n.02",
+"ngsl4"
+],
+"coral reef#n": [
+0.85,
+"object",
+"coral_reef.n.01",
+"ex-toefl-lecture"
+],
+"cord#n": [
+0.95,
+"artifact",
+"cord.n.01",
+"toeic8"
+],
+"core#n": [
+0.95,
+"object",
+"core.n.03",
+"ngsl7"
+],
+"corn#n": [
+1,
+"plant",
+"corn.n.01",
+"bsl3"
+],
+"cortex#n": [
+0.9,
+"body",
+"cortex.n.02",
+"nawl5"
+],
+"cosmos#n": [
+0.85,
+"object",
+"universe.n.01",
+"space"
+],
+"costume#n": [
+0.85,
+"artifact",
+"costume.n.01",
+"toeic5"
+],
+"cotton#n": [
+0.8,
+"substance",
+"cotton.n.01",
+"bsl4"
+],
+"cough#v": [
+0.7,
+"body",
+"cough.v.01",
+"ngsl10"
+],
+"counter#n": [
+0.85,
+"artifact",
+"counter.n.01",
+"ngsl9"
+],
+"courier#n": [
+0.85,
+"person",
+"messenger.n.01",
+"toeic2"
+],
+"course#n": [
+0.85,
+"object",
+"path.n.04",
+"ngsl1"
+],
+"court#n": [
+0.85,
+"artifact",
+"court.n.04",
+"ngsl3"
+],
+"cow#n": [
+0.65,
+"person",
+"cow.n.03",
+"ngsl10"
+],
+"crane#n": [
+0.95,
+"artifact",
+"crane.n.04",
+"toeic7"
+],
+"crate#n": [
+0.95,
+"artifact",
+"crate.n.01",
+"ex-toeic-l"
+],
+"crater#n": [
+0.85,
+"object",
+"volcanic_crater.n.01",
+"ex-toefl"
+],
+"cream#n": [
+0.85,
+"artifact",
+"cream.n.03",
+"ngsl9"
+],
+"crop#n": [
+0.85,
+"plant",
+"crop.n.01",
+"ngsl8"
+],
+"crouch#v": [
+0.7,
+"motion",
+"crouch.v.01",
+"ex-toeic-l"
+],
+"crust#n": [
+0.85,
+"object",
+"crust.n.01",
+"ex-toefl"
+],
+"cry#v": [
+0.7,
+"body",
+"cry.v.02",
+"ngsl5"
+],
+"crystal#n": [
+0.7,
+"substance",
+"quartz_glass.n.01",
+"nawl2"
+],
+"cubicle#n": [
+0.85,
+"artifact",
+"booth.n.02",
+"ex-toeic-l"
+],
+"cup#n": [
+0.95,
+"artifact",
+"cup.n.01",
+"ngsl6"
+],
+"cure#n": [
+0.85,
+"artifact",
+"remedy.n.02",
+"nawl1"
+],
+"curtain#n": [
+0.95,
+"artifact",
+"curtain.n.01",
+"ngsl10"
+],
+"cushion#n": [
+0.85,
+"artifact",
+"cushion.n.03",
+"toeic9"
+],
+"cut#v": [
+0.7,
+"contact",
+"cut.v.01",
+"ngsl2"
+],
+"dance#v": [
+0.7,
+"motion",
+"dance.v.01",
+"ngsl4"
+],
+"dark#adj": [
+0.75,
+"all",
+"dark.a.02",
+"ngsl4"
+],
+"dashboard#n": [
+0.85,
+"artifact",
+"splashboard.n.02",
+"office-it"
+],
+"deck#n": [
+0.95,
+"artifact",
+"deck.n.01",
+"toeic6"
+],
+"deliverable#n": [
+0.95,
+"artifact",
+"deliverable.n.01",
+"office-email"
+],
+"delta#n": [
+0.85,
+"object",
+"delta.n.01",
+"ex-toefl"
+],
+"dentist#n": [
+0.85,
+"person",
+"dentist.n.01",
+"toeic1"
+],
+"departure gate#n": [
+0.85,
+"artifact",
+"departure_gate.n.01",
+"ex-ielts-listen"
+],
+"desk#n": [
+0.95,
+"artifact",
+"desk.n.01",
+"ngsl6"
+],
+"desktop#n": [
+0.85,
+"artifact",
+"background.n.07",
+"toeic4"
+],
+"dessert#n": [
+1,
+"food",
+"dessert.n.01",
+"toeic2"
+],
+"detour#n": [
+0.85,
+"artifact",
+"detour.n.01",
+"ex-toeic-l"
+],
+"device#n": [
+0.95,
+"artifact",
+"device.n.01",
+"ngsl6"
+],
+"diagram#n": [
+0.85,
+"artifact",
+"diagram.n.01",
+"toeic9"
+],
+"diamond#n": [
+0.7,
+"substance",
+"diamond.n.02",
+"toeic9"
+],
+"diet#n": [
+1,
+"food",
+"diet.n.03",
+"ngsl7"
+],
+"dig#v": [
+0.7,
+"contact",
+"dig.v.02",
+"ngsl9"
+],
+"digestive system#n": [
+1,
+"body",
+"digestive_system.n.01",
+"dom-med"
+],
+"dinner#n": [
+0.95,
+"food",
+"dinner.n.01",
+"ngsl4"
+],
+"dirty#adj": [
+0.75,
+"all",
+"dirty.a.01",
+"ngsl9"
+],
+"dish#n": [
+0.95,
+"artifact",
+"dish.n.01",
+"ngsl7"
+],
+"dishwasher#n": [
+0.95,
+"artifact",
+"dishwasher.n.01",
+"toeic6"
+],
+"dive#v": [
+0.7,
+"motion",
+"dive.v.02",
+"toeic7"
+],
+"dna#n": [
+0.7,
+"substance",
+"deoxyribonucleic_acid.n.01",
+"dom-env"
+],
+"dock#n": [
+0.85,
+"artifact",
+"dock.n.05",
+"toeic2"
+],
+"doctor#n": [
+0.85,
+"person",
+"doctor.n.04",
+"ngsl3"
+],
+"dog#n": [
+1,
+"animal",
+"dog.n.01",
+"ngsl4"
+],
+"dome#n": [
+0.85,
+"artifact",
+"dome.n.03",
+"ex-toefl"
+],
+"donut#n": [
+0.95,
+"food",
+"doughnut.n.02",
+"toeic10"
+],
+"door#n": [
+0.95,
+"artifact",
+"doorway.n.01",
+"ngsl2"
+],
+"doorman#n": [
+0.65,
+"person",
+"doorkeeper.n.03",
+"toeic10"
+],
+"dormitory#n": [
+0.95,
+"artifact",
+"dormitory.n.01",
+"ex-toefl-campus"
+],
+"dosage#n": [
+0.6,
+"artifact",
+"dose.n.01",
+"dom-med"
+],
+"dose#n": [
+0.6,
+"artifact",
+"dose.n.01",
+"toeic9"
+],
+"drag#v": [
+0.7,
+"contact",
+"drag.v.01",
+"ngsl9"
+],
+"drain#n": [
+0.85,
+"artifact",
+"drain.n.03",
+"nawl2"
+],
+"drawer#n": [
+0.95,
+"artifact",
+"drawer.n.01",
+"toeic2"
+],
+"dress#n": [
+0.95,
+"artifact",
+"dress.n.01",
+"ngsl4"
+],
+"drill#n": [
+0.95,
+"artifact",
+"drill.n.01",
+"toeic3"
+],
+"drink#v": [
+0.7,
+"consumption",
+"drink.v.01",
+"ngsl3"
+],
+"drive#v": [
+0.7,
+"motion",
+"drive.v.01",
+"ngsl2"
+],
+"driver#n": [
+0.95,
+"person",
+"driver.n.01",
+"ngsl5"
+],
+"drop#v": [
+0.7,
+"motion",
+"drop.v.01",
+"ngsl3"
+],
+"drug#n": [
+0.85,
+"artifact",
+"drug.n.01",
+"ngsl3"
+],
+"drum#n": [
+0.95,
+"artifact",
+"drum.n.01",
+"toeic9"
+],
+"dry#adj": [
+0.75,
+"all",
+"dry.a.01",
+"ngsl5"
+],
+"dual carriageway#n": [
+0.85,
+"artifact",
+"divided_highway.n.01",
+"ex-ielts-listen"
+],
+"dump#n": [
+0.85,
+"artifact",
+"dump.n.04",
+"bsl2"
+],
+"duplicate#n": [
+0.85,
+"artifact",
+"duplicate.n.02",
+"toeic5"
+],
+"dust#n": [
+0.7,
+"substance",
+"dust.n.01",
+"ngsl9"
+],
+"dwelling#n": [
+0.85,
+"artifact",
+"dwelling.n.01",
+"architecture"
+],
+"dye#n": [
+0.7,
+"substance",
+"dye.n.01",
+"nawl4"
+],
+"ear#n": [
+0.9,
+"body",
+"ear.n.01",
+"ngsl6"
+],
+"earth#n": [
+0.85,
+"object",
+"earth.n.01",
+"ngsl5"
+],
+"easel#n": [
+0.85,
+"artifact",
+"easel.n.01",
+"ex-toeic-l"
+],
+"eat#v": [
+0.7,
+"consumption",
+"eat.v.01",
+"ngsl2"
+],
+"egg#n": [
+1,
+"food",
+"egg.n.02",
+"ngsl5"
+],
+"elderly#adj": [
+0.75,
+"all",
+"aged.s.01",
+"ngsl8"
+],
+"electron#n": [
+0.85,
+"object",
+"electron.n.01",
+"nawl3"
+],
+"elephant#n": [
+1,
+"animal",
+"elephant.n.01",
+"toeic8"
+],
+"elevator#n": [
+0.95,
+"artifact",
+"elevator.n.01",
+"toeic1"
+],
+"embassy#n": [
+0.95,
+"artifact",
+"embassy.n.01",
+"toeic5"
+],
+"emergency exit#n": [
+0.95,
+"artifact",
+"fire_escape.n.01",
+"dom-hosp"
+],
+"emergency room#n": [
+0.85,
+"artifact",
+"emergency_room.n.01",
+"dom-med"
+],
+"empty#adj": [
+0.75,
+"all",
+"empty.a.01",
+"ngsl6"
+],
+"end product#n": [
+0.85,
+"artifact",
+"end_product.n.01",
+"ex-ielts-write"
+],
+"engine#n": [
+0.95,
+"artifact",
+"engine.n.01",
+"ngsl6"
+],
+"engraving#n": [
+0.85,
+"artifact",
+"engraving.n.01",
+"ex-toefl-lecture"
+],
+"enormous#adj": [
+0.75,
+"all",
+"enormous.s.01",
+"ngsl7"
+],
+"entrant#n": [
+0.85,
+"artifact",
+"entrant.n.01",
+"nawl5"
+],
+"envelope#n": [
+0.85,
+"artifact",
+"envelope.n.01",
+"ngsl10"
+],
+"enzyme#n": [
+0.7,
+"substance",
+"enzyme.n.01",
+"ex-toefl-lecture"
+],
+"equipment#n": [
+0.85,
+"artifact",
+"equipment.n.01",
+"ngsl4"
+],
+"estuary#n": [
+0.85,
+"object",
+"estuary.n.01",
+"ex-toefl"
+],
+"exit#n": [
+0.7,
+"artifact",
+"exit.n.01",
+"toeic1"
+],
+"export#n": [
+0.85,
+"artifact",
+"export.n.01",
+"economy"
+],
+"extinguisher#n": [
+0.95,
+"artifact",
+"fire_extinguisher.n.01",
+"toeic9"
+],
+"eye#n": [
+1,
+"body",
+"eye.n.01",
+"ngsl2"
+],
+"fabric#n": [
+0.85,
+"artifact",
+"fabric.n.01",
+"toeic7"
+],
+"facade#n": [
+0.95,
+"artifact",
+"facade.n.01",
+"architecture"
+],
+"face#n": [
+0.9,
+"body",
+"face.n.01",
+"ngsl1"
+],
+"factory#n": [
+0.95,
+"artifact",
+"factory.n.01",
+"ngsl6"
+],
+"fall#v": [
+0.7,
+"motion",
+"fall.v.01",
+"ngsl2"
+],
+"fan#n": [
+0.95,
+"artifact",
+"fan.n.01",
+"ngsl5"
+],
+"farm#n": [
+0.85,
+"artifact",
+"farm.n.01",
+"ngsl4"
+],
+"farmer#n": [
+0.85,
+"person",
+"farmer.n.01",
+"ngsl6"
+],
+"farmland#n": [
+0.85,
+"object",
+"cultivated_land.n.01",
+"ex-ielts-write"
+],
+"fastener#n": [
+0.65,
+"person",
+"fastener.n.01",
+"dom-eng"
+],
+"fat#adj": [
+0.75,
+"all",
+"fat.a.01",
+"ngsl6"
+],
+"father#n": [
+0.85,
+"person",
+"father.n.01",
+"ngsl2"
+],
+"fax#n": [
+0.85,
+"artifact",
+"facsimile.n.02",
+"toeic1"
+],
+"feed#v": [
+0.7,
+"consumption",
+"feed.v.02",
+"ngsl5"
+],
+"fence#n": [
+0.85,
+"artifact",
+"fence.n.01",
+"ngsl10"
+],
+"ferry#n": [
+0.95,
+"artifact",
+"ferry.n.01",
+"toeic4"
+],
+"fertiliser#n": [
+0.7,
+"substance",
+"fertilizer.n.01",
+"food"
+],
+"fiber#n": [
+1,
+"food",
+"roughage.n.01",
+"nawl2"
+],
+"fieldwork#n": [
+0.85,
+"artifact",
+"fieldwork.n.01",
+"ex-ielts-listen"
+],
+"figure#n": [
+0.85,
+"artifact",
+"figure.n.04",
+"ngsl2"
+],
+"file#n": [
+0.95,
+"artifact",
+"file.n.03",
+"ngsl3"
+],
+"filing cabinet#n": [
+0.95,
+"artifact",
+"file.n.03",
+"ex-toeic-l"
+],
+"filter#n": [
+0.95,
+"artifact",
+"filter.n.01",
+"ngsl10"
+],
+"fin#n": [
+0.95,
+"artifact",
+"fin.n.05",
+"nawl5"
+],
+"finger#n": [
+0.9,
+"body",
+"finger.n.01",
+"ngsl6"
+],
+"firefighter#n": [
+0.85,
+"person",
+"fireman.n.04",
+"toeic5"
+],
+"firewall#n": [
+0.6,
+"artifact",
+"firewall.n.02",
+"dom-it"
+],
+"firework#n": [
+0.95,
+"artifact",
+"firework.n.01",
+"toeic6"
+],
+"first-aid kit#n": [
+0.95,
+"artifact",
+"first-aid_kit.n.01",
+"ex-ielts-listen"
+],
+"fish#n": [
+1,
+"animal",
+"fish.n.01",
+"ngsl3"
+],
+"fitting#n": [
+0.85,
+"artifact",
+"fitting.n.02",
+"dom-eng"
+],
+"fix#v": [
+0.6,
+"creation",
+"cook.v.02",
+"ngsl4"
+],
+"fixture#n": [
+0.95,
+"artifact",
+"fixture.n.01",
+"toeic10"
+],
+"flag#n": [
+0.95,
+"artifact",
+"flag.n.01",
+"ngsl10"
+],
+"flesh#n": [
+1,
+"plant",
+"pulp.n.02",
+"nawl2"
+],
+"float#v": [
+0.7,
+"motion",
+"float.v.02",
+"ngsl9"
+],
+"floor#n": [
+0.95,
+"artifact",
+"floor.n.01",
+"ngsl3"
+],
+"flour#n": [
+0.95,
+"food",
+"flour.n.01",
+"toeic8"
+],
+"flower#n": [
+1,
+"plant",
+"flower.n.01",
+"ngsl5"
+],
+"fluid#n": [
+0.7,
+"substance",
+"fluid.n.02",
+"nawl3"
+],
+"fly#v": [
+0.7,
+"motion",
+"fly.v.01",
+"ngsl4"
+],
+"fob#n": [
+0.95,
+"artifact",
+"fob.n.01",
+"dom-log"
+],
+"fold#v": [
+0.7,
+"contact",
+"fold.v.01",
+"ngsl10"
+],
+"follow-up#n": [
+0.6,
+"artifact",
+"follow-up.n.01",
+"office-email"
+],
+"foot#n": [
+0.9,
+"body",
+"foot.n.01",
+"ngsl3"
+],
+"footpath#n": [
+0.85,
+"artifact",
+"pathway.n.02",
+"ex-ielts-listen"
+],
+"footwear#n": [
+0.85,
+"artifact",
+"footwear.n.01",
+"toeic10"
+],
+"fork#n": [
+0.95,
+"artifact",
+"fork.n.01",
+"toeic10"
+],
+"forklift#n": [
+0.95,
+"artifact",
+"forklift.n.01",
+"ex-toeic-travel"
+],
+"fossil fuel#n": [
+0.7,
+"substance",
+"fossil_fuel.n.01",
+"energy"
+],
+"fossil#n": [
+0.95,
+"object",
+"fossil.n.02",
+"nawl3"
+],
+"foundation#n": [
+0.95,
+"artifact",
+"foundation.n.03",
+"ngsl8"
+],
+"fountain#n": [
+0.85,
+"artifact",
+"fountain.n.01",
+"toeic3"
+],
+"foyer#n": [
+0.95,
+"artifact",
+"anteroom.n.01",
+"ex-ielts-listen"
+],
+"fraction#n": [
+0.85,
+"artifact",
+"fraction.n.02",
+"nawl3"
+],
+"fragment#n": [
+0.85,
+"object",
+"fragment.n.01",
+"ngsl10"
+],
+"frame#n": [
+0.85,
+"artifact",
+"frame.n.02",
+"ngsl6"
+],
+"freeze#v": [
+0.7,
+"weather",
+"freeze.v.06",
+"ngsl7"
+],
+"freight#n": [
+0.95,
+"artifact",
+"cargo.n.01",
+"ex-toeic-travel"
+],
+"freighter#n": [
+0.95,
+"artifact",
+"bottom.n.07",
+"toeic8"
+],
+"fresco#n": [
+0.85,
+"artifact",
+"fresco.n.01",
+"ex-toefl"
+],
+"fresh#adj": [
+0.75,
+"all",
+"fresh.a.01",
+"ngsl5"
+],
+"front#n": [
+0.65,
+"location",
+"front.n.01",
+"ngsl2"
+],
+"fruit#n": [
+1,
+"plant",
+"fruit.n.01",
+"ngsl6"
+],
+"fuel#n": [
+0.7,
+"substance",
+"fuel.n.01",
+"ngsl6"
+],
+"full#adj": [
+0.75,
+"all",
+"full.a.01",
+"ngsl2"
+],
+"fungi#n": [
+0.95,
+"plant",
+"fungus.n.01",
+"ex-toefl"
+],
+"fungus#n": [
+0.95,
+"plant",
+"fungus.n.01",
+"nawl4"
+],
+"furnace#n": [
+0.85,
+"artifact",
+"furnace.n.01",
+"dom-eng"
+],
+"furniture#n": [
+0.85,
+"artifact",
+"furniture.n.01",
+"ngsl8"
+],
+"gallery#n": [
+0.85,
+"artifact",
+"gallery.n.03",
+"ngsl9"
+],
+"gap#n": [
+0.85,
+"object",
+"opening.n.01",
+"ngsl7"
+],
+"garage#n": [
+0.95,
+"artifact",
+"garage.n.01",
+"toeic1"
+],
+"garbage disposal#n": [
+0.95,
+"artifact",
+"disposal.n.04",
+"us-housing"
+],
+"garbage#n": [
+0.7,
+"substance",
+"garbage.n.01",
+"toeic3"
+],
+"garden#n": [
+0.85,
+"artifact",
+"garden.n.01",
+"ngsl4"
+],
+"gardener#n": [
+0.85,
+"person",
+"gardener.n.01",
+"toeic6"
+],
+"garment#n": [
+0.95,
+"artifact",
+"garment.n.01",
+"toeic3"
+],
+"gas giant#n": [
+0.85,
+"object",
+"jovian_planet.n.01",
+"ex-toefl"
+],
+"gasoline#n": [
+0.7,
+"substance",
+"gasoline.n.01",
+"toeic5"
+],
+"gate#n": [
+0.85,
+"artifact",
+"gate.n.01",
+"ngsl8"
+],
+"gauge#n": [
+0.95,
+"artifact",
+"gauge.n.01",
+"nawl3"
+],
+"gear#n": [
+0.85,
+"artifact",
+"gear.n.04",
+"ngsl9"
+],
+"gene#n": [
+0.7,
+"body",
+"gene.n.01",
+"ngsl7"
+],
+"generator#n": [
+0.95,
+"artifact",
+"generator.n.01",
+"toeic8"
+],
+"generic drug#n": [
+0.85,
+"artifact",
+"generic_drug.n.01",
+"us-health"
+],
+"geyser#n": [
+0.85,
+"object",
+"geyser.n.01",
+"ex-toefl"
+],
+"giant#adj": [
+0.75,
+"all",
+"elephantine.s.01",
+"ngsl8"
+],
+"girl#n": [
+0.85,
+"person",
+"girl.n.01",
+"ngsl2"
+],
+"glacier#n": [
+0.85,
+"object",
+"glacier.n.01",
+"ex-toefl-lecture"
+],
+"glass#n": [
+0.7,
+"substance",
+"glass.n.01",
+"ngsl4"
+],
+"globe#n": [
+0.85,
+"object",
+"earth.n.01",
+"awl7"
+],
+"glove#n": [
+0.85,
+"artifact",
+"glove.n.02",
+"toeic4"
+],
+"goat#n": [
+1,
+"animal",
+"goat.n.01",
+"nawl3"
+],
+"gold#n": [
+0.7,
+"substance",
+"gold.n.03",
+"ngsl6"
+],
+"golden#adj": [
+0.75,
+"all",
+"gold.s.01",
+"ngsl10"
+],
+"grain#n": [
+1,
+"food",
+"grain.n.02",
+"ngsl10"
+],
+"grandmother#n": [
+0.85,
+"person",
+"grandma.n.01",
+"ngsl10"
+],
+"granite#n": [
+0.7,
+"substance",
+"granite.n.01",
+"ex-toefl-lecture"
+],
+"graphics#n": [
+0.85,
+"artifact",
+"graphic.n.01",
+"toeic7"
+],
+"grass#n": [
+0.95,
+"plant",
+"grass.n.01",
+"ngsl8"
+],
+"grave#n": [
+0.85,
+"artifact",
+"grave.n.02",
+"bsl5"
+],
+"gray#adj": [
+0.75,
+"all",
+"grey.s.01",
+"ngsl7"
+],
+"green#adj": [
+0.75,
+"all",
+"green.s.01",
+"ngsl4"
+],
+"greenhouse gas#n": [
+0.7,
+"substance",
+"greenhouse_gas.n.01",
+"dom-env"
+],
+"greenhouse#n": [
+0.95,
+"artifact",
+"greenhouse.n.01",
+"ex-ielts-listen"
+],
+"grid#n": [
+0.85,
+"artifact",
+"power_system.n.01",
+"energy"
+],
+"grin#v": [
+0.7,
+"body",
+"grin.v.01",
+"ngsl10"
+],
+"grinding#n": [
+0.85,
+"object",
+"grinding.n.01",
+"dom-eng"
+],
+"grocery#n": [
+0.95,
+"artifact",
+"grocery.n.02",
+"toeic3"
+],
+"ground floor#n": [
+0.95,
+"artifact",
+"ground_floor.n.01",
+"ex-ielts-listen"
+],
+"ground#n": [
+0.85,
+"object",
+"land.n.04",
+"ngsl3"
+],
+"guitar#n": [
+0.95,
+"artifact",
+"guitar.n.01",
+"ngsl10"
+],
+"gum#n": [
+0.95,
+"food",
+"chewing_gum.n.01",
+"toeic7"
+],
+"gun#n": [
+0.95,
+"artifact",
+"gun.n.01",
+"ngsl6"
+],
+"gut#n": [
+1,
+"body",
+"intestine.n.01",
+"nawl3"
+],
+"gym#n": [
+0.85,
+"artifact",
+"gymnasium.n.02",
+"toeic2"
+],
+"gymnasium#n": [
+0.95,
+"artifact",
+"gymnasium.n.02",
+"toeic10"
+],
+"habitat#n": [
+0.65,
+"location",
+"habitat.n.01",
+"environment"
+],
+"hair#n": [
+0.9,
+"body",
+"hair.n.01",
+"ngsl4"
+],
+"hall#n": [
+0.95,
+"artifact",
+"hallway.n.01",
+"ngsl6"
+],
+"hallway#n": [
+0.95,
+"artifact",
+"hallway.n.01",
+"toeic8"
+],
+"hamburger#n": [
+0.95,
+"food",
+"hamburger.n.01",
+"toeic8"
+],
+"hand luggage#n": [
+0.85,
+"artifact",
+"hand_luggage.n.01",
+"ex-ielts-listen"
+],
+"hand#n": [
+0.9,
+"body",
+"hand.n.01",
+"ngsl1"
+],
+"handset#n": [
+0.85,
+"artifact",
+"handset.n.01",
+"bsl3"
+],
+"hang#v": [
+0.7,
+"contact",
+"hang.v.02",
+"ngsl4"
+],
+"hard hat#n": [
+0.65,
+"person",
+"construction_worker.n.01",
+"ex-ielts-gt-life"
+],
+"hardware#n": [
+0.95,
+"artifact",
+"hardware.n.02",
+"toeic4"
+],
+"hat#n": [
+0.85,
+"artifact",
+"hat.n.01",
+"ngsl7"
+],
+"haul#v": [
+0.7,
+"contact",
+"haul.v.01",
+"bsl4"
+],
+"hawk#n": [
+1,
+"animal",
+"hawk.n.01",
+"nawl4"
+],
+"head#n": [
+0.9,
+"body",
+"head.n.01",
+"ngsl1"
+],
+"headphone#n": [
+0.95,
+"artifact",
+"earphone.n.01",
+"toeic8"
+],
+"headquarters#n": [
+0.85,
+"artifact",
+"headquarters.n.01",
+"ex-toeic-r"
+],
+"heart#n": [
+1,
+"body",
+"heart.n.02",
+"ngsl3"
+],
+"heat exchanger#n": [
+0.95,
+"artifact",
+"heat_exchanger.n.01",
+"dom-eng"
+],
+"heater#n": [
+0.95,
+"artifact",
+"heater.n.01",
+"toeic8"
+],
+"heavy#adj": [
+0.75,
+"all",
+"heavy.a.01",
+"ngsl4"
+],
+"helicopter#n": [
+0.85,
+"artifact",
+"helicopter.n.01",
+"bsl4"
+],
+"helmet#n": [
+0.95,
+"artifact",
+"helmet.n.01",
+"toeic8"
+],
+"herbicide#n": [
+0.7,
+"substance",
+"herbicide.n.01",
+"nawl5"
+],
+"herbivore#n": [
+1,
+"animal",
+"herbivore.n.01",
+"ex-toefl"
+],
+"hibernate#v": [
+0.7,
+"body",
+"hibernate.v.01",
+"wildlife"
+],
+"highway#n": [
+0.85,
+"artifact",
+"highway.n.01",
+"toeic2"
+],
+"hiker#n": [
+0.85,
+"person",
+"hiker.n.01",
+"toeic8"
+],
+"hill#n": [
+0.85,
+"object",
+"hill.n.01",
+"ngsl6"
+],
+"hip#n": [
+0.9,
+"body",
+"hip.n.01",
+"nawl2"
+],
+"hit#v": [
+0.7,
+"contact",
+"hit.v.02",
+"ngsl3"
+],
+"hole#n": [
+0.85,
+"object",
+"hole.n.01",
+"ngsl6"
+],
+"hook#n": [
+0.95,
+"artifact",
+"hook.n.04",
+"ngsl10"
+],
+"hormone#n": [
+0.9,
+"body",
+"hormone.n.01",
+"dom-med"
+],
+"horse#n": [
+0.95,
+"artifact",
+"horse.n.02",
+"ngsl5"
+],
+"hostel#n": [
+0.85,
+"artifact",
+"hostel.n.01",
+"dom-hosp"
+],
+"hot#adj": [
+0.75,
+"all",
+"hot.a.01",
+"ngsl4"
+],
+"hotel#n": [
+0.85,
+"artifact",
+"hotel.n.01",
+"ngsl3"
+],
+"house#n": [
+0.95,
+"artifact",
+"house.n.01",
+"ngsl1"
+],
+"housing#n": [
+0.85,
+"artifact",
+"housing.n.01",
+"urban"
+],
+"hub#n": [
+0.85,
+"artifact",
+"hub.n.01",
+"bsl4"
+],
+"huge#adj": [
+0.75,
+"all",
+"huge.s.01",
+"ngsl4"
+],
+"hungry#adj": [
+0.75,
+"all",
+"hungry.a.01",
+"toeic2"
+],
+"hurdle#n": [
+0.85,
+"artifact",
+"hurdle.n.01",
+"bsl4"
+],
+"hybrid#n": [
+1,
+"animal",
+"hybrid.n.03",
+"ex-toefl-lecture"
+],
+"ice#n": [
+0.7,
+"substance",
+"ice.n.01",
+"ngsl6"
+],
+"icy#adj": [
+0.75,
+"all",
+"icy.s.03",
+"toeic5"
+],
+"igneous rock#n": [
+0.7,
+"substance",
+"igneous_rock.n.01",
+"ex-toefl"
+],
+"immune system#n": [
+0.9,
+"body",
+"immune_system.n.01",
+"dom-med"
+],
+"import#n": [
+0.85,
+"artifact",
+"import.n.01",
+"dom-biz"
+],
+"information system#n": [
+0.6,
+"artifact",
+"data_system.n.01",
+"dom-it"
+],
+"infrastructure#n": [
+0.65,
+"artifact",
+"infrastructure.n.01",
+"urban"
+],
+"ingredient#n": [
+0.95,
+"artifact",
+"ingredient.n.01",
+"toeic2"
+],
+"ink#n": [
+0.7,
+"substance",
+"ink.n.01",
+"toeic2"
+],
+"innovation#n": [
+0.85,
+"artifact",
+"invention.n.02",
+"ngsl8"
+],
+"insect#n": [
+1,
+"animal",
+"insect.n.01",
+"nawl3"
+],
+"instrument#n": [
+0.95,
+"artifact",
+"instrument.n.01",
+"ngsl6"
+],
+"insulation#n": [
+0.8,
+"substance",
+"insulating_material.n.01",
+"energy"
+],
+"insulin#n": [
+0.9,
+"body",
+"insulin.n.01",
+"dom-med"
+],
+"internet#n": [
+0.85,
+"artifact",
+"internet.n.01",
+"toeic5"
+],
+"invertebrate#n": [
+1,
+"animal",
+"invertebrate.n.01",
+"ex-toefl"
+],
+"iron#n": [
+0.7,
+"substance",
+"iron.n.01",
+"ngsl9"
+],
+"island#n": [
+0.85,
+"object",
+"island.n.01",
+"ngsl5"
+],
+"jacket#n": [
+0.85,
+"artifact",
+"jacket.n.01",
+"ngsl9"
+],
+"jail#n": [
+0.85,
+"artifact",
+"jail.n.01",
+"ngsl10"
+],
+"jeans#n": [
+0.95,
+"artifact",
+"jean.n.01",
+"toeic10"
+],
+"jet#n": [
+0.85,
+"artifact",
+"jet.n.01",
+"toeic4"
+],
+"jewelry#n": [
+0.85,
+"artifact",
+"jewelry.n.01",
+"toeic2"
+],
+"jog#v": [
+0.7,
+"motion",
+"jog.v.03",
+"toeic4"
+],
+"juice#n": [
+1,
+"food",
+"juice.n.01",
+"toeic3"
+],
+"jump#v": [
+0.7,
+"motion",
+"startle.v.02",
+"ngsl5"
+],
+"junction#n": [
+0.85,
+"artifact",
+"junction.n.01",
+"ex-ielts-listen"
+],
+"junk#n": [
+0.7,
+"substance",
+"debris.n.01",
+"toeic6"
+],
+"key#n": [
+0.95,
+"artifact",
+"key.n.01",
+"ngsl3"
+],
+"keyboard#n": [
+0.85,
+"artifact",
+"keyboard.n.01",
+"toeic1"
+],
+"kick#v": [
+0.7,
+"contact",
+"kick.v.03",
+"ngsl7"
+],
+"kid#n": [
+0.85,
+"person",
+"child.n.01",
+"ngsl2"
+],
+"kidney#n": [
+0.9,
+"body",
+"kidney.n.01",
+"nawl4"
+],
+"king#n": [
+0.85,
+"person",
+"king.n.01",
+"ngsl7"
+],
+"kiss#v": [
+0.7,
+"contact",
+"snog.v.01",
+"ngsl6"
+],
+"kit#n": [
+0.85,
+"artifact",
+"kit.n.02",
+"toeic5"
+],
+"kitchen#n": [
+0.95,
+"artifact",
+"kitchen.n.01",
+"ngsl5"
+],
+"knee#n": [
+0.85,
+"artifact",
+"knee.n.03",
+"ngsl8"
+],
+"knife#n": [
+0.95,
+"artifact",
+"knife.n.01",
+"ngsl10"
+],
+"knock#v": [
+0.7,
+"contact",
+"bump.v.01",
+"ngsl7"
+],
+"lab#n": [
+0.95,
+"artifact",
+"lab.n.01",
+"toeic2"
+],
+"laboratory#n": [
+0.85,
+"artifact",
+"lab.n.01",
+"ngsl9"
+],
+"ladder#n": [
+0.95,
+"artifact",
+"ladder.n.01",
+"toeic3"
+],
+"lake#n": [
+0.85,
+"object",
+"lake.n.01",
+"ngsl7"
+],
+"lamp#n": [
+0.95,
+"artifact",
+"lamp.n.02",
+"toeic2"
+],
+"land#n": [
+0.85,
+"object",
+"land.n.04",
+"ngsl2"
+],
+"landfill#n": [
+0.85,
+"object",
+"landfill.n.01",
+"environment"
+],
+"landlady#n": [
+0.65,
+"person",
+"landlady.n.01",
+"ex-ielts-listen"
+],
+"landline#n": [
+0.85,
+"artifact",
+"land_line.n.01",
+"ex-ielts-listen"
+],
+"landmark#n": [
+0.65,
+"location",
+"landmark.n.01",
+"travel"
+],
+"lane#n": [
+0.85,
+"artifact",
+"lane.n.01",
+"toeic3"
+],
+"laptop#n": [
+0.85,
+"artifact",
+"laptop.n.01",
+"toeic1"
+],
+"large#adj": [
+0.75,
+"all",
+"large.a.01",
+"ngsl1"
+],
+"larva#n": [
+1,
+"animal",
+"larva.n.01",
+"ex-toefl"
+],
+"laser#n": [
+0.85,
+"artifact",
+"laser.n.01",
+"bsl5"
+],
+"lathe#n": [
+0.95,
+"artifact",
+"lathe.n.01",
+"dom-eng"
+],
+"laugh#v": [
+0.7,
+"body",
+"laugh.v.01",
+"ngsl3"
+],
+"laundromat#n": [
+0.85,
+"artifact",
+"launderette.n.01",
+"us-housing"
+],
+"laundry#n": [
+0.85,
+"artifact",
+"laundry.n.02",
+"toeic4"
+],
+"lava#n": [
+0.7,
+"substance",
+"lava.n.01",
+"ex-toefl-lecture"
+],
+"lawn#n": [
+0.65,
+"location",
+"lawn.n.01",
+"toeic5"
+],
+"leaf#n": [
+1,
+"plant",
+"leaf.n.01",
+"nawl3"
+],
+"leak#n": [
+0.85,
+"object",
+"leak.n.01",
+"ex-ielts-gt-life"
+],
+"lean#v": [
+0.7,
+"motion",
+"lean.v.01",
+"ngsl8"
+],
+"leap#v": [
+0.7,
+"motion",
+"jump.v.01",
+"ngsl10"
+],
+"leather#n": [
+0.8,
+"substance",
+"leather.n.01",
+"ngsl10"
+],
+"leg#n": [
+1,
+"body",
+"leg.n.01",
+"ngsl4"
+],
+"lever#n": [
+0.85,
+"artifact",
+"lever.n.01",
+"nawl3"
+],
+"librarian#n": [
+0.85,
+"person",
+"librarian.n.01",
+"toeic4"
+],
+"library#n": [
+0.85,
+"artifact",
+"library.n.01",
+"ngsl5"
+],
+"life jacket#n": [
+0.85,
+"artifact",
+"life_jacket.n.01",
+"ex-ielts-listen"
+],
+"lifeguard#n": [
+0.85,
+"person",
+"lifeguard.n.01",
+"ex-ielts-gt-life"
+],
+"lift#v": [
+0.7,
+"motion",
+"raise.v.02",
+"ngsl5"
+],
+"lighter#n": [
+0.95,
+"artifact",
+"lighter.n.02",
+"toeic8"
+],
+"lighthouse#n": [
+0.85,
+"artifact",
+"beacon.n.03",
+"ex-ielts-listen"
+],
+"limb#n": [
+0.9,
+"body",
+"limb.n.01",
+"nawl3"
+],
+"limestone#n": [
+0.7,
+"substance",
+"limestone.n.01",
+"ex-toefl-lecture"
+],
+"linen#n": [
+0.85,
+"artifact",
+"linen.n.01",
+"dom-hosp"
+],
+"lip#n": [
+0.9,
+"body",
+"lip.n.01",
+"ngsl9"
+],
+"little#adj": [
+0.75,
+"all",
+"little.a.02",
+"ngsl1"
+],
+"liver#n": [
+0.9,
+"body",
+"liver.n.01",
+"nawl3"
+],
+"livestock#n": [
+1,
+"animal",
+"livestock.n.01",
+"food"
+],
+"load#n": [
+0.85,
+"artifact",
+"cargo.n.01",
+"ngsl6"
+],
+"loading dock#n": [
+0.85,
+"artifact",
+"dock.n.04",
+"dom-log"
+],
+"lobby#n": [
+0.95,
+"artifact",
+"anteroom.n.01",
+"toeic1"
+],
+"locker#n": [
+0.85,
+"artifact",
+"cabinet.n.03",
+"ex-ielts-gt-life"
+],
+"lodging#n": [
+0.85,
+"artifact",
+"housing.n.01",
+"ex-toeic-travel"
+],
+"log#n": [
+0.8,
+"substance",
+"log.n.01",
+"ngsl8"
+],
+"long#adj": [
+0.75,
+"all",
+"long.a.02",
+"ngsl1"
+],
+"lounge#n": [
+0.95,
+"artifact",
+"lounge.n.02",
+"toeic3"
+],
+"luggage#n": [
+0.85,
+"artifact",
+"baggage.n.01",
+"toeic1"
+],
+"lump#n": [
+0.95,
+"object",
+"hunk.n.02",
+"nawl1"
+],
+"lunch#n": [
+0.95,
+"food",
+"lunch.n.01",
+"ngsl5"
+],
+"luncheon#n": [
+0.95,
+"food",
+"lunch.n.01",
+"toeic4"
+],
+"lung#n": [
+0.9,
+"body",
+"lung.n.01",
+"nawl3"
+],
+"machine tool#n": [
+0.95,
+"artifact",
+"machine_tool.n.01",
+"dom-eng"
+],
+"machine#n": [
+0.95,
+"artifact",
+"car.n.01",
+"ngsl3"
+],
+"machinery#n": [
+0.85,
+"artifact",
+"machinery.n.01",
+"ex-toeic-travel"
+],
+"magma#n": [
+0.7,
+"substance",
+"magma.n.01",
+"ex-toefl"
+],
+"mainland#n": [
+0.85,
+"object",
+"mainland.n.01",
+"bsl3"
+],
+"maker#n": [
+0.65,
+"person",
+"maker.n.01",
+"ngsl10"
+],
+"mall#n": [
+0.95,
+"artifact",
+"plaza.n.02",
+"toeic1"
+],
+"mammal#n": [
+1,
+"animal",
+"mammal.n.01",
+"wildlife"
+],
+"man#n": [
+0.85,
+"person",
+"man.n.01",
+"ngsl1"
+],
+"mangrove#n": [
+1,
+"plant",
+"mangrove.n.01",
+"dom-env"
+],
+"mantle#n": [
+0.85,
+"object",
+"mantle.n.03",
+"ex-toefl"
+],
+"map#n": [
+0.85,
+"artifact",
+"map.n.01",
+"ngsl5"
+],
+"marble#n": [
+0.7,
+"substance",
+"marble.n.01",
+"nawl3"
+],
+"march#v": [
+0.7,
+"motion",
+"march.v.03",
+"ngsl9"
+],
+"marker#n": [
+0.85,
+"artifact",
+"marker.n.01",
+"nawl1"
+],
+"marquee#n": [
+0.85,
+"artifact",
+"pavilion.n.01",
+"ex-ielts-listen"
+],
+"marrow#n": [
+0.9,
+"body",
+"marrow.n.01",
+"nawl5"
+],
+"mask#n": [
+0.85,
+"artifact",
+"mask.n.01",
+"toeic4"
+],
+"masterpiece#n": [
+0.85,
+"artifact",
+"masterpiece.n.01",
+"culture"
+],
+"mate#n": [
+0.65,
+"person",
+"mate.n.08",
+"ngsl9"
+],
+"material#n": [
+0.8,
+"substance",
+"material.n.01",
+"ngsl3"
+],
+"meal#n": [
+1,
+"food",
+"meal.n.01",
+"ngsl5"
+],
+"meat#n": [
+1,
+"food",
+"meat.n.01",
+"ngsl7"
+],
+"mechanic#n": [
+0.85,
+"person",
+"machinist.n.01",
+"toeic2"
+],
+"mechanism#n": [
+0.95,
+"artifact",
+"mechanism.n.05",
+"ngsl7"
+],
+"medication#n": [
+0.85,
+"artifact",
+"medicine.n.02",
+"toeic1"
+],
+"membrane#n": [
+0.85,
+"artifact",
+"membrane.n.01",
+"nawl4"
+],
+"merchandise#n": [
+0.85,
+"artifact",
+"merchandise.n.01",
+"toeic1"
+],
+"mercury#n": [
+0.8,
+"substance",
+"mercury.n.01",
+"nawl5"
+],
+"metal#n": [
+0.7,
+"substance",
+"metallic_element.n.01",
+"ngsl7"
+],
+"metamorphic rock#n": [
+0.7,
+"substance",
+"metamorphic_rock.n.01",
+"ex-toefl"
+],
+"meteorite#n": [
+0.95,
+"object",
+"meteorite.n.01",
+"ex-toefl"
+],
+"methane#n": [
+0.7,
+"substance",
+"methane.n.01",
+"dom-env"
+],
+"mice#n": [
+1,
+"animal",
+"mouse.n.01",
+"dom-hosp"
+],
+"microfilm#n": [
+0.85,
+"artifact",
+"microfilm.n.01",
+"ex-toefl-campus"
+],
+"microorganism#n": [
+1,
+"animal",
+"microorganism.n.01",
+"ex-toefl"
+],
+"microphone#n": [
+0.95,
+"artifact",
+"microphone.n.01",
+"toeic4"
+],
+"microscope#n": [
+0.95,
+"artifact",
+"microscope.n.01",
+"toeic5"
+],
+"microwave#n": [
+0.95,
+"artifact",
+"microwave.n.02",
+"toeic8"
+],
+"milk#n": [
+0.9,
+"body",
+"milk.n.02",
+"ngsl7"
+],
+"milling#n": [
+0.95,
+"artifact",
+"milling.n.01",
+"dom-eng"
+],
+"mineral#n": [
+0.7,
+"substance",
+"mineral.n.01",
+"ex-toefl-lecture"
+],
+"minibar#n": [
+0.95,
+"artifact",
+"minibar.n.01",
+"dom-hosp"
+],
+"mirror#n": [
+0.85,
+"artifact",
+"mirror.n.01",
+"ngsl8"
+],
+"missile#n": [
+0.95,
+"artifact",
+"missile.n.01",
+"nawl2"
+],
+"mixture#n": [
+0.7,
+"substance",
+"mixture.n.01",
+"ngsl9"
+],
+"mock-up#n": [
+0.85,
+"artifact",
+"mock-up.n.01",
+"dom-mkt"
+],
+"modem#n": [
+0.95,
+"artifact",
+"modem.n.01",
+"toeic10"
+],
+"module#n": [
+0.85,
+"artifact",
+"module.n.04",
+"ngsl10"
+],
+"mold#n": [
+0.95,
+"artifact",
+"mold.n.02",
+"dom-eng"
+],
+"molecule#n": [
+0.8,
+"substance",
+"molecule.n.01",
+"dom-env"
+],
+"monkey#n": [
+1,
+"animal",
+"monkey.n.01",
+"nawl1"
+],
+"monument#n": [
+0.85,
+"artifact",
+"memorial.n.03",
+"toeic10"
+],
+"moon#n": [
+0.95,
+"object",
+"moon.n.02",
+"ngsl10"
+],
+"mosaic#n": [
+0.85,
+"artifact",
+"mosaic.n.01",
+"ex-toefl"
+],
+"mosquito#n": [
+1,
+"animal",
+"mosquito.n.01",
+"toeic10"
+],
+"mother#n": [
+0.85,
+"person",
+"mother.n.01",
+"ngsl2"
+],
+"motor#n": [
+0.95,
+"artifact",
+"motor.n.01",
+"ngsl9"
+],
+"motorcycle#n": [
+0.95,
+"artifact",
+"motorcycle.n.01",
+"toeic5"
+],
+"mountain#n": [
+0.95,
+"object",
+"mountain.n.01",
+"ngsl5"
+],
+"mouse#n": [
+0.95,
+"artifact",
+"mouse.n.04",
+"ngsl7"
+],
+"mouth#n": [
+0.9,
+"body",
+"mouth.n.02",
+"ngsl6"
+],
+"mower#n": [
+0.95,
+"artifact",
+"lawn_mower.n.01",
+"toeic10"
+],
+"mural#n": [
+0.85,
+"artifact",
+"mural.n.01",
+"ex-toefl"
+],
+"muscle#n": [
+0.9,
+"body",
+"muscle.n.01",
+"ngsl8"
+],
+"museum#n": [
+0.95,
+"artifact",
+"museum.n.01",
+"ngsl5"
+],
+"musician#n": [
+0.85,
+"person",
+"musician.n.02",
+"ngsl9"
+],
+"nail#n": [
+0.85,
+"artifact",
+"nail.n.02",
+"toeic5"
+],
+"naked#adj": [
+0.75,
+"all",
+"naked.s.05",
+"nawl2"
+],
+"narrow#adj": [
+0.75,
+"all",
+"narrow.a.01",
+"ngsl6"
+],
+"nature#n": [
+0.85,
+"object",
+"nature.n.03",
+"ngsl3"
+],
+"nebula#n": [
+0.85,
+"object",
+"nebula.n.03",
+"ex-toefl"
+],
+"neck#n": [
+1,
+"body",
+"neck.n.01",
+"ngsl7"
+],
+"necklace#n": [
+0.85,
+"artifact",
+"necklace.n.01",
+"toeic9"
+],
+"nectar#n": [
+0.7,
+"substance",
+"nectar.n.01",
+"ex-toefl"
+],
+"nerve#n": [
+0.9,
+"body",
+"nerve.n.01",
+"ngsl10"
+],
+"nervous system#n": [
+0.9,
+"body",
+"nervous_system.n.01",
+"dom-med"
+],
+"nest#n": [
+0.95,
+"object",
+"nest.n.01",
+"nawl1"
+],
+"net#n": [
+0.95,
+"artifact",
+"net.n.02",
+"ngsl5"
+],
+"neuron#n": [
+0.9,
+"body",
+"nerve_cell.n.01",
+"nawl5"
+],
+"new#adj": [
+0.75,
+"all",
+"new.a.01",
+"ngsl1"
+],
+"newsstand#n": [
+0.85,
+"artifact",
+"newsstand.n.01",
+"toeic5"
+],
+"nitrogen#n": [
+0.7,
+"substance",
+"nitrogen.n.01",
+"nawl4"
+],
+"nose#n": [
+0.9,
+"body",
+"nose.n.01",
+"ngsl8"
+],
+"nucleus#n": [
+0.9,
+"body",
+"nucleus.n.01",
+"nawl4"
+],
+"nurse#n": [
+0.85,
+"person",
+"nurse.n.01",
+"ngsl5"
+],
+"nursery#n": [
+0.85,
+"artifact",
+"nursery.n.01",
+"ex-ielts-listen"
+],
+"ocean#n": [
+0.85,
+"object",
+"ocean.n.01",
+"ngsl10"
+],
+"office#n": [
+0.95,
+"artifact",
+"office.n.01",
+"ngsl2"
+],
+"officer#n": [
+0.85,
+"person",
+"military_officer.n.01",
+"ngsl4"
+],
+"offspring#n": [
+1,
+"animal",
+"young.n.01",
+"ex-toefl"
+],
+"oil#n": [
+0.7,
+"substance",
+"oil.n.01",
+"ngsl4"
+],
+"old#adj": [
+0.75,
+"all",
+"old.a.01",
+"ngsl1"
+],
+"one-way street#n": [
+0.85,
+"artifact",
+"one-way_street.n.02",
+"ex-ielts-listen"
+],
+"operating room#n": [
+0.95,
+"artifact",
+"operating_room.n.01",
+"dom-med"
+],
+"orbit#n": [
+0.65,
+"location",
+"orbit.n.04",
+"space"
+],
+"orchard#n": [
+0.95,
+"artifact",
+"grove.n.02",
+"ex-ielts-listen"
+],
+"organ#n": [
+1,
+"body",
+"organ.n.01",
+"nawl2"
+],
+"outfit#n": [
+0.85,
+"artifact",
+"outfit.n.02",
+"toeic8"
+],
+"outlet#n": [
+0.85,
+"artifact",
+"mercantile_establishment.n.01",
+"toeic3"
+],
+"output#n": [
+0.6,
+"artifact",
+"end_product.n.01",
+"ngsl7"
+],
+"oven#n": [
+0.95,
+"artifact",
+"oven.n.01",
+"toeic3"
+],
+"override#n": [
+0.85,
+"artifact",
+"override.n.01",
+"ex-toefl-campus"
+],
+"oxygen#n": [
+0.7,
+"substance",
+"oxygen.n.01",
+"nawl4"
+],
+"ozone layer#n": [
+0.85,
+"object",
+"ozone_layer.n.01",
+"dom-env"
+],
+"pack#v": [
+0.7,
+"contact",
+"pack.v.01",
+"ngsl5"
+],
+"package#n": [
+0.95,
+"artifact",
+"package.n.02",
+"ngsl5"
+],
+"packet#n": [
+0.85,
+"artifact",
+"packet.n.03",
+"toeic3"
+],
+"pad#n": [
+0.8,
+"substance",
+"pad.n.01",
+"toeic7"
+],
+"painkiller#n": [
+0.85,
+"artifact",
+"analgesic.n.01",
+"dom-med"
+],
+"paint#v": [
+0.7,
+"contact",
+"paint.v.02",
+"ngsl3"
+],
+"painter#n": [
+0.85,
+"person",
+"painter.n.01",
+"toeic3"
+],
+"pale#adj": [
+0.75,
+"all",
+"pale.s.01",
+"ngsl10"
+],
+"pallet#n": [
+0.85,
+"artifact",
+"pallet.n.02",
+"dom-log"
+],
+"pan#n": [
+0.95,
+"artifact",
+"pan.n.01",
+"toeic6"
+],
+"pant#n": [
+0.95,
+"artifact",
+"trouser.n.01",
+"toeic3"
+],
+"paper#n": [
+0.7,
+"substance",
+"paper.n.01",
+"ngsl2"
+],
+"paperback#n": [
+0.85,
+"artifact",
+"paperback_book.n.01",
+"toeic7"
+],
+"parasite#n": [
+1,
+"animal",
+"parasite.n.01",
+"ex-toefl"
+],
+"parcel#n": [
+0.95,
+"artifact",
+"package.n.02",
+"ex-ielts-gt-life"
+],
+"part#n": [
+0.85,
+"object",
+"part.n.03",
+"ngsl1"
+],
+"particle#n": [
+0.8,
+"substance",
+"atom.n.02",
+"nawl4"
+],
+"particulate matter#n": [
+0.7,
+"substance",
+"particulate.n.01",
+"dom-env"
+],
+"partition#n": [
+0.95,
+"artifact",
+"partition.n.01",
+"nawl5"
+],
+"passenger#n": [
+0.95,
+"person",
+"passenger.n.01",
+"ngsl7"
+],
+"pasta#n": [
+1,
+"food",
+"pasta.n.02",
+"toeic6"
+],
+"pastry#n": [
+1,
+"food",
+"pastry.n.02",
+"toeic9"
+],
+"path#n": [
+0.85,
+"object",
+"path.n.04",
+"ngsl5"
+],
+"pathogen#n": [
+1,
+"animal",
+"pathogen.n.01",
+"dom-med"
+],
+"pathway#n": [
+0.9,
+"body",
+"nerve_pathway.n.01",
+"nawl5"
+],
+"patient#n": [
+0.85,
+"person",
+"patient.n.01",
+"ngsl3"
+],
+"pedestrian crossing#n": [
+0.85,
+"artifact",
+"pedestrian_crossing.n.01",
+"ex-ielts-listen"
+],
+"pedestrian#n": [
+0.65,
+"person",
+"pedestrian.n.01",
+"urban"
+],
+"peg#n": [
+0.85,
+"artifact",
+"peg.n.01",
+"bsl4"
+],
+"pen#n": [
+0.85,
+"artifact",
+"pen.n.01",
+"ngsl9"
+],
+"pepper#n": [
+1,
+"food",
+"pepper.n.04",
+"toeic10"
+],
+"peripheral#n": [
+0.95,
+"artifact",
+"peripheral.n.01",
+"dom-it"
+],
+"permafrost#n": [
+0.85,
+"object",
+"permafrost.n.01",
+"dom-env"
+],
+"pest#n": [
+1,
+"animal",
+"pest.n.04",
+"nawl4"
+],
+"pesticide#n": [
+0.7,
+"substance",
+"pesticide.n.01",
+"food"
+],
+"pet#n": [
+1,
+"animal",
+"pet.n.01",
+"toeic3"
+],
+"petrol#n": [
+0.7,
+"substance",
+"gasoline.n.01",
+"bsl1"
+],
+"phone#n": [
+0.95,
+"artifact",
+"telephone.n.01",
+"ngsl2"
+],
+"photo#n": [
+0.85,
+"artifact",
+"photograph.n.01",
+"ngsl5"
+],
+"photocopier#n": [
+0.95,
+"artifact",
+"photocopier.n.01",
+"toeic3"
+],
+"photocopy#n": [
+0.85,
+"artifact",
+"photocopy.n.01",
+"toeic1"
+],
+"photograph#n": [
+0.85,
+"artifact",
+"photograph.n.01",
+"ngsl5"
+],
+"photographer#n": [
+0.85,
+"person",
+"photographer.n.01",
+"toeic2"
+],
+"piano#n": [
+0.95,
+"artifact",
+"piano.n.01",
+"ngsl10"
+],
+"picnic area#n": [
+0.65,
+"location",
+"picnic_area.n.01",
+"ex-ielts-listen"
+],
+"picnic#n": [
+0.95,
+"food",
+"picnic.n.03",
+"toeic2"
+],
+"picture#n": [
+0.85,
+"artifact",
+"painting.n.01",
+"ngsl2"
+],
+"pie#n": [
+1,
+"food",
+"pie.n.01",
+"toeic6"
+],
+"piece#n": [
+0.85,
+"artifact",
+"piece.n.01",
+"ngsl3"
+],
+"pier#n": [
+0.85,
+"artifact",
+"pier.n.01",
+"ex-toeic-l"
+],
+"pig#n": [
+1,
+"animal",
+"hog.n.03",
+"ngsl9"
+],
+"pigment#n": [
+0.85,
+"artifact",
+"paint.n.01",
+"ex-toefl"
+],
+"pill#n": [
+0.95,
+"artifact",
+"pill.n.02",
+"toeic6"
+],
+"pillow#n": [
+0.95,
+"artifact",
+"pillow.n.01",
+"toeic8"
+],
+"pilot#n": [
+0.95,
+"person",
+"pilot.n.02",
+"ngsl7"
+],
+"pink#adj": [
+0.75,
+"all",
+"pink.s.01",
+"ngsl8"
+],
+"pipe#n": [
+0.85,
+"artifact",
+"pipe.n.02",
+"ngsl10"
+],
+"pit#n": [
+0.85,
+"object",
+"pit.n.01",
+"bsl5"
+],
+"pixel#n": [
+0.85,
+"artifact",
+"pixel.n.01",
+"dom-it"
+],
+"pizza#n": [
+0.95,
+"food",
+"pizza.n.01",
+"toeic4"
+],
+"place#n": [
+0.65,
+"location",
+"place.n.02",
+"ngsl1"
+],
+"placebo#n": [
+0.85,
+"artifact",
+"placebo.n.01",
+"ex-toefl-lecture"
+],
+"plane#n": [
+0.85,
+"artifact",
+"airplane.n.01",
+"ngsl5"
+],
+"planet#n": [
+0.85,
+"object",
+"planet.n.01",
+"ngsl8"
+],
+"plankton#n": [
+1,
+"animal",
+"plankton.n.01",
+"ex-toefl"
+],
+"plastic#n": [
+0.7,
+"substance",
+"plastic.n.01",
+"ngsl7"
+],
+"plate#n": [
+0.95,
+"artifact",
+"plate.n.04",
+"ngsl7"
+],
+"platform#n": [
+0.85,
+"artifact",
+"platform.n.01",
+"ngsl8"
+],
+"plot#n": [
+0.65,
+"location",
+"plot.n.02",
+"ngsl7"
+],
+"plow#n": [
+0.95,
+"artifact",
+"plow.n.01",
+"toeic10"
+],
+"plumber#n": [
+0.85,
+"person",
+"plumber.n.01",
+"ex-ielts-gt-life"
+],
+"pocket#n": [
+0.95,
+"artifact",
+"pocket.n.01",
+"ngsl7"
+],
+"podium#n": [
+0.85,
+"artifact",
+"dais.n.01",
+"ex-toeic-l"
+],
+"poison#n": [
+0.7,
+"substance",
+"poison.n.01",
+"bsl4"
+],
+"pole#n": [
+0.85,
+"artifact",
+"pole.n.01",
+"toeic7"
+],
+"policeman#n": [
+0.85,
+"person",
+"policeman.n.01",
+"bsl3"
+],
+"pollinator#n": [
+1,
+"animal",
+"pollinator.n.01",
+"ex-toefl"
+],
+"pollutant#n": [
+0.7,
+"substance",
+"pollutant.n.01",
+"dom-env"
+],
+"pool#n": [
+0.95,
+"artifact",
+"pool.n.01",
+"ngsl5"
+],
+"popcorn#n": [
+0.95,
+"plant",
+"popcorn.n.01",
+"toeic8"
+],
+"portion#n": [
+0.85,
+"artifact",
+"part.n.02",
+"ngsl8"
+],
+"pot#n": [
+0.95,
+"artifact",
+"pot.n.01",
+"ngsl10"
+],
+"potato#n": [
+1,
+"food",
+"potato.n.01",
+"ngsl10"
+],
+"pottery#n": [
+0.85,
+"artifact",
+"pottery.n.01",
+"ex-toefl-lecture"
+],
+"pour#v": [
+0.7,
+"motion",
+"pour.v.04",
+"ngsl8"
+],
+"powder#n": [
+0.8,
+"substance",
+"powder.n.01",
+"nawl2"
+],
+"power station#n": [
+0.95,
+"artifact",
+"power_station.n.01",
+"energy"
+],
+"predator#n": [
+1,
+"animal",
+"predator.n.02",
+"wildlife"
+],
+"prescription#n": [
+0.85,
+"artifact",
+"prescription_drug.n.01",
+"ex-ielts-gt-life"
+],
+"prey#n": [
+1,
+"animal",
+"prey.n.02",
+"wildlife"
+],
+"primer#n": [
+0.85,
+"artifact",
+"flat_coat.n.01",
+"nawl5"
+],
+"printer#n": [
+0.95,
+"artifact",
+"printer.n.02",
+"ngsl10"
+],
+"printing press#n": [
+0.95,
+"artifact",
+"press.n.03",
+"ex-toefl"
+],
+"prison#n": [
+0.85,
+"artifact",
+"prison.n.01",
+"ngsl6"
+],
+"processor#n": [
+0.85,
+"artifact",
+"central_processing_unit.n.01",
+"dom-it"
+],
+"product#n": [
+0.85,
+"artifact",
+"merchandise.n.01",
+"ngsl2"
+],
+"production line#n": [
+0.85,
+"artifact",
+"production_line.n.01",
+"dom-eng"
+],
+"projector#n": [
+0.95,
+"artifact",
+"projector.n.02",
+"ex-toeic-travel"
+],
+"protein#n": [
+0.7,
+"substance",
+"protein.n.01",
+"ngsl8"
+],
+"proton#n": [
+0.85,
+"object",
+"proton.n.01",
+"nawl5"
+],
+"pub#n": [
+0.95,
+"artifact",
+"public_house.n.01",
+"ngsl8"
+],
+"public transport#n": [
+0.6,
+"artifact",
+"public_transport.n.01",
+"urban"
+],
+"pull#v": [
+0.7,
+"contact",
+"pull.v.01",
+"ngsl3"
+],
+"pump#n": [
+0.95,
+"artifact",
+"pump.n.01",
+"ngsl9"
+],
+"punch#v": [
+0.7,
+"contact",
+"punch.v.01",
+"nawl1"
+],
+"pupil#n": [
+0.85,
+"person",
+"schoolchild.n.01",
+"ngsl8"
+],
+"purse#n": [
+0.95,
+"artifact",
+"bag.n.04",
+"toeic4"
+],
+"purser#n": [
+0.65,
+"person",
+"purser.n.01",
+"toeic9"
+],
+"push#v": [
+0.7,
+"motion",
+"push.v.01",
+"ngsl4"
+],
+"rack#n": [
+0.85,
+"artifact",
+"rack.n.01",
+"toeic5"
+],
+"radar#n": [
+0.6,
+"artifact",
+"radar.n.01",
+"nawl4"
+],
+"radio#n": [
+0.6,
+"artifact",
+"radio_receiver.n.01",
+"ngsl4"
+],
+"rail#n": [
+0.95,
+"artifact",
+"rail.n.04",
+"ngsl9"
+],
+"railing#n": [
+0.95,
+"artifact",
+"railing.n.01",
+"ex-toeic-l"
+],
+"railway#n": [
+0.65,
+"artifact",
+"railway.n.01",
+"toeic10"
+],
+"rain#n": [
+0.7,
+"substance",
+"rain.n.02",
+"ngsl5"
+],
+"raincoat#n": [
+0.85,
+"artifact",
+"raincoat.n.01",
+"toeic10"
+],
+"rainy#adj": [
+0.75,
+"all",
+"showery.s.01",
+"toeic2"
+],
+"ram#n": [
+0.85,
+"artifact",
+"random-access_memory.n.01",
+"dom-it"
+],
+"rat#n": [
+1,
+"animal",
+"rat.n.01",
+"ngsl10"
+],
+"raw material#n": [
+0.7,
+"substance",
+"raw_material.n.01",
+"dom-eng"
+],
+"raw materials#n": [
+0.7,
+"substance",
+"raw_material.n.01",
+"ex-toeic-travel"
+],
+"reach#n": [
+0.65,
+"location",
+"range.n.02",
+"dom-mkt"
+],
+"reactor#n": [
+0.95,
+"artifact",
+"nuclear_reactor.n.01",
+"nawl1"
+],
+"receptionist#n": [
+0.85,
+"person",
+"receptionist.n.01",
+"toeic1"
+],
+"receptor#n": [
+0.9,
+"body",
+"receptor.n.01",
+"nawl5"
+],
+"recycling bin#n": [
+0.95,
+"artifact",
+"recycling_bin.n.01",
+"ex-ielts-gt-life"
+],
+"red giant#n": [
+0.85,
+"object",
+"red_giant.n.01",
+"ex-toefl-lecture"
+],
+"red#adj": [
+0.75,
+"all",
+"red.s.01",
+"ngsl3"
+],
+"referee#n": [
+0.85,
+"person",
+"referee.n.01",
+"sport"
+],
+"refill#n": [
+0.85,
+"artifact",
+"refill.n.01",
+"us-health"
+],
+"refinery#n": [
+0.85,
+"artifact",
+"refinery.n.01",
+"toeic8"
+],
+"reflection#n": [
+0.85,
+"artifact",
+"reflection.n.05",
+"ngsl10"
+],
+"refreshment#n": [
+1,
+"food",
+"refreshment.n.01",
+"toeic2"
+],
+"refreshments#n": [
+1,
+"food",
+"refreshment.n.01",
+"ex-ielts-listen"
+],
+"refrigerator#n": [
+0.95,
+"artifact",
+"refrigerator.n.01",
+"toeic3"
+],
+"regulator#n": [
+0.85,
+"artifact",
+"regulator.n.01",
+"bsl1"
+],
+"reinforced concrete#n": [
+0.7,
+"substance",
+"reinforced_concrete.n.01",
+"dom-eng"
+],
+"repository#n": [
+0.85,
+"artifact",
+"depository.n.01",
+"dom-it"
+],
+"reptile#n": [
+1,
+"animal",
+"reptile.n.01",
+"ex-toefl"
+],
+"reservoir#n": [
+0.85,
+"artifact",
+"reservoir.n.02",
+"nawl4"
+],
+"residence hall#n": [
+0.95,
+"artifact",
+"dormitory.n.01",
+"ex-toefl-campus"
+],
+"residue#n": [
+0.7,
+"substance",
+"residue.n.01",
+"nawl4"
+],
+"restaurant#n": [
+0.85,
+"artifact",
+"restaurant.n.01",
+"ngsl4"
+],
+"restroom#n": [
+0.85,
+"artifact",
+"public_toilet.n.01",
+"toeic7"
+],
+"rice#n": [
+1,
+"food",
+"rice.n.01",
+"ngsl10"
+],
+"ride#v": [
+0.7,
+"motion",
+"ride.v.01",
+"ngsl4"
+],
+"rider#n": [
+0.65,
+"person",
+"rider.n.01",
+"toeic9"
+],
+"rig#n": [
+0.85,
+"artifact",
+"rig.n.01",
+"bsl3"
+],
+"ring#n": [
+0.95,
+"artifact",
+"ring.n.08",
+"ngsl4"
+],
+"river#n": [
+0.85,
+"object",
+"river.n.01",
+"ngsl5"
+],
+"road#n": [
+0.95,
+"artifact",
+"road.n.01",
+"ngsl2"
+],
+"robot#n": [
+0.95,
+"artifact",
+"automaton.n.02",
+"dom-eng"
+],
+"rock#n": [
+0.7,
+"substance",
+"rock.n.02",
+"ngsl4"
+],
+"roll#v": [
+0.7,
+"motion",
+"roll.v.01",
+"ngsl5"
+],
+"roof#n": [
+0.95,
+"artifact",
+"roof.n.01",
+"ngsl8"
+],
+"room#n": [
+0.95,
+"artifact",
+"room.n.01",
+"ngsl1"
+],
+"roommate#n": [
+0.65,
+"person",
+"roommate.n.01",
+"ex-toefl-campus"
+],
+"root#n": [
+1,
+"plant",
+"root.n.01",
+"ngsl6"
+],
+"rope#n": [
+0.95,
+"artifact",
+"rope.n.01",
+"nawl1"
+],
+"rose#n": [
+1,
+"plant",
+"rose.n.01",
+"ngsl10"
+],
+"rough#adj": [
+0.75,
+"all",
+"approximate.s.01",
+"ngsl9"
+],
+"round#adj": [
+0.75,
+"all",
+"round.a.01",
+"ngsl2"
+],
+"roundabout#n": [
+0.85,
+"artifact",
+"traffic_circle.n.01",
+"ex-ielts-listen"
+],
+"route#n": [
+0.6,
+"artifact",
+"road.n.01",
+"ngsl6"
+],
+"router#n": [
+0.95,
+"artifact",
+"router.n.02",
+"dom-it"
+],
+"rub#v": [
+0.7,
+"contact",
+"rub.v.01",
+"nawl1"
+],
+"rubber#n": [
+0.7,
+"substance",
+"rubber.n.01",
+"toeic9"
+],
+"rug#n": [
+0.85,
+"artifact",
+"rug.n.01",
+"toeic9"
+],
+"ruler#n": [
+0.85,
+"artifact",
+"rule.n.12",
+"nawl1"
+],
+"run#v": [
+0.7,
+"motion",
+"run.v.01",
+"ngsl1"
+],
+"runner#n": [
+0.85,
+"person",
+"runner.n.03",
+"toeic6"
+],
+"sack#n": [
+0.95,
+"artifact",
+"sack.n.01",
+"bsl1"
+],
+"sail#v": [
+0.7,
+"motion",
+"sail.v.03",
+"ngsl8"
+],
+"salad#n": [
+1,
+"food",
+"salad.n.01",
+"toeic3"
+],
+"salon#n": [
+0.85,
+"artifact",
+"salon.n.01",
+"toeic10"
+],
+"salt#n": [
+1,
+"food",
+"salt.n.02",
+"ngsl9"
+],
+"sand#n": [
+0.7,
+"substance",
+"sand.n.01",
+"ngsl9"
+],
+"sandwich#n": [
+1,
+"food",
+"sandwich.n.01",
+"toeic1"
+],
+"satellite#n": [
+0.95,
+"artifact",
+"satellite.n.01",
+"space"
+],
+"sauna#n": [
+0.95,
+"artifact",
+"sauna.n.01",
+"toeic6"
+],
+"scaffolding#n": [
+0.85,
+"artifact",
+"scaffolding.n.01",
+"dom-eng"
+],
+"scale#n": [
+0.95,
+"artifact",
+"scale.n.07",
+"ngsl5"
+],
+"scarf#n": [
+0.95,
+"artifact",
+"scarf.n.01",
+"toeic6"
+],
+"school#n": [
+0.95,
+"artifact",
+"school.n.02",
+"ngsl1"
+],
+"scientist#n": [
+0.85,
+"person",
+"scientist.n.01",
+"ngsl6"
+],
+"scrap#n": [
+0.85,
+"artifact",
+"scrap.n.03",
+"bsl1"
+],
+"screen#n": [
+0.85,
+"artifact",
+"screen.n.01",
+"ngsl4"
+],
+"sculpture#n": [
+0.85,
+"artifact",
+"sculpture.n.01",
+"culture"
+],
+"sea#n": [
+0.85,
+"object",
+"sea.n.01",
+"ngsl4"
+],
+"seafood#n": [
+1,
+"food",
+"seafood.n.01",
+"toeic9"
+],
+"seaside#n": [
+0.85,
+"object",
+"seaside.n.01",
+"toeic6"
+],
+"seat#n": [
+0.85,
+"artifact",
+"seat.n.04",
+"ngsl4"
+],
+"section#n": [
+0.85,
+"artifact",
+"section.n.04",
+"ngsl3"
+],
+"sedan#n": [
+0.95,
+"artifact",
+"sedan.n.01",
+"toeic10"
+],
+"sediment#n": [
+0.85,
+"object",
+"sediment.n.01",
+"ex-toefl"
+],
+"sedimentary rock#n": [
+0.7,
+"substance",
+"sedimentary_rock.n.01",
+"ex-toefl"
+],
+"seed#n": [
+1,
+"plant",
+"seed.n.01",
+"ngsl7"
+],
+"segment#n": [
+0.85,
+"artifact",
+"section.n.04",
+"ngsl9"
+],
+"sensor#n": [
+0.95,
+"artifact",
+"detector.n.01",
+"dom-eng"
+],
+"server#n": [
+0.95,
+"artifact",
+"server.n.03",
+"ngsl10"
+],
+"sew#v": [
+0.6,
+"creation",
+"sew.v.02",
+"toeic10"
+],
+"sewage#n": [
+0.7,
+"substance",
+"sewage.n.01",
+"dom-env"
+],
+"sewer#n": [
+0.85,
+"artifact",
+"sewer.n.01",
+"toeic8"
+],
+"shaft#n": [
+0.85,
+"artifact",
+"rotating_shaft.n.01",
+"dom-eng"
+],
+"shake#v": [
+0.7,
+"motion",
+"shake.v.01",
+"ngsl6"
+],
+"sharp#adj": [
+0.75,
+"all",
+"sharp.a.09",
+"ngsl7"
+],
+"sheep#n": [
+1,
+"animal",
+"sheep.n.01",
+"ngsl10"
+],
+"sheet metal#n": [
+0.85,
+"artifact",
+"sheet_metal.n.01",
+"dom-eng"
+],
+"sheet#n": [
+0.95,
+"artifact",
+"sail.n.01",
+"ngsl6"
+],
+"shelf#n": [
+0.85,
+"artifact",
+"shelf.n.01",
+"ngsl10"
+],
+"shell#n": [
+0.7,
+"substance",
+"shell.n.02",
+"ngsl10"
+],
+"shelter#n": [
+0.85,
+"artifact",
+"shelter.n.02",
+"ngsl10"
+],
+"shield#n": [
+0.85,
+"artifact",
+"shield.n.01",
+"bsl3"
+],
+"ship#n": [
+0.95,
+"artifact",
+"ship.n.01",
+"ngsl4"
+],
+"shirt#n": [
+0.95,
+"artifact",
+"shirt.n.01",
+"ngsl7"
+],
+"shoe#n": [
+0.85,
+"artifact",
+"shoe.n.01",
+"ngsl6"
+],
+"shop#n": [
+0.85,
+"artifact",
+"shop.n.01",
+"ngsl2"
+],
+"shore#n": [
+0.85,
+"object",
+"shore.n.01",
+"ngsl10"
+],
+"short#adj": [
+0.75,
+"all",
+"short.a.06",
+"ngsl2"
+],
+"shoulder#n": [
+1,
+"body",
+"shoulder.n.01",
+"ngsl6"
+],
+"showroom#n": [
+0.95,
+"artifact",
+"showroom.n.01",
+"toeic4"
+],
+"shuttle bus#n": [
+0.85,
+"artifact",
+"shuttle_bus.n.01",
+"ex-toefl-campus"
+],
+"shuttle#n": [
+0.95,
+"artifact",
+"shuttle.n.02",
+"toeic2"
+],
+"sick#adj": [
+0.75,
+"all",
+"ill.a.01",
+"ngsl7"
+],
+"side#n": [
+0.65,
+"location",
+"side.n.04",
+"ngsl1"
+],
+"sidewalk#n": [
+0.85,
+"artifact",
+"sidewalk.n.01",
+"toeic3"
+],
+"silt#n": [
+0.7,
+"substance",
+"silt.n.01",
+"ex-toefl-lecture"
+],
+"silver#n": [
+0.7,
+"substance",
+"silver.n.01",
+"ngsl8"
+],
+"singer#n": [
+0.85,
+"person",
+"singer.n.01",
+"ngsl8"
+],
+"sink#v": [
+0.7,
+"motion",
+"sink.v.04",
+"ngsl8"
+],
+"sip#v": [
+0.7,
+"consumption",
+"sip.v.01",
+"ex-toeic-l"
+],
+"sit#v": [
+0.7,
+"contact",
+"sit.v.01",
+"ngsl2"
+],
+"site#n": [
+0.65,
+"location",
+"site.n.01",
+"ngsl2"
+],
+"skate#v": [
+0.7,
+"motion",
+"skate.v.01",
+"toeic8"
+],
+"skateboard#n": [
+0.85,
+"artifact",
+"skateboard.n.01",
+"toeic8"
+],
+"sketch#n": [
+0.85,
+"artifact",
+"sketch.n.01",
+"toeic10"
+],
+"ski#v": [
+0.7,
+"motion",
+"ski.v.01",
+"ngsl10"
+],
+"skin#n": [
+1,
+"animal",
+"hide.n.02",
+"ngsl6"
+],
+"skirt#n": [
+0.95,
+"artifact",
+"skirt.n.02",
+"ngsl9"
+],
+"sky#n": [
+0.85,
+"object",
+"sky.n.01",
+"ngsl7"
+],
+"skyscraper#n": [
+0.95,
+"artifact",
+"skyscraper.n.01",
+"architecture"
+],
+"slab#n": [
+0.95,
+"artifact",
+"slab.n.01",
+"nawl4"
+],
+"sleep#v": [
+0.7,
+"body",
+"sleep.v.01",
+"ngsl3"
+],
+"sleeping bag#n": [
+0.95,
+"artifact",
+"sleeping_bag.n.01",
+"ex-ielts-listen"
+],
+"sleepy#adj": [
+0.75,
+"all",
+"sleepy.s.01",
+"toeic8"
+],
+"sleeve#n": [
+0.95,
+"artifact",
+"sleeve.n.01",
+"toeic5"
+],
+"slice#n": [
+0.85,
+"food",
+"piece.n.08",
+"ngsl10"
+],
+"slide#v": [
+0.7,
+"motion",
+"slide.v.03",
+"ngsl7"
+],
+"slim#adj": [
+0.75,
+"all",
+"slender.s.04",
+"bsl5"
+],
+"slope#n": [
+0.85,
+"object",
+"slope.n.01",
+"ngsl10"
+],
+"small#adj": [
+0.75,
+"all",
+"little.s.01",
+"ngsl1"
+],
+"smoke alarm#n": [
+0.95,
+"artifact",
+"fire_alarm.n.02",
+"ex-ielts-gt-life"
+],
+"smooth#adj": [
+0.75,
+"all",
+"smooth.a.03",
+"ngsl8"
+],
+"snack#n": [
+1,
+"food",
+"bite.n.04",
+"toeic2"
+],
+"snake#n": [
+0.95,
+"object",
+"hydra.n.02",
+"nawl1"
+],
+"sneeze#v": [
+0.7,
+"body",
+"sneeze.v.01",
+"nawl5"
+],
+"snow#n": [
+0.7,
+"substance",
+"snow.n.02",
+"ngsl7"
+],
+"snowy#adj": [
+0.75,
+"all",
+"white.s.02",
+"toeic7"
+],
+"soap#n": [
+0.85,
+"artifact",
+"soap.n.01",
+"toeic4"
+],
+"sock#n": [
+0.85,
+"artifact",
+"sock.n.01",
+"toeic6"
+],
+"sofa#n": [
+0.85,
+"artifact",
+"sofa.n.01",
+"toeic2"
+],
+"soft#adj": [
+0.75,
+"all",
+"soft.a.06",
+"ngsl6"
+],
+"soil#n": [
+0.85,
+"object",
+"land.n.02",
+"ngsl8"
+],
+"solar panel#n": [
+0.85,
+"artifact",
+"solar_array.n.01",
+"dom-eng"
+],
+"solar system#n": [
+0.65,
+"object",
+"solar_system.n.01",
+"space"
+],
+"soldier#n": [
+0.85,
+"person",
+"soldier.n.01",
+"ngsl5"
+],
+"sound#n": [
+0.85,
+"object",
+"strait.n.01",
+"ngsl2"
+],
+"soup#n": [
+1,
+"food",
+"soup.n.01",
+"toeic3"
+],
+"souvenir#n": [
+0.85,
+"artifact",
+"keepsake.n.01",
+"travel"
+],
+"space#n": [
+0.6,
+"shape",
+"space.n.02",
+"ngsl2"
+],
+"spacecraft#n": [
+0.95,
+"artifact",
+"spacecraft.n.01",
+"space"
+],
+"spare part#n": [
+0.85,
+"artifact",
+"spare_part.n.01",
+"dom-eng"
+],
+"sperm#n": [
+0.9,
+"body",
+"sperm.n.01",
+"nawl5"
+],
+"spill#v": [
+0.7,
+"contact",
+"spill.v.04",
+"toeic6"
+],
+"spin#v": [
+0.7,
+"motion",
+"spin.v.01",
+"ngsl9"
+],
+"splice#n": [
+0.85,
+"artifact",
+"lap_joint.n.01",
+"nawl5"
+],
+"stacks#n": [
+0.85,
+"artifact",
+"stacks.n.02",
+"ex-toefl-campus"
+],
+"stadium#n": [
+0.85,
+"artifact",
+"stadium.n.01",
+"toeic2"
+],
+"stage#n": [
+0.85,
+"artifact",
+"stage.n.03",
+"ngsl2"
+],
+"stainless steel#n": [
+0.7,
+"substance",
+"stainless_steel.n.01",
+"dom-eng"
+],
+"stair#n": [
+0.85,
+"artifact",
+"step.n.04",
+"ngsl10"
+],
+"staircase#n": [
+0.95,
+"artifact",
+"stairway.n.01",
+"ex-ielts-listen"
+],
+"stake#n": [
+0.85,
+"artifact",
+"stake.n.05",
+"ngsl9"
+],
+"stalactite#n": [
+0.75,
+"object",
+"stalactite.n.01",
+"ex-toefl-lecture"
+],
+"stall#n": [
+0.85,
+"artifact",
+"booth.n.02",
+"bsl3"
+],
+"stand#v": [
+0.7,
+"contact",
+"stand.v.01",
+"ngsl2"
+],
+"staple#n": [
+0.85,
+"artifact",
+"staple.n.05",
+"toeic7"
+],
+"stapler#n": [
+0.95,
+"artifact",
+"stapler.n.01",
+"toeic7"
+],
+"star#n": [
+0.85,
+"object",
+"star.n.03",
+"ngsl4"
+],
+"statue#n": [
+0.95,
+"artifact",
+"statue.n.01",
+"toeic5"
+],
+"steak#n": [
+0.95,
+"food",
+"steak.n.01",
+"toeic7"
+],
+"steam#n": [
+0.7,
+"substance",
+"steam.n.01",
+"bsl4"
+],
+"steel#n": [
+0.8,
+"substance",
+"steel.n.01",
+"ngsl8"
+],
+"stem#n": [
+1,
+"plant",
+"stalk.n.02",
+"ngsl8"
+],
+"stereo#n": [
+0.85,
+"artifact",
+"stereo.n.01",
+"toeic9"
+],
+"still life#n": [
+0.95,
+"artifact",
+"still_life.n.01",
+"ex-toefl"
+],
+"stock exchange#n": [
+0.85,
+"artifact",
+"stock_exchange.n.01",
+"dom-biz"
+],
+"stock market#n": [
+0.85,
+"artifact",
+"stock_exchange.n.01",
+"economy"
+],
+"stomach#n": [
+1,
+"body",
+"abdomen.n.01",
+"ngsl10"
+],
+"stone#n": [
+0.95,
+"object",
+"rock.n.01",
+"ngsl5"
+],
+"store#n": [
+0.85,
+"artifact",
+"shop.n.01",
+"ngsl3"
+],
+"storeroom#n": [
+0.95,
+"artifact",
+"storeroom.n.01",
+"toeic9"
+],
+"storey#n": [
+0.95,
+"artifact",
+"floor.n.02",
+"architecture"
+],
+"straight#adj": [
+0.75,
+"all",
+"straight.a.08",
+"ngsl4"
+],
+"strand#n": [
+0.85,
+"artifact",
+"strand.n.02",
+"nawl4"
+],
+"stream#n": [
+0.85,
+"object",
+"stream.n.01",
+"ngsl8"
+],
+"street#n": [
+0.85,
+"artifact",
+"street.n.01",
+"ngsl3"
+],
+"string#n": [
+0.85,
+"artifact",
+"string.n.01",
+"ngsl8"
+],
+"strip#n": [
+0.95,
+"object",
+"strip.n.01",
+"ngsl8"
+],
+"student union#n": [
+0.95,
+"artifact",
+"student_union.n.01",
+"ex-toefl-campus"
+],
+"student#n": [
+0.85,
+"person",
+"scholar.n.01",
+"ngsl1"
+],
+"studio apartment#n": [
+0.95,
+"artifact",
+"studio_apartment.n.01",
+"us-housing"
+],
+"studio#n": [
+0.95,
+"artifact",
+"studio.n.03",
+"ngsl6"
+],
+"stuff#n": [
+0.85,
+"artifact",
+"stuff.n.02",
+"ngsl3"
+],
+"subject#n": [
+0.85,
+"artifact",
+"subject.n.02",
+"ngsl2"
+],
+"substance#n": [
+0.7,
+"substance",
+"substance.n.04",
+"ngsl8"
+],
+"substrate#n": [
+0.7,
+"substance",
+"substrate.n.01",
+"nawl5"
+],
+"subway#n": [
+0.65,
+"artifact",
+"metro.n.01",
+"toeic1"
+],
+"sugar#n": [
+0.95,
+"food",
+"sugar.n.01",
+"ngsl8"
+],
+"suit#n": [
+0.85,
+"artifact",
+"suit.n.01",
+"ngsl4"
+],
+"suitcase#n": [
+0.85,
+"artifact",
+"bag.n.06",
+"toeic1"
+],
+"suite#n": [
+0.85,
+"artifact",
+"suite.n.02",
+"ex-toeic-travel"
+],
+"sun#n": [
+0.85,
+"object",
+"sun.n.01",
+"ngsl5"
+],
+"sunny#adj": [
+0.75,
+"all",
+"cheery.s.01",
+"toeic1"
+],
+"sunscreen#n": [
+0.85,
+"artifact",
+"sunscreen.n.01",
+"toeic10"
+],
+"supermarket#n": [
+0.95,
+"artifact",
+"supermarket.n.01",
+"toeic1"
+],
+"supernova#n": [
+0.85,
+"object",
+"supernova.n.01",
+"ex-toefl"
+],
+"surf#v": [
+0.7,
+"motion",
+"surfboard.v.01",
+"toeic6"
+],
+"surface#n": [
+0.85,
+"artifact",
+"surface.n.01",
+"ngsl5"
+],
+"surgeon#n": [
+0.85,
+"person",
+"surgeon.n.01",
+"dom-med"
+],
+"suture#n": [
+0.85,
+"artifact",
+"suture.n.03",
+"dom-med"
+],
+"sweater#n": [
+0.95,
+"artifact",
+"sweater.n.01",
+"toeic2"
+],
+"sweep#v": [
+0.7,
+"contact",
+"sweep.v.03",
+"ngsl8"
+],
+"swim#v": [
+0.7,
+"motion",
+"swim.v.01",
+"ngsl5"
+],
+"sword#n": [
+0.95,
+"artifact",
+"sword.n.01",
+"nawl1"
+],
+"system#n": [
+0.85,
+"artifact",
+"system.n.01",
+"ngsl1"
+],
+"table#n": [
+0.85,
+"artifact",
+"table.n.02",
+"ngsl2"
+],
+"tablecloth#n": [
+0.85,
+"artifact",
+"tablecloth.n.01",
+"toeic10"
+],
+"tablet#n": [
+0.85,
+"artifact",
+"tablet.n.03",
+"toeic6"
+],
+"tail#n": [
+1,
+"animal",
+"tail.n.01",
+"ngsl10"
+],
+"takeaway#n": [
+0.95,
+"food",
+"takeout.n.01",
+"ex-ielts-speak"
+],
+"tall#adj": [
+0.75,
+"all",
+"tall.a.01",
+"ngsl7"
+],
+"tank#n": [
+0.95,
+"artifact",
+"tank.n.02",
+"ngsl8"
+],
+"tape#n": [
+0.85,
+"artifact",
+"magnetic_tape.n.01",
+"ngsl5"
+],
+"taxi#n": [
+0.95,
+"artifact",
+"cab.n.03",
+"ngsl5"
+],
+"tea#n": [
+1,
+"food",
+"tea.n.01",
+"ngsl6"
+],
+"teacher#n": [
+0.85,
+"person",
+"teacher.n.01",
+"ngsl2"
+],
+"tear#n": [
+0.7,
+"body",
+"tear.n.01",
+"ngsl6"
+],
+"telephone#n": [
+0.95,
+"artifact",
+"telephone.n.01",
+"ngsl4"
+],
+"telescope#n": [
+0.95,
+"artifact",
+"telescope.n.01",
+"space"
+],
+"tempera#n": [
+0.85,
+"artifact",
+"tempera.n.01",
+"ex-toefl-lecture"
+],
+"tenant#n": [
+0.65,
+"person",
+"tenant.n.01",
+"architecture"
+],
+"tent#n": [
+0.85,
+"artifact",
+"tent.n.01",
+"ngsl10"
+],
+"terminal#n": [
+0.95,
+"artifact",
+"terminal.n.01",
+"ex-toeic-travel"
+],
+"terraced house#n": [
+0.85,
+"artifact",
+"terraced_house.n.01",
+"ex-ielts-listen"
+],
+"textile#n": [
+0.85,
+"artifact",
+"fabric.n.01",
+"ex-toefl"
+],
+"theater#n": [
+0.85,
+"artifact",
+"theater.n.01",
+"ngsl5"
+],
+"thick#adj": [
+0.75,
+"all",
+"thick.s.01",
+"ngsl8"
+],
+"thin#adj": [
+0.75,
+"all",
+"sparse.s.01",
+"ngsl7"
+],
+"thread#n": [
+0.85,
+"artifact",
+"thread.n.01",
+"nawl4"
+],
+"throat#n": [
+0.9,
+"body",
+"throat.n.01",
+"ngsl9"
+],
+"throughput#n": [
+0.6,
+"artifact",
+"throughput.n.01",
+"dom-eng"
+],
+"throw#v": [
+0.7,
+"contact",
+"throw.v.01",
+"ngsl4"
+],
+"thumb#n": [
+0.9,
+"body",
+"thumb.n.01",
+"nawl4"
+],
+"tidy#adj": [
+0.75,
+"all",
+"tidy.a.01",
+"toeic7"
+],
+"tie#v": [
+0.7,
+"contact",
+"connect.v.01",
+"ngsl6"
+],
+"tile#n": [
+0.95,
+"artifact",
+"tile.n.01",
+"toeic10"
+],
+"timber#n": [
+0.8,
+"substance",
+"lumber.n.01",
+"bsl6"
+],
+"timer#n": [
+0.95,
+"artifact",
+"timer.n.01",
+"toeic8"
+],
+"tiny#adj": [
+0.75,
+"all",
+"bantam.s.01",
+"ngsl6"
+],
+"tip#n": [
+0.65,
+"location",
+"tip.n.01",
+"ngsl6"
+],
+"tire#n": [
+0.85,
+"artifact",
+"tire.n.01",
+"ngsl5"
+],
+"tissue#n": [
+0.8,
+"substance",
+"tissue.n.02",
+"ngsl10"
+],
+"tobacco#n": [
+0.95,
+"artifact",
+"tobacco.n.01",
+"bsl3"
+],
+"toiletry#n": [
+0.85,
+"artifact",
+"toiletry.n.01",
+"toeic10"
+],
+"tomato#n": [
+1,
+"food",
+"tomato.n.01",
+"toeic4"
+],
+"toner#n": [
+0.7,
+"substance",
+"toner.n.02",
+"toeic7"
+],
+"tool#n": [
+0.95,
+"artifact",
+"tool.n.01",
+"ngsl5"
+],
+"tooth#n": [
+0.9,
+"body",
+"tooth.n.01",
+"ngsl8"
+],
+"topsoil#n": [
+0.7,
+"substance",
+"topsoil.n.01",
+"ex-toefl-lecture"
+],
+"tourist#n": [
+0.85,
+"person",
+"tourist.n.01",
+"ngsl6"
+],
+"towel#n": [
+0.95,
+"artifact",
+"towel.n.01",
+"toeic4"
+],
+"tower#n": [
+0.95,
+"artifact",
+"tower.n.01",
+"ngsl9"
+],
+"toxic waste#n": [
+0.7,
+"substance",
+"toxic_waste.n.01",
+"dom-env"
+],
+"toy#n": [
+0.85,
+"artifact",
+"miniature.n.02",
+"ngsl8"
+],
+"track#n": [
+0.85,
+"object",
+"path.n.04",
+"ngsl4"
+],
+"trail#n": [
+0.85,
+"artifact",
+"trail.n.02",
+"ngsl8"
+],
+"train#n": [
+0.95,
+"artifact",
+"train.n.01",
+"ngsl2"
+],
+"trajectory#n": [
+0.65,
+"phenomenon",
+"trajectory.n.01",
+"nawl5"
+],
+"transformer#n": [
+0.95,
+"artifact",
+"transformer.n.01",
+"dom-eng"
+],
+"transit#n": [
+0.6,
+"artifact",
+"transportation_system.n.01",
+"awl5"
+],
+"trap#n": [
+0.95,
+"artifact",
+"trap.n.01",
+"ngsl8"
+],
+"trash#n": [
+0.7,
+"substance",
+"rubbish.n.01",
+"toeic4"
+],
+"tray#n": [
+0.95,
+"artifact",
+"tray.n.01",
+"toeic4"
+],
+"tree#n": [
+1,
+"plant",
+"tree.n.01",
+"ngsl3"
+],
+"truck#n": [
+0.95,
+"artifact",
+"truck.n.01",
+"ngsl8"
+],
+"tube#n": [
+0.95,
+"artifact",
+"tube.n.01",
+"ngsl9"
+],
+"tuna#n": [
+1,
+"animal",
+"tuna.n.03",
+"toeic10"
+],
+"tundra#n": [
+0.85,
+"object",
+"tundra.n.01",
+"ex-toefl"
+],
+"tunnel#n": [
+0.85,
+"artifact",
+"tunnel.n.01",
+"toeic5"
+],
+"turbine#n": [
+0.95,
+"artifact",
+"turbine.n.01",
+"dom-eng"
+],
+"umbrella#n": [
+0.95,
+"artifact",
+"umbrella.n.01",
+"toeic1"
+],
+"uniform#n": [
+0.85,
+"artifact",
+"uniform.n.01",
+"ngsl8"
+],
+"universe#n": [
+0.85,
+"object",
+"universe.n.01",
+"ngsl10"
+],
+"unload#v": [
+0.7,
+"contact",
+"unload.v.02",
+"toeic8"
+],
+"urine#n": [
+0.7,
+"substance",
+"urine.n.01",
+"nawl5"
+],
+"utilities#n": [
+0.85,
+"artifact",
+"utility.n.06",
+"us-housing"
+],
+"utility#n": [
+0.85,
+"artifact",
+"utility.n.06",
+"toeic3"
+],
+"vaccine#n": [
+0.85,
+"artifact",
+"vaccine.n.01",
+"health"
+],
+"valley#n": [
+0.85,
+"object",
+"valley.n.01",
+"ngsl9"
+],
+"valve#n": [
+0.95,
+"artifact",
+"valve.n.03",
+"dom-eng"
+],
+"van#n": [
+0.85,
+"artifact",
+"van.n.05",
+"ngsl8"
+],
+"vanilla#n": [
+1,
+"plant",
+"vanilla.n.01",
+"toeic10"
+],
+"vase#n": [
+0.95,
+"artifact",
+"vase.n.01",
+"toeic6"
+],
+"vector#n": [
+0.95,
+"object",
+"vector.n.03",
+"nawl5"
+],
+"vegetable#n": [
+1,
+"food",
+"vegetable.n.01",
+"ngsl8"
+],
+"vegetarian#n": [
+0.65,
+"person",
+"vegetarian.n.01",
+"food"
+],
+"vehicle#n": [
+0.95,
+"artifact",
+"vehicle.n.01",
+"ngsl6"
+],
+"vein#n": [
+0.9,
+"body",
+"vein.n.01",
+"nawl4"
+],
+"vending machine#n": [
+0.95,
+"artifact",
+"vending_machine.n.01",
+"ex-ielts-listen"
+],
+"vertebrate#n": [
+1,
+"animal",
+"vertebrate.n.01",
+"ex-toefl"
+],
+"vessel#n": [
+1,
+"body",
+"vessel.n.01",
+"ngsl10"
+],
+"violin#n": [
+0.95,
+"artifact",
+"violin.n.01",
+"toeic9"
+],
+"virus#n": [
+1,
+"animal",
+"virus.n.01",
+"ngsl9"
+],
+"vitamin#n": [
+0.7,
+"substance",
+"vitamin.n.01",
+"toeic5"
+],
+"volcano#n": [
+0.85,
+"object",
+"vent.n.03",
+"ex-toefl-lecture"
+],
+"waiter#n": [
+0.95,
+"person",
+"waiter.n.01",
+"toeic1"
+],
+"waitress#n": [
+0.95,
+"person",
+"waitress.n.01",
+"toeic2"
+],
+"walk#v": [
+0.7,
+"motion",
+"walk.v.01",
+"ngsl2"
+],
+"walkway#n": [
+0.85,
+"artifact",
+"walk.n.05",
+"toeic7"
+],
+"wall#n": [
+0.95,
+"artifact",
+"wall.n.01",
+"ngsl3"
+],
+"wallet#n": [
+0.85,
+"artifact",
+"wallet.n.01",
+"toeic3"
+],
+"ward#n": [
+0.65,
+"location",
+"ward.n.02",
+"toeic9"
+],
+"warehouse#n": [
+0.95,
+"artifact",
+"warehouse.n.01",
+"ex-toeic-travel"
+],
+"wash#v": [
+0.7,
+"body",
+"wash.v.02",
+"ngsl5"
+],
+"wastewater#n": [
+0.7,
+"substance",
+"effluent.n.01",
+"dom-env"
+],
+"water#n": [
+0.7,
+"substance",
+"water.n.01",
+"ngsl2"
+],
+"weapon#n": [
+0.85,
+"artifact",
+"weapon.n.01",
+"ngsl5"
+],
+"web#n": [
+0.85,
+"object",
+"web.n.01",
+"ngsl8"
+],
+"weight#n": [
+0.85,
+"artifact",
+"weight.n.04",
+"ngsl4"
+],
+"wet#adj": [
+0.75,
+"all",
+"wet.a.01",
+"ngsl8"
+],
+"wetland#n": [
+0.85,
+"object",
+"wetland.n.01",
+"dom-env"
+],
+"whale#n": [
+0.65,
+"person",
+"giant.n.04",
+"toeic8"
+],
+"wheat#n": [
+1,
+"food",
+"wheat.n.02",
+"nawl5"
+],
+"wheel#n": [
+0.95,
+"artifact",
+"bicycle.n.01",
+"ngsl8"
+],
+"wheelbarrow#n": [
+0.85,
+"artifact",
+"barrow.n.03",
+"ex-toeic-l"
+],
+"wheelchair#n": [
+0.85,
+"artifact",
+"wheelchair.n.01",
+"toeic9"
+],
+"white dwarf#n": [
+0.85,
+"object",
+"white_dwarf.n.01",
+"ex-toefl-lecture"
+],
+"white#adj": [
+0.75,
+"all",
+"white.a.01",
+"ngsl2"
+],
+"wide#adj": [
+0.75,
+"all",
+"wide.a.01",
+"ngsl3"
+],
+"wind turbine#n": [
+0.85,
+"artifact",
+"wind_turbine.n.01",
+"energy"
+],
+"windmill#n": [
+0.95,
+"artifact",
+"windmill.n.01",
+"ex-ielts-listen"
+],
+"window#n": [
+0.85,
+"artifact",
+"window.n.07",
+"ngsl3"
+],
+"windy#adj": [
+0.75,
+"all",
+"blowy.s.01",
+"toeic4"
+],
+"wine#n": [
+1,
+"food",
+"wine.n.01",
+"ngsl5"
+],
+"wing#n": [
+1,
+"animal",
+"wing.n.01",
+"ngsl8"
+],
+"winner#n": [
+0.65,
+"person",
+"winner.n.01",
+"ngsl7"
+],
+"wire#n": [
+0.85,
+"artifact",
+"wire.n.01",
+"ngsl8"
+],
+"woman#n": [
+0.85,
+"person",
+"woman.n.01",
+"ngsl1"
+],
+"wood#n": [
+0.8,
+"substance",
+"wood.n.01",
+"ngsl6"
+],
+"woodcut#n": [
+0.85,
+"artifact",
+"woodcut.n.02",
+"ex-toefl-lecture"
+],
+"wooden#adj": [
+0.75,
+"all",
+"wooden.s.01",
+"ngsl10"
+],
+"woodland#n": [
+0.85,
+"object",
+"forest.n.02",
+"ex-ielts-listen"
+],
+"wool#n": [
+0.85,
+"artifact",
+"wool.n.01",
+"toeic9"
+],
+"workplace#n": [
+0.85,
+"artifact",
+"workplace.n.01",
+"toeic2"
+],
+"workstation#n": [
+0.85,
+"artifact",
+"workstation.n.01",
+"ex-toeic-l"
+],
+"world#n": [
+1,
+"animal",
+"world.n.08",
+"ngsl1"
+],
+"wrap#v": [
+0.7,
+"contact",
+"wrap.v.01",
+"ngsl9"
+],
+"wristwatch#n": [
+0.85,
+"artifact",
+"wristwatch.n.01",
+"toeic10"
+],
+"write#v": [
+0.6,
+"creation",
+"compose.v.02",
+"ngsl1"
+],
+"yard#n": [
+0.85,
+"artifact",
+"yard.n.02",
+"ngsl6"
+],
+"yellow#adj": [
+0.75,
+"all",
+"yellow.s.01",
+"ngsl7"
+],
+"young#adj": [
+0.75,
+"all",
+"new.s.08",
+"ngsl1"
+],
+"zoo#n": [
+0.85,
+"artifact",
+"menagerie.n.02",
+"toeic5"
+]
+}
+}
