@@ -52,10 +52,12 @@ const FX = {
 const YT = {
   status: { configured: true, channel: { channel_id: 'UCdemo000001', title: 'Lexkite English', status: 'ok', videos: 42 }, channels: [{ channel_id: 'UCdemo000001', title: 'Lexkite English', status: 'ok', videos: 42, is_default: true }, { channel_id: 'UCdemo000002', title: 'Lexkite Lessons', status: 'revoked', videos: 7 }],
     quota: { left: 8400, uploads_left: 5 }, queue: { queued: 2, failed: 0, done: 31 }, manual: { ready: 2, packing: 1, uploaded: 3, live: 28, issues: 1 }, settings: { mode: 'manual', privacy: 'private' }, scope: { ok: true },
-    sync: { at: Date.parse('2026-10-22T08:00:00Z'), scanned: 40, matched: 38, issues: [{ kind: 'no-marker', video_id: 'AbCdEfGhIj0', title: 'Old upload' }] }, studio: 'https://studio.youtube.com/' },
-  queue: { rows: [] },
+    sync: { at: Date.parse('2026-10-22T08:00:00Z'), scanned: 41, matched: 38, issues: [{ kind: 'no-marker', video_id: 'AbCdEfGhIj0', title: 'Old upload' }], channels: [{ channel_id: 'UCdemo000001', title: 'Lexkite English', scanned: 41, matched: 38, unmatched: 3 }], unmatched: [{ video_id: 'AbCdEfGhIj0', title: 'Old upload – ordering coffee', at: Date.parse('2026-10-20T08:00:00Z'), channel_id: 'UCdemo000001' }, { video_id: 'XyZxYzXyZ01', title: 'Behind the scenes', at: Date.parse('2026-10-18T08:00:00Z'), channel_id: 'UCdemo000001' }] }, studio: 'https://studio.youtube.com/' },
+  queue: { rows: [{ clip: items[1].id, status: 'manual' }, { clip: items[2].id, status: 'manual' }] },
   packs: { studio: 'https://studio.youtube.com/', rows: items.slice(0, 3).map((it, i) => ({ id: it.id, title: it.title, marker: 'lk:' + it.id, state: ['ready', 'packing', 'uploaded'][i], pack: i === 0 ? '/api/admin-shorts?p=x' : null, tags: ['learn english'], description: 'd', updated: Date.parse('2026-10-22T00:00:00Z') })) },
 };
+const DIST = { get: { channels: [{ channel_id: 'UCdemo000001', title: 'Lexkite English', platform: 'youtube', status: 'ok', cfg: { role: 'social', active: 1 } }, { channel_id: 'UCdemo000002', title: 'Lexkite Lessons', platform: 'youtube', status: 'revoked', cfg: { role: 'embed', active: 1 } }, { channel_id: 'gc-tiktok-77', title: '@lexkite', platform: 'tiktok', ext: 1, cfg: { role: 'social', active: 1, label: '@lexkite' } }, { channel_id: 'gc-instagram-12', title: 'lexkite.app', platform: 'instagram', ext: 1, cfg: { role: 'social', active: 0 } }] },
+  embed_status: { channels: [{ channel_id: 'UCdemo000001', role: 'social', rotating: false }, { channel_id: 'UCdemo000002', role: 'embed', rotating: false }], ready: [], lessons: [], broken: [], coverage: [] } };
 const SB = { updated: '2026-10-22T06:00:00Z', bank: 1240, review: 37, pending: 85, pass_rate: 0.82, planned: 3000, left: 1760, avg_score: 8.4,
   by_type: { 'fix-it': 420, choose: 380, listen: 260, news: 180 }, by_cefr: { A2: 510, B1: 480, B2: 250 }, by_diff: { easy: 400, mid: 600, hard: 240 }, by_topic: { travel: 300, work: 260, food: 240, daily: 440 }, review_reasons: { 'too long': 14, 'CEFR too high': 12, 'weak hook': 11 },
   days: [{ date: '2026-10-22', gen_calls: 120, judge_calls: 110, generated: 96, qc_fail: 9, dup: 4, passed: 80, low: 3, neurons: 5100 }, { date: '2026-10-21', gen_calls: 118, judge_calls: 104, generated: 90, qc_fail: 7, dup: 6, passed: 74, low: 3, neurons: 4900 }] };
@@ -79,7 +81,7 @@ for (const theme of ['light', 'dark']) for (const [vp, size] of [['desktop', { w
     const f = path.join(WEB, u.pathname); return fs.existsSync(f) ? r.fulfill({ path: f }) : r.fulfill({ status: 404, body: '' });
   });
   await page.goto('https://lexkite.test/admin.html#video');
-  await page.evaluate(({ FX, YT, rows, counts }) => {
+  await page.evaluate(({ FX, YT, rows, counts, DIST }) => {
     const esc = x => String(x ?? '').replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`), L = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s), J = x => JSON.parse(JSON.stringify(x));
     const SECT = it => { const v = it._v; return v.rejected || v.paused ? 'archive' : v.uploaded || v.web ? 'live' : v.approved ? 'approved' : it.qa.status === 'pass' ? 'pending' : 'fail'; };
     const capi = async (op, b) => {
@@ -89,9 +91,9 @@ for (const theme of ['light', 'dark']) for (const [vp, size] of [['desktop', { w
       if (op === 'ids') return { ids: rows.map(r => r.id) };
       return { results: (b.ids || []).map(id => ({ id, ok: true })) };
     };
-    window.__mount = () => window.AdminVideo.render(document.getElementById('main'), async op => { if (!FX[op]) throw new Error('op'); return J(FX[op]); }, L, { esc, lang: () => 'vi', toast() {}, yapi: async op => J(YT[op] || { ok: true }), capi });
+    window.__mount = () => window.AdminVideo.render(document.getElementById('main'), async op => { if (!FX[op]) throw new Error('op'); return J(FX[op]); }, L, { esc, lang: () => 'vi', toast() {}, yapi: async op => J(YT[op] || { ok: true }), distapi: async op => J(DIST[op] || { ok: true }), capi });
     window.__mount();
-  }, { FX, YT, rows, counts });
+  }, { FX, YT, rows, counts, DIST });
   const isNew = await page.waitForSelector('.vx-nav, [data-t]', { timeout: 15000 }).then(() => page.$('.vx-nav')).then(Boolean);
   const SEC = isNew ? ['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'] : ['lib', 'stats', 'web', 'qc', 'sb'];
   for (const s of SEC) {

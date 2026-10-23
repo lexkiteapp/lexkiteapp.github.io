@@ -4,7 +4,7 @@ name: Video quản trị – giao diện + hiệu năng
 on:
   push:
     branches: [main, 'admin-video-*']
-    paths: ['web/js/admin-video.js', 'web/js/admin-clips.js', 'web/css/admin.css', 'scripts/test/admin-video-shots.mjs', 'scripts/test/clips-perf.mjs', '.github/workflows/admin-video-ui.yml']
+    paths: ['web/js/admin-video.js', 'web/js/admin-clips.js', 'web/css/admin.css', 'functions/api/youtube.js', 'scripts/test/admin-video-shots.mjs', 'scripts/test/clips-perf.mjs', '.github/workflows/admin-video-ui.yml']
   workflow_dispatch:
     inputs:
       before: { description: 'commit/nhánh để chụp ảnh TRƯỚC (mặc định: commit trước lần đẩy, hoặc main)', required: false, default: '' }

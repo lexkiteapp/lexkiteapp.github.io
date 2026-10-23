@@ -232,7 +232,7 @@ export async function syncChannel(env, db, { pages = 4, only = '' } = {}) {
       if (r.status === 404) { done = true; break; } // channel without uploads yet
       if (!r.ok) { err = r.status === 403 ? 'yt-forbidden' : 'google-list'; if (chs.length === 1) { const e = new Error('google-list'); e.code = err; e.status = 502; throw e; } break; }
       const j = await r.json().catch(() => ({}));
-      for (const it of j.items || []) { const sn = it.snippet || {}, vid = (it.contentDetails || {}).videoId || (sn.resourceId || {}).videoId; if (vid) mine.push({ video_id: vid, title: sn.title, description: sn.description, privacy: (it.status || {}).privacyStatus, at: Date.parse(sn.publishedAt || '') || 0 }); }
+      for (const it of j.items || []) { const sn = it.snippet || {}, vid = (it.contentDetails || {}).videoId || (sn.resourceId || {}).videoId; if (vid) mine.push({ video_id: vid, title: sn.title, description: sn.description, privacy: (it.status || {}).privacyStatus, at: Date.parse(sn.publishedAt || '') || 0, thumb: ((sn.thumbnails || {}).default || {}).url || '' }); }
       token = j.nextPageToken || ''; if (!token) { done = true; break; }
     }
     if (!done) complete = false;
@@ -256,7 +256,11 @@ export async function syncChannel(env, db, { pages = 4, only = '' } = {}) {
   const plan = await planInfo(db);
   for (const u of rec.updates) { const pl = plan.get(u.clip), found = onCh.get(u.video_id); if (pl && pl.channel_id && found && found !== pl.channel_id) rec.issues.push({ kind: 'wrong-channel', clip: u.clip, video_id: u.video_id, expected: pl.title || pl.channel_id }); }
   const live = rec.updates.filter(u => u.status === 'done' && u.was !== 'done').map(u => u.clip);
-  const sum = { at: now, scanned: uploads.length, complete, matched: rec.matched, updated: rec.updates.length, live, issues: rec.issues.slice(0, 40), channels: per };
+  // admin: per-channel "on channel / matched to a Lexkite clip / unmatched (no lk: marker)" + the unmatched uploads (to link by hand → op link)
+  const known = new Set([...rows.map(r => r.video_id), ...rec.updates.map(u => u.video_id)].filter(Boolean)), unmatched = uploads.filter(u => !known.has(u.video_id));
+  for (const p of per) if (p.scanned != null) { const m = uploads.filter(u => onCh.get(u.video_id) === p.channel_id && known.has(u.video_id)).length; p.matched = m; p.unmatched = Math.max(0, p.scanned - m); }
+  const sum = { at: now, scanned: uploads.length, complete, matched: rec.matched, updated: rec.updates.length, live, issues: rec.issues.slice(0, 40), channels: per,
+    unmatched: unmatched.sort((x, y) => y.at - x.at).slice(0, 30).map(u => ({ video_id: u.video_id, title: String(u.title || '').slice(0, 140), at: u.at, privacy: u.privacy, channel_id: onCh.get(u.video_id) || null, thumb: /^https:\/\/i\d?\.ytimg\.com\//.test(u.thumb) ? u.thumb : '' })) };
   sum.paused = await healthCheck(db, per);
   await setMeta(db, 'sync', JSON.stringify(sum)); for (const cid of tokens.keys()) await run(db, 'UPDATE yt_channel SET last_ok = ? WHERE channel_id = ?', now, cid);
   return { ok: true, ...sum, quota: await quotaInfo(db) };

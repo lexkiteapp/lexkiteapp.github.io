@@ -381,8 +381,8 @@
     if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
     return j;
   }
-  // Kênh & phân phối qua /api/distribution (functions/api/distribution.js) – tab 🛰️
-  async function dapi(op, body = {}) {
+  // Kênh & phân phối qua /api/distribution (functions/api/distribution.js) – tab 🛰️ + làn nhúng/social ở tab Video (tên riêng: trước đây trùng tên dapi của Kho Drive → bị ghi đè)
+  async function distapi(op, body = {}) {
     const r = await fetch('/api/distribution', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
     const j = await r.json().catch(() => ({}));
     if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
@@ -1258,7 +1258,7 @@
     },
     async dist() { // Kênh & phân phối – js/admin-dist.js + js/lib/dist-rules.js (tải lười)
       await lazy('DistRules', 'js/lib/dist-rules.js'); await lazy('AdminDist', 'js/admin-dist.js'); main.innerHTML = '';
-      AdminDist.render(main, dapi, L, { esc, lang: () => LANG, toast, yapi, sapi });
+      AdminDist.render(main, distapi, L, { esc, lang: () => LANG, toast, yapi, sapi });
     },
     async studio() {
       await lazy('AdminStudio', 'js/admin-studio.js'); main.innerHTML = '';
@@ -1267,7 +1267,7 @@
     async video() { // Thư viện video – js/admin-video.js (tải lười) → /api/admin-shorts
       await lazy('AdminVideo', 'js/admin-video.js'); main.innerHTML = '';
       try { await lazy('AdminClips', 'js/admin-clips.js'); } catch (e) { /* lưới cũ làm dự phòng */ }
-      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi, capi: window.AdminClips && AdminClips.mount ? capi : null });
+      AdminVideo.render(main, vapi, L, { esc, lang: () => LANG, toast, yapi, distapi, capi: window.AdminClips && AdminClips.mount ? capi : null });
     },
     async backlinks() { // Backlink, PR & Thương hiệu – js/admin-backlinks.js (tải lười) → /api/backlinks (functions/api/backlinks.js)
       await lazy('AdminBacklinks', 'js/admin-backlinks.js'); main.innerHTML = '';

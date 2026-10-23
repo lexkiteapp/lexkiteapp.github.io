@@ -97,7 +97,7 @@ const google = { list: 0, videos: 0, privacy: 'unlisted' };
 globalThis.fetch = async (url, init = {}) => {
   const u = String(url);
   if (u.startsWith('https://oauth2.googleapis.com/token')) return new Response(JSON.stringify({ access_token: 'at', expires_in: 3600 }));
-  if (u.includes('/youtube/v3/playlistItems')) { google.list++; ok(new URL(u).searchParams.get('playlistId') === 'UUchan0000001', 'uploads playlist derived from channel id'); return new Response(JSON.stringify({ items: [{ snippet: { title: 'Order coffee', description: 'Lesson\nlk:cafe-a', publishedAt: new Date().toISOString() }, contentDetails: { videoId: 'AAAAAAAAAAA' }, status: { privacyStatus: google.privacy } }] })); }
+  if (u.includes('/youtube/v3/playlistItems')) { google.list++; ok(new URL(u).searchParams.get('playlistId') === 'UUchan0000001', 'uploads playlist derived from channel id'); return new Response(JSON.stringify({ items: [{ snippet: { title: 'Order coffee', description: 'Lesson\nlk:cafe-a', publishedAt: new Date().toISOString() }, contentDetails: { videoId: 'AAAAAAAAAAA' }, status: { privacyStatus: google.privacy } }, ...(google.extra || [])] })); }
   if (u.includes('/youtube/v3/videos?')) { google.videos++; return new Response(JSON.stringify({ items: [{ id: 'AAAAAAAAAAA', snippet: { channelId: 'UCchan0000001' }, status: { privacyStatus: google.privacy, uploadStatus: 'processed' }, processingDetails: { processingStatus: 'succeeded' }, contentDetails: { duration: 'PT30S' } }] })); }
   if (u.includes('/upload/youtube/')) throw new Error('manual mode must never call the upload API');
   return new Response('{}', { status: 404 });
@@ -127,6 +127,10 @@ ok(!(await api('ids')).j.web['cafe-a'], 'ids.web: video on a channel that is not
 sql.prepare("INSERT OR REPLACE INTO yt_chan_cfg (channel_id, cfg, paused_reason, updated) VALUES ('UCchan0000001', ?, '', 1)").run(JSON.stringify({ role: 'embed' }));
 ok((await api('ids')).j.web['cafe-a'] === 'AAAAAAAAAAA', 'ids.web → youtube_id for the lesson (same as an API upload)');
 ok(google.list === 2 && google.videos === 2, 'quota: 1 list + 1 videos call per sync');
+ok(r.j.channels[0].scanned === 1 && r.j.channels[0].matched === 1 && r.j.channels[0].unmatched === 0 && r.j.unmatched.length === 0, 'sync: per-channel on-channel / matched / unmatched counts');
+google.extra = [{ snippet: { title: 'Mystery upload', description: 'no marker here', publishedAt: new Date().toISOString(), thumbnails: { default: { url: 'https://i.ytimg.com/vi/ZZZZZZZZZZZ/default.jpg' } } }, contentDetails: { videoId: 'ZZZZZZZZZZZ' }, status: { privacyStatus: 'unlisted' } }];
+r = await api('sync'); google.extra = null;
+ok(r.s === 200 && r.j.channels[0].scanned === 2 && r.j.channels[0].matched === 1 && r.j.channels[0].unmatched === 1 && r.j.unmatched.length === 1 && r.j.unmatched[0].video_id === 'ZZZZZZZZZZZ' && /ytimg/.test(r.j.unmatched[0].thumb) && r.j.unmatched[0].channel_id === 'UCchan0000001', 'sync: unmarked upload listed as unmatched (thumb, channel) for manual linking');
 ok((await api('approve', { ids: ['cafe-a'] })).s === 403, 'CLI cannot approve');
 ok((await api('link', { id: 'cafe-a', url: 'AAAAAAAAAAA' })).s === 403, 'CLI cannot paste links');
 const bad = await Y.onRequestPost({ request: new Request('https://lexkite.com/api/youtube', { method: 'POST', headers: { 'X-Drive-Ts': String(Math.floor(Date.now() / 1000)), 'X-Drive-Sig': 'a'.repeat(64) }, body: '{"op":"sync"}' }), env: ENV });
@@ -167,7 +171,7 @@ ok(bad.status === 403, 'unsigned sync refused');
 
 // ---------- 7. admin cards (jsdom) ----------
 {
-  const dom = new JSDOM('<!doctype html><div id="box"></div>', { url: 'https://lexkite.com/admin.html#video', runScripts: 'outside-only' }), w = dom.window, calls = [];
+  const dom = new JSDOM('<!doctype html><div id="box"></div>', { url: 'https://lexkite.com/admin.html#video/channels', runScripts: 'outside-only' }), w = dom.window, calls = [];
   w.fetch = async () => ({ json: async () => ({ items: [{ id: 'cafe-l', youtube_id: 'LLLLLLLLLLL' }] }) });
   w.confirm = () => true; w.navigator.clipboard = { writeText: async v => calls.push(['clip', v]) };
   w.eval(fs.readFileSync('web/js/admin-video.js', 'utf8'));
@@ -176,9 +180,12 @@ ok(bad.status === 403, 'unsigned sync refused');
     { id: 'cafe-r', state: 'ready', status: 'manual', pack: '/api/admin-shorts?f=x&k=z', title: 'Order <b>coffee</b>', description: 'Desc\nlk:cafe-r', tags: ['a', 'b'], marker: 'lk:cafe-r' },
     { id: 'cafe-p', state: 'uploaded', status: 'detected', err: 'private', video_id: 'PPPPPPPPPPP', title: 'P', marker: 'lk:cafe-p' },
     { id: 'cafe-l', state: 'uploaded', status: 'done', video_id: 'LLLLLLLLLLL', title: 'L', marker: 'lk:cafe-l', updated: Date.now() }] };
-  const yapi = async (op, b) => { calls.push([op, b]); return op === 'status' ? st : op === 'queue' ? { rows: [] } : op === 'packs' ? packs : op === 'link' ? { ok: true, err: null } : { ok: true }; };
+  const yapi = async (op, b) => { calls.push([op, b]); return op === 'status' ? st : op === 'queue' ? { rows: [{ clip: 'cafe-q', status: 'manual' }] } : op === 'packs' ? packs : op === 'link' ? { ok: true, err: null } : { ok: true }; };
+  const G = { channels: [{ channel_id: 'UCx', title: 'Lexkite', platform: 'youtube', status: 'ok', cfg: { role: 'embed', active: 1 } }, { channel_id: 'UCy', title: 'Lexkite English', platform: 'youtube', status: 'ok', cfg: { role: 'social', active: 1 } }, { channel_id: 'gc-tiktok-1', title: '@lexkite', platform: 'tiktok', ext: 1, cfg: { role: 'social', active: 1 } }] };
+  const distapi = async (op, b) => { calls.push(['dist:' + op, b]); return op === 'get' ? G : op === 'embed_status' ? { channels: [{ channel_id: 'UCx', rotating: true }], ready: [], lessons: [], broken: [], coverage: [] } : { ok: true }; };
+  st.sync.channels = [{ channel_id: 'UCy', title: 'Lexkite English', scanned: 1, matched: 0, unmatched: 1 }]; st.sync.unmatched = [{ video_id: 'MMMMMMMMMMM', title: 'Mystery', at: Date.now(), channel_id: 'UCy', thumb: 'https://i.ytimg.com/vi/MMMMMMMMMMM/default.jpg' }];
   const box = w.document.getElementById('box');
-  w.AdminVideo.render(box, async () => ({ items: [], covers: {}, media: false }), (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => v[k]) : s), { esc: s => String(s ?? '').replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`), lang: () => 'vi', toast: m => calls.push(['toast', m]), yapi });
+  w.AdminVideo.render(box, async () => ({ items: [{ id: 'cafe-q', title: 'Queued clip' }], covers: {}, media: false }), (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => v[k]) : s), { esc: s => String(s ?? '').replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`), lang: () => 'vi', toast: m => calls.push(['toast', m]), yapi, distapi });
   for (let i = 0; i < 30 && !box.querySelector('.vid-ytc'); i++) await new Promise(res => setTimeout(res, 10));
   const card = id => box.querySelector(`.vid-ytc[data-id="${id}"]`), R = card('cafe-r');
   ok(R && R.querySelector('a[data-dl]').getAttribute('href').endsWith('&dl=1'), 'card: Tải gói link');
@@ -201,6 +208,21 @@ ok(bad.status === 403, 'unsigned sync refused');
   ok(calls.some(c => c[0] === 'link' && c[1].id === 'cafe-p' && c[1].url === 'https://youtu.be/PPPPPPPPPPP'), 'paste-link fallback → op link');
   box.querySelector('#yt-sync').click(); await new Promise(res => setTimeout(res, 5));
   ok(calls.some(c => c[0] === 'sync'), 'Đồng bộ → op sync');
+  // làn nhúng / social + thẻ kênh rõ ràng + gắn video chưa khớp
+  const lanes = [...box.querySelectorAll('.vx-lane')], card2 = id => box.querySelector(`.vid-ch[data-ch="${id}"]`);
+  ok(lanes.length === 2 && lanes[0].querySelector('[data-ch="UCx"]') && lanes[1].querySelector('[data-ch="UCy"]') && /TikTok/.test(lanes[1].textContent) && /xoay vòng giữa 1 kênh/.test(lanes[0].textContent), 'lanes: embed (UCx, rotation) · social (UCy + GrabCast TikTok)');
+  ok(/Trên kênh/.test(card2('UCy').textContent) && /1 video/.test(card2('UCy').textContent) && /Đã khớp clip Lexkite\s*0/.test(card2('UCy').textContent) && /thiếu mã lk:/.test(card2('UCy').textContent) && /Đồng bộ lần cuối/.test(card2('UCy').textContent), 'channel card: on channel 1 · matched 0 · unmatched 1 (no lk:) · last sync');
+  ok(/Hạn mức YouTube hôm nay/.test(box.textContent), 'quota line in plain Vietnamese');
+  ok(/Cho web\/app/.test(card('cafe-r').textContent), 'pack shows its lane (no channel → web/app)');
+  card2('UCy').querySelector('[data-sync]').click(); await new Promise(res => setTimeout(res, 5));
+  ok(calls.some(c => c[0] === 'sync' && c[1] && c[1].channel_id === 'UCy'), 'Đồng bộ ngay on a channel → op sync {channel_id}');
+  for (let i = 0; i < 30 && !box.querySelector('[data-role="UCy"]'); i++) await new Promise(res => setTimeout(res, 10));
+  box.querySelector('[data-role="UCy"]').click(); await new Promise(res => setTimeout(res, 5));
+  ok(calls.some(c => c[0] === 'dist:cfg_set' && c[1].channel_id === 'UCy' && c[1].cfg.role === 'embed' && c[1].cfg.active === 1), 'role switch → distribution cfg_set {role: embed} (confirmed)');
+  for (let i = 0; i < 30 && !box.querySelector('.vx-un [data-pick]'); i++) await new Promise(res => setTimeout(res, 10));
+  const li = box.querySelector('.vx-un [data-vid="MMMMMMMMMMM"]'); ok(li && li.querySelector('img') && li.querySelector('a[href="https://youtu.be/MMMMMMMMMMM"]') && /Queued clip/.test(li.textContent), 'unmatched video: thumb + link + clip picker (approved clip without video)');
+  li.querySelector('[data-pick]').value = 'cafe-q'; li.querySelector('[data-bind]').click(); await new Promise(res => setTimeout(res, 5));
+  ok(calls.some(c => c[0] === 'link' && c[1].id === 'cafe-q' && c[1].url === 'MMMMMMMMMMM'), 'Gắn với clip… → op link {id: clip, url: video_id}');
 }
 
 console.log(`yt-manual: ${n - fails}/${n} ok`);
