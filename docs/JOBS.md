@@ -3,7 +3,7 @@
 Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --write`. CI (`npm test` → `scripts/test/jobs-check.mjs`) chặn: lịch lệch workflow, trùng, việc dùng chung tài nguyên ĐỘC QUYỀN chồng giờ, việc nặng chung phút bắt đầu, việc có lease thiếu bước thuê.
 
 ## Luật
-- **Ưu tiên**: user > publishing > render > archive > reports. Hạn mức D1 hôm nay còn lại quyết định việc nào được khởi động: trần dùng user 100% · publishing 70% · render 60% · archive 50% · reports 40% (vượt → bỏ qua tới khung kế, ghi lý do).
+- **Ưu tiên**: user > publishing > render > archive > reports > bulk. Hạn mức D1 hôm nay còn lại quyết định việc nào được khởi động: trần dùng user 100% · publishing 70% · render 60% · archive 50% · reports 40% · bulk 30% (vượt → bỏ qua tới khung kế, ghi lý do).
 - **Thuê (lease)**: việc nặng gọi `node scripts/jobs/lease.mjs acquire <id>` đầu job và `release` cuối job (`if: always()`). Máy chủ (`functions/api/jobs.js`, bảng `job_leases`/`job_runs` ở D1 nội bộ) cấp thuê toàn bộ tài nguyên độc quyền hoặc từ chối (đang có việc khác giữ → bỏ qua, không chạy song song). Thuê tự hết hạn (ttl = phút ước lượng × 1,5).
 - **Ngân sách**: mỗi tài khoản D1 đo riêng (cầu dao `_d1guard.js`); việc nền dừng sạch khi vượt trần, không thử lại.
 - **Xem**: Quản trị › Hạn mức › "Lịch việc nền" (dòng thời gian hôm nay: đã chạy / bỏ qua + lý do / dùng bao nhiêu).
@@ -17,6 +17,8 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 - `gemini` — Gemini (miễn phí) (độc quyền)
 - `workers_ai` — Workers AI (neuron) (độc quyền)
 - `gh_minutes` — Phút GitHub Actions
+- `workers_ai_b` — Workers AI tài khoản 2 (neuron) (độc quyền)
+- `grabcast_ai` — GrabCast AI pool (ảnh)
 
 ## Lịch (UTC, theo giờ trong ngày)
 | Giờ UTC | Việc | Lịch cron | Ưu tiên | Tài nguyên | Phút | Ước lượng | Thuê |
@@ -46,6 +48,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 06:20 | `footage-verify` | `20 6 * * 1` | reports | drive_pool, d1_internal | 20 | d1_internal_reads≈8000, drive_calls≈300 | ✓ |
 | 07:30 | `explain` | `30 7 * * *` | render | gemini, gh_minutes | 40 | — | — |
 | 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai, gemini, drive_pool | 150 | clips≈6, workers_ai_neurons≈3000, gemini_calls≈12, drive_calls≈60 | ✓ |
+| 13:10 | `vocab-img` | `10 13 * * *` | bulk (tạm dừng) | workers_ai, workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_neurons≈864, workers_ai_b_neurons≈8640, grabcast_images≈40, images≈95 | ✓ |
 | 18:00 | `word-audio` | `0 18 * * *` | render | gh_minutes | 60 | — | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |

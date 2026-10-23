@@ -55,6 +55,7 @@ on:
       - 'Backlink, PR & Thương hiệu'
       - 'Chụp ảnh giao diện'
       - 'Kho kịch bản video (sinh + QC)'
+      - 'Ảnh minh hoạ từ vựng'
       - 'shorts-migrate'
       - 'shorts-rebuild'
       - 'storage-watch'

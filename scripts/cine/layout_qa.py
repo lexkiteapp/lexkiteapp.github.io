@@ -71,6 +71,11 @@ for fi in sorted(frames):
     cv2.rectangle(T, (0, 0), (360, 26), (0, 0, 0), -1); lab = f'{a / FPS:5.2f}s ' + ' '.join(sorted({o["style"] for o in OV if vis(o, fi)}))
     cv2.putText(T, lab[:44], (6, 18), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255) if fbad else (255, 255, 255), 1, cv2.LINE_AA); tiles.append(T)
 cols = 6; rows_ = []
+_cj = json.load(open(f'{RD}/cine.json')) if os.path.exists(f'{RD}/cine.json') else None
+if _cj and tiles:   # owner 23/10: the cine score on the sheet
+    T = np.zeros_like(tiles[0]); cv2.putText(T, f"CINE {_cj['score']}/100", (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 2, cv2.LINE_AA)
+    for n_, (k_, v_) in enumerate(_cj['rules'].items()): cv2.putText(T, f"{'OK ' if v_['ok'] else 'FAIL'} {k_}", (10, 80 + 30 * n_), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 200, 0) if v_['ok'] else (0, 0, 255), 1, cv2.LINE_AA)
+    tiles.insert(0, T)
 for i in range(0, len(tiles), cols):
     r = tiles[i:i + cols]; r += [np.zeros_like(tiles[0])] * (cols - len(r)); rows_.append(np.hstack(r))
 os.makedirs(f'{OUT}/qa', exist_ok=True); lid = tl['lesson'].get('id') or os.path.basename(RD); sheet = f'{OUT}/qa/layout_{lid}.jpg'
