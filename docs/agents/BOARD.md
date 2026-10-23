@@ -62,13 +62,6 @@ Mẫu thẻ:
 - Toàn văn thẻ (cơ cấu nội dung, đợt 3, nghiệm thu): BOARD-ARCHIVE.md [B3].
 - Cần sửa / Nhận xét:
 
-### [C1] Nút kêu gọi thông minh trên blog & trang từ vựng tĩnh (phễu về add-on / app) · @antigravity · ưu tiên: vừa
-- Phạm vi còn lại (Claude 17/10): **chỉ phần blog** (`scripts/build-blog.mjs`, khối `{{cta}}` + cuối bài); dùng lại `extBox`/`ctaBox` trong `scripts/lib/site-layout.mjs`, KHÔNG sửa `build-samples*.mjs` (Claude đã làm trang tĩnh).
-- Theo thiết bị: Chrome/Edge máy tính chưa cài add-on → mời cài add-on; điện thoại → thêm vào màn hình chính/app store; mọi thiết bị → "＋ Lưu bộ từ này vào thẻ ôn" (`/#/topic/<id>`). Không pop-up chặn đọc, tắt được 7 ngày, đo qua `/api/hit`, chữ 15 ngôn ngữ.
-- Tiêu chí: `npm test` PASS (blog-check, crawl), LCP không tăng. Toàn văn: BOARD-ARCHIVE.md [C1].
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [S1] Đóng băng chuỗi (Streak Freeze) – giao diện (logic đã xong) · @antigravity · ưu tiên: cao (làm sau L1)
 - ⚠️ Phạm vi này nay nằm trong **[G2]** (UI Streak Freeze) – làm theo G2, không làm riêng (verify với Claude nếu khác). Logic: `Core.Stats.freezeInfo(state.game)` (+1 lượt mỗi 7 ngày chuỗi, tối đa 2) – KHÔNG sửa logic. Toàn văn cũ: BOARD-ARCHIVE.md [S1 freeze].
 - Báo cáo:
@@ -77,13 +70,6 @@ Mẫu thẻ:
 ### [U2e] App iOS/Android – kiểm tra ảnh demo CI & sửa giao diện riêng app · @antigravity · ưu tiên: vừa
 - Xem artifact `lexkite-ios-screenshots` / `lexkite-android-screenshots` của workflow ios.yml / android.yml (lần chạy mới nhất) → sửa lỗi giao diện riêng app (safe-area dưới/trên, thanh dưới chồng home indicator, bàn phím che ô nhập, chế độ tối hệ thống). Selector dùng `html.native`.
 - File: `web/css/style.css`. Báo cáo kèm tên ảnh đã kiểm.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
-### [U1] Rà ảnh chụp giao diện tự động – sửa lỗi bố cục mobile/dark · @antigravity · ưu tiên: vừa
-- Mục tiêu: xem ảnh trong nhánh `screens` (workflow `screens.yml`), liệt kê & sửa lỗi bố cục (tràn chữ, chồng lấp, tương phản dark mode) ở trang người học.
-- File/khu vực: `web/css/style.css` (+ markup trang liên quan nếu bắt buộc, ghi rõ).
-- Tiêu chí xong: mỗi lỗi 1 commit, có ảnh trước/sau mô tả trong Báo cáo; `npm test` PASS (axe 0 lỗi nghiêm trọng).
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
@@ -109,4 +95,5 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+- [C1] + [U1] ✅ Claude duyệt & gộp 23/10 (4b03701b): CTA blog + 5 sửa CSS mobile/dark. Chi tiết: BOARD-ARCHIVE.md.
 → `docs/agents/BOARD-ARCHIVE.md` (G2 22/10, G1, G0, W1, U3, U2d, P1, S1 thẻ khoe, X1, L1, B4, DUO1, B2 … – nguyên văn).
