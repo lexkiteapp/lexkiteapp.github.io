@@ -106,6 +106,7 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
   per.clear();
 
   const results = {};
+  const PUSH_MS = +(process.env.SIM_PUSH_MS || 180e3); // web/js/sync.js Sync.schedule: đẩy ≤ 1 lần/3 phút + đẩy ngay khi rời trang
   let ipN = 10;
   for (const [name, P] of Object.entries(PROFILES)) {
     const samples = [];
@@ -154,7 +155,7 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
           const tm = Date.now() - start;
           if (tm >= 15e3 && sentBeacons === 0) await beacon(true);
           else if (tm >= 15e3 && (tm - 15e3) % 180e3 < 30e3 && tm > 30e3) await beacon(true);
-          for (let x = 0; x < perStep + (Math.random() < perStep % 1 ? 1 : 0); x++) {
+          for (let x = 0, nOps = Math.floor(perStep) + (Math.random() < perStep % 1 ? 1 : 0); x < nOps; x++) {
             k++; pages++;
             const ws = Object.keys(cards);
             if (k % Math.max(1, Math.round((P.reviews + P.add) / Math.max(1, P.add))) === 0 || !ws.length) { const w = `${uid}-n${k}-${si}`; cards[w] = card(w, k); }
@@ -162,7 +163,7 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
             statsTick++;
             if (P.signedIn && dirtyAt === null) dirtyAt = Date.now();
           }
-          if (P.signedIn && dirtyAt !== null && Date.now() - dirtyAt >= 180e3) { await pushDocs('sync.push'); dirtyAt = null; }
+          if (P.signedIn && dirtyAt !== null && Date.now() - dirtyAt >= PUSH_MS) { await pushDocs('sync.push'); dirtyAt = null; }
           if (P.league && P.signedIn && Date.now() - lgAt >= 300e3) { await call(lgAt < 0 ? 'league.me' : 'league.xp', F.league.onRequestPost, { uid, ip, body: lgAt < 0 ? { op: 'join', nick: 'Sim' + s } : { op: 'xp', xp: statsTick * 10 } }); lgAt = Date.now(); }
           if (P.lessons && t === Math.floor(steps / 2) && si < P.lessons) {
             if (P.cls === true) await call('class.progress', F.class.onRequestPost, { uid, ip, body: { op: 'progress', ref: ['topic:travel', 'il:1', 'ir:2', 'toeic:3'][si % 4], r: 8, t: 10 } });

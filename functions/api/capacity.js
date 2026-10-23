@@ -67,7 +67,7 @@ export async function check(env, db, now = Date.now(), fetcher = fetch) {
   const ev = evaluate(rows, LIMITS.free, ALERT, to);
   let mailed = false;
   if (ev.alert) {
-    const msg = `${alertText(ev)} – ${ev.reason}. Hôm qua: ${pctTxt(ev)}.`;
+    const msg = `${alertText(ev)} – ${ev.reason}. Hôm qua: ${pctTxt(ev)}. Trong lúc chờ: Quản trị › Cài đặt › hit_rate = 0.2 (lấy mẫu thống kê phiên) giảm ≈ 30 % dòng ghi.`;
     await db.prepare("INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES ('capacity', 'crit', NULL, ?1, ?2, ?2, NULL) ON CONFLICT (kind) DO UPDATE SET msg = ?1, seen = ?2")
       .bind(JSON.stringify({ t: 'capacity', p: { by: fmtVN(ev.upgradeBy), reason: ev.reason }, msg }), now).run();
     const last = +(((await db.prepare("SELECT v FROM drive_meta WHERE k = 'mail:capacity'").first()) || {}).v) || 0;

@@ -117,6 +117,25 @@ const reads = async fn => { M.begin('t'); await fn(); return M.end().reads; };
   ok(/SEARCH sessions USING (COVERING )?INDEX sessions_day/.test(plan), 'DELETE sessions dùng chỉ mục day: ' + plan);
 }
 
+// ---------- 4b) config.js: đệm biên 5 phút + ETag/304 ----------
+{
+  const CF = await import('../../functions/api/config.js');
+  be.sql.exec('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID');
+  be.sql.prepare("INSERT OR REPLACE INTO config (k, v) VALUES ('banner', 'Xin chào')").run();
+  const cq = () => [...M.queries.values()].filter(e => /FROM config WHERE k IN \(\?/.test(e.q)).reduce((t, e) => t + e.n, 0);
+  const g = (h = {}) => CF.onRequestGet({ request: new Request('https://lexkite.com/api/config', { headers: h }), env: { DB } });
+  const a = await g(), et = a.headers.get('ETag'), q0 = cq();
+  ok(a.status === 200 && (await a.json()).banner === 'Xin chào' && et, 'config: 200 + ETag');
+  const b = await g({ 'If-None-Match': et });
+  ok(b.status === 304 && cq() === q0, 'config: If-None-Match khớp → 304, lấy từ đệm biên (không đọc D1)');
+  be.sql.prepare("UPDATE config SET v = 'Mới' WHERE k = 'banner'").run();
+  ok((await (await g()).json()).banner === 'Xin chào', 'config: trong 5 phút dùng bản đệm');
+  await CF.purgeConfig();
+  const c = await g({ 'If-None-Match': et });
+  ok(c.status === 200 && (await c.json()).banner === 'Mới' && c.headers.get('ETag') !== et, 'quản trị lưu → purgeConfig → bản mới, ETag mới');
+  OFF += 301e3; await g(); ok(cq() === q0 + 2, 'config: hết 5 phút → đọc lại D1');
+}
+
 // ---------- 5) luật cảnh báo + check() ----------
 const C = await import('../../functions/api/_capacity.js');
 const CAP = await import('../../functions/api/capacity.js');
