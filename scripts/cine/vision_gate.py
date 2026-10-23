@@ -35,6 +35,8 @@ def main():
     except Exception: out['error'] = 'unparsed: ' + txt[:200]; json.dump(out, open(f'{d}/vision.json', 'w')); print('vision gate: unparsed answer'); sys.exit(2)
     out['answers'] = [dict(natural=bool(f.get('natural')), problem=str(f.get('problem') or '')[:160]) for f in fr][:len(ims)]
     out['ok'] = len(out['answers']) == len(ims) and all(a['natural'] for a in out['answers'])
+    if out['answers'] and all(a['problem'] == 'no answer' for a in out['answers']):   # #81: quota-exhausted provider = unavailable (exit 2), not a bad background (was rejecting every bg)
+        out['ok'] = None; out['error'] = 'provider gave no answer (quota)'; json.dump(out, open(f'{d}/vision.json', 'w')); print('vision gate unavailable:', out['error']); sys.exit(2)
     json.dump(out, open(f'{d}/vision.json', 'w')); print('vision gate', out['provider'], 'OK' if out['ok'] else 'FAIL', out['answers']); sys.exit(0 if out['ok'] else 1)
 
 if __name__ == '__main__': main()
