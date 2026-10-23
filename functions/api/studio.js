@@ -380,6 +380,7 @@ async function secretOk(env, given) {
   const want = env.STUDIO_CALLBACK_SECRET; if (!want || !given) return false;
   const [a, b] = await Promise.all([hex('studio|' + want), hex('studio|' + given)]); let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; // so sánh băm, thời gian không đổi
 }
+const NO_DB = new Set(['visionCheck', 'judgeScript']);
 const CI = {
   // cine-render (news, owner 22/10 VIDEO-SCALE-PLAN §11): AI vision gate on 3 composited frames - does the presenter stand naturally in the scene?
   // Gemini vision from the key pool; fallback Workers AI llava (one image at a time). Images: base64 JPEG <= 180 KB each, max 4.
@@ -391,7 +392,7 @@ const CI = {
       'Score 1-5 each: clarity (easy to follow for A2-B1, short sentences, no word harder than the thing it explains), correctness (the marked-wrong line is really wrong or unnatural in this situation AND the marked-right line is natural American English here; the why is true), ' +
       'one_idea (exactly one teaching point), level (explanations use A2-B1 core words; idioms glossed), neutrality (no religion/politics/stereotypes; mistakes phrased "many learners", never a country). ' +
       'Reply JSON only: {"clarity":n,"correctness":n,"one_idea":n,"level":n,"neutrality":n,"wrong_is_wrong":true|false,"right_is_right":true|false,"issues":["..."]}';
-    const g = await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: script }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } });
+    const g = b.gemini ? await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: script }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } }).catch(() => null) : null;   // Gemini key pool reads D1 -> opt-in
     if (g && g.text) { try { return { provider: 'gemini', out: JSON.parse(g.text.replace(/^```(json)?|```$/g, '')) }; } catch (e) { /* fall through */ } }
     if (!env.AI) throw new Bad(503, 'no-model');   // fallback: Llama 3.3 70B (the 8B model misread the script markup in run #64)
     const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: sys + ' Reply with ONE JSON object only.' }, { role: 'user', content: script }], max_tokens: 600, temperature: 0, response_format: { type: 'json_object' } });
@@ -403,7 +404,7 @@ const CI = {
     const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));
     if (!imgs.length) throw new Bad(400, 'images');
     const q = String(b.question || '').slice(0, 2000);
-    const g = await geminiCall(env, { contents: [{ role: 'user', parts: [{ text: q }, ...imgs.map(d => ({ inline_data: { mime_type: 'image/jpeg', data: d } }))] }], generationConfig: { temperature: 0, responseMimeType: 'application/json' } });
+    const g = b.gemini ? await geminiCall(env, { contents: [{ role: 'user', parts: [{ text: q }, ...imgs.map(d => ({ inline_data: { mime_type: 'image/jpeg', data: d } }))] }], generationConfig: { temperature: 0, responseMimeType: 'application/json' } }).catch(() => null) : null;   // opt-in (D1 key pool)
     if (g && g.text) return { provider: 'gemini', text: g.text };
     if (env.AI) {   // fallback: Llama 3.2 Vision (one image at a time, yes/no question = robust parsing); accepts the Meta licence once
       const M = '@cf/meta/llama-3.2-11b-vision-instruct', frames = [];
@@ -490,7 +491,7 @@ export async function onRequestPost({ request, env }) {
   const T = who ? OPS : CI, fn = b && typeof b === 'object' && Object.hasOwn(T, b.op) ? T[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   try {
-    await setup(env.DB);
+    if (!NO_DB.has(b.op)) await setup(env.DB);   // AI gate ops never touch D1 (D1 quota can run out; the gates must not)
     const out = await fn(env, env.DB, b, who);
     if (who && WRITE.has(b.op)) await adminAudit(env, request, who.email, 'studio:' + b.op, true);
     return json(request, 200, out);
