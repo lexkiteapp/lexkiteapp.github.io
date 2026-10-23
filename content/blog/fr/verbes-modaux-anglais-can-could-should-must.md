@@ -176,3 +176,5 @@ Dans la langue courante contemporaine, *shall* est très peu utilisé, à l'exce
 Les verbes modaux sont les pinceaux avec lesquels vous colorez vos phrases en anglais. En retenant leurs trois règles d'invariabilité et en visualisant l'échelle des probabilités de *must* à *can't*, vous cesserez de traduire vos pensées pour vous exprimer avec la justesse et la subtilité d'un locuteur averti.
 
 Pratiquez ces structures régulièrement dans des phrases courtes du quotidien, et observez votre confiance progresser jour après jour !
+
+> À lire aussi: [Voix passive en anglais : règles simples et formation](/fr/blog/voix-passive-en-anglais-regles/)

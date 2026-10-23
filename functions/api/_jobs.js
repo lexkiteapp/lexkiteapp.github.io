@@ -29,6 +29,7 @@ export function accountsOf(env, j) {
 }
 export async function acquire(env, db, b, now = Date.now()) {
   const j = jobOf(String(b.job || '')); if (!j) return { status: 400, error: 'unknown-job' };
+  if (j.paused && !b.force) return { ok: false, skip: true, reason: 'paused (infra/jobs.json) – chỉ chạy tay với --force' };
   const runId = String(b.run || 'manual-' + now).slice(0, 60), d = day(now);
   const skip = async reason => { await run(db, 'INSERT INTO job_runs (job, run, day, started, ended, status, reason) VALUES (?, ?, ?, ?, ?, ?, ?)', j.id, runId, d, now, now, 'skipped', String(reason).slice(0, 200)); return { ok: false, skip: true, reason }; };
   const cap = REG.budget_caps[j.priority] ?? 0.5;

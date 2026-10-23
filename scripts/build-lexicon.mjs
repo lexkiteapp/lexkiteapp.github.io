@@ -10,6 +10,7 @@
 //   3. IPA Anh: sửa ký hiệu hỏng, r kiểu Mỹ, ˈ thừa ở từ 1 âm tiết. IPA Mỹ (ô 11): giữ bản tay, thiếu → CMUdict.
 import fs from 'fs';
 import { loadAll, saveAll, key, rd, wr, ROOT, SOURCES } from './lexicon/lib.mjs';
+import { checkImg } from './lexicon/img.mjs';
 import { fixBroken, fixUKr, stripMonoStress, arpaToIpa, stressIndex, arpaStressIndex, usSpellings, badChars } from './lexicon/ipa.mjs';
 
 const WRITE = process.argv.includes('--write');
@@ -95,6 +96,16 @@ for (const [k, list] of groups) if (new Set(list.map(e => e.row[3])).size > 1) e
 const usCov = single.filter(e => e.us).length / single.length;
 if (usCov < 0.97) errs.push(`ipaUS phủ ${(usCov * 100).toFixed(1)}% từ đơn (< 97%)`);
 
+// ---- ảnh minh hoạ theo nghĩa (content/lexicon/img.json → web/js/lexicon-img.json, mọi bề mặt đọc từ đây – docs/LEXICON.md § Ảnh minh hoạ)
+const IMGF = 'content/lexicon/img.json';
+const IMG = fs.existsSync(new URL(IMGF, ROOT)) ? JSON.parse(rd(IMGF)) : { v: 1, style: { v: 's1' }, base: 'https://media.lexkite.com/vimg/', items: {}, rejected: {} };
+errs.push(...checkImg(IMG, new Set(groups.keys())));
+const imgIndex = JSON.stringify({ v: IMG.v, base: IMG.base, sv: IMG.style.v, m: Object.fromEntries(Object.entries(IMG.items).map(([k, e]) => [k, e.h])) });
+for (const f of ['web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json']) {
+  const ex = fs.existsSync(new URL(f, ROOT));
+  if (WRITE) { if (!ex || rd(f) !== imgIndex + '\n') wr(f, imgIndex + '\n'); } else if (!ex || rd(f) !== imgIndex + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);
+}
+
 // ---- ghi / so sánh
 const changed = WRITE ? saveAll(all) : (() => { let n = 0; const byLine = new Map(loadAll().map(x => [x.file + ':' + x.line, x.row])); for (const e of all) { const r = e.row.slice(); while (r.length > 10 && !r[r.length - 1]) r.pop(); if (JSON.stringify(byLine.get(e.file + ':' + e.line)) !== JSON.stringify(r)) n++; } return n; })();
 if (!WRITE && changed) errs.push(`${changed} dòng nguồn chưa chuẩn hoá → chạy: node scripts/build-lexicon.mjs --write`);
@@ -109,7 +120,7 @@ for (const [src, dst] of copies) {
 // dist/lexicon.json: mục theo từ#loại (pack đa ngôn ngữ, TTS, audit)
 if (WRITE) {
   const lex = {};
-  for (const [k, list] of groups) { const r = list[0].row; lex[k] = { w: r[0], pos: r[2], ipa: r[1], ipaUS: r[10] || '', vi: r[3], def: r[4], ex: r[5], level: r[8], sets: list.map(e => e.set) }; }
+  for (const [k, list] of groups) { const r = list[0].row; lex[k] = { w: r[0], pos: r[2], ipa: r[1], ipaUS: r[10] || '', vi: r[3], def: r[4], ex: r[5], level: r[8], sets: list.map(e => e.set) }; if (IMG.items[k]) lex[k].img = IMG.items[k]; }
   fs.mkdirSync(new URL('dist/', ROOT), { recursive: true });
   wr('dist/lexicon.json', JSON.stringify(lex));
 }

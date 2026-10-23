@@ -157,3 +157,5 @@ Bereits 5 bis 10 Minuten tägliches lautes Sprechen (Shadowing-Methode, bei der 
 
 ### Was ist der beste Trick für den th-Laut?
 Üben Sie vor dem Spiegel. Wenn Sie Ihre Zungenspitze beim Sprechen von *think* oder *this* im Spiegel nicht ganz kurz zwischen den Zähnen sehen können, bilden Sie den Laut mit hoher Wahrscheinlichkeit noch falsch.
+
+> Weiterlesen: [Connected Speech Englisch Regeln: Lautverbindungen verstehen](/de/blog/connected-speech-englisch-verbindungslaute/)

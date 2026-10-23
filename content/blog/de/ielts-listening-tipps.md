@@ -103,3 +103,5 @@ Raten Sie! Bei IELTS gibt es keine Minuspunkte für falsche Antworten. Wenn Sie 
 ### Wie unterscheidet sich der IELTS-Hörtest vom Cambridge C1 Advanced?
 
 Beide Prüfungen stammen von Cambridge Assessment, weisen jedoch Unterschiede auf: Im IELTS hören Sie jeden Abschnitt nur ein einziges Mal, während beim Cambridge CAE jeder Audiotrack zweimal abgespielt wird. Vergleichen Sie die Prüfungsformate in unseren [Cambridge C1 Advanced Tipps](/de/blog/cambridge-c1-advanced-tipps/).
+
+> Weiterlesen: [IELTS Writing Task 1 Aufbau: Diagramme beschreiben](/de/blog/ielts-writing-task-1-diagramme-beschreiben/)

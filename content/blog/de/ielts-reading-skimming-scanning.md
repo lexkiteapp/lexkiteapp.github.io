@@ -163,3 +163,5 @@ Ja, rigoros. Wenn du ein Wort falsch aus dem Text abschreibst oder den Plural ve
 
 ### Was mache ich, wenn ich ein extrem langes wissenschaftliches Fachwort nicht kenne?
 Lass dich nicht einschüchtern. IELTS verwendet absichtlich biologische, geologische oder archäologische Fachtermini (z. B. *photosynthetic transpiration*), um zu prüfen, ob du dich davon ablenken lässt. Lies einfach weiter; meist wird der Begriff im nächsten Halbsatz erklärt oder ist für die Beantwortung der Frage irrelevant.
+
+> Weiterlesen: [Linking Words Englisch Übersicht: Die besten Bindewörter](/de/blog/linking-words-englisch-uebersicht-connectors/)

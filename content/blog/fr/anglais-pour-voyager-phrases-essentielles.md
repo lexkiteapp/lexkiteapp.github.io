@@ -193,3 +193,5 @@ Les formules de politesse simples (*„A coffee, please“*) sont toujours bienv
 Maîtriser les expressions clés de l'anglais touristique ne demande que quelques heures de préparation avant votre départ, mais cette petite routine change radicalement la saveur de vos séjours à l'étranger. Libéré de la peur de ne pas comprendre, vous oserez engager la conversation, découvrir des lieux authentiques hors des sentiers battus et nouer des rencontres mémorables.
 
 Glissez ce guide dans vos favoris, écoutez les prononciations sur Lexkite avant de boucler votre valise – et bon voyage !
+
+> À lire aussi: [Mots de liaison en anglais : liste de connecteurs logiques](/fr/blog/mots-de-liaison-en-anglais-linking-words/)

@@ -228,3 +228,5 @@ Envoyez immédiatement un accusé de réception temporaire (*Holding Email*) : *
 
 ### Les abréviations comme *ASAP* sont-elles bien vues ?
 Utilisez *ASAP* (*as soon as possible*) avec prudence. Cela peut paraître brutal ou désagréable. Privilégiez une échéance précise et polie : *„Would it be possible to receive your feedback by Thursday 2 PM?“*.
+
+> À lire aussi: [Présentation en anglais phrases : guide pour briller à l oral](/fr/blog/reussir-une-presentation-en-anglais-phrases/)

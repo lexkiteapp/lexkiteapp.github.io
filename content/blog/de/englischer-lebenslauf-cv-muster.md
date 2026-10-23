@@ -220,3 +220,5 @@ Nein. Im angelsächsischen Raum sendet man zunächst ausschließlich das 1- bis 
 ## Fazit: Qualität schlägt Quantität
 
 Ein herausragender englischer Lebenslauf besticht nicht durch gestalterische Extravaganz, sondern durch kristallklare Struktur, fehlerfreie Grammatik und messbare Resultate. Nimm dir die Zeit, jedes Detail auf deine Zielstelle abzustimmen. Mit starken Action Verbs und einem sauberen Format verschaffst du dir den entscheidenden Vorsprung im internationalen Bewerberfeld.
+
+> Weiterlesen: [Präsentation auf Englisch Phrasen: Der Business-Leitfaden](/de/blog/praesentation-auf-englisch-formulierungen/)

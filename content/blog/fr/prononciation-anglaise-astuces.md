@@ -151,3 +151,5 @@ Placez votre doigt verticalement contre vos lèvres, comme pour faire signe de g
 
 ### Pourquoi a-t-on l'impression que les anglophones parlent trop vite ?
 Ce n'est pas une question de débit de mots, mais de liaison (*connected speech*) et de réduction des voyelles. Dès que vous comprenez comment les syllabes inaccentuées sont écourtées, votre cerveau déchiffre les phrases beaucoup plus facilement.
+
+> À lire aussi: [Connected speech anglais : comprendre les liaisons orales](/fr/blog/connected-speech-anglais-liaisons-et-rythme/)

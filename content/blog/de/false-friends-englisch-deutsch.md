@@ -158,3 +158,5 @@ Nutzen Sie den bekannten Eselsbrücken-Satz: „Wer *become* mit *bekommen* verw
 
 ### Gelten falsche Freunde auch für britisches und amerikanisches Englisch gleichermaßen?
 Die meisten deutsch-englischen falschen Freunde gelten für beide Hauptvarianten. Es gibt jedoch Ausnahmen: Das britische Wort *biscuit* entspricht dem deutschen Keks, während ein US-amerikanischer *biscuit* einer Art herzhaftem Scone ähnelt.
+
+> Weiterlesen: [Passiv Englisch Regeln: Bildung, Zeiten und Passive Voice](/de/blog/passiv-englisch-bildung-regeln-passive-voice/)

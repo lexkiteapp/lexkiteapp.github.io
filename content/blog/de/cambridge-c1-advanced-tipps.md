@@ -139,3 +139,5 @@ Vom geforderten Sprachniveau her entspricht C1 Advanced einem IELTS-Band-Score v
 
 ### Wie viel Vorbereitungszeit sollte ich für das CAE einplanen?
 Wer bereits ein solides B2-Niveau mitbringt, benötigt in der Regel 3 bis 6 Monate gezielte Vorbereitung (ca. 4 bis 6 Stunden pro Woche), um sich mit den spezifischen Prüfungsformaten und dem geforderten akademischen Vokabular vertraut zu machen.
+
+> Weiterlesen: [IELTS Writing Task 1 Aufbau: Diagramme beschreiben](/de/blog/ielts-writing-task-1-diagramme-beschreiben/)

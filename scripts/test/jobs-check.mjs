@@ -39,6 +39,11 @@ export function check(reg, wfDir = '.github/workflows', root = '.') {
   }
   for (const j of reg.jobs.filter(j => j.workflow)) {
     const r = real[j.workflow];
+    if (j.paused) {   // tạm dừng: workflow tồn tại nhưng KHÔNG được có lịch (cron trong sổ = lịch dự kiến khi bật)
+      if (r) bad.push(`${j.id}: paused nhưng workflow vẫn có schedule`); else if (!fs.existsSync(path.join(root, wfDir, j.workflow))) bad.push(`${j.id}: workflow ${j.workflow} không tồn tại`);
+      else if (j.lease && !new RegExp('scripts/jobs/lease\\.mjs acquire ' + j.id + '\\b').test(fs.readFileSync(path.join(root, wfDir, j.workflow), 'utf8'))) bad.push(`${j.id}: lease:true nhưng workflow thiếu bước thuê`);
+      continue;
+    }
     if (!r) { bad.push(`${j.id}: workflow ${j.workflow} không có lịch (schedule) hoặc không tồn tại`); continue; }
     if (JSON.stringify([...r.cs].sort()) !== JSON.stringify([...j.cron].sort())) bad.push(`${j.id}: cron workflow ${JSON.stringify(r.cs)} ≠ sổ ${JSON.stringify(j.cron)} (chạy node scripts/jobs/gen.mjs --write)`);
     if (j.lease && !new RegExp('scripts/jobs/lease\\.mjs acquire ' + j.id + '\\b').test(r.s)) bad.push(`${j.id}: lease:true nhưng workflow thiếu bước "node scripts/jobs/lease.mjs acquire ${j.id}"`);

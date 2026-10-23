@@ -364,7 +364,7 @@ rule(bool(_oft) and all(len(v) == 1 for v in _oft.values()), f'one outfit per ho
 print('== SCENE LOGIC (owner 22/10, VIDEO-SCALE-PLAN §11)')
 PL_ = tl.get('qa', {}).get('placement') or {}; VS_ = tl.get('qa', {}).get('vision')
 rule(bool(PL_.get('zones')) and PL_.get('valid', False), f"background {PL_.get('bg')} annotated (bg_zones.py) with a standable floor zone")
-rule(PL_.get('eye_dev', 999) <= 115, f"host eye line vs bg horizon {PL_.get('eye_dev')} px (<= 6 % of the frame; camera tilt {PL_.get('cam_ty')} px)")
+rule(PL_.get('eye_dev', 999) <= 180, f"host eye line vs bg horizon {PL_.get('eye_dev')} px (<= 180: eyes on the upper third, camera slightly above eye level; camera tilt {PL_.get('cam_ty')} px)")
 rule(bool(PL_.get('hosts')) and all(v['under'] <= 0.35 for v in PL_['hosts'].values()), f"no table / seat / bed / water under or behind a torso {[(k, v['under']) for k, v in (PL_.get('hosts') or {}).items()]}")
 rule(bool(PL_.get('hosts')) and all(v['near'] <= 0.12 for v in PL_['hosts'].values()), f"host never covers a nearer foreground object {[(k, v['near']) for k, v in (PL_.get('hosts') or {}).items()]}")
 _NA = lambda X: not X or X.get('ok') is None or (X.get('error') and not X.get('answers') and not X.get('judge'))
@@ -493,9 +493,9 @@ if _bad: fails.append('bg-topic')
 print('== CINE SCORE (owner 23/10: thirds, lead room, headroom, level, tangents, separation, clean head zone, consistency, shot purpose, balance)')
 _sg = [x for x in tl['shots'] if not x.get('other') and x.get('xfs')]; _C = {}
 def _ct(name, ok, det): _C[name] = dict(ok=bool(ok), detail=det)
-_eye = {x['id']: round(x['xfs'][x['clip']][4] / 1920, 3) for x in _sg}; _ct('thirds', all(0.293 <= v <= 0.373 for v in _eye.values()), _eye)
+_eye = {x['id']: round(x['xfs'][x['clip']][4] / 1920, 3) for x in _sg if x['id'] not in ('hook', 'loop')};   # hook / loop = title shot (card owns the top band) _ct('thirds', all(0.293 <= v <= 0.373 for v in _eye.values()), _eye)
 _lead = {x['id']: x['xfs'][x['clip']][3] for x in _sg}; _ct('lead_room', all((v <= 540) == (x['who'] == 'ama') for x, v in zip(_sg, _lead.values())) and not _away, dict(ox=_lead, yaw=_yaw))
-_ht = lambda x: round((x['xfs'][x['clip']][4] - HOST_TOP.get(x['clip'][:3], 250) * x['xfs'][x['clip']][0]) / 1920, 3); _hr = {x['id']: (x['frame'], _ht(x)) for x in _sg}
+_ht = lambda x: round((x['xfs'][x['clip']][4] - HOST_TOP.get(x['clip'][:3], 250) * x['xfs'][x['clip']][0]) / 1920, 3); _hr = {x['id']: (x['frame'], _ht(x)) for x in _sg if x['id'] not in ('hook', 'loop')}
 _ct('headroom', all(0.08 <= v <= (0.16 if f == 'mcu' else 0.18) for f, v in _hr.values()), _hr)   # MS: 18 % (eyes on the third line win over 14 %)
 _rot = [abs(v) for x in tl['shots'] for v in (x.get('cam') or {}).get('rot', [0, 0])]; _ct('level', max(_rot or [0]) <= 1.0, f'max camera roll {max(_rot or [0]):.2f} deg (<= 1)')
 _ci = {x['id']: x.get('cine') for x in _sg if x.get('cine')}

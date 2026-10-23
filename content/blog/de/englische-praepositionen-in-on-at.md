@@ -167,3 +167,5 @@ Beides ist absolut korrekt! *At the weekend* ist der traditionelle britische Sta
 
 ### Was bedeutet 'in the corner' versus 'at the corner'?
 *In the corner* bezieht sich auf die innere Ecke eines geschlossenen Raumes (*"The armchair sits in the corner of the room"*). *At the corner* oder *on the corner* bezeichnet die äußere Straßenecke im Freien (*"Meet me at the corner of 5th Avenue"*).
+
+> Weiterlesen: [If-Sätze Englisch Übersicht: Die 4 Typen der Conditionals](/de/blog/englische-if-saetze-conditional-clauses/)

@@ -36,7 +36,7 @@ ${Object.entries(REG.resources).map(([k, v]) => `- \`${k}\` — ${v.label}${v.ex
 ## Lịch (UTC, theo giờ trong ngày)
 | Giờ UTC | Việc | Lịch cron | Ưu tiên | Tài nguyên | Phút | Ước lượng | Thuê |
 |---|---|---|---|---|---|---|---|
-${rows.map(({ j, t }) => `| ${hh(t)} | \`${j.id}\` | ${j.cron.map(c => '`' + c + '`').join('<br>')} | ${j.priority} | ${j.resources.join(', ')} | ${j.minutes} | ${Object.entries(j.est || {}).map(([k, v]) => k + '≈' + v).join(', ') || '—'} | ${j.lease ? '✓' : '—'} |`).join('\n')}
+${rows.map(({ j, t }) => `| ${hh(t)} | \`${j.id}\` | ${j.cron.map(c => '`' + c + '`').join('<br>')} | ${j.priority}${j.paused ? ' (tạm dừng)' : ''} | ${j.resources.join(', ')} | ${j.minutes} | ${Object.entries(j.est || {}).map(([k, v]) => k + '≈' + v).join(', ') || '—'} | ${j.lease ? '✓' : '—'} |`).join('\n')}
 
 Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: việc nền "đăng bài" trước, rồi dựng, lưu trữ (footage-archive 01:45 → drive-shorts → d1b-migrate 05:30), báo cáo.
 `;

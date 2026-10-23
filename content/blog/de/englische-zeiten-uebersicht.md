@@ -194,3 +194,5 @@ Weil das Verb *to have* in der Bedeutung von „besitzen“ ein Stative Verb (Zu
 
 ### Wie lerne ich die unregelmäßigen Verben am effizientesten auswendig?
 Vermeiden Sie es, das Alphabet stur von A bis Z herunterzubeten. Teilen Sie unregelmäßige Verben stattdessen in Klangfamilien ein (z. B. *sing-sang-sung / ring-rang-rung* oder *buy-bought-bought / catch-caught-caught*). Wenn Sie die Verben in vollständigen Mustersätzen statt isoliert lernen und mit dem Spaced-Repetition-System wiederholen, prägen sich die Formen dauerhaft im Langzeitgedächtnis ein.
+
+> Weiterlesen: [If-Sätze Englisch Übersicht: Die 4 Typen der Conditionals](/de/blog/englische-if-saetze-conditional-clauses/)

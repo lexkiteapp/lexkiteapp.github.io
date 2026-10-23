@@ -380,7 +380,7 @@ async function secretOk(env, given) {
   const want = env.STUDIO_CALLBACK_SECRET; if (!want || !given) return false;
   const [a, b] = await Promise.all([hex('studio|' + want), hex('studio|' + given)]); let d = 0; for (let i = 0; i < a.length; i++) d |= a.charCodeAt(i) ^ b.charCodeAt(i); return d === 0; // so sánh băm, thời gian không đổi
 }
-const NO_DB = new Set(['visionCheck', 'judgeScript']);
+const NO_DB = new Set(['visionCheck', 'judgeScript', 'imageGen']);
 const CI = {
   // cine-render (news, owner 22/10 VIDEO-SCALE-PLAN §11): AI vision gate on 3 composited frames - does the presenter stand naturally in the scene?
   // Gemini vision from the key pool; fallback Workers AI llava (one image at a time). Images: base64 JPEG <= 180 KB each, max 4.
@@ -408,13 +408,25 @@ const CI = {
     }
     return { provider: 'none', out: null, tried, quota: tried.some(t => /4006|quota|429|exceeded|neuron/i.test(t)) };
   },
+  // vocab-img (scripts/vocab-img/gen.mjs, việc nền ưu tiên thấp nhất): 1 ảnh FLUX-1-schnell bằng binding AI (tài khoản chính, neuron miễn phí).
+  // CI tự giữ trần ảnh/ngày (VIMG_MAX_MAIN) + thuê workers_ai qua infra/jobs.json; ở đây chỉ chặn đầu vào. Hết neuron → 429 (CI dừng sạch).
+  async imageGen(env, db, b) {
+    const prompt = String(b.prompt || '').slice(0, 2000); if (prompt.length < 8) throw new Bad(400, 'prompt');
+    if (!env.AI) return { provider: 'none', error: 'no-ai-binding' };
+    try {
+      const r = await env.AI.run('@cf/black-forest-labs/flux-1-schnell', { prompt, steps: Math.max(1, Math.min(8, +b.steps || 4)) });
+      return r && r.image ? { provider: 'workers-ai-main', image: r.image } : { provider: 'none', error: 'empty' };
+    } catch (e) { const m = String(e && e.message || e).slice(0, 120); if (/4006|daily free allocation|quota/i.test(m)) throw new Bad(429, 'quota'); return { provider: 'none', error: m }; }   // 3040 capacity = tạm thời → CI chuyển nhà khác
+  },
   async visionCheck(env, db, b) {   // Workers AI (Llama 3.2 Vision, one image at a time) -> Gemini vision (key pool) -> 'none'
     const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));
     if (!imgs.length) throw new Bad(400, 'images');
     const q = String(b.question || '').slice(0, 2000); const tried = [];
     if (env.AI) {
       const M = '@cf/meta/llama-3.2-11b-vision-instruct', frames = []; let err = '';
-      const ask = (d) => env.AI.run(M, { messages: [{ role: 'user', content: [{ type: 'text', text: 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.' }, { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + d } }] }], max_tokens: 60, temperature: 0 });
+      // b.ask (≤ 400 ký tự, vocab-img QC): câu hỏi YES/NO riêng cho từng ảnh – NO = đạt; mặc định = câu hỏi người dẫn đứng tự nhiên (cine)
+      const wq = typeof b.ask === 'string' && b.ask.trim() ? b.ask.slice(0, 400) : 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.';
+      const ask = (d) => env.AI.run(M, { messages: [{ role: 'user', content: [{ type: 'text', text: wq }, { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + d } }] }], max_tokens: 60, temperature: 0 });
       for (const d of imgs) {
         let r = null;
         try { r = await ask(d); } catch (e) { err = String(e && e.message || e); if (/agree/i.test(err)) { await env.AI.run(M, { prompt: 'agree' }).catch(() => null); r = await ask(d).catch(x => { err = String(x && x.message || x); return null; }); } }
