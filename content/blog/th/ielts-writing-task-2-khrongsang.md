@@ -67,6 +67,8 @@ qualityScore: 94
 
 คุณสามารถศึกษาตัวอย่างบทความสมบูรณ์ที่ได้รับคะแนน Band 8.0 ได้ในหน้า [คลังตัวอย่างบทความเอสเส](/samples/)
 
+อ่านต่อ: [Connected Speech ภาษาอังกฤษ: กฎการเชื่อมเสียงและเทคนิคฟังเร็ว](/th/blog/connected-speech-chueam-siang-phasa-angkrit/) · [If-Clause สรุปครบทุก Type: โครงสร้าง ตัวอย่าง และวิธีใช้](/th/blog/if-clause-phasa-angkrit-sarup-khrap-thuk-type/) · [Passive Voice สรุปครบ 8 Tenses ภาษาอังกฤษ โครงสร้างและวิธีใช้](/th/blog/passive-voice-phasa-angkrit-khrongsang-withi-chai/)
+
 {{cta: /#/write | ฝึกเขียน IELTS Writing Task 2 พร้อมคลังหัวข้อและคำใบ้ไอเดียใน Lexkite}}
 
 ## 4 เกณฑ์การให้คะแนนอย่างเป็นทางการ

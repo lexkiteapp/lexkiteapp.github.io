@@ -118,6 +118,8 @@ Bu yöntem, İngilizcedeki bitişik konuşma (connected speech), ses düşmesi (
 
 {{youtube: bGywZ6D_uX4 | IELTS Dinleme Testinde En Çok Karşılaşılan 10 Tuzak ve Çözüm Yöntemleri}}
 
+Ayrıca okuyun: [İngilizce If Clauses: Koşul Cümleleri Kuralları ve Örnekleri](/tr/blog/ingilizce-if-clauses-kosul-cumleleri-rehberi/) · [İngilizce Passive Voice: Edilgen Çatı Kuralları ve Zamanlar](/tr/blog/ingilizce-passive-voice-edilgen-cati-kurallari/) · [İngilizce Sunum Kalıpları: Profesyonel İfadeler ve İpuçları](/tr/blog/ingilizce-sunum-yapma-teknikleri-ve-kaliplari/)
+
 {{cta: /#/listening | IELTS Dinleme Pratiğine Başla}}
 
 ## Kendini Sına: Dinleme Taktikleri Bilgi Kontrolü

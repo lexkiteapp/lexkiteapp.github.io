@@ -130,6 +130,8 @@ Gerçekçi süre baskısı altında kendinizi denemek için [IELTS deneme sınav
 
 ![Lexkite ilerleme grafiği: xp puanları ve çalışma alışkanlığı heatmap takibi](media:stats "Haftalık heatmap üzerinde çalışma istikrarını ve kazanılan xp puanlarını inceleme")
 
+Ayrıca okuyun: [IELTS Writing Task 1 Grafik: Rapor Yazma ve Analiz Taktikleri](/tr/blog/ielts-writing-task-1-grafik-yorumlama-rehberi/) · [İngilizce Connected Speech: Ses Bağlama Kuralları ve Telaffuz](/tr/blog/ingilizce-connected-speech-ses-baglama-kurallari/) · [İngilizce Passive Voice: Edilgen Çatı Kuralları ve Zamanlar](/tr/blog/ingilizce-passive-voice-edilgen-cati-kurallari/)
+
 {{cta: /tu-vung/ | IELTS Reading Çalışmalarına Başla}}
 
 Geniş kelime haznesine ve örnek soru tiplerine [kelime ve sınav hazırlık kaynakları](/tu-vung/) sayfamızdan ulaşabilir, genel dil edinimi sürecinizi hızlandırmak için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) rehberimizi okuyabilirsiniz.

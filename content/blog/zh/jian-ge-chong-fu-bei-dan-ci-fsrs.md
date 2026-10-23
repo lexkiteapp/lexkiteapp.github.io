@@ -149,6 +149,8 @@ FSRS 动态间隔调优闭环：
 
 > 延伸阅读: [如何用英语思维思考全攻略：告别脑中中文翻译卡顿的四步阶梯沉浸训练法](/zh/blog/ru-he-yong-ying-yu-si-wei-bu-fan-yi/)
 
+延伸阅读：[商务英语 presentation 句型：精选开场、图表过渡与答辩表达](/zh/blog/shang-wu-ying-yu-yan-jiang-presentation-ju-xing/)；[英语被动语态 (Passive Voice) 总结：8大时态公式与核心用法](/zh/blog/ying-yu-bei-dong-yu-tai-gong-shi-ji-yong-fa/)；[英语连接词 (Linking Words) 分类总结：写作与逻辑转折词汇总](/zh/blog/ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie/)
+
 {{cta: /app/#/review | 在 Lexkite 开启 FSRS 科学间隔复习}}
 
 {{youtube: | 间隔重复背单词与FSRS自由间隔重复记忆算法实战}}

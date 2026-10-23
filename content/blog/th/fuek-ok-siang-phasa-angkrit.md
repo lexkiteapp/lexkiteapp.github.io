@@ -67,6 +67,8 @@ qualityScore: 94
 - *pick it up* จะออกเสียงเป็น *pi-ki-tup*
 - คำบอกหน้าที่ทางไวยากรณ์ เช่น *to, of, a, the, and* มักจะถูกลดรูปกลายเป็นเสียงเออะ /ə/ (Schwa) เสมอ
 
+อ่านต่อ: [Linking Words ภาษาอังกฤษ: รวมคำเชื่อมทุกหมวด อัปเกรดงานเขียน](/th/blog/kham-chueam-phasa-angkrit-linking-words/) · [Passive Voice สรุปครบ 8 Tenses ภาษาอังกฤษ โครงสร้างและวิธีใช้](/th/blog/passive-voice-phasa-angkrit-khrongsang-withi-chai/) · [ภาษาอังกฤษ presentation: รวมประโยคและสำนวนพรีเซนต์งานมืออาชีพ](/th/blog/samnuan-phasa-angkrit-presentation-ngan/)
+
 {{cta: /#/pron | เข้าสู่ห้องแล็บฝึกสัทศาสตร์ IPA ใน Lexkite เพื่อปรับปรุงการออกเสียงทีละตัว}}
 
 ## 4 เทคนิคฝึกออกเสียงให้คล่องแคล่วและมั่นใจ
