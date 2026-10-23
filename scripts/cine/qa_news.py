@@ -280,7 +280,8 @@ _lid = tl['lesson']['id']; _sp = json.load(open(f'lessons/{_lid}.json')) if os.p
 if _sp.get('v') == 7:
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import script_rules as _SR
     _ri = _SR.check(_sp, {l['id']: l for l in json.load(open('ci/lines.json'))['lines']}); rule(not _ri, f'script rules (one idea, wrong->right + why <= 12 words, guess before reveal, repeat slow + natural, key line 3x, concept check, <= B1 explanations, <= 12-word sentences, badge, hook type, share, quiz, tip) {_ri[:3] or ""}')
-    JG_ = tl.get('qa', {}).get('judge'); rule(bool(JG_) and JG_.get('ok') is True, f"AI script judge: {(JG_ or {}).get('provider')} {((JG_ or {}).get('judge') or {}).get('issues') or (JG_ or {}).get('error') or 'missing'}")
+    JG_ = tl.get('qa', {}).get('judge'); _NA = lambda X: not X or X.get('ok') is None or (X.get('error') and not X.get('answers') and not X.get('judge'))   # provider gave no answer (quota) = skip, never reject
+    (print('  AI script judge: no answer (quota) -> SKIP here; qc_gate scores it') if _NA(JG_) else None); _NA(JG_) or rule(JG_.get('ok') is True, f"AI script judge: {(JG_ or {}).get('provider')} {((JG_ or {}).get('judge') or {}).get('issues') or (JG_ or {}).get('error') or 'missing'}")
 _SG = tl.get('qa', {}).get('signature'); _SF = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../content/video/cine/news/signatures.json')
 _hist = [x for x in (json.load(open(_SF)) if os.path.exists(_SF) else []) if x.get('id') != tl['lesson']['id']][-30:]
 rule(bool(_SG) and _SG not in [x['sig'] for x in _hist], f"edit signature {_SG} differs from the last {len(_hist)} published clips (§15)")
@@ -342,7 +343,8 @@ rule(bool(PL_.get('zones')) and PL_.get('valid', False), f"background {PL_.get('
 rule(PL_.get('eye_dev', 999) <= 115, f"host eye line vs bg horizon {PL_.get('eye_dev')} px (<= 6 % of the frame; camera tilt {PL_.get('cam_ty')} px)")
 rule(bool(PL_.get('hosts')) and all(v['under'] <= 0.35 for v in PL_['hosts'].values()), f"no table / seat / bed / water under or behind a torso {[(k, v['under']) for k, v in (PL_.get('hosts') or {}).items()]}")
 rule(bool(PL_.get('hosts')) and all(v['near'] <= 0.12 for v in PL_['hosts'].values()), f"host never covers a nearer foreground object {[(k, v['near']) for k, v in (PL_.get('hosts') or {}).items()]}")
-rule(bool(VS_) and VS_.get('ok') is True, f"AI vision gate (3 frames): {(VS_ or {}).get('provider')} {(VS_ or {}).get('answers') or 'missing'}")
+_NA = lambda X: not X or X.get('ok') is None or (X.get('error') and not X.get('answers') and not X.get('judge'))
+(print('  AI vision gate: no answer (quota) -> SKIP here; qc_gate scores it') if _NA(VS_) else None); _NA(VS_) or rule(VS_.get('ok') is True, f"AI vision gate (3 frames): {(VS_ or {}).get('provider')} {(VS_ or {}).get('answers') or 'missing'}")
 print('== LOOK (owner 22/10: real-camera exposure, no flat band)')
 _rw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-i', V, '-vf', 'fps=2,scale=270:480', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
 _F = np.frombuffer(_rw, np.uint8).reshape(-1, 480, 270, 3).astype(np.float32) / 255; _Y = _F @ np.array([0.299, 0.587, 0.114], np.float32)

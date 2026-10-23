@@ -466,7 +466,7 @@ def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place
     M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]]); Fp, a = MR.place(F.astype(np.float32), Al.astype(np.float32), sc, M, (1080, 1920))
     return Fp / np.maximum(a, 1e-3)[..., None], a
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
-                        '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'animation', '-b:v', '16M', '-maxrate', '22M', '-bufsize', '44M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
+                        '-vf', 'deblock=filter=weak:block=8', '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'animation', '-b:v', '16M', '-maxrate', '22M', '-bufsize', '44M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
 exec(open(f'{HERE}/news_layout.py').read())   # owner 23/10: overlay solver vs face / hair / hands (per frame)
 if os.environ.get('NEWS_LAYOUTONLY'): print(json.dumps(LAYOUT_LOG)); sys.exit(0)
 KEYM = {}; EQ = []; BGC = []; HB = {}; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
