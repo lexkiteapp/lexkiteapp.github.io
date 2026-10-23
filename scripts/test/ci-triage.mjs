@@ -100,7 +100,7 @@ const sh = spawnSync('bash', ['-e', '-c', script.join('\n').replace(/sleep \$\(\
 ok(sh.status === 0, `i18n: bước lưu phải đẩy được (rc ${sh.status}) ${sh.stderr.slice(-300)}`);
 const pushed = (p) => execFileSync('git', ['--git-dir', origin, 'show', 'main:' + p]).toString();
 ok(sh.status === 0 && pushed('web/js/i18n/vi/tools.js') === 'tools 2\n' && pushed('web/js/i18n/vi.js') === 'core 2\n' && pushed('README') === 'r2\n', 'i18n: nhóm tải lười được commit + giữ lượt đẩy khác');
-fs.rmSync(tmp, { recursive: true, force: true });
+try { fs.rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); } catch { /* dọn dẹp tạm: bỏ qua */ }
 
 if (fail) { console.error(`✗ ci-triage: ${fail} lỗi`); process.exit(1); }
 console.log('✓ ci-triage: phân loại, bỏ qua hạn mức D1, issue/bản tin, sửa youtube-*/i18n – tất cả đạt');
