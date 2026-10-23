@@ -69,7 +69,7 @@
    "who": "ama",
    "line": "n_a59145_c",
    "card": {
-    "kind": "p",
+    "kind": "x",
     "text": "Trying to find it? -> look FOR",
     "sub": null,
     "label": "CHECK",
@@ -81,7 +81,7 @@
    "who": "carlos",
    "line": "n_a59145_rs",
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "I'm looking for a book.",
     "sub": null,
     "label": "REPEAT",

@@ -21,7 +21,9 @@ P = Q.get('placement') or {}; gate('scene_placement', P.get('ok') is True, {k: P
 V = Q.get('vision') or {}; gate('ai_vision', V.get('ok') is True, V.get('answers') or V.get('error') or 'missing', 8)
 # --- render (qa_news)
 qlog = open(f'{OUT}/qa/qa_{RB}.log').read() if os.path.exists(f'{OUT}/qa/qa_{RB}.log') else ''
-res = (re.findall(r'== RESULT: (.*)', qlog) or ['missing'])[-1]; gate('qa_news', res.strip() == 'ALL PASS', res.strip()[:300], 30)
+res = (re.findall(r'== RESULT: (.*)', qlog) or ['missing'])[-1]
+if res == 'missing' and os.path.exists(f'{RB}/qa_result.json'): res = json.load(open(f'{RB}/qa_result.json'))['result']
+ gate('qa_news', res.strip() == 'ALL PASS', res.strip()[:300], 30)
 # --- voice: ASR of the final mix vs the script
 mp4 = f"{OUT}/{tl['lesson']['out']}"; spoken = []
 for s in tl['shots']:

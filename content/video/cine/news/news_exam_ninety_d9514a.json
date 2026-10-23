@@ -84,8 +84,8 @@
    "line": "n_d9514a_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'The number of student are increasing'? -> No",
+    "kind": "x",
+    "text": "The number of student are increasing",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "The number of students is increasing.",
     "sub": null,
     "label": "REPEAT",

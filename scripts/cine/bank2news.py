@@ -43,8 +43,8 @@ beats = [dict(who='ama', line=f'n_{h6}_m', kind='m', card=card('x', b['wrong']))
          dict(who='carlos', line=f'n_{h6}_g', kind='g', guess=True, card=card('p', 'What sounds right?', 'GUESS', 'question')),
          dict(who='ama', line=f'n_{h6}_k', kind='k', card=card('v', b['right'], icon=ic, formula=b['memory'])),
          dict(who='carlos', line=f'n_{h6}_y', kind='y', card=card('p', b['why'], 'WHY', 'bulb')),
-         dict(who='ama', line=f'n_{h6}_c', kind='c', card=card('p', f"'{b['wrong'].rstrip('.!?')}'? -> No", 'CHECK')),
-         dict(who='carlos', line=f'n_{h6}_rs', kind='rs', repeat=True, slow=True, card=card('p', b['right'], 'REPEAT', 'repeat')),
+         dict(who='ama', line=f'n_{h6}_c', kind='c', card=card('x', b['wrong'].rstrip('.!?'), 'CHECK')),
+         dict(who='carlos', line=f'n_{h6}_rs', kind='rs', repeat=True, slow=True, card=card('v', b['right'], 'REPEAT', 'repeat')),
          dict(who='ama', line=f'n_{h6}_rn', kind='rn', card=card('v', b['right'], icon=ic, formula=b['memory']))]
 sp = dict(v=7, id=lid, template='fix', bg=o.bg, topic=b['topic'], area='grammar-check', cefr=b['cefr'], difficulty=b['diff'], hook_type=HOOK.get(b['hook_type'], 'question'), part=1,
           point=b['point'], key_line=b['right'], wrong_line=b['wrong'], share=f'who says "{b["wrong"]}"', l1_tags=['many learners'], source=dict(scriptbank=b['id'], pid=b['pid']),

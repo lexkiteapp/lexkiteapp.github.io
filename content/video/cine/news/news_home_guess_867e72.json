@@ -84,8 +84,8 @@
    "line": "n_867e72_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'Take an umbrella if it rains'? -> No",
+    "kind": "x",
+    "text": "Take an umbrella if it rains",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "Take an umbrella in case it rains.",
     "sub": null,
     "label": "REPEAT",

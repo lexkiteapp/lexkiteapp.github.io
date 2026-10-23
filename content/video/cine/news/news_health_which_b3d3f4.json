@@ -84,8 +84,8 @@
    "line": "n_b3d3f4_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'I can't cope stress'? -> No",
+    "kind": "x",
+    "text": "I can't cope stress",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "I can't cope with stress.",
     "sub": null,
     "label": "REPEAT",

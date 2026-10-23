@@ -84,8 +84,8 @@
    "line": "n_fd1239_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'I want a two-bed room, please'? -> No",
+    "kind": "x",
+    "text": "I want a two-bed room, please",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "I'd like a twin room, please.",
     "sub": null,
     "label": "REPEAT",

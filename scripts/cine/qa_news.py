@@ -331,7 +331,7 @@ _wbad = [a for a, v in _win.items() if max(w['tx'] for w in v) - min(w['tx'] for
 rule(bool(_win) and not _wbad, f'each host keeps one crop window (tx +-5 % width, zoom +-5 %) {_wbad or ""}')
 def _lab(bgr): import cv2 as c_; return c_.cvtColor(np.uint8([[np.clip(bgr, 0, 255)]]), c_.COLOR_BGR2LAB)[0, 0].astype(float) * [100 / 255, 1, 1] - [0, 128, 128]
 _bc = json.load(open(f'{RD}/qc.json')).get('bg_colour', []); _de = max([float(np.linalg.norm(_lab(a['bgr']) - _lab(b['bgr']))) for a in _bc for b in _bc] or [99])
-rule(bool(_bc) and _de <= 12, f'matching bg colour / exposure across shots: max dE {_de:.1f} (<= 12; left vs right crops of one still)')
+rule(bool(_bc) and _de <= 8, f'matching bg colour / exposure across shots: max dE {_de:.1f} (<= 8; left vs right crops graded to one Lab reference)')
 _oft = {}
 for x in tl['shots']:
     for w_, o_ in (x.get('outfit') or {}).items(): _oft.setdefault(w_, set()).add(o_)
@@ -368,8 +368,10 @@ for x in tl['shots']:
     for u_ in (0.3, 0.5, 0.7):
         k_ = int((x['t0'] + x['dur'] * u_) * 2)
         if k_ >= len(_F): continue
-        hsv_ = _cv.cvtColor((_F[k_] * 255).astype(np.uint8), _cv.COLOR_RGB2HSV); m_ = ((hsv_[..., 0] <= 18) & (hsv_[..., 1] >= 60) & (hsv_[..., 2] >= 45)).astype(np.uint8)
-        m_ = _cv.morphologyEx(m_, _cv.MORPH_CLOSE, np.ones((5, 5), np.uint8)) > 0; best_ = 0
+        lab_ = _cv.cvtColor((_F[k_] * 255).astype(np.uint8), _cv.COLOR_RGB2LAB).astype(np.float32); cy0_ = int(oy_ / 4 + em_ * 0.6); cx0_ = int(ox_ / 4)   # owner 23/10: skin = colour of THIS host's cheek
+        ref_ = np.median(lab_[cy0_ - 2:cy0_ + 3, cx0_ - 6:cx0_ - 1].reshape(-1, 3), 0)   # (fixed hue band missed Ama's dark skin -> 0.63)
+        m_ = (np.linalg.norm(lab_ - ref_, axis=2) < 24).astype(np.uint8)
+        m_ = _cv.morphologyEx(m_, _cv.MORPH_CLOSE, np.ones((9, 9), np.uint8)) > 0; best_ = 0
         for r_ in range(int(oy_ / 4), int(oy_ / 4 + em_)):
             row_ = m_[r_]; c_ = int(ox_ / 4)
             if not row_[c_]: continue
@@ -424,7 +426,7 @@ for x in tl['shots']:
             mk_ = _cv.erode(mk_.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
             if mk_.sum() > 200:
                 gm_ = lambda im: np.hypot(_cv.Sobel(_cv.cvtColor(im, _cv.COLOR_BGR2GRAY).astype(np.float32), _cv.CV_32F, 1, 0), _cv.Sobel(_cv.cvtColor(im, _cv.COLOR_BGR2GRAY).astype(np.float32), _cv.CV_32F, 0, 1))
-                gr_ = gm_(ref_); sel_ = mk_ & (gr_ >= np.percentile(gr_[mk_], 85))
+                gr_ = gm_(ref_); sel_ = mk_ & (gr_ >= max(80.0, np.percentile(gr_[mk_], 85)))   # owner 23/10: only real drawn edges (flat cel hair = keyed-source noise, not detail)
                 if sel_.sum() > 50: _rat.append((x['id'], nm_, round(float(gm_(out_c)[sel_].mean()) / max(1.0, float(gr_[sel_].mean())), 2)))   # edge acutance on the strongest source edges
 _trat = []
 for r_ in sorted(glob.glob(f'{RD}/ref_*.png')):
@@ -461,4 +463,8 @@ _dh = [d for d, v in _bgt.items() if any(re.search(r'\b' + re.escape(k), _txt) f
 _bad = [d for d in _dh if _lm.get('bg') not in _bgt[d]['bg']]
 print(f"== BG TOPIC: bg {_lm.get('bg')} domains {_dh or '-'}", 'OK' if not _bad else f'FAIL (needs {[_bgt[d]["bg"] for d in _bad]})')
 if _bad: fails.append('bg-topic')
+print('== LAYOUT (owner 23/10: 1 card + 1 caption, no overlap / overflow, AA contrast; contact sheet)')
+_lq = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'layout_qa.py'), RD, V], capture_output=True, text=True); print('  ' + (_lq.stdout.strip() or _lq.stderr.strip()[-400:]).replace('\n', '\n  '))
+rule(_lq.returncode == 0, 'layout QA (overlap / overflow / contrast / one card + one caption)')
 print('== RESULT:', 'ALL PASS' if not fails else f'{len(fails)} FAIL(s): {fails}')
+json.dump(dict(result='ALL PASS' if not fails else f'{len(fails)} FAIL(s): {fails}', fails=fails), open(f'{RD}/qa_result.json', 'w'))   # qc_gate reads this when the log is not in out/qa

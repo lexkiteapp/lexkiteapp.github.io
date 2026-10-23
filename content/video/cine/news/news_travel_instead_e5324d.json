@@ -84,8 +84,8 @@
    "line": "n_e5324d_c",
    "kind": "c",
    "card": {
-    "kind": "p",
-    "text": "'time-TA-ble'? -> No",
+    "kind": "x",
+    "text": "time-TA-ble",
     "sub": null,
     "label": "CHECK",
     "icon": null
@@ -98,7 +98,7 @@
    "repeat": true,
    "slow": true,
    "card": {
-    "kind": "p",
+    "kind": "v",
     "text": "TIME-ta-ble",
     "sub": null,
     "label": "REPEAT",

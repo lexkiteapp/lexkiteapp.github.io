@@ -8,8 +8,8 @@ CW, CH = 1350, 2400                      # working canvas (1.33x the output, own
 PK = (0.82, 0.91, 1.0)                   # parallax factor far / mid / near (owner 21/10: mild, artefact-free)
 def ease(u): u = min(1.0, max(0.0, u)); return u * u * (3 - 2 * u)
 class Layers:
-    def __init__(self, img_path, depth_path, dof=(0.5, 0.35, 0.0)):   # owner 22/10: cel-style stills stay crisp (DOF <= 0.5 px)
-        im0 = cv2.imread(img_path); im = cv2.resize(im0, (CW, CH), interpolation=cv2.INTER_AREA if im0.shape[1] >= CW else cv2.INTER_LANCZOS4)
+    def __init__(self, img_path, depth_path, dof=(0.5, 0.35, 0.0), img=None):   # owner 22/10: cel-style stills stay crisp (DOF <= 0.5 px); img: pre-graded still
+        im0 = cv2.imread(img_path) if img is None else img; im = cv2.resize(im0, (CW, CH), interpolation=cv2.INTER_AREA if im0.shape[1] >= CW else cv2.INTER_LANCZOS4)
         d = cv2.resize(cv2.imread(depth_path, cv2.IMREAD_UNCHANGED).astype(np.float32) / 65535, (CW, CH))
         d = cv2.GaussianBlur(d, (0, 0), 3); q1, q2 = np.quantile(d, 0.55), np.quantile(d, 0.84)
         sm = lambda x, a, b: np.clip((x - a) / (b - a), 0, 1)
