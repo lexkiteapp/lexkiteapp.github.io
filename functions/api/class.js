@@ -16,6 +16,7 @@
 import { claims, limit } from './sync.js';
 import { gate } from './_quota.js';
 import { profaneName } from './_abuse.js';
+import { once } from './_schema.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 export const MAX = { teach: 30, learn: 20, members: 300, tasks: 200 };
@@ -35,16 +36,18 @@ export const cleanRef = s => { const r = String(s || ''); return /^(topic:[a-z0-
 let ready = false;
 export async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS classes (id TEXT PRIMARY KEY, code TEXT NOT NULL UNIQUE, owner TEXT NOT NULL, name TEXT NOT NULL, created INTEGER NOT NULL) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS classes_owner ON classes (owner)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS class_member (cls TEXT NOT NULL, uid TEXT NOT NULL, name TEXT NOT NULL, joined INTEGER NOT NULL, last INTEGER NOT NULL, PRIMARY KEY (cls, uid)) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS class_member_uid ON class_member (uid)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS class_task (id TEXT PRIMARY KEY, cls TEXT NOT NULL, ref TEXT NOT NULL, due INTEGER, created INTEGER NOT NULL) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS class_task_cls ON class_task (cls, ref)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS class_progress (task TEXT NOT NULL, uid TEXT NOT NULL, cls TEXT NOT NULL, best INTEGER NOT NULL, last INTEGER NOT NULL, tries INTEGER NOT NULL, updated INTEGER NOT NULL, PRIMARY KEY (task, uid)) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS class_progress_cls ON class_progress (cls)'),
-  ]);
+  await once(db, 'class', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS classes (id TEXT PRIMARY KEY, code TEXT NOT NULL UNIQUE, owner TEXT NOT NULL, name TEXT NOT NULL, created INTEGER NOT NULL) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS classes_owner ON classes (owner)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS class_member (cls TEXT NOT NULL, uid TEXT NOT NULL, name TEXT NOT NULL, joined INTEGER NOT NULL, last INTEGER NOT NULL, PRIMARY KEY (cls, uid)) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS class_member_uid ON class_member (uid)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS class_task (id TEXT PRIMARY KEY, cls TEXT NOT NULL, ref TEXT NOT NULL, due INTEGER, created INTEGER NOT NULL) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS class_task_cls ON class_task (cls, ref)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS class_progress (task TEXT NOT NULL, uid TEXT NOT NULL, cls TEXT NOT NULL, best INTEGER NOT NULL, last INTEGER NOT NULL, tries INTEGER NOT NULL, updated INTEGER NOT NULL, PRIMARY KEY (task, uid)) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS class_progress_cls ON class_progress (cls)'),
+    ]);
+  });
   ready = true;
 }
 

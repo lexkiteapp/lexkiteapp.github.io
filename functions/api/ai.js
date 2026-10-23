@@ -8,6 +8,7 @@
 import { claims } from './sync.js';
 import { gate } from './_quota.js';
 import { candidates, report, poolKeys, resetPool, coolingValue, isUsable, gemFetch, maybeHealth } from './_keys.js';
+import { once } from './_schema.js';
 
 const MAX_PROMPT = 14000;
 const WAI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
@@ -22,10 +23,12 @@ const parseJSON = text => { const s = String(text || '').replace(/^```(json)?|``
 
 async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS ai_quota (id TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (id, day)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS ai_cache (h TEXT PRIMARY KEY, out TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
-  ]);
+  await once(db, 'ai', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS ai_quota (id TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (id, day)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS ai_cache (h TEXT PRIMARY KEY, out TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
+    ]);
+  });
   ready = true;
 }
 

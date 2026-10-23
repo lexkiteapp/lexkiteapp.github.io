@@ -12,6 +12,7 @@
  * máy tự động (CI, bot, máy chủ đám mây) vẫn ghi 1 dòng phiên nhưng có cột bot = loại → Quản trị tách riêng "đã loại", không cộng vào số người thật. */
 import { limit } from './sync.js';
 import { gate } from './_quota.js';
+import { once } from './_schema.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge']; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
@@ -56,22 +57,24 @@ const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang
 
 export async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS sessions (sid TEXT PRIMARY KEY, vid TEXT, day TEXT NOT NULL, at INTEGER NOT NULL, country TEXT, ref TEXT, dev TEXT, lang TEXT, plat TEXT, path TEXT, dur INTEGER, pages INTEGER, ret INTEGER) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS sessions_day ON sessions (day)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS errors (h TEXT PRIMARY KEY, msg TEXT, src TEXT, path TEXT, ver TEXT, n INTEGER NOT NULL, first INTEGER NOT NULL, last INTEGER NOT NULL) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS pageviews_day (day TEXT NOT NULL, path TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, path)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS ext_daily (day TEXT NOT NULL, vid TEXT NOT NULL, lookup INTEGER, save INTEGER, popup INTEGER, newtab INTEGER, ver TEXT, PRIMARY KEY (day, vid)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS ext_events (day TEXT NOT NULL, kind TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, kind)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS hit_meta (k TEXT PRIMARY KEY, at INTEGER) WITHOUT ROWID'),
-  ]);
-  await db.prepare('ALTER TABLE sessions ADD COLUMN lcp INTEGER').run().catch(() => {}); // LCP thật (ms) – thêm sau
-  await db.prepare('ALTER TABLE sessions ADD COLUMN last INTEGER').run().catch(() => {}); // lần cuối nhận tín hiệu (ms) – "đang online"
-  await db.prepare('ALTER TABLE sessions ADD COLUMN last_path TEXT').run().catch(() => {}); // trang đang xem lúc gửi gần nhất
-  await db.prepare('CREATE INDEX IF NOT EXISTS sessions_last ON sessions (last)').run().catch(() => {});
-  await db.prepare('ALTER TABLE sessions ADD COLUMN bot TEXT').run().catch(() => {}); // loại máy tự động (NULL = người thật)
-  await migrate(db).catch(() => {});
+  await once(db, 'hit', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS sessions (sid TEXT PRIMARY KEY, vid TEXT, day TEXT NOT NULL, at INTEGER NOT NULL, country TEXT, ref TEXT, dev TEXT, lang TEXT, plat TEXT, path TEXT, dur INTEGER, pages INTEGER, ret INTEGER) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS sessions_day ON sessions (day)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS errors (h TEXT PRIMARY KEY, msg TEXT, src TEXT, path TEXT, ver TEXT, n INTEGER NOT NULL, first INTEGER NOT NULL, last INTEGER NOT NULL) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS pageviews_day (day TEXT NOT NULL, path TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, path)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS ext_daily (day TEXT NOT NULL, vid TEXT NOT NULL, lookup INTEGER, save INTEGER, popup INTEGER, newtab INTEGER, ver TEXT, PRIMARY KEY (day, vid)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS ext_events (day TEXT NOT NULL, kind TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, kind)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS hit_meta (k TEXT PRIMARY KEY, at INTEGER) WITHOUT ROWID'),
+    ]);
+    await db.prepare('ALTER TABLE sessions ADD COLUMN lcp INTEGER').run().catch(() => {}); // LCP thật (ms) – thêm sau
+    await db.prepare('ALTER TABLE sessions ADD COLUMN last INTEGER').run().catch(() => {}); // lần cuối nhận tín hiệu (ms) – "đang online"
+    await db.prepare('ALTER TABLE sessions ADD COLUMN last_path TEXT').run().catch(() => {}); // trang đang xem lúc gửi gần nhất
+    await db.prepare('CREATE INDEX IF NOT EXISTS sessions_last ON sessions (last)').run().catch(() => {});
+    await db.prepare('ALTER TABLE sessions ADD COLUMN bot TEXT').run().catch(() => {}); // loại máy tự động (NULL = người thật)
+    await migrate(db).catch(() => {});
+  });
   ready = true;
 }
 

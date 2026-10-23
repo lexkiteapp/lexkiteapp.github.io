@@ -10,6 +10,7 @@
 import { evaluate, alertText, LIMITS, ALERT, fmtVN } from './_capacity.js';
 import { adminGate, adminCors } from './admin.js';
 import { cliVerify } from './drive.js';
+import { once } from './_schema.js';
 
 export const D1_DB_ID = '7ce39cd0-9333-4843-bd6f-5ccbefbde670'; // lexkite-sync (wrangler.toml)
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
@@ -19,11 +20,13 @@ const dayOf = t => new Date(t).toISOString().slice(0, 10);
 let ready = false;
 async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS capacity_daily (day TEXT PRIMARY KEY, reads INTEGER, writes INTEGER, fn INTEGER, workers INTEGER, requests INTEGER, at INTEGER NOT NULL) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS drive_alerts (kind TEXT PRIMARY KEY, level TEXT NOT NULL, drive_id INTEGER, msg TEXT, since INTEGER NOT NULL, seen INTEGER NOT NULL, mailed INTEGER) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS drive_meta (k TEXT PRIMARY KEY, v TEXT) WITHOUT ROWID'),
-  ]);
+  await once(db, 'capacity', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS capacity_daily (day TEXT PRIMARY KEY, reads INTEGER, writes INTEGER, fn INTEGER, workers INTEGER, requests INTEGER, at INTEGER NOT NULL) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS drive_alerts (kind TEXT PRIMARY KEY, level TEXT NOT NULL, drive_id INTEGER, msg TEXT, since INTEGER NOT NULL, seen INTEGER NOT NULL, mailed INTEGER) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS drive_meta (k TEXT PRIMARY KEY, v TEXT) WITHOUT ROWID'),
+    ]);
+  });
   ready = true;
 }
 

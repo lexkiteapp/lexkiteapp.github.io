@@ -2,7 +2,7 @@
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
  * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
  * (alerts gồm cả Backlink, PR & Thương hiệu – bảng bw_* do functions/api/backlinks.js ghi) */
-import { claims, limit } from './sync.js';
+import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ } from './hit.js';
 import { growthData } from './growth.js';
@@ -173,12 +173,13 @@ const OPS = {
   },
   async user(db, b, who, env) {
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', String(b.uid));
-    const docs = await all(db, 'SELECT k, LENGTH(body) AS bytes, updated FROM docs WHERE uid = ? ORDER BY k', String(b.uid));
+    const ud = await userDocs(db, String(b.uid)); // gói 'pack' (sync.js) được mở thành từng tài liệu
+    const docs = ud.map(x => ({ k: x.k, bytes: String(x.body || '').length, updated: x.updated }));
     const backups = await all(db, 'SELECT id, at, by, reason, LENGTH(docs) AS bytes FROM user_backups WHERE uid = ? ORDER BY at DESC LIMIT 10', String(b.uid)).catch(() => []);
     let tags = []; try { tags = JSON.parse(u.tags || '[]'); } catch (e) { tags = []; }
     // Số liệu học tập từ tài liệu "meta" (đã gồm thống kê & điểm thưởng) – chỉ đọc 1 tài liệu nhỏ
     let learn = null;
-    const m = await one(db, "SELECT body FROM docs WHERE uid = ? AND k = 'meta'", String(b.uid));
+    const m = ud.find(x => x.k === 'meta') || {};
     if (m.body) {
       const top = (() => { try { return JSON.parse(m.body); } catch (e) { return {}; } })(), d = await docJson(m.body);
       if (d) {
@@ -254,7 +255,7 @@ const OPS = {
     if (!uid || uid.length > 128) throw new Error('uid-required');
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', uid);
     if (!u || !u.uid) throw new Error('user-not-found');
-    const docs = await all(db, 'SELECT k, h, body, updated FROM docs WHERE uid = ?', uid);
+    const docs = await userDocs(db, uid); // mở gói 'pack' thành từng tài liệu như trước
     const parsedDocs = {};
     for (const d of docs) {
       try { parsedDocs[d.k] = { ...d, parsed: JSON.parse(d.body) }; } catch (e) { parsedDocs[d.k] = d; }

@@ -1,0 +1,57 @@
+{
+ "_keys.js": {
+  "vers": {
+   "keys": 1
+  },
+  "ddl": "14c24f2070e29d64"
+ },
+ "_quota.js": {
+  "vers": {
+   "quota": 1
+  },
+  "ddl": "22c615637981bc55"
+ },
+ "ai.js": {
+  "vers": {
+   "ai": 1
+  },
+  "ddl": "d30d1ee5dda07909"
+ },
+ "capacity.js": {
+  "vers": {
+   "capacity": 1
+  },
+  "ddl": "8f3316628f5d649c"
+ },
+ "class.js": {
+  "vers": {
+   "class": 1
+  },
+  "ddl": "67529faa7384ddf4"
+ },
+ "hit.js": {
+  "vers": {
+   "hit": 1
+  },
+  "ddl": "f9ae6e8740886f73"
+ },
+ "league.js": {
+  "vers": {
+   "league": 1
+  },
+  "ddl": "081e05b2c1147bbc"
+ },
+ "notices.js": {
+  "vers": {
+   "notices": 1
+  },
+  "ddl": "4049458fb9fda124"
+ },
+ "sync.js": {
+  "vers": {
+   "sync": 2,
+   "docs": 1
+  },
+  "ddl": "73d8d7c095edb612"
+ }
+}

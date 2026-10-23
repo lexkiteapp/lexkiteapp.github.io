@@ -15,6 +15,7 @@
  * Phản hồi 429: { error:'quota', feature, tier, msg:'quota.daily'|'quota.burst'|'quota.busy'|'quota.blocked', resetAt, wait, signIn, left:0 }
  *   – không lộ hạn mức, bộ đếm hay khóa nội bộ. Mọi lỗi hạ tầng (D1/Cache hỏng) → cho qua (không bao giờ chặn nhầm người học). */
 import { claims, limit } from './sync.js';
+import { once } from './_schema.js';
 
 const DAY = 86400e3;
 // [mỗi phút, mỗi ngày] · ipx = trần theo IP = ipx × mức cao nhất của các bậc · providers = cầu dao cần đọc · cost = đơn vị tính cho provider 'ai' (neuron/lượt)
@@ -80,19 +81,21 @@ export const resetState = (o = {}) => { st.at = 0; if (!o.memoryOnly) try { /** 
 const fromShared = v => { st.cfg = v.cfg || {}; st.allow = new Set(v.allow || []); st.block = new Map(v.block || []); st.legacy = v.legacy || {}; };
 export async function setupQuota(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS quota_count (k TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (k, day)) WITHOUT ROWID'),
-    // (day) thay cho (day, n): mỗi lần đếm (n đổi) không phải ghi thêm 1 dòng chỉ mục – D1 Free chỉ 100k dòng GHI/ngày (docs/CAPACITY.md)
-    db.prepare('DROP INDEX IF EXISTS quota_count_day'),
-    db.prepare('CREATE INDEX IF NOT EXISTS quota_count_d ON quota_count (day)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS quota_config (feature TEXT PRIMARY KEY, v TEXT NOT NULL, at INTEGER, by TEXT) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS quota_allow (id TEXT PRIMARY KEY, note TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS quota_block (id TEXT PRIMARY KEY, until INTEGER NOT NULL, reason TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS quota_flag (id TEXT PRIMARY KEY, strikes INTEGER NOT NULL, bans INTEGER NOT NULL DEFAULT 0, last INTEGER NOT NULL, until INTEGER NOT NULL DEFAULT 0, feature TEXT) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS quota_flag_until ON quota_flag (until)'), // state(): WHERE until > ? – không quét cả bảng cờ
-    db.prepare('CREATE TABLE IF NOT EXISTS quota_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, target TEXT, detail TEXT)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
-  ]);
+  await once(db, 'quota', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS quota_count (k TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (k, day)) WITHOUT ROWID'),
+      // (day) thay cho (day, n): mỗi lần đếm (n đổi) không phải ghi thêm 1 dòng chỉ mục – D1 Free chỉ 100k dòng GHI/ngày (docs/CAPACITY.md)
+      db.prepare('DROP INDEX IF EXISTS quota_count_day'),
+      db.prepare('CREATE INDEX IF NOT EXISTS quota_count_d ON quota_count (day)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS quota_config (feature TEXT PRIMARY KEY, v TEXT NOT NULL, at INTEGER, by TEXT) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS quota_allow (id TEXT PRIMARY KEY, note TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS quota_block (id TEXT PRIMARY KEY, until INTEGER NOT NULL, reason TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS quota_flag (id TEXT PRIMARY KEY, strikes INTEGER NOT NULL, bans INTEGER NOT NULL DEFAULT 0, last INTEGER NOT NULL, until INTEGER NOT NULL DEFAULT 0, feature TEXT) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS quota_flag_until ON quota_flag (until)'), // state(): WHERE until > ? – không quét cả bảng cờ
+      db.prepare('CREATE TABLE IF NOT EXISTS quota_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, target TEXT, detail TEXT)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
+    ]);
+  });
   ready = true;
 }
 async function state(db) {
