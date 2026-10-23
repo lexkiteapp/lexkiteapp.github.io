@@ -21,7 +21,7 @@ async function run(TAG, ROOT, vn, scheme, lang, modes) {
     mk({ word: 'borrow', ipa: '/ˈbɒrəʊ/', pos: 'verb', vi: 'mượn', def: 'to take something that you will give back', ex: 'Can I borrow your pen?' }, { D: 6 });
     mk({ word: 'sustainable', ipa: '/səˈsteɪnəbl/', pos: 'adjective', vi: 'bền vững', def: 'able to continue over a period of time', ex: 'We need sustainable energy.' }, { D: 3, reps: 4 });
     for (const [w, v] of [['river', 'dòng sông'], ['window', 'cửa sổ'], ['decline', 'suy giảm'], ['habit', 'thói quen']]) mk({ word: w, pos: 'noun', vi: v, ex: '' }, { due: now + 9e9 });
-    await Store.set('cards', map);
+    for (const c of Object.values(map)) await C.update(c); // Store không phải biến toàn cục → ghi qua API Core
   });
   for (const m of modes) {
     await page.goto(url('home')); await page.goto(url('review'), { waitUntil: 'load' }); await page.waitForTimeout(1800);
