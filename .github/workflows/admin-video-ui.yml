@@ -1,0 +1,44 @@
+# Quản trị → Video (#video): ảnh giao diện TRƯỚC/SAU trên dữ liệu hộp cát (sáng/tối × máy tính 1280/điện thoại 390, không tài khoản thật),
+# axe WCAG A/AA, không tràn ngang, không nhảy bố cục + ngân sách hiệu năng lưới clip 5 000 clip (clips-perf). Ảnh: artifact admin-video-shots.
+name: Video quản trị – giao diện + hiệu năng
+on:
+  push:
+    branches: [main, 'admin-video-*']
+    paths: ['web/js/admin-video.js', 'web/js/admin-clips.js', 'web/css/admin.css', 'scripts/test/admin-video-shots.mjs', 'scripts/test/clips-perf.mjs', '.github/workflows/admin-video-ui.yml']
+  workflow_dispatch:
+    inputs:
+      before: { description: 'commit/nhánh để chụp ảnh TRƯỚC (mặc định: commit trước lần đẩy, hoặc main)', required: false, default: '' }
+permissions:
+  contents: read
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+      - name: Ảnh TRƯỚC
+        env: { BEFORE: '${{ inputs.before }}', EV_BEFORE: '${{ github.event.before }}' }
+        run: |
+          B="$BEFORE"; [ -z "$B" ] && [ "${GITHUB_REF_NAME}" != main ] && B=$(git merge-base HEAD origin/main)
+          [ -z "$B" ] && B="$EV_BEFORE"; case "$B" in ''|0000000000000000000000000000000000000000) B=HEAD~1;; esac
+          echo "before = $B"; mkdir -p /tmp/before && git archive "$B" web | tar -x -C /tmp/before
+          node scripts/test/admin-video-shots.mjs out/admin-video before /tmp/before/web
+      - name: Ảnh SAU (axe, tràn ngang, nhảy bố cục)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/admin-video-shots.mjs out/admin-video after web
+      - name: Ghép TRƯỚC | SAU
+        if: ${{ !cancelled() }}
+        run: node scripts/test/admin-video-shots.mjs --compare out/admin-video
+      - name: Hiệu năng 5 000 clip
+        if: ${{ !cancelled() }}
+        run: node scripts/test/clips-perf.mjs
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: admin-video-shots, path: out/admin-video, retention-days: 14 }
