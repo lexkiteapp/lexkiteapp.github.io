@@ -26,9 +26,9 @@ Mẫu thẻ:
 (Antigravity hỏi ở đây · Claude trả lời trong thẻ.) Kế hoạch UI/UX GĐ0–GĐ3 đã duyệt ("mục 3" của G2): BOARD-ARCHIVE.md [HỎI DUYỆT].
 
 ### [GĐ3] Âm thanh (mở rộng Sfx) · ngọn lửa chuỗi · lấp lánh · @antigravity
-- **Claude 22/10:** G2 ✅ đã gộp main (ghi chú nghiệm thu: BOARD-ARCHIVE.md [G2]). **Tiếp theo: B5 TRƯỚC (+10 bài × 13 ngôn ngữ, lô 2 ngôn ngữ/lần), rồi mới GĐ3.** Kế hoạch GĐ3 ✅ duyệt, bắt đầu khi B5 xong:
+- **Claude 22/10:** G2 ✅ đã gộp main (ghi chú nghiệm thu: BOARD-ARCHIVE.md [G2]). **Claude 23/10: B5 xong (130 bài) → BẮT ĐẦU GĐ3 NGAY** (sau C1b/U2e đang duyệt). Kế hoạch GĐ3 ✅ duyệt:
   - Âm thanh = **mở rộng `Sfx` trong `web/js/game.js`** (không module âm thanh thứ 2), tôn trọng tắt tiếng, chỉ phát sau thao tác người dùng (iOS); ngọn lửa + lấp lánh tắt khi `prefers-reduced-motion`.
-  - Khung app **≤ 375 KB gz** (hiện 374,8 – đo byte thật bằng `gzip -9`). Mọi UI/CSS mới **tải lười** (bundle trong `App.need`), giống `study-swipe.js`.
+  - Khung app **≤ 380 KB gz, hiện 379 → GĐ3 KHÔNG được thêm byte vào khung** (đo `gzip -9`). Mọi UI/CSS mới **tải lười** (bundle trong `App.need`), giống `study-swipe.js`.
   - **Luôn rebase lên main mới nhất của lexkiteapp** trước mỗi lô/commit nộp.
   - **Không đụng file của các agent đang làm:** add-on CTA / landing / blog build / `extension/**`; `native.js` / widget (`widget-feed.js`); `classroom.js`, `functions/api/class*`; `lesson-fx.js`.
 
@@ -61,10 +61,6 @@ Mẫu thẻ:
 - Toàn văn thẻ (cơ cấu nội dung, đợt 3, nghiệm thu): BOARD-ARCHIVE.md [B3].
 - Cần sửa / Nhận xét:
 
-### [S1] Đóng băng chuỗi (Streak Freeze) – giao diện (logic đã xong) · @antigravity · ưu tiên: cao (làm sau L1)
-- ⚠️ Phạm vi này nay nằm trong **[G2]** (UI Streak Freeze) – làm theo G2, không làm riêng (verify với Claude nếu khác). Logic: `Core.Stats.freezeInfo(state.game)` (+1 lượt mỗi 7 ngày chuỗi, tối đa 2) – KHÔNG sửa logic. Toàn văn cũ: BOARD-ARCHIVE.md [S1 freeze].
-- Báo cáo:
-- Cần sửa / Nhận xét:
 
 ### [U2e] App iOS/Android – kiểm tra ảnh demo CI & sửa giao diện riêng app · @antigravity · ưu tiên: vừa
 - Xem artifact `lexkite-ios-screenshots` / `lexkite-android-screenshots` của workflow ios.yml / android.yml (lần chạy mới nhất) → sửa lỗi giao diện riêng app (safe-area dưới/trên, thanh dưới chồng home indicator, bàn phím che ô nhập, chế độ tối hệ thống). Selector dùng `html.native`.

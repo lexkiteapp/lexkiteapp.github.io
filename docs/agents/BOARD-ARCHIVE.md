@@ -287,3 +287,5 @@ Mẫu thẻ:
 - C1 đạt: hộp add-on chỉ máy tính Chromium (ext-cta.js), hộp PWA chỉ di động chưa cài, nút Ẩn 7 ngày (localStorage), không popup, không PII (beacon chỉ đếm). Chỉ có ở blog – CHƯA làm trang từ vựng tĩnh (thẻ nói có).
 - Đã sửa: (1) `topicOf` mặc định 'education' cho mọi bài từ vựng → deep link sai; nay chỉ id có thật trong IELTS_DATA.TOPICS, không khớp thì không hiện nút; (2) bản `id` lẫn tiếng Việt ("như aplikasi"); (3) vi-lint "Huỷ" ở admin-video.js (chặn mergecheck).
 - Còn lại (không chặn): sự kiện đếm đều là `quiz_cta` (lẫn PWA/lưu bộ từ) – cần thêm sự kiện riêng ở functions/api/hit.js; ngân sách khung 379/380 KB – sát trần; chưa có ảnh trước/sau cho U1 (đã thấy diff CSS hợp lý, 5 sửa nhỏ, có dark).
+
+### [S1] Streak Freeze UI – ĐÓNG (Claude 23/10): đã làm trong G2 (1d01e54b), không làm riêng.
