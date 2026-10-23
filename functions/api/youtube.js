@@ -569,7 +569,8 @@ export async function handleCallback(request, env) {
     if (!scopeFor(mode).split(' ').every(x => granted.includes(x))) return fail('scope'); // manual mode: youtube.readonly only
     if (!t.refresh_token) return fail('no-refresh');
     const ch = await gfetch('https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true', { headers: { Authorization: 'Bearer ' + t.access_token } });
-    const item = ((await ch.json().catch(() => ({}))).items || [])[0];
+    const cj = await ch.json().catch(() => ({})), item = (cj.items || [])[0];
+    if (!ch.ok) return fail('api-' + String(((((cj.error || {}).errors || [])[0]) || {}).reason || ch.status).replace(/[^\w-]/g, '').slice(0, 30)); // e.g. api-accessNotConfigured = YouTube Data API off in the GCP project
     if (!item || !item.id) return fail('no-channel');
     const e = await encryptToken(env, t.refresh_token, item.id, 'youtube'), now = Date.now();
     await run(env.DB, `INSERT INTO yt_channel (channel_id, title, email, enc_token, iv, status, created, last_ok, by_who, thumb) VALUES (?, ?, NULL, ?, ?, 'ok', ?, ?, ?, ?)
