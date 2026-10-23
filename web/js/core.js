@@ -302,6 +302,8 @@
       if (context && context.text && !card.contexts.some(c => c.text === context.text)) {
         card.contexts.unshift({ ...context, at: Date.now() });
         card.contexts = card.contexts.slice(0, 5);
+        const X = g.Core.Ctx, cx = X && X.text(context.text), h = cx && X.host(context.source); // ctx.js: ctx/src nằm trong thẻ → xóa thẻ là mất theo
+        if (cx) { card.ctx = cx; if (h) card.src = h; else delete card.src; }
       }
       card.mod = Date.now();
       map[key] = card;
@@ -311,6 +313,9 @@
       if (del[key]) { delete del[key]; await Store.set('deleted', del); }
       return card;
     },
+
+    /** Câu trên thẻ: câu của người học (ctx/src) → rơi về ví dụ thư viện (own=false) → null */
+    ctxOf(c) { const x = c.ctx ? { text: c.ctx, src: c.src } : (c.contexts || [])[0]; return x && x.text ? { text: x.text, src: x.src || '', own: true } : c.ex ? { text: c.ex, src: '', own: false } : null; },
 
     remove(word) {
       return serial(async () => {

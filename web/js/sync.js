@@ -274,7 +274,7 @@
         const json = JSON.stringify(part), h = hash(json);
         if (sentHashes['cards_' + i] === h) continue;
         if (json.length > 900000) console.warn('chunk lớn', i, json.length);
-        out['cards_' + i] = { h, body: JSON.stringify(await docBody(json)) }; pending['cards_' + i] = h; writes++;
+        out['cards_' + i] = { h, body: JSON.stringify(await docBody(json)), ...(Object.values(part).some(c => c.ctx) ? { x: 1 } : {}) }; pending['cards_' + i] = h; writes++;
       }
       const hs = {}; for (let i = 0; i < chunks; i++) hs['cards_' + i] = pending['cards_' + i] || sentHashes['cards_' + i] || '';
       const game = await Game.get();

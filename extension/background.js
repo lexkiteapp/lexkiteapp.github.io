@@ -4,7 +4,7 @@ const logErr = (where, e) => { try { const m = String((e && (e.stack || e.messag
 self.addEventListener('error', e => logErr('bg', e.error || e.message));
 self.addEventListener('unhandledrejection', e => logErr('bg-promise', e.reason));
 // Chrome/Edge: service worker → importScripts; Firefox: manifest nạp sẵn các file này qua background.scripts
-if (typeof importScripts === 'function' && typeof Core === 'undefined') importScripts('app/js/data.js', 'app/js/core.js', 'app/js/vi-check.js', 'app/js/lex.js', 'app/js/dictionary.js');
+if (typeof importScripts === 'function' && typeof Core === 'undefined') importScripts('app/js/data.js', 'app/js/core.js', 'app/js/ctx.js', 'app/js/vi-check.js', 'app/js/lex.js', 'app/js/dictionary.js');
 const { Store, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey } = Core;
 // Ngôn ngữ giao diện (thông báo, menu chuột phải): chỉ en / vi như web app, ngôn ngữ khác → English
 // Giao diện add-on theo 15 ngôn ngữ của web: vi = chữ gốc, en = bảng EN, ngôn ngữ khác = từ điển web (app/js/i18n/<lang>.js)
@@ -394,7 +394,8 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         return reply({ entry: e, saved: !!(e && cards[e.word]) });
       }
       case 'save': {
-        const card = await Cards.add(msg.entry, msg.context);
+        const cx = msg.context && Core.Ctx.text(msg.context.text); // làm sạch (HTML, PII, ≤200) trước khi lưu/đồng bộ
+        const card = await Cards.add(msg.entry, cx ? { ...msg.context, text: cx } : null);
         if (sender.tab && /^https?:/.test(sender.url || '')) countUse('save'); // lưu từ trang web (content script)
         scheduleBgSync();
         return reply({ ok: true, card });

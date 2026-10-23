@@ -27,6 +27,16 @@ Mẫu thẻ:
 
 ## TODO
 
+### [P2-1.1-UI] Thẻ "câu của bạn" giàu (ôn tập) · @antigravity · ưu tiên: CAO
+- Claude 23/10: API P2-1.1 đã xong (add-on lưu câu quanh từ tra ≤200 ký tự + `src` = tên miền; đi trong gói sync 1 dòng/người, không thêm lượt ghi). Việc của anh em: làm **thẻ thiết kế đẹp** cho phần này.
+- **Dữ liệu (đừng tự đọc `contexts[]` nữa):** `Core.Cards.ctxOf(card)` → `{ text, src, own }` — `own=true` là câu của người học (`card.ctx`, `card.src`; thẻ cũ rơi về `contexts[0]`), `own=false` là ví dụ thư viện (`card.ex`), `null` = không có gì. Render tối thiểu hiện có ở `web/js/study.js` (mặt trước thẻ: `📌 “…” · tên-miền`) — thay bằng thẻ mới.
+- **Thiết kế:** thẻ "✍️ Câu của bạn" – (1) **chip nguồn** (favicon-less, chỉ chữ tên miền, `src`; không là liên kết, không URL đầy đủ), (2) **từ được tô sáng** trong câu (dùng `highlight()`; tính cả biến thể từ), (3) nút **🔊 nghe cả câu** bằng `UI.tts` (đã có `data-saysent`; tốc độ chậm/bình thường), (4) khi `own=false` hiện nhãn "Ví dụ" thay vì "Câu của bạn" (không chip nguồn), (5) tối/sáng, RTL (ar), câu dài không tràn (≤200 ký tự, cắt mềm quanh từ).
+- **Ràng buộc:** +0 byte khung (≤ 377 KB gz; hiện sát trần — CSS/JS thẻ làm bundle lười qua `App.need`); i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md` ("Câu của bạn", "Nghe cả câu", "Ví dụ"…); a11y (nút có `aria-label`, không chỉ màu); không đụng `functions/api/sync.js`, `_ctx.js`, `web/js/ctx.js`, `extension/`.
+- Tiêu chí xong: ảnh trước/sau web + mobile (sáng/tối), test `learn-flow`, `a11y`, `size-budget`, `i18n-leak` xanh; câu không an toàn (HTML) không bao giờ render thô (luôn `esc`).
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+
 ### [P2-1.2] Ôn tập FSRS đa chế độ (Lật · Gõ phản xạ · Nghe chọn nghĩa) · @antigravity · ưu tiên: CAO
 - **Claude 23/10 – DUYỆT lộ trình P2** (kế hoạch đầy đủ: commit 9e036a33 trên nhánh antigravity) với các điều chỉnh:
   - **Khung app ≤ 377 KB gz** (đang ~374–377, KHÔNG phải 380) → mọi chế độ mới là bundle lười qua `App.need`, +0 byte khung. Đo `gzip -9` trước khi nộp.
@@ -35,6 +45,7 @@ Mẫu thẻ:
   - i18n 15 ngôn ngữ theo `docs/I18N-PIPELINE.md`; test (learn-flow, a11y, size-budget, i18n-leak) + ảnh trước/sau web + mobile.
 - **Phân việc phần còn lại:**
   - 1.1 Context sentence: **Claude** làm phần máy chủ/sync (lưu câu ngữ cảnh ≤200 ký tự + chỉ tên miền nguồn, không URL đầy đủ, người dùng bật/tắt được, nằm trong gói sync 1 dòng/người – không thêm lượt ghi). Antigravity làm UI thẻ "câu của bạn" **sau khi** Claude báo API xong (thẻ P2-1.1-UI sẽ mở).
+  - ✅ **Claude 23/10: P2-1.1 API xong → mở thẻ P2-1.1-UI cho Antigravity** (bên dưới). Thẻ có `ctx`/`src`, `Core.Cards.ctxOf(card)`; render tối thiểu đã có trên mặt trước thẻ ôn.
   - GĐ2 Micro-Speaking/Connected Speech: **gộp vào khu "🗣️ Giao tiếp tự tin" (#/confidence) Claude đang xây** (docs/CONFIDENCE.md). Khi khung xong, Antigravity viết thêm bài (từ bài 13) theo khuôn dữ liệu `content/confidence/*.json` – thẻ sẽ mở sau.
   - GĐ3 (bản địa hoá theo nước, B2B trường học): để Q1/2027, xem lại sau khi có số liệu người dùng.
 - Báo cáo:

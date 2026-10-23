@@ -2383,6 +2383,8 @@
   'Tắt': 'Off',
   'Bấm đúp để tra từ': 'Double-click to look up words',
   'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages',
+  'Lưu câu ngữ cảnh': 'Save context sentence',
+  'Khi lưu từ, giữ câu chứa từ đó (tối đa 200 ký tự) và chỉ tên miền trang – không lưu địa chỉ đầy đủ. Tắt để không lưu gì từ trang.': 'When you save a word, keep the sentence it appears in (up to 200 characters) and only the site’s domain – never the full address. Turn off to save nothing from the page.',
   'Mở ứng dụng ↗': 'Open app ↗',
   '💡 Bấm đúp vào từ để tra · bôi đen câu để dịch · trên YouTube: bật phụ đề rồi <b>chạm vào từ</b> trong phụ đề': '💡 Double-click a word to look it up · select a sentence to translate · on YouTube: turn on captions, then <b>tap a word</b> in the captions',
   '🔁 {n} ôn lại': '🔁 {n} to review',

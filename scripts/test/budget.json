@@ -1,7 +1,8 @@
 {
   "_note": "Ngân sách dung lượng (byte). Chỉ nâng khi có lý do rõ trong commit; contentWarn tự hạ khi nội dung tốt lên. Xem docs/CONTENT-RULES.md",
-  "shellGz": 386048,
+  "shellGz": 386560,
   "fileGz": 163840,
+  "_shellNote": "23/10: 386048→386560 (+512 B) – P2-1.1 câu ngữ cảnh: móc ctx/src trong core.js + ctxOf + cờ x:1 ở sync.js + 2 khóa en (~470 B gz); bộ làm sạch nằm ở ctx.js (ngoài khung).",
   "allowBig": [],
   "totalJs": 19970000,
   "contentWarn": 15,

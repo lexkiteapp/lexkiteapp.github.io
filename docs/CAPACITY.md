@@ -49,6 +49,7 @@ Hỗn hợp DAU giả định: anon 30 %, light 35 %, typical 25 %, heavy 8 %, t
   - **Di chuyển lười**: lượt đẩy đầu gộp dòng cũ vào gói rồi xoá chúng trong cùng giao dịch (`EXISTS` gói mới – không bao giờ xoá khi gói chưa ghi).
   - Gói > 1,8 MB (≈ 30k thẻ) → tài liệu đó ghi dòng riêng; dòng riêng mới hơn đè lên gói khi đọc.
   - Cờ `SYNC_PACK=0` (rollback): vẫn đọc gói, ghi dòng riêng.
+- **B3 Câu ngữ cảnh (P2-1.1)**: `ctx` (≤200 ký tự) + `src` (tên miền ≤64) là trường TRONG thẻ → nằm trong gói 1 dòng, **0 dòng ghi thêm**; máy khách cũ giữ nguyên trường lạ khi đẩy lại. Đo `scripts/test/sync-ctx.mjs`: +≲25 byte/thẻ sau gzip (câu lặp lại `contexts[0].text`, gzip khử trùng), trần thô ≈ 270 byte/thẻ. Làm sạch phía máy chủ (`functions/api/_ctx.js`: bỏ HTML/ký tự điều khiển, cắt độ dài, bỏ cả câu nếu giống email/số điện thoại) chỉ chạy cho nhóm thẻ máy khách đánh cờ `x:1` (có ctx) → giải nén + phân tích ≈ 1/32 số thẻ, mức vài ms; không cờ = đi thẳng (CPU ≈ 0). Máy khách bị sửa tay không đặt cờ thì chỉ làm bẩn dữ liệu CỦA CHÍNH MÌNH (không ai khác đọc) và giao diện luôn `esc`.
 - **B2 Gộp phía máy khách** (đã có, nay có test): đẩy ≤ 1 lần/3 phút + khi ẩn/rời trang, chỉ gói thẻ đổi; xung đột thẻ theo hoạt động gần nhất (`srs.last`/`added`/`mod`), thẻ xoá theo dấu thời gian.
 
 ### C. Dung lượng (10 GB/DB Paid, 500 MB Free)

@@ -25589,5 +25589,35 @@
     "th": "เส้นทางฝึกพูดผ่านสถานการณ์จริง ตั้งแต่ A1 ถึง B2",
     "hi": "असली स्थितियों से होकर बोलने का रास्ता, A1 से B2 तक",
     "ar": "مسار للتحدث عبر مواقف حقيقية، من A1 إلى B2"
+  },
+  "Lưu câu ngữ cảnh": {
+    "es": "Guardar la frase de contexto",
+    "pt": "Salvar a frase de contexto",
+    "fr": "Enregistrer la phrase de contexte",
+    "de": "Kontextsatz speichern",
+    "id": "Simpan kalimat konteks",
+    "th": "บันทึกประโยคบริบท",
+    "zh": "保存语境句子",
+    "ja": "文脈の例文を保存",
+    "ko": "문맥 문장 저장",
+    "hi": "संदर्भ वाक्य सहेजें",
+    "ar": "حفظ جملة السياق",
+    "ru": "Сохранять предложение-контекст",
+    "tr": "Bağlam cümlesini kaydet"
+  },
+  "Khi lưu từ, giữ câu chứa từ đó (tối đa 200 ký tự) và chỉ tên miền trang – không lưu địa chỉ đầy đủ. Tắt để không lưu gì từ trang.": {
+    "es": "Al guardar una palabra, se conserva la frase donde aparece (máx. 200 caracteres) y solo el dominio del sitio, nunca la dirección completa. Desactívalo para no guardar nada de la página.",
+    "pt": "Ao salvar uma palavra, guardamos a frase em que ela aparece (máx. 200 caracteres) e apenas o domínio do site, nunca o endereço completo. Desative para não guardar nada da página.",
+    "fr": "Quand vous enregistrez un mot, on garde la phrase où il apparaît (200 caractères max.) et seulement le domaine du site, jamais l’adresse complète. Désactivez pour ne rien conserver de la page.",
+    "de": "Beim Speichern eines Worts wird der Satz, in dem es steht (max. 200 Zeichen), und nur die Domain der Seite gespeichert, nie die vollständige Adresse. Ausschalten, um nichts von der Seite zu speichern.",
+    "id": "Saat menyimpan kata, kalimat tempat kata itu muncul (maks. 200 karakter) dan hanya domain situsnya yang disimpan, tidak pernah alamat lengkapnya. Matikan agar tidak ada yang disimpan dari halaman.",
+    "th": "เมื่อบันทึกคำ จะเก็บประโยคที่คำนั้นอยู่ (สูงสุด 200 ตัวอักษร) และเฉพาะชื่อโดเมนของเว็บไซต์ ไม่เก็บที่อยู่เต็ม ปิดเพื่อไม่เก็บอะไรจากหน้าเว็บ",
+    "zh": "保存单词时，会保留它所在的句子（最多 200 个字符）以及网站域名，绝不保存完整网址。关闭后不会保存网页上的任何内容。",
+    "ja": "単語を保存するとき、その単語を含む文（最大200文字）とサイトのドメインだけを保存し、完全なURLは保存しません。オフにするとページからは何も保存しません。",
+    "ko": "단어를 저장할 때 그 단어가 나온 문장(최대 200자)과 사이트 도메인만 저장하며 전체 주소는 저장하지 않습니다. 끄면 페이지에서 아무것도 저장하지 않습니다.",
+    "hi": "शब्द सहेजते समय वह वाक्य (अधिकतम 200 अक्षर) और केवल साइट का डोमेन सहेजा जाता है, पूरा पता कभी नहीं। बंद करने पर पेज से कुछ भी सहेजा नहीं जाएगा।",
+    "ar": "عند حفظ كلمة نحتفظ بالجملة التي وردت فيها (200 حرف كحد أقصى) واسم نطاق الموقع فقط، وليس العنوان الكامل أبدًا. أوقف الخيار كي لا يُحفظ أي شيء من الصفحة.",
+    "ru": "При сохранении слова сохраняется предложение, где оно встретилось (до 200 символов), и только домен сайта — никогда полный адрес. Выключите, чтобы ничего не сохранять со страницы.",
+    "tr": "Bir kelimeyi kaydettiğinizde geçtiği cümle (en fazla 200 karakter) ve yalnızca sitenin alan adı saklanır, tam adres asla. Sayfadan hiçbir şey kaydedilmesin istiyorsanız kapatın."
   }
 }

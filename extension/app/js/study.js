@@ -186,7 +186,7 @@
     // Thẻ thêm hàng loạt chưa có phiên âm/định nghĩa → bổ sung ngầm cho thẻ này và vài thẻ kế tiếp
     session.queue.slice(0, 3).forEach(k => { const x = state.cards[k]; if (x && (!x.ipa || !x.def) && App.enrichLater) App.enrichLater(k); });
     let flipped = false;
-    const ctx = c.contexts[0];
+    const own = Cards.ctxOf(c) || {};
     const isNew = c.srs.reps === 0 && !c.srs.last;
     const rev = session.reverse;
     const pct = session.done / Math.max(1, session.done + session.queue.length) * 100;
@@ -211,7 +211,7 @@
         ${pic(c)}
         <div class="entry-word">${esc(c.word)}</div>
         <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
-        ${ctx ? `<div class="ctx">📌 “${highlight(ctx.text, c.word)}”</div>` : ''}
+        ${own.own ? `<div class="ctx">📌 “${highlight(own.text, c.word)}”${own.src ? ` <span class="muted tiny">· ${esc(own.src)}</span>` : ''}</div>` : ''}
         <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd kbd-hint">Space</span></div>`;
 
     view.innerHTML = `<div class="study-wrap">

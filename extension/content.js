@@ -102,9 +102,16 @@
   bind(document, 'ielts-lexi-takeover', ev => { if (ev.detail !== chrome.runtime.id) return; // trang web không tắt được add-on
     stop(); });
 
-  let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, prefs = {};
+  let host = null, root = null, enabled = true, selectMode = 'icon', current = null, markOn = true, acadOn = true, ctxOn = true, prefs = {};
   cleanups.push(() => { try { document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); } catch (e) {} for (const id of ['vb-mark-css']) { const x = document.getElementById(id); if (x) x.remove(); } if (host) host.remove(); window.speechSynthesis && 0; });
-  const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
+  const applySettings = st => { st = st || {}; prefs = st; enabled = st.dblclickOn !== false; selectMode = st.selectMode || 'icon'; ctxOn = st.saveCtx !== false; markOn = st.markKnown !== false; acadOn = st.markAcademic !== false; };
+  // Câu ngữ cảnh (P2-1.1): chỉ khi bật "Lưu câu ngữ cảnh"; ≤200 ký tự; nguồn = tên miền (không đường dẫn/truy vấn) – riêng video (YouTube…) giữ liên kết video công khai để xem lại đoạn gốc
+  const ctxOut = (text, vi, meta) => {
+    if (!ctxOn || !text) return null;
+    let src = '';
+    try { const u = new URL(meta.source); src = /(^|\.)(youtube\.com|youtu\.be|vimeo\.com|ted\.com)$/.test(u.hostname) ? meta.source : u.origin + '/'; } catch (e) { src = ''; }
+    return { text: text.slice(0, 200), vi, source: src, title: meta.title };
+  };
   sget('settings').then(r => applySettings(r.settings));
   // Ảnh người dùng đã báo "ảnh không đúng": khóa = từ + URL ảnh (trước đây chỉ theo từ → ẩn vĩnh viễn cả ảnh mới, đúng nghĩa sau khi đổi nguồn ảnh)
   const badImg = new Set(), imgKey = e => e.word + ' ' + e.image;
@@ -574,7 +581,7 @@
         const { meanings, oxford, senses, found, audioUS, partial, _imgTry, _t, _v, ...entry } = src;
         const okImg = !!(entry.image && !badImg.has(imgKey(src))); // ảnh người dùng đã báo sai không vào thẻ
         try {
-          const r = await send({ type: 'save', entry: { ...entry, image: okImg ? entry.image : '', imageCredit: okImg ? entry.imageCredit || null : null, audio: audioFor(accent) }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
+          const r = await send({ type: 'save', entry: { ...entry, image: okImg ? entry.image : '', imageCredit: okImg ? entry.imageCredit || null : null, audio: audioFor(accent) }, context: ctxOut(context, ctxVi, meta) });
           if (!r || r.error) throw new Error(r && r.error);
           didSave = true;
           btn.textContent = tx('✓ Đã lưu vào flashcard');
@@ -612,7 +619,7 @@
       b.querySelector('#save').onclick = async ev => {
         const btn = ev.currentTarget; btn.disabled = true;
         try {
-          const r = await send({ type: 'save', entry: { word, vi, pos: multi ? 'phrase' : '', emoji: '💬' }, context: context ? { text: context, vi: ctxVi, source: meta.source, title: meta.title } : null });
+          const r = await send({ type: 'save', entry: { word, vi, pos: multi ? 'phrase' : '', emoji: '💬' }, context: ctxOut(context, ctxVi, meta) });
           if (!r || r.error) throw new Error();
           btn.textContent = tx('✓ Đã lưu vào flashcard');
         } catch (x) { btn.disabled = false; btn.textContent = tx('⚠️ Thử lưu lại'); }

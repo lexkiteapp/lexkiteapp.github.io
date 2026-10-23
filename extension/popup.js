@@ -9,7 +9,7 @@
     'thẻ cần học hôm nay': 'cards due today', 'Ôn ngay →': 'Review now →', 'Mục tiêu': 'Goal', 'Xong {n} thẻ – tuyệt!': 'Done {n} cards – great!', '⚡ Ôn nhanh {i}/{n}': '⚡ Quick review {i}/{n}', 'Chạm để lật': 'Tap to flip', 'Quên': 'Forgot', 'Nhớ': 'Got it', 'Thẻ từ vựng ở tab mới': 'Vocabulary card on new tab', 'Gạch chân từ học thuật B2–C2': 'Underline B2–C2 academic words', 'Mới lưu': 'Just saved', 'Đã thuộc': 'Learned', 'Sắp đến hạn ôn': 'Due for review soon', 'Nghe': 'Listen', 'Tra nhanh một từ…': 'Quick word lookup…',
     '⚙️ Cài đặt tra từ': '⚙️ Lookup settings', 'Khi bôi đen chữ': 'When text is selected', 'Hiện nút 🌐 để dịch': 'Show 🌐 button to translate',
     'Tự dịch ngay': 'Translate instantly', 'Tắt': 'Off', 'Bấm đúp để tra từ': 'Double-click to look up words',
-    'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages', 'Mở ứng dụng ↗': 'Open app ↗',
+    'Đánh dấu từ đã học trên trang': 'Highlight learned words on pages', 'Lưu câu ngữ cảnh': 'Save context sentence', 'Khi lưu từ, giữ câu chứa từ đó (tối đa 200 ký tự) và chỉ tên miền trang – không lưu địa chỉ đầy đủ. Tắt để không lưu gì từ trang.': 'When you save a word, keep the sentence it appears in (up to 200 characters) and only the site’s domain – never the full address. Turn off to save nothing from the page.', 'Mở ứng dụng ↗': 'Open app ↗',
     '💡 Bấm đúp vào từ để tra · bôi đen câu để dịch · trên YouTube: bật phụ đề rồi <b>chạm vào từ</b> trong phụ đề': '💡 Double-click a word to look it up · select a sentence to translate · on YouTube: turn on captions, then <b>tap a word</b> in the captions',
     '🔁 {n} ôn lại': '🔁 {n} to review', '✨ {n} từ mới': '✨ {n} new words', 'Thêm từ mới →': 'Add new words →', '🕘 Vừa lưu gần đây': '🕘 Recently saved',
     'vừa xong': 'just now', '{n} phút trước': '{n} min ago', '{n} giờ trước': '{n} h ago', '{n} ngày trước': '{n} days ago',
@@ -117,6 +117,7 @@
   $('#markK').onchange = async e => { settings.markKnown = e.target.checked; await Store.set('settings', settings); };
   $('#dbl').onchange = async e => { settings.dblclickOn = e.target.checked; await Store.set('settings', settings); };
   if ($('#acOn')) { $('#acOn').checked = settings.markAcademic !== false; $('#acOn').onchange = async e => { settings.markAcademic = e.target.checked; await Store.set('settings', settings); }; }
+  if ($('#ctxOn')) { $('#ctxOn').checked = settings.saveCtx !== false; $('#ctxOn').onchange = async e => { settings.saveCtx = e.target.checked; await Store.set('settings', settings); }; }
   if ($('#ntOn')) { $('#ntOn').checked = settings.newtabOn !== false; $('#ntOn').onchange = async e => { settings.newtabOn = e.target.checked; await Store.set('settings', settings); }; }
 
   // ✍️ Soát lỗi viết: bật chung (mặc định tắt) · bật/tắt riêng trang đang mở · kiểm nâng cao bằng LanguageTool
