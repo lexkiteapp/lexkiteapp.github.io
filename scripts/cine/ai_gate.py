@@ -8,6 +8,7 @@ API = os.environ.get('STUDIO_API', 'https://lexkite.com/api/studio')
 MOCK = os.environ.get('NEWS_AI_MOCK') == '1'
 def studio(op, payload, timeout=45, tries=3):
     """-> (result_dict | None, status) ; status in ok | skip:<why>"""
+    if os.environ.get('NEWS_AI_SKIP') == '1': return None, 'skip:forced (AI-skip test mode)'   # owner 23/10: test every non-AI gate while AI quotas are out
     sec = os.environ.get('STUDIO_CALLBACK_SECRET', '')
     if not sec: return None, 'skip:no STUDIO_CALLBACK_SECRET'
     body = json.dumps(dict(op=op, gemini=1, **payload)).encode(); last = ''
