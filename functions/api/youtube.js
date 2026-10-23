@@ -549,26 +549,28 @@ const back = q => new Response(null, { status: 302, headers: { Location: '/admin
 const cookieOf = (req, k) => { const m = (req.headers.get('Cookie') || '').match(new RegExp('(?:^|;\\s*)' + k + '=([^;]+)')); return m ? m[1] : ''; };
 export async function handleCallback(request, env) {
   const u = new URL(request.url), ip = request.headers.get('CF-Connecting-IP') || '?';
+  let who = '?'; const fail = async q => { await adminAudit(env, request, who, 'youtube.callback.' + q, false).catch(() => {}); return back(q); }; // every failure is logged with its reason (owner saw only a 2 s toast)
   if (await limit('ytcb:' + ip, 20, 600)) return back('rate');
   if (!ready(env)) return back('not-configured');
   await setup(env.DB);
   const st = await verifyState(env, u.searchParams.get('state') || '');
   const admins = String(env.ADMIN_EMAILS || '').toLowerCase().split(/[,\s]+/).filter(Boolean), ck = cookieOf(request, 'lk_yt');
-  if (!st || !admins.includes(st.e) || !ck || ck !== st.n) { await adminAudit(env, request, st ? st.e : '?', 'youtube.callback', false); return back('bad-state'); }
-  try { await run(env.DB, 'INSERT INTO yt_nonce (n, at) VALUES (?, ?)', st.n, Date.now()); } catch (e) { return back('replay'); }
+  if (st) who = st.e;
+  if (!st || !admins.includes(st.e) || !ck || ck !== st.n) return fail('bad-state');
+  try { await run(env.DB, 'INSERT INTO yt_nonce (n, at) VALUES (?, ?)', st.n, Date.now()); } catch (e) { return fail('replay'); }
   await run(env.DB, 'DELETE FROM yt_nonce WHERE at < ?', Date.now() - 86400e3).catch(() => {});
-  if (u.searchParams.get('error') || !u.searchParams.get('code')) return back('denied');
+  if (u.searchParams.get('error') || !u.searchParams.get('code')) return fail('denied');
   try {
     const c = client(env);
     const r = await gfetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ code: u.searchParams.get('code'), client_id: c.id, client_secret: c.secret, redirect_uri: REDIRECT, grant_type: 'authorization_code' }) });
     const t = await r.json().catch(() => ({}));
-    if (!r.ok || !t.access_token) return back('error');
+    if (!r.ok || !t.access_token) return fail('error');
     const granted = String(t.scope || '').split(' '), mode = await modeOf(env.DB, env);
-    if (!scopeFor(mode).split(' ').every(x => granted.includes(x))) return back('scope'); // manual mode: youtube.readonly only
-    if (!t.refresh_token) return back('no-refresh');
+    if (!scopeFor(mode).split(' ').every(x => granted.includes(x))) return fail('scope'); // manual mode: youtube.readonly only
+    if (!t.refresh_token) return fail('no-refresh');
     const ch = await gfetch('https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true', { headers: { Authorization: 'Bearer ' + t.access_token } });
     const item = ((await ch.json().catch(() => ({}))).items || [])[0];
-    if (!item || !item.id) return back('no-channel');
+    if (!item || !item.id) return fail('no-channel');
     const e = await encryptToken(env, t.refresh_token, item.id, 'youtube'), now = Date.now();
     await run(env.DB, `INSERT INTO yt_channel (channel_id, title, email, enc_token, iv, status, created, last_ok, by_who, thumb) VALUES (?, ?, NULL, ?, ?, 'ok', ?, ?, ?, ?)
       ON CONFLICT(channel_id) DO UPDATE SET title = excluded.title, thumb = excluded.thumb, enc_token = excluded.enc_token, iv = excluded.iv, status = 'ok', err = NULL, last_ok = excluded.last_ok, by_who = excluded.by_who`,
@@ -578,5 +580,5 @@ export async function handleCallback(request, env) {
     TOKS.delete(item.id);
     await adminAudit(env, request, st.e, 'youtube.callback', true);
     return back('ok');
-  } catch (e) { await adminAudit(env, request, st.e, 'youtube.callback', false); return back('error'); }
+  } catch (e) { const why = String((e && (e.code || e.name || e.message)) || 'x').replace(/[^\w.-]+/g, '_').slice(0, 40); await adminAudit(env, request, st.e, 'youtube.callback.exc.' + why, false).catch(() => {}); return back('error'); }
 }
