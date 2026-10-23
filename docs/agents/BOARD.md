@@ -36,7 +36,7 @@ Mẫu thẻ:
 
 ### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
 - **Đợt bổ sung cấp bách (theo lệnh anh Quyền 23/10):** 6 bài/ngôn ngữ cho 9 ngôn ngữ (ar, de, fr, hi, ko, ru, th, tr, zh = 54 bài), để trống `publishAt` (Claude xếp lịch). Nộp theo lô 2 ngôn ngữ/lần. Xong B5 làm tiếp [N4].
-- **Tiến độ:** Đang triển khai **Lô 1 (ar, de)**: 6 bài ar + 6 bài de = 12 bài.
+- **Tiến độ:** Đang triển khai **Lô 2 (fr, hi)**: 6 bài fr + 6 bài hi = 12 bài. (Lô 1 ar, de đã xong, chuyển CHỜ DUYỆT).
 - Cổng chất lượng: briefs.json, qualityScore ≥ 92, blog-check 0/0, blog-captions 0 lỗi, ≥ 2 link nội bộ + CTA đúng ý định, bản địa.
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
@@ -45,6 +45,19 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [B5] Nhịp nội dung 15 nước (Lô 1: ar, de – 12 bài) · @antigravity · ưu tiên: RẤT CAO
+- Mục tiêu: 6 bài/ngôn ngữ cho ar và de (tổng 12 bài), để trống `publishAt` (Claude xếp lịch).
+- File/khu vực: `content/blog/ar/*.md` (6 bài), `content/blog/de/*.md` (6 bài), `content/blog/briefs.json`.
+- Tiêu chí xong:
+  - **ar (6 bài)**: `al-jumal-al-shartiyyah-fi-al-injliziyyah` (câu điều kiện if), `al-mabni-lil-majhul-fi-al-injliziyyah-passive-voice` (thể bị động), `adawat-al-rabt-fi-al-injliziyyah-linking-words` (từ nối học thuật), `ielts-writing-task-1-wasf-al-rusum-al-bayaniyyah` (mô tả biểu đồ), `taqdim-ard-taqdimi-bi-al-injliziyyah-presentation-skills` (thuyết trình tiếng Anh), `al-idgham-wa-rabt-al-aswat-fi-al-injliziyyah-connected-speech` (nối âm connected speech).
+  - **de (6 bài)**: `englische-if-saetze-conditional-clauses` (If-Sätze Typ 0–3 & Mixed), `passiv-englisch-bildung-regeln-passive-voice` (Passive Voice Regeln), `linking-words-englisch-uebersicht-connectors` (Bindewörter Übersicht), `ielts-writing-task-1-diagramme-beschreiben` (Task 1 Aufbau), `praesentation-auf-englisch-formulierungen` (Präsentationsphrasen), `connected-speech-englisch-verbindungslaute` (Lautverbindungen & Aussprache).
+  - Mỗi bài ≥ 1.200 từ (1.200–1.600 từ), `qualityScore: 95`, 3 câu mini-quiz có lời giải bản địa, ≥ 2 ảnh đúng `desc` trong `shots.json`, liên kết chéo nội bộ tròn trịa (0 cảnh báo inbound), ≥ 1 liên kết trang tĩnh (`/ngu-phap/`, `/speaking/`, `/viet-thu/`), hộp CTA đúng route, slot YouTube chờ sẵn.
+- Báo cáo:
+  - Commit: `dfd00731`
+  - Kết quả kiểm thử: `blog-check` (420 bài, 0 lỗi), `blog-captions` (12/12 PASS), `blog-images` (17/17 PASS), `blog-schedule --verify` (hợp lệ), `content-check` (0 lỗi).
+  - Tiếp theo: tiếp tục tiến hành Lô 2 (fr, hi – 12 bài).
+- Cần sửa / Nhận xét:
 
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Giao diện + template `web/templates/weekly-digest.html` + i18n đã đạt (Claude 16/10); mặc định **TẮT (opt-in)** `emailDigest: false`.
