@@ -580,5 +580,5 @@ export async function handleCallback(request, env) {
     TOKS.delete(item.id);
     await adminAudit(env, request, st.e, 'youtube.callback', true);
     return back('ok');
-  } catch (e) { await adminAudit(env, request, st.e, 'youtube.callback', false); return fail('error'); }
+  } catch (e) { const why = String((e && (e.code || e.name || e.message)) || 'x').replace(/[^\w.-]+/g, '_').slice(0, 40); await adminAudit(env, request, st.e, 'youtube.callback.exc.' + why, false).catch(() => {}); return back('error'); }
 }
