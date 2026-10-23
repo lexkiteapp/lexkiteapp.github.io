@@ -42,6 +42,8 @@ for s in S:
         gk = GK(clip, who); xf = place(s['id'], gk, frame, None); g = clip_geom(clip, gk)
         for j in range(s['n']):
             i = s['frames'][j] if j < len(s['frames']) else s['frames'][-1]; gi = g[min(i, len(g) - 1)]; pz = PZ(s, j)
+            if s.get('pan') and j < s['pan']['n']: xf = list(place(s['id'], gk, frame, None)); xf[3] += pan_geom(s, j)[4][1]
+            elif s.get('pan'): xf = place(s['id'], gk, frame, None)
             k_ = KEEP.setdefault(f0 + j, dict(head=[], hands=[])); k_['head'].append(_scr(gi['head'], xf, pz))
             if TRK.get(clip) is not None and TRK[clip][1] is not None:   # + the tracked face box qa_news checks (mouth track affine per source frame)
                 fb_, M_ = TRK[clip]; Mi = M_[min(i, len(M_) - 1)]; P_ = np.array([Mi @ np.array([px_, py_, 1]) for px_ in (fb_[0], fb_[2]) for py_ in (fb_[1], fb_[3])])
@@ -49,6 +51,12 @@ for s in S:
             for dj in (-2, 0, 2):   # hands move: keep-out = this frame +- 2 source frames
                 gh = g[min(max(0, (s['frames'][min(max(0, j + dj), len(s['frames']) - 1)])), len(g) - 1)]['hands']
                 k_['hands'] += [_scr(h_, xf, pz) for h_ in gh]
+for s in S:   # pan frames: the previous host is still on screen, sliding out
+    if not s.get('pan'): continue
+    ps = S[s['pan']['src']]; gk = GK(ps['clip'], ps['who']); g = clip_geom(ps['clip'], gk); f0 = int(round(s['t0'] * FPS)); nP = s['pan']['n']; pf = list(reversed(ps['frames'][-nP:]))
+    for j in range(nP):
+        xf = list(ps['xfs'][ps['clip']][:5]) if ps.get('xfs') else list(place(ps['id'], gk, ps['frame'], None)); xf[3] += pan_geom(s, j)[4][0]
+        gi = g[min(pf[min(j, len(pf) - 1)], len(g) - 1)]; k_ = KEEP.setdefault(f0 + j, dict(head=[], hands=[])); k_['head'].append(_scr(gi['head'], xf, 1.0)); k_['hands'] += [_scr(h_, xf, 1.0) for h_ in gi['hands']]
 json.dump({str(k): v for k, v in KEEP.items()}, open(f'{RD}/keepout.json', 'w'))
 CARDS = ('Card', 'Recap', 'Ring', 'Share'); CHROME = ('VHook', 'Series', 'Follow', 'Badge')
 for o in [o_ for o_ in OV if o_['style'] != 'Cap']:   # frame-exact card times (a 3-decimal end like 1.667 showed the hook card on the first frame of the next shot); captions keep their word-sync times

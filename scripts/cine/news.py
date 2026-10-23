@@ -348,18 +348,37 @@ for s in S:
     if SEG and SEG[-1][0] == s['bg']: SEG[-1][2] = s['t0'] + s['dur']
     else: SEG.append([s['bg'], s['t0'], s['t0'] + s['dur'], 1 if len(SEG) % 2 == 0 else -1])
 import bg3d
+W4 = f'{A}/bg/w4'   # owner 23/10 bg-v4 (scripts/video/bg_v4.py): anime_6B SR plate, 25 % overlapping L/R crops of ONE plate
+def V4(n): b_ = n.split('@')[0]; return '@' in n and os.path.exists(f'{W4}/{b_}_plate.webp') and os.path.exists(f'{W4}/zones/{b_}_L.zones.json')
 def BGP(n):   # wide library crop '<id>@L|R' (bg/w/<id>_<side>.webp, 1350x2400) / 9:16 library still / pilot plate
-    if '@' in n: b_, sd_ = n.split('@'); return f'{A}/bg/w/{b_}_{sd_}.webp'
+    if '@' in n: b_, sd_ = n.split('@'); return f'{W4}/{b_}_{sd_}.webp' if V4(n) else f'{A}/bg/w/{b_}_{sd_}.webp'
     return f'{A}/bg/{n}.png' if os.path.exists(f'{A}/bg/{n}.png') else f'{TL}/dl/{n}.png'
-def DEP(n): return f"{A}/bg/w/zones/{n.replace('@', '_')}.depth.png" if '@' in n else f'{DEPTH}/{n}.depth.png'
-def ZON(n): return f"{A}/bg/w/zones/{n.replace('@', '_')}.zones.json" if '@' in n else f"{os.environ.get('NEWS_ZONES', f'{N}/zones')}/{n}.zones.json"
+def DEP(n): return (f"{W4}/zones/{n.replace('@', '_')}.depth.png" if V4(n) else f"{A}/bg/w/zones/{n.replace('@', '_')}.depth.png") if '@' in n else f'{DEPTH}/{n}.depth.png'
+def ZON(n): return (f"{W4}/zones/{n.replace('@', '_')}.zones.json" if V4(n) else f"{A}/bg/w/zones/{n.replace('@', '_')}.zones.json") if '@' in n else f"{os.environ.get('NEWS_ZONES', f'{N}/zones')}/{n}.zones.json"
 WIDE = set()
 if os.path.exists(f'{A}/bg/index.json'): WIDE = {w['id'] for w in json.load(open(f'{A}/bg/index.json')).get('wide', [])}
 if S[0]['bg'] in WIDE:   # owner 22/10 one location: Ama = crop L, Carlos = crop R of the SAME wide scene
     for x in S: x['bg'] = f"{x['bg']}@{'L' if x['who'] == 'ama' else 'R'}" 
+PANS = []   # owner 23/10 spatial continuity: the first speaker change (establishing) + one later key change = a 0.7 s pan across the shared plate
+for k in range(1, len(S)):
+    a_, b_ = S[k - 1], S[k]
+    if len(PANS) < 2 and V4(b_['bg']) and a_['who'] != b_['who'] and not a_['other'] and not b_['other'] and a_['frame'] == b_['frame'] and b_['n'] >= 36 and a_['id'] != 'hook' \
+            and a_['bg'].split('@')[0] == b_['bg'].split('@')[0] and (not PANS or k - PANS[-1] >= 3): b_['pan'] = dict(src=k - 1, n=17); PANS.append(k)
+QA['pans'] = [S[k]['id'] for k in PANS]
 BGL = {}; BGM = {}
+PLATE = {}
+def plate(b_):   # v4: the whole plate graded with a smooth horizontal Lab ramp so the L and R windows share one mean colour (dE ~0) and a pan stays seamless
+    if b_ not in PLATE:
+        P = cv2.imread(f'{W4}/{b_}_plate.webp'); Z = {sd: json.load(open(f'{W4}/zones/{b_}_{sd}.zones.json')) for sd in ('L', 'R')}
+        lab = cv2.cvtColor(P, cv2.COLOR_BGR2LAB).astype(np.float32); xs = {sd: Z[sd]['plate_x'] for sd in Z}
+        m = {sd: lab[:, xs[sd]:xs[sd] + 1350].reshape(-1, 3).mean(0) for sd in xs}; tgt = (m['L'] + m['R']) / 2
+        cL, cR = xs['L'] + 675, xs['R'] + 675; u = np.clip((np.arange(P.shape[1]) - cL) / max(1, cR - cL), 0, 1)[None, :, None]
+        lab += (tgt - m['L'])[None, None] * (1 - u) + (tgt - m['R'])[None, None] * u
+        PLATE[b_] = (cv2.cvtColor(lab.clip(0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR), xs)
+    return PLATE[b_]
 def bg_match(name):   # owner 23/10: the L / R crops of one wide still graded to a shared Lab reference (mean + spread per channel) -> dE <= 8 across cuts
     b_ = name.split('@')[0]
+    if V4(name): P, xs = plate(b_); x_ = xs[name.split('@')[1]]; return P[:, x_:x_ + 1350].copy()   # v4: window of the graded plate (SR source: no deblock needed)
     if b_ not in BGM:
         ims = {sd: cv2.fastNlMeansDenoisingColored(cv2.imread(BGP(f'{b_}@{sd}')), None, 4, 4, 7, 21) for sd in ('L', 'R')}   # owner 23/10: the library webps carry 8x8 block artifacts (blockiness 1.88) that line up with the 1080 output grid -> light NLM deblock (1.07)
         lab = {sd: cv2.cvtColor(v, cv2.COLOR_BGR2LAB).astype(np.float32) for sd, v in ims.items()}
@@ -437,7 +456,17 @@ def cam_at(s, u):
     return c
 BOK = bg3d.Bokeh(); BQA = []; ZONES = [[24, 212, 948, 400], [24, 992, 948, 1521]]   # card + caption + lower-third band (+24 px)
 PZ = lambda s, j: 1 + 0.08 * (1 - (1 - min(1.0, j / FPS / 0.4)) ** 2) if s['id'] == 'hook' else 1.0   # owner 22/10: punch-in 1.0 -> 1.08 in 0.4 s
+def pan_geom(s, j):   # camera on the shared plate during a pan + screen x shift of the previous / current host (also used by the layout solver)
+    ps = S[s['pan']['src']]; P, xs = plate(s['bg'].split('@')[0]); n_ = s['pan']['n']; e = bg3d.ease(min(1.0, j / max(1, n_ - 1)))
+    c0, c1 = cam_at(ps, 1.0), cam_at(s, 0.0); c = {k: c0[k] + (c1[k] - c0[k]) * e for k in ('z', 'tx', 'ty')}
+    x0, x1 = xs[ps['bg'].split('@')[1]], xs[s['bg'].split('@')[1]]; camx = x0 + (x1 - x0) * e; k_ = 1080 / bg3d.CW * c['z']
+    return P, camx, c, k_, ((x0 - camx) * k_, (x1 - camx) * k_)
+def pan_bg(s, j):   # owner 23/10 establishing / key-change PAN: one continuous move across the shared plate from the previous host's window to this one
+    P, camx, c, k_, dx = pan_geom(s, j); s['pan'].setdefault('dx', {})[j] = dx
+    A_ = np.float32([[k_, 0, 540 - k_ * (camx + bg3d.CW / 2) - c['tx']], [0, k_, 960 - k_ * bg3d.CH / 2 - c['ty']]])
+    return cv2.warpAffine(P, A_, (1080, 1920), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REFLECT).astype(np.float32)
 def bg_frame(s, j, t):
+    if s.get('pan') and j < s['pan']['n']: return pan_bg(s, j)
     u = j / max(1, s['n'] - 1); L_ = layers(s['bg']); qa = j % 6 == 0
     c_ = cam_at(s, u); c_['z'] *= PZ(s, j); r = L_.render(c_, qa=qa); B = r[0] if qa else r
     if s.get('move') == 'rack' and j < 12: B = cv2.GaussianBlur(B, (0, 0), 1.6 * (1 - j / 12) + 1e-3)   # fake rack focus: bg settles sharp in 0.5 s
@@ -503,6 +532,11 @@ for s in S:
         k_ += 1
     s['outfit'] = {w_: OUTFIT.get(c_, 'outfit1') for c_, w_, *_ in HS}   # QA: one outfit per host per clip
     json.dump(merged, open(f'{RD}/{s["id"]}.vis.json', 'w')); s['vis'] = f'{RD}/{s["id"]}.vis.json'
+    PANI = None
+    if s.get('pan'):   # previous host keeps standing in the shared room while the camera pans away from her / him
+        ps = S[s['pan']['src']]; nP = s['pan']['n']; pf = list(reversed(ps['frames'][-nP:])) + [ps['frames'][0]] * max(0, nP - len(ps['frames']))
+        frP, alP, _, _ = host_frames(dict(id=s['id'] + '_pan', frames=pf[:nP]), ps['clip'], ps['who'], [], False)
+        R_.append((frP, alP, tuple(ps['xfs'][ps['clip']][:5]), ps['who'])); HS.append((ps['clip'], ps['who'], [], False, ps['frame'])); PANI = len(R_) - 1
     order = sorted(range(len(R_)), key=lambda i: R_[i][3] == 'ama')   # Ama (screen-left, front) composited last
     SAMP = os.environ.get('NEWS_SAMPLE')   # smoke test (Mac): composite 1 frame per shot, repeat it
     for j in range(s['n']):
@@ -512,13 +546,16 @@ for s in S:
         t = fi / FPS; u = j / max(1, s['n'] - 1); drift = 0.0
         if SAMP and j > 0: enc.stdin.write(out.tobytes()); fi += 1; continue
         B = bg_frame(s, j, t); FRs = []; bot = []; AL = []
-        if j == 0: BGC.append(dict(shot=s['id'], bgr=[round(float(v), 2) for v in B.reshape(-1, 3).mean(0)]))   # continuity QA: mean bg colour per shot
+        if j == (s['pan']['n'] if s.get('pan') else 0): BGC.append(dict(shot=s['id'], bgr=[round(float(v), 2) for v in B.reshape(-1, 3).mean(0)]))   # pan shots: first frame AFTER the pan   # continuity QA: mean bg colour per shot
         if EXPO is None:   # one background exposure per lesson, fixed BEFORE frame 0: graded bg mean -> target so that bg 70 % + hosts 30 % (~0.35) lands near 0.48
             tg_ = (0.48 - 0.3 * 0.35) / 0.7; HOSTG = 1.0
             EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - tg_), g_) for g_ in np.arange(0.6, 2.81, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
         B = B * EXPO
         for i in order:
-            fr, al, (sc, cx, cy, ox, oy), who = R_[i]; pz_ = PZ(s, j); k_ = fr[j].shape[1] // 1080; f, a = comp(fr[j], al[j], sc * pz_ / k_, cx * k_, cy * k_, 540 + (ox - 540) * pz_, 960 + (oy - 960) * pz_, drift)   # x2 layers: half the scale, doubled anchor   # hook punch-in about the frame centre
+            if i == PANI and j >= s['pan']['n']: continue
+            fr, al, (sc, cx, cy, ox, oy), who = R_[i]
+            if s.get('pan') and j < s['pan']['n']: ox = ox + s['pan']['dx'][j][0 if i == PANI else 1]
+            pz_ = PZ(s, j); k_ = fr[j].shape[1] // 1080; f, a = comp(fr[j], al[j], sc * pz_ / k_, cx * k_, cy * k_, 540 + (ox - 540) * pz_, 960 + (oy - 960) * pz_, drift)   # x2 layers: half the scale, doubled anchor   # hook punch-in about the frame centre
             sh = qblur(a, 16); sh = np.roll(np.roll(sh, 16, 0), 10, 1)[..., None] * 0.38
             B = B * (1 - sh) + np.array([30, 24, 14], np.float32) * sh
             ao = qblur(a, 45)[..., None] * 0.22; B = B * (1 - ao)   # ambient occlusion / contact shadow around the body
@@ -541,8 +578,8 @@ for s in S:
                 sk_[:max(0, int(ytop_ / 4))] = False
                 n_, lb_, st_, _ = cv2.connectedComponentsWithStats(sk_.astype(np.uint8))
                 HB.setdefault(fi, []).extend([[int(st_[c][0] * 4), int(st_[c][1] * 4), int((st_[c][0] + st_[c][2]) * 4), int((st_[c][1] + st_[c][3]) * 4)] for c in range(1, n_) if st_[c][4] >= 40])
-            a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
-        QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot)))
+            a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); (i == PANI or (s.get('pan') and j < s['pan']['n'])) or bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
+        QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot or [1.0])))
         if j == s['n'] // 2 and len(AL) == 1: EQ.append(dict(shot=s['id'], **MR.edge_qa(B, AL[0], bg=B0)))   # edge QA on the rendered frame (singles)
         if s['other']:   # two-shot: gap between the silhouettes (above the desk)
             if j % 4 == 0 and len(AL) == 2:
@@ -557,7 +594,7 @@ for s in S:
             m_ = float(B.mean()) / 255
             if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.55, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.6, 0.95, 1.25)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
         pass   # hook punch-in is done in camera space (host scale + bg zoom: one resample, no softening)
-        TR = STYLE.get('transition', 'cut'); k_s = S.index(s)
+        TR = 'cut' if s.get('pan') else STYLE.get('transition', 'cut'); k_s = S.index(s)   # a pan IS the transition
         if k_s > 0 and PREV_OUT is not None and TR == 'dissolve' and j < 4: B = B * ((j + 1) / 5) + PREV_OUT * (1 - (j + 1) / 5)   # 4-frame dissolve
         elif k_s > 0 and TR == 'whip' and j < 3: B = cv2.filter2D(B, -1, np.ones((1, 31 - 10 * j), np.float32) / (31 - 10 * j))   # whip: horizontal motion blur settling in 3 frames
         elif k_s > 0 and TR == 'zoom' and j < 4: z2 = 1.05 - 0.0125 * j; B = cv2.warpAffine(B, np.float32([[z2, 0, 540 * (1 - z2)], [0, z2, 960 * (1 - z2)]]), (1080, 1920), flags=cv2.INTER_LINEAR)

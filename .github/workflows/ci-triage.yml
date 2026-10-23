@@ -49,6 +49,7 @@ on:
       - 'news-voice'
       - 'news-auto'
       - 'video-e2e'
+      - 'bg-v4'
       - 'Deploy audio CDN to GitHub Pages'
       - 'Ảnh Google Play'
       - 'Backlink, PR & Thương hiệu'
