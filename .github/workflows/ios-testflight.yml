@@ -78,6 +78,20 @@ jobs:
             -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates \
             -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" | tail -40
           echo "✓ Đã tải build $GITHUB_RUN_NUMBER lên App Store Connect – chờ Apple xử lý (5–30 phút) rồi hiện ở TestFlight" >> "$GITHUB_STEP_SUMMARY"
+      - name: Xuất IPA đã ký để lưu trữ (release-archive → Kho Drive; lỗi bước này KHÔNG ảnh hưởng TestFlight)
+        if: inputs.upload
+        continue-on-error: true
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}', VER: '${{ inputs.version }}' }
+        run: |
+          sed -e 's#<string>upload</string>#<string>export</string>#' "$RUNNER_TEMP/ExportOptions.plist" > "$RUNNER_TEMP/ExportOptions-ipa.plist"
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions-ipa.plist" \
+            -exportPath "$RUNNER_TEMP/ipa" -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" | tail -20
+          cp "$RUNNER_TEMP"/ipa/*.ipa "lexkite-${VER:-1.0}-$GITHUB_RUN_NUMBER.ipa"
+      - uses: actions/upload-artifact@v4
+        if: inputs.upload
+        continue-on-error: true
+        with: { name: lexkite-ios-ipa, path: 'lexkite-*.ipa', retention-days: 30, if-no-files-found: ignore }
       - name: Xoá khoá
         if: always()
         run: rm -f "$RUNNER_TEMP/AuthKey.p8"

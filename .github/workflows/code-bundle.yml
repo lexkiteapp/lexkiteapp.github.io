@@ -1,0 +1,37 @@
+# Sao lưu mã nguồn hằng tuần: git bundle ĐẦY ĐỦ (mọi nhánh + tag) → Kho Drive 2 bản / 2 Drive. Diễn tập: bundle verify + fetch mọi ref + fsck + clone main, rồi TẢI LẠI bản sao Drive, kiểm sha256 + verify.
+# Giữ 2 bản mới nhất (repo ~1 GB → ~2 GB × 2 bản sao). Sổ: infra/backups/code-bundle.json. Điều phối: infra/jobs.json (lease code-bundle). Tài liệu: docs/ROLLBACK.md §Mã nguồn.
+name: code-bundle
+on:
+  workflow_dispatch:
+    inputs:
+      force: { description: 'Làm lại dù tuần này đã có bản', type: boolean, default: false }
+  schedule:
+    - cron: '0 12 * * 0'
+concurrency: { group: code-bundle, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        run: node scripts/jobs/lease.mjs acquire code-bundle
+      - name: Bundle + diễn tập + tải 2 bản
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: node scripts/ops/code-bundle.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+      - name: Ghi sổ vào main
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: |
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git add infra/backups/code-bundle.json
+          git diff --cached --quiet && { echo "sổ không đổi"; exit 0; }
+          git commit -qm "code-bundle #${{ github.run_number }}: sổ sao lưu mã nguồn [CF-Pages-Skip] [skip ci]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        run: node scripts/jobs/lease.mjs release code-bundle --status "${{ job.status }}"

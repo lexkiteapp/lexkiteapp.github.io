@@ -1,0 +1,40 @@
+# Giữ 3 bản phát hành đã ký gần nhất của mỗi loại (AAB Play · IPA iOS · zip add-on) trên Kho Drive: 2 bản / 2 Drive + sha256 (infra/backups/releases.json).
+# Chạy ngay khi workflow build xong (workflow_run) và quét bù hằng tuần (artifact GitHub hết hạn sau 30–90 ngày). Điều phối: infra/jobs.json (lease release-archive).
+# Tài liệu: docs/ROLLBACK.md §Ứng dụng & add-on.
+name: release-archive
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Build Android app', 'iOS → TestFlight', 'Đăng add-on Chrome Web Store']
+    types: [completed]
+  schedule:
+    - cron: '30 11 * * 6'
+concurrency: { group: release-archive, cancel-in-progress: false }
+permissions: { contents: write, actions: read }
+jobs:
+  archive:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', GITHUB_TOKEN: '${{ github.token }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        run: node scripts/jobs/lease.mjs acquire release-archive
+      - name: Tải artifact → Kho Drive (2 bản) + sổ sha256
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: node scripts/ops/release-archive.mjs
+      - name: Ghi sổ vào main
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: |
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git add infra/backups/releases.json
+          git diff --cached --quiet && { echo "sổ không đổi"; exit 0; }
+          git commit -qm "release-archive #${{ github.run_number }}: sổ bản phát hành [CF-Pages-Skip] [skip ci]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        run: node scripts/jobs/lease.mjs release release-archive --status "${{ job.status }}"

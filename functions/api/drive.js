@@ -11,6 +11,7 @@
  * Byte file KHÔNG đi qua Worker khi tải lên: máy/CI PUT thẳng vào phiên resumable của Google. Refresh token mã hoá AES-GCM (DRIVE_ENC_KEY, 32 byte base64)
  * trong D1; access token chỉ ở bộ nhớ (< 50 phút). Không bao giờ trả về/ghi log token hay khoá. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
+import { exportPage, open as openPage, TABLES as BACKUP_TABLES } from './_backup.js';
 import { d1Usage, guardBackground } from './_d1guard.js';
 import { internalDb, d1bMode, d1bReady, restDb } from './_d1b.js';
 import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
@@ -21,11 +22,13 @@ const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
 const ROOT_FOLDER = 'Lexkite Library';
 const MB = 1048576, HEADROOM_MIN = 256 * MB, STATE_TTL = 600, LINK_TTL = 300, CLI_SKEW = 300;
-const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch', 'd1b_copy', 'd1b_counts']);
-// Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire).
+const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch', 'd1b_copy', 'd1b_counts', 'backup_export', 'backup_open']);
+// Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire); retire also takes backups/·releases/ rows.
 const SHORTS_SQL = "f.folder LIKE 'shorts/%' AND f.cls = 'render'", CLIP_BYTES = 10 * 1048576, STOP_PCT = 0.9;
 // Kho footage (docs/VIDEO.md §Kho footage): masters under folder footage/<cảnh>, cls 'original', 2 bản sao/2 Drive. CLI chỉ được ĐỌC (render_link) – không retire/set_want.
 export const isFootageRow = r => !!r && r.cls === 'original' && /^footage\//.test(String(r.folder || ''));
+/** Bản sao lưu (docs/ROLLBACK.md): folder backups/<loại> | releases/<loại>, cls original, 2 bản. CLI được retire bản CŨ theo chính sách giữ N bản (không xoá cứng: vào thùng rác Drive). */
+export const isBackupRow = r => !!r && r.cls === 'original' && /^(backups|releases)\//.test(String(r.folder || ''));
 export const isShortsRow = r => !!r && r.cls === 'render' && /^shorts\//.test(String(r.folder || ''));
 /** Còn chứa được bao nhiêu clip (≈ 10 MB/master): Drive đang nhận file, tới ngưỡng ngừng 90 %. */
 export function shortsCapacity(drives, clipBytes = CLIP_BYTES) {
@@ -255,7 +258,7 @@ const cookieOf = (req, k) => { const m = (req.headers.get('Cookie') || '').match
 // Ngưỡng: 80 % cảnh báo · 90 % nghiêm trọng + tự ngừng nhận file (weight 0, nhớ auto_weight; < 90 % tự trả lại) · pool còn < 10 GB cảnh báo ·
 // mất kết nối (invalid_grant) / Google không phản hồi 3 lần liên tiếp / tải lên lỗi 3 lần liên tiếp → nghiêm trọng.
 // Thư (lexkite-mail → REPORT_NOTIFY_EMAIL): chỉ mức nghiêm trọng, ≤ 1 thư/loại/24 h; hết lỗi → thư "đã khôi phục".
-export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1', 'ci', 'capacity']); // capacity: functions/api/capacity.js (nâng gói Cloudflare) // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng; 'ci' = bản tin CI hằng ngày (ci-triage.yml)
+export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1', 'ci', 'capacity', 'deploy', 'backup_d1', 'backup_code', 'backup_rel']); // capacity: functions/api/capacity.js (nâng gói Cloudflare) // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng; 'ci' = bản tin CI hằng ngày (ci-triage.yml)
 export const CI_MAIL_GAP = 20 * 3600e3; // bản tin CI: ≤ 1 thư / ~ngày
 const pctOf = r => (r.quota_total ? (+r.quota_used || 0) / +r.quota_total : 0);
 /** Danh sách cảnh báo từ trạng thái các Drive (thuần). → [{kind, level: 'warn'|'crit', t, drive_id, p, msg}] */
@@ -572,6 +575,15 @@ const POOL_OPS = {
     for (const t of Object.keys(MIG)) { const a = await env.DB.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null), c = await bdb.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null); out[t] = { main: a ? a.n : null, internal: c ? c.n : null }; }
     return { ok: true, match: Object.values(out).every(x => x.main === x.internal), counts: out };
   },
+  /** CLI (d1-backup.yml · docs/ROLLBACK.md): xuất 1 trang bảng người dùng của D1 chính, đã nén + mã hoá trong Worker (functions/api/_backup.js). Chỉ đọc; qua cầu dao D1 như mọi việc nền. */
+  async backup_export(db, b, who, env) {
+    try { return await exportPage(env, env.DB, String(b.table || ''), b.after, b.limit); } catch (e) { return e && e.code === 'no-key' ? { status: 412, error: 'not-configured' } : { status: 500, error: 'backup-export' }; }
+  },
+  /** CLI: giải mã 1 trang (diễn tập khôi phục trên CI – CI không giữ khoá). Không đọc D1. */
+  async backup_open(db, b, who, env) {
+    if (!Object.hasOwn(BACKUP_TABLES, String(b.table || ''))) return { status: 400, error: 'bad-input' };
+    try { return { ok: true, page: await openPage(env, String(b.table), { iv: String(b.iv || ''), ct: String(b.ct || '') }) }; } catch (e) { return e && e.code === 'no-key' ? { status: 412, error: 'not-configured' } : { status: 400, error: 'bad-input' }; }
+  },
   /** CLI (footage-verify.yml · storage-watch.yml): bật/tắt cảnh báo ngoài (kind footage | gitsize) hiện ở Quản trị → Kho Drive. ok:true → xoá; ok:false → crit. Không gửi thư (workflow đỏ đã báo). */
   async ext_alert(db, b, who, env) {
     const kind = String(b.kind || 'footage'); if (!EXT_KINDS.has(kind)) return { status: 400, error: 'bad-input' };
@@ -605,7 +617,7 @@ const POOL_OPS = {
     const shas = (Array.isArray(b.sha256) ? b.sha256 : []).map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 20);
     const drives = new Map((await all(db, 'SELECT * FROM drives')).map(d => [d.id, d])), done = [], failed = [];
     for (const sha of shas) {
-      const rows = (await all(db, "SELECT * FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL", sha)).filter(isShortsRow).filter(r => /^video\//.test(String(r.mime || '')) || (r.folder === 'shorts/_ytpack' && r.mime === 'application/zip')); // master, hoặc gói đăng tay YouTube đã lên web
+      const rows = (await all(db, "SELECT * FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL", sha)).filter(r => (isShortsRow(r) && (/^video\//.test(String(r.mime || '')) || (r.folder === 'shorts/_ytpack' && r.mime === 'application/zip'))) || isBackupRow(r)); // master, gói đăng tay YouTube đã lên web, hoặc bản sao lưu cũ (backups/·releases/ – giữ N bản mới nhất, docs/ROLLBACK.md)
       for (const r of rows) {
         const d = drives.get(r.drive_id); if (!d || lost(d.status)) { failed.push({ sha, error: 'drive-lost' }); continue; }
         try {
@@ -787,7 +799,7 @@ async function batchOf(db, b, who, env, req, op, map) {
 const MIG = { drives: 'id', drive_files: 'id', drive_audit: 'id', drive_folders: '_offset', drive_refs: null, drive_alerts: 'kind', drive_meta: 'k', drive_nonce: 'n' }; // bảng nội bộ → cột khoá phân trang (null = rowid)
 const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch', 'd1b_copy', 'd1b_counts']);
 const DANGER = new Set(['disconnect', 'delete', 'empty_trash']); // + confirm:'DELETE' trong op (xoá vĩnh viễn)
-const BIG_OPS = new Set(['refs_sync']);
+const BIG_OPS = new Set(['refs_sync', 'backup_open']); // backup_open: 1 trang bản mã ≤ ~400 KB (_backup.js tự chia nhỏ trang khi vượt)
 const cliOnly = b => b && b._cli === true;
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
