@@ -62,10 +62,13 @@ window.UI = {
   modal: () => {},
   closeModal: () => {}
 };
+const W = p => p; W.signal = {}; W.stale = () => false;
 window.App = {
   view: document.getElementById('view'),
   routes: {},
-  route: () => {}
+  route: () => {},
+  W,
+  guard: fn => (...a) => { window.App.W = W; return fn(...a); }
 };
 window.Sync = {
   user: null,

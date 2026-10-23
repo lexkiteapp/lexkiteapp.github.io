@@ -90,7 +90,7 @@ ok(blogMatch(post, [{ ...good, tags: { ...good.tags, words: ['withdraw', 'fee'] 
 const app = fs.readFileSync('web/js/app.js', 'utf8'), sh = fs.readFileSync('scripts/build-i18n.sh', 'utf8');
 ok(/lvideo: \['js\/i18n\/en\/lvideo\.js', 'js\/lib\/video-rank\.js', 'js\/lesson-video\.js'\]/.test(app), 'BUNDLES.lvideo');
 ok(/^LAZY="[^"]*\blvideo\b/m.test(sh), 'LAZY có lvideo');
-for (const f of ['web/js/wordcard.js', 'web/js/grammar.js', 'web/js/path-day.js']) ok(/lv-slot/.test(fs.readFileSync(f, 'utf8')) && /App\.need\('lvideo'\)/.test(fs.readFileSync(f, 'utf8')), 'chỗ đặt video: ' + f);
+for (const f of ['web/js/wordcard.js', 'web/js/grammar.js', 'web/js/path-day.js']) ok(/lv-slot/.test(fs.readFileSync(f, 'utf8')) && /App\.(need|lazy)\('lvideo'\)/.test(fs.readFileSync(f, 'utf8')), 'chỗ đặt video: ' + f);
 ok(/blogVideoBox\(p, VIDEOS, esc\)/.test(fs.readFileSync('scripts/build-blog.mjs', 'utf8')), 'mẫu blog có khối video');
 
 console.log(fail ? `✗ video-web: ${fail} lỗi` : `✓ video-web: schema, chọn clip, xếp hạng, phụ đề, câu đố (${quizzes}/${files.length}), thẻ, blog, nối dây`);

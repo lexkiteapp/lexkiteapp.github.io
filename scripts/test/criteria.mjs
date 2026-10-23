@@ -24,7 +24,8 @@ const mockWindow = {
   },
   App: {
     routes: {},
-    view: { innerHTML: '' }
+    view: { innerHTML: '' },
+    guard: fn => fn
   },
   t: s => s,
   innerWidth: 1024

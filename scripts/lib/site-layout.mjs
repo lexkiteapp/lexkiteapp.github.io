@@ -88,7 +88,7 @@ mark{background:var(--primary-soft);color:inherit;border-radius:4px;padding:0 2p
 .grp{margin-top:28px}.grp h2{font-size:22px;margin:0 0 4px}.grp>p{color:var(--muted);margin:0}.grp h2 small{font-size:14px;color:var(--muted);font-weight:600;margin-left:6px}
 .tip{background:var(--accent-soft);border-radius:12px;padding:12px 16px;margin:14px 0}.err{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin:10px 0}.err s{color:var(--muted)}.err .why{color:var(--muted);font-size:15px}
 .uses li{margin:.4em 0}.sig{display:flex;flex-wrap:wrap;gap:6px}.fx td:first-child{white-space:nowrap}
-.ext{border:1px dashed var(--line);border-radius:var(--r);padding:14px 18px;margin:28px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--surface)}.ext p{margin:0;flex:1 1 260px;font-size:15px;color:var(--muted)}.ext strong{color:var(--text)}.ext button{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline}
+.ext{border:1px dashed var(--line);border-radius:var(--r);padding:14px 18px;margin:28px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--surface)}.ext p{margin:0;flex:1 1 260px;font-size:15px;color:var(--muted)}.ext strong{color:var(--text)}.ext button{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline}.ext[data-dismissed="1"],.pwa-box[data-dismissed="1"]{display:none!important}
 .pager a{max-width:48%}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (prefers-color-scheme:dark){.wt th,.au,.lb{color:#7fd6cc}.au[aria-pressed=true]{color:#0f1017;background:#7fd6cc}}`;
 
@@ -191,15 +191,57 @@ export const SEO_L = {
   },
 };
 
+export const SMART_CTA_I18N = {
+  vi: { saveTopic: '＋ Lưu bộ từ này vào thẻ ôn', pwaH: 'Thêm Lexkite vào màn hình chính', pwaP: 'Mở nhanh như ứng dụng, ôn từ mọi lúc không cần cài đặt phức tạp.', pwaBtn: 'Mở ứng dụng', extH: 'Tra từ ngay khi đọc web', extP: 'Cài add-on Lexkite cho Chrome: bấm đúp vào từ bất kỳ để xem nghĩa, phiên âm và lưu vào flashcard.', extBtn: 'Xem add-on', hide: 'Ẩn' },
+  en: { saveTopic: '＋ Save this word list to review', pwaH: 'Add Lexkite to your Home Screen', pwaP: 'Fast app-like experience, review vocabulary anytime without app store install.', pwaBtn: 'Open app', extH: 'Look up words while you read', extP: 'Get the Lexkite add-on for Chrome: double-click any word for meanings, IPA, and flashcards.', extBtn: 'See the add-on', hide: 'Hide' },
+  id: { saveTopic: '＋ Simpan daftar kata ini untuk ditinjau', pwaH: 'Tambahkan Lexkite ke Layar Utama', pwaP: 'Akses cepat seperti aplikasi, tinjau kosakata kapan saja tanpa instalasi rumit.', pwaBtn: 'Buka aplikasi', extH: 'Cari kata saat membaca web', extP: 'Pasang add-on Lexkite untuk Chrome: klik ganda kata apa pun untuk arti, fonetik, dan flashcard.', extBtn: 'Lihat add-on', hide: 'Sembunyikan' },
+  es: { saveTopic: '＋ Guardar esta lista para repasar', pwaH: 'Añade Lexkite a tu pantalla de inicio', pwaP: 'Acceso rápido como una app, repasa vocabulario en cualquier momento.', pwaBtn: 'Abrir app', extH: 'Busca palabras mientras navegas', extP: 'Instala la extensión de Lexkite para Chrome: haz doble clic para ver significados y guardar en tarjetas.', extBtn: 'Ver extensión', hide: 'Ocultar' },
+  pt: { saveTopic: '＋ Salvar esta lista para revisar', pwaH: 'Adicione o Lexkite à tela inicial', pwaP: 'Acesso rápido como um app, revise o vocabulário a qualquer momento.', pwaBtn: 'Abrir app', extH: 'Consulte palavras enquanto lê', extP: 'Instale a extensão do Lexkite para Chrome: clique duas vezes para significados e flashcards.', extBtn: 'Ver extensão', hide: 'Ocultar' },
+  fr: { saveTopic: '＋ Enregistrer cette liste pour réviser', pwaH: "Ajoutez Lexkite à votre écran d'accueil", pwaP: 'Accès rapide comme une appli, révisez vos mots à tout moment sans installation.', pwaBtn: "Ouvrir l'appli", extH: 'Cherchez des mots en naviguant', extP: 'Installez le module Lexkite pour Chrome : double-cliquez sur un mot pour sa définition et ses cartes mémo.', extBtn: 'Voir le module', hide: 'Masquer' },
+  de: { saveTopic: '＋ Diese Wortliste zum Wiederholen speichern', pwaH: 'Lexkite zum Startbildschirm hinzufügen', pwaP: 'Schnell wie eine App, jederzeit Vokabeln wiederholen ohne App-Store.', pwaBtn: 'App öffnen', extH: 'Wörter beim Lesen nachschlagen', extP: 'Hole dir die Lexkite-Erweiterung für Chrome: Doppelklick für Bedeutungen, Lautschrift und Karteikarten.', extBtn: 'Erweiterung ansehen', hide: 'Ausblenden' },
+  tr: { saveTopic: '＋ Bu kelime listesini tekrara kaydet', pwaH: "Lexkite'ı Ana Ekrana Ekleyin", pwaP: 'Uygulama gibi hızlı erişim, karmaşık kurulum olmadan istediğiniz zaman kelime tekrarı yapın.', pwaBtn: 'Uygulamayı aç', extH: 'Okurken kelimeleri anında arayın', extP: 'Chrome için Lexkite eklentisini edinin: anlamlar, telaffuz ve bilgi kartları için kelimeye çift tıklayın.', extBtn: 'Eklentiyi gör', hide: 'Gizle' },
+  ru: { saveTopic: '＋ Сохранить этот список для повторения', pwaH: 'Добавьте Lexkite на главный экран', pwaP: 'Быстрый доступ как в приложении, повторяйте слова в любое время.', pwaBtn: 'Открыть приложение', extH: 'Переводите слова во время чтения', extP: 'Установите расширение Lexkite для Chrome: двойной клик для перевода, транскрипции и карточек.', extBtn: 'Смотреть расширение', hide: 'Скрыть' },
+  ar: { saveTopic: '＋ حفظ قائمة الكلمات هذه للمراجعة', pwaH: 'أضف Lexkite إلى الشاشة الرئيسية', pwaP: 'وصول سريع كالتطبيق، راجع المفردات في أي وقت دون تثبيت معقد.', pwaBtn: 'افتح التطبيق', extH: 'ابحث عن الكلمات أثناء التصفح', extP: 'ثبّت إضافة Lexkite لمتصفح Chrome: انقر نقرًا مزدوجًا لمعرفة المعاني وحفظ البطاقات.', extBtn: 'عرض الإضافة', hide: 'إخفاء' },
+  hi: { saveTopic: '＋ दोहराने के लिए इस शब्द सूची को सहेजें', pwaH: 'Lexkite को होम स्क्रीन पर जोड़ें', pwaP: 'ऐप जैसा तेज़ अनुभव, बिना किसी जटिलता के कभी भी शब्दावली दोहराएँ।', pwaBtn: 'ऐप खोलें', extH: 'वेब पढ़ते समय तुरंत शब्द खोजें', extP: 'Chrome के लिए Lexkite एक्सटेंशन इंस्टॉल करें: अर्थ और फ़्लैशकार्ड के लिए किसी भी शब्द पर डबल क्लिक करें।', extBtn: 'एक्सटेंशन देखें', hide: 'छिपाएँ' },
+  ko: { saveTopic: '＋ 이 단어장을 복습 목록에 저장', pwaH: '홈 화면에 Lexkite 추가하기', pwaP: '앱처럼 빠른 실행, 복잡한 설치 없이 언제 어디서나 단어를 복습하세요.', pwaBtn: '앱 열기', extH: '웹 서핑 중 바로 단어 검색', extP: 'Chrome용 Lexkite 확장 프로그램을 추가하세요: 단어를 두 번 클릭해 뜻과 플래시카드를 확인하세요.', extBtn: '확장 프로그램 보기', hide: '숨기기' },
+  zh: { saveTopic: '＋ 保存此词表到复习卡片', pwaH: '将 Lexkite 添加至主屏幕', pwaP: '如原生应用般快捷打开，无需繁琐安装，随时随地背单词。', pwaBtn: '打开应用', extH: '网页阅读随时查词', extP: '安装 Lexkite Chrome 扩展：双击任意单词即可查看释义、音标并保存到卡片。', extBtn: '查看扩展', hide: '隐藏' },
+  ja: { saveTopic: '＋ この単語リストを復習に保存', pwaH: 'ホーム画面に Lexkite を追加', pwaP: 'アプリのようにすばやく起動、面倒なインストールなしでいつでも単語を復習。', pwaBtn: 'アプリを開く', extH: 'Web閲覧中にその場で単語検索', extP: 'Chrome版Lexkite拡張機能を追加：単語をダブルクリックして意味と発音を確認、暗記カードに保存。', extBtn: '拡張機能を見る', hide: '非表示' },
+  th: { saveTopic: '＋ บันทึกชุดคำศัพท์นี้ไว้ทบทวน', pwaH: 'เพิ่ม Lexkite ไปยังหน้าจอหลัก', pwaP: 'เปิดเร็วเหมือนแอป ทบทวนคำศัพท์ได้ทุกเมื่อโดยไม่ต้องติดตั้งให้ยุ่งยาก', pwaBtn: 'เปิดแอป', extH: 'ค้นหาคำศัพท์ขณะท่องเว็บ', extP: 'ติดตั้งส่วนขยาย Lexkite สำหรับ Chrome: ดับเบิลคลิกที่คำใดก็ได้เพื่อดูความหมายและบันทึกลงแฟลชการ์ด', extBtn: 'ดูส่วนขยาย', hide: 'ซ่อน' },
+};
+
+export const TOPIC_IDS = new Set([
+  'architecture', 'awl1', 'awl10', 'awl2', 'awl3', 'awl4', 'awl5', 'awl6', 'awl7', 'awl8', 'awl9',
+  'collocations', 'consumerism', 'crime', 'culture', 'describe', 'dom-biz', 'dom-edu', 'dom-eng',
+  'dom-env', 'dom-hosp', 'dom-it', 'dom-law', 'dom-log', 'dom-med', 'dom-mkt', 'economy',
+  'education', 'energy', 'environment', 'ex-c2', 'ex-ielts-gt-letter', 'ex-ielts-gt-life',
+  'ex-ielts-listen', 'ex-ielts-read', 'ex-ielts-speak', 'ex-ielts-write', 'ex-toefl',
+  'ex-toefl-campus', 'ex-toefl-lecture', 'ex-toeic-l', 'ex-toeic-office', 'ex-toeic-r',
+  'ex-toeic-travel', 'food', 'government', 'health', 'idioms', 'language', 'linking',
+  'media', 'ngsl1', 'ngsl2', 'ngsl3', 'ngsl4', 'ngsl5', 'ngsl6', 'ngsl7', 'ngsl8',
+  'ngsl9', 'opinion', 'phrasal', 'science', 'society', 'space', 'sport', 'task1',
+  'task2', 'technology', 'toeic1', 'toeic10', 'toeic2', 'toeic3', 'toeic4', 'toeic5',
+  'toeic6', 'toeic7', 'toeic8', 'toeic9', 'travel', 'urban', 'wildlife', 'work'
+]);
+
 const COPY_MSG = { vi: 'Nguồn: ', en: 'Source: ' };
 // Gắn nguồn khi sao chép > 200 ký tự (P1 chống cào – giống blog)
 const copyJs = lang => `document.addEventListener('copy',e=>{const s=window.getSelection();if(!s||s.rangeCount===0)return;const t=s.toString();if(t.length<=200)return;const m="\\n\\n${COPY_MSG[lang] || COPY_MSG.en}"+document.title.replace(/\\s*[–|]\\s*Lexkite$/i,'')+" – "+location.href.split('#')[0]+" (Lexkite)";e.clipboardData.setData('text/plain',t+m);e.preventDefault();});`;
-// JS nhỏ cuối trang (không chặn hiển thị): bật .js (hiện nút nghe/ô lọc – chỗ đã giữ sẵn, CLS 0), phát âm từ CDN audio, lọc thẻ, gợi ý add-on Chrome máy tính
+// JS nhỏ cuối trang (không chặn hiển thị): bật .js (hiện nút nghe/ô lọc – chỗ đã giữ sẵn, CLS 0), phát âm từ CDN audio, lọc thẻ, gợi ý add-on Chrome máy tính & PWA di động
 const UI_JS = `(function(d){var r=d.documentElement;r.classList.add('js');var A='https://audio.lexkite.com/audio/l/',B='https://lexkiteapp.github.io/audio/l/',cur;
 d.addEventListener('click',function(e){var b=e.target.closest('.au');if(!b)return;if(cur){cur.pause();if(cur.btn)cur.btn.setAttribute('aria-pressed','false')}var k=b.getAttribute('data-a'),a=new Audio(A+k+'.mp3');a.btn=b;cur=a;b.setAttribute('aria-pressed','true');a.onended=function(){b.setAttribute('aria-pressed','false')};a.onerror=function(){if(a.src.indexOf(B)<0){a.src=B+k+'.mp3';a.play()}else b.setAttribute('aria-pressed','false')};a.play().catch(function(){})});
 var q=d.getElementById('q');if(q){var o=d.getElementById('qn'),n=function(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/đ/g,'d').toLowerCase()},cs=[].slice.call(d.querySelectorAll('[data-k]')),gs=[].slice.call(d.querySelectorAll('.grp'));cs.forEach(function(c){c._k=n(c.getAttribute('data-k')+' '+c.textContent)});
 q.addEventListener('input',function(){var v=n(q.value.trim()),c=0;cs.forEach(function(x){var h=v&&x._k.indexOf(v)<0;x.hidden=h;if(!h)c++});gs.forEach(function(g){g.hidden=!!v&&!g.querySelector('[data-k]:not([hidden])')});o.textContent=v?(c?o.getAttribute('data-f').replace('#',c):o.getAttribute('data-n')):''})}
-var x=d.getElementById('ext'),u=navigator.userAgent;if(x&&/Chrome\\//.test(u)&&!/Mobile|Android|CriOS/.test(u)&&!r.getAttribute('data-lexkite-ext')){var t=0;try{t=+localStorage.getItem('lkExtHide')||0}catch(e){}if(Date.now()-t>6048e5){x.hidden=false;x.querySelector('button').onclick=function(){x.hidden=true;try{localStorage.setItem('lkExtHide',Date.now())}catch(e){}}}}})(document);`;
+var ls=function(k,v){try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}};
+var u=navigator.userAgent||'',now=Date.now(),lang=r.lang||'vi';
+var isMob=/Mobile|Android|iPhone|iPad|iPod|CriOS|FxiOS/i.test(u);
+var isStand=(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
+var isDeskChrome=/Chrome\\//.test(u)&&!isMob&&!r.getAttribute('data-lexkite-ext');
+var hit=function(ev,pg){try{if(navigator.sendBeacon)navigator.sendBeacon('/api/hit',JSON.stringify({t:'q',ev:ev,lang:lang,page:pg||'vocab'}))}catch(e){}};
+var xb=d.getElementById('ext')||d.querySelector('[data-ext-cta]');
+if(xb){var xt=+ls('lk.extHide')||+ls('lkExtHide')||0;if(isDeskChrome&&now-xt>=6048e5){xb.hidden=false;hit('cta_addon_view',xb.getAttribute('data-ext-cta')||'vocab')}var xh=xb.querySelector('[data-ext-hide]')||xb.querySelector('button');if(xh){xh.onclick=function(){xb.hidden=true;xb.setAttribute('data-dismissed','1');ls('lk.extHide',String(now));ls('lkExtHide',String(now))}}}
+var pb=d.getElementById('pwa')||d.querySelector('[data-pwa-cta]');
+if(pb){var pt=+ls('lk.pwaHide')||+ls('lkPwaHide')||0;if(isMob&&!isStand&&now-pt>=6048e5){pb.hidden=false;hit('cta_pwa_view',pb.getAttribute('data-pwa-cta')||'vocab')}var ph=pb.querySelector('[data-pwa-hide]')||pb.querySelector('button');if(ph){ph.onclick=function(){pb.hidden=true;pb.setAttribute('data-dismissed','1');ls('lk.pwaHide',String(now));ls('lkPwaHide',String(now))}}}
+d.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[data-hit]');if(a){var ev=a.getAttribute('data-hit');if(ev)hit(ev,a.getAttribute('data-page')||'vocab')}});})(document);`;
 
 export const audioBtn = (key, word, lang) => `<button type="button" class="au" data-a="${esc(key)}" aria-label="${esc(SEO_L[lang].play(word))}"></button>`;
 
@@ -207,10 +249,24 @@ export const audioBtn = (key, word, lang) => `<button type="button" class="au" d
 export const filterBox = lang => { const t = SEO_L[lang]; return `<div class="filter" role="search"><label for="q" class="sr">${t.searchL}</label><input id="q" type="search" placeholder="${esc(t.search)}" autocomplete="off"><output id="qn" for="q" aria-live="polite" data-f="${esc(t.found('#'))}" data-n="${esc(t.none)}"></output></div>`; };
 // Thẻ trong lưới danh sách: tên, mô tả ngắn, chip (số từ / trình độ / kỳ thi), emoji nếu có
 export const setCard = ({ href, title, desc = '', emoji = '', chips = [], key = '', h = 'h3' }) => `<article class="card set${emoji ? ' has-em' : ''}" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd">${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}<${h}>${esc(title)}</${h}>${desc ? `<p>${esc(desc)}</p>` : ''}${chips.length ? `<span class="chips">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</span>` : ''}</div></a></article>`;
-// Khối CTA chính (mở đúng bộ/bài trong app)
-export const ctaBox = (href, title, btn, note = '') => `<div class="cta"><p><strong>${title}</strong>${note ? `<small>${note}</small>` : ''}</p><a class="btn" href="${href}">${btn} →</a></div>`;
-// Gợi ý add-on – chỉ hiện trên Chrome máy tính (JS bật hidden=false), cuối trang nên không xô bố cục phần đầu
-export const extBox = lang => { const t = SEO_L[lang]; return `<div class="ext" id="ext" hidden><p><strong>🧩 ${t.ext[0]}</strong> ${t.ext[1]}</p><a class="btn" href="${EXT_STORE}" target="_blank" rel="noopener">${t.ext[2]}</a><button type="button">${t.ext[3]}</button></div>`; };
+// Khối CTA chính (mở đúng bộ/bài trong app, gắn data-hit nếu là topic có thật)
+export const ctaBox = (href, title, btn, note = '', page = 'vocab') => {
+  const m = String(href).match(/#\/topic\/([a-zA-Z0-9_-]+)/);
+  const isRealTopic = m && TOPIC_IDS.has(decodeURIComponent(m[1]));
+  const hitAttr = isRealTopic ? ` data-hit="cta_topic_click" data-page="${esc(page)}"` : '';
+  return `<div class="cta"><p><strong>${title}</strong>${note ? `<small>${note}</small>` : ''}</p><a class="btn" href="${href}"${hitAttr}>${btn} →</a></div>`;
+};
+// Gợi ý add-on – chỉ hiện trên Chrome máy tính (JS bật hidden=false)
+export const extBox = (lang, page = 'vocab') => {
+  const t = SEO_L[lang] || SEO_L.en, sc = SMART_CTA_I18N[lang] || SMART_CTA_I18N.en;
+  const h = (t.ext && t.ext[0]) || sc.extH, p = (t.ext && t.ext[1]) || sc.extP, btn = (t.ext && t.ext[2]) || sc.extBtn, hide = (t.ext && t.ext[3]) || sc.hide;
+  return `<aside class="ext" id="ext" data-ext-cta="${esc(page)}" hidden><p><strong>🧩 ${esc(h)}</strong> ${esc(p)}</p><div class="cta-actions"><a class="btn" href="${EXT_STORE}" target="_blank" rel="noopener" data-hit="cta_addon_click" data-page="${esc(page)}">${esc(btn)}</a><button type="button" class="btn-hide" data-ext-hide>${esc(hide)}</button></div></aside>`;
+};
+// Gợi ý PWA – chỉ hiện trên Mobile chưa cài standalone
+export const pwaBox = (lang, page = 'vocab') => {
+  const sc = SMART_CTA_I18N[lang] || SMART_CTA_I18N.en, app = appHref(lang);
+  return `<aside class="cta pwa-box" id="pwa" data-pwa-cta="${esc(page)}" hidden><p><strong>📲 ${esc(sc.pwaH)}</strong><br>${esc(sc.pwaP)}</p><div class="cta-actions"><a class="btn" href="${app}" data-hit="cta_pwa_click" data-page="${esc(page)}">${esc(sc.pwaBtn)} →</a><button type="button" class="btn-hide" data-pwa-hide>${esc(sc.hide)}</button></div></aside>`;
+};
 
 // Khung trang SEO: head (meta/canonical/hreflang/JSON-LD do builder tạo, giữ nguyên) + header + breadcrumb + nội dung + footer
 // alt: [đường dẫn bản ngôn ngữ kia] → nút đổi ngôn ngữ; section: đường dẫn mục đang xem (đánh dấu aria-current)

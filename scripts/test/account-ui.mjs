@@ -135,7 +135,8 @@ UI_close(); sb.remove();
 
 // 2c) Trang Tôi (hubs.js routes.me): thẻ Từ vựng 4 chỉ số / lời mời khi chưa có từ; email không lặp ở hero; thẻ tài khoản dùng chung
 const view = d.createElement('main'); view.id = 'view'; d.body.appendChild(view);
-Object.assign(w.App, { view, routes: {}, state: { cards: {}, settings: {}, stats: {}, game: { xp: 0, days: {} }, user: Sync.user }, streak: () => 0, forgetting: () => [], isAdmin: async () => false, adminUrl: () => '#/admin', legalUrl: () => '/privacy' });
+const W = p => p; W.signal = {}; W.stale = () => false;
+Object.assign(w.App, { view, routes: {}, W, guard: fn => (...a) => { w.App.W = W; return fn(...a); }, state: { cards: {}, settings: {}, stats: {}, game: { xp: 0, days: {} }, user: Sync.user }, streak: () => 0, forgetting: () => [], isAdmin: async () => false, adminUrl: () => '#/admin', legalUrl: () => '/privacy' });
 w.UI.$$ = s => [...d.querySelectorAll(s)];
 w.Core.Stats.freezeInfo = () => ({ left: 0, max: 2 });
 w.Game.levelOf = () => ({ level: 1, title: 'Người mới', into: 0, need: 100 });
