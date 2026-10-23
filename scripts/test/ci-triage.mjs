@@ -77,7 +77,6 @@ for (const f of ['youtube-manual.yml', 'youtube-upload.yml', 'drive-shorts.yml']
   const s = fs.readFileSync(path.join(WF, f), 'utf8');
   ok(!/^\s*(run: )?node scripts\/video\//m.test(s), `${f}: lệnh gọi API lexkite.com phải bọc scripts/ci/quota-skip.mjs`);
 }
-ok(/continue-on-error: true/.test(fs.readFileSync(path.join(WF, 'gh-models-probe.yml'), 'utf8')) && /on: \{ workflow_dispatch/.test(fs.readFileSync(path.join(WF, 'gh-models-probe.yml'), 'utf8')), 'gh-models-probe: chỉ bấm tay + không báo đỏ');
 
 // --- i18n: bước "Lưu kết quả" đẩy được khi gen-i18n sửa web/js/i18n/<lang>/<nhóm>.js (lỗi 22–23/10)
 const y = fs.readFileSync(path.join(WF, 'i18n.yml'), 'utf8');

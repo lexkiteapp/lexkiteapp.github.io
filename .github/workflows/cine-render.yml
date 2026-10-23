@@ -25,15 +25,26 @@ on:
         description: 'Hậu tố tên file bản viral'
         required: false
         default: '-v3'
+  workflow_call:   # news-auto.yml (A->Z driver, docs/AUTOMATION.md) calls this with scene=news and 'bank:<id>' items
+    inputs:
+      scene: { type: string, required: true }
+      lessons: { type: string, required: true }
+      lang: { type: string, required: false, default: en }
+      viral: { type: boolean, required: false, default: true }
+      outsuf: { type: string, required: false, default: '-v3' }
+    secrets:
+      FOOTAGE_DEPLOY_KEY: { required: false }
+      SHORTS_DEPLOY_KEY: { required: false }
+      LEXKITE_DRIVE_CLI_KEY: { required: false }
+      STUDIO_CALLBACK_SECRET: { required: false }
 permissions:
   contents: read
-  models: read   # GitHub Models for the AI gates (judge + vision), 0 credits
 concurrency:
-  group: cine-render-${{ github.event.inputs.scene }}-${{ github.event.inputs.lessons }}   # different lesson sets may run in parallel (store step rebases + retries)
+  group: cine-render-${{ inputs.scene }}-${{ inputs.lessons }}   # different lesson sets may run in parallel (store step rebases + retries)
   cancel-in-progress: false
 jobs:
   render:
-    if: github.event.inputs.scene != 'news'
+    if: inputs.scene != 'news'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -41,9 +52,14 @@ jobs:
       CINE_ROOT: ${{ github.workspace }}
       CINE_OUT: ${{ github.workspace }}/out
       CINE_LIB: ${{ github.workspace }}/footage
-      OUTSUF: ${{ github.event.inputs.outsuf }}
+      OUTSUF: ${{ inputs.outsuf }}
     steps:
       - uses: actions/checkout@v4
+      - name: Disk headroom (>= 12 GB free, else drop preinstalled SDKs)
+        run: |
+          f=$(df -BG --output=avail / | tail -1 | tr -dc 0-9); echo "free ${f} GB"
+          [ "$f" -ge 12 ] || { sudo rm -rf /usr/local/lib/android /opt/ghc /usr/share/dotnet /opt/hostedtoolcache/CodeQL; f=$(df -BG --output=avail / | tail -1 | tr -dc 0-9); echo "free after cleanup ${f} GB"; }
+          [ "$f" -ge 8 ] || { echo "::error::only ${f} GB free - render would fail mid-way"; exit 1; }
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -60,7 +76,7 @@ jobs:
         env:
           KEY: ${{ secrets.FOOTAGE_DEPLOY_KEY }}
           LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}'
-          SCENE: ${{ github.event.inputs.scene }}
+          SCENE: ${{ inputs.scene }}
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
           case "$SCENE" in *[!a-z0-9_,-]*|'') echo "::error::scene không hợp lệ"; exit 1;; esac
@@ -70,7 +86,11 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
           EXTRA=""; case ",$SCENE," in *,anchor,*) EXTRA="cafe hotel airport restaurant";; esac   # anchor: B-roll 'bank:clip' từ 4 kho
-          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache ${SCENE//,/ } hotel/tools/end hotel/tools/foley $EXTRA
+          # owner 23/10: fetch.mjs must never hang (it stalled 20 min in #74/#76) -> hard timeout, then plain git sparse of the same paths
+          timeout -k 30 900 node scripts/footage/fetch.mjs --repo footage --cache .footage-cache ${SCENE//,/ } hotel/tools/end hotel/tools/foley $EXTRA || {
+            echo "::warning::fetch.mjs failed or timed out - git sparse fallback"
+            P=""; for x in ${SCENE//,/ } hotel/tools/end hotel/tools/foley $EXTRA; do P="$P /$x/"; done
+            git -C footage sparse-checkout set --no-cone $P && timeout -k 30 1200 git -C footage checkout -q; }
           rm -f ~/.ssh/footage
           du -sh footage
       # Bài sinh tự động (scripts/cine/gen_lessons.py): giọng còn thiếu -> Kokoro + Rhubarb ngay trên CI (0 credit, không làm gì trên Mac)
@@ -92,12 +112,12 @@ jobs:
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: Dựng + QA
         env:
-          SCENE: ${{ github.event.inputs.scene }}
-          LESSONS: ${{ github.event.inputs.lessons }}
-          LANG_DEF: ${{ github.event.inputs.lang }}
+          SCENE: ${{ inputs.scene }}
+          LESSONS: ${{ inputs.lessons }}
+          LANG_DEF: ${{ inputs.lang }}
         run: |
           set -o pipefail
-          [ "${{ github.event.inputs.viral }}" = true ] || export VIRAL=0
+          [ "${{ inputs.viral }}" = true ] || export VIRAL=0
           mkdir -p out/qa; : > out/passed.txt
           fail=0; n=0
           for SC in ${SCENE//,/ }; do
@@ -159,13 +179,13 @@ jobs:
           git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
-          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ github.event.inputs.scene }})" || exit 0
+          cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ inputs.scene }})" || exit 0
           for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
           rm -f ~/.ssh/shorts
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cine-qa-${{ github.event.inputs.scene }}-${{ github.run_number }}
+          name: cine-qa-${{ inputs.scene }}-${{ github.run_number }}
           path: |
             out/qa/
             out/voices/
@@ -174,7 +194,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: cine-${{ github.event.inputs.scene }}-${{ github.run_number }}
+          name: cine-${{ inputs.scene }}-${{ github.run_number }}
           path: |
             out/*.mp4
             out/covers/*.jpg
@@ -184,15 +204,22 @@ jobs:
 
   # ---------------------------------------------------------------- scene=news: news-anchor shorts (scripts/cine/news.py + news_tpl.py + qa_news.py)
   news-plan:
-    if: github.event.inputs.scene == 'news'
+    if: inputs.scene == 'news'
     runs-on: ubuntu-latest
     outputs:
       shards: ${{ steps.p.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
-      - id: p
-        env: { LESSONS: '${{ github.event.inputs.lessons }}' }
+      - name: Materialize script-bank items (bank:<id> -> lesson + lines, deterministic)
+        env: { LESSONS: '${{ inputs.lessons }}' }
         run: |
+          case "$LESSONS" in *[!a-z0-9_,:]*) echo "::error::lessons không hợp lệ"; exit 1;; esac
+          R=$(python3 scripts/cine/news_auto.py materialize "$LESSONS"); echo "resolved: $R"; echo "LESSONS_R=$R" >> "$GITHUB_ENV"
+      - uses: actions/upload-artifact@v4
+        with: { name: 'news-lessons-${{ github.run_id }}', path: content/video/cine/news/, retention-days: 3 }
+      - id: p
+        run: |
+          export LESSONS="${LESSONS_R:-$LESSONS}"
           python3 - <<'PY'
           import glob, json, os, re
           L = os.environ['LESSONS'].strip()
@@ -207,6 +234,8 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4   # lessons materialized by news-plan (bank:<id> items)
+        with: { name: 'news-lessons-${{ github.run_id }}', path: content/video/cine/news/ }
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - uses: actions/cache@v4
@@ -240,12 +269,14 @@ jobs:
         with: { name: 'news-depth-${{ github.run_number }}', path: depth/, retention-days: 30 }
   host-sr:   # owner 22/10: hosts never scaled above their source -> 2x super-resolution (Real-ESRGAN animevideov3, CPU, 0 credits), one job + cache per clip
     needs: news-plan
-    if: github.event.inputs.scene == 'news'
+    if: inputs.scene == 'news'
     runs-on: ubuntu-latest
     timeout-minutes: 240
     strategy: { fail-fast: false, matrix: { clip: [ga4_talk_natural, gc4_talk_natural, gc4_listen] } }
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4   # lessons materialized by news-plan (bank:<id> items)
+        with: { name: 'news-lessons-${{ github.run_id }}', path: content/video/cine/news/ }
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - uses: actions/cache/restore@v4
@@ -261,7 +292,9 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache "/anchor/green/kfull_pro/${{ matrix.clip }}.mp4" "/anchor/green/kmask_pro/${{ matrix.clip }}.mkv"
+          timeout -k 30 600 node scripts/footage/fetch.mjs --repo footage --cache .footage-cache "/anchor/green/kfull_pro/${{ matrix.clip }}.mp4" "/anchor/green/kmask_pro/${{ matrix.clip }}.mkv" || {
+            echo "::warning::fetch.mjs failed or timed out - git sparse fallback"
+            git -C footage sparse-checkout set --no-cone "/anchor/green/kfull_pro/${{ matrix.clip }}.mp4" "/anchor/green/kmask_pro/${{ matrix.clip }}.mkv" && timeout -k 30 900 git -C footage checkout -q; }
           rm -f ~/.ssh/footage
       - name: Real-ESRGAN x2
         if: steps.sr.outputs.cache-hit != 'true'
@@ -292,6 +325,13 @@ jobs:
       NEWS_SR: '1'
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4   # lessons materialized by news-plan (bank:<id> items)
+        with: { name: 'news-lessons-${{ github.run_id }}', path: content/video/cine/news/ }
+      - name: Disk headroom (>= 12 GB free, else drop preinstalled SDKs)
+        run: |
+          f=$(df -BG --output=avail / | tail -1 | tr -dc 0-9); echo "free ${f} GB"
+          [ "$f" -ge 12 ] || { sudo rm -rf /usr/local/lib/android /opt/ghc /usr/share/dotnet /opt/hostedtoolcache/CodeQL; f=$(df -BG --output=avail / | tail -1 | tr -dc 0-9); echo "free after cleanup ${f} GB"; }
+          [ "$f" -ge 8 ] || { echo "::error::only ${f} GB free - render would fail mid-way"; exit 1; }
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -366,7 +406,7 @@ jobs:
           python scripts/cine/news_voice.py "$NEWS_DIR" "$SHARD"
           cp "$NEWS_DIR"/vis3/* out/voices/
       - name: Dựng + qa_news
-        env: { SHARD: '${{ matrix.shard }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}', GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }   # GitHub Models for the AI gates (permissions: models: read)
+        env: { SHARD: '${{ matrix.shard }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}' }   # AI gates: Workers AI -> Gemini pool -> neutral skip (scripts/cine/ai_gate.py)
         run: |
           : > out/passed.txt; fail=0
           for lid in ${SHARD//,/ }; do
@@ -374,7 +414,7 @@ jobs:
             # owner 22/10 §11: preflight = placement rules (bg zones) + AI vision gate on 3 composited frames; on failure retry another background (<= 2x)
             python scripts/cine/script_judge.py "content/video/cine/news/$lid.json" "$NEWS_DIR/ci/lines.json" "$NEWS_DIR/judge_$lid.json" && jrc=0 || jrc=$?
             cp "$NEWS_DIR/judge_$lid.json" out/qa/ 2>/dev/null || true
-            if [ "$jrc" = 1 ]; then echo "news $lid: script fails the pedagogy rules / AI judge (not rendered)"; fail=1; echo "::endgroup::"; continue; fi
+            if [ "$jrc" = 1 ]; then echo "news $lid: script fails the pedagogy rules / AI judge (not rendered)"; echo "$lid script" >> out/dropped.txt; fail=1; echo "::endgroup::"; continue; fi
             unset NEWS_BG; tried=""; pre_ok=0
             for att in 0 1 2; do
               rm -rf "$NEWS_DIR/pre_$lid"
@@ -388,7 +428,7 @@ jobs:
               [ -n "$nb" ] || break; export NEWS_BG="$nb"; echo "retry $lid with background $nb"
             done
             mkdir -p "out/qa/pre_$lid"; cp "$NEWS_DIR/pre_$lid"/* "out/qa/pre_$lid/" 2>/dev/null || true
-            if [ "$pre_ok" != 1 ]; then echo "news $lid: no background passes placement + vision (dropped)"; fail=1; echo "::endgroup::"; continue; fi
+            if [ "$pre_ok" != 1 ]; then echo "news $lid: no background passes placement + vision (dropped)"; echo "$lid placement" >> out/dropped.txt; fail=1; echo "::endgroup::"; continue; fi
             if { python scripts/cine/news.py "$lid" 2>&1 | tee "out/qa/build_${lid}_en.log"; } && [ -f "$NEWS_DIR/$rb/timeline.json" ]; then   # a failed build must not abort the remaining lessons
               cp "$NEWS_DIR/$rb/timeline.json" "out/qa/timeline_$rb.json"; cp "$NEWS_DIR/$rb/qc.json" "out/qa/qc_$rb.json"
               if (cd "$NEWS_DIR" && python "$CINE_ROOT/scripts/cine/qa_news.py" "$rb") > "out/qa/qa_$rb.log" 2>&1; then :; fi
@@ -443,6 +483,18 @@ jobs:
           cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (news)" || exit 0
           for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
           rm -f ~/.ssh/shorts
+      - uses: actions/upload-artifact@v4   # small QC-only artifact for news-auto.yml (ledger record) - no media
+        if: always()
+        with:
+          name: news-qc-${{ github.run_number }}-${{ strategy.job-index }}
+          path: |
+            out/qc/
+            out/passed.txt
+            out/qc_dropped.txt
+            out/dropped.txt
+            out/bg_override.txt
+          retention-days: 14
+          if-no-files-found: ignore
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -457,5 +509,6 @@ jobs:
             out/bg_override.txt
             out/qc/
             out/qc_dropped.txt
+            out/dropped.txt
           retention-days: 14
           if-no-files-found: warn

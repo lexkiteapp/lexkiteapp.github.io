@@ -12,6 +12,7 @@ DEPTH = os.environ.get('NEWS_DEPTH', f'{N}/depth')
 sys.path.insert(0, HERE); import lipsync as L
 sys.path.insert(0, f'{ROOT}/scripts/video'); import matte_refine as MR   # 666722b2: refined mattes, premultiplied place/over, edge QA
 LID = sys.argv[1]; FPS = 24; W, H = 1080, 1920
+import random, hashlib; SEED = int(hashlib.md5(LID.encode()).hexdigest()[:8], 16); random.seed(SEED); np.random.seed(SEED)   # owner 23/10: deterministic per clip (re-render = identical)
 SAFE = dict(x0=48, x1=924, y0=232, y1=1497)   # owner 22/10 platform UI: top 12 %, bottom 22 %, right 14 % stay clear of ALL text
 CW, CX0 = 876, 48; CX = CX0 + CW // 2   # text column (left-biased: the right 14 % holds the TikTok/Reels/Shorts buttons)
 TEXT = {l['id']: l['text'] for l in json.load(open(f'{N}/ci/lines.json'))['lines']}
@@ -596,7 +597,7 @@ if abs(_lu + 14) > 0.3:   # linear make-up gain to -16 LUFS (the bed stays as fa
     print(f'loudness {_lu:.1f} LUFS -> make-up {-14 - _lu:+.1f} dB')
 cv2.imwrite(f'{OUTD}/covers/' + os.path.basename(OUTF).replace('.mp4', '.jpg'), COVER if COVER is not None else out, [cv2.IMWRITE_JPEG_QUALITY, 95])   # cover from the pre-encode master frame, q95
 for o in OV: o.pop('_img', None); o.pop('_chain', None)
-json.dump(dict(lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],
+json.dump(dict(seed=SEED, lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],
                overlays=OV, safe=SAFE, viral=True, punch={'hook': 0.0}, hook_kind='question', qa=QA, scene=TOTAL, total=TOTAL, end=0, endcard_boxes=[], sfx=SFX, avoid={}),
           open(f'{RD}/timeline.json', 'w'), indent=1)
 json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), edge=EQ, bg_colour=BGC, hands={str(k): v for k, v in HB.items()}, flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
