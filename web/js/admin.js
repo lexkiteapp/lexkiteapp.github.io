@@ -33,7 +33,7 @@
     'Trang quản trị Lexkite': 'Lexkite Admin', 'Chỉ tài khoản quản trị được cấp quyền.': 'Authorized admin accounts only.', 'Đăng nhập bằng Google': 'Sign in with Google',
     'Về app': 'Back to app', 'Về trang chủ Lexkite': 'Back to the Lexkite home page', 'Tự động (theo máy)': 'Auto (system)', 'Sáng': 'Light', 'Tối': 'Dark', 'Giao diện: {m} – bấm để đổi': 'Theme: {m} – click to change', 'Đổi giao diện sáng/tối': 'Switch light/dark theme',
     'Đổi ngôn ngữ': 'Change language', 'Ngôn ngữ: Tiếng Việt – bấm để chuyển sang English': 'Language: English – click to switch to Vietnamese', 'Thoát': 'Sign out',
-    'Không có quyền': 'Access denied', 'Tài khoản này không có quyền quản trị': 'This account does not have admin access', 'Đăng nhập bằng tài khoản khác': 'Sign in with a different account', '{e} chưa được cấp quyền quản trị.': '{e} does not have admin access.', 'Đổi tài khoản': 'Switch account',
+    'Không có quyền': 'Access denied', 'Không tải được dữ liệu': 'Could not load data', 'Thử lại': 'Retry', 'Tài khoản này không có quyền quản trị': 'This account does not have admin access', 'Đăng nhập bằng tài khoản khác': 'Sign in with a different account', '{e} chưa được cấp quyền quản trị.': '{e} does not have admin access.', 'Đổi tài khoản': 'Switch account',
     'Phiên đăng nhập quản trị đã hết. Đăng nhập lại ngay?': 'Your admin session has expired. Sign in again now?', 'Phiên đăng nhập đã hết – đăng nhập lại rồi thử lại': 'Session expired – sign in again and retry',
     'Cần đăng nhập lại để xác nhận thao tác quan trọng. Đăng nhập lại ngay?': 'Please sign in again to confirm this sensitive action. Sign in now?',
     // Bảng lệnh, toast, hộp thoại, bảng
@@ -468,7 +468,13 @@
       const h = baseOf(location.hash); await show(VIEWS[h] ? h : 'overview', { force: true, first: true });
       document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges();
       try { localStorage.setItem('lk.noTrack', '1'); } catch (e) { /* bỏ qua */ } // máy của quản trị: app không gửi thống kê (js/app.js)
-    } catch (e) { denied = true; noAccess(u); }
+    } catch (e) {
+      if (e && e.message === 'forbidden') { denied = true; noAccess(u); return; }
+      // lỗi tải dữ liệu (D1 hết hạn mức, mạng…) ≠ không có quyền → vẫn vào quản trị, báo lỗi + nút thử lại thay vì 'Access denied'
+      document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges();
+      main.innerHTML = `<div class="card center"><h2>${L('Không tải được dữ liệu')}</h2><p class="muted">${esc(String(e && e.message || e).slice(0, 300))}</p><button type="button" class="btn primary" id="admRetry">${L('Thử lại')}</button></div>`;
+      $('#admRetry').onclick = () => location.reload();
+    }
   });
 
   // ---------- Điều hướng: liên kết thanh bên, #hash, bảng lệnh; chặn rời trang khi còn thay đổi chưa lưu ----------
