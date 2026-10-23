@@ -69,3 +69,7 @@ jobs:
           echo "$R" | jq -e '.error' >/dev/null 2>&1 && { echo "::error::Gửi duyệt thất bại"; exit 1; } || true
           V=$(jq -r .version extension/manifest.json)
           echo "### ✅ Đã gửi duyệt Lexkite $V (trước đó: ${STORE_VER:-chưa có})" >> "$GITHUB_STEP_SUMMARY"
+      - name: Giữ gói add-on đã tải lên (release-archive lưu 3 bản gần nhất lên Kho Drive – docs/ROLLBACK.md)
+        if: ${{ always() && hashFiles('store/lexkite-extension.zip') != '' && inputs.mode != 'check' }}
+        uses: actions/upload-artifact@v4
+        with: { name: lexkite-extension-zip, path: store/lexkite-extension.zip, retention-days: 30, if-no-files-found: ignore }

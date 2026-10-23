@@ -821,6 +821,33 @@
         "vocab-img.yml",
         "grabcast-api-342720596878.us-central1.run.app"
       ]
+    },
+    {
+      "key": "backup-rollback",
+      "name": "Sao lưu & khôi phục nhanh (rollback)",
+      "kind": "storage",
+      "purpose": "Mọi thứ đều có đường quay lại (docs/ROLLBACK.md): mỗi deploy production gắn tag prod-YYYYMMDD-HHMM-<sha7> (prod-release.yml + smoke sau deploy, tag prod-good = bản tốt cuối); rollback Cloudflare Pages bằng scripts/ops/rollback-pages.sh (API Pages, mọi bản deploy được giữ); D1 Time Travel (Free 7 ngày) là tuyến đầu; ngoài nền tảng: d1-backup.yml (thứ Hai/Ba 00:15 UTC, bảng người dùng nén + mã hoá trong Worker bằng khoá suy ra từ DRIVE_ENC_KEY – op backup_export/backup_open của /api/drive, functions/api/_backup.js; 2 bản/2 Drive; diễn tập khôi phục vào Miniflare), code-bundle.yml (git bundle mọi nhánh+tag hằng tuần, giữ 2), release-archive.yml (3 bản AAB/IPA/zip add-on gần nhất + sha256). Sổ: infra/backups/*.json. Cảnh báo Quản trị: deploy · backup_d1 · backup_code · backup_rel.",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/workflows/prod-release.yml",
+      "free": "GitHub Actions công khai + Kho Drive của chủ + D1 Time Travel miễn phí (7 ngày)",
+      "upgrade": "Workers Paid: D1 Time Travel 30 ngày",
+      "status": "Đang dùng",
+      "match": [
+        "prod-release.yml",
+        "d1-backup.yml",
+        "code-bundle.yml",
+        "release-archive.yml",
+        "scripts/ops/rollback-pages.sh",
+        "scripts/ops/pages-rollback.mjs",
+        "scripts/ops/smoke.mjs",
+        "scripts/ops/d1-backup.mjs",
+        "scripts/ops/d1-restore.mjs",
+        "scripts/ops/code-bundle.mjs",
+        "scripts/ops/release-archive.mjs",
+        "infra/backups",
+        "_backup.js",
+        "backup_export",
+        "backup_open"
+      ]
     }
   ],
   "links": {

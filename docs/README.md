@@ -61,6 +61,10 @@
 - `audits/{exams,grammar,path,vocabulary}-2026-10.md` – rà soát nội dung 10/2026.
 - `research/study4-{courses,syllabi}.md` – nghiên cứu Study4.
 
+## Sổ tay khôi phục
+**Có sự cố → mở `ROLLBACK.md` mục 0.** Bản web xấu: `bash scripts/ops/rollback-pages.sh` (quay về bản deploy trước, vài giây; tag `prod-YYYYMMDD-HHMM-<sha7>` / `prod-good` đánh dấu từng bản) rồi `git revert` · dữ liệu hỏng: D1 Time Travel (Free 7 ngày) hoặc bản xuất mã hoá trên Kho Drive (`d1-restore.mjs`) · mất repo: `git bundle` hằng tuần · app/add-on: 3 bản đã ký gần nhất + cách quay lại trên Play / App Store / CWS.
+- [`ROLLBACK.md`](ROLLBACK.md) – lệnh từng bước, lịch sao lưu, diễn tập khôi phục, vì sao không tự rollback.
+
 ## Lưu trữ (`archive/`, chỉ tra cứu)
 - `archive/METHODS-HISTORY.md` – METHODS cũ toàn văn (bài học theo ngày 17–22/10).
 - `archive/STORE-READINESS-HISTORY.md` – mục cửa hàng đã xong.

@@ -608,6 +608,59 @@
    "lease": true,
    "paused": true,
    "_note": "Ảnh minh hoạ từ vựng – TẠM DỪNG tới khi chủ duyệt phong cách pilot (workflow chưa có schedule; cron = lịch dự kiến khi bật). acquire từ chối khi paused trừ --force (chạy tay)."
+  },
+  {
+   "id": "d1-backup",
+   "workflow": "d1-backup.yml",
+   "cron": [
+    "15 0 * * 1,2"
+   ],
+   "priority": "archive",
+   "resources": [
+    "d1_main_read",
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {
+    "d1_main_reads": 60000,
+    "drive_calls": 80
+   },
+   "lease": true
+  },
+  {
+   "id": "release-archive",
+   "workflow": "release-archive.yml",
+   "cron": [
+    "30 11 * * 6"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 40
+   },
+   "lease": true
+  },
+  {
+   "id": "code-bundle",
+   "workflow": "code-bundle.yml",
+   "cron": [
+    "0 12 * * 0"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {
+    "drive_calls": 20
+   },
+   "lease": true
   }
  ]
 }

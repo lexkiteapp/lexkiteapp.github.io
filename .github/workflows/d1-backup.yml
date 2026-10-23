@@ -1,0 +1,52 @@
+# Sao lưu D1 chính (bảng người dùng) ra Kho Drive: 2 bản / 2 Drive, MÃ HOÁ trong Worker (DRIVE_ENC_KEY). Chạy ngay SAU mốc đặt lại hạn mức D1 00:00 UTC (thứ Hai; thứ Ba = lượt tiếp tục nếu hôm trước chạm cầu dao).
+# Tiếp tục được (state.json qua actions/cache), trần dòng/lượt gọi, dừng êm khi cầu dao D1 (429). Sau khi xong: DIỄN TẬP khôi phục vào D1 cục bộ (Miniflare) + đối chiếu số dòng.
+# Điều phối: infra/jobs.json (lease d1-backup). Sổ: infra/backups/d1-main.json. Tài liệu: docs/ROLLBACK.md §Dữ liệu. Secret: LEXKITE_DRIVE_CLI_KEY.
+name: d1-backup
+on:
+  workflow_dispatch:
+    inputs:
+      force: { description: 'Làm lại dù tuần này đã có bản', type: boolean, default: false }
+  schedule:
+    - cron: '15 0 * * 1,2'
+concurrency: { group: d1-backup, cancel-in-progress: false }
+permissions: { contents: write }
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        run: node scripts/jobs/lease.mjs acquire d1-backup
+      - name: Khôi phục trạng thái dở dang (nếu có)
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        uses: actions/cache/restore@v4
+        with: { path: out/d1-backup, key: 'd1-backup-state-${{ github.run_id }}', restore-keys: 'd1-backup-state-' }
+      - name: Xuất + mã hoá + tải 2 bản lên Kho Drive
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: node scripts/ops/d1-backup.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+      - name: Lưu trạng thái (tiếp tục lượt sau nếu chưa xong)
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        uses: actions/cache/save@v4
+        with: { path: out/d1-backup, key: 'd1-backup-state-${{ github.run_id }}' }
+      - name: Ghi sổ vào main
+        id: commit
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: |
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git add infra/backups/d1-main.json
+          git diff --cached --quiet && { echo "sổ không đổi"; exit 0; }
+          git commit -qm "d1-backup #${{ github.run_number }}: sổ sao lưu D1 [CF-Pages-Skip] [skip ci]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && echo "changed=1" >> "$GITHUB_OUTPUT" && exit 0; sleep 5; done; exit 1
+      - name: Diễn tập khôi phục (bản mới nhất → D1 cục bộ Miniflare, đối chiếu số dòng)
+        if: ${{ steps.lease.outputs.skip != '1' && steps.commit.outputs.changed == '1' }}
+        run: |
+          npm i --no-save --no-audit --no-fund miniflare@4.20260730.0
+          node scripts/ops/d1-restore.mjs --latest --api --drill --engine miniflare
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        run: node scripts/jobs/lease.mjs release d1-backup --status "${{ job.status }}"
