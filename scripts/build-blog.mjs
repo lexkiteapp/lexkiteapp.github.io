@@ -11,7 +11,6 @@ const VIDEOS = (readVid(VID_MANIFEST, { items: [] }).items || []).filter(x => !x
 // Lời mời cài add-on cuối bài: chữ dùng chung với landing (content/landing/<lang>.json → ext), hiện/ẩn bởi EXT_JS (web/js/ext-cta.js)
 const EXT_EN = JSON.parse(fs.readFileSync('content/landing/en.json', 'utf8')).ext;
 const extOf = l => { try { return { ...EXT_EN, ...(JSON.parse(fs.readFileSync(`content/landing/${l}.json`, 'utf8')).ext || {}) }; } catch (e) { return EXT_EN; } };
-const extBox = l => { const x = extOf(l); return `<aside class="cta" data-ext-cta="blog" hidden><p><strong>🧩 ${esc(x.h)}</strong><br>${esc(x.p)}</p><a class="btn" href="${EXT_STORE}" target="_blank" rel="noopener" data-ext-cta="blog">${esc(x.btn)}</a></aside>`; };
 
 const COPY_SRC = {
   vi: 'Nguồn: {title} – {url} (Lexkite)',
@@ -87,7 +86,37 @@ const L = {
   th: { blog: "บล็อก", home: "หน้าแรก", open: "เปิดแอป", min: "นาทีในการอ่าน", toc: "สารบัญ", related: "บทความที่เกี่ยวข้อง", tags: "แท็ก", page: "หน้า", newer: "← ใหม่กว่า", older: "เก่ากว่า →", all: "ทั้งหมด", updated: "อัปเดตเมื่อ", play: "เล่นวิดีโอ", cat: "หมวดหมู่", tagT: "บทความเกี่ยวกับ", foot: "Lexkite – เรียนคำศัพท์และเตรียมสอบ IELTS, TOEIC, TOEFL ฟรี เนื้อหาเขียนเองทั้งหมด", tm: "IELTS, TOEIC และ TOEFL เป็นเครื่องหมายการค้าของเจ้าของแต่ละราย Lexkite เป็นผลิตภัณฑ์อิสระ", skip: "ข้ามไปที่เนื้อหา", about: "เกี่ยวกับบล็อก", try: "เรียนฟรีกับ Lexkite", tryD: "แฟลชการ์ด FSRS พจนานุกรมสองภาษา ฝึกครบ 4 ทักษะ และข้อสอบจำลอง – ไม่ต้องใช้บัตรเครดิต", words: "คำศัพท์", samples: "เรียงความตัวอย่าง", seg: { cat: 'category', tag: 'tag', page: 'page' }, aboutSlug: 'about', nav: { words: '/en/vocabulary/', samples: '/en/samples/' }, dir: 'ltr',
     cats: { "tu-vung": "คำศัพท์", "ielts": "IELTS", "toeic": "TOEIC", "toefl": "TOEFL", "phuong-phap": "วิธีเรียน", "ngu-phap": "ไวยากรณ์", "phat-am": "การออกเสียง", "ky-nang": "ทักษะภาษาอังกฤษ" } },
 };
-const T = l => ({ ...L.en, ...(L[l] || {}) }); // ngôn ngữ chưa dịch giao diện → tiếng Anh
+const SMART_CTA_I18N = {
+  vi: { saveTopic: '＋ Lưu bộ từ này vào thẻ ôn', pwaH: 'Thêm Lexkite vào màn hình chính', pwaP: 'Mở nhanh như ứng dụng, ôn từ mọi lúc không cần cài đặt phức tạp.', pwaBtn: 'Mở ứng dụng', hide: 'Ẩn' },
+  en: { saveTopic: '＋ Save this word list to review', pwaH: 'Add Lexkite to your Home Screen', pwaP: 'Fast app-like experience, review vocabulary anytime without app store install.', pwaBtn: 'Open app', hide: 'Hide' },
+  id: { saveTopic: '＋ Simpan daftar kata ini untuk ditinjau', pwaH: 'Tambahkan Lexkite ke Layar Utama', pwaP: 'Akses cepat seperti aplikasi, tinjau kosakata kapan saja tanpa instalasi rumit.', pwaBtn: 'Buka aplikasi', hide: 'Sembunyikan' },
+  es: { saveTopic: '＋ Guardar esta lista para repasar', pwaH: 'Añade Lexkite a tu pantalla de inicio', pwaP: 'Acceso rápido como una app, repasa vocabulario en cualquier momento.', pwaBtn: 'Abrir app', hide: 'Ocultar' },
+  pt: { saveTopic: '＋ Salvar esta lista para revisar', pwaH: 'Adicione o Lexkite à tela inicial', pwaP: 'Acesso rápido como um app, revise o vocabulário a qualquer momento.', pwaBtn: 'Abrir app', hide: 'Ocultar' },
+  fr: { saveTopic: '＋ Enregistrer cette liste pour réviser', pwaH: "Ajoutez Lexkite à votre écran d'accueil", pwaP: 'Accès rapide comme une appli, révisez vos mots à tout moment sans installation.', pwaBtn: "Ouvrir l'appli", hide: 'Masquer' },
+  de: { saveTopic: '＋ Diese Wortliste zum Wiederholen speichern', pwaH: 'Lexkite zum Startbildschirm hinzufügen', pwaP: 'Schnell wie eine App, jederzeit Vokabeln wiederholen ohne App-Store.', pwaBtn: 'App öffnen', hide: 'Ausblenden' },
+  tr: { saveTopic: '＋ Bu kelime listesini tekrara kaydet', pwaH: "Lexkite'ı Ana Ekrana Ekleyin", pwaP: 'Uygulama gibi hızlı erişim, karmaşık kurulum olmadan istediğiniz zaman kelime tekrarı yapın.', pwaBtn: 'Uygulamayı aç', hide: 'Gizle' },
+  ru: { saveTopic: '＋ Сохранить этот список для повторения', pwaH: 'Добавьте Lexkite на главный экран', pwaP: 'Быстрый доступ как в приложении, повторяйте слова в любое время.', pwaBtn: 'Открыть приложение', hide: 'Скрыть' },
+  ar: { saveTopic: '＋ حفظ قائمة الكلمات هذه للمراجعة', pwaH: 'أضف Lexkite إلى الشاشة الرئيسية', pwaP: 'وصول سريع كالتطبيق، راجع المفردات في أي وقت دون تثبيت معقد.', pwaBtn: 'افتح التطبيق', hide: 'إخفاء' },
+  hi: { saveTopic: '＋ दोहराने के लिए इस शब्द सूची को सहेजें', pwaH: 'Lexkite को होम स्क्रीन पर जोड़ें', pwaP: 'ऐप जैसा तेज़ अनुभव, बिना किसी जटिलता के कभी भी शब्दावली दोहराएँ।', pwaBtn: 'ऐप खोलें', hide: 'छिपाएँ' },
+  ko: { saveTopic: '＋ 이 단어장을 복습 목록에 저장', pwaH: '홈 화면에 Lexkite 추가하기', pwaP: '앱처럼 빠른 실행, 복잡한 설치 없이 언제 어디서나 단어를 복습하세요.', pwaBtn: '앱 열기', hide: '숨기기' },
+  zh: { saveTopic: '＋ 保存此词表到复习卡片', pwaH: '将 Lexkite 添加至主屏幕', pwaP: '如原生应用般快捷打开，无需繁琐安装，随时随地背单词。', pwaBtn: '打开应用', hide: '隐藏' },
+  ja: { saveTopic: '＋ この単語リストを復習に保存', pwaH: 'ホーム画面に Lexkite を追加', pwaP: 'アプリのようにすばやく起動、面倒なインストールなしでいつでも単語を復習。', pwaBtn: 'アプリを開く', hide: '非表示' },
+  th: { saveTopic: '＋ บันทึกชุดคำศัพท์นี้ไว้ทบทวน', pwaH: 'เพิ่ม Lexkite ไปยังหน้าจอหลัก', pwaP: 'เปิดเร็วเหมือนแอป ทบทวนคำศัพท์ได้ทุกเมื่อโดยไม่ต้องติดตั้งให้ยุ่งยาก', pwaBtn: 'เปิดแอป', hide: 'ซ่อน' },
+};
+const T = l => ({ ...L.en, ...SMART_CTA_I18N.en, ...(L[l] || {}), ...(SMART_CTA_I18N[l] || {}) }); // ngôn ngữ chưa dịch giao diện → tiếng Anh
+// Chỉ id chủ đề CÓ THẬT trong web/js/data.js (IELTS_DATA.TOPICS); không đoán bừa → bài không khớp thì không hiện nút "lưu bộ từ"
+const TOPIC_IDS = new Set(['education', 'environment', 'technology', 'health', 'work', 'society', 'crime', 'media', 'urban', 'travel']);
+const VOCAB_TOPIC_ALIAS = { cities: 'urban', city: 'urban' };
+const topicOf = p => {
+  const ex = (p.cta && p.cta.match(/\/topic\/([a-z0-9_-]+)/i)) || (p.body && p.body.match(/\{\{\s*cta:\s*[^|]*\/topic\/([a-z0-9_-]+)/i));
+  if (ex) return TOPIC_IDS.has(ex[1]) ? ex[1] : null;
+  if (p.category !== 'tu-vung') return null;
+  const s = p.slug.toLowerCase();
+  for (const k of [...TOPIC_IDS, ...Object.keys(VOCAB_TOPIC_ALIAS)]) if (new RegExp('(^|-)' + k + '(-|$)').test(s)) return VOCAB_TOPIC_ALIAS[k] || k;
+  return null;
+};
+const extBox = l => { const x = extOf(l), t = T(l); return `<aside class="cta ext-box" data-ext-cta="blog" hidden><p><strong>🧩 ${esc(x.h)}</strong><br>${esc(x.p)}</p><div class="cta-actions"><a class="btn" href="${EXT_STORE}" target="_blank" rel="noopener" data-ext-cta="blog">${esc(x.btn)}</a><button type="button" class="btn-hide" data-ext-hide>${esc(t.hide)}</button></div></aside>`; };
+const pwaBox = l => { const t = T(l); return `<aside class="cta pwa-box" data-pwa-cta="blog" hidden><p><strong>📲 ${esc(t.pwaH)}</strong><br>${esc(t.pwaP)}</p><div class="cta-actions"><a class="btn" href="${appHref(l)}" data-hit="quiz_cta">${esc(t.pwaBtn)} ${t.dir === 'rtl' ? '←' : '→'}</a><button type="button" class="btn-hide" data-pwa-hide>${esc(t.hide)}</button></div></aside>`; };
 const SEG = l => T(l).seg, catName = (k, l) => (L[l] && L[l].cats && L[l].cats[k]) || CATEGORIES[k] || k; // tên chuyên mục theo ngôn ngữ (mặc định tiếng Việt)
 const ABOUTS = new Set(Object.values(L).map(x => x.aboutSlug));
 const SEGS = new Set(Object.values(L).flatMap(x => Object.values(x.seg)));
@@ -175,7 +204,13 @@ function render(md, lang, cover) {
       flush(); if (m[1]) { videos.push(m[1]); out.push(`<div class="yt" data-id="${m[1]}"><img src="https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg" alt="${esc(m[2] || 'Video')}" width="480" height="360" loading="lazy"><button type="button" aria-label="${T(lang).play}: ${esc(m[2] || '')}"></button></div>`); } else out.push(`<!-- youtube-slot: ${esc(m[2] || '')} -->`);
       i++; continue;
     }
-    if ((m = ln.match(/^\{\{\s*cta:\s*(\S+)\s*\|\s*(.*?)\s*\}\}\s*$/))) { flush(); out.push(`<aside class="cta"><p><strong>${inline(m[2])}</strong></p><a class="btn" href="${esc(toApp(safeUrl(m[1]) || appHref(lang)))}">${T(lang).open} ${T(lang).dir === 'rtl' ? '←' : '→'}</a></aside>`); i++; continue; }
+    if ((m = ln.match(/^\{\{\s*cta:\s*(\S+)\s*\|\s*(.*?)\s*\}\}\s*$/))) {
+      flush();
+      const isTop = /\/topic\/[a-z0-9_-]+/i.test(m[1]);
+      const btnTxt = isTop ? T(lang).saveTopic : T(lang).open;
+      out.push(`<aside class="cta${isTop ? ' cta-topic' : ''}"><p><strong>${inline(m[2])}</strong></p><a class="btn" href="${esc(toApp(safeUrl(m[1]) || appHref(lang)))}"${isTop ? ' data-hit="quiz_cta"' : ''}>${btnTxt} ${T(lang).dir === 'rtl' ? '←' : '→'}</a></aside>`);
+      i++; continue;
+    }
     if ((m = ln.match(/^!\[([^\]]*)\]\(media:(@?[\w-]+)(?:\s+"([^"]*)")?\)\s*$/))) { flush(); if (m[2] === cover || (m[2].startsWith('@') && !MEDIA[rid(m[2])])) { i++; continue; } // trùng ảnh bìa / ảnh riêng chưa render → bỏ (blog-check chặn trước giờ đăng)
       out.push(`<figure>${picture(m[2], m[1])}${m[3] ? `<figcaption>${inline(m[3])}</figcaption>` : ''}</figure>`); i++; continue; }
     if ((m = ln.match(/^\{\{\s*diagram:\s*([a-z][a-z0-9-]*)\s*(?:\|\s*(.*?))?\s*\}\}\s*$/))) { // sơ đồ SVG/HTML nhúng (chữ chọn được, máy tìm kiếm đọc được)
@@ -252,6 +287,7 @@ ${script}
 }
 const YT_JS = `<script>document.addEventListener('click',e=>{const b=e.target.closest('.yt button');if(!b)return;const d=b.parentNode,f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+d.dataset.id+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture;fullscreen';f.allowFullscreen=true;d.replaceChildren(f)})</script>`;
 const QUIZ_JS = `<script>(function(){var q=document.querySelector('.blog-quiz');if(!q)return;var l=function(){if(window._LK_QZ_S)return;window._LK_QZ_S=1;var s=document.createElement('script');s.src='/blog/quiz.js';s.defer=true;document.body.appendChild(s)};if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){for(var i=0;i<es.length;i++)if(es[i].isIntersecting){o.disconnect();l();break}},{rootMargin:'300px'});o.observe(q)}else{l()}})();</script>`;
+const SMART_CTA_JS = `<script>(function(){var d=document,ls=function(k,v){try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}};var xh=d.querySelector('[data-ext-hide]'),xb=d.querySelector('[data-ext-cta="blog"]');if(xh&&xb){var xt=+ls('lk.extHide')||0;if(Date.now()-xt<6048e5){xb.hidden=true;xb.setAttribute('data-dismissed','1')}xh.onclick=function(){xb.hidden=true;xb.setAttribute('data-dismissed','1');ls('lk.extHide',String(Date.now()))}}var pb=d.querySelector('[data-pwa-cta="blog"]');if(pb){var u=navigator.userAgent||'',m=/Mobile|Android|iPhone|iPad|iPod|CriOS|FxiOS/i.test(u);var s=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;var pt=+ls('lk.pwaHide')||0;if(m&&!s&&Date.now()-pt>=6048e5){pb.hidden=false}var ph=pb.querySelector('[data-pwa-hide]');if(ph){ph.onclick=function(){pb.hidden=true;pb.setAttribute('data-dismissed','1');ls('lk.pwaHide',String(Date.now()))}}}d.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[data-hit]');if(a){try{if(navigator.sendBeacon)navigator.sendBeacon('/api/hit',JSON.stringify({t:'q',ev:'quiz_cta'}))}catch(e){}}});})();</script>`;
 const crumbsLd = items => crumbsLdAt(SITE, items);
 // Mini-quiz cuối bài: dựng sẵn khối <details> đáp án (đọc được khi không có JS, crawler thấy nội dung); quiz.js thay bằng bản tương tác.
 const QZ_I = (() => { const m = /\n  const I = (\{[\s\S]*?\n  \});/.exec(fs.readFileSync('web/blog/quiz.js', 'utf8')); return m ? Function(`return ${m[1]}`)() : {}; })();
@@ -291,6 +327,8 @@ for (const p of posts) {
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
   const quizHtml = p.quiz ? quizBlock(p) : '';
+  const topId = topicOf(p);
+  const topicAction = topId ? `<a class="btn" href="${appHref(p.lang)}#/topic/${topId}" data-hit="quiz_cta">${t.saveTopic} ${t.dir === 'rtl' ? '←' : '→'}</a>` : '';
   const body = `${crumbsHtml(crumbs)}
 <article class="post">
 <h1>${esc(p.title)}</h1>
@@ -300,13 +338,14 @@ ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${
 ${html}
 ${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
 <p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
-<section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a></section>
+<section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><div class="cta-actions"><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a>${topicAction}</div></section>
 ${extBox(p.lang)}
+${pwaBox(p.lang)}
 </article>
 ${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
   write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
-    script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) + `<script>${EXT_JS}</script>` }));
+    script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) + `<script>${EXT_JS}</script>` + SMART_CTA_JS }));
   sm.push({ loc: postUrl(p), lastmod: iso(upd), alt: alts(p) });
 }
 CURP = null;
