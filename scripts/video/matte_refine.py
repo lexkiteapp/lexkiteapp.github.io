@@ -182,7 +182,8 @@ def place(F, A, sc, M, size):
     if sc < 0.999:
         P = cv2.resize(P, None, fx=sc, fy=sc, interpolation=cv2.INTER_AREA)
         M = M.copy(); M[0, 0] = M[1, 1] = 1.0                     # scale already applied
-        Q = cv2.warpAffine(P, M, size, flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
+        M[0, 2], M[1, 2] = round(M[0, 2]), round(M[1, 2])          # owner 23/10: integer shift = no 2nd resample (the bilinear sub-pixel shift softened hair edges); <= 0.5 px position error
+        Q = cv2.warpAffine(P, M, size, flags=cv2.INTER_NEAREST, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
     else:
         Q = cv2.warpAffine(P, M, size, flags=cv2.INTER_LANCZOS4 if sc > 1.001 else cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
     a = np.clip(Q[..., 3], 0, 1)
