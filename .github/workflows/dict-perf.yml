@@ -10,7 +10,7 @@ on:
       base: { description: 'Bản "trước" để so (sha/nhánh); trống = commit trước đó', default: '' }
 permissions:
   contents: read
-concurrency: { group: dict-perf-${{ github.ref }}, cancel-in-progress: true }
+concurrency: { group: "dict-perf-${{ github.ref }}", cancel-in-progress: true }
 jobs:
   perf:
     runs-on: ubuntu-latest
