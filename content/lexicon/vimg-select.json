@@ -3,9 +3,9 @@
 "v": 1,
 "threshold": 0.6,
 "total": 8230,
-"imageable": 1202,
+"imageable": 1116,
 "by_pos": {
-"n": 1059,
+"n": 973,
 "adj": 66,
 "v": 77
 },
@@ -27,12 +27,6 @@
 "artifact",
 "accessory.n.01",
 "toeic5"
-],
-"acid#n": [
-0.7,
-"substance",
-"acid.n.01",
-"nawl2"
 ],
 "actuator#n": [
 0.95,
@@ -75,12 +69,6 @@
 "object",
 "agent.n.01",
 "ngsl4"
-],
-"air#n": [
-0.7,
-"substance",
-"air.n.01",
-"ngsl2"
 ],
 "aircraft#n": [
 0.95,
@@ -130,18 +118,6 @@
 "alga.n.01",
 "ex-toefl"
 ],
-"alloy#n": [
-0.7,
-"substance",
-"alloy.n.01",
-"dom-eng"
-],
-"aluminum#n": [
-0.7,
-"substance",
-"aluminum.n.01",
-"nawl3"
-],
 "amphibian#n": [
 0.95,
 "artifact",
@@ -170,12 +146,6 @@
 0.85,
 "artifact",
 "antibiotic.n.01",
-"dom-med"
-],
-"antibody#n": [
-0.7,
-"substance",
-"antibody.n.01",
 "dom-med"
 ],
 "antique#n": [
@@ -303,12 +273,6 @@
 "artifact",
 "cash_machine.n.01",
 "us-money"
-],
-"atom#n": [
-0.7,
-"substance",
-"atom.n.01",
-"dom-env"
 ],
 "attire#n": [
 0.85,
@@ -683,7 +647,7 @@
 "ngsl6"
 ],
 "bone#n": [
-0.8,
+0.65,
 "substance",
 "bone.n.02",
 "ngsl7"
@@ -994,18 +958,6 @@
 "car.n.01",
 "ngsl1"
 ],
-"carbon dioxide#n": [
-0.7,
-"substance",
-"carbon_dioxide.n.01",
-"dom-env"
-],
-"carbon#n": [
-0.7,
-"substance",
-"carbon.n.01",
-"ngsl10"
-],
 "caretaker#n": [
 0.65,
 "person",
@@ -1090,12 +1042,6 @@
 "cat.n.01",
 "ngsl6"
 ],
-"catalyst#n": [
-0.7,
-"substance",
-"catalyst.n.01",
-"dom-env"
-],
 "caterer#n": [
 0.65,
 "person",
@@ -1125,12 +1071,6 @@
 "artifact",
 "cellular_telephone.n.01",
 "toeic1"
-],
-"cement#n": [
-0.7,
-"substance",
-"cement.n.02",
-"dom-eng"
 ],
 "chair#n": [
 0.95,
@@ -1186,12 +1126,6 @@
 "chef.n.01",
 "toeic1"
 ],
-"chemical#n": [
-0.7,
-"substance",
-"chemical.n.01",
-"ngsl6"
-],
 "chest#n": [
 0.9,
 "body",
@@ -1222,12 +1156,6 @@
 "chocolate.n.02",
 "ngsl10"
 ],
-"cholesterol#n": [
-0.7,
-"substance",
-"cholesterol.n.01",
-"dom-med"
-],
 "chromosome#n": [
 0.9,
 "body",
@@ -1257,12 +1185,6 @@
 "artifact",
 "classroom.n.01",
 "nawl5"
-],
-"clay#n": [
-0.7,
-"substance",
-"clay.n.01",
-"nawl3"
 ],
 "clean#adj": [
 0.75,
@@ -1342,12 +1264,6 @@
 "cloudy.a.02",
 "toeic2"
 ],
-"coal#n": [
-0.7,
-"substance",
-"coal.n.01",
-"ngsl9"
-],
 "coast#n": [
 0.85,
 "object",
@@ -1408,14 +1324,8 @@
 "component.n.03",
 "ngsl6"
 ],
-"composite material#n": [
-0.7,
-"substance",
-"composite_material.n.01",
-"dom-eng"
-],
 "compost#n": [
-0.8,
+0.65,
 "substance",
 "compost.n.01",
 "dom-env"
@@ -1433,7 +1343,7 @@
 "ngsl2"
 ],
 "concrete#n": [
-0.8,
+0.65,
 "substance",
 "concrete.n.01",
 "ngsl10"
@@ -1455,12 +1365,6 @@
 "artifact",
 "conference_room.n.01",
 "dom-hosp"
-],
-"conglomerate#n": [
-0.7,
-"substance",
-"pudding_stone.n.01",
-"bsl2"
 ],
 "connecting rooms#n": [
 0.85,
@@ -1540,12 +1444,6 @@
 "duplicator.n.01",
 "toeic2"
 ],
-"copper#n": [
-0.7,
-"substance",
-"copper.n.01",
-"bsl4"
-],
 "copy#n": [
 0.85,
 "artifact",
@@ -1595,7 +1493,7 @@
 "toeic5"
 ],
 "cotton#n": [
-0.8,
+0.65,
 "substance",
 "cotton.n.01",
 "bsl4"
@@ -1683,12 +1581,6 @@
 "body",
 "cry.v.02",
 "ngsl5"
-],
-"crystal#n": [
-0.7,
-"substance",
-"quartz_glass.n.01",
-"nawl2"
 ],
 "cubicle#n": [
 0.85,
@@ -1810,12 +1702,6 @@
 "diagram.n.01",
 "toeic9"
 ],
-"diamond#n": [
-0.7,
-"substance",
-"diamond.n.02",
-"toeic9"
-],
 "diet#n": [
 1,
 "food",
@@ -1863,12 +1749,6 @@
 "motion",
 "dive.v.02",
 "toeic7"
-],
-"dna#n": [
-0.7,
-"substance",
-"deoxyribonucleic_acid.n.01",
-"dom-env"
 ],
 "dock#n": [
 0.85,
@@ -2020,23 +1900,11 @@
 "duplicate.n.02",
 "toeic5"
 ],
-"dust#n": [
-0.7,
-"substance",
-"dust.n.01",
-"ngsl9"
-],
 "dwelling#n": [
 0.85,
 "artifact",
 "dwelling.n.01",
 "architecture"
-],
-"dye#n": [
-0.7,
-"substance",
-"dye.n.01",
-"nawl4"
 ],
 "ear#n": [
 0.9,
@@ -2151,12 +2019,6 @@
 "artifact",
 "envelope.n.01",
 "ngsl10"
-],
-"enzyme#n": [
-0.7,
-"substance",
-"enzyme.n.01",
-"ex-toefl-lecture"
 ],
 "equipment#n": [
 0.85,
@@ -2290,12 +2152,6 @@
 "ferry.n.01",
 "toeic4"
 ],
-"fertiliser#n": [
-0.7,
-"substance",
-"fertilizer.n.01",
-"food"
-],
 "fiber#n": [
 1,
 "food",
@@ -2428,12 +2284,6 @@
 "flower.n.01",
 "ngsl5"
 ],
-"fluid#n": [
-0.7,
-"substance",
-"fluid.n.02",
-"nawl3"
-],
 "fly#v": [
 0.7,
 "motion",
@@ -2487,12 +2337,6 @@
 "artifact",
 "forklift.n.01",
 "ex-toeic-travel"
-],
-"fossil fuel#n": [
-0.7,
-"substance",
-"fossil_fuel.n.01",
-"energy"
 ],
 "fossil#n": [
 0.95,
@@ -2578,12 +2422,6 @@
 "fruit.n.01",
 "ngsl6"
 ],
-"fuel#n": [
-0.7,
-"substance",
-"fuel.n.01",
-"ngsl6"
-],
 "full#adj": [
 0.75,
 "all",
@@ -2638,12 +2476,6 @@
 "disposal.n.04",
 "us-housing"
 ],
-"garbage#n": [
-0.7,
-"substance",
-"garbage.n.01",
-"toeic3"
-],
 "garden#n": [
 0.85,
 "artifact",
@@ -2667,12 +2499,6 @@
 "object",
 "jovian_planet.n.01",
 "ex-toefl"
-],
-"gasoline#n": [
-0.7,
-"substance",
-"gasoline.n.01",
-"toeic5"
 ],
 "gate#n": [
 0.85,
@@ -2734,12 +2560,6 @@
 "glacier.n.01",
 "ex-toefl-lecture"
 ],
-"glass#n": [
-0.7,
-"substance",
-"glass.n.01",
-"ngsl4"
-],
 "globe#n": [
 0.85,
 "object",
@@ -2758,12 +2578,6 @@
 "goat.n.01",
 "nawl3"
 ],
-"gold#n": [
-0.7,
-"substance",
-"gold.n.03",
-"ngsl6"
-],
 "golden#adj": [
 0.75,
 "all",
@@ -2781,12 +2595,6 @@
 "person",
 "grandma.n.01",
 "ngsl10"
-],
-"granite#n": [
-0.7,
-"substance",
-"granite.n.01",
-"ex-toefl-lecture"
 ],
 "graphics#n": [
 0.85,
@@ -2817,12 +2625,6 @@
 "all",
 "green.s.01",
 "ngsl4"
-],
-"greenhouse gas#n": [
-0.7,
-"substance",
-"greenhouse_gas.n.01",
-"dom-env"
 ],
 "greenhouse#n": [
 0.95,
@@ -3040,12 +2842,6 @@
 "helmet.n.01",
 "toeic8"
 ],
-"herbicide#n": [
-0.7,
-"substance",
-"herbicide.n.01",
-"nawl5"
-],
 "herbivore#n": [
 1,
 "animal",
@@ -3172,23 +2968,11 @@
 "hybrid.n.03",
 "ex-toefl-lecture"
 ],
-"ice#n": [
-0.7,
-"substance",
-"ice.n.01",
-"ngsl6"
-],
 "icy#adj": [
 0.75,
 "all",
 "icy.s.03",
 "toeic5"
-],
-"igneous rock#n": [
-0.7,
-"substance",
-"igneous_rock.n.01",
-"ex-toefl"
 ],
 "immune system#n": [
 0.9,
@@ -3220,12 +3004,6 @@
 "ingredient.n.01",
 "toeic2"
 ],
-"ink#n": [
-0.7,
-"substance",
-"ink.n.01",
-"toeic2"
-],
 "innovation#n": [
 0.85,
 "artifact",
@@ -3245,7 +3023,7 @@
 "ngsl6"
 ],
 "insulation#n": [
-0.8,
+0.65,
 "substance",
 "insulating_material.n.01",
 "energy"
@@ -3267,12 +3045,6 @@
 "animal",
 "invertebrate.n.01",
 "ex-toefl"
-],
-"iron#n": [
-0.7,
-"substance",
-"iron.n.01",
-"ngsl9"
 ],
 "island#n": [
 0.85,
@@ -3333,12 +3105,6 @@
 "artifact",
 "junction.n.01",
 "ex-ielts-listen"
-],
-"junk#n": [
-0.7,
-"substance",
-"debris.n.01",
-"toeic6"
 ],
 "key#n": [
 0.95,
@@ -3526,12 +3292,6 @@
 "laundry.n.02",
 "toeic4"
 ],
-"lava#n": [
-0.7,
-"substance",
-"lava.n.01",
-"ex-toefl-lecture"
-],
 "lawn#n": [
 0.65,
 "location",
@@ -3563,7 +3323,7 @@
 "ngsl10"
 ],
 "leather#n": [
-0.8,
+0.65,
 "substance",
 "leather.n.01",
 "ngsl10"
@@ -3628,12 +3388,6 @@
 "limb.n.01",
 "nawl3"
 ],
-"limestone#n": [
-0.7,
-"substance",
-"limestone.n.01",
-"ex-toefl-lecture"
-],
 "linen#n": [
 0.85,
 "artifact",
@@ -3695,7 +3449,7 @@
 "ex-toeic-travel"
 ],
 "log#n": [
-0.8,
+0.65,
 "substance",
 "log.n.01",
 "ngsl8"
@@ -3760,12 +3514,6 @@
 "machinery.n.01",
 "ex-toeic-travel"
 ],
-"magma#n": [
-0.7,
-"substance",
-"magma.n.01",
-"ex-toefl"
-],
 "mainland#n": [
 0.85,
 "object",
@@ -3814,12 +3562,6 @@
 "map.n.01",
 "ngsl5"
 ],
-"marble#n": [
-0.7,
-"substance",
-"marble.n.01",
-"nawl3"
-],
 "march#v": [
 0.7,
 "motion",
@@ -3863,7 +3605,7 @@
 "ngsl9"
 ],
 "material#n": [
-0.8,
+0.65,
 "substance",
 "material.n.01",
 "ngsl3"
@@ -3911,34 +3653,16 @@
 "toeic1"
 ],
 "mercury#n": [
-0.8,
+0.65,
 "substance",
 "mercury.n.01",
 "nawl5"
-],
-"metal#n": [
-0.7,
-"substance",
-"metallic_element.n.01",
-"ngsl7"
-],
-"metamorphic rock#n": [
-0.7,
-"substance",
-"metamorphic_rock.n.01",
-"ex-toefl"
 ],
 "meteorite#n": [
 0.95,
 "object",
 "meteorite.n.01",
 "ex-toefl"
-],
-"methane#n": [
-0.7,
-"substance",
-"methane.n.01",
-"dom-env"
 ],
 "mice#n": [
 1,
@@ -3988,12 +3712,6 @@
 "milling.n.01",
 "dom-eng"
 ],
-"mineral#n": [
-0.7,
-"substance",
-"mineral.n.01",
-"ex-toefl-lecture"
-],
 "minibar#n": [
 0.95,
 "artifact",
@@ -4011,12 +3729,6 @@
 "artifact",
 "missile.n.01",
 "nawl2"
-],
-"mixture#n": [
-0.7,
-"substance",
-"mixture.n.01",
-"ngsl9"
 ],
 "mock-up#n": [
 0.85,
@@ -4043,7 +3755,7 @@
 "dom-eng"
 ],
 "molecule#n": [
-0.8,
+0.65,
 "substance",
 "molecule.n.01",
 "dom-env"
@@ -4186,12 +3898,6 @@
 "necklace.n.01",
 "toeic9"
 ],
-"nectar#n": [
-0.7,
-"substance",
-"nectar.n.01",
-"ex-toefl"
-],
 "nerve#n": [
 0.9,
 "body",
@@ -4233,12 +3939,6 @@
 "artifact",
 "newsstand.n.01",
 "toeic5"
-],
-"nitrogen#n": [
-0.7,
-"substance",
-"nitrogen.n.01",
-"nawl4"
 ],
 "nose#n": [
 0.9,
@@ -4287,12 +3987,6 @@
 "animal",
 "young.n.01",
 "ex-toefl"
-],
-"oil#n": [
-0.7,
-"substance",
-"oil.n.01",
-"ngsl4"
 ],
 "old#adj": [
 0.75,
@@ -4360,12 +4054,6 @@
 "override.n.01",
 "ex-toefl-campus"
 ],
-"oxygen#n": [
-0.7,
-"substance",
-"oxygen.n.01",
-"nawl4"
-],
 "ozone layer#n": [
 0.85,
 "object",
@@ -4391,7 +4079,7 @@
 "toeic3"
 ],
 "pad#n": [
-0.8,
+0.65,
 "substance",
 "pad.n.01",
 "toeic7"
@@ -4438,12 +4126,6 @@
 "trouser.n.01",
 "toeic3"
 ],
-"paper#n": [
-0.7,
-"substance",
-"paper.n.01",
-"ngsl2"
-],
 "paperback#n": [
 0.85,
 "artifact",
@@ -4469,16 +4151,10 @@
 "ngsl1"
 ],
 "particle#n": [
-0.8,
+0.65,
 "substance",
 "atom.n.02",
 "nawl4"
-],
-"particulate matter#n": [
-0.7,
-"substance",
-"particulate.n.01",
-"dom-env"
 ],
 "partition#n": [
 0.95,
@@ -4576,23 +4252,11 @@
 "pest.n.04",
 "nawl4"
 ],
-"pesticide#n": [
-0.7,
-"substance",
-"pesticide.n.01",
-"food"
-],
 "pet#n": [
 1,
 "animal",
 "pet.n.01",
 "toeic3"
-],
-"petrol#n": [
-0.7,
-"substance",
-"gasoline.n.01",
-"bsl1"
 ],
 "phone#n": [
 0.95,
@@ -4762,12 +4426,6 @@
 "plankton.n.01",
 "ex-toefl"
 ],
-"plastic#n": [
-0.7,
-"substance",
-"plastic.n.01",
-"ngsl7"
-],
 "plate#n": [
 0.95,
 "artifact",
@@ -4810,12 +4468,6 @@
 "dais.n.01",
 "ex-toeic-l"
 ],
-"poison#n": [
-0.7,
-"substance",
-"poison.n.01",
-"bsl4"
-],
 "pole#n": [
 0.85,
 "artifact",
@@ -4833,12 +4485,6 @@
 "animal",
 "pollinator.n.01",
 "ex-toefl"
-],
-"pollutant#n": [
-0.7,
-"substance",
-"pollutant.n.01",
-"dom-env"
 ],
 "pool#n": [
 0.95,
@@ -4883,7 +4529,7 @@
 "ngsl8"
 ],
 "powder#n": [
-0.8,
+0.65,
 "substance",
 "powder.n.01",
 "nawl2"
@@ -4959,12 +4605,6 @@
 "artifact",
 "projector.n.02",
 "ex-toeic-travel"
-],
-"protein#n": [
-0.7,
-"substance",
-"protein.n.01",
-"ngsl8"
 ],
 "proton#n": [
 0.85,
@@ -5062,12 +4702,6 @@
 "railway.n.01",
 "toeic10"
 ],
-"rain#n": [
-0.7,
-"substance",
-"rain.n.02",
-"ngsl5"
-],
 "raincoat#n": [
 0.85,
 "artifact",
@@ -5091,18 +4725,6 @@
 "animal",
 "rat.n.01",
 "ngsl10"
-],
-"raw material#n": [
-0.7,
-"substance",
-"raw_material.n.01",
-"dom-eng"
-],
-"raw materials#n": [
-0.7,
-"substance",
-"raw_material.n.01",
-"ex-toeic-travel"
 ],
 "reach#n": [
 0.65,
@@ -5194,12 +4816,6 @@
 "regulator.n.01",
 "bsl1"
 ],
-"reinforced concrete#n": [
-0.7,
-"substance",
-"reinforced_concrete.n.01",
-"dom-eng"
-],
 "repository#n": [
 0.85,
 "artifact",
@@ -5223,12 +4839,6 @@
 "artifact",
 "dormitory.n.01",
 "ex-toefl-campus"
-],
-"residue#n": [
-0.7,
-"substance",
-"residue.n.01",
-"nawl4"
 ],
 "restaurant#n": [
 0.85,
@@ -5289,12 +4899,6 @@
 "artifact",
 "automaton.n.02",
 "dom-eng"
-],
-"rock#n": [
-0.7,
-"substance",
-"rock.n.02",
-"ngsl4"
 ],
 "roll#v": [
 0.7,
@@ -5374,12 +4978,6 @@
 "rub.v.01",
 "nawl1"
 ],
-"rubber#n": [
-0.7,
-"substance",
-"rubber.n.01",
-"toeic9"
-],
 "rug#n": [
 0.85,
 "artifact",
@@ -5432,12 +5030,6 @@
 1,
 "food",
 "salt.n.02",
-"ngsl9"
-],
-"sand#n": [
-0.7,
-"substance",
-"sand.n.01",
 "ngsl9"
 ],
 "sandwich#n": [
@@ -5548,12 +5140,6 @@
 "sediment.n.01",
 "ex-toefl"
 ],
-"sedimentary rock#n": [
-0.7,
-"substance",
-"sedimentary_rock.n.01",
-"ex-toefl"
-],
 "seed#n": [
 1,
 "plant",
@@ -5583,12 +5169,6 @@
 "creation",
 "sew.v.02",
 "toeic10"
-],
-"sewage#n": [
-0.7,
-"substance",
-"sewage.n.01",
-"dom-env"
 ],
 "sewer#n": [
 0.85,
@@ -5636,12 +5216,6 @@
 0.85,
 "artifact",
 "shelf.n.01",
-"ngsl10"
-],
-"shell#n": [
-0.7,
-"substance",
-"shell.n.02",
 "ngsl10"
 ],
 "shelter#n": [
@@ -5733,18 +5307,6 @@
 "artifact",
 "sidewalk.n.01",
 "toeic3"
-],
-"silt#n": [
-0.7,
-"substance",
-"silt.n.01",
-"ex-toefl-lecture"
-],
-"silver#n": [
-0.7,
-"substance",
-"silver.n.01",
-"ngsl8"
 ],
 "singer#n": [
 0.85,
@@ -5914,12 +5476,6 @@
 "sneeze.v.01",
 "nawl5"
 ],
-"snow#n": [
-0.7,
-"substance",
-"snow.n.02",
-"ngsl7"
-],
 "snowy#adj": [
 0.75,
 "all",
@@ -6052,12 +5608,6 @@
 "stage.n.03",
 "ngsl2"
 ],
-"stainless steel#n": [
-0.7,
-"substance",
-"stainless_steel.n.01",
-"dom-eng"
-],
 "stair#n": [
 0.85,
 "artifact",
@@ -6124,14 +5674,8 @@
 "steak.n.01",
 "toeic7"
 ],
-"steam#n": [
-0.7,
-"substance",
-"steam.n.01",
-"bsl4"
-],
 "steel#n": [
-0.8,
+0.65,
 "substance",
 "steel.n.01",
 "ngsl8"
@@ -6267,18 +5811,6 @@
 "artifact",
 "subject.n.02",
 "ngsl2"
-],
-"substance#n": [
-0.7,
-"substance",
-"substance.n.04",
-"ngsl8"
-],
-"substrate#n": [
-0.7,
-"substance",
-"substrate.n.01",
-"nawl5"
 ],
 "subway#n": [
 0.65,
@@ -6581,7 +6113,7 @@
 "toeic10"
 ],
 "timber#n": [
-0.8,
+0.65,
 "substance",
 "lumber.n.01",
 "bsl6"
@@ -6611,7 +6143,7 @@
 "ngsl5"
 ],
 "tissue#n": [
-0.8,
+0.65,
 "substance",
 "tissue.n.02",
 "ngsl10"
@@ -6634,12 +6166,6 @@
 "tomato.n.01",
 "toeic4"
 ],
-"toner#n": [
-0.7,
-"substance",
-"toner.n.02",
-"toeic7"
-],
 "tool#n": [
 0.95,
 "artifact",
@@ -6651,12 +6177,6 @@
 "body",
 "tooth.n.01",
 "ngsl8"
-],
-"topsoil#n": [
-0.7,
-"substance",
-"topsoil.n.01",
-"ex-toefl-lecture"
 ],
 "tourist#n": [
 0.85,
@@ -6675,12 +6195,6 @@
 "artifact",
 "tower.n.01",
 "ngsl9"
-],
-"toxic waste#n": [
-0.7,
-"substance",
-"toxic_waste.n.01",
-"dom-env"
 ],
 "toy#n": [
 0.85,
@@ -6729,12 +6243,6 @@
 "artifact",
 "trap.n.01",
 "ngsl8"
-],
-"trash#n": [
-0.7,
-"substance",
-"rubbish.n.01",
-"toeic4"
 ],
 "tray#n": [
 0.95,
@@ -6807,12 +6315,6 @@
 "contact",
 "unload.v.02",
 "toeic8"
-],
-"urine#n": [
-0.7,
-"substance",
-"urine.n.01",
-"nawl5"
 ],
 "utilities#n": [
 0.85,
@@ -6922,12 +6424,6 @@
 "virus.n.01",
 "ngsl9"
 ],
-"vitamin#n": [
-0.7,
-"substance",
-"vitamin.n.01",
-"toeic5"
-],
 "volcano#n": [
 0.85,
 "object",
@@ -6987,18 +6483,6 @@
 "body",
 "wash.v.02",
 "ngsl5"
-],
-"wastewater#n": [
-0.7,
-"substance",
-"effluent.n.01",
-"dom-env"
-],
-"water#n": [
-0.7,
-"substance",
-"water.n.01",
-"ngsl2"
 ],
 "weapon#n": [
 0.85,
@@ -7133,7 +6617,7 @@
 "ngsl1"
 ],
 "wood#n": [
-0.8,
+0.65,
 "substance",
 "wood.n.01",
 "ngsl6"

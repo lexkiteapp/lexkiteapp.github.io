@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""select.py – chấm độ "vẽ được" (imageability) từng nghĩa từ#loại của kho từ vựng MỘT NGUỒN (dist/lexicon.json, sinh bởi build-lexicon --write).
+"""imageability.py – chấm độ "vẽ được" (imageability) từng nghĩa từ#loại của kho từ vựng MỘT NGUỒN (dist/lexicon.json, sinh bởi build-lexicon --write).
 Chỉ danh từ cụ thể, động từ nhìn thấy được, tính từ rõ ràng (màu/cỡ/hình/chất/thời tiết/cảm xúc lộ trên mặt) mới có ảnh; từ trừu tượng KHÔNG có ảnh
 (thà không có còn hơn ảnh gây hiểu sai). Điểm 0..1 = WordNet lexname của synset khớp nghĩa (Lesk trên định nghĩa của kho) + đường hypernym
 (physical_entity vs abstraction) + dấu hiệu trong định nghĩa/hậu tố. Ngưỡng THRESH. Không gọi mạng, không AI.
@@ -11,7 +11,7 @@ from nltk.corpus import wordnet as wn
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
 THRESH = 0.6
 V = 1
-NOUN = dict(animal=.9, food=.85, plant=.85, artifact=.75, body=.8, object=.75, person=.45, substance=.6, phenomenon=.45, location=.45,
+NOUN = dict(animal=.9, food=.85, plant=.85, artifact=.75, body=.8, object=.75, person=.45, substance=.45, phenomenon=.45, location=.45,
             shape=.5, event=.3, act=.25, group=.25, possession=.2, communication=.15, quantity=.1, time=.1, attribute=.1, cognition=.05,
             feeling=.1, motive=.05, relation=.05, state=.1, process=.15, Tops=.1)
 VERB = dict(motion=.5, contact=.5, body=.5, consumption=.5, weather=.5, creation=.4, competition=.35, perception=.3, change=.2,
