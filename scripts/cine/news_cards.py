@@ -140,7 +140,7 @@ def series_bar(top, sub, y0=396, prog=1.0, level=None):
     """hook-only series tag: orange tag | dark strip | difficulty pill (one chip row, slides in)."""
     im = layer(); d = ImageDraw.Draw(im); tf = font(FH, 34); sf = font(FB, 30); lv = {'easy': ('EASY', (30, 130, 70)), 'medium': ('MEDIUM', (170, 100, 0)), 'hard': ('HARD', (190, 34, 40))}.get(level)
     tw = d.textlength(top, font=tf) + 40; sw = d.textlength(sub, font=sf) + 44; lw_ = (d.textlength(lv[0], font=font(FH, 28)) + 36) if lv else 0; full = tw + sw + lw_
-    x0 = CX - full / 2 + int((1 - prog) * -(full + 120)); hh = 64; tc = best_on(ORANGE); sc_ = best_on(TEAL, (CREAM, (34, 36, 44)))
+    x0 = CX - full / 2; hh = 64; tc = best_on(ORANGE); sc_ = best_on(TEAL, (CREAM, (34, 36, 44)))   # owner 23/10: no slide-in from off-frame (it showed a clipped 'RAMMAR FIX'), fade-in only
     d.rectangle([x0, y0, x0 + tw, y0 + hh], fill=ORANGE + (255,)); d.text((x0 + 20, y0 + hh // 2), top, font=tf, fill=tc, anchor='lm')
     d.rectangle([x0 + tw, y0, x0 + tw + sw, y0 + hh], fill=TEAL + (250,)); d.text((x0 + tw + 22, y0 + hh // 2), sub, font=sf, fill=sc_, anchor='lm')
     tb = [d.textbbox((x0 + 20, y0 + hh // 2), top, font=tf, anchor='lm'), d.textbbox((x0 + tw + 22, y0 + hh // 2), sub, font=sf, anchor='lm')]; cols = [[tc, ORANGE, 34], [sc_, TEAL, 30]]

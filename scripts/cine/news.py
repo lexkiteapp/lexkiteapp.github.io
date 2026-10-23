@@ -2,7 +2,7 @@
 # parallax, US-broadcast lower third, big one-line karaoke captions (per-word timing over the Rhubarb speech span), pattern / x->v / recap cards
 # in the top safe zone (never over faces), comment ring, loop ending. Output out/cine-news-<topic>-en.mp4 + cover + render dir with timeline.json
 # for qa_news.py (qa5 rules + per-shot host transform). Cool-Mac: cv2 2 threads, x264 2 threads, one render at a time.
-import os, sys, json, re, subprocess, numpy as np, cv2
+import os, sys, json, re, glob, subprocess, numpy as np, cv2
 cv2.setNumThreads(2)
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.environ.get('CINE_ROOT', os.path.dirname(os.path.dirname(HERE)))
@@ -280,6 +280,7 @@ if os.environ.get('NEWS_DRY'):   # dry run (Mac): timeline only, no frames
     print('TOTAL', round(TOTAL, 2)); sys.exit(0)
 # ------------------------------------------------------------------ host frames (mouth swap on the keyed full-frame clip) + alpha
 RD = f'{N}/render5_{LID}_en'; os.makedirs(RD, exist_ok=True)
+for _f in glob.glob(f'{RD}/ref_*.png'): os.remove(_f)   # stale SSIM references from an earlier render of this lesson
 def finish_mask(M, k=1): x, y, w, h = [v * k for v in L.WM_CROP]; return cv2.resize(M[y:y + h, x:x + w], (1080 * k, 1920 * k), interpolation=cv2.INTER_LINEAR)
 def host_frames(s, clip, who, lines, raw):
     cf, cm, ll = MR.layer_paths(G, clip)   # PRO mattes (ViTMatte, lossless alpha) when NEWS_MATTE=pro

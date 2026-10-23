@@ -370,8 +370,8 @@ for x in tl['shots']:
     for u_ in (0.3, 0.5, 0.7):
         k_ = int((x['t0'] + x['dur'] * u_) * 2)
         if k_ >= len(_F): continue
-        lab_ = _cv.cvtColor((_F[k_] * 255).astype(np.uint8), _cv.COLOR_RGB2LAB).astype(np.float32); cy0_ = int(oy_ / 4 + em_ * 0.6); cx0_ = int(ox_ / 4)   # owner 23/10: skin = colour of THIS host's cheek
-        ref_ = np.median(lab_[cy0_ - 2:cy0_ + 3, cx0_ - 6:cx0_ - 1].reshape(-1, 3), 0)   # (fixed hue band missed Ama's dark skin -> 0.63)
+        lab_ = _cv.cvtColor((_F[k_] * 255).astype(np.uint8), _cv.COLOR_RGB2LAB).astype(np.float32); cy0_ = int(oy_ / 4 + em_ * 0.35); cx0_ = int(ox_ / 4); dq_ = int(x['faceh'][x['who']] * 0.28 / 4)   # owner 23/10: skin = colour of THIS host's cheeks (left + right, under the eyes, above a moustache)
+        ref_ = np.median(np.concatenate([lab_[cy0_ - 2:cy0_ + 3, cx0_ - dq_ - 2:cx0_ - dq_ + 3].reshape(-1, 3), lab_[cy0_ - 2:cy0_ + 3, cx0_ + dq_ - 2:cx0_ + dq_ + 3].reshape(-1, 3)]), 0)   # (fixed hue band missed Ama's dark skin -> 0.63)
         m_ = (np.linalg.norm(lab_ - ref_, axis=2) < 24).astype(np.uint8)
         m_ = _cv.morphologyEx(m_, _cv.MORPH_CLOSE, np.ones((9, 9), np.uint8)) > 0; best_ = 0
         for r_ in range(int(oy_ / 4), int(oy_ / 4 + em_)):
@@ -382,7 +382,7 @@ for x in tl['shots']:
             while rr_ < 269 and row_[rr_ + 1]: rr_ += 1
             best_ = max(best_, rr_ - l_)
         if best_: vals_.append(best_ * 4)
-    if vals_: _fw.setdefault(('all', x['who']), []).append(float(np.median(vals_)) / max(1.0, x['faceh'][x['who']]))
+    if vals_: _fw.setdefault(('all', x['who']), []).append(float(np.median(vals_)) / max(1.0, x['faceh'][x['who']])); print(f"    face {x['id']} {x['who']} {x['frame']} {float(np.median(vals_)):.0f}px / {x['faceh'][x['who']]}")
 _fr = {'all sizes (measured / expected)': round(np.median(_fw[('all', 'ama')]) / np.median(_fw[('all', 'carlos')]), 3)} if ('all', 'ama') in _fw and ('all', 'carlos') in _fw else {}
 print(f'  measured face width Ama / Carlos per shot size (rendered frames, +-5 %): {_fr}', 'OK' if _fr and all(abs(v - 1) <= 0.05 for v in _fr.values()) else 'FAIL')
 if not _fr or any(abs(v - 1) > 0.05 for v in _fr.values()): fails.append('face-size')

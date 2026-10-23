@@ -27,6 +27,11 @@ for i, o in enumerate(OV):
     for fg, bg, fs in m.get('cols', []):
         c = contrast(fg, bg); need = 3.0 if fs >= 24 else 4.5
         if c < need: lowc.append((o['style'], o['text'][:30], round(c, 2), need))
+SZ = tl.get('safe') or dict(x0=48, x1=924, y0=232, y1=1497); offf = []   # owner 23/10: every overlay box and glyph box inside the platform-safe frame area
+for o in OV:
+    bx = [o['box']] + ((o.get('meta') or {}).get('tb') or [])
+    if any(b[0] < SZ['x0'] - 2 or b[2] > SZ['x1'] + 2 or b[1] < SZ['y0'] - 2 or b[3] > SZ['y1'] + 2 for b in bx): offf.append((o['style'], o['text'][:30], o['box']))
+over += [('SAFE', *x) for x in offf]
 mincon = min([contrast(fg, bg) for o in OV if o.get('meta') for fg, bg, fs in o['meta'].get('cols', [])] or [0])
 # --- per frame
 bad = dict(cards=[], caps=[], pairs=[], head=[], hands=[]); states = []; prev = None
