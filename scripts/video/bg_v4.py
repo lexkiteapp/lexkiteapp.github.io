@@ -69,8 +69,9 @@ def one(A, out, it):
         z['crop_box'] = [x, y0, cw, hc]; z['plate_x'] = px; z['v4'] = True
         json.dump(z, open(f'{out}/zones/{cid}_{sd}.zones.json', 'w')); cv2.imwrite(f'{out}/zones/{cid}_{sd}.depth.png', dp)
         ov = f"{A}/bg/w/{cid}_{sd}.webp"; s_old = BG.sharp_expo(Image.open(ov)) if os.path.exists(ov) else {}; s_new = BG.sharp_expo(Image.fromarray(c))
-        rep['sides'][sd] = dict(plate_x=px, valid=z['valid'], horizon=hz, acu_v3=s_old.get('acu'), acu_v4=s_new['acu'], lap_v3=s_old.get('lap'), lap_v4=s_new['lap'])
-    sh = P[:, round(step * k):round(cw * k)]; rep['anchor'] = dict(overlap=OVERLAP, edge_density=round(edge_density(sh), 4), ok=OVERLAP >= 0.2 and edge_density(sh) >= 0.01)
+        X0 = 135 + (230 if sd == 'L' else 550); Y0 = z['y_window'] + 300; hcz = round(edge_density(c[Y0:Y0 + 560, X0:X0 + 300]), 4)   # head zone of the final MCU frame
+        rep['sides'][sd] = dict(head_clutter=hcz, plate_x=px, valid=z['valid'], horizon=hz, acu_v3=s_old.get('acu'), acu_v4=s_new['acu'], lap_v3=s_old.get('lap'), lap_v4=s_new['lap'])
+    sh = P[:, round(step * k):round(cw * k)]; rep['anchor'] = dict(overlap=OVERLAP, edge_density=round(edge_density(sh), 4), ok=OVERLAP >= 0.2 and edge_density(sh) >= 0.005)
     rep['secs'] = round(time.time() - t0, 1); json.dump(rep, open(js, 'w'), indent=1); print(cid, rep['sides']['L'].get('acu_v3'), '->', rep['sides']['L']['acu_v4'], rep['anchor'], f"{rep['secs']}s", flush=True)
     return rep
 if __name__ == '__main__':

@@ -310,7 +310,7 @@ HAIR = {}
 HOST = {'ama_s': dict(eye=(530, 680)), 'carlos_s': dict(eye=(545, 390)), 'carlos_q': dict(eye=(465, 310))}
 FACEH = {'ama_s': 348, 'carlos_s': 265, 'carlos_q': 175}   # calibrated on rendered frames (#57): measured face width Ama/Carlos was 1.05-1.11 -> Ama x0.97, Carlos x1.04
 SEAT = {'ama_s': 2500, 'carlos_s': 1600, 'carlos_q': 1880}
-FACE_PX = {'mcu': 346, 'wide': 290, 'mws': 290, 'two': 230}; EYE_Y = {'mcu': 605, 'wide': 720, 'mws': 720, 'two': 960}   # coordinator 22/10: face size + sharpness first, headroom as low as the hands-vs-caption rule allows (Ama's resting hands stay below the caption band)   # owner 22/10 composition: MCU face 18 % for explanations, MS (waist) 14 % for openers / reactions; eye on the upper third (33-36 %); x2 SR layers keep every host layer <= 1.0x   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
+FACE_PX = {'mcu': 346, 'wide': 290, 'mws': 290, 'two': 230}; EYE_Y = {'mcu': 598, 'wide': 592, 'mws': 592, 'two': 960}   # owner 23/10 cine: eyes on the upper third (0.333 +- 4 %) for BOTH hosts (Carlos's eye sits 29-34 px higher at equal head-top); MCU headroom <= 16 %   # coordinator 22/10: face size + sharpness first, headroom as low as the hands-vs-caption rule allows (Ama's resting hands stay below the caption band)   # owner 22/10 composition: MCU face 18 % for explanations, MS (waist) 14 % for openers / reactions; eye on the upper third (33-36 %); x2 SR layers keep every host layer <= 1.0x   # owner 22/10 sharpness: no host layer above 1.0x (Carlos mcu = 1.0x source)
 FRAME = {(g, f_): (round(FACE_PX[f_] / FACEH[g], 4), EYE_Y[f_] - (50 if g == 'carlos_q' else 0)) for g in FACEH for f_ in FACE_PX}
 for (g_, f_), (sc_, ey_) in list(FRAME.items()):   # equal head-top line for both hosts: Carlos's eye moves by the hair-height difference
     if g_ != 'ama_s' and f_ in ('mcu', 'wide', 'mws'): top_a = FRAME[('ama_s', f_)][1] - 293 * FRAME[('ama_s', f_)][0]; FRAME[(g_, f_)] = (sc_, round(top_a + (197 if g_ == 'carlos_s' else 149) * sc_))
@@ -456,6 +456,34 @@ def cam_at(s, u):
     return c
 BOK = bg3d.Bokeh(); BQA = []; ZONES = [[24, 212, 948, 400], [24, 992, 948, 1521]]   # card + caption + lower-third band (+24 px)
 PZ = lambda s, j: 1 + 0.08 * (1 - (1 - min(1.0, j / FPS / 0.4)) ** 2) if s['id'] == 'hook' else 1.0   # owner 22/10: punch-in 1.0 -> 1.08 in 0.4 s
+def cine_metrics(s, fi, Bbg, Bc, a, t):
+    """owner 23/10 cine: on the mid frame of a single - bg clutter behind the head, background lines tangent to the head top / neck, host-vs-bg
+    separation (luminance + sharpness), largest dead space (no host, no overlay) as a fraction of the frame."""
+    k_ = KEEP.get(fi) or {}; hd = (k_.get('head') or [None])[0]
+    if hd is None: return None
+    x0, y0, x1, y1 = [int(v) for v in hd]; w_, h_ = x1 - x0, y1 - y0; X0, Y0, X1, Y1 = max(0, x0 - int(0.3 * w_)), max(0, y0 - int(0.25 * h_)), min(1080, x1 + int(0.3 * w_)), min(1920, y1 + int(0.25 * h_))
+    g = cv2.cvtColor(Bbg.clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2GRAY); E = cv2.Canny(g, 60, 150) > 0; vis = a < 0.5
+    m = np.zeros_like(vis); m[Y0:Y1, X0:X1] = True; m &= vis; clutter = float(E[m].mean()) if m.any() else 0.0
+    L = cv2.Laplacian(g, cv2.CV_32F); tang = []
+    HL = cv2.HoughLinesP((E * 255).astype(np.uint8)[Y0:Y1, X0:X1], 1, np.pi / 180, 60, minLineLength=max(60, int(0.6 * w_)), maxLineGap=6)
+    for ln in (HL if HL is not None else []):
+        lx0, ly0, lx1, ly1 = [int(v) for v in ln[0]]; ly0 += Y0; ly1 += Y0; lx0 += X0; lx1 += X0
+        if abs(ly1 - ly0) > 0.18 * max(1, abs(lx1 - lx0)): continue   # only near-horizontal lines read as tangents / 'growing out of the head'
+        yy = (ly0 + ly1) / 2
+        if (abs(yy - y0) <= 14 or y1 - 20 <= yy <= y1 + 50) and min(lx0, lx1) < x0 + 0.2 * w_ and max(lx0, lx1) > x1 - 0.2 * w_: tang.append([lx0, ly0, lx1, ly1])
+    hm = np.zeros_like(vis); hm[y0:y1, x0:x1] = True; hm &= a > 0.9; rm = m & (a < 0.1)
+    Lc = cv2.cvtColor(Bc.clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2LAB)[..., 0].astype(np.float32) * 100 / 255; Lb = cv2.cvtColor(Bbg.clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2LAB)[..., 0].astype(np.float32) * 100 / 255
+    dL = float(abs(Lc[hm].mean() - Lb[rm].mean())) if hm.any() and rm.any() else 0.0
+    gc = cv2.cvtColor(Bc.clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2GRAY); sr = float(cv2.Laplacian(gc, cv2.CV_32F)[hm].var() / max(1.0, L[rm].var())) if hm.any() and rm.any() else 0.0
+    occ = a > 0.3
+    for o in OVS:
+        if o['t'][0] - 1e-6 <= t < o['t'][1] - 1e-6: b = o['box']; occ[max(0, b[1]):b[3], max(0, b[0]):b[2]] = True
+    def run(v):
+        best = cur = 0
+        for x in v: cur = cur + 1 if not x else 0; best = max(best, cur)
+        return best
+    dead = max(run(occ.any(0)) / 1080, run(occ.any(1)) / 1920)
+    return dict(clutter=round(clutter, 4), tangents=tang, dL=round(dL, 1), sharp_ratio=round(sr, 2), dead=round(dead, 3), head=[x0, y0, x1, y1])
 def pan_geom(s, j):   # camera on the shared plate during a pan + screen x shift of the previous / current host (also used by the layout solver)
     ps = S[s['pan']['src']]; P, xs = plate(s['bg'].split('@')[0]); n_ = s['pan']['n']; e = bg3d.ease(min(1.0, j / max(1, n_ - 1)))
     c0, c1 = cam_at(ps, 1.0), cam_at(s, 0.0); c = {k: c0[k] + (c1[k] - c0[k]) * e for k in ('z', 'tx', 'ty')}
@@ -551,6 +579,7 @@ for s in S:
             tg_ = (0.48 - 0.3 * 0.35) / 0.7; HOSTG = 1.0
             EXPO = min([(abs(cv2.LUT((B * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - tg_), g_) for g_ in np.arange(0.6, 2.81, 0.03)])[1]; print('bg exposure gain %.2f' % EXPO)
         B = B * EXPO
+        CINE_J = j == s['n'] // 2 and not s['other']; Bbg = B.copy() if CINE_J else None; ALd = {}
         for i in order:
             if i == PANI and j >= s['pan']['n']: continue
             fr, al, (sc, cx, cy, ox, oy), who = R_[i]
@@ -578,8 +607,9 @@ for s in S:
                 sk_[:max(0, int(ytop_ / 4))] = False
                 n_, lb_, st_, _ = cv2.connectedComponentsWithStats(sk_.astype(np.uint8))
                 HB.setdefault(fi, []).extend([[int(st_[c][0] * 4), int(st_[c][1] * 4), int((st_[c][0] + st_[c][2]) * 4), int((st_[c][1] + st_[c][3]) * 4)] for c in range(1, n_) if st_[c][4] >= 40])
-            a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); (i == PANI or (s.get('pan') and j < s['pan']['n'])) or bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
+            ALd[i] = a; a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); (i == PANI or (s.get('pan') and j < s['pan']['n'])) or bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
         QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot or [1.0])))
+        if CINE_J and 0 in ALd: s['cine'] = cine_metrics(s, fi, Bbg, B, ALd[0], t)   # owner 23/10 cine score inputs (qa_news)
         if j == s['n'] // 2 and len(AL) == 1: EQ.append(dict(shot=s['id'], **MR.edge_qa(B, AL[0], bg=B0)))   # edge QA on the rendered frame (singles)
         if s['other']:   # two-shot: gap between the silhouettes (above the desk)
             if j % 4 == 0 and len(AL) == 2:

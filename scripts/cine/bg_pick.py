@@ -15,7 +15,12 @@ WB = BT.get('wide_by_topic', {})
 ZW = lambda b: os.path.join(os.environ.get('CINE_LIB', ''), 'anchor/bg/w/zones')   # wide crops carry their own zones (both L and R must be valid)
 validw = lambda b: all(os.path.exists(f'{ZW(b)}/{b}_{sd}.zones.json') and json.load(open(f'{ZW(b)}/{b}_{sd}.zones.json')).get('valid') for sd in ('L', 'R'))
 if sp.get('topic') and any(WB.get(t) for t in WT.get(sp['topic'], [sp['topic']])):   # owner 22/10: two-host WIDE scenes by lesson topic
-    cand = sorted(dict.fromkeys(x for t in WT.get(sp['topic'], [sp['topic']]) for x in WB.get(t, [])), key=lambda b: hashlib.md5((sp['id'] + b).encode()).hexdigest())
+    W4 = os.path.join(os.environ.get('CINE_LIB', ''), 'anchor/bg/w4')
+    def hc(b):   # owner 23/10 cine: prefer clean head zones (bg-v4 stats), then the deterministic hash order
+        p_ = f'{W4}/{b}.v4.json'
+        if not os.path.exists(p_): return 9.0
+        v = json.load(open(p_)); return max((s_.get('head_clutter') or 0) for s_ in v['sides'].values()) + (0 if v['anchor'].get('ok') else 1)
+    cand = sorted(dict.fromkeys(x for t in WT.get(sp['topic'], [sp['topic']]) for x in WB.get(t, [])), key=lambda b: (round(hc(b), 2), hashlib.md5((sp['id'] + b).encode()).hexdigest()))
     nxt = [b for b in cand if b not in tried and validw(b)]
     if not nxt: sys.exit(1)
     print(nxt[0]); sys.exit(0)
