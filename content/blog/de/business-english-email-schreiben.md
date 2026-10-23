@@ -229,3 +229,5 @@ Sobald Ihnen Ihr englischsprachiger Geschäftspartner mit seinem Vornamen antwor
 
 ### Was ist der Unterschied zwischen *Best regards* und *Sincerely*?
 *Sincerely* (oder im britischen Englisch *Yours sincerely*) ist sehr formell und wird traditionell verwendet, wenn Sie den Empfänger namentlich kennen (*Dear Mr. Smith*). *Kind regards* oder *Best regards* ist etwas wärmer und der universelle Standard für den täglichen Geschäftsverkehr.
+
+> Weiterlesen: [Präsentation auf Englisch Phrasen: Der Business-Leitfaden](/de/blog/praesentation-auf-englisch-formulierungen/)

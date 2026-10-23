@@ -127,3 +127,5 @@ Im gesprochenen amerikanischen Englisch ist eine Vereinfachungstendenz zu beobac
 ### Kann man das Wort just mit dem Simple Past verwenden?
 
 Im amerikanischen Alltagsenglisch hört man häufig *I just saw him*. Im Standardenglisch und in offiziellen Prüfungen gehört *just* im Sinne von „gerade eben“ jedoch strikt zum Present Perfect: *I have just seen him*.
+
+> Weiterlesen: [Passiv Englisch Regeln: Bildung, Zeiten und Passive Voice](/de/blog/passiv-englisch-bildung-regeln-passive-voice/)

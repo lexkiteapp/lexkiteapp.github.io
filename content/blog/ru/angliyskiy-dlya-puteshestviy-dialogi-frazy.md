@@ -201,3 +201,5 @@ quiz: [
 
 ### Q4. Что делать, если потерялся багаж в аэропорту?
 Пройдите к стойке с вывеской *«Baggage Claim / Lost & Found»*, предъявите багажные бирки и заполните форму *PIR (Property Irregularity Report)*: *«My checked bag did not arrive on the carousel; here are my claim tags»*.
+
+> Читайте также: [Презентация на английском фразы : речь для бизнес-встреч](/ru/blog/prezentatsiya-na-angliyskom-frazy-i-sovety/)

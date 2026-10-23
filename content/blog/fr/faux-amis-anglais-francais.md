@@ -104,3 +104,5 @@ La meilleure technique consiste à ne jamais mémoriser un faux ami seul avec sa
 ### Les faux amis sont-ils pénalisés lourdement lors des examens d'anglais ?
 
 Oui, particulièrement dans les épreuves de production écrite et orale. L'utilisation d'un faux ami modifie fréquemment la cohérence du propos (ce qui baisse la note de *Coherence and Cohesion*) ou démontre un manque de précision lexicale (pénalisant le critère *Lexical Resource*).
+
+> À lire aussi: [Phrases conditionnelles anglais : guide if clauses de 0 à 3](/fr/blog/phrases-conditionnelles-anglais-if-clauses/)

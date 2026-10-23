@@ -190,3 +190,5 @@ Non ! Devant des mots comme *next, last, this, every*, les prépositions dispara
 Les prépositions anglaises cessent d'être un cauchemar dès lors qu'on abandonne le réflexe de traduire depuis le français pour adopter la logique visuelle de la pyramide inversée : le vaste avec *IN*, la ligne et la surface avec *ON*, le point précis avec *AT*.
 
 Appliquez ce modèle mental à chaque nouvelle phrase que vous lisez ou écrivez, et vos doutes prépositionnels appartiendront bientôt au passé !
+
+> À lire aussi: [Phrases conditionnelles anglais : guide if clauses de 0 à 3](/fr/blog/phrases-conditionnelles-anglais-if-clauses/)

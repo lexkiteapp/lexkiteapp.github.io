@@ -142,3 +142,5 @@ I have closely followed your company's rapid global expansion over the past year
 ### 연봉 협상 질문(What are your salary expectations?)이 나오면 어떻게 답해야 하나요?
 
 구체적인 숫자를 먼저 부르면 협상에서 불리해질 수 있습니다. *"Based on my four years of experience in this field and the market rate for this role, I am open to discussing a competitive compensation package that reflects the responsibilities of the position. Could you share the budget range allocated for this role?"*와 같이 회사의 책정 범위를 먼저 역질문하는 것이 현명한 협상 전술입니다.
+
+> 함께 읽어보세요: [영어 접속부사 및 연결어 총정리 : 에세이와 IELTS 필수 표현](/ko/blog/yeongeo-jeobsogsa-yeangyeol-eowa-linking-words/)
