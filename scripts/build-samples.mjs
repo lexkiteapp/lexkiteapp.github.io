@@ -3,7 +3,7 @@
 // Giao diện dùng chung với blog: scripts/lib/site-layout.mjs (header, footer, CSS token thương hiệu, chế độ tối). Dữ liệu: scripts/lib/seo-data.mjs.
 // Bản tiếng Anh: build-samples-en.mjs (chạy sau, tự gắn hreflang vi↔en).
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
-import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, audioBtn, SEO_L } from './lib/site-layout.mjs';
+import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
@@ -57,7 +57,8 @@ ${ctaBox(`${APP}#/model/t2-${p.id}`, '✍️ Luyện viết đề này miễn ph
 ${ctaKit(`${APP}#/write/${p.id}`, 'Tự viết bài và được chấm điểm ngay', 'Viết bài', 'Đếm từ, gợi ý ý tưởng và chấm theo 4 tiêu chí IELTS.')}
 ${pager2(prev && [`/samples/${prev[0].id}`, short(prev[0].text, 90)], next && [`/samples/${next[0].id}`, short(next[0].text, 90)], 'vi')}
 ${related(relatedOf(done, done[di], d => d[0].type === p.type, 4), t2Card)}
-${extBox('vi')}</article>`;
+${extBox('vi', 'samples')}
+${pwaBox('vi', 'samples')}</article>`;
   fs.writeFileSync(`dist/samples/${p.id}.html`, page(title, desc, `${SITE}samples/${p.id}`, body, `Band ${m.band}: ${short(p.text, 50)}`, undefined,
     { smp: 1, lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
 });
@@ -105,7 +106,8 @@ ${part(3, '🧠', 'Part 3', b.p3.map((q, k) => qa(q, k + 1)).join(''))}
 ${ctaKit(`${APP}#/speaking/p2/${i}`, 'Thử nói Part 2 với đồng hồ đếm giờ', 'Bắt đầu', '1 phút chuẩn bị, 2 phút nói – như phòng thi thật.')}
 ${pager2(prev && [`/speaking/${prev[0]}`, prev[1].title], next && [`/speaking/${next[0]}`, next[1].title], 'vi', true)}
 ${related(relatedOf(made, made[i], () => true, 4), spCard)}
-${extBox('vi')}</article>`;
+${extBox('vi', 'speaking')}
+${pwaBox('vi', 'speaking')}</article>`;
     fs.writeFileSync(`dist/speaking/${id}.html`, page(title, desc, `${SITE}speaking/${id}`, body, b.title, enSlug(b.title),
       { smp: 1, lr: { learningResourceType: 'Sample answers', teaches: `IELTS Speaking – ${b.title}`, timeRequired: `PT${mins(nW)}M` } }));
   }
@@ -133,11 +135,12 @@ ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard))}</
     const desc = `${n} từ vựng ${x.name} (${g}) kèm phiên âm IPA, nghĩa tiếng Việt, định nghĩa và câu ví dụ: ${x.words.slice(0, 8).map(w => w.word).join(', ')}… Học flashcard miễn phí trên Lexkite.`;
     const rows = x.words.map((w, i) => { const k = audioKey(w.word); return `<tr><td class="no">${i + 1}</td><td><span class="w">${k ? audioBtn(k, w.word, 'vi') : ''}${esc(w.word)}</span>${w.pos ? `<span class="pos">${esc(w.pos)}</span>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td><td>${esc(w.vi || '')}</td><td class="ex">${esc(w.ex || '')}</td></tr>`; }).join('');
     const body = `${hero(esc(x.name), { emoji: x.emoji || '📘', lead: x.desc ? esc(x.desc) : '', chips: [g, ...chipsOf(x)] })}
-${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, '🃏 Học bộ này bằng flashcard (miễn phí)', 'Mở bộ từ trong app', 'Ôn lặp lại ngắt quãng FSRS, nghe phát âm, tự kiểm tra – lưu tiến độ tự động.')}
+${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, '🃏 Học bộ này bằng flashcard (miễn phí)', 'Mở bộ từ trong app', 'Ôn lặp lại ngắt quãng FSRS, nghe phát âm, tự kiểm tra – lưu tiến độ tự động.', 'vocab')}
 <div class="tbl"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
-${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, `Thuộc ${n} từ này trong vài ngày`, 'Học ngay', 'Mỗi ngày vài phút, app tự nhắc đúng lúc bạn sắp quên.')}
+${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, `Thuộc ${n} từ này trong vài ngày`, 'Học ngay', 'Mỗi ngày vài phút, app tự nhắc đúng lúc bạn sắp quên.', 'vocab')}
 ${related(relatedOf(TP, x, y => y.group === x.group), vCard)}
-${extBox('vi')}`;
+${extBox('vi', 'vocab')}
+${pwaBox('vi', 'vocab')}`;
     fs.writeFileSync(`dist/tu-vung/${x.id}.html`, page(title, desc, `${SITE}tu-vung/${x.id}`, body, x.name));
   }
   const byG = {}; for (const x of TP) (byG[x.group] = byG[x.group] || []).push(x);
@@ -175,7 +178,8 @@ ${bl.map((b, i) => (i === firstMistake ? '<h2>Lỗi hay gặp</h2>' : '') + blk(
 ${ctaBox(`/app/#/grammar/${encodeURIComponent(l.id)}`, `✏️ Làm bài tập ${esc(l.en || l.title)}`, 'Làm bài tập')}
 ${pn}
 ${related(relatedOf(G, l, y => y.unit === l.unit, 4), gCard)}
-${extBox('vi')}</article>`;
+${extBox('vi', 'grammar')}
+${pwaBox('vi', 'grammar')}</article>`;
     fs.writeFileSync(`dist/ngu-phap/${l.id}.html`, page(`${l.title} (${l.en}) – công thức, cách dùng, dấu hiệu, lỗi hay gặp | Lexkite`, `${l.title} (${l.en}): ${l.summary || ''} Công thức, ví dụ song ngữ, lỗi người Việt hay mắc và cách dùng trong IELTS.`.slice(0, 300), `${SITE}ngu-phap/${l.id}`, body, l.title));
   });
   const units = {}; for (const l of G) (units[l.unit || 'khac'] = units[l.unit || 'khac'] || []).push(l);
@@ -205,7 +209,8 @@ ${ctaBox(`${APP}#/letters/${x.id}`, '✍️ Luyện viết thư này (đếm t�
 ${ctaKit(`${APP}#/letters/${x.id}`, 'Đến lượt bạn: tự viết thư theo đề này', 'Viết thư', 'Đếm từ, tự kiểm và chấm AI ngay trong app.')}
 ${pager2(prev && [`/viet-thu/${prev[0].id}`, prev[0].titleVi || prev[0].topic], next && [`/viet-thu/${next[0].id}`, next[0].titleVi || next[0].topic], 'vi')}
 ${related(relatedOf(made, made[di], d => d[0].tone === x.tone, 4), lCard)}
-${extBox('vi')}</article>`;
+${extBox('vi', 'letters')}
+${pwaBox('vi', 'letters')}</article>`;
     fs.writeFileSync(`dist/viet-thu/${x.id}.html`, page(`Thư mẫu IELTS General Task 1: ${x.titleVi || x.topic} (${(TONE[x.tone] || '').toLowerCase()}) – band ${m.band}`, `Thư mẫu IELTS General Training Writing Task 1 band ${m.band} – ${TONE[x.tone] || ''}: ${x.situation.slice(0, 120)}… Có chú thích cụm từ hay tiếng Việt.`, `${SITE}viet-thu/${x.id}`, body, x.titleVi || x.topic, undefined,
       { smp: 1, lr: { learningResourceType: 'Sample letter', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS General Training Writing Task 1 – ${x.tone}`, assesses: `IELTS Band ${m.band}` } }));
   });

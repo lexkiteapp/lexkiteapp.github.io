@@ -79,6 +79,31 @@ export async function growthData(db, P) {
   const ret = (rows, a, z) => { const o = { n: 0 }; for (const [k, age] of [['r1', 1], ['r7', 7], ['r30', 30]]) { const lim = d(age), ok = rows.filter(r => r.d >= a && (!z || r.d < z) && r.d <= lim); o[k] = { n: ok.reduce((t, r) => t + r.n, 0), r: ok.reduce((t, r) => t + (r[k] || 0), 0) }; } o.n = rows.filter(r => r.d >= a && (!z || r.d < z)).reduce((t, r) => t + r.n, 0); return o; };
   const coh = rows => { const by = {}; for (const r of rows) if (r.k >= 0 && r.k <= 7) (by[r.wk] = by[r.wk] || {})[r.k] = r.n; return Object.keys(by).sort().map(wk => ({ wk, size: by[wk][0] || 0, w: Array.from({ length: 8 }, (_, k) => by[wk][k] || 0) })); };
   const byDay = Object.fromEntries(extDays.map(r => [r.day, r]));
+  const ctaPeriod = (a, z) => {
+    const av = sumEv('cta:cta_addon_view', a, z);
+    const ac = sumEv('cta:cta_addon_click', a, z) + sumEv('cta:ext_land', a, z) + sumEv('cta:ext_feat', a, z) + sumEv('cta:ext_blog', a, z);
+    const pv = sumEv('cta:cta_pwa_view', a, z);
+    const pc = sumEv('cta:cta_pwa_click', a, z);
+    const tc = sumEv('cta:cta_topic_click', a, z) + sumEv('cta:quiz_cta', a, z);
+    return {
+      addonView: av, addonClick: ac,
+      pwaView: pv, pwaClick: pc,
+      topicClick: tc,
+      totalClick: ac + pc + tc
+    };
+  };
+  const langClicks = {}, pageClicks = {};
+  for (const r of ext) {
+    if (r.day < cur) continue;
+    const m = r.kind.match(/^cta:([^:]+):(lang|page):([^:]+)$/);
+    if (!m) continue;
+    const [, ev, type, val] = m;
+    if (!ev.endsWith('_click') && ev !== 'quiz_cta') continue;
+    if (type === 'lang') langClicks[val] = (langClicks[val] || 0) + r.n;
+    else if (type === 'page') pageClicks[val] = (pageClicks[val] || 0) + r.n;
+  }
+  const ctaByLang = Object.entries(langClicks).map(([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n);
+  const ctaByPage = Object.entries(pageClicks).map(([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n);
   return {
     at: now, days: P, cur, prev,
     users: { total: users.total || 0, cur: users.cur || 0, prev: users.prev || 0, byPlat: newByPlat },
@@ -95,5 +120,6 @@ export async function growthData(db, P) {
     retention: { visitors: { cur: ret(retV, cur), prev: ret(retV, prev, cur) }, users: { cur: ret(retU, cur), prev: ret(retU, prev, cur) } },
     cohorts: { visitors: coh(cohV), users: coh(cohU) },
     habit: { visitors: habV, users: habU },
+    cta: { cur: ctaPeriod(cur), prev: ctaPeriod(prev, cur), byLang: ctaByLang, byPage: ctaByPage },
   };
 }

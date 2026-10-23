@@ -1,7 +1,7 @@
 // Bản tiếng Anh của các trang tĩnh SEO (cho người học quốc tế): dist/en/{samples,speaking,vocabulary}/…
 // + hreflang vi ↔ en giữa 2 bản. Chạy sau build-samples.mjs. Giao diện chung: scripts/lib/site-layout.mjs.
 import fs from 'node:fs'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
-import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, audioBtn, SEO_L } from './lib/site-layout.mjs';
+import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
@@ -55,7 +55,8 @@ ${ctaBox(`${APP}/model/t2-${p.id}`, '✍️ Practise this question free on Lexki
 ${ctaKit(`${APP}/write/${p.id}`, 'Write your own answer and get instant feedback', 'Start writing', 'Word count, idea prompts and scoring on the 4 IELTS criteria.')}
 ${pager2(prev && [`/en/samples/${prev[0].id}`, short(prev[0].text, 90)], next && [`/en/samples/${next[0].id}`, short(next[0].text, 90)], 'en')}
 ${related(relatedOf(done, done[di], d => d[0].type === p.type, 4), t2Card)}
-${extBox('en')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(p.text, 50)}`,
+${extBox('en', 'samples')}
+${pwaBox('en', 'samples')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(p.text, 50)}`,
       { lr: { learningResourceType: 'Sample essay', wordCount: m.words, timeRequired: `PT${mins(m.words)}M`, teaches: `IELTS Writing Task 2 – ${p.type}`, assesses: `IELTS Band ${m.band}` } }));
   });
   const by = {}; for (const d of done) (by[d[0].type] = by[d[0].type] || []).push(d);
@@ -99,7 +100,8 @@ ${part(3, '🧠', 'Part 3', b.p3.map((q, k) => qa(q, k + 1)).join(''))}
 ${ctaKit(`${APP}/speaking/p2/${i}`, 'Try Part 2 with a timer', 'Start', '1 minute to prepare, 2 minutes to speak – just like the real test.')}
 ${pager2(prev && [`/en/speaking/${prev[0]}`, name(prev[1])], next && [`/en/speaking/${next[0]}`, name(next[1])], 'en', true)}
 ${related(relatedOf(made, made[i], () => true, 4), spCard)}
-${extBox('en')}</article>${smpTail('en')}`, name(b),
+${extBox('en', 'speaking')}
+${pwaBox('en', 'speaking')}</article>${smpTail('en')}`, name(b),
       { lr: { learningResourceType: 'Sample answers', teaches: `IELTS Speaking – ${topic || name(b)}`, timeRequired: `PT${mins(nW)}M` } }));
   }
   const nQ = made.reduce((a, [, b]) => a + qs(b).length, 0);
@@ -126,11 +128,12 @@ ${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard))}</div>$
     const rows = x.words.map((w, i) => { const k = audioKey(w.word); return `<tr><td class="no">${i + 1}</td><td><span class="w">${k ? audioBtn(k, w.word, 'en') : ''}${esc(w.word)}</span>${w.pos ? `<span class="pos">${esc(w.pos)}</span>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td><td>${esc(w.def || '')}</td><td class="ex">${esc(w.ex || '')}</td></tr>`; }).join('');
     out(`en/vocabulary/${x.id}`, `tu-vung/${x.id}`, page(`${g}: ${nm} – ${n} Words with IPA, Definitions & Examples`, `${n} ${g.toLowerCase()} words (${nm}) with IPA, English definitions and example sentences: ${x.words.slice(0, 8).map(w => w.word).join(', ')}… Learn with free flashcards.`, `en/vocabulary/${x.id}`, `tu-vung/${x.id}`,
       `${hero(esc(nm), { emoji: x.emoji || '📘', chips: [g, ...chipsOf(x)] })}
-${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, '🃏 Learn this set with free flashcards', 'Open this set in the app', 'FSRS spaced repetition, audio and self-tests – progress saved automatically.')}
+${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, '🃏 Learn this set with free flashcards', 'Open this set in the app', 'FSRS spaced repetition, audio and self-tests – progress saved automatically.', 'vocab')}
 <div class="tbl"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
-${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, `Remember all ${n} words in a few days`, 'Start learning', 'A few minutes a day – the app reminds you right before you forget.')}
+${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, `Remember all ${n} words in a few days`, 'Start learning', 'A few minutes a day – the app reminds you right before you forget.', 'vocab')}
 ${related(relatedOf(TP, x, y => y.group === x.group), vCard)}
-${extBox('en')}`, nm));
+${extBox('en', 'vocab')}
+${pwaBox('en', 'vocab')}`, nm));
   }
   const by = {}; for (const x of TP) (by[x.group] = by[x.group] || []).push(x);
   const total = TP.reduce((a, x) => a + x.words.length, 0);

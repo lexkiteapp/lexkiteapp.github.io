@@ -83,6 +83,19 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
+### [C1b] Nút kêu gọi trên trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ưu tiên: cao
+- Phần còn thiếu của C1 (Claude duyệt 23/10): C1 mới làm blog. Làm tiếp cho **trang từ vựng tĩnh** (cùng luật: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày, không popup, không PII, deep link chỉ khi topic có thật trong `IELTS_DATA.TOPICS`).
+- Đo: thay `quiz_cta` chung bằng sự kiện riêng (`cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click`) trong `functions/api/hit.js` + hiện ở Quản trị › Phân tích (tỉ lệ bấm theo ngôn ngữ/trang).
+- Giữ shell ≤ 380 KB gz (đang 379): nạp lười, không thêm vào shell. i18n đủ 15 ngôn ngữ. Ảnh chụp trước/sau.
+- Báo cáo:
+  - Triển khai đầy đủ smart CTA cho trang tĩnh: `/tu-vung/...`, `/en/vocabulary/...`, sample, speaking, blog (`scripts/lib/site-layout.mjs`, `scripts/build-samples.mjs`, `scripts/build-samples-en.mjs`, `scripts/build-blog.mjs`). Add-on chỉ hiển thị trên máy tính Chrome/Edge, PWA chỉ hiện trên di động chưa cài đặt (standalone check); nút Ẩn 7 ngày ghi nhớ localStorage `lk.extHide` & `lk.pwaHide`.
+  - Đo lường chi tiết 3 cấp (`functions/api/hit.js`): tổng `cta:<ev>`, theo ngôn ngữ `cta:<ev>:lang:<l>`, theo trang `cta:<ev>:page:<pg>` cho 5 sự kiện `cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click`.
+  - Bổ sung mục "🎯 Nút kêu gọi & Chuyển đổi (CTA)" trong Quản trị › Phân tích (`functions/api/growth.js`, `web/js/admin-growth.js`): KPI tiles (Views, Clicks, CTR %, Topic Saves) + biểu đồ phân bổ theo ngôn ngữ và loại trang. Đầy đủ từ điển EN.
+  - Sửa các mock fixture test cho đồng bộ với commit mới của Claude (`App.need`/`App.W`/`App.guard` và `lesson-video.js`).
+  - Kiểm thử: `npm test` PASS 100% (1274 trang crawl, 46 màn hình axe a11y), `size-budget` 379 KB / 380 KB gz (giữ nguyên dung lượng).
+  - Ảnh chụp trước/sau: đã tạo mockup trực quan so sánh trước/sau `c1b_cta_comparison`.
+- Cần sửa / Nhận xét:
+
 ### [E1] Email "Báo cáo não bộ" hằng tuần · @antigravity · ưu tiên: thấp
 - Giao diện + template `web/templates/weekly-digest.html` + i18n đã đạt (Claude 16/10); mặc định **TẮT (opt-in)** `emailDigest: false`.
 - ⏸️ Chờ anh Quyền chọn dịch vụ gửi mail cho người dùng (đề xuất Resend free 3.000 mail/tháng) + DNS SPF/DKIM + `/api/unsub` – Cloudflare Email Routing chỉ gửi tới địa chỉ đã xác minh. **Claude triển khai worker**, Antigravity không deploy.
