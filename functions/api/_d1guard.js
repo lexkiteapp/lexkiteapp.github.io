@@ -4,6 +4,7 @@
  * - guardBackground(env, db): việc nền/quản trị (drive.*, archive, verify, youtube.sync, báo cáo QC…) → Response 429 {error:'quota-guard'} khi dùng ≥ 50 % hạn mức đọc.
  *   Việc người dùng (đồng bộ, đăng nhập, bài học) KHÔNG BAO GIỜ gọi hàm này. CI: gặp 429 → dừng, mai chạy tiếp (không thử lại).
  * - Cảnh báo ≥ 60 %: thư + chuông Quản trị (drive_alerts kind 'd1'), tối đa 1 thư/24 h. */
+import { REG } from './_jobs_reg.js';
 export const D1_LIMITS = { reads: 5e6, writes: 1e5 };
 export const GUARD_PCT = 0.5, ALERT_PCT = 0.6, OWN_BUDGET = 1.5e6;
 const CACHE = {}; // theo tài khoản: 'main' | 'b'
@@ -45,4 +46,23 @@ export async function guardBackground(env, db, json, which = 'main') {
 export async function guardBg(request, env, json, which = 'main') {
   try { const u = await d1Usage(env, env.DB, Date.now(), fetch, which); if (u.block) return json(request, 429, { error: 'quota-guard', pct: Math.round(u.ratio * 100), source: u.source }); } catch (e) { /* cho qua */ }
   return null;
+}
+
+/** Workers AI qua REST của TÀI KHOẢN 2 (cùng giao diện env.AI.run(model, input) → result). Token cần quyền Account › Workers AI › Read + Edit. */
+export function restAi(accountId, token, fetcher = (...a) => fetch(...a)) {
+  return { run: async (model, input) => {
+    const r = await fetcher(`https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(accountId)}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(input) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.success === false) { const e = new Error('ai-b-' + ((j.errors && j.errors[0] && j.errors[0].code) || r.status)); e.status = r.status; throw e; }
+    return j.result;
+  } };
+}
+/** Đặt chỗ Workers AI tài khoản CHÍNH cho đường người dùng (infra/jobs.json › reservations.workers_ai): đường NỀN (CI: studio X-Studio-Secret, lexai OIDC) KHÔNG dùng binding env.AI chính
+ * (trừ khi sổ cấp background_neurons > 0) mà dùng Workers AI của TÀI KHOẢN 2 qua REST (AI_B_ACCOUNT_ID/AI_B_TOKEN, mặc định D1B_ACCOUNT_ID/D1B_TOKEN); chưa cấu hình → env.AI = null (cổng AI rơi sang Gemini/GrabCast). Không đọc D1. */
+export function stripBackgroundAI(env, fetcher) {
+  const R = (REG.reservations || {}).workers_ai || {};
+  if (+R.background_neurons > 0 || !env) return env;
+  const acct = env.AI_B_ACCOUNT_ID || env.D1B_ACCOUNT_ID, tok = env.AI_B_TOKEN || env.D1B_TOKEN;
+  if (!env.AI && !(acct && tok)) return env;
+  return Object.create(env, { AI: { value: acct && tok ? restAi(acct, tok, fetcher) : null, enumerable: true } });
 }

@@ -7,6 +7,7 @@
 import { runModel, gemDiag } from './ai.js';
 import { candidates, report, gemFetch } from './_keys.js';
 
+import { stripBackgroundAI } from './_d1guard.js';
 const ISS = 'https://token.actions.githubusercontent.com', AUD = 'lexkite-lexai', REPO = 'lexkiteapp/lexkiteapp.github.io';
 const NAMES = { en: 'English', vi: 'Vietnamese', es: 'Spanish', pt: 'Brazilian Portuguese', fr: 'French', de: 'German', id: 'Indonesian', th: 'Thai', zh: 'Simplified Chinese', ja: 'Japanese', ko: 'Korean', hi: 'Hindi', ar: 'Arabic', ru: 'Russian', tr: 'Turkish' };
 const b64u = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((s.length + 3) % 4)), c => c.charCodeAt(0));
@@ -102,6 +103,7 @@ const J = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: 
 export async function onRequestPost({ request, env }) {
   const claims = await verifyOidc((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   if (!claims) return J({ error: 'unauthorized' }, 401);
+  env = stripBackgroundAI(env); // lexai chỉ dành cho CI (OIDC) = việc nền: không tiêu neuron Workers AI chính (đặt chỗ cho người dùng)
   const b = await request.json().catch(() => ({}));
   if (b.mode === 'vgen') {
     const items = Array.isArray(b.items) ? b.items.slice(0, 20).map(cutV) : [], model = VMODELS.includes(b.model) ? b.model : VMODELS[0];

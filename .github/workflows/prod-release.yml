@@ -1,0 +1,79 @@
+# Mỗi lần đẩy main = Cloudflare Pages tự deploy production (tích hợp git của Cloudflare). Workflow này, cho MỖI commit đó:
+#  1) tag    – gắn tag chú thích prod-YYYYMMDD-HHMM-<sha7> (mốc rollback duy nhất, nhìn là biết bản nào đang/đã chạy);
+#  2) gate   – npm test (cổng chặn thật là mergecheck/npm test TRƯỚC khi push; Pages deploy theo push nên bước này là kiểm lại sau-push, đỏ → issue ci-failure);
+#  3) smoke  – chờ Pages build xong commit rồi kiểm tuyến + API quan trọng của lexkite.com; lỗi → workflow đỏ → ci-triage mở issue ci-failure + cảnh báo Quản trị + IN LỆNH ROLLBACK;
+#  4) mark   – smoke + gate đều xanh → dời tag prod-good (bản tốt cuối cùng, đích của `rollback-pages.sh good`).
+# KHÔNG tự rollback: cần chủ OK (docs/ROLLBACK.md §Vì sao không tự rollback). Commit [skip ci] (sổ sao lưu) không chạy workflow này.
+name: Prod release
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      sha: { description: 'Commit cần gắn tag/smoke (mặc định: đầu main)', required: false }
+permissions: { contents: write, checks: read, statuses: read }
+concurrency: { group: 'prod-release-${{ github.event.inputs.sha || github.sha }}', cancel-in-progress: false }
+env: { SHA: '${{ github.event.inputs.sha || github.sha }}' }
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Gắn tag prod-…
+        run: |
+          git fetch -q --tags
+          SHA=$(git rev-parse "$SHA")
+          if [ -n "$(git tag --points-at "$SHA" --list 'prod-2*')" ]; then echo "đã có tag prod-* cho ${SHA::7}"; exit 0; fi
+          TAG="prod-$(date -u +%Y%m%d-%H%M)-${SHA::7}"
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git tag -a "$TAG" "$SHA" -m "Production deploy ${SHA}"
+          git push -q origin "refs/tags/$TAG"
+          echo "### 🏷️ $TAG" >> "$GITHUB_STEP_SUMMARY"
+          echo "Rollback về bản trước: \`bash scripts/ops/rollback-pages.sh previous\` · về bản này sau này: \`bash scripts/ops/rollback-pages.sh $TAG\`" >> "$GITHUB_STEP_SUMMARY"
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ github.event.inputs.sha || github.sha }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund
+      - name: npm test (cổng trước deploy – cùng bộ kiểm với mergecheck/health)
+        run: npm test
+  smoke:
+    needs: tag
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chờ Pages deploy xong + smoke lexkite.com
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+          LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
+        run: |
+          git fetch -q --tags
+          node scripts/ops/smoke.mjs --wait --sha "$(git rev-parse "$SHA")"
+  mark:
+    needs: [gate, smoke]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Dời tag prod-good (chỉ tiến, không lùi)
+        run: |
+          git fetch -q --tags
+          SHA=$(git rev-parse "$SHA")
+          OLD=$(git rev-parse -q --verify 'refs/tags/prod-good^{commit}' || true)
+          if [ -n "$OLD" ] && ! git merge-base --is-ancestor "$OLD" "$SHA"; then echo "prod-good ($OLD) mới hơn $SHA – giữ nguyên"; exit 0; fi
+          git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
+          git tag -fa prod-good "$SHA" -m "Bản production tốt cuối cùng (qua npm test + smoke): ${SHA}"
+          git push -q -f origin refs/tags/prod-good
+          echo "### ✅ prod-good → ${SHA::7}" >> "$GITHUB_STEP_SUMMARY"

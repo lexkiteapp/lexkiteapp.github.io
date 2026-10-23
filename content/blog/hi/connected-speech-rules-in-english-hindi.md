@@ -9,7 +9,7 @@ tags: [pronunciation, listening, connected-speech]
 keyword: "connected speech in english in hindi"
 cover: pron
 coverAlt: "Lexkite IPA उच्चारण पुस्तकालय: स्वर और व्यंजन ध्वनियों का अभ्यास"
-publishAt: ""
+publishAt: 2026-11-12T12:07:00+05:30
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

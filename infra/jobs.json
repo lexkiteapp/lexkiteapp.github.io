@@ -36,7 +36,7 @@
    "exclusive": true
   },
   "workers_ai": {
-   "label": "Workers AI (neuron)",
+   "label": "Workers AI tài khoản CHÍNH (neuron) – dành cho AI người dùng; việc nền mặc định 0 neuron (reservations)",
    "exclusive": true
   },
   "gh_minutes": {
@@ -44,7 +44,7 @@
    "exclusive": false
   },
   "workers_ai_b": {
-   "label": "Workers AI tài khoản 2 (neuron)",
+   "label": "Workers AI tài khoản 2 (neuron, 10.000/ngày miễn phí) – dành cho việc nền",
    "exclusive": true
   },
   "grabcast_ai": {
@@ -393,14 +393,14 @@
    ],
    "priority": "render",
    "resources": [
-    "workers_ai",
+    "workers_ai_b",
     "gh_minutes"
    ],
    "minutes": 60,
    "est": {
-    "workers_ai_neurons": 4000
+    "workers_ai_b_neurons": 2000
    },
-   "lease": false
+   "lease": true
   },
   {
    "id": "storage-watch",
@@ -426,8 +426,7 @@
    ],
    "priority": "render",
    "resources": [
-    "gh_minutes",
-    "workers_ai"
+    "gh_minutes"
    ],
    "minutes": 90,
    "est": {},
@@ -571,19 +570,19 @@
    "priority": "render",
    "resources": [
     "gh_minutes",
-    "workers_ai",
+    "workers_ai_b",
     "gemini",
     "drive_pool"
    ],
    "minutes": 150,
    "est": {
     "clips": 6,
-    "workers_ai_neurons": 3000,
     "gemini_calls": 12,
-    "drive_calls": 60
+    "drive_calls": 60,
+    "workers_ai_b_neurons": 3000
    },
    "lease": true,
-   "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate)"
+   "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate) · Workers AI chính: 0 neuron nền (studio/lexai bỏ binding env.AI cho đường CI → cổng AI rơi sang Gemini)"
   },
   {
    "id": "vocab-img",
@@ -593,21 +592,92 @@
    ],
    "priority": "bulk",
    "resources": [
-    "workers_ai",
     "workers_ai_b",
     "grabcast_ai",
     "gh_minutes"
    ],
    "minutes": 60,
    "est": {
-    "workers_ai_neurons": 0,
-    "workers_ai_b_neurons": 8640,
+    "workers_ai_b_neurons": 4000,
     "grabcast_images": 40,
     "images": 95
    },
    "lease": true,
    "paused": true,
    "_note": "Ảnh minh hoạ từ vựng – TẠM DỪNG tới khi chủ duyệt phong cách pilot (workflow chưa có schedule; cron = lịch dự kiến khi bật). acquire từ chối khi paused trừ --force (chạy tay)."
+  },
+  {
+   "id": "d1-backup",
+   "workflow": "d1-backup.yml",
+   "cron": [
+    "15 0 * * 1,2"
+   ],
+   "priority": "archive",
+   "resources": [
+    "d1_main_read",
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {
+    "d1_main_reads": 60000,
+    "drive_calls": 80
+   },
+   "lease": true
+  },
+  {
+   "id": "release-archive",
+   "workflow": "release-archive.yml",
+   "cron": [
+    "30 11 * * 6"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 40
+   },
+   "lease": true
+  },
+  {
+   "id": "code-bundle",
+   "workflow": "code-bundle.yml",
+   "cron": [
+    "0 12 * * 0"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {
+    "drive_calls": 20
+   },
+   "lease": true
   }
- ]
+ ],
+ "reservations": {
+  "_note": "Đặt chỗ cho đường người dùng: neuron Workers AI của tài khoản chính KHÔNG được việc nền tiêu. grants = số neuron việc nền được phép dùng (mặc định 0). Việc liệt kê tài nguyên workers_ai phải lease:true; acquire trả grants.workers_ai (workflow chuyển thành --neurons / VIMG_MAX_MAIN). Muốn cấp: thêm {\"<job>\": N} vào grants rồi node scripts/jobs/gen.mjs --write.",
+  "workers_ai": {
+   "account": "main",
+   "user_neurons": 10000,
+   "background_neurons": 0,
+   "grants": {}
+  },
+  "workers_ai_b": {
+   "account": "b",
+   "daily_neurons": 10000,
+   "safety_margin": 1000,
+   "grants": {
+    "news-auto": 3000,
+    "script-bank": 2000,
+    "vocab-img": 4000
+   },
+   "_note": "Việc nền dùng Workers AI tài khoản 2 (token cf-token-2: Account › Workers AI › Read + Edit; Pages: AI_B_TOKEN/AI_B_ACCOUNT_ID hoặc D1B_*). Tổng grants ≤ daily_neurons − safety_margin (jobs-check). 1 ảnh FLUX 4 bước ≈ 173 neuron."
+  }
+ }
 }

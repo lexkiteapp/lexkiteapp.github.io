@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1]
 keyword: "ielts writing task 1 in hindi"
 cover: task1
 coverAlt: "Lexkite IELTS Writing Task 1: विभिन्न ग्राफ और चार्ट का विश्लेषण ढांचा"
-publishAt: ""
+publishAt: 2026-11-14T21:59:00+05:30
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

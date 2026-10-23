@@ -14,7 +14,7 @@ for (const j of REG.jobs.filter(j => j.workflow)) {
   if (t !== s) { drift++; console.log(`${WRITE ? '✎' : '≠'} ${j.id}: ${j.cron.join(' | ')}`); if (WRITE) fs.writeFileSync(f, t); }
 }
 // functions/api/_jobs_reg.js (Pages Functions không import JSON được ổn định → sinh module JS)
-const regJs = `// SINH TỪ infra/jobs.json bởi scripts/jobs/gen.mjs — KHÔNG sửa tay\nexport const REG = ${JSON.stringify({ priorities: REG.priorities, resources: REG.resources, budget_caps: REG.budget_caps, jobs: REG.jobs }, null, 1)};\n`;
+const regJs = `// SINH TỪ infra/jobs.json bởi scripts/jobs/gen.mjs — KHÔNG sửa tay\nexport const REG = ${JSON.stringify({ priorities: REG.priorities, resources: REG.resources, budget_caps: REG.budget_caps, reservations: REG.reservations || {}, jobs: REG.jobs }, null, 1)};\n`;
 const oldJs = fs.existsSync('functions/api/_jobs_reg.js') ? fs.readFileSync('functions/api/_jobs_reg.js', 'utf8') : '';
 if (oldJs !== regJs) { drift++; console.log(`${WRITE ? '✎' : '≠'} functions/api/_jobs_reg.js`); if (WRITE) fs.writeFileSync('functions/api/_jobs_reg.js', regJs); }
 // docs/JOBS.md

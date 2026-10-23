@@ -9,7 +9,7 @@ tags: [writing, linking-words, vocabulary]
 keyword: "linking words in english in hindi"
 cover: write
 coverAlt: "Lexkite IELTS Task 2 लेखन अभ्यास: निबंध संरचना और उपयुक्त शब्दावली"
-publishAt: ""
+publishAt: 2026-11-15T20:18:00+05:30
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

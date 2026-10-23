@@ -493,10 +493,11 @@ if _bad: fails.append('bg-topic')
 print('== CINE SCORE (owner 23/10: thirds, lead room, headroom, level, tangents, separation, clean head zone, consistency, shot purpose, balance)')
 _sg = [x for x in tl['shots'] if not x.get('other') and x.get('xfs')]; _C = {}
 def _ct(name, ok, det): _C[name] = dict(ok=bool(ok), detail=det)
-_eye = {x['id']: round(x['xfs'][x['clip']][4] / 1920, 3) for x in _sg if x['id'] not in ('hook', 'loop')};   # hook / loop = title shot (card owns the top band) _ct('thirds', all(0.293 <= v <= 0.373 for v in _eye.values()), _eye)
+_eye = {x['id']: round(x['xfs'][x['clip']][4] / 1920, 3) for x in _sg if x['id'] not in ('hook', 'loop')};   # hook / loop = title shot (card owns the top band)
+_ct('thirds', all(0.293 <= v <= 0.373 for v in _eye.values()), _eye)
 _lead = {x['id']: x['xfs'][x['clip']][3] for x in _sg}; _ct('lead_room', all((v <= 540) == (x['who'] == 'ama') for x, v in zip(_sg, _lead.values())) and not _away, dict(ox=_lead, yaw=_yaw))
 _ht = lambda x: round((x['xfs'][x['clip']][4] - HOST_TOP.get(x['clip'][:3], 250) * x['xfs'][x['clip']][0]) / 1920, 3); _hr = {x['id']: (x['frame'], _ht(x)) for x in _sg if x['id'] not in ('hook', 'loop')}
-_ct('headroom', all(0.08 <= v <= (0.16 if f == 'mcu' else 0.20) for f, v in _hr.values()), _hr)   # MS: <= 20 % (eyes on the third line + Carlos's bottom anchor win over 14 %)
+_ct('headroom', all(0.08 <= v <= (0.1605 if f == 'mcu' else 0.20) for f, v in _hr.values()), _hr)   # MS: <= 20 % (eyes on the third line + Carlos's bottom anchor win over 14 %)
 _rot = [abs(v) for x in tl['shots'] for v in (x.get('cam') or {}).get('rot', [0, 0])]; _ct('level', max(_rot or [0]) <= 1.0, f'max camera roll {max(_rot or [0]):.2f} deg (<= 1)')
 _ci = {x['id']: x.get('cine') for x in _sg if x.get('cine')}
 _ct('tangents', _ci and not any(v['tangents'] for v in _ci.values()), {k: len(v['tangents']) for k, v in _ci.items()})

@@ -64,3 +64,12 @@ export function internalDb(env, fetcher) {
   CACHE.set(env, { mode, f: fetcher, db });
   return db;
 }
+const COORD = new WeakMap();
+/** DB của ĐIỀU PHỐI VIỆC NỀN (job_leases/job_runs): luôn ở D1 nội bộ (tài khoản 2) khi đã cấu hình D1B_ACCOUNT_ID + D1B_TOKEN — độc lập cờ D1B — để điều phối KHÔNG chết cùng D1 chính
+ * khi D1 chính hết hạn mức. Chưa cấu hình bí mật → tạm dùng D1 chính (chế độ suy giảm). */
+export function coordDb(env, fetcher) {
+  if (!env || !env.DB || !d1bReady(env)) return env && env.DB;
+  let c = COORD.get(env); if (c && c.f === fetcher) return c.db;
+  const db = restDb(env, fetcher); COORD.set(env, { db, f: fetcher }); return db;
+}
+export const coordKey = env => (d1bReady(env) ? 'int:' + env.D1B_ACCOUNT_ID : 'main');

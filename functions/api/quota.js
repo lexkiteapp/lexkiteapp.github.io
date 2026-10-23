@@ -6,7 +6,7 @@
  *   allowSet { target, note }              → thêm vào danh sách không giới hạn                  allowDelete { id }
  * Mọi thay đổi ghi vào quota_audit (chi tiết) + admin_log (nhật ký quản trị chung). Tài liệu: docs/QUOTAS.md */
 import { d1Usage, D1_LIMITS } from './_d1guard.js';
-import { internalDb } from './_d1b.js';
+import { coordDb, coordKey } from './_d1b.js';
 import { setupJobs, timeline } from './_jobs.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { geminiKeys } from './ai.js';
@@ -47,7 +47,14 @@ async function snapshot(db, env) {
 const OPS = {
   state: (db, b, who, env) => snapshot(db, env),
   // Lịch việc nền hôm nay (đã chạy / bỏ qua + lý do / ngân sách) – bảng job_* ở D1 nội bộ
-  async jobs(db, b, who, env) { const idb = internalDb(env); await setupJobs(idb, 'q'); return timeline(env, idb, b); },
+  async jobs(db, b, who, env) {
+    const idb = coordDb(env);
+    try { await setupJobs(idb, coordKey(env)); return await timeline(env, idb, b); }
+    catch (e) { // D1 nội bộ không với tới được → chỉ ĐỌC lịch sử cũ từ D1 chính (suy giảm), không ghi
+      if (idb === env.DB) throw e;
+      const t = await timeline(env, env.DB, b); t.degraded = 'internal-unreachable'; return t;
+    }
+  },
   async blockSet(db, b, who) {
     const id = await normId(b.target); if (!id) throw new Bad('target');
     const min = Math.max(0, Math.min(Math.floor(+b.minutes || 0), 525600)), until = min ? Date.now() + min * 60e3 : 0;

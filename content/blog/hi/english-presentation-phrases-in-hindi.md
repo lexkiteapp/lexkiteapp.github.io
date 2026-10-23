@@ -9,7 +9,7 @@ tags: [speaking, business-english, presentation]
 keyword: "presentation in english tips in hindi"
 cover: speaking
 coverAlt: "Lexkite स्पीकिंग अभ्यास कक्ष: पार्ट 1 और पार्ट 2 के लिए मॉडल उत्तर और शब्दावली"
-publishAt: ""
+publishAt: 2026-11-13T20:00:00+05:30
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [grammar, passive-voice, verbs]
 keyword: "passive voice rules in hindi"
 cover: grammar
 coverAlt: "Lexkite व्याकरण स्क्रीन: 12 काल में एक्टिव और पैसिव वॉइस के नियम"
-publishAt: ""
+publishAt: 2026-11-16T20:59:00+05:30
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

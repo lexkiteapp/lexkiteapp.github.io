@@ -7,7 +7,7 @@ Cổng (trượt 1 = trượt; lần 1 trượt → vẽ lại 1 lần (gen --at
           + CLIP ViT-B-32 (open_clip) xếp hạng nghĩa đúng giữa 40 nghĩa khác cùng loại; thị giác không có → chỉ CLIP (hạng ≤ 3, p ≥ 0,2)
   text    OCR RapidOCR: không được có chữ/số (ô tin cậy ≥ 0,6, ≥ 2 ký tự chữ-số)
   safe    CLIP zero-shot an toàn cho trẻ (khoả thân / máu / bạo lực / kinh dị) + câu hỏi thị giác
-  style   CLIP "flat vector" thắng ảnh chụp/3D/phác thảo/sơn dầu + nền viền phẳng sáng + gần tâm phong cách của lô (cos ≥ 0,6)
+  style   CLIP "flat vector" thắng ảnh chụp/3D/phác thảo/sơn dầu + nền viền phẳng sáng + gần tâm phong cách của lô (cos ≥ 0,5)
   dedupe  pHash ≤ 6 với nghĩa khác (lô + thư viện đã có content/lexicon/img.json) → trượt
   size    WebP 384 px q70 (lùi q60/q50) ≤ 20 KB, mục tiêu ~12 KB"""
 import glob, hashlib, io, json, os, re, sys
@@ -55,9 +55,12 @@ def clip_sense(k, v):
     pos = LEX[k]['pos']; pool = sorted([x for x in SEL if x != k and LEX[x]['pos'] == pos and LEX[x]['w'] != LEX[k]['w']], key=lambda x: fnv(k + x))[:40]
     ts = [sense_txt(k)] + [sense_txt(x) for x in pool] + ['an image of text and letters', 'an abstract pattern', 'an empty background']
     p = soft(emb_txt(ts) @ v); return int((p > p[0]).sum()) + 1, float(p[0])
-SAFE = ['a safe friendly cartoon illustration for children']
-UNSAFE = ['a nude person', 'sexual content', 'blood and gore', 'a violent attack on a person', 'a scary horror image']
-def clip_safe(v): p = soft(emb_txt(SAFE + UNSAFE) @ v); return float(p[1:].max())
+# an toàn: nhiều mốc "an toàn" cùng phong cách (ảnh nào cũng là tranh phẳng) vs mốc nguy hại; trượt khi tổng xác suất nhóm nguy hại > 0,5.
+# (pilot 23/10: 1 mốc an toàn + 'scary horror' → chiếc lá/cầu thang bị gắn 'unsafe' 0,76 – sai)
+SAFE = ['a flat vector illustration of an everyday object', 'a flat vector illustration of a person', 'a flat vector illustration of nature or animals',
+        'a flat vector illustration of food', 'a flat vector illustration of a place or building', 'a flat vector illustration of an action']
+UNSAFE = ['nudity, a naked body', 'sexual content', 'graphic blood and gore', 'a person being violently attacked with a weapon']
+def clip_safe(v): p = soft(emb_txt(SAFE + UNSAFE) @ v); return float(p[len(SAFE):].sum())
 STY = ['a flat vector cartoon illustration on a plain light background', 'a photograph', 'a 3d render', 'a pencil sketch', 'an oil painting', 'a screenshot of text']
 def clip_style(v): p = soft(emb_txt(STY) @ v); return float(p[0])
 def border(im):
@@ -120,7 +123,7 @@ def check(k, att, f, s, im):
     if vs is True and r['rank'] > 8: r['reasons'].append(f'clip rank {r["rank"]}')
     if vs is None and (r['rank'] > 3 or r['p'] < 0.2): r['reasons'].append(f'clip rank {r["rank"]} p {r["p"]:.2f}')
     if r['ocr']: r['reasons'].append('text: ' + ' '.join(t for t, _ in r['ocr'])[:30])
-    if r['unsafe'] > 0.35: r['reasons'].append(f'unsafe {r["unsafe"]}')
+    if r['unsafe'] > 0.5: r['reasons'].append(f'unsafe {r["unsafe"]}')
     if r['flat'] < 0.5: r['reasons'].append(f'style flat {r["flat"]}')
     if r['bg'] < 170 or r['bgstd'] > 40: r['reasons'].append(f'background {r["bg"]}/{r["bgstd"]}')
     if r['bytes'] > MAXB: r['reasons'].append(f'size {r["bytes"]}')
@@ -144,7 +147,7 @@ def run_attempt(att):
         c = np.mean([r['emb'] for r in ok], axis=0); c /= np.linalg.norm(c)
         for r in [r for r in res.values() if 'emb' in r]:
             r['centroid'] = round(float(np.dot(r['emb'], c)), 3)
-            if r['centroid'] < 0.6: r['reasons'].append(f'style centroid {r["centroid"]}')
+            if r['centroid'] < 0.5: r['reasons'].append(f'style centroid {r["centroid"]}')
     seen = [(x, LIB[x].get('ph')) for x in LIB if LIB[x].get('ph')]
     for r in sorted(res.values(), key=lambda r: -r['p']):
         if r['reasons']: continue

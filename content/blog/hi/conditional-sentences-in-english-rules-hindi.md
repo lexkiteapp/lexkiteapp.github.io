@@ -9,7 +9,7 @@ tags: [grammar, conditional-sentences, tense]
 keyword: "conditional sentences in english in hindi"
 cover: grammar
 coverAlt: "Lexkite व्याकरण अभ्यास: IELTS 12 काल और कंडीशनल वाक्यों का अध्ययन"
-publishAt: ""
+publishAt: 2026-11-11T08:13:00+05:30
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
