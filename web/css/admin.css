@@ -403,9 +403,12 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 @media (max-width: 560px) { .u-facts { grid-template-columns: 1fr; } .u-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .u-sel { flex: 1 1 45%; } .u-sel select { min-width: 0; width: 100%; } .u-act-bar { flex-direction: column; align-items: stretch; } .u-act-group { justify-content: flex-start; } }
 
 /* Hộp thư */
-.ib-item { margin-bottom: .8rem; }
-.ib-item.done { opacity: .62; }
-.ib-meta { font-size: .8rem; color: var(--muted); display: flex; gap: .4rem; flex-wrap: wrap; align-items: center; }
+.ib-item { margin-bottom: 1rem; border-radius: var(--a-r); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--a-card-shadow); padding: 1.15rem 1.3rem; transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+.ib-item:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); box-shadow: var(--a-card-hover-shadow); }
+.ib-item.done { opacity: .65; background: color-mix(in srgb, var(--surface) 92%, var(--surface-2)); border-color: color-mix(in srgb, var(--line) 75%, transparent); }
+.ib-item.done:hover { opacity: .9; }
+.ib-meta { font-size: .78rem; font-weight: 500; color: var(--muted); display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+.ib-item .msg { white-space: pre-wrap; word-break: break-word; font-size: .9rem; line-height: 1.6; margin: .8rem 0; padding: .85rem 1rem; border-radius: 10px; background: var(--surface-2); border: 1px solid color-mix(in srgb, var(--line) 70%, transparent); color: var(--text); }
 
 /* Dịch vụ & API */
 .svc-usage { margin-bottom: 1rem; } .svc-usage summary { cursor: pointer; padding: .2rem 0; } .svc-usage[open] summary { margin-bottom: .6rem; }
@@ -441,6 +444,11 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .bw-play textarea { width: 100%; font: .8rem/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
 
 /* Tab Thông báo người dùng */
-#nPreviewModal::backdrop { background: rgba(15, 23, 42, .6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-#nPreviewModal { animation: popIn .2s ease-out; box-shadow: 0 20px 40px rgba(0,0,0,.25); }
-@keyframes popIn { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+.adm-header-bar { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.adm-header-bar h2 { margin: 0; font-size: 1.45rem; font-weight: 850; letter-spacing: -.02em; }
+.adm-header-bar p { margin: .25rem 0 0; }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: .85rem; margin-bottom: 1.2rem; }
+#nComposeCard { border-radius: var(--a-r); box-shadow: var(--a-card-shadow); border: 1px solid var(--line); background: var(--surface); padding: 1.25rem 1.35rem; }
+#nPreviewModal::backdrop { background: color-mix(in srgb, var(--text) 45%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+#nPreviewModal { animation: popIn .2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: var(--shadow-lg); border-radius: 16px; border: 1px solid var(--line); background: var(--surface); color: var(--text); }
+@keyframes popIn { from { opacity: 0; transform: scale(.96) translateY(6px); } to { opacity: 1; transform: scale(1) translateY(0); } }
