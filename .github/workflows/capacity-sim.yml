@@ -7,7 +7,7 @@ on:
     inputs:
       users: { description: 'người mẫu / hồ sơ', required: false, default: '5' }
   push:
-    branches: [main, capacity-sim]
+    branches: [main, capacity-sim, scale-v2]
     paths: ['functions/api/**', 'scripts/capacity/**', '.github/workflows/capacity-sim.yml']
   schedule:
     - cron: '40 4 * * 1'
@@ -24,6 +24,8 @@ jobs:
         run: npm i --no-save --no-audit --no-fund miniflare@4.20260730.0
       - name: Mô phỏng (Miniflare)
         run: node scripts/capacity/sim.mjs --d1=miniflare --users=${{ github.event.inputs.users || '5' }} --seed=1500 --json=out/capacity/miniflare.json --md=out/capacity/miniflare.md
+      - name: Mô phỏng kiến trúc cũ (--legacy, Miniflare) để so trước/sau
+        run: node scripts/capacity/sim.mjs --d1=miniflare --legacy --users=${{ github.event.inputs.users || '5' }} --seed=1500 --json=out/capacity/miniflare-legacy.json --md=out/capacity/miniflare-legacy.md
       - name: Mô phỏng (ước lượng node:sqlite, đối chiếu)
         if: always()
         run: node scripts/capacity/sim.mjs --users=3 --seed=1500 --json=out/capacity/sqlite.json --md=out/capacity/sqlite.md
