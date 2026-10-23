@@ -178,6 +178,7 @@
     'Không có thay đổi': 'No changes', '{n} thay đổi chưa lưu': ['{n} unsaved change', '{n} unsaved changes'], 'Hoàn tác': 'Discard', 'Lưu thay đổi': 'Save changes', 'Đang lưu…': 'Saving…',
     'Đã lưu {n} thay đổi': ['Saved {n} change', 'Saved {n} changes'], 'Sửa lỗi trước khi lưu': 'Fix the errors before saving', 'Đã lưu': 'Saved',
     '{a} khóa xoay vòng · {b} sẵn sàng': '{a} rotating keys · {b} ready', 'Chưa có khóa – AI đang dùng Cloudflare Workers AI': 'No keys yet – AI is running on Cloudflare Workers AI', 'Dùng cho chấm bài viết/nói & duyệt bản dịch.': 'Used for writing/speaking grading & translation review.',
+    'Đã tự động đăng xuất do không thao tác trong {n} phút.': 'Automatically logged out due to inactivity for {n} minutes.',
   };
   const L = (vi, vars) => {
     let s = LANG === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi.split('@@')[0];
@@ -409,6 +410,33 @@
     if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
     return j;
   }
+  // Cài đặt tài khoản quản trị qua /api/admin-prefs (functions/api/admin-prefs.js)
+  async function prefApi(op, body = {}) {
+    const r = await fetch('/api/admin-prefs', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 403) throw new Error('forbidden');
+    if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; throw e; }
+    return j;
+  }
+  let idleTimer = null, idleMin = 0, lastAct = Date.now();
+  function setupIdleTimer(minutes) {
+    idleMin = Number(minutes) || 0;
+    if (idleTimer) { clearInterval(idleTimer); idleTimer = null; }
+    if (idleMin <= 0) return;
+    lastAct = Date.now();
+    idleTimer = setInterval(async () => {
+      if (idleMin > 0 && Date.now() - lastAct >= idleMin * 60000) {
+        clearInterval(idleTimer); idleTimer = null;
+        try { await auth.signOut(); } catch (e) { /* bỏ qua */ }
+        alert(L('Đã tự động đăng xuất do không thao tác trong {n} phút.', { n: idleMin }));
+        location.reload();
+      }
+    }, 15000);
+  }
+  const onAct = () => { lastAct = Date.now(); };
+  ['mousedown', 'keydown', 'touchstart', 'scroll'].forEach(ev => {
+    try { addEventListener(ev, onAct, { passive: true }); } catch (e) { /* bỏ qua */ }
+  });
   const gprov = () => { const p = new firebase.auth.GoogleAuthProvider(); p.setCustomParameters({ prompt: 'select_account' }); return p; }; // luôn cho chọn tài khoản Google
   const signIn = () => auth.signInWithPopup(gprov()).catch(e => { const m = $('#loginMsg'); if (m) m.textContent = e.message; });
   $('#signin').onclick = signIn;
@@ -465,7 +493,17 @@
     if (!(await isAdmin())) { user = null; denied = true; deny(); try { await auth.signOut(); } catch (e) { /* bỏ qua */ } return; }
     renderMe(u);
     try {
-      const h = baseOf(location.hash); await show(VIEWS[h] ? h : 'overview', { force: true, first: true });
+      let cachedPref = null;
+      try { cachedPref = JSON.parse(sessionStorage.getItem('adm.pref') || 'null'); } catch (e) { /* bỏ qua */ }
+      if (cachedPref && cachedPref.autoLogoutMin) setupIdleTimer(cachedPref.autoLogoutMin);
+      prefApi('get').then(r => {
+        if (r && r.pref) {
+          try { sessionStorage.setItem('adm.pref', JSON.stringify(r.pref)); } catch (e) { /* bỏ qua */ }
+          if (r.pref.autoLogoutMin) setupIdleTimer(r.pref.autoLogoutMin);
+        }
+      }).catch(() => {});
+      const defTab = (cachedPref && cachedPref.tab && VIEWS[cachedPref.tab]) ? cachedPref.tab : 'overview';
+      const h = baseOf(location.hash); await show(VIEWS[h] ? h : defTab, { force: true, first: true });
       document.body.classList.add('adm-in'); side.hidden = false; denied = false; renderNav(); badges();
       try { localStorage.setItem('lk.noTrack', '1'); } catch (e) { /* bỏ qua */ } // máy của quản trị: app không gửi thống kê (js/app.js)
     } catch (e) {
@@ -1395,6 +1433,34 @@
       if ($('#gman')) $('#gman').onclick = () => keyDialog(g, () => show('settings', { force: true }));
       Object.keys(F).forEach(paintField); paintBar(); paintPreview(); paintRate();
       guard = () => tab === 'settings' && dirty().length > 0;
+      try {
+        await lazy('AdminPrefs', 'js/admin-prefs.js');
+        if (window.AdminPrefs && window.AdminPrefs.render) {
+          const pwrap = document.createElement('div');
+          pwrap.id = 'admPrefWrap';
+          const targetGrid = main.querySelector('#setForm .set-grid') || main;
+          targetGrid.appendChild(pwrap);
+          await window.AdminPrefs.render(pwrap, {
+            api: prefApi,
+            user,
+            L,
+            esc,
+            num,
+            rel,
+            when,
+            toast,
+            dataTable,
+            emptyState,
+            lang: () => LANG,
+            setLang,
+            onPrefSaved: p => {
+              try { sessionStorage.setItem('adm.pref', JSON.stringify(p)); } catch (e) { /* bỏ qua */ }
+              if (p.autoLogoutMin !== undefined) setupIdleTimer(p.autoLogoutMin);
+              if (p.theme && typeof setTheme === 'function') setTheme(p.theme);
+            }
+          });
+        }
+      } catch (e) { /* module lười không làm hỏng tab cài đặt */ }
     },
   };
   // Cho module tải lười dùng chung thành phần (tùy chọn – module cũ vẫn chạy độc lập)

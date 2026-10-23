@@ -21,6 +21,8 @@ on:
       - 'Hiệu năng thư viện clip'
       - 'Content protection'
       - 'Kiểm tương phản màu'
+      - 'capacity-sim'
+      - 'capacity-watch'
       - 'Đăng add-on Chrome Web Store'
       - 'd1b-migrate'
       - 'Kênh & phân phối – giao diện + mặt tiền video'

@@ -22,7 +22,7 @@ const ADM = rd('web/js/admin.js'), AEN = dict(ADM);
   const enBlock = ADM.slice(ADM.indexOf('const EN = {'), ADM.indexOf('const L = ('));
   const miss = [...new Set([...ADM.replace(enBlock, '').matchAll(/'((?:[^'\\\n]|\\.)*)'/g)].map(m => unq(m[1])).filter(k => VI.test(k) && !/[|\\^$]/.test(k)))].filter(k => !(k in AEN) && !/^(lk\.|adm\.)/.test(k));
   ok(!miss.length, 'admin.js: chuỗi tiếng Việt thiếu bản EN: ' + miss.slice(0, 5).join(' | '));
-  for (const [f, fn] of [['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-social-mgr.js', 'M'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B'], ['admin-video.js', 'V']]) {
+  for (const [f, fn] of [['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-social-mgr.js', 'M'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B'], ['admin-video.js', 'V'], ['admin-prefs.js', 'P']]) {
     const src = rd('web/js/' + f), EN = dict(src);
     const m2 = [...new Set([...src.matchAll(new RegExp(`\\b(?:${fn}|L)\\(\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g'))].map(m => unq(m[1])))].filter(k => VI.test(k) && !(k in EN) && !(k in AEN));
     ok(!m2.length, `${f}: khóa tiếng Việt thiếu bản EN: ${m2.slice(0, 3).join(' | ')}`);
@@ -84,6 +84,12 @@ w.fetch = async (url, o = {}) => {
   const b = o.body ? JSON.parse(o.body) : {}; calls.push({ url: String(url), b });
   const res = (j, s = 200) => ({ ok: s < 400, status: s, json: async () => j });
   if (/\/api\/admin-shorts/.test(url)) return b.op === 'list' ? res(JSON.parse(JSON.stringify(VFX))) : res({ error: 'needs-token' }, 503);
+  if (/\/api\/admin-prefs/.test(url)) {
+    if (b.op === 'get') return res({ ok: true, pref: { tab: 'settings', lang: 'en', theme: 'auto', autoLogoutMin: 0, alertTypes: ['js_error'], jsErrorThreshold: 10, quotaThresholdPct: 70 } });
+    if (b.op === 'set') return res({ ok: true, pref: b.pref });
+    if (b.op === 'logs') return res({ ok: true, rows: [{ at: NOW, email: 'admin@example.com', op: 'adminPrefSet', ok: 1, ip: '127.0.0.1', country: 'VN' }] });
+    return res({ error: 'op' }, 400);
+  }
   if (/\/api\/admin/.test(url)) return FX[b.op] ? res(JSON.parse(JSON.stringify(FX[b.op]))) : res({ error: 'op' }, 400);
   if (/\/api\/drive/.test(url)) return res({ alerts: [{ level: 'warn', t: 'replica', p: { n: 17 } }] });
   if (/\/api\/backlinks/.test(url)) return BFX[b.op] ? res(JSON.parse(JSON.stringify(BFX[b.op]))) : res({ error: 'op' }, 400);
@@ -97,7 +103,7 @@ w.FIREBASE_CONFIG = {}; w.firebase = { initializeApp() {}, auth: Object.assign((
 const seen = {};
 for (const n of ['AdminDrive', 'AdminKeys', 'AdminQuota', 'AdminSocial', 'AdminStudio']) w[n] = { render(box) { seen[n] = w.location.hash; box.innerHTML = `<div class="card" id="stub-${n}">stub</div>`; } };
 w.AdminReports = { render(box) { box.innerHTML = '<div class="card" id="stub-rep">stub</div>'; }, card(box) { box.innerHTML = '<div class="card">reports card</div>'; } };
-w.AdminClips = {}; /* lưới cũ: không nạp admin-clips.js trong jsdom */ w.eval(rd('web/js/admin-backlinks.js')); w.eval(rd('web/js/admin-video.js'));
+w.AdminClips = {}; /* lưới cũ: không nạp admin-clips.js trong jsdom */ w.eval(rd('web/js/admin-backlinks.js')); w.eval(rd('web/js/admin-video.js')); w.eval(rd('web/js/admin-prefs.js'));
 w.eval(ADM);
 await tick(80);
 const h1 = () => ($('.pg-t') || {}).textContent;
@@ -150,6 +156,16 @@ const cs = lastCall('configSet');
 ok(cs && JSON.stringify(cs.b.values) === JSON.stringify({ banner_level: 'warn', ai_user: '', ai_anon: '4' }), 'lưu: chỉ gửi trường đã đổi, mặc định = "" → ' + JSON.stringify(cs && cs.b.values));
 ok(/Saved 3 changes/.test($('#toasts').textContent), 'toast xác nhận đã lưu');
 ok(/No changes/.test($('#saveSt').textContent) && !$('.fld.dirty'), 'sau khi lưu: hết trạng thái chưa lưu');
+// Khối Cài đặt tài khoản quản trị ([N3])
+ok(!!$('#admPrefCard'), 'hiện khối cài đặt tài khoản quản trị');
+ok(!!$('#admPrefTab') && !!$('#admPrefLogout') && !!$('#admPrefJsLim'), 'đủ các ô chọn tab, tự đăng xuất, ngưỡng');
+ok($$('.adm-alert-chk').length === 6, 'có 6 checkbox loại cảnh báo email');
+$('#admPrefSave').click(); await tick(30);
+const prefSetCall = calls.find(c => c.url.includes('/api/admin-prefs') && c.b.op === 'set');
+ok(prefSetCall && prefSetCall.b.pref, 'bấm lưu cài đặt tài khoản → gọi API set');
+$('#admLogCsv').click(); await tick(30);
+const prefLogCall = [...calls].reverse().find(c => c.url.includes('/api/admin-prefs') && c.b.op === 'logs');
+ok(prefLogCall && prefLogCall.b.limit === 500, 'bấm xuất CSV → gọi API logs limit=500');
 // Chặn rời trang khi còn thay đổi
 input($('#set-ai_anon'), '6');
 $('#tabs a[data-tab="overview"]').click(); await tick();
