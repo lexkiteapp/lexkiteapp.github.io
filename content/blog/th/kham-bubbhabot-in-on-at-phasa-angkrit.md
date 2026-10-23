@@ -131,6 +131,8 @@ quiz: [
 
 ![กราฟสถิติการเรียนรู้บน Lexkite พร้อมคะแนน xp และ heatmap บันทึกความต่อเนื่อง](media:stats "ตรวจสอบคะแนน xp และติดตามชั่วโมงเรียนภาษาอังกฤษอย่างสม่ำเสมอบน heatmap รายเดือน")
 
+อ่านต่อ: [IELTS Writing Task 1 กราฟ: เทคนิคบรรยายให้ได้คะแนน Band 7+](/th/blog/ielts-writing-task-1-banyai-graph/) · [Linking Words ภาษาอังกฤษ: รวมคำเชื่อมทุกหมวด อัปเกรดงานเขียน](/th/blog/kham-chueam-phasa-angkrit-linking-words/) · [ภาษาอังกฤษ presentation: รวมประโยคและสำนวนพรีเซนต์งานมืออาชีพ](/th/blog/samnuan-phasa-angkrit-presentation-ngan/)
+
 {{cta: /tu-vung/ | เริ่มฝึกไวยากรณ์ภาษาอังกฤษ}}
 
 ศึกษาคลังคำศัพท์และโครงสร้างประโยคเพิ่มเติมได้ที่ [คลังคำศัพท์และข้อสอบจำลอง](/tu-vung/) และเรียนรู้วิธีการจัดตารางทบทวนอย่างเป็นระบบจากบทความ [วิธีท่องศัพท์ภาษาอังกฤษ](/th/blog/withi-thong-sap-phasa-angkrit/) และ [เรียนภาษาอังกฤษด้วยตัวเอง](/th/blog/rian-phasa-angkrit-duai-tua-eng/)

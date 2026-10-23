@@ -592,13 +592,15 @@ for s in S:
             ao = qblur(a, 45)[..., None] * 0.22; B = B * (1 - ao)   # ambient occlusion / contact shadow around the body
             B0 = B.copy()
             f = f.astype(np.float32)
-            if (s['id'], i) not in KEYM:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
+            if (a > 0.5).sum() < 400: continue   # off-screen (a pan slides a host in / out): nothing to composite
+            if (s['id'], i) not in KEYM and (a > 0.9).sum() < 20000: KEYM[(s['id'], i, 'tmp')] = True   # #89: a host still mostly off-screen at j=0 gave NaN key stats -> black shots
+            if (s['id'], i) not in KEYM and (a > 0.9).sum() >= 20000:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
                 m_ = a > 0.9; ring_ = (cv2.dilate((a > 0.5).astype(np.uint8), np.ones((61, 61), np.uint8)) > 0) & ~m_
                 hm_ = f[m_].mean(0) + 1; bm_ = B[ring_].mean(0) + 1; KEYM[(s['id'], i)] = np.clip((bm_ / hm_) ** 0.2, 0.92, 1.08) * np.clip((bm_.mean() / hm_.mean()) ** 0.15, 0.94, 1.10)
-            f = f * KEYM[(s['id'], i)] * 1.06 * HOSTG   # +6 % key (owner: brighter, real-camera exposure)
-            if (s['id'], i, 'c') not in KEYM:   # contrast match + light direction from the background (left vs right third)
+            f = f * KEYM.get((s['id'], i), 1.0) * 1.06 * HOSTG   # +6 % key (owner: brighter, real-camera exposure)
+            if (s['id'], i, 'c') not in KEYM and (a > 0.9).sum() >= 20000:   # contrast match + light direction from the background (left vs right third)
                 m_ = a > 0.9; hs_ = float(f[m_].std()) + 1; bs_ = float(B.std()) + 1; L3 = B.mean(2); KEYM[(s['id'], i, 'c')] = (float(np.clip((bs_ / hs_) ** 0.2, 0.92, 1.08)), f[m_].mean(0), 1 if L3[:, 720:].mean() > L3[:, :360].mean() else -1)
-            kc_, hm0_, ld_ = KEYM[(s['id'], i, 'c')]; f = hm0_ + (f - hm0_) * kc_
+            kc_, hm0_, ld_ = KEYM.get((s['id'], i, 'c'), (1.0, np.zeros(3, np.float32), 1)); f = hm0_ + (f - hm0_) * kc_
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
             f = MR.finish_host(f, a, B, ld_)   # e2922ec5 PRO edge treatment: 3 px subtle rim from the bg light side + 1 px light wrap, no extra despill
@@ -610,7 +612,7 @@ for s in S:
                 n_, lb_, st_, _ = cv2.connectedComponentsWithStats(sk_.astype(np.uint8))
                 HB.setdefault(fi, []).extend([[int(st_[c][0] * 4), int(st_[c][1] * 4), int((st_[c][0] + st_[c][2]) * 4), int((st_[c][1] + st_[c][3]) * 4)] for c in range(1, n_) if st_[c][4] >= 40])
             ALd[i] = a; a3 = a[..., None]; B = MR.over(f * a3, a, B, wrap_px=0); xs = int(np.clip(ox, 80, 1000)); VB = VBOT('two' if s['other'] else s['frame']); (i == PANI or (s.get('pan') and j < s['pan']['n'])) or bot.append(float(a[VB - 8:VB, xs - 60:xs + 60].mean())); AL.append(a)
-        QC.append(dict(t=round(t, 3), fringe=max(FRs), flick=0.0, bottom=min(bot or [1.0])))
+        QC.append(dict(t=round(t, 3), fringe=max(FRs or [0.0]), flick=0.0, bottom=min(bot or [1.0])))
         if CINE_J and 0 in ALd: s['cine'] = cine_metrics(s, fi, Bbg, B, ALd[0], t)   # owner 23/10 cine score inputs (qa_news)
         if j == s['n'] // 2 and len(AL) == 1: EQ.append(dict(shot=s['id'], **MR.edge_qa(B, AL[0], bg=B0)))   # edge QA on the rendered frame (singles)
         if s['other']:   # two-shot: gap between the silhouettes (above the desk)

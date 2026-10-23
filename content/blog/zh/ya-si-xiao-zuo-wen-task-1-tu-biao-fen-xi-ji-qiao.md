@@ -9,7 +9,7 @@ tags: [ielts, ielts-writing, task-1]
 keyword: "雅思小作文 task 1 图表"
 cover: task1
 coverAlt: "Lexkite 雅思小作文 Task 1 图表分析框架与学术报告范例"
-publishAt: ""
+publishAt: 2026-11-14T12:25:00+08:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

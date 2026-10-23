@@ -9,7 +9,7 @@ tags: [writing, linking-words, transitions]
 keyword: "linking words ภาษาอังกฤษ"
 cover: write
 coverAlt: "Lexkite ผังคำเชื่อม Linking Words ภาษาอังกฤษแยกตามหมวดหมู่การใช้งาน"
-publishAt: ""
+publishAt: 2026-11-13T07:19:00+07:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [grammar, conditionals, if-clauses]
 keyword: "if clause สรุป"
 cover: grammar
 coverAlt: "Lexkite แผนผังโครงสร้าง If-Clause ภาษาอังกฤษและการผันกริยาตามเงื่อนไข"
-publishAt: ""
+publishAt: 2026-11-11T12:48:00+07:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

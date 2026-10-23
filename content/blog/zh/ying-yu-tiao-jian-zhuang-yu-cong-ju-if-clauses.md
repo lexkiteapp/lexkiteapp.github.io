@@ -9,7 +9,7 @@ tags: [grammar, conditionals, if-clauses]
 keyword: "英语条件状语从句"
 cover: grammar
 coverAlt: "Lexkite 英语条件状语从句 If Clauses 分类公式与核心时态对比图"
-publishAt: ""
+publishAt: 2026-11-11T12:28:00+08:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

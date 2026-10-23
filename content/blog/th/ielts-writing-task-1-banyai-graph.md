@@ -9,7 +9,7 @@ tags: [ielts, ielts-writing, task-1]
 keyword: "ielts writing task 1 กราฟ"
 cover: task1
 coverAlt: "Lexkite โครงสร้างการเขียนรายงาน IELTS Writing Task 1 วิเคราะห์กราฟและตารางข้อมูล"
-publishAt: ""
+publishAt: 2026-11-14T08:27:00+07:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -116,19 +116,19 @@ quiz: [
 
 ## ตัวอย่างการเขียนรายงานฉบับสมบูรณ์ (Full Model Answer Band 8+)
 
-เพื่อให้เห็นภาพการนำเทคนิคทั้งหมดไปใช้จริง ลองศึกษาตัวอย่างรายงาน Task 1 วิเคราะห์กราฟเส้นแสดงการใช้พลังงานทดแทนใน 3 ประเทศ:
+เพื่อให้เห็นภาพการนำเทคนิคทั้งหมดไปใช้จริง ลองศึกษาตัวอย่างรายงาน Task 1 วิเคราะห์กราฟเส้นแสดงสัดส่วนคนปั่นจักรยานไปทำงานใน 3 เมือง:
 
 **Paragraph 1: Introduction**
-*The provided line graph illustrates the percentage of electricity generated from renewable sources in Germany, Spain, and the United Kingdom over a fifteen-year period from 2005 to 2020.*
+*The line graph compares how many adults commuted to work by bicycle in three cities between 1995 and 2020, measured as a share of the working population.*
 
 **Paragraph 2: Overview**
-*Overall, it is immediately apparent that all three nations experienced an upward trajectory in renewable energy production over the examined timeframe. Furthermore, Germany consistently maintained the dominant position, while the United Kingdom exhibited the most dramatic rate of expansion.*
+*Overall, cycling to work became more common in two of the three cities, whereas the third remained almost unchanged. City B recorded the highest share in every year shown, and City C showed the steepest rise.*
 
-**Paragraph 3: Body Paragraph 1 (วิเคราะห์เยอรมนีและสเปน)**
-*In 2005, Germany commenced the period with approximately 10% of its electricity originating from renewables. This proportion rose steadily over the subsequent decade, reaching 25% by 2015, before accelerating rapidly to peak at just above 40% in 2020. Similarly, Spain began at a comparable level of 8% in 2005. The Spanish figures followed a parallel upward path, climbing moderately to 20% by 2012, after which growth leveled off slightly, concluding the period at approximately 32%.*
+**Paragraph 3: Body Paragraph 1 (วิเคราะห์ City B และ City A)**
+*City B began the period at 28% and edged up to 34% by 2010, before levelling off at about 36% in 2020. City A started far lower, at 12%, and grew in small steps to reach 19% in 2005, then hovered near that figure until 2020.*
 
-**Paragraph 4: Body Paragraph 2 (วิเคราะห์สหราชอาณาจักร)**
-*In sharp contrast, the United Kingdom registered negligible renewable output in 2005, accounting for a mere 3% of national electrical output. However, following a protracted phase of minimal fluctuation between 2005 and 2010, the British sector underwent remarkable exponential growth. Between 2012 and 2020, renewable capacity surged nearly fourfold, culminating in a final figure of roughly 38%, thereby surpassing Spain and narrowing the deficit with Germany.*
+**Paragraph 4: Body Paragraph 2 (วิเคราะห์ City C)**
+*City C is the notable exception. Only 4% of its workers cycled in 1995, and the figure barely moved for a decade. After 2005, however, it climbed quickly, passing City A in 2015 and finishing at 24%, six times its starting value.*
 
 ## กลยุทธ์รับมือข้อสอบแบบ Process Diagrams และ Maps
 

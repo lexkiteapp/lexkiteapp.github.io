@@ -9,7 +9,7 @@ tags: [pronunciation, connected-speech, listening]
 keyword: "ingilizce connected speech"
 cover: pron
 coverAlt: "Lexkite İngilizce Connected Speech ses bağlama ve schwa kuralları şeması"
-publishAt: ""
+publishAt: 2026-11-15T08:59:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

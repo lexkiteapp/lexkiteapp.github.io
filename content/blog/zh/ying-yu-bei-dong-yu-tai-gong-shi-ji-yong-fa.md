@@ -9,7 +9,7 @@ tags: [grammar, passive-voice, english-grammar]
 keyword: "英语被动语态"
 cover: grammar
 coverAlt: "Lexkite 英语被动语态 Passive Voice 八大时态公式与句型转换图解"
-publishAt: ""
+publishAt: 2026-11-12T20:29:00+08:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

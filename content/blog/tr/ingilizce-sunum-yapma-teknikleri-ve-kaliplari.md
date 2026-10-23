@@ -9,7 +9,7 @@ tags: [speaking, presentations, business-english]
 keyword: "ingilizce sunum kalıpları"
 cover: speaking
 coverAlt: "Lexkite profesyonel İngilizce sunum kalıpları ve sahne yönetimi"
-publishAt: ""
+publishAt: 2026-11-14T19:23:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [pronunciation, connected-speech, listening]
 keyword: "connected speech ภาษาอังกฤษ"
 cover: pron
 coverAlt: "Lexkite แผนภาพกฎการเชื่อมเสียงภาษาอังกฤษ Connected Speech และการลดทอนเสียง Schwa"
-publishAt: ""
+publishAt: 2026-11-16T20:18:00+07:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

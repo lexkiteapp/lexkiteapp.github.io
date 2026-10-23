@@ -9,7 +9,7 @@ tags: [speaking, presentations, business-english]
 keyword: "商务英语 presentation 句型"
 cover: speaking
 coverAlt: "Lexkite 商务英语 Presentation 演讲与职场会议核心表达框架"
-publishAt: ""
+publishAt: 2026-11-15T07:52:00+08:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

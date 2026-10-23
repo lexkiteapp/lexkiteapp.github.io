@@ -9,7 +9,7 @@ tags: [speaking, presentations, business-english]
 keyword: "ภาษาอังกฤษ presentation"
 cover: speaking
 coverAlt: "Lexkite โครงสร้างและสำนวนภาษาอังกฤษสำหรับการนำเสนอผลงานระดับมืออาชีพ"
-publishAt: ""
+publishAt: 2026-11-15T20:31:00+07:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

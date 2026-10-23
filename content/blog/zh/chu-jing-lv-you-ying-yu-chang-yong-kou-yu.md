@@ -163,6 +163,8 @@ quiz: [
 
 > 延伸阅读: [英文简历模板与外企求职全攻略：一页纸规范、ATS筛选与谷歌XYZ动词](/zh/blog/ying-wen-jian-li-cv-resume-mo-ban/)
 
+延伸阅读：[英语连读规则 (Connected Speech) 解析：连读、弱读与发音](/zh/blog/ying-yu-lian-du-connected-speech-fa-yin-gui-ze/)；[英语连接词 (Linking Words) 分类总结：写作与逻辑转折词汇总](/zh/blog/ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie/)；[英语条件状语从句 (If Clauses) 全面总结：从0到3型及混合句](/zh/blog/ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses/)
+
 {{cta: /app/#/library | 在 Lexkite 探索旅游出行英语高频词库}}
 
 {{youtube: | 出国旅游英语常用口语与全场景生存会话指南}}

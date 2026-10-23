@@ -9,7 +9,7 @@ tags: [pronunciation, connected-speech, listening]
 keyword: "英语连读规则"
 cover: pron
 coverAlt: "Lexkite 英语连读规则 Connected Speech 与自然语流弱读现象解析"
-publishAt: ""
+publishAt: 2026-11-16T07:48:00+08:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

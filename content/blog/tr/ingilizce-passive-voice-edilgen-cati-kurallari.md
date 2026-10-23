@@ -9,7 +9,7 @@ tags: [grammar, passive-voice, english-grammar]
 keyword: "ingilizce passive voice"
 cover: grammar
 coverAlt: "Lexkite İngilizce Passive Voice edilgen çatı zaman tablosu ve örnekler"
-publishAt: ""
+publishAt: 2026-11-12T09:43:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

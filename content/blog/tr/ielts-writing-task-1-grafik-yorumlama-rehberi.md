@@ -9,7 +9,7 @@ tags: [ielts, ielts-writing, task-1]
 keyword: "ielts writing task 1 grafik"
 cover: task1
 coverAlt: "Lexkite IELTS Writing Task 1 grafik analizi ve akademik rapor yapısı"
-publishAt: ""
+publishAt: 2026-11-16T08:17:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -115,16 +115,15 @@ Bu verileri kıyaslarken [İngilizce bağlaçlar listesi](/tr/blog/ingilizce-bag
 Aşağıdaki model yanıtı paragraf yapıları ve veri aktarım teknikleri açısından inceleyin:
 
 **Introduction:**
-*The provided line graph illustrates the percentage of electricity generated from renewable sources in Germany, Spain, and the United Kingdom over a fifteen-year period from 2005 to 2020.*
+*The bar chart shows how many tourists visited three Mediterranean destinations in 2000, 2010 and 2020, measured in millions.*
 
-**Overview:**
-*Overall, it is immediately apparent that all three nations experienced an upward trajectory in renewable energy production over the examined timeframe. Furthermore, Germany consistently maintained the dominant position, while the United Kingdom exhibited the most dramatic rate of expansion.*
+*Overall, visitor numbers rose in every destination over the two decades, although the pace differed sharply. Destination X attracted the largest crowds throughout, while Destination Z grew fastest in proportional terms.*
 
-**Body 1:**
-*In 2005, Germany commenced the period with approximately 10% of its electricity originating from renewables. This proportion rose steadily over the subsequent decade, reaching 25% by 2015, before accelerating rapidly to peak at just above 40% in 2020. Similarly, Spain began at a comparable level of 8% in 2005. The Spanish figures followed a parallel upward path, climbing moderately to 20% by 2012, after which growth leveled off slightly, concluding the period at approximately 32%.*
+*In 2000, Destination X welcomed 18 million visitors, compared with 9 million for Destination Y. Both figures increased steadily, reaching 27 and 15 million respectively by 2010. By 2020, X stood at 31 million, whereas Y had climbed to 21 million.*
 
-**Body 2:**
-*In sharp contrast, the United Kingdom registered negligible renewable output in 2005, accounting for a mere 3% of national electrical output. However, following a protracted phase of minimal fluctuation between 2005 and 2010, the British sector underwent remarkable exponential growth. Between 2012 and 2020, renewable capacity surged nearly fourfold, culminating in a final figure of roughly 38%, thereby surpassing Spain and narrowing the deficit with Germany.*
+*Destination Z was the smallest market at the start, with only 3 million arrivals. Nevertheless, it tripled to 9 million within ten years and then reached 14 million, a gain of more than 360% over the whole period.*
+
+Bu model yanıtın neden yüksek puan aldığını birlikte inceleyelim. İlk paragraf soruyu kendi kelimelerinizle yeniden ifade eder ve hiçbir rakam içermez. İkinci paragraf yalnızca genel eğilimi verir: tüm destinasyonlarda artış olduğunu, en kalabalık ve en hızlı büyüyen noktayı söyler. Üçüncü ve dördüncü paragraflar ise verileri mantıklı gruplara ayırır; önce büyük iki destinasyon, sonra küçük olan ayrı ele alınır. Her cümlede en az bir somut rakam bulunur, ancak rakamlar listelenmez, karşılaştırılır. Böylece Task Achievement ve Coherence kriterlerinin ikisini birden karşılamış olursunuz. Kendi yanıtınızı yazarken aynı sırayı izleyin ve her paragrafın tek bir görevi olduğunu unutmayın.
 
 Verileri toplantılarda sözlü aktarmayı öğrenmek için [İngilizce sunum yapma kalıpları](/tr/blog/ingilizce-sunum-yapma-teknikleri-ve-kaliplari/) makalemizi inceleyebilirsiniz.
 

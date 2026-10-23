@@ -9,7 +9,7 @@ tags: [writing, linking-words, essay-writing]
 keyword: "ingilizce bağlaçlar"
 cover: write
 coverAlt: "Lexkite İngilizce bağlaçlar ve Linking Words kategori tablosu"
-publishAt: ""
+publishAt: 2026-11-13T20:41:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

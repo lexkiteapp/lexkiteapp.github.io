@@ -9,7 +9,7 @@ tags: [grammar, passive-voice, english-grammar]
 keyword: "passive voice สรุป"
 cover: grammar
 coverAlt: "Lexkite ตารางโครงสร้าง Passive Voice ภาษาอังกฤษทั้ง 8 Tenses พร้อมตัวอย่างประโยค"
-publishAt: ""
+publishAt: 2026-11-12T08:55:00+07:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

@@ -147,6 +147,8 @@ FSRS algoritması kelimenin tekrar takvimini mükemmel şekilde yönetirken, kel
 - **Görsel Hikayeleştirme**: Kelimenin okunuşunu Türkçe komik veya absürt bir sahneyle eşleştirin. Beynimiz duygusal ve tuhaf sahneleri sıradan soyut tanımlardan katbekat daha hızlı kaydeder.
 - **Kişisel Bağlantı Kurma**: Kelimeyi tanımadığınız hayali bir kişiyle değil, kendi ailenizden biriyle veya geçmiş bir anınızla bağdaştırarak örnek bir cümle içinde kullanın.
 
+Ayrıca okuyun: [IELTS Writing Task 1 Grafik: Rapor Yazma ve Analiz Taktikleri](/tr/blog/ielts-writing-task-1-grafik-yorumlama-rehberi/) · [İngilizce Bağlaçlar: Essay Yazımı İçin Linking Words Rehberi](/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/) · [İngilizce Connected Speech: Ses Bağlama Kuralları ve Telaffuz](/tr/blog/ingilizce-connected-speech-ses-baglama-kurallari/)
+
 {{cta: /tu-vung/ | FSRS Destekli Kelime Öğrenimine Başla}}
 
 {{youtube: | Spaced Repetition FSRS Memory Algorithm Explained}}

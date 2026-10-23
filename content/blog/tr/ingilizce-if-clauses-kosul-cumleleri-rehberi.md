@@ -9,7 +9,7 @@ tags: [grammar, conditionals, if-clauses]
 keyword: "ingilizce if clauses"
 cover: grammar
 coverAlt: "Lexkite İngilizce If Clauses koşul cümleleri formülleri ve zaman tablosu"
-publishAt: ""
+publishAt: 2026-11-11T09:00:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
