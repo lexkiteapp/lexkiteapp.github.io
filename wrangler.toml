@@ -24,3 +24,8 @@ service = "lexkite-mail"
 [[services]]
 binding = "GEM"
 service = "lexkite-gemini"
+
+# Thống kê phiên (functions/api/hit.js aeHit): Workers Analytics Engine – miễn phí, hạn mức riêng, không tốn dòng D1 (docs/CAPACITY.md §Kiến trúc A2)
+[[analytics_engine_datasets]]
+binding = "HITS"
+dataset = "lexkite_hits"

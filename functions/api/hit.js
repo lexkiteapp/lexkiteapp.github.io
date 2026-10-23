@@ -12,6 +12,7 @@
  * máy tự động (CI, bot, máy chủ đám mây) vẫn ghi 1 dòng phiên nhưng có cột bot = loại → Quản trị tách riêng "đã loại", không cộng vào số người thật. */
 import { limit } from './sync.js';
 import { gate } from './_quota.js';
+import { once } from './_schema.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge']; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
@@ -25,6 +26,36 @@ const cut = (v, n) => String(v == null ? '' : v).slice(0, n);
 const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 32);
 const DAY = 86400e3;
 // "Ngày" thống kê = lịch Việt Nam (khán giả chính) – mọi nơi ghi/đọc sessions.day, pageviews_day dùng chung hàm này
+/* ---------- Analytics Engine (docs/CAPACITY.md §Kiến trúc A2) ----------
+ * Binding HITS (wrangler.toml, dataset lexkite_hits). Điểm: blobs [sid, vid, day, country, ref, dev, lang, plat, path, cur, bot, kind 's'|'hb'],
+ * doubles [dur, pages, ret, lcp, at], indexes [vid]. Ghi KÉP với D1 khi HIT_STORE = d1 (tích lũy lịch sử AE trước khi chuyển).
+ * hitMode: 'hybrid' = nhịp hb chỉ vào AE (D1 bớt ~70 % dòng ghi thống kê) – cần binding HITS + khoá đọc AE (CF_ANALYTICS_TOKEN + CF_ACCOUNT_ID) để Quản trị đọc "đang online".
+ * Cờ HIT_STORE: 'd1' (ép như cũ – rollback) · 'hybrid' (ép) · trống = tự bật khi đủ binding + khoá. */
+export const aeReadable = env => !!(env && (env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN) && env.CF_ACCOUNT_ID);
+const aeOn = env => !!(env && env.HITS && typeof env.HITS.writeDataPoint === 'function');
+export function hitMode(env) { const m = env && env.HIT_STORE; if (m === 'd1') return 'd1'; if (m === 'hybrid') return aeOn(env) ? 'hybrid' : 'd1'; return aeOn(env) && aeReadable(env) ? 'hybrid' : 'd1'; }
+export function aeHit(env, x) {
+  if (!aeOn(env)) return false;
+  try { env.HITS.writeDataPoint({ blobs: [x.sid, x.vid, x.day, x.country, x.ref, x.dev, x.lang, x.plat, x.path, x.cur, x.bot, x.kind], doubles: [x.dur, x.pages, x.ret, x.lcp, x.at], indexes: [x.vid || x.sid] }); return true; } catch (e) { return false; }
+}
+export const AE_DATASET = 'lexkite_hits';
+/** Truy vấn SQL Analytics Engine (chỉ đọc) → mảng dòng; lỗi → null (Quản trị lùi về D1). */
+export async function aeQuery(env, sql, fetcher = fetch) {
+  if (!aeReadable(env)) return null;
+  try {
+    const r = await fetcher(`https://api.cloudflare.com/client/v4/accounts/${String(env.CF_ACCOUNT_ID).replace(/[^a-f0-9]/gi, '')}/analytics_engine/sql`, { method: 'POST', headers: { Authorization: 'Bearer ' + (env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN) }, body: sql + ' FORMAT JSON' });
+    if (!r.ok) return null; const j = await r.json(); return Array.isArray(j.data) ? j.data : null;
+  } catch (e) { return null; }
+}
+/** "Đang online" trong 5 phút (người thật, trừ vid quản trị) từ AE → { n, viewing:[{k,n}] } | null */
+export async function aeOnline(env, now = Date.now(), skipVids = [], fetcher = fetch) {
+  const rows = await aeQuery(env, `SELECT blob2 AS vid, blob10 AS cur, double5 AS at FROM ${AE_DATASET} WHERE double5 > ${Math.floor(now - 5 * 60e3)} AND blob11 = '' ORDER BY double5 DESC LIMIT 20000`, fetcher);
+  if (!rows) return null;
+  const skip = new Set(skipVids), last = new Map();
+  for (const r of rows) if (r.vid && !skip.has(r.vid) && !last.has(r.vid)) last.set(r.vid, r.cur || 'home');
+  const by = {}; for (const c of last.values()) if (c !== 'admin') by[c] = (by[c] || 0) + 1;
+  return { n: last.size, viewing: Object.entries(by).map(([k, n]) => ({ k, n })).sort((a, b) => b.n - a.n).slice(0, 10) };
+}
 export const TZ = 'Asia/Ho_Chi_Minh', TZ_OFF = 7 * 3600e3;
 export const dayOf = t => new Date(t + TZ_OFF).toISOString().slice(0, 10);
 const VID = /^[a-z0-9]{8,32}$/i, REASONS = ['notuse', 'noisy', 'bugs', 'privacy', 'alt', 'other'];
@@ -56,22 +87,24 @@ const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang
 
 export async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS sessions (sid TEXT PRIMARY KEY, vid TEXT, day TEXT NOT NULL, at INTEGER NOT NULL, country TEXT, ref TEXT, dev TEXT, lang TEXT, plat TEXT, path TEXT, dur INTEGER, pages INTEGER, ret INTEGER) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS sessions_day ON sessions (day)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS errors (h TEXT PRIMARY KEY, msg TEXT, src TEXT, path TEXT, ver TEXT, n INTEGER NOT NULL, first INTEGER NOT NULL, last INTEGER NOT NULL) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS pageviews_day (day TEXT NOT NULL, path TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, path)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS ext_daily (day TEXT NOT NULL, vid TEXT NOT NULL, lookup INTEGER, save INTEGER, popup INTEGER, newtab INTEGER, ver TEXT, PRIMARY KEY (day, vid)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS ext_events (day TEXT NOT NULL, kind TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, kind)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS hit_meta (k TEXT PRIMARY KEY, at INTEGER) WITHOUT ROWID'),
-  ]);
-  await db.prepare('ALTER TABLE sessions ADD COLUMN lcp INTEGER').run().catch(() => {}); // LCP thật (ms) – thêm sau
-  await db.prepare('ALTER TABLE sessions ADD COLUMN last INTEGER').run().catch(() => {}); // lần cuối nhận tín hiệu (ms) – "đang online"
-  await db.prepare('ALTER TABLE sessions ADD COLUMN last_path TEXT').run().catch(() => {}); // trang đang xem lúc gửi gần nhất
-  await db.prepare('CREATE INDEX IF NOT EXISTS sessions_last ON sessions (last)').run().catch(() => {});
-  await db.prepare('ALTER TABLE sessions ADD COLUMN bot TEXT').run().catch(() => {}); // loại máy tự động (NULL = người thật)
-  await migrate(db).catch(() => {});
+  await once(db, 'hit', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS sessions (sid TEXT PRIMARY KEY, vid TEXT, day TEXT NOT NULL, at INTEGER NOT NULL, country TEXT, ref TEXT, dev TEXT, lang TEXT, plat TEXT, path TEXT, dur INTEGER, pages INTEGER, ret INTEGER) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS sessions_day ON sessions (day)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS errors (h TEXT PRIMARY KEY, msg TEXT, src TEXT, path TEXT, ver TEXT, n INTEGER NOT NULL, first INTEGER NOT NULL, last INTEGER NOT NULL) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS pageviews_day (day TEXT NOT NULL, path TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, path)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS ext_daily (day TEXT NOT NULL, vid TEXT NOT NULL, lookup INTEGER, save INTEGER, popup INTEGER, newtab INTEGER, ver TEXT, PRIMARY KEY (day, vid)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS ext_events (day TEXT NOT NULL, kind TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, kind)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS hit_meta (k TEXT PRIMARY KEY, at INTEGER) WITHOUT ROWID'),
+    ]);
+    await db.prepare('ALTER TABLE sessions ADD COLUMN lcp INTEGER').run().catch(() => {}); // LCP thật (ms) – thêm sau
+    await db.prepare('ALTER TABLE sessions ADD COLUMN last INTEGER').run().catch(() => {}); // lần cuối nhận tín hiệu (ms) – "đang online"
+    await db.prepare('ALTER TABLE sessions ADD COLUMN last_path TEXT').run().catch(() => {}); // trang đang xem lúc gửi gần nhất
+    await db.prepare('CREATE INDEX IF NOT EXISTS sessions_last ON sessions (last)').run().catch(() => {});
+    await db.prepare('ALTER TABLE sessions ADD COLUMN bot TEXT').run().catch(() => {}); // loại máy tự động (NULL = người thật)
+    await migrate(db).catch(() => {});
+  });
   ready = true;
 }
 
@@ -116,10 +149,14 @@ export async function onRequestPost({ request, env }) {
       // Phiên mở thẳng trang quản trị (#/admin) → coi là nội bộ, đếm riêng như máy tự động
       const bot = auto || (NOT_ROUTE.has(cut(b.path, 60)) ? 'admin' : null);
       // ON CONFLICT: COALESCE(bot, ?16) – một khi đã là máy tự động thì giữ nguyên (không "hoá người" ở nhịp gửi sau)
+      const sid = cut(b.sid, 32), vid = cut(b.vid, 32), country = cut(request.cf && request.cf.country, 2) || 'XX', hb = !!b.hb;
+      // Analytics Engine (miễn phí, hạn mức riêng, 0 dòng D1): mọi beacon phiên → 1 điểm. Bố cục: aeHit() / docs/CAPACITY.md §Kiến trúc A2
+      aeHit(env, { sid, vid, day, country, ref, dev: cut(b.dev, 10), lang: cut(b.lang, 8), plat: cut(b.plat, 8), path: cut(b.path, 60), cur: route(cut(b.cur || b.path, 40)), bot: bot || '', kind: hb ? 'hb' : 's', dur: +b.dur || 0, pages: +b.pages || 0, ret: b.ret ? 1 : 0, lcp: +b.lcp || 0, at: now });
+      if (hb && hitMode(env) === 'hybrid') return ok(); // nhịp "đang online" 3 phút: chỉ AE (Quản trị đọc "đang online" từ AE) – D1 chỉ ghi lúc vào + lúc rời trang
       const batch = [env.DB.prepare('INSERT INTO sessions (sid, vid, day, at, country, ref, dev, lang, plat, path, dur, pages, ret, lcp, last, last_path, bot) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?4, ?15, ?16) ON CONFLICT (sid) DO UPDATE SET dur = ?11, pages = ?12, lcp = COALESCE(lcp, ?14), last = ?4, last_path = COALESCE(?15, last_path), bot = COALESCE(bot, ?16)')
         .bind(cut(b.sid, 32), cut(b.vid, 32), day, now, cut(request.cf && request.cf.country, 2) || 'XX', ref, cut(b.dev, 10), cut(b.lang, 8), cut(b.plat, 8), cut(b.path, 60), Math.min(Math.max(+b.dur || 0, 0), 86400), Math.min(Math.max(Math.floor(+b.pages || 1), 1), 999), b.ret ? 1 : 0, +b.lcp > 0 && +b.lcp < 60000 ? Math.round(+b.lcp) : null, route(cut(b.cur || b.path, 40)) || null, bot)];
       // Lượt xem theo trang/ngày: chỉ phần tăng thêm từ lần gửi trước (tối đa 20 trang, mỗi trang ≤ 200) – cùng 1 lượt gọi D1. Máy tự động: bỏ.
-      if (!bot && b.pv && typeof b.pv === 'object') for (const [k, v] of Object.entries(b.pv).slice(0, 20)) {
+      if (!bot && !hb && b.pv && typeof b.pv === 'object') for (const [k, v] of Object.entries(b.pv).slice(0, 20)) {
         const n = Math.min(Math.floor(+v || 0), 200); if (n > 0 && route(k)) batch.push(env.DB.prepare('INSERT INTO pageviews_day (day, path, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, path) DO UPDATE SET n = n + ?3').bind(day, k, n));
       }
       await env.DB.batch(batch);

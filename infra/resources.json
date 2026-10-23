@@ -39,6 +39,20 @@
       }
     },
     {
+      "key": "analytics-engine",
+      "name": "Cloudflare Workers Analytics Engine (lexkite_hits)",
+      "kind": "analytics",
+      "purpose": "Thống kê phiên/nhịp 'đang online' (functions/api/hit.js aeHit, binding HITS) thay dòng ghi D1; Quản trị đọc qua SQL API (aeQuery) bằng khoá CF_ANALYTICS_TOKEN – docs/CAPACITY.md §Kiến trúc A2",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/analytics-engine",
+      "free": "Gói Free: ghi điểm dữ liệu & truy vấn SQL có hạn mức riêng (không tính vào D1); dữ liệu giữ 3 tháng",
+      "upgrade": "Workers Paid: 10 triệu điểm/tháng đã gồm",
+      "status": "Miễn phí",
+      "match": [
+        "lexkite_hits",
+        "analytics_engine"
+      ]
+    },
+    {
       "key": "audio-worker",
       "name": "Cloudflare Worker lexkite-audio (audio.lexkite.com)",
       "kind": "cdn",

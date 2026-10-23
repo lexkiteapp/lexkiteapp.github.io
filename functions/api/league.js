@@ -10,6 +10,7 @@
 import { claims, limit } from './sync.js';
 import { gate } from './_quota.js';
 import { profaneName } from './_abuse.js';
+import { once } from './_schema.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const GROUP = 30, UP = 7, DOWN = 5, MAX_TIER = 5, MAX_WEEK_XP = 20000;
@@ -24,11 +25,13 @@ export function cleanNick(s) { const n = String(s || '').normalize('NFC').replac
 let ready = false;
 async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS league_member (uid TEXT PRIMARY KEY, nick TEXT NOT NULL, tier INTEGER NOT NULL DEFAULT 0, joined INTEGER NOT NULL, last TEXT) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS league_week (week TEXT NOT NULL, uid TEXT NOT NULL, tier INTEGER NOT NULL, grp INTEGER NOT NULL, xp INTEGER NOT NULL DEFAULT 0, updated INTEGER NOT NULL, PRIMARY KEY (week, uid)) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS league_week_grp ON league_week (week, tier, grp, xp)'),
-  ]);
+  await once(db, 'league', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS league_member (uid TEXT PRIMARY KEY, nick TEXT NOT NULL, tier INTEGER NOT NULL DEFAULT 0, joined INTEGER NOT NULL, last TEXT) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS league_week (week TEXT NOT NULL, uid TEXT NOT NULL, tier INTEGER NOT NULL, grp INTEGER NOT NULL, xp INTEGER NOT NULL DEFAULT 0, updated INTEGER NOT NULL, PRIMARY KEY (week, uid)) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS league_week_grp ON league_week (week, tier, grp, xp)'),
+    ]);
+  });
   ready = true;
 }
 

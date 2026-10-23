@@ -11,7 +11,7 @@ import { meter, sqliteD1, miniflareD1, explainAll } from './meter.mjs';
 import { LIMITS, MIX, project } from './model.mjs';
 
 const arg = (k, d) => { const a = process.argv.find(x => x.startsWith('--' + k + '=')); return a ? a.split('=').slice(1).join('=') : d; };
-export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('users', 3), seedUsers = +arg('seed', 400), quiet = false } = {}) {
+export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('users', 3), seedUsers = +arg('seed', 400), quiet = false, legacy = process.argv.includes('--legacy') } = {}) {
   const log = quiet ? () => {} : (...a) => console.log(...a);
   // ---------- đồng hồ ảo (mọi Date.now()/new Date() trong functions chạy theo thời gian mô phỏng) ----------
   const RealDate = Date; let OFF = 0;
@@ -39,7 +39,10 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
   const FIXED = /^SELECT (feature, v FROM quota_config|id FROM quota_allow|id, until FROM quota_block|id, until FROM quota_flag|k, v FROM config WHERE k IN \('ai_user')/;
   const be = backend === 'miniflare' ? await miniflareD1() : sqliteD1();
   const M = meter(be.raw, { fixed: q => FIXED.test(q) }), DB = M.db;
-  const ENV = { DB, ADMIN_EMAILS: 'boss@lexkite.com', AI: { run: async () => ({ response: { band: 6.5, feedback: 'ok', reply: 'Sure.' } }) } };
+  // --legacy = kiến trúc trước 23/10 (dòng riêng mỗi tài liệu, mọi beacon vào D1, DDL mỗi isolate) để so trước/sau trong cùng 1 lượt CI
+  const AE_POINTS = { n: 0 };
+  const ENV = { DB, ADMIN_EMAILS: 'boss@lexkite.com', AI: { run: async () => ({ response: { band: 6.5, feedback: 'ok', reply: 'Sure.' } }) },
+    ...(legacy ? { SYNC_PACK: '0', HIT_STORE: 'd1', SCHEMA_GATE: '0' } : { HITS: { writeDataPoint: () => { AE_POINTS.n++; } }, CF_ANALYTICS_TOKEN: 'sim', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }) };
   const F = {};
   for (const n of ['sync', 'hit', 'config', 'notices', 'league', 'class', 'ai', 'img']) F[n] = await import(new URL(`../../functions/api/${n}.js`, import.meta.url));
   const Q = await import(new URL('../../functions/api/_quota.js', import.meta.url));
@@ -118,11 +121,13 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
       const bucketJson = () => { const parts = Array.from({ length: 32 }, () => ({})); for (const [w, c] of Object.entries(cards)) parts[fnv(w)][w] = c; return parts.map(p => JSON.stringify(p)); };
       const hsh = s2 => { let x = 0; for (let i = 0; i < s2.length; i++) x = (x * 31 + s2.charCodeAt(i)) | 0; return 'h' + (x >>> 0).toString(36) + s2.length; };
       let statsTick = 0;
+      // như web/js/sync.js docBody: gzip + base64 khi nhỏ hơn
+      const docBody = async json => { const u = new Uint8Array(await new Response(new Blob([json]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer()); const z = Buffer.from(u).toString('base64'); return z.length < json.length ? { z } : { json }; };
       const pushDocs = async (label) => {
         const parts = bucketJson(), out = {}; let n = 0;
-        parts.forEach((j, i) => { const h = hsh(j); if (sent['cards_' + i] !== h) { out['cards_' + i] = { h, body: j }; n++; } });
+        for (let i = 0; i < parts.length; i++) { const j = parts[i], h = hsh(j); if (sent['cards_' + i] !== h) { out['cards_' + i] = { h, body: JSON.stringify(await docBody(j)) }; n++; } }
         const meta = JSON.stringify({ stats: { t: statsTick }, game: {}, settings: {} }), mh = hsh(meta);
-        if (sent.meta !== mh || n) { out.meta = { h: mh, body: JSON.stringify({ chunks: 32, hs: Object.fromEntries(parts.map((j, i) => ['cards_' + i, hsh(j)])), meta }) }; n++; }
+        if (sent.meta !== mh || n) { out.meta = { h: mh, body: JSON.stringify({ chunks: 32, updated: Date.now(), hs: Object.fromEntries(parts.map((j, i) => ['cards_' + i, hsh(j)])), ...(await docBody(meta)) }) }; n++; }
         if (!n) return;
         await call(label, F.sync.onRequestPost, { uid, ip, body: { op: 'push', docs: out } });
         for (const [k, d] of Object.entries(out)) sent[k] = d.h;
@@ -141,6 +146,7 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
         if (Date.now() - cfgAt > 3600e3) { await call('config', F.config.onRequestGet, { method: 'GET', ip }); cfgAt = Date.now(); }
         if (P.signedIn) {
           await call('sync.pull', F.sync.onRequestPost, { uid, ip, body: { op: 'pull', have: { ...sent } } });
+          delete sent.meta; await pushDocs('sync.push'); // web/js/sync.js: mở trang → pullMerge → push() gửi lại meta (sentHashes.meta mất khi tải lại trang)
           await call('notices.get', F.notices.onRequestGet, { method: 'GET', path: '/api/notices?lang=vi', uid, ip });
           if (P.cls) await call('class.mine', F.class.onRequestPost, { uid: P.cls === 'teach' ? T : uid, ip, body: { op: 'mine' } });
           if (P.cls === true && si === 0) await call('class.join', F.class.onRequestPost, { uid, ip, body: { op: 'join', code: cls.code, name: 'Em ' + s } });
@@ -149,12 +155,12 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
         const steps = Math.max(1, Math.round(mins * 2)); // mỗi 30 s
         const perStep = (P.reviews + P.add) / P.sessions.length / steps;
         let dirtyAt = null, lastBeacon = -Infinity, sentBeacons = 0, k = 0, pages = 1;
-        const beacon = async force => { if (!force && Date.now() - lastBeacon < 60e3) return; lastBeacon = Date.now(); sentBeacons++; await call('hit.s', F.hit.onRequestPost, { ip, body: { t: 's', sid, vid, ret: 1, path: 'home', cur: 'review', lang: 'vi', dev: 'mobile', plat: 'web', dur: Math.round((Date.now() - start) / 1000), pages, pv: { review: 2, home: 1 } } }); };
+        const beacon = async (force, hb) => { if (!force && Date.now() - lastBeacon < 60e3) return; lastBeacon = Date.now(); sentBeacons++; await call(hb ? 'hit.hb' : 'hit.s', F.hit.onRequestPost, { ip, body: { t: 's', sid, vid, ret: 1, path: 'home', cur: 'review', lang: 'vi', dev: 'mobile', plat: 'web', dur: Math.round((Date.now() - start) / 1000), pages, pv: { review: 2, home: 1 }, ...(hb ? { hb: 1 } : {}) } }); };
         for (let t = 0; t < steps; t++) {
           advance(30e3);
           const tm = Date.now() - start;
           if (tm >= 15e3 && sentBeacons === 0) await beacon(true);
-          else if (tm >= 15e3 && (tm - 15e3) % 180e3 < 30e3 && tm > 30e3) await beacon(true);
+          else if (tm >= 15e3 && (tm - 15e3) % 180e3 < 30e3 && tm > 30e3) await beacon(true, 1); // nhịp 3 phút = hb (web/js/app.js)
           for (let x = 0, nOps = Math.floor(perStep) + (Math.random() < perStep % 1 ? 1 : 0); x < nOps; x++) {
             k++; pages++;
             const ws = Object.keys(cards);
@@ -224,7 +230,7 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
   const smallScans = plans.filter(p => p.scans.length && p.small);
   let bytesPerUser = null;
   try { const r = await raw.prepare("SELECT AVG(s) AS a FROM (SELECT SUM(LENGTH(body)) AS s FROM docs WHERE uid LIKE 'typical-%' GROUP BY uid)").all(); bytesPerUser = Math.round((r.results[0] || {}).a || 0); } catch (e) { /* bỏ qua */ }
-  const out = { probe, backend: be.kind, at: new RealDate().toISOString(), samples: users, seedUsers, profiles: results, cold, quotaState: { readsPerRefresh: stateReads, readsSecondIsolate: stateReads2 }, bytesPerTypicalUser: bytesPerUser,
+  const out = { probe, legacy, aePoints: AE_POINTS.n, backend: be.kind, at: new RealDate().toISOString(), samples: users, seedUsers, profiles: results, cold, quotaState: { readsPerRefresh: stateReads, readsSecondIsolate: stateReads2 }, bytesPerTypicalUser: bytesPerUser,
     scans: userScans.map(p => ({ q: p.q.slice(0, 220), labels: p.labels, plan: p.plan })), smallScans: smallScans.map(p => ({ q: p.q.slice(0, 160), plan: p.plan })), coldScans: coldScans.map(p => ({ q: p.q.slice(0, 160), plan: p.plan })), perEndpoint: Object.fromEntries(per) };
   out.projection = project(out, MIX, LIMITS);
   if (be.dispose) await be.dispose();

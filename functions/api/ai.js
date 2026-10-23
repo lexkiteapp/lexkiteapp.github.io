@@ -8,6 +8,7 @@
 import { claims } from './sync.js';
 import { gate } from './_quota.js';
 import { candidates, report, poolKeys, resetPool, coolingValue, isUsable, gemFetch, maybeHealth } from './_keys.js';
+import { once } from './_schema.js';
 
 const MAX_PROMPT = 14000;
 const WAI_MODEL = '@cf/meta/llama-3.1-8b-instruct-fast';
@@ -22,10 +23,12 @@ const parseJSON = text => { const s = String(text || '').replace(/^```(json)?|``
 
 async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS ai_quota (id TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (id, day)) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS ai_cache (h TEXT PRIMARY KEY, out TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
-  ]);
+  await once(db, 'ai', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS ai_quota (id TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (id, day)) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS ai_cache (h TEXT PRIMARY KEY, out TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
+    ]);
+  });
   ready = true;
 }
 
@@ -101,7 +104,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
     if (!use.gemini && !use.wai) return (await q.busy()).res;
     const { out, model, diag } = await runModel(env, sys, prompt, rp ? 0.7 : 0.2, use);
     const wai = /^workers-ai/.test(model), up = 'INSERT INTO ai_quota (id, day, n) VALUES (?1, ?2, 1) ON CONFLICT (id, day) DO UPDATE SET n = n + 1'; // '*' / '*rp': đồng hồ "AI hôm nay" ở Quản trị
-    await env.DB.batch([q.use(wai ? 'ai' : 'gemini', wai ? q.cost : 1), env.DB.prepare(up).bind(rp ? '*rp' : '*', new Date().toISOString().slice(0, 10)), env.DB.prepare('INSERT OR REPLACE INTO ai_cache (h, out, at) VALUES (?, ?, ?)').bind(h, JSON.stringify(out), Date.now())]);
+    await env.DB.batch([q.use(wai ? 'ai' : 'gemini', wai ? q.cost : 1), env.DB.prepare(up).bind(rp ? '*rp' : '*', new Date().toISOString().slice(0, 10)), env.DB.prepare('INSERT OR IGNORE INTO ai_cache (h, out, at) VALUES (?, ?, ?)') /* OR IGNORE: 1 dòng ghi (REPLACE = xoá + chèn = 2); chỉ chạy khi chưa có trong đệm */.bind(h, JSON.stringify(out), Date.now())]);
     out._model = model;
     if (diag) console.log("gemini fallback", diag); // xem bằng wrangler tail – không trả về công khai
     return json(request, 200, { out, left: q.left, model });

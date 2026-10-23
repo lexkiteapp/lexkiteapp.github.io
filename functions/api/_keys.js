@@ -12,6 +12,7 @@
  *   (thủ công, lười khi mở trang quản trị > 6 h, và lười theo lưu lượng /api/ai > 24 h).
  * Không bao giờ ghi log / trả về giá trị khóa. */
 import { PROVIDERS as QP, nextMidnight, dayKey } from './_quota.js';
+import { once } from './_schema.js';
 
 const DAY = 86400e3, POOL_TTL = 60e3, NET_STRIKES = 3, NET_COOL = 15 * 60e3, HEALTH_LAZY = 6 * 3600e3, HEALTH_DAILY = DAY;
 export const ALERT_MIN = 0.2; // < 20 % dung lượng còn lại → cảnh báo
@@ -70,15 +71,17 @@ const last4 = v => String(v || '').slice(-4);
 let ready = false;
 export async function setupKeys(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare("CREATE TABLE IF NOT EXISTS api_keys (id TEXT PRIMARY KEY, provider TEXT NOT NULL, label TEXT, enc_key TEXT, last4 TEXT, status TEXT NOT NULL DEFAULT 'live', weight INTEGER NOT NULL DEFAULT 100, added_by TEXT, created INTEGER NOT NULL, last_ok INTEGER, last_err TEXT, err_count INTEGER NOT NULL DEFAULT 0, uses_today INTEGER NOT NULL DEFAULT 0, quota_day TEXT, cooldown_until INTEGER NOT NULL DEFAULT 0, notes TEXT, source TEXT NOT NULL DEFAULT 'db', ref TEXT, fp TEXT, checked INTEGER) WITHOUT ROWID"),
-    db.prepare('CREATE INDEX IF NOT EXISTS api_keys_prov ON api_keys (provider, status)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS api_key_events (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, key_id TEXT, provider TEXT, kind TEXT, code TEXT)'),
-    db.prepare('CREATE INDEX IF NOT EXISTS api_key_events_at ON api_key_events (at)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS key_alerts (kind TEXT PRIMARY KEY, level TEXT NOT NULL, provider TEXT, msg TEXT, since INTEGER NOT NULL, seen INTEGER NOT NULL, mailed INTEGER) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS key_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, ok INTEGER, detail TEXT)'),
-    db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
-  ]);
+  await once(db, 'keys', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare("CREATE TABLE IF NOT EXISTS api_keys (id TEXT PRIMARY KEY, provider TEXT NOT NULL, label TEXT, enc_key TEXT, last4 TEXT, status TEXT NOT NULL DEFAULT 'live', weight INTEGER NOT NULL DEFAULT 100, added_by TEXT, created INTEGER NOT NULL, last_ok INTEGER, last_err TEXT, err_count INTEGER NOT NULL DEFAULT 0, uses_today INTEGER NOT NULL DEFAULT 0, quota_day TEXT, cooldown_until INTEGER NOT NULL DEFAULT 0, notes TEXT, source TEXT NOT NULL DEFAULT 'db', ref TEXT, fp TEXT, checked INTEGER) WITHOUT ROWID"),
+      db.prepare('CREATE INDEX IF NOT EXISTS api_keys_prov ON api_keys (provider, status)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS api_key_events (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, key_id TEXT, provider TEXT, kind TEXT, code TEXT)'),
+      db.prepare('CREATE INDEX IF NOT EXISTS api_key_events_at ON api_key_events (at)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS key_alerts (kind TEXT PRIMARY KEY, level TEXT NOT NULL, provider TEXT, msg TEXT, since INTEGER NOT NULL, seen INTEGER NOT NULL, mailed INTEGER) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS key_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, ok INTEGER, detail TEXT)'),
+      db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
+    ]);
+  });
   ready = true;
 }
 const all = async (db, q, ...a) => (await db.prepare(q).bind(...a).all()).results || [];

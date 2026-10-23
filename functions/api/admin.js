@@ -2,9 +2,9 @@
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
  * op: usage · services · serviceSet · serviceDelete · overview · users · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
  * (alerts gồm cả Backlink, PR & Thương hiệu – bảng bw_* do functions/api/backlinks.js ghi) */
-import { claims, limit } from './sync.js';
+import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
-import { setup as hitSetup, dayOf as vday, TZ } from './hit.js';
+import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
 import { growthData } from './growth.js';
 import { purgeNotices } from './notices.js';
 import { purgeConfig } from './config.js';
@@ -54,7 +54,7 @@ async function humanWhere(db, env) {
   const admins = adminList(env); let vids = [];
   if (admins.length) vids = (await all(db, 'SELECT DISTINCT m.vid AS v FROM vid_uid m JOIN users u ON u.uid = m.uid WHERE lower(u.email) IN (SELECT value FROM json_each(?))', JSON.stringify(admins)).catch(() => []))
     .map(r => String(r.v)).filter(v => /^[a-z0-9]{8,32}$/i.test(v)).slice(0, 300);
-  return { H: 'bot IS NULL' + (vids.length ? ` AND vid NOT IN (${vids.map(v => `'${v}'`).join(', ')})` : '') };
+  return { vids, H: 'bot IS NULL' + (vids.length ? ` AND vid NOT IN (${vids.map(v => `'${v}'`).join(', ')})` : '') };
 }
 
 // Danh sách khóa Gemini (gộp khóa đơn cũ 'gemini_key' vào danh sách mới)
@@ -138,7 +138,7 @@ const OPS = {
   },
   async serviceDelete(db, b) { await db.prepare('DELETE FROM services WHERE id = ?').bind(+b.id).run(); return { ok: true }; },
   async overview(db, b, who, env) {
-    const now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), { H } = await humanWhere(db, env);
+    const now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), { H, vids } = await humanWhere(db, env);
     const [u, s, c, e] = await Promise.all([
       one(db, 'SELECT COUNT(*) AS total, SUM(created > ?1) AS new7, SUM(seen > ?2) AS act1, SUM(seen > ?1) AS act7, SUM(seen > ?3) AS act30 FROM users', now - 7 * DAY, now - DAY, now - 30 * DAY),
       one(db, `SELECT SUM(day = ?1) AS today, COUNT(*) AS s7, COUNT(DISTINCT vid) AS v7, AVG(dur) AS dur7, AVG(pages) AS pages7 FROM sessions WHERE ${H} AND day >= ?2`, d1, d7),
@@ -154,7 +154,8 @@ const OPS = {
       all(db, `SELECT day, COUNT(DISTINCT vid) AS v FROM sessions WHERE ${H} AND day >= ? GROUP BY day ORDER BY day`, d14).catch(() => []),
     ]);
     const by = Object.fromEntries(ser.map(r => [r.day, r.v]));
-    return { users: u, sessions: s, inbox: c, errors24: e, humans: h, online: on.n || 0, excluded: ex.s || 0, series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: by[k] || 0 }; }) };
+    const aeOn = hitMode(env) === 'hybrid' ? await aeOnline(env, now, vids) : null; // nhịp online chỉ ở Analytics Engine (hit.js)
+    return { users: u, sessions: s, inbox: c, errors24: e, humans: h, online: aeOn ? aeOn.n : on.n || 0, excluded: ex.s || 0, series: Array.from({ length: 14 }, (_, i) => { const k = vday(now - (13 - i) * DAY); return { day: k, v: by[k] || 0 }; }) };
   },
   async users(db, b, who, env) {
     const f = userWhere(b, env), off = Math.max(0, Math.floor(+b.offset || 0)), now = Date.now();
@@ -173,12 +174,13 @@ const OPS = {
   },
   async user(db, b, who, env) {
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', String(b.uid));
-    const docs = await all(db, 'SELECT k, LENGTH(body) AS bytes, updated FROM docs WHERE uid = ? ORDER BY k', String(b.uid));
+    const ud = await userDocs(db, String(b.uid)); // gói 'pack' (sync.js) được mở thành từng tài liệu
+    const docs = ud.map(x => ({ k: x.k, bytes: String(x.body || '').length, updated: x.updated }));
     const backups = await all(db, 'SELECT id, at, by, reason, LENGTH(docs) AS bytes FROM user_backups WHERE uid = ? ORDER BY at DESC LIMIT 10', String(b.uid)).catch(() => []);
     let tags = []; try { tags = JSON.parse(u.tags || '[]'); } catch (e) { tags = []; }
     // Số liệu học tập từ tài liệu "meta" (đã gồm thống kê & điểm thưởng) – chỉ đọc 1 tài liệu nhỏ
     let learn = null;
-    const m = await one(db, "SELECT body FROM docs WHERE uid = ? AND k = 'meta'", String(b.uid));
+    const m = ud.find(x => x.k === 'meta') || {};
     if (m.body) {
       const top = (() => { try { return JSON.parse(m.body); } catch (e) { return {}; } })(), d = await docJson(m.body);
       if (d) {
@@ -254,7 +256,7 @@ const OPS = {
     if (!uid || uid.length > 128) throw new Error('uid-required');
     const u = await one(db, 'SELECT * FROM users WHERE uid = ?', uid);
     if (!u || !u.uid) throw new Error('user-not-found');
-    const docs = await all(db, 'SELECT k, h, body, updated FROM docs WHERE uid = ?', uid);
+    const docs = await userDocs(db, uid); // mở gói 'pack' thành từng tài liệu như trước
     const parsedDocs = {};
     for (const d of docs) {
       try { parsedDocs[d.k] = { ...d, parsed: JSON.parse(d.body) }; } catch (e) { parsedDocs[d.k] = d; }
@@ -314,7 +316,7 @@ const OPS = {
   },
   // Lưu lượng trực tiếp (tự cập nhật 30 giây/lần): phần nhanh đệm 20 giây, phần nặng (tổng, 14 ngày, 30 ngày) đệm 10 phút
   async live(db, b, who, env) {
-    const days = Math.min(Math.max(+b.days || 30, 1), 365), now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), { H } = await humanWhere(db, env);
+    const days = Math.min(Math.max(+b.days || 30, 1), 365), now = Date.now(), d1 = vday(now), d7 = vday(now - 6 * DAY), d14 = vday(now - 13 * DAY), d30 = vday(now - 29 * DAY), { H, vids } = await humanWhere(db, env);
     const fast = await cached('live-fast-v2?d=' + days, 20, async () => {
       const on = now - 5 * 60e3;
       const [online, viewing, today, countries, pagesToday, refs, platsToday, auto] = await Promise.all([
@@ -330,7 +332,8 @@ const OPS = {
       ]);
       // Chưa có dữ liệu pageviews_day (trước khi cập nhật app) → dùng trang vào đầu tiên của phiên
       const fb = pagesToday.length ? null : await all(db, `SELECT path AS k, COUNT(*) AS n FROM sessions WHERE ${H} AND day = ? GROUP BY path ORDER BY n DESC LIMIT 10`, d1);
-      return { online: online.n || 0, viewing, today: { ...today, perVisitor: today.visitors ? today.views / today.visitors : 0 }, countries, pagesToday: fb || pagesToday, pagesFallback: !!fb, refs, platsToday,
+      const aeOn = hitMode(env) === 'hybrid' ? await aeOnline(env, now, vids) : null; // chế độ hybrid: nhịp 3 phút chỉ ở AE → 'đang online' đọc AE
+      return { online: aeOn ? aeOn.n : online.n || 0, viewing: aeOn ? aeOn.viewing : viewing, today: { ...today, perVisitor: today.visitors ? today.views / today.visitors : 0 }, countries, pagesToday: fb || pagesToday, pagesFallback: !!fb, refs, platsToday,
         excluded: { s: auto.reduce((a, r) => a + r.s, 0), kinds: auto } };
     });
     const slow = await cached('live-slow-v2', 600, async () => {

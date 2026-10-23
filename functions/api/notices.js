@@ -6,6 +6,7 @@
  *      → ghi nhận đã đọc hoặc đã nhấp CTA vào D1 notice_reads.
  */
 import { claims, limit } from './sync.js';
+import { once } from './_schema.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const cors = req => {
@@ -27,11 +28,13 @@ const ipOf = req => req.headers.get('CF-Connecting-IP') || req.headers.get('x-fo
 let ready = false;
 async function setup(db) {
   if (ready) return;
-  await db.batch([
-    db.prepare('CREATE TABLE IF NOT EXISTS notices (id TEXT PRIMARY KEY, at INTEGER NOT NULL, by TEXT, title TEXT NOT NULL, body TEXT NOT NULL, kind TEXT NOT NULL DEFAULT \'info\', img TEXT, cta_label TEXT, cta_url TEXT, target TEXT, send_at INTEGER, expire_at INTEGER, lang TEXT, revoked INTEGER DEFAULT 0) WITHOUT ROWID'),
-    db.prepare('CREATE TABLE IF NOT EXISTS notice_reads (id TEXT NOT NULL, uid TEXT NOT NULL, read_at INTEGER NOT NULL, clicked INTEGER DEFAULT 0, PRIMARY KEY (id, uid)) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS notices_live ON notices (revoked, at)'), // danh sách công khai: WHERE revoked = 0 ORDER BY at DESC – không quét + sắp xếp cả bảng
-  ]);
+  await once(db, 'notices', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+    await db.batch([
+      db.prepare('CREATE TABLE IF NOT EXISTS notices (id TEXT PRIMARY KEY, at INTEGER NOT NULL, by TEXT, title TEXT NOT NULL, body TEXT NOT NULL, kind TEXT NOT NULL DEFAULT \'info\', img TEXT, cta_label TEXT, cta_url TEXT, target TEXT, send_at INTEGER, expire_at INTEGER, lang TEXT, revoked INTEGER DEFAULT 0) WITHOUT ROWID'),
+      db.prepare('CREATE TABLE IF NOT EXISTS notice_reads (id TEXT NOT NULL, uid TEXT NOT NULL, read_at INTEGER NOT NULL, clicked INTEGER DEFAULT 0, PRIMARY KEY (id, uid)) WITHOUT ROWID'),
+      db.prepare('CREATE INDEX IF NOT EXISTS notices_live ON notices (revoked, at)'), // danh sách công khai: WHERE revoked = 0 ORDER BY at DESC – không quét + sắp xếp cả bảng
+    ]);
+  });
   ready = true;
 }
 

@@ -6,6 +6,7 @@
  * (league_member, league_week), lớp học (classes, class_member, class_task, class_progress – cả lớp mình dạy). Báo lỗi đã gửi: GỠ liên kết (uid, email, nhận tin) – nội dung lỗi ẩn danh giữ lại để sửa lỗi.
  * Tài khoản Firebase Authentication: xóa qua REST accounts:delete bằng chính ID token của người dùng (không cần khóa quản trị). */
 import { claims as verifyClaims, limit } from './sync.js';
+import { docsDb } from './_shard.js';
 
 const RECENT_SEC = 600; // phải đăng nhập lại trong 10 phút gần nhất
 // Khóa API web Firebase của dự án lexkite-app – công khai theo thiết kế (giống web/js/firebase-config.js); env.FIREBASE_API_KEY đè nếu có
@@ -67,6 +68,9 @@ export async function handle(request, env, deps = {}) {
   if (!(typeof who.auth_time === 'number' && now - who.auth_time <= RECENT_SEC)) return json(request, 401, { error: 'reauth' });
   { const w = await rate(`acct-del:${uid}`, 3, 3600); if (w) return json(request, 429, { error: 'too-fast', wait: w }); }
   try {
+    // Dữ liệu học ở mảnh khác DB chính (_shard.js, hiện N = 1) → xoá ở mảnh trước, rồi mọi bảng ở DB chính
+    let sh = 0; try { sh = +(((await env.DB.prepare('SELECT shard FROM users WHERE uid = ?').bind(uid).first()) || {}).shard) || 0; } catch (e) { sh = 0; } // chưa có cột/bảng → mảnh 0
+    if (sh) await docsDb(env, sh).prepare('DELETE FROM docs WHERE uid = ?').bind(uid).run();
     await deleteUserData(env.DB, uid);
   } catch (e) { return json(request, 500, { error: 'server' }); }
   const firebase = await fbDelete(token, env);

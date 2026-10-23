@@ -17,6 +17,8 @@ export function perUser(profiles, mix = MIX) {
 export function fixed(r, dau) {
   const iso = isolatesFor(dau), units = r.quotaState.readsSecondIsolate > 0 ? iso : Math.min(iso, COLOS);
   const coldReads = Object.values(r.cold || {}).reduce((t, v) => t + v.reads, 0), coldWrites = Object.values(r.cold || {}).reduce((t, v) => t + v.writes, 0);
+  // Cổng lược đồ (_schema.js): isolate lạnh không chạy DDL – chỉ 1 dòng đọc schema_ver / module / trung tâm / ngày (Cache API 1 ngày)
+  if (!r.legacy) return { reads: r.quotaState.readsPerRefresh * 1440 * units + 8 * COLOS, writes: 0 };
   return { reads: r.quotaState.readsPerRefresh * 1440 * units + coldReads * iso * 24, writes: coldWrites * iso * 24 };
 }
 export function project(r, mix = MIX, L = LIMITS) {

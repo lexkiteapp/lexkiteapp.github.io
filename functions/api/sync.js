@@ -4,6 +4,8 @@
  *   { op: 'push', docs: { meta: { h, body }, cards_0: { h, body } } } → { ok: true, n }
  * Mỗi người chỉ đọc/ghi được dữ liệu của chính mình (uid lấy từ token đã xác minh chữ ký Google). */
 import { gate } from './_quota.js';
+import { once } from './_schema.js';
+import { docsDb, pickShard } from './_shard.js';
 
 const PROJECT = 'lexkite-app';
 const JWKS_URL = 'https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com';
@@ -65,14 +67,48 @@ export async function limit(key, max, windowSec) {
   } catch (e) { return 0; } // bộ đếm lỗi → không chặn người dùng
 }
 
-async function setup(db) {
+// Lược đồ (cổng phiên bản _schema.js: chỉ chạy khi đổi phiên bản, không chạy mỗi isolate lạnh)
+async function setup(env) {
   if (ready) return;
-  await db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID').run();
-  await db.prepare('ALTER TABLE users ADD COLUMN blocked INTEGER DEFAULT 0').run().catch(() => {});
-  await db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID').run();
-  await db.prepare('CREATE TABLE IF NOT EXISTS docs (uid TEXT NOT NULL, k TEXT NOT NULL, h TEXT NOT NULL, body TEXT NOT NULL, updated INTEGER NOT NULL, PRIMARY KEY (uid, k)) WITHOUT ROWID').run();
+  const db = env.DB;
+  await once(db, 'sync', 2, async () => {
+    await db.prepare('CREATE TABLE IF NOT EXISTS users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1) WITHOUT ROWID').run();
+    await db.prepare('ALTER TABLE users ADD COLUMN blocked INTEGER DEFAULT 0').run().catch(() => {});
+    await db.prepare('ALTER TABLE users ADD COLUMN shard INTEGER DEFAULT 0').run().catch(() => {}); // mảnh D1 chứa docs của người này (_shard.js)
+    await db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID').run();
+    await db.prepare(DOCS_DDL).run();
+  }, { env });
   ready = true;
 }
+const DOCS_DDL = 'CREATE TABLE IF NOT EXISTS docs (uid TEXT NOT NULL, k TEXT NOT NULL, h TEXT NOT NULL, body TEXT NOT NULL, updated INTEGER NOT NULL, PRIMARY KEY (uid, k)) WITHOUT ROWID';
+
+/* ---------- Gói dữ liệu học (docs/CAPACITY.md §Kiến trúc B1) ----------
+ * Trước: mỗi tài liệu (meta + cards_0..31) 1 dòng → mỗi lượt đẩy ghi 1 dòng/tài liệu đổi (đo: ~7–12 dòng), kéo liệt kê ~33 dòng.
+ * Nay: 1 dòng k = 'pack' chứa MỌI tài liệu {k: [h, body, updated]} (body giữ nguyên chuỗi máy khách gửi – đã nén gzip ở máy) →
+ *   1 lượt đẩy = 1 dòng ghi, 1 lượt kéo = 1 dòng đọc. Máy chủ KHÔNG đụng nội dung thẻ (chỉ xếp chuỗi) → CPU ~0, giữ nguyên ngữ nghĩa v1
+ *   (mỗi tài liệu đẩy lên thay nguyên tài liệu đó) → máy khách cũ/mới, add-on, app gốc không phải đổi gì.
+ * Di chuyển lười: lượt đẩy đầu tiên gộp các dòng cũ vào gói rồi xoá chúng (cùng 1 giao dịch, chỉ xoá khi gói đã ghi đúng).
+ * Ghi có điều kiện theo hash gói (2 máy đẩy cùng lúc không mất dữ liệu: thua → đọc lại, gộp lại, tối đa 3 lần).
+ * Đẩy lại y hệt (thử lại, mạng chập chờn) → không đổi gì → 0 dòng ghi (khóa bất biến = hash tài liệu).
+ * Gói > PACK_MAX (rất nhiều thẻ) → tự dùng dòng riêng như cũ. Tắt (rollback): SYNC_PACK=0 – vẫn ĐỌC gói, dòng riêng mới hơn đè lên gói. */
+export const PACK_MAX = 1_800_000; // D1: 1 dòng ≤ 2 MB
+const packOn = env => !env || env.SYNC_PACK !== '0';
+const hstr = s => { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36) + ':' + s.length.toString(36); };
+/** Dòng docs thô (có thể có 'pack' + dòng riêng) → Map k → { h, body, updated } (dòng riêng mới hơn gói thì thắng). */
+export function viewOf(rows) {
+  const v = new Map(), pk = rows.find(r => r.k === 'pack');
+  if (pk && pk.body) { try { for (const [k, [h, body, upd]] of Object.entries(JSON.parse(pk.body).d || {})) v.set(k, { h, body, updated: +upd || 0 }); } catch (e) { /* gói hỏng → bỏ qua, còn dòng riêng */ } }
+  for (const r of rows) if (r.k !== 'pack') { const p = v.get(r.k); if (!p || (+r.updated || 0) >= p.updated) v.set(r.k, { h: r.h, body: r.body, updated: +r.updated || 0, row: true }); }
+  return v;
+}
+/** Tài liệu logic của 1 người (Quản trị: chi tiết, xuất dữ liệu) → [{ k, h, body, updated }] */
+export async function userDocs(db, uid) {
+  const rows = (await db.prepare('SELECT k, h, body, updated FROM docs WHERE uid = ?').bind(uid).all()).results || [];
+  return [...viewOf(rows)].map(([k, x]) => ({ k, h: x.h, body: x.body, updated: x.updated })).sort((a, b) => a.k < b.k ? -1 : 1);
+}
+// Mỗi lần mở app máy khách gửi lại 'meta' dù không đổi gì (chỉ khác mốc updated) → coi là giống → 0 dòng ghi
+const sameBody = (k, a, b) => { if (a === b) return true; if (k !== 'meta') return false; try { const x = JSON.parse(a), y = JSON.parse(b); x.updated = y.updated = 0; return JSON.stringify(x) === JSON.stringify(y); } catch (e) { return false; } };
+const packOf = view => { const d = {}; for (const k of [...view.keys()].sort()) { const x = view.get(k); d[k] = [x.h, x.body, x.updated]; } const body = JSON.stringify({ v: 1, d }); return { body, h: 'p' + hstr(Object.entries(d).map(([k, x]) => k + '=' + x[0]).join('|')) }; };
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
 
@@ -90,25 +126,28 @@ export async function onRequestPost({ request, env }) {
   // Hạn mức ngày + theo IP + khóa chống lạm dụng (functions/api/_quota.js – đếm ở biên, không tốn lượt ghi D1)
   { const q = await gate(request, env, 'sync', { who, json }); if (q.res) return q.res; }
   try {
-    await setup(env.DB);
+    await setup(env);
     // Tài khoản bị quản trị khóa đồng bộ (users.blocked) → 403 'blocked' cho cả kéo lẫn đẩy. Xóa tài khoản (/api/account) KHÔNG bị chặn (App Store 5.1.1(v)).
-    const blk = await env.DB.prepare('SELECT blocked FROM users WHERE uid = ?').bind(uid).first().catch(() => null);
+    // Cùng 1 dòng đọc: mảnh D1 chứa dữ liệu học (_shard.js – hiện chỉ env.DB)
+    const blk = await env.DB.prepare('SELECT blocked, shard FROM users WHERE uid = ?').bind(uid).first().catch(() => null);
     if (blk && +blk.blocked) return json(request, 403, { error: 'blocked' });
+    const shard = blk ? +blk.shard || 0 : pickShard(env, uid), ddb = docsDb(env, shard);
+    if (shard) await once(ddb, 'docs', 1, () => ddb.prepare(DOCS_DDL).run(), { env, tag: 'DB_S' + shard });
     if (req.op === 'pull') {
       // Sổ người dùng cho trang quản trị (nền tảng: app iOS = capacitor://localhost, app Android = https://localhost): chỉ ghi khi lần thấy trước đã hơn 1 giờ (tiết kiệm lượt ghi D1)
       const o = request.headers.get('Origin') || '', plat = /^chrome-extension:/.test(o) ? 'ext' : /^capacitor:/.test(o) ? 'ios' : o === 'https://localhost' ? 'android' : 'web', now = Date.now();
-      await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1 WHERE users.seen < ?4 - 3600000')
-        .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat).run().catch(() => {});
+      await env.DB.prepare('INSERT INTO users (uid, email, name, created, seen, plat, n, shard) VALUES (?1, ?2, ?3, ?4, ?4, ?5, 1, ?6) ON CONFLICT (uid) DO UPDATE SET email = ?2, name = ?3, seen = ?4, plat = ?5, n = n + 1 WHERE users.seen < ?4 - 3600000')
+        .bind(uid, String(who.email || '').slice(0, 200), String(who.name || '').slice(0, 100), now, plat, shard).run().catch(() => {});
       // Phễu chuyển đổi: máy gửi mã khách ẩn danh 1 lần/tài khoản → gắn vid với uid (giữ liên kết đầu tiên)
       if (typeof req.vid === 'string' && /^[a-z0-9]{8,32}$/.test(req.vid)) await env.DB.prepare('INSERT OR IGNORE INTO vid_uid (vid, uid, at) VALUES (?1, ?2, ?3)').bind(req.vid, uid, now).run().catch(() => {});
       const have = req.have && typeof req.have === 'object' ? req.have : {};
-      // Bước 1: chỉ lấy khóa + hash (nhẹ); bước 2: chỉ đọc nội dung tài liệu khác hash với máy người dùng
-      const { results } = await env.DB.prepare('SELECT k, h FROM docs WHERE uid = ?').bind(uid).all();
-      const need = (results || []).filter(r => have[r.k] !== r.h).map(r => r.k);
-      const docs = {};
-      if (need.length) {
-        const rows = (await env.DB.prepare(`SELECT k, body FROM docs WHERE uid = ? AND k IN (${need.map(() => '?').join(',')})`).bind(uid, ...need).all()).results || [];
-        for (const r of rows) docs[r.k] = JSON.parse(r.body);
+      // 1 truy vấn: hash mọi dòng + thân của gói (dòng riêng: chỉ đọc thân khi khác hash máy người dùng)
+      const rows = (await ddb.prepare("SELECT k, h, CASE WHEN k = 'pack' THEN body END AS body, updated FROM docs WHERE uid = ?").bind(uid).all()).results || [];
+      const view = viewOf(rows), docs = {}, needRows = [];
+      for (const [k, x] of view) if (have[k] !== x.h) { if (x.row) needRows.push(k); else docs[k] = JSON.parse(x.body); }
+      if (needRows.length) {
+        const got = (await ddb.prepare(`SELECT k, body FROM docs WHERE uid = ? AND k IN (${needRows.map(() => '?').join(',')})`).bind(uid, ...needRows).all()).results || [];
+        for (const r of got) docs[r.k] = JSON.parse(r.body);
       }
       return json(request, 200, { docs });
     }
@@ -116,15 +155,30 @@ export async function onRequestPost({ request, env }) {
       const entries = Object.entries(req.docs || {});
       if (!entries.length) return json(request, 200, { ok: true, n: 0 });
       if (entries.length > MAX_DOCS) return json(request, 413, { error: 'too-many' });
-      const now = Date.now(), stmt = env.DB.prepare('INSERT INTO docs (uid, k, h, body, updated) VALUES (?1, ?2, ?3, ?4, ?5) ON CONFLICT (uid, k) DO UPDATE SET h = ?3, body = ?4, updated = ?5');
-      const batch = [];
       for (const [k, d] of entries) {
         if (!KEY_RE.test(k) || !d || typeof d.h !== 'string' || typeof d.body !== 'string' || d.h.length > 64) return json(request, 400, { error: 'bad-doc', k });
         if (d.body.length > MAX_BODY) return json(request, 413, { error: 'doc-too-large', k });
-        batch.push(stmt.bind(uid, k, d.h, d.body, now));
       }
-      await env.DB.batch(batch);
-      return json(request, 200, { ok: true, n: batch.length });
+      const legacy = async now => { const stmt = ddb.prepare('INSERT INTO docs (uid, k, h, body, updated) VALUES (?1, ?2, ?3, ?4, ?5) ON CONFLICT (uid, k) DO UPDATE SET h = ?3, body = ?4, updated = ?5 WHERE docs.h IS NOT ?3 OR docs.body IS NOT ?4'); await ddb.batch(entries.map(([k, d]) => stmt.bind(uid, k, d.h, d.body, now))); };
+      if (!packOn(env)) { await legacy(Date.now()); return json(request, 200, { ok: true, n: entries.length }); }
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const now = Date.now(), rows = (await ddb.prepare('SELECT k, h, body, updated FROM docs WHERE uid = ?').bind(uid).all()).results || [];
+        const view = viewOf(rows), old = rows.find(r => r.k === 'pack'), hasRows = rows.some(r => r.k !== 'pack');
+        let changed = 0;
+        for (const [k, d] of entries) { const x = view.get(k); if (!x || x.h !== d.h || !sameBody(k, x.body, d.body)) { view.set(k, { h: d.h, body: d.body, updated: now }); changed++; } }
+        if (!changed && !hasRows) return json(request, 200, { ok: true, n: entries.length, same: true }); // đẩy lại y hệt → 0 dòng ghi
+        const p = packOf(view);
+        if (p.body.length > PACK_MAX) { await legacy(now); return json(request, 200, { ok: true, n: entries.length }); } // quá lớn cho 1 dòng → dòng riêng (đè lên gói nhờ updated mới hơn)
+        const st = [old
+          ? ddb.prepare("UPDATE docs SET h = ?2, body = ?3, updated = ?4 WHERE uid = ?1 AND k = 'pack' AND h = ?5").bind(uid, p.h, p.body, now, old.h)
+          : ddb.prepare("INSERT OR IGNORE INTO docs (uid, k, h, body, updated) VALUES (?1, 'pack', ?2, ?3, ?4)").bind(uid, p.h, p.body, now)];
+        // Dọn dòng riêng đã gộp: chỉ khi gói vừa ghi là của lượt này (điều kiện EXISTS) và dòng không mới hơn lúc đọc
+        if (hasRows) st.push(ddb.prepare("DELETE FROM docs WHERE uid = ?1 AND k <> 'pack' AND updated <= ?3 AND EXISTS (SELECT 1 FROM docs WHERE uid = ?1 AND k = 'pack' AND h = ?2)").bind(uid, p.h, Math.max(0, ...rows.filter(r => r.k !== 'pack').map(r => +r.updated || 0))));
+        const res = await ddb.batch(st), ch = res && res[0] && res[0].meta ? res[0].meta.changes : undefined;
+        if (ch === 0) continue; // máy khác vừa ghi gói → đọc lại, gộp lại
+        return json(request, 200, { ok: true, n: entries.length });
+      }
+      return json(request, 409, { error: 'busy' }); // 3 lần đều đụng → máy khách giữ "chưa gửi", tự thử lại lượt sau
     }
     return json(request, 400, { error: 'op' });
   } catch (e) {
