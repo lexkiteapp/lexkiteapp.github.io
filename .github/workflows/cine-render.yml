@@ -218,7 +218,7 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/news/depth/'   # depth / zones of the 9:16 stills only (host clips not needed here; the wide library carries its own zones)
+          git -C footage sparse-checkout set --no-cone '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/news/depth/' && git -C footage checkout -q   # small set: plain git sparse (fetch.mjs stalled > 20 min in runs #74/#76)   # depth / zones of the 9:16 stills only (host clips not needed here; the wide library carries its own zones)
           rm -f ~/.ssh/footage; du -sh footage
       - uses: actions/cache/restore@v4
         with: { path: depth, key: 'news-depth-v1-${{ github.run_id }}', restore-keys: 'news-depth-v1-' }
@@ -323,8 +323,8 @@ jobs:
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
           HC="ga4_talk_natural gc4_talk_natural gc4_listen"; HP=""; for c in $HC; do HP="$HP /anchor/green/kfull_pro/$c.* /anchor/green/kmask_pro/$c.* /anchor/green/kfull/$c.mp4 /anchor/green/kmask/$c.mp4 /anchor/tools/meta/$c/ /anchor/tools/dl24/$c.json /anchor/tools/dl24/$c.mp4"; done   # only the host clips the news template uses
-          node scripts/footage/fetch.mjs --repo footage --cache .footage-cache $HP '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/green/bank_gestures.json' $(cat wide_paths.txt) \
-            '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/'
+          git -C footage sparse-checkout set --no-cone $HP '/anchor/bg/*.png' '/anchor/bg/index.json' '/anchor/green/bank_gestures.json' $(cat wide_paths.txt) \
+            '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/' && git -C footage checkout -q   # plain git sparse for the narrow news set (fetch.mjs stalled)
           rm -f ~/.ssh/footage; du -sh footage
           echo "FOOTAGE_SHA=$(git -C footage rev-parse HEAD)" >> "$GITHUB_ENV"   # recipe: footage bank version
       - name: Cổng tách nền PRO (matte_qa gate)
