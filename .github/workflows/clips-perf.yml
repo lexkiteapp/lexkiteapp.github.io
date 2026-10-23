@@ -3,7 +3,7 @@ name: Hiệu năng thư viện clip
 on:
   push:
     branches: [main]
-    paths: ['web/js/admin-clips.js', 'scripts/test/clips-perf.mjs', 'functions/api/_clip_logic.js']
+    paths: ['web/js/admin-clips.js', 'web/js/admin-video.js', 'scripts/test/clips-perf.mjs', 'functions/api/_clip_logic.js']
   workflow_dispatch:
 permissions:
   contents: read

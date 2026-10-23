@@ -51,9 +51,9 @@
     const { capi, esc, toast = () => {} } = ctx, lang = ctx.lang || (() => 'vi'), L = ctx.L || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => v[k]) : s));
     const V = (vi, vars) => { let s = lang() === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi; if (lang() !== 'en') return L(vi, vars); return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? String(vars[k]) : m)) : s; };
     if (!document.getElementById('cl-css')) { const st = document.createElement('style'); st.id = 'cl-css'; st.textContent = CSS; document.head.appendChild(st); }
-    const LOC = () => (lang() === 'en' ? 'en-US' : 'vi-VN'), CH = 262, HH = 36, GAP = 12, PAGE = 60, SECS = ['pending', 'approved', 'live', 'fail', 'archive'];
-    const SN = { pending: 'Chờ duyệt', approved: 'Đã duyệt', live: 'Đã đăng', fail: 'Lỗi QA', archive: 'Lưu trữ' };
-    let f = pure.fromQuery(location.search); if (!f.section) f.section = 'pending';
+    const LOC = () => (lang() === 'en' ? 'en-US' : 'vi-VN'), CH = 262, HH = 36, GAP = 12, PAGE = 60, SECS = ctx.sections || ['pending', 'approved', 'live', 'fail', 'archive']; // ctx.sections: mục hiện ('' = tất cả trừ Lưu trữ)
+    const SN = { '': 'Tất cả', pending: 'Chờ duyệt', approved: 'Đã duyệt', live: 'Đã đăng', fail: 'Lỗi QA', archive: 'Lưu trữ' };
+    let f = pure.fromQuery(location.search); if (!SECS.includes(f.section || '')) f.section = ctx.section != null ? ctx.section : SECS[0]; if (!f.section) delete f.section;
     const sel = pure.makeSel(), S = { rows: [], total: 0, next: null, counts: {}, facets: {}, groups: {}, busy: false, tok: 0, lay: null, last: null }, collapsed = new Set(), els = new Map(); let channels = [];
     const store = { get(k) { try { return JSON.parse(localStorage.getItem('lk.cl.' + k) || 'null'); } catch (e) { return null; } }, set(k, v) { try { v == null ? localStorage.removeItem('lk.cl.' + k) : localStorage.setItem('lk.cl.' + k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
     const num = n => Number(n || 0).toLocaleString(LOC());
@@ -62,7 +62,7 @@
     const sortOpts = [['created:desc', 'Mới nhất'], ['created:asc', 'Cũ nhất'], ['qa:desc', 'Điểm QA cao'], ['qa:asc', 'Điểm QA thấp'], ['slot:asc', 'Lịch đăng'], ['views:desc', 'Lượt xem'], ['completion:desc', 'Tỉ lệ xem hết']];
     host.innerHTML = `<div class="cl">
       <div class="cl-tabs cl-types" role="group" aria-label="${esc(V('Loại nội dung'))}">${[['', 'Tất cả'], ['short', 'Shorts'], ['long', 'Video dài'], ['podcast', 'Podcast']].map(([k, t]) => `<button class="cl-tab" type="button" data-type="${k}" aria-pressed="false">${esc(V(t))} <i data-tcnt="${k}"></i></button>`).join('')}</div>
-      <div class="cl-tabs" role="tablist">${SECS.map(k => `<button class="cl-tab" role="tab" data-sec="${k}" aria-pressed="false">${esc(V(SN[k]))} <i data-cnt="${k}">0</i></button>`).join('')}</div>
+      <div class="cl-tabs" role="group" aria-label="${esc(V('Trạng thái'))}"${SECS.length > 1 ? '' : ' hidden'}>${SECS.map(k => `<button class="cl-tab" type="button" data-sec="${k}" aria-pressed="false">${esc(V(SN[k]))} <i data-cnt="${k}">0</i></button>`).join('')}</div>
       <div class="cl-row"><input type="search" id="cl-q" placeholder="${esc(V('Tìm tiêu đề, ý chính, mã…'))}" aria-label="${esc(V('Tìm tiêu đề, ý chính, mã…'))}">
         <select id="cl-sort" aria-label="${esc(V('Sắp xếp'))}">${sortOpts.map(([v, t]) => `<option value="${v}">${esc(V(t))}</option>`).join('')}</select>
         <select id="cl-grp" aria-label="${esc(V('Nhóm theo'))}"><option value="">${esc(V('Không nhóm'))}</option><option value="template">${esc(V('Mẫu'))}</option><option value="scene">${esc(V('Chủ đề / cảnh'))}</option><option value="date">${esc(V('Ngày'))}</option></select>
@@ -121,8 +121,8 @@
     if (typeof ResizeObserver !== 'undefined') { let w0 = 0; new ResizeObserver(() => { if (vp.clientWidth && vp.clientWidth !== w0) { w0 = vp.clientWidth; relayout(); } }).observe(vp); }
     // ---- header (tabs, counts, drawer, selection) ----
     function head() {
-      host.querySelectorAll('.cl-tab').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sec === f.section)));
-      host.querySelectorAll('[data-cnt]').forEach(i => { i.textContent = num((S.counts || {})[i.dataset.cnt]); });
+      host.querySelectorAll('[data-sec]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sec === (f.section || ''))));
+      host.querySelectorAll('[data-cnt]').forEach(i => { const k = i.dataset.cnt, c = S.counts || {}; i.textContent = num(k ? c[k] : ['pending', 'approved', 'live', 'fail'].reduce((a, x) => a + (+c[x] || 0), 0)); });
       $('#cl-n').textContent = S.err ? V('Không tải được: {e}', { e: S.err }) : S.busy && !S.rows.length ? V('Đang tải…') : V('{n} video', { n: num(S.total) });
       $('#cl-sort').value = (f.sort || 'created') + ':' + (f.dir || 'desc'); $('#cl-grp').value = f.group || ''; $('#cl-q').value = f.q || '';
       const tp = $('#cl-tpl'); tp.innerHTML = opts((S.facets || {}).template || [], f.template || '', V('Tất cả mẫu'));
@@ -150,7 +150,7 @@
     }
     // ---- events ----
     let deb = 0; $('#cl-q').oninput = e => { clearTimeout(deb); deb = setTimeout(() => { f.q = e.target.value.trim() || undefined; if (!f.q) delete f.q; reload(); }, 180); };
-    host.querySelectorAll('.cl-tab').forEach(b => { b.onclick = () => { f.section = b.dataset.sec; sel.clear(); reload(); }; });
+    host.querySelectorAll('[data-sec]').forEach(b => { b.onclick = () => { if (b.dataset.sec) f.section = b.dataset.sec; else delete f.section; sel.clear(); reload(); }; });
     $('#cl-sort').onchange = e => { const [s, d] = e.target.value.split(':'); f.sort = s; f.dir = d; reload(); };
     $('#cl-grp').onchange = e => { f.group = e.target.value || undefined; if (!f.group) delete f.group; collapsed.clear(); reload(); };
     host.querySelectorAll('[data-type]').forEach(b => { b.onclick = () => { if (b.dataset.type) f.type = b.dataset.type; else delete f.type; host.querySelectorAll('[data-type]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); reload(); }; });
@@ -158,9 +158,9 @@
     $('#cl-fb').onclick = () => { const d = $('#cl-dr'); d.hidden = !d.hidden; $('#cl-fb').setAttribute('aria-expanded', String(!d.hidden)); if (!d.hidden) drawer(); };
     $('#cl-fx').onclick = () => { $('#cl-dr').hidden = true; $('#cl-fb').setAttribute('aria-expanded', 'false'); };
     $('#cl-dg').onchange = e => { const k = e.target.dataset.f; if (!k) return; const v = e.target.type === 'checkbox' ? e.target.checked : e.target.value; if (v === '' || v === false) delete f[k]; else f[k] = NUM.has(k) ? +v : v; reload(); };
-    $('#cl-clr').onclick = () => { f = { section: f.section }; reload(); drawer(); };
+    $('#cl-clr').onclick = () => { f = f.section ? { section: f.section } : {}; reload(); drawer(); };
     $('#cl-svs').onclick = () => { const name = (prompt(V('Tên chế độ xem')) || '').trim().slice(0, 40); if (!name) return; const views = (store.get('views') || []).filter(v => v.name !== name); views.push({ name, q: pure.toQuery(f) }); store.set('views', views.slice(-20)); drawer(); };
-    $('#cl-sv').onchange = e => { const v = (store.get('views') || [])[+e.target.value]; if (!v) return; f = pure.fromQuery(v.q); if (!f.section) f.section = 'pending'; reload(); drawer(); };
+    $('#cl-sv').onchange = e => { const v = (store.get('views') || [])[+e.target.value]; if (!v) return; f = pure.fromQuery(v.q); if (!SECS.includes(f.section || '')) f.section = ctx.section != null ? ctx.section : SECS[0]; if (!f.section) delete f.section; reload(); drawer(); };
     inn.addEventListener('click', e => {
       const g = e.target.closest('[data-g]'); if (g) { const k = g.dataset.g; collapsed.has(k) ? collapsed.delete(k) : collapsed.add(k); relayout(); return; }
       const c = e.target.closest('.cl-c'); if (!c) return; const id = c.dataset.id;

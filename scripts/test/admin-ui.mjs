@@ -241,23 +241,37 @@ $('.err-box [data-retry]').click(); await tick(40); ok(!$('.err-box') && /Hello 
 
 // ---------- Backlink, PR & Thương hiệu ----------
 $('#tabs a[data-tab="video"]').click(); await tick(80);
-{
-  const m = $('#main'), cards = () => m.querySelectorAll('.vid-card');
-  ok(h1() === 'Video library' && cards().length === 3, 'tab Thư viện video: tiêu đề EN + 3 thẻ (' + cards().length + ')');
-  ok(!w.__pwn && !m.querySelector('.vid-grid img') && /Unavailable/.test(m.textContent) && /Drive pool/.test(m.textContent), 'chưa có token: không bìa, hiện "cần token", dữ liệu độc không thành HTML');
+{ // Trung tâm video: thanh mục con dính, Tổng quan ("Cần anh làm"), Chờ duyệt, Thư viện (lưới dự phòng), Sản xuất & QC, Kịch bản, Kênh, Lưu trữ
+  const m = $('#main'), cards = () => m.querySelectorAll('.vid-card'), sec = async k => { m.querySelector(`.vx-nav [data-sec="${k}"]`).click(); await tick(60); };
+  const tabs = [...m.querySelectorAll('.vx-nav [data-sec]')];
+  ok(h1() === 'Video hub' && tabs.length === 7 && m.querySelector('.vx-nav [aria-current="page"]').dataset.sec === 'overview' && /#video\/overview$/.test(w.location.hash), 'tab Video: tiêu đề EN, 7 mục con, mặc định Tổng quan + #video/overview');
+  ok(m.querySelectorAll('.vx-list li').length >= 2 && /waiting for your review/.test(m.textContent) && m.querySelectorAll('.vx-list .btn.primary').length === 1 && m.querySelectorAll('.kpis .kpi').length === 5 && m.querySelector('.vid-svg'), 'Tổng quan: danh sách "Cần anh làm" (1 nút chính), 5 KPI, biểu đồ SVG');
+  ok(m.querySelector('.vx-nav [data-n="review"]').textContent === '2' && m.querySelector('.vx-nav [data-n="qc"]').textContent === '1', 'huy hiệu mục: 2 chờ duyệt, 1 lỗi QA');
+  m.querySelector('.vx-more summary').click(); m.querySelector('.vx-more').open = true; m.querySelector('.vx-more').dispatchEvent(new w.Event('toggle')); await tick();
+  ok(m.querySelectorAll('#vx-stats .vid-box').length >= 5 && /100/.test(m.querySelector('#vx-stats').textContent), 'phân tích chi tiết tải lười khi mở');
+  leak('#video tổng quan');
+  m.querySelector('.vx-list [data-go2="review"]').click(); await tick(60);
+  ok(m.querySelector('.vx-nav [aria-current="page"]').dataset.sec === 'review' && m.querySelectorAll('.vx-r').length === 2 && /#video\/review$/.test(w.location.hash), 'nút "Duyệt ngay" → mục Chờ duyệt (2 clip đạt QA)');
+  ok(!w.__pwn && !m.querySelector('.vx-q img') && m.querySelectorAll('.vx-r [data-ok]').length === 2, 'Chờ duyệt: không bìa khi chưa có token, nút Duyệt mỗi dòng');
+  leak('#video chờ duyệt');
+  m.querySelector('.vx-r [data-open]').click(); await tick(40);
+  const dl = d.querySelector('dialog.vid-dlg'); ok(dl && /ALL PASS/.test(dl.textContent) && !dl.querySelector('video') && /Drive pool/.test(dl.textContent), 'xem thử: modal QA, chưa tải video khi chưa có token');
+  dl.querySelector('[data-c="hashtags"]').click(); await tick(); ok(copied === '#a #b', 'chép hashtag');
+  leak('#video modal'); dl.querySelector('[data-x]').click(); ok(!d.querySelector('dialog.vid-dlg'), 'đóng modal');
+  await sec('library');
+  ok(cards().length === 3 && /Unavailable/.test(m.textContent) && /Drive pool/.test(m.textContent), 'Thư viện (dự phòng): 3 thẻ, chưa có token → "Unavailable" + cảnh báo Drive');
   const sel = k => m.querySelector(`select[data-f="${k}"]`), ch = (el, v) => { el.value = v; el.dispatchEvent(new w.Event('change')); };
   ch(sel('format'), 'news'); ok(cards().length === 1 && cards()[0].dataset.id === 'n1', 'lọc định dạng bản tin'); ch(sel('format'), '');
   ch(sel('status'), 'fail'); ok(cards().length === 1 && cards()[0].dataset.id === 'x1', 'lọc QA chưa đạt'); ch(sel('status'), 'none'); ok(cards().length === 1, 'lọc chưa xếp lịch'); ch(sel('status'), '');
   input(m.querySelector('#vid-q'), 'listen a1'); ok(cards().length === 1, 'tìm theo điểm học'); input(m.querySelector('#vid-q'), '');
   const fr = m.querySelector('[data-f="from"]'); ch(fr, '2026-10-21'); ok(cards().length === 1, 'lọc theo ngày'); ch(fr, '');
-  leak('#video');
-  cards()[0].click(); await tick(40);
-  const dl = d.querySelector('dialog.vid-dlg'); ok(dl && /ALL PASS/.test(dl.textContent) && !dl.querySelector('video') && /Drive pool/.test(dl.textContent), 'mở modal: QA + chưa tải video khi chưa có token');
-  dl.querySelector('[data-c="hashtags"]').click(); await tick(); ok(copied === '#a #b', 'chép hashtag');
-  leak('#video modal'); dl.querySelector('[data-x]').click(); ok(!d.querySelector('dialog.vid-dlg'), 'đóng modal');
-  m.querySelector('[data-t="stats"]').click(); await tick();
-  ok(m.querySelector('.vid-svg') && m.querySelectorAll('.vid-cov .none').length === 1 && m.querySelectorAll('.vid-cov .gap').length === 2 && /67%/.test(m.textContent), 'thống kê: biểu đồ SVG, độ phủ (thiếu/chưa có), tỉ lệ QA');
-  leak('#video thống kê'); m.querySelector('[data-t="lib"]').click();
+  leak('#video thư viện');
+  await sec('qc'); ok(/No QC report yet/.test(m.textContent) && m.querySelector('[data-go="studio"]'), 'Sản xuất & QC: trạng thái trống + liên kết Video Studio'); leak('#video QC');
+  await sec('scripts'); ok(m.querySelectorAll('.vid-cov .none').length === 1 && m.querySelectorAll('.vid-cov .gap').length === 2, 'Kịch bản: độ phủ (thiếu/chưa có)'); leak('#video kịch bản');
+  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Kênh & phân phối: liên kết tab Kênh + hiệu quả web'); leak('#video kênh');
+  await sec('archive'); ok(/No clips in the archive/.test(m.textContent) && m.querySelector('[data-go="drive"]'), 'Lưu trữ: trống + liên kết Kho Drive'); leak('#video lưu trữ');
+  w.history.replaceState(null, '', '#video/qc'); $('#tabs a[data-tab="video"]').click(); await tick(80);
+  ok(true, 'mở lại tab'); await sec('overview');
 }
 $('#tabs a[data-tab="backlinks"]').click(); await tick(80);
 {
