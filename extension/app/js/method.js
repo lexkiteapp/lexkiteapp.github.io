@@ -45,13 +45,12 @@
     <div class="row small" style="gap:1rem"><span><b style="color:var(--primary)">━</b> ${demo ? t('Ví dụ 1 từ mới học') : t('Từ của bạn nếu ngừng ôn')}</span><span><b style="color:#16a34a">┅</b> ${t('Ôn đúng “thời điểm vàng” (FSRS)')}</span></div>`;
   }
 
-  routes.method = App.guard(async function () {
-    const w = App.W;
+  routes.method = async function () {
     const g = state.game, s = state.settings, d = g.days[todayKey()] || {};
     const dueNow = Golden.dueNow(state.cards);
     const forget = App.forgetting().length;
-    const mistakes = (await w(Store.get('mistakes', []))).filter(x => !x.fixed).length;
-    const essays = (await w(Store.get('essays', []))).length;
+    const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
+    const essays = (await Store.get('essays', [])).length;
     const cards = Object.values(state.cards);
     const mine = cards.reduce((a, c) => a + (c.contexts || []).filter(x => x.title === 'Câu của tôi').length, 0);
     const withCtx = cards.filter(c => (c.contexts || []).some(x => x.title !== 'Câu của tôi')).length;
@@ -161,5 +160,5 @@
     const paint = n => { $('#mDays').textContent = n; const r = m.cards.length ? m.at(n) : SRS.F.R(n, 3); $('#mPct').textContent = Math.round(r * 100) + '%' + (m.cards.length ? ' ' + t('(≈{n}/{total} từ)', { n: Math.round(r * m.cards.length), total: m.cards.length }) : ''); $('#mCurve').innerHTML = curveSvg(m, n); };
     $('#mSlide').oninput = e => paint(+e.target.value);
     paint(7);
-  });
+  };
 })();

@@ -55,9 +55,9 @@
         <div class="card hero-main" style="background:linear-gradient(135deg,#0F3D3E,#1F7A72)">
           <h2 style="color:#fff;margin:0">🆕 ${t('Định dạng mới từ 21/01/2026')}</h2>
           <ul style="color:#ede9fe;margin:.5rem 0 0;padding-left:1.1rem;line-height:1.7" class="small">
-            <li>${t('Bài thi ngắn hơn (khoảng 1,5 giờ làm bài); Reading và Listening <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.')}</li>
-            <li>${t('Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng, làm tròn tới 0,5 gần nhất.')}</li>
-            <li>${t('Trong 2 năm đầu (tới tháng 1/2028), phiếu điểm ghi thêm điểm tương đương <b>thang 0–120</b>.')}</li>
+            <li>${t('Bài thi ngắn hơn (khoảng 1,5 giờ) và <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.')}</li>
+            <li>${t('Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng.')}</li>
+            <li>${t('Trong giai đoạn chuyển tiếp, phiếu điểm vẫn ghi thêm điểm tương đương <b>thang 0–120</b>.')}</li>
           </ul>
         </div>
         <div class="card">
@@ -65,7 +65,7 @@
           <table class="tx-table"><thead><tr><th>${t('Phần')}</th><th>${t('Số câu')}</th><th>${t('Thời gian')}</th></tr></thead><tbody>
             ${SECTIONS.map(s => `<tr><td>${s.ic} ${s.name}</td><td>~${s.items}</td><td class="muted">${t('khoảng {m} phút', { m: s.mins })}</td></tr>`).join('')}
           </tbody></table>
-          <div class="tiny muted">${t('Số câu và thời gian là con số tham khảo do ETS công bố (tổng ~90 phút làm bài, nên dành khoảng 2 giờ cho cả buổi thi); vì Reading và Listening thích ứng nên có thể thay đổi.')}</div>
+          <div class="tiny muted">${t('Số câu và thời gian là con số tham khảo do ETS công bố; vì đề thích ứng nên có thể thay đổi.')}</div>
         </div>
       </div>
       ${SECTIONS.map(s => `<h2 style="margin-top:1.4rem">${s.ic} ${s.name}</h2>
@@ -120,11 +120,9 @@
     const cur = sets.includes(+((query && query.get && query.get('s')) || 0)) ? +query.get('s') : sets[0];
     const units = perPage && sets.length > 1 ? all.filter(u => (u.set || 1) === cur) : all;
     const players = [], timers = [];
-    pageT0 = Date.now();
     App.cleanup = () => { players.forEach(p => p && p.stop()); timers.forEach(clearInterval); stopRec(); UI.stopSpeak(); if (UI.stopRecognize) UI.stopRecognize(); };
     view.innerHTML = `<a href="#/toefl" class="small">← TOEFL iBT</a>
       <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${sec.ic} ${sec.name}</div><h1 style="margin:.2rem 0">${T.ic} ${esc(T.name)}</h1><p class="muted small" style="margin:0">${T.desc}</p></div></div>
-      ${window.QT ? QT.box(task === 'sentence' ? 'sentenceB' : task, true) : ''}
       <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="btn sm ${k === task ? 'primary' : ''}" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
       ${perPage && sets.length > 1 ? `<div class="tabs" style="display:inline-flex;margin-bottom:1rem">${sets.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/toefl-p/${task}?s=${n}" style="padding:.45rem .9rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${n === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${t('Bộ {n}', { n })}</a>`).join('')}</div>` : ''}
       <div id="tfBody"></div>`;
@@ -162,9 +160,7 @@
     };
   }
 
-  let pageT0 = 0; // mốc mở trang luyện → giây/câu (ước tính)
   async function finish(task, right, total, stat) {
-    if (window.QT) { const sk = { reading: 'fr', listening: 'fl', writing: 'fw' }[secOf(task).key]; if (sk) await QT.recordRaw(sk, task === 'sentence' ? 'sentenceB' : task, right, total, pageT0 ? Math.min(10800, Math.round((Date.now() - pageT0) / 1000)) : 0); }
     await App.reward({ quizzes: 1, [stat]: 1, xp: 10 + right * 2 });
     await saveBest(task, total ? right / total : 0);
     const r = $('#tRes'); if (!r) return;

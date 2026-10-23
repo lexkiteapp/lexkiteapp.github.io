@@ -11,7 +11,7 @@
       { t: 'combine', q: "The council built a library. The library opens at 8 a.m.", hint: "which", start: "The council built a library,", a: ["The council built a library, which opens at 8 a.m."], ex: "Nhắc lần đầu dùng a; which thay cho danh từ đã xác định." },
       { t: 'combine', q: "I bought an umbrella. The umbrella broke the next day.", hint: "but", a: ["I bought an umbrella, but it broke the next day.", "I bought an umbrella, but the umbrella broke the next day."], ex: "Lần đầu dùng an, lần sau dùng the hoặc thay bằng it." },
       { t: 'error', parts: ["The unemployment", "remains", "a serious problem", "in many cities."], w: 0, fix: "Unemployment", ex: "Danh từ không đếm được nói chung chung thì không dùng mạo từ." },
-      { t: 'error', parts: ["She plays", "piano", "for an hour", "every evening."], w: 1, fix: "the piano", ex: "Chơi nhạc cụ thường dùng the trước tên nhạc cụ (tiếng Anh-Mỹ đôi khi bỏ the: play piano, nhưng play the piano là dạng chuẩn)." }
+      { t: 'error', parts: ["She plays", "piano", "for an hour", "every evening."], w: 1, fix: "the piano", ex: "Chơi nhạc cụ dùng the trước tên nhạc cụ." }
     ],
     'countable-uncountable': [
       { t: 'fill', q: "There is very ___ evidence to support this claim. (little/few)", a: ["little"], ex: "Evidence không đếm được nên dùng little." },
@@ -67,7 +67,7 @@
       { t: 'verb', q: "Neither the teacher nor the students ___ ready for the test yesterday. (be)", a: ["were"], ex: "Neither... nor: động từ chia theo chủ ngữ gần nhất." },
       { t: 'rewrite', q: "It takes time to learn a language.", start: "Learning a language", a: ["Learning a language takes time."], ex: "Chủ ngữ là V-ing thì động từ chia số ít." },
       { t: 'rewrite', q: "All the students need a sense of purpose.", start: "Every student", a: ["Every student needs a sense of purpose."], ex: "Every + N số ít đi với động từ số ít." },
-      { t: 'rewrite', q: "The manager wasn't informed, and the staff weren't informed either.", start: "Neither the manager nor", a: ["Neither the manager nor the staff were informed.", "Neither the manager nor the staff was informed."], ex: "Neither A nor B: động từ chia theo B." },
+      { t: 'rewrite', q: "The manager wasn't informed, and the staff weren't informed either.", start: "Neither the manager nor", a: ["Neither the manager nor the staff were informed."], ex: "Neither A nor B: động từ chia theo B." },
       { t: 'rewrite', q: "All the students have laptops.", start: "Each", a: ["Each student has a laptop.", "Each of the students has a laptop."], ex: "Each (of) đi với động từ số ít." },
       { t: 'rewrite', q: "There has been a rise in the number of cars.", start: "The number of cars", a: ["The number of cars has risen.", "The number of cars has increased.", "The number of cars has gone up."], ex: "The number of + N số nhiều đi với động từ số ít." },
       { t: 'error', parts: ["The information", "on the website", "are", "outdated."], w: 2, fix: "is", ex: "Danh từ không đếm được đi với động từ số ít." },
@@ -75,7 +75,7 @@
     ],
     'relative-clauses': [
       { t: 'fill', q: "Children ___ parents read to them develop language faster.", a: ["whose"], ex: "Whose chỉ sự sở hữu, theo sau là danh từ." },
-      { t: 'fill', q: "2008 was the year ___ the financial crisis began.", a: ["when", "in which", "that"], ex: "When thay cho danh từ chỉ thời gian." },
+      { t: 'fill', q: "2008 was the year ___ the financial crisis began.", a: ["when", "in which"], ex: "When thay cho danh từ chỉ thời gian." },
       { t: 'fill', q: "Fuel prices rose, ___ led to higher bus fares.", a: ["which"], ex: "Which sau dấu phẩy có thể thay cho cả mệnh đề trước." },
       { t: 'combine', q: "The city is crowded. I live in the city.", hint: "where", start: "The city", a: ["The city where I live is crowded.", "The city in which I live is crowded.", "The city which I live in is crowded.", "The city that I live in is crowded.", "The city I live in is crowded."], ex: "Where thay cho in + nơi chốn." },
       { t: 'combine', q: "Hanoi has over eight million people. It is the capital of Vietnam.", hint: "which (không xác định)", start: "Hanoi,", a: ["Hanoi, which is the capital of Vietnam, has over eight million people."], ex: "Danh từ riêng dùng mệnh đề không xác định có dấu phẩy." },
@@ -249,7 +249,7 @@
       { t: 'rewrite', q: "Learning about history interests her.", start: "She is interested", a: ["She is interested in learning about history."], ex: 'Tính từ -ed chỉ cảm xúc của người: be interested IN + V-ing → She is interested in learning about history.' },
       { t: 'rewrite', q: "The news shocked everyone.", start: "Everyone was", a: ["Everyone was shocked by the news.", "Everyone was shocked at the news."], ex: "Cảm xúc của người dùng tính từ -ed." },
       { t: 'combine', q: "Parents must keep their children safe. It is their responsibility.", hint: "responsible for", start: "Parents are responsible", a: ["Parents are responsible for keeping their children safe."], ex: 'be responsible FOR + V-ing (chịu trách nhiệm làm gì) → Parents are responsible for keeping their children safe.' },
-      { t: 'combine', q: "He is a strong student. His best subject is maths.", hint: "good at", start: "He is good", a: ["He is good at maths.", "He is good at math."], ex: "Good at + môn học/việc." },
+      { t: 'combine', q: "He is a strong student. His best subject is maths.", hint: "good at", start: "He is good", a: ["He is good at maths."], ex: "Good at + môn học/việc." },
       { t: 'error', parts: ["I am", "very interesting", "in", "modern art."], w: 1, fix: "very interested", ex: "Người cảm thấy hứng thú dùng interested." },
       { t: 'error', parts: ["She", "is afraid", "from", "spiders."], w: 2, fix: "of", ex: "Afraid đi với giới từ of." }
     ],

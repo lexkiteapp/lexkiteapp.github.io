@@ -1,7 +1,5 @@
 /* English UI strings – web/js/hubs.js (5 main sections, exam picker, hub pages, breadcrumbs) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
-    "Gói học": "Learning tracks",
-    "Đổi gói hoặc học nhiều gói cùng lúc": "Switch tracks or follow several at once",
   'Hôm nay': 'Today',
   'Từ vựng': 'Vocabulary',
   'Kỹ năng': 'Skills',
@@ -26,7 +24,7 @@
   'Giao tiếp & nền tảng, chưa thi chứng chỉ': 'Everyday English & foundations, no exam yet',
   'Học từ mới, ôn đúng lúc sắp quên và tra cứu nhanh.': 'Learn new words, review right before you forget, look things up fast.',
   'Ôn {n} thẻ hôm nay': 'Review {n} cards today',
-  'Không còn thẻ cần ôn – học từ mới nhé': 'No cards to review – time for new words!',
+  'Không còn thẻ cần ôn – học từ mới nhé': 'All caught up – time for new words',
   'Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần': 'Reviewing just before you forget makes words stick for much longer',
   'Học & ôn': 'Learn & review',
   'Tra cứu': 'Look up',
@@ -363,6 +361,4 @@
   "Bắt đầu học {n} từ đầu tiên": "Start learning your first {n} words",
   "Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.": "Save words as you look them up or follow the learning path – Lexkite reminds you to review just before you forget.",
   "Khoe thành tích": "Share your progress",
-  "Lớp học": "Classroom",
-  "Giáo viên giao bài, học sinh nhập mã lớp": "Teachers assign work, students join with a class code",
 }); })(typeof self !== 'undefined' ? self : this);

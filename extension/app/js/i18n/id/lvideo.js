@@ -1,3 +1,0 @@
-/* UI id – lvideo (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {"Xem 20 giây":"Tonton 20 detik","Video của ngày":"Video hari ini","Video bài học":"Video pelajaran","Phát video: {t}":"Putar video: {t}","Đóng video":"Tutup video","Không phát được video – thử lại sau.":"Video tidak dapat diputar. Coba lagi nanti.","Câu hỏi nhanh":"Pertanyaan cepat","Đúng rồi! Đã thêm vào thẻ ôn.":"Benar! Ditambahkan ke kartu ulasanmu.","Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.":"Belum tepat. Jawaban: {a} – ditambahkan ke kartu ulasanmu.","Video tiếp theo":"Video berikutnya"});
-})(typeof self !== 'undefined' ? self : this);

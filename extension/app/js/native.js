@@ -74,7 +74,7 @@
     const fresh = cards.filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => a.added - b.added);
     const L = g.I18N ? g.I18N.learnLang() : 'vi', tt = k => (typeof g.t === 'function' ? g.t(k) : k);
     const gloss = c => { // nghĩa theo ngôn ngữ người học: tiếng Việt → .vi; ngôn ngữ khác → gói nghĩa bản địa, không có thì định nghĩa tiếng Anh
-      let m = g.App && g.App.meanOf ? g.App.meanOf(c) : (L === 'vi' ? c.vi : c.def) || ''; // = App.meanOf (thẻ, danh sách)
+      let m = L === 'vi' ? c.vi : ((g.App && g.App.nativeGloss && g.App.nativeGloss(c.word)) || (g.I18N && g.I18N.meanLang() === 'vi' ? c.vi : c.def) || '');
       m = String(m || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
       return m.length > 90 ? m.slice(0, 88).trim() + '…' : m;
     };
@@ -83,13 +83,12 @@
     const newDay = Math.min(fresh.length, +((state.settings || C.DEFAULT_SETTINGS).dailyNew) || 0);
     const soon = rev.filter(c => c.srs.due > end && c.srs.due <= end + 7 * C.DAY).sort((a, b) => a.srs.due - b.srs.due);
     const pick = [...due, ...fresh.slice(0, Math.max(total - due.length, 0)), ...soon].slice(0, 20); // từ đến hạn hôm nay trước, rồi từ sắp đến hạn
-    const words = pick.map(c => ({ w: c.word, ipa: ((state.settings || {}).accent === 'en-US' ? c.ipaUS || c.ipa : c.ipa || c.ipaUS) || '', m: gloss(c), lv: String(c.level || '').toUpperCase().slice(0, 2), due: (c.srs.reps > 0 || c.srs.last) ? (c.srs.due || 0) : 0 }));
+    const words = pick.map(c => ({ w: c.word, ipa: c.ipa || c.ipaUS || '', m: gloss(c), lv: String(c.level || '').toUpperCase().slice(0, 2), due: (c.srs.reps > 0 || c.srs.last) ? (c.srs.due || 0) : 0 }));
     return { v: 2, at: Date.now(), due: total, days, newDay, streak: streakN || 0, lang: g.I18N ? g.I18N.lang() : 'vi', rtl: !!(g.I18N && g.I18N.rtl), words,
       l: { title: tt('Thẻ đến hạn hôm nay'), streak: tt('Chuỗi ngày'), review: tt('Ôn ngay'), done: tt('Hôm nay bạn đã ôn hết!'), none: tt('Không còn thẻ đến hạn'), n: tt('{n} thẻ ôn lại') } };
   }
   function widgetFlush() {
     clearTimeout(wTimer); wTimer = 0;
-    feedPush();
     const WB = P.WidgetBridge; if (!WB || !wArgs || !g.Core) return;
     try {
       const snap = widgetSnapshot(wArgs[0], wArgs[1]), key = JSON.stringify({ ...snap, at: 0 });
@@ -98,33 +97,13 @@
     } catch (e) { /* bỏ qua */ }
   }
   g.VBNative.widget = (state, streakN) => { wArgs = [state, streakN]; clearTimeout(wTimer); wTimer = setTimeout(widgetFlush, 1500); };
-  // Widget "Từ mỗi giờ": nạp lười js/widget-feed.js (gói 'wfeed') rồi đẩy ~48 từ sang plugin WordWidget (tự bỏ qua nếu không đổi)
-  function feedPush() {
-    if (!P.WordWidget || !wArgs || !g.App || !g.App.need) return;
-    const st = wArgs[0];
-    g.App.need('wfeed').then(() => g.WidgetFeed && g.WidgetFeed.push(st)).catch(() => {});
-  }
-  document.addEventListener('visibilitychange', () => { if (document.hidden && wTimer) widgetFlush(); else if (!document.hidden) feedPush(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && wTimer) widgetFlush(); });
   // Chạm widget → lexkite://review?w=từ → mở đúng thẻ đó trong phiên ôn (#/review?w=từ)
-  // Widget "Từ mỗi giờ" → lexkite://word/<từ> → thẻ từ #/dict/<từ> (chế độ đố: nghĩa hiện ở đây)
-  const openDeep = url => {
-    const w = /^lexkite:\/\/word\/([^?#/]+)/i.exec(url || '');
-    if (w) { let id = w[1]; try { id = encodeURIComponent(decodeURIComponent(id)); } catch (e) { /* giữ nguyên */ } location.hash = '#/dict/' + id; return; }
-    const m = /^lexkite:\/\/review\/?(?:\?w=([^&#]*))?/i.exec(url || ''); if (m) location.hash = '#/review' + (m[1] ? '?w=' + m[1] : '');
-  };
+  const openDeep = url => { const m = /^lexkite:\/\/review\/?(?:\?w=([^&#]*))?/i.exec(url || ''); if (m) location.hash = '#/review' + (m[1] ? '?w=' + m[1] : ''); };
   if (P.App) {
     P.App.addListener('appUrlOpen', e => openDeep(e && e.url));
     window.addEventListener('load', () => { P.App.getLaunchUrl && P.App.getLaunchUrl().then(r => openDeep(r && r.url)).catch(() => {}); });
   }
-  // window.open(url ngoài) trong WKWebView của Capacitor iOS KHÔNG làm gì (đã kiểm E2E: Chính sách, Điều khoản, blog, lexkite.com…).
-  // Chuyển trang chính sang url ngoài → Capacitor chặn lại và mở bằng trình duyệt hệ thống, app giữ nguyên trang đang xem.
-  const wOpen = g.open;
-  g.open = function (u) {
-    const s = String(u || '');
-    if (/^https?:\/\//i.test(s) && !/^https?:\/\/localhost[:/]/i.test(s)) { location.href = s; return null; }
-    return wOpen ? wOpen.apply(this, arguments) : null;
-  };
   g.VBNative.scheduleReminder = scheduleReminder;
-  g.VBNative.openDeep = openDeep; // kiểm thử E2E (simctl openurl bị hộp "Mở bằng Lexkite?" của hệ thống chặn)
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
 })(typeof self !== 'undefined' ? self : this);

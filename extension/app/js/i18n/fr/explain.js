@@ -1,3 +1,0 @@
-/* UI fr – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"Cấu trúc":"Structure","Xem giải thích chi tiết":"Voir l’explication complète","Vì sao lựa chọn của bạn sai":"Pourquoi votre choix est faux","Bằng chứng trong bài":"Indice dans le texte","Sắc thái nghĩa":"Nuance de sens","Ví dụ thêm":"Autres exemples","Cùng nhóm":"Même structure","Thêm vào ôn tập":"Ajouter aux révisions","Báo lỗi giải thích":"Signaler une erreur dans cette explication","Nghe ví dụ":"Écouter l’exemple"});
-})(typeof self !== 'undefined' ? self : this);

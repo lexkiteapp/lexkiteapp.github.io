@@ -38,7 +38,7 @@
 .fx-why{margin:.3rem 0 .6rem;font-size:.92rem}
 .fx-nav{display:flex;justify-content:space-between;gap:.4rem;margin-top:.7rem;flex-wrap:wrap}
 .fx-list{list-style:none;margin:0;display:grid;gap:.35rem;max-height:420px;overflow:auto;padding:.1rem}
-.fx-it{display:flex;align-items:center;gap:.55rem;width:100%;text-align:start;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:.5rem .7rem;cursor:pointer;color:var(--text);transition:border-color .15s,background .15s,transform .15s}
+.fx-it{display:flex;align-items:center;gap:.55rem;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:.5rem .7rem;cursor:pointer;color:var(--text);transition:border-color .15s,background .15s,transform .15s}
 .fx-it:hover{border-color:var(--c)}.fx-it.on{border-color:var(--c);background:color-mix(in srgb,var(--c) 9%,var(--surface))}.fx-it:active{transform:scale(.99)}
 .fx-it span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.88rem}.fx-it s{color:var(--muted)}
 .fx-ok{text-align:center;padding:1.2rem .5rem}.fx-ai{margin-top:.6rem}
@@ -46,14 +46,13 @@
     document.head.appendChild(s);
   }
 
-  routes.fix = App.guard(async function () {
-    const w = App.W;
+  routes.fix = async function () {
     style();
     const W = window.LK_WRITE;
     if (!W) { view.innerHTML = `<div class="card empty"><div class="em">⚠️</div>${t('Không tải được bộ soát lỗi – thử tải lại trang.')}</div>`; return; }
     const ignored = new Set(JSON.parse(ss('fx.ign') || '[]'));
     const off = new Set(JSON.parse(ss('fx.off') || '[]'));
-    let text = String(await w(Store.get('fixDraft', '')) || ''), issues = [], sel = -1, undo = [], timer = 0, saveT = 0;
+    let text = String(await Store.get('fixDraft', '') || ''), issues = [], sel = -1, undo = [], timer = 0, saveT = 0;
     view.innerHTML = `<div class="page-head"><div><h1>✍️ ${t('Sửa ngữ pháp')}</h1><p class="muted">${t('Dán hoặc gõ đoạn văn tiếng Anh – lỗi được gạch chân ngay. Bộ soát chạy hoàn toàn trên máy bạn, không gửi chữ đi đâu.')}</p></div></div>
       <div class="fx">
         <div>
@@ -183,5 +182,5 @@
     check();
     if (!text) ta.focus();
     App.cleanups.push(() => { clearTimeout(timer); if (saveT) { clearTimeout(saveT); Store.set('fixDraft', text.slice(0, MAXLEN)); } });
-  });
+  };
 })();

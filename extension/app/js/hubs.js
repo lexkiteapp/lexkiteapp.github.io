@@ -119,10 +119,9 @@
   };
 
   // ---------- Thi thử ----------
-  routes.tests = App.guard(async function () {
-    const w = App.W;
+  routes.tests = async function () {
     const ex = App.exam(), g = state.game || {};
-    const mocks = await w(Core.Store.get('mocks', []));
+    const mocks = await Core.Store.get('mocks', []);
     const toeic = (g.toeicTests || []).slice(-5).reverse(), lb = g.listenBest || {};
     const T = {
       ielts: [card('#/mock', '🏁', t('Thi thử IELTS 4 kỹ năng'), t('Nghe – Đọc – Viết – Nói, có quy đổi band')), card('#/listening', '🎧', t('Đề Listening 40 câu'), t('Chọn đề ở trang Luyện nghe, làm như thi thật')), card('#/cbt', '🖥️', t('Đề Reading trên máy (60 phút)'), t('3 passage, giao diện như thi trên máy'))],
@@ -141,16 +140,15 @@
       + (rows.length ? `<div class="set-list">${rows.map(r => `<div class="set-row"><div class="set-l"><span>${esc(r[2])}</span><small>${esc(r[1])}${fmt(r[0]) ? ' · ' + fmt(r[0]) : ''}</small></div><div class="set-c"><b>${esc(r[3])}</b></div></div>`).join('')}</div>`
         : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Chưa có bài thi nào. Làm bài kiểm tra trình độ 5 phút để bắt đầu.')}</p></div>`)
       + `<details class="hub-more"><summary>${t('Kỳ thi khác')}</summary><div class="hub-grid">${Object.keys(T).filter(e => e !== ex && e !== 'ieltsgt' && !(ex === 'ieltsgt' && e === 'ielts')).map(e => T[e].join('')).join('')}</div></details>`;
-  });
+  };
 
   // ---------- Tôi ----------
   // Lối vào trang Quản trị: chỉ hiện khi máy chủ xác nhận email là admin (ADMIN_EMAILS) – người khác không thấy
   // CSS trang Tôi + thẻ tài khoản tải lười (css/me.css) – chờ tối đa 1,5 s để không nháy bố cục, lỗi mạng vẫn vẽ
   let meCssP = null;
   App.meCss = () => meCssP || (meCssP = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'css/me.css'; l.dataset.meCss = 1; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
-  routes.me = App.guard(async function () {
-    const w = App.W;
-    await w(App.meCss());
+  routes.me = async function () {
+    await App.meCss();
     const u = state.user, g = state.game || {}, cards = state.cards || {};
     const L = Game.levelOf(g.xp || 0), streak = App.streak();
     const fi = (window.Core && Core.Stats) ? Core.Stats.freezeInfo(g) : { left: +g.freezes || 0, max: 2 };
@@ -168,16 +166,16 @@
 
     let openMistakes = 0;
     try {
-      const list = (window.Core && Core.Store) ? await w(Core.Store.get('mistakes', [])) : [];
+      const list = (window.Core && Core.Store) ? await Core.Store.get('mistakes', []) : [];
       openMistakes = (list || []).filter(x => !x.fixed).length;
     } catch (e) { openMistakes = 0; }
 
     // Không để mạng chậm chặn hiển thị: chờ tối đa 0,5 s (kết quả đã đệm theo phiên nên lần sau tức thì)
     const cap = p => Promise.race([p, new Promise(r => setTimeout(() => r(false), 500))]);
-    const [isAdmin, blogOn] = await w(Promise.all([
+    const [isAdmin, blogOn] = await Promise.all([
       cap(App.isAdmin ? App.isAdmin().catch(() => false) : false),
       cap(App.blogLive ? App.blogLive().catch(() => false) : false)
-    ]));
+    ]);
 
     const row = (href, ic, label, hint = '', ext = false, badge = '') => `
       <a class="set-row me-row" href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>
@@ -241,12 +239,10 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
         </div>
 
         <h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
-      + row('#/tracks', '🧭', t('Gói học'), t('Đổi gói hoặc học nhiều gói cùng lúc'))
       + row('#/goal', '🚩', t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
       + row('#/stats', '📊', t('Tiến độ & huy hiệu'), t('Chuỗi {n} ngày · {xp} XP', { n: streak || 0, xp: (g.xp || 0).toLocaleString(I18N.lang()) }))
       + row('#/stats', '✨', t('Khoe thành tích')).replace('<a ', '<a data-share ')
       + row('#/league', '🏆', t('Giải đấu tuần'), t('Bảng xếp hạng 30 người học, thăng hạng mỗi tuần'))
-      + row('#/class', '🏫', t('Lớp học'), t('Giáo viên giao bài, học sinh nhập mã lớp'))
       + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'), false, openMistakes ? `<span class="pill-count warn">${openMistakes}</span>` : '')
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`
       + (isAdmin ? row(App.adminUrl(), '🛡️', t('Quản trị hệ thống'), t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API'), true) : '')
@@ -271,7 +267,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
       + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
     const acct = view.querySelector('#meAcct'); if (acct) Sync.renderBox(acct); // thẻ tài khoản dùng chung với Cài đặt (sync.js) – tự cập nhật trạng thái
-  });
+  };
 
   // ---------- Blog (trang tĩnh /blog/ – tạo lúc build): chỉ hiện lối vào khi blog đã có trên máy chủ ----------
   // Blog chia theo ngôn ngữ: /vi/blog/, /en/blog/… – ngôn ngữ giao diện chưa có blog thì ẩn lối vào (không lẫn tiếng)
@@ -305,7 +301,6 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
   App.navOf = (name, arg) => {
     if (!name || name === 'home') return ['home', 'home'];
     if (['vocab', 'review', 'path', 'library', 'topic', 'deck', 'phrases', 'dict', 'verb', 'usage'].includes(name)) return ['vocab', name === 'topic' ? 'library' : name === 'verb' || name === 'usage' ? 'dict' : name];
-    if (name === 'day') return ['vocab', 'path'];
     if (name === 'practice') return arg === 'speak' ? ['skills', 'pron'] : ['vocab', 'practice'];
     if (name === 'skill') return ['skills', 'skill-' + arg];
     if (name === 'cbt' && arg && arg.includes(',')) return ['tests', 'tests'];
@@ -313,7 +308,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (name === 'toefl-p') return ['skills', 'skill-' + (TOEFL_SK[arg] || 'reading')];
     if (['skills', 'grammar', 'pron', 'toeic', 'toefl'].includes(name)) return ['skills', name];
     if (['tests', 'mock', 'listen-test', 'toeic-test', 'placement'].includes(name)) return ['tests', name === 'placement' ? 'placement' : 'tests'];
-    if (['me', 'goal', 'stats', 'league', 'class', 'mistakes', 'settings', 'method', 'resources'].includes(name)) return ['me', name];
+    if (['me', 'goal', 'stats', 'league', 'mistakes', 'settings', 'method', 'resources'].includes(name)) return ['me', name];
     return [null, null];
   };
   const TAB = { vocab: ['📚', () => t('Từ vựng')], skills: ['🎯', () => t('Kỹ năng')], tests: ['🏁', () => t('Thi thử')], me: ['👤', () => t('Tôi')] };

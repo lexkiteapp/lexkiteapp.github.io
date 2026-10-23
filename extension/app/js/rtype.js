@@ -37,7 +37,7 @@
     if (!kind || !KIND()[kind]) {
       const st = stats();
       view.innerHTML = `
-        <div class="page-head"><div><h1>🎯 ${t('Luyện Reading theo dạng câu hỏi')}</h1><p class="muted">${t('Tập trung 1 dạng câu hỏi tới khi tỉ lệ đúng đạt <b>70–80%</b> rồi mới chuyển dạng. Thứ tự khuyên dùng: Điền từ → TRUE/FALSE/NOT GIVEN → Trắc nghiệm → Nối.')}</p><a class="small" href="#/qstats">📊 ${t('Xem tiến bộ theo kỹ năng và dạng câu hỏi')} →</a></div></div>
+        <div class="page-head"><div><h1>🎯 ${t('Luyện Reading theo dạng câu hỏi')}</h1><p class="muted">${t('Tập trung 1 dạng câu hỏi tới khi tỉ lệ đúng đạt <b>70–80%</b> rồi mới chuyển dạng. Thứ tự khuyên dùng: Điền từ → TRUE/FALSE/NOT GIVEN → Trắc nghiệm → Nối.')}</p></div></div>
         <div class="grid auto">${ORDER.map(k => { const n = all.filter(u => u.kind === k), s = st[k] || { r: 0, t: 0 }, pct = s.t ? Math.round(s.r / s.t * 100) : null;
           return n.length ? `<a class="card hover" href="#/rtype/${k}" style="color:var(--text)"><div class="row between"><span style="font-size:1.6rem">${KIND()[k][0]}</span>${pct != null ? `<span class="chip ${pct >= 75 ? 'ok' : ''}">${t('{pct}% đúng', { pct })}</span>` : `<span class="chip">${t('Chưa làm')}</span>`}</div>
             <h3 style="margin:.5rem 0 .2rem">${KIND()[k][1]}</h3><div class="small muted">${t('{q} câu · {g} nhóm', { q: n.reduce((a, u) => a + QE.numsOf({ groups: [u.g] }).length, 0), g: n.length })}</div>
@@ -52,7 +52,7 @@
       const u = list[i], ex = (window.READ_EXPLAIN || {})[u.t.id] || {};
       view.innerHTML = `<a href="#/rtype" class="small">← ${t('Các dạng câu hỏi')}</a>
         <div class="row between" style="margin:.5rem 0"><h2 style="margin:0">${KIND()[kind][0]} ${esc(KIND()[kind][1])}</h2><span class="chip">${t('Nhóm {i}/{n}', { i: i + 1, n: list.length })}</span></div>
-        ${window.QT ? `<div style="margin-bottom:.8rem">${QT.box(QT.kindOf(u.g), true)}</div>` : `<div class="tip small" style="margin-bottom:.8rem">💡 ${esc(KIND()[kind][2])}</div>`}
+        <div class="tip small" style="margin-bottom:.8rem">💡 ${esc(KIND()[kind][2])}</div>
         <div class="mk-read"><div class="card mk-pass"><h3 style="margin-top:0">${esc(u.p.title)}</h3>${u.p.paras.map(x => `<p data-para="${esc(x.k)}"><b class="mk-pk">${esc(x.k)}</b> ${esc(x.t)}</p>`).join('')}</div>
         <div class="card mk-qs" id="rq">${QE.questionsHtml({ groups: [u.g] })}<div class="row" style="margin-top:1rem"><button class="btn primary" id="rSub">${t('Kiểm tra')}</button><button class="btn" id="rNext" hidden>${t('Nhóm tiếp')} →</button></div><div id="rRes" style="margin-top:.8rem"></div></div></div>`;
       QE.bind($('#rq'));
@@ -60,7 +60,6 @@
         const res = QE.collect({ groups: [u.g] }, $('#rq'));
         const mark = n => { const r = res[n]; if (!r || !r.cue) return; const pEl = $$('.mk-pass p').find(x => x.textContent.includes(r.cue)); if (pEl) { pEl.innerHTML = pEl.innerHTML.replace(esc(r.cue), `<mark class="uhl">${esc(r.cue)}</mark>`); pEl.scrollIntoView({ block: 'center', behavior: 'smooth' }); } };
         QE.mark($('#rq'), res, '📍 ' + t('Xem vị trí trong bài'), mark);
-        if (window.QT) QT.record('ir', res, $('#rq'));
         Object.keys(res).forEach(n => { const e = ex[n]; const el = $(`[data-item~="${n}"] .lq-fb, [data-item="${n}"] .lq-fb`, $('#rq')); if (e && el) el.insertAdjacentHTML('beforeend', QE.explainHtml(e)); });
         const right = Object.values(res).filter(r => r.ok).length, tot = Object.keys(res).length;
         state.game = await Game.mutate(gs => { gs.rtype = gs.rtype || {}; const s = gs.rtype[kind] || { r: 0, t: 0 }; gs.rtype[kind] = { r: s.r + right, t: s.t + tot }; });

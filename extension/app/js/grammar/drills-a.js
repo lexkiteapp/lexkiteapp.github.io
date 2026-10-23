@@ -5,7 +5,7 @@
       { t: 'verb', q: "Water ___ (boil) at 100 degrees Celsius.", a: ["boils"], ex: "Sự thật hiển nhiên dùng hiện tại đơn; chủ ngữ số ít thêm -s." },
       { t: 'verb', q: "My sister ___ (not/eat) meat because she is a vegetarian.", a: ["does not eat"], ex: "Phủ định ngôi thứ ba số ít: does not + V nguyên mẫu." },
       { t: 'verb', q: "The bus to the university ___ (leave) at 7:15 every morning.", a: ["leaves"], ex: "Lịch trình cố định dùng hiện tại đơn." },
-      { t: 'rewrite', q: "Lan is a fast swimmer.", start: "Lan swims", a: ["Lan swims fast.", "Lan swims quickly."], ex: "Tính từ + danh từ chỉ người → động từ hiện tại đơn + trạng từ." },
+      { t: 'rewrite', q: "Lan is a fast swimmer.", start: "Lan swims", a: ["Lan swims fast."], ex: "Tính từ + danh từ chỉ người → động từ hiện tại đơn + trạng từ." },
       { t: 'rewrite', q: "My brother is a good cook.", start: "My brother cooks", a: ["My brother cooks well."], ex: "good cook → cooks well (trạng từ của good là well)." },
       { t: 'rewrite', q: "Tom never arrives late for class.", start: "Tom is", a: ["Tom is never late for class."], ex: "Trạng từ tần suất đứng sau động từ to be." },
       { t: 'combine', q: "The sun rises in the east. It sets in the west.", hint: "and", a: ["The sun rises in the east and sets in the west.", "The sun rises in the east and it sets in the west."], ex: "Hai sự thật hiển nhiên nối bằng and, đều ở hiện tại đơn." },
@@ -65,7 +65,7 @@
       { t: 'verb', q: "I ___ (walk) home when it started to rain.", a: ["was walking"], ex: "Hành động đang diễn ra (nền) khi hành động khác xen vào → was/were + V-ing." },
       { t: 'verb', q: "At 8 p.m. yesterday, we ___ (watch) the football match.", a: ["were watching"], ex: "Tại một thời điểm cụ thể trong quá khứ → quá khứ tiếp diễn." },
       { t: 'verb', q: "The phone rang while I ___ (take) a shower.", a: ["was taking"], ex: "Sau while là hành động đang diễn ra → quá khứ tiếp diễn." },
-      { t: 'rewrite', q: "During my shower, the lights went out.", start: "While I", a: ["While I was having a shower, the lights went out.", "While I was taking a shower, the lights went out.", "While I was showering, the lights went out."], ex: "While + quá khứ tiếp diễn, quá khứ đơn cho hành động xen vào." },
+      { t: 'rewrite', q: "During my shower, the lights went out.", start: "While I", a: ["While I was having a shower, the lights went out.", "While I was taking a shower, the lights went out."], ex: "While + quá khứ tiếp diễn, quá khứ đơn cho hành động xen vào." },
       { t: 'rewrite', q: "I was in the middle of cooking when she called.", start: "I was cooking", a: ["I was cooking when she called."], ex: "Đang làm dở việc gì trong quá khứ → was + V-ing." },
       { t: 'rewrite', q: "Lan was reading when the doorbell rang.", start: "The doorbell rang", a: ["The doorbell rang while Lan was reading.", "The doorbell rang when Lan was reading."], ex: "Hành động xen vào dùng quá khứ đơn, hành động nền dùng quá khứ tiếp diễn." },
       { t: 'combine', q: "I was driving to work. I saw an accident.", hint: "while", start: "While", a: ["While I was driving to work, I saw an accident."], ex: "While + quá khứ tiếp diễn, + quá khứ đơn." },
@@ -116,7 +116,7 @@
       { t: 'rewrite', q: "The project will be completed before Friday.", start: "We will have", a: ["We will have completed the project by Friday.", "We will have completed the project before Friday."], ex: "Hoàn thành trước mốc tương lai → will have + V3." },
       { t: 'rewrite', q: "My exam starts at 8 a.m. and ends at 10 a.m. tomorrow.", start: "At 9 a.m. tomorrow, I will be", a: ["At 9 a.m. tomorrow, I will be taking my exam.", "At 9 a.m. tomorrow, I will be doing my exam.", "At 9 a.m. tomorrow, I will be sitting my exam.", "At 9 a.m. tomorrow, I will be having my exam."], ex: "Lúc 9 giờ, bài thi đang diễn ra → will be + V-ing." },
       { t: 'rewrite', q: "In June next year, they will celebrate 25 years of marriage.", start: "By June next year, they will have", a: ["By June next year, they will have been married for 25 years.", "By June next year, they will have been married for twenty-five years."], ex: "By + mốc tương lai + khoảng thời gian → will have been + for." },
-      { t: 'combine', q: "I will get home at 7. My parents will have dinner then.", hint: "when", start: "When I get home,", a: ["When I get home, my parents will be having dinner.", "When I get home, my parents will be eating dinner."], ex: "Hành động đang diễn ra khi việc khác xảy ra ở tương lai → will be + V-ing." },
+      { t: 'combine', q: "I will get home at 7. My parents will have dinner then.", hint: "when", start: "When I get home,", a: ["When I get home, my parents will be having dinner."], ex: "Hành động đang diễn ra khi việc khác xảy ra ở tương lai → will be + V-ing." },
       { t: 'combine', q: "The film starts at 8. We will arrive at 8:30.", hint: "by the time", start: "By the time we arrive,", a: ["By the time we arrive, the film will have started.", "By the time we arrive, the film will already have started.", "By the time we arrive, the film will have already started."], ex: "By the time + hiện tại đơn, + will have + V3." },
       { t: 'error', parts: ["By next year,", "she", "will finish", "her PhD."], w: 2, fix: "will have finished", ex: "By + mốc tương lai → tương lai hoàn thành." },
       { t: 'error', parts: ["Don't phone at 8;", "we", "will have watched", "the final then."], w: 2, fix: "will be watching", ex: "Đang diễn ra tại thời điểm tương lai (then) → will be + V-ing." }
@@ -273,7 +273,7 @@
       { t: 'rewrite', q: "He stopped smoking two years ago.", start: "He gave up", a: ["He gave up smoking two years ago."], ex: "Give up + V-ing = bỏ hẳn việc gì." },
       { t: 'rewrite', q: "Please remember that you must lock the door.", start: "Please remember", a: ["Please remember to lock the door."], ex: "Remember + to V: nhớ phải làm việc gì (chưa làm)." },
       { t: 'rewrite', q: "I'm sorry I said those things to you.", start: "I regret", a: ["I regret saying those things to you.", "I regret having said those things to you."], ex: "Regret + V-ing: hối tiếc về việc đã làm." },
-      { t: 'rewrite', q: "She said, “No, I won't answer the question.”", start: "She refused", a: ["She refused to answer the question."], ex: 'Lời từ chối được tường thuật bằng refuse + to V (từ chối làm gì) → She refused to answer the question.' },
+      { t: 'rewrite', q: "She said “No, I won't answer the question.”", start: "She refused", a: ["She refused to answer the question."], ex: 'Lời từ chối được tường thuật bằng refuse + to V (từ chối làm gì) → She refused to answer the question.' },
       { t: 'error', parts: ["Would you mind", "to close", "the window,", "please?"], w: 1, fix: "closing", ex: 'Would you mind + V-ing? (phiền bạn… được không) → closing, không dùng to close.' },
       { t: 'error', parts: ["We", "are looking forward", "to meet", "you next week."], w: 2, fix: "to meeting", ex: "Look forward to + V-ing (to là giới từ)." }
     ]

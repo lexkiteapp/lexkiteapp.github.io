@@ -1,5 +1,5 @@
 /* ⚑ Báo lỗi – phần nặng, tải lười từ js/report-pill.js. API: functions/api/report.js · tài liệu docs/REPORTS.md
- *   LexReport.open({ dom, cat?, cid?, route? }) (cat: loại chọn sẵn, vd 'content'; cid: mã nội dung, vd 'explain:p|engaged|in') → hộp thoại gửi báo lỗi (loại, mô tả, ảnh chụp tùy chọn, email nếu muốn nhận cập nhật)
+ *   LexReport.open({ dom })  → hộp thoại gửi báo lỗi (loại, mô tả, ảnh chụp tùy chọn, email nếu muốn nhận cập nhật)
  *   LexReport.page(arg, q)   → route #/report/<mã riêng> (trạng thái) · #/report (báo lỗi của tôi) · #/report/new?d=<tên miền> (từ popup add-on)
  *   LexReport.poll()         → hỏi trạng thái các báo lỗi đã gửi từ máy này, nhắc khi có thay đổi
  * Tự gửi kèm: trang (#route, bỏ ?query), ngôn ngữ, phiên bản, nền tảng, khung nhìn, UA, 20 lỗi console gần nhất, cờ sandbox, mã nội dung.
@@ -23,11 +23,7 @@
 
   // Bản tiếng Anh của module này nằm riêng (js/i18n/en/report.js) để khung app không phình – nạp trước khi vẽ
   let dictP;
-  const have = l => w.I18N_DICT && w.I18N_DICT[l] && w.I18N_DICT[l]['Báo cáo sự cố'];
-  const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (have('en') && (I.lang() === 'en' || have(I.lang())))) ? Promise.resolve() : new Promise(r => {
-    const l = I.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
-    loadOne('js/i18n/en/report.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/report.js`) : null)).then(r);
-  }));
+  const dict = () => dictP || (dictP = (!I || I.lang() === 'vi' || (w.I18N_DICT && I18N_DICT.en && I18N_DICT.en['Báo cáo sự cố'])) ? Promise.resolve() : new Promise(r => { const s = d.createElement('script'); s.src = 'js/i18n/en/report.js'; s.onload = s.onerror = () => r(); d.head.appendChild(s); }));
 
   let css = false;
   function style() {
@@ -66,7 +62,7 @@
   const sandbox = () => /[?&](sandbox|demo)=/.test(location.search) || !!(w.Core && Core.Store && Core.Store.sandbox);
   async function context(o) {
     const h = (o.route != null ? o.route : location.hash.replace(/^#\/?/, '')).split('?')[0], parts = h.split('/');
-    let cid = o.cid ? String(o.cid) : ''; if (!cid && CONTENT.test(parts[0]) && parts.length > 1) { try { cid = decodeURIComponent(parts.slice(1).join('/')); } catch (e) { cid = parts.slice(1).join('/'); } }
+    let cid = ''; if (CONTENT.test(parts[0]) && parts.length > 1) { try { cid = decodeURIComponent(parts.slice(1).join('/')); } catch (e) { cid = parts.slice(1).join('/'); } }
     let tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) { /* bỏ qua */ }
     return { route: h.slice(0, 120), lang: I ? I.lang() : '', ver: await version(), plat: plat(), vw: innerWidth + 'x' + innerHeight, dpr: w.devicePixelRatio || 1, ua: navigator.userAgent.slice(0, 300), sandbox: sandbox(), cid: cid.slice(0, 120), dom: o.dom || '', tz, online: navigator.onLine };
   }
@@ -107,7 +103,7 @@
     dlg = d.createElement('dialog'); dlg.className = 'lkr'; dlg.setAttribute('aria-labelledby', 'lkrH');
     dlg.innerHTML = `<form novalidate>
       <div class="lkr-hd"><h2 id="lkrH"><span aria-hidden="true">⚑</span> ${esc(t('Báo cáo sự cố'))}</h2><button type="button" class="lkr-x" data-x aria-label="${esc(t('Đóng'))}">✕</button></div>
-      <fieldset><legend>${esc(t('Loại vấn đề'))}</legend><div class="lkr-cats">${CATS.map(([k, ic, l], i) => `<label><input type="radio" name="cat" value="${k}"${(o.cat ? k === o.cat : i === 0) ? ' checked' : ''}><span aria-hidden="true">${ic}</span> ${esc(t(l))}</label>`).join('')}</div></fieldset>
+      <fieldset><legend>${esc(t('Loại vấn đề'))}</legend><div class="lkr-cats">${CATS.map(([k, ic, l], i) => `<label><input type="radio" name="cat" value="${k}"${i === 0 ? ' checked' : ''}><span aria-hidden="true">${ic}</span> ${esc(t(l))}</label>`).join('')}</div></fieldset>
       <div><label class="lkr-lb" for="lkrMsg">${esc(t('Mô tả'))}</label><textarea id="lkrMsg" maxlength="4000" required placeholder="${esc(t('Bạn gặp chuyện gì? Bạn đang làm gì khi lỗi xảy ra?'))}"></textarea></div>
       ${o.dom ? `<p class="lkr-note">${esc(t('Trang web: {d}', { d: o.dom }))}</p>` : ''}
       <div class="lkr-row"><label class="lkr-file"><input type="file" accept="image/*" id="lkrFile"><span aria-hidden="true">📎</span> ${esc(t('Ảnh chụp màn hình (không bắt buộc)'))}</label><div class="lkr-prev" id="lkrPrev"></div></div>

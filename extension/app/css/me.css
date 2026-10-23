@@ -107,7 +107,7 @@
   display: flex; align-items: center; justify-content: space-between; gap: .75rem;
   padding: .85rem 1.15rem; min-height: 58px;
   color: var(--text); text-decoration: none; width: 100%;
-  background: none; border: 0; font: inherit; text-align: start; cursor: pointer;
+  background: none; border: 0; font: inherit; text-align: left; cursor: pointer;
   transition: background .15s ease;
 }
 .set-list > .me-row { border-top: 1px solid var(--line); }
@@ -173,10 +173,3 @@
   .acct-act .btn { flex: none; }
   .acct-card.out .acct-act { grid-row: 1; }
 }
-
-/* Nút Sign in with Apple theo HIG của Apple (sync.js aBtn – nạp css này khi vẽ nút): nền đen chữ trắng, giao diện tối: nền trắng chữ đen */
-.gsi.apple { background: #000; color: #fff; border-color: #000; } .gsi.apple:hover { background: #1d1d1f; }
-:root[data-theme="dark"] .gsi.apple { background: #fff; color: #000; border-color: #fff; } :root[data-theme="dark"] .gsi.apple img { filter: invert(1); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .gsi.apple { background: #fff; color: #000; border-color: #fff; } :root:not([data-theme="light"]) .gsi.apple img { filter: invert(1); } }
-/* Bảng chọn đăng nhập trong app iOS (native-auth.js): Apple trên, Google dưới, cùng cỡ */
-.signin-btns { gap: .6rem; margin: 1rem 0 .8rem; } .signin-btns .gsi { width: 100%; min-height: 48px; font-size: 1rem; }

@@ -14,7 +14,6 @@
   const ALL = () => window.LISTENING || [];
   const byId = id => ALL().find(p => p.id === id) || ((window.TOEIC || {}).listening || []).find(p => p.id === id);
   const TOEIC_PART = () => ({ 1: t('Mô tả tranh'), 2: t('Hỏi – đáp'), 3: t('Hội thoại'), 4: t('Bài nói ngắn') });
-  const isToeicP = p => p.exam === 'toeic' || /^tl/.test(p.id);
   const partName = p => p.exam === 'toeic' || /^tl/.test(p.id) ? 'TOEIC · ' + (TOEIC_PART()[p.part] || '') : PART()[p.part];
   const tests = () => [...new Set(ALL().map(p => p.test))].sort((a, b) => a - b);
   const partsOf = n => ALL().filter(p => p.test === n).sort((a, b) => a.part - b.part);
@@ -176,7 +175,7 @@
         <div class="row between"><h2 style="margin:0">Test ${n}</h2><div class="row">${best[n] != null ? `<span class="chip ok">Band ${best[n]}</span>` : ''}<a class="btn primary" href="#/listen-test/${n}">⏱ ${t('Thi thử 40 câu')}</a></div></div>
         <div class="grid auto" style="margin-top:.8rem">${partsOf(n).map(p => `<div class="card hover" style="box-shadow:none;border:1px solid var(--line)">
           <div class="row between"><span class="chip">Part ${p.part} · ${PART()[p.part]}</span>${done[p.id] != null ? `<span class="chip ok">✓ ${done[p.id]}/10</span>` : ''}</div>
-          <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${p.titleVi && I18N.lang() === 'vi' ? esc(p.titleVi) + ' · ' : ''}${esc(p.topic || '')}</div>
+          <h3 style="margin:.5rem 0 .2rem">${esc(p.title)}</h3><div class="small muted">${esc(p.titleVi || '')} · ${esc(p.topic || '')}</div>
           <div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div>
           <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/listen/${p.id}">🎯 ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">⏱ ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">⌨️ ${t('Chép chính tả')}</a></div></div>`).join('')}</div></div>`).join('')}
       <div class="card"><h3>💡 ${t('Mẹo làm bài Listening')}</h3><ul class="small">
@@ -202,7 +201,7 @@
         <div class="lnow small muted" id="lNow"></div>
       </div>
       <div class="lgrid">
-        <div class="card" id="lQs">${isToeicP(p) && window.QT ? QT.box('p' + p.part, !exam) : ''}${questionsHtml({ ...p, tips: !exam && !isToeicP(p) })}<div class="row" style="margin-top:1rem"><button class="btn primary" id="lSubmit">✅ ${t('Nộp bài & xem đáp án')}</button></div><div id="lRes" style="margin-top:1rem"></div></div>
+        <div class="card" id="lQs">${questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="lSubmit">✅ ${t('Nộp bài & xem đáp án')}</button></div><div id="lRes" style="margin-top:1rem"></div></div>
         <div class="card ltrans" id="lTransWrap" ${exam ? 'hidden' : ''}><div class="row between"><h3 style="margin:0">📜 ${t('Lời thoại')}</h3><span class="tiny muted">${t('Bấm dòng để nghe từ đó · chạm từ để tra')}</span></div><div id="lTrans" class="ltr blur" data-own-lookup>${transcriptHtml(p, false)}</div></div>
       </div>`;
     App.bindCommon();
@@ -244,7 +243,6 @@
       const nums = Object.keys(res).map(Number).sort((a, b) => a - b);
       const right = nums.filter(n => res[n].ok).length;
       QE.mark($('#lQs'), res, '🔎 ' + t('Nghe đoạn có đáp án'), n => hear(n));
-      if (window.QT) QT.record(isToeicP(p) ? 'tl' : 'il', res, null, isToeicP(p) ? 'p' + p.part : null); // thời gian ở bài nghe do audio quyết định → không tính giây/câu
       p.groups.forEach(g2 => (g2.items || []).forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, $('#lQs')); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }));
       nums.filter(n => !res[n].ok).forEach(n => App.logMistake && App.logMistake({ kind: 'listening', q: I18N.tk('{title} – Câu {n}: {q}', { title: p.title, n, q: res[n].q }), answer: res[n].answer, given: res[n].given || I18N.tk('(bỏ trống)'), explain: res[n].cue ? I18N.tk('Nghe: “…{cue}…”', { cue: res[n].cue }) : '', ref: p.id }));
       state.game = await Game.mutate(gs => { gs.listenDone = { ...(gs.listenDone || {}), [p.id]: Math.max(right, (gs.listenDone || {})[p.id] || 0) }; });
@@ -323,11 +321,10 @@
       await App.reward({ quizzes: 1, listens: 4, perfect: raw === 40 ? 1 : 0, xp: 40 + raw * 2 });
       if (band >= 7) { Sfx.win(); confetti(160); }
       const byPart = parts.map(p => ({ p, r: qNums(p).filter(q => results[q] && results[q].ok).length }));
-      if (window.QT) QT.record('il', results);
       view.innerHTML = `<div class="study-wrap" style="max-width:820px">
         <div class="card celebrate"><div class="em">🎧</div><h2>Band ${band} · ${t('{a}/{b} câu đúng', { a: raw, b: 40 })}</h2><p class="muted">${t('Quy đổi theo thang điểm Listening phổ biến của IELTS – chỉ mang tính tham khảo.')}</p>
           <div class="grid g2" style="margin-top:.8rem">${byPart.map(({ p, r }) => `<a class="card hover" href="#/listen/${p.id}" style="box-shadow:none;border:1px solid var(--line);color:var(--text)"><b>Part ${p.part}</b> · ${r}/10<div class="progress" style="margin-top:.4rem"><i style="width:${r * 10}%"></i></div><div class="tiny muted">${t('Bấm để luyện lại có lời thoại')}</div></a>`).join('')}</div></div>
-        ${window.QT ? QT.summary(results, 'Listening') : ''}<div class="card"><h3>📋 ${t('Bảng đáp án')}</h3><div class="lsheet">${nums.map(q => `<div class="${results[q].ok ? 'ok' : 'no'}"><b>${q}</b> ${results[q].ok ? '✓' : '✗'} <span>${esc(results[q].answer)}</span>${!results[q].ok && results[q].given ? `<span class="tiny muted">${t('(bạn: {a})', { a: esc(results[q].given) })}</span>` : ''}</div>`).join('')}</div>
+        <div class="card"><h3>📋 ${t('Bảng đáp án')}</h3><div class="lsheet">${nums.map(q => `<div class="${results[q].ok ? 'ok' : 'no'}"><b>${q}</b> ${results[q].ok ? '✓' : '✗'} <span>${esc(results[q].answer)}</span>${!results[q].ok && results[q].given ? `<span class="tiny muted">${t('(bạn: {a})', { a: esc(results[q].given) })}</span>` : ''}</div>`).join('')}</div>
           <div class="row" style="margin-top:1rem"><a class="btn primary" href="#/listening">${t('Về Luyện nghe')}</a><a class="btn" href="#/mistakes">📕 ${t('Xem Sổ lỗi sai')}</a></div></div></div>`;
     }
     intro();
@@ -384,7 +381,7 @@
           <details class="dict-tr" id="dTr"><summary>📜 ${t('Transcript & bản dịch')}</summary><div id="dTrBody" class="small"></div></details>
           <div class="row between" style="margin-top:.6rem"><div class="row"><button class="btn primary" id="dChk">${t('Kiểm tra')}</button><button class="btn ghost" id="dAns">${t('Đáp án')}</button><button class="btn ghost" id="dClr">${t('Xóa hết')}</button></div>
             <label class="md-sw"><input type="checkbox" id="dAuto" ${auto ? 'checked' : ''}><span></span>${t('Tự động phát lại câu')}</label></div>
-          <div class="tiny muted kbd-hint" style="margin-top:.6rem">${t('Phím tắt: <kbd>Space</kbd>/<kbd>Tab</kbd> sang ô sau · <kbd>Enter</kbd> kiểm tra / câu tiếp · <kbd>\\</kbd> nghe lại · <kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd> đổi câu · <kbd>Backspace</kbd> ở ô trống để về ô trước')}</div></div></div>`;
+          <div class="tiny muted" style="margin-top:.6rem">${t('Phím tắt: <kbd>Space</kbd>/<kbd>Tab</kbd> sang ô sau · <kbd>Enter</kbd> kiểm tra / câu tiếp · <kbd>\\</kbd> nghe lại · <kbd>Shift</kbd>+<kbd>←</kbd>/<kbd>→</kbd> đổi câu · <kbd>Backspace</kbd> ở ô trống để về ô trước')}</div></div></div>`;
       const hs = $$('.dict-h');
       $('#dPlay').onclick = () => say(l); $('#dSlow').onclick = () => say(l, true);
       $('#dTr').ontoggle = async () => {

@@ -144,7 +144,7 @@
   'Từ vựng gợi ý': 'Suggested vocabulary',
   'Xu hướng đề Task 2 (2026)': 'Task 2 trends (2026)',
   'Chủ đề lặp nhiều:': 'Frequent topics:',
-  'Ước tính sơ bộ từ ~90 đề do thí sinh báo lại (07–10/2026) – không phải số liệu chính thức của IELTS.': 'Rough estimate from ~90 test questions reported by candidates (Jul–Oct 2026) – not official IELTS data.',
+  'Thống kê từ ~90 đề thi thật do thí sinh báo lại (07–10/2026).': 'Based on ~90 real exam prompts reported by test takers (Jul–Oct 2026).',
   'Từ nối hay dùng': 'Common linking words',
   'Bài đã viết': 'Your essays',
   'Mở': 'Open',

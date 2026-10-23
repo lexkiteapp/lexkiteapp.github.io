@@ -174,12 +174,9 @@
     return res.map(q => ({ ...q, choices: shuffle([q.ans, ...shuffle(q.choices.filter(c => c !== q.ans), r).slice(0, 3)], r) }));
   }
 
-  // id ổn định của câu luyện → lời giải (web/js/explain/usage-<kind>/<lang>.json, scripts/explain/sets.mjs)
-  const xid = q => `${q.kind}|${q.key}|${q.item ? q.item.h : '@' + q.ans}`;
-
   // ---------- Danh sách theo nhóm (trang chuyên mục) ----------
   const list = (kind, sub) => load(kind).filter(e => !sub || e.sub === sub);
   const counts = () => { const c = {}; KINDS.forEach(k => { const es = load(k); c[k] = { entries: es.length, items: es.reduce((n, e) => n + e.items.length, 0) }; }); return c; };
 
-  g.LK_USAGE = { KINDS, SUBS, PREPS, VCODES, parse, load, has, example, words, resolve, suggest, near, lookup, byId, chunksOf, quizItems, quiz, xid, list, counts, norm };
+  g.LK_USAGE = { KINDS, SUBS, PREPS, VCODES, parse, load, has, example, words, resolve, suggest, near, lookup, byId, chunksOf, quizItems, quiz, list, counts, norm };
 })(typeof self !== 'undefined' ? self : this);

@@ -359,7 +359,7 @@
     id: 'tf3-bs', set: 3, task: 'sentence', title: 'Build a Sentence · Set 3',
     instr: 'Put the words in the correct order to make a grammatical response.',
     items: [
-      { n: 21, prompt: 'Where did you study for the exam?', chunks: ['I', 'studied', 'in the library', 'with', 'two friends', 'from my class'], end: '.', alt: ['in the library I studied with two friends from my class', 'with two friends from my class I studied in the library'],
+      { n: 21, prompt: 'Where did you study for the exam?', chunks: ['I', 'studied', 'in the library', 'with', 'two friends', 'from my class'], end: '.',
         explain: "Trật tự câu cơ bản S + V + nơi chốn + đi cùng ai: \"I studied in the library with two friends\"; cụm \"from my class\" bổ nghĩa cho \"two friends\" nên đứng ngay sau." },
       { n: 22, prompt: 'How was your weekend?', chunks: ['it was', 'so', 'relaxing', 'that', 'I forgot', 'about my homework'], end: '.',
         explain: "Cấu trúc \"so + adj + that + mệnh đề\" (quá … đến nỗi): \"so relaxing that I forgot about my homework\"; \"forget about\" = quên mất." },
@@ -373,11 +373,11 @@
         explain: "Cấu trúc \"tell + O + to V\" (bảo ai làm gì): \"told me to narrow it down\"; \"narrow down\" = thu hẹp; \"a little more\" (thêm một chút) đứng cuối." },
       { n: 27, prompt: 'What are you doing this summer?', chunks: ['I', 'am going to', 'work', 'at a museum', 'that', 'my aunt', 'manages'], end: '.',
         explain: "\"be going to + V\" diễn tả dự định; mệnh đề quan hệ \"that my aunt manages\" bổ nghĩa cho \"a museum\" (bảo tàng mà dì tôi quản lý)." },
-      { n: 28, prompt: 'Why was the concert postponed?', chunks: ['it', 'was postponed', 'because', 'the lead singer', 'had', 'lost', 'her voice'], end: '.', alt: ['because the lead singer had lost her voice it was postponed'],
+      { n: 28, prompt: 'Why was the concert postponed?', chunks: ['it', 'was postponed', 'because', 'the lead singer', 'had', 'lost', 'her voice'], end: '.',
         explain: "Bị động quá khứ \"was postponed\" (bị hoãn); \"because + mệnh đề\" nêu lý do; quá khứ hoàn thành \"had lost\" chỉ việc xảy ra trước khi buổi hòa nhạc bị hoãn." },
       { n: 29, prompt: 'What is the hardest part of the course?', chunks: ['writing', 'the final', 'research paper', 'is', 'the most', 'difficult part'], end: '.', alt: ['the most difficult part is writing the final research paper'],
         explain: "Danh động từ làm chủ ngữ: \"Writing the final research paper\" + \"is\" + so sánh nhất \"the most difficult part\". Có thể đảo hai vế quanh \"is\"." },
-      { n: 30, prompt: 'Is the gym crowded in the evening?', chunks: ['it', 'tends', 'to be', 'less crowded', 'after', 'eight o\'clock'], end: '.', alt: ['after eight o\'clock it tends to be less crowded'],
+      { n: 30, prompt: 'Is the gym crowded in the evening?', chunks: ['it', 'tends', 'to be', 'less crowded', 'after', 'eight o\'clock'], end: '.',
         explain: "\"tend + to V\" (thường có xu hướng); so sánh kém \"less crowded\" (ít đông hơn); cụm thời gian \"after eight o'clock\" đứng cuối câu." },
     ],
   });

@@ -9,11 +9,7 @@
   const C = { teal: '#0F3D3E', teal2: '#17595A', coral: '#E5502F', orange: '#FFB054', gold: '#FFC94A', cream: '#FFF7EA', green: '#2FBF71' };
   const T = (k, v) => g.t(k, v);
   let dictP = null;
-  const have = l => g.I18N_DICT && g.I18N_DICT[l] && g.I18N_DICT[l]['Trí nhớ siêu đỉnh!'];
-  const dict = () => dictP || (dictP = (!g.I18N || I18N.lang() === 'vi' || (have('en') && (I18N.lang() === 'en' || have(I18N.lang())))) ? Promise.resolve() : new Promise(r => {
-    const l = I18N.lang(), loadOne = src => new Promise(res => { const s = d.createElement('script'); s.src = src; s.onload = s.onerror = () => res(); d.head.appendChild(s); });
-    loadOne('js/i18n/en/share.js').then(() => (l !== 'en' && l !== 'vi' ? loadOne(`js/i18n/${l}/share.js`) : null)).then(r);
-  }));
+  const dict = () => dictP || (dictP = (!g.I18N || I18N.lang() === 'vi' || (g.I18N_DICT && I18N_DICT.en && I18N_DICT.en['Trí nhớ siêu đỉnh!'])) ? Promise.resolve() : new Promise(r => { const s = d.createElement('script'); s.src = 'js/i18n/en/share.js'; s.onload = s.onerror = () => r(); d.head.appendChild(s); }));
   const css = () => {
     if (d.getElementById('sc-css')) return;
     const st = d.createElement('style'); st.id = 'sc-css';

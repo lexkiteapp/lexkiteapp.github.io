@@ -203,24 +203,12 @@
     } catch (e) { return url; } // máy chủ không cho tải (CORS) → phát trực tiếp
   }
   // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
-  const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   function speak(text, accent, url, slow) {
     accent = accent || prefs().accent || 'en-GB';
     const fb = () => tts(text, accent, slow ? 0.55 : undefined);
     // Một giọng thống nhất: bỏ bản ghi âm tình nguyện viên (Wiktionary/dictionaryapi – mỗi từ một người, nhiều bản rè) khi máy có giọng đọc;
     // chỉ giữ file âm thanh của Lexkite. tts() tự ưu tiên giọng Kokoro chất lượng cao nếu có, rồi tới giọng máy tốt nhất.
     if (url && !/lexkite/.test(url) && 'speechSynthesis' in g) url = '';
-    // Từ trong kho: giọng Kokoro Anh/Mỹ (scripts/gen-word-audio.mjs, audio.lexkite.com/audio/w/) – chưa có file/không mạng → giọng máy
-    const wk = String(text || '').trim(), au = g.Lex && g.Lex.peekAu ? g.Lex.peekAu(wk) : undefined; // Lex biết từ không có file → không tải 404
-    const lx = au && g.Lex.peek(wk), we = !url && au !== false && g.navigator && navigator.onLine && ((g.IELTS_DATA && g.IELTS_DATA.INDEX[wk.toLowerCase()]) || (lx && lx.word.toLowerCase() === wk.toLowerCase() ? lx : null));
-    if (we && !wordMiss.has(accent + wk)) {
-      const v = accent === 'en-US' ? 'af_heart' : 'bf_emma', base = g.audioUrl('x').replace(/l\/x\.mp3$/, 'w/');
-      stopSpeak();
-      const my = speakSeq, el = audioEl = new Audio(base + fnv36(v + '|' + we.word.trim()) + '.mp3'); el.preservesPitch = true; el.playbackRate = slow ? 0.7 : 1;
-      const miss = () => { if (el.onerror) { el.onerror = null; wordMiss.add(accent + wk); if (my === speakSeq) fb(); } };
-      el.onerror = miss; try { const pr = el.play(); if (pr && pr.catch) pr.catch(miss); } catch (e) { miss(); }
-      return;
-    }
     if (url) {
       stopSpeak();
       const my = speakSeq;

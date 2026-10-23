@@ -8,11 +8,7 @@
   const view = App.view;
 
   // Dữ liệu sinh sẵn: scripts/gen-paraphrase.mjs (lọc câu FALSE/NO/NOT GIVEN, bỏ trùng)
-  // Lọc cặp không dùng để luyện được (soát 20/10): còn chỗ trống "___", ghép rời "… / …", hoặc gần như chép lại nguyên chữ câu hỏi (không phải paraphrase)
-  const STOP = new Set('more less than that this with from their have been which about into over some such them they were will would'.split(' '));
-  const keyw = s => (s.toLowerCase().match(/[a-z]+/g) || []).filter(w => w.length > 3 && !STOP.has(w));
-  const usable = (q, p) => { if (/_{2,}|\.\.\.|…|\//.test(q + p) || p.length > 90) return false; const a = new Set(keyw(q)), b = keyw(p); return !b.length || b.filter(w => a.has(w)).length / Math.min(a.size || 1, b.length) < 0.6; };
-  const pairs = () => (window.PARAPHRASE || []).filter(([q, p]) => usable(q, p)).map(([q, p]) => ({ q, p }));
+  const pairs = () => (window.PARAPHRASE || []).map(([q, p]) => ({ q, p }));
 
   routes.paraphrase = function () {
     const all = pairs();
@@ -27,7 +23,7 @@
         $('#ppAgain').onclick = () => routes.paraphrase();
         return;
       }
-      const it = round[i], opts = UI.shuffle([it.p, ...UI.shuffle(all.filter(x => x.p !== it.p && x.q !== it.q && Math.abs(x.p.length - it.p.length) < 40)).slice(0, 3).map(x => x.p)]);
+      const it = round[i], opts = UI.shuffle([it.p, ...UI.shuffle(all.filter(x => x.p !== it.p && Math.abs(x.p.length - it.p.length) < 40)).slice(0, 3).map(x => x.p)]);
       view.innerHTML = `<div class="study-wrap"><div class="study-top"><a class="icon-btn" href="#/skill/reading">✕</a><div class="progress"><i style="width:${i / round.length * 100}%"></i></div><span class="small muted">${i + 1}/${round.length}</span></div>
         <div class="card q-card"><div class="tiny muted">🔁 ${t('Luyện paraphrase')}</div>
           <p style="margin:.6rem 0 .2rem">${t('Câu hỏi viết:')}</p><div class="pp-q" translate="no">“${esc(it.q)}”</div>

@@ -4,13 +4,11 @@
  * điều khiển đầy đủ từ màn hình khóa và tai nghe qua MediaSession (play, pause, next, previous, seek).
  */
 (function () {
-  // CSS màn Rảnh tay (chuyển từ style.css → khung app nhẹ hơn)
-  if (!document.getElementById('hfCss')) { const st = document.createElement('style'); st.id = 'hfCss'; st.textContent = `.hf-card { text-align: center; padding: 2rem 1.2rem; min-height: 14rem; display: flex; flex-direction: column; justify-content: center; gap: .3rem; } .hf-word { font-size: clamp(2rem, 7vw, 3rem); font-weight: 800; } .hf-mean { font-size: 1.25rem; } .hf-ctl { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem; } .hf-ctl .icon-btn { font-size: 1.4rem; width: 3rem; height: 3rem; } .hf-wave { display: flex; justify-content: center; gap: 6px; height: 34px; align-items: flex-end; margin-bottom: .6rem; opacity: .35; } .hf-wave i { width: 6px; height: 8px; border-radius: 3px; background: var(--primary); } body.hf-on .hf-wave { opacity: 1; } body.hf-on .hf-wave i { animation: hfw 1.1s ease-in-out infinite; } .hf-wave i:nth-child(2) { animation-delay: .15s !important; } .hf-wave i:nth-child(3) { animation-delay: .3s !important; } .hf-wave i:nth-child(4) { animation-delay: .45s !important; } .hf-wave i:nth-child(5) { animation-delay: .6s !important; } @keyframes hfw { 0%, 100% { height: 8px; } 50% { height: 32px; } } body.hf-ambient { background: #0b1416; } body.hf-ambient .sidebar, body.hf-ambient .topbar, body.hf-ambient .bottom-nav, body.hf-ambient .page-head p { opacity: .15; } body.hf-ambient .hf-card { background: #10201f; color: #e6f2ef; border-color: #1d3634; } body.hf-ambient .hf-card .vi { color: #7fd3c4; } @media (prefers-reduced-motion: reduce) { body.hf-on .hf-wave i { animation: none; height: 20px; } }`; document.head.appendChild(st); }
   const { $, esc, toast } = UI;
   const App = window.App;
   const { state, routes } = App;
   const view = App.view;
-  const URL_OF = k => window.audioUrl ? window.audioUrl(k) : 'https://audio.lexkite.com/audio/l/' + k + '.mp3';
+  const URL_OF = k => g.audioUrl ? g.audioUrl(k) : 'https://audio.lexkite.com/audio/l/' + k + '.mp3';
   const kKey = text => (window.KVoice && window.LISTEN_AUDIO ? (k => (LISTEN_AUDIO.has(k) ? k : ''))(KVoice.lineKey('bf_emma', String(text).trim())) : '');
   let player = null;
 

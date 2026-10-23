@@ -172,7 +172,7 @@
               { n: 33, text: 'The library of Alexandria was open to all the residents of the city.', a: 'FALSE', cue: 'it served scholars invited by the king, not the ordinary people of the city' },
               { n: 34, text: "Chetham's Library still welcomes readers today.", a: 'TRUE', cue: 'is still open to readers today' },
               { n: 35, text: 'Benjamin Franklin gave many of his own books to the Library Company of Philadelphia.', a: 'NOT GIVEN', cue: 'Benjamin Franklin helped to establish the Library Company of Philadelphia' },
-              { n: 36, text: 'Every British town opened a public library soon after 1850.', a: 'FALSE', cue: 'many towns chose not to use the new powers at all' },
+              { n: 36, text: 'Most British towns opened a public library soon after 1850.', a: 'FALSE', cue: 'many towns chose not to use the new powers at all' },
             ] },
           { type: 'match',
             instr: 'Complete each sentence with the correct ending, A–E, below.',
