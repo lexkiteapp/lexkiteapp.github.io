@@ -6,7 +6,7 @@ const [cfgPath, out] = process.argv.slice(2); const cfg = JSON.parse(fs.readFile
 let tts = null;
 for (let k = 1; k <= 4 && !tts; k++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error('model load failed', k, e.message); await new Promise(r => setTimeout(r, 10000 * k)); } }
 for (const l of cfg.lines) {
-  const voice = l.voice || cfg.voices[l.who], speed = l.speed || cfg.speed || 1, raw = `/tmp/${l.id}.raw.wav`;
+  const voice = l.voice || cfg.voices[l.who], speed = l.speed || cfg.speed || 1, raw = `${out}/${l.id}.raw.wav`;
   const a = await tts.generate(l.text.replace(/["“”]/g, ''), { voice, speed }); await a.save(raw);
   execFileSync('ffmpeg', ['-nostdin', '-v', 'error', '-y', '-i', raw, '-af', 'silenceremove=start_periods=1:start_threshold=-50dB,areverse,silenceremove=start_periods=1:start_threshold=-50dB,areverse,adelay=40:all=1,apad=pad_dur=0.06,loudnorm=I=-16:TP=-1.5:LRA=11,aresample=48000', '-ac', '1', `${out}/${l.id}.wav`]);
   fs.writeFileSync(`${out}/${l.id}.txt`, l.text); console.log(l.id, voice, speed, l.text);
