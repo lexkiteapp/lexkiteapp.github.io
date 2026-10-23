@@ -117,6 +117,32 @@ const reads = async fn => { M.begin('t'); await fn(); return M.end().reads; };
   ok(/SEARCH sessions USING (COVERING )?INDEX sessions_day/.test(plan), 'DELETE sessions dùng chỉ mục day: ' + plan);
 }
 
+// ---------- 4a) hit.js: Analytics Engine + chế độ hybrid (nhịp hb chỉ vào AE) ----------
+{
+  const H = await import('../../functions/api/hit.js');
+  const pts = [], HITS = { writeDataPoint: p => pts.push(p) };
+  ok(H.hitMode({}) === 'd1' && H.hitMode({ HITS }) === 'd1', 'không khoá đọc AE → d1 (Quản trị vẫn đọc được "đang online")');
+  ok(H.hitMode({ HITS, CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'a' }) === 'hybrid' && H.hitMode({ HITS, CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'a', HIT_STORE: 'd1' }) === 'd1', 'đủ binding + khoá → hybrid; HIT_STORE=d1 → rollback');
+  ok(H.hitMode({ HIT_STORE: 'hybrid' }) === 'd1', 'ép hybrid mà thiếu binding → d1');
+  const sessW = () => [...M.queries.values()].filter(e => /^INSERT INTO sessions/.test(e.q)).reduce((t, e) => t + e.n, 0);
+  const pvW = () => [...M.queries.values()].filter(e => /^INSERT INTO pageviews_day/.test(e.q)).reduce((t, e) => t + e.n, 0);
+  const beacon = (env, extra) => H.onRequestPost({ request: new Request('https://lexkite.com/api/hit', { method: 'POST', headers: { 'User-Agent': 'Mozilla/5.0 Chrome/130', 'CF-Connecting-IP': '192.0.2.31' }, body: JSON.stringify({ t: 's', sid: 'sidae0001', vid: 'vidae0001', path: 'home', cur: 'review', pages: 3, dur: 200, pv: { review: 2 }, ...extra }) }), env });
+  const hyb = { DB, HITS, CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'a' };
+  let s0 = sessW(), p0 = pvW();
+  await beacon(hyb, {});
+  ok(sessW() === s0 + 1 && pvW() === p0 + 1 && pts.length === 1 && pts[0].blobs[11] === 's', 'beacon thường: D1 + 1 điểm AE');
+  s0 = sessW(); p0 = pvW();
+  await beacon(hyb, { hb: 1 });
+  ok(sessW() === s0 && pvW() === p0 && pts.length === 2 && pts[1].blobs[11] === 'hb' && pts[1].indexes[0] === 'vidae0001', 'hybrid: nhịp hb → chỉ AE, 0 dòng D1');
+  s0 = sessW(); p0 = pvW();
+  await beacon({ DB }, { hb: 1 });
+  ok(sessW() === s0 + 1 && pvW() === p0, 'd1: nhịp hb vẫn ghi phiên nhưng KHÔNG cộng lượt xem (máy khách gửi cộng dồn, tính ở lần sau)');
+  const fake = async (u, init) => { ok(/analytics_engine\/sql$/.test(u) && /FROM lexkite_hits/.test(init.body) && /blob11 = ''/.test(init.body), 'SQL AE đúng bảng, loại máy tự động'); return new Response(JSON.stringify({ data: [{ vid: 'v1', cur: 'review', at: 3 }, { vid: 'v2', cur: 'home', at: 2 }, { vid: 'v1', cur: 'home', at: 1 }, { vid: 'adm', cur: 'admin', at: 1 }] })); };
+  const on = await H.aeOnline(hyb, Date.now(), ['adm'], fake);
+  ok(on && on.n === 2 && on.viewing.find(v => v.k === 'review').n === 1 && on.viewing.find(v => v.k === 'home').n === 1, 'đang online từ AE: đếm khách khác nhau, trang mới nhất, bỏ quản trị');
+  ok(await H.aeOnline({}, Date.now(), [], fake) === null, 'thiếu khoá → null (Quản trị lùi về D1)');
+}
+
 // ---------- 4b) config.js: đệm biên 5 phút + ETag/304 ----------
 {
   const CF = await import('../../functions/api/config.js');
@@ -196,7 +222,7 @@ const CAP = await import('../../functions/api/capacity.js');
   const sig = k => createHmac('sha256', k).update(ts + '.' + createHash('sha256').update(text).digest('hex')).digest('hex');
   ok((await post({ op: 'check' }, { 'X-Drive-Ts': String(ts), 'X-Drive-Sig': sig('wrong-key-wrong-key-wrong-key') })).s === 401, 'chữ ký sai → 401');
   const good = await post({ op: 'check' }, { 'X-Drive-Ts': String(ts), 'X-Drive-Sig': sig(CLI) });
-  ok(good.s === 503 && good.j.error === 'no-analytics-token', 'chữ ký đúng, thiếu khoá Analytics → 503 (workflow đỏ)');
+  ok(good.s === 503 && good.j.error === 'no-analytics-token', 'chữ ký đúng, thiếu khoá Analytics → 503 (workflow bỏ qua trung tính)');
 }
 
 globalThis.Date = RealDate;

@@ -5,7 +5,7 @@
  *       → luật _capacity.js evaluate(): ≥ 60 % gói Free 3 ngày liền HOẶC dự báo chạm 80 % trong 14 ngày
  *       → chuông Quản trị (drive_alerts kind 'capacity') + thư "Nâng gói Cloudflare 5 USD trước ngày X" (≤ 1 thư/24 h); hết nguy cơ → gỡ chuông.
  *   Quản trị (adminGate): { op: 'trend' } → chuỗi 30 ngày + đánh giá cho Quản trị › Hạn mức.
- * Cần bí mật Pages CF_ANALYTICS_TOKEN (quyền Account Analytics: Read) + CF_ACCOUNT_ID – dùng chung với _d1guard.js. Thiếu → 503 'no-analytics-token' (workflow đỏ).
+ * Cần bí mật Pages CF_ANALYTICS_TOKEN (quyền Account Analytics: Read) + CF_ACCOUNT_ID – dùng chung với _d1guard.js. Thiếu → 503 'no-analytics-token' (workflow bỏ qua trung tính, không đỏ).
  * Chỉ đọc theo khoá (capacity_daily PK day, drive_alerts PK kind) – không quét bảng. */
 import { evaluate, alertText, LIMITS, ALERT, fmtVN } from './_capacity.js';
 import { adminGate, adminCors } from './admin.js';

@@ -22,8 +22,9 @@ self.addEventListener('activate', e => {
 });
 // HTML/JS/CSS: lấy bản mới từ mạng (chờ tối đa 2,5 giây) → không bao giờ trộn file cũ với file mới; offline thì dùng cache.
 // Ảnh/icon: lấy từ cache ngay.
-// Âm thanh lưu riêng, tối đa 600 file gần nhất (~12 MB) – nghe lại tức thì, offline được, không phình bộ nhớ máy
-const AUDIO = 'lk-audio', AUDIO_MAX = 600;
+// Âm thanh lưu riêng, tối đa 2000 file gần nhất (~40 MB) – nghe lại tức thì, offline được, không gọi lại Worker audio.lexkite.com
+// (Worker = lượt tính hạn mức 100k/ngày – docs/CAPACITY.md §Kiến trúc A3; trước 600 file → người học nhiều bị đẩy ra rồi tải lại)
+const AUDIO = 'lk-audio', AUDIO_MAX = 2000;
 const trimAudio = c => c.keys().then(ks => { if (ks.length > AUDIO_MAX) return Promise.all(ks.slice(0, ks.length - AUDIO_MAX).map(k => c.delete(k))); });
 const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$/; // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {

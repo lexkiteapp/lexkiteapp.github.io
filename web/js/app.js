@@ -1865,15 +1865,15 @@
     let noTrack = false; try { noTrack = localStorage.getItem('lk.noTrack') === '1'; } catch (e) { /* bỏ qua */ }
     const inSample = !noTrack && (parseInt(vid.slice(0, 6), 36) % 1000) < rate * 1000;
     let lastSent = 0, pv = { [path]: 1 }; // pv: lượt xem từng trang kể từ lần gửi trước (máy chủ cộng dồn vào pageviews_day)
-    const flush = (force) => {
+    const flush = (force, hb) => { // hb: nhịp "đang online" 3 phút – máy chủ có thể chỉ ghi Analytics Engine (lượt xem dồn sang lần gửi sau)
       if (since) { dur += (Date.now() - since) / 1000; since = document.visibilityState === 'visible' ? Date.now() : 0; }
       if (!inSample || (!force && Date.now() - lastSent < 60000)) return;
-      lastSent = Date.now(); const d = pv; pv = {};
-      send({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined });
+      lastSent = Date.now(); const d = pv; if (!hb) pv = {};
+      send({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb });
     };
     addEventListener('hashchange', () => { pages++; const r = cur(); if (r in pv || Object.keys(pv).length < 20) pv[r] = (pv[r] || 0) + 1; });
     // "Đang online": gửi 1 lần sau 15 giây rồi nhịp 3 phút/lần khi tab đang hiển thị (ẩn tab → không gửi)
-    if (inSample) { setTimeout(() => document.visibilityState === 'visible' && flush(true), 15000); setInterval(() => { if (document.visibilityState === 'visible') flush(true); }, 180000); }
+    if (inSample) { setTimeout(() => document.visibilityState === 'visible' && flush(true), 15000); setInterval(() => { if (document.visibilityState === 'visible') flush(true, 1); }, 180000); }
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); else since = Date.now(); });
     addEventListener('pagehide', () => flush(true));
     const err = (msg, src, line) => { if (++errs > 5 || !msg || /ResizeObserver loop|^Script error\.?$/.test(msg)) return; send({ t: 'e', msg: String(msg), src: String(src || '').replace(location.origin, ''), line, path: (location.hash.match(/^#\/([a-z-]+)/) || [, ''])[1] }); };
