@@ -30,8 +30,35 @@ async function setup(db) {
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS notices (id TEXT PRIMARY KEY, at INTEGER NOT NULL, by TEXT, title TEXT NOT NULL, body TEXT NOT NULL, kind TEXT NOT NULL DEFAULT \'info\', img TEXT, cta_label TEXT, cta_url TEXT, target TEXT, send_at INTEGER, expire_at INTEGER, lang TEXT, revoked INTEGER DEFAULT 0) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS notice_reads (id TEXT NOT NULL, uid TEXT NOT NULL, read_at INTEGER NOT NULL, clicked INTEGER DEFAULT 0, PRIMARY KEY (id, uid)) WITHOUT ROWID'),
+    db.prepare('CREATE INDEX IF NOT EXISTS notices_live ON notices (revoked, at)'), // danh sách công khai: WHERE revoked = 0 ORDER BY at DESC – không quét + sắp xếp cả bảng
   ]);
   ready = true;
+}
+
+// Danh sách công khai (chưa lọc theo người nhận) dùng chung mọi người cùng ngôn ngữ → đệm biên 60 s (Cache API, miễn phí):
+// mỗi trung tâm dữ liệu đọc D1 ≤ 1 lần/phút/ngôn ngữ thay vì mỗi lần mở app (docs/CAPACITY.md).
+// Lấy trước cửa sổ PUB_TTL (send_at ≤ now + 60 s) rồi lọc lại theo giờ thật → thông báo hẹn giờ không đến trễ, hết hạn không hiện thừa.
+// Quản trị tạo/thu hồi → purgeNotices() xoá đệm ở trung tâm của quản trị; nơi khác tự hết hạn ≤ 60 s.
+export const PUB_TTL = 60, LANGS = ['all', 'vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
+const pubKey = lang => new Request('https://notices.lexkite.internal/pub/v1/' + encodeURIComponent(lang));
+export async function purgeNotices() { try { const c = /** @type {any} */ (caches).default; await Promise.all(LANGS.map(l => c.delete(pubKey(l)))); } catch (e) { /* không có Cache API */ } }
+async function publicNotices(db, now, lang) {
+  let rows = null;
+  try { const hit = await /** @type {any} */ (caches).default.match(pubKey(lang)); if (hit) rows = await hit.json(); } catch (e) { rows = null; }
+  if (!rows) {
+    rows = (await db.prepare(`
+      SELECT id, at, title, body, kind, img, cta_label, cta_url, target, send_at, expire_at, lang
+      FROM notices
+      WHERE revoked = 0
+        AND (send_at IS NULL OR send_at <= ?2)
+        AND (expire_at IS NULL OR expire_at > ?1)
+        AND (lang = 'all' OR lang IS NULL OR lang = ?3)
+      ORDER BY at DESC
+      LIMIT 50
+    `).bind(now, now + PUB_TTL * 1000, lang).all()).results || [];
+    try { await /** @type {any} */ (caches).default.put(pubKey(lang), new Response(JSON.stringify(rows), { headers: { 'Cache-Control': `max-age=${PUB_TTL}` } })); } catch (e) { /* bỏ qua */ }
+  }
+  return rows.filter(n => (n.send_at == null || n.send_at <= now) && (n.expire_at == null || n.expire_at > now));
 }
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: cors(request) });
@@ -59,17 +86,8 @@ export async function onRequestGet({ request, env }) {
       userRow = await db.prepare('SELECT plat, created, seen FROM users WHERE uid = ?').bind(uid).first();
     }
 
-    // Lấy thông báo chưa bị thu hồi, đã tới giờ gửi, chưa hết hạn, đúng ngôn ngữ
-    const rawNotices = (await db.prepare(`
-      SELECT id, at, title, body, kind, img, cta_label, cta_url, target, send_at, expire_at, lang
-      FROM notices
-      WHERE revoked = 0
-        AND (send_at IS NULL OR send_at <= ?1)
-        AND (expire_at IS NULL OR expire_at > ?1)
-        AND (lang = 'all' OR lang IS NULL OR lang = ?2)
-      ORDER BY at DESC
-      LIMIT 50
-    `).bind(now, lang).all()).results || [];
+    // Lấy thông báo chưa bị thu hồi, đã tới giờ gửi, chưa hết hạn, đúng ngôn ngữ (đệm biên 60 s – publicNotices)
+    const rawNotices = await publicNotices(db, now, lang);
 
     // Lọc theo đối tượng người nhận (target)
     const eligible = [];

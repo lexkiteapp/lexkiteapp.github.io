@@ -198,6 +198,23 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
   await Q.gate(new Request('https://lexkite.com/api/sync', { headers: { 'CF-Connecting-IP': '192.0.2.1' } }), ENV, 'sync', { who: null });
   M.end(); const stateReads2 = M.totals.reads - r1;
 
+  // ---------- 4b) đầu dò: D1 tính bao nhiêu dòng GHI cho từng kiểu câu lệnh (ghi = nút thắt gói Free) ----------
+  const probe = {};
+  try {
+    await raw.batch([raw.prepare('CREATE TABLE IF NOT EXISTS pr (a TEXT NOT NULL, b TEXT NOT NULL, v TEXT, x INTEGER, PRIMARY KEY (a, b)) WITHOUT ROWID'), raw.prepare('CREATE INDEX IF NOT EXISTS pr_x ON pr (x)')]);
+    const P = async (k, q, ...a) => { const r = await raw.prepare(q).bind(...a).run(); probe[k] = { w: r.meta.rows_written, r: r.meta.rows_read }; };
+    await P('insert_new', 'INSERT INTO pr (a, b, v, x) VALUES (?1, ?2, ?3, 1)', 'u', 'k1', 'x'.repeat(3000));
+    await P('upsert_existing', 'INSERT INTO pr (a, b, v, x) VALUES (?1, ?2, ?3, 1) ON CONFLICT (a, b) DO UPDATE SET v = ?3', 'u', 'k1', 'y'.repeat(3000));
+    await P('upsert_existing_idxcol', 'INSERT INTO pr (a, b, v, x) VALUES (?1, ?2, ?3, ?4) ON CONFLICT (a, b) DO UPDATE SET v = ?3, x = ?4', 'u', 'k1', 'z', 2);
+    await P('upsert_same_skip', 'INSERT INTO pr (a, b, v, x) VALUES (?1, ?2, ?3, 2) ON CONFLICT (a, b) DO UPDATE SET v = ?3 WHERE pr.v IS NOT excluded.v', 'u', 'k1', 'z');
+    await P('update_existing', 'UPDATE pr SET v = ?3 WHERE a = ?1 AND b = ?2', 'u', 'k1', 'w');
+    await P('update_idxcol', 'UPDATE pr SET x = ?3 WHERE a = ?1 AND b = ?2', 'u', 'k1', 3);
+    await P('insert_ignore_existing', 'INSERT OR IGNORE INTO pr (a, b, v, x) VALUES (?1, ?2, ?3, 1)', 'u', 'k1', 'q');
+    await P('replace_existing', 'INSERT OR REPLACE INTO pr (a, b, v, x) VALUES (?1, ?2, ?3, 3)', 'u', 'k1', 'r');
+    await P('update_missing', 'UPDATE pr SET v = ?3 WHERE a = ?1 AND b = ?2', 'u', 'nope', 'w');
+  } catch (e) { probe.error = String(e.message).slice(0, 120); }
+  log('đầu dò ghi D1: ' + JSON.stringify(probe));
+
   // ---------- 5) EXPLAIN QUERY PLAN ----------
   const plans = explainAll(M, be.kind === 'sqlite' ? be.sql : null);
   const live = p => p.labels.some(l => !l.startsWith('cold:')); // chỉ chạy lúc khởi động lạnh/di chuyển 1 lần → không tính là đường người dùng
@@ -206,7 +223,7 @@ export async function simulate({ backend = arg('d1', 'sqlite'), users = +arg('us
   const smallScans = plans.filter(p => p.scans.length && p.small);
   let bytesPerUser = null;
   try { const r = await raw.prepare("SELECT AVG(s) AS a FROM (SELECT SUM(LENGTH(body)) AS s FROM docs WHERE uid LIKE 'typical-%' GROUP BY uid)").all(); bytesPerUser = Math.round((r.results[0] || {}).a || 0); } catch (e) { /* bỏ qua */ }
-  const out = { backend: be.kind, at: new RealDate().toISOString(), samples: users, seedUsers, profiles: results, cold, quotaState: { readsPerRefresh: stateReads, readsSecondIsolate: stateReads2 }, bytesPerTypicalUser: bytesPerUser,
+  const out = { probe, backend: be.kind, at: new RealDate().toISOString(), samples: users, seedUsers, profiles: results, cold, quotaState: { readsPerRefresh: stateReads, readsSecondIsolate: stateReads2 }, bytesPerTypicalUser: bytesPerUser,
     scans: userScans.map(p => ({ q: p.q.slice(0, 220), labels: p.labels, plan: p.plan })), smallScans: smallScans.map(p => ({ q: p.q.slice(0, 160), plan: p.plan })), coldScans: coldScans.map(p => ({ q: p.q.slice(0, 160), plan: p.plan })), perEndpoint: Object.fromEntries(per) };
   out.projection = project(out, MIX, LIMITS);
   if (be.dispose) await be.dispose();

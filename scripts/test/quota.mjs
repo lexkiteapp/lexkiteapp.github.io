@@ -11,6 +11,7 @@ const store = new Map();
 globalThis.caches = { default: {
   async match(req) { const e = store.get(req.url); if (!e || e.exp <= Date.now()) return undefined; return new Response(e.body); },
   async put(req, res) { const age = +((res.headers.get('Cache-Control') || '').match(/max-age=(\d+)/) || [, 0])[1]; store.set(req.url, { body: await res.text(), exp: Date.now() + age * 1000 }); },
+  async delete(req) { return store.delete(req.url); }, // resetState() xoá bản đệm trạng thái dùng chung
 } };
 const clearEdge = () => store.clear();
 

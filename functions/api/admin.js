@@ -6,6 +6,7 @@ import { claims, limit } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ } from './hit.js';
 import { growthData } from './growth.js';
+import { purgeNotices } from './notices.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
@@ -509,6 +510,7 @@ const OPS = {
       'INSERT INTO notices (id, at, by, title, body, kind, img, cta_label, cta_url, target, send_at, expire_at, lang, revoked) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)'
     ).bind(id, now, by, title, body, kind, img || null, cta_label || null, cta_url || null, target, send_at, expire_at, lang).run();
 
+    await purgeNotices(); // đệm biên danh sách công khai (notices.js)
     return { ok: true, id };
   },
   async noticeList(db, b) {
@@ -540,6 +542,7 @@ const OPS = {
     const id = String(b.id || '').trim().slice(0, 60);
     if (!id) return { error: 'id-required' };
     await db.prepare('UPDATE notices SET revoked = 1 WHERE id = ?').bind(id).run();
+    await purgeNotices();
     return { ok: true, id };
   },
   async noticeStats(db) {

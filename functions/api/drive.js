@@ -248,7 +248,7 @@ const cookieOf = (req, k) => { const m = (req.headers.get('Cookie') || '').match
 // Ngưỡng: 80 % cảnh báo · 90 % nghiêm trọng + tự ngừng nhận file (weight 0, nhớ auto_weight; < 90 % tự trả lại) · pool còn < 10 GB cảnh báo ·
 // mất kết nối (invalid_grant) / Google không phản hồi 3 lần liên tiếp / tải lên lỗi 3 lần liên tiếp → nghiêm trọng.
 // Thư (lexkite-mail → REPORT_NOTIFY_EMAIL): chỉ mức nghiêm trọng, ≤ 1 thư/loại/24 h; hết lỗi → thư "đã khôi phục".
-export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1']); // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng
+export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1', 'capacity']); // capacity: functions/api/capacity.js (nâng gói Cloudflare) // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng
 const pctOf = r => (r.quota_total ? (+r.quota_used || 0) / +r.quota_total : 0);
 /** Danh sách cảnh báo từ trạng thái các Drive (thuần). → [{kind, level: 'warn'|'crit', t, drive_id, p, msg}] */
 export function evalAlerts(rows, { single = 0 } = {}) {
