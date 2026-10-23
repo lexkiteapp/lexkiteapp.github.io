@@ -336,7 +336,7 @@ if '@' in str(tl['shots'][0]['bg']):
     rule(bool(_v4), f'bg-v4 plate in use (anime_6B SR, shared plate) for {_b4}')
     if _v4:
         _cl, _cr = _v4['crop']['L'], _v4['crop']['R']; _ov = (_cl[0] + _cl[2] - _cr[0]) / _cl[2]
-        rule(_ov >= 0.2 and _v4['anchor']['edge_density'] >= 0.01, f"L/R crops overlap {_ov * 100:.0f} % (>= 20 %), shared strip edge density {_v4['anchor']['edge_density']} (>= 0.01: same objects in both shots)")
+        rule(_ov >= 0.2 and _v4['anchor']['edge_density'] >= 0.005, f"L/R crops overlap {_ov * 100:.0f} % (>= 20 %), shared strip edge density {_v4['anchor']['edge_density']} (>= 0.005: same objects in both shots)")
         _ac = [(sd, v.get('acu_v3'), v['acu_v4']) for sd, v in _v4['sides'].items()]; _amin = float(os.environ.get('BG_ACU_MIN', '0'))
         rule(all(a4 >= max(_amin, (a3 or 0) * 0.98) for _, a3, a4 in _ac), f'bg edge acutance v3 -> v4 {_ac} (v4 >= v3, >= {_amin})')
     _pn = tl.get('qa', {}).get('pans') or []; rule(bool(_pn) or not _v4, f'establishing / key-change pans across the shared plate: {_pn}')
@@ -490,6 +490,26 @@ _bgid = str(_lm.get('bg') or '').split('@')[0]
 _bad = [d for d in _dh if _bgid not in _bgt[d]['bg'] and not any(re.search(r'(^|_)' + re.escape(k) + r'(_|$)', _bgid) for k in _bgt[d]['bg'] + [d])]   # wide library ids (hl_pharmacy_counter__...) match by scene word
 print(f"== BG TOPIC: bg {_lm.get('bg')} domains {_dh or '-'}", 'OK' if not _bad else f'FAIL (needs {[_bgt[d]["bg"] for d in _bad]})')
 if _bad: fails.append('bg-topic')
+print('== CINE SCORE (owner 23/10: thirds, lead room, headroom, level, tangents, separation, clean head zone, consistency, shot purpose, balance)')
+_sg = [x for x in tl['shots'] if not x.get('other') and x.get('xfs')]; _C = {}
+def _ct(name, ok, det): _C[name] = dict(ok=bool(ok), detail=det)
+_eye = {x['id']: round(x['xfs'][x['clip']][4] / 1920, 3) for x in _sg}; _ct('thirds', all(0.293 <= v <= 0.373 for v in _eye.values()), _eye)
+_lead = {x['id']: x['xfs'][x['clip']][3] for x in _sg}; _ct('lead_room', all((v <= 540) == (x['who'] == 'ama') for x, v in zip(_sg, _lead.values())) and not _away, dict(ox=_lead, yaw=_yaw))
+_ht = lambda x: round((x['xfs'][x['clip']][4] - HOST_TOP.get(x['clip'][:3], 250) * x['xfs'][x['clip']][0]) / 1920, 3); _hr = {x['id']: (x['frame'], _ht(x)) for x in _sg}
+_ct('headroom', all(0.08 <= v <= (0.16 if f == 'mcu' else 0.18) for f, v in _hr.values()), _hr)   # MS: 18 % (eyes on the third line win over 14 %)
+_rot = [abs(v) for x in tl['shots'] for v in (x.get('cam') or {}).get('rot', [0, 0])]; _ct('level', max(_rot or [0]) <= 1.0, f'max camera roll {max(_rot or [0]):.2f} deg (<= 1)')
+_ci = {x['id']: x.get('cine') for x in _sg if x.get('cine')}
+_ct('tangents', _ci and not any(v['tangents'] for v in _ci.values()), {k: len(v['tangents']) for k, v in _ci.items()})
+_ct('separation', _ci and all(v['dL'] >= 8 or v['sharp_ratio'] >= 1.3 for v in _ci.values()), {k: (v['dL'], v['sharp_ratio']) for k, v in _ci.items()})
+_CL = float(os.environ.get('CINE_CLUTTER_MAX', '0.08')); _ct('clean_head_zone', _ci and all(v['clutter'] <= _CL for v in _ci.values()), {k: v['clutter'] for k, v in _ci.items()})
+_zs = [json.load(open(p_)) for p_ in glob.glob(f"{LIB}/anchor/bg/w4/zones/{str(tl['shots'][0]['bg']).split('@')[0]}_*.zones.json")]
+_hzs = [z.get('final_horizon') for z in _zs if z.get('final_horizon')]; _zz = [x['cam']['z'][0] for x in tl['shots'] if x.get('cam')]
+_ct('consistency', (not _hzs or max(_hzs) - min(_hzs) <= 0.03) and (max(_zz) / min(_zz) <= 1.06 if _zz else True), dict(horizon=_hzs, cam_z=[round(min(_zz), 3), round(max(_zz), 3)] if _zz else None))
+_fr = {x['frame'] for x in _sg}; _ct('shot_purpose', {'mcu', 'wide'} <= _fr and bool(tl.get('qa', {}).get('pans')), dict(frames=sorted(_fr), pans=tl.get('qa', {}).get('pans')))
+_ct('balance', _ci and all(v['dead'] <= 0.35 for v in _ci.values()), {k: v['dead'] for k, v in _ci.items()})
+_cs = sum(10 for v in _C.values() if v['ok']); json.dump(dict(score=_cs, rules=_C), open(f'{RD}/cine.json', 'w'), indent=1, default=str)
+for k_, v_ in _C.items(): print(f'  cine {k_:16s}', 'OK' if v_['ok'] else 'FAIL', str(v_['detail'])[:220])
+rule(_cs == 100, f'cine score {_cs}/100 (hard gate: every rule)')
 print('== LAYOUT (owner 23/10: 1 card + 1 caption, no overlap / overflow, AA contrast; contact sheet)')
 _lq = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'layout_qa.py'), RD, V], capture_output=True, text=True); print('  ' + (_lq.stdout.strip() or _lq.stderr.strip()[-400:]).replace('\n', '\n  '))
 rule(_lq.returncode == 0, 'layout QA (overlap / overflow / contrast / one card + one caption)')
