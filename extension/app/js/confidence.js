@@ -27,14 +27,14 @@
     st.textContent = `.cf-hero{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}.cf-hero .grow{flex:1 1 220px;min-width:0}
 .cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:.8rem;margin-bottom:1rem}
 .cf-unit{display:flex;gap:.7rem;align-items:flex-start;padding:1rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);text-decoration:none;min-height:44px;position:relative}
-.cf-unit:hover,.cf-unit.next{border-color:var(--primary)}.cf-unit .em{font-size:1.7rem;line-height:1}.cf-unit b{display:block}.cf-unit .ok{position:absolute;top:.5rem;right:.6rem}
+.cf-unit:hover,.cf-unit.next{border-color:var(--primary)}.cf-unit .em{font-size:1.7rem;line-height:1}.cf-unit b{display:block}.cf-unit .cf-done{position:absolute;top:.5rem;inset-inline-end:.6rem}
 .cf-soon{opacity:.65;pointer-events:none}
 .cf-steps{display:flex;gap:.3rem;margin:.2rem 0 1rem;flex-wrap:wrap}.cf-steps span{flex:1 1 0;min-width:2.2rem;height:6px;border-radius:6px;background:var(--line)}.cf-steps span.on{background:var(--primary)}
 .cf-line{display:flex;gap:.6rem;align-items:flex-start;padding:.45rem .6rem;border-radius:12px}.cf-line.on{background:var(--accent-soft)}.cf-line .who{font-weight:700;min-width:4.5rem;flex:none}
 .cf-line button,.cf-ph button.ic{min-width:44px;min-height:44px;border:0;background:transparent;font-size:1.1rem;cursor:pointer;color:inherit;flex:none}
 .cf-ph{border:1px solid var(--line);border-radius:var(--radius-sm);padding:.8rem 1rem;margin:.6rem 0;background:var(--surface);scroll-margin-top:5rem}
 .cf-ph.hl{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.cf-ph .say{font-size:1.15rem;font-weight:800;display:flex;align-items:center;gap:.3rem;flex-wrap:wrap}.cf-ph s{opacity:.7}
+.cf-ph .say{font-size:1.15rem;font-weight:800;display:flex;align-items:center;gap:.3rem}.cf-ph .say>span{flex:1 1 auto;min-width:0}.cf-ph .say .ic{margin:-.5rem 0}.cf-ph s{opacity:.7}
 .cf-pair{display:grid;grid-template-columns:auto 1fr;gap:.2rem .5rem;margin-top:.4rem;font-size:.95rem}
 .cf-big{font-size:1.35rem;font-weight:800;line-height:1.4;margin:.6rem 0;overflow-wrap:anywhere}
 .cf-w{display:inline-block;padding:0 .15rem;border-radius:4px}.cf-w.y{background:var(--good-soft,#d8f5e3)}.cf-w.n{background:var(--again-soft,#fde2e2);text-decoration:underline dotted}
@@ -49,6 +49,7 @@
     document.head.appendChild(st);
   }
   const head = (h, sub, back) => `<div class="page-head"><div>${back ? `<a class="small" href="${back}">← ${t('Giao tiếp tự tin')}</a>` : ''}<h1>${h}</h1>${sub ? `<p class="muted">${sub}</p>` : ''}</div></div>`;
+  const enSub = u => (I18N.lang() === 'en' ? '' : `<span class="tiny muted" lang="en" style="display:block">${esc(u.titleEn)}</span>`); // tên tiếng Anh gốc (ẩn khi giao diện đã là tiếng Anh)
   const chip = l => `<span class="chip lv">${esc(l)}</span>`;
   const mic = (id, label) => `<button type="button" class="btn primary cf-mic" id="${id}" aria-label="${label || t('Nói')}">🎙️</button>`;
   const speakBtn = (text, label, slow) => `<button type="button" class="ic" data-say="${esc(text)}"${slow ? ' data-slow="1"' : ''} aria-label="${label || t('Nghe')}">🔊</button>`;
@@ -73,7 +74,7 @@
   function overview() {
     const P = load(), units = D().units, last = P.daily[P.daily.length - 1], doneToday = last && last.d === day();
     const next = units.find(u => !P.done[u.id]);
-    const card = u => `<a class="cf-unit${next && next.id === u.id ? ' next' : ''}" href="#/confidence/${u.id}"><span class="em" aria-hidden="true">${u.em}</span><span><b>${esc(t(u.title))}</b><span class="tiny muted" lang="en">${esc(u.titleEn)}</span><br>${next && next.id === u.id ? `<span class="chip ok">${t('Bài tiếp theo')}</span>` : ''}</span>${P.done[u.id] ? `<span class="ok" role="img" aria-label="${t('Đã xong')}">✅</span>` : ''}</a>`;
+    const card = u => `<a class="cf-unit${next && next.id === u.id ? ' next' : ''}" href="#/confidence/${u.id}"><span class="em" aria-hidden="true">${u.em}</span><span><b>${esc(t(u.title))}</b>${enSub(u)}${next && next.id === u.id ? `<span class="chip ok" style="margin-top:.3rem">${t('Bài tiếp theo')}</span>` : ''}</span>${P.done[u.id] ? `<span class="cf-done" role="img" aria-label="${t('Đã xong')}">✅</span>` : ''}</a>`;
     view.innerHTML = head('🗣️ ' + t('Giao tiếp tự tin'), t('Mỗi bài là một tình huống thật, 5–8 phút: nghe, học cụm câu, nói theo, rồi tự tin nói chuyện. Sai cũng không sao – cứ nói!'))
       + `<section class="card cf-hero"><div>${UI.ring(last ? last.score : 0, last ? last.score : '–', 'var(--primary)')}</div><div class="grow"><h2 style="margin:0">${t('Điểm tự tin')}</h2>
         <p class="small muted" style="margin:.2rem 0">${last ? t('Lần gần nhất: {n}/100 · chuỗi {d} ngày', { n: last.score, d: streakDays(P.daily) }) : t('Nói 2 phút mỗi ngày để theo dõi độ lưu loát và sự tự tin của bạn.')}</p>${spark(P.daily)}
@@ -89,13 +90,13 @@
 
   // ---------- Trang 1 bài ----------
   const STEPS = () => [['🎧', t('Nghe hội thoại mẫu')], ['🧩', t('Cụm câu nên nói')], ['🔁', t('Nói theo')], ['✏️', t('Nói điền chỗ trống')], ['🎭', t('Hội thoại ngắn')], ['🏁', t('Tổng kết')]];
-  const phraseCard = (u, p, opts = {}) => `<div class="cf-ph" id="${esc(p.id)}"${opts.hl ? ' tabindex="-1"' : ''}><div class="say" lang="en">${esc(p.say)} ${speakBtn(p.say)}${speakBtn(p.say, t('Nghe chậm'), true).replace('🔊', '🐢')}</div>
+  const phraseCard = (u, p, opts = {}) => `<div class="cf-ph" id="${esc(p.id)}"${opts.hl ? ' tabindex="-1"' : ''}><div class="say"><span lang="en">${esc(p.say)}</span>${speakBtn(p.say)}${speakBtn(p.say, t('Nghe chậm'), true).replace('🔊', '🐢')}</div>
     <div class="small muted">${esc(t(p.mean))}</div>
     ${p.not ? `<div class="cf-pair"><span aria-hidden="true">✗</span><span><s lang="en">${esc(p.not)}</s> <span class="sr-only">${t('Tránh nói')}</span></span><span aria-hidden="true">✓</span><span><b lang="en">${esc(p.say)}</b></span></div><div class="small" style="margin-top:.3rem">💡 ${esc(t(p.why))}</div>` : ''}</div>`;
 
   function unitPage(u, ph) {
     const P = load(), S = STEPS();
-    view.innerHTML = head(u.em + ' ' + esc(t(u.title)), `<span lang="en">${esc(u.titleEn)}</span> · ${chip(u.level)}`, '#/confidence')
+    view.innerHTML = head(u.em + ' ' + esc(t(u.title)), `${I18N.lang() === 'en' ? '' : `<span lang="en">${esc(u.titleEn)}</span> · `}${chip(u.level)}`, '#/confidence')
       + `<div class="card"><h2 class="set-h">🎯 ${t('Sau bài này bạn có thể')}</h2><p>${esc(t(u.goal))}</p>
         <ol class="small" style="padding-inline-start:1.2rem">${S.map(([e, n]) => `<li>${e} ${n}</li>`).join('')}</ol>
         <div class="cf-bar"><button class="btn primary lg" id="cfGo">▶ ${P.done[u.id] ? t('Học lại') : t('Bắt đầu')} · ≈ ${t('{m} phút', { m: 7 })}</button></div></div>
@@ -245,7 +246,7 @@
   function toolkit(ph) {
     view.innerHTML = head('🧰 ' + t('Bộ công cụ tự tin'), t('5 bộ câu giúp bạn không bị "đứng hình": nhờ nhắc lại, câu giờ, bắt chuyện, phản đối lịch sự và nói khi quên từ.'), '#/confidence')
       + D().toolkit.map(g => `<section class="card" style="margin-bottom:.8rem" id="${g.id}"><h2 class="set-h" style="margin-top:0">${g.em} ${esc(t(g.title))}</h2><p class="small muted">${esc(t(g.intro))}</p>
-        ${g.phrases.map(p => `<div class="cf-ph" id="${g.id}-${p.id}"><div class="say" lang="en">${esc(p.say)} ${speakBtn(p.say)}<button type="button" class="ic" data-try="${esc(p.say)}" aria-label="${t('Nói thử')}">🎙️</button></div><div class="small muted">${esc(t(p.mean))}</div><div class="small" data-fb aria-live="polite"></div></div>`).join('')}</section>`).join('');
+        ${g.phrases.map(p => `<div class="cf-ph" id="${g.id}-${p.id}"><div class="say"><span lang="en">${esc(p.say)}</span>${speakBtn(p.say)}<button type="button" class="ic" data-try="${esc(p.say)}" aria-label="${t('Nói thử')}">🎙️</button></div><div class="small muted">${esc(t(p.mean))}</div><div class="small" data-fb aria-live="polite"></div></div>`).join('')}</section>`).join('');
     bindSay(view);
     let cur = null;
     $$('[data-try]', view).forEach(b => b.onclick = () => {
