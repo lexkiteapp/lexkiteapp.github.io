@@ -21,7 +21,21 @@
     } catch (e) { return null; } finally { clearTimeout(t); }
   };
 
-  const GTX = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&hl=vi&dj=1';
+  // Ngôn ngữ NGHĨA: chuỗi dự phòng giao diện → en, KHÔNG BAO GIỜ vi cho người dùng không-vi (trừ khi họ tự chọn nghĩa tiếng Việt trong Cài đặt).
+  // Ngữ cảnh không có I18N (service worker, content script) giữ hành vi cũ (vi).
+  const wantVi = () => !(g.I18N && g.I18N.meanLang && g.I18N.meanLang() !== 'vi');
+  const GTX = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&hl=vi&dj=1'; // dịch câu ví dụ sang vi (translateVi)
+  const GTX_DICT = () => (wantVi() ? GTX : 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=en&hl=en&dj=1'); // từ điển Oxford: tên từ loại/ví dụ theo hl
+  const VI_DIA = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+  const VI_POS = { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'viết tắt': 'abbreviation', 'cụm từ': 'phrase', 'tiền tố': 'prefix', 'hậu tố': 'suffix' };
+  const posEn = p => (typeof p === 'string' ? VI_POS[p.normalize('NFC').toLowerCase().trim()] || p : p);
+  const noViStr = x => (typeof x === 'string' && VI_DIA.test(x) ? '' : x);
+  // Mục tra cho người dùng không-vi: tên từ loại → tiếng Anh, bỏ ví dụ/định nghĩa còn tiếng Việt (bản lưu cũ, dữ liệu Google trả theo hl=vi)
+  const cleanDefs = ms => (ms || []).map(m => ({ ...m, pos: posEn(m.pos), defs: (m.defs || []).filter(d => !VI_DIA.test(d.def || '')).map(d => (d.ex && VI_DIA.test(d.ex) ? { ...d, ex: '' } : d)) }));
+  const forLang = e => {
+    if (!e || wantVi() || e.found === false) return e;
+    return { ...e, pos: posEn(e.pos), oxford: cleanDefs(e.oxford), meanings: cleanDefs(e.meanings), senses: [], ex: noViStr(e.ex), def: noViStr(e.def), syn: (e.syn || []).filter(x => !VI_DIA.test(x)), col: (e.col || []).filter(x => !VI_DIA.test(String(x))) };
+  };
   // Sửa lỗi chính tả hỏi/ngã có sẵn trong dữ liệu từ điển Google (vd. "sản phẫm" → "sản phẩm").
   // Bảng sinh tự động từ kho tiếng Việt của Lexkite: chỉ gồm âm tiết sai chắc chắn (dạng đúng rất phổ biến, dạng sai không tồn tại),
   // đã loại các từ hợp lệ hiếm gặp như mỡ, vở, quỷ, rể, mẩu, sặc sỡ…
@@ -42,7 +56,7 @@
   const cleanTerms = terms => { const all = [...new Set(terms.map(fixVi))], ok = all.filter(x => !suspicious(x)); return ok.length ? ok : all; };
 
   async function fromGoogle(word) {
-    const d = await fetchJSON(`${GTX}&dt=t&dt=bd&dt=md&dt=ex&dt=ss&q=${encodeURIComponent(word)}`, 4000);
+    const d = await fetchJSON(`${GTX_DICT()}&dt=t&dt=bd&dt=md&dt=ex&dt=ss&q=${encodeURIComponent(word)}`, 4000);
     if (!d) return null;
     const vi = fixVi((d.sentences || []).map(s => s.trans || '').join('').trim());
     const senses = (d.dict || []).map(x => ({ pos: x.pos, terms: cleanTerms(x.terms || []).slice(0, 6) }));
@@ -282,11 +296,11 @@
   const DV = 7; // 7: bù định nghĩa từ loại Oxford thiếu (action – động từ). 6: nguồn ảnh minh họa mới (Wikipedia trước, Openverse lọc chặt) → bản tra cũ có ảnh lệch nghĩa tự tra lại
   const persist = {
     // _v: phiên bản dữ liệu tra từ – tăng khi đổi cách xử lý (vd. phiên âm theo từ loại) để kết quả cũ trên máy tự tra lại
-    async get(w) { try { const x = g.Core ? await g.Core.Store.get('dc2:' + w, null) : null; return x && x._v === DV ? fixDeep(x) : null; } catch (e) { return null; } },
+    async get(w) { try { const x = g.Core ? await g.Core.Store.get('dc2:' + w, null) : null; return x && x._v === DV && (x._ml || 'vi') === (wantVi() ? 'vi' : 'en') ? fixDeep(x) : null; } catch (e) { return null; } },
     async set(w, e) {
       try {
         if (!g.Core) return;
-        await g.Core.Store.set('dc2:' + w, { ...e, _t: Date.now(), _v: DV });
+        await g.Core.Store.set('dc2:' + w, { ...e, _t: Date.now(), _v: DV, _ml: wantVi() ? 'vi' : 'en' });
         const idx = (await g.Core.Store.get('dcIndex', [])).filter(x => x !== w);
         idx.push(w);
         while (idx.length > 150) { const old = idx.shift(); if (g.Core.Store.remove) await g.Core.Store.remove('dc2:' + old); }
@@ -487,5 +501,6 @@
     }
     return null;
   }
-  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup, quick, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
+  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

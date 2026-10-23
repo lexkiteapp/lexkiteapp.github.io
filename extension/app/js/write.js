@@ -59,13 +59,14 @@
   };
 
   let timer = null;
-  routes.write = async function (arg) {
-    const essays = await Store.get('essays', []);
-    const draft = await Store.get('essayDraft', { prompt: 'p1', text: '' });
+  routes.write = App.guard(async function (arg) {
+    const w = App.W;
+    const essays = await w(Store.get('essays', []));
+    const draft = await w(Store.get('essayDraft', { prompt: 'p1', text: '' }));
     const p = PROMPTS.find(x => x.id === (arg || draft.prompt)) || PROMPTS[0];
     const topic = App.topicOf(p.topic);
     view.innerHTML = `
-      <div class="page-head"><div><h1>✍️ ${t('Phòng viết')}</h1><p class="muted"><a href="#/task1">📈 ${t('Chuyển sang Task 1 (biểu đồ) →')}</a><br>${t('Viết bài IELTS Task 2 rồi nhận <b>phân tích từ vựng tức thì</b>: từ học thuật, từ nối, collocation, từ bị lặp và gợi ý thay thế. Bài viết chỉ lưu trên máy bạn.')}</p></div></div>
+      <div class="page-head"><div><h1>✍️ ${t('Phòng viết')}</h1><p class="muted"><a href="#/task1">📈 ${t('Chuyển sang Task 1 (biểu đồ) →')}</a> · <a href="#/criteria?skill=writing">📊 ${t('Tiêu chí chấm band 4–9')}</a><br>${t('Viết bài IELTS Task 2 rồi nhận <b>phân tích từ vựng tức thì</b>: từ học thuật, từ nối, collocation, từ bị lặp và gợi ý thay thế. Bài viết chỉ lưu trên máy bạn.')}</p></div></div>
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="wGrid">
         <div class="stack">
           <div class="card">
@@ -94,7 +95,7 @@
             ${TRENDS.types.map(([ty, v]) => `<div class="srow" style="grid-template-columns:120px minmax(0,1fr) 34px"><span class="tiny"><b>${esc(t(ty))}</b></span><div class="sbar"><i style="width:${v * 2}%;background:var(--primary)"></i></div><span class="tiny muted">${v}%</span></div>`).join('')}
             <div class="tiny muted" style="margin-top:.5rem"><b>${t('Chủ đề lặp nhiều:')}</b> ${TRENDS.topics.map(x => t(x)).join(' · ')}</div>
             <div class="tiny muted" style="margin-top:.4rem"><b>Task 1:</b> ${TRENDS.task1.map(([ty, v]) => `${t(ty)} ${v}%`).join(' · ')}</div>
-            <div class="tiny muted" style="margin-top:.4rem">${t('Thống kê từ ~90 đề thi thật do thí sinh báo lại (07–10/2026).')}</div></div>
+            <div class="tiny muted" style="margin-top:.4rem">${t('Ước tính sơ bộ từ ~90 đề do thí sinh báo lại (07–10/2026) – không phải số liệu chính thức của IELTS.')}</div></div>
           <div class="card"><h3>🧷 ${t('Từ nối hay dùng')}</h3>
             <div class="row" style="margin-top:.4rem">${['Firstly,', 'Moreover,', 'However,', 'On the other hand,', 'For instance,', 'As a result,', 'It could be argued that', 'In conclusion,'].map(w => `<button class="chip" data-ins="${esc(w)}" style="border:0;cursor:pointer">${esc(w)}</button>`).join('')}</div></div>
           ${essays.length ? `<div class="card"><h3>🗂 ${t('Bài đã viết')}</h3>${essays.slice(0, 6).map((e, i) => `<div class="row between small" style="padding:.35rem 0;border-bottom:1px dashed var(--line)"><span>${t('Đề {n}', { n: esc(e.prompt.slice(1)) })} · ${t('{n} từ', { n: e.words })}</span><span class="chip lv">LR ~${e.band}</span><button class="btn sm ghost" data-open="${i}">${t('Mở')}</button></div>`).join('')}</div>` : ''}
@@ -131,7 +132,7 @@
     };
     $('#analyze').onclick = () => report(ta.value, p, true);
     if (window.Assist) Assist.attach(ta, ta.parentElement);
-  };
+  });
 
   async function report(text, p, fresh) {
     const a = Lexis.analyze(text);

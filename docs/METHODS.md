@@ -20,6 +20,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
 - `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
+- Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
 
 ## 3. Ngân sách dung lượng
 - Khung app (shell) ≤ 380 KB gz → tính năng mới phải tải lười (module riêng). `web/js` ≤ 18,8 MB (không tính `admin-*.js`).

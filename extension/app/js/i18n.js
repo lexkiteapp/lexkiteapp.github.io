@@ -40,6 +40,7 @@
   function t(src, vars) {
     let s = lang === 'vi' ? src : ((D[lang] && D[lang][src]) || (D.en && D.en[src]) || src);
     if (vars) s = s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m));
+    if (RTL.has(lang) && typeof s === 'string') s = s.replace(/ →$/, ' ←').replace(/^← /, '→ '); // mũi tên "tiếp/quay lại" quay theo chiều đọc RTL
     return s;
   }
   // Dịch các phần tử tĩnh trong HTML: <span data-i18n>Ôn tập</span>, data-i18n-title, data-i18n-placeholder
@@ -67,11 +68,12 @@
     if (RTL.has(lang)) document.documentElement.dir = 'rtl';
     // Nạp file ngôn ngữ trước khi các module khác chạy (dùng createElement thay vì document.write để tối ưu Lighthouse)
     if (lang !== 'vi' && g.document) {
+      let coreDone = false;
       const addScript = src => new Promise(r => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => { if (g.I18N.apply) g.I18N.apply(); if (g.I18N.meta) g.I18N.meta(); r(); }; s.onerror = () => r(); document.head.appendChild(s); });
-      const loaded = Promise.all([addScript('js/i18n/en.js'), lang !== 'en' && addScript(`js/i18n/${lang}.js`)]);
+      const loaded = Promise.all([addScript('js/i18n/en.js'), lang !== 'en' && addScript(`js/i18n/${lang}.js`)]).then(() => { coreDone = true; });
       // Từ điển nạp bất đồng bộ, có thể SAU các module & DOMContentLoaded → app chờ whenReady() trước lần vẽ đầu (tối đa 6 s),
       // để không chữ nào bị vẽ/đóng băng bằng khóa tiếng Việt
-      g.I18N.whenReady = () => (D.en && (lang === 'en' || D[lang]) ? Promise.resolve() : Promise.race([loaded, new Promise(r => setTimeout(r, 6000))]));
+      g.I18N.whenReady = () => (coreDone ? Promise.resolve() : Promise.race([loaded, new Promise(r => setTimeout(r, 6000))]));
     }
     // Tiêu đề & mô tả trang theo ngôn ngữ (Google đọc được tiêu đề do JS đặt) – khóa dịch nằm trong từ điển giao diện
     const TITLE = 'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử';

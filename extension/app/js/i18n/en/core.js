@@ -61,6 +61,8 @@
   'Dữ liệu đang chỉ nằm trên trình duyệt này. Đăng nhập Google để <b>sao lưu tự động</b> và <b>học tiếp trên máy khác, điện thoại, tiện ích Chrome</b> – cùng một tài khoản, không trùng lặp.': 'Your data lives only in this browser right now. Sign in with Google for <b>automatic backups</b> and to <b>keep learning on other computers, your phone and the Chrome extension</b> – one account, no duplicates.',
   'Đăng nhập với Google': 'Sign in with Google',
   'Đăng nhập với Apple': 'Sign in with Apple',
+  'Tiếp tục với Google': 'Continue with Google',
+  'Tiếp tục với Apple': 'Continue with Apple',
   'Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào': 'Free · stores only your study data · sign out anytime',
   'Đã đăng xuất – dữ liệu vẫn còn trên máy này': 'Signed out – your data is still on this device',
   'Tài khoản & đồng bộ': 'Account & sync',
@@ -204,4 +206,5 @@
   'Khóa Gemini riêng (không bắt buộc)': 'Your own Gemini key (optional)',
   'Không bắt buộc – Lexkite đã có AI miễn phí, không cần khóa. Thêm khóa Gemini miễn phí của riêng bạn nếu muốn dùng nhiều lượt hơn mức miễn phí mỗi ngày.': 'Optional – Lexkite already includes free AI, no key needed. Add your own free Gemini key only if you want more uses than the daily free limit.',
   'Thêm khóa Gemini riêng (không bắt buộc)': 'Add your own Gemini key (optional)',
+  'Dịch máy': 'Machine translation',
 }); })(typeof self !== 'undefined' ? self : this);

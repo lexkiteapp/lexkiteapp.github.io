@@ -1,0 +1,3 @@
+/* UI ru – lvideo (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"Xem 20 giây":"Смотреть 20 секунд","Video của ngày":"Видео дня","Video bài học":"Видеоурок","Phát video: {t}":"Воспроизвести видео: {t}","Đóng video":"Закрыть видео","Không phát được video – thử lại sau.":"Не удалось воспроизвести видео. Попробуйте позже.","Câu hỏi nhanh":"Быстрый вопрос","Đúng rồi! Đã thêm vào thẻ ôn.":"Верно! Добавлено в карточки для повторения.","Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.":"Не совсем. Ответ: {a} – добавлено в карточки для повторения.","Video tiếp theo":"Следующее видео"});
+})(typeof self !== 'undefined' ? self : this);

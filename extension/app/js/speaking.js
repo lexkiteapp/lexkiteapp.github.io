@@ -63,7 +63,7 @@
     App.cleanup = stopAll;
     const qs = part === 'p2' ? [tp.p2.q] : tp[part];
     view.innerHTML = `
-      <div class="page-head"><div><h1>🗣️ ${t('Phòng luyện Speaking')}</h1><p class="muted">${t('Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.')}</p></div></div>
+      <div class="page-head"><div class="row between" style="flex-wrap:wrap;gap:.5rem"><div><h1>🗣️ ${t('Phòng luyện Speaking')}</h1><p class="muted">${t('Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.')}</p></div><div><a href="#/criteria?skill=speaking" class="btn sm ghost">📊 ${t('Tiêu chí chấm band 4–9')}</a></div></div></div>
       <div class="tabs" style="display:inline-flex;margin-bottom:.8rem">${Object.entries(PARTS).map(([k, v]) => `<button class="${k === part ? 'on' : ''}" data-part="${k}">${t(v.name)}</button>`).join('')}</div>
       <div class="row sp-topic" style="margin-bottom:1rem;gap:.5rem"><select class="input" id="spTopic" aria-label="${t('Chủ đề')}">${BANK.map((b, i) => `<option value="${i}" ${i === +ti ? 'selected' : ''}>${App.topicOf(b.topic) ? App.topicOf(b.topic).emoji : '💬'} ${esc(t(b.title))}</option>`).join('')}</select><button type="button" class="btn sm" id="spRand">🎲 ${t('Chủ đề ngẫu nhiên')}</button><span class="tiny muted">${t('{n} chủ đề', { n: BANK.length })}</span></div>
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="spGrid">

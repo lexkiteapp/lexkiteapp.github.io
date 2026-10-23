@@ -279,6 +279,26 @@
     <div><h3>${esc(P.end[0])}</h3><p class="small" style="margin:0 0 .4rem">${esc(P.end[1])}</p>${exHtml('Read the instructions [carefully].')}</div></div>
     <p class="us-tip">⚠️ ${t('Không đặt trạng từ giữa động từ và tân ngữ: “speak English well”, không phải “speak well English”.')}</p>${lessonLink('adverbs-position')}</section>`; };
 
+  // ---------- Lời giải đáp án (js/explain-card.js + js/explain/usage-<kind>/<lang>.json, docs/EXPLAIN.md) ----------
+  let xcLoad = null;
+  const xcScript = () => (window.ExplainCard ? Promise.resolve() : xcLoad || (xcLoad = new Promise((y, n) => { const s = document.createElement('script'); s.src = 'js/explain-card.js'; s.onload = y; s.onerror = () => { xcLoad = null; s.remove(); n(); }; document.head.appendChild(s); })));
+  const xcFor = qs => xcScript().then(() => Promise.all([ExplainCard.ready(), ...[...new Set(qs.map(q => q.kind))].map(k => ExplainCard.load('usage-' + k))])).then(([, ...maps]) => Object.assign({}, ...maps));
+  const lastW = h => String(h || '').trim().split(/\s+/).pop();
+  // Mẫu dự phòng khi chưa có lời giải: tính/động/danh từ + giới từ
+  const xcPattern = q => { if (q.kind !== 'p' || !q.item) return ''; const sub = (U.byId('p', q.key) || {}).sub; const k = q.key.replace(/\[|\]/g, ''); return sub === 'a' ? `be ${k} [${q.ans}] + N / V-ing` : sub === 'v' ? `${k} [${q.ans}] + N / V-ing` : `${k} [${q.ans}] + N`; };
+  // Cùng nhóm: cụm khác dùng cùng giới từ (mở thẻ cách dùng)
+  const xcFam = q => { if (q.kind !== 'p') return []; const p = lastW(q.ans), out = []; for (const e of U.load('p')) { if (e.key === q.key) continue; const it = e.items.find(x => lastW(x.h) === p); if (it) out.push({ w: e.key + ' ' + it.h, href: '#/usage/' + enc(e.key) }); if (out.length >= 6) break; } return out; };
+  function xcHtml(q, map, ok, chosen, whyHtml) {
+    const x = ExplainCard.pick(map[U.xid(q)]) || { p: xcPattern(q) };
+    x.fam = xcFam(q);
+    return ExplainCard.html(x, { ok, chosen, id: U.xid(q), whyHtml: x.why ? '' : whyHtml });
+  }
+  const xcHooks = qs => ({
+    speak: s => speak(s, accent()),
+    review: (id, b) => { const q = qs.find(z => U.xid(z) === id); if (!q) return; const w = (q.kind === 'p' ? q.key.replace(/\bsb\b\s*/, '') + ' ' + q.ans : q.ans).replace(/\s+/g, ' ').trim(); saves.push({ word: w, vi: q.item ? q.item.vi : '', en: q.item ? q.item.en : '', ex: q.pre + q.ans + q.post }); b.dataset.usave = saves.length - 1; doSave(b); },
+    report: id => window.LexReportLoad && LexReportLoad().then(R => R && R.open({ cat: 'content', cid: 'explain:' + id })).catch(() => {})
+  });
+
   // ---------- Bài luyện nhanh (ChoiceKit: phím A–D/1–4, nhấn giữ để gạch) ----------
   function quizBox(box, entries, title, n = 5) {
     if (!box) return;
@@ -299,7 +319,10 @@
         const ok = inp.value === q.ans; if (ok) right++;
         $$('input', li).forEach(x => { x.disabled = true; const lb = x.closest('label'); if (x.value === q.ans) lb.classList.add('ok'); else if (x === inp) lb.classList.add('bad'); });
         const full = q.pre + q.ans + q.post, why = q.item && (q.item.vi || q.item.en) ? mean(q.item.vi, q.item.en) : '';
-        pend = []; li.querySelector('.us-fb').innerHTML = `${ok ? `<span class="ok">✓ ${t('Chính xác!')}</span>` : `<span class="bad">✗ ${t('Chưa đúng.')}</span> ${t('Đáp án:')} <b lang="en" translate="no">${esc(q.ans)}</b>`} <span lang="en" translate="no">· ${esc(full)}</span> ${sayBtn(full, t('Nghe câu'))}${why ? `<br><span class="small muted">${why}</span>` : ''}`; settle();
+        const fb = li.querySelector('.us-fb');
+        pend = []; fb.innerHTML = `${ok ? `<span class="ok">✓ ${t('Chính xác!')}</span>` : `<span class="bad">✗ ${t('Chưa đúng.')}</span> ${t('Đáp án:')} <b lang="en" translate="no">${esc(q.ans)}</b>`} <span lang="en" translate="no">· ${esc(full)}</span> ${sayBtn(full, t('Nghe câu'))}${why ? `<br><span class="small muted us-why0">${why}</span>` : ''}`; settle();
+        // Thẻ giải thích (mẫu · vì sao · vì sao sai · ví dụ · mẹo · cùng nhóm) – tải lười; lỗi mạng → giữ dòng nghĩa ở trên
+        xcFor(qs).then(map => { if (!fb.isConnected) return; const card = xcHtml(q, map, ok, inp.value, why); if (!card) return; const w0 = fb.querySelector('.us-why0'); if (w0) { w0.previousElementSibling && w0.previousElementSibling.remove(); w0.remove(); } fb.insertAdjacentHTML('beforeend', card); ExplainCard.bind(box, xcHooks(qs)); }).catch(() => {});
         if (window.Sfx) { try { ok ? Sfx.correct && Sfx.correct() : Sfx.wrong && Sfx.wrong(); } catch (er) { /* bỏ qua */ } }
         if (done === qs.length) {
           $('#usScore', box).innerHTML = `<div class="us-score" role="status"><b>${right}/${qs.length}</b><span>${right === qs.length ? t('Tuyệt vời – bạn nắm chắc rồi!') : right >= qs.length - 1 ? t('Rất tốt! Xem lại câu sai một chút nhé.') : t('Đọc lại ví dụ ở trên rồi làm lại nhé.')}</span><button type="button" class="btn sm" id="usAgain">↻ ${t('Làm bộ câu khác')}</button></div>`;
