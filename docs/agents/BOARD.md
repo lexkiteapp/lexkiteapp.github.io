@@ -30,11 +30,24 @@ Mẫu thẻ:
 
 ## ĐANG LÀM
 
-### [N4] Email cảnh báo đọc cài đặt quản trị (`adm_pref`) · @antigravity · ưu tiên: vừa
-- Phần còn thiếu của N3 (Claude 23/10): `workers/mail/index.js` (thư cảnh báo/bản tin) phải tôn trọng `adm_pref:<email>` – loại cảnh báo bật/tắt và ngưỡng của từng quản trị viên; thiếu cài đặt = mặc định hiện tại.
-- Đọc 1 lần/lượt gửi (không đọc mỗi thư), truy vấn theo khóa (không quét bảng). Test trong `scripts/test/` + cập nhật docs. Không đụng `functions/api/_d1guard.js`, `_d1b.js`.
 
 ## CHỜ DUYỆT
+
+### [N4] Email cảnh báo đọc cài đặt quản trị (`adm_pref`) · @antigravity · ưu tiên: vừa
+- Mục tiêu: `workers/mail/index.js` (thư cảnh báo/bản tin) tôn trọng `adm_pref:<email>` – loại cảnh báo bật/tắt và ngưỡng riêng của từng quản trị viên; thiếu cài đặt = fallback mặc định hiện tại (`alert_errors` / 50 lỗi JS, 70% dung lượng D1).
+- File/khu vực: `workers/mail/index.js`, `scripts/test/mail-prefs.mjs`, `docs/ADMIN-SECURITY.md`, `package.json`.
+- Tiêu chí xong:
+  - `loadConfigAndKeys`: batch đọc cấu hình theo danh sách khóa (`WHERE k IN (?, ?, ...)`) đúng 1 lần cho cả lượt gửi bản tin/cảnh báo hằng ngày, không quét bảng, không đọc mỗi thư.
+  - `adminList(env)`: hỗ trợ danh sách admin từ `ADMIN_EMAILS` (dấu phẩy/khoảng trắng), fallback `SEB_TO` hoặc email mặc định `vintagezulilyjewelry@gmail.com`.
+  - Cá nhân hóa bản tin `digest(env)`: gửi thư riêng cho từng admin theo đúng danh sách `alertTypes` được bật (`js_error`, `workflow_fail`, `inbox_new`, `quality_alert`, `i18n_missing`, `quota_warning`), đúng ngưỡng `jsErrorThreshold` và `quotaThresholdPct`. Quản trị viên không có cảnh báo nào vượt ngưỡng hoặc tắt hết cảnh báo sẽ không bị gửi thư làm phiền.
+  - Xử lý `fetch(req, env)`: hỗ trợ nhận diện `alertType` khi gửi thư cảnh báo tức thời; kiểm tra `adm_pref:<to>` theo khóa, tự động bỏ qua nếu admin đã tắt loại cảnh báo đó.
+  - Không đụng `functions/api/_d1guard.js`, `_d1b.js`.
+  - Đầy đủ phép kiểm tự động `scripts/test/mail-prefs.mjs` (5 nhóm kiểm tra) tích hợp vào `npm test`.
+- Báo cáo:
+  - Commit: `964add4b`
+  - File: `workers/mail/index.js`, `scripts/test/mail-prefs.mjs`, `docs/ADMIN-SECURITY.md`, `package.json`.
+  - Kết quả kiểm: `node scripts/test/mail-prefs.mjs` (5/5 PASS), `node scripts/test/admin-prefs.mjs` (5/5 PASS), `node scripts/vi-lint.mjs` (756 file PASS), `npm run content:gate` (PASS).
+- Cần sửa / Nhận xét:
 
 ### [B5] Nhịp nội dung 15 nước (Lô 5: zh – 6 bài) · HOÀN TẤT ĐỦ 54 BÀI B5 · @antigravity · ưu tiên: RẤT CAO
 - Mục tiêu: 6 bài bản địa cho zh (hoàn tất 54 bài cho 9 ngôn ngữ đợt B5), để trống `publishAt` (Claude xếp lịch).
