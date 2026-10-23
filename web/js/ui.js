@@ -211,7 +211,8 @@
     // chỉ giữ file âm thanh của Lexkite. tts() tự ưu tiên giọng Kokoro chất lượng cao nếu có, rồi tới giọng máy tốt nhất.
     if (url && !/lexkite/.test(url) && 'speechSynthesis' in g) url = '';
     // Từ trong kho: giọng Kokoro Anh/Mỹ (scripts/gen-word-audio.mjs, audio.lexkite.com/audio/w/) – chưa có file/không mạng → giọng máy
-    const wk = String(text || '').trim(), we = !url && g.navigator && navigator.onLine && g.IELTS_DATA && g.IELTS_DATA.INDEX[wk.toLowerCase()];
+    const wk = String(text || '').trim(), au = g.Lex && g.Lex.peekAu ? g.Lex.peekAu(wk) : undefined; // Lex biết từ không có file → không tải 404
+    const lx = au && g.Lex.peek(wk), we = !url && au !== false && g.navigator && navigator.onLine && ((g.IELTS_DATA && g.IELTS_DATA.INDEX[wk.toLowerCase()]) || (lx && lx.word.toLowerCase() === wk.toLowerCase() ? lx : null));
     if (we && !wordMiss.has(accent + wk)) {
       const v = accent === 'en-US' ? 'af_heart' : 'bf_emma', base = g.audioUrl('x').replace(/l\/x\.mp3$/, 'w/');
       stopSpeak();

@@ -125,6 +125,8 @@ if (WRITE) {
   wr('dist/lexicon.json', JSON.stringify(lex));
 }
 
+// cùng 1 từ → cùng dữ liệu ở mọi giao diện (mảnh Lex, tab mới add-on, bản chép add-on, blog, gói nghĩa) – scripts/lexicon/surfaces.mjs
+{ const { surfaceErrors } = await import('./lexicon/surfaces.mjs'); const sf = surfaceErrors(); errs.push(...sf.errs); if (sf.warn.length) console.log('⚠ ' + sf.warn.join(' · ')); }
 console.log(`lexicon: ${all.length} dòng · ${groups.size} từ#loại · ipaUS ${(usCov * 100).toFixed(1)}% từ đơn · sửa: ${JSON.stringify(stats)}${WRITE ? ` · ghi ${changed} dòng` : ''}`);
 if (errs.length) { console.error(errs.slice(0, 30).join('\n') + (errs.length > 30 ? `\n… +${errs.length - 30}` : '')); console.error(`✗ dict-consistency: ${errs.length} lỗi`); process.exit(1); }
 console.log('✓ dict-consistency');

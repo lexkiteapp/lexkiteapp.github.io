@@ -522,7 +522,7 @@
             <div>${hist.length ? `<button class="back" title="${tx('Quay lại từ trước')}">←</button>` : ''}<span class="w">${esc(e.word)}</span>${e.pos && posLabel(toEn(e.pos)) ? `<span class="chip">${esc(UI_LANG === 'vi' ? e.pos : posLabel(toEn(e.pos)))}</span>` : ''}${e.level ? `<span class="chip lv" title="CEFR">${esc(e.level)}</span>` : ''}${saved || didSave ? `<span class="chip inDeck">${tx('✓ Đã trong sổ thẻ')}</span>` : ''}</div>
             <div class="ipa">${esc(e.ipa || '')}${e.ipaUS && e.ipaUS !== e.ipa ? ` · <span title="${tx('Anh–Mỹ')}">${esc(e.ipaUS)}</span>` : ''}</div>
             <div class="spks"><button class="spk" data-acc="en-GB" title="${tx('Nghe giọng Anh–Anh (phím P)')}">🔊 UK</button><button class="spk" data-acc="en-US" title="${tx('Nghe giọng Anh–Mỹ')}">🔊 US</button><button class="spk" data-slow title="${tx('Nghe chậm')}">🐢</button></div>
-            <div class="vi">${ML() === 'vi' ? esc(viMain(e, shown)) : esc(mlW)}</div>
+            <div class="vi" dir="auto">${ML() === 'vi' ? esc(viMain(e, shown)) : esc(mlW)}</div>
           </div>
         </div>
         <div class="body">
@@ -621,7 +621,9 @@
       if (st.autoSpeak !== false) speak(word, '', accent);
     }
 
-    if (ML() !== 'vi' && ML() !== 'en') send({ type: 'translate', text: word, tl: ML() }).then(r => { mlW = (r && r.vi) || ''; const el = b.querySelector('.vi'); if (el && current === word && mlW.toLowerCase() !== word.toLowerCase()) el.textContent = mlW; }).catch(() => {});
+    // Nghĩa tiếng mẹ đẻ: mảnh nghĩa của kho (cùng nguồn với web/app – Lex) trước; từ ngoài kho mới dịch máy lúc chạy
+    const paintMl = m => { mlW = m || ''; const el = b.querySelector('.vi'); if (el && current === word && mlW.toLowerCase() !== word.toLowerCase()) el.textContent = mlW; };
+    if (ML() !== 'vi' && ML() !== 'en') send({ type: 'mean', word, lang: ML() }).then(r => (r && r.mean ? paintMl(r.mean[0]) : send({ type: 'translate', text: word, tl: ML() }).then(t2 => paintMl(t2 && t2.vi)))).catch(() => {});
     // Dịch câu ngữ cảnh: không phản hồi sau 10 giây (mạng chậm / add-on vừa nạp lại) → bỏ dòng "Đang dịch câu…" thay vì treo mãi
     if (context && ML() !== 'en') { const ctxT = later(paintCtx, 10000); send({ type: 'translate', text: context, tl: ML() }).then(r => { clearTimeout(ctxT); ctxVi = (r && r.vi) || ''; paintCtx(); }).catch(() => { clearTimeout(ctxT); paintCtx(); }); }
     const full = send({ type: 'lookup', word });
@@ -900,7 +902,10 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     if (s) show(s.word, s.rect, s.context);
   }
   bind(document, 'dblclick', onDbl);
-  bind(document, 'mouseup', e => {
+  bind(document, 'mouseup', onUp);
+  // boot.js (mồi) chèn file này khi người dùng thao tác lần đầu → phát lại đúng thao tác đó
+  window[NS].replay = guard((type, e) => (type === 'dblclick' ? onDbl(e) : onUp(e)));
+  function onUp(e) {
     if (!alive() || fromHost(e) || e.button !== 0 || appHandles(e.target) || inExam(e.target)) return;
     // Ô nhập chữ (bài viết, điền từ…): bôi đen → nút 🌐 để dịch (không tự dịch, không chặn việc gõ)
     const fld = e.target && e.target.closest && e.target.closest('textarea, input[type="text"], input[type="search"], input:not([type])');
@@ -926,7 +931,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       if (selectMode === 'auto' && !isWordish(info.text)) translateSelection(info);
       else showFab(info);
     }, OWN_APP ? 80 : 10);
-  });
+  }
   bind(document, 'mousedown', e => {
     if (!alive() || fromHost(e)) return;
     if (root) { hideFab(); if (!box().hidden) hide(); }
@@ -1130,6 +1135,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
 
   chromeOn(chrome.runtime.onMessage, (msg, s, reply) => {
     if (!alive()) return;
+    if (msg.type === 'lkPing') { reply({ ok: true }); return; }
     if (msg.type === 'translateSelection') { const info = selectionInfo(); if (info) translateSelection(info); reply({ ok: true }); return; }
     if (msg.type !== 'showLookup') return;
     reply({ ok: true });

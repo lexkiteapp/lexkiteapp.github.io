@@ -53,6 +53,8 @@
     if (lang && pickLang(lang)) UI_LANG = pickLang(lang);
     if (on) loadDict();
     if ((!on || pageBlocked()) && (was || cur)) detach();
+    // nạp lười (boot.js chèn khi người dùng bấm vào ô nhập): ô đang có con trỏ → gắn luôn, không đợi lần focus sau
+    if (on && !cur && !pageBlocked()) { const a = document.activeElement; const info = a && a !== document.body && eligible(a); if (info) attach(info); }
   };
   sget(['settings', 'wcOffSites', 'uiLang']).then(r => apply(r.settings, r.wcOffSites || [], r.uiLang)).catch(() => {});
   chromeOn(chrome.storage.onChanged, (ch, area) => {

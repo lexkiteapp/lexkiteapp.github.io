@@ -4,6 +4,7 @@
 // Nhãn kỳ thi suy ra từ danh sách chứa từ (AWL/NAWL/NGSL/TSL-BSL/đề IELTS-TOEIC-TOEFL). Chạy trong build-extension.sh.
 // Khóa: i ipa Anh · u ipa Mỹ · l CEFR · x nhãn thi · s nghĩa [[loại từ, vi, en]] (≤ 3) · e ví dụ · c collocation · y đồng nghĩa · a trái nghĩa · f họ từ · k có mp3 giọng Anh
 import fs from 'fs';
+import { loadBrowserIndex } from './lexicon/shards.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 globalThis.t = s => s;
 const g = {};
@@ -13,7 +14,9 @@ const kv = {};
 new Function('self', 'window', rd('web/js/listen/kvoice.js'))(kv, kv);
 new Function('self', 'window', rd('web/js/listen/audio-index.js'))(kv, kv);
 const WAUD = new Set((() => { try { return rd('web/audio/w/index.txt'); } catch (e) { return ''; } })().split('\n').filter(Boolean)); // từ có file giọng Anh + Mỹ (gen-word-audio.mjs)
-const N = g.WORD_NOTES || {}, VI = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơưăâêôà-ỹ]/i;
+// Ghi chú tự soạn: nay ở web/js/notes/<chữ>.json (build-notes.mjs) – trước là WORD_NOTES trong lib/notes-*.js (thiếu → mất họ từ/trái nghĩa ở tab mới)
+const NOTES = Object.assign({}, g.WORD_NOTES || {}, ...fs.readdirSync(new URL('web/js/notes/', R)).filter(f => /\.json$/.test(f)).map(f => JSON.parse(rd('web/js/notes/' + f))));
+const N = NOTES, VI = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơưăâêôà-ỹ]/i;
 const tagOf = tp => {
   const id = tp.id, gr = tp.group;
   if (/^ex-ielts/.test(id) || ((gr === 'topics' && !/^us-/.test(id)) || gr === 'writing' || gr === 'speaking')) return 'IELTS';
@@ -39,6 +42,14 @@ for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words) {
   if (w.def && o.s.length < 6 && !o.s.some(s => s[0] === w.pos && (s[1] === w.vi || sim(s[2], w.def) >= 0.3))) o.s.push([w.pos || '', w.vi || '', w.def]); // nghĩa gần trùng (cùng loại từ) chỉ giữ 1
   if (!o.e && w.ex) o.e = w.ex;
   o.c.push(...(w.col || [])); o.y.push(...(w.syn || []));
+}
+// Trường chính (IPA Anh/Mỹ, CEFR, nghĩa đầu) = ĐÚNG mục chính của từ trong IELTS_DATA.INDEX (như trang tra từ, thẻ, quiz, add-on) – không lấy theo thứ tự file
+const { INDEX } = loadBrowserIndex();
+for (const [k, o] of Object.entries(out)) {
+  const m = INDEX[k]; if (!m) continue;
+  o.i = m.ipa || o.i; o.u = m.ipa ? m.ipaUS || '' : o.u; o.l = m.level || o.l;
+  const j = o.s.findIndex(s => s[0] === (m.pos || '') && s[1] === (m.vi || ''));
+  if (j > 0) o.s.unshift(o.s.splice(j, 1)[0]); else if (j < 0 && m.def) o.s.unshift([m.pos || '', m.vi || '', m.def]);
 }
 let fam = 0, ant = 0, aud = 0;
 for (const [k, o] of Object.entries(out)) {

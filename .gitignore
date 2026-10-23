@@ -55,3 +55,7 @@ brand/library/_cache/
 *.local.md
 out/play/
 .tmp-lex/
+
+# Mảnh kho từ sinh lúc build/test (scripts/lexicon/shards.mjs --out web) – không commit
+web/data/lex/
+web/data/lex-index.json
