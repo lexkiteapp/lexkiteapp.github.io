@@ -899,6 +899,7 @@
   let extP = null;
   const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
   routes.dict = App.guard(async function (q) {
+    const fastP = q ? Dict.quick(q) : null; // tra song song với đọc 'recent' (từ trong kho: vài ms)
     const w = App.W, recent = await w(Store.get('recent', []));
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
@@ -923,7 +924,7 @@
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
-    const fast = await w(Dict.quick(q));
+    const fast = await w(fastP);
     if (!same()) return;
     if (fast) paint(fast, false);
     const full = await w(Dict.lookup(q));

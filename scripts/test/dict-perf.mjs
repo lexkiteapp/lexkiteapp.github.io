@@ -46,9 +46,9 @@ async function newPage(ctx) {
   await cdp.send('Network.enable'); await cdp.send('Performance.enable');
   await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8, uploadThroughput: 0.75e6 / 8 });
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
-  const net = { bytes: 0, same: 0, reqs: [] };
+  const net = { bytes: 0, same: 0, data: 0, last: Date.now(), reqs: [] };
   cdp.on('Network.responseReceived', e => { net.reqs.push({ id: e.requestId, url: e.response.url }); });
-  cdp.on('Network.loadingFinished', e => { net.bytes += e.encodedDataLength; const r = net.reqs.find(x => x.id === e.requestId); if (r && r.url.startsWith(ORIGIN)) net.same += e.encodedDataLength; });
+  cdp.on('Network.loadingFinished', e => { net.bytes += e.encodedDataLength; const r = net.reqs.find(x => x.id === e.requestId); net.last = Date.now(); if (r && r.url.startsWith(ORIGIN)) { net.same += e.encodedDataLength; if (/\/data\/lex|\/js\/notes\/|\/packs\//.test(r.url)) net.data += e.encodedDataLength; } });
   page.on('pageerror', e => console.log(`[${LABEL}] pageerror:`, e.message.slice(0, 200)));
   return { page, cdp, net };
 }
@@ -64,31 +64,33 @@ let { page, cdp, net } = await newPage(ctx);
 await page.goto(ORIGIN + '/app/?sandbox=1#/dict', { waitUntil: 'load' });
 await page.waitForFunction(() => window.Dict && document.querySelector('#q'), null, { timeout: 60000 });
 await sleep(6000); // rảnh: lex.js + mục lục, các gói tải sẵn (prefetch không thực thi)
+const quiet = async () => { const t = Date.now(); while (Date.now() - net.last < 3000 && Date.now() - t < 90000) await sleep(500); };
 R.firstLoadKB = +(net.bytes / 1024).toFixed(1); R.firstLoadSameKB = +(net.same / 1024).toFixed(1);
 const heap = async () => { const m = await cdp.send('Performance.getMetrics'); const v = n => (m.metrics.find(x => x.name === n) || {}).value || 0; return +(v('JSHeapUsedSize') / 1048576).toFixed(1); };
 R.heapStartMB = await heap();
 
 // ---------- 2) Tra lạnh / ấm (ms từ đổi hash tới khi từ + nghĩa hiện) ----------
 const lookup = async w => {
-  const b0 = net.same;
+  const b0 = net.same, d0 = net.data;
   const ms = await page.evaluate(async w => {
-    const t0 = performance.now(); location.hash = '#/dict/' + encodeURIComponent(w);
     const nw = s => String(s || '').trim().toLowerCase();
-    while (performance.now() - t0 < 30000) { const e = document.querySelector('#result .entry-word'), v = document.querySelector('#result .vi'); if (e && v && v.textContent.trim() && (nw(e.textContent) === nw(w) || document.querySelector('#result [data-from]'))) return performance.now() - t0; await new Promise(r => setTimeout(r, 5)); }
-    return -1;
+    const done = () => { const e = document.querySelector('#result .entry-word'), v = document.querySelector('#result .vi'); return !!(e && v && v.textContent.trim() && (nw(e.textContent) === nw(w) || document.querySelector('#result [data-from]'))); };
+    const t0 = performance.now();
+    return await new Promise(res => { const mo = new MutationObserver(() => { if (done()) { mo.disconnect(); res(performance.now() - t0); } }); mo.observe(document.getElementById('view'), { childList: true, subtree: true, characterData: true }); setTimeout(() => { mo.disconnect(); res(-1); }, 30000); location.hash = '#/dict/' + encodeURIComponent(w); });
   }, w);
   await sleep(1200); // để lookup() đầy đủ chạy xong (byte bên thứ ba bị trả rỗng)
-  return { w, ms: Math.round(ms), kb: +((net.same - b0) / 1024).toFixed(2) };
+  return { w, ms: Math.round(ms), kb: +((net.same - b0) / 1024).toFixed(2), dataKb: +((net.data - d0) / 1024).toFixed(2) };
 };
 const COLD = ['mitigate', 'sustainable', 'phenomenon', 'resilient', 'infrastructure', 'tuition'];
-R.cold = []; for (const w of COLD.slice(0, 3)) R.cold.push(await lookup(w));
+R.coldBusy = await lookup(COLD[3]); // lúc mạng còn bận tải sẵn các gói (tham khảo)
+await quiet(); R.cold = []; for (const w of COLD.slice(0, 3)) R.cold.push(await lookup(w));
 R.warm = []; for (const w of COLD.slice(0, 3)) R.warm.push(await lookup(w)); // cùng từ, mảnh đã có
 // sau khi ấm: 12 từ mới rải khắp bảng chữ cái → byte mạng trung bình mỗi lần tra
 const SPREAD = ['abandon', 'benefit', 'consequence', 'diverse', 'evaluate', 'flexible', 'generate', 'hypothesis', 'justify', 'maintain', 'obtain', 'priority'];
-R.spread = []; for (const w of SPREAD) R.spread.push(await lookup(w));
+await quiet(); R.spread = []; for (const w of SPREAD) R.spread.push(await lookup(w));
 const med = a => { const s = a.filter(x => x >= 0).sort((x, y) => x - y); return s.length ? s[s.length >> 1] : -1; };
 R.coldMs = Math.max(...R.cold.map(x => x.ms)); R.warmMs = med(R.warm.map(x => x.ms)); R.spreadMs = med(R.spread.map(x => x.ms));
-R.perLookupKB = +(R.spread.reduce((a, x) => a + x.kb, 0) / R.spread.length).toFixed(2);
+R.perLookupKB = +(R.spread.reduce((a, x) => a + x.dataKb, 0) / R.spread.length).toFixed(2); R.perLookupAllKB = +(R.spread.reduce((a, x) => a + x.kb, 0) / R.spread.length).toFixed(2); // dữ liệu từ (mảnh, ghi chú, gói nghĩa) · mọi byte cùng nguồn
 R.heapAfterMB = await heap();
 R.lex = await page.evaluate(() => (window.Lex ? Lex.stats() : null)); // mảnh thật (không phải dự phòng INDEX)
 
