@@ -13,6 +13,7 @@
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { d1Usage, guardBackground } from './_d1guard.js';
 import { internalDb, d1bMode, d1bReady, restDb } from './_d1b.js';
+import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
 import { limit } from './sync.js';
 import { makeFileOps, serveThumb } from './_drive_files.js';
 
@@ -254,7 +255,8 @@ const cookieOf = (req, k) => { const m = (req.headers.get('Cookie') || '').match
 // Ngưỡng: 80 % cảnh báo · 90 % nghiêm trọng + tự ngừng nhận file (weight 0, nhớ auto_weight; < 90 % tự trả lại) · pool còn < 10 GB cảnh báo ·
 // mất kết nối (invalid_grant) / Google không phản hồi 3 lần liên tiếp / tải lên lỗi 3 lần liên tiếp → nghiêm trọng.
 // Thư (lexkite-mail → REPORT_NOTIFY_EMAIL): chỉ mức nghiêm trọng, ≤ 1 thư/loại/24 h; hết lỗi → thư "đã khôi phục".
-export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1']); // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng
+export const EXT_KINDS = new Set(['footage', 'gitsize', 'd1', 'ci']); // cảnh báo do workflow đặt/gỡ (ext_alert), health không đụng; 'ci' = bản tin CI hằng ngày (ci-triage.yml)
+export const CI_MAIL_GAP = 20 * 3600e3; // bản tin CI: ≤ 1 thư / ~ngày
 const pctOf = r => (r.quota_total ? (+r.quota_used || 0) / +r.quota_total : 0);
 /** Danh sách cảnh báo từ trạng thái các Drive (thuần). → [{kind, level: 'warn'|'crit', t, drive_id, p, msg}] */
 export function evalAlerts(rows, { single = 0 } = {}) {
@@ -571,13 +573,19 @@ const POOL_OPS = {
     return { ok: true, match: Object.values(out).every(x => x.main === x.internal), counts: out };
   },
   /** CLI (footage-verify.yml · storage-watch.yml): bật/tắt cảnh báo ngoài (kind footage | gitsize) hiện ở Quản trị → Kho Drive. ok:true → xoá; ok:false → crit. Không gửi thư (workflow đỏ đã báo). */
-  async ext_alert(db, b) {
+  async ext_alert(db, b, who, env) {
     const kind = String(b.kind || 'footage'); if (!EXT_KINDS.has(kind)) return { status: 400, error: 'bad-input' };
-    if (b.ok) { await run(db, 'DELETE FROM drive_alerts WHERE kind = ?', kind); return { ok: true, cleared: true }; }
-    const n = Math.max(1, Math.min(1e6, Math.round(+b.n) || 1)), now = Date.now(), p = { n, repo: String(b.repo || '').slice(0, 80), gb: +b.gb || undefined };
-    await run(db, "INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES (?, 'crit', NULL, ?, ?, ?, NULL) ON CONFLICT(kind) DO UPDATE SET level = 'crit', msg = excluded.msg, seen = excluded.seen",
-      kind, JSON.stringify({ t: kind, p, msg: String(b.msg || kind).slice(0, 300) }), now, now);
-    return { ok: true, n };
+    const now = Date.now(), ci = kind === 'ci';
+    // 'ci' (ci-triage.yml, 1 lần/ngày): gửi bản tin qua thư hằng ngày thay cho thư GitHub từng lượt chạy – ≤ 1 thư / 20 h, kể cả ngày xanh hết
+    const digest = async () => { if (!ci || !b.mail || !b.text) return false; const last = +(await meta(db, 'mail:ci')) || 0; if (now - last < CI_MAIL_GAP) return false;
+      const okSent = await sendMail(env || {}, '[Lexkite] 🧾 Bản tin CI hằng ngày: ' + String(b.msg || '').slice(0, 90), String(b.text).slice(0, 8000)).catch(() => false);
+      if (okSent) await setMeta(db, 'mail:ci', now); return okSent; };
+    if (b.ok) { await run(db, 'DELETE FROM drive_alerts WHERE kind = ?', kind); return { ok: true, cleared: true, mailed: await digest() }; }
+    const n = Math.max(1, Math.min(1e6, Math.round(+b.n) || 1)), p = { n, repo: String(b.repo || '').slice(0, 80), gb: +b.gb || undefined };
+    const level = ci && b.level === 'warn' ? 'warn' : 'crit';
+    await run(db, "INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES (?, ?, NULL, ?, ?, ?, NULL) ON CONFLICT(kind) DO UPDATE SET level = excluded.level, msg = excluded.msg, seen = excluded.seen",
+      kind, level, JSON.stringify({ t: kind, p, msg: String(b.msg || kind).slice(0, 300) }), now, now);
+    return { ok: true, n, mailed: await digest() };
   },
   footage_alert: (db, b) => OPS.ext_alert(db, { ...b, kind: 'footage' }),
   /** CLI: số bản sao mong muốn cho master short (1 = chưa duyệt/thử, 2 = đã duyệt/đã đăng) → repair chép bù sang Drive khác qua pickDrive. */
@@ -820,6 +828,7 @@ export async function onRequestPost({ request, env }) {
   } catch (e) {
     await flushReads(ddb(env));
     if (WRITE.has(b.op)) await adminAudit(env, request, who.email, 'drive.' + b.op, false);
+    if (isD1Limit(e)) return json(request, 429, D1_LIMIT_BODY); // D1 hết hạn mức ngày → 429 quota-guard (CI dừng-mai-chạy, không báo đỏ)
     return json(request, e.status || 500, { error: e instanceof DriveErr ? e.code : 'error' }); // không đưa thông điệp lỗi thô (có thể chứa dữ liệu Google) ra ngoài
   }
 }

@@ -384,6 +384,15 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
     q1 = await cli({ op: 'render_link', file_id: fids[0] }); ok(q1.s === 200 && /^\/api\/drive\/dl/.test(q1.j.url), 'render_link đọc được file footage/ (cls original)');
     q1 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q1.j.ok && q1.j.count === 1, 'refs_sync nguồn footage');
     q1 = await cli({ op: 'ext_alert', kind: 'gitsize', ok: false, n: 1, repo: 'x', gb: 3 }); ok(q1.j.ok, 'ext_alert gitsize');
+    { // bản tin CI hằng ngày (ci-triage.yml): cảnh báo 'ci' mức warn + ≤ 1 thư / 20 h; ok → gỡ cảnh báo
+      const m0 = mails.length;
+      q1 = await cli({ op: 'ext_alert', kind: 'ci', ok: false, n: 2, level: 'warn', msg: '5 lượt đỏ ở 3 workflow, 2 còn đỏ', text: 'Bản tin CI 24 h', mail: true });
+      const row = sql.prepare("SELECT level FROM drive_alerts WHERE kind = 'ci'").get();
+      ok(q1.j.ok && q1.j.mailed === true && row && row.level === 'warn' && mails.length === m0 + 1 && /Bản tin CI/.test(mails[m0].subject), 'ext_alert ci: cảnh báo warn + 1 thư bản tin');
+      q1 = await cli({ op: 'ext_alert', kind: 'ci', ok: true, text: 'x', mail: true });
+      ok(q1.j.cleared && q1.j.mailed === false && mails.length === m0 + 1 && !sql.prepare("SELECT 1 FROM drive_alerts WHERE kind = 'ci'").get(), 'ext_alert ci: gỡ khi xanh, không gửi thư thứ 2 trong 20 h');
+      mails.splice(m0); // thư bản tin không tính vào các kiểm thư Kho Drive phía sau
+    }
     const bad = [];
     for (const [q, a] of SEEN) {
       if (!/^\s*(SELECT|UPDATE|DELETE)/i.test(q)) continue;

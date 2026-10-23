@@ -96,6 +96,22 @@
    "lease": false
   },
   {
+   "id": "ci-triage",
+   "workflow": "ci-triage.yml",
+   "cron": [
+    "12 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 10
+   },
+   "lease": false
+  },
+  {
    "id": "content-protect",
    "workflow": "content-protect.yml",
    "cron": [

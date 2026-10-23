@@ -29,12 +29,14 @@ jobs:
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
-          GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          # GIT_SSH_COMMAND cho CẢ bước: clone --filter=blob:none tải blob lúc checkout (promisor) → thiếu khoá = "Permission denied (publickey)" (lỗi 22–23/10)
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           git -C /tmp/shorts sparse-checkout set --no-cone '/shorts/index.json'; git -C /tmp/shorts checkout -q; rm -f ~/.ssh/shorts
       - name: Lên YouTube (hàng chờ đã duyệt, trong hạn mức)
         if: ${{ steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
-        run: node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "${{ github.event.inputs.max || '6' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+        run: node scripts/ci/quota-skip.mjs node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "${{ github.event.inputs.max || '6' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
       - name: Trả thuê
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }

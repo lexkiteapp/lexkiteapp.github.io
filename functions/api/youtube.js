@@ -16,6 +16,7 @@
  *   uploads in YouTube Studio as Unlisted; `sync` (admin button + youtube-manual.yml cron) reads the uploads playlist with youtube.readonly only,
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
+import { isD1Limit, D1_LIMIT_BODY } from './_d1limit.js';
 import { healthVerdict, localDate, localHM, normCfg, pickEmbed } from './_distribution.js';
 import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
@@ -544,6 +545,7 @@ export async function onRequestPost({ request, env }) {
     return json(request, status, out, cookie ? { 'Set-Cookie': cookie } : {});
   } catch (e) {
     if (WRITE.has(b.op)) await adminAudit(env, request, who.email, 'youtube.' + b.op, false);
+    if (isD1Limit(e)) return json(request, 429, D1_LIMIT_BODY); // D1 hết hạn mức ngày → 429 quota-guard (CI bỏ qua trung tính, mai chạy tiếp), không phải 500
     return json(request, e.status || 500, { error: e.code || 'error' }); // never forward raw Google errors
   }
 }
