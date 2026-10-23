@@ -318,7 +318,9 @@ SIDE = {(g, f_): ({'mcu': 380, 'wide': 380, 'mws': 360, 'two': 220} if g == 'ama
 DESK_Y = 1880; VBOT = lambda frame: 1920
 GK = lambda clip, who: 'ama_s' if clip.startswith('ga') else 'carlos_q' if 'q34' in clip else 'carlos_s'
 def place(sid, who, frame, top):
-    sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']; ey = max(ey, VBOT(frame) - (SEAT[who] - sy) * sc); low = sy + (VBOT(frame) - ey) / sc   # body must still exit the frame bottom above the clip's last solid row
+    sc, ey = FRAME[(who, frame)]; ex, sy = HOST[who]['eye']
+    if sid in ('hook', 'loop') and frame == 'wide': ey += 128   # title shot: host lower so the hook card owns the top band (thirds rule applies to the lesson shots)
+    ey = max(ey, VBOT(frame) - (SEAT[who] - sy) * sc); low = sy + (VBOT(frame) - ey) / sc   # body must still exit the frame bottom above the clip's last solid row
     assert low <= SEAT[who] and sc <= 2.0 + 1e-6, ('seat/lap would be visible or body ends in frame', sid, who, low)
     return sc, ex, sy, SIDE[(who, frame)], ey
 # ------------------------------------------------------------------ backgrounds (Ken Burns + crossfade on swaps)
