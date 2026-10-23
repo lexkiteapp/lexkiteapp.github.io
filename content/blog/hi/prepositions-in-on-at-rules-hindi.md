@@ -173,3 +173,7 @@ quiz: [
 
 ### Q4. क्या 'In the night' बोला जा सकता है?
 सामान्य रूप से रात के लिए *at night* ही बोला जाता है (*The stars shine at night*)। *In the night* का प्रयोग केवल तब होता है जब आप किसी एक विशेष रात के दौरान घटी किसी खास घटना का उल्लेख कर रहे हों (*I woke up twice in the night because of thunder*)।
+
+## संबंधित अध्ययन सामग्री
+
+- [एक्टिव और पैसिव वॉइस के नियम](/hi/blog/passive-voice-rules-in-english-hindi/)

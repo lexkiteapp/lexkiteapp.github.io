@@ -135,3 +135,7 @@ qualityScore: 94
 
 ### Has been और Have been का प्रयोग कब किया जाता है?
 जब कोई कार्य भूतकाल में शुरू होकर अभी तक लगातार जारी हो (Present Perfect Continuous) जैसे *It has been raining since morning*, या फिर जब किसी स्थान पर होकर वापस आने का जीवन अनुभव व्यक्त करना हो যেমন *I have been to London twice*, तब *has been* या *have been* का प्रयोग किया जाता है।
+
+## संबंधित अध्ययन सामग्री
+
+- [कंडीशनल सेंटेंस नियम और प्रकार](/hi/blog/conditional-sentences-in-english-rules-hindi/)
