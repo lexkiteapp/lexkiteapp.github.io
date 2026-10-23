@@ -31,6 +31,12 @@ for s in tl['shots']:
             if not inside and v != 'X': bad += 1
         e = np.array(errs); ok = len(e) and np.abs(e).max() <= 60 and bad == 0 and res.max() <= 12
         print(f'  {s["id"]:8s} {who:6s} onsets n={len(e)} max|err| {(np.abs(e).max() if len(e) else -1):.0f} ms, open in silence {bad}, pixel max {res.max():.1f}', '' if ok else 'FAIL'); ok or fails.append(s['id'])
+_drift = []   # owner 23/10: caption word times vs the voice - each word within 80 ms of the ASR word start OR of a mouth-cue onset in the audio
+for s in tl['shots']:
+    for ln in s['lines']:
+        on_ = [s['t0'] + ln['at'] + c['start'] / ln['tempo'] for c in cues(ln['id']) if c['value'] != 'X']
+        for w0, _, wa in ln.get('words', []): _drift.append(min([abs(w0 - wa)] + [abs(w0 - t) for t in on_]))
+print(f'== VOICE/CAPTION DRIFT: max {max(_drift or [0]) * 1000:.0f} ms over {len(_drift)} words (<= 80)', 'OK' if _drift and max(_drift) <= 0.08 else 'FAIL'); (_drift and max(_drift) <= 0.08) or fails.append('drift')
 print('== CAPTIONS (EN verbatim, -0.1/+0.4 s, <=15 cps; native line under it) + FACES + SAFE ZONE')
 x0, y0, w0, h0 = L.WM_CROP; sc = 1080 / w0
 FACES = {s['id']: [(s['clip'], os.path.basename(os.path.dirname(p))) for p in glob.glob(MD(s['clip']) + '/*/mouth.json')] for s in tl['shots']}

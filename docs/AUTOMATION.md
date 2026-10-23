@@ -21,3 +21,10 @@ Một đường ống, chạy trên GitHub Actions + Cloudflare (0 đồng), m�
 | 15 | Giám sát | liên tục | báo cáo hằng ngày (email 8h + Quản trị › QC/Video/Social) | lỗi CI, kênh bị hạn chế, Drive ≥ 80 %, quota → cảnh báo |
 
 **Nguyên tắc**: chạy lại không tạo trùng (idempotent, có resume); mọi khoá ở máy chủ; mọi bước ghi sổ; credit Kling KHÔNG nằm trong đường ống tự động (kho footage làm riêng, theo CREDIT-RULES); không bật tự động cho template chưa được chủ duyệt.
+
+## Triển khai tin ngắn (news) – 23/10/2026
+- Bước 1–3: `news-auto.yml` → `scripts/cine/news_auto.py pick` (sổ `lexkite-shorts:ledger/news.json`, đa dạng chủ đề/hook, thử lại ≤ 2 lần với nền khác) → `materialize` (`bank2news.py`, tất định).
+- Bước 4–7: `cine-render.yml` (gọi bằng `workflow_call`, scene=news): giọng → cổng AI (Workers AI → Gemini kho khoá → bỏ qua trung tính, `ai_gate.py`) → dựng (seed theo bài) → `qa_news` (+ layout QA, trễ giọng/phụ đề ≤ 80 ms) → `qc_gate` → `store_shorts` + kho Drive (1 bản tới khi duyệt).
+- Bước 8: hàng "Chờ duyệt" (Quản trị › Video); `news_auto.py record` ghi sổ (mỗi run 1 lần). Lịch 08:53 UTC KHÔNG làm gì cho tới khi có tệp `content/video/cine/news/AUTO_APPROVED` (chủ duyệt mẫu). Không tự đăng.
+- Giám sát: artifact `video-summary-*` → bản tin ngày `scripts/ci/triage.mjs` (dựng/đạt/trượt theo cổng/chờ duyệt). Thử E2E: `video-e2e.yml` chạy ở mọi PR chạm `scripts/cine/**` hay workflow video (AI giả lập, dựng mẫu).
+- Bền: mọi gọi ngoài có timeout; `fetch.mjs` quá 15 phút → git sparse; kiểm dung lượng đĩa ≥ 8 GB trước khi dựng; sổ việc `infra/jobs.json` (lease `news-auto`).

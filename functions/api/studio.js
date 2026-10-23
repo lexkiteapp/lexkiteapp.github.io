@@ -386,39 +386,52 @@ const CI = {
   // Gemini vision from the key pool; fallback Workers AI llava (one image at a time). Images: base64 JPEG <= 180 KB each, max 4.
   // cine-render (news, owner 22/10 VIDEO-SCALE-PLAN §9/§12-14): AI judge of a lesson script - clarity at A2-B1, one idea, correct wrong->right logic,
   // short why, culturally neutral, simple English. Returns the model's JSON (scores 1-5 + issues); CI scripts/cine/script_judge.py decides.
-  async judgeScript(env, db, b) {
+  async judgeScript(env, db, b) {   // owner 23/10 fallback order: Workers AI -> Gemini (Lexkite key pool, reads D1) -> provider 'none' (CI skips, never rejects)
     const script = String(b.script || '').slice(0, 6000); if (!script) throw new Bad(400, 'script');
     const sys = 'You are a strict ESL teacher-editor reviewing a short English lesson video script for a GLOBAL audience of A2-B1 learners. Lines are spoken by two teachers; brackets describe on-screen cards. ' +
       'Score 1-5 each: clarity (easy to follow for A2-B1, short sentences, no word harder than the thing it explains), correctness (the marked-wrong line is really wrong or unnatural in this situation AND the marked-right line is natural American English here; the why is true), ' +
       'one_idea (exactly one teaching point), level (explanations use A2-B1 core words; idioms glossed), neutrality (no religion/politics/stereotypes; mistakes phrased "many learners", never a country). ' +
       'Reply JSON only: {"clarity":n,"correctness":n,"one_idea":n,"level":n,"neutrality":n,"wrong_is_wrong":true|false,"right_is_right":true|false,"issues":["..."]}';
-    const g = b.gemini ? await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: script }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } }).catch(() => null) : null;   // Gemini key pool reads D1 -> opt-in
-    if (g && g.text) { try { return { provider: 'gemini', out: JSON.parse(g.text.replace(/^```(json)?|```$/g, '')) }; } catch (e) { /* fall through */ } }
-    if (!env.AI) throw new Bad(503, 'no-model');   // fallback: Llama 3.3 70B (the 8B model misread the script markup in run #64)
-    const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: sys + ' Reply with ONE JSON object only.' }, { role: 'user', content: script }], max_tokens: 600, temperature: 0, response_format: { type: 'json_object' } });
-    const raw = r && r.response; let out = raw && typeof raw === 'object' ? raw : null;
-    if (!out) { try { out = JSON.parse(String(raw || '').replace(/^[^{]*/, '').replace(/[^}]*$/, '')); } catch (e) { out = null; } }
-    return { provider: 'workers-ai-llama3.3-70b', out };
+    const tried = [];
+    if (env.AI) {
+      try {   // Llama 3.3 70B (the 8B model misread the script markup in run #64)
+        const r = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [{ role: 'system', content: sys + ' Reply with ONE JSON object only.' }, { role: 'user', content: script }], max_tokens: 600, temperature: 0, response_format: { type: 'json_object' } });
+        const raw = r && r.response; let out = raw && typeof raw === 'object' ? raw : null;
+        if (!out) { try { out = JSON.parse(String(raw || '').replace(/^[^{]*/, '').replace(/[^}]*$/, '')); } catch (e) { out = null; } }
+        if (out) return { provider: 'workers-ai-llama3.3-70b', out, tried };
+        tried.push('workers-ai:unparsed');
+      } catch (e) { tried.push('workers-ai:' + String(e && e.message || e).slice(0, 80)); }
+    } else tried.push('workers-ai:none');
+    if (b.gemini !== 0) {
+      const g = await geminiCall(env, { systemInstruction: { parts: [{ text: sys }] }, contents: [{ role: 'user', parts: [{ text: script }] }], generationConfig: { responseMimeType: 'application/json', temperature: 0 } }).catch(e => { tried.push('gemini:' + String(e && e.message || e).slice(0, 60)); return null; });
+      if (g && g.text) { try { return { provider: 'gemini', out: JSON.parse(g.text.replace(/^```(json)?|```$/g, '')), tried }; } catch (e) { tried.push('gemini:unparsed'); } } else tried.push('gemini:no-answer');
+    }
+    return { provider: 'none', out: null, tried, quota: tried.some(t => /4006|quota|429|exceeded|neuron/i.test(t)) };
   },
-  async visionCheck(env, db, b) {
+  async visionCheck(env, db, b) {   // Workers AI (Llama 3.2 Vision, one image at a time) -> Gemini vision (key pool) -> 'none'
     const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));
     if (!imgs.length) throw new Bad(400, 'images');
-    const q = String(b.question || '').slice(0, 2000);
-    const g = b.gemini ? await geminiCall(env, { contents: [{ role: 'user', parts: [{ text: q }, ...imgs.map(d => ({ inline_data: { mime_type: 'image/jpeg', data: d } }))] }], generationConfig: { temperature: 0, responseMimeType: 'application/json' } }).catch(() => null) : null;   // opt-in (D1 key pool)
-    if (g && g.text) return { provider: 'gemini', text: g.text };
-    if (env.AI) {   // fallback: Llama 3.2 Vision (one image at a time, yes/no question = robust parsing); accepts the Meta licence once
-      const M = '@cf/meta/llama-3.2-11b-vision-instruct', frames = [];
-      const ask = (d) => env.AI.run(M, { messages: [{ role: 'user', content: [{ type: 'text', text: 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.' }, { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + d } }] }], max_tokens: 40 });   // format verified via REST 22/10
+    const q = String(b.question || '').slice(0, 2000); const tried = [];
+    if (env.AI) {
+      const M = '@cf/meta/llama-3.2-11b-vision-instruct', frames = []; let err = '';
+      const ask = (d) => env.AI.run(M, { messages: [{ role: 'user', content: [{ type: 'text', text: 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.' }, { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + d } }] }], max_tokens: 60, temperature: 0 });
       for (const d of imgs) {
         let r = null;
-        try { r = await ask(d); } catch (e) { if (/agree/i.test(String(e && e.message))) { await env.AI.run(M, { prompt: 'agree' }).catch(() => null); r = await ask(d).catch(() => null); } }
+        try { r = await ask(d); } catch (e) { err = String(e && e.message || e); if (/agree/i.test(err)) { await env.AI.run(M, { prompt: 'agree' }).catch(() => null); r = await ask(d).catch(x => { err = String(x && x.message || x); return null; }); } }
         const t = String((r && (r.response || r.description)) || '').trim();
         frames.push({ natural: /^\W*no\b/i.test(t), problem: /^\W*no\b/i.test(t) ? '' : (t.slice(0, 140) || 'no answer') });
       }
-      return { provider: 'workers-ai-llama3.2-vision', text: JSON.stringify({ frames }) };
+      if (frames.some(f => f.problem !== 'no answer')) return { provider: 'workers-ai-llama3.2-vision', text: JSON.stringify({ frames }), tried };
+      tried.push('workers-ai:' + (err.slice(0, 80) || 'no answer'));
+    } else tried.push('workers-ai:none');
+    if (b.gemini !== 0) {
+      const g = await geminiCall(env, { contents: [{ role: 'user', parts: [{ text: q }, ...imgs.map(d => ({ inline_data: { mime_type: 'image/jpeg', data: d } }))] }], generationConfig: { temperature: 0, responseMimeType: 'application/json' } }).catch(e => { tried.push('gemini:' + String(e && e.message || e).slice(0, 60)); return null; });
+      if (g && g.text) return { provider: 'gemini', text: g.text, tried };
+      tried.push('gemini:no-answer');
     }
-    return { provider: 'none', text: null };
+    return { provider: 'none', text: null, tried, quota: tried.some(t => /4006|quota|429|exceeded|neuron/i.test(t)) };
   },
+
   // video-auto.yml (theo lịch): tạo job từ kịch bản khuôn đã qua lint (scripts/video/auto.mjs) → script_ok → rendering; CI tự gọi video.yml.
   // Chặn: trùng nguồn (vars file) · công tắc Tự động tắt · đủ hạn mức/ngày · tồn đọng chờ duyệt ≥ backlog. force (chạy tay) bỏ qua 3 chặn sau.
   async ciCreate(env, db, b) {

@@ -45,7 +45,12 @@ export function issueBody({ name, file, run, cls, log }) {
 }
 
 /** Bản tin ngày (thuần). runs = lượt failure 24 h, latest = {name → conclusion mới nhất}, issues = issue ci-failure đang mở. */
-export function digest(runs, latest, issues) {
+export function videoLine(v) { // owner 23/10: video pipeline in the daily digest (news-auto ledger summary, scripts/cine/news_auto.py summary)
+  if (!v) return '- Video: chưa có lượt news-auto trong 24 h (tự động tắt cho tới khi chủ duyệt mẫu).';
+  const g = Object.entries(v.failed_by_gate || {}).map(([k, n]) => `${k} ${n}`).join(', ');
+  return `- Video 24 h: dựng ${v.rendered || 0} · đạt ${v.passed || 0} · trượt ${v.failed || 0} · bỏ trước dựng ${v.dropped || 0}${g ? ` (cổng: ${g})` : ''} · chờ duyệt ${v.pending_approval || 0} · đã duyệt ${v.approved || 0}`;
+}
+export function digest(runs, latest, issues, video) {
   const by = {}; for (const r of runs) (by[r.name] = by[r.name] || []).push(r);
   const names = Object.keys(by).sort((a, b) => by[b].length - by[a].length);
   const red = names.filter(n => latest[n] === 'failure');
@@ -54,9 +59,22 @@ export function digest(runs, latest, issues) {
   const msg = names.length ? `${runs.length} lượt đỏ ở ${names.length} workflow, ${red.length} còn đỏ` : 'không có workflow đỏ';
   const text = `Bản tin CI 24 h (${new Date().toISOString().slice(0, 16)}Z): ${msg}.\n\n${lines.join('\n') || '- (trống)'}\n\nIssue ci-failure đang mở:\n${iss.join('\n') || '- (không có)'}\n\n` +
     'Lỗi hạn mức D1 (quota-guard) giờ là bỏ qua trung tính; lỗi tạm thời được chạy lại 1 lần; lỗi thật → issue. Tắt thư từng lượt: GitHub → Settings → Notifications → Actions → "Only notify for failed workflows" hoặc bỏ chọn Email.';
-  return { msg, text, red: red.length, failed: names.length, md: `## 🧾 Bản tin CI 24 h\n${msg}\n\n${lines.join('\n')}\n\n### Issue ci-failure\n${iss.join('\n') || '- (không có)'}\n` };
+  const vl = video === undefined ? '' : videoLine(video);
+  return { msg, text: vl ? `${text}\n\nPipeline video:\n${vl}` : text, red: red.length, failed: names.length, md: `## 🧾 Bản tin CI 24 h\n${msg}\n\n${lines.join('\n')}\n\n### Issue ci-failure\n${iss.join('\n') || '- (không có)'}\n${vl ? `\n### Pipeline video\n${vl}\n` : ''}` };
 }
 
+async function videoSummary(now) { // latest news-auto run (24 h) -> artifact video-summary-<run> (news_auto.py summary json)
+  const runs = (((await gh(`/actions/workflows/news-auto.yml/runs?per_page=5`)) || {}).workflow_runs || []).filter(r => r.status === 'completed' && new Date(r.created_at) > now - 26 * 3600e3);
+  for (const r of runs) {
+    const a = (((await gh(`/actions/runs/${r.id}/artifacts`)) || {}).artifacts || []).find(x => x.name.startsWith('video-summary'));
+    if (!a) continue;
+    const z = await fetch(a.archive_download_url, { headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN }, redirect: 'follow', signal: AbortSignal.timeout(30e3) });
+    if (!z.ok) continue;
+    const { execFileSync } = await import('child_process'); const fs = await import('fs'); const f = `${process.env.RUNNER_TEMP || '/tmp'}/vs-${r.id}.zip`;
+    fs.writeFileSync(f, Buffer.from(await z.arrayBuffer())); return JSON.parse(execFileSync('unzip', ['-p', f, 'summary.json'], { timeout: 20e3 }).toString());
+  }
+  return null;
+}
 // ---------- GitHub API ----------
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
 const API = (process.env.GITHUB_API_URL || 'https://api.github.com') + '/repos/' + REPO;
@@ -133,7 +151,7 @@ async function sweep() {
   }
   // 3) bản tin ngày → tóm tắt job + cảnh báo Quản trị + 1 thư/ngày (chỉ khi có đỏ)
   const day = failed.filter(r => r.created_at >= new Date(now - 24 * 3600e3).toISOString() && r.name !== 'ci-triage');
-  const d = digest(day, latest, await openIssues());
+  const d = digest(day, latest, await openIssues(), await videoSummary(now).catch(e => { console.log('video summary:', e.message); return null; }));
   summary(d.md);
   if (!process.env.LEXKITE_DRIVE_CLI_KEY) return console.log('Không có LEXKITE_DRIVE_CLI_KEY – chỉ ghi tóm tắt job.');
   try {

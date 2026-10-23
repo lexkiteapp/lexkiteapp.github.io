@@ -9,7 +9,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 HOOK = {'stop': 'mistake_callout', 'which': 'quiz', '90': 'challenge', 'guess': 'fill_gap', 'natives': 'native_says', 'instead': 'secret_tip', 'embarrass': 'surprise', 'rude': 'myth'}
 CARDHOOK = {'stop': 'STOP SAYING THIS', 'which': 'WHICH IS CORRECT?', '90': '90% GET THIS WRONG', 'guess': 'GUESS FIRST', 'natives': 'NATIVES NEVER SAY', 'instead': 'SAY THIS INSTEAD', 'embarrass': "DON'T SAY THIS", 'rude': 'IS THIS RUDE?'}
 ICON = {'health': 'doctor', 'food': 'food', 'shopping': 'bulb', 'work': 'bulb', 'exam': 'book', 'study': 'book', 'travel': 'bulb', 'tech': 'bulb'}
-ap = argparse.ArgumentParser(); ap.add_argument('sid'); ap.add_argument('bg'); ap.add_argument('--style', default=''); o = ap.parse_args()
+ap = argparse.ArgumentParser(); ap.add_argument('sid'); ap.add_argument('bg'); ap.add_argument('--style', default=''); ap.add_argument('--k', type=int, default=0); o = ap.parse_args()
 B = {}
 for f in glob.glob(f'{ROOT}/content/video/scripts/bank/*.jsonl'):
     for l in open(f):
@@ -22,7 +22,7 @@ def wide_for(topic, k=0):
     wb = json.load(open(f'{D}/bg_topics.json')).get('wide_by_topic', {}); c = [x for t in WT.get(topic, [topic]) for x in wb.get(t, [])]
     c = sorted(dict.fromkeys(c), key=lambda x: hashlib.md5((b['id'] + x).encode()).hexdigest()); return c[k % len(c)] if c else None
 import hashlib
-if o.bg == 'auto': o.bg = wide_for(b['topic']) or 'classroom'
+if o.bg == 'auto': o.bg = wide_for(b['topic'], o.k) or 'classroom'   # k: retry with the next background of the topic (news_auto.py)
 h6 = b['id'][-6:]; lid = f"news_{b['topic']}_{b['hook_type'].replace('90', 'ninety')}_{h6}"
 q = b['quiz']; qtxt = re.sub(r'_{2,}', 'blank', q['q']).rstrip('.?!'); opts = ' or '.join(q['options'][:2])
 hook_say = {'stop': 'Stop saying this.',   # short spoken hook (1.66-2.0 s shot); the long bank hook 'Stop saying X' ran 2.2 s at max tempo (#78)

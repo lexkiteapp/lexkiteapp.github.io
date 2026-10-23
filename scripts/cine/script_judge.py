@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """script_judge.py <lesson.json> <lines.json> <out.json> - AI judge for a v7 news script (owner 22/10, VIDEO-SCALE-PLAN §9/§12-14). 0 credits.
-Deterministic rules first (script_rules.py), then the studio op judgeScript (Gemini key pool, Workers AI fallback) via X-Studio-Secret.
-PASS = no rule issue, every score >= 4, wrong_is_wrong and right_is_right. Exit 0 pass / 1 fail / 2 judge unavailable (qa_news fails it)."""
+Deterministic rules first (script_rules.py), then the studio op judgeScript (Workers AI -> Gemini key pool -> neutral skip) via ai_gate.py.
+PASS = no rule issue, every score >= 4, wrong_is_wrong and right_is_right. Exit 0 pass / 1 fail / 2 judge unavailable = neutral skip (qc_gate scores it 0, never rejects in preflight)."""
 import json, os, sys, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import script_rules as SR
 sp = json.load(open(sys.argv[1])); L = {l['id']: l for l in json.load(open(sys.argv[2]))['lines']}; out = dict(rules=SR.check(sp, L), ok=False)
@@ -13,32 +13,12 @@ for k, b in enumerate(sp['beats']):
 lines += [f"On-screen Teacher's tip list: {' | '.join(sp['recap']['rows'])}", f"Last line: {T(sp['end_line'])}", f"On-screen share chip: Send this to a friend {sp.get('share', '')}",
           f"(Target level {sp['cefr']}. Teaching point: {sp['point']}. 'Pause and guess' and 'Repeat after me' are fixed classroom routines.)"]
 script = '\n'.join(lines); out['script'] = script
-import gh_models
-SYS_J = ('You are a strict ESL teacher-editor reviewing a short English lesson video script for a GLOBAL audience of A2-B1 learners. Lines are spoken by two teachers; brackets describe on-screen cards. '
-         'Score 1-5 each: clarity (easy to follow for A2-B1, short sentences, no word harder than the thing it explains), correctness (the WRONG line is really wrong or unnatural in this situation, the RIGHT line is natural American English here, the why is true), '
-         'one_idea (exactly one teaching point), level (explanations use A2-B1 core words; idioms glossed), neutrality (no religion/politics/stereotypes; mistakes phrased "many learners", never a country). '
-         'Reply with ONE JSON object only: {"clarity":n,"correctness":n,"one_idea":n,"level":n,"neutrality":n,"wrong_is_wrong":true|false,"right_is_right":true|false,"issues":["..."]}')
-gt = gh_models.chat([dict(role='system', content=SYS_J), dict(role='user', content=script)])   # GitHub Models first (no D1 / Workers AI quota)
-if gt:
-    try:
-        j = json.loads(gt[gt.index('{'):gt.rindex('}') + 1]); out['provider'] = 'github-models gpt-4.1-mini'; out['judge'] = j
-        sc = [j.get(k, 0) for k in ('clarity', 'correctness', 'one_idea', 'level', 'neutrality')]
-        out['ok'] = not out['rules'] and all(isinstance(x, (int, float)) and x >= 4 for x in sc) and j.get('wrong_is_wrong') is True and j.get('right_is_right') is True
-        json.dump(out, open(sys.argv[3], 'w'), indent=1); print('script judge', out['provider'], 'OK' if out['ok'] else 'FAIL', sc, j.get('issues'), out['rules']); sys.exit(0 if out['ok'] else 1)
-    except ValueError: pass
-api = os.environ.get('STUDIO_API', 'https://lexkite.com/api/studio'); sec = os.environ.get('STUDIO_CALLBACK_SECRET', '')
-import time
-try:
-    for att in range(3):   # the endpoint returned a transient 500 in run #72
-        try:
-            req = urllib.request.Request(api, data=json.dumps(dict(op='judgeScript', script=script)).encode(), method='POST', headers={'Content-Type': 'application/json', 'X-Studio-Secret': sec, 'User-Agent': 'lexkite-ci'})
-            r = json.load(urllib.request.urlopen(req, timeout=90)); break
-        except Exception:
-            if att == 2: raise
-            time.sleep(10 * (att + 1))
-    out['provider'] = r.get('provider'); j = r.get('out') or {}
-except Exception as e:
-    out['error'] = str(e)[:200]; json.dump(out, open(sys.argv[3], 'w'), indent=1); print('judge unavailable:', out['error'], '| rules:', out['rules']); sys.exit(2)
+import ai_gate
+if ai_gate.MOCK: r, st = dict(provider='mock', out=dict(clarity=5, correctness=5, one_idea=5, level=5, neutrality=5, wrong_is_wrong=True, right_is_right=True, issues=[])), 'ok'
+else: r, st = ai_gate.studio('judgeScript', dict(script=script))   # Workers AI -> Gemini pool -> skip (owner 23/10)
+if st != 'ok':
+    out['ok'] = None; out['error'] = st; out['tried'] = (r or {}).get('tried'); json.dump(out, open(sys.argv[3], 'w'), indent=1); print('judge unavailable (neutral skip):', st, '| rules:', out['rules']); sys.exit(2 if not out['rules'] else 1)
+out['provider'] = r.get('provider'); out['tried'] = r.get('tried'); j = r.get('out') or {}
 out['judge'] = j; sc = [j.get(k, 0) for k in ('clarity', 'correctness', 'one_idea', 'level', 'neutrality')]
 out['ok'] = not out['rules'] and all(isinstance(x, (int, float)) and x >= 4 for x in sc) and j.get('wrong_is_wrong') is True and j.get('right_is_right') is True
 json.dump(out, open(sys.argv[3], 'w'), indent=1); print('script judge', out.get('provider'), 'OK' if out['ok'] else 'FAIL', sc, j.get('issues'), out['rules']); sys.exit(0 if out['ok'] else 1)

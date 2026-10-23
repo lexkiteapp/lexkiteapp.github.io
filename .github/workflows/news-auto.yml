@@ -1,0 +1,86 @@
+# news-auto: A->Z driver for the news shorts (docs/AUTOMATION.md steps 1-8, owner 23/10). 0 credits.
+# script bank -> pick (ledger + diversity) -> cine-render (materialize -> voice -> preflight AI gates -> render -> qa_news -> qc_gate -> store 1 Drive copy)
+# -> Admin 'Chờ duyệt' queue (store_shorts index) -> after the owner approves: distribution / YouTube pack (yt-pack, separate workflows).
+# APPROVAL GATE: the schedule does nothing until the owner approved the template (file content/video/cine/news/AUTO_APPROVED exists);
+# manual runs (workflow_dispatch) produce review samples only. Auto-publish is never done here.
+# Idempotent: lexkite-shorts:ledger/news.json (scripts/cine/news_auto.py) - a re-run never re-picks a planned / pending / approved item.
+name: news-auto
+on:
+  schedule:
+    - cron: '53 8 * * *'   # 15:53 VN: free slot on workers_ai / gemini / drive_pool (jobs-check); quotas reset at 00:00 UTC; gated by AUTO_APPROVED
+  workflow_dispatch:
+    inputs:
+      n: { description: 'clips this run (1-6)', required: false, default: '1' }
+      items: { description: "explicit items instead of the ledger pick ('bank:<id>,news_<lid>')", required: false, default: '' }
+permissions:
+  contents: read
+  actions: read
+concurrency: { group: news-auto, cancel-in-progress: false }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+      items: ${{ steps.p.outputs.items }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: g
+        name: Approval gate
+        run: |
+          if [ "${{ github.event_name }}" = schedule ] && [ ! -f content/video/cine/news/AUTO_APPROVED ]; then echo "go=0" >> "$GITHUB_OUTPUT"; echo "template not approved yet - scheduled run does nothing"; else echo "go=1" >> "$GITHUB_OUTPUT"; fi
+      - id: lease
+        if: steps.g.outputs.go == '1'
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire news-auto
+      - name: Ledger (lexkite-shorts) + pick
+        id: p
+        if: steps.g.outputs.go == '1' && steps.lease.outputs.skip != '1'
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}', N: '${{ inputs.n || 1 }}', ITEMS: '${{ inputs.items }}' }
+        run: |
+          echo "$N" | grep -Eq '^[1-6]$' || { echo "::error::n 1-6"; exit 1; }
+          case "$ITEMS" in *[!a-z0-9_,:]*) echo "::error::items không hợp lệ"; exit 1;; esac
+          if [ -n "$KEY" ]; then
+            mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+            GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" timeout 300 git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts && git -C /tmp/shorts sparse-checkout set ledger || true
+            rm -f ~/.ssh/shorts
+          fi
+          I="$ITEMS"; [ -n "$I" ] || I=$(python3 scripts/cine/news_auto.py pick --ledger /tmp/shorts/ledger/news.json --n "$N")
+          [ -n "$I" ] || { echo "::warning::nothing to render (bank exhausted)"; }
+          echo "items=$I" >> "$GITHUB_OUTPUT"; echo "items: $I" >> "$GITHUB_STEP_SUMMARY"
+  render:
+    needs: plan
+    if: needs.plan.outputs.go == '1' && needs.plan.outputs.items != ''
+    uses: ./.github/workflows/cine-render.yml
+    with: { scene: news, lessons: '${{ needs.plan.outputs.items }}' }
+    secrets: inherit
+  record:
+    needs: [plan, render]
+    if: always() && needs.plan.outputs.go == '1' && needs.plan.outputs.items != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { pattern: 'news-qc-${{ github.run_number }}-*', path: out, merge-multiple: true }
+      - name: Ledger record (idempotent per run) + daily summary
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}', ITEMS: '${{ needs.plan.outputs.items }}' }
+        run: |
+          python3 scripts/cine/news_auto.py materialize "$ITEMS" > /dev/null   # lesson json for bank id <-> lesson id
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          timeout 300 git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts && git -C /tmp/shorts sparse-checkout set ledger
+          for k in 1 2 3 4 5; do
+            python3 scripts/cine/news_auto.py record --ledger /tmp/shorts/ledger/news.json --out out --run "${{ github.run_id }}"
+            git -C /tmp/shorts add --sparse ledger; git -C /tmp/shorts -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "news-auto ledger #${{ github.run_number }}" || break
+            timeout 120 git -C /tmp/shorts push -q origin HEAD:main && break
+            git -C /tmp/shorts fetch -q origin main && git -C /tmp/shorts reset -q --hard origin/main   # someone else pushed: re-apply on the new tip (record is idempotent per run)
+          done
+          rm -f ~/.ssh/shorts; mkdir -p vs
+          python3 scripts/cine/news_auto.py summary --ledger /tmp/shorts/ledger/news.json --json vs/summary.json | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4   # ci-triage daily digest reads this (scripts/ci/triage.mjs videoSummary)
+        with: { name: 'video-summary-${{ github.run_number }}', path: vs/summary.json, retention-days: 7 }
+      - if: always()
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release news-auto --status "${{ needs.render.result }}"

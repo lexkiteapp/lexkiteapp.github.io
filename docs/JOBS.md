@@ -45,6 +45,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 05:30 | `d1b-migrate` | `30 5 * * *` | archive | d1_internal, d1_main_read, drive_pool | 45 | d1_main_reads≈40000, d1_internal_reads≈2000 | ✓ |
 | 06:20 | `footage-verify` | `20 6 * * 1` | reports | drive_pool, d1_internal | 20 | d1_internal_reads≈8000, drive_calls≈300 | ✓ |
 | 07:30 | `explain` | `30 7 * * *` | render | gemini, gh_minutes | 40 | — | — |
+| 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai, gemini, drive_pool | 150 | clips≈6, workers_ai_neurons≈3000, gemini_calls≈12, drive_calls≈60 | ✓ |
 | 18:00 | `word-audio` | `0 18 * * *` | render | gh_minutes | 60 | — | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |

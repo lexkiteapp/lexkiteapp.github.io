@@ -551,6 +551,29 @@
     "d1_main_reads": 3000
    },
    "lease": false
+  },
+  {
+   "id": "news-auto",
+   "workflow": "news-auto.yml",
+   "cron": [
+    "53 8 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "workers_ai",
+    "gemini",
+    "drive_pool"
+   ],
+   "minutes": 150,
+   "est": {
+    "clips": 6,
+    "workers_ai_neurons": 3000,
+    "gemini_calls": 12,
+    "drive_calls": 60
+   },
+   "lease": true,
+   "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate)"
   }
  ]
 }
