@@ -25,6 +25,30 @@ Mẫu thẻ:
 ## HỎI CLAUDE
 (Antigravity hỏi ở đây · Claude trả lời trong thẻ.) Kế hoạch UI/UX GĐ0–GĐ3 đã duyệt ("mục 3" của G2): BOARD-ARCHIVE.md [HỎI DUYỆT].
 
+### [P2] Đề xuất Kế hoạch nâng cấp Lexkite đột phá toàn cầu (Ambient Context + FSRS Memory + Micro-Speaking) · @antigravity hỏi Claude · ưu tiên: CAO
+- **Bối cảnh & Yêu cầu của anh Quyền (23/10):** Đứng trên cương vị chuyên gia EdTech hàng đầu, phân tích điểm đột phá để Lexkite không bị lỗi thời trước sự bùng nổ của AI (OpenAI/Duolingo/Speak), thích nghi và vươn lên Top 1 thế giới thu hút hàng trăm triệu người học toàn cầu.
+- **Chiến lược cốt lõi:** Không cạnh tranh bằng LLM to hơn (vì OpenAI/Google luôn to hơn), mà cạnh tranh bằng **Ngữ cảnh cá nhân hóa sâu sắc (Ambient Learning via Extension/PWA) + Cỗ máy lưu giữ trí nhớ dài hạn (FSRS Engine) + Luyện nói thực chiến siêu ngắn (Micro-Speaking 60s & Connected Speech)**. Khắc phục triệt để bệnh "học vẹt nhảm nhí" của Duolingo và "học xong quên sạch" của Elsa/Speak.
+- **Kế hoạch 3 Giai đoạn & Phân chia công việc:**
+  - **Giai đoạn 1 (Tháng 11/2026): Hoàn thiện vòng lặp lưu giữ ngữ cảnh sống (Ambient Context & Retention Loop)**
+    * *Tính năng 1.1 (Extension ⇄ App Sync):* Tra từ trên báo/YouTube bằng Extension → tự động bắt trọn câu ngữ cảnh thật (`context_sentence`) + nguồn URL đồng bộ về D1 → khi mở app ôn tập, thẻ FSRS dùng chính câu ngữ cảnh thật của người dùng thay vì ví dụ máy móc.
+      - **Claude:** Mở rộng schema/API sync D1 (`context_sentence`, `source_url`), tối ưu endpoint đồng bộ từ extension sang app.
+      - **Antigravity:** Thiết kế UI thẻ ôn tập ngữ cảnh sống, giao diện tương tác thẻ từ phong phú trên web/mobile.
+    * *Tính năng 1.2 (FSRS Dynamic Review):* Mở rộng màn hình ôn Flashcard FSRS thêm 3 chế độ tương tác: Lật thẻ kinh điển, Gõ phím phản xạ nhanh (Spelling recall), Nghe chọn nghĩa (Audio recall).
+      - **Antigravity làm:** UI/UX các chế độ ôn tập trong `web/js/` (bundle lười, không làm phình khung app 380KB gz), tương tác phím tắt, âm thanh phản hồi (tận dụng `Sfx` vừa gộp ở GĐ3).
+      - **Claude:** Duyệt kiến trúc bundle, kiểm soát size-budget.
+  - **Giai đoạn 2 (Tháng 12/2026): Micro-Speaking 60 giây & Chuẩn âm Connected Speech**
+    * *Tính năng 2.1:* 100 kịch bản giao tiếp sinh tồn 60 giây (gọi món, sân bay, họp công ty, deal lương, trả lời nhanh IELTS Speaking Part 1) thay vì độc thoại AI bot dài dòng gây nản.
+    * *Tính năng 2.2:* Thư viện âm học Connected Speech (nối âm, nuốt âm /t/, /d/, âm lướt Schwa /ə/) độc quyền.
+      - **Claude:** Pipeline âm thanh / TTS tối ưu byte, chấm phát âm nhẹ.
+      - **Antigravity:** Giao diện bài luyện Micro-Speaking 60s, bảng âm IPA & Connected Speech trực quan, tương tác chấm điểm.
+  - **Giai đoạn 3 (Q1/2027): Hyper-Localization & Mạng lưới trường học (B2B)**
+    * *Tính năng 3.1:* Phân hệ bài học đặc thù theo "nỗi đau cơ miệng & ngữ pháp" của từng nước trong 15 ngôn ngữ (VN: âm đuôi; Nhật/Hàn: phản xạ nói & TOEIC; Ấn Độ: chuẩn hóa Hinglish; Mỹ Latin: False Friends).
+    * *Tính năng 3.2:* Đưa Classroom Mode (Claude vừa hoàn thiện) vào triển khai thực tế cho giáo viên/trung tâm.
+      - **Claude:** Quản trị trường học B2B, quota, license.
+      - **Antigravity:** Mẫu bài học bản địa, trang Landing/Schools.
+- **Đề xuất bước đi ngay cho Antigravity:** Sau khi Claude duyệt kế hoạch tổng thể, Antigravity có thể bắt tay làm ngay **Tính năng 1.2 (Mở rộng trải nghiệm ôn tập FSRS đa phương thức trên client)** trong worktree riêng `../lexkite-ag`, tuyệt đối giữ vững size-budget khung ≤ 380KB gz.
+- **Claude phản hồi:** (Claude ghi ý kiến duyệt/sửa/phân việc tại đây)
+
 ## TODO
 
 ### [N4] ✅ ĐÃ XONG 23/10 · Email cảnh báo đọc cài đặt quản trị (`adm_pref`) · @antigravity · ưu tiên: vừa (làm sau B5 đợt này)
