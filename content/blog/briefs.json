@@ -10498,6 +10498,150 @@
    "source": "connected-speech-linking-sounds",
    "role": "cluster",
    "cluster": "connected-speech"
+  },
+  {
+   "slug": "conditional-sentences-in-english-rules-hindi",
+   "keyword": "conditional sentences in english in hindi",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "conditional-sentences",
+    "tense"
+   ],
+   "shots": [
+    "grammar",
+    "practice-learn"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "Conditional Sentences in English in Hindi: Zero, First, Second, Third aur Mixed Conditionals ke Niyam aur Udaharan",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "english-conditionals-guide",
+   "role": "cluster",
+   "cluster": "conditional-sentences"
+  },
+  {
+   "slug": "connected-speech-rules-in-english-hindi",
+   "keyword": "connected speech in english in hindi",
+   "category": "phat-am",
+   "tags": [
+    "pronunciation",
+    "listening",
+    "connected-speech"
+   ],
+   "shots": [
+    "pron",
+    "listening"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/listening"
+   ],
+   "angle": "Connected Speech in English in Hindi: Fast English samajhne aur natural bolne ke linking sound rules",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "connected-speech-linking-sounds",
+   "role": "cluster",
+   "cluster": "connected-speech"
+  },
+  {
+   "slug": "english-presentation-phrases-in-hindi",
+   "keyword": "presentation in english tips in hindi",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "business-english",
+    "presentation"
+   ],
+   "shots": [
+    "speaking",
+    "phrases"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/#/phrases"
+   ],
+   "angle": "Presentation in English Tips in Hindi: Office meetings aur stage par confident presentation dene ke sentences aur phrases",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "business-english-presentations",
+   "role": "cluster",
+   "cluster": "presentation-tips"
+  },
+  {
+   "slug": "ielts-writing-task-1-graph-description-hindi",
+   "keyword": "ielts writing task 1 in hindi",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "writing",
+    "task-1"
+   ],
+   "shots": [
+    "task1",
+    "write"
+   ],
+   "routes": [
+    "/#/task1",
+    "/#/write"
+   ],
+   "angle": "IELTS Writing Task 1 in Hindi: Bar chart, Line graph, Pie chart describe karne ka 4-step structure aur vocabulary",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "ielts-writing-task-1-charts",
+   "role": "cluster",
+   "cluster": "ielts-writing"
+  },
+  {
+   "slug": "linking-words-in-english-essay-writing-hindi",
+   "keyword": "linking words in english in hindi",
+   "category": "ky-nang",
+   "tags": [
+    "writing",
+    "linking-words",
+    "vocabulary"
+   ],
+   "shots": [
+    "write",
+    "phrases"
+   ],
+   "routes": [
+    "/#/write",
+    "/#/phrases"
+   ],
+   "angle": "Linking Words in English in Hindi: Essay, Email aur IELTS Writing me behtar flow ke liye jaroori connectors list",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "linking-words-connectors",
+   "role": "cluster",
+   "cluster": "linking-words"
+  },
+  {
+   "slug": "passive-voice-rules-in-english-hindi",
+   "keyword": "passive voice rules in hindi",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "passive-voice",
+    "verbs"
+   ],
+   "shots": [
+    "grammar",
+    "mistakes"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/#/mistakes"
+   ],
+   "angle": "Passive Voice Rules in Hindi: Sabhi Tenses me Active se Passive banane ke niyam, chart aur aam galtiyan",
+   "intent": "informational",
+   "lang": "hi",
+   "source": "passive-voice-rules",
+   "role": "cluster",
+   "cluster": "passive-voice"
   }
  ]
 }

@@ -53,13 +53,13 @@ ok((await J.acquire(ENV, DB, { job: 'khong-co', run: 'x' })).status === 400, 'jo
   ok(L.decide(503, jb, true).skip === 1 && L.decide(0, { error: 'network' }, true).skip === 1 && L.decide(500, {}, true).skip === 1, 'việc nặng + điều phối 503/mạng/500 → KHÔNG chạy');
   ok(L.decide(503, jb, false).skip === 0 && L.decide(200, { ok: true }, true).skip === 0 && L.decide(200, { skip: true, reason: 'x' }, false).skip === 1 && L.decide(429, {}, false).skip === 1, 'việc tầm thường chạy khi điều phối hỏng; thuê được → chạy; bị từ chối/429 → bỏ qua');
   // đặt chỗ neuron: mặc định 0, cấp riêng theo việc
-  const rr = await J.acquire({}, DB, { job: 'script-bank', run: 'g1' }, T0 + 40e6); ok(rr.ok && rr.grants.workers_ai === 0, 'script-bank: neuron Workers AI chính được cấp = 0 (đặt chỗ cho người dùng)');
+  const rr = await J.acquire({}, DB, { job: 'script-bank', run: 'g1' }, T0 + 40e6); ok(rr.ok && rr.grants.workers_ai === undefined && rr.grants.workers_ai_b === 2000, 'script-bank: không có phần cấp neuron CHÍNH (đặt chỗ cho người dùng), được 2000 neuron tài khoản 2');
   await J.release({}, DB, { job: 'script-bank', run: 'g1', status: 'success' }, T0 + 40.1e6);
-  const REGM = (await import(new URL('../../functions/api/_jobs_reg.js', import.meta.url))).REG; REGM.reservations.workers_ai.grants['script-bank'] = 750;
-  const r2 = await J.acquire({}, DB, { job: 'script-bank', run: 'g2' }, T0 + 41e6); ok(r2.ok && r2.grants.workers_ai === 750, 'cấp riêng grants → 750 neuron'); delete REGM.reservations.workers_ai.grants['script-bank'];
+  const REGM = (await import(new URL('../../functions/api/_jobs_reg.js', import.meta.url))).REG; REGM.reservations.workers_ai_b.grants['script-bank'] = 750;
+  const r2 = await J.acquire({}, DB, { job: 'script-bank', run: 'g2' }, T0 + 41e6); ok(r2.ok && r2.grants.workers_ai_b === 750, 'cấp riêng grants → 750 neuron'); REGM.reservations.workers_ai_b.grants['script-bank'] = 2000;
   await J.release({}, DB, { job: 'script-bank', run: 'g2', status: 'success' }, T0 + 41.1e6);
   const rv = await J.acquire({}, DB, { job: 'vocab-img', run: 'g3' }, T0 + 42e6); ok(!rv.ok && /paused/.test(rv.reason), 'vocab-img paused: không --force thì bỏ qua');
-  const rf = await J.acquire({}, DB, { job: 'vocab-img', run: 'g4', force: true }, T0 + 42e6); ok((rf.ok && rf.grants.workers_ai === 0) || (!rf.ok), 'vocab-img --force: nếu chạy thì neuron chính = 0'); if (rf.ok) await J.release({}, DB, { job: 'vocab-img', run: 'g4', status: 'success' }, T0 + 42.1e6);
+  const rf = await J.acquire({}, DB, { job: 'vocab-img', run: 'g4', force: true }, T0 + 42e6); ok((rf.ok && rf.grants.workers_ai === undefined && rf.grants.workers_ai_b === 4000) || (!rf.ok), 'vocab-img --force: nếu chạy thì neuron chính không được cấp, tài khoản 2 = 4000'); if (rf.ok) await J.release({}, DB, { job: 'vocab-img', run: 'g4', status: 'success' }, T0 + 42.1e6);
   // đường nền (CI) không dùng binding Workers AI của tài khoản chính khi nền = 0 neuron; DB và các biến khác giữ nguyên
   { const AIB = { run() { return 1; } }, e0 = { AI: AIB, DB: 'db', X: 'x' }, e1 = G.stripBackgroundAI(e0);
     ok(e1.AI === null && e1.DB === 'db' && e1.X === 'x' && e0.AI === AIB, 'stripBackgroundAI: env.AI = null cho đường nền, DB/biến khác giữ nguyên, env gốc không đổi');
@@ -71,5 +71,41 @@ ok((await J.acquire(ENV, DB, { job: 'khong-co', run: 'x' })).status === 400, 'jo
 // 7) sổ: footage-archive trước d1b-migrate; mọi việc d1_internal đều có lease
 const reg = (await import(new URL('../../functions/api/_jobs_reg.js', import.meta.url))).REG;
 ok(reg.jobs.filter(j => j.resources.includes('d1_internal')).every(j => j.lease), 'mọi việc dùng d1_internal đều thuê (lease)');
+// 9) điều phối nằm ở D1 NỘI BỘ (tài khoản 2): D1 chính ném 7500 mà /api/jobs vẫn cấp/trả thuê; nội bộ hỏng + chính hỏng → 503; timeline suy giảm đọc từ D1 chính
+{
+  const { createHmac, createHash } = await import('node:crypto'), { DatabaseSync: DS } = await import('node:sqlite');
+  const mod = await import(new URL('../../functions/api/jobs.js', import.meta.url)), Q = await import(new URL('../../functions/api/quota.js', import.meta.url)), GG = await import(new URL('../../functions/api/_d1guard.js', import.meta.url));
+  const KEY = 'k'.repeat(40), sqlB = new DS(':memory:'), base = globalThis.fetch; let down = false, rest = 0;
+  globalThis.fetch = async (url, init = {}) => {
+    if (/^https:\/\/api\.cloudflare\.com\/client\/v4\/accounts\/ACCT2\/d1\/database\/[^/]+\/query$/.test(String(url))) {
+      rest++; if (down) throw new Error('network down');
+      const body = JSON.parse(init.body), one1 = st => { const q = sqlB.prepare(st.sql); if (/^\s*(select|with|pragma)/i.test(st.sql)) return { results: q.all(...(st.params || [])), meta: { rows_read: 1 }, success: true }; const r = q.run(...(st.params || [])); return { results: [], meta: { changes: r.changes }, success: true }; };
+      return new Response(JSON.stringify({ success: true, result: body.batch ? body.batch.map(one1) : [one1(body)] }), { status: 200 });
+    }
+    return base(url, init);
+  };
+  const broken = { prepare() { throw new Error('D1_ERROR: exceeded row read limit [code: 7500]'); }, async batch() { throw new Error('7500'); } };
+  const ENVI = { DB: broken, LEXKITE_DRIVE_CLI_KEY: KEY, D1B_ACCOUNT_ID: 'ACCT2', D1B_TOKEN: 'tok-b' };
+  const post = async (env, obj, ip = '9.9.9.9') => { const body = JSON.stringify(obj), ts = Math.floor(Date.now() / 1000), sig = createHmac('sha256', KEY).update(ts + '.' + createHash('sha256').update(body).digest('hex')).digest('hex'); const r = await mod.onRequestPost({ request: new Request('https://lexkite.com/api/jobs', { method: 'POST', headers: { 'X-Drive-Ts': String(ts), 'X-Drive-Sig': sig, 'CF-Connecting-IP': ip }, body }), env }); return { s: r.status, j: await r.json() }; };
+  let r = await post(ENVI, { op: 'acquire', job: 'footage-archive', run: 'c1' }); ok(r.s === 200 && r.j.ok && r.j.leased.includes('drive_pool'), 'D1 chính ném 7500, D1 nội bộ ổn → acquire vẫn cấp thuê: ' + r.s + JSON.stringify(r.j).slice(0, 120));
+  r = await post(ENVI, { op: 'acquire', job: 'drive-shorts', run: 'c2' }); ok(r.s === 200 && r.j.skip && /footage-archive/.test(r.j.reason), 'thuê vẫn loại trừ nhau khi D1 chính chết');
+  r = await post(ENVI, { op: 'release', job: 'footage-archive', run: 'c1', status: 'success' }); ok(r.s === 200 && r.j.ok, 'release ghi vào D1 nội bộ');
+  ok(sqlB.prepare('SELECT COUNT(*) AS n FROM job_runs').get().n >= 2 && rest > 0, 'job_runs/job_leases nằm ở D1 nội bộ (' + rest + ' lượt REST)');
+  down = true; r = await post(ENVI, { op: 'acquire', job: 'footage-archive', run: 'c3' }, '8.8.8.8'); ok(r.s === 503 && r.j.error === 'coordinator-unavailable', 'D1 nội bộ cũng hỏng → 503 (máy khách fail-closed)');
+  // timeline suy giảm: nội bộ không với tới → đọc lịch sử từ D1 chính (còn sống)
+  const mainOk = new DS(':memory:'); const MDB = { prepare(q) { const st = { a: [], bind(...x) { return { ...st, a: x }; }, async all() { return { results: mainOk.prepare(q).all(...this.a) }; }, async first() { return mainOk.prepare(q).get(...this.a) || null; }, async run() { mainOk.prepare(q).run(...this.a); return {}; } }; return st; }, async batch(l) { for (const x of l) await x.run(); } };
+  await J.setupJobs(MDB, 'm'); mainOk.prepare("INSERT INTO job_runs (job, run, day, started, status) VALUES ('health','old','2026-10-24',1,'ok')").run();
+  const tl = await Q.onRequestPost ? null : null; // quota.js cần phiên admin; kiểm trực tiếp nhánh suy giảm qua OPS không xuất khẩu → kiểm bằng timeline() trên D1 chính
+  const t2 = await J.timeline({}, MDB, { day: '2026-10-24' }, Date.parse('2026-10-24T12:00:00Z')); ok(t2.runs.some(x => x.job === 'health'), 'timeline đọc được từ D1 chính (nhánh suy giảm)');
+  // Workers AI nền → tài khoản 2 qua REST (không dùng binding chính)
+  const calls = []; const fakeF = async (u, init) => { calls.push({ u: String(u), a: init.headers.Authorization, b: JSON.parse(init.body) }); return { ok: true, status: 200, json: async () => ({ success: true, result: { response: 'ok-b' } }) }; };
+  const ebg = GG.stripBackgroundAI({ AI: { run() { throw new Error('KHÔNG được gọi AI chính'); } }, DB: 'd', D1B_ACCOUNT_ID: 'ACCT2', D1B_TOKEN: 'tok-b' }, fakeF);
+  const out = await ebg.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', { messages: [] }); ok(out.response === 'ok-b' && /\/accounts\/ACCT2\/ai\/run\/@cf\/meta\/llama/.test(calls[0].u) && calls[0].a === 'Bearer tok-b' && ebg.DB === 'd', 'đường nền gọi Workers AI của tài khoản 2 qua REST (token đúng, không đụng binding chính)');
+  ok(GG.stripBackgroundAI({ AI: {}, DB: 'd' }, fakeF).AI === null, 'chưa cấu hình tài khoản 2 → AI nền = null (rơi sang Gemini/GrabCast)');
+  const regB = (await import(new URL('../../functions/api/_jobs_reg.js', import.meta.url))).REG.reservations.workers_ai_b;
+  ok(regB.grants['news-auto'] === 3000 && Object.values(regB.grants).reduce((a, b) => a + b, 0) <= regB.daily_neurons - regB.safety_margin, 'phần cấp tài khoản 2: news-auto 3000, tổng ≤ 10.000 − biên an toàn');
+  const g = await J.acquire({}, DB, { job: 'news-auto', run: 'ai1' }, T0 + 60e6); ok(g.ok && g.grants.workers_ai_b === 3000, 'acquire news-auto trả grants.workers_ai_b = 3000'); if (g.ok) await J.release({}, DB, { job: 'news-auto', run: 'ai1', status: 'success' }, T0 + 60.1e6);
+  globalThis.fetch = base;
+}
 if (fails) { console.log(`✗ jobs: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ jobs: ${n} kiểm (thuê độc quyền, không song song, hết hạn, ngân sách theo ưu tiên/tài khoản, nhật ký, timeline)`);

@@ -56,6 +56,15 @@ export function check(reg, wfDir = '.github/workflows', root = '.') {
     const g = (R.grants || {})[j.id] ?? R.background_neurons ?? 0, need = (j.est || {}).workers_ai_neurons || 0;
     if (need > g) bad.push(`${j.id}: ước lượng ${need} neuron Workers AI chính > phần cấp ${g} (mặc định nền = 0; cấp thêm trong reservations.workers_ai.grants)`);
   }
+  const RB = (reg.reservations || {}).workers_ai_b;
+  if (RB) {
+    const sum = Object.values(RB.grants || {}).reduce((a, b) => a + b, 0);
+    if (sum > RB.daily_neurons - RB.safety_margin) bad.push(`workers_ai_b: tổng phần cấp ${sum} > ${RB.daily_neurons} − biên an toàn ${RB.safety_margin}`);
+    for (const j of reg.jobs.filter(j => j.resources.includes('workers_ai_b'))) {
+      if (!j.lease) bad.push(`${j.id}: dùng workers_ai_b nhưng lease:false`);
+      if (((j.est || {}).workers_ai_b_neurons || 0) > ((RB.grants || {})[j.id] || 0)) bad.push(`${j.id}: ước lượng ${(j.est || {}).workers_ai_b_neurons} neuron tài khoản 2 > phần cấp ${(RB.grants || {})[j.id] || 0}`);
+    }
+  }
   // chồng giờ
   const heavy = j => j.resources.some(r => excl.has(r)) || j.minutes >= 60;
   for (let i = 0; i < reg.jobs.length; i++) for (let k = i + 1; k < reg.jobs.length; k++) {

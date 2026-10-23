@@ -43,3 +43,9 @@
 - **Soát nhanh bằng ảnh nhỏ**: trích 2–4 khung/1 bảng contact sheet (scale 0.5–0.6), không xem cả video; trang dài → `javascript_tool` lấy đúng đoạn, không `get_page_text` cả trang.
 - **Lệnh/giá trị bí mật**: đọc từ file (`< ~/.config/lexkite/...`), không in; tạo token/khoá do anh bấm nút cuối.
 - **Báo cáo**: kết quả + con số trước/sau + việc anh cần làm (≤6 dòng); sửa sai số đã báo ngay khi đo thật khác ước tính.
+
+## 9. LUẬT CỨNG về agent (anh chủ 23/10 – không bao giờ tái phạm)
+- **Một agent = một đợt việc có điểm kết thúc rõ** (≤ ~2 giờ hoặc 1 mốc giao hàng). Xong mốc → báo cáo → DỪNG. Việc tiếp theo = agent MỚI với brief ≤25 dòng (tóm tắt trạng thái + file + việc còn lại), KHÔNG SendMessage tiếp vào agent đã dùng nhiều (> ~300k token).
+- **Không agent nào được chờ CI/quota trong ngữ cảnh của nó**: phải dừng và để Claude chính hẹn giờ (CronCreate 1 lần) hoặc lệnh nền `until … sleep 120`.
+- **Agent tự hỏi trạng thái lặp lại** (thông báo "vẫn đang chờ…") → TaskStop ngay.
+- Mỗi lượt kiểm tra: liệt kê agent đang chạy; agent nào > 300k token hoặc 2 lượt không có kết quả mới → dừng, viết brief mới nếu còn việc.

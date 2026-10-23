@@ -107,3 +107,7 @@ qualityScore: 94
 
 ### इंटरव्यू के अंत में जब पूछा जाए "Do you have any questions for us?", तो क्या कहें?
 कभी भी "No, I don't have any questions" न कहें। यह दर्शाता है कि आपकी कंपनी में गहरी रुचि नहीं है। इसके स्थान पर पूछें: *"What does a typical day look like in this role?"* या *"What are the biggest challenges the team is currently facing?"*।
+
+## संबंधित अध्ययन सामग्री
+
+- [प्रेजेंटेशन के लिए अंग्रेजी वाक्य](/hi/blog/english-presentation-phrases-in-hindi/)

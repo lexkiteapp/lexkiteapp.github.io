@@ -158,3 +158,7 @@ quiz: [
 
 ### Q4. क्या कार्यस्थल पर Can I ask a question कहना सही है?
 दोस्तों या परिचितों के साथ *Can I ask a question?* ठीक है, लेकिन पेशेवर बैठकों या साक्षात्कारों में *Could I ask a question?* या *May I ask a question?* बोलना कहीं अधिक शालीन, आदरयुक्त और पेशेवर माना जाता है।
+
+## संबंधित अध्ययन सामग्री
+
+- [कंडीशनल सेंटेंस नियम और प्रकार](/hi/blog/conditional-sentences-in-english-rules-hindi/)

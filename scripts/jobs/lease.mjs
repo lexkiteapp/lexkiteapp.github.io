@@ -42,13 +42,13 @@ async function main() {
       if (!d.skip) {
         if (j.ok) {
           console.log(`✓ lease ${job}: ${(j.leased || []).join(',') || '(không tài nguyên độc quyền)'}${j.grants ? ' · cấp ' + JSON.stringify(j.grants) : ''}`);
-          out('skip', 0); out('run', run); out('ai_main_neurons', (j.grants || {}).workers_ai ?? 0);
-          if (process.env.GITHUB_ENV) fs.appendFileSync(process.env.GITHUB_ENV, `JOB_RUN=${run}\nLEASE_AI_MAIN_NEURONS=${(j.grants || {}).workers_ai ?? 0}\n`);
+          out('skip', 0); out('run', run); out('ai_main_neurons', (j.grants || {}).workers_ai ?? 0); out('ai_b_neurons', (j.grants || {}).workers_ai_b ?? 0);
+          if (process.env.GITHUB_ENV) fs.appendFileSync(process.env.GITHUB_ENV, `JOB_RUN=${run}\nLEASE_AI_MAIN_NEURONS=${(j.grants || {}).workers_ai ?? 0}\nLEASE_AI_B_NEURONS=${(j.grants || {}).workers_ai_b ?? 0}\n`);
         } else { console.log(`⚠ điều phối không phản hồi (${status} ${j.error || ''}) → việc tầm thường, chạy không thuê`); out('skip', 0); out('run', run); out('ai_main_neurons', 0); if (process.env.GITHUB_ENV) fs.appendFileSync(process.env.GITHUB_ENV, 'LEASE_AI_MAIN_NEURONS=0\n'); }
         break;
       }
       if (status === 200 && j.skip && Date.now() < deadline) { console.log('… chờ: ' + d.reason); await new Promise(r => setTimeout(r, 120e3)); continue; }
-      console.log(`⏭ bỏ qua ${job}: ${d.reason}`); out('skip', 1); out('reason', d.reason); out('ai_main_neurons', 0);
+      console.log(`⏭ bỏ qua ${job}: ${d.reason}`); out('skip', 1); out('reason', d.reason); out('ai_main_neurons', 0); out('ai_b_neurons', 0);
       if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `⏭ ${job} bỏ qua: ${d.reason}\n`);
       break;
     }

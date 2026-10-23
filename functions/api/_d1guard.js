@@ -48,10 +48,21 @@ export async function guardBg(request, env, json, which = 'main') {
   return null;
 }
 
-/** Đặt chỗ Workers AI tài khoản CHÍNH cho đường người dùng (infra/jobs.json › reservations.workers_ai): đường NỀN (CI: studio X-Studio-Secret, lexai OIDC) không được dùng binding env.AI
- * trừ khi sổ cấp background_neurons > 0 → các cổng AI rơi sang Gemini / tài khoản 2 / GrabCast. Không đọc D1. */
-export function stripBackgroundAI(env) {
+/** Workers AI qua REST của TÀI KHOẢN 2 (cùng giao diện env.AI.run(model, input) → result). Token cần quyền Account › Workers AI › Read + Edit. */
+export function restAi(accountId, token, fetcher = (...a) => fetch(...a)) {
+  return { run: async (model, input) => {
+    const r = await fetcher(`https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(accountId)}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(input) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || j.success === false) { const e = new Error('ai-b-' + ((j.errors && j.errors[0] && j.errors[0].code) || r.status)); e.status = r.status; throw e; }
+    return j.result;
+  } };
+}
+/** Đặt chỗ Workers AI tài khoản CHÍNH cho đường người dùng (infra/jobs.json › reservations.workers_ai): đường NỀN (CI: studio X-Studio-Secret, lexai OIDC) KHÔNG dùng binding env.AI chính
+ * (trừ khi sổ cấp background_neurons > 0) mà dùng Workers AI của TÀI KHOẢN 2 qua REST (AI_B_ACCOUNT_ID/AI_B_TOKEN, mặc định D1B_ACCOUNT_ID/D1B_TOKEN); chưa cấu hình → env.AI = null (cổng AI rơi sang Gemini/GrabCast). Không đọc D1. */
+export function stripBackgroundAI(env, fetcher) {
   const R = (REG.reservations || {}).workers_ai || {};
-  if (+R.background_neurons > 0 || !env || !env.AI) return env;
-  return Object.create(env, { AI: { value: null, enumerable: true } });
+  if (+R.background_neurons > 0 || !env) return env;
+  const acct = env.AI_B_ACCOUNT_ID || env.D1B_ACCOUNT_ID, tok = env.AI_B_TOKEN || env.D1B_TOKEN;
+  if (!env.AI && !(acct && tok)) return env;
+  return Object.create(env, { AI: { value: acct && tok ? restAi(acct, tok, fetcher) : null, enumerable: true } });
 }
