@@ -15,11 +15,11 @@
         { title: '-f / -fe → ves', emoji: '🍂', items: ['leaf → leaves', 'knife → knives', 'half → halves', 'life → lives', 'shelf → shelves'] }
       ] },
       { type: 'formula', rows: [
-        { label: 'Phụ âm + y → -ies', parts: [ { t: 'phụ âm + y', c: 'subj' }, { t: 'bỏ y', c: 'neg' }, { t: '+ ies', c: 'verb' } ], ex: 'Several studies have examined the effects of noise.' },
-        { label: '-f / -fe → -ves', parts: [ { t: 'N tận cùng -f / -fe', c: 'subj' }, { t: 'bỏ f / fe', c: 'neg' }, { t: '+ ves', c: 'verb' } ], ex: 'Autumn leaves cover the paths in the park.' },
-        { label: 'Nguyên âm + y → giữ y', parts: [ { t: 'nguyên âm + y', c: 'subj' }, { t: '+ s', c: 'verb' } ], ex: 'The boys spent their holidays in the mountains.' },
-        { label: 'Tận cùng s, ss, sh, ch, x, z', parts: [ { t: 'N tận cùng s / sh / ch / x / z', c: 'subj' }, { t: '+ es', c: 'verb' } ], ex: 'She packed the glasses into two large boxes.' },
-        { label: 'Phụ âm + o (một số từ)', parts: [ { t: 'phụ âm + o', c: 'subj' }, { t: '+ es', c: 'verb' } ], ex: 'The farmers grow potatoes and tomatoes on the hills.' }
+        { label: 'Phụ âm + y → -ies', parts: [ { t: 'phụ âm + y', c: 'subj' }, { t: 'bỏ y', c: 'neg' }, { t: '+ ies', c: 'verb' } ], ex: 'Several [[studies]] have examined the [[effects]] of noise.' },
+        { label: '-f / -fe → -ves', parts: [ { t: 'N tận cùng -f / -fe', c: 'subj' }, { t: 'bỏ f / fe', c: 'neg' }, { t: '+ ves', c: 'verb' } ], ex: 'Autumn [[leaves]] cover the paths in the park.' },
+        { label: 'Nguyên âm + y → giữ y', parts: [ { t: 'nguyên âm + y', c: 'subj' }, { t: '+ s', c: 'verb' } ], ex: 'The [[boys]] spent their [[holidays]] in the mountains.' },
+        { label: 'Tận cùng s, ss, sh, ch, x, z', parts: [ { t: 'N tận cùng s / sh / ch / x / z', c: 'subj' }, { t: '+ es', c: 'verb' } ], ex: 'She packed the [[glasses]] into two large [[boxes]].' },
+        { label: 'Phụ âm + o (một số từ)', parts: [ { t: 'phụ âm + o', c: 'subj' }, { t: '+ es', c: 'verb' } ], ex: 'The [[farmers]] grow [[potatoes]] and [[tomatoes]] on the hills.' }
       ] },
       { type: 'table', head: ['Nhóm', 'Quy tắc', 'Ví dụ'], rows: [
         ['-o (thêm -es)', 'Một số từ quen thuộc tận cùng phụ âm + o', 'potatoes, tomatoes, heroes, echoes, vetoes'],
@@ -44,12 +44,12 @@
         ['appendix', 'appendices / appendixes', 'phụ lục (sách) thường dùng appendices']
       ] },
       { type: 'uses', items: [
-        { title: 'Số nhiều mang nghĩa khác: custom (phong tục) → customs (hải quan)', ex: 'It took us an hour to get through customs at the airport.', vi: 'Chúng tôi mất một tiếng để qua hải quan ở sân bay.' },
-        { title: 'glass (thủy tinh, không đếm được) → glasses (kính đeo mắt / cốc)', ex: 'She cannot read the timetable without her glasses.', vi: 'Cô ấy không đọc được bảng giờ nếu không đeo kính.' },
-        { title: 'Một danh từ – hai dạng số nhiều, hai nghĩa: cloth → cloths (mảnh vải lau) / clothes (quần áo); penny → pennies (đồng xu) / pence (giá tiền)', ex: 'Wipe the table with one of the clean cloths.', vi: 'Hãy lau bàn bằng một trong những mảnh vải sạch.' },
-        { title: 'species, series, means: số ít và số nhiều cùng một dạng – nhìn từ hạn định để chia động từ', ex: 'This species is found only on two small islands.', vi: 'Loài này chỉ được tìm thấy trên hai hòn đảo nhỏ.' },
-        { title: 'Danh từ luôn số nhiều → động từ số nhiều; muốn đếm thì dùng a pair of', ex: 'The goods were damaged during shipping.', vi: 'Hàng hóa bị hư hỏng trong quá trình vận chuyển.' },
-        { title: 'Phenomena, criteria là số nhiều – đi với these / are', ex: 'These phenomena are difficult to explain.', vi: 'Những hiện tượng này rất khó giải thích.' }
+        { title: 'Số nhiều mang nghĩa khác: custom (phong tục) → customs (hải quan)', ex: 'It took us an hour to get through [[customs]] at the airport.', vi: 'Chúng tôi mất một tiếng để qua hải quan ở sân bay.' },
+        { title: 'glass (thủy tinh, không đếm được) → glasses (kính đeo mắt / cốc)', ex: 'She cannot read the timetable without her [[glasses]].', vi: 'Cô ấy không đọc được bảng giờ nếu không đeo kính.' },
+        { title: 'Một danh từ – hai dạng số nhiều, hai nghĩa: cloth → cloths (mảnh vải lau) / clothes (quần áo); penny → pennies (đồng xu) / pence (giá tiền)', ex: 'Wipe the table with one of the clean [[cloths]].', vi: 'Hãy lau bàn bằng một trong những mảnh vải sạch.' },
+        { title: 'species, series, means: số ít và số nhiều cùng một dạng – nhìn từ hạn định để chia động từ', ex: 'This [[species]] is found only on two small [[islands]].', vi: 'Loài này chỉ được tìm thấy trên hai hòn đảo nhỏ.' },
+        { title: 'Danh từ luôn số nhiều → động từ số nhiều; muốn đếm đồ vật hai phần (trousers, scissors, glasses…) thì dùng a pair of', ex: 'The [[goods were]] damaged during shipping.', vi: 'Hàng hóa bị hư hỏng trong quá trình vận chuyển.' },
+        { title: 'Phenomena, criteria là số nhiều – đi với these / are', ex: 'These [[phenomena]] are difficult to explain.', vi: 'Những hiện tượng này rất khó giải thích.' }
       ] },
       { type: 'tip', text: 'Y đứng sau NGUYÊN ÂM (a, e, i, o, u) thì giữ nguyên: key → keys, journey → journeys, toy → toys. Tên riêng cũng giữ y: the Kennedys.' },
       { type: 'tip', text: 'Hundred, thousand, million đứng sau con số thì KHÔNG thêm s: two hundred people, three million dollars. Chỉ thêm s khi đi với of và không có số cụ thể: hundreds of people, millions of dollars.' },
@@ -57,7 +57,7 @@
       { type: 'mistake', wrong: 'Two passer-bys stopped to help the driver.', right: 'Two passers-by stopped to help the driver.', why: 'Danh từ ghép: thêm s vào danh từ chính (passer), không phải cuối cụm.' },
       { type: 'mistake', wrong: 'My new trouser is too long.', right: 'My new trousers are too long.', why: 'Trousers luôn ở dạng số nhiều và đi với động từ số nhiều.' },
       { type: 'mistake', wrong: 'There were three hundreds people at the meeting.', right: 'There were three hundred people at the meeting.', why: 'Sau con số cụ thể, hundred không thêm s.' },
-      { type: 'ielts', text: 'Trong Writing Task 1 và Task 2, các danh từ học thuật như data, criteria, phenomena, analyses, the media xuất hiện thường xuyên. Viết đúng dạng số ít/số nhiều và chia động từ thống nhất giúp tăng điểm Grammatical Range & Accuracy.', ex: 'Several recent analyses suggest that these phenomena are linked to climate change.' }
+      { type: 'ielts', text: 'Trong Writing Task 1 và Task 2, các danh từ học thuật như data, criteria, phenomena, analyses, the media xuất hiện thường xuyên. Viết đúng dạng số ít/số nhiều và chia động từ thống nhất giúp tăng điểm Grammatical Range & Accuracy.', ex: 'Several recent [[analyses]] suggest that these [[phenomena]] are linked to climate change.' }
     ],
     quiz: [
       { q: 'The museum has a collection of ancient ___.', options: ['knifes', 'knives', 'knive', 'knifees'], answer: 1, explain: 'Danh từ tận cùng -fe/-f thường đổi thành -ves khi ở số nhiều: knife → knives. knifes, knive, knifees đều sai dạng số nhiều.' },
@@ -103,19 +103,19 @@
         { t: 'the roof of the house / the cost of living', c: 'passive' }
       ] },
       { type: 'formula', rows: [
-        { label: 'Số ít / số nhiều bất quy tắc', parts: [ { t: 'Người sở hữu', c: 'subj' }, { t: '\'s', c: 'aux' }, { t: 'Vật được sở hữu', c: 'obj' } ], ex: 'The children\'s playground was closed for repairs.' },
-        { label: 'Số nhiều tận cùng -s', parts: [ { t: 'N số nhiều -s', c: 'subj' }, { t: '\' (chỉ dấu nháy)', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'The students\' essays were marked by two examiners.' },
-        { label: 'Cấu trúc of (vật, ý trừu tượng)', parts: [ { t: 'the + N (bộ phận)', c: 'obj' }, { t: 'of', c: 'aux' }, { t: 'the + N (tổng thể)', c: 'subj' } ], ex: 'The main cause of the problem is poor planning.' },
-        { label: 'Sở hữu kép', parts: [ { t: 'a / an / this + N', c: 'obj' }, { t: 'of', c: 'aux' }, { t: 'mine / Tom\'s', c: 'subj' } ], ex: 'A colleague of mine recommended this course.' },
-        { label: 'Thời gian & đo lường', parts: [ { t: 'số lượng + đơn vị thời gian', c: 'time' }, { t: '\'s / \'', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'She took a week\'s holiday after the exams.' }
+        { label: 'Số ít / số nhiều bất quy tắc', parts: [ { t: 'Người sở hữu', c: 'subj' }, { t: '\'s', c: 'aux' }, { t: 'Vật được sở hữu', c: 'obj' } ], ex: 'The [[children\'s]] playground was closed for repairs.' },
+        { label: 'Số nhiều tận cùng -s', parts: [ { t: 'N số nhiều -s', c: 'subj' }, { t: '\' (chỉ dấu nháy)', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'The [[students\']] essays were marked by two examiners.' },
+        { label: 'Cấu trúc of (vật, ý trừu tượng)', parts: [ { t: 'the + N (bộ phận)', c: 'obj' }, { t: 'of', c: 'aux' }, { t: 'the + N (tổng thể)', c: 'subj' } ], ex: '[[The main cause of the problem]] is poor planning.' },
+        { label: 'Sở hữu kép', parts: [ { t: 'a / an / this + N', c: 'obj' }, { t: 'of', c: 'aux' }, { t: 'mine / Tom\'s', c: 'subj' } ], ex: '[[A colleague of mine]] recommended this course.' },
+        { label: 'Thời gian & đo lường', parts: [ { t: 'số lượng + đơn vị thời gian', c: 'time' }, { t: '\'s / \'', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'She took [[a week\'s holiday]] after the exams.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Danh từ riêng số ít tận cùng -s: thêm \'s (phổ biến) hoặc chỉ \'', ex: 'We stayed at James\'s flat for the weekend.', vi: 'Chúng tôi ở căn hộ của James cuối tuần đó.' },
-        { title: 'Tổ chức, quốc gia, thành phố cũng dùng \'s', ex: 'The government\'s new policy has been widely criticised.', vi: 'Chính sách mới của chính phủ bị chỉ trích rộng rãi.' },
-        { title: 'Cửa hàng, phòng khám, nhà ai đó: bỏ danh từ sau \'s', ex: 'I have an appointment at the dentist\'s tomorrow morning.', vi: 'Sáng mai tôi có lịch hẹn ở phòng khám nha khoa.' },
-        { title: 'Sở hữu CHUNG: chỉ thêm \'s vào người cuối', ex: 'Tom and Anna\'s house is near the river.', vi: 'Ngôi nhà (chung) của Tom và Anna ở gần sông.' },
-        { title: 'Sở hữu RIÊNG: thêm \'s cho từng người', ex: 'Tom\'s and Anna\'s phones are both broken.', vi: 'Điện thoại của Tom và điện thoại của Anna đều hỏng.' },
-        { title: 'Mốc thời gian: today\'s, last year\'s, next week\'s', ex: 'Today\'s lecture focuses on urban planning.', vi: 'Bài giảng hôm nay tập trung vào quy hoạch đô thị.' }
+        { title: 'Danh từ riêng số ít tận cùng -s: thêm \'s (phổ biến) hoặc chỉ \'', ex: 'We stayed at [[James\'s flat]] for the weekend.', vi: 'Chúng tôi ở căn hộ của James cuối tuần đó.' },
+        { title: 'Tổ chức, quốc gia, thành phố cũng dùng \'s', ex: '[[The government\'s]] new policy has been widely criticised.', vi: 'Chính sách mới của chính phủ bị chỉ trích rộng rãi.' },
+        { title: 'Cửa hàng, phòng khám, nhà ai đó: bỏ danh từ sau \'s', ex: 'I have an appointment at [[the dentist\'s]] tomorrow morning.', vi: 'Sáng mai tôi có lịch hẹn ở phòng khám nha khoa.' },
+        { title: 'Sở hữu CHUNG: chỉ thêm \'s vào người cuối', ex: '[[Tom and Anna\'s house]] is near the river.', vi: 'Ngôi nhà (chung) của Tom và Anna ở gần sông.' },
+        { title: 'Sở hữu RIÊNG: thêm \'s cho từng người', ex: '[[Tom\'s and Anna\'s phones]] are both broken.', vi: 'Điện thoại của Tom và điện thoại của Anna đều hỏng.' },
+        { title: 'Mốc thời gian: today\'s, last year\'s, next week\'s', ex: '[[Today\'s lecture]] focuses on urban planning.', vi: 'Bài giảng hôm nay tập trung vào quy hoạch đô thị.' }
       ] },
       { type: 'table', head: ['Trường hợp', 'Cách viết', 'Ví dụ'], rows: [
         ['Danh từ số ít', '+ \'s', 'the teacher\'s desk'],
@@ -132,7 +132,7 @@
       { type: 'mistake', wrong: 'She is a good friend of me.', right: 'She is a good friend of mine.', why: 'Sở hữu kép: of + đại từ sở hữu (mine, yours, his…).' },
       { type: 'mistake', wrong: 'The company has changed it\'s logo.', right: 'The company has changed its logo.', why: 'Tính từ sở hữu its không có dấu nháy.' },
       { type: 'mistake', wrong: 'Nam\'s and Lan\'s flat is very small. (họ ở chung một căn)', right: 'Nam and Lan\'s flat is very small.', why: 'Sở hữu chung một vật: chỉ thêm \'s vào người cuối.' },
-      { type: 'ielts', text: 'Task 1 thường dùng sở hữu cách cho quốc gia, thành phố và mốc thời gian: the country\'s population, the city\'s residents, the UK\'s share, in ten years\' time. Ngắn gọn hơn so với cấu trúc of.', ex: 'In ten years\' time, the country\'s elderly population is expected to double.' }
+      { type: 'ielts', text: 'Task 1 thường dùng sở hữu cách cho quốc gia, thành phố và mốc thời gian: the country\'s population, the city\'s residents, the UK\'s share, in ten years\' time. Ngắn gọn hơn so với cấu trúc of.', ex: 'In [[ten years\' time]], the [[country\'s]] elderly population is expected to double.' }
     ],
     quiz: [
       { q: 'The ___ changing room is on the left.', options: ['womens\'', 'women\'s', 'women\'', 'womans\''], answer: 1, explain: 'women là số nhiều bất quy tắc (không tận cùng -s) → thêm \'s: women\'s. "womens\'", "women\'", "womans\'" đều sai cách thêm dấu sở hữu.' },
@@ -186,18 +186,18 @@
         { title: 'Số + danh từ làm tính từ (không s)', emoji: '🔢', items: ['a ten-year-old girl', 'a five-minute walk', 'a two-day course', 'a 500-page report'] }
       ] },
       { type: 'formula', rows: [
-        { label: 'Số + danh từ làm tính từ', parts: [ { t: 'a / an', c: 'aux' }, { t: 'số – N số ít (gạch nối)', c: 'adv' }, { t: 'N chính', c: 'subj' } ], ex: 'It is only a five-minute walk to the station.' },
-        { label: 'The + tính từ = nhóm người', parts: [ { t: 'The', c: 'aux' }, { t: 'adj', c: 'adv' }, { t: 'V số nhiều', c: 'verb' } ], ex: 'The elderly need better access to healthcare.' },
-        { label: 'Phân từ làm tính từ', parts: [ { t: 'V-ing (chủ động) / V3-ed (bị động)', c: 'verb' }, { t: 'N', c: 'subj' } ], ex: 'A growing number of people work from home.' },
-        { label: 'Đại từ bất định + tính từ', parts: [ { t: 'something / anyone / nothing…', c: 'subj' }, { t: 'adj', c: 'adv' } ], ex: 'Let\'s try something different this weekend.' },
-        { label: 'Tính từ đứng sau danh từ', parts: [ { t: 'the + N', c: 'subj' }, { t: 'involved / concerned / present / available', c: 'adv' } ], ex: 'All the people involved were questioned by the police.' }
+        { label: 'Số + danh từ làm tính từ', parts: [ { t: 'a / an', c: 'aux' }, { t: 'số – N số ít (gạch nối)', c: 'adv' }, { t: 'N chính', c: 'subj' } ], ex: 'It is only a [[five-minute walk]] to the station.' },
+        { label: 'The + tính từ = nhóm người', parts: [ { t: 'The', c: 'aux' }, { t: 'adj', c: 'adv' }, { t: 'V số nhiều', c: 'verb' } ], ex: '[[The elderly]] need better access to healthcare.' },
+        { label: 'Phân từ làm tính từ', parts: [ { t: 'V-ing (chủ động) / V3-ed (bị động)', c: 'verb' }, { t: 'N', c: 'subj' } ], ex: '[[A growing number of]] people work from home.' },
+        { label: 'Đại từ bất định + tính từ', parts: [ { t: 'something / anyone / nothing…', c: 'subj' }, { t: 'adj', c: 'adv' } ], ex: 'Let\'s try [[something different]] this weekend.' },
+        { label: 'Tính từ đứng sau danh từ', parts: [ { t: 'the + N', c: 'subj' }, { t: 'involved / concerned / present / available', c: 'adv' } ], ex: '[[All the people involved]] were questioned by the police.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Phân từ hiện tại (-ing): đang diễn ra, mang nghĩa chủ động', ex: 'Rising sea levels threaten many coastal cities.', vi: 'Mực nước biển dâng đe dọa nhiều thành phố ven biển.' },
-        { title: 'Phân từ quá khứ (-ed / V3): bị tác động hoặc đã hoàn tất', ex: 'Many of the stolen paintings were never recovered.', vi: 'Nhiều bức tranh bị đánh cắp không bao giờ được tìm lại.' },
-        { title: 'Danh từ đứng trước danh từ đóng vai trò tính từ', ex: 'The city council approved a new car park.', vi: 'Hội đồng thành phố đã duyệt một bãi đỗ xe mới.' },
-        { title: 'Tính từ bắt đầu bằng a- chỉ đứng sau động từ; trước danh từ phải đổi từ (asleep → sleeping, alive → living)', ex: 'The baby is asleep, so please keep quiet.', vi: 'Em bé đang ngủ, vì vậy hãy giữ yên lặng. (trước danh từ: a sleeping baby)' },
-        { title: 'Một số tính từ đổi nghĩa theo vị trí: the people concerned (người liên quan) ≠ concerned people (người lo lắng)', ex: 'The manager spoke to the staff concerned.', vi: 'Quản lý đã nói chuyện với những nhân viên có liên quan.' }
+        { title: 'Phân từ hiện tại (-ing): đang diễn ra, mang nghĩa chủ động', ex: '[[Rising sea levels]] threaten many coastal cities.', vi: 'Mực nước biển dâng đe dọa nhiều thành phố ven biển.' },
+        { title: 'Phân từ quá khứ (-ed / V3): bị tác động hoặc đã hoàn tất', ex: 'Many of [[the stolen paintings]] were never recovered.', vi: 'Nhiều bức tranh bị đánh cắp không bao giờ được tìm lại.' },
+        { title: 'Danh từ đứng trước danh từ đóng vai trò tính từ', ex: 'The [[city council]] approved a new [[car park]].', vi: 'Hội đồng thành phố đã duyệt một bãi đỗ xe mới.' },
+        { title: 'Tính từ bắt đầu bằng a- chỉ đứng sau động từ; trước danh từ phải đổi từ (asleep → sleeping, alive → living)', ex: 'The baby is [[asleep]], so please keep quiet.', vi: 'Em bé đang ngủ, vì vậy hãy giữ yên lặng. (trước danh từ: a sleeping baby)' },
+        { title: 'Một số tính từ đổi nghĩa theo vị trí: the people concerned (người liên quan) ≠ concerned people (người lo lắng)', ex: 'The manager spoke to [[the staff concerned]].', vi: 'Quản lý đã nói chuyện với những nhân viên có liên quan.' }
       ] },
       { type: 'table', head: ['Thứ tự', 'Loại', 'Ví dụ cụm danh từ'], rows: [
         ['1', 'Ý kiến (opinion)', 'a useful little guide'],
@@ -215,7 +215,7 @@
       { type: 'mistake', wrong: 'The unemployeds needs more support.', right: 'The unemployed need more support.', why: 'The + tính từ không thêm s và đi với động từ số nhiều.' },
       { type: 'mistake', wrong: 'I saw an asleep cat on the sofa.', right: 'I saw a sleeping cat on the sofa.', why: 'Asleep chỉ đứng sau động từ; trước danh từ dùng sleeping.' },
       { type: 'mistake', wrong: 'She bought a leather black expensive bag.', right: 'She bought an expensive black leather bag.', why: 'Trật tự: ý kiến (expensive) → màu (black) → chất liệu (leather).' },
-      { type: 'ielts', text: 'Task 2 thường bàn về các nhóm xã hội: the elderly, the unemployed, the disabled, the homeless, the young. Task 1 hay dùng phân từ làm tính từ và tính từ ghép: a growing number, a declining population, a ten-year period.', ex: 'Governments should provide more affordable housing for the young and the homeless.' }
+      { type: 'ielts', text: 'Task 2 thường bàn về các nhóm xã hội: the elderly, the unemployed, the disabled, the homeless, the young. Task 1 hay dùng phân từ làm tính từ và tính từ ghép: a growing number, a declining population, a ten-year period.', ex: 'Governments should provide more affordable housing for [[the young]] and [[the homeless]].' }
     ],
     quiz: [
       { q: 'It was a ___ journey, so we stopped twice for a rest.', options: ['six-hours', 'six-hour', 'six hours\'s', 'six-hours\''], answer: 1, explain: 'Tính từ ghép số + danh từ: không thêm s → a six-hour journey. "six-hours" sai số; "six hours\'s" và "six-hours\'" sai sở hữu.' },
@@ -260,20 +260,20 @@
         { t: 'almost / nearly as … as', v: 5 }
       ] },
       { type: 'formula', rows: [
-        { label: 'So sánh bằng', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as + adj / adv + as', c: 'adv' }, { t: 'N / mệnh đề', c: 'obj' } ], ex: 'This year\'s exam was just as difficult as last year\'s.' },
-        { label: 'So sánh không bằng', parts: [ { t: 'S + be', c: 'subj' }, { t: 'not as / not so + adj + as', c: 'neg' }, { t: 'N', c: 'obj' } ], ex: 'The second film was not as exciting as the first.' },
-        { label: 'Gấp nhiều lần', parts: [ { t: 'S + V', c: 'subj' }, { t: 'twice / three times', c: 'adv' }, { t: 'as + adj + as', c: 'verb' }, { t: 'N', c: 'obj' } ], ex: 'Car sales in 2020 were twice as high as in 2010.' },
-        { label: 'Càng … càng …', parts: [ { t: 'The + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'subj' }, { t: 'the + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'verb' } ], ex: 'The more you practise, the more confident you become.' },
-        { label: 'Ngày càng …', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so sánh hơn + and + so sánh hơn', c: 'adv' } ], ex: 'Cities are becoming more and more crowded.' },
-        { label: 'Mức độ + so sánh hơn', parts: [ { t: 'much / far / slightly', c: 'adv' }, { t: 'so sánh hơn', c: 'verb' }, { t: 'than', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'Online sales were slightly higher than in-store sales.' }
+        { label: 'So sánh bằng', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as + adj / adv + as', c: 'adv' }, { t: 'N / mệnh đề', c: 'obj' } ], ex: 'This year\'s exam was [[just as difficult as]] last year\'s.' },
+        { label: 'So sánh không bằng', parts: [ { t: 'S + be', c: 'subj' }, { t: 'not as / not so + adj + as', c: 'neg' }, { t: 'N', c: 'obj' } ], ex: 'The second film was [[not as exciting as]] the first.' },
+        { label: 'Gấp nhiều lần', parts: [ { t: 'S + V', c: 'subj' }, { t: 'twice / three times', c: 'adv' }, { t: 'as + adj + as', c: 'verb' }, { t: 'N', c: 'obj' } ], ex: 'Car sales in 2020 were [[twice as high as]] in 2010.' },
+        { label: 'Càng … càng …', parts: [ { t: 'The + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'subj' }, { t: 'the + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'verb' } ], ex: '[[The more you practise, the more confident]] you become.' },
+        { label: 'Ngày càng …', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so sánh hơn + and + so sánh hơn', c: 'adv' } ], ex: 'Cities are becoming [[more and more crowded]].' },
+        { label: 'Mức độ + so sánh hơn', parts: [ { t: 'much / far / slightly', c: 'adv' }, { t: 'so sánh hơn', c: 'verb' }, { t: 'than', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'Online sales were [[slightly higher than]] in-store sales.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Farther / further: cả hai chỉ khoảng cách; chỉ further mang nghĩa "thêm, hơn nữa"', ex: 'For further information, please contact the front desk.', vi: 'Để biết thêm thông tin, vui lòng liên hệ quầy lễ tân.' },
-        { title: 'Elder / eldest: chỉ dùng cho anh chị em trong gia đình và đứng trước danh từ; older dùng mọi trường hợp (có than)', ex: 'My elder sister is three years older than me.', vi: 'Chị gái tôi lớn hơn tôi ba tuổi.' },
-        { title: 'Less + N không đếm được; fewer + N đếm được số nhiều', ex: 'People today spend less time reading books.', vi: 'Ngày nay mọi người dành ít thời gian đọc sách hơn.' },
-        { title: 'The same (+ N) as; similar to; different from', ex: 'My answer was the same as yours.', vi: 'Câu trả lời của tôi giống của bạn.' },
-        { title: 'So sánh nhất + ever (từng) / in + nơi chốn / of + nhóm', ex: 'It was the most exciting match I have ever watched.', vi: 'Đó là trận đấu hấp dẫn nhất tôi từng xem.' },
-        { title: 'Số lần + so sánh hơn + than (Task 1)', ex: 'Coffee consumption in 2022 was three times higher than in 2000.', vi: 'Lượng cà phê tiêu thụ năm 2022 cao gấp ba lần năm 2000.' }
+        { title: 'Farther / further: cả hai chỉ khoảng cách; chỉ further mang nghĩa "thêm, hơn nữa"', ex: 'For [[further information]], please contact the front desk.', vi: 'Để biết thêm thông tin, vui lòng liên hệ quầy lễ tân.' },
+        { title: 'Elder / eldest: chỉ dùng cho anh chị em trong gia đình và đứng trước danh từ; older dùng mọi trường hợp (có than)', ex: 'My [[elder sister]] is three years [[older than]] me.', vi: 'Chị gái tôi lớn hơn tôi ba tuổi.' },
+        { title: 'Less + N không đếm được; fewer + N đếm được số nhiều', ex: 'People today spend [[less time]] reading books.', vi: 'Ngày nay mọi người dành ít thời gian đọc sách hơn.' },
+        { title: 'The same (+ N) as; similar to; different from (Anh–Anh còn dùng different to, Anh–Mỹ dùng cả different than)', ex: 'My answer was [[the same as]] yours.', vi: 'Câu trả lời của tôi giống của bạn.' },
+        { title: 'So sánh nhất + ever (từng) / in + nơi chốn / of + nhóm', ex: 'It was [[the most exciting]] match [[I have ever watched]].', vi: 'Đó là trận đấu hấp dẫn nhất tôi từng xem.' },
+        { title: 'Số lần + so sánh hơn + than (Task 1)', ex: 'Coffee consumption in 2022 was [[three times higher than]] in 2000.', vi: 'Lượng cà phê tiêu thụ năm 2022 cao gấp ba lần năm 2000.' }
       ] },
       { type: 'table', head: ['Cấu trúc', 'Ý nghĩa', 'Ví dụ Task 1'], rows: [
         ['twice as many / much … as', 'gấp đôi', 'twice as many visitors as in 2015'],
@@ -290,11 +290,11 @@
       { type: 'mistake', wrong: 'More you read, more you know.', right: 'The more you read, the more you know.', why: 'Cấu trúc càng…càng cần the ở cả hai vế.' },
       { type: 'mistake', wrong: 'His answer was the same like mine.', right: 'His answer was the same as mine.', why: 'The same đi với as, không đi với like.' },
       { type: 'mistake', wrong: 'Sales were twice higher as in the previous year.', right: 'Sales were twice as high as in the previous year.', why: 'Gấp nhiều lần: twice + as + tính từ nguyên mẫu + as.' },
-      { type: 'ielts', text: 'Task 1 cần so sánh liên tục: dùng trạng từ mức độ (slightly, considerably, by far), cấu trúc gấp nhiều lần và thứ hạng (the second largest) để tránh lặp "higher than".', ex: 'Spending on food was by far the largest category, almost twice as much as spending on housing.' }
+      { type: 'ielts', text: 'Task 1 cần so sánh liên tục: dùng trạng từ mức độ (slightly, considerably, by far), cấu trúc gấp nhiều lần và thứ hạng (the second largest) để tránh lặp "higher than".', ex: 'Spending on food was [[by far the largest]] category, [[almost twice as much as]] spending on housing.' }
     ],
     quiz: [
       { q: 'This laptop is ___ my old one.', options: ['as lighter as', 'as light as', 'lighter as', 'the lightest than'], answer: 1, explain: 'So sánh bằng: as + tính từ nguyên mẫu + as → as light as. "as lighter as" sai dạng; "lighter as" sai từ so sánh; "the lightest than" trộn hai cấu trúc.' },
-      { q: 'The number of tourists in July was ___ in March.', options: ['twice more as', 'two times many than', 'twice as many as', 'double as many'], answer: 2, explain: 'Gấp đôi với danh từ đếm được: twice as many… as… "twice more as" và "two times many than" sai cấu trúc; "double as many" không dùng như vậy.' },
+      { q: 'The museum had ___ visitors in July as in March.', options: ['twice more', 'two times many', 'twice as many', 'double as many'], answer: 2, explain: 'Gấp đôi với danh từ đếm được: twice as many… as… "twice more" và "two times many" sai cấu trúc; "double as many" không dùng như vậy.' },
       { q: '___ you start, the sooner you will finish.', options: ['Earlier', 'The earliest', 'As earlier', 'The earlier'], answer: 3, explain: 'Càng…càng: The + so sánh hơn …, the + so sánh hơn … Earlier thiếu the; The earliest là so sánh nhất; "As earlier" sai cấu trúc.' },
       { q: 'Please let me know if you need ___ help.', options: ['further', 'farther', 'farthest', 'more far'], answer: 0, explain: 'Nghĩa "thêm, hơn nữa" chỉ dùng further → further help. farther/farthest chỉ khoảng cách; "more far" sai dạng.' },
       { q: 'The second test was ___ more difficult than the first.', options: ['very', 'too', 'much', 'most'], answer: 2, explain: 'Nhấn mạnh so sánh hơn dùng much → much more difficult. very và too không đứng trước so sánh hơn; most là so sánh nhất.' },
@@ -338,10 +338,10 @@
         { title: '/z/ – sau nguyên âm & âm hữu thanh còn lại', emoji: '🟢', items: ['dogs', 'plays', 'cities', 'lives', 'cleans', 'tries'] }
       ] },
       { type: 'formula', rows: [
-        { label: 'Gấp đôi phụ âm cuối', parts: [ { t: '1 âm tiết / trọng âm ở âm tiết cuối', c: 'subj' }, { t: '1 nguyên âm + 1 phụ âm', c: 'adv' }, { t: 'gấp đôi phụ âm', c: 'aux' }, { t: '+ ed / ing', c: 'verb' } ], ex: 'The trip was planned weeks ago but never happened.' },
-        { label: 'Bỏ e câm', parts: [ { t: 'V tận cùng -e', c: 'subj' }, { t: 'bỏ e', c: 'neg' }, { t: '+ ing', c: 'verb' } ], ex: 'She is writing an essay about renewable energy.' },
-        { label: 'Phụ âm + y', parts: [ { t: 'phụ âm + y', c: 'subj' }, { t: 'y → i', c: 'neg' }, { t: '+ ed / es', c: 'verb' } ], ex: 'He studied hard and tried every practice test.' },
-        { label: '-ie + ing', parts: [ { t: 'V tận cùng -ie', c: 'subj' }, { t: 'ie → y', c: 'neg' }, { t: '+ ing', c: 'verb' } ], ex: 'The child was lying on the grass and looking at the clouds.' }
+        { label: 'Gấp đôi phụ âm cuối', parts: [ { t: '1 âm tiết / trọng âm ở âm tiết cuối', c: 'subj' }, { t: '1 nguyên âm + 1 phụ âm', c: 'adv' }, { t: 'gấp đôi phụ âm', c: 'aux' }, { t: '+ ed / ing', c: 'verb' } ], ex: 'The trip was [[planned]] weeks ago but never [[happened]].' },
+        { label: 'Bỏ e câm', parts: [ { t: 'V tận cùng -e', c: 'subj' }, { t: 'bỏ e', c: 'neg' }, { t: '+ ing', c: 'verb' } ], ex: 'She is [[writing]] an essay about renewable energy.' },
+        { label: 'Phụ âm + y', parts: [ { t: 'phụ âm + y', c: 'subj' }, { t: 'y → i', c: 'neg' }, { t: '+ ed / es', c: 'verb' } ], ex: 'He [[studied]] hard and [[tried]] every practice test.' },
+        { label: '-ie + ing', parts: [ { t: 'V tận cùng -ie', c: 'subj' }, { t: 'ie → y', c: 'neg' }, { t: '+ ing', c: 'verb' } ], ex: 'The child was [[lying]] on the grass and [[looking]] at the clouds.' }
       ] },
       { type: 'table', head: ['Âm cuối của từ gốc', 'Đuôi -ed đọc là', 'Ví dụ'], rows: [
         ['/t/, /d/', '/ɪd/', 'wanted /ˈwɒntɪd/, needed /ˈniːdɪd/, decided /dɪˈsaɪdɪd/'],
@@ -369,11 +369,11 @@
         ['agree (ee giữ nguyên)', 'agreed', 'agreeing', 'agrees']
       ] },
       { type: 'uses', items: [
-        { title: 'Tính từ -ed đọc /ɪd/: naked, wicked, crooked, rugged', ex: 'The hikers crossed a rugged mountain range.', vi: 'Những người leo núi đã băng qua một dãy núi hiểm trở. (rugged /ˈrʌɡɪd/)' },
-        { title: 'learned: động từ đọc /lɜːnd/ hoặc /lɜːnt/; tính từ "uyên bác" đọc /ˈlɜːnɪd/', ex: 'She is a learned professor of ancient history.', vi: 'Bà ấy là một giáo sư uyên bác về lịch sử cổ đại.' },
-        { title: 'aged: "ở độ tuổi" đọc /eɪdʒd/; "già, cao tuổi" đọc /ˈeɪdʒɪd/', ex: 'The survey included children aged ten to fifteen.', vi: 'Cuộc khảo sát gồm trẻ em từ mười đến mười lăm tuổi. (aged /eɪdʒd/)' },
-        { title: 'house /haʊs/ → houses /ˈhaʊzɪz/: âm /s/ chuyển thành /z/', ex: 'Many old houses in the area have been renovated.', vi: 'Nhiều ngôi nhà cũ trong khu vực đã được cải tạo.' },
-        { title: 'Tính theo ÂM, không theo chữ: fixed /fɪkst/ (x = /ks/), laughed /lɑːft/ (gh = /f/)', ex: 'She fixed the printer before the meeting started.', vi: 'Cô ấy đã sửa máy in trước khi cuộc họp bắt đầu.' }
+        { title: 'Tính từ -ed đọc /ɪd/: naked, wicked, crooked, rugged', ex: 'The hikers crossed a [[rugged]] mountain range.', vi: 'Những người leo núi đã băng qua một dãy núi hiểm trở. (rugged /ˈrʌɡɪd/)' },
+        { title: 'learned: động từ đọc /lɜːnd/ hoặc /lɜːnt/; tính từ "uyên bác" đọc /ˈlɜːnɪd/', ex: 'She is a [[learned]] professor of ancient history.', vi: 'Bà ấy là một giáo sư uyên bác về lịch sử cổ đại.' },
+        { title: 'aged: "ở độ tuổi" đọc /eɪdʒd/; "già, cao tuổi" đọc /ˈeɪdʒɪd/', ex: 'The survey included children [[aged]] ten to fifteen.', vi: 'Cuộc khảo sát gồm trẻ em từ mười đến mười lăm tuổi. (aged /eɪdʒd/)' },
+        { title: 'house /haʊs/ → houses /ˈhaʊzɪz/: âm /s/ chuyển thành /z/', ex: 'Many old houses in the area have been [[renovated]].', vi: 'Nhiều ngôi nhà cũ trong khu vực đã được cải tạo.' },
+        { title: 'Tính theo ÂM, không theo chữ: fixed /fɪkst/ (x = /ks/), laughed /lɑːft/ (gh = /f/)', ex: 'She [[fixed]] the printer before the meeting [[started]].', vi: 'Cô ấy đã sửa máy in trước khi cuộc họp bắt đầu.' }
       ] },
       { type: 'tip', text: 'Mẹo phân biệt vô thanh / hữu thanh: đặt tay lên cổ họng rồi phát âm phụ âm cuối. Không rung → vô thanh → -ed đọc /t/, -s đọc /s/. Có rung → hữu thanh → /d/ và /z/.' },
       { type: 'tip', text: 'Không gấp đôi w, x, y: show → showed, fix → fixed, play → played. Tiếng Anh–Anh gấp đôi l dù trọng âm ở âm tiết đầu: travel → travelled, cancel → cancelled (Anh–Mỹ: traveled, canceled).' },
@@ -381,7 +381,7 @@
       { type: 'mistake', wrong: 'She is studing for her final exams.', right: 'She is studying for her final exams.', why: 'Thêm -ing thì giữ nguyên y: studying.' },
       { type: 'mistake', wrong: 'The workshop was planed for months.', right: 'The workshop was planned for months.', why: 'Plan là động từ 1 âm tiết (1 nguyên âm + 1 phụ âm) → gấp đôi n. "Planed" là bào (gỗ).' },
       { type: 'mistake', wrong: 'They are lieing about the results.', right: 'They are lying about the results.', why: 'Động từ tận cùng -ie: đổi ie → y rồi thêm -ing.' },
-      { type: 'ielts', text: 'Trong Speaking, đọc thiếu hoặc sai đuôi -ed/-s ảnh hưởng cả tiêu chí Pronunciation lẫn Grammatical Accuracy, vì giám khảo không nghe được bạn dùng quá khứ hay số nhiều. Luyện kỹ các từ hay dùng khi mô tả số liệu: increased /ɪnˈkriːst/, dropped /drɒpt/, rises /ˈraɪzɪz/.', ex: 'Sales increased steadily and then dropped sharply in the final quarter.' }
+      { type: 'ielts', text: 'Trong Speaking, đọc thiếu hoặc sai đuôi -ed/-s ảnh hưởng cả tiêu chí Pronunciation lẫn Grammatical Accuracy, vì giám khảo không nghe được bạn dùng quá khứ hay số nhiều. Luyện kỹ các từ hay dùng khi mô tả số liệu: increased /ɪnˈkriːst/, dropped /drɒpt/, rises /ˈraɪzɪz/.', ex: 'Sales [[increased]] steadily and then [[dropped]] sharply in the final quarter.' }
     ],
     quiz: [
       { q: 'Chọn từ có đuôi -ed đọc là /ɪd/:', options: ['stopped', 'played', 'watched', 'decided'], answer: 3, explain: 'decide tận cùng bằng âm /d/ → đuôi -ed đọc /ɪd/. stopped và watched đọc /t/ (âm vô thanh); played đọc /d/.' },
@@ -427,19 +427,19 @@
         { t: 'I left early so as not to miss the first bus.', c: 'passive' }
       ] },
       { type: 'formula', rows: [
-        { label: 'Mục đích (cùng chủ ngữ)', parts: [ { t: 'S + V', c: 'subj' }, { t: 'to / in order to / so as to', c: 'aux' }, { t: 'V nguyên mẫu', c: 'verb' } ], ex: 'Many students work part-time in order to pay their fees.' },
-        { label: 'Mục đích phủ định', parts: [ { t: 'S + V', c: 'subj' }, { t: 'in order not to / so as not to', c: 'neg' }, { t: 'V nguyên mẫu', c: 'verb' } ], ex: 'We spoke quietly so as not to wake the baby.' },
-        { label: 'Mục đích (khác chủ ngữ)', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so that / in order that', c: 'aux' }, { t: 'S2 + can / could / will / would', c: 'obj' }, { t: 'V', c: 'verb' } ], ex: 'She wrote the steps down so that her team could follow them.' },
-        { label: 'Kết quả với so', parts: [ { t: 'S + be / V', c: 'subj' }, { t: 'so + adj / adv', c: 'adv' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'The lecture was so long that several people fell asleep.' },
-        { label: 'Kết quả với such', parts: [ { t: 'S + V', c: 'subj' }, { t: 'such (a / an) + adj + N', c: 'adv' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'It was such a hot day that the park was almost empty.' },
-        { label: 'So many / much / few / little', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so many / few + N đếm được; so much / little + N không đếm được', c: 'adv' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'There were so many applicants that the deadline was extended.' }
+        { label: 'Mục đích (cùng chủ ngữ)', parts: [ { t: 'S + V', c: 'subj' }, { t: 'to / in order to / so as to', c: 'aux' }, { t: 'V nguyên mẫu', c: 'verb' } ], ex: 'Many students work part-time [[in order to pay]] their fees.' },
+        { label: 'Mục đích phủ định', parts: [ { t: 'S + V', c: 'subj' }, { t: 'in order not to / so as not to', c: 'neg' }, { t: 'V nguyên mẫu', c: 'verb' } ], ex: 'We spoke quietly [[so as not to wake]] the baby.' },
+        { label: 'Mục đích (khác chủ ngữ)', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so that / in order that', c: 'aux' }, { t: 'S2 + can / could / will / would', c: 'obj' }, { t: 'V', c: 'verb' } ], ex: 'She wrote the steps down [[so that her team could follow]] them.' },
+        { label: 'Kết quả với so', parts: [ { t: 'S + be / V', c: 'subj' }, { t: 'so + adj / adv', c: 'adv' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'The lecture was [[so long that]] several people fell asleep.' },
+        { label: 'Kết quả với such', parts: [ { t: 'S + V', c: 'subj' }, { t: 'such (a / an) + adj + N', c: 'adv' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'It was [[such a hot day that]] the park was almost empty.' },
+        { label: 'So many / much / few / little', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so many / few + N đếm được; so much / little + N không đếm được', c: 'adv' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'There were [[so many applicants that]] the deadline was extended.' }
       ] },
       { type: 'uses', items: [
-        { title: 'For + danh từ: mục đích là một thứ cần có', ex: 'We went to the library for some peace and quiet.', vi: 'Chúng tôi đến thư viện để có chút yên tĩnh.' },
-        { title: 'For + V-ing: công dụng của đồ vật', ex: 'This app is used for tracking daily expenses.', vi: 'Ứng dụng này dùng để theo dõi chi tiêu hằng ngày.' },
-        { title: 'So that: hiện tại / tương lai → can / will; quá khứ → could / would', ex: 'I will save some money so that I can travel next summer.', vi: 'Tôi sẽ tiết kiệm tiền để có thể đi du lịch hè tới.' },
-        { title: 'Therefore / As a result / Consequently / Thus: nối hai câu chỉ kết quả', ex: 'Fuel prices rose sharply. As a result, more people used buses.', vi: 'Giá nhiên liệu tăng mạnh. Do đó, nhiều người đi xe buýt hơn.' },
-        { title: 'So (liên từ) + mệnh đề: kết quả, thường dùng trong văn nói', ex: 'The museum was closed, so we visited the market instead.', vi: 'Bảo tàng đóng cửa nên chúng tôi đi chợ thay vào đó.' }
+        { title: 'For + danh từ: mục đích là một thứ cần có', ex: 'We went to the library [[for some peace and quiet]].', vi: 'Chúng tôi đến thư viện để có chút yên tĩnh.' },
+        { title: 'For + V-ing: công dụng của đồ vật', ex: 'This app is used [[for tracking]] daily expenses.', vi: 'Ứng dụng này dùng để theo dõi chi tiêu hằng ngày.' },
+        { title: 'So that: hiện tại / tương lai → can / will; quá khứ → could / would', ex: 'I will save some money [[so that I can travel]] next summer.', vi: 'Tôi sẽ tiết kiệm tiền để có thể đi du lịch hè tới.' },
+        { title: 'Therefore / As a result / Consequently / Thus: nối hai câu chỉ kết quả', ex: 'Fuel prices rose sharply. [[As a result]], more people used buses.', vi: 'Giá nhiên liệu tăng mạnh. Do đó, nhiều người đi xe buýt hơn.' },
+        { title: 'So (liên từ) + mệnh đề: kết quả, thường dùng trong văn nói', ex: 'The museum was closed[[, so]] we visited the market instead.', vi: 'Bảo tàng đóng cửa nên chúng tôi đi chợ thay vào đó.' }
       ] },
       { type: 'table', head: ['Loại', 'Từ / cụm từ', 'Theo sau là'], rows: [
         ['Mục đích', 'to / in order to / so as to', 'V nguyên mẫu'],
@@ -458,7 +458,7 @@
       { type: 'mistake', wrong: 'It was so an interesting book that I read it twice.', right: 'It was such an interesting book that I read it twice.', why: 'Có danh từ (book) → dùng such a/an + adj + N.' },
       { type: 'mistake', wrong: 'She saved money so that she buys a car.', right: 'She saved money so that she could buy a car.', why: 'So that thường đi với modal; mệnh đề chính ở quá khứ → could.' },
       { type: 'mistake', wrong: 'There were such many cars that we couldn\'t park.', right: 'There were so many cars that we couldn\'t park.', why: 'Many đi với so, không đi với such.' },
-      { type: 'ielts', text: 'Task 2: dùng so that / in order to khi đề xuất giải pháp và as a result / consequently khi nêu hệ quả – thể hiện mối quan hệ logic rõ ràng giữa các ý, tăng điểm Coherence & Cohesion.', ex: 'Governments should invest in cheaper public transport so that fewer people rely on private cars. As a result, air quality in cities is likely to improve.' }
+      { type: 'ielts', text: 'Task 2: dùng so that / in order to khi đề xuất giải pháp và as a result / consequently khi nêu hệ quả – thể hiện mối quan hệ logic rõ ràng giữa các ý, tăng điểm Coherence & Cohesion.', ex: 'Governments should invest in cheaper public transport [[so that fewer people rely]] on private cars. [[As a result]], air quality in cities is likely to improve.' }
     ],
     quiz: [
       { q: 'He turned off his phone ___ disturbed during the exam.', options: ['not so as to be', 'so as not to be', 'so that not to be', 'in order to not being'], answer: 1, explain: 'Mục đích phủ định: so as not to + V → so as not to be disturbed. "not so as to" sai vị trí not; "so that not to" sai cấu trúc; "in order to not being" sai dạng.' },
@@ -504,19 +504,19 @@
         { t: 'Despite the heavy rain, they kept playing.', c: 'passive' }
       ] },
       { type: 'formula', rows: [
-        { label: 'Nguyên nhân + cụm danh từ', parts: [ { t: 'S + V', c: 'subj' }, { t: 'because of / due to / owing to', c: 'aux' }, { t: 'N / V-ing', c: 'obj' } ], ex: 'The flight was delayed because of strong winds.' },
-        { label: 'Nguyên nhân + mệnh đề', parts: [ { t: 'Because / As / Since / Now that', c: 'aux' }, { t: 'S + V', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: 'Now that I have a car, I rarely take the bus.' },
-        { label: 'Tương phản + mệnh đề', parts: [ { t: 'Although / Even though / Though', c: 'aux' }, { t: 'S + V', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: 'Although the hotel was expensive, the service was poor.' },
-        { label: 'Tương phản + cụm danh từ', parts: [ { t: 'Despite / In spite of', c: 'aux' }, { t: 'N / V-ing', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: 'Despite feeling tired, she finished the report.' },
-        { label: '… the fact that + mệnh đề', parts: [ { t: 'Despite / Due to', c: 'aux' }, { t: 'the fact that', c: 'adv' }, { t: 'S + V', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: 'Despite the fact that it was raining, the event went ahead.' },
-        { label: 'Đối lập hai vế', parts: [ { t: 'S + V', c: 'subj' }, { t: ', whereas / while', c: 'aux' }, { t: 'S + V', c: 'obj' } ], ex: 'Some people prefer cities, whereas others enjoy rural life.' }
+        { label: 'Nguyên nhân + cụm danh từ', parts: [ { t: 'S + V', c: 'subj' }, { t: 'because of / due to / owing to', c: 'aux' }, { t: 'N / V-ing', c: 'obj' } ], ex: 'The flight was delayed [[because of strong winds]].' },
+        { label: 'Nguyên nhân + mệnh đề', parts: [ { t: 'Because / As / Since / Now that', c: 'aux' }, { t: 'S + V', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: '[[Now that]] I have a car, I rarely take the bus.' },
+        { label: 'Tương phản + mệnh đề', parts: [ { t: 'Although / Even though / Though', c: 'aux' }, { t: 'S + V', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: '[[Although]] the hotel was expensive, the service was poor.' },
+        { label: 'Tương phản + cụm danh từ', parts: [ { t: 'Despite / In spite of', c: 'aux' }, { t: 'N / V-ing', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: '[[Despite feeling tired]], she finished the report.' },
+        { label: '… the fact that + mệnh đề', parts: [ { t: 'Despite / Due to', c: 'aux' }, { t: 'the fact that', c: 'adv' }, { t: 'S + V', c: 'obj' }, { t: ', S + V', c: 'subj' } ], ex: '[[Despite the fact that]] it was raining, the event went ahead.' },
+        { label: 'Đối lập hai vế', parts: [ { t: 'S + V', c: 'subj' }, { t: ', whereas / while', c: 'aux' }, { t: 'S + V', c: 'obj' } ], ex: 'Some people prefer cities, [[whereas]] others enjoy rural life.' }
       ] },
       { type: 'uses', items: [
-        { title: 'As / since: lý do người nghe đã biết, thường đứng đầu câu', ex: 'As it was getting late, we decided to take a taxi.', vi: 'Vì trời đã muộn, chúng tôi quyết định đi taxi.' },
-        { title: 'Due to thường đứng sau be; owing to trang trọng hơn because of', ex: 'The delay was due to a technical problem.', vi: 'Sự chậm trễ là do một sự cố kỹ thuật.' },
-        { title: 'Even though nhấn mạnh hơn although (dù thực tế là…)', ex: 'Even though he had studied hard, he failed the test.', vi: 'Dù đã học rất chăm, anh ấy vẫn trượt.' },
-        { title: 'However / Nevertheless: trạng từ nối HAI câu, theo sau là dấu phẩy', ex: 'The plan was expensive. However, it was approved.', vi: 'Kế hoạch tốn kém. Tuy nhiên, nó vẫn được duyệt.' },
-        { title: 'On the other hand: nêu mặt còn lại của vấn đề', ex: 'Cities offer more jobs. On the other hand, they are often polluted.', vi: 'Thành phố có nhiều việc làm hơn. Mặt khác, chúng thường ô nhiễm.' }
+        { title: 'As / since: lý do người nghe đã biết, thường đứng đầu câu', ex: '[[As]] it was getting late, we decided to take a taxi.', vi: 'Vì trời đã muộn, chúng tôi quyết định đi taxi.' },
+        { title: 'Due to thường đứng sau be; owing to trang trọng hơn because of', ex: 'The delay was [[due to]] a technical problem.', vi: 'Sự chậm trễ là do một sự cố kỹ thuật.' },
+        { title: 'Even though nhấn mạnh hơn although (dù thực tế là…)', ex: '[[Even though]] he had studied hard, he failed the test.', vi: 'Dù đã học rất chăm, anh ấy vẫn trượt.' },
+        { title: 'However / Nevertheless: trạng từ nối HAI câu, theo sau là dấu phẩy', ex: 'The plan was expensive. [[However]], it was approved.', vi: 'Kế hoạch tốn kém. Tuy nhiên, nó vẫn được duyệt.' },
+        { title: 'On the other hand: nêu mặt còn lại của vấn đề', ex: 'Cities offer more jobs. [[On the other hand]], they are often polluted.', vi: 'Thành phố có nhiều việc làm hơn. Mặt khác, chúng thường ô nhiễm.' }
       ] },
       { type: 'table', head: ['Nghĩa', '+ Mệnh đề (S + V)', '+ Cụm danh từ / V-ing'], rows: [
         ['Nguyên nhân', 'because, as, since, now that, due to the fact that', 'because of, due to, owing to, on account of'],
@@ -538,7 +538,7 @@
       { type: 'mistake', wrong: 'Although he was tired, but he kept working.', right: 'Although he was tired, he kept working.', why: 'Không dùng although và but cùng lúc.' },
       { type: 'mistake', wrong: 'Because of the traffic was heavy, I was late.', right: 'Because the traffic was heavy, I was late.', why: 'Sau because of là cụm danh từ; có mệnh đề (S + V) thì dùng because.' },
       { type: 'mistake', wrong: 'In spite of she was ill, she went to work.', right: 'In spite of being ill, she went to work.', why: 'In spite of + V-ing / N; hoặc in spite of the fact that she was ill.' },
-      { type: 'ielts', text: 'Task 2: dùng while / whereas để so sánh hai quan điểm, although / despite the fact that để nhượng bộ trước khi phản biện, owing to / due to cho văn phong trang trọng. Xen kẽ mệnh đề và cụm danh từ giúp tăng Grammatical Range.', ex: 'Although online learning offers flexibility, many students still benefit from face-to-face interaction.' }
+      { type: 'ielts', text: 'Task 2: dùng while / whereas để so sánh hai quan điểm, although / despite the fact that để nhượng bộ trước khi phản biện, owing to / due to cho văn phong trang trọng. Xen kẽ mệnh đề và cụm danh từ giúp tăng Grammatical Range.', ex: '[[Although]] online learning offers flexibility, many students still benefit from face-to-face interaction.' }
     ],
     quiz: [
       { q: 'The match was postponed ___ the heavy snow.', options: ['because', 'although', 'due to', 'despite'], answer: 2, explain: 'Sau chỗ trống là cụm danh từ, nghĩa nguyên nhân → due to the heavy snow. because cần mệnh đề; although và despite chỉ tương phản.' },
@@ -582,22 +582,22 @@
         { t: 'She talked about Paris as if she had lived there. (chưa từng sống ở đó)', c: 'passive' }
       ] },
       { type: 'formula', rows: [
-        { label: 'As if – không thật ở hiện tại', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as if / as though', c: 'aux' }, { t: 'S + V2-ed / were', c: 'verb' } ], ex: 'He talks as if he knew everything.' },
-        { label: 'As if – không thật trong quá khứ', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as if / as though', c: 'aux' }, { t: 'S + had + V3', c: 'verb' } ], ex: 'She looked as if she had seen a ghost.' },
-        { label: 'It\'s time + to V', parts: [ { t: 'It\'s time', c: 'time' }, { t: '(for sb)', c: 'obj' }, { t: 'to V', c: 'verb' } ], ex: 'It\'s time for us to leave.' },
-        { label: 'It\'s (high / about) time + S + V2', parts: [ { t: 'It\'s high / about time', c: 'time' }, { t: 'S', c: 'subj' }, { t: 'V2-ed', c: 'verb' } ], ex: 'It\'s high time the government took action on housing.' },
-        { label: 'Would rather (cùng chủ ngữ)', parts: [ { t: 'S', c: 'subj' }, { t: 'would rather', c: 'aux' }, { t: 'V nguyên mẫu', c: 'verb' }, { t: '(than V)', c: 'obj' } ], ex: 'I would rather stay at home tonight.' },
-        { label: 'Would rather + người khác (hiện tại / tương lai)', parts: [ { t: 'S', c: 'subj' }, { t: 'would rather', c: 'aux' }, { t: 'S2', c: 'obj' }, { t: 'V2-ed', c: 'verb' } ], ex: 'I would rather you didn\'t smoke in here.' },
-        { label: 'Would rather + người khác (quá khứ)', parts: [ { t: 'S', c: 'subj' }, { t: 'would rather', c: 'aux' }, { t: 'S2', c: 'obj' }, { t: 'had + V3', c: 'verb' } ], ex: 'I would rather you had told me the truth.' },
-        { label: 'If only', parts: [ { t: 'If only', c: 'if' }, { t: 'S', c: 'subj' }, { t: 'V2 (hiện tại) / had V3 (quá khứ)', c: 'verb' } ], ex: 'If only I had more free time!' }
+        { label: 'As if – không thật ở hiện tại', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as if / as though', c: 'aux' }, { t: 'S + V2-ed / were', c: 'verb' } ], ex: 'He talks [[as if he knew]] everything.' },
+        { label: 'As if – không thật trong quá khứ', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as if / as though', c: 'aux' }, { t: 'S + had + V3', c: 'verb' } ], ex: 'She looked [[as if she had seen]] a ghost.' },
+        { label: 'It\'s time + to V', parts: [ { t: 'It\'s time', c: 'time' }, { t: '(for sb)', c: 'obj' }, { t: 'to V', c: 'verb' } ], ex: '[[It\'s time for us to leave]].' },
+        { label: 'It\'s (high / about) time + S + V2', parts: [ { t: 'It\'s high / about time', c: 'time' }, { t: 'S', c: 'subj' }, { t: 'V2-ed', c: 'verb' } ], ex: '[[It\'s high time the government took]] action on housing.' },
+        { label: 'Would rather (cùng chủ ngữ)', parts: [ { t: 'S', c: 'subj' }, { t: 'would rather', c: 'aux' }, { t: 'V nguyên mẫu', c: 'verb' }, { t: '(than V)', c: 'obj' } ], ex: 'I [[would rather stay]] at home tonight.' },
+        { label: 'Would rather + người khác (hiện tại / tương lai)', parts: [ { t: 'S', c: 'subj' }, { t: 'would rather', c: 'aux' }, { t: 'S2', c: 'obj' }, { t: 'V2-ed', c: 'verb' } ], ex: 'I [[would rather you didn\'t smoke]] in here.' },
+        { label: 'Would rather + người khác (quá khứ)', parts: [ { t: 'S', c: 'subj' }, { t: 'would rather', c: 'aux' }, { t: 'S2', c: 'obj' }, { t: 'had + V3', c: 'verb' } ], ex: 'I [[would rather you had told]] me the truth.' },
+        { label: 'If only', parts: [ { t: 'If only', c: 'if' }, { t: 'S', c: 'subj' }, { t: 'V2 (hiện tại) / had V3 (quá khứ)', c: 'verb' } ], ex: '[[If only I had]] more free time!' }
       ] },
       { type: 'uses', items: [
-        { title: 'As if + thì bình thường: điều có thể đúng (dựa vào dấu hiệu)', ex: 'It looks as if it is going to rain.', vi: 'Trông có vẻ trời sắp mưa.' },
-        { title: 'As if + quá khứ đơn: tưởng tượng, trái với hiện tại', ex: 'She treats me as if I were a child.', vi: 'Cô ấy đối xử với tôi như thể tôi là trẻ con.' },
-        { title: 'As if + quá khứ hoàn thành: trái với sự thật đã xảy ra', ex: 'He acted as if nothing had happened.', vi: 'Anh ta cư xử như thể chưa có chuyện gì xảy ra.' },
-        { title: 'It\'s time + S + V2: lẽ ra đã phải làm rồi (hàm ý phàn nàn, thúc giục)', ex: 'It\'s time you went to bed.', vi: 'Đến giờ con phải đi ngủ rồi đấy.' },
-        { title: 'Would rather + S2 + V2: muốn người khác làm gì', ex: 'My parents would rather I studied medicine.', vi: 'Bố mẹ tôi muốn tôi học ngành y hơn.' },
-        { title: 'If only = I wish nhưng cảm xúc mạnh hơn', ex: 'If only I had listened to your advice!', vi: 'Giá mà tôi đã nghe lời khuyên của bạn!' }
+        { title: 'As if + thì bình thường: điều có thể đúng (dựa vào dấu hiệu)', ex: 'It looks [[as if it is going to rain]].', vi: 'Trông có vẻ trời sắp mưa.' },
+        { title: 'As if + quá khứ đơn: tưởng tượng, trái với hiện tại', ex: 'She treats me [[as if I were]] a child.', vi: 'Cô ấy đối xử với tôi như thể tôi là trẻ con.' },
+        { title: 'As if + quá khứ hoàn thành: trái với sự thật đã xảy ra', ex: 'He acted [[as if nothing had happened]].', vi: 'Anh ta cư xử như thể chưa có chuyện gì xảy ra.' },
+        { title: 'It\'s time + S + V2: lẽ ra đã phải làm rồi (hàm ý phàn nàn, thúc giục)', ex: '[[It\'s time you went]] to bed.', vi: 'Đến giờ con phải đi ngủ rồi đấy.' },
+        { title: 'Would rather + S2 + V2: muốn người khác làm gì', ex: 'My parents [[would rather I studied]] medicine.', vi: 'Bố mẹ tôi muốn tôi học ngành y hơn.' },
+        { title: 'If only = I wish nhưng cảm xúc mạnh hơn', ex: '[[If only I had listened]] to your advice!', vi: 'Giá mà tôi đã nghe lời khuyên của bạn!' }
       ] },
       { type: 'table', head: ['Cấu trúc', 'Không thật ở hiện tại / tương lai', 'Không thật trong quá khứ'], rows: [
         ['as if / as though', 'S + V2 / were', 'S + had V3'],
@@ -611,7 +611,7 @@
       { type: 'mistake', wrong: 'It\'s time we go home.', right: 'It\'s time we went home.', why: 'It\'s time + S + V2 (quá khứ giả định).' },
       { type: 'mistake', wrong: 'I would rather to walk than take a taxi.', right: 'I would rather walk than take a taxi.', why: 'Would rather + V nguyên mẫu không có to.' },
       { type: 'mistake', wrong: 'He behaves as if he is the boss, but he isn\'t.', right: 'He behaves as if he were the boss, but he isn\'t.', why: 'Biết rõ là không thật → lùi thì (were).' },
-      { type: 'ielts', text: 'Speaking: "I\'d rather…" là cách tự nhiên để nói về sở thích (Part 1). Writing Task 2: "It is high time (that) governments + V2" nêu mạnh một đề xuất cấp thiết.', ex: 'It is high time that governments invested more in renewable energy.' }
+      { type: 'ielts', text: 'Speaking: "I\'d rather…" là cách tự nhiên để nói về sở thích (Part 1). Writing Task 2: "It is high time (that) governments + V2" nêu mạnh một đề xuất cấp thiết.', ex: '[[It is high time that governments invested]] more in renewable energy.' }
     ],
     quiz: [
       { q: 'He spends money as if he ___ a millionaire. (thật ra anh ấy không giàu)', options: ['is', 'has been', 'were', 'will be'], answer: 2, explain: 'Điều không có thật ở hiện tại (thật ra không giàu) → as if + lùi thì: were. is và will be diễn tả điều có thật; has been sai thì.' },
@@ -662,9 +662,9 @@
         { t: 'It could be argued that children today are given excessive homework.', c: 'passive' }
       ] },
       { type: 'formula', rows: [
-        { label: 'Ý kiến cá nhân → khách quan', parts: [ { t: 'It', c: 'subj' }, { t: 'could be / is often', c: 'aux' }, { t: 'argued / claimed / believed', c: 'verb' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'It could be argued that technology has made people less patient.' },
-        { label: 'There is + bằng chứng / mối lo ngại', parts: [ { t: 'There is', c: 'aux' }, { t: 'growing / considerable', c: 'adv' }, { t: 'evidence / concern', c: 'subj' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: 'There is growing concern that young people spend too long online.' },
-        { label: 'Bị động khách quan', parts: [ { t: 'N', c: 'subj' }, { t: 'is widely', c: 'aux' }, { t: 'believed / accepted', c: 'verb' }, { t: 'to V / to be', c: 'obj' } ], ex: 'Regular exercise is widely believed to improve mental health.' }
+        { label: 'Ý kiến cá nhân → khách quan', parts: [ { t: 'It', c: 'subj' }, { t: 'could be / is often', c: 'aux' }, { t: 'argued / claimed / believed', c: 'verb' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: '[[It could be argued that]] technology has made people less patient.' },
+        { label: 'There is + bằng chứng / mối lo ngại', parts: [ { t: 'There is', c: 'aux' }, { t: 'growing / considerable', c: 'adv' }, { t: 'evidence / concern', c: 'subj' }, { t: 'that + mệnh đề', c: 'obj' } ], ex: '[[There is growing concern that]] young people spend too long online.' },
+        { label: 'Bị động khách quan', parts: [ { t: 'N', c: 'subj' }, { t: 'is widely', c: 'aux' }, { t: 'believed / accepted', c: 'verb' }, { t: 'to V / to be', c: 'obj' } ], ex: 'Regular exercise [[is widely believed to improve]] mental health.' }
       ] },
       { type: 'table', head: ['Thân mật (Speaking)', 'Trang trọng (Writing)', 'Ví dụ trang trọng'], rows: [
         ['get', 'obtain / receive', 'Applicants must obtain a visa in advance.'],
@@ -681,18 +681,18 @@
         ['but / so (đầu câu)', 'However, / Therefore,', 'However, this approach has limitations.']
       ] },
       { type: 'uses', items: [
-        { title: 'a piece of cake – rất dễ', ex: 'The first part of the test was a piece of cake.', vi: 'Phần đầu bài kiểm tra dễ như ăn bánh.' },
-        { title: 'once in a blue moon – rất hiếm khi', ex: 'I eat fast food once in a blue moon.', vi: 'Hiếm lắm tôi mới ăn đồ ăn nhanh.' },
-        { title: 'hit the books – học hành chăm chỉ', ex: 'I need to hit the books before my exam next week.', vi: 'Tôi cần học chăm trước kỳ thi tuần sau.' },
-        { title: 'under the weather – hơi mệt, không khỏe', ex: 'I was feeling a bit under the weather last weekend.', vi: 'Cuối tuần trước tôi thấy hơi mệt.' },
-        { title: 'over the moon – vô cùng vui sướng', ex: 'My mum was over the moon when I passed my driving test.', vi: 'Mẹ tôi vui mừng khôn xiết khi tôi thi đỗ bằng lái.' },
-        { title: 'cost an arm and a leg – rất đắt', ex: 'Renting a flat in the city centre costs an arm and a leg.', vi: 'Thuê căn hộ ở trung tâm thành phố đắt cắt cổ.' },
-        { title: 'on the same page – cùng quan điểm, hiểu ý nhau', ex: 'My friends and I are usually on the same page about music.', vi: 'Tôi và bạn bè thường hợp gu âm nhạc.' },
-        { title: 'a breath of fresh air – điều mới mẻ, dễ chịu', ex: 'The new teacher was a breath of fresh air for our class.', vi: 'Thầy giáo mới như một làn gió mới với lớp tôi.' },
-        { title: 'up to my ears (in work) – ngập đầu công việc', ex: 'I am up to my ears in work at the moment.', vi: 'Dạo này tôi ngập đầu trong công việc.' },
-        { title: 'learn the ropes – học những điều cơ bản của một công việc', ex: 'It took me a few weeks to learn the ropes at my new job.', vi: 'Tôi mất vài tuần để làm quen với công việc mới.' },
-        { title: 'go the extra mile – nỗ lực hơn mức cần thiết', ex: 'The staff at that hotel always go the extra mile for guests.', vi: 'Nhân viên khách sạn đó luôn tận tâm hơn mong đợi.' },
-        { title: 'take something with a pinch of salt – không tin hoàn toàn', ex: 'I take online reviews with a pinch of salt.', vi: 'Tôi không tin hoàn toàn vào các đánh giá trên mạng.' }
+        { title: 'a piece of cake – rất dễ', ex: 'The first part of the test was [[a piece of cake]].', vi: 'Phần đầu bài kiểm tra dễ như ăn bánh.' },
+        { title: 'once in a blue moon – rất hiếm khi', ex: 'I eat fast food [[once in a blue moon]].', vi: 'Hiếm lắm tôi mới ăn đồ ăn nhanh.' },
+        { title: 'hit the books – học hành chăm chỉ', ex: 'I need to [[hit the books]] before my exam next week.', vi: 'Tôi cần học chăm trước kỳ thi tuần sau.' },
+        { title: 'under the weather – hơi mệt, không khỏe', ex: 'I was feeling a bit [[under the weather]] last weekend.', vi: 'Cuối tuần trước tôi thấy hơi mệt.' },
+        { title: 'over the moon – vô cùng vui sướng', ex: 'My mum was [[over the moon]] when I passed my driving test.', vi: 'Mẹ tôi vui mừng khôn xiết khi tôi thi đỗ bằng lái.' },
+        { title: 'cost an arm and a leg – rất đắt', ex: 'Renting a flat in the city centre [[costs an arm and a leg]].', vi: 'Thuê căn hộ ở trung tâm thành phố đắt cắt cổ.' },
+        { title: 'on the same page – cùng quan điểm, hiểu ý nhau', ex: 'My friends and I are usually [[on the same page]] about music.', vi: 'Tôi và bạn bè thường hợp gu âm nhạc.' },
+        { title: 'a breath of fresh air – điều mới mẻ, dễ chịu', ex: 'The new teacher was [[a breath of fresh air]] for our class.', vi: 'Thầy giáo mới như một làn gió mới với lớp tôi.' },
+        { title: 'up to my ears (in work) – ngập đầu công việc', ex: 'I am [[up to my ears]] in work at the moment.', vi: 'Dạo này tôi ngập đầu trong công việc.' },
+        { title: 'learn the ropes – học những điều cơ bản của một công việc', ex: 'It took me a few weeks to [[learn the ropes]] at my new job.', vi: 'Tôi mất vài tuần để làm quen với công việc mới.' },
+        { title: 'go the extra mile – nỗ lực hơn mức cần thiết', ex: 'The staff at that hotel always [[go the extra mile]] for guests.', vi: 'Nhân viên khách sạn đó luôn tận tâm hơn mong đợi.' },
+        { title: 'take something with a pinch of salt – không tin hoàn toàn', ex: 'I take online reviews [[with a pinch of salt]].', vi: 'Tôi không tin hoàn toàn vào các đánh giá trên mạng.' }
       ] },
       { type: 'tip', text: 'Rút gọn (contractions): Writing Task 1 & 2 viết đầy đủ do not, it is, cannot, will not thay vì don\'t, it\'s, can\'t, won\'t. Trong Speaking, dạng rút gọn là tự nhiên và nên dùng.' },
       { type: 'tip', text: 'Phrasal verb không bị cấm trong Writing – carry out, set up, point out, rely on đều trang trọng. Nhưng khi có động từ một chữ tương đương, hãy ưu tiên: look into → investigate, put up with → tolerate, come up with → devise / propose.' },
@@ -700,7 +700,7 @@
       { type: 'mistake', wrong: 'Pollution is a big problem and governments should do something about it ASAP.', right: 'Pollution is a serious problem, and governments should take action as soon as possible.', why: 'Tránh từ viết tắt (ASAP) và cụm mơ hồ (do something) trong văn học thuật.' },
       { type: 'mistake', wrong: 'Every cloud has a silver lining, so unemployment can be good.', right: 'Although unemployment has serious drawbacks, it may encourage some people to retrain.', why: 'Thành ngữ sáo rỗng trong Task 2 bị coi là thiếu học thuật; hãy diễn đạt ý cụ thể.' },
       { type: 'mistake', wrong: 'The government can\'t ignore this issue, and it\'s time to act.', right: 'The government cannot ignore this issue, and it is time to act.', why: 'Không dùng dạng rút gọn trong bài viết học thuật.' },
-      { type: 'ielts', text: 'Speaking: dùng 1–2 thành ngữ tự nhiên, đúng ngữ cảnh để tăng Lexical Resource; dùng gượng ép hoặc sai nghĩa sẽ bị trừ điểm. Writing Task 2: tránh thành ngữ sáo rỗng (every cloud has a silver lining, at the end of the day), tránh từ lóng và dạng rút gọn; ưu tiên câu khách quan.', ex: 'It is widely accepted that regular exercise has a positive effect on mental health.' }
+      { type: 'ielts', text: 'Speaking: dùng 1–2 thành ngữ tự nhiên, đúng ngữ cảnh để tăng Lexical Resource; dùng gượng ép hoặc sai nghĩa sẽ bị trừ điểm. Writing Task 2: tránh thành ngữ sáo rỗng (every cloud has a silver lining, at the end of the day), tránh từ lóng và dạng rút gọn; ưu tiên câu khách quan.', ex: '[[It is widely accepted that]] regular exercise [[has a positive effect on]] mental health.' }
     ],
     quiz: [
       { q: 'Chọn từ trang trọng nhất cho bài Writing: "Researchers wanted to ___ why the birds had left."', options: ['find out', 'figure out', 'discover', 'suss out'], answer: 2, explain: 'Discover là động từ một chữ, trang trọng hơn find out. find out, figure out và suss out là cụm động từ thân mật.' },

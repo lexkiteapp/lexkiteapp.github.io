@@ -8,7 +8,8 @@
   const isExt = !!(g.chrome && g.chrome.runtime && g.chrome.runtime.id && location.protocol === 'chrome-extension:');
   const native = !!(g.VBNative && g.VBNative.is);
   const sandbox = /[?&]sandbox=1/.test(location.search);
-  const on = () => C.enabled && !isExt && !sandbox;
+  const edu = () => { try { return localStorage.getItem('lk.edu') === '1'; } catch (e) { return false; } }; // tài khoản lớp học (classroom.js): không quảng cáo
+  const on = () => C.enabled && !isExt && !sandbox && !edu();
   const route = () => (location.hash.replace(/^#\/?/, '').split(/[/?]/)[0] || 'home');
   const quiet = () => (C.rules && C.rules.quietRoutes || []).includes(route()) || document.body.classList.contains('bare');
   const store = { get: k => { try { return +localStorage.getItem('vb.ads.' + k) || 0; } catch (e) { return 0; } }, set: (k, v) => { try { localStorage.setItem('vb.ads.' + k, v); } catch (e) { /* bỏ qua */ } } };

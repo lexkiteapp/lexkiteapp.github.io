@@ -38,7 +38,7 @@
     host.insertAdjacentHTML('beforeend', `<iframe class="ctx-yt" src="https://www.youtube-nocookie.com/embed/${y.id}?start=${s0}&end=${s0 + 8}&autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" title="YouTube"></iframe>`);
   }, true);
   // Người học quốc tế (giao diện es/ja/ar…): thêm nghĩa bằng tiếng mẹ đẻ dưới định nghĩa tiếng Anh
-  const nativeFill = (el, word) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss && App.nativeGloss(word); if (pk) { el.textContent = '🌐 ' + pk; return; } (App.loadPack ? App.loadPack() : Promise.resolve()).then(() => App.nativeGloss(word) || Dict.translateTo(word, L)).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
+  const nativeFill = (el, word, pos) => App.nativeFill(el, word, pos);
   const picOk = w => !!w && (window.Distract ? Distract.picOk(w) : !!w.image); // js/distract.js: emoji đúng nghĩa theo từ loại
   App.picOk = picOk;
   const norm = w => ({ word: w.word, ipa: w.ipa || '', vi: mean(w), ex: w.ex || '', def: w.def || '', pos: w.pos || '', emoji: w.emoji || '📘', image: w.image || '', audio: w.audio || '', level: w.level || '', topic: w.topic || '' });
@@ -57,12 +57,14 @@
     else if (src === 'phrases') list = cards.filter(c => App.isPhrase && App.isPhrase(c));
     else if (src && src.startsWith('level:')) list = cards.filter(c => SRS.level5(c.srs) === +src.slice(6));
     else if (src && src.startsWith('origin:')) list = cards.filter(c => App.origin(c) === src.slice(7));
-    else if (src && src.startsWith('topic:')) { const t = TOPICS.find(x => x.id === src.slice(6)); list = t ? t.words : []; }
+    else if (src && src.startsWith('topic:')) { const t = App.topicOf(src.slice(6)); list = t ? t.words : []; } // gồm bài con lộ trình (ngsl1.3 – path.js)
     else list = cards;
     if (list.length < 4 && (!src || src === 'deck')) list = shuffle(TOPICS.filter(t => t.group === 'topics').flatMap(t => t.words)).slice(0, 120);
     return list.map(norm);
   }
-  const srcName = src => (sourceList().find(o => o[0] === src) || [0, '📒 ' + t('Sổ từ của tôi')])[1];
+  const srcName = src => { const o = sourceList().find(o => o[0] === src), tp = !o && /^topic:/.test(src || '') && App.topicOf(src.slice(6)); return o ? o[1] : tp ? `${tp.emoji} ${tp.name}` : '📒 ' + t('Sổ từ của tôi'); };
+  // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
+  const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
   let libN = null;
   const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
   const distractors = (w, list, n, key) => {
@@ -100,7 +102,7 @@
       view.innerHTML = `<div class="study-wrap"><div class="card empty"><div class="em">🃏</div><h2>${t('Chưa có flashcard nào')}</h2><p>${t('Thêm từ từ thư viện hoặc tra từ điển để bắt đầu.')}</p><div class="row center"><a class="btn primary" href="#/library">${t('Mở thư viện')}</a><a class="btn" href="#/dict">${t('Tra từ')}</a></div></div></div>`;
       return;
     }
-    session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, reverse: !!session && session.reverse };
+    session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, g: [0, 0, 0, 0], t0: Date.now(), reverse: !!session && session.reverse };
     // Từ widget màn hình chính/khóa (#/review?w=từ): đưa đúng thẻ đang hiện lên đầu phiên ôn
     const pin = query && query.get && String(query.get('w') || '').toLowerCase();
     if (pin && state.cards[pin]) session.queue = [pin, ...session.queue.filter(k => k !== pin)];
@@ -109,15 +111,39 @@
     showCard();
   };
 
+  // Từ khó nhất phiên [U2d]: trong các từ bấm "Quên", chọn từ có số lần quên (lapses) cao nhất
+  function hardestOf(missed) {
+    const list = [...new Set(missed || [])], card = w => state.cards[String(w).toLowerCase()] || state.cards[w] || null;
+    if (!list.length) return null;
+    let w = list[0], c = card(w);
+    list.slice(1).forEach(x => { const cx = card(x); if (((cx && cx.srs.lapses) || 0) > ((c && c.srs.lapses) || 0)) { w = x; c = cx; } });
+    return { w, c, others: list.filter(x => x !== w) };
+  }
+
   function reviewDone(nothing) {
     const next = Object.values(state.cards).filter(c => c.srs.due > endOfToday()).sort((a, b) => a.srs.due - b.srs.due)[0];
     if (!nothing) { Sfx.win(); confetti(); }
     const acc = session.done ? Math.round((session.done - session.again) / session.done * 100) : 0;
-    view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-      <div class="em kit-cele">${window.Kit ? Kit.svg('win', 120) : (nothing ? '🎉' : '🏆')}</div>
+    const streak = App.streak(), hitGoal = (state.stats.days[Core.todayKey()] || 0) >= (state.settings.dailyGoal || 10);
+    const mood = nothing || acc >= 90 ? 'win' : acc >= 60 ? 'happy' : 'cheer';
+    const soon = Object.values(state.cards).filter(c => c.srs.last && c.srs.due > endOfToday() && c.srs.due <= endOfToday() + 2 * DAY).length;
+    const H = nothing ? null : hardestOf(session.missed);
+    const pill = (v, l, col) => `<div class="rev-pill"><b${col ? ` style="color:var(${col})"` : ''}>${v}</b><span class="tiny muted">${l}</span></div>`;
+    view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate rev-done">
+      <div class="em kit-cele" aria-hidden="true">${window.Kit ? Kit.svg(mood, 120) : (nothing ? '🎉' : '🏆')}</div>
       <h2>${nothing ? t('Hôm nay bạn đã ôn hết!') : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
-      ${nothing ? '' : `<div class="row center" style="gap:1.5rem;margin:1rem 0"><div><b style="font-size:1.6rem;color:var(--gold)">+${session.xp}</b><div class="tiny muted">XP</div></div><div><b style="font-size:1.6rem;color:var(--good-text)">${acc}%</b><div class="tiny muted">${t('Nhớ ngay')}</div></div><div><b style="font-size:1.6rem">🔥${App.streak()}</b><div class="tiny muted">${t('Chuỗi ngày')}</div></div></div>`}
-      ${(session.missed || []).length ? `<div style="margin:.6rem 0"><div class="small muted">🔁 ${t('Từ vừa quên – xem lại 1 lần nữa:')}</div><div class="row center" style="gap:.35rem;margin-top:.3rem">${session.missed.slice(0, 12).map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w)}">${esc(w)}</a>`).join('')}</div></div>` : ''}
+      ${nothing ? '' : `<div class="rev-stats" role="group" aria-label="${t('Kết quả phiên ôn')}">
+        ${pill('+' + session.xp, 'XP', '--gold')}${pill(acc + '%', t('Nhớ ngay'), '--good-text')}${pill('🔥 ' + streak, t('Chuỗi ngày'))}${pill('⏱ ' + t('{m} phút', { m: Math.max(1, Math.round((Date.now() - (session.t0 || Date.now())) / 6e4)) }), t('Thời gian'))}
+      </div>
+      ${hitGoal ? `<div class="rev-goal small">🎯 ${t('Hoàn thành mục tiêu ngày')}</div>` : ''}
+      ${gradeMix(session.g)}
+      ${H ? `<div class="rev-hardest">
+        <div class="rev-hard-head"><span class="small muted">${t('Từ cần chú ý nhất:')}</span>
+          <span class="row nowrap" style="gap:.35rem"><button type="button" class="btn sm ghost" data-say-hard aria-label="${t('Nghe phát âm')}">🔊</button><a class="btn sm ghost" href="#/dict/${encodeURIComponent(H.w)}">${t('Tra từ')} →</a></span></div>
+        <div><b class="rev-hard-word">${esc(H.w)}</b>${H.c && H.c.ipa ? ` <span class="ipa">/${esc(String(H.c.ipa).replace(/^\/|\/$/g, ''))}/</span>` : ''}</div>
+        ${H.c && mean(H.c) ? `<div class="rev-hard-mean small muted">${esc(mean(H.c))}</div>` : ''}
+        ${H.others.length ? `<div class="rev-hard-more"><span class="tiny muted">${t('Từ vừa quên khác:')}</span> ${H.others.slice(0, 10).map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w)}">${esc(w)}</a>`).join('')}</div>` : ''}
+      </div>` : `<div class="tip rev-perfect">🌟 <b>${t('Phiên ôn xuất sắc!')}</b> ${t('Bạn không quên từ nào trong phiên này.')}</div>`}`}
       ${(() => { // Dự báo 7 ngày tới (như Anki): biết trước khối lượng, chủ động sắp xếp thời gian
         const day0 = endOfToday(), n = [0, 0, 0, 0, 0, 0, 0];
         Object.values(state.cards).forEach(c => { const d = Math.floor((c.srs.due - day0) / 864e5); if (c.srs.last && d >= 0 && d < 7) n[d]++; });
@@ -125,15 +151,27 @@
         return n.some(Boolean) ? `<div class="forecast" title="${t('Số thẻ đến hạn 7 ngày tới')}">${n.map((x, i) => `<div><i style="height:${Math.round(x / mx * 44) + 2}px"></i><b>${x}</b><span>${i === 0 ? t('Mai') : new Date(day0 + (i + 0.5) * 864e5).toLocaleDateString(I18N.lang(), { weekday: 'short' })}</span></div>`).join('')}</div>` : '';
       })()}
       <p>${next ? t('Thẻ tiếp theo đến hạn: <b>{date}</b>.', { date: new Date(next.srs.due).toLocaleDateString(I18N.lang()) }) : ''} ${t('Học đều mỗi ngày là bí quyết nhớ lâu.')}</p>
-      ${(() => { const soon = Object.values(state.cards).filter(c => c.srs.last && c.srs.due > endOfToday() && c.srs.due <= endOfToday() + 2 * DAY).length; return soon ? `<div class="tip small" style="margin:.6rem 0">⏩ ${t('Sắp thi hoặc muốn học thêm? Ôn trước {n} thẻ đến hạn trong 2 ngày tới.', { n: soon })} <a href="#/review?ahead=2">${t('Ôn trước →')}</a></div>` : ''; })()}
-      <div class="row center"><a class="btn primary" href="#/practice/learn">🧠 ${t('Học thông minh')}</a><a class="btn" href="#/practice/match">⚡ ${t('Ghép thẻ')}</a><a class="btn" href="#/library">${t('Thêm từ mới')}</a>${!nothing && (acc >= 80 && session.done >= 5 || state.stats.days[Core.todayKey()] >= state.settings.dailyGoal || [3, 7, 14, 30, 100].includes(App.streak())) ? `<button type="button" class="btn" data-share="${acc}">✨ ${t('Khoe thành tích')}</button>` : ''}</div>
+      ${soon ? `<div class="tip small" style="margin:.6rem 0">⏩ ${t('Sắp thi hoặc muốn học thêm? Ôn trước {n} thẻ đến hạn trong 2 ngày tới.', { n: soon })} <a href="#/review?ahead=2">${t('Ôn trước →')}</a></div>` : ''}
+      <a class="btn primary lg block rev-next" href="#/home">${t('Học tiếp')} →</a>
+      <div class="row center rev-more"><a class="btn" href="#/practice/learn">🧠 ${t('Học thông minh')}</a><a class="btn" href="#/practice/match">⚡ ${t('Ghép thẻ')}</a>${!nothing && (acc >= 80 && session.done >= 5 || hitGoal || [3, 7, 14, 30, 100].includes(streak)) ? `<button type="button" class="btn" data-share="${acc}">✨ ${t('Khoe thành tích')}</button>` : ''}</div>
     </div></div>`;
+    const hs = view.querySelector('[data-say-hard]');
+    if (hs && H) hs.onclick = () => speak(H.w, accent(), H.c ? H.c.audio : '');
+  }
+
+  // Phân bố 4 mức chấm của phiên
+  function gradeMix(g) {
+    const n = (g || []).reduce((a, b) => a + b, 0); if (!n) return '';
+    const L = [[t('Quên'), 'again'], [t('Khó'), 'hard'], [t('Nhớ'), 'good'], [t('Dễ'), 'easy']];
+    return `<figure class="gmix" aria-label="${t('Phân bố mức độ nhớ')}"><div class="gmix-bar" aria-hidden="true">${L.map(([, k], i) => g[i] ? `<i class="gm-${k}" style="flex:${g[i]}"></i>` : '').join('')}</div>
+      <figcaption class="gmix-leg">${L.map(([l, k], i) => `<span><i class="gm-${k}" aria-hidden="true"></i>${esc(l)} <b>${g[i]}</b></span>`).join('')}</figcaption></figure>`;
   }
 
   async function undo() {
     const L = session.last; if (!L) return; session.last = null;
     const c0 = state.cards[L.key]; if (c0) { c0.srs = L.srs; await Cards.update(c0); state.cards[L.key] = c0; }
     Object.assign(session, { queue: L.queue, done: L.done, again: L.again, missed: L.missed, xp: Math.max(0, session.xp - L.xp) });
+    if (session.g && session.g[L.g] > 0) session.g[L.g]--;
     // gỡ lượt ôn & XP vừa cộng
     const st = await Stats.get(), k = Core.todayKey(); st.days[k] = Math.max(0, (st.days[k] || 1) - 1); if (L.wasNew && st.newToday && st.newToday.day === k) st.newToday.n = Math.max(0, st.newToday.n - 1); await Core.Store.set('stats', st); state.stats = st;
     state.game = await Game.mutate(gs => { gs.xp = Math.max(0, (gs.xp || 0) - L.xp); const d = gs.days[k] || {}; d.xp = Math.max(0, (d.xp || 0) - L.xp); d.reviews = Math.max(0, (d.reviews || 0) - 1); if (L.wasNew) d.newWords = Math.max(0, (d.newWords || 0) - 1); if (gs.total) { gs.total.reviews = Math.max(0, (gs.total.reviews || 0) - 1); if (L.wasNew) gs.total.newWords = Math.max(0, (gs.total.newWords || 0) - 1); } });
@@ -159,7 +197,7 @@
     const listenMode = !typeMode && !rev && !isNew && c.srs.reps >= 1 && Math.random() < 0.15;
     const front = listenMode ? `
         <button class="listen-big" data-say aria-label="${t('Nghe')}">🔊</button>
-        <div class="muted small" style="margin-top:1rem">${t('Nghe từ, nhớ lại nghĩa rồi chạm để lật')} <span class="kbd">Space</span> · <span class="kbd">P</span> ${t('nghe lại')}</div>` : typeMode ? `
+        <div class="muted small" style="margin-top:1rem">${t('Nghe từ, nhớ lại nghĩa rồi chạm để lật')} <span class="kbd kbd-hint">Space</span> · <span class="kbd kbd-hint">P</span> ${t('nghe lại')}</div>` : typeMode ? `
         ${pic(c)}
         <div class="vi" style="font-size:1.5rem">${esc(mean(c))}</div>${posChip(c.pos)}
         ${c.ex ? `<div class="ctx">“${cloze(c.ex, c.word)}”</div>` : ''}
@@ -172,17 +210,18 @@
         <div class="muted small" style="margin-top:1rem">${t('Nhớ lại từ tiếng Anh, rồi chạm để lật')}</div>` : `
         ${pic(c)}
         <div class="entry-word">${esc(c.word)}</div>
-        <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say>🔊</button></div>
+        <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
         ${ctx ? `<div class="ctx">📌 “${highlight(ctx.text, c.word)}”</div>` : ''}
-        <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd">Space</span></div>`;
+        <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd kbd-hint">Space</span></div>`;
 
     view.innerHTML = `<div class="study-wrap">
       <div class="study-top">
-        <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}">✕</a>
-        ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}">↶</button>` : ''}
+        <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}" aria-label="${t('Thoát')}">✕</a>
+        ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-label="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-keyshortcuts="Z">↶</button>` : ''}
         <a class="icon-btn" href="#/handsfree/session" title="${t('Chế độ Rảnh tay')}" aria-label="${t('Chế độ Rảnh tay')}">🎧</a>
-        <div class="progress"><i style="width:${pct}%"></i></div>
+        <div class="progress" role="progressbar" aria-label="${t('Tiến độ')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(pct)}"><i style="width:${pct}%"></i></div>
         <span class="small muted" style="white-space:nowrap" title="${t('Thẻ đang ở bước học (1–10 phút) sẽ quay lại trong phiên')}">✅ ${session.done} · ${t('<b>{n}</b> thẻ còn lại', { n: new Set(session.queue).size })}</span>
+        <div id="studyKit" class="study-kit-mini" role="img" aria-label="Kit"></div>
       </div>
       <div class="row between small" style="margin-bottom:.6rem">
         <span>${isNew ? `<span class="chip lv">✨ ${t('TỪ MỚI')}</span>` : App.masteryDots(c.srs)}</span>
@@ -193,7 +232,7 @@
           <div class="card face front">${front}</div>
           <div class="card face back">
             <div class="wc-hd"><div class="wc-wrow"><span class="entry-word wc-word">${esc(c.word)}</span><button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
-              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}<span class="ipa">${esc(c.ipa)}</span></div>
+              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}${c.ipaUS && c.ipaUS !== c.ipa ? `<span class="wi-acc">🇬🇧 <span class="ipa">${esc(c.ipa)}</span><button class="icon-btn sm" data-say-acc="en-GB" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span><span class="wi-acc">🇺🇸 <span class="ipa">${esc(c.ipaUS)}</span><button class="icon-btn sm" data-say-acc="en-US" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>` : `<span class="ipa">${esc(c.ipa)}</span>`}</div>
               <div class="vi wi-vi">${esc(mean(c))}</div><div class="wi-native" data-native></div></div>
             ${c.def && mean(c) !== c.def ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div lang="en">${esc(c.def)}</div></div>` : ''}
             ${c.ex ? `<div class="wi-sec wi-ex"><span class="wi-lb">💬 ${t('Ví dụ')}</span><div class="fi-ex">${highlight(c.ex, c.word)} <button class="icon-btn sm" data-speak-text="${esc(c.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div></div>` : ''}
@@ -215,45 +254,39 @@
         </div>
       </div>
       <div id="actions" class="grade-bar"><button class="btn primary lg block" id="flipBtn">${t('Lật thẻ')}</button></div>
-      <p class="muted tiny center" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
+      <p class="muted tiny center kbd-hint" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
     </div>`;
     App.bindCommon();
     const say = () => speak(c.word, accent(), c.audio);
     $$('[data-say]').forEach(b => b.onclick = e => { e.stopPropagation(); say(); });
+    // Nghe riêng giọng UK/US
+    $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
     if (listenMode) setTimeout(say, 250);
-    nativeFill($('.back [data-native]'), c.word);
+    nativeFill($('.back [data-native]'), c.word, c.pos);
     // Tìm sẵn bản ghi giọng người thật cho 3 thẻ kế tiếp (chạy ngầm, lưu vào thẻ) → thay dần giọng máy bằng giọng thật
     session.queue.slice(1, 4).forEach(k => { const n = state.cards[k]; if (n && !n.audio && !n._aq && navigator.onLine) { n._aq = 1; Dict.lookup(n.word, { image: false, examples: false }).then(e => { if (e && e.found && (e.audio || e.audioUS)) Cards.patch(k, x => { if (!x.audio) x.audio = e.audio || e.audioUS; if (!x.ipaUS && e.ipaUS) x.ipaUS = e.ipaUS; }).then(c2 => { if (c2) state.cards[k] = c2; }); }).catch(() => {}); } });
 
+    // 🐦 Kit mini + 👆 vuốt: study-swipe.js (tải lười)
+    const updateKit = mood => { if (window.StudySwipe) StudySwipe.kit($('#studyKit'), mood); };
+    const sk = $('#studyKit'); if (sk) sk.onclick = () => updateKit('cheer');
     const flip = () => {
       if (flipped) return;
       flipped = true; Sfx.flip();
       $('#flash').classList.add('flipped');
+      updateKit('happy');
       const labels = [[t('Quên'), 'g-again'], [t('Khó'), 'g-hard'], [t('Nhớ'), 'g-good'], [t('Dễ'), 'g-easy']];
       $('#actions').innerHTML = `<div class="grades" role="group" aria-label="${t('Chấm mức độ nhớ')}">${labels.map(([l, cls], i) => { const p = SRS.preview(c.srs, i); return `<button class="btn ${cls}" data-grade="${i}" aria-keyshortcuts="${i + 1}" aria-label="${esc(l)} · ${esc(p)} (${i + 1})"><b>${l}</b><small>${p}</small><kbd class="g-k" aria-hidden="true">${i + 1}</kbd></button>`; }).join('')}</div>`;
       $$('[data-grade]').forEach(b => b.onclick = () => grade(+b.dataset.grade, b));
       if (rev || state.settings.autoSpeak) say();
     };
     $('#flash').addEventListener('click', e => { if (!e.target.closest('button, details, textarea, input')) flip(); });
-    // 👆 Vuốt thẻ (cảm ứng & chuột): phải = Nhớ, trái = Quên, lên = nghe lại. Chưa lật → lật cho thấy đáp án 0,7 s rồi mới chấm.
-    if (!typeMode && window.PointerEvent) {
-      const fc = $('#flash'); let x0 = 0, y0 = 0, dx = 0, dy = 0, drag = false, moved = false;
-      const reset = () => { fc.classList.remove('swiping', 'sw-good', 'sw-again'); fc.style.transform = ''; };
-      fc.addEventListener('pointerdown', e => { if (graded || e.target.closest('button, details, textarea, input, a')) return; drag = true; moved = false; x0 = e.clientX; y0 = e.clientY; dx = dy = 0; fc.classList.add('swiping'); try { fc.setPointerCapture(e.pointerId); } catch (err) { /* bỏ qua */ } });
-      fc.addEventListener('pointermove', e => {
-        if (!drag) return; dx = e.clientX - x0; dy = e.clientY - y0; if (Math.abs(dx) > 8 || Math.abs(dy) > 8) moved = true;
-        fc.style.transform = `translate3d(${dx}px, ${Math.min(0, dy) * 0.4}px, 0) rotate(${dx / 18}deg)`;
-        fc.classList.toggle('sw-good', dx > 40); fc.classList.toggle('sw-again', dx < -40);
-      });
-      const end = () => {
-        if (!drag) return; drag = false;
-        const go = g => { fc.classList.remove('swiping'); fc.classList.add('fly'); fc.style.transform = `translate3d(${g ? 120 : -120}vw, 0, 0) rotate(${g ? 25 : -25}deg)`; setTimeout(() => grade(g ? 2 : 0), 220); };
-        if (dx > 80 || dx < -80) { const g = dx > 80; if (!flipped) { reset(); flip(); setTimeout(() => go(g), 700); } else go(g); }
-        else { if (dy < -60 && Math.abs(dx) < 60) say(); reset(); }
-      };
-      fc.addEventListener('pointerup', end); fc.addEventListener('pointercancel', () => { drag = false; reset(); });
-      fc.addEventListener('click', e => { if (moved) { e.stopImmediatePropagation(); moved = false; } }, true); // kéo thì không tính là bấm lật
-    }
+
+    const fc0 = $('#flash');
+    App.lazy('swipe').then(() => {
+      if (!window.StudySwipe || $('#flash') !== fc0 || graded) return;
+      updateKit(flipped ? 'happy' : 'think');
+      if (!typeMode) StudySwipe.attach(fc0, { flipped: () => flipped, graded: () => graded, commit: g => grade(g, null, true), labels: [t('Quên'), t('Nhớ')] });
+    }).catch(() => {});
     if (typeMode) {
       const inp = $('#typeIn'); setTimeout(() => inp.focus(), 50);
       const norm = x => x.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
@@ -317,9 +350,11 @@
     if (!rev && state.settings.autoSpeak) say();
 
     let graded = false;
-    async function grade(g, el) {
+    async function grade(g, el, swiped) {
       if (graded) return; graded = true;
       document.onkeydown = null;
+      const ub0 = $('#undoBtn'); if (ub0) ub0.disabled = true; // không hoàn tác chen ngang
+      const tFly = Date.now();
       const wasNew = c.srs.reps === 0 && !c.srs.last;
       // Lưu trạng thái trước khi chấm → cho phép hoàn tác khi bấm nhầm (như Anki)
       const snap = { key, srs: JSON.parse(JSON.stringify(c.srs)), queue: session.queue.slice(), done: session.done, again: session.again, missed: session.missed.slice(), wasNew, g };
@@ -329,10 +364,14 @@
       state.stats = await Stats.logReview(wasNew);
       const xp = g === 0 ? 2 : wasNew ? 8 : 5;
       session.xp += xp; snap.xp = xp; session.last = snap;
+      if (session.g) session.g[g]++;
+      if (g === 0) updateKit('think');
+      else if (g >= 2) updateKit('win');
+      else updateKit('happy');
       g === 0 ? Sfx.wrong() : Sfx.correct();
       haptic(g > 0);
       const fc = $('#flash');
-      if (fc) {
+      if (fc && !swiped) {
         fc.classList.remove('ans-bounce', 'ans-shake');
         void fc.offsetWidth;
         fc.classList.add(g === 0 ? 'ans-shake' : 'ans-bounce');
@@ -349,10 +388,17 @@
       if (c.srs.reps === 0) session.queue.splice(Math.min(session.queue.length, g === 0 ? 3 : 6), 0, key);
       if (g === 0) { session.again += 1; if (!session.missed.includes(c.word)) session.missed.push(c.word); }
       if (!/^#\/review/.test(location.hash)) return; // đã rời trang ôn tập
-      if (g === 0) await new Promise(r => setTimeout(r, 200));
+      const wait = swiped ? 220 - (Date.now() - tFly) : g === 0 ? 200 : 0; // vuốt: đợi thẻ bay hết
+      if (wait > 0) await new Promise(r => setTimeout(r, wait));
+      if (!/^#\/review/.test(location.hash)) return;
       session.queue.length ? showCard() : reviewDone(false);
     }
   }
+
+  // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
+  let games = null;
+  const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
+  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
@@ -388,22 +434,24 @@
   function renderQuestion(box, q, onDone) {
     const w = q.w;
     let answered = false;
-    const finish = (ok, given) => {
+    const FX = window.LessonFx, mute = () => !!(FX && FX.audioOff());
+    const finish = (ok, given, ty) => {
       if (answered) return; answered = true;
       if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? I18N.tk('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }) : q.type === 'type-cloze' && w.ex ? I18N.tk('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : I18N.tk('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
       ok ? Sfx.correct() : Sfx.wrong();
       haptic(ok);
       const fb = $('#fb', box);
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
-        <div class="sheet-head">${ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
+        <div class="sheet-head">${ty && ty.typo ? FX.typoHead(ty.marks) : ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
         <div class="sheet-word"><button class="sheet-say" data-sayw aria-label="${t('Nghe')}">🔊</button><div style="min-width:0"><div><b class="sw">${esc(w.word)}</b>${w.pos ? ` <span class="sp">(${esc(w.pos)})</span>` : ''}</div>${w.ipa ? `<div class="sipa">${esc(w.ipa)}</div>` : ''}<div class="svi">${esc(mean(w))}</div></div></div>
         ${w.ex ? `<div class="sheet-ex">${highlight(w.ex, w.word)} <button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}" aria-label="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}" aria-label="${t('Dịch câu')}">🌐</button><div class="sheet-tr" hidden></div></div>` : ''}
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button></div></div>`;
       // chừa đáy đúng chiều cao bảng phản hồi
-      const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px');
+      const fit = () => { const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px'); }; fit();
+      if (FX && (!ok || (ty && ty.typo))) FX.explain(fb, w.word, fit); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), w.audio);
-      if (!ok || q.type.startsWith('type')) speak(w.word, accent(), w.audio);
+      if ((!ok || q.type.startsWith('type')) && !mute()) speak(w.word, accent(), w.audio);
       $('#nextQ').focus({ preventScroll: true });
       let went = false; const t1 = Date.now();
       $('#nextQ').onclick = () => { if (went || Date.now() - t1 < 250) return; went = true; onDone(ok, $('#nextQ')); };
@@ -447,7 +495,7 @@
         const n = /^[1-9]$/.test(e.key) ? +e.key : /^[a-dA-D]$/.test(e.key) ? e.key.toLowerCase().charCodeAt(0) - 96 : 0;
         if (n >= 1 && n <= opts.length) pick($$('.option', box)[n - 1]);
       };
-      if (q.type === 'mcq-vi' && state.settings.autoSpeak) speak(w.word, accent(), w.audio);
+      if (q.type === 'mcq-vi' && state.settings.autoSpeak && !mute()) speak(w.word, accent(), w.audio);
       return;
     }
 
@@ -463,22 +511,23 @@
       prompt = `<div class="muted small" style="font-weight:700">${t('Điền từ')}</div><div class="vi" style="font-size:1.6rem;margin:.4rem 0">${esc(mean(w))}${w.pos ? ` <span class="muted" style="font-size:1rem">(${esc(w.pos)})</span>` : ''}</div>
         <div class="spell-hint">${ch.map((c, i) => c === ' ' ? '<i class="sp"></i>' : /[a-z]/i.test(c) ? `<span>${show.has(i) ? esc(c) : ''}</span>` : `<b>${esc(c)}</b>`).join('')}</div>`;
     } else if (q.type === 'type-listen') {
-      prompt = `<div style="font-size:3rem">🎧</div><div class="row center"><button class="btn primary" id="play">🔊 ${t('Nghe')}</button><button class="btn" id="slow">🐢 ${t('Chậm')}</button></div><div class="muted small" style="margin-top:.8rem">${t('Gõ lại từ bạn nghe được')}${w.vi ? ' · ' + t('gợi ý: {hint}', { hint: esc(mean(w)) }) : ''}</div>`;
+      prompt = `<div style="font-size:3rem">🎧</div><div class="row center"><button class="btn primary" id="play">🔊 ${t('Nghe')}</button><button class="btn" id="slow">🐢 ${t('Chậm')}</button></div><div class="muted small" style="margin-top:.8rem">${t('Gõ lại từ bạn nghe được')}${w.vi && !q.hard ? ' · ' + t('gợi ý: {hint}', { hint: esc(mean(w)) }) : ''}</div>`;
     } else if (isCloze) {
-      prompt = `<div style="font-size:1.15rem;line-height:1.8">“${cloze(w.ex, w.word)}”</div><div class="muted" style="margin-top:.8rem">${t('Gợi ý: <b>{hint}</b>', { hint: esc(mean(w)) })} ${posChip(w.pos)} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(target[0]), n: target.length })}</div>`;
+      prompt = `<div style="font-size:1.15rem;line-height:1.8">“${cloze(w.ex, w.word)}”</div><div class="muted" style="margin-top:.8rem">${t('Gợi ý: <b>{hint}</b>', { hint: esc(mean(w)) })} ${posChip(w.pos)}${q.hard ? '' : ` · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(target[0]), n: target.length })}`}</div>`;
     } else {
-      prompt = `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}<div class="muted" style="margin-top:.8rem">${t('Gõ từ tiếng Anh')} · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(w.word[0]), n: w.word.length })}</div>`;
+      prompt = `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}<div class="muted" style="margin-top:.8rem">${t('Gõ từ tiếng Anh')}${q.hard ? '' : ` · ${t('bắt đầu bằng “{letter}”, {n} ký tự', { letter: esc(w.word[0]), n: w.word.length })}`}</div>`;
     }
     box.innerHTML = `<div class="card q-card">${prompt}</div>
       <form id="ansForm" style="margin-top:1rem" autocomplete="off"><div class="search">
         <input class="input big-input" id="ans" placeholder="${t('Gõ đáp án…')}" autocapitalize="off" autocorrect="off" spellcheck="false">
         <button class="btn primary lg">${t('Kiểm tra')}</button></div>
-        <div class="row center" style="margin-top:.5rem"><button type="button" class="btn sm ghost" id="skip">${t('Không biết – xem đáp án')}</button></div></form><div id="fb"></div>`;
+        <div class="row center" style="margin-top:.5rem"><button type="button" class="btn sm ghost" id="skip">${t('Không biết – xem đáp án')}</button>${FX && q.type === 'type-listen' ? FX.skipAudioBtn() : ''}</div></form><div id="fb"></div>`;
     $('#ans').focus();
     if (q.type === 'type-listen') {
       $('#play').onclick = () => speak(w.word, accent(), w.audio);
       $('#slow').onclick = () => speak(w.word, accent(), w.audio, true);
       setTimeout(() => speak(w.word, accent(), w.audio), 250);
+      const na = $('#lfxNoAudio'); if (na) na.onclick = () => { FX.pauseAudio(); q.type = 'type-vi'; document.onkeydown = null; renderQuestion(box, q, onDone); }; // 🔇 đổi câu này (và các câu nghe sau) sang dạng gõ nghĩa
     }
     $('#skip').onclick = () => finish(false);
     $('#ansForm').onsubmit = e => {
@@ -486,7 +535,13 @@
       if (answered) return $('#nextQ').click();
       const a = $('#ans').value.trim().toLowerCase().replace(/\s+/g, ' ');
       if (!a) return;
-      const ok = a === w.word.toLowerCase() || a === target.toLowerCase();
+      let ok = a === w.word.toLowerCase() || a === target.toLowerCase(), ty = null;
+      // Lỗi chính tả nhỏ (≤ 1 sửa/từ ≥ 4 chữ cái) → vẫn đúng + gạch chân chỗ sửa. Không áp cho bài chính tả và dạng từ đang kiểm (điền từ đã chia ≠ từ gốc)
+      if (!ok && FX) {
+        const strict = q.type === 'type-spell' || (isCloze && target.toLowerCase() !== w.word.toLowerCase());
+        ty = FX.typo(a, target, { strict, isWord: x => x !== target.toLowerCase() && !!INDEX[x] });
+        if (ty.ok) ok = true; else ty = null;
+      }
       // Sai 1 ký tự → cho thử lại một lần
       if (!ok && !q.retried && similarity(a, target) >= 0.8) {
         q.retried = true;
@@ -513,13 +568,15 @@
         void qc.offsetWidth;
         qc.classList.add(ok ? 'ans-bounce' : 'ans-shake');
       }
-      finish(ok, a);
+      finish(ok, a, ty);
     };
     document.onkeydown = e => { if (answered && e.key === 'Enter' && e.target.id !== 'ans') { e.preventDefault(); $('#nextQ').click(); } };
   }
 
   // ---------- Trắc nghiệm / Điền từ / Nghe / Kiểm tra ----------
-  function runQuiz(src, mode) {
+  // as: báo bước khác khi chạy thay thế (vd. 'speak' khi tạm tắt micro → trắc nghiệm nghĩa vẫn tính bước nói của lộ trình)
+  function runQuiz(src, mode, as) {
+    const FX = window.LessonFx;
     const list = pool(src);
     const n = mode === 'test' ? 20 : 10;
     const items = shuffle(list).slice(0, Math.min(n, list.length));
@@ -528,15 +585,25 @@
     const qs = items.map((w, i) => ({ type: mode === 'test' ? types[i % types.length] : types[0], w, list }));
     if (mode === 'test') qs.sort(() => Math.random() - .5);
     const title = `${MODES[mode].em} ${MODES[mode].name} · ${esc(srcName(src))}`;
-    const run = { i: 0, score: 0, wrong: [], xp: 0 };
+    const run = { i: 0, score: 0, wrong: [], xp: 0, c: FX ? FX.combo() : null };
+    const again = () => runQuiz(src, mode, as);
+    const notice = FX ? (as === 'speak' ? 'mic' : mode === 'listen' && FX.audioOff() ? 'audio' : '') : '';
     const next = () => {
       if (run.i >= qs.length) return finish();
+      const q = qs[run.i];
+      if (FX && FX.audioOff() && q.type === 'type-listen') q.type = 'type-vi'; // 🔇 đang tạm tắt bài nghe
       view.innerHTML = `<div class="study-wrap">${head(title, run.i, qs.length, `✅ ${run.score}`)}<div id="qbox"></div></div>`;
       guardExit(() => run.i > 0);
-      renderQuestion($('#qbox'), qs[run.i], (ok, el) => {
-        if (ok) { run.score++; run.xp += 3; App.reward({ xp: 3 }, el); } else run.wrong.push(qs[run.i].w);
+      // 💪 8 câu đúng liền → mời chế độ khó (1 lần/lượt; câu còn lại: gõ thay vì chọn, ít gợi ý, +6 XP)
+      if (FX && FX.wantsHard(run.c, qs.length - run.i, mode)) { document.onkeydown = null; return FX.offerHard($('#qbox'), run.c, yes => { if (yes) FX.harden(qs.slice(run.i)); next(); }); }
+      if (notice && run.i === 0) $('.study-top').before(FX.note(notice, again));
+      renderQuestion($('#qbox'), q, (ok, el) => {
+        const xp = q.hard ? 6 : 3;
+        if (ok) { run.score++; run.xp += xp; App.reward({ xp }, el); } else run.wrong.push(q.w);
+        if (FX) FX.hit(run.c, ok);
         run.i++; next();
       });
+      if (FX) FX.decorate($('.study-top'), run.c, q); // 🔥 chuỗi đúng liền + trạng thái hoàn hảo trên thanh tiến độ
     };
     const finish = () => {
       document.onkeydown = null;
@@ -552,14 +619,15 @@
         <div class="score-ring" style="--p:${pct};--c:${pct >= 80 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
         <h2 style="margin-top:1rem">${t('{score}/{total} câu đúng', { score: run.score, total: qs.length })}</h2>
         ${band ? `<p>${t('Mức từ vựng ước tính: <b>Band {band}</b>', { band })} <span class="muted small">${t('(tham khảo)')}</span></p>` : ''}
-        <p class="muted">+${run.xp + (perfect ? 15 : 5)} XP</p>
+        ${FX ? FX.summary(run.c, run.xp + (perfect ? 15 : 5), pct) : `<p class="muted">+${run.xp + (perfect ? 15 : 5)} XP</p>`}
         ${run.wrong.length ? `<p>${t('Cần ôn lại:')}</p><div class="row center">${run.wrong.map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.word)}</a>`).join('')}</div>
           ${run.wrong.some(w => !App.inDeck(w.word)) ? `<p><button class="btn sm" id="addWrong">+ ${t('Đưa các từ sai vào flashcard')}</button></p>` : ''}` : `<p>${t('Không sai câu nào – xuất sắc!')} 🎉</p>`}
         ${unit ? `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static;margin:1rem 0">${pct >= 80 ? '🏁 ' + t('<b>Hoàn thành bài!</b> Các từ đã được thêm vào flashcard để ôn đúng thời điểm vàng.') : '🔁 ' + t('Cần đạt <b>80%</b> để hoàn thành bài – ôn lại các từ sai rồi thử lại nhé.')}</div>` : ''}
-        <div class="row center" style="margin-top:1rem">${unit ? `<a class="btn primary" href="#/path">🗺️ ${t('Về lộ trình')}</a><button class="btn" id="again">${t('Làm lại')}</button>` : `<button class="btn primary" id="again">${t('Làm lượt mới')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Đổi chế độ')}</a>`}</div>
+        <div class="row center" style="margin-top:1rem">${unit ? `<a class="btn primary" href="#/path">🗺️ ${t('Về lộ trình')}</a><button class="btn" id="again">${t('Làm lại')}</button>` : `<button class="btn primary" id="again">${t('Làm lượt mới')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Đổi chế độ')}</a>`}${FX ? FX.shareBtn(pct) : ''}</div>
       </div></div>`;
       if (unitPassed) unitPassed.then(first => { if (first) { confetti(160); Sfx.win(); } });
-      $('#again').onclick = () => runQuiz(src, mode);
+      practiceDone({ mode: as || mode, src, pct, wait: unitPassed });
+      $('#again').onclick = again;
       const aw = $('#addWrong');
       if (aw) aw.onclick = async () => { for (const w of run.wrong) if (!App.inDeck(w.word)) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); toast(t('Đã thêm vào flashcard')); aw.disabled = true; };
     };
@@ -612,7 +680,7 @@
           </div>
           <div class="learn-bar"><button class="btn primary lg block" id="gotIt">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button>
           <div class="center"><button class="linklike" id="known">${t('Mình đã biết từ này')}</button></div></div>`;
-        nativeFill($('[data-native]'), w.word);
+        nativeFill($('[data-native]'), w.word, w.pos);
         const ll = I18N.learnLang();
         if (w.ex && ll !== 'en') {
           const flg = (I18N && I18N.flag ? I18N.flag(ll) : (ll === 'vi' ? '🇻🇳' : '🌐'));
@@ -660,135 +728,11 @@
         <div class="row center" style="margin-top:.6rem"><button class="btn" id="again">${t('Học 8 từ tiếp theo')}</button><a class="btn" href="#/practice/match?src=${encodeURIComponent(src)}">⚡ ${t('Ghép thẻ')}</a></div>
       </div></div>`;
       $('#again').onclick = () => runLearn(src);
+      practiceDone({ mode: 'learn', src, items });
       const al = $('#addLearned');
       if (al) al.onclick = async () => { for (const w of notIn) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); al.disabled = true; al.textContent = '✓ ' + t('Đã thêm'); Sfx.win(); };
     };
     next();
   }
 
-  // ---------- Ghép thẻ (Match) ----------
-  function runMatch(src) {
-    const list = pool(src).filter(w => w.vi);
-    const items = shuffle(list).slice(0, 6);
-    if (items.length < 3) return emptySource(src);
-    const tiles = shuffle([...items.map(w => ({ id: w.word, label: w.word, kind: 'en' })), ...items.map(w => ({ id: w.word, label: mean(w), kind: 'vi' }))]);
-    const t0 = performance.now();
-    let sel = null, left = items.length, misses = 0, timer;
-    view.innerHTML = `<div class="study-wrap" style="max-width:820px">
-      <div class="study-top"><a class="icon-btn" href="${App.backHref()}" title="${t('Thoát')}">✕</a><div class="grow small muted">⚡ ${t('Ghép từ với nghĩa đúng')} · ${esc(srcName(src))}</div><span class="timer" id="timer">0.0s</span></div>
-      <div class="match-grid">${tiles.map((tl, i) => `<button class="tile" data-i="${i}">${esc(tl.label)}</button>`).join('')}</div>
-      <p class="muted small center" style="margin-top:1rem">${t('Mỗi lần ghép sai +1 giây phạt')}</p></div>`;
-    timer = setInterval(() => { const el = $('#timer'); if (el) el.textContent = ((performance.now() - t0) / 1000 + misses).toFixed(1) + 's'; }, 100);
-    App.cleanup = () => clearInterval(timer);
-    $$('.tile').forEach(b => b.onclick = () => {
-      const t = tiles[+b.dataset.i];
-      if (b.classList.contains('gone')) return;
-      if (t.kind === 'en') speak(t.label, accent());
-      if (!sel) { sel = b; b.classList.add('sel'); Sfx.pop(); return; }
-      if (sel === b) { b.classList.remove('sel'); sel = null; return; }
-      const a = tiles[+sel.dataset.i];
-      if (a.id === t.id && a.kind !== t.kind) {
-        Sfx.correct(); haptic(true); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
-        if (!left) done();
-      } else {
-        Sfx.wrong(); haptic(false); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
-        setTimeout(() => { s.classList.remove('bad'); b.classList.remove('bad'); }, 400); sel = null;
-      }
-    });
-    async function done() {
-      clearInterval(timer);
-      const time = +((performance.now() - t0) / 1000 + misses).toFixed(1);
-      const best = state.game.best.match;
-      const xp = 10 + (time < 25 ? 10 : time < 40 ? 5 : 0);
-      await App.reward({ matches: 1, quizzes: 1, perfect: misses === 0 ? 1 : 0, matchTime: time, xp });
-      Sfx.win(); confetti();
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
-        <div class="em">⚡</div><h2>${time}s</h2>
-        <p>${!best || time < best ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}s', { best })} · ${t('{n} lần sai', { n: misses })} · +${xp} XP</p>
-        <div class="row center">${items.map(w => `<span class="chip">${esc(w.word)} = ${esc(mean(w))}</span>`).join('')}</div>
-        <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="again">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Chế độ khác')}</a></div>
-      </div></div>`;
-      $('#again').onclick = () => runMatch(src);
-    }
-  }
-
-  // ---------- Luyện phát âm (nhận dạng giọng nói) ----------
-  function runSpeak(src, query) {
-    const one = query && query.get('w');
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const items = one ? [norm(INDEX[one.toLowerCase()] || state.cards[one.toLowerCase()] || { word: one })] : shuffle(pool(src)).slice(0, 10);
-    if (!items.length) return emptySource(src);
-    let i = 0, good = 0, rec = null, total = 0;
-    const title = `🎙️ ${t('Luyện phát âm')} · ${one ? esc(one) : esc(srcName(src))}`;
-    App.cleanup = () => UI.stopRecognize();
-    const show = () => {
-      if (i >= items.length) return finish();
-      const w = items[i];
-      view.innerHTML = `<div class="study-wrap">${head(title, i, items.length, `🎯 ${good}`)}
-        <div class="card q-card">
-          ${picOk(w) ? pic(w).replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto 1rem"') : ''}
-          <div class="entry-word">${esc(w.word)}</div>
-          <div class="row center"><span class="ipa" id="ipaW" style="font-size:1.1rem">${esc(w.ipa) || (w.ipaUS ? '' : `<span class="muted small">${t('đang tra phiên âm…')}</span>`)}</span><button class="icon-btn" id="model" title="${t('Nghe mẫu')}">🔊</button><button class="icon-btn" id="modelSlow" title="${t('Nghe chậm')}">🐢</button></div>
-          <div class="vi" id="viW" style="font-size:1rem;margin-top:.3rem">${esc(mean(w))}</div>
-          <div style="margin:1.6rem 0 .6rem"><button class="mic" id="mic" title="${t('Bấm và nói')}">🎙️</button></div>
-          <div class="muted small" id="hint">${SR ? t('Bấm micro rồi đọc to từ trên') : '⚠️ ' + t('Trình duyệt không hỗ trợ nhận dạng giọng nói – hãy dùng Chrome hoặc Edge.')}</div>
-          <div id="result" style="margin-top:1rem"></div>
-        </div>
-        <div class="row center" style="margin-top:1rem"><button class="btn" id="skipW">${t('Bỏ qua')}</button><button class="btn primary" id="nextW" hidden>${t('Từ tiếp theo →')}</button></div>
-      </div>`;
-      $('#model').onclick = () => speak(w.word, accent(), w.audio);
-      $('#modelSlow').onclick = () => speak(w.word, accent(), w.audio, true);
-      // Từ ngoài thư viện (vd. mở từ add-on): tự tra phiên âm UK/US, nghĩa và bản ghi phát âm
-      if (!w.ipa || !w.vi || !w.audio) Dict.quick(w.word).then(d => {
-        if (!d || !d.found || items[i] !== w) return;
-        w.ipa = w.ipa || d.ipa || ''; w.ipaUS = w.ipaUS || d.ipaUS || ''; w.vi = w.vi || d.vi || ''; w.audio = w.audio || d.audio || '';
-        const ip = $('#ipaW'); if (ip) ip.innerHTML = w.ipaUS && w.ipaUS !== w.ipa ? `🇬🇧 ${esc(w.ipa)} · 🇺🇸 ${esc(w.ipaUS)}` : esc(w.ipa || '');
-        const vi = $('#viW'); if (vi) vi.textContent = mean(w);
-        if (App.inDeck(w.word)) Cards.patch(w.word, c => { if (!c.ipa && w.ipa) c.ipa = w.ipa; if (!c.ipaUS && w.ipaUS) c.ipaUS = w.ipaUS; if (!c.vi && w.vi) c.vi = w.vi; });
-      }).catch(() => {}).then(async () => {
-        if (w.ipa || items[i] !== w) return;
-        const gs = await Dict.ipaGuess(w.word).catch(() => null);
-        const ip = $('#ipaW'); if (!ip || items[i] !== w) return;
-        if (!gs) { ip.innerHTML = `<span class="muted small">${t('Chưa có phiên âm – nghe mẫu 🔊 rồi bắt chước')}</span>`; return; }
-        w.ipa = gs.ipa; w.ipaUS = gs.ipaUS;
-        ip.innerHTML = `${gs.ipaUS && gs.ipaUS !== gs.ipa ? `🇬🇧 ${esc(gs.ipa)} · 🇺🇸 ${esc(gs.ipaUS)}` : esc(gs.ipa)}${gs.guess ? ` <span class="chip" title="${t('Ghép từ {parts}', { parts: esc(gs.parts.join(' + ')) })}" style="font-size:.7rem">${t('ước tính')} · ${esc(gs.parts.join(' + '))}</span>` : ''}`;
-        if (App.inDeck(w.word)) Cards.patch(w.word, c => { if (!c.ipa) c.ipa = gs.ipa; if (!c.ipaUS) c.ipaUS = gs.ipaUS; });
-      });
-      $('#skipW').onclick = () => { i++; show(); };
-      $('#nextW').onclick = () => { i++; show(); };
-      setTimeout(() => speak(w.word, accent(), w.audio), 300);
-      let scored = false;
-      let listening = null;
-      $('#mic').onclick = () => {
-        if (listening) { listening.stop(); return; } // bấm lần nữa để dừng
-        listening = UI.recognize(w.word, accent(), {
-          start: () => { $('#mic').classList.add('rec'); $('#hint').textContent = '🔴 ' + t('Đang nghe… đọc to và rõ (bấm lần nữa để dừng)'); },
-          result: ({ heard, score, audio }) => {
-            total++;
-            const color = score >= 85 ? 'var(--good)' : score >= 65 ? 'var(--hard)' : 'var(--again)';
-            const el = $('#result'); if (!el) return;
-            el.innerHTML = `<div class="score-ring" style="--p:${score};--c:${color}"><b>${score}</b></div>
-              <p style="margin-top:.6rem"><b>${score >= 85 ? '🌟 ' + t('Xuất sắc!') : score >= 65 ? '👍 ' + t('Khá tốt – nghe mẫu và thử lại cho chuẩn hơn') : '🔁 ' + t('Chưa đúng – nghe chậm từng âm rồi thử lại')}</b></p>
-              <p class="muted small">${t('Máy nghe được: “{heard}”', { heard: esc(heard || '…') })}</p>
-              ${audio ? `<div class="row center" style="margin-top:.4rem"><button class="btn sm" id="playMine">▶️ ${t('Giọng của bạn')}</button><button class="btn sm" id="playModel">🔊 ${t('Giọng mẫu')}</button></div>` : ''}`;
-            if (audio) { const a = new Audio(audio); $('#playMine').onclick = () => { UI.stopSpeak(); a.currentTime = 0; a.play(); }; $('#playModel').onclick = () => speak(w.word, accent(), w.audio); }
-            if (score >= 65 && !scored) { scored = true; good++; App.reward({ spoken: 1, xp: score >= 85 ? 5 : 3 }, $('#mic')); score >= 85 ? Sfx.win() : Sfx.correct(); }
-            else if (score < 65) Sfx.wrong();
-            const nb = $('#nextW'); if (nb) nb.hidden = false;
-          },
-          error: code => { const h = $('#hint'); if (h) h.textContent = UI.recErrorText(code); },
-          end: () => { listening = null; const m = $('#mic'); if (m) m.classList.remove('rec'); const h = $('#hint'); if (h && h.textContent.includes(t('Đang nghe… đọc to và rõ (bấm lần nữa để dừng)'))) h.textContent = t('Bấm micro để thử lại'); },
-        });
-      };
-    };
-    const finish = () => {
-      App.reward({ quizzes: 1, xp: 5 });
-      Sfx.win(); if (good >= items.length * 0.7) confetti();
-      view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">🎙️</div>
-        <h2>${t('Phát âm tốt {good}/{total} từ', { good, total: items.length })}</h2><p class="muted">${t('Luyện đều mỗi ngày để Speaking tự nhiên hơn.')}</p>
-        <div class="row center"><button class="btn primary" id="again">${t('Luyện tiếp')}</button><a class="btn" href="#/practice">${t('Chế độ khác')}</a></div></div></div>`;
-      $('#again').onclick = () => runSpeak(src);
-    };
-    show();
-  }
 })();

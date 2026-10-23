@@ -7,7 +7,7 @@
 
   const state = { cards: {}, settings: { ...DEFAULT_SETTINGS }, stats: { days: {}, newToday: { day: '', n: 0 } }, game: null, user: null };
   const allWords = () => TOPICS.flatMap(t => t.words);
-  const topicOf = id => TOPICS.find(t => t.id === id);
+  const topicOf = id => TOPICS.find(t => t.id === id) || (App.subTopic && App.subTopic(id)); // + bài con lộ trình (path.js)
   const inDeck = w => !!state.cards[String(w).toLowerCase()];
   const masteryDots = s => UI.masteryDots(s, SRS);
   // Nguồn gốc của từ → các bộ từ cá nhân tự động
@@ -101,6 +101,7 @@
   const masteredCount = () => Object.values(state.cards).filter(c => SRS.mastery(c.srs) === 3).length;
 
   function updateChrome() {
+    if (!state.game) return; // gọi sớm trước khi nạp xong dữ liệu (vd. đăng nhập gốc trả phiên lúc mở app) – nạp xong sẽ gọi lại
     if (App.updateExamChip) App.updateExamChip();
     const st = streak();
     const fi = (window.Core && Core.Stats && Core.Stats.freezeInfo) ? Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0 };
@@ -210,7 +211,7 @@
   }
   // ---------- Nạp module theo trang (lazy loading): trang đầu chỉ tải phần lõi, phần nặng tải khi cần ----------
   const G = 'js/grammar/', BUNDLES = {
-    grammar: [...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check'].map(f => G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check'].map(f => G + f + '.js'), 'js/grammar.js'],
     pron: ['js/pron/sounds.js', 'js/pron/skills.js', 'js/pron.js'],
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/readings.js', 'js/readings-more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
@@ -218,53 +219,72 @@
     handsfree: ['js/handsfree.js'],
     reflex: ['js/reflex.js'],
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
-    roleplay: ['js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay for Work: 10 kịch bản công sở
+    roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
     call: ['js/call/calls.js', 'js/call.js'], // Call Mia: cuộc gọi luyện nói có kịch bản
-    courses: ['js/courses.js'],
+    courses: ['js/courses.js'], goal: ['js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
-    listening: ['js/choice-kit.js', 'js/qengine.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
+    listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
-    mock: ['js/choice-kit.js', 'js/qengine.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/readtest/gt3.js', 'js/mock.js', 'js/rtype.js'],
+    mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/readtest/gt3.js', 'js/mock.js', 'js/rtype.js'],
     tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
     speak: ['js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
-    toefl: ['js/choice-kit.js', 'js/qengine.js', 'js/toefl/data1.js', 'js/toefl/data2.js', 'js/toefl/data3.js', 'js/toefl/data4.js', 'js/toefl.js'],
-    toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'js/toeic.js'],
-    league: ['js/league.js'],
-    streak: ['js/streak-ui.js'],
+    qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js'],
+    toefl: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toefl/data1.js', 'js/toefl/data2.js', 'js/toefl/data3.js', 'js/toefl/data4.js', 'js/toefl.js'],
+    toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'js/toeic.js'],
+    league: ['js/league.js'], classroom: ['js/i18n/en/classroom.js', 'js/classroom.js'], // 🏫 Lớp học (giáo viên/học sinh)
+    criteria: ['js/i18n/en/criteria.js', 'js/criteria.js'],
+    resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
+    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-day.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
+    notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
+    settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
+    streak: ['js/streak-ui.js'], struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     uidx: ['js/usage-index.js'], usage: ['js/i18n/en/usage.js', 'js/choice-kit.js', 'js/usage-core.js', 'js/usage.js'], uP: ['js/usage/prep-adj.js', 'js/usage/prep-verb.js', 'js/usage/prep-noun.js'], uV: ['js/usage/verb.js'], uA: ['js/usage/adv.js'], uS: ['js/usage/struct.js'], uC: ['js/usage/pair.js'], // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
     placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
+    lvideo: ['js/i18n/en/lvideo.js', 'js/lib/video-rank.js', 'js/lesson-video.js'], // 🎬 Video bài học (thẻ từ, ngữ pháp, ngày học) – docs/VIDEO-SCALE-PLAN.md §10
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
     anki: ['js/lib/save-file.js', 'js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
     share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'], lsw: ['js/lang-menu.js'],
+    quick: ['js/i18n/en/quick.js', 'js/quick.js'],
+    pgames: ['js/study-games.js'],
+    swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
+    wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
+    lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
-  const ROUTE_BUNDLE = { paraphrase: 'paraphrase', courses: 'courses', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: 'grammar', placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { settings: 'settings', class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl'], dict: ['words', 'tsl', 'vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: 'words', review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league'};
+    toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
-  // Phần nặng (đề thi, từ vựng, ngữ pháp…) tải từ CDN jsDelivr (miễn phí, không giới hạn băng thông, gắn đúng phiên bản commit)
-  // → máy chủ chính chỉ phục vụ phần lõi, chịu được lượng người dùng lớn gấp nhiều lần. CDN lỗi → tự lấy từ máy chủ chính.
+  // Phần nặng tải từ CDN jsDelivr (theo commit); CDN lỗi → máy chủ chính.
   const CDN = (() => { try { if (Store.isExtension || (window.VBNative && VBNative.is)) return null; const el = document.getElementById('vb-cdn'); return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } })(); // { base: GitHub Pages, files: [file dữ liệu] }
   let cdnDown = false;
   const loadOne = src => new Promise(res => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => res(true); s.onerror = () => res(false); document.head.appendChild(s); });
   const loadScript = async src => {
     const viaCdn = CDN && !cdnDown && CDN.files.includes(src);
-    if (viaCdn && await loadOne(CDN.base + src)) return;
-    if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
-    if (await loadOne(src)) return;
-    // Đang triển khai bản mới (Cloudflare chưa đồng bộ hết máy chủ) → file tạm trả trang lỗi HTML: chờ 1,5 s rồi thử lại 1 lần, bỏ qua bộ đệm
-    await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
+    if (viaCdn && await loadOne(CDN.base + src)) {}
+    else {
+      if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
+      if (!await loadOne(src)) {
+        // Đang triển khai bản mới (Cloudflare chưa đồng bộ hết máy chủ) → file tạm trả trang lỗi HTML: chờ 1,5 s rồi thử lại 1 lần, bỏ qua bộ đệm
+        await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
+      }
+    }
+    const m = src.match(/^js\/i18n\/en\/([^/]+)\.js$/);
+    if (m && window.I18N) { const l = I18N.lang(); if (l !== 'en' && l !== 'vi') await loadOne(`js/i18n/${l}/${m[1]}.js`); }
   };
   // Tải song song nhưng chạy đúng thứ tự (async=false); file thiếu được bỏ qua
   App.need = (...names) => Promise.all(names.map(n => bundleP[n] || (bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)))));
   App.loaded = n => !!bundleP[n];
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
   const ankiAll = () => ({ cards: Object.values(state.cards), name: t('Sổ từ') });
+  App.settingsDeps = { applyTheme, notify, importData, ankiAll, extCta: () => extCta() }; // trang Cài đặt (js/settings.js, tải lười) dùng lại
   const lazyUI = (b, f) => App.need(...b).then(f).catch(() => toast(t('Không tải được – thử lại sau')));
   App.xport = o => lazyUI(['anki', 'xport'], () => Export.open(o));
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
   // Rảnh thì tải trước các module còn lại → chuyển trang tức thì, dùng offline được
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
+  // việc nặng chỉ khi đã ngừng gõ ≥ 2 s
+  App.whenQuiet = fn => { const go = () => (Date.now() - (App.typedAt || 0) < 2000 ? setTimeout(() => idle(go), 1000) : fn()); idle(go); };
   // Tải sẵn các phần còn lại khi máy rảnh – bỏ qua khi người dùng tiết kiệm dữ liệu, mạng chậm hoặc máy yếu (tải khi cần là đủ)
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
@@ -273,23 +293,24 @@
 
 
   // Làm mới phiên âm của thẻ lưu từ bản cũ (trước khi chọn IPA theo từ loại): chạy ngầm lúc rảnh, chậm rãi, mỗi thẻ 1 lần
-  const IPA_V = 5;
+  const IPA_V = 6; // 6: IPA Mỹ theo kho
   App.refreshIPA = () => refreshIPA();
   async function refreshIPA() {
     if (!navigator.onLine || !window.Dict) return;
     const map = await Cards.all(), todo = Object.values(map).filter(x => x.word && (x.ipaV || 0) < IPA_V).slice(0, 150);
     for (const card of todo) {
       if (!navigator.onLine || document.hidden) break;
-      const w = card.word, lib = window.IELTS_DATA && IELTS_DATA.INDEX[w.toLowerCase()];
-      let ipa = '', ipaUS = '';
-      if (lib && lib.ipa) ipa = lib.ipa;
+      const w = card.word, lib0 = window.Lex ? ((await Lex.get(w).catch(() => null)) || {}).entry : window.IELTS_DATA && IELTS_DATA.INDEX[w.toLowerCase()];
+      const lib = lib0 && lib0.word.toLowerCase() === w.toLowerCase() && (!card.pos || !lib0.pos || card.pos === lib0.pos) ? lib0 : null;
+      let ipa = '', ipaUS = '', fromLib = false;
+      if (lib && lib.ipa) { ipa = lib.ipa; ipaUS = lib.ipaUS || ''; fromLib = true; }
       else if (!/\s/.test(w)) {
         const d = await Dict.quick(w).catch(() => null);
         // chỉ cập nhật khi cùng từ loại (tránh đổi nhầm từ đồng tự khác âm: record n./v.)
         if (d && d.found && d.ipa && (!card.pos || !d.pos || card.pos === d.pos)) { ipa = d.ipa; ipaUS = d.ipaUS || ''; }
         await new Promise(r => setTimeout(r, 900));
       }
-      await Cards.patch(w, x => { x.ipaV = IPA_V; if (ipa) { x.ipa = ipa; if (ipaUS) x.ipaUS = ipaUS; } });
+      await Cards.patch(w, x => { x.ipaV = IPA_V; if (ipa) { x.ipa = ipa; if (ipaUS || fromLib) x.ipaUS = ipaUS; } });
     }
   }
 
@@ -300,14 +321,33 @@
   let curHash = '';
   // Đổi trang trong lúc dữ liệu lần đầu đang nạp (máy chậm, mới mở app) → chờ nạp xong rồi mới vẽ (tránh màn trắng do state.game = null)
   let dataReady; const dataReadyP = new Promise(r => { dataReady = r; });
+  // Token điều hướng: mỗi lần route() tăng 1 NGAY khi vào hàm (trước mọi await). Mọi bước bất đồng bộ (nạp gói lười, fetch, vẽ muộn)
+  // so token của mình với App.routeToken(); cũ hơn = đã có lượt điều hướng mới → bỏ, không vẽ đè trang mới / phiên học đang chạy.
+  let scope = { id: 0, ac: new AbortController() };
+  App.routeToken = () => routeSeq;
+  App.routeStale = tok => tok !== routeSeq;
+  App.signal = () => scope.ac.signal; // AbortSignal của trang hiện tại: fetch(url, { signal: App.signal() }) → tự hủy khi đổi trang
+  // Nạp gói lười CHO TRANG ĐANG MỞ: nếu người học đã sang trang khác lúc gói về thì lời hứa không bao giờ hoàn tất (then/await phía sau không chạy) → không vẽ đè
+  App.lazy = (...names) => { const tok = routeSeq, pending = new Promise(() => {}); return App.need(...names).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
+  // Bọc một tác vụ bất đồng bộ của trang: kết quả về muộn (trang đã đổi) → bỏ. const tok = App.routeToken(); … if (App.routeStale(tok)) return;
+  App.live = p => { const tok = routeSeq, pending = new Promise(() => {}); return Promise.resolve(p).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
+  // App.guard(fn): bọc MỘT LẦN cho trang bất đồng bộ. Trong fn: const w = App.W (đọc ngay đầu hàm, trước await đầu tiên); await w(lời_hứa) → trang đã đổi thì lời hứa không bao giờ
+  // hoàn tất (không vẽ đè); w.signal cho fetch; w.stale() kiểm tra trước khi ghi DOM.
+  App.guard = fn => function (...a) {
+    const tok = routeSeq, w = p => Promise.resolve(p).then(v => (tok !== routeSeq ? new Promise(() => {}) : v), e => (tok !== routeSeq ? new Promise(() => {}) : Promise.reject(e)));
+    w.signal = scope.ac.signal; w.stale = () => tok !== routeSeq; App.W = w;
+    return fn.apply(this, a);
+  };
   async function route() {
-    if (!state.game) await dataReadyP;
+    const my = ++routeSeq; // token của lượt này
+    scope.ac.abort(); scope = { id: my, ac: new AbortController() };
+    if (!state.game) { await dataReadyP; if (my !== routeSeq) return; }
     const { name, arg, query } = parseHash();
     const STUDY = /^#\/(practice\/|review)/;
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
     else if (!STUDY.test(location.hash)) backHash = '';
     curHash = location.hash;
-    const b = [].concat(ROUTE_BUNDLE[name] || []), my = ++routeSeq;
+    const b = [].concat(ROUTE_BUNDLE[name] || []);
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => {
@@ -316,7 +356,7 @@
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
-    if (b.length) { await App.need(...b); clearTimeout(skel); if (my !== routeSeq) return; }
+    if (b.length) { try { await App.need(...b); } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
     if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
@@ -332,11 +372,11 @@
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
       window.scrollTo(0, 0);
-      await fn(arg, query);
+      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; throw e; } // lượt cũ lỗi vì bị hủy → im lặng
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
-      if (my === routeSeq) markActivity(name, arg);
+      if (my === routeSeq) { markActivity(name, arg); if (App.afterRoute) App.afterRoute(name); }
     };
     // Không dùng View Transitions: trang dài hơn màn hình + cuộn về đầu → Chrome vẽ lệch ảnh chụp trang cũ (mảng chồng/trắng khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
@@ -404,15 +444,22 @@
   // nghĩa tiếng mẹ đẻ hiện tức thì & offline; từ chưa có trong gói mới dịch lúc chạy.
   // Nghĩa hiển thị DUY NHẤT cho mọi danh sách/thẻ: tiếng Việt chỉ khi người học chọn nghĩa tiếng Việt;
   // ngôn ngữ khác → nghĩa tiếng mẹ đẻ dịch sẵn (gói) → định nghĩa tiếng Anh. Không bao giờ rơi về tiếng Việt.
-  App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word)) || x.def || ''; };
+  App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word, x.pos)) || x.def || ''; };
   // Dọn dẹp khi rời trang: nhiều module có thể đăng ký (App.onCleanup(fn)); App.cleanup (1 hàm) vẫn được hỗ trợ
   App.cleanups = []; App.onCleanup = fn => { if (typeof fn === 'function') App.cleanups.push(fn); };
   App.packs = {};
-  App.nativeGloss = w => { const p = App.packs[I18N.lang()], e = p && p[String(w || '').toLowerCase()]; return e ? e[0] : ''; };
+  // Gói: "từ" → [nghĩa, cờ, tin cậy]; "từ#loại" cho từ nhiều từ loại (scripts/lexicon/i18n-job.mjs). tin cậy 1 = điểm duyệt AI thấp → nhãn "Dịch máy"
+  const gpos = p => { p = String(p || '').toLowerCase(); return /^(n|noun)\b/.test(p) ? 'n' : /^(phr ?v|phrasal)/.test(p) ? 'phrv' : /^(v|verb)\b/.test(p) ? 'v' : /^adj/.test(p) ? 'adj' : /^adv/.test(p) ? 'adv' : p; };
+  App.glossEntry = (w, pos) => { const p = App.packs[I18N.lang()], k = String(w || '').toLowerCase(); return (p && ((pos && p[k + '#' + gpos(pos)]) || p[k])) || null; };
+  App.nativeGloss = (w, pos) => { const e = App.glossEntry(w, pos); return e ? e[0] : ''; };
+  // Nghĩa tiếng mẹ đẻ: gói → dịch lúc chạy
+  App.nativeFill = (el, word, pos) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; el.lang = L; el.dir = 'auto'; const pk = App.nativeGloss(word, pos); if (pk) { const ge = App.glossEntry(word, pos); el.textContent = '🌐 ' + pk; if (ge && ge[2] === 1) { const m = document.createElement('span'); m.className = 'muted small'; m.textContent = ' · ' + t('Dịch máy'); el.appendChild(m); } return; } const viaLex = window.Lex ? Lex.get(word, { lang: L }).then(r => (r && r.mean && r.entry.word.toLowerCase() === String(word).toLowerCase() ? r.mean : null)).catch(() => null) : Promise.resolve(null); // mảnh ~1,5 KB, không cả gói
+    viaLex.then(m => m || App.loadPack().then(() => App.glossEntry(word, pos))).then(ge => (ge ? ge : window.Dict ? Dict.translateTo(word, L).then(r => (r ? [r, 0, 0] : null)) : null)).then(ge => { const r = ge && ge[0]; if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) { el.textContent = '🌐 ' + r; if (ge[2] === 1) { const m = document.createElement('span'); m.className = 'muted small'; m.textContent = ' · ' + t('Dịch máy'); el.appendChild(m); } } }).catch(() => {}); };
   App.loadPack = () => {
     const L = I18N.lang(); if (L === 'vi' || L === 'en' || App.packs[L]) return Promise.resolve(App.packs[L]);
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
-    return (App._pack = App._pack || fetch(base + '/packs/' + L + '.json').then(r => (r.ok ? r.json() : {})).then(j => (App.packs[L] = j)).catch(() => ({})));
+    App._pack = App._pack || {}; // theo từng ngôn ngữ
+    return (App._pack[L] = App._pack[L] || fetch(base + '/packs/' + L + '.json').then(r => (r.ok ? r.json() : {})).then(j => (App.packs[L] = j)).catch(() => { delete App._pack[L]; return {}; }));
   };
   setTimeout(() => App.loadPack(), 1500);
   // Nội dung bài học viết bằng tiếng Việt → tự dịch sang ngôn ngữ người học khi giao diện không phải tiếng Việt.
@@ -426,7 +473,7 @@
     const save = () => { try { const ks = Object.keys(mem); if (ks.length > 4000) ks.slice(0, ks.length - 4000).forEach(k => delete mem[k]); localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* đầy bộ nhớ */ } };
     let timer = 0, busy = false;
     // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
-    let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json')
+    let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (window.VBNative && VBNative.is) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json') // app gốc: file nằm sẵn trong gói (www/i18n/content) → dùng được khi offline
       .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => (pre = j || {}));
     const got = k => mem[k] || (pre && pre[k]) || ''; // bản dịch sẵn không ghi vào localStorage (giữ bộ nhớ máy nhẹ)
     async function pass() {
@@ -477,18 +524,21 @@
       const q = input.value.trim().toLowerCase();
       clearTimeout(timer); idx = -1;
       if (!q) { items = []; ++seq; return render(); }
-      const local = Object.keys(INDEX).filter(k => k.startsWith(q)).slice(0, 6).map(k => ({ word: INDEX[k].word, vi: INDEX[k].vi, local: true }));
-      items = local; render();
-      const my = ++seq;
+      const my = ++seq; App.typedAt = Date.now();
+      const mine = window.Lex ? Lex.suggest(q, 6).then(r => r.map(x => ({ word: x.word, vi: App.meanOf(x.entry), local: true }))).catch(() => [])
+        : Promise.resolve(Object.keys(INDEX).filter(k => k.startsWith(q)).slice(0, 6).map(k => ({ word: INDEX[k].word, vi: App.meanOf(INDEX[k]), local: true })));
+      mine.then(local => { if (my !== seq) return; items = [...local, ...items.filter(i => !i.local && !local.some(l => l.word === i.word) && i.word.startsWith(q))].slice(0, 8); render(); }); // kết quả cũ về sau không đè
       timer = setTimeout(async () => {
         try {
           const r = await fetch(`https://api.datamuse.com/sug?s=${encodeURIComponent(q)}&max=8`).then(r => r.json());
           if (my !== seq) return;
-          const extra = r.map(x => x.word).filter(w => /^[a-z][a-z' -]*$/.test(w) && !items.some(i => i.word === w)).slice(0, 8 - items.length).map(w => ({ word: w, vi: (INDEX[w] || {}).vi }));
+          await mine; if (my !== seq) return;
+          const extra = r.map(x => x.word).filter(w => /^[a-z][a-z' -]*$/.test(w) && !items.some(i => i.word === w)).slice(0, 8 - items.length).map(w => ({ word: w, vi: INDEX[w] ? App.meanOf(INDEX[w]) : '' }));
           items = [...items, ...extra]; render();
         } catch (e) { /* offline */ }
       }, 180);
     });
+    input.addEventListener('focus', () => { if (window.Lex) Lex.warm().catch(() => {}); }, { once: true });
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { idx = Math.min(items.length - 1, idx + 1); render(); e.preventDefault(); }
       else if (e.key === 'ArrowUp') { idx = Math.max(-1, idx - 1); render(); e.preventDefault(); }
@@ -539,7 +589,7 @@
     const ex = App.exam ? App.exam() : 'ielts', X = (App.EXAMS || {})[ex] || { ic: '🎓', short: 'IELTS' };
     const g = state.settings.goal;
     const left = g && g.date ? Math.ceil((new Date(g.date) - now) / DAY) : null;
-    const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${X.ic} ${esc(X.short)} ${esc(String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
+    const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${X.ic} ${esc(X.short)} ${esc(g.exam === 'general' ? ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'][g.target - 1] || '' : String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
     const late = h >= 19 && !todayReviews && cards.length;
     const seed = allWords(), w = seed[Math.floor(Date.now() / DAY) % seed.length];
     const quests = Game.questsFor(k), doneQ = state.game.questsDone[k] || [];
@@ -550,9 +600,10 @@
         <div class="grow"><div class="muted small">${greet}${name ? ', ' + esc(name) : ''}</div><div class="kit-say" id="kitSay">${late ? t('Học 5 phút với mình để giữ chuỗi nhé!') : t('Đây là kế hoạch của bạn hôm nay')}</div></div>
         ${chip}
       </div>
-      ${ringsHtml()}
       <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
+      ${ringsHtml()}
       <div id="leagueHomeCard"></div>
+      <a class="card hover hub-card quick-play-card" href="#/quick"><span class="hub-ic" aria-hidden="true">⚡</span><span class="hub-tx"><b>${t('Chơi nhanh 15 giây')}</b><small>${t('4 câu cực ngắn · Không sợ sai, giữ phản xạ')}</small></span><span class="chip ok">${t('Chơi ngay')} →</span></a>
       ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
       <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
       <div class="card wotd wotd-sm">
@@ -569,7 +620,7 @@
     bindCommon();
     const drawLeague = () => { const el = $('#leagueHomeCard'); if (el && window.League) League.renderHomeCard(el); };
     if (window.League) drawLeague();
-    else if (App.need) App.need('league').then(drawLeague).catch(() => {});
+    else if (App.need) App.lazy('league').then(drawLeague).catch(() => {});
     if (window.StreakUI) StreakUI.checkSavedNotice(state.game);
     if (App.todayPlan) App.todayPlan().then(tasks => {
       const el = $('#todayPlan'); if (!el) return;
@@ -581,9 +632,10 @@
         const ks = $('#kitSay'); if (ks) ks.textContent = t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉');
         return;
       }
+      // Kiểu Duolingo/Busuu: 1 hành động chính ngay dưới tiêu đề (luôn trên màn hình đầu), danh sách việc bên dưới
       el.innerHTML = `<div class="row between nowrap"><div><h2 style="margin:0">${t('Kế hoạch hôm nay')}</h2><div class="muted small">${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</div></div>${ring(Math.round(n / tasks.length * 100), n + '/' + tasks.length, 'var(--primary)')}</div>
-        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"><span class="pi-em" aria-hidden="true">${x.done ? '✅' : x.em}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>
-        <a class="btn primary lg block" href="${next.href}" style="margin-top:.9rem">${n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>`;
+        <a class="btn primary lg block today-cta" href="${next.href}">${next.day ? (next.started ? t('Tiếp tục Ngày {n}', { n: next.day }) : t('Bắt đầu Ngày {n}', { n: next.day })) + (next.track ? ' · ' + esc(next.track) : '') + ' · ≈ ' + t('{m} phút', { m: next.mins }) : n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>${next.sw || ''}
+        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${x.done ? '✅' : x.em}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>`;
     });
   };
 
@@ -648,11 +700,11 @@
   }
   App.modeTiles = modeTiles;
 
-  function topicCard(tp) {
+  function topicCard(tp, lvf) {
     const n = tp.words.filter(w => inDeck(w.word)).length;
     const pct = n / tp.words.length * 100;
     const lv = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort().join(' · ');
-    return `<a class="card hover topic-card" href="#/topic/${tp.id}" style="color:var(--text)">
+    return `<a class="card hover topic-card" href="#/topic/${tp.id}${typeof lvf === 'string' && lvf ? '?lv=' + lvf : ''}" style="color:var(--text)">
       <div class="row between nowrap"><span class="em">${tp.emoji}</span>${ring(pct, `${n}/${tp.words.length}`, pct === 100 ? 'var(--good)' : '')}</div>
       <h3>${esc(tp.name)}</h3>
       <div class="muted small clamp2">${esc(tp.desc)}</div>
@@ -667,6 +719,7 @@
     const ex = App.exam ? App.exam() : 'ielts';
     const tab = query.get('g') || (Object.keys(state.cards).length >= 10 ? 'mine' : ({ toeic: 'toeic', toefl: 'exam', general: 'core' })[ex] || 'topics');
     const total = Object.keys(INDEX).length;
+    const LV0 = /^[ABC][12]$/.test(query.get('lv') || '') ? query.get('lv') : '';
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Thư viện từ vựng')}</h1><p class="muted">${t('{n} từ & cụm từ trong {k} bộ – phiên âm Anh–Anh, cấp độ CEFR, collocation và câu ví dụ IELTS.', { n: total.toLocaleString(I18N.lang()), k: TOPICS.length })}</p></div>
         <div class="row"><input class="input" id="libQ" placeholder="${t('Lọc bộ từ…')}" style="max-width:240px"><button class="btn sm" id="libAnkiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="libAnkiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
@@ -675,11 +728,16 @@
         ${GROUPS.map(g => `<button data-g="${g.id}" class="${tab === g.id ? 'on' : ''}">${g.emoji} ${esc(g.name)}</button>`).join('')}
         <button data-g="mine" class="${tab === 'mine' ? 'on' : ''}">📌 ${t('Đang học')}</button>
       </div>
-      <div id="libBody" style="margin-top:1.2rem"></div>`;
+      <div class="lv-filter" role="group" aria-label="${t('Cấp độ CEFR')}"><span class="small muted">📶 ${t('Cấp độ CEFR')}</span>${['', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'].map(l => `<button type="button" class="chip${l === LV0 ? ' on' : ''}" data-lvf="${l}" aria-pressed="${l === LV0}">${l || t('Tất cả')}</button>`).join('')}</div>
+      <div id="libBody" style="margin-top:1rem"></div>`;
+    let lvf = LV0;
+    // ≥5 từ (hoặc ≥30%) ở cấp đó
+    const hasLv = tp => { if (!lvf) return true; const n = tp.words.filter(w => w.level === lvf).length; return n >= 5 || n >= tp.words.length * 0.3 && n > 0; };
     const draw = () => {
       const q = $('#libQ').value.trim().toLowerCase();
       const g = $('#libTabs .on').dataset.g;
-      const match = t => (!q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.words.some(w => w.word.toLowerCase() === q));
+      const match = t => hasLv(t) && (!q || t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q) || t.words.some(w => w.word.toLowerCase() === q));
+      const topicCard = tp => App.topicCard(tp, lvf);
       const groups = g === 'all' ? GROUPS : g === 'mine' ? [{ id: 'mine', name: t('Bộ từ đang học'), emoji: '📌', desc: '' }] : GROUPS.filter(x => x.id === g);
       $('#libBody').innerHTML = groups.map(gr => {
         const ts = TOPICS.filter(t => (gr.id === 'mine' ? t.words.some(w => inDeck(w.word)) : t.group === gr.id) && match(t));
@@ -692,7 +750,9 @@
           <div class="grid auto">${(cut ? ts.slice(0, 6) : ts).map(topicCard).join('')}</div>`;
       }).join('') || `<div class="card empty"><div class="em">🔍</div>${t('Không tìm thấy bộ từ phù hợp.')}</div>`;
     };
-    $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); history.replaceState(null, '', location.pathname + location.search + `#/library?g=${b.dataset.g}`); draw(); });
+    const syncUrl = () => history.replaceState(null, '', location.pathname + location.search + `#/library?g=${$('#libTabs .on').dataset.g}${lvf ? '&lv=' + lvf : ''}`);
+    $$('#libTabs button').forEach(b => b.onclick = () => { $$('#libTabs button').forEach(x => x.classList.toggle('on', x === b)); syncUrl(); draw(); });
+    $$('[data-lvf]').forEach(b => b.onclick = () => { lvf = b.dataset.lvf; $$('[data-lvf]').forEach(x => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on); }); syncUrl(); draw(); });
     $('#libQ').oninput = draw;
     $('#libAnkiOut').onclick = () => App.anki('export', ankiAll());
     $('#libAnkiIn').onclick = () => App.anki('import');
@@ -715,12 +775,14 @@
   }
   App.personalCollections = personalCollections;
 
-  routes.topic = function (id) {
+  routes.topic = function (id, query) {
     const tp = topicOf(id);
     if (!tp) return routes.library('', new URLSearchParams());
     const levels = [...new Set(tp.words.map(w => w.level).filter(Boolean))].sort();
     const missing = () => tp.words.filter(w => !inDeck(w.word));
     const gname = (GROUPS.find(g => g.id === tp.group) || {}).name || '';
+    const q0 = query && query.get && query.get('lv');
+    let lv = levels.length > 1 && levels.includes(q0) ? q0 : '';
     view.innerHTML = `
       <a href="#/library?g=${tp.group}" class="small">← ${esc(gname)}</a>
       <div class="card" style="margin:.7rem 0 1rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap">
@@ -736,7 +798,7 @@
           <button class="btn" id="tpAnki">🃏 ${t('Xuất sang Anki')}</button>
         </div>
       </div>
-      ${levels.length > 1 ? `<div class="tabs" id="lvTabs" style="margin-bottom:1rem;display:inline-flex"><button class="on" data-lv="">${t('Tất cả')}</button>${levels.map(l => `<button data-lv="${l}">${l}</button>`).join('')}</div>` : ''}
+      ${levels.length > 1 ? `<div class="tabs" id="lvTabs" role="group" aria-label="${t('Cấp độ CEFR')}" style="margin-bottom:1rem;display:inline-flex"><button class="${lv ? '' : 'on'}" data-lv="">${t('Tất cả')}</button>${levels.map(l => `<button class="${l === lv ? 'on' : ''}" data-lv="${l}">${l} <span class="muted tiny">${tp.words.filter(w => w.level === l).length}</span></button>`).join('')}</div>` : ''}
       <div class="card" id="wordList"></div>`;
     const header = () => {
       const m = missing().length;
@@ -745,7 +807,6 @@
       b.textContent = m ? `+ ${t('Thêm {n} từ vào flashcard', { n: m })}` : `✓ ${t('Đã thêm toàn bộ')}`;
       b.disabled = !m;
     };
-    let lv = '';
     const draw = () => {
       $('#wordList').innerHTML = tp.words.filter(w => !lv || w.level === lv).map(w => `
         <div class="word-row">
@@ -795,7 +856,8 @@
       <p class="small muted" style="margin-top:1rem">${t('Hoặc email trực tiếp')}: <a href="mailto:support@lexkite.com">support@lexkite.com</a></p>`;
     // Cloudflare Turnstile: tải ngầm khi mở form liên hệ (bảo vệ chống bot)
     const siteKey = window.TURNSTILE_SITE_KEY || '0x4AAAAAAAMmZ7O1jJgQv8iY';
-    if (!window.turnstile && !document.getElementById('cf-turnstile-script')) {
+    const noTs = !!(window.VBNative && VBNative.is); // app gốc (capacitor://localhost): Turnstile báo lỗi 400020 & hiện khung lỗi → bỏ; máy chủ chỉ xác minh khi có token, vẫn chặn spam bằng ô bẫy/thời gian/hạn mức
+    if (!noTs && !window.turnstile && !document.getElementById('cf-turnstile-script')) {
       const s = document.createElement('script'); s.id = 'cf-turnstile-script';
       s.src = '';
       s.async = true; s.defer = true; document.head.appendChild(s);
@@ -813,7 +875,7 @@
         } catch (e) { /* bỏ qua nếu không render được */ }
       }
     };
-    if (window.turnstile) renderTurnstile();
+    if (noTs) { /* không dùng Turnstile */ } else if (window.turnstile) renderTurnstile();
     else { let c = 0; const iv = setInterval(() => { c++; if (window.turnstile) { clearInterval(iv); renderTurnstile(); } else if (c > 15) clearInterval(iv); }, 300); }
 
     const f = $('#ctForm'), out = $('#ctMsg');
@@ -835,8 +897,11 @@
     };
   };
 
-  routes.dict = async function (q) {
-    const recent = await Store.get('recent', []);
+  // Lời mời cài add-on (chỉ Chromium máy tính, chưa cài – web/js/ext-cta.js quyết định), nạp lười; URL cửa hàng: js/ext-config.js
+  let extP = null;
+  const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
+  routes.dict = App.guard(async function (q) {
+    const w = App.W, recent = await w(Store.get('recent', []));
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
       <form class="search" id="searchForm" autocomplete="off">
@@ -844,7 +909,9 @@
         <button class="btn primary lg">${t('Tra từ')}</button>
       </form>
       ${recent.length ? `<div class="row small" style="margin-top:.7rem"><span class="muted">${t('Gần đây:')}</span>${recent.map(r => `<a class="chip" href="#/dict/${encodeURIComponent(r)}">${esc(r)}</a>`).join('')}</div>` : ''}
-      <div id="result" style="margin-top:1.25rem"></div>`;
+      <div id="result" style="margin-top:1.25rem"></div>
+      <div class="ext-card" data-ext-cta="app" hidden><div><b>🧩 ${t('Tra từ ngay trên mọi trang web')}</b><p class="small muted">${t('Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.')}</p></div><a class="btn sm primary" data-ext-cta="app" hidden>${t('Thêm vào Chrome')}</a></div>`;
+    extCta();
     $('#searchForm').onsubmit = e => { e.preventDefault(); const v = $('#q').value.trim(); if (v) location.hash = `#/dict/${encodeURIComponent(v)}`; };
     if (!q) {
       $('#q').focus();
@@ -858,10 +925,10 @@
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
-    const fast = await Dict.quick(q);
+    const fast = await w(Dict.quick(q));
     if (!same()) return;
     if (fast) paint(fast, false);
-    const full = await Dict.lookup(q);
+    const full = await w(Dict.lookup(q));
     if (!same()) return;
     if (!full || !full.found) {
       if (!fast) $('#result').innerHTML = `<div class="card empty"><div class="em">🤔</div><p>${t('Không tìm thấy “{q}”.', { q: esc(q) })}${full && full.vi ? ' ' + t('Gợi ý dịch: <b>{vi}</b>', { vi: esc(full.vi) }) : ''}</p><p class="small">${t('Kiểm tra chính tả hoặc kết nối mạng.')}</p></div>`;
@@ -870,6 +937,7 @@
     Store.set('recent', [full.word, ...recent.filter(r => r !== full.word)].slice(0, 8));
     const lk = todayKey() + ':' + full.word;
     if (!lookedUp.has(lk)) { lookedUp.add(lk); reward({ lookups: 1 }); }
+    extCta().then(x => x && x.lookup({ text: t('Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.'), btn: t('Thêm vào Chrome'), close: t('Đóng') }));
     paint(full, true);
 
     function paint(e, final) {
@@ -880,14 +948,14 @@
       <div class="card">
         <div class="entry-head">
           <div>
-            <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}</div>
+            <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}${e.from ? `<span class="chip" data-from lang="en">${esc(e.from)} → ${esc(e.word)}</span>` : ''}</div>
             <div class="pron">
-              <span><b class="small">🇬🇧 UK</b> <span class="ipa">${esc(e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-GB" data-url="${esc(e.audio && /-uk/.test(e.audio) ? e.audio : '')}">🔊</button></span>
-              <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}">🔊</button></span>
-              <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}">🔊</button></span>
+              <span><b class="small">🇬🇧 UK</b> <span class="ipa">${esc(e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-GB" data-url="${esc(e.audio && /-uk/.test(e.audio) ? e.audio : '')}" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span>
+              <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>
+              <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🔊</button></span>
             </div>
-            ${I18N.meanLang() === 'en' ? '' : `<div class="vi">${esc(e.vi)}</div>`}
-            ${e.def ? `<div style="margin-top:.4rem">${esc(e.def)}</div>` : ''}
+            ${I18N.meanLang() === 'en' ? '<div class="vi wi-native" data-dnative></div>' : `<div class="vi">${esc(e.vi)}</div>`}
+            ${e.def ? `<div style="margin-top:.4rem" lang="en">${esc(e.def)}</div>` : ''}
             <div class="row" style="margin-top:.8rem">
               ${card ? `<span class="chip ok">✓ ${t('Đã có trong flashcard')}</span>` : `<button class="btn primary" id="quickSave">+ ${t('Lưu flashcard')}</button>`}
               <a class="btn" href="#/practice/speak?w=${encodeURIComponent(e.word)}">🎙️ ${t('Luyện phát âm')}</a>
@@ -896,7 +964,7 @@
           </div>
           ${pic(e)}
         </div>
-        ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}">🔊</button></div>` : ''}
+        ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div>` : ''}
         ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}
         <div id="related"></div>
         <div id="phraseBox"></div>
@@ -920,7 +988,7 @@
 
       ${(e.sentences || []).length ? `<div class="card" style="margin-top:1rem">
         <h3>💬 ${t('Câu ví dụ song ngữ')}</h3>
-        ${e.sentences.map(s => `<div class="meaning"><div>${highlight(s.en, e.word)} <button class="icon-btn sm" data-speak-text="${esc(s.en)}">🔊</button></div><div class="muted small">${esc(s.vi)} <span class="chip">${s.auto ? t('Oxford · dịch máy') : 'Tatoeba'}</span></div>
+        ${e.sentences.map(s => `<div class="meaning"><div>${highlight(s.en, e.word)} <button class="icon-btn sm" data-speak-text="${esc(s.en)}" aria-label="${t('Nghe cả câu')}">🔊</button></div><div class="muted small">${esc(s.vi)} <span class="chip">${s.auto ? t('Oxford · dịch máy') : 'Tatoeba'}</span></div>
           <button class="btn sm ghost" data-use-sent="${esc(s.en)}">📌 ${t('Dùng làm ngữ cảnh')}</button></div>`).join('')}
       </div>` : ''}
 
@@ -936,8 +1004,9 @@
         </div>
       </div>`;
     bindCommon();
+    App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
     if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, state.settings.accent === 'en-US' ? e.audioUS : e.audio); }
-    if (final) { loadRelated(e); drawPhrases(e); }
+    if (final) { loadRelated(e); drawPhrases(e); if (!App.loaded('words')) App.whenQuiet(() => App.need('words', 'tsl').then(() => { if (same() && $('#phraseBox')) drawPhrases(e); }).catch(() => {})); } // kho đủ chỉ để vẽ thêm cụm từ
     if (keep) { $('#ctx').value = keep; }
 
     let ctxVi = '';
@@ -970,7 +1039,7 @@
     $('#saveWord').onclick = save;
     const qs = $('#quickSave'); if (qs) qs.onclick = save;
     }
-  };
+  });
 
   // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
   function drawPhrases(e) {
@@ -1145,9 +1214,12 @@
     for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
       const key = todayKey(d), v = activity(key);
       if (usedFreezes.includes(key)) {
-        cells.push(`<i class="freeze" title="${key}: 🧊 ${t('Ngày đóng băng (chuỗi được bảo toàn)')}"></i>`);
+        const title = `${key}: 🧊 ${t('Ngày đóng băng (chuỗi được bảo toàn)')}`;
+        cells.push(`<i class="freeze" role="img" aria-label="${title}" title="${title}"></i>`);
       } else {
-        cells.push(`<i class="${v >= 60 ? 'l4' : v >= 30 ? 'l3' : v >= 10 ? 'l2' : v > 0 ? 'l1' : ''}" title="${key}: ${t('{n} lượt ôn, {xp} XP', { n: state.stats.days[key] || 0, xp: (state.game.days[key] || {}).xp || 0 })}"></i>`);
+        const cls = v >= 60 ? 'l4' : v >= 30 ? 'l3' : v >= 10 ? 'l2' : v > 0 ? 'l1' : '';
+        const title = `${key}: ${v > 0 ? t('{n} lượt ôn, {xp} XP', { n: state.stats.days[key] || 0, xp: (state.game.days[key] || {}).xp || 0 }) : t('Chưa học')}`;
+        cells.push(`<i class="${cls}" role="img" aria-label="${title}" title="${title}"></i>`);
       }
     }
     // Ôn tập 14 ngày
@@ -1188,7 +1260,7 @@
       </div>
 
       <div class="card" style="margin-top:1rem">
-        <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted" style="gap:.5rem"><span>${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span><span style="display:inline-flex;align-items:center;gap:3px"><i class="freeze" style="width:12px;height:12px;border-radius:3px;display:inline-block"></i> 🧊 ${t('Đóng băng')}</span></span></div>
+        <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted" style="gap:.5rem"><span>${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span><span style="display:inline-flex;align-items:center;gap:3px"><i class="freeze" role="img" aria-label="${t('Đóng băng')}" style="width:12px;height:12px;border-radius:3px;display:inline-block"></i> 🧊 ${t('Đóng băng')}</span></span></div>
         <div class="heat" style="margin-top:.8rem">${cells.join('')}</div>
       </div>
 
@@ -1243,151 +1315,6 @@
     if (ok == null) { try { const r = await fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com') + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: '{"op":"ping"}' }); ok = r.ok ? '1' : '0'; try { sessionStorage.setItem('lk.adm.' + u.uid, ok); } catch (e) { /* bỏ qua */ } } catch (e) { return false; } }
     return ok === '1';
   };
-  const adminTiles = () => [['overview', '📊', t('Tổng quan'), t('Người dùng, truy cập, việc cần xử lý')], ['analytics', '📈', t('Phân tích'), t('Nguồn truy cập, quốc gia, thiết bị, tốc độ')], ['users', '👥', t('Người dùng'), t('Danh sách, tìm kiếm, chi tiết')], ['inbox', '✉️', t('Hộp thư'), t('Tin nhắn liên hệ & trả lời')], ['alerts', '🚨', t('Cảnh báo'), t('Workflow, lỗi JavaScript, dung lượng')], ['quality', '🩺', t('Chất lượng'), t('Rà soát hằng ngày & bản dịch')], ['services', '🔑', t('Dịch vụ & API'), t('Tài khoản, khóa, hạn mức miễn phí')], ['settings', '⚙️', t('Cài đặt hệ thống'), t('Thông báo, hạn mức AI, Gemini API')]]
-    .map(([id, ic, l, d]) => `<a class="adm-tile" href="${App.adminUrl(id)}" target="_blank" rel="noopener"><span class="adm-ic" aria-hidden="true">${ic}</span><span class="adm-tx"><b>${l}</b><small>${d}</small></span></a>`).join('');
-  routes.settings = function () {
-    const s = state.settings;
-    const perm = 'Notification' in window ? Notification.permission : 'unsupported';
-    const nc = x => x.replace(/[:：]\s*$/, ''); // nhãn đứng riêng – bỏ dấu hai chấm ở cuối
-    const row = (label, ctl, hint = '') => (ctl = ctl.replace(/<(select|input)(?![^>]*aria-label)(?![^>]*type="file")/g, `<$1 aria-label="${esc(String(label).replace(/<[^>]+>/g, ''))}"`), `<div class="set-row"><div class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</div><div class="set-c">${ctl}</div></div>`);
-    const tog = (id, on, label, hint = '') => `<label class="set-row switch"><span class="set-l"><span>${label}</span>${hint ? `<small>${hint}</small>` : ''}</span><input type="checkbox" id="${id}" ${on ? 'checked' : ''}></label>`;
-    const slide = (label, vid, val, input, hint = '') => `<label class="set-row col"><span class="set-top"><span>${label}</span><b id="${vid}">${val}</b></span>${input}${hint ? `<small>${hint}</small>` : ''}</label>`;
-    const seg = (id, items, cur) => `<div class="tabs seg" id="${id}">${items.map(([v, l, attr]) => `<button type="button" data-v="${v}" class="${cur === v ? 'on' : ''}"${attr || ''}>${l}</button>`).join('')}</div>`;
-    const sec = (id, title, body) => `<section class="set-sec" id="set-${id}"><h3 class="set-h">${title}</h3><div class="set-list">${body}</div></section>`;
-    const NAV = [['account', '☁️', t('Tài khoản')], ['look', '🎨', t('Giao diện')], ['study', '🎯', t('Mục tiêu học')], ['sound', '🔊', t('Âm thanh')], ['remind', '⏰', t('Nhắc học')], ['ai', '🤖', 'AI'], ['data', '💾', t('Dữ liệu')]];
-    view.innerHTML = `
-      <div class="set-wrap">
-      <div class="page-head"><div><h1>${t('Cài đặt')}</h1><p class="muted">${t('Tài khoản, nhắc học, mục tiêu và giao diện')}</p></div></div>
-      <nav class="set-nav" aria-label="${t('Cài đặt')}">${NAV.map(([id, ic, l]) => `<button type="button" data-jump="${id}"><span aria-hidden="true">${ic}</span> ${l}</button>`).join('')}</nav>
-      <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div><div id="leagueSetBox" style="margin-top:.75rem"></div></section>
-      <section class="set-sec" id="set-admin" hidden><h3 class="set-h">🛡️ ${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-grid">${adminTiles()}</div></section>
-      ${sec('look', '🎨 ' + t('Giao diện'),
-        row('🌐 ' + t('Ngôn ngữ giao diện'), App.langPicker())
-        + row('📖 ' + t('Nghĩa từ hiển thị bằng'), seg('sMean', [['vi', 'Tiếng Việt', ' translate="no" lang="vi" data-keep-vi'], ['en', t('Định nghĩa tiếng Anh')]], I18N.meanLang()))
-        + row(t('Chế độ màu'), seg('sTheme', [['auto', '🌓 ' + t('Tự động')], ['light', '☀️ ' + t('Sáng')], ['dark', '🌙 ' + t('Tối')]], s.theme)))}
-      ${sec('study', '🎯 ' + t('Mục tiêu học'),
-        slide(nc(t('Từ mới mỗi ngày:')), 'vNew', s.dailyNew, `<input type="range" min="0" max="50" id="sNew" value="${s.dailyNew}">`)
-        + slide(nc(t('Mục tiêu lượt ôn mỗi ngày:')), 'vGoal', s.dailyGoal, `<input type="range" min="5" max="200" step="5" id="sGoal" value="${s.dailyGoal}">`)
-        + slide(nc(t('Tối đa thẻ mỗi phiên ôn:')), 'vCap', s.sessionCap || t('Không giới hạn'), `<input type="range" min="0" max="200" step="10" id="sCap" value="${s.sessionCap}">`)
-        + slide('🧠 ' + nc(t('Mục tiêu ghi nhớ (thuật toán FSRS):')), 'vRet', Math.round((s.retention || 0.9) * 100) + '%', `<input type="range" min="0.8" max="0.95" step="0.01" id="sRet" value="${s.retention || 0.9}">`, t('Khả năng còn nhớ mỗi từ khi đến lượt ôn. 90% là cân bằng tốt nhất; 95% nhớ chắc hơn nhưng số lượt ôn gần gấp đôi; 85% ít ôn hơn, hợp khi bận.')))}
-      ${sec('sound', '🔊 ' + t('Âm thanh & phát âm'),
-        row(t('Giọng phát âm'), `<select class="input" id="sAccent"><option value="en-GB" ${s.accent === 'en-GB' ? 'selected' : ''}>🇬🇧 ${t('Anh – Anh (khuyên dùng cho IELTS)')}</option><option value="en-US" ${s.accent === 'en-US' ? 'selected' : ''}>🇺🇸 ${t('Anh – Mỹ')}</option></select>`)
-        + row(t('Giọng đọc'), `<select class="input" id="sVoice"></select>`)
-        + '<div id="voiceTip" class="tip small set-tip" hidden></div>'
-        + slide(nc(t('Tốc độ đọc:')), 'vRate', (s.ttsRate || 0.92).toFixed(2) + '×', `<input type="range" min="0.6" max="1.2" step="0.02" id="sRate" value="${s.ttsRate || 0.92}">`)
-        + row(`<button type="button" class="btn sm" id="sTry">▶️ ${t('Nghe thử câu mẫu')}</button>`, '', t('Từ đơn ưu tiên bản ghi giọng người thật'))
-        + tog('sAuto', s.autoSpeak, t('Tự phát âm khi hiện thẻ'))
-        + tog('sWhisper', s.whisperMode, '🤫 ' + t('Chế độ thì thầm khi luyện nói'))
-        + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
-        + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh')))}
-      ${sec('remind', '⏰ ' + t('Nhắc học hằng ngày'),
-        tog('sRem', s.reminderOn, t('Bật nhắc học'))
-        + `<div id="remOpts" ${s.reminderOn ? '' : 'hidden'}>`
-        + row(t('Giờ nhắc'), `<input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}">`, Store.isExtension ? t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.') : t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.'))
-        + tog('sAuto', s.reminderAuto !== false, t('Tự động theo giờ bạn hay học'), t('Nhắc 15 phút trước khung giờ bạn hay học nhất (sau vài ngày học).'))
-        + `<div class="set-row"><div class="set-btns">${Store.isExtension ? '' : `<button type="button" class="btn sm" id="sPerm" ${perm === 'granted' || perm === 'unsupported' ? 'disabled' : ''}>${perm === 'granted' ? '✓ ' + t('Đã cho phép thông báo') : perm === 'unsupported' ? t('Không hỗ trợ thông báo') : '🔔 ' + t('Cho phép thông báo')}</button><button type="button" class="btn sm" id="sIcs">📅 ${t('Thêm vào Lịch (.ics)')}</button>`}<button type="button" class="btn sm ghost" id="sTest">${t('Thử gửi thông báo')}</button></div></div></div>`
-        + tog('sGold', s.goldenOn, t('Nhắc “thời điểm vàng”'), t('Báo khi có từ sắp bị quên'))
-        + `<div id="goldOpts" ${s.goldenOn ? '' : 'hidden'}>`
-        + `<label class="set-row col"><span class="set-top"><span>${t('Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn', { n: s.goldenMin })}</span></span><input type="range" min="1" max="50" id="sGMin" value="${s.goldenMin}"></label>`
-        + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`)
-        + '</div>'
-        + tog('sDigest', s.emailDigest === true, '📧 ' + t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)')))}
-      <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
-      ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span><small>${t('Cài đặt: mở <code>chrome://extensions</code> → bật <i>Developer mode</i> → <i>Load unpacked</i> → chọn thư mục <code>extension</code>.')}</small></div></div>`)}
-      ${sec('data', '💾 ' + t('Dữ liệu'),
-        row(t('Chuyển dữ liệu'), `<a class="btn sm" href="#/handoff">${t('📲 Chuyển sang điện thoại (không cần đăng nhập)')}</a>`)
-        + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">📦 Excel · PDF · JSON</button>`)
-        + row('🃏 Anki', `<span class="set-btns"><button type="button" class="btn sm" id="sAnkiOut">${t('Xuất sang Anki')}</button><button type="button" class="btn sm" id="sAnkiIn">${t('Nhập từ Anki')}</button></span>`)
-        + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
-        + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`)
-        + row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a></span>`))}
-      </div>`;
-    // Mục quản trị: chỉ hiện sau khi máy chủ xác nhận quyền (thêm nút nhảy nhanh vào thanh mục lục)
-    App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">🛡️</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
-    $$('.set-nav [data-jump]').forEach(b => b.onclick = () => { const el = document.getElementById('set-' + b.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
-
-    const save = async () => { await saveSettings(); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
-    $('#sAuto').onchange = e => { s.reminderAuto = e.target.checked; if (s.reminderAuto) { const st = Core.Stats.smartTime(state.stats); if (st) { s.reminderTime = st; $('#sTime').value = st; } } save(); };
-    $('#sRem').onchange = e => { s.reminderOn = e.target.checked; $('#remOpts').hidden = !s.reminderOn; save(); };
-    $('#sTime').onchange = e => { s.reminderTime = e.target.value || '20:00'; s.reminderAuto = false; const a = $('#sAuto'); if (a) a.checked = false; save(); toast(t('Sẽ nhắc lúc {time} mỗi ngày', { time: s.reminderTime })); };
-    $('#sNew').oninput = e => { s.dailyNew = +e.target.value; $('#vNew').textContent = s.dailyNew; save(); };
-    $('#sGoal').oninput = e => { s.dailyGoal = +e.target.value; $('#vGoal').textContent = s.dailyGoal; save(); };
-    const drawAI = async () => { const b = $('#aiBox'); if (!b || !window.AI) return; b.innerHTML = await AI.settingsHtml(); AI.bindSettings(drawAI); };
-    drawAI();
-    $('#sRet').oninput = e => { s.retention = +e.target.value; SRS.retentionTarget = s.retention; $('#vRet').textContent = Math.round(s.retention * 100) + '%'; save(); };
-    $('#sGold').onchange = e => { s.goldenOn = e.target.checked; $('#goldOpts').hidden = !s.goldenOn; save(); };
-    $('#sGMin').oninput = e => { s.goldenMin = +e.target.value; $('#vGMin').textContent = s.goldenMin; save(); };
-    $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:30'; save(); };
-    $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '07:00'; save(); };
-    $('#sCap').oninput = e => { s.sessionCap = +e.target.value; $('#vCap').textContent = s.sessionCap || t('Không giới hạn'); save(); };
-    $('#sDigest').onchange = e => { s.emailDigest = e.target.checked; save(); };
-    const fillVoices = () => {
-      if (!$('#sVoice')) return; // đã rời trang Cài đặt
-      const list = UI.voicesFor(s.accent);
-      const cur = (UI.pickVoice(s.accent) || {}).name;
-      $('#sVoice').innerHTML = list.length ? list.map((v, i) => `<option value="${esc(v.name)}" ${v.name === cur ? 'selected' : ''}>${esc(v.name)}${i === 0 ? ' ⭐ ' + t('khuyên dùng') : ''}</option>`).join('') : `<option>${t('Trình duyệt chưa có giọng tiếng Anh')}</option>`;
-    };
-    // Gợi ý giọng đọc hay hơn (miễn phí) khi máy chỉ có giọng "robot" – theo đúng hệ điều hành/trình duyệt
-    const voiceTip = () => { const el = $('#voiceTip'); if (!el) return; const h = App.voiceTipHtml(s.accent); el.hidden = !h; el.innerHTML = h; };
-    fillVoices(); voiceTip(); setTimeout(() => { fillVoices(); voiceTip(); }, 600);
-    $('#sVoice').onchange = e => { s.voice = { ...(s.voice || {}), [s.accent]: e.target.value }; save(); UI.tts('This is how I will read words and sentences to you.', s.accent); };
-    $('#sRate').oninput = e => { s.ttsRate = +e.target.value; $('#vRate').textContent = s.ttsRate.toFixed(2) + '×'; save(); };
-    $('#sTry').onclick = () => UI.tts('Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.', s.accent);
-    $('#sAccent').onchange = e => { s.accent = e.target.value; save(); fillVoices(); speak('pronunciation', s.accent); };
-    $('#sAuto').onchange = e => { s.autoSpeak = e.target.checked; save(); };
-    $('#sWhisper').onchange = e => { s.whisperMode = e.target.checked; save(); if (s.whisperMode) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); };
-    $('#sHq').onchange = e => { s.hqVoice = e.target.checked; save(); };
-    $('#sSfx').onchange = e => { s.sfx = e.target.checked; save(); if (s.sfx) { Core.sfxOff = false; Sfx.correct(); } };
-    $$('#sTheme button').forEach(b => b.onclick = () => { s.theme = b.dataset.v; applyTheme(); save(); $$('#sTheme button').forEach(x => x.classList.toggle('on', x === b)); });
-    $('#sTest').onclick = () => notify(true);
-    $$('#sMean [data-v]').forEach(b => b.onclick = () => { if (b.dataset.v !== I18N.meanLang()) I18N.setMean(b.dataset.v); });
-    const p = $('#sPerm'); if (p) p.onclick = async () => { await Notification.requestPermission(); routes.settings(); };
-    const ics = $('#sIcs'); if (ics) ics.onclick = () => download(new Blob([makeICS(s.reminderTime)], { type: 'text/calendar' }), 'ielts-lexi-nhac-hoc.ics');
-    $('#sExport').onclick = () => App.xport();
-    $('#sAnkiOut').onclick = () => App.anki('export', ankiAll());
-    $('#sAnkiIn').onclick = () => App.anki('import');
-    $('#sImport').onchange = importData;
-    $('#sReset').onclick = async () => {
-      if (!confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
-      await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null);
-      await load(); toast(t('Đã xóa dữ liệu')); routes.settings();
-    };
-    if (window.Sync) Sync.renderBox($('#syncBox')); else $('#syncBox').hidden = true;
-    const drawLeagueSet = () => {
-      const lb = $('#leagueSetBox');
-      if (!lb) return;
-      let on = '0';
-      try { on = localStorage.getItem('lk.league') || '0'; } catch (e) { /* bỏ qua */ }
-      if (on !== '1' || !window.Sync || !Sync.user) { lb.innerHTML = ''; return; }
-      lb.innerHTML = `<div class="card"><div class="row between wrap" style="gap:.6rem;align-items:center">
-        <div><b>🏆 ${t('Giải đấu tuần')}</b><div class="muted small">${t('Bạn đang tham gia bảng xếp hạng 30 người')}</div></div>
-        <button type="button" class="btn sm ghost danger" id="btnLeaveLeague">${t('Rời bảng xếp hạng')}</button>
-      </div></div>`;
-      const btn = $('#btnLeaveLeague');
-      if (btn) btn.onclick = async () => {
-        if (!confirm(t('Rời bảng xếp hạng tuần này? Điểm XP tuần này sẽ bị xóa khỏi giải đấu.'))) return;
-        try {
-          await Sync.league('leave');
-          toast(t('Đã rời bảng xếp hạng tuần'));
-          routes.settings();
-        } catch (e) {
-          toast(t('Không thể rời bảng xếp hạng: {msg}', { msg: e.message || e }));
-        }
-      };
-    };
-    drawLeagueSet();
-  };
-
-  function makeICS(time) {
-    const [hh, mm] = time.split(':');
-    const ymd = todayKey().replace(/-/g, '');
-    const url = location.href.split('#')[0];
-    return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Lexkite//VI', 'CALSCALE:GREGORIAN',
-      'BEGIN:VEVENT', `UID:ielts-lexi-daily-${ymd}@lexi`, `DTSTAMP:${ymd}T000000Z`, `DTSTART:${ymd}T${hh}${mm}00`, 'DURATION:PT15M', 'RRULE:FREQ=DAILY',
-      'SUMMARY:📚 ' + t('Ôn từ vựng IELTS (15 phút)'), 'DESCRIPTION:' + t('Mở Lexkite để ôn flashcard hôm nay: {url}', { url }), `URL:${url}`,
-      'BEGIN:VALARM', 'ACTION:DISPLAY', 'DESCRIPTION:' + t('Đến giờ ôn từ vựng IELTS!'), 'TRIGGER:PT0M', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
-  }
-
   // Lời nhắc học bằng giọng Kit (vui, không gây áp lực), đổi câu theo ngày
   App.kitNudge = () => {
     const { total } = Cards.dueCount(state.cards, state.settings, state.stats), st = streak(), day = Math.floor(Date.now() / DAY);
@@ -1504,6 +1431,7 @@
       if (cta && !hero.querySelector('a[href="#/placement"]')) {
         cta.insertAdjacentHTML('afterend', `
           <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
+          <a class="small" href="#/style" style="display:inline-block;margin:.7rem 0 0 1rem;font-weight:700">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
           <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>`);
       }
       const demo = hero.querySelector('.w-demo');
@@ -1549,6 +1477,7 @@
               <p class="muted" style="font-size:1.1rem">${t('Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.')}</p>
               <div class="row w-cta" style="margin-top:1.5rem"><a class="btn primary lg" href="#/welcome/setup">${t('Bắt đầu miễn phí →')}</a><button class="btn lg" id="loginW">${t('Tôi đã có tài khoản')}</button></div>
               <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
+          <a class="small" href="#/style" style="display:inline-block;margin:.7rem 0 0 1rem;font-weight:700">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
               <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>
             </div>
             <div class="w-demo">
@@ -1588,54 +1517,54 @@
       else Sfx.wrong();
       $('#wBack').hidden = true; $('#wDone').hidden = false; });
     const login = loginOnboard;
-    $('#loginW').onclick = login; $('#loginH').onclick = login;
+    for (const b of [$('#loginW'), $('#loginH')]) if (b) { if (window.Sync && Sync.can === false) b.remove(); else b.onclick = login; }
     view.querySelectorAll('[data-wjump]').forEach(b => b.onclick = () => document.getElementById(b.dataset.wjump).scrollIntoView({ behavior: 'smooth' }));
     if (App.blogLive) App.blogLive().then(on => { const a = view.querySelector('.w-nav a[data-blog]'); if (on && a) { a.hidden = false; a.href = App.blogUrl(); } });
   };
 
-  // Thiết lập lần đầu: kỳ thi → mục tiêu theo thang điểm của kỳ thi → cường độ → chủ đề hợp kỳ thi → vào thẳng bài học đầu tiên
+  // Thiết lập lần đầu: mục tiêu (gói học – tracks.js) → điểm mục tiêu theo kỳ thi của gói → cường độ → trình độ / kiểm tra đầu vào → vào thẳng Ngày 1
   function setup(login) {
     const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
     const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
     const TOPIC_GROUPS = { ielts: ['topics', 'writing'], ieltsgt: ['topics', 'speaking'], toeic: ['toeic', 'bsl'], toefl: ['awl', 'nawl', 'topics'], general: ['core', 'topics'] };
-    const EX = App.EXAMS || {};
-    const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set() };
+    const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set(), v: {}, lv: '' };
     const paces = [[10, '🐢 ' + t('Nhẹ nhàng'), t('5 phút/ngày · 5 từ mới')], [20, '🚶 ' + t('Đều đặn'), t('10–15 phút/ngày · 10 từ mới')], [40, '🚀 ' + t('Tăng tốc'), t('25 phút/ngày · 20 từ mới')]];
     const topicsFor = ex => TOPICS.filter(x => TOPIC_GROUPS[ex].includes(x.group)).slice(0, 15);
     const setExam = async ex => {
-      pick.exam = ex; pick.target = DEF_T[ex];
+      if (!App.loaded('pathx')) await App.need('pathx').catch(() => {});
+      const TK = window.Tracks; if (TK) { if (TR_ID) pick.track = TR_ID; else pick.track = pick.track || TK.EX2T[ex] || 'ielts'; TR_ID = ''; ex = TK.pickExam(pick); }
+      if (ex !== pick.exam || !pick.target) pick.target = DEF_T[ex];
+      pick.exam = ex;
       if (!App.loaded('words')) await App.need('words').catch(() => {});
       if ((ex === 'toeic' || ex === 'toefl') && !App.loaded('tsl')) { await App.need('tsl').catch(() => {}); }
       const list = topicsFor(ex); pick.topics = new Set(list.slice(0, 3).map(x => x.id));
       draw();
     };
+    let TR_ID = '';
     const draw = () => {
-      const list = topicsFor(pick.exam), words = TOPICS.filter(x => pick.topics.has(x.id)).reduce((a, x) => a + x.words.length, 0);
       const tLabel = pick.exam === 'toeic' ? t('Điểm TOEIC mục tiêu?') : pick.exam === 'toefl' ? t('Band TOEFL mục tiêu?') : pick.exam === 'general' ? t('Trình độ bạn muốn đạt?') : t('Band mục tiêu của bạn?');
       view.innerHTML = `<div style="max-width:760px;margin:0 auto" class="stack">
         <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
         ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
         ${window.Sync && Sync.gBtn && !state.user && !pick.noAcct ? `<div class="card row between" id="haveAcct"><div><b>${t('Đã có tài khoản?')}</b><div class="small muted">${t('Đăng nhập để khôi phục dữ liệu học của bạn.')}</div></div><div class="row">${Sync.gBtn('setupIn')}<button type="button" class="btn" id="noAcct">${t('Học không cần tài khoản')}</button></div></div>` : ''}
-        <div class="card"><h2>🎓 ${t('Bạn đang luyện kỳ thi nào?')}</h2><div class="exam-list">${Object.entries(EX).map(([k, x]) => `<button type="button" class="exam-opt ${k === pick.exam ? 'on' : ''}" data-exam="${k}"><span class="em" aria-hidden="true">${x.ic}</span><span><b>${esc(x.name)}</b></span>${k === pick.exam ? '<span class="tick" aria-hidden="true">✓</span>' : ''}</button>`).join('')}</div></div>
+        ${window.Tracks ? Tracks.setupCards(pick) : ''}
         <div class="card"><h2>🎯 ${tLabel}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${TARGETS[pick.exam].map(b => `<button data-v="${b}" class="${pick.target === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
         <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start;gap:.2rem"><b>${pt}</b><span class="small muted">${d}</span></button>`).join('')}</div></div>
-        <div class="card"><h2>📚 ${t('Chọn chủ đề muốn học trước')}</h2><p class="muted small">${t('Chọn 1–5 chủ đề, bạn có thể thêm sau trong Thư viện.')}</p>
-          <div class="row" style="margin-top:.6rem">${list.map(x => `<button class="chip" data-t="${x.id}" style="border:2px solid ${pick.topics.has(x.id) ? 'var(--primary)' : 'transparent'};cursor:pointer;font-size:.9rem;padding:.4rem .8rem;${pick.topics.has(x.id) ? 'background:var(--primary-soft);color:var(--primary-text)' : ''}">${x.emoji} ${esc(x.name)}</button>`).join('')}</div></div>
-        <button class="btn primary lg block" id="go" ${pick.topics.size ? '' : 'disabled'}>${pick.topics.size ? t('Bắt đầu học ({n} từ)', { n: words }) : t('Bắt đầu học')} →</button>
+        <button class="btn primary lg block" id="go">${t('Bắt đầu Ngày {n}', { n: 1 })} →</button>
       </div>`;
       if (login && $('#haveAcct') && !pick.shownLogin) { pick.shownLogin = 1; const h = $('#haveAcct'); h.style.outline = '3px solid var(--primary)'; h.scrollIntoView({ block: 'center' }); const b = $('#setupIn'); if (b) b.focus(); }
       if ($('#setupIn')) { $('#setupIn').onclick = e => { e.stopPropagation(); loginOnboard(); }; $('#noAcct').onclick = () => { pick.noAcct = 1; $('#haveAcct').remove(); $('[data-exam]').focus(); }; }
-      $$('[data-exam]').forEach(b => b.onclick = () => { if (b.dataset.exam !== pick.exam) setExam(b.dataset.exam); });
+      if (window.Tracks) Tracks.bindSetup(view, pick, id => { TR_ID = id; setExam(pick.exam); }, draw);
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; draw(); });
       $$('[data-pace]').forEach(b => b.onclick = () => { pick.pace = +b.dataset.pace; draw(); });
-      $$('[data-t]').forEach(b => b.onclick = () => { const id = b.dataset.t; pick.topics.has(id) ? pick.topics.delete(id) : pick.topics.size < 5 && pick.topics.add(id); draw(); });
       $('#go').onclick = async () => {
         $('#go').disabled = true; $('#go').textContent = '⏳ ' + t('Đang chuẩn bị bộ thẻ…');
         Object.assign(state.settings, { exam: pick.exam, examTarget: pick.target, dailyGoal: pick.pace, dailyNew: pick.pace === 10 ? 5 : pick.pace === 20 ? 10 : 20 });
         if (/^ielts/.test(pick.exam)) state.settings.targetBand = pick.target;
+        const to = window.Tracks ? await Tracks.startSetup(pick) : '#/review';
         await saveSettings();
-        for (const id of pick.topics) for (const w of topicOf(id).words) if (!inDeck(w.word)) await addWord(w, null, { silent: true });
-        await finishOnboarding(true, '#/review'); // vào thẳng bài học đầu tiên (từ mới của chủ đề vừa chọn)
+        for (const id of pick.topics) for (const w of topicOf(id).words) if (!inDeck(w.word)) await addWord(w, null, { silent: true }); // bộ thẻ ôn ban đầu hợp mục tiêu
+        await finishOnboarding(true, to); // vào thẳng Ngày 1 của gói (hoặc bài kiểm tra đầu vào)
       };
     };
     setExam(pick.exam);
@@ -1691,7 +1620,7 @@
 
   // ---------- Cài app (PWA) & trạng thái mạng ----------
   let installEvt = null;
-  const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true || !!(window.VBNative && VBNative.is); // app gốc iOS/Android = đã cài → không mời "Cài app"/"Thêm vào MH chính"
   const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios|fxios/i.test(navigator.userAgent);
   function showInstallBtn() {
     if (Store.isExtension || isStandalone() || $('#installBtn')) return;
@@ -1754,8 +1683,20 @@
     try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
     if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; App.prefetchAll(); return; }
-    route();
+    // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc đang ở trang thường
+    if (!routeSeq || !document.body.classList.contains('focus')) route();
     App.prefetchAll();
+    const nb = $('#notifBtn');
+    if (nb) {
+      nb.onclick = async () => {
+        if (!window.NoticesUI) await App.need('notices');
+        if (window.NoticesUI) NoticesUI.toggle();
+      };
+      setTimeout(async () => {
+        if (!window.NoticesUI) await App.need('notices');
+        if (window.NoticesUI) NoticesUI.init(state);
+      }, 2500);
+    }
     setTimeout(() => idle(refreshIPA), 15000);
     if (isIOS()) setTimeout(() => App.installNudge && App.installNudge(), 25000);
   };
@@ -1786,15 +1727,15 @@
     let noTrack = false; try { noTrack = localStorage.getItem('lk.noTrack') === '1'; } catch (e) { /* bỏ qua */ }
     const inSample = !noTrack && (parseInt(vid.slice(0, 6), 36) % 1000) < rate * 1000;
     let lastSent = 0, pv = { [path]: 1 }; // pv: lượt xem từng trang kể từ lần gửi trước (máy chủ cộng dồn vào pageviews_day)
-    const flush = (force) => {
+    const flush = (force, hb) => { // hb: nhịp "đang online" 3 phút – máy chủ có thể chỉ ghi Analytics Engine (lượt xem dồn sang lần gửi sau)
       if (since) { dur += (Date.now() - since) / 1000; since = document.visibilityState === 'visible' ? Date.now() : 0; }
       if (!inSample || (!force && Date.now() - lastSent < 60000)) return;
-      lastSent = Date.now(); const d = pv; pv = {};
-      send({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined });
+      lastSent = Date.now(); const d = pv; if (!hb) pv = {};
+      send({ t: 's', sid, vid, ret, path, cur: cur(), ref: document.referrer, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb });
     };
     addEventListener('hashchange', () => { pages++; const r = cur(); if (r in pv || Object.keys(pv).length < 20) pv[r] = (pv[r] || 0) + 1; });
     // "Đang online": gửi 1 lần sau 15 giây rồi nhịp 3 phút/lần khi tab đang hiển thị (ẩn tab → không gửi)
-    if (inSample) { setTimeout(() => document.visibilityState === 'visible' && flush(true), 15000); setInterval(() => { if (document.visibilityState === 'visible') flush(true); }, 180000); }
+    if (inSample) { setTimeout(() => document.visibilityState === 'visible' && flush(true), 15000); setInterval(() => { if (document.visibilityState === 'visible') flush(true, 1); }, 180000); }
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); else since = Date.now(); });
     addEventListener('pagehide', () => flush(true));
     const err = (msg, src, line) => { if (++errs > 5 || !msg || /ResizeObserver loop|^Script error\.?$/.test(msg)) return; send({ t: 'e', msg: String(msg), src: String(src || '').replace(location.origin, ''), line, path: (location.hash.match(/^#\/([a-z-]+)/) || [, ''])[1] }); };

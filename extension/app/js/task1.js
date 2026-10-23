@@ -108,9 +108,10 @@
   const TYPE_VI = () => ({ line: t('Biểu đồ đường'), bar: t('Biểu đồ cột'), pie: t('Biểu đồ tròn'), table: t('Bảng số liệu'), process: t('Quy trình'), map: t('Bản đồ') });
 
   let timer = null;
-  routes.task1 = async function (id) {
+  routes.task1 = App.guard(async function (id) {
+    const w = App.W;
     const d = SETS.find(x => x.id === id) || SETS[0];
-    const drafts = await Store.get('task1Drafts', {});
+    const drafts = await w(Store.get('task1Drafts', {}));
     view.innerHTML = `
       <div class="page-head"><div><h1>📈 Writing Task 1</h1><p class="muted">${t('Mô tả biểu đồ ≥150 từ trong 20 phút. Đề tự soạn – số liệu giả định để luyện tập.')} <a href="#/write">Task 2 →</a></p></div></div>
       <div class="tabs" style="margin-bottom:1rem">${SETS.map(x => `<button class="${x.id === d.id ? 'on' : ''}" data-set="${x.id}">${TYPE_VI()[x.type]} · ${esc(x.id)}</button>`).join('')}</div>
@@ -149,7 +150,7 @@
     };
     $('#go').onclick = () => analyse(ta.value, d);
     if (window.Assist && $('#t1')) Assist.attach($('#t1'), $('#t1').parentElement);
-  };
+  });
 
   // Chấm Task 1 (thuần, dùng chung cho Phòng viết & Thi thử 4 kỹ năng)
   function score(text, d) {

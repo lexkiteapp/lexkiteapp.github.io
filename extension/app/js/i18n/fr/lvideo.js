@@ -1,0 +1,3 @@
+/* UI fr – lvideo (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {"Xem 20 giây":"Voir 20 secondes","Video của ngày":"Vidéo du jour","Video bài học":"Vidéo de la leçon","Phát video: {t}":"Lire la vidéo : {t}","Đóng video":"Fermer la vidéo","Không phát được video – thử lại sau.":"Impossible de lire la vidéo. Réessayez plus tard.","Câu hỏi nhanh":"Question rapide","Đúng rồi! Đã thêm vào thẻ ôn.":"Bonne réponse ! Ajouté à vos cartes de révision.","Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.":"Pas tout à fait. Réponse : {a}. Ajouté à vos cartes de révision.","Video tiếp theo":"Vidéo suivante"});
+})(typeof self !== 'undefined' ? self : this);

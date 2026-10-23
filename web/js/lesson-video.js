@@ -8,6 +8,7 @@
  * sự kiện 'ended' → câu đố EN. YouTube không sẵn sàng trong 4 s / lỗi / vùng chặn (người dùng zh, múi giờ Trung Quốc) → bản tự lưu trữ nhỏ (R2/media.lexkite.com).
  * Không có youtube_id → bản tự lưu trữ. docs/VIDEO-STORAGE.md. */
 (function (g) {
+  const YT_EMBED = 'https://www.youtube-nocookie.com/embed/'; // khung nhúng (không phải mã) – add-on giữ được; iframe_api (mã từ xa) bị build-extension.sh gỡ khỏi bản add-on
   const R = () => g.LkVideoRank;
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const T = (k, o) => (typeof g.t === 'function' ? g.t(k, o) : k.replace(/\{(\w+)\}/g, (_, x) => (o && o[x] != null ? o[x] : '')));
@@ -113,7 +114,7 @@
       const q = new URLSearchParams({ enablejsapi: 1, playsinline: 1, rel: 0, modestbranding: 1, autoplay: 1, cc_load_policy: 1, cc_lang_pref: 'en', hl: 'en' }); if (/^https?:/.test(location.origin)) q.set('origin', location.origin);
       const fr = document.createElement('iframe'); fr.id = `lvyt-${it.id}`; fr.setAttribute('loading', 'lazy'); fr.title = it.title || 'Video'; fr.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; fr.allowFullscreen = true;
       const escId = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(it.id) : String(it.id).replace(/[^\w-]/g, '\\$&');
-      fr.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(it.youtube_id)}?${q}`; host.querySelector(`#lvyt-${escId}`).replaceWith(fr);
+      fr.src = YT_EMBED + `${encodeURIComponent(it.youtube_id)}?${q}`; host.querySelector(`#lvyt-${escId}`).replaceWith(fr);
       mark('iframe'); await yieldMain(); if (fell || !slot.isConnected) return;
       player = new Y.Player(fr, {
         events: {

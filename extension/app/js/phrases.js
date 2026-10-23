@@ -442,6 +442,7 @@
     if (k === 'tr') {
       const L = I18N.learnLang();
       const vi = L === 'vi' ? await Dict.translateVi(info.text) : await Dict.translateTo(info.text, L);
+      if (!window.VBStruct) await App.need('struct').catch(() => {});
       const structs = window.VBStruct ? VBStruct.analyze(info.text, 4) : [];
       pop.innerHTML = `<div class="row between nowrap"><b class="small">🌐 ${t('Bản dịch')}</b><button class="icon-btn sm" data-x>✕</button></div><div style="margin:.4rem 0;line-height:1.6">${esc(vi || t('Không dịch được – thử lại sau.'))}</div>
         ${structs.length ? `<div class="st-box"><b class="small">🧩 ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(t(x.name))}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(t(x.vi))}</div><a class="small" href="#/grammar/${esc(x.lesson)}">📐 ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''}
