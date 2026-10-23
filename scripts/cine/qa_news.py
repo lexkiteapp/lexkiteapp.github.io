@@ -330,6 +330,24 @@ for fi_ in range(_nf):
 rule(_pf['overlay_pairs'] == 0 and _pf['overlay_hands'] == 0, f"per-frame no-occlusion: {_pf} (overlay x face is the FACE check above)")
 json.dump(_pf, open(f'{RD}/overlap_report.json', 'w'))
 print('== SCENE CONTINUITY (owner 22/10)')
+_b4 = str(tl['shots'][0]['bg']).split('@')[0]; _W4 = f'{LIB}/anchor/bg/w4'   # owner 23/10: one shared room (bg-v4 plate), overlap, sharp bg, pans, eyeline
+if '@' in str(tl['shots'][0]['bg']):
+    _v4 = json.load(open(f'{_W4}/{_b4}.v4.json')) if os.path.exists(f'{_W4}/{_b4}.v4.json') else None
+    rule(bool(_v4), f'bg-v4 plate in use (anime_6B SR, shared plate) for {_b4}')
+    if _v4:
+        _cl, _cr = _v4['crop']['L'], _v4['crop']['R']; _ov = (_cl[0] + _cl[2] - _cr[0]) / _cl[2]
+        rule(_ov >= 0.2 and _v4['anchor']['edge_density'] >= 0.01, f"L/R crops overlap {_ov * 100:.0f} % (>= 20 %), shared strip edge density {_v4['anchor']['edge_density']} (>= 0.01: same objects in both shots)")
+        _ac = [(sd, v.get('acu_v3'), v['acu_v4']) for sd, v in _v4['sides'].items()]; _amin = float(os.environ.get('BG_ACU_MIN', '0'))
+        rule(all(a4 >= max(_amin, (a3 or 0) * 0.98) for _, a3, a4 in _ac), f'bg edge acutance v3 -> v4 {_ac} (v4 >= v3, >= {_amin})')
+    _pn = tl.get('qa', {}).get('pans') or []; rule(bool(_pn) or not _v4, f'establishing / key-change pans across the shared plate: {_pn}')
+_GB = {c['id']: c for c in json.load(open(f'{LIB}/anchor/green/bank_gestures.json')).get('clips', [])} if os.path.exists(f'{LIB}/anchor/green/bank_gestures.json') else {}
+_yaw = {}
+for x in tl['shots']:
+    c_ = _GB.get(x['clip'])
+    if c_ and c_.get('face_box') and (c_.get('track') or {}).get('mouth_x'):
+        fb_ = c_['face_box']; _yaw[x['clip']] = round((sum(c_['track']['mouth_x']) / 2 - (fb_[0] + fb_[2]) / 2) / (fb_[2] - fb_[0]), 3)   # + = features toward screen right
+_away = [(c, v) for c, v in _yaw.items() if (c.startswith('ga') and v < -0.05) or (not c.startswith('ga') and v > 0.05)]
+rule(not _away, f'eyeline / 180 deg: Ama (left) never turned screen-left, Carlos (right) never screen-right (yaw proxy {_yaw})')
 _bgs = {x['bg'].split('@')[0] for x in tl['shots']}; rule(len(_bgs) == 1, f'one location per clip (wide scene: Ama crop L / Carlos crop R): {sorted(_bgs)}')
 _win = {}
 for x in tl['shots']:
@@ -468,7 +486,8 @@ if tl['total'] > 40: fails.append('total>40s')   # was printed only, never count
 _bgt = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../content/video/cine/news/bg_topics.json')))['domains']; _lm = tl['lesson']
 _txt = ' '.join([_lm.get('goal_en', ''), ' '.join(_lm.get('series') or []), _lm.get('hook_text', '')]).lower()
 _dh = [d for d, v in _bgt.items() if any(re.search(r'\b' + re.escape(k), _txt) for k in v['keywords'])]
-_bad = [d for d in _dh if _lm.get('bg') not in _bgt[d]['bg']]
+_bgid = str(_lm.get('bg') or '').split('@')[0]
+_bad = [d for d in _dh if _bgid not in _bgt[d]['bg'] and not any(re.search(r'(^|_)' + re.escape(k) + r'(_|$)', _bgid) for k in _bgt[d]['bg'] + [d])]   # wide library ids (hl_pharmacy_counter__...) match by scene word
 print(f"== BG TOPIC: bg {_lm.get('bg')} domains {_dh or '-'}", 'OK' if not _bad else f'FAIL (needs {[_bgt[d]["bg"] for d in _bad]})')
 if _bad: fails.append('bg-topic')
 print('== LAYOUT (owner 23/10: 1 card + 1 caption, no overlap / overflow, AA contrast; contact sheet)')

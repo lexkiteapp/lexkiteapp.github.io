@@ -38,14 +38,15 @@ h_br = min(0.4, max(0.34, 1.66 - a_ - hs1 / ht)); a_ = max(a_, 1.66 - h_br - hs1
 h = shot('hook', 'ga4_talk_natural', 'ama', 'wide', BG, line=hk['line'], at=a_, breath=h_br, frames=[24 + q if 24 + q <= 53 else 106 - (24 + q) for q in range(60)], tempo=ht)   # 24..53 then back: stays out of the hands-at-waist segment (54-100)
 assert 1.6 <= h['dur'] <= 2.0 + 1 / FPS, ('hook length', h['dur'])
 SFX.append(('whoosh.wav', 0.0)); START['ga4_talk_natural'] = 0
-HKT = hk['card']; _nzh = lambda x_: ' '.join(re.findall(r"[a-z0-9']+", x_.lower()))
+HKT = hk['card']; HSTRIKE = None; _nzh = lambda x_: ' '.join(re.findall(r"[a-z0-9']+", x_.lower()))
 if _nzh(HKT) in _nzh(TEXT[hk['line']]) and SPEC.get('key_line'):   # owner 23/10 never duplicate the caption: 'Stop saying this.' is spoken + captioned -> the card shows WHAT ("“CONSIDERING TO BUY”")
     _a, _b, _bad, _ = key_tokens(SPEC['wrong_line'], SPEC['key_line']); _ia = [i_ for i_, x_ in enumerate(_a) if x_ in _bad]
     if _ia:
         _d = ImageDraw.Draw(layer())
-        for _c in ('“' + ' '.join(_a[max(0, _ia[0] - 1):_ia[-1] + 1]).upper() + '”', '“' + ' '.join(_a[_ia[0]:_ia[-1] + 1]).upper() + '”'):
-            if wrap_fit(_d, _c, FH, CW - 2 * PAD, 92, 70, 1, one_line_min=70): HKT = _c; break
-im, box, fs = hook_card(HKT, ''); ov('VHook', HKT + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
+        _w0 = max(0, _ia[0] - 1); _c = ' '.join(_a[_w0:_ia[-1] + 1]).upper()   # owner 23/10: 'CONSIDERING ~~TO BUY~~' (the mistake struck out in red)
+        if wrap_fit(_d, _c, FH, CW - 2 * PAD, 92, 70, 1, one_line_min=70): HKT = _c; HSTRIKE = {i_ - _w0 for i_ in _ia}
+
+im, box, fs = hook_card(HKT, '', strike=HSTRIKE); ov('VHook', HKT + '|', 0, h['dur'], box, 'hook', fs=fs, img=im)
 # owner 23/10 one idea per screen: the difficulty badge lives inside the series tag (hook only), no separate chip
 CL = {'ama': ['ga4_talk_natural'], 'carlos': ['gc4_talk_natural']}; use = {'ama': 0, 'carlos': 0}
 # owner 22/10: ONE outfit per host per clip (outfit tag from the clip bank; clips without a tag = outfit1); variety comes across clips

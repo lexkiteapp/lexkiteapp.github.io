@@ -44,6 +44,7 @@ on:
       STUDIO_CALLBACK_SECRET: { required: false }
 permissions:
   contents: read
+  actions: read   # bg-v4 artifact shards (scripts/cine/bgv4_fetch.py)
 concurrency:
   group: cine-render-${{ inputs.scene }}-${{ inputs.lessons }}   # different lesson sets may run in parallel (store step rebases + retries)
   cancel-in-progress: false
@@ -374,6 +375,9 @@ jobs:
             '/anchor/tools/fonts/' '/anchor/tools/foley/' '/anchor/tools/amb_studio.wav' '/anchor/news/depth/' && git -C footage checkout -q   # plain git sparse for the narrow news set (fetch.mjs stalled)
           rm -f ~/.ssh/footage; du -sh footage
           echo "FOOTAGE_SHA=$(git -C footage rev-parse HEAD)" >> "$GITHUB_ENV"   # recipe: footage bank version
+      - name: bg-v4 plates of this shard's backgrounds (artifact shards of bg-v4.yml; missing -> v3 crops)
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: python3 scripts/cine/bgv4_fetch.py footage/anchor/bg/w4 $(sed -n 's#^/anchor/bg/w/\([a-z0-9_]*\)_L\.webp$#\1#p' wide_paths.txt | sort -u)
       - name: Cổng tách nền PRO (matte_qa gate)
         if: env.NEWS_MATTE == 'pro'
         run: python scripts/video/matte_qa.py gate footage/anchor/green ga4_talk_natural,gc4_talk_natural,gc4_listen

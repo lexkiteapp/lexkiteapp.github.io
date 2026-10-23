@@ -132,14 +132,28 @@ def share_chip(sub, y0=236):
     for i, x in enumerate(sl):
         cy = y0 + PAD + 64 + i * lh2 + lh2 // 2; d.text((CX, cy), x, font=f2, fill=sc, anchor='mm'); tb.append(d.textbbox((CX, cy), x, font=f2, anchor='mm')); cols.append([sc, TEAL, fs2])
     return _meta(shadowed(im), (x0 + PAD_IN, y0 + PAD_IN // 2, x0 + w - PAD_IN, y0 + h - PAD_IN // 2), tb, cols), (int(x0), y0, int(x0 + w), y0 + h)
-def hook_card(txt, sub, y0=236):
+def hook_card(txt, sub, y0=236, strike=None):
+    """strike: word indices crossed out with a thick red line (owner 23/10: 'considering ~~to buy~~') - then a white card (red on orange is unreadable)."""
     im = layer(); d = ImageDraw.Draw(im); f, fs, _ = must_fit(d, txt, FH, CW - 2 * PAD, 92, 70, 1); tw = d.textlength(txt, font=f); w = tw + 2 * PAD; bx = CX - w / 2; h = fs + 56
-    tc = best_on(ORANGE); d.rounded_rectangle([bx, y0, bx + w, y0 + h], 26, fill=ORANGE + (255,)); d.text((CX, y0 + h // 2), txt, font=f, fill=tc, anchor='mm')
-    return _meta(shadowed(im), (bx + PAD_IN, y0 + 6, bx + w - PAD_IN, y0 + h - 6), [d.textbbox((CX, y0 + h // 2), txt, font=f, anchor='mm')], [[tc, ORANGE, fs]]), (int(bx), y0, int(bx + w), y0 + h), fs
+    bg_ = (255, 255, 255) if strike else ORANGE; tc = INK if strike else best_on(ORANGE)
+    d.rounded_rectangle([bx, y0, bx + w, y0 + h], 26, fill=bg_ + (255,), outline=(CARD_LINE + (255,)) if strike else None, width=4 if strike else 0); d.text((CX, y0 + h // 2), txt, font=f, fill=tc, anchor='mm')
+    if strike:
+        ws = txt.split(' '); x = CX - tw / 2
+        for i_, w_ in enumerate(ws):
+            ww = d.textlength(w_, font=f)
+            if i_ in strike:
+                x1 = x + ww + (d.textlength(' ', font=f) if i_ + 1 in strike else 0); yc = y0 + h // 2 + 2; d.line([(x - 4, yc), (x1 + 4, yc)], fill=(214, 40, 40), width=max(8, fs // 9))
+            x += ww + d.textlength(' ', font=f)
+    return _meta(shadowed(im), (bx + PAD_IN, y0 + 6, bx + w - PAD_IN, y0 + h - 6), [d.textbbox((CX, y0 + h // 2), txt, font=f, anchor='mm')], [[tc, bg_, fs]]), (int(bx), y0, int(bx + w), y0 + h), fs
 def series_bar(top, sub, y0=396, prog=1.0, level=None):
     """hook-only series tag: orange tag | dark strip | difficulty pill (one chip row, slides in)."""
     im = layer(); d = ImageDraw.Draw(im); tf = font(FH, 34); sf = font(FB, 30); lv = {'easy': ('EASY', (30, 130, 70)), 'medium': ('MEDIUM', (170, 100, 0)), 'hard': ('HARD', (190, 34, 40))}.get(level)
     tw = d.textlength(top, font=tf) + 40; sw = d.textlength(sub, font=sf) + 44; lw_ = (d.textlength(lv[0], font=font(FH, 28)) + 36) if lv else 0; full = tw + sw + lw_
+    while full > CW - 8 and (sf.size > 24 or tf.size > 26):   # owner 23/10 (#83 'HEALTH ENGLISH · PART 1 | cope ...' ran past the safe column): shrink to fit
+        if sf.size > 24: sf = font(FB, sf.size - 2)
+        if tf.size > 26: tf = font(FH, tf.size - 2)
+        tw = d.textlength(top, font=tf) + 40; sw = d.textlength(sub, font=sf) + 44; full = tw + sw + lw_
+    if full > CW - 8: raise ValueError(f'TEXT-FIT FAIL series tag "{top} | {sub}" - shorten the series / memory text in the script bank')
     x0 = CX - full / 2; hh = 64; tc = best_on(ORANGE); sc_ = best_on(TEAL, (CREAM, (34, 36, 44)))   # owner 23/10: no slide-in from off-frame (it showed a clipped 'RAMMAR FIX'), fade-in only
     d.rectangle([x0, y0, x0 + tw, y0 + hh], fill=ORANGE + (255,)); d.text((x0 + 20, y0 + hh // 2), top, font=tf, fill=tc, anchor='lm')
     d.rectangle([x0 + tw, y0, x0 + tw + sw, y0 + hh], fill=TEAL + (250,)); d.text((x0 + tw + 22, y0 + hh // 2), sub, font=sf, fill=sc_, anchor='lm')
