@@ -388,7 +388,7 @@ def bg_match(name):   # owner 23/10: the L / R crops of one wide still graded to
         BGM[b_] = {sd: cv2.cvtColor(((lab[sd] - st[sd][0]) / st[sd][1] * sr + mr).clip(0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR) for sd in lab}
     return BGM[b_][name.split('@')[1]].copy()
 def layers(name):
-    if name not in BGL: BGL.clear() if len(BGL) > 2 else None; BGL[name] = bg3d.Layers(BGP(name), DEP(name), img=bg_match(name) if '@' in name else None)
+    if name not in BGL: BGL.clear() if len(BGL) > 2 else None; BGL[name] = bg3d.Layers(BGP(name), DEP(name), img=bg_match(name) if '@' in name else None, **(dict(dof=(0.25, 0.18, 0.0)) if V4(name) else {}))   # v4 SR plate: half the DOF blur (sharper bg, one Lanczos warp)
     return BGL[name]
 MOVES = [dict(z=(1.10, 1.135), tx=(-4, 4), ty=(0, -2), rot=(0, 0)),   # owner 21/10: minimal camera = slow push-in 2-4 % per shot + barely visible drift
          dict(z=(1.11, 1.14), tx=(4, -4), ty=(2, 0), rot=(0, 0)),
@@ -469,7 +469,7 @@ def cine_metrics(s, fi, Bbg, Bc, a, t):
     L = cv2.Laplacian(g, cv2.CV_32F); tang = []
     HL = cv2.HoughLinesP((E * 255).astype(np.uint8)[Y0:Y1, X0:X1], 1, np.pi / 180, 60, minLineLength=max(60, int(0.6 * w_)), maxLineGap=6)
     for ln in (HL if HL is not None else []):
-        lx0, ly0, lx1, ly1 = [int(v) for v in ln[0]]; ly0 += Y0; ly1 += Y0; lx0 += X0; lx1 += X0
+        lx0, ly0, lx1, ly1 = [int(v) for v in np.ravel(ln)[:4]]; ly0 += Y0; ly1 += Y0; lx0 += X0; lx1 += X0
         if abs(ly1 - ly0) > 0.18 * max(1, abs(lx1 - lx0)): continue   # only near-horizontal lines read as tangents / 'growing out of the head'
         yy = (ly0 + ly1) / 2
         if (abs(yy - y0) <= 14 or y1 - 20 <= yy <= y1 + 50) and min(lx0, lx1) < x0 + 0.2 * w_ and max(lx0, lx1) > x1 - 0.2 * w_: tang.append([lx0, ly0, lx1, ly1])
@@ -495,8 +495,10 @@ def pan_bg(s, j):   # owner 23/10 establishing / key-change PAN: one continuous 
     P, camx, c, k_, dx = pan_geom(s, j); s['pan'].setdefault('dx', {})[j] = dx
     A_ = np.float32([[k_, 0, 540 - k_ * (camx + bg3d.CW / 2) - c['tx']], [0, k_, 960 - k_ * bg3d.CH / 2 - c['ty']]])
     return cv2.warpAffine(P, A_, (1080, 1920), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REFLECT).astype(np.float32)
+PLATE_USM = float(os.environ.get('NEWS_PLATE_USM', '0.35'))   # owner 23/10 sharper bg: mild unsharp on the plate only (hosts / text untouched), r 0.9 px
+def plate_usm(B): return B + PLATE_USM * (B - cv2.GaussianBlur(B, (0, 0), 0.9)) if PLATE_USM > 0 else B
 def bg_frame(s, j, t):
-    if s.get('pan') and j < s['pan']['n']: return pan_bg(s, j)
+    if s.get('pan') and j < s['pan']['n']: return plate_usm(pan_bg(s, j))
     u = j / max(1, s['n'] - 1); L_ = layers(s['bg']); qa = j % 6 == 0
     c_ = cam_at(s, u); c_['z'] *= PZ(s, j); r = L_.render(c_, qa=qa); B = r[0] if qa else r
     if s.get('move') == 'rack' and j < 12: B = cv2.GaussianBlur(B, (0, 0), 1.6 * (1 - j / 12) + 1e-3)   # fake rack focus: bg settles sharp in 0.5 s
@@ -507,6 +509,7 @@ def bg_frame(s, j, t):
         for d in (-0.5, 0, 0.5):
             c = cam_at(p, 1.0); c['z'] *= 1 + 0.006 * (j + 1 + d); acc = acc + layers(p['bg']).render(c)
         B = acc / 3 * (1 - w) + B * w
+    B = plate_usm(B)
     BOK.avoid = ZONES + [[b[0] - 24, b[1] - 24, b[2] + 24, b[3] + 24] for b in s.get('faceboxes', [])]
     return BOK.apply(B, t)   # owner 22/10: no vignette
 SEG = [[x['bg'], x['t0'], x['t0'] + x['dur'], 1] for x in S]
@@ -526,8 +529,9 @@ def qblur(x, sg):   # large Gaussian at 1/4 resolution (same look, ~10x cheaper)
 def comp(F, Al, sc, cx, cy, ox, oy, drift):   # premultiplied resample (MR.place), returned un-premultiplied for the per-host grading below
     M = np.float32([[sc, 0, ox - cx * sc + drift], [0, sc, oy - cy * sc]]); Fp, a = MR.place(F.astype(np.float32), Al.astype(np.float32), sc, M, (1080, 1920))
     return Fp / np.maximum(a, 1e-3)[..., None], a
+X264_DETAIL = 'keyint=48:deblock=-1,-1:aq-mode=3:aq-strength=1.2:psy-rd=1.0,0.3:no-dct-decimate=1:deadzone-inter=0:deadzone-intra=0:qcomp=0.7'   # owner 23/10 master CRF 16: '-tune animation' starved the flat cel frames (2.9 Mbps, face acutance 0.87) -> keep fine detail
 enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', '1080x1920', '-r', str(FPS), '-i', '-',
-                        '-vf', 'deblock=filter=weak:block=8', '-c:v', 'libx264', '-threads', '2', '-profile:v', 'high', '-preset', 'slow', '-tune', 'animation', '-b:v', '16M', '-maxrate', '22M', '-bufsize', '44M', '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
+                        '-vf', 'deblock=filter=weak:block=8', '-c:v', 'libx264', '-threads', os.environ.get('NEWS_X264_THREADS', '2'), '-profile:v', 'high', '-preset', 'slow', '-crf', '16', '-x264-params', X264_DETAIL, '-pix_fmt', 'yuv420p', f'{RD}/video.mp4'], stdin=subprocess.PIPE)
 exec(open(f'{HERE}/news_layout.py').read())   # owner 23/10: overlay solver vs face / hair / hands (per frame)
 if os.environ.get('NEWS_LAYOUTONLY'): print(json.dumps(LAYOUT_LOG)); sys.exit(0)
 KEYM = {}; EQ = []; BGC = []; HB = {}; EXPO = None; HOSTG = 1.0; PREV_OUT = None; OVS = sorted(OV, key=lambda o: o['t'][0]); fi = 0; COVER = None; QC = []; PA = None
