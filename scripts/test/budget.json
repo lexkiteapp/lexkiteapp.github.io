@@ -1,8 +1,8 @@
 {
   "_note": "Ngân sách dung lượng (byte). Chỉ nâng khi có lý do rõ trong commit; contentWarn tự hạ khi nội dung tốt lên. Xem docs/CONTENT-RULES.md",
-  "shellGz": 386560,
+  "shellGz": 386048,
   "fileGz": 163840,
-  "_shellNote": "23/10: 386048→386560 (+512 B) – P2-1.1 câu ngữ cảnh: móc ctx/src trong core.js + ctxOf + cờ x:1 ở sync.js + 2 khóa en (~470 B gz); bộ làm sạch nằm ở ctx.js (ngoài khung).",
+  "_shellNote": "23/10 (P2-1.2): 386560→386048 (377 KB) – trả lại trần cũ: chế độ Gõ/Nghe ôn tập + thẻ \"Câu của bạn\" (render ctx P2-1.1) chuyển sang study-modes.js tải lười (App.need('rmodes')); study.js gọn hơn (~550 B gz). Trước: 386048→386560 (+512 B) – P2-1.1 móc ctx/src trong core.js + ctxOf.",
   "allowBig": [],
   "totalJs": 19970000,
   "contentWarn": 15,
