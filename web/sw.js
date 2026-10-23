@@ -45,6 +45,7 @@ self.addEventListener('fetch', e => {
     return;
   }
   if (e.request.method !== 'GET' || url.origin !== location.origin) return; // API từ điển luôn đi mạng
+  if (url.pathname.startsWith('/data/lex/')) return; // mảnh kho từ: immutable + IndexedDB (lex.js)
   if (STATIC.test(url.pathname)) {
     e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { const c = r.clone(); caches.open(CACHE).then(x => x.put(e.request, c)); return r; })));
     return;
