@@ -31,6 +31,7 @@ if len(hook_say.split()) > 5: hook_say = ' '.join(hook_say.split()[:5])
 L = [('h', 'ama', hook_say), ('m', 'ama', f"Many learners say: {b['wrong']}"), ('g', 'carlos', 'Pause and guess. What sounds right?'), ('k', 'ama', f"Say: {b['right']}"),
      ('y', 'carlos', b['why']), ('c', 'ama', f"Is '{b['wrong'].rstrip('.!?')}' correct? No."), ('rs', 'carlos', f"Repeat after me: {b['right']}"),
      ('rn', 'ama', f"Now at normal speed: {b['right']}"), ('r', 'carlos', "Teacher's tip: save these lines."), ('r2', 'ama', "Teacher's tip: save these lines."),
+     ('s', 'ama', 'Send this to a friend who needs it.'),   # owner 23/10: own share beat after the quiz (card: SHARE | who says "<mistake>")
      ('e', 'ama', f"Quiz: {qtxt}. {opts.capitalize()}? Comment below."), ('e2', 'carlos', f"Quiz: {qtxt}. {opts.capitalize()}? Comment below.")]
 LJ = json.load(open(f'{D}/lines.json')); by = {l['id']: l for l in LJ['lines']}
 for suf, who, text in L:
@@ -47,7 +48,7 @@ beats = [dict(who='ama', line=f'n_{h6}_m', kind='m', card=card('x', b['wrong']))
          dict(who='carlos', line=f'n_{h6}_rs', kind='rs', repeat=True, slow=True, card=card('v', b['right'], 'REPEAT', 'repeat')),
          dict(who='ama', line=f'n_{h6}_rn', kind='rn', card=card('v', b['right'], icon=ic, formula=b['memory']))]
 sp = dict(v=7, id=lid, template='fix', bg=o.bg, topic=b['topic'], area='grammar-check', cefr=b['cefr'], difficulty=b['diff'], hook_type=HOOK.get(b['hook_type'], 'question'), part=1,
-          point=b['point'], key_line=b['right'], wrong_line=b['wrong'], share=f'who says "{b["wrong"]}"', l1_tags=['many learners'], source=dict(scriptbank=b['id'], pid=b['pid']),
+          point=b['point'], key_line=b['right'], wrong_line=b['wrong'], share=f'who says "{b["wrong"]}"', share_line=f'n_{h6}_s', l1_tags=['many learners'], source=dict(scriptbank=b['id'], pid=b['pid']),
           hook=dict(card=CARDHOOK.get(b['hook_type'], b['hook'].upper())[:22], line=f'n_{h6}_h'), series=['GRAMMAR FIX' if b['topic'] not in ('health', 'travel', 'food') else f"{b['topic'].upper()} ENGLISH", b['memory'][:28]],
           beats=beats, recap=dict(title="TEACHER'S TIP", rows=[b['right']] + b['ex'][:2], line=f'n_{h6}_r', line_alt=f'n_{h6}_r2'), end_line=f'n_{h6}_e', end_alt=f'n_{h6}_e2',
           link='', cta='', no_intro=True, **({'style': json.loads(o.style)} if o.style else {}))

@@ -123,16 +123,19 @@ for o in OV: o.pop('_txt', None)
 ew = 'carlos'   # owner 23/10 layout: the END shot (recap spill + quiz caption + share + ring) is Carlos - his hands sit below the frame, so the card + caption zone is tall (recap+end = 2 Carlos singles, sizes differ)
 el = SPEC['end_line'] if ew == 'ama' else SPEC['end_alt']
 e = tshot('end', CL[ew][0], ew, 'mcu' if not (S[-1]['who'] == ew and S[-1]['frame'] == 'mcu') else 'wide', el, JCUT)
+SHS = None
+if SPEC.get('share') and SPEC.get('share_line') and SPEC['share_line'] in TEXT:   # owner 23/10: share = its OWN beat after the quiz (spoken line + SHARE card), then the loop
+    SHS = tshot('share', CL['ama'][0], 'ama', 'mcu', SPEC['share_line'], JCUT)
 lp = shot('loop', 'ga4_talk_natural', 'ama', 'wide', BG, dur=1.0, frames=list(range(0, 24)))
 RCO['t'][1] = round(min(lp['t0'] - 1.3, max(RCO['t'][1], RCO['t'][0] + 2.55)), 3)
 if rc['t0'] + rc['dur'] - RCO['t'][0] >= 2.5: RCO['t'][1] = round(rc['t0'] + rc['dur'], 3)   # ends on the cut into the quiz   # Save-this chip gets >= 0.8 s before the loop
-if SPEC.get('v') == 7: SPEC['share'] = None   # owner 23/10: the share chip under the quiz caption = two ideas at once; v7 ends on the quiz + comment ring only
+if SHS is None: SPEC['share'] = None   # no share beat -> no share chip (never under the quiz caption: two ideas at once)
 if SPEC.get('share') and SPEC.get('wrong_line'):   # owner 23/10: share chip quotes only the mistake ('considering to buy'), short enough to read before the ring
     _a, _b, _bad, _ = key_tokens(SPEC['wrong_line'], SPEC['key_line']); _ix = [i_ for i_, x_ in enumerate(_a) if x_ in _bad]
     if _ix: SPEC['share'] = 'who says “' + ' '.join(_a[max(0, _ix[0] - 1):_ix[-1] + 1]) + '”'
-SH0 = max(e['t0'], RCO['t'][1] + 0.05); SH1 = SH0 + (need('Send this to a friend ' + SPEC['share']) if SPEC.get('share') else 0)   # owner 23/10: one card at a time - share chip, THEN the comment ring
-RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05, SH1 + 0.05 if SPEC.get('share') else 0); RGT = 'Comment your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, lp['t0'], rbox, 'end', part=0, img=lambda t, a=RG0, b=lp['t0']: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)
-if SPEC.get('share'): im, box = share_chip(SPEC['share']); ov('Share', 'Send this to a friend|' + SPEC['share'], SH0, SH1, box, 'end', img=im)   # §13 share trigger
+END_T = SHS['t0'] if SHS else lp['t0']
+RG0 = max(e['t0'] + 0.1, RCO['t'][1] + 0.05); RGT = 'Comment your answer' if SPEC.get('v') == 7 else 'Save this'; _, rbox = ring_card(RGT, 0); ov('Ring', RGT, RG0, END_T, rbox, 'end', part=0, img=lambda t, a=RG0, b=END_T: ring_card(RGT, min(1, (t - a) / (b - a)))[0], pop=True)
+if SHS: im, box = card_one('p', SPEC['share'], num='SHARE'); ov('Share', 'SHARE|' + SPEC['share'], SHS['t0'], SHS['t0'] + SHS['dur'], box, 'share', img=im, pop=True)   # §13 share trigger
 im, box, _ = hook_card('Free practice: Lexkite' if SPEC.get('v') == 7 else hk['card'], ''); ov('Follow', 'Free practice: Lexkite' if SPEC.get('v') == 7 else 'Follow for more', lp['t0'], lp['t0'] + lp['dur'], box, 'loop', img=im)
 T_ = sum(x['dur'] for x in S); SER_T, SER_S = SPEC['series']; SER_T = f"{SER_T} · PART {SPEC['part']}" if SPEC.get('part') else SER_T; _, sbox = series_bar(SER_T, SER_S, level=SPEC.get('difficulty'))
 ov('Series', f'{SER_T}|{SER_S}', 0.25, h['dur'], sbox, 'hook', img=lambda t, a=0.25, tp=SER_T, sb=SER_S, lv=SPEC.get('difficulty'): series_bar(tp, sb, prog=1 - (1 - min(1, (t - a) / 0.35)) ** 3, level=lv)[0])   # owner 23/10: series tag only under the hook (top band is head territory in MCU)   # payoff promise by 2 s
