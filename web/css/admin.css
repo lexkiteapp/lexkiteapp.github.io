@@ -464,3 +464,23 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 #nPreviewModal::backdrop { background: color-mix(in srgb, var(--text) 45%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 #nPreviewModal { animation: popIn .2s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: var(--shadow-lg); border-radius: 16px; border: 1px solid var(--line); background: var(--surface); color: var(--text); }
 @keyframes popIn { from { opacity: 0; transform: scale(.96) translateY(6px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+/* Kênh & phân phối (js/admin-dist.js) */
+.ds-card { border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.25rem; background: var(--surface); min-width: 0; box-shadow: var(--a-card-shadow); transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+.ds-card:hover { border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); }
+.ds-card h3 { margin: 0 0 .6rem; font-size: 1.05rem; font-weight: 800; letter-spacing: -.01em; }
+.ds-seg button[aria-pressed=true] { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 1px 3px color-mix(in srgb, var(--primary) 40%, transparent); }
+.ds-b { display: inline-flex; align-items: center; border-radius: 999px; padding: .1rem .55rem; font-size: .74rem; font-weight: 700; border: 1px solid var(--line); white-space: nowrap; line-height: 1.4; }
+.ds-b.ok { background: var(--a-ok-bg); border-color: color-mix(in srgb, var(--good) 35%, transparent); color: var(--a-ok); }
+.ds-b.bad { background: var(--a-bad-bg); border-color: color-mix(in srgb, var(--again) 35%, transparent); color: var(--a-bad); }
+.ds-b.em { background: var(--primary-soft); border-color: color-mix(in srgb, var(--primary) 35%, transparent); color: var(--primary); }
+.ds-day { border: 1px solid var(--line); border-radius: 10px; padding: .45rem; min-height: 88px; font-size: .78rem; min-width: 0; background: var(--surface); box-shadow: var(--a-card-shadow); transition: border-color .14s ease; }
+.ds-day:hover { border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); }
+.ds-dlg > div { border-radius: 16px; border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+
+/* Video Social & Studio (js/admin-social.js & js/admin-studio.js) */
+.soc-head, .stu-head { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; }
+.soc-head h2, .stu-head h2 { margin: 0; font-size: 1.35rem; font-weight: 850; letter-spacing: -.02em; }
+.soc-card, .stu-card { border-radius: var(--a-r); border: 1px solid var(--line); background: var(--surface); box-shadow: var(--a-card-shadow); padding: 1.15rem 1.25rem; transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+.soc-card:hover, .stu-card:hover { border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); transform: translateY(-1px); box-shadow: var(--a-card-hover-shadow); }
+
