@@ -139,6 +139,8 @@ quiz: [
 
 ![กราฟสถิติการเรียนรู้บน Lexkite พร้อมคะแนน xp และ heatmap บันทึกความต่อเนื่อง](media:stats "ตรวจสอบคะแนน xp และติดตามวินัยการฝึกภาษาอังกฤษเพื่อการเดินทางผ่าน heatmap")
 
+อ่านต่อ: [Connected Speech ภาษาอังกฤษ: กฎการเชื่อมเสียงและเทคนิคฟังเร็ว](/th/blog/connected-speech-chueam-siang-phasa-angkrit/) · [IELTS Writing Task 1 กราฟ: เทคนิคบรรยายให้ได้คะแนน Band 7+](/th/blog/ielts-writing-task-1-banyai-graph/) · [If-Clause สรุปครบทุก Type: โครงสร้าง ตัวอย่าง และวิธีใช้](/th/blog/if-clause-phasa-angkrit-sarup-khrap-thuk-type/)
+
 {{cta: /speaking/ | เริ่มฝึกภาษาอังกฤษสำหรับท่องเที่ยว}}
 
 เตรียมพร้อมก่อนออกเดินทางด้วย [คลังคำศัพท์และข้อสอบจำลอง](/tu-vung/) และฝึกทักษะการคิดเป็นภาษาอังกฤษโดยตรงโดยไม่แปลในหัวจากบทความ [วิธีคิดเป็นภาษาอังกฤษ ไม่แปลไทย](/th/blog/withi-khit-pen-phasa-angkrit-mai-plae-thai/)

@@ -143,6 +143,8 @@ quiz: [
 
 > 延伸阅读: [出国旅游英语常用口语必备宝典：机场、酒店、点餐与紧急求助全场景](/zh/blog/chu-jing-lv-you-ying-yu-chang-yong-kou-yu/)
 
+延伸阅读：[雅思小作文 task 1 图表分析技巧：线图、柱状图与高分句型](/zh/blog/ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao/)；[英语连读规则 (Connected Speech) 解析：连读、弱读与发音](/zh/blog/ying-yu-lian-du-connected-speech-fa-yin-gui-ze/)；[英语条件状语从句 (If Clauses) 全面总结：从0到3型及混合句](/zh/blog/ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses/)
+
 {{cta: /app/#/placement | 在 Lexkite 开启英语水平定位测评}}
 
 {{youtube: | 如何用英语思维思考与告别脑中中文翻译卡顿}}

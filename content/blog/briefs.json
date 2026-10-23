@@ -10066,6 +10066,438 @@
    "source": "connected-speech-linking-sounds",
    "role": "cluster",
    "cluster": "connected-speech"
+  },
+  {
+   "slug": "if-clause-phasa-angkrit-sarup-khrap-thuk-type",
+   "keyword": "if clause สรุป",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "conditionals",
+    "if-clauses"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "สรุปโครงสร้าง If-Clause ภาษาอังกฤษครบทุก Type 0 1 2 3 และ Mixed Conditionals พร้อมตัวอย่าง",
+   "intent": "informational",
+   "lang": "th",
+   "source": "english-conditionals-guide",
+   "role": "cluster",
+   "cluster": "if-clause"
+  },
+  {
+   "slug": "passive-voice-phasa-angkrit-khrongsang-withi-chai",
+   "keyword": "passive voice สรุป",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "passive-voice",
+    "english-grammar"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "โครงสร้าง Passive Voice ภาษาอังกฤษ 8 Tenses หลักการเปลี่ยนประโยคและข้อควรระวัง",
+   "intent": "informational",
+   "lang": "th",
+   "source": "passive-voice-rules",
+   "role": "cluster",
+   "cluster": "passive-voice"
+  },
+  {
+   "slug": "kham-chueam-phasa-angkrit-linking-words",
+   "keyword": "linking words ภาษาอังกฤษ",
+   "category": "ky-nang",
+   "tags": [
+    "writing",
+    "linking-words",
+    "transitions"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/write",
+    "/samples/"
+   ],
+   "angle": "รวมคำเชื่อมภาษาอังกฤษ Linking Words ทุกหมวดหมู่สำหรับงานเขียนเชิงวิชาการและการสอบ IELTS",
+   "intent": "informational",
+   "lang": "th",
+   "source": "linking-words-connectors",
+   "role": "cluster",
+   "cluster": "linking-words"
+  },
+  {
+   "slug": "ielts-writing-task-1-banyai-graph",
+   "keyword": "ielts writing task 1 กราฟ",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-writing",
+    "task-1"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/write",
+    "/ielts/"
+   ],
+   "angle": "เทคนิคการเขียน IELTS Writing Task 1 บรรยายกราฟเส้น แผนภูมิแท่ง ตาราง และแผนผังให้ได้ Band 7+",
+   "intent": "informational",
+   "lang": "th",
+   "source": "ielts-writing-task-1-charts",
+   "role": "cluster",
+   "cluster": "ielts-writing"
+  },
+  {
+   "slug": "samnuan-phasa-angkrit-presentation-ngan",
+   "keyword": "ภาษาอังกฤษ presentation",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "presentations",
+    "business-english"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/speaking/"
+   ],
+   "angle": "รวมประโยคและสำนวนภาษาอังกฤษสำหรับพรีเซนต์งานและประชุมธุรกิจอย่างมืออาชีพ",
+   "intent": "informational",
+   "lang": "th",
+   "source": "business-english-presentations",
+   "role": "cluster",
+   "cluster": "presentation"
+  },
+  {
+   "slug": "connected-speech-chueam-siang-phasa-angkrit",
+   "keyword": "connected speech ภาษาอังกฤษ",
+   "category": "phat-am",
+   "tags": [
+    "pronunciation",
+    "connected-speech",
+    "listening"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/listening"
+   ],
+   "angle": "กฎ Connected Speech การเชื่อมเสียงและตัดเสียงภาษาอังกฤษเพื่อการออกเสียงและการฟังที่เป็นธรรมชาติ",
+   "intent": "informational",
+   "lang": "th",
+   "source": "connected-speech-linking-sounds",
+   "role": "cluster",
+   "cluster": "connected-speech"
+  },
+  {
+   "slug": "ingilizce-if-clauses-kosul-cumleleri-rehberi",
+   "keyword": "ingilizce if clauses",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "conditionals",
+    "if-clauses"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "İngilizce koşul cümleleri (If Clauses) Type 0, 1, 2, 3 ve Mixed kuralları ve örnekleri",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "english-conditionals-guide",
+   "role": "cluster",
+   "cluster": "if-clauses"
+  },
+  {
+   "slug": "ingilizce-passive-voice-edilgen-cati-kurallari",
+   "keyword": "ingilizce passive voice",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "passive-voice",
+    "english-grammar"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "İngilizce Passive Voice edilgen çatı kuralları, tüm zamanların çekim tablosu ve dönüşüm örnekleri",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "passive-voice-rules",
+   "role": "cluster",
+   "cluster": "passive-voice"
+  },
+  {
+   "slug": "ingilizce-baglaclar-ve-linking-words-tablosu",
+   "keyword": "ingilizce bağlaçlar",
+   "category": "ky-nang",
+   "tags": [
+    "writing",
+    "linking-words",
+    "essay-writing"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/write",
+    "/samples/"
+   ],
+   "angle": "İngilizce bağlaçlar ve linking words listesi: Essay yazımı için zıtlık, sebep, sonuç geçiş kelimeleri",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "linking-words-connectors",
+   "role": "cluster",
+   "cluster": "linking-words"
+  },
+  {
+   "slug": "ielts-writing-task-1-grafik-yorumlama-rehberi",
+   "keyword": "ielts writing task 1 grafik",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-writing",
+    "task-1"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/write",
+    "/ielts/"
+   ],
+   "angle": "IELTS Writing Task 1 grafik ve tablo yorumlama taktikleri, trend kalıpları ve yüksek puan şablonları",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "ielts-writing-task-1-charts",
+   "role": "cluster",
+   "cluster": "ielts-writing"
+  },
+  {
+   "slug": "ingilizce-sunum-yapma-teknikleri-ve-kaliplari",
+   "keyword": "ingilizce sunum kalıpları",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "presentations",
+    "business-english"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/speaking/"
+   ],
+   "angle": "İş hayatında ve akademik ortamda İngilizce sunum yapma rehberi: Giriş, geçiş, grafik anlatımı ve kapanış ifadeleri",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "business-english-presentations",
+   "role": "cluster",
+   "cluster": "presentation"
+  },
+  {
+   "slug": "ingilizce-connected-speech-ses-baglama-kurallari",
+   "keyword": "ingilizce connected speech",
+   "category": "phat-am",
+   "tags": [
+    "pronunciation",
+    "connected-speech",
+    "listening"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/listening"
+   ],
+   "angle": "İngilizce ses bağlama ve yuvarlama kuralları (Connected Speech): Linking, elision, assimilation ve doğal telaffuz",
+   "intent": "informational",
+   "lang": "tr",
+   "source": "connected-speech-linking-sounds",
+   "role": "cluster",
+   "cluster": "connected-speech"
+  },
+  {
+   "slug": "ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses",
+   "keyword": "英语条件状语从句",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "conditionals",
+    "if-clauses"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "英语条件状语从句If Clauses从0到3型及混合条件句的结构公式、精选例句及易错点解析",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "english-conditionals-guide",
+   "role": "cluster",
+   "cluster": "if-clauses"
+  },
+  {
+   "slug": "ying-yu-bei-dong-yu-tai-gong-shi-ji-yong-fa",
+   "keyword": "英语被动语态",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "passive-voice",
+    "english-grammar"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/grammar",
+    "/ngu-phap/"
+   ],
+   "angle": "英语被动语态Passive Voice 8大核心时态公式、主动变被动规则与双宾语动词用法",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "passive-voice-rules",
+   "role": "cluster",
+   "cluster": "passive-voice"
+  },
+  {
+   "slug": "ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie",
+   "keyword": "英语连接词",
+   "category": "ky-nang",
+   "tags": [
+    "writing",
+    "linking-words",
+    "essay-writing"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/write",
+    "/samples/"
+   ],
+   "angle": "英语连接词Linking Words全分类解析：转折、因果、递进与举例逻辑词汇总及写作标点指南",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "linking-words-connectors",
+   "role": "cluster",
+   "cluster": "linking-words"
+  },
+  {
+   "slug": "ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao",
+   "keyword": "雅思小作文 task 1 图表",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-writing",
+    "task-1"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/write",
+    "/ielts/"
+   ],
+   "angle": "雅思小作文Task 1图表分析技巧：4段式结构、Overview总结提炼与高分趋势词汇",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "ielts-writing-task-1-charts",
+   "role": "cluster",
+   "cluster": "ielts-writing"
+  },
+  {
+   "slug": "shang-wu-ying-yu-yan-jiang-presentation-ju-xing",
+   "keyword": "商务英语 presentation 句型",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "presentations",
+    "business-english"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/speaking",
+    "/speaking/"
+   ],
+   "angle": "商务英语Presentation句型汇总：专业开场、图表数据过渡与问答答辩应对技巧",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "business-english-presentations",
+   "role": "cluster",
+   "cluster": "presentation"
+  },
+  {
+   "slug": "ying-yu-lian-du-connected-speech-fa-yin-gui-ze",
+   "keyword": "英语连读规则",
+   "category": "phat-am",
+   "tags": [
+    "pronunciation",
+    "connected-speech",
+    "listening"
+   ],
+   "shots": [
+    "practice-learn",
+    "practice-speak"
+   ],
+   "routes": [
+    "/#/pron",
+    "/#/listening"
+   ],
+   "angle": "英语连读规则Connected Speech深度解析：辅音连元音、加音、省音与同化现象",
+   "intent": "informational",
+   "lang": "zh",
+   "source": "connected-speech-linking-sounds",
+   "role": "cluster",
+   "cluster": "connected-speech"
   }
  ]
 }

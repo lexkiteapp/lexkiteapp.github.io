@@ -161,6 +161,8 @@ qualityScore: 93
 
 这样一来，你只需要决定“今天学不学新词”，至于哪个词该在哪天复习，就交给应用去管。
 
+延伸阅读：[商务英语 presentation 句型：精选开场、图表过渡与答辩表达](/zh/blog/shang-wu-ying-yu-yan-jiang-presentation-ju-xing/)；[雅思小作文 task 1 图表分析技巧：线图、柱状图与高分句型](/zh/blog/ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao/)；[英语被动语态 (Passive Voice) 总结：8大时态公式与核心用法](/zh/blog/ying-yu-bei-dong-yu-tai-gong-shi-ji-yong-fa/)
+
 {{cta: /#/library | 选一个词汇集，开始今天的10个新词}}
 
 {{youtube: | 视频创意：用 Lexkite 演示每天30分钟背10个新词的完整流程——搭配、跟读、间隔重复复习}}

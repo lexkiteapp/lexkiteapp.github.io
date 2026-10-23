@@ -155,6 +155,8 @@ Konuşurken tekdüze kalmamak için bağlaçları işlevlerine göre çeşitlend
 
 Speaking becerilerinizi sistematik biçimde ilerletmek için kapsamlı [konuşma ve speaking hazırlık rehberimize](/speaking/) göz atabilir, okuma becerilerinizi eş zamanlı yükseltmek için [IELTS Reading skimming scanning taktikleri](/tr/blog/ielts-reading-skimming-scanning-taktikleri/) yazımızı okuyabilirsiniz.
 
+Ayrıca okuyun: [İngilizce Bağlaçlar: Essay Yazımı İçin Linking Words Rehberi](/tr/blog/ingilizce-baglaclar-ve-linking-words-tablosu/) · [İngilizce If Clauses: Koşul Cümleleri Kuralları ve Örnekleri](/tr/blog/ingilizce-if-clauses-kosul-cumleleri-rehberi/) · [İngilizce Sunum Kalıpları: Profesyonel İfadeler ve İpuçları](/tr/blog/ingilizce-sunum-yapma-teknikleri-ve-kaliplari/)
+
 {{cta: /speaking/ | IELTS Konuşma Pratiklerine Başla}}
 
 {{youtube: | IELTS Speaking Part 2 Template & Strategy}}
