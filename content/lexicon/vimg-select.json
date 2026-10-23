@@ -1,5 +1,5 @@
 {
-"_note": "Sinh bởi scripts/vocab-img/select.py – KHÔNG sửa tay. items: \"từ#loại\" → [điểm, lexname WordNet, synset, bộ đầu tiên]. Chỉ mục ≥ ngưỡng.",
+"_note": "Sinh bởi scripts/vocab-img/imageability.py – KHÔNG sửa tay. items: \"từ#loại\" → [điểm, lexname WordNet, synset, bộ đầu tiên]. Chỉ mục ≥ ngưỡng.",
 "v": 1,
 "threshold": 0.6,
 "total": 8230,

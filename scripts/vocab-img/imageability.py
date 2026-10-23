@@ -3,7 +3,7 @@
 Chỉ danh từ cụ thể, động từ nhìn thấy được, tính từ rõ ràng (màu/cỡ/hình/chất/thời tiết/cảm xúc lộ trên mặt) mới có ảnh; từ trừu tượng KHÔNG có ảnh
 (thà không có còn hơn ảnh gây hiểu sai). Điểm 0..1 = WordNet lexname của synset khớp nghĩa (Lesk trên định nghĩa của kho) + đường hypernym
 (physical_entity vs abstraction) + dấu hiệu trong định nghĩa/hậu tố. Ngưỡng THRESH. Không gọi mạng, không AI.
-  NLTK_DATA=<dir có corpora/wordnet.zip> python3 scripts/vocab-img/select.py [--write] [--pilot 60]
+  NLTK_DATA=<dir có corpora/wordnet.zip> python3 scripts/vocab-img/imageability.py [--write] [--pilot 60]
 Ghi content/lexicon/vimg-select.json (chỉ mục đạt ngưỡng + thống kê) và, với --pilot N, content/lexicon/vimg-pilot.json (N mục rải đều chủ đề/loại)."""
 import json, re, sys, hashlib, os
 from nltk.corpus import wordnet as wn
@@ -88,7 +88,7 @@ def main():
         sc, lexn, syn = score(k, e)
         if sc >= THRESH:
             items[k] = [sc, lexn, syn, e['sets'][0]]; n_ok += 1; by_pos[e['pos']] = by_pos.get(e['pos'], 0) + 1
-    out = dict(_note='Sinh bởi scripts/vocab-img/select.py – KHÔNG sửa tay. items: "từ#loại" → [điểm, lexname WordNet, synset, bộ đầu tiên]. Chỉ mục ≥ ngưỡng.',
+    out = dict(_note='Sinh bởi scripts/vocab-img/imageability.py – KHÔNG sửa tay. items: "từ#loại" → [điểm, lexname WordNet, synset, bộ đầu tiên]. Chỉ mục ≥ ngưỡng.',
                v=V, threshold=THRESH, total=len(lex), imageable=n_ok, by_pos=by_pos, items=items)
     if '--write' in sys.argv:
         json.dump(out, open(os.path.join(ROOT, 'content/lexicon/vimg-select.json'), 'w'), ensure_ascii=False, indent=0, sort_keys=False); open(os.path.join(ROOT, 'content/lexicon/vimg-select.json'), 'a').write('\n')

@@ -16,7 +16,7 @@ const PEOPLE = ['a woman with dark brown skin', 'a man with light skin', 'a man 
   'a man with South Asian features', 'a woman with light skin and red hair', 'a man with dark skin', 'a woman with olive skin'];
 export const fnv = s => { let h = 0x811c9dc5; for (const c of Buffer.from(String(s))) { h ^= c; h = Math.imul(h, 0x01000193) >>> 0; } return h; };
 const short = d => String(d || '').replace(/\s+/g, ' ').trim().slice(0, 160);
-/** prompt cho 1 nghĩa: e = {w, pos, def}; lexname WordNet (select.py) giúp chọn khung câu; attempt 1|2 */
+/** prompt cho 1 nghĩa: e = {w, pos, def}; lexname WordNet (imageability.py) giúp chọn khung câu; attempt 1|2 */
 export function promptFor(key, e, lexname = '', attempt = 1) {
   const who = PEOPLE[fnv(key) % PEOPLE.length], w = e.w.trim(), d = short(e.def);
   let subj;
