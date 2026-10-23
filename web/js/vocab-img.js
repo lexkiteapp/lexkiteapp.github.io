@@ -1,4 +1,4 @@
-/* Ảnh minh hoạ từ vựng theo NGHĨA (dual coding) – tải lười, KHÔNG nằm trong khung app (shell +0 byte).
+/* Ảnh minh họa từ vựng theo NGHĨA (dual coding) – tải lười, KHÔNG nằm trong khung app (shell +0 byte).
  * Nguồn: kho từ vựng một nguồn → content/lexicon/img.json → build-lexicon → js/lexicon-img.json (bản chép add-on: extension/app/js/).
  * Mọi bề mặt (thẻ từ, SRS, câu đố, tra từ, add-on, thẻ tab mới) gọi VImg.* – không tự giữ bản sao.
  * Cờ: config công khai `vocab_img` (Quản trị › Cài đặt, mặc định TẮT) hoặc localStorage 'lk.vimg' = '1' (thử). Tắt → mọi hàm trả rỗng, không tải gì.

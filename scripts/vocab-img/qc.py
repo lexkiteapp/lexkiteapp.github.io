@@ -20,8 +20,8 @@ OUT = sys.argv[1]; arg = lambda n, d=None: sys.argv[sys.argv.index('--' + n) + 1
 LEX = json.load(open(os.path.join(ROOT, 'dist/lexicon.json'))); SEL = json.load(open(os.path.join(ROOT, 'content/lexicon/vimg-select.json')))['items']
 IMGJ = os.path.join(ROOT, 'content/lexicon/img.json'); LIB = json.load(open(IMGJ)).get('items', {}) if os.path.exists(IMGJ) else {}
 SIZE, MAXB = 384, 20 * 1024
-unslug = lambda s: s.replace('__', '#')
-key_of = {}
+slug = lambda k: re.sub(r'[^a-zA-Z0-9_-]+', '-', k.replace('#', '__'))   # = gen.mjs slug()
+KEY_OF = {slug(k): k for k in LEX}
 
 def fnv(s):
     h = 0x811c9dc5
@@ -120,10 +120,10 @@ def run_attempt(att):
     import imagehash
     os.makedirs(f'{OUT}/webp', exist_ok=True); res = {}
     for f in sorted(glob.glob(f'{OUT}/raw/*.a{att}.jpg')):
-        s = os.path.basename(f)[:-len(f'.a{att}.jpg')]; k = unslug(s)
-        if k not in LEX: continue
+        s = os.path.basename(f)[:-len(f'.a{att}.jpg')]; k = KEY_OF.get(s)
+        if not k: print('SKIP unknown', s); continue
         try: im = Image.open(f).convert('RGB')
-        except Exception: print(k, 'SKIP unreadable'); os.remove(f); continue
+        except Exception as ex: print(k, 'SKIP unreadable', repr(ex)[:200], flush=True); continue   # không bao giờ xoá ảnh đã vẽ
         try: res[k] = check(k, att, f, s, im)
         except Exception as ex: print(k, 'QC ERROR', repr(ex)[:160], flush=True); res[k] = dict(k=k, attempt=att, reasons=['qc error'], bytes=0, ph='0' * 16, p=0, rank=99, vision={})
         r = res[k]; print(k, 'PASS' if not r['reasons'] else 'FAIL ' + '; '.join(r['reasons']), f'rank {r["rank"]} {r["bytes"]}B', (r.get('vision') or {}).get('provider'), flush=True)

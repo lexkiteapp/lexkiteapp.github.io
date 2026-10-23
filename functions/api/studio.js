@@ -416,7 +416,7 @@ const CI = {
     try {
       const r = await env.AI.run('@cf/black-forest-labs/flux-1-schnell', { prompt, steps: Math.max(1, Math.min(8, +b.steps || 4)) });
       return r && r.image ? { provider: 'workers-ai-main', image: r.image } : { provider: 'none', error: 'empty' };
-    } catch (e) { const m = String(e && e.message || e).slice(0, 120); if (/4006|neuron|quota|429|exceeded/i.test(m)) throw new Bad(429, 'quota'); return { provider: 'none', error: m }; }
+    } catch (e) { const m = String(e && e.message || e).slice(0, 120); if (/4006|daily free allocation|quota/i.test(m)) throw new Bad(429, 'quota'); return { provider: 'none', error: m }; }   // 3040 capacity = tạm thời → CI chuyển nhà khác
   },
   async visionCheck(env, db, b) {   // Workers AI (Llama 3.2 Vision, one image at a time) -> Gemini vision (key pool) -> 'none'
     const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));

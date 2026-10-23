@@ -26,7 +26,7 @@ export const PROVIDERS = [
 ];
 class Quota extends Error {}
 const isImg = b => b && b.length > 1000 && ((b[0] === 0xff && b[1] === 0xd8) || (b[0] === 0x89 && b[1] === 0x50) || b.slice(8, 12).toString() === 'WEBP');   // JPEG/PNG/WebP
-const quotaish = s => /4006|429|quota|neuron|exceeded|rate.?limit|daily/i.test(s);
+const quotaish = s => /4006|daily free allocation|neurons?\b.*(limit|exceed)|quota/i.test(s);   // 3040 'Capacity temporarily exceeded' = tạm thời, KHÔNG phải hết hạn mức
 async function cfRest(acct, tok, prompt) {
   const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${acct}/ai/run/${FLUX}`, { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt, steps: 4 }) });
   const j = await r.json().catch(() => ({}));
