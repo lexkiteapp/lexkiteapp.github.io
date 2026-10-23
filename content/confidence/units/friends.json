@@ -1,0 +1,50 @@
+{
+  "id": "friends", "level": "A2", "order": 8, "em": "🤝", "rp": null,
+  "title": { "vi": "Kết bạn", "en": "Making friends" },
+  "goal": { "vi": "Bắt chuyện, tìm điểm chung và hẹn gặp lại.", "en": "Start a conversation, find things in common and plan to meet again." },
+  "dialogue": { "a": "Ken", "aRole": "a classmate at a cooking class", "lines": [
+    ["a", "Hi, is this seat free?"],
+    ["b", "Yes, go ahead. I'm Mia, by the way."],
+    ["a", "I'm Ken. Is this your first class?"],
+    ["b", "Yes! I love cooking, but I'm not very good at it."],
+    ["a", "Same here! What kind of food do you like?"],
+    ["b", "I really like Thai food. What about you?"],
+    ["a", "Mexican food is my favorite."],
+    ["b", "We should get lunch sometime."],
+    ["a", "Sure, that sounds fun! Let's exchange numbers."]
+  ] },
+  "phrases": [
+    { "id": "is-this-seat-free", "say": "Is this seat free?", "not": "Can I sit? Nobody?", "gap": "free",
+      "mean": { "vi": "Hỏi chỗ ngồi còn trống không", "en": "Ask if you can sit in an empty seat" },
+      "why": { "vi": "\"Is this seat free?\" (hoặc \"taken?\") là cách bắt chuyện tự nhiên.", "en": "\"Is this seat free?\" (or \"taken?\") is a natural way to start talking." } },
+    { "id": "by-the-way", "say": "I'm Mia, by the way.", "not": "My name is Mia, I introduce myself.", "gap": "way",
+      "mean": { "vi": "Giới thiệu tên một cách thoải mái", "en": "Say your name in a relaxed way" },
+      "why": { "vi": "Thêm \"by the way\" khiến lời giới thiệu nhẹ nhàng, không trang trọng.", "en": "Adding \"by the way\" makes your name sound relaxed, not formal." } },
+    { "id": "what-kind-of", "say": "What kind of food do you like?", "not": "Which food you like?", "gap": "kind",
+      "mean": { "vi": "Hỏi sở thích để mở ra chủ đề", "en": "Ask about likes to open a topic" },
+      "why": { "vi": "\"What kind of…?\" mở ra chủ đề và nhận được câu trả lời dài hơn.", "en": "\"What kind of…?\" opens a topic and gets longer answers." } },
+    { "id": "same-here", "say": "Same here!", "not": "I am also same.", "gap": "here",
+      "mean": { "vi": "Nói bạn cũng vậy", "en": "Say it is the same for you" },
+      "why": { "vi": "Câu ngắn như \"Same here!\" hay \"Me too!\" cho thấy bạn đồng cảm.", "en": "Short answers like \"Same here!\" or \"Me too!\" show you feel the same." } },
+    { "id": "what-about-you", "say": "What about you?", "not": "Your turn.", "gap": "about",
+      "mean": { "vi": "Hỏi lại để người kia nói tiếp", "en": "Ask the question back so they talk too" },
+      "why": { "vi": "Hỏi lại cho thấy bạn quan tâm; \"Your turn\" nghe như đang chơi trò chơi.", "en": "Asking back shows interest; \"Your turn\" sounds like a game or a test." } },
+    { "id": "we-should-sometime", "say": "We should get lunch sometime.", "not": "You will eat with me?", "gap": "should",
+      "mean": { "vi": "Rủ ai đó đi chơi nhẹ nhàng", "en": "Invite someone in a relaxed way" },
+      "why": { "vi": "\"We should… sometime\" là lời rủ thân thiện, không gây áp lực.", "en": "\"We should… sometime\" is a friendly, easy invitation with no pressure." } },
+    { "id": "exchange-numbers", "say": "Let's exchange numbers.", "not": "Give me your phone.", "gap": "exchange",
+      "mean": { "vi": "Đề nghị cho nhau số điện thoại", "en": "Offer to share phone numbers" },
+      "why": { "vi": "\"Exchange numbers\" là cách bình thường để giữ liên lạc; \"Give me your phone\" là đưa cái điện thoại!", "en": "\"Exchange numbers\" is the normal way to stay in touch; \"Give me your phone\" means the phone itself!" } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Ken", "role": "a classmate at a cooking class", "persona": "easygoing, curious and friendly", "goal": "get to know the learner and maybe meet again" },
+    "you": "Say your name, find something you both like and suggest meeting again.",
+    "turns": [
+      { "a": "Hi! Is this seat free?", "h": "Yes, go ahead. I'm Mia, by the way.", "br": [["yes|sure|go ahead|free", "Thanks!"]] },
+      { "a": "Nice to meet you. I'm Ken. Is this your first class?", "h": "Yes, it is! What about you?", "br": [["what about you|and you|how about you", "It's my second class. I really enjoy it."], ["yes|first", "Cool."]] },
+      { "a": "So, what kind of food do you like?", "h": "I really like Thai food. What about you?", "br": [["thai|italian|mexican|food|pizza|rice|noodles|curry|korean|japanese|indian|chinese|vietnamese", "Oh, nice choice!"]] },
+      { "a": "I love Mexican food. There's a great place near here.", "h": "We should get lunch there sometime!", "br": [["lunch|sometime|we should|let's", "I'd love that!"]] }
+    ],
+    "end": "Let's exchange numbers. See you next week!"
+  }
+}

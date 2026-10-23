@@ -1,0 +1,19 @@
+{
+  "_note": "Đề nói 2 phút mỗi ngày (tiếng Anh, ≤ B1, không thiên văn hoá: không rượu/tôn giáo/chính trị). Luân phiên theo ngày. id vĩnh viễn.",
+  "prompts": [
+    { "id": "morning", "q": "Talk about your morning today. What did you do first?", "tip": "First… then… after that…" },
+    { "id": "favorite-place", "q": "Describe a place in your town that you like. Why do you like it?", "tip": "It's next to… I like it because…" },
+    { "id": "weekend", "q": "What did you do last weekend? Did you enjoy it?", "tip": "On Saturday I… It was…" },
+    { "id": "food", "q": "Talk about a dish you can cook or would like to learn to cook.", "tip": "You need… First you…" },
+    { "id": "friend", "q": "Describe a good friend. How did you meet?", "tip": "We met when… She's / He's really…" },
+    { "id": "job-or-study", "q": "Talk about your job or your studies. What do you like and not like?", "tip": "What I like most is… The hard part is…" },
+    { "id": "trip", "q": "Talk about a trip you remember. Where did you go?", "tip": "A few years ago I went to… The best part was…" },
+    { "id": "phone", "q": "How do you use your phone every day? Is it good or bad for you?", "tip": "I mostly use it for… In my opinion…" },
+    { "id": "learn-english", "q": "Why are you learning English? What is hard for you?", "tip": "I'm learning English because… For me, the hardest part is…" },
+    { "id": "home", "q": "Describe your home. What is your favorite room?", "tip": "I live in… My favorite room is… because…" },
+    { "id": "free-time", "q": "What do you do in your free time? How did you start?", "tip": "In my free time I… I started when…" },
+    { "id": "advice", "q": "A friend is moving to your city. What advice would you give?", "tip": "You should… Don't forget to…" },
+    { "id": "city-or-country", "q": "Would you prefer to live in a big city or in the countryside? Why?", "tip": "I'd prefer… because… On the other hand…" },
+    { "id": "proud", "q": "Talk about something you did that made you proud.", "tip": "Last year I… I felt proud because…" }
+  ]
+}

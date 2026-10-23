@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "Yeni sekme kartını kapat"
  },
+ "ntConf": {
+  "message": "Özgüvenle konuş"
+ },
  "ntListen": {
   "message": "Dinle"
  },

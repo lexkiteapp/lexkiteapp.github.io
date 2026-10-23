@@ -12,6 +12,7 @@
   { "id": "pronunciation", "label": "Pronunciation (IPA, minimal pairs)", "link": "https://lexkite.com/app/#/pron", "route": "pron", "cta": "Practice pronunciation free on lexkite.com" },
   { "id": "speaking", "label": "IELTS Speaking topics & practice", "link": "https://lexkite.com/en/speaking/", "route": "speaking", "cta": "Practice IELTS speaking on lexkite.com" },
   { "id": "roleplay", "label": "Voice roleplay", "link": "https://lexkite.com/app/#/roleplay", "route": "roleplay", "cta": "Roleplay this free on lexkite.com" },
+  { "id": "confidence", "label": "Speak with confidence (situational phrases)", "link": "https://lexkite.com/app/#/confidence", "route": "confidence", "cta": "Speak confidently on lexkite.com" },
   { "id": "listening", "label": "Listening & dictation", "link": "https://lexkite.com/app/#/listening", "route": "listening", "cta": "Train your listening on lexkite.com" },
   { "id": "reading", "label": "Reading practice", "link": "https://lexkite.com/app/#/reading", "route": "reading", "cta": "Practice reading free on lexkite.com" },
   { "id": "writing-ielts", "label": "IELTS Writing Task 2 samples & lab", "link": "https://lexkite.com/en/samples/", "route": "write", "cta": "See model essays on lexkite.com" },

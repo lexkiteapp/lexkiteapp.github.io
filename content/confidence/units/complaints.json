@@ -1,0 +1,50 @@
+{
+  "id": "complaints", "level": "B1", "order": 11, "em": "📦", "rp": "complaint",
+  "title": { "vi": "Khiếu nại", "en": "Making a complaint" },
+  "goal": { "vi": "Nêu vấn đề bình tĩnh, nói rõ điều bạn muốn và xin xác nhận.", "en": "Explain a problem calmly, say what you want and ask them to confirm it." },
+  "dialogue": { "a": "Sara", "aRole": "a customer service agent", "lines": [
+    ["a", "Thank you for calling. How can I help you today?"],
+    ["b", "Hi. I'm calling about an order I received yesterday. Unfortunately, the item is damaged."],
+    ["a", "I'm so sorry to hear that. Could I have your order number?"],
+    ["b", "Sure, it's A-4-7-2-9."],
+    ["a", "Thank you. Would you like a replacement or a refund?"],
+    ["b", "I'd prefer a refund, if possible."],
+    ["a", "No problem. You'll get the money back in five days."],
+    ["b", "Thanks. Could you confirm that by email?"],
+    ["a", "Of course. Is there anything else I can help with?"]
+  ] },
+  "phrases": [
+    { "id": "calling-about", "say": "I'm calling about an order I received.", "not": "I call because problem.", "gap": "about",
+      "mean": { "vi": "Nói ngay lý do bạn gọi", "en": "Say the reason for your call right away" },
+      "why": { "vi": "Bắt đầu bằng \"I'm calling about…\" để người nghe biết ngay chủ đề.", "en": "Start with \"I'm calling about…\" so the person knows the topic right away." } },
+    { "id": "unfortunately", "say": "Unfortunately, the item is damaged.", "not": "You sent me broken thing!", "gap": "Unfortunately",
+      "mean": { "vi": "Báo tin xấu một cách bình tĩnh", "en": "Give bad news calmly" },
+      "why": { "vi": "\"Unfortunately\" báo tin xấu nhẹ nhàng; hãy mô tả vấn đề, đừng đổ lỗi cho người nghe.", "en": "\"Unfortunately\" gives bad news calmly; describe the problem, don't blame the person." } },
+    { "id": "id-prefer", "say": "I'd prefer a refund, if possible.", "not": "I want my money now.", "gap": "prefer",
+      "mean": { "vi": "Nói điều bạn muốn một cách kiên quyết nhưng lịch sự", "en": "Say what you want, firmly but politely" },
+      "why": { "vi": "\"I'd prefer…, if possible\" kiên quyết mà vẫn lịch sự.", "en": "\"I'd prefer…, if possible\" is firm but polite." } },
+    { "id": "isnt-working", "say": "It isn't working properly.", "not": "It is not work.", "gap": "working",
+      "mean": { "vi": "Nói một thứ bị hỏng hoặc chạy không đúng", "en": "Say something is broken or doesn't work well" },
+      "why": { "vi": "Dùng \"isn't working\" cho máy móc, đồ vật bị hỏng.", "en": "Use \"isn't working\" for machines and things that stop working." } },
+    { "id": "confirm-by-email", "say": "Could you confirm that by email?", "not": "Write me.", "gap": "confirm",
+      "mean": { "vi": "Xin xác nhận bằng văn bản", "en": "Ask them to confirm it in writing" },
+      "why": { "vi": "Xin email xác nhận giúp bạn có bằng chứng về điều đã thỏa thuận.", "en": "An email gives you a record of what you agreed." } },
+    { "id": "i-understand-but", "say": "I understand, but this is the second time it happened.", "not": "No! You are wrong!", "gap": "understand", "tk": "disagree",
+      "mean": { "vi": "Giữ quan điểm mà vẫn tôn trọng", "en": "Keep your point and still show respect" },
+      "why": { "vi": "\"I understand, but…\" cho thấy bạn tôn trọng người kia mà vẫn giữ ý mình.", "en": "\"I understand, but…\" shows respect and still keeps your point." } },
+    { "id": "appreciate-your-help", "say": "I'd really appreciate your help with this.", "not": "You must fix it.", "gap": "appreciate",
+      "mean": { "vi": "Nhờ giúp đỡ để người kia muốn hỗ trợ bạn", "en": "Ask for help so the person wants to support you" },
+      "why": { "vi": "Câu này giữ người kia ở phía bạn, nên họ muốn giúp.", "en": "This keeps the other person on your side, so they want to help." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Sara", "role": "a customer service agent at a home goods store", "persona": "polite, calm and helpful", "goal": "solve the learner's problem with a damaged order" },
+    "you": "Explain that your lamp arrived damaged, ask for a refund and ask them to confirm it by email.",
+    "turns": [
+      { "a": "Thank you for calling Home Plus. How can I help you today?", "h": "Hi. I'm calling about an order I received yesterday.", "br": [["calling about|order|problem|received", "Okay, I can help with that."]] },
+      { "a": "What seems to be the problem?", "h": "Unfortunately, the lamp is damaged. The glass is broken.", "br": [["damaged|broken|not working|isn't working|doesn't work|wrong", "I'm so sorry to hear that."]] },
+      { "a": "I see. Would you like a replacement or a refund?", "h": "I'd prefer a refund, if possible.", "br": [["refund|money back", "A refund, no problem."], ["replacement|new one|another", "A replacement, no problem."]] },
+      { "a": "Okay. It will take five to seven days. Is that all right?", "h": "I understand. Could you confirm that by email?", "br": [["email|confirm|okay|fine|all right|understand", "Of course."]] }
+    ],
+    "end": "You'll receive an email in a few minutes. Thanks for your patience!"
+  }
+}

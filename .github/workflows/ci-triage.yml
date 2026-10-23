@@ -73,6 +73,7 @@ on:
       - 'video-web'
       - 'Dựng video (Video Studio)'
       - 'Visual QA'
+      - 'Confidence shots'
       - 'Giọng đọc từ vựng (Kokoro)'
       - 'Gói nghĩa từ vựng đa ngôn ngữ'
       - 'Kho từ theo kỳ thi'

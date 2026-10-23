@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "ปิดการ์ดในแท็บใหม่"
  },
+ "ntConf": {
+  "message": "พูดอย่างมั่นใจ"
+ },
  "ntListen": {
   "message": "ฟัง"
  },

@@ -1,0 +1,49 @@
+{
+  "id": "interview", "level": "B1", "order": 10, "em": "🎯", "rp": "marketing-interview",
+  "title": { "vi": "Phỏng vấn xin việc", "en": "Job interviews" },
+  "goal": { "vi": "Giới thiệu kinh nghiệm, nêu điểm mạnh có ví dụ và đặt câu hỏi cuối buổi.", "en": "Talk about your experience, give a strength with an example and ask a question at the end." },
+  "dialogue": { "a": "Jordan", "aRole": "a hiring manager", "lines": [
+    ["a", "Thanks for coming in. Can you tell me a little about yourself?"],
+    ["b", "Sure. I've worked in customer service for three years, and I enjoy solving problems for people."],
+    ["a", "Why are you interested in this job?"],
+    ["b", "I'm interested in this role because your company focuses on quality, and I'd like to grow in a team like yours."],
+    ["a", "What's your biggest strength?"],
+    ["b", "I'd say I'm a good listener. For example, I often help upset customers calm down."],
+    ["a", "Do you have any questions for us?"],
+    ["b", "Yes. What does a typical day look like in this role?"]
+  ] },
+  "phrases": [
+    { "id": "ive-worked-for", "say": "I've worked in customer service for three years.", "not": "I work in customer service since three years.", "gap": "worked",
+      "mean": { "vi": "Nói về kinh nghiệm làm việc", "en": "Talk about your work experience" },
+      "why": { "vi": "Dùng \"I've worked… for + thời gian\" cho kinh nghiệm vẫn còn tiếp tục.", "en": "Use \"I've worked… for + time\" for experience that continues now." } },
+    { "id": "interested-in-because", "say": "I'm interested in this role because I like helping people.", "not": "I am interesting in this job.", "gap": "in",
+      "mean": { "vi": "Nói vì sao bạn muốn công việc này", "en": "Say why you want this job" },
+      "why": { "vi": "\"Interested\" là cảm xúc của bạn, \"interesting\" mô tả sự vật. Luôn kèm lý do với \"because\".", "en": "\"Interested\" is how you feel; \"interesting\" describes the thing. Always give a reason with \"because\"." } },
+    { "id": "id-say", "say": "I'd say my biggest strength is listening.", "not": "My strong point is I am very perfect.", "gap": "say",
+      "mean": { "vi": "Nói điểm mạnh tự tin nhưng khiêm tốn", "en": "Talk about a strength in a confident but not proud way" },
+      "why": { "vi": "\"I'd say…\" nghe tự tin nhưng không khoe khoang.", "en": "\"I'd say…\" sounds confident but not proud." } },
+    { "id": "for-example", "say": "For example, last year I trained two new staff members.", "not": "Trust me, I am good.", "gap": "example",
+      "mean": { "vi": "Đưa ví dụ thật để chứng minh", "en": "Give a real example as proof" },
+      "why": { "vi": "Một ví dụ ngắn có thật thuyết phục hơn lời tự khen.", "en": "A short, real example is stronger than just saying you are good." } },
+    { "id": "good-question-let-me-think", "say": "That's a good question. Let me think.", "not": "Umm… umm…", "gap": "think", "tk": "fillers",
+      "mean": { "vi": "Câu giờ để suy nghĩ một cách bình tĩnh", "en": "Get a little time to think, calmly" },
+      "why": { "vi": "Câu này cho bạn thời gian suy nghĩ mà vẫn nghe bình tĩnh.", "en": "This gives you time to think and still sounds calm." } },
+    { "id": "typical-day", "say": "What does a typical day look like in this role?", "not": "What I must do every day?", "gap": "typical",
+      "mean": { "vi": "Đặt câu hỏi hay cuối buổi phỏng vấn", "en": "Ask a smart question at the end of an interview" },
+      "why": { "vi": "Một câu hỏi hay ở cuối cho thấy bạn thật sự quan tâm.", "en": "A good question at the end shows real interest." } },
+    { "id": "look-forward-to-hearing", "say": "Thank you for your time. I look forward to hearing from you.", "not": "Please choose me, I need this job.", "gap": "hearing",
+      "mean": { "vi": "Kết thúc phỏng vấn lịch sự", "en": "End an interview politely" },
+      "why": { "vi": "Kết thúc lịch sự và tự tin; đừng năn nỉ.", "en": "End politely and confidently; don't ask them to choose you." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Jordan", "role": "a hiring manager for a customer service job", "persona": "professional, friendly, asks clear questions", "goal": "learn about the candidate's experience and strengths" },
+    "you": "Talk about your experience, say why you want the job, give a strength with an example and ask a question.",
+    "turns": [
+      { "a": "Thanks for coming in. Can you tell me a little about yourself?", "h": "Sure. I've worked in customer service for three years, and I enjoy solving problems.", "br": [["worked|years|experience|study|studied|graduated", "Thanks, that's helpful."]] },
+      { "a": "Why are you interested in this job?", "h": "I'm interested in this role because I like helping people, and your company focuses on quality.", "br": [["because|interested|like|love|grow", "I see."]] },
+      { "a": "What would you say is your biggest strength?", "h": "I'd say I'm a good listener. For example, I often help upset customers calm down.", "br": [["for example|for instance|once|last year", "That's a great example."], ["strength|good at|i'd say", "Okay."]] },
+      { "a": "Great. Do you have any questions for us?", "h": "Yes. What does a typical day look like in this role?", "br": [["typical day|what|how|when|team", "Good question."]] }
+    ],
+    "end": "Every day is a little different, but you'll talk with customers a lot. We'll be in touch next week. Thank you for your time!"
+  }
+}
