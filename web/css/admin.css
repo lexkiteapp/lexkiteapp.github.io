@@ -8,6 +8,9 @@ body.adm {
   --a-top: 56px; --a-side: 244px; --a-r: 14px; --a-r-sm: 10px;
   background: var(--bg); min-height: 100vh; font-size: 15px;
 }
+/* Tối: chữ trạng thái dùng token *-text (thiết kế cho nền tối) → chip/huy hiệu đạt tương phản AA trên nền *-soft */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) body.adm { --a-ok: var(--good-text); --a-bad: var(--again-text); --a-warn: var(--gold-text); --a-info: var(--accent-text); } }
+:root[data-theme="dark"] body.adm { --a-ok: var(--good-text); --a-bad: var(--again-text); --a-warn: var(--gold-text); --a-info: var(--accent-text); }
 .adm .num, .adm .tnum { font-variant-numeric: tabular-nums; }
 .adm :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .adm-skip { position: absolute; left: 8px; top: -40px; z-index: 100; background: var(--surface); color: var(--text); padding: .4rem .8rem; border-radius: 8px; border: 1px solid var(--line); }
