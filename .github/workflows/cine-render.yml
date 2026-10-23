@@ -25,6 +25,10 @@ on:
         description: 'Hậu tố tên file bản viral'
         required: false
         default: '-v3'
+      ai_skip:
+        description: 'news: AI gates neutral-skip (test every non-AI gate while AI quotas are out)'
+        type: boolean
+        default: false
   workflow_call:   # news-auto.yml (A->Z driver, docs/AUTOMATION.md) calls this with scene=news and 'bank:<id>' items
     inputs:
       scene: { type: string, required: true }
@@ -32,6 +36,7 @@ on:
       lang: { type: string, required: false, default: en }
       viral: { type: boolean, required: false, default: true }
       outsuf: { type: string, required: false, default: '-v3' }
+      ai_skip: { type: boolean, required: false, default: false }
     secrets:
       FOOTAGE_DEPLOY_KEY: { required: false }
       SHORTS_DEPLOY_KEY: { required: false }
@@ -323,6 +328,7 @@ jobs:
       NEWS_ZONES: ${{ github.workspace }}/depth
       NEWS_MATTE: pro
       NEWS_SR: '1'
+      NEWS_AI_SKIP: ${{ inputs.ai_skip && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4   # lessons materialized by news-plan (bank:<id> items)
