@@ -92,10 +92,12 @@ body.adm {
 .pg-act { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
 
 /* ---------- Cảnh báo toàn cục (Kho Drive …) ---------- */
-.drv-banner { max-width: 1280px; margin: 0 auto 1rem; display: flex; align-items: center; flex-wrap: wrap; gap: .4rem .6rem; padding: .65rem .9rem; border-radius: var(--a-r-sm); font-size: .88rem; border: 1px solid; }
-.drv-banner.crit { background: var(--a-bad-bg); border-color: color-mix(in srgb, var(--again) 40%, transparent); color: var(--a-bad); }
-.drv-banner.warn { background: var(--a-warn-bg); border-color: color-mix(in srgb, var(--gold) 45%, transparent); color: var(--a-warn); }
-.drv-banner a { color: inherit; font-weight: 700; margin-left: auto; }
+.drv-banner { max-width: 1280px; margin: 0 auto 1.2rem; display: flex; align-items: center; flex-wrap: wrap; gap: .5rem .75rem; padding: .8rem 1.15rem; border-radius: 12px; font-size: .88rem; font-weight: 600; border: 1px solid; box-shadow: var(--a-card-shadow); }
+.drv-banner.crit { background: var(--a-bad-bg); border-color: color-mix(in srgb, var(--again) 45%, transparent); color: var(--a-bad); }
+.drv-banner.warn { background: var(--a-warn-bg); border-color: color-mix(in srgb, var(--gold) 50%, transparent); color: var(--a-warn); }
+.drv-banner a { color: inherit; font-weight: 750; margin-left: auto; text-decoration: underline; }
+.drv-card { border-radius: var(--a-r); box-shadow: var(--a-card-shadow); transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease; }
+.drv-card:hover { border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); }
 
 /* ---------- Thẻ, lưới, tiêu đề mục ---------- */
 .adm h2.h3 { font-size: 1rem; font-weight: 700; margin: 0; letter-spacing: 0; }
@@ -329,10 +331,11 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .ac-legend { margin: .3rem 0 0; font-size: .82rem; }
 .mini { display: inline-block; width: 48px; height: 6px; border-radius: 99px; background: var(--surface-2); overflow: hidden; margin-right: .45rem; vertical-align: middle; }
 .mini i { display: block; height: 100%; background: var(--primary); border-radius: 99px; }
-.meter { margin: .7rem 0; }
-.meter .track, .svc-usage .bar { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; margin: .3rem 0; }
-.meter .fill, .svc-usage .bar i { display: block; height: 100%; background: var(--good); border-radius: 99px; }
-.meter.warn .fill, .svc-usage .warn .bar i { background: var(--gold); } .meter.crit .fill, .svc-usage .crit .bar i { background: var(--again); }
+.meter { margin: .85rem 0; }
+.meter .track, .meter .bar, .svc-usage .bar { height: 9px; border-radius: 99px; background: var(--surface-2); border: 1px solid color-mix(in srgb, var(--line) 65%, transparent); overflow: hidden; margin: .35rem 0; }
+.meter .fill, .meter .bar i, .svc-usage .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--good), color-mix(in srgb, var(--good) 80%, var(--primary))); border-radius: 99px; transition: width .3s cubic-bezier(0.16, 1, 0.3, 1); }
+.meter.warn .fill, .meter.warn .bar i, .svc-usage .warn .bar i { background: linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--gold) 85%, var(--again))); }
+.meter.crit .fill, .meter.crit .bar i, .svc-usage .crit .bar i { background: linear-gradient(90deg, var(--again), color-mix(in srgb, var(--again) 85%, #000)); }
 
 /* Phân tích trực tiếp + bản đồ */
 .live-card { margin-bottom: 1rem; border-color: color-mix(in srgb, var(--primary) 25%, var(--line)); }
