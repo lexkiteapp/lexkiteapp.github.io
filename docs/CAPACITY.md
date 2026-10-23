@@ -90,7 +90,7 @@ Lưu ý: số Cloudflare hiện tại của tài khoản (GraphQL 22–23/10) đ
 - Báo: chuông Quản trị (`drive_alerts` kind `capacity`, banner đỏ mọi tab → tab Hạn mức) + thư `REPORT_NOTIFY_EMAIL` ≤ 1 thư/24 h; hết nguy cơ → tự gỡ chuông.
 - Quản trị › Hạn mức › **📈 Xu hướng 30 ngày**: cột theo ngày (% gói Free) cho ghi / đọc / lượt, vạch 60 % và 80 %.
 - **Cần**: bí mật Pages `CF_ANALYTICS_TOKEN` (quyền *Account Analytics: Read*) + `CF_ACCOUNT_ID` (dùng chung `_d1guard.js`). Thiếu → `/api/capacity` 503, workflow đỏ.
-- Bộ điều phối việc nền (`infra/jobs.json`): khi có trên main, đăng ký `capacity-watch` (ưu tiên `reports`, tài nguyên `d1_main`, ~1 phút).
+- Đã đăng ký ở sổ việc nền `infra/jobs.json` (bộ điều phối): `capacity-watch` (ưu tiên `reports`, `d1_main`, 01:25 UTC) và `capacity-sim` (thứ Hai 04:40 UTC).
 
 ## 6. Đã tối ưu (23/10, không đổi hành vi – mỗi mục có test trong `scripts/test/capacity.mjs`)
 
