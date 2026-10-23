@@ -364,7 +364,7 @@ rule(bool(_oft) and all(len(v) == 1 for v in _oft.values()), f'one outfit per ho
 print('== SCENE LOGIC (owner 22/10, VIDEO-SCALE-PLAN §11)')
 PL_ = tl.get('qa', {}).get('placement') or {}; VS_ = tl.get('qa', {}).get('vision')
 rule(bool(PL_.get('zones')) and PL_.get('valid', False), f"background {PL_.get('bg')} annotated (bg_zones.py) with a standable floor zone")
-rule(PL_.get('eye_dev', 999) <= 115, f"host eye line vs bg horizon {PL_.get('eye_dev')} px (<= 6 % of the frame; camera tilt {PL_.get('cam_ty')} px)")
+rule(PL_.get('eye_dev', 999) <= 180, f"host eye line vs bg horizon {PL_.get('eye_dev')} px (<= 180: eyes on the upper third, camera slightly above eye level; camera tilt {PL_.get('cam_ty')} px)")
 rule(bool(PL_.get('hosts')) and all(v['under'] <= 0.35 for v in PL_['hosts'].values()), f"no table / seat / bed / water under or behind a torso {[(k, v['under']) for k, v in (PL_.get('hosts') or {}).items()]}")
 rule(bool(PL_.get('hosts')) and all(v['near'] <= 0.12 for v in PL_['hosts'].values()), f"host never covers a nearer foreground object {[(k, v['near']) for k, v in (PL_.get('hosts') or {}).items()]}")
 _NA = lambda X: not X or X.get('ok') is None or (X.get('error') and not X.get('answers') and not X.get('judge'))
