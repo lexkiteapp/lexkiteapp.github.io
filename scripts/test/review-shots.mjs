@@ -23,11 +23,13 @@ async function run(TAG, ROOT, vn, scheme, lang, modes) {
     for (const [w, v] of [['river', 'dòng sông'], ['window', 'cửa sổ'], ['decline', 'suy giảm'], ['habit', 'thói quen']]) mk({ word: w, pos: 'noun', vi: v, ex: '' }, { due: now + 9e9 });
     for (const c of Object.values(map)) await C.update(c); // Store không phải biến toàn cục → ghi qua API Core
   });
+  await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(2000); // nạp lại để App.state đọc thẻ mẫu
   for (const m of modes) {
     await page.goto(url('home')); await page.goto(url('review'), { waitUntil: 'load' }); await page.waitForTimeout(1800);
     if (m !== 'auto') { await page.selectOption('#rmSel', m).catch(() => {}); await page.waitForTimeout(700); }
     if (m === 'audio') { await page.click('[data-opt="0"]').catch(() => {}); await page.waitForTimeout(500); await page.evaluate(() => scrollTo(0, 0)); }
     if (m === 'type') { await page.fill('#typeIn', 'acomplish').catch(() => {}); await page.keyboard.press('?').catch(() => {}); await page.waitForTimeout(300); }
+    const nCards = await page.evaluate(() => Object.keys(App.state.cards || {}).length).catch(() => 0); if (nCards < 3) errs.push(`${TAG}-${vn}-${lang}-${m}: không có thẻ mẫu`);
     const name = `${TAG}-${vn}-${scheme}-${lang}-${m}.png`;
     await page.screenshot({ path: path.join(OUT, name), fullPage: vn === 'desktop' ? false : true });
     if (vn === 'mobile') { const w = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth); if (w > 2) errs.push(`${name}: tràn ngang +${w}px`); }
