@@ -37,14 +37,20 @@ export function buildShards() {
   const R = new Map();
   for (const v of VERBS.irregularList()) for (const x of Lex.formsOf(v)) if (x && !E.has(x) && E.has(v.base)) R.set(x, v.base);
   for (const p of IRR_PLURAL.split('|')) { const [f, b] = p.split(' '); if (!E.has(f) && E.has(b)) R.set(f, b); }
+  // cụm chứa từ (trang tra từ: "Cụm từ & cấu trúc với …"): ≤ 8 cụm [từ, vi, ví dụ] nằm ngay trong mảnh của từ gốc – không cần 2,3 MB gói từ
+  const PM = new Map(), PH = {};
+  for (const pk of E.keys()) if (/\s/.test(pk)) for (const t of pk.split(/\s+/).map(x => Lex.edge(x)).filter(Boolean)) {
+    const b = E.has(t) ? t : Lex.stems(t).find(x => E.has(x)); if (!b || b === pk) continue;
+    const l = PM.get(b) || PM.set(b, []).get(b); if (l.length < 8 && !l.some(x => x[0] === E.get(pk).word)) { const e = E.get(pk); l.push([e.word, e.vi || '', e.ex || '']); PH[pk] = 1; }
+  }
   const F = new Map(); for (const k of E.keys()) { const f = Lex.fold(k); if (f !== k && !E.has(f) && !F.has(f)) F.set(f, k); }
   const audio = new Set(fs.readFileSync(path.join(ROOT, 'web/audio/w/index.txt'), 'utf8').split('\n').map(x => Lex.norm(x)).filter(Boolean));
   // ---- mảnh lõi: mọi khóa (mục từ + dạng r + khóa không dấu f) theo thứ tự chuỗi JS, cắt theo kích thước
   const keys = [...new Set([...E.keys(), ...R.keys(), ...F.keys()])].sort();
   const core = []; let cur = null, size = 0;
   for (const k of keys) {
-    if (!cur || size >= CORE_RAW) { cur = { first: k, d: { e: {}, r: {}, f: {}, a: [] } }; core.push(cur); size = 0; }
-    if (E.has(k)) { cur.d.e[k] = E.get(k); size += JSON.stringify(E.get(k)).length + k.length; if (audio.has(k)) cur.d.a.push(k); }
+    if (!cur || size >= CORE_RAW) { cur = { first: k, d: { e: {}, r: {}, f: {}, a: [], p: {} } }; core.push(cur); size = 0; }
+    if (E.has(k)) { cur.d.e[k] = E.get(k); size += JSON.stringify(E.get(k)).length + k.length; if (audio.has(k)) cur.d.a.push(k); if (PM.has(k)) { cur.d.p[k] = PM.get(k); size += JSON.stringify(PM.get(k)).length; } }
     if (R.has(k)) { cur.d.r[k] = R.get(k); size += k.length * 2; }
     if (F.has(k)) { cur.d.f[k] = F.get(k); size += k.length * 2; }
   }
@@ -62,7 +68,7 @@ export function buildShards() {
   // ---- top-N từ thông dụng (thứ tự NGSL) gộp 1 tệp để tải sẵn lúc rảnh
   const top = { e: {}, a: [] };
   for (const t of TOPICS.filter(x => x.group === 'core')) for (const w of t.words) { const k = Lex.norm(w.word); if (Object.keys(top.e).length >= TOP_N) break; if (E.has(k) && E.get(k).word === w.word && !top.e[k]) { top.e[k] = E.get(k); if (audio.has(k)) top.a.push(k); } }
-  return { E, R, F, core, langs, top, collide };
+  return { E, R, F, PH, core, langs, top, collide };
 }
 
 const hash = (s, n = 6) => crypto.createHash('sha1').update(s).digest('hex').slice(0, n);
@@ -86,7 +92,7 @@ export function writeShards(out) {
   }
   const cs = files.filter(f => f.rel.startsWith('data/lex/c/')).map(f => br(f.s)).sort((x, y) => x - y);
   const ls = files.filter(f => /lex\/[a-z]{2}\//.test(f.rel)).map(f => br(f.s)).sort((x, y) => x - y);
-  const st = { words: b.E.size, irregular: b.R.size, folded: b.F.size, collisions: b.collide.length, coreShards: cs.length, coreBrMedian: cs[cs.length >> 1], coreBrMax: cs.at(-1), langShards: ls.length, langBrMedian: ls[ls.length >> 1], langBrMax: ls.at(-1), indexBr: br(idxS), topBr: br(files.find(f => f.rel.includes('top.')).s), files: files.length + 1, version: idx.v };
+  const st = { phrases: Object.keys(b.PH).length, words: b.E.size, irregular: b.R.size, folded: b.F.size, collisions: b.collide.length, coreShards: cs.length, coreBrMedian: cs[cs.length >> 1], coreBrMax: cs.at(-1), langShards: ls.length, langBrMedian: ls[ls.length >> 1], langBrMax: ls.at(-1), indexBr: br(idxS), topBr: br(files.find(f => f.rel.includes('top.')).s), files: files.length + 1, version: idx.v };
   return { idx, files, stats: st, build: b };
 }
 

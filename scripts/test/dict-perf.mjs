@@ -90,6 +90,7 @@ const med = a => { const s = a.filter(x => x >= 0).sort((x, y) => x - y); return
 R.coldMs = Math.max(...R.cold.map(x => x.ms)); R.warmMs = med(R.warm.map(x => x.ms)); R.spreadMs = med(R.spread.map(x => x.ms));
 R.perLookupKB = +(R.spread.reduce((a, x) => a + x.kb, 0) / R.spread.length).toFixed(2);
 R.heapAfterMB = await heap();
+R.lex = await page.evaluate(() => (window.Lex ? Lex.stats() : null)); // mảnh thật (không phải dự phòng INDEX)
 
 // ---------- 3) Gõ tìm: tác vụ dài > 50 ms, gợi ý đúng chữ cuối (gõ nhanh) ----------
 await page.evaluate(() => { location.hash = '#/home'; }); await sleep(2500);
@@ -117,7 +118,7 @@ if (INDEX) {
     await page.evaluate(w => { location.hash = '#/dict/' + encodeURIComponent(w); }, w);
     await page.waitForFunction(() => document.querySelector('#result .entry-word'), null, { timeout: 30000 }).catch(() => {});
     await sleep(2500);
-    const got = await page.evaluate(() => { const ipa = [...document.querySelectorAll('#result .pron .ipa')].map(x => x.textContent.trim()); return { word: (document.querySelector('#result .entry-word') || {}).textContent, uk: ipa[0], us: ipa[1], vi: ((document.querySelector('#result .entry-head .vi') || {}).textContent || '').trim(), def: ((document.querySelector('#result .entry-head [lang=en]') || {}).textContent || '').trim() }; });
+    const got = await page.evaluate(() => { const ipa = [...document.querySelectorAll('#result .pron .ipa')].map(x => x.textContent.trim()); return { word: (document.querySelector('#result .entry-word') || {}).textContent, uk: ipa[0], us: ipa[1], vi: ((document.querySelector('#result .entry-head .vi') || {}).textContent || '').trim(), def: ((document.querySelector('#result .entry-head div[lang=en]') || {}).textContent || '').trim() }; });
     const want = { word: want0.word, uk: want0.ipa || '—', us: want0.ipaUS || want0.ipa || '—', vi: want0.vi, def: want0.def };
     const bad = Object.keys(want).filter(f => String(got[f] || '') !== String(want[f] || ''));
     R.consistency.push({ w, ok: !bad.length, bad: bad.map(f => `${f}: "${String(got[f]).slice(0, 40)}" ≠ "${String(want[f]).slice(0, 40)}"`) });
@@ -160,6 +161,7 @@ if ((R.typingLongTasks || []).length > T.longTasks) fails.push(`tác vụ dài k
 if (R.suggestOk === false) fails.push('gợi ý không khớp chữ đang gõ');
 if (R.offlineOk === false || typeof R.offlineOk === 'string') fails.push('offline: không tra được từ đã lưu');
 for (const c of R.consistency) if (!c.ok) fails.push(`nhất quán "${c.w}": ${c.bad.join('; ')}`);
+if (hasShards && !(R.lex && R.lex.version !== 'local' && R.lex.net > 0)) fails.push(`Lex không dùng mảnh: ${JSON.stringify(R.lex)}`);
 if (R.addon && R.addon.lookupOk === false) fails.push('add-on: bấm đúp lần đầu không tra được');
 R.fails = fails;
 console.log(JSON.stringify(R, null, 1));

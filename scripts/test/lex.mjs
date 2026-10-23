@@ -59,6 +59,7 @@ const phr = Object.keys(INDEX).filter(k => /^[a-z]+ (up|out|off|on|down|back|ove
 const pv = phr.find(k => k.startsWith('look ')) || phr[0];
 if (pv) { const [v, p] = pv.split(' '); await lemma(v + 'ed ' + p, pv); await lemma(v + 'ing it ' + p, pv); }
 if (has('give up')) { await lemma('gave up', 'give up'); await lemma('gave it up', 'give up'); }
+if (has('give up')) { const ps = await Lex.phrases('gave'); ok(ps && ps.some(p => p.word.toLowerCase() === 'give up' && p.vi === INDEX['give up'].vi), 'Lex.phrases("gave") có "give up" (đúng nghĩa kho)'); }
 const went = await Lex.get('went'); ok(!went || went.via === 'irregular' && went.from === 'went', 'went: via=irregular, from=went');
 
 // 4) Nghĩa theo ngôn ngữ + dự phòng + RTL dữ liệu

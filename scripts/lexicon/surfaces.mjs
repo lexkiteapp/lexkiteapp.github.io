@@ -18,6 +18,7 @@ export function surfaceErrors() {
   const b = buildShards();
   if (b.collide.length) errs.push(`mảnh: ${b.collide.length} từ trùng khóa sau chuẩn hóa (${b.collide.slice(0, 5).join(', ')})`);
   let bad = 0; for (const k of Object.keys(INDEX)) { const e = b.E.get(Lex.norm(k)); if (!e || JSON.stringify(e) !== JSON.stringify(INDEX[k])) { if (bad++ < 3) errs.push(`mảnh lệch INDEX: ${k}`); } }
+  for (const c of b.core) for (const [k, list] of Object.entries(c.d.p || {})) for (const [w, vi, ex] of list) { const e = INDEX[w.toLowerCase()]; if (!e || e.vi !== vi || (e.ex || '') !== ex) { if (bad++ < 3) errs.push(`cụm của "${k}" lệch INDEX: ${w}`); } }
   for (const [f, base] of b.R) if (!b.E.has(base)) errs.push(`dạng bất quy tắc ${f} → ${base} không có mục`);
   // 2) tab mới add-on: IPA Anh/Mỹ, CEFR, nghĩa đầu = mục chính
   const NT = path.join(ROOT, 'extension/nt'); let ntBad = 0, ntN = 0;

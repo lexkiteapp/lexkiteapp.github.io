@@ -5,7 +5,7 @@
  *   /data/lex/<lang>/<hash>-<j>.json        → { khóa: [nghĩa, cờ, tin cậy] } – mảnh j phủ mảnh lõi [j·g, (j+1)·g)
  * Bộ đệm: bộ nhớ (đã parse) → IndexedDB 'lk-lex' (khóa = đường dẫn có hash ⇒ đổi phiên bản kho là tự hết hạn; LRU ≤ MAX tệp) → mạng.
  * Không có mảnh (file://, test, mất mạng lần đầu) → dùng IELTS_DATA.INDEX với CÙNG chuẩn hóa + tách gốc từ.
- * API: Lex.norm(s) · Lex.get(s, { lang }) → { entry, key, via, from, mean, au } | null · Lex.peek(s) · Lex.suggest(q, n) · Lex.warm() · Lex.version()
+ * API: Lex.norm(s) · Lex.get(s, { lang }) → { entry, key, via, from, mean, au } | null · Lex.peek(s) · Lex.suggest(q, n) · Lex.phrases(s) · Lex.warm() · Lex.version()
  * Chạy được trong Node (module.exports) để test: scripts/test/lex.mjs. */
 (function (g) {
   'use strict';
@@ -57,7 +57,8 @@
       r.onsuccess = () => res(r.result); r.onerror = r.onblocked = () => res(null);
     } catch (e) { res(null); }
   }));
-  const tx = (mode, fn) => idb().then(db => db && new Promise(res => { try { const t = db.transaction('f', mode), s = t.objectStore('f'); const out = fn(s); t.oncomplete = () => res(out && out.result !== undefined ? out.result : out); t.onerror = t.onabort = () => res(null); } catch (e) { res(null); } }));
+  // IDBRequest → giá trị (khóa thiếu = undefined – KHÔNG trả chính request: lỗi cũ làm mọi mảnh 'có trong bộ đệm' mà rỗng)
+  const tx = (mode, fn) => idb().then(db => db && new Promise(res => { try { const t = db.transaction('f', mode), s = t.objectStore('f'); const out = fn(s); t.oncomplete = () => res(out && typeof out === 'object' && 'readyState' in out ? out.result : out); t.onerror = t.onabort = () => res(null); } catch (e) { res(null); } }));
   const idbGet = k => tx('readonly', s => s.get(k)).then(v => v || null).catch(() => null);
   let puts = 0;
   const idbPut = (k, d) => tx('readwrite', s => s.put({ d, t: Date.now() }, k)).then(() => { if (++puts % 20 === 0) trim(); }).catch(() => {});
@@ -180,6 +181,12 @@
     } else { const sh = fbShard(); if (sh) Object.keys(sh.e).filter(x => x.startsWith(k)).sort().slice(0, n).forEach(key => push(key, sh.e[key])); }
     return out;
   }
+  // Cụm chứa từ (≤ 8, nằm trong mảnh của từ): [{ word, vi, ex }]; null = chưa có mảnh → giao diện dùng INDEX đang có
+  async function phrases(raw) {
+    await index(); if (!idx) return null;
+    const r = await resolve(raw).catch(() => null); if (!r || !r.sh) return [];
+    return (own(r.sh.p, r.key) || []).map(v => ({ word: v[0], vi: v[1], ex: v[2] }));
+  }
   // Tải sẵn: mục lục + mảnh top-N từ thông dụng (gộp 1 tệp) – gọi lúc rảnh
   async function warm() {
     await index(); if (!idx || !idx.top) return 0;
@@ -188,7 +195,7 @@
     return Object.keys(top.e || {}).length;
   }
   const Lex = {
-    norm, fold, edge, stems, formsOf, get, peek, peekAu, suggest, warm, resolve,
+    norm, fold, edge, stems, formsOf, get, peek, peekAu, suggest, phrases, warm, resolve,
     ready: () => index().then(() => !!idx), refresh: () => { idxFresh = false; return refresh().catch(() => idx); },
     version: () => (idx ? idx.v : 'local'), stats: () => ({ ...stats, version: idx ? idx.v : 'local', mem: mem.size }),
     // test / môi trường đặc biệt

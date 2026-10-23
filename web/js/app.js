@@ -283,8 +283,6 @@
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
   // Rảnh thì tải trước các module còn lại → chuyển trang tức thì, dùng offline được
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
-  // việc nặng chỉ khi đã ngừng gõ ≥ 2 s
-  App.whenQuiet = fn => { const go = () => (Date.now() - (App.typedAt || 0) < 2000 ? setTimeout(() => idle(go), 1000) : fn()); idle(go); };
   // Tải sẵn các phần còn lại khi máy rảnh – bỏ qua khi người dùng tiết kiệm dữ liệu, mạng chậm hoặc máy yếu (tải khi cần là đủ)
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
@@ -1006,7 +1004,7 @@
     bindCommon();
     App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
     if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, state.settings.accent === 'en-US' ? e.audioUS : e.audio); }
-    if (final) { loadRelated(e); drawPhrases(e); if (!App.loaded('words')) App.whenQuiet(() => App.need('words', 'tsl').then(() => { if (same() && $('#phraseBox')) drawPhrases(e); }).catch(() => {})); } // kho đủ chỉ để vẽ thêm cụm từ
+    if (final) { loadRelated(e); drawPhrases(e); if (window.Lex) Lex.phrases(e.word).then(l => { if (l && l.length && same() && $('#phraseBox')) drawPhrases(e, l); }).catch(() => {}); } // cụm từ theo mảnh (không nạp 2,3 MB gói từ)
     if (keep) { $('#ctx').value = keep; }
 
     let ctxVi = '';
@@ -1042,10 +1040,10 @@
   });
 
   // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
-  function drawPhrases(e) {
+  function drawPhrases(e, lx) {
     const el = $('#phraseBox'); if (!el) return;
-    const re = UI.wordRegex(e.word);
-    const lib = Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word)).slice(0, 10);
+    const re = UI.wordRegex(e.word), lx2 = (lx || []).filter(w => re.test(w.word));
+    const lib = [...lx2, ...Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word) && !lx2.some(l => l.word === w.word))].slice(0, 10);
     const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
     const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent-text);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
       <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
@@ -1608,7 +1606,8 @@
     $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); const w = INDEX[String(b.dataset.slow).toLowerCase()] || state.cards[String(b.dataset.slow).toLowerCase()]; speak(b.dataset.slow, state.settings.accent, w && (state.settings.accent === 'en-US' ? w.audioUS || w.audio : w.audio), true); });
     $$('[data-add-seed]').forEach(b => b.onclick = async e => {
       e.preventDefault();
-      const w = INDEX[b.dataset.addSeed.toLowerCase()];
+      const k = b.dataset.addSeed.toLowerCase(), lr = !INDEX[k] && window.Lex ? await Lex.get(k).catch(() => null) : null;
+      const w = INDEX[k] || (lr && lr.via === 'exact' ? lr.entry : null);
       if (!w) return;
       await addWord(b.dataset.topic ? { ...w, topic: b.dataset.topic } : w);
       b.outerHTML = `<span class="chip ok">✓ ${t('Đã thêm')}</span>`;
