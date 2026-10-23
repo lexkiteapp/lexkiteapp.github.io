@@ -73,16 +73,23 @@ async function mark(k, sec, v = '1') { try { await /** @type {any} */ (caches).d
 // ---------- Trạng thái dùng chung (cấu hình, danh sách không giới hạn, khóa) – đọc D1 tối đa 1 lần/phút/isolate ----------
 let ready = false;
 const st = { at: 0, cfg: {}, legacy: {}, allow: new Set(), block: new Map() };
-export const resetState = () => { st.at = 0; };
+// Trạng thái dùng chung cả trung tâm dữ liệu qua Cache API (60 s): N isolate cùng nơi → 1 lượt đọc D1/phút thay vì N (docs/CAPACITY.md)
+const STATE_KEY = 'https://quota.lexkite.internal/state/v1';
+/** Quản trị đổi cấu hình/khóa → isolate này áp dụng ngay + xoá bản đệm chung (isolate khác ≤ 1 phút). memoryOnly: chỉ bộ nhớ isolate (kiểm thử). */
+export const resetState = (o = {}) => { st.at = 0; if (!o.memoryOnly) try { /** @type {any} */ (caches).default.delete(new Request(STATE_KEY)).catch(() => {}); } catch (e) { /* bỏ qua */ } };
+const fromShared = v => { st.cfg = v.cfg || {}; st.allow = new Set(v.allow || []); st.block = new Map(v.block || []); st.legacy = v.legacy || {}; };
 export async function setupQuota(db) {
   if (ready) return;
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS quota_count (k TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (k, day)) WITHOUT ROWID'),
-    db.prepare('CREATE INDEX IF NOT EXISTS quota_count_day ON quota_count (day, n)'),
+    // (day) thay cho (day, n): mỗi lần đếm (n đổi) không phải ghi thêm 1 dòng chỉ mục – D1 Free chỉ 100k dòng GHI/ngày (docs/CAPACITY.md)
+    db.prepare('DROP INDEX IF EXISTS quota_count_day'),
+    db.prepare('CREATE INDEX IF NOT EXISTS quota_count_d ON quota_count (day)'),
     db.prepare('CREATE TABLE IF NOT EXISTS quota_config (feature TEXT PRIMARY KEY, v TEXT NOT NULL, at INTEGER, by TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS quota_allow (id TEXT PRIMARY KEY, note TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS quota_block (id TEXT PRIMARY KEY, until INTEGER NOT NULL, reason TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS quota_flag (id TEXT PRIMARY KEY, strikes INTEGER NOT NULL, bans INTEGER NOT NULL DEFAULT 0, last INTEGER NOT NULL, until INTEGER NOT NULL DEFAULT 0, feature TEXT) WITHOUT ROWID'),
+    db.prepare('CREATE INDEX IF NOT EXISTS quota_flag_until ON quota_flag (until)'), // state(): WHERE until > ? – không quét cả bảng cờ
     db.prepare('CREATE TABLE IF NOT EXISTS quota_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, target TEXT, detail TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
   ]);
@@ -92,6 +99,7 @@ async function state(db) {
   const now = Date.now();
   if (now - st.at < STATE_TTL) return st;
   st.at = now; // lỗi D1 → giữ trạng thái cũ, thử lại sau 1 phút (không dội D1)
+  try { const hit = await /** @type {any} */ (caches).default.match(new Request(STATE_KEY)); if (hit) { const v = await hit.json(); if (v && now - v.at < STATE_TTL) { fromShared(v); st.at = v.at; return st; } } } catch (e) { /* không có Cache API → đọc D1 */ }
   try {
     await setupQuota(db);
     const [c, a, b, f, l] = await db.batch([
@@ -105,6 +113,7 @@ async function state(db) {
     st.allow = new Set(rows(a).map(r => r.id));
     st.block = new Map(); for (const r of [...rows(b), ...rows(f)]) { const u = +r.until || 0, o = st.block.get(r.id); st.block.set(r.id, o === 0 || u === 0 ? 0 : Math.max(o || 0, u)); }
     st.legacy = Object.fromEntries(rows(l).filter(r => r.v !== '' && r.v != null && +r.v >= 0).map(r => [r.k, +r.v]));
+    try { await /** @type {any} */ (caches).default.put(new Request(STATE_KEY), new Response(JSON.stringify({ at: now, cfg: st.cfg, allow: [...st.allow], block: [...st.block], legacy: st.legacy }), { headers: { 'Cache-Control': `max-age=${STATE_TTL / 1000}` } })); } catch (e) { /* bỏ qua */ }
   } catch (e) { /* cho qua */ }
   return st;
 }
@@ -127,7 +136,7 @@ async function strike(db, key, feature) {
     await mark('qsd:' + key, STRIKE.windowSec);
     const now = Date.now(), r = await db.prepare('SELECT strikes, bans, last, until FROM quota_flag WHERE id = ?').bind(key).first();
     let strikes = r && now - r.last < DAY ? r.strikes + 1 : 1, bans = r && now - r.last < 7 * DAY ? r.bans : 0, until = r && r.until > now ? r.until : 0;
-    if (strikes >= STRIKE.strikes) { bans++; strikes = 0; until = now + Math.min(STRIKE.baseMin * 2 ** (bans - 1), STRIKE.maxMin) * 60e3; st.block.set(key, until); }
+    if (strikes >= STRIKE.strikes) { bans++; strikes = 0; until = now + Math.min(STRIKE.baseMin * 2 ** (bans - 1), STRIKE.maxMin) * 60e3; st.block.set(key, until); try { await /** @type {any} */ (caches).default.delete(new Request(STATE_KEY)); } catch (e) { /* bỏ qua */ } } // khóa mới → bản đệm chung phải đọc lại D1
     await db.prepare('INSERT INTO quota_flag (id, strikes, bans, last, until, feature) VALUES (?1, ?2, ?3, ?4, ?5, ?6) ON CONFLICT (id) DO UPDATE SET strikes = ?2, bans = ?3, last = ?4, until = ?5, feature = ?6')
       .bind(key, strikes, bans, now, until, feature).run();
   } catch (e) { /* bỏ qua */ }

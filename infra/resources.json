@@ -210,7 +210,7 @@
       "key": "cache-internal",
       "name": "Cloudflare Cache API (nội bộ)",
       "kind": "internal",
-      "purpose": "Khóa nội bộ cho giới hạn tần suất & làm nguội khóa Gemini (không phải tên miền thật) · bộ đếm hạn mức/burst (functions/api/_quota.js, docs/QUOTAS.md)",
+      "purpose": "Khóa nội bộ cho giới hạn tần suất & làm nguội khóa Gemini (không phải tên miền thật) · bộ đếm hạn mức/burst + trạng thái hạn mức dùng chung 60 s (functions/api/_quota.js, docs/QUOTAS.md) · danh sách thông báo công khai 60 s (functions/api/notices.js, docs/CAPACITY.md)",
       "console": "",
       "free": "—",
       "upgrade": "—",
@@ -218,7 +218,8 @@
       "match": [
         "cache.lexkite.internal",
         "rate.lexkite.internal",
-        "quota.lexkite.internal"
+        "quota.lexkite.internal",
+        "notices.lexkite.internal"
       ]
     },
     {

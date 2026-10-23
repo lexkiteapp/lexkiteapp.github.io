@@ -1,0 +1,21 @@
+# Hạn mức Cloudflare hằng ngày: /api/capacity op check (HMAC) → GraphQL 30 ngày (D1 lexkite-sync đọc/ghi, Pages Functions + Workers) → chuông Quản trị + thư
+# "Nâng gói Cloudflare 5 USD trước ngày X" khi ≥ 60 % gói Free 3 ngày liền hoặc dự báo chạm 80 % trong 14 ngày. Tài liệu: docs/CAPACITY.md
+# 1 yêu cầu/ngày, không thử lại. Đỏ khi thiếu CF_ANALYTICS_TOKEN ở Pages hoặc không có số liệu.
+name: capacity-watch
+on:
+  schedule:
+    - cron: '25 1 * * *'
+  workflow_dispatch:
+concurrency: { group: capacity-watch, cancel-in-progress: false }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: 'scripts', sparse-checkout-cone-mode: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - name: Kiểm hạn mức
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/capacity/check.mjs

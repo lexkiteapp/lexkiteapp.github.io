@@ -96,6 +96,37 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "capacity-sim",
+   "workflow": "capacity-sim.yml",
+   "cron": [
+    "40 4 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "capacity-watch",
+   "workflow": "capacity-watch.yml",
+   "cron": [
+    "25 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main",
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 40
+   },
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [

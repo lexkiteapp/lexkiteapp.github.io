@@ -45,7 +45,7 @@
     'Bỏ thay đổi chưa lưu?': 'Discard unsaved changes?', 'Bạn có thay đổi chưa lưu. Rời trang sẽ mất các thay đổi này.': 'You have unsaved changes. Leaving this page will lose them.', 'Bỏ thay đổi': 'Discard changes', 'Ở lại': 'Stay',
     // Drive (banner toàn cục)
     'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
-    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
+    'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
     // Đơn vị & thời gian
     '{s} giây': '{s}s', '{m} phút {s} giây': '{m}m {s}s', '{m}p {s}s': '{m}m {s}s', 'vừa xong': 'just now', '{n} phút trước': '{n} min ago', '{n} giờ trước': '{n}h ago', '{n} ngày trước': ['{n} day ago', '{n} days ago'],
     'CN': 'Sun', 'T2': 'Mon', 'T3': 'Tue', 'T4': 'Wed', 'T5': 'Thu', 'T6': 'Fri', 'T7': 'Sat',
@@ -513,7 +513,7 @@
     } catch (e) { /* huy hiệu không bắt buộc */ }
   }
   // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts): banner đỏ/vàng trên mọi tab + huy hiệu Kho Drive
-  const DRV_T = { conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao' };
+  const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao' };
   let drvAl = null;
   const paintDrv = () => {
     const al = drvAl || [], crit = al.filter(a => a.level === 'crit');
@@ -523,8 +523,9 @@
     if (!el) { el = document.createElement('div'); el.id = 'drvBanner'; el.setAttribute('role', 'alert'); $('#pgHead').parentNode.insertBefore(el, $('#pgHead')); }
     const top = crit[0] || al[0], p = top.p || {};
     el.className = 'drv-banner ' + (crit.length ? 'crit' : 'warn');
-    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L('Kho Drive'))}:</b> <span>${esc(L(DRV_T[top.t] || DRV_T.conn, { e: p.email || '', n: p.n || '', p: p.pct || '', g: p.gb ?? '' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#drive" data-go="drive">${esc(L('Xem Kho Drive'))} →</a>`;
-    el.querySelector('a').onclick = e => { e.preventDefault(); go('drive'); };
+    const cap = top.t === 'capacity'; // functions/api/capacity.js – nâng gói Cloudflare → tab Hạn mức
+    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L(cap ? 'Hạn mức' : 'Kho Drive'))}:</b> <span>${esc(L(DRV_T[top.t] || DRV_T.conn, { e: p.email || '', n: p.n || '', p: p.pct || '', g: p.gb ?? '', d: p.by || '' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#${cap ? 'quota' : 'drive'}" data-go="${cap ? 'quota' : 'drive'}">${esc(L(cap ? 'Xem Hạn mức' : 'Xem Kho Drive'))} →</a>`;
+    el.querySelector('a').onclick = e => { e.preventDefault(); go(cap ? 'quota' : 'drive'); };
   };
   async function driveAlerts() { try { const r = await dapi('alerts'); drvAl = r.alerts || []; } catch (e) { return; } paintDrv(); }
 
