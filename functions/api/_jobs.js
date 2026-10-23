@@ -31,6 +31,7 @@ export function accountsOf(env, j) {
 export function grantsOf(j) {
   const g = {}, R = (REG.reservations || {}).workers_ai || {};
   if (j.resources.includes('workers_ai')) { const v = (R.grants || {})[j.id]; g.workers_ai = Math.max(0, Math.round(v !== undefined ? +v || 0 : +R.background_neurons || 0)); }
+  if (j.resources.includes('workers_ai_b')) { const RB = (REG.reservations || {}).workers_ai_b || {}, v = (RB.grants || {})[j.id]; g.workers_ai_b = Math.max(0, Math.round(+v || 0)); }
   return g;
 }
 /** Việc nặng/dùng chung (tài nguyên độc quyền, D1, AI…) PHẢI có thuê mới chạy (fail-closed); việc chỉ dùng phút GitHub thì bỏ qua được khi điều phối hỏng. */

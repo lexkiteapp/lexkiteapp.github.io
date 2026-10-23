@@ -23,13 +23,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md) – neuron Workers AI chính, nền mặc định 0
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md) – neuron Workers AI tài khoản 2 theo phần cấp; tài khoản chính nền = 0
         id: lease
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/jobs/lease.mjs acquire script-bank
       - name: Sinh + QC + chấm
         if: ${{ steps.lease.outputs.skip != '1' }}
-        run: node scripts/scriptbank/job.mjs --max "${{ github.event.inputs.max || '400' }}" --calls "${{ github.event.inputs.calls || '60' }}" --neurons "${{ steps.lease.outputs.ai_main_neurons || 0 }}" --cap "${{ github.event.inputs.cap || '6' }}"
+        run: node scripts/scriptbank/job.mjs --max "${{ github.event.inputs.max || '400' }}" --calls "${{ github.event.inputs.calls || '60' }}" --neurons "${{ steps.lease.outputs.ai_b_neurons || 0 }}" --cap "${{ github.event.inputs.cap || '6' }}"
       - name: Lưu kết quả
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |

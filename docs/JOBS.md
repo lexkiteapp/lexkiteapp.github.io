@@ -17,7 +17,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 - `gemini` — Gemini (miễn phí) (độc quyền)
 - `workers_ai` — Workers AI tài khoản CHÍNH (neuron) – dành cho AI người dùng; việc nền mặc định 0 neuron (reservations) (độc quyền)
 - `gh_minutes` — Phút GitHub Actions
-- `workers_ai_b` — Workers AI tài khoản 2 (neuron) (độc quyền)
+- `workers_ai_b` — Workers AI tài khoản 2 (neuron, 10.000/ngày miễn phí) – dành cho việc nền (độc quyền)
 - `grabcast_ai` — GrabCast AI pool (ảnh)
 
 ## Lịch (UTC, theo giờ trong ngày)
@@ -28,7 +28,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:12 | `ci-triage` | `12 * * * *` | reports | gh_minutes | 5 | d1_internal_reads≈10 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
-| 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai, gh_minutes | 60 | workers_ai_neurons≈0 | ✓ |
+| 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, gh_minutes | 60 | workers_ai_b_neurons≈2000 | ✓ |
 | 01:00 | `lighthouse` | `0 1 * * 1` | reports | gh_minutes | 15 | — | — |
 | 01:00 | `mail-digest` | `0 1 * * *` | reports | d1_main_read | 2 | d1_main_reads≈3000 | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |
@@ -48,10 +48,10 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 05:30 | `d1b-migrate` | `30 5 * * *` | archive | d1_internal, d1_main_read, drive_pool | 45 | d1_main_reads≈40000, d1_internal_reads≈2000 | ✓ |
 | 06:20 | `footage-verify` | `20 6 * * 1` | reports | drive_pool, d1_internal | 20 | d1_internal_reads≈8000, drive_calls≈300 | ✓ |
 | 07:30 | `explain` | `30 7 * * *` | render | gemini, gh_minutes | 40 | — | — |
-| 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai, gemini, drive_pool | 150 | clips≈6, workers_ai_neurons≈0, gemini_calls≈12, drive_calls≈60 | ✓ |
+| 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai_b, gemini, drive_pool | 150 | clips≈6, gemini_calls≈12, drive_calls≈60, workers_ai_b_neurons≈3000 | ✓ |
 | 11:30 | `release-archive` | `30 11 * * 6` | archive | drive_pool, gh_minutes | 30 | drive_calls≈40 | ✓ |
 | 12:00 | `code-bundle` | `0 12 * * 0` | archive | drive_pool, gh_minutes | 60 | drive_calls≈20 | ✓ |
-| 13:10 | `vocab-img` | `10 13 * * *` | bulk (tạm dừng) | workers_ai, workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_neurons≈0, workers_ai_b_neurons≈8640, grabcast_images≈40, images≈95 | ✓ |
+| 13:10 | `vocab-img` | `10 13 * * *` | bulk (tạm dừng) | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈4000, grabcast_images≈40, images≈95 | ✓ |
 | 18:00 | `word-audio` | `0 18 * * *` | render | gh_minutes | 60 | — | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |

@@ -2,7 +2,7 @@
 // Chỉ vài truy vấn theo khoá; không qua cầu dao (phải ghi được lý do bỏ qua), tự giới hạn tốc độ. Logic: _jobs.js · sổ: infra/jobs.json · tài liệu: docs/JOBS.md
 import { cliVerify } from './drive.js';
 import { limit } from './sync.js';
-import { internalDb, d1bMode, d1bReady } from './_d1b.js';
+import { coordDb, coordKey } from './_d1b.js';
 import { setupJobs, acquire, release } from './_jobs.js';
 
 const json = (status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
@@ -13,7 +13,7 @@ export async function onRequestPost({ request, env }) {
   if (await limit('jobs:' + (request.headers.get('CF-Connecting-IP') || '?'), 60, 60)) return json(429, { error: 'too-fast' });
   if (!env.DB) return json(412, { error: 'not-configured' });
   try {
-    const db = internalDb(env); await setupJobs(db, d1bReady(env) ? d1bMode(env) + env.D1B_ACCOUNT_ID : 'main');
+    const db = coordDb(env); await setupJobs(db, coordKey(env)); // D1 nội bộ (tài khoản 2): điều phối vẫn chạy khi D1 chính hết hạn mức
     const out = b.op === 'acquire' ? await acquire(env, db, b) : b.op === 'release' ? await release(env, db, b) : { status: 400, error: 'op' };
     const st = out.status || 200; delete out.status; return json(st, out);
   } catch (e) { // D1 hết hạn mức (7500) / REST lỗi: KHÔNG trả 500 mơ hồ – 503 rõ ràng để máy khách xử lý fail-closed cho việc nặng

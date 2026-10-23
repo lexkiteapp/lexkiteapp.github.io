@@ -37,12 +37,13 @@ jobs:
       - name: Thuê tài nguyên (workers_ai – không chồng script-bank/news-auto/video-auto)
         id: lease
         run: node scripts/jobs/lease.mjs acquire vocab-img --force
-      - name: Trần ảnh tài khoản chính theo đặt chỗ AI người dùng (nền mặc định 0 neuron)
+      - name: Trần ảnh theo phần cấp neuron (tài khoản 2 = cf2; tài khoản chính = 0 đặt chỗ cho người dùng)
         if: steps.lease.outputs.skip != '1'
         run: |
-          cap=$(( ${LEASE_AI_MAIN_NEURONS:-0} / 175 )); cur=${VIMG_MAX_MAIN:-0}
-          [ "$cur" -gt "$cap" ] && cur=$cap
-          echo "VIMG_MAX_MAIN=$cur" >> "$GITHUB_ENV"; echo "tài khoản chính: tối đa $cur ảnh (đặt chỗ AI người dùng: ${LEASE_AI_MAIN_NEURONS:-0} neuron được cấp)"
+          capb=$(( ${LEASE_AI_B_NEURONS:-0} / 175 )); curb=${VIMG_MAX_CF2:-50}; [ "$curb" -gt "$capb" ] && curb=$capb
+          capm=$(( ${LEASE_AI_MAIN_NEURONS:-0} / 175 )); curm=${VIMG_MAX_MAIN:-0}; [ "$curm" -gt "$capm" ] && curm=$capm
+          echo "VIMG_MAX_CF2=$curb" >> "$GITHUB_ENV"; echo "VIMG_MAX_MAIN=$curm" >> "$GITHUB_ENV"
+          echo "ảnh tối đa: tài khoản 2 = $curb (cấp ${LEASE_AI_B_NEURONS:-0} neuron) · tài khoản chính = $curm (cấp ${LEASE_AI_MAIN_NEURONS:-0})"
       - name: Cài công cụ QC (CPU)
         if: steps.lease.outputs.skip != '1'
         run: |

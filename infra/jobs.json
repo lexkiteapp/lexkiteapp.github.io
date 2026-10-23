@@ -44,7 +44,7 @@
    "exclusive": false
   },
   "workers_ai_b": {
-   "label": "Workers AI tài khoản 2 (neuron)",
+   "label": "Workers AI tài khoản 2 (neuron, 10.000/ngày miễn phí) – dành cho việc nền",
    "exclusive": true
   },
   "grabcast_ai": {
@@ -393,12 +393,12 @@
    ],
    "priority": "render",
    "resources": [
-    "workers_ai",
+    "workers_ai_b",
     "gh_minutes"
    ],
    "minutes": 60,
    "est": {
-    "workers_ai_neurons": 0
+    "workers_ai_b_neurons": 2000
    },
    "lease": true
   },
@@ -570,16 +570,16 @@
    "priority": "render",
    "resources": [
     "gh_minutes",
-    "workers_ai",
+    "workers_ai_b",
     "gemini",
     "drive_pool"
    ],
    "minutes": 150,
    "est": {
     "clips": 6,
-    "workers_ai_neurons": 0,
     "gemini_calls": 12,
-    "drive_calls": 60
+    "drive_calls": 60,
+    "workers_ai_b_neurons": 3000
    },
    "lease": true,
    "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate) · Workers AI chính: 0 neuron nền (studio/lexai bỏ binding env.AI cho đường CI → cổng AI rơi sang Gemini)"
@@ -592,15 +592,13 @@
    ],
    "priority": "bulk",
    "resources": [
-    "workers_ai",
     "workers_ai_b",
     "grabcast_ai",
     "gh_minutes"
    ],
    "minutes": 60,
    "est": {
-    "workers_ai_neurons": 0,
-    "workers_ai_b_neurons": 8640,
+    "workers_ai_b_neurons": 4000,
     "grabcast_images": 40,
     "images": 95
    },
@@ -669,6 +667,17 @@
    "user_neurons": 10000,
    "background_neurons": 0,
    "grants": {}
+  },
+  "workers_ai_b": {
+   "account": "b",
+   "daily_neurons": 10000,
+   "safety_margin": 1000,
+   "grants": {
+    "news-auto": 3000,
+    "script-bank": 2000,
+    "vocab-img": 4000
+   },
+   "_note": "Việc nền dùng Workers AI tài khoản 2 (token cf-token-2: Account › Workers AI › Read + Edit; Pages: AI_B_TOKEN/AI_B_ACCOUNT_ID hoặc D1B_*). Tổng grants ≤ daily_neurons − safety_margin (jobs-check). 1 ảnh FLUX 4 bước ≈ 173 neuron."
   }
  }
 }
