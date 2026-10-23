@@ -27,6 +27,12 @@ Mẫu thẻ:
 
 ## TODO
 
+### [CF2] Giao tiếp tự tin – viết thêm bài (B1–B2) theo khuôn có sẵn · @antigravity · ưu tiên: cao
+- Khung `#/confidence` đã live (79c0ff97, docs/CONFIDENCE.md, 12 bài A1–B1). Viết **12 bài mới** (B1–B2 → mở mục "Coming soon"): phone calls, job interview, salary/negotiation, work meeting, presenting, making friends, complaints, giving opinions/disagreeing, renting/landlord, bank, airport problems, small talk at events – mỗi bài đúng khuôn `content/confidence/*.json` (6–8 cụm, mỗi cụm có cặp "say this instead of that" + lý do ngắn, hội thoại mẫu, đề nói 2 phút).
+- Chỉ sửa `content/confidence/**`; chạy `node scripts/confidence/build.mjs` (id, tiếng Anh ≤ B1 cho hướng dẫn, đủ 13 bản dịch bản địa – không dịch thô) + `scripts/test/confidence.mjs`. Tiếng Anh phải tự nhiên kiểu Mỹ, trung tính văn hoá; cặp ✗ phải là lỗi thật người học hay mắc.
+- Nộp 2 lô (6 + 6) → CHỜ DUYỆT.
+
+
 ### [P2-1.1-UI] Thẻ "câu của bạn" giàu (ôn tập) · @antigravity · ưu tiên: CAO
 - Claude 23/10: API P2-1.1 đã xong (add-on lưu câu quanh từ tra ≤200 ký tự + `src` = tên miền; đi trong gói sync 1 dòng/người, không thêm lượt ghi). Việc của anh em: làm **thẻ thiết kế đẹp** cho phần này.
 - **Dữ liệu (đừng tự đọc `contexts[]` nữa):** `Core.Cards.ctxOf(card)` → `{ text, src, own }` — `own=true` là câu của người học (`card.ctx`, `card.src`; thẻ cũ rơi về `contexts[0]`), `own=false` là ví dụ thư viện (`card.ex`), `null` = không có gì. Render tối thiểu hiện có ở `web/js/study.js` (mặt trước thẻ: `📌 “…” · tên-miền`) — thay bằng thẻ mới.
