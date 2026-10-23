@@ -17,7 +17,8 @@ const bad = (p, why) => { problems.push(`${p}: ${why}`); console.error(`✗ ${p}
 
 // 1) toàn bộ manifest ↔ sổ Drive (200 sha / lượt)
 const shas = [...new Set(paths.map(p => m.files[p].sha256))], have = {};
-for (let i = 0; i < shas.length; i += 200) Object.assign(have, (await driveApi('list', { sha256: shas.slice(i, i + 200) })).have || {});
+try { for (let i = 0; i < shas.length; i += 200) Object.assign(have, (await driveApi('list', { sha256: shas.slice(i, i + 200) })).have || {}); }
+catch (e) { if (/quota-guard|d1-budget/.test(String(e.code))) { console.log('⏸ cầu dao D1 đang chặn (429) – bỏ qua lượt kiểm hôm nay, không báo lỗi giả'); process.exit(0); } throw e; }
 for (const p of paths) {
   const e = m.files[p], h = have[e.sha256];
   if (!h) bad(p, 'sổ Kho Drive không có sha ' + e.sha256.slice(0, 12));
@@ -33,12 +34,12 @@ console.log(`sổ Drive: ${paths.length} mục · ${problems.length} lỗi`);
 let seed = +arg(args, 'seed', Date.now() % 2147483647) || 1; const rnd = () => (seed = (seed * 48271) % 2147483647) / 2147483647;
 const pick = paths.map(p => [rnd(), p]).sort((a, b) => a[0] - b[0]).slice(0, Math.min(SAMPLE, paths.length)).map(x => x[1]);
 const tmp = fs.mkdtempSync(path.join(process.env.RUNNER_TEMP || os.tmpdir(), 'fv-')); let checked = 0, bytes = 0;
-for (const p of pick) {
+outer: for (const p of pick) {
   const e = m.files[p];
   for (const c of e.copies || []) {
     const dest = path.join(tmp, 'x'); 
     try { const r = await downloadCopy(c.fileId, dest); bytes += r.size; checked++; if (r.sha256 !== e.sha256) bad(p, `bản sao Drive ${c.driveId} sai sha256`); else if (r.size !== e.size) bad(p, `bản sao Drive ${c.driveId} sai dung lượng`); }
-    catch (er) { bad(p, `không tải được bản sao Drive ${c.driveId}: ${er.message}`); }
+    catch (er) { if (/quota-guard|d1-budget/.test(String(er.code))) { console.log('⏸ cầu dao D1 (429): dừng lấy mẫu'); break outer; } bad(p, `không tải được bản sao Drive ${c.driveId}: ${er.message}`); }
     try { fs.unlinkSync(dest); } catch { /* */ }
     await sleep(300);
   }

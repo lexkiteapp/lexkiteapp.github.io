@@ -14,7 +14,7 @@ const bySha = new Map(Object.values(m.files).filter(e => distinctDrives(e) >= WA
 const need = files.filter(f => { const e = m.files[f.rel]; return !(e && e.size === f.size && !args.includes('--rehash') && distinctDrives(e) >= WANT); }); // đã trong manifest cùng dung lượng → tin (dùng --rehash để băm lại tất cả)
 const bytes = need.reduce((s, f) => s + f.size, 0);
 console.log(`footage: ${files.length} file lưu Kho Drive (${(files.reduce((s, f) => s + f.size, 0) / 1e9).toFixed(2)} GB) · cần kiểm/tải ${need.length} (${(bytes / 1e9).toFixed(2)} GB) · manifest có ${Object.keys(m.files).length}`);
-const pool = await driveApi('list', {});
+let pool; try { pool = await driveApi('list', {}); } catch (e) { if (/quota-guard|d1-budget/.test(String(e.code))) { console.log('⏸ cầu dao D1 đang chặn việc nền (429) – dừng, chạy tiếp ngày mai'); process.exit(0); } throw e; }
 const okDrives = (pool.drives || []).filter(d => d.status === 'ok' && d.weight > 0 && !d.auto_paused);
 console.log(`Kho Drive: ${okDrives.length} Drive nhận file · trống ${(pool.free / 1e9).toFixed(1)} GB (cần tối đa ${(bytes * WANT / 1e9).toFixed(1)} GB cho ${WANT} bản)`);
 if (okDrives.length < WANT) { console.error(`✗ cần ≥ ${WANT} Drive nhận file, hiện ${okDrives.length}`); process.exit(2); }
@@ -48,7 +48,7 @@ const one = async f => {
   } catch (e) {
     fail++; console.error(`✗ ${f.rel}: ${e.message}`);
     if (++streak >= 8) { stop = true; console.error('✗ dừng: 8 lỗi liên tiếp'); process.exitCode = 1; }
-    if (/no-key|403|forbidden|pool_full|507/.test(String(e.code || e.message))) { stop = true; console.error('✗ dừng: ' + (e.code || e.message)); process.exitCode = 1; }
+    if (/no-key|403|forbidden|pool_full|507|quota-guard|d1-budget/.test(String(e.code || e.message))) { stop = true; console.error('✗ dừng: ' + (e.code || e.message)); process.exitCode = 1; }
     else await sleep(PAUSE * 4);
   }
 };

@@ -874,7 +874,7 @@ export async function driveApi(op, body = {}, { fetcher = fetch, key = driveCliK
   for (let i = 0; ; i++) { // 429 too-fast (giới hạn 120 lượt/phút/IP của functions/api/drive.js) → chờ rồi thử lại, tối đa 5 lần
     r = await fetcher(DRIVE_API, { method: 'POST', headers: { 'Content-Type': 'application/json', ...driveSign(key, text) }, body: text }); // ký lại mỗi lần (HMAC có mốc giờ)
     j = await r.json().catch(() => ({}));
-    if (r.status !== 429 || i >= 4 || fetcher !== fetch) break;
+    if (r.status !== 429 || i >= 4 || fetcher !== fetch || /quota-guard|d1-budget/.test(j.error || '')) break; // cầu dao D1: KHÔNG thử lại – dừng, mai chạy tiếp
     await new Promise(res => setTimeout(res, 15000 * (i + 1)));
   }
   if (!r.ok) { const e = new Error(scrub(`Drive ${op} → ${r.status} ${j.error || ''}`)); e.code = j.error || r.status; e.status = r.status; throw e; }

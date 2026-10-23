@@ -20,11 +20,12 @@ if (process.env.CI && freeBytes() < MIN_FREE) { // chừa ≥ 20 GB đĩa cho b�
 }
 let hot = () => false; try { hot = matcher(JSON.parse(fs.readFileSync(path.join(path.dirname(MAN), '../../../scripts/footage/hot.json'), 'utf8')).patterns); } catch { try { hot = matcher(JSON.parse(fs.readFileSync(new URL('./hot.json', import.meta.url), 'utf8')).patterns); } catch { /* */ } }
 const match = matcher(pats), m = loadManifest(MAN);
-const GIT_ONLY = argv.includes('--git-only'), want = GIT_ONLY ? [] : Object.keys(m.files).filter(match), ok = new Set(); let got = 0, had = 0, fail = 0, bytes = 0;
+const GIT_ONLY = argv.includes('--git-only'), want = GIT_ONLY ? [] : Object.keys(m.files).filter(match), ok = new Set(); let got = 0, had = 0, fail = 0, bytes = 0, guard = false;
 if (GIT_ONLY) console.log('footage: --git-only (phiên bản cũ theo công thức) → chỉ git');
 else if (want.length && !process.env.LEXKITE_DRIVE_CLI_KEY) console.error('⚠ không có LEXKITE_DRIVE_CLI_KEY → bỏ qua Kho Drive, lấy hết từ git');
 else for (const p of want) {
-  const r = await restoreEntry(p, m.files[p], CACHE);
+  if (guard) { fail++; continue; } // cầu dao D1 chặn → phần còn lại lấy từ git (dự phòng)
+  const r = await restoreEntry(p, m.files[p], CACHE).catch(e => { if (/quota-guard|d1-budget/.test(String(e.code || e.message))) { guard = true; console.error('⏸ cầu dao D1 (429): dùng git dự phòng'); } return 'fail'; });
   if (r === 'fail') { fail++; continue; }
   r === 'got' ? (got++, bytes += m.files[p].size) : had++; ok.add(p);
   const to = path.join(REPO, p); fs.mkdirSync(path.dirname(to), { recursive: true });

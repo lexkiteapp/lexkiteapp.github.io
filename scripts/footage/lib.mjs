@@ -85,7 +85,7 @@ export async function restoreEntry(p, e, out) {
       const r = await downloadCopy(c.fileId, part);
       if (r.sha256 !== e.sha256 || r.size !== e.size) throw new Error('sai sha256/dung lượng');
       fs.renameSync(part, dest); return 'got';
-    } catch (er) { console.error(`⚠ ${p} (Drive ${c.driveId}): ${er.message}`); try { fs.unlinkSync(part); } catch { /* */ } }
+    } catch (er) { if (/quota-guard|d1-budget/.test(String(er.code))) throw er; console.error(`⚠ ${p} (Drive ${c.driveId}): ${er.message}`); try { fs.unlinkSync(part); } catch { /* */ } }
     await sleep(300);
   }
   return 'fail';

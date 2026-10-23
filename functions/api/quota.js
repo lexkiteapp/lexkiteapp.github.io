@@ -5,6 +5,7 @@
  *   configSet { feature, v:{anon:[phút,ngày], free:[phút,ngày], ipx} }                          configReset { feature } → về mặc định
  *   allowSet { target, note }              → thêm vào danh sách không giới hạn                  allowDelete { id }
  * Mọi thay đổi ghi vào quota_audit (chi tiết) + admin_log (nhật ký quản trị chung). Tài liệu: docs/QUOTAS.md */
+import { d1Usage, D1_LIMITS } from './_d1guard.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { geminiKeys } from './ai.js';
 import { DEFAULTS, PROVIDERS, BREAKER, budget, validConfig, normId, setupQuota, resetState, dayKey } from './_quota.js';
@@ -37,7 +38,8 @@ async function snapshot(db, env) {
   if (uids.size) try { const m = new Map((await all(db, `SELECT uid, email FROM users WHERE uid IN (${[...uids].map(() => '?').join(',')})`, ...uids)).map(r => [r.uid, r.email])); for (const arr of Object.values(top)) for (const x of arr) if (x.id.startsWith('u:')) x.email = m.get(x.id.slice(2)) || ''; } catch (e) { /* chưa có bảng users */ }
   let nKeys = 1; try { nKeys = Math.max(1, (await geminiKeys(env)).length); } catch (e) { /* bỏ qua */ }
   const providers = Object.entries(PROVIDERS).map(([p, P]) => { const cap = P.day * (P.perKey ? nKeys : 1), used = prov[p] || 0; return { p, infra: P.infra, unit: P.unit, used, cap, breaker: Math.floor(cap * BREAKER), pct: Math.round(used / cap * 100) }; });
-  return { day, features, top, providers, allow, blocks, flags, audit, breaker: BREAKER };
+  let d1 = null; try { const u = await d1Usage(env, db); d1 = { reads: u.reads, writes: u.writes, source: u.source, limit: u.limit, ratio: u.ratio, alert: u.alert, block: u.block, limitReads: D1_LIMITS.reads, limitWrites: D1_LIMITS.writes }; } catch (e) { d1 = null; }
+  return { day, features, top, providers, allow, blocks, flags, audit, breaker: BREAKER, d1 };
 }
 
 const OPS = {

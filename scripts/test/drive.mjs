@@ -7,7 +7,8 @@ let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log
 
 const mod = await import(new URL('../../functions/api/drive.js', import.meta.url));
 const sql = new DatabaseSync(':memory:');
-const DB = { prepare(q) { const st = { args: [], bind(...a) { return { ...st, args: a }; }, async run() { sql.prepare(q).run(...this.args); return {}; }, async all() { return { results: sql.prepare(q).all(...this.args) }; }, async first() { return sql.prepare(q).get(...this.args) || null; } }; return st; }, async batch(list) { for (const x of list) await x.run(); } };
+const SEEN = new Map(), QM = { rows: 0 }; // SEEN: mọi truy vấn đã chạy (cho kiểm EXPLAIN QUERY PLAN) · QM.rows: rows_read giả cho meta
+const DB = { prepare(q) { const st = { args: [], bind(...a) { return { ...st, args: a }; }, async run() { SEEN.set(q, this.args); sql.prepare(q).run(...this.args); return { meta: { rows_read: QM.rows } }; }, async all() { SEEN.set(q, this.args); return { results: sql.prepare(q).all(...this.args), meta: { rows_read: QM.rows } }; }, async first() { SEEN.set(q, this.args); return sql.prepare(q).get(...this.args) || null; } }; return st; }, async batch(list) { for (const x of list) await x.run(); return list.map(() => ({ meta: { rows_read: 0 } })); } };
 
 const kp = await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modulusLength: 2048, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' }, true, ['sign', 'verify']);
 const jwk = { ...(await webcrypto.subtle.exportKey('jwk', kp.publicKey)), kid: 'k1' };
@@ -369,6 +370,43 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
   ok(sql.prepare("SELECT COUNT(*) AS n FROM drive_audit WHERE act = 'upload' AND sha256 = ?").get(SHA_N).n === 2, 'audit ghi upload từng bản sao');
   r = await cli({ op: 'upload_session', name: 'mia.png', mime: 'image/png', size: 8, sha256: SHA_N, folder: 'originals/chars' }); ok(r.j.done && r.j.copies === 2, 'đủ 2 bản → bỏ qua');
   r = await cli({ op: 'upload_session', name: 'r.mp4', mime: 'video/mp4', size: 4, sha256: 'f9'.repeat(32), folder: 'stacked/clips' }); ok(r.j.sessions.length === 1 && r.j.want === 1, 'bản dựng (stacked) → 1 bản');
+  // --- 22/10 gốc rễ D1: đường CLI của footage (upload_session · complete · where · list · render_link · refs_sync · ext_alert) KHÔNG được quét drive_files/drive_refs; ngân sách đọc; cầu dao
+  {
+    const SHA_F = createHash('sha256').update('footage-one').digest('hex'); SEEN.clear(); QM.rows = 7;
+    let q1 = await cli({ op: 'upload_session', name: 'f.mp4', mime: 'video/mp4', size: 11, sha256: SHA_F, folder: 'footage/cafe', cls: 'original', replicas: 2, asset_id: 'footage:cafe/f.mp4' });
+    ok(q1.s === 200 && q1.j.sessions.length === 2, 'footage: 2 phiên / 2 Drive');
+    let fids = [];
+    for (const ss of q1.j.sessions) { const pu = await fetch(ss.upload_url, { method: 'PUT', body: Buffer.from('footage-one') }); const fid = (await pu.json()).id; fids.push(fid); await cli({ op: 'complete', drive_id: ss.drive_id, file_id: fid, sha256: SHA_F }); }
+    await cli({ op: 'upload_session', name: 'f.mp4', mime: 'video/mp4', size: 11, sha256: SHA_F, folder: 'footage/cafe', cls: 'original', replicas: 2 });
+    q1 = await cli({ op: 'where', q: SHA_F, gstate: 'ok' }); ok(q1.j.copies.length === 2, 'where theo sha → 2 bản');
+    q1 = await cli({ op: 'list', sha256: [SHA_F] }); ok(q1.j.have[SHA_F].copies === 2 && q1.j.forecast === undefined, 'list theo sha (CLI): đủ bản, không tính dự báo/quét');
+    q1 = await cli({ op: 'list' }); ok(q1.s === 200 && q1.j.drives.length >= 1 && q1.j.drives.every(d => d.files === undefined || d.files === 0), 'list CLI không gộp theo drive_files');
+    q1 = await cli({ op: 'render_link', file_id: fids[0] }); ok(q1.s === 200 && /^\/api\/drive\/dl/.test(q1.j.url), 'render_link đọc được file footage/ (cls original)');
+    q1 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q1.j.ok && q1.j.count === 1, 'refs_sync nguồn footage');
+    q1 = await cli({ op: 'ext_alert', kind: 'gitsize', ok: false, n: 1, repo: 'x', gb: 3 }); ok(q1.j.ok, 'ext_alert gitsize');
+    const bad = [];
+    for (const [q, a] of SEEN) {
+      if (!/^\s*(SELECT|UPDATE|DELETE)/i.test(q)) continue;
+      let plan; try { plan = sql.prepare('EXPLAIN QUERY PLAN ' + q).all(...a); } catch (e) { continue; }
+      for (const p of plan) if (/^SCAN /.test(p.detail) && !/^SCAN (drives|d|drive_alerts|drive_meta|drive_folders|CONSTANT)\b/.test(p.detail)) bad.push(p.detail + ' ← ' + q.slice(0, 90));
+    }
+    ok(bad.length === 0, 'EXPLAIN QUERY PLAN: đường footage không quét drive_files/drive_refs: ' + bad.join(' | '));
+    ok(SEEN.size > 8, 'kiểm EXPLAIN đã duyệt các truy vấn thật (' + SEEN.size + ')');
+    // đếm dòng đọc + trần CLI 1,5 M + cầu dao (ext_alert luôn qua)
+    const key = 'd1r:' + new Date().toISOString().slice(0, 10), rd = () => +((sql.prepare('SELECT v FROM drive_meta WHERE k = ?').get(key) || {}).v || 0);
+    ok(rd() > 0, 'rows_read của D1 được cộng vào drive_meta d1r:<ngày> (' + rd() + ')');
+    sql.prepare('INSERT OR REPLACE INTO drive_meta (k, v) VALUES (?, ?)').run(key, String(1.6e6));
+    q1 = await cli({ op: 'list' }); ok(q1.s === 429 && q1.j.error === 'd1-budget', 'CLI ≥ 1,5 M dòng/ngày → 429 d1-budget');
+    q1 = await cli({ op: 'ext_alert', kind: 'footage', ok: true }); ok(q1.s === 200, 'ext_alert vẫn qua khi hết ngân sách');
+    sql.prepare('DELETE FROM drive_meta WHERE k = ?').run(key); QM.rows = 0;
+    const G = await import(new URL('../../functions/api/_d1guard.js', import.meta.url));
+    G.resetD1Cache();
+    const fakeFetch = async () => ({ json: async () => ({ data: { viewer: { accounts: [{ d1AnalyticsAdaptiveGroups: [{ sum: { rowsRead: 3000000, rowsWritten: 500 } }] }] } } }) });
+    const u = await G.d1Usage({ CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'e34e14b7ab35eaf2b3d9d84fcce011f7' }, DB, Date.now(), fakeFetch);
+    ok(u.source === 'cloudflare' && u.reads === 3e6 && u.writes === 500 && u.block && u.alert, 'GraphQL: 3 M/5 M = 60 % → chặn việc nền + cảnh báo');
+    G.resetD1Cache(); const u2 = await G.d1Usage({}, DB); ok(u2.source === 'own' && !u2.block, 'không có token → tự đếm, chưa chặn');
+    G.resetD1Cache();
+  }
   // tra cứu theo từng khoá
   for (const [k, q] of [['tên', 'mia.png'], ['asset', 'chars/mia'], ['sha (một phần)', SHA_N.slice(0, 12)], ['file_id', rowsN[0].file_id]]) { const w = await call(ADM, { op: 'where', q }); ok(w.j.copies.length >= (k === 'file_id' ? 1 : 2) && w.j.copies.every(c => c.email && c.email_masked), 'tra cứu theo ' + k + ' (admin thấy email đầy đủ)'); }
   r = await cli({ op: 'where', q: SHA_N }); ok(r.j.copies.length === 2 && r.j.copies.every(c => !c.email && /\*\*\*/.test(c.email_masked)) && !/alpha\.drive@|beta\.drive@/.test(r.text), 'CLI where: email che một phần');
@@ -381,7 +419,7 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
   ok((await led({ q: SHA_N.slice(5, 20) })).total === 2, 'tìm sha khớp một phần');
   ok((await led({ type: 'image' })).rows.every(x => /^image\//.test(x.mime)) && (await led({ type: 'render' })).total === 0, 'lọc loại ảnh/render');
   ok((await led({ lib: 'reject' })).rows.every(x => x.lib === 'reject') && (await led({ lib: 'reject' })).total === 1, 'lọc trạng thái kho (reject)');
-  ok((await led({ copies: '2+' })).rows.every(x => x.sha256 === SHA_N) && (await led({ copies: '1' })).rows.every(x => x.copies <= 1), 'lọc số bản sao 1 / ≥ 2');
+  ok((await led({ copies: '2+' })).rows.every(x => x.copies >= 2) && (await led({ copies: '1' })).rows.every(x => x.copies <= 1), 'lọc số bản sao 1 / ≥ 2');
   ok((await led({ folder: 'originals' })).rows.every(x => x.folder === 'originals' || x.folder.startsWith('originals/')), 'lọc thư mục (gồm thư mục con)');
   ok((await led({ min: 900 })).rows.every(x => x.size >= 900) && (await led({ max: 10 })).rows.every(x => x.size <= 10), 'lọc khoảng dung lượng');
   ok((await led({ from: Date.now() + 1e6 })).total === 0 && (await led({ to: now + 1e9 })).total > 0, 'lọc khoảng ngày');
