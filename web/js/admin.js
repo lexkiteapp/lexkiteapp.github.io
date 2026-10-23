@@ -449,7 +449,7 @@
     $('#swAcc').onclick = signIn;
   };
   // Hỏi máy chủ (adminGate) ngay sau đăng nhập: 403 = không phải quản trị; lỗi mạng khác → để luồng cũ xử lý (API vẫn chặn)
-  const isAdmin = async () => { try { await api('whoami'); return true; } catch (e) { return !(e && e.message === 'forbidden'); } };
+  const isAdmin = async () => { for (let i = 0; i < 3; i++) { try { await api('whoami'); return true; } catch (e) { if (!(e && e.message === 'forbidden')) return true; if (i < 2) { try { await firebase.auth().currentUser.getIdToken(true); } catch (x) { /* bỏ qua */ } await new Promise(r => setTimeout(r, 800)); } } } return false; }; // 'forbidden' có thể do token hết hạn/lỗi tạm → làm mới token, thử lại 3 lần trước khi báo Access denied
   // Đổi VI ⇄ EN: lưu lựa chọn, vẽ lại thanh trên + thanh bên + tab đang mở (không tải lại trang)
   async function setLang(l) {
     if (guard && guard() && !(await leaveOk())) return;

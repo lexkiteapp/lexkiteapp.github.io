@@ -578,7 +578,7 @@ export async function adminGate(request, env, bucket = 'adm') {
   const origin = request.headers.get('Origin'); if (origin && !ORIGINS.test(origin)) return { status: 403, error: 'origin' };
   const ip = ipOf(request);
   if (await limit(bucket + ':' + ip, 120, 60)) return { status: 429, error: 'too-fast' };
-  const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
+  let who; try { who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')); } catch (e) { return { status: 503, error: 'auth-retry' }; } // lỗi tạm (tải khóa Google/mạng) ≠ không phải admin → không báo nhầm 'Access denied'
   const admins = adminList(env);
   if (!who || !who.email_verified || !admins.includes(String(who.email).toLowerCase())) {
     if (await limit('admx:' + ip, 10, 600)) return { status: 429, error: 'too-many-denied' };
