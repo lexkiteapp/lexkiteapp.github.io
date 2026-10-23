@@ -109,28 +109,38 @@
 
   // ---------- Âm thanh (Web Audio, không cần file) ----------
   let actx = null;
+  const isMuted = () => (g.Core && g.Core.sfxOff) || (g.App && g.App.state && g.App.state.settings && g.App.state.settings.sfx === false);
   function tone(freqs, dur = 0.09, type = 'sine', vol = 0.08) {
     try {
-      if (g.Core.sfxOff) return;
+      if (isMuted()) return;
       actx = actx || new (g.AudioContext || g.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume().catch(() => {});
       let t = actx.currentTime;
       for (const f of freqs) {
         const o = actx.createOscillator(), gn = actx.createGain();
         o.type = type; o.frequency.value = f;
         gn.gain.setValueAtTime(vol, t); gn.gain.exponentialRampToValueAtTime(0.0001, t + dur);
         o.connect(gn).connect(actx.destination); o.start(t); o.stop(t + dur);
-        t += dur * 0.8;
+        t += dur * 0.75;
       }
     } catch (e) { /* trình duyệt chặn âm thanh */ }
   }
   // Rung nhẹ khi trả lời (điện thoại Android) – phản hồi xúc giác như app gốc; tắt cùng hiệu ứng âm thanh
-  const buzz = p => { try { if (navigator.vibrate && matchMedia('(pointer: coarse)').matches && (!g.App || !g.App.state || g.App.state.settings.sfx !== false)) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
+  const buzz = p => { try { if (navigator.vibrate && matchMedia('(pointer: coarse)').matches && !isMuted()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
   const Sfx = {
     correct: () => { tone([660, 880], 0.1, 'triangle'); buzz(12); },
     wrong: () => { tone([220, 165], 0.14, 'sawtooth', 0.05); buzz([30, 40, 30]); },
     flip: () => tone([520], 0.05, 'sine', 0.04),
     win: () => tone([523, 659, 784, 1047], 0.12, 'triangle'),
     pop: () => tone([900], 0.04, 'square', 0.03),
+    tap: () => { tone([480], 0.04, 'sine', 0.03); buzz(8); },
+    streak: () => tone([523, 659, 784, 1047], 0.08, 'triangle', 0.06),
+    shimmer: () => tone([1175, 1318, 1568, 2093], 0.06, 'sine', 0.04),
+    combo: n => {
+      const scale = [440, 494, 554, 659, 740, 880, 988, 1108];
+      const f = scale[Math.min(Math.max(0, (n || 1) - 1), scale.length - 1)];
+      tone([f, Math.round(f * 1.25)], 0.08, 'triangle', 0.05); buzz(10);
+    },
   };
 
   // ---------- Pháo giấy ----------

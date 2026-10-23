@@ -118,6 +118,7 @@ async function facade({ ytOk, blocked = false, items }) {
   w.LkVideoRank = { rank: (its) => its.map(it => ({ it, s: 1 })) };
   w.HTMLMediaElement.prototype.play = function () { return Promise.resolve(); }; w.HTMLMediaElement.prototype.load = () => {};
   w.Intl = { DateTimeFormat: () => ({ resolvedOptions: () => ({ timeZone: blocked ? 'Asia/Shanghai' : 'Europe/Paris' }) }) };
+  w.CSS = { escape: s => String(s) };
   const realAppend = w.document.head.appendChild.bind(w.document.head);
   w.document.head.appendChild = el => { if (el.tagName === 'SCRIPT' && /iframe_api/.test(el.src)) { st.yt++; if (ytOk) setTimeout(() => { w.YT = { Player: function (id, o) { st.created = o; setTimeout(() => o.events.onReady({ target: { playVideo() {} } }), 5); this.destroy = () => {}; } }; w.onYouTubeIframeAPIReady(); }, 5); return el; } return realAppend(el); };
   w.eval(fs.readFileSync(`${root}web/js/lesson-video.js`, 'utf8'));

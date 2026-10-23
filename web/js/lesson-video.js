@@ -112,7 +112,8 @@
       mark('api');
       const q = new URLSearchParams({ enablejsapi: 1, playsinline: 1, rel: 0, modestbranding: 1, autoplay: 1, cc_load_policy: 1, cc_lang_pref: 'en', hl: 'en' }); if (/^https?:/.test(location.origin)) q.set('origin', location.origin);
       const fr = document.createElement('iframe'); fr.id = `lvyt-${it.id}`; fr.setAttribute('loading', 'lazy'); fr.title = it.title || 'Video'; fr.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; fr.allowFullscreen = true;
-      fr.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(it.youtube_id)}?${q}`; host.querySelector(`#lvyt-${CSS.escape(it.id)}`).replaceWith(fr);
+      const escId = typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(it.id) : String(it.id).replace(/[^\w-]/g, '\\$&');
+      fr.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(it.youtube_id)}?${q}`; host.querySelector(`#lvyt-${escId}`).replaceWith(fr);
       mark('iframe'); await yieldMain(); if (fell || !slot.isConnected) return;
       player = new Y.Player(fr, {
         events: {
