@@ -1,0 +1,205 @@
+{
+  "id": "calls",
+  "level": "B1",
+  "order": 13,
+  "em": "📱",
+  "title": {
+    "vi": "Gọi điện thoại tự tin",
+    "en": "Handling phone calls"
+  },
+  "goal": {
+    "vi": "Gọi lại, hỏi người kia có tiện nói không, xác nhận chi tiết và kết thúc cuộc gọi lịch sự.",
+    "en": "Return a call, check if it's a good time, confirm details and end the call politely."
+  },
+  "dialogue": {
+    "a": "Mia",
+    "aRole": "a receptionist at a dental office",
+    "lines": [
+      [
+        "a",
+        "Bright Smile Dental, this is Mia speaking."
+      ],
+      [
+        "b",
+        "Hi Mia, this is Alex. I'm returning your call from this morning. Is now a good time to talk?"
+      ],
+      [
+        "a",
+        "Yes, thanks for calling back. We need to move your appointment on Tuesday."
+      ],
+      [
+        "b",
+        "Sorry, I didn't catch that. Which day?"
+      ],
+      [
+        "a",
+        "Tuesday. Could we move it to Thursday at three?"
+      ],
+      [
+        "b",
+        "Could you hold on a second? Let me check my calendar… Yes, that works. So that's Thursday at three, right?"
+      ],
+      [
+        "a",
+        "That's right. We'll send you a text to confirm."
+      ],
+      [
+        "b",
+        "Perfect. Well, I'll let you go. Thanks, Mia!"
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "returning-your-call",
+      "say": "Hi, I'm returning your call from this morning.",
+      "not": "I call you back because you called me.",
+      "gap": "returning",
+      "mean": {
+        "vi": "Nói bạn đang gọi lại cho ai đó",
+        "en": "Say you are calling someone back"
+      },
+      "why": {
+        "vi": "\"Returning your call\" cho người kia biết ngay vì sao bạn gọi.",
+        "en": "\"Returning your call\" tells them right away why you're calling."
+      }
+    },
+    {
+      "id": "is-now-a-good-time",
+      "say": "Is now a good time to talk?",
+      "not": "You have time now?",
+      "gap": "good",
+      "mean": {
+        "vi": "Hỏi xem người kia có tiện nói chuyện không",
+        "en": "Check if the other person can talk now"
+      },
+      "why": {
+        "vi": "Hỏi câu này trước tiên để tôn trọng thời gian của người kia.",
+        "en": "Ask this first; it shows respect for their time."
+      }
+    },
+    {
+      "id": "hold-on",
+      "say": "Could you hold on a second?",
+      "not": "Wait me a moment.",
+      "gap": "hold",
+      "mean": {
+        "vi": "Nhờ người kia chờ máy một chút",
+        "en": "Ask the person to wait on the line"
+      },
+      "why": {
+        "vi": "Không nói \"wait me\"; hãy nói \"hold on\" hoặc \"wait for me\".",
+        "en": "Don't say \"wait me\"; say \"hold on\" or \"wait for me\"."
+      }
+    },
+    {
+      "id": "sorry-didnt-catch",
+      "say": "Sorry, I didn't catch that. Which day?",
+      "not": "What? Say again.",
+      "gap": "catch",
+      "mean": {
+        "vi": "Nói bạn nghe chưa rõ và hỏi lại đúng phần bị lỡ",
+        "en": "Say you missed something and ask about that part"
+      },
+      "why": {
+        "vi": "\"I didn't catch that\" lịch sự hơn \"What?\" và hỏi đúng chỗ cần.",
+        "en": "\"I didn't catch that\" is polite and asks for the missing part."
+      },
+      "tk": "repair"
+    },
+    {
+      "id": "let-me-check",
+      "say": "Let me check and get back to you.",
+      "not": "I will answer you after.",
+      "gap": "back",
+      "mean": {
+        "vi": "Hứa sẽ trả lời sau khi kiểm tra",
+        "en": "Promise an answer after you check"
+      },
+      "why": {
+        "vi": "\"Get back to you\" nghĩa là bạn sẽ gọi hoặc nhắn lại sau.",
+        "en": "\"Get back to you\" means you will call or write later."
+      }
+    },
+    {
+      "id": "so-thats-right",
+      "say": "So that's Thursday at three, right?",
+      "not": "Thursday three o'clock, correct or not?",
+      "gap": "right",
+      "mean": {
+        "vi": "Nhắc lại chi tiết quan trọng để chắc chắn",
+        "en": "Repeat key details to be sure"
+      },
+      "why": {
+        "vi": "Nhắc lại ngày giờ giúp tránh hiểu lầm; \"…or not?\" nghe hơi gắt.",
+        "en": "Repeating details stops mistakes; \"…or not?\" sounds a bit rude."
+      }
+    },
+    {
+      "id": "ill-let-you-go",
+      "say": "Well, I'll let you go. Thanks again!",
+      "not": "OK, I close the phone now.",
+      "gap": "go",
+      "mean": {
+        "vi": "Kết thúc cuộc gọi một cách ấm áp",
+        "en": "End a call in a warm way"
+      },
+      "why": {
+        "vi": "\"I'll let you go\" kết thúc cuộc gọi nhẹ nhàng, lịch sự.",
+        "en": "\"I'll let you go\" ends a call in a kind, polite way."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Mia",
+      "role": "a receptionist at a dental office",
+      "persona": "friendly, busy and clear",
+      "goal": "move the learner's appointment to a new time"
+    },
+    "you": "Return a missed call about your appointment, check the new time and end the call politely.",
+    "turns": [
+      {
+        "a": "Bright Smile Dental, this is Mia speaking.",
+        "h": "Hi, this is Alex. I'm returning your call from this morning.",
+        "br": [
+          [
+            "returning|calling back|call|this is",
+            "Oh yes, thanks for calling back."
+          ]
+        ]
+      },
+      {
+        "a": "We need to move your Tuesday appointment. Is Thursday at three okay?",
+        "h": "Could you hold on a second? Let me check… Yes, that works.",
+        "br": [
+          [
+            "works|okay|fine|yes|good|hold on|check",
+            "Great."
+          ]
+        ]
+      },
+      {
+        "a": "So I'll change it to Thursday.",
+        "h": "So that's Thursday at three, right?",
+        "br": [
+          [
+            "thursday|three|right|confirm",
+            "That's right."
+          ]
+        ]
+      },
+      {
+        "a": "We'll send you a text to confirm. Anything else?",
+        "h": "No, that's all. Well, I'll let you go. Thanks!",
+        "br": [
+          [
+            "thanks|thank you|let you go|bye|that's all",
+            "You're welcome."
+          ]
+        ]
+      }
+    ],
+    "end": "Have a great day, Alex. See you on Thursday!"
+  }
+}

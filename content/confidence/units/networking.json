@@ -1,0 +1,211 @@
+{
+  "id": "networking",
+  "level": "B1",
+  "order": 24,
+  "em": "🎟️",
+  "rp": "small-talk",
+  "title": {
+    "vi": "Trò chuyện ở sự kiện",
+    "en": "Small talk at events"
+  },
+  "goal": {
+    "vi": "Bắt chuyện với người lạ ở sự kiện, hỏi thêm để giữ câu chuyện, rời đi lịch sự và giữ liên lạc.",
+    "en": "Start a chat with a stranger at an event, keep it going, leave politely and stay in contact."
+  },
+  "dialogue": {
+    "a": "Ryan",
+    "aRole": "a guest at a work event",
+    "lines": [
+      [
+        "b",
+        "Hi, I'm Kim. Is this your first time at one of these events?"
+      ],
+      [
+        "a",
+        "No, my third. What brings you here today?"
+      ],
+      [
+        "b",
+        "I'm looking for new ideas for my business. What are you working on these days?"
+      ],
+      [
+        "a",
+        "I'm building an app for small farms."
+      ],
+      [
+        "b",
+        "Oh, interesting! How did you get into that?"
+      ],
+      [
+        "a",
+        "My family has a farm. Great talk this morning, wasn't it?"
+      ],
+      [
+        "b",
+        "It was! Here's my card. Feel free to email me anytime."
+      ],
+      [
+        "a",
+        "Thanks, I will."
+      ],
+      [
+        "b",
+        "It was great talking to you. I'm going to grab some food."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "first-time-here",
+      "say": "Is this your first time at one of these events?",
+      "not": "You are new here?",
+      "gap": "first",
+      "mean": {
+        "vi": "Bắt chuyện với người lạ ở sự kiện",
+        "en": "Start talking to a stranger at an event"
+      },
+      "why": {
+        "vi": "Cách mở đầu dễ và thân thiện ở mọi sự kiện.",
+        "en": "An easy, friendly way to start at any event."
+      },
+      "tk": "smalltalk"
+    },
+    {
+      "id": "what-brings-you",
+      "say": "So, what brings you here today?",
+      "not": "Why you are here?",
+      "gap": "brings",
+      "mean": {
+        "vi": "Hỏi lý do người kia đến sự kiện",
+        "en": "Ask why someone came to the event"
+      },
+      "why": {
+        "vi": "\"Why are you here?\" có thể nghe thô; câu này nghe tò mò, thân thiện.",
+        "en": "\"Why are you here?\" can sound rude; this sounds curious."
+      }
+    },
+    {
+      "id": "working-on-these-days",
+      "say": "What are you working on these days?",
+      "not": "What is your job position?",
+      "gap": "working",
+      "mean": {
+        "vi": "Hỏi về công việc một cách cởi mở",
+        "en": "Ask about someone's work in an open way"
+      },
+      "why": {
+        "vi": "Câu này mời người kia kể chuyện, không chỉ nói chức danh.",
+        "en": "This invites a story, not just a job title."
+      }
+    },
+    {
+      "id": "get-into-that",
+      "say": "Oh, interesting! How did you get into that?",
+      "not": "Ah, OK.",
+      "gap": "get",
+      "mean": {
+        "vi": "Hỏi thêm để giữ câu chuyện",
+        "en": "Ask more to keep the talk going"
+      },
+      "why": {
+        "vi": "Hỏi tiếp cho thấy bạn thật sự lắng nghe.",
+        "en": "Asking more shows you are really listening."
+      }
+    },
+    {
+      "id": "wasnt-it",
+      "say": "Great talk this morning, wasn't it?",
+      "not": "The talk was good, no?",
+      "gap": "wasn't",
+      "mean": {
+        "vi": "Bình luận về sự kiện để tìm điểm chung",
+        "en": "Comment on the event to share something"
+      },
+      "why": {
+        "vi": "Dùng đuôi hỏi như \"wasn't it?\", không dùng \"no?\".",
+        "en": "Use a short question like \"wasn't it?\", not \"no?\"."
+      }
+    },
+    {
+      "id": "feel-free",
+      "say": "Here's my card. Feel free to email me anytime.",
+      "not": "This is my card, you contact me.",
+      "gap": "Feel",
+      "mean": {
+        "vi": "Đưa danh thiếp và mời liên lạc",
+        "en": "Give your card and invite contact"
+      },
+      "why": {
+        "vi": "\"Feel free to…\" là lời mời ấm áp, cởi mở.",
+        "en": "\"Feel free to…\" is a warm, open invitation."
+      }
+    },
+    {
+      "id": "great-talking",
+      "say": "It was great talking to you. I'm going to grab some food.",
+      "not": "OK, bye, I go now.",
+      "gap": "talking",
+      "mean": {
+        "vi": "Rời cuộc trò chuyện lịch sự",
+        "en": "Leave a conversation politely"
+      },
+      "why": {
+        "vi": "Đưa lý do thân thiện khi bạn rời cuộc trò chuyện.",
+        "en": "Give a friendly reason when you leave a chat."
+      },
+      "tk": "smalltalk"
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Ryan",
+      "role": "a guest at a work event",
+      "persona": "friendly, a little shy at first",
+      "goal": "meet new people at the event"
+    },
+    "you": "Start a chat with someone at an event, ask about their work, ask one more question, then leave politely and give your contact.",
+    "turns": [
+      {
+        "a": "Hi there.",
+        "h": "Hi, I'm Kim. Is this your first time at one of these events?",
+        "br": [
+          [
+            "first time|hi|hello|new|events",
+            "No, it's my third. What brings you here?"
+          ]
+        ]
+      },
+      {
+        "a": "I'm Ryan, by the way.",
+        "h": "Nice to meet you, Ryan. What are you working on these days?",
+        "br": [
+          [
+            "working on|what do you do|job|work",
+            "I'm building an app for small farms."
+          ]
+        ]
+      },
+      {
+        "a": "It's still small, but it's growing.",
+        "h": "Oh, interesting! How did you get into that?",
+        "br": [
+          [
+            "get into|how did|interesting|why|tell me",
+            "My family has a farm, so I saw the problems."
+          ]
+        ]
+      },
+      {
+        "a": "Anyway, I should say hi to a few people.",
+        "h": "Me too. It was great talking to you. Feel free to email me anytime.",
+        "br": [
+          [
+            "great talking|feel free|email|card|nice",
+            "Thanks, I will!"
+          ]
+        ]
+      }
+    ],
+    "end": "Enjoy the rest of the event!"
+  }
+}

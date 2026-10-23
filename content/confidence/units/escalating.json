@@ -1,0 +1,204 @@
+{
+  "id": "escalating",
+  "level": "B2",
+  "order": 19,
+  "em": "🧾",
+  "title": {
+    "vi": "Khiếu nại đến nơi đến chốn",
+    "en": "Complaints that get results"
+  },
+  "goal": {
+    "vi": "Kể lại sự việc rõ ràng, giữ bình tĩnh khi bị từ chối, đặt hạn chót và gặp đúng người có thể giải quyết.",
+    "en": "Explain the history clearly, stay calm when they say no, say when it must be done and reach the right person."
+  },
+  "dialogue": {
+    "a": "Chris",
+    "aRole": "a customer service agent at an internet company",
+    "lines": [
+      [
+        "a",
+        "Thanks for calling. How can I help?"
+      ],
+      [
+        "b",
+        "I've contacted you twice, and my internet still hasn't been fixed."
+      ],
+      [
+        "a",
+        "I'm sorry. The earliest visit is next month."
+      ],
+      [
+        "b",
+        "I'm afraid that doesn't work for me. I work from home. What can you do to fix this sooner?"
+      ],
+      [
+        "a",
+        "I can't change the schedule myself."
+      ],
+      [
+        "b",
+        "I understand. Could I speak to someone who can make a decision on this?"
+      ],
+      [
+        "a",
+        "Let me ask my manager. We can come on Thursday."
+      ],
+      [
+        "b",
+        "Thank you. I'd like this fixed by Thursday, then. Could I get a reference number for this call?"
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "still-hasnt-been",
+      "say": "I've contacted you twice, and it still hasn't been fixed.",
+      "not": "I already contacted two times and still not fix.",
+      "gap": "fixed",
+      "mean": {
+        "vi": "Nêu rõ bạn đã báo nhiều lần mà chưa được giải quyết",
+        "en": "Say you asked before and it is still not fixed"
+      },
+      "why": {
+        "vi": "Kể lại sự việc rõ ràng, bình tĩnh, có số lần cụ thể.",
+        "en": "Give the history clearly and calmly, with real numbers."
+      }
+    },
+    {
+      "id": "im-afraid",
+      "say": "I'm afraid that doesn't work for me.",
+      "not": "No. I don't accept.",
+      "gap": "afraid",
+      "mean": {
+        "vi": "Từ chối một đề nghị một cách lịch sự",
+        "en": "Say no to an offer politely"
+      },
+      "why": {
+        "vi": "\"I'm afraid…\" làm lời từ chối dứt khoát nghe mềm hơn.",
+        "en": "\"I'm afraid…\" makes a firm \"no\" sound softer."
+      }
+    },
+    {
+      "id": "what-can-you-do",
+      "say": "What can you do to fix this sooner?",
+      "not": "You must do something!",
+      "gap": "fix",
+      "mean": {
+        "vi": "Hỏi họ có thể giúp gì",
+        "en": "Ask what they can do for you"
+      },
+      "why": {
+        "vi": "Câu hỏi mở mời họ tự đưa ra giải pháp.",
+        "en": "An open question invites them to offer a solution."
+      }
+    },
+    {
+      "id": "make-a-decision",
+      "say": "Could I speak to someone who can make a decision on this?",
+      "not": "Give me your boss!",
+      "gap": "decision",
+      "mean": {
+        "vi": "Xin gặp người có quyền quyết định",
+        "en": "Ask for a person who can decide"
+      },
+      "why": {
+        "vi": "Xin gặp đúng người mà không tấn công người đang nghe máy.",
+        "en": "Ask for the right person without attacking this one."
+      }
+    },
+    {
+      "id": "by-friday",
+      "say": "I'd like this fixed by Friday.",
+      "not": "Please fix until Friday.",
+      "gap": "by",
+      "mean": {
+        "vi": "Đặt hạn chót",
+        "en": "Say when it must be done"
+      },
+      "why": {
+        "vi": "Dùng \"by\" cho hạn chót; \"until\" là suốt thời gian đến lúc đó.",
+        "en": "Use \"by\" for the last day; \"until\" means all the time before."
+      }
+    },
+    {
+      "id": "reference-number",
+      "say": "Could I get a reference number for this call?",
+      "not": "Give me the number of this talking.",
+      "gap": "reference",
+      "mean": {
+        "vi": "Xin mã số cuộc gọi để theo dõi",
+        "en": "Ask for a number to follow the case"
+      },
+      "why": {
+        "vi": "Mã số giúp bạn khi phải gọi lại lần nữa.",
+        "en": "A reference number helps if you need to call again."
+      }
+    },
+    {
+      "id": "take-this-further",
+      "say": "If it's not fixed by then, I'll have to take this further.",
+      "not": "If not, I will make a big problem.",
+      "gap": "further",
+      "mean": {
+        "vi": "Cảnh báo bình tĩnh rằng bạn sẽ khiếu nại lên cao hơn",
+        "en": "Calmly say you will complain to someone higher"
+      },
+      "why": {
+        "vi": "Lời cảnh báo bình tĩnh mạnh hơn lời nói giận dữ.",
+        "en": "A calm warning is stronger than an angry one."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Chris",
+      "role": "a customer service agent at an internet company",
+      "persona": "polite but follows the rules closely",
+      "goal": "keep the learner calm and follow company rules"
+    },
+    "you": "Your Wi-Fi at home has not worked for a week and you called twice. Explain this, say no to a late visit, ask for someone who can decide and get a reference number.",
+    "turns": [
+      {
+        "a": "Thanks for calling. How can I help?",
+        "h": "I've contacted you twice, and my internet still hasn't been fixed.",
+        "br": [
+          [
+            "twice|still|contacted|called|week|not fixed",
+            "I'm sorry to hear that."
+          ]
+        ]
+      },
+      {
+        "a": "The earliest visit is in three weeks.",
+        "h": "I'm afraid that doesn't work for me. What can you do to fix this sooner?",
+        "br": [
+          [
+            "afraid|doesn't work|sooner|what can you do|earlier",
+            "I can't change the schedule myself."
+          ]
+        ]
+      },
+      {
+        "a": "Those are the rules, I'm sorry.",
+        "h": "I understand. Could I speak to someone who can make a decision on this?",
+        "br": [
+          [
+            "decision|manager|supervisor|someone|speak to",
+            "One moment… Okay, we can come on Thursday."
+          ]
+        ]
+      },
+      {
+        "a": "Is Thursday okay for you?",
+        "h": "Yes, thank you. Could I get a reference number for this call?",
+        "br": [
+          [
+            "reference|number|thank|thursday|okay",
+            "Sure, it's R-5-8-1."
+          ]
+        ]
+      }
+    ],
+    "end": "Your visit is booked for Thursday morning. Thanks for your patience."
+  }
+}

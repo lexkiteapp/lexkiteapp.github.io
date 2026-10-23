@@ -14,6 +14,18 @@
     { "id": "free-time", "q": "What do you do in your free time? How did you start?", "tip": "In my free time I… I started when…" },
     { "id": "advice", "q": "A friend is moving to your city. What advice would you give?", "tip": "You should… Don't forget to…" },
     { "id": "city-or-country", "q": "Would you prefer to live in a big city or in the countryside? Why?", "tip": "I'd prefer… because… On the other hand…" },
-    { "id": "proud", "q": "Talk about something you did that made you proud.", "tip": "Last year I… I felt proud because…" }
+    { "id": "proud", "q": "Talk about something you did that made you proud.", "tip": "Last year I… I felt proud because…" },
+    { "id": "calls", "q": "Talk about a phone call that was hard for you. What happened, and what would you say now?", "tip": "Last month I had to call… Now I would say…" },
+    { "id": "job-interview", "q": "Imagine a job interview. Talk about a result at work or school that you are proud of. What did you do?", "tip": "In my last role, I was responsible for… As a result,…" },
+    { "id": "salary", "q": "Talk about a time you asked for something you wanted: more money, more time or a better deal. How did you ask?", "tip": "I was hoping for… Based on… In the end,…" },
+    { "id": "work-meeting", "q": "Describe a good meeting or class you were in. What made it work well?", "tip": "The leader started by… What I liked was… To wrap up,…" },
+    { "id": "presenting", "q": "Give a 2-minute talk about something that helps you every day, like a tool or a habit. Say the parts, the main point, and end clearly.", "tip": "Today I'll be talking about… First… The key point is… Thank you for listening." },
+    { "id": "new-friends", "q": "How do adults make new friends in your city? Give some ideas and talk about one friend you made.", "tip": "A good way is to… I met… when… We keep in touch by…" },
+    { "id": "escalating", "q": "Talk about a time a company did not solve your problem. What happened, and what would you say now?", "tip": "I contacted them… times. I'm afraid… In the end,…" },
+    { "id": "disagreeing", "q": "Some people think working from home is better than working in an office. Agree with one part, then politely disagree.", "tip": "That's a fair point. However,… I see it a bit differently because…" },
+    { "id": "renting", "q": "Describe the perfect place to live for you. What questions would you ask before you rent it?", "tip": "My perfect place would have… I'd ask if… is included." },
+    { "id": "bank", "q": "How do you usually pay for things: cash, card or phone? Talk about the good and bad points.", "tip": "I usually pay by… The good thing is… The bad thing is…" },
+    { "id": "airport", "q": "Talk about a travel problem you had or heard about. What happened, and how was it solved?", "tip": "My flight was… I asked… In the end,…" },
+    { "id": "networking", "q": "Imagine you are at an event and you don't know anyone. How would you start a conversation and keep it going?", "tip": "First I'd say… Then I'd ask… To leave, I'd say…" }
   ]
 }

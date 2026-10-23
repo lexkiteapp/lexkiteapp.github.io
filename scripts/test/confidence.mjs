@@ -53,7 +53,7 @@ const labelled = (b, w) => (b.getAttribute('aria-label') || b.textContent || '')
   await go('#/confidence');
   const v = $('#view');
   ok(/Speak with confidence/.test(v.textContent), 'tổng quan: tiêu đề tiếng Anh ' + w.I18N.lang() + ' ' + v.textContent.slice(0, 120));
-  ok($$('a.cf-unit', v).length >= 12 && $$('.cf-soon', v).length === 4, 'tổng quan: 12 bài + 4 bài B2 "Coming soon"');
+  ok($$('a.cf-unit', v).length >= 24 && !$$('.cf-soon', v).length && !!$('a[href="#/confidence/salary"]', v), 'tổng quan: 24 bài, B2 đã mở (không còn "Coming soon")');
   ok(!!$('a[href="#/confidence/daily"]', v) && !!$('a[href="#/confidence/toolkit"]', v), 'tổng quan: thử thách ngày + bộ công cụ');
   // link sâu cụm câu
   await go('#/confidence/cafe#can-i-get');

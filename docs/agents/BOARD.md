@@ -27,12 +27,6 @@ Mẫu thẻ:
 
 ## TODO
 
-### [CF2] Giao tiếp tự tin – viết thêm bài (B1–B2) theo khuôn có sẵn · @antigravity · ưu tiên: cao
-- Khung `#/confidence` đã live (79c0ff97, docs/CONFIDENCE.md, 12 bài A1–B1). Viết **12 bài mới** (B1–B2 → mở mục "Coming soon"): phone calls, job interview, salary/negotiation, work meeting, presenting, making friends, complaints, giving opinions/disagreeing, renting/landlord, bank, airport problems, small talk at events – mỗi bài đúng khuôn `content/confidence/*.json` (6–8 cụm, mỗi cụm có cặp "say this instead of that" + lý do ngắn, hội thoại mẫu, đề nói 2 phút).
-- Chỉ sửa `content/confidence/**`; chạy `node scripts/confidence/build.mjs` (id, tiếng Anh ≤ B1 cho hướng dẫn, đủ 13 bản dịch bản địa – không dịch thô) + `scripts/test/confidence.mjs`. Tiếng Anh phải tự nhiên kiểu Mỹ, trung tính văn hoá; cặp ✗ phải là lỗi thật người học hay mắc.
-- Nộp 2 lô (6 + 6) → CHỜ DUYỆT.
-
-
 ### [P2-1.1-UI] ✅ ĐÃ XONG 23/10 (Claude làm thay – Antigravity hết token) · Thẻ "câu của bạn" giàu (ôn tập) · @antigravity · ưu tiên: CAO
 - Claude 23/10: API P2-1.1 đã xong (add-on lưu câu quanh từ tra ≤200 ký tự + `src` = tên miền; đi trong gói sync 1 dòng/người, không thêm lượt ghi). Việc của anh em: làm **thẻ thiết kế đẹp** cho phần này.
 - **Dữ liệu (đừng tự đọc `contexts[]` nữa):** `Core.Cards.ctxOf(card)` → `{ text, src, own }` — `own=true` là câu của người học (`card.ctx`, `card.src`; thẻ cũ rơi về `contexts[0]`), `own=false` là ví dụ thư viện (`card.ex`), `null` = không có gì. Render tối thiểu hiện có ở `web/js/study.js` (mặt trước thẻ: `📌 “…” · tên-miền`) — thay bằng thẻ mới.
@@ -102,6 +96,7 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+- ✅ **[CF2] ĐÃ XONG (Claude 23/10, thay Antigravity):** 12 bài mới (B1: calls, new-friends, renting, bank, airport, networking · B2: job-interview, salary, work-meeting, presenting, escalating, disagreeing) = 84 cụm có cặp ✗/✓ + lý do ≤12 từ, hội thoại mẫu, roleplay, 12 đề nói 2 phút; 193 khóa × 13 ngôn ngữ (soát es/ja/de). B2 mở (bỏ "Coming soon"). Script bank tự lấy điểm `cf:<unit>:<phrase>` (cron script-bank). `build.mjs` + `test/confidence.mjs` xanh. i18n-qa đỏ sẵn từ trước (2 khóa "Lưu câu ngữ cảnh" của P2-1.1, không thuộc thẻ này).
 - ✅ **[P2-1.2] ĐÃ XONG (Claude 23/10):** `web/js/study-modes.js` (bundle lười `rmodes`, nạp khi mở #/review) – **Gõ phản xạ** (nghĩa + câu đục lỗ, 💡 gợi ý chữ cái `?`, 🔊 nghe từ, `Esc` = không nhớ, chấp nhận sai 1–2 chữ theo độ dài) và **Nghe chọn nghĩa** (🔊 + 🇺🇸/🇬🇧, 4 nghĩa theo ngôn ngữ người học, phím 1–4, `P` nghe lại, ✓/✗ không chỉ màu). Kết quả → mức 0–3 (`gradeType`/`gradeAudio`), gợi ý nút chấm rồi chấm qua `SRS.review` sẵn có – không đụng FSRS. Tự chọn theo D/lapses (khó → lật, vừa → nghe, dễ → gõ), bộ chọn chế độ + phím `M`. Test mới `review-modes.mjs` (quy đổi) + `review-modes-ui.js` (jsdom); ảnh: workflow `review-shots.yml` → `out/p2/`.
 - ✅ **[P2-1.1-UI] ĐÃ XONG (Claude 23/10):** thẻ ✍️ "Câu của bạn"/💬 "Ví dụ" (`StudyModes.ctx`): tô sáng cả biến thể từ, chip tên miền (không link), 🔊/🐢 nghe cả câu, cắt mềm ≤200 ký tự quanh từ, câu luôn `esc`, câu tiếng Anh `dir=ltr` trong giao diện ar. Render ctx P2-1.1 chuyển khỏi study.js → khung app 385,7 KB gz, `shellGz` về lại 377 KB (386048).
 - ✅ **[N4] ĐÃ XONG (Claude 23/10, cherry-pick 964add4b):** digest đọc 1 truy vấn `config WHERE k IN (alert_errors, adm_pref:<mỗi admin>)` rồi gửi riêng từng admin; thiếu pref = mặc định cũ (tất cả loại, ngưỡng 50/70%); không đụng `_d1guard.js`/`_d1b.js`. Test `scripts/test/mail-prefs.mjs` + admin-prefs + smoke + infra-check đạt. Lưu ý: nhánh `fetch` có `alertType` đọc 1 khóa/yêu cầu (hiện chưa nơi nào gửi alertType).
