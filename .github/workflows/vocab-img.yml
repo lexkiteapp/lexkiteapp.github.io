@@ -7,8 +7,12 @@ on:
     inputs:
       mode: { description: 'pilot = 60 nghĩa thử + tờ ảnh ghép (không đăng) · fill = lấp chỗ trống (chỉ sau khi duyệt)', default: 'pilot' }
       limit: { description: 'Số nghĩa tối đa lượt fill', default: '60' }
+      resume_run: { description: 'Tiếp tục từ lượt trước (run id) – dùng lại ảnh đã vẽ, không vẽ lại', default: '' }
+      max_gc: { description: 'Trần ảnh GrabCast lượt này (trống = 40)', default: '' }
+      max_main: { description: 'Trần ảnh tài khoản chính lượt này (trống = pilot 25 / fill 5)', default: '' }
 permissions:
   contents: write
+  actions: read   # tải artifact lượt trước (resume_run)
 concurrency: { group: vocab-img, cancel-in-progress: false }
 jobs:
   vimg:
@@ -22,7 +26,8 @@ jobs:
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       # pilot (chạy tay 1 lần): tài khoản chính ≤ 25 ảnh (≈ 4.300 neuron, vẫn chừa ≥ 3.000 cho AI người dùng); fill hằng ngày: ≤ 5
-      VIMG_MAX_MAIN: ${{ github.event.inputs.mode == 'fill' && '5' || '25' }}
+      VIMG_MAX_GC: ${{ github.event.inputs.max_gc || '40' }}
+      VIMG_MAX_MAIN: ${{ github.event.inputs.max_main || (github.event.inputs.mode == 'fill' && '5' || '25') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -45,12 +50,16 @@ jobs:
         run: |
           if [ "$MODE" = pilot ]; then cp content/lexicon/vimg-pilot.json keys.json
           else node scripts/vocab-img/publish.mjs --gaps "${{ github.event.inputs.limit || '60' }}" > keys.json; fi
+      - name: Tiếp tục lượt trước (ảnh đã vẽ)
+        if: steps.lease.outputs.skip != '1' && github.event.inputs.resume_run != ''
+        uses: actions/download-artifact@v4
+        with: { name: 'vocab-img-${{ github.event.inputs.mode || ''pilot'' }}', path: out/vocab-img, run-id: '${{ github.event.inputs.resume_run }}', github-token: '${{ github.token }}' }
       - name: Vẽ lần 1
         if: steps.lease.outputs.skip != '1'
         run: node scripts/vocab-img/gen.mjs --keys keys.json --out out/vocab-img --attempt 1
       - name: QC lần 1
         if: steps.lease.outputs.skip != '1'
-        run: python3 scripts/vocab-img/qc.py out/vocab-img --attempt 1
+        run: python3 scripts/vocab-img/qc.py out/vocab-img --attempt 1 --keys keys.json
       - name: Vẽ lại 1 lần các ảnh trượt
         if: steps.lease.outputs.skip != '1'
         run: node scripts/vocab-img/gen.mjs --keys out/vocab-img/retry.json --out out/vocab-img --attempt 2 || true
@@ -67,7 +76,6 @@ jobs:
           retention-days: 14
           path: |
             out/vocab-img/
-            !out/vocab-img/raw/
       - name: Đăng (chỉ fill – ảnh đạt → lexkite-media/vimg + content/lexicon/img.json)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'fill'
         env: { LEXKITE_MEDIA_TOKEN: '${{ secrets.LEXKITE_MEDIA_TOKEN }}' }

@@ -96,32 +96,42 @@ def webp(im, dst):
         if b.tell() <= MAXB: break
     open(dst, 'wb').write(b.getvalue()); return b.tell(), q
 
+def check(k, att, f, s, im):
+    import imagehash
+    v = emb_img(im); r = dict(k=k, attempt=att, reasons=[])
+
+    dst = f'{OUT}/webp/{s}.a{att}.webp'; r['bytes'], r['q'] = webp(im, dst); r['webp'] = os.path.relpath(dst, OUT)
+    r['ph'] = str(imagehash.phash(Image.open(dst))); r['rank'], r['p'] = clip_sense(k, v); r['unsafe'] = round(clip_safe(v), 3)
+    r['flat'] = round(clip_style(v), 3); r['bg'], r['bgstd'] = [round(x, 1) for x in border(im)]; r['ocr'] = ocr(f); r['vision'] = vision(k, im)
+    r['emb'] = v.round(4).tolist()
+    vs = r['vision']['ok']
+    if vs is False: r['reasons'].append('vision: ' + r['vision']['problem'][:60])
+    if vs is True and r['rank'] > 8: r['reasons'].append(f'clip rank {r["rank"]}')
+    if vs is None and (r['rank'] > 3 or r['p'] < 0.2): r['reasons'].append(f'clip rank {r["rank"]} p {r["p"]:.2f}')
+    if r['ocr']: r['reasons'].append('text: ' + ' '.join(t for t, _ in r['ocr'])[:30])
+    if r['unsafe'] > 0.35: r['reasons'].append(f'unsafe {r["unsafe"]}')
+    if r['flat'] < 0.5: r['reasons'].append(f'style flat {r["flat"]}')
+    if r['bg'] < 170 or r['bgstd'] > 40: r['reasons'].append(f'background {r["bg"]}/{r["bgstd"]}')
+    if r['bytes'] > MAXB: r['reasons'].append(f'size {r["bytes"]}')
+
+    return r
+
 def run_attempt(att):
     import imagehash
     os.makedirs(f'{OUT}/webp', exist_ok=True); res = {}
     for f in sorted(glob.glob(f'{OUT}/raw/*.a{att}.jpg')):
         s = os.path.basename(f)[:-len(f'.a{att}.jpg')]; k = unslug(s)
         if k not in LEX: continue
-        im = Image.open(f).convert('RGB'); v = emb_img(im); r = dict(k=k, attempt=att, reasons=[])
-        dst = f'{OUT}/webp/{s}.a{att}.webp'; r['bytes'], r['q'] = webp(im, dst); r['webp'] = os.path.relpath(dst, OUT)
-        r['ph'] = str(imagehash.phash(Image.open(dst))); r['rank'], r['p'] = clip_sense(k, v); r['unsafe'] = round(clip_safe(v), 3)
-        r['flat'] = round(clip_style(v), 3); r['bg'], r['bgstd'] = [round(x, 1) for x in border(im)]; r['ocr'] = ocr(f); r['vision'] = vision(k, im)
-        r['emb'] = v.round(4).tolist()
-        vs = r['vision']['ok']
-        if vs is False: r['reasons'].append('vision: ' + r['vision']['problem'][:60])
-        if vs is True and r['rank'] > 8: r['reasons'].append(f'clip rank {r["rank"]}')
-        if vs is None and (r['rank'] > 3 or r['p'] < 0.2): r['reasons'].append(f'clip rank {r["rank"]} p {r["p"]:.2f}')
-        if r['ocr']: r['reasons'].append('text: ' + ' '.join(t for t, _ in r['ocr'])[:30])
-        if r['unsafe'] > 0.35: r['reasons'].append(f'unsafe {r["unsafe"]}')
-        if r['flat'] < 0.5: r['reasons'].append(f'style flat {r["flat"]}')
-        if r['bg'] < 170 or r['bgstd'] > 40: r['reasons'].append(f'background {r["bg"]}/{r["bgstd"]}')
-        if r['bytes'] > MAXB: r['reasons'].append(f'size {r["bytes"]}')
-        res[k] = r; print(k, 'PASS' if not r['reasons'] else 'FAIL ' + '; '.join(r['reasons']), f'rank {r["rank"]} {r["bytes"]}B', r['vision']['provider'], flush=True)
+        try: im = Image.open(f).convert('RGB')
+        except Exception: print(k, 'SKIP unreadable'); os.remove(f); continue
+        try: res[k] = check(k, att, f, s, im)
+        except Exception as ex: print(k, 'QC ERROR', repr(ex)[:160], flush=True); res[k] = dict(k=k, attempt=att, reasons=['qc error'], bytes=0, ph='0' * 16, p=0, rank=99, vision={})
+        r = res[k]; print(k, 'PASS' if not r['reasons'] else 'FAIL ' + '; '.join(r['reasons']), f'rank {r["rank"]} {r["bytes"]}B', (r.get('vision') or {}).get('provider'), flush=True)
     # tâm phong cách + trùng (pHash) trong lô và với thư viện
     ok = [r for r in res.values() if not r['reasons']]
     if len(ok) >= 5:
         c = np.mean([r['emb'] for r in ok], axis=0); c /= np.linalg.norm(c)
-        for r in res.values():
+        for r in [r for r in res.values() if 'emb' in r]:
             r['centroid'] = round(float(np.dot(r['emb'], c)), 3)
             if r['centroid'] < 0.6: r['reasons'].append(f'style centroid {r["centroid"]}')
     seen = [(x, LIB[x].get('ph')) for x in LIB if LIB[x].get('ph')]
@@ -133,7 +143,9 @@ def run_attempt(att):
     for r in res.values(): r['pass'] = not r['reasons']; r.pop('emb', None)
     json.dump(res, open(f'{OUT}/qc.a{att}.json', 'w'), indent=1)
     print(f'qc attempt {att}: {sum(r["pass"] for r in res.values())}/{len(res)} pass')
-    if att == 1: json.dump(dict(items=[k for k, r in res.items() if not r['pass']]), open(f'{OUT}/retry.json', 'w'))
+    if att == 1:
+        want = json.load(open(arg('keys'))).get('items') if arg('keys') else list(res)
+        json.dump(dict(items=[k for k in want if k in LEX and (k not in res or not res[k]['pass'])]), open(f'{OUT}/retry.json', 'w'))
     if not res: sys.exit(1)
 
 def final(sheet):

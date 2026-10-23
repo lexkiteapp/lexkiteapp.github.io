@@ -25,6 +25,7 @@ export const PROVIDERS = [
     run: p => (env.CF_AI_TOKEN_1 ? cfRest(env.CF_ACCOUNT_1, env.CF_AI_TOKEN_1, p) : studio(p)) },
 ];
 class Quota extends Error {}
+const isImg = b => b && b.length > 1000 && ((b[0] === 0xff && b[1] === 0xd8) || (b[0] === 0x89 && b[1] === 0x50) || b.slice(8, 12).toString() === 'WEBP');   // JPEG/PNG/WebP
 const quotaish = s => /4006|429|quota|neuron|exceeded|rate.?limit|daily/i.test(s);
 async function cfRest(acct, tok, prompt) {
   const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${acct}/ai/run/${FLUX}`, { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt, steps: 4 }) });
@@ -39,10 +40,12 @@ async function studio(prompt) {
   return Buffer.from(j.image, 'base64');
 }
 const GC = String(env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
+let gcWaits = 0;
 async function grabcast(prompt) {
   const h = { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' };
   const r = await fetch(GC + '/api/owner-ai/image', { method: 'POST', headers: h, body: JSON.stringify({ prompt, provider: 'cloudflare' }) });
   const j = await r.json().catch(() => ({}));
+  if (r.status === 429 && (gcWaits++ < 8)) { console.log('… GrabCast giới hạn khung (10 ảnh/khung ngắn) – chờ 65 s'); await new Promise(s => setTimeout(s, 65e3)); return grabcast(prompt); }   // đo 23/10: hết khung sau 10 ảnh, mở lại < 2 phút
   if (r.status === 429 || quotaish(String(j.error && j.error.code || ''))) throw new Quota(`${r.status} ${JSON.stringify(j.error || '').slice(0, 120)}`);
   let job = j.job; if (!r.ok || !job) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 160)}`);
   for (let i = 0; job.status !== 'done' && i < 20; i++) {   // việc ảnh thường xong ngay; chờ tối đa ~60 s (không thăm dò vô hạn)
@@ -72,7 +75,7 @@ async function main() {
     for (let t = 0; t < PROVIDERS.length && !done; t++) {
       const p = PROVIDERS[(rr + t) % PROVIDERS.length]; if (dead.has(p.id) || used[p.id] >= p.max) continue;
       const t0 = Date.now();
-      try { const buf = await p.run(prompt); fs.writeFileSync(file, buf); used[p.id]++; n++; done = true; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - t0, bytes: buf.length, at: new Date().toISOString() }); }
+      try { const buf = await p.run(prompt); if (!isImg(buf)) throw new Error('không phải ảnh: ' + buf.slice(0, 60).toString().replace(/\s+/g, ' ')); fs.writeFileSync(file, buf); used[p.id]++; n++; done = true; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - t0, bytes: buf.length, at: new Date().toISOString() }); }
       catch (err) { if (err instanceof Quota) { dead.add(p.id); console.warn(`⏸ ${p.id} hết hạn mức/không quyền: ${err.message}`); } else { console.warn(`✗ ${p.id} ${k}: ${err.message}`); log.push({ k, attempt: ATT, provider: p.id, error: err.message.slice(0, 200) }); } }
     }
     rr++;
