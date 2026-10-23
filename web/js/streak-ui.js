@@ -8,6 +8,18 @@
   const t = (k, p) => (g.t ? g.t(k, p) : k);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
+  // Micro-audio thêm cho Sfx (tách khỏi khung app: game.js chỉ giữ API rỗng cho tới khi gói này nạp xong)
+  if (g.Sfx && g.Sfx.extend) g.Sfx.extend((tone, buzz) => ({
+    tap: () => { tone([480], 0.04, 'sine', 0.03); buzz(8); },
+    streak: () => tone([523, 659, 784, 1047], 0.08, 'triangle', 0.06),
+    shimmer: () => tone([1175, 1318, 1568, 2093], 0.06, 'sine', 0.04),
+    combo: n => {
+      const scale = [440, 494, 554, 659, 740, 880, 988, 1108];
+      const f = scale[Math.min(Math.max(0, (n || 1) - 1), scale.length - 1)];
+      tone([f, Math.round(f * 1.25)], 0.08, 'triangle', 0.05); buzz(10);
+    },
+  }));
+
   const FLAME_CSS = `
 .streak-freeze-badge{display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;padding:.15rem .45rem;border-radius:999px;background:rgba(56,189,248,.15);color:#0284c7;border:1px solid rgba(56,189,248,.35);cursor:pointer;transition:transform .15s ease,background .15s;margin-left:.25rem}
 .streak-freeze-badge:hover{transform:scale(1.06);background:rgba(56,189,248,.25)}
