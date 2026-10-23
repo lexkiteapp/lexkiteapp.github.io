@@ -295,6 +295,22 @@
     },
   };
   const FRESH = 14 * 86400000;
+  // Mục kho: Lex (mảnh + IndexedDB, went→go) → dự phòng INDEX. lex.js ngoài khung app: nạp lúc rảnh (add-on SW importScripts)
+  let lexP = null;
+  const needLex = () => (g.Lex ? Promise.resolve(g.Lex) : lexP || (lexP = !g.document ? Promise.resolve(null) : new Promise(res => { const sc = document.createElement('script'); sc.src = viSrc.replace(/vi-check\.js$/, 'lex.js'); sc.onload = sc.onerror = () => res(g.Lex || null); document.head.appendChild(sc); })));
+  if (g.document) setTimeout(() => (g.requestIdleCallback || setTimeout)(() => needLex().then(L => L && L.ready()).catch(() => {})), 800); // + mục lục ~2 KB
+  async function localOf(word) {
+    if (!g.Lex) { const hit = g.IELTS_DATA && g.IELTS_DATA.INDEX[word]; if (hit) return { local: hit }; await Promise.race([needLex(), new Promise(r => setTimeout(r, 3000))]); } // INDEX = mảnh (cùng mục)
+    if (g.Lex) {
+      let r = await g.Lex.get(word).catch(() => null);
+      // chưa có mảnh (web/ chạy thẳng, chưa từng online) → nạp đủ INDEX rồi tra lại
+      if (!r && g.Lex.version() === 'local' && g.App && g.App.need && !g.App.loaded('words')) { await g.App.need('words', 'tsl').catch(() => {}); r = await g.Lex.get(word).catch(() => null); }
+      return r ? { local: r.entry, from: r.via === 'exact' || r.via === 'fold' ? '' : (r.from || word), au: r.au } : { local: null }; }
+    return { local: (g.IELTS_DATA && g.IELTS_DATA.INDEX[word]) || null };
+  }
+  // bản lưu cũ + kho mới → trường của kho theo kho hiện hành
+  const LOCAL_F = ['ipa', 'pos', 'vi', 'def', 'ex', 'col', 'syn', 'level', 'emoji', 'topic'];
+  const overlay = (e, local) => { if (!e || !local) return e; const o = { ...e }; for (const f of LOCAL_F) if (local[f] != null && local[f] !== '' && !(Array.isArray(local[f]) && !local[f].length)) o[f] = local[f]; o.ipaUS = local.ipaUS || (local.ipa ? '' : o.ipaUS); return o; };
 
   // Giữ chữ Latin có dấu (café, naïve)
   const normWord = raw => String(raw || '').normalize('NFC').trim().toLowerCase().replace(/[’]/g, "'").replace(/[×÷]/g, '').replace(/[^a-z\u00c0-\u024f\s'-]/g, '').replace(/\s+/g, ' ').trim();
@@ -352,7 +368,7 @@
       word,
       found: true,
       ipa: (local && local.ipa) || ipaFor(wk, (local && local.pos) || posRaw, 'UK') || (fd && fd.ipa) || '',
-      ipaUS: ipaFor(wk, (local && local.pos) || posRaw, 'US') || (fd && fd.ipaUS) || '',
+      ipaUS: (local && local.ipa) ? (local.ipaUS || '') : (ipaFor(wk, posRaw, 'US') || (fd && fd.ipaUS) || ''), // kho có IPA → US cũng theo kho (trống = như UK)
       audio: (fd && fd.audio) || (wk && wk.audioUK) || '',
       audioUS: (fd && fd.audioUS) || (wk && wk.audioUS) || '',
       pos: (local && local.pos) || POS_SHORT[posRaw] || posRaw,
@@ -380,9 +396,11 @@
     if (!word) return null;
     if (cache.has(word)) return cache.get(word);
     if (quickCache.has(word)) return quickCache.get(word);
+    const { local, from } = await localOf(word);
     const saved = await persist.get(word);
-    if (saved && Date.now() - saved._t < FRESH) { cache.set(word, saved); return saved; }
-    const local = (g.IELTS_DATA && g.IELTS_DATA.INDEX[word]) || null;
+    if (saved && Date.now() - saved._t < FRESH) { const s2 = overlay(saved, local); cache.set(word, s2); return s2; }
+    // có trong kho → hiện ngay, không chờ mạng
+    if (local) { const e = { ...build(from ? local.word : word, local, null, null, null, '', []), partial: true, from }; quickCache.set(word, e); return e; }
     const [gg, wk] = await Promise.all([fromGoogle(word), wiktIPA(word)]);
     const hasGoogle = gg && (gg.senses.length || gg.defs.length);
     if (!local && !hasGoogle) return null;
@@ -395,8 +413,9 @@
   async function lookup(raw, { image = true, examples = true } = {}) {
     const word = normWord(raw);
     if (!word) return null;
-    { const hit = cache.get(word); if (hit && (hit.image || !image || hit._imgTry)) return hit; } // trong phiên: bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
-    const saved = await persist.get(word);
+    { const hit = cache.get(word); if (hit && !hit.partial && (hit.image || !image || hit._imgTry)) return hit; } // bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
+    const { local, from } = await localOf(word);
+    const saved = overlay(await persist.get(word), local);
     if (saved && Date.now() - saved._t < FRESH) {
       // Bản lưu thiếu ảnh (lần tra trước mạng/Openverse chậm) → thử lấy lại ảnh, tối đa 6 giờ/lần, không tra lại cả từ
       if (image && !saved.image && /^n|danh/.test(saved.pos || 'n') && Date.now() - (saved._imgTry || 0) > 6 * 3600e3) {
@@ -408,7 +427,6 @@
       cache.set(word, saved); return saved;
     }
 
-    const local = (g.IELTS_DATA && g.IELTS_DATA.INDEX[word]) || null;
     let [gg, fd, wk, img, sents] = await Promise.all([
       fromGoogle(word),
       fromFreeDict(word),
@@ -439,7 +457,8 @@
         exs.forEach((en, i) => { if (vi[i]) sents.push({ en: en[0].toUpperCase() + en.slice(1), vi: vi[i].trim().replace(/^./, c => c.toUpperCase()), auto: true }); });
       }
     }
-    const entry = build(word, local, gg, fd, wk, img, sents);
+    const entry = build(from ? local.word : word, local, gg, fd, wk, img, sents);
+    if (from) entry.from = from; // went → go
     if (entry.image && !/^n|danh/.test(entry.pos || '')) { entry.image = ''; entry.imageCredit = null; }
     if (image && !entry.image) entry._imgTry = img === null ? 0 : Date.now(); // ảnh lỗi/chậm → bản lưu sẽ thử lại ở lần tra sau
     cache.set(word, entry);
