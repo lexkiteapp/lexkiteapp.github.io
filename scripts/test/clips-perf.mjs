@@ -1,9 +1,9 @@
 // Perf budget for the admin clip grid on a 5 000-clip fixture (real Chromium via Playwright; CI: .github/workflows/clips-perf.yml).
-// first paint < 800 ms · scroll without long tasks (> 50 ms) · filter change < 200 ms · select all 5 000 < 100 ms · layout shift ≈ 0 (fixed thumbnail boxes) · DOM < 300 nodes.
+// first paint < 800 ms · video hub (#video/library) first card < 800 ms · section switch < 300 ms · scroll without long tasks (> 50 ms) · filter change < 200 ms · select all 5 000 < 100 ms · layout shift ≈ 0 (fixed thumbnail boxes) · DOM < 300 nodes.
 // Run: node scripts/test/clips-perf.mjs   (needs `npm i playwright` + `npx playwright install chromium`; PW_CHANNEL=chrome uses installed Chrome)
 import fs from 'node:fs';
 let pw; try { pw = await import('playwright'); } catch (e) { console.log('clips-perf: playwright not installed – skipped'); process.exit(0); }
-const budget = { paint: 800, filter: 200, selectAll: 100, nodes: 300, cls: 0.02 };
+const budget = { paint: 800, filter: 200, selectAll: 100, nodes: 300, cls: 0.02, hub: 800, nav: 300 };
 const browser = await pw.chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}).catch(e => { console.log('clips-perf: no browser – skipped (' + String(e).split('\n')[0] + ')'); return null; });
 if (!browser) process.exit(0);
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } }); page.setDefaultTimeout(60000);
@@ -20,6 +20,7 @@ const R = await page.evaluate(async () => {
     if (op === 'query') { const rows = all.filter(x => (!b.filter.q || x.title.includes(b.filter.q)) && (!b.filter.template || x.template === b.filter.template)); const at = b.cursor || 0; return { rows: rows.slice(at, at + b.limit), total: rows.length, next: at + b.limit < rows.length ? at + b.limit : null, counts: { pending: rows.length, approved: 0, live: 0, fail: 0, archive: 0 }, facets: { template: ['choose', 'listen', 'news'] } }; }
     if (op === 'ids') return { ids: all.map(x => x.id) }; return { results: [] };
   };
+  window.__capi = capi;
   let cls = 0, longTasks = []; try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); new PerformanceObserver(l => longTasks.push(...l.getEntries().map(e => Math.round(e.duration)))).observe({ type: 'longtask', buffered: true }); } catch (e) { /* unsupported */ }
   const out = {}, host = document.getElementById('h'); let t = performance.now();
   window.AdminClips.mount(host, { capi, esc: x => String(x ?? '').replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`), lang: () => 'vi', toast() {}, open() {} });
@@ -33,8 +34,22 @@ const R = await page.evaluate(async () => {
   t = performance.now(); host.querySelector('#cl-all').click(); await until(() => !host.querySelector('#cl-bar').hidden && /selected|đã chọn/.test(host.querySelector('#cl-bar').textContent), 'selection bar'); out.selectAll = performance.now() - t;
   const tc = host.querySelector('.cl-c b'); out.ellipsis = getComputedStyle(tc).textOverflow === 'ellipsis' && !!tc.title; out.cls = cls; return out;
 });
+// Trung tâm video (web/js/admin-video.js): mở thẳng #video/library → thẻ đầu tiên; chuyển mục con Chờ duyệt → hàng đợi hiện ra
+await page.addScriptTag({ content: fs.readFileSync('web/js/admin-video.js', 'utf8') });
+Object.assign(R, await page.evaluate(async () => {
+  const wait = ms => new Promise(r => setTimeout(r, ms)), until = async (f, what) => { const t0 = performance.now(); while (!f()) { if (performance.now() - t0 > 8000) throw new Error('timeout waiting for ' + what); await wait(2); } }, raf = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  document.getElementById('h').innerHTML = ''; const host = document.createElement('div'); document.body.appendChild(host); history.replaceState(null, '', location.pathname + '#video/library');
+  const esc = x => String(x ?? '').replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`), L = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => v[k]) : s);
+  const vapi = async op => (op === 'list' ? { items: [], media: true, covers: {} } : { days: [] });
+  let t = performance.now(); window.AdminVideo.render(host, vapi, L, { esc, lang: () => 'vi', toast() {}, capi: window.__capi });
+  await until(() => host.querySelector('.cl-c'), 'hub library card'); await raf(); const hub = performance.now() - t;
+  t = performance.now(); host.querySelector('.vx-nav [data-sec="review"]').click(); await until(() => host.querySelector('.vx-r'), 'review rows'); await raf(); const nav = performance.now() - t;
+  return { hub, nav, hubNodes: host.querySelectorAll('*').length };
+}));
 await browser.close();
 const fail = [];
+if (R.hub > budget.hub) fail.push(`video hub → library first card ${R.hub.toFixed(0)} ms > ${budget.hub}`);
+if (R.nav > budget.nav) fail.push(`video hub section switch ${R.nav.toFixed(0)} ms > ${budget.nav}`);
 if (R.paint > budget.paint) fail.push(`first paint ${R.paint.toFixed(0)} ms > ${budget.paint}`);
 if (R.longTasks.some(d => d > 50)) fail.push('long tasks while scrolling: ' + R.longTasks.join(','));
 if (R.slowFrames > R.frames * 0.05) fail.push(`slow frames ${R.slowFrames}/${R.frames}`);
@@ -43,6 +58,6 @@ if (R.selectAll > budget.selectAll) fail.push(`select all ${R.selectAll.toFixed(
 if (R.nodes >= budget.nodes) fail.push(`DOM ${R.nodes} nodes ≥ ${budget.nodes}`);
 if (R.cls > budget.cls) fail.push(`layout shift ${R.cls.toFixed(3)} > ${budget.cls}`);
 if (!R.ellipsis) fail.push('title lacks ellipsis/tooltip');
-console.log(`clips-perf: paint ${R.paint.toFixed(0)} ms · filter ${R.filter.toFixed(0)} ms · select-all ${R.selectAll.toFixed(0)} ms · nodes ${R.nodes} · slow frames ${R.slowFrames}/${R.frames} · long tasks ${R.longTasks.length} · CLS ${R.cls.toFixed(3)}`);
+console.log(`clips-perf: paint ${R.paint.toFixed(0)} ms · filter ${R.filter.toFixed(0)} ms · select-all ${R.selectAll.toFixed(0)} ms · nodes ${R.nodes} · slow frames ${R.slowFrames}/${R.frames} · long tasks ${R.longTasks.length} · CLS ${R.cls.toFixed(3)} · hub ${R.hub.toFixed(0)} ms · switch ${R.nav.toFixed(0)} ms`);
 if (fail.length) { console.log('✗ ' + fail.join('\n✗ ')); process.exit(1); }
 console.log('✓ clips-perf: budgets met');

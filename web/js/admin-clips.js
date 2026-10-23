@@ -38,8 +38,8 @@
     groupKey(it, g) { return (g === 'date' ? String(it.created || '').slice(0, 10) : g === 'scene' ? it.scene : g === 'template' ? it.template : '') || '–'; },
     csv(rows) { const cols = rows.length ? Object.keys(rows[0]) : [], cell = v => { let t = String(v ?? ''); if (/^[=+\-@\t\r]/.test(t)) t = "'" + t; return /[",\n]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; }; return [cols.join(','), ...rows.map(r => cols.map(c => cell(r[c])).join(','))].join('\n'); },
   };
-  const CSS = `.cl{--g:12px}.cl-tabs{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.6rem}.cl-tab{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font:inherit;font-size:.85rem;cursor:pointer}.cl-tab[aria-pressed=true]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}.cl-tab i{font-style:normal;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.cl-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.6rem}.cl-row input[type=search]{flex:1 1 220px;min-width:0;min-height:34px}.cl-row select,.cl-row .btn{min-height:34px;max-width:100%}.cl-n{color:var(--muted);font-size:.8rem;margin-left:auto}
+  const CSS = `.cl{--g:12px}.cl-tabs{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.6rem}.cl-tab{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .75rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font:inherit;font-size:.85rem;cursor:pointer}.cl-tab[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft);color:var(--primary-text);font-weight:700}.cl-tab:focus-visible{outline:2px solid var(--primary);outline-offset:2px}.cl-hd{display:flex;flex-wrap:wrap;align-items:center;gap:0 1.2rem;margin-bottom:.2rem}.cl-hd .cl-tabs{margin-bottom:.6rem}.cl-types .cl-tab{padding:.25rem .65rem;font-size:.8rem}.cl-tab i{font-style:normal;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.cl-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.6rem}.cl-row input[type=search]{flex:1 1 220px;min-width:0;min-height:34px}.cl-row select,.cl-row .btn{min-height:34px;max-width:100%}.cl-row select{width:auto;flex:0 1 auto}.cl-n{color:var(--muted);font-size:.8rem;margin-left:auto}
 .cl-dr{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:.8rem 1rem;margin-bottom:.6rem}.cl-dr[hidden]{display:none}.cl-dg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.6rem}.cl-dg label{display:grid;gap:.2rem;font-size:.76rem;color:var(--muted);min-width:0}.cl-dg select,.cl-dg input{min-height:32px;min-width:0;width:100%}.cl-dr .cl-row{margin:.7rem 0 0}
 .cl-vp{position:relative;overflow:auto;height:calc(100vh - 300px);min-height:420px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);contain:strict}.cl-in{position:relative;width:100%}.cl-r{position:absolute;left:0;right:0}.cl-h{display:flex;align-items:center;gap:.5rem;padding:0 .8rem;font-weight:600;font-size:.88rem;cursor:pointer;background:var(--surface);border-bottom:1px solid var(--line)}.cl-h i{font-style:normal;color:var(--muted);font-weight:400;font-size:.78rem}
 .cl-c{position:absolute;top:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;cursor:pointer;min-width:0}.cl-c.on{outline:2px solid var(--accent);outline-offset:-2px}.cl-th{position:relative;height:170px;flex:none;background:var(--surface-2);display:grid;place-items:center;font-size:1.6rem;overflow:hidden}.cl-th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -51,18 +51,18 @@
     const { capi, esc, toast = () => {} } = ctx, lang = ctx.lang || (() => 'vi'), L = ctx.L || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => v[k]) : s));
     const V = (vi, vars) => { let s = lang() === 'en' && Object.prototype.hasOwnProperty.call(EN, vi) ? EN[vi] : vi; if (lang() !== 'en') return L(vi, vars); return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? String(vars[k]) : m)) : s; };
     if (!document.getElementById('cl-css')) { const st = document.createElement('style'); st.id = 'cl-css'; st.textContent = CSS; document.head.appendChild(st); }
-    const LOC = () => (lang() === 'en' ? 'en-US' : 'vi-VN'), CH = 262, HH = 36, GAP = 12, PAGE = 60, SECS = ['pending', 'approved', 'live', 'fail', 'archive'];
-    const SN = { pending: 'Chờ duyệt', approved: 'Đã duyệt', live: 'Đã đăng', fail: 'Lỗi QA', archive: 'Lưu trữ' };
-    let f = pure.fromQuery(location.search); if (!f.section) f.section = 'pending';
+    const LOC = () => (lang() === 'en' ? 'en-US' : 'vi-VN'), CH = 262, HH = 36, GAP = 12, PAGE = 60, SECS = ctx.sections || ['pending', 'approved', 'live', 'fail', 'archive']; // ctx.sections: mục hiện ('' = tất cả trừ Lưu trữ)
+    const SN = { '': 'Tất cả', pending: 'Chờ duyệt', approved: 'Đã duyệt', live: 'Đã đăng', fail: 'Lỗi QA', archive: 'Lưu trữ' };
+    let f = pure.fromQuery(location.search); if (!SECS.includes(f.section || '')) f.section = ctx.section != null ? ctx.section : SECS[0]; if (!f.section) delete f.section;
     const sel = pure.makeSel(), S = { rows: [], total: 0, next: null, counts: {}, facets: {}, groups: {}, busy: false, tok: 0, lay: null, last: null }, collapsed = new Set(), els = new Map(); let channels = [];
     const store = { get(k) { try { return JSON.parse(localStorage.getItem('lk.cl.' + k) || 'null'); } catch (e) { return null; } }, set(k, v) { try { v == null ? localStorage.removeItem('lk.cl.' + k) : localStorage.setItem('lk.cl.' + k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
     const num = n => Number(n || 0).toLocaleString(LOC());
     const opts = (vals, cur, all) => `<option value="">${esc(all)}</option>` + vals.map(v => `<option value="${esc(v)}"${v === cur ? ' selected' : ''}>${esc(v)}</option>`).join('');
     const stOpts = [['', 'Tất cả'], ['pass', 'QA đạt'], ['fail', 'QA chưa đạt'], ['approved', 'Đã duyệt (xếp hàng đăng)'], ['rejected', 'Bị loại'], ['paused', 'Tạm dừng'], ['ready', 'Gói đăng sẵn sàng'], ['uploaded', 'Đã đăng (dò thấy)'], ['web', 'Trên web'], ['sched', 'Đã lên lịch'], ['due', 'Đã tới lịch'], ['none', 'Chưa xếp lịch']];
     const sortOpts = [['created:desc', 'Mới nhất'], ['created:asc', 'Cũ nhất'], ['qa:desc', 'Điểm QA cao'], ['qa:asc', 'Điểm QA thấp'], ['slot:asc', 'Lịch đăng'], ['views:desc', 'Lượt xem'], ['completion:desc', 'Tỉ lệ xem hết']];
-    host.innerHTML = `<div class="cl">
+    host.innerHTML = `<div class="cl"><div class="cl-hd">
       <div class="cl-tabs cl-types" role="group" aria-label="${esc(V('Loại nội dung'))}">${[['', 'Tất cả'], ['short', 'Shorts'], ['long', 'Video dài'], ['podcast', 'Podcast']].map(([k, t]) => `<button class="cl-tab" type="button" data-type="${k}" aria-pressed="false">${esc(V(t))} <i data-tcnt="${k}"></i></button>`).join('')}</div>
-      <div class="cl-tabs" role="tablist">${SECS.map(k => `<button class="cl-tab" role="tab" data-sec="${k}" aria-pressed="false">${esc(V(SN[k]))} <i data-cnt="${k}">0</i></button>`).join('')}</div>
+      <div class="cl-tabs" role="group" aria-label="${esc(V('Trạng thái'))}"${SECS.length > 1 ? '' : ' hidden'}>${SECS.map(k => `<button class="cl-tab" type="button" data-sec="${k}" aria-pressed="false">${esc(V(SN[k]))} <i data-cnt="${k}">0</i></button>`).join('')}</div></div>
       <div class="cl-row"><input type="search" id="cl-q" placeholder="${esc(V('Tìm tiêu đề, ý chính, mã…'))}" aria-label="${esc(V('Tìm tiêu đề, ý chính, mã…'))}">
         <select id="cl-sort" aria-label="${esc(V('Sắp xếp'))}">${sortOpts.map(([v, t]) => `<option value="${v}">${esc(V(t))}</option>`).join('')}</select>
         <select id="cl-grp" aria-label="${esc(V('Nhóm theo'))}"><option value="">${esc(V('Không nhóm'))}</option><option value="template">${esc(V('Mẫu'))}</option><option value="scene">${esc(V('Chủ đề / cảnh'))}</option><option value="date">${esc(V('Ngày'))}</option></select>
@@ -121,8 +121,8 @@
     if (typeof ResizeObserver !== 'undefined') { let w0 = 0; new ResizeObserver(() => { if (vp.clientWidth && vp.clientWidth !== w0) { w0 = vp.clientWidth; relayout(); } }).observe(vp); }
     // ---- header (tabs, counts, drawer, selection) ----
     function head() {
-      host.querySelectorAll('.cl-tab').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sec === f.section)));
-      host.querySelectorAll('[data-cnt]').forEach(i => { i.textContent = num((S.counts || {})[i.dataset.cnt]); });
+      host.querySelectorAll('[data-sec]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sec === (f.section || ''))));
+      host.querySelectorAll('[data-cnt]').forEach(i => { const k = i.dataset.cnt, c = S.counts || {}; i.textContent = num(k ? c[k] : ['pending', 'approved', 'live', 'fail'].reduce((a, x) => a + (+c[x] || 0), 0)); });
       $('#cl-n').textContent = S.err ? V('Không tải được: {e}', { e: S.err }) : S.busy && !S.rows.length ? V('Đang tải…') : V('{n} video', { n: num(S.total) });
       $('#cl-sort').value = (f.sort || 'created') + ':' + (f.dir || 'desc'); $('#cl-grp').value = f.group || ''; $('#cl-q').value = f.q || '';
       const tp = $('#cl-tpl'); tp.innerHTML = opts((S.facets || {}).template || [], f.template || '', V('Tất cả mẫu'));
@@ -150,7 +150,7 @@
     }
     // ---- events ----
     let deb = 0; $('#cl-q').oninput = e => { clearTimeout(deb); deb = setTimeout(() => { f.q = e.target.value.trim() || undefined; if (!f.q) delete f.q; reload(); }, 180); };
-    host.querySelectorAll('.cl-tab').forEach(b => { b.onclick = () => { f.section = b.dataset.sec; sel.clear(); reload(); }; });
+    host.querySelectorAll('[data-sec]').forEach(b => { b.onclick = () => { if (b.dataset.sec) f.section = b.dataset.sec; else delete f.section; sel.clear(); reload(); }; });
     $('#cl-sort').onchange = e => { const [s, d] = e.target.value.split(':'); f.sort = s; f.dir = d; reload(); };
     $('#cl-grp').onchange = e => { f.group = e.target.value || undefined; if (!f.group) delete f.group; collapsed.clear(); reload(); };
     host.querySelectorAll('[data-type]').forEach(b => { b.onclick = () => { if (b.dataset.type) f.type = b.dataset.type; else delete f.type; host.querySelectorAll('[data-type]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); reload(); }; });
@@ -158,9 +158,9 @@
     $('#cl-fb').onclick = () => { const d = $('#cl-dr'); d.hidden = !d.hidden; $('#cl-fb').setAttribute('aria-expanded', String(!d.hidden)); if (!d.hidden) drawer(); };
     $('#cl-fx').onclick = () => { $('#cl-dr').hidden = true; $('#cl-fb').setAttribute('aria-expanded', 'false'); };
     $('#cl-dg').onchange = e => { const k = e.target.dataset.f; if (!k) return; const v = e.target.type === 'checkbox' ? e.target.checked : e.target.value; if (v === '' || v === false) delete f[k]; else f[k] = NUM.has(k) ? +v : v; reload(); };
-    $('#cl-clr').onclick = () => { f = { section: f.section }; reload(); drawer(); };
+    $('#cl-clr').onclick = () => { f = f.section ? { section: f.section } : {}; reload(); drawer(); };
     $('#cl-svs').onclick = () => { const name = (prompt(V('Tên chế độ xem')) || '').trim().slice(0, 40); if (!name) return; const views = (store.get('views') || []).filter(v => v.name !== name); views.push({ name, q: pure.toQuery(f) }); store.set('views', views.slice(-20)); drawer(); };
-    $('#cl-sv').onchange = e => { const v = (store.get('views') || [])[+e.target.value]; if (!v) return; f = pure.fromQuery(v.q); if (!f.section) f.section = 'pending'; reload(); drawer(); };
+    $('#cl-sv').onchange = e => { const v = (store.get('views') || [])[+e.target.value]; if (!v) return; f = pure.fromQuery(v.q); if (!SECS.includes(f.section || '')) f.section = ctx.section != null ? ctx.section : SECS[0]; if (!f.section) delete f.section; reload(); drawer(); };
     inn.addEventListener('click', e => {
       const g = e.target.closest('[data-g]'); if (g) { const k = g.dataset.g; collapsed.has(k) ? collapsed.delete(k) : collapsed.add(k); relayout(); return; }
       const c = e.target.closest('.cl-c'); if (!c) return; const id = c.dataset.id;
