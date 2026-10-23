@@ -11,6 +11,7 @@
   'Đọc hiểu': 'Reading',
   'Viết': 'Writing',
   'Nói': 'Speaking',
+  'Giao tiếp tự tin': 'Speak with confidence', 'Nói tự tin trong tình huống thật · 5–8 phút/bài': 'Speak up in real situations · 5–8 min per lesson',
   'Tổng quan': 'Overview',
   'Đổi': 'Change',
   'Đường dẫn': 'Breadcrumb',

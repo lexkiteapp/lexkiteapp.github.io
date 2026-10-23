@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "Désactiver la carte du nouvel onglet"
  },
+ "ntConf": {
+  "message": "Parle avec confiance"
+ },
  "ntListen": {
   "message": "Écouter"
  },

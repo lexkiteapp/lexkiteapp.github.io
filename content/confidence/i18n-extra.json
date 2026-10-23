@@ -1,0 +1,9 @@
+{
+  "_note": "Khóa do Giao tiếp tự tin thêm vào NGOÀI nhóm confidence (khung en.js: thẻ trang chủ/menu; nhóm rpbasic: cuối roleplay). Bản dịch ở i18n/<lang>.json, build chép vào scripts/i18n-fixed.json.",
+  "Giao tiếp tự tin": 1,
+  "Nói tự tin trong tình huống thật · 5–8 phút/bài": 1,
+  "Giúp tôi nói": 1,
+  "Nghe rồi nói theo câu này:": 1,
+  "Học các cụm câu tự nhiên cho đúng tình huống này": 1,
+  "Lộ trình nói theo tình huống thật, từ A1 đến B2": 1
+}

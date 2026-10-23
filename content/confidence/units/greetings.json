@@ -1,0 +1,49 @@
+{
+  "id": "greetings", "level": "A1", "order": 1, "em": "👋", "rp": "neighbour",
+  "title": { "vi": "Chào hỏi và nói chuyện xã giao", "en": "Greetings and small talk" },
+  "goal": { "vi": "Chào người mới quen, hỏi thăm và chào tạm biệt thật tự nhiên.", "en": "Greet a new person, ask how they are and say goodbye in a natural way." },
+  "dialogue": { "a": "Lina", "aRole": "your new neighbor", "lines": [
+    ["a", "Hi! I'm Lina. I live next door."],
+    ["b", "Hi, Lina. I'm Sam. Nice to meet you."],
+    ["a", "Nice to meet you too. How's it going?"],
+    ["b", "Pretty good, thanks. How about you?"],
+    ["a", "Not bad. It was a busy day at work. Are you new here?"],
+    ["b", "Yes, I moved in last week."],
+    ["a", "Welcome! Well, I have to go. See you around!"],
+    ["b", "See you! Have a good evening."]
+  ] },
+  "phrases": [
+    { "id": "nice-to-meet-you", "say": "Nice to meet you.", "not": "I'm happy to know you.", "gap": "meet",
+      "mean": { "vi": "Câu nói khi gặp ai đó lần đầu", "en": "What you say when you meet someone for the first time" },
+      "why": { "vi": "Người bản xứ luôn nói câu này khi mới quen; câu kia nghe như dịch từng chữ.", "en": "People always say this when they first meet; the other sounds translated word for word." } },
+    { "id": "hows-it-going", "say": "How's it going?", "not": "Are you fine?", "gap": "going",
+      "mean": { "vi": "Lời hỏi thăm thân thiện hằng ngày", "en": "A friendly everyday way to ask how someone is" },
+      "why": { "vi": "\"Are you fine?\" nghe như bạn nghĩ người kia đang gặp chuyện.", "en": "\"Are you fine?\" sounds like you think something is wrong." } },
+    { "id": "pretty-good-thanks", "say": "Pretty good, thanks. How about you?", "not": "I'm fine, thank you. And you?", "gap": "good",
+      "mean": { "vi": "Trả lời lời hỏi thăm rồi hỏi lại", "en": "Answer the question, then ask it back" },
+      "why": { "vi": "Câu trong sách không sai nhưng cứng; câu này thoải mái và giữ cuộc nói chuyện tiếp tục.", "en": "The answer from school books is correct but not relaxed; this sounds natural and keeps the talk going." } },
+    { "id": "where-are-you-from", "say": "Where are you from?", "not": "What is your country?", "gap": "from",
+      "mean": { "vi": "Hỏi ai đó đến từ đâu", "en": "Ask where someone comes from" },
+      "why": { "vi": "\"What is your country?\" nghe như đang điền mẫu đơn.", "en": "\"What is your country?\" sounds like a question on a form." } },
+    { "id": "what-do-you-do", "say": "What do you do?", "not": "What is your job?", "gap": "do",
+      "mean": { "vi": "Hỏi ai đó làm nghề gì hoặc đang học gì", "en": "Ask about someone's work or studies" },
+      "why": { "vi": "Câu kia không sai nhưng hơi thẳng; \"What do you do?\" là cách hỏi tự nhiên.", "en": "The other is not wrong but a bit direct; \"What do you do?\" is the natural question." } },
+    { "id": "see-you-around", "say": "See you around!", "not": "Goodbye.", "gap": "around",
+      "mean": { "vi": "Chào tạm biệt người bạn sẽ còn gặp lại", "en": "Say goodbye to someone you will see again" },
+      "why": { "vi": "\"Goodbye\" có thể nghe như chia tay hẳn; \"See you around!\" ấm áp hơn.", "en": "\"Goodbye\" can sound final; \"See you around!\" is warmer." } },
+    { "id": "have-a-good-evening", "say": "Have a good evening!", "not": "Good night!", "gap": "evening",
+      "mean": { "vi": "Chúc ai đó buổi tối vui khi chia tay", "en": "Wish someone a nice evening when you leave" },
+      "why": { "vi": "\"Good night\" dùng lúc đi ngủ hoặc rất khuya; lúc chia tay buổi tối thì chúc buổi tối vui.", "en": "\"Good night\" is for when you go to bed or very late; when you leave in the evening, use this." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Lina", "role": "your new neighbor", "persona": "warm, friendly and patient, speaks slowly", "goal": "get to know the learner" },
+    "you": "Say hello, say your name, say where you are from and what you do, then say goodbye.",
+    "turns": [
+      { "a": "Hi! I'm Lina. I live next door.", "h": "Hi, Lina. I'm Sam. Nice to meet you.", "br": [["nice to meet", "Nice to meet you too!"]] },
+      { "a": "So, where are you from?", "h": "I'm from Brazil. How about you?", "br": [["how about you|and you|what about you", "I'm from here. I grew up in this city."]] },
+      { "a": "Cool! And what do you do?", "h": "I'm a student. I study business.", "br": [["student|study", "Oh, that's great."], ["work|job|teacher|engineer|nurse|driver|designer", "Oh, interesting!"]] },
+      { "a": "Well, I have to go. It was nice talking to you!", "h": "You too. See you around!", "br": [["see you|bye|have a good", "Bye!"]] }
+    ],
+    "end": "See you later. Have a good evening!"
+  }
+}

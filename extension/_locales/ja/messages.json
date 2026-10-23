@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "新しいタブのカードをオフ"
  },
+ "ntConf": {
+  "message": "自信を持って話そう"
+ },
  "ntListen": {
   "message": "聞く"
  },

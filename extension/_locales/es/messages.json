@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "Desactivar tarjeta en pestaña nueva"
  },
+ "ntConf": {
+  "message": "Habla con confianza"
+ },
  "ntListen": {
   "message": "Escuchar"
  },

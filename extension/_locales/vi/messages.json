@@ -47,6 +47,9 @@
  "ntOff": {
   "message": "Tắt thẻ ở tab mới"
  },
+ "ntConf": {
+  "message": "Giao tiếp tự tin"
+ },
  "ntListen": {
   "message": "Nghe"
  },

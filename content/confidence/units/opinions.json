@@ -1,0 +1,49 @@
+{
+  "id": "opinions", "level": "B1", "order": 12, "em": "💬", "rp": null,
+  "title": { "vi": "Nêu ý kiến", "en": "Giving opinions" },
+  "goal": { "vi": "Nói ý kiến của bạn, đồng ý và phản đối một cách lịch sự.", "en": "Give your opinion, agree and disagree politely." },
+  "dialogue": { "a": "Lucas", "aRole": "a friend", "lines": [
+    ["a", "Do you think working from home is better than working in an office?"],
+    ["b", "In my opinion, it depends on the job."],
+    ["a", "Really? I think it's much better. No traffic!"],
+    ["b", "I see what you mean, but I miss talking to my coworkers."],
+    ["a", "That's true. It can feel lonely."],
+    ["b", "Exactly. For me, a mix of both is ideal."],
+    ["a", "Hmm, I'm not so sure. Offices are expensive."],
+    ["b", "Fair enough. Let's agree to disagree!"]
+  ] },
+  "phrases": [
+    { "id": "in-my-opinion", "say": "In my opinion, it depends on the job.", "not": "According to me, it depends on the job.", "gap": "opinion",
+      "mean": { "vi": "Mở đầu khi nói ý kiến của bạn", "en": "Start giving your view" },
+      "why": { "vi": "\"According to me\" nghe lạ với hầu hết người nói tiếng Anh; nói \"In my opinion\" hoặc \"I think\".", "en": "\"According to me\" sounds unusual to most English speakers; say \"In my opinion\" or \"I think\"." } },
+    { "id": "see-what-you-mean-but", "say": "I see what you mean, but I miss my coworkers.", "not": "No, you are wrong.", "gap": "mean", "tk": "disagree",
+      "mean": { "vi": "Thể hiện đã hiểu rồi mới nêu ý khác", "en": "Show you understand, then give a different view" },
+      "why": { "vi": "Cho thấy bạn hiểu trước, rồi mới thêm ý mình – đó là phản đối lịch sự.", "en": "Show you understand first, then add your view – that is how to disagree politely." } },
+    { "id": "depends-on", "say": "It depends on the situation.", "not": "It depends of the situation.", "gap": "on",
+      "mean": { "vi": "Nói câu trả lời còn tùy hoàn cảnh", "en": "Say the answer changes with the situation" },
+      "why": { "vi": "Nói \"depends on\", không nói \"depends of\".", "en": "We say \"depends on\", not \"depends of\"." } },
+    { "id": "not-so-sure", "say": "I'm not so sure about that.", "not": "That is totally wrong.", "gap": "sure", "tk": "disagree",
+      "mean": { "vi": "Phản đối nhẹ nhàng", "en": "Disagree softly" },
+      "why": { "vi": "\"I'm not so sure…\" phản đối nhẹ nhàng và mời người kia nói thêm.", "en": "\"I'm not so sure…\" disagrees softly and invites more talk." } },
+    { "id": "exactly", "say": "Exactly! That's what I think too.", "not": "Yes yes yes.", "gap": "Exactly",
+      "mean": { "vi": "Đồng ý mạnh mẽ", "en": "Agree strongly" },
+      "why": { "vi": "\"Exactly\" thể hiện bạn rất đồng ý chỉ bằng một từ.", "en": "\"Exactly\" shows strong agreement in one word." } },
+    { "id": "for-me", "say": "For me, a mix of both is ideal.", "not": "For my side, a mix of both is ideal.", "gap": "me",
+      "mean": { "vi": "Nêu quan điểm cá nhân", "en": "Give your personal view" },
+      "why": { "vi": "\"For me…\" hoặc \"Personally…\" giới thiệu quan điểm riêng một cách tự nhiên.", "en": "\"For me…\" or \"Personally…\" introduces your own view naturally." } },
+    { "id": "agree-to-disagree", "say": "Let's agree to disagree.", "not": "OK, you win.", "gap": "disagree", "tk": "disagree",
+      "mean": { "vi": "Kết thúc tranh luận vui vẻ khi không thống nhất", "en": "End a friendly argument when you can't agree" },
+      "why": { "vi": "Khi không thể đồng ý, câu này kết thúc chủ đề vui vẻ và không ai mất mặt.", "en": "When you can't agree, this ends the topic in a friendly way and nobody loses face." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Lucas", "role": "the learner's friend", "persona": "relaxed, likes friendly debates, never rude", "goal": "discuss working from home" },
+    "you": "Give your opinion about working from home, disagree politely and end the debate in a friendly way.",
+    "turns": [
+      { "a": "So, do you think working from home is better than working in an office?", "h": "In my opinion, it depends on the job.", "br": [["depends", "Hmm, interesting."], ["opinion|i think|personally|for me|better|worse", "Interesting."]] },
+      { "a": "Really? I think home is much better. No traffic, no noise!", "h": "I see what you mean, but I miss talking to my coworkers.", "br": [["see what you mean|but|true|agree|not so sure", "That's fair."]] },
+      { "a": "But you can just call people online, right?", "h": "That's true, but it's not the same. For me, a mix of both is ideal.", "br": [["true|but|for me|mix|both|not the same", "Hmm, maybe."]] },
+      { "a": "I'm still not sure. Offices are expensive for companies.", "h": "Fair enough. Let's agree to disagree!", "br": [["agree to disagree|fair enough|you're right|maybe", "Ha, okay!"]] }
+    ],
+    "end": "Good talk! Let's grab a coffee next time and argue about something else."
+  }
+}

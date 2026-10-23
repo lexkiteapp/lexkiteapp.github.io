@@ -57,7 +57,7 @@
     Object.keys(state.game.frozen || {}).forEach(k => set.add(k)); // ngày được "đóng băng" vẫn tính vào chuỗi
     return set;
   }
-  // 🧊 Đóng băng chuỗi: lỡ đúng 1 ngày (hôm qua) mà còn lượt → tự dùng, chuỗi không mất. Mỗi 7 ngày liên tiếp được +1 lượt (tối đa 2)
+  // 🧊 Đóng băng chuỗi: lỡ 1 ngày mà còn lượt → tự dùng; 7 ngày liên tiếp +1 lượt (≤ 2)
   async function applyFreeze() {
     const g = state.game, days = activeDays(), d = new Date(); d.setDate(d.getDate() - 1);
     const y = todayKey(d); d.setDate(d.getDate() - 1); const y2 = todayKey(d);
@@ -128,7 +128,7 @@
     if (t === 'auto') document.documentElement.removeAttribute('data-theme');
     else document.documentElement.setAttribute('data-theme', t);
   }
-  // Nút 🌐 đầu trang (mọi trang): menu ngôn ngữ js/lang-menu.js (tải lười lần bấm đầu, dùng chung trang tĩnh); chọn → I18N.set như Cài đặt
+  // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
   if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
     $('#langBtn').onclick = () => App.need('lsw').then(() => { if (window.LkLangMenu) { LkLangMenu($('#langBtn').parentNode); $('#langBtn').click(); } }); }
   $('#themeBtn').onclick = () => {
@@ -249,9 +249,10 @@
     pgames: ['js/study-games.js'],
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
     wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
-    lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
+    lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'],
+    confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
-  const ROUTE_BUNDLE = { settings: 'settings', class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { confidence: ['roleplay', 'confidence'], settings: 'settings', class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
@@ -265,7 +266,7 @@
     else {
       if (viaCdn) cdnDown = true; // CDN lỗi → từ giờ dùng máy chủ chính cho các file còn lại (giữ đúng thứ tự)
       if (!await loadOne(src)) {
-        // Đang triển khai bản mới (Cloudflare chưa đồng bộ hết máy chủ) → file tạm trả trang lỗi HTML: chờ 1,5 s rồi thử lại 1 lần, bỏ qua bộ đệm
+        // Đang triển khai (file tạm trả HTML lỗi) → chờ 1,5 s, thử lại 1 lần, bỏ bộ đệm
         await new Promise(r => setTimeout(r, 1500)); await loadOne(src + (src.includes('?') ? '&' : '?') + 'r=' + Date.now());
       }
     }
@@ -283,7 +284,7 @@
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
   // Rảnh thì tải trước các module còn lại → chuyển trang tức thì, dùng offline được
   const idle = cb => ('requestIdleCallback' in window ? requestIdleCallback(cb, { timeout: 4000 }) : setTimeout(cb, 2500));
-  // Tải sẵn các phần còn lại khi máy rảnh – bỏ qua khi người dùng tiết kiệm dữ liệu, mạng chậm hoặc máy yếu (tải khi cần là đủ)
+  // Tải sẵn lúc rảnh – bỏ qua khi tiết kiệm dữ liệu, mạng chậm, máy yếu
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
   // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi. (Trước đây thực thi hết ~1 MB JS → chặn luồng chính ~3 s)
@@ -313,11 +314,11 @@
   }
 
   let routeSeq = 0;
-  // Nút ✕/Quay lại trong bài luyện: trở về đúng trang người học vừa đứng (lộ trình, bộ từ, kế hoạch…), không phải lúc nào cũng về Trò chơi
+  // Nút ✕/Quay lại trong bài luyện: về đúng trang vừa đứng
   let backHash = '';
   App.backHref = () => backHash || '#/practice';
   let curHash = '';
-  // Đổi trang trong lúc dữ liệu lần đầu đang nạp (máy chậm, mới mở app) → chờ nạp xong rồi mới vẽ (tránh màn trắng do state.game = null)
+  // Đổi trang lúc dữ liệu đầu đang nạp → chờ nạp xong mới vẽ (state.game = null)
   let dataReady; const dataReadyP = new Promise(r => { dataReady = r; });
   // Token điều hướng: mỗi lần route() tăng 1 NGAY khi vào hàm (trước mọi await). Mọi bước bất đồng bộ (nạp gói lười, fetch, vẽ muộn)
   // so token của mình với App.routeToken(); cũ hơn = đã có lượt điều hướng mới → bỏ, không vẽ đè trang mới / phiên học đang chạy.
@@ -325,7 +326,7 @@
   App.routeToken = () => routeSeq;
   App.routeStale = tok => tok !== routeSeq;
   App.signal = () => scope.ac.signal; // AbortSignal của trang hiện tại: fetch(url, { signal: App.signal() }) → tự hủy khi đổi trang
-  // Nạp gói lười CHO TRANG ĐANG MỞ: nếu người học đã sang trang khác lúc gói về thì lời hứa không bao giờ hoàn tất (then/await phía sau không chạy) → không vẽ đè
+  // Nạp gói lười cho trang đang mở: đã sang trang khác → lời hứa treo, không vẽ đè
   App.lazy = (...names) => { const tok = routeSeq, pending = new Promise(() => {}); return App.need(...names).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
   // Bọc một tác vụ bất đồng bộ của trang: kết quả về muộn (trang đã đổi) → bỏ. const tok = App.routeToken(); … if (App.routeStale(tok)) return;
   App.live = p => { const tok = routeSeq, pending = new Promise(() => {}); return Promise.resolve(p).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
@@ -376,7 +377,7 @@
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
       if (my === routeSeq) { markActivity(name, arg); if (App.afterRoute) App.afterRoute(name); }
     };
-    // Không dùng View Transitions: trang dài hơn màn hình + cuộn về đầu → Chrome vẽ lệch ảnh chụp trang cũ (mảng chồng/trắng khi Quay lại).
+    // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
     view.style.animation = 'none'; void view.offsetWidth; view.style.animation = '';
     render();
@@ -446,7 +447,7 @@
   // Dọn dẹp khi rời trang: nhiều module có thể đăng ký (App.onCleanup(fn)); App.cleanup (1 hàm) vẫn được hỗ trợ
   App.cleanups = []; App.onCleanup = fn => { if (typeof fn === 'function') App.cleanups.push(fn); };
   App.packs = {};
-  // Gói: "từ" → [nghĩa, cờ, tin cậy]; "từ#loại" cho từ nhiều từ loại (scripts/lexicon/i18n-job.mjs). tin cậy 1 = điểm duyệt AI thấp → nhãn "Dịch máy"
+  // Gói: "từ"/"từ#loại" → [nghĩa, cờ, tin cậy] (docs/LEXICON.md); tin cậy 1 → nhãn "Dịch máy"
   const gpos = p => { p = String(p || '').toLowerCase(); return /^(n|noun)\b/.test(p) ? 'n' : /^(phr ?v|phrasal)/.test(p) ? 'phrv' : /^(v|verb)\b/.test(p) ? 'v' : /^adj/.test(p) ? 'adj' : /^adv/.test(p) ? 'adv' : p; };
   App.glossEntry = (w, pos) => { const p = App.packs[I18N.lang()], k = String(w || '').toLowerCase(); return (p && ((pos && p[k + '#' + gpos(pos)]) || p[k])) || null; };
   App.nativeGloss = (w, pos) => { const e = App.glossEntry(w, pos); return e ? e[0] : ''; };
@@ -602,6 +603,7 @@
       ${ringsHtml()}
       <div id="leagueHomeCard"></div>
       <a class="card hover hub-card quick-play-card" href="#/quick"><span class="hub-ic" aria-hidden="true">⚡</span><span class="hub-tx"><b>${t('Chơi nhanh 15 giây')}</b><small>${t('4 câu cực ngắn · Không sợ sai, giữ phản xạ')}</small></span><span class="chip ok">${t('Chơi ngay')} →</span></a>
+      <a class="card hover hub-card" href="#/confidence"><span class="hub-ic" aria-hidden="true">🗣️</span><span class="hub-tx"><b>${t('Giao tiếp tự tin')}</b><small>${t('Nói tự tin trong tình huống thật · 5–8 phút/bài')}</small></span><span class="chev" aria-hidden="true">›</span></a>
       ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
       <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
       <div class="card wotd wotd-sm">

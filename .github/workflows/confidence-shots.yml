@@ -1,0 +1,28 @@
+# 🗣️ Ảnh trước/sau Giao tiếp tự tin (điện thoại/máy tính, en/ar/vi): web/ của commit `before` (trước) và của commit đang chạy (sau). Chỉ chạy tay; artifact 7 ngày.
+name: Confidence shots
+on:
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit TRƯỚC khi có tính năng', required: true }
+permissions:
+  contents: read
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        env: { BEFORE: "${{ github.event.inputs.before }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          git worktree add -q /tmp/before "$BEFORE"
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; (cd /tmp/before/web && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/confidence-shots.mjs http://localhost:8080 http://localhost:8081 out/confidence
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: confidence-shots, path: out/confidence, retention-days: 7 }

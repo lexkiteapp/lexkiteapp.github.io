@@ -90,6 +90,7 @@
   CONTENT.listening.ieltsgt = CONTENT.listening.ielts; CONTENT.reading.ieltsgt = CONTENT.reading.ielts; CONTENT.speaking.ieltsgt = CONTENT.speaking.ielts;
   const FIX = () => ['#/fix', '✍️', t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')];
   const RP = () => ['#/roleplay', '💼', t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', '📞', t('Gọi cho Mia'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
+  const CONF = () => ['#/confidence', '🗣️', t('Giao tiếp tự tin'), t('Nói tự tin trong tình huống thật · 5–8 phút/bài')];
   const itemsFor = (sk, ex) => (CONTENT[sk][ex] || (() => null))();
   const tiles = list => list.map(([h, ic, n, d]) => card(h, ic, esc(n), d)).join('');
 
@@ -110,7 +111,7 @@
 
   routes.skill = function (k) {
     if (!SK[k]) { location.replace(location.pathname + location.search + '#/skills'); return; }
-    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), RP(), CALL()] : k === 'writing' && x ? [...x, FIX()] : x)(itemsFor(k, ex));
+    const ex = App.exam(), mine = (x => k === 'speaking' ? [...(x || []), CONF(), RP(), CALL()] : k === 'writing' && x ? [...x, FIX()] : x)(itemsFor(k, ex));
     const others = Object.keys(EXAMS).filter(e => e !== ex && e !== 'general' && itemsFor(k, e) && !(e === 'ieltsgt' && ex === 'ielts' && k !== 'writing') && !(e === 'ielts' && ex === 'ieltsgt' && k !== 'writing'));
     view.innerHTML = head(SK[k].ic + ' ' + SK[k].name(), mine ? t('Dạng bài {exam}', { exam: EXAMS[ex].name }) : t('{exam} không thi kỹ năng này – bạn vẫn có thể luyện theo kỳ thi khác bên dưới.', { exam: EXAMS[ex].short }), examBtn())
       + (mine ? `<div class="hub-grid">${tiles(mine)}</div>` : '')

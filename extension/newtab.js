@@ -23,6 +23,7 @@
   // Khung tĩnh
   $('#ntQ').placeholder = tx('ntSearch'); $('#ntGo').setAttribute('aria-label', tx('ntSearchBtn'));
   $('#ntOpen').textContent = tx('openApp'); $('#ntOpen').href = chrome.runtime.getURL('app/index.html');
+  $('#ntConf').textContent = '🗣️ ' + tx('ntConf'); $('#ntConf').href = chrome.runtime.getURL('app/index.html#/confidence'); // 🗣️ Giao tiếp tự tin (chỉ link)
   $('#ntOff').textContent = tx('ntOff'); $('#ntQuizL').textContent = tx('ntQuiz');
   $('#ntKeys').title = tx('ntShortcuts') + ': ' + tx('ntKeys'); $('#ntKeys').setAttribute('aria-label', $('#ntKeys').title);
   const h = new Date().getHours(), P = h < 11 ? ['#0F3D3E', '#1F7A72', '#F2A65A'] : h < 17 ? ['#164e63', '#1F7A72', '#E5502F'] : ['#0b1e2a', '#173d4a', '#8b3a2a']; // nền theo giờ
