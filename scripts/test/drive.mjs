@@ -520,5 +520,46 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
     ok((await cli({ op: 'upload_sessions', items: [] })).s === 400, 'upload_sessions rỗng → 400');
 }
 
+// --- D1 nội bộ ở tài khoản Cloudflare thứ hai (REST): sao chép → ghi đôi → đối chiếu → chuyển hẳn
+{
+  const sqlB = new DatabaseSync(':memory:'), baseFetch = globalThis.fetch; let rest = 0;
+  globalThis.fetch = async (url, init = {}) => {
+    if (/^https:\/\/api\.cloudflare\.com\/client\/v4\/accounts\/ACCT2\/d1\/database\/[^/]+\/query$/.test(String(url))) {
+      rest++; if (!/^Bearer tok-secret-b$/.test((init.headers || {}).Authorization || '')) return new Response('{}', { status: 403 });
+      const body = JSON.parse(init.body), one1 = st => { const q = sqlB.prepare(st.sql); if (/^\s*(select|with|pragma)/i.test(st.sql)) return { results: q.all(...(st.params || [])), meta: { rows_read: 3 }, success: true }; const r = q.run(...(st.params || [])); return { results: [], meta: { rows_read: 0, changes: r.changes }, success: true }; };
+      try { return new Response(JSON.stringify({ success: true, result: body.batch ? body.batch.map(one1) : [one1(body)] }), { status: 200 }); } catch (e) { return new Response(JSON.stringify({ success: false, errors: [{ message: String(e.message) }] }), { status: 400 }); }
+    }
+    return baseFetch(url, init);
+  };
+  const SEC = { D1B_ACCOUNT_ID: 'ACCT2', D1B_TOKEN: 'tok-secret-b' }, E0 = { ...ENV, ...SEC, D1B: '0' }, ED = { ...ENV, ...SEC, D1B: 'dual' }, E1 = { ...ENV, ...SEC, D1B: '1' };
+  const cliE = (env, body) => { const t = JSON.stringify(body); return call(null, body, { env, origin: null, headers: cliSign(t) }); };
+  const cnt = (d, t) => d.prepare(`SELECT COUNT(*) AS n FROM ${t}`).get().n;
+  const TABLES = ['drives', 'drive_files', 'drive_audit', 'drive_folders', 'drive_refs', 'drive_alerts', 'drive_meta', 'drive_nonce'];
+  // 1) sao chép (cờ tắt): phân trang theo khoá, chạy lại được
+  let r = await cliE(E0, { op: 'd1b_counts' }); ok(r.s === 200 && r.j.match === false, 'trước khi sao: số dòng D1 chính ≠ nội bộ');
+  for (const t of TABLES) { let after = 0, pages = 0; if (['drive_alerts', 'drive_meta', 'drive_nonce'].includes(t)) after = ''; for (;;) { r = await cliE(E0, { op: 'd1b_copy', table: t, after, limit: 7 }); ok(r.s === 200 && r.j.ok, 'd1b_copy ' + t); pages++; if (r.j.done || pages > 400) break; after = r.j.last; } }
+  r = await cliE(E0, { op: 'd1b_counts' }); ok(r.j.match === true && r.j.counts.drive_files.main === cnt(sql, 'drive_files') && r.j.counts.drive_files.main > 5, 'sau khi sao: số dòng khớp mọi bảng (drive_files ' + r.j.counts.drive_files.main + ')');
+  ok(!r.text.includes('tok-secret-b'), 'không lộ token D1B'); ok((await cliE(E0, { op: 'd1b_copy', table: 'users' })).s === 400, 'd1b_copy chỉ cho bảng nội bộ trong danh sách');
+  // 2) ghi đôi: upload mới xuất hiện ở CẢ HAI, id khớp
+  const SHA_D = createHash('sha256').update('dual-one').digest('hex');
+  r = await cliE(ED, { op: 'upload_session', name: 'd.png', mime: 'image/png', size: 8, sha256: SHA_D, folder: 'footage/dual', cls: 'original', replicas: 2 }); ok(r.s === 200 && r.j.sessions.length === 2, 'dual: upload_session → 2 phiên');
+  for (const ss of r.j.sessions) { const pu = await fetch(ss.upload_url, { method: 'PUT', body: Buffer.from('dual-one') }); await cliE(ED, { op: 'complete', drive_id: ss.drive_id, file_id: (await pu.json()).id, sha256: SHA_D }); }
+  const rowsOf = d => d.prepare('SELECT id, drive_id, status FROM drive_files WHERE sha256 = ? ORDER BY id').all(SHA_D);
+  ok(rowsOf(sql).length === 2 && JSON.stringify(rowsOf(sql)) === JSON.stringify(rowsOf(sqlB)) && rowsOf(sql).every(x => x.status === 'ok'), 'dual: 2 bản ở cả D1 chính và nội bộ, cùng id/trạng thái');
+  r = await cliE(E0, { op: 'd1b_counts' }); ok(r.j.match === true, 'dual: số dòng vẫn khớp sau ghi đôi (drive_files ' + r.j.counts.drive_files.main + ', audit ' + r.j.counts.drive_audit.main + ')');
+  ok(rest > 5, 'REST D1 nội bộ được gọi (' + rest + ' lượt)');
+  // 3) chuyển hẳn (D1B=1): đọc/ghi chỉ ở nội bộ, D1 chính đứng yên
+  const mainFiles = cnt(sql, 'drive_files'), mainAudit = cnt(sql, 'drive_audit');
+  r = await cliE(E1, { op: 'list', sha256: [SHA_D] }); ok(r.s === 200 && r.j.have[SHA_D].copies === 2 && r.j.drives.length >= 1, 'D1B=1: list đọc từ D1 nội bộ');
+  const SHA_E = createHash('sha256').update('only-b').digest('hex');
+  r = await cliE(E1, { op: 'upload_session', name: 'e.png', mime: 'image/png', size: 6, sha256: SHA_E, folder: 'footage/dual', cls: 'original', replicas: 2 });
+  ok(r.s === 200 && r.j.sessions.length === 2 && cnt(sql, 'drive_files') === mainFiles && cnt(sqlB, 'drive_files') === mainFiles + 2 && cnt(sql, 'drive_audit') === mainAudit, 'D1B=1: ghi mới chỉ vào D1 nội bộ (D1 chính không đổi)');
+  // 4) thiếu bí mật → quay về D1 chính (an toàn), không lộ lỗi
+  const EN = { ...ENV, D1B: '1' }; const before = rest; r = await cliE(EN, { op: 'list' }); ok(r.s === 200 && rest === before, 'D1B=1 nhưng thiếu bí mật → dùng D1 chính, không gọi REST');
+  // 5) REST lỗi 403 (token sai) khi dual → yêu cầu vẫn thành công (ghi nội bộ best-effort), có đếm lỗi
+  const EBAD = { ...ENV, D1B_ACCOUNT_ID: 'ACCT2', D1B_TOKEN: 'wrong', D1B: 'dual' }; r = await cliE(EBAD, { op: 'list' }); ok(r.s === 200, 'dual + token sai: đọc từ D1 chính vẫn chạy');
+  globalThis.fetch = baseFetch;
+}
+
 if (fails) { console.log(`✗ drive: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ drive: ${n} kiểm (state/CSRF, AES-GCM, không lộ token, chọn Drive theo tỉ lệ, bản sao, cổng admin, CLI HMAC, link tải, trình duyệt file, dọn dẹp, sổ kho, cảnh báo)`);

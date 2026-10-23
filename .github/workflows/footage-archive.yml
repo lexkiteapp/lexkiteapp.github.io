@@ -8,17 +8,24 @@ on:
       limit: { description: 'Tối đa số file mỗi lượt', default: '100000' }
       dry_run: { description: 'Chỉ đếm, không tải', type: boolean, default: false }
       rehash: { description: 'Băm lại cả file đã có trong manifest', type: boolean, default: false }
+  schedule:
+    - cron: '45 1 * * *'
 concurrency: { group: footage-archive, cancel-in-progress: false }
 permissions: { contents: write }
 jobs:
   archive:
     runs-on: ubuntu-latest
-    timeout-minutes: 345
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire footage-archive
       - name: Lấy lexkite-footage (đầy đủ)
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
         run: |
           [ -n "$KEY" ] || { echo "::error::thiếu secret FOOTAGE_DEPLOY_KEY"; exit 1; }
@@ -29,11 +36,12 @@ jobs:
           # manifest của repo footage (nếu có) KHÔNG dùng – nguồn thật là bản trong repo công khai
           rm -f /tmp/footage/archive-manifest.json
       - name: Tải lên Kho Drive (2 bản / 2 Drive)
+        if: ${{ steps.lease.outputs.skip != '1' }}
         id: up
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/footage/archive.mjs --root /tmp/footage --manifest "$GITHUB_WORKSPACE/brand/library/cine/archive-manifest.json" --limit "${{ github.event.inputs.limit || '100000' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} ${{ github.event.inputs.rehash == 'true' && '--rehash' || '' }}
       - name: Ghi manifest vào main
-        if: ${{ always() && github.event.inputs.dry_run != 'true' }}
+        if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
         run: |
           git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
           git add brand/library/cine/archive-manifest.json
@@ -41,6 +49,10 @@ jobs:
           git commit -qm "footage-archive #${{ github.run_number }}: manifest Kho Drive"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
       - name: Giữ manifest làm artifact (dự phòng nếu đẩy main lỗi)
-        if: ${{ always() && github.event.inputs.dry_run != 'true' }}
+        if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}
         uses: actions/upload-artifact@v4
         with: { name: archive-manifest, path: brand/library/cine/archive-manifest.json, retention-days: 30, if-no-files-found: ignore }
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release footage-archive --status "${{ job.status }}"

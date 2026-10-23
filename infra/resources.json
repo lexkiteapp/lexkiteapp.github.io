@@ -756,6 +756,41 @@
         "_d1guard.js",
         "CF_ANALYTICS_TOKEN"
       ]
+    },
+    {
+      "key": "d1-internal",
+      "name": "Cloudflare D1 nội bộ lexkite-internal (tài khoản Cloudflare thứ 2)",
+      "kind": "storage",
+      "purpose": "Tách dữ liệu nội bộ/nền khỏi D1 của người dùng (hạn mức đọc 5 triệu dòng/ngày riêng): drive* (Kho Drive), job_leases/job_runs (điều phối việc nền). Truy cập qua REST (functions/api/_d1b.js), cờ biến Pages D1B (tắt → dual → on), bí mật Pages D1B_ACCOUNT_ID / D1B_TOKEN. Sao dữ liệu: d1b-migrate.yml (scripts/d1b/migrate.mjs, op d1b_copy/d1b_counts). Cầu dao đo riêng từng tài khoản (_d1guard.js).",
+      "console": "https://dash.cloudflare.com/?to=/:account/workers/d1",
+      "free": "D1 miễn phí: 5 triệu dòng đọc + 100.000 dòng ghi mỗi ngày, 5 GB (mỗi tài khoản)",
+      "upgrade": "Tài khoản miễn phí thứ 3 hoặc Workers Paid 5 USD/tháng",
+      "status": "Đang dùng",
+      "match": [
+        "lexkite-internal",
+        "d1b-migrate.yml",
+        "scripts/d1b/migrate.mjs",
+        "_d1b.js",
+        "D1B_TOKEN",
+        "D1B_ACCOUNT_ID"
+      ]
+    },
+    {
+      "key": "job-coordinator",
+      "name": "Điều phối việc nền (infra/jobs.json · docs/JOBS.md · lease)",
+      "kind": "ci",
+      "purpose": "Sổ mọi cron/CI nền (lịch UTC, tài nguyên, ưu tiên, ước lượng); thuê tài nguyên độc quyền (job_leases ở D1 nội bộ) để việc nặng không chạy song song; trần ngân sách D1 theo ưu tiên; nhật ký chạy/bỏ qua hiện ở Quản trị › Hạn mức › Lịch việc nền. scripts/jobs/gen.mjs sinh cron + docs/JOBS.md; scripts/test/jobs-check.mjs (npm test) chặn lịch lệch/chồng/trùng.",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions",
+      "free": "GitHub Actions repo công khai: không giới hạn phút",
+      "upgrade": "—",
+      "status": "Đang dùng",
+      "match": [
+        "scripts/jobs/lease.mjs",
+        "scripts/jobs/gen.mjs",
+        "functions/api/jobs.js",
+        "infra/jobs.json",
+        "scripts/test/jobs-check.mjs"
+      ]
     }
   ],
   "links": {

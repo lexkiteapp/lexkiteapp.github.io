@@ -12,6 +12,7 @@
  * trong D1; access token chỉ ở bộ nhớ (< 50 phút). Không bao giờ trả về/ghi log token hay khoá. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { d1Usage, guardBackground } from './_d1guard.js';
+import { internalDb, d1bMode, d1bReady, restDb } from './_d1b.js';
 import { limit } from './sync.js';
 import { makeFileOps, serveThumb } from './_drive_files.js';
 
@@ -19,7 +20,7 @@ const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
 const ROOT_FOLDER = 'Lexkite Library';
 const MB = 1048576, HEADROOM_MIN = 256 * MB, STATE_TTL = 600, LINK_TTL = 300, CLI_SKEW = 300;
-const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch']);
+const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch', 'd1b_copy', 'd1b_counts']);
 // Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire).
 const SHORTS_SQL = "f.folder LIKE 'shorts/%' AND f.cls = 'render'", CLIP_BYTES = 10 * 1048576, STOP_PCT = 0.9;
 // Kho footage (docs/VIDEO.md §Kho footage): masters under folder footage/<cảnh>, cls 'original', 2 bản sao/2 Drive. CLI chỉ được ĐỌC (render_link) – không retire/set_want.
@@ -134,9 +135,12 @@ export const clsOf = (cls, folder) => (cls === 'render' || cls === 'original' ? 
 export const replicasFor = (cls, want) => { const n = Math.round(+want); return n >= 1 && n <= 3 ? n : cls === 'render' ? 1 : 2; };
 
 // ---------- D1 ----------
-let ready = false;
-async function setup(db) {
-  if (ready) return;
+const READY = new Set();
+const dbKey = env => (d1bReady(env) && d1bMode(env) !== '0' ? d1bMode(env) + ':' + env.D1B_ACCOUNT_ID : 'main');
+const ddb = env => internalDb(env); // bảng nội bộ (drive*): D1 chính hoặc D1 nội bộ (tài khoản Cloudflare thứ hai) theo cờ D1B
+const guardAccounts = env => (d1bReady(env) ? (d1bMode(env) === '1' ? ['b'] : d1bMode(env) === 'dual' ? ['main', 'b'] : ['main']) : ['main']);
+async function setup(db, env) {
+  const KEY = dbKey(env || {}); if (READY.has(KEY)) return;
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS drives (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE NOT NULL, enc_token TEXT NOT NULL, iv TEXT NOT NULL, quota_total INTEGER, quota_used INTEGER DEFAULT 0, status TEXT NOT NULL DEFAULT \'ok\', weight INTEGER NOT NULL DEFAULT 100, created INTEGER NOT NULL, last_ok INTEGER, err TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS drive_files (id INTEGER PRIMARY KEY AUTOINCREMENT, drive_id INTEGER NOT NULL, file_id TEXT, sha256 TEXT NOT NULL, name TEXT, folder TEXT, mime TEXT, size INTEGER, status TEXT NOT NULL, created INTEGER NOT NULL, done INTEGER)'),
@@ -155,7 +159,7 @@ async function setup(db) {
   await db.prepare('CREATE TABLE IF NOT EXISTS drive_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, who TEXT, act TEXT NOT NULL, drive_id INTEGER, email TEXT, file_id TEXT, name TEXT, sha256 TEXT, size INTEGER, ok INTEGER NOT NULL DEFAULT 1, note TEXT)').run();
   for (const c of ['want INTEGER', 'cls TEXT', 'email TEXT', 'web TEXT', 'by_who TEXT', 'asset_id TEXT']) { try { await db.prepare('ALTER TABLE drive_files ADD COLUMN ' + c).run(); } catch (e) { /* đã có */ } }
   for (const c of ['fails INTEGER NOT NULL DEFAULT 0', 'up_fails INTEGER NOT NULL DEFAULT 0', 'auto_weight INTEGER', 'checked INTEGER']) { try { await db.prepare('ALTER TABLE drives ADD COLUMN ' + c).run(); } catch (e) { /* đã có */ } }
-  ready = true;
+  READY.add(KEY);
 }
 // ---------- Ngân sách đọc D1 (22/10: 2 lần cạn hạn mức miễn phí 5 triệu dòng/ngày làm sập cả site) ----------
 // Mọi truy vấn qua metered(db) cộng meta.rows_read; cuối mỗi yêu cầu cộng vào drive_meta 'd1r:<ngày>'. Đường CLI/CI (archive/verify/list) bị chặn 429 'd1-budget' khi ≥ D1_BUDGET → chừa ≥ 70 % hạn mức cho site.
@@ -163,9 +167,11 @@ export const D1_FREE = 5e6, D1_BUDGET = 1.5e6;
 const ownReads = async db => { const r = await db.prepare('SELECT v FROM drive_meta WHERE k = ?').bind(d1Key()).first().catch(() => null); return r ? +r.v || 0 : 0; };
 /** ≥ 60 % hạn mức đọc D1 hôm nay: cảnh báo 'd1' (chuông Quản trị) + thư ≤ 1/24 h; dưới ngưỡng → gỡ. */
 export async function d1Alert(env, db) {
-  const u = await d1Usage(env, db);
+  let worst = null;
+  for (const w of guardAccounts(env)) { const u = await d1Usage(env, db, Date.now(), fetch, w); if (!worst || u.ratio > worst.ratio) worst = { ...u, which: w }; }
+  const u = worst;
   if (u.alert) {
-    const pct = Math.round(u.ratio * 100), msg = `D1 đã đọc ${(u.reads / 1e6).toFixed(2)} M dòng hôm nay (${pct} % ${u.source === 'cloudflare' ? 'hạn mức tài khoản' : 'ngân sách Kho Drive'}) – việc nền Kho Drive/archive tạm dừng.`, now = Date.now();
+    const pct = Math.round(u.ratio * 100), acct = u.which === 'b' ? 'D1 nội bộ (tài khoản 2)' : 'D1 chính', msg = `${acct} đã đọc ${(u.reads / 1e6).toFixed(2)} M dòng hôm nay (${pct} % ${u.source === 'cloudflare' ? 'hạn mức tài khoản' : 'ngân sách Kho Drive'}) – việc nền Kho Drive/archive tạm dừng.`, now = Date.now();
     const prev = await db.prepare("SELECT 1 AS x FROM drive_alerts WHERE kind = 'd1'").first();
     await db.prepare("INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES ('d1', 'crit', NULL, ?, ?, ?, NULL) ON CONFLICT(kind) DO UPDATE SET msg = excluded.msg, seen = excluded.seen").bind(JSON.stringify({ t: 'd1', p: { pct, n: +(u.reads / 1e6).toFixed(2) }, msg }), now, now).run();
     if (!prev) await sendMail(env, '[Lexkite] ⛔ D1 đã dùng ≥ 60 % hạn mức đọc hôm nay', msg).catch(() => {});
@@ -536,6 +542,34 @@ const POOL_OPS = {
   /** Lô: nhiều upload_session / complete trong 1 yêu cầu (tối đa 50 mục). Gói miễn phí giới hạn ~50 truy vấn D1 + lượt gọi Google mỗi yêu cầu → dừng khi QN/FN > 30 và trả processed (máy khách gửi tiếp phần còn lại). */
   async upload_sessions(db, b, who, env, req) { return batchOf(db, b, who, env, req, 'upload_session', it => ({ ...it, run: b.run })); },
   async complete_batch(db, b, who, env, req) { return batchOf(db, b, who, env, req, 'complete', it => it); },
+  /** Di chuyển sang D1 nội bộ (d1b-migrate.yml, qua điều phối việc nền): sao ≤ 100 dòng mỗi lượt từ D1 CHÍNH → D1 nội bộ (REST, INSERT OR REPLACE – chạy lại được), phân trang theo khoá. */
+  async d1b_copy(db, b, who, env) {
+    if (!d1bReady(env)) return { status: 412, error: 'd1b-not-configured' };
+    if (d1bMode(env) === '1') return { status: 409, error: 'cutover-done' }; // đã chuyển hẳn: D1 chính cũ, KHÔNG được ghi đè D1 nội bộ
+    const t = String(b.table || ''); if (!Object.hasOwn(MIG, t)) return { status: 400, error: 'bad-input' };
+    const key = MIG[t], lim = Math.max(1, Math.min(100, Math.round(+b.limit) || 100)), bdb = restDb(env);
+    await setup(bdb, { ...env, D1B: '1' });
+    const after = key && key !== 'id' && key !== '_offset' ? String(b.after || '') : +b.after || 0;
+    const sel = key === '_offset' ? `SELECT * FROM ${t} ORDER BY 1, 2 LIMIT ${lim} OFFSET ?` : key === 'id' ? `SELECT * FROM ${t} WHERE id > ? ORDER BY id LIMIT ${lim}` : key ? `SELECT * FROM ${t} WHERE ${key} > ? ORDER BY ${key} LIMIT ${lim}` : `SELECT rowid AS _rid, * FROM ${t} WHERE rowid > ? ORDER BY rowid LIMIT ${lim}`;
+    const rows = (await env.DB.prepare(sel).bind(after).all()).results || [];
+    if (rows.length) {
+      const cols = Object.keys(rows[0]).filter(c => c !== '_rid'), ins = `INSERT OR REPLACE INTO ${t} (${cols.join(', ')}) VALUES (${cols.map(() => '?').join(', ')})`;
+      await bdb.batch(rows.map(r => bdb.prepare(ins).bind(...cols.map(c => (r[c] === undefined ? null : r[c])))));
+    }
+    const last = key === '_offset' ? after + rows.length : rows.length ? (key === 'id' ? rows[rows.length - 1].id : key ? rows[rows.length - 1][key] : rows[rows.length - 1]._rid) : after;
+    if (rows.length < lim && key === 'id') try { // id AUTOINCREMENT của hai bên phải tiếp nối cùng số (ghi đôi dùng id tự sinh ở cả hai)
+      const sq = await env.DB.prepare('SELECT seq FROM sqlite_sequence WHERE name = ?').bind(t).first();
+      if (sq) await bdb.prepare('UPDATE sqlite_sequence SET seq = ? WHERE name = ?').bind(sq.seq, t).run();
+    } catch (e) { /* tốt nhất có thể */ }
+    return { ok: true, table: t, copied: rows.length, last, done: rows.length < lim };
+  },
+  /** Đối chiếu số dòng D1 chính ↔ D1 nội bộ (đọc cả bảng: chỉ chạy khi kiểm di chuyển, qua cầu dao). */
+  async d1b_counts(db, b, who, env) {
+    if (!d1bReady(env)) return { status: 412, error: 'd1b-not-configured' };
+    const out = {}, bdb = restDb(env);
+    for (const t of Object.keys(MIG)) { const a = await env.DB.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null), c = await bdb.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null); out[t] = { main: a ? a.n : null, internal: c ? c.n : null }; }
+    return { ok: true, match: Object.values(out).every(x => x.main === x.internal), counts: out };
+  },
   /** CLI (footage-verify.yml · storage-watch.yml): bật/tắt cảnh báo ngoài (kind footage | gitsize) hiện ở Quản trị → Kho Drive. ok:true → xoá; ok:false → crit. Không gửi thư (workflow đỏ đã báo). */
   async ext_alert(db, b) {
     const kind = String(b.kind || 'footage'); if (!EXT_KINDS.has(kind)) return { status: 400, error: 'bad-input' };
@@ -621,7 +655,7 @@ const OPS = {
   async alerts(db, b, who, env) {
     const at = +(await meta(db, 'health_at')) || 0;
     let ran = false;
-    const u = await d1Usage(env, db).catch(() => ({ block: false })); await d1Alert(env, db).catch(() => {}); // 60 %: chuông; dưới ngưỡng: gỡ
+    const u = await d1Usage(env, db, Date.now(), fetch, guardAccounts(env)[0]).catch(() => ({ block: false })); await d1Alert(env, db).catch(() => {}); // 60 %: chuông; dưới ngưỡng: gỡ
     if (!u.block && Date.now() - at > HEALTH_STALE && (await one(db, 'SELECT COUNT(*) AS n FROM drives')).n) { await runHealth(env, db, { wait: 0 }); ran = true; }
     return { alerts: await alertRows(db), checked: ran ? Date.now() : at || null, ran };
   },
@@ -742,7 +776,8 @@ async function batchOf(db, b, who, env, req, op, map) {
   }
   return { items: out, processed: out.length, of: items.length };
 }
-const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch']);
+const MIG = { drives: 'id', drive_files: 'id', drive_audit: 'id', drive_folders: '_offset', drive_refs: null, drive_alerts: 'kind', drive_meta: 'k', drive_nonce: 'n' }; // bảng nội bộ → cột khoá phân trang (null = rowid)
+const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch', 'd1b_copy', 'd1b_counts']);
 const DANGER = new Set(['disconnect', 'delete', 'empty_trash']); // + confirm:'DELETE' trong op (xoá vĩnh viễn)
 const BIG_OPS = new Set(['refs_sync']);
 const cliOnly = b => b && b._cli === true;
@@ -769,21 +804,21 @@ export async function onRequestPost({ request, env }) {
   }
   const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   if (!['ext_alert', 'footage_alert', 'alerts'].includes(b.op)) { // cầu dao D1: việc nền/quản trị Kho Drive dừng khi tài khoản đã dùng ≥ 50 % hạn mức đọc (CI: dừng, mai chạy tiếp)
-    const blocked = await guardBackground(env, env.DB, (st, o) => json(request, st, o)).catch(() => null);
-    if (blocked) { await d1Alert(env, env.DB).catch(() => {}); return blocked; }
+    const blocked = await guardBackground(env, ddb(env), (st, o) => json(request, st, o), guardAccounts(env)).catch(() => null);
+    if (blocked) { await d1Alert(env, ddb(env)).catch(() => {}); return blocked; }
   }
-  if (cli && !['ext_alert', 'footage_alert', 'alerts'].includes(b.op) && (await ownReads(env.DB)) >= D1_BUDGET) return json(request, 429, { error: 'd1-budget' }); // trần riêng của đường CLI: 1,5 M dòng/ngày
+  if (cli && !['ext_alert', 'footage_alert', 'alerts'].includes(b.op) && (await ownReads(ddb(env))) >= D1_BUDGET) return json(request, 429, { error: 'd1-budget' }); // trần riêng của đường CLI: 1,5 M dòng/ngày
   if (!cli && DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: 'Sensitive action: sign out and sign back in, then try again.' });
-  const db = metered(env.DB); QN = 0; FN = 0;
+  const db = metered(ddb(env)); QN = 0; FN = 0;
   try {
-    await setup(env.DB);
+    await setup(ddb(env), env);
     const out = await fn(db, b, who, env, request);
     const status = out.status || 200, cookie = out._cookie; delete out.status; delete out._cookie;
     if (WRITE.has(b.op)) await adminAudit(env, request, who.email, 'drive.' + b.op, status < 400);
-    await flushReads(env.DB);
+    await flushReads(ddb(env));
     return json(request, status, out, cookie ? { 'Set-Cookie': cookie } : {});
   } catch (e) {
-    await flushReads(env.DB);
+    await flushReads(ddb(env));
     if (WRITE.has(b.op)) await adminAudit(env, request, who.email, 'drive.' + b.op, false);
     return json(request, e.status || 500, { error: e instanceof DriveErr ? e.code : 'error' }); // không đưa thông điệp lỗi thô (có thể chứa dữ liệu Google) ra ngoài
   }
@@ -795,12 +830,12 @@ export async function handleCallback(request, env) {
   const u = new URL(request.url), ip = request.headers.get('CF-Connecting-IP') || '?';
   if (await limit('drvcb:' + ip, 20, 600)) return back('rate');
   if (!ready4(env)) return back('not-configured');
-  await setup(env.DB);
+  await setup(ddb(env), env);
   const st = await verifyState(env, u.searchParams.get('state') || '');
   const admins = String(env.ADMIN_EMAILS || '').toLowerCase().split(/[,\s]+/).filter(Boolean);
   if (!st || !admins.includes(st.e) || !same(cookieOf(request, 'lk_drv'), st.n)) { await adminAudit(env, request, st ? st.e : '?', 'drive.callback', false); return back('bad-state'); }
-  try { await run(env.DB, 'INSERT INTO drive_nonce (n, at) VALUES (?, ?)', st.n, Date.now()); } catch (e) { return back('replay'); } // state chỉ dùng 1 lần
-  await run(env.DB, 'DELETE FROM drive_nonce WHERE at < ?', Date.now() - 86400e3).catch(() => {});
+  try { await run(ddb(env), 'INSERT INTO drive_nonce (n, at) VALUES (?, ?)', st.n, Date.now()); } catch (e) { return back('replay'); } // state chỉ dùng 1 lần
+  await run(ddb(env), 'DELETE FROM drive_nonce WHERE at < ?', Date.now() - 86400e3).catch(() => {});
   if (u.searchParams.get('error') || !u.searchParams.get('code')) { await adminAudit(env, request, st.e, 'drive.callback', false); return back('denied'); }
   try {
     const r = await gfetch('https://oauth2.googleapis.com/token', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ code: u.searchParams.get('code'), client_id: env.GOOGLE_DRIVE_CLIENT_ID, client_secret: env.GOOGLE_DRIVE_CLIENT_SECRET, redirect_uri: REDIRECT, grant_type: 'authorization_code' }) });
@@ -811,14 +846,14 @@ export async function handleCallback(request, env) {
     const a = await about(t.access_token), email = String(a.email || '').toLowerCase();
     if (!email) throw new DriveErr('about');
     if (st.r) { // Kết nối lại: phải đúng tài khoản Google của Drive cũ (giữ id → giữ lịch sử drive_files)
-      const old = await one(env.DB, 'SELECT email FROM drives WHERE id = ?', st.r);
+      const old = await one(ddb(env), 'SELECT email FROM drives WHERE id = ?', st.r);
       if (!old || String(old.email).toLowerCase() !== email) { await adminAudit(env, request, st.e, 'drive.reconnect', false); return back('wrong-account'); }
     }
     const e = await encryptToken(env, t.refresh_token, email), now = Date.now();
-    await run(env.DB, "INSERT INTO drives (email, enc_token, iv, quota_total, quota_used, status, weight, created, last_ok, checked) VALUES (?, ?, ?, ?, ?, 'ok', 100, ?, ?, ?) ON CONFLICT(email) DO UPDATE SET enc_token = excluded.enc_token, iv = excluded.iv, quota_total = excluded.quota_total, quota_used = excluded.quota_used, status = 'ok', err = NULL, fails = 0, up_fails = 0, last_ok = excluded.last_ok, checked = excluded.checked", email, e.enc_token, e.iv, a.total, a.used, now, now, now);
-    const row = await one(env.DB, 'SELECT id FROM drives WHERE email = ?', email);
+    await run(ddb(env), "INSERT INTO drives (email, enc_token, iv, quota_total, quota_used, status, weight, created, last_ok, checked) VALUES (?, ?, ?, ?, ?, 'ok', 100, ?, ?, ?) ON CONFLICT(email) DO UPDATE SET enc_token = excluded.enc_token, iv = excluded.iv, quota_total = excluded.quota_total, quota_used = excluded.quota_used, status = 'ok', err = NULL, fails = 0, up_fails = 0, last_ok = excluded.last_ok, checked = excluded.checked", email, e.enc_token, e.iv, a.total, a.used, now, now, now);
+    const row = await one(ddb(env), 'SELECT id FROM drives WHERE email = ?', email);
     if (row) TOK.set(row.id, { t: t.access_token, exp: now + Math.min((+t.expires_in || 3600) - 60, 50 * 60) * 1000 });
-    await refreshAlerts(env, env.DB, now).catch(() => {}); // hết "mất kết nối" → thư khôi phục
+    await refreshAlerts(env, ddb(env), now).catch(() => {}); // hết "mất kết nối" → thư khôi phục
     await adminAudit(env, request, st.e, st.r ? 'drive.reconnect' : 'drive.callback', true);
     return back(st.r ? 'reconnected' : 'ok');
   } catch (e) { await adminAudit(env, request, st.e, 'drive.callback', false); return back('error'); }
@@ -831,13 +866,13 @@ export async function handleDownload(request, env) {
   if (await limit('drvdl:' + ip, 60, 60)) return new Response('too fast', { status: 429 });
   const dd = u.searchParams.get('d') || '';
   if (!(await verifyLink(env, f, u.searchParams.get('x'), u.searchParams.get('s'), Date.now(), dd))) return new Response('link expired', { status: 403 });
-  await setup(env.DB);
+  await setup(ddb(env), env);
   let row = null;
-  if (dd) row = await one(env.DB, 'SELECT * FROM drives WHERE id = ?', +dd); // trình duyệt Kho Drive: file chưa có trong drive_files
-  else row = await one(env.DB, "SELECT d.*, f.name AS fname, f.mime AS fmime FROM drive_files f JOIN drives d ON d.id = f.drive_id WHERE f.file_id = ? AND f.status = 'ok'", f);
+  if (dd) row = await one(ddb(env), 'SELECT * FROM drives WHERE id = ?', +dd); // trình duyệt Kho Drive: file chưa có trong drive_files
+  else row = await one(ddb(env), "SELECT d.*, f.name AS fname, f.mime AS fmime FROM drive_files f JOIN drives d ON d.id = f.drive_id WHERE f.file_id = ? AND f.status = 'ok'", f);
   if (!row || lost(row.status)) return new Response('not found', { status: 404 });
   try {
-    const at = await accessToken(env, env.DB, row), range = request.headers.get('Range');
+    const at = await accessToken(env, ddb(env), row), range = request.headers.get('Range');
     if (dd) {
       const m = await gfetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(f)}?fields=name,mimeType`, { headers: { Authorization: 'Bearer ' + at } });
       const j = m.ok ? await m.json().catch(() => ({})) : {};
@@ -855,18 +890,18 @@ export async function handleDownload(request, env) {
 // ---------- đọc file cho module quản trị khác (admin-shorts.js) ----------
 /** Bản ghi mới nhất (status ok) theo thư mục + tên cố định trong sổ kho – vd manifest thư viện video shorts/_admin/admin-shorts.json. */
 export async function latestFile(env, folder, name) {
-  await setup(env.DB);
-  return one(env.DB, "SELECT drive_id, file_id, sha256, size FROM drive_files WHERE folder = ? AND name = ? AND status = 'ok' AND file_id IS NOT NULL ORDER BY COALESCE(done, created) DESC, id DESC LIMIT 1", folder, name);
+  await setup(ddb(env), env);
+  return one(ddb(env), "SELECT drive_id, file_id, sha256, size FROM drive_files WHERE folder = ? AND name = ? AND status = 'ok' AND file_id IS NOT NULL ORDER BY COALESCE(done, created) DESC, id DESC LIMIT 1", folder, name);
 }
 /** alt=media của 1 file trên Drive driveId (refresh token giải mã trong D1, access token chỉ trong bộ nhớ), chuyển tiếp Range. Trả Response của Google. */
 export async function driveMedia(env, driveId, fileId, range = '') {
-  await setup(env.DB);
-  const row = await one(env.DB, 'SELECT * FROM drives WHERE id = ?', +driveId);
+  await setup(ddb(env), env);
+  const row = await one(ddb(env), 'SELECT * FROM drives WHERE id = ?', +driveId);
   if (!row || lost(row.status)) throw new DriveErr('not-found', 404);
-  const at = await accessToken(env, env.DB, row);
+  const at = await accessToken(env, ddb(env), row);
   return gfetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}?alt=media`, { headers: { Authorization: 'Bearer ' + at, ...(range ? { Range: range } : {}) } });
 }
 
 // ---------- GET /api/drive/thumb ----------
 /** Ảnh thu nhỏ qua proxy (link ký 6–7 h, cache Cloudflare) – thumbnailLink và token Google không bao giờ tới trình duyệt. */
-export const handleThumb = (request, env) => serveThumb(request, env, { verifyThumb, setupDb: setup, one, accessToken, limit, gfetch });
+export const handleThumb = (request, env) => serveThumb(Object.assign(request), { ...env, DB: ddb(env) }, { verifyThumb, setupDb: db => setup(db, env), one, accessToken, limit, gfetch });

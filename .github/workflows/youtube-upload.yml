@@ -19,7 +19,12 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire youtube-upload
       - name: Manifest lexkite-shorts (sparse)
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}' }
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
@@ -27,5 +32,10 @@ jobs:
           GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes" git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
           git -C /tmp/shorts sparse-checkout set --no-cone '/shorts/index.json'; git -C /tmp/shorts checkout -q; rm -f ~/.ssh/shorts
       - name: Lên YouTube (hàng chờ đã duyệt, trong hạn mức)
+        if: ${{ steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/video/yt-upload.mjs --index /tmp/shorts/shorts/index.json --max "${{ github.event.inputs.max || '6' }}" ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }}
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release youtube-upload --status "${{ job.status }}"

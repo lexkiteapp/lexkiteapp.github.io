@@ -1,0 +1,509 @@
+{
+ "_note": "Sổ đăng ký việc nền (nguồn duy nhất): lịch UTC, tài nguyên, ước lượng, ưu tiên. scripts/test/jobs-check.mjs (npm test) chặn: lịch lệch workflow, trùng, 2 việc dùng chung tài nguyên độc quyền chồng giờ. scripts/jobs/gen.mjs --write sửa cron các việc managed + sinh docs/JOBS.md. Điều phối thuê (lease): functions/api/jobs.js + scripts/jobs/lease.mjs.",
+ "priorities": [
+  "user",
+  "publishing",
+  "render",
+  "archive",
+  "reports"
+ ],
+ "resources": {
+  "d1_main": {
+   "label": "D1 chính (người dùng)",
+   "limit_reads": 5000000,
+   "exclusive": false
+  },
+  "d1_main_read": {
+   "label": "Đọc D1 chính",
+   "exclusive": false
+  },
+  "d1_internal": {
+   "label": "D1 nội bộ (tài khoản 2)",
+   "limit_reads": 5000000,
+   "exclusive": true
+  },
+  "drive_pool": {
+   "label": "Kho Drive (Google API)",
+   "exclusive": true
+  },
+  "youtube_api": {
+   "label": "YouTube API",
+   "exclusive": true
+  },
+  "gemini": {
+   "label": "Gemini (miễn phí)",
+   "exclusive": true
+  },
+  "workers_ai": {
+   "label": "Workers AI (neuron)",
+   "exclusive": true
+  },
+  "gh_minutes": {
+   "label": "Phút GitHub Actions",
+   "exclusive": false
+  }
+ },
+ "budget_caps": {
+  "_note": "Trần dùng hạn mức D1 hôm nay (tỉ lệ) mà việc ưu tiên đó còn được khởi động; cao hơn → bỏ qua tới khung kế. user không bao giờ bị chặn.",
+  "user": 1,
+  "publishing": 0.7,
+  "render": 0.6,
+  "archive": 0.5,
+  "reports": 0.4
+ },
+ "jobs": [
+  {
+   "id": "audio",
+   "workflow": "audio.yml",
+   "cron": [
+    "0 19 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "blog-daily",
+   "workflow": "blog-daily.yml",
+   "cron": [
+    "30 23 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "blog-publish",
+   "workflow": "blog-publish.yml",
+   "cron": [
+    "7 * * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-protect",
+   "workflow": "content-protect.yml",
+   "cron": [
+    "17 2 * * 0"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "contrast",
+   "workflow": "contrast.yml",
+   "cron": [
+    "50 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "d1b-migrate",
+   "workflow": "d1b-migrate.yml",
+   "cron": [
+    "30 5 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "d1_internal",
+    "d1_main_read",
+    "drive_pool"
+   ],
+   "minutes": 45,
+   "est": {
+    "d1_main_reads": 40000,
+    "d1_internal_reads": 2000
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-shorts",
+   "workflow": "drive-shorts.yml",
+   "cron": [
+    "23 4 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 20,
+   "est": {
+    "d1_internal_reads": 20000,
+    "drive_calls": 1500
+   },
+   "lease": true
+  },
+  {
+   "id": "explain",
+   "workflow": "explain.yml",
+   "cron": [
+    "30 7 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 40,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "footage-archive",
+   "workflow": "footage-archive.yml",
+   "cron": [
+    "45 1 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal",
+    "gh_minutes"
+   ],
+   "minutes": 150,
+   "est": {
+    "d1_internal_reads": 150000,
+    "drive_calls": 6000
+   },
+   "lease": true
+  },
+  {
+   "id": "footage-verify",
+   "workflow": "footage-verify.yml",
+   "cron": [
+    "20 6 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 20,
+   "est": {
+    "d1_internal_reads": 8000,
+    "drive_calls": 300
+   },
+   "lease": true
+  },
+  {
+   "id": "health",
+   "workflow": "health.yml",
+   "cron": [
+    "0 0 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 45,
+   "est": {
+    "d1_main_reads": 20000
+   },
+   "lease": false
+  },
+  {
+   "id": "i18n",
+   "workflow": "i18n.yml",
+   "cron": [
+    "30 2 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "i18n-leak",
+   "workflow": "i18n-leak.yml",
+   "cron": [
+    "0 22 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 20,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "lexicon-i18n",
+   "workflow": "lexicon-i18n.yml",
+   "cron": [
+    "30 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "lighthouse",
+   "workflow": "lighthouse.yml",
+   "cron": [
+    "0 1 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "nav-render",
+   "workflow": "nav-render.yml",
+   "cron": [
+    "10 2 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 20,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "pr-check",
+   "workflow": "pr-check.yml",
+   "cron": [
+    "30 1 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "screens",
+   "workflow": "screens.yml",
+   "cron": [
+    "30 1 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 25,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "script-bank",
+   "workflow": "script-bank.yml",
+   "cron": [
+    "50 0 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "workers_ai",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {
+    "workers_ai_neurons": 4000
+   },
+   "lease": false
+  },
+  {
+   "id": "storage-watch",
+   "workflow": "storage-watch.yml",
+   "cron": [
+    "41 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 10
+   },
+   "lease": true
+  },
+  {
+   "id": "video-auto",
+   "workflow": "video-auto.yml",
+   "cron": [
+    "17 23 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "workers_ai"
+   ],
+   "minutes": 90,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "video-web",
+   "workflow": "video-web.yml",
+   "cron": [
+    "47 4 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 40,
+   "est": {
+    "d1_internal_reads": 300,
+    "drive_calls": 100
+   },
+   "lease": true
+  },
+  {
+   "id": "visual-qa",
+   "workflow": "visual-qa.yml",
+   "cron": [
+    "20 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "word-audio",
+   "workflow": "word-audio.yml",
+   "cron": [
+    "0 18 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "word-packs",
+   "workflow": "word-packs.yml",
+   "cron": [
+    "30 20 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "gemini"
+   ],
+   "minutes": 45,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "wordlists",
+   "workflow": "wordlists.yml",
+   "cron": [
+    "0 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 20,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "youtube-manual",
+   "workflow": "youtube-manual.yml",
+   "cron": [
+    "7,37 * * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "youtube_api",
+    "d1_main_read"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_main_reads": 300
+   },
+   "lease": false
+  },
+  {
+   "id": "youtube-upload",
+   "workflow": "youtube-upload.yml",
+   "cron": [
+    "15 1,8,14,20 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "youtube_api",
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 20,
+   "est": {
+    "d1_internal_reads": 200,
+    "d1_main_reads": 100,
+    "drive_calls": 60
+   },
+   "lease": true
+  },
+  {
+   "id": "mail-digest",
+   "worker": "workers/mail",
+   "cron": [
+    "0 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main_read"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 3000
+   },
+   "lease": false
+  }
+ ]
+}
