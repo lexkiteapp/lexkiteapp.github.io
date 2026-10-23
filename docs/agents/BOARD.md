@@ -27,24 +27,27 @@ Mẫu thẻ:
 
 ## TODO
 
-### [N4] Email cảnh báo đọc cài đặt quản trị (`adm_pref`) · @antigravity · ưu tiên: vừa (làm sau B5 đợt này)
-- Phần còn thiếu của N3 (Claude 23/10): `workers/mail/index.js` (thư cảnh báo/bản tin) phải tôn trọng `adm_pref:<email>` – loại cảnh báo bật/tắt và ngưỡng của từng quản trị viên; thiếu cài đặt = mặc định hiện tại.
-- Đọc 1 lần/lượt gửi (không đọc mỗi thư), truy vấn theo khóa (không quét bảng). Test trong `scripts/test/` + cập nhật docs. Không đụng `functions/api/_d1guard.js`, `_d1b.js`.
-
 
 ## ĐANG LÀM
 
-### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
-- **Đợt bổ sung cấp bách (theo lệnh anh Quyền 23/10):** 6 bài/ngôn ngữ cho 9 ngôn ngữ (ar, de, fr, hi, ko, ru, th, tr, zh = 54 bài), để trống `publishAt` (Claude xếp lịch). Nộp theo lô 2 ngôn ngữ/lần. Xong B5 làm tiếp [N4].
-- **Tiến độ:** Lô 1 (ar, de), Lô 2 (fr, hi), Lô 3 (ko, ru) & Lô 4 (th, tr) đã hoàn thành (tổng 48 bài), chuyển CHỜ DUYỆT. Chuẩn bị triển khai **Lô 5 (zh)**: 6 bài zh cuối cùng của B5.
-- Cổng chất lượng: briefs.json, qualityScore ≥ 92, blog-check 0/0, blog-captions 0 lỗi, ≥ 2 link nội bộ + CTA đúng ý định, bản địa.
-
-### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
-- File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
-- Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
-- KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
+### [N4] Email cảnh báo đọc cài đặt quản trị (`adm_pref`) · @antigravity · ưu tiên: vừa
+- Phần còn thiếu của N3 (Claude 23/10): `workers/mail/index.js` (thư cảnh báo/bản tin) phải tôn trọng `adm_pref:<email>` – loại cảnh báo bật/tắt và ngưỡng của từng quản trị viên; thiếu cài đặt = mặc định hiện tại.
+- Đọc 1 lần/lượt gửi (không đọc mỗi thư), truy vấn theo khóa (không quét bảng). Test trong `scripts/test/` + cập nhật docs. Không đụng `functions/api/_d1guard.js`, `_d1b.js`.
 
 ## CHỜ DUYỆT
+
+### [B5] Nhịp nội dung 15 nước (Lô 5: zh – 6 bài) · HOÀN TẤT ĐỦ 54 BÀI B5 · @antigravity · ưu tiên: RẤT CAO
+- Mục tiêu: 6 bài bản địa cho zh (hoàn tất 54 bài cho 9 ngôn ngữ đợt B5), để trống `publishAt` (Claude xếp lịch).
+- File/khu vực: `content/blog/zh/*.md` (6 bài), `content/blog/briefs.json`.
+- Tiêu chí xong:
+  - **zh (6 bài)**: `ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses` (英语条件状语从句), `ying-yu-bei-dong-yu-tai-gong-shi-ji-yong-fa` (英语被动语态), `ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie` (英语连接词), `ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao` (雅思小作文 task 1 图表), `shang-wu-ying-yu-yan-jiang-presentation-ju-xing` (商务英语 presentation 句型), `ying-yu-lian-du-connected-speech-fa-yin-gui-ze` (英语连读规则).
+  - Mỗi bài 1.917–2.310 từ (chuẩn CJK/Latinh theo `wordCount()`), `qualityScore: 95`, 3 câu mini-quiz có lời giải tiếng Trung chuẩn xác, ≥ 2 ảnh đúng `desc` trong `shots.json` (`caption truth` 0 lỗi), liên kết chéo nội bộ (≥ 4 link bài khác, 0 cảnh báo inbound), ≥ 1 liên kết trang tĩnh (`/samples/`), hộp CTA đúng route, slot YouTube chờ sẵn.
+  - Tổng kết B5: Đã hoàn tất 54/54 bài (ar: 6, de: 6, fr: 6, hi: 6, ko: 6, ru: 6, th: 6, tr: 6, zh: 6), để trống `publishAt` sẵn sàng cho Claude xếp lịch.
+- Báo cáo:
+  - Commit: `67c9bdde`
+  - Kết quả kiểm thử: `blog-check` (462 bài, 0 lỗi), `blog-captions` (0 lỗi, 1.108 ảnh PASS), `content:gate` (0 lỗi, PASS), `vi-lint` (756 file PASS).
+  - Tiếp theo: bắt tay thực hiện ngay thẻ [N4].
+- Cần sửa / Nhận xét:
 
 ### [B5] Nhịp nội dung 15 nước (Lô 4: th, tr – 12 bài) · @antigravity · ưu tiên: RẤT CAO
 - Mục tiêu: 6 bài/ngôn ngữ cho th và tr (tổng 12 bài), để trống `publishAt` (Claude xếp lịch).
