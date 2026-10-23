@@ -10498,6 +10498,150 @@
       "source": "connected-speech-linking-sounds",
       "role": "cluster",
       "cluster": "connected-speech"
+    },
+    {
+      "slug": "ying-yu-tiao-jian-zhuang-yu-cong-ju-if-clauses",
+      "keyword": "英语条件状语从句",
+      "category": "ngu-phap",
+      "tags": [
+        "grammar",
+        "conditionals",
+        "if-clauses"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/ngu-phap/"
+      ],
+      "angle": "英语条件状语从句If Clauses从0到3型及混合条件句的结构公式、精选例句及易错点解析",
+      "intent": "informational",
+      "lang": "zh",
+      "source": "english-conditionals-guide",
+      "role": "cluster",
+      "cluster": "if-clauses"
+    },
+    {
+      "slug": "ying-yu-bei-dong-yu-tai-gong-shi-ji-yong-fa",
+      "keyword": "英语被动语态",
+      "category": "ngu-phap",
+      "tags": [
+        "grammar",
+        "passive-voice",
+        "english-grammar"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/grammar",
+        "/ngu-phap/"
+      ],
+      "angle": "英语被动语态Passive Voice 8大核心时态公式、主动变被动规则与双宾语动词用法",
+      "intent": "informational",
+      "lang": "zh",
+      "source": "passive-voice-rules",
+      "role": "cluster",
+      "cluster": "passive-voice"
+    },
+    {
+      "slug": "ying-yu-lian-jie-ci-linking-words-fen-lei-zong-jie",
+      "keyword": "英语连接词",
+      "category": "ky-nang",
+      "tags": [
+        "writing",
+        "linking-words",
+        "essay-writing"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/write",
+        "/samples/"
+      ],
+      "angle": "英语连接词Linking Words全分类解析：转折、因果、递进与举例逻辑词汇总及写作标点指南",
+      "intent": "informational",
+      "lang": "zh",
+      "source": "linking-words-connectors",
+      "role": "cluster",
+      "cluster": "linking-words"
+    },
+    {
+      "slug": "ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao",
+      "keyword": "雅思小作文 task 1 图表",
+      "category": "ielts",
+      "tags": [
+        "ielts",
+        "ielts-writing",
+        "task-1"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/write",
+        "/ielts/"
+      ],
+      "angle": "雅思小作文Task 1图表分析技巧：4段式结构、Overview总结提炼与高分趋势词汇",
+      "intent": "informational",
+      "lang": "zh",
+      "source": "ielts-writing-task-1-charts",
+      "role": "cluster",
+      "cluster": "ielts-writing"
+    },
+    {
+      "slug": "shang-wu-ying-yu-yan-jiang-presentation-ju-xing",
+      "keyword": "商务英语 presentation 句型",
+      "category": "ky-nang",
+      "tags": [
+        "speaking",
+        "presentations",
+        "business-english"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/speaking",
+        "/speaking/"
+      ],
+      "angle": "商务英语Presentation句型汇总：专业开场、图表数据过渡与问答答辩应对技巧",
+      "intent": "informational",
+      "lang": "zh",
+      "source": "business-english-presentations",
+      "role": "cluster",
+      "cluster": "presentation"
+    },
+    {
+      "slug": "ying-yu-lian-du-connected-speech-fa-yin-gui-ze",
+      "keyword": "英语连读规则",
+      "category": "phat-am",
+      "tags": [
+        "pronunciation",
+        "connected-speech",
+        "listening"
+      ],
+      "shots": [
+        "practice-learn",
+        "practice-speak"
+      ],
+      "routes": [
+        "/#/pron",
+        "/#/listening"
+      ],
+      "angle": "英语连读规则Connected Speech深度解析：辅音连元音、加音、省音与同化现象",
+      "intent": "informational",
+      "lang": "zh",
+      "source": "connected-speech-linking-sounds",
+      "role": "cluster",
+      "cluster": "connected-speech"
     }
   ]
 }
