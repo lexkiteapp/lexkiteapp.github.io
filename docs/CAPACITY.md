@@ -76,7 +76,7 @@ Kho cục bộ là nguồn thật; đồng bộ so hash từng gói → thay đ�
 | `SCHEMA_GATE` | bật | `0` → DDL mỗi isolate như cũ |
 | `HIT_STORE` | tự (hybrid khi có `HITS` + `CF_ANALYTICS_TOKEN`) | `d1` → mọi beacon vào D1 |
 | `SYNC_SHARDS_OPEN` | `0` | bỏ mảnh mới khỏi danh sách |
-| binding `HITS` (wrangler.toml) | có | xoá khối `[[analytics_engine_datasets]]` |
+| binding `HITS` (wrangler.toml) | **đang tắt** (tài khoản chưa bật AE) | thêm/bỏ dấu `#` khối `[[analytics_engine_datasets]]` |
 
 ## 3. Kết quả chi tiết (Miniflare, sau)
 
@@ -116,7 +116,7 @@ Trần Free sau: lượt ≈ 2.420 · ghi ≈ 2.450 · đọc ≈ 38.000 DAU. Pa
 | Khi | Việc |
 |---|---|
 | Thư/chuông **"Nâng gói Cloudflare 5 USD trước ngày X"** (≥ 60 % Free 3 ngày liền hoặc dự báo 80 % trong 14 ngày) – dự kiến ≈ 1.400 DAU (lượt ≈ 60k/ngày) | Bật **Workers Paid $5** trước ngày X. Tạm thời: Quản trị › Cài đặt `hit_rate = 0.2`. |
-| Có khoá đọc Analytics (dưới) | Chế độ hybrid tự bật (thống kê −50 % dòng ghi), "đang online" đọc AE. |
+| Bật Analytics Engine: dash.cloudflare.com › **Workers & Pages › Analytics Engine › Enable** (miễn phí) → báo để bỏ dấu `#` khối `[[analytics_engine_datasets]]` trong `wrangler.toml` | Chưa bật thì Pages từ chối triển khai (thử 23/10 → đã tắt binding lại). Có binding + khoá đọc (dưới) → hybrid tự bật (thống kê −50 % dòng ghi). |
 | > 8.000 DAU | Âm thanh không qua Worker: R2 + tên miền riêng (cần thẻ) **hoặc** bỏ route Worker, CNAME `audio` → `lexkiteapp.github.io` có proxy + Cache Rule "Cache everything, Edge TTL 1 năm" + Origin Rule đổi Host thành `lexkiteapp.github.io` + Transform Rule thêm `Access-Control-Allow-Origin: *` (kiểm gói có Origin Rule đổi Host). |
 | > 100.000 DAU hoặc `sessions` > 2 GB | Giai đoạn 2 thống kê (A2): bỏ `sessions`, Quản trị đọc AE + `stats_daily`. |
 | > 300.000 người đăng ký hoặc DB > 7 GB | Mở mảnh 2 (C2). |
