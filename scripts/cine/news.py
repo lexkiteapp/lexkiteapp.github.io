@@ -301,7 +301,7 @@ def host_frames(s, clip, who, lines, raw):
     for i in s['frames']:
         m = MR.mask_levels(finish_mask(MM[min(i, len(MM) - 1)], KX), ll)
         if KX > 1: m = np.clip((m - 0.5) * 1.5 + 0.5, 0, 1)   # the x2 Lanczos alpha has a 2x wider ramp -> back to the PRO matte's 1-2 px   # h264 white ~250 -> exactly opaque; no morphology (it made stair-steps)
-        al.append(np.concatenate([m, np.repeat(m[-1:], PADB, 0)]) * ramp if PADB else m * ramp)
+        al.append((np.concatenate([m, np.repeat(m[-1:], PADB, 0)]) * ramp if PADB else m * ramp).astype(np.float16))   # #84/#86: float32 x2 alphas of a long shot (~4 GB) got the runner OOM-killed (exit 143)
     tops = [int(np.argmax((m[:, 300:800] > 0.5).any(1))) for m in al[::4]]; top = HAIR.setdefault(clip, int(np.median(tops)))
     return fr, al, log, top
 HAIR = {}
