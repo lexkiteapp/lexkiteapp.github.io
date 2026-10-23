@@ -468,7 +468,8 @@ if tl['total'] > 40: fails.append('total>40s')   # was printed only, never count
 _bgt = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../content/video/cine/news/bg_topics.json')))['domains']; _lm = tl['lesson']
 _txt = ' '.join([_lm.get('goal_en', ''), ' '.join(_lm.get('series') or []), _lm.get('hook_text', '')]).lower()
 _dh = [d for d, v in _bgt.items() if any(re.search(r'\b' + re.escape(k), _txt) for k in v['keywords'])]
-_bad = [d for d in _dh if _lm.get('bg') not in _bgt[d]['bg']]
+_bgid = str(_lm.get('bg') or '').split('@')[0]
+_bad = [d for d in _dh if _bgid not in _bgt[d]['bg'] and not any(re.search(r'(^|_)' + re.escape(k) + r'(_|$)', _bgid) for k in _bgt[d]['bg'] + [d])]   # wide library ids (hl_pharmacy_counter__...) match by scene word
 print(f"== BG TOPIC: bg {_lm.get('bg')} domains {_dh or '-'}", 'OK' if not _bad else f'FAIL (needs {[_bgt[d]["bg"] for d in _bad]})')
 if _bad: fails.append('bg-topic')
 print('== LAYOUT (owner 23/10: 1 card + 1 caption, no overlap / overflow, AA contrast; contact sheet)')
