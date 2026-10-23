@@ -1,6 +1,6 @@
 {
   "_note": "Ngân sách dung lượng (byte). Chỉ nâng khi có lý do rõ trong commit; contentWarn tự hạ khi nội dung tốt lên. Xem docs/CONTENT-RULES.md",
-  "shellGz": 389120,
+  "shellGz": 386048,
   "fileGz": 163840,
   "allowBig": [],
   "totalJs": 19970000,

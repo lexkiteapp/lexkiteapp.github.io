@@ -133,15 +133,10 @@
     flip: () => tone([520], 0.05, 'sine', 0.04),
     win: () => tone([523, 659, 784, 1047], 0.12, 'triangle'),
     pop: () => tone([900], 0.04, 'square', 0.03),
-    tap: () => { tone([480], 0.04, 'sine', 0.03); buzz(8); },
-    streak: () => tone([523, 659, 784, 1047], 0.08, 'triangle', 0.06),
-    shimmer: () => tone([1175, 1318, 1568, 2093], 0.06, 'sine', 0.04),
-    combo: n => {
-      const scale = [440, 494, 554, 659, 740, 880, 988, 1108];
-      const f = scale[Math.min(Math.max(0, (n || 1) - 1), scale.length - 1)];
-      tone([f, Math.round(f * 1.25)], 0.08, 'triangle', 0.05); buzz(10);
-    },
   };
+  // Hiệu ứng thêm (tap/streak/shimmer/combo) nạp lười trong streak-ui.js qua Sfx.extend; trước khi nạp xong gọi là không làm gì
+  for (const k of ['tap', 'streak', 'shimmer', 'combo']) Sfx[k] = () => {};
+  Sfx.extend = f => Object.assign(Sfx, f(tone, buzz));
 
   // ---------- Pháo giấy ----------
   function confetti(n = 120) {
