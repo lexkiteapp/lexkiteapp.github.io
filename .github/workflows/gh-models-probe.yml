@@ -9,5 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: scripts/cine, sparse-checkout-cone-mode: true }
+      - name: network diag
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: |
+          env | grep -i proxy | sed 's/=.*@/=***@/' || true
+          getent hosts models.github.ai api.github.com || true
+          echo '--- catalog'; curl -s -m 30 -o /dev/null -w '%{http_code} %{content_type} %{remote_ip}\n' https://models.github.ai/catalog/models
+          echo '--- chat (verbose headers)'
+          curl -sv -m 60 https://models.github.ai/inference/chat/completions -H "Authorization: Bearer $GITHUB_TOKEN" -H 'Content-Type: application/json' -H 'Accept: application/vnd.github+json' -d '{"model":"openai/gpt-4.1-mini","messages":[{"role":"user","content":"Say hi"}],"max_tokens":5}' 2>&1 | grep -v -i authorization | head -40
       - run: python3 scripts/cine/gh_models.py
         env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
