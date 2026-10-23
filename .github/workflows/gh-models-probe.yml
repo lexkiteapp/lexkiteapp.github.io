@@ -1,0 +1,13 @@
+name: gh-models-probe
+# 0-credit check that the CI AI gates (script_judge / vision_gate) get an answer from GitHub Models before burning cine-render runs.
+on: { workflow_dispatch: {} }
+permissions: { contents: read, models: read }
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts/cine, sparse-checkout-cone-mode: true }
+      - run: python3 scripts/cine/gh_models.py
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
