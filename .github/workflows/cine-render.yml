@@ -29,7 +29,7 @@ permissions:
   contents: read
   models: read   # GitHub Models for the AI gates (judge + vision), 0 credits
 concurrency:
-  group: cine-render-${{ github.event.inputs.scene }}
+  group: cine-render-${{ github.event.inputs.scene }}-${{ github.event.inputs.lessons }}   # different lesson sets may run in parallel (store step rebases + retries)
   cancel-in-progress: false
 jobs:
   render:
