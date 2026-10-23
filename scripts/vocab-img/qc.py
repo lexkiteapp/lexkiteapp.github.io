@@ -89,6 +89,17 @@ def vision(k, im):
     if str(f.get('problem')) == 'no answer': return dict(ok=None, provider=r.get('provider'), problem='no answer (quota)')
     return dict(ok=bool(f.get('natural')), provider=r.get('provider'), problem=str(f.get('problem') or '')[:160])
 
+_diag = [0]
+def load_img(f):
+    try: return Image.open(f).convert('RGB')
+    except Exception as ex:
+        b = open(f, 'rb').read()
+        if not _diag[0]: _diag[0] = 1; Image.init(); print('PIL diag:', repr(ex)[:120], 'bytes', len(b), b[:12].hex(), 'ID', Image.ID[:12], flush=True)
+        import cv2   # (opencv có sẵn qua rapidocr) – dự phòng khi PIL không nhận dạng được
+        a = cv2.imdecode(np.frombuffer(b, np.uint8), cv2.IMREAD_COLOR)
+        if a is None: raise
+        return Image.fromarray(a[:, :, ::-1].copy())
+
 def webp(im, dst):
     im = im.convert('RGB').resize((SIZE, SIZE), Image.LANCZOS)
     for q in (70, 60, 50):
@@ -101,7 +112,7 @@ def check(k, att, f, s, im):
     v = emb_img(im); r = dict(k=k, attempt=att, reasons=[])
 
     dst = f'{OUT}/webp/{s}.a{att}.webp'; r['bytes'], r['q'] = webp(im, dst); r['webp'] = os.path.relpath(dst, OUT)
-    r['ph'] = str(imagehash.phash(Image.open(dst))); r['rank'], r['p'] = clip_sense(k, v); r['unsafe'] = round(clip_safe(v), 3)
+    r['ph'] = str(imagehash.phash(load_img(dst))); r['rank'], r['p'] = clip_sense(k, v); r['unsafe'] = round(clip_safe(v), 3)
     r['flat'] = round(clip_style(v), 3); r['bg'], r['bgstd'] = [round(x, 1) for x in border(im)]; r['ocr'] = ocr(f); r['vision'] = vision(k, im)
     r['emb'] = v.round(4).tolist()
     vs = r['vision']['ok']
@@ -122,7 +133,7 @@ def run_attempt(att):
     for f in sorted(glob.glob(f'{OUT}/raw/*.a{att}.jpg')):
         s = os.path.basename(f)[:-len(f'.a{att}.jpg')]; k = KEY_OF.get(s)
         if not k: print('SKIP unknown', s); continue
-        try: im = Image.open(f).convert('RGB')
+        try: im = load_img(f)
         except Exception as ex: print(k, 'SKIP unreadable', repr(ex)[:200], flush=True); continue   # không bao giờ xoá ảnh đã vẽ
         try: res[k] = check(k, att, f, s, im)
         except Exception as ex: print(k, 'QC ERROR', repr(ex)[:160], flush=True); res[k] = dict(k=k, attempt=att, reasons=['qc error'], bytes=0, ph='0' * 16, p=0, rank=99, vision={})
@@ -179,7 +190,7 @@ def contact(keys, out, stats, path):
     for i, k in enumerate(keys):
         x, y = (i % cols) * T, H + (i // cols) * (T + 30); r = out[k]
         src = r.get('webp'); a1 = os.path.join(OUT, src) if src else None
-        if a1 and os.path.exists(a1): W.paste(Image.open(a1).convert('RGB').resize((T - 8, T - 8)), (x + 4, y + 4))
+        if a1 and os.path.exists(a1): W.paste(load_img(a1).resize((T - 8, T - 8)), (x + 4, y + 4))
         col = (47, 191, 113) if r.get('pass') else (229, 80, 47); d.rectangle([x + 2, y + 2, x + T - 3, y + T - 3], outline=col, width=4)
         lab = f"{k}{' ·r' if r.get('attempt') == 2 else ''}"; d.text((x + 4, y + T), lab[:28], fill=(15, 61, 62), font=F)
         if not r.get('pass'): d.text((x + 4, y + T + 14), '; '.join(r.get('reasons') or [])[:30], fill=(229, 80, 47), font=F)

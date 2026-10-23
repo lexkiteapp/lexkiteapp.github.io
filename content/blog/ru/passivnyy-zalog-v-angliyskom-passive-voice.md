@@ -9,7 +9,7 @@ tags: [grammatika, passivnyy-zalog, glagoly]
 keyword: "пассивный залог в английском"
 cover: grammar
 coverAlt: "Грамматическая панель Lexkite со сводной таблицей 8 времен пассивного залога"
-publishAt: ""
+publishAt: 2026-11-12T19:13:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -68,8 +68,8 @@ quiz: [
 4. Бывшее подлежащее (исполнитель) при необходимости вводится предлогом **by** (*written by Shakespeare*), либо опускается, если оно несущественно.
 
 Сравните классическую трансформацию:
-- Активный залог: *Alexander Fleming discovered penicillin in 1928.*
-- Пассивный залог: *Penicillin was discovered by Alexander Fleming in 1928.*
+- Активный залог: *Marie Curie discovered radium in 1898.*
+- Пассивный залог: *Radium was discovered by Marie Curie in 1898.*
 
 Регулярно тренировать грамматические структуры удобно в специализированном [разделе грамматики](/app/#/grammar). Кроме того, применение страдательного залога тесно перекликается с конструкциями, которые описывают [условные предложения в английском](/ru/blog/uslovnye-predlozheniya-v-angliyskom-if-clauses/) и помогают логически связать мысли через [слова связки в английском](/ru/blog/slova-svyazki-v-angliyskom-linking-words/).
 
@@ -84,8 +84,8 @@ quiz: [
   - Active: *They deliver fresh groceries daily.*
   - Passive: *Fresh groceries are delivered daily.*
 - **Past Simple:** *was / were + V3*
-  - Active: *The committee approved the budget yesterday.*
-  - Passive: *The budget was approved by the committee yesterday.*
+  - Active: *The manager signed the contract yesterday.*
+  - Passive: *The contract was signed by the manager yesterday.*
 - **Future Simple:** *will be + V3*
   - Active: *The government will open a new hospital.*
   - Passive: *A new hospital will be opened by the government.*

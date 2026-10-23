@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: ear}
-publishAt: ""
+publishAt: 2026-11-16T12:14:00+01:00
 quiz: [
   {
     q: "Was geschieht beim 'Consonant to Vowel Linking' im Englischen?",

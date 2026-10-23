@@ -4,7 +4,7 @@ const logErr = (where, e) => { try { const m = String((e && (e.stack || e.messag
 self.addEventListener('error', e => logErr('bg', e.error || e.message));
 self.addEventListener('unhandledrejection', e => logErr('bg-promise', e.reason));
 // Chrome/Edge: service worker → importScripts; Firefox: manifest nạp sẵn các file này qua background.scripts
-if (typeof importScripts === 'function' && typeof Core === 'undefined') importScripts('app/js/data.js', 'app/js/core.js', 'app/js/vi-check.js', 'app/js/dictionary.js');
+if (typeof importScripts === 'function' && typeof Core === 'undefined') importScripts('app/js/data.js', 'app/js/core.js', 'app/js/vi-check.js', 'app/js/lex.js', 'app/js/dictionary.js');
 const { Store, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey } = Core;
 // Ngôn ngữ giao diện (thông báo, menu chuột phải): chỉ en / vi như web app, ngôn ngữ khác → English
 // Giao diện add-on theo 15 ngôn ngữ của web: vi = chữ gốc, en = bảng EN, ngôn ngữ khác = từ điển web (app/js/i18n/<lang>.js)
@@ -114,8 +114,13 @@ const openApp = (hash = '#/review') => chrome.tabs.create({ url: APP_URL + hash 
 // Chạy content script ngay trên các tab đang mở (không cần tải lại trang sau khi cài/cập nhật)
 async function injectIntoOpenTabs() {
   const tabs = await chrome.tabs.query({ url: ['http://*/*', 'https://*/*'] });
-  await Promise.all(tabs.map(t => chrome.scripting.executeScript({ target: { tabId: t.id, allFrames: true }, files: ['app/js/structures.js', 'app/js/writecheck-rules.js', 'content.js', 'writecheck.js'] }).catch(() => {})));
+  await Promise.all(tabs.map(t => chrome.scripting.executeScript({ target: { tabId: t.id, allFrames: true }, files: ['boot.js'] }).catch(() => {})));
 }
+// Nạp lười (boot.js): chỉ chèn phần nặng vào đúng khung người dùng vừa thao tác
+const CS_FILES = { cs: ['app/js/structures.js', 'content.js'], wc: ['app/js/writecheck-rules.js', 'writecheck.js'] };
+const injectCS = (tabId, frameId, what = 'cs') => chrome.scripting.executeScript({ target: { tabId, frameIds: [frameId || 0] }, files: CS_FILES[what] || CS_FILES.cs }).then(() => true, () => false);
+// Menu chuột phải / phím tắt: chưa có content.js trong khung → chèn rồi mới gửi lệnh
+const ensureCS = async (tabId, frameId = 0) => { try { const r = await chrome.tabs.sendMessage(tabId, { type: 'lkPing' }, { frameId }); if (r && r.ok) return true; } catch (e) { /* chưa chèn */ } return injectCS(tabId, frameId); };
 
 // ---------- Thống kê sử dụng ẩn danh (functions/api/hit.js t:'x') ----------
 // Chỉ đếm số lần (tra từ / lưu thẻ / mở popup / mở tab mới) theo ngày trên máy; gửi 1 lượt/ngày vào lần dùng đầu tiên của ngày mới
@@ -182,11 +187,11 @@ chrome.storage.onChanged.addListener(ch => {
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === 'lexi-translate' && tab && tab.id) {
-    chrome.tabs.sendMessage(tab.id, { type: 'translateSelection' }, { frameId: info.frameId || 0 }).catch(() => {});
+    ensureCS(tab.id, info.frameId || 0).then(() => chrome.tabs.sendMessage(tab.id, { type: 'translateSelection' }, { frameId: info.frameId || 0 })).catch(() => {});
     return;
   }
   if (info.menuItemId === 'lexi-lookup' && tab && tab.id) {
-    chrome.tabs.sendMessage(tab.id, { type: 'showLookup', word: info.selectionText }, { frameId: info.frameId || 0 }).catch(() => openApp('#/dict/' + encodeURIComponent(info.selectionText)));
+    ensureCS(tab.id, info.frameId || 0).then(() => chrome.tabs.sendMessage(tab.id, { type: 'showLookup', word: info.selectionText }, { frameId: info.frameId || 0 })).catch(() => openApp('#/dict/' + encodeURIComponent(info.selectionText)));
   }
 });
 
@@ -377,6 +382,11 @@ chrome.runtime.onMessage.addListener((msg, sender, reply) => {
         const e = await Dict.lookup(msg.word);
         const cards = await Cards.all();
         return reply({ entry: e, saved: !!(e && cards[e.word]) });
+      }
+      case 'lkInject': return reply({ ok: !!(sender.tab && await injectCS(sender.tab.id, sender.frameId, msg.what)) });
+      case 'mean': { // nghĩa theo ngôn ngữ người học từ mảnh kho (Lex) – null khi từ ngoài kho/ngôn ngữ chưa có gói
+        const r = self.Lex ? await Lex.get(msg.word, { lang: String(msg.lang || '').split('-')[0] }).catch(() => null) : null;
+        return reply({ mean: r && r.mean && r.entry.word.toLowerCase() === String(msg.word || '').toLowerCase() ? r.mean : null });
       }
       case 'quick': {
         const e = await Dict.quick(msg.word);

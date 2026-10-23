@@ -167,3 +167,5 @@ Wenn du nach 1 Minute und 20 Sekunden aufhörst, schaut der Prüfer dich meist e
 
 ### Kann der Prüfer mir widersprechen?
 Ja, in Part 3 fordert der Prüfer dich manchmal bewusst mit Gegenargumenten heraus. Das ist kein Zeichen dafür, dass deine Antwort falsch war, sondern ein Test deiner Fähigkeit, deinen Standpunkt diplomatisch zu verteidigen.
+
+> Weiterlesen: [Linking Words Englisch Übersicht: Die besten Bindewörter](/de/blog/linking-words-englisch-uebersicht-connectors/)

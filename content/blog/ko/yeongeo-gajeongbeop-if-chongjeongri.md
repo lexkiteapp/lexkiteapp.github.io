@@ -9,7 +9,7 @@ tags: [grammar, conditionals, tense]
 keyword: "영어 가정법"
 cover: grammar
 coverAlt: "Lexkite 영어 문법 학습 인터페이스와 시제별 가정법 구조 화면"
-publishAt: ""
+publishAt: 2026-11-11T09:56:00+09:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -174,7 +174,7 @@ quiz: [
 
 - **Unless (~하지 않는 한):** *if... not*의 의미입니다. Unless절 안에는 부정어(not)를 다시 쓰지 않습니다 (*Unless you leave now, you will miss the train.*).
 - **Provided that / As long as (~라는 조건하에):** 엄격한 조건을 강조합니다 (*You can borrow my camera provided that you return it tomorrow.*).
-- **In case (~할 경우에 대비하여):** 만약의 사태에 대비한 예방 조치를 서술합니다 (*Take an umbrella in case it rains.*).
+- **In case (~할 경우에 대비하여):** 만약의 사태에 대비한 예방 조치를 서술합니다 (*Take a charger in case your battery dies.*).
 
 {{cta: /app/#/grammar | 영어 가정법 실전 연습하기}}
 

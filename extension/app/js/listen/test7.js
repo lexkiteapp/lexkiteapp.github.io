@@ -53,7 +53,7 @@
           { n: 3, text: 'Postcode: ___', a: ['BR7 4QN', 'BR74QN'], cue: 'B, R, 7, 4, Q, N.', explain: 'Mã bưu chính được đọc từng ký tự: B-R-7-4-Q-N. Câu nghe được: “B, R, 7, 4, Q, N.”' },
           { n: 4, text: 'Size of plot: ___ plot', a: ['half'], cue: "I'll take a half plot", explain: 'Ban đầu muốn mảnh nguyên (full) nhưng phải chờ 2 năm nên đổi sang nửa mảnh (half).' },
           { n: 5, text: 'Plot number: ___', a: ['23', 'twenty-three', 'twenty three'], cue: 'The free one is plot twenty-three.', explain: 'Số 32 bị đính chính – mảnh 32 đã có người thuê; mảnh còn trống là 23.' },
-          { n: 6, text: 'Previous experience: has grown ___ on balcony', a: ['tomatoes'], cue: "I've grown tomatoes for the last three summers", explain: 'Ớt (peppers) chỉ trồng một lần và thất bại; cà chua mới là kinh nghiệm thực sự.' },
+          { n: 6, text: 'Previous experience: has successfully grown ___ on balcony', a: ['tomatoes'], cue: "I've grown tomatoes for the last three summers", explain: 'Ớt (peppers) chỉ trồng một lần và thất bại; cà chua mới là kinh nghiệm thực sự.' },
         ] },
       { type: 'note', title: 'Rules and costs', instr: 'Complete the notes below. Write ONE WORD AND/OR A NUMBER for each answer.', limit: 2,
         items: [

@@ -253,7 +253,7 @@
   };
   const ROUTE_BUNDLE = { settings: 'settings', class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
-    toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['words', 'tsl', 'vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
+    toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
   // Phần nặng tải từ CDN jsDelivr (theo commit); CDN lỗi → máy chủ chính.
   const CDN = (() => { try { if (Store.isExtension || (window.VBNative && VBNative.is)) return null; const el = document.getElementById('vb-cdn'); return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } })(); // { base: GitHub Pages, files: [file dữ liệu] }
@@ -291,23 +291,24 @@
 
 
   // Làm mới phiên âm của thẻ lưu từ bản cũ (trước khi chọn IPA theo từ loại): chạy ngầm lúc rảnh, chậm rãi, mỗi thẻ 1 lần
-  const IPA_V = 5;
+  const IPA_V = 6; // 6: IPA Mỹ theo kho
   App.refreshIPA = () => refreshIPA();
   async function refreshIPA() {
     if (!navigator.onLine || !window.Dict) return;
     const map = await Cards.all(), todo = Object.values(map).filter(x => x.word && (x.ipaV || 0) < IPA_V).slice(0, 150);
     for (const card of todo) {
       if (!navigator.onLine || document.hidden) break;
-      const w = card.word, lib = window.IELTS_DATA && IELTS_DATA.INDEX[w.toLowerCase()];
-      let ipa = '', ipaUS = '';
-      if (lib && lib.ipa) ipa = lib.ipa;
+      const w = card.word, lib0 = window.Lex ? ((await Lex.get(w).catch(() => null)) || {}).entry : window.IELTS_DATA && IELTS_DATA.INDEX[w.toLowerCase()];
+      const lib = lib0 && lib0.word.toLowerCase() === w.toLowerCase() && (!card.pos || !lib0.pos || card.pos === lib0.pos) ? lib0 : null;
+      let ipa = '', ipaUS = '', fromLib = false;
+      if (lib && lib.ipa) { ipa = lib.ipa; ipaUS = lib.ipaUS || ''; fromLib = true; }
       else if (!/\s/.test(w)) {
         const d = await Dict.quick(w).catch(() => null);
         // chỉ cập nhật khi cùng từ loại (tránh đổi nhầm từ đồng tự khác âm: record n./v.)
         if (d && d.found && d.ipa && (!card.pos || !d.pos || card.pos === d.pos)) { ipa = d.ipa; ipaUS = d.ipaUS || ''; }
         await new Promise(r => setTimeout(r, 900));
       }
-      await Cards.patch(w, x => { x.ipaV = IPA_V; if (ipa) { x.ipa = ipa; if (ipaUS) x.ipaUS = ipaUS; } });
+      await Cards.patch(w, x => { x.ipaV = IPA_V; if (ipa) { x.ipa = ipa; if (ipaUS || fromLib) x.ipaUS = ipaUS; } });
     }
   }
 
@@ -450,11 +451,13 @@
   App.glossEntry = (w, pos) => { const p = App.packs[I18N.lang()], k = String(w || '').toLowerCase(); return (p && ((pos && p[k + '#' + gpos(pos)]) || p[k])) || null; };
   App.nativeGloss = (w, pos) => { const e = App.glossEntry(w, pos); return e ? e[0] : ''; };
   // Nghĩa tiếng mẹ đẻ: gói → dịch lúc chạy
-  App.nativeFill = (el, word, pos) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; const pk = App.nativeGloss(word, pos); if (pk) { const ge = App.glossEntry(word, pos); el.textContent = '🌐 ' + pk; if (ge && ge[2] === 1) { const m = document.createElement('span'); m.className = 'muted small'; m.textContent = ' · ' + t('Dịch máy'); el.appendChild(m); } return; } App.loadPack().then(() => App.nativeGloss(word) || (window.Dict && Dict.translateTo(word, L))).then(r => { if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) el.textContent = '🌐 ' + r; }).catch(() => {}); };
+  App.nativeFill = (el, word, pos) => { const L = I18N.lang(); if (!el || L === 'vi' || L === 'en' || I18N.meanLang() === 'vi') return; el.lang = L; el.dir = 'auto'; const pk = App.nativeGloss(word, pos); if (pk) { const ge = App.glossEntry(word, pos); el.textContent = '🌐 ' + pk; if (ge && ge[2] === 1) { const m = document.createElement('span'); m.className = 'muted small'; m.textContent = ' · ' + t('Dịch máy'); el.appendChild(m); } return; } const viaLex = window.Lex ? Lex.get(word, { lang: L }).then(r => (r && r.mean && r.entry.word.toLowerCase() === String(word).toLowerCase() ? r.mean : null)).catch(() => null) : Promise.resolve(null); // mảnh ~1,5 KB, không cả gói
+    viaLex.then(m => m || App.loadPack().then(() => App.glossEntry(word, pos))).then(ge => (ge ? ge : window.Dict ? Dict.translateTo(word, L).then(r => (r ? [r, 0, 0] : null)) : null)).then(ge => { const r = ge && ge[0]; if (r && r.toLowerCase() !== word.toLowerCase() && el.isConnected) { el.textContent = '🌐 ' + r; if (ge[2] === 1) { const m = document.createElement('span'); m.className = 'muted small'; m.textContent = ' · ' + t('Dịch máy'); el.appendChild(m); } } }).catch(() => {}); };
   App.loadPack = () => {
     const L = I18N.lang(); if (L === 'vi' || L === 'en' || App.packs[L]) return Promise.resolve(App.packs[L]);
     const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
-    return (App._pack = App._pack || fetch(base + '/packs/' + L + '.json').then(r => (r.ok ? r.json() : {})).then(j => (App.packs[L] = j)).catch(() => ({})));
+    App._pack = App._pack || {}; // theo từng ngôn ngữ
+    return (App._pack[L] = App._pack[L] || fetch(base + '/packs/' + L + '.json').then(r => (r.ok ? r.json() : {})).then(j => (App.packs[L] = j)).catch(() => { delete App._pack[L]; return {}; }));
   };
   setTimeout(() => App.loadPack(), 1500);
   // Nội dung bài học viết bằng tiếng Việt → tự dịch sang ngôn ngữ người học khi giao diện không phải tiếng Việt.
@@ -519,18 +522,21 @@
       const q = input.value.trim().toLowerCase();
       clearTimeout(timer); idx = -1;
       if (!q) { items = []; ++seq; return render(); }
-      const local = Object.keys(INDEX).filter(k => k.startsWith(q)).slice(0, 6).map(k => ({ word: INDEX[k].word, vi: INDEX[k].vi, local: true }));
-      items = local; render();
-      const my = ++seq;
+      const my = ++seq; App.typedAt = Date.now();
+      const mine = window.Lex ? Lex.suggest(q, 6).then(r => r.map(x => ({ word: x.word, vi: App.meanOf(x.entry), local: true }))).catch(() => [])
+        : Promise.resolve(Object.keys(INDEX).filter(k => k.startsWith(q)).slice(0, 6).map(k => ({ word: INDEX[k].word, vi: App.meanOf(INDEX[k]), local: true })));
+      mine.then(local => { if (my !== seq) return; items = [...local, ...items.filter(i => !i.local && !local.some(l => l.word === i.word) && i.word.startsWith(q))].slice(0, 8); render(); }); // kết quả cũ về sau không đè
       timer = setTimeout(async () => {
         try {
           const r = await fetch(`https://api.datamuse.com/sug?s=${encodeURIComponent(q)}&max=8`).then(r => r.json());
           if (my !== seq) return;
-          const extra = r.map(x => x.word).filter(w => /^[a-z][a-z' -]*$/.test(w) && !items.some(i => i.word === w)).slice(0, 8 - items.length).map(w => ({ word: w, vi: (INDEX[w] || {}).vi }));
+          await mine; if (my !== seq) return;
+          const extra = r.map(x => x.word).filter(w => /^[a-z][a-z' -]*$/.test(w) && !items.some(i => i.word === w)).slice(0, 8 - items.length).map(w => ({ word: w, vi: INDEX[w] ? App.meanOf(INDEX[w]) : '' }));
           items = [...items, ...extra]; render();
         } catch (e) { /* offline */ }
       }, 180);
     });
+    input.addEventListener('focus', () => { if (window.Lex) Lex.warm().catch(() => {}); }, { once: true });
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowDown') { idx = Math.min(items.length - 1, idx + 1); render(); e.preventDefault(); }
       else if (e.key === 'ArrowUp') { idx = Math.max(-1, idx - 1); render(); e.preventDefault(); }
@@ -893,6 +899,7 @@
   let extP = null;
   const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
   routes.dict = App.guard(async function (q) {
+    const fastP = q ? Dict.quick(q) : null; // tra song song với đọc 'recent' (từ trong kho: vài ms)
     const w = App.W, recent = await w(Store.get('recent', []));
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
@@ -917,7 +924,7 @@
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
-    const fast = await w(Dict.quick(q));
+    const fast = await w(fastP);
     if (!same()) return;
     if (fast) paint(fast, false);
     const full = await w(Dict.lookup(q));
@@ -940,7 +947,7 @@
       <div class="card">
         <div class="entry-head">
           <div>
-            <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}</div>
+            <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}${e.from ? `<span class="chip" data-from lang="en">${esc(e.from)} → ${esc(e.word)}</span>` : ''}</div>
             <div class="pron">
               <span><b class="small">🇬🇧 UK</b> <span class="ipa">${esc(e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-GB" data-url="${esc(e.audio && /-uk/.test(e.audio) ? e.audio : '')}" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span>
               <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>
@@ -998,7 +1005,7 @@
     bindCommon();
     App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
     if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, state.settings.accent === 'en-US' ? e.audioUS : e.audio); }
-    if (final) { loadRelated(e); drawPhrases(e); }
+    if (final) { loadRelated(e); drawPhrases(e); if (window.Lex) Lex.phrases(e.word).then(l => { if (l && l.length && same() && $('#phraseBox')) drawPhrases(e, l); }).catch(() => {}); } // cụm từ theo mảnh (không nạp 2,3 MB gói từ)
     if (keep) { $('#ctx').value = keep; }
 
     let ctxVi = '';
@@ -1034,10 +1041,10 @@
   });
 
   // Cụm từ & cấu trúc chứa từ đang tra: từ thư viện + sổ cụm từ của người học
-  function drawPhrases(e) {
+  function drawPhrases(e, lx) {
     const el = $('#phraseBox'); if (!el) return;
-    const re = UI.wordRegex(e.word);
-    const lib = Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word)).slice(0, 10);
+    const re = UI.wordRegex(e.word), lx2 = (lx || []).filter(w => re.test(w.word));
+    const lib = [...lx2, ...Object.values(INDEX).filter(w => /\s/.test(w.word) && re.test(w.word) && !lx2.some(l => l.word === w.word))].slice(0, 10);
     const mine = Object.values(state.cards).filter(c => /\s/.test(c.word) && re.test(c.word) && !lib.some(l => l.word === c.word)).slice(0, 10);
     const row = (w, own) => `<div class="phr"><b>${esc(w.word)}</b> <span class="small${I18N.learnLang() !== 'vi' && /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(w.vi || '') ? ' tr-wait' : ''}" style="color:var(--accent-text);font-weight:700">${esc(w.vi || '')}</span>${w.ex ? `<div class="ex small">“${UI.highlight(w.ex, w.word)}”</div>` : ''}${w.note ? `<div class="tiny muted">📐 ${esc(w.note)}</div>` : ''}
       <div class="row" style="margin-top:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${own || inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã lưu')}</span>` : `<button class="btn sm ghost" data-add-seed="${esc(w.word)}">+ ${t('Lưu cụm')}</button>`}</div></div>`;
@@ -1600,7 +1607,8 @@
     $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); const w = INDEX[String(b.dataset.slow).toLowerCase()] || state.cards[String(b.dataset.slow).toLowerCase()]; speak(b.dataset.slow, state.settings.accent, w && (state.settings.accent === 'en-US' ? w.audioUS || w.audio : w.audio), true); });
     $$('[data-add-seed]').forEach(b => b.onclick = async e => {
       e.preventDefault();
-      const w = INDEX[b.dataset.addSeed.toLowerCase()];
+      const k = b.dataset.addSeed.toLowerCase(), lr = !INDEX[k] && window.Lex ? await Lex.get(k).catch(() => null) : null;
+      const w = INDEX[k] || (lr && lr.via === 'exact' ? lr.entry : null);
       if (!w) return;
       await addWord(b.dataset.topic ? { ...w, topic: b.dataset.topic } : w);
       b.outerHTML = `<span class="chip ok">✓ ${t('Đã thêm')}</span>`;

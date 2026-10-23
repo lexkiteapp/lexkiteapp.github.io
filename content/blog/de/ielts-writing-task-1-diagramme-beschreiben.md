@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt: ""
+publishAt: 2026-11-14T20:35:00+01:00
 quiz: [
   {
     q: "Wie viele Wörter müssen im IELTS Academic Writing Task 1 mindestens geschrieben werden?",

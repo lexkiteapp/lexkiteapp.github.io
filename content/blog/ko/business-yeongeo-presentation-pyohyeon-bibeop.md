@@ -9,7 +9,7 @@ tags: [speaking, business-english, presentation]
 keyword: "영어 프레젠테이션 표현"
 cover: phrases
 coverAlt: "비즈니스 프레젠테이션 문장과 발표 표현이 수록된 Lexkite 표현 노트"
-publishAt: ""
+publishAt: 2026-11-15T09:33:00+09:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -66,13 +66,13 @@ quiz: [
 ![스피킹 연습실에서 제공되는 파트별 발표 문장 훈련](media:speaking "Lexkite 스피킹 전용 룸에서 비즈니스 발표용 모델 답변과 핵심 문장을 소리 내어 훈련합니다.")
 
 ### 1. 환영 인사 및 자기소개
-- *Good morning everyone. Thank you for taking the time to join today's session.* (참석해 주신 모든 분께 감사드립니다).
+- *Welcome, everyone. I appreciate you all being here today.* (참석해 주신 모든 분께 감사드립니다).
 - *For those who don't know me, my name is Min-soo, and I head the product strategy team.* (저를 모르시는 분들을 위해 소개하자면, 제품전략팀을 이끌고 있는 민수입니다).
 - *The purpose of today's presentation is to present our quarterly growth roadmap.* (오늘 발표의 목적은 저희 분기 성장 로드맵을 공유해 드리는 것입니다).
 
 ### 2. 아젠다와 소요 시간 안내
 - *I have divided my presentation into three main parts: first, market trends; second, our solutions; and finally, our financial projections.*
-- *My presentation will take roughly twenty minutes.* (발표는 약 20분 정도 소요될 예정입니다).
+- *This talk should last about fifteen minutes.* (발표는 약 15분 정도 소요될 예정입니다).
 - *Please feel free to interrupt if you have questions, or we can save them for the Q&A session at the end.*
 
 ## 슬라이드 간 매끄러운 화면 전환 표현 (Signposting)
@@ -80,8 +80,8 @@ quiz: [
 슬라이드를 넘길 때마다 어색한 침묵이 흐르거나 «Next slide please»만 반복하지 마시고, 세련된 연결 문장을 활용해 보세요:
 
 - **다음 요점으로 넘어갈 때:** *This brings me directly to my next point...* / *Now, let's turn our attention to the second phase.*
-- **주제를 전환할 때:** *Moving on to our financial overview...* / *Let's look at this challenge from a different angle.*
-- **이전 내용을 환기할 때:** *As I mentioned earlier regarding customer retention...* / *Building on what we discussed in the first section...*
+- **주제를 전환할 때:** *Moving on to the budget summary...* / *Let's look at this challenge from a different angle.*
+- **이전 내용을 환기할 때:** *As we saw a moment ago regarding pricing...* / *Following on from the previous section...*
 
 논리 전개에 격식을 더하려면 [영어 접속부사](/ko/blog/yeongeo-jeobsogsa-yeangyeol-eowa-linking-words/)를 적극적으로 차용하고, 성장 가능성이나 대안을 제시할 때는 [영어 가정법](/ko/blog/yeongeo-gajeongbeop-if-chongjeongri/)의 구조(*If we allocate resources here, we will see higher returns*)를 접목해 보세요.
 
@@ -148,7 +148,7 @@ quiz: [
 ### 2. 까다로운 질문에 프로답게 대처하는 기술
 - **생각할 시간을 벌 때:** *That is an insightful question, let me consider the broader implications for a moment.*
 - **정확한 수치를 당장 모를 때:** *I don't have the exact figure with me right now, but I will gladly follow up with you by email this afternoon.*
-- **발표 범위를 벗어난 질문일 때:** *That raises an interesting point, though it slightly exceeds the scope of today's meeting. Perhaps we could discuss it offline.*
+- **발표 범위를 벗어난 질문일 때:** *That raises an interesting point, though it slightly exceeds the scope of today's meeting. We can revisit it after the session.*
 
 발표 시 문장이 딱딱하게 끊기지 않고 부드럽게 흐르도록 하려면 [영어 연음 법칙](/ko/blog/yeongeo-yeoneum-connected-speech-gyuchig/)의 원리를 체득해 두어야 합니다. 꾸준한 회화 연습은 [영어 스피킹 강좌](/speaking/)에서 이어가세요.
 
@@ -167,4 +167,4 @@ quiz: [
 절대 금물입니다. 슬라이드에 글자가 빽빽하면 청중은 발표자의 말을 듣지 않고 글을 읽느라 집중력을 잃게 됩니다. 슬라이드는 핵심 키워드와 도표만 간결하게 배치하고, 설명은 연사의 입을 통해 전달되어야 합니다.
 
 ### 청중의 질문 발음이 뭉개져서 못 알아들었을 때는 어떻게 하나요?
-당황하지 마시고 정중하게 재질문을 요청하세요: *I apologize, the acoustics in this room are a bit echoey. Could you please rephrase your question?* 또는 이해한 바를 확인하세요: *If I understand correctly, you are asking whether... is that right?*
+당황하지 마시고 정중하게 재질문을 요청하세요: *I apologize, the acoustics in this room are a bit echoey. Could you please rephrase your question?* 또는 이해한 바를 확인하세요: *Just to confirm, you are asking whether... is that right?*

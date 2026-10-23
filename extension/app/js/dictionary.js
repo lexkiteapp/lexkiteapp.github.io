@@ -21,7 +21,21 @@
     } catch (e) { return null; } finally { clearTimeout(t); }
   };
 
-  const GTX = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&hl=vi&dj=1';
+  // Ngôn ngữ NGHĨA: chuỗi dự phòng giao diện → en, KHÔNG BAO GIỜ vi cho người dùng không-vi (trừ khi họ tự chọn nghĩa tiếng Việt trong Cài đặt).
+  // Ngữ cảnh không có I18N (service worker, content script) giữ hành vi cũ (vi).
+  const wantVi = () => !(g.I18N && g.I18N.meanLang && g.I18N.meanLang() !== 'vi');
+  const GTX = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&hl=vi&dj=1'; // dịch câu ví dụ sang vi (translateVi)
+  const GTX_DICT = () => (wantVi() ? GTX : 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=en&hl=en&dj=1'); // từ điển Oxford: tên từ loại/ví dụ theo hl
+  const VI_DIA = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+  const VI_POS = { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'viết tắt': 'abbreviation', 'cụm từ': 'phrase', 'tiền tố': 'prefix', 'hậu tố': 'suffix' };
+  const posEn = p => (typeof p === 'string' ? VI_POS[p.normalize('NFC').toLowerCase().trim()] || p : p);
+  const noViStr = x => (typeof x === 'string' && VI_DIA.test(x) ? '' : x);
+  // Mục tra cho người dùng không-vi: tên từ loại → tiếng Anh, bỏ ví dụ/định nghĩa còn tiếng Việt (bản lưu cũ, dữ liệu Google trả theo hl=vi)
+  const cleanDefs = ms => (ms || []).map(m => ({ ...m, pos: posEn(m.pos), defs: (m.defs || []).filter(d => !VI_DIA.test(d.def || '')).map(d => (d.ex && VI_DIA.test(d.ex) ? { ...d, ex: '' } : d)) }));
+  const forLang = e => {
+    if (!e || wantVi() || e.found === false) return e;
+    return { ...e, pos: posEn(e.pos), oxford: cleanDefs(e.oxford), meanings: cleanDefs(e.meanings), senses: [], ex: noViStr(e.ex), def: noViStr(e.def), syn: (e.syn || []).filter(x => !VI_DIA.test(x)), col: (e.col || []).filter(x => !VI_DIA.test(String(x))) };
+  };
   // Sửa lỗi chính tả hỏi/ngã có sẵn trong dữ liệu từ điển Google (vd. "sản phẫm" → "sản phẩm").
   // Bảng sinh tự động từ kho tiếng Việt của Lexkite: chỉ gồm âm tiết sai chắc chắn (dạng đúng rất phổ biến, dạng sai không tồn tại),
   // đã loại các từ hợp lệ hiếm gặp như mỡ, vở, quỷ, rể, mẩu, sặc sỡ…
@@ -42,7 +56,7 @@
   const cleanTerms = terms => { const all = [...new Set(terms.map(fixVi))], ok = all.filter(x => !suspicious(x)); return ok.length ? ok : all; };
 
   async function fromGoogle(word) {
-    const d = await fetchJSON(`${GTX}&dt=t&dt=bd&dt=md&dt=ex&dt=ss&q=${encodeURIComponent(word)}`, 4000);
+    const d = await fetchJSON(`${GTX_DICT()}&dt=t&dt=bd&dt=md&dt=ex&dt=ss&q=${encodeURIComponent(word)}`, 4000);
     if (!d) return null;
     const vi = fixVi((d.sentences || []).map(s => s.trans || '').join('').trim());
     const senses = (d.dict || []).map(x => ({ pos: x.pos, terms: cleanTerms(x.terms || []).slice(0, 6) }));
@@ -282,11 +296,11 @@
   const DV = 7; // 7: bù định nghĩa từ loại Oxford thiếu (action – động từ). 6: nguồn ảnh minh họa mới (Wikipedia trước, Openverse lọc chặt) → bản tra cũ có ảnh lệch nghĩa tự tra lại
   const persist = {
     // _v: phiên bản dữ liệu tra từ – tăng khi đổi cách xử lý (vd. phiên âm theo từ loại) để kết quả cũ trên máy tự tra lại
-    async get(w) { try { const x = g.Core ? await g.Core.Store.get('dc2:' + w, null) : null; return x && x._v === DV ? fixDeep(x) : null; } catch (e) { return null; } },
+    async get(w) { try { const x = g.Core ? await g.Core.Store.get('dc2:' + w, null) : null; return x && x._v === DV && (x._ml || 'vi') === (wantVi() ? 'vi' : 'en') ? fixDeep(x) : null; } catch (e) { return null; } },
     async set(w, e) {
       try {
         if (!g.Core) return;
-        await g.Core.Store.set('dc2:' + w, { ...e, _t: Date.now(), _v: DV });
+        await g.Core.Store.set('dc2:' + w, { ...e, _t: Date.now(), _v: DV, _ml: wantVi() ? 'vi' : 'en' });
         const idx = (await g.Core.Store.get('dcIndex', [])).filter(x => x !== w);
         idx.push(w);
         while (idx.length > 150) { const old = idx.shift(); if (g.Core.Store.remove) await g.Core.Store.remove('dc2:' + old); }
@@ -295,6 +309,22 @@
     },
   };
   const FRESH = 14 * 86400000;
+  // Mục kho: Lex (mảnh + IndexedDB, went→go) → dự phòng INDEX. lex.js ngoài khung app: nạp lúc rảnh (add-on SW importScripts)
+  let lexP = null;
+  const needLex = () => (g.Lex ? Promise.resolve(g.Lex) : lexP || (lexP = !g.document ? Promise.resolve(null) : new Promise(res => { const sc = document.createElement('script'); sc.src = viSrc.replace(/vi-check\.js$/, 'lex.js'); sc.onload = sc.onerror = () => res(g.Lex || null); document.head.appendChild(sc); })));
+  if (g.document) setTimeout(() => (g.requestIdleCallback || setTimeout)(() => needLex().then(L => L && L.ready()).catch(() => {})), 800); // + mục lục ~2 KB
+  async function localOf(word) {
+    if (!g.Lex) { const hit = g.IELTS_DATA && g.IELTS_DATA.INDEX[word]; if (hit) return { local: hit }; await Promise.race([needLex(), new Promise(r => setTimeout(r, 3000))]); } // INDEX = mảnh (cùng mục)
+    if (g.Lex) {
+      let r = await g.Lex.get(word).catch(() => null);
+      // chưa có mảnh (web/ chạy thẳng, chưa từng online) → nạp đủ INDEX rồi tra lại
+      if (!r && g.Lex.version() === 'local' && g.App && g.App.need && !g.App.loaded('words')) { await g.App.need('words', 'tsl').catch(() => {}); r = await g.Lex.get(word).catch(() => null); }
+      return r ? { local: r.entry, from: r.via === 'exact' || r.via === 'fold' ? '' : (r.from || word), au: r.au } : { local: null }; }
+    return { local: (g.IELTS_DATA && g.IELTS_DATA.INDEX[word]) || null };
+  }
+  // bản lưu cũ + kho mới → trường của kho theo kho hiện hành
+  const LOCAL_F = ['ipa', 'pos', 'vi', 'def', 'ex', 'col', 'syn', 'level', 'emoji', 'topic'];
+  const overlay = (e, local) => { if (!e || !local) return e; const o = { ...e }; for (const f of LOCAL_F) if (local[f] != null && local[f] !== '' && !(Array.isArray(local[f]) && !local[f].length)) o[f] = local[f]; o.ipaUS = local.ipaUS || (local.ipa ? '' : o.ipaUS); return o; };
 
   // Giữ chữ Latin có dấu (café, naïve)
   const normWord = raw => String(raw || '').normalize('NFC').trim().toLowerCase().replace(/[’]/g, "'").replace(/[×÷]/g, '').replace(/[^a-z\u00c0-\u024f\s'-]/g, '').replace(/\s+/g, ' ').trim();
@@ -352,7 +382,7 @@
       word,
       found: true,
       ipa: (local && local.ipa) || ipaFor(wk, (local && local.pos) || posRaw, 'UK') || (fd && fd.ipa) || '',
-      ipaUS: ipaFor(wk, (local && local.pos) || posRaw, 'US') || (fd && fd.ipaUS) || '',
+      ipaUS: (local && local.ipa) ? (local.ipaUS || '') : (ipaFor(wk, posRaw, 'US') || (fd && fd.ipaUS) || ''), // kho có IPA → US cũng theo kho (trống = như UK)
       audio: (fd && fd.audio) || (wk && wk.audioUK) || '',
       audioUS: (fd && fd.audioUS) || (wk && wk.audioUS) || '',
       pos: (local && local.pos) || POS_SHORT[posRaw] || posRaw,
@@ -380,9 +410,11 @@
     if (!word) return null;
     if (cache.has(word)) return cache.get(word);
     if (quickCache.has(word)) return quickCache.get(word);
+    const { local, from } = await localOf(word);
     const saved = await persist.get(word);
-    if (saved && Date.now() - saved._t < FRESH) { cache.set(word, saved); return saved; }
-    const local = (g.IELTS_DATA && g.IELTS_DATA.INDEX[word]) || null;
+    if (saved && Date.now() - saved._t < FRESH) { const s2 = overlay(saved, local); cache.set(word, s2); return s2; }
+    // có trong kho → hiện ngay, không chờ mạng
+    if (local) { const e = { ...build(from ? local.word : word, local, null, null, null, '', []), partial: true, from }; quickCache.set(word, e); return e; }
     const [gg, wk] = await Promise.all([fromGoogle(word), wiktIPA(word)]);
     const hasGoogle = gg && (gg.senses.length || gg.defs.length);
     if (!local && !hasGoogle) return null;
@@ -395,8 +427,9 @@
   async function lookup(raw, { image = true, examples = true } = {}) {
     const word = normWord(raw);
     if (!word) return null;
-    { const hit = cache.get(word); if (hit && (hit.image || !image || hit._imgTry)) return hit; } // trong phiên: bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
-    const saved = await persist.get(word);
+    { const hit = cache.get(word); if (hit && !hit.partial && (hit.image || !image || hit._imgTry)) return hit; } // bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
+    const { local, from } = await localOf(word);
+    const saved = overlay(await persist.get(word), local);
     if (saved && Date.now() - saved._t < FRESH) {
       // Bản lưu thiếu ảnh (lần tra trước mạng/Openverse chậm) → thử lấy lại ảnh, tối đa 6 giờ/lần, không tra lại cả từ
       if (image && !saved.image && /^n|danh/.test(saved.pos || 'n') && Date.now() - (saved._imgTry || 0) > 6 * 3600e3) {
@@ -408,7 +441,6 @@
       cache.set(word, saved); return saved;
     }
 
-    const local = (g.IELTS_DATA && g.IELTS_DATA.INDEX[word]) || null;
     let [gg, fd, wk, img, sents] = await Promise.all([
       fromGoogle(word),
       fromFreeDict(word),
@@ -439,7 +471,8 @@
         exs.forEach((en, i) => { if (vi[i]) sents.push({ en: en[0].toUpperCase() + en.slice(1), vi: vi[i].trim().replace(/^./, c => c.toUpperCase()), auto: true }); });
       }
     }
-    const entry = build(word, local, gg, fd, wk, img, sents);
+    const entry = build(from ? local.word : word, local, gg, fd, wk, img, sents);
+    if (from) entry.from = from; // went → go
     if (entry.image && !/^n|danh/.test(entry.pos || '')) { entry.image = ''; entry.imageCredit = null; }
     if (image && !entry.image) entry._imgTry = img === null ? 0 : Date.now(); // ảnh lỗi/chậm → bản lưu sẽ thử lại ở lần tra sau
     cache.set(word, entry);
@@ -468,5 +501,6 @@
     }
     return null;
   }
-  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup, quick, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
+  const quickL = async (...a) => forLang(await quick(...a)), lookupL = async (...a) => forLang(await lookup(...a));
+  g.Dict = { translateTo, translateAuto, myMemory, ipaGuess, lookup: lookupL, quick: quickL, forLang, translateVi, wikiImage, freeImage, sentences, normWord, fixVi, fixDeep };
 })(typeof self !== 'undefined' ? self : this);

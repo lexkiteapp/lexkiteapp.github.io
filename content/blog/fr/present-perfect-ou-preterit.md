@@ -148,3 +148,5 @@ Les verbes réguliers forment leur prétérit et participe passé en ajoutant *-
 
 ### Quelle est la différence entre le Present Perfect Simple et le Continuous ?
 Le Simple (*I have painted the room*) insiste sur le résultat achevé (la pièce est terminée). Le Continuous (*I have been painting the room*) met l'accent sur l'activité et sa durée (j'ai encore de la peinture sur les mains).
+
+> À lire aussi: [Voix passive en anglais : règles simples et formation](/fr/blog/voix-passive-en-anglais-regles/)

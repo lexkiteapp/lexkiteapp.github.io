@@ -9,7 +9,7 @@ tags: [writing, linking-words, vocabulary]
 keyword: "영어 접속부사"
 cover: library
 coverAlt: "Lexkite 어휘 라이브러리의 아카데믹 접속부사 및 연결 표현 모음"
-publishAt: ""
+publishAt: 2026-11-13T08:25:00+09:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

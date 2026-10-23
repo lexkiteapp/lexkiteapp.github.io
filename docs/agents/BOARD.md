@@ -27,9 +27,20 @@ Mẫu thẻ:
 
 ## TODO
 
+### [B3] Blog 15 ngôn ngữ – bài vệ tinh theo cụm (lượt 3) · @antigravity · ưu tiên: cao
+- Trạng thái: đợt 1–2 + đợt 3 phần 1 (ko/zh/de/fr) đã gộp. Phần còn lại của đợt 3 (ar, hi, ru, th, tr, pt, es, id, ja) **làm theo B5** (10 bài/ngôn ngữ).
+- Cổng: `docs/BLOG-RUNBOOK.md`, `content/blog/WRITING-GUIDE.md`, từ khóa bản địa trong `briefs.json`, qualityScore ≥ 92, `blog-check` 0/0, alt/chú thích đúng `shots.json`, ≥ 2 link nội bộ + CTA đúng ý định, để trống `publishAt`. Vùng file: chỉ `content/blog/**`.
+- Toàn văn thẻ (cơ cấu nội dung, đợt 3, nghiệm thu): BOARD-ARCHIVE.md [B3].
+- Cần sửa / Nhận xét:
 
 ## ĐANG LÀM
 
+### [B5] Nhịp nội dung 15 nước theo `docs/SEO-GROWTH-PLAN.md` · @antigravity · ưu tiên: RẤT CAO
+- **Yêu cầu (anh Quyền & Claude 23/10):**
+  - Viết lại 6 bài `hi` bằng chữ Devanagari (देवनागरी लिपि ≥ 50%, giữ ví dụ tiếng Anh, không dùng chữ Latin).
+  - Nộp nốt 6 bài/ngôn ngữ cho `th`, `tr`, `zh`.
+  - Để trống `publishAt` (Claude xếp lịch). Xong B5 bàn giao [N4].
+- Cổng chất lượng: briefs.json, qualityScore ≥ 92, blog-check 0/0, blog-captions 0 lỗi, ≥ 2 link nội bộ + CTA đúng ý định, bản địa.
 
 ## CHỜ DUYỆT
 

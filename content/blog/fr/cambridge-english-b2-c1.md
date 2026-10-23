@@ -134,3 +134,5 @@ Le contenu, les questions, le barème et la difficulté sont strictement identiq
 
 ### Combien de mois de préparation faut-il prévoir pour réussir le B2 First ?
 Pour un apprenant se situant déjà à un niveau B1 solide, il faut compter environ 100 à 150 heures d'apprentissage guidé et de pratique régulière, soit environ 3 à 5 mois à raison de 5 à 7 heures de travail par semaine.
+
+> À lire aussi: [IELTS writing task 1 graphique : méthode et vocabulaire](/fr/blog/ielts-writing-task-1-decrire-un-graphique/)

@@ -600,7 +600,7 @@
    ],
    "minutes": 60,
    "est": {
-    "workers_ai_neurons": 864,
+    "workers_ai_neurons": 0,
     "workers_ai_b_neurons": 8640,
     "grabcast_images": 40,
     "images": 95

@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1]
 keyword: "ielts writing task 1 графики"
 cover: write
 coverAlt: "Интерфейс модуля подготовки к академическому письму IELTS Lexkite с таймером"
-publishAt: ""
+publishAt: 2026-11-14T21:47:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

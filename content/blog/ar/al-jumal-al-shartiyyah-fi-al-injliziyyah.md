@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: blocks}
-publishAt: ""
+publishAt: 2026-11-11T08:44:00+03:00
 quiz: [
   {
     q: "ما هي الصيغة الصحيحة للجملة الشرطية من النوع الأول (First Conditional)؟",
@@ -146,7 +146,7 @@ quiz: [
 - **Provided that / As long as (شريطة أن / طالما أن)**: تفيد الاشتراط الإيجابي الصريح.  
   *We can complete the project on schedule, provided that all team members cooperate.*
 - **In case (تحسباً لـ / في حال)**: تستخدم للتعبير عن اتخاذ إجراء وقائي تحسباً لحدوث أمر ما.  
-  *Take an umbrella in case it rains.*
+  *Bring a sweater in case it gets cold.*
 
 لتطوير قدرتك على صياغة الأفكار وربطها بسلاسة دون تردد، راجع دليلنا العملي حول [التفكير بالإنجليزية دون ترجمة ذهنية](/ar/blog/kayfa-tufakkir-bi-al-injliziyyah-duna-tarjamah/)، واستعن أيضاً بمقالنا المفصل عن [الأفعال الناقصة modal verbs](/ar/blog/al-afal-al-naqisa-can-could-should-must/) لفهم توظيف *could, should, might*.
 

@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt: ""
+publishAt: 2026-11-15T07:34:00+03:00
 quiz: [
   {
     q: "أي عبارة تعد الأكثر احترافية للترحيب بالحضور وتقديم نفسك في بداية العرض التقديمي؟",

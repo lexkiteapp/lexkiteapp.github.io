@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: blocks}
-publishAt: ""
+publishAt: 2026-11-12T12:45:00+03:00
 quiz: [
   {
     q: "ما هو التحويل الصحيح للجملة: 'The company launched a new product' إلى المبني للمجهول؟",

@@ -160,3 +160,5 @@ qualityScore: 94
 ### 현재완료진행(have been -ing)과는 어떻게 다른가요?
 
 현재완료(*have p.p.*)는 행동의 **완료와 그 결과**에 초점이 맞춰져 있는 반면, 현재완료진행(*have been -ing*)은 **동작이 지금 이 순간에도 쉬지 않고 진행 중임**을 생생하게 강조합니다. 예를 들어 *I have painted the room*은 페인트칠이 끝나 깨끗해진 방(결과)을 보여주는 것이고, *I have been painting the room*은 몇 시간째 옷에 페인트를 묻혀가며 지금도 칠하고 있는 과정의 힘겨움을 강조하는 표현입니다.
+
+> 함께 읽어보세요: [영어 가정법 총정리 : if 조건문 0부터 3까지 완벽 정리](/ko/blog/yeongeo-gajeongbeop-if-chongjeongri/)

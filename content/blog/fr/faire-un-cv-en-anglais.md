@@ -210,3 +210,5 @@ Optez pour des polices sobres et universelles : Arial, Calibri, Helvetica, Georg
 Un CV en anglais d'exception n'est pas un inventaire exhaustif de vos journées de travail passées, mais une vitrine stratégique démontrant votre capacité à générer des résultats concrets pour votre futur employeur. En éliminant les maladresses culturelles, en adoptant des verbes d'action dynamiques et en soignant la lisibilité de votre document, vous ferez briller votre profil auprès des recruteurs du monde entier.
 
 Prenez le temps d'affiner chaque détail, personnalisez votre résumé pour chaque offre – et décrochez l'entretien de vos rêves !
+
+> À lire aussi: [Présentation en anglais phrases : guide pour briller à l oral](/fr/blog/reussir-une-presentation-en-anglais-phrases/)

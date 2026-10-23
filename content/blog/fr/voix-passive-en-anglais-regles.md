@@ -9,7 +9,7 @@ tags: [grammaire, verbes, voix-passive]
 keyword: "voix passive en anglais"
 cover: grammar
 coverAlt: "Tableau de bord de grammaire avec récapitulatif des temps verbaux et de la voix passive"
-publishAt: ""
+publishAt: 2026-11-12T21:41:00+01:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -118,7 +118,7 @@ Dans les exposés oraux en entreprise, le recours au passif permet de modérer l
 L'anglais moderne valorise la voix active pour son dynamisme et sa concision. Néanmoins, la voix passive demeure le choix naturel et légitime dans plusieurs situations clés :
 
 1. **L'auteur de l'action est inconnu ou indéterminé :** *My bicycle was stolen last night.* (On ignore qui a commis le vol).
-2. **L'agent est évident sans qu'il soit utile de le mentionner :** *The suspect was arrested this morning.* (Il va de soi que l'arrestation a été opérée par la police).
+2. **L'agent est évident sans qu'il soit utile de le mentionner :** *The package was delivered this morning.* (Peu importe qui a livré le colis ; seul le résultat compte).
 3. **Le résultat ou l'objet compte davantage que la personne :** *The new library was inaugurated in September.* (L'inauguration du bâtiment est l'information principale).
 4. **Le ton scientifique et impersonnel est requis :** *The mixture was heated to 80°C and stirred continuously.* C'est typiquement le registre attendu lors d'une synthèse technique ou d'un rapport [IELTS writing task 1 graphique](/fr/blog/ielts-writing-task-1-decrire-un-graphique/).
 

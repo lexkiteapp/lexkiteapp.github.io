@@ -61,7 +61,7 @@
 .call-cap .l1{font-size:1.12rem;font-weight:600}.call-cap .l2{font-size:.92rem;opacity:.82;margin-top:.25rem}
 .call-tip{width:100%;max-width:560px;padding:.6rem .8rem;border-radius:14px;background:rgba(245,165,36,.18);border:1px solid rgba(245,165,36,.45);font-size:.92rem;margin-bottom:.6rem}
 .call-tip s{opacity:.75}.call-opts{width:100%;max-width:560px;display:flex;flex-direction:column;gap:.45rem}
-.call-opts button{min-height:44px;padding:.55rem .9rem;border-radius:14px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;font:inherit;text-align:left;cursor:pointer}
+.call-opts button{min-height:44px;padding:.55rem .9rem;border-radius:14px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;font:inherit;text-align:start;cursor:pointer}
 .call-opts button:hover,.call-opts button:focus-visible{background:rgba(255,255,255,.18)}
 .call-ctl{display:flex;gap:1.4rem;justify-content:center;align-items:center;margin-top:auto;padding-top:1rem}
 .call-ctl button{width:64px;height:64px;border-radius:50%;border:0;font-size:1.6rem;cursor:pointer;color:#fff}

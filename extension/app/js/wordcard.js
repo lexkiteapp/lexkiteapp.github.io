@@ -99,8 +99,10 @@
   };
   const useHtml = u => `<ul class="wc-use">${parseUsage(u).map(x => `<li>${x.tag ? `<span class="wc-tag" lang="en">${esc(x.tag)}</span>` : ''}<span>${quotes(x.text)}</span></li>`).join('')}</ul>`;
 
+  // 🎬 "Xem 20 giây": chỗ trống ẩn – lesson-video.js (gói lvideo, tải lười) chỉ hiện khi có video khớp từ này (docs/VIDEO-SCALE-PLAN.md §10)
+  const lvSlot = word => { if (!word || !window.App || !App.need) return ''; setTimeout(() => App.need('lvideo').then(() => window.LessonVideo && LessonVideo.scan()).catch(() => {}), 0); return `<div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'word', words: [String(word).toLowerCase()] }))}"></div>`; };
   function notes(n, word) {
-    if (!n) return '';
+    if (!n) return lvSlot(word);
     const fam = n.f ? parseFamily(n.f, word).filter(x => x.w).length : 0, errs = n.e ? parseErrors(n.e).pairs.length : 0;
     const body = [
       n.m ? sec('m', '💡', t('Mẹo nhớ'), '', `<p class="wc-p">${quotes(n.m)}</p>`) : '',
@@ -108,7 +110,7 @@
       n.u ? sec('u', '🎯', t('Dùng khi thi'), '', useHtml(n.u)) : '',
       n.f ? sec('f', '🌳', t('Họ từ'), fam || '', famHtml(n.f, word)) : '',
     ].join('');
-    return body ? `<section class="wn wc${I18N.learnLang() === 'vi' ? '' : ' wn-tr'}" aria-label="${t('Hiểu sâu')}"><div class="wc-head"><span aria-hidden="true">🧠</span> ${t('Hiểu sâu')}</div>${body}</section>` : '';
+    return body ? `<section class="wn wc${I18N.learnLang() === 'vi' ? '' : ' wn-tr'}" aria-label="${t('Hiểu sâu')}"><div class="wc-head"><span aria-hidden="true">🧠</span> ${t('Hiểu sâu')}</div>${body}</section>` + lvSlot(word) : lvSlot(word);
   }
 
   window.WordCard = { notes, parseErrors, parseFamily, parseUsage, ready };

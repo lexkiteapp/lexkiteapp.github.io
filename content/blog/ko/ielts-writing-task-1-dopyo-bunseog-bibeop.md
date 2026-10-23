@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1]
 keyword: "ielts writing task 1 도표"
 cover: write
 coverAlt: "Lexkite IELTS 라이팅 시험 대비 작성실과 시간 제한 기능"
-publishAt: ""
+publishAt: 2026-11-14T12:55:00+09:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -83,7 +83,7 @@ Task 1에서 가장 점수 비중이 큰 핵심 단락입니다. 구체적인 �
 
 ### 1. 상승 추세 (Upward Trend)
 - **동사:** *rise, increase, climb, grow, surge, rocket, peak at (~로 정점에 달하다)*
-  - *Car sales rose significantly in the third quarter.*
+  - *Coffee sales rose sharply in the second quarter.*
 - **명사형 변환:** *an upward trend, a dramatic surge, a sharp rise, a steady growth*
   - *The market experienced a substantial increase of 25%.*
 

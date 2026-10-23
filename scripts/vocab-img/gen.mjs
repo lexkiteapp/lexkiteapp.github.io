@@ -5,7 +5,8 @@
 //   cf2      Workers AI tài khoản 2 (REST, env CF_AI_TOKEN_2 + CF_ACCOUNT_2; quyền token: Account › Workers AI › Read + Edit)   VIMG_MAX_CF2 (mặc định 50 ≈ 8.640 neuron)
 //   grabcast GrabCast owner-ai /api/owner-ai/image provider=cloudflare (env GRABCAST_AI_KEY)                                   VIMG_MAX_GC  (mặc định 40)
 //   main     Workers AI tài khoản chính – qua /api/studio op imageGen (env STUDIO_CALLBACK_SECRET, binding AI của Pages) hoặc REST (CF_AI_TOKEN_1 + CF_ACCOUNT_1)
-//            VIMG_MAX_MAIN (mặc định 5 ≈ 860 neuron: chừa script-bank 4.000 + news-auto 3.000 + AI người dùng; người dùng luôn trước)
+//            VIMG_MAX_MAIN (mặc định 0 – 23/10: pilot 25 ảnh + giám khảo Llama của việc khác làm cạn 10.000 neuron tài khoản chính → AI người dùng mất dự phòng;
+//            analytics GraphQL không đếm neuron Llama nên KHÔNG ước được phần dư → chỉ bật khi chủ ghi rõ số)
 // Hết hạn mức (429 / 4006 / quota) → bỏ nhà đó tới hết lượt chạy, KHÔNG thử lại vòng lặp. Ghi <out>/gen.json.
 import fs from 'fs';
 import path from 'path';
@@ -21,7 +22,7 @@ const env = process.env;
 export const PROVIDERS = [
   { id: 'cf2', max: +(env.VIMG_MAX_CF2 || 50), ok: () => env.CF_AI_TOKEN_2 && env.CF_ACCOUNT_2, run: p => cfRest(env.CF_ACCOUNT_2, env.CF_AI_TOKEN_2, p) },
   { id: 'grabcast', max: +(env.VIMG_MAX_GC || 40), ok: () => env.GRABCAST_AI_KEY, run: grabcast },
-  { id: 'main', max: +(env.VIMG_MAX_MAIN || 5), ok: () => (env.CF_AI_TOKEN_1 && env.CF_ACCOUNT_1) || env.STUDIO_CALLBACK_SECRET,
+  { id: 'main', max: +(env.VIMG_MAX_MAIN || 0), ok: () => (env.CF_AI_TOKEN_1 && env.CF_ACCOUNT_1) || env.STUDIO_CALLBACK_SECRET,
     run: p => (env.CF_AI_TOKEN_1 ? cfRest(env.CF_ACCOUNT_1, env.CF_AI_TOKEN_1, p) : studio(p)) },
 ];
 class Quota extends Error {}

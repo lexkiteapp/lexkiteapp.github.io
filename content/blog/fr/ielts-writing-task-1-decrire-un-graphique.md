@@ -9,7 +9,7 @@ tags: [ielts, writing, task-1]
 keyword: "ielts writing task 1 graphique"
 cover: write
 coverAlt: "Module de préparation à l écriture Lexkite avec espace de rédaction académique et chronomètre"
-publishAt: ""
+publishAt: 2026-11-14T21:03:00+01:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [grammaire, temps, conditionnels]
 keyword: "phrases conditionnelles anglais"
 cover: grammar
 coverAlt: "Interface de grammaire Lexkite présentant les temps et structures conditionnelles en anglais"
-publishAt: ""
+publishAt: 2026-11-11T07:45:00+01:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -117,7 +117,7 @@ Le décalage temporel vers le passé marque la distance psychologique par rappor
 Observez ces exemples représentatifs :
 - *If I won the lottery, I would travel around the world.* (Si je gagnais au loto, je ferais le tour du monde : situation purement hypothétique).
 - *If she lived closer to London, she could commute by bike.* (Elle vit loin, donc elle ne peut pas se déplacer à vélo).
-- *If I were you, I would accept the job offer.* (Si j'étais à votre place, j'accepterais la proposition d'emploi).
+- *If I were you, I would take the earlier train.* (Si j'étais à votre place, je prendrais le train plus tôt).
 
 Dans le registre soigné, l'emploi de *were* pour toutes les personnes du singulier (*If I were, if he were, if she were*) est la marque du subjonctif irréel. Bien que *was* soit toléré dans la conversation familière, privilégiez *were* dans vos écrits professionnels ou académiques. Si vous hésitez encore sur l'emploi des temps du passé, relisez notre analyse détaillée sur le [present perfect ou prétérit](/fr/blog/present-perfect-ou-preterit/).
 

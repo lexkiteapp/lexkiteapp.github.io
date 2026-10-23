@@ -8,7 +8,8 @@ const WEB = process.argv[2] || 'web';
 const LANGS = (process.argv[3] || 'en,zh,ar').split(',');
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const ROUTES = ['#/home', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/stats', '#/settings', '#/me', '#/skills', '#/tests', '#/phrases', '#/models', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/toeic', '#/toefl', '#/contact', '#/placement', '#/dict/sustainable', '#/topic/ngsl1', '#/topic/office-email', '#/model/t1-travel', '#/handsfree', '#/reflex', '#/courses', '#/course/ielts-writing', '#/paraphrase', '#/verb', '#/verb/went', '#/verb/can', '#/fix', '#/usage', '#/usage/interested', '#/usage/stop', '#/usage?c=verb', '#/usage/hardly', '#/usage/affect-effect', '#/home'];
-const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
+const INDEX = fs.existsSync(path.join(WEB, 'app', 'index.html')) ? path.join(WEB, 'app', 'index.html') : path.join(WEB, 'index.html'); // WEB=extension/app → index.html nằm ngay trong đó
+const html = fs.readFileSync(INDEX, 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 
@@ -42,7 +43,7 @@ async function run(lang) {
     }
     w.document.querySelectorAll('[placeholder],[title],[aria-label]').forEach(el => ['placeholder', 'title', 'aria-label'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v) && !el.closest('[translate="no"],[data-keep-vi]')) { const k = a + ':' + v.slice(0, 60); if (!leaks.has(k)) leaks.set(k, `${route} · [${a}] · “${v.slice(0, 60)}”`); } }));
   };
-  for (const r of ROUTES) { w.location.hash = r; await tick(250); scan(r); w.document.body.classList.remove('bare'); }
+  for (const r of (process.env.ROUTES ? process.env.ROUTES.split(',') : ROUTES)) { w.location.hash = r; await tick(250); scan(r); w.document.body.classList.remove('bare'); }
   return { leaks: [...leaks.values()], errors };
 }
 

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_appName__",
   "short_name": "Lexkite",
-  "version": "2.6.432",
+  "version": "2.6.434",
   "description": "__MSG_appDesc__",
   "icons": {
     "16": "icons/icon-16.png",
@@ -40,10 +40,7 @@
         "https://*/*"
       ],
       "js": [
-        "app/js/structures.js",
-        "app/js/writecheck-rules.js",
-        "content.js",
-        "writecheck.js"
+        "boot.js"
       ],
       "run_at": "document_idle",
       "all_frames": true,

@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: mic}
-publishAt: ""
+publishAt: 2026-11-15T12:50:00+01:00
 quiz: [
   {
     q: "Welche Begrüßungsformel eignet sich am besten für eine formelle Unternehmenspräsentation?",
@@ -110,7 +110,7 @@ Wegweiser-Formulierungen signalisieren den Zuhörern, dass ein Gedanke abgeschlo
 ## 3. Souveräner Umgang mit Technikpannen (Technical Glitches)
 
 Technische Hürden – wie eine streikende Fernbedienung oder Tonprobleme bei Online-Meetings – passieren selbst den besten Profis. Reagieren Sie ruhig mit diesen Phrasen:
-- *It seems we are experiencing a minor technical delay with the slide projector. Please bear with me for just a moment.*
+- *It seems we are experiencing a minor technical delay with the slide projector. Please give me a second while I fix this.*
 - *Can everyone on the virtual call hear me clearly, or is there an echo on the line?*
 - *Apologies for that brief disruption; let us pick up right where we left off.*
 
@@ -135,7 +135,7 @@ Beenden Sie Ihre Präsentation niemals mit einem verlegenen „That’s it“. S
 - *To sum up the main takeaways from today’s briefing, we identified three vital areas for operational improvement.*
 - *In conclusion, adopting this streamlined methodology will secure our competitive advantage in the European sector.*
 - *The next logical step is for each department head to submit their implementation milestones by Friday afternoon.*
-- *Thank you very much for your time and kind attention.*
+- *Many thanks for listening, and I am happy to take questions.*
 
 ---
 

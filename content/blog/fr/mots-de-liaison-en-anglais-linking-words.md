@@ -9,7 +9,7 @@ tags: [writing, linking-words, vocabulaire]
 keyword: "mots de liaison en anglais"
 cover: library
 coverAlt: "Bibliothèque de vocabulaire Lexkite avec listes thématiques et connecteurs académiques"
-publishAt: ""
+publishAt: 2026-11-13T08:32:00+01:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

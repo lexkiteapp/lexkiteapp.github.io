@@ -164,3 +164,5 @@ quiz: [
 
 ### Q4. هل تأتي أسئلة القراءة دائماً بنفس الترتيب التسلسلي للنص؟
 معظم أنواع الأسئلة (مثل Multiple Choice و True/False و Sentence Completion) تأتي إجاباتها متسلسلة في النص من الأعلى إلى الأسفل. لكن هناك استثناءات مهمة لا تتبع الترتيب، وأبرزها أسئلة مطابقة العناوين (Matching Headings) ومطابقة المعلومات بالفقرات (Matching Information to Paragraphs).
+
+> اقرأ أيضًا: [أدوات الربط في اللغة الإنجليزية: دليل تعزيز التماسك والترابط](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/)

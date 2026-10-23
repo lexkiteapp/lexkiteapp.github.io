@@ -168,3 +168,5 @@ Supply Chain Lead
 ### 사내 메신저(슬랙, 팀즈)와 공식 이메일의 문체는 어떻게 달라야 하나요?
 
 사내 메신저에서는 형식적인 인사말과 서명을 생략하고 본론 중심의 짧은 단문(*Hi Sarah, quick question regarding the Q3 deck...*)으로 소통하는 것이 표준입니다. 반면 공식 이메일은 외부 거래처나 상급 부서와의 커뮤니케이션용이므로, 완결된 문장 구조와 정중한 맺음말을 갖추어야 하며 업무 이력(Audit trail)으로 남길 수 있도록 내용을 공식화해야 합니다.
+
+> 함께 읽어보세요: [영어 프레젠테이션 표현 총정리 : 오프닝부터 Q&A 핵심 문장](/ko/blog/business-yeongeo-presentation-pyohyeon-bibeop/)

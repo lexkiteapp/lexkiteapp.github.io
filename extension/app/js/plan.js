@@ -35,10 +35,11 @@
   }));
   const KIND = () => ({ vocab: ['🔤', t('Từ vựng')], grammar: ['📐', t('Ngữ pháp')], reading: ['📖', t('Đọc hiểu')], listening: ['🎧', t('Nghe')] });
 
-  routes.mistakes = async function (arg, query) {
+  routes.mistakes = App.guard(async function (arg, query) {
+    const w = App.W;
     const retry = !!(query && query.get && query.get('retry'));
-    const list = await Store.get('mistakes', []);
-    if (migrate(list)) await Store.set('mistakes', list);
+    const list = await w(Store.get('mistakes', []));
+    if (migrate(list)) await w(Store.set('mistakes', list));
     const open = list.filter(x => !x.fixed);
     view.innerHTML = `
       <div class="page-head"><div><h1>📕 ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
@@ -88,12 +89,12 @@
     draw('');
     $$('#mTabs button').forEach(b => b.onclick = () => { $$('#mTabs button').forEach(x => x.classList.toggle('on', x === b)); draw(b.dataset.k); });
     $('#clearFixed').onclick = async () => { await Store.set('mistakes', (await Store.get('mistakes', [])).filter(x => !x.fixed)); toast(t('Đã dọn')); };
-  };
+  });
 
   // KIỂM TRA ĐẦU VÀO (#/placement): js/placement.js – tải lười, ước tính thích ứng + khoảng band.
 
   // ================= KẾ HOẠCH HÔM NAY (1 kế hoạch duy nhất, theo kỳ thi) =================
-  // Thứ tự ưu tiên: kiểm tra đầu vào → ôn thẻ đến hạn → bài lộ trình kế tiếp → sửa lỗi sai → 1 bài kỹ năng theo kỳ thi (xoay vòng theo ngày).
+  // Thứ tự ưu tiên: Ngày N của lộ trình (gồm ôn nhanh từ đến hạn) → kiểm tra đầu vào (nhảy cóc) → ôn thẻ đến hạn → sửa lỗi sai → 1 bài kỹ năng theo kỳ thi (xoay vòng theo ngày).
   // Không tải gói nặng ở trang chủ: dữ liệu có sẵn thì gợi ý đúng bài, chưa có thì dẫn tới trang danh sách.
   App.todayPlan = async function () {
     const s = state.settings, g = state.game, d = g.days[todayKey()] || {};
@@ -111,8 +112,11 @@
       const l = G.find(x => gd[x.id] == null && x.level === lv) || G.find(x => gd[x.id] == null);
       tasks.push({ em: '📐', t: l ? t('Ngữ pháp: {title}', { title: l.title }) : t('Học 1 bài ngữ pháp'), sub: `${lv} · ${why}`, href: l ? '#/grammar/' + l.id : '#/grammar', mins: 10, done: (d.grammar || 0) > 0, focus: 'grammar' });
     }
-    const cur = App.pathCurrent && App.pathCurrent();
-    if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: weak === 'vocab' ? `${cur.stage.name} · ${why}` : `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: '#/path', mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' });
+    // Lộ trình theo NGÀY (path-day.js, tải lười): "Ngày N" = 1 buổi 5–10 phút trộn nhiều dạng bài – việc chính, đứng ĐẦU kế hoạch (nút lớn "Bắt đầu Ngày N")
+    const dt = await App.lazy('pathx').then(() => window.DayPath && DayPath.todayTask()).catch(() => null);
+    if (dt) tasks.unshift({ ...dt, sub: weak === 'vocab' ? `${dt.sub} · ${why}` : dt.sub, focus: weak === 'vocab' ? 'vocab' : '' });
+    else { const pn = App.pathNext ? await App.pathNext() : null, cur = pn && pn.unit; // dự phòng: không tải được gói lộ trình theo ngày
+      if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' }); }
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
     if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
     const sk = await skillTask(ex, dow, d);
@@ -141,27 +145,4 @@
     return ex === 'ieltsgt' ? { em: '✉️', t: t('Viết 1 lá thư Task 1'), sub: t('Thư trang trọng, bán trang trọng, thân mật'), href: '#/letters', mins: 20, done: wroteToday }
       : { em: '✍️', t: t('Viết 1 đoạn Task 2'), sub: essays.length ? t('Dùng lại từ vựng đã học') : t('Thử Phòng viết lần đầu'), href: '#/write', mins: 20, done: wroteToday };
   }
-
-  // ================= TÀI NGUYÊN MIỄN PHÍ CHÍNH THỐNG =================
-  const RES = () => [
-    ['📝', t('Đề mẫu chính thức IELTS'), 'ielts.org – Sample test questions', 'https://ielts.org/take-a-test/preparation-resources/sample-test-questions', t('Đề mẫu cả 4 kỹ năng từ đơn vị tổ chức thi – dùng để làm quen dạng bài thật.')],
-    ['🖥️', t('Làm quen thi trên máy tính'), 'British Council – Computer-delivered IELTS', 'https://www.britishcouncil.vn/thi/ielts/chuan-bi', t('Bài làm quen giao diện thi trên máy (Familiarisation test) và tài liệu ôn miễn phí của Hội đồng Anh.')],
-    ['🎓', 'IDP IELTS Prepare', 'ielts.idp.com/prepare', 'https://ielts.idp.com/prepare', t('Bài luyện, mẹo và video miễn phí từ IDP.')],
-    ['📚', 'LearnEnglish (British Council)', 'learnenglish.britishcouncil.org', 'https://learnenglish.britishcouncil.org/', t('Bài đọc, nghe, ngữ pháp theo trình độ A1–C1 – có bài tập tương tác.')],
-    ['📻', 'BBC Learning English', 'bbc.co.uk/learningenglish', 'https://www.bbc.co.uk/learningenglish/', t('“6 Minute English”, tin tức chậm – tuyệt vời để “tắm ngôn ngữ” mỗi ngày.')],
-    ['🎬', 'TED & TED-Ed', 'ted.com', 'https://www.ted.com/talks', t('Bài nói chủ đề học thuật có phụ đề – bật add-on Lexkite trên YouTube để tra từ trong phụ đề.')],
-    ['🗽', 'VOA Learning English', 'learningenglish.voanews.com', 'https://learningenglish.voanews.com/', t('Tin tức đọc chậm, rõ (giọng Mỹ) kèm bản chữ.')],
-    ['🔊', 'YouGlish', 'youglish.com', 'https://youglish.com/', t('Nghe một từ được người bản xứ phát âm trong hàng nghìn video thật.')],
-    ['✍️', 'Write & Improve', 'Cambridge English', 'https://writeandimprove.com/', t('Nộp đoạn viết để nhận phản hồi tự động miễn phí (cấp độ CEFR).')],
-    ['📖', 'Oxford Learner’s Dictionaries', 'oxfordlearnersdictionaries.com', 'https://www.oxfordlearnersdictionaries.com/', t('Từ điển cho người học – tra thêm ví dụ, collocation; add-on Lexkite hoạt động ngay trên trang này.')],
-  ];
-  routes.resources = function () {
-    view.innerHTML = `
-      <div class="page-head"><div><h1>🌐 ${t('Tài nguyên miễn phí chính thống')}</h1><p class="muted">${t('Đã chọn lọc từ các nguồn uy tín, hợp pháp. Mẹo: mở trang và dùng add-on Lexkite để <b>bấm đúp tra từ, bôi đen dịch câu</b> – mọi từ mới tự vào thư viện “Từ trang web”.')}</p></div></div>
-      <div class="grid auto">${RES().map(([em, ti, sub, url, d]) => `<a class="card hover topic-card" href="${url}" target="_blank" rel="noopener" style="color:var(--text)">
-        <span class="em">${em}</span><h3>${esc(ti)}</h3><div class="tiny muted" style="font-weight:700">${esc(sub)} ↗</div><div class="muted small">${esc(d)}</div></a>`).join('')}</div>
-      <div class="card" style="margin-top:1rem"><h3>📅 ${t('Thói quen “tắm ngôn ngữ” 20 phút/ngày')}</h3>
-        <ol style="padding-left:1.2rem;line-height:1.9"><li>${t('Nghe 1 bài BBC 6 Minute English hoặc 1 video TED có phụ đề – tra từ trong phụ đề bằng add-on.')}</li>
-        <li>${t('Đọc 1 bài trong Lexkite hoặc LearnEnglish – lưu 3–5 từ kèm câu gốc.')}</li><li>${t('Ôn flashcard đúng thời điểm vàng.')}</li><li>${t('Nói lại nội dung vừa nghe/đọc trong 1 phút ở Phòng Speaking.')}</li></ol></div>`;
-  };
 })();

@@ -112,3 +112,5 @@ Devinez systématiquement. À l'IELTS, il n'y a aucune pénalité pour une répo
 ### Comment ne pas se perdre dans les questions à choix multiples complexes ?
 
 Dans les questions à choix multiples (Multiple Choice), ne vous focalisez pas sur les mots identiques entre l'audio et les options, car ce sont souvent des pièges délibérés. Concentrez-vous plutôt sur les raisons pour lesquelles deux des trois propositions sont incorrectes : repérez les mots exclusifs comme *only, all, never* qui invalident fréquemment un choix erroné.
+
+> À lire aussi: [IELTS writing task 1 graphique : méthode et vocabulaire](/fr/blog/ielts-writing-task-1-decrire-un-graphique/)

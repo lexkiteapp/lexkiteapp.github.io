@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: blocks}
-publishAt: ""
+publishAt: 2026-11-11T20:48:00+01:00
 quiz: [
   {
     q: "Welche Zeitform folgt im If-Satz (Nebensatz) beim Conditional Typ 1?",

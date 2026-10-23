@@ -13,25 +13,27 @@
   const wc = s => (s.trim().match(/[A-Za-z0-9'’-]+/g) || []).length;
   const tab = (k, label, cur, n) => `<a class="${k === cur ? 'on' : ''}" href="#/letters?tone=${k}" style="padding:.45rem .8rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${k === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${label} <span class="tiny muted">${n}</span></a>`;
 
-  routes.letters = async function (arg, query) {
+  routes.letters = App.guard(async function (arg, query) {
+    const w = App.W;
     if (arg) return practice(arg);
     let tone = (query && query.get && query.get('tone')) || 'all';
     if (tone !== 'all' && !TONE()[tone]) tone = 'all';
-    const list = L().filter(x => tone === 'all' || x.tone === tone), drafts = await Store.get('letterDrafts', {});
+    const list = L().filter(x => tone === 'all' || x.tone === tone), drafts = await w(Store.get('letterDrafts', {}));
     view.innerHTML = `
       <div class="page-head"><div><h1>✉️ ${t('Viết thư – IELTS General Task 1')}</h1><p class="muted">${t('Viết thư ít nhất 150 từ trong 20 phút. Chọn đề theo giọng văn, viết có đếm từ, tự kiểm lời chào – kết thư và xem bài mẫu band 8 có chú thích.')}</p></div></div>
       <div class="tabs" style="display:inline-flex;flex-wrap:wrap;margin-bottom:1rem">${tab('all', t('Tất cả'), tone, L().length)}${Object.keys(TONE()).map(k => tab(k, TONE()[k], tone, L().filter(x => x.tone === k).length)).join('')}</div>
       ${tone !== 'all' ? `<div class="tip small" style="margin-bottom:1rem">💡 ${TONE_TIP()[tone]}</div>` : ''}
       <div class="grid auto">${list.map(x => `<div class="card">
         <div class="row between"><span class="chip">${TONE()[x.tone] || ''}</span>${drafts[x.id] && drafts[x.id].trim() ? `<span class="chip ok">✍️ ${t('{n} từ', { n: wc(drafts[x.id]) })}</span>` : ''}</div>
-        <h3 style="margin:.5rem 0 .2rem">${esc(x.titleVi || x.topic)}</h3><div class="small muted">${esc(x.situation.length > 140 ? x.situation.slice(0, 137) + '…' : x.situation)}</div>
+        <h3 style="margin:.5rem 0 .2rem">${esc(x.titleVi ? (I18N.lang() === "vi" ? x.titleVi : t(x.titleVi)) : x.topic)}</h3><div class="small muted">${esc(x.situation.length > 140 ? x.situation.slice(0, 137) + '…' : x.situation)}</div>
         <div class="row" style="margin-top:.7rem"><a class="btn sm primary" href="#/letters/${x.id}">✍️ ${t('Luyện viết')}</a><a class="btn sm" href="#/model/gt-${x.id}">📄 ${t('Bài mẫu')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>`;
-  };
+  });
 
   async function practice(id) {
+    const w = App.W;
     const x = L().find(y => y.id === id);
     if (!x) return routes.letters();
-    const drafts = await Store.get('letterDrafts', {});
+    const drafts = await w(Store.get('letterDrafts', {}));
     view.innerHTML = `
       <a href="#/letters?tone=${x.tone}" class="small">← ${t('Tất cả đề viết thư')}</a>
       <div class="card" style="margin-top:.6rem">

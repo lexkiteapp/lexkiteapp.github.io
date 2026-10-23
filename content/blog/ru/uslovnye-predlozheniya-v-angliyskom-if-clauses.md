@@ -9,7 +9,7 @@ tags: [grammatika, uslovnye-predlozheniya, vremena]
 keyword: "условные предложения в английском"
 cover: grammar
 coverAlt: "Интерфейс грамматики Lexkite с таблицей времен и условных предложений английского языка"
-publishAt: ""
+publishAt: 2026-11-11T21:58:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -64,8 +64,8 @@ quiz: [
 2. **Main clause (главное предложение):** описывает закономерный результат выполнения этого условия.
 
 С точки зрения пунктуации действует простое и строгое правило:
-- Если предложение начинается с придаточного условия (*If...*), после него **обязательно ставится запятая**: *If it rains, we will stay at home.*
-- Если главное предложение стоит на первом месте, запятая перед *if* **не ставится**: *We will stay at home if it rains.*
+- Если предложение начинается с придаточного условия (*If...*), после него **обязательно ставится запятая**: *If the weather is good, we will go to the park.*
+- Если главное предложение стоит на первом месте, запятая перед *if* **не ставится**: *We will go to the park if the weather is good.*
 
 Для системного закрепления грамматических навыков используйте упражнения в [модуле грамматики](/app/#/grammar). Кроме того, логическую связность вашей речи укрепят знания о том, как устроен [пассивный залог в английском](/ru/blog/passivnyy-zalog-v-angliyskom-passive-voice/) и где уместны академические [слова связки в английском](/ru/blog/slova-svyazki-v-angliyskom-linking-words/).
 
@@ -80,7 +80,7 @@ quiz: [
 - **Главное (Main clause):** *Present Simple*
 
 В предложениях этого типа союз *if* практически всегда можно без потери смысла заменить на *when* (когда):
-- *If you heat ice to 0 degrees, it melts.* (Если нагреть лед до 0 градусов, он тает).
+- *If you mix red and blue, you get purple.* (Если смешать красный и синий, получится фиолетовый).
 - *When employees work overtime, they receive additional compensation.* (Когда сотрудники работают сверхурочно, они получают доплату).
 - *If iron is exposed to moisture and air, it rusts.* (Если железо подвергается воздействию влаги и воздуха, оно ржавеет).
 
@@ -169,7 +169,7 @@ quiz: [
 ### Как строятся инверсионные конструкции без союза 'if'?
 В строгом литературном и деловом стилях союз *if* часто опускают, меняя порядок слов:
 - В 1 типе: *Should you need assistance, please call us.*
-- Во 2 типе: *Were I in your shoes, I would reconsider.*
+- Во 2 типе: *Were I in your position, I would wait.*
 - В 3 типе: *Had we known the real figures, we would not have invested.*
 
 ### Чем принципиально отличается 'in case' от 'if'?

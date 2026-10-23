@@ -50,7 +50,7 @@ ok(sel.imageable === Object.keys(sel.items).length && sel.imageable > 500 && sel
 ok(pilot.length === 60 && pilot.every(k => sel.items[k]), 'pilot 60 nghĩa đều đạt ngưỡng');
 for (const a of ['idea#n', 'freedom#n', 'however#adv']) ok(!sel.items[a], 'từ trừu tượng không có ảnh: ' + a);
 const p = promptFor('kiss#v', { w: 'kiss', pos: 'v', def: 'to touch with the lips' });
-ok(p.startsWith('Illustration of ') && /no text, no letters/.test(p) && /safe for kids/.test(p), 'prompt: chủ thể trước, không chữ, an toàn');
+ok(p.startsWith('Illustration of ') && /without any lettering/.test(p) && /suitable for young children/.test(p) && !/"kiss"|flashcard|caption/i.test(p), 'prompt: chủ thể trước, không chữ (không ngoặc kép/flashcard), an toàn');
 ok(promptFor('kiss#v', { w: 'kiss', pos: 'v', def: 'x' }) === promptFor('kiss#v', { w: 'kiss', pos: 'v', def: 'x' }) && fnv('a') !== fnv('b'), 'người trong ảnh xoay vòng tất định');
 ok(promptFor('apple#n', { w: 'apple', pos: 'n', def: 'x' }, '', 2).includes(STYLE.retry), 'lần thử 2 dùng biến thể cố định');
 

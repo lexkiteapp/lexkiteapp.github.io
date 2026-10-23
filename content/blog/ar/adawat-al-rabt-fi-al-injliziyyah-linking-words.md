@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt: ""
+publishAt: 2026-11-13T20:48:00+03:00
 quiz: [
   {
     q: "أي أداة ربط تفيد التناقض والتعارض وتستخدم في بداية الجملة متبوعة بفاصلة؟",

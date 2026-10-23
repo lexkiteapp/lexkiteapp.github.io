@@ -74,7 +74,7 @@
     const fresh = cards.filter(c => c.srs.reps === 0 && !c.srs.last).sort((a, b) => a.added - b.added);
     const L = g.I18N ? g.I18N.learnLang() : 'vi', tt = k => (typeof g.t === 'function' ? g.t(k) : k);
     const gloss = c => { // nghĩa theo ngôn ngữ người học: tiếng Việt → .vi; ngôn ngữ khác → gói nghĩa bản địa, không có thì định nghĩa tiếng Anh
-      let m = L === 'vi' ? c.vi : ((g.App && g.App.nativeGloss && g.App.nativeGloss(c.word)) || (g.I18N && g.I18N.meanLang() === 'vi' ? c.vi : c.def) || '');
+      let m = g.App && g.App.meanOf ? g.App.meanOf(c) : (L === 'vi' ? c.vi : c.def) || ''; // = App.meanOf (thẻ, danh sách)
       m = String(m || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
       return m.length > 90 ? m.slice(0, 88).trim() + '…' : m;
     };
@@ -83,7 +83,7 @@
     const newDay = Math.min(fresh.length, +((state.settings || C.DEFAULT_SETTINGS).dailyNew) || 0);
     const soon = rev.filter(c => c.srs.due > end && c.srs.due <= end + 7 * C.DAY).sort((a, b) => a.srs.due - b.srs.due);
     const pick = [...due, ...fresh.slice(0, Math.max(total - due.length, 0)), ...soon].slice(0, 20); // từ đến hạn hôm nay trước, rồi từ sắp đến hạn
-    const words = pick.map(c => ({ w: c.word, ipa: c.ipa || c.ipaUS || '', m: gloss(c), lv: String(c.level || '').toUpperCase().slice(0, 2), due: (c.srs.reps > 0 || c.srs.last) ? (c.srs.due || 0) : 0 }));
+    const words = pick.map(c => ({ w: c.word, ipa: ((state.settings || {}).accent === 'en-US' ? c.ipaUS || c.ipa : c.ipa || c.ipaUS) || '', m: gloss(c), lv: String(c.level || '').toUpperCase().slice(0, 2), due: (c.srs.reps > 0 || c.srs.last) ? (c.srs.due || 0) : 0 }));
     return { v: 2, at: Date.now(), due: total, days, newDay, streak: streakN || 0, lang: g.I18N ? g.I18N.lang() : 'vi', rtl: !!(g.I18N && g.I18N.rtl), words,
       l: { title: tt('Thẻ đến hạn hôm nay'), streak: tt('Chuỗi ngày'), review: tt('Ôn ngay'), done: tt('Hôm nay bạn đã ôn hết!'), none: tt('Không còn thẻ đến hạn'), n: tt('{n} thẻ ôn lại') } };
   }

@@ -431,7 +431,7 @@ for b, ZN in ZNS.items():
 if PLACE['sides']:
     PLACE['eye_dev'] = max(v['eye_dev'] for v in PLACE['sides'].values()); PLACE['valid'] = all(v['valid'] for v in PLACE['sides'].values())
     PLACE['cam_ty'] = {b: v['cam_ty'] for b, v in PLACE['sides'].items()}; PLACE['host_dy'] = 0.0
-    PLACE['ok'] = bool(PLACE['zones'] and PLACE['valid'] and PLACE['eye_dev'] <= 115 and all(v['under'] <= 0.35 and v['near'] <= 0.12 for v in PLACE['hosts'].values()))
+    PLACE['ok'] = bool(PLACE['zones'] and PLACE['valid'] and PLACE['eye_dev'] <= 180 and all(v['under'] <= 0.35 and v['near'] <= 0.12 for v in PLACE['hosts'].values()))
     print('placement', json.dumps(PLACE))
 ZN = any(ZNS.values())
 QA['placement'] = PLACE

@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: ear}
-publishAt: ""
+publishAt: 2026-11-16T19:29:00+03:00
 quiz: [
   {
     q: "ماذا يسمى إدماج صوت حرف ساكن في نهاية الكلمة مع صوت حرف علة في بداية الكلمة التالية؟",

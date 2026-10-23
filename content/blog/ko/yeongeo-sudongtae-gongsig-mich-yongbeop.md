@@ -9,7 +9,7 @@ tags: [grammar, passive-voice, verbs]
 keyword: "영어 수동태"
 cover: grammar
 coverAlt: "Lexkite 문법 대시보드의 영어 수동태 시제별 전환 차트"
-publishAt: ""
+publishAt: 2026-11-12T07:43:00+09:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -179,7 +179,7 @@ give, send, teach, show 같은 4형식 동사는 두 목적어 모두 주어가 
 능동태가 더 직관적임에도 불구하고 수동태를 선택해야 하는 필연적인 이유들입니다:
 
 1. **행위자를 모르거나 불특정 다수일 때:** *My smartphone was stolen on the subway.* (누가 훔쳤는지 알 수 없음).
-2. **행위자가 너무 뻔해서 밝힐 필요가 없을 때:** *The suspect was arrested this morning.* (경찰이 체포한 것이 자명함).
+2. **행위자가 너무 뻔해서 밝힐 필요가 없을 때:** *The road was closed last night.* (경찰이 체포한 것이 자명함).
 3. **행위보다 행위의 대상이나 결과가 훨씬 중요할 때:** *The historic monument was severely damaged by fire.*
 4. **학술 연구나 공식 보고서의 객관성을 유지할 때:** [IELTS writing task 1 도표](/ko/blog/ielts-writing-task-1-dopyo-bunseog-bibeop/) 분석 등에서 *The participants were divided into two groups*처럼 객관적 실험 절차를 기술할 때 사용합니다.
 

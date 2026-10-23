@@ -201,7 +201,10 @@
   ];
 
   const INDEX = Object.create(null); // không kế thừa prototype: tra "constructor", "toString"… không bị nhầm
-  const indexTopic = t => t.words.forEach(w => { const k = w.word.toLowerCase(); if (!INDEX[k]) INDEX[k] = w; });
+  // mục chính không phụ thuộc thứ tự nạp gói (= mảnh Lex): hạng nhỏ thắng, cùng hạng thì nạp trước thắng
+  const RANK = { topics: 0, writing: 1, speaking: 2, awl: 3, core: 4, office: 5, toeic: 6, domain: 7, exam: 8, nawl: 9, bsl: 10 };
+  const rankOf = Object.create(null), rk = g2 => (g2 in RANK ? RANK[g2] : 99);
+  const indexTopic = t => { rankOf[t.id] = rk(t.group); t.words.forEach(w => { const k = w.word.toLowerCase(), cur = INDEX[k]; if (!cur || rankOf[t.id] < (rankOf[cur.topic] ?? 99)) INDEX[k] = w; }); };
   TOPICS.forEach(t => { if (t.id === 'task1' || t.id === 'task2') t.group = 'writing'; indexTopic(t); });
 
   // add(id, name, emoji, desc, rows, group)

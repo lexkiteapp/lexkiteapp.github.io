@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: think, icon: blocks}
-publishAt: ""
+publishAt: 2026-11-12T21:45:00+01:00
 quiz: [
   {
     q: "Wie lautet die korrekte Passivform des Satzes: 'The company launched a new software'?",

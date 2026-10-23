@@ -153,3 +153,5 @@ Donnez une fourchette réaliste basée sur le marché international : *„Based 
 
 ### Faut-il envoyer un mail de remerciement après l'entretien ?
 Oui, absolument. Envoyez un court email sous 24 heures pour remercier votre interlocuteur, rappeler votre enthousiasme pour la mission et mentionner un sujet saillant discuté pendant l'entretien.
+
+> À lire aussi: [Mots de liaison en anglais : liste de connecteurs logiques](/fr/blog/mots-de-liaison-en-anglais-linking-words/)

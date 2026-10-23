@@ -9,7 +9,7 @@ tags: [proiznoshenie, listening, connected-speech]
 keyword: "связная речь в английском"
 cover: listening
 coverAlt: "Модуль аудирования Lexkite с выбором акцентов и гибким контролем скорости звука"
-publishAt: ""
+publishAt: 2026-11-15T21:51:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
@@ -132,7 +132,7 @@ quiz: [
 
 В живом диалоге предлоги и вспомогательные слова сливаются с местоимениями до полной неузнаваемости:
 
-1. **Sort of -> Sorta:** *I sorta understand what you mean.* (Я вроде как понимаю, о чем ты говоришь).
+1. **Sort of -> Sorta:** *I sorta like this idea.* (Мне эта идея вроде как нравится).
 2. **Out of -> Outta:** *We are completely outta coffee in the kitchen.* (У нас на кухне совсем закончился кофе).
 3. **Lots of -> Lottsa:** *There are lottsa people waiting outside the conference hall.* (У входа в зал ожидает уйма людей).
 4. **Should have -> Shoulda:** *You shoulda notified me earlier.* (Тебе следовало предупредить меня раньше).

@@ -9,7 +9,7 @@ tags: [writing, linking-words, leksika]
 keyword: "слова связки в английском"
 cover: library
 coverAlt: "Словарная библиотека Lexkite с академическими коннекторами и переходными фразами"
-publishAt: ""
+publishAt: 2026-11-13T21:43:00+03:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

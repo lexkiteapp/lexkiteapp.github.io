@@ -9,7 +9,7 @@ tags: [prononciation, listening, connected-speech]
 keyword: "connected speech anglais"
 cover: listening
 coverAlt: "Module d entraînement à l écoute audio Lexkite avec choix d accents et vitesse réglable"
-publishAt: ""
+publishAt: 2026-11-16T21:16:00+01:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

@@ -9,7 +9,7 @@ tags: [speaking, business-english, presentation]
 keyword: "présentation en anglais phrases"
 cover: phrases
 coverAlt: "Carnet de vocabulaire et expressions de présentation en anglais de Lexkite"
-publishAt: ""
+publishAt: 2026-11-15T07:03:00+01:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

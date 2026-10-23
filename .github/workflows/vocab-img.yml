@@ -9,7 +9,7 @@ on:
       limit: { description: 'Số nghĩa tối đa lượt fill', default: '60' }
       resume_run: { description: 'Tiếp tục từ lượt trước (run id) – dùng lại ảnh đã vẽ, không vẽ lại', default: '' }
       max_gc: { description: 'Trần ảnh GrabCast lượt này (trống = 40)', default: '' }
-      max_main: { description: 'Trần ảnh tài khoản chính lượt này (trống = pilot 25 / fill 5)', default: '' }
+      max_main: { description: 'Trần ảnh tài khoản chính lượt này (trống = 0)', default: '' }
 permissions:
   contents: write
   actions: read   # tải artifact lượt trước (resume_run)

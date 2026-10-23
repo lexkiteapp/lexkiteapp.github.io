@@ -34,3 +34,12 @@
 
 ## 7. Credit (tiền thật)
 - Xem `docs/CREDIT-RULES.md`: không tiêu credit khi anh chưa duyệt số cụ thể cho việc đó.
+
+## 8. Bài học 23/10 (làm hiệu quả)
+- **Agent làm trong clone `$TMPDIR`, không đụng thư mục chính** (đang ở nhánh khác); nếu `mergecheck` không chạy được trong clone → chạy test liên quan + push, ghi rõ trong commit, CI `ci-triage` bắt lỗi sau.
+- **Một agent giữ 1 mảng** (video, lưu trữ, từ điển, chịu tải…) → giao tiếp bằng SendMessage cho agent đang có ngữ cảnh, không mở agent mới trùng việc.
+- **Không chờ bằng cách hỏi trạng thái liên tục** (đã làm cạn D1 2 lần): chờ CI = 1 lệnh nền `until … sleep 120` hoặc hẹn giờ (CronCreate 1 lần); không đọc file output của agent.
+- **Hết hạn mức AI/D1 → không đứng chờ**: chạy phần không cần AI, agent tự chấm thay cổng AI (ghi `judge: claude-manual`), cổng AI tự bỏ qua trung tính.
+- **Soát nhanh bằng ảnh nhỏ**: trích 2–4 khung/1 bảng contact sheet (scale 0.5–0.6), không xem cả video; trang dài → `javascript_tool` lấy đúng đoạn, không `get_page_text` cả trang.
+- **Lệnh/giá trị bí mật**: đọc từ file (`< ~/.config/lexkite/...`), không in; tạo token/khoá do anh bấm nút cuối.
+- **Báo cáo**: kết quả + con số trước/sau + việc anh cần làm (≤6 dòng); sửa sai số đã báo ngay khi đo thật khác ước tính.

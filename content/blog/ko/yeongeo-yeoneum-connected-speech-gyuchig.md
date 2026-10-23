@@ -9,7 +9,7 @@ tags: [pronunciation, listening, connected-speech]
 keyword: "영어 연음 법칙"
 cover: listening
 coverAlt: "Lexkite 리스닝 청취 모듈과 원어민 속도 조절 기능"
-publishAt: ""
+publishAt: 2026-11-16T12:10:00+09:00
 factChecked: 2026-10-23
 author: Lexkite
 status: ready

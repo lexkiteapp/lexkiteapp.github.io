@@ -14,7 +14,7 @@ factChecked: 2026-10-23
 author: Lexkite
 status: ready
 coverArt: {mood: cheer, icon: pen}
-publishAt: ""
+publishAt: 2026-11-13T20:31:00+01:00
 quiz: [
   {
     q: "Welches Bindewort drückt einen starken Kontrast aus und steht typischerweise am Satzanfang mit Komma?",
