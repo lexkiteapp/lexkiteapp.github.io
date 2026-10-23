@@ -1,0 +1,150 @@
+{
+ "v": 7,
+ "id": "news_travel_natives_fd1239",
+ "template": "fix",
+ "bg": "hos_hotel_breakfast__day_modern",
+ "topic": "travel",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "difficulty": "easy",
+ "hook_type": "native_says",
+ "part": 1,
+ "point": "twin room (n): a hotel room with two separate single beds",
+ "key_line": "I'd like a twin room, please.",
+ "wrong_line": "I want a two-bed room, please.",
+ "share": "who says \"I want a two-bed room, please.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_18fd1239",
+  "pid": "w:twin room#n"
+ },
+ "hook": {
+  "card": "NATIVES NEVER SAY",
+  "line": "n_fd1239_h"
+ },
+ "series": [
+  "TRAVEL ENGLISH",
+  "TWIN = two beds"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_fd1239_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "I want a two-bed room, please.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_fd1239_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_fd1239_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "I'd like a twin room, please.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "TWIN = two beds"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_fd1239_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "Two single beds in a hotel? That's a twin room.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_fd1239_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'I want a two-bed room, please'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_fd1239_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "I'd like a twin room, please.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_fd1239_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "I'd like a twin room, please.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "TWIN = two beds"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "I'd like a twin room, please.",
+   "We booked a twin room for two nights.",
+   "Is the twin room available tonight?"
+  ],
+  "line": "n_fd1239_r",
+  "line_alt": "n_fd1239_r2"
+ },
+ "end_line": "n_fd1239_e",
+ "end_alt": "n_fd1239_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 5,
+  "moves": [
+   "pull",
+   "tilt",
+   "rack"
+  ],
+  "transition": "whip",
+  "layout": 2,
+  "palette": 6,
+  "opener": "ama",
+  "pacing": "brisk"
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "v": 7,
+ "id": "news_home_guess_867e72",
+ "template": "fix",
+ "bg": "home_studio_apt__winter_cosy",
+ "topic": "home",
+ "area": "grammar-check",
+ "cefr": "A1",
+ "difficulty": "easy",
+ "hook_type": "fill_gap",
+ "part": 1,
+ "point": "in case",
+ "key_line": "Take an umbrella in case it rains.",
+ "wrong_line": "Take an umbrella if it rains.",
+ "share": "who says \"Take an umbrella if it rains.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_02867e72",
+  "pid": "u:s:in-case"
+ },
+ "hook": {
+  "card": "GUESS FIRST",
+  "line": "n_867e72_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "IN CASE = just to be safe"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_867e72_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "Take an umbrella if it rains.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_867e72_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_867e72_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "Take an umbrella in case it rains.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "IN CASE = just to be safe"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_867e72_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "In case means: be ready, just to be safe.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_867e72_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'Take an umbrella if it rains'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_867e72_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "Take an umbrella in case it rains.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_867e72_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "Take an umbrella in case it rains.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "IN CASE = just to be safe"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "Take an umbrella in case it rains.",
+   "Write it down in case you forget.",
+   "I'll bring snacks in case we get hungry."
+  ],
+  "line": "n_867e72_r",
+  "line_alt": "n_867e72_r2"
+ },
+ "end_line": "n_867e72_e",
+ "end_alt": "n_867e72_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 6,
+  "moves": [
+   "handheld",
+   "pull"
+  ],
+  "transition": "dissolve",
+  "layout": 1,
+  "palette": 3,
+  "opener": "ama",
+  "pacing": "calm"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "v": 7,
+ "id": "news_food_natives_35f2ef",
+ "template": "fix",
+ "bg": "fd_noodle_shop__night_classic",
+ "topic": "food",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "difficulty": "easy",
+ "hook_type": "native_says",
+ "part": 1,
+ "point": "split the bill (phrase): to share the cost of a meal or service between people",
+ "key_line": "Let's split the bill.",
+ "wrong_line": "Let's divide the bill.",
+ "share": "who says \"Let's divide the bill.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_0a35f2ef",
+  "pid": "w:split the bill#phrase"
+ },
+ "hook": {
+  "card": "NATIVES NEVER SAY",
+  "line": "n_35f2ef_h"
+ },
+ "series": [
+  "FOOD ENGLISH",
+  "SPLIT = share the cost"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_35f2ef_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "Let's divide the bill.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_35f2ef_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_35f2ef_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "Let's split the bill.",
+    "sub": null,
+    "label": null,
+    "icon": "food",
+    "formula": "SPLIT = share the cost"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_35f2ef_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "For sharing a cost, we say split the bill.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_35f2ef_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'Let's divide the bill'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_35f2ef_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "Let's split the bill.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_35f2ef_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "Let's split the bill.",
+    "sub": null,
+    "label": null,
+    "icon": "food",
+    "formula": "SPLIT = share the cost"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "Let's split the bill.",
+   "We always split the bill with friends.",
+   "Can we split the bill three ways?"
+  ],
+  "line": "n_35f2ef_r",
+  "line_alt": "n_35f2ef_r2"
+ },
+ "end_line": "n_35f2ef_e",
+ "end_alt": "n_35f2ef_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 3,
+  "moves": [
+   "slide",
+   "push",
+   "rack"
+  ],
+  "transition": "zoom",
+  "layout": 4,
+  "palette": 0,
+  "opener": "ama",
+  "pacing": "calm"
+ }
+}

@@ -1,0 +1,150 @@
+{
+ "v": 7,
+ "id": "news_work_which_e10d3a",
+ "template": "fix",
+ "bg": "tec_server_room__night_classic",
+ "topic": "work",
+ "area": "grammar-check",
+ "cefr": "A1",
+ "difficulty": "easy",
+ "hook_type": "quiz",
+ "part": 1,
+ "point": "ago (adv) vs before (adv/prep)",
+ "key_line": "I met her three years ago.",
+ "wrong_line": "I met her three years before.",
+ "share": "who says \"I met her three years before.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_0ce10d3a",
+  "pid": "u:c:ago-before"
+ },
+ "hook": {
+  "card": "WHICH IS CORRECT?",
+  "line": "n_e10d3a_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "time + AGO = back from now"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_e10d3a_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "I met her three years before.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e10d3a_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_e10d3a_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "I met her three years ago.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "time + AGO = back from now"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e10d3a_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "Ago counts back from now.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_e10d3a_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'I met her three years before'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e10d3a_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "I met her three years ago.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_e10d3a_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "I met her three years ago.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "time + AGO = back from now"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "I met her three years ago.",
+   "He left ten minutes ago.",
+   "I had never been there before."
+  ],
+  "line": "n_e10d3a_r",
+  "line_alt": "n_e10d3a_r2"
+ },
+ "end_line": "n_e10d3a_e",
+ "end_alt": "n_e10d3a_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 1,
+  "moves": [
+   "push",
+   "rack",
+   "slide"
+  ],
+  "transition": "whip",
+  "layout": 0,
+  "palette": 2,
+  "opener": "ama",
+  "pacing": "snappy"
+ }
+}

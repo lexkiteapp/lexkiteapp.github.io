@@ -1,0 +1,149 @@
+{
+ "v": 7,
+ "id": "news_social_instead_c6ce7f",
+ "template": "fix",
+ "bg": "evt_networking__day_modern",
+ "topic": "social",
+ "area": "grammar-check",
+ "cefr": "A1",
+ "difficulty": "easy",
+ "hook_type": "secret_tip",
+ "part": 1,
+ "point": "A common mix-up with \"class\" (n): rank or level in society, ranked from high (rich professional people) to low (ordinary people)",
+ "key_line": "Your phone is very classy.",
+ "wrong_line": "Your phone is very class.",
+ "share": "who says \"Your phone is very class.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_03c6ce7f",
+  "pid": "m:class#n"
+ },
+ "hook": {
+  "card": "SAY THIS INSTEAD",
+  "line": "n_c6ce7f_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "class = group, classY = styl"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_c6ce7f_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "Your phone is very class.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_c6ce7f_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_c6ce7f_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "Your phone is very classy.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "class = group, classY = stylish"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_c6ce7f_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "Class is a noun. Classy means stylish.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_c6ce7f_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'Your phone is very class'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_c6ce7f_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "Your phone is very classy.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_c6ce7f_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "Your phone is very classy.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "class = group, classY = stylish"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "Your phone is very classy.",
+   "She comes from a working class family.",
+   "That hotel is really classy."
+  ],
+  "line": "n_c6ce7f_r",
+  "line_alt": "n_c6ce7f_r2"
+ },
+ "end_line": "n_c6ce7f_e",
+ "end_alt": "n_c6ce7f_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 8,
+  "moves": [
+   "tilt",
+   "pull"
+  ],
+  "transition": "cut",
+  "layout": 5,
+  "palette": 1,
+  "opener": "ama",
+  "pacing": "brisk"
+ }
+}

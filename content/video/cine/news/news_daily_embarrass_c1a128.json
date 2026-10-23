@@ -1,0 +1,150 @@
+{
+ "v": 7,
+ "id": "news_daily_embarrass_c1a128",
+ "template": "fix",
+ "bg": "shox5_kitchenware_store__day_modern",
+ "topic": "daily",
+ "area": "grammar-check",
+ "cefr": "A1",
+ "difficulty": "easy",
+ "hook_type": "surprise",
+ "part": 1,
+ "point": "if 2",
+ "key_line": "If I were rich, I would travel.",
+ "wrong_line": "If I will be rich, I would travel.",
+ "share": "who says \"If I will be rich, I would travel.\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_0ec1a128",
+  "pid": "u:s:if-2"
+ },
+ "hook": {
+  "card": "DON'T SAY THIS",
+  "line": "n_c1a128_h"
+ },
+ "series": [
+  "GRAMMAR FIX",
+  "IF + past, WOULD + verb"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_c1a128_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "If I will be rich, I would travel.",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_c1a128_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_c1a128_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "If I were rich, I would travel.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "IF + past, WOULD + verb"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_c1a128_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "For dreams, use if plus past, then would.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_c1a128_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'If I will be rich, I would travel'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_c1a128_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "If I were rich, I would travel.",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_c1a128_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "If I were rich, I would travel.",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "IF + past, WOULD + verb"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "If I were rich, I would travel.",
+   "If I had time, I would help.",
+   "If she knew, she would call."
+  ],
+  "line": "n_c1a128_r",
+  "line_alt": "n_c1a128_r2"
+ },
+ "end_line": "n_c1a128_e",
+ "end_alt": "n_c1a128_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 11,
+  "moves": [
+   "push",
+   "slide",
+   "handheld"
+  ],
+  "transition": "zoom",
+  "layout": 2,
+  "palette": 4,
+  "opener": "ama",
+  "pacing": "brisk"
+ }
+}

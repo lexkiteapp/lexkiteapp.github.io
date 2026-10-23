@@ -1,0 +1,149 @@
+{
+ "v": 7,
+ "id": "news_travel_instead_e5324d",
+ "template": "fix",
+ "bg": "hos_elevator_lobby__day_modern",
+ "topic": "travel",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "difficulty": "easy",
+ "hook_type": "secret_tip",
+ "part": 1,
+ "point": "Word stress: timetable",
+ "key_line": "TIME-ta-ble",
+ "wrong_line": "time-TA-ble",
+ "share": "who says \"time-TA-ble\"",
+ "l1_tags": [
+  "many learners"
+ ],
+ "source": {
+  "scriptbank": "sb_49e5324d",
+  "pid": "p:timetable#n"
+ },
+ "hook": {
+  "card": "SAY THIS INSTEAD",
+  "line": "n_e5324d_h"
+ },
+ "series": [
+  "TRAVEL ENGLISH",
+  "TIME first"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_e5324d_m",
+   "kind": "m",
+   "card": {
+    "kind": "x",
+    "text": "time-TA-ble",
+    "sub": null,
+    "label": null,
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e5324d_g",
+   "kind": "g",
+   "guess": true,
+   "card": {
+    "kind": "p",
+    "text": "What sounds right?",
+    "sub": null,
+    "label": "GUESS",
+    "icon": "question"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_e5324d_k",
+   "kind": "k",
+   "card": {
+    "kind": "v",
+    "text": "TIME-ta-ble",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "TIME first"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e5324d_y",
+   "kind": "y",
+   "card": {
+    "kind": "p",
+    "text": "Stress the first part: TIME.",
+    "sub": null,
+    "label": "WHY",
+    "icon": "bulb"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_e5324d_c",
+   "kind": "c",
+   "card": {
+    "kind": "p",
+    "text": "'time-TA-ble'? -> No",
+    "sub": null,
+    "label": "CHECK",
+    "icon": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_e5324d_rs",
+   "kind": "rs",
+   "repeat": true,
+   "slow": true,
+   "card": {
+    "kind": "p",
+    "text": "TIME-ta-ble",
+    "sub": null,
+    "label": "REPEAT",
+    "icon": "repeat"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_e5324d_rn",
+   "kind": "rn",
+   "card": {
+    "kind": "v",
+    "text": "TIME-ta-ble",
+    "sub": null,
+    "label": null,
+    "icon": "bulb",
+    "formula": "TIME first"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "rows": [
+   "TIME-ta-ble",
+   "Check the bus timetable.",
+   "The new timetable starts on Monday."
+  ],
+  "line": "n_e5324d_r",
+  "line_alt": "n_e5324d_r2"
+ },
+ "end_line": "n_e5324d_e",
+ "end_alt": "n_e5324d_e2",
+ "link": "",
+ "cta": "",
+ "no_intro": true,
+ "style": {
+  "pattern": 10,
+  "moves": [
+   "push",
+   "handheld"
+  ],
+  "transition": "dissolve",
+  "layout": 3,
+  "palette": 7,
+  "opener": "ama",
+  "pacing": "snappy"
+ }
+}

@@ -1705,6 +1705,433 @@
    "id": "n_d9514a_e2",
    "who": "carlos",
    "text": "Quiz: The number of tourists blank rising. Are or is? Comment below."
+  },
+  {
+   "id": "n_fd1239_h",
+   "who": "ama",
+   "text": "Natives never say this."
+  },
+  {
+   "id": "n_fd1239_m",
+   "who": "ama",
+   "text": "Many learners say: I want a two-bed room, please."
+  },
+  {
+   "id": "n_fd1239_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_fd1239_k",
+   "who": "ama",
+   "text": "Say: I'd like a twin room, please."
+  },
+  {
+   "id": "n_fd1239_y",
+   "who": "carlos",
+   "text": "Two single beds in a hotel? That's a twin room."
+  },
+  {
+   "id": "n_fd1239_c",
+   "who": "ama",
+   "text": "Is 'I want a two-bed room, please' correct? No."
+  },
+  {
+   "id": "n_fd1239_rs",
+   "who": "carlos",
+   "text": "Repeat after me: I'd like a twin room, please.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_fd1239_rn",
+   "who": "ama",
+   "text": "Now at normal speed: I'd like a twin room, please."
+  },
+  {
+   "id": "n_fd1239_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_fd1239_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_fd1239_e",
+   "who": "ama",
+   "text": "Quiz: Two friends need two beds. They book a blank room. Double or twin? Comment below."
+  },
+  {
+   "id": "n_fd1239_e2",
+   "who": "carlos",
+   "text": "Quiz: Two friends need two beds. They book a blank room. Double or twin? Comment below."
+  },
+  {
+   "id": "n_e5324d_h",
+   "who": "ama",
+   "text": "Say this instead"
+  },
+  {
+   "id": "n_e5324d_m",
+   "who": "ama",
+   "text": "Many learners say: time-TA-ble"
+  },
+  {
+   "id": "n_e5324d_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_e5324d_k",
+   "who": "ama",
+   "text": "Say: TIME-ta-ble"
+  },
+  {
+   "id": "n_e5324d_y",
+   "who": "carlos",
+   "text": "Stress the first part: TIME."
+  },
+  {
+   "id": "n_e5324d_c",
+   "who": "ama",
+   "text": "Is 'time-TA-ble' correct? No."
+  },
+  {
+   "id": "n_e5324d_rs",
+   "who": "carlos",
+   "text": "Repeat after me: TIME-ta-ble",
+   "speed": 0.74
+  },
+  {
+   "id": "n_e5324d_rn",
+   "who": "ama",
+   "text": "Now at normal speed: TIME-ta-ble"
+  },
+  {
+   "id": "n_e5324d_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_e5324d_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_e5324d_e",
+   "who": "ama",
+   "text": "Quiz: Where is the stress in timetable. Time-ta-ble or time-ta-ble? Comment below."
+  },
+  {
+   "id": "n_e5324d_e2",
+   "who": "carlos",
+   "text": "Quiz: Where is the stress in timetable. Time-ta-ble or time-ta-ble? Comment below."
+  },
+  {
+   "id": "n_35f2ef_h",
+   "who": "ama",
+   "text": "Natives never say this"
+  },
+  {
+   "id": "n_35f2ef_m",
+   "who": "ama",
+   "text": "Many learners say: Let's divide the bill."
+  },
+  {
+   "id": "n_35f2ef_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_35f2ef_k",
+   "who": "ama",
+   "text": "Say: Let's split the bill."
+  },
+  {
+   "id": "n_35f2ef_y",
+   "who": "carlos",
+   "text": "For sharing a cost, we say split the bill."
+  },
+  {
+   "id": "n_35f2ef_c",
+   "who": "ama",
+   "text": "Is 'Let's divide the bill' correct? No."
+  },
+  {
+   "id": "n_35f2ef_rs",
+   "who": "carlos",
+   "text": "Repeat after me: Let's split the bill.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_35f2ef_rn",
+   "who": "ama",
+   "text": "Now at normal speed: Let's split the bill."
+  },
+  {
+   "id": "n_35f2ef_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_35f2ef_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_35f2ef_e",
+   "who": "ama",
+   "text": "Quiz: Dinner was great. Let's blank the bill. Divide or split? Comment below."
+  },
+  {
+   "id": "n_35f2ef_e2",
+   "who": "carlos",
+   "text": "Quiz: Dinner was great. Let's blank the bill. Divide or split? Comment below."
+  },
+  {
+   "id": "n_c6ce7f_h",
+   "who": "ama",
+   "text": "Say this instead"
+  },
+  {
+   "id": "n_c6ce7f_m",
+   "who": "ama",
+   "text": "Many learners say: Your phone is very class."
+  },
+  {
+   "id": "n_c6ce7f_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_c6ce7f_k",
+   "who": "ama",
+   "text": "Say: Your phone is very classy."
+  },
+  {
+   "id": "n_c6ce7f_y",
+   "who": "carlos",
+   "text": "Class is a noun. Classy means stylish."
+  },
+  {
+   "id": "n_c6ce7f_c",
+   "who": "ama",
+   "text": "Is 'Your phone is very class' correct? No."
+  },
+  {
+   "id": "n_c6ce7f_rs",
+   "who": "carlos",
+   "text": "Repeat after me: Your phone is very classy.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_c6ce7f_rn",
+   "who": "ama",
+   "text": "Now at normal speed: Your phone is very classy."
+  },
+  {
+   "id": "n_c6ce7f_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_c6ce7f_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_c6ce7f_e",
+   "who": "ama",
+   "text": "Quiz: Most people in the city are middle blank. Class or classy? Comment below."
+  },
+  {
+   "id": "n_c6ce7f_e2",
+   "who": "carlos",
+   "text": "Quiz: Most people in the city are middle blank. Class or classy? Comment below."
+  },
+  {
+   "id": "n_e10d3a_h",
+   "who": "ama",
+   "text": "Which is correct?"
+  },
+  {
+   "id": "n_e10d3a_m",
+   "who": "ama",
+   "text": "Many learners say: I met her three years before."
+  },
+  {
+   "id": "n_e10d3a_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_e10d3a_k",
+   "who": "ama",
+   "text": "Say: I met her three years ago."
+  },
+  {
+   "id": "n_e10d3a_y",
+   "who": "carlos",
+   "text": "Ago counts back from now."
+  },
+  {
+   "id": "n_e10d3a_c",
+   "who": "ama",
+   "text": "Is 'I met her three years before' correct? No."
+  },
+  {
+   "id": "n_e10d3a_rs",
+   "who": "carlos",
+   "text": "Repeat after me: I met her three years ago.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_e10d3a_rn",
+   "who": "ama",
+   "text": "Now at normal speed: I met her three years ago."
+  },
+  {
+   "id": "n_e10d3a_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_e10d3a_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_e10d3a_e",
+   "who": "ama",
+   "text": "Quiz: I started this job two years blank. Before or ago? Comment below."
+  },
+  {
+   "id": "n_e10d3a_e2",
+   "who": "carlos",
+   "text": "Quiz: I started this job two years blank. Before or ago? Comment below."
+  },
+  {
+   "id": "n_867e72_h",
+   "who": "ama",
+   "text": "Guess before I tell you"
+  },
+  {
+   "id": "n_867e72_m",
+   "who": "ama",
+   "text": "Many learners say: Take an umbrella if it rains."
+  },
+  {
+   "id": "n_867e72_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_867e72_k",
+   "who": "ama",
+   "text": "Say: Take an umbrella in case it rains."
+  },
+  {
+   "id": "n_867e72_y",
+   "who": "carlos",
+   "text": "In case means: be ready, just to be safe."
+  },
+  {
+   "id": "n_867e72_c",
+   "who": "ama",
+   "text": "Is 'Take an umbrella if it rains' correct? No."
+  },
+  {
+   "id": "n_867e72_rs",
+   "who": "carlos",
+   "text": "Repeat after me: Take an umbrella in case it rains.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_867e72_rn",
+   "who": "ama",
+   "text": "Now at normal speed: Take an umbrella in case it rains."
+  },
+  {
+   "id": "n_867e72_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_867e72_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_867e72_e",
+   "who": "ama",
+   "text": "Quiz: Save the file blank the computer crashes. In case or if? Comment below."
+  },
+  {
+   "id": "n_867e72_e2",
+   "who": "carlos",
+   "text": "Quiz: Save the file blank the computer crashes. In case or if? Comment below."
+  },
+  {
+   "id": "n_c1a128_h",
+   "who": "ama",
+   "text": "Don't embarrass yourself"
+  },
+  {
+   "id": "n_c1a128_m",
+   "who": "ama",
+   "text": "Many learners say: If I will be rich, I would travel."
+  },
+  {
+   "id": "n_c1a128_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_c1a128_k",
+   "who": "ama",
+   "text": "Say: If I were rich, I would travel."
+  },
+  {
+   "id": "n_c1a128_y",
+   "who": "carlos",
+   "text": "For dreams, use if plus past, then would."
+  },
+  {
+   "id": "n_c1a128_c",
+   "who": "ama",
+   "text": "Is 'If I will be rich, I would travel' correct? No."
+  },
+  {
+   "id": "n_c1a128_rs",
+   "who": "carlos",
+   "text": "Repeat after me: If I were rich, I would travel.",
+   "speed": 0.74
+  },
+  {
+   "id": "n_c1a128_rn",
+   "who": "ama",
+   "text": "Now at normal speed: If I were rich, I would travel."
+  },
+  {
+   "id": "n_c1a128_r",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_c1a128_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_c1a128_e",
+   "who": "ama",
+   "text": "Quiz: If I blank a car, I would drive to work. Will have or had? Comment below."
+  },
+  {
+   "id": "n_c1a128_e2",
+   "who": "carlos",
+   "text": "Quiz: If I blank a car, I would drive to work. Will have or had? Comment below."
   }
  ],
  "reactions": {
