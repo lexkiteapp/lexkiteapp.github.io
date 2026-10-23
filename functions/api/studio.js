@@ -7,7 +7,7 @@
  * Bí mật (chỉ ở máy chủ, không bao giờ trả về/ghi log): GH_DISPATCH_TOKEN (chạy video.yml), STUDIO_CALLBACK_SECRET (CI gọi lại), GRABCAST_API_KEY (đăng bài).
  * Thiếu bí mật nào → 503 { error: 'not-configured', need: '<TÊN>' } để giao diện hiện hướng dẫn. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
-import { guardBg } from './_d1guard.js';
+import { guardBg, stripBackgroundAI } from './_d1guard.js';
 import { allowed as gcAllowed } from './social.js';
 import { geminiCall, runModel } from './ai.js';
 import { limit } from './sync.js';
@@ -509,6 +509,7 @@ export async function onRequestPost({ request, env }) {
     if (!env.STUDIO_CALLBACK_SECRET) return json(request, 503, { error: 'not-configured', need: 'STUDIO_CALLBACK_SECRET' });
     if (await limit('studio-ci:' + (request.headers.get('CF-Connecting-IP') || '?'), 60, 60)) return json(request, 429, { error: 'too-fast' });
     if (!(await secretOk(env, ciSecret))) return json(request, 403, { error: 'forbidden' });
+    env = stripBackgroundAI(env); // việc nền (CI) không tiêu neuron Workers AI của tài khoản chính (dành cho AI người dùng)
   } else {
     const g = await adminGate(request, env, 'std'); if (!g.who) return json(request, g.status, { error: g.error }); who = g.who;
   }

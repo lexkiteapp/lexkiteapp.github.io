@@ -4,6 +4,7 @@
  * - guardBackground(env, db): việc nền/quản trị (drive.*, archive, verify, youtube.sync, báo cáo QC…) → Response 429 {error:'quota-guard'} khi dùng ≥ 50 % hạn mức đọc.
  *   Việc người dùng (đồng bộ, đăng nhập, bài học) KHÔNG BAO GIỜ gọi hàm này. CI: gặp 429 → dừng, mai chạy tiếp (không thử lại).
  * - Cảnh báo ≥ 60 %: thư + chuông Quản trị (drive_alerts kind 'd1'), tối đa 1 thư/24 h. */
+import { REG } from './_jobs_reg.js';
 export const D1_LIMITS = { reads: 5e6, writes: 1e5 };
 export const GUARD_PCT = 0.5, ALERT_PCT = 0.6, OWN_BUDGET = 1.5e6;
 const CACHE = {}; // theo tài khoản: 'main' | 'b'
@@ -45,4 +46,12 @@ export async function guardBackground(env, db, json, which = 'main') {
 export async function guardBg(request, env, json, which = 'main') {
   try { const u = await d1Usage(env, env.DB, Date.now(), fetch, which); if (u.block) return json(request, 429, { error: 'quota-guard', pct: Math.round(u.ratio * 100), source: u.source }); } catch (e) { /* cho qua */ }
   return null;
+}
+
+/** Đặt chỗ Workers AI tài khoản CHÍNH cho đường người dùng (infra/jobs.json › reservations.workers_ai): đường NỀN (CI: studio X-Studio-Secret, lexai OIDC) không được dùng binding env.AI
+ * trừ khi sổ cấp background_neurons > 0 → các cổng AI rơi sang Gemini / tài khoản 2 / GrabCast. Không đọc D1. */
+export function stripBackgroundAI(env) {
+  const R = (REG.reservations || {}).workers_ai || {};
+  if (+R.background_neurons > 0 || !env || !env.AI) return env;
+  return Object.create(env, { AI: { value: null, enumerable: true } });
 }

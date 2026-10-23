@@ -49,6 +49,13 @@ export function check(reg, wfDir = '.github/workflows', root = '.') {
     if (j.lease && !new RegExp('scripts/jobs/lease\\.mjs acquire ' + j.id + '\\b').test(r.s)) bad.push(`${j.id}: lease:true nhưng workflow thiếu bước "node scripts/jobs/lease.mjs acquire ${j.id}"`);
   }
   for (const f of Object.keys(real)) if (!reg.jobs.some(j => j.workflow === f)) bad.push(`workflow ${f} có lịch nhưng chưa vào infra/jobs.json`);
+  // đặt chỗ Workers AI tài khoản chính cho đường người dùng: việc nền dùng workers_ai phải thuê (lease) và không vượt phần được cấp (mặc định 0)
+  const R = (reg.reservations || {}).workers_ai || { background_neurons: 0, grants: {} };
+  for (const j of reg.jobs.filter(j => j.resources.includes('workers_ai'))) {
+    if (!j.lease) bad.push(`${j.id}: dùng workers_ai (neuron tài khoản chính) nhưng lease:false – phải thuê để nhận phần cấp`);
+    const g = (R.grants || {})[j.id] ?? R.background_neurons ?? 0, need = (j.est || {}).workers_ai_neurons || 0;
+    if (need > g) bad.push(`${j.id}: ước lượng ${need} neuron Workers AI chính > phần cấp ${g} (mặc định nền = 0; cấp thêm trong reservations.workers_ai.grants)`);
+  }
   // chồng giờ
   const heavy = j => j.resources.some(r => excl.has(r)) || j.minutes >= 60;
   for (let i = 0; i < reg.jobs.length; i++) for (let k = i + 1; k < reg.jobs.length; k++) {

@@ -27,11 +27,19 @@ export function accountsOf(env, j) {
   for (const r of j.resources) { if (r === 'd1_internal') out.add(d1bReady(env) && d1bMode(env) !== '0' ? 'b' : 'main'); if (r === 'd1_main' || r === 'd1_main_read') out.add('main'); }
   return [...out];
 }
+/** Đặt chỗ tài nguyên cho đường người dùng: neuron Workers AI tài khoản chính được cấp cho việc nền (mặc định 0). Không cần DB. */
+export function grantsOf(j) {
+  const g = {}, R = (REG.reservations || {}).workers_ai || {};
+  if (j.resources.includes('workers_ai')) { const v = (R.grants || {})[j.id]; g.workers_ai = Math.max(0, Math.round(v !== undefined ? +v || 0 : +R.background_neurons || 0)); }
+  return g;
+}
+/** Việc nặng/dùng chung (tài nguyên độc quyền, D1, AI…) PHẢI có thuê mới chạy (fail-closed); việc chỉ dùng phút GitHub thì bỏ qua được khi điều phối hỏng. */
+export const failClosed = j => !!j && j.resources.some(r => r !== 'gh_minutes' && r !== 'grabcast_ai');
 export async function acquire(env, db, b, now = Date.now()) {
   const j = jobOf(String(b.job || '')); if (!j) return { status: 400, error: 'unknown-job' };
   if (j.paused && !b.force) return { ok: false, skip: true, reason: 'paused (infra/jobs.json) – chỉ chạy tay với --force' };
   const runId = String(b.run || 'manual-' + now).slice(0, 60), d = day(now);
-  const skip = async reason => { await run(db, 'INSERT INTO job_runs (job, run, day, started, ended, status, reason) VALUES (?, ?, ?, ?, ?, ?, ?)', j.id, runId, d, now, now, 'skipped', String(reason).slice(0, 200)); return { ok: false, skip: true, reason }; };
+  const skip = async reason => { try { await run(db, 'INSERT INTO job_runs (job, run, day, started, ended, status, reason) VALUES (?, ?, ?, ?, ?, ?, ?)', j.id, runId, d, now, now, 'skipped', String(reason).slice(0, 200)); } catch (e) { /* DB hỏng: vẫn trả lý do, không ghi nhật ký */ } return { ok: false, skip: true, reason }; };
   const cap = REG.budget_caps[j.priority] ?? 0.5;
   for (const w of accountsOf(env, j)) {
     let u; try { u = await d1Usage(env, db, now, fetch, w); } catch (e) { continue; }
@@ -45,7 +53,7 @@ export async function acquire(env, db, b, now = Date.now()) {
     if (other || held.length < res.length) { await run(db, 'DELETE FROM job_leases WHERE run = ?', runId); return skip(`đang có "${other ? other.job : '?'}" giữ ${other ? other.resource : res.join(',')} – bỏ qua tới khung kế`); }
   }
   await run(db, 'INSERT INTO job_runs (job, run, day, started, status) VALUES (?, ?, ?, ?, ?)', j.id, runId, d, now, 'running');
-  return { ok: true, run: runId, leased: res, until };
+  return { ok: true, run: runId, leased: res, until, grants: grantsOf(j) };
 }
 export async function release(env, db, b, now = Date.now()) {
   const id = String(b.job || ''), runId = String(b.run || '').slice(0, 60); if (!jobOf(id) || !runId) return { status: 400, error: 'bad-input' };

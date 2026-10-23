@@ -37,6 +37,12 @@ jobs:
       - name: Thuê tài nguyên (workers_ai – không chồng script-bank/news-auto/video-auto)
         id: lease
         run: node scripts/jobs/lease.mjs acquire vocab-img --force
+      - name: Trần ảnh tài khoản chính theo đặt chỗ AI người dùng (nền mặc định 0 neuron)
+        if: steps.lease.outputs.skip != '1'
+        run: |
+          cap=$(( ${LEASE_AI_MAIN_NEURONS:-0} / 175 )); cur=${VIMG_MAX_MAIN:-0}
+          [ "$cur" -gt "$cap" ] && cur=$cap
+          echo "VIMG_MAX_MAIN=$cur" >> "$GITHUB_ENV"; echo "tài khoản chính: tối đa $cur ảnh (đặt chỗ AI người dùng: ${LEASE_AI_MAIN_NEURONS:-0} neuron được cấp)"
       - name: Cài công cụ QC (CPU)
         if: steps.lease.outputs.skip != '1'
         run: |

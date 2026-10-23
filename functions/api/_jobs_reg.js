@@ -36,7 +36,7 @@ export const REG = {
    "exclusive": true
   },
   "workers_ai": {
-   "label": "Workers AI (neuron)",
+   "label": "Workers AI tài khoản CHÍNH (neuron) – dành cho AI người dùng; việc nền mặc định 0 neuron (reservations)",
    "exclusive": true
   },
   "gh_minutes": {
@@ -60,6 +60,15 @@ export const REG = {
   "archive": 0.5,
   "reports": 0.4,
   "bulk": 0.3
+ },
+ "reservations": {
+  "_note": "Đặt chỗ cho đường người dùng: neuron Workers AI của tài khoản chính KHÔNG được việc nền tiêu. grants = số neuron việc nền được phép dùng (mặc định 0). Việc liệt kê tài nguyên workers_ai phải lease:true; acquire trả grants.workers_ai (workflow chuyển thành --neurons / VIMG_MAX_MAIN). Muốn cấp: thêm {\"<job>\": N} vào grants rồi node scripts/jobs/gen.mjs --write.",
+  "workers_ai": {
+   "account": "main",
+   "user_neurons": 10000,
+   "background_neurons": 0,
+   "grants": {}
+  }
  },
  "jobs": [
   {
@@ -398,9 +407,9 @@ export const REG = {
    ],
    "minutes": 60,
    "est": {
-    "workers_ai_neurons": 4000
+    "workers_ai_neurons": 0
    },
-   "lease": false
+   "lease": true
   },
   {
    "id": "storage-watch",
@@ -426,8 +435,7 @@ export const REG = {
    ],
    "priority": "render",
    "resources": [
-    "gh_minutes",
-    "workers_ai"
+    "gh_minutes"
    ],
    "minutes": 90,
    "est": {},
@@ -578,12 +586,12 @@ export const REG = {
    "minutes": 150,
    "est": {
     "clips": 6,
-    "workers_ai_neurons": 3000,
+    "workers_ai_neurons": 0,
     "gemini_calls": 12,
     "drive_calls": 60
    },
    "lease": true,
-   "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate)"
+   "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate) · Workers AI chính: 0 neuron nền (studio/lexai bỏ binding env.AI cho đường CI → cổng AI rơi sang Gemini)"
   },
   {
    "id": "vocab-img",

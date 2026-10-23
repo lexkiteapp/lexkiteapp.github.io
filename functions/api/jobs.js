@@ -16,5 +16,7 @@ export async function onRequestPost({ request, env }) {
     const db = internalDb(env); await setupJobs(db, d1bReady(env) ? d1bMode(env) + env.D1B_ACCOUNT_ID : 'main');
     const out = b.op === 'acquire' ? await acquire(env, db, b) : b.op === 'release' ? await release(env, db, b) : { status: 400, error: 'op' };
     const st = out.status || 200; delete out.status; return json(st, out);
-  } catch (e) { return json(500, { error: 'error' }); }
+  } catch (e) { // D1 hết hạn mức (7500) / REST lỗi: KHÔNG trả 500 mơ hồ – 503 rõ ràng để máy khách xử lý fail-closed cho việc nặng
+    const m = String((e && e.message) || e); return json(503, { error: 'coordinator-unavailable', cause: /7500|row read limit|exceeded/i.test(m) ? 'd1-quota' : 'db' });
+  }
 }

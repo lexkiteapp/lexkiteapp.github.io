@@ -38,6 +38,36 @@ const tl = await J.timeline(ENV, DB, { day: '2026-10-24' }, T0 + 30e6);
 ok(tl.runs.some(x => x.job === 'drive-shorts' && x.status === 'skipped' && /footage-archive/.test(x.reason)) && tl.runs.some(x => x.job === 'footage-archive' && x.status === 'ok' && x.reads === 1234), 'timeline: có dòng bỏ qua (lý do) và dòng đã chạy (số dòng đọc)');
 ok(tl.jobs.length >= 25 && tl.jobs.every(j => j.cron.length && j.priority), 'timeline kèm sổ việc');
 ok((await J.acquire(ENV, DB, { job: 'khong-co', run: 'x' })).status === 400, 'job lạ → 400');
+// 8) gốc rễ 23/10: điều phối hỏng (D1 hết hạn mức → trước đây 500 mơ hồ) → 503 rõ ràng; việc nặng FAIL-CLOSED; đặt chỗ neuron Workers AI chính = 0
+{
+  const { createHmac, createHash } = await import('node:crypto');
+  const mod = await import(new URL('../../functions/api/jobs.js', import.meta.url)), L = await import(new URL('../jobs/lease.mjs', import.meta.url));
+  const KEY = 'k'.repeat(40), body = JSON.stringify({ op: 'acquire', job: 'storage-watch', run: 'x1' }), ts = Math.floor(Date.now() / 1000);
+  const sig = createHmac('sha256', KEY).update(ts + '.' + createHash('sha256').update(body).digest('hex')).digest('hex');
+  const brokenDb = { prepare() { throw new Error('D1_ERROR: Your account has exceeded D1 free tier daily row read limit [code: 7500]'); }, async batch() { throw new Error('7500 exceeded'); } };
+  const res = await mod.onRequestPost({ request: new Request('https://lexkite.com/api/jobs', { method: 'POST', headers: { 'X-Drive-Ts': String(ts), 'X-Drive-Sig': sig, 'CF-Connecting-IP': '1.2.3.4' }, body }), env: { DB: brokenDb, LEXKITE_DRIVE_CLI_KEY: KEY } });
+  const jb = await res.json(); ok(res.status === 503 && jb.error === 'coordinator-unavailable' && jb.cause === 'd1-quota', 'D1 hết hạn mức → /api/jobs trả 503 coordinator-unavailable (không phải 500 mơ hồ): ' + res.status + ' ' + JSON.stringify(jb));
+  // fail-closed phía máy khách
+  ok(L.failClosed('script-bank') && L.failClosed('footage-archive') && L.failClosed('vocab-img') && L.failClosed('news-auto') && L.failClosed('khong-co-trong-so'), 'việc dùng Workers AI/Drive/D1 và việc lạ → fail-closed');
+  ok(!L.failClosed('storage-watch') && !L.failClosed('blog-publish'), 'việc tầm thường (chỉ phút GitHub) → fail-open');
+  ok(L.decide(503, jb, true).skip === 1 && L.decide(0, { error: 'network' }, true).skip === 1 && L.decide(500, {}, true).skip === 1, 'việc nặng + điều phối 503/mạng/500 → KHÔNG chạy');
+  ok(L.decide(503, jb, false).skip === 0 && L.decide(200, { ok: true }, true).skip === 0 && L.decide(200, { skip: true, reason: 'x' }, false).skip === 1 && L.decide(429, {}, false).skip === 1, 'việc tầm thường chạy khi điều phối hỏng; thuê được → chạy; bị từ chối/429 → bỏ qua');
+  // đặt chỗ neuron: mặc định 0, cấp riêng theo việc
+  const rr = await J.acquire({}, DB, { job: 'script-bank', run: 'g1' }, T0 + 40e6); ok(rr.ok && rr.grants.workers_ai === 0, 'script-bank: neuron Workers AI chính được cấp = 0 (đặt chỗ cho người dùng)');
+  await J.release({}, DB, { job: 'script-bank', run: 'g1', status: 'success' }, T0 + 40.1e6);
+  const REGM = (await import(new URL('../../functions/api/_jobs_reg.js', import.meta.url))).REG; REGM.reservations.workers_ai.grants['script-bank'] = 750;
+  const r2 = await J.acquire({}, DB, { job: 'script-bank', run: 'g2' }, T0 + 41e6); ok(r2.ok && r2.grants.workers_ai === 750, 'cấp riêng grants → 750 neuron'); delete REGM.reservations.workers_ai.grants['script-bank'];
+  await J.release({}, DB, { job: 'script-bank', run: 'g2', status: 'success' }, T0 + 41.1e6);
+  const rv = await J.acquire({}, DB, { job: 'vocab-img', run: 'g3' }, T0 + 42e6); ok(!rv.ok && /paused/.test(rv.reason), 'vocab-img paused: không --force thì bỏ qua');
+  const rf = await J.acquire({}, DB, { job: 'vocab-img', run: 'g4', force: true }, T0 + 42e6); ok((rf.ok && rf.grants.workers_ai === 0) || (!rf.ok), 'vocab-img --force: nếu chạy thì neuron chính = 0'); if (rf.ok) await J.release({}, DB, { job: 'vocab-img', run: 'g4', status: 'success' }, T0 + 42.1e6);
+  // đường nền (CI) không dùng binding Workers AI của tài khoản chính khi nền = 0 neuron; DB và các biến khác giữ nguyên
+  { const AIB = { run() { return 1; } }, e0 = { AI: AIB, DB: 'db', X: 'x' }, e1 = G.stripBackgroundAI(e0);
+    ok(e1.AI === null && e1.DB === 'db' && e1.X === 'x' && e0.AI === AIB, 'stripBackgroundAI: env.AI = null cho đường nền, DB/biến khác giữ nguyên, env gốc không đổi');
+    const R0 = (await import(new URL('../../functions/api/_jobs_reg.js', import.meta.url))).REG.reservations.workers_ai; R0.background_neurons = 500;
+    ok(G.stripBackgroundAI(e0).AI === AIB, 'sổ cấp background_neurons > 0 → giữ binding'); R0.background_neurons = 0; }
+  // skip() chịu được DB hỏng (vẫn trả lý do)
+  const rb = await J.acquire({}, brokenDb, { job: 'vocab-img', run: 'g5' }, T0 + 43e6); ok(rb.skip === true, 'DB hỏng + paused → vẫn trả skip (không ném lỗi)');
+}
 // 7) sổ: footage-archive trước d1b-migrate; mọi việc d1_internal đều có lease
 const reg = (await import(new URL('../../functions/api/_jobs_reg.js', import.meta.url))).REG;
 ok(reg.jobs.filter(j => j.resources.includes('d1_internal')).every(j => j.lease), 'mọi việc dùng d1_internal đều thuê (lease)');
