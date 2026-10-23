@@ -19,7 +19,7 @@ const REDIRECT = 'https://lexkite.com/api/drive/callback';
 const SCOPE = 'https://www.googleapis.com/auth/drive.file openid email';
 const ROOT_FOLDER = 'Lexkite Library';
 const MB = 1048576, HEADROOM_MIN = 256 * MB, STATE_TTL = 600, LINK_TTL = 300, CLI_SKEW = 300;
-const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert']);
+const CLI_OPS = new Set(['list', 'upload_session', 'complete', 'refs_sync', 'health', 'where', 'replicas', 'repair', 'rebalance', 'render_link', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch']);
 // Shorts archive (docs/VIDEO-STORAGE.md): masters live under folder shorts/… with cls 'render'. CLI may only touch those (render_link · set_want · retire).
 const SHORTS_SQL = "f.folder LIKE 'shorts/%' AND f.cls = 'render'", CLIP_BYTES = 10 * 1048576, STOP_PCT = 0.9;
 // Kho footage (docs/VIDEO.md §Kho footage): masters under folder footage/<cảnh>, cls 'original', 2 bản sao/2 Drive. CLI chỉ được ĐỌC (render_link) – không retire/set_want.
@@ -171,16 +171,16 @@ export async function d1Alert(env, db) {
     if (!prev) await sendMail(env, '[Lexkite] ⛔ D1 đã dùng ≥ 60 % hạn mức đọc hôm nay', msg).catch(() => {});
   } else await db.prepare("DELETE FROM drive_alerts WHERE kind = 'd1'").run();
 }
-let READS = 0;
+let READS = 0, QN = 0, FN = 0; // QN: số truy vấn D1, FN: số lượt gọi Google trong yêu cầu hiện tại (gói miễn phí: ≤ 50 truy vấn/yêu cầu → lô tự cắt ở ~30)
 const rowsRead = r => +(r && r.meta && r.meta.rows_read) || 0;
 export function metered(db) {
   const wrap = st => ({
     _s: st, bind: (...a) => wrap(st.bind(...a)),
-    first: async () => { const r = await st.all(); READS += rowsRead(r); return (r.results || [])[0] ?? null; },
-    all: async () => { const r = await st.all(); READS += rowsRead(r); return r; },
-    run: async () => { const r = await st.run(); READS += rowsRead(r); return r; },
+    first: async () => { QN++; const r = await st.all(); READS += rowsRead(r); return (r.results || [])[0] ?? null; },
+    all: async () => { QN++; const r = await st.all(); READS += rowsRead(r); return r; },
+    run: async () => { QN++; const r = await st.run(); READS += rowsRead(r); return r; },
   });
-  return { prepare: q => wrap(db.prepare(q)), batch: async sts => { const r = await db.batch(sts.map(x => x._s || x)); READS += (r || []).reduce((t, x) => t + rowsRead(x), 0); return r; } };
+  return { prepare: q => wrap(db.prepare(q)), batch: async sts => { QN++; const r = await db.batch(sts.map(x => x._s || x)); READS += (r || []).reduce((t, x) => t + rowsRead(x), 0); return r; } };
 }
 export const d1Key = (t = Date.now()) => 'd1r:' + new Date(t).toISOString().slice(0, 10);
 async function flushReads(rawDb) { const n = READS; READS = 0; if (n) try { await rawDb.prepare('INSERT INTO drive_meta (k, v) VALUES (?, ?) ON CONFLICT(k) DO UPDATE SET v = CAST(v AS INTEGER) + CAST(excluded.v AS INTEGER)').bind(d1Key(), String(n)).run(); } catch (e) { /* đếm hỏng không được làm hỏng yêu cầu */ } }
@@ -193,6 +193,7 @@ const TOK = new Map(); // id Drive → {t, exp} (chỉ bộ nhớ isolate, < 50 
 export const _tokenCache = TOK;
 class DriveErr extends Error { constructor(code, status = 502) { super(code); this.code = code; this.status = status; } }
 async function gfetch(url, init) {
+  FN++;
   const r = await fetch(url, init).catch(() => null);
   if (!r) throw new DriveErr('google-network');
   return r;
@@ -532,6 +533,9 @@ const POOL_OPS = {
     if (!r || !(isShortsRow(r) || isFootageRow(r))) return { status: 404, error: 'not-found' };
     return { url: await signLink(env, r.file_id), ttl: LINK_TTL };
   },
+  /** Lô: nhiều upload_session / complete trong 1 yêu cầu (tối đa 50 mục). Gói miễn phí giới hạn ~50 truy vấn D1 + lượt gọi Google mỗi yêu cầu → dừng khi QN/FN > 30 và trả processed (máy khách gửi tiếp phần còn lại). */
+  async upload_sessions(db, b, who, env, req) { return batchOf(db, b, who, env, req, 'upload_session', it => ({ ...it, run: b.run })); },
+  async complete_batch(db, b, who, env, req) { return batchOf(db, b, who, env, req, 'complete', it => it); },
   /** CLI (footage-verify.yml · storage-watch.yml): bật/tắt cảnh báo ngoài (kind footage | gitsize) hiện ở Quản trị → Kho Drive. ok:true → xoá; ok:false → crit. Không gửi thư (workflow đỏ đã báo). */
   async ext_alert(db, b) {
     const kind = String(b.kind || 'footage'); if (!EXT_KINDS.has(kind)) return { status: 400, error: 'bad-input' };
@@ -729,7 +733,16 @@ const OPS = {
     return { url: await signLink(env, f.file_id), ttl: LINK_TTL };
   },
 };
-const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert', 'ext_alert']);
+async function batchOf(db, b, who, env, req, op, map) {
+  const items = Array.isArray(b.items) ? b.items.slice(0, 50) : null; if (!items || !items.length) return { status: 400, error: 'bad-input' };
+  const out = [];
+  for (const it of items) {
+    if (out.length && (QN > 30 || FN > 30)) break;
+    try { out.push(await OPS[op](db, { ...map(it), _cli: b._cli }, who, env, req)); } catch (e) { out.push({ status: e.status || 500, error: e instanceof DriveErr ? e.code : 'error' }); }
+  }
+  return { items: out, processed: out.length, of: items.length };
+}
+const WRITE = new Set(['connect', 'refresh_quota', 'disconnect', 'set_weight', 'drain', 'upload_session', 'complete', 'get_link', 'preview', 'rename', 'move', 'trash', 'restore', 'delete', 'empty_trash', 'cleanup_apply', 'refs_sync', 'health', 'repair', 'rebalance', 'verify_files', 'set_want', 'retire', 'footage_alert', 'ext_alert', 'upload_sessions', 'complete_batch']);
 const DANGER = new Set(['disconnect', 'delete', 'empty_trash']); // + confirm:'DELETE' trong op (xoá vĩnh viễn)
 const BIG_OPS = new Set(['refs_sync']);
 const cliOnly = b => b && b._cli === true;
@@ -761,7 +774,7 @@ export async function onRequestPost({ request, env }) {
   }
   if (cli && !['ext_alert', 'footage_alert', 'alerts'].includes(b.op) && (await ownReads(env.DB)) >= D1_BUDGET) return json(request, 429, { error: 'd1-budget' }); // trần riêng của đường CLI: 1,5 M dòng/ngày
   if (!cli && DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: 'Sensitive action: sign out and sign back in, then try again.' });
-  const db = metered(env.DB);
+  const db = metered(env.DB); QN = 0; FN = 0;
   try {
     await setup(env.DB);
     const out = await fn(db, b, who, env, request);

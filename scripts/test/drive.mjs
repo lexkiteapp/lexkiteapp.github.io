@@ -505,5 +505,20 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
   ok(mod.evalAlerts(rows, {}).some(a => a.kind === 'poolpct'), 'pool ≥ 80% → cảnh báo poolpct');
   ok(mod.EXT_KINDS.has('footage') && mod.EXT_KINDS.has('gitsize'), 'EXT_KINDS: footage + gitsize'); }
 
+// --- lô (cuối file: để lại phiên 'pending' không ảnh hưởng các kiểm trên)
+{
+    // --- lô upload_sessions / complete_batch (1 lượt gọi cho nhiều file; tự cắt theo giới hạn truy vấn/yêu cầu của gói miễn phí)
+    const mk = i => ({ name: `b${i}.png`, mime: 'image/png', size: Buffer.byteLength('batch-' + i), sha256: createHash('sha256').update('batch-' + i).digest('hex'), folder: 'footage/cafe', cls: 'original', replicas: 2, asset_id: 'footage:b' + i });
+    let bt = await cli({ op: 'upload_sessions', items: [mk(1), mk(2), mk(3)] });
+    ok(bt.s === 200 && bt.j.processed === 3 && bt.j.items.every(x => x.sessions && x.sessions.length === 2), 'upload_sessions: 3 file / 1 lượt, mỗi file 2 phiên');
+    const comp = []; for (const [i, it] of bt.j.items.entries()) for (const ss of it.sessions) { const pu = await fetch(ss.upload_url, { method: 'PUT', body: Buffer.from('batch-' + (i + 1)) }); comp.push({ drive_id: ss.drive_id, file_id: (await pu.json()).id, sha256: mk(i + 1).sha256 }); }
+    let cdone = 0, calls = 0; for (; cdone < comp.length && calls < 10; calls++) { bt = await cli({ op: 'complete_batch', items: comp.slice(cdone) }); ok(bt.s === 200 && bt.j.items.every(x => x.ok), 'complete_batch ok ' + JSON.stringify(bt.j).slice(0, 300)); cdone += bt.j.processed; }
+    ok(cdone === comp.length && calls < comp.length, 'complete_batch: ' + comp.length + ' bản trong ' + calls + ' lượt (< từng bản)');
+    bt = await cli({ op: 'upload_sessions', items: [mk(1), mk(2)] }); ok(bt.j.items.every(x => x.done && x.copies === 2), 'upload_sessions: đã đủ 2 bản → done (không tải lại)');
+    bt = await cli({ op: 'upload_sessions', items: Array.from({ length: 50 }, (_, i) => mk(100 + i)) });
+    ok(bt.s === 200 && bt.j.processed >= 1 && bt.j.processed < 50 && bt.j.of === 50, 'lô 50 file bị cắt theo ngân sách truy vấn/yêu cầu (processed=' + bt.j.processed + ') → máy khách gửi tiếp');
+    ok((await cli({ op: 'upload_sessions', items: [] })).s === 400, 'upload_sessions rỗng → 400');
+}
+
 if (fails) { console.log(`✗ drive: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ drive: ${n} kiểm (state/CSRF, AES-GCM, không lộ token, chọn Drive theo tỉ lệ, bản sao, cổng admin, CLI HMAC, link tải, trình duyệt file, dọn dẹp, sổ kho, cảnh báo)`);

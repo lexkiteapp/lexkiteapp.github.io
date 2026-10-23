@@ -9,6 +9,7 @@
  *     channel{channel_id} = ghi đè kênh YouTube (yt_plan nguồn 'manual', lượt plan_run kế đặt giờ).
  * Trạng thái duyệt/loại/tạm dừng/lịch/kênh nằm ở D1 clip_review (lớp phủ trên manifest); duyệt & gói đăng dùng chung youtube.js approveClips. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
+import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest, signed } from './admin-shorts.js';
 import { setup, approveClips, unqueueClip, slotToIso, kick } from './youtube.js';
@@ -105,6 +106,7 @@ export async function onRequestPost({ request, env }) {
   const ip = request.headers.get('CF-Connecting-IP') || '?', bulk = b.op === 'bulk';
   if (await limit((bulk ? 'clipbulk:' : 'clipq:') + ip, bulk ? 60 : 240, 60)) return json(request, 429, { error: 'too-fast' });
   if (!env.DB) return json(request, 412, { error: 'not-configured' });
+  { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   const act = 'clips.' + b.op + (bulk ? '.' + String(b.action || '').slice(0, 20) : '');
   if (bulk && DANGER.has(b.action) && Date.now() / 1000 - (+g.who.auth_time || 0) > 900) { await adminAudit(env, request, g.who.email, act, false); return json(request, 401, { error: 'reauth', message: 'Sensitive action: sign out and sign in again, then retry.' }); }
   try {

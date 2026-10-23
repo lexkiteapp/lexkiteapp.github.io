@@ -37,3 +37,10 @@ export async function guardBackground(env, db, json) {
   if (u.block) return json(429, { error: 'quota-guard', pct: Math.round(u.ratio * 100), source: u.source });
   return null;
 }
+
+/** Cho endpoint Pages (youtube, backlinks, studio, report admin/CLI, distribution, admin-clips, admin-shorts…): → null | Response 429 quota-guard.
+ * json(request, status, data) là hàm trả Response của endpoint. Lỗi đọc số liệu → cho qua (không bao giờ chặn nhầm). Việc người dùng KHÔNG gọi hàm này. */
+export async function guardBg(request, env, json) {
+  try { const u = await d1Usage(env, env.DB); if (u.block) return json(request, 429, { error: 'quota-guard', pct: Math.round(u.ratio * 100), source: u.source }); } catch (e) { /* cho qua */ }
+  return null;
+}

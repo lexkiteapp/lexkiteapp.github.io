@@ -5,6 +5,7 @@
  * Bộ máy thuần ở _distribution.js (định tuyến, hạn mức/ngày, giãn cách, khung giờ theo múi giờ kênh, jitter ±20 phút, chống trùng tiêu đề/bìa, đa dạng mẫu); luồng đăng tay: gói đăng hiện
  * "Đăng lên kênh X lúc HH:mm", sync kiểm video rơi đúng kênh (youtube.js). Khi API được duyệt, cùng kế hoạch (yt_plan) điều khiển đăng tự động. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
+import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
@@ -194,6 +195,7 @@ export async function onRequestPost({ request, env }) {
   if (!Object.hasOwn(OPS, b.op)) return json(request, 400, { error: 'op' });
   if (await limit('dst:' + (request.headers.get('CF-Connecting-IP') || '?'), 120, 60)) return json(request, 429, { error: 'too-fast' });
   if (!env.DB) return json(request, 412, { error: 'not-configured' });
+  { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   try {
     await setup(env.DB); await setupDist(env.DB); const out = await OPS[b.op](env.DB, b, g.who, env), status = out.status || 200; delete out.status;
     if (WRITE.has(b.op)) await adminAudit(env, request, g.who.email, 'dist.' + b.op, status < 400);

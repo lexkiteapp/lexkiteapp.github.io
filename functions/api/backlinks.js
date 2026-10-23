@@ -9,6 +9,7 @@
  * Thư (Worker lexkite-mail → REPORT_NOTIFY_EMAIL nếu có): sự cố nghiêm trọng (bài bị gỡ / bị khóa, tên miền na ná có MX, tài khoản của mình biến mất)
  *   gửi NGAY 1 lần khi mới xuất hiện; còn lại gom vào bản tin tuần. Bí mật không bao giờ trả về/ghi log. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
+import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { LEVELS, SERIOUS, validatePlacement, validateHandle } from './_bw.js';
 
@@ -220,6 +221,7 @@ export async function onRequestPost({ request, env }) {
   }
   let b; try { b = JSON.parse(raw); } catch (e) { return json(request, 400, { error: 'json' }); }
   const T = who ? OPS : CI, fn = b && typeof b === 'object' && Object.hasOwn(T, b.op) ? T[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
+  { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   try {
     await setup(env.DB);
     const out = await fn(env, env.DB, b, who);

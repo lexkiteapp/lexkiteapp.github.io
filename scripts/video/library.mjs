@@ -898,7 +898,7 @@ export function driveCopies(v) {
 }
 /** Số bản sao cần: bản gốc approved/reserve → 2 (2 Drive khác nhau), reject → 1. */
 export const driveWant = e => (e.status === 'reject' ? 1 : 2);
-async function putSession(fetcher, url, buf, ct, chunk) {
+export async function putSession(fetcher, url, buf, ct, chunk) {
   if (!/^https:\/\/www\.googleapis\.com\/upload\//.test(String(url || ''))) throw new Error('Drive không trả phiên tải lên');
   let res, off = 0;
   if (buf.length <= 64 << 20) res = await fetcher(url, { method: 'PUT', headers: { 'Content-Type': ct }, body: buf });

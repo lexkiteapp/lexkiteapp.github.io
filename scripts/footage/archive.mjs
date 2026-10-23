@@ -3,7 +3,7 @@
 // env: LEXKITE_DRIVE_CLI_KEY (không bao giờ in). Ghi manifest sau mỗi 20 file → dừng giữa chừng chạy lại sẽ tiếp tục.
 import fs from 'fs';
 import path from 'path';
-import { driveApi, driveUpload } from '../video/library.mjs';
+import { driveApi, driveWhere, putSession } from '../video/library.mjs';
 import { DEFAULT_ROOT, MANIFEST_NAME, WANT, walk, isArchivable, sha256File, folderOf, mimeOf, loadManifest, saveManifest, distinctDrives, sleep, arg } from './lib.mjs';
 
 const args = process.argv.slice(2), DRY = args.includes('--dry-run');
@@ -23,36 +23,46 @@ if (DRY) process.exit(0);
 
 let up = 0, same = 0, fail = 0, short = 0, n = 0, dirty = 0;
 const flush = () => { saveManifest(MAN, m); dirty = 0; };
-let stop = false, next = 0, streak = 0; // streak: lỗi liên tiếp → dừng sớm (vd. D1 hết hạn mức đọc, lỗi 500 hàng loạt)
-const todo = need.slice(0, LIMIT), CONC = Math.max(1, +arg(args, 'conc', 3)); // vài luồng song song: mỗi file ≈ 10 s (2 phiên Google), giới hạn 120 lượt/phút/IP vẫn dư
-const inflight = new Map(); // sha đang tải → file trùng nội dung chờ, không tải lần 2
-const one = async f => {
-  n++;
-  try {
-    const h = sha256File(f.abs);
-    while (inflight.has(h)) await inflight.get(h);
-    const prev = bySha.get(h);
-    let done; inflight.set(h, new Promise(r => (done = r)));
-    try {
-    if (prev) { m.files[f.rel] = { sha256: prev.sha256, size: prev.size, copies: prev.copies, at: prev.at }; same++; dirty++; }
-    else {
-      const r = await driveUpload(f.abs, { name: path.posix.basename(f.rel), folder: folderOf(f.rel), sha: h, mimeType: mimeOf(f.rel), cls: 'original', replicas: WANT, assetId: 'footage:' + f.rel.slice(0, 180) });
-      const copies = (r.copies.length ? r.copies : [{ driveId: r.driveId, email_masked: '', fileId: r.fileId }]).map(c => ({ driveId: c.driveId, email: c.email_masked || '', fileId: c.fileId }));
-      const e = { sha256: h, size: f.size, copies, at: new Date().toISOString().slice(0, 10) };
-      m.files[f.rel] = e; if (distinctDrives(e) >= WANT) bySha.set(h, e); else { short++; console.error(`⚠ ${f.rel}: chỉ ${distinctDrives(e)}/${WANT} Drive`); }
-      up++; dirty++; await sleep(PAUSE);
-    }
-    } finally { inflight.delete(h); done(); }
-    streak = 0;
-    if (dirty >= 20) { flush(); console.log(`… ${n}/${todo.length} (↑${up} =${same} ✗${fail})`); }
-  } catch (e) {
-    fail++; console.error(`✗ ${f.rel}: ${e.message}`);
-    if (++streak >= 8) { stop = true; console.error('✗ dừng: 8 lỗi liên tiếp'); process.exitCode = 1; }
-    if (/no-key|403|forbidden|pool_full|507|quota-guard|d1-budget/.test(String(e.code || e.message))) { stop = true; console.error('✗ dừng: ' + (e.code || e.message)); process.exitCode = 1; }
-    else await sleep(PAUSE * 4);
+// Lô ≤ 50 file / lượt gọi API (upload_sessions → PUT thẳng lên Google song song → complete_batch). Máy chủ tự cắt lô theo giới hạn truy vấn/yêu cầu của gói miễn phí và trả processed.
+let stop = false;
+const todo = need.slice(0, LIMIT), CONC = Math.max(1, +arg(args, 'conc', 3)), BATCH = Math.min(50, +arg(args, 'batch', 50));
+const QUOTA = /quota-guard|d1-budget/, FATAL = /no-key|403|forbidden|pool_full|507|quota-guard|d1-budget/;
+const halt = (e) => { stop = true; process.exitCode = QUOTA.test(String(e.code || e.message)) ? 0 : 1; console.error(QUOTA.test(String(e.code || e.message)) ? '⏸ cầu dao D1 (429): dừng, chạy tiếp ngày mai (không thử lại)' : '✗ dừng: ' + (e.code || e.message)); };
+const run = process.env.GITHUB_RUN_ID || undefined;
+const par = async (list, fn) => { let i = 0; await Promise.all(Array.from({ length: CONC }, async () => { while (i < list.length) await fn(list[i++]); })); };
+async function chunk(files) {
+  const items = [], seen = new Map(), dups = [];
+  for (const f of files) { // băm + tách file đã có / trùng nội dung trong lô
+    const h = sha256File(f.abs), prev = bySha.get(h);
+    if (prev) { m.files[f.rel] = { sha256: prev.sha256, size: prev.size, copies: prev.copies, at: prev.at }; same++; dirty++; continue; }
+    if (seen.has(h)) { dups.push({ f, h }); continue; }
+    seen.set(h, f); items.push({ f, h, it: { name: path.posix.basename(f.rel), mime: mimeOf(f.rel), size: f.size, sha256: h, folder: folderOf(f.rel), cls: 'original', replicas: WANT, asset_id: 'footage:' + f.rel.slice(0, 180) } });
   }
-};
-await Promise.all(Array.from({ length: CONC }, async () => { while (!stop && next < todo.length) await one(todo[next++]); }));
+  const done = [];
+  for (let pend = items.slice(); pend.length && !stop;) {
+    let res; try { res = await driveApi('upload_sessions', { items: pend.map(x => x.it), run }); } catch (e) { fail += pend.length; halt(e); return; }
+    const got = pend.splice(0, Math.max(1, res.processed || 0)), ups = [];
+    got.forEach((x, i) => { const r = (res.items || [])[i] || {}; if (r.error || (r.status && r.status >= 400)) { fail++; console.error(`✗ ${x.f.rel}: ${r.error || r.status}`); if (FATAL.test(String(r.error || r.status))) halt({ code: r.error || r.status }); } else if (r.done) done.push(x); else for (const ss of r.sessions || [{ drive_id: r.drive_id, upload_url: r.upload_url }]) ups.push({ x, ss, chunk: r.chunk || 8 << 20 }); });
+    const completed = [];
+    await par(ups, async u => { try { const buf = fs.readFileSync(u.x.f.abs), fid = await putSession(fetch, u.ss.upload_url, buf, u.x.it.mime, u.chunk); completed.push({ drive_id: u.ss.drive_id, file_id: fid, sha256: u.x.h, x: u.x }); } catch (e) { fail++; console.error(`✗ ${u.x.f.rel}: ${e.message}`); } });
+    for (let i = 0; i < completed.length && !stop;) {
+      let r; try { r = await driveApi('complete_batch', { items: completed.slice(i, i + 50).map(c => ({ drive_id: c.drive_id, file_id: c.file_id, sha256: c.sha256 })) }); } catch (e) { fail += completed.length - i; halt(e); break; }
+      const k = Math.max(1, r.processed || 0); (r.items || []).forEach((q, j) => { if (q.error || (q.status && q.status >= 400)) { fail++; console.error(`✗ ${completed[i + j].x.f.rel}: complete ${q.error || q.status}`); } }); i += k;
+    }
+    for (const x of new Set([...done, ...got.filter(x => ups.some(u => u.x === x))])) { // vị trí mọi bản sao: tra theo sha (có chỉ mục)
+      if (stop) break;
+      try {
+        const copies = (await driveWhere(x.h)).map(c => ({ driveId: c.driveId, email: c.email_masked || '', fileId: c.fileId }));
+        const e = { sha256: x.h, size: x.f.size, copies, at: new Date().toISOString().slice(0, 10) };
+        m.files[x.f.rel] = e; if (distinctDrives(e) >= WANT) bySha.set(x.h, e); else { short++; console.error(`⚠ ${x.f.rel}: chỉ ${distinctDrives(e)}/${WANT} Drive`); }
+        up++; dirty++;
+      } catch (e) { fail++; if (FATAL.test(String(e.code || e.message))) halt(e); }
+    }
+    done.length = 0; await sleep(PAUSE);
+  }
+  for (const d of dups) { const prev = bySha.get(d.h); if (prev) { m.files[d.f.rel] = { sha256: prev.sha256, size: prev.size, copies: prev.copies, at: prev.at }; same++; dirty++; } else { fail++; console.error(`✗ ${d.f.rel}: bản trùng nhưng bản gốc chưa đủ`); } }
+}
+for (let i = 0; i < todo.length && !stop; i += BATCH) { await chunk(todo.slice(i, i + BATCH)); n = Math.min(todo.length, i + BATCH); flush(); console.log(`… ${n}/${todo.length} (↑${up} =${same} ✗${fail})`); }
 flush();
 // Tham chiếu cho cleanup_scan: sha nào được footage dùng → không bị gắn "mồ côi" (nguồn 'footage', thay cả bộ mỗi lần).
 try {

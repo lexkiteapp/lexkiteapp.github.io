@@ -10,6 +10,7 @@
  * Bìa đệm ở Cache API của Cloudflare (khóa băm bí mật, 1 ngày) để không tốn hạn mức Drive API. Không bao giờ trả token/khóa về máy khách.
  * Không cần việc gì của chủ: secret Drive (GOOGLE_DRIVE_CLIENT_ID/SECRET, DRIVE_ENC_KEY) đã có (docs/SHORTS-ACCESS.md). */
 import { adminGate, adminCors } from './admin.js';
+import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { latestFile, driveMedia } from './drive.js';
 import DATA from './_shorts_data.js';
@@ -84,6 +85,7 @@ export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env, 'adm'); if (!g.who) return json(request, g.status, { error: g.error });
   let b; try { b = await request.json(); } catch (e) { b = null; }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'body' });
+  { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   if (b.op === 'list') {
     const m = await manifest(env), covers = {};
     for (const it of m.items.slice(0, 300)) if (okPath(it.cover)) { const u = await signed(env, it, 'cover'); if (u) covers[it.cover] = u; }

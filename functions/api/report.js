@@ -11,6 +11,7 @@
  * Thư: báo lỗi mới → quản trị (Worker lexkite-mail, /send; REPORT_NOTIFY_EMAIL nếu có) theo chế độ config 'report_notify' (instant|digest|off);
  *      đổi trạng thái/phản hồi → người báo (nếu đã đồng ý) qua /user của Worker (Resend/Brevo). Trong app: trang #/report/<token> + nhắc khi mở app. */
 import { claims } from './sync.js';
+import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit } from './admin.js';
 import { gate, DEFAULTS } from './_quota.js';
 import { triage, errSig, createIssue, scrub, SEVS } from './_triage.js';
@@ -414,6 +415,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
       return json(request, 200, { rows: rows.map(r => ({ t: r.tok, ...pub(r, E) })) });
     }
     const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' }); // hasOwn: 'constructor' → Object(env) sẽ trả cả env
+  { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
     // Phiên Claude Code (scripts/report-cli.mjs): chỉ 'queue' & 'resolve', ký HMAC-SHA256 bằng LEXKITE_REPORT_CLI_KEY: X-Lexkite-Cli: <ts>.<hex(HMAC(key, ts + '.' + body))>, lệch ≤ 5 phút
     let g;
     const cli = request.headers.get('X-Lexkite-Cli');

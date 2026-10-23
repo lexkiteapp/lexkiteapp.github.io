@@ -7,6 +7,7 @@
  * Bí mật (chỉ ở máy chủ, không bao giờ trả về/ghi log): GH_DISPATCH_TOKEN (chạy video.yml), STUDIO_CALLBACK_SECRET (CI gọi lại), GRABCAST_API_KEY (đăng bài).
  * Thiếu bí mật nào → 503 { error: 'not-configured', need: '<TÊN>' } để giao diện hiện hướng dẫn. */
 import { adminGate, adminAudit, adminCors } from './admin.js';
+import { guardBg } from './_d1guard.js';
 import { allowed as gcAllowed } from './social.js';
 import { geminiCall, runModel } from './ai.js';
 import { limit } from './sync.js';
@@ -487,6 +488,7 @@ export async function onRequestPost({ request, env }) {
   }
   let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   const T = who ? OPS : CI, fn = b && typeof b === 'object' && Object.hasOwn(T, b.op) ? T[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
+  { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   try {
     await setup(env.DB);
     const out = await fn(env, env.DB, b, who);

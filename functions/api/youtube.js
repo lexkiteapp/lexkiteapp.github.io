@@ -17,6 +17,7 @@
  *   matches the description marker "lk:<clip>", checks unlisted/public + processing done + duration → status 'done' → op ids → web manifest
  *   embeds YouTube exactly like an API upload. 'api': the resumable upload path above (needs youtube.upload). Never browser bots / cookies. */
 import { healthVerdict, localDate, localHM, normCfg, pickEmbed } from './_distribution.js';
+import { guardBg } from './_d1guard.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
@@ -533,6 +534,7 @@ export async function onRequestPost({ request, env }) {
     if (DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) { await adminAudit(env, request, who.email, 'youtube.' + b.op, false); return json(request, 401, { error: 'reauth', message: 'Sensitive action: sign out and sign in again, then retry.' }); }
   }
   const fn = Object.hasOwn(ops, b.op) ? ops[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
+  { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   if (!env.DB) return json(request, 412, { error: 'not-configured' });
   try {
     await setup(env.DB);
