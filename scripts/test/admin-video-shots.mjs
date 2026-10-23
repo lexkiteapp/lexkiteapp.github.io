@@ -109,7 +109,7 @@ for (const theme of ['light', 'dark']) for (const [vp, size] of [['desktop', { w
     if (isNew && axe && vp === 'desktop') { await page.addScriptTag({ content: axe }).catch(() => {}); ax = await page.evaluate(async () => { const r = await window.axe.run('#main', { runOnly: ['wcag2a', 'wcag2aa'] }); return r.violations.filter(v => /serious|critical/.test(v.impact)).map(v => v.id + ' ×' + v.nodes.length + ' ' + v.nodes.slice(0, 2).map(n => n.target.join(' ')).join(' | ')); }); }
     const file = path.join(OUT, `${TAG}-${s}-${theme}-${vp}.png`); await page.screenshot({ path: file, fullPage: true });
     report.push({ s, theme, vp, file, overflow: over, cls: +cls.toFixed(3), axe: ax });
-    if (over > 1) fails.push(`${s} ${theme} ${vp}: horizontal overflow ${over}px`);
+    if (over > 1) { const who = await page.evaluate(() => [...document.querySelectorAll('#main *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1 && !e.closest('.tbl-x,.cl-vp,.vx-nav')).slice(-3).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].join('.') + ' w=' + Math.round(e.getBoundingClientRect().width)).join(' | ')); fails.push(`${s} ${theme} ${vp}: horizontal overflow ${over}px ← ${who}`); }
     if (isNew && cls > 0.02) fails.push(`${s} ${theme} ${vp}: layout shift ${cls.toFixed(3)}`);
     if (ax && ax.length) fails.push(`${s} ${theme}: axe ${ax.join('; ')}`);
   }
