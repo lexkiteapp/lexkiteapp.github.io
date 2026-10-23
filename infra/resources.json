@@ -752,7 +752,9 @@
         "scripts/footage/repo-size.mjs",
         "scripts/video/archive_reencode.py",
         "scripts/footage/hot.json",
-        "lexkite-footage-slim"
+        "lexkite-footage-slim",
+        "_d1guard.js",
+        "CF_ANALYTICS_TOKEN"
       ]
     }
   ],
