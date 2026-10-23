@@ -144,6 +144,8 @@ async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS drive_nonce (n TEXT PRIMARY KEY, at INTEGER NOT NULL) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS admin_log (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, ok INTEGER, ip TEXT, country TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS drive_refs (src TEXT NOT NULL, sha TEXT, file_id TEXT, name TEXT, status TEXT, at INTEGER NOT NULL)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS drive_refs_src_sha ON drive_refs (src, sha)'), // truy vấn sổ (where/ledger) tra drive_refs theo sha: không có chỉ mục = quét cả bảng mỗi lượt
+    db.prepare('CREATE INDEX IF NOT EXISTS drive_files_drive ON drive_files (drive_id, status)'),
     db.prepare('CREATE TABLE IF NOT EXISTS drive_alerts (kind TEXT PRIMARY KEY, level TEXT NOT NULL, drive_id INTEGER, msg TEXT, since INTEGER NOT NULL, seen INTEGER NOT NULL, mailed INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS drive_meta (k TEXT PRIMARY KEY, v TEXT) WITHOUT ROWID'),
   ]);
@@ -598,11 +600,13 @@ const OPS = {
     return { url, _cookie: `lk_drv=${nonce}; Path=/api/drive; Max-Age=${STATE_TTL}; HttpOnly; Secure; SameSite=Lax` };
   },
   async list(db, b, who, env) {
-    const rows = await all(db, `SELECT d.*, (SELECT COUNT(*) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok') AS files, (SELECT COALESCE(SUM(size), 0) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok') AS bytes, (SELECT COUNT(*) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok' AND ${SHORTS_SQL}) AS shorts_files, (SELECT COALESCE(SUM(size), 0) FROM drive_files f WHERE f.drive_id = d.id AND f.status = 'ok' AND ${SHORTS_SQL}) AS shorts_bytes FROM drives d ORDER BY d.id`);
+    // 1 lượt GROUP BY (≈ 1 lần quét bảng) thay cho 4 truy vấn con × mỗi Drive (≈ 40 lần quét → 22/10 cạn hạn mức đọc D1 miễn phí)
+    const rows = await all(db, 'SELECT d.* FROM drives d ORDER BY d.id'), agg = new Map((await all(db, `SELECT f.drive_id, COUNT(*) AS files, COALESCE(SUM(f.size), 0) AS bytes, SUM(CASE WHEN ${SHORTS_SQL} THEN 1 ELSE 0 END) AS shorts_files, COALESCE(SUM(CASE WHEN ${SHORTS_SQL} THEN f.size ELSE 0 END), 0) AS shorts_bytes, SUM(CASE WHEN ${SHORTS_SQL} AND f.mime LIKE 'video/%' THEN 1 ELSE 0 END) AS m, COALESCE(SUM(CASE WHEN ${SHORTS_SQL} AND f.mime LIKE 'video/%' THEN f.size ELSE 0 END), 0) AS mb FROM drive_files f WHERE f.status = 'ok' GROUP BY f.drive_id`)).map(r => [r.drive_id, r]));
+    for (const r of rows) Object.assign(r, agg.get(r.id) || { files: 0, bytes: 0, shorts_files: 0, shorts_bytes: 0 });
+    const sm = { n: rows.reduce((t, r) => t + (+(agg.get(r.id) || {}).m || 0), 0), mb: rows.reduce((t, r) => t + (+(agg.get(r.id) || {}).mb || 0), 0) };
     const total = rows.reduce((s, r) => s + (+r.quota_total || 0), 0), used = rows.reduce((s, r) => s + (+r.quota_used || 0), 0);
     const out = { drives: rows.map(r => ({ ...pub(r), shorts_files: +r.shorts_files || 0, shorts_bytes: +r.shorts_bytes || 0 })), total, used, free: Math.max(0, total - used), configured: config(env), redirect: REDIRECT, alerts: cliOnly(b) ? undefined : await alertRows(db) };
-    const sm = await one(db, `SELECT COUNT(*) AS n, COALESCE(AVG(f.size), 0) AS avg FROM drive_files f WHERE f.status = 'ok' AND ${SHORTS_SQL} AND f.mime LIKE 'video/%'`);
-    out.shorts = { bytes: rows.reduce((s, r) => s + (+r.shorts_bytes || 0), 0), files: rows.reduce((s, r) => s + (+r.shorts_files || 0), 0), masters: sm ? sm.n : 0, avg_master: sm ? Math.round(sm.avg) : 0, ...shortsCapacity(rows) };
+    out.shorts = { bytes: rows.reduce((s, r) => s + (+r.shorts_bytes || 0), 0), files: rows.reduce((s, r) => s + (+r.shorts_files || 0), 0), masters: sm.n, avg_master: sm.n ? Math.round(sm.mb / sm.n) : 0, ...shortsCapacity(rows) };
     out.forecast = forecastPool((await all(db, "SELECT k, v FROM drive_meta WHERE k >= 'used:' AND k < 'used;' ORDER BY k")).map(r => ({ day: r.k.slice(5), used: +r.v })), out.free);
     if (Array.isArray(b.sha256)) { // verify (CLI): sha nào đã có trên Kho Drive
       const shas = b.sha256.map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 200);
