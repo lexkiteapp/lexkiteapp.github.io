@@ -214,7 +214,7 @@
       </div>
       <div class="row between small" style="margin-bottom:.6rem">
         <span>${isNew ? `<span class="chip lv">✨ ${t('TỪ MỚI')}</span>` : App.masteryDots(c.srs)}</span>
-        )${M ? M.switcher(session.mode) : ''}<button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
+        ${M ? M.switcher(session.mode) : ''}<button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
       </div>
       <div class="flash" id="flash">
         <div class="flash-inner">
