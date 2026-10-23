@@ -1,182 +1,253 @@
 ---
-title: "Passive voice rules in hindi: Active se passive ka chart"
-description: "Samjhiye passive voice rules in hindi aasan tarike se: sabhi 8 tenses ke structure, formula chart, common mistakes aur daily practice sentences."
-slug: passive-voice-rules-in-english-hindi
-lang: hi
-translationKey: cau-bi-dong-tieng-anh-passive-voice
-category: ngu-phap
+title: "Passive Voice Rules in Hindi: Active से Passive बनाने के नियम"
+slug: "passive-voice-rules-in-english-hindi"
+description: "Passive voice rules in hindi: अंग्रेजी के सभी काल में एक्टिव से पैसिव वॉइस बनाने के नियम, फॉर्मूला चार्ट, बाय का सही प्रयोग और प्रमुख गलतियाँ समझें।"
+readMinutes: 12
+category: "ngu-phap"
+cluster: "passive-voice"
 tags: [grammar, passive-voice, verbs]
 keyword: "passive voice rules in hindi"
 cover: grammar
-coverAlt: "Lexkite grammar dashboard showing passive voice rules and verb tense transformations"
+coverAlt: "Lexkite व्याकरण स्क्रीन: 12 काल में एक्टिव और पैसिव वॉइस के नियम"
 publishAt: ""
 factChecked: 2026-10-23
 author: Lexkite
 status: ready
-qualityScore: 95
-quiz: [
-  {
-    q: "Passive voice me mukhya kriya (main verb) ki konsi form lagti hai?",
-    options: [
-      "Hamesha 1st form (base form)",
-      "Hamesha 2nd form (past simple)",
-      "Hamesha 3rd form (past participle)",
-      "Hamesha ing form (present participle)"
-    ],
-    answer: 2,
-    explain: "Passive voice ka sabse bada niyam hai ki isme main verb hamesha 3rd form (Past Participle) me hi hoti hai, chahe tense koi bhi ho."
-  },
-  {
-    q: "'She is writing a letter' ka sahi passive voice kya hoga?",
-    options: [
-      "A letter was written by her.",
-      "A letter is written by her.",
-      "A letter is being written by her.",
-      "A letter has been written by her."
-    ],
-    answer: 2,
-    explain: "Present continuous tense ke passive me 'is/am/are + being + V3' ka prayog hota hai."
-  },
-  {
-    q: "Konsi kriyayein (verbs) passive voice me convert nahi ho sakti?",
-    options: [
-      "Transitive verbs (sakarmak kriya)",
-      "Intransitive verbs (akarmak kriya)",
-      "Modal auxiliary verbs",
-      "Regular verbs"
-    ],
-    answer: 1,
-    explain: "Intransitive verbs (jaise go, sleep, happen, arrive) jinka koi direct object nahi hota, unka passive voice nahi banta."
-  }
-]
+qualityScore: 94
 ---
+अंग्रेजी व्याकरण में किसी भी विचार या संदेश को प्रस्तुत करने के दो प्रमुख माध्यम होते हैं: **Active Voice (कर्तृवाच्य)** और **Passive Voice (कर्मवाच्य)**। जब किसी वाक्य में कार्य को अंजाम देने वाला कर्ता सबसे मुख्य बिंदु होता है, तब हम एक्टिव वॉइस का सहारा लेते हैं। इसके विपरीत जब कार्य का प्रभाव अथवा वह वस्तु अधिक महत्वपूर्ण हो जाती है जिस पर कार्य घटित हुआ, तब पैसिव वॉइस का प्रयोग किया जाता है।
 
-English grammar aur daily conversation me **passive voice rules in hindi** ko seekhna behad aavashyak hai. Jab hum newspaper padhte hain, business reports dekhte hain ya formal emails likhte hain, to lagbhag 40% sentences passive voice me hote hain. Hindi me hum aamtaur par bolte hain «Sarak banayi ja rahi hai», «Chor pakda gaya», ya «Results kal ghoshit kiye jayenge». In sabhi vakyo me kaam karne wale vyakti par nahi, balki kaam aur uske parinam par zor hota hai.
-
-Aapko **passive voice rules in hindi** samajhne ke baad yah spashth ho jayega ki kab active sentence bolna chahiye aur kab passive sentence ka prayog karna behtar hota hai. Bahut se students tense badalte waqt *being* aur *been* me ulajh jate hain ya verb ki sahi form nahi chun paate.
-
-Is comprehensive guide me hum passive voice ke sabhi 8 tenses ke formulas, active se passive banane ke 5 aasan steps, modal verbs ke niyam aur rozana istemal hone wale practical examples ko vistaar se samjhenge.
-
-## Passive voice rules in hindi: Active se passive banane ke 5 basic steps
-
-Kisi bhi active sentence ko passive voice me badalne ke liye in 5 aasan steps ko follow karein:
-
-1. **Object ko Subject banayein:** Active voice ke object ko passive sentence me sabse aage subject ke sthan par layein.
-2. **Tense ke anusaar Helping Verb chunein:** Naye subject aur tense ke mutabiq *be* ki sahi form (*is/am/are, was/were, being, been*) lagayein.
-3. **Verb ki 3rd Form (V3) lagayein:** Passive voice me hamesha verb ki 3rd form (Past Participle) lagti hai.
-4. **Preposition 'by' ka prayog karein:** Kaam karne wale (doer) ko darshane ke liye aamtaur par *by* lagaya jata hai.
-5. **Subject ko Object me badlein:** Agar purana subject pronoun tha, to use objective case me badal dein (I ka *me*, He ka *him*, She ka *her*, They ka *them*).
-
-Apne grammar concepts ko mazboot karne ke liye aap hamare [grammar practice section](/app/#/grammar) ka upyog kar sakte hain. Saath hi, behtar sentence flow ke liye [conditional sentences in english in hindi](/hi/blog/conditional-sentences-in-english-rules-hindi/) aur [linking words in english in hindi](/hi/blog/linking-words-in-english-essay-writing-hindi/) ka gyan bhi zaroori hai.
-
-![Review notebook for passive voice grammar errors and irregular past participles](media:mistakes "Lexkite error notebook me tense conversion aur third form of verb mistakes ko revise karein.")
-
-## Sabhi Tenses ka Passive Voice Formula Chart
-
-English me kul 12 tenses hote hain, lekin unme se kewal 8 tenses ka hi passive voice aamtaur par banaya jata hai (charo continuous perfect aur future continuous ka passive natural nahi mana jata):
-
-### 1. Simple Present aur Simple Past
-- **Simple Present Tense:** *Object + is/am/are + V3 + by + Subject*
-  - Active: *The teacher explains the lesson.*
-  - Passive: *The lesson is explained by the teacher.*
-- **Simple Past Tense:** *Object + was/were + V3 + by + Subject*
-  - Active: *The company launched a new smartphone yesterday.*
-  - Passive: *A new smartphone was launched by the company yesterday.*
-
-### 2. Present Continuous aur Past Continuous
-Continuous tenses me kriya chalte rehne ko darshane ke liye *being* jodna anivarya hota hai:
-- **Present Continuous:** *Object + is/am/are + being + V3 + by + Subject*
-  - Active: *Engineers are repairing the bridge.*
-  - Passive: *The bridge is being repaired by engineers.*
-- **Past Continuous:** *Object + was/were + being + V3 + by + Subject*
-  - Active: *She was preparing dinner when I arrived.*
-  - Passive: *Dinner was being prepared by her when I arrived.*
-
-### 3. Present Perfect aur Past Perfect
-Perfect tenses me helping verb ke baad *been* lagaya jata hai:
-- **Present Perfect:** *Object + has/have + been + V3 + by + Subject*
-  - Active: *The scientist has discovered a new compound.*
-  - Passive: *A new compound has been discovered by the scientist.*
-- **Past Perfect:** *Object + had + been + V3 + by + Subject*
-  - Active: *They had signed the contract before the meeting ended.*
-  - Passive: *The contract had been signed before the meeting ended.*
-
-Agar aapko past aur perfect tenses me kabhi bhi shak ho, to hamara [present perfect tense hindi](/hi/blog/present-perfect-tense-hindi/) guide padhein.
-
-### 4. Simple Future aur Future Perfect
-- **Simple Future:** *Object + will be + V3 + by + Subject*
-  - Active: *The government will build a new airport.*
-  - Passive: *A new airport will be built by the government.*
-- **Future Perfect:** *Object + will have been + V3 + by + Subject*
-  - Active: *By next month, the team will have completed the project.*
-  - Passive: *By next month, the project will have been completed by the team.*
-
-![Smart learning flashcard showing passive voice verbs and collocations](media:practice-learn "Lexkite smart learning flashcard par verb usage aur contextual meaning aasani se samjhein.")
-
-
-## Active se Passive Conversion ka Quick Revision Table
-
-Sabhi 8 tenses ke conversion ko ek nazar me samajhne ke liye is table ko yaad karein:
-
-| Tense | Active Voice Structure | Passive Voice Structure | Example (Active -> Passive) |
-| :--- | :--- | :--- | :--- |
-| Simple Present | S + V1/s,es + O | O + is/am/are + V3 + by S | He helps me. -> I am helped by him. |
-| Present Continuous | S + is/am/are + V-ing + O | O + is/am/are + being + V3 | She is cooking food. -> Food is being cooked by her. |
-| Present Perfect | S + has/have + V3 + O | O + has/have + been + V3 | They have won the match. -> The match has been won by them. |
-| Simple Past | S + V2 + O | O + was/were + V3 + by S | He wrote a letter. -> A letter was written by him. |
-| Past Continuous | S + was/were + V-ing + O | O + was/were + being + V3 | I was reading a book. -> A book was being read by me. |
-| Past Perfect | S + had + V3 + O | O + had + been + V3 + by S | We had completed work. -> Work had been completed by us. |
-| Simple Future | S + will + V1 + O | O + will be + V3 + by S | She will sing a song. -> A song will be sung by her. |
-| Future Perfect | S + will have + V3 + O | O + will have been + V3 | They will have built it. -> It will have been built by them. |
-
-Is chart ko dhyan se dekhne par aap payenge ki passive voice me hamesha *V3 (Past Participle)* hi lagta hai, kewal *be* ki form tense ke mutabiq badalti rehti hai.
-
-## Modal Verbs ka Passive Voice: Can, Could, Must, Should
-
-Modal verbs ke sath passive voice banana bahut saral hota hai:
-**Formula: Object + Modal + be + V3 + by + Subject**
-
-Udaharan dekhiye:
-- Active: *You must wear a helmet.* -> Passive: *A helmet must be worn.*
-- Active: *We can solve this problem.* -> Passive: *This problem can be solved.*
-- Active: *Students should follow the instructions.* -> Passive: *The instructions should be followed.*
-
-Agar modal perfect form me ho (*should have, could have*):
-- Formula: *Modal + have been + V3*
-- Active: *You should have informed him.* -> Passive: *He should have been informed.*
-
-Is tarah ke formal sentences aapke business communication aur [presentation in english tips in hindi](/hi/blog/english-presentation-phrases-in-hindi/) me kaafi shandar lagte hain.
-
-## Passive voice kab use karna chahiye? 4 Important Situations
-
-Hamesha active voice bolne ke bajaye passive voice kab chunein:
-1. **Jab kaam karne wala anjaan ho:** *My wallet was stolen.* (Kisine churaya par pata nahi).
-2. **Jab kaam karne wala sabko pata ho:** *The thief was caught.* (Police ne hi pakda hoga).
-3. **Jab kaam ka parinam zyada mahatvapoorna ho:** *The new hospital was inaugurated.* (Hospital ka banna mukhy khabar hai).
-4. **Scientific aur formal writing me:** Jaise [ielts writing task 1 in hindi](/hi/blog/ielts-writing-task-1-graph-description-hindi/) me graphs aur process describe karte waqt (*The liquid was heated to 100°C*).
-
-## Common Mistakes jo Students karte hain
-
-Aap in aam galtiyo ko apne [revision notebook](/app/#/mistakes) me note karke durust karein:
-- **Intransitive verbs ka passive banana:** Verbs jaise *die, arrive, disappear, sleep* ka koi object nahi hota, isliye inka passive nahi banta (*The accident was happened* kehna galat hai, sahi hai *The accident happened*).
-- **Being aur Been me confusion:** Continuous me *being* lagta hai, Perfect me *been* lagta hai.
-- **V3 bhool jana:** Kabhi bhi passive me V1 ya V2 na lagayein, hamesha 3rd form aati hai.
-
-Saath hi spoken English me in sentences ko fluent bolne ke liye [connected speech in english in hindi](/hi/blog/connected-speech-rules-in-english-hindi/) ke tips follow karein aur hamare [complete grammar guide](/ngu-phap/) se practice jari rakhein.
-
-{{cta: /app/#/grammar | Learn Passive Voice Rules}}
-
-{{youtube: | Active to Passive Voice Rules in English}}
+इस अध्ययन सामग्री में हम **passive voice rules in hindi** के अंतर्गत विभिन्न कालों के रूपांतरण नियम, आवश्यक सूत्र, सर्वनाम में परिवर्तन और आम गलतियों का संपूर्ण विश्लेषण करेंगे ताकि आप अकादमिक लेखन और परीक्षाओं में उच्चतम अंक अर्जित कर सकें।
 
 ---
 
-## Frequently Asked Questions (FAQ)
+## Passive Voice Rules in Hindi: बुनियादी नियम और महत्व
 
-### Kya har sentence ka passive voice banaya ja sakta hai?
-Nahi. Kewal transitive verbs (sakarmak kriya) jinke sath direct object hota hai, unhi ka passive voice banaya ja sakta hai. Jaise: *He sleeps early* ka passive nahi banega kyunki isme koi object nahi hai.
+एक्टिव और पैसिव वॉइस के मूल अंतर को समझना अत्यंत सहज और स्वाभाविक है:
+- **Active Voice:** इसमें कार्य करने वाला व्यक्ति सीधे तौर पर वाक्य का नेतृत्व करता है।  
+  *उदाहरण:* *Dr. Robert formulated a revolutionary theory.* (डॉक्टर रॉबर्ट ने एक क्रांतिकारी सिद्धांत प्रतिपादित किया।)
+- **Passive Voice:** इसमें कार्य का प्रतिफल अथवा कर्म केंद्र बिंदु बन जाता है।  
+  *उदाहरण:* *A revolutionary theory was formulated by Dr. Robert.* (एक क्रांतिकारी सिद्धांत डॉक्टर रॉबर्ट द्वारा प्रतिपादित किया गया था।)
 
-### Passive voice me 'by' lagana kab zaroori nahi hota?
-Jab doer (kaam karne wala) anjaan ho ya aam janata ho (*someone, people, they, everyone*), to *by someone* lagane ki zaroorat nahi hoti. Udaharan: *English is spoken all over the world* (isme *by people* likhna bekar hai).
+### पैसिव वॉइस का प्रयोग किन परिस्थितियों में आवश्यक है?
+1. **जब कर्ता पूरी तरह अज्ञात हो:** *My bicycle was stolen from the parking lot.* (पार्किंग से मेरी साइकिल चोरी हो गई थी।)
+2. **जब कार्य कर्ता की तुलना में कहीं अधिक महत्वपूर्ण हो:** *The historical bridge was renovated recently.* (ऐतिहासिक पुल का हाल ही में जीर्णोद्धार किया गया।)
+3. **वैज्ञानिक, कानूनी और आधिकारिक प्रतिवेदनों में:** *The temperature was maintained at constant levels.* (तापमान को स्थिर स्तर पर बनाए रखा गया था।)
 
-### Passive voice formal writing me itna zaroori kyu hai?
-Kyunki passive voice bhasha ko impersonal aur objective banata hai. Isse vyaktigat dawe ke bajaye tathy (facts) par dhyan kendrit hota hai.
+---
+
+## Active से Passive में रूपांतरण के 4 मूलभूत चरण
+
+किसी भी सामान्य वाक्य को पैसिव रूप में बदलते समय इन चार निश्चित चरणों का क्रमवार पालन करें:
+
+1. **कर्म को कर्ता के स्थान पर लाएं:** मूल वाक्य के कर्म (Object) को नए वाक्य का मुख्य विषय (Subject) बनाएं।
+2. **उचित सहायक क्रिया का चयन करें:** काल और नए कर्ता के वचन के अनुसार *Be* क्रिया रूप (*is, am, are, was, were, being, been*) लगाएं।
+3. **मुख्य क्रिया का तीसरा रूप लगाएं:** पैसिव वॉइस का सर्वमान्य नियम है कि इसमें मुख्य क्रिया सदैव अपनी तीसरी अवस्था (V3 - Past Participle) में ही रहती है।
+4. **'By' के साथ मूल कर्ता को जोड़ें:** यदि कर्ता का उल्लेख आवश्यक और अर्थपूर्ण हो, तो वाक्य के अंत में *by* के साथ उसे कर्म कारक में लिखें।
+
+### सर्वनाम में होने वाले निश्चित परिवर्तन (Pronoun Shifts)
+एक्टिव वाक्य के कर्ता कारक सर्वनाम जब पैसिव वाक्य के अंत में कर्म कारक बनते हैं, तो उनका स्वरूप इस प्रकार बदलता है:
+- **I** परिवर्तित होकर **me** बन जाता है (*by me*)
+- **We** परिवर्तित होकर **us** बन जाता है (*by us*)
+- **You** अपने मूल रूप में रहता है (*by you*)
+- **He** परिवर्तित होकर **him** बन जाता है (*by him*)
+- **She** परिवर्तित होकर **her** बन जाता है (*by her*)
+- **They** परिवर्तित होकर **them** बन जाता है (*by them*)
+- **It** अपरिवर्तित रहता है (*by it*)
+
+---
+
+## प्रमुख Tenses में Passive Voice के सूत्र और उदाहरण
+
+अंग्रेजी भाषा के कुल बारह कालों में से केवल आठ कालों का ही सामान्यतः पैसिव वॉइस बनाया जाता है। तीनों परफेक्ट कंटीन्यूअस और फ्यूचर कंटीन्यूअस का पैसिव रूप जटिल होने के कारण मानक अंग्रेजी में नहीं बनता।
+
+### 1. सामान्य वर्तमान काल (Present Simple)
+- **एक्टिव सूत्र:** Subject + V1(s/es) + Object
+- **पैसिव सूत्र:** Object + **is / am / are + V3** + by Subject
+- *उदाहरण:* *The gardener waters the saplings.* -> *The saplings are watered by the gardener.* (माली द्वारा छोटे पौधों को सींचा जाता है।)
+
+### 2. अपूर्ण वर्तमान काल (Present Continuous)
+- **एक्टिव सूत्र:** Subject + is/am/are + V1-ing + Object
+- **पैसिव सूत्र:** Object + **is / am / are + being + V3** + by Subject
+- *उदाहरण:* *The technicians are inspecting the network.* -> *The network is being inspected by the technicians.* (तकनीशियनों द्वारा नेटवर्क का निरीक्षण किया जा रहा है।)
+
+### 3. पूर्ण वर्तमान काल (Present Perfect)
+- **एक्टिव सूत्र:** Subject + has/have + V3 + Object
+- **पैसिव सूत्र:** Object + **has / have + been + V3** + by Subject
+- *उदाहरण:* *The director has approved the proposal.* -> *The proposal has been approved by the director.* (निदेशक द्वारा प्रस्ताव स्वीकृत कर लिया गया है।)
+
+### 4. सामान्य भूतकाल (Past Simple)
+- **एक्टिव सूत्र:** Subject + V2 + Object
+- **पैसिव सूत्र:** Object + **was / were + V3** + by Subject
+- *उदाहरण:* *The architect designed the grand library.* -> *The grand library was designed by the architect.* (भव्य पुस्तकालय का निर्माण वास्तुकार द्वारा तैयार किया गया था।)
+
+### 5. अपूर्ण भूतकाल (Past Continuous)
+- **एक्टिव सूत्र:** Subject + was/were + V1-ing + Object
+- **पैसिव सूत्र:** Object + **was / were + being + V3** + by Subject
+- *उदाहरण:* *The workers were loading the heavy cargo.* -> *The heavy cargo was being loaded by the workers.* (श्रमिकों द्वारा भारी माल लादा जा रहा था।)
+
+### 6. पूर्ण भूतकाल (Past Perfect)
+- **एक्टिव सूत्र:** Subject + had + V3 + Object
+- **पैसिव सूत्र:** Object + **had + been + V3** + by Subject
+- *उदाहरण:* *The committee had finalized the guidelines.* -> *The guidelines had been finalized by the committee.* (समिति द्वारा दिशानिर्देशों को अंतिम रूप दिया जा चुका था।)
+
+### 7. सामान्य भविष्य काल (Future Simple)
+- **एक्टिव सूत्र:** Subject + will + V1 + Object
+- **पैसिव सूत्र:** Object + **will be + V3** + by Subject
+- *उदाहरण:* *The administration will launch the initiative.* -> *The initiative will be launched by the administration.* (प्रशासन द्वारा यह पहल आरंभ की जाएगी।)
+
+### 8. सहायक क्रियाएं (Modals: can, could, should, must)
+- **एक्टिव सूत्र:** Subject + Modal + V1 + Object
+- **पैसिव सूत्र:** Object + **Modal + be + V3** + by Subject
+- *उदाहरण:* *Candidates must follow the instructions.* -> *The instructions must be followed by candidates.* (उम्मीदवारों द्वारा निर्देशों का पालन किया जाना अनिवार्य है।)
+
+![Lexkite गलतियों की समीक्षा और विश्लेषण: गलती रिकॉर्ड और समाधान](media:mistakes)
+*अभ्यास के दौरान होने वाली हर व्याकरण गलती को अलग सूची में दर्ज करके दोहराएं*
+
+---
+
+
+---
+
+## पैसिव वॉइस और अखबारों की सुर्खियां (News Headlines Analysis)
+
+समाचार पत्रों, पत्रिकाओं और इलेक्ट्रॉनिक मीडिया में पैसिव वॉइस का प्रयोग सबसे अधिक देखने को मिलता है। जब किसी बड़ी घटना, दुर्घटना, सरकारी निर्णय अथवा खेलकूद के परिणाम की सूचना दी जाती है, तो संवाददाता कार्य करने वाले से अधिक उस घटना को महत्व देता है।
+
+उदाहरण के लिए:
+- "नए हवाई अड्डे का उद्घाटन किया गया" – यहां उद्घाटन करने वाले मंत्री से अधिक महत्वपूर्ण वह हवाई अड्डा और उसका खुलना है।
+- "बैंक लुटेरों को धर दबोचा गया" – यहां गिरफ्तारी की घटना प्रमुख है, न कि यह बताना कि किस विशिष्ट पुलिस दल ने पकड़ा।
+
+जब आप अंग्रेजी के प्रतिष्ठित समाचार पत्र पढ़ते हैं, तो आप पाएंगे कि प्रथम पृष्ठ की अधिकांश सुर्खियां पैसिव वॉइस की मूल भावना पर ही आधारित होती हैं। इसलिए समाचार पत्रों को पढ़कर पैसिव वाक्यों की पहचान करना और उन्हें समझने का अभ्यास करना एक अत्यंत कारगर शैक्षणिक रणनीति है।
+
+---
+
+## औपचारिक कार्यालयी पत्राचार में पैसिव वॉइस का उपयोग
+
+व्यावसायिक जीवन में कई बार हमें ऐसी अप्रिय सूचनाएं देनी होती हैं जहां सीधे किसी व्यक्ति पर दोषारोपण करने से रिश्ते बिगड़ सकते हैं। ऐसी संवेदनशील परिस्थितियों में पैसिव वॉइस एक कूटनीतिक ढाल का कार्य करता है।
+
+जैसे:
+- यदि किसी कर्मचारी ने समय पर प्रतिवेदन जमा नहीं किया, तो एक्टिव में कहना (*You did not submit the report*) अत्यंत कठोर और आक्रामक लगता है।
+- इसके स्थान पर पैसिव में कहना (*The report has not been received yet*) अत्यधिक विनम्र, पेशेवर और शिष्ट प्रतीत होता है।
+
+इस प्रकार पैसिव वॉइस केवल व्याकरण का एक नियम मात्र नहीं है, बल्कि यह व्यावसायिक संवाद की एक परिष्कृत और कूटनीतिक कला भी है।
+
+## आदेशात्मक वाक्यों (Imperative Sentences) का रूपांतरण
+
+दैनिक जीवन में जब हम आदेश, परामर्श या विनती करते हैं, तो उनके पैसिव रूपांतरण के विशिष्ट नियम होते हैं:
+
+1. **स्पष्ट आदेश (Order):** *Let + Object + be + V3*
+   - *Active:* *Distribute the test papers immediately.*
+   - *Passive:* *Let the test papers be distributed immediately.* (परीक्षा पत्र तुरंत वितरित कर दिए जाएं।)
+2. **हितकारी परामर्श (Advice):** *Object + should be + V3*
+   - *Active:* *Maintain personal cleanliness.*
+   - *Passive:* *Personal cleanliness should be maintained.* (व्यक्तिगत स्वच्छता का ध्यान रखा जाना चाहिए।)
+3. **विनम्र अनुरोध (Request):** *You are requested to + V1*
+   - *Active:* *Please silence your cellular phones.*
+   - *Passive:* *You are requested to silence your cellular phones.* (आपसे अनुरोध है कि अपने फोन शांत रखें।)
+
+![Lexkite फ्लैशकार्ड अभ्यास सत्र: pollution कार्ड को उलटना और दोहराव](media:review)
+*अनियमित क्रिया रूपों (V3) को याद रखने के लिए स्पेसड रिपीटिशन फ्लैशकार्ड का उपयोग करें*
+
+---
+
+
+---
+
+## कर्तृवाच्य और कर्मवाच्य के बीच सही चयन का कलात्मक विवेक
+
+अनेक शिक्षार्थियों के मन में यह संशय रहता है कि उन्हें अपनी बातचीत अथवा आलेख में एक्टिव वॉइस का चयन करना चाहिए या पैसिव वॉइस का। इस संदर्भ में भाषाविदों का यह सर्वमान्य परामर्श है कि जब तक कोई ठोस व्याकरणिक या तथ्यात्मक कारण न हो, तब तक एक्टिव वॉइस का ही प्रयोग करना चाहिए, क्योंकि यह शैली अधिक प्रत्यक्ष, सशक्त और सजीव मानी जाती है।
+
+परंतु जब आप किसी अनुसंधान प्रतिवेदन, प्रयोगशाला के प्रयोग, विधिक दस्तावेज अथवा आधिकारिक परिपत्र का प्रारूप तैयार कर रहे हों, तब पैसिव वॉइस अनिवार्य हो जाता है। उदाहरण के लिए, जब एक चिकित्सक किसी शल्यक्रिया का विवरण लिखता है, तो वह यह नहीं लिखता कि "मैंने रोगी की नाड़ी जांची", बल्कि वह औपचारिक रूप से लिखता है कि "रोगी की नाड़ी का परीक्षण किया गया"। इस प्रकार पैसिव वॉइस व्यक्ति के स्थान पर कार्य और प्रक्रिया को प्रधानता देकर लेखन को निष्पक्ष और आधिकारिक स्वरूप प्रदान करता है।
+
+---
+
+## दो कर्मों वाली क्रियाओं (Ditransitive Verbs) का पैसिव रूपांतरण
+
+कुछ क्रियाएं ऐसी होती हैं जो अपने साथ दो कर्म लेती हैं—एक प्रत्यक्ष कर्म (Direct Object) और दूसरा अप्रत्यक्ष कर्म (Indirect Object)। उदाहरण के लिए क्रिया *give, send, teach, show, offer*। ऐसे वाक्यों को पैसिव में बदलते समय दोनों में से किसी भी कर्म को नया कर्ता बनाया जा सकता है:
+
+- एक्टिव वाक्य: *The management offered him a prestigious promotion.*
+- पैसिव रूप एक (अप्रत्यक्ष कर्म से): *He was offered a prestigious promotion by the management.* (उसे प्रबंधन द्वारा एक प्रतिष्ठित पदोन्नति की पेशकश की गई थी।)
+- पैसिव रूप दो (प्रत्यक्ष कर्म से): *A prestigious promotion was offered to him by the management.* (प्रबंधन द्वारा उसे एक प्रतिष्ठित पदोन्नति की पेशकश की गई थी।)
+
+व्यावहारिक अंग्रेजी में प्रथम रूप (व्यक्तिवाचक सर्वनाम को कर्ता बनाना) अधिक स्वाभाविक और प्रचलित माना जाता है।
+
+---
+
+## प्रतियोगी परीक्षाओं में पैसिव वॉइस से संबंधित प्रमुख उलझनें
+
+प्रतियोगी परीक्षाओं में परीक्षार्थियों को भ्रमित करने के लिए बहुधा ऐसे वाक्य दिए जाते हैं जिनमें कर्म के स्थान पर कोई पूर्वसर्ग जुड़ा होता है। ध्यान रखें कि पैसिव बनाते समय क्रिया के साथ जुड़े पूर्वसर्ग को अलग नहीं किया जाना चाहिए। जैसे *The committee looked into the matter* का पैसिव रूप *The matter was looked into by the committee* ही शुद्ध माना जाएगा।
+
+## सामान्य गलतियां और उनसे बचाव के उपाय
+
+1. **अकर्मक क्रियाओं का अनावश्यक रूपांतरण:** जिन क्रियाओं में कर्म नहीं होता, उनका पैसिव नहीं बन सकता। उदाहरण के लिए *The sun sets in the west* का पैसिव रूपांतरण असंभव है।
+2. **अस्पष्ट कर्ता के साथ By का अनावश्यक प्रयोग:** जब कर्ता *someone, everybody, police, authorities* जैसा सामान्य शब्द हो, तो *by* लगाने से वाक्य का सौंदर्य नष्ट होता है:
+   - ❌ अनावश्यक: *The burglar was captured by the police.*
+   - ✔️ सुंदर और संक्षिप्त: *The burglar was captured.*
+
+व्याकरण में अपनी दक्षता बढ़ाने के लिए हमारे [अंग्रेजी व्याकरण नियम गाइड](/hi/blog/english-grammar-rules-in-hindi/) और [कंडीशनल सेंटेंस नियम गाइड](/hi/blog/conditional-sentences-in-english-rules-hindi/) का अध्ययन करें। इसके अतिरिक्त [प्रेजेंट परफेक्ट टेंस गाइड](/hi/blog/present-perfect-tense-hindi/) और [मोडल वर्ब्स का सही प्रयोग](/hi/blog/modal-verbs-can-could-should-must-hindi/) भी आपके लिए अत्यंत लाभकारी होंगे।
+
+व्यावहारिक अभ्यास के लिए [Lexkite ऐप के व्याकरण अनुभाग](/#/grammar) पर जाएं और अपनी प्रगति का आकलन करने के लिए [गलती रिकॉर्ड विश्लेषण](/#/mistakes) की सुविधा का लाभ उठाएं। हमारी विस्तृत [व्याकरण अध्ययन सामग्री](/ngu-phap/) आपकी सफलता का मार्ग प्रशस्त करेगी।
+
+{{youtube: | वीडियो सुझाव: Passive Voice Rules in Hindi - Active से Passive बनाने के सभी Tenses के नियम और ट्रिक्स}}
+
+---
+
+## अभ्यास हेतु बहुविकल्पीय प्रश्न (Self-Practice Quiz)
+
+1. *Active: "The chef is preparing the dessert." इसका शुद्ध पैसिव क्या होगा?*  
+   (A) The dessert was prepared.  
+   (B) The dessert is being prepared by the chef.  
+   (C) The dessert has been prepared.  
+   (D) The dessert is prepared.  
+   *उत्तर:* **(B)** (अपूर्ण वर्तमान काल में is + being + V3 का प्रयोग)
+
+2. *Active: "They have established a modern laboratory." इसका शुद्ध पैसिव क्या होगा?*  
+   (A) A modern laboratory has been established.  
+   (B) A modern laboratory was established.  
+   (C) A modern laboratory is established.  
+   (D) A modern laboratory had been established.  
+   *उत्तर:* **(A)** (पूर्ण वर्तमान काल में has been + V3)
+
+3. *Active: "Submit your assignments on time." इसका शुद्ध पैसिव क्या होगा?*  
+   (A) Your assignments should be submitted on time.  
+   (B) Assignments submitted on time.  
+   (C) Let assignments submit on time.  
+   (D) You submit assignments.  
+   *उत्तर:* **(A)** (परामर्श और दायित्व वाले वाक्यों में should be + V3)
+
+---
+
+
+---
+
+
+![Lexkite शब्दकोश: resilient शब्द का UK और US ध्वन्यात्मक उच्चारण](media:dict)
+*अनियमित क्रिया रूपों और उनके सही संदर्भ को शब्दकोश में देखें*
+
+## वैज्ञानिक शोध पत्रों में पैसिव वॉइस का अनिवार्य महत्व
+
+वैज्ञानिक समुदाय में जब कोई शोध पत्र तैयार किया जाता है, तो वहां व्यक्तिगत पूर्वाग्रहों से मुक्त होकर केवल प्रयोगों और निष्कर्षों की चर्चा करना अनिवार्य होता है। यदि कोई वैज्ञानिक यह लिखे कि "मैंने परखनली को गर्म किया और मैंने गैस को एकत्रित किया", तो यह शैली वैज्ञानिक जगत में अत्यंत अपरिपक्व और अहंकारी मानी जाती है।
+
+इसके स्थान पर जब वह लिखता है कि "परखनली को सौ डिग्री सेल्सियस तक गर्म किया गया और उत्सर्जित गैस को सावधानीपूर्वक एकत्रित किया गया", तो यह कथन वस्तुनिष्ठ, सत्यनिष्ठ और प्रामाणिक प्रतीत होता है। 
+
+इस प्रकार पैसिव वॉइस वैज्ञानिक सोच, बौद्धिक निष्पक्षता और अकादमिक गरिमा का प्रतीक है। जब भी आप किसी तकनीकी विषय, चिकित्सा विज्ञान अथवा भौतिक अनुसंधान पर निबंध या प्रतिवेदन लिखें, तो सदैव पैसिव वॉइस को प्राथमिकता दें।
+
+
+---
+
+## अनुवाद की भूलों से बचने के लिए व्यावहारिक भाषाई अंतर्दृष्टि
+
+हिंदी भाषा से अंग्रेजी में अनुवाद करते समय विद्यार्थी प्रायः शब्द-दर-शब्द अनुवाद की भूल कर बैठते हैं। हिंदी में जब हम कहते हैं कि "मुझे सूचित किया गया था", तो इसमें कर्म स्वयं वक्ता है। अंग्रेजी में इसका अनुवाद करते समय कर्ता कारक के सर्वनाम का प्रयोग करते हुए *I was informed* लिखा जाता है, न कि *Me was informed*। 
+
+यह समझना अत्यंत आवश्यक है कि अंग्रेजी में पैसिव वॉइस का कर्ता हमेशा प्रथमा विभक्ति (Nominative Case) में रहता है, भले ही वह अर्थ की दृष्टि से कार्य का प्राप्तकर्ता ही क्यों न हो। इस मूलभूत व्याकरणिक नियम को आत्मसात कर लेने से अनुवाद के समय होने वाली आधी से अधिक गलतियां स्वतः ही समाप्त हो जाती हैं।
+
+## अक्सर पूछे जाने वाले प्रश्न (FAQ)
+
+### क्या Future Continuous काल का पैसिव वॉइस कभी नहीं बनता?
+मानक और औपचारिक अंग्रेजी में फ्यूचर कंटीन्यूअस और तीनों परफेक्ट कंटीन्यूअस कालों का पैसिव रूप नहीं बनाया जाता क्योंकि उनकी बनावट अत्यधिक बोझिल हो जाती है।
+
+### कुछ क्रियाओं के साथ By के स्थान पर अन्य प्रीपोजिशन क्यों लगते हैं?
+कुछ विशेष क्रियाएं अपने बाद निश्चित प्रीपोजिशन लेती हैं। जैसे *He knows me* का पैसिव रूप *I am known to him* बनता है, जहां *to* का प्रयोग स्वाभाविक है।
+
+### क्या IELTS लेखन में पैसिव वॉइस का प्रयोग अंक बढ़ाता है?
+हाँ, विशेष रूप से अकादमिक लेखन के अंतर्गत निष्पक्षता और वस्तुनिष्ठता दर्शाने के लिए पैसिव वॉइस का संतुलित उपयोग परीक्षक को अत्यधिक प्रभावित करता है।

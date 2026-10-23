@@ -147,6 +147,10 @@ quiz: [
 
 {{youtube: | IELTS Reading Skimming and Scanning Masterclass in Hindi}}
 
+## संबंधित अध्ययन सामग्री
+
+- [IELTS राइटिंग टास्क 1 ग्राफ विश्लेषण गाइड](/hi/blog/ielts-writing-task-1-graph-description-hindi/)
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### Q1. क्या मुझे प्रश्नों से पहले पूरा पैसेज पढ़ना चाहिए?

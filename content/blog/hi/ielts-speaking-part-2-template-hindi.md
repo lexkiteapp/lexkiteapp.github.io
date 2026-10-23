@@ -171,6 +171,10 @@ quiz: [
 
 {{youtube: | IELTS Speaking Part 2 Master Template and Band 8 Sample in Hindi}}
 
+## संबंधित अध्ययन सामग्री
+
+- [कनेक्टेड स्पीच और स्वाभाविक उच्चारण नियम](/hi/blog/connected-speech-rules-in-english-hindi/)
+
 ## अक्सर पूछे जाने वाले प्रश्न (FAQ)
 
 ### Q1. यदि मैं 2 मिनट से पहले ही बोलना बंद कर दूँ तो क्या होगा?
