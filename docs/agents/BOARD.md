@@ -34,6 +34,12 @@ Mẫu thẻ:
 
 ## TODO
 
+### [C1b] Nút kêu gọi trên trang từ vựng tĩnh + đo riêng từng nút · @antigravity · ưu tiên: cao
+- Phần còn thiếu của C1 (Claude duyệt 23/10): C1 mới làm blog. Làm tiếp cho **trang từ vựng tĩnh** (cùng luật: add-on chỉ Chrome/Edge máy tính, PWA chỉ di động chưa cài, Ẩn nhớ 7 ngày, không popup, không PII, deep link chỉ khi topic có thật trong `IELTS_DATA.TOPICS`).
+- Đo: thay `quiz_cta` chung bằng sự kiện riêng (`cta_addon_view/click`, `cta_pwa_view/click`, `cta_topic_click`) trong `functions/api/hit.js` + hiện ở Quản trị › Phân tích (tỉ lệ bấm theo ngôn ngữ/trang).
+- Giữ shell ≤ 380 KB gz (đang 379): nạp lười, không thêm vào shell. i18n đủ 15 ngôn ngữ. Ảnh chụp trước/sau.
+
+
 ### [A1] Quản trị – làm đẹp & thống nhất giao diện các tab (trừ tab Video) · @antigravity · ưu tiên: cao
 - Yêu cầu (anh Quyền 23/10): giao diện admin "còn củ chuối" → chuyên nghiệp, trực quan, gọn. Tab **Video** do Claude đang làm lại (đừng sửa `admin-video.js`, `admin-clips.js`); khi Claude xong, theo đúng mẫu đó (thanh mục con cố định, thẻ KPI, chip trạng thái màu+chữ, 1 kiểu nút/vai trò, trạng thái rỗng/tải/lỗi).
 - Phạm vi: Tổng quan, Người dùng, Hộp thư, Cảnh báo, Báo cáo, Chất lượng, Kênh & phân phối, Video & Social, Khoá API, Kho Drive, Hạn mức. Dùng token/thành phần admin sẵn có + `docs/BRAND-RULES.md` (Kit teal); không đổi logic máy chủ.
