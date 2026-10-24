@@ -114,23 +114,7 @@ export const typeFilter = (items, total, lang, label = S[lang].types) => `<nav c
 export const itemList = (name, urls) => ({ '@context': 'https://schema.org', '@type': 'ItemList', name, numberOfItems: urls.length, itemListElement: urls.map((url, i) => ({ '@type': 'ListItem', position: i + 1, url })) });
 
 // ---------- CSS (phạm vi .smp – đè lên SEO_CSS chung nhờ độ đặc hiệu, không sửa site-layout.mjs) ----------
-export const SMP_CSS = `.smp{--ac2:var(--accent);--tc:var(--ac2)}
-@media (prefers-color-scheme:dark){.smp{--ac2:#7fd6cc}}
-.t-ad{--tc:#E5502F}.t-di{--tc:#12807A}.t-ps{--tc:#FFB054}.t-av{--tc:#2FBF71}.t-pn{--tc:#FF8FA3}.t-tp{--tc:#FFC94A}.t-fo{--tc:var(--brand)}
-.smp.page{max-width:1080px}.smp.narrow{max-width:820px}
-.smp .hero2{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:22px 22px 20px;margin:4px 0 18px;overflow:hidden}
-.smp .hero2::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#0F3D3E,#12807A 45%,#FFB054 78%,#E5502F)}
-.smp .kick span{white-space:nowrap}.smp .kick span:not(:last-child)::after{content:"·";margin-left:8px}
-.smp .kick{display:flex;flex-wrap:wrap;gap:4px 8px;margin:4px 0 0;font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ac2)}
-.smp .hero2 h1{font-size:clamp(26px,4vw,38px);line-height:1.2;margin:.25em 0 .15em;letter-spacing:-.02em;max-width:24em}
-.smp .hero2 .lead{color:var(--muted);margin:.2em 0 0;max-width:60ch}
-.smp .hero2.has-kit{padding-right:140px}.smp .hero2 .kit{position:absolute;right:22px;bottom:12px}
-@media (max-width:720px){.smp .hero2.has-kit{padding-right:22px}.smp .hero2 .kit{display:none}.smp .hero2{border-radius:18px;padding:18px 16px 16px}}
-.stats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
-.stats li{display:flex;align-items:baseline;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:5px 12px;font-size:14px;color:var(--muted);line-height:1.5}
-.stats b{font-size:18px;color:var(--text);font-variant-numeric:tabular-nums}
-.stats .band{background:linear-gradient(135deg,#0F3D3E,#12807A);border-color:transparent;color:#fff;font-weight:700}.stats .band b{color:#FFC94A}
-.smp .prompt{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px 16px 24px;margin:16px 0}
+export const SMP_CSS = `.smp .prompt{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px 16px 24px;margin:16px 0}
 .smp .prompt::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:4px;border-radius:0 4px 4px 0;background:var(--tc)}
 .smp .prompt .k{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
 .smp .prompt>p{margin:0;font-size:18.5px;font-weight:600;line-height:1.55;max-width:62ch}.smp .prompt ul{margin:.5em 0 0;padding-left:22px}.smp .prompt .open{font-size:15px;color:var(--muted);margin-top:8px}
@@ -195,27 +179,6 @@ export const SMP_CSS = `.smp{--ac2:var(--accent);--tc:var(--ac2)}
 .pg2 a:hover{border-color:var(--primary)}.pg2 small{color:var(--muted);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
 .pg2 span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:600;font-size:15px;line-height:1.45}.pg2 .nx{grid-column:2;text-align:right}
 @media (max-width:560px){.pg2{grid-template-columns:1fr}.pg2 .nx{grid-column:1}}
-.smp .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
-.sc{position:relative;transition:transform .15s,box-shadow .15s,border-color .15s}
-.sc::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--tc)}
-.sc:hover,.sc:focus-within{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,61,62,.12)}
-@media (prefers-reduced-motion:reduce){.sc,.pg2 a{transition:none}.sc:hover,.sc:focus-within{transform:none}}
-.smp .sc .bd{padding:16px 18px 14px}
-.sc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:24px}
-.tchip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
-.tchip::before,.tf a[class]::before,.smp .grp>h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--tc);flex:none}
-.sc-em{font-size:24px;line-height:1}
-.smp .sc h3{font-size:16.5px;line-height:1.45;margin:8px 0 2px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.smp .sc p{font-size:14.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.sc-meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin-top:auto;padding-top:12px;font-size:13px;color:var(--muted)}
-.sc-meta .bnd{background:var(--brand);color:#fff;border-radius:8px;padding:0 8px;font-weight:800}
-@media (prefers-color-scheme:dark){.sc-meta .bnd{color:#0f1017}}
-.smp .grp>h2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.smp .grp.off{display:none}
-.tf,.jump{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;margin:4px 0 0;scrollbar-width:thin}
-.tf a,.jump a{flex:none;display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;line-height:1.4}
-.tf a b{font-size:12px;color:var(--muted)}.tf a:hover,.jump a:hover{border-color:var(--tc)}
-.tf a[aria-pressed=true]{background:var(--text);border-color:var(--text);color:var(--surface)}.tf a[aria-pressed=true] b{color:inherit;opacity:.8}
 .smp .part{margin-top:30px;scroll-margin-top:16px}.smp .part>h2{display:flex;align-items:center;gap:10px;margin:0 0 2px}
 .pb{display:inline-grid;place-items:center;min-width:36px;height:36px;border-radius:10px;background:var(--brand);color:#fff;font-size:16px;font-weight:800}
 @media (prefers-color-scheme:dark){.pb{color:#0f1017}}
@@ -260,11 +223,10 @@ d.addEventListener('pointerdown',function(){kb=false},true);
 d.addEventListener('click',function(e){if(e.target.closest('.gx')){hide();return}if(P&&P.contains(e.target))return;var m=e.target.closest('mark.ph[data-g]');if(m){cur===m?hide():show(m);return}hide();
 var b=e.target.closest('[data-cls]');if(b){var on=b.getAttribute('aria-pressed')!=='true',x=d.querySelector('.ess2');b.setAttribute('aria-pressed',on);if(x)x.classList.toggle(b.getAttribute('data-cls'),b.hasAttribute('data-inv')?!on:on);return}
 if(e.target.closest('[data-print]')){w.print();return}
-var f=e.target.closest('.tf a');if(f){e.preventDefault();var g=f.getAttribute('data-g');[].forEach.call(d.querySelectorAll('.tf a'),function(a){a.setAttribute('aria-pressed',a===f)});[].forEach.call(d.querySelectorAll('.grp[aria-labelledby^="g-"]'),function(s){s.classList.toggle('off',!!g&&s.getAttribute('aria-labelledby')!==g)})}});
+});
 d.addEventListener('focusin',function(e){var m=e.target.closest&&e.target.closest('mark.ph[data-g]');if(m&&kb)show(m)});
 d.addEventListener('focusout',function(e){if(cur&&e.target===cur&&!mq.matches&&!(P.contains(e.relatedTarget)))hide()});
-w.addEventListener('scroll',function(){if(cur&&!mq.matches)hide()},{passive:true});w.addEventListener('resize',hide);
-[].forEach.call(d.querySelectorAll('.tf a'),function(a,i){a.setAttribute('role','button');a.setAttribute('aria-pressed',i===0)})})(document,window);`;
+w.addEventListener('scroll',function(){if(cur&&!mq.matches)hide()},{passive:true});w.addEventListener('resize',hide);})(document,window);`;
 // Hộp nghĩa (tooltip/bottom sheet, 1 cái dùng chung) + vùng thông báo cho trình đọc màn hình + script
 export const smpTail = (lang = 'vi') => `<div id="glp" hidden><b class="gp" lang="en"></b><span class="gg"></span><button type="button" class="gx" aria-label="${S[lang].close}">×</button></div><div id="gla" class="sr" role="status" aria-live="polite"></div><script>${SMP_JS}</script>`;
 export const smpHead = () => `<style>${SMP_CSS}</style>`;

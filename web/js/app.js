@@ -288,7 +288,7 @@
   // Tải sẵn lúc rảnh – bỏ qua khi tiết kiệm dữ liệu, mạng chậm, máy yếu
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
-  // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi. (Trước đây thực thi hết ~1 MB JS → chặn luồng chính ~3 s)
+  // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi.
   App.prefetchAll = () => { if (!Store.isExtension && lean()) return; idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)).forEach(f => { const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; document.head.appendChild(l); }); }); };
 
 
@@ -1432,8 +1432,8 @@
       const cta = hero.querySelector('.w-cta');
       if (cta && !hero.querySelector('a[href="#/placement"]')) {
         cta.insertAdjacentHTML('afterend', `
-          <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
-          <a class="small" href="#/style" style="display:inline-block;margin:.7rem 0 0 1rem;font-weight:700">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
+          <a class="small w-lk" href="#/placement">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
+          <a class="small w-lk" href="#/style">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
           <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>`);
       }
       const demo = hero.querySelector('.w-demo');
@@ -1478,8 +1478,8 @@
               <h1 style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:1rem 0">${t('Từ vựng vững,')}<br><span class="grad-text">${t('band điểm bứt phá.')}</span></h1>
               <p class="muted" style="font-size:1.1rem">${t('Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.')}</p>
               <div class="row w-cta" style="margin-top:1.5rem"><a class="btn primary lg" href="#/welcome/setup">${t('Bắt đầu miễn phí →')}</a><button class="btn lg" id="loginW">${t('Tôi đã có tài khoản')}</button></div>
-              <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
-          <a class="small" href="#/style" style="display:inline-block;margin:.7rem 0 0 1rem;font-weight:700">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
+              <a class="small w-lk" href="#/placement">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
+          <a class="small w-lk" href="#/style">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
               <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>
             </div>
             <div class="w-demo">
@@ -1685,7 +1685,7 @@
     const fresh = !state.settings.onboarded && !Object.keys(state.cards).length && !state.game.xp;
     try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
-    if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; App.prefetchAll(); return; }
+    if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; addEventListener('pointerdown', App.prefetchAll, { once: true }); return; }
     // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc đang ở trang thường
     if (!routeSeq || !document.body.classList.contains('focus')) route();
     App.prefetchAll();

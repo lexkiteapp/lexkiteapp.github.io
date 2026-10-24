@@ -1,7 +1,7 @@
 // Bản tiếng Anh của các trang tĩnh SEO (cho người học quốc tế): dist/en/{samples,speaking,vocabulary}/…
 // + hreflang vi ↔ en giữa 2 bản. Chạy sau build-samples.mjs. Giao diện chung: scripts/lib/site-layout.mjs.
 import fs from 'node:fs'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
-import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L } from './lib/site-layout.mjs';
+import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
@@ -66,8 +66,7 @@ ${pwaBox('en', 'samples')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(
     `<div class="page smp">${hero2({ h1: esc(`${done.length} IELTS Writing Task 2 sample essays (band 8)`), lead: 'Original model answers grouped by question type, with high-scoring phrases highlighted.', mood: 'think', cls: 'has-kit',
       statsHtml: stats([[done.length, U.statEss], [types.length, U.statTypes], ['8.0', 'Band', 'band'], [gls.toLocaleString('en'), U.statGl]]) })}
 ${sectionNav('en', '/en/samples/')}
-${filterBox('en')}
-${typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'en')}
+${filterBox('en', typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'en'))}
 ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Writing Task 2 sample essays', done.map(([p]) => `${SITE}en/samples/${p.id}`))] }));
 }
@@ -137,10 +136,13 @@ ${extBox('en', 'vocab')}
 ${pwaBox('en', 'vocab')}`, nm));
   }
   const by = {}; for (const x of TP) (by[x.group] = by[x.group] || []).push(x);
-  const total = TP.reduce((a, x) => a + x.words.length, 0);
+  const total = TP.reduce((a, x) => a + x.words.length, 0), nAu = TP.reduce((a, x) => a + x.words.filter(w => audioKey(w.word)).length, 0), F = FIND_I18N.en;
   out('en/vocabulary/', 'tu-vung/', page(`IELTS, TOEIC & TOEFL Vocabulary Lists – ${TP.length} Sets – Lexkite`, `${TP.length} vocabulary lists for IELTS, TOEIC and TOEFL with IPA, definitions and examples. Learn with free flashcards.`, 'en/vocabulary/', 'tu-vung/',
-    `${indexHero(`Vocabulary lists (${TP.length} sets)`, `${total.toLocaleString('en')} words with IPA, definitions, examples and audio. Pick a set to see the list, then learn it with free flashcards.`, 'vocabulary')}
-${Object.entries(by).map(([k, xs]) => group(k, G[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}`));
+    `<div class="page smp">${hero2({ h1: esc(`Vocabulary lists (${TP.length} sets)`), lead: `${total.toLocaleString('en')} words with IPA, definitions, examples and audio. Pick a set to see the list, then learn it with free flashcards.`, mood: 'cheer', cls: 'has-kit',
+  statsHtml: stats([[TP.length, F[2]], [total.toLocaleString('en'), F[3]], [Object.keys(by).length, F[4]], [nAu.toLocaleString('en'), F[5]]]) })}
+${sectionNav('en', '/en/vocabulary/')}
+${filterBox('en', typeFilter(Object.entries(by).map(([k, xs]) => [k, G[k] || k, xs.length, '']), TP.length, 'en', F[1]))}
+${Object.entries(by).map(([k, xs]) => group(k, G[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}</div>`));
 }
 fs.writeFileSync(sm, fs.readFileSync(sm, 'utf8').replace('</urlset>', urls.map(([u, d]) => `  <url><loc>${SITE}${u}</loc><lastmod>${d}</lastmod><changefreq>monthly</changefreq></url>`).join('\n') + '\n</urlset>'));
 console.log(`✓ SEO (EN): ${urls.length} trang tiếng Anh + hreflang vi↔en`);

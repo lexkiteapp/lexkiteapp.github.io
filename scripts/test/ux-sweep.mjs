@@ -36,7 +36,7 @@ function detect(mob) {
     const links = kids.filter(k => k.matches('a,button') || k.querySelector(':scope>a,:scope>button'));
     if (links.length < 3 || links.length < kids.length * 0.8) continue;
     if ([...links].some(k => vis(k).height > 64)) continue; // big tiles/cards, not a link row
-    const cs = getComputedStyle(c); if (cs.overflowX === 'auto' || cs.overflowX === 'scroll' || cs.display === 'grid') continue;
+    const cs = getComputedStyle(c); if (cs.overflowX === 'auto' || cs.overflowX === 'scroll' || cs.display === 'grid' || cs.flexDirection === 'column') continue; // scroll rows, grids and vertical lists are fine
     const tops = new Set(links.map(k => Math.round(vis(k).top / 6)));
     if (tops.size > 2 && links.every(k => vis(k).height < 48)) add('linkrow-wrap', c, `${links.length} links on ${tops.size} lines`);
   }

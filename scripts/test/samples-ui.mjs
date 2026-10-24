@@ -48,7 +48,7 @@ if (Object.values(P).every(fresh)) {
     ok(/<article class="page smp smp-doc/.test(h[k]) && /class="ess-side"/.test(h[k]) && /class="side-box outline"/.test(h[k]) && /class="side-box legend"/.test(h[k]), `${k}: cột dàn bài + chú thích màu`);
     ok((h[k].match(/<section class="para r-/g) || []).length >= 4, `${k}: thẻ đoạn có vai trò`);
     ok(/<ul class="stats">/.test(h[k]) && /class="band"/.test(h[k]) && /class="prompt/.test(h[k]) && /<ol class="phr">/.test(h[k]) && /class="save"/.test(h[k]) && /class="cta2"/.test(h[k]), `${k}: số liệu, đề bài, thẻ cụm từ, lưu cụm, CTA`);
-    ok(/<nav class="pg2"/.test(h[k]) && /id="glp"/.test(h[k]) && /<style>\.smp\{/.test(h[k]), `${k}: bài trước/sau + popover + CSS riêng`);
+    ok(/<nav class="pg2"/.test(h[k]) && /id="glp"/.test(h[k]) && h[k].includes(`<style>${SMP_CSS}</style>`), `${k}: bài trước/sau + popover + CSS riêng`);
     ok(/<link rel="canonical"/.test(h[k]) && /"@type":"LearningResource"[^<]*"learningResourceType"/.test(h[k]) && /"@type":"BreadcrumbList"/.test(h[k]), `${k}: canonical + JSON-LD (LearningResource mở rộng + Breadcrumb)`);
     ok(/<svg[^>]*aria-hidden="true"/.test(h[k]), `${k}: Kit từ kit.js, trang trí (aria-hidden; màu cũ do brand-check chặn)`);
   }

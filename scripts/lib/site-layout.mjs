@@ -66,6 +66,7 @@ ${FOOT_CSS}
 // ---------- CSS bổ sung cho trang SEO dựng từ dữ liệu app (chỉ dùng biến màu ở trên + token style.css) ----------
 // Sáng: nút cam đậm #CC3F1C (= --primary của app, chữ trắng đạt AA 4.9:1); tối giữ #FF8466 với chữ tối.
 export const SEO_CSS = `@media (prefers-color-scheme:light){:root{--primary:#CC3F1C}}
+:root{--srch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z'/%3E%3C/svg%3E")}
 :root{--spk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z'/%3E%3C/svg%3E")}
 [hidden]{display:none!important}nav.main a[aria-current]{color:var(--primary)}
 .lang{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:14px}
@@ -91,7 +92,66 @@ mark{background:var(--primary-soft);color:inherit;border-radius:4px;padding:0 2p
 .uses li{margin:.4em 0}.sig{display:flex;flex-wrap:wrap;gap:6px}.fx td:first-child{white-space:nowrap}
 .ext{border:1px dashed var(--line);border-radius:var(--r);padding:14px 18px;margin:28px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--surface)}.ext p{margin:0;flex:1 1 260px;font-size:15px;color:var(--muted)}.ext strong{color:var(--text)}.ext button{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer;text-decoration:underline}.ext[data-dismissed="1"],.pwa-box[data-dismissed="1"]{display:none!important}
 .pager a{max-width:48%}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media (prefers-color-scheme:dark){.wt th,.au,.lb{color:#7fd6cc}.au[aria-pressed=true]{color:#0f1017;background:#7fd6cc}}`;
+@media (prefers-color-scheme:dark){.wt th,.au,.lb{color:#7fd6cc}.au[aria-pressed=true]{color:#0f1017;background:#7fd6cc}}
+.smp{--ac2:var(--accent);--tc:var(--ac2)}
+@media (prefers-color-scheme:dark){.smp{--ac2:#7fd6cc}}
+.t-ad{--tc:#E5502F}.t-di{--tc:#12807A}.t-ps{--tc:#FFB054}.t-av{--tc:#2FBF71}.t-pn{--tc:#FF8FA3}.t-tp{--tc:#FFC94A}.t-fo{--tc:var(--brand)}
+.smp.page{max-width:1080px}.smp.narrow{max-width:820px}
+.smp .hero2{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:22px 22px 20px;margin:4px 0 18px;overflow:hidden}
+.smp .hero2::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#0F3D3E,#12807A 45%,#FFB054 78%,#E5502F)}
+.smp .kick span{white-space:nowrap}.smp .kick span:not(:last-child)::after{content:"·";margin-left:8px}
+.smp .kick{display:flex;flex-wrap:wrap;gap:4px 8px;margin:4px 0 0;font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ac2)}
+.smp .hero2 h1{font-size:clamp(26px,4vw,38px);line-height:1.2;margin:.25em 0 .15em;letter-spacing:-.02em;max-width:24em}
+.smp .hero2 .lead{color:var(--muted);margin:.2em 0 0;max-width:60ch}
+.smp .hero2.has-kit{padding-right:140px}.smp .hero2 .kit{position:absolute;right:22px;bottom:12px}
+@media (max-width:720px){.smp .hero2.has-kit{padding-right:22px}.smp .hero2 .kit{display:none}.smp .hero2{border-radius:18px;padding:18px 16px 16px}}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.stats li{display:flex;align-items:baseline;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:5px 12px;font-size:14px;color:var(--muted);line-height:1.5}
+.stats b{font-size:18px;color:var(--text);font-variant-numeric:tabular-nums}
+.stats .band{background:linear-gradient(135deg,#0F3D3E,#12807A);border-color:transparent;color:#fff;font-weight:700}.stats .band b{color:#FFC94A}
+.smp .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.sc{position:relative;transition:transform .15s,box-shadow .15s,border-color .15s}
+.sc::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--tc)}
+.sc:hover,.sc:focus-within{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,61,62,.12)}
+@media (prefers-reduced-motion:reduce){.sc,.pg2 a{transition:none}.sc:hover,.sc:focus-within{transform:none}}
+.smp .sc .bd{padding:16px 18px 14px}
+.sc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:24px}
+.tchip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+.tchip::before,.tf a[class]::before,.smp .grp>h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--tc);flex:none}
+.sc-em{font-size:24px;line-height:1}
+.smp .sc h3{font-size:16.5px;line-height:1.45;margin:8px 0 2px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.smp .sc p{font-size:14.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sc-meta{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin-top:auto;padding-top:12px;font-size:13px;color:var(--muted)}
+.sc-meta .bnd{background:var(--brand);color:#fff;border-radius:8px;padding:0 8px;font-weight:800}
+@media (prefers-color-scheme:dark){.sc-meta .bnd{color:#0f1017}}
+.smp .grp>h2{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.grp.off{display:none}
+.tf,.jump{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;margin:4px 0 0;scrollbar-width:thin}
+.tf a,.jump a{flex:none;display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;line-height:1.4}
+.tf a b{font-size:12px;color:var(--muted)}.tf a:hover,.jump a:hover{border-color:var(--tc)}
+.tf a[aria-pressed=true]{background:var(--text);border-color:var(--text);color:var(--surface)}.tf a[aria-pressed=true] b{color:inherit;opacity:.8}
+/* ux – shared list/search components for every static SEO page (docs/UX-PUBLIC.md): ≥44px targets, one-row phone header, sticky find bar, empty state */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;line-height:1.2;transition:filter .15s,transform .15s}.btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
+nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw-b{min-height:44px;padding:0 14px}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin:0 0 8px}.crumbs a{display:inline-flex;align-items:center;min-height:44px}.crumbs [aria-current]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.cats a,.tf a,.jump a{display:inline-flex;align-items:center;min-height:44px;padding-top:0;padding-bottom:0}
+.site-foot li a,.flangs a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}
+@media (max-width:640px){header.top .bar{flex-wrap:nowrap;gap:8px;padding:6px 16px}nav.main{flex-wrap:nowrap;gap:8px}nav.main>a:not(.btn){display:none}.logo span{font-size:19px}main{padding-top:4px}}
+.find{position:sticky;top:0;z-index:15;margin:12px -16px 4px;padding:8px 16px 2px;background:var(--bg);box-shadow:0 1px 0 var(--line)}
+.find .filter{margin:0}.find .tf{padding-bottom:6px}
+.filter .fi{position:relative;display:block;max-width:560px}.filter .fi::before{content:"";position:absolute;left:16px;top:50%;width:18px;height:18px;margin-top:-9px;background:var(--muted);-webkit-mask:var(--srch) center/contain no-repeat;mask:var(--srch) center/contain no-repeat;pointer-events:none}
+.filter input{max-width:none;min-height:48px;padding:0 48px 0 46px;font-size:16px;transition:border-color .15s,box-shadow .15s}.filter input:hover{border-color:var(--muted)}.filter input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);outline:none}
+.filter input::-webkit-search-cancel-button{display:none}
+.filter .qc{position:absolute;right:2px;top:2px;width:44px;height:44px;border:0;border-radius:50%;background:none;color:var(--muted);font:inherit;font-size:22px;line-height:1;cursor:pointer}.filter .qc:hover{color:var(--text)}
+.filter kbd{position:absolute;right:14px;top:50%;transform:translateY(-50%);font:600 12px/1 inherit;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 7px;pointer-events:none}.filter .fi:focus-within kbd,.filter .has-q kbd{display:none}
+@media (hover:none){.filter kbd{display:none}}
+.filter output{padding:0 4px}.filter.none output{display:flex;align-items:center;gap:10px;margin:10px 0 6px;padding:14px 16px;background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);color:var(--text);font-size:15px}.filter.none output::before{content:"🔍";font-size:20px}
+.grp{scroll-margin-top:132px}.grp[hidden]{display:none}
+.card{transition:transform .15s,box-shadow .15s,border-color .15s}.card.set:hover,.card.set:focus-within{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,61,62,.12);border-color:var(--accent)}
+.au{width:44px;height:44px;margin:-6px 2px -6px -6px}
+[dir=rtl] .filter .fi::before{left:auto;right:16px}[dir=rtl] .filter input{padding:0 46px 0 48px}[dir=rtl] .filter .qc{right:auto;left:2px}[dir=rtl] .filter kbd{right:auto;left:14px}
+@media (prefers-reduced-motion:reduce){.btn,.card,.filter input{transition:none}.card.set:hover,.card.set:focus-within{transform:none}}
+/* /ux */`;
 
 // ---------- Khối khung trang (header, footer, breadcrumb) – blog và trang SEO dùng chung ----------
 // lang + langHref(l): thêm nút đổi ngôn ngữ (langSwitch) cuối thanh điều hướng
@@ -192,6 +252,26 @@ export const SEO_L = {
   },
 };
 
+// Chữ mới của thanh tìm/lọc + số liệu trang danh sách (15 ngôn ngữ – trang tĩnh hiện có vi/en, các ngôn ngữ khác dùng khi mở thêm)
+// [Xóa, Lọc theo nhóm, bộ từ, từ, nhóm, có phát âm]
+export const FIND_I18N = {
+  vi: ['Xóa', 'Lọc theo nhóm', 'bộ từ', 'từ', 'nhóm', 'có phát âm'],
+  en: ['Clear', 'Filter by category', 'word lists', 'words', 'categories', 'with audio'],
+  es: ['Borrar', 'Filtrar por categoría', 'listas', 'palabras', 'categorías', 'con audio'],
+  pt: ['Limpar', 'Filtrar por categoria', 'listas', 'palavras', 'categorias', 'com áudio'],
+  fr: ['Effacer', 'Filtrer par catégorie', 'listes', 'mots', 'catégories', 'avec audio'],
+  de: ['Löschen', 'Nach Kategorie filtern', 'Listen', 'Wörter', 'Kategorien', 'mit Audio'],
+  id: ['Hapus', 'Saring menurut kategori', 'daftar', 'kata', 'kategori', 'dengan audio'],
+  th: ['ล้าง', 'กรองตามหมวดหมู่', 'ชุดคำศัพท์', 'คำ', 'หมวดหมู่', 'มีเสียงอ่าน'],
+  zh: ['清除', '按类别筛选', '个词表', '个单词', '个类别', '含发音'],
+  ja: ['クリア', 'カテゴリで絞り込む', 'リスト', '語', 'カテゴリ', '音声付き'],
+  ko: ['지우기', '카테고리별 필터', '개 목록', '개 단어', '개 카테고리', '발음 포함'],
+  hi: ['साफ़ करें', 'श्रेणी के अनुसार फ़िल्टर करें', 'सूचियाँ', 'शब्द', 'श्रेणियाँ', 'ऑडियो सहित'],
+  ar: ['مسح', 'التصفية حسب الفئة', 'قوائم', 'كلمة', 'فئات', 'مع النطق'],
+  ru: ['Очистить', 'Фильтр по категории', 'списков', 'слов', 'категорий', 'с озвучкой'],
+  tr: ['Temizle', 'Kategoriye göre filtrele', 'liste', 'kelime', 'kategori', 'sesli'],
+};
+
 export const SMART_CTA_I18N = {
   vi: { saveTopic: '＋ Lưu bộ từ này vào thẻ ôn', pwaH: 'Thêm Lexkite vào màn hình chính', pwaP: 'Mở nhanh như ứng dụng, ôn từ mọi lúc không cần cài đặt phức tạp.', pwaBtn: 'Mở ứng dụng', extH: 'Tra từ ngay khi đọc web', extP: 'Cài add-on Lexkite cho Chrome: bấm đúp vào từ bất kỳ để xem nghĩa, phiên âm và lưu vào flashcard.', extBtn: 'Xem add-on', hide: 'Ẩn' },
   en: { saveTopic: '＋ Save this word list to review', pwaH: 'Add Lexkite to your Home Screen', pwaP: 'Fast app-like experience, review vocabulary anytime without app store install.', pwaBtn: 'Open app', extH: 'Look up words while you read', extP: 'Get the Lexkite add-on for Chrome: double-click any word for meanings, IPA, and flashcards.', extBtn: 'See the add-on', hide: 'Hide' },
@@ -230,7 +310,13 @@ export const copyJs = lang => `document.addEventListener('copy',e=>{const s=wind
 // JS nhỏ cuối trang (không chặn hiển thị): bật .js (hiện nút nghe/ô lọc – chỗ đã giữ sẵn, CLS 0), phát âm từ CDN audio, lọc thẻ, gợi ý add-on Chrome máy tính & PWA di động
 export const UI_JS = `(function(d){var r=d.documentElement;r.classList.add('js');var A='https://audio.lexkite.com/audio/l/',B='https://lexkiteapp.github.io/audio/l/',cur;
 d.addEventListener('click',function(e){var b=e.target.closest('.au');if(!b)return;if(cur){cur.pause();if(cur.btn)cur.btn.setAttribute('aria-pressed','false')}var k=b.getAttribute('data-a'),a=new Audio(A+k+'.mp3');a.btn=b;cur=a;b.setAttribute('aria-pressed','true');a.onended=function(){b.setAttribute('aria-pressed','false')};a.onerror=function(){if(a.src.indexOf(B)<0){a.src=B+k+'.mp3';a.play()}else b.setAttribute('aria-pressed','false')};a.play().catch(function(){})});
-var q=d.getElementById('q');if(q){var o=d.getElementById('qn'),n=function(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/đ/g,'d').toLowerCase()},cs=[].slice.call(d.querySelectorAll('[data-k]')),gs=[].slice.call(d.querySelectorAll('.grp'));cs.forEach(function(c){c._k=n(c.getAttribute('data-k')+' '+c.textContent)});
+var q=d.getElementById('q');if(q){var o=d.getElementById('qn'),fb=q.closest('.filter'),qc=fb.querySelector('.qc'),n=function(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/đ/g,'d').toLowerCase()},cs=[].slice.call(d.querySelectorAll('[data-k]')),gs=[].slice.call(d.querySelectorAll('.grp'));cs.forEach(function(c){c._k=n(c.getAttribute('data-k')+' '+c.textContent)});
+var run=function(){var v=n(q.value.trim()),c=0;cs.forEach(function(x){var h=v&&x._k.indexOf(v)<0;x.hidden=h;if(!h)c++});gs.forEach(function(g){g.hidden=!!v&&!g.querySelector('[data-k]:not([hidden])')});o.textContent=v?(c?o.getAttribute('data-f').replace('#',c):o.getAttribute('data-n')):'';fb.classList.toggle('none',!!v&&!c);fb.classList.toggle('has-q',!!q.value);if(qc)qc.hidden=!q.value};
+q.addEventListener('input',run);if(qc)qc.onclick=function(){q.value='';run();q.focus()};
+q.addEventListener('keydown',function(e){if(e.key==='Escape'&&q.value){q.value='';run()}});
+d.addEventListener('keydown',function(e){var t=e.target;if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&!t.isContentEditable){e.preventDefault();q.focus()}});if(q.value)run()}
+var tfs=[].slice.call(d.querySelectorAll('.tf a'));tfs.forEach(function(a,i){a.setAttribute('role','button');a.setAttribute('aria-pressed',i===0)});
+d.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.tf a');if(!f)return;e.preventDefault();var g=f.getAttribute('data-g');tfs.forEach(function(a){a.setAttribute('aria-pressed',a===f)});[].forEach.call(d.querySelectorAll('.grp[aria-labelledby^="g-"]'),function(s){s.classList.toggle('off',!!g&&s.getAttribute('aria-labelledby')!==g)})});
 q.addEventListener('input',function(){var v=n(q.value.trim()),c=0;cs.forEach(function(x){var h=v&&x._k.indexOf(v)<0;x.hidden=h;if(!h)c++});gs.forEach(function(g){g.hidden=!!v&&!g.querySelector('[data-k]:not([hidden])')});o.textContent=v?(c?o.getAttribute('data-f').replace('#',c):o.getAttribute('data-n')):''})}
 var ls=function(k,v){try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){return null}};
 var u=navigator.userAgent||'',now=Date.now(),lang=r.lang||'vi';
@@ -246,8 +332,8 @@ d.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.targe
 
 export const audioBtn = (key, word, lang) => `<button type="button" class="au" data-a="${esc(key)}" aria-label="${esc(SEO_L[lang].play(word))}"></button>`;
 
-// Ô lọc danh sách (giữ chỗ sẵn → không xô lệch bố cục khi JS bật)
-export const filterBox = lang => { const t = SEO_L[lang]; return `<div class="filter" role="search"><label for="q" class="sr">${t.searchL}</label><input id="q" type="search" placeholder="${esc(t.search)}" autocomplete="off"><output id="qn" for="q" aria-live="polite" data-f="${esc(t.found('#'))}" data-n="${esc(t.none)}"></output></div>`; };
+// Thanh tìm (dính đầu màn hình khi cuộn): ô lọc (giữ chỗ sẵn → không xô lệch bố cục khi JS bật) + chip nhóm (chips, tùy chọn)
+export const filterBox = (lang, chips = '') => { const t = SEO_L[lang] || SEO_L.en, f = FIND_I18N[lang] || FIND_I18N.en; return `<div class="find"><div class="filter" role="search"><label for="q" class="sr">${t.searchL}</label><span class="fi"><input id="q" type="search" placeholder="${esc(t.search)}" autocomplete="off" enterkeyhint="search"><kbd aria-hidden="true">/</kbd><button type="button" class="qc" aria-label="${esc(f[0])}" hidden>×</button></span><output id="qn" for="q" aria-live="polite" data-f="${esc(t.found('#'))}" data-n="${esc(t.none)}"></output></div>${chips}</div>`; };
 // Thẻ trong lưới danh sách: tên, mô tả ngắn, chip (số từ / trình độ / kỳ thi), emoji nếu có
 export const setCard = ({ href, title, desc = '', emoji = '', chips = [], key = '', h = 'h3' }) => `<article class="card set${emoji ? ' has-em' : ''}" data-k="${esc(key)}"><a class="ti" href="${href}"><div class="bd">${emoji ? `<span class="em" aria-hidden="true">${esc(emoji)}</span>` : ''}<${h}>${esc(title)}</${h}>${desc ? `<p>${esc(desc)}</p>` : ''}${chips.length ? `<span class="chips">${chips.map(c => Array.isArray(c) ? `<span class="chip ${c[1]}">${esc(c[0])}</span>` : `<span class="chip">${esc(c)}</span>`).join('')}</span>` : ''}</div></a></article>`;
 // Khối CTA chính (mở đúng bộ/bài trong app, gắn data-hit nếu là topic có thật)

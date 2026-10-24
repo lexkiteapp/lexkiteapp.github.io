@@ -3,7 +3,7 @@
 // Giao diện dùng chung với blog: scripts/lib/site-layout.mjs (header, footer, CSS token thương hiệu, chế độ tối). Dữ liệu: scripts/lib/seo-data.mjs.
 // Bản tiếng Anh: build-samples-en.mjs (chạy sau, tự gắn hreflang vi↔en).
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
-import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L } from './lib/site-layout.mjs';
+import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
 import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
@@ -69,8 +69,7 @@ ${pwaBox('vi', 'samples')}</article>`;
     `<div class="page smp">${hero2({ h1: esc(`${done.length} bài mẫu IELTS Writing Task 2 (band 8)`), lead: 'Tự biên soạn, có chú giải từ vựng tiếng Việt. Bấm vào đề để xem bài mẫu.', mood: 'think', cls: 'has-kit',
       statsHtml: stats([[done.length, U.statEss], [types.length, U.statTypes], ['8.0', 'Band', 'band'], [gls.toLocaleString('vi'), U.statGl]]) })}
 ${sectionNav('vi', '/samples/')}
-${filterBox('vi')}
-${typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'vi')}
+${filterBox('vi', typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'vi'))}
 ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList(`Bài mẫu IELTS Writing Task 2`, done.map(([p]) => `${SITE}samples/${p.id}`))] }));
   addSm([`${SITE}samples/`, ...done.map(([p]) => `${SITE}samples/${p.id}`)], 'web/js/write.js', 'web/js/models.js', 'web/js/write');
@@ -144,10 +143,13 @@ ${pwaBox('vi', 'vocab')}`;
     fs.writeFileSync(`dist/tu-vung/${x.id}.html`, page(title, desc, `${SITE}tu-vung/${x.id}`, body, x.name));
   }
   const byG = {}; for (const x of TP) (byG[x.group] = byG[x.group] || []).push(x);
-  const total = TP.reduce((a, x) => a + x.words.length, 0);
+  const total = TP.reduce((a, x) => a + x.words.length, 0), nAu = TP.reduce((a, x) => a + x.words.filter(w => audioKey(w.word)).length, 0), F = FIND_I18N.vi;
   fs.writeFileSync('dist/tu-vung/index.html', page(`Từ vựng IELTS, TOEIC, TOEFL theo chủ đề – ${TP.length} bộ, ${total.toLocaleString('vi')} từ – Lexkite`, `${TP.length} bộ từ vựng IELTS, TOEIC, TOEFL theo chủ đề và kỳ thi, có phiên âm, nghĩa tiếng Việt và ví dụ. Học flashcard miễn phí.`, `${SITE}tu-vung/`,
-    `${indexHero(`Từ vựng theo chủ đề (${TP.length} bộ)`, `${total.toLocaleString('vi')} từ có phiên âm, nghĩa tiếng Việt, ví dụ và phát âm. Chọn một bộ để xem danh sách, rồi học bằng flashcard miễn phí.`, 'tu-vung')}
-${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}`));
+    `<div class="page smp">${hero2({ h1: esc(`Từ vựng theo chủ đề (${TP.length} bộ)`), lead: `${total.toLocaleString('vi')} từ có phiên âm, nghĩa tiếng Việt, ví dụ và phát âm. Chọn một bộ để xem danh sách, rồi học bằng flashcard miễn phí.`, mood: 'cheer', cls: 'has-kit',
+  statsHtml: stats([[TP.length, F[2]], [total.toLocaleString('vi'), F[3]], [Object.keys(byG).length, F[4]], [nAu.toLocaleString('vi'), F[5]]]) })}
+${sectionNav('vi', '/tu-vung/')}
+${filterBox('vi', typeFilter(Object.entries(byG).map(([k, xs]) => [k, GROUP[k] || k, xs.length, '']), TP.length, 'vi', F[1]))}
+${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}</div>`));
   addSm([`${SITE}tu-vung/`, ...TP.map(x => `${SITE}tu-vung/${x.id}`)], 'web/js/data.js', 'web/js/lib');
   console.log(`✓ SEO: ${TP.length} trang bộ từ vựng + mục lục`);
 }
@@ -219,8 +221,7 @@ ${pwaBox('vi', 'letters')}</article>`;
     `<div class="page smp">${hero2({ h1: esc(`${made.length} thư mẫu IELTS General Task 1`), lead: 'Thư trang trọng, bán trang trọng và thân mật – có chú thích cụm từ hay tiếng Việt.', mood: 'happy', cls: 'has-kit',
       statsHtml: stats([[made.length, U.statLt], [tones.length, U.statTone], ['8.0', 'Band', 'band']]) })}
 ${sectionNav('vi', '/viet-thu/')}
-${filterBox('vi')}
-${typeFilter(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k)]), made.length, 'vi', U.tones)}
+${filterBox('vi', typeFilter(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k)]), made.length, 'vi', U.tones))}
 ${tones.map(([k, xs]) => group2(k, TONE[k], `${xs.length} ${L.items}`, xs.map(lCard), toneCls(k))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList('IELTS General Training Writing Task 1', made.map(([x]) => `${SITE}viet-thu/${x.id}`))] }));
   addSm([`${SITE}viet-thu/`, ...made.map(([x]) => `${SITE}viet-thu/${x.id}`)], 'web/js/write/gt-letters.js');
