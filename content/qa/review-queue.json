@@ -20858,6 +20858,915 @@
      "xw-everyday.d"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "shuffle#v",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "cefr: giám khảo lệch ≥ 2 bậc (B1/B2 ≠ C1)",
+    "dịch es: giám khảo < 4 (5/3)",
+    "dịch pt: giám khảo < 4 (5/3)",
+    "dịch fr: giám khảo < 4 (5/3)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "shuffle",
+    "pos": "v",
+    "ipa": "/ˈʃʌfəl/",
+    "ipaUS": "/ˈʃʌfl/",
+    "def": "to walk slowly while dragging your feet",
+    "ex": [
+     "He shuffled across the floor after staying up all night.",
+     "The tired student shuffled to his seat when the class began."
+    ],
+    "col": [
+     "shuffle feet",
+     "shuffle away",
+     "shuffle along"
+    ],
+    "syn": [
+     "drag",
+     "trudge"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "z": 3.49,
+    "emoji": "🚶‍♂️",
+    "topic": "xw-everyday",
+    "vi": "đi lê bước; lảo đảo",
+    "note_vi": "Không nhầm “shuffle” với việc xáo bài",
+    "m": {
+     "es": "arrastrar",
+     "pt": "arrastar",
+     "fr": "traîner",
+     "de": "schlurfen",
+     "id": "menyeret",
+     "th": "เดินกระดก",
+     "zh": "拖脚走",
+     "ja": "足を引きずる",
+     "ko": "발을 끌다",
+     "hi": "पैर घिसना",
+     "ar": "يتثاقل",
+     "ru": "волочить ноги",
+     "tr": "ayak sürüklemek"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:shuffle.v.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       3
+      ],
+      "pt": [
+       5,
+       3
+      ],
+      "fr": [
+       5,
+       3
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       3
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       2
+      ],
+      "ar": [
+       5,
+       4
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "to drag",
+       "to drag"
+      ],
+      "pt": [
+       "to drag",
+       "to drag"
+      ],
+      "fr": [
+       "to drag",
+       "to drag"
+      ],
+      "de": [
+       "to shuffle",
+       "to shuffle; to trudge"
+      ],
+      "id": [
+       "to drag",
+       "to drag"
+      ],
+      "th": [
+       "to walk dragging one's feet",
+       "to walk dragging feet"
+      ],
+      "zh": [
+       "to walk dragging one's feet",
+       "to walk dragging feet"
+      ],
+      "ja": [
+       "to drag one's feet",
+       "to drag one's foot"
+      ],
+      "ko": [
+       "to drag one's feet",
+       "to drag foot"
+      ],
+      "hi": [
+       "to rub one's feet",
+       "to rub foot"
+      ],
+      "ar": [
+       "to drag oneself",
+       "to limp"
+      ],
+      "ru": [
+       "to drag one's feet",
+       "to drag legs"
+      ],
+      "tr": [
+       "to drag one's feet",
+       "to drag foot"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B1",
+      "B2"
+     ],
+     "bad": {},
+     "vi": [
+      "ok",
+      "ok"
+     ],
+     "viWikt": [
+      "trộn",
+      "xáo"
+     ]
+    },
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "humanism#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "giám khảo: có giám khảo chấm < 4",
+    "nghĩa: ví dụ/dịch không đúng nghĩa khóa (yes/no)",
+    "dịch ar: khác từ loại/khác từ"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "humanism",
+    "pos": "n",
+    "ipa": "/ˈhjuːmənɪz(ə)m/",
+    "ipaUS": "/ˈhjuːmənɪzəm/",
+    "def": "a belief that people can improve themselves using reason, not religion or the supernatural",
+    "ex": [
+     "Many universities now teach courses based on humanism rather than religious doctrine.",
+     "The artist's work reflects a clear humanism, focusing on human experience and logic."
+    ],
+    "col": [
+     "secular humanism",
+     "humanist philosophy",
+     "humanism movement"
+    ],
+    "syn": [
+     "secularism",
+     "rationalism",
+     "humanist philosophy"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.99,
+    "emoji": "🧠",
+    "topic": "xw-religion-history",
+    "vi": "chủ nghĩa nhân văn; chủ nghĩa nhân đạo",
+    "note_vi": "Không nên nhầm 'humanism' với 'humanitarianism' (nhân đạo).",
+    "m": {
+     "es": "humanismo",
+     "pt": "humanismo",
+     "fr": "humanisme",
+     "de": "Humanismus",
+     "id": "humanisme",
+     "th": "มนุษยนิยม",
+     "zh": "人文主义",
+     "ja": "人間主義",
+     "ko": "인본주의",
+     "hi": "मानवतावाद",
+     "ar": "الإنسانية",
+     "ru": "гуманизм",
+     "tr": "hümanizm"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:humanism.n.02",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:gpt-oss-120b": 3
+     },
+     "f": [
+      "Vietnamese includes unrelated 'chủ nghĩa nhân đạo'"
+     ],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       2,
+       4
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "humanism",
+       "humanism"
+      ],
+      "pt": [
+       "humanism",
+       "humanism"
+      ],
+      "fr": [
+       "humanism",
+       "humanism"
+      ],
+      "de": [
+       "humanism",
+       "humanism"
+      ],
+      "id": [
+       "humanism",
+       "humanism"
+      ],
+      "th": [
+       "humanism",
+       "humanism"
+      ],
+      "zh": [
+       "humanism",
+       "humanism"
+      ],
+      "ja": [
+       "humanism",
+       "humanism"
+      ],
+      "ko": [
+       "humanism",
+       "humanism"
+      ],
+      "hi": [
+       "humanism",
+       "humanism"
+      ],
+      "ar": [
+       "humanity",
+       "humanity; humanism"
+      ],
+      "ru": [
+       "humanism",
+       "humanism"
+      ],
+      "tr": [
+       "humanism",
+       "humanism"
+      ]
+     },
+     "sense": [
+      "yes",
+      "no"
+     ],
+     "cefrJ": [
+      "C2",
+      "C2"
+     ],
+     "bad": {
+      "ar": "pos"
+     }
+    },
+    "tp": [
+     "xw-religion-history.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "animation#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "animation",
+    "pos": "n",
+    "ipa": "/ˌænɪˈmeɪʃən/",
+    "ipaUS": "/ˌænəˈmeɪʃn/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "B1",
+    "cefrSrc": "cefrj",
+    "z": 4.18,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:animation.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "perversion#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "perversion",
+    "pos": "n",
+    "ipa": "/pəˈvɜːʒən/",
+    "ipaUS": "/pərˈvɜːrʒn/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.87,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:perversion.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "harassment#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "harassment",
+    "pos": "n",
+    "ipa": "/həˈræsmənt/",
+    "ipaUS": "/hərˈæsmənt/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "B2",
+    "cefrSrc": "octanove",
+    "z": 4.01,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:harassment.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "tornado#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "dịch es: phiên âm tiếng Anh",
+    "dịch pt: phiên âm tiếng Anh",
+    "dịch id: phiên âm tiếng Anh",
+    "dịch th: phiên âm tiếng Anh"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "tornado",
+    "pos": "n",
+    "ipa": "/tɔː(r)ˈneɪdəʊ/",
+    "ipaUS": "/tɔːrˈneɪdoʊ/",
+    "def": "a violent windstorm with a funnel-shaped cloud that reaches the ground",
+    "ex": [
+     "The tornado ripped houses apart as it moved across the countryside.",
+     "Emergency crews warned residents to seek shelter when the tornado approached."
+    ],
+    "col": [
+     "tornado warning",
+     "tornado damage",
+     "tornado season"
+    ],
+    "syn": [
+     "twister",
+     "cyclone",
+     "whirlwind"
+    ],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.82,
+    "emoji": "🌪️",
+    "topic": "xw-nature",
+    "vi": "lốc xoáy; xoáy lốc",
+    "note_vi": "Thường nhầm lẫn với bão, không dùng 'bão' cho tornado",
+    "m": {
+     "es": "tornado",
+     "pt": "tornado",
+     "fr": "tornade",
+     "de": "Tornado",
+     "id": "tornado",
+     "th": "ทอร์นาโด",
+     "zh": "龙卷风",
+     "ja": "竜巻",
+     "ko": "토네이도",
+     "hi": "टॉर्नेडो",
+     "ar": "إعصار",
+     "ru": "торнадо",
+     "tr": "tornado"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:tornado.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       2,
+       5
+      ],
+      "pt": [
+       2,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       2,
+       5
+      ],
+      "th": [
+       2,
+       4
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       2,
+       5
+      ],
+      "hi": [
+       2,
+       3
+      ],
+      "ar": [
+       3,
+       2
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       2,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "tornado",
+       "tornado"
+      ],
+      "pt": [
+       "tornado",
+       "tornado"
+      ],
+      "fr": [
+       "to twist; tornado",
+       "tornado"
+      ],
+      "de": [
+       "tornado",
+       "tornado"
+      ],
+      "id": [
+       "tornado",
+       "tornado"
+      ],
+      "th": [
+       "tornado",
+       "tornado"
+      ],
+      "zh": [
+       "dragon roll wind",
+       "dragon roll wind"
+      ],
+      "ja": [
+       "dragon roll",
+       "dragon roll"
+      ],
+      "ko": [
+       "tornado",
+       "tornado"
+      ],
+      "hi": [
+       "tornado",
+       "tornado"
+      ],
+      "ar": [
+       "whirlwind; storm",
+       "storm"
+      ],
+      "ru": [
+       "tornado",
+       "tornado"
+      ],
+      "tr": [
+       "tornado",
+       "tornado"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B1",
+      "B2"
+     ],
+     "bad": {
+      "es": "translit",
+      "pt": "translit",
+      "id": "translit",
+      "th": "translit",
+      "ko": "translit",
+      "hi": "translit",
+      "tr": "translit"
+     }
+    },
+    "tp": [
+     "xw-nature.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "haze#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "giám khảo: có giám khảo chấm < 4",
+    "nghĩa: ví dụ/dịch không đúng nghĩa khóa (yes/no)",
+    "cefr: giám khảo lệch ≥ 2 bậc (B1/B2 ≠ C1)",
+    "dịch tr: phiên âm tiếng Anh"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "haze",
+    "pos": "n",
+    "ipa": "/heɪz/",
+    "ipaUS": "/heɪz/",
+    "def": "thin fog or smoke that reduces how far you can see",
+    "ex": [
+     "The city woke up to a thick haze that blocked the sunrise.",
+     "Drivers slowed down because the highway was covered in haze."
+    ],
+    "col": [
+     "dense haze",
+     "haze warning",
+     "haze over"
+    ],
+    "syn": [
+     "mist",
+     "smog"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "z": 3.42,
+    "emoji": "🌫️",
+    "topic": "environment",
+    "vi": "sương mù; mây khói; sương mù dày",
+    "note_vi": "Không nhầm 'haze' với 'hazard'",
+    "m": {
+     "es": "neblina; bruma",
+     "pt": "neblina; nevoeiro",
+     "fr": "brume; brouillard",
+     "de": "Dunst; Nebel",
+     "id": "kabut",
+     "th": "หมอก",
+     "zh": "雾霾",
+     "ja": "霞",
+     "ko": "연무",
+     "hi": "धुंध",
+     "ar": "ضباب",
+     "ru": "дымка; туман",
+     "tr": "sis; dum"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:haze.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 2
+     },
+     "f": [
+      "Turkish translation \"dum\" is incorrect"
+     ],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       4,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       4,
+       5
+      ],
+      "ko": [
+       4,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       4,
+       5
+      ],
+      "tr": [
+       4,
+       2
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "fog; mist",
+       "haze; mist"
+      ],
+      "pt": [
+       "fog; mist",
+       "haze; fog"
+      ],
+      "fr": [
+       "mist; fog",
+       "haze; fog"
+      ],
+      "de": [
+       "mist; fog",
+       "haze; fog"
+      ],
+      "id": [
+       "fog",
+       "fog; haze"
+      ],
+      "th": [
+       "fog",
+       "fog; haze"
+      ],
+      "zh": [
+       "haze fog",
+       "haze; smog"
+      ],
+      "ja": [
+       "mist",
+       "haze; mist"
+      ],
+      "ko": [
+       "smoke and fog",
+       "haze; mist"
+      ],
+      "hi": [
+       "fog",
+       "fog; haze"
+      ],
+      "ar": [
+       "fog",
+       "fog; haze"
+      ],
+      "ru": [
+       "smoke; fog",
+       "haze; fog"
+      ],
+      "tr": [
+       "fog; mist",
+       "fog; (invalid)"
+      ]
+     },
+     "sense": [
+      "yes",
+      "no"
+     ],
+     "cefrJ": [
+      "B1",
+      "B2"
+     ],
+     "bad": {
+      "tr": "translit"
+     }
+    },
+    "tp": [
+     "environment.n"
+    ]
+   }
   }
  ]
 }
