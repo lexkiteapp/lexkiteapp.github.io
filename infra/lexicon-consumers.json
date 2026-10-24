@@ -1,30 +1,139 @@
 {
  "_doc": "Việc hạ nguồn của kho từ (docs/JOBS.md §Đồ thị kho từ). Mọi script đọc kho (loadAll/loadBrowserIndex/dist/lexicon.json/IELTS_DATA.INDEX) PHẢI có ở đây: via = đường nạp có mục mở rộng (expand-aware), hoặc skip + lý do. scripts/test/lexicon-expand.mjs đỏ khi script mới đọc kho mà chưa đăng ký, khi via không còn trong mã, hoặc khi mục từ có TRƯỜNG mới chưa khai trong fields.",
  "consumers": {
-  "scripts/lexicon/shards.mjs": { "what": "mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ", "via": "loadExpand", "job": "build-web (mỗi lần deploy)" },
-  "scripts/lexicon/surfaces.mjs": { "what": "dict-consistency: mảnh = INDEX", "via": "loadBrowserIndex", "job": "npm test" },
-  "scripts/build-lexicon.mjs": { "what": "dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh", "via": "loadExpand", "job": "build / npm test" },
-  "scripts/build-seo-pages.mjs": { "what": "/<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt)", "via": "loadBrowserIndex", "job": "build-web → indexnow" },
-  "scripts/gen-word-audio.mjs": { "what": "hàng âm thanh Kokoro Anh/Mỹ", "via": "loadAllPlus", "job": "word-audio 18:00 UTC" },
-  "scripts/scriptbank/lib.mjs": { "what": "điểm học kịch bản video (từ#loại tra kho)", "via": "expandRows", "job": "script-bank 00:50 UTC" },
-  "scripts/vocab-img/imageability.py": { "what": "hàng ảnh theo nghĩa (chấm vẽ được)", "via": "dist/lexicon.json", "job": "vocab-img (tạm dừng)" },
-  "scripts/vocab-img/gen.mjs": { "what": "vẽ ảnh nghĩa", "via": "dist/lexicon.json", "job": "vocab-img" },
-  "scripts/vocab-img/icons.mjs": { "what": "icon Noto theo nghĩa", "via": "dist/lexicon.json", "job": "vocab-img" },
-  "scripts/vocab-img/judge.mjs": { "what": "giám khảo ảnh", "via": "dist/lexicon.json", "job": "vocab-img" },
-  "scripts/vocab-img/qc.py": { "what": "QC ảnh", "via": "dist/lexicon.json", "job": "vocab-img" },
-  "scripts/video/web-rendition.mjs": { "what": "thẻ từ trong video web", "via": "dist/lexicon.json", "job": "video-web" },
-  "scripts/lib/video-web.mjs": { "what": "thẻ clip", "via": "dist/lexicon.json", "job": "video-web" },
-  "scripts/gen-newtab.mjs": { "what": "tab mới add-on", "via": "loadBrowserIndex", "job": "build-extension (bản phát hành)" },
-  "scripts/content-qa/gate.mjs": { "what": "cổng QA nội dung (kiểm lại mục mở rộng đã xuất)", "via": "loadExpand", "job": "npm test / content-qa" },
-  "scripts/lexicon/expand/existing.mjs": { "what": "đầu vào chọn từ (không trùng)", "via": "loadExpand", "job": "lexicon-expand" },
-  "scripts/lexicon/expand/lib.mjs": { "what": "nguồn", "via": "loadExpand", "job": "—" },
-  "scripts/lexicon/lib.mjs": { "what": "nạp kho", "via": "loadAllPlus", "job": "—" },
-  "scripts/lexicon/i18n-job.mjs": { "skip": "mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc)" },
-  "scripts/lexicon/cefr-check.mjs": { "skip": "chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry)" },
-  "scripts/scriptbank/gold.mjs": { "skip": "bộ mẫu vàng cố định từ bộ viết tay" }
+  "scripts/lexicon/shards.mjs": {
+   "what": "mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ",
+   "via": "loadExpand",
+   "job": "build-web (mỗi lần deploy)"
+  },
+  "scripts/lexicon/surfaces.mjs": {
+   "what": "dict-consistency: mảnh = INDEX",
+   "via": "loadBrowserIndex",
+   "job": "npm test"
+  },
+  "scripts/build-lexicon.mjs": {
+   "what": "dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh",
+   "via": "loadExpand",
+   "job": "build / npm test"
+  },
+  "scripts/build-seo-pages.mjs": {
+   "what": "/<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt)",
+   "via": "loadBrowserIndex",
+   "job": "build-web → indexnow"
+  },
+  "scripts/gen-word-audio.mjs": {
+   "what": "hàng âm thanh Kokoro Anh/Mỹ",
+   "via": "loadAllPlus",
+   "job": "word-audio 18:00 UTC"
+  },
+  "scripts/scriptbank/lib.mjs": {
+   "what": "điểm học kịch bản video (từ#loại tra kho)",
+   "via": "expandRows",
+   "job": "script-bank 00:50 UTC"
+  },
+  "scripts/vocab-img/imageability.py": {
+   "what": "hàng ảnh theo nghĩa (chấm vẽ được)",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img (tạm dừng)"
+  },
+  "scripts/vocab-img/gen.mjs": {
+   "what": "vẽ ảnh nghĩa",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  },
+  "scripts/vocab-img/icons.mjs": {
+   "what": "icon Noto theo nghĩa",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  },
+  "scripts/vocab-img/judge.mjs": {
+   "what": "giám khảo ảnh",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  },
+  "scripts/vocab-img/qc.py": {
+   "what": "QC ảnh",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  },
+  "scripts/video/web-rendition.mjs": {
+   "what": "thẻ từ trong video web",
+   "via": "dist/lexicon.json",
+   "job": "video-web"
+  },
+  "scripts/lib/video-web.mjs": {
+   "what": "thẻ clip",
+   "via": "dist/lexicon.json",
+   "job": "video-web"
+  },
+  "scripts/gen-newtab.mjs": {
+   "what": "tab mới add-on",
+   "via": "loadBrowserIndex",
+   "job": "build-extension (bản phát hành)"
+  },
+  "scripts/content-qa/gate.mjs": {
+   "what": "cổng QA nội dung (kiểm lại mục mở rộng đã xuất)",
+   "via": "loadExpand",
+   "job": "npm test / content-qa"
+  },
+  "scripts/lexicon/expand/existing.mjs": {
+   "what": "đầu vào chọn từ (không trùng)",
+   "via": "loadExpand",
+   "job": "lexicon-expand"
+  },
+  "scripts/lexicon/expand/lib.mjs": {
+   "what": "nguồn",
+   "via": "loadExpand",
+   "job": "—"
+  },
+  "scripts/lexicon/lib.mjs": {
+   "what": "nạp kho",
+   "via": "loadAllPlus",
+   "job": "—"
+  },
+  "scripts/lexicon/i18n-job.mjs": {
+   "skip": "mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc)"
+  },
+  "scripts/lexicon/cefr-check.mjs": {
+   "skip": "chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry)"
+  },
+  "scripts/scriptbank/gold.mjs": {
+   "skip": "bộ mẫu vàng cố định từ bộ viết tay"
+  },
+  "scripts/vocab-img/cards.mjs": {
+   "what": "thẻ nghĩa vimg",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  },
+  "scripts/vocab-img/publish.mjs": {
+   "what": "đăng ảnh vimg",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  },
+  "scripts/vocab-img/spot.mjs": {
+   "what": "kiểm mẫu ảnh",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  }
  },
  "todo": {
   "srs-topics": "bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB)"
  },
- "fields": ["word", "ipa", "pos", "vi", "def", "ex", "col", "syn", "level", "emoji", "ipaUS", "topic", "ex2", "note", "x"]
+ "fields": [
+  "word",
+  "ipa",
+  "pos",
+  "vi",
+  "def",
+  "ex",
+  "col",
+  "syn",
+  "level",
+  "emoji",
+  "ipaUS",
+  "topic",
+  "ex2",
+  "note",
+  "x"
+ ]
 }
