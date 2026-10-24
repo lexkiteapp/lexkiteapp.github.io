@@ -113,6 +113,8 @@ export function normOut(out, items) {
   return out;
 }
 function normOut0(out, items) {
+  // pilot 8b: llama trả 1 mục TRẦN không có khóa k ({"sense":…, "s":…}) khi lô chỉ 1 mục → gói lại theo k
+  if (out && typeof out === 'object' && !Array.isArray(out) && Array.isArray(items) && items.length === 1 && items[0] && !(items[0].k in out) && out.k == null && ('s' in out || 'def' in out || 'es' in out)) return { [items[0].k]: out };
   if (Array.isArray(out) && Array.isArray(items) && out.length === items.length && out.every(x => x && typeof x === 'object' && x.k == null)) return Object.fromEntries(items.map((x, i) => [x.k, out[i]]));
   if (Array.isArray(out)) return Object.fromEntries(out.filter(x => x && x.k != null).map(({ k, ...v }) => [k, v]));
   if (out && typeof out === 'object' && typeof out.k === 'string' && !(out.k in out) && Array.isArray(items) && items.some(x => x && x.k === out.k)) { const { k, ...v } = out; return { [k]: v }; }
@@ -198,7 +200,7 @@ export function createPool(opts = {}) {
   const retryAfter = r => { const v = +(r.headers && r.headers.get && r.headers.get('Retry-After')); return Number.isFinite(v) && v > 0 ? Math.min(600, v) * 1e3 : 65e3; };
   const GC_MAX_CHARS = 7900;
   // GrabCast cắt câu trả lời ≈ 1–2 nghìn ký tự với gpt-oss (đo 24/10: lxtr 10 mục bị cụt) → số mục tối đa mỗi lượt theo cỡ đầu ra; cụt nữa → chia đôi
-  const GC_ITEMS = { lxgen: 3, lxtr: 3, lxjudge: 2, xgen: 2, xtr: 2, xjudge: 10, vgen: 1, vjudge: 6, translate: 10, judge: 15, vscene: 2 }; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
+  const GC_ITEMS = { lxgen: 3, lxtr: 3, lxjudge: 1, xgen: 2, xtr: 2, xjudge: 10, vgen: 1, vjudge: 6, translate: 10, judge: 15, vscene: 2 }; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
   const gcRoute = provider => {
     async function one(req, model, depth = 0) {
       const cap = GC_ITEMS[req.mode];
