@@ -13,7 +13,7 @@ import { serve } from '../quality/serve.mjs';
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'je-out'));
 const LANGS = arg('lang', 'vi,en,ar').split(','), DEVS = arg('device', 'desktop,mobile').split(',');
-const ONLY = arg('only', '1,2,3,4,5,6').split(',').map(Number), EXT = process.argv.includes('--ext');
+const ONLY = arg('only', '1,2,3,4,5,6,8').split(',').map(Number), EXT = process.argv.includes('--ext');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT + '/shots', { recursive: true });
 const CHECKS = fs.readFileSync(new URL('./journey-e2e/checks.js', import.meta.url), 'utf8');
@@ -80,6 +80,7 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
     const t = r.request().resourceType();
     return r.fulfill({ status: 200, contentType: t === 'script' ? 'text/javascript' : t === 'stylesheet' ? 'text/css' : t === 'image' ? 'image/gif' : 'text/plain', body: t === 'image' ? Buffer.from('R0lGODlhAQABAAAAACw=', 'base64') : '' });
   });
+  if (opts.routes) await opts.routes(ctx);   // tuyến riêng của hành trình (đăng ký SAU → được ưu tiên)
   const page = await ctx.newPage();
   const errs = [];
   const watch = p => {
@@ -421,6 +422,40 @@ async function j7(lang) {
   await ctx.close();
 }
 
+
+// ---------- 8. Ảnh từ vựng BẬT (fixture): hộp cố định, hiện sau decode, CLS 0, đúng nghĩa, CDN thiếu tệp → không icon vỡ, tối → không nền sáng, RTL ----------
+const VIMG_PNG = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=', 'base64');
+const VIMG_IX = { v: 2, base: 'https://media.lexkite.com/vimg/', sv: 's1', on: true, m: { 'sustainable#adj': '1111111111111111', 'environment#n': '4040404040404040', 'resilience#v': '2222222222222222' }, x: [], w: [], a: ['environment#n'], s: [] };
+async function vimgRoutes(ctx) {
+  await ctx.route('**/js/lexicon-img.json', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(VIMG_IX) }));
+  await ctx.route('https://media.lexkite.com/vimg/**', async r => { await sleep(250); return /4040404040404040/.test(r.request().url()) ? r.fulfill({ status: 404, body: '' }) : r.fulfill({ status: 200, contentType: /\.avif$/.test(r.request().url()) ? 'image/avif' : 'image/webp', body: VIMG_PNG, headers: { 'access-control-allow-origin': '*' } }); });
+}
+async function j8(h) {
+  const { page, lang } = h;
+  await h.boot('/dict');
+  const look = async w => { await page.evaluate(() => window.__clsReset()); await page.fill('#q', w); await page.press('#q', 'Enter'); await h.wait('.entry-word', 15000); await sleep(1500); };
+  await look('sustainable');
+  h.ok(await page.locator('.vimg').count() === 1, 'cờ BẬT: đúng 1 hộp ảnh cho nghĩa sustainable#adj');
+  const box = await page.evaluate(() => { const b = document.querySelector('.vimg'), i = b && b.querySelector('img'); if (!b) return null; const r = b.getBoundingClientRect(); return { w: Math.round(r.width), h: Math.round(r.height), on: !!(i && i.classList.contains('on')), op: i ? getComputedStyle(i).opacity : '', l: r.left, r: r.right, vw: innerWidth, dir: document.documentElement.dir || getComputedStyle(document.body).direction }; });
+  h.ok(box && box.w === 160 && box.h === 160, 'hộp tra từ cố định 160×160: ' + JSON.stringify(box));
+  h.ok(box && box.on && box.op === '1', 'ảnh chỉ hiện sau decode() (lớp on, opacity 1)');
+  h.ok(box && box.l >= 0 && box.r <= box.vw + 0.5, `hộp nằm trong khung nhìn (${lang === 'ar' ? 'RTL' : 'LTR'})`);
+  const cls = await page.evaluate(() => ({ v: window.__cls, src: window.__clsSrc.slice(0, 5).join(', ') }));
+  h.ok(cls.v <= 0.001, `CLS khi ảnh BẬT = ${cls.v.toFixed(4)} (≈ 0) [${cls.src}]`);
+  await look('resilience');
+  h.ok(!(await page.locator('.vimg').count()), 'không bao giờ hiện ảnh của nghĩa khác (resilience#n ≠ resilience#v)');
+  await look('environment');
+  const gone = await page.evaluate(() => { const b = document.querySelector('.vimg'); return b ? { gone: b.classList.contains('gone'), vis: getComputedStyle(b).visibility } : null; });
+  h.ok(!gone || (gone.gone && gone.vis === 'hidden'), 'CDN thiếu tệp → hộp ẩn (không icon vỡ): ' + JSON.stringify(gone));
+  h.ok((await page.evaluate(() => window.__cls)) <= 0.001, 'CDN thiếu tệp → không xê dịch bố cục');
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await look('sustainable');
+  const dark = await page.evaluate(() => [...document.querySelectorAll('.vimg')].filter(b => getComputedStyle(b).display !== 'none').map(b => b.hasAttribute('data-a')));
+  h.ok(dark.every(Boolean), 'chế độ tối: chỉ ảnh nền trong suốt được hiện (không ô nền sáng trên nền tối)');
+  await page.emulateMedia({ colorScheme: 'light' });
+  await h.audit('dict-vimg');
+}
+
 // ---------- chạy ----------
 const ONB = { 'sbx.settings': JSON.stringify({ onboarded: true }) };
 for (const lang of LANGS) for (const dev of DEVS) {
@@ -431,6 +466,7 @@ for (const lang of LANGS) for (const dev of DEVS) {
     await journey(3, 'đồng bộ khứ hồi (giả lập)', lang, dev, j3sync, { q: '', firebase: true, seed: { 'ielts.settings': JSON.stringify({ onboarded: true }), 'ielts.cards': JSON.stringify(SEED) } });
   }
   if (ONLY.includes(4)) await journey(4, 'tra từ → song sinh SEO → quay lại', lang, dev, j4, { seed: ONB });
+  if (ONLY.includes(8)) await journey(8, 'ảnh từ vựng BẬT (fixture): CLS 0, decode, đúng nghĩa, CDN thiếu, tối, RTL', lang, dev, j8, { seed: { ...ONB, 'lk.vimg': '1' }, routes: vimgRoutes });
   if (ONLY.includes(5)) {
     await journey(5, 'cài đặt nhắc học còn sau tải lại', lang, dev, j5, { seed: ONB });
     await journey(5, 'cờ quảng cáo TẮT → không ô quảng cáo', lang, dev, j5ads, { q: '', webdriverOff: true, config: { ads_web: '0', ads_kill: '0' }, seed: { 'ielts.settings': JSON.stringify({ onboarded: true }) } });

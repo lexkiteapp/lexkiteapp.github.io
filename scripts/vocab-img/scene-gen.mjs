@@ -61,19 +61,21 @@ async function main() {
   const logF = path.join(OUT, `gen.s${SI}.json`), log = fs.existsSync(logF) ? JSON.parse(fs.readFileSync(logF, 'utf8')) : [];
   const used = Object.fromEntries(PROVIDERS.map(p => [p.id, 0])), dead = new Set(PROVIDERS.filter(p => !p.ok()).map(p => p.id));
   const only = arg('only') ? new Set(JSON.parse(fs.readFileSync(arg('only'), 'utf8')).items) : null;
-  let n = 0; const t0 = Date.now();
-  for (const k of keys) {
-    const t = T[k]; if (!t || !t.prompt || (only && !only.has(k))) continue;
-    const file = path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`); if (fs.existsSync(file)) continue;
-    let done = false;
+  // song song trong 1 việc: GrabCast ảnh 60/phút/IP (mỗi runner GitHub một IP) → VIMG_CONC luồng (mặc định 6 ≈ 60 ảnh/phút với ~5 s/ảnh); 429 → Retry-After (gen.mjs)
+  let n = 0, stop = false; const t0 = Date.now(), CONC = Math.max(1, +(process.env.VIMG_CONC || 6));
+  const todo = keys.filter(k => T[k] && T[k].prompt && (!only || only.has(k)) && !fs.existsSync(path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`)));
+  async function one(k) {
+    const t = T[k], file = path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`);
     for (const p of PROVIDERS) {
       if (dead.has(p.id) || used[p.id] >= p.max) continue;
-      const s = Date.now();
-      try { const buf = await p.run(t.prompt); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); used[p.id]++; n++; done = true; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s }); break; }
+      used[p.id]++; const s = Date.now();
+      try { const buf = await p.run(t.prompt); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s }); return; }
       catch (err) { if (err.constructor.name === 'Quota') { dead.add(p.id); console.warn(`⏸ ${p.id}: ${err.message}`); } else { console.warn(`✗ ${p.id} ${k}: ${err.message}`); log.push({ k, attempt: ATT, provider: p.id, error: String(err.message).slice(0, 160) }); } }
     }
-    if (!done && PROVIDERS.every(p => dead.has(p.id) || used[p.id] >= p.max)) { console.log('⏹ hết ngân sách ảnh lượt này – dừng sạch'); break; }
+    if (PROVIDERS.every(p => dead.has(p.id) || used[p.id] >= p.max)) stop = true;
   }
+  await Promise.all(Array.from({ length: CONC }, async () => { while (todo.length && !stop) await one(todo.shift()); }));
+  if (stop) console.log('⏹ hết ngân sách ảnh lượt này – dừng sạch');
   fs.writeFileSync(logF, JSON.stringify(log, null, 1));
   const min = (Date.now() - t0) / 60e3;
   fs.writeFileSync(path.join(OUT, `speed.gen.s${SI}.a${ATT}.json`), JSON.stringify({ images: n, minutes: +min.toFixed(2), per_min: +(n / Math.max(min, 1e-3)).toFixed(2) }));

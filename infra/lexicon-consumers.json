@@ -114,6 +114,26 @@
    "what": "kiểm mẫu ảnh",
    "via": "dist/lexicon.json",
    "job": "vocab-img"
+  },
+  "scripts/vocab-img/scene.mjs": {
+   "what": "vẽ ảnh nghĩa",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img-scene"
+  },
+  "scripts/vocab-img/scene-gen.mjs": {
+   "what": "vẽ ảnh nghĩa",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img-scene"
+  },
+  "scripts/vocab-img/local_judge.py": {
+   "what": "vẽ ảnh nghĩa",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img-scene"
+  },
+  "scripts/vocab-img/calibrate.py": {
+   "what": "vẽ ảnh nghĩa",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img-scene"
   }
  },
  "todo": {

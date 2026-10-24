@@ -39,6 +39,17 @@
    ],
    "state": "planned",
    "_note": "tạo khi m2 ≥ 70 % (docs/STORAGE.md §Mở kho mới): repo public + Pages legacy main/, deploy key → secret MEDIA3_DEPLOY_KEY, thêm vào ORIGINS Worker lexkite-audio, đăng ký infra/resources.json"
+  },
+  {
+   "id": "m4",
+   "repo": "lexkiteapp/lexkite-media-4",
+   "pages": "https://lexkiteapp.github.io/lexkite-media-4/",
+   "cdn": "https://media.lexkite.com/m4/",
+   "kinds": [
+    "img"
+   ],
+   "state": "planned",
+   "_note": "ảnh MỌI nghĩa (~20k × WebP+AVIF ≤ 6 KB ≈ 240 MB) + ảnh bài học (docs/VISUAL-LEARNING-PLAN.md) – m1 (img) đã full. scripts/vocab-img/media-repo.mjs check --apply tạo qua API khi lô đầu được duyệt; cần route Worker lexkite-media /m4/* + infra/resources.json"
   }
  ],
  "soft_files": 60000

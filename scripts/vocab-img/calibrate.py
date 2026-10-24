@@ -41,7 +41,7 @@ def main():
                 ocr_max=[0, 1, 2], style_min=[0, .6, .65, .7, .75, .8])
     best = None; P = int(okm.sum())
     for vals in itertools.product(*grid.values()):
-        th = {**LJ.DEF_TH, **dict(zip(grid.keys(), vals))}
+        th = {**LJ.DEF_TH, **dict(zip(grid.keys(), vals)), 'api': False}   # ngưỡng cục bộ hiệu chỉnh riêng; giám khảo API báo cáo riêng bên dưới
         acc = [ok for _, ok, ft in feats if not LJ.verdict(ft, th, 'object')]
         if len(acc) < 10: continue
         prec, rec = sum(acc) / len(acc), sum(acc) / max(P, 1)
@@ -54,6 +54,10 @@ def main():
            'meets_target': prec >= a.target, 'clip_only': only(lambda f: f['clip_rank'] == 1 and f['clip_margin'] >= th['clip_margin']),
            'caption_only': only(lambda f: f['cap_rank'] == 1 and f['cap_sim'] >= th['cap_sim']),
            'false_accepts': [lid for lid, ok, ft in feats if not ok and not LJ.verdict(ft, th, 'object')]}
+    th['api'] = True
+    apis = [(ok, ft) for _, ok, ft in feats if ft.get('api_rank') is not None]
+    cal['api'] = {'answered': len(apis), 'rank1_prec': round(sum(ok for ok, ft in apis if ft['api_rank'] == 1) / max(1, sum(1 for ok, ft in apis if ft['api_rank'] == 1)), 3),
+                  'both_prec': only(lambda f: f.get('api_rank') == 1 and not LJ.verdict(f, {**th, 'api': False}, 'object'))}
     print('NGƯỠNG', json.dumps(th), '\nHIỆU CHỈNH', json.dumps(cal))
     out = {'_note': 'Ngưỡng giám khảo cục bộ (scripts/vocab-img/local_judge.py), do calibrate.py sinh – không sửa tay. centroid = tâm phong cách s1 (CLIP ViT-B-32, ảnh nhãn ok).',
            'model': {'clip': 'ViT-B-32/laion2b_s34b_b79k', 'captioner': os.environ.get('VIMG_CAPTIONER', 'smolvlm') , 'text': 'all-MiniLM-L6-v2', 'nsfw': 'Falconsai/nsfw_image_detection', 'ocr': 'tesseract'},

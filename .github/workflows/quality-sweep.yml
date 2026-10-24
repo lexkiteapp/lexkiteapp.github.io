@@ -77,6 +77,8 @@ jobs:
           restore-keys: qs-baseline-${{ matrix.lang }}-
       - name: Quét ${{ matrix.lang }}
         run: node scripts/quality/sweep.mjs --root dist --lang ${{ matrix.lang }} --out qs-out/${{ matrix.lang }} --baseline qs-baseline/${{ matrix.lang }} $([ "${{ inputs.quick }}" = 1 ] && echo --quick)
+      - name: Biến thể ẢNH BẬT (journey 8 – fixture ảnh từ vựng, CLS 0, tối, RTL, CDN thiếu)
+        run: node scripts/test/journey-e2e.mjs --root dist --lang ${{ matrix.lang }} --only 8 --device desktop,mobile --out qs-out/${{ matrix.lang }}/vimg
       - name: CLS trang giới thiệu + blog (> 0,1 là lỗi)
         run: node scripts/test/landing-cls.mjs dist --lang ${{ matrix.lang }}
       - uses: actions/upload-artifact@v4

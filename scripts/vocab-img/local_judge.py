@@ -100,6 +100,33 @@ def ocr(im):
 def phash(im):
     import imagehash
     return str(imagehash.phash(im))
+# ---------- giám khảo API (GrabCast /api/owner-ai/vision, CF llama-4-scout trước) – MÔ TẢ MÙ (không biết từ/câu), rồi xếp hạng như máy chú thích ----------
+API_Q = ('Describe this picture for a vocabulary app in one sentence: who or what is shown and what is happening. Do not guess what it was meant to teach. '
+         'Reply JSON only: {"describe": "one sentence", "text": true if any letters, words or numbers are visible, "unsafe": true if unsuitable for children}')
+_API = {'dead': False, 'calls': 0, 'fails': 0}
+def api_vision(im):
+    """→ dict | None (None = không có/đã cạn → người gọi xử lý 'API exhausted')"""
+    key = os.environ.get('GRABCAST_AI_KEY'); base = os.environ.get('GRABCAST_API_BASE', 'https://grabcast-api-342720596878.us-central1.run.app').rstrip('/')
+    if not key or _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0': return None
+    import base64, io, urllib.request, urllib.error
+    b = io.BytesIO(); im.convert('RGB').resize((384, 384)).save(b, 'JPEG', quality=85)
+    body = json.dumps({'prompt': API_Q, 'image_b64': base64.b64encode(b.getvalue()).decode(), 'mime': 'image/jpeg'}).encode()
+    for i in range(5):
+        try:
+            req = urllib.request.Request(base + '/api/owner-ai/vision', data=body, headers={'X-API-Key': key, 'Content-Type': 'application/json'})
+            j = json.loads(urllib.request.urlopen(req, timeout=60).read()); _API['calls'] += 1
+            t = j.get('text') or ''; m = re.search(r'\{.*\}', t, re.S)
+            try: o = json.loads(m.group(0)) if m else {'describe': t}
+            except Exception: o = {'describe': t}
+            o['model'] = j.get('model') or j.get('provider') or '?'; return o
+        except urllib.error.HTTPError as e:
+            if e.code == 503: _API['dead'] = True; print('⏸ GrabCast vision ai_exhausted – hết lượt; chỉ nhận ảnh cục bộ RẤT chắc', flush=True); return None
+            if e.code == 429: time.sleep(min(240, float(e.headers.get('Retry-After') or 20 * (i + 1)))); continue   # vision 120/phút/IP
+            _API['fails'] += 1; return None
+        except Exception:
+            time.sleep(3); continue
+    _API['fails'] += 1; return None
+
 def hamm(a, b): return bin(int(a, 16) ^ int(b, 16)).count('1')
 
 # ---------- nhiễu: anh em cùng chủ đề + từ ngẫu nhiên tất định → đủ 19 ----------
@@ -133,7 +160,13 @@ def features(im, k, t, T, LEX, keys_all, centroid):
     per, i = [], 0
     for rs in refs: per.append(float(np.max(R[i:i + len(rs)] @ ce)) if rs else -1.0); i += len(rs)
     per = np.array(per); crank = int((per > per[0]).sum()) + 1
-    return {'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
+    api = api_vision(im); arank = asim = None; aflags = {}
+    if api and api.get('describe'):
+        A = st.encode([str(api['describe'])], normalize_embeddings=True)[0]; ap, i = [], 0
+        for rs in refs: ap.append(float(np.max(R[i:i + len(rs)] @ A)) if rs else -1.0); i += len(rs)
+        ap = np.array(ap); arank = int((ap > ap[0]).sum()) + 1; asim = round(float(ap[0]), 4); aflags = {'text': api.get('text') is True, 'unsafe': api.get('unsafe') is True}
+    return {'api': (api or {}).get('describe'), 'api_model': (api or {}).get('model'), 'api_rank': arank, 'api_sim': asim, **{('api_' + k): v for k, v in aflags.items()},
+            'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
             'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
             'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
 
@@ -144,6 +177,14 @@ def verdict(f, th, kind):
     if len(f['ocr']) > th['ocr_max']: r.append('text: ' + ' '.join(f['ocr'])[:40])
     if f['nsfw'] >= th['nsfw_max']: r.append(f"nsfw {f['nsfw']}")
     if f['style'] is not None and f['style'] < th['style_min']: r.append(f"style {f['style']}")
+    if th.get('api', True) and not r:
+        # chủ 24/10: nhận khi CẢ cục bộ VÀ giám khảo API đồng ý; API cạn → chỉ nhận khi cục bộ RẤT chắc (lề ×2), không thì hàng chờ
+        if f.get('api_rank') is None:
+            if not (f['clip_margin'] >= 2 * max(th['clip_margin'], .01) and f['cap_margin'] >= 2 * max(th['cap_margin'], .03) and f['cap_sim'] >= th['cap_sim'] + .05): r.append('queue: API judge unavailable, local not very high')
+        else:
+            if f['api_rank'] != 1 or f['api_sim'] < th.get('api_sim', th['cap_sim']): r.append(f"api rank {f['api_rank']} sim {f['api_sim']}: {str(f.get('api'))[:60]}")
+            if f.get('api_text'): r.append('api: text')
+            if f.get('api_unsafe'): r.append('api: unsafe')
     return r
 
 def load_th():
