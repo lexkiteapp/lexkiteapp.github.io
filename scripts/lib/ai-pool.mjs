@@ -114,7 +114,7 @@ export function normOut(out, items) {
 }
 function normOut0(out, items) {
   // pilot 8b: llama trả 1 mục TRẦN không có khóa k ({"sense":…, "s":…}) khi lô chỉ 1 mục → gói lại theo k
-  if (out && typeof out === 'object' && !Array.isArray(out) && Array.isArray(items) && items.length === 1 && items[0] && !(items[0].k in out) && out.k == null && ('s' in out || 'def' in out || 'es' in out)) return { [items[0].k]: out };
+  if (out && typeof out === 'object' && !Array.isArray(out) && Array.isArray(items) && items.length === 1 && items[0] && !(items[0].k in out) && out.k == null && ('s' in out || 'def' in out || 'es' in out || 'sc' in out || 'skip' in out)) return { [items[0].k]: out };
   if (Array.isArray(out) && Array.isArray(items) && out.length === items.length && out.every(x => x && typeof x === 'object' && x.k == null)) return Object.fromEntries(items.map((x, i) => [x.k, out[i]]));
   if (Array.isArray(out)) return Object.fromEntries(out.filter(x => x && x.k != null).map(({ k, ...v }) => [k, v]));
   if (out && typeof out === 'object' && typeof out.k === 'string' && !(out.k in out) && Array.isArray(items) && items.some(x => x && x.k === out.k)) { const { k, ...v } = out; return { [k]: v }; }

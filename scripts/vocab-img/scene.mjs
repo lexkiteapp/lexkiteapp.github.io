@@ -108,16 +108,18 @@ if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url
   } else if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }
   else if (process.argv.includes('--dry')) { for (const k of keysOf()) console.log(k, '→', cards.items[k] ? promptScene(k, cards.items[k]).slice(0, 220) : '(chưa có thẻ)'); }
   else if (process.argv.includes('--cards')) {
-    const { createPool } = await import('../lib/ai-pool.mjs');
+    const { createPool, normOut } = await import('../lib/ai-pool.mjs');
     const SKIP = new Set(Object.keys((fs.existsSync(P(QF)) ? rd(QF) : { items: {} }).items));
-    const AI = createPool({ prompt: req => ({ sys: SCENE_SYS, user: sceneUser(req.items.map(k => ({ k, e: lex[k] }))), temp: 0.3 }) });
+    // mục = {k, w} (không phải chuỗi k): ai-pool normOut khớp lại câu trả lời lệch khoá (bọc 1 lớp, theo từ w, 1 mục trần) – 24/10 lượt fill đầu: 194/200 'no card' vì mục là chuỗi
+    const AI = createPool({ prompt: req => ({ sys: SCENE_SYS, user: sceneUser(req.items.map(x => ({ k: x.k || x, e: lex[x.k || x] }))), temp: 0.3 }) });
     const todo = keysOf().filter(k => lex[k] && !cards.items[k] && !SKIP.has(k)); let add = 0, bad = 0;
     for (let i = 0; i < todo.length; i += 8) {
       const part = todo.slice(i, i + 8);
       // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút) trước, CF sau; ngân sách lượt = AI_POOL_GC_MAX (workflow)
-      const r = await AI.gen({ mode: 'vscene', items: part }, { chain: ['gc-groq', 'gc-cf', 'gc-gemini', 'cf2'] });
+      const r = await AI.gen({ mode: 'vscene', items: part.map(k => ({ k, w: lex[k].w })) }, { chain: ['gc-groq', 'gc-cf', 'gc-gemini', 'cf2'] });
       if (!r) { console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); break; }
-      for (const k of part) { const c = r.out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (!why) { cards.items[k] = { ex: c.ex, sc: String(c.sc).replace(/["“”]/g, '').slice(0, 320), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), by: r.model }; add++; } else { bad++; console.log('✗ thẻ', k, why); } }
+      const out = normOut(r.out, part.map(k => ({ k, w: lex[k].w }))) || {};
+      for (const k of part) { const c = out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (!why) { cards.items[k] = { ex: c.ex, sc: String(c.sc).replace(/["“”]/g, '').slice(0, 320), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), by: r.model }; add++; } else { bad++; console.log('✗ thẻ', k, why); } }
     }
     if (process.argv.includes('--write')) { cards.items = Object.fromEntries(Object.entries(cards.items).sort(([a], [b]) => (a < b ? -1 : 1))); fs.writeFileSync(P(SC), JSON.stringify(cards, null, 1) + '\n'); }
     console.log(`✓ thẻ cảnh +${add} · hỏng ${bad}`); AI.report('vocab-img-scene');
