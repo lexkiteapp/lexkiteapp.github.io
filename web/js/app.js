@@ -945,7 +945,7 @@
         <p class="small" style="margin-top:1rem">💡 ${t('Cài <b>add-on Chrome</b> để bấm đúp vào từ hoặc bôi đen câu trên bất kỳ trang web nào.')}</p></div>`;
       return;
     }
-    $('#result').innerHTML = `<div class="card empty"><div class="em">⏳</div>${t('Đang tra “{q}”…', { q: esc(q) })}</div>`;
+    $('#result').innerHTML = UI.skel(t('Đang tra “{q}”…', { q: esc(q) }), 4); // khung chờ hình mục từ (từ · phiên âm · nghĩa) thay vì ⏳
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
