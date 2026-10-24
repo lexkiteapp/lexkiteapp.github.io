@@ -1,0 +1,9 @@
+{
+ "_doc": "Kho media ngoài Pages (docs/LEXICON.md §Lưu trữ 20k). Tệp nặng theo từ (âm thanh, ảnh) KHÔNG vào repo chính / Pages. Chọn kho: lọc kho state=open, rồi round-robin theo hash nội dung: repos[open][fnv(path) % n] – tệp đã đặt KHÔNG bao giờ dời (đường dẫn công khai có tiền tố kho). Kho chạm soft_mb × alert (70 %) → cảnh báo storage-watch; chạm soft_mb → state=full (chỉ đọc), thêm kho mới vào cuối.",
+ "soft_mb": 1000,
+ "alert": 0.7,
+ "repos": [
+  { "id": "m1", "repo": "lexkiteapp/lexkite-media", "cdn": "https://media.lexkite.com/", "state": "open" },
+  { "id": "m2", "repo": "lexkiteapp/lexkite-media-2", "cdn": "https://media.lexkite.com/m2/", "state": "planned", "_note": "tạo khi m1 ≥ 70 % (dự báo: âm thanh 12k từ mới đẩy m1 ≈ 0,72 GB) – cần thêm route Worker lexkite-media /m2/* + đăng ký infra/resources.json" }
+ ]
+}

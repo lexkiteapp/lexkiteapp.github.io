@@ -30,6 +30,9 @@ jobs:
         if: ${{ steps.lease.outputs.skip != '1' }}
         env: { GITHUB_TOKEN: '${{ github.token }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/footage/repo-size.mjs --alert-gb 2
+      - name: Dự báo lưu trữ kho 20k (cảnh báo ≥ 70 %)
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        run: node scripts/lexicon/expand/forecast.mjs --out "$RUNNER_TEMP/storage-forecast.json" && cat "$RUNNER_TEMP/storage-forecast.json" >> "$GITHUB_STEP_SUMMARY"
       - name: Xoá khoá
         if: always()
         run: rm -f ~/.ssh/f ~/.ssh/s

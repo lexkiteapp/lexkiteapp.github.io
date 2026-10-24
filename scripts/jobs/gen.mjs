@@ -20,6 +20,16 @@ if (oldJs !== regJs) { drift++; console.log(`${WRITE ? '✎' : '≠'} functions/
 // docs/JOBS.md
 const hh = m => String(Math.floor(m / 60) % 24).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
 const rows = REG.jobs.map(j => ({ j, t: Math.min(...j.cron.flatMap(starts).map(x => x % 1440)) })).sort((a, b) => a.t - b.t);
+const LC = fs.existsSync('infra/lexicon-consumers.json') ? JSON.parse(fs.readFileSync('infra/lexicon-consumers.json', 'utf8')) : null;
+const LEXG = LC ? `
+## Đồ thị kho từ (sinh từ infra/lexicon-consumers.json – test scripts/test/lexicon-expand.mjs chặn việc hạ nguồn bỏ sót)
+\`lexicon-expand\` 15:40 UTC → \`content/lexicon/expand/pending\` → soát mẫu ≥ 5 % (\`promote.mjs\`) → \`content/lexicon/expand/<lô>.json\` (nguồn duy nhất, 0 byte web/js) → mỗi push: npm test (dict-consistency, content-qa, lexicon-expand) → build-web (mảnh Lex, /words/ + sitemap + IndexNow) → các việc đêm đọc cùng nguồn:
+
+| Việc hạ nguồn | Đọc qua | Việc/lịch |
+|---|---|---|
+${Object.entries(LC.consumers).map(([f, c]) => `| \`${f}\` – ${c.what || ''} | ${c.via ? '\`' + c.via + '\`' : 'bỏ qua: ' + c.skip} | ${c.job || '—'} |`).join('\n')}
+${Object.entries(LC.todo || {}).map(([k, v]) => `| **CÒN THIẾU** ${k} | ${v} | — |`).join('\n')}
+` : '';
 const md = `# JOBS – sổ việc nền & điều phối (sinh từ infra/jobs.json — KHÔNG sửa tay)
 
 Nguồn duy nhất: \`infra/jobs.json\`. Sinh lại: \`node scripts/jobs/gen.mjs --write\`. CI (\`npm test\` → \`scripts/test/jobs-check.mjs\`) chặn: lịch lệch workflow, trùng, việc dùng chung tài nguyên ĐỘC QUYỀN chồng giờ, việc nặng chung phút bắt đầu, việc có lease thiếu bước thuê.
@@ -39,7 +49,7 @@ ${Object.entries(REG.resources).map(([k, v]) => `- \`${k}\` — ${v.label}${v.ex
 ${rows.map(({ j, t }) => `| ${hh(t)} | \`${j.id}\` | ${j.cron.map(c => '`' + c + '`').join('<br>')} | ${j.priority}${j.paused ? ' (tạm dừng)' : ''} | ${j.resources.join(', ')} | ${j.minutes} | ${Object.entries(j.est || {}).map(([k, v]) => k + '≈' + v).join(', ') || '—'} | ${j.lease ? '✓' : '—'} |`).join('\n')}
 
 Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: việc nền "đăng bài" trước, rồi dựng, lưu trữ (footage-archive 01:45 → drive-shorts → d1b-migrate 05:30), báo cáo.
-`;
+${LEXG}`;
 const old = fs.existsSync('docs/JOBS.md') ? fs.readFileSync('docs/JOBS.md', 'utf8') : '';
 if (old !== md) { drift++; console.log(`${WRITE ? '✎' : '≠'} docs/JOBS.md`); if (WRITE) fs.writeFileSync('docs/JOBS.md', md); }
 if (!WRITE && drift) { console.error('✗ gen: sổ và workflow/docs lệch – chạy node scripts/jobs/gen.mjs --write'); process.exitCode = 1; } else console.log('✓ gen: ' + (WRITE ? 'đã ghi' : 'khớp'));

@@ -1,0 +1,38 @@
+{
+ "at": "2026-10-24",
+ "words_now": 8177,
+ "target": 20000,
+ "add": 11823,
+ "pages_files": {
+  "lex_now": 1360,
+  "lex_at_target": 4182,
+  "dist_now": null,
+  "dist_at_target": null,
+  "gate": 18000
+ },
+ "lookup_br_bytes": {
+  "core_median": 2800,
+  "lang_median": 1300,
+  "warm_total": 4100,
+  "budget": 5120,
+  "note": "cùng kích thước mảnh (9 KB thô) – thêm mảnh, không phình mảnh"
+ },
+ "repo_mb": {
+  "source_expand": 12.4,
+  "source_expand_git": 4.1,
+  "main_repo_now": 945,
+  "soft": 1000
+ },
+ "web_js_bytes": 0,
+ "media_mb": {
+  "audio_new": 143,
+  "audio_files": 23646,
+  "images_new": 21,
+  "media_repo_now": 583,
+  "soft": 1000
+ },
+ "alerts": [
+  "repo chính 949.1 MB / 1 GB (≥ 70 %) – âm thanh từ mới KHÔNG được ghi vào repo chính",
+  "lexkite-media 747 MB / 1 GB (≥ 70 %) – mở kho m2 (infra/media-repos.json)"
+ ]
+}

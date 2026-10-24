@@ -67,3 +67,36 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 23:30 | `blog-daily` | `30 23 * * *` | publishing | gemini, gh_minutes | 30 | — | — |
 
 Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: việc nền "đăng bài" trước, rồi dựng, lưu trữ (footage-archive 01:45 → drive-shorts → d1b-migrate 05:30), báo cáo.
+
+## Đồ thị kho từ (sinh từ infra/lexicon-consumers.json – test scripts/test/lexicon-expand.mjs chặn việc hạ nguồn bỏ sót)
+`lexicon-expand` 15:40 UTC → `content/lexicon/expand/pending` → soát mẫu ≥ 5 % (`promote.mjs`) → `content/lexicon/expand/<lô>.json` (nguồn duy nhất, 0 byte web/js) → mỗi push: npm test (dict-consistency, content-qa, lexicon-expand) → build-web (mảnh Lex, /words/ + sitemap + IndexNow) → các việc đêm đọc cùng nguồn:
+
+| Việc hạ nguồn | Đọc qua | Việc/lịch |
+|---|---|---|
+| `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
+| `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
+| `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
+| `scripts/build-seo-pages.mjs` – /<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt) | `loadBrowserIndex` | build-web → indexnow |
+| `scripts/gen-word-audio.mjs` – hàng âm thanh Kokoro Anh/Mỹ | `loadAllPlus` | word-audio 18:00 UTC |
+| `scripts/scriptbank/lib.mjs` – điểm học kịch bản video (từ#loại tra kho) | `expandRows` | script-bank 00:50 UTC |
+| `scripts/vocab-img/imageability.py` – hàng ảnh theo nghĩa (chấm vẽ được) | `dist/lexicon.json` | vocab-img (tạm dừng) |
+| `scripts/vocab-img/gen.mjs` – vẽ ảnh nghĩa | `dist/lexicon.json` | vocab-img |
+| `scripts/vocab-img/icons.mjs` – icon Noto theo nghĩa | `dist/lexicon.json` | vocab-img |
+| `scripts/vocab-img/judge.mjs` – giám khảo ảnh | `dist/lexicon.json` | vocab-img |
+| `scripts/vocab-img/qc.py` – QC ảnh | `dist/lexicon.json` | vocab-img |
+| `scripts/video/web-rendition.mjs` – thẻ từ trong video web | `dist/lexicon.json` | video-web |
+| `scripts/lib/video-web.mjs` – thẻ clip | `dist/lexicon.json` | video-web |
+| `scripts/gen-newtab.mjs` – tab mới add-on | `loadBrowserIndex` | build-extension (bản phát hành) |
+| `scripts/content-qa/gate.mjs` – cổng QA nội dung (kiểm lại mục mở rộng đã xuất) | `loadExpand` | npm test / content-qa |
+| `scripts/lexicon/expand/existing.mjs` – đầu vào chọn từ (không trùng) | `loadExpand` | lexicon-expand |
+| `scripts/lexicon/expand/lib.mjs` – nguồn | `loadExpand` | — |
+| `scripts/lexicon/lib.mjs` – nạp kho | `loadAllPlus` | — |
+| `scripts/lexicon/i18n-job.mjs` –  | bỏ qua: mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc) | — |
+| `scripts/lexicon/cefr-check.mjs` –  | bỏ qua: chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry) | — |
+| `scripts/scriptbank/gold.mjs` –  | bỏ qua: bộ mẫu vàng cố định từ bộ viết tay | — |
+| `scripts/vocab-img/cards.mjs` – thẻ nghĩa vimg | `dist/lexicon.json` | vocab-img |
+| `scripts/vocab-img/publish.mjs` – đăng ảnh vimg | `dist/lexicon.json` | vocab-img |
+| `scripts/vocab-img/spot.mjs` – kiểm mẫu ảnh | `dist/lexicon.json` | vocab-img |
+| **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
+| **CÒN THIẾU** audio-media-routing | hàng âm thanh có từ mở rộng nhưng CHỈ chạy khi WORD_AUDIO_EXPAND=1, sau khi định tuyến mp3 sang kho media ngoài (infra/media-repos.json) – repo chính ~0,95 GB | — |
+| **CÒN THIẾU** admin-storage | Quản trị › Lưu trữ chưa vẽ infra/storage-forecast.json (hiện: storage-watch tóm tắt + ::warning ≥ 70 %) | — |

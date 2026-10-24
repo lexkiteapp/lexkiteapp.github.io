@@ -10,7 +10,8 @@ const OUT = 'web/audio/w', TMP = (process.env.TMPDIR || '/tmp') + '/lk-word.wav'
 const li = process.argv.indexOf('--limit'), limit = li > 0 ? +process.argv[li + 1] : 300;
 export const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
 fs.mkdirSync(OUT, { recursive: true });
-const words = [...new Set((await loadAllPlus()).map(e => e.row[0].trim()).filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3))];
+// mục mở rộng (x: 1): CHỈ khi đã định tuyến sang kho media ngoài (infra/media-repos.json) – repo chính ~0,95 GB, không ghi thêm 23k mp3 vào đây
+const words = [...new Set((await loadAllPlus()).filter(e => !e.x || process.env.WORD_AUDIO_EXPAND === '1').map(e => e.row[0].trim()).filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3))];
 const has = w => VOICES.every(v => fs.existsSync(`${OUT}/${fnv(v + '|' + w)}.mp3`));
 const todo = words.filter(w => !has(w));
 const writeIndex = () => { const ok = words.filter(has); fs.writeFileSync(`${OUT}/index.txt`, ok.join('\n') + '\n'); return ok.length; };
