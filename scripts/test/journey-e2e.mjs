@@ -59,7 +59,7 @@ const INIT = ({ ask, webdriverOff, seed }) => {
   try { if (ask) localStorage.setItem('lk.e2e', '1'); for (const [k, v] of Object.entries(seed || {})) if (localStorage.getItem(k) == null) localStorage.setItem(k, v); } catch { /* */ }
   window.__cls = 0; window.__rej = [];
   window.__clsSrc = []; window.__clsReset = () => { window.__cls = 0; window.__clsSrc = []; };
-  try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; const n = e.sources && e.sources[0] && e.sources[0].node; window.__clsSrc.push((n ? (n.id ? '#' + n.id : (n.className || n.nodeName || '')).toString().slice(0, 50) : '?') + ' ' + e.value.toFixed(3)); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
+  try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; const n = e.sources && e.sources[0] && e.sources[0].node; const s0 = e.sources && e.sources[0], rr = r => r ? Math.round(r.y) + '→' : ''; window.__clsSrc.push((n ? (n.id ? '#' + n.id : (n.className || n.nodeName || '')).toString().slice(0, 50) : '?') + ' ' + e.value.toFixed(3) + (s0 ? ' y' + rr(s0.previousRect) + Math.round(s0.currentRect.y) + ' x' + Math.round(s0.previousRect.x) + '→' + Math.round(s0.currentRect.x) : '') + ' @' + Math.round(e.startTime)); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
   addEventListener('unhandledrejection', e => window.__rej.push(String((e.reason && (e.reason.stack || e.reason.message)) || e.reason).slice(0, 200)));
 };
 

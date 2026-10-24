@@ -32,11 +32,14 @@
       const cids = Array.isArray(j.cids) ? j.cids.filter(x => typeof x === 'string') : []; try { sessionStorage.setItem('lk.hidden', JSON.stringify({ at: Date.now(), cids })); } catch (e) { /* bỏ qua */ } return cids;
     }).catch(() => []));
   }
+  // Chỉ mục bộ có dữ liệu (scripts/explain/build.mjs → js/explain/sets.json). Bộ/ngôn ngữ không có → không fetch (app gốc Capacitor: tệp thiếu = "Load failed", không phải 404)
+  let setsP = null;
+  const sets = () => setsP || (setsP = g.fetch ? fetch('js/explain/sets.json').then(r => (r.ok ? r.json() : {})).catch(() => ({})) : Promise.resolve({}));
   function load(set, l) {
     l = l || lang();
     const k = set + '/' + l;
     if (cache[k]) return cache[k];
-    const f = g.fetch ? Promise.all([fetch(`js/explain/${set}/${l}.json`).then(r => (r.ok ? r.json() : l !== 'en' ? load(set, 'en') : {})), hidden()])
+    const f = g.fetch ? Promise.all([sets().then(S => { const ls = Array.isArray(S[set]) ? S[set] : []; return ls.includes(l) ? fetch(`js/explain/${set}/${l}.json`).then(r => (r.ok ? r.json() : l !== 'en' ? load(set, 'en') : {})) : l !== 'en' && ls.includes('en') ? load(set, 'en') : {}; }), hidden()])
       .then(([m, h]) => { for (const c of h) if (c.startsWith('explain:')) delete m[c.slice(8)]; return m; }) : Promise.resolve({});
     return (cache[k] = f.catch(() => { delete cache[k]; return {}; }));
   }

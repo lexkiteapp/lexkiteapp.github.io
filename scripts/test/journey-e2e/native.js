@@ -16,6 +16,7 @@
     const keep = {}; for (const k of ['__e2e', 'vb.uiLang', '__lkj']) if (ls(k) != null) keep[k] = ls(k);
     try { localStorage.clear(); for (const [k, v] of Object.entries(keep)) localStorage.setItem(k, v); localStorage.setItem('lk.e2e', '1'); } catch (e) { /* */ }
     await new Promise(r => { try { const q = indexedDB.deleteDatabase('lexkite'); q.onsuccess = q.onerror = q.onblocked = () => r(); } catch (e) { r(); } setTimeout(r, 3000); });
+    return []; // bộ chạy Android coi kết quả không phải mảng = trang tải lại giữa chừng
   }
   const DAY = 864e5;
   const P = {
