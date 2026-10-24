@@ -21,6 +21,27 @@
    ]
   },
   {
+   "id": "lexicon-expand",
+   "paths": [
+    "content/lexicon/expand"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "cefr",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "build-lexicon.mjs",
+    "test/lexicon-expand.mjs"
+   ]
+  },
+  {
    "id": "vocab-notes",
    "paths": [
     "web/js/notes",

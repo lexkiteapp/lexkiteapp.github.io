@@ -10,6 +10,7 @@ import vm from 'vm';
 import zlib from 'zlib';
 import crypto from 'crypto';
 import { createRequire } from 'module';
+import { loadExpand, toIndex } from './expand/lib.mjs';
 
 const ROOT = new URL('../../', import.meta.url).pathname;
 const require = createRequire(import.meta.url);
@@ -19,18 +20,22 @@ const OUT = arg('--out'), CHECK = process.argv.includes('--check');
 const CORE_RAW = +(arg('--core-bytes') || 9000), LANG_GROUP = +(arg('--lang-group') || 4), TOP_N = +(arg('--top') || 300);
 
 // ---- Nạp dữ liệu như trình duyệt: data.js → gói 'words' → gói 'tsl' (thứ tự lấy từ BUNDLES trong app.js – một nguồn)
-export function loadBrowserIndex() {
+export function loadBrowserIndex({ expand = true } = {}) {
   const app = fs.readFileSync(path.join(ROOT, 'web/js/app.js'), 'utf8');
   const bundle = n => { const m = new RegExp(`\\b${n}: \\[([^\\]]*)\\]`).exec(app); if (!m) throw new Error('không thấy BUNDLES.' + n); return [...m[1].matchAll(/'(js\/lib\/[^']+)'/g)].map(x => 'web/' + x[1]); };
   const files = ['web/js/data.js', ...bundle('words'), ...bundle('tsl'), 'web/js/verbs-core.js'];
   const ctx = { t: s => s, console }; ctx.self = ctx; vm.createContext(ctx);
   for (const f of files) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), ctx, { filename: f });
-  return { INDEX: ctx.IELTS_DATA.INDEX, TOPICS: ctx.IELTS_DATA.TOPICS, VERBS: ctx.LK_VERBS, files };
+  // Mục MỞ RỘNG đã xuất (content/lexicon/expand, docs/LEXICON.md §Mở rộng 20k): không nằm trong web/js (ngân sách) – trình duyệt nhận qua mảnh Lex;
+  // ghép vào INDEX ở đây để MỌI việc hạ nguồn đọc INDEX (mảnh, trang /words/, cổng nhất quán) tự có từ mới. Không bao giờ đè mục sẵn có.
+  const INDEX = ctx.IELTS_DATA.INDEX, XM = new Map();
+  if (expand) for (const { e } of loadExpand()) { const k = e.w.toLowerCase(); if (INDEX[k]) continue; INDEX[k] = toIndex(e); XM.set(k, e.m || {}); }
+  return { INDEX, XM, TOPICS: ctx.IELTS_DATA.TOPICS, VERBS: ctx.LK_VERBS, files };
 }
 const IRR_PLURAL = 'children child|men man|women woman|people person|feet foot|teeth tooth|mice mouse|geese goose|criteria criterion|phenomena phenomenon|analyses analysis|crises crisis|theses thesis|hypotheses hypothesis|data datum|media medium|bacteria bacterium|curricula curriculum|indices index|appendices appendix|lives life|wives wife|knives knife|leaves leaf|halves half|selves self|shelves shelf|wolves wolf|better good|best good|worse bad|worst bad|further far|farther far';
 
 export function buildShards() {
-  const { INDEX, TOPICS, VERBS } = loadBrowserIndex();
+  const { INDEX, TOPICS, VERBS, XM } = loadBrowserIndex();
   const E = new Map(), collide = [];
   for (const k of Object.keys(INDEX)) { const n = Lex.norm(k); if (!n) continue; if (E.has(n)) { collide.push(k); continue; } E.set(n, JSON.parse(JSON.stringify(INDEX[k]))); }
   // dạng bất quy tắc → gốc (chỉ khi dạng đó KHÔNG phải mục từ riêng)
@@ -61,7 +66,7 @@ export function buildShards() {
     const P = JSON.parse(fs.readFileSync(path.join(ROOT, 'web/packs', f), 'utf8')), list = [];
     core.forEach((c, i) => {
       const j = Math.floor(i / LANG_GROUP); list[j] = list[j] || {};
-      for (const k of Object.keys(c.d.e)) { const e = c.d.e[k], lk = e.word.toLowerCase(), v = P[lk + '#' + gpos(e.pos)] || P[lk]; if (v) list[j][k] = v; }
+      for (const k of Object.keys(c.d.e)) { const e = c.d.e[k], lk = e.word.toLowerCase(), v = P[lk + '#' + gpos(e.pos)] || P[lk] || (e.x && XM.get(k) && XM.get(k)[f.slice(0, 2)] ? [XM.get(k)[f.slice(0, 2)], 2, 0] : null); if (v) list[j][k] = v; }
     });
     langs[f.slice(0, 2)] = list;
   }

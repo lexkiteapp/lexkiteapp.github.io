@@ -8,6 +8,7 @@ import fs from 'fs';
 import crypto from 'crypto';
 import { createRequire } from 'module';
 import { loadAll, key as lexKey } from '../lexicon/lib.mjs';
+import { expandRows } from '../lexicon/expand/lib.mjs';
 import { syllables, stressIndex } from '../lexicon/ipa.mjs';
 
 const ROOT = new URL('../../', import.meta.url), R = p => new URL(p, ROOT).pathname;
@@ -67,7 +68,7 @@ export function sources() {
   globalThis.self = globalThis.self || globalThis;
   require(R('web/js/usage-core.js')); for (const f of fs.readdirSync(R('web/js/usage')).sort()) require(R('web/js/usage/' + f));
   for (const f of ['tenses', 'verbs', 'sentences', 'foundation', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'check']) require(R(`web/js/grammar/${f}.js`));
-  const lex = new Map(); for (const e of loadAll()) { const k = lexKey(e.row); if (!lex.has(k)) lex.set(k, e.row); }
+  const lex = new Map(); for (const e of [...loadAll(), ...expandRows()]) { const k = lexKey(e.row); if (!lex.has(k)) lex.set(k, e.row); }
   const byWord = new Map(); for (const r of lex.values()) { const w = r[0].toLowerCase(); if (!byWord.has(w)) byWord.set(w, r); }
   return (SRC = { U: self.LK_USAGE, G: self.GRAMMAR, lex, byWord });
 }

@@ -726,6 +726,23 @@ export const REG = {
     "d1_internal_writes": 2000
    },
    "lease": false
+  },
+  {
+   "id": "lexicon-expand",
+   "workflow": "lexicon-expand.yml",
+   "cron": [
+    "40 15 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 120,
+   "est": {
+    "gemini_calls": 400
+   },
+   "lease": true
   }
  ]
 };

@@ -117,6 +117,11 @@ if (ex('content/qa/batches')) for (const f of fs.readdirSync(P('content/qa/batch
   if (s.ok && b.status === 'rejected') H('lô', `${f}: đạt kiểm mẫu nhưng ghi "rejected" – kiểm lại`);
 }
 
+// ---------- Mở rộng kho từ (content/lexicon/expand): mục đã xuất phải qua lại cổng + không ở hàng duyệt – lỗi CỨNG ----------
+{ const { loadExpand, gateEntry } = await import('../lexicon/expand/lib.mjs');
+  const q = new Set((queue.items || []).filter(x => x.src === 'lexicon-expand').map(x => x.id));
+  for (const { k, e, batch } of loadExpand()) { const g = gateEntry(e); if (!g.ok) H('lexicon-expand', `${batch} ${k}: ${g.why.slice(0, 2).join('; ')} – không được xuất`); if (q.has(k)) H('lexicon-expand', `${batch} ${k}: đang ở hàng duyệt nhưng đã xuất`); } }
+
 // ---------- So baseline (chỉ được giảm) ----------
 const BF = 'content/qa/baseline.json', base = ex(BF) ? J(BF).counts || {} : {};
 const up = Object.entries(cnt).filter(([k, n]) => n > (base[k] || 0)), down = Object.entries(base).filter(([k, n]) => (cnt[k] || 0) < n);

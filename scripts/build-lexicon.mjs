@@ -99,7 +99,7 @@ if (usCov < 0.97) errs.push(`ipaUS phủ ${(usCov * 100).toFixed(1)}% từ đơn
 // ---- ảnh minh hoạ theo nghĩa (content/lexicon/img.json → web/js/lexicon-img.json, mọi bề mặt đọc từ đây – docs/LEXICON.md § Ảnh minh hoạ)
 const IMGF = 'content/lexicon/img.json';
 const IMG = fs.existsSync(new URL(IMGF, ROOT)) ? JSON.parse(rd(IMGF)) : { v: 1, style: { v: 's1' }, base: 'https://media.lexkite.com/vimg/', items: {}, rejected: {} };
-errs.push(...checkImg(IMG, new Set(groups.keys())));
+{ const { loadExpand } = await import('./lexicon/expand/lib.mjs'); errs.push(...checkImg(IMG, new Set([...groups.keys(), ...loadExpand().map(x => x.k)]))); }
 // chỉ mục v2 gọn: m = {từ#loại: h}, x = khoá có bản @2x (768 px), w = khoá CHỈ có WebP (không AVIF – thường rỗng) – web/js/vocab-img.js
 const imgKeys = Object.keys(IMG.items);
 // on: bật TỰ ĐỘNG mọi bề mặt khi đủ ảnh đã chấm (≥ on_min, mặc định 150) – cờ config vocab_img true/false (Quản trị) vẫn ghi đè
@@ -124,6 +124,8 @@ for (const [src, dst] of copies) {
 if (WRITE) {
   const lex = {};
   for (const [k, list] of groups) { const r = list[0].row; lex[k] = { w: r[0], pos: r[2], ipa: r[1], ipaUS: r[10] || '', vi: r[3], def: r[4], ex: r[5], level: r[8], sets: list.map(e => e.set) }; if (IMG.items[k]) lex[k].img = IMG.items[k]; }
+  // mục mở rộng đã xuất (x: 1 – nghĩa 13 ngôn ngữ đã có trong nguồn, i18n-job bỏ qua; vimg/âm thanh/kịch bản tự nhận)
+  { const { loadExpand } = await import('./lexicon/expand/lib.mjs'); for (const { k, e } of loadExpand()) if (!lex[k]) { lex[k] = { w: e.w, pos: e.pos, ipa: e.ipa, ipaUS: e.ipaUS === e.ipa ? '' : e.ipaUS, vi: e.vi, def: e.def, ex: e.ex[0], level: e.level, sets: [e.topic || 'xw-everyday'], x: 1 }; if (IMG.items[k]) lex[k].img = IMG.items[k]; } }
   fs.mkdirSync(new URL('dist/', ROOT), { recursive: true });
   wr('dist/lexicon.json', JSON.stringify(lex));
 }

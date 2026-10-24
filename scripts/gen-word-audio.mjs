@@ -4,13 +4,13 @@
 // Thứ tự: kho từ (NGSL trước = thông dụng trước), từ/cụm ≤ 3 chữ. App & add-on thử file này, lỗi/không mạng → giọng máy.
 // Không ghi chỉ mục vào web/js (giữ ngân sách dung lượng): web/audio/w/index.txt (danh sách từ đã có đủ 2 giọng) cho gen-newtab.
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
-import { loadAll } from './lexicon/lib.mjs';
+import { loadAllPlus } from './lexicon/lib.mjs';
 const require = createRequire(process.env.NODE_PATH ? process.env.NODE_PATH.split(':')[0] + '/' : import.meta.url);
 const OUT = 'web/audio/w', TMP = (process.env.TMPDIR || '/tmp') + '/lk-word.wav', VOICES = ['bf_emma', 'af_heart'];
 const li = process.argv.indexOf('--limit'), limit = li > 0 ? +process.argv[li + 1] : 300;
 export const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
 fs.mkdirSync(OUT, { recursive: true });
-const words = [...new Set(loadAll().map(e => e.row[0].trim()).filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3))];
+const words = [...new Set((await loadAllPlus()).map(e => e.row[0].trim()).filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3))];
 const has = w => VOICES.every(v => fs.existsSync(`${OUT}/${fnv(v + '|' + w)}.mp3`));
 const todo = words.filter(w => !has(w));
 const writeIndex = () => { const ok = words.filter(has); fs.writeFileSync(`${OUT}/index.txt`, ok.join('\n') + '\n'); return ok.length; };

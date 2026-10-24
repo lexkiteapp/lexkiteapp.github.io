@@ -7,6 +7,7 @@ on:
   workflow_run:
     types: [completed]
     workflows:
+      - 'Mở rộng kho từ (lexicon-expand)'
       - 'Hiệu năng từ điển'
       - 'Content QA gate'
       - 'Video quản trị – giao diện + hiệu năng'

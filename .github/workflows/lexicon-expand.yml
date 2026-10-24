@@ -1,0 +1,59 @@
+# Mở rộng kho từ tới 20k (docs/LEXICON.md §Mở rộng 20k) – việc nền `lexicon-expand` (infra/jobs.json, thuê gemini).
+# Chọn từ (wordfreq + WordNet + CMUdict + LDNOOBW, nguồn miễn phí) → sinh Gemini → 13 ngôn ngữ → 2 giám khảo khác họ (gemini + gemma) + dịch ngược → cổng.
+# Đạt → content/lexicon/expand/pending (CHƯA xuất, chờ soát mẫu ≥ 5 % rồi promote.mjs); trượt → content/qa/review-queue.json. Tự đỏ khi 0 mục đạt.
+name: Mở rộng kho từ (lexicon-expand)
+on:
+  schedule:
+    - cron: '40 15 * * *'   # 22:40 VN – khung Gemini trống (sau explain 07:30, trước word-packs 20:30)
+  workflow_dispatch:
+    inputs:
+      n: { description: 'Số từ lượt này', default: '400' }
+      pilot: { description: 'Pilot: rải đều dải tần suất (1 = có)', default: '0' }
+      calls: { description: 'Trần số lần gọi /api/lexai', default: '400' }
+      batch: { description: 'Mã lô (trống = ngày)', default: '' }
+permissions:
+  contents: write
+  id-token: write   # JWT OIDC cho /api/lexai
+concurrency: { group: lexicon-expand, cancel-in-progress: false }
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire lexicon-expand ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+      - name: Nguồn miễn phí (wordfreq CC BY-SA 4.0 · WordNet · CMUdict BSD-2 · LDNOOBW CC BY 4.0)
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: |
+          pip install -q wordfreq==3.1.1 nltk==3.9.1
+          python -c "import nltk; nltk.download('wordnet', quiet=True)"
+          curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
+          curl -sfL -o "$RUNNER_TEMP/bad.txt" https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
+          node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
+          python scripts/lexicon/expand/select.py --existing "$RUNNER_TEMP/existing.json" --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" --out "$RUNNER_TEMP/candidates.json"
+      - name: Sinh + 2 giám khảo + cổng
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --n "${{ github.event.inputs.n || '400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
+      - name: Lưu kết quả (chờ soát – chưa xuất)
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        run: |
+          cat reports/lexicon-expand.json 2>/dev/null >> "$GITHUB_STEP_SUMMARY" || true
+          test -n "$(git status --porcelain content/lexicon/expand content/qa/review-queue.json)" || { echo 'không có thay đổi'; exit 0; }
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add content/lexicon/expand content/qa/review-queue.json
+          git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: lexicon-expand, path: reports/lexicon-expand.json, retention-days: 14 }
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release lexicon-expand --status "${{ job.status }}"
