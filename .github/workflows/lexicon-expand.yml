@@ -13,6 +13,7 @@ on:
       calls: { description: 'Trần số lần gọi /api/lexai', default: '400' }
       batch: { description: 'Mã lô (trống = ngày)', default: '' }
       gc_max: { description: 'Trần lượt GrabCast (ai-pool)', default: '20000' }
+      retry: { description: 'Làm lại danh sách retry trước (0 = lượt kiểm nhỏ, bỏ qua)', default: '1' }
 permissions:
   contents: write
   id-token: write   # JWT OIDC cho /api/lexai
@@ -50,7 +51,7 @@ jobs:
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: ${{ github.event.inputs.gc_max || '20000' }}
-        run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
+        run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.retry == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
       - name: Lưu kết quả (chờ soát – chưa xuất)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |
