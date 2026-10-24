@@ -31,6 +31,13 @@ const DARK = ARTICLE.replace('<style>', '<style>html,body{background:#111418;col
 const FRAME = `<!doctype html><html><body><h2>Frame host</h2><iframe id="f" src="https://t1.example.com/article" width="900" height="500"></iframe></body></html>`;
 const RTL = `<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"></head><body style="font:18px sans-serif;padding:40px"><p>هذه فقرة عربية فيها كلمة <span id="w">resilience</span> باللغة الإنجليزية.</p></body></html>`;
 
+// Trang kiểu React: giữ tham chiếu nút chữ rồi removeChild khi vẽ lại – nếu add-on bọc chữ bằng <vb-mark> thì ném NotFoundError (Cloudflare 24/10)
+const REACTISH = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SPA</title></head><body style="font:18px/1.7 sans-serif;padding:30px"><div id="root" data-reactroot>
+<p id="rp">The research approach is significant for the environment.</p>
+<div role="dialog" aria-modal="true" id="rdlg"><p id="rq">Funding is available for infrastructure research.</p><button>Considerable approach</button></div></div>
+<script>(()=>{const ps=[...document.querySelectorAll("#root p")];const ts=ps.map(p=>p.firstChild);let i=0;
+window.__rerender=()=>{i++;ps.forEach((p,j)=>{p.removeChild(ts[j]);ts[j]=document.createTextNode((j?"Funding stays available for research, render ":"A significant research approach, render ")+i);p.appendChild(ts[j]);});};})();</script></body></html>`;
+const hlStats = page => page.evaluate(() => { const o = { api: !!(window.CSS && CSS.highlights), all: 0, dlg: 0, words: [] }; if (!o.api) return o; for (const [n, h] of CSS.highlights) if (n.startsWith("lexkite-")) for (const r of h) { if (r.collapsed) continue; o.all++; const el = r.startContainer.parentElement; if (el && el.closest("[role=dialog]")) o.dlg++; o.words.push(r.toString()); } return o; });
 const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'lke2e-'));
 const ctx = await chromium.launchPersistentContext(prof, {
   channel: 'chromium', headless: true, locale: LOCALE, viewport: { width: 1280, height: 860 },
@@ -42,6 +49,7 @@ await ctx.route('https://t3.example.com/**', r => r.fulfill({ contentType: 'text
 await ctx.route('https://t5.example.com/**', r => r.fulfill({ contentType: 'text/html', body: DARK }));
 const NOTICE = fs.readFileSync(new URL('./fixtures/notice-card.html', import.meta.url), 'utf8');
 await ctx.route('https://t6.example.com/**', r => r.fulfill({ contentType: 'text/html', body: NOTICE }));
+await ctx.route('https://t7.example.com/**', r => r.fulfill({ contentType: 'text/html', body: REACTISH }));
 await ctx.route('https://t4.example.com/**', r => r.fulfill({ contentType: 'text/html', body: RTL }));
 ctx.on('page', p => {
   p.on('pageerror', e => errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`));
@@ -109,8 +117,24 @@ rec('dữ liệu mẫu: có thẻ trong chrome.storage', cardsN > 10, cardsN);
 const pg = await ctx.newPage();
 await setSettings({ selectMode: 'icon', dblclickOn: true, markKnown: true, markAcademic: true });
 await pg.goto('https://t1.example.com/article'); await sleep(2500);
-await sleep(2500); rec('content script: không gạch chân trong hộp thoại/ô chọn/nút của trang (làm hỏng form React – 24/10)', (await pg.locator('#lkdlg vb-mark').count()) === 0, await pg.locator('#lkdlg vb-mark').count());
-rec('content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang', (await pg.locator('vb-mark').count()) > 0, await pg.locator('vb-mark').count());
+await sleep(2500);
+{ const h = await hlStats(pg), vm = await pg.locator('vb-mark').count();
+  rec('gạch chân bằng CSS Highlight API: không chèn <vb-mark> vào DOM trang', h.api && vm === 0, `api=${h.api} vb-mark=${vm}`);
+  rec('content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang', h.all > 0, h.all + ': ' + h.words.slice(0, 6).join(', '));
+  rec('gạch chân cả trong hộp thoại role=dialog (Highlight API không làm hỏng form React)', h.dlg > 0, h.dlg); }
+{ const rp = await ctx.newPage(); const before = errors.length;
+  await rp.goto('https://t7.example.com/app'); await sleep(4500);
+  const h0 = await hlStats(rp);
+  rec('SPA kiểu React: có gạch chân trong khung #root + hộp thoại', h0.all > 0 && h0.dlg > 0, `all=${h0.all} dlg=${h0.dlg}`);
+  for (let i = 0; i < 3; i++) { await rp.evaluate(() => setTimeout(window.__rerender, 0)); await sleep(400); }
+  await sleep(2500);
+  const h1 = await hlStats(rp), pe = errors.slice(before).filter(e => /t7\.example/.test(e));
+  rec('SPA kiểu React: vẽ lại chữ sau khi gạch chân → không lỗi trang (removeChild)', !pe.length, pe.slice(0, 2).join(' | '));
+  rec('SPA kiểu React: gạch chân tính lại sau khi vẽ lại (kể cả hộp thoại)', h1.all > 0 && h1.dlg > 0 && h1.words.some(w => /research|significant|approach|available|funding/i.test(w)), `all=${h1.all} dlg=${h1.dlg} ${h1.words.slice(0, 5).join(",")}`);
+  { const b = await rp.evaluate(() => { const t = document.getElementById('rp').firstChild, i = t.nodeValue.indexOf('research'), r = document.createRange(); r.setStart(t, i + 2); r.setEnd(t, i + 3); const q = r.getBoundingClientRect(); return { x: q.left + q.width / 2, y: q.top + q.height / 2 }; });
+    await rp.mouse.click(b.x, b.y); await sleep(6000); const c2 = await card(rp);
+    rec('bấm vào từ được gạch chân (Highlight API) → mở bảng tra', c2 && c2.visible && /research/i.test(c2.text), c2 && c2.text.slice(0, 80)); }
+  await rp.close(); }
 await dbl(pg, '#w'); await sleep(9000);
 let c = await card(pg);
 await shot(pg, 'lookup-resilience');

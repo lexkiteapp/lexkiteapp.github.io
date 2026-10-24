@@ -179,7 +179,8 @@
       background: linear-gradient(135deg, #CC3F1C, #0ea5a4); color: #fff; font-size: 16px; display: grid; place-items: center;
       box-shadow: 0 6px 18px rgba(79,70,229,.45); animation: pop .12s ease-out; }
     .fab:hover { transform: scale(1.08); }
-    .fab[hidden], .box[hidden], .vbtoast[hidden] { display: none; }
+    .fab[hidden], .box[hidden], .vbtoast[hidden], .vbtip[hidden] { display: none; }
+    .vbtip { position: fixed; z-index: 2147483647; max-width: 300px; background: #1c1d2b; color: #fff; padding: 5px 9px; border-radius: 8px; font: 500 12.5px/1.4 -apple-system, "Segoe UI", sans-serif; box-shadow: 0 6px 18px rgba(0,0,0,.22); pointer-events: none; }
     .vbtoast { position: fixed; right: 18px; bottom: 18px; z-index: 2147483647; background: #1c1d2b; color: #fff; padding: 10px 14px; border-radius: 12px; font: 600 13px/1.4 -apple-system, "Segoe UI", sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,.25); animation: pop .2s ease-out; }
     .tr-head { display: flex; gap: 8px; align-items: center; padding: 12px 14px 8px; }
     .src { color: #6b6f85; font-size: 13px; margin-bottom: 10px; max-height: 120px; overflow: auto; border-left: 3px solid #e3e5ef; padding-left: 8px; }
@@ -973,30 +974,67 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       vb-mark[data-l="1"]{--vbc:rgba(239,68,68,.38)}vb-mark[data-l="2"]{--vbc:rgba(245,158,11,.4)}vb-mark[data-l="3"]{--vbc:rgba(234,179,8,.4)}
       vb-mark[data-l="4"],vb-mark[data-l="5"]{--vbc:rgba(34,197,94,.35)}vb-mark[data-l="0"]{--vbc:rgba(204,63,28,.22)}
       vb-mark[data-a]{background:none;border-bottom:1.5px solid rgba(31,122,114,.55);border-radius:0;text-decoration:none} /* gạch xanh mảnh – không giống gạch đỏ lỗi chính tả */
-      .ytp-caption-segment .vbw.known{box-shadow:inset 0 -.18em 0 rgba(34,197,94,.9)}`;
+      .ytp-caption-segment .vbw.known{box-shadow:inset 0 -.18em 0 rgba(34,197,94,.9)}
+      ::highlight(lexkite-acad){text-decoration:underline 1.5px rgba(31,122,114,.55);text-underline-offset:3px;text-decoration-skip-ink:none}
+      ::highlight(lexkite-l0){background-color:rgba(204,63,28,.16)}::highlight(lexkite-l1){background-color:rgba(239,68,68,.24)}::highlight(lexkite-l2){background-color:rgba(245,158,11,.26)}
+      ::highlight(lexkite-l3){background-color:rgba(234,179,8,.26)}::highlight(lexkite-l4),::highlight(lexkite-l5){background-color:rgba(34,197,94,.22)}`;
     (document.head || document.documentElement).appendChild(st);
+    // CSP style-src chặn <style> chèn vào → ::highlight() vẫn cần kiểu: bảng kiểu dựng sẵn (adoptedStyleSheets) không bị CSP chặn
+    if (HLR) later(() => { try { if (st.sheet && st.sheet.cssRules.length) return; const sh = new CSSStyleSheet(); sh.replaceSync(st.textContent.split('\n').filter(l => l.includes('::highlight')).join('\n')); document.adoptedStyleSheets = [...document.adoptedStyleSheets, sh]; } catch (e) { /* bỏ qua */ } }, 50);
   }
   const UI_SKIP = 'button,label,form,nav,header,footer,a,[role=dialog],[aria-modal],[role=listbox],[role=option],[role=combobox],[role=menu],[role=menuitem],[role=button],[role=tab],[role=tablist],[role=tooltip],[role=alert],[aria-live],[popover]';
   // content script ở 'isolated world' không thấy khoá __reactFiber của trang → nhận khung SPA qua DOM: đảo Astro, gốc React/Next/Vue/Angular/Svelte
   const FW_ROOT = 'astro-island,#__next,#root,#app,#__nuxt,[data-reactroot],[data-v-app],[ng-version],[data-svelte-h],[data-rh]';
   const fwOwned = el => !!el.closest(FW_ROOT);
-  function markIn(rootEl, budget = 400) {
-    if (!markOn || !knownRe || !rootEl || marked > 800) return;
-    const tw = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
-      acceptNode: n => {
-        const p = n.parentElement;
-        if (!p || !n.nodeValue || n.nodeValue.length < 3 || !/[A-Za-z]{3}/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
-        if (p.closest(SKIP.split(',').map(x => x.toLowerCase()).join(',') + ',[contenteditable],[contenteditable=""],.ytp-caption-window-container')) return NodeFilter.FILTER_REJECT;
-        // 24/10: gắn vb-mark vào chữ do React/Vue quản lý trong hộp thoại/ô chọn làm hỏng trang (form Cloudflare tự đóng khi chọn) → không đụng UI tương tác
-        if (p.closest(UI_SKIP)) return NodeFilter.FILTER_REJECT;
-        // chữ trong khung SPA (React/Vue/Astro…): thay nút chữ → framework removeChild lỗi lúc vẽ lại (Cloudflare 24/10)
-        if (fwOwned(p)) return NodeFilter.FILTER_REJECT; // cả <p> trong đảo React cũng bị vẽ lại khi trạng thái đổi (Cloudflare: chọn ô → removeChild lỗi) → bỏ hẳn
-        return NodeFilter.FILTER_ACCEPT;
-      },
-    });
+  const TXT_SKIP = SKIP.split(',').map(x => x.toLowerCase()).join(',') + ',[contenteditable],[contenteditable=""],.ytp-caption-window-container,ielts-lexi-popup';
+  const MAX_MARK = 800;
+  // 24/10 (2.6.439): CSS Custom Highlight API – gạch chân bằng Range + ::highlight(), KHÔNG sửa DOM của trang →
+  // React/Vue/Astro vẽ lại thoải mái (không còn removeChild lỗi) → gạch chân lại được cả trong hộp thoại và khung SPA.
+  // Trình duyệt chưa có Highlight API → dùng <vb-mark> như cũ, giữ luật bỏ qua UI tương tác + khung SPA.
+  // (window.CSS: hằng CSS ở trên là chuỗi CSS của bảng tra, che mất đối tượng CSS toàn cục)
+  const HLR = (() => { try { const c = window.CSS; return c && c.highlights && typeof c.highlights.set === 'function' && typeof Highlight === 'function' ? c.highlights : null; } catch (e) { return null; } })();
+  const HL_NAMES = ['lexkite-acad', 'lexkite-l0', 'lexkite-l1', 'lexkite-l2', 'lexkite-l3', 'lexkite-l4', 'lexkite-l5'];
+  const hlSets = {}, hlNodes = new Map(); let hlCount = 0;
+  const hlName = k => k.acad ? 'lexkite-acad' : 'lexkite-l' + Math.max(0, Math.min(5, k.lv | 0));
+  const hlTitle = k => k.acad ? `${k.acad} · ${tx('Từ học thuật – bấm để tra')}` : `${k.vi}${k.ipa ? '  ' + k.ipa : ''} · ${tx('Lexkite cấp {lv}', { lv: k.lv || tx('mới') })}`;
+  function hlEnsure() { for (const n of HL_NAMES) { if (!hlSets[n]) hlSets[n] = new Highlight(); if (HLR.get(n) !== hlSets[n]) HLR.set(n, hlSets[n]); } }
+  function hlDrop(node) { const e = hlNodes.get(node); if (!e) return; for (const h of e.hits) hlSets[h.n].delete(h.r); hlCount -= e.hits.length; hlNodes.delete(node); }
+  function hlClear() { if (!HLR) return; for (const n of HL_NAMES) { if (hlSets[n]) hlSets[n].clear(); } hlNodes.clear(); hlCount = 0; hideTip(); }
+  cleanups.push(() => { try { if (HLR) for (const n of HL_NAMES) if (HLR.get(n) === hlSets[n]) HLR.delete(n); } catch (e) {} });
+  function hlScanText(node) {
+    const text = node.nodeValue, hits = []; knownRe.lastIndex = 0; let m;
+    while ((m = knownRe.exec(text)) && hlCount + hits.length < MAX_MARK) {
+      const w = m[1].toLowerCase(), k = known.get(w); if (!k) continue;
+      const r = document.createRange(); r.setStart(node, m.index); r.setEnd(node, m.index + m[0].length); // Range sống: tự theo nút chữ khi trang đổi DOM
+      const n = hlName(k); hlSets[n].add(r); hits.push({ r, w, k, n });
+    }
+    if (hits.length) { hlNodes.set(node, { v: text, hits }); hlCount += hits.length; }
+  }
+  const acceptText = (n, strict) => {
+    const p = n.parentElement;
+    if (!p || !n.nodeValue || n.nodeValue.length < 3 || !/[A-Za-z]{3}/.test(n.nodeValue)) return false;
+    if (p.closest(TXT_SKIP)) return false;
+    // chỉ cho <vb-mark> (sửa DOM): gắn vào chữ React/Vue quản lý làm hỏng trang (form Cloudflare tự đóng 24/10) → bỏ UI tương tác + khung SPA
+    if (strict && (p.closest(UI_SKIP) || fwOwned(p))) return false;
+    return true;
+  };
+  function textNodesIn(rootEl, budget, strict) {
+    if (rootEl.nodeType === 3) return acceptText(rootEl, strict) ? [rootEl] : [];
+    const tw = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, { acceptNode: n => acceptText(n, strict) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
     const nodes = []; let n;
     while ((n = tw.nextNode()) && nodes.length < budget) nodes.push(n);
-    for (const node of nodes) {
+    return nodes;
+  }
+  function markIn(rootEl, budget = 400) {
+    if (!markOn || !knownRe || !rootEl) return;
+    if (HLR) {
+      if (hlCount >= MAX_MARK) return;
+      hlEnsure();
+      for (const node of textNodesIn(rootEl, budget, false)) { if (hlNodes.has(node)) continue; hlScanText(node); if (hlCount >= MAX_MARK) break; }
+      maybeToast(); return;
+    }
+    if (marked > MAX_MARK) return;
+    for (const node of textNodesIn(rootEl, budget, true)) {
       const text = node.nodeValue; knownRe.lastIndex = 0;
       if (!knownRe.test(text)) continue;
       knownRe.lastIndex = 0;
@@ -1006,17 +1044,22 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
         frag.appendChild(document.createTextNode(text.slice(last, m.index)));
         const el = document.createElement('vb-mark');
         el.textContent = m[0]; el.dataset.w = m[1].toLowerCase();
-        if (k.acad) { el.dataset.a = k.acad; el.title = `${k.acad} · ${tx('Từ học thuật – bấm để tra')}`; }
-        else { el.dataset.l = k.lv; el.title = `${k.vi}${k.ipa ? '  ' + k.ipa : ''} · ${tx('Lexkite cấp {lv}', { lv: k.lv || tx('mới') })}`; }
+        if (k.acad) el.dataset.a = k.acad; else el.dataset.l = k.lv;
+        el.title = hlTitle(k);
         frag.appendChild(el); last = m.index + m[0].length; marked++;
       }
       frag.appendChild(document.createTextNode(text.slice(last)));
       node.parentNode.replaceChild(frag, node);
-      if (marked > 800) break;
+      if (marked > MAX_MARK) break;
     }
-    if (document.querySelectorAll('vb-mark[data-l]').length >= 3 && !toastShown) { toastShown = true; showToast(tx('📒 {n} từ bạn đã học xuất hiện trên trang này', { n: new Set([...document.querySelectorAll('vb-mark[data-l]')].map(x => x.dataset.w)).size })); }
+    maybeToast();
   }
-  function unmarkAll() { document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); marked = 0; }
+  function maybeToast() {
+    if (toastShown) return;
+    const ws = HLR ? [...hlNodes.values()].flatMap(e => e.hits.filter(h => !h.k.acad).map(h => h.w)) : [...document.querySelectorAll('vb-mark[data-l]')].map(x => x.dataset.w);
+    if (ws.length >= 3) { toastShown = true; showToast(tx('📒 {n} từ bạn đã học xuất hiện trên trang này', { n: new Set(ws).size })); }
+  }
+  function unmarkAll() { hlClear(); document.querySelectorAll('vb-mark').forEach(el => el.replaceWith(document.createTextNode(el.textContent))); marked = 0; }
   function showToast(msg) {
     ensureHost();
     let t = root.querySelector('.vbtoast');
@@ -1024,33 +1067,105 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     t.textContent = msg; t.hidden = false;
     clearTimeout(showToast._t); showToast._t = later(() => { t.hidden = true; }, 4500);
   }
+  // Dò từ được gạch chân dưới con trỏ: caretPositionFromPoint/caretRangeFromPoint → nút chữ + vị trí → so với Range đã lưu (+ hộp chữ thật)
+  function hlAt(x, y) {
+    if (!HLR || !hlCount) return null;
+    let node, off;
+    try {
+      if (document.caretPositionFromPoint) { const p = document.caretPositionFromPoint(x, y); if (p) { node = p.offsetNode; off = p.offset; } }
+      else if (document.caretRangeFromPoint) { const r = document.caretRangeFromPoint(x, y); if (r) { node = r.startContainer; off = r.startOffset; } }
+    } catch (e) { return null; }
+    if (!node || node.nodeType !== 3) return null;
+    const e = hlNodes.get(node); if (!e || node.nodeValue !== e.v) return null;
+    for (const h of e.hits) {
+      const r = h.r; if (r.collapsed || r.startContainer !== node || off < r.startOffset || off > r.endOffset) continue;
+      for (const rc of r.getClientRects()) if (x >= rc.left - 1 && x <= rc.right + 1 && y >= rc.top - 1 && y <= rc.bottom + 1) return h;
+    }
+    return null;
+  }
+  // Ô gợi ý khi rê chuột (thay title="" của <vb-mark>): nằm trong shadow root của add-on, không đụng DOM trang
+  let tipH = null, tipT = null, mvRaf = 0, mvX = 0, mvY = 0;
+  function hideTip() { clearTimeout(tipT); tipH = null; const t = root && root.querySelector('.vbtip'); if (t) t.hidden = true; }
+  function showTip(h) {
+    ensureHost(); if (!root) return;
+    let t = root.querySelector('.vbtip');
+    if (!t) { t = document.createElement('div'); t.className = 'vbtip'; t.setAttribute('role', 'tooltip'); root.appendChild(t); }
+    t.textContent = hlTitle(h.k); t.hidden = false;
+    const rc = h.r.getBoundingClientRect(), vw = window.innerWidth;
+    t.style.left = Math.max(6, Math.min(rc.left, vw - t.offsetWidth - 6)) + 'px';
+    t.style.top = (rc.bottom + 6 + t.offsetHeight > window.innerHeight ? rc.top - t.offsetHeight - 6 : rc.bottom + 6) + 'px';
+  }
+  if (HLR) {
+    bind(document, 'mousemove', e => {
+      if (!hlCount || !alive()) return;
+      mvX = e.clientX; mvY = e.clientY;
+      if (mvRaf) return;
+      mvRaf = requestAnimationFrame(() => {
+        mvRaf = 0; const h = hlAt(mvX, mvY);
+        if (h === tipH) return;
+        hideTip(); if (!h) return;
+        tipH = h; tipT = later(() => { if (tipH === h && !h.r.collapsed) showTip(h); }, 350);
+      });
+    }, { passive: true });
+    bind(window, 'scroll', hideTip, { passive: true });
+    bind(document, 'mousedown', hideTip, true);
+  }
+  const NO_HIJACK = 'a, button, label, summary, select, input, textarea, [role=button], [role=link], [role=tab], [role=option], [role=menuitem], [onclick], [tabindex], [contenteditable]';
   bind(document, 'click', e => {
+    if (!alive() || e.button) return;
     const el = e.target.closest && e.target.closest('vb-mark');
-    if (!el || !alive() || el.closest('a, button, label, summary, [role=button], [role=link], [role=tab], [onclick], [tabindex], [contenteditable]')) return;
-    e.preventDefault(); e.stopPropagation();
-    const r = document.createRange(); r.selectNodeContents(el);
-    show(el.dataset.w, el.getBoundingClientRect(), sentenceAround(r));
+    if (el) {
+      if (el.closest(NO_HIJACK)) return;
+      e.preventDefault(); e.stopPropagation();
+      const r = document.createRange(); r.selectNodeContents(el);
+      show(el.dataset.w, el.getBoundingClientRect(), sentenceAround(r));
+      return;
+    }
+    if (!HLR || !hlCount || fromHost(e)) return;
+    const h = hlAt(e.clientX, e.clientY); if (!h) return;
+    const sel = document.getSelection(); if (sel && !sel.isCollapsed) return; // đang bôi đen → để luồng chọn chữ xử lý
+    // Chữ trong phần tử bấm được (nút, liên kết, thẻ có cursor:pointer của SPA) → nhường trang; không chặn sự kiện của trang
+    const t = e.target.nodeType === 1 ? e.target : e.target.parentElement;
+    if (!t || t.closest(NO_HIJACK)) return;
+    try { if (getComputedStyle(t).cursor === 'pointer') return; } catch (x) { /* bỏ qua */ }
+    hideTip();
+    show(h.w, h.r.getBoundingClientRect(), sentenceAround(h.r));
   }, true);
   let moT = null; const pendingMark = [];
-  // Trang dựng bằng React/Vue/Angular/Svelte tự quản lý DOM – chèn <vb-mark> có thể làm app lỗi (removeChild) → không đánh dấu ở đó
+  // <vb-mark> (dự phòng): trang dựng bằng React/Vue/Angular/Svelte tự quản lý DOM – chèn thẻ làm app lỗi (removeChild) → không đánh dấu ở đó
   const frameworkPage = () => !!document.querySelector('[data-reactroot], #__next, #root > *, #app > *, [data-v-app], [ng-version], [data-svelte-h], [data-sveltekit-hydrate]');
+  function flushMarks() {
+    moT = null;
+    if (!alive()) return stop();
+    if (!markOn || !knownRe) { pendingMark.length = 0; return; }
+    if (HLR) {
+      // Range sống co lại khi trang thay chữ → bỏ nút đã rời trang / đổi nội dung, quét lại nút còn đó
+      for (const [node, e] of [...hlNodes]) if (!node.isConnected || node.nodeValue !== e.v) { hlDrop(node); if (node.isConnected) pendingMark.push(node); }
+    }
+    const ns = pendingMark.splice(0, 60); pendingMark.length = Math.min(pendingMark.length, 600);
+    ns.forEach(n => n.isConnected && markIn(n, 80));
+    if (pendingMark.length && !moT) moT = later(flushMarks, 1500);
+  }
   const mo = new MutationObserver(muts => {
     if (!alive()) return stop();
     if (!markOn || !knownRe) return;
-    if (muts.every(m => [...m.addedNodes].every(x => x.nodeName === 'VB-MARK' || x.nodeType === 3 && x.parentElement && x.parentElement.nodeName === 'VB-MARK'))) return;
-    const added = muts.flatMap(m => [...m.addedNodes]).filter(n => n.nodeType === 1 && n.nodeName !== 'VB-MARK' && n.isConnected);
-    pendingMark.push(...added); clearTimeout(moT); moT = later(() => { const ns = pendingMark.splice(0, 60); ns.forEach(n => n.isConnected && markIn(n, 80)); }, 1500);
+    if (!HLR && muts.every(m => [...m.addedNodes].every(x => x.nodeName === 'VB-MARK' || x.nodeType === 3 && x.parentElement && x.parentElement.nodeName === 'VB-MARK'))) return;
+    for (const m of muts) {
+      if (m.type === 'characterData') { if (HLR) pendingMark.push(m.target); continue; }
+      for (const n of m.addedNodes) if ((n.nodeType === 1 && n.nodeName !== 'VB-MARK' && n !== host) || (HLR && n.nodeType === 3)) pendingMark.push(n);
+    }
+    if (!moT) moT = later(flushMarks, HLR ? 700 : 1500); // gom đợt: trang SPA vẽ lại liên tục cũng chỉ quét ≤ 1 lần / 0,7 s
   });
   cleanups.push(() => mo.disconnect());
   (async () => {
     if (window.top !== window || /^(docs|mail)\.google\.com$|(^|\.)lexkite\.com$|^lexkite\.pages\.dev$|(^|\.)(vocaband|ielts-lexi-2026)\.web\.app$|^localhost$/.test(location.hostname)) return;
     await loadKnown(); injectMarkCss();
-    const go = () => { if (frameworkPage()) return; markIn(document.body); if (document.body) mo.observe(document.body, { childList: true, subtree: true }); };
+    const go = () => { if (!HLR && frameworkPage()) return; markIn(document.body); if (document.body) mo.observe(document.body, HLR ? { childList: true, subtree: true, characterData: true } : { childList: true, subtree: true }); };
     'requestIdleCallback' in window ? requestIdleCallback(() => { if (alive()) go(); else stop(); }, { timeout: 2500 }) : later(go, 1200);
   })();
   chromeOn(chrome.storage.onChanged, async ch => {
     if (!alive()) return;
-    if (ch.cards) { await loadKnown(); }
+    if (ch.cards) { await loadKnown(); if (HLR && markOn && knownRe && document.body) { hlClear(); markIn(document.body); } }
     if (ch.settings) { const nv = ch.settings.newValue || {}, on = nv.markKnown !== false; acadOn = nv.markAcademic !== false; unmarkAll(); await loadKnown(); if (on) markIn(document.body); }
   });
 
