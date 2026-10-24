@@ -1541,6 +1541,386 @@
      "xw-everyday.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "wow#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "wow",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/waʊ/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "A1",
+    "cefrF": "A1",
+    "z": 4.96,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:belly_laugh.n.02",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "matt#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "matt",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/mæt/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "A2",
+    "cefrF": "A2",
+    "z": 4.55,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:flatness.n.04",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "ceremonial#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "ceremonial",
+    "pos": "n",
+    "ipa": "/ˌsɛrɪˈməʊnɪəl/",
+    "ipaUS": "/ˌserəˈmoʊniəl/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "z": 3.49,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:ceremony.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fryer#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "fryer",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/ˈfraɪər/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "z": 2.99,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fryer.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "ben#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "ben",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/ben/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "A2",
+    "cefrF": "A2",
+    "z": 4.69,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:ben.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "quest#v",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "quest",
+    "pos": "v",
+    "ipa": "",
+    "ipaUS": "/kwest/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "B1",
+    "z": 4.27,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:quest.v.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fanny#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "fanny",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/ˈfæni/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "z": 3.47,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:buttocks.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "rick#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "rick",
+    "pos": "n",
+    "ipa": "/rɪk/",
+    "ipaUS": "/rɪk/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "B1",
+    "z": 4.32,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:crick.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "psi#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "psi",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/saɪ/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "z": 3.45,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:pounds_per_square_inch.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "wherefore#n",
+   "batch": "20261024-pool-pilot4",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "wherefore",
+    "pos": "n",
+    "ipa": "/ˈwɛəˌfɔː/",
+    "ipaUS": "/werˈfɔːr/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "z": 2.79,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:why.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
   }
  ]
 }
