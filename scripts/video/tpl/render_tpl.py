@@ -16,7 +16,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--tpl', type=int, required=True); ap.add_argument('--lesson', required=True); ap.add_argument('--lines', default=None)
 ap.add_argument('--vo', default=None); ap.add_argument('--out', required=True); ap.add_argument('--fonts', default=f'{ROOT}/brand/social/src/fonts')
 ap.add_argument('--icons', default=None); ap.add_argument('--lib', default=None, help='footage anchor dir (green/, tools/meta/)'); ap.add_argument('--clip', default='ga4_talk_natural')
-ap.add_argument('--fake-vo', action='store_true'); ap.add_argument('--stills', default=None); ap.add_argument('--host-still', default=None, help='local: RGBA png used as a static host (layout check only)')
+ap.add_argument('--skip', default='c'); ap.add_argument('--fake-vo', action='store_true'); ap.add_argument('--stills', default=None); ap.add_argument('--host-still', default=None, help='local: RGBA png used as a static host (layout check only)')
 o = ap.parse_args()
 SP = json.load(open(o.lesson)); LID = SP['id']; H6 = SP['hook']['line'][2:8]
 LJ = json.load(open(o.lines or os.path.join(os.path.dirname(o.lesson), 'lines.json'))); TEXT = {l['id']: l['text'] for l in LJ['lines']}
@@ -44,10 +44,10 @@ class Line:
         return hits[min(nth, len(hits) - 1)]
     def last(s): return s.at + s.words[-1]['s']
 
-L = {k: Line(f'n_{H6}_{k}') for k in ('h', 'm', 'g', 'k', 'y', 'c', 'rn', 'r2', 'e', 's')}
-SEQ = ['h', 'm', 'g', 'k', 'y', 'c', 'rn', 'r2', 'e', 's']
-EXTRA = dict(g=1.3, r2=1.7, s=0.6)           # extra silent hold after a line (guess pause, read the tip rows, end card)
-GAP, LEAD_IN = 0.45, 0.30
+SEQ = [k for k in ['h', 'm', 'g', 'k', 'y', 'c', 'rn', 'r2', 'e', 's'] if k not in o.skip.split(',')]   # 25-35 s budget: the quick-check beat repeats the wrong line -> skipped by default
+L = {k: Line(f'n_{H6}_{k}') for k in SEQ}
+EXTRA = dict(g=1.1, r2=1.4, s=0.4)           # extra silent hold after a line (guess pause, read the tip rows, end card)
+GAP, LEAD_IN = 0.38, 0.25
 t = LEAD_IN; BEAT = {}
 for i, k in enumerate(SEQ):
     ln = L[k]; ln.at = t; vis_in = max(0.0, t - 0.1)
@@ -271,23 +271,24 @@ words_block('y.s', WHY, TYPE['body'], 'body', X0, y, FULL, g, ln, b['vout'], col
 TICKS.append(t_i)
 
 # check: sentence + NO stamp + strike ------------------------------------
-b = BEAT['c']; ln = L['c']; g = 'c'
-sz2 = TYPE['h1'] if not T1 else TYPE['h2']
-h_ = ih + 72 + 24 + measure(wrong + '?', sz2, 'head', FULL) + 32 + 104
-y = stage_y(h_); y = place_icon('c', y, b['vin'], b['vout'], g)
-cc_ = chip('QUICK CHECK', C['navy'] if T1 else C['cream'], C['cream'] if T1 else C['navy']); El('c.chip', cc_, X0 + (FULL - cc_.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='QUICK CHECK', fs=TYPE['label'])
-y += 72 + 24
-y_, cb = words_block('c.s', wrong + '?', sz2, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, hi=BAD, align='center', after=ln.t("I'm"))
-tno = ln.t('No.')
-bi = [k for k in cb if nrm(wt[k] if k < len(wt) else '') in {nrm(x) for x in BAD}]
-if bi:
-    u0, u1 = cb[bi[0]], cb[bi[-1]]
-    if abs(u0[1] - u1[1]) < 1: El('c.strike', bar(int(u1[0] + u1[2] - u0[0]) + 16, 12, C['red']), u0[0] - 8, u0[1] + u0[3] // 2 - 2, g, tno, b['vout'], enter='wipe', d_in='base', z=8)
-st = Image.new('RGBA', (300, 104), (0, 0, 0, 0)); d_ = ImageDraw.Draw(st); d_.rounded_rectangle((0, 0, 299, 103), 52, fill=C['red'] + (255,))
-d_.ellipse((16, 16, 88, 88), fill=(255, 255, 255, 255)); d_.line((34, 34, 70, 70), fill=C['red'] + (255,), width=9); d_.line((34, 70, 70, 34), fill=C['red'] + (255,), width=9)
-d_.text((196, 54), 'NO', font=F('display', 76), fill=(255, 255, 255, 255), anchor='mm')
-El('c.no', st, X0 + (FULL - 300) // 2, snap(y_ + 32), g, tno - 0.05, b['vout'], enter='pop', d_in='base', text='NO', fs=76)
-TICKS.append(tno)
+if 'c' in SEQ:
+    b = BEAT['c']; ln = L['c']; g = 'c'
+    sz2 = TYPE['h1'] if not T1 else TYPE['h2']
+    h_ = ih + 72 + 24 + measure(wrong + '?', sz2, 'head', FULL) + 32 + 104
+    y = stage_y(h_); y = place_icon('c', y, b['vin'], b['vout'], g)
+    cc_ = chip('QUICK CHECK', C['navy'] if T1 else C['cream'], C['cream'] if T1 else C['navy']); El('c.chip', cc_, X0 + (FULL - cc_.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='QUICK CHECK', fs=TYPE['label'])
+    y += 72 + 24
+    y_, cb = words_block('c.s', wrong + '?', sz2, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, hi=BAD, align='center', after=ln.t("I'm"))
+    tno = ln.t('No.')
+    bi = [k for k in cb if nrm(wt[k] if k < len(wt) else '') in {nrm(x) for x in BAD}]
+    if bi:
+        u0, u1 = cb[bi[0]], cb[bi[-1]]
+        if abs(u0[1] - u1[1]) < 1: El('c.strike', bar(int(u1[0] + u1[2] - u0[0]) + 16, 12, C['red']), u0[0] - 8, u0[1] + u0[3] // 2 - 2, g, tno, b['vout'], enter='wipe', d_in='base', z=8)
+    st = Image.new('RGBA', (300, 104), (0, 0, 0, 0)); d_ = ImageDraw.Draw(st); d_.rounded_rectangle((0, 0, 299, 103), 52, fill=C['red'] + (255,))
+    d_.ellipse((16, 16, 88, 88), fill=(255, 255, 255, 255)); d_.line((34, 34, 70, 70), fill=C['red'] + (255,), width=9); d_.line((34, 70, 70, 34), fill=C['red'] + (255,), width=9)
+    d_.text((196, 54), 'NO', font=F('display', 76), fill=(255, 255, 255, 255), anchor='mm')
+    El('c.no', st, X0 + (FULL - 300) // 2, snap(y_ + 32), g, tno - 0.05, b['vout'], enter='pop', d_in='base', text='NO', fs=76)
+    TICKS.append(tno)
 
 # normal speed: karaoke sentence + marker ----------------------------------
 b = BEAT['rn']; ln = L['rn']; g = 'rn'
@@ -488,7 +489,7 @@ def whoosh(d=0.32):
 def tick(f0=1900, d=0.05):
     n = int(d * SR); tt = np.arange(n) / SR; return (np.sin(2 * np.pi * f0 * tt) * np.exp(-tt * 90)).astype(np.float32)
 WH, TK = whoosh(), tick()
-WH_T = sorted({round(e.t_in, 2) for e in ELS if e.enter == 'slide' and not e.parent and e.id.endswith('card')} | {round(BEAT[k]['vin'], 2) for k in ('y', 'c', 'rn', 'r2', 'e', 's')})
+WH_T = sorted({round(e.t_in, 2) for e in ELS if e.enter == 'slide' and not e.parent and e.id.endswith('card')} | {round(BEAT[k]['vin'], 2) for k in ('y', 'c', 'rn', 'r2', 'e', 's') if k in BEAT})
 for t0 in WH_T: put(WH, max(0, t0 - 0.08), db(-27))
 for t0 in TICKS: put(TK, t0, db(-29))
 # music bed: soft pad (maj7 voicings), RMS -40 dBFS, 1.5 s fades
@@ -525,5 +526,5 @@ for j, k in enumerate(SEQ):
 sheet.save(o.out + '.sheet.jpg', quality=88)
 json.dump(dict(id=LID, tpl=o.tpl, fps=FPS, total=TOTAL, beats=BEAT, audio=AUD, video_kbps=vk, cuts=[],
                elements={e.id: dict(text=e.text, fs=e.fs, grp=e.grp, t_in=e.t_in, t_out=e.t_out, tweens=e.tweens(), parent=e.parent.id if e.parent else None) for e in ELS},
-               progress=dict(tweens=[dict(kind='grow', dur='base', ease='out')] * len(PSTEPS)), frames=LOG), open(o.out + '.timeline.json', 'w'))
+               progress=dict(tweens=[dict(kind='grow', dur='base', ease='out')] * len(PSTEPS)), frames=LOG), open(o.out + '.timeline.json', 'w'), default=float)
 print('done', o.out, TOTAL, 's')
