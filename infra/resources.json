@@ -447,7 +447,7 @@
     },
     {
       "key": "jsdelivr",
-      "name": "jsDelivr CDN (thư viện AI chạy trên máy)",
+      "name": "jsDelivr CDN (thư viện AI chạy trên máy; CI: Noto Emoji/OpenMoji/CLDR cho ảnh từ vựng)",
       "kind": "cdn",
       "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ)",
       "console": "",
@@ -456,6 +456,22 @@
       "status": "Đang dùng",
       "match": [
         "cdn.jsdelivr.net"
+      ]
+    },
+    {
+      "key": "wikimedia",
+      "name": "Wikidata + Wikimedia Commons (ảnh từ vựng tầng 2)",
+      "kind": "content",
+      "purpose": "CHỈ CI (scripts/vocab-img/wiki.mjs, free_tier.py): tìm ảnh P18 cho danh từ cụ thể, tải thumbnail CC0/CC BY/CC BY-SA/PD về lexkite-media – app không gọi; ghi công /credits/",
+      "console": "https://commons.wikimedia.org/",
+      "free": "Miễn phí (giấy phép theo từng ảnh)",
+      "upgrade": "—",
+      "status": "Đang dùng",
+      "match": [
+        "www.wikidata.org",
+        "query.wikidata.org",
+        "commons.wikimedia.org",
+        "upload.wikimedia.org"
       ]
     },
     {

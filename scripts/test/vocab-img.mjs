@@ -33,10 +33,14 @@ ok(checkImg({ ...good, base: 'https://lexkite.com/vimg/' }, senses).some(e => e.
   ok(E({ photo: { ...PH, src: { tier: 'photo', lic: 'Pexels' } } }).some(e => e.includes('by')), 'ảnh chụp thiếu by (ghi công) → lỗi');
   ok(E({ photo: { ...PH, src: undefined } }).some(e => e.includes('thiếu src')), 'photo thiếu src → lỗi');
   ok(E({ photo: { ...PH, src: { tier: 'photo', lic: 'own', by: 'x' } } }).some(e => e.includes('Pixabay|Pexels')), 'ảnh chụp chỉ Pixabay|Pexels');
-  ok(E({ photo: { ...PH, h: good.items['apple#n'].h } }).some(e => e.includes('photo.h')) && E({ photo: { ...PH, fmt: ['avif'] } }).some(e => e.includes('photo.fmt')), 'photo.h khác h, photo.fmt có webp'); }
+  ok(E({ photo: { ...PH, h: good.items['apple#n'].h } }).some(e => e.includes('photo.h')) && E({ photo: { ...PH, fmt: ['avif'] } }).some(e => e.includes('photo.fmt')), 'photo.h khác h, photo.fmt có webp');
+  const WK = { ...PH, src: { tier: 'wiki', lic: 'CC BY-SA 4.0', by: 'Jane', ref: 'https://commons.wikimedia.org/wiki/File:A.jpg' } };
+  ok(E({ photo: WK }).length === 0 && E({ photo: { ...WK, src: { ...WK.src, lic: 'CC0' } } }).length === 0, 'photo wiki CC BY-SA/CC0 + by + ref Commons hợp lệ');
+  ok(E({ photo: { ...WK, src: { ...WK.src, lic: 'GFDL' } } }).some(e => e.includes('lic')) && E({ photo: { ...WK, src: { ...WK.src, ref: 'x' } } }).some(e => e.includes('Commons')), 'wiki: giấy phép ngoài CC0/PD/CC BY[-SA] hoặc thiếu ref → lỗi');
+  { const g2 = { ...good, items: { 'apple#n': { alt: 'apple', photo: WK } } }; ok(checkImg(g2, senses).length === 0, 'mục chỉ có photo (không h) hợp lệ'); } }
 { const ix = J('web/js/lexicon-img.json'), img = J('content/lexicon/img.json');
-  ok(ix.v === 2 && ix.base === img.base && Array.isArray(ix.x) && Array.isArray(ix.w) && Object.keys(ix.m).length === Object.keys(img.items).length, 'chỉ mục v2 {v, base, sv, m, x, w} khớp img.json');
-  ok(Object.entries(ix.m).every(([k, h]) => img.items[k].h === h) && !/photo/.test(rd('web/js/lexicon-img.json')) && /m: Object\.fromEntries\(imgKeys\.map\(k => \[k, IMG\.items\[k\]\.h\]\)\)/.test(rd('scripts/build-lexicon.mjs')) && !/photo/.test(rd('scripts/build-lexicon.mjs')), 'chỉ mục app chỉ mang h (biểu tượng/minh họa) – không dữ liệu ảnh chụp');
+  ok(ix.v === 2 && ix.base === img.base && Array.isArray(ix.x) && Array.isArray(ix.w) && Object.keys(ix.m).length === Object.values(img.items).filter(e => e.h).length, 'chỉ mục v2 {v, base, sv, m, x, w} khớp img.json');
+  ok(Object.entries(ix.m).every(([k, h]) => img.items[k].h === h) && !/photo/.test(rd('web/js/lexicon-img.json')) && /m: Object\.fromEntries\(imgKeys\.map\(k => \[k, IMG\.items\[k\]\.h\]\)\)/.test(rd('scripts/build-lexicon.mjs')) && Object.entries(ix.p || {}).every(([k, h]) => img.items[k].photo.h === h && !Object.values(ix.m).includes(h)), 'chỉ mục app chỉ mang h (biểu tượng/minh họa) – không dữ liệu ảnh chụp');
   ok(ix.x.every(k => img.items[k].x2 === true) && Object.keys(img.items).filter(k => img.items[k].x2 === true).length === ix.x.length, 'x = đúng các khoá x2'); }
 
 // 2. module UI: cờ mặc định TẮT → không tải gì, không hộp; bật → <picture> AVIF→WebP trong hộp cố định, 2x chỉ khi x2 và rộng > 192
@@ -85,7 +89,7 @@ ok((appjs.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img
     vm.runInNewContext(m[0], ctx); ok(need.length === want && (!want || need[0] === 'vimg'), `cờ ${JSON.stringify(store)} → ${want ? 'tải bó vimg' : 'KHÔNG tải gì'}`);
     ok(ctx.App.vimg('apple', 'n') === '', 'App.vimg khi chưa có module → chuỗi rỗng (không hộp)'); } }
 const SHELL = (/const SHELL = \[([\s\S]*?)\];/.exec(sw) || [])[1] || ''; ok(!/vocab-img|lexicon-img/.test(SHELL), 'SW SHELL không chứa vocab-img/chỉ mục');
-ok(/await vimgP;/.test(appjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), 160\)/.test(appjs), 'tra từ: chờ ready() rồi vẽ hộp 160 px');
+ok(/await vimgP;/.test(appjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), \{ w: 160, photo: true \}\)/.test(appjs), "tra từ: chờ ready() rồi vẽ hộp 160 px (ưu tiên ảnh Wikimedia – chỉ trang từ điển)");
 { const st = rd('web/js/study.js'); ok((st.match(/App\.vimg\(/g) || []).length === 3, 'thẻ ôn SRS + thẻ từ mới + câu đố dùng App.vimg'); }
 { const nt = rd('extension/newtab.js'); ok(/localStorage\.getItem\('lk\.vimg'\) === '0'\) return Promise\.resolve\(null\)/.test(nt) && /app\/js\/vocab-img\.js/.test(nt) && /await vimgP;/.test(nt) && /VImg\.slot\(/.test(nt), 'thẻ tab mới add-on: cờ tắt → không tải; bật → chờ ready() rồi VImg.slot'); }
 ok(rd('web/js/vocab-img.js') === rd('extension/app/js/vocab-img.js'), 'add-on dùng cùng module');
@@ -119,7 +123,9 @@ ok(/const VIMG = 'lk-vimg'/.test(sw), 'SW: cache tên lk-vimg');
   ok(/<p class="vcred"[^>]*>Foto: Jo &lt;B&gt; \/ Pexels<\/p>$/.test(sp), '/words/: dòng ghi công "Ảnh: <by> / Pexels" (dịch nhãn, thoát ký tự)');
   ok(si.includes(`${base}${H3}.avif`) && !/vcred/.test(si) && seoPic(IM, 'run#v', 'run', 'Foto', V.pic) === '', '/words/: không photo → h, không ghi công; không mục → rỗng');
   ok(/ph: 'Ảnh'/.test(rd('scripts/lib/seo-pages-i18n.mjs')) && (rd('scripts/lib/seo-pages-i18n.mjs').match(/ ph: '/g) || []).length === 15, 'nhãn "Ảnh" của dòng ghi công đủ 15 ngôn ngữ');
-  for (const f of ['web/js/app.js', 'web/js/study.js', 'extension/newtab.js', 'web/js/vocab-img.js']) ok(!/\.photo\b/.test(rd(f)), 'bề mặt app/add-on không dùng ảnh chụp: ' + f);
+  for (const f of ['web/js/study.js', 'extension/newtab.js']) ok(!/photo/.test(rd(f)), 'thẻ học / tab mới không dùng ảnh Wikimedia/ảnh chụp: ' + f);
+  ok((rd('web/js/app.js').match(/photo: true/g) || []).length === 1 && !/\.photo\b/.test(rd('web/js/app.js')), 'app: ảnh Wikimedia CHỈ ở trang tra từ (1 chỗ photo: true)');
+  ok(/o\.photo \? idx\.p\[k\] : ''/.test(rd('web/js/vocab-img.js')) && !/\.photo\b(?!\s*\?)/.test(rd('web/js/vocab-img.js').replace(/o\.photo \?/g, '')), 'VImg: p chỉ dùng khi bề mặt xin {photo:true}');
   ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length/.test(rd('scripts/build-seo-pages.mjs')), 'img.json chưa duyệt HOẶC chưa có mục → /words/ không đổi (đã duyệt s1 24/10)'); }
 
 // ghi công trên 15 trang Chính sách (#credits): Noto Emoji Apache 2.0 + Pixabay/Pexels + Lexkite, đã dịch (không còn câu tiếng Anh)

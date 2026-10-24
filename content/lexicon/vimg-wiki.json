@@ -1,0 +1,1077 @@
+{
+ "_note": "Sinh bởi scripts/vocab-img/wiki.mjs (Wikidata P18 → Wikimedia Commons; chỉ CC0/CC BY/CC BY-SA/PD) – KHÔNG sửa tay; chặn nghĩa sai ở vimg-wiki-block.json. Chỉ dùng ở trang từ điển + /words/ (trường photo của img.json), ghi công ở /credits/.",
+ "v": 1,
+ "at": "2026-10-24",
+ "items": {
+  "adapter#n": {
+   "qid": "Q4576564",
+   "label": "adapter",
+   "desc": "accessory for connecting two otherwise incompatible devices or workpieces",
+   "file": "DVI-VGA-Adapter.jpg",
+   "lic": "PD",
+   "by": "Evan-Amos",
+   "ref": "https://commons.wikimedia.org/wiki/File:DVI-VGA-Adapter.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/DVI-VGA-Adapter.jpg/960px-DVI-VGA-Adapter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "aisle#n": {
+   "qid": "Q1007996",
+   "label": "aisle",
+   "desc": "linear space for walking with rows of non-walking spaces on both sides",
+   "file": "Flight - Flickr - hernanpba.jpg",
+   "lic": "CC BY-SA 2.0",
+   "by": "Hernán Piñera from Marbella",
+   "ref": "https://commons.wikimedia.org/wiki/File:Flight_-_Flickr_-_hernanpba.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Flight_-_Flickr_-_hernanpba.jpg/960px-Flight_-_Flickr_-_hernanpba.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "apartment#n": {
+   "qid": "Q188507",
+   "label": "apartment",
+   "desc": "self-contained housing unit occupying part of a building",
+   "file": "Suburbs of Bangalore (2025) 02.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Gpkp",
+   "ref": "https://commons.wikimedia.org/wiki/File:Suburbs_of_Bangalore_(2025)_02.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Suburbs_of_Bangalore_%282025%29_02.jpg/960px-Suburbs_of_Bangalore_%282025%29_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "arm#n": {
+   "qid": "Q43471",
+   "label": "arm",
+   "desc": "forearm and upper arm together without hand and shoulder",
+   "file": "Arm2.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "אנדר-ויק",
+   "ref": "https://commons.wikimedia.org/wiki/File:Arm2.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Arm2.jpg/960px-Arm2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "baggage#n": {
+   "qid": "Q865054",
+   "label": "baggage",
+   "desc": "cases or container for storing traveler's items",
+   "file": "Luggage compartments Airbus.JPG",
+   "lic": "PD",
+   "by": "User:Mattes",
+   "ref": "https://commons.wikimedia.org/wiki/File:Luggage_compartments_Airbus.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Luggage_compartments_Airbus.JPG/960px-Luggage_compartments_Airbus.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bakery#n": {
+   "qid": "Q274393",
+   "label": "bakery",
+   "desc": "establishment that produces and sells flour-based food baked in an oven",
+   "file": "Feature. James P. Lloyd. Cake Baker BAnQ P48S1P09086.jpg",
+   "lic": "PD",
+   "by": "Conrad Poirier",
+   "ref": "https://commons.wikimedia.org/wiki/File:Feature._James_P._Lloyd._Cake_Baker_BAnQ_P48S1P09086.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Feature._James_P._Lloyd._Cake_Baker_BAnQ_P48S1P09086.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "balcony#n": {
+   "qid": "Q170552",
+   "label": "balcony",
+   "desc": "platform projecting from the wall of a building",
+   "file": "2014 Nysa, zespół klasztorny jezuitów, kościół 06.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "Jacek Halicki",
+   "ref": "https://commons.wikimedia.org/wiki/File:2014_Nysa,_zesp%C3%B3%C5%82_klasztorny_jezuit%C3%B3w,_ko%C5%9Bci%C3%B3%C5%82_06.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/2014_Nysa%2C_zesp%C3%B3%C5%82_klasztorny_jezuit%C3%B3w%2C_ko%C5%9Bci%C3%B3%C5%82_06.JPG/960px-2014_Nysa%2C_zesp%C3%B3%C5%82_klasztorny_jezuit%C3%B3w%2C_ko%C5%9Bci%C3%B3%C5%82_06.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "ballroom#n": {
+   "qid": "Q805353",
+   "label": "ballroom",
+   "desc": "large room for formal dancing",
+   "file": "Catherine Palace ballroom.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "User:Stan Shebs",
+   "ref": "https://commons.wikimedia.org/wiki/File:Catherine_Palace_ballroom.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Catherine_Palace_ballroom.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "bathroom#n": {
+   "qid": "Q190771",
+   "label": "bathroom",
+   "desc": "room for personal hygiene",
+   "file": "Restaurant bathroom with two-way mirror.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "OKJaguar",
+   "ref": "https://commons.wikimedia.org/wiki/File:Restaurant_bathroom_with_two-way_mirror.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Restaurant_bathroom_with_two-way_mirror.jpg/960px-Restaurant_bathroom_with_two-way_mirror.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "box#n": {
+   "qid": "Q188075",
+   "label": "box",
+   "desc": "container (usually cuboidal) with at least one roughly rectangular cross-section",
+   "file": "Large Wooden box.jpg",
+   "lic": "CC BY 2.5",
+   "by": "Oxyman",
+   "ref": "https://commons.wikimedia.org/wiki/File:Large_Wooden_box.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Large_Wooden_box.jpg/960px-Large_Wooden_box.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bridge#n": {
+   "qid": "Q12280",
+   "label": "bridge",
+   "desc": "structure that spans and provides a passage over a road, railway, river, or some other obstacle",
+   "file": "Yavuz Sultan Selim Bridge Istanbul.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Kerim Burak",
+   "ref": "https://commons.wikimedia.org/wiki/File:Yavuz_Sultan_Selim_Bridge_Istanbul.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Yavuz_Sultan_Selim_Bridge_Istanbul.jpg/960px-Yavuz_Sultan_Selim_Bridge_Istanbul.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "bulletin board#n": {
+   "qid": "Q183398",
+   "label": "bulletin board",
+   "desc": "a board, usually cork, for pinning notices to",
+   "file": "Infinite-corridor-bboard.jpeg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Joseph Barillari",
+   "ref": "https://commons.wikimedia.org/wiki/File:Infinite-corridor-bboard.jpeg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Infinite-corridor-bboard.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "button#n": {
+   "qid": "Q160464",
+   "label": "button",
+   "desc": "small fastener used in clothing",
+   "file": "Plastic & fabric buttons showing holes & shank.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Richard Wheeler (Zephyris) 2007. ==Licensing==",
+   "ref": "https://commons.wikimedia.org/wiki/File:Plastic_%26_fabric_buttons_showing_holes_%26_shank.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/58/Plastic_%26_fabric_buttons_showing_holes_%26_shank.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "calculator#n": {
+   "qid": "Q31087",
+   "label": "calculator",
+   "desc": "electronic device used for calculations",
+   "file": "Calculadora científica Famaprem CPC-400.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Entalpia2",
+   "ref": "https://commons.wikimedia.org/wiki/File:Calculadora_cient%C3%ADfica_Famaprem_CPC-400.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Calculadora_cient%C3%ADfica_Famaprem_CPC-400.jpg/960px-Calculadora_cient%C3%ADfica_Famaprem_CPC-400.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "carpet#n": {
+   "qid": "Q163446",
+   "label": "carpet",
+   "desc": "textile floor covering",
+   "file": "Antique Heriz Serapi Persian Carpet.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Nazmiyal",
+   "ref": "https://commons.wikimedia.org/wiki/File:Antique_Heriz_Serapi_Persian_Carpet.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/98/Antique_Heriz_Serapi_Persian_Carpet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "carton#n": {
+   "qid": "Q3444710",
+   "label": "carton",
+   "desc": "box or container usually made of paperboard and sometimes of corrugated fiberboard",
+   "file": "Several Cartons.jpg",
+   "lic": "PD",
+   "by": "Rlsheehan at English Wikipedia",
+   "ref": "https://commons.wikimedia.org/wiki/File:Several_Cartons.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Several_Cartons.jpg/960px-Several_Cartons.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "ceiling#n": {
+   "qid": "Q221706",
+   "label": "ceiling",
+   "desc": "overhead interior surface that covers the upper limit of a room",
+   "file": "Torun Kopernika 21 pietro strop (2).jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Pko",
+   "ref": "https://commons.wikimedia.org/wiki/File:Torun_Kopernika_21_pietro_strop_(2).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Torun_Kopernika_21_pietro_strop_%282%29.jpg/960px-Torun_Kopernika_21_pietro_strop_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "cheeseburger#n": {
+   "qid": "Q667478",
+   "label": "cheeseburger",
+   "desc": "hamburger topped with cheese",
+   "file": "Cheeseburger.jpg",
+   "lic": "PD",
+   "by": "Renee Comet (photographer)",
+   "ref": "https://commons.wikimedia.org/wiki/File:Cheeseburger.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Cheeseburger.jpg/960px-Cheeseburger.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "cloakroom#n": {
+   "qid": "Q965173",
+   "label": "cloakroom",
+   "desc": "room for people to hang their cloaks or other outerwear when they enter a building",
+   "file": "Teatro de la Zarzuela Madrid guardaropa.jpg",
+   "lic": "CC BY 2.5",
+   "by": "Photo: Andreas Praefcke",
+   "ref": "https://commons.wikimedia.org/wiki/File:Teatro_de_la_Zarzuela_Madrid_guardaropa.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Teatro_de_la_Zarzuela_Madrid_guardaropa.jpg/960px-Teatro_de_la_Zarzuela_Madrid_guardaropa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "closet#n": {
+   "qid": "Q1723368",
+   "label": "closet",
+   "desc": "enclosed space, cabinet, or cupboard in a house or building used for general storage or hanging or storing clothes",
+   "file": "Wall-closet.jpg",
+   "lic": "PD",
+   "by": "Tysto",
+   "ref": "https://commons.wikimedia.org/wiki/File:Wall-closet.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Wall-closet.jpg/960px-Wall-closet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "coast#n": {
+   "qid": "Q93352",
+   "label": "coast",
+   "desc": "area where land meets the sea or ocean",
+   "file": "Knight's Point, West Coast.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "The original uploader was Swollib at English Wikipedia.",
+   "ref": "https://commons.wikimedia.org/wiki/File:Knight%27s_Point,_West_Coast.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Knight%27s_Point%2C_West_Coast.jpg/960px-Knight%27s_Point%2C_West_Coast.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "comb#n": {
+   "qid": "Q23834",
+   "label": "comb",
+   "desc": "toothed device used for styling, cleaning and managing hair and scalp",
+   "file": "Plastic comb, 2015-06-07.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Crisco 1492",
+   "ref": "https://commons.wikimedia.org/wiki/File:Plastic_comb,_2015-06-07.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Plastic_comb%2C_2015-06-07.jpg/960px-Plastic_comb%2C_2015-06-07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "curtain#n": {
+   "qid": "Q49005",
+   "label": "curtain",
+   "desc": "cloth used to block out light",
+   "file": "Gordijnen aan venster.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "Nieuw~commonswiki",
+   "ref": "https://commons.wikimedia.org/wiki/File:Gordijnen_aan_venster.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Gordijnen_aan_venster.JPG/960px-Gordijnen_aan_venster.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "cushion#n": {
+   "qid": "Q10971235",
+   "label": "cushion",
+   "desc": "soft bag of some ornamental material, stuffed with wool, hair, feathers, polyester staple fiber, non-woven material, or even paper torn into fragments",
+   "file": "Cushions.jpg",
+   "lic": "PD",
+   "by": "Shiftchange at English Wikipedia",
+   "ref": "https://commons.wikimedia.org/wiki/File:Cushions.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Cushions.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "desk#n": {
+   "qid": "Q1064858",
+   "label": "desk",
+   "desc": "case furniture used as a worksurface, often in a home or office setting",
+   "file": "Willem Kromhout schrijfbureau (2).jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Centraal Museum Utrecht (CMU) / Adriaan van Dam",
+   "ref": "https://commons.wikimedia.org/wiki/File:Willem_Kromhout_schrijfbureau_(2).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Willem_Kromhout_schrijfbureau_%282%29.jpg/960px-Willem_Kromhout_schrijfbureau_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "dishwasher#n": {
+   "qid": "Q186263",
+   "label": "dishwasher",
+   "desc": "mechanical device for cleaning dishware and cutlery",
+   "file": "Geschirrspuelmaschine.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "The original uploader was Tim Simms at German Wikipedia.",
+   "ref": "https://commons.wikimedia.org/wiki/File:Geschirrspuelmaschine.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Geschirrspuelmaschine.JPG/960px-Geschirrspuelmaschine.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "drawer#n": {
+   "qid": "Q223575",
+   "label": "drawer",
+   "desc": "box-shaped container that is part of a piece of furniture and can be slid out horizontally to access its contents",
+   "file": "Szuflada.jpg",
+   "lic": "CC0",
+   "by": "https://www.metmuseum.org/art/collection/search/1996",
+   "ref": "https://commons.wikimedia.org/wiki/File:Szuflada.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Szuflada.jpg/960px-Szuflada.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "drill#n": {
+   "qid": "Q58964",
+   "label": "drill",
+   "desc": "tool that makes holes using rotational friction against a solid object",
+   "file": "Drill inside.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "FDominec",
+   "ref": "https://commons.wikimedia.org/wiki/File:Drill_inside.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Drill_inside.jpg/960px-Drill_inside.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "farm#n": {
+   "qid": "Q131596",
+   "label": "farm",
+   "desc": "area of land for farming, or, for aquaculture, lake, river or sea, including various structures",
+   "file": "Borgboda2006 web.jpg",
+   "lic": "PD",
+   "by": "Uploaded by Borboerik",
+   "ref": "https://commons.wikimedia.org/wiki/File:Borgboda2006_web.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Borgboda2006_web.jpg/960px-Borgboda2006_web.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "fence#n": {
+   "qid": "Q148571",
+   "label": "fence",
+   "desc": "freestanding structure preventing movement across a boundary",
+   "file": "Elizabethton Tennessee.jpg",
+   "lic": "CC BY-SA 2.0",
+   "by": "David Joyce from Gray, TN, United States",
+   "ref": "https://commons.wikimedia.org/wiki/File:Elizabethton_Tennessee.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Elizabethton_Tennessee.jpg/960px-Elizabethton_Tennessee.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "filing cabinet#n": {
+   "qid": "Q1629107",
+   "label": "filing cabinet",
+   "desc": "piece of office furniture",
+   "file": "Istituto agronomico per l'oltremare, int., biblioteca, schedario 05.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "sailko",
+   "ref": "https://commons.wikimedia.org/wiki/File:Istituto_agronomico_per_l%27oltremare,_int.,_biblioteca,_schedario_05.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Istituto_agronomico_per_l%27oltremare%2C_int.%2C_biblioteca%2C_schedario_05.JPG/960px-Istituto_agronomico_per_l%27oltremare%2C_int.%2C_biblioteca%2C_schedario_05.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "finger#n": {
+   "qid": "Q620207",
+   "label": "finger",
+   "desc": "one of usually five articulated digits at the end of the tetrapod hand",
+   "file": "Human fingers both sides 2.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Sciencia58",
+   "ref": "https://commons.wikimedia.org/wiki/File:Human_fingers_both_sides_2.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Human_fingers_both_sides_2.jpg/960px-Human_fingers_both_sides_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "flag#n": {
+   "qid": "Q14660",
+   "label": "flag",
+   "desc": "distinctive image used as a symbol, traditionally embodied as a piece of fabric",
+   "file": "Palais des Nations unies, à Genève (cropped).jpg",
+   "lic": "CC0",
+   "by": "Groov3",
+   "ref": "https://commons.wikimedia.org/wiki/File:Palais_des_Nations_unies,_%C3%A0_Gen%C3%A8ve_(cropped).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Palais_des_Nations_unies%2C_%C3%A0_Gen%C3%A8ve_%28cropped%29.jpg/960px-Palais_des_Nations_unies%2C_%C3%A0_Gen%C3%A8ve_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "flour#n": {
+   "qid": "Q36465",
+   "label": "flour",
+   "desc": "powder which is made by grinding cereal grains",
+   "file": "Flours.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Mudd1",
+   "ref": "https://commons.wikimedia.org/wiki/File:Flours.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Flours.jpg/960px-Flours.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "footpath#n": {
+   "qid": "Q3352369",
+   "label": "footpath",
+   "desc": "way for pedestrians",
+   "file": "Alley in Bois de la Cambre.jpg",
+   "lic": "CC BY 4.0",
+   "by": "Terez Ruby",
+   "ref": "https://commons.wikimedia.org/wiki/File:Alley_in_Bois_de_la_Cambre.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Alley_in_Bois_de_la_Cambre.jpg/960px-Alley_in_Bois_de_la_Cambre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "fork#n": {
+   "qid": "Q81881",
+   "label": "fork",
+   "desc": "utensil to spear food",
+   "file": "Assorted forks.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "unknown",
+   "ref": "https://commons.wikimedia.org/wiki/File:Assorted_forks.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Assorted_forks.jpg/960px-Assorted_forks.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "garage#n": {
+   "qid": "Q22733",
+   "label": "garage",
+   "desc": "walled, roofed structure for storing a vehicle or vehicles that may be part of or attached to a home (\"attached garage\"), or a separate outbuilding or shed (\"detached garage\")",
+   "file": "Garage der Hellmuth-Ulrici-Klinik.jpg",
+   "lic": "CC0",
+   "by": "Shisma",
+   "ref": "https://commons.wikimedia.org/wiki/File:Garage_der_Hellmuth-Ulrici-Klinik.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Garage_der_Hellmuth-Ulrici-Klinik.jpg/960px-Garage_der_Hellmuth-Ulrici-Klinik.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "garden#n": {
+   "qid": "Q1107656",
+   "label": "garden",
+   "desc": "planned space set aside for the display, cultivation and enjoyment of plants",
+   "file": "French Formal Garden in Loire Valley.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Aernoudts jean",
+   "ref": "https://commons.wikimedia.org/wiki/File:French_Formal_Garden_in_Loire_Valley.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/French_Formal_Garden_in_Loire_Valley.jpg/960px-French_Formal_Garden_in_Loire_Valley.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "gate#n": {
+   "qid": "Q53060",
+   "label": "gate",
+   "desc": "point of entry to a space enclosed by building, wall or fence",
+   "file": "Gate of the BCR Headquarters Building (Bucharest, Romania).jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Neoclassicism Enthusiast",
+   "ref": "https://commons.wikimedia.org/wiki/File:Gate_of_the_BCR_Headquarters_Building_(Bucharest,_Romania).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Gate_of_the_BCR_Headquarters_Building_%28Bucharest%2C_Romania%29.jpg/960px-Gate_of_the_BCR_Headquarters_Building_%28Bucharest%2C_Romania%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "grain#n": {
+   "qid": "Q2995529",
+   "label": "grain",
+   "desc": "small, hard, dry seed used as food; may be ground into flour",
+   "file": "040719 172 dorset marnhull.jpg",
+   "lic": "CC BY-SA 1.0",
+   "by": "User:Steinsky",
+   "ref": "https://commons.wikimedia.org/wiki/File:040719_172_dorset_marnhull.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d0/040719_172_dorset_marnhull.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "gym#n": {
+   "qid": "Q14092",
+   "label": "gym",
+   "desc": "building designed and equipped for athletics and fitness",
+   "file": "2007-08 Köthen (Anhalt) 32.jpg",
+   "lic": "CC BY 2.5",
+   "by": "Ralf Lotys (Sicherlich)",
+   "ref": "https://commons.wikimedia.org/wiki/File:2007-08_K%C3%B6then_(Anhalt)_32.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/2007-08_K%C3%B6then_%28Anhalt%29_32.jpg/960px-2007-08_K%C3%B6then_%28Anhalt%29_32.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "hand luggage#n": {
+   "qid": "Q1574994",
+   "label": "hand luggage",
+   "desc": "luggage small enough to be carried in the passenger compartment of a vehicle",
+   "file": "Valizoj en aĉetcentro Premier (Tjumeno).jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "RG72",
+   "ref": "https://commons.wikimedia.org/wiki/File:Valizoj_en_a%C4%89etcentro_Premier_(Tjumeno).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Valizoj_en_a%C4%89etcentro_Premier_%28Tjumeno%29.jpg/960px-Valizoj_en_a%C4%89etcentro_Premier_%28Tjumeno%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "heater#n": {
+   "qid": "Q3588251",
+   "label": "heater",
+   "desc": "device used to heat an object or area",
+   "file": "Fan heater 2005.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "No machine-readable author provided. Roger McLassus 1951 assumed (based on copyright claims).",
+   "ref": "https://commons.wikimedia.org/wiki/File:Fan_heater_2005.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/25/Fan_heater_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "hill#n": {
+   "qid": "Q54050",
+   "label": "hill",
+   "desc": "landform that extends above the surrounding terrain in lower mountain ranges, smaller and less steep than a mountain",
+   "file": "Bacin zari 2015.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Webmaster.vinarice",
+   "ref": "https://commons.wikimedia.org/wiki/File:Bacin_zari_2015.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Bacin_zari_2015.jpg/960px-Bacin_zari_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "jacket#n": {
+   "qid": "Q849964",
+   "label": "jacket",
+   "desc": "clothing for the upper body",
+   "file": "Windbreaker Jacket, Hood Outside.jpg",
+   "lic": "PD",
+   "by": "Ingolfson",
+   "ref": "https://commons.wikimedia.org/wiki/File:Windbreaker_Jacket,_Hood_Outside.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Windbreaker_Jacket%2C_Hood_Outside.jpg/960px-Windbreaker_Jacket%2C_Hood_Outside.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "kitchen#n": {
+   "qid": "Q43164",
+   "label": "kitchen",
+   "desc": "space primarily used for preparation and storage of food",
+   "file": "Kitchenwhitehouse.jpg",
+   "lic": "PD",
+   "by": "Samantha Appleton / United states of America",
+   "ref": "https://commons.wikimedia.org/wiki/File:Kitchenwhitehouse.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Kitchenwhitehouse.jpg/960px-Kitchenwhitehouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "lake#n": {
+   "qid": "Q23397",
+   "label": "lake",
+   "desc": "body of relatively still water, localized in a basin",
+   "file": "Gentau Pic du Midi Ossau.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Myrabella",
+   "ref": "https://commons.wikimedia.org/wiki/File:Gentau_Pic_du_Midi_Ossau.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Gentau_Pic_du_Midi_Ossau.jpg/960px-Gentau_Pic_du_Midi_Ossau.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "laundry#n": {
+   "qid": "Q852100",
+   "label": "laundry",
+   "desc": "process of washing textiles",
+   "file": "Madagascar 06 545 - Flickr - gailhampshire.jpg",
+   "lic": "CC BY 2.0",
+   "by": "gailhampshire from Cradley, Malvern, U.K",
+   "ref": "https://commons.wikimedia.org/wiki/File:Madagascar_06_545_-_Flickr_-_gailhampshire.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Madagascar_06_545_-_Flickr_-_gailhampshire.jpg/960px-Madagascar_06_545_-_Flickr_-_gailhampshire.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "lighter#n": {
+   "qid": "Q20459",
+   "label": "lighter",
+   "desc": "tool to generate a flame",
+   "file": "Zippo-Slim-1968-Lit.jpg",
+   "lic": "CC BY-SA 2.5",
+   "by": "David J. Fred",
+   "ref": "https://commons.wikimedia.org/wiki/File:Zippo-Slim-1968-Lit.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Zippo-Slim-1968-Lit.jpg/960px-Zippo-Slim-1968-Lit.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "lighthouse#n": {
+   "qid": "Q39715",
+   "label": "lighthouse",
+   "desc": "structure designed to emit light to aid navigation",
+   "file": "Leuchtturm in Westerheversand crop.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Marco Leiter",
+   "ref": "https://commons.wikimedia.org/wiki/File:Leuchtturm_in_Westerheversand_crop.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Leuchtturm_in_Westerheversand_crop.jpg/960px-Leuchtturm_in_Westerheversand_crop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "locker#n": {
+   "qid": "Q1195470",
+   "label": "locker",
+   "desc": "lockable storage compartment",
+   "file": "Tropenmuseum lockers - cropped.png",
+   "lic": "PD",
+   "by": "Photo: Andreas Praefcke, cropped by Zanaq",
+   "ref": "https://commons.wikimedia.org/wiki/File:Tropenmuseum_lockers_-_cropped.png",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Tropenmuseum_lockers_-_cropped.png/960px-Tropenmuseum_lockers_-_cropped.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "lounge#n": {
+   "qid": "Q1872261",
+   "label": "lounge",
+   "desc": "waiting area for travellers",
+   "file": "Narita-sakura-lounge.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Hirohisat",
+   "ref": "https://commons.wikimedia.org/wiki/File:Narita-sakura-lounge.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Narita-sakura-lounge.jpg/960px-Narita-sakura-lounge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "modem#n": {
+   "qid": "Q5607",
+   "label": "modem",
+   "desc": "device that modulates an analog carrier signal to encode digital information",
+   "file": "ARRIS CM820B DOCSIS Cable Modem.jpg",
+   "lic": "CC BY 4.0",
+   "by": "VulcanSphere",
+   "ref": "https://commons.wikimedia.org/wiki/File:ARRIS_CM820B_DOCSIS_Cable_Modem.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/ARRIS_CM820B_DOCSIS_Cable_Modem.jpg/960px-ARRIS_CM820B_DOCSIS_Cable_Modem.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "museum#n": {
+   "qid": "Q33506",
+   "label": "museum",
+   "desc": "institution that holds artifacts and other objects of scientific, artistic, cultural, historical, or other importance",
+   "file": "GD-EG-Caire-Musée007.JPG",
+   "lic": "CC BY-SA 2.5",
+   "by": "Gérard Ducher (user:Néfermaât)",
+   "ref": "https://commons.wikimedia.org/wiki/File:GD-EG-Caire-Mus%C3%A9e007.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/GD-EG-Caire-Mus%C3%A9e007.JPG/960px-GD-EG-Caire-Mus%C3%A9e007.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "necklace#n": {
+   "qid": "Q189299",
+   "label": "necklace",
+   "desc": "article of jewellery",
+   "file": "Captured Pearls Necklace.jpg",
+   "lic": "CC BY 2.0",
+   "by": "Ashley",
+   "ref": "https://commons.wikimedia.org/wiki/File:Captured_Pearls_Necklace.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Captured_Pearls_Necklace.jpg/960px-Captured_Pearls_Necklace.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "one-way street#n": {
+   "qid": "Q70093915",
+   "label": "one-way street",
+   "desc": "street which only allows traffic in one direction",
+   "file": "One Way Sign (6859761193).jpg",
+   "lic": "CC BY 2.0",
+   "by": "David Amsler from Cuidad Guatemala, Guatemala",
+   "ref": "https://commons.wikimedia.org/wiki/File:One_Way_Sign_(6859761193).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/One_Way_Sign_%286859761193%29.jpg/960px-One_Way_Sign_%286859761193%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "paperback#n": {
+   "qid": "Q193934",
+   "label": "paperback",
+   "desc": "book with a paper or paperboard cover",
+   "file": "Blank book on a table.jpg",
+   "lic": "CC0",
+   "by": "Trey Jones",
+   "ref": "https://commons.wikimedia.org/wiki/File:Blank_book_on_a_table.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Blank_book_on_a_table.jpg/960px-Blank_book_on_a_table.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "pasta#n": {
+   "qid": "Q178",
+   "label": "pasta",
+   "desc": "Italian food made from flour, eggs and water and shaped in different forms, usually cooked and served with a sauce",
+   "file": "Pasta IMG 3985.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "Deror avi",
+   "ref": "https://commons.wikimedia.org/wiki/File:Pasta_IMG_3985.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Pasta_IMG_3985.JPG/960px-Pasta_IMG_3985.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "pastry#n": {
+   "qid": "Q477248",
+   "label": "pastry",
+   "desc": "various baked products made of dough",
+   "file": "Baked goods.jpg",
+   "lic": "PD",
+   "by": "Scott Bauer, U.S. Department of Agriculture",
+   "ref": "https://commons.wikimedia.org/wiki/File:Baked_goods.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/96/Baked_goods.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "pedestrian crossing#n": {
+   "qid": "Q8010",
+   "label": "pedestrian crossing",
+   "desc": "point on a road at which some means are employed to assist pedestrians wishing to cross",
+   "file": "Zebra Cross di Jalan Asia Afrika.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Astari28",
+   "ref": "https://commons.wikimedia.org/wiki/File:Zebra_Cross_di_Jalan_Asia_Afrika.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Zebra_Cross_di_Jalan_Asia_Afrika.jpg/960px-Zebra_Cross_di_Jalan_Asia_Afrika.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "photocopier#n": {
+   "qid": "Q185369",
+   "label": "photocopier",
+   "desc": "device for reproducing documents",
+   "file": "Xerox photocopier in GlenOak High School library 2004.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Joseph Barillari at en.wikipedia.",
+   "ref": "https://commons.wikimedia.org/wiki/File:Xerox_photocopier_in_GlenOak_High_School_library_2004.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Xerox_photocopier_in_GlenOak_High_School_library_2004.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "pub#n": {
+   "qid": "Q212198",
+   "label": "pub",
+   "desc": "drinking establishment",
+   "file": "Pubbsm.jpg",
+   "lic": "PD",
+   "by": "Ashley Pomeroy at English Wikipedia",
+   "ref": "https://commons.wikimedia.org/wiki/File:Pubbsm.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/79/Pubbsm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "railway#n": {
+   "qid": "Q22667",
+   "label": "railway",
+   "desc": "interconnected network of infrastructure used for train rail transport",
+   "file": "Tren a las nubes cruzando Viaducto la Polvorilla.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Gavieiro Juan M",
+   "ref": "https://commons.wikimedia.org/wiki/File:Tren_a_las_nubes_cruzando_Viaducto_la_Polvorilla.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Tren_a_las_nubes_cruzando_Viaducto_la_Polvorilla.jpg/960px-Tren_a_las_nubes_cruzando_Viaducto_la_Polvorilla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "raincoat#n": {
+   "qid": "Q2018769",
+   "label": "raincoat",
+   "desc": "waterproof coat",
+   "file": "Yellow Raincoat.jpg",
+   "lic": "CC BY 2.0",
+   "by": "Jim Grandy",
+   "ref": "https://commons.wikimedia.org/wiki/File:Yellow_Raincoat.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/29/Yellow_Raincoat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "recycling bin#n": {
+   "qid": "Q4743886",
+   "label": "recycling bin",
+   "desc": "container used to hold recyclables before they are taken to recycling centers",
+   "file": "Waseda University recycling bins 20080625.jpg",
+   "lic": "CC BY 2.0",
+   "by": "Jorge",
+   "ref": "https://commons.wikimedia.org/wiki/File:Waseda_University_recycling_bins_20080625.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Waseda_University_recycling_bins_20080625.jpg/960px-Waseda_University_recycling_bins_20080625.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "restaurant#n": {
+   "qid": "Q11707",
+   "label": "restaurant",
+   "desc": "single establishment which prepares and serves food, located in building",
+   "file": "Gaggenau 2016 -Restaurant- by-RaBoe 118.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "© Ra Boe / Wikipedia",
+   "ref": "https://commons.wikimedia.org/wiki/File:Gaggenau_2016_-Restaurant-_by-RaBoe_118.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Gaggenau_2016_-Restaurant-_by-RaBoe_118.jpg/960px-Gaggenau_2016_-Restaurant-_by-RaBoe_118.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "river#n": {
+   "qid": "Q4022",
+   "label": "river",
+   "desc": "larger natural watercourse",
+   "file": "White Nile Fishermen (18156464842).jpg",
+   "lic": "CC BY-SA 2.0",
+   "by": "Bernard DUPONT from FRANCE",
+   "ref": "https://commons.wikimedia.org/wiki/File:White_Nile_Fishermen_(18156464842).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/White_Nile_Fishermen_%2818156464842%29.jpg/960px-White_Nile_Fishermen_%2818156464842%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "road#n": {
+   "qid": "Q34442",
+   "label": "road",
+   "desc": "wide way leading from one place to another, especially one with a specially prepared surface which vehicles can use",
+   "file": "B172.söKrietzschwitz.Sommer.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "Hans-Joachim Fröde (User:Acf)",
+   "ref": "https://commons.wikimedia.org/wiki/File:B172.s%C3%B6Krietzschwitz.Sommer.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/B172.s%C3%B6Krietzschwitz.Sommer.JPG/960px-B172.s%C3%B6Krietzschwitz.Sommer.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "roof#n": {
+   "qid": "Q83180",
+   "label": "roof",
+   "desc": "top covering of a building",
+   "file": "Am Markt, Pirna 120449116.jpg",
+   "lic": "CC BY 3.0",
+   "by": "Kalispera Dell",
+   "ref": "https://commons.wikimedia.org/wiki/File:Am_Markt,_Pirna_120449116.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Am_Markt%2C_Pirna_120449116.jpg/960px-Am_Markt%2C_Pirna_120449116.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "roundabout#n": {
+   "qid": "Q1525",
+   "label": "roundabout",
+   "desc": "traffic intersection",
+   "file": "Brasovlandscape.jpg",
+   "lic": "CC BY 3.0",
+   "by": "Nicu Farcaș",
+   "ref": "https://commons.wikimedia.org/wiki/File:Brasovlandscape.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Brasovlandscape.jpg/960px-Brasovlandscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "sauna#n": {
+   "qid": "Q57036",
+   "label": "sauna",
+   "desc": "small room or building designed as a place to experience dry or wet heat sessions",
+   "file": "Sauna 2.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Bleiglass~enwiki",
+   "ref": "https://commons.wikimedia.org/wiki/File:Sauna_2.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/50/Sauna_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "sedan#n": {
+   "qid": "Q190578",
+   "label": "sedan",
+   "desc": "passenger car in a three-box configuration",
+   "file": "1991-1996 Buick Park Avenue.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "MercurySable99",
+   "ref": "https://commons.wikimedia.org/wiki/File:1991-1996_Buick_Park_Avenue.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f6/1991-1996_Buick_Park_Avenue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "seed#n": {
+   "qid": "Q40763",
+   "label": "seed",
+   "desc": "embryonic plant enclosed in a protective outer covering (seed coat)",
+   "file": "Разнообразие семян.jpg",
+   "lic": "CC BY 4.0",
+   "by": "Alexander Klepnev",
+   "ref": "https://commons.wikimedia.org/wiki/File:%D0%A0%D0%B0%D0%B7%D0%BD%D0%BE%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D0%B5_%D1%81%D0%B5%D0%BC%D1%8F%D0%BD.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/%D0%A0%D0%B0%D0%B7%D0%BD%D0%BE%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D0%B5_%D1%81%D0%B5%D0%BC%D1%8F%D0%BD.jpg/960px-%D0%A0%D0%B0%D0%B7%D0%BD%D0%BE%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D0%B5_%D1%81%D0%B5%D0%BC%D1%8F%D0%BD.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "shelf#n": {
+   "qid": "Q45242859",
+   "label": "shelf",
+   "desc": "flat horizontal plane used for storage",
+   "file": "Shelve.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Mgoutsidou",
+   "ref": "https://commons.wikimedia.org/wiki/File:Shelve.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Shelve.jpg/960px-Shelve.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "shoulder#n": {
+   "qid": "Q16363",
+   "label": "shoulder",
+   "desc": "part of the body; movable joint between arm and upper body",
+   "file": "Photo of male right shoulder, combined with an anatomical drawing from Leonardo da Vinci.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "File:Leonardo da Vinci - Anatomical studies of the shoulder - WGA12824.jpg: Leonardo da Vinci File:Male right shoulder a",
+   "ref": "https://commons.wikimedia.org/wiki/File:Photo_of_male_right_shoulder,_combined_with_an_anatomical_drawing_from_Leonardo_da_Vinci.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Photo_of_male_right_shoulder%2C_combined_with_an_anatomical_drawing_from_Leonardo_da_Vinci.jpg/960px-Photo_of_male_right_shoulder%2C_combined_with_an_anatomical_drawing_from_Leonardo_da_Vinci.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "skirt#n": {
+   "qid": "Q2160801",
+   "label": "skirt",
+   "desc": "type of clothing worn from the waist downwards",
+   "file": "Peasant skirt 1435043608.jpg",
+   "lic": "CC BY-SA 2.0",
+   "by": "iluvrhinestones from seattle, oceania, upload by Herrick",
+   "ref": "https://commons.wikimedia.org/wiki/File:Peasant_skirt_1435043608.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/29/Peasant_skirt_1435043608.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "sleeping bag#n": {
+   "qid": "Q214638",
+   "label": "sleeping bag",
+   "desc": "insulated covering for a person",
+   "file": "Mummy bag.jpg",
+   "lic": "PD",
+   "by": "Smack (talk)",
+   "ref": "https://commons.wikimedia.org/wiki/File:Mummy_bag.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Mummy_bag.jpg/960px-Mummy_bag.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "sleeve#n": {
+   "qid": "Q256458",
+   "label": "sleeve",
+   "desc": "part of clothing that covers the arms",
+   "file": "Long sleeve.jpg",
+   "lic": "CC0",
+   "by": "David Ring",
+   "ref": "https://commons.wikimedia.org/wiki/File:Long_sleeve.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Long_sleeve.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "soil#n": {
+   "qid": "Q36133",
+   "label": "soil",
+   "desc": "natural body consisting of layers that are primarily composed of minerals",
+   "file": "Stagnogley.JPG",
+   "lic": "PD",
+   "by": "HolgerK at English Wikipedia",
+   "ref": "https://commons.wikimedia.org/wiki/File:Stagnogley.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Stagnogley.JPG/960px-Stagnogley.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "stapler#n": {
+   "qid": "Q489157",
+   "label": "stapler",
+   "desc": "office equipment used to fasten pieces of paper together",
+   "file": "2017 Zszywacz biurowy.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Jacek Halicki",
+   "ref": "https://commons.wikimedia.org/wiki/File:2017_Zszywacz_biurowy.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/2017_Zszywacz_biurowy.jpg/960px-2017_Zszywacz_biurowy.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "stomach#n": {
+   "qid": "Q1029907",
+   "label": "stomach",
+   "desc": "digestive organ",
+   "file": "Illu stomach2.jpg",
+   "lic": "PD",
+   "by": "NIH / National Cancer Institute",
+   "ref": "https://commons.wikimedia.org/wiki/File:Illu_stomach2.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/64/Illu_stomach2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "studio apartment#n": {
+   "qid": "Q1335996",
+   "label": "studio apartment",
+   "desc": "small dwelling",
+   "file": "Studio Apartment Minneapolis 1.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Jon Platek",
+   "ref": "https://commons.wikimedia.org/wiki/File:Studio_Apartment_Minneapolis_1.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Studio_Apartment_Minneapolis_1.jpg/960px-Studio_Apartment_Minneapolis_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "sugar#n": {
+   "qid": "Q11002",
+   "label": "sugar",
+   "desc": "short-chain, water-soluble carbohydrate",
+   "file": "Sugar 2xmacro.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Lauri Andler (Phantom)",
+   "ref": "https://commons.wikimedia.org/wiki/File:Sugar_2xmacro.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Sugar_2xmacro.jpg/960px-Sugar_2xmacro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "suitcase#n": {
+   "qid": "Q200814",
+   "label": "suitcase",
+   "desc": "form of luggage",
+   "file": "Belber Striped Suitcase.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Sandrine Z",
+   "ref": "https://commons.wikimedia.org/wiki/File:Belber_Striped_Suitcase.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Belber_Striped_Suitcase.jpg/960px-Belber_Striped_Suitcase.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "sunscreen#n": {
+   "qid": "Q827658",
+   "label": "sunscreen",
+   "desc": "topical skin product that helps protect against sunburn",
+   "file": "Sunscreen on back under normal and UV light.jpg",
+   "lic": "CC0",
+   "by": "Photograph by Andrew Steele (https://andrewsteele.co.uk), jointly released into the public domain by the person in the p",
+   "ref": "https://commons.wikimedia.org/wiki/File:Sunscreen_on_back_under_normal_and_UV_light.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Sunscreen_on_back_under_normal_and_UV_light.jpg/960px-Sunscreen_on_back_under_normal_and_UV_light.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "supermarket#n": {
+   "qid": "Q180846",
+   "label": "supermarket",
+   "desc": "large form of the traditional grocery store",
+   "file": "Scheck In - (1).jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Rob",
+   "ref": "https://commons.wikimedia.org/wiki/File:Scheck_In_-_(1).jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Scheck_In_-_%281%29.jpg/960px-Scheck_In_-_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "sweater#n": {
+   "qid": "Q232191",
+   "label": "sweater",
+   "desc": "Knitted garments worn on the upper body which extend to the waist or below.",
+   "file": "Jersei-coll-alt.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Joan Rocaguinard",
+   "ref": "https://commons.wikimedia.org/wiki/File:Jersei-coll-alt.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Jersei-coll-alt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "tablecloth#n": {
+   "qid": "Q536168",
+   "label": "tablecloth",
+   "desc": "cloth used to cover a table",
+   "file": "Tablecloth 01.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "Radek Bartoš",
+   "ref": "https://commons.wikimedia.org/wiki/File:Tablecloth_01.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Tablecloth_01.JPG/960px-Tablecloth_01.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tail#n": {
+   "qid": "Q60960",
+   "label": "tail",
+   "desc": "rear appendage of organism",
+   "file": "Dog tail erect.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Kreuzschnabel",
+   "ref": "https://commons.wikimedia.org/wiki/File:Dog_tail_erect.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Dog_tail_erect.jpg/960px-Dog_tail_erect.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tile#n": {
+   "qid": "Q468402",
+   "label": "tile",
+   "desc": "flat, durable material used for flooring and roofing",
+   "file": "Cyprus floor tile.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Orhan Bilgin (Zargan)",
+   "ref": "https://commons.wikimedia.org/wiki/File:Cyprus_floor_tile.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/48/Cyprus_floor_tile.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "timer#n": {
+   "qid": "Q186612",
+   "label": "timer",
+   "desc": "device that automatically times a process or event or activates an operation or another device at a preset time or times",
+   "file": "Digitale Zeitschaltuhr.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "unknown",
+   "ref": "https://commons.wikimedia.org/wiki/File:Digitale_Zeitschaltuhr.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Digitale_Zeitschaltuhr.jpg/960px-Digitale_Zeitschaltuhr.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tire#n": {
+   "qid": "Q169545",
+   "label": "tire",
+   "desc": "ring-shaped covering that fits around a wheel's rim",
+   "file": "Gestapelte Autoreifen mit farbigen Markierungen.JPG",
+   "lic": "CC BY-SA 3.0",
+   "by": "User:Mattes",
+   "ref": "https://commons.wikimedia.org/wiki/File:Gestapelte_Autoreifen_mit_farbigen_Markierungen.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Gestapelte_Autoreifen_mit_farbigen_Markierungen.JPG/960px-Gestapelte_Autoreifen_mit_farbigen_Markierungen.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "towel#n": {
+   "qid": "Q131696",
+   "label": "towel",
+   "desc": "absorbent fabric or paper used for drying or wiping a body or a surface",
+   "file": "Toballola de platja.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Xavigivax",
+   "ref": "https://commons.wikimedia.org/wiki/File:Toballola_de_platja.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Toballola_de_platja.jpg/960px-Toballola_de_platja.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "tray#n": {
+   "qid": "Q613972",
+   "label": "tray",
+   "desc": "shallow platform designed for carrying things",
+   "file": "Tray.agr.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "unknown",
+   "ref": "https://commons.wikimedia.org/wiki/File:Tray.agr.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Tray.agr.jpg/960px-Tray.agr.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "valley#n": {
+   "qid": "Q39816",
+   "label": "valley",
+   "desc": "low area between hills, often with a river running through it",
+   "file": "Terek Valley, Khevi, Georgia.jpg",
+   "lic": "CC BY 4.0",
+   "by": "Vyacheslav Argenberg",
+   "ref": "https://commons.wikimedia.org/wiki/File:Terek_Valley,_Khevi,_Georgia.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Terek_Valley%2C_Khevi%2C_Georgia.jpg/960px-Terek_Valley%2C_Khevi%2C_Georgia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "vase#n": {
+   "qid": "Q191851",
+   "label": "vase",
+   "desc": "open container",
+   "file": "Chinese vase.jpg",
+   "lic": "CC BY-SA 2.5",
+   "by": "André Karwath aka Aka",
+   "ref": "https://commons.wikimedia.org/wiki/File:Chinese_vase.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Chinese_vase.jpg/960px-Chinese_vase.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "vending machine#n": {
+   "qid": "Q211584",
+   "label": "vending machine",
+   "desc": "machine which automatically dispenses beverages, food or non-food products to customers after a payment",
+   "file": "GER — BW — Bodenseekreis — Gem. Uhldingen-Mühlhofen — Unteruhldingen — Poststraße 10 (Verkaufsautomat für Lebensmittel) Mattes 2021-06-04.jpg",
+   "lic": "CC BY 3.0",
+   "by": "User:Mateus2019",
+   "ref": "https://commons.wikimedia.org/wiki/File:GER_%E2%80%94_BW_%E2%80%94_Bodenseekreis_%E2%80%94_Gem._Uhldingen-M%C3%BChlhofen_%E2%80%94_Unteruhldingen_%E2%80%94_Poststra%C3%9Fe_10_(Verkaufsautomat_f%C3%BCr_Lebensmittel)_Mattes_2021-06-04.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/GER_%E2%80%94_BW_%E2%80%94_Bodenseekreis_%E2%80%94_Gem._Uhldingen-M%C3%BChlhofen_%E2%80%94_Unteruhldingen_%E2%80%94_Poststra%C3%9Fe_10_%28Verkaufsautomat_f%C3%BCr_Lebensmittel%29_Mattes_2021-06-04.jpg/960px-GER_%E2%80%94_BW_%E2%80%94_Bodenseekreis_%E2%80%94_Gem._Uhldingen-M%C3%BChlhofen_%E2%80%94_Unteruhldingen_%E2%80%94_Poststra%C3%9Fe_10_%28Verkaufsautomat_f%C3%BCr_Lebensmittel%29_Mattes_2021-06-04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "walkway#n": {
+   "qid": "Q3771516",
+   "label": "walkway",
+   "desc": "engineered surface or structure supporting pedestrian traffic",
+   "file": "002 2013 09 20 Bruecken.jpg",
+   "lic": "CC BY-SA 4.0",
+   "by": "Friedrich Haag",
+   "ref": "https://commons.wikimedia.org/wiki/File:002_2013_09_20_Bruecken.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/002_2013_09_20_Bruecken.jpg/960px-002_2013_09_20_Bruecken.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "wall#n": {
+   "qid": "Q42948",
+   "label": "wall",
+   "desc": "vertical structure, usually solid, that defines and sometimes protects an area",
+   "file": "2015 Zakład Karny w Kłodzku 02.JPG",
+   "lic": "CC BY-SA 4.0",
+   "by": "Jacek Halicki",
+   "ref": "https://commons.wikimedia.org/wiki/File:2015_Zak%C5%82ad_Karny_w_K%C5%82odzku_02.JPG",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/2015_Zak%C5%82ad_Karny_w_K%C5%82odzku_02.JPG/960px-2015_Zak%C5%82ad_Karny_w_K%C5%82odzku_02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "wallet#n": {
+   "qid": "Q131740",
+   "label": "wallet",
+   "desc": "small, flat case or pouch that is used to carry personal items such as cash",
+   "file": "WalletMpegMan.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "The original uploader was TheArmadillo at English Wikipedia.. Uploaded to Commons by Körnerbrötchen.",
+   "ref": "https://commons.wikimedia.org/wiki/File:WalletMpegMan.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/WalletMpegMan.jpg/960px-WalletMpegMan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "wheelchair#n": {
+   "qid": "Q191931",
+   "label": "wheelchair",
+   "desc": "chair with wheels, used by people for whom walking is difficult or impossible due to illness, injury, or disability",
+   "file": "WheelchairSeatingNTSB.jpg",
+   "lic": "PD",
+   "by": "unknown",
+   "ref": "https://commons.wikimedia.org/wiki/File:WheelchairSeatingNTSB.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/79/WheelchairSeatingNTSB.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "windmill#n": {
+   "qid": "Q38720",
+   "label": "windmill",
+   "desc": "machine that converts the energy of wind into rotational energy by means of adjustable sails",
+   "file": "Moulin de la Solitude (8061957726).jpg",
+   "lic": "CC BY 2.0",
+   "by": "Peter Broster",
+   "ref": "https://commons.wikimedia.org/wiki/File:Moulin_de_la_Solitude_(8061957726).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/84/Moulin_de_la_Solitude_%288061957726%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "wine#n": {
+   "qid": "Q282",
+   "label": "wine",
+   "desc": "alcoholic drink typically made from grapes through the fermentation process",
+   "file": "Red and white wine 12-2015.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "A.Savin",
+   "ref": "https://commons.wikimedia.org/wiki/File:Red_and_white_wine_12-2015.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Red_and_white_wine_12-2015.jpg/960px-Red_and_white_wine_12-2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "wool#n": {
+   "qid": "Q42329",
+   "label": "wool",
+   "desc": "natural fibre from the soft hair of sheep or other mammals",
+   "file": "Merino shearing.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Original uploader was Charles Esson at en.wikipedia",
+   "ref": "https://commons.wikimedia.org/wiki/File:Merino_shearing.jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Merino_shearing.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "wristwatch#n": {
+   "qid": "Q26965868",
+   "label": "wristwatch",
+   "desc": "watch designed to be worn on a wrist, attached by a watch strap or other type of bracelet",
+   "file": "Watch (clothing).jpg",
+   "lic": "CC0",
+   "by": "David Ring",
+   "ref": "https://commons.wikimedia.org/wiki/File:Watch_(clothing).jpg",
+   "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Watch_%28clothing%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+  },
+  "yard#n": {
+   "qid": "Q1623285",
+   "label": "yard",
+   "desc": "area of land immediately adjacent to a building or a group of buildings",
+   "file": "Typical suburban backyard.jpg",
+   "lic": "CC BY-SA 3.0",
+   "by": "Veracious Rey at en.wikipedia",
+   "ref": "https://commons.wikimedia.org/wiki/File:Typical_suburban_backyard.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Typical_suburban_backyard.jpg/960px-Typical_suburban_backyard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  "zoo#n": {
+   "qid": "Q43501",
+   "label": "zoo",
+   "desc": "collection of assorted wild animal species kept for purposes like: study, conservation and, or, commercial exhibition",
+   "file": "Przewalskis horses exposition, Zoo Prague.jpg",
+   "lic": "CC BY-SA 2.5",
+   "by": "Czech Wikipedia user Packa",
+   "ref": "https://commons.wikimedia.org/wiki/File:Przewalskis_horses_exposition,_Zoo_Prague.jpg",
+   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Przewalskis_horses_exposition%2C_Zoo_Prague.jpg/960px-Przewalskis_horses_exposition%2C_Zoo_Prague.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  }
+ }
+}

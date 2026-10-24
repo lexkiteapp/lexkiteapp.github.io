@@ -971,7 +971,7 @@
               ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">🔤 ${t('Chia động từ')}</a>` : ''}${window.LK_USAGE_IDX && LK_USAGE_IDX.w[e.word.toLowerCase()] ? `<a class="btn" href="#/usage/${encodeURIComponent(e.word.toLowerCase())}">📘 ${t('Cách dùng')}</a>` : ''}
             </div>
           </div>
-          ${App.vimg(e.word, e.pos, App.meanOf(e), 160) || pic(e)}
+          ${App.vimg(e.word, e.pos, App.meanOf(e), { w: 160, photo: true }) || pic(e)}
         </div>
         ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div>` : ''}
         ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}

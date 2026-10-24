@@ -1,0 +1,39 @@
+# Ảnh từ vựng – tầng MIỄN PHÍ, TẤT ĐỊNH (docs/LEXICON.md § Tầng miễn phí): icon Noto Emoji → OpenMoji, ảnh Wikimedia qua Wikidata.
+# Nguồn ngoài CHỈ dùng ở đây (CI) – app chỉ gọi media.lexkite.com. Không giám khảo AI cho icon (ánh xạ tất định + soát tay); wiki soát tay 10 %.
+# stage = vẽ + tờ soát (artifact) · publish = vẽ lại (cùng kết quả) + đăng lexkite-media + img.json. Hằng tuần thứ Hai: publish nghĩa mới (ánh xạ đã commit).
+name: Ảnh từ vựng (icon + Wikimedia)
+on:
+  schedule:
+    - cron: '40 4 * * 1'
+  workflow_dispatch:
+    inputs:
+      mode: { description: 'stage = chỉ vẽ + tờ soát · publish = vẽ + đăng', default: 'stage' }
+permissions:
+  contents: write
+concurrency: { group: vocab-img-free, cancel-in-progress: false }
+jobs:
+  free:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MODE: ${{ github.event.inputs.mode || 'publish' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q pillow==11.0.0 pillow-avif-plugin==1.4.6
+      - name: Kho từ vựng
+        run: node scripts/build-lexicon.mjs --write
+      - name: Vẽ tầng miễn phí
+        run: mkdir -p out/free && python3 scripts/vocab-img/free_tier.py out/free --sheet out/free/sheet.jpg
+      - uses: actions/upload-artifact@v4
+        with: { name: vocab-img-free, retention-days: 14, path: out/free/ }
+      - name: Đăng (lexkite-media/vimg + content/lexicon/img.json)
+        if: env.MODE == 'publish'
+        env: { LEXKITE_MEDIA_TOKEN: '${{ secrets.LEXKITE_MEDIA_TOKEN }}' }
+        run: node scripts/vocab-img/publish-free.mjs --result out/free/result.json --push
+      - name: CDN – mỗi mục img phải có file (HEAD mẫu 5 %)
+        if: env.MODE == 'publish'
+        run: sleep 60 && node scripts/vocab-img/cdn-check.mjs --sample 0.05

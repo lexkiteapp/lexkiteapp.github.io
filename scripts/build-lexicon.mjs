@@ -101,13 +101,17 @@ const IMGF = 'content/lexicon/img.json';
 const IMG = fs.existsSync(new URL(IMGF, ROOT)) ? JSON.parse(rd(IMGF)) : { v: 1, style: { v: 's1' }, base: 'https://media.lexkite.com/vimg/', items: {}, rejected: {} };
 { const { loadExpand } = await import('./lexicon/expand/lib.mjs'); errs.push(...checkImg(IMG, new Set([...groups.keys(), ...loadExpand().map(x => x.k)]))); }
 // chỉ mục v2 gọn: m = {từ#loại: h}, x = khoá có bản @2x (768 px), w = khoá CHỈ có WebP (không AVIF – thường rỗng) – web/js/vocab-img.js
-const imgKeys = Object.keys(IMG.items);
+const imgKeys = Object.keys(IMG.items).filter(k => IMG.items[k].h), phKeys = Object.keys(IMG.items).filter(k => IMG.items[k].photo && IMG.items[k].photo.h);
+// p = {từ#loại: h ảnh Wikimedia/ảnh chụp} CHỈ cho trang từ điển (VImg.slot {photo:true}); pw = khoá p chỉ có WebP. on chỉ đếm icon/minh hoạ đã kiểm (h), không đếm p
 // on: bật TỰ ĐỘNG mọi bề mặt khi đủ ảnh đã chấm (≥ on_min, mặc định 150) – cờ config vocab_img true/false (Quản trị) vẫn ghi đè
-const imgIndex = JSON.stringify({ v: 2, base: IMG.base, sv: IMG.style.v, on: imgKeys.length >= (IMG.on_min || 150), m: Object.fromEntries(imgKeys.map(k => [k, IMG.items[k].h])), x: imgKeys.filter(k => IMG.items[k].x2 === true), w: imgKeys.filter(k => !(IMG.items[k].fmt || []).includes('avif')) });
+const imgIndex = JSON.stringify({ v: 2, base: IMG.base, sv: IMG.style.v, on: imgKeys.length >= (IMG.on_min || 150), m: Object.fromEntries(imgKeys.map(k => [k, IMG.items[k].h])), x: imgKeys.filter(k => IMG.items[k].x2 === true), w: imgKeys.filter(k => !(IMG.items[k].fmt || []).includes('avif')), ...(phKeys.length ? { p: Object.fromEntries(phKeys.map(k => [k, IMG.items[k].photo.h])), pw: phKeys.filter(k => !(IMG.items[k].photo.fmt || []).includes('avif')) } : {}) });
 for (const f of ['web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json']) {
   const ex = fs.existsSync(new URL(f, ROOT));
   if (WRITE) { if (!ex || rd(f) !== imgIndex + '\n') wr(f, imgIndex + '\n'); } else if (!ex || rd(f) !== imgIndex + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);
 }
+
+// CDN: mỗi mục img phải có file trên media.lexkite.com (HEAD mẫu 5 % tất định theo ngày) – chỉ khi CI (máy dev/offline bỏ qua; LEX_CDN_CHECK=0 tắt)
+if (process.env.CI && process.env.LEX_CDN_CHECK !== '0' && Object.keys(IMG.items).length) { const { cdnCheck } = await import('./vocab-img/cdn-check.mjs'); const r = await cdnCheck(IMG, 0.05); errs.push(...r.bad); console.log(`img CDN: HEAD ${r.n}/${r.of} file · thiếu ${r.bad.length}${r.warn.length ? ` · cảnh báo mạng ${r.warn.length}` : ''}`); }
 
 // ---- ghi / so sánh
 const changed = WRITE ? saveAll(all) : (() => { let n = 0; const byLine = new Map(loadAll().map(x => [x.file + ':' + x.line, x.row])); for (const e of all) { const r = e.row.slice(); while (r.length > 10 && !r[r.length - 1]) r.pop(); if (JSON.stringify(byLine.get(e.file + ':' + e.line)) !== JSON.stringify(r)) n++; } return n; })();

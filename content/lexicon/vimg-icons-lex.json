@@ -1,0 +1,1858 @@
+{
+ "_note": "Sinh bởi scripts/vocab-img/icons-lex.mjs (emoji-test 15.1 + CLDR en 46.0.0 + vimg-icon-overrides.json) – KHÔNG sửa tay; sửa danh sách tay rồi chạy lại. Ảnh Noto Emoji (Apache-2.0) → OpenMoji (CC BY-SA 4.0).",
+ "v": 1,
+ "emoji": "15.1",
+ "cldr": "46.0.0",
+ "noto": "v2.047",
+ "openmoji": "15.1.0",
+ "items": {
+  "airplane#n": {
+   "cp": "2708",
+   "e": "✈️",
+   "name": "airplane",
+   "g": "transport-air",
+   "m": "exact"
+  },
+  "airport#n": {
+   "cp": "1f6eb",
+   "e": "🛫",
+   "name": "airplane departure",
+   "g": "transport-air",
+   "m": "over"
+  },
+  "apple#n": {
+   "cp": "1f34e",
+   "e": "🍎",
+   "name": "red apple",
+   "g": "food-fruit",
+   "m": "mod"
+  },
+  "artist#n": {
+   "cp": "1f9d1_200d_1f3a8",
+   "e": "🧑‍🎨",
+   "name": "artist",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "astronaut#n": {
+   "cp": "1f9d1_200d_1f680",
+   "e": "🧑‍🚀",
+   "name": "astronaut",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "automobile#n": {
+   "cp": "1f697",
+   "e": "🚗",
+   "name": "automobile",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "baby#n": {
+   "cp": "1f476",
+   "e": "👶",
+   "name": "baby",
+   "g": "person",
+   "m": "exact"
+  },
+  "backpack#n": {
+   "cp": "1f392",
+   "e": "🎒",
+   "name": "backpack",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "bag#n": {
+   "cp": "1f6cd",
+   "e": "🛍️",
+   "name": "shopping bags",
+   "g": "clothing",
+   "m": "mod"
+  },
+  "ball#n": {
+   "cp": "26bd",
+   "e": "⚽",
+   "name": "soccer ball",
+   "g": "sport",
+   "m": "over"
+  },
+  "balloon#n": {
+   "cp": "1f388",
+   "e": "🎈",
+   "name": "balloon",
+   "g": "event",
+   "m": "exact"
+  },
+  "ballot#n": {
+   "cp": "1f5f3",
+   "e": "🗳️",
+   "name": "ballot box with ballot",
+   "g": "mail",
+   "m": "kw"
+  },
+  "bank#n": {
+   "cp": "1f3e6",
+   "e": "🏦",
+   "name": "bank",
+   "g": "place-building",
+   "m": "over"
+  },
+  "baseball#n": {
+   "cp": "26be",
+   "e": "⚾",
+   "name": "baseball",
+   "g": "sport",
+   "m": "exact"
+  },
+  "basket#n": {
+   "cp": "1f9fa",
+   "e": "🧺",
+   "name": "basket",
+   "g": "household",
+   "m": "exact"
+  },
+  "basketball#n": {
+   "cp": "1f3c0",
+   "e": "🏀",
+   "name": "basketball",
+   "g": "sport",
+   "m": "exact"
+  },
+  "bat#n": {
+   "cp": "1f987",
+   "e": "🦇",
+   "name": "bat",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "battery#n": {
+   "cp": "1f50b",
+   "e": "🔋",
+   "name": "battery",
+   "g": "computer",
+   "m": "exact"
+  },
+  "beach#n": {
+   "cp": "1f3d6",
+   "e": "🏖️",
+   "name": "beach with umbrella",
+   "g": "place-geographic",
+   "m": "over"
+  },
+  "bean#n": {
+   "cp": "1fad8",
+   "e": "🫘",
+   "name": "beans",
+   "g": "food-vegetable",
+   "m": "exact"
+  },
+  "bed#n": {
+   "cp": "1f6cf",
+   "e": "🛏️",
+   "name": "bed",
+   "g": "household",
+   "m": "exact"
+  },
+  "beer#n": {
+   "cp": "1f37a",
+   "e": "🍺",
+   "name": "beer mug",
+   "g": "drink",
+   "m": "over"
+  },
+  "bell#n": {
+   "cp": "1f514",
+   "e": "🔔",
+   "name": "bell",
+   "g": "sound",
+   "m": "over"
+  },
+  "beverage#n": {
+   "cp": "2615",
+   "e": "☕",
+   "name": "hot beverage",
+   "g": "drink",
+   "m": "mod"
+  },
+  "bicycle#n": {
+   "cp": "1f6b2",
+   "e": "🚲",
+   "name": "bicycle",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "bird#n": {
+   "cp": "1f426",
+   "e": "🐦",
+   "name": "bird",
+   "g": "animal-bird",
+   "m": "exact"
+  },
+  "black#adj": {
+   "cp": "26ab",
+   "e": "⚫",
+   "name": "black circle",
+   "g": "geometric",
+   "m": "over"
+  },
+  "blood#n": {
+   "cp": "1fa78",
+   "e": "🩸",
+   "name": "drop of blood",
+   "g": "medical",
+   "m": "over"
+  },
+  "blue#adj": {
+   "cp": "1f535",
+   "e": "🔵",
+   "name": "blue circle",
+   "g": "geometric",
+   "m": "over"
+  },
+  "boat#n": {
+   "cp": "1f6e5",
+   "e": "🛥️",
+   "name": "motor boat",
+   "g": "transport-water",
+   "m": "mod"
+  },
+  "bolt#n": {
+   "cp": "1f529",
+   "e": "🔩",
+   "name": "nut and bolt",
+   "g": "tool",
+   "m": "kw"
+  },
+  "bone#n": {
+   "cp": "1f9b4",
+   "e": "🦴",
+   "name": "bone",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "book#n": {
+   "cp": "1f4da",
+   "e": "📚",
+   "name": "books",
+   "g": "book-paper",
+   "m": "exact"
+  },
+  "boot#n": {
+   "cp": "1f97e",
+   "e": "🥾",
+   "name": "hiking boot",
+   "g": "clothing",
+   "m": "kw"
+  },
+  "bottle#n": {
+   "cp": "1f37c",
+   "e": "🍼",
+   "name": "baby bottle",
+   "g": "drink",
+   "m": "mod"
+  },
+  "bowl#n": {
+   "cp": "1f35c",
+   "e": "🍜",
+   "name": "steaming bowl",
+   "g": "food-asian",
+   "m": "mod"
+  },
+  "boy#n": {
+   "cp": "1f466",
+   "e": "👦",
+   "name": "boy",
+   "g": "person",
+   "m": "exact"
+  },
+  "brain#n": {
+   "cp": "1f9e0",
+   "e": "🧠",
+   "name": "brain",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "bread#n": {
+   "cp": "1f35e",
+   "e": "🍞",
+   "name": "bread",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "brick#n": {
+   "cp": "1f9f1",
+   "e": "🧱",
+   "name": "brick",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "briefcase#n": {
+   "cp": "1f4bc",
+   "e": "💼",
+   "name": "briefcase",
+   "g": "office",
+   "m": "exact"
+  },
+  "broom#n": {
+   "cp": "1f9f9",
+   "e": "🧹",
+   "name": "broom",
+   "g": "household",
+   "m": "exact"
+  },
+  "brown#adj": {
+   "cp": "1f7e4",
+   "e": "🟤",
+   "name": "brown circle",
+   "g": "geometric",
+   "m": "over"
+  },
+  "bubble#n": {
+   "cp": "1fae7",
+   "e": "🫧",
+   "name": "bubbles",
+   "g": "household",
+   "m": "exact"
+  },
+  "bucket#n": {
+   "cp": "1faa3",
+   "e": "🪣",
+   "name": "bucket",
+   "g": "household",
+   "m": "exact"
+  },
+  "bulb#n": {
+   "cp": "1f4a1",
+   "e": "💡",
+   "name": "light bulb",
+   "g": "light & video",
+   "m": "kw"
+  },
+  "bus#n": {
+   "cp": "1f68c",
+   "e": "🚌",
+   "name": "bus",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "butter#n": {
+   "cp": "1f9c8",
+   "e": "🧈",
+   "name": "butter",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "cabinet#n": {
+   "cp": "1f5c4",
+   "e": "🗄️",
+   "name": "file cabinet",
+   "g": "office",
+   "m": "kw"
+  },
+  "cake#n": {
+   "cp": "1f382",
+   "e": "🎂",
+   "name": "birthday cake",
+   "g": "food-sweet",
+   "m": "mod"
+  },
+  "calendar#n": {
+   "cp": "1f4c5",
+   "e": "📅",
+   "name": "calendar",
+   "g": "office",
+   "m": "over"
+  },
+  "camera#n": {
+   "cp": "1f4f7",
+   "e": "📷",
+   "name": "camera",
+   "g": "light & video",
+   "m": "exact"
+  },
+  "candy#n": {
+   "cp": "1f36c",
+   "e": "🍬",
+   "name": "candy",
+   "g": "food-sweet",
+   "m": "exact"
+  },
+  "car#n": {
+   "cp": "1f697",
+   "e": "🚗",
+   "name": "automobile",
+   "g": "transport-ground",
+   "m": "over"
+  },
+  "cart#n": {
+   "cp": "1f6d2",
+   "e": "🛒",
+   "name": "shopping cart",
+   "g": "household",
+   "m": "mod"
+  },
+  "castle#n": {
+   "cp": "1f3f0",
+   "e": "🏰",
+   "name": "castle",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "cat#n": {
+   "cp": "1f408",
+   "e": "🐈",
+   "name": "cat",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "chair#n": {
+   "cp": "1fa91",
+   "e": "🪑",
+   "name": "chair",
+   "g": "household",
+   "m": "exact"
+  },
+  "cheese#n": {
+   "cp": "1f9c0",
+   "e": "🧀",
+   "name": "cheese wedge",
+   "g": "food-prepared",
+   "m": "over"
+  },
+  "chef#n": {
+   "cp": "1f9d1_200d_1f373",
+   "e": "🧑‍🍳",
+   "name": "cook",
+   "g": "person-role",
+   "m": "over"
+  },
+  "chicken#n": {
+   "cp": "1f414",
+   "e": "🐔",
+   "name": "chicken",
+   "g": "animal-bird",
+   "m": "exact"
+  },
+  "child#n": {
+   "cp": "1f9d2",
+   "e": "🧒",
+   "name": "child",
+   "g": "person",
+   "m": "exact"
+  },
+  "chocolate#n": {
+   "cp": "1f36b",
+   "e": "🍫",
+   "name": "chocolate bar",
+   "g": "food-sweet",
+   "m": "over"
+  },
+  "church#n": {
+   "cp": "26ea",
+   "e": "⛪",
+   "name": "church",
+   "g": "place-religious",
+   "m": "exact"
+  },
+  "cigarette#n": {
+   "cp": "1f6ac",
+   "e": "🚬",
+   "name": "cigarette",
+   "g": "other-object",
+   "m": "exact"
+  },
+  "circle#n": {
+   "cp": "2b55",
+   "e": "⭕",
+   "name": "hollow red circle",
+   "g": "other-symbol",
+   "m": "over"
+  },
+  "city#n": {
+   "cp": "1f3d9",
+   "e": "🏙️",
+   "name": "cityscape",
+   "g": "place-other",
+   "m": "over"
+  },
+  "clock#n": {
+   "cp": "23f0",
+   "e": "⏰",
+   "name": "alarm clock",
+   "g": "time",
+   "m": "over"
+  },
+  "cloud#n": {
+   "cp": "2601",
+   "e": "☁️",
+   "name": "cloud",
+   "g": "sky & weather",
+   "m": "exact"
+  },
+  "coat#n": {
+   "cp": "1f9e5",
+   "e": "🧥",
+   "name": "coat",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "coffee#n": {
+   "cp": "2615",
+   "e": "☕",
+   "name": "hot beverage",
+   "g": "drink",
+   "m": "over"
+  },
+  "coin#n": {
+   "cp": "1fa99",
+   "e": "🪙",
+   "name": "coin",
+   "g": "money",
+   "m": "exact"
+  },
+  "comet#n": {
+   "cp": "2604",
+   "e": "☄️",
+   "name": "comet",
+   "g": "sky & weather",
+   "m": "exact"
+  },
+  "computer#n": {
+   "cp": "1f5a5",
+   "e": "🖥️",
+   "name": "desktop computer",
+   "g": "computer",
+   "m": "mod"
+  },
+  "cookie#n": {
+   "cp": "1f36a",
+   "e": "🍪",
+   "name": "cookie",
+   "g": "food-sweet",
+   "m": "exact"
+  },
+  "corn#n": {
+   "cp": "1f33d",
+   "e": "🌽",
+   "name": "ear of corn",
+   "g": "food-vegetable",
+   "m": "over"
+  },
+  "cow#n": {
+   "cp": "1f404",
+   "e": "🐄",
+   "name": "cow",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "cup#n": {
+   "cp": "2615",
+   "e": "☕",
+   "name": "hot beverage",
+   "g": "drink",
+   "m": "over"
+  },
+  "desert#n": {
+   "cp": "1f3dc",
+   "e": "🏜️",
+   "name": "desert",
+   "g": "place-geographic",
+   "m": "exact"
+  },
+  "diamond#n": {
+   "cp": "1f48e",
+   "e": "💎",
+   "name": "gem stone",
+   "g": "clothing",
+   "m": "over"
+  },
+  "dna#n": {
+   "cp": "1f9ec",
+   "e": "🧬",
+   "name": "dna",
+   "g": "science",
+   "m": "exact"
+  },
+  "doctor#n": {
+   "cp": "1f9d1_200d_2695",
+   "e": "🧑‍⚕️",
+   "name": "health worker",
+   "g": "person-role",
+   "m": "over"
+  },
+  "dog#n": {
+   "cp": "1f415",
+   "e": "🐕",
+   "name": "dog",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "door#n": {
+   "cp": "1f6aa",
+   "e": "🚪",
+   "name": "door",
+   "g": "household",
+   "m": "over"
+  },
+  "dress#n": {
+   "cp": "1f457",
+   "e": "👗",
+   "name": "dress",
+   "g": "clothing",
+   "m": "over"
+  },
+  "drum#n": {
+   "cp": "1f941",
+   "e": "🥁",
+   "name": "drum",
+   "g": "musical-instrument",
+   "m": "exact"
+  },
+  "ear#n": {
+   "cp": "1f442",
+   "e": "👂",
+   "name": "ear",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "egg#n": {
+   "cp": "1f95a",
+   "e": "🥚",
+   "name": "egg",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "elephant#n": {
+   "cp": "1f418",
+   "e": "🐘",
+   "name": "elephant",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "elevator#n": {
+   "cp": "1f6d7",
+   "e": "🛗",
+   "name": "elevator",
+   "g": "household",
+   "m": "exact"
+  },
+  "envelope#n": {
+   "cp": "2709",
+   "e": "✉️",
+   "name": "envelope",
+   "g": "mail",
+   "m": "exact"
+  },
+  "extinguisher#n": {
+   "cp": "1f9ef",
+   "e": "🧯",
+   "name": "fire extinguisher",
+   "g": "household",
+   "m": "mod"
+  },
+  "eye#n": {
+   "cp": "1f441",
+   "e": "👁️",
+   "name": "eye",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "factory#n": {
+   "cp": "1f3ed",
+   "e": "🏭",
+   "name": "factory",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "farmer#n": {
+   "cp": "1f9d1_200d_1f33e",
+   "e": "🧑‍🌾",
+   "name": "farmer",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "ferry#n": {
+   "cp": "26f4",
+   "e": "⛴️",
+   "name": "ferry",
+   "g": "transport-water",
+   "m": "exact"
+  },
+  "fire#n": {
+   "cp": "1f525",
+   "e": "🔥",
+   "name": "fire",
+   "g": "sky & weather",
+   "m": "over"
+  },
+  "firefighter#n": {
+   "cp": "1f9d1_200d_1f692",
+   "e": "🧑‍🚒",
+   "name": "firefighter",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "firework#n": {
+   "cp": "1f386",
+   "e": "🎆",
+   "name": "fireworks",
+   "g": "event",
+   "m": "exact"
+  },
+  "fish#n": {
+   "cp": "1f41f",
+   "e": "🐟",
+   "name": "fish",
+   "g": "animal-marine",
+   "m": "exact"
+  },
+  "flower#n": {
+   "cp": "1f33c",
+   "e": "🌼",
+   "name": "blossom",
+   "g": "plant-flower",
+   "m": "over"
+  },
+  "fog#n": {
+   "cp": "1f32b",
+   "e": "🌫️",
+   "name": "fog",
+   "g": "sky & weather",
+   "m": "exact"
+  },
+  "foot#n": {
+   "cp": "1f9b6",
+   "e": "🦶",
+   "name": "foot",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "fountain#n": {
+   "cp": "26f2",
+   "e": "⛲",
+   "name": "fountain",
+   "g": "place-other",
+   "m": "exact"
+  },
+  "ghost#n": {
+   "cp": "1f47b",
+   "e": "👻",
+   "name": "ghost",
+   "g": "face-costume",
+   "m": "over"
+  },
+  "gift#n": {
+   "cp": "1f381",
+   "e": "🎁",
+   "name": "wrapped gift",
+   "g": "event",
+   "m": "over"
+  },
+  "girl#n": {
+   "cp": "1f467",
+   "e": "👧",
+   "name": "girl",
+   "g": "person",
+   "m": "exact"
+  },
+  "globe#n": {
+   "cp": "1f30d",
+   "e": "🌍",
+   "name": "globe showing europe-africa",
+   "g": "place-map",
+   "m": "over"
+  },
+  "glove#n": {
+   "cp": "1f9e4",
+   "e": "🧤",
+   "name": "gloves",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "goat#n": {
+   "cp": "1f410",
+   "e": "🐐",
+   "name": "goat",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "green#adj": {
+   "cp": "1f7e2",
+   "e": "🟢",
+   "name": "green circle",
+   "g": "geometric",
+   "m": "over"
+  },
+  "guard#n": {
+   "cp": "1f482",
+   "e": "💂",
+   "name": "guard",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "guitar#n": {
+   "cp": "1f3b8",
+   "e": "🎸",
+   "name": "guitar",
+   "g": "musical-instrument",
+   "m": "exact"
+  },
+  "hamburger#n": {
+   "cp": "1f354",
+   "e": "🍔",
+   "name": "hamburger",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "hand#n": {
+   "cp": "270b",
+   "e": "✋",
+   "name": "raised hand",
+   "g": "hand-fingers-open",
+   "m": "over"
+  },
+  "hat#n": {
+   "cp": "1f3a9",
+   "e": "🎩",
+   "name": "top hat",
+   "g": "clothing",
+   "m": "over"
+  },
+  "headphone#n": {
+   "cp": "1f3a7",
+   "e": "🎧",
+   "name": "headphone",
+   "g": "music",
+   "m": "exact"
+  },
+  "heart#n": {
+   "cp": "1fac0",
+   "e": "🫀",
+   "name": "anatomical heart",
+   "g": "body-parts",
+   "m": "over"
+  },
+  "helicopter#n": {
+   "cp": "1f681",
+   "e": "🚁",
+   "name": "helicopter",
+   "g": "transport-air",
+   "m": "exact"
+  },
+  "hook#n": {
+   "cp": "1fa9d",
+   "e": "🪝",
+   "name": "hook",
+   "g": "tool",
+   "m": "exact"
+  },
+  "horse#n": {
+   "cp": "1f40e",
+   "e": "🐎",
+   "name": "horse",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "hospital#n": {
+   "cp": "1f3e5",
+   "e": "🏥",
+   "name": "hospital",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "hotel#n": {
+   "cp": "1f3e8",
+   "e": "🏨",
+   "name": "hotel",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "house#n": {
+   "cp": "1f3e0",
+   "e": "🏠",
+   "name": "house",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "ice#n": {
+   "cp": "1f9ca",
+   "e": "🧊",
+   "name": "ice",
+   "g": "drink",
+   "m": "over"
+  },
+  "island#n": {
+   "cp": "1f3dd",
+   "e": "🏝️",
+   "name": "desert island",
+   "g": "place-geographic",
+   "m": "kw"
+  },
+  "jeans#n": {
+   "cp": "1f456",
+   "e": "👖",
+   "name": "jeans",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "judge#n": {
+   "cp": "1f9d1_200d_2696",
+   "e": "🧑‍⚖️",
+   "name": "judge",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "juice#n": {
+   "cp": "1f9c3",
+   "e": "🧃",
+   "name": "beverage box",
+   "g": "drink",
+   "m": "over"
+  },
+  "key#n": {
+   "cp": "1f511",
+   "e": "🔑",
+   "name": "key",
+   "g": "lock",
+   "m": "exact"
+  },
+  "keyboard#n": {
+   "cp": "2328",
+   "e": "⌨️",
+   "name": "keyboard",
+   "g": "computer",
+   "m": "exact"
+  },
+  "king#n": {
+   "cp": "1f934",
+   "e": "🤴",
+   "name": "prince",
+   "g": "person-role",
+   "m": "over"
+  },
+  "knife#n": {
+   "cp": "1f52a",
+   "e": "🔪",
+   "name": "kitchen knife",
+   "g": "dishware",
+   "m": "over"
+  },
+  "label#n": {
+   "cp": "1f3f7",
+   "e": "🏷️",
+   "name": "label",
+   "g": "book-paper",
+   "m": "exact"
+  },
+  "ladder#n": {
+   "cp": "1fa9c",
+   "e": "🪜",
+   "name": "ladder",
+   "g": "tool",
+   "m": "exact"
+  },
+  "lamp#n": {
+   "cp": "1f4a1",
+   "e": "💡",
+   "name": "light bulb",
+   "g": "light & video",
+   "m": "over"
+  },
+  "laptop#n": {
+   "cp": "1f4bb",
+   "e": "💻",
+   "name": "laptop",
+   "g": "computer",
+   "m": "exact"
+  },
+  "leaf#n": {
+   "cp": "1f343",
+   "e": "🍃",
+   "name": "leaf fluttering in wind",
+   "g": "plant-other",
+   "m": "over"
+  },
+  "ledger#n": {
+   "cp": "1f4d2",
+   "e": "📒",
+   "name": "ledger",
+   "g": "book-paper",
+   "m": "exact"
+  },
+  "leg#n": {
+   "cp": "1f9b5",
+   "e": "🦵",
+   "name": "leg",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "luggage#n": {
+   "cp": "1f9f3",
+   "e": "🧳",
+   "name": "luggage",
+   "g": "hotel",
+   "m": "exact"
+  },
+  "lung#n": {
+   "cp": "1fac1",
+   "e": "🫁",
+   "name": "lungs",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "man#n": {
+   "cp": "1f468",
+   "e": "👨",
+   "name": "man",
+   "g": "person",
+   "m": "over"
+  },
+  "map#n": {
+   "cp": "1f5fa",
+   "e": "🗺️",
+   "name": "world map",
+   "g": "place-map",
+   "m": "over"
+  },
+  "meat#n": {
+   "cp": "1f356",
+   "e": "🍖",
+   "name": "meat on bone",
+   "g": "food-prepared",
+   "m": "over"
+  },
+  "mechanic#n": {
+   "cp": "1f9d1_200d_1f527",
+   "e": "🧑‍🔧",
+   "name": "mechanic",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "microphone#n": {
+   "cp": "1f3a4",
+   "e": "🎤",
+   "name": "microphone",
+   "g": "music",
+   "m": "exact"
+  },
+  "microscope#n": {
+   "cp": "1f52c",
+   "e": "🔬",
+   "name": "microscope",
+   "g": "science",
+   "m": "exact"
+  },
+  "milk#n": {
+   "cp": "1f95b",
+   "e": "🥛",
+   "name": "glass of milk",
+   "g": "drink",
+   "m": "over"
+  },
+  "mirror#n": {
+   "cp": "1fa9e",
+   "e": "🪞",
+   "name": "mirror",
+   "g": "household",
+   "m": "exact"
+  },
+  "money#n": {
+   "cp": "1f4b5",
+   "e": "💵",
+   "name": "dollar banknote",
+   "g": "money",
+   "m": "over"
+  },
+  "monkey#n": {
+   "cp": "1f412",
+   "e": "🐒",
+   "name": "monkey",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "moon#n": {
+   "cp": "1f315",
+   "e": "🌕",
+   "name": "full moon",
+   "g": "sky & weather",
+   "m": "over"
+  },
+  "mosquito#n": {
+   "cp": "1f99f",
+   "e": "🦟",
+   "name": "mosquito",
+   "g": "animal-bug",
+   "m": "exact"
+  },
+  "motorcycle#n": {
+   "cp": "1f3cd",
+   "e": "🏍️",
+   "name": "motorcycle",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "mountain#n": {
+   "cp": "26f0",
+   "e": "⛰️",
+   "name": "mountain",
+   "g": "place-geographic",
+   "m": "exact"
+  },
+  "mouse#n": {
+   "cp": "1f401",
+   "e": "🐁",
+   "name": "mouse",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "mouth#n": {
+   "cp": "1f444",
+   "e": "👄",
+   "name": "mouth",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "newspaper#n": {
+   "cp": "1f4f0",
+   "e": "📰",
+   "name": "newspaper",
+   "g": "book-paper",
+   "m": "exact"
+  },
+  "nose#n": {
+   "cp": "1f443",
+   "e": "👃",
+   "name": "nose",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "nurse#n": {
+   "cp": "1f9d1_200d_2695",
+   "e": "🧑‍⚕️",
+   "name": "health worker",
+   "g": "person-role",
+   "m": "over"
+  },
+  "ocean#n": {
+   "cp": "1f30a",
+   "e": "🌊",
+   "name": "water wave",
+   "g": "sky & weather",
+   "m": "over"
+  },
+  "orange#n": {
+   "cp": "1f34a",
+   "e": "🍊",
+   "name": "tangerine",
+   "g": "food-fruit",
+   "m": "over"
+  },
+  "package#n": {
+   "cp": "1f4e6",
+   "e": "📦",
+   "name": "package",
+   "g": "mail",
+   "m": "exact"
+  },
+  "park#n": {
+   "cp": "1f3de",
+   "e": "🏞️",
+   "name": "national park",
+   "g": "place-geographic",
+   "m": "mod"
+  },
+  "pen#n": {
+   "cp": "1f58a",
+   "e": "🖊️",
+   "name": "pen",
+   "g": "writing",
+   "m": "exact"
+  },
+  "pepper#n": {
+   "cp": "1f336",
+   "e": "🌶️",
+   "name": "hot pepper",
+   "g": "food-vegetable",
+   "m": "mod"
+  },
+  "performing arts#n": {
+   "cp": "1f3ad",
+   "e": "🎭",
+   "name": "performing arts",
+   "g": "arts & crafts",
+   "m": "exact"
+  },
+  "person#n": {
+   "cp": "1f9d1",
+   "e": "🧑",
+   "name": "person",
+   "g": "person",
+   "m": "exact"
+  },
+  "phone#n": {
+   "cp": "1f4f1",
+   "e": "📱",
+   "name": "mobile phone",
+   "g": "phone",
+   "m": "mod"
+  },
+  "piano#n": {
+   "cp": "1f3b9",
+   "e": "🎹",
+   "name": "musical keyboard",
+   "g": "musical-instrument",
+   "m": "over"
+  },
+  "picture#n": {
+   "cp": "1f5bc",
+   "e": "🖼️",
+   "name": "framed picture",
+   "g": "arts & crafts",
+   "m": "kw"
+  },
+  "pie#n": {
+   "cp": "1f967",
+   "e": "🥧",
+   "name": "pie",
+   "g": "food-sweet",
+   "m": "exact"
+  },
+  "pig#n": {
+   "cp": "1f416",
+   "e": "🐖",
+   "name": "pig",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "pill#n": {
+   "cp": "1f48a",
+   "e": "💊",
+   "name": "pill",
+   "g": "medical",
+   "m": "exact"
+  },
+  "pilot#n": {
+   "cp": "1f9d1_200d_2708",
+   "e": "🧑‍✈️",
+   "name": "pilot",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "pizza#n": {
+   "cp": "1f355",
+   "e": "🍕",
+   "name": "pizza",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "planet#n": {
+   "cp": "1fa90",
+   "e": "🪐",
+   "name": "ringed planet",
+   "g": "sky & weather",
+   "m": "kw"
+  },
+  "plant#n": {
+   "cp": "1fab4",
+   "e": "🪴",
+   "name": "potted plant",
+   "g": "plant-other",
+   "m": "mod"
+  },
+  "plate#n": {
+   "cp": "1f37d",
+   "e": "🍽️",
+   "name": "fork and knife with plate",
+   "g": "dishware",
+   "m": "kw"
+  },
+  "police#n": {
+   "cp": "1f46e",
+   "e": "👮",
+   "name": "police officer",
+   "g": "person-role",
+   "m": "over"
+  },
+  "popcorn#n": {
+   "cp": "1f37f",
+   "e": "🍿",
+   "name": "popcorn",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "potato#n": {
+   "cp": "1f954",
+   "e": "🥔",
+   "name": "potato",
+   "g": "food-vegetable",
+   "m": "exact"
+  },
+  "potted plant#n": {
+   "cp": "1fab4",
+   "e": "🪴",
+   "name": "potted plant",
+   "g": "plant-other",
+   "m": "exact"
+  },
+  "printer#n": {
+   "cp": "1f5a8",
+   "e": "🖨️",
+   "name": "printer",
+   "g": "computer",
+   "m": "exact"
+  },
+  "projector#n": {
+   "cp": "1f4fd",
+   "e": "📽️",
+   "name": "film projector",
+   "g": "light & video",
+   "m": "kw"
+  },
+  "purse#n": {
+   "cp": "1f45b",
+   "e": "👛",
+   "name": "purse",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "rain#n": {
+   "cp": "1f327",
+   "e": "🌧️",
+   "name": "cloud with rain",
+   "g": "sky & weather",
+   "m": "over"
+  },
+  "rat#n": {
+   "cp": "1f400",
+   "e": "🐀",
+   "name": "rat",
+   "g": "animal-mammal",
+   "m": "exact"
+  },
+  "receipt#n": {
+   "cp": "1f9fe",
+   "e": "🧾",
+   "name": "receipt",
+   "g": "money",
+   "m": "exact"
+  },
+  "red#adj": {
+   "cp": "1f534",
+   "e": "🔴",
+   "name": "red circle",
+   "g": "geometric",
+   "m": "over"
+  },
+  "rice#n": {
+   "cp": "1f35a",
+   "e": "🍚",
+   "name": "cooked rice",
+   "g": "food-asian",
+   "m": "mod"
+  },
+  "ring#n": {
+   "cp": "1f48d",
+   "e": "💍",
+   "name": "ring",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "robot#n": {
+   "cp": "1f916",
+   "e": "🤖",
+   "name": "robot",
+   "g": "face-costume",
+   "m": "over"
+  },
+  "rock#n": {
+   "cp": "1faa8",
+   "e": "🪨",
+   "name": "rock",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "rose#n": {
+   "cp": "1f339",
+   "e": "🌹",
+   "name": "rose",
+   "g": "plant-flower",
+   "m": "exact"
+  },
+  "salad#n": {
+   "cp": "1f957",
+   "e": "🥗",
+   "name": "green salad",
+   "g": "food-prepared",
+   "m": "mod"
+  },
+  "salt#n": {
+   "cp": "1f9c2",
+   "e": "🧂",
+   "name": "salt",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "sandwich#n": {
+   "cp": "1f96a",
+   "e": "🥪",
+   "name": "sandwich",
+   "g": "food-prepared",
+   "m": "exact"
+  },
+  "satellite#n": {
+   "cp": "1f6f0",
+   "e": "🛰️",
+   "name": "satellite",
+   "g": "transport-air",
+   "m": "exact"
+  },
+  "scarf#n": {
+   "cp": "1f9e3",
+   "e": "🧣",
+   "name": "scarf",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "school#n": {
+   "cp": "1f3eb",
+   "e": "🏫",
+   "name": "school",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "scientist#n": {
+   "cp": "1f9d1_200d_1f52c",
+   "e": "🧑‍🔬",
+   "name": "scientist",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "scroll#n": {
+   "cp": "1f4dc",
+   "e": "📜",
+   "name": "scroll",
+   "g": "book-paper",
+   "m": "exact"
+  },
+  "sea#n": {
+   "cp": "1f30a",
+   "e": "🌊",
+   "name": "water wave",
+   "g": "sky & weather",
+   "m": "over"
+  },
+  "seat#n": {
+   "cp": "1f4ba",
+   "e": "💺",
+   "name": "seat",
+   "g": "transport-air",
+   "m": "over"
+  },
+  "sheep#n": {
+   "cp": "1f411",
+   "e": "🐑",
+   "name": "ewe",
+   "g": "animal-mammal",
+   "m": "over"
+  },
+  "shell#n": {
+   "cp": "1f41a",
+   "e": "🐚",
+   "name": "spiral shell",
+   "g": "animal-marine",
+   "m": "over"
+  },
+  "shield#n": {
+   "cp": "1f6e1",
+   "e": "🛡️",
+   "name": "shield",
+   "g": "tool",
+   "m": "exact"
+  },
+  "ship#n": {
+   "cp": "1f6a2",
+   "e": "🚢",
+   "name": "ship",
+   "g": "transport-water",
+   "m": "exact"
+  },
+  "shirt#n": {
+   "cp": "1f455",
+   "e": "👕",
+   "name": "t-shirt",
+   "g": "clothing",
+   "m": "over"
+  },
+  "shoe#n": {
+   "cp": "1f45e",
+   "e": "👞",
+   "name": "man’s shoe",
+   "g": "clothing",
+   "m": "over"
+  },
+  "shower#n": {
+   "cp": "1f6bf",
+   "e": "🚿",
+   "name": "shower",
+   "g": "household",
+   "m": "exact"
+  },
+  "singer#n": {
+   "cp": "1f9d1_200d_1f3a4",
+   "e": "🧑‍🎤",
+   "name": "singer",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "skateboard#n": {
+   "cp": "1f6f9",
+   "e": "🛹",
+   "name": "skateboard",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "snake#n": {
+   "cp": "1f40d",
+   "e": "🐍",
+   "name": "snake",
+   "g": "animal-reptile",
+   "m": "exact"
+  },
+  "snow#n": {
+   "cp": "2744",
+   "e": "❄️",
+   "name": "snowflake",
+   "g": "sky & weather",
+   "m": "over"
+  },
+  "soap#n": {
+   "cp": "1f9fc",
+   "e": "🧼",
+   "name": "soap",
+   "g": "household",
+   "m": "exact"
+  },
+  "sock#n": {
+   "cp": "1f9e6",
+   "e": "🧦",
+   "name": "socks",
+   "g": "clothing",
+   "m": "exact"
+  },
+  "sofa#n": {
+   "cp": "1f6cb",
+   "e": "🛋️",
+   "name": "couch and lamp",
+   "g": "household",
+   "m": "over"
+  },
+  "soldier#n": {
+   "cp": "1f482",
+   "e": "💂",
+   "name": "guard",
+   "g": "person-role",
+   "m": "over"
+  },
+  "soup#n": {
+   "cp": "1f372",
+   "e": "🍲",
+   "name": "pot of food",
+   "g": "food-prepared",
+   "m": "over"
+  },
+  "square#n": {
+   "cp": "1f7e5",
+   "e": "🟥",
+   "name": "red square",
+   "g": "geometric",
+   "m": "over"
+  },
+  "stadium#n": {
+   "cp": "1f3df",
+   "e": "🏟️",
+   "name": "stadium",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "star#n": {
+   "cp": "2b50",
+   "e": "⭐",
+   "name": "star",
+   "g": "sky & weather",
+   "m": "exact"
+  },
+  "station#n": {
+   "cp": "1f689",
+   "e": "🚉",
+   "name": "station",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "steak#n": {
+   "cp": "1f969",
+   "e": "🥩",
+   "name": "cut of meat",
+   "g": "food-prepared",
+   "m": "over"
+  },
+  "storm#n": {
+   "cp": "26c8",
+   "e": "⛈️",
+   "name": "cloud with lightning and rain",
+   "g": "sky & weather",
+   "m": "over"
+  },
+  "student#n": {
+   "cp": "1f9d1_200d_1f393",
+   "e": "🧑‍🎓",
+   "name": "student",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "sun#n": {
+   "cp": "2600",
+   "e": "☀️",
+   "name": "sun",
+   "g": "sky & weather",
+   "m": "exact"
+  },
+  "sword#n": {
+   "cp": "2694",
+   "e": "⚔️",
+   "name": "crossed swords",
+   "g": "tool",
+   "m": "kw"
+  },
+  "taxi#n": {
+   "cp": "1f695",
+   "e": "🚕",
+   "name": "taxi",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "tea#n": {
+   "cp": "1f375",
+   "e": "🍵",
+   "name": "teacup without handle",
+   "g": "drink",
+   "m": "over"
+  },
+  "teacher#n": {
+   "cp": "1f9d1_200d_1f3eb",
+   "e": "🧑‍🏫",
+   "name": "teacher",
+   "g": "person-role",
+   "m": "exact"
+  },
+  "telephone#n": {
+   "cp": "260e",
+   "e": "☎️",
+   "name": "telephone",
+   "g": "phone",
+   "m": "exact"
+  },
+  "telescope#n": {
+   "cp": "1f52d",
+   "e": "🔭",
+   "name": "telescope",
+   "g": "science",
+   "m": "exact"
+  },
+  "television#n": {
+   "cp": "1f4fa",
+   "e": "📺",
+   "name": "television",
+   "g": "light & video",
+   "m": "exact"
+  },
+  "tennis#n": {
+   "cp": "1f3be",
+   "e": "🎾",
+   "name": "tennis",
+   "g": "sport",
+   "m": "exact"
+  },
+  "tent#n": {
+   "cp": "26fa",
+   "e": "⛺",
+   "name": "tent",
+   "g": "place-other",
+   "m": "exact"
+  },
+  "thread#n": {
+   "cp": "1f9f5",
+   "e": "🧵",
+   "name": "thread",
+   "g": "arts & crafts",
+   "m": "exact"
+  },
+  "ticket#n": {
+   "cp": "1f3ab",
+   "e": "🎫",
+   "name": "ticket",
+   "g": "event",
+   "m": "exact"
+  },
+  "tomato#n": {
+   "cp": "1f345",
+   "e": "🍅",
+   "name": "tomato",
+   "g": "food-fruit",
+   "m": "exact"
+  },
+  "tongue#n": {
+   "cp": "1f445",
+   "e": "👅",
+   "name": "tongue",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "tooth#n": {
+   "cp": "1f9b7",
+   "e": "🦷",
+   "name": "tooth",
+   "g": "body-parts",
+   "m": "exact"
+  },
+  "track#n": {
+   "cp": "1f6e4",
+   "e": "🛤️",
+   "name": "railway track",
+   "g": "transport-ground",
+   "m": "kw"
+  },
+  "train#n": {
+   "cp": "1f686",
+   "e": "🚆",
+   "name": "train",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "trap#n": {
+   "cp": "1faa4",
+   "e": "🪤",
+   "name": "mouse trap",
+   "g": "household",
+   "m": "kw"
+  },
+  "tree#n": {
+   "cp": "1f332",
+   "e": "🌲",
+   "name": "evergreen tree",
+   "g": "plant-other",
+   "m": "mod"
+  },
+  "triangle#n": {
+   "cp": "1f53a",
+   "e": "🔺",
+   "name": "red triangle pointed up",
+   "g": "geometric",
+   "m": "over"
+  },
+  "truck#n": {
+   "cp": "1f69a",
+   "e": "🚚",
+   "name": "delivery truck",
+   "g": "transport-ground",
+   "m": "over"
+  },
+  "umbrella#n": {
+   "cp": "2602",
+   "e": "☂️",
+   "name": "umbrella",
+   "g": "sky & weather",
+   "m": "exact"
+  },
+  "violin#n": {
+   "cp": "1f3bb",
+   "e": "🎻",
+   "name": "violin",
+   "g": "musical-instrument",
+   "m": "exact"
+  },
+  "volcano#n": {
+   "cp": "1f30b",
+   "e": "🌋",
+   "name": "volcano",
+   "g": "place-geographic",
+   "m": "exact"
+  },
+  "volleyball#n": {
+   "cp": "1f3d0",
+   "e": "🏐",
+   "name": "volleyball",
+   "g": "sport",
+   "m": "exact"
+  },
+  "wave#n": {
+   "cp": "1f30a",
+   "e": "🌊",
+   "name": "water wave",
+   "g": "sky & weather",
+   "m": "mod"
+  },
+  "whale#n": {
+   "cp": "1f40b",
+   "e": "🐋",
+   "name": "whale",
+   "g": "animal-marine",
+   "m": "exact"
+  },
+  "wheel#n": {
+   "cp": "1f6de",
+   "e": "🛞",
+   "name": "wheel",
+   "g": "transport-ground",
+   "m": "exact"
+  },
+  "white#adj": {
+   "cp": "26aa",
+   "e": "⚪",
+   "name": "white circle",
+   "g": "geometric",
+   "m": "over"
+  },
+  "window#n": {
+   "cp": "1fa9f",
+   "e": "🪟",
+   "name": "window",
+   "g": "household",
+   "m": "exact"
+  },
+  "wing#n": {
+   "cp": "1fabd",
+   "e": "🪽",
+   "name": "wing",
+   "g": "animal-bird",
+   "m": "exact"
+  },
+  "woman#n": {
+   "cp": "1f469",
+   "e": "👩",
+   "name": "woman",
+   "g": "person",
+   "m": "over"
+  },
+  "wood#n": {
+   "cp": "1fab5",
+   "e": "🪵",
+   "name": "wood",
+   "g": "place-building",
+   "m": "exact"
+  },
+  "x-ray#n": {
+   "cp": "1fa7b",
+   "e": "🩻",
+   "name": "x-ray",
+   "g": "medical",
+   "m": "exact"
+  },
+  "yellow#adj": {
+   "cp": "1f7e1",
+   "e": "🟡",
+   "name": "yellow circle",
+   "g": "geometric",
+   "m": "over"
+  }
+ }
+}

@@ -8,7 +8,7 @@ import fs from 'fs';
 import { siteFooter, FOOT_CSS, SEO_L, landingHref, langSwitch, FOOT } from './lib/site-layout.mjs';
 const R = new URL('../', import.meta.url), rd = p => fs.readFileSync(new URL(p, R), 'utf8');
 const LANGS = { en: 'English', vi: 'Tiếng Việt', es: 'Español', pt: 'Português', fr: 'Français', de: 'Deutsch', id: 'Bahasa Indonesia', th: 'ไทย', zh: '简体中文', ja: '日本語', ko: '한국어', hi: 'हिन्दी', ar: 'العربية', ru: 'Русский', tr: 'Türkçe' };
-const PAGES = ['privacy', 'terms', 'schools'], SITE = 'https://lexkite.com';
+const PAGES = ['privacy', 'terms', 'schools', 'credits'], SITE = 'https://lexkite.com';
 const NOTE = 'This translation is provided for your convenience. If there is any difference between versions, the English version prevails.';
 const TRANSLATE = process.argv.includes('--translate');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -22,7 +22,10 @@ async function gtx(line, tl) {
   }
   return null;
 }
-const keep = s => /^<\/?table>$/.test(s.trim()); // dòng chỉ có cấu trúc, không cần dịch
+const keep = s => /^<\/?table>$|^<!--VIMG-ROWS-->$/.test(s.trim()); // dòng chỉ có cấu trúc, không cần dịch
+// /credits/: bảng ghi công ảnh Wikimedia sinh từ content/lexicon/img.json (trường photo, tier wiki) – tên/tác giả/giấy phép giữ nguyên, không dịch
+const escA = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const VIMG_ROWS = (() => { try { const img = JSON.parse(rd('content/lexicon/img.json')); return Object.entries(img.items || {}).filter(([, e]) => e.photo && e.photo.src && e.photo.src.tier === 'wiki').map(([k, e]) => { const s = e.photo.src, f = decodeURIComponent(String(s.ref).split('/File:')[1] || 'file').replace(/_/g, ' '); return `<tr><td lang="en">${escA(k.split('#')[0])}</td><td><a href="${escA(s.ref)}" rel="nofollow noopener">${escA(f)}</a></td><td>${escA(s.by)}</td><td>${escA(s.lic)}</td></tr>`; }).join('\n') || '<tr><td colspan="4">–</td></tr>'; } catch { return '<tr><td colspan="4">–</td></tr>'; } })();
 
 const OK = {}; // name → ngôn ngữ đã dịch đủ (không nháp): hreflang chỉ liệt kê các bản này (docs/SEO-ARCH.md – không trỏ hreflang tới trang noindex)
 const page = (lang, name, body, translated, draft) => {
@@ -80,11 +83,11 @@ for (const lang of Object.keys(LANGS)) {
   }
   if (!['en', 'vi'].includes(lang)) fs.writeFileSync(cachePath(lang), JSON.stringify(used, null, 1)); // chỉ giữ dòng còn dùng
 }
-for (const [lang, name, body, note, draft] of PENDING) fs.writeFileSync(new URL(`web/${lang}/${name}.html`, R), page(lang, name, body, note, draft)); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
+for (const [lang, name, body, note, draft] of PENDING) fs.writeFileSync(new URL(`web/${lang}/${name}.html`, R), page(lang, name, body.replace('<!--VIMG-ROWS-->', VIMG_ROWS), note, draft)); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
 // Trang gốc /privacy, /terms: bản tiếng Anh + chuyển sang ngôn ngữ ưa thích (lựa chọn trong app → trình duyệt)
 for (const name of PAGES) {
   const pick = `<script>(function(){try{var S=${JSON.stringify(Object.keys(LANGS))},s=localStorage.getItem('vb.uiLang'),l=s&&S.indexOf(s)>=0?s:null;if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var b=String(n[i]||'').toLowerCase().split('-')[0];if(S.indexOf(b)>=0){l=b;break}}}if(l&&l!=='en')location.replace('/'+l+'/${name}')}catch(e){}})();</script>`;
-  const html = page('en', name, rd(`content/legal/en/${name}.html`), '').replace(`<link rel="canonical" href="${SITE}/en/${name}">`, `<link rel="canonical" href="${SITE}/en/${name}">\n  ${pick}`);
+  const html = page('en', name, rd(`content/legal/en/${name}.html`).replace('<!--VIMG-ROWS-->', VIMG_ROWS), '').replace(`<link rel="canonical" href="${SITE}/en/${name}">`, `<link rel="canonical" href="${SITE}/en/${name}">\n  ${pick}`);
   fs.writeFileSync(new URL(`web/${name}.html`, R), html);
 }
 console.log(`✓ build-legal: ${Object.keys(LANGS).length} ngôn ngữ × ${PAGES.length} trang${missing ? ` · ${missing} dòng chưa dịch (đang hiện tiếng Anh – chạy --translate)` : ''}`);

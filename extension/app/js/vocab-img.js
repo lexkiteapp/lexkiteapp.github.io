@@ -24,7 +24,7 @@
     if (!loading) {
       const base = src || (g.location && g.location.href) || '';
       const u = new URL('lexicon-img.json', /\/js\//.test(base) ? base : new URL('js/', base)).href;
-      loading = fetch(u).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => (idx = { on: !!(j && j.on), base: (j && j.base) || '', m: (j && j.m) || {}, x: new Set((j && j.x) || []), w: new Set((j && j.w) || []) }));
+      loading = fetch(u).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => (idx = { on: !!(j && j.on), base: (j && j.base) || '', m: (j && j.m) || {}, x: new Set((j && j.x) || []), w: new Set((j && j.w) || []), p: (j && j.p) || {}, pw: new Set((j && j.pw) || []) }));
     }
     return loading;
   }
@@ -41,11 +41,16 @@
   }
   const altOf = (word, gloss) => (gloss ? `${word} – ${gloss}` : String(word));
   /** Đồng bộ: '' khi cờ tắt / chỉ mục chưa về / nghĩa không có ảnh (đúng từ#loại – không lấy ảnh của loại từ khác). w = rộng CSS của bề mặt. */
+  // w = số px CSS hoặc {w, photo}: photo = true CHỈ ở trang từ điển (tra từ) – ưu tiên ảnh Wikimedia (p) rồi mới tới icon/minh hoạ (m); thẻ học không bao giờ lấy p
   function slot(word, pos, gloss, w) {
     if (!idx || !enabled()) return '';
-    const k = KEY(word, pos), h = idx.m[k];
-    return h ? pic(idx.base, h, idx.x.has(k), altOf(word, gloss), typeof w === 'object' && w ? w.w : w, idx.w.has(k)) : '';
+    const o = typeof w === 'object' && w ? w : { w }, k = KEY(word, pos), ph = o.photo ? idx.p[k] : '';
+    if (ph) return pic(idx.base, ph, false, altOf(word, gloss), o.w, idx.pw.has(k));
+    const h = idx.m[k];
+    return h ? pic(idx.base, h, idx.x.has(k), altOf(word, gloss), o.w, idx.w.has(k)) : '';
   }
+  // ảnh lỗi (CDN thiếu file / mạng) → GỠ hộp, không bao giờ hiện ảnh vỡ (bắt pha capture: sự kiện error của <img> không nổi bọt)
+  if (g.document && g.document.addEventListener) g.document.addEventListener('error', e => { const t = e.target; if (t && t.tagName === 'IMG' && t.closest) { const b = t.closest('.vimg'); if (b) b.remove(); } }, true);
   const has = (word, pos) => !!(idx && enabled() && idx.m[KEY(word, pos)]);
   /** → Promise<{ url (webp), avif, url2x?, alt, key, x2 } | null> */
   function get(word, pos, gloss) {
