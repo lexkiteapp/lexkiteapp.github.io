@@ -18,7 +18,8 @@ from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 TH_FILE = os.path.join(ROOT, 'content/lexicon/vimg-judge.json')
-DEF_TH = {'frame_min': 0.04, 'clip_margin': 0.02, 'cap_sim': 0.45, 'cap_margin': 0.05, 'ocr_max': 0, 'nsfw_max': 0.2, 'style_min': 0.70, 'ph_max': 6}
+# *_scene: ngưỡng cho ảnh CẢNH/bìa/bài học (câu dài ↔ chú thích: sim thấp hơn vật đơn) – pilot 24/10, hiệu chỉnh lại khi có nhãn cảnh
+DEF_TH = {'cap_sim_scene': 0.35, 'style_min_scene': 0.5, 'frame_min': 0.04, 'clip_margin': 0.02, 'cap_sim': 0.45, 'cap_margin': 0.05, 'ocr_max': 0, 'nsfw_max': 0.2, 'style_min': 0.70, 'ph_max': 6}
 
 def fnv(s):
     h = 0x811c9dc5
@@ -182,6 +183,8 @@ def features(im, k, t, T, LEX, keys_all, centroid):
 
 def verdict(f, th, kind):
     r = []
+    if kind != 'object':   # cảnh: cùng phép xếp hạng, ngưỡng tương đồng riêng; phong cách so tâm CẢNH (không so tâm ảnh vật)
+        th = {**th, 'cap_sim': th.get('cap_sim_scene', .35), 'api_sim': th.get('cap_sim_scene', .35), 'style_min': th.get('style_min_scene', .5)}
     if f['clip_rank'] != 1 or f['clip_margin'] < th['clip_margin']: r.append(f"clip rank {f['clip_rank']} margin {f['clip_margin']}")
     if f['cap_rank'] != 1 or f['cap_sim'] < th['cap_sim'] or f['cap_margin'] < th['cap_margin']: r.append(f"caption rank {f['cap_rank']} sim {f['cap_sim']}: {f['cap'][:60]}")
     if len(f['ocr']) > th['ocr_max']: r.append('text: ' + ' '.join(f['ocr'])[:40])

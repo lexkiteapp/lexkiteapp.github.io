@@ -6,22 +6,29 @@
 import argparse, io, json, os, re, subprocess, glob
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+try: import pillow_avif  # noqa: F401 – Pillow < 11.2 cần plugin để lưu AVIF
+except Exception: pass
 
 SIZE, MAXB = 384, 6144
 slug = lambda k: re.sub(r'[^a-zA-Z0-9_-]+', '-', k.replace('#', '__'))
 
 def keyed(im, tol=26):
-    """nền kem → alpha 0 bằng loang từ viền (chỉ khi ≥ 85 % viền là nền đều) – giữ nền trong vật thể"""
-    a = np.asarray(im.convert('RGB'), np.int16); h, w, _ = a.shape
+    """nền kem → alpha 0 bằng loang từ viền (chỉ khi ≥ 85 % viền là nền đều) – giữ nền bên trong vật thể. Không cần scipy (ImageDraw.floodfill)."""
+    from PIL import ImageDraw, ImageFilter
+    rgb = im.convert('RGB'); a = np.asarray(rgb, np.int16)
     edge = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(edge, 0)
-    near = (np.abs(a - bg).max(-1) <= tol)
+    near = np.abs(a - bg).max(-1) <= tol
     if near[[0, -1], :].mean() < .85 or near[:, [0, -1]].mean() < .85: return im.convert('RGBA'), False
-    from scipy import ndimage
-    lab, _ = ndimage.label(near); border = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
-    mask = np.isin(lab, list(border))
-    alpha = np.where(mask, 0, 255).astype(np.uint8)
-    alpha = np.asarray(Image.fromarray(alpha).filter(__import__('PIL.ImageFilter', fromlist=['x']).GaussianBlur(1.2)))
-    rgba = np.dstack([a.astype(np.uint8), alpha]); return Image.fromarray(rgba, 'RGBA'), True
+    m = Image.fromarray(np.where(near, 255, 0).astype(np.uint8))   # 255 = giống nền
+    h, w = near.shape
+    for x in range(0, w, 8):
+        for y in (0, h - 1):
+            if m.getpixel((x, y)) == 255: ImageDraw.floodfill(m, (x, y), 128)
+    for y in range(0, h, 8):
+        for x in (0, w - 1):
+            if m.getpixel((x, y)) == 255: ImageDraw.floodfill(m, (x, y), 128)
+    alpha = Image.fromarray(np.where(np.asarray(m) == 128, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.2))
+    out = rgb.convert('RGBA'); out.putalpha(alpha); return out, True
 
 def enc(im, fmt, qs):
     for q in qs:
@@ -54,7 +61,7 @@ def main():
         kd = t['kind']; r = {'kind': kd, 'pass': False}
         if kd == 'concept' or t.get('fallback') == 'type':
             svg = os.path.join(D, 'svg', slug(k) + '.svg'); png = svg[:-4] + '.png'
-            subprocess.run(['rsvg-convert', '-w', '768', '-h', '768', svg, '-o', png], check=True)
+            if not os.path.exists(png): subprocess.run(['rsvg-convert', '-w', '768', '-h', '768', svg, '-o', png], check=True)
             im = Image.open(png).convert('RGBA'); r.update(src='concept', fam=t.get('fam', 'type'), judge='rule', alpha=True); stats['concept'] += 1
             im_used = im
         else:
@@ -86,7 +93,9 @@ def sheet(D, T, res, out):
     W, H, C = 240, 330, 8; keys = list(T.keys()); rows = (len(keys) + C - 1) // C
     im = Image.new('RGB', (C * W, rows * H), '#ffffff'); dr = ImageDraw.Draw(im)
     try: f = ImageFont.truetype('DejaVuSans.ttf', 12); fb = ImageFont.truetype('DejaVuSans-Bold.ttf', 14)
-    except Exception: f = fb = ImageFont.load_default()
+    except Exception:
+        try: f = ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial.ttf', 12); fb = ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial Bold.ttf', 14)
+        except Exception: f = fb = ImageFont.load_default()
     for i, k in enumerate(keys):
         x, y = (i % C) * W, (i // C) * H; r = res.get(k, {}); t = T[k]
         p = os.path.join(D, 'final', r['h'] + '.webp') if r.get('h') else r.get('raw')
