@@ -17,7 +17,8 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: journey-e2e-${{ github.ref }}-${{ github.event_name }}
+  # github.workflow = tên workflow GỌI khi chạy qua workflow_call (Quality sweep) → nhóm riêng, không huỷ lượt chạy tay/PR cùng ref
+  group: journey-e2e-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 jobs:
   web:
