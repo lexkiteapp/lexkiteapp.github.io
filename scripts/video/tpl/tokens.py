@@ -45,3 +45,18 @@ def bezier(p, x):
         else: hi = t
         t = (lo + hi) / 2
     return ((ay * t + by) * t + cy) * t
+
+# ---- template 1b "Teacher on location" (docs/VIDEO-TEMPLATES.md §8): topic plate instead of the studio gradient
+# Plates = anchor/bg/<name>.png (lexkite-footage, 1536x2720 flat2d-warm). Only plates a human checked for "no people, no readable text"
+# are listed; tags = the lesson topics/areas a plate may illustrate (qc_tpl.py plate_topic gate).
+PLATES = dict(
+    airport_gate=dict(tags=['travel', 'airport', 'flight', 'boarding'], people=0, text=0, checked='2026-10-24'),
+    airport_gate_night=dict(tags=['travel', 'airport', 'flight'], people=0, text=0, checked='2026-10-24'),
+    hotel_lobby=dict(tags=['travel', 'hotel', 'check-in'], people=0, text=0, checked='2026-10-24'),
+    restaurant_night=dict(tags=['food', 'restaurant', 'ordering', 'dinner'], people=0, text=0, checked='2026-10-24'),
+    restaurant_day=dict(tags=['food', 'restaurant', 'ordering'], people=0, text=0, checked='2026-10-24'),
+    coffee_shop_day=dict(tags=['food', 'coffee', 'cafe', 'ordering'], people=0, text=0, checked='2026-10-24'),
+)
+# hosts with a PRO matte + mouth meta in the footage bank; voice = Kokoro voice used for EVERY line of that host's video
+HOSTS = dict(ama=dict(voice='af_bella'), carlos=dict(voice='am_fenrir'), mia=dict(voice='af_heart'), jake=dict(voice='am_michael'))
+PLATE = dict(blur=7.0, push=0.035, max_push_per_s=0.0025, scrim_top=0.70, scrim_y1=0.66, sat=0.82, host_match=0.35, stage_luma=226)   # depth blur px, total push-in, cream scrim alpha/extent, saturation, host colour-match strength

@@ -1,0 +1,61 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_1dc7ab",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:key card#n"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "roleplay",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_1dc7ab_h",
+  "quote": "room card",
+  "kind": "Say this instead"
+ },
+ "wrong_line": "My room card doesn't work.",
+ "key_line": "My key card doesn't work.",
+ "series": [
+  "HOTEL ENGLISH",
+  "KEY CARD"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1dc7ab_k",
+   "card": {
+    "formula": "KEY CARD"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1dc7ab_y",
+   "card": {
+    "text": "Hotel cards that open doors are key cards."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My key card doesn't work.",
+   "Here is your key card.",
+   "I left my key card in the room."
+  ]
+ },
+ "quiz": {
+  "pre": "Tap your",
+  "post": "card to open the door",
+  "a": "key",
+  "b": "room",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

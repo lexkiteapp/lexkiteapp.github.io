@@ -1,0 +1,146 @@
+{
+ "voices": {
+  "ama": "af_bella",
+  "carlos": "am_fenrir",
+  "mia": "af_heart",
+  "jake": "am_michael"
+ },
+ "speed": 0.88,
+ "lines": [
+  {
+   "id": "n_5b373a_h",
+   "who": "carlos",
+   "text": "Stop saying this."
+  },
+  {
+   "id": "n_5b373a_m",
+   "who": "carlos",
+   "text": "Many learners say: My bag is too much heavy."
+  },
+  {
+   "id": "n_5b373a_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_5b373a_k",
+   "who": "carlos",
+   "text": "Say: My bag is too heavy."
+  },
+  {
+   "id": "n_5b373a_y",
+   "who": "carlos",
+   "text": "Too goes right before the adjective. No much."
+  },
+  {
+   "id": "n_5b373a_rn",
+   "who": "carlos",
+   "text": "Now at normal speed: My bag is too heavy."
+  },
+  {
+   "id": "n_5b373a_r2",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_5b373a_e",
+   "who": "carlos",
+   "text": "Quiz: My suitcase is blank. Too heavy, or too much heavy? Comment below."
+  },
+  {
+   "id": "n_5b373a_s",
+   "who": "carlos",
+   "text": "Check your grammar on lexkite.com."
+  },
+  {
+   "id": "n_1dc7ab_h",
+   "who": "ama",
+   "text": "Never say this."
+  },
+  {
+   "id": "n_1dc7ab_m",
+   "who": "ama",
+   "text": "Many learners say: My room card doesn't work."
+  },
+  {
+   "id": "n_1dc7ab_g",
+   "who": "ama",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_1dc7ab_k",
+   "who": "ama",
+   "text": "Say: My key card doesn't work."
+  },
+  {
+   "id": "n_1dc7ab_y",
+   "who": "ama",
+   "text": "Hotel cards that open doors are key cards."
+  },
+  {
+   "id": "n_1dc7ab_rn",
+   "who": "ama",
+   "text": "Now at normal speed: My key card doesn't work."
+  },
+  {
+   "id": "n_1dc7ab_r2",
+   "who": "ama",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_1dc7ab_e",
+   "who": "ama",
+   "text": "Quiz: Tap your blank card to open the door. Key, or room? Comment below."
+  },
+  {
+   "id": "n_1dc7ab_s",
+   "who": "ama",
+   "text": "Roleplay this free on lexkite.com."
+  },
+  {
+   "id": "n_0a35f2_h",
+   "who": "mia",
+   "text": "Natives never say this."
+  },
+  {
+   "id": "n_0a35f2_m",
+   "who": "mia",
+   "text": "Many learners say: Let's divide the bill."
+  },
+  {
+   "id": "n_0a35f2_g",
+   "who": "mia",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_0a35f2_k",
+   "who": "mia",
+   "text": "Say: Let's split the bill."
+  },
+  {
+   "id": "n_0a35f2_y",
+   "who": "mia",
+   "text": "For sharing a cost, we say split the bill."
+  },
+  {
+   "id": "n_0a35f2_rn",
+   "who": "mia",
+   "text": "Now at normal speed: Let's split the bill."
+  },
+  {
+   "id": "n_0a35f2_r2",
+   "who": "mia",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_0a35f2_e",
+   "who": "mia",
+   "text": "Quiz: Dinner was great. Let's blank the bill. Split, or divide? Comment below."
+  },
+  {
+   "id": "n_0a35f2_s",
+   "who": "mia",
+   "text": "Save useful phrases on lexkite.com."
+  }
+ ]
+}

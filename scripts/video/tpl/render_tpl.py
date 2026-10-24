@@ -2,6 +2,8 @@
 """Clean pilot templates (docs/VIDEO-TEMPLATES.md) for a news 'fix' lesson.
   python3 scripts/video/tpl/render_tpl.py --tpl 1|2 --lesson content/video/cine/news/<id>.json --vo <dir with <line>.wav/.json/.words.json> --out out.mp4
 Template 1 "Teacher card": ONE host (Ama) at one fixed transform for the whole video on a designed studio gradient + motion-graphics layer.
+Template 1b "Teacher on location" (--plate <name>): same host lock + layers on a topic plate (anchor/bg/<name>.png): depth blur, grade, cream scrim, very slow push-in;
+  host colour-matched to the plate + soft contact shadow; loop-friendly end (text clears back to the frame-0 look) + CTA deep link (lesson.cta).
 Template 2 "Motion explainer": no host; big type + Noto emoji icons (--icons dir of emoji_u<hex>.png).
 Everything moves with tokens.py (3 durations, one quint easing family, 12-col grid, one type scale, kit.js colours).
 Writes <out>, <out>.timeline.json (per-frame element log for qc_tpl.py) and <out>.sheet.jpg (beat contact sheet).
@@ -15,12 +17,16 @@ from tokens import *
 ap = argparse.ArgumentParser()
 ap.add_argument('--tpl', type=int, required=True); ap.add_argument('--lesson', required=True); ap.add_argument('--lines', default=None)
 ap.add_argument('--vo', default=None); ap.add_argument('--out', required=True); ap.add_argument('--fonts', default=f'{ROOT}/brand/social/src/fonts')
-ap.add_argument('--icons', default=None); ap.add_argument('--lib', default=None, help='footage anchor dir (green/, tools/meta/)'); ap.add_argument('--clip', default='ga4_talk_natural')
+ap.add_argument('--icons', default=None); ap.add_argument('--lib', default=None, help='footage anchor dir (green/, tools/meta/)'); ap.add_argument('--clip', default=None)
+ap.add_argument('--plate', default=None, help='tpl 1b: plate name (tokens.PLATES); default lesson.plate'); ap.add_argument('--host-name', default=None)
+ap.add_argument('--crf', type=int, default=None, help='quality mode: CRF (e.g. 18) with a 5.5 Mbps floor (re-encodes CBR at the floor if CRF lands below it)');
 ap.add_argument('--skip', default='c'); ap.add_argument('--fake-vo', action='store_true'); ap.add_argument('--stills', default=None); ap.add_argument('--host-still', default=None, help='local: RGBA png used as a static host (layout check only)')
 o = ap.parse_args()
 SP = json.load(open(o.lesson)); LID = SP['id']; H6 = SP['hook']['line'][2:8]
 LJ = json.load(open(o.lines or os.path.join(os.path.dirname(o.lesson), 'lines.json'))); TEXT = {l['id']: l['text'] for l in LJ['lines']}
 T1 = o.tpl == 1
+PLATE_N = (o.plate or SP.get('plate')) if T1 else None; HOSTN = o.host_name or SP.get('host') or 'ama'; CLIP = o.clip or SP.get('clip') or 'ga4_talk_natural'
+CTA = SP.get('cta') or None
 def F(kind, size): return ImageFont.truetype(f"{o.fonts}/{FONTS[kind]}", size)
 def nrm(w): return re.sub(r"[^a-z0-9']", '', w.lower().replace('’', "'")).strip("'")
 
@@ -46,7 +52,7 @@ class Line:
 
 SEQ = [k for k in ['h', 'm', 'g', 'k', 'y', 'c', 'rn', 'r2', 'e', 's'] if k not in o.skip.split(',')]   # 25-35 s budget: the quick-check beat repeats the wrong line -> skipped by default
 L = {k: Line(f'n_{H6}_{k}') for k in SEQ}
-EXTRA = dict(g=1.1, r2=1.4, s=0.4)           # extra silent hold after a line (guess pause, read the tip rows, end card)
+EXTRA = dict(g=1.1, r2=1.4, s=1.2 if SP.get('cta') else 0.4)           # extra silent hold after a line (guess pause, read the tip rows, end card)
 GAP, LEAD_IN = 0.38, 0.25
 t = LEAD_IN; BEAT = {}
 for i, k in enumerate(SEQ):
@@ -54,7 +60,7 @@ for i, k in enumerate(SEQ):
     hold_end = max(t + ln.end + GAP + EXTRA.get(k, 0), ln.last() + DUR['fast'] + MIN_READ + DUR['fast'] + 0.05)   # last word fully readable >= MIN_READ before the exit
     BEAT[k] = dict(vin=round(vis_in, 3), vout=round(hold_end - DUR['fast'], 3), end=round(hold_end, 3))
     t = hold_end + 0.1
-TOTAL = round(BEAT['s']['end'] + 0.1, 2); NF = int(round(TOTAL * FPS))
+TOTAL = round(BEAT['s']['end'] + (0.5 if SP.get('cta') else 0.1), 2); NF = int(round(TOTAL * FPS))
 for a, b in zip(SEQ, SEQ[1:]): BEAT[a]['next'] = BEAT[b]['vin']
 
 # ------------------------------------------------------------------ sprites
@@ -172,9 +178,11 @@ import difflib
 sm = difflib.SequenceMatcher(None, [nrm(x) for x in wt], [nrm(x) for x in rt])
 BAD = [wt[i] for a, b, c, d in [(op[1], op[2], op[3], op[4]) for op in sm.get_opcodes() if op[0] != 'equal'] for i in range(a, b)]
 GOOD = [rt[i] for a, b, c, d in [(op[1], op[2], op[3], op[4]) for op in sm.get_opcodes() if op[0] != 'equal'] for i in range(c, d)]
+if not GOOD: GOOD = [rt[i] for op in sm.get_opcodes() if op[0] == 'delete' for i in range(max(0, op[3] - 1), min(len(rt), op[3] + 1))]
 KB = next(b for b in SP['beats'] if b['kind'] == 'k'); FORM = KB['card'].get('formula') or SP['series'][1]
 WHY = next(b for b in SP['beats'] if b['kind'] == 'y')['card']['text']
-qm = re.match(r"Quiz: (.+?) blank (.+?)\. (\w+) or (.+?)\? (.+)", L['e'].text); Q_PRE, Q_POST, QA, QB, Q_CTA = qm.groups()
+if 'quiz' in SP: Q_PRE, Q_POST, QA, QB = SP['quiz']['pre'], SP['quiz']['post'], SP['quiz']['a'], SP['quiz']['b']
+else: qm = re.match(r"Quiz: (.+?) blank (.+?)\. (\w+) or (.+?)\? (.+)", L['e'].text); Q_PRE, Q_POST, QA, QB, Q_CTA = qm.groups()
 ROWS = SP['recap']['rows'][:3]
 ICONS = dict(h='1f6d1', m='1f697', g='1f914', y='1f4a1', c='1f50e', rn='1f50a', r2='1f4cc', e='1f4f1', s='1f4e8')
 
@@ -201,12 +209,13 @@ El('series', SER, X0, 280, 'h', B0, None, enter='fade', d_in='base', z=2, text=f
 # hook ------------------------------------------------------------
 b = BEAT['h']; ln = L['h']; g = 'h'
 i0 = [nrm(x) for x in wt].index(nrm(BAD[0])) if BAD else 0
-HQ = ' '.join(wt[max(0, i0 - 1):i0 + 1])   # 'considering to' = the word before the mistake + its first word (bank hook)
+HQ = (SP['hook'].get('quote') or ' '.join(wt[max(0, i0 - 1):i0 + 1]))   # 'considering to' = the word before the mistake + its first word (bank hook)
 hs1, hs2 = TYPE['display'], TYPE['h1']
-h_total = ih + int(hs1 * LEAD) + 16 + int(hs2 * LEAD)
+HT = ' '.join(L['h'].text.split()[:-1]) or 'Stop saying'   # hook line minus its last word ('this.') = the big pattern-interrupt text
+h_total = ih + measure(HT, hs1, 'display', FULL) + 16 + measure(f'“{HQ}”', hs2, 'display', FULL)
 y = stage_y(h_total); y = place_icon('h', y, b['vin'], b['vout'], g)
-y2, bx = words_block('h.t1', 'Stop saying', hs1, 'display', X0, y, FULL, g, ln, b['vout'], color=INK, align='center')
-tq = ln.t('this.')
+y2, bx = words_block('h.t1', HT, hs1, 'display', X0, y, FULL, g, ln, b['vout'], color=INK, align='center')
+tq = ln.words[-1]['s'] + ln.at
 y3, bx2 = words_block('h.t2', f'“{HQ}”', hs2, 'display', X0, y2 + 16, FULL, g, None, b['vout'], color=C['red'], align='center', after=tq)
 qx, qy, qw, qh, _ = bx2[0]; qx1 = max(v[0] + v[2] for v in bx2.values())
 El('h.strike', bar(int(qx1 - qx) + 16, 12, INK if T1 else C['cream']), qx - 8, qy + qh // 2 - 2, g, tq + DUR['fast'], b['vout'], enter='wipe', d_in='base', z=8)
@@ -222,7 +231,7 @@ zy = stage_y(zone_h); bm, bg_, bk = BEAT['m'], BEAT['g'], BEAT['k']
 zy = place_icon('m', zy, bm['vin'], bk['vout'], 'm')
 ln = L['m']
 words_block('m.lab', 'Many learners say:', TYPE['body'], 'body', X0, zy, FULL, 'm', ln, bg_['vout'], color=SUB)
-cy = zy + lab_h; tx = ln.t("I'm")
+cy = zy + lab_h; tx = ln.t(wt[0])
 card, pad = rrect(FULL, hx, 32, C['white'])
 xc = El('m.card', card, X0 - pad, cy - pad, 'm', tx - 0.15, bk['vout'], enter='slide', d_in='base', z=3, dim=(bk['vin'], 0.5 if T1 else 0.6, 'k'))
 El('m.badge', badge('x', BD), X0 + CARD_PAD, cy + CARD_PAD, 'm', tx - 0.15, None, enter='none', parent=xc, z=7)
@@ -242,7 +251,7 @@ for i in range(3):
     El(f'g.dot{i}', bar(28, 28, C['yellow'] if not T1 else C['navy2']), X0 + BD + 24 + i * 52, slot + int(sz * LEAD) + 24, 'g', tdots + i * 0.4, bg_['vout'], enter='fade', d_in='fast', z=6)
 TICKS = [tdots + i * 0.4 for i in range(3)]
 # right card
-ln = L['k']; tr = ln.t("I'm")
+ln = L['k']; tr = ln.t(rt[0])
 card, pad = rrect(FULL, hv, 32, C['white'], outline=C['green'])
 vc = El('k.card', card, X0 - pad, slot - pad, 'k', tr - 0.15, bk['vout'], enter='slide', d_in='base', z=3)
 El('k.badge', badge('v', BD), X0 + CARD_PAD, slot + CARD_PAD, 'k', tr - 0.15, None, enter='none', parent=vc, z=7)
@@ -260,12 +269,17 @@ h_ = ih + 72 + 24 + int(fs_ * LEAD) + 24 + measure(WHY, TYPE['body'], 'body', FU
 y = stage_y(h_); y = place_icon('y', y, b['vin'], b['vout'], g)
 rc = chip('RULE', C['yellow'], C['navy']); El('y.chip', rc, X0 + (FULL - rc.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='RULE', fs=TYPE['label'])
 y += 72 + 24
-ff = F('display', fs_); w1 = ff.getlength(fparts[0]); w2 = ff.getlength(' + '); w3 = ff.getlength(fparts[1])
+ff = F('display', fs_); w1 = ff.getlength(fparts[0]); w2 = ff.getlength(' + ') if fparts[1] else 0; w3 = ff.getlength(fparts[1])
 if w1 + w2 + w3 > FULL: fs_ = TYPE['h1']; ff = F('display', fs_); w1 = ff.getlength(fparts[0]); w2 = ff.getlength(' + '); w3 = ff.getlength(fparts[1])
+if w1 + w2 + w3 > FULL: fs_ = TYPE['h2']; ff = F('display', fs_); w1 = ff.getlength(fparts[0]); w2 = ff.getlength(' + ') if fparts[1] else 0; w3 = ff.getlength(fparts[1])
+w2 = w2 if fparts[1] else 0
 fx = X0 + (FULL - (w1 + w2 + w3)) / 2
-t_c = ln.t('consider,'); t_i = ln.t('-ing')
+t_c = ln.at + ln.words[0]['s']
+try: t_i = ln.t(fparts[1].split()[0].strip('-').lower()) if fparts[1] else t_c
+except SystemExit: t_i = ln.at + ln.words[len(ln.words) // 2]['s']
+t_i = max(t_i, t_c + DUR['base'])
 El('y.f1', text_img(fparts[0], fs_, 'display', INK), fx - 2, y, g, t_c - 0.05, b['vout'], enter='rise', d_in='base', text=fparts[0], fs=fs_)
-El('y.f2', text_img('+ ' + fparts[1], fs_, 'display', C['red']), fx + w1 + ff.getlength(' ') - 2, y, g, t_i - 0.05, b['vout'], enter='pop', d_in='base', text='+ ' + fparts[1], fs=fs_)
+if fparts[1]: El('y.f2', text_img('+ ' + fparts[1], fs_, 'display', C['red']), fx + w1 + ff.getlength(' ') - 2, y, g, t_i - 0.05, b['vout'], enter='pop', d_in='base', text='+ ' + fparts[1], fs=fs_)
 y += int(fs_ * LEAD) + 24
 words_block('y.s', WHY, TYPE['body'], 'body', X0, y, FULL, g, ln, b['vout'], color=SUB, align='center', reveal='fade')
 TICKS.append(t_i)
@@ -278,7 +292,7 @@ if 'c' in SEQ:
     y = stage_y(h_); y = place_icon('c', y, b['vin'], b['vout'], g)
     cc_ = chip('QUICK CHECK', C['navy'] if T1 else C['cream'], C['cream'] if T1 else C['navy']); El('c.chip', cc_, X0 + (FULL - cc_.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='QUICK CHECK', fs=TYPE['label'])
     y += 72 + 24
-    y_, cb = words_block('c.s', wrong + '?', sz2, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, hi=BAD, align='center', after=ln.t("I'm"))
+    y_, cb = words_block('c.s', wrong + '?', sz2, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, hi=BAD, align='center', after=ln.t(wt[0]))
     tno = ln.t('No.')
     bi = [k for k in cb if nrm(wt[k] if k < len(wt) else '') in {nrm(x) for x in BAD}]
     if bi:
@@ -296,7 +310,7 @@ sz3 = TYPE['h1']
 h_ = ih + 72 + 24 + measure(right + '.', sz3, 'head', FULL)
 y = stage_y(h_); y = place_icon('rn', y, b['vin'], b['vout'], g)
 nc = chip('NORMAL SPEED', C['green'], C['white']); El('rn.chip', nc, X0 + (FULL - nc.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='NORMAL SPEED', fs=TYPE['label'])
-y += 72 + 24; tr = ln.t("I'm")
+y += 72 + 24; tr = ln.t(rt[0])
 _, kb = words_block('rn.s', right + '.', sz3, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, hi=GOOD, hi_col=C['green'] if T1 else C['yellow'], align='center', karaoke=True, after=b['vin'], z=7)
 gi = [k for k in kb if k < len(rt) and nrm(rt[k]) in {nrm(x) for x in GOOD}]
 if gi:
@@ -312,7 +326,7 @@ h_ = ih + 72 + 32 + sum(hrows) + 24 * (len(ROWS) - 1)
 y = stage_y(h_); y = place_icon('r2', y, b['vin'], b['vout'], g)
 tc_ = chip("TEACHER'S TIP", C['yellow'], C['navy']); El('r2.chip', tc_, X0 + (FULL - tc_.width) // 2, y, g, ln.t("Teacher's") - 0.05, b['vout'], enter='fade', d_in='base', text="TEACHER'S TIP", fs=TYPE['label'])
 y += 72 + 32; t0 = ln.t('save')
-ingw = {nrm(w_) for r_ in ROWS for w_ in r_.split() if nrm(w_).endswith('ing') and nrm(w_) not in ('considering',)}
+ingw = {nrm(w_) for w_ in GOOD} if 'quiz' in SP else {nrm(w_) for r_ in ROWS for w_ in r_.split() if nrm(w_).endswith('ing') and nrm(w_) not in ('considering',)}
 for i, r_ in enumerate(ROWS):
     ti = t0 + i * DUR['fast']
     rowp = El(f'r2.row{i}', badge(f'n{i + 1}', 64, bg=None if T1 else C['yellow']), X0, y + (int(rs * LEAD) - 64) // 2, g, ti, b['vout'], enter='slide', d_in='base', z=6)
@@ -329,31 +343,47 @@ for e_ in ELS:   # row words ride on their badge element (relative coords)
 
 # quiz ------------------------------------------------------------------
 b = BEAT['e']; ln = L['e']; g = 'e'
-qs = TYPE['h2']; qtxt = f'{Q_PRE} _____ {Q_POST}.'
-h_ = ih + 72 + 24 + measure(qtxt, qs, 'head', FULL) + 40 + 112 + 40 + int(TYPE['label'] * LEAD)
+qs = TYPE['h2']; qtxt = f'{Q_PRE} _____ {Q_POST}.' if Q_POST else f'{Q_PRE} _____.'
+STACK = max(F('head', TYPE['body']).getlength(x) for x in (QA, QB)) > span(0, 5) - 128   # long options -> two full-width rows (never below 48 px)
+h_ = ih + 72 + 24 + measure(qtxt, qs, 'head', FULL) + 40 + 112 + (112 + 24 if STACK else 0) + 40 + int(TYPE['label'] * LEAD)
 y = stage_y(h_); y = place_icon('e', y, b['vin'], b['vout'], g)
 qc = chip('QUIZ', C['red'], C['white']); El('e.chip', qc, X0 + (FULL - qc.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='QUIZ', fs=TYPE['label'])
 y += 72 + 24
-y_, qb = words_block('e.s', qtxt, qs, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, align='center', after=ln.t("I'm"))
+y_, qb = words_block('e.s', qtxt, qs, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, align='center', after=ln.t(Q_PRE.split()[0]))
 y = snap(y_ + 40)
+t_opt = ln.t('blank')
 for i, (lab, opt, wd) in enumerate([('A', QA.lower(), QA), ('B', QB, QB.split()[0] + ' ' + QB.split()[1] if ' ' in QB else QB)]):
-    ow = span(0, 5) if True else 0; im, pad = rrect(ow, 112, 28, C['white'] if T1 else C['cream'], shadow=T1)
+    ow = FULL if STACK else span(0, 5); im, pad = rrect(ow, 112, 28, C['white'] if T1 else C['cream'], shadow=T1)
+    ofs = TYPE['body']
     dd = ImageDraw.Draw(im); dd.ellipse((pad + 20, pad + 24, pad + 84, pad + 88), fill=C['navy'] + (255,)); dd.text((pad + 52, pad + 57), lab, font=F('head', 44), fill=(255, 255, 255, 255), anchor='mm')
-    dd.text((pad + 108, pad + 56), opt, font=F('head', TYPE['body']), fill=C['navy'] + (255,), anchor='lm')
-    to = ln.t(wd.rstrip('?').split()[0], after=ln.t('blank'))
-    El(f'e.opt{i}', im, col(0 if i == 0 else 6) - pad, y - pad, g, to - 0.05, b['vout'], enter='rise', d_in='base', z=6, text=f'{lab} {opt}', fs=TYPE['body'], inset=pad)
+    dd.text((pad + 108, pad + 56), opt, font=F('head', ofs), fill=C['navy'] + (255,), anchor='lm')
+    to = ln.t(wd.rstrip('?,').split()[0].rstrip(','), after=t_opt + 0.01); t_opt = to
+    El(f'e.opt{i}', im, (X0 if STACK else col(0 if i == 0 else 6)) - pad, y - pad + (i * (112 + 24) if STACK else 0), g, to - 0.05, b['vout'], enter='rise', d_in='base', z=6, text=f'{lab} {opt}', fs=ofs, inset=pad)
     TICKS.append(to)
-y += 112 + 40; tcm = ln.t('Comment')
+y += 112 + (112 + 24 if STACK else 0) + 40; tcm = ln.t('Comment')
 words_block('e.cta', 'Comment your answer', TYPE['label'], 'head', X0, y, FULL, g, None, b['vout'], color=SUB, align='center', reveal='fade', after=tcm)
 
 # share / end card --------------------------------------------------------
 b = BEAT['s']; ln = L['s']; g = 's'
-h_ = ih + measure('Send this to a friend', TYPE['h1'], 'display', FULL) + 16 + int(TYPE['body'] * LEAD) + 56 + int(TYPE['display'] * LEAD)
-y = stage_y(h_); y = place_icon('s', y, b['vin'], None, g)
-y_, _ = words_block('s.t', 'Send this to a friend', TYPE['h1'], 'display', X0, y, FULL, g, ln, None, color=INK, align='center')
-y_, _ = words_block('s.t2', 'who needs it.', TYPE['body'], 'body', X0, y_ + 16, FULL, g, ln, None, color=SUB, align='center', reveal='fade', after=ln.t('who'))
-lk = text_img('Lexkite', TYPE['display'], 'display', C['navy2'] if T1 else C['yellow'])
-El('s.brand', lk, X0 + (FULL - lk.width) // 2, snap(y_ + 56), g, ln.last() + DUR['fast'], None, enter='rise', d_in='base', text='Lexkite', fs=TYPE['display'])
+END_OUT = b['vout'] if CTA else None    # tpl 1b: the end card clears -> last frame = frame-0 look (plate + host only) = seamless loop
+if CTA:
+    ct = CTA['text']; i_on = ct.lower().rfind(' on lexkite.com'); c1, c2 = (ct[:i_on], ct[i_on + 1:]) if i_on > 0 else (ct, 'lexkite.com')
+    lab = CTA['label'] + '  \u2192'; ch_ = chip(lab, C['navy'], C['cream'], TYPE['body'])
+    h_ = measure(c1, TYPE['h1'], 'display', FULL) + 16 + int(TYPE['h2'] * LEAD) + 48 + ch_.height
+    y = stage_y(h_)
+    y_, _ = words_block('s.t', c1, TYPE['h1'], 'display', X0, y, FULL, g, ln, END_OUT, color=INK, align='center')
+    y_, _ = words_block('s.t2', c2, TYPE['h2'], 'display', X0, y_ + 16, FULL, g, ln, END_OUT, color=C['red'], align='center', reveal='fade', after=ln.t(c2.split()[0]))
+    El('s.link', ch_, X0 + (FULL - ch_.width) // 2, snap(y_ + 48), g, ln.last() + DUR['fast'], END_OUT, enter='rise', d_in='base', text=lab, fs=TYPE['body'])
+else:
+    h_ = ih + measure('Send this to a friend', TYPE['h1'], 'display', FULL) + 16 + int(TYPE['body'] * LEAD) + 56 + int(TYPE['display'] * LEAD)
+    y = stage_y(h_); y = place_icon('s', y, b['vin'], None, g)
+    y_, _ = words_block('s.t', 'Send this to a friend', TYPE['h1'], 'display', X0, y, FULL, g, ln, None, color=INK, align='center')
+    y_, _ = words_block('s.t2', 'who needs it.', TYPE['body'], 'body', X0, y_ + 16, FULL, g, ln, None, color=SUB, align='center', reveal='fade', after=ln.t('who'))
+    lk = text_img('Lexkite', TYPE['display'], 'display', C['navy2'] if T1 else C['yellow'])
+    El('s.brand', lk, X0 + (FULL - lk.width) // 2, snap(y_ + 56), g, ln.last() + DUR['fast'], None, enter='rise', d_in='base', text='Lexkite', fs=TYPE['display'])
+if END_OUT:   # persistent chrome leaves with the end card (same exit tag)
+    for e_ in ELS:
+        if e_.id in ('progress.track', 'series'): e_.t_out = END_OUT
 
 # progress steps: fill grows at each beat start (part of that beat's group)
 PSTEPS = [(BEAT[k]['vin'], (i + 1) / len(SEQ), k) for i, k in enumerate(SEQ)]
@@ -364,7 +394,41 @@ def gradient(top, bot):
 def blob(img, cx, cy, r, color, alpha, blur):
     lay = Image.new('L', (W, H), 0); ImageDraw.Draw(lay).ellipse((cx - r, cy - r, cx + r, cy + r), fill=255); m = np.asarray(lay.filter(ImageFilter.GaussianBlur(blur)), np.float32)[..., None] / 255 * alpha
     return img * (1 - m) + np.array(color, np.float32) * m
-if T1:
+PLATE_LOG = None
+if PLATE_N:
+    import cv2
+    pm = PLATES.get(PLATE_N) or sys.exit(f'plate {PLATE_N} not in tokens.PLATES (human-checked clean plates only)')
+    src = cv2.imread(f'{o.lib}/bg/{PLATE_N}.png')[..., ::-1].astype(np.float32)
+    ph, pw = src.shape[:2]; k0 = max(W / pw, H / ph) * (1 + PLATE['push'])           # cover + the push-in headroom, resampled ONCE
+    PL = cv2.resize(src, (int(round(pw * k0)), int(round(ph * k0))), interpolation=cv2.INTER_AREA)
+    PL = cv2.GaussianBlur(PL, (0, 0), PLATE['blur'] * k0 / 0.72)                       # depth blur: the plate reads as a background, never competes with type
+    lum = 0.299 * PL[..., 0] + 0.587 * PL[..., 1] + 0.114 * PL[..., 2]; PL = lum[..., None] + (PL - lum[..., None]) * PLATE['sat']   # grade: -18 % saturation
+    PL = 0.88 * PL + 0.12 * np.array(C['cream'], np.float32)                           # lift toward cream (brand warmth, lower contrast)
+    ys = np.linspace(0, 1, PL.shape[0])[:, None, None]
+    L_ = lambda A: (lambda Z: float(np.mean(0.299 * Z[..., 0] + 0.587 * Z[..., 1] + 0.114 * Z[..., 2])))(A[int(A.shape[0] * 0.12):int(A.shape[0] * 0.54)])   # text stage rows
+    L0, Lc = L_(PL), float(np.dot(C['cream'], [0.299, 0.587, 0.114]))
+    a_top = float(np.clip(max(PLATE['scrim_top'], (PLATE['stage_luma'] + 1 - L0) / (Lc - L0)), 0, 0.92))   # adaptive: dark plates get more scrim
+    scr = a_top * np.clip(1 - np.maximum(0, ys - 0.54) / (PLATE['scrim_y1'] - 0.54), 0, 1)   # cream scrim: full over the whole text stage, fades out over the host's head
+    PL = PL * (1 - scr) + np.array(C['cream'], np.float32) * scr
+    L_after = L_(PL)   # stage luma AFTER the scrim (what the type sits on)
+    PL = np.clip(PL + (np.random.RandomState(7).rand(*PL.shape[:2], 1).astype(np.float32) - 0.5) * 1.6, 0, 255).astype(np.float32)
+    PLH, PLW = PL.shape[:2]
+    # host colour match: plate tone under the host (lower third, after grade) vs neutral grey -> per-channel gain, clamped
+    reg_ = PL[int(PLH * 0.62):, int(PLW * 0.2):int(PLW * 0.8)].reshape(-1, 3).mean(0)
+    HOST_GAIN = np.clip(1 + PLATE['host_match'] * (reg_ / reg_.mean() - 1), 0.94, 1.06).astype(np.float32)
+    SH_COL = np.clip(reg_ * 0.35, 0, 255).astype(np.float32)                           # contact shadow = darkened plate tone (not navy)
+    PLATE_LOG = dict(name=PLATE_N, tags=pm['tags'], people=pm['people'], text=pm['text'], checked=pm['checked'], push=PLATE['push'],
+                     blur=PLATE['blur'], scrim=round(a_top, 3), stage_luma=round(L_after, 1), host_gain=[round(float(x), 4) for x in HOST_GAIN],
+                     faces=int(len(cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml').detectMultiScale(
+                         cv2.cvtColor(src.astype(np.uint8), cv2.COLOR_RGB2GRAY), 1.1, 10, minSize=(60, 60)))), lesson_topic=SP.get('topic'), lesson_area=SP.get('area'))
+    def plate_at(t):
+        """very slow linear push-in, centred: crop scale goes 1 -> 1/(1+push) over the video (sub-pixel warp, no stepping)"""
+        z = 1 + PLATE['push'] * min(1.0, t / TOTAL); cw, ch = W * (1 + PLATE['push']) / z, H * (1 + PLATE['push']) / z
+        sx = cw / W; x0 = (PLW - cw) / 2; y0 = (PLH - ch) / 2
+        M = np.array([[sx, 0, x0], [0, sx, y0]], np.float32)
+        return cv2.warpAffine(PL, M, (W, H), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP, borderMode=cv2.BORDER_REFLECT), round(z, 5)
+    BG = None
+elif T1:
     BG = gradient((255, 249, 238), (226, 241, 235))
     BG = blob(BG, 140, 420, 300, C['yellow'], 0.20, 140); BG = blob(BG, 1000, 900, 260, C['red'], 0.07, 150)
     BG = blob(BG, 560, 1560, 560, C['navy2'], 0.10, 160); BG = blob(BG, 540, 1500, 440, (255, 255, 255), 0.55, 120)
@@ -372,9 +436,10 @@ else:
     BG = gradient((18, 72, 73), (9, 40, 41))
     BG = blob(BG, 900, 420, 420, C['navy2'], 0.55, 160); BG = blob(BG, 120, 1450, 360, C['red'], 0.10, 170); BG = blob(BG, 980, 1700, 300, C['yellow'], 0.06, 160)
 yy_, xx_ = np.mgrid[0:H, 0:W]; vig = 1 - 0.10 * (((xx_ - W / 2) / (W * 0.75)) ** 2 + ((yy_ - H / 2) / (H * 0.75)) ** 2)
-BG = np.clip(BG * vig[..., None], 0, 255).astype(np.float32)
-# 0.6 % dither so the gradient never bands after x264
-BG = np.clip(BG + (np.random.RandomState(7).rand(H, W, 1).astype(np.float32) - 0.5) * 1.6, 0, 255)
+if BG is not None:
+    BG = np.clip(BG * vig[..., None], 0, 255).astype(np.float32)
+    # 0.6 % dither so the gradient never bands after x264
+    BG = np.clip(BG + (np.random.RandomState(7).rand(H, W, 1).astype(np.float32) - 0.5) * 1.6, 0, 255)
 
 HOST_T = None
 class Host:
@@ -382,7 +447,7 @@ class Host:
     def __init__(s):
         import cv2; s.cv2 = cv2
         sys.path.insert(0, f'{ROOT}/scripts/cine'); import lipsync as LS; s.LS = LS
-        G = f'{o.lib}/green'; cf, cm = f'{G}/kfull_pro/{o.clip}.mp4', f'{G}/kmask_pro/{o.clip}.mkv'
+        G = f'{o.lib}/green'; cf, cm = f'{G}/kfull_pro/{CLIP}.mp4', f'{G}/kmask_pro/{CLIP}.mkv'
         cap = cv2.VideoCapture(cf); s.FR = []
         while True:
             ok, f_ = cap.read()
@@ -393,7 +458,7 @@ class Host:
             ok, m_ = cap.read()
             if not ok: break
             s.MM.append(m_[..., 0])
-        s.n = min(len(s.FR), len(s.MM)); s.mo = LS.Mouth(f'{o.lib}/tools/meta/{o.clip}/ama')
+        s.n = min(len(s.FR), len(s.MM)); s.mo = LS.Mouth(f'{o.lib}/tools/meta/{CLIP}/{HOSTN}')
         s.lines = [dict(cues=L[k].cues, at=L[k].at, tempo=1.0) for k in SEQ if L[k].cues]
         s.cache = {}
     def frame(s, t):
@@ -403,7 +468,9 @@ class Host:
             if len(s.cache) > 64: s.cache.clear()
             Fm = s.mo.apply(s.FR[i].copy(), i, s.mo.spr[v]); Fm = cv2.resize(Fm, (1080, 1920), interpolation=cv2.INTER_LANCZOS4)
             M = cv2.resize(s.MM[i], (1080, 1920), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
-            s.cache[key] = (Fm[..., ::-1].astype(np.float32), M)
+            rgb_ = Fm[..., ::-1].astype(np.float32)
+            if PLATE_N: rgb_ = np.clip(rgb_ * HOST_GAIN, 0, 255)
+            s.cache[key] = (rgb_, M)
         return s.cache[key], i, v
 HSC, HDX, HDY = 1.0, 0, 640         # host transform: scale 1.0 (no resample = sharpest), source y 440 (hair top) lands at screen 1080, under the stage
 def host_comp(base, rgb, m):
@@ -411,13 +478,16 @@ def host_comp(base, rgb, m):
     src, a = rgb[:H - HDY], m[:H - HDY]
     sh = HOST_SH_CACHE.get(id(m))
     if sh is None:
-        import cv2; sh = cv2.GaussianBlur(a, (0, 0), 22) * 0.22; HOST_SH_CACHE.clear(); HOST_SH_CACHE[id(m)] = sh
+        import cv2; sh = cv2.GaussianBlur(a, (0, 0), 22) * (0.30 if PLATE_N else 0.22); HOST_SH_CACHE.clear(); HOST_SH_CACHE[id(m)] = sh
     reg = base[HDY:]; s_ = np.zeros_like(sh); s_[10:, 18:] = sh[:-10, :-18]
-    reg = reg * (1 - s_[..., None]) + np.array(C['navy'], np.float32) * s_[..., None]
+    if PLATE_N: s_ = s_ * np.clip((np.arange(HDY, H, dtype=np.float32)[:, None] - 1500) / 300, 0, 1)   # 1b: shadow only where the body meets the frame edge (no halo around the head on the light scrim)
+    reg = reg * (1 - s_[..., None]) + (SH_COL if PLATE_N else np.array(C['navy'], np.float32)) * s_[..., None]
     base[HDY:] = reg * (1 - a[..., None]) + src * a[..., None]
     return base
 HOST_SH_CACHE = {}
 host = Host() if (T1 and not o.fake_vo and not o.host_still) else None
+if host is not None and PLATE_N:   # 1b: any bank host -> head top (highest mask row over ALL frames) sits at y 1064, under the stage; still ONE transform
+    HDY = int(1064 - min(int(np.nonzero((m_ > 128).any(1))[0][0]) for m_ in host.MM))
 HSTILL = None
 if T1 and o.host_still:
     im = np.asarray(Image.open(o.host_still).convert('RGBA').resize((1080, 1920)), np.float32); HSTILL = (im[..., :3], im[..., 3] / 255)
@@ -433,14 +503,22 @@ def prog_frac(t):
         prev = fr
     return prev, False, None
 def compose(t, log):
-    base = BG.copy(); hl = None
+    pz = None
+    if PLATE_N: base, pz = plate_at(t)
+    else: base = BG.copy()
+    hl = None
     if host is not None:
         (rgb, m), i, v = host.frame(t); base = host_comp(base, rgb, m); hl = dict(scale=HSC, x=HDX, y=HDY, src=i, mouth=v)
     elif HSTILL is not None: base = host_comp(base, *HSTILL); hl = dict(scale=HSC, x=HDX, y=HDY)
     fr = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8)).convert('RGBA'); rec = []
     pf, pmv, pk = prog_frac(t)
-    if pf > 0: fr.alpha_composite(PROG.crop((0, 0, max(1, int(FULL * pf)), 10)), (X0, 240))
-    if pf > 0: rec.append(['progress.fill', X0, 240, int(FULL * pf), 10, 1, 1, int(pmv), pk if pmv else '-', 0])
+    pa = 1.0
+    if END_OUT and t >= END_OUT:
+        q = (t - END_OUT) / DUR['fast']; pa = 0.0 if q >= 1 else 1 - bezier(EASE['inn'], q); pmv, pk = (q < 1), (f'out@{END_OUT:.2f}' if q < 1 else pk)
+    if pf > 0 and pa > 0.004:
+        pim = PROG.crop((0, 0, max(1, int(FULL * pf)), 10))
+        if pa < 0.999: arr = np.asarray(pim).copy(); arr[..., 3] = (arr[..., 3] * pa).astype(np.uint8); pim = Image.fromarray(arr)
+        fr.alpha_composite(pim, (X0, 240)); rec.append(['progress.fill', X0, 240, int(FULL * pf), 10, round(pa, 3), 1, int(pmv), pk if pmv else '-', 0])
     for e in ELS:
         a, dx, dy, sc, wp, mv = e.state(t)
         if a <= 0.004: continue
@@ -456,13 +534,13 @@ def compose(t, log):
             im = im.crop((max(0, -xi), max(0, -yi), im.width, im.height)); xi, yi = max(0, xi), max(0, yi)
         fr.alpha_composite(im, (xi, yi))
         rec.append([e.id, round(x, 2), round(y, 2), im.width, im.height, round(a, 3), round(sc, 4), int(mv is not None), mv or e.grp, 1 if e.text else 0])
-    log.append(dict(t=round(t, 4), host=hl, els=rec))
+    log.append(dict(t=round(t, 4), host=hl, els=rec, plate=pz))
     return fr.convert('RGB')
 
 os.makedirs(os.path.dirname(os.path.abspath(o.out)), exist_ok=True)
 SNAP = [round(max(BEAT[k]['vin'] + 0.6, BEAT[k]['vout'] - 0.15), 2) for k in SEQ]
 if o.stills:
-    for ts in [float(x) for x in o.stills.split(',')] if o.stills != 'beats' else SNAP:
+    for ts in [x for v in o.stills.split(',') for x in (SNAP if v == 'beats' else [float(v)])]:
         compose(ts, []).save(f'{o.out}.{ts:05.2f}.png')
     print('stills done', TOTAL); sys.exit(0)
 
@@ -510,9 +588,9 @@ AUD = dict(voice_rms_dbfs=-19, music_rms_dbfs=round(20 * np.log10(np.sqrt(np.mea
 
 # video --------------------------------------------------------------
 vk = int(min(6000, 24.3 * 8000 / TOTAL - 160)); vk = max(vk, 5500)
+RC = ['-crf', str(o.crf), '-maxrate', '14000k', '-bufsize', '28000k', '-x264-params', 'force-cfr=1'] if o.crf else ['-b:v', f'{vk}k', '-minrate', f'{vk}k', '-maxrate', f'{vk}k', '-bufsize', f'{vk}k', '-x264-params', 'nal-hrd=cbr:force-cfr=1']
 enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', '-i', AW,
-                        '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-b:v', f'{vk}k', '-minrate', f'{vk}k', '-maxrate', f'{vk}k', '-bufsize', f'{vk}k',
-                        '-x264-params', 'nal-hrd=cbr:force-cfr=1', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-movflags', '+faststart', '-shortest', o.out], stdin=subprocess.PIPE)
+                        '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', *RC, *(['-af', 'loudnorm=I=-16:TP=-1.5:LRA=11'] if PLATE_N else []), '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-movflags', '+faststart', '-shortest', o.out]   # 1b: -16 LUFS (MEDIA-QA-RUBRIC C), stdin=subprocess.PIPE)
 LOG = []; shots = {}
 for fi in range(NF):
     tf = fi / FPS; img = compose(tf, LOG); enc.stdin.write(img.tobytes())
@@ -520,11 +598,18 @@ for fi in range(NF):
         if abs(tf - ts) < 0.5 / FPS: shots[k] = img.resize((360, 640), Image.LANCZOS)
     if fi % 120 == 0: print(f'frame {fi}/{NF}', flush=True)
 enc.stdin.close(); assert enc.wait() == 0
+if o.crf:
+    vbr = int(subprocess.check_output(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=bit_rate', '-of', 'csv=p=0', o.out]))
+    if vbr < 5.5e6 + 160e3:   # CRF landed under the platform floor -> CBR at the floor from the CRF master (visually lossless step)
+        tmp = o.out + '.crf.mp4'; os.replace(o.out, tmp)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', tmp, '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-b:v', '5800k', '-minrate', '5800k', '-maxrate', '5800k', '-bufsize', '5800k', '-x264-params', 'nal-hrd=cbr:force-cfr=1', '-c:a', 'copy', '-movflags', '+faststart', o.out], check=True); os.remove(tmp)
+    print('crf video kbps', vbr // 1000)
 sheet = Image.new('RGB', (5 * 360 + 6 * 12, 2 * 640 + 3 * 12), (240, 240, 240))
 for j, k in enumerate(SEQ):
     if k in shots: sheet.paste(shots[k], (12 + (j % 5) * 372, 12 + (j // 5) * 652))
 sheet.save(o.out + '.sheet.jpg', quality=88)
-json.dump(dict(id=LID, tpl=o.tpl, fps=FPS, total=TOTAL, beats=BEAT, audio=AUD, video_kbps=vk, cuts=[],
+LESSON_TXT = ' '.join([SP['series'][0], FORM, wrong, right, WHY, Q_PRE, Q_POST] + ROWS)
+json.dump(dict(id=LID, lesson=dict(topic=SP.get('topic'), area=SP.get('area'), text=LESSON_TXT), tpl='1b' if PLATE_N else o.tpl, plate=PLATE_LOG, host_name=HOSTN, clip=CLIP, cta=CTA, fps=FPS, total=TOTAL, beats=BEAT, audio=AUD, video_kbps=vk, cuts=[],
                elements={e.id: dict(text=e.text, fs=e.fs, grp=e.grp, t_in=e.t_in, t_out=e.t_out, tweens=e.tweens(), inset=e.inset, parent=e.parent.id if e.parent else None) for e in ELS},
                progress=dict(tweens=[dict(kind='grow', dur='base', ease='out')] * len(PSTEPS)), frames=LOG), open(o.out + '.timeline.json', 'w'), default=float)
 print('done', o.out, TOTAL, 's')

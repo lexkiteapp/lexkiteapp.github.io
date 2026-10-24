@@ -62,3 +62,22 @@ host_variance (distinct host transforms = 1) · motion_tokens (every tween uses 
 readability (≥ 0.8 s fully visible, ≥ 48 px) · no_jitter (a static element keeps exactly one position; tweens monotonic) ·
 one_moving_group · no_unmotivated_cut · file (duration, Mbps, MB). Writes `<video>.qc.json`.
 Human check: look at the contact sheet (`<video>.sheet.jpg`, one frame per beat) before sending anything to the owner.
+
+## 8. Template 1b "Teacher on location" (24/10/2026 – owner picked tpl1, asked for topic scenes + more hosts + viral hooks)
+Same engine, tokens and gates as tpl1; only the background, the host choice and the hook/end change.
+- **Lesson**: `scripts/video/tpl/gold2lesson.py <gold pid> --plate <name> --host <ama|carlos|mia|jake> --clip <bank clip> --area <ecosystem area> --series .. --formula .. [--quote ..] [--hook ..]`
+  → `content/video/cine/news/tpl1b/<id>.json` + `tpl1b/lines.json` (every line in the host's own Kokoro voice, `tokens.HOSTS`).
+- **Plate** = `anchor/bg/<name>.png` from the footage bank, only names in `tokens.PLATES` (human-checked: no people, no readable text).
+  Cover-resampled once, depth blur 7 px, saturation ×0.82, 12 % cream lift, cream scrim over the text stage (adaptive: the stage
+  must reach luma ≥ 226 so navy type keeps contrast), very slow linear push-in (3.5 % over the whole video). No other camera move.
+- **Host**: any bank host with a PRO matte + mouth meta. ONE transform per video: scale 1.0, head top (highest matte row over all
+  frames) at y 1064 under the stage; colour-matched to the plate (per-channel gain ±6 %); contact shadow in darkened plate tone.
+- **Hook** (first 1.5 s): host line "Stop saying this." / "Never say this." / "Natives never say this." + the same words in display
+  type + the struck quote (lesson `hook.quote`). **Payoff** = the ✓ card (≈ 8–10 s). **End**: CTA from `content/video/ecosystem.json`
+  (spoken + on screen + area chip = deep link `lesson.cta.link`), then every element clears → the last frame is plate + host = frame 0 (loop).
+- **Encode**: `--crf 18` (5.5 Mbps floor: re-encoded CBR 5.8 Mbps when CRF lands lower).
+- **Extra gates** (qc_tpl.py, only when the timeline has a plate): `plate_topic` (lesson topic ∈ plate tags AND a scene tag such as
+  airport/hotel/restaurant/dinner appears in the on-screen text), `plate_clean` (PLATES people = text = 0 + OpenCV face detector finds 0),
+  `plate_contrast` (stage luma), `plate_motion` (push-in only: monotonic, ≤ 0.25 %/s, ≤ 3.5 % total), `loop_end` (last frame text-free + CTA link).
+- CI: `video-templates.yml` with `lesson=<tpl1b id>`, `tpls=1` (sparse-checks out the lesson's clip + plate). Local demo renders need
+  Rhubarb; on the dev Mac the x86 binary crashes in the sandbox, so local demos used approximate visemes (letters → shapes over voiced audio) – CI uses Rhubarb.

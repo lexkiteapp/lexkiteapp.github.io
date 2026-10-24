@@ -1,0 +1,61 @@
+{
+ "v": 1,
+ "id": "tpl1b_restaurant_night_0a35f2",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:split the bill#phrase"
+ },
+ "topic": "food",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "restaurant_night",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0a35f2_h",
+  "quote": "divide the bill",
+  "kind": "Natives never say this"
+ },
+ "wrong_line": "Let's divide the bill.",
+ "key_line": "Let's split the bill.",
+ "series": [
+  "DINING OUT",
+  "SPLIT + the bill"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0a35f2_k",
+   "card": {
+    "formula": "SPLIT + the bill"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0a35f2_y",
+   "card": {
+    "text": "For sharing a cost, we say split the bill."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Let's split the bill.",
+   "We always split the bill with friends.",
+   "Can we split the bill three ways?"
+  ]
+ },
+ "quiz": {
+  "pre": "Dinner was great. Let's",
+  "post": "the bill",
+  "a": "split",
+  "b": "divide",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

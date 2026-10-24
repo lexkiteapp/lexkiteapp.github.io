@@ -1,0 +1,61 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_5b373a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:airport:overweight:x"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "airport_gate",
+ "host": "carlos",
+ "clip": "gc4_q34_talk",
+ "hook": {
+  "line": "n_5b373a_h",
+  "quote": "too much heavy",
+  "kind": "Stop saying 'too much heavy'"
+ },
+ "wrong_line": "My bag is too much heavy.",
+ "key_line": "My bag is too heavy.",
+ "series": [
+  "AIRPORT",
+  "TOO + adjective"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_5b373a_k",
+   "card": {
+    "formula": "TOO + adjective"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_5b373a_y",
+   "card": {
+    "text": "Too goes right before the adjective. No much."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My bag is too heavy.",
+   "This box is too heavy.",
+   "Is my bag overweight?"
+  ]
+ },
+ "quiz": {
+  "pre": "My suitcase is",
+  "post": "",
+  "a": "too heavy",
+  "b": "too much heavy",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

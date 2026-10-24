@@ -2,10 +2,11 @@
 """QC gate for the clean templates (docs/VIDEO-TEMPLATES.md §QC). python3 scripts/video/tpl/qc_tpl.py <video.mp4> [...]
 Reads <video>.timeline.json (per-frame element log written by render_tpl.py) + ffprobe. Exit 1 on any fail. Writes <video>.qc.json.
 Gates: host transform variance = 0 | motion tokens only | text inside the safe area | readability (>= 0.8 s fully visible, >= 48 px)
-| no jitter (static elements never move by a sub-pixel; tweens monotonic) | <= 1 moving group per frame | no cuts | file: 25-35 s, >= 5.5 Mbps, <= 25 MB."""
-import sys, os, json, subprocess
+| no jitter (static elements never move by a sub-pixel; tweens monotonic) | <= 1 moving group per frame | no cuts | file: 25-35 s, >= 5.5 Mbps, <= 25 MB
+| tpl 1b: plate_topic, plate_clean, plate_motion (push-in only), loop_end (last frame text-free + CTA deep link)."""
+import sys, os, re, json, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE
+from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE
 ok_all = True
 for vid in sys.argv[1:]:
     T = json.load(open(vid + '.timeline.json')); fr = T['frames']; E = T['elements']; fps = T['fps']; R = {}
@@ -60,6 +61,23 @@ for vid in sys.argv[1:]:
     dur, br, size = float(pr['format']['duration']), int(pr['format']['bit_rate']), int(pr['format']['size'])
     R['file'] = dict(ok=25 <= dur <= 35 and br >= 5.5e6 and size <= 25 * 1024 * 1024, duration=round(dur, 2), mbps=round(br / 1e6, 2), mb=round(size / 1048576, 2))
     R['audio'] = dict(ok=True, **T.get('audio', {}))
+    # 9 tpl 1b plate: topic-matched (lesson topic in the plate tags AND a scene-specific tag named in the on-screen lesson text),
+    #   clean (human-checked people=0/text=0 in tokens.PLATES + no detected face), push-in only (monotonic, <= max rate, <= total)
+    P = T.get('plate')
+    if P:
+        Lz = T.get('lesson', {}); txt = re.sub(r'[^a-z\- ]', ' ', (Lz.get('text') or '').lower())
+        scene = [g for g in P['tags'] if g not in ('travel', 'food', 'ordering') and re.search(r'\b' + re.escape(g) + r's?\b', txt)]
+        R['plate_topic'] = dict(ok=P['name'] in PLATES and Lz.get('topic') in P['tags'] and bool(scene), plate=P['name'], topic=Lz.get('topic'), scene_words=scene)
+        R['plate_clean'] = dict(ok=P['name'] in PLATES and PLATES[P['name']]['people'] == 0 and PLATES[P['name']]['text'] == 0 and P.get('faces', 1) == 0,
+                                people=P['people'], text=P['text'], faces=P.get('faces'), checked=P.get('checked'))
+        R['plate_contrast'] = dict(ok=P.get('stage_luma', 0) >= PLATE['stage_luma'] - 2, stage_luma=P.get('stage_luma'), scrim=P.get('scrim'))   # text stage stays light enough for navy type
+        z = [f['plate'] for f in fr if f.get('plate') is not None]; dz = [b - a for a, b in zip(z, z[1:])]
+        rate = max(dz) * fps if dz else 0
+        R['plate_motion'] = dict(ok=len(z) == len(fr) and all(d >= 0 for d in dz) and rate <= PLATE['max_push_per_s'] + 1e-6 and z[-1] - 1 <= PLATE['push'] + 1e-6,
+                                 total_push=round(z[-1] - 1, 4) if z else None, max_rate_per_s=round(rate, 5))
+        # loop: the last frame shows no text (plate + host only, like frame 0)
+        last_txt = [r[0] for r in fr[-1]['els'] if r[5] > 0.004]
+        R['loop_end'] = dict(ok=not last_txt and bool(T.get('cta')), last_frame_elements=last_txt[:4], cta=(T.get('cta') or {}).get('link'))
     ok = all(v['ok'] for v in R.values()); ok_all &= ok
     json.dump(dict(video=os.path.basename(vid), ok=ok, gates=R), open(vid + '.qc.json', 'w'), indent=1)
     print(os.path.basename(vid), 'PASS' if ok else 'FAIL')

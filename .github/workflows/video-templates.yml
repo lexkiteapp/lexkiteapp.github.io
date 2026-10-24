@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       lesson:
-        description: 'news lesson id (content/video/cine/news/<id>.json, template fix)'
+        description: 'lesson id: content/video/cine/news/<id>.json (template fix) or content/video/cine/news/tpl1b/<id>.json (tpl 1b, topic plate + its host)'
         default: 'news_shopping_stop_8cf065'
       tpls:
         description: 'templates to render (1,2)'
@@ -27,7 +27,10 @@ jobs:
         with: { python-version: '3.12', cache: pip, cache-dependency-path: scripts/cine/requirements.txt }
       - name: Libraries + ffmpeg
         run: |
-          [[ "$LID" =~ ^[a-z0-9_]+$ ]] && [ -f "content/video/cine/news/$LID.json" ] || { echo "::error::bad lesson $LID"; exit 1; }
+          [[ "$LID" =~ ^[a-z0-9_]+$ ]] || { echo "::error::bad lesson $LID"; exit 1; }
+          if [ -f "content/video/cine/news/$LID.json" ]; then LD=content/video/cine/news; elif [ -f "content/video/cine/news/tpl1b/$LID.json" ]; then LD=content/video/cine/news/tpl1b; else echo "::error::no lesson $LID"; exit 1; fi
+          echo "LD=$LD" >> "$GITHUB_ENV"
+          python3 -c "import json;d=json.load(open('$LD/$LID.json'));print('CLIP='+(d.get('clip') or 'ga4_talk_natural'));print('PLATE='+(d.get('plate') or ''))" >> "$GITHUB_ENV"
           pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
       - name: Footage (Ama PRO layer + mouth meta only, sparse)
@@ -39,8 +42,8 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          c=ga4_talk_natural
-          git -C footage sparse-checkout set --no-cone "/anchor/green/kfull_pro/$c.mp4" "/anchor/green/kmask_pro/$c.mkv" "/anchor/tools/meta/$c/" "/anchor/tools/dl24/$c.json" && git -C footage checkout -q
+          c=$CLIP; [[ "$c" =~ ^[a-z0-9_]+$ ]] && [[ "$PLATE" =~ ^[a-z0-9_]*$ ]] || { echo "::error::bad clip/plate"; exit 1; }
+          git -C footage sparse-checkout set --no-cone "/anchor/green/kfull_pro/$c.mp4" "/anchor/green/kmask_pro/$c.mkv" "/anchor/tools/meta/$c/" "/anchor/tools/dl24/$c.json" ${PLATE:+"/anchor/bg/$PLATE.png"} && git -C footage checkout -q
           rm -f ~/.ssh/footage; du -sh footage; ls footage/anchor/green/kfull_pro footage/anchor/tools/meta/$c/ama
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
@@ -54,16 +57,19 @@ jobs:
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - uses: actions/cache@v4
-        with: { path: vo/vis3, key: "tpl-vo-v1-${{ inputs.lesson }}-${{ hashFiles('content/video/cine/news/lines.json') }}" }
+        with: { path: vo/vis3, key: "tpl-vo-v2-${{ inputs.lesson }}-${{ hashFiles('content/video/cine/news/lines.json', 'content/video/cine/news/tpl1b/lines.json') }}" }
       - name: Voice (one teacher = Ama's Kokoro voice for every line; word times aligned by news_voice.py)
         run: |
-          mkdir -p "$ND/ci" "$ND/lessons"; cp "content/video/cine/news/$LID.json" "$ND/lessons/"
+          mkdir -p "$ND/ci" "$ND/lessons"; cp "$LD/$LID.json" "$ND/lessons/"
           python3 - <<'PY'
           import json, os
-          L = json.load(open('content/video/cine/news/lines.json')); h6 = json.load(open(f"content/video/cine/news/{os.environ['LID']}.json"))['hook']['line'][2:8]
-          lines = [dict(l, who='ama') for l in L['lines'] if l['id'].startswith(f'n_{h6}_')]
+          LD = os.environ['LD']; L = json.load(open(f'{LD}/lines.json')); sp = json.load(open(f"{LD}/{os.environ['LID']}.json")); h6 = sp['hook']['line'][2:8]
+          lines = [dict(l, who=sp.get('host') or 'ama') for l in L['lines'] if l['id'].startswith(f'n_{h6}_')]
+          if 'recap' in sp and 'line' not in sp['recap']:   # tpl 1b lesson: news_voice.py reads hook/recap/end/beat lines -> point them at this lesson's lines
+              ids = [l['id'] for l in lines]; sp['recap']['line'] = sp['end_line'] = ids[0]; sp['beats'] = [dict(line=i) for i in ids]
+              json.dump(sp, open(f"{os.environ['ND']}/lessons/{os.environ['LID']}.json", 'w'))
           json.dump(dict(voices=L['voices'], speed=L.get('speed', 0.88), lines=lines), open(os.environ['ND'] + '/ci/lines.json', 'w'), indent=1)
-          print(len(lines), 'lines, voice', L['voices']['ama'])
+          print(len(lines), 'lines, voice', L['voices'][sp.get('host') or 'ama'])
           PY
           python scripts/cine/news_voice.py "$ND" "$LID"
       - name: Emoji icons (Noto Emoji v2.047 PNG, tpl2)
@@ -74,7 +80,7 @@ jobs:
         run: |
           mkdir -p out/tpl
           for T in $(echo "${{ inputs.tpls }}" | tr ',' ' '); do
-            python scripts/video/tpl/render_tpl.py --tpl $T --lesson "content/video/cine/news/$LID.json" --lines "$ND/ci/lines.json" --vo "$ND/vis3" \
+            python scripts/video/tpl/render_tpl.py --tpl $T ${PLATE:+--crf 18} --lesson "$LD/$LID.json" --lines "$ND/ci/lines.json" --vo "$ND/vis3" \
               --lib footage/anchor --icons icons --fonts brand/social/src/fonts --out "out/tpl/tpl$T-preview.mp4"
           done
       - name: QC (host variance, motion tokens, safe area, readability, jitter, one moving group, file)
