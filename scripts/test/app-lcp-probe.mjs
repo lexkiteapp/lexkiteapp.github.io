@@ -30,9 +30,10 @@ let bad = 0; const ok = (c, m) => { console.log((c ? '✓ ' : '✗ ') + m); if (
   await pg.evaluate(() => localStorage.setItem('lk.onb', '1'));
   await pg.goto(base + '/app/#/vocab', { waitUntil: 'load' });
   await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length && !document.body.classList.contains('bare'), null, { timeout: 20000 }).then(() => ok(1, 'khách cũ: #/vocab vẽ xong (SW điều khiển: ' + '…)')).catch(() => ok(0, 'khách cũ: #/vocab không vẽ'));
+  console.log('  ctrl trước offline: ' + await pg.evaluate(() => !!navigator.serviceWorker.controller));
   await ctx.setOffline(true);
   await pg.reload({ waitUntil: 'load' }).catch(() => {});
-  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length, null, { timeout: 20000 }).then(() => ok(1, 'offline: app mở từ cache SW')).catch(() => ok(0, 'offline: app không mở'));
+  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length, null, { timeout: 20000 }).then(() => ok(1, 'offline: app mở từ cache SW')).catch(async () => ok(0, 'offline: app không mở – ' + await pg.evaluate(() => location.href + ' ctrl=' + !!(navigator.serviceWorker && navigator.serviceWorker.controller) + ' App=' + !!window.App + ' healed=' + sessionStorage.getItem('vb.healed') + ' | ' + document.body.innerText.slice(0, 160)).catch(e => String(e))));
   ok(!errs.length, 'không lỗi JS' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await ctx.close();
 }
