@@ -57,6 +57,6 @@ ok(promptFor('apple#n', { w: 'apple', pos: 'n', def: 'x' }, '', 2).includes(STYL
 // 5. việc nền: tạm dừng, ưu tiên thấp nhất, không lịch
 const reg = J('infra/jobs.json'), job = reg.jobs.find(j => j.id === 'vocab-img'), wf = rd('.github/workflows/vocab-img.yml');
 ok(job && job.paused === true, 'vocab-img đăng ký & TẠM DỪNG'); ok(job.priority === reg.priorities[reg.priorities.length - 1], 'ưu tiên thấp nhất');
-ok(job.resources.includes('workers_ai') && job.lease, 'thuê workers_ai'); ok(!/^\s*schedule:/m.test(wf), 'tạm dừng → workflow chưa có lịch');
+ok(job.resources.includes('workers_ai_b') && !job.resources.includes('workers_ai') && job.lease, 'thuê workers_ai_b (không đụng neuron tài khoản chính)'); ok(!/^\s*schedule:/m.test(wf), 'tạm dừng → workflow chưa có lịch');
 ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng ký ở infra/resources.json');
 console.log(`✓ vocab-img: ${n} kiểm`);
