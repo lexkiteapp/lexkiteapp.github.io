@@ -362,9 +362,9 @@
     const fn = routes[name] || (name ? notFound : routes.home);
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
     const [tab, item] = App.navOf ? App.navOf(name, arg) : [name, name];
-    $$('#bnav a').forEach(a => a.classList.toggle('active', a.dataset.tab === tab));
+    $$('#bnav a').forEach(a => { const on = a.dataset.tab === tab; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
     document.body.classList.toggle('focus', name === 'review' || (name === 'practice' && !!arg)); // đang ôn/luyện → tập trung 100% vào thẻ
-    $$('#nav a[data-route]').forEach(a => a.classList.toggle('active', a.dataset.route === item));
+    $$('#nav a[data-route]').forEach(a => { const on = a.dataset.route === item; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
     $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
     UI.stopSpeak(); UI.clearRecs();
     document.onkeydown = null;
@@ -372,12 +372,12 @@
     while (App.cleanups.length) { try { App.cleanups.pop()(); } catch (e) { /* một hàm lỗi không chặn các hàm khác */ } }
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0); const preTitle = document.title;
       try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; throw e; } // lượt cũ lỗi vì bị hủy → im lặng
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
-      if (my === routeSeq) { markActivity(name, arg); if (App.afterRoute) App.afterRoute(name); }
+      if (my === routeSeq) { markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
@@ -385,6 +385,21 @@
     render();
   }
   App.route = route;
+  // Đổi trang (SPA) cho trình đọc màn hình: tiêu đề tab theo h1 của trang + đưa focus về vùng nội dung khi bấm từ thanh điều hướng
+  // (không cướp focus của hộp thoại/ô nhập; lần mở đầu tiên giữ nguyên). Kiểu Babbel/Duolingo web: Tab tiếp theo vào thẳng nội dung trang.
+  let titleBase = '', routedOnce = false;
+  function a11yRoute(name, preTitle) {
+    try {
+      if (document.title !== preTitle) { if (!titleBase) titleBase = preTitle; } else { // trang tự đặt tiêu đề riêng (vd. Cách dùng từ) → giữ
+      const h = name && name !== 'home' && view.querySelector('.page-head h1, h1');
+      const txt = h ? h.textContent.replace(/^[\p{Extended_Pictographic}\uFE0F\u200d\s]+/u, '').replace(/\s+/g, ' ').trim().slice(0, 70) : '';
+      if (txt) { if (!titleBase) titleBase = document.title; document.title = txt + ' – Lexkite'; } else if (titleBase) document.title = titleBase;
+      }
+      const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])');
+      if (routedOnce && !modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true });
+      routedOnce = true;
+    } catch (e) { /* không chặn việc vẽ trang */ }
+  }
   // Khả năng truy cập: nút loa/nghe chỉ có biểu tượng → tự gắn nhãn "Nghe: <từ>" cho trình đọc màn hình (kể cả nút sinh sau)
   const SAY = '[data-speak],[data-saysent],[data-say],[data-speak-text],[data-slow]';
   const labelSay = root => root.querySelectorAll && root.querySelectorAll(SAY).forEach(b => {
@@ -392,7 +407,13 @@
     const w = b.dataset.speak || b.dataset.saysent || b.dataset.say || b.dataset.speakText || b.dataset.slow || '';
     b.setAttribute('aria-label', (b.dataset.slow ? t('Nghe chậm') : t('Nghe')) + (w ? ': ' + w.slice(0, 80) : ''));
   });
-  if (window.MutationObserver) new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1) { if (n.matches && n.matches(SAY)) labelSay(n.parentNode || n); else labelSay(n); } }).observe(view, { childList: true, subtree: true });
+  // RTL (ar): mũi tên chỉ hướng ở ĐẦU/CUỐI nút & liên kết ("Bắt đầu →", "← Quay lại") lật theo hướng đọc; mũi tên giữa câu (en → vi) giữ nguyên
+  const rtlArrows = root => {
+    if (document.documentElement.dir !== 'rtl' || !root.querySelectorAll) return;
+    const els = root.matches && root.matches('a, button') ? [root] : root.querySelectorAll('a, button');
+    for (const el of els) { const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n; while ((n = w.nextNode())) { const v = n.nodeValue, nv = v.replace(/\s→\s*$/, ' ←').replace(/^(\s*)←\s/, '$1→ '); if (nv !== v) n.nodeValue = nv; } }
+  };
+  if (window.MutationObserver) new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1) { if (n.matches && n.matches(SAY)) labelSay(n.parentNode || n); else labelSay(n); rtlArrows(n.closest && n.closest('a, button') || n); } }).observe(view, { childList: true, subtree: true });
   // Bài đang học dở (nghe, đọc, viết, ngữ pháp, nói, đề thi…) → khối "Tiếp tục" ở trang Hôm nay mở lại bằng 1 chạm
   const RESUME = { listen: '🎧', read: '📰', write: '✍️', task1: '📈', letters: '✉️', grammar: '📐', speaking: '🗣️', 'toefl-p': '🏛️', 'toeic-r': '💼', 'toeic-test': '💼', 'listen-test': '🎧', model: '📄', pron: '🔤', cbt: '🖥️', ideas: '💡' };
   function markActivity(name, arg) {
@@ -930,7 +951,7 @@
         <p class="small" style="margin-top:1rem">💡 ${t('Cài <b>add-on Chrome</b> để bấm đúp vào từ hoặc bôi đen câu trên bất kỳ trang web nào.')}</p></div>`;
       return;
     }
-    $('#result').innerHTML = `<div class="card empty"><div class="em">⏳</div>${t('Đang tra “{q}”…', { q: esc(q) })}</div>`;
+    $('#result').innerHTML = UI.skel(t('Đang tra “{q}”…', { q: esc(q) }), 4); // khung chờ hình mục từ (từ · phiên âm · nghĩa) thay vì ⏳
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);

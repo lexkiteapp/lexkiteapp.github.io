@@ -47,7 +47,7 @@
 
   routes.courses = App.guard(async function () {
     const w = App.W;
-    view.innerHTML = `<p class="muted">${t('Đang tải…')}</p>`;
+    view.innerHTML = UI.skelPage(t('Đang tải…'));
     await w(prep());
     const ex = App.exam ? App.exam() : 'ielts', list = COURSES.slice().sort((a, b) => (b.exam === ex) - (a.exam === ex));
     view.innerHTML = `<div class="page-head"><div><h1>📚 ${t('Khóa học')}</h1><p class="muted">${t('Lộ trình học theo chương – tự đánh dấu hoàn thành khi bạn đạt yêu cầu, luôn biết bài tiếp theo.')}</p></div></div>
@@ -56,7 +56,7 @@
 
   routes.course = App.guard(async function (id) {
     const w = App.W, c = COURSES.find(x => x.id === id); if (!c) return routes.courses();
-    view.innerHTML = `<p class="muted">${t('Đang tải…')}</p>`;
+    view.innerHTML = UI.skelPage(t('Đang tải…'));
     await w(prep());
     const s = build(c);
     view.innerHTML = `<a class="small" href="#/courses">← ${t('Khóa học')}</a>
