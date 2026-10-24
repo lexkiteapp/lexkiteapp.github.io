@@ -69,12 +69,12 @@ const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) 
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(strip)), stat); process.exit(0); }
 const G = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = '';
-await pmap(chunks(items, 10), 3, async ch => { const r = await call('lxgen', ch.map(strip)); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) G[x.k] = r.out[x.k]; } });
+await pmap(chunks(items, 10), 5, async ch => { const r = await call('lxgen', ch.map(strip)); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) G[x.k] = r.out[x.k]; } });
 const kept = items.filter(x => G[x.k] && G[x.k].keep !== false && G[x.k].def);
-await pmap(chunks(kept, 10), 3, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
+await pmap(chunks(kept, 10), 5, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
 const forJudge = x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex, col: G[x.k].col, syn: G[x.k].syn, cefr: G[x.k].cefr, vi: G[x.k].vi, note_vi: G[x.k].note_vi, tr: T[x.k] || {} });
 const judged = kept.filter(x => T[x.k]);
-await pmap(chunks(judged, 10), 2, async ch => {
+await pmap(chunks(judged, 10), 4, async ch => {
   const [a, b] = await Promise.all([call('lxjudge', ch.map(forJudge), 'gemini-3.5-flash'), call('lxjudge', ch.map(forJudge), 'gemma-3-27b-it')]);
   if (a) { mA = a.model; for (const x of ch) if (a.out[x.k]) JA[x.k] = a.out[x.k]; }
   if (b) { mB = b.model; for (const x of ch) if (b.out[x.k]) JB[x.k] = b.out[x.k]; }
