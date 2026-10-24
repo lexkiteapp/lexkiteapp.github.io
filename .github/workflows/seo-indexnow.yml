@@ -1,0 +1,47 @@
+# Báo IndexNow (Bing, Yandex, Naver…) các trang tĩnh Từ điển + Giao tiếp mới/đổi nội dung (docs/SEO-ARCH.md §4).
+# Push main đụng nguồn → sinh lại danh sách URL + băm (scripts/build-seo-pages.mjs → .seo-urls.txt) → so với lần trước (cache Actions, miễn phí)
+# → chờ Cloudflare Pages deploy xong → scripts/indexnow.mjs (dùng chung với blog). Không cron, không tốn D1/AI.
+name: SEO IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ['web/js/data.js', 'web/js/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs']
+  workflow_dispatch:
+    inputs:
+      all: { description: 'Gửi lại toàn bộ URL (bỏ qua so sánh)', type: boolean, default: false }
+permissions: { contents: read }
+concurrency: { group: seo-indexnow, cancel-in-progress: false }
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Danh sách URL + băm
+        run: SEO_DIST="$RUNNER_TEMP/seo" node scripts/build-seo-pages.mjs && mv .seo-urls.txt "$RUNNER_TEMP/now.txt"
+      - name: Lần trước
+        uses: actions/cache/restore@v4
+        with: { path: prev-seo-urls.txt, key: 'seo-urls-${{ github.sha }}', restore-keys: 'seo-urls-' }
+      - name: URL mới/đổi
+        run: |
+          touch prev-seo-urls.txt
+          if [ "${{ github.event.inputs.all }}" = "true" ]; then : > prev-seo-urls.txt; fi
+          grep -vxFf prev-seo-urls.txt "$RUNNER_TEMP/now.txt" | cut -d' ' -f1 | head -10000 > changed.txt || true
+          echo "$(wc -l < changed.txt) URL mới/đổi"; head -5 changed.txt
+      - name: Chờ deploy rồi báo IndexNow
+        if: hashFiles('changed.txt') != ''
+        env: { CI_HDR: '${{ secrets.LEXKITE_CI_HEADER }}' }
+        run: |
+          [ -s changed.txt ] || exit 0
+          u=$(head -1 changed.txt); sleep 240
+          for i in $(seq 1 20); do c=$(curl -s -o /dev/null -w '%{http_code}' -H "X-Lexkite-CI: $CI_HDR" "$u"); [ "$c" = 200 ] && break; sleep 30; done
+          echo "HTTP $c cho $u"
+          node scripts/indexnow.mjs < changed.txt
+      - name: Lưu danh sách cho lần sau
+        if: success()
+        run: cp "$RUNNER_TEMP/now.txt" prev-seo-urls.txt
+      - uses: actions/cache/save@v4
+        if: success()
+        with: { path: prev-seo-urls.txt, key: 'seo-urls-${{ github.sha }}' }
