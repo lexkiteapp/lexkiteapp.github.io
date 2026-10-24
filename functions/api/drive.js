@@ -156,12 +156,14 @@ async function setup(db, env) {
     db.prepare('CREATE INDEX IF NOT EXISTS drive_refs_src_sha ON drive_refs (src, sha)'), // truy vấn sổ (where/ledger) tra drive_refs theo sha: không có chỉ mục = quét cả bảng mỗi lượt
     db.prepare('CREATE INDEX IF NOT EXISTS drive_files_drive ON drive_files (drive_id, status)'),
     db.prepare('CREATE INDEX IF NOT EXISTS drive_files_fid ON drive_files (file_id)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS drive_files_name ON drive_files (name)'),
     db.prepare('CREATE TABLE IF NOT EXISTS drive_alerts (kind TEXT PRIMARY KEY, level TEXT NOT NULL, drive_id INTEGER, msg TEXT, since INTEGER NOT NULL, seen INTEGER NOT NULL, mailed INTEGER) WITHOUT ROWID'),
     db.prepare('CREATE TABLE IF NOT EXISTS drive_meta (k TEXT PRIMARY KEY, v TEXT) WITHOUT ROWID'),
   ]);
   // cột mới cho bảng drives đã có (bỏ qua lỗi "duplicate column")
   await db.prepare('CREATE TABLE IF NOT EXISTS drive_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, who TEXT, act TEXT NOT NULL, drive_id INTEGER, email TEXT, file_id TEXT, name TEXT, sha256 TEXT, size INTEGER, ok INTEGER NOT NULL DEFAULT 1, note TEXT)').run();
   for (const c of ['want INTEGER', 'cls TEXT', 'email TEXT', 'web TEXT', 'by_who TEXT', 'asset_id TEXT']) { try { await db.prepare('ALTER TABLE drive_files ADD COLUMN ' + c).run(); } catch (e) { /* đã có */ } }
+  try { await db.prepare('CREATE INDEX IF NOT EXISTS drive_files_asset ON drive_files (asset_id)').run(); } catch (e) { /* cột vừa thêm */ }
   for (const c of ['fails INTEGER NOT NULL DEFAULT 0', 'up_fails INTEGER NOT NULL DEFAULT 0', 'auto_weight INTEGER', 'checked INTEGER']) { try { await db.prepare('ALTER TABLE drives ADD COLUMN ' + c).run(); } catch (e) { /* đã có */ } }
   READY.add(KEY);
 }
@@ -288,6 +290,16 @@ async function sendMail(env, subject, text) {
 }
 const meta = async (db, k) => ((await one(db, 'SELECT v FROM drive_meta WHERE k = ?', k)) || {}).v;
 const setMeta = (db, k, v) => run(db, 'INSERT OR REPLACE INTO drive_meta (k, v) VALUES (?, ?)', k, String(v));
+/** Bản tổng hợp lưu ở drive_meta (JSON {t, v}): quét bảng lớn tối đa 1 lần/ttl thay vì mỗi yêu cầu (23/10: 6,5 triệu dòng đọc/ngày). fresh:true = tính lại. */
+async function rolled(db, key, ttl, fn, fresh = false) {
+  if (!fresh) { try { const j = JSON.parse(await meta(db, key) || 'null'); if (j && Date.now() - j.t < ttl) return j.v; } catch (e) { /* tính lại */ } }
+  const v = await fn(); await setMeta(db, key, JSON.stringify({ t: Date.now(), v })).catch(() => {}); return v;
+}
+const AGG_TTL = 6 * 3600e3; // tổng hợp dung lượng/shorts theo Drive: tính lại ≤ 4 lần/ngày (và sau thao tác hiếm đổi tập file – DROP_ROLLUP)
+const DROP_ROLLUP = new Set(['repair', 'rebalance', 'retire', 'disconnect', 'set_want']);
+const dropRollups = db => run(db, "DELETE FROM drive_meta WHERE k IN ('rollup:agg', 'rollup:replicas')").catch(() => {});
+const hash32 = str => { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
+const DF_COLS = 'id, drive_id, email, file_id, sha256, name, folder, mime, size, status, cls, want, web, by_who, asset_id, created, done';
 /** Ghi cảnh báo vào D1 + gửi thư (nghiêm trọng: ≤ 1 thư/loại/24 h; hết lỗi đã từng gửi thư → thư khôi phục). → danh sách thư đã gửi. */
 export async function syncAlerts(env, db, list, now = Date.now()) {
   const prev = new Map((await all(db, 'SELECT * FROM drive_alerts')).filter(a => !EXT_KINDS.has(a.kind)).map(a => [a.kind, a])), sent = []; // 'footage' do footage-verify.yml đặt/gỡ (op footage_alert), health không đụng
@@ -307,7 +319,7 @@ export async function syncAlerts(env, db, list, now = Date.now()) {
   }
   return sent;
 }
-const refreshAlerts = async (env, db, now = Date.now()) => { const rows = await all(db, 'SELECT * FROM drives ORDER BY id'); return syncAlerts(env, db, evalAlerts(rows, { single: (await replicaState(db, rows)).single.length }), now); };
+const refreshAlerts = async (env, db, now = Date.now()) => { const rows = await all(db, 'SELECT * FROM drives ORDER BY id'); return syncAlerts(env, db, evalAlerts(rows, { single: (await replicaState(db, rows)).n.single }), now); };
 /** Kiểm sức khoẻ mọi Drive: làm mới quota + thử refresh token (thử lại tối đa 3 lần), tự ngừng/nhận lại file theo ngưỡng 90 %, rồi đồng bộ cảnh báo. */
 /** Ảnh chụp dung lượng pool mỗi ngày (drive_meta used:YYYY-MM-DD, vài chục dòng) → dự báo tốc độ tăng. */
 async function snapUsed(db, rows, now) {
@@ -342,10 +354,10 @@ export async function runHealth(env, db, { now = Date.now(), wait = 400 } = {}) 
     }
     res.push({ id: r.id, ok: !!a, state: r.status, pct: Math.round(pctOf(r) * 100), fails: +r.fails || 0, paused: r.auto_weight != null });
   }
-  const rs = await replicaState(db, rows), alerts = evalAlerts(rows, { single: rs.single.length }), mailed = await syncAlerts(env, db, alerts, now);
+  const rs = await replicaState(db, rows), alerts = evalAlerts(rows, { single: rs.n.single }), mailed = await syncAlerts(env, db, alerts, now);
   await snapUsed(db, rows, now);
   await setMeta(db, 'health_at', now);
-  return { checked: now, drives: res, under_replicated: rs.under.length, single: rs.single.length, lost_only: rs.lost_only.length, alerts: alerts.map(({ kind, level, t, drive_id, p }) => ({ kind, level, t, drive_id, p })), mailed };
+  return { checked: now, drives: res, under_replicated: rs.n.under, single: rs.n.single, lost_only: rs.n.lost_only, alerts: alerts.map(({ kind, level, t, drive_id, p }) => ({ kind, level, t, drive_id, p })), mailed };
 }
 async function alertRows(db) {
   return (await all(db, 'SELECT * FROM drive_alerts ORDER BY level, kind')).map(a => { let m = {}; try { m = JSON.parse(a.msg); } catch (e) { m = {}; } return { kind: a.kind, level: a.level, t: m.t, drive_id: a.drive_id, p: m.p || {}, since: a.since, mailed: !!a.mailed }; });
@@ -366,7 +378,7 @@ const wantOf = r => r.want || replicasFor(clsOf(r.cls, r.folder));
 /** Bản sao còn dùng được của 1 sha (file 'ok' trên Drive chưa mất kết nối). */
 async function healthyCopies(db, drives, sha) {
   const bad = new Set(drives.filter(d => lost(d.status)).map(d => d.id));
-  return (await all(db, "SELECT * FROM drive_files WHERE sha256 = ? AND status = 'ok' ORDER BY id", sha)).filter(r => !bad.has(r.drive_id));
+  return (await all(db, `SELECT ${DF_COLS} FROM drive_files WHERE sha256 = ? AND status = 'ok' ORDER BY id LIMIT 50`, sha)).filter(r => !bad.has(r.drive_id));
 }
 async function copiesFor(db, fileIds) {
   const out = new Map(); if (!fileIds.length) return out;
@@ -375,19 +387,27 @@ async function copiesFor(db, fileIds) {
   return out;
 }
 /** Tình trạng bản sao toàn kho: under (thiếu so với want) · single (want ≥ 2 nhưng chỉ còn 1) · lost_only (mọi bản nằm trên Drive mất kết nối). */
-export async function replicaState(db, drives) {
-  const bad = new Set(drives.filter(d => lost(d.status)).map(d => d.id)), by = new Map();
-  for (const r of await all(db, "SELECT * FROM drive_files WHERE status = 'ok'")) {
-    const g = by.get(r.sha256) || by.set(r.sha256, { sha: r.sha256, name: r.name, asset: r.asset_id || null, size: +r.size || 0, want: 1, ok: [], dead: [] }).get(r.sha256);
-    g.want = Math.max(g.want, wantOf(r)); (bad.has(r.drive_id) ? g.dead : g.ok).push(r);
-  }
-  const under = [], single = [], lost_only = [];
-  for (const g of by.values()) {
-    if (!g.ok.length) { lost_only.push(g); continue; }
-    if (g.ok.length < g.want) under.push(g);
-    if (g.want >= 2 && g.ok.length === 1) single.push(g);
-  }
-  return { under, single, lost_only };
+export async function replicaState(db, drives, { fresh = false, ttl = 30 * 60e3 } = {}) {
+  const bad = new Set(drives.filter(d => lost(d.status)).map(d => d.id)), sig = [...bad].sort().join(',');
+  const calc = async () => {
+    const by = new Map();
+    for (const r of await all(db, `SELECT ${DF_COLS} FROM drive_files WHERE status = 'ok' ORDER BY id LIMIT 100000`)) {
+      const g = by.get(r.sha256) || by.set(r.sha256, { sha: r.sha256, name: r.name, asset: r.asset_id || null, size: +r.size || 0, want: 1, ok: [], dead: [] }).get(r.sha256);
+      g.want = Math.max(g.want, wantOf(r)); (bad.has(r.drive_id) ? g.dead : g.ok).push(r);
+    }
+    const under = [], single = [], lost_only = [];
+    for (const g of by.values()) {
+      if (!g.ok.length) { lost_only.push(g); continue; }
+      if (g.ok.length < g.want) under.push(g);
+      if (g.want >= 2 && g.ok.length === 1) single.push(g);
+    }
+    return { under, single, lost_only, n: { under: under.length, single: single.length, lost_only: lost_only.length } };
+  };
+  if (fresh) return calc();
+  // bản lưu: mỗi nhóm giữ ≤ 300 mục (đủ cho báo cáo/cảnh báo); sửa/cân bằng luôn gọi fresh:true để có đủ danh sách
+  const v = await rolled(db, 'rollup:replicas', ttl, async () => { const r = await calc(), cut = a => a.slice(0, 300).map(g => ({ ...g, ok: g.ok.slice(0, 3), dead: g.dead.slice(0, 3) })); return { sig, under: cut(r.under), single: cut(r.single), lost_only: cut(r.lost_only), n: r.n }; });
+  if (v.sig !== sig) return replicaState(db, drives, { fresh: true });
+  return v;
 }
 const brief = g => ({ sha: g.sha, name: g.name, asset: g.asset, size: g.size, copies: g.ok.length, want: g.want, drives: g.ok.map(r => r.drive_id) });
 /** Chép 1 file giữa 2 Drive (stream qua Worker, không đệm cả file): tạo phiên resumable ở Drive đích → PUT luồng alt=media của Drive nguồn. Kiểm md5 + kích thước. */
@@ -444,6 +464,7 @@ export function ledgerQuery(f = {}) {
   if (f.gstate && /^(ok|trashed|gone|pending)$/.test(f.gstate)) { w[0] = 'f.status = ?'; a.push(f.gstate); }
   // D1 giới hạn mẫu LIKE ≤ 50 byte → sha256 đủ 64 ký tự so khớp chính xác, chuỗi khác cắt còn 46 ký tự
   if (f.q && /^[0-9a-f]{64}$/i.test(String(f.q).trim())) { w.push('f.sha256 = ?'); a.push(String(f.q).trim().toLowerCase()); }
+  else if (f.q && f.exact) { const q = String(f.q).trim().slice(0, 200); w.push('(f.name = ? OR f.asset_id = ? OR f.file_id = ?)'); a.push(q, q, q); } // khớp nguyên văn: dùng chỉ mục, không quét bảng
   else if (f.q) { const q = like(String(f.q).trim().slice(0, 46)); w.push("(f.name LIKE ? ESCAPE '\\' OR f.asset_id LIKE ? ESCAPE '\\' OR f.file_id LIKE ? ESCAPE '\\' OR f.sha256 LIKE ? ESCAPE '\\')"); a.push(q, q, q, q.toLowerCase()); }
   if (f.drive_id) { w.push('f.drive_id = ?'); a.push(+f.drive_id); }
   if (f.email) { w.push('LOWER(COALESCE(f.email, d.email)) = ?'); a.push(String(f.email).toLowerCase()); }
@@ -463,8 +484,14 @@ export function ledgerQuery(f = {}) {
   const SORT = { name: 'f.name', size: 'f.size', date: dt, copies: 'copies', drive: 'f.drive_id' }, col = SORT[f.sort] || dt, dir = f.dir === 'asc' ? 'ASC' : 'DESC';
   const lim = Math.min(Math.max(1, Math.floor(+f.limit) || 50), 10000), off = Math.min(1e7, Math.max(0, Math.floor(+f.offset) || 0)); // số nguyên hữu hạn (nối vào SQL)
   const from = `FROM drive_files f JOIN drives d ON d.id = f.drive_id WHERE ${w.join(' AND ')}`;
+  // Sắp theo ngày mặc định (không lọc ngày) → theo khoá chính f.id: dừng sớm ở LIMIT, không phải tính + sắp xếp cả bảng. Số bản sao / thư viện chỉ tính cho các dòng của trang (truy vấn ngoài), trừ khi lọc/sắp theo số bản sao.
+  const needCopies = f.copies === '1' || f.copies === '2+' || f.sort === 'copies', byId = col === dt && !(+f.from > 0 || +f.to > 0);
+  const OUT = { name: 't.name', size: 't.size', date: 't.at', copies: 't.copies', drive: 't.drive_id' };
+  const order = byId ? `f.id ${dir}` : `${col} ${dir}, f.id ${dir}`;
+  const inner = `SELECT f.id, f.drive_id, COALESCE(f.email, d.email) AS email, f.file_id, f.sha256, f.name, f.folder, f.mime, f.size, f.status, f.cls, f.want, f.web, f.by_who, f.asset_id, ${dt} AS at${needCopies ? ', ' + COPIES + ' AS copies' : ''} ${from} ORDER BY ${order} LIMIT ${lim} OFFSET ${off}`;
+  const copiesOf = "(SELECT COUNT(*) FROM drive_files g JOIN drives gd ON gd.id = g.drive_id WHERE g.sha256 = t.sha256 AND g.status = 'ok' AND gd.status NOT IN ('revoked', 'disconnected'))";
   return {
-    sql: `SELECT f.id, f.drive_id, COALESCE(f.email, d.email) AS email, f.file_id, f.sha256, f.name, f.folder, f.mime, f.size, f.status, f.cls, f.want, f.web, f.by_who, f.asset_id, ${dt} AS at, ${COPIES} AS copies, (SELECT r.status FROM drive_refs r WHERE r.src = 'library' AND r.sha = f.sha256 LIMIT 1) AS lib ${from} ORDER BY ${col} ${dir}, f.id ${dir} LIMIT ${lim} OFFSET ${off}`,
+    sql: `SELECT t.id, t.drive_id, t.email, t.file_id, t.sha256, t.name, t.folder, t.mime, t.size, t.status, t.cls, t.want, t.web, t.by_who, t.asset_id, t.at, ${needCopies ? 't.copies' : copiesOf} AS copies, (SELECT r.status FROM drive_refs r WHERE r.src = 'library' AND r.sha = t.sha256 LIMIT 1) AS lib FROM (${inner}) t ORDER BY ${byId ? '' : (OUT[f.sort] || 't.at') + ' ' + dir + ', '}t.id ${dir} LIMIT ${lim} OFFSET 0`,
     count: `SELECT COUNT(*) AS n, COALESCE(SUM(f.size), 0) AS bytes ${from}`, args: a,
   };
 }
@@ -480,14 +507,15 @@ const POOL_OPS = {
   /** Tra cứu: tên file / asset id / sha / file_id (khớp một phần) → mọi bản sao kèm Drive. CLI: email che một phần. */
   async where(db, b, who) {
     const q = String(b.q || '').trim(); if (q.length < 3) return { status: 400, error: 'bad-input' };
-    const L = ledgerQuery({ q, gstate: b.gstate, limit: 200, sort: 'name', dir: 'asc' });
-    const rows = await all(db, L.sql, ...L.args), cli = who.email === 'cli';
+    let L = ledgerQuery({ q, exact: true, gstate: b.gstate, limit: 200, sort: 'name', dir: 'asc' });
+    let rows = await all(db, L.sql, ...L.args); const cli = who.email === 'cli';
+    if (!rows.length && !/^[0-9a-f]{64}$/i.test(q)) { L = ledgerQuery({ q, gstate: b.gstate, limit: 200, sort: 'name', dir: 'asc' }); rows = await all(db, L.sql, ...L.args); } // không có bản khớp nguyên văn → tra gần đúng (quét 1 lượt)
     return { q, copies: rows.map(r => pubRow(r, cli)) };
   },
   /** Sổ kho có bộ lọc (UI + CSV). format:'csv' → toàn bộ kết quả lọc (≤ 10 000 dòng). */
   async ledger(db, b) {
     const f = { ...(b.f || {}) }; if (b.format === 'csv') { f.limit = 10000; f.offset = 0; }
-    const L = ledgerQuery(f), rows = await all(db, L.sql, ...L.args), c = await one(db, L.count, ...L.args);
+    const L = ledgerQuery(f), rows = await all(db, L.sql, ...L.args), c = b.format === 'csv' ? null : await rolled(db, 'cnt:' + hash32(JSON.stringify([L.count, L.args])), 10 * 60e3, () => one(db, L.count, ...L.args), !!b.fresh); // tổng số dòng lọc: quét 1 lần/10 phút/bộ lọc
     if (b.format === 'csv') return { csv: ledgerCsv(rows), count: rows.length };
     return { rows: rows.map(r => pubRow(r, false)), total: c ? c.n : 0, bytes: c ? c.bytes : 0 };
   },
@@ -498,7 +526,7 @@ const POOL_OPS = {
     if (b.drive_id) { w.push('drive_id = ?'); a.push(+b.drive_id); }
     if (b.q) { const q = '%' + String(b.q).slice(0, 100).replace(/[\\%_]/g, m => '\\' + m) + '%'; w.push("(name LIKE ? ESCAPE '\\' OR file_id LIKE ? ESCAPE '\\' OR who LIKE ? ESCAPE '\\' OR sha256 LIKE ? ESCAPE '\\')"); a.push(q, q, q, q); }
     if (+b.before > 0) { w.push('id < ?'); a.push(+b.before); }
-    const rows = await all(db, `SELECT * FROM drive_audit WHERE ${w.join(' AND ')} ORDER BY id DESC LIMIT 100`, ...a);
+    const rows = await all(db, `SELECT id, at, who, act, drive_id, email, file_id, name, sha256, size, ok, note FROM drive_audit WHERE ${w.join(' AND ')} ORDER BY id DESC LIMIT 100`, ...a);
     return { rows, next: rows.length === 100 ? rows[99].id : null };
   },
   /** Kiểm theo lô file trong drive_files còn trên Google không → status ok / trashed / gone (404). Con trỏ: after (id dòng). */
@@ -519,13 +547,13 @@ const POOL_OPS = {
     return { ...out, next: rows.length === n ? rows[rows.length - 1].id : null };
   },
   /** Báo cáo bản sao: thiếu, chỉ còn 1 bản, chỉ còn trên Drive mất kết nối. */
-  async replicas(db) { const s = await replicaState(db, await all(db, 'SELECT * FROM drives')); return { under: s.under.slice(0, 200).map(brief), single: s.single.slice(0, 200).map(brief), lost_only: s.lost_only.slice(0, 200).map(brief), counts: { under: s.under.length, single: s.single.length, lost_only: s.lost_only.length } }; },
+  async replicas(db) { const s = await replicaState(db, await all(db, 'SELECT * FROM drives')); return { under: s.under.slice(0, 200).map(brief), single: s.single.slice(0, 200).map(brief), lost_only: s.lost_only.slice(0, 200).map(brief), counts: s.n }; },
   /** Sửa bản sao: chép bù từ bản còn tốt sang Drive khác (tỉ lệ thấp nhất). dry_run:true = chỉ liệt kê. Mỗi lượt ≤ max_files / max_bytes, trả remaining. */
   async repair(db, b, who, env) {
-    const drives = await all(db, 'SELECT * FROM drives'), s = await replicaState(db, drives);
+    const drives = await all(db, 'SELECT * FROM drives'), s = await replicaState(db, drives, { fresh: true });
     const maxF = Math.min(Math.max(1, +b.max_files || 5), 20), maxB = Math.min(+b.max_bytes || 2 * GB, 4 * GB), plan = [];
     for (const g of s.under) { const holders = (await all(db, "SELECT drive_id FROM drive_files WHERE sha256 = ? AND status IN ('ok', 'pending')", g.sha)).map(r => r.drive_id); const to = pickDrive(drives, g.size, { exclude: holders }); plan.push({ ...brief(g), to: to ? to.id : null }); }
-    if (b.dry_run) return { dry_run: true, plan, lost_only: s.lost_only.map(brief), counts: { under: s.under.length, lost_only: s.lost_only.length } };
+    if (b.dry_run) return { dry_run: true, plan, lost_only: s.lost_only.map(brief), counts: { under: s.n.under, lost_only: s.n.lost_only } };
     const done = [], failed = []; let bytes = 0;
     for (const g of s.under) {
       if (done.length >= maxF || bytes + g.size > maxB) break;
@@ -535,7 +563,7 @@ const POOL_OPS = {
       try { const r = await copyAcross(env, db, src, dst, g.ok[0], who.email === 'cli' ? 'cli' : who.email, 'repair'); done.push({ sha: g.sha, name: g.name, ...r }); bytes += g.size; }
       catch (e) { failed.push({ sha: g.sha, name: g.name, error: e.code || 'error' }); await logAudit(db, { who: who.email, act: 'repair', d: dst, name: g.name, sha256: g.sha, size: g.size, ok: 0, note: e.code || 'error' }); }
     }
-    const left = (await replicaState(db, await all(db, 'SELECT * FROM drives'))).under.length;
+    const left = (await replicaState(db, await all(db, 'SELECT * FROM drives'), { fresh: true })).n.under;
     return { ok: true, done, failed, bytes, remaining: left, lost_only: s.lost_only.map(brief) };
   },
   /** CLI: link tải ký 5 phút cho 1 master/bìa short (chỉ thư mục shorts/, cls render) – tham chiếu cho shorts-rebuild / yt-upload. */
@@ -572,7 +600,7 @@ const POOL_OPS = {
   async d1b_counts(db, b, who, env) {
     if (!d1bReady(env)) return { status: 412, error: 'd1b-not-configured' };
     const out = {}, bdb = restDb(env);
-    for (const t of Object.keys(MIG)) { const a = await env.DB.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null), c = await bdb.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null); out[t] = { main: a ? a.n : null, internal: c ? c.n : null }; }
+    for (const t of Object.keys(MIG)) { const a = await env.DB.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null), c = await bdb.prepare(`SELECT COUNT(*) AS n FROM ${t}`).first().catch(() => null); out[t] = { main: a ? a.n : null, internal: c ? c.n : null }; } // scan-ok: lệnh di chuyển D1 chạy tay, hiếm
     return { ok: true, match: Object.values(out).every(x => x.main === x.internal), counts: out };
   },
   /** CLI (d1-backup.yml · docs/ROLLBACK.md): xuất 1 trang bảng người dùng của D1 chính, đã nén + mã hoá trong Worker (functions/api/_backup.js). Chỉ đọc; qua cầu dao D1 như mọi việc nền. */
@@ -617,7 +645,7 @@ const POOL_OPS = {
     const shas = (Array.isArray(b.sha256) ? b.sha256 : []).map(x => String(x).toLowerCase()).filter(x => /^[0-9a-f]{64}$/.test(x)).slice(0, 20);
     const drives = new Map((await all(db, 'SELECT * FROM drives')).map(d => [d.id, d])), done = [], failed = [];
     for (const sha of shas) {
-      const rows = (await all(db, "SELECT * FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL", sha)).filter(r => (isShortsRow(r) && (/^video\//.test(String(r.mime || '')) || (r.folder === 'shorts/_ytpack' && r.mime === 'application/zip'))) || isBackupRow(r)); // master, gói đăng tay YouTube đã lên web, hoặc bản sao lưu cũ (backups/·releases/ – giữ N bản mới nhất, docs/ROLLBACK.md)
+      const rows = (await all(db, `SELECT ${DF_COLS} FROM drive_files WHERE sha256 = ? AND status = 'ok' AND file_id IS NOT NULL LIMIT 50`, sha)).filter(r => (isShortsRow(r) && (/^video\//.test(String(r.mime || '')) || (r.folder === 'shorts/_ytpack' && r.mime === 'application/zip'))) || isBackupRow(r)); // master, gói đăng tay YouTube đã lên web, hoặc bản sao lưu cũ (backups/·releases/ – giữ N bản mới nhất, docs/ROLLBACK.md)
       for (const r of rows) {
         const d = drives.get(r.drive_id); if (!d || lost(d.status)) { failed.push({ sha, error: 'drive-lost' }); continue; }
         try {
@@ -634,7 +662,7 @@ const POOL_OPS = {
   },
   /** Cân bằng: mặc định dry-run (kế hoạch). apply:true → chép sang Drive tỉ lệ thấp, kiểm md5, rồi chuyển bản ở Drive cao vào thùng rác (dung lượng giải phóng khi dọn thùng rác). */
   async rebalance(db, b, who, env) {
-    const drives = await all(db, 'SELECT * FROM drives'), files = await all(db, "SELECT * FROM drive_files WHERE status = 'ok' AND file_id IS NOT NULL");
+    const drives = await all(db, 'SELECT * FROM drives'), files = await all(db, `SELECT ${DF_COLS} FROM drive_files WHERE status = 'ok' AND file_id IS NOT NULL ORDER BY id LIMIT 20000`);
     const spread = Math.min(Math.max(+b.spread || 0.1, 0.02), 0.5), p = planRebalance(drives, files, { spread });
     if (!b.apply) return { dry_run: true, spread, ...p };
     const maxF = Math.min(Math.max(1, +b.max_files || 10), 20), maxB = Math.min(+b.max_bytes || GB, 4 * GB), done = [], failed = []; let bytes = 0;
@@ -691,7 +719,7 @@ const OPS = {
   async list(db, b, who, env) {
     // CLI/CI: chỉ cần Drive + chỗ trống → 0 lần quét drive_files. Quản trị: 1 lượt GROUP BY (≈ 1 lần quét) thay cho 4 truy vấn con × mỗi Drive.
     const rows = await all(db, 'SELECT d.* FROM drives d ORDER BY d.id'), cli = cliOnly(b);
-    const agg = cli ? new Map() : new Map((await all(db, `SELECT f.drive_id, COUNT(*) AS files, COALESCE(SUM(f.size), 0) AS bytes, SUM(CASE WHEN ${SHORTS_SQL} THEN 1 ELSE 0 END) AS shorts_files, COALESCE(SUM(CASE WHEN ${SHORTS_SQL} THEN f.size ELSE 0 END), 0) AS shorts_bytes, SUM(CASE WHEN ${SHORTS_SQL} AND f.mime LIKE 'video/%' THEN 1 ELSE 0 END) AS m, COALESCE(SUM(CASE WHEN ${SHORTS_SQL} AND f.mime LIKE 'video/%' THEN f.size ELSE 0 END), 0) AS mb FROM drive_files f WHERE f.status = 'ok' GROUP BY f.drive_id`)).map(r => [r.drive_id, r]));
+    const agg = cli ? new Map() : new Map((await rolled(db, 'rollup:agg', AGG_TTL, async () => await all(db, `SELECT f.drive_id, COUNT(*) AS files, COALESCE(SUM(f.size), 0) AS bytes, SUM(CASE WHEN ${SHORTS_SQL} THEN 1 ELSE 0 END) AS shorts_files, COALESCE(SUM(CASE WHEN ${SHORTS_SQL} THEN f.size ELSE 0 END), 0) AS shorts_bytes, SUM(CASE WHEN ${SHORTS_SQL} AND f.mime LIKE 'video/%' THEN 1 ELSE 0 END) AS m, COALESCE(SUM(CASE WHEN ${SHORTS_SQL} AND f.mime LIKE 'video/%' THEN f.size ELSE 0 END), 0) AS mb FROM drive_files f WHERE f.status = 'ok' GROUP BY f.drive_id`), !!b.refresh)).map(r => [r.drive_id, r]));
     for (const r of rows) Object.assign(r, agg.get(r.id) || { files: 0, bytes: 0, shorts_files: 0, shorts_bytes: 0 });
     const sm = { n: rows.reduce((t, r) => t + (+(agg.get(r.id) || {}).m || 0), 0), mb: rows.reduce((t, r) => t + (+(agg.get(r.id) || {}).mb || 0), 0) };
     const total = rows.reduce((s, r) => s + (+r.quota_total || 0), 0), used = rows.reduce((s, r) => s + (+r.quota_used || 0), 0);
@@ -769,7 +797,7 @@ const OPS = {
     const sha = String(b.sha256 || '').toLowerCase(), fid = String(b.file_id || '');
     if (!/^[0-9a-f]{64}$/.test(sha) || !/^[A-Za-z0-9_-]{10,120}$/.test(fid)) return { status: 400, error: 'bad-input' };
     const d = await one(db, 'SELECT * FROM drives WHERE id = ?', +b.drive_id); if (!d) return { status: 404, error: 'not-found' };
-    const p = await one(db, "SELECT * FROM drive_files WHERE drive_id = ? AND sha256 = ? AND status = 'pending' ORDER BY id DESC LIMIT 1", d.id, sha);
+    const p = await one(db, `SELECT ${DF_COLS} FROM drive_files WHERE drive_id = ? AND sha256 = ? AND status = 'pending' ORDER BY id DESC LIMIT 1`, d.id, sha);
     if (!p) return { status: 404, error: 'no-pending' };
     const at = await accessToken(env, db, d);
     const r = await gfetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fid)}?fields=id,size,trashed,appProperties,webViewLink`, { headers: { Authorization: 'Bearer ' + at } });
@@ -833,6 +861,7 @@ export async function onRequestPost({ request, env }) {
   try {
     await setup(ddb(env), env);
     const out = await fn(db, b, who, env, request);
+    if (DROP_ROLLUP.has(b.op) && !out.status) await dropRollups(db); // thao tác hiếm đổi tập file (không tính tải lên: CI tải hàng trăm file/đêm) → bản tổng hợp tính lại ở lượt xem sau
     const status = out.status || 200, cookie = out._cookie; delete out.status; delete out._cookie;
     if (WRITE.has(b.op)) await adminAudit(env, request, who.email, 'drive.' + b.op, status < 400);
     await flushReads(ddb(env));

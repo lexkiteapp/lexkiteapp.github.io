@@ -91,7 +91,7 @@ export const OPS = {
   async audit(env, b) {
     const page = Math.max(1, +b.page || 1), per = 50;
     const rows = await all(env.DB, 'SELECT at, email, op, ok, detail FROM key_audit ORDER BY id DESC LIMIT ? OFFSET ?', per, (page - 1) * per);
-    const n = (await env.DB.prepare('SELECT COUNT(*) AS n FROM key_audit').first() || {}).n || 0;
+    const n = (await env.DB.prepare('SELECT MAX(id) AS n FROM key_audit').first() || {}).n || 0; // ước lượng: không quét cả bảng
     return { rows, total: n, page, pages: Math.max(1, Math.ceil(n / per)) };
   },
 };

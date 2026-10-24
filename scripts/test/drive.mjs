@@ -397,8 +397,10 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
     for (const [q, a] of SEEN) {
       if (!/^\s*(SELECT|UPDATE|DELETE)/i.test(q)) continue;
       let plan; try { plan = sql.prepare('EXPLAIN QUERY PLAN ' + q).all(...a); } catch (e) { continue; }
-      for (const p of plan) if (/^SCAN /.test(p.detail) && !/^SCAN (drives|d|drive_alerts|drive_meta|drive_folders|CONSTANT)\b/.test(p.detail)) bad.push(p.detail + ' ← ' + q.slice(0, 90));
+      for (const p of plan) if (/^SCAN /.test(p.detail) && !/^SCAN (drives|d|t|drive_alerts|drive_meta|drive_folders|CONSTANT)\b/.test(p.detail)) bad.push(p.detail + ' ← ' + q.slice(0, 90));
     }
+    // quét không giới hạn trên bảng lớn (động, mọi truy vấn thật): COUNT(*)/SELECT thiếu WHERE+LIMIT trên drive_files · admin_log · drive_audit; SCAN lớp ngoài 't' (bảng con có LIMIT) hợp lệ
+    for (const [q] of SEEN) { const m = q.match(/\bFROM\s+(drive_files|admin_log|drive_audit)\b(?!\s+\w+\s+JOIN)/i); if (!m || !/^\s*SELECT/i.test(q)) continue; const top = q.replace(/\([^()]*(\([^()]*\)[^()]*)*\)/g, '()'); if (!/\bFROM\s+(drive_files|admin_log|drive_audit)\b/i.test(top)) continue; if (!/\bWHERE\b/i.test(top) && !/\bLIMIT\b/i.test(top) && !/SELECT\s+(MAX|MIN)\(/i.test(top)) bad.push('không giới hạn ← ' + q.slice(0, 90)); }
     ok(bad.length === 0, 'EXPLAIN QUERY PLAN: đường footage không quét drive_files/drive_refs: ' + bad.join(' | '));
     ok(SEEN.size > 8, 'kiểm EXPLAIN đã duyệt các truy vấn thật (' + SEEN.size + ')');
     // đếm dòng đọc + trần CLI 1,5 M + cầu dao (ext_alert luôn qua)

@@ -22,6 +22,25 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 const FREE = { dbBytes: 500 * 1024 * 1024, writesDay: 100000, readsDay: 5000000, authMau: 50000, aiDay: 400 };
 let ready = false;
 
+// Đếm dòng: bảng nhật ký/lớn dùng MAX(rowid) (đọc 1 dòng, ước lượng) thay COUNT(*) quét cả bảng (23/10: admin_log 27 lượt × 14,5k dòng); cả bản đồ giữ ≥ 10 phút ở bộ nhớ isolate + Cache API biên.
+const BIG_TABLES = new Set(['admin_log', 'drive_files', 'drive_audit', 'key_audit', 'quota_audit', 'api_key_events', 'sessions', 'errors', 'pageviews', 'sync_log']);
+const COUNTS_TTL = 600e3;
+let COUNTS_MEM = null;
+async function tableCounts(db, names) {
+  const now = Date.now();
+  if (COUNTS_MEM && now - COUNTS_MEM.t < COUNTS_TTL) return COUNTS_MEM.v;
+  const ck = typeof caches !== 'undefined' && caches.default ? new Request('https://counts.lexkite.internal/admin-usage-counts') : null;
+  if (ck) { try { const hit = await caches.default.match(ck); if (hit) { const j = await hit.json(); if (now - j.t < COUNTS_TTL) { COUNTS_MEM = j; return j.v; } } } catch (e) { /* bộ nhớ đệm hỏng: tính lại */ } }
+  const v = {};
+  for (const n of names) {
+    if (BIG_TABLES.has(n)) { const r = await one(db, `SELECT MAX(rowid) AS n FROM "${n}"`).catch(() => null); v[n] = (r && r.n) || 0; }
+    else v[n] = (await one(db, `SELECT COUNT(*) AS n FROM "${n}"`)).n; // scan-ok: bảng nhỏ, cả bản đồ cache 10 phút
+  }
+  COUNTS_MEM = { t: now, v };
+  if (ck) { try { await caches.default.put(ck, new Response(JSON.stringify(COUNTS_MEM), { headers: { 'Cache-Control': 'public, max-age=600' } })); } catch (e) { /* bỏ qua */ } }
+  return v;
+}
+
 async function setup(db) {
   if (ready) return;
   await hitSetup(db);
@@ -109,8 +128,7 @@ const OPS = {
     const now = Date.now(), d1 = dayStr(now), t0 = Date.parse(d1 + 'T00:00:00Z');
     const r = await db.prepare('SELECT 1').run(), size = (r.meta && (r.meta.size_after ?? r.meta.db_size)) || 0;
     const tables = await all(db, "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '_cf_%'");
-    const counts = {};
-    for (const t of tables) counts[t.name] = (await one(db, `SELECT COUNT(*) AS n FROM "${t.name}"`)).n;
+    const counts = await tableCounts(db, tables.map(t => t.name));
     const w = await Promise.all([
       one(db, 'SELECT COUNT(*) AS n FROM sessions WHERE at >= ?', t0), one(db, 'SELECT COUNT(*) AS n FROM docs WHERE updated >= ?', t0),
       one(db, 'SELECT COUNT(*) AS n FROM users WHERE seen >= ?', t0), one(db, 'SELECT COALESCE(SUM(n), 0) AS n FROM errors WHERE last >= ?', t0),
