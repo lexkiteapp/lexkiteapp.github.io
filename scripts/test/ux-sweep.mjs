@@ -81,6 +81,10 @@ for (const c of combos) {
     await page.addStyleTag({ content: STILL }).catch(() => {});
     const tag = `${c.l}-${c.v}-${c.s}`, name = `${route.replace(/\W+/g, '_')}-${tag}`;
     if (c.s === 'light' && c.l === 'en') await page.screenshot({ path: `${OUT}/shots/${name}.png` }).catch(() => {});
+    if (route === 'home' && c.v === 'd' && c.s === 'light') { // sidebar footer close-up (closed + "More" open) for before/after review
+      const sf = await page.$('.side-foot');
+      if (sf) { await sf.scrollIntoViewIfNeeded().catch(() => {}); const b = await sf.boundingBox(); if (b) { const clip = { x: 0, y: Math.max(0, b.y - 300), width: 360, height: Math.min(420, b.y + b.height + 20) - Math.max(0, b.y - 300) + 300 }; clip.height = Math.min(clip.height, vp.height - clip.y); await page.screenshot({ path: `${OUT}/shots/sidefoot-${tag}.png`, clip }).catch(() => {}); const more = await page.$('.sf-more>summary'); if (more) { await more.click(); await page.waitForTimeout(200); await page.screenshot({ path: `${OUT}/shots/sidefoot-open-${tag}.png`, clip }).catch(() => {}); await page.keyboard.press('Escape'); } } }
+    }
     const found = await page.evaluate(detect, !!vp.isMobile).catch(e => [{ t: 'error', k: '', x: String(e.message).slice(0, 80) }]);
     for (const f of found) all.push({ route, tag, ...f });
   }
