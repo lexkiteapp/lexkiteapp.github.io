@@ -36,7 +36,7 @@ def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, fra
     if line:
         tempo = tempo or line_tempo(line); dur = talk_dur(line, at, breath, tempo)
     tempo = tempo or 1.0
-    n = int(round(dur * FPS)); t0 = sum(x['dur'] for x in S)
+    n = int(np.ceil(dur * FPS - 1e-6)) if line else int(round(dur * FPS)); t0 = sum(x['dur'] for x in S)   # talk shot: never round the breath below the asked value (#93 hook 0.34 -> 0.32 s < 0.33 gate)
     if frames is None:
         AVOID = {'ga4_talk_natural': (54, 101)}   # bank_gestures segments: hands at the waist -> under the caption band (owner 22/10 no-occlusion)
         if clip in AVOID:
@@ -251,8 +251,9 @@ def captions(s):
             x['s'] = min(cand, key=lambda b_: abs(b_ - t_)) if cand else max(t_, prev + 0.05); prev = x['s']
         edges = [base + x['s'] / T_ for x in WJ]; ln['words'] = [[round(base + x['s'] / T_, 3), round(base + x['e'] / T_, 3), round(base + x['w0'] / T_, 3)] for x in WJ]
         CH = cap_chunks(ws)
+        nxt_ = [v for v in CAP_ST if v > max(a - 0.095, s['t0']) + 1e-3]; endb = min(b + 0.39, min(nxt_)) if nxt_ else b + 0.39   # the J-cut trim below cuts the last chunk at the next line's first chunk (#93 'No.' 0.71 s)
         for _ in range(3):   # merge chunks shorter than 0.8 s on screen into a neighbour when the pair still fits 2 lines
-            dur_ = lambda c: (edges[c[-1] + 1] if c[-1] + 1 < len(ws) else b + 0.39) - (a - 0.095 if c[0] == 0 else edges[c[0]])
+            dur_ = lambda c: (edges[c[-1] + 1] if c[-1] + 1 < len(ws) else endb) - (a - 0.095 if c[0] == 0 else edges[c[0]])
             for ci in range(len(CH)):
                 if dur_(CH[ci]) < 0.8 and len(CH) > 1:
                     cj = ci + 1 if ci + 1 < len(CH) else ci - 1; mg = sorted(CH[ci] + CH[cj])
@@ -270,6 +271,7 @@ for _p in (f'{A}/green/bank_gestures.json',):
 if os.path.exists(f'{N}/lessons/{LID}.json'): SPEC = json.load(open(f'{N}/lessons/{LID}.json')); exec(open(f'{HERE}/news_tpl.py').read())   # generated (gen_news.py)
 else: exec(open(f'{N}/lessons/{LID}.py').read())
 TOTAL = sum(x['dur'] for x in S); NF = int(round(TOTAL * FPS))
+CAP_ST = sorted(max(x['t0'] + l['at'] + speech(l['id'])[0] / l['tempo'] - 0.095, x['t0']) for x in S for l in x['lines'])   # first-chunk start of every line
 for s in S: captions(s)
 _caps = sorted([o for o in OV if o['style'] == 'Cap'], key=lambda o: o['t'][0])
 for o, o2 in zip(_caps, _caps[1:]):   # J-cuts: a caption's tail never overlaps the next line's first chunk
@@ -553,6 +555,40 @@ GRADE = np.stack([_fl(_s + 0.02 * _sh - 0.015 * _hi), _fl(_s + 0.01 * _sh + 0.00
 GRADE = (GRADE * 255).astype(np.uint8)[:, None, :]
 PRE = os.environ.get('NEWS_PREFLIGHT'); PRE_IDS = {'hook'} | {next((x['id'] for x in S[1:] if not x['other'] and x['who'] == w and x['lines']), 'hook') for w in ('ama', 'carlos')}
 PRE_D = f'{N}/pre_{LID}'; os.makedirs(PRE_D, exist_ok=True) if PRE else None
+# owner 23/10 cine tangents: a near-horizontal bg line on the head top / neck of a single reads as 'growing out of the head' (qa_news gate, mid frame
+# of every single). Before rendering, move each bg side's window by the smallest tilt that clears every single on it - ONE dy per bg side, so the
+# host keeps the same crop window in all its shots (continuity) and the loop still matches the hook. Slightly stricter than the gate (margin).
+def _tang_n(s):
+    j = s['n'] // 2; hd = ((KEEP.get(int(round(s['t0'] * FPS)) + j) or {}).get('head') or [None])[0]
+    if hd is None: return 0
+    nq = len(BQA); B_ = bg_frame(s, j, (int(round(s['t0'] * FPS)) + j) / FPS); del BQA[nq:]
+    if _TEX[0] is None:   # same bg exposure rule as the render loop (frame 0 of the hook) - the gate runs Canny on the exposed bg
+        B0_ = bg_frame(S[0], 0, 0.0); del BQA[nq:]; tg_ = (0.48 - 0.3 * 0.35) / 0.7
+        _TEX[0] = min([(abs(cv2.LUT((B0_ * g_).clip(0, 255).astype(np.uint8), GRADE).mean() / 255 - tg_), g_) for g_ in np.arange(0.6, 2.81, 0.03)])[1]
+    g = cv2.cvtColor((B_ * _TEX[0]).clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2GRAY); E = cv2.Canny(g, 50, 135)
+    x0, y0, x1, y1 = [int(v) for v in hd]; w_, h_ = x1 - x0, y1 - y0; X0, Y0, X1, Y1 = max(0, x0 - int(0.3 * w_)), max(0, y0 - int(0.25 * h_)), min(1080, x1 + int(0.3 * w_)), min(1920, y1 + int(0.25 * h_))
+    HL = cv2.HoughLinesP(E[Y0:Y1, X0:X1], 1, np.pi / 180, 50, minLineLength=max(50, int(0.5 * w_)), maxLineGap=8); n = 0
+    for ln in (HL if HL is not None else []):
+        lx0, ly0, lx1, ly1 = [int(v) for v in np.ravel(ln)[:4]]; ly0 += Y0; ly1 += Y0; lx0 += X0; lx1 += X0
+        if abs(ly1 - ly0) > 0.2 * max(1, abs(lx1 - lx0)): continue
+        yy = (ly0 + ly1) / 2
+        if (abs(yy - y0) <= 24 or y1 - 30 <= yy <= y1 + 62) and min(lx0, lx1) < x0 + 0.25 * w_ and max(lx0, lx1) > x1 - 0.25 * w_: n += 1
+    return n
+_TEX = [None]; TANG_DY = {}
+if not os.environ.get('NEWS_NO_TANGFIX'):
+    for b_ in sorted({x['bg'] for x in S}):
+        grp = [x for x in S if x['bg'] == b_]; sg = [x for x in grp if not x['other'] and (not PRE or x['id'] in PRE_IDS)]
+        if not sg: continue
+        base = {id(x): tuple(x['cam']['ty']) for x in grp}; ty0 = CTY.get(b_, 0.0); best = None
+        def _set(dy):
+            for x in grp: x['cam']['ty'] = (base[id(x)][0] + dy, base[id(x)][1] + dy)
+        for dy in sorted([0, 10, -10, 16, -16, 22, -22, 30, -30, 38, -38], key=lambda d: (abs(d), d * ty0 > 0)):   # smallest move first, toward the frame centre first
+            if abs(ty0 + dy) > 223: continue   # zoom margin (zb <= 1.25 covers |ty| <= ~239 incl. tilt / handheld)
+            _set(dy); nt = sum(_tang_n(x) for x in sg)
+            if best is None or nt < best[0]: best = (nt, dy)
+            if nt == 0: break
+        _set(best[1]); TANG_DY[b_] = dict(dy=best[1], left=best[0])
+    print('tangent tilt', json.dumps(TANG_DY)); QA['tangent_dy'] = TANG_DY
 for s in S:
     if PRE and s['id'] not in PRE_IDS: continue
     HS = [(s['clip'], s['who'], s['lines'], s['raw'], s['frame'])] + ([(s['other'], 'carlos' if s['who'] == 'ama' else 'ama', [], False, 'two')] if s['other'] else [])
