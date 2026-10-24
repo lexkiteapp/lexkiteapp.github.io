@@ -15,6 +15,7 @@ window.__cls=0;new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.h
 <script src="/js/ads/policy.js"></script><script src="/js/ads/run.js"></script></body></html>`;
 async function run({ cmp = 'none', fill = true, dnt = false } = {}) {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, extraHTTPHeaders: dnt ? { DNT: '1' } : {} }), p = await ctx.newPage(), reqs = [];
+  await p.addInitScript(() => Object.defineProperty(Navigator.prototype, 'webdriver', { get: () => false })); // Playwright đặt webdriver=true → vỏ coi là bot và tắt (đúng thiết kế); giả lập người thật
   if (dnt) await p.addInitScript(() => Object.defineProperty(navigator, 'doNotTrack', { get: () => '1' }));
   await p.route('https://pagead2.googlesyndication.com/**', r => r.fulfill({ contentType: 'text/javascript', body: `
     (function(){var q=window.adsbygoogle=window.adsbygoogle||[];var cmp=${JSON.stringify(cmp)};
