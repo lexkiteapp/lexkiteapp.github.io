@@ -1482,7 +1482,7 @@
         <button class="btn primary lg block" id="go">${t('Bắt đầu Ngày {n}', { n: 1 })} →</button>
       </div>`;
       if (login && $('#haveAcct') && !pick.shownLogin) { pick.shownLogin = 1; const h = $('#haveAcct'); h.style.outline = '3px solid var(--primary)'; h.scrollIntoView({ block: 'center' }); const b = $('#setupIn'); if (b) b.focus(); }
-      if ($('#setupIn')) { $('#setupIn').onclick = e => { e.stopPropagation(); loginOnboard(); }; $('#noAcct').onclick = () => { pick.noAcct = 1; $('#haveAcct').remove(); const f = $('.trk-opt[aria-pressed="true"], .trk-opt, #go'); if (f) f.focus(); }; // ([data-exam] cũ không còn sau khi đổi sang lộ trình → null.focus() làm hỏng bước thiết lập) }
+      if ($('#setupIn')) { $('#setupIn').onclick = e => { e.stopPropagation(); loginOnboard(); }; $('#noAcct').onclick = () => { pick.noAcct = 1; $('#haveAcct').remove(); const f = $('.trk-opt[aria-pressed="true"], .trk-opt, #go'); if (f) f.focus(); }; /* [data-exam] cũ không còn sau khi đổi sang lộ trình → null.focus() ném lỗi */ }
       if (window.Tracks) Tracks.bindSetup(view, pick, id => { TR_ID = id; setExam(pick.exam); }, draw);
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; draw(); });
       $$('[data-pace]').forEach(b => b.onclick = () => { pick.pace = +b.dataset.pace; draw(); });
