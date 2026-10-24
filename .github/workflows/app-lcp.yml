@@ -1,0 +1,47 @@
+# Đo LCP/perf màn đầu app (/app/) – Lighthouse 12 mobile, trung vị 3 lần, trên dist (localhost, không nén – cùng điều kiện docs/UX-PUBLIC.md).
+# In: điểm, LCP/FCP/TBT/CLS/SI, phần tử LCP + các pha, tài nguyên chặn hiển thị, request trước LCP. Artifact = JSON Lighthouse.
+name: App LCP
+on:
+  workflow_dispatch:
+  push:
+    branches: ['perf/app-lcp*']
+    paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/build-web.sh']
+permissions:
+  contents: read
+jobs:
+  lh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Build + serve dist
+        run: |
+          npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+      - name: Lighthouse mobile ×3
+        run: |
+          mkdir -p lh
+          for p in "app/?hl=en" "app/?hl=vi"; do
+            k=$(echo "$p" | tr -c 'a-z0-9' '_')
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=lh/$k$i.json --quiet || true; done
+            node -e "
+              const fs=require('fs');const fsr=[1,2,3].map(i=>'lh/$k'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>JSON.parse(fs.readFileSync(f)));
+              fsr.sort((a,b)=>a.categories.performance.score-b.categories.performance.score);const d=fsr[Math.floor((fsr.length-1)/2)],a=d.audits;
+              const it=k=>((a[k]&&a[k].details&&a[k].details.items)||[]);
+              const el=it('largest-contentful-paint-element');
+              const lcpMs=a['largest-contentful-paint'].numericValue;
+              const o={url:'$p',runs:fsr.map(r=>Math.round(r.categories.performance.score*100)+'/'+r.audits['largest-contentful-paint'].displayValue),
+                scores:Object.fromEntries(Object.entries(d.categories).map(([k,v])=>[k,Math.round(v.score*100)])),
+                m:Object.fromEntries(['first-contentful-paint','largest-contentful-paint','total-blocking-time','cumulative-layout-shift','speed-index','interactive'].map(k=>[k,a[k].displayValue])),
+                kb:Math.round(a['total-byte-weight'].numericValue/1024),
+                lcpEl:JSON.stringify(el).slice(0,900),
+                blocking:it('render-blocking-resources').map(x=>x.url+' '+Math.round(x.wastedMs)+'ms'),
+                beforeLcp:it('network-requests').filter(x=>x.networkRequestTime<lcpMs*1.0).map(x=>x.url.replace('http://localhost:8080','')+' '+Math.round((x.transferSize||0)/1024)+'KB @'+Math.round(x.networkRequestTime)).slice(0,60),
+                fails:Object.values(a).filter(x=>x.score!==null&&x.score<0.9&&['binary','numeric','metricSavings'].includes(x.scoreDisplayMode)).map(x=>x.id+(x.displayValue?':'+x.displayValue:''))};
+              console.log(JSON.stringify(o,null,1))"
+          done
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: app-lcp, path: lh, retention-days: 5 }
