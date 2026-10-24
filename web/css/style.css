@@ -1522,8 +1522,8 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 .dp-unit > h3 { flex: 1 1 12rem; } /* tên đơn vị dài (de/ru/es) không bị nút + thanh tiến độ ép thành cột */
 @media (pointer: coarse) { /* vùng chạm tối thiểu: MỘT token --tap (quality-sweep, WCAG 2.5.8) */
   :root { --tap: 2.8rem; }
-  .btn, a.chip, button.chip, .lsw-b, .gsi, .goal-chip, .icon-btn, .fi-btn, .ctx-say, .me-more, .quest-line, .rings-legend a, .brand, select, summary, button.on, a.on, button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a { min-height: var(--tap); }
-  .icon-btn, .fi-btn, .ctx-say, .gsi, .lsw-b, .brand { min-width: var(--tap); }
+  .btn, a.chip, button.chip, .lsw-b, .gsi, .goal-chip, .icon-btn, .fi-btn, .ctx-say, .me-more, .quest-line, .rings-legend a, .brand, select, summary, button.on, a.on, button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a { min-height: var(--tap) !important; }
+  .icon-btn, .fi-btn, .ctx-say, .gsi, .lsw-b, .brand { min-width: var(--tap) !important; }
   button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a { display: inline-flex; align-items: center; }
   .crumb a { margin-block: -12px; } summary { align-content: center; } input[type=range] { min-height: var(--tap); }
 }
