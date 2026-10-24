@@ -37,7 +37,7 @@ jobs:
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
           curl -sfL -o "$RUNNER_TEMP/bad.txt" https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
-          python scripts/lexicon/expand/select.py --existing "$RUNNER_TEMP/existing.json" --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" --out "$RUNNER_TEMP/candidates.json"
+          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" --out "$RUNNER_TEMP/candidates.json"
       - name: Sinh + 2 giám khảo + cổng
         if: ${{ steps.lease.outputs.skip != '1' }}
         run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --n "${{ github.event.inputs.n || '400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}

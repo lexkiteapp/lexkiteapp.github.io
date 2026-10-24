@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Chọn từ mới cho kho (docs/LEXICON.md §Mở rộng 20k) – nguồn MIỄN PHÍ, ghi giấy phép.
-  python scripts/lexicon/expand/select.py --existing existing.json --cmu cmudict.dict --bad ldnoobw.txt --target 20000
+  python scripts/lexicon/expand/pick_words.py --existing existing.json --cmu cmudict.dict --bad ldnoobw.txt --target 20000
 Nguồn: wordfreq 3.1 (tần suất gộp SUBTLEX-US/UK, Google Books Ngram, Wikipedia…; dữ liệu CC BY-SA 4.0, mã Apache-2.0)
        · WordNet 3.0 (Princeton WordNet License) · CMUdict (BSD-2) · LDNOOBW (CC BY 4.0, chỉ để LOẠI từ xúc phạm)
        · NGSL/NAWL/BSL trong content/wordlists (CC BY-SA 4.0) để ưu tiên.
@@ -74,7 +74,7 @@ for w in top_n_list('en', 80000):
 # ưu tiên: từ có trong danh sách học thuật/kinh doanh của repo lên trước trong cùng dải Zipf 0,5
 out.sort(key=lambda e: (-round(e['z'] * 2) / 2, 0 if e['lists'] else 1, -e['z'], e['w']))
 for i, e in enumerate(out): e['rank'] = i + 1; e['band'] = int(e['z'] * 2) / 2
-json.dump({'_doc': 'Ứng viên mở rộng kho từ (scripts/lexicon/expand/select.py) – thứ tự sinh. Nguồn & giấy phép: wordfreq 3.1 CC BY-SA 4.0 (SUBTLEX, Google Books Ngram…), WordNet 3.0 (Princeton), CMUdict BSD-2, LDNOOBW CC BY 4.0 (lọc), NGSL/NAWL/BSL CC BY-SA 4.0.',
+json.dump({'_doc': 'Ứng viên mở rộng kho từ (scripts/lexicon/expand/pick_words.py) – thứ tự sinh. Nguồn & giấy phép: wordfreq 3.1 CC BY-SA 4.0 (SUBTLEX, Google Books Ngram…), WordNet 3.0 (Princeton), CMUdict BSD-2, LDNOOBW CC BY 4.0 (lọc), NGSL/NAWL/BSL CC BY-SA 4.0.',
            'cuts': [round(c, 2) for c in cuts], 'existing': len(have), 'target': a.target, 'n': len(out), 'items': out},
           open(a.out, 'w'), ensure_ascii=False, separators=(',', ':'))
 from collections import Counter
