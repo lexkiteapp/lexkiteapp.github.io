@@ -264,7 +264,7 @@ export const REG = {
    "id": "footage-archive",
    "workflow": "footage-archive.yml",
    "cron": [
-    "45 1 * * *"
+    "45 1,2,6,14,15,16,17,18,20,21,22 * * *"
    ],
    "priority": "archive",
    "resources": [
@@ -272,10 +272,10 @@ export const REG = {
     "d1_internal",
     "gh_minutes"
    ],
-   "minutes": 150,
+   "minutes": 50,
    "est": {
-    "d1_internal_reads": 150000,
-    "drive_calls": 6000
+    "d1_internal_reads": 3000,
+    "drive_calls": 700
    },
    "lease": true
   },
