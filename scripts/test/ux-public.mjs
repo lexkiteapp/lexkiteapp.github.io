@@ -40,7 +40,8 @@ function probe() {
     ctaFirst: ctas.length, ctaText: ctas.slice(0, 3).map(e => e.innerText.trim().slice(0, 30)),
     searchFirst: inFirst(document.querySelector('input[type=search],#q')),
     hscroll: document.scrollingElement.scrollWidth > W + 1, small: small.length, smallEx: small.slice(0, 8),
-    fontSizes: fonts.size, radii: radii.size, kb: Math.round((res.reduce((a, r) => a + (r.transferSize || 0), 0) + (nav.transferSize || 0)) / 1024), req: res.length + 1,
+    fontSizes: fonts.size, radii: radii.size, top: res.slice().sort((a, b) => (b.transferSize || 0) - (a.transferSize || 0)).slice(0, 12).map(r => `${Math.round((r.transferSize || 0) / 1024)}KB ${r.name.replace(location.origin, '').slice(0, 70)} @${Math.round(r.startTime)}`),
+    kb: Math.round((res.reduce((a, r) => a + (r.transferSize || 0), 0) + (nav.transferSize || 0)) / 1024), req: res.length + 1,
     lcp: Math.round(window.__lcp || 0), cls: +(window.__cls || 0).toFixed(3), lcpEl: window.__lcpEl || '',
   };
 }
