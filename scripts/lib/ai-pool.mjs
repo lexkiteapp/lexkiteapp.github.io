@@ -181,14 +181,32 @@ export function createPool(opts = {}) {
   const RATE = { generate: +(env.AI_POOL_GC_RPM || 270), vision: +(env.AI_POOL_GC_VISION_RPM || 108) }, nextAt = { generate: 0, vision: 0 };
   async function pace(bucket) { const gap = 60e3 / RATE[bucket], t = Math.max(now(), nextAt[bucket]); nextAt[bucket] = t + gap; if (t > now()) await sleep(t - now()); }
   const retryAfter = r => { const v = +(r.headers && r.headers.get && r.headers.get('Retry-After')); return Number.isFinite(v) && v > 0 ? Math.min(600, v) * 1e3 : 65e3; };
-  const GC_MAX_CHARS = 7900; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
+  const GC_MAX_CHARS = 7900;
+  // GrabCast cắt câu trả lời ≈ 1–2 nghìn ký tự với gpt-oss (đo 24/10: lxtr 10 mục bị cụt) → số mục tối đa mỗi lượt theo cỡ đầu ra; cụt nữa → chia đôi
+  const GC_ITEMS = { lxgen: 3, lxtr: 3, lxjudge: 2, xgen: 2, xtr: 2, xjudge: 10, vgen: 1, vjudge: 6, translate: 10, judge: 15, vscene: 2 }; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
   const gcRoute = provider => {
     async function one(req, model, depth = 0) {
+      const cap = GC_ITEMS[req.mode];
+      if (depth === 0 && cap && Array.isArray(req.items) && req.items.length > cap) {
+        const parts = []; for (let i = 0; i < req.items.length; i += cap) parts.push(req.items.slice(i, i + cap));
+        const rs = await Promise.all(parts.map(it => one({ ...req, items: it }, model, 1).catch(e => e)));
+        const good = rs.filter(r => !(r instanceof Error)); if (!good.length) throw rs[0];
+        return { ...good[good.length - 1], out: Object.assign({}, ...good.map(r => normOut(r.out, req.items) || {})), fellBack: good.some(r => r.fellBack) };
+      }
+      try { return await one1(req, model, depth); }
+      catch (e) { // câu trả lời cụt (không phải JSON) → chia đôi
+        if (!(e instanceof PoolErr && e.kind === 'bad' && /JSON/.test(e.message)) || !Array.isArray(req.items) || req.items.length < 2 || depth > 4) throw e;
+        const h = Math.ceil(req.items.length / 2), rs = await Promise.all([one({ ...req, items: req.items.slice(0, h) }, model, depth + 1).catch(e2 => e2), one({ ...req, items: req.items.slice(h) }, model, depth + 1).catch(e2 => e2)]);
+        const good = rs.filter(r => !(r instanceof Error)); if (!good.length) throw e;
+        return { ...good[good.length - 1], out: Object.assign({}, ...good.map(r => normOut(r.out, req.items) || {})), fellBack: good.some(r => r.fellBack) };
+      }
+    }
+    async function one1(req, model, depth) {
       const p = await promptFor(req), prompt = p.sys + '\n\nINPUT:\n' + p.user;
       if (prompt.length > GC_MAX_CHARS) {
         if (!Array.isArray(req.items) || req.items.length < 2 || depth > 5) throw new PoolErr('bad', `prompt ${prompt.length} > ${GC_MAX_CHARS} ký tự`);
         const h = Math.ceil(req.items.length / 2), x = await one({ ...req, items: req.items.slice(0, h) }, model, depth + 1), y = await one({ ...req, items: req.items.slice(h) }, model, depth + 1);
-        return { ...y, out: { ...(x.out || {}), ...(y.out || {}) }, fellBack: x.fellBack || y.fellBack, model: x.model === y.model ? y.model : y.model };
+        return { ...y, out: { ...(normOut(x.out, req.items) || {}), ...(normOut(y.out, req.items) || {}) }, fellBack: x.fellBack || y.fellBack };
       }
       if (used.gc >= budget.gc) throw new PoolErr('budget', 'GrabCast budget'); used.gc++;
       await pace('generate');
@@ -201,7 +219,8 @@ export function createPool(opts = {}) {
       if (code === 'ai_unavailable') throw new PoolErr('model', 'GrabCast ai_unavailable ' + JSON.stringify(j.detail.tried || []).slice(0, 80), 5 * 60e3);
       const why = j.error && j.error.code || (Array.isArray(j.detail) ? j.detail.map(d => d.msg).join('; ') : j.detail) || '';
       if (!r.ok || !j.text) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', `GrabCast ${r.status} ${String(why).slice(0, 80)}`);
-      return { out: parseJSON(j.text), model: j.model || model || provider, via: j.provider, fellBack: (!!j.provider && j.provider !== provider) || (!!model && !!j.model && j.model !== model) };
+      const out = parseJSON(j.text); if (!out) throw new PoolErr('bad', `không phải JSON (${String(j.text).length} ký tự: …${String(j.text).slice(-40).replace(/\s+/g, ' ')})`);
+      return { out, model: j.model || model || provider, via: j.provider, fellBack: (!!j.provider && j.provider !== provider) || (!!model && !!j.model && j.model !== model) };
     }
     return { ok: () => !!env.GRABCAST_AI_KEY, models: role => GC_MODELS[provider][role === 'gen' ? 'gen' : 'judge'], call: (m, req) => one(req, m) };
   };
@@ -269,6 +288,19 @@ export function createPool(opts = {}) {
    * exclude = tập họ mô hình không được trả lời (giám khảo B ≠ họ A). Trả { out, model, route, fam } hoặc null (mọi tuyến hỏng → bỏ qua trung tính).
    */
   async function run(chain, req, o = {}) {
+    const r = await runWait(chain, req, o);
+    // mô hình bỏ sót mục (hoặc nửa lô chia đôi hỏng) → hỏi lại MỘT lần riêng các mục thiếu (cùng ràng buộc họ)
+    if (r && Array.isArray(req.items) && !o._again) {
+      const miss = req.items.filter(x => x && x.k != null && !(x.k in r.out));
+      if (miss.length && miss.length < req.items.length + 1) {
+        const r2 = await runWait(chain, { ...req, items: miss }, { ...o, _again: true });
+        if (r2 && (o.role !== 'judge' || r2.fam === r.fam)) r.out = { ...r.out, ...r2.out };
+        log(`[ai-pool] ${req.mode}: thiếu ${miss.length}/${req.items.length} mục → hỏi lại ${r2 ? 'được ' + miss.filter(x => x.k in r.out).length : 'không được'}`);
+      }
+    }
+    return r;
+  }
+  async function runWait(chain, req, o = {}) {
     for (let w = 0; ; w++) {
       const r = await run1(chain, req, o); if (r || w >= 3) return r;
       // mọi tuyến/mô hình phù hợp đang nghỉ NGẮN (≤ 2 phút) → chờ rồi thử lại thay vì bỏ qua ngay
