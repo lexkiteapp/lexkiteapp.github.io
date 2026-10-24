@@ -43,6 +43,16 @@ export function promptScene(k, sc, attempt = 1) {
   return `Illustration, ${fr}: ${s}.${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE}`;
 }
 
+// Bộ lọc an toàn prompt của Cloudflare (bad_request) → viết lại TRUNG TÍNH (không bao giờ gửi lại y nguyên): thay từ nhạy cảm, bỏ chi tiết cơ thể/xung đột, thêm khung gia đình.
+const SOFT = [[/\b(blood|bleeding|bloody|wound(ed)?|injur(y|ies|ed)|hurt)\b/gi, 'a small bandage'], [/\b(guns?|rifles?|pistols?|weapons?|knives|knife|swords?|bombs?|explosi\w*)\b/gi, 'tools'],
+  [/\b(kill(s|ed|ing)?|murder\w*|dead|death|dying|corpse)\b/gi, 'sad'], [/\b(fight(s|ing)?|attack\w*|hit(s|ting)?|punch\w*|war|soldiers?|violen\w*)\b/gi, 'argue'],
+  [/\b(drugs?|pills?|syringe|needle|alcohol|beer|wine|drunk|cigarettes?|smok\w*)\b/gi, 'cups of tea'], [/\b(naked|nude|undress\w*|bikini|underwear|bath(ing)?|shower(ing)?|bed with)\b/gi, 'dressed'],
+  [/\b(police|prison|jail|arrest\w*|thief|steal\w*|crime|criminal)\b/gi, 'a guard'], [/\b(child|children|kids?|baby|babies|girl|boy)\b/gi, 'person'], [/\b(sick|ill|disease|hospital|vomit\w*)\b/gi, 'tired']];
+export function soften(prompt, level = 1) {
+  let s = String(prompt); for (const [re, to] of SOFT) s = s.replace(re, to);
+  if (level > 1) s = s.replace(/^Illustration,[^:]*:\s*[^.]*\./, 'Illustration, medium shot: two friendly adults in an everyday calm moment with the key objects of the situation.');
+  return s.replace(/Wordless flat vector/, 'Gentle, calm, family-friendly wordless flat vector');
+}
 // ---- thẻ cảnh: lời nhắn MỘT nguồn (người viết thẻ phải dùng câu ví dụ của kho; được trả skip) ----
 export const SCENE_SYS = `You turn dictionary example sentences into ONE wordless picture for a vocabulary card. The picture must show the SITUATION of the sentence so a learner who reads the sentence under the picture understands the word. Never draw a literal object for an abstract word, never a misleading symbol.
 Rules learned from reviewed pictures: (1) if the sentence names groups or compares (men and women, children and adults, equal, more, less, same, different, second, best), draw BOTH sides explicitly side by side so the comparison is visible (e.g. "a woman and a man each receive an identical stack of coins"; a race result = three runners on a podium of three heights); (2) show places (hospital, bank, hotel, station, school) only through objects inside them (bed, counter, key, ticket), never a building front; (3) the key thing of the sentence must be large and in the foreground (the mango, the conductor punching a ticket, the deep water under a small boat); (4) people talk with gestures, never speech bubbles, phones or screens unless the sentence is about them; (5) use people of different genders, ages and skin tones when the sentence implies it.

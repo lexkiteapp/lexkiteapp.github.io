@@ -55,7 +55,7 @@ const sum = key => gs.reduce((a, g) => a + (+g.gc[key] || 0), 0), codes = {};
 for (const g of gs) for (const [c_, v] of Object.entries(g.gc.by_code || {})) codes[c_] = (codes[c_] || 0) + v;
 const imgs = gs.reduce((a, g) => a + g.images, 0), calls = sum('submit');
 const rep = { run: BATCH, accepted: n, images_generated: imgs, gc_image_calls: calls, calls_per_accepted: n ? +(calls / n).toFixed(1) : null, images_per_accepted: n ? +(imgs / n).toFixed(1) : null,
-  http: codes, s5xx: sum('s5xx'), s429: sum('s429'), job_err: sum('job_err'), timeout: sum('timeout'), net: sum('net'), s5xx_rate: calls ? +(sum('s5xx') / calls).toFixed(3) : 0,
+  http: codes, s5xx: sum('s5xx'), s429: sum('s429'), ai_busy: sum('ai_busy'), ai_unavailable: sum('ai_unavailable'), ai_exhausted: sum('ai_exhausted'), safety_refused: sum('safety'), safety_rephrased: gs.reduce((a, g) => a + (g.safety_rephrased || 0), 0), safety_failed: gs.reduce((a, g) => a + (g.safety_failed || 0), 0), job_err: sum('job_err'), timeout: sum('timeout'), net: sum('net'), s5xx_rate: calls ? +(sum('s5xx') / calls).toFixed(3) : 0,
   cards_added: c, queued: qn, scene_total: Object.values(img.items).filter(x => x.kind === 'scene').length, img_total: Object.values(img.items).filter(x => x.h).length };
 fs.writeFileSync(path.join(D, 'fill-report.json'), JSON.stringify(rep, null, 1));
 console.log(JSON.stringify(rep));

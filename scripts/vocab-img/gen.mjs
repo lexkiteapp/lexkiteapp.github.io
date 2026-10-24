@@ -28,6 +28,8 @@ export const PROVIDERS = [
     run: p => (env.CF_AI_TOKEN_1 ? cfRest(env.CF_ACCOUNT_1, env.CF_AI_TOKEN_1, p) : studio(p)) },
 ];
 class Quota extends Error {}
+// Cloudflare chặn prompt (job failed, error_code bad_request "Workers AI refused the image… Input prompt") → KHÔNG thử lại y nguyên; scene-gen viết lại prompt trung tính (scene.mjs soften)
+export class Safety extends Error {}
 const isImg = b => b && b.length > 1000 && ((b[0] === 0xff && b[1] === 0xd8) || (b[0] === 0x89 && b[1] === 0x50) || b.slice(8, 12).toString() === 'WEBP');   // JPEG/PNG/WebP
 const quotaish = s => /4006|daily free allocation|neurons?\b.*(limit|exceed)|quota/i.test(s);   // 3040 'Capacity temporarily exceeded' = tạm thời, KHÔNG phải hết hạn mức
 async function cfRest(acct, tok, prompt) {
@@ -45,7 +47,7 @@ async function studio(prompt) {
 const GC = String(env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 let gcWaits = 0;
 // đếm theo mã HTTP cho báo cáo GrabCast (24/10: ~40 % lượt 500) – scene-gen ghi vào gen-stats.s<i>.json
-export const GC_STATS = { submit: 0, ok: 0, s429: 0, s5xx: 0, s4xx: 0, job_err: 0, poll_err: 0, timeout: 0, content_err: 0, net: 0, retry_after_s: 0, by_code: {} };
+export const GC_STATS = { submit: 0, ok: 0, s429: 0, s5xx: 0, ai_busy: 0, ai_unavailable: 0, ai_exhausted: 0, safety: 0, s4xx: 0, job_err: 0, poll_err: 0, timeout: 0, content_err: 0, net: 0, retry_after_s: 0, by_code: {} };
 const gcErr = (m, r) => { const e = new Error(m); e.status = r && r.status; const ra = r && r.headers && +r.headers.get('retry-after'); if (ra > 0) e.retryAfter = ra; return e; };
 async function grabcast(prompt) {
   const h = { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' };
@@ -55,12 +57,15 @@ async function grabcast(prompt) {
   if (r.status === 429) GC_STATS.s429++; else if (r.status >= 500) GC_STATS.s5xx++; else if (r.status >= 400) GC_STATS.s4xx++;
   if (r.status !== 200 && +r.headers.get('retry-after') > 0) GC_STATS.retry_after_s += +r.headers.get('retry-after');
   const j = await r.json().catch(() => ({}));
+  // GrabCast 24/10 (sửa 500): lỗi chỉ còn 503 ai_busy (Retry-After 20) | ai_unavailable / ai_exhausted (Retry-After 60), không còn 500 trần
+  { const code = String((j.error && (j.error.code || j.error)) || j.code || ''); for (const c of ['ai_busy', 'ai_unavailable', 'ai_exhausted']) if (code.includes(c)) GC_STATS[c]++; }
   // đo 23/10: hết khung sau 10 ảnh, mở lại < 2 phút → chờ lùi 65 s, 130 s…; 6 lần 429 LIÊN TIẾP = hết hạn mức ngày → dừng nhà này
   if (r.status === 429 && (gcWaits++ < 6)) { const w = Math.min(240, +r.headers.get('retry-after') || 65 * gcWaits); /* 24/10 GrabCast MAX: 115k/ngày/khoá, ảnh 60/phút/IP – theo Retry-After */ console.log(`… GrabCast 429 (khung 10 ảnh) – chờ ${w} s`); await new Promise(s => setTimeout(s, w * 1e3)); return grabcast(prompt); }
   if (r.status === 429 || quotaish(String(j.error && j.error.code || ''))) throw new Quota(`${r.status} ${JSON.stringify(j.error || '').slice(0, 120)}`);
   let job = j.job; if (!r.ok || !job) throw gcErr(`${r.status} ${JSON.stringify(j).slice(0, 160)}`, r);
-  for (let i = 0; job.status !== 'done' && i < 20; i++) {   // việc ảnh thường xong ngay; chờ tối đa ~60 s (không thăm dò vô hạn)
-    if (job.status === 'error' || job.error) { GC_STATS.job_err++; const m = String(job.error_code || job.error); if (quotaish(m)) throw new Quota(m); throw new Error('job ' + m); }
+  for (let i = 0; job.status !== 'done' && i < 30; i++) {   // GrabCast: tới 4 lần thử qua khoá/nhà, TB 10 s, tối đa ~24 s
+   // việc ảnh thường xong ngay; chờ tối đa ~60 s (không thăm dò vô hạn)
+    if (job.status === 'error' || job.status === 'failed' || job.error) { const m = String(job.error_code || job.error || job.status); if (/bad_request/.test(m) || /refused the image|Input prompt/i.test(String(job.error || job.message || ''))) { GC_STATS.safety++; throw new Safety('safety ' + m); } GC_STATS.job_err++; if (quotaish(m)) throw new Quota(m); throw new Error('job ' + m); }
     await new Promise(s => setTimeout(s, 3000));
     const pr = await fetch(`${GC}/api/owner-ai/image/${job.id}`, { headers: h }).catch(() => null);
     const pj = pr && pr.ok ? await pr.json().catch(() => null) : null; if (!pj || !pj.job) { GC_STATS.poll_err++; continue; } job = pj.job;
