@@ -1,6 +1,11 @@
 // IPA từ Wiktionary qua kaikki.org (CC BY-SA 4.0, ghi công) – dùng chung cho job.mjs và hiệu chuẩn espeak (espeak-calib.mjs).
 import { fixBroken } from '../ipa.mjs';
 const KPOS = { n: 'noun', v: 'verb', adj: 'adj', adv: 'adv' };
+// mã ngôn ngữ Wiktionary → mã kho (zh = Quan thoại giản thể); dấu trọng âm tiếng Nga + harakat Ả Rập bỏ (đồng nhất với kho)
+const TRL = { es: 'es', pt: 'pt', fr: 'fr', de: 'de', id: 'id', th: 'th', cmn: 'zh', zh: 'zh', ja: 'ja', ko: 'ko', hi: 'hi', ar: 'ar', ru: 'ru', tr: 'tr', vi: 'vi' };
+export const trWord = (w, l) => { w = String(w || '').trim(); if (l === 'zh' && w.includes('/')) w = w.split('/').pop().trim();
+  if (l === 'ru') w = w.normalize('NFD').replace(/\u0301/g, '').normalize('NFC'); if (l === 'ar') w = w.replace(/[\u064B-\u0652\u0670]/g, '');
+  return /[()\[\]=]|^-|-$/.test(w) || w.split(/\s+/).length > 4 ? '' : w; };
 export async function kaikki(w, pos, stat = {}) {
   const u = `https://kaikki.org/dictionary/English/meaning/${w[0]}/${w.slice(0, 2)}/${encodeURIComponent(w)}.jsonl`;
   for (let i = 0; i < 3; i++) {
@@ -19,7 +24,16 @@ export async function kaikki(w, pos, stat = {}) {
       const vi = [], seen = new Set();
       for (const e of ents.filter(e => e.pos === KPOS[pos])) for (const t of [...(e.translations || []), ...(e.senses || []).flatMap(s => (s.translations || []).map(x => ({ ...x, sense: x.sense || (s.glosses || [])[0] })))])
         if ((t.lang_code === 'vi' || t.code === 'vi') && t.word && !seen.has(t.word)) { seen.add(t.word); vi.push({ w: t.word, sense: String(t.sense || '').slice(0, 60) }); }
-      return { uk: (all(UKR)[0] || {}).ipa || '', us: (all(USR)[0] || {}).ipa || '', ukAll: all(UKR).map(s => s.ipa), ukNoRegion: snd.filter(s => !s.tg.some(t => UKR.test(t) || USR.test(t) || /^(US|Canada|Australia|Scotland|Ireland|Northern-England|archaic)$/.test(t))).map(s => s.ipa), vi };
+      // NGUỒN NGƯỜI VIẾT (source-first 24/10): ví dụ dùng của Wiktionary (type example, KHÔNG trích dẫn văn học có ref) + bảng dịch theo nghĩa (nhóm theo gloss của bảng dịch)
+      const mine = ents.filter(e => e.pos === KPOS[pos]), exs = [], trg = new Map();
+      for (const e of mine) for (const s of e.senses || []) for (const x of s.examples || []) { const t = String(x.text || '').replace(/\s+/g, ' ').trim();
+        if (!t || x.ref || (x.type && x.type !== 'example') || t.split(' ').length > 22 || /[“”"]|\d{3,}|^\W/.test(t)) continue; exs.push({ t, g: String((s.glosses || [])[0] || '').slice(0, 140) }); }
+      for (const e of mine) for (const t of [...(e.translations || []), ...(e.senses || []).flatMap(s => (s.translations || []).map(x => ({ ...x, sense: x.sense || (s.glosses || [])[0] })))]) {
+        const l = TRL[t.lang_code || t.code]; if (!l || !t.word || (t.tags || []).some(g => /Traditional|archaic|obsolete|dated|rare|slang|vulgar/i.test(g))) continue;
+        const g = String(t.sense || '').slice(0, 120), grp = trg.get(g) || trg.set(g, { g, tr: {} }).get(g), w = trWord(t.word, l);
+        if (w && !(grp.tr[l] = grp.tr[l] || []).includes(w) && grp.tr[l].length < 3) grp.tr[l].push(w); }
+      return { exs: exs.slice(0, 8), trg: [...trg.values()].filter(x => Object.keys(x.tr).length >= 2).slice(0, 8),
+        uk: (all(UKR)[0] || {}).ipa || '', us: (all(USR)[0] || {}).ipa || '', ukAll: all(UKR).map(s => s.ipa), ukNoRegion: snd.filter(s => !s.tg.some(t => UKR.test(t) || USR.test(t) || /^(US|Canada|Australia|Scotland|Ireland|Northern-England|archaic)$/.test(t))).map(s => s.ipa), vi };
     } catch { await new Promise(s => setTimeout(s, 1500 * (i + 1))); }
   }
   return {};

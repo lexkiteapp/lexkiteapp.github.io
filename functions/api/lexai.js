@@ -117,14 +117,32 @@ For EACH item return an object:
 ONE SENSE ONLY: def, both examples, col, syn, vi and note_vi must all describe the SAME single sense (the gloss sense). Re-read each example and collocation: if it shows another sense (crown of a tooth vs a dental crown; a mill as a factory vs a flour mill; cricket the insect vs the sport) rewrite it.
 Return ONE JSON object mapping each "k" to its object.`;
 const LXTR = `You are a senior bilingual lexicographer. Each item: "k", English headword "w", "pos", WordNet "gloss", learner definition "def" and 2 examples "ex" – together they fix ONE sense.
-Translate the headword in EXACTLY this sense and part of speech into each language: es (Spanish), pt (Brazilian Portuguese), fr (French), de (German), id (Indonesian), th (Thai), zh (Simplified Chinese), ja (Japanese), ko (Korean), hi (Hindi), ar (Arabic), ru (Russian), tr (Turkish).
+Translate the headword in EXACTLY this sense and part of speech into each language listed in the item's \"need\" (all of the following when \"need\" is absent): vi (Vietnamese), es (Spanish), pt (Brazilian Portuguese), fr (French), de (German), id (Indonesian), th (Thai), zh (Simplified Chinese), ja (Japanese), ko (Korean), hi (Hindi), ar (Arabic), ru (Russian), tr (Turkish).
 Rules:
 - 1–3 short native dictionary equivalents separated by "; " (most common first). Each is a word or a short fixed expression (≤ 3 words); use a multi-word equivalent only when the language has no single word (e.g. "take aback" → es "desconcertar", ko "당황하게 하다").
 - Same sense: neither broader nor narrower (berry ≠ blueberry, bronze ≠ brass, naval ≠ fleet). It must fit the examples.
 - Same part of speech in dictionary form: verbs as infinitive/dictionary form (ko/ja verbs end in -다 / -る/-う form), adjectives as adjectives (never "X rate" nouns for an adjective), adverbs as adverbs, nouns as nouns.
 - Native script only; never transliterate the English word when a native word exists; a standard loanword only if it is what dictionaries give (then still put a native word first when one exists).
 - No explanations, brackets, notes, romanization or English.
-Return ONE JSON object mapping each "k" to {"es": "…", "pt": "…", …, "tr": "…"}.`;
+Return ONE JSON object mapping each "k" to {"<lang>": "…"} with exactly the requested languages.`;
+// SOURCE-FIRST v4 (24/10, pilot 8 soát 50 → ~10 sai): nghĩa + định nghĩa = WordNet (AI CHỈ viết lại gloss cho dễ, cấm đổi nghĩa) · ví dụ = câu NGƯỜI VIẾT
+// (Tatoeba / Wiktionary, giám khảo chọn câu đúng nghĩa) · dịch = bảng dịch Wiktionary theo nghĩa (giám khảo khớp gloss) · AI chỉ lấp chỗ trống, chấm 2 họ + dịch ngược.
+const LXDEF = `You simplify WordNet glosses for a learner's dictionary (Oxford Learner's style). Each item: "k", headword "w", "pos" (n|v|adj|adv), "gloss" (the LOCKED WordNet sense), "lemmas" (other words with this exact sense), "wnex" (WordNet examples), "topics" (allowed topic ids).
+For EACH item return {"keep": true|false, "def": "…", "topic": "…"}:
+- "keep": false (plus "why" ≤ 8 words, nothing else) if "w" is a proper noun or derived from a name, a brand, an abbreviation or clipped form, offensive/slur, slang, a misspelling or not a real dictionary headword in this part of speech.
+- "def": rewrite the gloss as ONE learner definition of ≤ 16 words using only common words (CEFR B1 or easier), without the headword itself. It MUST NOT change the meaning: same scope (not broader, not narrower), keep every essential element of the gloss (who/what, purpose, manner), add nothing that the gloss does not say, never add examples or qualifiers. The gloss may be written for a synonym in "lemmas": keep only what is true of "w". Verbs start with "to …"; nouns with "a/an …", "the …" or an uncountable phrase; adjectives/adverbs describe. If the gloss is already simple, keep its wording.
+- "topic": ONE id from "topics" that clearly fits this sense, or "".
+Return ONE JSON object mapping each "k" to its object.`;
+const LXSRC = `You are a strict senior lexicographer verifying a learner's dictionary entry that is assembled from HUMAN sources. Each item: "k", headword "w", "pos", "gloss" (the LOCKED WordNet sense), "lemmas" (synonyms in this sense), "def" (a simplified rewrite of the gloss), "ex" (numbered candidate example sentences written by people – Tatoeba / Wiktionary), "cols" (candidate phrases), "ts" (numbered sense labels of Wiktionary translation tables).
+For EACH item return {"def": "same"|"changed", "f": "…", "ex": [indices], "col": [phrases], "ts": index}:
+- "def": "same" only if "def" means exactly what "gloss" means for "w" (same scope, no essential element lost, nothing added, right part of speech); else "changed" and "f" = ≤ 12-word reason.
+- "ex": indices (0-based) of the sentences in which "w" (or its inflection) is used in EXACTLY the gloss sense and part of speech, and the sentence is natural, correct, sensible and suitable for teenage learners (no sex, drugs, gore, insults). Exclude a sentence that uses another sense, a figurative or idiomatic sense, a phrasal verb with another meaning, a name, or that is odd or unclear out of context. [] if none.
+- "col": the phrases from "cols" that are common, natural phrases using "w" in exactly the gloss sense ([] if none). Never add new phrases.
+- "ts": index of the "ts" label that means the gloss sense (same meaning, not a different sense of the word), or -1 if none clearly matches.
+Return ONE JSON object mapping each "k" to its object.`;
+const LXEX = `You are a senior lexicographer. Each item: "k", headword "w", "pos", "gloss" (the LOCKED WordNet sense), "def", "lemmas", "wnex" (WordNet examples), "n" (how many sentences to write), "avoid" (sentences already chosen).
+Write exactly "n" new example sentences (8–14 words each) that use "w" itself (or its inflection) in EXACTLY this sense and part of speech, with a typical subject/object for this sense; plain modern English with common words; no names of real people. Each sentence must be literally true/possible in the real world, agree with "def" and differ from "avoid". Re-read each as a native editor: if it shows another sense or sounds odd, rewrite it.
+Return ONE JSON object mapping each "k" to {"ex": ["…"]}.`;
 const LXJUDGE = `You are a careful senior lexicographer and native-level reviewer of a learner's dictionary. Each item: headword "w", "pos", WordNet "gloss" (the LOCKED sense), "lemmas"/"wnex" (WordNet synonyms/examples of that sense), entry fields "def", "ex" (2 examples), "col", "syn", "cefr", "vi" (Vietnamese), "note_vi", "tr" (translations by language code) and sometimes "vi_wikt" (Vietnamese equivalents from Wiktionary, any sense of this part of speech, sense in brackets).
 OUTPUT SHAPE: ONE JSON object whose KEYS are the items' "k" values, e.g. {"<k1>": {…}, "<k2>": {…}} – never a bare item object, never an array. For EACH item the value is {"sense": "yes"|"no", "s": score, "f": reason, "cefr": level, "tr": {lang: score}, "bt": {lang: back}, "bad": {lang: "translit"|"pos"}} plus "vi": "ok"|"alt"|"unsure" and "vi_fix" when "vi_wikt" is given:
 - "sense": Do the definition, BOTH examples, the collocations, vi and the translations use exactly the gloss sense (same meaning, same part of speech, a natural subject/object for it)? "no" if any of them shows another sense, a homonym, a specialist sense or an unnatural/ungrammatical use.
@@ -155,7 +173,7 @@ async function gemCall(env, model, sys, user, temp) {
 const arr = (a, n, m) => (Array.isArray(a) ? a : []).slice(0, n).map(e => cut(e, m));
 const cutL = x => ({ k: cut(x.k, 60), w: cut(x.w, 60), pos: cut(x.pos, 8), gloss: cut(x.gloss, 300), lemmas: arr(x.lemmas, 4, 40), wnex: arr(x.wnex, 2, 160), cefr: cut(x.cefr, 3), lex: cut(x.lex, 30), ...(Array.isArray(x.vi_wikt) && x.vi_wikt.length ? { vi_wikt: arr(x.vi_wikt, 8, 90) } : {}), topics: (Array.isArray(x.topics) ? x.topics : []).slice(0, 60).map(t => cut(t, 24)),
   def: cut(x.def, 200), ex: (Array.isArray(x.ex) ? x.ex : []).slice(0, 2).map(e => cut(e, 200)), col: (Array.isArray(x.col) ? x.col : []).slice(0, 3).map(e => cut(e, 60)), syn: (Array.isArray(x.syn) ? x.syn : []).slice(0, 3).map(e => cut(e, 40)),
-  vi: cut(x.vi, 120), note_vi: cut(x.note_vi, 200), tr: Object.fromEntries(Object.entries(x.tr && typeof x.tr === 'object' ? x.tr : {}).filter(([l]) => LX_LANGS.includes(l)).map(([l, v]) => [l, cut(v, 100)])) });
+  vi: cut(x.vi, 120), note_vi: cut(x.note_vi, 200), cand: arr(x.cand, 8, 220), ts: arr(x.ts, 8, 120), cols: arr(x.cols, 8, 60), need: arr(x.need, 14, 3).filter(l => l === 'vi' || LX_LANGS.includes(l)), n: Math.max(1, Math.min(2, +x.n || 2)), avoid: arr(x.avoid, 2, 220), tr: Object.fromEntries(Object.entries(x.tr && typeof x.tr === 'object' ? x.tr : {}).filter(([l]) => LX_LANGS.includes(l)).map(([l, v]) => [l, cut(v, 100)])) });
 const parseJSON = t => { try { const m = String(t || '').match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : null; } catch (e) { return null; } };
 const cut = (v, n) => String(v == null ? '' : v).slice(0, n);
 const cleanX = x => ({ k: cut(x.k, 120), type: cut(x.type, 40), s: cut(x.s, 300), ans: cut(x.ans, 80), alts: (Array.isArray(x.alts) ? x.alts : []).slice(0, 8).map(a => cut(a, 160)), ctx: cut(x.ctx, 600),
@@ -168,9 +186,13 @@ const JSON_ONLY = '\nReply with ONE valid JSON object only, no markdown.';
 export function build(b) {
   if (b.mode === 'vgen') { const items = Array.isArray(b.items) ? b.items.slice(0, 20).map(cutV) : []; return items.length ? { sys: VGEN, user: JSON.stringify(items), temp: 0.5, models: VMODELS } : null; }
   if (b.mode === 'vjudge') { const items = Array.isArray(b.items) ? b.items.slice(0, 25).map(cutJ) : []; return items.length ? { sys: VJUDGE, user: JSON.stringify(items), temp: 0.1, models: LX_JUDGE } : null; }
-  if (['lxgen', 'lxtr', 'lxjudge'].includes(b.mode)) {
+  if (['lxgen', 'lxtr', 'lxjudge', 'lxdef', 'lxsrc', 'lxex'].includes(b.mode)) {
     const items = Array.isArray(b.items) ? b.items.slice(0, 10).map(cutL) : []; if (!items.length) return null;
     const strip = b.mode === 'lxgen' ? items.map(({ k, w, pos, gloss, lemmas, wnex, cefr, lex, topics }) => ({ k, w, pos, gloss, lemmas, wnex, cefr, lex, topics })) : b.mode === 'lxtr' ? items.map(({ k, w, pos, gloss, lemmas, def, ex }) => ({ k, w, pos, gloss, lemmas, def, ex })) : items.map(({ topics, lex, ...x }) => x);
+    if (b.mode === 'lxdef') return { sys: LXDEF, user: JSON.stringify(items.map(({ k, w, pos, gloss, lemmas, wnex, topics }) => ({ k, w, pos, gloss, lemmas, wnex, topics }))), temp: 0.1, models: LX_GEN };
+    if (b.mode === 'lxsrc') return { sys: LXSRC, user: JSON.stringify(items.map(({ k, w, pos, gloss, lemmas, def, cand, cols, ts }) => ({ k, w, pos, gloss, lemmas, def, ex: cand, cols, ts }))), temp: 0.1, models: LX_JUDGE };
+    if (b.mode === 'lxex') return { sys: LXEX, user: JSON.stringify(items.map(({ k, w, pos, gloss, def, lemmas, wnex, n, avoid }) => ({ k, w, pos, gloss, def, lemmas, wnex, n, avoid }))), temp: 0.3, models: LX_GEN };
+    if (b.mode === 'lxtr') return { sys: LXTR, user: JSON.stringify(items.map(({ k, w, pos, gloss, lemmas, def, ex, need }) => ({ k, w, pos, gloss, lemmas, def, ex, ...(need.length ? { need } : {}) }))), temp: 0.2, models: LX_GEN };
     return { sys: b.mode === 'lxgen' ? LXGEN : b.mode === 'lxtr' ? LXTR : LXJUDGE, user: JSON.stringify(strip), temp: b.mode === 'lxjudge' ? 0.1 : 0.3, models: b.mode === 'lxjudge' ? LX_JUDGE : LX_GEN };
   }
   if (['xgen', 'xtr', 'xjudge'].includes(b.mode)) {

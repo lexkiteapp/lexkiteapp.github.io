@@ -84,6 +84,14 @@ def excluded(w, syn, s0):
 def proper(w, lem):  # tên riêng: WordNet có lemma Viết Hoa và nghĩa thường hiếm (china, john, smith, trump)
     cap = [l for s in wn.synsets(w) for l in s.lemmas() if l.name() in (w.capitalize(), w.upper())]
     return bool(cap) and sum(l.count() for l in lem) < 3 * (1 + sum(l.count() for l in cap))
+# Cụm từ có thật (source-first 24/10): từ ghép/cụm nhiều chữ của WordNet chứa từ (fire alarm, false alarm) – giám khảo lọc theo nghĩa khóa
+COMP = {}
+for n in wn.all_lemma_names():
+    if '_' in n and n.islower() and 2 <= n.count('_') + 1 <= 3:
+        for t in set(n.split('_')): COMP.setdefault(t, []).append(n.replace('_', ' '))
+def comps(w):
+    c = sorted({x for x in COMP.get(w, [])}, key=lambda x: (-zipf_frequency(x, 'en'), x))
+    return [x for x in c if zipf_frequency(x, 'en') >= 2.3][:4]
 out, seen, excl = [], set(), {}
 need = a.target - len(have)
 for w in top_n_list('en', 80000):
@@ -108,7 +116,10 @@ for w in top_n_list('en', 80000):
     seen.add(w)
     lv, lsrc = OLP.get((w, pos), (cefr(z), 'freq'))
     out.append({'w': w, 'pos': pos, 'z': round(z, 2), 'cefr': lv, 'cefrSrc': lsrc, 'cefrZ': cefr(z), 'lex': s0.lexname(), 'syn': s0.name(), 'gloss': s0.definition(),
-                'lemmas': [l.name().replace('_', ' ') for l in s0.lemmas() if l.name() != w][:4], 'wnex': s0.examples()[:2], 'lists': sorted(set(lists.get(w, [])))})
+                'lemmas': [l.name().replace('_', ' ') for l in s0.lemmas() if l.name() != w][:4], 'wnex': s0.examples()[:2],
+                # đồng nghĩa = lemma CÙNG synset (WordNet, đúng nghĩa khóa), chỉ từ đơn đủ phổ biến – không có → [] (không bịa)
+                'syns': [l.name() for l in s0.lemmas() if l.name() != w and '_' not in l.name() and l.name().islower() and zipf_frequency(l.name(), 'en') >= 2.8][:3],
+                'comp': comps(w), 'off': '%08d-%s' % (s0.offset(), s0.pos()), 'lists': sorted(set(lists.get(w, [])))})
 # ưu tiên: từ có trong danh sách học thuật/kinh doanh của repo lên trước trong cùng dải Zipf 0,5
 out.sort(key=lambda e: (-round(e['z'] * 2) / 2, 0 if e['lists'] else 1, -e['z'], e['w']))
 for i, e in enumerate(out): e['rank'] = i + 1; e['band'] = int(e['z'] * 2) / 2

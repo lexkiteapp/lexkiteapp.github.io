@@ -50,7 +50,8 @@ export function gateEntry(e, { keep } = {}) {
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
-  if (!Array.isArray(e.col) || !e.col.length) why.push('schema: cụm từ');
+  if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
+  if (e.defChanged) why.push('def: viết lại khác nghĩa gloss WordNet (' + String(e.defChanged).slice(0, 80) + ')');
   if (!CE.includes(e.level)) why.push('cefr: cấp');
   else if ((e.cefrSrc || 'freq') === 'freq' && Math.abs(CE.indexOf(e.level) - CE.indexOf(e.cefrF || e.level)) > 2) why.push('cefr: lệch tần suất > 2 bậc');
   if (!e.vi || !VI.test(e.vi) && !/[àáâãèéêìíòóôõùúýđ]/i.test(e.vi)) why.push('dịch vi: không phải tiếng Việt');
