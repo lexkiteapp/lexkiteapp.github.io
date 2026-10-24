@@ -372,12 +372,12 @@
     while (App.cleanups.length) { try { App.cleanups.pop()(); } catch (e) { /* một hàm lỗi không chặn các hàm khác */ } }
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0); const preTitle = document.title;
       try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; throw e; } // lượt cũ lỗi vì bị hủy → im lặng
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
-      if (my === routeSeq) { markActivity(name, arg); if (App.afterRoute) App.afterRoute(name); }
+      if (my === routeSeq) { markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
@@ -385,6 +385,21 @@
     render();
   }
   App.route = route;
+  // Đổi trang (SPA) cho trình đọc màn hình: tiêu đề tab theo h1 của trang + đưa focus về vùng nội dung khi bấm từ thanh điều hướng
+  // (không cướp focus của hộp thoại/ô nhập; lần mở đầu tiên giữ nguyên). Kiểu Babbel/Duolingo web: Tab tiếp theo vào thẳng nội dung trang.
+  let titleBase = '', routedOnce = false;
+  function a11yRoute(name, preTitle) {
+    try {
+      if (document.title !== preTitle) { if (!titleBase) titleBase = preTitle; } else { // trang tự đặt tiêu đề riêng (vd. Cách dùng từ) → giữ
+      const h = name && name !== 'home' && view.querySelector('.page-head h1, h1');
+      const txt = h ? h.textContent.replace(/^[\p{Extended_Pictographic}\uFE0F\u200d\s]+/u, '').replace(/\s+/g, ' ').trim().slice(0, 70) : '';
+      if (txt) { if (!titleBase) titleBase = document.title; document.title = txt + ' – Lexkite'; } else if (titleBase) document.title = titleBase;
+      }
+      const a = document.activeElement, modalOpen = !!document.querySelector('#modal:not([hidden])');
+      if (routedOnce && !modalOpen && (!a || a === document.body || (a.closest && a.closest('#bnav, #nav, .side-foot, .crumb')))) view.focus({ preventScroll: true });
+      routedOnce = true;
+    } catch (e) { /* không chặn việc vẽ trang */ }
+  }
   // Khả năng truy cập: nút loa/nghe chỉ có biểu tượng → tự gắn nhãn "Nghe: <từ>" cho trình đọc màn hình (kể cả nút sinh sau)
   const SAY = '[data-speak],[data-saysent],[data-say],[data-speak-text],[data-slow]';
   const labelSay = root => root.querySelectorAll && root.querySelectorAll(SAY).forEach(b => {

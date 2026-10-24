@@ -1187,6 +1187,7 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 /* Chuyển trang: chỉ vùng nội dung chuyển động, thanh trên/dưới đứng yên */
 /* Chuyển trang: chỉ mờ dần (không transform – không tạo khung chứa cho phần tử fixed/hộp thoại trong #view) */
 #view { animation: viewIn .18s ease-out; }
+#view:focus, #view:focus-visible { outline: none; } /* focus chuyển về nội dung khi đổi trang – không viền quanh cả trang */
 @keyframes viewIn { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { #view { animation: none; } }
 /* Khung chờ khi tải */
