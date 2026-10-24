@@ -28,7 +28,7 @@ jobs:
       - name: Libraries + ffmpeg
         run: |
           [[ "$LID" =~ ^[a-z0-9_]+$ ]] && [ -f "content/video/cine/news/$LID.json" ] || { echo "::error::bad lesson $LID"; exit 1; }
-          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
       - name: Footage (Ama PRO layer + mouth meta only, sparse)
         if: contains(inputs.tpls, '1')
@@ -53,6 +53,8 @@ jobs:
           curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - uses: actions/cache@v4
+        with: { path: vo/vis3, key: "tpl-vo-v1-${{ inputs.lesson }}-${{ hashFiles('content/video/cine/news/lines.json') }}" }
       - name: Voice (one teacher = Ama's Kokoro voice for every line; word times aligned by news_voice.py)
         run: |
           mkdir -p "$ND/ci" "$ND/lessons"; cp "content/video/cine/news/$LID.json" "$ND/lessons/"
