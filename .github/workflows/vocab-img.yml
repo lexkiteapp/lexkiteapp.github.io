@@ -61,7 +61,10 @@ jobs:
         if: steps.lease.outputs.skip != '1' && github.event.inputs.resume_run != ''
         uses: actions/download-artifact@v4
         with: { name: 'vocab-img-${{ github.event.inputs.mode || ''pilot2'' }}', path: out/vocab-img, run-id: '${{ github.event.inputs.resume_run }}', github-token: '${{ github.token }}' }
-      - name: Vẽ lần 1
+      - name: Tầng 1 icon (Noto Emoji, Apache-2.0) cho nghĩa có emoji khớp CLDR
+        if: steps.lease.outputs.skip != '1'
+        run: python3 scripts/vocab-img/icon_tier.py out/vocab-img --keys keys.json
+      - name: Vẽ lần 1 (tầng AI cho nghĩa còn lại)
         if: steps.lease.outputs.skip != '1'
         run: node scripts/vocab-img/gen.mjs --keys keys.json --out out/vocab-img --attempt 1
       - name: Giám khảo gọi tên lần 1 (Gemini, không biết từ)

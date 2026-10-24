@@ -1,6 +1,8 @@
 // Ảnh minh hoạ từ vựng – luật NGHIÊM (scripts/vocab-img/strict.mjs, chủ duyệt 24/10): chọn nghĩa, prompt theo thẻ, giám khảo gọi tên + khớp đồng nghĩa.
 import fs from 'fs';
 import assert from 'assert/strict';
+import { mapIcons } from '../vocab-img/icons.mjs';
+import { queryFor, SOURCES } from '../vocab-img/photo.mjs';
 import { ruleCheck, eligible, promptFromCard, matchName, judgeVerdict, judgeField, JUDGE_Q, stem } from '../vocab-img/strict.mjs';
 
 const J = p => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -46,4 +48,17 @@ const wf = fs.readFileSync('.github/workflows/vocab-img.yml', 'utf8');
 ok(/VIMG_MAX_MAIN: '0'/.test(wf) && /judge\.mjs --out out\/vocab-img --attempt 1/.test(wf) && /pillow-avif-plugin/.test(wf), 'workflow: 0 ảnh tài khoản chính, giám khảo gọi tên, AVIF');
 const qc = fs.readFileSync('scripts/vocab-img/qc.py', 'utf8');
 ok(/MAXB, MAXB2, X2_MIN, CLIP_MAX = 384, 6 \* 1024, 12 \* 1024/.test(qc), 'QC: ≤ 6 KB @384, 2x ≤ 12 KB');
+// 6. tầng nguồn: icon (Noto/CLDR) bảo thủ, ảnh chụp chỉ khi có khoá + thẻ photo:true, mọi tầng qua cùng cổng
+const cldr = { '🍎': { tts: ['red apple'] }, '⛓': { tts: ['chains'] }, '₥': { tts: ['mill'] }, '🧗': { tts: ['person climbing'] }, '🧗‍♂': { tts: ['man climbing'] }, '🗺': { tts: ['world map'] }, '🟥': { tts: ['red square'] } };
+const cs = { 'apple#n': { o: 'x', s: ['apple'] }, 'necklace#n': { o: 'x', s: ['necklace', 'chain'] }, 'windmill#n': { o: 'x', s: ['windmill', 'mill'] }, 'climb#v': { o: 'x', s: ['climb'] }, 'red#adj': { o: 'x', s: ['red'], k: 'color' } };
+const lx = { 'apple#n': E('apple', 'n'), 'necklace#n': E('necklace', 'n'), 'windmill#n': E('windmill', 'n'), 'climb#v': E('climb', 'v'), 'red#adj': E('red', 'adj') };
+const mi = mapIcons(cldr, cs, lx);
+ok(mi['apple#n'] && mi['apple#n'].cp === '1f34e', 'icon: "red apple" → apple');
+ok(!mi['necklace#n'] && !mi['windmill#n'], 'icon: đồng nghĩa phụ / ký hiệu không phải hình → không icon');
+ok(mi['climb#v'] && mi['climb#v'].name === 'person climbing', 'icon động từ: ưu tiên "person …" trung tính giới');
+ok(!mi['red#adj'], 'tính từ màu không dùng icon (cần vật chuẩn)');
+const icons = J('content/lexicon/vimg-icons.json');
+ok(Object.keys(icons.items).every(k => cards[k] && !cards[k].skip) && icons.items['map#n'] && !icons.items['hard hat#n'], 'vimg-icons.json chỉ cho nghĩa có thẻ, không ánh xạ sai (hard hat ≠ military helmet)');
+ok(queryFor({ s: ['lighthouse'] }) === 'lighthouse' && SOURCES.every(s => !s.ok()) === !(process.env.PIXABAY_KEY || process.env.PEXELS_KEY), 'ảnh chụp: tắt khi không có khoá');
+ok(/icon_tier\.py out\/vocab-img --keys keys\.json/.test(wf) && wf.indexOf('icon_tier.py') < wf.indexOf('gen.mjs --keys keys.json'), 'workflow: tầng icon chạy trước tầng AI, cùng giám khảo/QC');
 console.log(`✓ vocab-img strict: ${n} kiểm`);

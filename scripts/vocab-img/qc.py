@@ -199,9 +199,11 @@ def final(sheet):
     a1 = json.load(open(f'{OUT}/qc.a1.json')); a2 = json.load(open(f'{OUT}/qc.a2.json')) if os.path.exists(f'{OUT}/qc.a2.json') else {}
     keys = json.load(open(arg('keys'))).get('items') if arg('keys') else list(a1)
     out, os_ = {}, os.makedirs(f'{OUT}/final', exist_ok=True)
+    SRC = json.load(open(f'{OUT}/src.json')) if os.path.exists(f'{OUT}/src.json') else {}
     for k in keys:
         r = a1.get(k); r = r if r and r['pass'] else (a2.get(k) or r)
         if not r: out[k] = dict(k=k, attempt=0, reasons=['not generated'], bytes=0); out[k]['pass'] = False; continue
+        r['src'] = SRC[k] if (r.get('attempt') == 1 and k in SRC) else dict(tier='ai', lic='own', by='Lexkite (FLUX-1-schnell)')   # tầng: icon (lần 1) | ai
         if r['pass']:
             b = open(f'{OUT}/{r["webp"]}', 'rb').read(); h = hashlib.sha256(b).hexdigest()[:16]; r['h'] = h; base = f'{OUT}/{r["webp"][:-5]}'
             r['fmt'] = []
@@ -215,7 +217,8 @@ def final(sheet):
     for r in out.values(): p = (r.get('vision') or {}).get('provider') or 'clip-only'; prov[p] = prov.get(p, 0) + 1
     stats = dict(n=n, passed=len(ok), pass_rate=round(len(ok) / max(1, n), 3), first_try=len(first), retried_pass=len(ok) - len(first),
                  no_image=n - len(ok), avg_avif=round(np.mean([out[k].get('avif') or 0 for k in ok])) if ok else 0, x2=sum(1 for k in ok if out[k].get('x2')), avg_bytes=round(np.mean([out[k]['bytes'] for k in ok])) if ok else 0, max_bytes=max([out[k]['bytes'] for k in ok] or [0]),
-                 vision_provider=prov, fails={k: out[k].get('reasons') for k in keys if not out[k].get('pass')})
+                 vision_provider=prov, tiers={t: sum(1 for k in ok if out[k]['src']['tier'] == t) for t in ('icon', 'photo', 'ai')},
+                 icon_tried=sum(1 for k in keys if k in SRC), icon_pass=sum(1 for k in ok if out[k]['src']['tier'] == 'icon'), fails={k: out[k].get('reasons') for k in keys if not out[k].get('pass')})
     json.dump(dict(stats=stats, items=out), open(f'{OUT}/result.json', 'w'), indent=1); json.dump(dict(items=rev), open(f'{OUT}/review.json', 'w'), indent=1)
     print(json.dumps({k: v for k, v in stats.items() if k != 'fails'}))
     if sheet: contact(keys, out, stats, sheet)
@@ -225,14 +228,14 @@ def contact(keys, out, stats, path):
     W = Image.new('RGB', (cols * T, H + rows * (T + 32)), (255, 247, 234)); d = ImageDraw.Draw(W)
     try: F = ImageFont.load_default(size=14); F2 = ImageFont.load_default(size=20)
     except TypeError: F = F2 = ImageFont.load_default()
-    d.text((10, 8), f"vocab-img {os.path.basename(path)[:-4]} · style s1 · strict x1 · pass {stats['passed']}/{stats['n']} ({stats['pass_rate']*100:.0f}%) · 1st try {stats['first_try']} · retry ok {stats['retried_pass']} · webp {stats['avg_bytes']/1024:.1f} KB · avif {stats.get('avg_avif', 0)/1024:.1f} KB · 2x {stats.get('x2', 0)}", fill=(15, 61, 62), font=F2)
+    d.text((10, 8), f"vocab-img {os.path.basename(path)[:-4]} · style s1 · strict x1 · pass {stats['passed']}/{stats['n']} ({stats['pass_rate']*100:.0f}%) · 1st try {stats['first_try']} · retry ok {stats['retried_pass']} · webp {stats['avg_bytes']/1024:.1f} KB · avif {stats.get('avg_avif', 0)/1024:.1f} KB · 2x {stats.get('x2', 0)} · tiers {stats.get('tiers')}", fill=(15, 61, 62), font=F2)
     d.text((10, 34), 'green = pass · red = no image (reason) · line 2 = what the judge NAMED without being told the word', fill=(23, 89, 90), font=F)
     for i, k in enumerate(keys):
         x, y = (i % cols) * T, H + (i // cols) * (T + 32); r = out[k]
         src = r.get('webp'); a1 = os.path.join(OUT, src) if src else None
         if a1 and os.path.exists(a1): W.paste(load_img(a1).resize((T - 8, T - 8)), (x + 4, y + 4))
         col = (47, 191, 113) if r.get('pass') else (229, 80, 47); d.rectangle([x + 2, y + 2, x + T - 3, y + T - 3], outline=col, width=4)
-        lab = f"{k}{' ·r' if r.get('attempt') == 2 else ''}"; d.text((x + 4, y + T), lab[:32], fill=(15, 61, 62), font=F)
+        lab = f"{k} [{(r.get('src') or {}).get('tier', '?')}]{' ·r' if r.get('attempt') == 2 else ''}"; d.text((x + 4, y + T), lab[:32], fill=(15, 61, 62), font=F)
         nm = 'saw: ' + str((r.get('judge') or {}).get('named') or '?')
         d.text((x + 4, y + T + 14), (nm if r.get('pass') else '; '.join(r.get('reasons') or []))[:34], fill=(47, 140, 90) if r.get('pass') else (229, 80, 47), font=F)
     os.makedirs(os.path.dirname(path) or '.', exist_ok=True); W.save(path, 'JPEG', quality=82); print('sheet', path)

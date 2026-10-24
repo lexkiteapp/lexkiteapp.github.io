@@ -33,8 +33,13 @@ fs.mkdirSync(path.join(media, 'vimg'), { recursive: true });
 let n = 0; const now = new Date().toISOString().slice(0, 10);
 for (const [k, r] of Object.entries(res)) {
   if (!r.pass || !r.h || img.rejected[k]) continue;
-  fs.copyFileSync(path.join(outDir, 'final', r.h + '.webp'), path.join(media, 'vimg', r.h + '.webp'));
-  img.items[k] = { h: r.h, url: img.base + r.h + '.webp', alt: k.split('#')[0], sv: STYLE.v, q: { score: +(r.p || 0).toFixed(3), rank: r.rank, vision: (r.vision || {}).provider || 'clip-only' }, ph: r.ph, at: now };
+  // mọi biến thể: <h>.webp, <h>.avif, (<h>@2x.webp/.avif khi x2) – cùng tên băm, immutable
+  for (const f of fs.readdirSync(path.join(outDir, 'final')).filter(f => f.startsWith(r.h))) fs.copyFileSync(path.join(outDir, 'final', f), path.join(media, 'vimg', f));
+  const src = r.src || { tier: 'ai', lic: 'own', by: 'Lexkite' };   // tầng + giấy phép (icon Noto Apache-2.0 | photo Pixabay/Pexels | ai)
+  const it = { h: r.h, url: img.base + r.h + '.webp', alt: k.split('#')[0], sv: STYLE.v, fmt: r.fmt && r.fmt.length ? r.fmt : ['webp'], ...(r.x2 ? { x2: true } : {}),
+    src, q: { score: +(r.p || 0).toFixed(3), rank: r.rank, vision: (r.vision || {}).provider || 'clip-only', named: (r.judge || {}).named || '' }, ph: r.ph, at: now };
+  if (src.tier === 'photo') img.items[k] = { ...(img.items[k] || {}), photo: { h: it.h, fmt: it.fmt, src } };   // ảnh chụp: trường riêng, chỉ trang /words/
+  else img.items[k] = { ...it, ...(img.items[k] && img.items[k].photo ? { photo: img.items[k].photo } : {}) };
   n++;
 }
 const sorted = o => Object.fromEntries(Object.entries(o).sort(([a], [b]) => (a < b ? -1 : 1)));
