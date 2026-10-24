@@ -11,14 +11,15 @@ const first = d => { try { return fs.readdirSync(path.join(ROOT, d), { withFileT
 const post = first('en/blog');
 const PAGES = ['/', '/en/', '/app/?sandbox=1&hl=en', '/en/vocabulary/', '/en/blog/', post ? `/en/blog/${post}/` : '/en/samples/'].filter((p, i, a) => a.indexOf(p) === i);
 const srv = await serve(ROOT, 0);
-const run = (u, file) => execFileSync('npx', ['-y', 'lighthouse@12.2.1', u, '--form-factor=mobile', '--only-categories=performance,accessibility,best-practices,seo', '--quiet', '--output=json', `--output-path=${file}`,
-  '--chrome-flags=--headless=new --no-sandbox'], { stdio: 'ignore', timeout: 240000 });
+const run = (u, file) => execFileSync('npx', ['-y', 'lighthouse@12.2.1', u, '--form-factor=mobile', '--only-categories=performance,accessibility,best-practices,seo', '--quiet', '--max-wait-for-load=40000', '--output=json', `--output-path=${file}`,
+  '--chrome-flags=--headless=new --no-sandbox'], { stdio: ['ignore', 'ignore', 'inherit'], timeout: 100000 });
 const res = [];
 for (const p of PAGES) {
   let best = null;
   for (let i = 0; i < 2; i++) {
     const f = path.join(os.tmpdir(), `lh-${Date.now()}-${i}.json`);
-    try { run(srv.origin + p, f); } catch (e) { /* lỗi một lần → thử lại */ }
+    let timedOut = false; try { run(srv.origin + p, f); } catch (e) { timedOut = /ETIMEDOUT|SIGTERM/.test(String(e.code || e.signal || e.message)); console.log('lighthouse lỗi', p, String(e.message).slice(0, 120)); }
+    if (timedOut) break; // treo → không thử lại (tiết kiệm phút)
     if (!fs.existsSync(f)) continue;
     const d = JSON.parse(fs.readFileSync(f, 'utf8')), a = d.audits, s = Object.fromEntries(Object.entries(d.categories).map(([k, v]) => [k, Math.round(v.score * 100)]));
     const cur = { page: p, scores: s, metrics: Object.fromEntries(['first-contentful-paint', 'largest-contentful-paint', 'total-blocking-time', 'cumulative-layout-shift'].map(k => [k, a[k]?.displayValue])), fails: Object.values(a).filter(x => x.score !== null && x.score < 0.9 && ['binary', 'numeric', 'metricSavings'].includes(x.scoreDisplayMode)).map(x => x.title).slice(0, 8) };

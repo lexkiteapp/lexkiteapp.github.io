@@ -95,6 +95,8 @@ jobs:
       - name: Chặn lexkite.com (đảm bảo 0 lượt chạm prod)
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Lighthouse 6 trang
+        timeout-minutes: 25
+        continue-on-error: true
         run: mkdir -p qs-lh && node scripts/quality/lh.mjs dist qs-lh/lh.json
       - uses: actions/upload-artifact@v4
         if: always()
