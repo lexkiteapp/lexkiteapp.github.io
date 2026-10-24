@@ -57,7 +57,7 @@
       for (const [w] of words) await Core.Cards.remove(w).catch(() => {});
       for (const [w, vi] of words) { await Core.Cards.add({ word: w, vi, pos: 'noun' }, w === 'resilience' ? { text: 'Dense canopies improve the resilience of neighbourhoods during heatwaves.', source: 'https://www.bbc.com/', title: 'Forests' } : undefined).catch(() => {}); await Core.Cards.patch(w, c => { c.srs = { ...S }; }).catch(() => {}); }
       const mine = new Set(words.map(x => x[0])), all0 = await Core.Cards.all(); // thẻ khác (học ở hành trình 1–2) dời hạn → phiên ôn chỉ 5 thẻ hạt giống
-      for (const w of Object.keys(all0)) if (!mine.has(w)) await Core.Cards.patch(w, c => { c.srs = { ...(c.srs || {}), due: now + 30 * DAY }; }).catch(() => {});
+      for (const w of Object.keys(all0)) if (!mine.has(w)) await Core.Cards.patch(w, c => { const s = c.srs || {}; c.srs = { ...s, reps: Math.max(1, s.reps || 0), last: s.last || now - DAY, due: now + 30 * DAY }; }).catch(() => {}); // thẻ MỚI (reps 0, chưa last) vào hàng đợi bất kể hạn (study.js buildQueue) → đánh dấu đã ôn để không chen vào phiên
       App.state.cards = await Core.Cards.all(); await go('#/review'); await sleep(800);
       const modes = ['flip', 'type', 'audio'], seen = new Set(); let own = false;
       for (let i = 0; i < 45 && !vis('.rev-done'); i++) { if (i) t.audit('review'); await dismiss(); const sel = D.getElementById('rmSel'); if (sel) { sel.value = modes[i % 3]; sel.dispatchEvent(new Event('change', { bubbles: true })); await sleep(500); }
@@ -65,7 +65,7 @@
         if (vis('#typeIn')) { seen.add('type'); const x = D.getElementById('typeIn'); x.value = 'zzz'; x.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(600); }
         else if (vis('[data-opt="0"]')) { seen.add('audio'); await click('[data-opt="0"]', 600); } else if (vis('#flipBtn')) { seen.add('flip'); await click('#flipBtn', 400); }
         if (vis('[data-grade].suggest')) await click('[data-grade].suggest', 700); else if (vis('[data-grade="2"]')) await click('[data-grade="2"]', 700); else await sleep(500); }
-      t.ok(own, 'thẻ "câu của bạn"'); t.ok(seen.size === 3, 'đủ 3 kiểu: ' + [...seen]); t.ok(vis('.rev-done'), 'xong phiên ôn'); return t.bad; },
+      t.ok(own, 'thẻ "câu của bạn"'); t.ok(seen.size === 3, 'đủ 3 kiểu: ' + [...seen]); t.ok(await wait('.rev-done', 6000), 'xong phiên ôn'); return t.bad; },
     async j3b() { const t = mk('j3'), c = await Core.Cards.all(); for (const w of ['resilience', 'sustainable', 'negotiate']) t.ok(c[w] && c[w].srs.due > Date.now(), 'điểm "' + w + '" còn sau tải lại'); t.ok(c.resilience && /canopies/.test(c.resilience.ctx || ((c.resilience.contexts || [])[0] || {}).text || ''), 'ctx còn'); return t.bad; },
   };
   W.LKJN = P;
