@@ -14,7 +14,9 @@ Một nguồn: `scripts/build-seo-pages.mjs` (sinh) · `scripts/test/seo-pages.m
 | Nội dung app | Route app | Trang tĩnh có sẵn | Ngôn ngữ | Số trang | Chất lượng |
 |---|---|---|---|---|---|
 | Bộ từ vựng (chủ đề, AWL…) | `#/topic/<id>` | `/tu-vung/<id>`, `/en/vocabulary/<id>` | vi, en | 83 + 83 | tốt: canonical, hreflang vi↔en, LearningResource, sitemap |
-| Ngữ pháp | `#/grammar/<id>` | `/ngu-phap/<id>` | vi | 77 | tốt; chưa có en (nội dung soạn tiếng Việt) |
+| Ngữ pháp | `#/grammar/<id>` | `/ngu-phap/<id>`, `/en/grammar/<id>` | vi, en | 77 + 77 | tốt (24/10: en viết riêng, hreflang vi↔en, 3 câu quiz có đáp án) |
+| Phát âm | `#/pron/<id>` | `/phat-am/<slug>`, `/en/pronunciation/<slug>` | vi, en | 56 + 56 | mới 24/10: khẩu hình, từ ví dụ + audio, cặp tối thiểu |
+| IELTS Writing Task 1 / GT | `#/model/t1-…`, `#/letters/…` | `/en/ielts-writing/task-1/<id>`, `/en/ielts-writing/general-task-1/<id>` (↔ `/viet-thu/`) | en (+vi thư) | 38 + 24 | mới 24/10; Task 2 vẫn ở `/en/samples/` (không nhân đôi) |
 | Bài mẫu Writing | `#/model/…` | `/samples/`, `/en/samples/` | vi, en | 80 + 80 | tốt |
 | Speaking IELTS | `#/speaking/…` | `/speaking/`, `/en/speaking/` | vi, en | 40 + 40 | tốt |
 | Thư mẫu GT | `#/letters/…` | `/viet-thu/` | vi | 24 | tốt |
@@ -74,7 +76,12 @@ Nạp: dòng cuối `notices.js` (đã tải lười 2,5 s sau khi mở app) →
 - Tuần 1–2 sau deploy: GSC theo sitemap từng loại × ngôn ngữ. Ngôn ngữ nào ≥ 60 % trang "Đã index" và có hiển thị → tăng N 400 → 1.000 (`SEO_N_OTHER`). Tỷ lệ < 30 % → giữ, bổ sung nội dung bản địa (ví dụ dịch, lỗi hay gặp theo L1) trước.
 - Nghĩa cờ 2 (AI theo nghĩa + từ loại, `lexicon-i18n.yml`) phủ thêm ngôn ngữ nào → trang ngôn ngữ đó tự giàu hơn ở build sau, không cần sửa generator.
 
-## 6. Còn lại (đợt sau)
-- Ngữ pháp `/en/grammar/` + 13 ngôn ngữ: cần bản giải thích viết riêng (nội dung hiện chỉ tiếng Việt; dịch máy = trang mỏng).
+## 6. Bài học app → trang en (24/10)
+- Generator: `scripts/build-samples-en.mjs` (khối "Bài học app") + vi `/phat-am/` trong `build-samples.mjs`; hreflang vi↔en qua `out()`; sitemap riêng `sitemap-{grammar,pronunciation,ielts-writing}.xml`; IndexNow: `.seo-urls-en.txt` → `build-seo-pages.mjs` gộp vào `.seo-urls.txt`.
+- Chữ tiếng Anh: `content/seo-en/{grammar,pron}.json` (khóa = chuỗi gốc tiếng Việt, giá trị = bản viết riêng cho người học quốc tế; `""` = câu chỉ đúng với người Việt → bỏ; `pron.json › _meta` = slug + tên trang). KHÔNG dùng `web/i18n/content/en.json` (dịch máy). Sửa/thêm bài trong app → chuỗi mới chưa có bản en → thiếu > 10 % thì trang tự noindex (không hreflang/sitemap) tới khi bổ sung.
+- Không làm: trang 13 ngôn ngữ (chỉ có dịch máy); đề TOEIC/TOEFL đầy đủ (lộ đáp án); Speaking đã có `/en/speaking/` (40).
+
+## 7. Còn lại (đợt sau)
+- Ngữ pháp/phát âm 13 ngôn ngữ: cần bản viết riêng (dịch máy = trang mỏng). Task 1 Academic bản vi (`/samples/task-1/`) – nội dung chú thích vi đã có.
 - Chia động từ `#/verb/<v>` (SEO-GROWTH-PLAN §4: 300 động từ × 15) – dùng cùng khung generator.
 - Speaking/bài mẫu cho 13 ngôn ngữ.

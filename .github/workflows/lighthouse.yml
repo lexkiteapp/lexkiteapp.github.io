@@ -21,7 +21,7 @@ jobs:
       - name: Chạy Lighthouse
         run: |
           mkdir -p reports
-          for p in "" "en/" "app/" "vi/blog/" "es/words/acquire" "en/conversations/cafe"; do
+          for p in "" "en/" "app/" "vi/blog/" "es/words/acquire" "en/conversations/cafe" "en/grammar/past-continuous" "en/pronunciation/long-ee-sound"; do
             # đo 3 lần, lấy lần có điểm tốc độ trung vị (giảm dao động của máy chủ)
             for i in 1 2 3; do npx -y lighthouse@12.2.1 "https://lexkite.com/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/lh$i.json --quiet || true; done
             node -e "const fs=require('fs');const r=[1,2,3].map(i=>'/tmp/lh'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>[f,require(f).categories.performance.score]).sort((a,b)=>a[1]-b[1]);if(!r.length)process.exit(1);fs.copyFileSync(r[Math.floor((r.length-1)/2)][0],'/tmp/lh.json')" || continue
