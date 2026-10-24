@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       label: { description: 'before / after', required: false, default: 'run' }
+      lh: { description: '1 = run Lighthouse too', required: false, default: '1' }
       base: { description: "Site to audit ('dist' = build this ref and serve it on localhost:8080)", required: false, default: 'https://lexkite.com' }
 permissions:
   contents: read
@@ -27,8 +28,13 @@ jobs:
           npx playwright install --with-deps chromium
           B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
           node scripts/test/ux-public.mjs "$B" ux-out
-      - name: Lighthouse
+      - name: App pattern sweep (every route, 1280/375, light/dark)
         if: ${{ !cancelled() }}
+        run: |
+          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
+          node scripts/test/ux-sweep.mjs "$B" ux-out/sweep --check || echo "::warning::ux-sweep over budget"
+      - name: Lighthouse
+        if: ${{ !cancelled() && github.event.inputs.lh != '0' }}
         run: |
           B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080; mkdir -p ux-out/lh
           for p in "en/vocabulary/" "en/samples/" "en/speaking/" "app/?hl=en"; do
