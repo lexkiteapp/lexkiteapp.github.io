@@ -169,7 +169,7 @@
   };
   const reveal = () => { const b = $('#ntBody'); if (b && b.classList.contains('quiz-hidden')) { b.classList.remove('quiz-hidden'); $('#ntGood')?.focus(); return true; } return false; };
   // 🖼️ Ảnh minh họa theo nghĩa (cờ thử localStorage lk.vimg=1, mặc định TẮT): module + chỉ mục chung app/js/ chỉ tải khi bật – web/js/vocab-img.js
-  const vimgP = (() => { try { if (localStorage.getItem('lk.vimg') === '0') return Promise.resolve(null);   // chưa đặt = tự động theo chỉ mục (on ≥ 150 ảnh) } catch (e) { return Promise.resolve(null); }
+  const vimgP = (() => { try { if (localStorage.getItem('lk.vimg') === '0') return Promise.resolve(null); /* chưa đặt = tự động theo chỉ mục (on ≥ 150 ảnh) */ } catch (e) { return Promise.resolve(null); }
     return new Promise(r => { const s = document.createElement('script'); s.src = 'app/js/vocab-img.js'; s.onload = () => r(window.VImg ? VImg.ready() : null); s.onerror = () => r(null); document.head.appendChild(s); }); })();
   const show = async () => {
     await vimgP;
