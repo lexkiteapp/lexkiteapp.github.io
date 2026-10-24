@@ -37,7 +37,7 @@ const go = async (h, ms = 60) => { w.location.hash = h; await tick(ms); };
     if (r === 'listen-test' || r === 'toeic-test') { w.document.body.classList.remove('bare'); w.onbeforeunload = null; }
   }
   // Trang giới thiệu (/ + /<lang>/): mọi liên kết nội bộ phải tới được – /app/…#/route có thật, file tĩnh có trong web/ hoặc trang dựng lúc build
-  const BUILT = /^\/(?:[a-z]{2}\/blog\/|tu-vung\/|samples\/|speaking\/|ngu-phap\/|viet-thu\/|en\/(?:vocabulary|samples|speaking)\/)/;
+  const BUILT = /^\/(?:[a-z]{2}\/(?:blog|words|conversations)\/|tu-vung\/|samples\/|speaking\/|ngu-phap\/|viet-thu\/|en\/(?:vocabulary|samples|speaking)\/)/;
   const LANDS = ['index.html', ...fs.readdirSync(WEB).filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(path.join(WEB, d, 'index.html'))).map(d => d + '/index.html')];
   for (const f of LANDS) {
     const hrefs = [...fs.readFileSync(path.join(WEB, f), 'utf8').matchAll(/href="(\/[^"]*)"/g)].map(m => m[1].replace(/&amp;/g, '&'));
