@@ -10,6 +10,1470 @@
  "on_min": 150,
  "base": "https://media.lexkite.com/vimg/",
  "items": {
+  "adapter#n": {
+   "alt": "adapter",
+   "photo": {
+    "h": "538c352e7f20b56c",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Evan-Amos",
+     "ref": "https://commons.wikimedia.org/wiki/File:DVI-VGA-Adapter.jpg"
+    }
+   }
+  },
+  "airplane#n": {
+   "h": "fad0fbcf62144c9c",
+   "url": "https://media.lexkite.com/vimg/fad0fbcf62144c9c.webp",
+   "alt": "airplane",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "✈️ airplane (U+2708)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "airplane"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "airport#n": {
+   "h": "cdd9822d09e74547",
+   "url": "https://media.lexkite.com/vimg/cdd9822d09e74547.webp",
+   "alt": "airport",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛫 airplane departure (U+1F6EB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "airplane departure"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "aisle#n": {
+   "alt": "aisle",
+   "photo": {
+    "h": "b0ea9d995406d746",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 2.0",
+     "by": "Hernán Piñera from Marbella",
+     "ref": "https://commons.wikimedia.org/wiki/File:Flight_-_Flickr_-_hernanpba.jpg"
+    }
+   }
+  },
+  "apartment#n": {
+   "alt": "apartment",
+   "photo": {
+    "h": "2c21f33fc3ac7fad",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Gpkp",
+     "ref": "https://commons.wikimedia.org/wiki/File:Suburbs_of_Bangalore_(2025)_02.jpg"
+    }
+   }
+  },
+  "apple#n": {
+   "h": "e1b9305093bb083c",
+   "url": "https://media.lexkite.com/vimg/e1b9305093bb083c.webp",
+   "alt": "apple",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍎 red apple (U+1F34E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "red apple"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "arm#n": {
+   "alt": "arm",
+   "photo": {
+    "h": "ce0eee3e4ce72e08",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "אנדר-ויק",
+     "ref": "https://commons.wikimedia.org/wiki/File:Arm2.jpg"
+    }
+   }
+  },
+  "artist#n": {
+   "h": "d34cf5e23f5d5771",
+   "url": "https://media.lexkite.com/vimg/d34cf5e23f5d5771.webp",
+   "alt": "artist",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🎨 artist (U+1F9D1 U+200D U+1F3A8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "artist"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "astronaut#n": {
+   "h": "5751f13759804cfe",
+   "url": "https://media.lexkite.com/vimg/5751f13759804cfe.webp",
+   "alt": "astronaut",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🚀 astronaut (U+1F9D1 U+200D U+1F680)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "astronaut"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "automobile#n": {
+   "h": "f1bff0711b191493",
+   "url": "https://media.lexkite.com/vimg/f1bff0711b191493.webp",
+   "alt": "automobile",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚗 automobile (U+1F697)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "automobile"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "baby#n": {
+   "h": "3d93cfbd9ff3b0a2",
+   "url": "https://media.lexkite.com/vimg/3d93cfbd9ff3b0a2.webp",
+   "alt": "baby",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👶 baby (U+1F476)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "baby"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "backpack#n": {
+   "h": "486f40c7dd65df1e",
+   "url": "https://media.lexkite.com/vimg/486f40c7dd65df1e.webp",
+   "alt": "backpack",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎒 backpack (U+1F392)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "backpack"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bag#n": {
+   "h": "7728bde3faa1a66c",
+   "url": "https://media.lexkite.com/vimg/7728bde3faa1a66c.webp",
+   "alt": "bag",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛍️ shopping bags (U+1F6CD)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "shopping bags"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "baggage#n": {
+   "alt": "baggage",
+   "photo": {
+    "h": "eb7b61fe23035a28",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "User:Mattes",
+     "ref": "https://commons.wikimedia.org/wiki/File:Luggage_compartments_Airbus.JPG"
+    }
+   }
+  },
+  "ball#n": {
+   "h": "53cb07361901dbf3",
+   "url": "https://media.lexkite.com/vimg/53cb07361901dbf3.webp",
+   "alt": "ball",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⚽ soccer ball (U+26BD)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "soccer ball"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "balloon#n": {
+   "h": "b78f7b4a980a1818",
+   "url": "https://media.lexkite.com/vimg/b78f7b4a980a1818.webp",
+   "alt": "balloon",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎈 balloon (U+1F388)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "balloon"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ballot#n": {
+   "h": "0a1f2c97e615b222",
+   "url": "https://media.lexkite.com/vimg/0a1f2c97e615b222.webp",
+   "alt": "ballot",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🗳️ ballot box with ballot (U+1F5F3)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ballot box with ballot"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ballroom#n": {
+   "alt": "ballroom",
+   "photo": {
+    "h": "9296600033566be1",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "User:Stan Shebs",
+     "ref": "https://commons.wikimedia.org/wiki/File:Catherine_Palace_ballroom.jpg"
+    }
+   }
+  },
+  "bank#n": {
+   "h": "bb7402817144b6b4",
+   "url": "https://media.lexkite.com/vimg/bb7402817144b6b4.webp",
+   "alt": "bank",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏦 bank (U+1F3E6)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bank"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "baseball#n": {
+   "h": "29d370f352190b4a",
+   "url": "https://media.lexkite.com/vimg/29d370f352190b4a.webp",
+   "alt": "baseball",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⚾ baseball (U+26BE)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "baseball"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "basket#n": {
+   "h": "5f14ff1ed52fc0d8",
+   "url": "https://media.lexkite.com/vimg/5f14ff1ed52fc0d8.webp",
+   "alt": "basket",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧺 basket (U+1F9FA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "basket"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "basketball#n": {
+   "h": "537ff7779ef650e4",
+   "url": "https://media.lexkite.com/vimg/537ff7779ef650e4.webp",
+   "alt": "basketball",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏀 basketball (U+1F3C0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "basketball"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bat#n": {
+   "h": "75ec4c84aeff0994",
+   "url": "https://media.lexkite.com/vimg/75ec4c84aeff0994.webp",
+   "alt": "bat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🦇 bat (U+1F987)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bathroom#n": {
+   "alt": "bathroom",
+   "photo": {
+    "h": "1f9da00fad47aefb",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "OKJaguar",
+     "ref": "https://commons.wikimedia.org/wiki/File:Restaurant_bathroom_with_two-way_mirror.jpg"
+    }
+   }
+  },
+  "battery#n": {
+   "h": "5d91db6b9aa84245",
+   "url": "https://media.lexkite.com/vimg/5d91db6b9aa84245.webp",
+   "alt": "battery",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔋 battery (U+1F50B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "battery"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "beach#n": {
+   "h": "415589206dc2886b",
+   "url": "https://media.lexkite.com/vimg/415589206dc2886b.webp",
+   "alt": "beach",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏖️ beach with umbrella (U+1F3D6)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "beach with umbrella"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bean#n": {
+   "h": "f74527864d590fa9",
+   "url": "https://media.lexkite.com/vimg/f74527864d590fa9.webp",
+   "alt": "bean",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🫘 beans (U+1FAD8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "beans"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bed#n": {
+   "h": "da7e91b7c7ea754c",
+   "url": "https://media.lexkite.com/vimg/da7e91b7c7ea754c.webp",
+   "alt": "bed",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛏️ bed (U+1F6CF)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bed"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "beer#n": {
+   "h": "2860db37ee904697",
+   "url": "https://media.lexkite.com/vimg/2860db37ee904697.webp",
+   "alt": "beer",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍺 beer mug (U+1F37A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "beer mug"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bell#n": {
+   "h": "8e074cbba71b6152",
+   "url": "https://media.lexkite.com/vimg/8e074cbba71b6152.webp",
+   "alt": "bell",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔔 bell (U+1F514)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bell"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "beverage#n": {
+   "h": "8fd4f70a4f65f193",
+   "url": "https://media.lexkite.com/vimg/8fd4f70a4f65f193.webp",
+   "alt": "beverage",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☕ hot beverage (U+2615)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hot beverage"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bicycle#n": {
+   "h": "697b6f185937be5e",
+   "url": "https://media.lexkite.com/vimg/697b6f185937be5e.webp",
+   "alt": "bicycle",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚲 bicycle (U+1F6B2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bicycle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bird#n": {
+   "h": "80b248cd1598c948",
+   "url": "https://media.lexkite.com/vimg/80b248cd1598c948.webp",
+   "alt": "bird",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐦 bird (U+1F426)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bird"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "black#adj": {
+   "h": "ad62a4584d07119c",
+   "url": "https://media.lexkite.com/vimg/ad62a4584d07119c.webp",
+   "alt": "black",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⚫ black circle (U+26AB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "black circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "blood#n": {
+   "h": "697b4d20523ab5c4",
+   "url": "https://media.lexkite.com/vimg/697b4d20523ab5c4.webp",
+   "alt": "blood",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🩸 drop of blood (U+1FA78)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "drop of blood"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "blue#adj": {
+   "h": "a767bb45a4d793e4",
+   "url": "https://media.lexkite.com/vimg/a767bb45a4d793e4.webp",
+   "alt": "blue",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔵 blue circle (U+1F535)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "blue circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "boat#n": {
+   "h": "8d29d4bba63dfdf8",
+   "url": "https://media.lexkite.com/vimg/8d29d4bba63dfdf8.webp",
+   "alt": "boat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛥️ motor boat (U+1F6E5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "motor boat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bolt#n": {
+   "h": "08255ff240ab0a84",
+   "url": "https://media.lexkite.com/vimg/08255ff240ab0a84.webp",
+   "alt": "bolt",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔩 nut and bolt (U+1F529)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "nut and bolt"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bone#n": {
+   "h": "a933a1248d8e0fe8",
+   "url": "https://media.lexkite.com/vimg/a933a1248d8e0fe8.webp",
+   "alt": "bone",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🦴 bone (U+1F9B4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bone"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "book#n": {
+   "h": "76a67e013f841997",
+   "url": "https://media.lexkite.com/vimg/76a67e013f841997.webp",
+   "alt": "book",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📚 books (U+1F4DA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "books"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "boot#n": {
+   "h": "7b937ee0fcda354e",
+   "url": "https://media.lexkite.com/vimg/7b937ee0fcda354e.webp",
+   "alt": "boot",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥾 hiking boot (U+1F97E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hiking boot"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bottle#n": {
+   "h": "0acf1868e9587e56",
+   "url": "https://media.lexkite.com/vimg/0acf1868e9587e56.webp",
+   "alt": "bottle",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍼 baby bottle (U+1F37C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "baby bottle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bowl#n": {
+   "h": "f25663edf818c705",
+   "url": "https://media.lexkite.com/vimg/f25663edf818c705.webp",
+   "alt": "bowl",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍜 steaming bowl (U+1F35C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "steaming bowl"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "box#n": {
+   "alt": "box",
+   "photo": {
+    "h": "72afb065af63709b",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 2.5",
+     "by": "Oxyman",
+     "ref": "https://commons.wikimedia.org/wiki/File:Large_Wooden_box.jpg"
+    }
+   }
+  },
+  "boy#n": {
+   "h": "9fa46174957f7ad4",
+   "url": "https://media.lexkite.com/vimg/9fa46174957f7ad4.webp",
+   "alt": "boy",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👦 boy (U+1F466)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "boy"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "brain#n": {
+   "h": "3169789f69c1d41c",
+   "url": "https://media.lexkite.com/vimg/3169789f69c1d41c.webp",
+   "alt": "brain",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧠 brain (U+1F9E0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "brain"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bread#n": {
+   "h": "3948f040786af2b5",
+   "url": "https://media.lexkite.com/vimg/3948f040786af2b5.webp",
+   "alt": "bread",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍞 bread (U+1F35E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bread"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "brick#n": {
+   "h": "09b40a9ea352d77c",
+   "url": "https://media.lexkite.com/vimg/09b40a9ea352d77c.webp",
+   "alt": "brick",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧱 brick (U+1F9F1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "brick"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bridge#n": {
+   "alt": "bridge",
+   "photo": {
+    "h": "ad7c01dace5f00b4",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Kerim Burak",
+     "ref": "https://commons.wikimedia.org/wiki/File:Yavuz_Sultan_Selim_Bridge_Istanbul.jpg"
+    }
+   }
+  },
+  "briefcase#n": {
+   "h": "ad01e2c6c5690dfa",
+   "url": "https://media.lexkite.com/vimg/ad01e2c6c5690dfa.webp",
+   "alt": "briefcase",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💼 briefcase (U+1F4BC)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "briefcase"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "broom#n": {
+   "h": "6c14c7cd93b67ba9",
+   "url": "https://media.lexkite.com/vimg/6c14c7cd93b67ba9.webp",
+   "alt": "broom",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧹 broom (U+1F9F9)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "broom"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "brown#adj": {
+   "h": "64e79c5800f09083",
+   "url": "https://media.lexkite.com/vimg/64e79c5800f09083.webp",
+   "alt": "brown",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🟤 brown circle (U+1F7E4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "brown circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bubble#n": {
+   "h": "93180cad13222373",
+   "url": "https://media.lexkite.com/vimg/93180cad13222373.webp",
+   "alt": "bubble",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🫧 bubbles (U+1FAE7)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bubbles"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bucket#n": {
+   "h": "0885948e1aa8da82",
+   "url": "https://media.lexkite.com/vimg/0885948e1aa8da82.webp",
+   "alt": "bucket",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪣 bucket (U+1FAA3)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bucket"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bulb#n": {
+   "h": "9d9e383f740d149f",
+   "url": "https://media.lexkite.com/vimg/9d9e383f740d149f.webp",
+   "alt": "bulb",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💡 light bulb (U+1F4A1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "light bulb"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "bulletin board#n": {
+   "alt": "bulletin board",
+   "photo": {
+    "h": "f98a2b265ada3b51",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Joseph Barillari",
+     "ref": "https://commons.wikimedia.org/wiki/File:Infinite-corridor-bboard.jpeg"
+    }
+   }
+  },
+  "bus#n": {
+   "h": "a59e9bb14ce78136",
+   "url": "https://media.lexkite.com/vimg/a59e9bb14ce78136.webp",
+   "alt": "bus",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚌 bus (U+1F68C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "bus"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "butter#n": {
+   "h": "81c0976ef2993592",
+   "url": "https://media.lexkite.com/vimg/81c0976ef2993592.webp",
+   "alt": "butter",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧈 butter (U+1F9C8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "butter"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "button#n": {
+   "alt": "button",
+   "photo": {
+    "h": "2098f17d6b0b4e00",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Richard Wheeler (Zephyris) 2007. ==Licensing==",
+     "ref": "https://commons.wikimedia.org/wiki/File:Plastic_%26_fabric_buttons_showing_holes_%26_shank.jpg"
+    }
+   }
+  },
+  "cabinet#n": {
+   "h": "19745881afac4e91",
+   "url": "https://media.lexkite.com/vimg/19745881afac4e91.webp",
+   "alt": "cabinet",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🗄️ file cabinet (U+1F5C4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "file cabinet"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cake#n": {
+   "h": "f9815bbd4bc3cb31",
+   "url": "https://media.lexkite.com/vimg/f9815bbd4bc3cb31.webp",
+   "alt": "cake",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎂 birthday cake (U+1F382)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "birthday cake"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "calculator#n": {
+   "alt": "calculator",
+   "photo": {
+    "h": "8fe0fc996d96d325",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Entalpia2",
+     "ref": "https://commons.wikimedia.org/wiki/File:Calculadora_cient%C3%ADfica_Famaprem_CPC-400.jpg"
+    }
+   }
+  },
+  "calendar#n": {
+   "h": "7b198e773cd32c63",
+   "url": "https://media.lexkite.com/vimg/7b198e773cd32c63.webp",
+   "alt": "calendar",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📅 calendar (U+1F4C5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "calendar"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "camera#n": {
+   "h": "e9357664a86ab33d",
+   "url": "https://media.lexkite.com/vimg/e9357664a86ab33d.webp",
+   "alt": "camera",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📷 camera (U+1F4F7)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "camera"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "candy#n": {
+   "h": "d33789220f922e05",
+   "url": "https://media.lexkite.com/vimg/d33789220f922e05.webp",
+   "alt": "candy",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍬 candy (U+1F36C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "candy"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
   "car#n": {
    "h": "2aebe1a217902a9a",
    "url": "https://media.lexkite.com/vimg/2aebe1a217902a9a.webp",
@@ -33,6 +1497,6326 @@
    "ph": "e694996b66949969",
    "at": "2026-10-24",
    "b": "40073728800"
+  },
+  "carpet#n": {
+   "alt": "carpet",
+   "photo": {
+    "h": "7e1674577a96da98",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Nazmiyal",
+     "ref": "https://commons.wikimedia.org/wiki/File:Antique_Heriz_Serapi_Persian_Carpet.jpg"
+    }
+   }
+  },
+  "cart#n": {
+   "h": "59ee60ddca609682",
+   "url": "https://media.lexkite.com/vimg/59ee60ddca609682.webp",
+   "alt": "cart",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛒 shopping cart (U+1F6D2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "shopping cart"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "carton#n": {
+   "alt": "carton",
+   "photo": {
+    "h": "652b7d9a8b0469e8",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Rlsheehan at English Wikipedia",
+     "ref": "https://commons.wikimedia.org/wiki/File:Several_Cartons.jpg"
+    }
+   }
+  },
+  "castle#n": {
+   "h": "48f2865e6145a00c",
+   "url": "https://media.lexkite.com/vimg/48f2865e6145a00c.webp",
+   "alt": "castle",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏰 castle (U+1F3F0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "castle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cat#n": {
+   "h": "33aaf101bfb3e661",
+   "url": "https://media.lexkite.com/vimg/33aaf101bfb3e661.webp",
+   "alt": "cat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐈 cat (U+1F408)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ceiling#n": {
+   "alt": "ceiling",
+   "photo": {
+    "h": "80b7856e032f7284",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Pko",
+     "ref": "https://commons.wikimedia.org/wiki/File:Torun_Kopernika_21_pietro_strop_(2).jpg"
+    }
+   }
+  },
+  "chair#n": {
+   "h": "424c44c9672c5b56",
+   "url": "https://media.lexkite.com/vimg/424c44c9672c5b56.webp",
+   "alt": "chair",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪑 chair (U+1FA91)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "chair"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cheese#n": {
+   "h": "4283ec0546cb1488",
+   "url": "https://media.lexkite.com/vimg/4283ec0546cb1488.webp",
+   "alt": "cheese",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧀 cheese wedge (U+1F9C0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cheese wedge"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cheeseburger#n": {
+   "alt": "cheeseburger",
+   "photo": {
+    "h": "c12d957a4ccfd6f5",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Renee Comet (photographer)",
+     "ref": "https://commons.wikimedia.org/wiki/File:Cheeseburger.jpg"
+    }
+   }
+  },
+  "chef#n": {
+   "h": "1b3ac9dbe0680612",
+   "url": "https://media.lexkite.com/vimg/1b3ac9dbe0680612.webp",
+   "alt": "chef",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🍳 cook (U+1F9D1 U+200D U+1F373)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cook"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "chicken#n": {
+   "h": "69772ed49d89a387",
+   "url": "https://media.lexkite.com/vimg/69772ed49d89a387.webp",
+   "alt": "chicken",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐔 chicken (U+1F414)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "chicken"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "child#n": {
+   "h": "5b49e158653142c5",
+   "url": "https://media.lexkite.com/vimg/5b49e158653142c5.webp",
+   "alt": "child",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧒 child (U+1F9D2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "child"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "chocolate#n": {
+   "h": "ac9bfe090de1a2cf",
+   "url": "https://media.lexkite.com/vimg/ac9bfe090de1a2cf.webp",
+   "alt": "chocolate",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍫 chocolate bar (U+1F36B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "chocolate bar"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "church#n": {
+   "h": "86137e08a7b826c5",
+   "url": "https://media.lexkite.com/vimg/86137e08a7b826c5.webp",
+   "alt": "church",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⛪ church (U+26EA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "church"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cigarette#n": {
+   "h": "56eb68b10dda9cd7",
+   "url": "https://media.lexkite.com/vimg/56eb68b10dda9cd7.webp",
+   "alt": "cigarette",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚬 cigarette (U+1F6AC)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cigarette"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "circle#n": {
+   "h": "42ed09056bb3dc26",
+   "url": "https://media.lexkite.com/vimg/42ed09056bb3dc26.webp",
+   "alt": "circle",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⭕ hollow red circle (U+2B55)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hollow red circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "city#n": {
+   "h": "dd42f3a75ad9e395",
+   "url": "https://media.lexkite.com/vimg/dd42f3a75ad9e395.webp",
+   "alt": "city",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏙️ cityscape (U+1F3D9)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cityscape"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "clock#n": {
+   "h": "b28f275bd161b134",
+   "url": "https://media.lexkite.com/vimg/b28f275bd161b134.webp",
+   "alt": "clock",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⏰ alarm clock (U+23F0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "alarm clock"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "closet#n": {
+   "alt": "closet",
+   "photo": {
+    "h": "9fa5554203c2e22d",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Tysto",
+     "ref": "https://commons.wikimedia.org/wiki/File:Wall-closet.jpg"
+    }
+   }
+  },
+  "cloud#n": {
+   "h": "4c45043efe198689",
+   "url": "https://media.lexkite.com/vimg/4c45043efe198689.webp",
+   "alt": "cloud",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☁️ cloud (U+2601)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cloud"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "coast#n": {
+   "alt": "coast",
+   "photo": {
+    "h": "0c840d01389ebdff",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "The original uploader was Swollib at English Wikipedia.",
+     "ref": "https://commons.wikimedia.org/wiki/File:Knight%27s_Point,_West_Coast.jpg"
+    }
+   }
+  },
+  "coat#n": {
+   "h": "37795b1ff9c3c3bb",
+   "url": "https://media.lexkite.com/vimg/37795b1ff9c3c3bb.webp",
+   "alt": "coat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧥 coat (U+1F9E5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "coat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "coffee#n": {
+   "h": "8fd4f70a4f65f193",
+   "url": "https://media.lexkite.com/vimg/8fd4f70a4f65f193.webp",
+   "alt": "coffee",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☕ hot beverage (U+2615)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hot beverage"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "coin#n": {
+   "h": "bce1699c4abcac28",
+   "url": "https://media.lexkite.com/vimg/bce1699c4abcac28.webp",
+   "alt": "coin",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪙 coin (U+1FA99)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "coin"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "comb#n": {
+   "alt": "comb",
+   "photo": {
+    "h": "275291df2fcd92ed",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Crisco 1492",
+     "ref": "https://commons.wikimedia.org/wiki/File:Plastic_comb,_2015-06-07.jpg"
+    }
+   }
+  },
+  "comet#n": {
+   "h": "8cf74284679fbe2b",
+   "url": "https://media.lexkite.com/vimg/8cf74284679fbe2b.webp",
+   "alt": "comet",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☄️ comet (U+2604)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "comet"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "computer#n": {
+   "h": "c5610125ce355a35",
+   "url": "https://media.lexkite.com/vimg/c5610125ce355a35.webp",
+   "alt": "computer",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🖥️ desktop computer (U+1F5A5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "desktop computer"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cookie#n": {
+   "h": "751b5f9eebd646b8",
+   "url": "https://media.lexkite.com/vimg/751b5f9eebd646b8.webp",
+   "alt": "cookie",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍪 cookie (U+1F36A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cookie"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "corn#n": {
+   "h": "0b6b073d15b87006",
+   "url": "https://media.lexkite.com/vimg/0b6b073d15b87006.webp",
+   "alt": "corn",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌽 ear of corn (U+1F33D)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ear of corn"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cow#n": {
+   "h": "1c4cd8cb79115245",
+   "url": "https://media.lexkite.com/vimg/1c4cd8cb79115245.webp",
+   "alt": "cow",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐄 cow (U+1F404)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cow"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "cup#n": {
+   "h": "8fd4f70a4f65f193",
+   "url": "https://media.lexkite.com/vimg/8fd4f70a4f65f193.webp",
+   "alt": "cup",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☕ hot beverage (U+2615)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hot beverage"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "curtain#n": {
+   "alt": "curtain",
+   "photo": {
+    "h": "4cd024fb47f97061",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Nieuw~commonswiki",
+     "ref": "https://commons.wikimedia.org/wiki/File:Gordijnen_aan_venster.JPG"
+    }
+   }
+  },
+  "cushion#n": {
+   "alt": "cushion",
+   "photo": {
+    "h": "ca2d887bacd0a169",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Shiftchange at English Wikipedia",
+     "ref": "https://commons.wikimedia.org/wiki/File:Cushions.jpg"
+    }
+   }
+  },
+  "desert#n": {
+   "h": "f6bc663bda171430",
+   "url": "https://media.lexkite.com/vimg/f6bc663bda171430.webp",
+   "alt": "desert",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏜️ desert (U+1F3DC)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "desert"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "desk#n": {
+   "alt": "desk",
+   "photo": {
+    "h": "354d325feee27c08",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Centraal Museum Utrecht (CMU) / Adriaan van Dam",
+     "ref": "https://commons.wikimedia.org/wiki/File:Willem_Kromhout_schrijfbureau_(2).jpg"
+    }
+   }
+  },
+  "diamond#n": {
+   "h": "5e1492d8fd7eb1b4",
+   "url": "https://media.lexkite.com/vimg/5e1492d8fd7eb1b4.webp",
+   "alt": "diamond",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💎 gem stone (U+1F48E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "gem stone"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "dishwasher#n": {
+   "alt": "dishwasher",
+   "photo": {
+    "h": "2884015698a62052",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "The original uploader was Tim Simms at German Wikipedia.",
+     "ref": "https://commons.wikimedia.org/wiki/File:Geschirrspuelmaschine.JPG"
+    }
+   }
+  },
+  "dna#n": {
+   "h": "0b191f386947b7fb",
+   "url": "https://media.lexkite.com/vimg/0b191f386947b7fb.webp",
+   "alt": "dna",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧬 dna (U+1F9EC)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "dna"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "doctor#n": {
+   "h": "0e6731f46278b2cf",
+   "url": "https://media.lexkite.com/vimg/0e6731f46278b2cf.webp",
+   "alt": "doctor",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍⚕️ health worker (U+1F9D1 U+200D U+2695)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "health worker"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "dog#n": {
+   "h": "497e8333cf4dc78c",
+   "url": "https://media.lexkite.com/vimg/497e8333cf4dc78c.webp",
+   "alt": "dog",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐕 dog (U+1F415)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "dog"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "door#n": {
+   "h": "6109fa6959839ced",
+   "url": "https://media.lexkite.com/vimg/6109fa6959839ced.webp",
+   "alt": "door",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚪 door (U+1F6AA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "door"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "drawer#n": {
+   "alt": "drawer",
+   "photo": {
+    "h": "6066407522c63610",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC0",
+     "by": "https://www.metmuseum.org/art/collection/search/1996",
+     "ref": "https://commons.wikimedia.org/wiki/File:Szuflada.jpg"
+    }
+   }
+  },
+  "dress#n": {
+   "h": "7d439065bffb37f9",
+   "url": "https://media.lexkite.com/vimg/7d439065bffb37f9.webp",
+   "alt": "dress",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👗 dress (U+1F457)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "dress"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "drill#n": {
+   "alt": "drill",
+   "photo": {
+    "h": "25e6c8e1dc322a07",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "FDominec",
+     "ref": "https://commons.wikimedia.org/wiki/File:Drill_inside.jpg"
+    }
+   }
+  },
+  "drum#n": {
+   "h": "a3f35fcd4ff83f00",
+   "url": "https://media.lexkite.com/vimg/a3f35fcd4ff83f00.webp",
+   "alt": "drum",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥁 drum (U+1F941)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "drum"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ear#n": {
+   "h": "1a1d1578c25fb436",
+   "url": "https://media.lexkite.com/vimg/1a1d1578c25fb436.webp",
+   "alt": "ear",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👂 ear (U+1F442)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ear"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "egg#n": {
+   "h": "093726cb580ec9a7",
+   "url": "https://media.lexkite.com/vimg/093726cb580ec9a7.webp",
+   "alt": "egg",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥚 egg (U+1F95A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "egg"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "elephant#n": {
+   "h": "56636e1fc017566e",
+   "url": "https://media.lexkite.com/vimg/56636e1fc017566e.webp",
+   "alt": "elephant",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐘 elephant (U+1F418)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "elephant"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "elevator#n": {
+   "h": "0f34882961c2d11d",
+   "url": "https://media.lexkite.com/vimg/0f34882961c2d11d.webp",
+   "alt": "elevator",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛗 elevator (U+1F6D7)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "elevator"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "envelope#n": {
+   "h": "2e267f2b0770f00e",
+   "url": "https://media.lexkite.com/vimg/2e267f2b0770f00e.webp",
+   "alt": "envelope",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "✉️ envelope (U+2709)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "envelope"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "extinguisher#n": {
+   "h": "177f32df89e1552f",
+   "url": "https://media.lexkite.com/vimg/177f32df89e1552f.webp",
+   "alt": "extinguisher",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧯 fire extinguisher (U+1F9EF)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "fire extinguisher"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "eye#n": {
+   "h": "511c5fbad0095c22",
+   "url": "https://media.lexkite.com/vimg/511c5fbad0095c22.webp",
+   "alt": "eye",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👁️ eye (U+1F441)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "eye"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "factory#n": {
+   "h": "183dfabca28723f3",
+   "url": "https://media.lexkite.com/vimg/183dfabca28723f3.webp",
+   "alt": "factory",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏭 factory (U+1F3ED)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "factory"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "farm#n": {
+   "alt": "farm",
+   "photo": {
+    "h": "b2e2455c6435997c",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Uploaded by Borboerik",
+     "ref": "https://commons.wikimedia.org/wiki/File:Borgboda2006_web.jpg"
+    }
+   }
+  },
+  "farmer#n": {
+   "h": "a31a01dbe730abd8",
+   "url": "https://media.lexkite.com/vimg/a31a01dbe730abd8.webp",
+   "alt": "farmer",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🌾 farmer (U+1F9D1 U+200D U+1F33E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "farmer"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "fence#n": {
+   "alt": "fence",
+   "photo": {
+    "h": "32c3ba6e0fc3b764",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 2.0",
+     "by": "David Joyce from Gray, TN, United States",
+     "ref": "https://commons.wikimedia.org/wiki/File:Elizabethton_Tennessee.jpg"
+    }
+   }
+  },
+  "ferry#n": {
+   "h": "08bc56c450559058",
+   "url": "https://media.lexkite.com/vimg/08bc56c450559058.webp",
+   "alt": "ferry",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⛴️ ferry (U+26F4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ferry"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "filing cabinet#n": {
+   "alt": "filing cabinet",
+   "photo": {
+    "h": "72035209f26f9db6",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "sailko",
+     "ref": "https://commons.wikimedia.org/wiki/File:Istituto_agronomico_per_l%27oltremare,_int.,_biblioteca,_schedario_05.JPG"
+    }
+   }
+  },
+  "finger#n": {
+   "alt": "finger",
+   "photo": {
+    "h": "767a1d9cb6b5730e",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Sciencia58",
+     "ref": "https://commons.wikimedia.org/wiki/File:Human_fingers_both_sides_2.jpg"
+    }
+   }
+  },
+  "fire#n": {
+   "h": "272fda0694e79cab",
+   "url": "https://media.lexkite.com/vimg/272fda0694e79cab.webp",
+   "alt": "fire",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔥 fire (U+1F525)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "fire"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "firefighter#n": {
+   "h": "a86bf01943268a44",
+   "url": "https://media.lexkite.com/vimg/a86bf01943268a44.webp",
+   "alt": "firefighter",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🚒 firefighter (U+1F9D1 U+200D U+1F692)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "firefighter"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "firework#n": {
+   "h": "c7c9f4cb0afe0a8a",
+   "url": "https://media.lexkite.com/vimg/c7c9f4cb0afe0a8a.webp",
+   "alt": "firework",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎆 fireworks (U+1F386)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "fireworks"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "fish#n": {
+   "h": "794953f09679c1cb",
+   "url": "https://media.lexkite.com/vimg/794953f09679c1cb.webp",
+   "alt": "fish",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐟 fish (U+1F41F)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "fish"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "flag#n": {
+   "alt": "flag",
+   "photo": {
+    "h": "f024dbd4ee7cb0fb",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC0",
+     "by": "Groov3",
+     "ref": "https://commons.wikimedia.org/wiki/File:Palais_des_Nations_unies,_%C3%A0_Gen%C3%A8ve_(cropped).jpg"
+    }
+   }
+  },
+  "flour#n": {
+   "alt": "flour",
+   "photo": {
+    "h": "756e62f667768029",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Mudd1",
+     "ref": "https://commons.wikimedia.org/wiki/File:Flours.jpg"
+    }
+   }
+  },
+  "flower#n": {
+   "h": "004b13ce6063c2ee",
+   "url": "https://media.lexkite.com/vimg/004b13ce6063c2ee.webp",
+   "alt": "flower",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌼 blossom (U+1F33C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "blossom"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "fog#n": {
+   "h": "7b5518233c1f1eec",
+   "url": "https://media.lexkite.com/vimg/7b5518233c1f1eec.webp",
+   "alt": "fog",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌫️ fog (U+1F32B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "fog"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "foot#n": {
+   "h": "19653dddd741e677",
+   "url": "https://media.lexkite.com/vimg/19653dddd741e677.webp",
+   "alt": "foot",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🦶 foot (U+1F9B6)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "foot"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "footpath#n": {
+   "alt": "footpath",
+   "photo": {
+    "h": "2917c6793cfbb20e",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 4.0",
+     "by": "Terez Ruby",
+     "ref": "https://commons.wikimedia.org/wiki/File:Alley_in_Bois_de_la_Cambre.jpg"
+    }
+   }
+  },
+  "fork#n": {
+   "alt": "fork",
+   "photo": {
+    "h": "dbf6dccffbdadfb5",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "unknown",
+     "ref": "https://commons.wikimedia.org/wiki/File:Assorted_forks.jpg"
+    }
+   }
+  },
+  "fountain#n": {
+   "h": "bf38b32e977d6948",
+   "url": "https://media.lexkite.com/vimg/bf38b32e977d6948.webp",
+   "alt": "fountain",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⛲ fountain (U+26F2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "fountain"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "garage#n": {
+   "alt": "garage",
+   "photo": {
+    "h": "215d9209f90feeee",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC0",
+     "by": "Shisma",
+     "ref": "https://commons.wikimedia.org/wiki/File:Garage_der_Hellmuth-Ulrici-Klinik.jpg"
+    }
+   }
+  },
+  "garden#n": {
+   "alt": "garden",
+   "photo": {
+    "h": "e16fbd1fcc5e28cc",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Aernoudts jean",
+     "ref": "https://commons.wikimedia.org/wiki/File:French_Formal_Garden_in_Loire_Valley.jpg"
+    }
+   }
+  },
+  "ghost#n": {
+   "h": "9c4d988b60ce2626",
+   "url": "https://media.lexkite.com/vimg/9c4d988b60ce2626.webp",
+   "alt": "ghost",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👻 ghost (U+1F47B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ghost"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "gift#n": {
+   "h": "87d95384bb683555",
+   "url": "https://media.lexkite.com/vimg/87d95384bb683555.webp",
+   "alt": "gift",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎁 wrapped gift (U+1F381)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "wrapped gift"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "girl#n": {
+   "h": "09b1d8d9da30ae91",
+   "url": "https://media.lexkite.com/vimg/09b1d8d9da30ae91.webp",
+   "alt": "girl",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👧 girl (U+1F467)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "girl"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "globe#n": {
+   "h": "572a9aa123201907",
+   "url": "https://media.lexkite.com/vimg/572a9aa123201907.webp",
+   "alt": "globe",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌍 globe showing europe-africa (U+1F30D)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "globe showing europe-africa"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "glove#n": {
+   "h": "b670dcc57478d902",
+   "url": "https://media.lexkite.com/vimg/b670dcc57478d902.webp",
+   "alt": "glove",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧤 gloves (U+1F9E4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "gloves"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "goat#n": {
+   "h": "2355429f80bc02ac",
+   "url": "https://media.lexkite.com/vimg/2355429f80bc02ac.webp",
+   "alt": "goat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐐 goat (U+1F410)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "goat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "grain#n": {
+   "alt": "grain",
+   "photo": {
+    "h": "76da3bc9bf9b57aa",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 1.0",
+     "by": "User:Steinsky",
+     "ref": "https://commons.wikimedia.org/wiki/File:040719_172_dorset_marnhull.jpg"
+    }
+   }
+  },
+  "green#adj": {
+   "h": "ca69af02ed11285c",
+   "url": "https://media.lexkite.com/vimg/ca69af02ed11285c.webp",
+   "alt": "green",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🟢 green circle (U+1F7E2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "green circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "guard#n": {
+   "h": "bd813c7e6229082e",
+   "url": "https://media.lexkite.com/vimg/bd813c7e6229082e.webp",
+   "alt": "guard",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💂 guard (U+1F482)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "guard"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "guitar#n": {
+   "h": "896d8ab5ae0b1319",
+   "url": "https://media.lexkite.com/vimg/896d8ab5ae0b1319.webp",
+   "alt": "guitar",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎸 guitar (U+1F3B8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "guitar"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "hamburger#n": {
+   "h": "9e6b1155e9893cd1",
+   "url": "https://media.lexkite.com/vimg/9e6b1155e9893cd1.webp",
+   "alt": "hamburger",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍔 hamburger (U+1F354)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hamburger"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "hand luggage#n": {
+   "alt": "hand luggage",
+   "photo": {
+    "h": "e0f7407d465392dc",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "RG72",
+     "ref": "https://commons.wikimedia.org/wiki/File:Valizoj_en_a%C4%89etcentro_Premier_(Tjumeno).jpg"
+    }
+   }
+  },
+  "hand#n": {
+   "h": "9aeee20ecfe85210",
+   "url": "https://media.lexkite.com/vimg/9aeee20ecfe85210.webp",
+   "alt": "hand",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "✋ raised hand (U+270B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "raised hand"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "hat#n": {
+   "h": "c9cb905d8d2d336a",
+   "url": "https://media.lexkite.com/vimg/c9cb905d8d2d336a.webp",
+   "alt": "hat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎩 top hat (U+1F3A9)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "top hat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "headphone#n": {
+   "h": "f13173b4e64258eb",
+   "url": "https://media.lexkite.com/vimg/f13173b4e64258eb.webp",
+   "alt": "headphone",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎧 headphone (U+1F3A7)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "headphone"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "heart#n": {
+   "h": "c4e94786ef4093f7",
+   "url": "https://media.lexkite.com/vimg/c4e94786ef4093f7.webp",
+   "alt": "heart",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🫀 anatomical heart (U+1FAC0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "anatomical heart"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "heater#n": {
+   "alt": "heater",
+   "photo": {
+    "h": "ced0ecc0fc56857b",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "No machine-readable author provided. Roger McLassus 1951 assumed (based on copyright claims).",
+     "ref": "https://commons.wikimedia.org/wiki/File:Fan_heater_2005.jpg"
+    }
+   }
+  },
+  "helicopter#n": {
+   "h": "d9fab1e126d00898",
+   "url": "https://media.lexkite.com/vimg/d9fab1e126d00898.webp",
+   "alt": "helicopter",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚁 helicopter (U+1F681)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "helicopter"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "hill#n": {
+   "alt": "hill",
+   "photo": {
+    "h": "833481dc61c6c9ee",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Webmaster.vinarice",
+     "ref": "https://commons.wikimedia.org/wiki/File:Bacin_zari_2015.jpg"
+    }
+   }
+  },
+  "hook#n": {
+   "h": "478dafd88ab751b1",
+   "url": "https://media.lexkite.com/vimg/478dafd88ab751b1.webp",
+   "alt": "hook",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪝 hook (U+1FA9D)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hook"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "horse#n": {
+   "h": "866c803b84c7e583",
+   "url": "https://media.lexkite.com/vimg/866c803b84c7e583.webp",
+   "alt": "horse",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐎 horse (U+1F40E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "horse"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "hospital#n": {
+   "h": "d18988958f1f900b",
+   "url": "https://media.lexkite.com/vimg/d18988958f1f900b.webp",
+   "alt": "hospital",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏥 hospital (U+1F3E5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hospital"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "hotel#n": {
+   "h": "e1ca69159445c06e",
+   "url": "https://media.lexkite.com/vimg/e1ca69159445c06e.webp",
+   "alt": "hotel",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏨 hotel (U+1F3E8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hotel"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "house#n": {
+   "h": "79cde96305ba8cfa",
+   "url": "https://media.lexkite.com/vimg/79cde96305ba8cfa.webp",
+   "alt": "house",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏠 house (U+1F3E0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "house"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ice#n": {
+   "h": "874690f5d33624f6",
+   "url": "https://media.lexkite.com/vimg/874690f5d33624f6.webp",
+   "alt": "ice",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧊 ice (U+1F9CA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ice"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "island#n": {
+   "h": "e7f21529684ca532",
+   "url": "https://media.lexkite.com/vimg/e7f21529684ca532.webp",
+   "alt": "island",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏝️ desert island (U+1F3DD)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "desert island"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "jacket#n": {
+   "alt": "jacket",
+   "photo": {
+    "h": "ea0aa9738ff88b84",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Ingolfson",
+     "ref": "https://commons.wikimedia.org/wiki/File:Windbreaker_Jacket,_Hood_Outside.jpg"
+    }
+   }
+  },
+  "jeans#n": {
+   "h": "2ff524951fb5f9e2",
+   "url": "https://media.lexkite.com/vimg/2ff524951fb5f9e2.webp",
+   "alt": "jeans",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👖 jeans (U+1F456)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "jeans"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "judge#n": {
+   "h": "9b724e1e57c6ba78",
+   "url": "https://media.lexkite.com/vimg/9b724e1e57c6ba78.webp",
+   "alt": "judge",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍⚖️ judge (U+1F9D1 U+200D U+2696)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "judge"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "juice#n": {
+   "h": "b21e3d56e453a3c9",
+   "url": "https://media.lexkite.com/vimg/b21e3d56e453a3c9.webp",
+   "alt": "juice",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧃 beverage box (U+1F9C3)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "beverage box"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "key#n": {
+   "h": "27dc2865cb2e3d9f",
+   "url": "https://media.lexkite.com/vimg/27dc2865cb2e3d9f.webp",
+   "alt": "key",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔑 key (U+1F511)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "key"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "keyboard#n": {
+   "h": "feda541b3a971234",
+   "url": "https://media.lexkite.com/vimg/feda541b3a971234.webp",
+   "alt": "keyboard",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⌨️ keyboard (U+2328)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "keyboard"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "king#n": {
+   "h": "61f5c6f250887075",
+   "url": "https://media.lexkite.com/vimg/61f5c6f250887075.webp",
+   "alt": "king",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🤴 prince (U+1F934)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "prince"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "kitchen#n": {
+   "alt": "kitchen",
+   "photo": {
+    "h": "03cd837cb1c5f4c4",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Samantha Appleton / United states of America",
+     "ref": "https://commons.wikimedia.org/wiki/File:Kitchenwhitehouse.jpg"
+    }
+   }
+  },
+  "knife#n": {
+   "h": "784a764ef20a9213",
+   "url": "https://media.lexkite.com/vimg/784a764ef20a9213.webp",
+   "alt": "knife",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔪 kitchen knife (U+1F52A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "kitchen knife"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "label#n": {
+   "h": "4f6e0bd3ad6aa8ed",
+   "url": "https://media.lexkite.com/vimg/4f6e0bd3ad6aa8ed.webp",
+   "alt": "label",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏷️ label (U+1F3F7)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "label"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ladder#n": {
+   "h": "87e8e0a997286c66",
+   "url": "https://media.lexkite.com/vimg/87e8e0a997286c66.webp",
+   "alt": "ladder",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪜 ladder (U+1FA9C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ladder"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "lake#n": {
+   "alt": "lake",
+   "photo": {
+    "h": "df747d3699d1ec4a",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Myrabella",
+     "ref": "https://commons.wikimedia.org/wiki/File:Gentau_Pic_du_Midi_Ossau.jpg"
+    }
+   }
+  },
+  "lamp#n": {
+   "h": "9d9e383f740d149f",
+   "url": "https://media.lexkite.com/vimg/9d9e383f740d149f.webp",
+   "alt": "lamp",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💡 light bulb (U+1F4A1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "light bulb"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "laptop#n": {
+   "h": "8fb3f0bc9c46f416",
+   "url": "https://media.lexkite.com/vimg/8fb3f0bc9c46f416.webp",
+   "alt": "laptop",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💻 laptop (U+1F4BB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "laptop"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "laundry#n": {
+   "alt": "laundry",
+   "photo": {
+    "h": "0bdf0eef1edb09c5",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 2.0",
+     "by": "gailhampshire from Cradley, Malvern, U.K",
+     "ref": "https://commons.wikimedia.org/wiki/File:Madagascar_06_545_-_Flickr_-_gailhampshire.jpg"
+    }
+   }
+  },
+  "leaf#n": {
+   "h": "e59d15b1e256e306",
+   "url": "https://media.lexkite.com/vimg/e59d15b1e256e306.webp",
+   "alt": "leaf",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍃 leaf fluttering in wind (U+1F343)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "leaf fluttering in wind"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ledger#n": {
+   "h": "20a42eb0dde225d4",
+   "url": "https://media.lexkite.com/vimg/20a42eb0dde225d4.webp",
+   "alt": "ledger",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📒 ledger (U+1F4D2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ledger"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "leg#n": {
+   "h": "e1dd132090eacd92",
+   "url": "https://media.lexkite.com/vimg/e1dd132090eacd92.webp",
+   "alt": "leg",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🦵 leg (U+1F9B5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "leg"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "lighter#n": {
+   "alt": "lighter",
+   "photo": {
+    "h": "3c132d7c8b387e95",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 2.5",
+     "by": "David J. Fred",
+     "ref": "https://commons.wikimedia.org/wiki/File:Zippo-Slim-1968-Lit.jpg"
+    }
+   }
+  },
+  "lighthouse#n": {
+   "alt": "lighthouse",
+   "photo": {
+    "h": "505fac7775ec3287",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Marco Leiter",
+     "ref": "https://commons.wikimedia.org/wiki/File:Leuchtturm_in_Westerheversand_crop.jpg"
+    }
+   }
+  },
+  "locker#n": {
+   "alt": "locker",
+   "photo": {
+    "h": "3d3e471eb6a4c21c",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Photo: Andreas Praefcke, cropped by Zanaq",
+     "ref": "https://commons.wikimedia.org/wiki/File:Tropenmuseum_lockers_-_cropped.png"
+    }
+   }
+  },
+  "lounge#n": {
+   "alt": "lounge",
+   "photo": {
+    "h": "53eccf1dde5adec3",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Hirohisat",
+     "ref": "https://commons.wikimedia.org/wiki/File:Narita-sakura-lounge.jpg"
+    }
+   }
+  },
+  "luggage#n": {
+   "h": "8a77b16a2e3a8a70",
+   "url": "https://media.lexkite.com/vimg/8a77b16a2e3a8a70.webp",
+   "alt": "luggage",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧳 luggage (U+1F9F3)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "luggage"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "lung#n": {
+   "h": "b109f886d3b2c278",
+   "url": "https://media.lexkite.com/vimg/b109f886d3b2c278.webp",
+   "alt": "lung",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🫁 lungs (U+1FAC1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "lungs"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "man#n": {
+   "h": "dfc3fdda089b0b14",
+   "url": "https://media.lexkite.com/vimg/dfc3fdda089b0b14.webp",
+   "alt": "man",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👨 man (U+1F468)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "man"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "map#n": {
+   "h": "41347322e4d82ef6",
+   "url": "https://media.lexkite.com/vimg/41347322e4d82ef6.webp",
+   "alt": "map",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🗺️ world map (U+1F5FA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "world map"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "meat#n": {
+   "h": "117845eba8334d99",
+   "url": "https://media.lexkite.com/vimg/117845eba8334d99.webp",
+   "alt": "meat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍖 meat on bone (U+1F356)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "meat on bone"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "mechanic#n": {
+   "h": "ee498ade02183cdf",
+   "url": "https://media.lexkite.com/vimg/ee498ade02183cdf.webp",
+   "alt": "mechanic",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🔧 mechanic (U+1F9D1 U+200D U+1F527)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mechanic"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "microphone#n": {
+   "h": "1d7482e30aa0d3e2",
+   "url": "https://media.lexkite.com/vimg/1d7482e30aa0d3e2.webp",
+   "alt": "microphone",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎤 microphone (U+1F3A4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "microphone"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "microscope#n": {
+   "h": "746f4ed87e735427",
+   "url": "https://media.lexkite.com/vimg/746f4ed87e735427.webp",
+   "alt": "microscope",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔬 microscope (U+1F52C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "microscope"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "milk#n": {
+   "h": "9650d22a4ba40d19",
+   "url": "https://media.lexkite.com/vimg/9650d22a4ba40d19.webp",
+   "alt": "milk",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥛 glass of milk (U+1F95B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "glass of milk"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "mirror#n": {
+   "h": "cf4d809478d5746b",
+   "url": "https://media.lexkite.com/vimg/cf4d809478d5746b.webp",
+   "alt": "mirror",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪞 mirror (U+1FA9E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mirror"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "modem#n": {
+   "alt": "modem",
+   "photo": {
+    "h": "724359f97403df78",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 4.0",
+     "by": "VulcanSphere",
+     "ref": "https://commons.wikimedia.org/wiki/File:ARRIS_CM820B_DOCSIS_Cable_Modem.jpg"
+    }
+   }
+  },
+  "money#n": {
+   "h": "c6fe9b87fca5c409",
+   "url": "https://media.lexkite.com/vimg/c6fe9b87fca5c409.webp",
+   "alt": "money",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💵 dollar banknote (U+1F4B5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "dollar banknote"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "monkey#n": {
+   "h": "20af21a5ac26f0db",
+   "url": "https://media.lexkite.com/vimg/20af21a5ac26f0db.webp",
+   "alt": "monkey",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐒 monkey (U+1F412)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "monkey"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "moon#n": {
+   "h": "59bf008a221f36ee",
+   "url": "https://media.lexkite.com/vimg/59bf008a221f36ee.webp",
+   "alt": "moon",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌕 full moon (U+1F315)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "full moon"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "mosquito#n": {
+   "h": "cab8375bb945cb86",
+   "url": "https://media.lexkite.com/vimg/cab8375bb945cb86.webp",
+   "alt": "mosquito",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🦟 mosquito (U+1F99F)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mosquito"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "motorcycle#n": {
+   "h": "a8bbc7cc67d3ea88",
+   "url": "https://media.lexkite.com/vimg/a8bbc7cc67d3ea88.webp",
+   "alt": "motorcycle",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏍️ motorcycle (U+1F3CD)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "motorcycle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "mountain#n": {
+   "h": "553a04cace6de72b",
+   "url": "https://media.lexkite.com/vimg/553a04cace6de72b.webp",
+   "alt": "mountain",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⛰️ mountain (U+26F0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mountain"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "mouse#n": {
+   "h": "c440f367cda15498",
+   "url": "https://media.lexkite.com/vimg/c440f367cda15498.webp",
+   "alt": "mouse",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐁 mouse (U+1F401)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mouse"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "mouth#n": {
+   "h": "2e9ad7029ab2af86",
+   "url": "https://media.lexkite.com/vimg/2e9ad7029ab2af86.webp",
+   "alt": "mouth",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👄 mouth (U+1F444)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mouth"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "museum#n": {
+   "alt": "museum",
+   "photo": {
+    "h": "c556c05759eb15e0",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 2.5",
+     "by": "Gérard Ducher (user:Néfermaât)",
+     "ref": "https://commons.wikimedia.org/wiki/File:GD-EG-Caire-Mus%C3%A9e007.JPG"
+    }
+   }
+  },
+  "necklace#n": {
+   "alt": "necklace",
+   "photo": {
+    "h": "ab989a420acc68e2",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 2.0",
+     "by": "Ashley",
+     "ref": "https://commons.wikimedia.org/wiki/File:Captured_Pearls_Necklace.jpg"
+    }
+   }
+  },
+  "newspaper#n": {
+   "h": "c097796cb71b9697",
+   "url": "https://media.lexkite.com/vimg/c097796cb71b9697.webp",
+   "alt": "newspaper",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📰 newspaper (U+1F4F0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "newspaper"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "nose#n": {
+   "h": "f38591a83db4198c",
+   "url": "https://media.lexkite.com/vimg/f38591a83db4198c.webp",
+   "alt": "nose",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👃 nose (U+1F443)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "nose"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "nurse#n": {
+   "h": "0e6731f46278b2cf",
+   "url": "https://media.lexkite.com/vimg/0e6731f46278b2cf.webp",
+   "alt": "nurse",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍⚕️ health worker (U+1F9D1 U+200D U+2695)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "health worker"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ocean#n": {
+   "h": "c8ce04f532f5c6b5",
+   "url": "https://media.lexkite.com/vimg/c8ce04f532f5c6b5.webp",
+   "alt": "ocean",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌊 water wave (U+1F30A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "water wave"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "one-way street#n": {
+   "alt": "one-way street",
+   "photo": {
+    "h": "ca56944d189ff921",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 2.0",
+     "by": "David Amsler from Cuidad Guatemala, Guatemala",
+     "ref": "https://commons.wikimedia.org/wiki/File:One_Way_Sign_(6859761193).jpg"
+    }
+   }
+  },
+  "orange#n": {
+   "h": "9b944abe528ce62b",
+   "url": "https://media.lexkite.com/vimg/9b944abe528ce62b.webp",
+   "alt": "orange",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍊 tangerine (U+1F34A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "tangerine"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "package#n": {
+   "h": "b6efcbfc50fb59bc",
+   "url": "https://media.lexkite.com/vimg/b6efcbfc50fb59bc.webp",
+   "alt": "package",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📦 package (U+1F4E6)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "package"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "park#n": {
+   "h": "a42015c08701b8ef",
+   "url": "https://media.lexkite.com/vimg/a42015c08701b8ef.webp",
+   "alt": "park",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏞️ national park (U+1F3DE)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "national park"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pastry#n": {
+   "alt": "pastry",
+   "photo": {
+    "h": "5d37c9bfe9406bb1",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Scott Bauer, U.S. Department of Agriculture",
+     "ref": "https://commons.wikimedia.org/wiki/File:Baked_goods.jpg"
+    }
+   }
+  },
+  "pen#n": {
+   "h": "ecc3eafe4285e653",
+   "url": "https://media.lexkite.com/vimg/ecc3eafe4285e653.webp",
+   "alt": "pen",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🖊️ pen (U+1F58A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "pen"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pepper#n": {
+   "h": "37f3602f37c878a0",
+   "url": "https://media.lexkite.com/vimg/37f3602f37c878a0.webp",
+   "alt": "pepper",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌶️ hot pepper (U+1F336)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "hot pepper"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "performing arts#n": {
+   "h": "e18b163062989f61",
+   "url": "https://media.lexkite.com/vimg/e18b163062989f61.webp",
+   "alt": "performing arts",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎭 performing arts (U+1F3AD)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "performing arts"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "person#n": {
+   "h": "c7b97e2eb50b3e2d",
+   "url": "https://media.lexkite.com/vimg/c7b97e2eb50b3e2d.webp",
+   "alt": "person",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑 person (U+1F9D1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "person"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "phone#n": {
+   "h": "327e82433d130408",
+   "url": "https://media.lexkite.com/vimg/327e82433d130408.webp",
+   "alt": "phone",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📱 mobile phone (U+1F4F1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mobile phone"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "photocopier#n": {
+   "alt": "photocopier",
+   "photo": {
+    "h": "386c3aade38b4a86",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Joseph Barillari at en.wikipedia.",
+     "ref": "https://commons.wikimedia.org/wiki/File:Xerox_photocopier_in_GlenOak_High_School_library_2004.jpg"
+    }
+   }
+  },
+  "piano#n": {
+   "h": "32c233386301146e",
+   "url": "https://media.lexkite.com/vimg/32c233386301146e.webp",
+   "alt": "piano",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎹 musical keyboard (U+1F3B9)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "musical keyboard"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "picture#n": {
+   "h": "bcc35c2a5d59c063",
+   "url": "https://media.lexkite.com/vimg/bcc35c2a5d59c063.webp",
+   "alt": "picture",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🖼️ framed picture (U+1F5BC)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "framed picture"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pie#n": {
+   "h": "05f366a9694296b7",
+   "url": "https://media.lexkite.com/vimg/05f366a9694296b7.webp",
+   "alt": "pie",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥧 pie (U+1F967)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "pie"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pig#n": {
+   "h": "f12913b62e5e2d74",
+   "url": "https://media.lexkite.com/vimg/f12913b62e5e2d74.webp",
+   "alt": "pig",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐖 pig (U+1F416)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "pig"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pill#n": {
+   "h": "c0091dbbcd5e105e",
+   "url": "https://media.lexkite.com/vimg/c0091dbbcd5e105e.webp",
+   "alt": "pill",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💊 pill (U+1F48A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "pill"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pilot#n": {
+   "h": "a6510a452ca05a90",
+   "url": "https://media.lexkite.com/vimg/a6510a452ca05a90.webp",
+   "alt": "pilot",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍✈️ pilot (U+1F9D1 U+200D U+2708)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "pilot"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pizza#n": {
+   "h": "faccd5cd02ab3f56",
+   "url": "https://media.lexkite.com/vimg/faccd5cd02ab3f56.webp",
+   "alt": "pizza",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍕 pizza (U+1F355)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "pizza"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "planet#n": {
+   "h": "0d5aa87a817ddde2",
+   "url": "https://media.lexkite.com/vimg/0d5aa87a817ddde2.webp",
+   "alt": "planet",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪐 ringed planet (U+1FA90)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ringed planet"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "plant#n": {
+   "h": "38a577e1dc3f1769",
+   "url": "https://media.lexkite.com/vimg/38a577e1dc3f1769.webp",
+   "alt": "plant",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪴 potted plant (U+1FAB4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "potted plant"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "plate#n": {
+   "h": "e57a8461c092a03e",
+   "url": "https://media.lexkite.com/vimg/e57a8461c092a03e.webp",
+   "alt": "plate",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍽️ fork and knife with plate (U+1F37D)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "fork and knife with plate"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "police#n": {
+   "h": "d89dcdfe635f9880",
+   "url": "https://media.lexkite.com/vimg/d89dcdfe635f9880.webp",
+   "alt": "police",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👮 police officer (U+1F46E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "police officer"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "popcorn#n": {
+   "h": "2a58328a499b87e9",
+   "url": "https://media.lexkite.com/vimg/2a58328a499b87e9.webp",
+   "alt": "popcorn",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍿 popcorn (U+1F37F)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "popcorn"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "potato#n": {
+   "h": "47b43ca63e7648bf",
+   "url": "https://media.lexkite.com/vimg/47b43ca63e7648bf.webp",
+   "alt": "potato",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥔 potato (U+1F954)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "potato"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "potted plant#n": {
+   "h": "38a577e1dc3f1769",
+   "url": "https://media.lexkite.com/vimg/38a577e1dc3f1769.webp",
+   "alt": "potted plant",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪴 potted plant (U+1FAB4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "potted plant"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "printer#n": {
+   "h": "e4af950a1e18eee6",
+   "url": "https://media.lexkite.com/vimg/e4af950a1e18eee6.webp",
+   "alt": "printer",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🖨️ printer (U+1F5A8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "printer"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "projector#n": {
+   "h": "febf7c78fb56884f",
+   "url": "https://media.lexkite.com/vimg/febf7c78fb56884f.webp",
+   "alt": "projector",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📽️ film projector (U+1F4FD)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "film projector"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "pub#n": {
+   "alt": "pub",
+   "photo": {
+    "h": "3f9e829350f042ae",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Ashley Pomeroy at English Wikipedia",
+     "ref": "https://commons.wikimedia.org/wiki/File:Pubbsm.jpg"
+    }
+   }
+  },
+  "purse#n": {
+   "h": "23a6074ad0434326",
+   "url": "https://media.lexkite.com/vimg/23a6074ad0434326.webp",
+   "alt": "purse",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👛 purse (U+1F45B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "purse"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "rain#n": {
+   "h": "57120c82296fa385",
+   "url": "https://media.lexkite.com/vimg/57120c82296fa385.webp",
+   "alt": "rain",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌧️ cloud with rain (U+1F327)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cloud with rain"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "raincoat#n": {
+   "alt": "raincoat",
+   "photo": {
+    "h": "bd468b7f602ea490",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 2.0",
+     "by": "Jim Grandy",
+     "ref": "https://commons.wikimedia.org/wiki/File:Yellow_Raincoat.jpg"
+    }
+   }
+  },
+  "rat#n": {
+   "h": "31061f60ebfaeb54",
+   "url": "https://media.lexkite.com/vimg/31061f60ebfaeb54.webp",
+   "alt": "rat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐀 rat (U+1F400)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "rat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "receipt#n": {
+   "h": "b4c52ce8067db3e5",
+   "url": "https://media.lexkite.com/vimg/b4c52ce8067db3e5.webp",
+   "alt": "receipt",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧾 receipt (U+1F9FE)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "receipt"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "recycling bin#n": {
+   "alt": "recycling bin",
+   "photo": {
+    "h": "c8710dbd99ee150b",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 2.0",
+     "by": "Jorge",
+     "ref": "https://commons.wikimedia.org/wiki/File:Waseda_University_recycling_bins_20080625.jpg"
+    }
+   }
+  },
+  "red#adj": {
+   "h": "81b9bb135facb235",
+   "url": "https://media.lexkite.com/vimg/81b9bb135facb235.webp",
+   "alt": "red",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔴 red circle (U+1F534)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "red circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "restaurant#n": {
+   "alt": "restaurant",
+   "photo": {
+    "h": "86a78892b8fae2ad",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "© Ra Boe / Wikipedia",
+     "ref": "https://commons.wikimedia.org/wiki/File:Gaggenau_2016_-Restaurant-_by-RaBoe_118.jpg"
+    }
+   }
+  },
+  "rice#n": {
+   "h": "89cde86da226dd5e",
+   "url": "https://media.lexkite.com/vimg/89cde86da226dd5e.webp",
+   "alt": "rice",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍚 cooked rice (U+1F35A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cooked rice"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ring#n": {
+   "h": "2124153dc5a572a9",
+   "url": "https://media.lexkite.com/vimg/2124153dc5a572a9.webp",
+   "alt": "ring",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💍 ring (U+1F48D)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ring"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "river#n": {
+   "alt": "river",
+   "photo": {
+    "h": "b1a9aa0df34fdfba",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 2.0",
+     "by": "Bernard DUPONT from FRANCE",
+     "ref": "https://commons.wikimedia.org/wiki/File:White_Nile_Fishermen_(18156464842).jpg"
+    }
+   }
+  },
+  "road#n": {
+   "alt": "road",
+   "photo": {
+    "h": "c57ed797b863e941",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Hans-Joachim Fröde (User:Acf)",
+     "ref": "https://commons.wikimedia.org/wiki/File:B172.s%C3%B6Krietzschwitz.Sommer.JPG"
+    }
+   }
+  },
+  "robot#n": {
+   "h": "ef08e27a0de966eb",
+   "url": "https://media.lexkite.com/vimg/ef08e27a0de966eb.webp",
+   "alt": "robot",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🤖 robot (U+1F916)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "robot"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "rock#n": {
+   "h": "4b4b8ec906ce33b2",
+   "url": "https://media.lexkite.com/vimg/4b4b8ec906ce33b2.webp",
+   "alt": "rock",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪨 rock (U+1FAA8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "rock"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "roof#n": {
+   "alt": "roof",
+   "photo": {
+    "h": "78697ec22994539e",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 3.0",
+     "by": "Kalispera Dell",
+     "ref": "https://commons.wikimedia.org/wiki/File:Am_Markt,_Pirna_120449116.jpg"
+    }
+   }
+  },
+  "rose#n": {
+   "h": "5328923bfb1d3e63",
+   "url": "https://media.lexkite.com/vimg/5328923bfb1d3e63.webp",
+   "alt": "rose",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌹 rose (U+1F339)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "rose"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "salad#n": {
+   "h": "fd84ed17032bc36e",
+   "url": "https://media.lexkite.com/vimg/fd84ed17032bc36e.webp",
+   "alt": "salad",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥗 green salad (U+1F957)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "green salad"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "salt#n": {
+   "h": "f62c99262f0c6b81",
+   "url": "https://media.lexkite.com/vimg/f62c99262f0c6b81.webp",
+   "alt": "salt",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧂 salt (U+1F9C2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "salt"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "sandwich#n": {
+   "h": "a9fef67c103a5b17",
+   "url": "https://media.lexkite.com/vimg/a9fef67c103a5b17.webp",
+   "alt": "sandwich",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥪 sandwich (U+1F96A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "sandwich"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "satellite#n": {
+   "h": "d1bbe7ab67dc2432",
+   "url": "https://media.lexkite.com/vimg/d1bbe7ab67dc2432.webp",
+   "alt": "satellite",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛰️ satellite (U+1F6F0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "satellite"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "sauna#n": {
+   "alt": "sauna",
+   "photo": {
+    "h": "f5313946c4cfe5bf",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Bleiglass~enwiki",
+     "ref": "https://commons.wikimedia.org/wiki/File:Sauna_2.jpg"
+    }
+   }
+  },
+  "scarf#n": {
+   "h": "c19754ce7d8df1cc",
+   "url": "https://media.lexkite.com/vimg/c19754ce7d8df1cc.webp",
+   "alt": "scarf",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧣 scarf (U+1F9E3)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "scarf"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "school#n": {
+   "h": "bfaf624e896448bb",
+   "url": "https://media.lexkite.com/vimg/bfaf624e896448bb.webp",
+   "alt": "school",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏫 school (U+1F3EB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "school"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "scientist#n": {
+   "h": "2784ed61ee2a7a7a",
+   "url": "https://media.lexkite.com/vimg/2784ed61ee2a7a7a.webp",
+   "alt": "scientist",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🔬 scientist (U+1F9D1 U+200D U+1F52C)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "scientist"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "scroll#n": {
+   "h": "8d67002ff6b9d322",
+   "url": "https://media.lexkite.com/vimg/8d67002ff6b9d322.webp",
+   "alt": "scroll",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📜 scroll (U+1F4DC)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "scroll"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "sea#n": {
+   "h": "c8ce04f532f5c6b5",
+   "url": "https://media.lexkite.com/vimg/c8ce04f532f5c6b5.webp",
+   "alt": "sea",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌊 water wave (U+1F30A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "water wave"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "seat#n": {
+   "h": "97557cd6f72f18e5",
+   "url": "https://media.lexkite.com/vimg/97557cd6f72f18e5.webp",
+   "alt": "seat",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💺 seat (U+1F4BA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "seat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "sedan#n": {
+   "alt": "sedan",
+   "photo": {
+    "h": "20aae27c6b5a9da7",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "MercurySable99",
+     "ref": "https://commons.wikimedia.org/wiki/File:1991-1996_Buick_Park_Avenue.jpg"
+    }
+   }
+  },
+  "seed#n": {
+   "alt": "seed",
+   "photo": {
+    "h": "c55a642cac2e6e22",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 4.0",
+     "by": "Alexander Klepnev",
+     "ref": "https://commons.wikimedia.org/wiki/File:%D0%A0%D0%B0%D0%B7%D0%BD%D0%BE%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%B8%D0%B5_%D1%81%D0%B5%D0%BC%D1%8F%D0%BD.jpg"
+    }
+   }
+  },
+  "sheep#n": {
+   "h": "fa7142a98052425a",
+   "url": "https://media.lexkite.com/vimg/fa7142a98052425a.webp",
+   "alt": "sheep",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐑 ewe (U+1F411)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ewe"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "shelf#n": {
+   "alt": "shelf",
+   "photo": {
+    "h": "66258096b662b70d",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Mgoutsidou",
+     "ref": "https://commons.wikimedia.org/wiki/File:Shelve.jpg"
+    }
+   }
+  },
+  "shell#n": {
+   "h": "f3354c629bf05b1c",
+   "url": "https://media.lexkite.com/vimg/f3354c629bf05b1c.webp",
+   "alt": "shell",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐚 spiral shell (U+1F41A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "spiral shell"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "shield#n": {
+   "h": "920b8aa3ba22e9be",
+   "url": "https://media.lexkite.com/vimg/920b8aa3ba22e9be.webp",
+   "alt": "shield",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛡️ shield (U+1F6E1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "shield"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ship#n": {
+   "h": "859a714c5eb5b003",
+   "url": "https://media.lexkite.com/vimg/859a714c5eb5b003.webp",
+   "alt": "ship",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚢 ship (U+1F6A2)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ship"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "shirt#n": {
+   "h": "bcc2dc0e805f977f",
+   "url": "https://media.lexkite.com/vimg/bcc2dc0e805f977f.webp",
+   "alt": "shirt",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👕 t-shirt (U+1F455)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "t-shirt"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "shoe#n": {
+   "h": "f6005c6ee3b05a28",
+   "url": "https://media.lexkite.com/vimg/f6005c6ee3b05a28.webp",
+   "alt": "shoe",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👞 man’s shoe (U+1F45E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "man’s shoe"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "shower#n": {
+   "h": "f7520bbea0197720",
+   "url": "https://media.lexkite.com/vimg/f7520bbea0197720.webp",
+   "alt": "shower",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚿 shower (U+1F6BF)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "shower"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "singer#n": {
+   "h": "876ad755c9b4e7c0",
+   "url": "https://media.lexkite.com/vimg/876ad755c9b4e7c0.webp",
+   "alt": "singer",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🎤 singer (U+1F9D1 U+200D U+1F3A4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "singer"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "skateboard#n": {
+   "h": "be96e922cdc82c22",
+   "url": "https://media.lexkite.com/vimg/be96e922cdc82c22.webp",
+   "alt": "skateboard",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛹 skateboard (U+1F6F9)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "skateboard"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "skirt#n": {
+   "alt": "skirt",
+   "photo": {
+    "h": "e21c77ef98da25b1",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 2.0",
+     "by": "iluvrhinestones from seattle, oceania, upload by Herrick",
+     "ref": "https://commons.wikimedia.org/wiki/File:Peasant_skirt_1435043608.jpg"
+    }
+   }
+  },
+  "sleeping bag#n": {
+   "alt": "sleeping bag",
+   "photo": {
+    "h": "e1728d3a32eb6f36",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "Smack (talk)",
+     "ref": "https://commons.wikimedia.org/wiki/File:Mummy_bag.jpg"
+    }
+   }
+  },
+  "sleeve#n": {
+   "alt": "sleeve",
+   "photo": {
+    "h": "ad3c1ebd120ed1be",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC0",
+     "by": "David Ring",
+     "ref": "https://commons.wikimedia.org/wiki/File:Long_sleeve.jpg"
+    }
+   }
+  },
+  "snake#n": {
+   "h": "5940a5722b8f4159",
+   "url": "https://media.lexkite.com/vimg/5940a5722b8f4159.webp",
+   "alt": "snake",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐍 snake (U+1F40D)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "snake"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "snow#n": {
+   "h": "733f57277ba7355a",
+   "url": "https://media.lexkite.com/vimg/733f57277ba7355a.webp",
+   "alt": "snow",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "❄️ snowflake (U+2744)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "snowflake"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "soap#n": {
+   "h": "a324003078ca864a",
+   "url": "https://media.lexkite.com/vimg/a324003078ca864a.webp",
+   "alt": "soap",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧼 soap (U+1F9FC)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "soap"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "sock#n": {
+   "h": "816d355974de8e3e",
+   "url": "https://media.lexkite.com/vimg/816d355974de8e3e.webp",
+   "alt": "sock",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧦 socks (U+1F9E6)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "socks"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "sofa#n": {
+   "h": "289119caf78db54f",
+   "url": "https://media.lexkite.com/vimg/289119caf78db54f.webp",
+   "alt": "sofa",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛋️ couch and lamp (U+1F6CB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "couch and lamp"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "soldier#n": {
+   "h": "bd813c7e6229082e",
+   "url": "https://media.lexkite.com/vimg/bd813c7e6229082e.webp",
+   "alt": "soldier",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "💂 guard (U+1F482)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "guard"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "soup#n": {
+   "h": "3c970262959b8cfe",
+   "url": "https://media.lexkite.com/vimg/3c970262959b8cfe.webp",
+   "alt": "soup",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍲 pot of food (U+1F372)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "pot of food"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "square#n": {
+   "h": "ed333f346021d901",
+   "url": "https://media.lexkite.com/vimg/ed333f346021d901.webp",
+   "alt": "square",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🟥 red square (U+1F7E5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "red square"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "stadium#n": {
+   "h": "3b8811051246c883",
+   "url": "https://media.lexkite.com/vimg/3b8811051246c883.webp",
+   "alt": "stadium",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏟️ stadium (U+1F3DF)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "stadium"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "stapler#n": {
+   "alt": "stapler",
+   "photo": {
+    "h": "e5348e11489d52cd",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Jacek Halicki",
+     "ref": "https://commons.wikimedia.org/wiki/File:2017_Zszywacz_biurowy.jpg"
+    }
+   }
+  },
+  "star#n": {
+   "h": "8b670982baea1ada",
+   "url": "https://media.lexkite.com/vimg/8b670982baea1ada.webp",
+   "alt": "star",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⭐ star (U+2B50)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "star"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "station#n": {
+   "h": "db79e7f50b65f27f",
+   "url": "https://media.lexkite.com/vimg/db79e7f50b65f27f.webp",
+   "alt": "station",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚉 station (U+1F689)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "station"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "steak#n": {
+   "h": "9b6e32d0608811d4",
+   "url": "https://media.lexkite.com/vimg/9b6e32d0608811d4.webp",
+   "alt": "steak",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🥩 cut of meat (U+1F969)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cut of meat"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "stomach#n": {
+   "alt": "stomach",
+   "photo": {
+    "h": "caa506914e5ba317",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "NIH / National Cancer Institute",
+     "ref": "https://commons.wikimedia.org/wiki/File:Illu_stomach2.jpg"
+    }
+   }
+  },
+  "storm#n": {
+   "h": "009a713ef178aa19",
+   "url": "https://media.lexkite.com/vimg/009a713ef178aa19.webp",
+   "alt": "storm",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⛈️ cloud with lightning and rain (U+26C8)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "cloud with lightning and rain"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "student#n": {
+   "h": "8c53ecc7b3444df3",
+   "url": "https://media.lexkite.com/vimg/8c53ecc7b3444df3.webp",
+   "alt": "student",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🎓 student (U+1F9D1 U+200D U+1F393)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "student"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "studio apartment#n": {
+   "alt": "studio apartment",
+   "photo": {
+    "h": "4fc651171951ab05",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Jon Platek",
+     "ref": "https://commons.wikimedia.org/wiki/File:Studio_Apartment_Minneapolis_1.jpg"
+    }
+   }
+  },
+  "sugar#n": {
+   "alt": "sugar",
+   "photo": {
+    "h": "967498b60f492d8e",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Lauri Andler (Phantom)",
+     "ref": "https://commons.wikimedia.org/wiki/File:Sugar_2xmacro.jpg"
+    }
+   }
+  },
+  "suitcase#n": {
+   "alt": "suitcase",
+   "photo": {
+    "h": "f02c875ffa3b0857",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Sandrine Z",
+     "ref": "https://commons.wikimedia.org/wiki/File:Belber_Striped_Suitcase.jpg"
+    }
+   }
+  },
+  "sun#n": {
+   "h": "200a7a0313d32a52",
+   "url": "https://media.lexkite.com/vimg/200a7a0313d32a52.webp",
+   "alt": "sun",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☀️ sun (U+2600)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "sun"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "supermarket#n": {
+   "alt": "supermarket",
+   "photo": {
+    "h": "8b9617aaf3b3ebf0",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Rob",
+     "ref": "https://commons.wikimedia.org/wiki/File:Scheck_In_-_(1).jpg"
+    }
+   }
+  },
+  "sweater#n": {
+   "alt": "sweater",
+   "photo": {
+    "h": "4f780a23e8d286a1",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Joan Rocaguinard",
+     "ref": "https://commons.wikimedia.org/wiki/File:Jersei-coll-alt.jpg"
+    }
+   }
+  },
+  "sword#n": {
+   "h": "cfa8b1770c6542f7",
+   "url": "https://media.lexkite.com/vimg/cfa8b1770c6542f7.webp",
+   "alt": "sword",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⚔️ crossed swords (U+2694)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "crossed swords"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tablecloth#n": {
+   "alt": "tablecloth",
+   "photo": {
+    "h": "c08452c02769ec10",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Radek Bartoš",
+     "ref": "https://commons.wikimedia.org/wiki/File:Tablecloth_01.JPG"
+    }
+   }
+  },
+  "tail#n": {
+   "alt": "tail",
+   "photo": {
+    "h": "83a104a1d46286fc",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Kreuzschnabel",
+     "ref": "https://commons.wikimedia.org/wiki/File:Dog_tail_erect.jpg"
+    }
+   }
+  },
+  "taxi#n": {
+   "h": "c9cf11c838b7ef68",
+   "url": "https://media.lexkite.com/vimg/c9cf11c838b7ef68.webp",
+   "alt": "taxi",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚕 taxi (U+1F695)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "taxi"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tea#n": {
+   "h": "0cbca36e3a3f214c",
+   "url": "https://media.lexkite.com/vimg/0cbca36e3a3f214c.webp",
+   "alt": "tea",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍵 teacup without handle (U+1F375)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "teacup without handle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "teacher#n": {
+   "h": "057939a46dd0e0c2",
+   "url": "https://media.lexkite.com/vimg/057939a46dd0e0c2.webp",
+   "alt": "teacher",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧑‍🏫 teacher (U+1F9D1 U+200D U+1F3EB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "teacher"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "telephone#n": {
+   "h": "12b01a704a8970cd",
+   "url": "https://media.lexkite.com/vimg/12b01a704a8970cd.webp",
+   "alt": "telephone",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☎️ telephone (U+260E)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "telephone"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "telescope#n": {
+   "h": "bd87ba48e3889a7a",
+   "url": "https://media.lexkite.com/vimg/bd87ba48e3889a7a.webp",
+   "alt": "telescope",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔭 telescope (U+1F52D)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "telescope"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "television#n": {
+   "h": "0c3571cc6ae72d55",
+   "url": "https://media.lexkite.com/vimg/0c3571cc6ae72d55.webp",
+   "alt": "television",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "📺 television (U+1F4FA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "television"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tennis#n": {
+   "h": "313dfe74840f0da9",
+   "url": "https://media.lexkite.com/vimg/313dfe74840f0da9.webp",
+   "alt": "tennis",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎾 tennis (U+1F3BE)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "tennis"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tent#n": {
+   "h": "f5486d1ddd479baa",
+   "url": "https://media.lexkite.com/vimg/f5486d1ddd479baa.webp",
+   "alt": "tent",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⛺ tent (U+26FA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "tent"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "thread#n": {
+   "h": "391d377421abb509",
+   "url": "https://media.lexkite.com/vimg/391d377421abb509.webp",
+   "alt": "thread",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🧵 thread (U+1F9F5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "thread"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "ticket#n": {
+   "h": "31a59ac44c6af59f",
+   "url": "https://media.lexkite.com/vimg/31a59ac44c6af59f.webp",
+   "alt": "ticket",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎫 ticket (U+1F3AB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "ticket"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tile#n": {
+   "alt": "tile",
+   "photo": {
+    "h": "54e35ef870d31596",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Orhan Bilgin (Zargan)",
+     "ref": "https://commons.wikimedia.org/wiki/File:Cyprus_floor_tile.jpg"
+    }
+   }
+  },
+  "timer#n": {
+   "alt": "timer",
+   "photo": {
+    "h": "44025b50346d92ba",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "unknown",
+     "ref": "https://commons.wikimedia.org/wiki/File:Digitale_Zeitschaltuhr.jpg"
+    }
+   }
+  },
+  "tire#n": {
+   "alt": "tire",
+   "photo": {
+    "h": "6ad3d6e85f94596e",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "User:Mattes",
+     "ref": "https://commons.wikimedia.org/wiki/File:Gestapelte_Autoreifen_mit_farbigen_Markierungen.JPG"
+    }
+   }
+  },
+  "tomato#n": {
+   "h": "f40ba8f4fb77fdc2",
+   "url": "https://media.lexkite.com/vimg/f40ba8f4fb77fdc2.webp",
+   "alt": "tomato",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🍅 tomato (U+1F345)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "tomato"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tongue#n": {
+   "h": "03b851be7c417fa2",
+   "url": "https://media.lexkite.com/vimg/03b851be7c417fa2.webp",
+   "alt": "tongue",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👅 tongue (U+1F445)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "tongue"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tooth#n": {
+   "h": "dd83392ca9957269",
+   "url": "https://media.lexkite.com/vimg/dd83392ca9957269.webp",
+   "alt": "tooth",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🦷 tooth (U+1F9B7)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "tooth"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "towel#n": {
+   "alt": "towel",
+   "photo": {
+    "h": "82f02c4168460074",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Xavigivax",
+     "ref": "https://commons.wikimedia.org/wiki/File:Toballola_de_platja.jpg"
+    }
+   }
+  },
+  "track#n": {
+   "h": "a678b849b7971214",
+   "url": "https://media.lexkite.com/vimg/a678b849b7971214.webp",
+   "alt": "track",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛤️ railway track (U+1F6E4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "railway track"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "train#n": {
+   "h": "4070bcbe0bc09d5d",
+   "url": "https://media.lexkite.com/vimg/4070bcbe0bc09d5d.webp",
+   "alt": "train",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚆 train (U+1F686)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "train"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "trap#n": {
+   "h": "658bfba7684c3f08",
+   "url": "https://media.lexkite.com/vimg/658bfba7684c3f08.webp",
+   "alt": "trap",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪤 mouse trap (U+1FAA4)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "mouse trap"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "tray#n": {
+   "alt": "tray",
+   "photo": {
+    "h": "6563a5944e447867",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "unknown",
+     "ref": "https://commons.wikimedia.org/wiki/File:Tray.agr.jpg"
+    }
+   }
+  },
+  "tree#n": {
+   "h": "670fb99b1e11f6d3",
+   "url": "https://media.lexkite.com/vimg/670fb99b1e11f6d3.webp",
+   "alt": "tree",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌲 evergreen tree (U+1F332)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "evergreen tree"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "triangle#n": {
+   "h": "7b7aa1036b851cae",
+   "url": "https://media.lexkite.com/vimg/7b7aa1036b851cae.webp",
+   "alt": "triangle",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🔺 red triangle pointed up (U+1F53A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "red triangle pointed up"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "truck#n": {
+   "h": "aff06a85245db3d0",
+   "url": "https://media.lexkite.com/vimg/aff06a85245db3d0.webp",
+   "alt": "truck",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🚚 delivery truck (U+1F69A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "delivery truck"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "umbrella#n": {
+   "h": "c33d0e59a6805fee",
+   "url": "https://media.lexkite.com/vimg/c33d0e59a6805fee.webp",
+   "alt": "umbrella",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "☂️ umbrella (U+2602)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "umbrella"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "valley#n": {
+   "alt": "valley",
+   "photo": {
+    "h": "ca54927e2e23522f",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 4.0",
+     "by": "Vyacheslav Argenberg",
+     "ref": "https://commons.wikimedia.org/wiki/File:Terek_Valley,_Khevi,_Georgia.jpg"
+    }
+   }
+  },
+  "vase#n": {
+   "alt": "vase",
+   "photo": {
+    "h": "82d12a73c71d792c",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 2.5",
+     "by": "André Karwath aka Aka",
+     "ref": "https://commons.wikimedia.org/wiki/File:Chinese_vase.jpg"
+    }
+   }
+  },
+  "vending machine#n": {
+   "alt": "vending machine",
+   "photo": {
+    "h": "0bdaae0239e2d6a2",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 3.0",
+     "by": "User:Mateus2019",
+     "ref": "https://commons.wikimedia.org/wiki/File:GER_%E2%80%94_BW_%E2%80%94_Bodenseekreis_%E2%80%94_Gem._Uhldingen-M%C3%BChlhofen_%E2%80%94_Unteruhldingen_%E2%80%94_Poststra%C3%9Fe_10_(Verkaufsautomat_f%C3%BCr_Lebensmittel)_Mattes_2021-06-04.jpg"
+    }
+   }
+  },
+  "violin#n": {
+   "h": "31501d72f5384dfa",
+   "url": "https://media.lexkite.com/vimg/31501d72f5384dfa.webp",
+   "alt": "violin",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🎻 violin (U+1F3BB)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "violin"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "volcano#n": {
+   "h": "beb30f3e34f39bc6",
+   "url": "https://media.lexkite.com/vimg/beb30f3e34f39bc6.webp",
+   "alt": "volcano",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌋 volcano (U+1F30B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "volcano"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "volleyball#n": {
+   "h": "90115b80beb1b358",
+   "url": "https://media.lexkite.com/vimg/90115b80beb1b358.webp",
+   "alt": "volleyball",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🏐 volleyball (U+1F3D0)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "volleyball"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "wall#n": {
+   "alt": "wall",
+   "photo": {
+    "h": "47dbe6188bc2bbf0",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 4.0",
+     "by": "Jacek Halicki",
+     "ref": "https://commons.wikimedia.org/wiki/File:2015_Zak%C5%82ad_Karny_w_K%C5%82odzku_02.JPG"
+    }
+   }
+  },
+  "wallet#n": {
+   "alt": "wallet",
+   "photo": {
+    "h": "afd7a57fd90464ca",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "The original uploader was TheArmadillo at English Wikipedia.. Uploaded to Commons by Körnerbrötchen.",
+     "ref": "https://commons.wikimedia.org/wiki/File:WalletMpegMan.jpg"
+    }
+   }
+  },
+  "wave#n": {
+   "h": "c8ce04f532f5c6b5",
+   "url": "https://media.lexkite.com/vimg/c8ce04f532f5c6b5.webp",
+   "alt": "wave",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🌊 water wave (U+1F30A)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "water wave"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "whale#n": {
+   "h": "a0c8070ef53ec5b2",
+   "url": "https://media.lexkite.com/vimg/a0c8070ef53ec5b2.webp",
+   "alt": "whale",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🐋 whale (U+1F40B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "whale"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "wheel#n": {
+   "h": "9b0ccd33adb6b04b",
+   "url": "https://media.lexkite.com/vimg/9b0ccd33adb6b04b.webp",
+   "alt": "wheel",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🛞 wheel (U+1F6DE)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "wheel"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "wheelchair#n": {
+   "alt": "wheelchair",
+   "photo": {
+    "h": "9ddcc8dcd1a078a6",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "PD",
+     "by": "unknown",
+     "ref": "https://commons.wikimedia.org/wiki/File:WheelchairSeatingNTSB.jpg"
+    }
+   }
+  },
+  "white#adj": {
+   "h": "1a72ff4e32c19c19",
+   "url": "https://media.lexkite.com/vimg/1a72ff4e32c19c19.webp",
+   "alt": "white",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "⚪ white circle (U+26AA)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "white circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "windmill#n": {
+   "alt": "windmill",
+   "photo": {
+    "h": "317df82d1ae9acff",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY 2.0",
+     "by": "Peter Broster",
+     "ref": "https://commons.wikimedia.org/wiki/File:Moulin_de_la_Solitude_(8061957726).jpg"
+    }
+   }
+  },
+  "window#n": {
+   "h": "c7173a3651ead579",
+   "url": "https://media.lexkite.com/vimg/c7173a3651ead579.webp",
+   "alt": "window",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪟 window (U+1FA9F)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "window"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "wine#n": {
+   "alt": "wine",
+   "photo": {
+    "h": "56a38517d4579fe8",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "A.Savin",
+     "ref": "https://commons.wikimedia.org/wiki/File:Red_and_white_wine_12-2015.jpg"
+    }
+   }
+  },
+  "wing#n": {
+   "h": "60f7e22c6fc9c75d",
+   "url": "https://media.lexkite.com/vimg/60f7e22c6fc9c75d.webp",
+   "alt": "wing",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪽 wing (U+1FABD)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "wing"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "woman#n": {
+   "h": "6785e490eabba578",
+   "url": "https://media.lexkite.com/vimg/6785e490eabba578.webp",
+   "alt": "woman",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "👩 woman (U+1F469)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "woman"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "wood#n": {
+   "h": "83a5d6ec002ffeb2",
+   "url": "https://media.lexkite.com/vimg/83a5d6ec002ffeb2.webp",
+   "alt": "wood",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🪵 wood (U+1FAB5)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "wood"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "wool#n": {
+   "alt": "wool",
+   "photo": {
+    "h": "0e2c3d8d4e564957",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Original uploader was Charles Esson at en.wikipedia",
+     "ref": "https://commons.wikimedia.org/wiki/File:Merino_shearing.jpg"
+    }
+   }
+  },
+  "wristwatch#n": {
+   "alt": "wristwatch",
+   "photo": {
+    "h": "da8db45ce37c8717",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC0",
+     "by": "David Ring",
+     "ref": "https://commons.wikimedia.org/wiki/File:Watch_(clothing).jpg"
+    }
+   }
+  },
+  "x-ray#n": {
+   "h": "d013e0883e92a76b",
+   "url": "https://media.lexkite.com/vimg/d013e0883e92a76b.webp",
+   "alt": "x-ray",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🩻 x-ray (U+1FA7B)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "x-ray"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
+  },
+  "yard#n": {
+   "alt": "yard",
+   "photo": {
+    "h": "a229e7ed15b3230d",
+    "fmt": [
+     "avif",
+     "webp"
+    ],
+    "src": {
+     "tier": "wiki",
+     "lic": "CC BY-SA 3.0",
+     "by": "Veracious Rey at en.wikipedia",
+     "ref": "https://commons.wikimedia.org/wiki/File:Typical_suburban_backyard.jpg"
+    }
+   }
+  },
+  "yellow#adj": {
+   "h": "2aa0fcaa64bc352e",
+   "url": "https://media.lexkite.com/vimg/2aa0fcaa64bc352e.webp",
+   "alt": "yellow",
+   "sv": "s1",
+   "fmt": [
+    "avif",
+    "webp"
+   ],
+   "src": {
+    "tier": "icon",
+    "lic": "Apache-2.0",
+    "by": "Noto Emoji © Google",
+    "ref": "🟡 yellow circle (U+1F7E1)"
+   },
+   "q": {
+    "score": 1,
+    "rank": 1,
+    "vision": "deterministic",
+    "named": "yellow circle"
+   },
+   "at": "2026-10-24",
+   "b": "40077252813"
   }
  },
  "rejected": {}
