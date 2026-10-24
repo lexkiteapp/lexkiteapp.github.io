@@ -79,7 +79,7 @@ jobs:
         run: node scripts/quality/sweep.mjs --root dist --lang ${{ matrix.lang }} --out qs-out/${{ matrix.lang }} --baseline qs-baseline/${{ matrix.lang }} $([ "${{ inputs.quick }}" = 1 ] && echo --quick)
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: 'qs-shard-${{ matrix.lang }}', path: qs-out/${{ matrix.lang }}, retention-days: 7 }
+        with: { name: 'qs-shard-${{ matrix.lang }}', path: 'qs-out/${{ matrix.lang }}', retention-days: 7 }
 
   lighthouse:
     needs: build
