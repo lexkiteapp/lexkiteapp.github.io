@@ -44,7 +44,7 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
   ok(m.calls.some(c => c.url.startsWith(GC) && c.body.provider === 'groq' && c.body.model === 'openai/gpt-oss-120b'), 'gửi provider + model tới GrabCast');
   const before = m.calls.filter(c => c.url === LX && !c.body.prompt).length; await P.gen({ mode: 'lxgen', items: ITEMS });
   ok(m.calls.filter(c => c.url === LX && !c.body.prompt).length === before, 'keys=0 → cả tuyến lexai nghỉ, không gọi lại');
-  ok(m.calls.some(c => c.url.startsWith(GC) && c.body.prompt.startsWith('SYS')), 'tuyến GrabCast dùng prompt của lexai build (prompt: true)');
+  ok(m.calls.some(c => c.url.startsWith(GC) && c.body.prompt.startsWith(build({ mode: 'lxgen', items: ITEMS }).sys)) && !m.calls.some(c => c.body.prompt === true), 'tuyến GrabCast dùng prompt của lexai build() dựng tại chỗ (không gọi mạng)');
 }
 // 3) 429 / PerDay theo mô hình → chỉ mô hình đó nghỉ, mô hình kế trong CÙNG tuyến trả lời; 403 một mô hình không giết cả khóa
 {

@@ -153,10 +153,12 @@ export function createPool(opts = {}) {
   /** { sys, user } cho tuyến không phải Gemini – một nguồn prompt (lexai build) */
   async function promptFor(req) {
     if (opts.prompt) return opts.prompt(req);
+    // mặc định: dựng prompt TẠI CHỖ từ cùng nguồn (functions/api/lexai.js build) – không phụ thuộc mạng (pilot 24/10: /api/lexai prompt 500 khi tải dồn)
+    try { const { build } = await import('../../functions/api/lexai.js'); const p = build(req); if (p) return { sys: p.sys + '\nReply with ONE valid JSON object only, no markdown.', user: p.user, temp: p.temp }; } catch { /* rơi về máy chủ */ }
     const key = JSON.stringify([req.mode, req.lang, req.items]);
     if (promptCache.has(key)) return promptCache.get(key);
     const r = await lexaiPost({ mode: req.mode, lang: req.lang, items: req.items, prompt: true });
-    if (!r.ok) throw new PoolErr('route', 'prompt ' + r.status);
+    if (!r.ok) throw new PoolErr('net', 'prompt ' + r.status);
     const p = await r.json(); promptCache.set(key, p); if (promptCache.size > 200) promptCache.delete(promptCache.keys().next().value); return p;
   }
 
