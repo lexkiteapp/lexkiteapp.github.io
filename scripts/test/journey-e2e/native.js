@@ -64,7 +64,7 @@
         if (vis('figure.rctx.own')) own = true;
         if (vis('#typeIn')) { seen.add('type'); const x = D.getElementById('typeIn'); x.value = 'zzz'; x.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(600); }
         else if (vis('[data-opt="0"]')) { seen.add('audio'); await click('[data-opt="0"]', 600); } else if (vis('#flipBtn')) { seen.add('flip'); await click('#flipBtn', 400); }
-        if (vis('[data-grade].suggest')) await click('[data-grade].suggest', 700); else if (vis('[data-grade="2"]')) await click('[data-grade="2"]', 700); else await sleep(500); }
+        if (vis('[data-grade="2"]')) await click('[data-grade="2"]', 700); else await sleep(500); } // "Tốt" như bản web (journey-e2e.mjs j3): gợi ý sau câu sai là "Lại" → thẻ quay lại bước học trong phiên, 45 lượt không đủ (iOS en đọng ở 22 · 1 thẻ còn lại)
       t.ok(own, 'thẻ "câu của bạn"'); t.ok(seen.size === 3, 'đủ 3 kiểu: ' + [...seen]); t.ok(await wait('.rev-done', 6000), 'xong phiên ôn'); return t.bad; },
     async j3b() { const t = mk('j3'), c = await Core.Cards.all(); for (const w of ['resilience', 'sustainable', 'negotiate']) t.ok(c[w] && c[w].srs.due > Date.now(), 'điểm "' + w + '" còn sau tải lại'); t.ok(c.resilience && /canopies/.test(c.resilience.ctx || ((c.resilience.contexts || [])[0] || {}).text || ''), 'ctx còn'); return t.bad; },
   };

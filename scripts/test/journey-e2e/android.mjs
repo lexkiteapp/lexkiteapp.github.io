@@ -36,12 +36,27 @@ async function connect() {
 if (!(await connect())) { console.log('✗ không kết nối được trang WebView'); process.exit(1); }
 const ev0 = async expr => { const r = await cdp('Runtime.evaluate', { expression: `(async () => { ${expr} })()`, awaitPromise: true, returnByValue: true }); if (r.result && r.result.exceptionDetails) return { __err: JSON.stringify(r.result.exceptionDetails).slice(0, 300) }; return r.result && r.result.result ? r.result.result.value : undefined; };
 const ev = async expr => { const r = await ev0(expr); if (r && r.__err && /cdp (timeout|closed)/.test(r.__err)) { console.log('… CDP không phản hồi → kết nối lại'); await connect(); } return r; };
-const reload = async () => { await cdp('Page.reload', {}); await sleep(9000); await ev('for (let i = 0; i < 40 && !(window.App && document.querySelector("#view") && document.querySelector("#view").children.length); i++) await new Promise(r => setTimeout(r, 500)); return 1'); };
+// Giả lập vừa khởi động hay báo ANR của launcher ("Pixel Launcher isn't responding", lượt đỏ 24/10): hộp hệ thống che app → bấm "Wait" (như native-auth/android.mjs). Không đổi điều kiện kiểm.
+const clearAnr = async () => {
+  for (let k = 0; k < 3; k++) {
+    adb('shell', 'uiautomator', 'dump', '/sdcard/anr.xml'); const x = adb('shell', 'cat', '/sdcard/anr.xml');
+    if (!/isn.t responding|không phản hồi/i.test(x)) return;
+    const b = /text="(?:Wait|Đợi|Chờ)"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(x);
+    console.log('ANR hệ thống → bấm Wait'); if (b) adb('shell', 'input', 'tap', String((+b[1] + +b[3]) >> 1), String((+b[2] + +b[4]) >> 1)); await sleep(1500);
+  }
+};
+// App ĐÃ khởi động = bộ định tuyến đã vẽ ≥ 1 lượt (App.routeToken() > 0). KHÔNG dựa vào "#view có con": index.html vẽ sẵn trang chào (#lkHero) trước khi app chạy
+// → bộ chạy cũ bắt đầu kịch bản trên khung dựng sẵn, đổi hash khi app chưa có route → "không thấy button.trk-opt" rồi cả chuỗi đỏ theo.
+const BOOTED = 'window.App && App.routeToken && App.routeToken() > 0 && document.querySelector("#view") && document.querySelector("#view").children.length';
+const booted = async () => { const t0 = Date.now(); const r = await ev(`for (let i = 0; i < 120 && !(${BOOTED}); i++) await new Promise(r => setTimeout(r, 500)); return !!(${BOOTED})`); const ms = Date.now() - t0; if (r !== true) { bad.push(`app không khởi động xong sau ${Math.round(ms / 1000)} s (App.routeToken = 0)`); console.log('✗ app chưa khởi động'); } else if (ms > 15000) console.log(`… app khởi động chậm: ${Math.round(ms / 1000)} s`); return r === true; };
+const reload = async () => { await clearAnr(); await cdp('Page.reload', {}); await sleep(3000); await booted(); };
+await clearAnr(); await booted();
 for (const l of ['en', 'vi', 'ar']) {
   await ev(`localStorage.setItem('vb.uiLang', ${JSON.stringify(l)}); return 1`);
   await ev('await LKJN.reset(); return 1'); await reload();
   for (const f of ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b']) {
     if (f === 'R') { await reload(); continue; }
+    await clearAnr();
     const e0 = errs.length, r = await ev(`return await LKJN.${f}()`);
     if (!Array.isArray(r) && !(r && r.__err)) { bad.push(`[${l}] ${f}: kịch bản không trả kết quả (trang tải lại/rời app giữa chừng?)`); console.log(`${l} ${f}: ✗ không có kết quả`); await reload(); continue; }
     if (r && r.__err) bad.push(`[${l}] ${f}: kịch bản dừng ${r.__err}`); else for (const m of r || []) bad.push(`[${l}] ${m}`);
