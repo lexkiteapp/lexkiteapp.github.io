@@ -2,17 +2,25 @@
 # Chép web app vào extension/app để add-on dùng chung mã nguồn với bản web.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# --check: dựng extension/app vào thư mục tạm rồi so với bản đã commit – lệch (web sửa mà quên build add-on) → exit 1.
+# Chạy trong npm test (scripts/test/ext-sync.mjs) để extension/app không bao giờ trôi khỏi web/.
+APP="$ROOT/extension/app"
+if [[ "${1:-}" == "--check" ]]; then TMP="$(mktemp -d "${TMPDIR:-/tmp}/extchk.XXXXXX")"; trap 'rm -rf "$TMP"' EXIT; APP="$TMP/app"; fi
 # Đồng bộ tại chỗ (rsync ghi file tạm rồi đổi tên, xóa file thừa sau cùng): thư mục app không bao giờ trống,
 # nên Chrome khởi động lại service worker giữa lúc build cũng không gặp lỗi importScripts.
-mkdir -p "$ROOT/extension/app" "$ROOT/extension/icons"
-rsync -a --delete-after --exclude '.*' --exclude 'admin.js' --exclude 'admin-*.js' --exclude 'admin-growth.js' --exclude 'admin-social.js' --exclude 'admin-studio.js' --exclude 'admin-drive.js' --exclude 'admin-reports.js' --exclude 'admin-quota.js' --exclude 'admin-drive.js' --exclude 'admin.css' --exclude 'vendor/jsvectormap' --exclude 'jsvectormap.min.css' --exclude '/js/ads/' --exclude '/js/i18n/*/ads.js' "$ROOT/web/app/index.html" "$ROOT/web/manifest.webmanifest" "$ROOT/web/css" "$ROOT/web/js" "$ROOT/web/icons" "$ROOT/extension/app/"
+mkdir -p "$APP" "$ROOT/extension/icons"
+rsync -a --delete-after --delete-excluded --exclude '.*' --exclude 'admin.js' --exclude 'admin-*.js' --exclude 'admin-growth.js' --exclude 'admin-social.js' --exclude 'admin-studio.js' --exclude 'admin-drive.js' --exclude 'admin-reports.js' --exclude 'admin-quota.js' --exclude 'admin-drive.js' --exclude 'admin.css' --exclude 'vendor/jsvectormap' --exclude 'jsvectormap.min.css' --exclude '/js/ads/' --exclude '/js/i18n/*/ads.js' "$ROOT/web/app/index.html" "$ROOT/web/manifest.webmanifest" "$ROOT/web/css" "$ROOT/web/js" "$ROOT/web/icons" "$APP/"
 # App web nằm ở /app/ (web/app/index.html, <base href="/"> + chặn liên kết "#…") – add-on có gốc riêng extension/app/ → bỏ khối <!--base-->
-perl -0pi -e 's#<!--base-->.*?<!--/base-->##s; s# media="print" onload="this\.media=.all."##; s# onclick="event\.preventDefault\(\);document\.getElementById\(.view.\)\.focus\(\)"##; s#<!--hero-->.*?<!--/hero-->##s; s#\s*<script type="speculationrules">.*?</script>##s' "$ROOT/extension/app/index.html"  # add-on MV3 cấm script nội tuyến – bỏ khung dựng sẵn & speculation rules
+perl -0pi -e 's#<!--base-->.*?<!--/base-->##s; s# media="print" onload="this\.media=.all."##; s# onclick="event\.preventDefault\(\);document\.getElementById\(.view.\)\.focus\(\)"##; s#<!--hero-->.*?<!--/hero-->##s; s#\s*<script type="speculationrules">.*?</script>##s' "$APP/index.html"  # add-on MV3 cấm script nội tuyến – bỏ khung dựng sẵn & speculation rules
 # Quảng cáo: add-on KHÔNG BAO GIỜ có quảng cáo (CWS + docs/ADS.md) – js/ads/ (AdSense/AdMob) và chuỗi nhóm 'ads' bị loại khỏi gói; js/ads.js chỉ là vỏ tự tắt trên chrome-extension:.
 # Chrome Web Store cấm mã tải từ xa: xóa URL thư viện ngoài (Firebase SDK, AdSense, Turnstile, transformers.js) khỏi bản add-on.
 # Các nhánh này vốn đã bị tắt trong add-on (Store.isExtension / CSP), nhưng để nguyên URL thì bản duyệt tự động vẫn gắn cờ.
-perl -pi -e 's#https://(?:www\.gstatic\.com/firebasejs/[\d.]+/|pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js|challenges\.cloudflare\.com/turnstile/v0/api\.js\?render=explicit|cdn\.jsdelivr\.net/npm/\@huggingface/transformers\@[\d.]+/dist/transformers\.min\.js|www\.youtube\.com/iframe_api)##g' "$ROOT"/extension/app/js/*.js
-if grep -nE "(import\(|\.src *=|importScripts\().{0,4}['\"\`]https?://" "$ROOT"/extension/*.js "$ROOT"/extension/app/js/*.js; then echo "✗ Còn mã tải từ xa trong add-on (xem dòng trên)" >&2; exit 1; fi
+perl -pi -e 's#https://(?:www\.gstatic\.com/firebasejs/[\d.]+/|pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js|challenges\.cloudflare\.com/turnstile/v0/api\.js\?render=explicit|cdn\.jsdelivr\.net/npm/\@huggingface/transformers\@[\d.]+/dist/transformers\.min\.js|www\.youtube\.com/iframe_api)##g' "$APP"/js/*.js
+if grep -nE "(import\(|\.src *=|importScripts\().{0,4}['\"\`]https?://" "$ROOT"/extension/*.js "$APP"/js/*.js; then echo "✗ Còn mã tải từ xa trong add-on (xem dòng trên)" >&2; exit 1; fi
+if [[ "${1:-}" == "--check" ]]; then
+  if ! diff -rq "$APP" "$ROOT/extension/app" >&2; then echo "✗ extension/app lệch web/ (dòng trên) → chạy: bash scripts/build-extension.sh rồi commit" >&2; exit 1; fi
+  echo "✓ extension/app khớp web/"; exit 0
+fi
 rsync -a "$ROOT"/web/icons/icon-{16,32,48,128}.png "$ROOT/web/icons/icon.svg" "$ROOT/extension/icons/"
 node "$ROOT/scripts/gen-academic.mjs" >/dev/null  # danh sách từ học thuật B2–C2 cho gạch chân trên trang
 node "$ROOT/scripts/gen-newtab.mjs" >/dev/null    # dữ liệu thẻ từ ở tab mới (extension/nt/*.json – chỉ dữ liệu thật trong kho)

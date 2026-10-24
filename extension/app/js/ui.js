@@ -53,10 +53,24 @@
     box.innerHTML = html;
     box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.tabIndex = -1;
     $('#modal').hidden = false;
-    (box.querySelector('input, textarea, button.primary, button, a') || box).focus();
+    trapFocus(true); requestAnimationFrame(() => trapFocus()); setTimeout(trapFocus, 120); // WebView (iOS/Android) có thể bỏ qua focus() lần đầu
     return box;
   }
-  const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+  // Bẫy focus dùng chung mọi nền tảng: focus phải ở trong hộp thoại khi #modal mở. focus() vào ô nhập có thể bị WKWebView từ chối (không có cử chỉ) → thử nút, rồi chính hộp (tabindex=-1)
+  function trapFocus(first) {
+    const m = $('#modal'), box = $('#modalBox'); if (!m || m.hidden || !box) return;
+    const a = document.activeElement; if (!first && a && a !== document.body && box.contains(a)) return;
+    const tryF = el => { if (!el) return false; try { el.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } return box.contains(document.activeElement); };
+    if (tryF(box.querySelector('input:not([disabled]), textarea')) || tryF(box.querySelector('button.primary, button:not([disabled]), a[href]'))) return;
+    box.tabIndex = -1; tryF(box);
+  }
+  // Trang bên dưới (vd. ôn tập tự focus #typeIn, vẽ lại nút) giành focus khi hộp thoại đang mở → kéo về hộp thoại
+  document.addEventListener('focusin', e => { const m = $('#modal'); if (m && !m.hidden && !$('#modalBox').contains(e.target)) trapFocus(); });
+  document.addEventListener('focusout', () => setTimeout(() => { const a = document.activeElement; if (!a || a === document.body) trapFocus(); }, 0));
+  try { const mo = new MutationObserver(() => { const a = document.activeElement; if (!a || a === document.body || !a.isConnected) trapFocus(); }); const b = document.getElementById('modalBox'); if (b) mo.observe(b, { childList: true, subtree: true }); else document.addEventListener('DOMContentLoaded', () => { const x = document.getElementById('modalBox'); x && mo.observe(x, { childList: true, subtree: true }); }); } catch (e) { /* bỏ qua */ }
+  // Trả focus: phần tử cũ đã bị vẽ lại (vd. nút cuối bài học) → tiêu đề/nút chính của trang thay vì rơi về <body> (journey-e2e)
+  const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; const f = lastFocus && lastFocus.isConnected && lastFocus !== document.body ? lastFocus : $('#view .btn.primary, #view h1, #view h2'); const put = el => { if (!el || !el.focus) return false; if (!el.matches('a[href],button,input,select,textarea,[tabindex]')) el.tabIndex = -1; try { el.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } return document.activeElement === el; };
+    if (!put(f)) put($('#view h1, #view h2') || $('#view')); };
   document.addEventListener('keydown', e => {
     if ($('#modal').hidden) return;
     if (e.key === 'Escape') return closeModal();

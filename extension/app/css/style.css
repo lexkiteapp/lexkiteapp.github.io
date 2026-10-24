@@ -157,6 +157,10 @@ p { margin: .4rem 0; }
 .btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
 
 .input, select.input, textarea.input { width: 100%; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); outline: none; transition: border-color .15s, box-shadow .15s; }
+/* iOS Safari: ô ngày/giờ có bề rộng nội tại > khung → tràn (24/10). Ép co theo khung, căn trái như ô khác. */
+input.input[type=date], input.input[type=datetime-local], input.input[type=time], input.input[type=month], input[type=date], input[type=datetime-local], input[type=time], input[type=month] { -webkit-appearance: none; appearance: none; min-width: 0; max-width: 100%; box-sizing: border-box; text-align: start; min-height: 2.9rem; }
+input[type=date]::-webkit-date-and-time-value, input[type=datetime-local]::-webkit-date-and-time-value, input[type=time]::-webkit-date-and-time-value { text-align: start; }
+.grid > label.field, .grid > .field, .row > label { min-width: 0; }
 .input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 textarea.input { resize: vertical; min-height: 72px; }
 label.field { display: block; }
@@ -265,6 +269,11 @@ details summary { cursor: pointer; }
 /* Thẻ cao theo nội dung (không cắt chữ, không cuộn trong thẻ): mặt đang hiện nằm trong luồng, mặt kia phủ lên */
 .face.front, .flash.flipped .face.back { position: relative; min-height: 440px; overflow: visible; }
 .flash.flipped .face.front { position: absolute; inset: 0; }
+/* Mặt thẻ đang quay lưng: ẩn hẳn sau khi lật xong (nút ở mặt sau không đè/không nhận Tab, chạm khi mặt trước đang hiện – quality-sweep overlap #/review) */
+.flash:not(.flipped) .face.back, .flash.flipped .face.front { visibility: hidden; transition: visibility 0s .48s; }
+.flash:not(.flipped) .face.front, .flash.flipped .face.back { visibility: visible; transition: visibility 0s 0s; }
+/* Từ của ngày (trang chủ): liên kết chữ lớn đứng riêng → vùng chạm ≥ 44×44 (quality-sweep touch-target 57×33) */
+.wotd-w { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; }
 /* Thanh chấm điểm dính đáy màn hình, nằm SAU thẻ trong luồng → cuộn hết vẫn thấy trọn nội dung */
 .grade-bar { position: sticky; bottom: 0; z-index: 6; margin: 1rem -.75rem 0; padding: .65rem .75rem calc(.65rem + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--bg) 80%, transparent); }
 .grade-bar .grades { margin-top: 0; }
@@ -441,6 +450,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .g4.stats, .g3.keep { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .auto { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)) !important; }
   .entry-head { grid-template-columns: minmax(0, 1fr) 84px; }
+  .entry-head.has-vimg { grid-template-columns: minmax(0, 1fr); } /* ảnh từ vựng giữ đúng 160×160 (vai dict) → xuống dưới chữ thay vì bị bóp còn 84 px */
   .stat { gap: .55rem; } .stat .em { width: 38px; height: 38px; font-size: 1.1rem; } .stat b { font-size: 1.1rem; }
   .card { padding: 1rem; }
   .hero-main .row .btn.lg { padding: .75rem 1rem; font-size: .98rem; }

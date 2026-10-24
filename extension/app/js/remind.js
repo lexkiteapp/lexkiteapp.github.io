@@ -104,6 +104,9 @@
   const NATIVE = !!(g.VBNative && g.VBNative.is), EXT = !!Store.isExtension;
   const BASE = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
   const OFF = /[?&](sandbox|demo)=/.test(location.search) || navigator.webdriver;
+  // journey-e2e (scripts/test/journey-e2e.mjs): chỉ khi đang kiểm thử tự động/sandbox VÀ cờ lk.e2e → cho hiện hộp hỏi mềm để kiểm (số liệu/push vẫn TẮT)
+  const raw = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const ASKOFF = OFF && !(raw('lk.e2e') === '1' && (navigator.webdriver || Store.sandbox));
   const tr = (k, v) => (typeof g.t === 'function' ? g.t(k, v) : k);
   // Số liệu: shown/open theo mẫu (CTR), ask_yes/ask_no, optin/optout – gộp, gửi bằng beacon text/plain (không preflight), không gửi nội dung học
   const evq = new Map(); let evT = 0;
@@ -227,7 +230,8 @@
 
   // ---------- Hỏi quyền mềm: sau bài học hoàn thành ĐẦU TIÊN, không bao giờ lúc mở app, tối đa 1 lần ----------
   const canAsk = async () => {
-    if (OFF || EXT || ls.get('lk.reask', 0) || state.settings.reminderOn === false) return false;
+    if (ASKOFF || EXT || ls.get('lk.reask', 0) || state.settings.reminderOn === false) return false;
+    if (raw('lk.edu') === '1' || raw('lk.u13') === '1') return false; // học sinh lớp học / dưới 13 tuổi: không mời nhắc học (giáo viên giao bài)
     if (NATIVE) { const LN = g.Capacitor.Plugins.LocalNotifications; if (!LN) return false; const p = await LN.checkPermissions().catch(() => ({})); return p.display === 'prompt' || p.display === 'prompt-with-rationale'; }
     return 'Notification' in g && Notification.permission === 'default';
   };
