@@ -1,5 +1,5 @@
 {
- "_note": "Nghĩa KHÔNG lấy ảnh Wikimedia (scripts/vocab-img/wiki.mjs): trừu tượng/chung chung/đa nghĩa hoặc soát tay thấy ảnh sai. Soát tay 24/10.",
+ "_note": "Nghĩa KHÔNG lấy ảnh Wikimedia (scripts/vocab-img/wiki.mjs): trừu tượng/chung chung/đa nghĩa hoặc soát tay thấy ảnh sai. Soát tay 24/10: tờ ảnh lượt 40076479068 – xem ~100/104 ảnh, bỏ 12 ảnh khó nhận ra/không đúng nghĩa.",
  "block": [
   "agent#n",
   "base#n",
@@ -134,6 +134,18 @@
   "neck#n",
   "pillow#n",
   "oven#n",
-  "knee#n"
+  "knee#n",
+  "bakery#n",
+  "balcony#n",
+  "cloakroom#n",
+  "gym#n",
+  "paperback#n",
+  "pasta#n",
+  "shoulder#n",
+  "sunscreen#n",
+  "pedestrian crossing#n",
+  "walkway#n",
+  "zoo#n",
+  "roundabout#n"
  ]
 }

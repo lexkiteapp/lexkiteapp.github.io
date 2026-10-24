@@ -53,26 +53,6 @@
    "ref": "https://commons.wikimedia.org/wiki/File:Luggage_compartments_Airbus.JPG",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Luggage_compartments_Airbus.JPG/960px-Luggage_compartments_Airbus.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
-  "bakery#n": {
-   "qid": "Q274393",
-   "label": "bakery",
-   "desc": "establishment that produces and sells flour-based food baked in an oven",
-   "file": "Feature. James P. Lloyd. Cake Baker BAnQ P48S1P09086.jpg",
-   "lic": "PD",
-   "by": "Conrad Poirier",
-   "ref": "https://commons.wikimedia.org/wiki/File:Feature._James_P._Lloyd._Cake_Baker_BAnQ_P48S1P09086.jpg",
-   "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Feature._James_P._Lloyd._Cake_Baker_BAnQ_P48S1P09086.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-  },
-  "balcony#n": {
-   "qid": "Q170552",
-   "label": "balcony",
-   "desc": "platform projecting from the wall of a building",
-   "file": "2014 Nysa, zespół klasztorny jezuitów, kościół 06.JPG",
-   "lic": "CC BY-SA 3.0",
-   "by": "Jacek Halicki",
-   "ref": "https://commons.wikimedia.org/wiki/File:2014_Nysa,_zesp%C3%B3%C5%82_klasztorny_jezuit%C3%B3w,_ko%C5%9Bci%C3%B3%C5%82_06.JPG",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/2014_Nysa%2C_zesp%C3%B3%C5%82_klasztorny_jezuit%C3%B3w%2C_ko%C5%9Bci%C3%B3%C5%82_06.JPG/960px-2014_Nysa%2C_zesp%C3%B3%C5%82_klasztorny_jezuit%C3%B3w%2C_ko%C5%9Bci%C3%B3%C5%82_06.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
   "ballroom#n": {
    "qid": "Q805353",
    "label": "ballroom",
@@ -182,16 +162,6 @@
    "by": "Renee Comet (photographer)",
    "ref": "https://commons.wikimedia.org/wiki/File:Cheeseburger.jpg",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Cheeseburger.jpg/960px-Cheeseburger.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
-  "cloakroom#n": {
-   "qid": "Q965173",
-   "label": "cloakroom",
-   "desc": "room for people to hang their cloaks or other outerwear when they enter a building",
-   "file": "Teatro de la Zarzuela Madrid guardaropa.jpg",
-   "lic": "CC BY 2.5",
-   "by": "Photo: Andreas Praefcke",
-   "ref": "https://commons.wikimedia.org/wiki/File:Teatro_de_la_Zarzuela_Madrid_guardaropa.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Teatro_de_la_Zarzuela_Madrid_guardaropa.jpg/960px-Teatro_de_la_Zarzuela_Madrid_guardaropa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
   "closet#n": {
    "qid": "Q1723368",
@@ -403,16 +373,6 @@
    "ref": "https://commons.wikimedia.org/wiki/File:040719_172_dorset_marnhull.jpg",
    "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/d0/040719_172_dorset_marnhull.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
   },
-  "gym#n": {
-   "qid": "Q14092",
-   "label": "gym",
-   "desc": "building designed and equipped for athletics and fitness",
-   "file": "2007-08 Köthen (Anhalt) 32.jpg",
-   "lic": "CC BY 2.5",
-   "by": "Ralf Lotys (Sicherlich)",
-   "ref": "https://commons.wikimedia.org/wiki/File:2007-08_K%C3%B6then_(Anhalt)_32.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/2007-08_K%C3%B6then_%28Anhalt%29_32.jpg/960px-2007-08_K%C3%B6then_%28Anhalt%29_32.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
   "hand luggage#n": {
    "qid": "Q1574994",
    "label": "hand luggage",
@@ -563,26 +523,6 @@
    "ref": "https://commons.wikimedia.org/wiki/File:One_Way_Sign_(6859761193).jpg",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/One_Way_Sign_%286859761193%29.jpg/960px-One_Way_Sign_%286859761193%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
-  "paperback#n": {
-   "qid": "Q193934",
-   "label": "paperback",
-   "desc": "book with a paper or paperboard cover",
-   "file": "Blank book on a table.jpg",
-   "lic": "CC0",
-   "by": "Trey Jones",
-   "ref": "https://commons.wikimedia.org/wiki/File:Blank_book_on_a_table.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Blank_book_on_a_table.jpg/960px-Blank_book_on_a_table.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
-  "pasta#n": {
-   "qid": "Q178",
-   "label": "pasta",
-   "desc": "Italian food made from flour, eggs and water and shaped in different forms, usually cooked and served with a sauce",
-   "file": "Pasta IMG 3985.JPG",
-   "lic": "CC BY-SA 3.0",
-   "by": "Deror avi",
-   "ref": "https://commons.wikimedia.org/wiki/File:Pasta_IMG_3985.JPG",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Pasta_IMG_3985.JPG/960px-Pasta_IMG_3985.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
   "pastry#n": {
    "qid": "Q477248",
    "label": "pastry",
@@ -592,16 +532,6 @@
    "by": "Scott Bauer, U.S. Department of Agriculture",
    "ref": "https://commons.wikimedia.org/wiki/File:Baked_goods.jpg",
    "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/96/Baked_goods.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
-  },
-  "pedestrian crossing#n": {
-   "qid": "Q8010",
-   "label": "pedestrian crossing",
-   "desc": "point on a road at which some means are employed to assist pedestrians wishing to cross",
-   "file": "Zebra Cross di Jalan Asia Afrika.jpg",
-   "lic": "CC BY-SA 4.0",
-   "by": "Astari28",
-   "ref": "https://commons.wikimedia.org/wiki/File:Zebra_Cross_di_Jalan_Asia_Afrika.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Zebra_Cross_di_Jalan_Asia_Afrika.jpg/960px-Zebra_Cross_di_Jalan_Asia_Afrika.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
   "photocopier#n": {
    "qid": "Q185369",
@@ -693,16 +623,6 @@
    "ref": "https://commons.wikimedia.org/wiki/File:Am_Markt,_Pirna_120449116.jpg",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Am_Markt%2C_Pirna_120449116.jpg/960px-Am_Markt%2C_Pirna_120449116.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
-  "roundabout#n": {
-   "qid": "Q1525",
-   "label": "roundabout",
-   "desc": "traffic intersection",
-   "file": "Brasovlandscape.jpg",
-   "lic": "CC BY 3.0",
-   "by": "Nicu Farcaș",
-   "ref": "https://commons.wikimedia.org/wiki/File:Brasovlandscape.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Brasovlandscape.jpg/960px-Brasovlandscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
   "sauna#n": {
    "qid": "Q57036",
    "label": "sauna",
@@ -742,16 +662,6 @@
    "by": "Mgoutsidou",
    "ref": "https://commons.wikimedia.org/wiki/File:Shelve.jpg",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Shelve.jpg/960px-Shelve.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
-  "shoulder#n": {
-   "qid": "Q16363",
-   "label": "shoulder",
-   "desc": "part of the body; movable joint between arm and upper body",
-   "file": "Photo of male right shoulder, combined with an anatomical drawing from Leonardo da Vinci.jpg",
-   "lic": "CC BY-SA 3.0",
-   "by": "File:Leonardo da Vinci - Anatomical studies of the shoulder - WGA12824.jpg: Leonardo da Vinci File:Male right shoulder a",
-   "ref": "https://commons.wikimedia.org/wiki/File:Photo_of_male_right_shoulder,_combined_with_an_anatomical_drawing_from_Leonardo_da_Vinci.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Photo_of_male_right_shoulder%2C_combined_with_an_anatomical_drawing_from_Leonardo_da_Vinci.jpg/960px-Photo_of_male_right_shoulder%2C_combined_with_an_anatomical_drawing_from_Leonardo_da_Vinci.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
   "skirt#n": {
    "qid": "Q2160801",
@@ -842,16 +752,6 @@
    "by": "Sandrine Z",
    "ref": "https://commons.wikimedia.org/wiki/File:Belber_Striped_Suitcase.jpg",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Belber_Striped_Suitcase.jpg/960px-Belber_Striped_Suitcase.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
-  "sunscreen#n": {
-   "qid": "Q827658",
-   "label": "sunscreen",
-   "desc": "topical skin product that helps protect against sunburn",
-   "file": "Sunscreen on back under normal and UV light.jpg",
-   "lic": "CC0",
-   "by": "Photograph by Andrew Steele (https://andrewsteele.co.uk), jointly released into the public domain by the person in the p",
-   "ref": "https://commons.wikimedia.org/wiki/File:Sunscreen_on_back_under_normal_and_UV_light.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Sunscreen_on_back_under_normal_and_UV_light.jpg/960px-Sunscreen_on_back_under_normal_and_UV_light.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
   "supermarket#n": {
    "qid": "Q180846",
@@ -973,16 +873,6 @@
    "ref": "https://commons.wikimedia.org/wiki/File:GER_%E2%80%94_BW_%E2%80%94_Bodenseekreis_%E2%80%94_Gem._Uhldingen-M%C3%BChlhofen_%E2%80%94_Unteruhldingen_%E2%80%94_Poststra%C3%9Fe_10_(Verkaufsautomat_f%C3%BCr_Lebensmittel)_Mattes_2021-06-04.jpg",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/GER_%E2%80%94_BW_%E2%80%94_Bodenseekreis_%E2%80%94_Gem._Uhldingen-M%C3%BChlhofen_%E2%80%94_Unteruhldingen_%E2%80%94_Poststra%C3%9Fe_10_%28Verkaufsautomat_f%C3%BCr_Lebensmittel%29_Mattes_2021-06-04.jpg/960px-GER_%E2%80%94_BW_%E2%80%94_Bodenseekreis_%E2%80%94_Gem._Uhldingen-M%C3%BChlhofen_%E2%80%94_Unteruhldingen_%E2%80%94_Poststra%C3%9Fe_10_%28Verkaufsautomat_f%C3%BCr_Lebensmittel%29_Mattes_2021-06-04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
-  "walkway#n": {
-   "qid": "Q3771516",
-   "label": "walkway",
-   "desc": "engineered surface or structure supporting pedestrian traffic",
-   "file": "002 2013 09 20 Bruecken.jpg",
-   "lic": "CC BY-SA 4.0",
-   "by": "Friedrich Haag",
-   "ref": "https://commons.wikimedia.org/wiki/File:002_2013_09_20_Bruecken.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/002_2013_09_20_Bruecken.jpg/960px-002_2013_09_20_Bruecken.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
   "wall#n": {
    "qid": "Q42948",
    "label": "wall",
@@ -1062,16 +952,6 @@
    "by": "Veracious Rey at en.wikipedia",
    "ref": "https://commons.wikimedia.org/wiki/File:Typical_suburban_backyard.jpg",
    "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Typical_suburban_backyard.jpg/960px-Typical_suburban_backyard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
-  "zoo#n": {
-   "qid": "Q43501",
-   "label": "zoo",
-   "desc": "collection of assorted wild animal species kept for purposes like: study, conservation and, or, commercial exhibition",
-   "file": "Przewalskis horses exposition, Zoo Prague.jpg",
-   "lic": "CC BY-SA 2.5",
-   "by": "Czech Wikipedia user Packa",
-   "ref": "https://commons.wikimedia.org/wiki/File:Przewalskis_horses_exposition,_Zoo_Prague.jpg",
-   "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Przewalskis_horses_exposition%2C_Zoo_Prague.jpg/960px-Przewalskis_horses_exposition%2C_Zoo_Prague.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   }
  }
 }
