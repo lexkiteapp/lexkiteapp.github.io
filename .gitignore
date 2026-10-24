@@ -60,3 +60,4 @@ out/play/
 web/data/lex/
 web/data/lex-index.json
 .seo-urls.txt
+.seo-urls-en.txt

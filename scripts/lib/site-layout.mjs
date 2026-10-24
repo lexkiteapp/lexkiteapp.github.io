@@ -231,7 +231,7 @@ export const SEO_L = {
   vi: {
     home: 'Trang chủ', skip: 'Bỏ qua đến nội dung', open: 'Mở app', app: '/app/',
     nav: [['/vi/blog/', 'Blog'], ['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu'], ['/speaking/', 'Speaking']],
-    sections: [['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu Writing'], ['/speaking/', 'IELTS Speaking'], ['/viet-thu/', 'Thư mẫu IELTS General']],
+    sections: [['/tu-vung/', 'Từ vựng'], ['/ngu-phap/', 'Ngữ pháp'], ['/samples/', 'Bài mẫu Writing'], ['/speaking/', 'IELTS Speaking'], ['/viet-thu/', 'Thư mẫu IELTS General'], ['/phat-am/', 'Phát âm']],
     foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn, miễn phí cho người học.',
     tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.',
     links: [['/vi/blog/', 'Blog'], ['/app/', 'Ứng dụng'], ['/vi/privacy', 'Quyền riêng tư'], ['/vi/terms', 'Điều khoản']],
@@ -241,8 +241,8 @@ export const SEO_L = {
   },
   en: {
     home: 'Home', skip: 'Skip to content', open: 'Open app', app: '/app/?hl=en',
-    nav: [['/en/blog/', 'Blog'], ['/en/vocabulary/', 'Vocabulary'], ['/en/samples/', 'Samples'], ['/en/speaking/', 'Speaking']],
-    sections: [['/en/vocabulary/', 'Vocabulary'], ['/en/samples/', 'Writing samples'], ['/en/speaking/', 'IELTS Speaking']],
+    nav: [['/en/blog/', 'Blog'], ['/en/vocabulary/', 'Vocabulary'], ['/en/grammar/', 'Grammar'], ['/en/ielts-writing/', 'Writing'], ['/en/speaking/', 'Speaking']],
+    sections: [['/en/vocabulary/', 'Vocabulary'], ['/en/grammar/', 'Grammar'], ['/en/pronunciation/', 'Pronunciation'], ['/en/ielts-writing/', 'IELTS Writing'], ['/en/samples/', 'Writing Task 2'], ['/en/speaking/', 'IELTS Speaking']],
     foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original learning content, free for learners.',
     tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.',
     links: [['/en/blog/', 'Blog'], ['/app/?hl=en', 'App'], ['/en/privacy', 'Privacy'], ['/en/terms', 'Terms']],

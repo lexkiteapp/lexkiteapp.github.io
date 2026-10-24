@@ -4,7 +4,7 @@
 // Bản tiếng Anh: build-samples-en.mjs (chạy sau, tự gắn hreflang vi↔en).
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
-import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters } from './lib/seo-data.mjs';
+import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.vi, U = SU.vi, APP = L.app; // APP: gốc app (hash route) – theo site-layout
@@ -14,8 +14,8 @@ const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--fo
 const sm = 'dist/sitemap.xml';
 const addSm = (urls, ...src) => { const lm = gitDate(...src); fs.writeFileSync(sm, fs.readFileSync(sm, 'utf8').replace('</urlset>', urls.map(u => `  <url><loc>${u}</loc><lastmod>${lm}</lastmod><changefreq>monthly</changefreq></url>`).join('\n') + '\n</urlset>')); };
 const plain = s => s.replace(/<<[^>]*>>\s*/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
-const SEC = { samples: 'Bài mẫu Writing', speaking: 'IELTS Speaking', 'tu-vung': 'Từ vựng', 'ngu-phap': 'Ngữ pháp', 'viet-thu': 'Thư mẫu IELTS General' };
-const EN = { samples: 'en/samples', speaking: 'en/speaking', 'tu-vung': 'en/vocabulary' }; // mục có bản tiếng Anh (build-samples-en.mjs)
+const SEC = { samples: 'Bài mẫu Writing', speaking: 'IELTS Speaking', 'tu-vung': 'Từ vựng', 'ngu-phap': 'Ngữ pháp', 'viet-thu': 'Thư mẫu IELTS General', 'phat-am': 'Phát âm' };
+const EN = { samples: 'en/samples', speaking: 'en/speaking', 'tu-vung': 'en/vocabulary', 'ngu-phap': 'en/grammar', 'phat-am': 'en/pronunciation', 'viet-thu': 'en/ielts-writing/general-task-1' }; // mục có bản tiếng Anh (build-samples-en.mjs)
 // Breadcrumb JSON-LD tự suy từ canonical: Trang chủ → mục → trang (giữ nguyên như trước)
 const crumbs = (canon, name) => { const p = canon.slice(SITE.length).split('/'), sec = p[0], it = [['Trang chủ', SITE], [SEC[sec] || sec, `${SITE}${sec}/`]]; if (p[1]) it.push([name, canon]);
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: it.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) }; };
@@ -191,6 +191,43 @@ ${pwaBox('vi', 'grammar')}</article>`;
 ${order.map(k => { const u = unitOf(k); return group(k, `${u.emoji ? u.emoji + ' ' : ''}${u.name}`, `${units[k].length} ${L.lessons}`, units[k].map(gCard)).replace('</h2>', `</h2>${u.desc ? `<p>${esc(u.desc)}</p>` : ''}`); }).join('\n')}`));
   addSm([`${SITE}ngu-phap/`, ...G.map(l => `${SITE}ngu-phap/${l.id}`)], 'web/js/grammar');
   console.log(`✓ SEO: ${G.length} trang ngữ pháp + mục lục`);
+}
+
+// ===== Phát âm: 1 trang / âm (44 âm IPA + kỹ năng) – nội dung gốc tiếng Việt; slug chung với bản en (content/seo-en/pron.json › _meta) =====
+{
+  const P = loadPron(), META = (JSON.parse(fs.readFileSync('content/seo-en/pron.json', 'utf8'))._meta) || {}, { audioKey } = loadVocab();
+  const GN = { vowels: 'Nguyên âm đơn', diphthongs: 'Nguyên âm đôi', consonants: 'Phụ âm', vn: 'Lỗi hay gặp của người Việt', stress: 'Trọng âm, nhịp & ngữ điệu' };
+  const slugP = x => (META[x.id] || {}).slug || encodeURIComponent(x.id);
+  fs.mkdirSync('dist/phat-am', { recursive: true });
+  const au = w => { const k = audioKey(w); return k ? audioBtn(k, w, 'vi') : ''; };
+  const pCard = x => setCard({ href: `/phat-am/${slugP(x)}`, title: x.title, desc: short(x.how || '', 110), emoji: x.emoji, chips: [[x.ipa, 'ink'], [x.level || '', 'alt']].filter(c => c[0]), key: `${x.ipa} ${GN[x.group] || ''}` });
+  P.forEach((x, i) => {
+    const s = slugP(x), prev = P[i - 1], next = P[i + 1], href = `${APP}#/pron/${encodeURIComponent(x.id)}`, ws = (x.words || []).slice(0, 12), pairs = x.pairs || [];
+    const qs = (x.quiz || []).slice(0, 3);
+    const body = `<article class="page">${hero(esc(x.title), { emoji: x.emoji || '🗣️', lead: esc(x.how), chips: [[x.ipa, 'ink'], ...(x.level ? [[x.level, 'alt']] : []), GN[x.group] || x.group] })}
+${ctaBox(href, '🎙️ Luyện âm này bằng micro (miễn phí)', 'Mở trong app', 'Nghe mẫu, tự ghi âm và được nhận xét từng từ ngay.')}
+${(x.rules || []).length ? `<h2>Quy tắc</h2><div class="tbl"><table><thead><tr><th scope="col">Quy tắc</th><th scope="col">Khi nào</th><th scope="col">Ví dụ</th></tr></thead><tbody>${x.rules.map(r => `<tr><td><b>${esc(r.label)}</b></td><td>${esc(r.when)}</td><td lang="en">${(r.ex || []).map(esc).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${x.vn ? `<h2>Lỗi người Việt hay mắc</h2><div class="err">${esc(x.vn)}</div>` : ''}
+${x.tip ? `<div class="tip">💡 ${esc(x.tip)}</div>` : ''}
+${ws.length ? `<h2>Từ ví dụ</h2><div class="tbl"><table class="wt"><thead><tr><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th></tr></thead><tbody>${ws.map(w => `<tr><td><span class="w" lang="en">${au(w.w)}${esc(w.w)}</span>${w.note ? ` <small>${esc(w.note)}</small>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${pairs.length ? `<h2>Cặp từ tối thiểu (minimal pairs)</h2><p>Mỗi cặp chỉ khác nhau một âm – đọc to để nghe rõ sự khác biệt.</p><div class="tbl"><table class="wt"><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w" lang="en">${au(a)}${esc(a)}</span></td><td>–</td><td><span class="w" lang="en">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
+${(x.sentences || []).length ? `<h2>Câu luyện tập</h2><ul class="uses">${x.sentences.map(z => `<li lang="en">${esc(z)}</li>`).join('')}</ul>` : ''}
+${qs.length ? `<h2>Kiểm tra nhanh</h2><ol class="uses">${qs.map(q => `<li><p><b>${esc(q.q)}</b></p><ol type="a">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol><details><summary>Xem đáp án</summary><p>✅ <b>${esc(q.options[q.answer])}</b>${q.explain ? ` – ${esc(q.explain)}` : ''}</p></details></li>`).join('')}</ol>` : ''}
+${ctaBox(href, `🗣️ Tự ghi âm các từ có ${esc(x.ipa)}`, 'Luyện trong app')}
+<nav class="pager" aria-label="Bài trước / bài sau">${prev ? `<a rel="prev" href="/phat-am/${slugP(prev)}">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a rel="next" href="/phat-am/${slugP(next)}">${esc(next.title)} →</a>` : ''}</nav>
+${related(relatedOf(P, x, y => y.group === x.group, 4), pCard)}
+${extBox('vi', 'pron')}
+${pwaBox('vi', 'pron')}</article>`;
+    const ex3 = ws.slice(0, 3).map(w => w.w).join(', ');
+    fs.writeFileSync(`dist/phat-am/${s}.html`, page(x.mouth ? `Cách phát âm ${x.ipa} chuẩn (${ex3}) – ${x.title}, cặp từ tối thiểu | Lexkite` : `${x.title} – quy tắc, ví dụ, luyện tập | Lexkite`,
+      x.mouth ? `Cách phát âm ${x.ipa}: khẩu hình, ${ws.length} từ ví dụ có phiên âm và audio, ${pairs.length} cặp từ tối thiểu, lỗi người Việt hay mắc. ${short(x.how, 60)}` : `${x.title}: ${short(x.how, 110)} Quy tắc, ví dụ và bài luyện.`, `${SITE}phat-am/${s}`, body, x.title, s));
+  });
+  const by = {}; for (const x of P) (by[x.group] ||= []).push(x);
+  fs.writeFileSync('dist/phat-am/index.html', page(`Phát âm tiếng Anh chuẩn: 44 âm IPA, trọng âm, ngữ điệu – ${P.length} bài | Lexkite`, `${P.length} bài phát âm tiếng Anh: 44 âm IPA, đuôi -ed/-s, trọng âm, nối âm, ngữ điệu – khẩu hình, từ ví dụ có audio, cặp từ tối thiểu và lỗi người Việt hay mắc.`, `${SITE}phat-am/`,
+    `${indexHero(`Phát âm tiếng Anh (${P.length} bài)`, '44 âm IPA cùng trọng âm, đuôi -ed/-s và ngữ điệu – có từ ví dụ, audio, cặp từ tối thiểu và lỗi người Việt hay mắc.', 'phat-am')}
+${Object.entries(by).map(([k, xs]) => group(k, GN[k] || k, `${xs.length} ${L.lessons}`, xs.map(pCard))).join('\n')}`));
+  addSm([`${SITE}phat-am/`, ...P.map(x => `${SITE}phat-am/${slugP(x)}`)], 'web/js/pron', 'content/seo-en/pron.json');
+  console.log(`✓ SEO: ${P.length} trang phát âm + mục lục`);
 }
 
 // ===== IELTS General – thư mẫu: 1 trang / đề =====

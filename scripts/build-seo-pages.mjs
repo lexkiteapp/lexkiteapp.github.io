@@ -181,7 +181,7 @@ ${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence'), t.ctaB)}</article>`;
 
 // ---------- Bản tĩnh có sẵn (bộ từ, ngữ pháp) cho app → canonical ----------
 const ids = dir => (fs.existsSync(path.join(D, dir)) ? fs.readdirSync(path.join(D, dir)).filter(f => f.endsWith('.html') && f !== 'index.html').map(f => f.slice(0, -5)) : []);
-twins.t = { vi: { topic: ['/tu-vung/', ids('tu-vung')], grammar: ['/ngu-phap/', ids('ngu-phap')] }, en: { topic: ['/en/vocabulary/', ids('en/vocabulary')] } };
+twins.t = { vi: { topic: ['/tu-vung/', ids('tu-vung')], grammar: ['/ngu-phap/', ids('ngu-phap')] }, en: { topic: ['/en/vocabulary/', ids('en/vocabulary')], grammar: ['/en/grammar/', ids('en/grammar')] } };
 fs.mkdirSync(path.join(D, 'data'), { recursive: true });
 fs.writeFileSync(path.join(D, 'data/seo-twins.json'), JSON.stringify(twins));
 
@@ -190,6 +190,8 @@ const xl = alts => alts.map(([l, p]) => `<xhtml:link rel="alternate" hreflang="$
 const sm = (f, list) => fs.writeFileSync(path.join(D, f), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${list.map(([u, lm, alts]) => `  <url><loc>${u}</loc><lastmod>${lm}</lastmod>${xl(alts)}</url>`).join('\n')}\n</urlset>\n`);
 for (const l of LANGS) sm(`sitemap-words-${l}.xml`, urls.filter(u => u[3] === 'words' && u[4] === l));
 sm('sitemap-conversations.xml', urls.filter(u => u[3] === 'conversations'));
-fs.writeFileSync('.seo-urls.txt', hashes.join('\n') + '\n');
+// + trang bài học tiếng Anh (build-samples-en.mjs: ngữ pháp, phát âm, IELTS Writing) → cùng một danh sách IndexNow
+const extra = fs.existsSync('.seo-urls-en.txt') ? fs.readFileSync('.seo-urls-en.txt', 'utf8').split('\n').filter(Boolean) : [];
+fs.writeFileSync('.seo-urls.txt', [...hashes, ...extra].join('\n') + '\n');
 const per = LANGS.map(l => `${l} ${setOf[l].length}`).join(', ');
 console.log(`✓ SEO trang app: ${nW} trang từ (${nWthin} noindex; ${per}) + ${nC} bài giao tiếp (${nCthin} noindex) + ${LANGS.length * 2} mục lục · ${urls.length} URL index được · dist/data/seo-twins.json`);
