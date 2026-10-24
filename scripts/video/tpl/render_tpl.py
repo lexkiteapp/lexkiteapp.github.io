@@ -588,9 +588,10 @@ AUD = dict(voice_rms_dbfs=-19, music_rms_dbfs=round(20 * np.log10(np.sqrt(np.mea
 
 # video --------------------------------------------------------------
 vk = int(min(6000, 24.3 * 8000 / TOTAL - 160)); vk = max(vk, 5500)
+# 1b: audio loudnorm to -16 LUFS (MEDIA-QA-RUBRIC C)
 RC = ['-crf', str(o.crf), '-maxrate', '14000k', '-bufsize', '28000k', '-x264-params', 'force-cfr=1'] if o.crf else ['-b:v', f'{vk}k', '-minrate', f'{vk}k', '-maxrate', f'{vk}k', '-bufsize', f'{vk}k', '-x264-params', 'nal-hrd=cbr:force-cfr=1']
 enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', '-i', AW,
-                        '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', *RC, *(['-af', 'loudnorm=I=-16:TP=-1.5:LRA=11'] if PLATE_N else []), '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-movflags', '+faststart', '-shortest', o.out]   # 1b: -16 LUFS (MEDIA-QA-RUBRIC C), stdin=subprocess.PIPE)
+                        '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', *RC, *(['-af', 'loudnorm=I=-16:TP=-1.5:LRA=11'] if PLATE_N else []), '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-movflags', '+faststart', '-shortest', o.out], stdin=subprocess.PIPE)
 LOG = []; shots = {}
 for fi in range(NF):
     tf = fi / FPS; img = compose(tf, LOG); enc.stdin.write(img.tobytes())
