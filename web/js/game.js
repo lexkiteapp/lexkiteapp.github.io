@@ -140,7 +140,13 @@
 
   // ---------- Pháo giấy ----------
   function confetti(n = 120) {
-    if (typeof document === 'undefined' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (typeof document === 'undefined') return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { // giảm chuyển động: KHÔNG pháo giấy bay – chỉ Kit "win" đứng yên hiện/mờ (đổi độ mờ, không dịch chuyển) cho mốc lớn
+      if (n < 80 || !g.Kit) return;
+      const k = document.createElement('div'); k.className = 'cele-still'; k.setAttribute('aria-hidden', 'true'); k.innerHTML = g.Kit.svg('win', 88, false);
+      document.body.appendChild(k); requestAnimationFrame(() => k.classList.add('on')); setTimeout(() => k.classList.remove('on'), 1100); setTimeout(() => k.remove(), 1500);
+      return;
+    }
     const c = document.createElement('canvas');
     c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999';
     document.body.appendChild(c);

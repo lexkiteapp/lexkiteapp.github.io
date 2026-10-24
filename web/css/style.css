@@ -1210,6 +1210,9 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 .option.right::after, .option.wrong::after { margin-inline-start: auto; font-weight: 900; font-size: 1.1rem; line-height: 1; }
 .option.right::after { content: "✓"; color: var(--good-text, var(--good)); }
 .option.wrong::after { content: "✕"; color: var(--again-text, var(--again)); }
+/* Ăn mừng khi bật "giảm chuyển động": Kit đứng yên, chỉ đổi độ mờ (game.js confetti) */
+.cele-still { position: fixed; left: 0; right: 0; top: 18vh; display: flex; justify-content: center; pointer-events: none; z-index: 9999; opacity: 0; transition: opacity .3s linear !important; }
+.cele-still.on { opacity: 1; }
 @keyframes skel { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 /* Nút trong thẻ chào (trang chủ) trên điện thoại: chia đều, chữ dài tự xuống dòng thay vì tràn ra ngoài */
 @media (max-width: 560px) {
