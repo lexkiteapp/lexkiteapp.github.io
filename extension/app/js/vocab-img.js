@@ -11,22 +11,25 @@
   const POS = p => { p = String(p || '').toLowerCase().trim(); return /^(n|noun)\b|^danh/.test(p) ? 'n' : /^(phr ?v|phrasal)|^cụm động/.test(p) ? 'phrv' : /^(v|verb)\b|^động/.test(p) ? 'v' : /^adj|^tính/.test(p) ? 'adj' : /^adv|^trạng/.test(p) ? 'adv' : p; };
   const KEY = (w, pos) => String(w || '').trim().toLowerCase() + '#' + POS(pos);
   let idx = null, loading = null;
-  function enabled() {
-    try { if (localStorage.getItem('lk.vimg') === '1') return true; if (localStorage.getItem('lk.vimg') === '0') return false; } catch (e) { /* bỏ qua */ }
-    try { const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'); return !!(c && c.v && c.v.vocab_img === true); } catch (e) { return false; }
+  // 1 = bật, 0 = tắt, -1 = TỰ ĐỘNG theo chỉ mục (on = đủ ≥ 150 ảnh đã qua giám khảo – build-lexicon). Ghi đè: localStorage lk.vimg, rồi config vocab_img true/false.
+  function mode() {
+    try { const f = localStorage.getItem('lk.vimg'); if (f === '1') return 1; if (f === '0') return 0; } catch (e) { /* bỏ qua */ }
+    try { const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.vocab_img; if (v === true) return 1; if (v === false) return 0; } catch (e) { /* bỏ qua */ }
+    return -1;
   }
+  function enabled() { const m = mode(); return m === 1 || (m === -1 && !!(idx && idx.on)); }
   const src = (typeof document !== 'undefined' && document.currentScript && document.currentScript.src) || '';
   function load() {
     if (idx) return Promise.resolve(idx);
     if (!loading) {
       const base = src || (g.location && g.location.href) || '';
       const u = new URL('lexicon-img.json', /\/js\//.test(base) ? base : new URL('js/', base)).href;
-      loading = fetch(u).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => (idx = { base: (j && j.base) || '', m: (j && j.m) || {}, x: new Set((j && j.x) || []), w: new Set((j && j.w) || []) }));
+      loading = fetch(u).then(r => (r.ok ? r.json() : null)).catch(() => null).then(j => (idx = { on: !!(j && j.on), base: (j && j.base) || '', m: (j && j.m) || {}, x: new Set((j && j.x) || []), w: new Set((j && j.w) || []) }));
     }
     return loading;
   }
   /** Tải trước chỉ mục (cờ bật) → Promise<VImg | null>. Bề mặt chờ ready() rồi mới vẽ để slot() có hộp ngay từ lần vẽ đầu. */
-  const ready = () => (enabled() ? load().then(() => api) : Promise.resolve(null));
+  const ready = () => (mode() === 0 ? Promise.resolve(null) : load().then(() => (enabled() ? api : null)));
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   /** Markup thuần (dùng chung app/add-on/trang tĩnh build-seo-pages): hộp vuông rộng w px CSS cố định, 2x chỉ khi x2 và w > 192; noAvif → chỉ WebP (AVIF 404 sẽ không tự lùi về <img>). */
   function pic(base, h, x2, alt, w, noAvif) {
@@ -46,10 +49,10 @@
   const has = (word, pos) => !!(idx && enabled() && idx.m[KEY(word, pos)]);
   /** → Promise<{ url (webp), avif, url2x?, alt, key, x2 } | null> */
   function get(word, pos, gloss) {
-    if (!enabled()) return Promise.resolve(null);
+    if (mode() === 0) return Promise.resolve(null);
     const k = KEY(word, pos);
-    return load().then(j => { const h = j.m[k]; if (!h) return null; const u = j.base + h, x2 = j.x.has(k); return { url: u + '.webp', avif: j.w.has(k) ? '' : u + '.avif', url2x: x2 ? u + '@2x.webp' : '', alt: altOf(word, gloss), key: k, x2 }; });
+    return load().then(j => { if (!enabled()) return null; const h = j.m[k]; if (!h) return null; const u = j.base + h, x2 = j.x.has(k); return { url: u + '.webp', avif: j.w.has(k) ? '' : u + '.avif', url2x: x2 ? u + '@2x.webp' : '', alt: altOf(word, gloss), key: k, x2 }; });
   }
-  const api = { enabled, ready, get, slot, has, pic, key: KEY, pos: POS, _reset: () => { idx = null; loading = null; } };
+  const api = { enabled, mode, ready, get, slot, has, pic, key: KEY, pos: POS, _reset: () => { idx = null; loading = null; } };
   g.VImg = api;
 })(typeof self !== 'undefined' ? self : this);

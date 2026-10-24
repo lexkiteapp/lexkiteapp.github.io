@@ -49,8 +49,10 @@ function sandbox(store, index) {
 }
 const H = '0123456789abcdef', H2 = 'fedcba9876543210', H3 = 'aaaaaaaaaaaaaaaa';
 const index = { v: 2, base, sv: 's1', m: { 'apple#n': H, 'kiss#v': H2, 'red#adj': H3 }, x: ['kiss#v'], w: ['red#adj'] };
-{ const { V, fetched } = sandbox({}, index); ok(V.enabled() === false, 'cờ mặc định TẮT'); ok(V.slot('apple', 'n') === '', 'tắt → không chèn hộp');
-  ok(await V.ready() === null && await V.get('apple', 'n') === null && fetched.length === 0, 'tắt → ready()/get() không tải chỉ mục'); ok(V.slot('apple', 'n') === '', 'tắt → vẫn không hộp sau ready()'); }
+{ const { V, fetched } = sandbox({}, index); ok(V.enabled() === false, 'chưa đặt cờ, chỉ mục chưa về → chưa bật'); ok(V.slot('apple', 'n') === '', 'chưa bật → không chèn hộp');
+  ok(await V.ready() === null && await V.get('apple', 'n') === null && fetched.length === 1, 'tự động + chỉ mục on=false (< 150 ảnh) → ready()/get() null'); ok(V.slot('apple', 'n') === '', 'on=false → vẫn không hộp sau ready()'); }
+{ const { V } = sandbox({}, { ...index, on: true }); ok(await V.ready() === V && V.enabled() === true && /0123456789abcdef/.test(V.slot('apple', 'n')), 'tự động + chỉ mục on=true (≥ 150 ảnh đã chấm) → bật'); }
+{ const { V, fetched } = sandbox({ 'lk.cfg': JSON.stringify({ at: Date.now(), v: { vocab_img: false } }) }, { ...index, on: true }); ok(await V.ready() === null && await V.get('apple', 'n') === null && fetched.length === 0, 'config vocab_img=false (công tắc tắt) → không tải chỉ mục dù on=true'); }
 { const { V } = sandbox({ 'lk.cfg': JSON.stringify({ at: Date.now(), v: { vocab_img: false } }) }, index); ok(V.enabled() === false, 'config vocab_img=false → tắt'); }
 { const { V, fetched } = sandbox({ 'lk.vimg': '1' }, index);
   ok(V.slot('apple', 'n', 'táo', 160) === '', 'bật nhưng chỉ mục CHƯA về → không giữ chỗ (không hộp rỗng đổi cỡ)');
@@ -78,14 +80,14 @@ ok(!/vocab-img|lexicon-img/.test(html), 'app/index.html không nạp vocab-img /
 ok(!/lexicon-img\.json/.test(appjs) && !/<script[^>]*vocab-img/.test(appjs), 'app.js không nạp tĩnh module/chỉ mục');
 ok((appjs.match(/vocab-img\.js/g) || []).length === 1 && /vimg: \['js\/vocab-img\.js'\]/.test(appjs), 'app.js chỉ nhắc vocab-img.js trong bó tải lười BUNDLES.vimg');
 { const m = /const vimgOn = [^\n]*\n\s*App\.vimgReady = [^\n]*\n\s*App\.vimg = [^\n]*\n\s*App\.vimgReady\(\);/.exec(appjs); ok(!!m, 'app.js có vimgOn/App.vimgReady/App.vimg');
-  for (const [store, want] of [[{}, 0], [{ 'lk.vimg': '0', 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 0], [{ 'lk.vimg': '1' }, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 1]]) {
+  for (const [store, want] of [[{}, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: false } }) }, 0], [{ 'lk.vimg': '0', 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 0], [{ 'lk.vimg': '1' }, 1], [{ 'lk.cfg': JSON.stringify({ v: { vocab_img: true } }) }, 1]]) {
     const need = []; const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, App: { need: n => { need.push(n); return Promise.resolve(); } }, window: {} };
     vm.runInNewContext(m[0], ctx); ok(need.length === want && (!want || need[0] === 'vimg'), `cờ ${JSON.stringify(store)} → ${want ? 'tải bó vimg' : 'KHÔNG tải gì'}`);
     ok(ctx.App.vimg('apple', 'n') === '', 'App.vimg khi chưa có module → chuỗi rỗng (không hộp)'); } }
 const SHELL = (/const SHELL = \[([\s\S]*?)\];/.exec(sw) || [])[1] || ''; ok(!/vocab-img|lexicon-img/.test(SHELL), 'SW SHELL không chứa vocab-img/chỉ mục');
 ok(/await vimgP;/.test(appjs) && /App\.vimg\(e\.word, e\.pos, App\.meanOf\(e\), 160\)/.test(appjs), 'tra từ: chờ ready() rồi vẽ hộp 160 px');
 { const st = rd('web/js/study.js'); ok((st.match(/App\.vimg\(/g) || []).length === 3, 'thẻ ôn SRS + thẻ từ mới + câu đố dùng App.vimg'); }
-{ const nt = rd('extension/newtab.js'); ok(/localStorage\.getItem\('lk\.vimg'\) !== '1'\) return Promise\.resolve\(null\)/.test(nt) && /app\/js\/vocab-img\.js/.test(nt) && /await vimgP;/.test(nt) && /VImg\.slot\(/.test(nt), 'thẻ tab mới add-on: cờ tắt → không tải; bật → chờ ready() rồi VImg.slot'); }
+{ const nt = rd('extension/newtab.js'); ok(/localStorage\.getItem\('lk\.vimg'\) === '0'\) return Promise\.resolve\(null\)/.test(nt) && /app\/js\/vocab-img\.js/.test(nt) && /await vimgP;/.test(nt) && /VImg\.slot\(/.test(nt), 'thẻ tab mới add-on: cờ tắt → không tải; bật → chờ ready() rồi VImg.slot'); }
 ok(rd('web/js/vocab-img.js') === rd('extension/app/js/vocab-img.js'), 'add-on dùng cùng module');
 ok(rd('web/js/lexicon-img.json') === rd('extension/app/js/lexicon-img.json'), 'add-on dùng cùng chỉ mục');
 // SW: chỉ 4 dạng tên tệp vimg, LRU 800 (trúng → làm mới thứ tự, vượt trần → xoá cũ nhất)
@@ -118,7 +120,7 @@ ok(/const VIMG = 'lk-vimg'/.test(sw), 'SW: cache tên lk-vimg');
   ok(si.includes(`${base}${H3}.avif`) && !/vcred/.test(si) && seoPic(IM, 'run#v', 'run', 'Foto', V.pic) === '', '/words/: không photo → h, không ghi công; không mục → rỗng');
   ok(/ph: 'Ảnh'/.test(rd('scripts/lib/seo-pages-i18n.mjs')) && (rd('scripts/lib/seo-pages-i18n.mjs').match(/ ph: '/g) || []).length === 15, 'nhãn "Ảnh" của dòng ghi công đủ 15 ngôn ngữ');
   for (const f of ['web/js/app.js', 'web/js/study.js', 'extension/newtab.js', 'web/js/vocab-img.js']) ok(!/\.photo\b/.test(rd(f)), 'bề mặt app/add-on không dùng ảnh chụp: ' + f);
-  ok(J('content/lexicon/img.json').style.approved !== true || Object.keys(J('content/lexicon/img.json').items).length > 0, 'img.json hiện chưa duyệt / chưa có mục → /words/ không đổi'); }
+  ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length/.test(rd('scripts/build-seo-pages.mjs')), 'img.json chưa duyệt HOẶC chưa có mục → /words/ không đổi (đã duyệt s1 24/10)'); }
 
 // ghi công trên 15 trang Chính sách (#credits): Noto Emoji Apache 2.0 + Pixabay/Pexels + Lexkite, đã dịch (không còn câu tiếng Anh)
 for (const l of ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']) {
@@ -138,7 +140,7 @@ ok(promptFor('apple#n', { w: 'apple', pos: 'n', def: 'x' }, '', 2).includes(STYL
 
 // 5. việc nền: tạm dừng, ưu tiên thấp nhất, không lịch
 const reg = J('infra/jobs.json'), job = reg.jobs.find(j => j.id === 'vocab-img'), wf = rd('.github/workflows/vocab-img.yml');
-ok(job && job.paused === true, 'vocab-img đăng ký & TẠM DỪNG'); ok(job.priority === reg.priorities[reg.priorities.length - 1], 'ưu tiên thấp nhất');
-ok(job.resources.includes('workers_ai_b') && !job.resources.includes('workers_ai') && job.lease, 'thuê workers_ai_b (không đụng neuron tài khoản chính)'); ok(!/^\s*schedule:/m.test(wf), 'tạm dừng → workflow chưa có lịch');
+ok(job && job.paused === false, 'vocab-img đăng ký & ĐANG CHẠY (chủ duyệt s1 24/10)'); ok(job.priority === reg.priorities[reg.priorities.length - 1], 'ưu tiên thấp nhất');
+ok(job.resources.includes('grabcast_ai') && !job.resources.some(r => /^workers_ai/.test(r)) && job.lease, 'chỉ GrabCast (không Workers AI Lexkite)'); ok(/^\s*schedule:/m.test(wf) && /VIMG_MAX_MAIN: '0'/.test(wf) && /VIMG_MAX_CF2: '0'/.test(wf), 'đang chạy → workflow có lịch; tài khoản chính/2 = 0 ảnh');
 ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng ký ở infra/resources.json');
 console.log(`✓ vocab-img: ${n} kiểm`);

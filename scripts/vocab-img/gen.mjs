@@ -21,8 +21,9 @@ const FLUX = '@cf/black-forest-labs/flux-1-schnell';
 const env = process.env;
 
 export const PROVIDERS = [
-  { id: 'cf2', max: +(env.VIMG_MAX_CF2 || 50), ok: () => env.CF_AI_TOKEN_2 && env.CF_ACCOUNT_2, run: p => cfRest(env.CF_ACCOUNT_2, env.CF_AI_TOKEN_2, p) },
+  // 24/10 chủ: GrabCast TRƯỚC và gần như duy nhất (kho ~70 khóa Cloudflare, chưa có người dùng thật → dùng tối đa, chừa ~10 %); cf2 mặc định 0
   { id: 'grabcast', max: +(env.VIMG_MAX_GC || 40), ok: () => env.GRABCAST_AI_KEY, run: grabcast },
+  { id: 'cf2', max: +(env.VIMG_MAX_CF2 || 0), ok: () => env.CF_AI_TOKEN_2 && env.CF_ACCOUNT_2, run: p => cfRest(env.CF_ACCOUNT_2, env.CF_AI_TOKEN_2, p) },
   { id: 'main', max: +(env.VIMG_MAX_MAIN || 0), ok: () => (env.CF_AI_TOKEN_1 && env.CF_ACCOUNT_1) || env.STUDIO_CALLBACK_SECRET,
     run: p => (env.CF_AI_TOKEN_1 ? cfRest(env.CF_ACCOUNT_1, env.CF_AI_TOKEN_1, p) : studio(p)) },
 ];
@@ -47,7 +48,8 @@ async function grabcast(prompt) {
   const h = { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' };
   const r = await fetch(GC + '/api/owner-ai/image', { method: 'POST', headers: h, body: JSON.stringify({ prompt, provider: 'cloudflare' }) });
   const j = await r.json().catch(() => ({}));
-  if (r.status === 429 && (gcWaits++ < 8)) { console.log('… GrabCast giới hạn khung (10 ảnh/khung ngắn) – chờ 65 s'); await new Promise(s => setTimeout(s, 65e3)); return grabcast(prompt); }   // đo 23/10: hết khung sau 10 ảnh, mở lại < 2 phút
+  // đo 23/10: hết khung sau 10 ảnh, mở lại < 2 phút → chờ lùi 65 s, 130 s…; 6 lần 429 LIÊN TIẾP = hết hạn mức ngày → dừng nhà này
+  if (r.status === 429 && (gcWaits++ < 6)) { const w = Math.min(240, 65 * gcWaits); console.log(`… GrabCast 429 (khung 10 ảnh) – chờ ${w} s`); await new Promise(s => setTimeout(s, w * 1e3)); return grabcast(prompt); }
   if (r.status === 429 || quotaish(String(j.error && j.error.code || ''))) throw new Quota(`${r.status} ${JSON.stringify(j.error || '').slice(0, 120)}`);
   let job = j.job; if (!r.ok || !job) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 160)}`);
   for (let i = 0; job.status !== 'done' && i < 20; i++) {   // việc ảnh thường xong ngay; chờ tối đa ~60 s (không thăm dò vô hạn)
@@ -56,6 +58,7 @@ async function grabcast(prompt) {
     job = (await (await fetch(`${GC}/api/owner-ai/image/${job.id}`, { headers: h })).json()).job;
   }
   if (job.status !== 'done') throw new Error('grabcast timeout');
+  gcWaits = 0;
   const c = await fetch(`${GC}/api/owner-ai/image/${job.id}/content`, { headers: h }); if (!c.ok) throw new Error('content ' + c.status);
   return Buffer.from(await c.arrayBuffer());
 }
@@ -72,7 +75,8 @@ async function main() {
     const e = lex[k]; if (!e) { console.warn('bỏ (không có trong kho):', k); continue; }
     const file = path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`); if (fs.existsSync(file)) continue;
     const card = cards[k]; if (card && card.skip) { console.log('bỏ (thẻ skip):', k); continue; }
-    const prompt = card ? promptFromCard(k, card, ATT) : promptFor(k, e, (sel[k] || [])[1], ATT);   // thẻ theo nghĩa (strict.mjs) ưu tiên
+    if (!card && !process.argv.includes('--legacy')) { console.log('bỏ (chưa có thẻ – luật nghiêm):', k); continue; }
+    const prompt = card ? promptFromCard(k, card, ATT) : promptFor(k, e, (sel[k] || [])[1], ATT);   // thẻ theo nghĩa (strict.mjs) bắt buộc; --legacy = prompt s1 cũ
     if (DRY) { console.log(k, '→', prompt.slice(-200)); continue; }
     let done = false;
     for (let t = 0; t < PROVIDERS.length && !done; t++) {

@@ -596,19 +596,19 @@
    ],
    "priority": "bulk",
    "resources": [
-    "workers_ai_b",
     "grabcast_ai",
     "gh_minutes"
    ],
-   "minutes": 60,
+   "minutes": 85,
    "est": {
-    "workers_ai_b_neurons": 4000,
-    "grabcast_images": 40,
-    "images": 95
+    "grabcast_images": 400,
+    "grabcast_text": 220,
+    "senses": 220,
+    "images": 130
    },
    "lease": true,
-   "paused": true,
-   "_note": "Ảnh minh hoạ từ vựng – TẠM DỪNG tới khi chủ duyệt phong cách pilot (workflow chưa có schedule; cron = lịch dự kiến khi bật). acquire từ chối khi paused trừ --force (chạy tay)."
+   "paused": false,
+   "_note": "Ảnh minh hoạ từ vựng – ĐANG CHẠY (24/10 chủ duyệt s1/pilot2). Ưu tiên bulk (thấp nhất). MỌI THỨ qua GrabCast (ảnh FLUX + thẻ văn bản; không Workers AI Lexkite). Chủ 24/10: GrabCast chưa có người dùng thật → dùng tối đa, chừa ~10 %: khoá CI 3.000 lượt/ngày × 90 % ≈ 2.700; lượt này ≤ 400 ảnh + 220 thẻ + thăm dò ≈ 1.100 lượt; trần thật = khung ảnh 10/≈65 s (≈ 6 ảnh/phút) trong 85 phút. 429 → chờ lùi, 6 lần liên tiếp = dừng nhà đó. Giám khảo: GrabCast thị giác (khi có vars.GRABCAST_AI_VISION_URL) → Gemini kho Lexkite → hàng chờ."
   },
   {
    "id": "d1-backup",
@@ -723,8 +723,7 @@
    "safety_margin": 1000,
    "grants": {
     "news-auto": 3000,
-    "script-bank": 2000,
-    "vocab-img": 4000
+    "script-bank": 2000
    },
    "_note": "Việc nền dùng Workers AI tài khoản 2 (token cf-token-2: Account › Workers AI › Read + Edit; Pages: AI_B_TOKEN/AI_B_ACCOUNT_ID hoặc D1B_*). Tổng grants ≤ daily_neurons − safety_margin (jobs-check). 1 ảnh FLUX 4 bước ≈ 173 neuron."
   }

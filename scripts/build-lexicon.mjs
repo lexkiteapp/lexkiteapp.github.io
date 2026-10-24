@@ -102,7 +102,8 @@ const IMG = fs.existsSync(new URL(IMGF, ROOT)) ? JSON.parse(rd(IMGF)) : { v: 1, 
 errs.push(...checkImg(IMG, new Set(groups.keys())));
 // chỉ mục v2 gọn: m = {từ#loại: h}, x = khoá có bản @2x (768 px), w = khoá CHỈ có WebP (không AVIF – thường rỗng) – web/js/vocab-img.js
 const imgKeys = Object.keys(IMG.items);
-const imgIndex = JSON.stringify({ v: 2, base: IMG.base, sv: IMG.style.v, m: Object.fromEntries(imgKeys.map(k => [k, IMG.items[k].h])), x: imgKeys.filter(k => IMG.items[k].x2 === true), w: imgKeys.filter(k => !(IMG.items[k].fmt || []).includes('avif')) });
+// on: bật TỰ ĐỘNG mọi bề mặt khi đủ ảnh đã chấm (≥ on_min, mặc định 150) – cờ config vocab_img true/false (Quản trị) vẫn ghi đè
+const imgIndex = JSON.stringify({ v: 2, base: IMG.base, sv: IMG.style.v, on: imgKeys.length >= (IMG.on_min || 150), m: Object.fromEntries(imgKeys.map(k => [k, IMG.items[k].h])), x: imgKeys.filter(k => IMG.items[k].x2 === true), w: imgKeys.filter(k => !(IMG.items[k].fmt || []).includes('avif')) });
 for (const f of ['web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json']) {
   const ex = fs.existsSync(new URL(f, ROOT));
   if (WRITE) { if (!ex || rd(f) !== imgIndex + '\n') wr(f, imgIndex + '\n'); } else if (!ex || rd(f) !== imgIndex + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);

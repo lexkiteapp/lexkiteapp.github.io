@@ -19,7 +19,25 @@ function small(file) {
   const py = process.env.VIMG_PY || 'python3';
   return execFileSync(py, ['-c', 'import sys,io,base64;from PIL import Image;b=io.BytesIO();Image.open(sys.argv[1]).convert("RGB").resize((384,384)).save(b,"JPEG",quality=85);sys.stdout.write(base64.b64encode(b.getvalue()).decode())', file]).toString();
 }
+// Chuỗi giám khảo (24/10): 1) GrabCast thị giác (Cloudflare Llama 3.2 Vision trong kho khóa GrabCast) – CHỈ khi có env GRABCAST_AI_VISION_URL
+//   (đo 24/10: /api/owner-ai/generate BỎ QUA ảnh – trả "No image provided."; chưa có endpoint thị giác cho API key) →
+//   2) Gemini kho khóa Lexkite qua /api/studio visionCheck (wai:0 = không Workers AI tài khoản chính) → 3) không ai trả lời = HÀNG CHỜ (không bao giờ đăng ảnh chưa chấm).
+const parse = t => { t = String(t || ''); let a = null; try { a = JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1)); } catch (e) { /* bỏ */ } return a && !Array.isArray(a.frames) ? a : null; };
+async function askGrabcast(b64) {
+  const url = process.env.GRABCAST_AI_VISION_URL; if (!url || !process.env.GRABCAST_AI_KEY) return null;
+  for (let i = 0; i < 4; i++) {
+    const r = await fetch(url, { method: 'POST', headers: { 'X-API-Key': process.env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: JUDGE_Q, image: b64, images: [b64], provider: 'cloudflare' }) }).catch(() => null);
+    if (!r) continue; if (r.status === 429) { await new Promise(s => setTimeout(s, 15e3 * (i + 1))); continue; }
+    const j = await r.json().catch(() => ({})); if (/no image provided/i.test(j.text || '')) return null;   // endpoint không nhận ảnh → bỏ tầng này
+    const ans = parse(j.text); return ans ? { ans, provider: 'grabcast:' + (j.model || j.provider || 'vision') } : null;
+  }
+  return null;
+}
 export async function ask(b64, tries = 3) {
+  const g = await askGrabcast(b64); if (g) return g;
+  return askGemini(b64, tries);
+}
+async function askGemini(b64, tries = 3) {
   for (let i = 0; i < tries; i++) {
     try {
       const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Studio-Secret': process.env.STUDIO_CALLBACK_SECRET || '', 'User-Agent': 'lexkite-ci' },

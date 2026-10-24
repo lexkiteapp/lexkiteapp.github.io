@@ -1,13 +1,17 @@
 # Ảnh minh hoạ từ vựng (dual coding) – docs/LEXICON.md § Ảnh minh hoạ. 100 % miễn phí: Workers AI FLUX-1-schnell (tài khoản 2 → GrabCast → tài khoản chính phần dư),
 # QC (thị giác repo → CLIP, OCR, an toàn, phong cách, pHash, cỡ) chạy ở đây, không chạy trên Mac. Việc nền `vocab-img` ưu tiên THẤP NHẤT (bulk) trong infra/jobs.json.
-# TẠM DỪNG: chưa có lịch (schedule) cho tới khi chủ duyệt phong cách thử (pilot) – chỉ chạy tay. Lịch dự kiến khi bật: '10 13 * * *' (sổ jobs.json).
+# ĐANG CHẠY (24/10 chủ duyệt s1 qua pilot2): mỗi ngày '10 13 * * *' chế độ fill, toàn bộ qua GrabCast (ảnh + thẻ văn bản), giám khảo GrabCast thị giác → Gemini → hàng chờ.
+# Trần/ngày: VIMG_LIMIT nghĩa · VIMG_MAX_GC ảnh (≈ 90 % phần GrabCast cho khóa này – chủ: chưa có người dùng thật, chừa ~10 %). docs/LEXICON.md § Ảnh minh hoạ.
 name: Ảnh minh hoạ từ vựng
 on:
+  schedule:
+    - cron: '10 13 * * *'
   workflow_dispatch:
     inputs:
-      mode: { description: 'pilot2 = 40 nghĩa luật NGHIÊM (strict.mjs + thẻ vimg-cards.json) · pilot = 60 nghĩa s1 cũ · fill = lấp chỗ trống (chỉ sau khi duyệt)', default: 'pilot2' }
-      limit: { description: 'Số nghĩa tối đa lượt fill', default: '60' }
+      mode: { description: 'pilot2 = 40 nghĩa luật NGHIÊM (strict.mjs + thẻ vimg-cards.json) · pilot = 60 nghĩa s1 cũ · fill = lấp chỗ trống (chỉ sau khi duyệt)', default: 'fill' }
+      limit: { description: 'Số nghĩa tối đa lượt fill', default: '220' }
       resume_run: { description: 'Tiếp tục từ lượt trước (run id) – dùng lại ảnh đã vẽ, không vẽ lại', default: '' }
+      extra: { description: 'Nghĩa vẽ (lại) ưu tiên, phẩy ngăn cách – vd lỗi pilot2', default: '' }
       max_gc: { description: 'Trần ảnh GrabCast lượt này (trống = 40)', default: '' }
 permissions:
   contents: write
@@ -18,13 +22,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      MODE: ${{ github.event.inputs.mode || 'pilot2' }}
+      MODE: ${{ github.event.inputs.mode || 'fill' }}
       LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
       STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
       GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
-      VIMG_MAX_GC: ${{ github.event.inputs.max_gc || '80' }}
+      VIMG_MAX_GC: ${{ github.event.inputs.max_gc || '400' }}
+      VIMG_MAX_CF2: '0'   # 24/10 chủ: mọi thứ qua GrabCast
+      GRABCAST_AI_VISION_URL: ${{ vars.GRABCAST_AI_VISION_URL }}
       VIMG_MAX_MAIN: '0'   # 24/10 chủ: KHÔNG BAO GIỜ dùng Workers AI tài khoản chính (dành cho người dùng)
     steps:
       - uses: actions/checkout@v4
@@ -34,11 +40,11 @@ jobs:
         with: { python-version: '3.12' }
       - name: Thuê tài nguyên (workers_ai – không chồng script-bank/news-auto/video-auto)
         id: lease
-        run: node scripts/jobs/lease.mjs acquire vocab-img --force
+        run: node scripts/jobs/lease.mjs acquire vocab-img ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
       - name: Trần ảnh theo phần cấp neuron (tài khoản 2 = cf2; tài khoản chính = 0 đặt chỗ cho người dùng)
         if: steps.lease.outputs.skip != '1'
         run: |
-          capb=$(( ${LEASE_AI_B_NEURONS:-0} / 175 )); curb=${VIMG_MAX_CF2:-50}; [ "$curb" -gt "$capb" ] && curb=$capb
+          capb=$(( ${LEASE_AI_B_NEURONS:-0} / 175 )); curb=${VIMG_MAX_CF2:-0}; [ "$curb" -gt "$capb" ] && curb=$capb
           capm=$(( ${LEASE_AI_MAIN_NEURONS:-0} / 175 )); curm=${VIMG_MAX_MAIN:-0}; [ "$curm" -gt "$capm" ] && curm=$capm
           echo "VIMG_MAX_CF2=$curb" >> "$GITHUB_ENV"; echo "VIMG_MAX_MAIN=$curm" >> "$GITHUB_ENV"
           echo "ảnh tối đa: tài khoản 2 = $curb (cấp ${LEASE_AI_B_NEURONS:-0} neuron) · tài khoản chính = $curm (cấp ${LEASE_AI_MAIN_NEURONS:-0})"
@@ -56,11 +62,16 @@ jobs:
         run: |
           if [ "$MODE" = pilot2 ]; then cp content/lexicon/vimg-pilot2.json keys.json
           elif [ "$MODE" = pilot ]; then cp content/lexicon/vimg-pilot.json keys.json
-          else node scripts/vocab-img/publish.mjs --gaps "${{ github.event.inputs.limit || '60' }}" > keys.json; fi
+          else node scripts/vocab-img/publish.mjs --gaps "${{ github.event.inputs.limit || '220' }}" > gaps.json
+            EXTRA='${{ github.event.inputs.extra }}' node -e "const g=require('./gaps.json').items,x=(process.env.EXTRA||'').split(',').map(s=>s.trim()).filter(Boolean);require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...x,...g])]}))"; fi
+          echo "nghĩa lượt này: $(node -p "require('./keys.json').items.length")"
+      - name: Thẻ vẽ cho nghĩa chưa có thẻ (GrabCast văn bản; thẻ skip = không vẽ)
+        if: steps.lease.outputs.skip != '1' && env.MODE == 'fill'
+        run: node scripts/vocab-img/cards.mjs --keys keys.json --write && cp content/lexicon/vimg-cards.json out-cards.json
       - name: Tiếp tục lượt trước (ảnh đã vẽ)
         if: steps.lease.outputs.skip != '1' && github.event.inputs.resume_run != ''
         uses: actions/download-artifact@v4
-        with: { name: 'vocab-img-${{ github.event.inputs.mode || ''pilot2'' }}', path: out/vocab-img, run-id: '${{ github.event.inputs.resume_run }}', github-token: '${{ github.token }}' }
+        with: { name: 'vocab-img-${{ github.event.inputs.mode || ''fill'' }}', path: out/vocab-img, run-id: '${{ github.event.inputs.resume_run }}', github-token: '${{ github.token }}' }
       - name: Tầng 1 icon (Noto Emoji, Apache-2.0) cho nghĩa có emoji khớp CLDR
         if: steps.lease.outputs.skip != '1'
         run: python3 scripts/vocab-img/icon_tier.py out/vocab-img --keys keys.json
@@ -85,14 +96,18 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always() && steps.lease.outputs.skip != '1'
         with:
-          name: vocab-img-${{ github.event.inputs.mode || 'pilot2' }}
+          name: vocab-img-${{ github.event.inputs.mode || 'fill' }}
           retention-days: 14
           path: |
             out/vocab-img/
+            out-cards.json
       - name: Đăng (chỉ fill – ảnh đạt → lexkite-media/vimg + content/lexicon/img.json)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'fill'
         env: { LEXKITE_MEDIA_TOKEN: '${{ secrets.LEXKITE_MEDIA_TOKEN }}' }
-        run: node scripts/vocab-img/publish.mjs --result out/vocab-img/result.json --review out/vocab-img/review.json --push
+        run: |
+          python3 -c "import json,sys; s=json.load(open('out/vocab-img/result.json'))['stats']; print(s)"
+          if [ -z "$LEXKITE_MEDIA_TOKEN" ]; then echo "::warning::Chưa có secret LEXKITE_MEDIA_TOKEN – không đăng; phiên chính tải artifact rồi chạy publish.mjs --push"; exit 0; fi
+          node scripts/vocab-img/publish.mjs --result out/vocab-img/result.json --review out/vocab-img/review.json --cards out-cards.json --push
       - name: Trả thuê
         if: always() && steps.lease.outputs.skip != '1'
         run: node scripts/jobs/lease.mjs release vocab-img --status "${{ job.status }}"

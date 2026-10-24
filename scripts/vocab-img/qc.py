@@ -192,7 +192,9 @@ def run_attempt(att):
     print(f'qc attempt {att}: {sum(r["pass"] for r in res.values())}/{len(res)} pass')
     if att == 1:
         want = json.load(open(arg('keys'))).get('items') if arg('keys') else list(res)
-        json.dump(dict(items=[k for k in want if k in LEX and (k not in res or not res[k]['pass'])]), open(f'{OUT}/retry.json', 'w'))
+        # giám khảo không trả lời (hết hạn mức) → HÀNG CHỜ, không vẽ lại (ảnh không lỗi – chỉ chưa được chấm); lượt sau chấm lại
+        q = lambda k: k in res and 'judge unavailable' in res[k]['reasons']
+        json.dump(dict(items=[k for k in want if k in LEX and (k not in res or not res[k]['pass']) and not q(k)]), open(f'{OUT}/retry.json', 'w'))
     if not res: sys.exit(1)
 
 def final(sheet):
@@ -216,7 +218,7 @@ def final(sheet):
     prov = {}
     for r in out.values(): p = (r.get('vision') or {}).get('provider') or 'clip-only'; prov[p] = prov.get(p, 0) + 1
     stats = dict(n=n, passed=len(ok), pass_rate=round(len(ok) / max(1, n), 3), first_try=len(first), retried_pass=len(ok) - len(first),
-                 no_image=n - len(ok), avg_avif=round(np.mean([out[k].get('avif') or 0 for k in ok])) if ok else 0, x2=sum(1 for k in ok if out[k].get('x2')), avg_bytes=round(np.mean([out[k]['bytes'] for k in ok])) if ok else 0, max_bytes=max([out[k]['bytes'] for k in ok] or [0]),
+                 no_image=n - len(ok), queued=sum(1 for k in keys if 'judge unavailable' in (out[k].get('reasons') or [])), judged=sum(1 for k in keys if out[k].get('reasons') is not None and 'judge unavailable' not in out[k]['reasons'] and out[k].get('attempt')), avg_avif=round(np.mean([out[k].get('avif') or 0 for k in ok])) if ok else 0, x2=sum(1 for k in ok if out[k].get('x2')), avg_bytes=round(np.mean([out[k]['bytes'] for k in ok])) if ok else 0, max_bytes=max([out[k]['bytes'] for k in ok] or [0]),
                  vision_provider=prov, tiers={t: sum(1 for k in ok if out[k]['src']['tier'] == t) for t in ('icon', 'photo', 'ai')},
                  icon_tried=sum(1 for k in keys if k in SRC), icon_pass=sum(1 for k in ok if out[k]['src']['tier'] == 'icon'), fails={k: out[k].get('reasons') for k in keys if not out[k].get('pass')})
     json.dump(dict(stats=stats, items=out), open(f'{OUT}/result.json', 'w'), indent=1); json.dump(dict(items=rev), open(f'{OUT}/review.json', 'w'), indent=1)
