@@ -40,7 +40,7 @@ ok(checkImg({ ...good, base: 'https://lexkite.com/vimg/' }, senses).some(e => e.
   { const g2 = { ...good, items: { 'apple#n': { alt: 'apple', photo: WK } } }; ok(checkImg(g2, senses).length === 0, 'mục chỉ có photo (không h) hợp lệ'); } }
 { const ix = J('web/js/lexicon-img.json'), img = J('content/lexicon/img.json');
   ok(ix.v === 2 && ix.base === img.base && Array.isArray(ix.x) && Array.isArray(ix.w) && Object.keys(ix.m).length === Object.values(img.items).filter(e => e.h).length, 'chỉ mục v2 {v, base, sv, m, x, w} khớp img.json');
-  ok(Object.entries(ix.m).every(([k, h]) => img.items[k].h === h) && !/photo/.test(rd('web/js/lexicon-img.json')) && /m: Object\.fromEntries\(imgKeys\.map\(k => \[k, IMG\.items\[k\]\.h\]\)\)/.test(rd('scripts/build-lexicon.mjs')) && Object.entries(ix.p || {}).every(([k, h]) => img.items[k].photo.h === h && !Object.values(ix.m).includes(h)), 'chỉ mục app chỉ mang h (biểu tượng/minh họa) – không dữ liệu ảnh chụp');
+  ok(Object.entries(ix.m).every(([k, h]) => img.items[k].h === h) && !/"(photo|src|by|lic)"/.test(rd('web/js/lexicon-img.json')) && /m: Object\.fromEntries\(imgKeys\.map\(k => \[k, IMG\.items\[k\]\.h\]\)\)/.test(rd('scripts/build-lexicon.mjs')) && Object.entries(ix.p || {}).every(([k, h]) => img.items[k].photo.h === h && !Object.values(ix.m).includes(h)), 'chỉ mục app chỉ mang h (biểu tượng/minh họa) – không dữ liệu ảnh chụp');
   ok(ix.x.every(k => img.items[k].x2 === true) && Object.keys(img.items).filter(k => img.items[k].x2 === true).length === ix.x.length, 'x = đúng các khoá x2'); }
 
 // 2. module UI: cờ mặc định TẮT → không tải gì, không hộp; bật → <picture> AVIF→WebP trong hộp cố định, 2x chỉ khi x2 và rộng > 192
