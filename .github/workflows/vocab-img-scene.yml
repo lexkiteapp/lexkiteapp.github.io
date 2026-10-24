@@ -13,6 +13,7 @@ on:
       shards: { description: 'Số việc song song (1–10)', default: '1' }
       max_gc: { description: 'Trần ảnh GrabCast CẢ lượt (chia đều cho các việc)', default: '400' }
       recal: { description: '1 = hiệu chỉnh ngưỡng giám khảo trước khi chấm', default: '1' }
+      from_run: { description: 'Chỉ chạy bước gộp/tờ ảnh trên artifact của lượt này (run id) – không vẽ lại', default: '' }
 permissions:
   contents: read
   actions: read     # tải artifact gán nhãn (calibrate)
@@ -31,6 +32,7 @@ jobs:
       - id: p
         run: |
           n=${{ github.event.inputs.shards || '1' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
+          if [ -n "${{ github.event.inputs.from_run }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           if [ "${{ github.event_name }}" = schedule ] || [ "$MODE" = fill ]; then echo "::notice::fill chưa bật – chờ chủ duyệt tờ ảnh pilot (docs/LEXICON.md § Ảnh mọi nghĩa)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           echo "per=$(( ${{ github.event.inputs.max_gc || '400' }} / n ))" >> $GITHUB_OUTPUT
@@ -174,15 +176,16 @@ jobs:
         run: node scripts/jobs/lease.mjs release vocab-img-scene --status "${{ job.status }}"
   final:
     needs: [plan, shard]
-    if: always() && needs.plan.outputs.skip != '1' && github.event.inputs.mode != 'calibrate'
+    if: always() && (needs.plan.outputs.skip != '1' || github.event.inputs.from_run != '') && github.event.inputs.mode != 'calibrate'
     runs-on: ubuntu-latest
+    permissions: { contents: read, actions: read }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core >/dev/null && pip install -q pillow-avif-plugin==1.4.6 scipy==1.14.1 'numpy<2'
+      - run: sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core >/dev/null && pip install -q pillow==11.0.0 pillow-avif-plugin==1.4.6 scipy==1.14.1 'numpy<2'
       - uses: actions/download-artifact@v4
-        with: { pattern: 'vimg-scene-*', path: parts }
+        with: { pattern: 'vimg-scene-[0-9]*', path: parts, run-id: '${{ github.event.inputs.from_run || github.run_id }}', github-token: '${{ github.token }}' }
       - name: Gộp + mã hoá ≤ 6 KB + tờ ảnh
         run: |
           mkdir -p m/raw m/svg && for d in parts/*/; do cp -n $d/out/vimg-scene/raw/* m/raw/ 2>/dev/null; cp -n $d/out/vimg-scene/svg/* m/svg/ 2>/dev/null; cp -n $d/out/vimg-scene/*.json m/ 2>/dev/null
