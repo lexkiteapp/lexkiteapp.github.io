@@ -1313,6 +1313,196 @@
      "xw-everyday.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "sauce#v",
+   "batch": "20261024-pool-pilot2",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "sauce",
+    "pos": "v",
+    "ipa": "/sɔːs/",
+    "ipaUS": "/sɔːs/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "B1",
+    "z": 4.3,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:sauce.v.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fatherland#n",
+   "batch": "20261024-pool-pilot2",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "fatherland",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/ˈfɑːðərlænd/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "z": 2.98,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fatherland.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "congressman#n",
+   "batch": "20261024-pool-pilot2",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "congressman",
+    "pos": "n",
+    "ipa": "",
+    "ipaUS": "/ˈkɑːŋɡrəsmən/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "z": 3.86,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:congressman.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "shy#v",
+   "batch": "20261024-pool-pilot2",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "shy",
+    "pos": "v",
+    "ipa": "",
+    "ipaUS": "/ʃaɪ/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "B1",
+    "z": 4.16,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:shy.v.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "",
+     "gen": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "bulldog#v",
+   "batch": "20261024-pool-pilot2",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "bulldog",
+    "pos": "v",
+    "ipa": "/ˈbʊldɒg/",
+    "ipaUS": "/ˈbʊldɔːɡ/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "z": 3.38,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:bulldog.v.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
   }
  ]
 }
