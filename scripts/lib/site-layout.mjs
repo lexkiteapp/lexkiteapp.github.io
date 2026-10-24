@@ -5,6 +5,7 @@
 // Không phụ thuộc gói ngoài; font hệ thống; CSS nội tuyến (< 14 KB/trang), không JS chặn hiển thị.
 
 import fs from 'node:fs';
+import { S as SP } from './seo-pages-i18n.mjs';
 // ---------- Nút đổi ngôn ngữ đầu trang (mọi trang tĩnh) – nguồn DUY NHẤT dùng chung với app: web/js/lang-menu.js + khối /* lsw */ trong web/css/style.css ----------
 const rdWeb = p => fs.readFileSync(new URL(`../../web/${p}`, import.meta.url), 'utf8');
 // ---------- Nút "Thêm vào Chrome" (add-on) – nguồn DUY NHẤT: web/js/ext-config.js (URL cửa hàng) + web/js/ext-cta.js (hiện/ẩn, đếm bấm) ----------
@@ -155,7 +156,7 @@ export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().
   const f = FOOT[lang] || FOOT.en, app = appHref(lang), vi = lang === 'vi', lg = `/${lang in LANG_NAMES ? lang : 'en'}`;
   const col = (h, items) => `<div><h2>${h}</h2><ul>${items.map(([u, n]) => `<li><a href="${u}">${n}</a></li>`).join('')}</ul></div>`;
   const product = [[app, f[3]], [`${app}#/settings`, f[4]]];
-  const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...extra];
+  const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...(SP[lang] ? [[`/${lang}/words/`, SP[lang].words], [`/${lang}/conversations/`, SP[lang].conv]] : []), ...extra]; // trang tĩnh Từ điển + Giao tiếp (docs/SEO-ARCH.md)
   const co = [[`${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]]];
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
   return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
@@ -225,9 +226,9 @@ export const TOPIC_IDS = new Set([
 
 const COPY_MSG = { vi: 'Nguồn: ', en: 'Source: ' };
 // Gắn nguồn khi sao chép > 200 ký tự (P1 chống cào – giống blog)
-const copyJs = lang => `document.addEventListener('copy',e=>{const s=window.getSelection();if(!s||s.rangeCount===0)return;const t=s.toString();if(t.length<=200)return;const m="\\n\\n${COPY_MSG[lang] || COPY_MSG.en}"+document.title.replace(/\\s*[–|]\\s*Lexkite$/i,'')+" – "+location.href.split('#')[0]+" (Lexkite)";e.clipboardData.setData('text/plain',t+m);e.preventDefault();});`;
+export const copyJs = lang => `document.addEventListener('copy',e=>{const s=window.getSelection();if(!s||s.rangeCount===0)return;const t=s.toString();if(t.length<=200)return;const m="\\n\\n${COPY_MSG[lang] || COPY_MSG.en}"+document.title.replace(/\\s*[–|]\\s*Lexkite$/i,'')+" – "+location.href.split('#')[0]+" (Lexkite)";e.clipboardData.setData('text/plain',t+m);e.preventDefault();});`;
 // JS nhỏ cuối trang (không chặn hiển thị): bật .js (hiện nút nghe/ô lọc – chỗ đã giữ sẵn, CLS 0), phát âm từ CDN audio, lọc thẻ, gợi ý add-on Chrome máy tính & PWA di động
-const UI_JS = `(function(d){var r=d.documentElement;r.classList.add('js');var A='https://audio.lexkite.com/audio/l/',B='https://lexkiteapp.github.io/audio/l/',cur;
+export const UI_JS = `(function(d){var r=d.documentElement;r.classList.add('js');var A='https://audio.lexkite.com/audio/l/',B='https://lexkiteapp.github.io/audio/l/',cur;
 d.addEventListener('click',function(e){var b=e.target.closest('.au');if(!b)return;if(cur){cur.pause();if(cur.btn)cur.btn.setAttribute('aria-pressed','false')}var k=b.getAttribute('data-a'),a=new Audio(A+k+'.mp3');a.btn=b;cur=a;b.setAttribute('aria-pressed','true');a.onended=function(){b.setAttribute('aria-pressed','false')};a.onerror=function(){if(a.src.indexOf(B)<0){a.src=B+k+'.mp3';a.play()}else b.setAttribute('aria-pressed','false')};a.play().catch(function(){})});
 var q=d.getElementById('q');if(q){var o=d.getElementById('qn'),n=function(s){return s.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/đ/g,'d').toLowerCase()},cs=[].slice.call(d.querySelectorAll('[data-k]')),gs=[].slice.call(d.querySelectorAll('.grp'));cs.forEach(function(c){c._k=n(c.getAttribute('data-k')+' '+c.textContent)});
 q.addEventListener('input',function(){var v=n(q.value.trim()),c=0;cs.forEach(function(x){var h=v&&x._k.indexOf(v)<0;x.hidden=h;if(!h)c++});gs.forEach(function(g){g.hidden=!!v&&!g.querySelector('[data-k]:not([hidden])')});o.textContent=v?(c?o.getAttribute('data-f').replace('#',c):o.getAttribute('data-n')):''})}

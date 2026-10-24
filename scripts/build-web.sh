@@ -21,8 +21,8 @@ after=$(cd dist && cat $FILES | wc -c)
 gz=$(cd dist && cat $FILES | gzip -9 | wc -c)
 echo "✓ dist/: JS+CSS $((before/1024))KB → $((after/1024))KB (gzip ~$((gz/1024))KB tổng; trang đầu chỉ tải phần lõi)"
 
-node scripts/build-seo.mjs && node scripts/build-samples.mjs && node scripts/build-samples-en.mjs && node scripts/build-ads.mjs && node scripts/build-blog.mjs && node scripts/build-video-pages.mjs && node scripts/build-sitemap-index.mjs
+node scripts/build-seo.mjs && node scripts/build-samples.mjs && node scripts/build-samples-en.mjs && node scripts/build-ads.mjs && node scripts/build-blog.mjs && node scripts/build-video-pages.mjs && node scripts/build-seo-pages.mjs && node scripts/build-sitemap-index.mjs || { echo "✗ bước sinh trang tĩnh lỗi"; exit 1; }
 # Giới hạn Cloudflare Pages miễn phí: 20.000 file/lần deploy → cảnh báo sớm (xem docs/SEO-PLAN.md §12)
 n=$(find dist -type f | wc -l | tr -d ' ')
-if [ "$n" -gt 19500 ]; then echo "✗ dist có $n file (> 19.500, sát giới hạn 20.000 của Cloudflare Pages) – chuyển blog sang shard riêng theo §12"; exit 1; fi
+if [ "$n" -gt 18000 ]; then echo "✗ dist có $n file (> 18.000 – cổng an toàn docs/SEO-ARCH.md, sát giới hạn 20.000 của Cloudflare Pages) – chuyển blog sang shard riêng theo §12"; exit 1; fi
 [ "$n" -gt 15000 ] && echo "⚠ dist có $n file – đã quá 75% giới hạn 20.000 file của Cloudflare Pages, lên kế hoạch tách shard (§12)" || echo "✓ dist: $n file (giới hạn Pages 20.000)"
