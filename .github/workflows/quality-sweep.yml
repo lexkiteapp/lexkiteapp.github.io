@@ -1,0 +1,214 @@
+# Quét lỗi tiềm ẩn hằng đêm, 0 token LLM: Playwright mọi route app + 3 mẫu/loại trang tĩnh × vi/en/ar × điện thoại/máy tính × sáng/tối
+# (console, promise, request 4xx/5xx, tràn ngang/cắt chữ, đè nút, vùng chạm, axe, CLS, tác vụ dài) + Lighthouse 6 trang + so ảnh với nền
+# + add-on (ext-e2e vi/en/ar + trang nặng) + native (iOS/Android E2E mỗi tuần 1 lần). Gộp 1 báo cáo (job summary), 1 issue "quality-sweep" (mở/cập nhật/đóng), 1 dòng bản tin.
+# Hermetic: dist phục vụ cục bộ, /api/* = {} → 0 lượt đọc D1/AI thật. Thiết kế + cách tắt: docs/QUALITY-SWEEP.md. Sổ: infra/jobs.json (id quality-sweep, lease).
+name: Quality sweep
+on:
+  schedule:
+    - cron: '40 22 * * *'
+  workflow_dispatch:
+    inputs:
+      quick: { description: '1 = chạy nhanh (6 route + 6 trang/lang) để thử công cụ', required: false, default: '0' }
+      native: { description: '1 = chạy cả native (iOS/Android E2E) dù không phải thứ Hai', required: false, default: '0' }
+permissions:
+  contents: write
+  issues: write
+  actions: write
+concurrency:
+  group: quality-sweep
+  cancel-in-progress: false
+env:
+  PW: playwright@1.50.1
+jobs:
+  lease:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      skip: ${{ steps.lease.outputs.skip }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Thuê tài nguyên (chỉ phút GitHub)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire quality-sweep --force
+
+  build:
+    needs: lease
+    if: needs.lease.outputs.skip != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
+      - run: tar -czf dist.tgz dist
+      - uses: actions/upload-artifact@v4
+        with: { name: dist-bundle, path: dist.tgz, retention-days: 1, compression-level: 0 }
+
+  sweep:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [vi, en, ar]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { name: dist-bundle }
+      - run: tar -xzf dist.tgz
+      - name: Cài công cụ
+        run: |
+          npm ci --no-audit --no-fund
+          npm i --no-save --no-audit --no-fund $PW pngjs@7.0.0 pixelmatch@5.3.0
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core fonts-noto-ui-core >/dev/null
+      - name: Ảnh nền (lần chạy tốt gần nhất)
+        uses: actions/cache@v4
+        with:
+          path: qs-baseline/${{ matrix.lang }}
+          key: qs-baseline-${{ matrix.lang }}-${{ github.run_id }}
+          restore-keys: qs-baseline-${{ matrix.lang }}-
+      - name: Quét ${{ matrix.lang }}
+        run: node scripts/quality/sweep.mjs --root dist --lang ${{ matrix.lang }} --out qs-out/${{ matrix.lang }} --baseline qs-baseline/${{ matrix.lang }} $([ "${{ inputs.quick }}" = 1 ] && echo --quick)
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'qs-shard-${{ matrix.lang }}', path: qs-out/${{ matrix.lang }}, retention-days: 7 }
+
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { name: dist-bundle }
+      - run: tar -xzf dist.tgz
+      - name: Chặn lexkite.com (đảm bảo 0 lượt chạm prod)
+        run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
+      - name: Lighthouse 6 trang
+        run: mkdir -p qs-lh && node scripts/quality/lh.mjs dist qs-lh/lh.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: qs-lh, path: qs-lh, retention-days: 7 }
+
+  ext:
+    needs: lease
+    if: needs.lease.outputs.skip != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [vi, en, ar]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: ext-e2e ${{ matrix.lang }} (dùng lại scripts/test/ext-e2e.mjs)
+        continue-on-error: true
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/build-extension.sh
+          LANG_T=${{ matrix.lang }} node scripts/test/ext-e2e.mjs /tmp/ext-qa
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'qs-ext-${{ matrix.lang }}', path: '/tmp/ext-qa/report-*.json', retention-days: 7, if-no-files-found: ignore }
+
+  ext-heavy:
+    needs: lease
+    if: needs.lease.outputs.skip != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chi phí add-on trên trang nặng (dict-perf mục 6: 3.000 đoạn + 12 khung)
+        continue-on-error: true
+        run: |
+          npm ci --no-audit --no-fund
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          npx playwright install --with-deps chromium
+          mkdir -p qs-heavy
+          node scripts/lexicon/shards.mjs --out web
+          node scripts/test/dict-perf.mjs --label sweep --json qs-heavy/dp.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: qs-ext-heavy, path: qs-heavy, retention-days: 7, if-no-files-found: ignore }
+
+  native:
+    needs: lease
+    if: needs.lease.outputs.skip != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      note: ${{ steps.n.outputs.note }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Native E2E mỗi tuần (thứ Hai) – iOS Simulator + Android emulator
+        id: n
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          if [ "${{ inputs.native }}" = 1 ] || { [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%u)" = 1 ]; }; then
+            gh workflow run ios-e2e.yml && gh workflow run native-auth-e2e.yml && echo "note=đã kích hoạt ios-e2e + native-auth-e2e (Android emulator) – xem tab Actions" >> "$GITHUB_OUTPUT" || echo "note=kích hoạt native THẤT BẠI" >> "$GITHUB_OUTPUT"
+          else echo "note=chưa đến tuần (chạy thứ Hai)" >> "$GITHUB_OUTPUT"; fi
+
+  report:
+    needs: [lease, build, sweep, lighthouse, ext, ext-heavy, native]
+    if: always() && needs.lease.outputs.skip != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      RUN_ID: ${{ github.run_id }}
+      WEEKLY_NATIVE: ${{ needs.native.outputs.note }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { path: qs-in, pattern: 'qs-*' }
+      - name: Báo cáo
+        run: |
+          node scripts/quality/report.mjs qs-in qs-report
+          cat qs-report/summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Ảnh lỗi + diff → nhánh quality-qa (xem trực tiếp qua liên kết)
+        run: |
+          [ -n "$(ls -A qs-report/pub 2>/dev/null)" ] || exit 0
+          cd qs-report/pub && git init -q && git checkout -q -b quality-qa
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "quality-sweep $(date -u +%F)"
+          git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" HEAD:quality-qa
+      - name: Issue "quality-sweep" (mở/cập nhật khi có lỗi, đóng khi sạch)
+        run: |
+          total=$(node -p "require('./qs-report/result.json').total")
+          gh label create quality-sweep --color d93f0b --description "Lỗi tiềm ẩn do quality-sweep phát hiện" --force >/dev/null 2>&1 || true
+          num=$(gh issue list --state open --label quality-sweep --json number --jq '.[0].number // empty')
+          if [ "$total" -gt 0 ]; then
+            if [ -n "$num" ]; then gh issue edit "$num" --body-file qs-report/issue.md >/dev/null; echo "cập nhật #$num"
+            else gh issue create --title "quality-sweep" --label quality-sweep --body-file qs-report/issue.md; fi
+          elif [ -n "$num" ]; then
+            gh issue comment "$num" --body "✅ Sạch ở lượt $RUN_ID: https://github.com/$REPO/actions/runs/$RUN_ID" >/dev/null; gh issue close "$num" >/dev/null; echo "đóng #$num"
+          fi
+      - name: Dọn cache ảnh nền cũ (giữ bản mới nhất mỗi ngôn ngữ)
+        run: gh cache list --key qs-baseline- --limit 100 --json id,key,createdAt --jq 'group_by(.key|split("-")[2])|map(sort_by(.createdAt)|reverse|.[1:][])|.[][]|.id' | xargs -r -n1 gh cache delete || true
+      - name: Trả thuê
+        if: always()
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release quality-sweep --status "${{ job.status }}"
+      - name: Kết luận (đỏ nếu còn lỗi)
+        run: |
+          total=$(node -p "require('./qs-report/result.json').total")
+          if [ "$total" -gt 0 ]; then echo "::error::quality-sweep: $total lỗi – xem job summary + issue quality-sweep"; exit 1; fi

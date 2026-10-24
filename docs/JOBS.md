@@ -58,6 +58,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
 | 21:30 | `lexicon-i18n` | `30 21 * * *` | render | gemini, gh_minutes | 60 | — | — |
 | 22:00 | `i18n-leak` | `0 22 * * *` | reports | gh_minutes | 20 | — | — |
+| 22:40 | `quality-sweep` | `40 22 * * *` | reports | gh_minutes | 45 | — | ✓ |
 | 23:17 | `video-auto` | `17 23 * * *` | render | gh_minutes | 90 | — | — |
 | 23:30 | `blog-daily` | `30 23 * * *` | publishing | gemini, gh_minutes | 30 | — | — |
 

@@ -678,6 +678,20 @@ export const REG = {
     "drive_calls": 20
    },
    "lease": true
+  },
+  {
+   "id": "quality-sweep",
+   "workflow": "quality-sweep.yml",
+   "cron": [
+    "40 22 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 45,
+   "est": {},
+   "lease": true
   }
  ]
 };
