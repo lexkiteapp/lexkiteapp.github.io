@@ -48,8 +48,10 @@
    "kinds": [
     "img"
    ],
-   "state": "planned",
-   "_note": "ảnh MỌI nghĩa (~20k × WebP+AVIF ≤ 6 KB ≈ 240 MB) + ảnh bài học (docs/VISUAL-LEARNING-PLAN.md) – m1 (img) đã full. scripts/vocab-img/media-repo.mjs check --apply tạo qua API khi lô đầu được duyệt; cần route Worker lexkite-media /m4/* + infra/resources.json"
+   "state": "open",
+   "_note": "ảnh MỌI nghĩa (~20k × WebP+AVIF ≤ 6 KB ≈ 240 MB) + ảnh bài học – kho img DUY NHẤT đang open (m1 full). Tạo 24/10 qua API (tài khoản lexkiteapp là User → POST /user/repos), Pages legacy main/, deploy key → secret MEDIA4_DEPLOY_KEY (CI: scripts/media/push.mjs --kind img, env MEDIA_KEY_M4). Phục vụ: media.lexkite.com/vimg/<h>.* (Worker lexkite-media thử m4 Pages → m4 raw → m1, URL không đổi) và media.lexkite.com/m4/vimg/<h>.*",
+   "since": "2026-10-24",
+   "deploy_key_secret": "MEDIA4_DEPLOY_KEY"
   }
  ],
  "soft_files": 60000

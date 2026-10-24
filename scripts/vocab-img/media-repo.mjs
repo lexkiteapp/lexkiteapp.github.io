@@ -35,8 +35,11 @@ if (process.argv[1] && new URL(import.meta.url).pathname === fs.realpathSync(pro
     for (const id of p.full) reg.repos.find(r => r.id === id).state = 'full';
     if (p.need_new) {
       const planned = reg.repos.find(r => r.state === 'planned' && (!r.kinds || r.kinds.includes('img'))), nx = planned || nextRepo(reg), name = nx.repo.split('/')[1];
-      const r = await fetch('https://api.github.com/orgs/lexkiteapp/repos', { method: 'POST', headers: H, body: JSON.stringify({ name, private: false, description: 'Lexkite media (rollover) – ảnh/âm thanh theo từ, phục vụ qua media.lexkite.com' }) });
-      if (r.status === 201 || r.status === 422) { nx.state = 'open'; if (!planned) reg.repos.push(nx); console.log(`✓ kho ${nx.repo} (${r.status === 422 ? 'đã có' : 'mới tạo'}) → open. VIỆC TIẾP: route Worker lexkite-media ${new URL(nx.cdn).pathname}* + infra/resources.json`); }
+      // lexkiteapp là tài khoản User (không phải tổ chức) → /orgs/… trả 404; thử /user/repos (token của lexkiteapp)
+      const body = JSON.stringify({ name, private: false, description: 'Lexkite media (rollover) – ảnh/âm thanh theo từ, phục vụ qua media.lexkite.com' });
+      let r = await fetch('https://api.github.com/orgs/lexkiteapp/repos', { method: 'POST', headers: H, body });
+      if (r.status === 404) r = await fetch('https://api.github.com/user/repos', { method: 'POST', headers: H, body });
+      if (r.status === 201 || r.status === 422) { nx.state = 'open'; if (!planned) reg.repos.push(nx); console.log(`✓ kho ${nx.repo} (${r.status === 422 ? 'đã có' : 'mới tạo'}) → open. VIỆC TIẾP: Pages (POST /repos/…/pages legacy main /), deploy key + secret MEDIA<N>_DEPLOY_KEY, ORIGINS Worker lexkite-media (workers/media/index.js VIMG_ORIGINS) + infra/resources.json`); }
       else console.log(`::error::không tạo được ${nx.repo} (${r.status}) – token cần quyền tạo kho của tổ chức; chủ tạo tay rồi chạy lại`);
     }
     fs.writeFileSync(F, JSON.stringify(reg, null, 1) + '\n');

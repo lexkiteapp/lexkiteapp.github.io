@@ -638,7 +638,7 @@
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [
-    "40 16 * * *"
+    "40 1,7,13,19 * * *"
    ],
    "priority": "bulk",
    "resources": [
@@ -647,15 +647,16 @@
    ],
    "minutes": 120,
    "est": {
-    "grabcast_images": 400,
-    "grabcast_text": 30,
+    "grabcast_images": 6000,
+    "grabcast_text": 300,
     "shards_max": 10,
     "per_shard_images": "max_gc / shards",
-    "judge": "local CPU (0 token)"
+    "judge": "local CPU (0 token)",
+    "grabcast_vision": 6000
    },
    "lease": true,
-   "paused": true,
-   "_note": "Ảnh mọi nghĩa (cảnh câu ví dụ cho nghĩa trừu tượng + ô khái niệm SVG cho hư từ) + ảnh bài học giai đoạn 1. Ma trận ≤ 10 việc, mỗi việc thuê riêng (LEASE_SHARD → run id -sN) và trần ảnh = max_gc / shards; 429 GrabCast → chờ lùi 65→240 s, 6 lần = dừng. Giám khảo CỤC BỘ trên CPU (local_judge.py) – không Gemini. TẠM DỪNG (paused) tới khi chủ duyệt tờ ảnh pilot; chạy tay mode=pilot|calibrate bằng --force. Sổ ảnh = git (content/lexicon/vimg-scenes.json, vimg-judge.json) – không D1, không Pages."
+   "paused": false,
+   "_note": "Ảnh mọi nghĩa – fill BẬT 24/10 (chủ: chất lượng trước, dùng tối đa GrabCast): 4 lượt/ngày, ma trận ≤ 10 việc, mỗi việc thuê riêng (LEASE_SHARD → run id -sN), trần ảnh việc = max_gc / shards (fill 6000/lượt). Mỗi nghĩa cảnh tới `variants` (4, ≤ 6) biến thể, nhận biến thể ĐẦU qua giám khảo cảnh ngưỡng độ chính xác cao (vimg-judge-scene.json); trượt hết → content/lexicon/vimg-scene-queue.json (sửa prompt sau). Ảnh → kho m4 (MEDIA4_DEPLOY_KEY) qua media.lexkite.com/vimg/. Mở dần 10 % (vocab_img_pct), dự phòng Noto/Wikimedia giữ. Sổ ảnh = git – không D1, không Pages."
   },
   {
    "id": "d1-backup",

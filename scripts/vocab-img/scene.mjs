@@ -38,7 +38,9 @@ export function promptScene(k, sc, attempt = 1) {
   const h = fnv(k), a = PEOPLE[h % PEOPLE.length], b = PEOPLE[(h >> 3) % PEOPLE.length] === a ? PEOPLE[(h + 1) % PEOPLE.length] : PEOPLE[(h >> 3) % PEOPLE.length];
   let s = String(sc.sc || '').replace(/["“”]/g, '');
   s = s.replace(/\bperson A\b/gi, a).replace(/\bperson B\b/gi, b).replace(/\ba person\b/i, a).replace(/\banother person\b/i, b);
-  return `Illustration, ${FRAMES[h % FRAMES.length]}: ${s}.${attempt > 1 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE}`;
+  // biến thể v (fill: tới 6 lần/nghĩa, nhận lần ĐẦU qua giám khảo): API không nhận seed → đổi khung hình theo v (tất định), v chẵn = bố cục đơn giản hơn
+  const fr = FRAMES[(h + attempt - 1) % FRAMES.length];
+  return `Illustration, ${fr}: ${s}.${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE}`;
 }
 
 // ---- thẻ cảnh: lời nhắn MỘT nguồn (người viết thẻ phải dùng câu ví dụ của kho; được trả skip) ----
@@ -84,17 +86,26 @@ if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url
   const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
   const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
   const lex = rd('dist/lexicon.json'), sel = rd('content/lexicon/vimg-select.json').items;
-  const SC = 'content/lexicon/vimg-scenes.json', cards = fs.existsSync(P(SC)) ? rd(SC) : { _note: 'Thẻ cảnh cho nghĩa trừu tượng (scene.mjs). ex = câu ví dụ của kho, sc = mô tả hình, cap = chú thích cho giám khảo.', v: SCENE_V, items: {} };
+  const QF = 'content/lexicon/vimg-scene-queue.json', SC = 'content/lexicon/vimg-scenes.json', cards = fs.existsSync(P(SC)) ? rd(SC) : { _note: 'Thẻ cảnh cho nghĩa trừu tượng (scene.mjs). ex = câu ví dụ của kho, sc = mô tả hình, cap = chú thích cho giám khảo.', v: SCENE_V, items: {} };
   const keysOf = () => { const f = arg('keys'); return f && fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, 'utf8')).scene || JSON.parse(fs.readFileSync(f, 'utf8')).items) : String(f || '').split(',').filter(Boolean); };
-  if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }
+  if (arg('gaps')) {
+    // fill: nghĩa loại scene chưa có ảnh, không bị gỡ, không trong hàng chờ sửa prompt, thẻ không skip; A1 trước, rồi tất định fnv; --shard i/n
+    const img = rd('content/lexicon/img.json'), q = fs.existsSync(P(QF)) ? rd(QF).items : {}, [SI, SN] = String(arg('shard') || '0/1').split('/').map(Number);
+    const LV = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
+    const ks = Object.entries(lex).filter(([k, e]) => e && e.ex && !(img.items[k] && img.items[k].h) && !img.rejected[k] && !q[k] && !(cards.items[k] && cards.items[k].skip) && (SN <= 1 || fnv(k) % SN === SI) && ['n', 'v', 'adj', 'adv'].includes(e.pos) && kind(k, e, (sel[k] || [])[1]) === 'scene')
+      .map(([k]) => k).sort((a, b) => (LV[lex[a].level] || 9) - (LV[lex[b].level] || 9) || fnv('g|' + a) - fnv('g|' + b)).slice(0, +arg('gaps'));
+    process.stdout.write(JSON.stringify({ items: ks, scene: ks }));
+  } else if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }
   else if (process.argv.includes('--dry')) { for (const k of keysOf()) console.log(k, '→', cards.items[k] ? promptScene(k, cards.items[k]).slice(0, 220) : '(chưa có thẻ)'); }
   else if (process.argv.includes('--cards')) {
     const { createPool } = await import('../lib/ai-pool.mjs');
+    const SKIP = new Set(Object.keys((fs.existsSync(P(QF)) ? rd(QF) : { items: {} }).items));
     const AI = createPool({ prompt: req => ({ sys: SCENE_SYS, user: sceneUser(req.items.map(k => ({ k, e: lex[k] }))), temp: 0.3 }) });
-    const todo = keysOf().filter(k => lex[k] && !cards.items[k]); let add = 0, bad = 0;
+    const todo = keysOf().filter(k => lex[k] && !cards.items[k] && !SKIP.has(k)); let add = 0, bad = 0;
     for (let i = 0; i < todo.length; i += 8) {
       const part = todo.slice(i, i + 8);
-      const r = await AI.gen({ mode: 'vscene', items: part }, { chain: ['gc-cf', 'gc-gemini', 'cf2', 'gc-groq'] });
+      // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút) trước, CF sau; ngân sách lượt = AI_POOL_GC_MAX (workflow)
+      const r = await AI.gen({ mode: 'vscene', items: part }, { chain: ['gc-groq', 'gc-cf', 'gc-gemini', 'cf2'] });
       if (!r) { console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); break; }
       for (const k of part) { const c = r.out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (!why) { cards.items[k] = { ex: c.ex, sc: String(c.sc).replace(/["“”]/g, '').slice(0, 320), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), by: r.model }; add++; } else { bad++; console.log('✗ thẻ', k, why); } }
     }

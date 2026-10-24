@@ -53,9 +53,10 @@ def h16(path):
     import hashlib; return hashlib.sha256(open(path, 'rb').read()).hexdigest()[:16]
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--dir', required=True); ap.add_argument('--sheet'); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument('--dir', required=True); ap.add_argument('--sheet'); ap.add_argument('--sheet-max', type=int, default=0); a = ap.parse_args()
     D = a.dir; T = json.load(open(os.path.join(D, 'targets.json'))); os.makedirs(os.path.join(D, 'final'), exist_ok=True)
-    J = [json.load(open(f)) if os.path.exists(f) else {} for f in (os.path.join(D, 'judge.local.a1.json'), os.path.join(D, 'judge.local.a2.json'))]
+    # biến thể 1..6 (fill: nhận lần ĐẦU qua giám khảo; pilot: 1–2)
+    J = [json.load(open(f)) if os.path.exists(f) else {} for f in (os.path.join(D, f'judge.local.a{i}.json') for i in range(1, 7))]
     res, stats = {}, {'n': len(T), 'passed': 0, 'scene': 0, 'scene_pass': 0, 'concept': 0, 'lesson': 0, 'lesson_pass': 0, 'object': 0, 'alpha': 0, 'bytes': []}
     for k, t in T.items():
         kd = t['kind']; r = {'kind': kd, 'pass': False}
@@ -65,7 +66,8 @@ def main():
             im = Image.open(png).convert('RGBA'); r.update(src='concept', fam=t.get('fam', 'type'), judge='rule', alpha=True); stats['concept'] += 1
             im_used = im
         else:
-            att = 2 if (J[1].get(k) or {}).get('pass') else 1
+            tried = [i + 1 for i in range(6) if k in J[i]]; ok_ = [i for i in tried if J[i - 1][k].get('pass')]
+            att = ok_[0] if ok_ else (tried[-1] if tried else 1); r['tries'] = len(tried)
             j = (J[att - 1].get(k) or J[0].get(k) or {}); r.update(att=att, reasons=j.get('reasons', ['not generated']), cap=(j.get('f') or {}).get('cap', ''), f={x: y for x, y in (j.get('f') or {}).items() if x != 'cap'})
             stats[kd] = stats.get(kd, 0) + 1
             raw = os.path.join(D, 'raw', f'{slug(k)}.a{att}.jpg')
@@ -86,7 +88,11 @@ def main():
     stats['speed'] = sp
     json.dump({'stats': stats, 'items': res}, open(os.path.join(D, 'result.json'), 'w'), indent=1)
     print(json.dumps(stats))
-    if a.sheet: sheet(D, T, res, a.sheet)
+    if a.sheet:
+        T2 = T
+        if a.sheet_max:   # fill: tờ ảnh chỉ ảnh NHẬN, mẫu tất định
+            import hashlib; ks = sorted([k for k in T if res.get(k, {}).get('pass') and T[k]['kind'] != 'concept'], key=lambda k: hashlib.sha1(k.encode()).hexdigest())[:a.sheet_max]; T2 = {k: T[k] for k in ks}
+        sheet(D, T2, res, a.sheet)
 
 def sheet(D, T, res, out):
     """tờ ảnh: mỗi ô = ảnh (cảnh/khái niệm/bìa) + từ + câu ví dụ dưới ảnh (như thẻ học) + dấu ĐẠT/TRƯỢT"""

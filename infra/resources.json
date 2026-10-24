@@ -386,6 +386,19 @@
       ]
     },
     {
+      "key": "media-4",
+      "name": "Kho media #4 lexkite-media-4 (GitHub Pages) – ảnh theo nghĩa",
+      "kind": "storage",
+      "purpose": "Kho ảnh minh hoạ theo nghĩa (infra/media-repos.json m4, kind img – kho img duy nhất đang open, m1 full): vimg/<h>.webp|.avif ≤ 6 KB (vocab-img-scene fill, ~20k nghĩa ≈ 240 MB). CI ghi bằng deploy key (secret MEDIA4_DEPLOY_KEY, scripts/media/push.mjs --kind img). Phục vụ qua media.lexkite.com/vimg/ (Worker lexkite-media thử m4 Pages → m4 raw → m1) và media.lexkite.com/m4/. Theo dõi: storage-watch (media-repo.mjs check) + Quản trị › Lưu trữ (cảnh báo 70 % của 1 GB)",
+      "console": "https://github.com/lexkiteapp/lexkite-media-4",
+      "free": "Repo ≤ 1 GB khuyến nghị · Pages ≤ 1 GB, ~100 GB băng thông/tháng (mềm)",
+      "upgrade": "≥ 70 % → state=full, media-repo.mjs check --apply mở lexkite-media-5 hoặc Cloudflare R2",
+      "status": "Miễn phí",
+      "match": [
+        "lexkite-media-4"
+      ]
+    },
+    {
       "key": "blog-media-r2",
       "name": "Cloudflare R2 lexkite-blog-media (ảnh riêng từng bài blog)",
       "kind": "storage",

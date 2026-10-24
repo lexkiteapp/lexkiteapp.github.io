@@ -7,7 +7,7 @@
 // --shard i/n: chỉ khoá có fnv(k) % n == i (ma trận ≤ 10 việc / lượt, mỗi việc thuê riêng ở điều phối). 429 → chờ lùi trong gen.mjs (65→240 s, 6 lần = dừng nhà).
 import fs from 'fs';
 import path from 'path';
-import { PROVIDERS, slug } from './gen.mjs';
+import { PROVIDERS, slug, GC_STATS } from './gen.mjs';
 import { promptFromCard } from './strict.mjs';
 import { kind, promptScene, SCENE_STYLE, RETRY_SCENE } from './scene.mjs';
 import { conceptSvg, familyOf, conceptHash } from './concept.mjs';
@@ -68,7 +68,7 @@ async function main() {
   const used = Object.fromEntries(PROVIDERS.map(p => [p.id, 0])), dead = new Set(PROVIDERS.filter(p => !p.ok()).map(p => p.id));
   const only = arg('only') ? new Set(JSON.parse(fs.readFileSync(arg('only'), 'utf8')).items) : null;
   // song song trong 1 việc: GrabCast ảnh 60/phút/IP (mỗi runner GitHub một IP) → VIMG_CONC luồng (mặc định 6 ≈ 60 ảnh/phút với ~5 s/ảnh); 429 → Retry-After (gen.mjs)
-  let n = 0, stop = false; const t0 = Date.now(), CONC = Math.max(1, +(process.env.VIMG_CONC || 6));
+  let n = 0, retries = 0, stop = false; const t0 = Date.now(), CONC = Math.max(1, +(process.env.VIMG_CONC || 6));
   const todo = keys.filter(k => T[k] && T[k].prompt && (!only || only.has(k)) && !fs.existsSync(path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`)));
   async function one(k) {
     const t = T[k], file = path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`);
@@ -76,7 +76,8 @@ async function main() {
       if (dead.has(p.id) || used[p.id] >= p.max) continue;
       used[p.id]++; const s = Date.now();
       // 24/10: GrabCast trả 500 "Something went wrong" cho ~40 % lượt → thử lại 2 lần (5 s, 15 s) trước khi bỏ nhà vẽ; 429 vẫn do gen.mjs (Retry-After)
-      for (let tr = 0; tr < 2; tr++) { try { const buf = await p.run(t.prompt); if (isImg(buf)) { fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s, tries: tr + 1 }); return; } } catch (err) { if (err.constructor.name === 'Quota' || !/\b5\d\d\b/.test(String(err.message))) break; } await new Promise(r => setTimeout(r, 5000 + 10000 * tr)); }
+      // 5xx: thử lại theo Retry-After của GrabCast (không có → 5 s, 15 s); mọi mã HTTP được đếm ở GC_STATS (gen.mjs) → gen-stats.s<i>.a<n>.json
+      for (let tr = 0; tr < 2; tr++) { let ra = 0; try { const buf = await p.run(t.prompt); if (isImg(buf)) { fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s, tries: tr + 1 }); return; } } catch (err) { if (err.constructor.name === 'Quota' || !(err.status >= 500 || /\b5\d\d\b/.test(String(err.message)))) break; ra = +err.retryAfter || 0; retries++; } await new Promise(r => setTimeout(r, ra ? Math.min(120, ra) * 1e3 : 5000 + 10000 * tr)); }
       try { const buf = await p.run(t.prompt); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s }); return; }
       catch (err) { if (err.constructor.name === 'Quota') { dead.add(p.id); console.warn(`⏸ ${p.id}: ${err.message}`); } else { console.warn(`✗ ${p.id} ${k}: ${err.message}`); log.push({ k, attempt: ATT, provider: p.id, error: String(err.message).slice(0, 160) }); } }
     }
@@ -85,6 +86,8 @@ async function main() {
   await Promise.all(Array.from({ length: CONC }, async () => { while (todo.length && !stop) await one(todo.shift()); }));
   if (stop) console.log('⏹ hết ngân sách ảnh lượt này – dừng sạch');
   fs.writeFileSync(logF, JSON.stringify(log, null, 1));
+  fs.writeFileSync(path.join(OUT, `gen-stats.s${SI}.a${ATT}.json`), JSON.stringify({ shard: SI, attempt: ATT, wanted: n + todo.length, images: n, retries_5xx: retries, gc: GC_STATS }));
+  console.log('GrabCast ảnh:', JSON.stringify(GC_STATS));
   const min = (Date.now() - t0) / 60e3;
   fs.writeFileSync(path.join(OUT, `speed.gen.s${SI}.a${ATT}.json`), JSON.stringify({ images: n, minutes: +min.toFixed(2), per_min: +(n / Math.max(min, 1e-3)).toFixed(2) }));
   console.log(`✓ vẽ ${n} ảnh (lần ${ATT}, shard ${SI}/${SN}) trong ${min.toFixed(1)} phút = ${(n / Math.max(min, 1e-3)).toFixed(2)} ảnh/phút · ${JSON.stringify(used)}`);

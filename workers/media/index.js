@@ -3,6 +3,25 @@
 // MP4 hỗ trợ Range (tua video). Khi kho gần 1 GB: đổi ORIGIN sang R2, URL giữ nguyên.
 const ORIGIN = 'https://lexkiteapp.github.io/lexkite-media';
 const YEAR = 31536000, DAY = 86400;
+// Ảnh theo nghĩa /vimg/<h16>.(webp|avif) (infra/media-repos.json kind img): m1 đầy → ảnh mới ở lexkite-media-4. URL KHÔNG đổi (img.json base = media.lexkite.com/vimg/):
+// thử lần lượt m4 Pages → m4 raw (ngay sau push, trước khi Pages dựng xong / vượt giới hạn tệp Pages) → m1. Kho img mới: thêm vào đầu danh sách.
+// /m<N>/vimg/… = trực tiếp kho N. 404 chỉ cache 60 s (ảnh vừa đẩy phải hiện ngay ở lượt kiểm CDN).
+export const VIMG_ORIGINS = { m4: ['https://lexkiteapp.github.io/lexkite-media-4', 'https://raw.githubusercontent.com/lexkiteapp/lexkite-media-4/main'], m1: ['https://lexkiteapp.github.io/lexkite-media'] };
+const VIMG_ORDER = ['m4', 'm1'];
+async function vimg(req, url, ext) {
+  const m = url.pathname.match(/^\/(?:(m\d+)\/)?vimg\/([0-9a-f]{16}(?:@2x)?\.(?:webp|avif))$/);
+  if (!m || (m[1] && !VIMG_ORIGINS[m[1]])) return new Response('Not found', { status: 404, headers: { 'Cache-Control': 'public, max-age=60' } });
+  let r = null;
+  for (const id of m[1] ? [m[1]] : VIMG_ORDER) for (const o of VIMG_ORIGINS[id]) {
+    r = await fetch(`${o}/vimg/${m[2]}`, { method: req.method, cf: { cacheEverything: true, cacheTtlByStatus: { '200-299': YEAR, '404': 60, '500-599': 0 } } });
+    if (r.ok) {
+      const h = new Headers({ 'Content-Type': TYPES[ext], 'Access-Control-Allow-Origin': '*', 'X-Content-Type-Options': 'nosniff', 'Timing-Allow-Origin': '*', 'Cache-Control': `public, max-age=${YEAR}, immutable`, 'X-Origin': id });
+      for (const k of ['etag', 'content-length', 'last-modified']) if (r.headers.get(k) && !(k === 'content-length' && o.includes('raw.githubusercontent'))) h.set(k, r.headers.get(k));
+      return new Response(req.method === 'HEAD' ? null : r.body, { status: 200, headers: h });
+    }
+  }
+  return new Response('Not found', { status: 404, headers: { 'Cache-Control': 'public, max-age=60', 'Access-Control-Allow-Origin': '*' } });
+}
 const TYPES = { avif: 'image/avif', webp: 'image/webp', png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', svg: 'image/svg+xml', mp4: 'video/mp4', json: 'application/json' };
 // /video/<bài>/<tên>-<băm>.(mp4|webp|vtt): bản web của short bản tin (scripts/video/web-rendition.mjs) – gốc = GitHub Release 'wv-<bài>' của repo web.
 // Tên theo mã băm → immutable 1 năm; MP4 chuyển tiếp Range (tua), VTT cho <track crossorigin>.
@@ -39,6 +58,7 @@ export default {
   async fetch(req, env = {}, ctx) {
     const url = new URL(req.url);
     if (url.pathname.startsWith('/video/')) return video(req, url, env);
+    if (/^\/(m\d+\/)?vimg\//.test(url.pathname) && ['GET', 'HEAD'].includes(req.method)) return vimg(req, url, url.pathname.endsWith('.avif') ? 'avif' : 'webp');
     const m = url.pathname.match(/^\/([a-z0-9/_.-]+)\.(avif|webp|png|jpe?g|svg|mp4|json)$/i);
     const ext = m && m[2].toLowerCase(), lib = url.pathname.startsWith('/library/');
     if (!['GET', 'HEAD'].includes(req.method) || !m || url.pathname.includes('..') || ((ext === 'mp4' || ext === 'json') && !lib)) return new Response('Not found', { status: 404 });

@@ -44,22 +44,31 @@ async function studio(prompt) {
 }
 const GC = String(env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 let gcWaits = 0;
+// đếm theo mã HTTP cho báo cáo GrabCast (24/10: ~40 % lượt 500) – scene-gen ghi vào gen-stats.s<i>.json
+export const GC_STATS = { submit: 0, ok: 0, s429: 0, s5xx: 0, s4xx: 0, job_err: 0, poll_err: 0, timeout: 0, content_err: 0, net: 0, retry_after_s: 0, by_code: {} };
+const gcErr = (m, r) => { const e = new Error(m); e.status = r && r.status; const ra = r && r.headers && +r.headers.get('retry-after'); if (ra > 0) e.retryAfter = ra; return e; };
 async function grabcast(prompt) {
   const h = { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' };
-  const r = await fetch(GC + '/api/owner-ai/image', { method: 'POST', headers: h, body: JSON.stringify({ prompt, provider: 'cloudflare' }) });
+  GC_STATS.submit++;
+  let r; try { r = await fetch(GC + '/api/owner-ai/image', { method: 'POST', headers: h, body: JSON.stringify({ prompt, provider: 'cloudflare' }) }); } catch (e) { GC_STATS.net++; throw e; }
+  GC_STATS.by_code[r.status] = (GC_STATS.by_code[r.status] || 0) + 1;
+  if (r.status === 429) GC_STATS.s429++; else if (r.status >= 500) GC_STATS.s5xx++; else if (r.status >= 400) GC_STATS.s4xx++;
+  if (r.status !== 200 && +r.headers.get('retry-after') > 0) GC_STATS.retry_after_s += +r.headers.get('retry-after');
   const j = await r.json().catch(() => ({}));
   // đo 23/10: hết khung sau 10 ảnh, mở lại < 2 phút → chờ lùi 65 s, 130 s…; 6 lần 429 LIÊN TIẾP = hết hạn mức ngày → dừng nhà này
   if (r.status === 429 && (gcWaits++ < 6)) { const w = Math.min(240, +r.headers.get('retry-after') || 65 * gcWaits); /* 24/10 GrabCast MAX: 115k/ngày/khoá, ảnh 60/phút/IP – theo Retry-After */ console.log(`… GrabCast 429 (khung 10 ảnh) – chờ ${w} s`); await new Promise(s => setTimeout(s, w * 1e3)); return grabcast(prompt); }
   if (r.status === 429 || quotaish(String(j.error && j.error.code || ''))) throw new Quota(`${r.status} ${JSON.stringify(j.error || '').slice(0, 120)}`);
-  let job = j.job; if (!r.ok || !job) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 160)}`);
+  let job = j.job; if (!r.ok || !job) throw gcErr(`${r.status} ${JSON.stringify(j).slice(0, 160)}`, r);
   for (let i = 0; job.status !== 'done' && i < 20; i++) {   // việc ảnh thường xong ngay; chờ tối đa ~60 s (không thăm dò vô hạn)
-    if (job.status === 'error' || job.error) { const m = String(job.error_code || job.error); if (quotaish(m)) throw new Quota(m); throw new Error(m); }
+    if (job.status === 'error' || job.error) { GC_STATS.job_err++; const m = String(job.error_code || job.error); if (quotaish(m)) throw new Quota(m); throw new Error('job ' + m); }
     await new Promise(s => setTimeout(s, 3000));
-    job = (await (await fetch(`${GC}/api/owner-ai/image/${job.id}`, { headers: h })).json()).job;
+    const pr = await fetch(`${GC}/api/owner-ai/image/${job.id}`, { headers: h }).catch(() => null);
+    const pj = pr && pr.ok ? await pr.json().catch(() => null) : null; if (!pj || !pj.job) { GC_STATS.poll_err++; continue; } job = pj.job;
   }
-  if (job.status !== 'done') throw new Error('grabcast timeout');
+  if (job.status !== 'done') { GC_STATS.timeout++; throw new Error('grabcast timeout'); }
   gcWaits = 0;
-  const c = await fetch(`${GC}/api/owner-ai/image/${job.id}/content`, { headers: h }); if (!c.ok) throw new Error('content ' + c.status);
+  const c = await fetch(`${GC}/api/owner-ai/image/${job.id}/content`, { headers: h }); if (!c.ok) { GC_STATS.content_err++; throw gcErr('content ' + c.status, c); }
+  GC_STATS.ok++;
   return Buffer.from(await c.arrayBuffer());
 }
 
