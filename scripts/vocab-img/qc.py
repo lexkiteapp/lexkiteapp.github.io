@@ -9,7 +9,9 @@ Cổng (trượt 1 = trượt; lần 1 trượt → vẽ lại 1 lần (gen --at
   safe    CLIP zero-shot an toàn cho trẻ (khoả thân / máu / bạo lực / kinh dị) + câu hỏi thị giác
   style   CLIP "flat vector" thắng ảnh chụp/3D/phác thảo/sơn dầu + nền viền phẳng sáng + gần tâm phong cách của lô (cos ≥ 0,5)
   dedupe  pHash ≤ 6 với nghĩa khác (lô + thư viện đã có content/lexicon/img.json) → trượt
-  size    WebP 384 px q70 (lùi q60/q50) ≤ 20 KB, mục tiêu ~12 KB"""
+  size    WebP + AVIF 384 px, mỗi file ≤ 6 KB (lùi chất lượng); bản 2x 768 px CHỈ khi cần (mất chi tiết khi thu 384: d2x ≥ X2_MIN) và ≤ 12 KB
+NGHIÊM (strict.mjs, 24/10): khi có <out>/judge.aN.json (scripts/vocab-img/judge.mjs – giám khảo GỌI TÊN không biết từ, khớp đồng nghĩa)
+  thì đó là cổng nghĩa CHÍNH; CLIP chỉ phụ (chặn khi hạng > CLIP_MAX). Giám khảo không trả lời = không ảnh."""
 import glob, hashlib, io, json, os, re, sys
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
@@ -19,7 +21,10 @@ sys.path.insert(0, os.path.join(ROOT, 'scripts', 'cine'))
 OUT = sys.argv[1]; arg = lambda n, d=None: sys.argv[sys.argv.index('--' + n) + 1] if '--' + n in sys.argv else d
 LEX = json.load(open(os.path.join(ROOT, 'dist/lexicon.json'))); SEL = json.load(open(os.path.join(ROOT, 'content/lexicon/vimg-select.json')))['items']
 IMGJ = os.path.join(ROOT, 'content/lexicon/img.json'); LIB = json.load(open(IMGJ)).get('items', {}) if os.path.exists(IMGJ) else {}
-SIZE, MAXB = 384, 20 * 1024
+SIZE, MAXB, MAXB2, X2_MIN, CLIP_MAX = 384, 6 * 1024, 12 * 1024, float(os.environ.get('VIMG_X2_MIN', '2.5')), 20
+try:
+    import pillow_avif  # noqa: F401  (Pillow < 11.3 cần plugin để ghi AVIF)
+except Exception: pass
 slug = lambda k: re.sub(r'[^a-zA-Z0-9_-]+', '-', k.replace('#', '__'))   # = gen.mjs slug()
 KEY_OF = {slug(k): k for k in LEX}
 
@@ -103,34 +108,62 @@ def load_img(f):
         if a is None: raise
         return Image.fromarray(a[:, :, ::-1].copy())
 
+def enc(im, fmt, maxb, qs):
+    for q in qs:
+        b = io.BytesIO()
+        if fmt == 'WEBP': im.save(b, 'WEBP', quality=q, method=6)
+        else: im.save(b, 'AVIF', quality=q, speed=4)
+        if b.tell() <= maxb: break
+    return b.getvalue(), q
 def webp(im, dst):
-    im = im.convert('RGB').resize((SIZE, SIZE), Image.LANCZOS)
-    for q in (70, 60, 50):
-        b = io.BytesIO(); im.save(b, 'WEBP', quality=q, method=6)
-        if b.tell() <= MAXB: break
-    open(dst, 'wb').write(b.getvalue()); return b.tell(), q
+    """→ (bytes webp, q). Ghi <dst>.webp + .avif (384) và, nếu cần, @2x (768). dst không đuôi."""
+    big = im.convert('RGB').resize((2 * SIZE, 2 * SIZE), Image.LANCZOS); s1 = big.resize((SIZE, SIZE), Image.LANCZOS)
+    w, q = enc(s1, 'WEBP', MAXB, (70, 60, 50, 40, 30)); open(dst + '.webp', 'wb').write(w)
+    try: a, _ = enc(s1, 'AVIF', MAXB, (60, 50, 40, 30, 20)); open(dst + '.avif', 'wb').write(a)
+    except Exception as ex: a = b''; print('AVIF lỗi', repr(ex)[:80])
+    # cần 2x? sai khác giữa ảnh 768 và 384 phóng lại (chi tiết mảnh mất khi thu nhỏ) – ảnh phẳng ít chi tiết thì 384 đủ cho màn hình retina ≤ 192 CSS px
+    d2x = float(np.abs(np.asarray(big, np.float32) - np.asarray(s1.resize(big.size, Image.LANCZOS), np.float32)).mean())
+    x2 = False
+    if d2x >= X2_MIN:
+        w2, _ = enc(big, 'WEBP', MAXB2, (60, 50, 40)); 
+        try: a2, _ = enc(big, 'AVIF', MAXB2, (50, 40, 30))
+        except Exception: a2 = b''
+        if len(w2) <= MAXB2 and a2 and len(a2) <= MAXB2: open(dst + '@2x.webp', 'wb').write(w2); open(dst + '@2x.avif', 'wb').write(a2); x2 = True
+    return len(w), q, len(a), round(d2x, 2), x2
 
 def check(k, att, f, s, im):
     import imagehash
     v = emb_img(im); r = dict(k=k, attempt=att, reasons=[])
 
-    dst = f'{OUT}/webp/{s}.a{att}.webp'; r['bytes'], r['q'] = webp(im, dst); r['webp'] = os.path.relpath(dst, OUT)
+    dst = f'{OUT}/webp/{s}.a{att}'; r['bytes'], r['q'], r['avif'], r['d2x'], r['x2'] = webp(im, dst); dst += '.webp'; r['webp'] = os.path.relpath(dst, OUT)
     r['ph'] = str(imagehash.phash(load_img(dst))); r['rank'], r['p'] = clip_sense(k, v); r['unsafe'] = round(clip_safe(v), 3)
-    r['flat'] = round(clip_style(v), 3); r['bg'], r['bgstd'] = [round(x, 1) for x in border(im)]; r['ocr'] = ocr(f); r['vision'] = vision(k, im)
+    r['flat'] = round(clip_style(v), 3); r['bg'], r['bgstd'] = [round(x, 1) for x in border(im)]; r['ocr'] = ocr(f)
     r['emb'] = v.round(4).tolist()
-    vs = r['vision']['ok']
-    if vs is False: r['reasons'].append('vision: ' + r['vision']['problem'][:60])
-    if vs is True and r['rank'] > 8: r['reasons'].append(f'clip rank {r["rank"]}')
-    if vs is None and (r['rank'] > 3 or r['p'] < 0.2): r['reasons'].append(f'clip rank {r["rank"]} p {r["p"]:.2f}')
+    J = JUDGE.get(att)
+    if J is not None:   # NGHIÊM: giám khảo gọi tên là cổng chính, CLIP phụ
+        j = J.get(k) or dict(pass_=False, reasons=['judge missing']); r['judge'] = dict(named=j.get('named'), hit=j.get('hit'), provider=j.get('provider'), ans=j.get('ans'))
+        r['vision'] = dict(provider=j.get('provider'))
+        r['reasons'] += [x for x in (j.get('reasons') or ([] if j.get('pass') else ['judge fail']))]
+        if r['rank'] > CLIP_MAX: r['reasons'].append(f'clip rank {r["rank"]}')
+    else:
+        r['vision'] = vision(k, im); vs = r['vision']['ok']
+        if vs is False: r['reasons'].append('vision: ' + r['vision']['problem'][:60])
+        if vs is True and r['rank'] > 8: r['reasons'].append(f'clip rank {r["rank"]}')
+        if vs is None and (r['rank'] > 3 or r['p'] < 0.2): r['reasons'].append(f'clip rank {r["rank"]} p {r["p"]:.2f}')
     if r['ocr']: r['reasons'].append('text: ' + ' '.join(t for t, _ in r['ocr'])[:30])
     if r['unsafe'] > 0.5: r['reasons'].append(f'unsafe {r["unsafe"]}')
     if r['flat'] < 0.5: r['reasons'].append(f'style flat {r["flat"]}')
     if r['bg'] < 170 or r['bgstd'] > 40: r['reasons'].append(f'background {r["bg"]}/{r["bgstd"]}')
-    if r['bytes'] > MAXB: r['reasons'].append(f'size {r["bytes"]}')
+    if r['bytes'] > MAXB or not r['avif'] or r['avif'] > MAXB: r['reasons'].append(f'size {r["bytes"]}/{r["avif"]}')
 
     return r
 
+JUDGE = {}
+def load_judge(att):
+    f = f'{OUT}/judge.a{att}.json'
+    if os.path.exists(f): JUDGE[att] = json.load(open(f))
 def run_attempt(att):
+    load_judge(att)
     import imagehash
     os.makedirs(f'{OUT}/webp', exist_ok=True); res = {}
     for f in sorted(glob.glob(f'{OUT}/raw/*.a{att}.jpg')):
@@ -170,33 +203,38 @@ def final(sheet):
         r = a1.get(k); r = r if r and r['pass'] else (a2.get(k) or r)
         if not r: out[k] = dict(k=k, attempt=0, reasons=['not generated'], bytes=0); out[k]['pass'] = False; continue
         if r['pass']:
-            b = open(f'{OUT}/{r["webp"]}', 'rb').read(); h = hashlib.sha256(b).hexdigest()[:16]; open(f'{OUT}/final/{h}.webp', 'wb').write(b); r['h'] = h
+            b = open(f'{OUT}/{r["webp"]}', 'rb').read(); h = hashlib.sha256(b).hexdigest()[:16]; r['h'] = h; base = f'{OUT}/{r["webp"][:-5]}'
+            r['fmt'] = []
+            for ext in ('webp', 'avif') + (('@2x.webp', '@2x.avif') if r.get('x2') else ()):
+                src = f'{base}.{ext}' if not ext.startswith('@') else base + ext
+                if os.path.exists(src): open(f'{OUT}/final/{h}{"." + ext if not ext.startswith("@") else ext}', 'wb').write(open(src, 'rb').read()); r['fmt'] += [ext] if not ext.startswith('@') else []
         out[k] = r
     n = len(keys); ok = [k for k in keys if out[k].get('pass')]; first = [k for k in ok if out[k]['attempt'] == 1]
     rev = [k for k in ok if fnv('review|' + k) % 20 == 0] or ok[:1]          # 5 % tất định → hàng chờ Quản trị
     prov = {}
     for r in out.values(): p = (r.get('vision') or {}).get('provider') or 'clip-only'; prov[p] = prov.get(p, 0) + 1
     stats = dict(n=n, passed=len(ok), pass_rate=round(len(ok) / max(1, n), 3), first_try=len(first), retried_pass=len(ok) - len(first),
-                 no_image=n - len(ok), avg_bytes=round(np.mean([out[k]['bytes'] for k in ok])) if ok else 0, max_bytes=max([out[k]['bytes'] for k in ok] or [0]),
+                 no_image=n - len(ok), avg_avif=round(np.mean([out[k].get('avif') or 0 for k in ok])) if ok else 0, x2=sum(1 for k in ok if out[k].get('x2')), avg_bytes=round(np.mean([out[k]['bytes'] for k in ok])) if ok else 0, max_bytes=max([out[k]['bytes'] for k in ok] or [0]),
                  vision_provider=prov, fails={k: out[k].get('reasons') for k in keys if not out[k].get('pass')})
     json.dump(dict(stats=stats, items=out), open(f'{OUT}/result.json', 'w'), indent=1); json.dump(dict(items=rev), open(f'{OUT}/review.json', 'w'), indent=1)
     print(json.dumps({k: v for k, v in stats.items() if k != 'fails'}))
     if sheet: contact(keys, out, stats, sheet)
 
 def contact(keys, out, stats, path):
-    T, cols = 200, 10; rows = (len(keys) + cols - 1) // cols; H = 60
-    W = Image.new('RGB', (cols * T, H + rows * (T + 30)), (255, 247, 234)); d = ImageDraw.Draw(W)
+    T, cols = 240, 8; rows = (len(keys) + cols - 1) // cols; H = 60
+    W = Image.new('RGB', (cols * T, H + rows * (T + 32)), (255, 247, 234)); d = ImageDraw.Draw(W)
     try: F = ImageFont.load_default(size=14); F2 = ImageFont.load_default(size=20)
     except TypeError: F = F2 = ImageFont.load_default()
-    d.text((10, 8), f"vocab-img pilot · style s1 · pass {stats['passed']}/{stats['n']} ({stats['pass_rate']*100:.0f}%) · 1st try {stats['first_try']} · retry ok {stats['retried_pass']} · avg {stats['avg_bytes']/1024:.1f} KB", fill=(15, 61, 62), font=F2)
-    d.text((10, 34), 'green = shipped image · red = no image (reason) · grey = attempt shown', fill=(23, 89, 90), font=F)
+    d.text((10, 8), f"vocab-img {os.path.basename(path)[:-4]} · style s1 · strict x1 · pass {stats['passed']}/{stats['n']} ({stats['pass_rate']*100:.0f}%) · 1st try {stats['first_try']} · retry ok {stats['retried_pass']} · webp {stats['avg_bytes']/1024:.1f} KB · avif {stats.get('avg_avif', 0)/1024:.1f} KB · 2x {stats.get('x2', 0)}", fill=(15, 61, 62), font=F2)
+    d.text((10, 34), 'green = pass · red = no image (reason) · line 2 = what the judge NAMED without being told the word', fill=(23, 89, 90), font=F)
     for i, k in enumerate(keys):
-        x, y = (i % cols) * T, H + (i // cols) * (T + 30); r = out[k]
+        x, y = (i % cols) * T, H + (i // cols) * (T + 32); r = out[k]
         src = r.get('webp'); a1 = os.path.join(OUT, src) if src else None
         if a1 and os.path.exists(a1): W.paste(load_img(a1).resize((T - 8, T - 8)), (x + 4, y + 4))
         col = (47, 191, 113) if r.get('pass') else (229, 80, 47); d.rectangle([x + 2, y + 2, x + T - 3, y + T - 3], outline=col, width=4)
-        lab = f"{k}{' ·r' if r.get('attempt') == 2 else ''}"; d.text((x + 4, y + T), lab[:28], fill=(15, 61, 62), font=F)
-        if not r.get('pass'): d.text((x + 4, y + T + 14), '; '.join(r.get('reasons') or [])[:30], fill=(229, 80, 47), font=F)
+        lab = f"{k}{' ·r' if r.get('attempt') == 2 else ''}"; d.text((x + 4, y + T), lab[:32], fill=(15, 61, 62), font=F)
+        nm = 'saw: ' + str((r.get('judge') or {}).get('named') or '?')
+        d.text((x + 4, y + T + 14), (nm if r.get('pass') else '; '.join(r.get('reasons') or []))[:34], fill=(47, 140, 90) if r.get('pass') else (229, 80, 47), font=F)
     os.makedirs(os.path.dirname(path) or '.', exist_ok=True); W.save(path, 'JPEG', quality=82); print('sheet', path)
 
 if __name__ == '__main__':

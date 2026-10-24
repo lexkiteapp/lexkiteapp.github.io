@@ -13,7 +13,7 @@ export const STYLE = {
     'purely pictorial without any lettering. Friendly, culturally neutral, suitable for young children.',
   retry: 'Simplest possible iconic view, the subject large and isolated on the plain cream background, nothing else in the picture.',
 };
-const PEOPLE = ['a woman with dark brown skin', 'a man with light skin', 'a man with medium brown skin', 'a woman with East Asian features',
+export const PEOPLE = ['a woman with dark brown skin', 'a man with light skin', 'a man with medium brown skin', 'a woman with East Asian features',
   'a man with South Asian features', 'a woman with light skin and red hair', 'a man with dark skin', 'a woman with olive skin'];
 export const fnv = s => { let h = 0x811c9dc5; for (const c of Buffer.from(String(s))) { h ^= c; h = Math.imul(h, 0x01000193) >>> 0; } return h; };
 const short = d => String(d || '').replace(/\s+/g, ' ').trim().slice(0, 160);

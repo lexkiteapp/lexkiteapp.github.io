@@ -5,11 +5,10 @@ name: Ảnh minh hoạ từ vựng
 on:
   workflow_dispatch:
     inputs:
-      mode: { description: 'pilot = 60 nghĩa thử + tờ ảnh ghép (không đăng) · fill = lấp chỗ trống (chỉ sau khi duyệt)', default: 'pilot' }
+      mode: { description: 'pilot2 = 40 nghĩa luật NGHIÊM (strict.mjs + thẻ vimg-cards.json) · pilot = 60 nghĩa s1 cũ · fill = lấp chỗ trống (chỉ sau khi duyệt)', default: 'pilot2' }
       limit: { description: 'Số nghĩa tối đa lượt fill', default: '60' }
       resume_run: { description: 'Tiếp tục từ lượt trước (run id) – dùng lại ảnh đã vẽ, không vẽ lại', default: '' }
       max_gc: { description: 'Trần ảnh GrabCast lượt này (trống = 40)', default: '' }
-      max_main: { description: 'Trần ảnh tài khoản chính lượt này (trống = 0)', default: '' }
 permissions:
   contents: write
   actions: read   # tải artifact lượt trước (resume_run)
@@ -19,15 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      MODE: ${{ github.event.inputs.mode || 'pilot' }}
+      MODE: ${{ github.event.inputs.mode || 'pilot2' }}
       LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
       STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
       GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
-      # pilot (chạy tay 1 lần): tài khoản chính ≤ 25 ảnh (≈ 4.300 neuron, vẫn chừa ≥ 3.000 cho AI người dùng); fill hằng ngày: ≤ 5
-      VIMG_MAX_GC: ${{ github.event.inputs.max_gc || '40' }}
-      VIMG_MAX_MAIN: ${{ github.event.inputs.max_main || (github.event.inputs.mode == 'fill' && '5' || '25') }}
+      VIMG_MAX_GC: ${{ github.event.inputs.max_gc || '80' }}
+      VIMG_MAX_MAIN: '0'   # 24/10 chủ: KHÔNG BAO GIỜ dùng Workers AI tài khoản chính (dành cho người dùng)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -48,7 +46,7 @@ jobs:
         if: steps.lease.outputs.skip != '1'
         run: |
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1
-          pip install -q open_clip_torch==2.26.1 rapidocr_onnxruntime==1.3.24 imagehash==4.3.1 'numpy<2'
+          pip install -q open_clip_torch==2.26.1 rapidocr_onnxruntime==1.3.24 imagehash==4.3.1 pillow-avif-plugin==1.4.6 'numpy<2'
           python3 -c "from PIL import Image, features; print('Pillow', Image.__version__, 'jpg', features.check('jpg'), 'webp', features.check('webp'))"
       - name: Kho từ vựng (dist/lexicon.json)
         if: steps.lease.outputs.skip != '1'
@@ -56,15 +54,19 @@ jobs:
       - name: Chọn nghĩa
         if: steps.lease.outputs.skip != '1'
         run: |
-          if [ "$MODE" = pilot ]; then cp content/lexicon/vimg-pilot.json keys.json
+          if [ "$MODE" = pilot2 ]; then cp content/lexicon/vimg-pilot2.json keys.json
+          elif [ "$MODE" = pilot ]; then cp content/lexicon/vimg-pilot.json keys.json
           else node scripts/vocab-img/publish.mjs --gaps "${{ github.event.inputs.limit || '60' }}" > keys.json; fi
       - name: Tiếp tục lượt trước (ảnh đã vẽ)
         if: steps.lease.outputs.skip != '1' && github.event.inputs.resume_run != ''
         uses: actions/download-artifact@v4
-        with: { name: 'vocab-img-${{ github.event.inputs.mode || ''pilot'' }}', path: out/vocab-img, run-id: '${{ github.event.inputs.resume_run }}', github-token: '${{ github.token }}' }
+        with: { name: 'vocab-img-${{ github.event.inputs.mode || ''pilot2'' }}', path: out/vocab-img, run-id: '${{ github.event.inputs.resume_run }}', github-token: '${{ github.token }}' }
       - name: Vẽ lần 1
         if: steps.lease.outputs.skip != '1'
         run: node scripts/vocab-img/gen.mjs --keys keys.json --out out/vocab-img --attempt 1
+      - name: Giám khảo gọi tên lần 1 (Gemini, không biết từ)
+        if: steps.lease.outputs.skip != '1'
+        run: node scripts/vocab-img/judge.mjs --out out/vocab-img --attempt 1
       - name: QC lần 1
         if: steps.lease.outputs.skip != '1'
         run: python3 scripts/vocab-img/qc.py out/vocab-img --attempt 1 --keys keys.json
@@ -74,13 +76,13 @@ jobs:
       - name: QC lần 2 + tổng hợp + tờ ảnh ghép
         if: steps.lease.outputs.skip != '1'
         run: |
-          ls out/vocab-img/raw/*.a2.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/qc.py out/vocab-img --attempt 2 || true
+          ls out/vocab-img/raw/*.a2.jpg >/dev/null 2>&1 && node scripts/vocab-img/judge.mjs --out out/vocab-img --attempt 2 && python3 scripts/vocab-img/qc.py out/vocab-img --attempt 2 || true
           python3 scripts/vocab-img/qc.py out/vocab-img --final --keys keys.json --sheet out/vocab-img/${MODE}.jpg
           python3 -c "import json,sys; s=json.load(open('out/vocab-img/result.json'))['stats']; print(s); sys.exit(0 if s['passed'] > 0 else 1)"
       - uses: actions/upload-artifact@v4
         if: always() && steps.lease.outputs.skip != '1'
         with:
-          name: vocab-img-${{ github.event.inputs.mode || 'pilot' }}
+          name: vocab-img-${{ github.event.inputs.mode || 'pilot2' }}
           retention-days: 14
           path: |
             out/vocab-img/

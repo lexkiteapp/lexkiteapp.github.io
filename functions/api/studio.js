@@ -422,7 +422,7 @@ const CI = {
     const imgs = (Array.isArray(b.images) ? b.images : []).slice(0, 4).filter(x => typeof x === 'string' && x.length < 250000 && /^[A-Za-z0-9+/=]+$/.test(x));
     if (!imgs.length) throw new Bad(400, 'images');
     const q = String(b.question || '').slice(0, 2000); const tried = [];
-    if (env.AI) {
+    if (env.AI && b.wai !== 0) {   // wai:0 (vocab-img giám khảo GỌI TÊN, JSON tự do) → bỏ Llama YES/NO, đi thẳng Gemini
       const M = '@cf/meta/llama-3.2-11b-vision-instruct', frames = []; let err = '';
       // b.ask (≤ 400 ký tự, vocab-img QC): câu hỏi YES/NO riêng cho từng ảnh – NO = đạt; mặc định = câu hỏi người dẫn đứng tự nhiên (cine)
       const wq = typeof b.ask === 'string' && b.ask.trim() ? b.ask.slice(0, 400) : 'Look at the cartoon presenter. Does the presenter look like they stand ON or IN a table, desk, bed, sofa, water or a vehicle, or float, or have a clearly wrong size for the room? Answer only YES or NO, then one short reason.';

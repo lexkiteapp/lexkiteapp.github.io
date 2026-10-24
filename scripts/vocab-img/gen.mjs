@@ -11,6 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 import { promptFor } from './style.mjs';
+import { promptFromCard } from './strict.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
 const OUT = arg('out') || 'out/vocab-img', ATT = +(arg('attempt') || 1), DRY = process.argv.includes('--dry-run');
@@ -60,7 +61,7 @@ async function grabcast(prompt) {
 }
 
 async function main() {
-  const lex = rd('dist/lexicon.json'), sel = rd('content/lexicon/vimg-select.json').items;
+  const lex = rd('dist/lexicon.json'), sel = rd('content/lexicon/vimg-select.json').items, cards = rd('content/lexicon/vimg-cards.json').items;
   const ks = arg('keys'); const keys = ks && fs.existsSync(ks) ? (JSON.parse(fs.readFileSync(ks, 'utf8')).items || JSON.parse(fs.readFileSync(ks, 'utf8'))) : String(ks || '').split(',').filter(Boolean);
   fs.mkdirSync(path.join(OUT, 'raw'), { recursive: true });
   const logF = path.join(OUT, 'gen.json'), log = fs.existsSync(logF) ? JSON.parse(fs.readFileSync(logF, 'utf8')) : [];
@@ -70,7 +71,8 @@ async function main() {
   for (const k of keys) {
     const e = lex[k]; if (!e) { console.warn('bỏ (không có trong kho):', k); continue; }
     const file = path.join(OUT, 'raw', `${slug(k)}.a${ATT}.jpg`); if (fs.existsSync(file)) continue;
-    const prompt = promptFor(k, e, (sel[k] || [])[1], ATT);
+    const card = cards[k]; if (card && card.skip) { console.log('bỏ (thẻ skip):', k); continue; }
+    const prompt = card ? promptFromCard(k, card, ATT) : promptFor(k, e, (sel[k] || [])[1], ATT);   // thẻ theo nghĩa (strict.mjs) ưu tiên
     if (DRY) { console.log(k, '→', prompt.slice(-200)); continue; }
     let done = false;
     for (let t = 0; t < PROVIDERS.length && !done; t++) {
