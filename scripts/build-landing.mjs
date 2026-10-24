@@ -36,6 +36,8 @@ try{r=localStorage.getItem('lk.onb')||localStorage.getItem('lk.acct')}catch(e){}
 if(!sa&&!r)return}
 q.delete('source');q.delete('home');var t=q.toString();document.documentElement.style.visibility='hidden';
 l.replace('/app/'+(t?'?'+t:'')+(d?h:''))}catch(e){}})();`;
+// ----- Script 1b: đánh dấu Chromium máy tính (cùng điều kiện js/ext-cta.js) → CSS giữ sẵn chỗ nút "Thêm vào Chrome" (js/ext-cta.js bỏ hidden sau ~0,9 s) → CLS 0 -----
+export const DC_JS = `try{var u=navigator.userAgent;/Chrome\\/\\d/.test(u)&&!/Mobile|Android|CriOS|FxiOS|EdgiOS|iPhone|iPad|SamsungBrowser|YaBrowser|wv\\)|Firefox|Version\\/[\\d.]+ Safari/.test(u)&&(document.documentElement.className='dc')}catch(e){}`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 const URLS = Object.fromEntries(LANGS.map(l => [l, landingHref(l)]));
@@ -46,7 +48,7 @@ d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';
 var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclick=function(){x();d.remove()};document.body.appendChild(d)}catch(e){}})();`;
 
 // ----- CSS riêng của landing (chỉ token màu của site-layout / BRAND-RULES) -----
-const LCSS = `[hidden]{display:none!important}main{padding-top:8px}.lh{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:28px 0 12px}
+const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-block!important;visibility:hidden}main{padding-top:8px}.lh{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:28px 0 12px}
 .eyebrow{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:14px;padding:4px 12px;border-radius:999px}
 .lh h1{font-size:clamp(34px,5.4vw,56px);line-height:1.08;letter-spacing:-.03em;margin:16px 0 14px}.grad{background:linear-gradient(90deg,#E5502F,#FFB054);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:19px;color:var(--muted);max-width:56ch;margin:0}.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 10px;align-items:center}.btn.lg{font-size:17px;padding:13px 24px}
@@ -91,6 +93,7 @@ export function render(lang) {
 <head>
 <meta charset="utf-8">
 <script id="lk-route">${ROUTE_JS}</script>
+<script id="lk-dc">${DC_JS}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(c.title)}</title>
 <meta name="description" content="${esc(c.description)}">
