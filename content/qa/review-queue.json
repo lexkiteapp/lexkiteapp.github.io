@@ -21807,6 +21807,2289 @@
      "xw-everyday.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "twenty#adj",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "schema: định nghĩa"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "twenty",
+    "pos": "adj",
+    "ipa": "/ˈtwenti/",
+    "ipaUS": "/ˈtwenti/",
+    "def": "showing that there are twenty of something",
+    "ex": [
+     "She bought twenty tickets for the concert last night.",
+     "The class has twenty students who study biology together."
+    ],
+    "col": [
+     "twenty years",
+     "twenty percent",
+     "twenty dollars"
+    ],
+    "syn": [
+     "two tens"
+    ],
+    "level": "A2",
+    "cefrF": "A2",
+    "cefrSrc": "freq",
+    "z": 4.65,
+    "emoji": "🔢",
+    "topic": "education",
+    "vi": "hai mươi; 20",
+    "note_vi": "Không dùng dạng số ít sau 'twenty'",
+    "m": {
+     "es": "veinte",
+     "pt": "vinte",
+     "fr": "vingt",
+     "de": "zwanzig",
+     "id": "dua puluh",
+     "th": "ยี่สิบ",
+     "zh": "二十",
+     "ja": "二十",
+     "ko": "스물",
+     "hi": "बीस",
+     "ar": "عشرون",
+     "ru": "двадцать",
+     "tr": "yirmi"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:twenty.s.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "twenty",
+       "twenty"
+      ],
+      "pt": [
+       "twenty",
+       "twenty"
+      ],
+      "fr": [
+       "twenty",
+       "twenty"
+      ],
+      "de": [
+       "twenty",
+       "twenty"
+      ],
+      "id": [
+       "two tens",
+       "twenty"
+      ],
+      "th": [
+       "twenty",
+       "twenty"
+      ],
+      "zh": [
+       "twenty",
+       "twenty"
+      ],
+      "ja": [
+       "twenty",
+       "twenty"
+      ],
+      "ko": [
+       "twenty",
+       "twenty"
+      ],
+      "hi": [
+       "twenty",
+       "twenty"
+      ],
+      "ar": [
+       "twenty",
+       "twenty"
+      ],
+      "ru": [
+       "twenty",
+       "twenty"
+      ],
+      "tr": [
+       "twenty",
+       "twenty"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "A1",
+      "A1"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "education.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "calcium#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "dịch vi: không phải tiếng Việt",
+    "cefr: giám khảo lệch ≥ 2 bậc (B1/B2 ≠ C1)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "calcium",
+    "pos": "n",
+    "ipa": "/ˈkælsiəm/",
+    "ipaUS": "/ˈkælsiəm/",
+    "def": "a white metal that burns brightly and is essential for bones and plants",
+    "ex": [
+     "Milk provides a good source of calcium for strong bones.",
+     "The doctor recommended calcium supplements to improve her bone density."
+    ],
+    "col": [
+     "calcium deficiency",
+     "calcium supplement",
+     "calcium carbonate"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "z": 3.82,
+    "emoji": "🦴",
+    "topic": "health",
+    "vi": "canxi; calci",
+    "note_vi": "Không nhầm calcium với calorie",
+    "m": {
+     "es": "calcio",
+     "pt": "cálcio",
+     "fr": "calcium",
+     "de": "Kalzium",
+     "id": "kalsium",
+     "th": "แคลเซียม",
+     "zh": "钙",
+     "ja": "カルシウム",
+     "ko": "칼슘",
+     "hi": "कैल्शियम",
+     "ar": "الكالسيوم",
+     "ru": "кальций",
+     "tr": "kalsiyum"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:calcium.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "calcium",
+       "calcium"
+      ],
+      "pt": [
+       "calcium",
+       "calcium"
+      ],
+      "fr": [
+       "calcium",
+       "calcium"
+      ],
+      "de": [
+       "calcium",
+       "calcium"
+      ],
+      "id": [
+       "calcium",
+       "calcium"
+      ],
+      "th": [
+       "calcium",
+       "calcium"
+      ],
+      "zh": [
+       "calcium; calcium element",
+       "calcium"
+      ],
+      "ja": [
+       "calcium",
+       "calcium"
+      ],
+      "ko": [
+       "calcium",
+       "calcium"
+      ],
+      "hi": [
+       "calcium",
+       "calcium"
+      ],
+      "ar": [
+       "calcium",
+       "calcium"
+      ],
+      "ru": [
+       "calcium",
+       "calcium"
+      ],
+      "tr": [
+       "calcium",
+       "calcium"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B1",
+      "B2"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "health.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "chloride#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "cefr: giám khảo lệch ≥ 2 bậc (B2/C1 ≠ C2)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "chloride",
+    "pos": "n",
+    "ipa": "/ˈklɔːˌraɪd/",
+    "ipaUS": "/ˈklɔːraɪd/",
+    "def": "a chemical substance that contains chlorine",
+    "ex": [
+     "Sodium chloride is the main ingredient in table salt.",
+     "Scientists measured the chloride level in the river water."
+    ],
+    "col": [
+     "sodium chloride",
+     "chloride ion",
+     "chloride concentration"
+    ],
+    "syn": [
+     "chloride salt"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 3.39,
+    "emoji": "🧪",
+    "topic": "science",
+    "vi": "muối clorua; hợp chất chứa clo",
+    "note_vi": "Không nhầm chloride với chlorine (cây clo).",
+    "m": {
+     "es": "cloruro",
+     "pt": "cloreto",
+     "fr": "chlorure",
+     "de": "Chlorid",
+     "id": "klorida",
+     "th": "คลอไรด์",
+     "zh": "氯化物",
+     "ja": "塩化物",
+     "ko": "염소화물",
+     "hi": "क्लोराइड",
+     "ar": "كلوريد",
+     "ru": "хлорид",
+     "tr": "klorür"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:chloride.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "chlorine compound; chloride",
+       "chloride"
+      ],
+      "pt": [
+       "chlorine compound; chloride",
+       "chloride"
+      ],
+      "fr": [
+       "chlorine compound; chloride",
+       "chloride"
+      ],
+      "de": [
+       "chloride; chlorine compound",
+       "chloride"
+      ],
+      "id": [
+       "chloride; chlorine compound",
+       "chloride"
+      ],
+      "th": [
+       "chloride; chlorine compound",
+       "chloride"
+      ],
+      "zh": [
+       "chlorine compound",
+       "chloride compound"
+      ],
+      "ja": [
+       "chlorine compound",
+       "chloride"
+      ],
+      "ko": [
+       "chlorine compound",
+       "chloride compound"
+      ],
+      "hi": [
+       "chloride",
+       "chloride"
+      ],
+      "ar": [
+       "chloride",
+       "chloride"
+      ],
+      "ru": [
+       "chloride; chlorine compound",
+       "chloride"
+      ],
+      "tr": [
+       "chloride",
+       "chloride"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B2",
+      "C1"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "outlay#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "giám khảo: có giám khảo chấm < 4",
+    "nghĩa: ví dụ/dịch không đúng nghĩa khóa (no/no)",
+    "dịch es: giám khảo < 4 (5/3)",
+    "dịch pt: giám khảo < 4 (5/3)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "outlay",
+    "pos": "n",
+    "ipa": "/ˈaʊtleɪ/",
+    "ipaUS": "/ˈaʊtleɪ/",
+    "def": "the amount of money that is spent",
+    "ex": [
+     "The project required an initial outlay of two million dollars.",
+     "Our company reduced the outlay on office supplies last year."
+    ],
+    "col": [
+     "capital outlay",
+     "initial outlay",
+     "large outlay"
+    ],
+    "syn": [
+     "expenditure",
+     "spending"
+    ],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.83,
+    "emoji": "💰",
+    "topic": "economy",
+    "vi": "chi phí; khoản chi",
+    "note_vi": "Không dùng outlay như động từ.",
+    "m": {
+     "es": "gasto; desembolso",
+     "pt": "despesa; gasto",
+     "fr": "dépense",
+     "de": "Ausgabe",
+     "id": "pengeluaran",
+     "th": "ค่าใช้จ่าย",
+     "zh": "支出",
+     "ja": "支出",
+     "ko": "지출",
+     "hi": "व्यय",
+     "ar": "إنفاق",
+     "ru": "расход",
+     "tr": "gider"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:spending.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 2,
+      "gpt-oss:openai/gpt-oss-120b": 2
+     },
+     "f": [
+      "definition too narrow",
+      "definition describes amount, not act of spending"
+     ],
+     "tr": {
+      "es": [
+       5,
+       3
+      ],
+      "pt": [
+       5,
+       3
+      ],
+      "fr": [
+       5,
+       3
+      ],
+      "de": [
+       4,
+       3
+      ],
+      "id": [
+       5,
+       3
+      ],
+      "th": [
+       5,
+       3
+      ],
+      "zh": [
+       5,
+       3
+      ],
+      "ja": [
+       5,
+       3
+      ],
+      "ko": [
+       5,
+       3
+      ],
+      "hi": [
+       4,
+       3
+      ],
+      "ar": [
+       4,
+       3
+      ],
+      "ru": [
+       4,
+       3
+      ],
+      "tr": [
+       4,
+       3
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "spending; disbursement",
+       "expense; spending"
+      ],
+      "pt": [
+       "expenditure; spending",
+       "expense; spending"
+      ],
+      "fr": [
+       "expenditure",
+       "expense; spending"
+      ],
+      "de": [
+       "expenditure",
+       "expense; spending"
+      ],
+      "id": [
+       "expenditure",
+       "expenditure; expense"
+      ],
+      "th": [
+       "expenses",
+       "expense; cost"
+      ],
+      "zh": [
+       "expenditure",
+       "expenditure; expense"
+      ],
+      "ja": [
+       "expenditure",
+       "expenditure; expense"
+      ],
+      "ko": [
+       "expenditure",
+       "expenditure; expense"
+      ],
+      "hi": [
+       "expenditure",
+       "expense; spending"
+      ],
+      "ar": [
+       "spending",
+       "spending; expense"
+      ],
+      "ru": [
+       "expenditure",
+       "expense; spending"
+      ],
+      "tr": [
+       "expense",
+       "expense; cost"
+      ]
+     },
+     "sense": [
+      "no",
+      "no"
+     ],
+     "cefrJ": [
+      "B2",
+      "C1"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "economy.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "racist#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "giám khảo: có giám khảo chấm < 4",
+    "nghĩa: ví dụ/dịch không đúng nghĩa khóa (yes/no)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "racist",
+    "pos": "n",
+    "ipa": "/ˈreɪsɪst/",
+    "ipaUS": "/ˈreɪsɪst/",
+    "def": "someone who believes one race is better than other races",
+    "ex": [
+     "He was called a racist after his hateful comments about immigrants.",
+     "The policy was criticized for being racist toward minority groups."
+    ],
+    "col": [
+     "racist attitudes",
+     "racist remarks",
+     "racist policies"
+    ],
+    "syn": [
+     "bigot",
+     "racialist"
+    ],
+    "level": "B2",
+    "cefrF": "A2",
+    "cefrSrc": "cefrj",
+    "z": 4.42,
+    "emoji": "🚫",
+    "topic": "society",
+    "vi": "kẻ phân biệt chủng tộc; người kỳ thị chủng tộc",
+    "note_vi": "Racist thường là danh từ, không dùng làm tính từ",
+    "m": {
+     "es": "racista",
+     "pt": "racista",
+     "fr": "raciste",
+     "de": "Rassist",
+     "id": "rasis",
+     "th": "เชื้อชาติผู้อคติ",
+     "zh": "种族主义者",
+     "ja": "人種差別主義者",
+     "ko": "인종차별주의자",
+     "hi": "नस्लवादी",
+     "ar": "عنصري",
+     "ru": "расист",
+     "tr": "ırkçı"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:racist.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 2
+     },
+     "f": [
+      "example 2 and collocations are adjective usage"
+     ],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       4,
+       5
+      ],
+      "th": [
+       4,
+       4
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "racist",
+       "racist; racist person"
+      ],
+      "pt": [
+       "racist",
+       "racist; racist person"
+      ],
+      "fr": [
+       "racist",
+       "racist; racist person"
+      ],
+      "de": [
+       "racist",
+       "racist; racist person"
+      ],
+      "id": [
+       "racist",
+       "racist; racist person"
+      ],
+      "th": [
+       "racist; prejudiced person",
+       "race prejudice person; prejudiced race"
+      ],
+      "zh": [
+       "racist",
+       "racist; racist person"
+      ],
+      "ja": [
+       "racist",
+       "racist; racist person"
+      ],
+      "ko": [
+       "racist",
+       "racist; racist person"
+      ],
+      "hi": [
+       "racist",
+       "racist; racist person"
+      ],
+      "ar": [
+       "racist",
+       "racist; racist person"
+      ],
+      "ru": [
+       "racist",
+       "racist; racist person"
+      ],
+      "tr": [
+       "racist",
+       "racist; racist person"
+      ]
+     },
+     "sense": [
+      "yes",
+      "no"
+     ],
+     "cefrJ": [
+      "B2",
+      "C1"
+     ],
+     "bad": {},
+     "vi": [
+      "ok",
+      "ok"
+     ],
+     "viWikt": [
+      "người phân biệt chủng tộc"
+     ]
+    },
+    "tp": [
+     "society.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "insurgency#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "giám khảo: có giám khảo chấm < 4",
+    "nghĩa: ví dụ/dịch không đúng nghĩa khóa (yes/no)",
+    "dịch th: khác từ loại/khác từ"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "insurgency",
+    "pos": "n",
+    "ipa": "/ɪnˈsɜːdʒənsi/",
+    "ipaUS": "/ɪnˈsɜːrdʒənsi/",
+    "def": "A group that rebels violently to try to replace the existing government.",
+    "ex": [
+     "The insurgency in the region has disrupted daily life for months.",
+     "International forces launched operations to defeat the growing insurgency last year."
+    ],
+    "col": [
+     "armed insurgency",
+     "violent insurgency",
+     "insurgency movement"
+    ],
+    "syn": [
+     "rebellion",
+     "uprising",
+     "revolt"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 3.31,
+    "emoji": "⚔️",
+    "topic": "government",
+    "vi": "cuộc nổi dậy; khởi nghĩa; phản loạn",
+    "note_vi": "Thường nhầm 'insurgency' với 'insurrection', nghĩa hơi khác",
+    "m": {
+     "es": "insurgencia",
+     "pt": "insurgência",
+     "fr": "insurrection",
+     "de": "Aufstand",
+     "id": "pemberontakan",
+     "th": "กบฏ",
+     "zh": "叛乱",
+     "ja": "反乱",
+     "ko": "반란",
+     "hi": "विद्रोह",
+     "ar": "تمرد",
+     "ru": "повстанчество",
+     "tr": "isyan"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:insurgency.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 2
+     },
+     "f": [
+      "definition describes group not rebellion"
+     ],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       4,
+       5
+      ],
+      "de": [
+       4,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       4,
+       3
+      ],
+      "zh": [
+       4,
+       5
+      ],
+      "ja": [
+       4,
+       5
+      ],
+      "ko": [
+       4,
+       5
+      ],
+      "hi": [
+       4,
+       5
+      ],
+      "ar": [
+       4,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       4,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "insurgency",
+       "insurgency"
+      ],
+      "pt": [
+       "insurgency",
+       "insurgency"
+      ],
+      "fr": [
+       "insurrection; uprising; revolt",
+       "insurrection"
+      ],
+      "de": [
+       "uprising; revolt",
+       "uprising; revolt"
+      ],
+      "id": [
+       "rebellion",
+       "rebellion; insurgency"
+      ],
+      "th": [
+       "rebellion",
+       "rebel; insurgent"
+      ],
+      "zh": [
+       "rebellion; revolt",
+       "rebellion; insurgency"
+      ],
+      "ja": [
+       "rebellion; revolt",
+       "rebellion; uprising"
+      ],
+      "ko": [
+       "rebellion; revolt",
+       "rebellion; uprising"
+      ],
+      "hi": [
+       "rebellion",
+       "rebellion; revolt"
+      ],
+      "ar": [
+       "rebellion",
+       "rebellion; revolt"
+      ],
+      "ru": [
+       "insurgency; rebellion",
+       "insurgency; rebel movement"
+      ],
+      "tr": [
+       "rebellion",
+       "rebellion; uprising"
+      ]
+     },
+     "sense": [
+      "yes",
+      "no"
+     ],
+     "cefrJ": [
+      "C2",
+      "C2"
+     ],
+     "bad": {
+      "th": "pos"
+     }
+    },
+    "tp": [
+     "government.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "accuser#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "dịch tr: khác từ loại/khác từ"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "accuser",
+    "pos": "n",
+    "ipa": "/əˈkjuːzə/",
+    "ipaUS": "/əˈkjuːzər/",
+    "def": "a person who says another person has done something wrong",
+    "ex": [
+     "The accuser claimed the driver ran the red light.",
+     "During the trial, the accuser presented new evidence of fraud."
+    ],
+    "col": [
+     "sole accuser",
+     "principal accuser",
+     "accuser's testimony"
+    ],
+    "syn": [
+     "complainant",
+     "accusing party"
+    ],
+    "level": "C1",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 2.99,
+    "emoji": "⚖️",
+    "topic": "crime",
+    "vi": "người buộc tội; người cáo buộc",
+    "note_vi": "Không nhầm người buộc tội với người bị cáo buộc",
+    "m": {
+     "es": "acusador; denunciante",
+     "pt": "acusador; denunciante",
+     "fr": "accusateur",
+     "de": "Ankläger",
+     "id": "penuduh",
+     "th": "ผู้กล่าวหา",
+     "zh": "控告者",
+     "ja": "告発者",
+     "ko": "고발자",
+     "hi": "आरोपकर्ता",
+     "ar": "المدعي",
+     "ru": "обвинитель",
+     "tr": "suçlayıcı"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:accuser.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 4
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       4
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       2
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "accuser; complainant",
+       "accuser; complainant"
+      ],
+      "pt": [
+       "accuser; complainant",
+       "accuser; complainant"
+      ],
+      "fr": [
+       "accuser",
+       "accuser"
+      ],
+      "de": [
+       "prosecutor",
+       "accuser"
+      ],
+      "id": [
+       "accuser",
+       "accuser"
+      ],
+      "th": [
+       "accuser",
+       "accuser"
+      ],
+      "zh": [
+       "accuser",
+       "accuser"
+      ],
+      "ja": [
+       "accuser",
+       "accuser"
+      ],
+      "ko": [
+       "accuser",
+       "accuser"
+      ],
+      "hi": [
+       "accuser",
+       "accuser"
+      ],
+      "ar": [
+       "claimant",
+       "plaintiff; accuser"
+      ],
+      "ru": [
+       "accuser",
+       "accuser"
+      ],
+      "tr": [
+       "accuser",
+       "accusing one; accuser"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B2",
+      "B2"
+     ],
+     "bad": {
+      "tr": "pos"
+     }
+    },
+    "tp": [
+     "crime.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "exporter#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "cefr: giám khảo lệch ≥ 2 bậc (B2/C1 ≠ C2)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "exporter",
+    "pos": "n",
+    "ipa": "/ekˈspɔːtə/",
+    "ipaUS": "/ɪkˈspɔːrtər/",
+    "def": "a person whose job is to send goods to other countries for sale",
+    "ex": [
+     "The exporter shipped the electronics to Europe using a reliable freight forwarder.",
+     "After negotiating the contract, the exporter arranged customs clearance for the cargo."
+    ],
+    "col": [
+     "major exporter",
+     "exporter of goods",
+     "local exporter"
+    ],
+    "syn": [
+     "trader",
+     "exporting company"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 3.29,
+    "emoji": "🚢",
+    "topic": "economy",
+    "vi": "người xuất khẩu; doanh nhân xuất khẩu",
+    "note_vi": "Không nhầm “exporter” với “export” (xuất khẩu).",
+    "m": {
+     "es": "exportador",
+     "pt": "exportador",
+     "fr": "exportateur",
+     "de": "Exporteur",
+     "id": "eksportir",
+     "th": "ผู้ส่งออก",
+     "zh": "出口商",
+     "ja": "輸出業者; 輸出者",
+     "ko": "수출업자",
+     "hi": "निर्यातक",
+     "ar": "مُصدر",
+     "ru": "экспортер",
+     "tr": "ihracatçı"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:exporter.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "exporter; person who exports",
+       "exporter"
+      ],
+      "pt": [
+       "exporter; person who exports",
+       "exporter"
+      ],
+      "fr": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "de": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "id": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "th": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "zh": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "ja": [
+       "exporter; person who exports goods; exporter of goods",
+       "exporter; exporter"
+      ],
+      "ko": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "hi": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "ar": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "ru": [
+       "exporter; person who exports goods",
+       "exporter"
+      ],
+      "tr": [
+       "exporter; person who exports goods",
+       "exporter"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B2",
+      "C1"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "economy.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "spiritual#adj",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "dịch ja: giám khảo < 4 (4/2)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "spiritual",
+    "pos": "adj",
+    "ipa": "/ˈspɪrɪtʃʊəl/",
+    "ipaUS": "/ˈspɪrɪtʃuəl/",
+    "def": "relating to religious or sacred matters",
+    "ex": [
+     "She felt a spiritual connection during the church service.",
+     "The book discusses spiritual ideas that guide moral behavior."
+    ],
+    "col": [
+     "spiritual belief",
+     "spiritual life",
+     "spiritual practice"
+    ],
+    "syn": [
+     "religious",
+     "devout"
+    ],
+    "level": "B1",
+    "cefrF": "A2",
+    "cefrSrc": "cefrj",
+    "z": 4.4,
+    "emoji": "🙏",
+    "topic": "xw-religion-history",
+    "vi": "tôn giáo; linh thiêng",
+    "note_vi": "Không dùng 'spiritual' để chỉ 'tinh thần', nghĩa là liên quan đến tôn giáo.",
+    "m": {
+     "es": "espiritual",
+     "pt": "espiritual",
+     "fr": "spirituel",
+     "de": "spirituell",
+     "id": "rohaniah",
+     "th": "จิตวิญญาณ",
+     "zh": "灵性的",
+     "ja": "精神的",
+     "ko": "영적인",
+     "hi": "आध्यात्मिक",
+     "ar": "روحي",
+     "ru": "духовный",
+     "tr": "manevi"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:religious.s.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       4,
+       5
+      ],
+      "th": [
+       4,
+       4
+      ],
+      "zh": [
+       4,
+       5
+      ],
+      "ja": [
+       4,
+       2
+      ],
+      "ko": [
+       4,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "pt": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "fr": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "de": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "id": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "th": [
+       "of mind or spirit; spiritual",
+       "spiritual"
+      ],
+      "zh": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "ja": [
+       "spiritual; religious",
+       "mental"
+      ],
+      "ko": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "hi": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "ar": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "ru": [
+       "spiritual; religious",
+       "spiritual"
+      ],
+      "tr": [
+       "moral; spiritual",
+       "spiritual"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B1",
+      "B2"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "xw-religion-history.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "diaper#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "dịch hi: phiên âm tiếng Anh"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "diaper",
+    "pos": "n",
+    "ipa": "/ˈdaɪ(ə)pə/",
+    "ipaUS": "/ˈdaɪpər/",
+    "def": "cloth garment for babies that catches waste",
+    "ex": [
+     "The baby slept peacefully in a clean, dry diaper.",
+     "Parents change the diaper every few hours to keep the infant comfortable."
+    ],
+    "col": [
+     "baby diaper",
+     "diaper change",
+     "diaper rash"
+    ],
+    "syn": [
+     "nappy",
+     "cloth diaper"
+    ],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.49,
+    "emoji": "👶",
+    "topic": "health",
+    "vi": "tã; tã giấy",
+    "note_vi": "Không nhầm 'diaper' với 'napkin' (khăn ăn).",
+    "m": {
+     "es": "pañal",
+     "pt": "fralda",
+     "fr": "couche",
+     "de": "Windel",
+     "id": "popok",
+     "th": "ผ้าอ้อม",
+     "zh": "尿布",
+     "ja": "おむつ",
+     "ko": "기저귀",
+     "hi": "डायपर",
+     "ar": "حفاض",
+     "ru": "подгузник",
+     "tr": "bebek bezi"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:diaper.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       2,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "to diaper; diaper",
+       "diaper"
+      ],
+      "pt": [
+       "diaper; nappy",
+       "diaper"
+      ],
+      "fr": [
+       "to diaper; diaper",
+       "diaper"
+      ],
+      "de": [
+       "diaper; nappy",
+       "diaper"
+      ],
+      "id": [
+       "diaper; baby diaper",
+       "diaper"
+      ],
+      "th": [
+       "diaper; baby diaper",
+       "diaper"
+      ],
+      "zh": [
+       "diaper; diaper cloth",
+       "diaper"
+      ],
+      "ja": [
+       "to diaper; diaper",
+       "diaper"
+      ],
+      "ko": [
+       "diaper; baby diaper",
+       "diaper"
+      ],
+      "hi": [
+       "diaper; nappy",
+       "diaper"
+      ],
+      "ar": [
+       "diaper; nappy",
+       "diaper"
+      ],
+      "ru": [
+       "diaper; nappy",
+       "diaper"
+      ],
+      "tr": [
+       "baby diaper; diaper",
+       "baby diaper"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "A1",
+      "B1"
+     ],
+     "bad": {
+      "hi": "translit"
+     }
+    },
+    "tp": [
+     "health.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "interstate#adj",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "dịch hi: giám khảo < 4 (4/3)"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "interstate",
+    "pos": "adj",
+    "ipa": "/ˌɪntəˈsteɪt/",
+    "ipaUS": "/ˌɪntərˈsteɪt/",
+    "def": "relating to the connections between different states, especially in the United States",
+    "ex": [
+     "The interstate trade agreement required each state to lower tariffs.",
+     "Scientists studied interstate water disputes to improve regional cooperation."
+    ],
+    "col": [
+     "interstate agreement",
+     "interstate cooperation",
+     "interstate relations"
+    ],
+    "syn": [
+     "intergovernmental",
+     "cross‑state"
+    ],
+    "level": "B2",
+    "cefrF": "B2",
+    "cefrSrc": "freq",
+    "z": 3.99,
+    "emoji": "🤝",
+    "topic": "government",
+    "vi": "liên bang; giữa các bang",
+    "note_vi": "Không nhầm “interstate” với “đường cao tốc”.",
+    "m": {
+     "es": "interestatal",
+     "pt": "interestadual",
+     "fr": "interétatique",
+     "de": "interstaatlich",
+     "id": "lintas negara bagian",
+     "th": "ระหว่างรัฐ",
+     "zh": "跨州的",
+     "ja": "州間の",
+     "ko": "주간의",
+     "hi": "राज्यीय",
+     "ar": "بين ولايات",
+     "ru": "межштатный",
+     "tr": "eyaletlerarası"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:interstate.a.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       4
+      ],
+      "hi": [
+       4,
+       3
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "between states",
+       "interstate"
+      ],
+      "pt": [
+       "between states",
+       "interstate"
+      ],
+      "fr": [
+       "between states",
+       "interstate"
+      ],
+      "de": [
+       "between states",
+       "interstate"
+      ],
+      "id": [
+       "across state",
+       "cross-state; between states"
+      ],
+      "th": [
+       "between states",
+       "between states"
+      ],
+      "zh": [
+       "across states",
+       "cross-state"
+      ],
+      "ja": [
+       "between states",
+       "interstate"
+      ],
+      "ko": [
+       "between states",
+       "interstate"
+      ],
+      "hi": [
+       "of states",
+       "state; state-level"
+      ],
+      "ar": [
+       "between states",
+       "between states"
+      ],
+      "ru": [
+       "between states",
+       "interstate"
+      ],
+      "tr": [
+       "between states",
+       "interstate"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B2",
+      "B2"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "government.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "gravitational#adj",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "dịch id: khác từ loại/khác từ",
+    "dịch th: khác từ loại/khác từ"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "gravitational",
+    "pos": "adj",
+    "ipa": "/ˌɡrævɪˈteɪʃənəl/",
+    "ipaUS": "/ˌɡrævɪˈteɪʃənl/",
+    "def": "connected with the force that pulls objects toward each other",
+    "ex": [
+     "The astronaut studied the gravitational forces affecting the satellite.",
+     "Gravitational waves were detected by scientists using advanced equipment."
+    ],
+    "col": [
+     "gravitational force",
+     "gravitational field",
+     "gravitational pull"
+    ],
+    "syn": [
+     "gravity-related",
+     "gravitative"
+    ],
+    "level": "C2",
+    "cefrF": "C1",
+    "cefrSrc": "octanove",
+    "z": 3.49,
+    "emoji": "🌍",
+    "topic": "science",
+    "vi": "liên quan tới lực hấp dẫn; do lực hấp dẫn gây ra",
+    "note_vi": "Thường nhầm “gravitational” thành danh từ “gravity”.",
+    "m": {
+     "es": "gravitacional",
+     "pt": "gravitacional",
+     "fr": "gravitationnel",
+     "de": "gravitativ",
+     "id": "gravitasi",
+     "th": "แรงโน้มถ่วง",
+     "zh": "引力的",
+     "ja": "重力的な",
+     "ko": "중력의",
+     "hi": "गुरुत्वाकर्षणीय",
+     "ar": "جاذبي",
+     "ru": "гравитационный",
+     "tr": "çekimsel"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:gravitational.a.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {
+     "j": {
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       4,
+       5
+      ],
+      "id": [
+       2,
+       2
+      ],
+      "th": [
+       2,
+       2
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "of or relating to gravitation",
+       "gravitational"
+      ],
+      "pt": [
+       "of or relating to gravitation",
+       "gravitational"
+      ],
+      "fr": [
+       "of or relating to gravitation",
+       "gravitational"
+      ],
+      "de": [
+       "caused by gravity",
+       "gravitational"
+      ],
+      "id": [
+       "gravity",
+       "gravity"
+      ],
+      "th": [
+       "gravity",
+       "gravity"
+      ],
+      "zh": [
+       "of gravity",
+       "gravitational"
+      ],
+      "ja": [
+       "of gravity",
+       "gravitational"
+      ],
+      "ko": [
+       "of gravity",
+       "gravitational"
+      ],
+      "hi": [
+       "of gravity",
+       "gravitational"
+      ],
+      "ar": [
+       "of gravity",
+       "gravitational"
+      ],
+      "ru": [
+       "of gravity",
+       "gravitational"
+      ],
+      "tr": [
+       "of attraction",
+       "gravitational"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C2",
+      "C1"
+     ],
+     "bad": {
+      "id": "pos",
+      "th": "pos"
+     }
+    },
+    "tp": [
+     "science.d"
+    ]
+   }
   }
  ]
 }
