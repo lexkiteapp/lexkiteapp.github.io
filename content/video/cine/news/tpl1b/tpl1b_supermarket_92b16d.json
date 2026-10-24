@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_supermarket_92b16d",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:self-checkout#n"
+ },
+ "topic": "shopping",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "supermarket",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_92b16d_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I'll pay at the self-service cashier.",
+ "key_line": "I'll pay at the self-checkout.",
+ "series": [
+  "STORE ENGLISH",
+  "SELF + checkout = you"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_92b16d_k",
+   "card": {
+    "formula": "SELF + checkout = you"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_92b16d_y",
+   "card": {
+    "text": "The machine where you scan and pay is a self-checkout."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'll pay at the self-checkout.",
+   "The self-checkout line is shorter.",
+   "I used the self-checkout at the store."
+  ]
+ },
+ "quiz": {
+  "pre": "No cashier? Use the",
+  "post": "",
+  "a": "self-checkout",
+  "b": "self-cashier",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

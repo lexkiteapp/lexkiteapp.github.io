@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_068cf0",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:consider:m0"
+ },
+ "topic": "shopping",
+ "cefr": "A2",
+ "area": "verbs",
+ "plate": "clothing_store",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_068cf0_h",
+  "quote": null,
+  "kind": "Stop saying 'considering to'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I'm considering to buy a car.",
+ "key_line": "I'm considering buying a car.",
+ "series": [
+  "STORE ENGLISH",
+  "consider + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_068cf0_k",
+   "card": {
+    "formula": "consider + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_068cf0_y",
+   "card": {
+    "text": "After consider, use the -ing form."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm considering buying a car.",
+   "We're considering moving to a new city.",
+   "She considered taking a taxi."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm considering",
+  "post": "a new phone",
+  "a": "to buy",
+  "b": "buying",
+  "answer": 1
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

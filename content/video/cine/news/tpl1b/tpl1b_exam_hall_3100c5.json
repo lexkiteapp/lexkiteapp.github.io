@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_3100c5",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:each-every"
+ },
+ "topic": "study",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "exam_hall",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_3100c5_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Every of us came.",
+ "key_line": "Each of us came.",
+ "series": [
+  "EXAM ENGLISH",
+  "EACH of ✓, EVERY of ✗"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3100c5_k",
+   "card": {
+    "formula": "EACH of ✓, EVERY of ✗"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3100c5_y",
+   "card": {
+    "text": "Each can go before of. Every can't."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Each of us came.",
+   "Every child needs love.",
+   "Each room has its own bathroom."
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": "of my friends came to the party",
+  "a": "Each",
+  "b": "Every",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

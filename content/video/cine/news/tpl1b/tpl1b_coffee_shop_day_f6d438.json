@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_f6d438",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:opinions:depends-on:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "coffee_shop_day",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_f6d438_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "It depends of the weather.",
+ "key_line": "It depends on the weather.",
+ "series": [
+  "CAFE ENGLISH",
+  "DEPEND ON. Never OF."
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_f6d438_k",
+   "card": {
+    "formula": "DEPEND ON. Never OF."
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_f6d438_y",
+   "card": {
+    "text": "The word after depends is always on."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "It depends on the weather.",
+   "It depends on the price.",
+   "Our plan depends on the weather."
+  ]
+ },
+ "quiz": {
+  "pre": "It all depends",
+  "post": "you",
+  "a": "on",
+  "b": "of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_37234b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:make-do:m1"
+ },
+ "topic": "study",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_37234b_h",
+  "quote": null,
+  "kind": "Stop saying 'did a mistake'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "She did a mistake.",
+ "key_line": "She made a mistake.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "MAKE a mistake"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_37234b_k",
+   "card": {
+    "formula": "MAKE a mistake"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_37234b_y",
+   "card": {
+    "text": "We always make a mistake."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "She made a mistake.",
+   "I made a big mistake.",
+   "Everyone makes mistakes."
+  ]
+ },
+ "quiz": {
+  "pre": "I",
+  "post": "a mistake on the test",
+  "a": "made",
+  "b": "did",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

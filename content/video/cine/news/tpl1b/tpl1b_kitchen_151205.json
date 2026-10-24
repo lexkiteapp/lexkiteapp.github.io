@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_151205",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:tidy up#phr v"
+ },
+ "topic": "home",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_151205_h",
+  "quote": null,
+  "kind": "Natives never say 'make tidy'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Please make tidy your room.",
+ "key_line": "Please tidy up your room.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "TIDY UP = everything in"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_151205_k",
+   "card": {
+    "formula": "TIDY UP = everything in"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_151205_y",
+   "card": {
+    "text": "Tidy up means put things back in their place."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Please tidy up your room.",
+   "Let's tidy up the kitchen after dinner.",
+   "I tidied up my desk."
+  ]
+ },
+ "quiz": {
+  "pre": "Guests are coming! Let's",
+  "post": "the living room",
+  "a": "tidy up",
+  "b": "make tidy",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

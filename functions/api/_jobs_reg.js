@@ -796,6 +796,28 @@ export const REG = {
     "workers_ai_b_neurons": 1500
    },
    "lease": true
+  },
+  {
+   "id": "video-tpl1b",
+   "workflow": "video-tpl1b.yml",
+   "cron": [
+    "5 13 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "grabcast_ai",
+    "drive_pool"
+   ],
+   "minutes": 45,
+   "est": {
+    "clips": 12,
+    "grabcast_calls": 6,
+    "drive_calls": 40
+   },
+   "lease": true,
+   "paused": true,
+   "_note": "tpl1b batch shorts (docs/VIDEO-TEMPLATES.md §9): dispatch only (lease --force) until the owner approves batch 1; cron = planned slot; the lease covers the store job (Drive pool, ≤ 45 min), render jobs use GitHub minutes only. Groq hook judge + ≤ 10 render jobs + store to lexkite-shorts/Drive; never publishes"
   }
  ]
 };

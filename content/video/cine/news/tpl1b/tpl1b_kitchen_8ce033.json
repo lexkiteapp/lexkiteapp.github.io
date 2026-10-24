@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_8ce033",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:calls:let-me-check:x"
+ },
+ "topic": "daily",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_8ce033_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I will answer you after.",
+ "key_line": "Let me check and get back to you.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "LET ME CHECK + GET BACK"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_8ce033_k",
+   "card": {
+    "formula": "LET ME CHECK + GET BACK"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_8ce033_y",
+   "card": {
+    "text": "Get back to you means you will reply later."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Let me check and get back to you.",
+   "Let me check and get back to you.",
+   "I'll get back to you tomorrow."
+  ]
+ },
+ "quiz": {
+  "pre": "I'll",
+  "post": "to you tomorrow",
+  "a": "get back",
+  "b": "answer back",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

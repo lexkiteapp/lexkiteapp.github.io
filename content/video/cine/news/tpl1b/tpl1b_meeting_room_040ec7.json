@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_040ec7",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:apologise:m0"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_040ec7_h",
+  "quote": null,
+  "kind": "Stop saying 'apologize you'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I apologize you for the delay.",
+ "key_line": "I apologize to you for the delay.",
+ "series": [
+  "MEETING ENGLISH",
+  "apologize TO person"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_040ec7_k",
+   "card": {
+    "formula": "apologize TO person"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_040ec7_y",
+   "card": {
+    "text": "Apologize to a person, for a reason."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I apologize to you for the delay.",
+   "He apologized to his boss.",
+   "We apologize for the noise."
+  ]
+ },
+ "quiz": {
+  "pre": "She apologized",
+  "post": "her friend",
+  "a": "to",
+  "b": "(nothing)",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

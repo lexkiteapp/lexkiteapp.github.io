@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_237d46",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:arrange:to"
+ },
+ "topic": "work",
+ "cefr": "A2",
+ "area": "verbs",
+ "plate": "meeting_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_237d46_h",
+  "quote": null,
+  "kind": "Stop saying 'arrange meeting'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "We arranged meeting at six.",
+ "key_line": "We arranged to meet at six.",
+ "series": [
+  "MEETING ENGLISH",
+  "arrange TO + verb"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_237d46_k",
+   "card": {
+    "formula": "arrange TO + verb"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_237d46_y",
+   "card": {
+    "text": "Arrange to plus verb means make plans."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "We arranged to meet at six.",
+   "I arranged to see the doctor.",
+   "They arranged to have lunch."
+  ]
+ },
+ "quiz": {
+  "pre": "We arranged",
+  "post": "at the station",
+  "a": "to meet",
+  "b": "meeting",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

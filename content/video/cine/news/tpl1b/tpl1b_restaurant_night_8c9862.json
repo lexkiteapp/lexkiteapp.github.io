@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_restaurant_night_8c9862",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:vegetarian#n"
+ },
+ "topic": "food",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "restaurant_night",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_8c9862_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I'm vegetarian, so I eat fish.",
+ "key_line": "I'm vegetarian, so I don't eat meat or fish.",
+ "series": [
+  "RESTAURANT ENGLISH",
+  "VEGETARIAN = no meat"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_8c9862_k",
+   "card": {
+    "formula": "VEGETARIAN = no meat"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_8c9862_y",
+   "card": {
+    "text": "Vegetarians eat no meat and no fish."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm vegetarian, so I don't eat meat or fish.",
+   "Is this dish vegetarian?",
+   "My sister is a vegetarian."
+  ]
+ },
+ "quiz": {
+  "pre": "A vegetarian doesn't eat",
+  "post": "",
+  "a": "chicken",
+  "b": "rice",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

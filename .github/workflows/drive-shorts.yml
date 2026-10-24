@@ -12,7 +12,7 @@ on:
       limit: { description: 'Tối đa số short mỗi lượt', default: '500' }
       dry_run: { description: 'Chỉ liệt kê, không tải', type: boolean, default: false }
   workflow_run:
-    workflows: [cine-render]
+    workflows: [cine-render, video-tpl1b]
     types: [completed]
   schedule:
     - cron: '23 4 * * *'

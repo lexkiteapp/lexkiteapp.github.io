@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_024874",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:i took the initiative to#phrase"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_024874_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Nobody told me, but I did it.",
+ "key_line": "I took the initiative to fix it.",
+ "series": [
+  "OFFICE ENGLISH",
+  "no one asked → TOOK THE"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_024874_k",
+   "card": {
+    "formula": "no one asked → TOOK THE"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_024874_y",
+   "card": {
+    "text": "Took the initiative shows you acted on your own."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I took the initiative to fix it.",
+   "I took the initiative to train new staff.",
+   "She took the initiative to call the client."
+  ]
+ },
+ "quiz": {
+  "pre": "I took the",
+  "post": "to plan the event",
+  "a": "initiative",
+  "b": "start",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

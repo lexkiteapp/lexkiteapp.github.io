@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_bf3fc8",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:renting:move-out:x"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "living_room",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_bf3fc8_h",
+  "quote": null,
+  "kind": "Natives never say 'will out'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I will out of the house June end.",
+ "key_line": "I'm moving out at the end of June.",
+ "series": [
+  "HOME ENGLISH",
+  "MOVE IN / MOVE OUT + AT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_bf3fc8_k",
+   "card": {
+    "formula": "MOVE IN / MOVE OUT + AT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_bf3fc8_y",
+   "card": {
+    "text": "Out needs a verb: move out."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm moving out at the end of June.",
+   "We moved in last May.",
+   "She's moving out at the end of May."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm moving out",
+  "post": "the end of June",
+  "a": "at",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_36b7ce",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:work-meeting:lets-get-started:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_36b7ce_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Thank you for your coming.",
+ "key_line": "Let's get started. Thanks, everyone, for coming.",
+ "series": [
+  "MEETING ENGLISH",
+  "THANKS FOR + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_36b7ce_k",
+   "card": {
+    "formula": "THANKS FOR + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_36b7ce_y",
+   "card": {
+    "text": "Say thanks for coming, without your."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Let's get started. Thanks, everyone, for coming.",
+   "Thanks for coming, everyone.",
+   "Thank you for joining us today."
+  ]
+ },
+ "quiz": {
+  "pre": "Thanks, everyone, for",
+  "post": "",
+  "a": "coming",
+  "b": "your coming",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

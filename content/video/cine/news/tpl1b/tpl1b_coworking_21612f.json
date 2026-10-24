@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_21612f",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:committed:m0"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_21612f_h",
+  "quote": null,
+  "kind": "Stop saying 'committed to reduce'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "We are committed to reduce waste.",
+ "key_line": "We are committed to reducing waste.",
+ "series": [
+  "OFFICE ENGLISH",
+  "committed TO + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_21612f_k",
+   "card": {
+    "formula": "committed TO + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_21612f_y",
+   "card": {
+    "text": "Here to is a preposition, so use -ing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "We are committed to reducing waste.",
+   "She is committed to helping kids.",
+   "We're committed to saving energy."
+  ]
+ },
+ "quiz": {
+  "pre": "The company is committed to",
+  "post": "prices low",
+  "a": "keeping",
+  "b": "keep",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

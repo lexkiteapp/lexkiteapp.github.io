@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_01d026",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:peak times#n"
+ },
+ "topic": "travel",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "airport_gate",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_01d026_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Don't go at the full hours.",
+ "key_line": "Don't go at peak times.",
+ "series": [
+  "AIRPORT ENGLISH",
+  "PEAK = top = most people"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_01d026_k",
+   "card": {
+    "formula": "PEAK = top = most people"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_01d026_y",
+   "card": {
+    "text": "Peak times are when the most people come."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Don't go at peak times.",
+   "Trains are crowded at peak times.",
+   "Prices are higher at peak times."
+  ]
+ },
+ "quiz": {
+  "pre": "The gym is very busy at",
+  "post": "times",
+  "a": "peak",
+  "b": "full",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

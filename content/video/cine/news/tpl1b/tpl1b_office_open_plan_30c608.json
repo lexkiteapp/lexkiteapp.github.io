@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_30c608",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:presenting:thanks-for-listening:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_30c608_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Thank you for your listening.",
+ "key_line": "Thank you all for listening.",
+ "series": [
+  "OFFICE ENGLISH",
+  "THANK YOU FOR + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_30c608_k",
+   "card": {
+    "formula": "THANK YOU FOR + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_30c608_y",
+   "card": {
+    "text": "Say thank you for listening, without your."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Thank you all for listening.",
+   "Thanks for listening.",
+   "Thank you for waiting."
+  ]
+ },
+ "quiz": {
+  "pre": "Thank you all for",
+  "post": "",
+  "a": "listening",
+  "b": "your listening",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

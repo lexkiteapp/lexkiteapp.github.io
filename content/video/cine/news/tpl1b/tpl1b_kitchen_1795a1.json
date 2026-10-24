@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_1795a1",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:recycling bin#n"
+ },
+ "topic": "home",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "kitchen",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_1795a1_h",
+  "quote": null,
+  "kind": "Natives never say 'recycle trash'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Put the bottle in the recycle trash.",
+ "key_line": "Put the bottle in the recycling bin.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "recycl-ING bin"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1795a1_k",
+   "card": {
+    "formula": "recycl-ING bin"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1795a1_y",
+   "card": {
+    "text": "The box for paper and plastic is a recycling bin."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Put the bottle in the recycling bin.",
+   "The recycling bin is blue.",
+   "Don't put food in the recycling bin."
+  ]
+ },
+ "quiz": {
+  "pre": "Put the cans in the",
+  "post": "bin",
+  "a": "recycling",
+  "b": "recycle",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

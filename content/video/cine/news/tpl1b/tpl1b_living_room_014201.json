@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_014201",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:heater#n"
+ },
+ "topic": "home",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "living_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_014201_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "It's cold. Turn on the warmer.",
+ "key_line": "It's cold. Turn on the heater.",
+ "series": [
+  "HOME ENGLISH",
+  "HEAT + er = heater"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_014201_k",
+   "card": {
+    "formula": "HEAT + er = heater"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_014201_y",
+   "card": {
+    "text": "A machine that makes heat is a heater."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "It's cold. Turn on the heater.",
+   "The heater in my room is broken.",
+   "Can you turn off the heater?"
+  ]
+ },
+ "quiz": {
+  "pre": "It's freezing. Can you turn on the",
+  "post": "?",
+  "a": "heater",
+  "b": "warmer",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

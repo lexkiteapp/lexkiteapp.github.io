@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_3e6dff",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:chance-opportunity-possibility"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "airport_gate",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_3e6dff_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "There's an opportunity of rain.",
+ "key_line": "There's a chance of rain.",
+ "series": [
+  "AIRPORT ENGLISH",
+  "rain = CHANCE"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3e6dff_k",
+   "card": {
+    "formula": "rain = CHANCE"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3e6dff_y",
+   "card": {
+    "text": "Opportunity is a good moment. Chance can mean maybe."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "There's a chance of rain.",
+   "This job is a great opportunity.",
+   "There's a possibility that he's right."
+  ]
+ },
+ "quiz": {
+  "pre": "Studying abroad is a great",
+  "post": "",
+  "a": "opportunity",
+  "b": "possibility",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_01bb45",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:interlibrary loan#n"
+ },
+ "topic": "study",
+ "cefr": "C1",
+ "area": "phrases",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_01bb45_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Can I borrow from the other library loan?",
+ "key_line": "Can I get it through interlibrary loan?",
+ "series": [
+  "LIBRARY ENGLISH",
+  "INTER = between"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_01bb45_k",
+   "card": {
+    "formula": "INTER = between"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_01bb45_y",
+   "card": {
+    "text": "Interlibrary loan brings books from other libraries."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Can I get it through interlibrary loan?",
+   "I ordered the book by interlibrary loan.",
+   "Interlibrary loan takes a week."
+  ]
+ },
+ "quiz": {
+  "pre": "The book is not here. Try",
+  "post": "loan",
+  "a": "interlibrary",
+  "b": "other-library",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

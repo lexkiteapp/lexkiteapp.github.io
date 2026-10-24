@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_13a16c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:excited-exciting"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "airport_gate",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_13a16c_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I'm so exciting about the trip!",
+ "key_line": "I'm so excited about the trip!",
+ "series": [
+  "AIRPORT ENGLISH",
+  "I feel -ED, it is -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_13a16c_k",
+   "card": {
+    "formula": "I feel -ED, it is -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_13a16c_y",
+   "card": {
+    "text": "-ed is how you feel. -ing is the thing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm so excited about the trip!",
+   "The game was exciting.",
+   "The kids are excited."
+  ]
+ },
+ "quiz": {
+  "pre": "The movie was so",
+  "post": "!",
+  "a": "exciting",
+  "b": "excited",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

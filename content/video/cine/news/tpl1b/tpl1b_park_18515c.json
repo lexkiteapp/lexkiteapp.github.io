@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_18515c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:victim#n"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "park",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_18515c_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "He won the race. He is the victim.",
+ "key_line": "He was the victim of a crime.",
+ "series": [
+  "PARK ENGLISH",
+  "VICTIM = hurt by"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_18515c_k",
+   "card": {
+    "formula": "VICTIM = hurt by"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_18515c_y",
+   "card": {
+    "text": "A victim is someone hurt by a crime or event."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "He was the victim of a crime.",
+   "The victims got help.",
+   "She was a victim of the flood."
+  ]
+ },
+ "quiz": {
+  "pre": "The police spoke to the",
+  "post": "of the robbery",
+  "a": "victim",
+  "b": "winner",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

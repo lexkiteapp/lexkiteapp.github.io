@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_8fea8d",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:renting:how-long-lease:x"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_8fea8d_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "How long is the contract of house?",
+ "key_line": "How long is the lease?",
+ "series": [
+  "HOME ENGLISH",
+  "RENT A HOME = sign a"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_8fea8d_k",
+   "card": {
+    "formula": "RENT A HOME = sign a"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_8fea8d_y",
+   "card": {
+    "text": "Renting a home? The contract is a lease."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "How long is the lease?",
+   "Our lease ends in May.",
+   "I signed a one-year lease."
+  ]
+ },
+ "quiz": {
+  "pre": "How long is the",
+  "post": "?",
+  "a": "lease",
+  "b": "contract of house",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

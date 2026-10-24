@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_0d57e2",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:i'm afraid#phrase"
+ },
+ "topic": "work",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0d57e2_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Sorry, no. The room is full.",
+ "key_line": "I'm afraid the room is full.",
+ "series": [
+  "MEETING ENGLISH",
+  "bad news → I'M AFRAID"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0d57e2_k",
+   "card": {
+    "formula": "bad news → I'M AFRAID"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0d57e2_y",
+   "card": {
+    "text": "I'm afraid makes bad news softer."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm afraid the room is full.",
+   "I'm afraid I can't come.",
+   "I'm afraid we're closed."
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": "the flight is late",
+  "a": "I'm afraid",
+  "b": "I'm scared",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

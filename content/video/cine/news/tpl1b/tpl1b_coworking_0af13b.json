@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_0af13b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:useful:for"
+ },
+ "topic": "tech",
+ "cefr": "A1",
+ "area": "grammar-check",
+ "plate": "coworking",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0af13b_h",
+  "quote": null,
+  "kind": "Stop saying 'useful to do'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "This app is useful to learning.",
+ "key_line": "This app is useful for learning.",
+ "series": [
+  "OFFICE ENGLISH",
+  "useful FOR + thing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0af13b_k",
+   "card": {
+    "formula": "useful FOR + thing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0af13b_y",
+   "card": {
+    "text": "Useful for plus noun or -ing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "This app is useful for learning.",
+   "This tool is useful for work.",
+   "A map is useful for travel."
+  ]
+ },
+ "quiz": {
+  "pre": "This bag is useful",
+  "post": "travel",
+  "a": "for",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

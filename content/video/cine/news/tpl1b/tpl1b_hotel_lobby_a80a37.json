@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_a80a37",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:check in#phr v"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_a80a37_h",
+  "quote": null,
+  "kind": "Natives never say 'register at'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Where do I register at the hotel?",
+ "key_line": "Where do I check in?",
+ "series": [
+  "HOTEL ENGLISH",
+  "arrive → CHECK IN"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_a80a37_k",
+   "card": {
+    "formula": "arrive → CHECK IN"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_a80a37_y",
+   "card": {
+    "text": "Check in means tell the desk you arrived."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Where do I check in?",
+   "We checked in at three.",
+   "Check in online to save time."
+  ]
+ },
+ "quiz": {
+  "pre": "You can",
+  "post": "online before your flight",
+  "a": "check in",
+  "b": "check up",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

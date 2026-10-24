@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_01092a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:sleeping bag#n"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "airport_gate",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_01092a_h",
+  "quote": null,
+  "kind": "Natives never say 'sleep bag'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I forgot my sleep bag.",
+ "key_line": "I forgot my sleeping bag.",
+ "series": [
+  "AIRPORT ENGLISH",
+  "sleepING bag"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_01092a_k",
+   "card": {
+    "formula": "sleepING bag"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_01092a_y",
+   "card": {
+    "text": "It's a bag for sleeping, so use sleeping."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I forgot my sleeping bag.",
+   "Bring a warm sleeping bag for the camping trip.",
+   "My sleeping bag is too small."
+  ]
+ },
+ "quiz": {
+  "pre": "Pack your",
+  "post": "for the camping trip",
+  "a": "sleep bag",
+  "b": "sleeping bag",
+  "answer": 1
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

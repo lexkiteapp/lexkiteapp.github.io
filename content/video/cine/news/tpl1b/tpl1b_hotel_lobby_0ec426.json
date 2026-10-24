@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_0ec426",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:minibar#n"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0ec426_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The minibar is free, right?",
+ "key_line": "Drinks from the minibar cost extra.",
+ "series": [
+  "HOTEL ENGLISH",
+  "MINIBAR = small fridge"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0ec426_k",
+   "card": {
+    "formula": "MINIBAR = small fridge"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0ec426_y",
+   "card": {
+    "text": "A minibar is a small hotel fridge. You pay."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Drinks from the minibar cost extra.",
+   "I took water from the minibar.",
+   "The minibar has snacks and drinks."
+  ]
+ },
+ "quiz": {
+  "pre": "The small fridge in a hotel room is a",
+  "post": "",
+  "a": "minibar",
+  "b": "mini shop",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

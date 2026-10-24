@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_e42d6e",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:work-meeting:same-page:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_e42d6e_h",
+  "quote": null,
+  "kind": "Stop saying 'Everybody understand?'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Everybody understand?",
+ "key_line": "Are we all on the same page?",
+ "series": [
+  "MEETING ENGLISH",
+  "SAME PAGE = we all agree"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_e42d6e_k",
+   "card": {
+    "formula": "SAME PAGE = we all agree"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_e42d6e_y",
+   "card": {
+    "text": "Everybody takes a singular verb. This phrase checks agreement."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Are we all on the same page?",
+   "Are we on the same page about dates?",
+   "Does everybody understand?"
+  ]
+ },
+ "quiz": {
+  "pre": "Are we all on the same",
+  "post": "?",
+  "a": "page",
+  "b": "line",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

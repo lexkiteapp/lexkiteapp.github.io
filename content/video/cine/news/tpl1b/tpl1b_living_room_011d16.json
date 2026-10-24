@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_011d16",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:smile:at"
+ },
+ "topic": "social",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_011d16_h",
+  "quote": null,
+  "kind": "Stop saying 'smile to me'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "She smiled to me.",
+ "key_line": "She smiled at me.",
+ "series": [
+  "HOME ENGLISH",
+  "smile AT, look AT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_011d16_k",
+   "card": {
+    "formula": "smile AT, look AT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_011d16_y",
+   "card": {
+    "text": "You smile at a person, like you look at them."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "She smiled at me.",
+   "The baby smiled at her mom.",
+   "He always smiles at customers."
+  ]
+ },
+ "quiz": {
+  "pre": "The teacher smiled",
+  "post": "the students",
+  "a": "at",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

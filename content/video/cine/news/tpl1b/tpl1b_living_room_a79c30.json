@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_a79c30",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:parking spot#n"
+ },
+ "topic": "home",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "living_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_a79c30_h",
+  "quote": null,
+  "kind": "Natives never say 'car place'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I can't find a car place.",
+ "key_line": "I can't find a parking spot.",
+ "series": [
+  "HOME ENGLISH",
+  "one car = SPOT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_a79c30_k",
+   "card": {
+    "formula": "one car = SPOT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_a79c30_y",
+   "card": {
+    "text": "Americans say parking spot or parking space."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I can't find a parking spot.",
+   "We found a parking spot near the door.",
+   "This parking spot is free."
+  ]
+ },
+ "quiz": {
+  "pre": "It took ten minutes to find a parking",
+  "post": "",
+  "a": "spot",
+  "b": "place",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_24f9ee",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:opinions:in-my-opinion:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "park",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_24f9ee_h",
+  "quote": null,
+  "kind": "Natives never say 'according to'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "According to me, it depends.",
+ "key_line": "In my opinion, it depends.",
+ "series": [
+  "PARK ENGLISH",
+  "ME = in my opinion."
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_24f9ee_k",
+   "card": {
+    "formula": "ME = in my opinion."
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_24f9ee_y",
+   "card": {
+    "text": "According to is for others, not for you."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "In my opinion, it depends.",
+   "In my opinion, it's too expensive.",
+   "According to the news, it will rain."
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": ", remote work is better",
+  "a": "In my opinion",
+  "b": "According to me",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

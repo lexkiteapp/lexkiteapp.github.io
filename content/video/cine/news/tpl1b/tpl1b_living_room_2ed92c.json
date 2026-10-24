@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_2ed92c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:beside-besides"
+ },
+ "topic": "social",
+ "cefr": "B2",
+ "area": "word-usage",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_2ed92c_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Sit besides me.",
+ "key_line": "Sit beside me.",
+ "series": [
+  "HOME ENGLISH",
+  "beside = next to"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_2ed92c_k",
+   "card": {
+    "formula": "beside = next to"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_2ed92c_y",
+   "card": {
+    "text": "Beside means next to. Besides means also."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Sit beside me.",
+   "The lamp is beside the bed.",
+   "Besides English, I speak French."
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": "coffee, I also like tea",
+  "a": "Besides",
+  "b": "Beside",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

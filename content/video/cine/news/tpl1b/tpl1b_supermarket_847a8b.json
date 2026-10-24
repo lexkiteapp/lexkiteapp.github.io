@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_supermarket_847a8b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:complaints:id-prefer"
+ },
+ "topic": "shopping",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "supermarket",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_847a8b_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I prefer refund, if possible.",
+ "key_line": "I'd prefer a refund, if possible.",
+ "series": [
+  "STORE ENGLISH",
+  "I'D PREFER + A + thing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_847a8b_k",
+   "card": {
+    "formula": "I'D PREFER + A + thing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_847a8b_y",
+   "card": {
+    "text": "Add a before refund. I'd prefer is firm but polite."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'd prefer a refund, if possible.",
+   "I'd prefer a window seat.",
+   "I'd prefer a new one, if possible."
+  ]
+ },
+ "quiz": {
+  "pre": "I'd prefer",
+  "post": "refund",
+  "a": "a",
+  "b": "the",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

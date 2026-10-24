@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_836058",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:renting:utilities-included:x"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "living_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_836058_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "The rent is include electricity?",
+ "key_line": "Are utilities included in the rent?",
+ "series": [
+  "HOME ENGLISH",
+  "IS/ARE + INCLUDED"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_836058_k",
+   "card": {
+    "formula": "IS/ARE + INCLUDED"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_836058_y",
+   "card": {
+    "text": "Use are… included, not is include."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Are utilities included in the rent?",
+   "Is Wi-Fi included?",
+   "Breakfast is included in the price."
+  ]
+ },
+ "quiz": {
+  "pre": "Are utilities",
+  "post": "in the rent?",
+  "a": "included",
+  "b": "include",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_restaurant_day_0c46f8",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:fond:of"
+ },
+ "topic": "food",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "restaurant_day",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0c46f8_h",
+  "quote": null,
+  "kind": "Stop saying 'fond with'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I'm fond with my grandma.",
+ "key_line": "I'm fond of my grandma.",
+ "series": [
+  "RESTAURANT ENGLISH",
+  "fond OF"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0c46f8_k",
+   "card": {
+    "formula": "fond OF"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0c46f8_y",
+   "card": {
+    "text": "Fond of means you like someone warmly."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm fond of my grandma.",
+   "She's fond of old movies.",
+   "I'm very fond of you."
+  ]
+ },
+ "quiz": {
+  "pre": "He's fond",
+  "post": "spicy food",
+  "a": "of",
+  "b": "with",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

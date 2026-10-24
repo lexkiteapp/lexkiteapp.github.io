@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_0c359c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:translate:m0"
+ },
+ "topic": "study",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0c359c_h",
+  "quote": null,
+  "kind": "Stop saying 'translate to'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Translate this to English.",
+ "key_line": "Translate this into English.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "translate INTO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0c359c_k",
+   "card": {
+    "formula": "translate INTO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0c359c_y",
+   "card": {
+    "text": "The standard form is translate into."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Translate this into English.",
+   "The book was translated into ten languages.",
+   "Can you translate this into Spanish?"
+  ]
+ },
+ "quiz": {
+  "pre": "Please translate this letter",
+  "post": "Chinese",
+  "a": "into",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

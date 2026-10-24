@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_0d6dc5",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:spa#n"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0d6dc5_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Let's buy medicine at the spa.",
+ "key_line": "Let's relax at the spa.",
+ "series": [
+  "HOTEL ENGLISH",
+  "SPA = relax and care"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0d6dc5_k",
+   "card": {
+    "formula": "SPA = relax and care"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0d6dc5_y",
+   "card": {
+    "text": "A spa is a place for massages and relaxing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Let's relax at the spa.",
+   "The hotel has a spa.",
+   "She spent the day at the spa."
+  ]
+ },
+ "quiz": {
+  "pre": "The hotel",
+  "post": "offers massages",
+  "a": "spa",
+  "b": "pool",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_14311c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:airport:rebook-me:x"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "airport_gate",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_14311c_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "They cancel my flight, give me other.",
+ "key_line": "My flight was canceled. Can you rebook me?",
+ "series": [
+  "AIRPORT ENGLISH",
+  "WAS CANCELED + REBOOK me"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_14311c_k",
+   "card": {
+    "formula": "WAS CANCELED + REBOOK me"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_14311c_y",
+   "card": {
+    "text": "Use was canceled, then ask: can you rebook me?"
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My flight was canceled. Can you rebook me?",
+   "My train was canceled.",
+   "Can you rebook me on the next flight?"
+  ]
+ },
+ "quiz": {
+  "pre": "My flight",
+  "post": "canceled",
+  "a": "was",
+  "b": "is",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

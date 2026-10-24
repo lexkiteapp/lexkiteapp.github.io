@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_72620b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:impulse buying#n"
+ },
+ "topic": "shopping",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "clothing_store",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_72620b_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I did a sudden shopping.",
+ "key_line": "That was impulse buying.",
+ "series": [
+  "STORE ENGLISH",
+  "no plan + buy = IMPULSE"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_72620b_k",
+   "card": {
+    "formula": "no plan + buy = IMPULSE"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_72620b_y",
+   "card": {
+    "text": "Impulse buying means buying without planning."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "That was impulse buying.",
+   "Impulse buying hurts my budget.",
+   "Online sales lead to impulse buying."
+  ]
+ },
+ "quiz": {
+  "pre": "Buying things you don't plan to buy is",
+  "post": "buying",
+  "a": "impulse",
+  "b": "sudden",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

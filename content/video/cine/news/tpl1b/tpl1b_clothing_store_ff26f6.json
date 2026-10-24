@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_ff26f6",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:luxury#n"
+ },
+ "topic": "shopping",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "clothing_store",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_ff26f6_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Water is a luxury. I need it.",
+ "key_line": "A sports car is a luxury.",
+ "series": [
+  "STORE ENGLISH",
+  "LUXURY = want, not need"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_ff26f6_k",
+   "card": {
+    "formula": "LUXURY = want, not need"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_ff26f6_y",
+   "card": {
+    "text": "A luxury is nice and costly but not needed."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "A sports car is a luxury.",
+   "Eating out is a luxury for us.",
+   "They live in luxury."
+  ]
+ },
+ "quiz": {
+  "pre": "For many people, a private jet is a",
+  "post": "",
+  "a": "luxury",
+  "b": "need",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_0d5558",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:diet#n"
+ },
+ "topic": "health",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "pharmacy",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0d5558_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I eat diet to lose weight.",
+ "key_line": "I'm on a diet to lose weight.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "diet = your food"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0d5558_k",
+   "card": {
+    "formula": "diet = your food"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0d5558_y",
+   "card": {
+    "text": "On a diet means eating less."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm on a diet to lose weight.",
+   "A healthy diet has lots of vegetables.",
+   "She's on a diet this month."
+  ]
+ },
+ "quiz": {
+  "pre": "I want to lose weight, so I'm",
+  "post": "a diet",
+  "a": "on",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

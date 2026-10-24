@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_07f39b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:stainless steel#n"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "phrases",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_07f39b_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "This pan is made of no-rust iron.",
+ "key_line": "This pan is made of stainless steel.",
+ "series": [
+  "HOME ENGLISH",
+  "STAIN + LESS = no rust"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_07f39b_k",
+   "card": {
+    "formula": "STAIN + LESS = no rust"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_07f39b_y",
+   "card": {
+    "text": "Stainless steel is steel that doesn't rust."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "This pan is made of stainless steel.",
+   "The sink is stainless steel.",
+   "I bought a stainless steel bottle."
+  ]
+ },
+ "quiz": {
+  "pre": "Most kitchen sinks are",
+  "post": "steel",
+  "a": "stainless",
+  "b": "no-rust",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

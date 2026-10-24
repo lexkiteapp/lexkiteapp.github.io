@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_851ba9",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:new-friends:really-into:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_851ba9_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I am very like hiking.",
+ "key_line": "I'm really into hiking these days.",
+ "series": [
+  "HOME ENGLISH",
+  "I'M INTO + -ING / I"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_851ba9_k",
+   "card": {
+    "formula": "I'M INTO + -ING / I"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_851ba9_y",
+   "card": {
+    "text": "Like is a verb, so no am. Or say I'm into."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm really into hiking these days.",
+   "I'm really into cooking.",
+   "I really like hiking."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm really",
+  "post": "hiking",
+  "a": "into",
+  "b": "like",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

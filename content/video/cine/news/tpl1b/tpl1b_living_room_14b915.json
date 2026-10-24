@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_14b915",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:head off#phr v"
+ },
+ "topic": "social",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_14b915_h",
+  "quote": null,
+  "kind": "Natives never say 'go off'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I have to go off now.",
+ "key_line": "I have to head off now.",
+ "series": [
+  "HOME ENGLISH",
+  "HEAD OFF = leave"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_14b915_k",
+   "card": {
+    "formula": "HEAD OFF = leave"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_14b915_y",
+   "card": {
+    "text": "Head off is a casual way to say leave."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I have to head off now.",
+   "I'm heading off. See you!",
+   "We headed off to the beach."
+  ]
+ },
+ "quiz": {
+  "pre": "It's late. I need to head",
+  "post": "",
+  "a": "off",
+  "b": "away of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

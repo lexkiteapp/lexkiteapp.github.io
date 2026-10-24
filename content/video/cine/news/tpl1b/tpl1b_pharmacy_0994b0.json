@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_0994b0",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:contribute to#phr v"
+ },
+ "topic": "health",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "pharmacy",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0994b0_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Sugar helps to make heart problems.",
+ "key_line": "Sugar contributes to heart problems.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "CONTRIBUTE TO = one"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0994b0_k",
+   "card": {
+    "formula": "CONTRIBUTE TO = one"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0994b0_y",
+   "card": {
+    "text": "Contribute to means be one of the causes."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Sugar contributes to heart problems.",
+   "Stress can contribute to illness.",
+   "Everyone contributed to the project."
+  ]
+ },
+ "quiz": {
+  "pre": "Bad sleep can contribute",
+  "post": "weight gain",
+  "a": "to",
+  "b": "for",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

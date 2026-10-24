@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_0a4a65",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:suppose:pass"
+ },
+ "topic": "work",
+ "cefr": "A2",
+ "area": "verbs",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0a4a65_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I suppose to be at work at nine.",
+ "key_line": "I'm supposed to be at work at nine.",
+ "series": [
+  "OFFICE ENGLISH",
+  "BE + supposed TO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0a4a65_k",
+   "card": {
+    "formula": "BE + supposed TO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0a4a65_y",
+   "card": {
+    "text": "Be supposed to means it's the rule or plan."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm supposed to be at work at nine.",
+   "You're supposed to wear a helmet.",
+   "The train was supposed to leave at six."
+  ]
+ },
+ "quiz": {
+  "pre": "We",
+  "post": "to finish by Friday",
+  "a": "are supposed",
+  "b": "suppose",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

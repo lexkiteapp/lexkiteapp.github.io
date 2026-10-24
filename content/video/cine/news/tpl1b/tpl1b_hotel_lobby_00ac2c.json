@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_00ac2c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:travel#v"
+ },
+ "topic": "travel",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_00ac2c_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I travel to my office by bus.",
+ "key_line": "I go to work by bus.",
+ "series": [
+  "HOTEL ENGLISH",
+  "far away = TRAVEL"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_00ac2c_k",
+   "card": {
+    "formula": "far away = TRAVEL"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_00ac2c_y",
+   "card": {
+    "text": "For short daily trips, go sounds more natural."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I go to work by bus.",
+   "We love to travel in summer.",
+   "I commute to work by bus."
+  ]
+ },
+ "quiz": {
+  "pre": "Every day I",
+  "post": "to school by bike",
+  "a": "go",
+  "b": "travel",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_06bb70",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:medical history#n"
+ },
+ "topic": "health",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "pharmacy",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_06bb70_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Tell me your sick past.",
+ "key_line": "Can you tell me your medical history?",
+ "series": [
+  "PHARMACY ENGLISH",
+  "past illnesses"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_06bb70_k",
+   "card": {
+    "formula": "past illnesses"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_06bb70_y",
+   "card": {
+    "text": "Medical history means your past health problems."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Can you tell me your medical history?",
+   "The doctor asked about my medical history.",
+   "Please fill in your medical history."
+  ]
+ },
+ "quiz": {
+  "pre": "New patients share their medical",
+  "post": "",
+  "a": "history",
+  "b": "story",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

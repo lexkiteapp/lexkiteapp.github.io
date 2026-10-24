@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_2bcb2b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:afraid:m0"
+ },
+ "topic": "daily",
+ "cefr": "A1",
+ "area": "grammar-check",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_2bcb2b_h",
+  "quote": null,
+  "kind": "Stop saying 'afraid with'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I'm afraid with dogs.",
+ "key_line": "I'm afraid of dogs.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "afraid / scared OF"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_2bcb2b_k",
+   "card": {
+    "formula": "afraid / scared OF"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_2bcb2b_y",
+   "card": {
+    "text": "Afraid always takes of."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm afraid of dogs.",
+   "She's afraid of the dark.",
+   "Are you afraid of flying?"
+  ]
+ },
+ "quiz": {
+  "pre": "My son is afraid",
+  "post": "spiders",
+  "a": "of",
+  "b": "with",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

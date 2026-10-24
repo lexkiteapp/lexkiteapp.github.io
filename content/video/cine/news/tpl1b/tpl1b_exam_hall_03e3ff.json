@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_03e3ff",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:forbid:ing"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "verbs",
+ "plate": "exam_hall",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_03e3ff_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The school forbids to use phones.",
+ "key_line": "The school forbids using phones.",
+ "series": [
+  "EXAM ENGLISH",
+  "forbid -ING / forbid"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_03e3ff_k",
+   "card": {
+    "formula": "forbid -ING / forbid"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_03e3ff_y",
+   "card": {
+    "text": "No person? Use forbid plus -ing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The school forbids using phones.",
+   "The law forbids smoking here.",
+   "My parents forbid me to stay out late."
+  ]
+ },
+ "quiz": {
+  "pre": "The museum forbids",
+  "post": "photos",
+  "a": "taking",
+  "b": "to take",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

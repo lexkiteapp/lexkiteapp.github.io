@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_6e1787",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:hope-wish"
+ },
+ "topic": "social",
+ "cefr": "C1",
+ "area": "word-usage",
+ "plate": "park",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_6e1787_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I wish you will pass the test.",
+ "key_line": "I hope you pass the test.",
+ "series": [
+  "PARK ENGLISH",
+  "possible = HOPE"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_6e1787_k",
+   "card": {
+    "formula": "possible = HOPE"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_6e1787_y",
+   "card": {
+    "text": "Hope is for possible things. Wish is for unreal."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I hope you pass the test.",
+   "I hope it doesn't rain.",
+   "I wish I could fly."
+  ]
+ },
+ "quiz": {
+  "pre": "I",
+  "post": "you have a great trip!",
+  "a": "hope",
+  "b": "wish",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

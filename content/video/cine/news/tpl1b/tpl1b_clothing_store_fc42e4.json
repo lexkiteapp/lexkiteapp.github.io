@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_fc42e4",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:escalating:im-afraid"
+ },
+ "topic": "shopping",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "clothing_store",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_fc42e4_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I'm afraid that not work for me.",
+ "key_line": "I'm afraid that doesn't work for me.",
+ "series": [
+  "STORE ENGLISH",
+  "I'M AFRAID + that"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_fc42e4_k",
+   "card": {
+    "formula": "I'M AFRAID + that"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_fc42e4_y",
+   "card": {
+    "text": "After that, use doesn't work. I'm afraid makes a no softer."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm afraid that doesn't work for me.",
+   "I'm afraid I can't come.",
+   "I'm afraid that doesn't work."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm afraid that",
+  "post": "work for me",
+  "a": "doesn't",
+  "b": "not",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

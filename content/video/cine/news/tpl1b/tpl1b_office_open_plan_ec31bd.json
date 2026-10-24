@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_ec31bd",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:disagreeing:look-at-numbers"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_ec31bd_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Let's look the numbers before we decide.",
+ "key_line": "Let's look at the numbers before we decide.",
+ "series": [
+  "OFFICE ENGLISH",
+  "LOOK AT + thing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_ec31bd_k",
+   "card": {
+    "formula": "LOOK AT + thing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_ec31bd_y",
+   "card": {
+    "text": "Look needs at before the thing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Let's look at the numbers before we decide.",
+   "Look at this photo.",
+   "Let's look at the plan again."
+  ]
+ },
+ "quiz": {
+  "pre": "Let's look",
+  "post": "the numbers",
+  "a": "at",
+  "b": "on",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_05870e",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:in compliance with#phrase"
+ },
+ "topic": "work",
+ "cefr": "C1",
+ "area": "phrases",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_05870e_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "We follow with the rules.",
+ "key_line": "We work in compliance with the rules.",
+ "series": [
+  "OFFICE ENGLISH",
+  "IN COMPLIANCE WITH"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_05870e_k",
+   "card": {
+    "formula": "IN COMPLIANCE WITH"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_05870e_y",
+   "card": {
+    "text": "In compliance with means obeying a rule or law."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "We work in compliance with the rules.",
+   "All products are in compliance with safety laws.",
+   "Please act in compliance with company policy."
+  ]
+ },
+ "quiz": {
+  "pre": "The factory is in compliance",
+  "post": "the law",
+  "a": "with",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

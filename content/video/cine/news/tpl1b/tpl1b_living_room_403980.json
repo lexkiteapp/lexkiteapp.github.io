@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_403980",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:point at#phr v"
+ },
+ "topic": "social",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_403980_h",
+  "quote": null,
+  "kind": "This word is rude?!",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "He pointed to me with his finger.",
+ "key_line": "He pointed at me.",
+ "series": [
+  "HOME ENGLISH",
+  "finger → POINT AT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_403980_k",
+   "card": {
+    "formula": "finger → POINT AT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_403980_y",
+   "card": {
+    "text": "Point at means show with your finger."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "He pointed at me.",
+   "Don't point at people.",
+   "She pointed at the map."
+  ]
+ },
+ "quiz": {
+  "pre": "The child",
+  "post": "at the dog",
+  "a": "pointed",
+  "b": "showed",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

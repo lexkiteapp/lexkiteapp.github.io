@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_612771",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:flu shot#n"
+ },
+ "topic": "health",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "pharmacy",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_612771_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I need to get a flu injection.",
+ "key_line": "I need to get a flu shot.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "injection → SHOT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_612771_k",
+   "card": {
+    "formula": "injection → SHOT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_612771_y",
+   "card": {
+    "text": "In everyday American English, it's a flu shot."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I need to get a flu shot.",
+   "I got my flu shot at the pharmacy.",
+   "Flu shots are free here."
+  ]
+ },
+ "quiz": {
+  "pre": "Many people get a flu",
+  "post": "every fall",
+  "a": "shot",
+  "b": "shoot",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

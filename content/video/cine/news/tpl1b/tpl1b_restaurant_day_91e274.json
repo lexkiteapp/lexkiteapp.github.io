@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_restaurant_day_91e274",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:a:rarely:m0"
+ },
+ "topic": "food",
+ "cefr": "C1",
+ "area": "grammar-check",
+ "plate": "restaurant_day",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_91e274_h",
+  "quote": null,
+  "kind": "Stop saying 'don't rarely'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I don't rarely go out.",
+ "key_line": "I rarely go out.",
+ "series": [
+  "RESTAURANT ENGLISH",
+  "RARELY = almost never"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_91e274_k",
+   "card": {
+    "formula": "RARELY = almost never"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_91e274_y",
+   "card": {
+    "text": "Rarely is already negative. No don't."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I rarely go out.",
+   "She rarely eats meat.",
+   "We rarely watch TV."
+  ]
+ },
+ "quiz": {
+  "pre": "I",
+  "post": "drink coffee",
+  "a": "rarely",
+  "b": "don't rarely",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

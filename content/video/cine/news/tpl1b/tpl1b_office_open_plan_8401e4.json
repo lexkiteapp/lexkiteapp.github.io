@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_8401e4",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:networking:wasnt-it"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_8401e4_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Great talk this morning, isn't?",
+ "key_line": "Great talk this morning, wasn't it?",
+ "series": [
+  "OFFICE ENGLISH",
+  "PAST = WASN'T IT? NOW"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_8401e4_k",
+   "card": {
+    "formula": "PAST = WASN'T IT? NOW"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_8401e4_y",
+   "card": {
+    "text": "Short questions need it: wasn't it? Was, because it's past."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Great talk this morning, wasn't it?",
+   "Nice day, isn't it?",
+   "Great party, wasn't it?"
+  ]
+ },
+ "quiz": {
+  "pre": "Great talk yesterday,",
+  "post": "?",
+  "a": "wasn't it",
+  "b": "isn't",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

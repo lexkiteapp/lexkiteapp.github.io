@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_00f455",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:a:near:near"
+ },
+ "topic": "travel",
+ "cefr": "A1",
+ "area": "grammar-check",
+ "plate": "hotel_lobby",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_00f455_h",
+  "quote": null,
+  "kind": "Stop saying 'near to'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The hotel is near to the beach.",
+ "key_line": "The hotel is near the beach.",
+ "series": [
+  "HOTEL ENGLISH",
+  "near = close to (no TO)"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_00f455_k",
+   "card": {
+    "formula": "near = close to (no TO)"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_00f455_y",
+   "card": {
+    "text": "Near already means close to. No extra to."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The hotel is near the beach.",
+   "We live near the station.",
+   "Is there a cafe near here?"
+  ]
+ },
+ "quiz": {
+  "pre": "Is there a bank",
+  "post": "here?",
+  "a": "near",
+  "b": "near to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

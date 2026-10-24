@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_0073d3",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:approximately#adv"
+ },
+ "topic": "exam",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0073d3_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "There were approximately 52 people exactly.",
+ "key_line": "There were approximately 50 people.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "APPROXIMATELY = about"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0073d3_k",
+   "card": {
+    "formula": "APPROXIMATELY = about"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0073d3_y",
+   "card": {
+    "text": "Approximately means about, not exactly."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "There were approximately 50 people.",
+   "It takes approximately two hours.",
+   "Approximately half of us agreed."
+  ]
+ },
+ "quiz": {
+  "pre": "The trip costs",
+  "post": "100 dollars",
+  "a": "approximately",
+  "b": "exactly about",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

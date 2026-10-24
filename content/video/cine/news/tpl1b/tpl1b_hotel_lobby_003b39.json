@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_003b39",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:familiarization trip#n"
+ },
+ "topic": "travel",
+ "cefr": "C1",
+ "area": "phrases",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_003b39_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The hotel paid our learning tour.",
+ "key_line": "Travel agents went on a familiarization trip.",
+ "series": [
+  "HOTEL ENGLISH",
+  "agents learn the place"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_003b39_k",
+   "card": {
+    "formula": "agents learn the place"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_003b39_y",
+   "card": {
+    "text": "It's a free trip so agents can learn a place."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Travel agents went on a familiarization trip.",
+   "The hotel invited us on a familiarization trip.",
+   "Our familiarization trip lasted three days."
+  ]
+ },
+ "quiz": {
+  "pre": "Agents visit hotels on a familiarization",
+  "post": "",
+  "a": "trip",
+  "b": "holiday",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

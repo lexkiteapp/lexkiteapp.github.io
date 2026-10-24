@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_14cf63",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:s:it-takes:m0"
+ },
+ "topic": "daily",
+ "cefr": "A1",
+ "area": "grammar",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_14cf63_h",
+  "quote": null,
+  "kind": "Stop saying 'I take'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I take 30 minutes to go to school.",
+ "key_line": "It takes me 30 minutes to go to school.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "IT takes + me + time"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_14cf63_k",
+   "card": {
+    "formula": "IT takes + me + time"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_14cf63_y",
+   "card": {
+    "text": "For time, start with It takes."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "It takes me 30 minutes to go to school.",
+   "It takes ten minutes to walk there.",
+   "How long does it take?"
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": "me an hour to cook dinner",
+  "a": "It takes",
+  "b": "I take",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Practice grammar free on lexkite.com",
+  "link": "https://lexkite.com/app/#/grammar",
+  "label": "Grammar lessons"
+ }
+}

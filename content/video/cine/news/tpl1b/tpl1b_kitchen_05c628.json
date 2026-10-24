@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_05c628",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:long:for"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_05c628_h",
+  "quote": null,
+  "kind": "Stop saying 'long to'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I long to home.",
+ "key_line": "I long for home.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "long FOR = want a lot"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_05c628_k",
+   "card": {
+    "formula": "long FOR = want a lot"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_05c628_y",
+   "card": {
+    "text": "Long for means want very much."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I long for home.",
+   "She longs for a quiet weekend.",
+   "He longed for his family."
+  ]
+ },
+ "quiz": {
+  "pre": "After a long winter, I long",
+  "post": "summer",
+  "a": "for",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

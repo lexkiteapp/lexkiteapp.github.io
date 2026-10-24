@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_e34dea",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:new-friends:text-you:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "coffee_shop_day",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_e34dea_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I will send you message the details.",
+ "key_line": "I'll text you the details.",
+ "series": [
+  "CAFE ENGLISH",
+  "I'LL TEXT YOU + thing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_e34dea_k",
+   "card": {
+    "formula": "I'LL TEXT YOU + thing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_e34dea_y",
+   "card": {
+    "text": "Text is also a verb: I'll text you."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'll text you the details.",
+   "I'll text you later.",
+   "Text me when you arrive."
+  ]
+ },
+ "quiz": {
+  "pre": "I'll",
+  "post": "you the address",
+  "a": "text",
+  "b": "message send",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_27ef73",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:string#n"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_27ef73_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Tie the box with a string of rope.",
+ "key_line": "Tie the box with string.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "thin rope = STRING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_27ef73_k",
+   "card": {
+    "formula": "thin rope = STRING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_27ef73_y",
+   "card": {
+    "text": "String is thin rope."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Tie the box with string.",
+   "I need some string.",
+   "She tied a string around the gift."
+  ]
+ },
+ "quiz": {
+  "pre": "Tie the bag with some",
+  "post": "",
+  "a": "string",
+  "b": "rope string",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

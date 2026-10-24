@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_0acfd1",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:guest complaint#n"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "phrases",
+ "plate": "hotel_lobby",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0acfd1_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "A guest made a problem talk.",
+ "key_line": "We got a guest complaint about noise.",
+ "series": [
+  "HOTEL ENGLISH",
+  "unhappy guest = GUEST"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0acfd1_k",
+   "card": {
+    "formula": "unhappy guest = GUEST"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0acfd1_y",
+   "card": {
+    "text": "When a guest is unhappy, it's a guest complaint."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "We got a guest complaint about noise.",
+   "The manager handled the guest complaint.",
+   "We had three guest complaints today."
+  ]
+ },
+ "quiz": {
+  "pre": "Reception received a guest",
+  "post": "",
+  "a": "complaint",
+  "b": "complain",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

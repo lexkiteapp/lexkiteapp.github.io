@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_00a2ea",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:state:that"
+ },
+ "topic": "exam",
+ "cefr": "A2",
+ "area": "verbs",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_00a2ea_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "The report states the prices went up.",
+ "key_line": "The report states that prices went up.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "state + THAT + fact"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_00a2ea_k",
+   "card": {
+    "formula": "state + THAT + fact"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_00a2ea_y",
+   "card": {
+    "text": "In formal English, state is often followed by that."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The report states that prices went up.",
+   "The rules state that phones must be off.",
+   "The email states that the meeting is canceled."
+  ]
+ },
+ "quiz": {
+  "pre": "The letter",
+  "post": "that the office is closed",
+  "a": "states",
+  "b": "states to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

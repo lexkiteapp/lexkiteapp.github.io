@@ -50,13 +50,38 @@ def bezier(p, x):
 # Plates = anchor/bg/<name>.png (lexkite-footage, 1536x2720 flat2d-warm). Only plates a human checked for "no people, no readable text"
 # are listed; tags = the lesson topics/areas a plate may illustrate (qc_tpl.py plate_topic gate).
 PLATES = dict(
-    airport_gate=dict(tags=['travel', 'airport', 'flight', 'boarding'], people=0, text=0, checked='2026-10-24'),
-    airport_gate_night=dict(tags=['travel', 'airport', 'flight'], people=0, text=0, checked='2026-10-24'),
-    hotel_lobby=dict(tags=['travel', 'hotel', 'check-in'], people=0, text=0, checked='2026-10-24'),
-    restaurant_night=dict(tags=['food', 'restaurant', 'ordering', 'dinner'], people=0, text=0, checked='2026-10-24'),
-    restaurant_day=dict(tags=['food', 'restaurant', 'ordering'], people=0, text=0, checked='2026-10-24'),
-    coffee_shop_day=dict(tags=['food', 'coffee', 'cafe', 'ordering'], people=0, text=0, checked='2026-10-24'),
+    airport_gate=dict(tags=['travel', 'airport', 'flight', 'boarding'], series='AIRPORT ENGLISH', people=0, text=0, checked='2026-10-24'),
+    airport_gate_night=dict(tags=['travel', 'airport', 'flight'], series='AIRPORT ENGLISH', people=0, text=0, checked='2026-10-24'),
+    hotel_lobby=dict(tags=['travel', 'hotel', 'check-in'], series='HOTEL ENGLISH', people=0, text=0, checked='2026-10-24'),
+    restaurant_night=dict(tags=['food', 'restaurant', 'ordering', 'dinner'], series='RESTAURANT ENGLISH', people=0, text=0, checked='2026-10-24'),
+    restaurant_day=dict(tags=['food', 'restaurant', 'ordering'], series='RESTAURANT ENGLISH', people=0, text=0, checked='2026-10-24'),
+    coffee_shop_day=dict(tags=['food', 'social', 'coffee', 'cafe', 'ordering'], series='CAFE ENGLISH', people=0, text=0, checked='2026-10-24'),
+    # 24/10 batch pipeline: plates checked on a contact sheet (no people, no readable text; bank/clinic/city_street_day REJECTED: wall signs);
+    # 'vision' = checked by the pipeline agent, owner confirms on the first batch sheet (docs/VIDEO-TEMPLATES.md §9)
+    office_open_plan=dict(tags=['work', 'tech', 'office'], series='OFFICE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    meeting_room=dict(tags=['work', 'meeting', 'office'], series='MEETING ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    coworking=dict(tags=['work', 'tech', 'office'], series='OFFICE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    exam_hall=dict(tags=['exam', 'study', 'exams'], series='EXAM ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    library=dict(tags=['study', 'exam', 'library'], series='LIBRARY ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    clothing_store=dict(tags=['shopping', 'store'], series='STORE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    supermarket=dict(tags=['shopping', 'food', 'store'], series='STORE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    pharmacy=dict(tags=['health', 'pharmacy'], series='PHARMACY ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    living_room=dict(tags=['home', 'daily', 'social'], series='HOME ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    kitchen=dict(tags=['home', 'daily', 'food', 'kitchen'], series='KITCHEN ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    park=dict(tags=['social', 'daily', 'park'], series='PARK ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
 )
 # hosts with a PRO matte + mouth meta in the footage bank; voice = Kokoro voice used for EVERY line of that host's video
 HOSTS = dict(ama=dict(voice='af_bella'), carlos=dict(voice='am_fenrir'), mia=dict(voice='af_heart'), jake=dict(voice='am_michael'))
 PLATE = dict(blur=7.0, push=0.035, max_push_per_s=0.0025, scrim_top=0.70, scrim_y1=0.66, sat=0.82, host_match=0.35, stage_luma=226)   # depth blur px, total push-in, cream scrim alpha/extent, saturation, host colour-match strength
+
+# ---- one host scale for EVERY video and host (owner 24/10: Carlos looked smaller than Ama/Mia). Head = hair top (highest matte row over all frames,
+# within +-HEAD_BAND px of the mouth column) -> mouth centre (bank meta mouth_center, tracked frame 0), in screen px after the host transform.
+# render_tpl.py scales the layer by HOST_LOCK.head / measured (never above max_scale: no upscaled host, METHODS §7), puts the head top at y=top and the
+# mouth column at x=cx. qc_tpl gate host_scale: |head - target| <= tol; batch gate (rubric_tpl.py --batch): every host within +-tol of the batch median.
+HOST_LOCK = dict(head=248, top=1064, cx=540, max_scale=1.0, tol=0.03, band=140)
+# hosts used by the batch pipeline (one natural-talk clip each; PRO matte + mouth meta in the footage bank)
+HOST_CLIPS = dict(ama='ga4_talk_natural', carlos='gc4_talk_natural', mia='gm1_talk_natural')
+# hook truth (docs/VIDEO-TEMPLATES.md §9): "Stop/Never saying" only when the Groq judge says the learner line is a real error
+HOOKS = dict(strong=[('Stop saying this.', 'Stop saying'), ('Never say this.', 'Never say'), ('Natives never say this.', 'Natives never say')],
+             soft=[('Americans usually say this.', 'Americans usually say'), ('Sound more natural.', 'Sound more natural:')])
+RUBRIC_MIN = 90

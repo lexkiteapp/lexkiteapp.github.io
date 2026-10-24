@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_18fd12",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:twin room#n"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "hotel_lobby",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_18fd12_h",
+  "quote": null,
+  "kind": "Natives never say 'two-bed room'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I want a two-bed room, please.",
+ "key_line": "I'd like a twin room, please.",
+ "series": [
+  "HOTEL ENGLISH",
+  "TWIN = two beds"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_18fd12_k",
+   "card": {
+    "formula": "TWIN = two beds"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_18fd12_y",
+   "card": {
+    "text": "Two single beds in a hotel? That's a twin room."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'd like a twin room, please.",
+   "We booked a twin room for two nights.",
+   "Is the twin room available tonight?"
+  ]
+ },
+ "quiz": {
+  "pre": "Two friends need two beds. They book a",
+  "post": "room",
+  "a": "twin",
+  "b": "double",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

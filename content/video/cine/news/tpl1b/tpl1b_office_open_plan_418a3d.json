@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_418a3d",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:salary-wage"
+ },
+ "topic": "work",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_418a3d_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "My hourly salary is fifteen dollars.",
+ "key_line": "My hourly wage is fifteen dollars.",
+ "series": [
+  "OFFICE ENGLISH",
+  "hour = WAGE"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_418a3d_k",
+   "card": {
+    "formula": "hour = WAGE"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_418a3d_y",
+   "card": {
+    "text": "Pay by the hour is a wage. A salary is yearly."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My hourly wage is fifteen dollars.",
+   "Her salary is paid every month.",
+   "Waiters often earn a low wage."
+  ]
+ },
+ "quiz": {
+  "pre": "He earns twenty dollars an hour. That's his",
+  "post": "",
+  "a": "wage",
+  "b": "salary",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

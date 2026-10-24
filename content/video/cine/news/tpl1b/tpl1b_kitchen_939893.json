@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_939893",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:renting:something-wrong-with:x"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "kitchen",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_939893_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The heater has problem.",
+ "key_line": "There's something wrong with the heater.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "SOMETHING'S WRONG WITH"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_939893_k",
+   "card": {
+    "formula": "SOMETHING'S WRONG WITH"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_939893_y",
+   "card": {
+    "text": "Say something's wrong with + the thing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "There's something wrong with the heater.",
+   "There's something wrong with my car.",
+   "The sink has a problem."
+  ]
+ },
+ "quiz": {
+  "pre": "There's something wrong",
+  "post": "the heater",
+  "a": "with",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

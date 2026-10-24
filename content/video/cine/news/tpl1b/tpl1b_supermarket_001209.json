@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_supermarket_001209",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:sold out#adj"
+ },
+ "topic": "shopping",
+ "cefr": "B1",
+ "area": "phrases",
+ "plate": "supermarket",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_001209_h",
+  "quote": null,
+  "kind": "Natives never say 'finished tickets'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "The tickets are finished.",
+ "key_line": "The tickets are sold out.",
+ "series": [
+  "STORE ENGLISH",
+  "nothing left = SOLD OUT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_001209_k",
+   "card": {
+    "formula": "nothing left = SOLD OUT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_001209_y",
+   "card": {
+    "text": "Sold out means none are left to buy."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The tickets are sold out.",
+   "The concert is sold out.",
+   "Sorry, that size is sold out."
+  ]
+ },
+ "quiz": {
+  "pre": "We can't go. The show is",
+  "post": "",
+  "a": "sold out",
+  "b": "finished",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

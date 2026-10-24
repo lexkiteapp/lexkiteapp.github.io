@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_0ec1a1",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:s:if-2"
+ },
+ "topic": "daily",
+ "cefr": "A1",
+ "area": "grammar",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0ec1a1_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "If I will be rich, I would travel.",
+ "key_line": "If I were rich, I would travel.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "IF + past, WOULD + verb"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0ec1a1_k",
+   "card": {
+    "formula": "IF + past, WOULD + verb"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0ec1a1_y",
+   "card": {
+    "text": "For dreams, use if plus past, then would."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "If I were rich, I would travel.",
+   "If I had time, I would help.",
+   "If she knew, she would call."
+  ]
+ },
+ "quiz": {
+  "pre": "If I",
+  "post": "a car, I would drive to work",
+  "a": "had",
+  "b": "will have",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Practice grammar free on lexkite.com",
+  "link": "https://lexkite.com/app/#/grammar",
+  "label": "Grammar lessons"
+ }
+}

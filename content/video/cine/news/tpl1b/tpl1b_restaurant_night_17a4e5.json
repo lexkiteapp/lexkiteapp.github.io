@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_restaurant_night_17a4e5",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:make up for#phr v"
+ },
+ "topic": "food",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "restaurant_night",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_17a4e5_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I'll repair the late time.",
+ "key_line": "I'll make up for being late.",
+ "series": [
+  "RESTAURANT ENGLISH",
+  "MAKE UP FOR = fix it"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_17a4e5_k",
+   "card": {
+    "formula": "MAKE UP FOR = fix it"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_17a4e5_y",
+   "card": {
+    "text": "Make up for means do something good after a problem."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'll make up for being late.",
+   "Let me make up for it with dinner.",
+   "Nothing can make up for lost time."
+  ]
+ },
+ "quiz": {
+  "pre": "I'll buy lunch to make up",
+  "post": "the delay",
+  "a": "for",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

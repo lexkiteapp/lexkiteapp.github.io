@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_5af582",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:job-interview:next-steps:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_5af582_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "When you will call me?",
+ "key_line": "What are the next steps in the process?",
+ "series": [
+  "OFFICE ENGLISH",
+  "WHEN WILL YOU…? / NEXT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_5af582_k",
+   "card": {
+    "formula": "WHEN WILL YOU…? / NEXT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_5af582_y",
+   "card": {
+    "text": "In questions, will comes before you."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "What are the next steps in the process?",
+   "What are the next steps?",
+   "When will you decide?"
+  ]
+ },
+ "quiz": {
+  "pre": "When",
+  "post": "call me?",
+  "a": "will you",
+  "b": "you will",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

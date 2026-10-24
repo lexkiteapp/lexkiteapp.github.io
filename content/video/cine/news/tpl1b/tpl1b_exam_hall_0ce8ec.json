@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_0ce8ec",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:a:wide:widely"
+ },
+ "topic": "exam",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "exam_hall",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0ce8ec_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "English is wide spoken.",
+ "key_line": "English is widely spoken.",
+ "series": [
+  "EXAM ENGLISH",
+  "WIDELY + used / known /"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0ce8ec_k",
+   "card": {
+    "formula": "WIDELY + used / known /"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0ce8ec_y",
+   "card": {
+    "text": "Before spoken or used, say widely."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "English is widely spoken.",
+   "This app is widely used.",
+   "He is widely known as a good teacher."
+  ]
+ },
+ "quiz": {
+  "pre": "The book is",
+  "post": "read",
+  "a": "widely",
+  "b": "wide",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

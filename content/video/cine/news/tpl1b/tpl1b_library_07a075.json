@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_07a075",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:cultural identity#n"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_07a075_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Food is part of my culture face.",
+ "key_line": "Food is part of my cultural identity.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "who I am + my culture"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_07a075_k",
+   "card": {
+    "formula": "who I am + my culture"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_07a075_y",
+   "card": {
+    "text": "Cultural identity is feeling part of a culture."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Food is part of my cultural identity.",
+   "Music shapes our cultural identity.",
+   "Moving abroad changed my cultural identity."
+  ]
+ },
+ "quiz": {
+  "pre": "Language is key to cultural",
+  "post": "",
+  "a": "identity",
+  "b": "face",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

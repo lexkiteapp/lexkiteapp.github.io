@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_073018",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:concentrate:on"
+ },
+ "topic": "exam",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_073018_h",
+  "quote": null,
+  "kind": "Stop saying 'concentrate in'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I can't concentrate in my work.",
+ "key_line": "I can't concentrate on my work.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "concentrate / focus ON"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_073018_k",
+   "card": {
+    "formula": "concentrate / focus ON"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_073018_y",
+   "card": {
+    "text": "Concentrate on means give all your attention to."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I can't concentrate on my work.",
+   "Concentrate on the road.",
+   "I need to concentrate on my exam."
+  ]
+ },
+ "quiz": {
+  "pre": "Please concentrate",
+  "post": "the lesson",
+  "a": "on",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_4404e9",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:farther-further"
+ },
+ "topic": "shopping",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "clothing_store",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_4404e9_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "For farther information, call us.",
+ "key_line": "For further information, call us.",
+ "series": [
+  "STORE ENGLISH",
+  "FARther = FAR away"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_4404e9_k",
+   "card": {
+    "formula": "FARther = FAR away"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_4404e9_y",
+   "card": {
+    "text": "Further means more. Farther is distance."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "For further information, call us.",
+   "The station is farther than I thought.",
+   "Do you have any further questions?"
+  ]
+ },
+ "quiz": {
+  "pre": "We need",
+  "post": "details",
+  "a": "further",
+  "b": "farther",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

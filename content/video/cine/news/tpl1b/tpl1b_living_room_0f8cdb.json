@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_0f8cdb",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:listen:m0"
+ },
+ "topic": "social",
+ "cefr": "A1",
+ "area": "grammar-check",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0f8cdb_h",
+  "quote": null,
+  "kind": "Stop saying 'listening music'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I like listening music.",
+ "key_line": "I like listening to music.",
+ "series": [
+  "HOME ENGLISH",
+  "listen TO + thing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0f8cdb_k",
+   "card": {
+    "formula": "listen TO + thing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0f8cdb_y",
+   "card": {
+    "text": "Listen needs to before the thing you hear."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I like listening to music.",
+   "We listen to the radio in the car.",
+   "Listen to me, please."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm listening",
+  "post": "a podcast",
+  "a": "to",
+  "b": "(nothing)",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

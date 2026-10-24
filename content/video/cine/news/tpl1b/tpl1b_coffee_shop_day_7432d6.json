@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_7432d6",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:win-beat"
+ },
+ "topic": "social",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "coffee_shop_day",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_7432d6_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "We won the other team.",
+ "key_line": "We beat the other team.",
+ "series": [
+  "CAFE ENGLISH",
+  "WIN the game"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_7432d6_k",
+   "card": {
+    "formula": "WIN the game"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_7432d6_y",
+   "card": {
+    "text": "You beat people. You win games."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "We beat the other team.",
+   "We won the game.",
+   "She beat me at chess."
+  ]
+ },
+ "quiz": {
+  "pre": "Our team",
+  "post": "them 3 to 1",
+  "a": "beat",
+  "b": "won",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_9e149c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:resemble:m0"
+ },
+ "topic": "travel",
+ "cefr": "C1",
+ "area": "verbs",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_9e149c_h",
+  "quote": null,
+  "kind": "Stop saying 'resembles to'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "He resembles to his father.",
+ "key_line": "He resembles his father.",
+ "series": [
+  "HOTEL ENGLISH",
+  "RESEMBLE + person"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_9e149c_k",
+   "card": {
+    "formula": "RESEMBLE + person"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_9e149c_y",
+   "card": {
+    "text": "Resemble needs no word after it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "He resembles his father.",
+   "She resembles her mom.",
+   "This city resembles Paris."
+  ]
+ },
+ "quiz": {
+  "pre": "She",
+  "post": "her sister",
+  "a": "resembles",
+  "b": "resembles to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

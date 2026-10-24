@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_supermarket_645d6b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:complaints:calling-about:x"
+ },
+ "topic": "shopping",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "supermarket",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_645d6b_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I call because problem.",
+ "key_line": "I'm calling about my order.",
+ "series": [
+  "STORE ENGLISH",
+  "I'M CALLING ABOUT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_645d6b_k",
+   "card": {
+    "formula": "I'M CALLING ABOUT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_645d6b_y",
+   "card": {
+    "text": "Say the topic first: I'm calling about + thing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm calling about my order.",
+   "I'm calling about my bill.",
+   "I'm calling about a booking."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm calling",
+  "post": "an order I received",
+  "a": "about",
+  "b": "for problem",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

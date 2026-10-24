@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_000ea4",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "x:malnutrition#n:undernourishment"
+ },
+ "topic": "health",
+ "cefr": "C1",
+ "area": "dictionary",
+ "plate": "pharmacy",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_000ea4_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Junk food causes undernourishment.",
+ "key_line": "Junk food can cause malnutrition.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "bad food = MALNUTRITION"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_000ea4_k",
+   "card": {
+    "formula": "bad food = MALNUTRITION"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_000ea4_y",
+   "card": {
+    "text": "Malnutrition is any poor diet. Undernourishment is too little food."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Junk food can cause malnutrition.",
+   "Malnutrition is a problem in poor areas.",
+   "Undernourishment means not getting enough food."
+  ]
+ },
+ "quiz": {
+  "pre": "A diet of only chips can lead to",
+  "post": "",
+  "a": "malnutrition",
+  "b": "undernourishment",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Look up any word on lexkite.com",
+  "link": "https://lexkite.com/app/#/dict",
+  "label": "Dictionary"
+ }
+}

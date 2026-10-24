@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_347efc",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:few-a-few"
+ },
+ "topic": "daily",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_347efc_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I have few friends, so I'm happy.",
+ "key_line": "I have a few friends, so I'm happy.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "A few = some 🙂"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_347efc_k",
+   "card": {
+    "formula": "A few = some 🙂"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_347efc_y",
+   "card": {
+    "text": "A few is some. Few is not many."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I have a few friends, so I'm happy.",
+   "Few people came, so it was quiet.",
+   "I need a few minutes."
+  ]
+ },
+ "quiz": {
+  "pre": "Good news! We have",
+  "post": "tickets left",
+  "a": "a few",
+  "b": "few",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

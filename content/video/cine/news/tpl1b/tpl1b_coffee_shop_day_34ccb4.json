@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_34ccb4",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:classic-classical"
+ },
+ "topic": "social",
+ "cefr": "B2",
+ "area": "word-usage",
+ "plate": "coffee_shop_day",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_34ccb4_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I love classic music like Mozart.",
+ "key_line": "I love classical music like Mozart.",
+ "series": [
+  "CAFE ENGLISH",
+  "Mozart = CLASSICAL"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_34ccb4_k",
+   "card": {
+    "formula": "Mozart = CLASSICAL"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_34ccb4_y",
+   "card": {
+    "text": "Classical is old serious music. Classic means famous and great."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I love classical music like Mozart.",
+   "Casablanca is a classic movie.",
+   "She plays classical piano."
+  ]
+ },
+ "quiz": {
+  "pre": "Beethoven wrote",
+  "post": "music",
+  "a": "classical",
+  "b": "classic",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

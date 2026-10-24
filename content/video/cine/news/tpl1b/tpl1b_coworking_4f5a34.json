@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_4f5a34",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:disagreeing:i-agree-with:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_4f5a34_h",
+  "quote": null,
+  "kind": "Stop saying 'I am agree'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I am agree with you.",
+ "key_line": "I agree with you on that.",
+ "series": [
+  "OFFICE ENGLISH",
+  "I AGREE (no AM)"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_4f5a34_k",
+   "card": {
+    "formula": "I AGREE (no AM)"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_4f5a34_y",
+   "card": {
+    "text": "Agree is a verb. Never say I am agree."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I agree with you on that.",
+   "I agree with Sam.",
+   "We all agree on the plan."
+  ]
+ },
+ "quiz": {
+  "pre": "I",
+  "post": "with you",
+  "a": "agree",
+  "b": "am agree",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

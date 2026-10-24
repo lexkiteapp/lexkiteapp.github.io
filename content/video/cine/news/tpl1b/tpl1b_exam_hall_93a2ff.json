@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_93a2ff",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:percent-percentage"
+ },
+ "topic": "exam",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "exam_hall",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_93a2ff_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "A big percent of people agree.",
+ "key_line": "A big percentage of people agree.",
+ "series": [
+  "EXAM ENGLISH",
+  "number + PERCENT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_93a2ff_k",
+   "card": {
+    "formula": "number + PERCENT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_93a2ff_y",
+   "card": {
+    "text": "Use percent with a number. Percentage without."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "A big percentage of people agree.",
+   "Fifty percent of us voted.",
+   "What percentage of students passed?"
+  ]
+ },
+ "quiz": {
+  "pre": "A high",
+  "post": "of users are young",
+  "a": "percentage",
+  "b": "percent",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

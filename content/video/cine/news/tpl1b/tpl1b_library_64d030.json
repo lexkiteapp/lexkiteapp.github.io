@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_64d030",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:practice-practise"
+ },
+ "topic": "study",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_64d030_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I need to practise every day. (in the US)",
+ "key_line": "I need to practice every day.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "US: practiCe always"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_64d030_k",
+   "card": {
+    "formula": "US: practiCe always"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_64d030_y",
+   "card": {
+    "text": "Americans spell practice with C for both noun and verb."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I need to practice every day.",
+   "Soccer practice is at five.",
+   "Practice speaking every day."
+  ]
+ },
+ "quiz": {
+  "pre": "In American English: I",
+  "post": "piano every day",
+  "a": "practice",
+  "b": "practise",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

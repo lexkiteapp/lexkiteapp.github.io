@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_0abf72",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:one-way#adj"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "airport_gate",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0abf72_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "One-way ticket to Boston and back, please.",
+ "key_line": "A round-trip ticket to Boston, please.",
+ "series": [
+  "AIRPORT ENGLISH",
+  "ONE-WAY = go only"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0abf72_k",
+   "card": {
+    "formula": "ONE-WAY = go only"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0abf72_y",
+   "card": {
+    "text": "One-way means you go but don't come back."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "A round-trip ticket to Boston, please.",
+   "I bought a one-way ticket to Paris.",
+   "Is this a one-way street?"
+  ]
+ },
+ "quiz": {
+  "pre": "You're not coming back. You need a",
+  "post": "ticket",
+  "a": "one-way",
+  "b": "round-trip",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

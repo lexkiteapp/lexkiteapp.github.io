@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_717fc0",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:insurance card#n"
+ },
+ "topic": "health",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "pharmacy",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_717fc0_h",
+  "quote": null,
+  "kind": "Natives never say 'health paper'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Here is my health paper.",
+ "key_line": "Here is my insurance card.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "doctor visit = bring"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_717fc0_k",
+   "card": {
+    "formula": "doctor visit = bring"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_717fc0_y",
+   "card": {
+    "text": "The card that shows your health plan is your insurance card."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Here is my insurance card.",
+   "Can I see your insurance card?",
+   "I lost my insurance card."
+  ]
+ },
+ "quiz": {
+  "pre": "At the clinic, show your",
+  "post": "card",
+  "a": "insurance",
+  "b": "health paper",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

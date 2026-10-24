@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_43b7bd",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:lack:m0"
+ },
+ "topic": "food",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "coffee_shop_day",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_43b7bd_h",
+  "quote": null,
+  "kind": "Stop saying 'lack of experience'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "They lack of experience.",
+ "key_line": "They lack experience.",
+ "series": [
+  "CAFE ENGLISH",
+  "they LACK ✓, a lack OF ✓"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_43b7bd_k",
+   "card": {
+    "formula": "they LACK ✓, a lack OF ✓"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_43b7bd_y",
+   "card": {
+    "text": "The verb lack takes no of."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "They lack experience.",
+   "The team lacks money.",
+   "There's a lack of time."
+  ]
+ },
+ "quiz": {
+  "pre": "This soup lacks",
+  "post": "",
+  "a": "salt",
+  "b": "of salt",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

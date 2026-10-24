@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_14363e",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:effect:m0"
+ },
+ "topic": "exam",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "exam_hall",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_14363e_h",
+  "quote": null,
+  "kind": "Stop saying 'effect to'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "It has a big effect to the economy.",
+ "key_line": "It has a big effect on the economy.",
+ "series": [
+  "EXAM ENGLISH",
+  "effect / impact /"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_14363e_k",
+   "card": {
+    "formula": "effect / impact /"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_14363e_y",
+   "card": {
+    "text": "Effect, impact and influence all take on."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "It has a big effect on the economy.",
+   "Music has a calming effect on me.",
+   "Phones have an impact on sleep."
+  ]
+ },
+ "quiz": {
+  "pre": "Sleep has a big effect",
+  "post": "your mood",
+  "a": "on",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

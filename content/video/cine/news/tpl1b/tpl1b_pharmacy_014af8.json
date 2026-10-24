@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_014af8",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:risk:of"
+ },
+ "topic": "health",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "pharmacy",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_014af8_h",
+  "quote": null,
+  "kind": "Stop saying 'risk to get'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "There's a risk to get sick.",
+ "key_line": "There's a risk of getting sick.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "risk OF + -ing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_014af8_k",
+   "card": {
+    "formula": "risk OF + -ing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_014af8_y",
+   "card": {
+    "text": "Risk of plus -ing or noun."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "There's a risk of getting sick.",
+   "There is a risk of fire.",
+   "Smoking raises the risk of cancer."
+  ]
+ },
+ "quiz": {
+  "pre": "There's a high risk",
+  "post": "rain today",
+  "a": "of",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

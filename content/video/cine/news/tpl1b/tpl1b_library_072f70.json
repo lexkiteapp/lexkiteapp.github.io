@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_072f70",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:opinion:m0"
+ },
+ "topic": "exam",
+ "cefr": "A1",
+ "area": "grammar-check",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_072f70_h",
+  "quote": null,
+  "kind": "Natives never say this",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "In my opinion, I think it's good.",
+ "key_line": "In my opinion, it's good.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "in my opinion = I think"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_072f70_k",
+   "card": {
+    "formula": "in my opinion = I think"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_072f70_y",
+   "card": {
+    "text": "In my opinion already means I think."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "In my opinion, it's good.",
+   "In my opinion, the movie was too long.",
+   "I think the plan is great."
+  ]
+ },
+ "quiz": {
+  "pre": "In my opinion,",
+  "post": "it's true",
+  "a": "I think",
+  "b": "(nothing)",
+  "answer": 1
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

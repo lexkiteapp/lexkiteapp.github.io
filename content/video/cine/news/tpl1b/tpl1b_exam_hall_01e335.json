@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_01e335",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:identical:to"
+ },
+ "topic": "study",
+ "cefr": "B2",
+ "area": "grammar-check",
+ "plate": "exam_hall",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_01e335_h",
+  "quote": null,
+  "kind": "Natives never say 'identical than'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "My bag is identical than yours.",
+ "key_line": "My bag is identical to yours.",
+ "series": [
+  "EXAM ENGLISH",
+  "identical / similar TO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_01e335_k",
+   "card": {
+    "formula": "identical / similar TO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_01e335_y",
+   "card": {
+    "text": "Identical takes to. Never than."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My bag is identical to yours.",
+   "Her dress is identical to mine.",
+   "The copy is identical to the original."
+  ]
+ },
+ "quiz": {
+  "pre": "This phone is identical",
+  "post": "the old one",
+  "a": "to",
+  "b": "than",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_076acb",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:accuse:m0"
+ },
+ "topic": "social",
+ "cefr": "B2",
+ "area": "grammar-check",
+ "plate": "coffee_shop_day",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_076acb_h",
+  "quote": null,
+  "kind": "Stop saying 'accused for'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "He was accused for lying.",
+ "key_line": "He was accused of lying.",
+ "series": [
+  "CAFE ENGLISH",
+  "accuse OF, blame FOR"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_076acb_k",
+   "card": {
+    "formula": "accuse OF, blame FOR"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_076acb_y",
+   "card": {
+    "text": "Accuse someone of something."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "He was accused of lying.",
+   "She accused him of stealing.",
+   "They were accused of cheating."
+  ]
+ },
+ "quiz": {
+  "pre": "He was accused",
+  "post": "breaking the rules",
+  "a": "of",
+  "b": "for",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

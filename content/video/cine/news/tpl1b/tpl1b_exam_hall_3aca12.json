@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_3aca12",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:your-you-re"
+ },
+ "topic": "study",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "exam_hall",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_3aca12_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Your welcome!",
+ "key_line": "You're welcome!",
+ "series": [
+  "EXAM ENGLISH",
+  "YOU'RE = you are"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3aca12_k",
+   "card": {
+    "formula": "YOU'RE = you are"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3aca12_y",
+   "card": {
+    "text": "You're means you are."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "You're welcome!",
+   "You're very kind.",
+   "Is this your phone?"
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": "going to love this!",
+  "a": "You're",
+  "b": "Your",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

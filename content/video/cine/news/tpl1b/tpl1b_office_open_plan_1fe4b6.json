@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_1fe4b6",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:account for#phr v"
+ },
+ "topic": "tech",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_1fe4b6_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Phones are 60 percent of our sales.",
+ "key_line": "Phones account for 60 percent of our sales.",
+ "series": [
+  "OFFICE ENGLISH",
+  "ACCOUNT FOR = make up"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1fe4b6_k",
+   "card": {
+    "formula": "ACCOUNT FOR = make up"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1fe4b6_y",
+   "card": {
+    "text": "Account for means make up an amount."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Phones account for 60 percent of our sales.",
+   "Rent accounts for half my pay.",
+   "Young people account for most users."
+  ]
+ },
+ "quiz": {
+  "pre": "Food accounts",
+  "post": "30 percent of costs",
+  "a": "for",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

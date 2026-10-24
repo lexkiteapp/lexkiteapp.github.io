@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_146177",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:congratulate:on"
+ },
+ "topic": "social",
+ "cefr": "C1",
+ "area": "grammar-check",
+ "plate": "park",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_146177_h",
+  "quote": null,
+  "kind": "Stop saying 'congratulate for'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I congratulate you for your new job.",
+ "key_line": "I congratulate you on your new job.",
+ "series": [
+  "PARK ENGLISH",
+  "congratulate ON"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_146177_k",
+   "card": {
+    "formula": "congratulate ON"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_146177_y",
+   "card": {
+    "text": "Congratulate someone on a success."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I congratulate you on your new job.",
+   "Congratulations on your wedding!",
+   "We congratulated her on the award."
+  ]
+ },
+ "quiz": {
+  "pre": "Congratulations",
+  "post": "passing the test!",
+  "a": "on",
+  "b": "for",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

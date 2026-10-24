@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_04105e",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:rely:m0"
+ },
+ "topic": "tech",
+ "cefr": "B2",
+ "area": "grammar-check",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_04105e_h",
+  "quote": null,
+  "kind": "Stop saying 'rely in'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "We rely in technology.",
+ "key_line": "We rely on technology.",
+ "series": [
+  "OFFICE ENGLISH",
+  "rely / depend ON"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_04105e_k",
+   "card": {
+    "formula": "rely / depend ON"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_04105e_y",
+   "card": {
+    "text": "Rely always takes on."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "We rely on technology.",
+   "You can rely on me.",
+   "Many people rely on their phones."
+  ]
+ },
+ "quiz": {
+  "pre": "Small shops rely",
+  "post": "local customers",
+  "a": "on",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

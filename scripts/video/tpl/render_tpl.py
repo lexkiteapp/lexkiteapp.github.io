@@ -36,10 +36,11 @@ class Line:
     def __init__(s, lid):
         s.id, s.text = lid, TEXT[lid]; toks = s.text.split()
         if o.fake_vo:
-            s.words = [dict(w=w, s=0.15 + 0.34 * i, e=0.15 + 0.34 * i + 0.3) for i, w in enumerate(toks)]; s.dur = s.words[-1]['e'] + 0.2; s.wav = None; s.cues = None
+            s.words = [dict(w=w, s=0.15 + 0.34 * i, e=0.15 + 0.34 * i + 0.3) for i, w in enumerate(toks)]; s.dur = s.words[-1]['e'] + 0.2; s.wav = None; s.cues = None; s.lipsrc = None
         else:
             s.wav = f'{o.vo}/{lid}.wav'; s.dur = wav_dur(s.wav); s.words = json.load(open(f'{o.vo}/{lid}.words.json'))['words']
-            s.cues = json.load(open(f'{o.vo}/{lid}.json'))['mouthCues'] if os.path.exists(f'{o.vo}/{lid}.json') else None
+            cj = json.load(open(f'{o.vo}/{lid}.json')) if os.path.exists(f'{o.vo}/{lid}.json') else {}
+            s.cues = cj.get('mouthCues'); s.lipsrc = cj.get('generator') or ('rhubarb' if (cj.get('metadata') or {}).get('soundFile') else None)
         s.end = s.words[-1]['e']; s.at = 0.0
     def t(s, word, nth=0, after=None):
         """absolute time of the nth token matching `word` (first token of a multi-word phrase); after = absolute time lower bound"""
@@ -203,22 +204,28 @@ ih = (ICON_D + 40) if not T1 else 0
 B0 = BEAT['h']['vin']
 El('progress.track', bar(FULL, 10, INK, 40), X0, 240, 'h', B0, None, enter='fade', d_in='base', z=1)
 PROG = Image.new('RGBA', (FULL, 10)); ImageDraw.Draw(PROG).rounded_rectangle((0, 0, FULL - 1, 9), 5, fill=C['red'] + (255,))
-SER = chip(f"{SP['series'][0]}  ·  {FORM}", C['navy'] if T1 else C['cream'], C['cream'] if T1 else C['navy'])
-El('series', SER, X0, 280, 'h', B0, None, enter='fade', d_in='base', z=2, text=f"{SP['series'][0]} · {FORM}", fs=TYPE['label'])
+SER_T = f"{SP['series'][0]}  ·  {FORM}"
+if F('head', TYPE['label']).getlength(SER_T) + 56 > FULL: SER_T = SP['series'][0]   # long formula -> chip keeps only the series (formula card still shows it)
+SER = chip(SER_T, C['navy'] if T1 else C['cream'], C['cream'] if T1 else C['navy'])
+El('series', SER, X0, 280, 'h', B0, None, enter='fade', d_in='base', z=2, text=SER_T.replace('  ', ' '), fs=TYPE['label'])
 
 # hook ------------------------------------------------------------
 b = BEAT['h']; ln = L['h']; g = 'h'
 i0 = [nrm(x) for x in wt].index(nrm(BAD[0])) if BAD else 0
-HQ = (SP['hook'].get('quote') or ' '.join(wt[max(0, i0 - 1):i0 + 1]))   # 'considering to' = the word before the mistake + its first word (bank hook)
+SOFT = SP['hook'].get('mode') == 'soft'   # hook truth (§9): the learner line is acceptable -> no strike, no ✗, quote = the natural phrase
+if SOFT:
+    j0 = [nrm(x) for x in rt].index(nrm(GOOD[0])) if GOOD else 0
+    HQ = ' '.join(rt[max(0, j0 - 1):j0 + max(1, len(GOOD))]).strip(',.?!')
+else: HQ = (SP['hook'].get('quote') or ' '.join(wt[max(0, i0 - 1):i0 + 1]))   # 'considering to' = the word before the mistake + its first word (bank hook)
 hs1, hs2 = TYPE['display'], TYPE['h1']
-HT = ' '.join(L['h'].text.split()[:-1]) or 'Stop saying'   # hook line minus its last word ('this.') = the big pattern-interrupt text
+HT = SP['hook'].get('display') or ' '.join(L['h'].text.split()[:-1]) or 'Stop saying'   # display text (lesson) or hook line minus its last word ('this.')
 h_total = ih + measure(HT, hs1, 'display', FULL) + 16 + measure(f'“{HQ}”', hs2, 'display', FULL)
 y = stage_y(h_total); y = place_icon('h', y, b['vin'], b['vout'], g)
 y2, bx = words_block('h.t1', HT, hs1, 'display', X0, y, FULL, g, ln, b['vout'], color=INK, align='center')
 tq = ln.words[-1]['s'] + ln.at
-y3, bx2 = words_block('h.t2', f'“{HQ}”', hs2, 'display', X0, y2 + 16, FULL, g, None, b['vout'], color=C['red'], align='center', after=tq)
+y3, bx2 = words_block('h.t2', f'“{HQ}”', hs2, 'display', X0, y2 + 16, FULL, g, None, b['vout'], color=C['green'] if SOFT else C['red'], align='center', after=tq)
 qx, qy, qw, qh, _ = bx2[0]; qx1 = max(v[0] + v[2] for v in bx2.values())
-El('h.strike', bar(int(qx1 - qx) + 16, 12, INK if T1 else C['cream']), qx - 8, qy + qh // 2 - 2, g, tq + DUR['fast'], b['vout'], enter='wipe', d_in='base', z=8)
+if not SOFT: El('h.strike', bar(int(qx1 - qx) + 16, 12, INK if T1 else C['cream']), qx - 8, qy + qh // 2 - 2, g, tq + DUR['fast'], b['vout'], enter='wipe', d_in='base', z=8)
 
 # wrong / guess / right: one comparison zone (x card fixed, the slot under it is the guess row, then the v card) ------------
 CARD_PAD, BD = 32, 72
@@ -234,21 +241,21 @@ words_block('m.lab', 'Many learners say:', TYPE['body'], 'body', X0, zy, FULL, '
 cy = zy + lab_h; tx = ln.t(wt[0])
 card, pad = rrect(FULL, hx, 32, C['white'])
 xc = El('m.card', card, X0 - pad, cy - pad, 'm', tx - 0.15, bk['vout'], enter='slide', d_in='base', z=3, dim=(bk['vin'], 0.5 if T1 else 0.6, 'k'))
-El('m.badge', badge('x', BD), X0 + CARD_PAD, cy + CARD_PAD, 'm', tx - 0.15, None, enter='none', parent=xc, z=7)
-_, wb = words_block('m.s', wrong + '.', sz, 'head', X0 + CARD_PAD + BD + 24, cy + CARD_PAD - 4, inner, 'm', ln, None, hi=BAD, parent=xc, reveal='fade', after=tx)
+El('m.badge', badge('nOK', BD, C['navy2']) if SOFT else badge('x', BD), X0 + CARD_PAD, cy + CARD_PAD, 'm', tx - 0.15, None, enter='none', parent=xc, z=7)
+_, wb = words_block('m.s', wrong + '.', sz, 'head', X0 + CARD_PAD + BD + 24, cy + CARD_PAD - 4, inner, 'm', ln, None, hi=BAD, hi_col=C['navy2'] if SOFT else C['red'], parent=xc, reveal='fade', after=tx)
 bi = [k for k, v in wb.items() if nrm(wt[k]) in {nrm(x) for x in BAD}] if len(wb) == len(wt) else []
 if bi:
     u0, u1 = wb[bi[0]], wb[bi[-1]]
     if abs(u0[1] - u1[1]) < 1:
-        El('m.under', bar(int(u1[0] + u1[2] - u0[0]), 10, C['red']), u0[0], u0[1] + u0[3] - 10, 'm', u1[4] + DUR['fast'], None, enter='wipe', d_in='base', parent=xc, z=8)
+        El('m.under', bar(int(u1[0] + u1[2] - u0[0]), 10, C['navy2'] if SOFT else C['red']), u0[0], u0[1] + u0[3] - 10, 'm', u1[4] + DUR['fast'], None, enter='wipe', d_in='base', parent=xc, z=8)
 slot = cy + hx + 32
 # guess row
 ln = L['g']; tg = ln.t('What')
 gq = El('g.q', badge('q', BD) if T1 or not o.icons else icon(ICONS['g'], BD), X0, slot + 8, 'g', tg - 0.1, bg_['vout'], enter='pop', d_in='base', z=6)
-_, gb = words_block('g.t', 'What sounds right?', sz, 'head', X0 + BD + 24, slot, FULL - BD - 24, 'g', ln, bg_['vout'], color=INK)
+gy1, gb = words_block('g.t', 'What sounds better?' if SOFT else 'What sounds right?', sz, 'head', X0 + BD + 24, slot, FULL - BD - 24, 'g', ln, bg_['vout'], color=INK)
 tdots = ln.at + ln.end + 0.15
 for i in range(3):
-    El(f'g.dot{i}', bar(28, 28, C['yellow'] if not T1 else C['navy2']), X0 + BD + 24 + i * 52, slot + int(sz * LEAD) + 24, 'g', tdots + i * 0.4, bg_['vout'], enter='fade', d_in='fast', z=6)
+    El(f'g.dot{i}', bar(28, 28, C['yellow'] if not T1 else C['navy2']), X0 + BD + 24 + i * 52, max(slot + int(sz * LEAD) + 24, snap(gy1 + 16)), 'g', tdots + i * 0.4, bg_['vout'], enter='fade', d_in='fast', z=6)
 TICKS = [tdots + i * 0.4 for i in range(3)]
 # right card
 ln = L['k']; tr = ln.t(rt[0])
@@ -470,24 +477,54 @@ class Host:
             M = cv2.resize(s.MM[i], (1080, 1920), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
             rgb_ = Fm[..., ::-1].astype(np.float32)
             if PLATE_N: rgb_ = np.clip(rgb_ * HOST_GAIN, 0, 255)
+            if HSC != 1.0:   # 1b host lock: one fixed downscale (never up) so every host's head has the same size (tokens.HOST_LOCK)
+                sz_ = (int(round(1080 * HSC)), int(round(1920 * HSC))); rgb_ = cv2.resize(rgb_, sz_, interpolation=cv2.INTER_AREA); M = cv2.resize(M, sz_, interpolation=cv2.INTER_AREA)
+                M = M * HOST_FEATHER[None, :]   # the scaled layer's side edges sit inside the frame -> feather them (no hard vertical cut through an arm)
             s.cache[key] = (rgb_, M)
         return s.cache[key], i, v
+    def head(s):
+        """native head size in 1080x1920 layer px: hair top (highest matte row over ALL frames, columns within +-band of the mouth) -> mouth centre"""
+        mh, mw = s.MM[0].shape; ky, kx = 1920 / mh, 1080 / mw; mx, my = s.mo.m['mouth_center']; b = HOST_LOCK['band']
+        c0, c1 = max(0, int(mx - b)), min(mw, int(mx + b))
+        top = min(int(np.nonzero((m_[:, c0:c1] > 128).any(1))[0][0]) for m_ in s.MM)
+        return dict(top=top * ky, mouth_x=mx * kx, mouth_y=my * ky, head=(my - top) * ky)
 HSC, HDX, HDY = 1.0, 0, 640         # host transform: scale 1.0 (no resample = sharpest), source y 440 (hair top) lands at screen 1080, under the stage
 def host_comp(base, rgb, m):
-    """fixed transform: source rows [0, H-HDY) -> screen rows [HDY, H); soft contact shadow from the same alpha, fixed offset"""
-    src, a = rgb[:H - HDY], m[:H - HDY]
+    """fixed transform: the (already scaled) layer is pasted at (HDX, HDY), clipped to the frame; soft contact shadow from the same alpha, fixed offset"""
+    lh, lw = m.shape
+    sx0, sy0, dx0, dy0 = max(0, -HDX), max(0, -HDY), max(0, HDX), max(0, HDY)
+    w, h = min(lw - sx0, W - dx0), min(lh - sy0, H - dy0)
+    a = np.zeros((H, W), np.float32); a[dy0:dy0 + h, dx0:dx0 + w] = m[sy0:sy0 + h, sx0:sx0 + w]
     sh = HOST_SH_CACHE.get(id(m))
     if sh is None:
-        import cv2; sh = cv2.GaussianBlur(a, (0, 0), 22) * (0.30 if PLATE_N else 0.22); HOST_SH_CACHE.clear(); HOST_SH_CACHE[id(m)] = sh
-    reg = base[HDY:]; s_ = np.zeros_like(sh); s_[10:, 18:] = sh[:-10, :-18]
-    if PLATE_N: s_ = s_ * np.clip((np.arange(HDY, H, dtype=np.float32)[:, None] - 1500) / 300, 0, 1)   # 1b: shadow only where the body meets the frame edge (no halo around the head on the light scrim)
-    reg = reg * (1 - s_[..., None]) + (SH_COL if PLATE_N else np.array(C['navy'], np.float32)) * s_[..., None]
-    base[HDY:] = reg * (1 - a[..., None]) + src * a[..., None]
+        import cv2; sh = cv2.GaussianBlur(a, (0, 0), 22) * (0.30 if PLATE_N else 0.22)
+        s_ = np.zeros_like(sh); s_[10:, 18:] = sh[:-10, :-18]
+        if PLATE_N: s_ = s_ * np.clip((np.arange(H, dtype=np.float32)[:, None] - 1500) / 300, 0, 1)   # 1b: shadow only where the body meets the frame edge (no halo around the head on the light scrim)
+        else: s_[:HDY] = 0
+        sh = s_; HOST_SH_CACHE.clear(); HOST_SH_CACHE[id(m)] = sh
+    base = base * (1 - sh[..., None]) + (SH_COL if PLATE_N else np.array(C['navy'], np.float32)) * sh[..., None]
+    reg = base[dy0:dy0 + h, dx0:dx0 + w]; aa = a[dy0:dy0 + h, dx0:dx0 + w, None]
+    base[dy0:dy0 + h, dx0:dx0 + w] = reg * (1 - aa) + rgb[sy0:sy0 + h, sx0:sx0 + w] * aa
     return base
 HOST_SH_CACHE = {}
 host = Host() if (T1 and not o.fake_vo and not o.host_still) else None
-if host is not None and PLATE_N:   # 1b: any bank host -> head top (highest mask row over ALL frames) sits at y 1064, under the stage; still ONE transform
-    HDY = int(1064 - min(int(np.nonzero((m_ > 128).any(1))[0][0]) for m_ in host.MM))
+HOST_HEAD = None
+if host is not None and PLATE_N:   # 1b host lock (tokens.HOST_LOCK): same head size for every host, head top at y=top under the stage, mouth column at x=cx; ONE transform
+    hd = host.head(); HSC = round(min(HOST_LOCK['max_scale'], HOST_LOCK['head'] / hd['head']), 4)
+    HDY = int(round(HOST_LOCK['top'] - hd['top'] * HSC)); HDX = int(round(HOST_LOCK['cx'] - hd['mouth_x'] * HSC)); host.cache.clear()
+    HOST_HEAD = dict(native=round(hd['head'], 1), scale=HSC, head=round(hd['head'] * HSC, 1), target=HOST_LOCK['head'], top=HOST_LOCK['top'], x=HDX, y=HDY)
+    import cv2; lw_ = int(round(1080 * HSC)); FE = 56; HOST_FEATHER = np.ones(lw_, np.float32)
+    if HSC < 1.0: r_ = np.linspace(0, 1, FE, dtype=np.float32) ** 1.5; HOST_FEATHER[:FE] = r_; HOST_FEATHER[-FE:] = r_[::-1]
+    m0 = cv2.resize(host.MM[0], (lw_, int(round(1920 * HSC))), interpolation=cv2.INTER_AREA).astype(np.float32) / 255
+    vis = slice(max(0, -HDY), max(0, min(m0.shape[0], H - HDY)))   # layer rows that land on screen
+    side = (m0[vis, FE] > 0.5) | (m0[vis, -FE - 1] > 0.5); body = (m0[vis] > 0.5).any(1)
+    HOST_HEAD.update(side_cut_rows=int(side.sum()), host_rows=int(body.sum()), bottom=HDY + m0.shape[0])   # qc_tpl host_frame gate
+    print('host lock', HOSTN, HOST_HEAD)
+LIPSYNC = None
+if host is not None:   # real host on screen -> every spoken line needs Rhubarb cues (no silent estimate; CI fails here when Rhubarb is missing)
+    LIPSYNC = dict(lines={k: L[k].lipsrc for k in SEQ}, missing=[k for k in SEQ if not L[k].cues])
+    if LIPSYNC['missing'] or any(not str(v or '').startswith('rhubarb') for v in LIPSYNC['lines'].values()):
+        sys.exit(f"lip-sync: Rhubarb cues missing/unverified for {LIPSYNC['missing'] or LIPSYNC['lines']} – run scripts/cine/news_voice.py with RHUBARB")
 HSTILL = None
 if T1 and o.host_still:
     im = np.asarray(Image.open(o.host_still).convert('RGBA').resize((1080, 1920)), np.float32); HSTILL = (im[..., :3], im[..., 3] / 255)
@@ -610,7 +647,8 @@ for j, k in enumerate(SEQ):
     if k in shots: sheet.paste(shots[k], (12 + (j % 5) * 372, 12 + (j // 5) * 652))
 sheet.save(o.out + '.sheet.jpg', quality=88)
 LESSON_TXT = ' '.join([SP['series'][0], FORM, wrong, right, WHY, Q_PRE, Q_POST] + ROWS)
-json.dump(dict(id=LID, lesson=dict(topic=SP.get('topic'), area=SP.get('area'), text=LESSON_TXT), tpl='1b' if PLATE_N else o.tpl, plate=PLATE_LOG, host_name=HOSTN, clip=CLIP, cta=CTA, fps=FPS, total=TOTAL, beats=BEAT, audio=AUD, video_kbps=vk, cuts=[],
+json.dump(dict(id=LID, lesson=dict(topic=SP.get('topic'), area=SP.get('area'), text=LESSON_TXT, hook=SP.get('hook'), hook_text=L['h'].text, wrong=SP['wrong_line'], right=SP['key_line'], reject=SP.get('reject'), fix=SP.get('fix')),
+               host_head=HOST_HEAD, lipsync=LIPSYNC, tpl='1b' if PLATE_N else o.tpl, plate=PLATE_LOG, host_name=HOSTN, clip=CLIP, cta=CTA, fps=FPS, total=TOTAL, beats=BEAT, audio=AUD, video_kbps=vk, cuts=[],
                elements={e.id: dict(text=e.text, fs=e.fs, grp=e.grp, t_in=e.t_in, t_out=e.t_out, tweens=e.tweens(), inset=e.inset, parent=e.parent.id if e.parent else None) for e in ELS},
                progress=dict(tweens=[dict(kind='grow', dur='base', ease='out')] * len(PSTEPS)), frames=LOG), open(o.out + '.timeline.json', 'w'), default=float)
 print('done', o.out, TOTAL, 's')

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_cc4c2b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:renting:security-deposit:x"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "kitchen",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_cc4c2b_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "How much money I give before?",
+ "key_line": "How much is the security deposit?",
+ "series": [
+  "KITCHEN ENGLISH",
+  "DEPOSIT = money first"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_cc4c2b_k",
+   "card": {
+    "formula": "DEPOSIT = money first"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_cc4c2b_y",
+   "card": {
+    "text": "The deposit is money you pay before you move in."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "How much is the security deposit?",
+   "How much is the deposit?",
+   "We paid a security deposit."
+  ]
+ },
+ "quiz": {
+  "pre": "How much",
+  "post": "the security deposit?",
+  "a": "is",
+  "b": "I give",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_0139ba",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:do not disturb#phrase"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0139ba_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Please, no disturbing me.",
+ "key_line": "Do not disturb.",
+ "series": [
+  "HOTEL ENGLISH",
+  "door sign = DO NOT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0139ba_k",
+   "card": {
+    "formula": "door sign = DO NOT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0139ba_y",
+   "card": {
+    "text": "Hotels use this fixed sign. Don't change the words."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Do not disturb.",
+   "I put the do not disturb sign on my door.",
+   "Turn on do not disturb before the meeting."
+  ]
+ },
+ "quiz": {
+  "pre": "The sign on the hotel door says: Do not",
+  "post": "",
+  "a": "disturb",
+  "b": "disturbing",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

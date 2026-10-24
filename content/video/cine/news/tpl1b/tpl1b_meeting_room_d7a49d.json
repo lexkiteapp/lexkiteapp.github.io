@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_d7a49d",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:interview:ive-worked-for:x"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_d7a49d_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I work here since three years.",
+ "key_line": "I've worked here for three years.",
+ "series": [
+  "MEETING ENGLISH",
+  "I'VE + worked + FOR"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_d7a49d_k",
+   "card": {
+    "formula": "I'VE + worked + FOR"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_d7a49d_y",
+   "card": {
+    "text": "Started in the past, still true now: I've worked… for."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I've worked here for three years.",
+   "I've lived in Lima for five years.",
+   "She's worked in sales for two years."
+  ]
+ },
+ "quiz": {
+  "pre": "I've worked in sales",
+  "post": "six years",
+  "a": "for",
+  "b": "since",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

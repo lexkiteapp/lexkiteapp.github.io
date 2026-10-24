@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_786153",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:work-meeting:well-discuss:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_786153_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Today we will discuss about the budget.",
+ "key_line": "Today we'll discuss the budget.",
+ "series": [
+  "MEETING ENGLISH",
+  "DISCUSS + thing. TALK"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_786153_k",
+   "card": {
+    "formula": "DISCUSS + thing. TALK"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_786153_y",
+   "card": {
+    "text": "Discuss needs no about. Discuss the plan."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Today we'll discuss the budget.",
+   "Let's discuss the plan.",
+   "We talked about the budget."
+  ]
+ },
+ "quiz": {
+  "pre": "We need to",
+  "post": "the budget",
+  "a": "discuss",
+  "b": "discuss about",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

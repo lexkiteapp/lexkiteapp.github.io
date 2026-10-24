@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_022772",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:reason:for"
+ },
+ "topic": "work",
+ "cefr": "A1",
+ "area": "grammar-check",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_022772_h",
+  "quote": null,
+  "kind": "Stop saying 'reason of'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "What's the reason of the delay?",
+ "key_line": "What's the reason for the delay?",
+ "series": [
+  "OFFICE ENGLISH",
+  "reason FOR"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_022772_k",
+   "card": {
+    "formula": "reason FOR"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_022772_y",
+   "card": {
+    "text": "We say reason for something."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "What's the reason for the delay?",
+   "There's a good reason for this rule.",
+   "What's the reason for your visit?"
+  ]
+ },
+ "quiz": {
+  "pre": "What's the reason",
+  "post": "the change?",
+  "a": "for",
+  "b": "of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

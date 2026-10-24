@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_20315a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:its-it-s"
+ },
+ "topic": "study",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_20315a_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "The dog wagged it's tail.",
+ "key_line": "The dog wagged its tail.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "IT'S = it is"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_20315a_k",
+   "card": {
+    "formula": "IT'S = it is"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_20315a_y",
+   "card": {
+    "text": "It's means it is. Its means belonging to it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The dog wagged its tail.",
+   "It's cold today.",
+   "The company changed its name."
+  ]
+ },
+ "quiz": {
+  "pre": "The bird hurt",
+  "post": "wing",
+  "a": "its",
+  "b": "it's",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

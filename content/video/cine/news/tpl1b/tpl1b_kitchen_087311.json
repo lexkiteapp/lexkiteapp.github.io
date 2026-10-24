@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_087311",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:see-look-watch"
+ },
+ "topic": "home",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "kitchen",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_087311_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I watched a bird for a second.",
+ "key_line": "I saw a bird.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "see = eyes open"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_087311_k",
+   "card": {
+    "formula": "see = eyes open"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_087311_y",
+   "card": {
+    "text": "See just happens. Look is on purpose."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I saw a bird.",
+   "Look at this photo!",
+   "We watched the game all night."
+  ]
+ },
+ "quiz": {
+  "pre": "Did you",
+  "post": "the football game last night?",
+  "a": "watch",
+  "b": "look",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

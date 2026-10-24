@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_1798ba",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:damage-harm"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_1798ba_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "The storm harmed the roof.",
+ "key_line": "The storm damaged the roof.",
+ "series": [
+  "OFFICE ENGLISH",
+  "things = DAMAGE"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1798ba_k",
+   "card": {
+    "formula": "things = DAMAGE"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1798ba_y",
+   "card": {
+    "text": "Things get damaged. People get harmed."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The storm damaged the roof.",
+   "The car was damaged.",
+   "Smoking harms your health."
+  ]
+ },
+ "quiz": {
+  "pre": "The flood",
+  "post": "many houses",
+  "a": "damaged",
+  "b": "harmed",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

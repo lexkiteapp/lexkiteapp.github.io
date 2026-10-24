@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_05671f",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:fit:for"
+ },
+ "topic": "shopping",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "clothing_store",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_05671f_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "This room is not fit to a party.",
+ "key_line": "This room is not fit for a party.",
+ "series": [
+  "STORE ENGLISH",
+  "fit FOR = good enough"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_05671f_k",
+   "card": {
+    "formula": "fit FOR = good enough"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_05671f_y",
+   "card": {
+    "text": "Fit for means good enough for."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "This room is not fit for a party.",
+   "Is he fit for work today?",
+   "This food is not fit for children."
+  ]
+ },
+ "quiz": {
+  "pre": "This old car isn't fit",
+  "post": "long trips",
+  "a": "for",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

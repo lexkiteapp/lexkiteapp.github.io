@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_002c30",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:be credited with#phrase"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_002c30_h",
+  "quote": null,
+  "kind": "Natives never say 'credited for'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "She is credited for the idea.",
+ "key_line": "She is credited with the idea.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "credited WITH + success"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_002c30_k",
+   "card": {
+    "formula": "credited WITH + success"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_002c30_y",
+   "card": {
+    "text": "Be credited with means people say you did it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "She is credited with the idea.",
+   "He will be credited with saving the team.",
+   "She was credited with the discovery."
+  ]
+ },
+ "quiz": {
+  "pre": "Edison is credited",
+  "post": "the light bulb",
+  "a": "with",
+  "b": "from",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

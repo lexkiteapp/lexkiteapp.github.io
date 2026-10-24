@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_03afa1",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:magnetic resonance imaging#n"
+ },
+ "topic": "health",
+ "cefr": "C1",
+ "area": "phrases",
+ "plate": "pharmacy",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_03afa1_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I need a magnet photo of my knee.",
+ "key_line": "I need an MRI of my knee.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "MRI = magnet scan"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_03afa1_k",
+   "card": {
+    "formula": "MRI = magnet scan"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_03afa1_y",
+   "card": {
+    "text": "Magnetic resonance imaging is called an MRI."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I need an MRI of my knee.",
+   "The doctor ordered magnetic resonance imaging.",
+   "My MRI is on Monday."
+  ]
+ },
+ "quiz": {
+  "pre": "The MRI scan uses",
+  "post": "",
+  "a": "magnets",
+  "b": "X-rays",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

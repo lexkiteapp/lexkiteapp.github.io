@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_cc6fbe",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:airport:gate-changed:x"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "airport_gate",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_cc6fbe_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "The gate is change?",
+ "key_line": "Excuse me, has the gate changed?",
+ "series": [
+  "AIRPORT ENGLISH",
+  "HAS + it + CHANGED?"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_cc6fbe_k",
+   "card": {
+    "formula": "HAS + it + CHANGED?"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_cc6fbe_y",
+   "card": {
+    "text": "For a new change, ask: has it changed?"
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Excuse me, has the gate changed?",
+   "Has the time changed?",
+   "Excuse me, has the flight moved?"
+  ]
+ },
+ "quiz": {
+  "pre": "Excuse me,",
+  "post": "the gate changed?",
+  "a": "has",
+  "b": "is",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_0c7fd8",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:i would like to invite you to#phrase"
+ },
+ "topic": "social",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0c7fd8_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I invite you come to my party.",
+ "key_line": "I would like to invite you to my party.",
+ "series": [
+  "HOME ENGLISH",
+  "invite you TO + event"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0c7fd8_k",
+   "card": {
+    "formula": "invite you TO + event"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0c7fd8_y",
+   "card": {
+    "text": "This polite form works for any invitation."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I would like to invite you to my party.",
+   "I would like to invite you to dinner.",
+   "We would like to invite you to our wedding."
+  ]
+ },
+ "quiz": {
+  "pre": "I would like to invite you",
+  "post": "our meeting",
+  "a": "to",
+  "b": "for",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_112e38",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:make:pass"
+ },
+ "topic": "exam",
+ "cefr": "C1",
+ "area": "verbs",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_112e38_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "We were made wait for hours.",
+ "key_line": "We were made to wait for hours.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "made us WAIT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_112e38_k",
+   "card": {
+    "formula": "made us WAIT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_112e38_y",
+   "card": {
+    "text": "Make someone wait, but be made to wait."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "We were made to wait for hours.",
+   "They made us wait.",
+   "He was made to apologize."
+  ]
+ },
+ "quiz": {
+  "pre": "She was made",
+  "post": "the form again",
+  "a": "to fill",
+  "b": "fill",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

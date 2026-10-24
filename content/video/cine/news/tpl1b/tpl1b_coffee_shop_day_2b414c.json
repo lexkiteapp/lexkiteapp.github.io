@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_2b414c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:s:too-to"
+ },
+ "topic": "food",
+ "cefr": "A1",
+ "area": "grammar",
+ "plate": "coffee_shop_day",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_2b414c_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "It's too hot to not drink.",
+ "key_line": "It's too hot to drink.",
+ "series": [
+  "CAFE ENGLISH",
+  "TOO + adj + TO = can't"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_2b414c_k",
+   "card": {
+    "formula": "TOO + adj + TO = can't"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_2b414c_y",
+   "card": {
+    "text": "Too already means not possible. No extra not."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "It's too hot to drink.",
+   "I'm too tired to walk.",
+   "The box is too heavy to carry."
+  ]
+ },
+ "quiz": {
+  "pre": "The soup is too hot",
+  "post": "",
+  "a": "to eat",
+  "b": "to not eat",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Practice grammar free on lexkite.com",
+  "link": "https://lexkite.com/app/#/grammar",
+  "label": "Grammar lessons"
+ }
+}

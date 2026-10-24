@@ -14,21 +14,24 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_0a35f2_h",
-  "quote": "divide the bill",
-  "kind": "Natives never say this"
+  "quote": null,
+  "kind": "Natives never say this",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
  },
  "wrong_line": "Let's divide the bill.",
  "key_line": "Let's split the bill.",
  "series": [
-  "DINING OUT",
-  "SPLIT + the bill"
+  "RESTAURANT ENGLISH",
+  "SPLIT = share the cost"
  ],
  "beats": [
   {
    "kind": "k",
    "line": "n_0a35f2_k",
    "card": {
-    "formula": "SPLIT + the bill"
+    "formula": "SPLIT = share the cost"
    }
   },
   {

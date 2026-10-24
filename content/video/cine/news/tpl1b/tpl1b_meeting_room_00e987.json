@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_00e987",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:job#n"
+ },
+ "topic": "work",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_00e987_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I'm looking for a work.",
+ "key_line": "I'm looking for a job.",
+ "series": [
+  "MEETING ENGLISH",
+  "job = position"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_00e987_k",
+   "card": {
+    "formula": "job = position"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_00e987_y",
+   "card": {
+    "text": "Job is countable. Work is not."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm looking for a job.",
+   "She got a new job at a bank.",
+   "I have a lot of work this week."
+  ]
+ },
+ "quiz": {
+  "pre": "She found a new",
+  "post": "",
+  "a": "job",
+  "b": "work",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

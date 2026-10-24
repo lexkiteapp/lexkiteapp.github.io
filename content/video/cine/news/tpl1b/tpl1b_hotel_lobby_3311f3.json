@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_3311f3",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:check out#phr v"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "hotel_lobby",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_3311f3_h",
+  "quote": null,
+  "kind": "Natives never say this",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "What time do I leave the hotel?",
+ "key_line": "What time do I check out?",
+ "series": [
+  "HOTEL ENGLISH",
+  "check IN = arrive"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3311f3_k",
+   "card": {
+    "formula": "check IN = arrive"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3311f3_y",
+   "card": {
+    "text": "Check out means pay and leave a hotel."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "What time do I check out?",
+   "We check out at 11 a.m.",
+   "Can I check out late?"
+  ]
+ },
+ "quiz": {
+  "pre": "Guests must",
+  "post": "by noon",
+  "a": "check out",
+  "b": "check off",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

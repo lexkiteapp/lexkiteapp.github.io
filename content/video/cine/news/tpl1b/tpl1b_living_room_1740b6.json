@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_1740b6",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:remember-remind:m0"
+ },
+ "topic": "daily",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "living_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_1740b6_h",
+  "quote": null,
+  "kind": "Stop saying 'remember me to'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Remember me to call her.",
+ "key_line": "Remind me to call her.",
+ "series": [
+  "HOME ENGLISH",
+  "REMIND someone"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1740b6_k",
+   "card": {
+    "formula": "REMIND someone"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1740b6_y",
+   "card": {
+    "text": "Remind means help someone remember."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Remind me to call her.",
+   "Remind me about the meeting.",
+   "I remember your face."
+  ]
+ },
+ "quiz": {
+  "pre": "Can you",
+  "post": "me to buy milk?",
+  "a": "remind",
+  "b": "remember",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

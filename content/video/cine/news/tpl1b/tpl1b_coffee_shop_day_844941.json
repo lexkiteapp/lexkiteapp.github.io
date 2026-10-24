@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coffee_shop_day_844941",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:new-friends:me-too:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "coffee_shop_day",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_844941_h",
+  "quote": null,
+  "kind": "Natives never say 'me also'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Me also!",
+ "key_line": "No way, me too!",
+ "series": [
+  "CAFE ENGLISH",
+  "ME TOO. I ALSO + verb"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_844941_k",
+   "card": {
+    "formula": "ME TOO. I ALSO + verb"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_844941_y",
+   "card": {
+    "text": "Short answer: me too. Not me also."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "No way, me too!",
+   "I love jazz. Me too!",
+   "I also love jazz."
+  ]
+ },
+ "quiz": {
+  "pre": "I love tacos!",
+  "post": "",
+  "a": "Me too!",
+  "b": "Me also!",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

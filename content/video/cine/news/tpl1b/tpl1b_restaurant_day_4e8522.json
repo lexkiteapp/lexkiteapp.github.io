@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_restaurant_day_4e8522",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:feel like:m0"
+ },
+ "topic": "food",
+ "cefr": "B1",
+ "area": "verbs",
+ "plate": "restaurant_day",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_4e8522_h",
+  "quote": null,
+  "kind": "Stop saying 'feel like to'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I feel like to sleep.",
+ "key_line": "I feel like sleeping.",
+ "series": [
+  "RESTAURANT ENGLISH",
+  "feel like + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_4e8522_k",
+   "card": {
+    "formula": "feel like + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_4e8522_y",
+   "card": {
+    "text": "Feel like plus -ing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I feel like sleeping.",
+   "I feel like eating pizza.",
+   "Do you feel like going out?"
+  ]
+ },
+ "quiz": {
+  "pre": "I don't feel like",
+  "post": "today",
+  "a": "cooking",
+  "b": "to cook",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

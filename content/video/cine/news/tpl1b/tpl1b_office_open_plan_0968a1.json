@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_0968a1",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:suspicious:of"
+ },
+ "topic": "tech",
+ "cefr": "C1",
+ "area": "grammar-check",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0968a1_h",
+  "quote": null,
+  "kind": "Stop saying 'suspicious about him'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I'm suspicious about him.",
+ "key_line": "I'm suspicious of him.",
+ "series": [
+  "OFFICE ENGLISH",
+  "suspicious OF"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0968a1_k",
+   "card": {
+    "formula": "suspicious OF"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0968a1_y",
+   "card": {
+    "text": "Suspicious of means you don't trust it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm suspicious of him.",
+   "Be suspicious of free offers.",
+   "She was suspicious of the price."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm suspicious",
+  "post": "cheap deals online",
+  "a": "of",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

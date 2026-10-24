@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_52fcf4",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:damage-harm:m0"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_52fcf4_h",
+  "quote": null,
+  "kind": "Stop saying 'many damages'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The flood caused many damages.",
+ "key_line": "The flood caused a lot of damage.",
+ "series": [
+  "HOME ENGLISH",
+  "damage = uncountable"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_52fcf4_k",
+   "card": {
+    "formula": "damage = uncountable"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_52fcf4_y",
+   "card": {
+    "text": "Damage, meaning harm, has no plural."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The flood caused a lot of damage.",
+   "The storm caused little damage.",
+   "Was there any damage to the car?"
+  ]
+ },
+ "quiz": {
+  "pre": "The fire caused a lot of",
+  "post": "",
+  "a": "damage",
+  "b": "damages",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

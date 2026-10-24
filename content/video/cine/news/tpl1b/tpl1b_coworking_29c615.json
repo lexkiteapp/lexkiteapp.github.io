@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_29c615",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:hesitate:to"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "verbs",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_29c615_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Don't hesitate contacting us.",
+ "key_line": "Don't hesitate to contact us.",
+ "series": [
+  "OFFICE ENGLISH",
+  "hesitate TO + verb"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_29c615_k",
+   "card": {
+    "formula": "hesitate TO + verb"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_29c615_y",
+   "card": {
+    "text": "Hesitate is followed by to plus verb."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Don't hesitate to contact us.",
+   "Don't hesitate to ask.",
+   "She hesitated to answer."
+  ]
+ },
+ "quiz": {
+  "pre": "Please don't hesitate",
+  "post": "us",
+  "a": "to call",
+  "b": "calling",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

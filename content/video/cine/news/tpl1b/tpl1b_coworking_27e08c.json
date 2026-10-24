@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_27e08c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:presenting:key-point:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_27e08c_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "The most important is users want speed.",
+ "key_line": "The key point to remember is that users want speed.",
+ "series": [
+  "OFFICE ENGLISH",
+  "THE MOST IMPORTANT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_27e08c_k",
+   "card": {
+    "formula": "THE MOST IMPORTANT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_27e08c_y",
+   "card": {
+    "text": "The most important needs a noun: the most important thing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The key point to remember is that users want speed.",
+   "The most important thing is safety.",
+   "The key point is time."
+  ]
+ },
+ "quiz": {
+  "pre": "The most important",
+  "post": "is speed",
+  "a": "thing",
+  "b": "is",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

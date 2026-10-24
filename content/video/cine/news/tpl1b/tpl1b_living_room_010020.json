@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_010020",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:put off:ing"
+ },
+ "topic": "daily",
+ "cefr": "B1",
+ "area": "verbs",
+ "plate": "living_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_010020_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I keep putting off to call him.",
+ "key_line": "I keep putting off calling him.",
+ "series": [
+  "HOME ENGLISH",
+  "put off + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_010020_k",
+   "card": {
+    "formula": "put off + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_010020_y",
+   "card": {
+    "text": "Put off plus -ing means delay doing it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I keep putting off calling him.",
+   "Stop putting off your homework.",
+   "We put off buying a car."
+  ]
+ },
+ "quiz": {
+  "pre": "Don't put off",
+  "post": "the doctor",
+  "a": "seeing",
+  "b": "to see",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

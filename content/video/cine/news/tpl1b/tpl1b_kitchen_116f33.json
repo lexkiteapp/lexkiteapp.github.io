@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_116f33",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:hate:ing"
+ },
+ "topic": "daily",
+ "cefr": "A1",
+ "area": "verbs",
+ "plate": "kitchen",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_116f33_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I hate wait.",
+ "key_line": "I hate waiting.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "hate + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_116f33_k",
+   "card": {
+    "formula": "hate + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_116f33_y",
+   "card": {
+    "text": "After hate, use -ing or to plus verb."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I hate waiting.",
+   "I hate getting up early.",
+   "She hates cooking."
+  ]
+ },
+ "quiz": {
+  "pre": "I hate",
+  "post": "in traffic",
+  "a": "sitting",
+  "b": "sit",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

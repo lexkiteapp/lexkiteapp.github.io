@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_8df64e",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:presenting:as-you-can-see:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_8df64e_h",
+  "quote": null,
+  "kind": "Stop saying 'like you see'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Like you see in this slide…",
+ "key_line": "As you can see on this slide…",
+ "series": [
+  "MEETING ENGLISH",
+  "AS YOU CAN SEE + ON"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_8df64e_k",
+   "card": {
+    "formula": "AS YOU CAN SEE + ON"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_8df64e_y",
+   "card": {
+    "text": "Say as you can see, and on a slide."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "As you can see on this slide…",
+   "As you can see, prices fell.",
+   "Look at the chart on this slide."
+  ]
+ },
+ "quiz": {
+  "pre": "As you can see",
+  "post": "this slide…",
+  "a": "on",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

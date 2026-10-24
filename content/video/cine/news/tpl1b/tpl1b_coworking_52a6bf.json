@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_52a6bf",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:whose-who-s"
+ },
+ "topic": "tech",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "coworking",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_52a6bf_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Who's bag is this?",
+ "key_line": "Whose bag is this?",
+ "series": [
+  "OFFICE ENGLISH",
+  "WHO'S = who is"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_52a6bf_k",
+   "card": {
+    "formula": "WHO'S = who is"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_52a6bf_y",
+   "card": {
+    "text": "Whose asks who owns it. Who's means who is."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Whose bag is this?",
+   "Whose phone is ringing?",
+   "Who's coming tonight?"
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": "car is outside?",
+  "a": "Whose",
+  "b": "Who's",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_b56e52",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:new-friends:are-you-free:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_b56e52_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "You want join us?",
+ "key_line": "Are you free this Saturday?",
+ "series": [
+  "HOME ENGLISH",
+  "ARE YOU FREE + day? /"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_b56e52_k",
+   "card": {
+    "formula": "ARE YOU FREE + day? /"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_b56e52_y",
+   "card": {
+    "text": "Ask if they are free, then give the plan."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Are you free this Saturday?",
+   "Are you free on Friday?",
+   "Do you want to join us?"
+  ]
+ },
+ "quiz": {
+  "pre": "Do you want",
+  "post": "us?",
+  "a": "to join",
+  "b": "join",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_08f691",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:it depends#phrase"
+ },
+ "topic": "exam",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_08f691_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "It's depend.",
+ "key_line": "It depends.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "IT depend-S"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_08f691_k",
+   "card": {
+    "formula": "IT depend-S"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_08f691_y",
+   "card": {
+    "text": "It needs -s: it depends."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "It depends.",
+   "Will I go? It depends on my boss.",
+   "How long is the trip? It depends."
+  ]
+ },
+ "quiz": {
+  "pre": "How much is it? It",
+  "post": "",
+  "a": "depends",
+  "b": "depend",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

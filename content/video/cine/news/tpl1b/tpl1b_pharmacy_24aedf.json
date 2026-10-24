@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_24aedf",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:protect:from"
+ },
+ "topic": "health",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "pharmacy",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_24aedf_h",
+  "quote": null,
+  "kind": "Stop saying 'protect of'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Sunscreen protects of the sun.",
+ "key_line": "Sunscreen protects you from the sun.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "protect + someone + FROM"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_24aedf_k",
+   "card": {
+    "formula": "protect + someone + FROM"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_24aedf_y",
+   "card": {
+    "text": "Protect someone from danger."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Sunscreen protects you from the sun.",
+   "A helmet protects you from injury.",
+   "Protect your phone from water."
+  ]
+ },
+ "quiz": {
+  "pre": "This coat protects me",
+  "post": "the rain",
+  "a": "from",
+  "b": "of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

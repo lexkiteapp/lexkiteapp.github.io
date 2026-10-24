@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_08e239",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:your help was invaluable#phrase"
+ },
+ "topic": "work",
+ "cefr": "C1",
+ "area": "phrases",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_08e239_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Your help was not valuable at all. Thanks!",
+ "key_line": "Your help was invaluable. Thank you!",
+ "series": [
+  "MEETING ENGLISH",
+  "INVALUABLE = too useful"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_08e239_k",
+   "card": {
+    "formula": "INVALUABLE = too useful"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_08e239_y",
+   "card": {
+    "text": "Invaluable means very, very useful."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Your help was invaluable. Thank you!",
+   "Your advice was invaluable.",
+   "Her support was invaluable to the team."
+  ]
+ },
+ "quiz": {
+  "pre": "Thank you! Your help was",
+  "post": "",
+  "a": "invaluable",
+  "b": "not valuable",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

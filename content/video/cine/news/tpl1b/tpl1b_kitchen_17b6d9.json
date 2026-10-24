@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_17b6d9",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:have:obare"
+ },
+ "topic": "daily",
+ "cefr": "C1",
+ "area": "verbs",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_17b6d9_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I had him to fix my car.",
+ "key_line": "I had him fix my car.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "HAVE + person + VERB"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_17b6d9_k",
+   "card": {
+    "formula": "HAVE + person + VERB"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_17b6d9_y",
+   "card": {
+    "text": "Have someone do something. No to."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I had him fix my car.",
+   "I'll have my assistant call you.",
+   "She had her son clean the room."
+  ]
+ },
+ "quiz": {
+  "pre": "I had my brother",
+  "post": "me",
+  "a": "help",
+  "b": "to help",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

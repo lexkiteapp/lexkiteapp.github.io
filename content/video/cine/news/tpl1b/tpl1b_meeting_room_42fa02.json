@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_42fa02",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:suggest:m0"
+ },
+ "topic": "work",
+ "cefr": "C1",
+ "area": "verbs",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_42fa02_h",
+  "quote": null,
+  "kind": "Stop saying 'suggest you to'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I suggest you to go.",
+ "key_line": "I suggest you go.",
+ "series": [
+  "MEETING ENGLISH",
+  "suggest (THAT) you GO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_42fa02_k",
+   "card": {
+    "formula": "suggest (THAT) you GO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_42fa02_y",
+   "card": {
+    "text": "There is no suggest someone to."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I suggest you go.",
+   "I suggest you call him.",
+   "She suggested taking a taxi."
+  ]
+ },
+ "quiz": {
+  "pre": "I suggest you",
+  "post": "early",
+  "a": "leave",
+  "b": "to leave",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

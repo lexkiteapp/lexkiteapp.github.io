@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_0024c5",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:copy#n"
+ },
+ "topic": "daily",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_0024c5_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I'll buy the real book, not a copy.",
+ "key_line": "I'll buy a copy of the book.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "one book = one copy"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0024c5_k",
+   "card": {
+    "formula": "one book = one copy"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0024c5_y",
+   "card": {
+    "text": "A copy is often one real book."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'll buy a copy of the book.",
+   "I bought two copies of the magazine.",
+   "Please make a copy of this page."
+  ]
+ },
+ "quiz": {
+  "pre": "The library has three",
+  "post": "of this book",
+  "a": "copies",
+  "b": "copys",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

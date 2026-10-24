@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_073460",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:propose:to"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "verbs",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_073460_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I propose leave early.",
+ "key_line": "I propose to leave early.",
+ "series": [
+  "MEETING ENGLISH",
+  "propose TO + verb = plan"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_073460_k",
+   "card": {
+    "formula": "propose TO + verb = plan"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_073460_y",
+   "card": {
+    "text": "Propose to plus verb means intend to do it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I propose to leave early.",
+   "We propose to open a new office.",
+   "He proposed to her in Paris."
+  ]
+ },
+ "quiz": {
+  "pre": "The city proposes",
+  "post": "a new bridge",
+  "a": "to build",
+  "b": "build",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

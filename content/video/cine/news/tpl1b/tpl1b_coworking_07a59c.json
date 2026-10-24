@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_07a59c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:discovery#n"
+ },
+ "topic": "tech",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_07a59c_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "The phone was a big discovery.",
+ "key_line": "The phone was a big invention.",
+ "series": [
+  "OFFICE ENGLISH",
+  "found = DISCOVERY"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_07a59c_k",
+   "card": {
+    "formula": "found = DISCOVERY"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_07a59c_y",
+   "card": {
+    "text": "A discovery finds something. An invention is new."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The phone was a big invention.",
+   "It was an important discovery.",
+   "The discovery of gold changed the town."
+  ]
+ },
+ "quiz": {
+  "pre": "Finding the new planet was a big",
+  "post": "",
+  "a": "discovery",
+  "b": "invention",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_05b65d",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:decide:to"
+ },
+ "topic": "health",
+ "cefr": "A1",
+ "area": "verbs",
+ "plate": "pharmacy",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_05b65d_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I decided going home.",
+ "key_line": "I decided to go home.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "decide + TO + verb"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_05b65d_k",
+   "card": {
+    "formula": "decide + TO + verb"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_05b65d_y",
+   "card": {
+    "text": "After decide, use to plus verb."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I decided to go home.",
+   "She decided to study abroad.",
+   "We decided to stay in."
+  ]
+ },
+ "quiz": {
+  "pre": "They decided",
+  "post": "a new car",
+  "a": "to buy",
+  "b": "buying",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

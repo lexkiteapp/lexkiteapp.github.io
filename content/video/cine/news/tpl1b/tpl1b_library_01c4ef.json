@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_01c4ef",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:deny:ing"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "verbs",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_01c4ef_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "He denied to take the money.",
+ "key_line": "He denied taking the money.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "deny / admit + -ING"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_01c4ef_k",
+   "card": {
+    "formula": "deny / admit + -ING"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_01c4ef_y",
+   "card": {
+    "text": "Deny plus -ing means say you didn't do it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "He denied taking the money.",
+   "She denied breaking the glass.",
+   "He denies being late."
+  ]
+ },
+ "quiz": {
+  "pre": "The boy denied",
+  "post": "the cake",
+  "a": "eating",
+  "b": "to eat",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

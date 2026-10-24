@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_058ffb",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:a:furthermore:furthermore"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "grammar-check",
+ "plate": "exam_hall",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_058ffb_h",
+  "quote": null,
+  "kind": "Stop saying 'and furthermore'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "And furthermore, it's cheap.",
+ "key_line": "Furthermore, it's cheap.",
+ "series": [
+  "EXAM ENGLISH",
+  "FURTHERMORE = and also"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_058ffb_k",
+   "card": {
+    "formula": "FURTHERMORE = and also"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_058ffb_y",
+   "card": {
+    "text": "Furthermore already means and. Don't add and."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Furthermore, it's cheap.",
+   "The hotel is clean. Furthermore, it's cheap.",
+   "Furthermore, the staff were kind."
+  ]
+ },
+ "quiz": {
+  "pre": "The plan is safe.",
+  "post": ", it saves money",
+  "a": "Furthermore",
+  "b": "And furthermore",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_466c0a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:allow:m0"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "verbs",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_466c0a_h",
+  "quote": null,
+  "kind": "Stop saying 'allow to smoke'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "They don't allow to smoke here.",
+ "key_line": "They don't allow smoking here.",
+ "series": [
+  "HOTEL ENGLISH",
+  "allow -ING / allow"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_466c0a_k",
+   "card": {
+    "formula": "allow -ING / allow"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_466c0a_y",
+   "card": {
+    "text": "No person? Allow plus -ing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "They don't allow smoking here.",
+   "They don't allow dogs here.",
+   "My boss allowed me to leave early."
+  ]
+ },
+ "quiz": {
+  "pre": "The hotel doesn't allow",
+  "post": "",
+  "a": "smoking",
+  "b": "to smoke",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

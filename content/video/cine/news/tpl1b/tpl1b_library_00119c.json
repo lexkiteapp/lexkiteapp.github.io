@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_00119c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:urge:oto"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "verbs",
+ "plate": "library",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_00119c_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Doctors urge that people to rest.",
+ "key_line": "Doctors urge people to rest.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "urge + someone + TO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_00119c_k",
+   "card": {
+    "formula": "urge + someone + TO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_00119c_y",
+   "card": {
+    "text": "Urge someone to do something."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Doctors urge people to rest.",
+   "They urged us to leave.",
+   "I urge you to read it."
+  ]
+ },
+ "quiz": {
+  "pre": "The police urged drivers",
+  "post": "slowly",
+  "a": "to drive",
+  "b": "driving",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

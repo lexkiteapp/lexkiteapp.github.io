@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_04ad5a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:available:to"
+ },
+ "topic": "work",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "coworking",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_04ad5a_h",
+  "quote": null,
+  "kind": "Stop saying 'available for everyone'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "The gym is available for all students.",
+ "key_line": "The gym is available to all students.",
+ "series": [
+  "OFFICE ENGLISH",
+  "available TO people"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_04ad5a_k",
+   "card": {
+    "formula": "available TO people"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_04ad5a_y",
+   "card": {
+    "text": "For people who can use it, say available to."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The gym is available to all students.",
+   "The service is available to members.",
+   "This app is available to everyone."
+  ]
+ },
+ "quiz": {
+  "pre": "Free Wi-Fi is available",
+  "post": "all guests",
+  "a": "to",
+  "b": "from",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

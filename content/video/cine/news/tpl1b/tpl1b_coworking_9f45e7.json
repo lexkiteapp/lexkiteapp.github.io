@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_9f45e7",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:interview:interested-in-because:x"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_9f45e7_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I am interesting in this job.",
+ "key_line": "I'm interested in this job.",
+ "series": [
+  "OFFICE ENGLISH",
+  "I feel -ED"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_9f45e7_k",
+   "card": {
+    "formula": "I feel -ED"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_9f45e7_y",
+   "card": {
+    "text": "Interested is how you feel. Interesting is the thing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'm interested in this job.",
+   "I'm interested in design.",
+   "The job sounds interesting."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm really",
+  "post": "in this role",
+  "a": "interested",
+  "b": "interesting",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

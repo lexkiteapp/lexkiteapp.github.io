@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_55270c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:interview:typical-day:x"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_55270c_h",
+  "quote": null,
+  "kind": "Stop saying 'What I must'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "What I must do every day?",
+ "key_line": "What does a typical day look like?",
+ "series": [
+  "OFFICE ENGLISH",
+  "WHAT DOES + it + LOOK"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_55270c_k",
+   "card": {
+    "formula": "WHAT DOES + it + LOOK"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_55270c_y",
+   "card": {
+    "text": "In questions, put does before the subject."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "What does a typical day look like?",
+   "What does a typical week look like?",
+   "What does the team do every day?"
+  ]
+ },
+ "quiz": {
+  "pre": "What",
+  "post": "a typical day look like?",
+  "a": "does",
+  "b": "is",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

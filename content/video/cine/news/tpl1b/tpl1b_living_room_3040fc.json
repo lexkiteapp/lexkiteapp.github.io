@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_3040fc",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:a:near:nearly"
+ },
+ "topic": "daily",
+ "cefr": "A1",
+ "area": "grammar-check",
+ "plate": "living_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_3040fc_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I near missed the bus.",
+ "key_line": "I nearly missed the bus.",
+ "series": [
+  "HOME ENGLISH",
+  "NEARLY = almost"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3040fc_k",
+   "card": {
+    "formula": "NEARLY = almost"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3040fc_y",
+   "card": {
+    "text": "Nearly means almost."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I nearly missed the bus.",
+   "It's nearly midnight.",
+   "I nearly forgot!"
+  ]
+ },
+ "quiz": {
+  "pre": "We",
+  "post": "won the game",
+  "a": "nearly",
+  "b": "near",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

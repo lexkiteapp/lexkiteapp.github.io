@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_14cb88",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:calls:hold-on:x"
+ },
+ "topic": "daily",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "park",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_14cb88_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Wait me a moment.",
+ "key_line": "Could you hold on a second?",
+ "series": [
+  "PARK ENGLISH",
+  "WAIT FOR me / HOLD ON"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_14cb88_k",
+   "card": {
+    "formula": "WAIT FOR me / HOLD ON"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_14cb88_y",
+   "card": {
+    "text": "Don't say wait me. Say hold on or wait for me."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Could you hold on a second?",
+   "Could you hold on? I'll get him.",
+   "Please wait for me here."
+  ]
+ },
+ "quiz": {
+  "pre": "Could you",
+  "post": "a second?",
+  "a": "hold on",
+  "b": "wait me",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

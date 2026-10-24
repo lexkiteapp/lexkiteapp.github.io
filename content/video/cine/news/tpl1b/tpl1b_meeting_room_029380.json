@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_029380",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:sorry for the late reply#phrase"
+ },
+ "topic": "work",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_029380_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Sorry for my answering late.",
+ "key_line": "Sorry for the late reply.",
+ "series": [
+  "MEETING ENGLISH",
+  "late email? → SORRY FOR"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_029380_k",
+   "card": {
+    "formula": "late email? → SORRY FOR"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_029380_y",
+   "card": {
+    "text": "This is the fixed phrase for slow emails."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Sorry for the late reply.",
+   "Sorry for the late reply. I was traveling.",
+   "Hi Anna, sorry for the late reply."
+  ]
+ },
+ "quiz": {
+  "pre": "Sorry for the late",
+  "post": "",
+  "a": "reply",
+  "b": "answering",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

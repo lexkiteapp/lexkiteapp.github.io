@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_026263",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:push back#phr v"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "meeting_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_026263_h",
+  "quote": null,
+  "kind": "Natives never say 'make later'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Can we make the meeting later?",
+ "key_line": "Can we push back the meeting?",
+ "series": [
+  "MEETING ENGLISH",
+  "PUSH BACK = later"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_026263_k",
+   "card": {
+    "formula": "PUSH BACK = later"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_026263_y",
+   "card": {
+    "text": "Push back means move to a later time."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Can we push back the meeting?",
+   "They pushed the launch back a week.",
+   "Let's push back lunch to one."
+  ]
+ },
+ "quiz": {
+  "pre": "The flight was pushed",
+  "post": "two hours",
+  "a": "back",
+  "b": "after",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

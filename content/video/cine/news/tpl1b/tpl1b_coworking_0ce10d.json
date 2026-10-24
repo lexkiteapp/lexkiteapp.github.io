@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_0ce10d",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:ago-before"
+ },
+ "topic": "work",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0ce10d_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I met her three years before.",
+ "key_line": "I met her three years ago.",
+ "series": [
+  "OFFICE ENGLISH",
+  "time + AGO = back from"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0ce10d_k",
+   "card": {
+    "formula": "time + AGO = back from"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0ce10d_y",
+   "card": {
+    "text": "Ago counts back from now."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I met her three years ago.",
+   "He left ten minutes ago.",
+   "I had never been there before."
+  ]
+ },
+ "quiz": {
+  "pre": "I started this job two years",
+  "post": "",
+  "a": "ago",
+  "b": "before",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

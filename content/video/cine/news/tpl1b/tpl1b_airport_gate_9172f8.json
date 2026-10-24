@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_9172f8",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:airport:bag-didnt-arrive:x"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "airport_gate",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_9172f8_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I lost my luggages.",
+ "key_line": "My bag didn't arrive.",
+ "series": [
+  "AIRPORT ENGLISH",
+  "LUGGAGE: no plural."
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_9172f8_k",
+   "card": {
+    "formula": "LUGGAGE: no plural."
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_9172f8_y",
+   "card": {
+    "text": "Luggage has no plural. Say bags or my luggage."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My bag didn't arrive.",
+   "My bags didn't arrive.",
+   "All my luggage is in one suitcase."
+  ]
+ },
+ "quiz": {
+  "pre": "My",
+  "post": "didn't arrive",
+  "a": "luggage",
+  "b": "luggages",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

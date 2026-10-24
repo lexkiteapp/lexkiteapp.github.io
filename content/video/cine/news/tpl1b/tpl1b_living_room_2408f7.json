@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_2408f7",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:hang out#phr v"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "phrases",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_2408f7_h",
+  "quote": null,
+  "kind": "Natives never say 'play together'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Want to play together this weekend?",
+ "key_line": "Want to hang out this weekend?",
+ "series": [
+  "HOME ENGLISH",
+  "adults = HANG OUT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_2408f7_k",
+   "card": {
+    "formula": "adults = HANG OUT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_2408f7_y",
+   "card": {
+    "text": "Adults say hang out, not play."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Want to hang out this weekend?",
+   "We hung out at the beach.",
+   "Let's hang out after work."
+  ]
+ },
+ "quiz": {
+  "pre": "Want to",
+  "post": "after class?",
+  "a": "hang out",
+  "b": "play together",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

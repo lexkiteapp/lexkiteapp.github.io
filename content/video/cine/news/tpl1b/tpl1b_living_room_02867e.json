@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_02867e",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:s:in-case"
+ },
+ "topic": "home",
+ "cefr": "A1",
+ "area": "grammar",
+ "plate": "living_room",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_02867e_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Take an umbrella if it rains.",
+ "key_line": "Take an umbrella in case it rains.",
+ "series": [
+  "HOME ENGLISH",
+  "IN CASE = just to be"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_02867e_k",
+   "card": {
+    "formula": "IN CASE = just to be"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_02867e_y",
+   "card": {
+    "text": "In case means: be ready, just to be safe."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Take an umbrella in case it rains.",
+   "Write it down in case you forget.",
+   "I'll bring snacks in case we get hungry."
+  ]
+ },
+ "quiz": {
+  "pre": "Save the file",
+  "post": "the computer crashes",
+  "a": "in case",
+  "b": "if",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Practice grammar free on lexkite.com",
+  "link": "https://lexkite.com/app/#/grammar",
+  "label": "Grammar lessons"
+ }
+}

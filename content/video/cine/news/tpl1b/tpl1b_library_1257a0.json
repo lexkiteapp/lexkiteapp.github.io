@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_1257a0",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:s:so-as-to:m0"
+ },
+ "topic": "study",
+ "cefr": "A1",
+ "area": "grammar",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_1257a0_h",
+  "quote": null,
+  "kind": "Stop saying 'for pass'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I study hard for pass the exam.",
+ "key_line": "I study hard to pass the exam.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "why? → TO + verb"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1257a0_k",
+   "card": {
+    "formula": "why? → TO + verb"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1257a0_y",
+   "card": {
+    "text": "To show why you do something, use to plus verb."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I study hard to pass the exam.",
+   "I saved money to buy a bike.",
+   "She runs every day to stay healthy."
+  ]
+ },
+ "quiz": {
+  "pre": "I went to the store",
+  "post": "milk",
+  "a": "to buy",
+  "b": "for buy",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Practice grammar free on lexkite.com",
+  "link": "https://lexkite.com/app/#/grammar",
+  "label": "Grammar lessons"
+ }
+}

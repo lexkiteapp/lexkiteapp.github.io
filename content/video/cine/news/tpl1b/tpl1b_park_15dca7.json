@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_15dca7",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:through thick and thin#idiom"
+ },
+ "topic": "social",
+ "cefr": "C1",
+ "area": "phrases",
+ "plate": "park",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_15dca7_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Friends in thin and thick.",
+ "key_line": "Friends through thick and thin.",
+ "series": [
+  "PARK ENGLISH",
+  "THICK and THIN = good"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_15dca7_k",
+   "card": {
+    "formula": "THICK and THIN = good"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_15dca7_y",
+   "card": {
+    "text": "The order is fixed: thick and thin."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Friends through thick and thin.",
+   "Friends stay through thick and thin.",
+   "They stayed together through thick and thin."
+  ]
+ },
+ "quiz": {
+  "pre": "Real friends stay through thick and",
+  "post": "",
+  "a": "thin",
+  "b": "thick",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

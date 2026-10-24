@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_10e854",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:property manager#n"
+ },
+ "topic": "home",
+ "cefr": "B1",
+ "area": "phrases",
+ "plate": "kitchen",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_10e854_h",
+  "quote": null,
+  "kind": "Natives never say 'house boss'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I'll call the house boss.",
+ "key_line": "I'll call the property manager.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "runs the building"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_10e854_k",
+   "card": {
+    "formula": "runs the building"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_10e854_y",
+   "card": {
+    "text": "The property manager runs the building for the owner."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'll call the property manager.",
+   "The property manager fixed the heat.",
+   "Email the property manager about repairs."
+  ]
+ },
+ "quiz": {
+  "pre": "The",
+  "post": "manager handles repairs",
+  "a": "property",
+  "b": "house",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

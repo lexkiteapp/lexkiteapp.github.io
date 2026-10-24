@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_03115b",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:skilled:in"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_03115b_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "She is skilled on design.",
+ "key_line": "She is skilled in design.",
+ "series": [
+  "OFFICE ENGLISH",
+  "skilled IN / AT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_03115b_k",
+   "card": {
+    "formula": "skilled IN / AT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_03115b_y",
+   "card": {
+    "text": "Skilled in or at a subject."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "She is skilled in design.",
+   "He is skilled in cooking.",
+   "We need workers skilled in IT."
+  ]
+ },
+ "quiz": {
+  "pre": "She's skilled",
+  "post": "language teaching",
+  "a": "in",
+  "b": "on",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

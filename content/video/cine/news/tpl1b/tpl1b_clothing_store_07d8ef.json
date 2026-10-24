@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_07d8ef",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:inferior:to"
+ },
+ "topic": "shopping",
+ "cefr": "C1",
+ "area": "grammar-check",
+ "plate": "clothing_store",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_07d8ef_h",
+  "quote": null,
+  "kind": "Stop saying 'inferior than'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "This model is inferior than that one.",
+ "key_line": "This model is inferior to that one.",
+ "series": [
+  "STORE ENGLISH",
+  "inferior / superior TO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_07d8ef_k",
+   "card": {
+    "formula": "inferior / superior TO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_07d8ef_y",
+   "card": {
+    "text": "Inferior and superior take to, not than."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "This model is inferior to that one.",
+   "The copy is inferior to the original.",
+   "Their service is superior to ours."
+  ]
+ },
+ "quiz": {
+  "pre": "This hotel is superior",
+  "post": "the others",
+  "a": "to",
+  "b": "than",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

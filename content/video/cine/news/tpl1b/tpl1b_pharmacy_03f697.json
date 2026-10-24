@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_03f697",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:lead:to"
+ },
+ "topic": "health",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "pharmacy",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_03f697_h",
+  "quote": null,
+  "kind": "Stop saying 'lead for'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Stress can lead for health problems.",
+ "key_line": "Stress can lead to health problems.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "lead TO = cause"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_03f697_k",
+   "card": {
+    "formula": "lead TO = cause"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_03f697_y",
+   "card": {
+    "text": "Lead to means cause."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Stress can lead to health problems.",
+   "Too much sugar can lead to problems.",
+   "Hard work led to success."
+  ]
+ },
+ "quiz": {
+  "pre": "Bad sleep can lead",
+  "post": "stress",
+  "a": "to",
+  "b": "for",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

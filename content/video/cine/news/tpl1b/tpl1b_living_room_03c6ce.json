@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_03c6ce",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:class#n"
+ },
+ "topic": "social",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_03c6ce_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Your phone is very class.",
+ "key_line": "Your phone is very classy.",
+ "series": [
+  "HOME ENGLISH",
+  "class = group"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_03c6ce_k",
+   "card": {
+    "formula": "class = group"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_03c6ce_y",
+   "card": {
+    "text": "Class is a noun. Classy means stylish."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Your phone is very classy.",
+   "She comes from a working class family.",
+   "That hotel is really classy."
+  ]
+ },
+ "quiz": {
+  "pre": "Most people in the city are middle",
+  "post": "",
+  "a": "class",
+  "b": "classy",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

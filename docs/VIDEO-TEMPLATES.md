@@ -70,8 +70,11 @@ Same engine, tokens and gates as tpl1; only the background, the host choice and 
 - **Plate** = `anchor/bg/<name>.png` from the footage bank, only names in `tokens.PLATES` (human-checked: no people, no readable text).
   Cover-resampled once, depth blur 7 px, saturation ×0.82, 12 % cream lift, cream scrim over the text stage (adaptive: the stage
   must reach luma ≥ 226 so navy type keeps contrast), very slow linear push-in (3.5 % over the whole video). No other camera move.
-- **Host**: any bank host with a PRO matte + mouth meta. ONE transform per video: scale 1.0, head top (highest matte row over all
-  frames) at y 1064 under the stage; colour-matched to the plate (per-channel gain ±6 %); contact shadow in darkened plate tone.
+- **Host**: any bank host with a PRO matte + mouth meta. ONE transform per video, **host lock** `tokens.HOST_LOCK` (24/10): head = hair top
+  (highest matte row over all frames near the mouth column) → mouth centre, scaled to 248 px for EVERY host (never above 1.0×; scaled layer
+  sides feathered 56 px), head top at y 1064, mouth column at x 540; colour-matched to the plate (gain ±6 %); contact shadow in plate tone.
+  Gates `host_scale` (±3 % of the target), `host_frame` (body reaches the bottom, side cut ≤ 35 % of host rows) + batch gate (every host
+  within ±3 % of the batch median).
 - **Hook** (first 1.5 s): host line "Stop saying this." / "Never say this." / "Natives never say this." + the same words in display
   type + the struck quote (lesson `hook.quote`). **Payoff** = the ✓ card (≈ 8–10 s). **End**: CTA from `content/video/ecosystem.json`
   (spoken + on screen + area chip = deep link `lesson.cta.link`), then every element clears → the last frame is plate + host = frame 0 (loop).
@@ -79,5 +82,27 @@ Same engine, tokens and gates as tpl1; only the background, the host choice and 
 - **Extra gates** (qc_tpl.py, only when the timeline has a plate): `plate_topic` (lesson topic ∈ plate tags AND a scene tag such as
   airport/hotel/restaurant/dinner appears in the on-screen text), `plate_clean` (PLATES people = text = 0 + OpenCV face detector finds 0),
   `plate_contrast` (stage luma), `plate_motion` (push-in only: monotonic, ≤ 0.25 %/s, ≤ 3.5 % total), `loop_end` (last frame text-free + CTA link).
-- CI: `video-templates.yml` with `lesson=<tpl1b id>`, `tpls=1` (sparse-checks out the lesson's clip + plate). Local demo renders need
-  Rhubarb; on the dev Mac the x86 binary crashes in the sandbox, so local demos used approximate visemes (letters → shapes over voiced audio) – CI uses Rhubarb.
+- CI: `video-templates.yml` with `lesson=<tpl1b id>`, `tpls=1` (one lesson) or `video-tpl1b.yml` (batches, §9). **Lip-sync = Rhubarb only**:
+  the workflow fails when Rhubarb does not run, `news_voice.py` stamps `generator: rhubarb-1.13.0`, `render_tpl.py` exits when a spoken line
+  has no Rhubarb cues, gate `lipsync_rhubarb`. The 3 local demos (approximate visemes) are superseded.
+
+## 9. Batch pipeline: 261 gold scripts → tpl1b shorts (24/10/2026)
+- **Lessons**: `python3 scripts/video/tpl/gold2lesson.py --all` → one lesson per mappable gold script + `tpl1b/plan.json` (order, batches of
+  12, `skipped` with the reason). Plate = keyword match (hotel/flight/coffee/meeting/laptop/…) or topic default over `tokens.PLATES` (topic must
+  be in the plate tags); host = round robin Ama / Carlos / Mia (`tokens.HOST_CLIPS`, natural-talk clips). Skipped: pronunciation scripts
+  (`p:` – TTS cannot voice the wrong stress) and topics without a clean plate (money: bank/ATM plates have wall signs). 24/10: 217 lessons,
+  44 skipped, 19 batches. Plates added 24/10 after a contact-sheet check (no people/text): office_open_plan, meeting_room, coworking,
+  exam_hall, library, clothing_store, supermarket, pharmacy, living_room, kitchen, park (`checked: … vision` – owner confirms on batch 1).
+- **Hook truth**: "Stop saying / Never say / Natives never say" ONLY when the learner line is a real error. `scripts/video/tpl/hook-judge.mjs`
+  (ai-pool, chain `gc-groq` = Groq gpt-oss) judges wrong_is_error / right_ok / hook_true per lesson; acceptable learner line → soft hook
+  ("Americans usually say this." / "Sound more natural.", quote = the natural phrase in green, no strike, "OK" badge, guess "What sounds
+  better?") and a second verdict; wrong correction or false hook → `lesson.reject`. Verdict hash = hook + wrong + right (stale = re-judge).
+  No Groq answer = no verdict = not rendered. Gate `hook_truth`; test `scripts/test/tpl1b-pipeline.mjs` (npm test).
+- **Workflow** `video-tpl1b.yml` (dispatch `batch=N` or `ids=`): plan (judge, verdicts committed to main, matrix ≤ 10 jobs) → render
+  (`batch_chunk.sh`: Kokoro → Rhubarb → render → `qc_tpl.py` → `rubric_tpl.py` = MEDIA-QA-RUBRIC §C score; accept = all gates + ≥ 90;
+  reject → ONE automatic fix `fix_tpl.py` by failure class: loudnorm remux / CBR re-encode / other plate / other host / shorter formula,
+  then qc + rubric again) → store (lease `video-tpl1b` in infra/jobs.json, paused = dispatch only; `batch_report.py`: batch host-scale gate,
+  report.md/json, contact sheet, 3 samples ≥ 5.5 Mbps; `store_tpl.py` → lexkite-shorts `shorts/tpl1b/<lesson>/` + Drive pool via
+  `archive_new.sh` + `shorts/index.json` entry with qa pass + score, `queue: ready` → Admin › Video › "Chờ duyệt").
+- **No auto-publish**: nothing goes to YouTube/social from this workflow; the owner approves in Admin (pack/upload stays manual) and the
+  schedule is enabled only after the first batch is approved.

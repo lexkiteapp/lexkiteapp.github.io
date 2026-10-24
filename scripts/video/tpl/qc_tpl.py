@@ -3,10 +3,12 @@
 Reads <video>.timeline.json (per-frame element log written by render_tpl.py) + ffprobe. Exit 1 on any fail. Writes <video>.qc.json.
 Gates: host transform variance = 0 | motion tokens only | text inside the safe area | readability (>= 0.8 s fully visible, >= 48 px)
 | no jitter (static elements never move by a sub-pixel; tweens monotonic) | <= 1 moving group per frame | no cuts | file: 25-35 s, >= 5.5 Mbps, <= 25 MB
-| tpl 1b: plate_topic, plate_clean, plate_motion (push-in only), loop_end (last frame text-free + CTA deep link)."""
+| tpl 1b: plate_topic, plate_clean, plate_motion (push-in only), loop_end (last frame text-free + CTA deep link)
+| lipsync_rhubarb (every spoken line has Rhubarb cues), host_scale (head = tokens.HOST_LOCK ±3 %), host_frame (no big side cut, body reaches the frame bottom),
+  hook_truth (Groq judge verdict for THIS hook text: strong hook only when the learner line is a real error; correction ok)."""
 import sys, os, re, json, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE
+from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE, HOST_LOCK
 ok_all = True
 for vid in sys.argv[1:]:
     T = json.load(open(vid + '.timeline.json')); fr = T['frames']; E = T['elements']; fps = T['fps']; R = {}
@@ -78,6 +80,22 @@ for vid in sys.argv[1:]:
         # loop: the last frame shows no text (plate + host only, like frame 0)
         last_txt = [r[0] for r in fr[-1]['els'] if r[5] > 0.004]
         R['loop_end'] = dict(ok=not last_txt and bool(T.get('cta')), last_frame_elements=last_txt[:4], cta=(T.get('cta') or {}).get('link'))
+    if T.get('lipsync') is not None or any(f['host'] for f in fr[:1]):
+        LS_ = T.get('lipsync') or {}
+        R['lipsync_rhubarb'] = dict(ok=bool(LS_) and not LS_.get('missing') and all(str(v or '').startswith('rhubarb') for v in (LS_.get('lines') or {}).values()) and bool(LS_.get('lines')),
+                                    missing=LS_.get('missing'), sources=sorted({str(v) for v in (LS_.get('lines') or {}).values()}))
+    if P:
+        HH = T.get('host_head') or {}; tgt = HOST_LOCK['head']
+        R['host_scale'] = dict(ok=bool(HH) and abs(HH.get('head', 0) - tgt) <= HOST_LOCK['tol'] * tgt and HH.get('scale', 9) <= HOST_LOCK['max_scale'] + 1e-6,
+                               head=HH.get('head'), target=tgt, scale=HH.get('scale'), native=HH.get('native'), host=T.get('host_name'))
+        R['host_frame'] = dict(ok=bool(HH) and HH.get('bottom', 0) >= 1920 and HH.get('side_cut_rows', 1e9) <= 0.35 * max(1, HH.get('host_rows', 0)),
+                               side_cut_rows=HH.get('side_cut_rows'), host_rows=HH.get('host_rows'), bottom=HH.get('bottom'))
+        hk = (Lz.get('hook') or {}); jd = hk.get('judge') or {}
+        import hashlib
+        cur = hashlib.sha1('\n'.join([Lz.get('hook_text') or '', Lz.get('wrong') or '', Lz.get('right') or '']).encode()).hexdigest()[:12]
+        R['hook_truth'] = dict(ok=bool(jd) and jd.get('hash') == cur and jd.get('right_ok') is True and jd.get('hook_true') is True and not Lz.get('reject')
+                               and (hk.get('mode') == 'soft' or jd.get('wrong_is_error') is True),
+                               mode=hk.get('mode'), hook=Lz.get('hook_text'), wrong_is_error=jd.get('wrong_is_error'), right_ok=jd.get('right_ok'), model=jd.get('model'), note=jd.get('note'))
     ok = all(v['ok'] for v in R.values()); ok_all &= ok
     json.dump(dict(video=os.path.basename(vid), ok=ok, gates=R), open(vid + '.qc.json', 'w'), indent=1)
     print(os.path.basename(vid), 'PASS' if ok else 'FAIL')

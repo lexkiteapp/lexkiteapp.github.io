@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_supermarket_033d19",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:tracking number#n"
+ },
+ "topic": "shopping",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "supermarket",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_033d19_h",
+  "quote": null,
+  "kind": "Natives never say 'follow number'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "What is my follow number?",
+ "key_line": "What is my tracking number?",
+ "series": [
+  "STORE ENGLISH",
+  "track the package"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_033d19_k",
+   "card": {
+    "formula": "track the package"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_033d19_y",
+   "card": {
+    "text": "You track a package with a tracking number."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "What is my tracking number?",
+   "I got a tracking number by email.",
+   "Enter your tracking number on the website."
+  ]
+ },
+ "quiz": {
+  "pre": "Use the",
+  "post": "number to check where your package is",
+  "a": "tracking",
+  "b": "following",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

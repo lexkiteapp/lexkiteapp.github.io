@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_40706a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:their-there"
+ },
+ "topic": "tech",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "coworking",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_40706a_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "There phones are new.",
+ "key_line": "Their phones are new.",
+ "series": [
+  "OFFICE ENGLISH",
+  "THEIR = their stuff"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_40706a_k",
+   "card": {
+    "formula": "THEIR = their stuff"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_40706a_y",
+   "card": {
+    "text": "Their means belonging to them."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Their phones are new.",
+   "They love their new car.",
+   "Put it over there."
+  ]
+ },
+ "quiz": {
+  "pre": "The kids lost",
+  "post": "keys",
+  "a": "their",
+  "b": "there",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_7c1c35",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:complaints:isnt-working:x"
+ },
+ "topic": "shopping",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "clothing_store",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_7c1c35_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "It is not work.",
+ "key_line": "It isn't working properly.",
+ "series": [
+  "STORE ENGLISH",
+  "broken now = ISN'T"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_7c1c35_k",
+   "card": {
+    "formula": "broken now = ISN'T"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_7c1c35_y",
+   "card": {
+    "text": "For machines, use isn't working."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "It isn't working properly.",
+   "The printer isn't working.",
+   "My phone isn't working properly."
+  ]
+ },
+ "quiz": {
+  "pre": "The coffee machine",
+  "post": "",
+  "a": "isn't working",
+  "b": "is not work",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

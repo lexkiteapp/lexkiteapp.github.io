@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_00b386",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:s:although"
+ },
+ "topic": "exam",
+ "cefr": "A2",
+ "area": "grammar",
+ "plate": "exam_hall",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_00b386_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Although it rained, but we went out.",
+ "key_line": "Although it rained, we went out.",
+ "series": [
+  "EXAM ENGLISH",
+  "ALTHOUGH ... ✗but"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_00b386_k",
+   "card": {
+    "formula": "ALTHOUGH ... ✗but"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_00b386_y",
+   "card": {
+    "text": "Use although or but. Never both."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Although it rained, we went out.",
+   "Although I was tired, I finished my work.",
+   "It was cold, but we went swimming."
+  ]
+ },
+ "quiz": {
+  "pre": "Although he was sick,",
+  "post": "he went to work",
+  "a": "but",
+  "b": "(nothing)",
+  "answer": 1
+ },
+ "cta": {
+  "text": "Practice grammar free on lexkite.com",
+  "link": "https://lexkite.com/app/#/grammar",
+  "label": "Grammar lessons"
+ }
+}

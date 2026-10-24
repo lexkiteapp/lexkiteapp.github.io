@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_66fda5",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:discover-invent"
+ },
+ "topic": "study",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_66fda5_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Edison discovered the light bulb.",
+ "key_line": "Edison invented the light bulb.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "new thing = INVENT"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_66fda5_k",
+   "card": {
+    "formula": "new thing = INVENT"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_66fda5_y",
+   "card": {
+    "text": "Invent makes something new. Discover finds it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Edison invented the light bulb.",
+   "Who invented the phone?",
+   "They discovered a new island."
+  ]
+ },
+ "quiz": {
+  "pre": "Scientists",
+  "post": "a new kind of fish",
+  "a": "discovered",
+  "b": "invented",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

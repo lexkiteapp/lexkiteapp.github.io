@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_7281e2",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:new-friends:how-do-you-know:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "park",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_7281e2_h",
+  "quote": null,
+  "kind": "Stop saying 'From where you'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "From where you know Emma?",
+ "key_line": "So how do you know Emma?",
+ "series": [
+  "PARK ENGLISH",
+  "HOW DO YOU KNOW + host?"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_7281e2_k",
+   "card": {
+    "formula": "HOW DO YOU KNOW + host?"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_7281e2_y",
+   "card": {
+    "text": "Ask with do: how do you know her?"
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "So how do you know Emma?",
+   "How do you know Sam?",
+   "We know each other from school."
+  ]
+ },
+ "quiz": {
+  "pre": "So how",
+  "post": "know Emma?",
+  "a": "do you",
+  "b": "you",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

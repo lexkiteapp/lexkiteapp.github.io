@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_05db3d",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:compatible:with"
+ },
+ "topic": "tech",
+ "cefr": "C1",
+ "area": "grammar-check",
+ "plate": "coworking",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_05db3d_h",
+  "quote": null,
+  "kind": "Natives never say 'compatible to'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "This app is compatible to my phone.",
+ "key_line": "This app is compatible with my phone.",
+ "series": [
+  "OFFICE ENGLISH",
+  "compatible WITH"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_05db3d_k",
+   "card": {
+    "formula": "compatible WITH"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_05db3d_y",
+   "card": {
+    "text": "Compatible with means works together with."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "This app is compatible with my phone.",
+   "Is it compatible with Windows?",
+   "They're very compatible with each other."
+  ]
+ },
+ "quiz": {
+  "pre": "The charger is compatible",
+  "post": "most phones",
+  "a": "with",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_0ad85c",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:alone-lonely"
+ },
+ "topic": "home",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "living_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0ad85c_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I live lonely.",
+ "key_line": "I live alone.",
+ "series": [
+  "HOME ENGLISH",
+  "ALONE = no people"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0ad85c_k",
+   "card": {
+    "formula": "ALONE = no people"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0ad85c_y",
+   "card": {
+    "text": "Alone means no people. Lonely means sad."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I live alone.",
+   "She likes to travel alone.",
+   "He felt lonely in the new city."
+  ]
+ },
+ "quiz": {
+  "pre": "I live",
+  "post": ", but I'm not lonely",
+  "a": "alone",
+  "b": "lonely",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

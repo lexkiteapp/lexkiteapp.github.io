@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_pharmacy_00b3d3",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:cope:with"
+ },
+ "topic": "health",
+ "cefr": "B2",
+ "area": "grammar-check",
+ "plate": "pharmacy",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_00b3d3_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I can't cope stress.",
+ "key_line": "I can't cope with stress.",
+ "series": [
+  "PHARMACY ENGLISH",
+  "cope / deal WITH"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_00b3d3_k",
+   "card": {
+    "formula": "cope / deal WITH"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_00b3d3_y",
+   "card": {
+    "text": "Cope needs with before the problem."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I can't cope with stress.",
+   "How do you cope with pressure?",
+   "She coped well with the change."
+  ]
+ },
+ "quiz": {
+  "pre": "He can't cope",
+  "post": "the noise",
+  "a": "with",
+  "b": "(nothing)",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

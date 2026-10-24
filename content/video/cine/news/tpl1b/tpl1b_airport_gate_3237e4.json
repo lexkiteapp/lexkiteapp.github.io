@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_3237e4",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:airport:whats-my-options:x"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "airport_gate",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_3237e4_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "What I do?",
+ "key_line": "What are my options?",
+ "series": [
+  "AIRPORT ENGLISH",
+  "PROBLEM + what are my"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3237e4_k",
+   "card": {
+    "formula": "PROBLEM + what are my"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3237e4_y",
+   "card": {
+    "text": "Ask for options. The agent will offer solutions."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "What are my options?",
+   "I missed my flight. What are my options?",
+   "What are my options for tonight?"
+  ]
+ },
+ "quiz": {
+  "pre": "I missed my flight. What",
+  "post": "my options?",
+  "a": "are",
+  "b": "is",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

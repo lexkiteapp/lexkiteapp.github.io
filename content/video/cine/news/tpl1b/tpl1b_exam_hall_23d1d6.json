@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_23d1d6",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:think:pass"
+ },
+ "topic": "exam",
+ "cefr": "B1",
+ "area": "verbs",
+ "plate": "exam_hall",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_23d1d6_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "He is thought be very smart.",
+ "key_line": "He is thought to be very smart.",
+ "series": [
+  "EXAM ENGLISH",
+  "IS THOUGHT TO + verb"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_23d1d6_k",
+   "card": {
+    "formula": "IS THOUGHT TO + verb"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_23d1d6_y",
+   "card": {
+    "text": "Is thought to plus verb. Don't drop to."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "He is thought to be very smart.",
+   "The house is thought to be old.",
+   "She is thought to live in Paris."
+  ]
+ },
+ "quiz": {
+  "pre": "The castle is thought",
+  "post": "500 years old",
+  "a": "to be",
+  "b": "be",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

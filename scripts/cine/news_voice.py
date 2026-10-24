@@ -13,7 +13,14 @@ for i in IDS:
 need |= {l['id'] for l in base['lines'] if l.get('pilot')}   # edit-style pilot lines (cine-render edit_pilot: solo host re-voices the other host's lines, '<id>_a')
 todo = [l for l in base['lines'] if l['id'] in need and not os.path.exists(f'{V}/{l["id"]}.wav')]
 print(f'{len(need)} lines needed, synthesising {len(todo)}')
+RH_VER = None
+def rh_version():
+    RH = os.environ.get('RHUBARB') or ''
+    if not (RH and os.access(RH, os.X_OK)): sys.exit('RHUBARB is not set / not executable – lip-sync needs real Rhubarb (no estimated visemes)')
+    return 'rhubarb-' + (re.findall(r'\d+\.\d+\.\d+', subprocess.run([RH, '--version'], capture_output=True, text=True).stdout) or ['?'])[0]
 def synth(todo, tag):
+    global RH_VER
+    RH_VER = RH_VER or rh_version()
     tmp = f'{ND}/tts_in_{tag}.json'; W = f'{ND}/tts_wav_{tag}'; json.dump(dict(voices=base['voices'], speed=base.get('speed', 0.92), lines=todo), open(tmp, 'w'))
     subprocess.run(['node', f'{ROOT}/scripts/cine/tts.mjs', tmp, W], check=True)
     for l in todo:
@@ -21,6 +28,7 @@ def synth(todo, tag):
         for rec in ([], ['-r', 'phonetic']):
             if subprocess.run([os.environ['RHUBARB'], '-q', *rec, '--extendedShapes', 'GHX', '-f', 'json', '-d', f'{W}/{l["id"]}.txt', '-o', j, w]).returncode == 0: break
         else: sys.exit(f'rhubarb failed: {l["id"]}')
+        cj = json.load(open(j)); cj['generator'] = RH_VER; json.dump(cj, open(j, 'w'))   # provenance: render_tpl.py / qc_tpl lipsync gate accept only Rhubarb cues
         shutil.copy(w, V)
 def span(i): c = [x for x in json.load(open(f'{V}/{i}.json'))['mouthCues'] if x['value'] != 'X']; return c[-1]['end'] - c[0]['start']
 if todo:

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_4e2731",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:smoke detector#n"
+ },
+ "topic": "home",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "kitchen",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_4e2731_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "The smoke finder beeps when I cook.",
+ "key_line": "The smoke detector beeps when I cook.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "DETECT = find → finds"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_4e2731_k",
+   "card": {
+    "formula": "DETECT = find → finds"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_4e2731_y",
+   "card": {
+    "text": "A small device that senses smoke is a smoke detector."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The smoke detector beeps when I cook.",
+   "Check the smoke detector every month.",
+   "The smoke detector needs a new battery."
+  ]
+ },
+ "quiz": {
+  "pre": "The",
+  "post": "beeps when there is smoke",
+  "a": "smoke detector",
+  "b": "smoke finder",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

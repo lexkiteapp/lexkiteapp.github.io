@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_57e42a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:work-meeting:to-wrap-up:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_57e42a_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "For finish, Lee sends report.",
+ "key_line": "To wrap up, Lee will send the report.",
+ "series": [
+  "MEETING ENGLISH",
+  "TO WRAP UP + who + will"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_57e42a_k",
+   "card": {
+    "formula": "TO WRAP UP + who + will"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_57e42a_y",
+   "card": {
+    "text": "To wrap up ends a meeting."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "To wrap up, Lee will send the report.",
+   "To wrap up, let's review tasks.",
+   "Let's wrap up the meeting."
+  ]
+ },
+ "quiz": {
+  "pre": "",
+  "post": ", Lee will send the report",
+  "a": "To wrap up",
+  "b": "For finish",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

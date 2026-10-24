@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_0179d2",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:qualification#n"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0179d2_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "My qualification is very friendly.",
+ "key_line": "I have a teaching qualification.",
+ "series": [
+  "OFFICE ENGLISH",
+  "QUALIFICATION"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0179d2_k",
+   "card": {
+    "formula": "QUALIFICATION"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0179d2_y",
+   "card": {
+    "text": "A qualification is an official record of your skills."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I have a teaching qualification.",
+   "What qualifications do you have?",
+   "She got a nursing qualification."
+  ]
+ },
+ "quiz": {
+  "pre": "A degree is a",
+  "post": "",
+  "a": "qualification",
+  "b": "quality",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

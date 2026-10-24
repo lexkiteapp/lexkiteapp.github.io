@@ -1,0 +1,1967 @@
+{
+ "v": 1,
+ "note": "docs/VIDEO-TEMPLATES.md §9 – batch N = items with batch == N; video-tpl1b.yml renders one batch (<= 10 jobs)",
+ "total_gold": 261,
+ "lessons": 217,
+ "batches": 19,
+ "items": [
+  {
+   "id": "tpl1b_clothing_store_068cf0",
+   "gold": "u:v:consider:m0",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "ama",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_kitchen_087311",
+   "gold": "u:c:see-look-watch",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "carlos",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_airport_gate_01092a",
+   "gold": "w:sleeping bag#n",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "mia",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_kitchen_0024c5",
+   "gold": "m:copy#n",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_hotel_lobby_00f455",
+   "gold": "u:a:near:near",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "carlos",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_library_00a2ea",
+   "gold": "u:v:state:that",
+   "topic": "exam",
+   "plate": "library",
+   "host": "mia",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_hotel_lobby_0139ba",
+   "gold": "w:do not disturb#phrase",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_library_072f70",
+   "gold": "u:p:opinion:m0",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_coworking_0ce10d",
+   "gold": "u:c:ago-before",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_supermarket_033d19",
+   "gold": "w:tracking number#n",
+   "topic": "shopping",
+   "plate": "supermarket",
+   "host": "ama",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_meeting_room_00e987",
+   "gold": "m:job#n",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_living_room_011d16",
+   "gold": "u:p:smile:at",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 1
+  },
+  {
+   "id": "tpl1b_exam_hall_00b386",
+   "gold": "u:s:although",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "ama",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_meeting_room_029380",
+   "gold": "w:sorry for the late reply#phrase",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_living_room_0f8cdb",
+   "gold": "u:p:listen:m0",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_exam_hall_3100c5",
+   "gold": "u:c:each-every",
+   "topic": "study",
+   "plate": "exam_hall",
+   "host": "ama",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_living_room_014201",
+   "gold": "m:heater#n",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_coworking_022772",
+   "gold": "u:p:reason:for",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_living_room_02867e",
+   "gold": "u:s:in-case",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "ama",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_library_08f691",
+   "gold": "w:it depends#phrase",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_library_1257a0",
+   "gold": "u:s:so-as-to:m0",
+   "topic": "study",
+   "plate": "library",
+   "host": "mia",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_kitchen_347efc",
+   "gold": "u:c:few-a-few",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_hotel_lobby_18fd12",
+   "gold": "w:twin room#n",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "carlos",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_living_room_03c6ce",
+   "gold": "m:class#n",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 2
+  },
+  {
+   "id": "tpl1b_pharmacy_03f697",
+   "gold": "u:p:lead:to",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "ama",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_pharmacy_05b65d",
+   "gold": "u:v:decide:to",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "carlos",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_restaurant_night_0a35f2",
+   "gold": "w:split the bill#phrase",
+   "topic": "food",
+   "plate": "restaurant_night",
+   "host": "mia",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_136af0",
+   "gold": "u:c:say-tell:m0",
+   "topic": "social",
+   "plate": "coffee_shop_day",
+   "host": "ama",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_airport_gate_3e6dff",
+   "gold": "u:c:chance-opportunity-possibility",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "carlos",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_kitchen_4e2731",
+   "gold": "w:smoke detector#n",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "mia",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_airport_gate_0abf72",
+   "gold": "m:one-way#adj",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "ama",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_coworking_04ad5a",
+   "gold": "u:p:available:to",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "carlos",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_coworking_0a4a65",
+   "gold": "u:v:suppose:pass",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_kitchen_151205",
+   "gold": "w:tidy up#phr v",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_exam_hall_14363e",
+   "gold": "u:p:effect:m0",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "carlos",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_living_room_3e77d3",
+   "gold": "u:c:rise-raise",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 3
+  },
+  {
+   "id": "tpl1b_pharmacy_612771",
+   "gold": "w:flu shot#n",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "ama",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_pharmacy_0d5558",
+   "gold": "m:diet#n",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "carlos",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_clothing_store_05671f",
+   "gold": "u:p:fit:for",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "mia",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_kitchen_0ec1a1",
+   "gold": "u:s:if-2",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_hotel_lobby_3311f3",
+   "gold": "w:check out#phr v",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "carlos",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_library_1445ca",
+   "gold": "u:p:solution:m0",
+   "topic": "exam",
+   "plate": "library",
+   "host": "mia",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_office_open_plan_418a3d",
+   "gold": "u:c:salary-wage",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_meeting_room_0ac5ff",
+   "gold": "w:contact number#n",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_supermarket_92b16d",
+   "gold": "m:self-checkout#n",
+   "topic": "shopping",
+   "plate": "supermarket",
+   "host": "mia",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_kitchen_05c628",
+   "gold": "u:p:long:for",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_kitchen_116f33",
+   "gold": "u:v:hate:ing",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "carlos",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_living_room_403980",
+   "gold": "w:point at#phr v",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 4
+  },
+  {
+   "id": "tpl1b_kitchen_14cf63",
+   "gold": "u:s:it-takes:m0",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_hotel_lobby_5bd638",
+   "gold": "u:c:travel-trip-journey",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "carlos",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_clothing_store_0edca2",
+   "gold": "w:free sample#n",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "mia",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_hotel_lobby_00ac2c",
+   "gold": "m:travel#v",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_coworking_0af13b",
+   "gold": "u:p:useful:for",
+   "topic": "tech",
+   "plate": "coworking",
+   "host": "carlos",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_kitchen_1dff6f",
+   "gold": "u:v:help:bare",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "mia",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_hotel_lobby_44c4f1",
+   "gold": "w:go back to#phr v",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_living_room_1740b6",
+   "gold": "u:c:remember-remind:m0",
+   "topic": "daily",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_library_64d030",
+   "gold": "u:c:practice-practise",
+   "topic": "study",
+   "plate": "library",
+   "host": "mia",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_library_01bac6",
+   "gold": "m:major#adj",
+   "topic": "exam",
+   "plate": "library",
+   "host": "ama",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_exam_hall_0ce8ec",
+   "gold": "u:a:wide:widely",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "carlos",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_meeting_room_237d46",
+   "gold": "u:v:arrange:to",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "mia",
+   "batch": 5
+  },
+  {
+   "id": "tpl1b_hotel_lobby_a80a37",
+   "gold": "w:check in#phr v",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_hotel_lobby_272a45",
+   "gold": "u:v:recommend:m0",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "carlos",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_library_66fda5",
+   "gold": "u:c:discover-invent",
+   "topic": "study",
+   "plate": "library",
+   "host": "mia",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_hotel_lobby_1dc7ab",
+   "gold": "w:key card#n",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_park_017283",
+   "gold": "m:anytime#adv",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_park_0e0928",
+   "gold": "u:p:dream:of",
+   "topic": "daily",
+   "plate": "park",
+   "host": "mia",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_exam_hall_23d1d6",
+   "gold": "u:v:think:pass",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "ama",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_meeting_room_0d57e2",
+   "gold": "w:i'm afraid#phrase",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_library_37234b",
+   "gold": "u:c:make-do:m1",
+   "topic": "study",
+   "plate": "library",
+   "host": "mia",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_7432d6",
+   "gold": "u:c:win-beat",
+   "topic": "social",
+   "plate": "coffee_shop_day",
+   "host": "ama",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_living_room_a79c30",
+   "gold": "w:parking spot#n",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_coworking_07a59c",
+   "gold": "m:discovery#n",
+   "topic": "tech",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 6
+  },
+  {
+   "id": "tpl1b_pharmacy_24aedf",
+   "gold": "u:p:protect:from",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "ama",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_exam_hall_24ac31",
+   "gold": "u:v:teach:oto",
+   "topic": "study",
+   "plate": "exam_hall",
+   "host": "carlos",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_living_room_0c7fd8",
+   "gold": "w:i would like to invite you to#phrase",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_hotel_lobby_466c0a",
+   "gold": "u:v:allow:m0",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_exam_hall_93a2ff",
+   "gold": "u:c:percent-percentage",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "carlos",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_pharmacy_717fc0",
+   "gold": "w:insurance card#n",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "mia",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_hotel_lobby_0d6dc5",
+   "gold": "m:spa#n",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_living_room_3040fc",
+   "gold": "u:a:near:nearly",
+   "topic": "daily",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_2b414c",
+   "gold": "u:s:too-to",
+   "topic": "food",
+   "plate": "coffee_shop_day",
+   "host": "mia",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_kitchen_2bcb2b",
+   "gold": "u:p:afraid:m0",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_living_room_0ad85c",
+   "gold": "u:c:alone-lonely",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_kitchen_1795a1",
+   "gold": "w:recycling bin#n",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "mia",
+   "batch": 7
+  },
+  {
+   "id": "tpl1b_coworking_1b72f4",
+   "gold": "m:advertisement#n",
+   "topic": "tech",
+   "plate": "coworking",
+   "host": "ama",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_meeting_room_040ec7",
+   "gold": "u:p:apologise:m0",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_airport_gate_13a16c",
+   "gold": "u:c:excited-exciting",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "mia",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_supermarket_001209",
+   "gold": "w:sold out#adj",
+   "topic": "shopping",
+   "plate": "supermarket",
+   "host": "ama",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_living_room_003777",
+   "gold": "m:hang#v",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_pharmacy_00b3d3",
+   "gold": "u:p:cope:with",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "mia",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_library_00119c",
+   "gold": "u:v:urge:oto",
+   "topic": "exam",
+   "plate": "library",
+   "host": "ama",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_library_002c30",
+   "gold": "w:be credited with#phrase",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_coworking_04105e",
+   "gold": "u:p:rely:m0",
+   "topic": "tech",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_office_open_plan_1798ba",
+   "gold": "u:c:damage-harm",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_airport_gate_01d026",
+   "gold": "w:peak times#n",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "carlos",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_library_0073d3",
+   "gold": "m:approximately#adv",
+   "topic": "exam",
+   "plate": "library",
+   "host": "mia",
+   "batch": 8
+  },
+  {
+   "id": "tpl1b_pharmacy_014af8",
+   "gold": "u:p:risk:of",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "ama",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_living_room_010020",
+   "gold": "u:v:put off:ing",
+   "topic": "daily",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_coworking_024874",
+   "gold": "w:i took the initiative to#phrase",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_library_18d951",
+   "gold": "u:p:number:m0",
+   "topic": "exam",
+   "plate": "library",
+   "host": "ama",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_park_6e1787",
+   "gold": "u:c:hope-wish",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_coworking_0031f9",
+   "gold": "w:statute of limitations#n",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_coworking_05db3d",
+   "gold": "u:p:compatible:with",
+   "topic": "tech",
+   "plate": "coworking",
+   "host": "ama",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_library_112e38",
+   "gold": "u:v:make:pass",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_coworking_05870e",
+   "gold": "w:in compliance with#phrase",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_076acb",
+   "gold": "u:p:accuse:m0",
+   "topic": "social",
+   "plate": "coffee_shop_day",
+   "host": "ama",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_library_20315a",
+   "gold": "u:c:its-it-s",
+   "topic": "study",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_library_03ae3a",
+   "gold": "w:greenhouse gas#n",
+   "topic": "exam",
+   "plate": "library",
+   "host": "mia",
+   "batch": 9
+  },
+  {
+   "id": "tpl1b_airport_gate_017d1a",
+   "gold": "u:p:collide:with",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "ama",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_library_01c4ef",
+   "gold": "u:v:deny:ing",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_meeting_room_026263",
+   "gold": "w:push back#phr v",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "mia",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_hotel_lobby_0ec426",
+   "gold": "m:minibar#n",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_library_0c359c",
+   "gold": "u:p:translate:m0",
+   "topic": "study",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_living_room_2ed92c",
+   "gold": "u:c:beside-besides",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_pharmacy_06bb70",
+   "gold": "w:medical history#n",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "ama",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_exam_hall_01e335",
+   "gold": "u:p:identical:to",
+   "topic": "study",
+   "plate": "exam_hall",
+   "host": "carlos",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_exam_hall_03e3ff",
+   "gold": "u:v:forbid:ing",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "mia",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_pharmacy_0994b0",
+   "gold": "w:contribute to#phr v",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "ama",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_meeting_room_42fa02",
+   "gold": "u:v:suggest:m0",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_pharmacy_000ea4",
+   "gold": "x:malnutrition#n:undernourishment",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "mia",
+   "batch": 10
+  },
+  {
+   "id": "tpl1b_hotel_lobby_003b39",
+   "gold": "w:familiarization trip#n",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_park_18515c",
+   "gold": "m:victim#n",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_clothing_store_07d8ef",
+   "gold": "u:p:inferior:to",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "mia",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_kitchen_17b6d9",
+   "gold": "u:v:have:obare",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_meeting_room_08e239",
+   "gold": "w:your help was invaluable#phrase",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_living_room_19bde5",
+   "gold": "u:p:married:m0",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_34ccb4",
+   "gold": "u:c:classic-classical",
+   "topic": "social",
+   "plate": "coffee_shop_day",
+   "host": "ama",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_library_07a075",
+   "gold": "w:cultural identity#n",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_clothing_store_1d6760",
+   "gold": "m:consumer#n",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "mia",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_office_open_plan_03115b",
+   "gold": "u:p:skilled:in",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_meeting_room_073460",
+   "gold": "u:v:propose:to",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_living_room_14b915",
+   "gold": "w:head off#phr v",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 11
+  },
+  {
+   "id": "tpl1b_office_open_plan_1c7470",
+   "gold": "u:p:responsible:m0",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_exam_hall_3aca12",
+   "gold": "u:c:your-you-re",
+   "topic": "study",
+   "plate": "exam_hall",
+   "host": "carlos",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_living_room_07f39b",
+   "gold": "w:stainless steel#n",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_kitchen_27ef73",
+   "gold": "m:string#n",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_exam_hall_058ffb",
+   "gold": "u:a:furthermore:furthermore",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "carlos",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_restaurant_night_17a4e5",
+   "gold": "w:make up for#phr v",
+   "topic": "food",
+   "plate": "restaurant_night",
+   "host": "mia",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_kitchen_90abd6",
+   "gold": "u:s:wish:m0",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_library_000f92",
+   "gold": "x:didactic#adj:instructive",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_library_01bb45",
+   "gold": "w:interlibrary loan#n",
+   "topic": "study",
+   "plate": "library",
+   "host": "mia",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_office_open_plan_0968a1",
+   "gold": "u:p:suspicious:of",
+   "topic": "tech",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_park_15dca7",
+   "gold": "w:through thick and thin#idiom",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_coworking_21612f",
+   "gold": "u:p:committed:m0",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 12
+  },
+  {
+   "id": "tpl1b_coworking_40706a",
+   "gold": "u:c:their-there",
+   "topic": "tech",
+   "plate": "coworking",
+   "host": "ama",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_hotel_lobby_0acfd1",
+   "gold": "w:guest complaint#n",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "carlos",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_exam_hall_06cfd1",
+   "gold": "u:a:moreover:moreover",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "mia",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_office_open_plan_16c56e",
+   "gold": "u:v:dare:bare",
+   "topic": "tech",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_meeting_room_1f332c",
+   "gold": "w:cover for#phr v",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_43b7bd",
+   "gold": "u:p:lack:m0",
+   "topic": "food",
+   "plate": "coffee_shop_day",
+   "host": "mia",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_clothing_store_4404e9",
+   "gold": "u:c:farther-further",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "ama",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_library_073018",
+   "gold": "u:p:concentrate:on",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_coworking_29c615",
+   "gold": "u:v:hesitate:to",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_office_open_plan_1fe4b6",
+   "gold": "w:account for#phr v",
+   "topic": "tech",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_restaurant_day_91e274",
+   "gold": "u:a:rarely:m0",
+   "topic": "food",
+   "plate": "restaurant_day",
+   "host": "carlos",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_pharmacy_03afa1",
+   "gold": "w:magnetic resonance imaging#n",
+   "topic": "health",
+   "plate": "pharmacy",
+   "host": "mia",
+   "batch": 13
+  },
+  {
+   "id": "tpl1b_restaurant_night_8c9862",
+   "gold": "m:vegetarian#n",
+   "topic": "food",
+   "plate": "restaurant_night",
+   "host": "ama",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_park_146177",
+   "gold": "u:p:congratulate:on",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_library_2ac8da",
+   "gold": "u:s:wish",
+   "topic": "study",
+   "plate": "library",
+   "host": "mia",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_office_open_plan_22459a",
+   "gold": "w:stem from#phr v",
+   "topic": "tech",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_restaurant_day_4e8522",
+   "gold": "u:v:feel like:m0",
+   "topic": "food",
+   "plate": "restaurant_day",
+   "host": "carlos",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_kitchen_10e854",
+   "gold": "w:property manager#n",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "mia",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_clothing_store_ff26f6",
+   "gold": "m:luxury#n",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "ama",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_restaurant_day_0c46f8",
+   "gold": "u:p:fond:of",
+   "topic": "food",
+   "plate": "restaurant_day",
+   "host": "carlos",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_living_room_52fcf4",
+   "gold": "u:c:damage-harm:m0",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_coworking_52a6bf",
+   "gold": "u:c:whose-who-s",
+   "topic": "tech",
+   "plate": "coworking",
+   "host": "ama",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_clothing_store_72620b",
+   "gold": "w:impulse buying#n",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "carlos",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_coworking_0179d2",
+   "gold": "m:qualification#n",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 14
+  },
+  {
+   "id": "tpl1b_exam_hall_13bced",
+   "gold": "u:a:nevertheless:nevertheless",
+   "topic": "exam",
+   "plate": "exam_hall",
+   "host": "ama",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_library_3181a7",
+   "gold": "u:v:wonder:wh",
+   "topic": "exam",
+   "plate": "library",
+   "host": "carlos",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_living_room_2408f7",
+   "gold": "w:hang out#phr v",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_hotel_lobby_9e149c",
+   "gold": "u:v:resemble:m0",
+   "topic": "travel",
+   "plate": "hotel_lobby",
+   "host": "ama",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_meeting_room_d7a49d",
+   "gold": "cf:interview:ive-worked-for:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_coworking_9f45e7",
+   "gold": "cf:interview:interested-in-because:x",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_office_open_plan_55270c",
+   "gold": "cf:interview:typical-day:x",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_supermarket_645d6b",
+   "gold": "cf:complaints:calling-about:x",
+   "topic": "shopping",
+   "plate": "supermarket",
+   "host": "carlos",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_clothing_store_7c1c35",
+   "gold": "cf:complaints:isnt-working:x",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "mia",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_f6d438",
+   "gold": "cf:opinions:depends-on:x",
+   "topic": "social",
+   "plate": "coffee_shop_day",
+   "host": "ama",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_park_24f9ee",
+   "gold": "cf:opinions:in-my-opinion:x",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_airport_gate_9172f8",
+   "gold": "cf:airport:bag-didnt-arrive:x",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "mia",
+   "batch": 15
+  },
+  {
+   "id": "tpl1b_airport_gate_5b373a",
+   "gold": "cf:airport:overweight:x",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "ama",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_airport_gate_cc6fbe",
+   "gold": "cf:airport:gate-changed:x",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "carlos",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_airport_gate_14311c",
+   "gold": "cf:airport:rebook-me:x",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "mia",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_airport_gate_3237e4",
+   "gold": "cf:airport:whats-my-options:x",
+   "topic": "travel",
+   "plate": "airport_gate",
+   "host": "ama",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_meeting_room_5c2dee",
+   "gold": "cf:networking:what-brings-you:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_park_14cb88",
+   "gold": "cf:calls:hold-on:x",
+   "topic": "daily",
+   "plate": "park",
+   "host": "mia",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_kitchen_8ce033",
+   "gold": "cf:calls:let-me-check:x",
+   "topic": "daily",
+   "plate": "kitchen",
+   "host": "ama",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_meeting_room_90df73",
+   "gold": "cf:job-interview:walk-you-through:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_coworking_3899b6",
+   "gold": "cf:job-interview:responsible-for:x",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_office_open_plan_5af582",
+   "gold": "cf:job-interview:next-steps:x",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_meeting_room_36b7ce",
+   "gold": "cf:work-meeting:lets-get-started:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_meeting_room_786153",
+   "gold": "cf:work-meeting:well-discuss:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "mia",
+   "batch": 16
+  },
+  {
+   "id": "tpl1b_meeting_room_e42d6e",
+   "gold": "cf:work-meeting:same-page:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "ama",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_meeting_room_57e42a",
+   "gold": "cf:work-meeting:to-wrap-up:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_meeting_room_c03dbf",
+   "gold": "cf:presenting:ill-be-talking:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "mia",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_office_open_plan_816745",
+   "gold": "cf:presenting:divided-into:x",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_meeting_room_8df64e",
+   "gold": "cf:presenting:as-you-can-see:x",
+   "topic": "work",
+   "plate": "meeting_room",
+   "host": "carlos",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_coworking_27e08c",
+   "gold": "cf:presenting:key-point:x",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_office_open_plan_30c608",
+   "gold": "cf:presenting:thanks-for-listening:x",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_park_7281e2",
+   "gold": "cf:new-friends:how-do-you-know:x",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_living_room_851ba9",
+   "gold": "cf:new-friends:really-into:x",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_844941",
+   "gold": "cf:new-friends:me-too:x",
+   "topic": "social",
+   "plate": "coffee_shop_day",
+   "host": "ama",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_park_25206a",
+   "gold": "cf:new-friends:keep-in-touch:x",
+   "topic": "social",
+   "plate": "park",
+   "host": "carlos",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_living_room_b56e52",
+   "gold": "cf:new-friends:are-you-free:x",
+   "topic": "social",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 17
+  },
+  {
+   "id": "tpl1b_coffee_shop_day_e34dea",
+   "gold": "cf:new-friends:text-you:x",
+   "topic": "social",
+   "plate": "coffee_shop_day",
+   "host": "ama",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_supermarket_1ec77f",
+   "gold": "cf:escalating:by-friday:x",
+   "topic": "shopping",
+   "plate": "supermarket",
+   "host": "carlos",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_coworking_4f5a34",
+   "gold": "cf:disagreeing:i-agree-with:x",
+   "topic": "work",
+   "plate": "coworking",
+   "host": "mia",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_office_open_plan_2b4d86",
+   "gold": "cf:disagreeing:see-it-differently:x",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_living_room_836058",
+   "gold": "cf:renting:utilities-included:x",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "carlos",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_kitchen_939893",
+   "gold": "cf:renting:something-wrong-with:x",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "mia",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_living_room_bf3fc8",
+   "gold": "cf:renting:move-out:x",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "ama",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_kitchen_cc4c2b",
+   "gold": "cf:renting:security-deposit:x",
+   "topic": "home",
+   "plate": "kitchen",
+   "host": "carlos",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_living_room_8fea8d",
+   "gold": "cf:renting:how-long-lease:x",
+   "topic": "home",
+   "plate": "living_room",
+   "host": "mia",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_office_open_plan_8401e4",
+   "gold": "cf:networking:wasnt-it",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_clothing_store_fc42e4",
+   "gold": "cf:escalating:im-afraid",
+   "topic": "shopping",
+   "plate": "clothing_store",
+   "host": "carlos",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_supermarket_847a8b",
+   "gold": "cf:complaints:id-prefer",
+   "topic": "shopping",
+   "plate": "supermarket",
+   "host": "mia",
+   "batch": 18
+  },
+  {
+   "id": "tpl1b_office_open_plan_ec31bd",
+   "gold": "cf:disagreeing:look-at-numbers",
+   "topic": "work",
+   "plate": "office_open_plan",
+   "host": "ama",
+   "batch": 19
+  }
+ ],
+ "skipped": [
+  {
+   "gold": "p:competition#n",
+   "topic": "daily",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:bicycle#n",
+   "topic": "daily",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "w:debit card#n",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:individual#n",
+   "topic": "exam",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:timetable#n",
+   "topic": "travel",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:electricity#n",
+   "topic": "home",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:quantity#n",
+   "topic": "shopping",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "w:savings account#n",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:gardener#n",
+   "topic": "home",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:similar#adj",
+   "topic": "daily",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:reception#n",
+   "topic": "travel",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "w:fill out#phr v",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:reconciliation#n",
+   "topic": "work",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:gpa#n",
+   "topic": "exam",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:justification#n",
+   "topic": "exam",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "m:fine#n",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:astronomy#n",
+   "topic": "tech",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:latency#n",
+   "topic": "tech",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:backpacker#n",
+   "topic": "travel",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:immigration#n",
+   "topic": "travel",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:overcome#v",
+   "topic": "daily",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:advertisement#n",
+   "topic": "tech",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:atm#n",
+   "topic": "money",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "p:self-checkout#n",
+   "topic": "shopping",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "u:v:admit:ing",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:detention#n",
+   "topic": "work",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "u:s:it-cleft",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "m:cashback#n",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:overcrowded#adj",
+   "topic": "travel",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "m:utilities#n",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "w:contactless payment#n",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:injection#n",
+   "topic": "health",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "x:itemised#adj:detailed",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:anesthesia#n",
+   "topic": "health",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "u:c:rob-steal",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:organic#adj",
+   "topic": "food",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "u:v:risk:ing",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "w:save up#phr v",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "p:luxury#n",
+   "topic": "shopping",
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+  },
+  {
+   "gold": "cf:bank:transfer-money:x",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "cf:salary:excited-about:x",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "cf:salary:sounds-fair:x",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "cf:salary:any-flexibility",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  },
+  {
+   "gold": "cf:bank:any-fees",
+   "topic": "money",
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_1dff6f",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:help:bare"
+ },
+ "topic": "home",
+ "cefr": "A1",
+ "area": "verbs",
+ "plate": "kitchen",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_1dff6f_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Can you help me carrying this?",
+ "key_line": "Can you help me carry this?",
+ "series": [
+  "KITCHEN ENGLISH",
+  "help + me + VERB"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1dff6f_k",
+   "card": {
+    "formula": "help + me + VERB"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1dff6f_y",
+   "card": {
+    "text": "Help plus person plus verb. No -ing."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Can you help me carry this?",
+   "She helped me find my keys.",
+   "Can you help me cook?"
+  ]
+ },
+ "quiz": {
+  "pre": "Can you help me",
+  "post": "the box?",
+  "a": "move",
+  "b": "moving",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

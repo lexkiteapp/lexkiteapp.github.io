@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_90df73",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:job-interview:walk-you-through:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_90df73_h",
+  "quote": null,
+  "kind": "Stop saying 'explain you'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I will explain you my CV.",
+ "key_line": "Let me walk you through my background.",
+ "series": [
+  "MEETING ENGLISH",
+  "EXPLAIN it TO you"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_90df73_k",
+   "card": {
+    "formula": "EXPLAIN it TO you"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_90df73_y",
+   "card": {
+    "text": "Explain needs to: explain it to you."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Let me walk you through my background.",
+   "Let me walk you through the plan.",
+   "Can you explain it to me?"
+  ]
+ },
+ "quiz": {
+  "pre": "Let me",
+  "post": "you through my background",
+  "a": "walk",
+  "b": "explain",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

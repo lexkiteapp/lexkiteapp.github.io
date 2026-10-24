@@ -8,27 +8,30 @@
  },
  "topic": "travel",
  "cefr": "A2",
- "area": "roleplay",
+ "area": "phrases",
  "plate": "hotel_lobby",
  "host": "ama",
  "clip": "ga4_talk_natural",
  "hook": {
   "line": "n_1dc7ab_h",
-  "quote": "room card",
-  "kind": "Say this instead"
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
  },
  "wrong_line": "My room card doesn't work.",
  "key_line": "My key card doesn't work.",
  "series": [
   "HOTEL ENGLISH",
-  "KEY CARD"
+  "card that opens the"
  ],
  "beats": [
   {
    "kind": "k",
    "line": "n_1dc7ab_k",
    "card": {
-    "formula": "KEY CARD"
+    "formula": "card that opens the"
    }
   },
   {
@@ -54,8 +57,8 @@
   "answer": 0
  },
  "cta": {
-  "text": "Roleplay this free on lexkite.com",
-  "link": "https://lexkite.com/app/#/roleplay",
-  "label": "Voice roleplay"
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
  }
 }

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_1d6760",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:consumer#n"
+ },
+ "topic": "shopping",
+ "cefr": "B1",
+ "area": "word-usage",
+ "plate": "clothing_store",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_1d6760_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Consumers make the products.",
+ "key_line": "Consumers buy and use the products.",
+ "series": [
+  "STORE ENGLISH",
+  "CONSUMER = buyer and"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1d6760_k",
+   "card": {
+    "formula": "CONSUMER = buyer and"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1d6760_y",
+   "card": {
+    "text": "A consumer is a person who buys and uses things."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Consumers buy and use the products.",
+   "Consumers want lower prices.",
+   "The law protects consumers."
+  ]
+ },
+ "quiz": {
+  "pre": "Companies must listen to",
+  "post": "",
+  "a": "consumers",
+  "b": "producers",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_0031f9",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:statute of limitations#n"
+ },
+ "topic": "work",
+ "cefr": "C2",
+ "area": "phrases",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0031f9_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "The law time is over, so no case.",
+ "key_line": "The statute of limitations has run out.",
+ "series": [
+  "OFFICE ENGLISH",
+  "STATUTE = law"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0031f9_k",
+   "card": {
+    "formula": "STATUTE = law"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0031f9_y",
+   "card": {
+    "text": "It's the legal time limit to start a case."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The statute of limitations has run out.",
+   "The statute of limitations is five years.",
+   "The case was too old: the statute of limitations had passed."
+  ]
+ },
+ "quiz": {
+  "pre": "After seven years, the statute of",
+  "post": "ran out",
+  "a": "limitations",
+  "b": "limits",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

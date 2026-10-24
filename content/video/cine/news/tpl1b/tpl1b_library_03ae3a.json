@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_03ae3a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:greenhouse gas#n"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "phrases",
+ "plate": "library",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_03ae3a_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Cars make green gas.",
+ "key_line": "Cars make greenhouse gases.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "GREENHOUSE = traps heat"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_03ae3a_k",
+   "card": {
+    "formula": "GREENHOUSE = traps heat"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_03ae3a_y",
+   "card": {
+    "text": "Greenhouse gases trap heat around the Earth."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Cars make greenhouse gases.",
+   "Carbon dioxide is a greenhouse gas.",
+   "We must cut greenhouse gas emissions."
+  ]
+ },
+ "quiz": {
+  "pre": "Carbon dioxide is a",
+  "post": "gas",
+  "a": "greenhouse",
+  "b": "green",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

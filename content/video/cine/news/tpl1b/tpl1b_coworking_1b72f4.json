@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_1b72f4",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "m:advertisement#n"
+ },
+ "topic": "tech",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "coworking",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_1b72f4_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I saw an advertisement of the job.",
+ "key_line": "I saw an advertisement for the job.",
+ "series": [
+  "OFFICE ENGLISH",
+  "ad FOR + thing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1b72f4_k",
+   "card": {
+    "formula": "ad FOR + thing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1b72f4_y",
+   "card": {
+    "text": "An advertisement for a thing you can buy or get."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I saw an advertisement for the job.",
+   "I saw an ad for cheap flights.",
+   "The advertisement was on TV."
+  ]
+ },
+ "quiz": {
+  "pre": "There's an advertisement",
+  "post": "a new phone",
+  "a": "for",
+  "b": "of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

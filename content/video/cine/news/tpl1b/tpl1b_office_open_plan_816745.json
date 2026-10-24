@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_816745",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:presenting:divided-into:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_816745_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "My talk is divided in three parts.",
+ "key_line": "My talk is divided into three parts.",
+ "series": [
+  "OFFICE ENGLISH",
+  "DIVIDED INTO + number"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_816745_k",
+   "card": {
+    "formula": "DIVIDED INTO + number"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_816745_y",
+   "card": {
+    "text": "Use divided into, not divided in."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My talk is divided into three parts.",
+   "The class is divided into groups.",
+   "We split the cake into four."
+  ]
+ },
+ "quiz": {
+  "pre": "My talk is divided",
+  "post": "three parts",
+  "a": "into",
+  "b": "in",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

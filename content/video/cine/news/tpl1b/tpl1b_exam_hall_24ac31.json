@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_24ac31",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:teach:oto"
+ },
+ "topic": "study",
+ "cefr": "A1",
+ "area": "verbs",
+ "plate": "exam_hall",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_24ac31_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "She taught me swimming how.",
+ "key_line": "She taught me how to swim.",
+ "series": [
+  "EXAM ENGLISH",
+  "teach + me + HOW TO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_24ac31_k",
+   "card": {
+    "formula": "teach + me + HOW TO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_24ac31_y",
+   "card": {
+    "text": "Teach someone how to do something."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "She taught me how to swim.",
+   "He taught me how to cook.",
+   "Can you teach me how to drive?"
+  ]
+ },
+ "quiz": {
+  "pre": "My dad taught me",
+  "post": "ride a bike",
+  "a": "how to",
+  "b": "how",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

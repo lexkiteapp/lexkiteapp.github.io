@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_16c56e",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:dare:bare"
+ },
+ "topic": "tech",
+ "cefr": "B2",
+ "area": "verbs",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_16c56e_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I don't dare to saying it.",
+ "key_line": "I don't dare say it.",
+ "series": [
+  "OFFICE ENGLISH",
+  "dare + VERB"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_16c56e_k",
+   "card": {
+    "formula": "dare + VERB"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_16c56e_y",
+   "card": {
+    "text": "Dare plus base verb, or dare to plus verb."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I don't dare say it.",
+   "She didn't dare look down.",
+   "Don't you dare touch it!"
+  ]
+ },
+ "quiz": {
+  "pre": "He didn't dare",
+  "post": "his boss",
+  "a": "call",
+  "b": "calling",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

@@ -87,6 +87,7 @@ on:
       - 'App LCP'
       - 'Journey E2E'
       - 'video-templates'
+      - 'video-tpl1b'
       - 'Đăng ảnh từ vựng từ artifact'
       - 'Kiểm CDN âm thanh (kho media)'
       - 'size-guard'

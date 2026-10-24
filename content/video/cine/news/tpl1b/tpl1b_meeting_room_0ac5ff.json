@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_0ac5ff",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:contact number#n"
+ },
+ "topic": "work",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_0ac5ff_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "What is your call number?",
+ "key_line": "What's your contact number?",
+ "series": [
+  "MEETING ENGLISH",
+  "CONTACT number = how to"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0ac5ff_k",
+   "card": {
+    "formula": "CONTACT number = how to"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0ac5ff_y",
+   "card": {
+    "text": "On forms and at work, say contact number."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "What's your contact number?",
+   "Please leave a contact number.",
+   "My contact number is on the card."
+  ]
+ },
+ "quiz": {
+  "pre": "Please write your",
+  "post": "number here",
+  "a": "contact",
+  "b": "call",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

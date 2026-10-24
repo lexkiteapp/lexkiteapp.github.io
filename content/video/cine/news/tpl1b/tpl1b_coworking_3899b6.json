@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_coworking_3899b6",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:job-interview:responsible-for:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "coworking",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_3899b6_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I was responsible of five people.",
+ "key_line": "I was responsible for a team of five.",
+ "series": [
+  "OFFICE ENGLISH",
+  "RESPONSIBLE FOR. Never"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3899b6_k",
+   "card": {
+    "formula": "RESPONSIBLE FOR. Never"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3899b6_y",
+   "card": {
+    "text": "Responsible always takes for."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I was responsible for a team of five.",
+   "She's responsible for sales.",
+   "Who is responsible for this project?"
+  ]
+ },
+ "quiz": {
+  "pre": "I was responsible",
+  "post": "the budget",
+  "a": "for",
+  "b": "of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

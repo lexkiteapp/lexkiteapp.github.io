@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_1c7470",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:responsible:m0"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_1c7470_h",
+  "quote": null,
+  "kind": "Stop saying 'responsible of'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "She is responsible of the budget.",
+ "key_line": "She is responsible for the budget.",
+ "series": [
+  "OFFICE ENGLISH",
+  "responsible FOR"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1c7470_k",
+   "card": {
+    "formula": "responsible FOR"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1c7470_y",
+   "card": {
+    "text": "In charge of something? Responsible for."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "She is responsible for the budget.",
+   "Who is responsible for this?",
+   "He's responsible for sales."
+  ]
+ },
+ "quiz": {
+  "pre": "I'm responsible",
+  "post": "the team",
+  "a": "for",
+  "b": "of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

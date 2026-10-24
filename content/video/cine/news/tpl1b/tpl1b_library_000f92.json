@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_000f92",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "x:didactic#adj:instructive"
+ },
+ "topic": "exam",
+ "cefr": "C2",
+ "area": "dictionary",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_000f92_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The tour was didactic. Loved it!",
+ "key_line": "The tour was instructive. Loved it!",
+ "series": [
+  "LIBRARY ENGLISH",
+  "good learning"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_000f92_k",
+   "card": {
+    "formula": "good learning"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_000f92_y",
+   "card": {
+    "text": "Instructive is positive. Didactic can sound preachy."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The tour was instructive. Loved it!",
+   "The guide gave an instructive talk.",
+   "The film is too didactic."
+  ]
+ },
+ "quiz": {
+  "pre": "A helpful lesson is",
+  "post": "",
+  "a": "instructive",
+  "b": "didactic",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Look up any word on lexkite.com",
+  "link": "https://lexkite.com/app/#/dict",
+  "label": "Dictionary"
+ }
+}

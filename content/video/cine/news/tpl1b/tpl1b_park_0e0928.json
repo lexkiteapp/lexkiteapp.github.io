@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_0e0928",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:dream:of"
+ },
+ "topic": "daily",
+ "cefr": "A2",
+ "area": "grammar-check",
+ "plate": "park",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0e0928_h",
+  "quote": null,
+  "kind": "Stop saying 'dream to'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I dream to be a doctor.",
+ "key_line": "I dream of being a doctor.",
+ "series": [
+  "PARK ENGLISH",
+  "dream OF + -ing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0e0928_k",
+   "card": {
+    "formula": "dream OF + -ing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0e0928_y",
+   "card": {
+    "text": "Dream of plus -ing or noun."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I dream of being a doctor.",
+   "She dreams of living in Spain.",
+   "I dream of a big house."
+  ]
+ },
+ "quiz": {
+  "pre": "He dreams",
+  "post": "a pilot",
+  "a": "of becoming",
+  "b": "to become",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

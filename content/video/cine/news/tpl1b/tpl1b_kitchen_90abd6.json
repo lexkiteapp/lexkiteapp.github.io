@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_kitchen_90abd6",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:s:wish:m0"
+ },
+ "topic": "daily",
+ "cefr": "C1",
+ "area": "grammar",
+ "plate": "kitchen",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_90abd6_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I wish I can speak French.",
+ "key_line": "I wish I could speak French.",
+ "series": [
+  "KITCHEN ENGLISH",
+  "wish + COULD / HAD"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_90abd6_k",
+   "card": {
+    "formula": "wish + COULD / HAD"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_90abd6_y",
+   "card": {
+    "text": "Wish is about unreal things, so use could."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I wish I could speak French.",
+   "I wish I had more time.",
+   "I wish I could cook."
+  ]
+ },
+ "quiz": {
+  "pre": "I wish I",
+  "post": "swim",
+  "a": "could",
+  "b": "can",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Practice grammar free on lexkite.com",
+  "link": "https://lexkite.com/app/#/grammar",
+  "label": "Grammar lessons"
+ }
+}

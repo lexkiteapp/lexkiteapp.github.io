@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_exam_hall_06cfd1",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:a:moreover:moreover"
+ },
+ "topic": "exam",
+ "cefr": "B2",
+ "area": "grammar-check",
+ "plate": "exam_hall",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_06cfd1_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "I'm tired. Moreover, can you pass the salt?",
+ "key_line": "The room is small. Moreover, it's noisy.",
+ "series": [
+  "EXAM ENGLISH",
+  "MOREOVER = and"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_06cfd1_k",
+   "card": {
+    "formula": "MOREOVER = and"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_06cfd1_y",
+   "card": {
+    "text": "Moreover adds a stronger point. It's formal."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The room is small. Moreover, it's noisy.",
+   "The car is old. Moreover, it's unsafe.",
+   "Moreover, prices are rising."
+  ]
+ },
+ "quiz": {
+  "pre": "The job pays well.",
+  "post": ", it's close to home",
+  "a": "Moreover",
+  "b": "However",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

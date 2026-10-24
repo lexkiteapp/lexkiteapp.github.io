@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_44c4f1",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:go back to#phr v"
+ },
+ "topic": "travel",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "hotel_lobby",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_44c4f1_h",
+  "quote": null,
+  "kind": "Don't embarrass yourself",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "I will return back to my country.",
+ "key_line": "I will go back to my country.",
+ "series": [
+  "HOTEL ENGLISH",
+  "go back ✓ / return ✓ /"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_44c4f1_k",
+   "card": {
+    "formula": "go back ✓ / return ✓ /"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_44c4f1_y",
+   "card": {
+    "text": "Return already means go back. Don't add back."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I will go back to my country.",
+   "When do you go back to school?",
+   "Let's go back to the hotel."
+  ]
+ },
+ "quiz": {
+  "pre": "After lunch, we",
+  "post": "to work",
+  "a": "went back",
+  "b": "returned back",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_supermarket_1ec77f",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:escalating:by-friday:x"
+ },
+ "topic": "shopping",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "supermarket",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_1ec77f_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Please fix until Friday.",
+ "key_line": "I'd like this fixed by Friday.",
+ "series": [
+  "STORE ENGLISH",
+  "BY = deadline. UNTIL"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_1ec77f_k",
+   "card": {
+    "formula": "BY = deadline. UNTIL"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_1ec77f_y",
+   "card": {
+    "text": "Use by for the last day. Until means all the time before."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I'd like this fixed by Friday.",
+   "Please reply by Monday.",
+   "The shop is open until six."
+  ]
+ },
+ "quiz": {
+  "pre": "Please send it",
+  "post": "Friday",
+  "a": "by",
+  "b": "until",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

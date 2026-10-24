@@ -1,0 +1,181 @@
+# video-tpl1b: gold scripts → template-1b shorts in batches (docs/VIDEO-TEMPLATES.md §9). 0 credits (Kokoro + Rhubarb + numpy renderer + Groq judge).
+# plan (Groq hook-truth judge + matrix ≤ 10 jobs) → render (voice → render → qc_tpl → rubric ≥ 90; ONE automatic fix + re-render on reject)
+# → store (batch host-scale gate → lexkite-shorts + Drive pool → Admin › Video "Chờ duyệt", queue ready; contact sheet + report + 3 samples artifact).
+# NEVER publishes: YouTube/social stay a manual/admin action until the owner approves the first batch (approval gate, METHODS §7).
+# Registered in infra/jobs.json as paused (dispatch only, lease --force in the store job – the only Drive/shared-resource step; plan = Groq judge
+# via GrabCast, render = GitHub minutes only); schedule only after the owner OKs batch 1. Lease denied → nothing stored, artifacts kept 14 days.
+name: video-tpl1b
+on:
+  workflow_dispatch:
+    inputs:
+      batch: { description: 'batch number from content/video/cine/news/tpl1b/plan.json', default: '1' }
+      ids: { description: 'explicit lesson ids (comma) instead of the batch', default: '' }
+permissions: { contents: write }
+concurrency: { group: video-tpl1b, cancel-in-progress: false }
+env:
+  TD: content/video/cine/news/tpl1b
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+      n: ${{ steps.m.outputs.n }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Batch ids
+        env: { B: '${{ inputs.batch }}', IDS: '${{ inputs.ids }}' }
+        run: |
+          case "$B$IDS" in *[!a-z0-9_,]*) echo "::error::bad input"; exit 1;; esac
+          python3 -c "import json,os;p=json.load(open('$TD/plan.json'));ids=[i for i in os.environ['IDS'].split(',') if i] or [x['id'] for x in p['items'] if str(x['batch'])==os.environ['B']];print(','.join(ids))" > /tmp/ids
+          [ -s /tmp/ids ] || { echo "::error::empty batch"; exit 1; }; echo "IDS=$(cat /tmp/ids)" >> "$GITHUB_ENV"
+      - name: Hook truth – Groq judge (strong hook only for real errors; soft rewrite; reject wrong corrections)
+        env: { GRABCAST_AI_KEY: '${{ secrets.GRABCAST_AI_KEY }}' }
+        run: node scripts/video/tpl/hook-judge.mjs --ids "$IDS"
+      - name: Keep verdicts on main (idempotent re-runs)
+        run: |
+          git diff --quiet -- "$TD" && exit 0
+          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "tpl1b: hook verdicts batch ${{ inputs.batch }} (video-tpl1b #${{ github.run_number }}) [CF-Pages-Skip]" -- "$TD"
+          for k in 1 2 3 4; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+      - name: Matrix (≤ 10 jobs)
+        id: m
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          TD = os.environ['TD']; ids = os.environ['IDS'].split(','); ok, rej = [], []
+          for i in ids:
+              d = json.load(open(f'{TD}/{i}.json')); j = d['hook'].get('judge')
+              (rej if d.get('reject') or not j else ok).append(i if j and not d.get('reject') else f"{i}:{d.get('reject') or 'no judge verdict'}")
+          open('/tmp/judge_rejects.txt', 'w').write('\n'.join(rej))
+          n = min(10, len(ok)); ch = [ok[k::n] for k in range(n)] if n else []
+          print('matrix=' + json.dumps([dict(k=k, ids=','.join(c)) for k, c in enumerate(ch)])); print(f'n={len(ok)}')
+          PY
+          cat /tmp/judge_rejects.txt >> "$GITHUB_STEP_SUMMARY" || true; cp /tmp/judge_rejects.txt "$TD/judge_rejects.txt"
+      - uses: actions/upload-artifact@v4
+        with: { name: tpl1b-lessons, path: content/video/cine/news/tpl1b/, retention-days: 7 }
+  render:
+    needs: plan
+    if: needs.plan.outputs.n != '0' && needs.plan.outputs.n != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix: { chunk: '${{ fromJSON(needs.plan.outputs.matrix) }}' }
+    env:
+      IDS: ${{ matrix.chunk.ids }}
+      ND: ${{ github.workspace }}/vo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: tpl1b-lessons, path: /tmp/lessons }
+      - name: Lessons with verdicts + libraries + ffmpeg
+        run: |
+          cp /tmp/lessons/*.json "$TD/"
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Footage (host clips + topic plates, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          P=$(python3 - <<'PY'
+          import json, os, sys
+          sys.path.insert(0, 'scripts/video/tpl'); from tokens import PLATES, HOST_CLIPS
+          TD = os.environ['TD']; ps = set()
+          for i in os.environ['IDS'].split(','):
+              d = json.load(open(f'{TD}/{i}.json')); ps |= {p for p, v in PLATES.items() if d['topic'] in v['tags']}   # + alternates for the one automatic fix
+          out = [f'/anchor/bg/{p}.png' for p in sorted(ps)]
+          for c in HOST_CLIPS.values(): out += [f'/anchor/green/kfull_pro/{c}.mp4', f'/anchor/green/kmask_pro/{c}.mkv', f'/anchor/tools/meta/{c}/', f'/anchor/tools/dl24/{c}.json']
+          print(' '.join(out))
+          PY
+          )
+          git -C footage sparse-checkout set --no-cone $P && git -C footage checkout -q
+          rm -f ~/.ssh/footage; du -sh footage
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Kokoro model cache
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb (required – the lip-sync gate fails without it)
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
+          "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable – refusing to estimate visemes"; exit 1; }
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Emoji icons (tpl2 assets the renderer may load)
+        run: mkdir -p icons
+      - name: Voice → render → qc_tpl → rubric (one automatic fix on reject)
+        run: bash scripts/video/tpl/batch_chunk.sh "$IDS" out/tpl
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tpl1b-chunk-${{ matrix.chunk.k }}
+          path: |
+            out/tpl/*.mp4
+            out/tpl/*.json
+            out/tpl/*.jpg
+            out/tpl/*.txt
+            out/tpl/fix/
+          retention-days: 14
+          if-no-files-found: warn
+  store:
+    needs: [plan, render]
+    if: always() && needs.plan.outputs.n != '0' && needs.plan.outputs.n != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'tpl1b-chunk-*', path: /tmp/chunks, merge-multiple: true }
+      - uses: actions/download-artifact@v4
+        with: { name: tpl1b-lessons, path: /tmp/lessons }
+      - name: Lease (docs/JOBS.md – Drive pool for the store step; paused job → manual run --force)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire video-tpl1b --force --wait-min 20
+      - name: Batch gates + report + contact sheet + samples
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null; pip install -q pillow numpy
+          mkdir -p out/batch; cp /tmp/chunks/* out/batch/ 2>/dev/null || true
+          python3 scripts/video/tpl/batch_report.py out/batch "${{ inputs.batch }}" /tmp/lessons/judge_rejects.txt
+          cat out/batch/report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Store accepted (lexkite-shorts + Drive pool → Admin › Video "Chờ duyệt")
+        if: steps.lease.outputs.skip != '1'
+        env: { KEY: '${{ secrets.SHORTS_DEPLOY_KEY }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: |
+          [ -s out/batch/accepted.txt ] || { echo "::error::0 accepted videos"; exit 1; }
+          [ -n "$KEY" ] || { echo "::error::missing secret SHORTS_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/shorts && chmod 600 ~/.ssh/shorts
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --sparse git@github.com:lexkiteapp/lexkite-shorts.git /tmp/shorts
+          git -C /tmp/shorts sparse-checkout add shorts/tpl1b
+          python3 scripts/video/tpl/store_tpl.py out/batch /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
+          bash scripts/cine/archive_new.sh /tmp/shorts
+          cd /tmp/shorts; git add --sparse -A shorts .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "video-tpl1b #${{ github.run_number }} batch ${{ inputs.batch }}" || exit 0
+          for k in 1 2 3 4 5 6; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 4; done
+          rm -f ~/.ssh/shorts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tpl1b-batch-${{ inputs.batch }}-${{ github.run_number }}
+          path: |
+            out/batch/report.md
+            out/batch/report.json
+            out/batch/contact-sheet.jpg
+            out/batch/samples/
+          retention-days: 30
+      - name: Release lease
+        if: always() && steps.lease.outputs.skip != '1'
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release video-tpl1b --status "${{ job.status }}"

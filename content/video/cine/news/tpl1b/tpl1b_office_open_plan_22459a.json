@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_office_open_plan_22459a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:stem from#phr v"
+ },
+ "topic": "tech",
+ "cefr": "C1",
+ "area": "phrases",
+ "plate": "office_open_plan",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_22459a_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The problem comes out of bad planning.",
+ "key_line": "The problem stems from bad planning.",
+ "series": [
+  "OFFICE ENGLISH",
+  "STEM FROM = grows from"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_22459a_k",
+   "card": {
+    "formula": "STEM FROM = grows from"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_22459a_y",
+   "card": {
+    "text": "Stem from means is caused by."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The problem stems from bad planning.",
+   "Her fear stems from a car crash.",
+   "Many errors stem from stress."
+  ]
+ },
+ "quiz": {
+  "pre": "The delay stemmed",
+  "post": "a computer error",
+  "a": "from",
+  "b": "of",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

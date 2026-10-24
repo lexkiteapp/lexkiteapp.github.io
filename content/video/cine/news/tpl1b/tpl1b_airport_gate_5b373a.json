@@ -8,27 +8,30 @@
  },
  "topic": "travel",
  "cefr": "B1",
- "area": "grammar-check",
+ "area": "roleplay",
  "plate": "airport_gate",
- "host": "carlos",
- "clip": "gc4_q34_talk",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
  "hook": {
   "line": "n_5b373a_h",
-  "quote": "too much heavy",
-  "kind": "Stop saying 'too much heavy'"
+  "quote": null,
+  "kind": "Stop saying 'too much heavy'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
  },
  "wrong_line": "My bag is too much heavy.",
  "key_line": "My bag is too heavy.",
  "series": [
-  "AIRPORT",
-  "TOO + adjective"
+  "AIRPORT ENGLISH",
+  "TOO + adjective. TOO"
  ],
  "beats": [
   {
    "kind": "k",
    "line": "n_5b373a_k",
    "card": {
-    "formula": "TOO + adjective"
+    "formula": "TOO + adjective. TOO"
    }
   },
   {
@@ -54,8 +57,8 @@
   "answer": 0
  },
  "cta": {
-  "text": "Check your grammar on lexkite.com",
-  "link": "https://lexkite.com/app/#/fix",
-  "label": "Grammar checker"
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
  }
 }

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_3e77d3",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:rise-raise"
+ },
+ "topic": "social",
+ "cefr": "A2",
+ "area": "word-usage",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_3e77d3_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "Please rise your hand.",
+ "key_line": "Please raise your hand.",
+ "series": [
+  "HOME ENGLISH",
+  "raise + thing"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3e77d3_k",
+   "card": {
+    "formula": "raise + thing"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3e77d3_y",
+   "card": {
+    "text": "Raise moves something. Rise moves by itself."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Please raise your hand.",
+   "Prices rise every year.",
+   "Raise your glass!"
+  ]
+ },
+ "quiz": {
+  "pre": "The sun",
+  "post": "at six",
+  "a": "rises",
+  "b": "raises",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

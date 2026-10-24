@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_c03dbf",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:presenting:ill-be-talking:x"
+ },
+ "topic": "work",
+ "cefr": "B2",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_c03dbf_h",
+  "quote": null,
+  "kind": "Which is correct?",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I will present you our app.",
+ "key_line": "Today, I'll be talking about our app.",
+ "series": [
+  "MEETING ENGLISH",
+  "PRESENT it TO you /"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_c03dbf_k",
+   "card": {
+    "formula": "PRESENT it TO you /"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_c03dbf_y",
+   "card": {
+    "text": "Say present to you, or talk about."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Today, I'll be talking about our app.",
+   "Today I'll present our results.",
+   "I'll be talking about the plan."
+  ]
+ },
+ "quiz": {
+  "pre": "Today I'll present our app",
+  "post": "you",
+  "a": "to",
+  "b": "for",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

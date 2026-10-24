@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_3181a7",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:v:wonder:wh"
+ },
+ "topic": "exam",
+ "cefr": "B1",
+ "area": "verbs",
+ "plate": "library",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_3181a7_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "I wonder where is the bank.",
+ "key_line": "I wonder where the bank is.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "I wonder + WH + subject"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_3181a7_k",
+   "card": {
+    "formula": "I wonder + WH + subject"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_3181a7_y",
+   "card": {
+    "text": "After I wonder, use normal order: where it is."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "I wonder where the bank is.",
+   "I wonder what time it is.",
+   "I wonder why he left."
+  ]
+ },
+ "quiz": {
+  "pre": "I wonder",
+  "post": "",
+  "a": "where she lives",
+  "b": "where does she live",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Conjugate any verb on lexkite.com",
+  "link": "https://lexkite.com/app/#/verb",
+  "label": "Verb conjugation"
+ }
+}

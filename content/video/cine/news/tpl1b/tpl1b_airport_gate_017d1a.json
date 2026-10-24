@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_017d1a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:collide:with"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "airport_gate",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_017d1a_h",
+  "quote": null,
+  "kind": "Stop saying 'collided to'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "The car collided to a bus.",
+ "key_line": "The car collided with a bus.",
+ "series": [
+  "AIRPORT ENGLISH",
+  "collide WITH = crash"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_017d1a_k",
+   "card": {
+    "formula": "collide WITH = crash"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_017d1a_y",
+   "card": {
+    "text": "Collide with means crash into."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The car collided with a bus.",
+   "Two bikes collided with each other.",
+   "The ship collided with a rock."
+  ]
+ },
+ "quiz": {
+  "pre": "The truck collided",
+  "post": "a tree",
+  "a": "with",
+  "b": "to",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

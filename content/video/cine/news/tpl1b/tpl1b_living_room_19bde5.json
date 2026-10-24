@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_living_room_19bde5",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:married:m0"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "grammar-check",
+ "plate": "living_room",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_19bde5_h",
+  "quote": null,
+  "kind": "Stop saying 'married with'",
+  "mode": "strong",
+  "display": "Natives never say",
+  "judge": null
+ },
+ "wrong_line": "He married with a teacher.",
+ "key_line": "He married a teacher.",
+ "series": [
+  "HOME ENGLISH",
+  "MARRY someone"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_19bde5_k",
+   "card": {
+    "formula": "MARRY someone"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_19bde5_y",
+   "card": {
+    "text": "The verb marry needs no word after it."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "He married a teacher.",
+   "She married her best friend.",
+   "They're married to each other."
+  ]
+ },
+ "quiz": {
+  "pre": "She married",
+  "post": "a doctor",
+  "a": "(nothing)",
+  "b": "with",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

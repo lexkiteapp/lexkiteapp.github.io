@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_meeting_room_5c2dee",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:networking:what-brings-you:x"
+ },
+ "topic": "work",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "meeting_room",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_5c2dee_h",
+  "quote": null,
+  "kind": "Stop saying 'Why you are'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Why you are here?",
+ "key_line": "So, what brings you here today?",
+ "series": [
+  "MEETING ENGLISH",
+  "WHAT BRINGS YOU + place?"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_5c2dee_k",
+   "card": {
+    "formula": "WHAT BRINGS YOU + place?"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_5c2dee_y",
+   "card": {
+    "text": "Questions put are before you. This sounds friendlier."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "So, what brings you here today?",
+   "What brings you to London?",
+   "So, what brings you here tonight?"
+  ]
+ },
+ "quiz": {
+  "pre": "So, what",
+  "post": "you here today?",
+  "a": "brings",
+  "b": "bring",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

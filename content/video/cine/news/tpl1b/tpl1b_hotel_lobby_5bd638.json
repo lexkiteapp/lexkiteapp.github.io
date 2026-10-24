@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_hotel_lobby_5bd638",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:c:travel-trip-journey"
+ },
+ "topic": "travel",
+ "cefr": "A1",
+ "area": "word-usage",
+ "plate": "hotel_lobby",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_5bd638_h",
+  "quote": null,
+  "kind": "Natives never say 'nice travel'",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Have a nice travel!",
+ "key_line": "Have a nice trip!",
+ "series": [
+  "HOTEL ENGLISH",
+  "one visit = TRIP"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_5bd638_k",
+   "card": {
+    "formula": "one visit = TRIP"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_5bd638_y",
+   "card": {
+    "text": "A trip is one visit. Travel is the general idea."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Have a nice trip!",
+   "We took a trip to the beach.",
+   "The journey took six hours."
+  ]
+ },
+ "quiz": {
+  "pre": "How was your",
+  "post": "to Japan?",
+  "a": "trip",
+  "b": "travel",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Compare tricky words on lexkite.com",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "label": "Confusing words (word usage)"
+ }
+}

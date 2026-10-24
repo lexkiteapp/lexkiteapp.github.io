@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_clothing_store_0edca2",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "w:free sample#n"
+ },
+ "topic": "shopping",
+ "cefr": "A2",
+ "area": "phrases",
+ "plate": "clothing_store",
+ "host": "mia",
+ "clip": "gm1_talk_natural",
+ "hook": {
+  "line": "n_0edca2_h",
+  "quote": null,
+  "kind": "Say this instead",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "Can I have a free test?",
+ "key_line": "Can I try a free sample?",
+ "series": [
+  "STORE ENGLISH",
+  "try first = FREE SAMPLE"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_0edca2_k",
+   "card": {
+    "formula": "try first = FREE SAMPLE"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_0edca2_y",
+   "card": {
+    "text": "A small free amount to try is a free sample."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Can I try a free sample?",
+   "They gave out free samples of coffee.",
+   "Can I have a free sample of this cream?"
+  ]
+ },
+ "quiz": {
+  "pre": "The store gave us a free",
+  "post": "of cheese",
+  "a": "sample",
+  "b": "test",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Save useful phrases on lexkite.com",
+  "link": "https://lexkite.com/app/#/phrases",
+  "label": "Phrases & collocations"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_library_18d951",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "u:p:number:m0"
+ },
+ "topic": "exam",
+ "cefr": "C1",
+ "area": "grammar-check",
+ "plate": "library",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
+ "hook": {
+  "line": "n_18d951_h",
+  "quote": null,
+  "kind": "90% get this wrong",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "The number of student are increasing.",
+ "key_line": "The number of students is increasing.",
+ "series": [
+  "LIBRARY ENGLISH",
+  "THE number IS"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_18d951_k",
+   "card": {
+    "formula": "THE number IS"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_18d951_y",
+   "card": {
+    "text": "The number takes is. A number takes are."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "The number of students is increasing.",
+   "The number of cars is growing.",
+   "A number of people are waiting."
+  ]
+ },
+ "quiz": {
+  "pre": "The number of tourists",
+  "post": "rising",
+  "a": "is",
+  "b": "are",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Check your grammar on lexkite.com",
+  "link": "https://lexkite.com/app/#/fix",
+  "label": "Grammar checker"
+ }
+}

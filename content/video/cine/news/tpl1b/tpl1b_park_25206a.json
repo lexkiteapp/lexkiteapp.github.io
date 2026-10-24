@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_park_25206a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:new-friends:keep-in-touch:x"
+ },
+ "topic": "social",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "park",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
+ "hook": {
+  "line": "n_25206a_h",
+  "quote": null,
+  "kind": "Guess before I tell you",
+  "mode": "strong",
+  "display": "Never say",
+  "judge": null
+ },
+ "wrong_line": "Let's keep contact!",
+ "key_line": "Let's keep in touch!",
+ "series": [
+  "PARK ENGLISH",
+  "KEEP IN TOUCH"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_25206a_k",
+   "card": {
+    "formula": "KEEP IN TOUCH"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_25206a_y",
+   "card": {
+    "text": "The fixed phrase is keep in touch."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "Let's keep in touch!",
+   "Let's stay in touch.",
+   "We kept in touch after school."
+  ]
+ },
+ "quiz": {
+  "pre": "Let's keep in",
+  "post": "!",
+  "a": "touch",
+  "b": "contact",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}
