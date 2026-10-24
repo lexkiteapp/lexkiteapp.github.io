@@ -73,4 +73,15 @@ Playwright (dist): vùng chạm < 44 px trên 3 trang tĩnh 27–37 → 12–13 
 CLS 0 trước/sau; INP gõ ô lọc 24–32 ms; axe AA 0 lỗi mọi ca; không cuộn ngang ở 375 px (en/vi/ar).
 ux-sweep: linkrow-wrap 6 nhóm → 4, text-token 3 nhóm (80 lần) → 0, card-padding 2 → 2 (đệm đã giảm, ngưỡng chặt), banner chồng / khoảng trống / nav trùng 0.
 
+## LCP màn đầu app (24/10) – đo `app-lcp.yml` (dist, Lighthouse 12 mobile trung vị 3 lần + Playwright 4G/CPU×4)
+Gốc lỗi (Lantern tính LCP = mọi request XONG trước thời điểm LCP quan sát): 25 file JS khung app (~650 KB chưa nén) + en.js 284 KB + font
+Google tải xong TRƯỚC khi chữ #lkHero được vẽ (khung đầu bị `.view` mờ dần từ opacity 0, rồi luồng chính bận chạy JS) → LCP 7,0 s.
+Sửa: (1) `scripts/app-loader.mjs` – chỉ dist web: JS khung + CSS font nạp SAU khung hình đầu (rAF→setTimeout, dự phòng 300 ms),
+giữ thứ tự defer, phát lại DOMContentLoaded/load; web/app/index.html giữ `<script defer>` (add-on MV3, app di động, test jsdom);
+(2) `#view:has(#lkHero){animation:none}` – khung chào vẽ ngay; (3) font dự phòng "Be Vietnam Pro Fallback" (size-adjust 109,94 %,
+ascent 90,96 %, descent 24,1 % – đo từ file font) → CLS ≤ 0,03 khi font web tới; (4) bỏ preload CSS font; (5) SW đăng ký sau load + 2 s;
+(6) icon-512.png ra khỏi SHELL (6,6 KB gz, ảnh tĩnh vẫn cache khi dùng).
+Kết quả /app/?hl=en: perf 71 → 99, LCP 7,0 → 2,0 s, FCP 2,9 → 1,5 s, CLS 0,007 → 0,009; ?hl=vi: 80 → 99, LCP 6,1 → 2,0 s.
+Playwright 4G/CPU×4: FCP 3,0 → 1,1 s, LCP 3,6 → 1,15 s. Cổng: `app-loader.mjs --check` + `app-lcp-probe.mjs` (khởi động, khách cũ, SW, offline).
+
 Ảnh so sánh: `out/ux-public/compare-*.png` (máy chủ sở hữu, không commit).

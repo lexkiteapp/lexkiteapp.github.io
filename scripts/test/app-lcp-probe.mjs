@@ -27,7 +27,7 @@ let bad = 0; const ok = (c, m) => { console.log((c ? '✓ ' : '✗ ') + m); if (
   await pg.goto(base + '/app/?hl=en', { waitUntil: 'load' });
   await pg.waitForFunction(() => window.App && App.route && location.hash === '#/welcome' && document.querySelector('#wCard'), null, { timeout: 20000 }).then(() => ok(1, 'khách mới: app khởi động, #/welcome + thẻ demo')).catch(() => ok(0, 'khách mới: app không khởi động (hash=' + '?)'));
   ok(await pg.evaluate(() => document.title !== '' && document.documentElement.lang === 'en' && !!document.querySelector('.lk-rep')), 'i18n en + report-pill (DOMContentLoaded giả) chạy');
-  await pg.waitForFunction(() => navigator.serviceWorker && navigator.serviceWorker.getRegistration('/app/').then(r => !!(r && r.active)), null, { timeout: 30000 }).then(() => ok(1, 'SW /app/ đã kích hoạt')).catch(() => ok(0, 'SW /app/ không kích hoạt'));
+  await pg.waitForFunction(() => navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(rs => rs.some(r => new URL(r.scope).pathname === '/app/' && r.active)), null, { timeout: 30000 }).then(() => ok(1, 'SW /app/ đã kích hoạt')).catch(() => ok(0, 'SW /app/ không kích hoạt'));
   await pg.evaluate(() => localStorage.setItem('lk.onb', '1'));
   await pg.goto(base + '/app/#/vocab', { waitUntil: 'load' });
   await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length && !document.body.classList.contains('bare'), null, { timeout: 20000 }).then(() => ok(1, 'khách cũ: #/vocab vẽ xong (SW điều khiển: ' + '…)')).catch(() => ok(0, 'khách cũ: #/vocab không vẽ'));
