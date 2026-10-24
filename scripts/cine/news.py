@@ -283,11 +283,23 @@ if os.environ.get('NEWS_DRY'):   # dry run (Mac): timeline only, no frames
 RD = f'{N}/render5_{LID}_en'; os.makedirs(RD, exist_ok=True)
 for _f in glob.glob(f'{RD}/ref_*.png'): os.remove(_f)   # stale SSIM references from an earlier render of this lesson
 def finish_mask(M, k=1): x, y, w, h = [v * k for v in L.WM_CROP]; return cv2.resize(M[y:y + h, x:x + w], (1080 * k, 1920 * k), interpolation=cv2.INTER_LINEAR)
+def sr_sprites(cf, mo):   # owner 24/10: Carlos recap face acutance 0.87 < 0.90 - the swapped mouth was a 1x crop bicubic-upscaled to 2x (scale_mouth), then the x2 layer
+    idx = {}                 # was placed at 0.65x: two resamples and no SR detail inside the mouth ellipse (= 1.31x of the 1x source). Re-cut every viseme sprite from the x2 clip.
+    for v, i in mo.m['visemes'].items(): idx.setdefault(int(i), []).append(v)
+    spr = dict(mo.spr); cap = cv2.VideoCapture(cf); j = 0
+    while idx and j <= max(idx):
+        ok, F = cap.read()
+        if not ok: break
+        for v in idx.get(j, []): spr[v] = mo.aligned(F, j).astype(np.float32)
+        j += 1
+    return spr
 def host_frames(s, clip, who, lines, raw):
     cf, cm, ll = MR.layer_paths(G, clip)   # PRO mattes (ViTMatte, lossless alpha) when NEWS_MATTE=pro
     KX = 2 if os.environ.get('NEWS_SR') and os.path.exists(f'{G}/kfull_x2/{clip}.mp4') and os.path.exists(f'{G}/kmask_x2/{clip}.mkv') else 1   # host_sr.py x2 layers
     if KX == 2: cf, cm, ll = f'{G}/kfull_x2/{clip}.mp4', f'{G}/kmask_x2/{clip}.mkv', True
     mo = [] if raw else [dict(mouth=L.scale_mouth(L.Mouth(f'{TL}/meta/{clip}/{who}'), KX) if KX > 1 else L.Mouth(f'{TL}/meta/{clip}/{who}'), lines=[dict(cues=CUES[l['id']], at=l['at'], tempo=l['tempo']) for l in lines])]
+    if KX == 2 and mo: mo[0]['mouth'].spr = sr_sprites(cf, mo[0]['mouth'])   # owner 24/10 sharpness: mouth sprites from the x2 layer itself (no 1x->2x->0.65x double scaling)
+    if KX == 1 and os.environ.get('NEWS_SR'): print(f'WARN host SR layer missing for {clip}: {who} rendered from the 1x source (MCU = {FACE_PX["mcu"] / FACEH[GK(clip, who)]:.2f}x upscale)')
     fr, log = L.render(cf, s['frames'], speakers=mo, k=KX); s.setdefault('kx', {})[clip] = KX
     PADB = (600 if clip.startswith('ga') else 0) * KX   # standing Ama's clip ends at her thighs: extend the (dark) trousers by edge replication so a smaller Ama still exits the frame bottom
     if PADB: fr = [np.concatenate([F_, np.repeat(F_[-1:], PADB, 0)]) for F_ in fr]
