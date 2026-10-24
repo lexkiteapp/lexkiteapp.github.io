@@ -38,8 +38,11 @@ jobs:
           python -c "import nltk; nltk.download('wordnet', quiet=True)"
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
           curl -sfL -o "$RUNNER_TEMP/bad.txt" https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
+          # CEFR kiểu EVP: CEFR-J Wordlist 1.5 (Tono Lab TUFS, miễn phí kể cả thương mại, ghi nguồn) + Octanove C1/C2 (CC BY-SA 4.0) – openlanguageprofiles/olp-en-cefrj
+          curl -sfL -o "$RUNNER_TEMP/cefrj.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/cefrj-vocabulary-profile-1.5.csv || true
+          curl -sfL -o "$RUNNER_TEMP/octanove.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/octanove-vocabulary-profile-c1c2-1.0.csv || true
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
-          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" --out "$RUNNER_TEMP/candidates.json"
+          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
       - name: Sinh + 2 giám khảo + cổng
         if: ${{ steps.lease.outputs.skip != '1' }}
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast → Workers AI tài khoản 2 (neuron = phần cấp điều phối) → GrabCast Groq

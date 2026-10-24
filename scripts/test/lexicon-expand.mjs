@@ -4,6 +4,8 @@ import path from 'path';
 import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, doneWords } from '../lexicon/expand/lib.mjs';
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
+import { parseCmu, pickPron, ipaAgrees } from '../lexicon/expand/cmu.mjs';
+import { arpaToIpa } from '../lexicon/ipa.mjs';
 const ROOT = new URL('../../', import.meta.url).pathname;
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 const TR = { es: 'abandonar', pt: 'abandonar', fr: 'abandonner', de: 'verlassen', id: 'meninggalkan', th: 'ละทิ้ง', zh: '放弃', ja: '見捨てる', ko: '버리다', hi: 'छोड़ देना', ar: 'يتخلى عن', ru: 'покидать', tr: 'terk etmek' };
@@ -35,6 +37,7 @@ ok(clean('/ɡəʊt/') === '/ɡəʊt/' && clean('/ˈt͡ʃɪp/') === '/ˈtʃɪp/' 
 ok(normEspeak('fɔːsˈeɪk') === '/fɔːˈseɪk/' && normEspeak('həlˈəʊ') === '/həˈləʊ/' && normEspeak('ʃˈʊə') === '/ʃʊə/' && normEspeak('kˌɒmbɪnˈeɪʃən') === '/ˌkɒmbɪˈneɪʃən/' && normEspeak('ˈeəɹɪə') === '/ˈeəriə/' && normEspeak('hˈapi') === '/ˈhæpi/', 'normEspeak');
 ok(compare('/ˈkʌlɪnəri/', '/ˈkʌlɪn(ə)ri/').exact && compare('/dɪˈstɔːt/', '/dɪsˈtɔːt/').near && !compare('/ˈsɪɡəret/', '/ˈbɒtəl/').near, 'compare espeak ↔ Wiktionary');
 // dịch ngược: lồng nhau + dung sai theo ngôn ngữ (lỏng chỉ ở ngôn ngữ xa, khi cả 2 giám khảo ≥ 4)
+ok(!btMatch('trumpet', 'trump') && btMatch('to reclaim', 'claim') && btMatch('records', 'record'), 'btMatch: dài hơn chỉ khi phụ tố (trump ⊄ trumpet)');
 ok(btMatch('after', 'afterwards') && btMatch('to claim back', 'reclaim') && !btMatch('to eat', 'reclaim'), 'btMatch lồng nhau');
 { const e = { w: 'savor', syn: ['relish'], def: 'to enjoy the taste of food slowly', qa: { btw: { zh: ['taste'], de: ['taste'] }, tr: { zh: [5, 4], de: [5, 4] } } };
   ok(btOk(e, 'zh') && !btOk(e, 'de'), 'btOk: zh lỏng (từ của định nghĩa), de chặt'); e.qa.tr.zh = [5, 3]; ok(!btOk(e, 'zh'), 'btOk: lỏng cần cả 2 giám khảo ≥ 4'); }
@@ -76,3 +79,81 @@ if (pub.length) { const { buildShards } = await import('../lexicon/shards.mjs');
 if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand việc hạ nguồn còn thiếu: ' + Object.keys(REG.todo).join(', '));
 if (fail) { console.error(`✗ lexicon-expand: ${fail} lỗi`); process.exit(1); }
 console.log(`✓ lexicon-expand: cổng mục + dịch ngược + ${Object.keys(REG.consumers).length} việc hạ nguồn · ${pub.length} mục đã xuất`);
+
+// ---- IPA theo từ loại: 20 cặp danh/tính – động từ đổi trọng âm / s–z / -ate (CMUdict thật, pilot 7: reuse#v)
+const CMU = parseCmu(`record R AH0 K AO1 R D
+record(2) R EH1 K ER0 D
+record(3) R IH0 K AO1 R D
+present P R EH1 Z AH0 N T
+present(2) P R IY0 Z EH1 N T
+present(3) P ER0 Z EH1 N T
+reuse R IY0 Y UW1 S
+reuse(2) R IY0 Y UW1 Z
+use Y UW1 S
+use(2) Y UW1 Z
+abuse AH0 B Y UW1 S
+abuse(2) AH0 B Y UW1 Z
+excuse IH0 K S K Y UW1 S
+excuse(2) IH0 K S K Y UW1 Z
+misuse M IH0 S Y UW1 Z
+misuse(2) M IH0 S Y UW1 S
+close K L OW1 S
+close(2) K L OW1 Z
+object AA1 B JH EH0 K T
+object(2) AH0 B JH EH1 K T
+project P R AA1 JH EH0 K T
+project(2) P R AH0 JH EH1 K T
+conflict K AA1 N F L IH0 K T
+conflict(2) K AH0 N F L IH1 K T
+contrast K AA1 N T R AE0 S T
+contrast(2) K AH0 N T R AE1 S T
+decrease D IH0 K R IY1 S
+decrease(2) D IY1 K R IY2 S
+increase IH2 N K R IY1 S
+increase(2) IH1 N K R IY2 S
+insult IH2 N S AH1 L T
+insult(2) IH1 N S AH2 L T
+rebel R EH1 B AH0 L
+rebel(2) R IH0 B EH1 L
+suspect S AH0 S P EH1 K T
+suspect(2) S AH1 S P EH2 K T
+survey S ER0 V EY1
+survey(2) S ER1 V EY2
+estimate EH1 S T AH0 M AH0 T
+estimate(2) EH1 S T AH0 M EY2 T
+separate S EH1 P ER0 EY2 T
+separate(2) S EH1 P ER0 IH0 T
+separate(3) S EH1 P R AH0 T
+perfect P ER0 F EH1 K T
+perfect(2) P ER1 F IH2 K T
+palm P AA1 M`);
+const PAIRS = [ // [từ, từ loại danh/tính, biến thể mong đợi danh/tính, biến thể mong đợi động từ]
+  ['record', 'n', 'R EH1 K ER0 D', 'R AH0 K AO1 R D'], ['present', 'n', 'P R EH1 Z AH0 N T', 'P R IY0 Z EH1 N T'], ['reuse', 'n', 'R IY0 Y UW1 S', 'R IY0 Y UW1 Z'],
+  ['use', 'n', 'Y UW1 S', 'Y UW1 Z'], ['abuse', 'n', 'AH0 B Y UW1 S', 'AH0 B Y UW1 Z'], ['excuse', 'n', 'IH0 K S K Y UW1 S', 'IH0 K S K Y UW1 Z'], ['misuse', 'n', 'M IH0 S Y UW1 S', 'M IH0 S Y UW1 Z'],
+  ['close', 'adj', 'K L OW1 S', 'K L OW1 Z'], ['object', 'n', 'AA1 B JH EH0 K T', 'AH0 B JH EH1 K T'], ['project', 'n', 'P R AA1 JH EH0 K T', 'P R AH0 JH EH1 K T'],
+  ['conflict', 'n', 'K AA1 N F L IH0 K T', 'K AH0 N F L IH1 K T'], ['contrast', 'n', 'K AA1 N T R AE0 S T', 'K AH0 N T R AE1 S T'], ['decrease', 'n', 'D IY1 K R IY2 S', 'D IH0 K R IY1 S'],
+  ['increase', 'n', 'IH1 N K R IY2 S', 'IH2 N K R IY1 S'], ['insult', 'n', 'IH1 N S AH2 L T', 'IH2 N S AH1 L T'], ['rebel', 'n', 'R EH1 B AH0 L', 'R IH0 B EH1 L'],
+  ['suspect', 'n', 'S AH1 S P EH2 K T', 'S AH0 S P EH1 K T'], ['survey', 'n', 'S ER1 V EY2', 'S ER0 V EY1'], ['estimate', 'n', 'EH1 S T AH0 M AH0 T', 'EH1 S T AH0 M EY2 T'],
+  ['separate', 'adj', 'S EH1 P ER0 IH0 T', 'S EH1 P ER0 EY2 T'], ['perfect', 'adj', 'P ER1 F IH2 K T', 'P ER0 F EH1 K T']];
+ok(PAIRS.length >= 20, '≥ 20 cặp');
+for (const [w, pn, en, ev] of PAIRS) { ok(pickPron(CMU.get(w), pn) === en, `IPA ${w}#${pn}: ${pickPron(CMU.get(w), pn)} ≠ ${en}`); ok(pickPron(CMU.get(w), 'v') === ev, `IPA ${w}#v: ${pickPron(CMU.get(w), 'v')} ≠ ${ev}`); }
+ok(pickPron(CMU.get('palm'), 'n') === 'P AA1 M' && pickPron(['A', 'B'], 'adv') === 'A', 'không đổi trọng âm → biến thể 1');
+ok(arpaToIpa(pickPron(CMU.get('reuse'), 'v')).endsWith('z'), 'reuse#v kết thúc /z/');
+{ const vs = CMU.get('record'); ok(ipaAgrees('/rɪˈkɔːd/', vs, pickPron(vs, 'v')) && !ipaAgrees('/ˈrekɔːd/', vs, pickPron(vs, 'v')) && ipaAgrees('/ˈrekɔːd/', vs, pickPron(vs, 'n')), 'IPA Anh khớp từ loại (record)');
+  const ru = CMU.get('reuse'); ok(ipaAgrees('/riːˈjuːz/', ru, pickPron(ru, 'v')) && !ipaAgrees('/riːˈjuːs/', ru, pickPron(ru, 'v')), 'IPA Anh khớp s/z (reuse)'); }
+// ---- cổng mới (pilot 7): khóa nghĩa, phiên âm, CEFR giám khảo, vi đối chiếu Wiktionary, ipa-pos
+const g2 = () => { const e = good(); e.qa.sense = ['yes', 'yes']; e.qa.cefrJ = ['C1', 'B2']; e.level = 'C1'; e.cefrF = 'C1'; e.qa.bad = {}; return e; };
+ok(gateEntry(g2()).ok, 'mục tốt (trường mới) đạt: ' + JSON.stringify(gateEntry(g2()).why));
+const bad2 = (f, m) => { const e = g2(); f(e); ok(!gateEntry(e).ok, 'phải trượt: ' + m); };
+bad2(e => e.qa.sense = ['yes', 'no'], 'một giám khảo nói sai nghĩa');
+bad2(e => e.qa.sense = ['yes'], 'thiếu câu trả lời nghĩa');
+bad2(e => e.qa.bad = { hi: 'translit' }, 'hi phiên âm');
+bad2(e => e.qa.bad = { es: 'pos' }, 'es khác từ loại');
+bad2(e => { e.level = 'A2'; e.cefrF = 'A2'; e.qa.cefrJ = ['B2', 'B1']; }, 'CEFR giám khảo lệch 2 bậc (assault A2)');
+bad2(e => e.qa.vi = ['ok', 'unsure'], 'vi khác Wiktionary, chưa chắc');
+bad2(e => e.ipaPos = false, 'IPA Anh không khớp từ loại');
+bad2(e => e.posDrift = 'n', 'đổi từ loại');
+ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntry(Object.assign(g2(), { ipa: '', ipaPos: false }))), 'ipa-pos không phải lỗ nguồn');
+{ const e = g2(); e.cefrSrc = 'cefrj'; e.level = 'B2'; e.qa.cefrJ = ['C2', 'C2']; ok(gateEntry(e).ok, 'CEFR-J thắng ý giám khảo'); }
+{ const e = g2(); e.qa.vi = ['fixed', 'fixed']; ok(gateEntry(e).ok, 'vi đã sửa theo Wiktionary đạt'); }
+if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }

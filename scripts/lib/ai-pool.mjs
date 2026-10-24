@@ -217,8 +217,11 @@ export function createPool(opts = {}) {
       if (r.status === 429) throw new PoolErr('route', 'GrabCast 429 (Retry-After)', retryAfter(r)); // trần khóa/IP: cả tuyến chờ đúng Retry-After
       if (r.status === 401 || r.status === 403) throw new PoolErr('route', 'GrabCast ' + r.status, 6 * 3600e3);
       const j = await r.json().catch(() => ({})), code = (j.detail && j.detail.code) || (j.error && j.error.code) || '';
-      if (code === 'ai_exhausted') throw new PoolErr('route', 'GrabCast ai_exhausted (mọi nhà cung cấp hết lượt)', 10 * 60e3);
-      if (code === 'ai_unavailable') throw new PoolErr('model', 'GrabCast ai_unavailable ' + JSON.stringify(j.detail.tried || []).slice(0, 80), 5 * 60e3);
+      // GrabCast 24/10 (sửa 500): 503 ai_busy (Retry-After 20) · ai_exhausted / ai_unavailable (Retry-After 60) – luôn theo Retry-After, không còn 500 trần
+      const ra = r.headers && r.headers.get && +r.headers.get('Retry-After') > 0 ? retryAfter(r) : 0;
+      if (code === 'ai_busy' || (r.status === 503 && !code)) throw new PoolErr('model', 'GrabCast 503 ai_busy (Retry-After)', ra || 20e3);
+      if (code === 'ai_exhausted') throw new PoolErr('route', 'GrabCast ai_exhausted (mọi nhà cung cấp hết lượt)', ra || 10 * 60e3);
+      if (code === 'ai_unavailable') throw new PoolErr('model', 'GrabCast ai_unavailable ' + JSON.stringify((j.detail && j.detail.tried) || []).slice(0, 80), ra || 5 * 60e3);
       const why = j.error && j.error.code || (Array.isArray(j.detail) ? j.detail.map(d => d.msg).join('; ') : j.detail) || '';
       if (!r.ok || !j.text) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', `GrabCast ${r.status} ${String(why).slice(0, 80)}`);
       const out = parseJSON(j.text); if (!out) throw new PoolErr('bad', `không phải JSON (${String(j.text).length} ký tự: …${String(j.text).slice(-40).replace(/\s+/g, ' ')})`);

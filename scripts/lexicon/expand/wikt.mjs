@@ -6,8 +6,20 @@ export async function kaikki(w, pos, stat = {}) {
   for (let i = 0; i < 3; i++) {
     try { const r = await fetch(u, { headers: { 'User-Agent': 'lexkite-lexicon-expand (lexkite.com)' } }); if (r.status === 404) return {}; if (!r.ok) throw 0; stat.kaikki = (stat.kaikki || 0) + 1;
       const ents = (await r.text()).split('\n').filter(Boolean).map(x => { try { return JSON.parse(x); } catch { return null; } }).filter(Boolean);
-      const ord = [...ents.filter(e => e.pos === KPOS[pos]), ...ents.filter(e => e.pos !== KPOS[pos])], pick = re => { for (const e of ord) for (const s of e.sounds || []) if (s.ipa && (s.tags || []).some(t => re.test(t))) return s.ipa; return ''; };
-      return { uk: pick(/^(Received-Pronunciation|UK|British)$/), us: pick(/^(General-American|US)$/) };
+      // âm THEO TỪ LOẠI: âm gắn nhãn từ loại này (tags noun/verb…) → âm của mục cùng từ loại không gắn nhãn từ loại khác → mục khác
+      const PT = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb' }, ALLP = Object.values(PT), me = PT[pos];
+      const snd = [];
+      for (const e of [...ents.filter(e => e.pos === KPOS[pos]), ...ents.filter(e => e.pos !== KPOS[pos])]) for (const s of e.sounds || []) if (s.ipa) {
+        const tg = s.tags || [], tp = tg.filter(t => ALLP.includes(t)); if (tp.length && !tp.includes(me)) continue;
+        snd.push({ ipa: s.ipa, tg, rank: tp.includes(me) ? 0 : e.pos === KPOS[pos] ? 1 : 2 });
+      }
+      snd.sort((a, b) => a.rank - b.rank);
+      const all = re => snd.filter(s => s.tg.some(t => re.test(t))), UKR = /^(Received-Pronunciation|UK|British|England)$/, USR = /^(General-American|US)$/;
+      // nghĩa tiếng Việt Wiktionary (CC BY-SA) cùng từ loại – để đối chiếu vi (job.mjs viCheck)
+      const vi = [], seen = new Set();
+      for (const e of ents.filter(e => e.pos === KPOS[pos])) for (const t of [...(e.translations || []), ...(e.senses || []).flatMap(s => (s.translations || []).map(x => ({ ...x, sense: x.sense || (s.glosses || [])[0] })))])
+        if ((t.lang_code === 'vi' || t.code === 'vi') && t.word && !seen.has(t.word)) { seen.add(t.word); vi.push({ w: t.word, sense: String(t.sense || '').slice(0, 60) }); }
+      return { uk: (all(UKR)[0] || {}).ipa || '', us: (all(USR)[0] || {}).ipa || '', ukAll: all(UKR).map(s => s.ipa), ukNoRegion: snd.filter(s => !s.tg.some(t => UKR.test(t) || USR.test(t) || /^(US|Canada|Australia|Scotland|Ireland|Northern-England|archaic)$/.test(t))).map(s => s.ipa), vi };
     } catch { await new Promise(s => setTimeout(s, 1500 * (i + 1))); }
   }
   return {};

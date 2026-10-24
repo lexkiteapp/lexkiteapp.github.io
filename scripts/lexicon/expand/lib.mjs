@@ -19,8 +19,11 @@ const STOP = new Set('that this with from into onto than then them they their th
 export function btMatch(bt, w, syn = []) {
   const T = new Set([...words(w), ...syn.flatMap(words)].filter(Boolean)), stem = x => x.slice(0, Math.max(4, Math.min(5, x.length - 1)));
   const S = new Set([...T].map(stem)), H = words(w).filter(x => x.length >= 4);
-  return words(bt).some(t => T.has(t) || (t.length >= 4 && S.has(stem(t))) || (t.length >= 4 && H.some(h => h.includes(t) || t.includes(h))));
+  // lồng nhau: bản dịch ngược NGẮN hơn đầu mục (after ⊂ afterwards) được; DÀI hơn chỉ khi phần thêm là phụ tố (reclaim, cleanse) – trump ⊄ trumpet (pilot 7)
+  return words(bt).some(t => T.has(t) || (t.length >= 4 && S.has(stem(t))) || (t.length >= 4 && H.some(h => h.includes(t) || (t.includes(h) && affixOnly(t, h)))));
 }
+const PRE = ['re', 'un', 'dis', 'in', 'im', 'mis', 'over', 'out', 'up', 'de', 'be', 'en'], SUF = ['s', 'es', 'd', 'ed', 'ing', 'er', 'ers', 'ly', 'ness', 'ment', 'ments', 'ation', 'ion', 'ity', 'ful', 'less', 'able', 'ible', 'al', 'ize', 'ise', 'se', 'ive', 'y', 'ic', 'ical', 'wards', 'ward'];
+const affixOnly = (t, h) => { const i = t.indexOf(h), pre = t.slice(0, i), suf = t.slice(i + h.length); return (!pre || PRE.includes(pre)) && (!suf || SUF.includes(suf)); };
 // Dung sai dịch ngược THEO NGÔN NGỮ (pilot 40077853589: 140 mục trượt dịch ngược, phần lớn dịch đúng nhưng dịch ngược ra từ rộng hơn:
 // savor→'taste', bureau→'office', enchantment→'charm'). Ngôn ngữ xa tiếng Anh (khác họ/chữ viết) được khớp 'lỏng' = dịch ngược trùng
 // một từ nội dung của định nghĩa – CHỈ khi cả 2 giám khảo chấm bản dịch ≥ 4. es/pt/fr/de/ru giữ khớp chặt.
@@ -49,13 +52,22 @@ export function gateEntry(e, { keep } = {}) {
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   if (!Array.isArray(e.col) || !e.col.length) why.push('schema: cụm từ');
   if (!CE.includes(e.level)) why.push('cefr: cấp');
-  else if (Math.abs(CE.indexOf(e.level) - CE.indexOf(e.cefrF || e.level)) > 2) why.push('cefr: lệch tần suất > 2 bậc');
+  else if ((e.cefrSrc || 'freq') === 'freq' && Math.abs(CE.indexOf(e.level) - CE.indexOf(e.cefrF || e.level)) > 2) why.push('cefr: lệch tần suất > 2 bậc');
   if (!e.vi || !VI.test(e.vi) && !/[àáâãèéêìíòóôõùúýđ]/i.test(e.vi)) why.push('dịch vi: không phải tiếng Việt');
   const a = agree(e.qa); if (!a.ok) why.push('giám khảo: ' + a.why);
+  // KHÓA NGHĨA (pilot 7: prop/tweet lệch nghĩa): cả 2 giám khảo phải trả lời "yes" – thiếu = trượt
+  if (Array.isArray(e.qa.sense) && !(e.qa.sense.length >= 2 && e.qa.sense.every(x => x === 'yes'))) why.push('nghĩa: ví dụ/dịch không đúng nghĩa khóa (' + e.qa.sense.join('/') + ')');
+  if (e.posDrift) why.push('nghĩa: đổi từ loại ' + e.pos + '→' + e.posDrift);
+  if (e.ipaPos === false) why.push('ipa-pos: không có IPA Anh khớp từ loại (cặp đổi trọng âm danh–động)');
+  // CEFR: nguồn kiểu EVP (CEFR-J/Octanove) thắng; chỉ dải tần suất → giám khảo kiểm, lệch ≥ 2 bậc → trượt (pilot 7: assault A2)
+  if (CE.includes(e.level) && (e.cefrSrc || 'freq') === 'freq' && Array.isArray(e.qa.cefrJ)) { const off = e.qa.cefrJ.filter(x => CE.includes(x)).map(x => Math.abs(CE.indexOf(x) - CE.indexOf(e.level))); if (off.some(d => d >= 2)) why.push('cefr: giám khảo lệch ≥ 2 bậc (' + e.qa.cefrJ.join('/') + ' ≠ ' + e.level + ')'); }
+  // vi khác Wiktionary → giám khảo phân xử: cả 2 "ok" (giữ) hoặc đã sửa theo Wiktionary; còn lại → hàng duyệt
+  if (Array.isArray(e.qa.vi) && !(e.qa.vi.every(x => x === 'ok') || e.qa.vi.every(x => x === 'fixed'))) why.push('dịch vi: khác Wiktionary, giám khảo chưa chắc (' + e.qa.vi.join('/') + ')');
   let bt = 0;
   for (const l of LANGS) {
     const t = (e.m || {})[l], sc = (e.qa.tr || {})[l] || [];
     const is = trIssues(e.w, t, l); if (t && SCRIPT[l] && !SCRIPT[l].test(t)) is.push('không có chữ bản địa'); if (t && String(t).toLowerCase().trim() === e.w && !['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l)) is.push('chép nguyên từ tiếng Anh');
+    if (e.qa.bad && e.qa.bad[l]) is.push(/translit/.test(e.qa.bad[l]) ? 'phiên âm tiếng Anh' : 'khác từ loại/khác từ');
     if (is.length) { why.push(`dịch ${l}: ${is.join(', ')}`); continue; }
     if (sc.length < 2 || Math.min(...sc) < 4) why.push(`dịch ${l}: giám khảo < 4 (${sc.join('/')})`);
     if (btOk(e, l)) bt++;
