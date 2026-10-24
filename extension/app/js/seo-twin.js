@@ -27,5 +27,6 @@
     var a = d.createElement('a'); a.href = p; a.textContent = '🌐 ' + (L[lang()] || L.en); el.appendChild(a); view.appendChild(el);
   };
   var later = function () { clearTimeout(timer); timer = setTimeout(apply, 700); };
-  fetch('/data/seo-twins.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (!j || j.v !== 1) return; M = j; apply(); g.addEventListener('hashchange', later); setTimeout(apply, 1800); }).catch(function () {});
+  var get = function (n) { return fetch('/data/seo-twins.json', { cache: 'no-cache' }).then(function (r) { return r.status >= 500 && n ? new Promise(function (res) { setTimeout(res, 1500); }).then(function () { return get(n - 1); }) : r; }); }; // 5xx tạm thời ở CDN → thử lại 1 lần (fail open)
+  get(1).then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { if (!j || j.v !== 1) return; M = j; apply(); g.addEventListener('hashchange', later); setTimeout(apply, 1800); }).catch(function () {});
 })(window, document);

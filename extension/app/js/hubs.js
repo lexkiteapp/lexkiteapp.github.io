@@ -282,12 +282,14 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
   App.blogUrl = () => (sameSite ? '/' + I18N.lang() + '/blog/' : BLOG);
   App.blogHref = on => (sameSite ? '' : 'https://lexkite.com') + '/' + (on ? I18N.lang() : 'en') + '/blog/'; // blog của ngôn ngữ giao diện, chưa có thì tiếng Anh
   App.aboutUrl = () => (sameSite ? '' : 'https://lexkite.com') + (I18N.lang() === 'vi' ? '/' : '/' + I18N.lang() + '/') + '?home=1'; // trang giới thiệu (vi ở "/"); ?home=1 = không tự chuyển vào app
+  // File tĩnh (JSON) – lỗi 5xx tạm thời ở CDN: thử lại 1 lần sau 1,5 s (fail open, không coi là "không có dữ liệu")
+  App.getStatic = (u, o) => fetch(u, o).then(r => (r.status >= 500 ? new Promise(res => setTimeout(res, 1500)).then(() => fetch(u, o)).catch(() => r) : r));
   App.blogLive = async () => {
     try { const c = JSON.parse(localStorage.getItem('vb.blog.' + I18N.lang()) || 'null'); if (c && Date.now() - c.at < (c.on ? 864e5 : 3 * 3600e3)) return c.on; /* chưa có bài → kiểm tra lại sau 3 giờ */ } catch (e) { /* bỏ qua */ }
-    let on = false;
-    try { const r = await fetch((sameSite ? '' : 'https://lexkite.com') + '/blog-langs.json', { cache: 'no-store' }); on = r.ok && (await r.json()).includes(I18N.lang()); } /* danh sách ngôn ngữ đã có bài (build-blog) – không dò rss 404 */
+    let on = false, flaky = false;
+    try { const r = await App.getStatic((sameSite ? '' : 'https://lexkite.com') + '/blog-langs.json', { cache: 'no-store' }); flaky = r.status >= 500; on = r.ok && (await r.json()).includes(I18N.lang()); } /* danh sách ngôn ngữ đã có bài (build-blog) – không dò rss 404 */
     catch (e) { try { const r = await fetch(App.blogUrl() + 'rss.xml', { cache: 'no-store' }); on = r.ok && /xml/.test(r.headers.get('content-type') || '') && (await r.text()).includes('<item'); } catch (x) { on = false; } }
-    try { localStorage.setItem('vb.blog.' + I18N.lang(), JSON.stringify({ on, at: Date.now() })); } catch (e) { /* bỏ qua */ }
+    if (!flaky) try { localStorage.setItem('vb.blog.' + I18N.lang(), JSON.stringify({ on, at: Date.now() })); } catch (e) { /* bỏ qua */ } /* lỗi 5xx tạm thời của máy chủ: không ghi nhớ "chưa có blog" 3 giờ */
     return on;
   };
   // App iOS/Android & add-on: mở blog bằng trình duyệt (blog cần mạng); web: mở cùng tab
