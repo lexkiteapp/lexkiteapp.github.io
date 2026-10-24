@@ -34,7 +34,7 @@
   const cleanDefs = ms => (ms || []).map(m => ({ ...m, pos: posEn(m.pos), defs: (m.defs || []).filter(d => !VI_DIA.test(d.def || '')).map(d => (d.ex && VI_DIA.test(d.ex) ? { ...d, ex: '' } : d)) }));
   const forLang = e => {
     if (!e || wantVi() || e.found === false) return e;
-    return { ...e, pos: posEn(e.pos), oxford: cleanDefs(e.oxford), meanings: cleanDefs(e.meanings), senses: [], ex: noViStr(e.ex), def: noViStr(e.def), syn: (e.syn || []).filter(x => !VI_DIA.test(x)), col: (e.col || []).filter(x => !VI_DIA.test(String(x))) };
+    return { ...e, pos: posEn(e.pos), oxford: cleanDefs(e.oxford), meanings: cleanDefs(e.meanings), senses: [], ex: noViStr(e.ex), def: noViStr(e.def), syn: (e.syn || []).filter(x => !VI_DIA.test(x)), col: (e.col || []).filter(x => !VI_DIA.test(String(x))), sentences: sentsOk(e.sentences, sentLang()) };
   };
   // Sửa lỗi chính tả hỏi/ngã có sẵn trong dữ liệu từ điển Google (vd. "sản phẫm" → "sản phẩm").
   // Bảng sinh tự động từ kho tiếng Việt của Lexkite: chỉ gồm âm tiết sai chắc chắn (dạng đúng rất phổ biến, dạng sai không tồn tại),
@@ -124,15 +124,29 @@
     return out;
   }
 
-  // Câu ví dụ song ngữ từ Tatoeba (ưu tiên câu dài vừa phải, giống văn phong IELTS hơn)
-  async function sentences(word, limit = 4) {
-    const d = await fetchJSON(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(word)}&trans:lang=vie&sort=relevance&limit=20&showtrans=matching`, 3500);
+  // Ngôn ngữ bản dịch câu ví dụ song ngữ: vi khi người dùng xem nghĩa tiếng Việt, ngược lại theo ngôn ngữ người học (ar, ja…) – không bao giờ lẫn tiếng Việt
+  const sentLang = () => (wantVi() ? 'vi' : (g.I18N.learnLang && g.I18N.learnLang()) || 'en');
+  const TATO = { vi: 'vie', es: 'spa', pt: 'por', fr: 'fra', de: 'deu', id: 'ind', th: 'tha', zh: 'cmn', ja: 'jpn', ko: 'kor', hi: 'hin', ar: 'ara', ru: 'rus', tr: 'tur' };
+  // Câu song ngữ đã lưu (cache/persist theo từ) có thể theo ngôn ngữ khác → chỉ giữ câu đúng ngôn ngữ hiện tại (bản cũ không có .l = tiếng Việt)
+  const sentsOk = (list, L) => (list || []).filter(s => s && (s.l || 'vi') === L && (L === 'vi' || !VI_DIA.test(s.vi || '')));
+  // Câu ví dụ song ngữ từ Tatoeba (ưu tiên câu dài vừa phải, giống văn phong IELTS hơn); trường .vi = bản dịch theo ngôn ngữ .l
+  async function sentences(word, limit = 4, L = sentLang()) {
+    const tl = TATO[L];
+    const d = await fetchJSON(`https://api.tatoeba.org/unstable/sentences?lang=eng&q=${encodeURIComponent(word)}${tl ? `&trans:lang=${tl}` : ''}&sort=relevance&limit=20&showtrans=${tl ? 'matching' : 'none'}`, 3500);
     if (!d || !Array.isArray(d.data)) return [];
     return d.data
-      .map(x => ({ en: x.text, vi: ((x.translations || []).flat().find(t => t && t.lang === 'vie') || (x.translations || []).flat()[0] || {}).text || '' }))
-      .filter(x => x.vi && x.en.split(' ').length >= 5)
+      .map(x => ({ en: x.text, vi: tl ? ((x.translations || []).flat().find(t => t && t.lang === tl) || {}).text || '' : '', l: L }))
+      .filter(x => (x.vi || !tl) && x.en.split(' ').length >= 5)
       .sort((a, b) => Math.abs(a.en.length - 70) - Math.abs(b.en.length - 70))
       .slice(0, limit);
+  }
+  // Bản lưu có câu song ngữ khác ngôn ngữ (đổi ngôn ngữ giao diện) → lấy lại câu theo ngôn ngữ hiện tại, không hiện câu tiếng Việt cho người học ar/ja…
+  async function relang(e, word, examples) {
+    if (!e || !e.found || !examples) return e;
+    const L = sentLang(), list = e.sentences || [], ok = sentsOk(list, L);
+    if (ok.length === list.length && (ok.length || e._sl === L)) return e;
+    const fresh = ok.length ? ok : await sentences(word, 4, L).catch(() => []);
+    return { ...e, sentences: fresh, _sl: L };
   }
 
   // Phiên âm UK/US từ Wiktionary (khi dictionaryapi.dev thiếu); đổi ɹ → r theo quy ước từ điển Oxford
@@ -427,7 +441,7 @@
   async function lookup(raw, { image = true, examples = true } = {}) {
     const word = normWord(raw);
     if (!word) return null;
-    { const hit = cache.get(word); if (hit && !hit.partial && (hit.image || !image || hit._imgTry)) return hit; } // bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
+    { const hit = cache.get(word); if (hit && !hit.partial && (hit.image || !image || hit._imgTry)) { const h2 = await relang(hit, word, examples); if (h2 !== hit) cache.set(word, h2); return h2; } } // bản thiếu ảnh do lỗi mạng (_imgTry 0) → thử lại
     const { local, from } = await localOf(word);
     const saved = overlay(await persist.get(word), local);
     if (saved && Date.now() - saved._t < FRESH) {
@@ -438,7 +452,7 @@
         if (im && im.src) { saved.image = im.src; saved.imageCredit = { text: im.credit, link: im.link }; }
         persist.set(word, saved);
       }
-      cache.set(word, saved); return saved;
+      const s2 = await relang(saved, word, examples); cache.set(word, s2); return s2;
     }
 
     let [gg, fd, wk, img, sents] = await Promise.all([
@@ -463,16 +477,18 @@
       if (!fd) return { word, found: false, vi: (gg && gg.vi !== word && gg.vi) || await myMemory(word) };
       if (wk) { fd.ipa = wk.ipa || ''; fd.ipaUS = wk.ipaUS || ''; }
     }
-    // Thiếu câu song ngữ → dịch các câu ví dụ Oxford sang tiếng Việt
-    if (examples && sents.length < 2 && gg) {
-      const exs = gg.defs.flatMap(m => m.defs).map(d => d.ex).filter(Boolean).filter(x => !sents.some(s => s.en === x)).slice(0, 3 - sents.length);
+    // Thiếu câu song ngữ → dịch các câu ví dụ Oxford sang ngôn ngữ bản dịch (vi hoặc ngôn ngữ người học; người học tiếng Anh thuần: chỉ câu Anh)
+    const SL = sentLang();
+    if (examples && sents.length < 2 && gg && SL !== 'en') {
+      const exs = gg.defs.flatMap(m => m.defs).map(d => d.ex).filter(Boolean).filter(x => !VI_DIA.test(x) && !sents.some(s => s.en === x)).slice(0, 3 - sents.length);
       if (exs.length) {
-        const vi = (await translateVi(exs.join('\n'))).split('\n');
-        exs.forEach((en, i) => { if (vi[i]) sents.push({ en: en[0].toUpperCase() + en.slice(1), vi: vi[i].trim().replace(/^./, c => c.toUpperCase()), auto: true }); });
+        const tr = (await (SL === 'vi' ? translateVi(exs.join('\n')) : translateTo(exs.join('\n'), SL)).catch(() => '') || '').split('\n');
+        exs.forEach((en, i) => { const v = (tr[i] || '').trim(); if (v && (SL === 'vi' || !VI_DIA.test(v))) sents.push({ en: en[0].toUpperCase() + en.slice(1), vi: v.replace(/^./, c => c.toUpperCase()), auto: true, l: SL }); });
       }
     }
     const entry = build(from ? local.word : word, local, gg, fd, wk, img, sents);
     if (from) entry.from = from; // went → go
+    if (examples) entry._sl = SL; // câu song ngữ đã lấy theo ngôn ngữ này (rỗng = Tatoeba không có)
     if (entry.image && !/^n|danh/.test(entry.pos || '')) { entry.image = ''; entry.imageCredit = null; }
     if (image && !entry.image) entry._imgTry = img === null ? 0 : Date.now(); // ảnh lỗi/chậm → bản lưu sẽ thử lại ở lần tra sau
     cache.set(word, entry);
