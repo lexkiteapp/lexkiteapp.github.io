@@ -9,6 +9,7 @@
 import fs from 'fs';
 import { arpaToIpa, badChars } from '../ipa.mjs';
 import { ROOT, rd, wr } from '../lib.mjs';
+import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
 import { gateEntry, doneWords, LANGS, TOPIC_CHOICES, QUEUE, poolEmpty, queueable, breaker } from './lib.mjs';
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const N = +arg('--n', 400), CALLS = +arg('--calls', 400), PILOT = process.argv.includes('--pilot'), DRY = process.argv.includes('--dry');
@@ -95,6 +96,7 @@ for (const x of items) {
   if (ent) { const a = JA[x.k], b = JB[x.k]; ent.qa = { j: { ...(a ? { ['gemini:' + mA]: +a.s } : {}), ...(b ? { ['gemma:' + mB]: +b.s } : {}) }, f: [a && a.f, b && b.f].filter(Boolean), tr: {}, bt: null };
     for (const l of LANGS) ent.qa.tr[l] = [a && a.tr && +a.tr[l], b && b.tr && +b.tr[l]].filter(Number.isFinite);
     ent.qa.btw = Object.fromEntries(LANGS.map(l => [l, [a && a.bt && a.bt[l], b && b.bt && b.bt[l]].filter(Boolean)])); }
+  if (ent) ent.tp = assignTopics(ent); // chủ đề: miền → chủ đề → tiểu chủ đề (content/lexicon/topics.json)
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }
@@ -105,7 +107,7 @@ fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true
 wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
 wr(QUEUE, JSON.stringify(queue, null, 1) + '\n');
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
-const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0), skipped: why.infra || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, ukMiss: stat.ukMiss, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB } };
+const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0), skipped: why.infra || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, ukMiss: stat.ukMiss, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
 fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 if (!pass) { console.error('✗ lexicon-expand: 0 mục đạt' + (stat.pool ? ' – kho khóa Gemini rỗng/hết hạn mức (xem Quản trị › Khóa API)' : '')); process.exit(1); }
