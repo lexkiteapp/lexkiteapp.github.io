@@ -1,0 +1,82 @@
+name: video-templates
+# Clean pilot templates (docs/VIDEO-TEMPLATES.md): tpl1 "Teacher card" (one locked Ama) + tpl2 "No-host motion explainer".
+# 0 credits: Kokoro voice (Ama, af_bella) + Rhubarb + faster-whisper word times, numpy/PIL renderer, x264 CBR. Gate: scripts/video/tpl/qc_tpl.py.
+on:
+  workflow_dispatch:
+    inputs:
+      lesson:
+        description: 'news lesson id (content/video/cine/news/<id>.json, template fix)'
+        default: 'news_shopping_stop_8cf065'
+      tpls:
+        description: 'templates to render (1,2)'
+        default: '1,2'
+permissions: { contents: read }
+concurrency:
+  group: video-templates-${{ inputs.lesson }}
+  cancel-in-progress: true
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      LID: ${{ inputs.lesson }}
+      ND: ${{ github.workspace }}/vo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: scripts/cine/requirements.txt }
+      - name: Libraries + ffmpeg
+        run: |
+          [[ "$LID" =~ ^[a-z0-9_]+$ ]] && [ -f "content/video/cine/news/$LID.json" ] || { echo "::error::bad lesson $LID"; exit 1; }
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Footage (Ama PRO layer + mouth meta only, sparse)
+        if: contains(inputs.tpls, '1')
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          c=ga4_talk_natural
+          git -C footage sparse-checkout set --no-cone "/anchor/green/kfull_pro/$c.mp4" "/anchor/green/kmask_pro/$c.mkv" "/anchor/tools/meta/$c/" "/anchor/tools/dl24/$c.json" && git -C footage checkout -q
+          rm -f ~/.ssh/footage; du -sh footage; ls footage/anchor/green/kfull_pro footage/anchor/tools/meta/$c/ama
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Kokoro model cache
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice (one teacher = Ama's Kokoro voice for every line; word times aligned by news_voice.py)
+        run: |
+          mkdir -p "$ND/ci" "$ND/lessons"; cp "content/video/cine/news/$LID.json" "$ND/lessons/"
+          python3 - <<'PY'
+          import json, os
+          L = json.load(open('content/video/cine/news/lines.json')); h6 = json.load(open(f"content/video/cine/news/{os.environ['LID']}.json"))['hook']['line'][2:8]
+          lines = [dict(l, who='ama') for l in L['lines'] if l['id'].startswith(f'n_{h6}_')]
+          json.dump(dict(voices=L['voices'], speed=L.get('speed', 0.88), lines=lines), open(os.environ['ND'] + '/ci/lines.json', 'w'), indent=1)
+          print(len(lines), 'lines, voice', L['voices']['ama'])
+          PY
+          python scripts/cine/news_voice.py "$ND" "$LID"
+      - name: Emoji icons (Noto Emoji v2.047 PNG, tpl2)
+        run: |
+          mkdir -p icons
+          for c in 1f6d1 1f697 1f914 1f4a1 1f50e 1f50a 1f4cc 1f4f1 1f4e8; do curl -fsSL -o icons/emoji_u$c.png "https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@v2.047/png/512/emoji_u$c.png"; done
+      - name: Render
+        run: |
+          mkdir -p out/tpl
+          for T in $(echo "${{ inputs.tpls }}" | tr ',' ' '); do
+            python scripts/video/tpl/render_tpl.py --tpl $T --lesson "content/video/cine/news/$LID.json" --lines "$ND/ci/lines.json" --vo "$ND/vis3" \
+              --lib footage/anchor --icons icons --fonts brand/social/src/fonts --out "out/tpl/tpl$T-preview.mp4"
+          done
+      - name: QC (host variance, motion tokens, safe area, readability, jitter, one moving group, file)
+        run: python scripts/video/tpl/qc_tpl.py out/tpl/tpl*-preview.mp4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'video-templates-${{ github.run_number }}', path: out/tpl/, retention-days: 14 }
