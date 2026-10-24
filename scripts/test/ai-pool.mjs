@@ -94,6 +94,13 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama }); const P = mk(m, { budget: { gc: 1 } });
   ok(await P.gen({ mode: 'lxgen', items: ITEMS }) && await P.gen({ mode: 'lxgen', items: ITEMS }) === null, 'trần GrabCast lượt này');
 }
+// 8b) GrabCast ≤ 8.000 ký tự: lô dài bị chia đôi, gộp out
+{
+  const big = Array.from({ length: 8 }, (_, i) => ({ k: 'w' + i, gloss: 'x'.repeat(1500) }));
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.prompt.length > 8000 ? J({ detail: [{ msg: 'too long' }] }, 422) : J({ text: JSON.stringify(Object.fromEntries(JSON.parse(b.prompt.split('INPUT:\n')[1]).map(x => [x.k, { def: 'd' }]))), provider: 'cloudflare', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' }) });
+  const r = await mk(m).gen({ mode: 'lxgen', items: big });
+  ok(r && Object.keys(r.out).length === 8 && m.calls.filter(c => c.url.startsWith(GC)).every(c => c.body.prompt.length <= 8000), 'GrabCast: chia lô cho vừa 8.000 ký tự, đủ 8 mục');
+}
 // 9) Workers AI TÀI KHOẢN CHÍNH bị cấm: ai-pool không có tuyến tới nó
 {
   const src = fs.readFileSync(new URL('../lib/ai-pool.mjs', import.meta.url), 'utf8').replace(/^\s*\/\/.*$/gm, '');

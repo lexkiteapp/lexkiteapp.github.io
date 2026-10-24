@@ -160,20 +160,27 @@ export function createPool(opts = {}) {
       throw new PoolErr('net', `lexai ${r.status} ${t.slice(0, 100)}`);
     },
   };
-  const gcRoute = provider => ({
-    ok: () => !!env.GRABCAST_AI_KEY, models: () => [provider],
-    async call(_m, req) {
+  const GC_MAX_CHARS = 7900; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
+  const gcRoute = provider => {
+    async function one(req, depth = 0) {
+      const p = await promptFor(req), prompt = p.sys + '\n\nINPUT:\n' + p.user;
+      if (prompt.length > GC_MAX_CHARS) {
+        if (!Array.isArray(req.items) || req.items.length < 2 || depth > 5) throw new PoolErr('bad', `prompt ${prompt.length} > ${GC_MAX_CHARS} ký tự`);
+        const h = Math.ceil(req.items.length / 2), x = await one({ ...req, items: req.items.slice(0, h) }, depth + 1), y = await one({ ...req, items: req.items.slice(h) }, depth + 1);
+        return { ...y, out: { ...(x.out || {}), ...(y.out || {}) }, fellBack: x.fellBack || y.fellBack, model: x.model === y.model ? y.model : y.model };
+      }
       if (used.gc >= budget.gc) throw new PoolErr('budget', 'GrabCast budget'); used.gc++;
-      const p = await promptFor(req);
-      const r = await F(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: p.sys + '\n\nINPUT:\n' + p.user, provider }) }).catch(() => null);
+      const r = await F(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt, provider }) }).catch(() => null);
       if (!r) throw new PoolErr('net', 'grabcast net');
       if (r.status === 429) throw new PoolErr('model', 'GrabCast 429', 65e3);
       if (r.status === 401 || r.status === 403) throw new PoolErr('route', 'GrabCast ' + r.status, 6 * 3600e3);
       const j = await r.json().catch(() => ({}));
-      if (!r.ok || !j.text) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', `GrabCast ${r.status} ${String(j.error && j.error.code || j.detail || '').slice(0, 60)}`);
+      const why = j.error && j.error.code || (Array.isArray(j.detail) ? j.detail.map(d => d.msg).join('; ') : j.detail) || '';
+      if (!r.ok || !j.text) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', `GrabCast ${r.status} ${String(why).slice(0, 80)}`);
       return { out: parseJSON(j.text), model: j.model || provider, via: j.provider, fellBack: !!j.provider && j.provider !== provider };
-    },
-  });
+    }
+    return { ok: () => !!env.GRABCAST_AI_KEY, models: () => [provider], call: (_m, req) => one(req) };
+  };
   R['gc-cf'] = gcRoute('cloudflare'); R['gc-gemini'] = gcRoute('gemini'); R['gc-groq'] = gcRoute('groq');
   async function cf2Run(model, input) {
     const r = await F(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_2}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + env.CF_AI_TOKEN_2, 'Content-Type': 'application/json' }, body: JSON.stringify(input) }).catch(() => null);
@@ -243,7 +250,7 @@ export function createPool(opts = {}) {
         // lọc trước theo mô hình dự kiến (tuyến GrabCast tự chọn mô hình → lọc theo câu trả lời thật)
         if (!/^(cloudflare|gemini|groq|vision|gemini-vision)$/.test(model) && (!allowed(mode, model) || exclude.includes(familyOf(model)))) continue;
         if (id === 'gc-gemini' && exclude.includes('gemini')) continue;
-        if (id === 'gc-cf' && exclude.includes('llama')) continue;
+        if (id === 'gc-cf' && (exclude.includes('llama') || !allowed(mode, '@cf/meta/llama-3.3-70b-instruct-fp8-fast'))) continue; // GrabCast Cloudflare luôn trả Llama 3.3 70B (bỏ qua trường model)
         const t0 = now();
         try {
           const r = await route.call(model, req);
