@@ -25,6 +25,7 @@ for vid in sys.argv[1:]:
     out = []
     for i, L in tr.items():
         for (t, x, y, w, h, a, sc, mv, g, txt) in L:
+            n = E.get(i, {}).get('inset', 0); x, y, w, h = x + n, y + n, w - 2 * n, h - 2 * n   # cards: shadow margin is not content
             if txt and a > 0.05 and (x < SAFE['x0'] - 2 or y < SAFE['y0'] or x + w > SAFE['x1'] + 2 or y + h > SAFE['y1']): out.append((i, t, round(x), round(y), w, h)); break
     R['safe_area'] = dict(ok=not out, outside=out[:8])
     # 4 readability

@@ -94,8 +94,8 @@ def icon(cp, d):
 # ------------------------------------------------------------------ element engine
 ELS = []
 class El:
-    def __init__(s, id, img, x, y, grp, t_in, t_out=None, enter='rise', d_in='base', exit='fade', d_out='fast', parent=None, z=5, text=None, fs=None, dim=None):
-        s.__dict__.update(id=id, img=img, x=int(x), y=int(y), grp=grp, t_in=round(t_in, 3), t_out=None if t_out is None else round(t_out, 3), enter=enter, d_in=d_in,
+    def __init__(s, id, img, x, y, grp, t_in, t_out=None, enter='rise', d_in='base', exit='fade', d_out='fast', parent=None, z=5, text=None, fs=None, dim=None, inset=0):
+        s.__dict__.update(inset=inset, id=id, img=img, x=int(x), y=int(y), grp=grp, t_in=round(t_in, 3), t_out=None if t_out is None else round(t_out, 3), enter=enter, d_in=d_in,
                           exit=exit, d_out=d_out, parent=parent, z=z, text=text, fs=fs, dim=dim)
         ELS.append(s)
     def state(s, t):
@@ -179,9 +179,9 @@ ROWS = SP['recap']['rows'][:3]
 ICONS = dict(h='1f6d1', m='1f697', g='1f914', y='1f4a1', c='1f50e', rn='1f50a', r2='1f4cc', e='1f4f1', s='1f4e8')
 
 INK = C['navy'] if T1 else C['cream']; SUB = C['navy2'] if T1 else (168, 214, 206)
-STAGE = (392, 992) if T1 else (392, 1480)
+STAGE = (392, 1032) if T1 else (392, 1480)
 X0, FULL = col(0), span(0, 11)
-ICON_D = 200
+ICON_D = 240
 
 def stage_y(h): c = (STAGE[0] + STAGE[1]) / 2; return snap(max(STAGE[0], c - h / 2))
 def place_icon(k, y, t_in, t_out, grp):
@@ -341,7 +341,7 @@ for i, (lab, opt, wd) in enumerate([('A', QA.lower(), QA), ('B', QB, QB.split()[
     dd = ImageDraw.Draw(im); dd.ellipse((pad + 20, pad + 24, pad + 84, pad + 88), fill=C['navy'] + (255,)); dd.text((pad + 52, pad + 57), lab, font=F('head', 44), fill=(255, 255, 255, 255), anchor='mm')
     dd.text((pad + 108, pad + 56), opt, font=F('head', TYPE['body']), fill=C['navy'] + (255,), anchor='lm')
     to = ln.t(wd.rstrip('?').split()[0], after=ln.t('blank'))
-    El(f'e.opt{i}', im, col(0 if i == 0 else 6) - pad, y - pad, g, to - 0.05, b['vout'], enter='rise', d_in='base', z=6, text=f'{lab} {opt}', fs=TYPE['body'])
+    El(f'e.opt{i}', im, col(0 if i == 0 else 6) - pad, y - pad, g, to - 0.05, b['vout'], enter='rise', d_in='base', z=6, text=f'{lab} {opt}', fs=TYPE['body'], inset=pad)
     TICKS.append(to)
 y += 112 + 40; tcm = ln.t('Comment')
 words_block('e.cta', 'Comment your answer', TYPE['label'], 'head', X0, y, FULL, g, None, b['vout'], color=SUB, align='center', reveal='fade', after=tcm)
@@ -405,7 +405,7 @@ class Host:
             M = cv2.resize(s.MM[i], (1080, 1920), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
             s.cache[key] = (Fm[..., ::-1].astype(np.float32), M)
         return s.cache[key], i, v
-HSC, HDX, HDY = 1.0, 0, 600         # host transform: scale 1.0 (no resample = sharpest), source y 440 (hair top) lands at screen 1040
+HSC, HDX, HDY = 1.0, 0, 640         # host transform: scale 1.0 (no resample = sharpest), source y 440 (hair top) lands at screen 1080, under the stage
 def host_comp(base, rgb, m):
     """fixed transform: source rows [0, H-HDY) -> screen rows [HDY, H); soft contact shadow from the same alpha, fixed offset"""
     src, a = rgb[:H - HDY], m[:H - HDY]
@@ -525,6 +525,6 @@ for j, k in enumerate(SEQ):
     if k in shots: sheet.paste(shots[k], (12 + (j % 5) * 372, 12 + (j // 5) * 652))
 sheet.save(o.out + '.sheet.jpg', quality=88)
 json.dump(dict(id=LID, tpl=o.tpl, fps=FPS, total=TOTAL, beats=BEAT, audio=AUD, video_kbps=vk, cuts=[],
-               elements={e.id: dict(text=e.text, fs=e.fs, grp=e.grp, t_in=e.t_in, t_out=e.t_out, tweens=e.tweens(), parent=e.parent.id if e.parent else None) for e in ELS},
+               elements={e.id: dict(text=e.text, fs=e.fs, grp=e.grp, t_in=e.t_in, t_out=e.t_out, tweens=e.tweens(), inset=e.inset, parent=e.parent.id if e.parent else None) for e in ELS},
                progress=dict(tweens=[dict(kind='grow', dur='base', ease='out')] * len(PSTEPS)), frames=LOG), open(o.out + '.timeline.json', 'w'), default=float)
 print('done', o.out, TOTAL, 's')
