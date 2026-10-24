@@ -94,6 +94,7 @@ on:
       - 'Ảnh từ vựng (icon + Wikimedia)'
       - 'Ảnh mọi nghĩa (cảnh + khái niệm)'
       - 'Ảnh từ vựng (icon + Wikimedia)'
+      - 'video-tpl1b-samples'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:

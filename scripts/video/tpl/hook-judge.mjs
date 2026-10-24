@@ -1,5 +1,9 @@
 // Hook truth judge for template-1b lessons (docs/VIDEO-TEMPLATES.md §9) – Groq (gpt-oss-120b) via scripts/lib/ai-pool.mjs, provider groq only.
-//   node scripts/video/tpl/hook-judge.mjs [--dir content/video/cine/news/tpl1b] [--ids a,b] [--force] [--dry-run]
+//   node scripts/video/tpl/hook-judge.mjs [--dir content/video/cine/news/tpl1b] [--ids a,b] [--force] [--dry-run] [--reviewed <file>]
+// --reviewed <file>: NO network call – verdicts come from a human/teacher-reviewed JSON
+//   {"verdicts": {"<lesson id>": {"wrong": "<learner line>", "right": "<correction>", "wrong_is_error": bool, "right_ok": bool,
+//    "hook_true": bool, "soft_hook_true": bool (optional, default = right_ok), "note": "...", "by": "..."}}}
+//   wrong/right must equal the lesson text (stale review = no verdict = not rendered). Ids not in the file get no verdict.
 // For every lesson without a current verdict (verdict.hash = sha of hook + wrong + right): asks the judge
 //   wrong_is_error – would a US English teacher mark the learner line as an error (ungrammatical / wrong word / clearly non-native)?
 //   right_ok       – is the correction natural, correct US English?
@@ -15,9 +19,9 @@ import { createPool } from '../../lib/ai-pool.mjs';
 
 const args = process.argv.slice(2), opt = n => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : undefined; };
 const DIR = opt('dir') || 'content/video/cine/news/tpl1b', FORCE = args.includes('--force'), DRY = args.includes('--dry-run');
-const IDS = opt('ids') ? new Set(opt('ids').split(',')) : null;
-if (!process.env.GRABCAST_AI_KEY) { try { process.env.GRABCAST_AI_KEY = fs.readFileSync(path.join(os.homedir(), '.config/lexkite/grabcast-ai-key'), 'utf8').trim(); } catch { /* CI secret */ } }
-if (!process.env.GRABCAST_AI_KEY) { console.error('✗ GRABCAST_AI_KEY missing – the hook judge cannot run (fail closed)'); process.exit(1); }
+const IDS = opt('ids') ? new Set(opt('ids').split(',')) : null, REVIEWED = opt('reviewed');
+if (!REVIEWED && !process.env.GRABCAST_AI_KEY) { try { process.env.GRABCAST_AI_KEY = fs.readFileSync(path.join(os.homedir(), '.config/lexkite/grabcast-ai-key'), 'utf8').trim(); } catch { /* CI secret */ } }
+if (!REVIEWED && !process.env.GRABCAST_AI_KEY) { console.error('✗ GRABCAST_AI_KEY missing – the hook judge cannot run (fail closed)'); process.exit(1); }
 
 // soft family + guess lines: keep in sync with tokens.HOOKS / gold2lesson.lines_for (test tpl-hook.mjs checks it)
 export const SOFT = [['Americans usually say this.', 'Americans usually say'], ['Sound more natural.', 'Sound more natural:']];
@@ -35,7 +39,7 @@ const SYS = 'You are a strict American English teacher reviewing short social-me
   '- note: max 15 words, why.\n' +
   'Reply with ONE JSON object only: {"<k>": {"wrong_is_error": bool, "right_ok": bool, "hook_true": bool, "note": "..."}, ...} for every k.';
 
-const pool = createPool({ budget: { lexai: 0, cf2: 0, gc: +(process.env.AI_POOL_GC_MAX || 600) },
+const pool = REVIEWED ? null : createPool({ budget: { lexai: 0, cf2: 0, gc: +(process.env.AI_POOL_GC_MAX || 600) },
   prompt: req => ({ sys: SYS, user: JSON.stringify(req.items), temp: 0 }) });
 
 function load() {
@@ -45,7 +49,22 @@ function load() {
 }
 const item = (x, byId) => ({ k: x.d.id, wrong: x.d.wrong_line, right: x.d.key_line, why: (x.d.beats.find(b => b.kind === 'y') || {}).card?.text || '', hook: byId[x.d.hook.line].text });
 
+const RV = REVIEWED ? JSON.parse(fs.readFileSync(REVIEWED, 'utf8')).verdicts || {} : null;
+function reviewed(batch, byId) {   // pre-reviewed verdicts (no GrabCast/Groq call); soft pass → soft_hook_true (default right_ok)
+  const out = {};
+  for (const x of batch) {
+    const v = RV[x.d.id];
+    if (!v) { console.error('✗ no reviewed verdict for', x.d.id); continue; }
+    if (v.wrong !== x.d.wrong_line || v.right !== x.d.key_line) { console.error('✗ stale reviewed verdict (text changed) for', x.d.id); continue; }
+    const soft = x.d.hook.mode === 'soft';
+    out[x.d.id] = { wrong_is_error: v.wrong_is_error, right_ok: v.right_ok, hook_true: soft ? (v.soft_hook_true ?? v.right_ok) : v.hook_true,
+      note: v.note, model: 'reviewed:' + (v.by || 'teacher') };
+  }
+  return out;
+}
+
 async function judge(batch, byId) {
+  if (RV) return reviewed(batch, byId);
   const out = {};
   for (let i = 0; i < batch.length; i += 8) {
     const items = batch.slice(i, i + 8).map(x => item(x, byId));
@@ -80,6 +99,6 @@ for (let pass = 0; pass < 2 && todo.length; pass++) {
 if (DRY) { console.log('dry run', stat); process.exit(0); }
 for (const x of lessons) fs.writeFileSync(x.f, JSON.stringify(x.d, null, 1) + '\n');
 fs.writeFileSync(path.join(DIR, 'lines.json'), JSON.stringify(L, null, 1) + '\n');
-pool.report('tpl-hook-judge');
+if (pool) pool.report('tpl-hook-judge');
 console.log('hook judge', JSON.stringify(stat));
 if (stat.none && !lessons.some(x => x.d.hook.judge)) process.exit(1);

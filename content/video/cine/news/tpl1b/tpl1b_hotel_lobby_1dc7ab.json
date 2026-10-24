@@ -16,9 +16,18 @@
   "line": "n_1dc7ab_h",
   "quote": null,
   "kind": "Say this instead",
-  "mode": "strong",
-  "display": "Stop saying",
-  "judge": null
+  "mode": "soft",
+  "display": "Sound more natural:",
+  "judge": {
+   "wrong_is_error": false,
+   "right_ok": true,
+   "hook_true": true,
+   "note": "'room card' is understood and acceptable; 'key card' is the usual US term -> soft hook.",
+   "model": "reviewed:claude-teacher-review",
+   "at": "2026-10-24",
+   "hash": "ca63a214ed64"
+  },
+  "rewritten_from": "Stop saying this."
  },
  "wrong_line": "My room card doesn't work.",
  "key_line": "My key card doesn't work.",

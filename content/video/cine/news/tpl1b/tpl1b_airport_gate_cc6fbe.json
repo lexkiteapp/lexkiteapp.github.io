@@ -18,7 +18,15 @@
   "kind": "Don't embarrass yourself",
   "mode": "strong",
   "display": "Never say",
-  "judge": null
+  "judge": {
+   "wrong_is_error": true,
+   "right_ok": true,
+   "hook_true": true,
+   "note": "'is change' is ungrammatical (be + base verb); present perfect question is correct and natural.",
+   "model": "reviewed:claude-teacher-review",
+   "at": "2026-10-24",
+   "hash": "af1757a639ee"
+  }
  },
  "wrong_line": "The gate is change?",
  "key_line": "Excuse me, has the gate changed?",

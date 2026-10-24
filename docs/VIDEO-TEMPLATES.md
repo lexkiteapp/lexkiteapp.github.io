@@ -91,18 +91,24 @@ Same engine, tokens and gates as tpl1; only the background, the host choice and 
   12, `skipped` with the reason). Plate = keyword match (hotel/flight/coffee/meeting/laptop/…) or topic default over `tokens.PLATES` (topic must
   be in the plate tags); host = round robin Ama / Carlos / Mia (`tokens.HOST_CLIPS`, natural-talk clips). Skipped: pronunciation scripts
   (`p:` – TTS cannot voice the wrong stress) and topics without a clean plate (money: bank/ATM plates have wall signs). 24/10: 217 lessons,
-  44 skipped, 19 batches. Plates added 24/10 after a contact-sheet check (no people/text): office_open_plan, meeting_room, coworking,
+  44 not rendered yet, 19 batches. Those 44 are NEVER deleted: `plan.json` `needs_solution` keeps each one with its reason + `proposed_fix`
+  (26 pronunciation → phoneme-controlled TTS; 18 money → clean bank plates). Plates added 24/10 after a contact-sheet check (no people/text): office_open_plan, meeting_room, coworking,
   exam_hall, library, clothing_store, supermarket, pharmacy, living_room, kitchen, park (`checked: … vision` – owner confirms on batch 1).
 - **Hook truth**: "Stop saying / Never say / Natives never say" ONLY when the learner line is a real error. `scripts/video/tpl/hook-judge.mjs`
   (ai-pool, chain `gc-groq` = Groq gpt-oss) judges wrong_is_error / right_ok / hook_true per lesson; acceptable learner line → soft hook
   ("Americans usually say this." / "Sound more natural.", quote = the natural phrase in green, no strike, "OK" badge, guess "What sounds
   better?") and a second verdict; wrong correction or false hook → `lesson.reject`. Verdict hash = hook + wrong + right (stale = re-judge).
-  No Groq answer = no verdict = not rendered. Gate `hook_truth`; test `scripts/test/tpl1b-pipeline.mjs` (npm test).
+  No Groq answer = no verdict = not rendered. `--reviewed <file>` (e.g. `tpl1b/reviewed-hooks.json`): teacher-reviewed verdicts instead of the
+  Groq call (no network; wrong/right must match the lesson text, else no verdict) – used while GrabCast is down. Gate `hook_truth`; test `scripts/test/tpl1b-pipeline.mjs` (npm test).
 - **Workflow** `video-tpl1b.yml` (dispatch `batch=N` or `ids=`): plan (judge, verdicts committed to main, matrix ≤ 10 jobs) → render
   (`batch_chunk.sh`: Kokoro → Rhubarb → render → `qc_tpl.py` → `rubric_tpl.py` = MEDIA-QA-RUBRIC §C score; accept = all gates + ≥ 90;
   reject → ONE automatic fix `fix_tpl.py` by failure class: loudnorm remux / CBR re-encode / other plate / other host / shorter formula,
   then qc + rubric again) → store (lease `video-tpl1b` in infra/jobs.json, paused = dispatch only; `batch_report.py`: batch host-scale gate,
   report.md/json, contact sheet, 3 samples ≥ 5.5 Mbps; `store_tpl.py` → lexkite-shorts `shorts/tpl1b/<lesson>/` + Drive pool via
   `archive_new.sh` + `shorts/index.json` entry with qa pass + score, `queue: ready` → Admin › Video › "Chờ duyệt").
+- **Samples** `video-tpl1b-samples.yml` (dispatch `ids=a,b,c`, max 3): lessons that already carry a (reviewed) verdict → voice/Rhubarb/render/
+  qc/rubric with `NO_AUTOFIX=1` (a rejected sample is fixed by hand at the real cause; never swap host/plate, never cut content) → artifact
+  with mp4 + report + contact-sheet.jpg + plates-sheet.jpg. No GrabCast, no store, no Drive. `fix_tpl.py` never shortens content (owner rule
+  24/10: quality only goes up; safe_area/readability → no automatic fix).
 - **No auto-publish**: nothing goes to YouTube/social from this workflow; the owner approves in Admin (pack/upload stays manual) and the
   schedule is enabled only after the first batch is approved.

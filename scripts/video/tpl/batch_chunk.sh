@@ -3,6 +3,7 @@
 # → render_tpl.py (tpl 1b, CRF 18 + 5.5 Mbps floor) → qc_tpl.py → rubric_tpl.py (accept = all gates + score ≥ 90).
 # Rejected → ONE automatic fix (fix_tpl.py: remux / re-encode / re-render with another plate / host / shorter formula) → qc + rubric again.
 # usage: batch_chunk.sh <id,id,...> <out-dir>   env: TD (lessons dir), ND (voice work dir), RHUBARB, KOKORO_NODE_PATH; footage/ = sparse bank
+#   NO_AUTOFIX=1 (video-tpl1b-samples.yml): no automatic fix – a rejected sample is fixed by hand at the real cause (host/plate stay as chosen)
 set -u
 IDS="$1"; OUT="$2"; mkdir -p "$OUT"; : > "$OUT/results.txt"
 voice() {   # voice <nd> <lesson.json...> : lines of these lessons in their host's voice → <nd>/vis3
@@ -34,7 +35,8 @@ for i in ${IDS//,/ }; do
   V="$OUT/$i.mp4"; st=reject; fix=-
   if render "$TD/$i.json" "$ND" "$V" && check "$V"; then st=accept
   else
-    if [ -f "$V.rubric.json" ]; then
+    if [ -n "${NO_AUTOFIX:-}" ]; then fix=manual
+    elif [ -f "$V.rubric.json" ]; then
       A=$(python3 scripts/video/tpl/fix_tpl.py "$V" "$TD/$i.json" "$OUT/fix"); fix=$(echo "$A" | cut -d' ' -f1); echo "fix $i: $A"
       case "$fix" in
         remux|reencode) check "$V" && st=accept ;;

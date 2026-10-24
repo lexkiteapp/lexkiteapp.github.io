@@ -35,7 +35,7 @@ def lines_for(g, h6, host, hook_line, mode, cta):
     guess = 'Pause and guess. What sounds right?' if mode == 'strong' else 'Pause and guess. What sounds better?'
     L = dict(h=hook_line, m=f"Many learners say: {g['w']}", g=guess, k=f"Say: {g['r']}", y=g['y'],
              rn=f"Now at normal speed: {g['r']}", r2="Teacher's tip: save these lines.",
-             e=f"Quiz: {pre} blank{(' ' + post) if post else ''}. {cap(qa)}, or {qb}? Comment below.", s=f'{cta}.')
+             e=f"Quiz: {pre} blank{(' ' + post) if post else ''}{'' if post.endswith(('?', '!')) else '.'} {cap(qa)}, or {qb}? Comment below.", s=f'{cta}.')
     return [dict(id=f'n_{h6}_{k}', who=host, text=v) for k, v in L.items()], (pre, post, qa, qb)
 
 def make(g, plate, host, clip, area, series, formula, quote=None, mode='strong', out=None, eco=None):
@@ -111,10 +111,11 @@ def build_all(out, batch=12):
     prev = {}   # keep judge verdicts / rejections of an earlier run (hook-judge.mjs writes them into the lesson files)
     for f in glob.glob(f'{out}/tpl1b_*.json'):
         d = json.load(open(f)); prev[d['source']['gold']] = d
+    NEEDS_FIX = {'p': 'phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b', 'm': 'clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES'}   # owner 24/10: unrenderable scripts stay listed with a fix, never dropped
     hosts = list(HOST_CLIPS); order, skipped, L_all, k = [], [], [], 0
     for pid, g in G.items():
         why = skip_reason(g)
-        if why: skipped.append(dict(gold=pid, topic=g['t'], reason=why)); continue
+        if why: skipped.append(dict(gold=pid, topic=g['t'], reason=why, proposed_fix=NEEDS_FIX['p' if why.startswith('pronunciation') else 'm'])); continue
         pl = plate_for(g, k); host = hosts[k % len(hosts)]; k += 1
         old = prev.get(pid); mode = (old or {}).get('hook', {}).get('mode', 'strong') if old and old.get('plate') == pl else 'strong'
         SP, L = make(g, pl, host, HOST_CLIPS[host], area_for(pid), PLATES[pl]['series'], short_formula(g['m']), mode=mode, out=out, eco=eco)
@@ -125,10 +126,10 @@ def build_all(out, batch=12):
         L_all += L; order.append(dict(id=SP['id'], gold=pid, topic=g['t'], plate=pl, host=host))
     merge_lines(out, L_all)
     for i, o_ in enumerate(order): o_['batch'] = i // batch + 1
-    plan = dict(v=1, note='docs/VIDEO-TEMPLATES.md §9 – batch N = items with batch == N; video-tpl1b.yml renders one batch (<= 10 jobs)',
-                total_gold=len(G), lessons=len(order), batches=(len(order) + batch - 1) // batch, items=order, skipped=skipped)
+    plan = dict(v=1, note='docs/VIDEO-TEMPLATES.md §9 – batch N = items with batch == N; video-tpl1b.yml renders one batch (<= 10 jobs) · needs_solution = gold scripts NOT rendered yet (never deleted) + the proposed fix',
+                total_gold=len(G), lessons=len(order), batches=(len(order) + batch - 1) // batch, items=order, needs_solution=skipped)
     json.dump(plan, open(f'{out}/plan.json', 'w'), indent=1, ensure_ascii=False)
-    print(f'{len(order)} lessons, {len(skipped)} skipped, {plan["batches"]} batches')
+    print(f'{len(order)} lessons, {len(skipped)} needs-solution, {plan["batches"]} batches')
     return plan
 
 if __name__ == '__main__':

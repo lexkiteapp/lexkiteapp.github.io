@@ -1,6 +1,6 @@
 {
  "v": 1,
- "note": "docs/VIDEO-TEMPLATES.md §9 – batch N = items with batch == N; video-tpl1b.yml renders one batch (<= 10 jobs)",
+ "note": "docs/VIDEO-TEMPLATES.md §9 – batch N = items with batch == N; video-tpl1b.yml renders one batch (<= 10 jobs) · needs_solution = gold scripts NOT rendered yet (never deleted) + the proposed fix",
  "total_gold": 261,
  "lessons": 217,
  "batches": 19,
@@ -1742,226 +1742,270 @@
    "batch": 19
   }
  ],
- "skipped": [
+ "needs_solution": [
   {
    "gold": "p:competition#n",
    "topic": "daily",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:bicycle#n",
    "topic": "daily",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "w:debit card#n",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:individual#n",
    "topic": "exam",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:timetable#n",
    "topic": "travel",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:electricity#n",
    "topic": "home",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:quantity#n",
    "topic": "shopping",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "w:savings account#n",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:gardener#n",
    "topic": "home",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:similar#adj",
    "topic": "daily",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:reception#n",
    "topic": "travel",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "w:fill out#phr v",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:reconciliation#n",
    "topic": "work",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:gpa#n",
    "topic": "exam",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:justification#n",
    "topic": "exam",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "m:fine#n",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:astronomy#n",
    "topic": "tech",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:latency#n",
    "topic": "tech",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:backpacker#n",
    "topic": "travel",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:immigration#n",
    "topic": "travel",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:overcome#v",
    "topic": "daily",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:advertisement#n",
    "topic": "tech",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:atm#n",
    "topic": "money",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "p:self-checkout#n",
    "topic": "shopping",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "u:v:admit:ing",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:detention#n",
    "topic": "work",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "u:s:it-cleft",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "m:cashback#n",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:overcrowded#adj",
    "topic": "travel",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "m:utilities#n",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "w:contactless payment#n",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:injection#n",
    "topic": "health",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "x:itemised#adj:detailed",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:anesthesia#n",
    "topic": "health",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "u:c:rob-steal",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:organic#adj",
    "topic": "food",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "u:v:risk:ing",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "w:save up#phr v",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "p:luxury#n",
    "topic": "shopping",
-   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress"
+   "reason": "pronunciation script (stress pattern): TTS cannot voice the wrong stress",
+   "proposed_fix": "phoneme-controlled TTS (Kokoro/espeak phoneme input or SSML <phoneme>) so the wrong stress can be voiced, then render as tpl1b"
   },
   {
    "gold": "cf:bank:transfer-money:x",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "cf:salary:excited-about:x",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "cf:salary:sounds-fair:x",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "cf:salary:any-flexibility",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   },
   {
    "gold": "cf:bank:any-fees",
    "topic": "money",
-   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)"
+   "reason": "no human-checked scene plate for topic 'money' (bank/ATM plate rejected: wall signs)",
+   "proposed_fix": "clean bank plates: add human-checked bank/ATM scene plates without wall signs/text (or inpaint the signs), register in tokens.PLATES"
   }
  ]
 }

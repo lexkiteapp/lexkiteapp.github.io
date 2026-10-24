@@ -4,7 +4,7 @@ by failure CLASS, prints one action line for the workflow:
   remux     – audio loudness / true peak only: two-pass loudnorm on the audio, video stream copied (written in place)
   reencode  – file gate (bitrate/size) only: CBR 5.8 Mbps re-encode (in place)
   rerender <lesson.json> – a patched copy of the lesson: other plate of the same topic (plate_* gates), other host clip (host_* / lipsync gates
-              → voice is rebuilt for the new host), shorter formula (safe_area / readability)
+              → voice is rebuilt for the new host). Never shortens/cuts content (owner rule): safe_area / readability → none
   none      – nothing automatic can fix it (hook_truth / judge reject) → straight to the batch report
   python3 scripts/video/tpl/fix_tpl.py <video.mp4> <lesson.json> <out-dir>"""
 import sys, os, json, re, subprocess, shutil
@@ -32,9 +32,7 @@ if F & {'plate_contrast', 'plate_clean', 'plate_topic'}:
 if F & {'host_scale', 'host_frame', 'lipsync_rhubarb', 'host_variance'}:
     hs = list(HOST_CLIPS); nh = hs[(hs.index(SP['host']) + 1) % len(hs)] if SP['host'] in hs else hs[0]
     SP['host'], SP['clip'] = nh, HOST_CLIPS[nh]; fix.append('host→' + nh)
-if F & {'safe_area', 'readability'}:
-    f = SP['series'][1]; f2 = re.split(r'[=,;(]', f)[0].strip()[:18].rstrip(' +-')
-    if f2 and f2 != f: SP['series'][1] = f2; SP['beats'][0]['card']['formula'] = f2; fix.append('formula→' + f2)
+# safe_area / readability: NO automatic fix – never shorten or cut content to pass a gate (owner rule 24/10); a human fixes layout/type
 if not fix: print('none'); sys.exit(0)
 SP['fix'] = fix; os.makedirs(od, exist_ok=True); np_ = os.path.join(od, os.path.basename(lp)); json.dump(SP, open(np_, 'w'), indent=1)
 print('rerender', np_, ' '.join(fix))

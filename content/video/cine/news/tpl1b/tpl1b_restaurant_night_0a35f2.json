@@ -16,9 +16,18 @@
   "line": "n_0a35f2_h",
   "quote": null,
   "kind": "Natives never say this",
-  "mode": "strong",
-  "display": "Natives never say",
-  "judge": null
+  "mode": "soft",
+  "display": "Americans usually say",
+  "judge": {
+   "wrong_is_error": false,
+   "right_ok": true,
+   "hook_true": true,
+   "note": "'divide the bill' is grammatical but uncommon; 'split the bill' is the natural collocation -> soft hook.",
+   "model": "reviewed:claude-teacher-review",
+   "at": "2026-10-24",
+   "hash": "87a38e2c1236"
+  },
+  "rewritten_from": "Natives never say this."
  },
  "wrong_line": "Let's divide the bill.",
  "key_line": "Let's split the bill.",

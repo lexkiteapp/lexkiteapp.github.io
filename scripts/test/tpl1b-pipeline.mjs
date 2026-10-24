@@ -11,8 +11,8 @@ const plates = [...tok.matchAll(/^\s{4}([a-z_]+)=dict\(tags=\[([^\]]*)\]/gm)].ma
 const hash = (h, w, r) => crypto.createHash('sha1').update([h, w, r].join('\n')).digest('hex').slice(0, 12);
 
 // plan + lessons
-ok(plan.total_gold >= 261 && plan.lessons + plan.skipped.length === plan.total_gold, `plan covers every gold script (${plan.lessons} + ${plan.skipped.length} skipped = ${plan.total_gold})`);
-ok(plan.skipped.every(s => s.reason), 'every skipped script has a reason');
+ok(!plan.skipped && plan.total_gold >= 261 && plan.lessons + plan.needs_solution.length === plan.total_gold, `plan covers every gold script (${plan.lessons} + ${plan.needs_solution.length} needs-solution = ${plan.total_gold})`);
+ok(plan.needs_solution.every(s => s.reason && s.proposed_fix), 'every not-yet-rendered script keeps a reason + proposed fix (never deleted)');
 const soft = [...tok.matchAll(/\('([^']+)', '([^']+)'\)/g)].map(m => m[1]);
 for (const it of plan.items) {
   const f = `${TD}/${it.id}.json`; if (!fs.existsSync(f)) { ok(false, `lesson ${it.id} exists`); continue; }
@@ -49,8 +49,9 @@ const wf = fs.readFileSync('.github/workflows/video-tpl1b.yml', 'utf8');
 ok(/max-parallel: 10/.test(wf) && /min\(10, len\(ok\)\)/.test(wf), 'matrix ≤ 10 jobs');
 ok(/lease\.mjs acquire video-tpl1b/.test(wf) && /lease\.mjs release video-tpl1b/.test(wf), 'lease acquire + release');
 ok(/--version \| grep -q 1\.13/.test(wf), 'Rhubarb must run on CI (no silent estimate)');
+ok(!/formula→|rsplit\(|\[:18\]/.test(fs.readFileSync('scripts/video/tpl/fix_tpl.py', 'utf8')), 'automatic fix never shortens/cuts content (owner rule: quality only goes up)');
 ok(!/yt-upload|youtube-upload|publish-grabcast|social/i.test(wf.replace(/YouTube\/social|social stay/g, '')), 'no auto-publish to YouTube/social');
 const jobs = J('infra/jobs.json').jobs.find(j => j.id === 'video-tpl1b');
 ok(jobs && jobs.paused && jobs.lease && jobs.workflow === 'video-tpl1b.yml', 'infra/jobs.json: video-tpl1b registered (paused = dispatch only, lease)');
 if (fails) { console.log(`✗ tpl1b-pipeline: ${fails} lỗi`); process.exit(1); }
-console.log(`✓ tpl1b-pipeline: ${plan.lessons} lessons, ${plan.skipped.length} skipped, invariants OK`);
+console.log(`✓ tpl1b-pipeline: ${plan.lessons} lessons, ${plan.needs_solution.length} needs-solution, invariants OK`);
