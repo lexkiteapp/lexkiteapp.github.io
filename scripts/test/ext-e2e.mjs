@@ -25,7 +25,7 @@ const ARTICLE = `<!doctype html><html lang="en"><head><meta charset="utf-8"><tit
 <p id="s">Although the initial cost is considerable, the long-term benefits to public health far outweigh the investment.</p>
 <p>A city <span id="n">forest</span> is worth <span id="adv">exactly</span> what people believe it is worth. Green space is <span id="adj">available</span> to everyone. Residents demand <span id="act">action</span> now.</p>
 <p><textarea id="ta" rows="3" cols="60">The committee reached a unanimous decision after a long debate.</textarea></p>
-<p><input id="inp" value="sustainable development goals" size="40"></p></body></html>`;
+<p><input id="inp" value="sustainable development goals" size="40"></p><div role="dialog" aria-modal="true" id="lkdlg"><h3>Funding stage and academic analysis</h3><div role="listbox"><div role="option">Significant research approach available</div></div><button>Analyse the economic environment</button></div></body></html>`;
 const CSP_PAGE = ARTICLE.replace('<title>', '<meta http-equiv="Content-Security-Policy" content="img-src \'self\'; style-src \'self\'"><title>');
 const DARK = ARTICLE.replace('<style>', '<style>html,body{background:#111418;color:#e6e6e6}');
 const FRAME = `<!doctype html><html><body><h2>Frame host</h2><iframe id="f" src="https://t1.example.com/article" width="900" height="500"></iframe></body></html>`;
@@ -109,7 +109,8 @@ rec('dữ liệu mẫu: có thẻ trong chrome.storage', cardsN > 10, cardsN);
 const pg = await ctx.newPage();
 await setSettings({ selectMode: 'icon', dblclickOn: true, markKnown: true, markAcademic: true });
 await pg.goto('https://t1.example.com/article'); await sleep(2500);
-await sleep(2500); rec('content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang', (await pg.locator('vb-mark').count()) > 0, await pg.locator('vb-mark').count());
+await sleep(2500); rec('content script: không gạch chân trong hộp thoại/ô chọn/nút của trang (làm hỏng form React – 24/10)', (await pg.locator('#lkdlg vb-mark').count()) === 0, await pg.locator('#lkdlg vb-mark').count());
+rec('content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang', (await pg.locator('vb-mark').count()) > 0, await pg.locator('vb-mark').count());
 await dbl(pg, '#w'); await sleep(9000);
 let c = await card(pg);
 await shot(pg, 'lookup-resilience');

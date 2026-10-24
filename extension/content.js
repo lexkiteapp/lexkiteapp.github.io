@@ -976,6 +976,10 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
       .ytp-caption-segment .vbw.known{box-shadow:inset 0 -.18em 0 rgba(34,197,94,.9)}`;
     (document.head || document.documentElement).appendChild(st);
   }
+  const UI_SKIP = 'button,label,form,nav,header,footer,a,[role=dialog],[aria-modal],[role=listbox],[role=option],[role=combobox],[role=menu],[role=menuitem],[role=button],[role=tab],[role=tablist],[role=tooltip],[role=alert],[aria-live],[popover]';
+  // content script ở 'isolated world' không thấy khoá __reactFiber của trang → nhận khung SPA qua DOM: đảo Astro, gốc React/Next/Vue/Angular/Svelte
+  const FW_ROOT = 'astro-island,#__next,#root,#app,#__nuxt,[data-reactroot],[data-v-app],[ng-version],[data-svelte-h],[data-rh]';
+  const fwOwned = el => !!el.closest(FW_ROOT);
   function markIn(rootEl, budget = 400) {
     if (!markOn || !knownRe || !rootEl || marked > 800) return;
     const tw = document.createTreeWalker(rootEl, NodeFilter.SHOW_TEXT, {
@@ -983,6 +987,11 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
         const p = n.parentElement;
         if (!p || !n.nodeValue || n.nodeValue.length < 3 || !/[A-Za-z]{3}/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
         if (p.closest(SKIP.split(',').map(x => x.toLowerCase()).join(',') + ',[contenteditable],[contenteditable=""],.ytp-caption-window-container')) return NodeFilter.FILTER_REJECT;
+        // 24/10: gắn vb-mark vào chữ do React/Vue quản lý trong hộp thoại/ô chọn làm hỏng trang (form Cloudflare tự đóng khi chọn) → không đụng UI tương tác
+        if (p.closest(UI_SKIP)) return NodeFilter.FILTER_REJECT;
+        // chữ trong khung SPA (React/Vue/Astro…): thay nút chữ → framework removeChild lỗi lúc vẽ lại (Cloudflare 24/10)
+        // → chỉ gạch trong đoạn văn tĩnh (p/li/article), bỏ mọi chữ framework khác
+        if (fwOwned(p) && !p.closest('p,li,blockquote,article,dd,td')) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       },
     });
