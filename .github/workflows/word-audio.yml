@@ -44,7 +44,8 @@ jobs:
           printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
       - name: Đẩy mp3 lên kho media
         if: steps.count.outputs.left != '0'
-        run: node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/w: thêm giọng từ Kokoro (run ${{ github.run_id }})"
+        run: |
+          node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/w: thêm giọng từ Kokoro (run ${{ github.run_id }})"
       - name: Lưu chỉ mục vào repo
         if: steps.count.outputs.left != '0'
         run: |
