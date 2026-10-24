@@ -47,6 +47,8 @@
     dt.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.stopPropagation(); close(true); } });
     d.addEventListener('click', function (e) { if (!dt.contains(e.target)) close(); });
     dt.addEventListener('focusout', function (e) { if (e.relatedTarget && !dt.contains(e.relatedTarget)) close(); });
+    // Hộp thoại (hỏi nhắc học, xác nhận…) mở → đóng popover, không để 2 lớp nổi chồng nhau (journey-e2e)
+    var mo = d.getElementById('modal'); if (mo && w.MutationObserver) new MutationObserver(function () { if (!mo.hidden) close(); }).observe(mo, { attributes: true, attributeFilter: ['hidden'] });
   };
   d.addEventListener('DOMContentLoaded', function () {
     var st = d.createElement('style');

@@ -18,6 +18,7 @@
   }
   function remNudge() {
     const s = App.state.settings || {};
+    try { if (localStorage.getItem('lk.edu') === '1' || localStorage.getItem('lk.u13') === '1') return ''; } catch (e) { /* bỏ qua */ } // lớp học: không mời nhắc học
     if (s.reminderOn || (!Core.Store.isExtension && (!('Notification' in g) || Notification.permission === 'denied'))) return '';
     const last = +ls('remNudge') || 0; if (Date.now() - last < 7 * 864e5) return '';
     return `<div class="pr-rem" id="prRem"><p class="small">🔔 ${t('Học đều mỗi ngày dễ hơn khi có lời nhắc nhẹ nhàng.')}</p>
