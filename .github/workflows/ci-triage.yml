@@ -8,6 +8,7 @@ on:
     types: [completed]
     workflows:
       - 'Hiệu năng từ điển'
+      - 'Content QA gate'
       - 'Video quản trị – giao diện + hiệu năng'
       - 'Build Android app'
       - 'Tạo giọng đọc Kokoro'

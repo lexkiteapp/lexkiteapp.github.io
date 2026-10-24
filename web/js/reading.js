@@ -193,6 +193,7 @@
       if (pct >= 80) { Sfx.win(); confetti(); }
       $('#qResult').innerHTML = `<div class="feedback ${pct >= 60 ? 'ok' : 'no'}" style="position:static"><b>${t('Kết quả: {score}/{n} ({pct}%)', { score, n: r.questions.length, pct })}</b> · +${10 + score * 4} XP
         <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/reading">${t('Bài đọc khác')}</a><a class="btn sm primary" href="#/practice/learn?src=deck">🧠 ${t('Học các từ vừa lưu')}</a></div></div>`;
+      App.lazy('nxs').then(() => NextStep.render($('#qResult .feedback'), 'read', r.id)).catch(() => {});
     };
   };
 })();

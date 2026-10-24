@@ -94,6 +94,9 @@ const labelled = (b, w) => (b.getAttribute('aria-label') || b.textContent || '')
   await go('#/confidence/toolkit#repair-say-again');
   ok($$('section.card', $('#view')).length === 5 && $('#repair-say-again').classList.contains('hl'), 'bộ công cụ: 5 nhóm + link sâu');
   // thử thách ngày: điểm tự tin
+  { const C = w.Confidence, b2 = C.units().filter(u => u.level === 'B2');
+    ok(b2.length >= 6 && b2.every(u => C.rpLevel(u.level).L === 2 && C.rpLevel(u.level).lv[2] === 'B2'), 'roleplay B2 chạy mức 2 (nhãn B2), không rơi về A1');
+    ok(C.rpLevel('A1').L === 0 && C.rpLevel('A2').L === 1 && C.rpLevel('B1').L === 2 && C.rpLevel(undefined).L === 0, 'roleplay A1/A2/B1 giữ mức cũ'); }
   ok(w.Confidence.scoreOf({ wpm: 110, pausesPerMin: 1, secs: 120, phrases: 2 }, 5) > w.Confidence.scoreOf({ wpm: 40, pausesPerMin: 8, secs: 30, phrases: 0 }, 2), 'điểm tự tin: nói trôi + dùng cụm + tự tin cao → điểm cao hơn');
   await go('#/confidence/daily'); ok(!!$('#cfRec') && /2:00/.test($('#cfClock').textContent), 'thử thách 2 phút: đồng hồ + nút ghi');
   // cuối roleplay thường → lối vào bài tương ứng

@@ -52,10 +52,27 @@ export async function setup(db) {
     db.prepare('CREATE INDEX IF NOT EXISTS report_events_rid ON report_events (rid)'),
     db.prepare('CREATE TABLE IF NOT EXISTS admin_log (id INTEGER PRIMARY KEY AUTOINCREMENT, at INTEGER NOT NULL, email TEXT, op TEXT, ok INTEGER, ip TEXT, country TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS config (k TEXT PRIMARY KEY, v TEXT, at INTEGER, by TEXT) WITHOUT ROWID'),
+    // Cổng QA nội dung (docs/CONTENT-QA.md §7): 1 phiếu "nội dung sai"/thiết bị/mục; đủ HIDE_N thiết bị → mục vào config 'content_hidden' (1 dòng, client đọc 1 lần/phiên)
+    db.prepare('CREATE TABLE IF NOT EXISTS content_flags (cid TEXT NOT NULL, who TEXT NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (cid, who)) WITHOUT ROWID'),
   ]);
   for (const c of ['sev TEXT', 'sig TEXT', 'ai TEXT', 'issue TEXT', 'feat TEXT', 'fix_ver TEXT']) await db.prepare('ALTER TABLE reports ADD COLUMN ' + c).run().catch(() => {}); // bảng tạo trước bản AI
   await db.prepare('CREATE INDEX IF NOT EXISTS reports_sig ON reports (sig, at)').run().catch(() => {});
   ready = true;
+}
+// ---------- Báo lỗi nội dung → tự ẩn mục sau HIDE_N thiết bị khác nhau (không quét bảng: đếm theo khóa chính cid) ----------
+export const HIDE_N = 3, HIDE_MAX = 2000, HIDE_KEY = 'content_hidden';
+const CID = /^[a-z][a-z0-9-]{1,20}:[^\s]{1,100}$/;
+async function hiddenList(db) { const r = await db.prepare('SELECT v FROM config WHERE k = ?').bind(HIDE_KEY).first(); try { const a = JSON.parse((r && r.v) || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; } }
+export async function flagContent(db, env, cid, who, now) {
+  if (!CID.test(cid || '')) return false;
+  const ins = await db.prepare('INSERT OR IGNORE INTO content_flags (cid, who, at) VALUES (?, ?, ?)').bind(cid, who, now).run();
+  if (!ins || !ins.meta || !ins.meta.changes) return false; // thiết bị này đã báo mục này
+  const n = ((await db.prepare('SELECT COUNT(*) AS n FROM content_flags WHERE cid = ?').bind(cid).first()) || {}).n || 0;
+  if (n < (+(env && env.CONTENT_HIDE_N) || HIDE_N)) return false;
+  const cur = await hiddenList(db); if (cur.includes(cid)) return false;
+  const v = JSON.stringify([cid, ...cur].slice(0, HIDE_MAX));
+  await db.prepare('INSERT INTO config (k, v, at, by) VALUES (?, ?, ?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v, at = excluded.at, by = excluded.by').bind(HIDE_KEY, v, now, 'auto-hide').run();
+  return true;
 }
 // Chỉ LỖI mới vào hàng tự xử lý của Claude Code; 'idea' (đề xuất) cần admin Duyệt; 'account' (dữ liệu/tài khoản) luôn cần người
 export const AUTO_CATS = ['bug', 'content', 'i18n', 'audio'];
@@ -223,6 +240,7 @@ async function create(request, env, b, bg) {
   // Dọn lười (≈1% lượt gửi): xóa báo lỗi > 24 tháng (chính sách quyền riêng tư) – kèm ảnh & lịch sử
   if (Math.random() < 0.01) { const old = now - 730 * DAY; w.push(db.prepare('DELETE FROM report_shots WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM report_events WHERE rid IN (SELECT id FROM reports WHERE at < ?)').bind(old), db.prepare('DELETE FROM reports WHERE at < ?').bind(old)); }
   await db.batch(w);
+  if (cat === 'content' && ctx.cid && !spam && !ctx.sandbox) await flagContent(db, env, ctx.cid, who, now).catch(() => {});
   // AI phân loại + gom trùng + thư quản trị + GitHub Issue: chạy nền (waitUntil) – người dùng nhận mã ngay
   const p = after(env, db, q, { id, cat, area, msg, email, notify, shot, errs, ctx, spam }).catch(() => {});
   if (bg) bg(p); else await p;
@@ -258,6 +276,12 @@ async function notifyReporter(env, db, id) {
 }
 
 const OPS = {
+  async unhide(env, db, b) { // quản trị: hiện lại 1 mục đã sửa (xoá phiếu cũ để đếm lại từ 0)
+    const cid = String(b.cid || ''); if (!CID.test(cid)) return { status: 400, error: 'cid' };
+    const v = JSON.stringify((await hiddenList(db)).filter(x => x !== cid));
+    await db.batch([db.prepare('UPDATE config SET v = ?, at = ? WHERE k = ?').bind(v, Date.now(), HIDE_KEY), db.prepare('DELETE FROM content_flags WHERE cid = ?').bind(cid)]);
+    return { ok: true };
+  },
   async list(env, db, b) {
     const { sql, a } = where(b), lim = Math.min(200, Math.max(10, Math.floor(+b.limit) || 50)), off = Math.min(1e6, Math.max(0, Math.floor(+b.offset) || 0)); // số nguyên hữu hạn (nối vào SQL)
     const rows = (await db.prepare(`SELECT ${LIST_COLS} FROM reports${sql} ORDER BY ${b.sort === 'old' ? 'at ASC' : b.sort === 'upd' ? 'upd DESC' : b.sort === 'sev' || b.status === 'ideas' ? (b.status === 'ideas' ? 'people DESC, at ASC' : "COALESCE(sev, 'P9'), people DESC, at ASC") : 'at DESC'} LIMIT ${lim} OFFSET ${off}`).bind(...a).all()).results || [];
@@ -406,6 +430,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   try {
     if (b.op === 'create') return await create(request, env, b, typeof waitUntil === 'function' ? waitUntil : null);
+    if (b.op === 'hidden') { await setup(env.DB); return new Response(JSON.stringify({ cids: await hiddenList(env.DB) }), { status: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=600', ...cors(request) } }); } // công khai: chỉ mã nội dung
     if (b.op === 'status' || b.op === 'mine') {
       const ts = (b.op === 'status' ? [b.t] : Array.isArray(b.ts) ? b.ts.slice(0, 20) : []).filter(x => TOK.test(String(x || '')));
       if (!ts.length) return json(request, b.op === 'status' ? 404 : 200, b.op === 'status' ? { error: 'not-found' } : { rows: [] });

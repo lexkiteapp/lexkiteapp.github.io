@@ -22,11 +22,22 @@
     const l = g.I18N && I18N.lang ? I18N.lang() : 'vi';
     return dictP || (dictP = !g.document || l === 'vi' || (have('en') && (l === 'en' || have(l))) ? Promise.resolve() : one('js/i18n/en/explain.js').then(() => (l !== 'en' ? one(`js/i18n/${l}/explain.js`) : null)));
   }
+  // Mục bị học viên báo sai ≥ N lần (api/report op 'hidden') → ẩn tới khi sửa. Lỗi mạng → không ẩn gì (fail-open, không chặn học)
+  let hidP = null;
+  function hidden() {
+    if (hidP) return hidP;
+    try { const c = JSON.parse(sessionStorage.getItem('lk.hidden') || 'null'); if (c && Date.now() - c.at < 6e5) return (hidP = Promise.resolve(c.cids)); } catch (e) { /* bỏ qua */ }
+    const base = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
+    return (hidP = fetch(base + '/api/report', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{"op":"hidden"}' }).then(r => (r.ok ? r.json() : {})).then(j => {
+      const cids = Array.isArray(j.cids) ? j.cids.filter(x => typeof x === 'string') : []; try { sessionStorage.setItem('lk.hidden', JSON.stringify({ at: Date.now(), cids })); } catch (e) { /* bỏ qua */ } return cids;
+    }).catch(() => []));
+  }
   function load(set, l) {
     l = l || lang();
     const k = set + '/' + l;
     if (cache[k]) return cache[k];
-    const f = g.fetch ? fetch(`js/explain/${set}/${l}.json`).then(r => (r.ok ? r.json() : l !== 'en' ? load(set, 'en') : {})) : Promise.resolve({});
+    const f = g.fetch ? Promise.all([fetch(`js/explain/${set}/${l}.json`).then(r => (r.ok ? r.json() : l !== 'en' ? load(set, 'en') : {})), hidden()])
+      .then(([m, h]) => { for (const c of h) if (c.startsWith('explain:')) delete m[c.slice(8)]; return m; }) : Promise.resolve({});
     return (cache[k] = f.catch(() => { delete cache[k]; return {}; }));
   }
   // Tệp theo ngôn ngữ: id → [mẫu, vì sao, mẹo, {sai}, [ví dụ], cờ] (cờ 1 = phần giải thích là tiếng Anh dự phòng)

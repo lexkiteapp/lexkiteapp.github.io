@@ -37,6 +37,8 @@ jobs:
         run: node scripts/blog-pipeline.mjs gate
       - name: Chất lượng nội dung học (đáp án, lời giải, kho từ)
         run: node scripts/test/content-check.mjs
+      - name: Cổng QA nội dung (bắt buộc – docs/CONTENT-QA.md)
+        run: node scripts/test/content-qa.mjs && node scripts/content-qa/gate.mjs --json
       - name: Chạy thử app
         run: |
           OUT=$(node scripts/test/smoke.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"

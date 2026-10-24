@@ -692,6 +692,20 @@ export const REG = {
    "minutes": 45,
    "est": {},
    "lease": true
+  },
+  {
+   "id": "content-qa",
+   "workflow": "content-qa.yml",
+   "cron": [
+    "10 23 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
+   "lease": false
   }
  ]
 };

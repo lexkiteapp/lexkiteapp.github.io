@@ -60,10 +60,11 @@ await loop(ALL.filter(x => !DB[x.id] || DB[x.id].sig !== sig(x)), 6, async b => 
   save();
 });
 const pack = (x, l) => ({ ...brief(x), p: DB[x.id].p, ex: DB[x.id].ex, ...DB[x.id][l] });
+const judgeKey = m => (/gemini/i.test(m) ? 'gemini' : /llama/i.test(m) ? 'llama' : /qwen/i.test(m) ? 'qwen' : 'other') + ':' + String(m || '?').replace(/^@cf\//, '');
 async function judge(l) {
   await loop(ALL.filter(x => DB[x.id] && DB[x.id][l] && DB[x.id].sc[l] == null), 10, async b => {
     const out = await call('xjudge', l, b.map(x => pack(x, l))); if (!out) return;
-    for (const x of b) { const s = Math.round(+out[x.id]); if (s >= 1 && s <= 5) { DB[x.id].sc[l] = s; stat.judged++; if (s <= 3) stat.low++; } }
+    for (const x of b) { const s = Math.round(+out[x.id]); if (s >= 1 && s <= 5) { DB[x.id].sc[l] = s; const qa = DB[x.id].qa = DB[x.id].qa || {}, q = qa[l] = qa[l] || {}; (q.j = q.j || {})[judgeKey(lastModel)] = s; stat.judged++; if (s <= 3) stat.low++; } } // qa.j: mỗi giám khảo 1 khóa '<họ>:<mô hình>' – xuất khi 2 họ khác nhau cùng ≥ 4 (content-qa/lib.mjs agree)
     save();
   });
 }

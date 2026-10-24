@@ -1,0 +1,26 @@
+# 🛡️ Cổng QA nội dung hằng đêm (docs/CONTENT-QA.md) – 0 token AI, chỉ đọc repo: lược đồ + kho từ · ✗/✓ · CEFR · 2 giám khảo · dịch · kiểm mẫu lô · tự ẩn.
+# Cùng cổng chạy ở mỗi push (ci.yml, npm test) và trước khi job sinh nội dung commit (explain.yml). Đêm: báo cáo xu hướng (reports/content-qa.json → job summary).
+# Sổ: infra/jobs.json (id content-qa). Tắt: disable workflow; cổng push vẫn chạy.
+name: Content QA gate
+on:
+  schedule:
+    - cron: '10 23 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: { group: content-qa, cancel-in-progress: false }
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund
+      - name: Cổng QA nội dung
+        run: node scripts/test/content-qa.mjs && node scripts/content-qa/gate.mjs --json
+      - name: Tóm tắt
+        if: always()
+        run: |
+          test -f reports/content-qa.json && node -e "const r=require('./reports/content-qa.json');const t=Object.entries(r.counts).sort((a,b)=>b[1]-a[1]).slice(0,15);console.log('## Content QA\n\nLỗi cứng: '+r.hard.length+'\n\n| nguồn/loại | số | baseline |\n|---|---|---|\n'+t.map(([k,n])=>'| '+k+' | '+n+' | '+(r.base[k]||0)+' |').join('\n')+'\n\nCách dùng từ có ghi chú: '+r.info.usage.pct+'%')" >> "$GITHUB_STEP_SUMMARY" || true

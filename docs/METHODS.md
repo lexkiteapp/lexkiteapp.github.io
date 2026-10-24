@@ -79,6 +79,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
 - Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
 - Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
+- Bản clone tạm tên chung (`$TMPDIR/lk`) bị phiên khác `rm -rf` giữa chừng (24/10, mất 1 lượt sửa) → clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad để chạy lại.
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.
@@ -116,3 +117,9 @@ Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) �
 
 - **Quét lỗi tiềm ẩn hằng đêm (24/10):** `quality-sweep.yml` (docs/QUALITY-SWEEP.md) – 0 token, hermetic (/api = {}), 1 issue "quality-sweep" + 1 dòng bản tin. Lỗi nó tìm ra → sửa theo LOẠI + thêm cổng vào npm test, đừng chỉ vá từng trang.
 - **Liên kết nội bộ (24/10, /vi/blog/-lang 404):** gốc lỗi = `web/blog-lang.html` cắt `^/blog/?` làm "/blog-lang" thành đuôi "-lang". Cổng: `scripts/lib/url-guard.mjs` (badPath/joinPath – URL bài dựng qua joinPath), `scripts/test/links-js.mjs` (jsdom chạy script thật, quét liên kết DOM + tĩnh của mọi trang blog, ma trận chuyển hướng /blog*, gợi ý 404), `crawl.js` quét href do JS sinh. Mọi URL ghép từ biến → dùng joinPath, không nối chuỗi trần.
+
+## Cổng QA nội dung – BẮT BUỘC (24/10, `docs/CONTENT-QA.md`)
+- MỌI nguồn nội dung (Claude, Antigravity, bot CI, người) qua `scripts/content-qa/gate.mjs` trong `npm test` + `ci.yml` + trước commit của job sinh (`explain.yml`). Thư mục nội dung mới phải đăng ký `content/qa/sources.json`, nếu không CI đỏ.
+- 7 lớp: lược đồ + đối chiếu kho từ · ✗/✓ hợp lệ · **2 giám khảo khác họ mô hình cùng ≥ 4, lệch ≤ 1** (không đạt → hàng duyệt, KHÔNG xuất) · CEFR khớp cấp bài · dịch (dịch ngược ≥ 0.8, không lẫn tiếng, đúng chữ viết, giữ `{biến}`/`[ô]`/số) · kiểm mẫu ≥ 5%/lô, sai > 2% → loại cả lô · báo lỗi "nội dung sai" từ 3 thiết bị → tự ẩn (`content_hidden`), sửa xong thì `unhide`.
+- Lỗi cũ nằm ở `content/qa/baseline.json`, **chỉ được giảm** (`--lower-baseline`). Sửa theo LOẠI lỗi, không theo từng mục.
+- Sinh nội dung/dịch: chỉ dùng kho Gemini hoặc Workers AI tài khoản 2, đăng ký `infra/jobs.json`; **không** dùng AI tài khoản chính. Lộ trình mảng: `docs/CONTENT-ROADMAP.md`.

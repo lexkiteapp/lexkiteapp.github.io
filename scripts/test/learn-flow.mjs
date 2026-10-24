@@ -183,7 +183,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   let ds = await DP.days();
   ok(ds.length > 200 && ds[0].id === 'ngsl1.1~1' && ds[0].topic.words.length >= 5 && ds[0].topic.words.length <= 8, 'Ngày 1 = 5–8 từ đầu của bài đầu: ' + ds.length + ' ngày');
   const p1 = DP.plan(ds[0]).map(s => s.k), p4 = DP.plan(ds[3]).map(s => s.k), big = ds.find(d => d.unit.stage.id === 's3' && d.j < d.of), pa = DP.plan(big).map(s => s.k);
-  ok(p1.slice(0, 3).join() === 'learn,match,mcq' && p1.length === 4 && p1[3] === 'rt', 'Ngày 1 (gói IELTS): nhận diện (thắng sớm) + 1 dạng câu Reading: ' + p1);
+  ok(p1.join() === 'learn,match,mcq,gl,pr,rt', 'Ngày 1 (gói IELTS): nhận diện (thắng sớm) + 1 bài ngữ pháp + 1 bài phát âm + 1 dạng câu Reading: ' + p1);
   ok(p4.indexOf('learn') < p4.indexOf('match') && p4.indexOf('match') < p4.indexOf('cloze') && p4.includes('listen'), 'Ngày 4: học → ghép → nghe → điền câu: ' + p4);
   ok(pa.some(k => /^(use|gram|rt|il|is|iw|mock)$/.test(k)) && pa.includes('cloze'), 'ngày chặng học thuật có collocation/ngữ pháp/đề thi: ' + pa);
   const lastDay = ds.find(d => d.j === d.of && d.unit.status !== 'done');
@@ -202,14 +202,14 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   await go('#/home', 400);
   ok(/Ngày 1|Day 1/.test(($('.today-cta') || {}).textContent || ''), 'nút chính trang chủ: ' + (($('.today-cta') || {}).textContent || '').trim());
   await go('#/day/1', 400);
-  ok($$('.day-steps li').length === 4 && $('.day-hero') && $('[role=progressbar]'), 'trang #/day/1: 4 hoạt động + thanh tiến độ');
+  ok($$('.day-steps li').length === 6 && $('.day-hero') && $('[role=progressbar]'), 'trang #/day/1: 6 hoạt động + thanh tiến độ');
   click($('.day-steps a')); await tick(50);
   ok(w.localStorage.getItem('vb.daySess') === 'ngsl1.1~1', 'bấm hoạt động → giữ phiên Ngày 1');
   w.dispatchEvent(new w.CustomEvent('lexkite:practice-done', { detail: { mode: 'match', src: 'topic:ngsl1.1~1', pct: 100 } })); await tick(200);
   const rec = await w.Core.Store.get('pathDays', {});
   ok(rec['ngsl1.1~1'] && rec['ngsl1.1~1'].s.includes('match'), 'xong Ghép thẻ → ghi bước của Ngày 1');
   await go('#/practice/mcq?src=topic:ngsl1.1~1', 400);
-  ok($('.day-bar') && /1\/4/.test($('.day-bar').textContent), 'thanh tiến độ buổi học trên trang bài tập: ' + (($('.day-bar') || {}).textContent || '').trim());
+  ok($('.day-bar') && /1\/6/.test($('.day-bar').textContent), 'thanh tiến độ buổi học trên trang bài tập: ' + (($('.day-bar') || {}).textContent || '').trim());
   await go('#/path', 400);
   ok($$('.node[data-day]').length > 20 && $('.node.current[aria-current=step]') && /Ngày 1|Day 1/.test($('.path-cta').textContent), 'bản đồ: nút Ngày + Ngày hiện tại + CTA: ' + $$('.node[data-day]').length + ' ' + !!$('.node.current') + ' ' + (($('.path-cta') || {}).textContent || ''));
 }
@@ -250,6 +250,29 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
     const bad = ds.slice(0, 60).flatMap(d => DP.plan(d)).filter(x => !exists(x.href)).map(x => x.href);
     ok(!bad.length, `${nm}: mọi bước của 60 ngày đầu trỏ tới nội dung có thật` + (bad.length ? ' – thiếu: ' + [...new Set(bad)].slice(0, 5).join(', ') : ''));
     ok(DP.plan(ds.find(d => d.j === d.of && d.unit.status !== 'done')).pop().k === 'test', `${nm}: ngày cuối bài = kiểm tra cuối bài (kiểm tra vượt)`);
+    { // trộn 1 bài ngữ pháp + 1 bài phát âm đúng CEFR chặng (nếu có bài khớp); bài trỏ tới nội dung có thật; sau bước từ vựng; xoay vòng trong chặng
+      const M = w.PATH_MIX, CE = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], lv = c => { const m = String(c).match(/[ABC][12]/g) || []; return m.length ? CE.slice(CE.indexOf(m[0]), CE.indexOf(m[m.length - 1]) + 1) : []; };
+      const G = new Map(M.g.map(x => [x[0], x[1]])), Pm = new Map(M.p.map(x => [x[0], x[1]])), errs = [], seen = new Set();
+      for (const d of ds.slice(0, 80)) {
+        const st = DP.plan(d), L = lv(d.unit.stage.cefr), gl = st.filter(x => x.k === 'gl'), pr = st.filter(x => x.k === 'pr'), gram = st.filter(x => x.ext === 'grammar');
+        const wantG = M.g.some(x => L.includes(x[1])), wantP = M.p.some(x => L.includes(x[1]));
+        if (gl.length > 1 || (wantG && gram.length !== 1)) errs.push(d.n + ':gram' + gram.length);
+        if (pr.length !== (wantP ? 1 : 0)) errs.push(d.n + ':pr' + pr.length);
+        for (const x of gl) { const id = decodeURIComponent(x.href.replace('#/grammar/', '')); seen.add(id); if (!L.includes(G.get(id))) errs.push(d.n + ':gCEFR ' + id); }
+        for (const x of pr) { const id = decodeURIComponent(x.href.replace('#/pron/', '')); if (!L.includes(Pm.get(id))) errs.push(d.n + ':pCEFR ' + id); }
+        const fm = st.findIndex(x => x.k === 'gl' || x.k === 'pr'); if (fm >= 0 && st.findIndex(x => x.k === 'match') > fm) errs.push(d.n + ':order');
+      }
+      ok(!errs.length && seen.size >= 3, `${nm}: mỗi ngày 1 bước ngữ pháp + 1 bài phát âm đúng CEFR (xoay ${seen.size} bài ngữ pháp)` + (errs.length ? ' – ' + errs.slice(0, 5).join(', ') : ''));
+    }
+  }
+  { // hết lộ trình → màn "Tiếp theo học gì?" (gói khác, khóa học, nói tự tin, ôn tập), không ngõ cụt
+    const tr = TK.TR.work, gm = w.App.state.game, keep = gm.unitDone; await TK.use('work'); await TK.ready(tr);
+    gm.unitDone = { ...(keep || {}) }; for (const st of tr.stages) for (const u of st.units) gm.unitDone[u] = 100;
+    const all = await DP.daysOf(tr); await go('#/home', 300); await go('#/path', 500); const nx = $('.path-next');
+    ok(all.every(d => d.done) && nx && $$('a[href^="#/tracks?use="]', nx).length === TK.IDS.length - 1 && $('a[href="#/courses"]', nx) && $('a[href="#/confidence"]', nx) && $('a[href="#/review"]', nx),
+      'hết lộ trình: màn "Tiếp theo" có gói khác + khóa học + nói tự tin + ôn tập' + (nx ? '' : ` – ${all.filter(d => !d.done).length}/${all.length} ngày chưa xong · ${w.location.hash}`));
+    await go('#/day/' + all.length, 400); ok(!!$('.path-next'), 'ngày cuối cùng của lộ trình: hiện "Tiếp theo học gì?"');
+    gm.unitDone = keep;
   }
   { const f = Object.entries(first3).filter(([k]) => k !== 'ielts/gt').map(x => x[1]); ok(new Set(f).size === f.length, 'mỗi gói (và TOEIC L&R/S&W) có Ngày 1–3 riêng'); }
   ok(/rtype|listen\/t1p|speaking/.test(first3['ielts/ac']) && /letters|task1|write|rtype/.test(first3['ielts/ac'] + first3['ielts/gt']), 'IELTS: dạng câu Reading/Listening/Speaking');

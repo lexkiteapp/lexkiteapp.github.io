@@ -11,7 +11,7 @@ globalThis.caches = { default: {
   async put(req, res) { const age = +((res.headers.get('Cache-Control') || '').match(/max-age=(\d+)/) || [, 0])[1]; store.set(req.url, { body: await res.text(), exp: Date.now() + age * 1000 }); },
 } };
 const sql = new DatabaseSync(':memory:');
-const exec = (q, a) => /^\s*(SELECT|WITH)|RETURNING/i.test(q) ? { results: sql.prepare(q).all(...a) } : (sql.prepare(q).run(...a), { results: [] });
+const exec = (q, a) => /^\s*(SELECT|WITH)|RETURNING/i.test(q) ? { results: sql.prepare(q).all(...a) } : { results: [], meta: { changes: Number(sql.prepare(q).run(...a).changes) } }; // như D1 thật: meta.changes
 const DB = { prepare(q) { const st = { q, args: [], bind(...a) { return { ...st, args: a }; }, async run() { return exec(q, this.args); }, async all() { return exec(q, this.args); }, async first() { return sql.prepare(q).get(...this.args) || null; } }; return st; },
   async batch(list) { const out = []; sql.exec('BEGIN'); try { for (const x of list) out.push(await x.run()); sql.exec('COMMIT'); } catch (e) { sql.exec('ROLLBACK'); throw e; } return out; } };
 
@@ -273,6 +273,21 @@ const logs = sql.prepare("SELECT op, ok FROM admin_log WHERE email = 'boss@lexki
 ok(['report:list', 'report:get', 'report:shot', 'report:set', 'report:merge', 'report:export', 'report:stats', 'report:cfg'].every(o => logs.some(l => l.op === o)), 'mọi lệnh quản trị được ghi admin_log');
 ok(logs.some(l => l.op === 'report:set' && l.ok === 0), 'lệnh lỗi cũng ghi (ok = 0)');
 ok(sql.prepare("SELECT COUNT(*) AS n FROM report_events WHERE rid = 1 AND act IN ('status', 'reply', 'note', 'assign', 'merged', 'mailed')").get().n >= 6, 'lịch sử từng báo lỗi (report_events)');
+
+// ---------- Cổng QA nội dung §7: tự ẩn mục sau HIDE_N thiết bị báo sai ----------
+{
+  const XC = 'explain:p|engaged|in', rep = ip => call(good({ msg: 'This explanation for "engaged in" is wrong, the answer should be "with".', ctx: { route: 'usage', lang: 'en', ver: '20261024', plat: 'web', cid: XC } }), { ip });
+  await rep('10.9.9.1'); await rep('10.9.9.1'); // cùng thiết bị báo 2 lần → tính 1
+  let h = (await call({ op: 'hidden' })).j.cids || [];
+  ok(!h.includes(XC) && sql.prepare('SELECT COUNT(*) AS n FROM content_flags WHERE cid = ?').get(XC).n === 1, 'tự ẩn: 1 thiết bị báo 2 lần → 1 phiếu, chưa ẩn');
+  await rep('10.9.9.2'); h = (await call({ op: 'hidden' })).j.cids || []; ok(!h.includes(XC), 'tự ẩn: 2 thiết bị → chưa ẩn');
+  await rep('10.9.9.3'); const hr = await call({ op: 'hidden' }); h = hr.j.cids || [];
+  ok(h.includes(XC) && R.HIDE_N === 3 && /max-age=600/.test(hr.h.get('Cache-Control') || ''), 'tự ẩn: đủ 3 thiết bị → mục vào danh sách ẩn (công khai, cache 10 phút)');
+  ok(!/10\.9\.9|who|msg|email/.test(hr.text), 'danh sách ẩn chỉ có mã nội dung, không lộ người báo');
+  ok((await call({ op: 'unhide', cid: XC })).s === 401 || (await call({ op: 'unhide', cid: XC })).s === 403, 'hiện lại: cần quyền quản trị');
+  const u = await call({ op: 'unhide', cid: XC }, { token: ADM }); h = (await call({ op: 'hidden' })).j.cids || [];
+  ok(u.j.ok && !h.includes(XC) && sql.prepare('SELECT COUNT(*) AS n FROM content_flags WHERE cid = ?').get(XC).n === 0, 'quản trị hiện lại → bỏ khỏi danh sách ẩn + đếm lại từ 0');
+}
 
 if (fails) { console.error(`✗ report: ${fails}/${n} lỗi`); process.exit(1); }
 console.log(`✓ report: ${n} kiểm tra – tạo, giới hạn tốc độ, mã riêng, quyền quản trị, thư, không lộ dữ liệu cá nhân, gộp trùng, CSV, thống kê`);

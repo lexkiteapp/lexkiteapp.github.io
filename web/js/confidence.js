@@ -210,8 +210,8 @@
         <div class="cf-bar"><button class="btn primary lg" id="cfRp">▶ ${t('Bắt đầu hội thoại')}</button></div>`;
       $('#cfRp').onclick = () => {
         if (!window.RP) { toast(t('Không tải được – thử lại sau')); return; }
-        const L = { A1: 0, A2: 1, B1: 2 }[u.level] || 0;
-        RP.chat({ id: 'cf-' + u.id, em: u.em, title: u.titleEn, name: t(u.title), kind: 'everyday', lv: ['A1', 'A2', 'B1'], ai: r.ai, you: r.you, vocab: [],
+        const { L, lv } = rpLevel(u.level);
+        RP.chat({ id: 'cf-' + u.id, em: u.em, title: u.titleEn, name: t(u.title), kind: 'everyday', lv, ai: r.ai, you: r.you, vocab: [],
           turns: r.turns.map(x => ({ a: x3(x.a), h: x3(x.h), br: x.br })), end: x3(r.end) }, L, { help: true, done: res => { R.rp = res; if (!dead) recap(S.length - 1); } });
       };
     }
@@ -350,5 +350,7 @@
     if (!u) { location.replace(location.pathname + location.search + '#/confidence'); return; }
     unitPage(u, frag);
   };
-  window.Confidence = { scoreOf, units: () => D().units };
+  // Trình độ bài → mức roleplay (0–2) + nhãn CEFR. B2 từng rơi về 0 (A1) vì thiếu khóa.
+  function rpLevel(lvl) { const b2 = lvl === 'B2'; return { L: b2 ? 2 : ({ A1: 0, A2: 1, B1: 2 }[lvl] ?? 0), lv: b2 ? ['A2', 'B1', 'B2'] : ['A1', 'A2', 'B1'] }; }
+  window.Confidence = { scoreOf, rpLevel, units: () => D().units };
 })();

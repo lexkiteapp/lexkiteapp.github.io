@@ -1,0 +1,299 @@
+{
+ "_doc": "Sổ đăng ký MỌI nguồn nội dung học – cổng QA (docs/CONTENT-QA.md, scripts/content-qa/gate.mjs). Thư mục nội dung mới chưa có ở đây → CI đỏ. checks: schema · lexicon · pair (✗/✓) · cefr · judges (2 giám khảo) · translation · spot (≥5%/lô) · reports (tự ẩn). gen=true: có nội dung sinh tự động → bắt buộc judges + translation + spot.",
+ "sources": [
+  {
+   "id": "vocab",
+   "paths": [
+    "web/js/lib",
+    "content/lexicon",
+    "content/wordlists"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "lexicon"
+   ],
+   "delegate": [
+    "build-lexicon.mjs",
+    "test/lex.mjs"
+   ]
+  },
+  {
+   "id": "vocab-notes",
+   "paths": [
+    "web/js/notes",
+    "content/notes-src"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "cefr",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ]
+  },
+  {
+   "id": "grammar",
+   "paths": [
+    "web/js/grammar"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "pair",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "pron",
+   "paths": [
+    "web/js/pron"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "lexicon"
+   ]
+  },
+  {
+   "id": "usage",
+   "paths": [
+    "web/js/usage"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "pair",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/usage.mjs"
+   ]
+  },
+  {
+   "id": "explain",
+   "paths": [
+    "content/explain",
+    "web/js/explain"
+   ],
+   "owner": "ci:explain.yml",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/explain.mjs",
+    "test/explain-check.mjs"
+   ]
+  },
+  {
+   "id": "reading",
+   "paths": [
+    "web/js/readtest"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "listening",
+   "paths": [
+    "web/js/listen"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "toeic",
+   "paths": [
+    "web/js/toeic"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "toefl",
+   "paths": [
+    "web/js/toefl"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "writing",
+   "paths": [
+    "web/js/write"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "cefr",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "speaking",
+   "paths": [
+    "web/js/speak"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "cefr",
+    "judges",
+    "spot"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "roleplay",
+   "paths": [
+    "web/js/roleplay",
+    "web/js/call"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "cefr",
+    "pair",
+    "judges",
+    "spot"
+   ]
+  },
+  {
+   "id": "confidence",
+   "paths": [
+    "content/confidence",
+    "web/js/confidence"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "pair",
+    "translation"
+   ],
+   "delegate": [
+    "confidence/build.mjs",
+    "test/confidence.mjs"
+   ]
+  },
+  {
+   "id": "ui-i18n",
+   "paths": [
+    "content/i18n"
+   ],
+   "owner": "ci:i18n.yml",
+   "gen": true,
+   "checks": [
+    "translation"
+   ],
+   "delegate": [
+    "i18n-qa.mjs --strict",
+    "i18n-leak.js"
+   ]
+  },
+  {
+   "id": "blog",
+   "paths": [
+    "content/blog"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/blog-images.mjs",
+    "test/blog-captions.mjs"
+   ]
+  },
+  {
+   "id": "seo-en",
+   "paths": [
+    "content/seo-en"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "build-landing.mjs --check"
+   ]
+  }
+ ],
+ "skip": {
+  "content/brand": "tài sản thương hiệu, không phải nội dung học",
+  "content/landing": "trang giới thiệu – build-landing.mjs --check",
+  "content/legal": "văn bản pháp lý soạn tay",
+  "content/pipeline": "hàng đợi/nhật ký pipeline",
+  "content/pr": "bài PR/danh bạ",
+  "content/protection": "dấu bản quyền",
+  "content/video": "kịch bản video – cổng riêng docs/VIDEO.md (duyệt mẫu trước khi chạy hàng loạt)",
+  "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)"
+ }
+}

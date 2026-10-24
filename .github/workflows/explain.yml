@@ -27,6 +27,7 @@ jobs:
             node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true
           done
           node scripts/explain/build.mjs
+          node scripts/content-qa/gate.mjs   # cổng QA: mục chưa có 2 giám khảo đồng ý không được xuất (docs/CONTENT-QA.md)
           test -n "$(git status --porcelain content/explain web/js/explain)" || { echo '✗ explain: không có thay đổi'; exit 1; }
       - name: Lưu kết quả
         run: |

@@ -27,6 +27,80 @@ Mẫu thẻ:
 
 ## TODO
 
+> **Luật chung cho thẻ CQ1–CQ5 (Claude 24/10):** chi tiết ở `docs/CONTENT-ROADMAP.md` và cổng `docs/CONTENT-QA.md`.
+> - **Cách làm:** làm theo lô ≤ 60 mục. Mỗi lô có 1 tệp `content/qa/batches/<thẻ>-<n>.json` dạng `{ id, source, n, checked: [], status: "pending" }`. Claude soát ≥ 5% mục và ghi `checked`; nếu sai > 2% thì cả lô bị loại.
+> - **Kiểm trước khi nộp:** `node scripts/content-qa/gate.mjs` + `node scripts/test/content-qa.mjs` phải xanh. Baseline (`content/qa/baseline.json`) không được tăng.
+> - **Không đụng:** mã JS/CSS, `web/js/app.js`, `functions/`.
+> - **Không dùng:** AI tài khoản chính. Câu ví dụ phải tự viết, không chép từ sách hay trang web.
+> - **Nộp:** commit riêng từng lô, kèm số mục và lệnh kiểm vào ô Báo cáo.
+
+### [CQ1] Ghi chú + cặp ✗/✓ cho Cách dùng từ (300 mục ưu tiên) · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** tỉ lệ mục có ghi chú/lỗi hay gặp 31% → ≥ 70% (số đo ở dòng cuối của `gate.mjs`).
+- **File:** chỉ `web/js/usage/{prep-verb,prep-adj,prep-noun,verb,adv,pair,struct}.js`, theo cú pháp ở đầu `web/js/usage-core.js`.
+- **Thêm vào mỗi mục:**
+  - 1 dòng `# vi | en`: ghi chú cách dùng ≤ 25 từ mỗi ngôn ngữ.
+  - 1–2 dòng `! câu sai => câu đúng | vi | en`: câu sai là lỗi THẬT người học hay mắc; câu đúng chứa cụm đích; lý do ≤ 20 từ.
+- **Thứ tự ưu tiên:** mục có trong đề TOEIC Part 5 / IELTS → mục giới từ → còn lại.
+- **Xong khi:**
+  - Có ≥ 300 mục mới có ghi chú.
+  - `usage/pair` và `usage/schema` không tăng; `node scripts/test/usage.mjs` xanh.
+  - Có 5 lô kèm tệp lô.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ2] Nhánh kịch bản cho roleplay + "Tự tin" (75% lượt chưa có nhánh) · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** khi offline hoặc hết lượt AI, mọi lượt thoại vẫn đáp đúng ý người học. Lượt có nhánh `br` 25% → ≥ 90%.
+- **File:** `content/confidence/units/*.json` (24 bài, trường `roleplay.turns[].br`) và `web/js/roleplay/data-*.js` (16 kịch bản).
+- **Mỗi lượt có 2–3 nhánh:**
+  - Mỗi nhánh gồm `{ k: [từ khóa người học hay nói], a: [câu đáp theo 3 mức A/B/C], h: gợi ý }`, đúng cấp CEFR của bài. Bài B2 dùng câu B2; kiểm bằng lớp CEFR của cổng.
+  - Luôn có 1 nhánh "không hiểu / im lặng" → câu nhắc lại đơn giản hơn.
+- **Xong khi:**
+  - `node scripts/confidence/build.mjs` và `node scripts/test/confidence.mjs` xanh.
+  - Đếm nhánh ≥ 90%, ghi số đo vào Báo cáo.
+  - Có ảnh chụp 1 hội thoại offline đi hết bài.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ3] Bài mẫu Writing band 6 & 7 (hiện tất cả band 8) · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
+- **Phạm vi:** mỗi đề Task 1 (30) và Task 2 (50) thêm 1 bài band 6 + 1 bài band 7.
+- **File:** `web/js/write/models*.js`, theo đúng cấu trúc mục `MODELS` hiện có, thêm trường `band`.
+- **Mỗi bài cần có:**
+  - Độ dài đúng chuẩn: Task 1 ≥ 150 từ, Task 2 ≥ 250 từ.
+  - 3–5 chú thích "vì sao chưa lên band trên", theo 4 tiêu chí TA/CC/LR/GRA.
+  - Lỗi trong bài band 6 phải là lỗi điển hình và nhất quán với band đó.
+- **Xong khi:**
+  - `node scripts/test/content-check.mjs` + cổng QA xanh.
+  - Claude soát 5% (chấm lại band) đạt.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:**
+  - Bài phát âm hiện chỉ có tiếng Việt → cần bản tiếng Anh gốc để CI-gen dịch 13 ngôn ngữ.
+  - Lộ trình đang hết bài phát âm từ chặng C1.
+- **File:** `web/js/pron/skills.js`, `web/js/pron/sounds.js`.
+  - Thêm `titleEn`, `howEn`, `tipEn` (không đổi `id`).
+  - Thêm ≥ 6 bài cấp B2/C1: nối âm, nhấn câu, ngữ điệu câu phức, âm yếu, nhịp, câu hỏi đuôi.
+- **Từ ví dụ:** phải có trong kho từ, hoặc liệt kê vào Báo cáo để Claude thêm kho. `pron/lexicon` không được tăng.
+- **Xong khi:**
+  - Chạy lại `node scripts/path/build-mix.mjs` thì lộ trình chặng C1 có bài phát âm.
+  - `learn-flow.mjs` xanh.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
+### [CQ5] Bản tiếng Anh gốc cho lời giải / checklist chỉ có tiếng Việt · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** 13 ngôn ngữ khác không còn thấy giải thích tiếng Việt. Bản tiếng Anh là nguồn để CI-gen (Gemini) dịch qua cổng dịch.
+- **Phạm vi:** checklist TOEIC S&W, ghi chú TOEFL Complete the Words, giải thích luyện đọc, thông báo writecheck, ghi chú sâu từ vựng (`web/js/notes/*`), lời giải quiz ngữ pháp.
+- **Cách làm:** chỉ viết nội dung tiếng Anh vào trường `en`, đặt cạnh trường tiếng Việt sẵn có.
+  - Claude sẽ tách khóa và nối mã trước. Thẻ này chỉ là phần nội dung: **đợi Claude ghi "✅ sẵn sàng" ở đây rồi mới làm**.
+  - Bản tiếng Anh viết tự nhiên, không dịch từng chữ, ≤ 1,2 lần độ dài bản tiếng Việt; giữ nguyên `{biến}`, `[ô]`, số.
+- **Xong khi:**
+  - `explain-check.mjs` + `i18n-qa.mjs --strict` + cổng QA xanh.
+  - Có 1 lô thử 60 mục được Claude soát đạt, rồi mới làm phần còn lại.
+- Báo cáo:
+- Cần sửa / Nhận xét:
+
 ### [P2-1.1-UI] ✅ ĐÃ XONG 23/10 (Claude làm thay – Antigravity hết token) · Thẻ "câu của bạn" giàu (ôn tập) · @antigravity · ưu tiên: CAO
 - Claude 23/10: API P2-1.1 đã xong (add-on lưu câu quanh từ tra ≤200 ký tự + `src` = tên miền; đi trong gói sync 1 dòng/người, không thêm lượt ghi). Việc của anh em: làm **thẻ thiết kế đẹp** cho phần này.
 - **Dữ liệu (đừng tự đọc `contexts[]` nữa):** `Core.Cards.ctxOf(card)` → `{ text, src, own }` — `own=true` là câu của người học (`card.ctx`, `card.src`; thẻ cũ rơi về `contexts[0]`), `own=false` là ví dụ thư viện (`card.ex`), `null` = không có gì. Render tối thiểu hiện có ở `web/js/study.js` (mặt trước thẻ: `📌 “…” · tên-miền`) — thay bằng thẻ mới.

@@ -6,6 +6,7 @@ firebase-debug.log
 .claude/
 store/.claude/
 qa/
+!content/qa/
 *.pdf
 
 dist/
