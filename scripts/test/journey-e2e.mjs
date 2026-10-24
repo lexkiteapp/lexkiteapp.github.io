@@ -388,7 +388,7 @@ async function j7(lang) {
     const ART = `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Why cities are planting forests</title></head><body style="font:18px/1.7 Georgia;max-width:760px;margin:30px auto"><h1>Why cities are planting forests</h1><p>Urban planners argue that trees are infrastructure. Dense canopies improve the <span id="w">resilience</span> of neighbourhoods during heatwaves.</p></body></html>`;
     await ctx.route('https://news.example.test/**', r => r.fulfill({ contentType: 'text/html', body: ART }));
     await ctx.route(/lexkite\.com|googleapis|dictionaryapi|tatoeba|wiktionary|datamuse|mymemory|wikimedia/, r => r.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
-    ctx.on('page', p => p.on('pageerror', e => errs.push('pageerror ' + p.url().slice(0, 50) + ': ' + e.message.slice(0, 160))));
+    ctx.on('page', p => p.on('pageerror', e => errs.push('pageerror ' + p.url().slice(0, 80) + ': ' + e.message.slice(0, 90) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim()).join(' ').slice(0, 200))));
     let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
     const base = `chrome-extension://${new URL(sw.url()).host}/`;
     await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);

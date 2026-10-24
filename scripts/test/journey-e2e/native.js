@@ -10,7 +10,9 @@
   const go = async h => { location.hash = h; await sleep(1100); };
   const ls = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const askOn = () => vis('#modal:not([hidden]) #raY');
-  async function learn() { for (let i = 0; i < 14 && !vis('.study-wrap .celebrate'); i++) { if (vis('#known')) await click('#known', 450); else if (vis('#gotIt')) await click('#gotIt', 450); else await sleep(600); } return wait('.study-wrap .celebrate', 6000); }
+  // Hộp chúc mừng (lên cấp…) mở giữa chừng → đóng như người dùng (không đụng hộp hỏi nhắc học #raY – hành trình 1 kiểm riêng)
+  const dismiss = async () => { const m = D.getElementById('modal'); if (m && !m.hidden && !askOn()) { const b = m.querySelector('[data-close]'); if (b) { b.click(); await sleep(300); } } };
+  async function learn() { for (let i = 0; i < 14 && !vis('.study-wrap .celebrate'); i++) { await dismiss(); if (vis('#known')) await click('#known', 450); else if (vis('#gotIt')) await click('#gotIt', 450); else await sleep(600); } return wait('.study-wrap .celebrate', 6000); }
   function mk(tag) { const bad = []; return { bad, ok: (c, m) => { if (!c) bad.push('[' + tag + '] ' + m); return !!c; }, audit: s => { for (const b of LKJC.audit(s)) bad.push('[' + tag + '] ' + b.t + ': ' + b.msg); } }; }
   async function reset() { // hồ sơ mới cho hành trình 1 (giữ trạng thái bộ chạy __e2e + ngôn ngữ)
     const keep = {}; for (const k of ['__e2e', 'vb.uiLang', '__lkj']) if (ls(k) != null) keep[k] = ls(k);
@@ -49,13 +51,13 @@
       for (const [w, vi] of words) { await Core.Cards.add({ word: w, vi, pos: 'noun' }, w === 'resilience' ? { text: 'Dense canopies improve the resilience of neighbourhoods during heatwaves.', source: 'https://www.bbc.com/', title: 'Forests' } : undefined).catch(() => {}); await Core.Cards.patch(w, c => { c.srs = { ...S }; }).catch(() => {}); }
       App.state.cards = await Core.Cards.all(); await go('#/review'); await sleep(800);
       const modes = ['flip', 'type', 'audio'], seen = new Set(); let own = false;
-      for (let i = 0; i < 12 && !vis('.rev-done'); i++) { const sel = D.getElementById('rmSel'); if (sel) { sel.value = modes[i % 3]; sel.dispatchEvent(new Event('change', { bubbles: true })); await sleep(500); }
+      for (let i = 0; i < 16 && !vis('.rev-done'); i++) { if (i) t.audit('review'); await dismiss(); const sel = D.getElementById('rmSel'); if (sel) { sel.value = modes[i % 3]; sel.dispatchEvent(new Event('change', { bubbles: true })); await sleep(500); }
         if (vis('figure.rctx.own')) own = true;
         if (vis('#typeIn')) { seen.add('type'); const x = D.getElementById('typeIn'); x.value = 'zzz'; x.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(600); }
         else if (vis('[data-opt="0"]')) { seen.add('audio'); await click('[data-opt="0"]', 600); } else if (vis('#flipBtn')) { seen.add('flip'); await click('#flipBtn', 400); }
-        if (vis('[data-grade].suggest')) await click('[data-grade].suggest', 700); else if (vis('[data-grade="2"]')) await click('[data-grade="2"]', 700); else await sleep(500); t.audit('review'); }
+        if (vis('[data-grade].suggest')) await click('[data-grade].suggest', 700); else if (vis('[data-grade="2"]')) await click('[data-grade="2"]', 700); else await sleep(500); }
       t.ok(own, 'thẻ "câu của bạn"'); t.ok(seen.size === 3, 'đủ 3 kiểu: ' + [...seen]); t.ok(vis('.rev-done'), 'xong phiên ôn'); return t.bad; },
-    async j3b() { const t = mk('j3'), c = await Core.Cards.all(); for (const w of ['resilience', 'sustainable', 'negotiate']) t.ok(c[w] && c[w].srs.due > Date.now(), 'điểm "' + w + '" còn sau tải lại'); t.ok(c.resilience && /canopies/.test(c.resilience.ctx || ''), 'ctx còn'); return t.bad; },
+    async j3b() { const t = mk('j3'), c = await Core.Cards.all(); for (const w of ['resilience', 'sustainable', 'negotiate']) t.ok(c[w] && c[w].srs.due > Date.now(), 'điểm "' + w + '" còn sau tải lại'); t.ok(c.resilience && /canopies/.test(c.resilience.ctx || ((c.resilience.contexts || [])[0] || {}).text || ''), 'ctx còn'); return t.bad; },
   };
   W.LKJN = P;
 })(window);

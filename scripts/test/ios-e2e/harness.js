@@ -245,7 +245,8 @@
     switch (s.k) {
       case 'jrn': {
         if (!W.LKJN) { add('journey', 'không nạp được e2e-journey.js'); return; }
-        const bad = await W.LKJN[s.f](); for (const m of bad || []) add('journey', m); await shot('jrn-' + s.f); return;
+        const hb = setInterval(() => emit({ type: 'beat' }), 10000); // pha dài (j2a > 45 s) → driver không tưởng app treo
+        let bad; try { bad = await W.LKJN[s.f](); } finally { clearInterval(hb); } for (const m of bad || []) add('journey', m); await shot('jrn-' + s.f); return;
       }
       case 'reload': { st.i++; st.inStep = null; save(); location.reload(); await sleep(15000); add('flow', 'tải lại không xảy ra'); return; }
       case 'launch': {
