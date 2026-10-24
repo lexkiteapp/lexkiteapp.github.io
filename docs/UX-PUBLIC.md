@@ -60,4 +60,17 @@ và chữ phụ vượt token không được vượt `scripts/test/ux-sweep.bud
 (`samples-ui.mjs` – lỗi 24/10: một dòng cũ còn sót làm chết ô lọc cả trang, bắt được nhờ Lighthouse `errors-in-console`).
 
 ## Lighthouse trước → sau
-(xem bảng cuối – điền từ artifact `ux-public-before-dist` / `ux-public-after-dist2`)
+Điểm perf / a11y / best-practices / SEO, Lighthouse mobile (trung vị 3 lần). `dist` = localhost không nén (cùng điều kiện trước/sau).
+
+| Trang | Live trước | dist trước | dist sau | Ghi chú |
+|---|---|---|---|---|
+| /en/vocabulary/ | 99/100/96/100 · LCP 1,6 s | 100/100/100/100 · LCP 1,0 s | 100/100/100/100 · LCP 1,0 s | BP 96 live = trang thử thách Cloudflare |
+| /en/samples/ | 99/100/96/100 · LCP 1,8 s | 100/100/100/100 · 1,2 s | 100/100/100/100 · 1,2 s | |
+| /en/speaking/ | 99/100/96/100 · LCP 1,8 s | 100/100/100/100 · 1,0 s | 100/100/100/100 · 1,2 s | |
+| /app/?hl=en | 76/100/96/61 · LCP 5,3 s · TBT 180 ms · 4,1 MB | 62/100/100/61 · LCP 7,0 s · TBT 380 ms · 9,6 MB | **71**/100/100/61 · LCP 7,0 s · TBT **80 ms** · **1,3 MB** | SEO 61 = app `noindex` có chủ đích; LCP còn do khung 377 KB + font chặn hiển thị (nợ) |
+
+Playwright (dist): vùng chạm < 44 px trên 3 trang tĩnh 27–37 → 12–13 (còn lại: link chữ ngắn đủ cao 44 px nhưng hẹp, chân trang);
+CLS 0 trước/sau; INP gõ ô lọc 24–32 ms; axe AA 0 lỗi mọi ca; không cuộn ngang ở 375 px (en/vi/ar).
+ux-sweep: linkrow-wrap 6 nhóm → 4, text-token 3 nhóm (80 lần) → 0, card-padding 2 → 2 (đệm đã giảm, ngưỡng chặt), banner chồng / khoảng trống / nav trùng 0.
+
+Ảnh so sánh: `out/ux-public/compare-*.png` (máy chủ sở hữu, không commit).
