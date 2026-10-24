@@ -1,0 +1,989 @@
+{
+"_note": "Nhãn tay ảnh CẢNH/bìa/bài học (Claude xem tờ ảnh, 24/10). Khoá = <lượt>/<slug>.a<N>; p1 = lượt 40079815158 (artifact gộp 40083235240), p2 = lượt 40084089087. l = ok|bad, why: T chữ, W sai/thiếu tình huống, V mơ hồ/chung chung, A lỗi hình.",
+"runs": {
+"p1": 40083235240,
+"p2": 40084089087
+},
+"items": {
+"p1/additionally__adv.a1": {
+"l": "bad",
+"why": "V no sentence"
+},
+"p1/additionally__adv.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/anyway__adv.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/anyway__adv.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/beautiful__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/beautiful__adj.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/become__v.a1": {
+"l": "bad",
+"why": "T HOSPITAL"
+},
+"p1/become__v.a2": {
+"l": "bad",
+"why": "T HOSPITAL"
+},
+"p1/brush__n.a1": {
+"l": "bad",
+"why": "A face on brush"
+},
+"p1/brush__n.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/cogent__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/cogent__adj.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/composition__n.a1": {
+"l": "bad",
+"why": "W class composition not shown"
+},
+"p1/composition__n.a2": {
+"l": "bad",
+"why": "W"
+},
+"p1/conductor__n.a1": {
+"l": "bad",
+"why": "W no conductor"
+},
+"p1/conductor__n.a2": {
+"l": "bad",
+"why": "W no conductor"
+},
+"p1/conf-airport.a1": {
+"l": "bad",
+"why": "T Airline"
+},
+"p1/conf-airport.a2": {
+"l": "bad",
+"why": "W not airport"
+},
+"p1/conf-bank.a1": {
+"l": "bad",
+"why": "T BANK"
+},
+"p1/conf-bank.a2": {
+"l": "bad",
+"why": "T BANK"
+},
+"p1/conf-cafe.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-cafe.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-calls.a1": {
+"l": "bad",
+"why": "W no phone"
+},
+"p1/conf-calls.a2": {
+"l": "bad",
+"why": "W not a call"
+},
+"p1/conf-complaints.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-complaints.a2": {
+"l": "bad",
+"why": "T bubble text"
+},
+"p1/conf-directions.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-directions.a2": {
+"l": "bad",
+"why": "W"
+},
+"p1/conf-disagreeing.a1": {
+"l": "bad",
+"why": "V disagreement not shown"
+},
+"p1/conf-disagreeing.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-doctor.a1": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-doctor.a2": {
+"l": "bad",
+"why": "W patient missing"
+},
+"p1/conf-escalating.a1": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-escalating.a2": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-friends.a1": {
+"l": "bad",
+"why": "W cooking not conversation"
+},
+"p1/conf-friends.a2": {
+"l": "bad",
+"why": "W"
+},
+"p1/conf-greetings.a1": {
+"l": "bad",
+"why": "V no greeting gesture"
+},
+"p1/conf-greetings.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-interview.a1": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-interview.a2": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-job-interview.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-job-interview.a2": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-meetings.a1": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-meetings.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-networking.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-networking.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-new-friends.a1": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-new-friends.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-opinions.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-opinions.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-phone.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-phone.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-presenting.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-presenting.a2": {
+"l": "bad",
+"why": "W phone not presenting"
+},
+"p1/conf-renting.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-renting.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-salary.a1": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-salary.a2": {
+"l": "bad",
+"why": "T"
+},
+"p1/conf-shopping.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-shopping.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-travel.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-travel.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/conf-work-meeting.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/conf-work-meeting.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/continue__v.a1": {
+"l": "bad",
+"why": "W not reading"
+},
+"p1/continue__v.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/cool__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/cool__adj.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/cooperative__adj.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/cooperative__adj.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/corroborate__v.a1": {
+"l": "bad",
+"why": "W"
+},
+"p1/corroborate__v.a2": {
+"l": "bad",
+"why": "W"
+},
+"p1/deep__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/deep__adj.a2": {
+"l": "bad",
+"why": "V depth not shown"
+},
+"p1/deference__n.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/deference__n.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/define__v.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/define__v.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/differently__adv.a1": {
+"l": "bad",
+"why": "T"
+},
+"p1/differently__adv.a2": {
+"l": "bad",
+"why": "T"
+},
+"p1/direct__adj.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/direct__adj.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/down__adv.a1": {
+"l": "bad",
+"why": "V no sentence"
+},
+"p1/down__adv.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/email__n.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/email__n.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/equal__adj.a1": {
+"l": "bad",
+"why": "W only men"
+},
+"p1/equal__adj.a2": {
+"l": "bad",
+"why": "W only men"
+},
+"p1/exhibit__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/exhibit__v.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/expertise__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/expertise__n.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/first__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/first__adj.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/freely__adv.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/freely__adv.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/game__n.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/game__n.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/grand__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/grand__adj.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/hitherto__adv.a1": {
+"l": "bad",
+"why": "W"
+},
+"p1/hitherto__adv.a2": {
+"l": "bad",
+"why": "W"
+},
+"p1/humid__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/humid__adj.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/impede__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/impede__v.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/like__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/like__v.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/locate__v.a1": {
+"l": "bad",
+"why": "T HOTEL"
+},
+"p1/locate__v.a2": {
+"l": "bad",
+"why": "T HOTEL"
+},
+"p1/lover__n.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/mutualism__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/mutualism__n.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/naked__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/naked__adj.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/ostensibly__adv.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/ostensibly__adv.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/particularly__adv.a1": {
+"l": "bad",
+"why": "V mangoes not distinct"
+},
+"p1/particularly__adv.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/please__adv.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/please__adv.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/predict__v.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/predict__v.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/proclaim__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/proclaim__v.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/race__n.a1": {
+"l": "bad",
+"why": "W second not shown"
+},
+"p1/race__n.a2": {
+"l": "bad",
+"why": "W"
+},
+"p1/randomly__adv.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/randomly__adv.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/remarkable__adj.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/remarkable__adj.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/sceptical__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/sceptical__adj.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/seriously__adv.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/seriously__adv.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/sketch__n.a1": {
+"l": "bad",
+"why": "W blank paper"
+},
+"p1/sketch__n.a2": {
+"l": "bad",
+"why": "T letter"
+},
+"p1/sufficiently__adv.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/sufficiently__adv.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/temporarily__adv.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/temporarily__adv.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-architecture.a1": {
+"l": "bad",
+"why": "A faces on buildings"
+},
+"p1/topic-architecture.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-consumerism.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-consumerism.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-crime.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-crime.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-culture.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-culture.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-biz.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-biz.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-edu.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-edu.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-eng.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-eng.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-env.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-env.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-hosp.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-hosp.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-it.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-it.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-law.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-law.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-log.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-log.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-med.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-dom-med.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-dom-mkt.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-dom-mkt.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-economy.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-economy.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-education.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-education.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-energy.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-energy.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-environment.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-environment.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-food.a1": {
+"l": "bad",
+"why": "T Food"
+},
+"p1/topic-food.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-government.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-government.a2": {
+"l": "bad",
+"why": "T"
+},
+"p1/topic-health.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-health.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-language.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-language.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-media.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-media.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-office-hr.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-office-hr.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-office-it.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-office-it.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-science.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-science.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-society.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-society.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-space.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-space.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-sport.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-sport.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-technology.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-technology.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-travel.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-travel.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-urban.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-urban.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-us-health.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-us-health.a2": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-us-housing.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-us-housing.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-us-money.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-us-money.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-wildlife.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/topic-wildlife.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-work.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-work.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-actions.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-actions.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-arts.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-arts.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-body.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-body.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-everyday.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-everyday.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-feelings.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-feelings.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-home.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-home.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-military.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-military.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-nature.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-nature.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-objects.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-objects.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-people.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-people.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-qualities.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-qualities.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-religion-history.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-religion-history.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-time-place.a1": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/topic-xw-time-place.a2": {
+"l": "bad",
+"why": "V generic room, topic not shown"
+},
+"p1/viable__adj.a1": {
+"l": "bad",
+"why": "V"
+},
+"p1/viable__adj.a2": {
+"l": "bad",
+"why": "V"
+},
+"p1/where__adv.a1": {
+"l": "ok",
+"why": ""
+},
+"p1/where__adv.a2": {
+"l": "bad",
+"why": "V"
+}
+}
+}

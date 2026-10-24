@@ -75,6 +75,8 @@ async function main() {
     for (const p of PROVIDERS) {
       if (dead.has(p.id) || used[p.id] >= p.max) continue;
       used[p.id]++; const s = Date.now();
+      // 24/10: GrabCast trả 500 "Something went wrong" cho ~40 % lượt → thử lại 2 lần (5 s, 15 s) trước khi bỏ nhà vẽ; 429 vẫn do gen.mjs (Retry-After)
+      for (let tr = 0; tr < 2; tr++) { try { const buf = await p.run(t.prompt); if (isImg(buf)) { fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s, tries: tr + 1 }); return; } } catch (err) { if (err.constructor.name === 'Quota' || !/\b5\d\d\b/.test(String(err.message))) break; } await new Promise(r => setTimeout(r, 5000 + 10000 * tr)); }
       try { const buf = await p.run(t.prompt); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s }); return; }
       catch (err) { if (err.constructor.name === 'Quota') { dead.add(p.id); console.warn(`⏸ ${p.id}: ${err.message}`); } else { console.warn(`✗ ${p.id} ${k}: ${err.message}`); log.push({ k, attempt: ATT, provider: p.id, error: String(err.message).slice(0, 160) }); } }
     }
