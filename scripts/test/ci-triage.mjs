@@ -66,7 +66,8 @@ ok(rc === 0 && !fs.existsSync(marker), 'QUOTA_SKIP=1 → bước sau không ch�
 const WF = path.join(ROOT, '.github/workflows'), files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f));
 const nameOf = f => ((fs.readFileSync(path.join(WF, f), 'utf8').match(/^name:\s*(.+)$/m) || [])[1] || f).trim().replace(/^['"]|['"]$/g, '');
 const tri = fs.readFileSync(path.join(WF, 'ci-triage.yml'), 'utf8');
-for (const f of files) if (f !== 'ci-triage.yml') ok(tri.includes(`- '${nameOf(f)}'`), `ci-triage.yml thiếu workflow "${nameOf(f)}" (${f})`);
+{ const { sync } = await import('../ci/sync-triage.mjs'), d = sync(false); // danh sách phải khớp 2 chiều; sửa bằng 1 lệnh
+  ok(!d.missing.length && !d.stale.length, `ci-triage.yml lệch .github/workflows (thiếu: ${d.missing.join(', ') || '-'}; thừa: ${d.stale.join(', ') || '-'}) → chạy: node scripts/ci/sync-triage.mjs`); }
 ok(/run_attempt|rerun-failed-jobs/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')) && /attempt > 1/.test(fs.readFileSync(path.join(ROOT, 'scripts/ci/triage.mjs'), 'utf8')), 'triage: chỉ chạy lại khi attempt = 1');
 for (const f of files) {
   const s = fs.readFileSync(path.join(WF, f), 'utf8');

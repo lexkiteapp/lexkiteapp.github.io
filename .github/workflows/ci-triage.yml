@@ -1,7 +1,7 @@
 # Tự phân loại workflow đỏ (scripts/ci/triage.mjs) – thay thư "Run failed" từng lượt bằng: chạy lại 1 lần (lỗi tạm thời),
 # hoãn tới sau 00:10 UTC (hạn mức D1), 1 issue/workflow nhãn ci-failure (lỗi thật, tự đóng khi xanh lại) + bản tin ngày (Quản trị + 1 thư).
 # Không bao giờ lặp: chỉ chạy lại khi run_attempt = 1; triage tự nó luôn thoát 0. Danh sách workflows dưới đây phải khớp .github/workflows
-# (test scripts/test/ci-triage.mjs đỏ nếu thêm workflow mới mà quên thêm tên vào đây).
+# (test ci-triage đỏ nếu lệch; sửa tự động: node scripts/ci/sync-triage.mjs).
 name: ci-triage
 on:
   workflow_run:
@@ -84,6 +84,7 @@ on:
       - 'Kho từ theo kỳ thi'
       - 'youtube-manual'
       - 'youtube-upload'
+      - 'App LCP'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:

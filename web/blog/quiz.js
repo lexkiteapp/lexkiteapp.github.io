@@ -1,4 +1,4 @@
-/* Mini-quiz cuối bài blog – tải lười, đếm ẩn danh /api/hit {t:'q'}. Bảng I dùng chung với build-blog.mjs (regex). */
+/* Mini-quiz blog (lazy). Bảng I dùng chung build-blog.mjs. */
 (function () {
   'use strict';
   if (window._LK_QUIZ_INIT) return;
@@ -42,27 +42,23 @@
       '.bq-prog{font-size:.85rem;font-weight:700;color:var(--text);background:var(--accent-soft);padding:.2rem .6rem;border-radius:999px}' +
       '.bq-q{font-size:1.05rem;font-weight:700;line-height:1.6;margin:0 0 1rem;outline:0}' +
       '.bq-opts{display:grid;gap:.6rem;margin-bottom:1rem}' +
-      '.bq-opt{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.7rem 1rem;border-radius:12px;border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);font:inherit;font-weight:600;text-align:start;cursor:pointer;transition:transform .12s,border-color .12s}' +
-      '@media (hover:hover){.bq-opt:hover:not(:disabled){border-color:var(--primary);transform:translateY(-1px)}}' +
-      '.bq-opt:active:not(:disabled){transform:translateY(2px);border-bottom-width:2px}' +
-      '.bq-opt:focus-visible,.bq-btn:focus-visible,.bq-cta:focus-visible{outline:3px solid var(--primary);outline-offset:2px}' +
-      '.bq-opt:disabled{cursor:default}' +
+      '.bq-opt{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.7rem 1rem;border-radius:12px;border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);font:inherit;font-weight:600;text-align:start;cursor:pointer}' +
+      '@media (hover:hover){.bq-opt:hover:not(:disabled){border-color:var(--primary)}}' +
+      '.bq-opt:focus-visible,.bq-btn:focus-visible,.bq-cta:focus-visible{outline:3px solid var(--primary);outline-offset:2px}.bq-opt:disabled{cursor:default}' +
       '.bq-key{display:inline-grid;place-items:center;min-width:26px;height:26px;border-radius:7px;background:var(--accent-soft);font-size:.82rem;font-weight:800;flex-shrink:0}' +
       '.bq-opt.ok{border-color:var(--qok);background:var(--qokb);color:var(--qokt)}' +
-      '.bq-opt.no{border-color:var(--qno);background:var(--qnob);color:var(--qnot);animation:bqSk .35s}' +
+      '.bq-opt.no{border-color:var(--qno);background:var(--qnob);color:var(--qnot)}' +
       '.bq-opt.ok .bq-key{background:var(--qok);color:var(--surface)}.bq-opt.no .bq-key{background:var(--qno);color:var(--surface)}' +
       '.bq-fb{padding:.8rem 1rem;border-radius:12px;margin-bottom:1rem;line-height:1.6;border:1.5px solid}' +
       '.bq-fb:empty{display:none}.bq-fb.ok{background:var(--qokb);border-color:var(--qok);color:var(--qokt)}.bq-fb.no{background:var(--qnob);border-color:var(--qno);color:var(--qnot)}' +
       '.bq-act{display:flex;justify-content:flex-end}' +
       '.bq-btn,.bq-cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.6rem 1.2rem;border-radius:10px;font:inherit;font-weight:700;cursor:pointer;border:0;background:var(--primary);color:var(--primary-ink);text-decoration:none}' +
-      '.bq-res{text-align:center;padding:1rem}.bq-score{font-size:2.2rem;font-weight:900;color:var(--primary);outline:0}.bq-eval{font-weight:700;margin:.3rem 0 1.1rem}' +
-      '@keyframes bqSk{20%,60%{transform:translateX(-4px)}40%,80%{transform:translateX(4px)}}' +
-      '@media (prefers-reduced-motion:reduce){.bq-opt{animation:none!important;transition:none!important}}';
+      '.bq-res{text-align:center;padding:1rem}.bq-score{font-size:2.2rem;font-weight:900;color:var(--primary);outline:0}.bq-eval{font-weight:700;margin:.3rem 0 1.1rem}';
     document.head.appendChild(s);
   }
 
   function esc(s) {
-    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (m) { return '&#' + m.charCodeAt(0) + ';'; });
   }
 
   // utm trước # (sau # là route app)

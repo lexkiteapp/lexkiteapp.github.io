@@ -8,6 +8,8 @@
 // Nội dung: content/landing/<lang>.json (en là gốc – khóa thiếu lấy từ en; vi viết riêng). Nhãn nhỏ dùng lại bản dịch app (web/js/i18n/<lang>.js).
 // Dùng: node scripts/build-landing.mjs [--check]   (--check: không ghi, báo lỗi nếu file trong web/ chưa dựng lại – chạy trong npm test)
 import fs from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -164,6 +166,11 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, html);
   }
   { const f = new URL('web/404.html', R), cur = fs.readFileSync(f, 'utf8'), html = render404(cur); if (check) { if (html !== cur) stale.push('web/404.html'); } else fs.writeFileSync(f, html); }
+  if (stale.length && !process.env.CI) { // cục bộ (npm test): tự dựng lại cho khỏi dừng giữa chừng; trên CI (CI=true) vẫn nghiêm ngặt
+    const r = spawnSync(process.execPath, [fileURLToPath(import.meta.url)], { stdio: 'inherit' });
+    if (r.status) process.exit(r.status);
+    console.warn(`! build-landing: ${stale.length} trang chưa dựng lại → đã dựng lại cục bộ, nhớ commit web/ (CI sẽ đỏ nếu quên)`); process.exit(0);
+  }
   if (stale.length) { console.error(`✗ build-landing: ${stale.length} trang giới thiệu chưa dựng lại (${stale.slice(0, 4).join(', ')}…) → node scripts/build-landing.mjs`); process.exit(1); }
   console.log(`✓ build-landing: ${LANGS.length} trang giới thiệu ${check ? 'khớp nguồn' : 'đã dựng'} (/ + /<lang>/)` + (check ? '' : ` · ${(Buffer.byteLength(render('vi')) / 1024).toFixed(1)} KB/trang`));
 }
