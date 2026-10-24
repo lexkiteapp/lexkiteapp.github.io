@@ -71,7 +71,7 @@
         <div class="stack">
           <div class="card">
             <div class="row between"><span class="chip lv">${esc(p.type)}</span>
-              <div class="row"><select class="input" id="pSel" style="width:auto;padding:.35rem .6rem">${Object.keys(OUTLINE).map(ty => `<optgroup label="${esc(ty)}">${PROMPTS.filter(x => x.type === ty).map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${t('Đề {n}', { n: x.id.slice(1) })} · ${esc((App.topicOf(x.topic) || { name: x.topic }).name)}</option>`).join('')}</optgroup>`).join('')}</select>
+              <div class="row"><select class="input" id="pSel" aria-label="${t('Chọn đề')}" style="width:auto;padding:.35rem .6rem">${Object.keys(OUTLINE).map(ty => `<optgroup label="${esc(ty)}">${PROMPTS.filter(x => x.type === ty).map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${t('Đề {n}', { n: x.id.slice(1) })} · ${esc((App.topicOf(x.topic) || { name: x.topic }).name)}</option>`).join('')}</optgroup>`).join('')}</select>
               <button class="btn sm" id="rndP" title="${t('Đề ngẫu nhiên')}">🎲</button></div></div>
             <p style="font-size:1.08rem;font-weight:600;margin:.8rem 0 0">${esc(p.text)}</p>
             <a class="btn sm ghost" href="#/ideas/${esc(p.topic)}" style="margin-top:.5rem">💡 ${t('Bí ý? Mở ngân hàng ý tưởng chủ đề này')}</a>

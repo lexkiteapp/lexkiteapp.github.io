@@ -231,12 +231,12 @@
     qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js'],
     toefl: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toefl/data1.js', 'js/toefl/data2.js', 'js/toefl/data3.js', 'js/toefl/data4.js', 'js/toefl.js'],
     toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'js/toeic.js'],
-    league: ['js/league.js'], classroom: ['js/i18n/en/classroom.js', 'js/classroom.js'], // 🏫 Lớp học (giáo viên/học sinh)
+    nxs: ['js/i18n/en/nextstep.js', 'js/next-step.js'], league: ['js/league.js'], classroom: ['js/i18n/en/classroom.js', 'js/classroom.js'], // 🏫 Lớp học (giáo viên/học sinh)
     criteria: ['js/i18n/en/criteria.js', 'js/criteria.js'],
     resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
-    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-day.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
+    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
-    settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
+    remind: ['js/i18n/en/remind.js', 'js/remind.js'], settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
     streak: ['js/streak-ui.js'], struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     uidx: ['js/usage-index.js'], usage: ['js/i18n/en/usage.js', 'js/choice-kit.js', 'js/usage-core.js', 'js/usage.js'], uP: ['js/usage/prep-adj.js', 'js/usage/prep-verb.js', 'js/usage/prep-noun.js'], uV: ['js/usage/verb.js'], uA: ['js/usage/adv.js'], uS: ['js/usage/struct.js'], uC: ['js/usage/pair.js'], // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
@@ -247,12 +247,13 @@
     share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'], lsw: ['js/lang-menu.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],
     pgames: ['js/study-games.js'],
+    rmodes: ['js/i18n/en/rmodes.js', 'js/study-modes.js'], // 🔁 Ôn tập đa chế độ (Gõ phản xạ · Nghe chọn nghĩa) + ✍️ thẻ "Câu của bạn" [P2-1.2/P2-1.1-UI]
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
     wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
     lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'],
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
-  const ROUTE_BUNDLE = { confidence: ['roleplay', 'confidence'], settings: 'settings', class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
@@ -278,7 +279,7 @@
   App.loaded = n => !!bundleP[n];
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
   const ankiAll = () => ({ cards: Object.values(state.cards), name: t('Sổ từ') });
-  App.settingsDeps = { applyTheme, notify, importData, ankiAll, extCta: () => extCta() }; // trang Cài đặt (js/settings.js, tải lười) dùng lại
+  App.settingsDeps = { applyTheme, importData, ankiAll, extCta: () => extCta() }; // trang Cài đặt (js/settings.js, tải lười) dùng lại
   const lazyUI = (b, f) => App.need(...b).then(f).catch(() => toast(t('Không tải được – thử lại sau')));
   App.xport = o => lazyUI(['anki', 'xport'], () => Export.open(o));
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
@@ -287,7 +288,7 @@
   // Tải sẵn lúc rảnh – bỏ qua khi tiết kiệm dữ liệu, mạng chậm, máy yếu
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
-  // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi. (Trước đây thực thi hết ~1 MB JS → chặn luồng chính ~3 s)
+  // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi.
   App.prefetchAll = () => { if (!Store.isExtension && lean()) return; idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)).forEach(f => { const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; document.head.appendChild(l); }); }); };
 
 
@@ -1128,8 +1129,8 @@
         <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}">
-        <select class="input" id="filterTopic"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
-        <select class="input" id="filterFrom"><option value="">${t('Mọi nguồn')}</option>${Object.entries(ORIGINS).map(([k, o]) => `<option value="${k}" ${from === k ? 'selected' : ''}>${o.emoji} ${o.name}</option>`).join('')}<option value="forget" ${from === 'forget' ? 'selected' : ''}>⚠️ ${t('Sắp quên')}</option></select>
+        <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
+        <select class="input" id="filterFrom" aria-label="${t('Mọi nguồn')}"><option value="">${t('Mọi nguồn')}</option>${Object.entries(ORIGINS).map(([k, o]) => `<option value="${k}" ${from === k ? 'selected' : ''}>${o.emoji} ${o.name}</option>`).join('')}<option value="forget" ${from === 'forget' ? 'selected' : ''}>⚠️ ${t('Sắp quên')}</option></select>
         <select class="input" id="filterM"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
       </div>
       <div class="card" id="deckList"></div>`;
@@ -1262,14 +1263,14 @@
 
       <div class="card" style="margin-top:1rem">
         <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted" style="gap:.5rem"><span>${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span><span style="display:inline-flex;align-items:center;gap:3px"><i class="freeze" role="img" aria-label="${t('Đóng băng')}" style="width:12px;height:12px;border-radius:3px;display:inline-block"></i> 🧊 ${t('Đóng băng')}</span></span></div>
-        <div class="heat" style="margin-top:.8rem">${cells.join('')}</div>
+        <div class="heat" tabindex="0" style="margin-top:.8rem">${cells.join('')}</div>
       </div>
 
       <div class="grid g2" style="margin-top:1rem">
         <div class="card"><h3>${t('Lượt ôn 14 ngày qua')}</h3>
-          <div class="bars">${past.map(x => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / pmax * 100) : 3}px"></i><small>${x.d.getDate()}</small></div>`).join('')}</div></div>
+          <div class="bars" tabindex="0">${past.map(x => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / pmax * 100) : 3}px"></i><small>${x.d.getDate()}</small></div>`).join('')}</div></div>
         <div class="card"><h3>${t('Dự báo thẻ đến hạn')}</h3>
-          <div class="bars">${fc.map((x, i) => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / fmax * 100) : 3}px;background:linear-gradient(180deg,#2dd4bf,var(--accent))"></i><small>${i === 0 ? t('Nay') : dn[x.d.getDay()]}</small></div>`).join('')}</div></div>
+          <div class="bars" tabindex="0">${fc.map((x, i) => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / fmax * 100) : 3}px;background:linear-gradient(180deg,#2dd4bf,var(--accent))"></i><small>${i === 0 ? t('Nay') : dn[x.d.getDay()]}</small></div>`).join('')}</div></div>
       </div>
 
       <div class="card" style="margin-top:1rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap">
@@ -1316,86 +1317,6 @@
     if (ok == null) { try { const r = await fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com') + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: '{"op":"ping"}' }); ok = r.ok ? '1' : '0'; try { sessionStorage.setItem('lk.adm.' + u.uid, ok); } catch (e) { /* bỏ qua */ } } catch (e) { return false; } }
     return ok === '1';
   };
-  // Lời nhắc học bằng giọng Kit (vui, không gây áp lực), đổi câu theo ngày
-  App.kitNudge = () => {
-    const { total } = Cards.dueCount(state.cards, state.settings, state.stats), st = streak(), day = Math.floor(Date.now() / DAY);
-    const titles = [t('Kit đây! Học 5 phút cùng mình nhé?'), t('Kit nhớ bạn rồi đó 🐦'), t('Bay một vòng từ vựng không?'), t('Đến giờ cất cánh rồi! 🪁')];
-    const bodies = total
-      ? [t('Có {n} thẻ đang chờ – xong nhanh thôi, mình ở đây cùng bạn.', { n: total }), t('{n} thẻ sắp quên – ôn bây giờ là nhớ lâu nhất đó!', { n: total }), st > 1 ? t('Giữ chuỗi 🔥{s} ngày nhé – chỉ cần ôn {n} thẻ.', { s: st, n: total }) : t('Ôn {n} thẻ hôm nay để bắt đầu chuỗi ngày học nhé!', { n: total })]
-      : [t('Hôm nay chưa có thẻ cần ôn – học thêm vài từ mới không?'), t('Một bài nghe ngắn 5 phút trước khi ngủ nhé?'), t('Đọc một đoạn ngắn và lưu 3 từ hay – nhẹ nhàng thôi!')];
-    return { title: titles[day % titles.length] + ' – Lexkite', body: bodies[day % bodies.length] };
-  };
-  async function notify(force) {
-    const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
-    const { title, body } = App.kitNudge();
-    if (Store.isExtension && chrome.runtime) { chrome.runtime.sendMessage({ type: 'testNotify' }); return; }
-    if (!('Notification' in window)) return force && toast(t('Trình duyệt không hỗ trợ thông báo'));
-    if (Notification.permission !== 'granted') {
-      if (!force) return;
-      if (await Notification.requestPermission() !== 'granted') return toast(t('Bạn chưa cho phép thông báo'));
-    }
-    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
-    if (reg) reg.showNotification(title, { body, icon: 'icons/icon-192.png', tag: 'daily', data: { url: location.href.split('#')[0] + '#/review' } });
-    else new Notification(title, { body, icon: 'icons/icon-192.png' });
-  }
-
-  // Ghi thông tin nhắc học cho service worker (nhắc cả khi app đóng – Periodic Background Sync, Chrome app đã cài)
-  let metaKey = '';
-  async function syncMeta(s) {
-    if (!('caches' in window) || !navigator.serviceWorker) return;
-    const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
-    const today = new Date().toISOString().slice(0, 10), studied = (state.stats.days || {})[todayKey()] > 0;
-    const m = { on: s.reminderOn !== false, time: s.reminderTime || '20:00', last: studied ? today : '', ...App.kitNudge() };
-    const k = JSON.stringify(m); if (k === metaKey) return; metaKey = k;
-    await (await caches.open('lk-meta')).put('/__meta', new Response(k, { headers: { 'Content-Type': 'application/json' } }));
-    const reg = await navigator.serviceWorker.getRegistration();
-    if (reg && reg.periodicSync && m.on && 'Notification' in window && Notification.permission === 'granted') {
-      try { const st = await navigator.permissions.query({ name: 'periodic-background-sync' }); if (st.state === 'granted') await reg.periodicSync.register('vb-daily', { minInterval: 3 * 3600e3 }); } catch (e) { /* không hỗ trợ */ }
-    }
-  }
-  async function checkReminder() {
-    const s = state.settings;
-    // Nhắc học thông minh: tự dời giờ nhắc theo giờ người dùng hay học (web, add-on, app đều đọc reminderTime)
-    if (s.reminderAuto !== false) { const st = Core.Stats.smartTime(state.stats); if (st && st !== s.reminderTime) { s.reminderTime = st; saveSettings(); } }
-    if (Store.isExtension) return;
-    syncMeta(s).catch(() => {});
-    // Thời điểm vàng
-    if (s.goldenOn && !Golden.quiet(s) && 'Notification' in window && Notification.permission === 'granted') {
-      const n = Golden.dueNow(state.cards);
-      const last = await Store.get('lastGolden', 0);
-      if (n >= s.goldenMin && Date.now() - last > 3 * 3600 * 1000 && document.hidden) {
-        await Store.set('lastGolden', Date.now());
-        const forgetCards = (App.forgetting ? App.forgetting() : []).filter(c => c && c.word);
-        const topWords = forgetCards.slice(0, 3).map(c => c.word);
-        const base = t('{n} từ đang ở thời điểm sắp quên – ôn 3 phút để nhớ lâu hơn!', { n });
-        const body = topWords.length ? `${topWords.join(', ')} · ${base}` : base;
-        const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
-        const opt = {
-          body,
-          icon: 'icons/icon-192.png',
-          badge: 'icons/icon-192.png',
-          tag: 'golden',
-          data: { url: location.href.split('#')[0] + '#/review?src=forgetting' },
-          actions: [
-            { action: 'review', title: '🧠 ' + t('Ôn tập ngay') },
-            { action: 'later', title: '⏱️ ' + t('Để sau') }
-          ]
-        };
-        const gt = '⏰ ' + t('Thời điểm vàng!');
-        reg ? reg.showNotification(gt, opt) : new Notification(gt, opt);
-      }
-    }
-    if (!s.reminderOn) return;
-    const [hh, mm] = s.reminderTime.split(':').map(Number);
-    const now = new Date();
-    if (now.getHours() * 60 + now.getMinutes() < hh * 60 + mm) return;
-    if (await Store.get('lastNotified', '') === todayKey()) return;
-    if ((state.stats.days[todayKey()] || 0) >= s.dailyGoal) return;
-    await Store.set('lastNotified', todayKey());
-    notify(false);
-  }
-
-
   // ================= CHÀO MỪNG & THIẾT LẬP BAN ĐẦU =================
   // Bộ chọn ngôn ngữ giao diện: chỉ liệt kê ngôn ngữ đã dịch đầy đủ (tránh giao diện nửa nọ nửa kia)
   // ≤ 3 ngôn ngữ: nút bấm; nhiều hơn: danh sách thả xuống, tên ngôn ngữ viết bằng chính tiếng đó (Español, 日本語…)
@@ -1431,8 +1352,8 @@
       const cta = hero.querySelector('.w-cta');
       if (cta && !hero.querySelector('a[href="#/placement"]')) {
         cta.insertAdjacentHTML('afterend', `
-          <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
-          <a class="small" href="#/style" style="display:inline-block;margin:.7rem 0 0 1rem;font-weight:700">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
+          <a class="small w-lk" href="#/placement">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
+          <a class="small w-lk" href="#/style">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
           <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>`);
       }
       const demo = hero.querySelector('.w-demo');
@@ -1477,8 +1398,8 @@
               <h1 style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:1rem 0">${t('Từ vựng vững,')}<br><span class="grad-text">${t('band điểm bứt phá.')}</span></h1>
               <p class="muted" style="font-size:1.1rem">${t('Học 15 phút mỗi ngày với flashcard thông minh, trò chơi, bài đọc và luyện phát âm. Mọi từ đều có phiên âm chuẩn Anh–Anh, nghĩa tiếng Việt và câu ví dụ IELTS.')}</p>
               <div class="row w-cta" style="margin-top:1.5rem"><a class="btn primary lg" href="#/welcome/setup">${t('Bắt đầu miễn phí →')}</a><button class="btn lg" id="loginW">${t('Tôi đã có tài khoản')}</button></div>
-              <a class="small" href="#/placement" style="display:inline-block;margin-top:.7rem;font-weight:700">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
-          <a class="small" href="#/style" style="display:inline-block;margin:.7rem 0 0 1rem;font-weight:700">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
+              <a class="small w-lk" href="#/placement">🧭 ${t('Kiểm tra trình độ trước (5 phút) →')}</a>
+          <a class="small w-lk" href="#/style">🎯 ${t('Phong cách tiếng Anh của bạn (1 phút) →')}</a>
               <p class="small muted" style="margin-top:.8rem">${t('Miễn phí · Dữ liệu học thuộc về bạn')}</p>
             </div>
             <div class="w-demo">
@@ -1669,10 +1590,10 @@
     if (Store.isExtension && chrome.storage.onChanged) {
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Object.assign(Object.create(null), ch.cards.newValue || {}); updateChrome(); } });
     }
-    if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js
+    if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
     setTimeout(() => App.need('voice').catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
-    checkReminder(); setInterval(checkReminder, 60 * 1000);
+    idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.all(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
   })();
@@ -1684,7 +1605,7 @@
     const fresh = !state.settings.onboarded && !Object.keys(state.cards).length && !state.game.xp;
     try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
-    if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; App.prefetchAll(); return; }
+    if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; addEventListener('pointerdown', App.prefetchAll, { once: true }); return; }
     // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc đang ở trang thường
     if (!routeSeq || !document.body.classList.contains('focus')) route();
     App.prefetchAll();

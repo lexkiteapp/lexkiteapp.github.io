@@ -255,6 +255,7 @@
         <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/dictation/${p.id}">⌨️ ${t('Chép chính tả phần này')}</a><button class="btn sm" id="lAgain">↺ ${t('Làm lại')}</button></div></div>
         ${p.vocab && p.vocab.length ? `<div class="card" style="box-shadow:none;border:1px solid var(--line);margin-top:.8rem"><h3 style="margin-top:0">📚 ${t('Từ vựng đáng học trong bài')}</h3><div class="lvocab">${p.vocab.map((v, k) => `<div class="row between nowrap"><span><b>${esc(v.w)}</b> <span class="muted small">${esc(v.vi)}</span></span><button class="btn sm ghost" data-v="${k}">${App.inDeck(v.w) ? '✓' : '+ ' + t('Lưu')}</button></div>`).join('')}</div></div>` : ''}`;
       $('#lAgain').onclick = () => routes.listen(id, query);
+      App.lazy('nxs').then(() => NextStep.render($('#lRes .feedback'), 'listen', p.id)).catch(() => {});
       $$('[data-v]', $('#lRes')).forEach(b => b.onclick = async () => {
         b.disabled = true; const v = p.vocab[+b.dataset.v];
         const line = (p.script.find(l => l.t && l.t.toLowerCase().includes(v.w.toLowerCase())) || {}).t || '';

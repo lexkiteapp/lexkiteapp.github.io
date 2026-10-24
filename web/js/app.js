@@ -236,7 +236,7 @@
     resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
     pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
-    settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
+    remind: ['js/i18n/en/remind.js', 'js/remind.js'], settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
     streak: ['js/streak-ui.js'], struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     uidx: ['js/usage-index.js'], usage: ['js/i18n/en/usage.js', 'js/choice-kit.js', 'js/usage-core.js', 'js/usage.js'], uP: ['js/usage/prep-adj.js', 'js/usage/prep-verb.js', 'js/usage/prep-noun.js'], uV: ['js/usage/verb.js'], uA: ['js/usage/adv.js'], uS: ['js/usage/struct.js'], uC: ['js/usage/pair.js'], // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
@@ -253,7 +253,7 @@
     lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'],
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
-  const ROUTE_BUNDLE = { confidence: ['roleplay', 'confidence'], settings: 'settings', class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
@@ -279,7 +279,7 @@
   App.loaded = n => !!bundleP[n];
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
   const ankiAll = () => ({ cards: Object.values(state.cards), name: t('Sổ từ') });
-  App.settingsDeps = { applyTheme, notify, importData, ankiAll, extCta: () => extCta() }; // trang Cài đặt (js/settings.js, tải lười) dùng lại
+  App.settingsDeps = { applyTheme, importData, ankiAll, extCta: () => extCta() }; // trang Cài đặt (js/settings.js, tải lười) dùng lại
   const lazyUI = (b, f) => App.need(...b).then(f).catch(() => toast(t('Không tải được – thử lại sau')));
   App.xport = o => lazyUI(['anki', 'xport'], () => Export.open(o));
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-share]'); if (b) { e.preventDefault(); lazyUI(['share'], () => ShareCard.open(b.dataset.share)); } });
@@ -1317,86 +1317,6 @@
     if (ok == null) { try { const r = await fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com') + '/api/admin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await u.getIdToken() }, body: '{"op":"ping"}' }); ok = r.ok ? '1' : '0'; try { sessionStorage.setItem('lk.adm.' + u.uid, ok); } catch (e) { /* bỏ qua */ } } catch (e) { return false; } }
     return ok === '1';
   };
-  // Lời nhắc học bằng giọng Kit (vui, không gây áp lực), đổi câu theo ngày
-  App.kitNudge = () => {
-    const { total } = Cards.dueCount(state.cards, state.settings, state.stats), st = streak(), day = Math.floor(Date.now() / DAY);
-    const titles = [t('Kit đây! Học 5 phút cùng mình nhé?'), t('Kit nhớ bạn rồi đó 🐦'), t('Bay một vòng từ vựng không?'), t('Đến giờ cất cánh rồi! 🪁')];
-    const bodies = total
-      ? [t('Có {n} thẻ đang chờ – xong nhanh thôi, mình ở đây cùng bạn.', { n: total }), t('{n} thẻ sắp quên – ôn bây giờ là nhớ lâu nhất đó!', { n: total }), st > 1 ? t('Giữ chuỗi 🔥{s} ngày nhé – chỉ cần ôn {n} thẻ.', { s: st, n: total }) : t('Ôn {n} thẻ hôm nay để bắt đầu chuỗi ngày học nhé!', { n: total })]
-      : [t('Hôm nay chưa có thẻ cần ôn – học thêm vài từ mới không?'), t('Một bài nghe ngắn 5 phút trước khi ngủ nhé?'), t('Đọc một đoạn ngắn và lưu 3 từ hay – nhẹ nhàng thôi!')];
-    return { title: titles[day % titles.length] + ' – Lexkite', body: bodies[day % bodies.length] };
-  };
-  async function notify(force) {
-    const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
-    const { title, body } = App.kitNudge();
-    if (Store.isExtension && chrome.runtime) { chrome.runtime.sendMessage({ type: 'testNotify' }); return; }
-    if (!('Notification' in window)) return force && toast(t('Trình duyệt không hỗ trợ thông báo'));
-    if (Notification.permission !== 'granted') {
-      if (!force) return;
-      if (await Notification.requestPermission() !== 'granted') return toast(t('Bạn chưa cho phép thông báo'));
-    }
-    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
-    if (reg) reg.showNotification(title, { body, icon: 'icons/icon-192.png', tag: 'daily', data: { url: location.href.split('#')[0] + '#/review' } });
-    else new Notification(title, { body, icon: 'icons/icon-192.png' });
-  }
-
-  // Ghi thông tin nhắc học cho service worker (nhắc cả khi app đóng – Periodic Background Sync, Chrome app đã cài)
-  let metaKey = '';
-  async function syncMeta(s) {
-    if (!('caches' in window) || !navigator.serviceWorker) return;
-    const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
-    const today = new Date().toISOString().slice(0, 10), studied = (state.stats.days || {})[todayKey()] > 0;
-    const m = { on: s.reminderOn !== false, time: s.reminderTime || '20:00', last: studied ? today : '', ...App.kitNudge() };
-    const k = JSON.stringify(m); if (k === metaKey) return; metaKey = k;
-    await (await caches.open('lk-meta')).put('/__meta', new Response(k, { headers: { 'Content-Type': 'application/json' } }));
-    const reg = await navigator.serviceWorker.getRegistration();
-    if (reg && reg.periodicSync && m.on && 'Notification' in window && Notification.permission === 'granted') {
-      try { const st = await navigator.permissions.query({ name: 'periodic-background-sync' }); if (st.state === 'granted') await reg.periodicSync.register('vb-daily', { minInterval: 3 * 3600e3 }); } catch (e) { /* không hỗ trợ */ }
-    }
-  }
-  async function checkReminder() {
-    const s = state.settings;
-    // Nhắc học thông minh: tự dời giờ nhắc theo giờ người dùng hay học (web, add-on, app đều đọc reminderTime)
-    if (s.reminderAuto !== false) { const st = Core.Stats.smartTime(state.stats); if (st && st !== s.reminderTime) { s.reminderTime = st; saveSettings(); } }
-    if (Store.isExtension) return;
-    syncMeta(s).catch(() => {});
-    // Thời điểm vàng
-    if (s.goldenOn && !Golden.quiet(s) && 'Notification' in window && Notification.permission === 'granted') {
-      const n = Golden.dueNow(state.cards);
-      const last = await Store.get('lastGolden', 0);
-      if (n >= s.goldenMin && Date.now() - last > 3 * 3600 * 1000 && document.hidden) {
-        await Store.set('lastGolden', Date.now());
-        const forgetCards = (App.forgetting ? App.forgetting() : []).filter(c => c && c.word);
-        const topWords = forgetCards.slice(0, 3).map(c => c.word);
-        const base = t('{n} từ đang ở thời điểm sắp quên – ôn 3 phút để nhớ lâu hơn!', { n });
-        const body = topWords.length ? `${topWords.join(', ')} · ${base}` : base;
-        const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
-        const opt = {
-          body,
-          icon: 'icons/icon-192.png',
-          badge: 'icons/icon-192.png',
-          tag: 'golden',
-          data: { url: location.href.split('#')[0] + '#/review?src=forgetting' },
-          actions: [
-            { action: 'review', title: '🧠 ' + t('Ôn tập ngay') },
-            { action: 'later', title: '⏱️ ' + t('Để sau') }
-          ]
-        };
-        const gt = '⏰ ' + t('Thời điểm vàng!');
-        reg ? reg.showNotification(gt, opt) : new Notification(gt, opt);
-      }
-    }
-    if (!s.reminderOn) return;
-    const [hh, mm] = s.reminderTime.split(':').map(Number);
-    const now = new Date();
-    if (now.getHours() * 60 + now.getMinutes() < hh * 60 + mm) return;
-    if (await Store.get('lastNotified', '') === todayKey()) return;
-    if ((state.stats.days[todayKey()] || 0) >= s.dailyGoal) return;
-    await Store.set('lastNotified', todayKey());
-    notify(false);
-  }
-
-
   // ================= CHÀO MỪNG & THIẾT LẬP BAN ĐẦU =================
   // Bộ chọn ngôn ngữ giao diện: chỉ liệt kê ngôn ngữ đã dịch đầy đủ (tránh giao diện nửa nọ nửa kia)
   // ≤ 3 ngôn ngữ: nút bấm; nhiều hơn: danh sách thả xuống, tên ngôn ngữ viết bằng chính tiếng đó (Español, 日本語…)
@@ -1673,7 +1593,7 @@
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
     setTimeout(() => App.need('voice').catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
-    checkReminder(); setInterval(checkReminder, 60 * 1000);
+    idle(() => App.need('remind').then(() => Remind.start()).catch(() => {})); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.all(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
   })();

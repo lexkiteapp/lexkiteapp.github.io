@@ -454,6 +454,7 @@
   "⚡ Ôn nhanh {i}/{n}": "⚡ Quick review {i}/{n}",
   // ---- js/report-pill.js: nút báo lỗi nổi (phần còn lại ở en/report.js – tải lười) ----
   'Báo lỗi': 'Report',
+  'Xem thêm': 'More',
   // ---- nút chuông 🔔 trên thanh trên cùng (phần còn lại ở en/notices.js – tải lười) ----
   'Thông báo': 'Notifications',
   // ---- ⚡ Chơi nhanh / 🎯 Phong cách tiếng Anh: lối vào ở #/home & trang giới thiệu (phần còn lại ở en/quick.js – tải lười) ----

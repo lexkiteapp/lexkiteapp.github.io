@@ -284,3 +284,5 @@
     }
   };
 })();
+// Trang tĩnh song sinh của route (web/js/seo-twin.js, docs/SEO-ARCH.md §2b): nạp lười tại đây để khung app +0 byte; chỉ web lexkite.com
+(function () { if (window.__lkTwin || !/^https?:$/.test(location.protocol) || !/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname)) return; var s = document.createElement('script'); s.src = 'js/seo-twin.js'; s.async = true; document.head.appendChild(s); })();

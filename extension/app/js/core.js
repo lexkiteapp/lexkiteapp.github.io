@@ -97,7 +97,7 @@
     autoSpeak: true,
     goldenOn: true,       // nhắc "thời điểm vàng" khi có đủ từ sắp quên
     goldenMin: 10,        // số từ tối thiểu để nhắc
-    quietStart: '22:30',  // giờ yên lặng
+    quietStart: '22:00',  // giờ yên lặng (cả nhắc học lẫn thời điểm vàng – docs/REMINDERS.md)
     quietEnd: '07:00',
     sessionCap: 50,       // tối đa thẻ mỗi phiên ôn (0 = không giới hạn)
   };

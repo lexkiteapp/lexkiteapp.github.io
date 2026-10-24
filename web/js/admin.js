@@ -1346,6 +1346,7 @@
       main.innerHTML = '';
       if (!window.AdminNotices) await new Promise((y, n) => { const sc = document.createElement('script'); sc.src = 'js/admin-notices.js'; sc.onload = y; sc.onerror = n; document.head.appendChild(sc); });
       AdminNotices.render(main, api, L, { esc, num, when, lang: () => LANG, user });
+      lazy('AdminPush', 'js/admin-push.js').then(() => AdminPush.render(main, L, { esc, num, lang: () => LANG })).catch(() => {}); // ⏰ thẻ Nhắc học (docs/REMINDERS.md)
     },
     async settings() {
       const [c, g] = await Promise.all([api('config'), api('geminiStatus').catch(() => null)]);

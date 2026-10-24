@@ -19,11 +19,13 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 - `gh_minutes` — Phút GitHub Actions
 - `workers_ai_b` — Workers AI tài khoản 2 (neuron, 10.000/ngày miễn phí) – dành cho việc nền (độc quyền)
 - `grabcast_ai` — GrabCast AI pool (ảnh)
+- `web_push` — Nhắc học: Web Push + FCM (cron Worker lexkite-push, D1 nội bộ tra theo khóa, ≤ 40 thiết bị/lượt)
 
 ## Lịch (UTC, theo giờ trong ngày)
 | Giờ UTC | Việc | Lịch cron | Ưu tiên | Tài nguyên | Phút | Ước lượng | Thuê |
 |---|---|---|---|---|---|---|---|
 | 00:00 | `health` | `0 0 * * *` | reports | gh_minutes | 45 | d1_main_reads≈20000 | — |
+| 00:00 | `push` | `*/10 * * * *` | publishing | web_push | 1 | d1_internal_reads≈17000, d1_internal_writes≈2000 | — |
 | 00:07 | `blog-publish` | `7 * * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:12 | `ci-triage` | `12 * * * *` | reports | gh_minutes | 5 | d1_internal_reads≈10 | — |

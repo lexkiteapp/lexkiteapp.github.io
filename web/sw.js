@@ -4,7 +4,7 @@
  * không bao giờ trả app cũ ở "/", chỉ khi MẤT MẠNG mở "/" hoặc "/index.html" (PWA cài cũ có start_url "/index.html#/home",
  * iOS không cập nhật start_url) thì chuyển hướng sang /app/ (đã có trong cache của /app/) → vẫn học offline được.
  * Dữ liệu học (IndexedDB, localStorage) thuộc nguồn lexkite.com, không phụ thuộc phạm vi SW → không mất. Test: scripts/test/landing-routing.mjs */
-const CACHE = 'lexkite-20261023224507';
+const CACHE = 'lexkite-20261024095650';
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
@@ -73,24 +73,52 @@ self.addEventListener('fetch', e => {
 });
 self.addEventListener('notificationclick', e => {
   e.notification.close();
+  const d = e.notification.data || {};
+  if (d.tpl) e.waitUntil(ev([['open', d.tpl, 1]])); // CTR theo mẫu (docs/REMINDERS.md)
   if (e.action === 'later') return;
-  const target = (e.notification.data && e.notification.data.url) || '/app/#/review';
+  const target = d.url || '/app/#/review';
   e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
     for (const c of list) if ('focus' in c) { c.navigate(target); return c.focus(); }
     return self.clients.openWindow(target);
   }));
 });
+// Số liệu nhắc học (functions/api/push.js op ev): chỉ mã mẫu + đếm, không nội dung học
+const ev = e => fetch('/api/push', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ op: 'ev', e }), keepalive: true }).catch(() => {});
+const localDay = (d = new Date()) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const META = async () => { const r = await (await caches.open('lk-meta')).match('/__meta'); return r ? r.json().catch(() => null) : null; };
+const putMeta = async m => (await caches.open('lk-meta')).put('/__meta', new Response(JSON.stringify(m), { headers: { 'Content-Type': 'application/json' } }));
+/** Nội dung lời nhắc hôm nay từ kế hoạch app đã ghi sẵn (đã dịch, web/js/remind.js) – máy chủ không biết gì về việc học. */
+function pickToday(m) {
+  const today = localDay(), it = m && (m.plan || []).find(x => x.day === today);
+  if (it) return it;
+  const act = m && m.act ? Date.parse(m.act + 'T00:00:00') : 0, idle = act ? Math.floor((Date.now() - act) / 864e5) : 0;
+  const g = m && (idle >= 13 ? m.miss : m.gen);
+  return g ? { ...g, url: idle >= 13 ? '/app/#/home' : '/app/#/review' } : { title: 'Lexkite', body: '⏰', url: '/app/#/review', tpl: 'gen1' };
+}
+// Web Push (cron Worker workers/push gửi push RỖNG – không mã hóa nội dung, không dữ liệu cá nhân). iOS/Safari bắt buộc hiện thông báo cho MỌI push → luôn hiện.
+self.addEventListener('push', e => {
+  if (LEGACY) return;
+  e.waitUntil((async () => {
+    const m = (await META()) || {}, it = pickToday(m), today = new Date().toISOString().slice(0, 10);
+    await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: it.url || '/app/#/review', tpl: it.tpl || 'gen1' } });
+    if (m.v) { m.notified = today; await putMeta(m); }
+    await ev([['shown', it.tpl || 'gen1', 1]]);
+  })());
+});
+self.addEventListener('pushsubscriptionchange', e => { e.waitUntil(ev([['optout', 'expired', 1]])); }); // app tự đăng ký lại ở lần mở sau (touch → gone)
 // Nhắc học khi app đang đóng (Chrome – app đã cài, Periodic Background Sync): không cần máy chủ.
 // App ghi sẵn giờ nhắc, ngày học gần nhất và câu nhắc (đúng ngôn ngữ) vào cache 'lk-meta'.
 self.addEventListener('periodicsync', e => {
   if (e.tag !== 'vb-daily' || LEGACY) return;
   e.waitUntil((async () => {
-    const r = await (await caches.open('lk-meta')).match('/__meta'); if (!r) return;
-    const m = await r.json(), now = new Date(), today = now.toISOString().slice(0, 10);
+    const m = await META(); if (!m) return;
+    const now = new Date(), today = now.toISOString().slice(0, 10);
     const [hh, mm] = String(m.time || '20:00').split(':').map(Number);
     if (!m.on || m.last === today || m.notified === today || now.getHours() * 60 + now.getMinutes() < hh * 60 + (mm || 0)) return;
     const wins = await self.clients.matchAll({ type: 'window' }); if (wins.some(c => c.visibilityState === 'visible')) return;
-    await self.registration.showNotification(m.title, { body: m.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: '/app/#/review' } });
-    m.notified = today; await (await caches.open('lk-meta')).put('/__meta', new Response(JSON.stringify(m)));
+    const it = m.v ? pickToday(m) : { title: m.title, body: m.body, url: '/app/#/review' };
+    await self.registration.showNotification(it.title, { body: it.body, icon: '/icons/icon-192.png', badge: '/icons/icon-192.png', tag: 'daily', data: { url: it.url, tpl: it.tpl } });
+    m.notified = today; await putMeta(m);
+    if (it.tpl) await ev([['shown', it.tpl, 1]]);
   })());
 });

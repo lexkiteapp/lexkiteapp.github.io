@@ -102,13 +102,13 @@
       view.innerHTML = `<div class="study-wrap"><div class="card empty"><div class="em">🃏</div><h2>${t('Chưa có flashcard nào')}</h2><p>${t('Thêm từ từ thư viện hoặc tra từ điển để bắt đầu.')}</p><div class="row center"><a class="btn primary" href="#/library">${t('Mở thư viện')}</a><a class="btn" href="#/dict">${t('Tra từ')}</a></div></div></div>`;
       return;
     }
-    session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, g: [0, 0, 0, 0], t0: Date.now(), reverse: !!session && session.reverse };
+    session = { queue: buildQueue(ahead), done: 0, again: 0, missed: [], total: 0, xp: 0, g: [0, 0, 0, 0], t0: Date.now(), reverse: !!session && session.reverse, mode: session && session.mode };
     // Từ widget màn hình chính/khóa (#/review?w=từ): đưa đúng thẻ đang hiện lên đầu phiên ôn
     const pin = query && query.get && String(query.get('w') || '').toLowerCase();
     if (pin && state.cards[pin]) session.queue = [pin, ...session.queue.filter(k => k !== pin)];
     session.total = session.queue.length;
     if (!session.queue.length) return reviewDone(true);
-    showCard();
+    App.lazy('rmodes').then(showCard, showCard); // 🔁 chế độ Gõ/Nghe + thẻ "Câu của bạn": study-modes.js (tải lười)
   };
 
   // Từ khó nhất phiên [U2d]: trong các từ bấm "Quên", chọn từ có số lần quên (lapses) cao nhất
@@ -186,24 +186,13 @@
     // Thẻ thêm hàng loạt chưa có phiên âm/định nghĩa → bổ sung ngầm cho thẻ này và vài thẻ kế tiếp
     session.queue.slice(0, 3).forEach(k => { const x = state.cards[k]; if (x && (!x.ipa || !x.def) && App.enrichLater) App.enrichLater(k); });
     let flipped = false;
-    const own = Cards.ctxOf(c) || {};
     const isNew = c.srs.reps === 0 && !c.srs.last;
     const rev = session.reverse;
     const pct = session.done / Math.max(1, session.done + session.queue.length) * 100;
 
-    // Nhớ chủ động: thẻ đã ôn ≥ 2 lần thỉnh thoảng (1/3) chuyển sang gõ lại từ từ nghĩa – nhớ sâu hơn nhận diện, đổi nhịp cho đỡ nhàm
-    const typeMode = !rev && !isNew && c.srs.reps >= 2 && state.settings.typeReview !== false && c.word.length <= 30 && Math.random() < 1 / 3;
-    // Nghe & nhớ nghĩa: thẻ đã ôn ≥ 1 lần thỉnh thoảng chỉ phát âm, không hiện chữ – luyện nhận diện từ qua tai như khi nghe thật
-    const listenMode = !typeMode && !rev && !isNew && c.srs.reps >= 1 && Math.random() < 0.15;
-    const front = listenMode ? `
-        <button class="listen-big" data-say aria-label="${t('Nghe')}">🔊</button>
-        <div class="muted small" style="margin-top:1rem">${t('Nghe từ, nhớ lại nghĩa rồi chạm để lật')} <span class="kbd kbd-hint">Space</span> · <span class="kbd kbd-hint">P</span> ${t('nghe lại')}</div>` : typeMode ? `
-        ${pic(c)}
-        <div class="vi" style="font-size:1.5rem">${esc(mean(c))}</div>${posChip(c.pos)}
-        ${c.ex ? `<div class="ctx">“${cloze(c.ex, c.word)}”</div>` : ''}
-        <input class="input type-in" id="typeIn" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${t('Gõ từ tiếng Anh rồi Enter')}" style="margin-top:1rem;text-align:center;font-size:1.2rem">
-        <div class="muted tiny" style="margin-top:.4rem">${t('Gợi ý: bắt đầu bằng “{a}”, {n} chữ cái', { a: esc(c.word[0]), n: c.word.replace(/[^A-Za-z]/g, '').length })}</div>
-        <div id="typeRes" class="small" style="margin-top:.4rem"></div>` : rev ? `
+    // 🔁 Chế độ ôn [P2-1.2]: tự chọn theo độ khó thẻ (FSRS D) hoặc người học đổi tay – study-modes.js
+    const M = window.StudyModes, mode = M ? M.pick(c, session.mode, rev) : 'flip';
+    const front = mode !== 'flip' ? M.front(mode, c) : rev ? `
         ${pic(c)}
         <div class="vi" style="font-size:1.6rem">${esc(mean(c))}</div>${posChip(c.pos)}
         ${c.ex ? `<div class="ctx">“${cloze(c.ex, c.word)}”</div>` : ''}
@@ -211,7 +200,7 @@
         ${pic(c)}
         <div class="entry-word">${esc(c.word)}</div>
         <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
-        ${own.own ? `<div class="ctx">📌 “${highlight(own.text, c.word)}”${own.src ? ` <span class="muted tiny">· ${esc(own.src)}</span>` : ''}</div>` : ''}
+        ${M ? M.ctx(c) : ''}
         <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd kbd-hint">Space</span></div>`;
 
     view.innerHTML = `<div class="study-wrap">
@@ -225,7 +214,7 @@
       </div>
       <div class="row between small" style="margin-bottom:.6rem">
         <span>${isNew ? `<span class="chip lv">✨ ${t('TỪ MỚI')}</span>` : App.masteryDots(c.srs)}</span>
-        <button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
+        ${M ? M.switcher(session.mode) : ''}<button class="btn sm ghost" id="toggleRev" title="${t('Đổi chiều thẻ')}">${rev ? `${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')} → 🇬🇧` : `🇬🇧 → ${(I18N && I18N.flag ? I18N.flag(I18N.lang() !== 'en' ? I18N.lang() : 'vi') : '🇻🇳')}`}</button>
       </div>
       <div class="flash" id="flash">
         <div class="flash-inner">
@@ -261,7 +250,6 @@
     $$('[data-say]').forEach(b => b.onclick = e => { e.stopPropagation(); say(); });
     // Nghe riêng giọng UK/US
     $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
-    if (listenMode) setTimeout(say, 250);
     nativeFill($('.back [data-native]'), c.word, c.pos);
     // Tìm sẵn bản ghi giọng người thật cho 3 thẻ kế tiếp (chạy ngầm, lưu vào thẻ) → thay dần giọng máy bằng giọng thật
     session.queue.slice(1, 4).forEach(k => { const n = state.cards[k]; if (n && !n.audio && !n._aq && navigator.onLine) { n._aq = 1; Dict.lookup(n.word, { image: false, examples: false }).then(e => { if (e && e.found && (e.audio || e.audioUS)) Cards.patch(k, x => { if (!x.audio) x.audio = e.audio || e.audioUS; if (!x.ipaUS && e.ipaUS) x.ipaUS = e.ipaUS; }).then(c2 => { if (c2) state.cards[k] = c2; }); }).catch(() => {}); } });
@@ -285,29 +273,9 @@
     App.lazy('swipe').then(() => {
       if (!window.StudySwipe || $('#flash') !== fc0 || graded) return;
       updateKit(flipped ? 'happy' : 'think');
-      if (!typeMode) StudySwipe.attach(fc0, { flipped: () => flipped, graded: () => graded, commit: g => grade(g, null, true), labels: [t('Quên'), t('Nhớ')] });
+      if (mode === 'flip') StudySwipe.attach(fc0, { flipped: () => flipped, graded: () => graded, commit: g => grade(g, null, true), labels: [t('Quên'), t('Nhớ')] });
     }).catch(() => {});
-    if (typeMode) {
-      const inp = $('#typeIn'); setTimeout(() => inp.focus(), 50);
-      const norm = x => x.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
-      const dist = (a, b) => { const d = Array.from({ length: a.length + 1 }, (_, i) => [i]); for (let j = 1; j <= b.length; j++) d[0][j] = j; for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[a.length][b.length]; };
-      inp.addEventListener('keydown', e => {
-        if (e.key !== 'Enter' || flipped) return;
-        e.preventDefault(); e.stopPropagation();
-        const v = norm(inp.value); if (!v) return;
-        const dd = dist(v, norm(c.word)), sug = dd === 0 ? 2 : dd === 1 ? 1 : 0;
-        inp.disabled = true;
-        inp.classList.remove('ans-bounce', 'ans-shake');
-        void inp.offsetWidth;
-        inp.classList.add(dd === 0 ? 'ok' : dd === 1 ? 'near' : 'bad');
-        inp.classList.add(dd === 0 ? 'ans-bounce' : 'ans-shake');
-        $('#typeRes').innerHTML = dd === 0 ? `✅ ${t('Chính xác!')}` : `${dd === 1 ? '🟡 ' + t('Gần đúng – sai 1 chữ') : '❌ ' + t('Chưa đúng')}: <b>${esc(c.word)}</b>`;
-        dd === 0 ? Sfx.correct() : Sfx.wrong && Sfx.wrong();
-        haptic(dd === 0);
-        flip();
-        const b = $(`[data-grade="${sug}"]`); if (b) { b.classList.add('suggest'); b.focus(); }
-      });
-    }
+    const mk = M && M.bind(mode, c, { flip, say, flipped: () => flipped, onMode: m => { session.mode = m; showCard(); } });
     // Từ khó nhớ: mẹo nhớ AI (lưu vào ghi chú thẻ), đọc to theo, ghi mẹo riêng
     const lb = $('[data-leech]');
     if (lb) {
@@ -339,7 +307,8 @@
     $('#flipBtn').onclick = flip;
     $('#toggleRev').onclick = () => { session.reverse = !session.reverse; showCard(); };
     document.onkeydown = e => {
-      if (e.target.matches('input, textarea, summary')) return;
+      if (mk && mk(e)) return;
+      if (e.target.matches('input, textarea, summary, select')) return;
       if ((e.code === 'Space' || e.key === 'Enter') && e.target.closest('.wc-chip, [data-grade], .wn a, .wn button')) return; // chip/nút chấm đang focus → để bàn phím bấm nút
       if (e.code === 'Space' || e.key === 'Enter') { e.preventDefault(); flip(); }
       else if (flipped && /^[1-4]$/.test(e.key)) grade(+e.key - 1, $(`[data-grade="${+e.key - 1}"]`));

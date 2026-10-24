@@ -6,10 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Lexkite – Học từ vựng IELTS, TOEIC, TOEFL</title>
   <meta name="description" content="Ứng dụng học từ vựng & luyện thi IELTS, TOEIC, TOEFL của Lexkite: flashcard FSRS, từ điển, luyện 4 kỹ năng, thi thử.">
-  <link rel="canonical" href="https://lexkite.com/app/">
-  <!-- Trang giới thiệu (lập chỉ mục) là / và /<lang>/; app học không lập chỉ mục để không trùng nội dung -->
-  <meta name="robots" content="noindex, follow">
-  <meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="https://lexkite.com/app/">
+  <link rel="canonical" href="https://lexkite.com/">
+  <meta property="og:type" content="website"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="https://lexkite.com/">
   <meta property="og:title" content="Lexkite – Học từ vựng IELTS, TOEIC, TOEFL miễn phí"><meta property="og:description" content="Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử IELTS/TOEIC có giải thích – miễn phí.">
   <meta property="og:image" content="https://lexkite.com/og-default.png"><meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0F3D3E">
@@ -23,11 +21,11 @@
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Font tải không chặn hiển thị: chữ hiện ngay bằng font hệ thống, font Be Vietnam Pro thay vào khi tải xong -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
+  <!-- #lkHero (LCP): vẽ ngay khung đầu (không mờ dần), font dự phòng khớp số đo Be Vietnam Pro → không CLS khi font web tới (docs/UX-PUBLIC.md) -->
+  <style>@font-face{font-family:"Be Vietnam Pro Fallback";src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica"),local("Roboto");size-adjust:109.94%;ascent-override:90.96%;descent-override:24.1%;line-gap-override:0%;font-display:swap}#view:has(#lkHero){animation:none}#lkHero{font-family:"Be Vietnam Pro","Be Vietnam Pro Fallback",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}</style>
 </head>
 <body>
   <a class="skip-link" href="#view" data-i18n="Bỏ qua tới nội dung chính">Bỏ qua tới nội dung chính</a>
@@ -80,7 +78,7 @@
 
     <div class="main">
       <header class="topbar">
-        <a class="brand" href="#/home"><img class="logo" src="icons/icon.svg?v=2" alt=""><span class="wordmark">lex<b>kite</b></span></a>
+        <a class="brand" href="#/home"><img class="logo" src="icons/icon.svg?v=2" alt="Lexkite"><span class="wordmark">lex<b>kite</b></span></a>
         <div class="gsearch">
           <span class="sicon">🔎</span>
           <input id="gq" type="search" placeholder="Tra từ… (phím /)" data-i18n-placeholder="Tra từ… (phím /)" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Lookup">
@@ -115,7 +113,6 @@
 
   <script defer src="js/heal.js"></script>
   <script defer src="js/native.js"></script>
-  <script defer src="js/ads-config.js"></script>
   <script defer src="js/ads.js"></script>
   <script defer src="js/kit.js"></script>
   <script src="js/i18n.js"></script>
@@ -138,5 +135,6 @@
   <script defer src="js/sync.js"></script>
   <script defer src="js/league.js"></script>
   <script defer src="js/report-pill.js"></script>
+<noscript><nav aria-label=Lexkite><a href=/ar/blog/>ar</a><a href=/de/blog/>de</a><a href=/en/blog/>en</a><a href=/es/blog/>es</a><a href=/fr/blog/>fr</a><a href=/hi/blog/>hi</a><a href=/id/blog/>id</a><a href=/ja/blog/>ja</a><a href=/ko/blog/>ko</a><a href=/pt/blog/>pt</a><a href=/ru/blog/>ru</a><a href=/th/blog/>th</a><a href=/tr/blog/>tr</a><a href=/vi/blog/>vi</a><a href=/zh/blog/>zh</a><a href=/ar/>ar</a><a href=/de/>de</a><a href=/en/>en</a><a href=/es/>es</a><a href=/fr/>fr</a><a href=/hi/>hi</a><a href=/id/>id</a><a href=/ja/>ja</a><a href=/ko/>ko</a><a href=/pt/>pt</a><a href=/ru/>ru</a><a href=/th/>th</a><a href=/tr/>tr</a><a href=/zh/>zh</a><a href=/>vi</a></nav></noscript>
 </body>
 </html>

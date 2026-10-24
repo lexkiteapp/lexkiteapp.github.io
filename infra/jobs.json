@@ -50,6 +50,10 @@
   "grabcast_ai": {
    "label": "GrabCast AI pool (ảnh)",
    "exclusive": false
+  },
+  "web_push": {
+   "label": "Nhắc học: Web Push + FCM (cron Worker lexkite-push, D1 nội bộ tra theo khóa, ≤ 40 thiết bị/lượt)",
+   "exclusive": false
   }
  },
  "budget_caps": {
@@ -685,6 +689,23 @@
    ],
    "minutes": 5,
    "est": {},
+   "lease": false
+  },
+  {
+   "id": "push",
+   "worker": "workers/push",
+   "cron": [
+    "*/10 * * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "web_push"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_internal_reads": 17000,
+    "d1_internal_writes": 2000
+   },
    "lease": false
   }
  ],

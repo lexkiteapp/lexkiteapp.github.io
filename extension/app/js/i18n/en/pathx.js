@@ -61,5 +61,10 @@
     "Hoàn thành ngày trước để mở. Đã biết các từ này? Đạt ≥ 80% ở bài kiểm tra cuối bài là qua cả bài.": "Finish the previous day to unlock it. Already know these words? Score ≥ 80% on the unit test to pass the whole unit.",
     "Hôm nay học {n} từ mới · ≈ {m} phút": "Today: {n} new words · ≈ {m} min",
     "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.": "Easy first, then harder: recognise → match → listen → use in a sentence → speak.",
+    "Bài ngữ pháp hôm nay": "Today's grammar",
+    "Bài phát âm hôm nay": "Today's pronunciation",
+    "Tiếp theo học gì? Chọn một hướng:": "What's next? Pick a direction:",
+    "Tiếp theo học gì?": "What's next?",
+    "Luyện nói tự tin": "Speak with confidence",
   });
 })(typeof self !== 'undefined' ? self : this);

@@ -26,7 +26,7 @@
           <h3>${esc(r.title)}</h3>
           <div class="muted small">${esc(r.summaryVi)}</div>
           <div class="row"><span class="chip">⏱ ${t('{n} phút', { n: Math.max(2, Math.round(r.text.split(/\s+/).length / 140)) })}</span><span class="chip">${t('{n} câu hỏi', { n: r.questions.length })}</span>${done[r.id] ? `<span class="chip ok">✓ ${done[r.id]}</span>` : ''}</div>
-        </a>`).join('')}</div>${window.Ads ? Ads.slot('list') : ''}`;
+        </a>`).join('')}</div>`;
   };
 
   routes.read = function (id) {
@@ -193,6 +193,7 @@
       if (pct >= 80) { Sfx.win(); confetti(); }
       $('#qResult').innerHTML = `<div class="feedback ${pct >= 60 ? 'ok' : 'no'}" style="position:static"><b>${t('Kết quả: {score}/{n} ({pct}%)', { score, n: r.questions.length, pct })}</b> · +${10 + score * 4} XP
         <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/reading">${t('Bài đọc khác')}</a><a class="btn sm primary" href="#/practice/learn?src=deck">🧠 ${t('Học các từ vừa lưu')}</a></div></div>`;
+      App.lazy('nxs').then(() => NextStep.render($('#qResult .feedback'), 'read', r.id)).catch(() => {});
     };
   };
 })();

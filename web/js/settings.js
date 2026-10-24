@@ -4,7 +4,8 @@
   const { $, $$, esc, toast, download, speak } = UI;
   const App = window.App;
   const { state, view, routes, load, updateChrome, saveSettings } = App;
-  const { applyTheme, notify, importData, ankiAll, extCta } = App.settingsDeps;
+  const { applyTheme, importData, ankiAll, extCta } = App.settingsDeps;
+  const R = window.Remind; // ⏰ js/remind.js (gói 'remind' nạp cùng trang Cài đặt – docs/REMINDERS.md)
   const adminTiles = () => [['overview', '📊', t('Tổng quan'), t('Người dùng, truy cập, việc cần xử lý')], ['analytics', '📈', t('Phân tích'), t('Nguồn truy cập, quốc gia, thiết bị, tốc độ')], ['users', '👥', t('Người dùng'), t('Danh sách, tìm kiếm, chi tiết')], ['inbox', '✉️', t('Hộp thư'), t('Tin nhắn liên hệ & trả lời')], ['alerts', '🚨', t('Cảnh báo'), t('Workflow, lỗi JavaScript, dung lượng')], ['quality', '🩺', t('Chất lượng'), t('Rà soát hằng ngày & bản dịch')], ['services', '🔑', t('Dịch vụ & API'), t('Tài khoản, khóa, hạn mức miễn phí')], ['settings', '⚙️', t('Cài đặt hệ thống'), t('Thông báo, hạn mức AI, Gemini API')]]
     .map(([id, ic, l, d]) => `<a class="adm-tile" href="${App.adminUrl(id)}" target="_blank" rel="noopener"><span class="adm-ic" aria-hidden="true">${ic}</span><span class="adm-tx"><b>${l}</b><small>${d}</small></span></a>`).join('');
   routes.settings = function () {
@@ -47,12 +48,14 @@
         tog('sRem', s.reminderOn, t('Bật nhắc học'))
         + `<div id="remOpts" ${s.reminderOn ? '' : 'hidden'}>`
         + row(t('Giờ nhắc'), `<input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}">`, Store.isExtension ? t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.') : t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.'))
-        + tog('sAuto', s.reminderAuto !== false, t('Tự động theo giờ bạn hay học'), t('Nhắc 15 phút trước khung giờ bạn hay học nhất (sau vài ngày học).'))
+        + tog('sAuto', s.reminderAuto !== false, t('Tự động theo giờ bạn hay học'), t('Nhắc 30 phút trước giờ bạn hay học nhất (sau vài ngày học).'))
+        + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`, t('Không nhắc trong khung giờ này. Tối đa 1 lời nhắc mỗi ngày.'))
+        + `<fieldset class="set-row col" style="border:0;margin:0;padding:0"><legend class="set-l"><span>${t('Loại lời nhắc')}</span></legend>${[['due', t('Thẻ đến hạn')], ['word', t('Từ trong sổ của bạn')], ['streak', t('Chuỗi ngày sắp mất')], ['conf', t('Bài tự tin')], ['week', t('Tiến bộ tuần')]].map(([k, l]) => tog('sTy_' + k, ((s.remTypes || {})[k]) !== false, l)).join('')}</fieldset>`
+        + '<div id="remPush"></div>'
         + `<div class="set-row"><div class="set-btns">${Store.isExtension ? '' : `<button type="button" class="btn sm" id="sPerm" ${perm === 'granted' || perm === 'unsupported' ? 'disabled' : ''}>${perm === 'granted' ? '✓ ' + t('Đã cho phép thông báo') : perm === 'unsupported' ? t('Không hỗ trợ thông báo') : '🔔 ' + t('Cho phép thông báo')}</button><button type="button" class="btn sm" id="sIcs">📅 ${t('Thêm vào Lịch (.ics)')}</button>`}<button type="button" class="btn sm ghost" id="sTest">${t('Thử gửi thông báo')}</button></div></div></div>`
         + tog('sGold', s.goldenOn, t('Nhắc “thời điểm vàng”'), t('Báo khi có từ sắp bị quên'))
         + `<div id="goldOpts" ${s.goldenOn ? '' : 'hidden'}>`
         + `<label class="set-row col"><span class="set-top"><span>${t('Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn', { n: s.goldenMin })}</span></span><input type="range" min="1" max="50" id="sGMin" value="${s.goldenMin}"></label>`
-        + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`)
         + '</div>'
         + tog('sDigest', s.emailDigest === true, '📧 ' + t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)'))
         + (window.VBNative && VBNative.is ? '<div id="wwBox"></div>' : ''))}
@@ -73,7 +76,18 @@
     $$('.set-nav [data-jump]').forEach(b => b.onclick = () => { const el = document.getElementById('set-' + b.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
 
     const save = async () => { await saveSettings(); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };
-    $('#sAuto').onchange = e => { s.reminderAuto = e.target.checked; if (s.reminderAuto) { const st = Core.Stats.smartTime(state.stats); if (st) { s.reminderTime = st; $('#sTime').value = st; } } save(); };
+    $('#sAuto').onchange = e => { s.reminderAuto = e.target.checked; if (s.reminderAuto && R) { const st = R.hm(R.pickTime(state.stats, s)); s.reminderTime = st; $('#sTime').value = st; } save(); };
+    $$('[id^="sTy_"]').forEach(x => { x.onchange = () => { s.remTypes = { ...(s.remTypes || {}), [x.id.slice(4)]: x.checked }; save(); }; });
+    // Nhắc cả khi đóng app (Web Push, nhóm thử nhỏ theo cờ máy chủ) – iPhone chỉ khi đã thêm vào Màn hình chính
+    const rp = $('#remPush'); if (rp && R && R.pushState) (async () => {
+      const st = R.pushState();
+      if (st === 'ios-install') { rp.innerHTML = `<p class="small muted set-tip">📲 ${t('Trên iPhone/iPad: thêm Lexkite vào Màn hình chính (Chia sẻ → Thêm vào MH chính) để nhận nhắc cả khi đóng app.')}</p>`; return; }
+      if (st === 'denied') { rp.innerHTML = `<p class="small muted set-tip">🔕 ${t('Thông báo đang bị chặn trong cài đặt của trình duyệt hoặc hệ thống.')}</p>`; return; }
+      if (st !== 'ok' || !(await R.pushKey())) return;
+      let on = false; try { on = !!JSON.parse(localStorage.getItem('lk.push') || 'null'); } catch (e) { /* bỏ qua */ }
+      rp.innerHTML = tog('sPush', on, t('Nhắc cả khi đóng app'), t('Dùng thông báo đẩy của trình duyệt. Nội dung học không gửi lên máy chủ.'));
+      $('#sPush').onchange = async e => { try { if (e.target.checked) { if (await Notification.requestPermission() !== 'granted' || !(await R.subscribe())) throw new Error('perm'); toast('⏰ ' + t('Đã bật nhắc học')); } else await R.unsubscribe(); } catch (x) { e.target.checked = false; toast(t('Bạn chưa cho phép thông báo')); } };
+    })().catch(() => {});
     $('#sRem').onchange = e => { s.reminderOn = e.target.checked; $('#remOpts').hidden = !s.reminderOn; save(); };
     $('#sTime').onchange = e => { s.reminderTime = e.target.value || '20:00'; s.reminderAuto = false; const a = $('#sAuto'); if (a) a.checked = false; save(); toast(t('Sẽ nhắc lúc {time} mỗi ngày', { time: s.reminderTime })); };
     $('#sNew').oninput = e => { s.dailyNew = +e.target.value; $('#vNew').textContent = s.dailyNew; save(); };
@@ -84,7 +98,7 @@
     $('#sRet').oninput = e => { s.retention = +e.target.value; SRS.retentionTarget = s.retention; $('#vRet').textContent = Math.round(s.retention * 100) + '%'; save(); };
     $('#sGold').onchange = e => { s.goldenOn = e.target.checked; $('#goldOpts').hidden = !s.goldenOn; save(); };
     $('#sGMin').oninput = e => { s.goldenMin = +e.target.value; $('#vGMin').textContent = s.goldenMin; save(); };
-    $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:30'; save(); };
+    $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:00'; save(); };
     $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '07:00'; save(); };
     $('#sCap').oninput = e => { s.sessionCap = +e.target.value; $('#vCap').textContent = s.sessionCap || t('Không giới hạn'); save(); };
     $('#sDigest').onchange = e => { s.emailDigest = e.target.checked; save(); };
@@ -106,7 +120,7 @@
     $('#sHq').onchange = e => { s.hqVoice = e.target.checked; save(); };
     $('#sSfx').onchange = e => { s.sfx = e.target.checked; save(); if (s.sfx) { Core.sfxOff = false; Sfx.correct(); } };
     $$('#sTheme button').forEach(b => b.onclick = () => { s.theme = b.dataset.v; applyTheme(); save(); $$('#sTheme button').forEach(x => x.classList.toggle('on', x === b)); });
-    $('#sTest').onclick = () => notify(true);
+    $('#sTest').onclick = () => R && R.notify(true);
     $$('#sMean [data-v]').forEach(b => b.onclick = () => { if (b.dataset.v !== I18N.meanLang()) I18N.setMean(b.dataset.v); });
     const p = $('#sPerm'); if (p) p.onclick = async () => { await Notification.requestPermission(); routes.settings(); };
     const ics = $('#sIcs'); if (ics) ics.onclick = () => download(new Blob([makeICS(s.reminderTime)], { type: 'text/calendar' }), 'ielts-lexi-nhac-hoc.ics');

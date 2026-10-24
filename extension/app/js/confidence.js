@@ -8,7 +8,6 @@
   const App = window.App, { state, routes } = App, view = App.view;
   const D = () => window.CONF || { units: [], toolkit: [], daily: [] };
   const LEVELS = ['A1', 'A2', 'B1', 'B2'];
-  const B2_SOON = ['Negotiating', 'Presenting an idea', 'Debating', 'Handling conflict'];
   const KEY = 'vb.conf';
   const load = () => { try { return Object.assign({ done: {}, daily: [] }, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { return { done: {}, daily: [] }; } };
   const save = s => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* riêng tư/đầy bộ nhớ – vẫn dùng được */ } };
@@ -28,7 +27,6 @@
 .cf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:.8rem;margin-bottom:1rem}
 .cf-unit{display:flex;gap:.7rem;align-items:flex-start;padding:1rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);text-decoration:none;min-height:44px;position:relative}
 .cf-unit:hover,.cf-unit.next{border-color:var(--primary)}.cf-unit .em{font-size:1.7rem;line-height:1}.cf-unit b{display:block}.cf-unit .cf-done{position:absolute;top:.5rem;inset-inline-end:.6rem}
-.cf-soon{opacity:.65;pointer-events:none}
 .cf-steps{display:flex;gap:.3rem;margin:.2rem 0 1rem;flex-wrap:wrap}.cf-steps span{flex:1 1 0;min-width:2.2rem;height:6px;border-radius:6px;background:var(--line)}.cf-steps span.on{background:var(--primary)}
 .cf-line{display:flex;gap:.6rem;align-items:flex-start;padding:.45rem .6rem;border-radius:12px}.cf-line.on{background:var(--accent-soft)}.cf-line .who{font-weight:700;min-width:4.5rem;flex:none}
 .cf-line button,.cf-ph button.ic{min-width:44px;min-height:44px;border:0;background:transparent;font-size:1.1rem;cursor:pointer;color:inherit;flex:none}
@@ -81,7 +79,7 @@
         <div class="cf-bar"><a class="btn primary" href="#/confidence/daily">${doneToday ? '✅ ' + t('Đã nói hôm nay – nói thêm?') : '⏱️ ' + t('Thử thách 2 phút hôm nay')}</a><a class="btn" href="#/confidence/toolkit">🧰 ${t('Bộ công cụ tự tin')}</a></div></div></section>`
       + LEVELS.map(lv => {
         const list = units.filter(u => u.level === lv);
-        if (lv === 'B2') return `<h2 class="set-h">${chip('B2')} ${t('Sắp có')}</h2><div class="cf-grid">${B2_SOON.map(n => `<div class="cf-unit cf-soon" aria-disabled="true"><span class="em" aria-hidden="true">🔒</span><span><b lang="en">${n}</b><span class="tiny muted">${t('Sắp có')}</span></span></div>`).join('')}</div>`;
+        if (!list.length) return '';
         const n = list.filter(u => P.done[u.id]).length;
         return `<h2 class="set-h">${chip(lv)} ${t('{a}/{b} bài', { a: n, b: list.length })}</h2><div class="cf-grid">${list.map(card).join('')}</div>`;
       }).join('')
@@ -212,8 +210,8 @@
         <div class="cf-bar"><button class="btn primary lg" id="cfRp">▶ ${t('Bắt đầu hội thoại')}</button></div>`;
       $('#cfRp').onclick = () => {
         if (!window.RP) { toast(t('Không tải được – thử lại sau')); return; }
-        const L = { A1: 0, A2: 1, B1: 2 }[u.level] || 0;
-        RP.chat({ id: 'cf-' + u.id, em: u.em, title: u.titleEn, name: t(u.title), kind: 'everyday', lv: ['A1', 'A2', 'B1'], ai: r.ai, you: r.you, vocab: [],
+        const { L, lv } = rpLevel(u.level);
+        RP.chat({ id: 'cf-' + u.id, em: u.em, title: u.titleEn, name: t(u.title), kind: 'everyday', lv, ai: r.ai, you: r.you, vocab: [],
           turns: r.turns.map(x => ({ a: x3(x.a), h: x3(x.h), br: x.br })), end: x3(r.end) }, L, { help: true, done: res => { R.rp = res; if (!dead) recap(S.length - 1); } });
       };
     }
@@ -352,5 +350,7 @@
     if (!u) { location.replace(location.pathname + location.search + '#/confidence'); return; }
     unitPage(u, frag);
   };
-  window.Confidence = { scoreOf, units: () => D().units };
+  // Trình độ bài → mức roleplay (0–2) + nhãn CEFR. B2 từng rơi về 0 (A1) vì thiếu khóa.
+  function rpLevel(lvl) { const b2 = lvl === 'B2'; return { L: b2 ? 2 : ({ A1: 0, A2: 1, B1: 2 }[lvl] ?? 0), lv: b2 ? ['A2', 'B1', 'B2'] : ['A1', 'A2', 'B1'] }; }
+  window.Confidence = { scoreOf, rpLevel, units: () => D().units };
 })();

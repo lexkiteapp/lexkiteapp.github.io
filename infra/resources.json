@@ -136,6 +136,35 @@
       ]
     },
     {
+      "key": "push-worker",
+      "name": "Cloudflare Worker lexkite-push",
+      "kind": "worker",
+      "purpose": "Cron 10 phút gửi lời nhắc học: Web Push rỗng (VAPID) + FCM HTTP v1 cho app gốc; danh sách thiết bị lấy từ /api/push (D1 nội bộ lexkite-internal) – docs/REMINDERS.md",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-push/production",
+      "free": "100.000 lượt/ngày; cron 144 lượt/ngày; ≤ 50 lượt gọi ra/lượt",
+      "upgrade": "> 5.000 thiết bị/khung 10 phút: tăng MAX_SEND + Workers Paid (1.000 lượt gọi ra)",
+      "status": "Miễn phí",
+      "match": [
+        "lexkite-push"
+      ]
+    },
+    {
+      "key": "fcm",
+      "name": "Firebase Cloud Messaging (lexkite-app)",
+      "kind": "push",
+      "purpose": "Thông báo đẩy app gốc (iOS qua APNs key tải lên Firebase, Android) – chỉ kéo lại sau ≥ 3 ngày + tiến bộ tuần; cờ FCM_ON",
+      "console": "https://console.firebase.google.com/project/lexkite-app/settings/cloudmessaging",
+      "free": "Miễn phí, không giới hạn",
+      "upgrade": "Không cần",
+      "status": "Chờ chủ: APNs key + service account (docs/REMINDERS.md §Việc của chủ)",
+      "match": [
+        "fcm.googleapis.com",
+        "oauth2.googleapis.com",
+        "updates.push.services.mozilla.com",
+        "push.services.mozilla.com"
+      ]
+    },
+    {
       "key": "gemini",
       "name": "Gemini API",
       "kind": "ai",
