@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       label: { description: 'before / after', required: false, default: 'run' }
-      base: { description: 'Site to audit', required: false, default: 'https://lexkite.com' }
+      base: { description: "Site to audit ('dist' = build this ref and serve it on localhost:8080)", required: false, default: 'https://lexkite.com' }
 permissions:
   contents: read
 jobs:
@@ -16,15 +16,21 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Build + serve dist (base = dist)
+        if: ${{ github.event.inputs.base == 'dist' }}
+        run: |
+          npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
       - name: Playwright matrix
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
           npx playwright install --with-deps chromium
-          node scripts/test/ux-public.mjs "${{ github.event.inputs.base }}" ux-out
+          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080
+          node scripts/test/ux-public.mjs "$B" ux-out
       - name: Lighthouse
         if: ${{ !cancelled() }}
         run: |
-          B="${{ github.event.inputs.base }}"; mkdir -p ux-out/lh
+          B="${{ github.event.inputs.base }}"; [ "$B" = dist ] && B=http://localhost:8080; mkdir -p ux-out/lh
           for p in "en/vocabulary/" "en/samples/" "en/speaking/" "app/?hl=en"; do
             k=$(echo "$p" | tr -c 'a-z0-9' '_')
             for i in 1 2 3; do npx -y lighthouse@12.2.1 "$B/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/m$i.json --quiet || true; done

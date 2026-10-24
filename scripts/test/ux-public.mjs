@@ -49,7 +49,7 @@ const browser = await chromium.launch();
 const rows = [];
 for (const [pg, def] of Object.entries(PAGES)) for (const l of ['en', 'vi', 'ar']) for (const [v, vp] of Object.entries(VPS)) for (const s of ['light', 'dark']) {
   if (!def[l]) continue;
-  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, deviceScaleFactor: 1, colorScheme: s, locale: l });
+  const ctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, isMobile: !!vp.isMobile, hasTouch: !!vp.hasTouch, deviceScaleFactor: 1, colorScheme: s, locale: l, userAgent: vp.isMobile ? 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36' });
   await ctx.addInitScript(() => {
     window.__cls = 0; try {
       new PerformanceObserver(l => { for (const e of l.getEntries()) { window.__lcp = e.startTime; const el = e.element; window.__lcpEl = el ? el.tagName.toLowerCase() + (el.className && typeof el.className === 'string' ? '.' + el.className.split(' ')[0] : '') : ''; } }).observe({ type: 'largest-contentful-paint', buffered: true });
