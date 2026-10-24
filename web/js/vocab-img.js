@@ -41,7 +41,7 @@
   }
   const altOf = (word, gloss) => (gloss ? `${word} – ${gloss}` : String(word));
   /** Đồng bộ: '' khi cờ tắt / chỉ mục chưa về / nghĩa không có ảnh (đúng từ#loại – không lấy ảnh của loại từ khác). w = rộng CSS của bề mặt. */
-  // w = số px CSS hoặc {w, photo}: photo = true CHỈ ở trang từ điển (tra từ) – ưu tiên ảnh Wikimedia (p) rồi mới tới icon/minh hoạ (m); thẻ học không bao giờ lấy p
+  // w = số px CSS hoặc {w, photo}: photo = true CHỈ ở trang từ điển (tra từ) – ưu tiên ảnh Wikimedia (p) rồi mới tới icon/minh họa (m); thẻ học không bao giờ lấy p
   function slot(word, pos, gloss, w) {
     if (!idx || !enabled()) return '';
     const o = typeof w === 'object' && w ? w : { w }, k = KEY(word, pos), ph = o.photo ? idx.p[k] : '';
