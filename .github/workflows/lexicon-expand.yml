@@ -39,6 +39,8 @@ jobs:
           python -c "import nltk; nltk.download('wordnet', quiet=True); nltk.download('averaged_perceptron_tagger_eng', quiet=True)"
           # câu ví dụ NGƯỜI VIẾT: Tatoeba (CC BY 2.0 FR) – examples.py lọc lemma + từ loại + câu dễ (source-first 24/10)
           curl -sfL https://downloads.tatoeba.org/exports/per_language/eng/eng_sentences.tsv.bz2 | bunzip2 > "$RUNNER_TEMP/tatoeba.tsv" || true
+          # vi do AI lấp chỉ nhận phương án có trong Viet74K (duyet/vietnamese-wordlist, GPL-2.0 – CHỈ để kiểm trong CI, không phân phối)
+          curl -sfL -o "$RUNNER_TEMP/viet74k.txt" https://raw.githubusercontent.com/duyet/vietnamese-wordlist/master/Viet74K.txt || true
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
           curl -sfL -o "$RUNNER_TEMP/bad.txt" https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
           # CEFR kiểu EVP: CEFR-J Wordlist 1.5 (Tono Lab TUFS, miễn phí kể cả thương mại, ghi nguồn) + Octanove C1/C2 (CC BY-SA 4.0) – openlanguageprofiles/olp-en-cefrj
@@ -53,7 +55,7 @@ jobs:
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: ${{ github.event.inputs.gc_max || '20000' }}
-        run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.retry == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
+        run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.retry == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
       - name: Lưu kết quả (chờ soát – chưa xuất)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |

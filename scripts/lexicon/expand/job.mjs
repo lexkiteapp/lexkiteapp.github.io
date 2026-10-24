@@ -9,7 +9,7 @@
 import fs from 'fs';
 import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars } from '../ipa.mjs';
-import { ROOT, rd, wr } from '../lib.mjs';
+import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
 import { gateEntry, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, sourceGap } from './lib.mjs';
 import { createPool, judgeKey } from '../../lib/ai-pool.mjs';
@@ -67,6 +67,15 @@ const AI = createPool({ budget: { lexai: CALLS } }), callOk = new Map();
 const used = new Set();
 async function call(mode, items) { stat.calls++; const r = await AI.gen({ mode, items }); if (!r) { stat.fail++; stat.pool = 'empty'; } else used.add(r.route + ':' + r.model); return r; }
 await AI.health();
+// KHÓA NGHĨA khi SemCor yếu (cnt < 2: WordNet xếp nghĩa gần như tuỳ ý – mesh "số lỗ/inch", trek "xe bò", revoke "bài"): chọn lại trong các synset cùng từ loại
+// nghĩa trùng nhiều từ nội dung nhất với 2 nghĩa ĐẦU của Wiktionary (Wiktionary xếp nghĩa thông dụng trước); hoà → giữ thứ tự WordNet.
+const CW = t => new Set((String(t).toLowerCase().match(/[a-z]{3,}/g) || []).filter(x => !['the', 'and', 'for', 'with', 'that', 'which', 'from', 'into', 'something', 'someone', 'used', 'especially', 'usually', 'often', 'having', 'being', 'etc', 'one', 'other', 'any', 'such', 'are', 'not', 'its', 'has'].includes(x)).map(x => x.slice(0, 5)));
+const ov = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n; };
+stat.resense = 0;
+for (const e of pool) { const g1 = (KK[e.w + '#' + e.pos] || {}).g1 || []; if (!(e.cnt < 2) || !(e.alts || []).length || !g1.length) continue;
+  const W1 = CW(g1[0]), W2 = CW(g1[1] || ''), sc = c => 2 * ov(CW(c.gloss + ' ' + (c.lemmas || []).join(' ')), W1) + ov(CW(c.gloss + ' ' + (c.lemmas || []).join(' ')), W2);
+  const best = [e, ...e.alts].reduce((b, c) => (sc(c) > sc(b) ? c : b), e);
+  if (best !== e) { Object.assign(e, { syn: best.syn, gloss: best.gloss, lemmas: best.lemmas, wnex: best.wnex, syns: best.syns, lex: best.lex, comp: e.comp }); stat.resense++; } }
 const items = pool.map((e, i) => ({ k: e.w + '#' + e.pos, w: e.w, pos: e.pos, gloss: e.gloss, lemmas: e.lemmas || [], wnex: e.wnex || [], cefr: e.cefr, lex: e.lex, topics: TOPIC_CHOICES, _c: e, _ipa: ipa[i] }));
 const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
@@ -76,6 +85,8 @@ const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 //   dịch: bảng dịch Wiktionary theo nghĩa (lxsrc khớp nhãn bảng ↔ gloss, 2 giám khảo trùng chỉ số) → thiếu ngôn ngữ → lxtr chỉ phần thiếu; mọi bản dịch qua lxjudge 2 họ + dịch ngược
 //   CEFR: CEFR-J/Octanove → dải tần suất (AI chỉ cờ lệch) · đồng nghĩa: lemma cùng synset · cụm: từ ghép WordNet + đồng xuất hiện Tatoeba, giám khảo lọc – không đủ → bỏ trống
 const TAT = arg('--tatoeba', process.env.TATOEBA || ''), EXT = {};
+const VIOK = new Set(); { const f = arg('--viwords'); if (f && fs.existsSync(f)) for (const l of fs.readFileSync(f, 'utf8').split('\n')) if (l.trim()) VIOK.add(l.trim().toLowerCase().normalize('NFC'));
+  if (VIOK.size) for (const r of loadAll()) for (const v of String(r.row[3] || '').split(/[;,]/)) if (v.trim()) VIOK.add(v.replace(/\([^)]*\)/g, '').trim().toLowerCase().normalize('NFC')); console.log('vi từ điển kiểm: ' + VIOK.size); }
 if (TAT && fs.existsSync(TAT)) { const tmp = (process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp') + '/lx-ex-' + process.pid;
   fs.writeFileSync(tmp + '.in.json', JSON.stringify(items.map(x => ({ k: x.k, w: x.w, pos: x.pos }))));
   try { console.log(execFileSync('python3', [new URL('examples.py', import.meta.url).pathname, '--words', tmp + '.in.json', '--tatoeba', TAT, '--out', tmp + '.out.json', ...(arg('--bad') ? ['--bad', arg('--bad')] : [])], { encoding: 'utf8', maxBuffer: 1 << 26 }).trim()); Object.assign(EXT, JSON.parse(fs.readFileSync(tmp + '.out.json', 'utf8'))); }
@@ -83,24 +94,38 @@ if (TAT && fs.existsSync(TAT)) { const tmp = (process.env.RUNNER_TEMP || process
 else console.warn('⚠ không có Tatoeba (--tatoeba) – ví dụ chỉ từ Wiktionary/AI');
 const formRe = w => new RegExp('\\b' + w.replace(/[^a-z-]/g, '').slice(0, Math.max(3, Math.min(w.length, w.length - 1))) + '[a-z]*\\b', 'i');
 if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(x => ({ ...strip(x), tat: EXT[x.k], wk: KK[x.k] }))), stat); process.exit(0); }
+// pilot 9: giám khảo B (họ khác – Llama CF) hay nghỉ 1 phút → 35/36 lô lxsrc bỏ qua. Chờ và hỏi lại CHỈ giám khảo B (vẫn bắt buộc khác họ A), tối đa 5 lần.
+async function pairWait(req) { let { a, b } = await AI.judgePair(req);
+  for (let i = 0; a && !b && i < 5; i++) { await new Promise(r => setTimeout(r, 70e3)); b = await AI.judge(req, { exclude: [a.fam] }); stat.pairWait = (stat.pairWait || 0) + 1; }
+  return { a, b }; }
 const D = {}, S = {}, X = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = ''; const GM = {};
 // 1. định nghĩa: viết lại gloss
 await pmap(chunks(items, 10), 8, async ch => { const r = await call('lxdef', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { D[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
 // 2. ứng viên người viết + giám khảo nguồn (2 họ)
 for (const x of items) { const k = KK[x.k] || {}, re = formRe(x.w);
-  const wk = (k.exs || []).filter(e => re.test(e.t)).slice(0, 3).map(e => ({ t: e.t, src: 'wiktionary' })), tt = ((EXT[x.k] || {}).ex || []).map(e => ({ t: e.t, src: 'tatoeba:' + e.id }));
+  const GW = CW(x.gloss + ' ' + x.lemmas.join(' ')), wk = (k.exs || []).filter(e => re.test(e.t) && ov(CW(e.g), GW) >= 1).slice(0, 3).map(e => ({ t: e.t, src: 'wiktionary' })), tt = ((EXT[x.k] || {}).ex || []).map(e => ({ t: e.t, src: 'tatoeba:' + e.id }));
   x._cand = [...tt.slice(0, 8 - wk.length), ...wk]; x._cols = [...new Set([...(x._c.comp || []), ...((EXT[x.k] || {}).col || [])])].slice(0, 8); x._trg = k.trg || []; }
 const live = items.filter(x => D[x.k] && D[x.k].keep !== false && D[x.k].def);
-await pmap(chunks(live, 10), 6, async ch => {
-  const { a, b } = await AI.judgePair({ mode: 'lxsrc', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, cand: x._cand.map(c => c.t), cols: x._cols, ts: x._trg.map(g => g.g) })) });
+async function srcPass(list) {
+await pmap(chunks(list, 10), 6, async ch => {
+  const req = { mode: 'lxsrc', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, cand: x._cand.map(c => c.t), cols: x._cols, ts: x._trg.map(g => g.g) })) };
+  const { a, b } = await pairWait(req);
   if (!a || !b) return; for (const x of ch) if (a.out[x.k] && b.out[x.k]) S[x.k] = { a: a.out[x.k], b: b.out[x.k] }; });
-const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger);
-const cov = { def: { wordnet: 0 }, ex: { tatoeba: 0, wiktionary: 0, ai: 0 }, tr: { wiktionary: 0, ai: 0 }, vi: { wiktionary: 0, ai: 0 }, col: { src: 0, none: 0 }, syn: { wordnet: 0, none: 0 }, cefr: {} };
-for (const x of live) { const s = S[x.k]; if (!s) continue;
-  const A = new Set(idx(s.a.ex)), pick = x._cand.filter((c, i) => A.has(i) && idx(s.b.ex).includes(i)).sort((p, q) => p.t.split(' ').length - q.t.split(' ').length).slice(0, 2);
+for (const x of list) { const s = S[x.k]; if (!s) continue;
+  const A = new Set(idx(s.a.ex)), bagOf = t => new Set(t.toLowerCase().match(/[a-z']+/g) || []), pick = [];
+  for (const c of x._cand.filter((c, i) => A.has(i) && idx(s.b.ex).includes(i)).sort((p, q) => p.t.split(' ').length - q.t.split(' ').length)) { const b = bagOf(c.t); if (pick.length < 2 && !pick.some(p => { const q = bagOf(p.t); return [...b].filter(y => q.has(y)).length / new Set([...b, ...q]).size >= 0.5; })) pick.push(c); }
   const col = (Array.isArray(s.a.col) ? s.a.col : []).filter(c => x._cols.includes(c) && (s.b.col || []).includes(c)).slice(0, 3);
   const ti = Number(s.a.ts), grp = Number.isInteger(ti) && ti >= 0 && ti === Number(s.b.ts) ? x._trg[ti] : null;
   X[x.k] = { defOk: s.a.def === 'same' && s.b.def === 'same', defWhy: [s.a, s.b].filter(j => j.def !== 'same').map(j => j.f || 'changed').join(' / '), ex: pick, col, tr: grp ? grp.tr : {}, tg: grp ? grp.g : '' }; }
+}
+const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger);
+const cov = { def: { wordnet: 0 }, ex: { tatoeba: 0, wiktionary: 0, ai: 0 }, tr: { wiktionary: 0, ai: 0 }, vi: { wiktionary: 0, ai: 0 }, col: { src: 0, none: 0 }, syn: { wordnet: 0, none: 0 }, cefr: {} };
+await srcPass(live);
+// def bị giám khảo bác → viết lại 1 lần theo lý do (gần chữ gloss hơn) rồi chấm lại; vẫn bác → hàng duyệt
+{ const redo = live.filter(x => X[x.k] && !X[x.k].defOk); stat.defRedo = redo.length;
+  await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxdef', ch.map(x => ({ ...strip(x), fix: X[x.k].defWhy || 'meaning changed' }))); if (r) for (const x of ch) { const o = r.out[x.k]; if (o && o.def && o.keep !== false) { D[x.k] = { ...D[x.k], def: o.def }; delete S[x.k]; delete X[x.k]; } } });
+  await srcPass(redo.filter(x => !X[x.k])); stat.defRedoOk = redo.filter(x => X[x.k] && X[x.k].defOk).length; }
+
 // 3. ví dụ AI CHỈ khi thiếu câu người viết (chấm nghiêm ở lxjudge: sense yes cả 2 + s ≥ 4)
 const needEx = live.filter(x => X[x.k] && X[x.k].defOk && X[x.k].ex.length < 2);
 await pmap(chunks(needEx, 10), 8, async ch => { const r = await call('lxex', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, def: D[x.k].def, lemmas: x.lemmas, wnex: x.wnex, n: 2 - X[x.k].ex.length, avoid: X[x.k].ex.map(e => e.t) })));
@@ -112,6 +137,10 @@ for (const x of ready) { X[x.k].m = trOf(x); X[x.k].trSrc = Object.fromEntries(O
 const gapTr = ready.filter(x => ALL.some(l => !X[x.k].m[l]));
 await pmap(chunks(gapTr, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), need: ALL.filter(l => !X[x.k].m[l]) })));
   if (r) for (const x of ch) { const o = r.out[x.k] || {}; for (const l of ALL) if (!X[x.k].m[l] && typeof o[l] === 'string' && o[l].trim()) { X[x.k].m[l] = o[l].trim(); X[x.k].trSrc[l] = 'ai'; } } });
+// vi do AI lấp: chỉ giữ phương án CÓ trong từ điển tiếng Việt (Viet74K – GPL-2.0, chỉ dùng để KIỂM trong CI, không phân phối – ∪ nghĩa vi của kho hiện có);
+// không còn phương án nào → để trống = trượt cổng (pilot 9: "mong man", "dư thảo", "đrăm" qua cả 2 giám khảo)
+for (const x of ready) if (X[x.k].trSrc.vi === 'ai' && VIOK.size) { const keep = String(X[x.k].m.vi).split(/\s*;\s*/).filter(v => VIOK.has(v.toLowerCase().trim()));
+  X[x.k].m.vi = keep.join('; '); if (!keep.length) stat.viReject = (stat.viReject || 0) + 1; }
 for (const x of ready) if (ALL.every(l => X[x.k].m[l])) T[x.k] = Object.fromEntries(LANGS.map(l => [l, X[x.k].m[l]]));
 const G = Object.fromEntries(live.filter(x => X[x.k]).map(x => [x.k, { keep: true, pos: x.pos, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), col: X[x.k].col, syn: x._c.syns || [], vi: (X[x.k].m || {}).vi || '', note_vi: '', emoji: '', topic: D[x.k].topic || '' }]));
 for (const x of items) if (D[x.k] && (D[x.k].keep === false || !D[x.k].def)) G[x.k] = { keep: false, why: D[x.k].why, def: '' };
@@ -121,7 +150,7 @@ const forJudge = x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.glos
 const judged = kept.filter(x => T[x.k] && X[x.k] && X[x.k].defOk);
 const JK = {}; // k → { a: '<họ>:<mô hình>', b }
 await pmap(chunks(judged, 10), 6, async ch => {
-  const { a, b } = await AI.judgePair({ mode: 'lxjudge', items: ch.map(forJudge) });
+  const { a, b } = await pairWait({ mode: 'lxjudge', items: ch.map(forJudge) });
   if (!a || !b) return; // thiếu giám khảo thứ 2 khác họ → KHÔNG ghi điểm nào (bỏ qua trung tính)
   for (const x of ch) if (a.out[x.k] && b.out[x.k]) { JA[x.k] = a.out[x.k]; JB[x.k] = b.out[x.k]; JK[x.k] = { a: judgeKey(a.model), b: judgeKey(b.model) }; }
   mA = a.model; mB = b.model;

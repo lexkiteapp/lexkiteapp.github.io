@@ -31,8 +31,8 @@ export async function kaikki(w, pos, stat = {}) {
       for (const e of mine) for (const t of [...(e.translations || []), ...(e.senses || []).flatMap(s => (s.translations || []).map(x => ({ ...x, sense: x.sense || (s.glosses || [])[0] })))]) {
         const l = TRL[t.lang_code || t.code]; if (!l || !t.word || (t.tags || []).some(g => /Traditional|archaic|obsolete|dated|rare|slang|vulgar/i.test(g))) continue;
         const g = String(t.sense || '').slice(0, 120), grp = trg.get(g) || trg.set(g, { g, tr: {} }).get(g), w = trWord(t.word, l);
-        if (w && !(grp.tr[l] = grp.tr[l] || []).includes(w) && grp.tr[l].length < 3) grp.tr[l].push(w); }
-      return { exs: exs.slice(0, 8), trg: [...trg.values()].filter(x => Object.keys(x.tr).length >= 2).slice(0, 8),
+        if (w && !(grp.tr[l] = grp.tr[l] || []).includes(w) && grp.tr[l].length < 2) grp.tr[l].push(w); } // ≤ 2 từ/ngôn ngữ: từ sau trong bảng hay là từ hiếm (testuz, お凸)
+      return { g1: mine.flatMap(e => (e.senses || []).map(s => String((s.glosses || [])[0] || ''))).filter(Boolean).slice(0, 3), exs: exs.slice(0, 8), trg: [...trg.values()].filter(x => Object.keys(x.tr).length >= 2).slice(0, 8),
         uk: (all(UKR)[0] || {}).ipa || '', us: (all(USR)[0] || {}).ipa || '', ukAll: all(UKR).map(s => s.ipa), ukNoRegion: snd.filter(s => !s.tg.some(t => UKR.test(t) || USR.test(t) || /^(US|Canada|Australia|Scotland|Ireland|Northern-England|archaic)$/.test(t))).map(s => s.ipa), vi };
     } catch { await new Promise(s => setTimeout(s, 1500 * (i + 1))); }
   }

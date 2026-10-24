@@ -119,7 +119,11 @@ for w in top_n_list('en', 80000):
                 'lemmas': [l.name().replace('_', ' ') for l in s0.lemmas() if l.name() != w][:4], 'wnex': s0.examples()[:2],
                 # đồng nghĩa = lemma CÙNG synset (WordNet, đúng nghĩa khóa), chỉ từ đơn đủ phổ biến – không có → [] (không bịa)
                 'syns': [l.name() for l in s0.lemmas() if l.name() != w and '_' not in l.name() and l.name().islower() and zipf_frequency(l.name(), 'en') >= 2.8][:3],
-                'comp': comps(w), 'off': '%08d-%s' % (s0.offset(), s0.pos()), 'lists': sorted(set(lists.get(w, [])))})
+                'comp': comps(w), 'off': '%08d-%s' % (s0.offset(), s0.pos()), 'cnt': max(l.count() for l in cand),
+                # nghĩa thay thế khi SemCor yếu (cnt < 2): job.mjs chọn lại theo nghĩa ĐẦU Wiktionary (xếp theo độ thông dụng) – mesh ≠ "số lỗ/inch"
+                'alts': [{'syn': l.synset().name(), 'gloss': l.synset().definition(), 'lemmas': [m.name().replace('_', ' ') for m in l.synset().lemmas() if m.name() != w][:4], 'wnex': l.synset().examples()[:2],
+                          'syns': [m.name() for m in l.synset().lemmas() if m.name() != w and '_' not in m.name() and m.name().islower() and zipf_frequency(m.name(), 'en') >= 2.8][:3], 'lex': l.synset().lexname()}
+                         for l in cand if l.synset() != s0][:3], 'lists': sorted(set(lists.get(w, [])))})
 # ưu tiên: từ có trong danh sách học thuật/kinh doanh của repo lên trước trong cùng dải Zipf 0,5
 out.sort(key=lambda e: (-round(e['z'] * 2) / 2, 0 if e['lists'] else 1, -e['z'], e['w']))
 for i, e in enumerate(out): e['rank'] = i + 1; e['band'] = int(e['z'] * 2) / 2

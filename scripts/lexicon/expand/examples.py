@@ -24,6 +24,7 @@ for x in W: want[x['pos']].add(x['w'])
 bad = {l.strip().lower() for l in open(a.bad) if l.strip()} if a.bad else set()
 STOP = set('a an the and or but if of to in on at by for with from as is are was were be been being am do does did have has had i you he she it we they me him her us them my your his its our their this that these those there here not no so very too can could will would shall should may might must just than then also only what which who whom whose when where why how all any some each every one up down out over into about after before again'.split())
 cache = {}
+NAMES = {'tom', 'mary', 'john', 'ken', 'jim', 'bill', 'jack', 'alice', 'bob', 'sami', 'layla', 'dan', 'linda'}
 def lemmas(t):  # token → {(w, pos)} trong danh sách cần
     r = cache.get(t)
     if r is None:
@@ -63,19 +64,19 @@ for line in open(a.tatoeba, encoding='utf-8'):
 out = {}
 for x in W:
     wp = (x['w'], x['pos']); L = sorted(hits.get(wp, []), key=lambda h: (-h[0], h[1]))[:200]
-    keep, seen, col = [], set(), Counter()
+    keep, seen, col, bags = [], set(), Counter(), []
     for sc, sid, s, i in L:
         words = [t for t in TOK.findall(s) if t[0].isalpha()]
         try: tags = nltk.pos_tag(words)
         except Exception: tags = []
         if tags and not tags[i][1].startswith(TAG[x['pos']]): continue  # từ loại sai (a cook ≠ to cook)
         low = [t.lower() for t in words]
-        for j in (i - 1, i + 1):  # cụm đồng xuất hiện: từ nội dung kề bên
-            if 0 <= j < len(low) and low[j] not in STOP and len(low[j]) > 2 and z(low[j]) >= 3.5:
+        for j in (i - 1, i + 1):  # cụm đồng xuất hiện: từ nội dung kề bên – viết thường trong câu, không sở hữu cách/tên (mary's forehead), có trong WordNet
+            if 0 <= j < len(low) and low[j] not in STOP and len(low[j]) > 2 and z(low[j]) >= 3.5 and words[j].islower() and "'" not in low[j] and wn.synsets(low[j]) and low[j] not in NAMES:
                 col[(low[j] + ' ' + x['w']) if j < i else (x['w'] + ' ' + low[j])] += 1
-        key = ' '.join(low[:3])
-        if key in seen or len(keep) >= a.per: continue
-        seen.add(key); keep.append({'t': s, 'id': int(sid), 'sc': round(sc, 2)})
+        key = ' '.join(low[:3]); bag = set(low)
+        if key in seen or len(keep) >= a.per or any(len(bag & b) / len(bag | b) >= 0.5 for b in bags): continue  # không trùng ý (He/She pondered his next move)
+        seen.add(key); bags.append(bag); keep.append({'t': s, 'id': int(sid), 'sc': round(sc, 2)})
     out[x['k']] = {'ex': keep, 'col': [c for c, n in col.most_common(6) if n >= 3][:4], 'n': len(hits.get(wp, []))}
 json.dump(out, open(a.out, 'w'), ensure_ascii=False)
 print(f"✓ examples: {sum(1 for v in out.values() if len(v['ex']) >= 2)}/{len(out)} có ≥ 2 câu Tatoeba · {sum(1 for v in out.values() if v['col'])} có cụm đồng xuất hiện")
