@@ -3,7 +3,7 @@
 import fs from 'fs';
 import vm from 'vm';
 import assert from 'assert/strict';
-import { checkImg } from '../lexicon/img.mjs';
+import { checkImg, seoPic } from '../lexicon/img.mjs';
 import { promptFor, STYLE, fnv } from '../vocab-img/style.mjs';
 
 const rd = p => fs.readFileSync(p, 'utf8'), J = p => JSON.parse(rd(p));
@@ -23,8 +23,20 @@ const bad = JSON.parse(JSON.stringify(good)); bad.items['pear#n'] = { h: 'xyz', 
 const errs = checkImg(bad, senses);
 for (const m of ['không có nghĩa này', 'h sai', 'url', 'alt', 'sv sai', 'q.score', 'rejected']) ok(errs.some(e => e.includes(m)), 'phải bắt lỗi: ' + m);
 ok(checkImg({ ...good, base: 'https://lexkite.com/vimg/' }, senses).some(e => e.includes('Pages')), 'ảnh không được nằm trên Pages');
+// nguồn + giấy phép (src) và ảnh chụp riêng (photo) – ảnh chụp KHÔNG BAO GIỜ nằm ở h
+{ const it = x => ({ ...good, items: { 'apple#n': { ...good.items['apple#n'], ...x } } }), E = x => checkImg(it(x), senses);
+  const PH = { h: 'ffffffffffffffff', fmt: ['avif', 'webp'], src: { tier: 'photo', lic: 'Pixabay', by: 'Anna K', ref: 'pixabay:123' } };
+  ok(E({ src: { tier: 'icon', lic: 'Apache-2.0', ref: 'noto:1f34e' } }).length === 0 && E({ src: { tier: 'ai', lic: 'own' } }).length === 0, 'src icon/ai hợp lệ (src tuỳ chọn – mục cũ vẫn qua)');
+  ok(E({ src: { lic: 'own' } }).some(e => e.includes('tier')) && E({ src: { tier: 'ai' } }).some(e => e.includes('lic')) && E({ src: { tier: 'ai', lic: 'CC0' } }).some(e => e.includes('lic')), 'có src → bắt buộc tier + lic hợp lệ');
+  ok(E({ src: { tier: 'photo', lic: 'Pixabay', by: 'x' } }).some(e => e.includes('photo riêng')), 'h không được là ảnh chụp');
+  ok(E({ photo: PH }).length === 0, 'photo {h, fmt, src} hợp lệ');
+  ok(E({ photo: { ...PH, src: { tier: 'photo', lic: 'Pexels' } } }).some(e => e.includes('by')), 'ảnh chụp thiếu by (ghi công) → lỗi');
+  ok(E({ photo: { ...PH, src: undefined } }).some(e => e.includes('thiếu src')), 'photo thiếu src → lỗi');
+  ok(E({ photo: { ...PH, src: { tier: 'photo', lic: 'own', by: 'x' } } }).some(e => e.includes('Pixabay|Pexels')), 'ảnh chụp chỉ Pixabay|Pexels');
+  ok(E({ photo: { ...PH, h: good.items['apple#n'].h } }).some(e => e.includes('photo.h')) && E({ photo: { ...PH, fmt: ['avif'] } }).some(e => e.includes('photo.fmt')), 'photo.h khác h, photo.fmt có webp'); }
 { const ix = J('web/js/lexicon-img.json'), img = J('content/lexicon/img.json');
   ok(ix.v === 2 && ix.base === img.base && Array.isArray(ix.x) && Array.isArray(ix.w) && Object.keys(ix.m).length === Object.keys(img.items).length, 'chỉ mục v2 {v, base, sv, m, x, w} khớp img.json');
+  ok(Object.entries(ix.m).every(([k, h]) => img.items[k].h === h) && !/photo/.test(rd('web/js/lexicon-img.json')) && /m: Object\.fromEntries\(imgKeys\.map\(k => \[k, IMG\.items\[k\]\.h\]\)\)/.test(rd('scripts/build-lexicon.mjs')) && !/photo/.test(rd('scripts/build-lexicon.mjs')), 'chỉ mục app chỉ mang h (biểu tượng/minh họa) – không dữ liệu ảnh chụp');
   ok(ix.x.every(k => img.items[k].x2 === true) && Object.keys(img.items).filter(k => img.items[k].x2 === true).length === ix.x.length, 'x = đúng các khoá x2'); }
 
 // 2. module UI: cờ mặc định TẮT → không tải gì, không hộp; bật → <picture> AVIF→WebP trong hộp cố định, 2x chỉ khi x2 và rộng > 192
@@ -98,8 +110,21 @@ ok(/const VIMG = 'lk-vimg'/.test(sw), 'SW: cache tên lk-vimg');
 // trang tĩnh /words/: chỉ khi style.approved === true và nghĩa có ảnh; markup = VImg.pic (cùng module)
 { const seo = rd('scripts/build-seo-pages.mjs');
   ok(/IMG\.style\.approved === true && Object\.keys\(IMG\.items \|\| \{\}\)\.length \?/.test(seo) && /ctx\.VImg\.pic/.test(seo), '/words/: chỉ dựng ảnh khi chủ duyệt + có mục, markup từ VImg.pic');
-  ok((seo.match(/\$\{vimgOf\(/g) || []).length === 1 && /const vimgOf = \(e, alt\) => \{ const it = VPIC && /.test(seo), '/words/: chưa duyệt → vimgOf trả rỗng (trang giữ nguyên từng byte)');
+  ok((seo.match(/\$\{vimgOf\(/g) || []).length === 1 && /const vimgOf = \(e, alt, label\) => \(VPIC \? seoPic\(/.test(seo), '/words/: chưa duyệt → vimgOf trả rỗng (trang giữ nguyên từng byte)');
+  const { V } = sandbox({}, index), IM = { base, items: { 'apple#n': { h: H, fmt: ['avif', 'webp'], x2: true, photo: { h: H2, fmt: ['webp'], src: { tier: 'photo', lic: 'Pexels', by: 'Jo <B>' } } }, 'kiss#v': { h: H3, fmt: ['avif', 'webp'] } } };
+  const sp = seoPic(IM, 'apple#n', 'apple – táo', 'Foto', V.pic), si = seoPic(IM, 'kiss#v', 'kiss', 'Foto', V.pic);
+  ok(sp.includes(`${base}${H2}.webp`) && !sp.includes(H + '.') && !/<source/.test(sp) && !/@2x/.test(sp), '/words/: ưu tiên photo (đúng định dạng của photo, không 2x)');
+  ok(/<p class="vcred"[^>]*>Foto: Jo &lt;B&gt; \/ Pexels<\/p>$/.test(sp), '/words/: dòng ghi công "Ảnh: <by> / Pexels" (dịch nhãn, thoát ký tự)');
+  ok(si.includes(`${base}${H3}.avif`) && !/vcred/.test(si) && seoPic(IM, 'run#v', 'run', 'Foto', V.pic) === '', '/words/: không photo → h, không ghi công; không mục → rỗng');
+  ok(/ph: 'Ảnh'/.test(rd('scripts/lib/seo-pages-i18n.mjs')) && (rd('scripts/lib/seo-pages-i18n.mjs').match(/ ph: '/g) || []).length === 15, 'nhãn "Ảnh" của dòng ghi công đủ 15 ngôn ngữ');
+  for (const f of ['web/js/app.js', 'web/js/study.js', 'extension/newtab.js', 'web/js/vocab-img.js']) ok(!/\.photo\b/.test(rd(f)), 'bề mặt app/add-on không dùng ảnh chụp: ' + f);
   ok(J('content/lexicon/img.json').style.approved !== true || Object.keys(J('content/lexicon/img.json').items).length > 0, 'img.json hiện chưa duyệt / chưa có mục → /words/ không đổi'); }
+
+// ghi công trên 15 trang Chính sách (#credits): Noto Emoji Apache 2.0 + Pixabay/Pexels + Lexkite, đã dịch (không còn câu tiếng Anh)
+for (const l of ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']) {
+  const h = rd(`web/${l}/privacy.html`), c = h.slice(h.indexOf('id="credits"'), h.indexOf('</ul>', h.indexOf('id="credits"')));
+  ok(/Noto Emoji © Google/.test(c) && /LICENSE-2\.0/.test(c) && /Pixabay/.test(c) && /Pexels/.test(c) && (l === 'en' || !/Word illustrations/.test(c)), `chính sách ${l}: ghi công ảnh minh họa đã dịch`);
+}
 
 // 4. chọn nghĩa + phong cách
 const sel = J('content/lexicon/vimg-select.json'), pilot = J('content/lexicon/vimg-pilot.json').items;
