@@ -26,13 +26,13 @@ for (const [k, r] of Object.entries(res)) {
   for (const e of r.fmt) fs.copyFileSync(path.join(dir, `${r.h}.${e}`), path.join(media, 'vimg', `${r.h}.${e}`));
   const cur = img.items[k] || {};
   if (r.tier === 'icon') img.items[k] = { h: r.h, url: img.base + r.h + '.webp', alt: k.split('#')[0], sv: STYLE.v, fmt: r.fmt, src: r.src, q: { score: 1, rank: 1, vision: 'deterministic', named: r.name }, at: now, b: B, ...(cur.photo ? { photo: cur.photo } : {}) };
-  else img.items[k] = { ...cur, photo: { h: r.h, fmt: r.fmt, src: r.src } };
+  else img.items[k] = { alt: k.split('#')[0], ...cur, photo: { h: r.h, fmt: r.fmt, src: r.src } };
   n[r.tier]++;
 }
 img.items = Object.fromEntries(Object.entries(img.items).sort(([a], [b]) => (a < b ? -1 : 1)));
 fs.writeFileSync(P(IMGF), JSON.stringify(img, null, 1) + '\n');
 console.log(`✓ đăng icon ${n.icon} · wiki ${n.wiki} · img.json: ${Object.values(img.items).filter(x => x.h).length} ảnh chính, ${Object.values(img.items).filter(x => x.photo).length} ảnh từ điển`);
-execFileSync('node', [P('scripts/build-lexicon.mjs'), '--write'], { stdio: 'inherit' });
+execFileSync('node', [P('scripts/build-lexicon.mjs'), '--write'], { stdio: 'inherit', env: { ...process.env, LEX_CDN_CHECK: '0' } });   // file mới chưa lên CDN – kiểm CDN ở bước sau (workflow)
 if (PUSH && (n.icon || n.wiki)) {
   const g = (...a) => execFileSync('git', ['-C', media, ...a], { stdio: 'inherit' });
   g(...bot, 'add', 'vimg'); g(...bot, 'commit', '-qm', `vimg: +${n.icon} icon, +${n.wiki} wiki`); g('push', '-q', 'origin', 'HEAD');
