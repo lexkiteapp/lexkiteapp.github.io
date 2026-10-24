@@ -465,7 +465,7 @@ for (const lang of LANGS) for (const dev of DEVS) {
     await journey(3, 'ôn trộn lật/gõ/nghe + câu của bạn', lang, dev, j3, { seed: { ...ONB, 'sbx.cards': JSON.stringify(SEED) } });
     await journey(3, 'đồng bộ khứ hồi (giả lập)', lang, dev, j3sync, { q: '', firebase: true, seed: { 'ielts.settings': JSON.stringify({ onboarded: true }), 'ielts.cards': JSON.stringify(SEED) } });
   }
-  if (ONLY.includes(4)) await journey(4, 'tra từ → song sinh SEO → quay lại', lang, dev, j4, { seed: ONB });
+  if (ONLY.includes(4)) await journey(4, 'tra từ → song sinh SEO → quay lại', lang, dev, j4, { seed: { ...ONB, 'lk.cfg': JSON.stringify({ at: Date.now(), v: { vocab_img: '0' } }) }, config: { vocab_img: '0' } }); // cờ TẮT tường minh: chưa đặt = bật dần theo nhóm lk.vb (10 %) → nạp chỉ mục là đúng thiết kế
   if (ONLY.includes(8)) await journey(8, 'ảnh từ vựng BẬT (fixture): CLS 0, decode, đúng nghĩa, CDN thiếu, tối, RTL', lang, dev, j8, { seed: { ...ONB, 'lk.vimg': '1' }, routes: vimgRoutes });
   if (ONLY.includes(5)) {
     await journey(5, 'cài đặt nhắc học còn sau tải lại', lang, dev, j5, { seed: ONB });
