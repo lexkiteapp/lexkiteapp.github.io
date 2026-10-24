@@ -180,6 +180,7 @@
   const IPAD = /iPad/.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent)) || Math.min(screen.width, screen.height) >= 700;
   function plan() {
     if (MODE === 'auth') return planAuth();
+    if (MODE === 'journey') return planJourney();
     const S = [];
     S.push({ k: 'launch' });
     S.push({ k: 'toapp' });
@@ -194,6 +195,13 @@
     for (const l of LANGS) { S.push({ k: 'lang', l }); S.push({ k: 'langcheck', l }); }
     S.push({ k: 'lang', l: 'en' });
     S.push({ k: 'realshare' }); S.push({ k: 'realnotify' });
+    S.push({ k: 'done' });
+    return S;
+  }
+  // Hành trình 1–3 (journey-e2e.yml, native=1): scripts/test/journey-e2e/native.js (LKJN) – mỗi ngôn ngữ: hồ sơ mới → lần đầu → quay lại → ôn tập; tải lại giữa các pha
+  function planJourney() {
+    const S = [{ k: 'launch' }, { k: 'toapp' }];
+    for (const l of ['en', 'vi', 'ar']) S.push({ k: 'lang', l }, { k: 'jrn', f: 'reset' }, { k: 'reload' }, { k: 'jrn', f: 'j1a' }, { k: 'reload' }, { k: 'jrn', f: 'j1b' }, { k: 'jrn', f: 'j2a' }, { k: 'reload' }, { k: 'jrn', f: 'j2b' }, { k: 'jrn', f: 'j3a' }, { k: 'reload' }, { k: 'jrn', f: 'j3b' });
     S.push({ k: 'done' });
     return S;
   }
@@ -235,6 +243,11 @@
   const btnByText = re => [...document.querySelectorAll('#view button, #view a, #view [role=button]')].filter(b => vis(b) && re.test((b.innerText || '') + ' ' + (b.getAttribute('aria-label') || ''))).at(0);
   async function runStep(s) {
     switch (s.k) {
+      case 'jrn': {
+        if (!W.LKJN) { add('journey', 'không nạp được e2e-journey.js'); return; }
+        const bad = await W.LKJN[s.f](); for (const m of bad || []) add('journey', m); await shot('jrn-' + s.f); return;
+      }
+      case 'reload': { st.i++; st.inStep = null; save(); location.reload(); await sleep(15000); add('flow', 'tải lại không xảy ra'); return; }
       case 'launch': {
         await sleep(1500);
         const ping = await of('https://lexkite.com/api/config', { cache: 'no-store' }).then(r => r.status, e => 'ERR ' + (e && e.message)); // mạng của máy giả lập (CI đôi khi chập chờn)
@@ -485,7 +498,7 @@
       st.i++; st.inStep = null; save();
     }
   }
-  const stepName = s => s ? s.k + (s.r ? ':' + s.r : '') + (s.l ? ':' + s.l : '') + (s.p ? ':' + s.p : '') : '?';
+  const stepName = s => s ? s.k + (s.r ? ':' + s.r : '') + (s.l ? ':' + s.l : '') + (s.p ? ':' + s.p : '') + (s.f ? ':' + s.f : '') : '?';
   // Chặn rời app: ghi lại nơi sắp tới trước khi bỏ trang
   W.addEventListener('pagehide', () => { st.lastLoc = location.href; save(); });
   document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('a[href]'); if (a) { const h = a.getAttribute('href'); if (h && !h.startsWith('#')) { st.lastLoc = 'bấm liên kết ' + h + ' (target=' + (a.target || '') + ')'; save(); } } }, true);

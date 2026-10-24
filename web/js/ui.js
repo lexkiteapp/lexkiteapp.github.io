@@ -56,7 +56,8 @@
     (box.querySelector('input, textarea, button.primary, button, a') || box).focus();
     return box;
   }
-  const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+  // Trả focus: phần tử cũ đã bị vẽ lại (vd. nút cuối bài học) → tiêu đề/nút chính của trang thay vì rơi về <body> (journey-e2e)
+  const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; const f = lastFocus && lastFocus.isConnected && lastFocus !== document.body ? lastFocus : $('#view .btn.primary, #view h1, #view h2'); if (f && f.focus) { if (!f.matches('a[href],button,input,select,textarea,[tabindex]')) f.tabIndex = -1; f.focus({ preventScroll: true }); } };
   document.addEventListener('keydown', e => {
     if ($('#modal').hidden) return;
     if (e.key === 'Escape') return closeModal();

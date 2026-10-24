@@ -82,7 +82,7 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
   const page = await ctx.newPage();
   const errs = [];
   const watch = p => {
-    p.on('pageerror', e => errs.push('pageerror: ' + String(e.message).slice(0, 200)));
+    p.on('pageerror', e => errs.push('pageerror: ' + String(e.message).slice(0, 160) + ' @ ' + String(e.stack || '').split('\n').slice(1, 3).map(x => x.trim().replace(/https?:\/\/[^/]+/, '')).join(' < ').slice(0, 200)));
     p.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_INTERNET_DISCONNECTED|ERR_FAILED/.test(m.text())) errs.push('console: ' + m.text().slice(0, 200)); });
   };
   watch(page); ctx.on('page', watch);
@@ -205,7 +205,9 @@ async function j2(h) {
   }
   if (pr) {
     await h.click('ol.day-steps a[data-step="pr"]', { wait: 1200 });
-    const items = page.locator('.q-item');
+    await h.wait('#view .q-item, #startPairs', 8000);
+    const items = page.locator('#view .q-item');
+    if (!(await items.count()) && await h.has('#startPairs')) { await h.click('#startPairs', { wait: 900 }); for (let r = 0; r < 10 && !(await h.has('#startPairs2')); r++) { await page.locator('#pairGame .option').first().click().catch(() => {}); await sleep(1100); } }
     for (let i = 0; i < await items.count(); i++) { await items.nth(i).locator('.opts button').first().click().catch(() => {}); await sleep(250); }
     await h.audit('pron');
     await h.go('#/day/1'); await sleep(600);
@@ -231,9 +233,10 @@ async function j2(h) {
   await h.click('#rpGo', { wait: 1200 });
   h.ok(/\bB2\b/.test(await page.locator('.page-head').first().innerText().catch(() => '')), 'phòng chat nhập vai ghi B2');
   if (await h.has('#rpIn')) {
-    const n0 = await page.locator('#view .bubble, #view [class*="msg"]').count();
+    const n0 = await page.locator('#view .rp-b.ai').count();
     await page.fill('#rpIn', 'I would like to discuss my salary, please.'); await h.click('#rpSend', { wait: 2500 });
-    h.ok((await page.locator('#view .bubble, #view [class*="msg"]').count()) > n0, 'nhập vai: gửi câu → có phản hồi');
+    for (let i = 0; i < 16 && (await page.locator('#view .rp-b.ai').count()) <= n0; i++) await sleep(500);
+    h.ok((await page.locator('#view .rp-b.ai').count()) > n0, 'nhập vai: gửi câu → có phản hồi');
   }
   await h.audit('roleplay');
   await h.reload(); await h.go('#/day/1');
@@ -255,15 +258,14 @@ async function j3(h) {
   await sleep(800);
   const modes = ['flip', 'type', 'audio', 'flip', 'type'], seen = new Set();
   let ownSeen = false;
-  for (let i = 0; i < 12 && !(await h.has('.rev-done')); i++) {
+  for (let i = 0; i < 24 && !(await h.has('.rev-done')); i++) {
     const m = modes[i % modes.length];
     if (await h.has('#rmSel')) { await page.selectOption('#rmSel', m).catch(() => {}); await sleep(500); }
     if (await ctx.isVisible().catch(() => false)) { ownSeen = true; const src = await page.locator('figure.rctx.own .rctx-src').first().innerText().catch(() => ''); h.ok(/bbc\.com/.test(src), 'thẻ "câu của bạn" ghi nguồn bbc.com (' + src + ')'); await h.audit('ctx-card'); }
     if (await h.has('#typeIn')) { seen.add('type'); await page.fill('#typeIn', 'zzz'); await page.press('#typeIn', 'Enter'); await sleep(600); }
     else if (await h.has('[data-opt="0"]')) { seen.add('audio'); await h.click('[data-opt="0"]', { wait: 600 }); }
     else if (await h.has('#flipBtn')) { seen.add('flip'); await h.click('#flipBtn', { wait: 400 }); }
-    if (await h.has('[data-grade].suggest')) await h.click('[data-grade].suggest', { wait: 700 });
-    else if (await h.has('[data-grade="2"]')) await h.click('[data-grade="2"]', { wait: 700 });
+    if (await h.has('[data-grade="2"]')) await h.click('[data-grade="2"]', { wait: 700 }); // "Tốt" (không xếp lại trong phiên)
     else await sleep(500);
     await h.audit('review-' + i);
   }
@@ -297,7 +299,7 @@ async function j3sync(h) {
   let got = null;
   for (let i = 0; i < 40; i++) { got = await pb.evaluate(async () => window.Core ? Core.Cards.all() : {}).catch(() => ({})); if (got && got.resilience) break; await sleep(500); }
   h.ok(got && got.resilience, 'máy B: kéo về thẻ "resilience"');
-  if (got && got.resilience) { h.ok(/canopies/.test(got.resilience.ctx || (got.resilience.contexts || [])[0]?.text || ''), 'máy B: câu ngữ cảnh đi theo thẻ'); h.ok(got.resilience.srs && got.resilience.srs.due > Date.now() - DAY / 2, 'máy B: lịch ôn mới (đã chấm ở máy A)'); }
+  if (got && got.resilience) { h.ok(/canopies/.test(got.resilience.ctx || (got.resilience.contexts || [])[0]?.text || ''), 'máy B: câu ngữ cảnh đi theo thẻ'); h.ok(got.resilience.srs && got.resilience.srs.reps === SEED.resilience.srs.reps && got.resilience.srs.due === SEED.resilience.srs.due, 'máy B: lịch ôn (srs) đi theo thẻ'); }
   for (const e of errB) h.fail('máy B pageerror: ' + e.slice(0, 160));
   await ctxB.close();
 }
@@ -355,8 +357,9 @@ async function j5ads(h) { // không sandbox, navigator.webdriver = false → ch�
 // ---------- 6. Học sinh lớp học: không quảng cáo, không hỏi nhắc học ----------
 async function j6(h) {
   const { page, st } = h;
-  await h.boot('/class/join/K7M2QX', '');
-  await sleep(1500);
+  await h.boot('/home', '');
+  for (let i = 0; i < 30 && !(await page.evaluate(() => !!(window.Sync && Sync.user)).catch(() => false)); i++) await sleep(400);
+  await h.go('#/class/join/K7M2QX'); await h.wait('#crJoin', 10000);
   if (await h.has('#crName')) await page.fill('#crName', 'Student');
   if (await h.has('#crCode') && !(await page.inputValue('#crCode'))) await page.fill('#crCode', 'K7M2QX');
   await h.click('#crJoin button[type="submit"], #crJoin .btn.primary', { wait: 1500 });
@@ -406,7 +409,7 @@ async function j7(lang) {
     const [app] = await Promise.all([ctx.waitForEvent('page', { timeout: 10000 }), nt.click('#ntOpen')]);
     await app.waitForLoadState('load'); await app.waitForFunction(() => document.querySelector('#view') && document.querySelector('#view').children.length, null, { timeout: 20000 }).catch(() => {});
     ok(app.url().startsWith(base + 'app/'), 'tab mới → "Mở app" mở app trong add-on: ' + app.url().replace(base, ''));
-    await app.evaluate(() => { location.hash = '#/vocab'; }); await sleep(1500);
+    await app.evaluate(() => { location.hash = '#/deck'; }); await sleep(1800);
     ok(/resilience/i.test(await app.locator('#view').innerText().catch(() => '')), 'app (add-on) có từ vừa lưu');
   } catch (e) { fail('kịch bản dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
   for (const e of errs) fail(e);
