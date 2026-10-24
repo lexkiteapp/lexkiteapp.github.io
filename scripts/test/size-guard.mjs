@@ -12,6 +12,8 @@ const git = (args, input) => execFileSync('git', args, { maxBuffer: 1 << 29, inp
 const TEXT = /\.(m?js|cjs|ts|tsx|jsx|json|jsonl|md|txt|html?|css|ya?ml|sh|py|svg|xml|toml|csv|tsv|vtt|srt|ass|lock|map|webmanifest|ini|cfg|sql|kt|java|swift|gradle|plist|properties|xcconfig|pbxproj|storyboard|strings|xcstrings|entitlements|rb|go|rs|c|h|m|mm|po|env|example|gitignore|gitattributes|editorconfig|npmrc|nvmrc|conf|tpl|mustache|njk|liquid|ics|rss|atom)$/i;
 const isBin = p => !TEXT.test(p) && /\.[a-z0-9]+$/i.test(p.split('/').pop());
 let fail = 0, tree = 0, files = 0;
+// clone blobless: ls-tree -l cần cỡ blob → tải lẻ TỪNG blob (rất chậm). Tải trước cả cây HEAD trong 1 lô (diff với cây rỗng).
+try { git(['diff-tree', '-r', '--numstat', '4b825dc642cb6eb9a060e54bf8d69288fbee4904', 'HEAD']); } catch { /* clone đầy đủ: không cần */ }
 for (const ln of git(['ls-tree', '-r', '-l', 'HEAD']).split('\n')) { const m = ln.match(/^\d+ blob \w+\s+(\d+)\t/); if (m) { tree += +m[1]; files++; } }
 console.log(`size-guard: cây HEAD ${(tree / 1e6).toFixed(1)} MB / ${files} tệp (trần ${TREE / 1e6} MB)`);
 if (tree > TREE) { console.error(`✗ size-guard: cây đầu nhánh ${(tree / 1e6).toFixed(1)} MB > ${TREE / 1e6} MB – chuyển media sang kho ngoài (infra/media-repos.json, scripts/media/push.mjs)`); fail = 1; }

@@ -30,6 +30,15 @@ const MR = loadRepos(), SOFT = MR.soft_mb || 1000, SOFT_F = MR.soft_files || 600
 const prev = (() => { try { return JSON.parse(fs.readFileSync('infra/storage-forecast.json', 'utf8')).repos || []; } catch { return []; } })();
 const LOCAL = Object.fromEntries((arg('--local-git', '') || '').split(',').filter(Boolean).map(x => x.split('='))); // id=thư mục git có sẵn (đo không cần mạng)
 const SKIP = (arg('--skip', '') || '').split(',').filter(Boolean), MEASURE = process.argv.includes('--measure');
+// Ưu tiên API cây git (có cỡ từng blob, KHÔNG tải blob); clone blobless + ls-tree -l sẽ tải lẻ từng blob (rất chậm) → chỉ dùng thư mục có sẵn
+async function measureApi(repo) {
+  try {
+    const h = { Accept: 'application/vnd.github+json', ...(process.env.GITHUB_TOKEN ? { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN } : {}) };
+    const j = await (await fetch(`https://api.github.com/repos/${repo}/git/trees/HEAD?recursive=1`, { headers: h })).json();
+    if (!Array.isArray(j.tree) || j.truncated) return null;
+    const b = j.tree.filter(x => x.type === 'blob'); return { tree_mb: +(b.reduce((n, x) => n + (x.size || 0), 0) / 1e6).toFixed(1), files: b.length };
+  } catch { return null; }
+}
 function measure(repo, id) {
   const local = LOCAL[id], dir = local || fs.mkdtempSync(path.join(os.tmpdir(), 'fc-'));
   try {
@@ -43,7 +52,7 @@ const list = [{ id: 'main', repo: 'lexkiteapp/lexkiteapp.github.io', state: 'ope
 f.repos = [];
 for (const r of list) {
   const old = prev.find(x => x.id === r.id) || {}, go = MEASURE && r.state !== 'planned';
-  const m = go && !SKIP.includes(r.id) ? measure(r.repo, r.id) : null, api = go ? await apiMb(r.repo) : null;
+  const m = go && !SKIP.includes(r.id) ? (LOCAL[r.id] ? measure(r.repo, r.id) : (await measureApi(r.repo)) || measure(r.repo, r.id)) : null, api = go ? await apiMb(r.repo) : null;
   const row = { id: r.id, repo: r.repo, state: r.state, kinds: r.kinds || [], tree_mb: m ? m.tree_mb : old.tree_mb ?? null, files: m ? m.files : old.files ?? null, api_mb: api ?? old.api_mb ?? null, soft_mb: SOFT, soft_files: r.id === 'main' ? null : SOFT_F };
   row.size_mb = Math.max(row.tree_mb || 0, row.api_mb || 0);
   f.repos.push(row);
