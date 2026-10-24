@@ -21767,6 +21767,46 @@
      "environment.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "sally#n",
+   "batch": "20261024-pool-pilot8",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "sally",
+    "pos": "n",
+    "ipa": "/ˈsæli/",
+    "ipaUS": "/ˈsæli/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "B2",
+    "cefrSrc": "freq",
+    "z": 3.97,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:wisecrack.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
   }
  ]
 }
