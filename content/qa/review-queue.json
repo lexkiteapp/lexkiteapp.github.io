@@ -1503,6 +1503,44 @@
      "xw-everyday.v"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "murphy#n",
+   "batch": "20261024-pool-pilot3",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "murphy",
+    "pos": "n",
+    "ipa": "/ˈmɜːfi/",
+    "ipaUS": "/ˈmɜːrfi/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "B1",
+    "z": 4.13,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:potato.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
   }
  ]
 }
