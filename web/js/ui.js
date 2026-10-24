@@ -43,6 +43,7 @@
   function toast(msg, ms = 2400) {
     const t = $('#toast');
     t.textContent = msg; t.classList.add('show');
+    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
     clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), ms);
   }
 
