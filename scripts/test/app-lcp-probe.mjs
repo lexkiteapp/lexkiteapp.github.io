@@ -1,7 +1,8 @@
 // Dò phần tử LCP màn đầu /app/ (Playwright, mạng 4G chậm + CPU ×4 như Lighthouse mobile): in mọi ứng viên LCP (thời điểm, thẻ, cỡ),
 // thời điểm font tải xong và FCP – để biết LCP bị đẩy muộn vì cái gì. Dùng: node scripts/test/app-lcp-probe.mjs <base> [path…]
 import { chromium } from 'playwright';
-const base = process.argv[2] || 'http://localhost:8080', paths = process.argv.slice(3).length ? process.argv.slice(3) : ['app/?hl=en', 'app/?hl=vi'];
+const FUNC = process.argv.includes('--func'); const argv = process.argv.filter(a => a !== '--func');
+const base = argv[2] || 'http://localhost:8080', paths = FUNC ? [] : argv.slice(3).length ? argv.slice(3) : ['app/?hl=en', 'app/?hl=vi'];
 const b = await chromium.launch();
 for (const p of paths) {
   const ctx = await b.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true });
@@ -33,7 +34,7 @@ let bad = 0; const ok = (c, m) => { console.log((c ? '✓ ' : '✗ ') + m); if (
   console.log('  ctrl trước offline: ' + await pg.evaluate(() => !!navigator.serviceWorker.controller));
   await ctx.setOffline(true);
   await pg.reload({ waitUntil: 'load' }).catch(() => {});
-  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length, null, { timeout: 20000 }).then(() => ok(1, 'offline: app mở từ cache SW')).catch(async () => ok(0, 'offline: app không mở – ' + await pg.evaluate(() => location.href + ' ctrl=' + !!(navigator.serviceWorker && navigator.serviceWorker.controller) + ' App=' + !!window.App + ' healed=' + sessionStorage.getItem('vb.healed') + ' | ' + document.body.innerText.slice(0, 160)).catch(e => String(e))));
+  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length, null, { timeout: 20000 }).then(() => ok(1, 'offline: app mở từ cache SW')).catch(async () => ok(0, 'offline: app không mở – ' + await pg.evaluate(() => location.href + ' ctrl=' + !!(navigator.serviceWorker && navigator.serviceWorker.controller) + ' App=' + !!window.App + ' | ' + document.body.innerText.slice(0, 160)).catch(e => String(e))));
   ok(!errs.length, 'không lỗi JS' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await ctx.close();
 }

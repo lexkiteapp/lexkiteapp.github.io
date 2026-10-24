@@ -25,6 +25,12 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install chromium >/dev/null
           node scripts/app-loader.mjs --check dist/app/index.html
           node scripts/test/app-lcp-probe.mjs http://localhost:8080
+      - name: So sánh offline với main (cùng phép thử)
+        if: ${{ !cancelled() }}
+        run: |
+          git fetch -q --depth 1 origin main && git worktree add -q ../base FETCH_HEAD && (cd ../base && npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh >/dev/null)
+          (cd ../base/dist && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/app-lcp-probe.mjs http://localhost:8081 --func || true
       - name: Lighthouse mobile ×3
         if: ${{ !cancelled() }}
         run: |
