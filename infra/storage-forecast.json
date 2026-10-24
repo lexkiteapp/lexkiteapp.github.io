@@ -20,7 +20,7 @@
  "repo_mb": {
   "source_expand": 12.4,
   "source_expand_git": 4.1,
-  "main_repo_now": 945,
+  "main_repo_now": 920,
   "soft": 1000
  },
  "web_js_bytes": 0,
@@ -28,11 +28,87 @@
   "audio_new": 143,
   "audio_files": 23646,
   "images_new": 21,
-  "media_repo_now": 583,
+  "media_repo_now": 570,
   "soft": 1000
  },
+ "repos": [
+  {
+   "id": "main",
+   "repo": "lexkiteapp/lexkiteapp.github.io",
+   "state": "open",
+   "kinds": [
+    "code"
+   ],
+   "tree_mb": 229.5,
+   "files": 4210,
+   "api_mb": 920,
+   "soft_mb": 1000,
+   "soft_files": null,
+   "size_mb": 920,
+   "at_target_mb": 924,
+   "at_target_files": 4210,
+   "pct": 92,
+   "pct_target": 92
+  },
+  {
+   "id": "m1",
+   "repo": "lexkiteapp/lexkite-media",
+   "state": "full",
+   "kinds": [
+    "img",
+    "library",
+    "cine"
+   ],
+   "tree_mb": 557.9,
+   "files": 570,
+   "api_mb": 570,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 570,
+   "at_target_mb": 570,
+   "at_target_files": 570,
+   "pct": 57,
+   "pct_target": 57
+  },
+  {
+   "id": "m2",
+   "repo": "lexkiteapp/lexkite-media-2",
+   "state": "open",
+   "kinds": [
+    "audio"
+   ],
+   "tree_mb": 481.6,
+   "files": 27489,
+   "api_mb": 444,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 481.6,
+   "at_target_mb": 625,
+   "at_target_files": 51135,
+   "pct": 48,
+   "pct_target": 63
+  },
+  {
+   "id": "m3",
+   "repo": "lexkiteapp/lexkite-media-3",
+   "state": "planned",
+   "kinds": [
+    "audio"
+   ],
+   "tree_mb": null,
+   "files": null,
+   "api_mb": null,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 0,
+   "at_target_mb": 0,
+   "at_target_files": null,
+   "pct": 0,
+   "pct_target": 0
+  }
+ ],
  "alerts": [
-  "repo chính 949.1 MB / 1 GB (≥ 70 %) – âm thanh từ mới KHÔNG được ghi vào repo chính",
-  "lexkite-media 747 MB / 1 GB (≥ 70 %) – mở kho m2 (infra/media-repos.json)"
+  "repo chính 920 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 229.5 MB",
+  "lexkite-media-2: 51135 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
  ]
 }

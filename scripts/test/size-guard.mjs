@@ -22,11 +22,13 @@ if (RANGE) {
     const ents = [], raw = git(['diff-tree', '-r', '--no-commit-id', '--root', '--raw', '-z', c]).split('\0');
     for (let i = 0; i + 1 < raw.length; i += 2) { const m = raw[i].match(/^:\d+ \d+ \w+ (\w+) ([AMT])/); if (m && isBin(raw[i + 1]) && !/^0+$/.test(m[1])) ents.push([m[1], raw[i + 1]]); }
     if (!ents.length) continue;
+    // clone blobless: tải blob nhị phân theo LÔ (diff --numstat prefetch 1 lần) – cat-file lẻ sẽ tải từng blob một
+    for (let i = 0; i < ents.length; i += 400) { try { git(['diff-tree', '-r', '--root', '--no-commit-id', '--numstat', c, '--', ...ents.slice(i, i + 400).map(e => e[1])]); } catch { /* đo tiếp bằng cat-file */ } }
     const sizes = git(['cat-file', '--batch-check=%(objectsize)'], ents.map(e => e[0]).join('\n') + '\n').split('\n').filter(Boolean).map(Number);
     const sum = sizes.reduce((a, b) => a + (b || 0), 0);
     if (sum <= COMMIT) continue;
     const msg = git(['log', '-1', '--format=%B', c]);
-    const top = ents.map((e, i) => [sizes[i], e[1]]).sort((a, b) => b[0] - a[0]).slice(0, 5).map(([s, p]) => `${(s / 1e6).toFixed(1)} MB ${p}`).join(', ');
+    const top = ents.map((e, i) => [sizes[i], e[1]]).sort((a, b) => b[0] - a[0]).slice(0, 5).map(([s, p]) => `${s >= 1e6 ? (s / 1e6).toFixed(1) + ' MB' : Math.round(s / 1e3) + ' KB'} ${p}`).join(', ') + (ents.length > 5 ? ` … (${ents.length} tệp)` : '');
     if (/^Size-Guard:\s*allow/mi.test(msg)) { console.log(`⚠ size-guard: ${c.slice(0, 9)} thêm ${(sum / 1e6).toFixed(1)} MB nhị phân – được phép (Size-Guard: allow)`); continue; }
     console.error(`✗ size-guard: commit ${c.slice(0, 9)} thêm ${(sum / 1e6).toFixed(1)} MB nhị phân (> ${COMMIT / 1e6} MB): ${top}`); fail = 1;
   }

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Kiểm file giọng đọc mà app tham chiếu (web/js/listen/audio-index.js → LISTEN_AUDIO) có thật trên CDN.
+//   node scripts/audio-cdn-check.mjs --local                 → không mạng (npm test): chỉ mục đọc được, web/audio KHÔNG còn mp3
 //   node scripts/audio-cdn-check.mjs --media                 → kiểm mọi khóa (audio/l) + mọi từ trong web/audio/w/index.txt (audio/w, 2 giọng) có trong
 //                                                              cây git các kho media kind audio (infra/media-repos.json; clone nông không blob, vài MB)
 //   node scripts/audio-cdn-check.mjs [--base URL] [--sample N] [--concurrency C] [--retries R]
@@ -20,6 +21,15 @@ const src = fs.readFileSync(path.join(root, 'web/js/listen/audio-index.js'), 'ut
 const keys = (src.match(/new Set\("([^"]*)"/) || [, ''])[1].split(/\s+/).filter(Boolean);
 if (!keys.length) { console.error('audio-cdn-check: không đọc được LISTEN_AUDIO'); process.exit(1); }
 
+// --local (npm test, không mạng): chỉ mục đọc được + repo chính KHÔNG chứa mp3 (đã chuyển sang kho media – docs/STORAGE.md); đủ tệp trong kho: --media (pages.yml)
+if (args.includes('--local')) {
+  const walk = d => fs.existsSync(d) ? fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]) : [];
+  const mp3 = walk(path.join(root, 'web/audio')).filter(f => f.endsWith('.mp3'));
+  const words = fs.existsSync(path.join(root, 'web/audio/w/index.txt')) ? fs.readFileSync(path.join(root, 'web/audio/w/index.txt'), 'utf8').split('\n').filter(Boolean).length : -1;
+  console.log(`audio-cdn-check --local: ${keys.length} khóa câu · ${words} từ · mp3 trong repo chính: ${mp3.length}`);
+  if (mp3.length || words < 0) { console.error('✗ mp3 phải nằm ở kho media (scripts/media/push.mjs), không ở web/audio/; web/audio/w/index.txt phải có'); process.exit(1); }
+  process.exit(0);
+}
 if (args.includes('--media')) {
   const have = new Set();
   for (const r of servingRepos(loadRepos(), 'audio')) {
