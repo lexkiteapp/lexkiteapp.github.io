@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: '41 3 * * 1'
 concurrency: { group: storage-watch, cancel-in-progress: false }
-permissions: { contents: read }
+permissions: { contents: write }
 jobs:
   watch:
     runs-on: ubuntu-latest
@@ -30,9 +30,16 @@ jobs:
         if: ${{ steps.lease.outputs.skip != '1' }}
         env: { GITHUB_TOKEN: '${{ github.token }}', LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
         run: node scripts/footage/repo-size.mjs --alert-gb 2
-      - name: Dự báo lưu trữ kho 20k (cảnh báo ≥ 70 %)
+      - name: Dự báo lưu trữ kho 20k + đo từng repo/kho media (cảnh báo ≥ 70 %, Quản trị › Lưu trữ – docs/STORAGE.md)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
-        run: node scripts/lexicon/expand/forecast.mjs --out "$RUNNER_TEMP/storage-forecast.json" && cat "$RUNNER_TEMP/storage-forecast.json" >> "$GITHUB_STEP_SUMMARY"
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: |
+          node scripts/lexicon/expand/forecast.mjs --measure && cat infra/storage-forecast.json >> "$GITHUB_STEP_SUMMARY"
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add infra/storage-forecast.json web/data/storage-forecast.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "storage-watch: số đo dung lượng repo + kho media"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
       - name: Xoá khoá
         if: always()
         run: rm -f ~/.ssh/f ~/.ssh/s

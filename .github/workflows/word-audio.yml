@@ -1,5 +1,6 @@
 # Giọng đọc từ đơn Anh + Mỹ (Kokoro-82M, Apache-2.0) – miễn phí trên máy chủ GitHub, vài trăm từ/đêm, tiếp tục được.
-# File → web/audio/w/ (GitHub Pages) → audio.lexkite.com/audio/w/ (Worker lexkite-audio). Xem docs/LEXICON.md.
+# File → kho media ngoài (infra/media-repos.json, m2 – scripts/media/push.mjs) → audio.lexkite.com/audio/w/ (Worker lexkite-audio dò các kho).
+# Repo chính chỉ giữ chỉ mục web/audio/w/index.txt. WORD_AUDIO_EXPAND=1 (từ mở rộng) bật lại 24/10 vì mp3 không còn vào repo chính. Xem docs/STORAGE.md.
 name: Giọng đọc từ vựng (Kokoro)
 on:
   schedule:
@@ -20,6 +21,7 @@ jobs:
         with: { node-version: 22 }
       - name: Đếm từ còn thiếu
         id: count
+        env: { WORD_AUDIO_EXPAND: '1' }
         run: echo "left=$(node scripts/gen-word-audio.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
       - name: Cài kokoro-js + ffmpeg
         if: steps.count.outputs.left != '0'
@@ -32,12 +34,23 @@ jobs:
           key: kokoro-82m-v1-q8
       - name: Tạo giọng đọc từ
         if: steps.count.outputs.left != '0'
+        env: { WORD_AUDIO_EXPAND: '1' }
         run: AUDIO_MIN=70 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --limit "${{ github.event.inputs.limit || '300' }}"
-      - name: Lưu vào repo
+      - name: Khoá deploy kho media
+        if: steps.count.outputs.left != '0'
+        env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
+      - name: Đẩy mp3 lên kho media
+        if: steps.count.outputs.left != '0'
+        run: node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/w: thêm giọng từ Kokoro (run ${{ github.run_id }})"
+      - name: Lưu chỉ mục vào repo
         if: steps.count.outputs.left != '0'
         run: |
+          rm -f ~/.ssh/m2
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/audio/w
+          git add web/audio/w/index.txt
           git diff --cached --quiet && exit 0
           git commit -qm "Giọng đọc từ vựng: thêm lô Kokoro Anh + Mỹ (còn ${{ steps.count.outputs.left }} từ trước lượt này)"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1

@@ -1,20 +1,22 @@
 // Giọng đọc TỪ ĐƠN (Anh bf_emma + Mỹ af_heart) bằng Kokoro-82M (Apache-2.0) – chỉ chạy trên CI (word-audio.yml), tiếp tục được.
 //   NODE_PATH=<thư mục có kokoro-js> node scripts/gen-word-audio.mjs [--limit N từ] [--count]
-// Kết quả: web/audio/w/<fnv(giọng|từ)>.mp3 (mono 40 kbps) → audio.lexkite.com/audio/w/… (Worker lexkite-audio, gốc GitHub Pages).
+// Kết quả: .media-out/audio/w/<fnv(giọng|từ)>.mp3 (mono 40 kbps, WORD_AUDIO_OUT đổi được) → scripts/media/push.mjs đẩy lên kho media (infra/media-repos.json)
+//   → audio.lexkite.com/audio/w/… (Worker lexkite-audio dò các kho). KHÔNG ghi mp3 vào repo chính.
 // Thứ tự: kho từ (NGSL trước = thông dụng trước), từ/cụm ≤ 3 chữ. App & add-on thử file này, lỗi/không mạng → giọng máy.
 // Không ghi chỉ mục vào web/js (giữ ngân sách dung lượng): web/audio/w/index.txt (danh sách từ đã có đủ 2 giọng) cho gen-newtab.
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
 import { loadAllPlus } from './lexicon/lib.mjs';
 const require = createRequire(process.env.NODE_PATH ? process.env.NODE_PATH.split(':')[0] + '/' : import.meta.url);
-const OUT = 'web/audio/w', TMP = (process.env.TMPDIR || '/tmp') + '/lk-word.wav', VOICES = ['bf_emma', 'af_heart'];
+const OUT = process.env.WORD_AUDIO_OUT || '.media-out/audio/w', IDX = 'web/audio/w/index.txt', TMP = (process.env.TMPDIR || '/tmp') + '/lk-word.wav', VOICES = ['bf_emma', 'af_heart'];
 const li = process.argv.indexOf('--limit'), limit = li > 0 ? +process.argv[li + 1] : 300;
 export const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
 fs.mkdirSync(OUT, { recursive: true });
-// mục mở rộng (x: 1): CHỈ khi đã định tuyến sang kho media ngoài (infra/media-repos.json) – repo chính ~0,95 GB, không ghi thêm 23k mp3 vào đây
+// mục mở rộng (x: 1): khi WORD_AUDIO_EXPAND=1 (word-audio.yml bật từ 24/10 – mp3 vào kho media m2, không vào repo chính)
 const words = [...new Set((await loadAllPlus()).filter(e => !e.x || process.env.WORD_AUDIO_EXPAND === '1').map(e => e.row[0].trim()).filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3))];
-const has = w => VOICES.every(v => fs.existsSync(`${OUT}/${fnv(v + '|' + w)}.mp3`));
+const HAVE = new Set((fs.existsSync(IDX) ? fs.readFileSync(IDX, 'utf8') : '').split('\n').filter(Boolean));
+const has = w => HAVE.has(w) || VOICES.every(v => fs.existsSync(`${OUT}/${fnv(v + '|' + w)}.mp3`));
 const todo = words.filter(w => !has(w));
-const writeIndex = () => { const ok = words.filter(has); fs.writeFileSync(`${OUT}/index.txt`, ok.join('\n') + '\n'); return ok.length; };
+const writeIndex = () => { const ok = words.filter(has); fs.writeFileSync(IDX, ok.join('\n') + '\n'); return ok.length; };
 console.log(`${words.length} từ · cần tạo ${todo.length} từ`);
 if (process.argv.includes('--count') || !todo.length || limit <= 0) { console.log(`✓ word-audio: ${writeIndex()} từ có đủ giọng Anh + Mỹ`); process.exit(0); }
 const { KokoroTTS } = require('kokoro-js');

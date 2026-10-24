@@ -1,9 +1,45 @@
 {
- "_doc": "Kho media ngoài Pages (docs/LEXICON.md §Lưu trữ 20k). Tệp nặng theo từ (âm thanh, ảnh) KHÔNG vào repo chính / Pages. Chọn kho: lọc kho state=open, rồi round-robin theo hash nội dung: repos[open][fnv(path) % n] – tệp đã đặt KHÔNG bao giờ dời (đường dẫn công khai có tiền tố kho). Kho chạm soft_mb × alert (70 %) → cảnh báo storage-watch; chạm soft_mb → state=full (chỉ đọc), thêm kho mới vào cuối.",
+ "_doc": "Kho media ngoài repo chính (docs/LEXICON.md §Lưu trữ 20k, docs/STORAGE.md). Tệp nặng (âm thanh, ảnh theo từ) KHÔNG vào repo chính / Pages. Chọn kho cho tệp MỚI: lọc kho state=open có kind phù hợp, rồi round-robin theo hash: open[fnv(path) % n] (scripts/lib/media-repos.mjs pickRepo) – tệp đã đặt KHÔNG bao giờ dời. Âm thanh phục vụ qua audio.lexkite.com/audio/<l|w>/<khoá>.mp3 (Worker lexkite-audio thử lần lượt mọi kho kind audio, rồi gốc cũ – URL không cần tiền tố kho). Kho chạm soft_mb × alert (70 %) → cảnh báo storage-watch + Quản trị › Lưu trữ; khi đó state=full (chỉ đọc), mở kho planned kế tiếp.",
  "soft_mb": 1000,
  "alert": 0.7,
  "repos": [
-  { "id": "m1", "repo": "lexkiteapp/lexkite-media", "cdn": "https://media.lexkite.com/", "state": "open" },
-  { "id": "m2", "repo": "lexkiteapp/lexkite-media-2", "cdn": "https://media.lexkite.com/m2/", "state": "planned", "_note": "tạo khi m1 ≥ 70 % (dự báo: âm thanh 12k từ mới đẩy m1 ≈ 0,72 GB) – cần thêm route Worker lexkite-media /m2/* + đăng ký infra/resources.json" }
- ]
+  {
+   "id": "m1",
+   "repo": "lexkiteapp/lexkite-media",
+   "pages": "https://lexkiteapp.github.io/lexkite-media/",
+   "cdn": "https://media.lexkite.com/",
+   "kinds": [
+    "img",
+    "library",
+    "cine"
+   ],
+   "state": "full",
+   "_note": "≥ 70 % theo dự báo; ảnh blog/thư viện vẫn ghi qua pipeline riêng (blog-images, library, vocab-img) – KHÔNG nhận âm thanh"
+  },
+  {
+   "id": "m2",
+   "repo": "lexkiteapp/lexkite-media-2",
+   "pages": "https://lexkiteapp.github.io/lexkite-media-2/",
+   "cdn": "https://audio.lexkite.com/",
+   "kinds": [
+    "audio"
+   ],
+   "state": "open",
+   "since": "2026-10-24",
+   "deploy_key_secret": "MEDIA2_DEPLOY_KEY",
+   "_note": "audio/l (bài nghe, 25.674 mp3) + audio/w (giọng từ) chuyển từ repo chính 24/10; giọng từ mở rộng (WORD_AUDIO_EXPAND) ghi vào đây"
+  },
+  {
+   "id": "m3",
+   "repo": "lexkiteapp/lexkite-media-3",
+   "pages": "https://lexkiteapp.github.io/lexkite-media-3/",
+   "cdn": "https://audio.lexkite.com/",
+   "kinds": [
+    "audio"
+   ],
+   "state": "planned",
+   "_note": "tạo khi m2 ≥ 70 % (docs/STORAGE.md §Mở kho mới): repo public + Pages legacy main/, deploy key → secret MEDIA3_DEPLOY_KEY, thêm vào ORIGINS Worker lexkite-audio, đăng ký infra/resources.json"
+  }
+ ],
+ "soft_files": 60000
 }

@@ -116,6 +116,12 @@ sha256sum out/restore/<file>                               # tự đối chiếu
 - **App Store (iOS)**: không thể trả về binary cũ. (1) Đang **phased release** → App Store Connect › Pause phased release (tối đa 30 ngày). (2) Build bản tốt với build number mới: `gh workflow run ios-testflight.yml --ref <tag-bản-tốt>` → chọn build ở phiên bản mới và nộp review, kèm **Request an Expedited Review** (App Store Connect › Contact Us) ghi rõ lỗi nghiêm trọng. (3) Cực chẩn: Remove from Sale tạm thời. TestFlight giữ build cũ để thử nội bộ.
 - Phần *nội dung* của app (từ vựng, đề, giải thích) tải từ lexkite.com → rollback Pages (§1) cũng đưa app cũ về nội dung cũ ngay, không cần qua cửa hàng.
 
+## 4b. Âm thanh (kho media lexkite-media-2, 24/10/2026)
+- Worker `lexkite-audio` dò `ORIGINS` (m2 → gốc cũ `lexkiteapp.github.io/audio`, bản Pages cũ đóng băng). Âm thanh lỗi → `curl -sI https://audio.lexkite.com/audio/l/<khoá>.mp3` xem `X-Origin`.
+- Quay lại Worker cũ: `git show <commit-trước>:workers/audio/index.js > workers/audio/index.js` rồi `wrangler deploy` (thư mục workers/audio, token `~/.config/lexkite/cf-token`) – gốc cũ vẫn đủ mp3 tới khi gỡ dự phòng (docs/STORAGE.md §Gỡ dự phòng).
+- mp3 còn nguyên trong lịch sử git repo chính (commit trước 24/10) → khôi phục cây: `git checkout <commit-trước> -- web/audio` (không khuyến nghị: size-guard đỏ).
+- KHÔNG deploy Pages repo chính khi còn cần gốc cũ (pages.yml đã bỏ bước deploy) – deploy mới xoá bản Pages cũ.
+
 ## 5. Kiểm tra sau deploy (smoke) & vì sao không tự rollback
 
 - `scripts/ops/smoke.mjs` (job `smoke` trong `prod-release.yml`): đợi Cloudflare Pages build xong đúng commit (check-run "Cloudflare Pages"; không thấy sau 6 phút thì đối chiếu `sw.js` live với repo; quá 25 phút → cảnh báo), rồi kiểm ~12 trang quan trọng (`/`, `/en/`, `/vi/`, `/app/`, blog, `/privacy`, sitemap, `sw.js`, `app.js`…) và 10 API (`/api/config`, `/api/hit`, `/api/sync` từ chối token giả = 401, `/api/notices`, `/api/league`, `/api/quota`, `/api/class`, `/api/lexai`, `/api/drive`, `/packs/ja.json`). 5xx / thiếu nội dung = lỗi.

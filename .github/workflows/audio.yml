@@ -1,5 +1,6 @@
 # Tạo giọng đọc Kokoro (AI giọng tự nhiên, mã nguồn mở Apache-2.0) cho câu còn thiếu – chạy trên máy chủ GitHub (miễn phí),
-# không tốn máy cá nhân. Mỗi đêm 400 câu → commit vào web/audio → tự đưa lên CDN âm thanh (pages.yml). Hết việc thì tự dừng sớm.
+# không tốn máy cá nhân. mp3 → kho media ngoài (infra/media-repos.json, scripts/media/push.mjs – KHÔNG vào repo chính), rồi mới commit chỉ mục
+# web/js/listen/audio-index.js (đẩy lỗi → không cập nhật chỉ mục → app không trỏ tới tệp chưa có). audio.lexkite.com dò các kho. Hết việc thì tự dừng sớm.
 name: Tạo giọng đọc Kokoro
 on:
   schedule:
@@ -37,11 +38,21 @@ jobs:
         if: steps.count.outputs.left != '0'
         run: |
           AUDIO_MIN=240 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs --limit "${{ github.event.inputs.limit || '1500' }}"
-      - name: Lưu vào repo
+      - name: Khoá deploy kho media
+        if: steps.count.outputs.left != '0'
+        env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
+      - name: Đẩy mp3 lên kho media
+        if: steps.count.outputs.left != '0'
+        run: node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/l: thêm giọng Kokoro (run ${{ github.run_id }})"
+      - name: Lưu chỉ mục vào repo
         if: steps.count.outputs.left != '0'
         run: |
+          rm -f ~/.ssh/m2
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/audio web/js/listen/audio-index.js
+          git add web/js/listen/audio-index.js
           git diff --cached --quiet && exit 0
           git commit -qm "Âm thanh: thêm giọng Kokoro (còn ${{ steps.count.outputs.left }} câu trước lượt này)"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1

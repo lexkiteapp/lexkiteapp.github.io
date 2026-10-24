@@ -61,7 +61,7 @@
 
   // Âm thanh: giọng Anh = mp3 Kokoro (bf_emma) trong kho audio.lexkite.com nếu có (khóa giống web/js/listen/kvoice.js), không thì giọng máy; giọng Mỹ = giọng máy en-US.
   const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
-  const AU = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
+  const AU = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/']; // CDN → Pages kho media m2 → gốc cũ (1 bản phát hành)
   let audioEl = null;
   const pickVoice = lang => speechSynthesis.getVoices().filter(x => x.lang.replace('_', '-') === lang).sort((a, b) => (/Natural|Online|Google/.test(b.name) ? 1 : 0) - (/Natural|Online|Google/.test(a.name) ? 1 : 0))[0];
   // Phát NGAY trong trình xử lý bấm (giữ "user gesture" của Chrome – không chờ voiceschanged/await trước khi speak/play).

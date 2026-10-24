@@ -56,7 +56,7 @@
       "key": "audio-worker",
       "name": "Cloudflare Worker lexkite-audio (audio.lexkite.com)",
       "kind": "cdn",
-      "purpose": "CDN âm thanh: đứng trước GitHub Pages, máy chủ gần người dùng (có VN), cache 1 năm; app tự lùi về GitHub nếu lỗi",
+      "purpose": "CDN âm thanh audio.lexkite.com/audio/<l|w>/<khoá>.mp3: đứng trước các kho media GitHub Pages (infra/media-repos.json kind audio: lexkite-media-2, rồi gốc cũ lexkiteapp.github.io/audio – dự phòng 1 bản phát hành), thử lần lượt tới khi có 200; máy chủ gần người dùng (có VN), cache 1 năm; app/SW tự lùi về Pages của kho nếu Worker lỗi",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-audio/production",
       "free": "100.000 lượt/ngày (lượt trúng cache trình duyệt không tính)",
       "upgrade": "Khi > 100k lượt/ngày: chuyển âm thanh sang R2 + tên miền tùy chỉnh (không qua Worker) hoặc Workers Paid",
@@ -68,13 +68,13 @@
     },
     {
       "key": "audio-origin",
-      "name": "GitHub Pages âm thanh (lexkiteapp.github.io/audio)",
+      "name": "GitHub Pages âm thanh CŨ (lexkiteapp.github.io/audio) – đóng băng",
       "kind": "storage",
-      "purpose": "Kho gốc file giọng đọc (audio.yml: câu bài nghe; word-audio.yml: từ đơn Anh+Mỹ, vài trăm từ/đêm) – nguồn của audio.lexkite.com",
+      "purpose": "Bản Pages cuối cùng của repo chính (trước 24/10/2026) còn phục vụ /audio/l + /audio/w làm dự phòng 1 bản phát hành; pages.yml chỉ kiểm (không deploy). Không ghi thêm – âm thanh mới ở lexkite-media-2. Gỡ: docs/STORAGE.md §Gỡ dự phòng",
       "console": "https://github.com/lexkiteapp/lexkiteapp.github.io",
       "free": "Trang ≤ 1 GB · ~100 GB băng thông/tháng (mềm) · file ≤ 100 MB",
       "upgrade": "Gần 1 GB → chuyển sang Cloudflare R2 (10 GB miễn phí, không tính phí tải)",
-      "status": "Miễn phí",
+      "status": "Miễn phí · đóng băng (dự phòng)",
       "match": [
         "lexkiteapp.github.io"
       ]
@@ -358,6 +358,32 @@
       "upgrade": "Cloudflare R2",
       "status": "Miễn phí",
       "match": []
+    },
+    {
+      "key": "media-2",
+      "name": "Kho media #2 lexkite-media-2 (GitHub Pages)",
+      "kind": "storage",
+      "purpose": "Kho gốc âm thanh (infra/media-repos.json m2): audio/l (câu bài nghe, audio.yml) + audio/w (giọng từ Anh+Mỹ, word-audio.yml, cả từ mở rộng WORD_AUDIO_EXPAND). CI ghi bằng deploy key (secret MEDIA2_DEPLOY_KEY, scripts/media/push.mjs, clone thưa không tải blob). Phục vụ qua audio.lexkite.com; dự phòng trực tiếp lexkiteapp.github.io/lexkite-media-2/. Theo dõi: storage-watch + Quản trị › Lưu trữ (cảnh báo 70 % của 1 GB)",
+      "console": "https://github.com/lexkiteapp/lexkite-media-2",
+      "free": "Repo ≤ 1 GB khuyến nghị · Pages ≤ 1 GB, ~100 GB băng thông/tháng (mềm)",
+      "upgrade": "≥ 70 % → state=full, mở lexkite-media-3 (planned) hoặc Cloudflare R2",
+      "status": "Miễn phí",
+      "match": [
+        "lexkite-media-2"
+      ]
+    },
+    {
+      "key": "media-3",
+      "name": "Kho media #3 lexkite-media-3 (dự kiến)",
+      "kind": "storage",
+      "purpose": "Chưa tạo – mở khi lexkite-media-2 ≥ 70 % (docs/STORAGE.md §Mở kho mới)",
+      "console": "https://github.com/lexkiteapp",
+      "free": "Repo ≤ 1 GB khuyến nghị",
+      "upgrade": "Cloudflare R2",
+      "status": "Dự kiến",
+      "match": [
+        "lexkite-media-3"
+      ]
     },
     {
       "key": "blog-media-r2",

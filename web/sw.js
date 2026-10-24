@@ -49,7 +49,10 @@ self.addEventListener('fetch', e => {
   }
   // Âm thanh trên CDN riêng (tên file theo nội dung, không bao giờ đổi): có sẵn thì phát ngay, nghe được cả khi offline
   if (e.request.method === 'GET' && /^(audio\.lexkite\.com|lexkiteapp\.github\.io)$/.test(url.hostname) && /\.mp3$/.test(url.pathname)) {
-    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(AUDIO).then(x => x.put(e.request, c).then(() => trimAudio(x))); } return r; })));
+    // Worker lỗi (mạng/5xx) → thử Pages kho media m2 rồi gốc cũ (dự phòng 1 bản phát hành, docs/STORAGE.md); lưu dưới URL gốc để lần sau trúng cache
+    const alt = url.hostname === 'audio.lexkite.com' ? ['https://lexkiteapp.github.io/lexkite-media-2', 'https://lexkiteapp.github.io'].map(o => o + url.pathname) : [];
+    const get = (i = -1) => fetch(i < 0 ? e.request : alt[i], i < 0 ? undefined : { mode: 'cors' }).then(r => (r.status >= 500 && i + 1 < alt.length ? get(i + 1) : r), err => (i + 1 < alt.length ? get(i + 1) : Promise.reject(err)));
+    e.respondWith(caches.match(e.request).then(hit => hit || get().then(r => { if (r.ok) { const c = r.clone(); caches.open(AUDIO).then(x => x.put(e.request, c).then(() => trimAudio(x))); } return r; })));
     return;
   }
   if (e.request.method === 'GET' && url.hostname === 'media.lexkite.com' && VIMG_RE.test(url.pathname)) {

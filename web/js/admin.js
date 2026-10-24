@@ -27,6 +27,7 @@
     'Backlink, PR & Thương hiệu': 'Backlinks, PR & Brand', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.': 'PR posts and profiles linking to lexkite.com, lookalike domains, social accounts, content copies – checked daily.',
     'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.': 'Per-feature quotas, provider breakers, blocks and the unlimited list.',
     'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.': 'Private Google Drive pool: capacity, replicas, file browser, ledger.',
+    'Lưu trữ': 'Storage', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.': 'Main repo and media repo size (MB, files), 20k-word forecast, alerts at 70%.',
     'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.': 'AI & mail provider key vault – encrypted, rotated, health-checked.',
     'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.': 'Services in use, accounts, free tiers and capacity.',
     'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.': 'Site banner, AI limits, monitoring and analytics sampling.',
@@ -205,7 +206,7 @@
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
     ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
-    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.']]],
+    ['Hệ thống', [['quota', '⚖️', 'Hạn mức', 'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.'], ['drive', '🗄️', 'Kho Drive', 'Kho Google Drive riêng: dung lượng, bản sao, duyệt file, sổ kho.', 'drvN'], ['keys', '🔑', 'Khóa API', 'Kho khóa nhà cung cấp AI & thư – mã hóa, xoay vòng, kiểm tra.'], ['services', '🧩', 'Dịch vụ & API', 'Dịch vụ đang dùng, tài khoản, gói miễn phí và dung lượng.'], ['storage', '💾', 'Lưu trữ', 'Dung lượng repo chính và kho media (MB, số tệp), dự báo kho 20k từ, cảnh báo ở 70 %.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
   const ITEM = {}; NAV.forEach(([g, items]) => items.forEach(([k, icon, label, desc, badge]) => { ITEM[k] = { k, icon, label, desc, badge, group: g }; }));
@@ -1337,6 +1338,10 @@
     async ads() { // 💰 Quảng cáo – js/admin-ads.js (tải lười) → op adsStats + config/configSet (docs/ADS.md)
       await lazy('AdminAds', 'js/admin-ads.js'); main.innerHTML = '';
       AdminAds.render(main, api, L, { esc, lang: () => LANG, toast, confirm: confirmDlg });
+    },
+    async storage() { // 💾 Lưu trữ – js/admin-storage.js (tải lười) đọc /data/storage-forecast.json (docs/STORAGE.md)
+      await lazy('AdminStorage', 'js/admin-storage.js'); main.innerHTML = '';
+      AdminStorage.render(main, L, { esc, num, lang: () => LANG });
     },
     async quota() { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
       await lazy('AdminQuota', 'js/admin-quota.js'); main.innerHTML = '';

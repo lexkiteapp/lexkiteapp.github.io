@@ -1,13 +1,17 @@
 #!/usr/bin/env node
 // Kiểm file giọng đọc mà app tham chiếu (web/js/listen/audio-index.js → LISTEN_AUDIO) có thật trên CDN.
-//   node scripts/audio-cdn-check.mjs --local                 → chỉ kiểm file có trong web/audio/l (nhanh, chạy trong npm test)
+//   node scripts/audio-cdn-check.mjs --media                 → kiểm mọi khóa (audio/l) + mọi từ trong web/audio/w/index.txt (audio/w, 2 giọng) có trong
+//                                                              cây git các kho media kind audio (infra/media-repos.json; clone nông không blob, vài MB)
 //   node scripts/audio-cdn-check.mjs [--base URL] [--sample N] [--concurrency C] [--retries R]
-//     --base mặc định https://audio.lexkite.com/audio/l/ ; gốc GitHub Pages: https://lexkiteapp.github.io/audio/l/
+//     --base mặc định https://audio.lexkite.com/audio/l/ ; gốc Pages kho m2: https://lexkiteapp.github.io/lexkite-media-2/audio/l/
 //     --sample N: kiểm N file ngẫu nhiên (mặc định: tất cả)
 // Thoát mã 1 nếu có file thiếu (sau khi thử lại --retries lần, cách nhau 30 s – chờ Pages lan truyền).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import os from 'node:os';
+import { execFileSync } from 'node:child_process';
+import { loadRepos, servingRepos } from './lib/media-repos.mjs';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -16,9 +20,19 @@ const src = fs.readFileSync(path.join(root, 'web/js/listen/audio-index.js'), 'ut
 const keys = (src.match(/new Set\("([^"]*)"/) || [, ''])[1].split(/\s+/).filter(Boolean);
 if (!keys.length) { console.error('audio-cdn-check: không đọc được LISTEN_AUDIO'); process.exit(1); }
 
-if (args.includes('--local')) {
-  const miss = keys.filter(k => !fs.existsSync(path.join(root, 'web/audio/l', k + '.mp3')));
-  console.log(`audio-cdn-check --local: ${keys.length} khóa, thiếu file ${miss.length}`);
+if (args.includes('--media')) {
+  const have = new Set();
+  for (const r of servingRepos(loadRepos(), 'audio')) {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'acc-'));
+    try {
+      execFileSync('git', ['clone', '-q', '--bare', '--depth', '1', '--filter=blob:none', `https://github.com/${r.repo}.git`, dir], { stdio: 'ignore' });
+      for (const ln of execFileSync('git', ['-C', dir, 'ls-tree', '-r', '--name-only', 'HEAD', 'audio'], { maxBuffer: 1 << 28 }).toString().split('\n')) if (ln) have.add(ln);
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+  }
+  const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
+  const words = fs.readFileSync(path.join(root, 'web/audio/w/index.txt'), 'utf8').split('\n').filter(Boolean);
+  const miss = [...keys.map(k => `audio/l/${k}.mp3`), ...words.flatMap(w => ['bf_emma', 'af_heart'].map(v => `audio/w/${fnv(v + '|' + w)}.mp3`))].filter(f => !have.has(f));
+  console.log(`audio-cdn-check --media: ${keys.length} khóa câu + ${words.length} từ · kho có ${have.size} tệp · thiếu ${miss.length}`);
   if (miss.length) { console.log(miss.slice(0, 20).join(' ')); process.exit(1); }
   process.exit(0);
 }

@@ -61,7 +61,6 @@ on:
       - 'news-auto'
       - 'video-e2e'
       - 'bg-v4'
-      - 'Deploy audio CDN to GitHub Pages'
       - 'Ảnh Google Play'
       - 'Backlink, PR & Thương hiệu'
       - 'Chụp ảnh giao diện'
@@ -89,6 +88,8 @@ on:
       - 'Journey E2E'
       - 'video-templates'
       - 'Đăng ảnh từ vựng từ artifact'
+      - 'Kiểm CDN âm thanh (kho media)'
+      - 'size-guard'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:

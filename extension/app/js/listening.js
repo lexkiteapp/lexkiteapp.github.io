@@ -49,7 +49,8 @@
   // ================= TRÌNH PHÁT =================
   // Hàng đợi: mỗi phần tử là 1 dòng thoại / lời dẫn / khoảng lặng; onLine(i) để tô sáng transcript
   // Giọng Kokoro tạo sẵn (js/listen/kvoice.js + audio-index.js): ưu tiên file mp3 chất lượng cao, thiếu file/lỗi mạng → giọng của máy
-  const AUDIO_BASE = 'https://lexkiteapp.github.io/'; // file âm thanh lớn → Cloudflare Pages (băng thông không giới hạn)
+  // mp3 ở kho media ngoài (infra/media-repos.json) qua audio.lexkite.com; UI.audioUrl tự lùi về Pages kho m2 rồi gốc cũ sau lỗi (audioFail)
+  const aUrl = k => window.audioUrl ? window.audioUrl(k) : 'https://audio.lexkite.com/audio/l/' + k + '.mp3';
   let audioDown = 0;
   const hqOn = () => state.settings.hqVoice !== false && window.KVoice && window.LISTEN_AUDIO && audioDown < 3;
   function Player(p, opts = {}) {
@@ -69,15 +70,15 @@
       if (l.say && opts.skipNarrator) { next(); return; }
       const key = hqKey(l);
       if (key) {
-        el = new Audio(AUDIO_BASE + 'audio/l/' + key + '.mp3'); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
+        el = new Audio(aUrl(key)); el.preservesPitch = true; el.playbackRate = l.say ? 1 : Math.min(1.3, Math.max(0.6, rate() / 0.95));
         const me = el; let ok = false;
         el.onplaying = () => { ok = true; audioDown = 0; };
         el.onended = () => { if (el === me) timer = setTimeout(next, l.say ? 600 : 280); };
-        el.onerror = () => { if (el !== me) return; el = null; if (!ok) audioDown++; ttsLine(); };
+        el.onerror = () => { if (el !== me) return; el = null; if (!ok) { audioDown++; window.audioFail && window.audioFail(); } ttsLine(); };
         let pr; try { pr = el.play(); } catch (e) { pr = Promise.reject(e); }
         if (pr && pr.catch) pr.catch(() => { if (el === me && !ok) { el = null; ttsLine(); } });
         // tải trước câu kế tiếp → không bị khựng giữa các câu
-        const nx = q.slice(pos + 1).find(x => x.t || x.say), nk = nx && hqKey(nx); if (nk) { const pre = new Audio(); pre.preload = 'auto'; pre.src = AUDIO_BASE + 'audio/l/' + nk + '.mp3'; }
+        const nx = q.slice(pos + 1).find(x => x.t || x.say), nk = nx && hqKey(nx); if (nk) { const pre = new Audio(); pre.preload = 'auto'; pre.src = aUrl(nk); }
         return;
       }
       ttsLine();
@@ -347,7 +348,7 @@
     // Giọng Kokoro của đúng nhân vật (như bài thi) – nghe chậm vẫn giữ cao độ; thiếu file → giọng máy
     const kv = window.KVoice ? KVoice.voices(p) : null; let dEl = null;
     const sayTTS = (l, slow) => { speechSynthesis.cancel(); const c = cast[l.s] || cast._narrator; UI.splitSentences(l.t).forEach((t, j, arr) => { const u = new SpeechSynthesisUtterance(t); u.lang = c.lang; if (c.voice) u.voice = c.voice; u.pitch = c.pitch; u.rate = slow ? 0.7 : (state.settings.listenRate || 0.95); if (j === arr.length - 1 && auto) u.onend = () => { if (lines[k] === l && !checked) autoT = setTimeout(() => say(l), 1800); }; speechSynthesis.speak(u); }); };
-    const say = (l, slow) => { if (dEl) { dEl.pause(); dEl = null; } const key = kv && hqOn() ? KVoice.lineKey(kv[l.s] || kv._narrator, l.t) : ''; if (key && LISTEN_AUDIO.has(key)) { speechSynthesis.cancel(); dEl = new Audio(AUDIO_BASE + 'audio/l/' + key + '.mp3'); dEl.preservesPitch = true; dEl.playbackRate = slow ? 0.7 : 1; dEl.onerror = () => { dEl = null; sayTTS(l, slow); }; dEl.play().catch(() => sayTTS(l, slow)); } else sayTTS(l, slow); };
+    const say = (l, slow) => { if (dEl) { dEl.pause(); dEl = null; } const key = kv && hqOn() ? KVoice.lineKey(kv[l.s] || kv._narrator, l.t) : ''; if (key && LISTEN_AUDIO.has(key)) { speechSynthesis.cancel(); dEl = new Audio(aUrl(key)); dEl.preservesPitch = true; dEl.playbackRate = slow ? 0.7 : 1; dEl.onerror = () => { dEl = null; sayTTS(l, slow); }; dEl.play().catch(() => sayTTS(l, slow)); } else sayTTS(l, slow); };
     let autoT = null, checked = false;
     App.cleanup = () => { speechSynthesis.cancel(); if (dEl) dEl.pause(); clearTimeout(autoT); document.onkeydown = null; };
     const toks = s => s.replace(/[’‘]/g, "'").split(/\s+/).filter(Boolean);

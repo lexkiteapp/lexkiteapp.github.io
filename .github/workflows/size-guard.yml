@@ -1,0 +1,31 @@
+# Cổng dung lượng repo chính (docs/STORAGE.md): cây HEAD ≤ 600 MB, mỗi commit thêm ≤ 20 MB nhị phân (ngoại lệ: "Size-Guard: allow" trong commit).
+# Media nặng → kho ngoài (infra/media-repos.json). Clone blobless + thưa: chỉ commit + cây (+ blob nhị phân mới) → nhanh dù lịch sử ~1 GB.
+name: size-guard
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: { group: 'size-guard-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts/test/size-guard.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Đo cây + commit mới
+        env:
+          BEFORE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -n "$BEFORE" ] && ! echo "$BEFORE" | grep -qE '^0+$' && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then R="$BEFORE..HEAD"; else R="HEAD~1..HEAD"; fi
+          node scripts/test/size-guard.mjs --range "$R"

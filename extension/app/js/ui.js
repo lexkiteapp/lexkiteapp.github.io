@@ -125,10 +125,12 @@
   // Giọng Kokoro tạo sẵn cho câu đọc đơn (câu hỏi giám khảo, TOEFL…): có file thì phát mp3, không thì giọng máy
   let hqEl = null;
   const stopHq = () => { if (hqEl) { hqEl.onended = hqEl.onerror = null; hqEl.pause(); hqEl = null; } };
-  // CDN âm thanh: audio.lexkite.com (Cloudflare Worker workers/audio, cache 1 năm, máy chủ gần người dùng) → dự phòng GitHub Pages
-  // (nguồn gốc). Đăng ký trong infra/resources.json. Lỗi 2 lần liên tiếp với CDN chính → tự chuyển dự phòng cho cả phiên.
+  // CDN âm thanh: audio.lexkite.com (Cloudflare Worker workers/audio, cache 1 năm, máy chủ gần người dùng, dò các kho media) → dự phòng
+  // Pages của kho media m2 (infra/media-repos.json) → gốc cũ lexkiteapp.github.io/audio (dự phòng 1 bản phát hành, docs/STORAGE.md).
+  // Đăng ký trong infra/resources.json. Mỗi 2 lỗi liên tiếp → chuyển sang gốc kế tiếp cho cả phiên.
   let cdnFail = 0;
-  g.audioUrl = k => (cdnFail >= 2 ? 'https://lexkiteapp.github.io/audio/l/' : 'https://audio.lexkite.com/audio/l/') + k + '.mp3';
+  const AUDIO_BASES = g.AUDIO_BASES = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/'];
+  g.audioUrl = k => AUDIO_BASES[Math.min(AUDIO_BASES.length - 1, cdnFail >> 1)] + k + '.mp3';
   g.audioFail = () => { cdnFail++; };
   g.audioHas = k => !g.LISTEN_AUDIO || g.LISTEN_AUDIO.has(k); // chỉ phát câu đã có giọng đọc (tránh 404)
   function tts(text, accent = 'en-GB', rate, opts = {}) {

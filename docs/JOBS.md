@@ -100,5 +100,3 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/vocab-img/publish.mjs` – đăng ảnh vimg | `dist/lexicon.json` | vocab-img |
 | `scripts/vocab-img/spot.mjs` – kiểm mẫu ảnh | `dist/lexicon.json` | vocab-img |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
-| **CÒN THIẾU** audio-media-routing | hàng âm thanh có từ mở rộng nhưng CHỈ chạy khi WORD_AUDIO_EXPAND=1, sau khi định tuyến mp3 sang kho media ngoài (infra/media-repos.json) – repo chính ~0,95 GB | — |
-| **CÒN THIẾU** admin-storage | Quản trị › Lưu trữ chưa vẽ infra/storage-forecast.json (hiện: storage-watch tóm tắt + ::warning ≥ 70 %) | — |
