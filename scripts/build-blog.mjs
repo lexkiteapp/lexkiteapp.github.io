@@ -6,7 +6,7 @@ import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEG
 import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
-import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
 import vm from 'node:vm';
@@ -280,7 +280,7 @@ ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}
 <meta property="og:image:alt" content="${esc(imgAlt || title)}">
 <meta name="twitter:card" content="summary_large_image">
 ${extraHead}${jsonld.map(ld).join('\n')}
-<style>${CSS}${VIDEOS.length ? BLOG_VIDEO_CSS : ''}</style>
+<style>${CSS}\n${TAP_CSS}${VIDEOS.length ? BLOG_VIDEO_CSS : ''}</style>
 </head>
 <body>
 <a class="skip" href="#nd">${t.skip}</a>

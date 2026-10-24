@@ -16,7 +16,7 @@ Mỗi bài đi qua bảy bước trước khi đăng:
 1. **Xác định nhu cầu tìm kiếm:** người học thật sự hỏi gì, và câu trả lời nào giúp họ tiến bộ.
 2. **Lập dàn ý:** trả lời thẳng vào câu hỏi, sau đó mới mở rộng.
 3. **Viết bản nháp:** 100% tự biên soạn; mọi câu ví dụ tiếng Anh do chúng tôi tự đặt.
-4. **Kiểm chứng thông tin:** cấu trúc đề, thang điểm và thời gian thi được đối chiếu với trang chính thức của đơn vị tổ chức ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Thông tin nào không chắc chắn, chúng tôi không đưa vào.
+4. **Kiểm chứng thông tin:** cấu trúc đề, thang điểm và thời gian thi được đối chiếu với trang chính thức của đơn vị tổ chức ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). Thông tin nào không chắc chắn, chúng tôi không đưa vào.
 5. **Soát chính tả tiếng Việt** bằng công cụ riêng.
 6. **Kiểm tra trùng lặp:** bài viết không được trùng với bài khác trên trang hay với nguồn bên ngoài.
 7. **Rà soát chất lượng trình bày:** tiêu đề, cấu trúc, ảnh minh họa có chú thích, liên kết hữu ích.

@@ -14,7 +14,7 @@ Les autodidactes qui veulent un plan clair, les personnes pressées qui disposen
 1. **Intention de recherche :** ce que les apprenants francophones demandent vraiment, et quelle réponse les aide à progresser.
 2. **Plan :** répondre d'abord directement à la question, puis approfondir.
 3. **Rédaction :** un texte 100 % original ; toutes les phrases d'exemple en anglais sont les nôtres.
-4. **Vérification des faits :** formats d'épreuve, barèmes et durées sont contrôlés auprès des organismes officiels ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). En cas de doute, nous ne l'écrivons pas.
+4. **Vérification des faits :** formats d'épreuve, barèmes et durées sont contrôlés auprès des organismes officiels ([IELTS](https://ielts.org), [ETS – TOEIC](https://www.ets.org/toeic.html), [ETS – TOEFL](https://www.ets.org/toefl.html)). En cas de doute, nous ne l'écrivons pas.
 5. **Contrôle des doublons :** aucune copie d'autres pages, y compris des nôtres.
 6. **Relecture qualité :** chaque article est noté selon une grille éditoriale sur 100 points et n'est publié qu'à partir de 90.
 

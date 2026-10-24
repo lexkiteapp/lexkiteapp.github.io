@@ -269,6 +269,11 @@ details summary { cursor: pointer; }
 /* Thẻ cao theo nội dung (không cắt chữ, không cuộn trong thẻ): mặt đang hiện nằm trong luồng, mặt kia phủ lên */
 .face.front, .flash.flipped .face.back { position: relative; min-height: 440px; overflow: visible; }
 .flash.flipped .face.front { position: absolute; inset: 0; }
+/* Mặt thẻ đang quay lưng: ẩn hẳn sau khi lật xong (nút ở mặt sau không đè/không nhận Tab, chạm khi mặt trước đang hiện – quality-sweep overlap #/review) */
+.flash:not(.flipped) .face.back, .flash.flipped .face.front { visibility: hidden; transition: visibility 0s .48s; }
+.flash:not(.flipped) .face.front, .flash.flipped .face.back { visibility: visible; transition: visibility 0s 0s; }
+/* Từ của ngày (trang chủ): liên kết chữ lớn đứng riêng → vùng chạm ≥ 44×44 (quality-sweep touch-target 57×33) */
+.wotd-w { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; }
 /* Thanh chấm điểm dính đáy màn hình, nằm SAU thẻ trong luồng → cuộn hết vẫn thấy trọn nội dung */
 .grade-bar { position: sticky; bottom: 0; z-index: 6; margin: 1rem -.75rem 0; padding: .65rem .75rem calc(.65rem + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--bg) 80%, transparent); }
 .grade-bar .grades { margin-top: 0; }

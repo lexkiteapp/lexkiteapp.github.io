@@ -65,6 +65,13 @@ ${FOOT_CSS}
 
 // ---------- CSS bổ sung cho trang SEO dựng từ dữ liệu app (chỉ dùng biến màu ở trên + token style.css) ----------
 // Sáng: nút cam đậm #CC3F1C (= --primary của app, chữ trắng đạt AA 4.9:1); tối giữ #FF8466 với chữ tối.
+// Vùng chạm ≥ 44px + thanh đầu một hàng trên điện thoại – dùng chung cho MỌI trang tĩnh có siteHeader/crumbs/footer (trang SEO + blog; quality-sweep touch-target)
+export const TAP_CSS = `.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;line-height:1.2;transition:filter .15s,transform .15s}.btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
+nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin:0 0 8px}.crumbs a{display:inline-flex;align-items:center;min-height:44px}.crumbs [aria-current]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.cats a,.tf a,.jump a{display:inline-flex;align-items:center;min-height:44px;padding-top:0;padding-bottom:0}
+.site-foot li a,.flangs a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}
+@media (max-width:640px){header.top .bar{flex-wrap:nowrap;gap:8px;padding:6px 16px}nav.main{flex-wrap:nowrap;gap:8px}nav.main>a:not(.btn){display:none}.logo span{font-size:19px}main{padding-top:4px}}`;
 export const SEO_CSS = `@media (prefers-color-scheme:light){:root{--primary:#CC3F1C}}
 :root{--srch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z'/%3E%3C/svg%3E")}
 :root{--spk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z'/%3E%3C/svg%3E")}
@@ -131,12 +138,7 @@ mark{background:var(--primary-soft);color:inherit;border-radius:4px;padding:0 2p
 .tf a b{font-size:12px;color:var(--muted)}.tf a:hover,.jump a:hover{border-color:var(--tc)}
 .tf a[aria-pressed=true]{background:var(--text);border-color:var(--text);color:var(--surface)}.tf a[aria-pressed=true] b{color:inherit;opacity:.8}
 /* ux – shared list/search components for every static SEO page (docs/UX-PUBLIC.md): ≥44px targets, one-row phone header, sticky find bar, empty state */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;line-height:1.2;transition:filter .15s,transform .15s}.btn:hover{filter:brightness(1.06)}.btn:active{transform:translateY(1px)}
-nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}
-.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin:0 0 8px}.crumbs a{display:inline-flex;align-items:center;min-height:44px}.crumbs [aria-current]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
-.cats a,.tf a,.jump a{display:inline-flex;align-items:center;min-height:44px;padding-top:0;padding-bottom:0}
-.site-foot li a,.flangs a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}
-@media (max-width:640px){header.top .bar{flex-wrap:nowrap;gap:8px;padding:6px 16px}nav.main{flex-wrap:nowrap;gap:8px}nav.main>a:not(.btn){display:none}.logo span{font-size:19px}main{padding-top:4px}}
+${TAP_CSS}
 .find{position:sticky;top:0;z-index:15;margin:12px -16px 4px;padding:8px 16px 2px;background:var(--bg);box-shadow:0 1px 0 var(--line)}
 .find .filter{margin:0}.find .tf{padding-bottom:6px}
 .filter .fi{position:relative;display:block;max-width:560px}.filter .fi::before{content:"";position:absolute;left:16px;top:50%;width:18px;height:18px;margin-top:-9px;background:var(--muted);-webkit-mask:var(--srch) center/contain no-repeat;mask:var(--srch) center/contain no-repeat;pointer-events:none}

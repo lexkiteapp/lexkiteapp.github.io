@@ -618,7 +618,7 @@
         ${pic(w)}
         <div>
           <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
-          <div class="row"><a href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
+          <div class="row"><a class="wotd-w" href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
           <div class="vi">${esc(App.meanOf(w))}</div>
           <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
         </div>
@@ -1354,9 +1354,9 @@
     if (heroMatch) {
       const head = hero.querySelector('.w-head');
       if (head && !head.querySelector('.w-nav')) {
-        head.innerHTML = `<a class="brand" href="#/welcome" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></a>
+        head.innerHTML = `<a class="brand" href="#/welcome" style="padding:0"><img class="logo" src="icons/icon.svg" width="36" height="36" alt=""><span class="wordmark">lex<b>kite</b></span></a>
           <nav class="w-nav" aria-label="Lexkite"><button type="button" data-wjump="wFeats">${t('Tính năng')}</button><a href="#/tests">${t('Thi thử')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}" data-blog hidden>${t('Blog')}</a></nav>
-          <span class="row w-tools">${App.langPicker()}<button type="button" class="btn ghost sm" id="loginH">${t('Đăng nhập')}</button><a class="btn primary sm" href="#/welcome/setup">${t('Bắt đầu')}</a></span>`;
+          <span class="row w-tools">${App.langPicker()}<button type="button" class="btn ghost sm" id="loginH">${t('Đăng nhập')}</button><a class="btn primary sm" href="#/welcome/setup">${t('Bắt đầu học')}</a></span>`;
       }
       const cta = hero.querySelector('.w-cta');
       if (cta && !hero.querySelector('a[href="#/placement"]')) {
@@ -1389,7 +1389,7 @@
         hero.insertAdjacentHTML('beforeend', `
           <div class="grid g3 w-feats" id="wFeats" style="margin-top:3rem;scroll-margin-top:5rem">${feats.map(([em, ti, d]) => `<div class="card"><div style="font-size:2rem">${em}</div><h3 style="margin:.5rem 0 .3rem">${ti}</h3><div class="muted small">${d}</div></div>`).join('')}</div>
           <footer class="w-foot">
-            <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
+            <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" width="36" height="36" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
             <div><b class="small">${t('Sản phẩm')}</b><a href="#/welcome/setup">${t('Ứng dụng web')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="#/tests">${t('Thi thử')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}">${t('Blog học tiếng Anh')}</a></div>
             <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a href="#/contact">${t('Liên hệ')}</a></div>
             <p class="tiny muted" style="grid-column:1/-1;margin:0">© ${new Date().getFullYear()} Lexkite · ${t('Lexkite™ là nhãn hiệu của {owner}.', { owner: 'MODIAN LUXURY JEWELRY LLC' })}</p>
@@ -1398,9 +1398,9 @@
     } else {
       view.innerHTML = `
         <div style="max-width:980px;margin:0 auto">
-          <header class="w-head"><a class="brand" href="#/welcome" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></a>
+          <header class="w-head"><a class="brand" href="#/welcome" style="padding:0"><img class="logo" src="icons/icon.svg" width="36" height="36" alt=""><span class="wordmark">lex<b>kite</b></span></a>
             <nav class="w-nav" aria-label="Lexkite"><button type="button" data-wjump="wFeats">${t('Tính năng')}</button><a href="#/tests">${t('Thi thử')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}" data-blog hidden>${t('Blog')}</a></nav>
-            <span class="row w-tools">${App.langPicker()}<button type="button" class="btn ghost sm" id="loginH">${t('Đăng nhập')}</button><a class="btn primary sm" href="#/welcome/setup">${t('Bắt đầu')}</a></span></header>
+            <span class="row w-tools">${App.langPicker()}<button type="button" class="btn ghost sm" id="loginH">${t('Đăng nhập')}</button><a class="btn primary sm" href="#/welcome/setup">${t('Bắt đầu học')}</a></span></header>
           <div class="grid g2" style="align-items:center;gap:2.5rem">
             <div>
               <span class="chip lv">✨ ${t('Nền tảng học từ vựng IELTS, TOEIC & tiếng Anh thực chiến')}</span>
@@ -1432,7 +1432,7 @@
           </div>
           <div class="grid g3 w-feats" id="wFeats" style="margin-top:3rem;scroll-margin-top:5rem">${feats.map(([em, ti, d]) => `<div class="card"><div style="font-size:2rem">${em}</div><h3 style="margin:.5rem 0 .3rem">${ti}</h3><div class="muted small">${d}</div></div>`).join('')}</div>
           <footer class="w-foot">
-            <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
+            <div><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" width="36" height="36" alt=""><span class="wordmark">lex<b>kite</b></span></span><p class="small muted">${t('Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.')}</p><p class="tiny muted">${t('IELTS, TOEIC, TOEFL là nhãn hiệu của các tổ chức sở hữu. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.')}</p></div>
             <div><b class="small">${t('Sản phẩm')}</b><a href="#/welcome/setup">${t('Ứng dụng web')}</a><a href="#/settings">${t('Add-on Chrome')}</a><a href="#/tests">${t('Thi thử')}</a><a href="${App.blogUrl ? App.blogUrl() : '/vi/blog/'}">${t('Blog học tiếng Anh')}</a></div>
             <div><b class="small">${t('Pháp lý & hỗ trợ')}</b><a href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a href="#/contact">${t('Liên hệ')}</a></div>
             <p class="tiny muted" style="grid-column:1/-1;margin:0">© ${new Date().getFullYear()} Lexkite · ${t('Lexkite™ là nhãn hiệu của {owner}.', { owner: 'MODIAN LUXURY JEWELRY LLC' })}</p>
@@ -1475,7 +1475,7 @@
     const draw = () => {
       const tLabel = pick.exam === 'toeic' ? t('Điểm TOEIC mục tiêu?') : pick.exam === 'toefl' ? t('Band TOEFL mục tiêu?') : pick.exam === 'general' ? t('Trình độ bạn muốn đạt?') : t('Band mục tiêu của bạn?');
       view.innerHTML = `<div style="max-width:760px;margin:0 auto" class="stack">
-        <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
+        <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" width="36" height="36" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
         ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
         ${window.Sync && Sync.gBtn && !state.user && !pick.noAcct ? `<div class="card row between" id="haveAcct"><div><b>${t('Đã có tài khoản?')}</b><div class="small muted">${t('Đăng nhập để khôi phục dữ liệu học của bạn.')}</div></div><div class="row">${Sync.gBtn('setupIn')}<button type="button" class="btn" id="noAcct">${t('Học không cần tài khoản')}</button></div></div>` : ''}
         ${window.Tracks ? Tracks.setupCards(pick) : ''}
@@ -1506,7 +1506,7 @@
   async function finishOnboarding(celebrate, to = '#/home') {
     state.settings.onboarded = true;
     await saveSettings();
-    try { localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ }
+    if (!Store.sandbox) try { localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // lk.onb = gợi ý về dữ liệu THẬT (khung chào, trang giới thiệu tự vào app) – phiên ?sandbox=1 không được ghi
     document.body.classList.remove('bare');
     location.hash = to;
     if (celebrate === true) { Sfx.win(); confetti(140); toast('🎉 ' + t('Bộ thẻ đã sẵn sàng – bắt đầu bài ôn đầu tiên nhé!'), 3500); }
@@ -1612,7 +1612,7 @@
     await Promise.all([App.ready, I18N.whenReady && I18N.whenReady()]); // từ điển ngôn ngữ nạp xong rồi mới vẽ (không lẫn tiếng Việt)
     updateChrome(); // vẽ lại thanh bên/đầu trang: lần vẽ trong load() có thể diễn ra trước khi từ điển nạp xong
     const fresh = !state.settings.onboarded && !Object.keys(state.cards).length && !state.game.xp;
-    try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // khung dựng sẵn trong index.html chỉ hiện cho người mới
+    if (!Store.sandbox) try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // sandbox: dữ liệu thử tách riêng → không ghi gợi ý (lk.onb sai làm trang giới thiệu chuyển vào app, bỏ khung chào → nhảy bố cục CLS 0,7 trên máy tính) // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
     if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; addEventListener('pointerdown', App.prefetchAll, { once: true }); return; }
     // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc đang ở trang thường
