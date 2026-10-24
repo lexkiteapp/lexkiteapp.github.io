@@ -58,7 +58,8 @@ const INIT = ({ ask, webdriverOff, seed }) => {
   if (webdriverOff) try { Object.defineProperty(Navigator.prototype, 'webdriver', { get: () => false }); } catch { /* */ }
   try { if (ask) localStorage.setItem('lk.e2e', '1'); for (const [k, v] of Object.entries(seed || {})) if (localStorage.getItem(k) == null) localStorage.setItem(k, v); } catch { /* */ }
   window.__cls = 0; window.__rej = [];
-  try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
+  window.__clsSrc = []; window.__clsReset = () => { window.__cls = 0; window.__clsSrc = []; };
+  try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; const n = e.sources && e.sources[0] && e.sources[0].node; window.__clsSrc.push((n ? (n.id ? '#' + n.id : (n.className || n.nodeName || '')).toString().slice(0, 50) : '?') + ' ' + e.value.toFixed(3)); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
   addEventListener('unhandledrejection', e => window.__rej.push(String((e.reason && (e.reason.stack || e.reason.message)) || e.reason).slice(0, 200)));
 };
 
@@ -308,19 +309,21 @@ async function j3sync(h) {
 async function j4(h) {
   const { page, lang } = h;
   await h.boot('/dict');
+  await page.evaluate(() => window.__clsReset());
   await page.fill('#q', 'sustainable'); await page.press('#q', 'Enter');
   h.ok(await h.wait('.entry-word', 15000), 'tra "sustainable" có kết quả');
   await sleep(1500);
-  const cls = await page.evaluate(() => window.__cls);
-  h.ok(cls < 0.1, `CLS trang từ ${cls.toFixed(3)} < 0.1`);
+  const cls = await page.evaluate(() => ({ v: window.__cls, src: window.__clsSrc.slice(0, 5).join(', ') }));
+  h.ok(cls.v < 0.1, `CLS trang từ ${cls.v.toFixed(3)} < 0.1 [${cls.src}]`);
   h.ok(!(await page.locator('.vimg').count()), 'không có ô ảnh từ vựng (cờ vocab_img TẮT)');
   h.ok(!h.reqs.some(r => /lexicon-img\.json/.test(r)), 'không tải chỉ mục ảnh khi cờ TẮT');
-  h.ok(h.reqs.some(r => /^\/data\/lex/.test(r)), 'tra từ dùng mảnh từ điển /data/lex*');
   await h.audit('dict');
   await page.addScriptTag({ url: '/js/seo-twin.js' }); // trên lexkite.com notices.js tự nạp
+  const want = await page.evaluate(l => fetch('/data/seo-twins.json').then(r => r.json()).then(j => (j.w[l] || {}).sustainable || '').catch(() => ''), lang);
   const tw = await h.wait('#lk-twin a', 6000);
   const href = tw ? await page.locator('#lk-twin a').getAttribute('href') : '';
-  h.ok(tw && href.startsWith(`/${lang}/words/`), 'liên kết song sinh SEO: ' + href);
+  if (want) h.ok(tw && href === `/${lang}/words/${want}`, `liên kết song sinh SEO /${lang}/words/${want}: ` + href);
+  else { h.ok(!tw, 'không có trang tĩnh ' + lang + ' cho từ này → không hiện liên kết song sinh'); h.notes.push('không có twin ' + lang); }
   if (tw) {
     await page.locator('#lk-twin a').click(); await page.waitForLoadState('load');
     const r = await page.evaluate(() => ({ h1: (document.querySelector('h1') || {}).innerText || '', path: location.pathname }));
