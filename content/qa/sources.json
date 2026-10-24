@@ -316,6 +316,7 @@
   "content/protection": "dấu bản quyền",
   "content/video": "kịch bản video – cổng riêng docs/VIDEO.md (duyệt mẫu trước khi chạy hàng loạt)",
   "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
-  "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs"
+  "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
+  "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học"
  }
 }
