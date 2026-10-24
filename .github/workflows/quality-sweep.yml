@@ -134,7 +134,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Chi phí add-on trên trang nặng (dict-perf mục 6: 3.000 đoạn + 12 khung)
+      - name: Chi phí add-on trên trang nặng (dict-perf mục 6, 3.000 đoạn + 12 khung)
         continue-on-error: true
         run: |
           npm ci --no-audit --no-fund
