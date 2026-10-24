@@ -267,7 +267,8 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
         </button>`
       + `</div><h3 class="set-h">${t('Tìm hiểu thêm')}</h3><div class="set-list">`
       + row('#/method', '🧪', t('Cách Lexkite giúp bạn nhớ lâu'))
-      + (blogOn ? row(App.blogUrl(), '📰', t('Blog học tiếng Anh'), t('Mẹo thi, từ vựng theo chủ đề, phương pháp học')) : '')
+      + row(App.blogHref(blogOn), '📰', t('Blog học tiếng Anh'), t('Mẹo thi, từ vựng theo chủ đề, phương pháp học'), !sameSite) /* ngôn ngữ chưa có blog → /en/blog/ */
+      + row(App.aboutUrl(), 'ℹ️', t('Trang giới thiệu'), '', !sameSite)
       + row('#/resources', '🌐', t('Tài nguyên miễn phí'))
       + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
@@ -279,6 +280,8 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
   const sameSite = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname);
   const BLOG = 'https://lexkite.com/' + I18N.lang() + '/blog/';
   App.blogUrl = () => (sameSite ? '/' + I18N.lang() + '/blog/' : BLOG);
+  App.blogHref = on => (sameSite ? '' : 'https://lexkite.com') + '/' + (on ? I18N.lang() : 'en') + '/blog/'; // blog của ngôn ngữ giao diện, chưa có thì tiếng Anh
+  App.aboutUrl = () => (sameSite ? '' : 'https://lexkite.com') + (I18N.lang() === 'vi' ? '/' : '/' + I18N.lang() + '/') + '?home=1'; // trang giới thiệu (vi ở "/"); ?home=1 = không tự chuyển vào app
   App.blogLive = async () => {
     try { const c = JSON.parse(localStorage.getItem('vb.blog.' + I18N.lang()) || 'null'); if (c && Date.now() - c.at < (c.on ? 864e5 : 3 * 3600e3)) return c.on; /* chưa có bài → kiểm tra lại sau 3 giờ */ } catch (e) { /* bỏ qua */ }
     let on = false;
@@ -290,7 +293,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
   // App iOS/Android & add-on: mở blog bằng trình duyệt (blog cần mạng); web: mở cùng tab
   document.addEventListener('click', e => {
     const a = e.target.closest && e.target.closest('a[data-blog]'); if (!a || sameSite) return;
-    e.preventDefault(); window.open(BLOG, '_blank', 'noopener');
+    e.preventDefault(); window.open(a.href, '_blank', 'noopener');
   });
   // Chân thanh bên (index.html .side-foot): link trang tĩnh theo ngôn ngữ giao diện lúc bấm; add-on/app mở lexkite.com ở tab mới
   document.addEventListener('click', e => {
@@ -298,7 +301,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     const k = a.dataset.l, vi = I18N.lang() === 'vi', u = k === 'privacy' || k === 'terms' ? App.legalUrl(k) : (sameSite ? '' : 'https://lexkite.com') + (k === 'about' ? (vi ? '/' : '/' + I18N.lang() + '/') + '?home=1' : k === 'vocab' ? (vi ? '/tu-vung/' : '/en/vocabulary/') : (vi ? '/samples/' : '/en/samples/')); // about: trang giới thiệu đúng ngôn ngữ, ?home=1 = không tự quay lại app
     if (sameSite) { a.href = u; return; } e.preventDefault(); window.open(u, '_blank', 'noopener');
   });
-  App.blogLive().then(on => { if (on) document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; a.href = App.blogUrl(); }); });
+  App.blogLive().then(on => document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; a.href = App.blogHref(on); }));
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------
   const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking', call: 'speaking', fix: 'writing' };
