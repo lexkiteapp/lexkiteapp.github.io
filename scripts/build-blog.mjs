@@ -309,7 +309,7 @@ LIVE = new Set(posts.map(postUrl));
 const TAGN = new Map(); for (const p of posts) for (const g of p.tags || []) TAGN.set(`${p.lang}/${g}`, (TAGN.get(`${p.lang}/${g}`) || 0) + 1); // thẻ < 2 bài → không có trang thẻ
 const byKey = new Map(); for (const p of posts) (byKey.get(p.translationKey || p.slug) || byKey.set(p.translationKey || p.slug, []).get(p.translationKey || p.slug)).push(p);
 // x-default: bản tiếng Anh (khách quốc tế) nếu có, không thì ngôn ngữ chính
-const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (g.length < 2) return []; const a = g.map(x => ({ lang: x.lang, url: postUrl(x) })); const d = g.find(x => x.lang === 'en') || g.find(x => x.lang === DEF); return d ? [...a, { lang: 'x-default', url: postUrl(d) }] : a; };
+const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (g.length < 2) return []; const a = g.map(x => ({ lang: x.lang, url: postUrl(x) })); const d = g.find(x => x.lang === 'en') || g.find(x => x.lang === DEF) || g[0]; /* luôn có x-default (cổng seo-pages) */ return d ? [...a, { lang: 'x-default', url: postUrl(d) }] : a; };
 
 // Bài viết
 for (const p of posts) {
@@ -373,7 +373,7 @@ for (const lang of langs) {
 ${items.length ? `<div class="grid">${items.map((p, i) => card(p, 'h2', n === 1 && i < 2)).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
 ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}trang/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
-      write(u, layout({ lang, title: `${title} | Lexkite`, desc: g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
+      write(u, layout({ lang, title: `${title} | Lexkite`, desc: n > 1 ? `${g.desc} (${t.page} ${n})` : g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
       if (!g.noindex && items.length) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
     }
   }

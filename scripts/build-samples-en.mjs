@@ -35,6 +35,7 @@ const related = (items, card) => items.length ? `<section class="grp" aria-label
 const group = (id, title, sub, cards) => `<section class="grp" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
 const short = (s, n) => s.length > n ? s.slice(0, n - 3).replace(/\s+\S*$/, '') + '…' : s;
 const APP = '/app/?hl=en#';
+const SEEN = new Set(), uniqT = (a, b) => { const v = SEEN.has(a) ? b : a; SEEN.add(v); return v; }; // tiêu đề/mô tả không trùng (scripts/test/seo-pages.mjs)
 
 // ---- Writing Task 2 ---- (giao diện bài mẫu: scripts/lib/samples-ui.mjs – nhãn vai trò đoạn/câu bằng tiếng Anh, không có nghĩa tiếng Việt)
 {
@@ -45,7 +46,7 @@ const APP = '/app/?hl=en#';
   done.forEach(([p, m], di) => {
     const gl = [...m.text.matchAll(/\[\[([^|\]]*)\|/g)].map(x => x[1]);
     const paras = parseDoc(m.text, 'en'), st = docStats(m.text), prev = done[di - 1], next = done[di + 1];
-    out(`en/samples/${p.id}`, `samples/${p.id}`, page(`IELTS Writing Task 2 Band ${m.band} Sample: ${short(p.text, 70)}`, `Band ${m.band} IELTS Writing Task 2 model answer (${p.type}, ${m.words} words) with ${gl.length} highlighted high-scoring phrases and linking words.`, `en/samples/${p.id}`, `samples/${p.id}`,
+    out(`en/samples/${p.id}`, `samples/${p.id}`, page(`IELTS Writing Task 2 Band ${m.band} Sample: ${short(p.text, 70)}`, uniqT(`Band ${m.band} IELTS Writing Task 2 model answer (${p.type}, ${m.words} words) with ${gl.length} highlighted high-scoring phrases and linking words.`, `Band ${m.band} IELTS Writing Task 2 model answer (${p.type}, ${m.words} words): ${short(p.text, 90)}`), `en/samples/${p.id}`, `samples/${p.id}`,
       `<article class="page smp smp-doc ${typeCls(p.type)}">${hero2({ kicker: ['IELTS Writing Task 2', `Question type: ${p.type}`], h1: `IELTS Writing Task 2 – Band ${esc(m.band)} Sample`,
         statsHtml: stats([[m.band, 'Band', 'band'], [m.words, U.words], [paras.length, U.paras], [st.phrases, U.phrases], [st.links, U.links], [mins(m.words), U.minL]]) })}
 ${promptBox(U.prompt, `<p>${esc(p.text)}</p>`)}
@@ -89,7 +90,7 @@ ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.m
   for (const [id, b, i] of made) {
     const topic = (b.topic || '').replace(/-/g, ' '), prev = made[i - 1], next = made[i + 1];
     const nV = qs(b).reduce((a, q) => a + ((S[q] && S[q].vocab) || []).length, 0), nW = qs(b).reduce((a, q) => a + ((S[q] && S[q].a) || '').split(/\s+/).length, 0);
-    out(`en/speaking/${id}`, `speaking/${viSlug(b.title)}`, page(`IELTS Speaking: ${b.p2.q.replace(/\.$/, '')} – Part 1, 2, 3 Sample Answers`, `IELTS Speaking questions on ${topic} (Parts 1–3) with band 8 sample answers. Cue card: ${b.p2.q}`, `en/speaking/${id}`, `speaking/${viSlug(b.title)}`,
+    out(`en/speaking/${id}`, `speaking/${viSlug(b.title)}`, page(uniqT(`IELTS Speaking: ${b.p2.q.replace(/\.$/, '')} – Part 1, 2, 3 Sample Answers`, `IELTS Speaking (${topic}): ${b.p2.q.replace(/\.$/, '')} – Sample Answers`), uniqT(`IELTS Speaking questions on ${topic} (Parts 1–3) with band 8 sample answers. Cue card: ${b.p2.q}`, `Band 8 IELTS Speaking sample answers (${topic}, Parts 1–3). Part 1: ${(b.p1 && b.p1[0] && (b.p1[0].q || b.p1[0])) || ''} Cue card: ${b.p2.q}`), `en/speaking/${id}`, `speaking/${viSlug(b.title)}`,
       `<article class="page smp smp-doc narrow ${topicCls(b.topic)}">${hero2({ kicker: ['IELTS Speaking', ...(topic ? [topic] : [])], h1: `IELTS Speaking – ${esc(name(b))}`,
         statsHtml: stats([[qs(b).length, U.questions], [nV, U.phrases], [mins(nW), U.minL]]) })}
 <nav class="jump" aria-label="${U.partsL}"><a href="#part-1">Part 1</a><a href="#part-2">Part 2 – Cue card</a><a href="#part-3">Part 3</a></nav>

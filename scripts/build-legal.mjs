@@ -24,19 +24,21 @@ async function gtx(line, tl) {
 }
 const keep = s => /^<\/?table>$/.test(s.trim()); // dòng chỉ có cấu trúc, không cần dịch
 
+const OK = {}; // name → ngôn ngữ đã dịch đủ (không nháp): hreflang chỉ liệt kê các bản này (docs/SEO-ARCH.md – không trỏ hreflang tới trang noindex)
 const page = (lang, name, body, translated, draft) => {
   body = body.replace(/href="\/#\//g, 'href="/app/#/'); // liên kết vào app (form liên hệ…) – app học ở /app/
   const h1 = (body.match(/<h1>(.*?)<\/h1>/) || [, 'Lexkite'])[1].replace(/<[^>]+>/g, '');
-  const alt = Object.keys(LANGS).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/${name}">`).join('\n  ');
+  const alt = draft ? '' : Object.keys(LANGS).filter(l => !OK[name] || OK[name].has(l)).map(l => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/${name}">`).join('\n  ');
   return `<!doctype html>
 <html lang="${draft ? 'en' : lang}"${lang === 'ar' && !draft ? ' dir="rtl"' : ''}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${h1} – Lexkite</title>${draft ? '\n  <meta name="robots" content="noindex">' : ''}
+  <title>${h1} – Lexkite</title>
+  <meta name="description" content="${((body.match(/<p[^>]*>([\s\S]*?)<\/p>/) || [, h1])[1]).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').replace(/"/g, '&quot;').trim().slice(0, 155)}">${draft ? '\n  <meta name="robots" content="noindex">' : ''}
   <link rel="canonical" href="${SITE}/${lang}/${name}">
   ${alt}
-  <link rel="alternate" hreflang="x-default" href="${SITE}/${name}">
+  ${draft ? '' : `<link rel="alternate" hreflang="x-default" href="${SITE}/en/${name}">`}
   <meta name="theme-color" content="#0F3D3E">
   <link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
@@ -55,7 +57,7 @@ ${siteFooter({ lang: draft ? 'en' : lang, text: SEO_L[lang === 'vi' && !draft ? 
 };
 
 const cachePath = l => new URL(`content/legal/cache/${l}.json`, R);
-let missing = 0, fails = 0, blocked = false;
+let missing = 0, fails = 0, blocked = false; const PENDING = []; // ghi sau khi biết đủ bản nào là nháp
 for (const lang of Object.keys(LANGS)) {
   const cache = fs.existsSync(cachePath(lang)) ? JSON.parse(fs.readFileSync(cachePath(lang), 'utf8')) : {};
   const used = {};
@@ -74,10 +76,11 @@ for (const lang of Object.keys(LANGS)) {
       const out = []; for (const l of lines) out.push(l.trim() ? await tr(l) : l);
       body = out.join('\n'); note = await tr(NOTE);
     }
-    fs.writeFileSync(new URL(`web/${lang}/${name}.html`, R), page(lang, name, body, missing > before ? '' : note, missing > before)); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
+    PENDING.push([lang, name, body, missing > before ? '' : note, missing > before]); if (!(missing > before)) (OK[name] ||= new Set()).add(lang); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
   }
   if (!['en', 'vi'].includes(lang)) fs.writeFileSync(cachePath(lang), JSON.stringify(used, null, 1)); // chỉ giữ dòng còn dùng
 }
+for (const [lang, name, body, note, draft] of PENDING) fs.writeFileSync(new URL(`web/${lang}/${name}.html`, R), page(lang, name, body, note, draft)); // còn dòng chưa dịch → bản nháp tiếng Anh, chặn lập chỉ mục
 // Trang gốc /privacy, /terms: bản tiếng Anh + chuyển sang ngôn ngữ ưa thích (lựa chọn trong app → trình duyệt)
 for (const name of PAGES) {
   const pick = `<script>(function(){try{var S=${JSON.stringify(Object.keys(LANGS))},s=localStorage.getItem('vb.uiLang'),l=s&&S.indexOf(s)>=0?s:null;if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var b=String(n[i]||'').toLowerCase().split('-')[0];if(S.indexOf(b)>=0){l=b;break}}}if(l&&l!=='en')location.replace('/'+l+'/${name}')}catch(e){}})();</script>`;
