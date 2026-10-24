@@ -16,3 +16,9 @@ Mức độ: critical = lỗi trang/promise/5xx/axe critical · high = console, 
 **Hermetic / 0 D1:** `dist` phục vụ bằng `scripts/quality/serve.mjs`; `/api/*` (mọi origin) trả `{}`; request ra ngoài trả rỗng; Lighthouse chạy với `lexkite.com` trỏ về 127.0.0.1. Lỗi do `{}` giả (app mong dữ liệu khác) có thể lên như lỗi script – kiểm tra trước khi sửa.
 
 **Tắt:** `paused: true` trong `infra/jobs.json` + bỏ `schedule` (jobs-check yêu cầu khớp), hoặc disable workflow. **Gốc lỗi → cổng chặn:** khi sửa 1 loại lỗi mà sweep tìm ra, thêm test/cổng vào `npm test` (METHODS "Làm đúng 1 lần" bước 4) rồi mới coi là xong.
+
+## journey-e2e – hành trình người dùng đầu-cuối
+`scripts/test/journey-e2e.mjs` (workflow `journey-e2e.yml`: mỗi PR đụng file app + job `journey` của quality-sweep mỗi đêm; thứ Hai/`native=1` thêm hành trình 1–3 trên Android emulator + iOS Simulator qua `scripts/test/journey-e2e/native.js`).
+7 hành trình × vi/en/ar × máy tính/điện thoại: lần đầu → kiểm tra đầu vào → bài đầu → hỏi nhắc học đúng 1 lần · quay lại → ngày ngữ pháp+phát âm → "Tiếp theo" → tự tin/nhập vai B2 · ôn lật/gõ/nghe + "câu của bạn" + đồng bộ khứ hồi giả lập · tra từ → song sinh SEO (ảnh từ vựng TẮT, CLS) · cài đặt nhắc học + cờ quảng cáo TẮT · học sinh lớp học · add-on lưu kèm câu → tab mới → mở app.
+Mỗi bước: `journey-e2e/checks.js` (lớp nổi chồng nhau, 2 lời mời, focus, ô quảng cáo) + lỗi console/promise + tải lại + mất mạng. Hermetic: `/api/*` giả lập trong tiến trình, host ngoài rỗng, `?sandbox=1` (đồng bộ/lớp học dùng tài khoản Firebase GIẢ). Hộp hỏi nhắc học chỉ hiện khi kiểm thử nếu `localStorage lk.e2e=1` (remind.js, số liệu/push vẫn tắt).
+Chạy tay: `node scripts/test/journey-e2e.mjs --root dist --lang vi --device mobile --only 1 [--ext]`.
