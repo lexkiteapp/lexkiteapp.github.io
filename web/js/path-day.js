@@ -140,8 +140,8 @@
       <div class="path">${stagesOf(tr).map(st => {
         const sd = ds.filter(d => d.unit.stage.id === st.id), k = sd.filter(d => d.done).length;
         return `<details class="dp-stage" data-st="${st.id}"${st.id === curSt ? ' open' : ''}><summary class="stage-banner" style="--sc:${st.color};cursor:pointer">
-          <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}</div>
-          <div class="stage-count">${k}/${sd.length}</div></summary><div class="dp-body"></div></details>`;
+          <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div></div>
+          <div class="stage-count">${k}/${sd.length}</div></summary>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}<div class="dp-body"></div></details>`;
       }).join('')}</div>`;
     const fill = el => {
       const body = el.querySelector('.dp-body'); if (body.childElementCount) return;

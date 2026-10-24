@@ -11,7 +11,8 @@ const ROOT = path.resolve(process.argv[2] || 'dist'), OUT = process.argv[3] || '
 const BUDGET = { performance: 85, accessibility: 95, seo: 95 };
 const first = d => { try { return fs.readdirSync(path.join(ROOT, d), { withFileTypes: true }).filter(e => e.isDirectory() && fs.existsSync(path.join(ROOT, d, e.name, 'index.html'))).map(e => e.name).sort()[0]; } catch { return ''; } };
 const post = first('en/blog');
-const PAGES = ['/', '/en/', '/app/?sandbox=1&hl=en', '/en/vocabulary/', '/en/blog/', post ? `/en/blog/${post}/` : '/en/samples/'].filter((p, i, a) => a.indexOf(p) === i);
+// /app/?hl=en (không ?sandbox=): robots.txt cấm ?sandbox=/?demo= nên Lighthouse sẽ chấm 'bị chặn' → SEO 61 oan; /app/ thật có canonical về trang giới thiệu, cho phép thu thập.
+const PAGES = ['/', '/en/', '/app/?hl=en', '/en/vocabulary/', '/en/blog/', post ? `/en/blog/${post}/` : '/en/samples/'].filter((p, i, a) => a.indexOf(p) === i);
 const srv = await serve(ROOT, 0);
 const run = (u, file) => execFileP('npx', ['-y', 'lighthouse@12.2.1', u, '--form-factor=mobile', '--only-categories=performance,accessibility,best-practices,seo', '--quiet', '--max-wait-for-load=40000', '--output=json', `--output-path=${file}`,
   '--chrome-flags=--headless=new --no-sandbox'], { timeout: 100000, maxBuffer: 1 << 26 });

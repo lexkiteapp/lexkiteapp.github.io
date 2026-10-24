@@ -706,7 +706,7 @@
               <div class="stack" style="gap:.55rem;border-top:1px dashed var(--line);padding-top:.75rem">
                 ${Object.entries(c.bands).filter(([b]) => curBandFilter === 'all' || curBandFilter === b).map(([b, item]) => {
                   const bNum = +b;
-                  const bCol = bNum >= 8 ? 'var(--accent)' : bNum >= 6.5 ? 'var(--good)' : 'var(--hard, #d97706)';
+                  const bCol = bNum >= 8 ? 'var(--accent-text)' : bNum >= 6.5 ? 'var(--good-text)' : 'var(--gold-text)';
                   return `
                   <div style="background:var(--surface-2);border-radius:10px;padding:.55rem .75rem;border-left:3px solid ${bCol}">
                     <div class="row between" style="margin-bottom:.25rem;align-items:center">
@@ -737,7 +737,7 @@
             <div class="row" style="gap:.4rem" id="modelBandTabs">
               ${['5.0', '6.5', '8.0'].map(b => {
                 const on = curModelBand === b;
-                const bCol = b === '8.0' ? 'var(--accent)' : b === '6.5' ? 'var(--good)' : 'var(--hard, #d97706)';
+                const bCol = b === '8.0' ? 'var(--accent-text)' : b === '6.5' ? 'var(--good-text)' : 'var(--gold-text)';
                 return `
                 <button class="btn sm ${on ? 'primary' : 'ghost'}" data-mband="${b}" style="font-weight:800;border-radius:10px;${on ? `background:${bCol};border-color:${bCol}` : ''}">
                   Band ${b}
@@ -777,7 +777,7 @@ ${esc(isW ? curModel.essay : curModel.transcript)}
                 <h3 style="font-size:1.05rem;margin:0 0 .7rem">🔍 ${t('Phân tích điểm số 4 tiêu chí')}</h3>
                 <div class="stack" style="gap:.6rem">
                   ${Object.entries(curModel.scores).map(([k, score]) => {
-                    const bCol = score >= 8 ? 'var(--accent)' : score >= 6.5 ? 'var(--good)' : 'var(--hard, #d97706)';
+                    const bCol = score >= 8 ? 'var(--accent-text)' : score >= 6.5 ? 'var(--good-text)' : 'var(--gold-text)';
                     return `
                     <div style="display:grid;grid-template-columns:85px minmax(0,1fr) 40px;align-items:center;gap:.6rem">
                       <span class="tiny" style="font-weight:700">${k.toUpperCase()}</span>

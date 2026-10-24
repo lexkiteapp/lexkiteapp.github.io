@@ -1129,8 +1129,8 @@
         <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
         <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}">
-        <select class="input" id="filterTopic"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
-        <select class="input" id="filterFrom"><option value="">${t('Mọi nguồn')}</option>${Object.entries(ORIGINS).map(([k, o]) => `<option value="${k}" ${from === k ? 'selected' : ''}>${o.emoji} ${o.name}</option>`).join('')}<option value="forget" ${from === 'forget' ? 'selected' : ''}>⚠️ ${t('Sắp quên')}</option></select>
+        <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
+        <select class="input" id="filterFrom" aria-label="${t('Mọi nguồn')}"><option value="">${t('Mọi nguồn')}</option>${Object.entries(ORIGINS).map(([k, o]) => `<option value="${k}" ${from === k ? 'selected' : ''}>${o.emoji} ${o.name}</option>`).join('')}<option value="forget" ${from === 'forget' ? 'selected' : ''}>⚠️ ${t('Sắp quên')}</option></select>
         <select class="input" id="filterM"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
       </div>
       <div class="card" id="deckList"></div>`;
@@ -1263,14 +1263,14 @@
 
       <div class="card" style="margin-top:1rem">
         <div class="row between"><h3 style="margin:0">${t('Lịch học 6 tháng')}</h3><span class="row tiny muted" style="gap:.5rem"><span>${t('Ít')} <i class="heat" style="display:inline-grid;grid-template-rows:12px"><i></i></i><span style="display:inline-flex;gap:3px"><i style="width:12px;height:12px;border-radius:3px" class="l1"></i></span> ${t('Nhiều')}</span><span style="display:inline-flex;align-items:center;gap:3px"><i class="freeze" role="img" aria-label="${t('Đóng băng')}" style="width:12px;height:12px;border-radius:3px;display:inline-block"></i> 🧊 ${t('Đóng băng')}</span></span></div>
-        <div class="heat" style="margin-top:.8rem">${cells.join('')}</div>
+        <div class="heat" tabindex="0" style="margin-top:.8rem">${cells.join('')}</div>
       </div>
 
       <div class="grid g2" style="margin-top:1rem">
         <div class="card"><h3>${t('Lượt ôn 14 ngày qua')}</h3>
-          <div class="bars">${past.map(x => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / pmax * 100) : 3}px"></i><small>${x.d.getDate()}</small></div>`).join('')}</div></div>
+          <div class="bars" tabindex="0">${past.map(x => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / pmax * 100) : 3}px"></i><small>${x.d.getDate()}</small></div>`).join('')}</div></div>
         <div class="card"><h3>${t('Dự báo thẻ đến hạn')}</h3>
-          <div class="bars">${fc.map((x, i) => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / fmax * 100) : 3}px;background:linear-gradient(180deg,#2dd4bf,var(--accent))"></i><small>${i === 0 ? t('Nay') : dn[x.d.getDay()]}</small></div>`).join('')}</div></div>
+          <div class="bars" tabindex="0">${fc.map((x, i) => `<div title="${todayKey(x.d)}: ${x.n}"><em>${x.n || ''}</em><i class="${x.n ? '' : 'zero'}" style="height:${x.n ? Math.max(6, x.n / fmax * 100) : 3}px;background:linear-gradient(180deg,#2dd4bf,var(--accent))"></i><small>${i === 0 ? t('Nay') : dn[x.d.getDay()]}</small></div>`).join('')}</div></div>
       </div>
 
       <div class="card" style="margin-top:1rem;display:flex;gap:2rem;align-items:center;flex-wrap:wrap">

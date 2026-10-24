@@ -14,6 +14,7 @@ const LOCALE = { en: 'en-US', vi: 'vi-VN', es: 'es-ES', ja: 'ja-JP', zh: 'zh-CN'
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT, { recursive: true });
 const results = [], errors = [];
+// Bỏ qua 404 của audio/w/*.mp3: kho giọng từ đơn tạo dần (gen-word-audio, CI) – từ chưa có file (vd. 'advocate') đã được thiết kế tự rơi về giọng máy (extension/app/js/ui.js speak), không phải lỗi.
 const rec = (check, ok, detail = '') => { results.push({ lang: L, check, ok: !!ok, detail: String(detail).slice(0, 400) }); console.log(`${ok ? '✓' : '✗'} [${L}] ${check}${detail ? ' — ' + String(detail).slice(0, 160) : ''}`); };
 const VI = /[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđơư]/i; // chữ riêng tiếng Việt (không trùng tiếng Pháp/Tây Ban Nha)
 const shot = (page, name) => page.screenshot({ path: `${OUT}/${L}-${name}.png` }).catch(() => {});
@@ -44,7 +45,7 @@ await ctx.route('https://t6.example.com/**', r => r.fulfill({ contentType: 'text
 await ctx.route('https://t4.example.com/**', r => r.fulfill({ contentType: 'text/html', body: RTL }));
 ctx.on('page', p => {
   p.on('pageerror', e => errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`));
-  p.on('console', m => { if (m.type() === 'error' && /chrome-extension|lexkite|Lexkite/.test(m.text() + (m.location().url || ''))) errors.push(`console ${p.url().slice(0, 50)}: ${m.text().slice(0, 160)} @ ${(m.location().url || '').slice(0, 120)}`); });
+  p.on('console', m => { if (m.type() === 'error' && /chrome-extension|lexkite|Lexkite/.test(m.text() + (m.location().url || '')) && !(/Failed to load resource/.test(m.text()) && /audio\.lexkite\.com\/audio\/w\/[a-z0-9]+\.mp3/.test(m.location().url || ''))) errors.push(`console ${p.url().slice(0, 50)}: ${m.text().slice(0, 160)} @ ${(m.location().url || '').slice(0, 120)}`); });
 });
 let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
 sw.on('console', m => { if (m.type() === 'error') errors.push('sw: ' + m.text().slice(0, 200)); });

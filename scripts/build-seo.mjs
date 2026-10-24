@@ -1,6 +1,6 @@
 // sitemap.xml gốc: 15 trang giới thiệu (/ + /<lang>/, kèm hreflang + x-default) + trang chính sách.
 // Trang giới thiệu tự có canonical/og/JSON-LD (scripts/build-landing.mjs) – bước này không sửa HTML nào nữa.
-// App học /app/ là noindex (không đưa vào sitemap). Không dùng hreflang ?hl=xx.
+// App học /app/: canonical về trang giới thiệu, không vào sitemap. Không dùng hreflang ?hl=xx.
 // sitemap.xml ở bước này là <urlset>; build-sitemap-index.mjs (chạy cuối) đổi tên thành sitemap-pages.xml và sinh sitemap index.
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { LANGS, pageUrl, fileOf } from './build-landing.mjs';
