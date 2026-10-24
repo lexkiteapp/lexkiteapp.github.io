@@ -1,0 +1,25 @@
+# Đăng lại ảnh minh hoạ đã QC từ artifact của một lượt vocab-img (không vẽ lại, không tốn neuron).
+# Lượt fill thường tự đăng khi có secret LEXKITE_MEDIA_TOKEN; workflow này dành cho lượt cũ chưa đăng. Chỉ ảnh có judge.hit mới được đăng.
+name: Đăng ảnh từ vựng từ artifact
+on:
+  workflow_dispatch:
+    inputs:
+      run_id: { description: 'Run id của vocab-img có artifact vocab-img-fill', required: true }
+permissions:
+  contents: write
+  actions: read
+concurrency: { group: vocab-img-publish, cancel-in-progress: false }
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env: { LEXKITE_MEDIA_TOKEN: '${{ secrets.LEXKITE_MEDIA_TOKEN }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { name: vocab-img-fill, path: art, run-id: '${{ github.event.inputs.run_id }}', github-token: '${{ github.token }}' }
+      - run: |
+          ls art art/out/vocab-img | head -20
+          node scripts/vocab-img/publish.mjs --result art/out/vocab-img/result.json --review art/out/vocab-img/review.json --cards art/out-cards.json --push
