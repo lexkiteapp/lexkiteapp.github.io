@@ -1,9 +1,39 @@
 {
  "_note": "Ảnh minh hoạ theo NGHĨA (khoá từ#loại = sense id của kho từ vựng một nguồn). Sửa bằng scripts/vocab-img/publish.mjs (CI vocab-img.yml), không sửa tay trừ 'rejected'. build-lexicon kiểm (dict-consistency) và sinh web/js/lexicon-img.json + dist/lexicon.json (trường img). Ảnh ở kho lexkite-media/vimg/<h>.webp → media.lexkite.com/vimg/. 'rejected': Quản trị báo ảnh sai → gỡ ảnh, việc đêm vẽ lại với lần thử mới.",
  "v": 1,
- "style": { "v": "s1", "approved": true, "at": "2026-10-24", "_note": "chủ duyệt s1 (pilot2 phẳng, ~34/40 đúng)" },
+ "style": {
+  "v": "s1",
+  "approved": true,
+  "at": "2026-10-24",
+  "_note": "chủ duyệt s1 (pilot2 phẳng, ~34/40 đúng)"
+ },
  "on_min": 150,
  "base": "https://media.lexkite.com/vimg/",
- "items": {},
+ "items": {
+  "car#n": {
+   "h": "2aebe1a217902a9a",
+   "url": "https://media.lexkite.com/vimg/2aebe1a217902a9a.webp",
+   "alt": "car",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite (FLUX-1-schnell)"
+   },
+   "q": {
+    "score": 0.724,
+    "rank": 1,
+    "vision": "gemini",
+    "named": "car"
+   },
+   "ph": "e694996b66949969",
+   "at": "2026-10-24",
+   "b": "40073728800"
+  }
+ },
  "rejected": {}
 }
