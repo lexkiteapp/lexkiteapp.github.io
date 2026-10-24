@@ -362,9 +362,9 @@
     const fn = routes[name] || (name ? notFound : routes.home);
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
     const [tab, item] = App.navOf ? App.navOf(name, arg) : [name, name];
-    $$('#bnav a').forEach(a => a.classList.toggle('active', a.dataset.tab === tab));
+    $$('#bnav a').forEach(a => { const on = a.dataset.tab === tab; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
     document.body.classList.toggle('focus', name === 'review' || (name === 'practice' && !!arg)); // đang ôn/luyện → tập trung 100% vào thẻ
-    $$('#nav a[data-route]').forEach(a => a.classList.toggle('active', a.dataset.route === item));
+    $$('#nav a[data-route]').forEach(a => { const on = a.dataset.route === item; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
     $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
     UI.stopSpeak(); UI.clearRecs();
     document.onkeydown = null;

@@ -1179,8 +1179,11 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 .card.hover { transition: transform .15s ease, box-shadow .15s ease; }
 .card.hover:active { transform: scale(.985); }
 .bottom-nav a { transition: color .15s ease; }
-.bottom-nav a span { transition: transform .2s cubic-bezier(.2, .9, .3, 1.4); }
-.bottom-nav a.active span { transform: translateY(-2px) scale(1.12); }
+/* Mục đang mở: viên nền sau biểu tượng (kiểu Material 3 / Duolingo) + nhãn đậm – nhìn thấy ngay cả khi không phân biệt màu */
+.bottom-nav a span { display: inline-grid; place-items: center; min-width: 52px; height: 28px; border-radius: 999px; transition: transform .2s cubic-bezier(.2, .9, .3, 1.4), background-color .15s ease; }
+.bottom-nav a.active span { background: var(--primary-soft); transform: scale(1.06); }
+.bottom-nav a.active bdi { font-weight: 800; }
+.bottom-nav a:active span { transform: scale(.92); }
 /* Chuyển trang: chỉ vùng nội dung chuyển động, thanh trên/dưới đứng yên */
 /* Chuyển trang: chỉ mờ dần (không transform – không tạo khung chứa cho phần tử fixed/hộp thoại trong #view) */
 #view { animation: viewIn .18s ease-out; }
