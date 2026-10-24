@@ -19,4 +19,22 @@ for (const p of paths) {
   console.log('== ' + p + ' dcl=' + r.dcl); r.ev.forEach(e => console.log('  ' + JSON.stringify(e))); console.log('  resources:\n   ' + r.res.join('\n   '));
   await ctx.close();
 }
+// Cổng chức năng (dist thật, không giới hạn mạng): app khởi động sau khi JS nạp sau lần vẽ đầu; khách cũ vào #/home; SW cài xong → offline vẫn mở được app
+let bad = 0; const ok = (c, m) => { console.log((c ? '✓ ' : '✗ ') + m); if (!c) bad++; };
+{
+  const ctx = await b.newContext(), pg = await ctx.newPage(); const errs = []; pg.on('pageerror', e => errs.push(String(e).slice(0, 200)));
+  await pg.goto(base + '/app/?hl=en', { waitUntil: 'load' });
+  await pg.waitForFunction(() => window.App && App.route && location.hash === '#/welcome' && document.querySelector('#wCard'), null, { timeout: 20000 }).then(() => ok(1, 'khách mới: app khởi động, #/welcome + thẻ demo')).catch(() => ok(0, 'khách mới: app không khởi động (hash=' + '?)'));
+  ok(await pg.evaluate(() => document.title !== '' && document.documentElement.lang === 'en' && !!document.querySelector('.lk-rep')), 'i18n en + report-pill (DOMContentLoaded giả) chạy');
+  await pg.waitForFunction(() => navigator.serviceWorker && navigator.serviceWorker.getRegistration('/app/').then(r => !!(r && r.active)), null, { timeout: 30000 }).then(() => ok(1, 'SW /app/ đã kích hoạt')).catch(() => ok(0, 'SW /app/ không kích hoạt'));
+  await pg.evaluate(() => localStorage.setItem('lk.onb', '1'));
+  await pg.goto(base + '/app/#/vocab', { waitUntil: 'load' });
+  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length && !document.body.classList.contains('bare'), null, { timeout: 20000 }).then(() => ok(1, 'khách cũ: #/vocab vẽ xong (SW điều khiển: ' + '…)')).catch(() => ok(0, 'khách cũ: #/vocab không vẽ'));
+  await ctx.setOffline(true);
+  await pg.reload({ waitUntil: 'load' }).catch(() => {});
+  await pg.waitForFunction(() => window.App && App.route && document.querySelector('#view').children.length, null, { timeout: 20000 }).then(() => ok(1, 'offline: app mở từ cache SW')).catch(() => ok(0, 'offline: app không mở'));
+  ok(!errs.length, 'không lỗi JS' + (errs.length ? ': ' + errs.join(' | ') : ''));
+  await ctx.close();
+}
 await b.close();
+process.exit(bad ? 1 : 0);

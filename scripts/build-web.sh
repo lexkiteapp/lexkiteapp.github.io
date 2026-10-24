@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 node scripts/build-notes.mjs
 node scripts/build-landing.mjs  # trang giới thiệu tĩnh / + /<lang>/ (app học ở /app/)
 rm -rf dist && cp -R web dist
+node scripts/app-loader.mjs dist/app/index.html  # bản web: JS khung app nạp SAU lần vẽ đầu (LCP mobile) – web/app/index.html giữ <script defer> cho add-on/app di động/test
 node scripts/lexicon/shards.mjs --out dist  # mảnh kho từ + mục lục (docs/LEXICON.md §Mảnh) – sinh lúc build, không commit
 rm -rf dist/audio  # âm thanh phục vụ từ CDN riêng lexkiteapp.github.io (workflow pages.yml) → gói Cloudflare nhẹ, trả chỗ cho blog
 # Dùng cache npm riêng (tránh lỗi quyền của ~/.npm)

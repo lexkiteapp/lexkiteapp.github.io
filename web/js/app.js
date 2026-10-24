@@ -1670,7 +1670,9 @@
     if (Store.isExtension && chrome.storage.onChanged) {
       chrome.storage.onChanged.addListener(ch => { if (ch.cards) { state.cards = Object.assign(Object.create(null), ch.cards.newValue || {}); updateChrome(); } });
     }
-    if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js
+    // Đăng ký SW sau sự kiện load + 2 s: lần mở đầu, SW cài đặt tải lại cả khung app (cache:'reload') – không tranh băng thông với màn đầu/từ điển ngôn ngữ (LCP)
+    const swReg = () => setTimeout(() => navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}), 2000);
+    if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) { if (document.readyState === 'complete') swReg(); else addEventListener('load', swReg, { once: true }); } // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js
     setTimeout(() => App.need('voice').catch(() => {}), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     checkReminder(); setInterval(checkReminder, 60 * 1000);

@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: ['perf/app-lcp*']
-    paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh']
+    paths: ['web/app/index.html', 'web/css/**', 'web/js/i18n.js', 'web/js/app.js', 'web/sw.js', '.github/workflows/app-lcp.yml', 'scripts/test/app-lcp-probe.mjs', 'scripts/build-web.sh', 'scripts/app-loader.mjs']
 permissions:
   contents: read
 jobs:
@@ -23,8 +23,10 @@ jobs:
       - name: LCP probe (Playwright)
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install chromium >/dev/null
-          node scripts/test/app-lcp-probe.mjs http://localhost:8080 || true
+          node scripts/app-loader.mjs --check dist/app/index.html
+          node scripts/test/app-lcp-probe.mjs http://localhost:8080
       - name: Lighthouse mobile ×3
+        if: ${{ !cancelled() }}
         run: |
           mkdir -p lh
           for p in "app/?hl=en" "app/?hl=vi"; do
