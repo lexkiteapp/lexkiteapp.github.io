@@ -268,7 +268,16 @@ export function createPool(opts = {}) {
    * Chạy một yêu cầu qua chuỗi. req = { mode, lang?, items } (hoặc vision: { question, ask, image }).
    * exclude = tập họ mô hình không được trả lời (giám khảo B ≠ họ A). Trả { out, model, route, fam } hoặc null (mọi tuyến hỏng → bỏ qua trung tính).
    */
-  async function run(chain, req, { exclude = [], role } = {}) {
+  async function run(chain, req, o = {}) {
+    for (let w = 0; ; w++) {
+      const r = await run1(chain, req, o); if (r || w >= 3) return r;
+      // mọi tuyến/mô hình phù hợp đang nghỉ NGẮN (≤ 2 phút) → chờ rồi thử lại thay vì bỏ qua ngay
+      const soon = [...cool.entries()].filter(([k, t]) => chain.some(id => k.startsWith(id + '|')) && t > now()).map(([, t]) => t - now()).sort((a, b) => a - b)[0];
+      if (!soon || soon > 120e3 || r === undefined) return r ?? null;
+      await sleep(soon + 500);
+    }
+  }
+  async function run1(chain, req, { exclude = [], role } = {}) {
     const mode = req.mode, why = [];
     role = role || (TASKS[mode] && TASKS[mode].kind) || 'gen';
     for (const id of chain) {
@@ -281,7 +290,7 @@ export function createPool(opts = {}) {
         try {
           const r = await route.call(model, req); r.out = normOut(r.out, req.items);
           const fam = familyOf(r.model);
-          if (r.fellBack) rest(id, null, 15 * 60e3, `GrabCast ${id} tự rơi về ${r.via}`); // nhà cung cấp đó ở GrabCast đang hỏng → khỏi tốn lượt gọi lại
+          if (r.fellBack) rest(id, model, 60e3, `GrabCast ${id} ${model} tự rơi về ${r.via} ${r.model}`); // chỉ mô hình đó nghỉ ngắn (thường là trần phút của nhà cung cấp)
           if (!r.out || typeof r.out !== 'object') throw new PoolErr('bad', 'không phải JSON');
           if (!allowed(mode, r.model)) { hit(id, r.model, 'bad'); why.push(`${id}:${r.model} không đủ chuẩn cho ${mode}`); continue; }
           if (exclude.includes(fam)) { hit(id, r.model, 'bad'); why.push(`${id}:${r.model} cùng họ ${fam}`); continue; }
@@ -298,6 +307,7 @@ export function createPool(opts = {}) {
         }
       }
     }
+    if (!why.length && [...cool.values()].some(t => t > now())) return null; // chỉ vì đang nghỉ → run() có thể chờ
     log(`[ai-pool] ⏭ ${mode}${req.lang ? '/' + req.lang : ''}: không tuyến nào trả lời (${why.slice(-6).join(' · ') || 'không tuyến khả dụng'}) → bỏ qua trung tính`);
     return null;
   }
