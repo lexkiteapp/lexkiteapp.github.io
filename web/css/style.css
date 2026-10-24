@@ -1572,3 +1572,5 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 :root:lang(hi) { --font: "Be Vietnam Pro", "Noto Sans Devanagari", "Nirmala UI", "Kohinoor Devanagari", Mangal, -apple-system, "Segoe UI", Roboto, sans-serif; }
 :lang(ja), :lang(zh) { line-break: strict; } :lang(ko) { word-break: keep-all; } :lang(th), :lang(ja), :lang(zh) { overflow-wrap: anywhere; }
 :lang(ar) .ipa, :lang(ar) [lang="en"] { direction: ltr; unicode-bidi: isolate; }
+/* Chip lọc ngắn (A1, B2, All…) trên màn cảm ứng: rộng ≥ 44 px như đã cao ≥ 44 px (ux-shots: 36–38 px ở #/library) */
+@media (pointer: coarse) { button.chip, a.chip { min-width: var(--tap, 44px); justify-content: center; } }
