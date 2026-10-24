@@ -10,8 +10,10 @@ import fs from 'fs';
 import { arpaToIpa, badChars } from '../ipa.mjs';
 import { ROOT, rd, wr } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { gateEntry, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable } from './lib.mjs';
+import { gateEntry, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, sourceGap } from './lib.mjs';
 import { createPool, judgeKey } from '../../lib/ai-pool.mjs';
+import { kaikki, clean, pmap } from './wikt.mjs';
+import { espeakUK } from './espeak.mjs';
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const N = +arg('--n', 400), CALLS = +arg('--calls', 400), PILOT = process.argv.includes('--pilot'), DRY = process.argv.includes('--dry');
 const API = process.env.LEXAI_URL || 'https://lexkite.com/api/lexai';
@@ -29,26 +31,19 @@ if (PILOT) {
   for (let r = 0; pick.length < N; r++) { let any = false; for (const b of bands) { const groups = by.get(b), g = groups[r % groups.length]; const e = g && g.shift(); if (e) { pick.push(e); any = true; } if (pick.length >= N) break; } if (!any && r > 5000) break; }
   pool = pick;
 } else pool = pool.slice(0, N);
+// làm lại TRƯỚC: lỗ dữ liệu nguồn + mục đưa về chờ (content/lexicon/expand/retry/words.json) – ngoài N từ mới
+const RETRY = 'content/lexicon/expand/retry/words.json', retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
+{ const want = new Set(retry.items.map(k => k.split('#')[0])), inPool = new Set(pool.map(e => e.w)); pool = [...C.items.filter(e => want.has(e.w) && !done.has(e.w) && !inPool.has(e.w)), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); }
 console.log(`lexicon-expand ${BATCH}: ${pool.length} từ (đã có ${done.size}) · bands ${JSON.stringify(pool.reduce((o, e) => (o[e.band] = (o[e.band] || 0) + 1, o), {}))}`);
 
 // ---- IPA: CMUdict (Mỹ) + Wiktionary/kaikki (Anh, Mỹ dự phòng)
 const CMU = new Map();
 for (const l of fs.readFileSync(arg('--cmu'), 'latin1').split('\n')) { const i = l.indexOf(' '); if (i < 0 || l[0] === ';') continue; const w = l.slice(0, i).replace(/\(\d+\)$/, ''); if (!CMU.has(w)) CMU.set(w, l.slice(i + 1).replace(/\s*#.*$/, '')); }
-const KPOS = { n: 'noun', v: 'verb', adj: 'adj', adv: 'adv' };
-async function kaikki(w, pos) {
-  const u = `https://kaikki.org/dictionary/English/meaning/${w[0]}/${w.slice(0, 2)}/${encodeURIComponent(w)}.jsonl`;
-  for (let i = 0; i < 3; i++) {
-    try { const r = await fetch(u, { headers: { 'User-Agent': 'lexkite-lexicon-expand (lexkite.com)' } }); if (r.status === 404) return {}; if (!r.ok) throw 0; stat.kaikki++;
-      const ents = (await r.text()).split('\n').filter(Boolean).map(x => { try { return JSON.parse(x); } catch { return null; } }).filter(Boolean);
-      const ord = [...ents.filter(e => e.pos === KPOS[pos]), ...ents.filter(e => e.pos !== KPOS[pos])], pick = re => { for (const e of ord) for (const s of e.sounds || []) if (s.ipa && (s.tags || []).some(t => re.test(t))) return s.ipa; return ''; };
-      return { uk: pick(/^(Received-Pronunciation|UK|British)$/), us: pick(/^(General-American|US)$/) };
-    } catch { await new Promise(s => setTimeout(s, 1500 * (i + 1))); }
-  }
-  return {};
-}
-const clean = s => { s = String(s || '').trim(); const m = /^\/[^/]+\//.exec(s); return m ? m[0].replace(/\./g, '').replace(/ɹ/g, 'r').replace(/ɫ/g, 'l').replace(/ɡ/g, 'g').replace(/ɐ/g, 'ʌ').replace(/ɜ(?!ː)/g, 'ɜː').replace(/ɪə/g, 'ɪə') : ''; };
-async function pmap(list, n, f) { const out = []; let i = 0; await Promise.all(Array.from({ length: n }, async () => { while (i < list.length) { const k = i++; out[k] = await f(list[k], k); } })); return out; }
-const ipa = await pmap(pool, 6, async e => { const k = await kaikki(e.w, e.pos); const cmu = CMU.get(e.w); const us = cmu ? '/' + arpaToIpa(cmu) + '/' : clean(k.us); if (!k.uk) stat.ukMiss++; return { uk: clean(k.uk), us, ukSrc: k.uk ? 'wiktionary' : '' }; });
+// UK: Wiktionary → (thiếu) espeak-ng en-gb đã hiệu chuẩn (espeak-calib.mjs: 300 từ, khớp gần 94 % ≥ 90 %) → src.ipaUK = 'espeak'.
+// Vẫn thiếu = lỗ dữ liệu nguồn → bỏ qua (KHÔNG vào hàng duyệt), lượt sau làm lại.
+const ipa = await pmap(pool, 10, async e => { const k = await kaikki(e.w, e.pos, stat); const cmu = CMU.get(e.w); const us = cmu ? '/' + arpaToIpa(cmu) + '/' : clean(k.us); const uk = clean(k.uk); if (!uk) stat.ukMiss++; return { uk, us, ukSrc: uk ? 'wiktionary' : '' }; });
+{ const miss = pool.map((e, i) => (!ipa[i].uk ? i : -1)).filter(i => i >= 0), es = espeakUK(miss.map(i => pool[i].w));
+  for (const i of miss) if (es[pool[i].w]) { ipa[i].uk = es[pool[i].w]; ipa[i].ukSrc = 'espeak'; stat.ukEspeak = (stat.ukEspeak || 0) + 1; } }
 
 // ---- AI qua ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast Cloudflare → Workers AI tài khoản 2 → GrabCast Groq;
 // soạn chỉ mô hình hạng L (lxtr cấm Llama), 2 giám khảo KHÁC HỌ; mọi tuyến hỏng → null = bỏ qua trung tính (không vào hàng duyệt, lượt sau làm lại).
@@ -61,13 +56,13 @@ const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) 
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(strip)), stat); process.exit(0); }
 const G = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = ''; const GM = {};
-await pmap(chunks(items, 10), 8, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { G[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
+await pmap(chunks(items, 10), 16, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { G[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
 const kept = items.filter(x => G[x.k] && G[x.k].keep !== false && G[x.k].def);
-await pmap(chunks(kept, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
+await pmap(chunks(kept, 10), 16, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
 const forJudge = x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex, col: G[x.k].col, syn: G[x.k].syn, cefr: G[x.k].cefr, vi: G[x.k].vi, note_vi: G[x.k].note_vi, tr: T[x.k] || {} });
 const judged = kept.filter(x => T[x.k]);
 const JK = {}; // k → { a: '<họ>:<mô hình>', b }
-await pmap(chunks(judged, 10), 6, async ch => {
+await pmap(chunks(judged, 10), 12, async ch => {
   const { a, b } = await AI.judgePair({ mode: 'lxjudge', items: ch.map(forJudge) });
   if (!a || !b) return; // thiếu giám khảo thứ 2 khác họ → KHÔNG ghi điểm nào (bỏ qua trung tính)
   for (const x of ch) if (a.out[x.k] && b.out[x.k]) { JA[x.k] = a.out[x.k]; JB[x.k] = b.out[x.k]; JK[x.k] = { a: judgeKey(a.model), b: judgeKey(b.model) }; }
@@ -78,7 +73,7 @@ await pmap(chunks(judged, 10), 6, async ch => {
 const PEND = `content/lexicon/expand/pending/${BATCH}.json`;
 const pend = fs.existsSync(new URL(PEND, ROOT)) ? JSON.parse(rd(PEND)) : { id: BATCH, at: new Date().toISOString(), items: {} };
 const queue = fs.existsSync(new URL(QUEUE, ROOT)) ? JSON.parse(rd(QUEUE)) : { _doc: 'Hàng duyệt nội dung (docs/CONTENT-QA.md): mục KHÔNG đạt cổng – không xuất.', items: [] };
-const why = {};
+const why = {}, gaps = new Set();
 for (const x of items) {
   const g = G[x.k], c = x._c;
   const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk, ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: g.cefr || c.cefr, cefrF: c.cefr, z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
@@ -91,6 +86,7 @@ for (const x of items) {
   if ((ent && g.keep !== false && g.def && (!T[x.k] || !JK[x.k])) || !g) { // !g: gọi lỗi HOẶC mô hình bỏ sót mục → lượt sau làm lại (không đốt từ vào hàng duyệt)
     why.infra = (why.infra || 0) + 1; continue; }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
+  if (!r.ok && sourceGap(r)) { why.gap = (why.gap || 0) + 1; gaps.add(x.k); continue; } // lỗ dữ liệu nguồn (thiếu IPA…) ≠ lỗi nội dung → không vào hàng duyệt, lượt sau làm lại
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }
   else { why[r.why[0].split(':')[0]] = (why[r.why[0].split(':')[0]] || 0) + 1; queue.items = queue.items.filter(q => !(q.src === 'lexicon-expand' && q.id === x.k)); queue.items.push({ src: 'lexicon-expand', id: x.k, batch: BATCH, why: r.why.slice(0, 4), at: new Date().toISOString().slice(0, 10), ...(ent ? { data: ent } : {}) }); }
@@ -99,8 +95,10 @@ pend.n = Object.keys(pend.items).length;
 fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true });
 if (pend.n) wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
 wr(QUEUE, JSON.stringify(queue, null, 1) + '\n');
+{ const doneNow = new Set(items.map(x => x.k)); retry.items = [...new Set([...retry.items.filter(k => !doneNow.has(k) || gaps.has(k)), ...gaps])].sort();
+  fs.mkdirSync(new URL('content/lexicon/expand/retry/', ROOT), { recursive: true }); wr(RETRY, JSON.stringify(retry, null, 1) + '\n'); }
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
-const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0), skipped: why.infra || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, ukMiss: stat.ukMiss, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
+const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
 AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 if (!pass) { console.error('✗ lexicon-expand: 0 mục đạt' + (stat.pool ? ' – mọi tuyến AI hỏng/hết hạn mức (xem Quản trị › Khóa API › Sức chứa)' : '')); process.exit(1); }

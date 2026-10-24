@@ -94,6 +94,9 @@
   "scripts/lexicon/i18n-job.mjs": {
    "skip": "mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc)"
   },
+  "scripts/lexicon/expand/espeak-calib.mjs": {
+   "skip": "chỉ lấy mẫu từ kho viết tay để hiệu chuẩn IPA Anh espeak ↔ Wiktionary; không ghi/xuất"
+  },
   "scripts/lexicon/cefr-check.mjs": {
    "skip": "chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry)"
   },

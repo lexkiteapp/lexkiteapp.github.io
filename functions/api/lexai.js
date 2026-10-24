@@ -97,31 +97,40 @@ async function vgen(env, items, model) {
 // 'lxgen' (Gemini, ≤ 10 mục): soạn mục từ từ nghĩa WordNet · 'lxtr' (Gemini, ≤ 10 mục × 13 ngôn ngữ) · 'lxjudge' (model = gemini-* HOẶC gemma-* – 2 họ khác nhau, ≤ 10 mục): chấm + dịch ngược.
 export const LX_GEN = ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-3.8-flash'], LX_JUDGE = ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3-flash-preview', 'gemma-3-27b-it'];
 export const LX_LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
+// Prompt v2 (pilot 40077853589: 104/500 đạt; ~100 trượt dịch/dịch ngược, 32 trượt giám khảo – xem docs/LEXICON.md §Mở rộng 20k / Pilot 5).
 const LXGEN = `You are a senior lexicographer writing a learner's dictionary (Oxford Learner's / Cambridge style) for Vietnamese and international learners.
 Each item: "k" id, "w" headword, "pos" (n|v|adj|adv), "gloss" (WordNet sense – the sense to describe), "cefr" (estimated level), "lex" (WordNet category), "topics" (allowed topic ids).
 For EACH item return an object:
 - "keep": false if "w" is a proper noun, first name, brand, abbreviation, offensive/slur, misspelling, non-standard slang or not a real dictionary headword in this part of speech; else true. If false add "why" (≤ 8 words) and nothing else.
 - "pos": n|v|adj|adv (normally the given one).
-- "def": ONE learner definition of THIS sense, ≤ 16 words, using only common words (CEFR B1 or easier); do not use the headword itself.
+- "def": ONE learner definition of THIS sense, ≤ 16 words, using only common words (CEFR B1 or easier); do not use the headword itself. Be factually exact (an ion IS a charged atom, not part of one; a verb definition keeps the right subject/object: "dwarf" = to make something seem small).
 - "ex": exactly 2 natural, modern example sentences (8–16 words each) that use "w" in this sense and part of speech; everyday or academic contexts; no names of real people.
 - "col": 2–3 frequent collocations containing "w" (e.g. "strictly forbidden").
-- "syn": 1–3 synonyms in this sense (single words or short phrases), [] if none.
+- "syn": 1–3 synonyms in this sense (single words or short phrases), [] if none. Only true synonyms (a frog is not a toad).
 - "cefr": A1|A2|B1|B2|C1|C2 – how advanced the word is for learners (English Vocabulary Profile style; rare/technical = C1–C2).
 - "topic": ONE id from "topics" that clearly fits, or "" if none fits.
 - "emoji": ONE emoji that clearly shows this sense, or "" if none fits well.
-- "vi": Vietnamese meaning: 1–3 short equivalents separated by "; " in exactly this sense and part of speech (most common first), like a good bilingual dictionary.
-- "note_vi": ONE short Vietnamese note (≤ 20 words) about a typical mistake Vietnamese learners make with this word (false friend, wrong preposition, confusing pair, spelling, pronunciation) – "" if there is no real, useful one. Never invent.
+- "vi": Vietnamese meaning: 1–3 short equivalents separated by "; " in exactly this sense and part of speech (most common first), like a good bilingual dictionary. Standard terms only (bronze = đồng thiếc, not đồng thau; established loanwords like "hydro", "ion" are fine).
+- "note_vi": ONE short Vietnamese note (≤ 20 words) about a typical mistake Vietnamese learners make with this word (false friend, wrong preposition, confusing pair, spelling) – "" if there is no real, useful one. Never invent; never give pronunciation advice.
+ONE SENSE ONLY: def, both examples, col, syn, vi and note_vi must all describe the SAME single sense (the gloss sense). Re-read each example and collocation: if it shows another sense (crown of a tooth vs a dental crown; a mill as a factory vs a flour mill; cricket the insect vs the sport) rewrite it.
 Return ONE JSON object mapping each "k" to its object.`;
-const LXTR = `You are a senior bilingual lexicographer. Each item: "k", English headword "w", "pos", learner definition "def" and an example "ex".
+const LXTR = `You are a senior bilingual lexicographer. Each item: "k", English headword "w", "pos", WordNet "gloss", learner definition "def" and 2 examples "ex" – together they fix ONE sense.
 Translate the headword in EXACTLY this sense and part of speech into each language: es (Spanish), pt (Brazilian Portuguese), fr (French), de (German), id (Indonesian), th (Thai), zh (Simplified Chinese), ja (Japanese), ko (Korean), hi (Hindi), ar (Arabic), ru (Russian), tr (Turkish).
-Rules: 1–3 short equivalents separated by "; " (most common first); keep the part of speech; native script only; no romanization, no explanations, no English unless it is the normal loanword.
+Rules:
+- 1–3 short native dictionary equivalents separated by "; " (most common first). Each is a word or a short fixed expression (≤ 3 words); use a multi-word equivalent only when the language has no single word (e.g. "take aback" → es "desconcertar", ko "당황하게 하다").
+- Same sense: neither broader nor narrower (berry ≠ blueberry, bronze ≠ brass, naval ≠ fleet). It must fit the examples.
+- Same part of speech in dictionary form: verbs as infinitive/dictionary form (ko/ja verbs end in -다 / -る/-う form), adjectives as adjectives (never "X rate" nouns for an adjective), adverbs as adverbs, nouns as nouns.
+- Native script only; never transliterate the English word when a native word exists; a standard loanword only if it is what dictionaries give (then still put a native word first when one exists).
+- No explanations, brackets, notes, romanization or English.
 Return ONE JSON object mapping each "k" to {"es": "…", "pt": "…", …, "tr": "…"}.`;
-const LXJUDGE = `You are a strict senior lexicographer and native-level reviewer of a learner's dictionary. Each item: headword "w", "pos", WordNet "gloss" (intended sense), entry fields "def", "ex" (2 examples), "col", "syn", "cefr", "vi" (Vietnamese), "note_vi" and "tr" (translations by language code).
+const LXJUDGE = `You are a careful senior lexicographer and native-level reviewer of a learner's dictionary. Each item: headword "w", "pos", WordNet "gloss" (intended sense), entry fields "def", "ex" (2 examples), "col", "syn", "cefr", "vi" (Vietnamese), "note_vi" and "tr" (translations by language code).
 For EACH item return {"s": score, "f": reason, "tr": {lang: score}, "bt": {lang: back}}:
-- "s" 1–5 for the English entry + Vietnamese: 5 = def accurate for the gloss sense and simple (≤ B1 words), both examples correct and natural in that sense/part of speech, collocations real and frequent, synonyms right, cefr plausible, vi exact, note_vi true or empty; 4 = correct with minor style issues; 3 = vague or one doubtful element; 2 = one error (wrong sense, unnatural/incorrect example, wrong pos, false note, wrong vi); 1 = several errors or not a real headword.
-- "f": ≤ 12-word reason when s ≤ 3, else "".
-- "tr": for each language in "tr" a score 1–5 (5 exact natural equivalent in this sense; 4 acceptable; 3 vague; 2 wrong sense/pos; 1 wrong or wrong language/script).
-- "bt": for each language in "tr" a literal back-translation of that translation into English (1–4 words, the first equivalent only).
+- "s" 1–5 for the English entry + Vietnamese: 5 = def accurate and simple (≤ B1 words), both examples correct and natural, collocations real, synonyms right, cefr plausible, vi exact, note_vi true or empty; 4 = correct with minor issues (slightly broad/narrow def, a missing nuance, a weaker collocation, cefr one level off, style); 3 = one doubtful element; 2 = one clear error (factually wrong def, an example or collocation in another sense or part of speech, a false synonym, a false note, a wrong vi); 1 = several errors or not a real headword.
+  The entry must describe ONE consistent sense. The gloss is a hint: if all fields consistently describe a different but common, real sense of the word, that is fine (≥ 4).
+  Give 3 or lower ONLY for a concrete error you can name in "f". Never lower the score for established loanwords or scientific terms in vi or tr (hydro, ion, caramel).
+- "f": ≤ 12-word reason naming the concrete error when s ≤ 3, else "".
+- "tr": for each language in "tr" a score 1–5: 5 exact natural equivalent in this sense; 4 correct equivalent in this sense (also when it is one of several valid choices, slightly broader, or a correct multi-word expression); 3 noticeably vague or only partly this sense; 2 wrong sense or part of speech, or a transliteration where a native word exists; 1 wrong, wrong language or script, or empty.
+- "bt": for each language in "tr" a literal back-translation of the WHOLE translation into English: 1–3 English equivalents separated by "; " (in English only, never the original script).
 Return ONE JSON object mapping each "k" to its object.`;
 async function gemCall(env, model, sys, user, temp) {
   const gemma = /^gemma/.test(model); // Gemma: không có systemInstruction / JSON mime → ghép vào lời nhắn
@@ -154,7 +163,7 @@ export function build(b) {
   if (b.mode === 'vjudge') { const items = Array.isArray(b.items) ? b.items.slice(0, 25).map(cutJ) : []; return items.length ? { sys: VJUDGE, user: JSON.stringify(items), temp: 0.1, models: LX_JUDGE } : null; }
   if (['lxgen', 'lxtr', 'lxjudge'].includes(b.mode)) {
     const items = Array.isArray(b.items) ? b.items.slice(0, 10).map(cutL) : []; if (!items.length) return null;
-    const strip = b.mode === 'lxgen' ? items.map(({ k, w, pos, gloss, cefr, lex, topics }) => ({ k, w, pos, gloss, cefr, lex, topics })) : b.mode === 'lxtr' ? items.map(({ k, w, pos, def, ex }) => ({ k, w, pos, def, ex: ex[0] || '' })) : items.map(({ topics, lex, ...x }) => x);
+    const strip = b.mode === 'lxgen' ? items.map(({ k, w, pos, gloss, cefr, lex, topics }) => ({ k, w, pos, gloss, cefr, lex, topics })) : b.mode === 'lxtr' ? items.map(({ k, w, pos, gloss, def, ex }) => ({ k, w, pos, gloss, def, ex })) : items.map(({ topics, lex, ...x }) => x);
     return { sys: b.mode === 'lxgen' ? LXGEN : b.mode === 'lxtr' ? LXTR : LXJUDGE, user: JSON.stringify(strip), temp: b.mode === 'lxjudge' ? 0.1 : 0.3, models: b.mode === 'lxjudge' ? LX_JUDGE : LX_GEN };
   }
   if (['xgen', 'xtr', 'xjudge'].includes(b.mode)) {

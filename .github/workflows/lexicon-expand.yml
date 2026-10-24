@@ -1,5 +1,6 @@
 # Mở rộng kho từ tới 20k (docs/LEXICON.md §Mở rộng 20k) – việc nền `lexicon-expand` (infra/jobs.json, thuê gemini).
 # Chọn từ (wordfreq + WordNet + CMUdict + LDNOOBW, nguồn miễn phí) → sinh Gemini → 13 ngôn ngữ → 2 giám khảo khác họ (gemini + gemma) + dịch ngược → cổng.
+# Thông lượng (10/2026): 2.400 từ/ngày ≈ 6.700 lượt GrabCast (≤ 270/phút của ai-pool, trần AI_POOL_GC_MAX 20.000) ≈ 35–45 phút.
 # Đạt → content/lexicon/expand/pending (CHƯA xuất, chờ soát mẫu ≥ 5 % rồi promote.mjs); trượt → content/qa/review-queue.json. Tự đỏ khi 0 mục đạt.
 name: Mở rộng kho từ (lexicon-expand)
 on:
@@ -7,7 +8,7 @@ on:
     - cron: '40 15 * * *'   # 22:40 VN – khung Gemini trống (sau explain 07:30, trước word-packs 20:30)
   workflow_dispatch:
     inputs:
-      n: { description: 'Số từ lượt này', default: '400' }
+      n: { description: 'Số từ MỚI lượt này (+ từ làm lại ở content/lexicon/expand/retry)', default: '2400' }
       pilot: { description: 'Pilot: rải đều dải tần suất (1 = có)', default: '0' }
       calls: { description: 'Trần số lần gọi /api/lexai', default: '400' }
       batch: { description: 'Mã lô (trống = ngày)', default: '' }
@@ -33,7 +34,7 @@ jobs:
       - name: Nguồn miễn phí (wordfreq CC BY-SA 4.0 · WordNet · CMUdict BSD-2 · LDNOOBW CC BY 4.0)
         if: ${{ steps.lease.outputs.skip != '1' }}
         run: |
-          pip install -q wordfreq==3.1.1 nltk==3.9.1
+          pip install -q wordfreq==3.1.1 nltk==3.9.1 espeakng-loader==0.2.4   # espeak-ng en-gb: IPA Anh khi Wiktionary thiếu (hiệu chuẩn espeak-calib.mjs)
           python -c "import nltk; nltk.download('wordnet', quiet=True)"
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
           curl -sfL -o "$RUNNER_TEMP/bad.txt" https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
@@ -46,7 +47,7 @@ jobs:
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: ${{ github.event.inputs.gc_max || '20000' }}
-        run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --n "${{ github.event.inputs.n || '400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
+        run: node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
       - name: Lưu kết quả (chờ soát – chưa xuất)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |

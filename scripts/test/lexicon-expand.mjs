@@ -1,7 +1,9 @@
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { gateEntry, btMatch, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker } from '../lexicon/expand/lib.mjs';
+import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, doneWords } from '../lexicon/expand/lib.mjs';
+import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
+import { clean } from '../lexicon/expand/wikt.mjs';
 const ROOT = new URL('../../', import.meta.url).pathname;
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 const TR = { es: 'abandonar', pt: 'abandonar', fr: 'abandonner', de: 'verlassen', id: 'meninggalkan', th: 'ละทิ้ง', zh: '放弃', ja: '見捨てる', ko: '버리다', hi: 'छोड़ देना', ar: 'يتخلى عن', ru: 'покидать', tr: 'terk etmek' };
@@ -25,8 +27,21 @@ ok(btMatch('to abandon', 'forsake', ['abandon']) && !btMatch('to eat', 'forsake'
 ok(poolEmpty(503, '{"error":"no-model","diag":"keys=0"}') && !poolEmpty(503, '{"error":"no-model","diag":"keys=2 k1:429"}') && !poolEmpty(401, 'keys=0'), 'poolEmpty');
 ok(!queueable(gateEntry(null), false) && queueable(gateEntry(null), true) && queueable(gateEntry(good(), { keep: false }), false) && !queueable(gateEntry(good()), true), 'queueable: gen hỏng do API → bỏ qua, lỗi nội dung → hàng duyệt');
 { const b = breaker(3); b.hit(true); b.hit(true); b.hit(false); b.hit(true); b.hit(true); ok(!b.open, 'cầu dao reset khi gọi được'); b.hit(true); ok(b.open, 'cầu dao mở sau 3 lần kho rỗng liên tiếp'); }
+// lỗ dữ liệu nguồn (pilot 40077853589: 267 mục thiếu IPA Anh bị đẩy vào hàng duyệt, không bao giờ làm lại) → KHÔNG vào hàng duyệt
+{ const g = good(); g.ipa = ''; ok(sourceGap(gateEntry(g)), 'thiếu IPA Anh = lỗ dữ liệu nguồn'); g.ipaUS = ''; ok(sourceGap(gateEntry(g)), 'thiếu cả IPA Mỹ = lỗ nguồn');
+  const h = good(); h.ipa = ''; h.vi = 'abandon'; ok(!sourceGap(gateEntry(h)), 'thiếu IPA + lỗi nội dung → không phải chỉ lỗ nguồn'); ok(!sourceGap(gateEntry(good())) && !sourceGap(gateEntry(null)), 'sourceGap: mục đạt / gen hỏng'); }
+// IPA Anh: Wiktionary giữ ɡ (bản cũ đổi thành g ngoài bảng), bỏ dấu nối/âm tiết; espeak en-gb → ˈ đầu âm tiết, r, æ, không ˈ từ 1 âm tiết
+ok(clean('/ɡəʊt/') === '/ɡəʊt/' && clean('/ˈt͡ʃɪp/') === '/ˈtʃɪp/' && clean('/ˈbʌtn̩/') === '/ˈbʌtn/' && clean('/ˈaʊ̯ə/') === '/ˈaʊə/', 'clean IPA Wiktionary');
+ok(normEspeak('fɔːsˈeɪk') === '/fɔːˈseɪk/' && normEspeak('həlˈəʊ') === '/həˈləʊ/' && normEspeak('ʃˈʊə') === '/ʃʊə/' && normEspeak('kˌɒmbɪnˈeɪʃən') === '/ˌkɒmbɪˈneɪʃən/' && normEspeak('ˈeəɹɪə') === '/ˈeəriə/' && normEspeak('hˈapi') === '/ˈhæpi/', 'normEspeak');
+ok(compare('/ˈkʌlɪnəri/', '/ˈkʌlɪn(ə)ri/').exact && compare('/dɪˈstɔːt/', '/dɪsˈtɔːt/').near && !compare('/ˈsɪɡəret/', '/ˈbɒtəl/').near, 'compare espeak ↔ Wiktionary');
+// dịch ngược: lồng nhau + dung sai theo ngôn ngữ (lỏng chỉ ở ngôn ngữ xa, khi cả 2 giám khảo ≥ 4)
+ok(btMatch('after', 'afterwards') && btMatch('to claim back', 'reclaim') && !btMatch('to eat', 'reclaim'), 'btMatch lồng nhau');
+{ const e = { w: 'savor', syn: ['relish'], def: 'to enjoy the taste of food slowly', qa: { btw: { zh: ['taste'], de: ['taste'] }, tr: { zh: [5, 4], de: [5, 4] } } };
+  ok(btOk(e, 'zh') && !btOk(e, 'de'), 'btOk: zh lỏng (từ của định nghĩa), de chặt'); e.qa.tr.zh = [5, 3]; ok(!btOk(e, 'zh'), 'btOk: lỏng cần cả 2 giám khảo ≥ 4'); }
 const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.json'), 'utf8')).items || [];
 ok(!Q.some(q => q.src === 'lexicon-expand' && /^gen:/.test((q.why || [])[0] || '') && !q.data), 'hàng duyệt không chứa mục lexicon-expand "gen" rỗng (lỗi hạ tầng)');
+ok(!Q.some(q => q.src === 'lexicon-expand' && (q.why || []).some(y => /^ipa[ :]/.test(y))), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
+{ const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k.split('#')[0])), 'từ trong retry/words.json không bị doneWords() loại'); } }
 // chủ đề (content/lexicon/topics.json): cây đủ tên 15 ngôn ngữ + nối 104 bộ; bộ học 10–20, nút 10–60, ≤ 2 chủ đề/từ, không mồ côi
 { const T = await import('../lexicon/expand/topics.mjs'), { TOPIC_CHOICES } = await import('../lexicon/expand/lib.mjs'), tax = T.TAX(), exs = T.existingSets();
   ok(exs.size === 104, `104 bộ hiện có (thấy ${exs.size})`);

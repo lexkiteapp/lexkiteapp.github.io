@@ -14,12 +14,28 @@ export const TOPIC_CHOICES = ['education', 'environment', 'technology', 'health'
 const ex = p => fs.existsSync(new URL(p, ROOT));
 const J = p => JSON.parse(rd(p));
 const words = s => String(s || '').toLowerCase().match(/[a-z]+/g) || [];
-// dịch ngược khớp: bản dịch ngược chứa từ đầu mục / đồng nghĩa / cùng gốc 5 chữ
+// dịch ngược khớp: bản dịch ngược chứa từ đầu mục / đồng nghĩa / cùng gốc 5 chữ / lồng nhau ≥ 4 chữ (after ⊂ afterwards, claim ⊂ reclaim, clean ⊂ cleanse)
+const STOP = new Set('that this with from into onto than then them they their there what when which while where your have been being very some something someone thing things person people make made used using part kind type often usually especially other another about over under after before more most less such each every much many only also just like feel feeling become state quality act action way ways able something'.split(' '));
 export function btMatch(bt, w, syn = []) {
-  const T = new Set([w, ...syn.flatMap(words)].filter(Boolean)), stem = x => x.slice(0, Math.max(4, Math.min(5, x.length - 1)));
-  const S = new Set([...T].map(stem));
-  return words(bt).some(t => T.has(t) || (t.length >= 4 && S.has(stem(t))));
+  const T = new Set([...words(w), ...syn.flatMap(words)].filter(Boolean)), stem = x => x.slice(0, Math.max(4, Math.min(5, x.length - 1)));
+  const S = new Set([...T].map(stem)), H = words(w).filter(x => x.length >= 4);
+  return words(bt).some(t => T.has(t) || (t.length >= 4 && S.has(stem(t))) || (t.length >= 4 && H.some(h => h.includes(t) || t.includes(h))));
 }
+// Dung sai dịch ngược THEO NGÔN NGỮ (pilot 40077853589: 140 mục trượt dịch ngược, phần lớn dịch đúng nhưng dịch ngược ra từ rộng hơn:
+// savor→'taste', bureau→'office', enchantment→'charm'). Ngôn ngữ xa tiếng Anh (khác họ/chữ viết) được khớp 'lỏng' = dịch ngược trùng
+// một từ nội dung của định nghĩa – CHỈ khi cả 2 giám khảo chấm bản dịch ≥ 4. es/pt/fr/de/ru giữ khớp chặt.
+export const BT_LOOSE = new Set(['id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'tr']);
+export function btOk(e, l) {
+  const bts = (e.qa.btw || {})[l] || [];
+  if (bts.some(b => btMatch(b, e.w, e.syn))) return true;
+  const sc = (e.qa.tr || {})[l] || [];
+  if (!BT_LOOSE.has(l) || sc.length < 2 || Math.min(...sc) < 4) return false;
+  const D = new Set(words(e.def).filter(x => x.length >= 4 && !STOP.has(x)));
+  return bts.some(b => words(b).some(t => t.length >= 4 && !STOP.has(t) && D.has(t)));
+}
+// Lỗ dữ liệu NGUỒN (IPA từ Wiktionary/CMUdict/espeak – không do AI soạn) ≠ lỗi nội dung → không bao giờ vào hàng duyệt; lượt sau làm lại.
+const GAP = /^ipa[ :]/;
+export const sourceGap = r => !!(r && !r.ok && r.why.length && r.why.every(x => GAP.test(x)));
 const formOf = (w, s) => { const t = words(s), st = w.split('-')[0].slice(0, Math.min(w.length, 4)); return t.some(x => x === w || x.startsWith(st)); }; // biến tố/bất quy tắc (forsook) vẫn khớp 4 chữ đầu
 // Cổng 1 mục (CỨNG): lược đồ · IPA hợp lệ (Anh từ Wiktionary, Mỹ từ CMUdict) · 2 giám khảo khác họ ≥ 4 lệch ≤ 1 · CEFR · dịch (≥ 4 cả 2 giám khảo, đúng chữ viết, không lẫn tiếng Việt, dịch ngược ≥ 0.8)
 export function gateEntry(e, { keep } = {}) {
@@ -27,7 +43,7 @@ export function gateEntry(e, { keep } = {}) {
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
   if (keep === false) return { ok: false, why: ['keep: không phải mục từ chuẩn'] };
   if (!['n', 'v', 'adj', 'adv'].includes(e.pos)) why.push('schema: pos');
-  if (!e.ipa) why.push('ipa: thiếu IPA Anh (Wiktionary)'); else if (badChars(e.ipa).length) why.push('ipa: ký hiệu ngoài bảng ' + badChars(e.ipa).join(''));
+  if (!e.ipa) why.push('ipa: thiếu IPA Anh (Wiktionary + espeak)'); else if (badChars(e.ipa).length) why.push('ipa: ký hiệu ngoài bảng ' + badChars(e.ipa).join(''));
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
@@ -42,7 +58,7 @@ export function gateEntry(e, { keep } = {}) {
     const is = trIssues(e.w, t, l); if (t && SCRIPT[l] && !SCRIPT[l].test(t)) is.push('không có chữ bản địa'); if (t && String(t).toLowerCase().trim() === e.w && !['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l)) is.push('chép nguyên từ tiếng Anh');
     if (is.length) { why.push(`dịch ${l}: ${is.join(', ')}`); continue; }
     if (sc.length < 2 || Math.min(...sc) < 4) why.push(`dịch ${l}: giám khảo < 4 (${sc.join('/')})`);
-    if (((e.qa.btw || {})[l] || []).some(b => btMatch(b, e.w, e.syn))) bt++;
+    if (btOk(e, l)) bt++;
   }
   const btr = e.qa.btw ? bt / LANGS.length : e.qa.bt;
   if (!(btr >= 0.8)) why.push(`dịch ngược ${btr && btr.toFixed(2)} < 0.8`);
@@ -53,7 +69,7 @@ const files = sub => ex(DIR + sub) ? fs.readdirSync(new URL(DIR + sub, ROOT)).fi
 export function doneWords() {
   const s = new Set();
   for (const f of [...files(''), ...files('pending/')]) for (const k of Object.keys(J(f).items || {})) s.add(k.split('#')[0]);
-  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand') s.add(String(q.id).split('#')[0]);
+  if (ex(QUEUE)) for (const q of J(QUEUE).items || []) if (q.src === 'lexicon-expand' && !sourceGap({ ok: false, why: q.why || [] })) s.add(String(q.id).split('#')[0]);
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)

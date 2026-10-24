@@ -791,7 +791,7 @@ export const REG = {
    "minutes": 120,
    "est": {
     "gemini_calls": 400,
-    "grabcast_text": 300,
+    "grabcast_text": 7000,
     "workers_ai_b_neurons": 1500
    },
    "lease": true

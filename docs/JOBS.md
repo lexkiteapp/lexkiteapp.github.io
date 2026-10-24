@@ -55,7 +55,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 11:30 | `release-archive` | `30 11 * * 6` | archive | drive_pool, gh_minutes | 30 | drive_calls≈40 | ✓ |
 | 12:00 | `code-bundle` | `0 12 * * 0` | archive | drive_pool, gh_minutes | 60 | drive_calls≈20 | ✓ |
 | 13:10 | `vocab-img` | `10 13 * * *` | bulk | grabcast_ai, gh_minutes | 85 | grabcast_images≈400, grabcast_text≈220, senses≈220, images≈130 | ✓ |
-| 15:40 | `lexicon-expand` | `40 15 * * *` | render | gemini, grabcast_ai, workers_ai_b, gh_minutes | 120 | gemini_calls≈400, grabcast_text≈300, workers_ai_b_neurons≈1500 | ✓ |
+| 15:40 | `lexicon-expand` | `40 15 * * *` | render | gemini, grabcast_ai, workers_ai_b, gh_minutes | 120 | gemini_calls≈400, grabcast_text≈7000, workers_ai_b_neurons≈1500 | ✓ |
 | 16:40 | `vocab-img-scene` | `40 16 * * *` | bulk (tạm dừng) | grabcast_ai, gh_minutes | 120 | grabcast_images≈400, grabcast_text≈30, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token) | ✓ |
 | 18:00 | `word-audio` | `0 18 * * *` | render | gh_minutes | 60 | — | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
@@ -94,6 +94,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/expand/lib.mjs` – nguồn | `loadExpand` | — |
 | `scripts/lexicon/lib.mjs` – nạp kho | `loadAllPlus` | — |
 | `scripts/lexicon/i18n-job.mjs` –  | bỏ qua: mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc) | — |
+| `scripts/lexicon/expand/espeak-calib.mjs` –  | bỏ qua: chỉ lấy mẫu từ kho viết tay để hiệu chuẩn IPA Anh espeak ↔ Wiktionary; không ghi/xuất | — |
 | `scripts/lexicon/cefr-check.mjs` –  | bỏ qua: chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry) | — |
 | `scripts/scriptbank/gold.mjs` –  | bỏ qua: bộ mẫu vàng cố định từ bộ viết tay | — |
 | `scripts/vocab-img/cards.mjs` – thẻ nghĩa vimg | `dist/lexicon.json` | vocab-img |
