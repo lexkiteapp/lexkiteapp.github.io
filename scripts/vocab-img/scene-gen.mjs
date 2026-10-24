@@ -86,6 +86,8 @@ async function main() {
   }
   await Promise.all(Array.from({ length: CONC }, async () => { while (todo.length && !stop) await one(todo.shift()); }));
   if (stop) console.log('⏹ hết ngân sách ảnh lượt này – dừng sạch');
+  // bể CF cạn (503 ai_exhausted / 409 no_provider) → dấu EXHAUSTED: vòng biến thể của workflow dừng, không gọi lại tới 00:00 UTC
+  if (GC_STATS.exhausted_at || GC_STATS.no_provider) { fs.writeFileSync(path.join(OUT, 'EXHAUSTED'), JSON.stringify({ at: GC_STATS.exhausted_at || new Date().toISOString(), ok_before: GC_STATS.ok_before_exhausted ?? GC_STATS.ok })); console.log(`⏹ bể neuron CF cạn – ${GC_STATS.ok_before_exhausted ?? GC_STATS.ok} ảnh trước khi cạn`); }
   fs.writeFileSync(logF, JSON.stringify(log, null, 1));
   fs.writeFileSync(path.join(OUT, `gen-stats.s${SI}.a${ATT}.json`), JSON.stringify({ shard: SI, attempt: ATT, wanted: n + todo.length, images: n, retries_5xx: retries, safety_rephrased: safetyRe, safety_failed: safetyFail, gc: GC_STATS }));
   console.log('GrabCast ảnh:', JSON.stringify(GC_STATS));

@@ -115,8 +115,8 @@ if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url
     const todo = keysOf().filter(k => lex[k] && !cards.items[k] && !SKIP.has(k)); let add = 0, bad = 0;
     for (let i = 0; i < todo.length; i += 8) {
       const part = todo.slice(i, i + 8);
-      // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút) trước, CF sau; ngân sách lượt = AI_POOL_GC_MAX (workflow)
-      const r = await AI.gen({ mode: 'vscene', items: part.map(k => ({ k, w: lex[k].w })) }, { chain: ['gc-groq', 'gc-cf', 'gc-gemini', 'cf2'] });
+      // 24/10 GrabCast: generate 300/phút/IP, 115k/ngày/khoá – Groq gpt-oss-120b (600/phút); 25/10: CF văn bản cuối chuỗi + TẮT (AI_POOL_CF_TEXT) – neuron CF dành cho ảnh
+      const r = await AI.gen({ mode: 'vscene', items: part.map(k => ({ k, w: lex[k].w })) }, { chain: ['gc-groq', 'gc-gemini', 'cf2', 'gc-cf'] });
       if (!r) { console.log('⏭ không tuyến nào trả lời – dừng (lượt sau viết tiếp)'); break; }
       const out = normOut(r.out, part.map(k => ({ k, w: lex[k].w }))) || {};
       for (const k of part) { const c = out[k]; const why = sceneOk(lex[k], c); if (c && c.skip) { cards.items[k] = { skip: String(c.skip).slice(0, 80), by: r.model }; add++; } else if (!why) { cards.items[k] = { ex: c.ex, sc: String(c.sc).replace(/["“”]/g, '').slice(0, 320), cap: String(c.cap).slice(0, 120), who: Math.min(2, +c.who || 0), by: r.model }; add++; } else { bad++; console.log('✗ thẻ', k, why); } }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Vẽ ảnh minh hoạ từ vựng – CHỈ dịch vụ miễn phí, ưu tiên thấp nhất (việc nền `vocab-img`, infra/jobs.json).
 //   node scripts/vocab-img/gen.mjs --keys <file.json|k1,k2> --out <dir> [--attempt 1|2] [--dry-run]
-// Nhà cung cấp (thứ tự; mỗi nhà có trần ảnh/ngày suy từ neuron miễn phí – 1 ảnh 1024² 4 bước = 172,8 neuron):
+// Nhà cung cấp (thứ tự; mỗi nhà có trần ảnh/ngày suy từ neuron miễn phí – NEURONS_PER_IMG):
 //   cf2      Workers AI tài khoản 2 (REST, env CF_AI_TOKEN_2 + CF_ACCOUNT_2; quyền token: Account › Workers AI › Read + Edit)   VIMG_MAX_CF2 (mặc định 50 ≈ 8.640 neuron)
 //   grabcast GrabCast owner-ai /api/owner-ai/image provider=cloudflare (env GRABCAST_AI_KEY)                                   VIMG_MAX_GC  (mặc định 40)
 //   main     Workers AI tài khoản chính – qua /api/studio op imageGen (env STUDIO_CALLBACK_SECRET, binding AI của Pages) hoặc REST (CF_AI_TOKEN_1 + CF_ACCOUNT_1)
@@ -18,6 +18,10 @@ const OUT = arg('out') || 'out/vocab-img', ATT = +(arg('attempt') || 1), DRY = p
 const ROOT = new URL('../../', import.meta.url), rd = p => JSON.parse(fs.readFileSync(new URL(p, ROOT), 'utf8'));
 export const slug = k => k.replace(/#/g, '__').replace(/[^a-zA-Z0-9_-]+/g, '-');
 const FLUX = '@cf/black-forest-labs/flux-1-schnell';
+// Neuron ước tính / ảnh FLUX-1-schnell (bảng giá Workers AI: 4,8 neuron / ô 512² + 9,6 neuron / bước) – ra CỐ ĐỊNH 1024² (4 ô) × 4 bước = 57,6.
+// Cỡ ảnh: GrabCast /api/owner-ai/image CHỈ nhận { prompt, provider } (đo 25/10: width/height/size/steps lạ bị bỏ qua, không 422) và FLUX schnell
+// trên Workers AI không có tham số cỡ → KHÔNG xin được ảnh nhỏ hơn; ảnh 1024² thu về 512 ở bước encode. Ghi đè: VIMG_NEURONS_PER_IMG.
+export const NEURONS_PER_IMG = +(process.env.VIMG_NEURONS_PER_IMG || 57.6);
 const env = process.env;
 
 export const PROVIDERS = [
@@ -47,7 +51,8 @@ async function studio(prompt) {
 const GC = String(env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 let gcWaits = 0;
 // đếm theo mã HTTP cho báo cáo GrabCast (24/10: ~40 % lượt 500) – scene-gen ghi vào gen-stats.s<i>.json
-export const GC_STATS = { submit: 0, ok: 0, s429: 0, s5xx: 0, ai_busy: 0, ai_unavailable: 0, ai_exhausted: 0, safety: 0, s4xx: 0, job_err: 0, poll_err: 0, timeout: 0, content_err: 0, net: 0, retry_after_s: 0, by_code: {} };
+// exhausted_at / ok_before_exhausted: thời điểm bể CF cạn (503 ai_exhausted) và số ảnh vẽ được trước đó (fill-report.json)
+export const GC_STATS = { exhausted_at: null, ok_before_exhausted: null, no_provider: 0, submit: 0, ok: 0, s429: 0, s5xx: 0, ai_busy: 0, ai_unavailable: 0, ai_exhausted: 0, safety: 0, s4xx: 0, job_err: 0, poll_err: 0, timeout: 0, content_err: 0, net: 0, retry_after_s: 0, by_code: {} };
 const gcErr = (m, r) => { const e = new Error(m); e.status = r && r.status; const ra = r && r.headers && +r.headers.get('retry-after'); if (ra > 0) e.retryAfter = ra; return e; };
 async function grabcast(prompt) {
   const h = { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' };
@@ -63,7 +68,9 @@ async function grabcast(prompt) {
   if (r.status === 429 && (gcWaits++ < 6)) { const w = Math.min(240, +r.headers.get('retry-after') || 65 * gcWaits); /* 24/10 GrabCast MAX: 115k/ngày/khoá, ảnh 60/phút/IP – theo Retry-After */ console.log(`… GrabCast 429 (khung 10 ảnh) – chờ ${w} s`); await new Promise(s => setTimeout(s, w * 1e3)); return grabcast(prompt); }
   // 24/10: 409 no_provider ×2772 lượt – lỗi cấu hình (401/403/409) không tự hết khi thử lại → dừng nhà này ngay, không gọi dồn
   // GrabCast 24/10: cả bể CF hết neuron ngày → 503 ai_exhausted (Retry-After tới 00:00 UTC) = hết hạn mức, dừng nhà này (không ngủ trong runner)
-  if (/ai_exhausted/.test(JSON.stringify(j.detail || j.error || ''))) { GC_STATS.ai_exhausted++; throw new Quota(`ai_exhausted ${r.headers.get('retry-after') || ''}`); }
+  if (/ai_exhausted/.test(JSON.stringify(j.detail || j.error || ''))) { GC_STATS.ai_exhausted++; if (!GC_STATS.exhausted_at) { GC_STATS.exhausted_at = new Date().toISOString(); GC_STATS.ok_before_exhausted = GC_STATS.ok; } throw new Quota(`ai_exhausted ${r.headers.get('retry-after') || ''}`); }
+  // 25/10: sau khi bể cạn GrabCast trả 409 no_provider cho mọi lượt ảnh → cũng là dừng sạch (đếm riêng)
+  if (/no_provider/.test(JSON.stringify(j.detail || ''))) GC_STATS.no_provider++;
   if ([401, 403, 409].includes(r.status)) { GC_STATS.config = (GC_STATS.config || 0) + 1; throw new Quota(`config ${r.status} ${JSON.stringify(j.detail || j.error || '').slice(0, 120)}`); }
   if (r.status === 429 || quotaish(String(j.error && j.error.code || ''))) throw new Quota(`${r.status} ${JSON.stringify(j.error || '').slice(0, 120)}`);
   let job = j.job; if (!r.ok || !job) throw gcErr(`${r.status} ${JSON.stringify(j).slice(0, 160)}`, r);
@@ -107,7 +114,7 @@ async function main() {
     if (!done) { fail++; if (PROVIDERS.every(p => dead.has(p.id) || used[p.id] >= p.max)) { console.log('⏹ hết ngân sách miễn phí hôm nay – dừng sạch'); break; } }
   }
   fs.writeFileSync(logF, JSON.stringify(log, null, 1));
-  console.log(`✓ vẽ ${n} ảnh (lần ${ATT}) · lỗi ${fail} · dùng ${JSON.stringify(used)} · ước neuron cf ${((used.cf2 + used.main) * 172.8).toFixed(0)}`);
+  console.log(`✓ vẽ ${n} ảnh (lần ${ATT}) · lỗi ${fail} · dùng ${JSON.stringify(used)} · ước neuron ${((used.grabcast + used.cf2 + used.main) * NEURONS_PER_IMG).toFixed(0)} (${NEURONS_PER_IMG}/ảnh)${GC_STATS.exhausted_at ? ` · bể CF cạn lúc ${GC_STATS.exhausted_at} sau ${GC_STATS.ok_before_exhausted} ảnh` : ''}`);
   if (!DRY && keys.length && n === 0 && !fs.readdirSync(path.join(OUT, 'raw')).length) process.exit(1);   // workflow tự đỏ khi = 0
 }
 if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url).pathname)) main();

@@ -7,6 +7,8 @@
 //   lexai     Gemini/Gemma kho khóa Lexkite (xoay khóa, functions/api/_keys.js) qua /api/lexai (OIDC GitHub)
 //   gc-groq   GrabCast /api/owner-ai/generate provider=groq model=openai/gpt-oss-120b (24/10 nâng cấp: 600/phút, 60.000/ngày/khóa) – env GRABCAST_AI_KEY
 //   gc-cf     GrabCast provider=cloudflare: @cf/openai/gpt-oss-120b · @cf/meta/llama-3.3-70b-instruct-fp8-fast
+//             25/10: TẮT mặc định – neuron bể CF GrabCast (~70 tài khoản × 10k/ngày, về 0 lúc 00:00 UTC) dành cho ẢNH; văn bản CF làm cạn bể và chặn lượt ảnh.
+//             Chỉ bật khi AI_POOL_CF_TEXT=1 (dự phòng cuối chuỗi). Câu trả lời GrabCast từ Cloudflare cho yêu cầu groq/gemini cũng bị bỏ + tuyến nghỉ 30 phút.
 //   cf2       Workers AI TÀI KHOẢN 2 (REST, env CF_AI_TOKEN_2 + CF_ACCOUNT_2; neuron = phần cấp của điều phối LEASE_AI_B_NEURONS)
 //   gc-gemini GrabCast provider=gemini (2.5-flash/pro; 29 khóa thường hết hạn mức ngày → cuối chuỗi)
 //   gc-vision GrabCast /api/owner-ai/vision (CF Llama 4 Scout → Gemini → Groq) cho giám khảo ảnh
@@ -70,17 +72,29 @@ export function allowed(mode, model) {
 }
 
 // ---------- chuỗi theo loại việc ----------
-// Chọn 24/10 (GrabCast nâng cấp): soạn = Groq gpt-oss-120b → CF gpt-oss-120b; giám khảo A = CF Llama 3.3 70B; giám khảo B = Groq gpt-oss-120b (khác họ).
-// Gemini kho Lexkite vẫn đứng đầu soạn khi có khóa sống (ping); 0 khóa → tuyến lexai nghỉ ngay từ kiểm sức khỏe.
+// 25/10 (neuron CF → ảnh): soạn = Gemini kho Lexkite → Groq gpt-oss-120b; giám khảo A = Groq gpt-oss-120b; giám khảo B = Groq gpt-oss-20b với LỜI NHẮN KHÁC
+// (người soát thứ hai, tìm lỗi trước – JUDGE_B_SYS). Cùng họ gpt-oss chỉ được phép cho cặp 120b + 20b (SAME_FAM_PAIR, docs/CONTENT-QA.md §2 lớp 3).
+// gc-cf luôn ở CUỐI và chỉ sống khi AI_POOL_CF_TEXT=1. Gemini kho Lexkite vẫn đứng đầu soạn khi có khóa sống; 0 khóa → lexai nghỉ ngay.
 export const CHAINS = {
-  gen: ['lexai', 'gc-groq', 'gc-cf', 'cf2', 'gc-gemini'],
-  judgeA: ['gc-cf', 'lexai', 'cf2', 'gc-groq', 'gc-gemini'],
-  judgeB: ['gc-groq', 'cf2', 'gc-cf', 'lexai', 'gc-gemini'], // bắt buộc khác họ của A
+  gen: ['lexai', 'gc-groq', 'cf2', 'gc-gemini', 'gc-cf'],
+  judgeA: ['gc-groq', 'lexai', 'cf2', 'gc-gemini', 'gc-cf'],
+  judgeB: ['gc-groq', 'lexai', 'gc-gemini', 'cf2', 'gc-cf'], // khác MÔ HÌNH của A; khác họ trừ cặp gpt-oss 120b/20b
   vision: ['gc-vision', 'studio', 'cf2-vision'],
 };
+/** văn bản Cloudflare qua GrabCast (bể neuron ảnh) – TẮT trừ khi AI_POOL_CF_TEXT=1 */
+export const cfTextOn = (env = process.env) => /^(1|true|yes|on)$/i.test(String(env.AI_POOL_CF_TEXT || ''));
+/** họ được phép làm CẢ hai giám khảo khi khác mô hình + khác lời nhắn: chỉ gpt-oss 120b + 20b (Groq) */
+export const SAME_FAM_PAIR = { 'gpt-oss': ['gpt-oss-120b', 'gpt-oss-20b'] };
+const bareModel = m => String(m || '').replace(/^.*\//, '');
+/** hai giám khảo cùng họ có hợp lệ không (cặp đã khai, khác mô hình) */
+export function sameFamOk(m1, m2) { const f = familyOf(m1), ok = SAME_FAM_PAIR[f], a = bareModel(m1), b = bareModel(m2); return !!ok && f === familyOf(m2) && a !== b && ok.includes(a) && ok.includes(b); }
+// lời nhắn RIÊNG cho giám khảo B (khác A): soát đối nghịch – tìm lỗi trước, rồi chấm CÙNG thang điểm/khuôn JSON
+export const JUDGE_B_SYS = 'You are the SECOND, independent reviewer; another model already scored these items and you must not trust it. ' +
+  'Before scoring, actively look for a concrete error in each item: wrong sense or part of speech, a definition or example that does not fit the headword, unnatural or ungrammatical English, ' +
+  'a translation that changes the meaning, a missing target word. Only give 4-5 when you find no such error. Use exactly the same scale and JSON format as below.\n\n';
 // Mô hình GrabCast theo vai (allowlist GrabCast 24/10)
 const GC_MODELS = {
-  groq: { gen: ['openai/gpt-oss-120b'], judge: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'] },
+  groq: { gen: ['openai/gpt-oss-120b'], judge: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'], judgeB: ['openai/gpt-oss-20b', 'openai/gpt-oss-120b'] },
   cloudflare: { gen: ['@cf/openai/gpt-oss-120b', '@cf/meta/llama-3.3-70b-instruct-fp8-fast'], judge: ['@cf/meta/llama-3.3-70b-instruct-fp8-fast', '@cf/openai/gpt-oss-120b', '@cf/openai/gpt-oss-20b'] },
   gemini: { gen: ['gemini-2.5-flash', 'gemini-2.5-pro'], judge: ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-2.5-pro'] },
 };
@@ -143,7 +157,7 @@ export function createPool(opts = {}) {
   const GC = String(opts.gcBase || env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
   const STUDIO = opts.studioUrl || env.STUDIO_API || 'https://lexkite.com/api/studio';
   const budget = { lexai: +(opts.budget?.lexai ?? env.AI_POOL_LEXAI_MAX ?? 1e9), gc: +(opts.budget?.gc ?? env.AI_POOL_GC_MAX ?? 10000), cf2: +(opts.budget?.cf2 ?? env.LEASE_AI_B_NEURONS ?? 0) };
-  const used = { lexai: 0, gc: 0, cf2: 0 };
+  const used = { lexai: 0, gc: 0, cf2: 0, cfLeak: 0 };
   const cool = new Map(); // `${route}|${model}` hoặc `${route}|*` → hết nghỉ lúc
   const stats = {}; // route|model → { ok, fail, bad }
   const promptCache = new Map();
@@ -180,6 +194,9 @@ export function createPool(opts = {}) {
     const p = await r.json(); promptCache.set(key, p); if (promptCache.size > 200) promptCache.delete(promptCache.keys().next().value); return p;
   }
 
+  /** sys theo vai: giám khảo B nhận thêm JUDGE_B_SYS (lời nhắn khác A) */
+  const sysFor = (p, req) => (req && req._slot === 'B' && TASKS[req.mode] && TASKS[req.mode].kind === 'judge' ? JUDGE_B_SYS : '') + p.sys;
+  const CF_TEXT = cfTextOn(env);
   // ---------- tuyến ----------
   const R = {};
   R.lexai = {
@@ -222,7 +239,7 @@ export function createPool(opts = {}) {
       }
     }
     async function one1(req, model, depth) {
-      const p = await promptFor(req), prompt = p.sys + '\n\nINPUT:\n' + p.user;
+      const p = await promptFor(req), prompt = sysFor(p, req) + '\n\nINPUT:\n' + p.user;
       if (prompt.length > GC_MAX_CHARS) {
         if (!Array.isArray(req.items) || req.items.length < 2 || depth > 5) throw new PoolErr('bad', `prompt ${prompt.length} > ${GC_MAX_CHARS} ký tự`);
         const h = Math.ceil(req.items.length / 2), x = await one({ ...req, items: req.items.slice(0, h) }, model, depth + 1), y = await one({ ...req, items: req.items.slice(h) }, model, depth + 1);
@@ -242,10 +259,13 @@ export function createPool(opts = {}) {
       if (code === 'ai_unavailable') throw new PoolErr('model', 'GrabCast ai_unavailable ' + JSON.stringify((j.detail && j.detail.tried) || []).slice(0, 80), ra || 5 * 60e3);
       const why = j.error && j.error.code || (Array.isArray(j.detail) ? j.detail.map(d => d.msg).join('; ') : j.detail) || '';
       if (!r.ok || !j.text) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', `GrabCast ${r.status} ${String(why).slice(0, 80)}`);
+      // GrabCast có thể tự trả lời yêu cầu groq/gemini bằng Cloudflare (đo 25/10: provider=groq → @cf/meta/llama-3.3-70b, fallback_from rỗng) → tốn neuron bể ẢNH.
+      // Văn bản CF TẮT → bỏ câu trả lời + cả tuyến nghỉ 30 phút (tối đa 1 lượt rò mỗi 30 phút/tuyến); bật cờ thì nhận như cũ.
+      if (!CF_TEXT && (j.provider === 'cloudflare' || /^@cf\//.test(String(j.model || '')))) { used.cfLeak++; throw new PoolErr('route', `GrabCast ${provider} trả lời bằng Cloudflare ${j.model || ''} (neuron dành cho ảnh) – bỏ`, 30 * 60e3); }
       const out = parseJSON(j.text); if (!out) throw new PoolErr('bad', `không phải JSON (${String(j.text).length} ký tự: …${String(j.text).slice(-40).replace(/\s+/g, ' ')})`);
       return { out, model: j.model || model || provider, via: j.provider, fellBack: (!!j.provider && j.provider !== provider) || (!!model && !!j.model && j.model !== model) };
     }
-    return { ok: () => !!env.GRABCAST_AI_KEY, models: role => GC_MODELS[provider][role === 'gen' ? 'gen' : 'judge'], call: (m, req) => one(req, m) };
+    return { ok: () => !!env.GRABCAST_AI_KEY && (provider !== 'cloudflare' || CF_TEXT), models: (role, slot) => (role !== 'gen' && slot === 'B' && GC_MODELS[provider].judgeB) || GC_MODELS[provider][role === 'gen' ? 'gen' : 'judge'], call: (m, req) => one(req, m) };
   };
   R['gc-cf'] = gcRoute('cloudflare'); R['gc-gemini'] = gcRoute('gemini'); R['gc-groq'] = gcRoute('groq');
   async function cf2Run(model, input) {
@@ -267,7 +287,7 @@ export function createPool(opts = {}) {
     async call(model, req) {
       if (used.cf2 >= budget.cf2) throw new PoolErr('budget', 'neuron tài khoản 2 (phần cấp điều phối) đã hết');
       const p = await promptFor(req);
-      const text = await cf2Run(model, { messages: [{ role: 'system', content: p.sys }, { role: 'user', content: p.user }], max_tokens: 4096, temperature: p.temp ?? 0.2, response_format: { type: 'json_object' } });
+      const text = await cf2Run(model, { messages: [{ role: 'system', content: sysFor(p, req) }, { role: 'user', content: p.user }], max_tokens: 4096, temperature: p.temp ?? 0.2, response_format: { type: 'json_object' } });
       return { out: parseJSON(text), model };
     },
   };
@@ -318,7 +338,7 @@ export function createPool(opts = {}) {
       if (miss.length === req.items.length) log(`[ai-pool] ${req.mode}: ${r.model} trả khóa lạ ${JSON.stringify(Object.keys(r.out || {}).slice(0, 4))} ${JSON.stringify(r.out).slice(0, 160)}`);
       if (miss.length && miss.length < req.items.length + 1) {
         const r2 = await runWait(chain, { ...req, items: miss }, { ...o, _again: true });
-        if (r2 && (o.role !== 'judge' || r2.fam === r.fam)) r.out = { ...r.out, ...r2.out };
+        if (r2 && (o.role !== 'judge' || r2.model === r.model || (r2.fam === r.fam && !SAME_FAM_PAIR[r.fam]))) r.out = { ...r.out, ...r2.out };
         log(`[ai-pool] ${req.mode}: thiếu ${miss.length}/${req.items.length} mục → hỏi lại ${r2 ? 'được ' + miss.filter(x => x.k in r.out).length : 'không được'}`);
       }
     }
@@ -333,23 +353,25 @@ export function createPool(opts = {}) {
       await sleep(soon + 500);
     }
   }
-  async function run1(chain, req, { exclude = [], role } = {}) {
+  async function run1(chain, req, { exclude = [], role, slot, excludeModels = [] } = {}) {
+    const exM = excludeModels.map(bareModel), sameM = m => exM.includes(bareModel(m));
     const mode = req.mode, why = [];
     role = role || (TASKS[mode] && TASKS[mode].kind) || 'gen';
     for (const id of chain) {
       const route = R[id]; if (!route || !route.ok()) continue;
-      for (const model of route.models(role)) {
+      for (const model of route.models(role, slot)) {
         if (cooling(id, model)) continue;
         // lọc trước theo mô hình dự kiến (tuyến GrabCast tự chọn mô hình → lọc theo câu trả lời thật)
-        if (!/^(vision|gemini-vision)$/.test(model) && (!allowed(mode, model) || exclude.includes(familyOf(model)))) continue;
+        if (!/^(vision|gemini-vision)$/.test(model) && (!allowed(mode, model) || exclude.includes(familyOf(model)) || sameM(model))) continue;
         const t0 = now();
         try {
-          const r = await route.call(model, req); r.out = normOut(r.out, req.items);
+          const r = await route.call(model, slot ? { ...req, _slot: slot } : req); r.out = normOut(r.out, req.items);
           const fam = familyOf(r.model);
           if (r.fellBack) rest(id, model, 60e3, `GrabCast ${id} ${model} tự rơi về ${r.via} ${r.model}`); // chỉ mô hình đó nghỉ ngắn (thường là trần phút của nhà cung cấp)
           if (!r.out || typeof r.out !== 'object') throw new PoolErr('bad', 'không phải JSON');
           if (!allowed(mode, r.model)) { hit(id, r.model, 'bad'); why.push(`${id}:${r.model} không đủ chuẩn cho ${mode}`); continue; }
           if (exclude.includes(fam)) { hit(id, r.model, 'bad'); why.push(`${id}:${r.model} cùng họ ${fam}`); continue; }
+          if (sameM(r.model)) { hit(id, r.model, 'bad'); why.push(`${id}:${r.model} trùng mô hình giám khảo A`); continue; }
           hit(id, r.model, 'ok');
           log(`[ai-pool] ✓ ${mode}${req.lang ? '/' + req.lang : ''} ← ${id} ${r.model} (${Math.round((now() - t0) / 1e3)} s)`);
           return { out: r.out, model: r.model, route: id, fam, text: r.text };
@@ -381,9 +403,11 @@ export function createPool(opts = {}) {
     judge: (req, o = {}) => run(o.chain || CHAINS.judgeA, req, { ...o, role: 'judge' }),
     /** HAI giám khảo khác họ. { a, b } – b null khi không còn họ khác → người gọi KHÔNG xuất (bỏ qua trung tính, lượt sau chấm lại). */
     async judgePair(req, o = {}) {
-      const a = await run(CHAINS.judgeA, req, { exclude: o.exclude || [], role: 'judge' });
+      const a = await run(CHAINS.judgeA, req, { exclude: o.exclude || [], role: 'judge', slot: 'A' });
       if (!a) return { a: null, b: null };
-      const b = await run(CHAINS.judgeB, req, { exclude: [...(o.exclude || []), a.fam], role: 'judge' });
+      // B: luôn khác MÔ HÌNH + lời nhắn khác (slot B); khác HỌ trừ cặp gpt-oss 120b/20b (SAME_FAM_PAIR)
+      const b = await run(CHAINS.judgeB, req, { exclude: [...(o.exclude || []), ...(SAME_FAM_PAIR[a.fam] ? [] : [a.fam])], excludeModels: [a.model], role: 'judge', slot: 'B' });
+      if (b && b.fam === a.fam && !sameFamOk(a.model, b.model)) return { a, b: null };
       return { a, b };
     },
     vision: (req) => run(CHAINS.vision, { mode: 'vision', ...req }, { role: 'judge' }),
@@ -391,7 +415,7 @@ export function createPool(opts = {}) {
     async health({ grabcast = true } = {}) {
       const h = {};
       try { const r = await lexaiPost({ mode: 'ping' }); const j = r.ok ? await r.json() : {}; h.lexai = { ok: r.ok && j.gemini > 0, gemini: j.gemini ?? null }; if (r.ok && !j.gemini) rest('lexai', null, 30 * 60e3, 'kho Gemini rỗng (ping)'); } catch (e) { h.lexai = { ok: false, err: String(e.message).slice(0, 60) }; }
-      if (grabcast && env.GRABCAST_AI_KEY) for (const p of ['cloudflare', 'groq', 'gemini']) {
+      if (grabcast && env.GRABCAST_AI_KEY) for (const p of [...(CF_TEXT ? ['cloudflare'] : []), 'groq', 'gemini']) {
         const r = await F(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: 'Reply with JSON {"ok":1} only.', provider: p, model: GC_MODELS[p].gen[0] }) }).catch(() => null);
         const j = r ? await r.json().catch(() => ({})) : {}; used.gc++;
         const ok = !!(r && r.ok && j.provider === p); h['gc-' + (p === 'cloudflare' ? 'cf' : p)] = { ok, model: j.model || '', fellBack: (j.fallback_from || []).map(f => f.code).slice(0, 3) };

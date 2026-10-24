@@ -247,6 +247,7 @@ jobs:
             [ "$P" -eq 0 ] && break; [ "$LEFT" -le 0 ] && { echo "⏹ hết trần ảnh việc"; break; }; [ $(( $(date +%s) - T0 )) -gt 5400 ] && { echo "⏹ hết giờ"; break; }
             VIMG_MAX_GC=$LEFT node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt $a --shard ${{ matrix.shard }}/$NSH --only pending.json || true
             ls $OUT/raw/*.a$a.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt $a | tail -2 || true
+            [ -f $OUT/EXHAUSTED ] && { echo "⏹ bể neuron CF cạn (ai_exhausted) – dừng sạch"; break; }
           done
       - uses: actions/upload-artifact@v4
         if: always() && steps.lease.outputs.skip != '1'
@@ -273,7 +274,7 @@ jobs:
       - name: Gộp + mã hoá ≤ 6 KB + tờ ảnh 40 ảnh nhận
         run: |
           mkdir -p m/raw m/svg
-          for d in parts/*/; do cp -n $d/out/vimg-fill/raw/* m/raw/ 2>/dev/null || true; cp -n $d/out/vimg-fill/svg/* m/svg/ 2>/dev/null || true; cp $d/out/vimg-fill/gen-stats.*.json $d/out/vimg-fill/speed.*.json $d/out/vimg-fill/cards.*.json m/ 2>/dev/null || true
+          for d in parts/*/; do cp -n $d/out/vimg-fill/raw/* m/raw/ 2>/dev/null || true; cp -n $d/out/vimg-fill/svg/* m/svg/ 2>/dev/null || true; cp $d/out/vimg-fill/gen-stats.*.json $d/out/vimg-fill/speed.*.json $d/out/vimg-fill/cards.*.json $d/out/vimg-fill/judge-api.*.json m/ 2>/dev/null || true
             for f in $d/out/vimg-fill/judge.local.a*.json $d/out/vimg-fill/targets.json; do [ ! -f "$f" ] || python3 -c "import json,sys,os;o='m/'+os.path.basename(sys.argv[1]);a=json.load(open(o)) if os.path.exists(o) else {};a.update(json.load(open(sys.argv[1])));json.dump(a,open(o,'w'))" $f; done; done
           [ -f m/targets.json ] || { echo "::warning::không có việc nào chạy (thuê bị từ chối?)"; exit 0; }
           python3 scripts/vocab-img/scene_final.py --dir m --sheet m/fill-sheet.jpg --sheet-max 40 | tail -2
@@ -297,7 +298,7 @@ jobs:
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep $((i * 10)); done
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: vimg-fill-final, retention-days: 14, path: "m/result.json\nm/fill-report.json\nm/fill-sheet.jpg\nm/gen-stats.*.json\nm/speed.*.json\nm/final/" }
+        with: { name: vimg-fill-final, retention-days: 14, path: "m/result.json\nm/fill-report.json\nm/fill-sheet.jpg\nm/gen-stats.*.json\nm/judge-api.*.json\nm/speed.*.json\nm/final/" }
   labfeat:
     # đặc trưng giám khảo CẢNH (CLIP↔câu, chú thích↔câu, thị giác có/không) cho ảnh của lượt cũ đã gán nhãn – đầu vào calibrate_scene.py
     needs: plan

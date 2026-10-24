@@ -171,7 +171,7 @@ GrabCast limits went to MAX on 24/10. Per key: 1,500/min and 115,000/day. Per ac
 |---|---|---|---|
 | `lexai` | Gemini / Gemma from the Lexkite key pool (this page), via `/api/lexai` (GitHub OIDC). The server rotates keys. A `ping` with 0 live keys rests this route right at the start. | OIDC only | `--calls` of the job |
 | `gc-groq` | GrabCast `provider: groq`, model `openai/gpt-oss-120b` (20b for judging only) | secret `GRABCAST_AI_KEY` | `AI_POOL_GC_MAX` (lexicon 20,000, explain 15,000, script-bank 8,000, vocab-img default 10,000; total ≤ 103k ≈ 90 % of 115k) |
-| `gc-cf` | GrabCast `provider: cloudflare`, models `@cf/openai/gpt-oss-120b` and `@cf/meta/llama-3.3-70b-instruct-fp8-fast` | `GRABCAST_AI_KEY` | shared |
+| `gc-cf` | GrabCast `provider: cloudflare`, models `@cf/openai/gpt-oss-120b` and `@cf/meta/llama-3.3-70b-instruct-fp8-fast` – **off unless `AI_POOL_CF_TEXT=1`** (neurons are for images) | `GRABCAST_AI_KEY` | shared |
 | `cf2` | Workers AI on **account 2** (REST), gpt-oss-120b, then Llama 3.3 70B | `CF_AI_TOKEN_2` + `CF_ACCOUNT_2` | neurons granted by the coordinator (`LEASE_AI_B_NEURONS` / `--neurons`; `reservations.workers_ai_b.grants`) |
 | `gc-gemini` | GrabCast `provider: gemini` (2.5-flash/pro; its 29 keys run out of free quota daily, so it is last) | `GRABCAST_AI_KEY` | shared |
 | `gc-vision` | GrabCast `/api/owner-ai/vision` `{prompt, image_b64, mime}`: CF Llama 4 Scout, then Gemini, then Groq | `GRABCAST_AI_KEY` | shared |
@@ -182,9 +182,10 @@ The **main-account Workers AI is never reachable** from background jobs. `/api/l
 
 **Chains**
 
-- Generation: `lexai (Gemini, when live) → gc-groq gpt-oss-120b → gc-cf gpt-oss-120b → cf2 → gc-gemini`. Llama 3.3 70B (gc-cf) is only a fallback for lxgen/vgen.
-- Judge A: `gc-cf Llama 3.3 70B → lexai → cf2 → gc-groq → gc-gemini`.
-- Judge B: `gc-groq gpt-oss-120b → cf2 → gc-cf → lexai → gc-gemini`. Judge B must come from a **different model family** than A. Llama and gpt-oss are different families, so the two judges are independent.
+- **25/10: Cloudflare text is OFF.** The GrabCast Cloudflare neuron pool (~70 accounts × 10k/day, reset 00:00 UTC) is reserved for vocab IMAGES; text calls drained it and blocked image runs. `gc-cf` is the last link of every chain and only lives when `AI_POOL_CF_TEXT=1`. If GrabCast answers a groq/gemini request with a Cloudflare model (seen 25/10: `provider=groq` → `@cf/meta/llama-3.3-70b`, empty `fallback_from`), the pool drops the answer, counts `used.cfLeak` and rests that route 30 min.
+- Generation: `lexai (Gemini, when live) → gc-groq gpt-oss-120b → cf2 → gc-gemini → (gc-cf, flag only)`.
+- Judge A: `gc-groq gpt-oss-120b → lexai → cf2 → gc-gemini → (gc-cf)`.
+- Judge B: `gc-groq gpt-oss-20b → lexai → gc-gemini → cf2 → (gc-cf)`. Judge B must be a **different model** than A and gets a different system prompt (`JUDGE_B_SYS`, adversarial second reviewer). It must also be a different family, except the declared pair gpt-oss-120b + gpt-oss-20b (`SAME_FAM_PAIR`; trade-off in docs/CONTENT-QA.md §2).
 - Vision: `gc-vision → studio (Gemini, wai:0) → cf2 Llama 4 Scout`.
 - The family is always checked on the model that **really** answered. If GrabCast swaps the provider or model, that route rests for 15 min.
 

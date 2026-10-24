@@ -6,6 +6,7 @@
 // 429 → chờ lùi (backoff) rồi thử lại; lỗi khác → bỏ nghĩa đó lượt này (không ghi thẻ hỏng).
 import fs from 'fs';
 import { ruleCheck } from './strict.mjs';
+import { cfTextOn } from '../lib/ai-pool.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
 const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
@@ -27,10 +28,12 @@ Never use quotation marks, letters, numbers, signs or labels in o/c. Do not inve
 
 async function gen(prompt, tries = 6) {
   for (let i = 0; i < tries; i++) {
-    const r = await fetch(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt }) }).catch(e => ({ ok: false, status: 0, e }));
+    const r = await fetch(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt, provider: 'groq', model: 'openai/gpt-oss-120b' }) }).catch(e => ({ ok: false, status: 0, e }));
     if (r.status === 429 || r.status >= 500 || r.status === 0) { await sleep(Math.min(120e3, 5e3 * 2 ** i)); continue; }
     const j = await r.json().catch(() => ({}));
     if (!r.ok || !j.text) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 120)}`);
+    // 25/10: văn bản Cloudflare (bể neuron ảnh) TẮT trừ AI_POOL_CF_TEXT=1 – GrabCast tự trả lời bằng CF → dừng lượt thẻ (thẻ còn lại lượt sau viết)
+    if (!cfTextOn() && (j.provider === 'cloudflare' || /^@cf\//.test(String(j.model || '')))) throw new Error('GrabCast trả lời bằng Cloudflare (neuron dành cho ảnh) – dừng');
     return String(j.text);
   }
   throw new Error('429/5xx kéo dài');
@@ -76,7 +79,7 @@ async function main() {
       if (!c) { bad++; console.warn('✗ thẻ hỏng', k, t.slice(0, 120).replace(/\s+/g, ' ')); return; }
       cards.items[k] = { ...c, by: 'gc' }; c.skip ? sk++ : n++;
       console.log(c.skip ? '· skip' : '✓', k, c.skip || c.o.slice(0, 80));
-    } catch (e) { bad++; console.warn('✗', k, e.message); if (/kéo dài/.test(e.message)) stop = true; }
+    } catch (e) { bad++; console.warn('✗', k, e.message); if (/kéo dài|Cloudflare/.test(e.message)) stop = true; }
   };
   let stop = false, i = 0;   // 3 luồng song song (GrabCast 60 lượt/phút/khóa) – 429 tự chờ lùi
   await Promise.all([0, 1, 2].map(async () => { while (!stop && i < todo.length) await one(todo[i++]); }));

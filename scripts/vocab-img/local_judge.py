@@ -104,7 +104,7 @@ def phash(im):
 # ---------- giám khảo API (GrabCast /api/owner-ai/vision, CF llama-4-scout trước) – MÔ TẢ MÙ (không biết từ/câu), rồi xếp hạng như máy chú thích ----------
 API_Q = ('Describe this picture for a vocabulary app in one sentence: who or what is shown and what is happening. Do not guess what it was meant to teach. '
          'Reply JSON only: {"describe": "one sentence", "text": true if any letters, words or numbers are visible, "unsafe": true if unsuitable for children}')
-_API = {'dead': False, 'calls': 0, 'fails': 0}
+_API = {'dead': False, 'calls': 0, 'fails': 0, 'skipped': 0}   # skipped = ảnh trượt cục bộ → không gọi thị giác (25/10: neuron CF dành cho ảnh)
 def api_vision(im):
     """→ dict | None (None = không có/đã cạn → người gọi xử lý 'API exhausted')"""
     key = os.environ.get('GRABCAST_AI_KEY'); base = os.environ.get('GRABCAST_API_BASE', 'https://grabcast-api-342720596878.us-central1.run.app').rstrip('/')
@@ -205,11 +205,6 @@ def features(im, k, t, T, LEX, keys_all, centroid):
     per, i = [], 0
     for rs in refs: per.append(float(np.max(R[i:i + len(rs)] @ ce)) if rs else -1.0); i += len(rs)
     per = np.array(per); crank = int((per > per[0]).sum()) + 1
-    api = api_vision(im); arank = asim = None; aflags = {}
-    if api and api.get('describe'):
-        A = st.encode([str(api['describe'])], normalize_embeddings=True)[0]; ap, i = [], 0
-        for rs in refs: ap.append(float(np.max(R[i:i + len(rs)] @ A)) if rs else -1.0); i += len(rs)
-        ap = np.array(ap); arank = int((ap > ap[0]).sum()) + 1; asim = round(float(ap[0]), 4); aflags = {'text': api.get('text') is True, 'unsafe': api.get('unsafe') is True}
     sc = {}
     if t.get('kind', 'object') != 'object':
         # tín hiệu RIÊNG cho cảnh (24/10): CLIP ảnh ↔ CÂU (không phải gloss), chú thích ↔ câu, giám khảo thị giác hỏi có/không về tình huống
@@ -219,24 +214,37 @@ def features(im, k, t, T, LEX, keys_all, centroid):
         sc['clip_ex'] = round(float(cs[0]), 4); sc['clip_ex_rank'] = int((cs[1:] > cs[0]).sum()) + 1; sc['clip_ex_margin'] = round(float(cs[0] - cs[1:].max()), 4)
         E2 = st.encode([c, sent] + dsent, normalize_embeddings=True); ss = E2[1:] @ E2[0]
         sc['cap_ex'] = round(float(ss[0]), 4); sc['cap_ex_rank'] = int((ss[1:] > ss[0]).sum()) + 1; sc['cap_ex_margin'] = round(float(ss[0] - ss[1:].max()), 4)
-        if api and api.get('describe'):
-            E3 = st.encode([str(api['describe']), sent], normalize_embeddings=True); sc['api_ex'] = round(float(E3[0] @ E3[1]), 4)
-        ak = api_ask(im, ask_q(t))
-        if ak: sc.update(ask_yes=ak['yes'], ask_conf=ak['conf'], ask_missing=ak['missing'], ask_text=ak['text'], ask_model=ak['model'])
     fr = framing(im)
-    return {**sc, 'frame': fr, 'api': (api or {}).get('describe'), 'api_model': (api or {}).get('model'), 'api_rank': arank, 'api_sim': asim, **{('api_' + k): v for k, v in aflags.items()},
+    return {**sc, 'frame': fr, 'api': None, 'api_model': None, 'api_rank': None, 'api_sim': None,
+            '_ctx': {'st': st, 'refs': refs, 'R': R, 'sent': (t.get('ex') or t['target']) if t.get('kind', 'object') != 'object' else None},
             'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
             'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
             'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
 
-def verdict_scene(f, th, kind):
+def add_api(f, ctx, im, t):
+    """giám khảo thị giác GrabCast (CF llama-4-scout – TỐN neuron bể ảnh): mô tả mù + (cảnh) hỏi có/không. Chỉ gọi cho ảnh ĐÃ qua CLIP + máy chú thích cục bộ."""
+    st, refs, R = ctx['st'], ctx['refs'], ctx['R']
+    api = api_vision(im)
+    if api and api.get('describe'):
+        A = st.encode([str(api['describe'])], normalize_embeddings=True)[0]; ap, i = [], 0
+        for rs in refs: ap.append(float(np.max(R[i:i + len(rs)] @ A)) if rs else -1.0); i += len(rs)
+        ap = np.array(ap); f.update(api=api.get('describe'), api_model=api.get('model'), api_rank=int((ap > ap[0]).sum()) + 1, api_sim=round(float(ap[0]), 4), api_text=api.get('text') is True, api_unsafe=api.get('unsafe') is True)
+        if ctx.get('sent'):
+            E3 = st.encode([str(api['describe']), ctx['sent']], normalize_embeddings=True); f['api_ex'] = round(float(E3[0] @ E3[1]), 4)
+    elif api: f['api_model'] = api.get('model')
+    if t.get('kind', 'object') != 'object':
+        ak = api_ask(im, ask_q(t))
+        if ak: f.update(ask_yes=ak['yes'], ask_conf=ak['conf'], ask_missing=ak['missing'], ask_text=ak['text'], ask_model=ak['model'])
+
+def verdict_scene(f, th, kind, local_only=False):
     """ảnh cảnh/bìa/bài học – ngưỡng content/lexicon/vimg-judge-scene.json (calibrate_scene.py trên nhãn tay ~470 ảnh, 24/10).
     Thiếu câu trả lời thị giác (API cạn/lỗi) → hàng chờ, KHÔNG nhận (độ chính xác ≥ 98 %)."""
     s, r = th['scene_groups'][kind], []
     if len(f['ocr']) > s.get('ocr_max', 0): r.append('text: ' + ' '.join(f['ocr'])[:40])
     if f['nsfw'] >= th['nsfw_max']: r.append(f"nsfw {f['nsfw']}")
     if f.get('style') is not None and f['style'] < s.get('style_min', 0): r.append(f"style {f['style']}")
-    if f.get('ask_yes') is None: r.append('queue: vision judge unavailable')
+    if local_only or f.get('api_skipped'): pass   # chỉ cổng cục bộ (trước khi gọi thị giác) / đã trượt cục bộ nên không hỏi thị giác
+    elif f.get('ask_yes') is None: r.append('queue: vision judge unavailable')
     else:
         if not f['ask_yes'] or f.get('ask_conf', 0) < s.get('ask_conf', 0): r.append(f"vision: no ({f.get('ask_missing', '')})")
         if f.get('ask_text') and s.get('ask_text_block', True): r.append('vision: text')
@@ -244,12 +252,13 @@ def verdict_scene(f, th, kind):
     if f.get('clip_ex_rank', 99) > s.get('clip_ex_rank_max', 99) or f.get('clip_ex_margin', -1) < s.get('clip_ex_margin', -1): r.append(f"clip-sentence rank {f.get('clip_ex_rank')} margin {f.get('clip_ex_margin')}")
     if f.get('cap_ex', -1) < s.get('cap_ex_min', -1): r.append(f"caption-sentence sim {f.get('cap_ex')}")
     if f.get('clip_ex', -1) < s.get('clip_ex_min', -1): r.append(f"clip-sentence sim {f.get('clip_ex')}")
-    if f.get('api_ex', -1) < s.get('api_ex_min', -1): r.append(f"vision description-sentence sim {f.get('api_ex')}")
+    if not local_only and not f.get('api_skipped') and f.get('api_ex', -1) < s.get('api_ex_min', -1): r.append(f"vision description-sentence sim {f.get('api_ex')}")
     return r
 
-def verdict(f, th, kind):
+def verdict(f, th, kind, local_only=False):
+    """local_only=True: chỉ cổng cục bộ (CLIP, máy chú thích, OCR, NSFW, phong cách, khung) – quyết định có gọi thị giác GrabCast hay không."""
     r = []
-    if kind != 'object' and kind in (th.get('scene_groups') or {}): return verdict_scene(f, th, kind)
+    if kind != 'object' and kind in (th.get('scene_groups') or {}): return verdict_scene(f, th, kind, local_only)
     if kind != 'object':   # cảnh: cùng phép xếp hạng, ngưỡng tương đồng riêng; phong cách so tâm CẢNH (không so tâm ảnh vật)
         th = {**th, 'cap_sim': th.get('cap_sim_scene', .35), 'api_sim': th.get('cap_sim_scene', .35), 'style_min': th.get('style_min_scene', .5)}
     if f['clip_rank'] != 1 or f['clip_margin'] < th['clip_margin']: r.append(f"clip rank {f['clip_rank']} margin {f['clip_margin']}")
@@ -259,7 +268,7 @@ def verdict(f, th, kind):
     if f['style'] is not None and f['style'] < th['style_min']: r.append(f"style {f['style']}")
     fr = f.get('frame') or {}
     if kind == 'object' and fr and (fr['margin'] < th.get('frame_min', .04) or fr['off'] > .12): r.append(f"framing margin {fr['margin']} off {fr['off']}")   # cảnh được tràn khung, vật phải ở giữa + có lề
-    if th.get('api', True) and not r:
+    if th.get('api', True) and not r and not local_only:
         # chủ 24/10: nhận khi CẢ cục bộ VÀ giám khảo API đồng ý; API cạn → chỉ nhận khi cục bộ RẤT chắc (lề ×2), không thì hàng chờ
         if f.get('api_rank') is None:
             if not (f['clip_margin'] >= 2 * max(th['clip_margin'], .01) and f['cap_margin'] >= 2 * max(th['cap_margin'], .03) and f['cap_sim'] >= th['cap_sim'] + .05): r.append('queue: API judge unavailable, local not very high')
@@ -296,15 +305,23 @@ def main():
         f = os.path.join(a.dir, 'raw', f'{slug(k)}.a{a.attempt}.jpg')
         if not os.path.exists(f) or k in res: continue
         im = Image.open(f).convert('RGB')
-        ft = features(im, k, t, T, LEX, keys_all, centroid); v = ft.pop('_v'); n += 1
+        ft = features(im, k, t, T, LEX, keys_all, centroid); v = ft.pop('_v'); ctx = ft.pop('_ctx'); n += 1
+        dup = any(hamm(ft['ph'], p) <= th['ph_max'] for p in seen_ph)
+        # 25/10: thị giác GrabCast (neuron CF = neuron ẢNH) CHỈ cho ảnh đã qua CLIP + máy chú thích + cổng cứng cục bộ; --features-only (hiệu chỉnh) vẫn gọi đủ
+        if a.features_only or (not dup and not verdict(ft, th, t['kind'], local_only=True)): add_api(ft, ctx, im, t)
+        else: ft['api_skipped'] = 'local fail'; _API['skipped'] += 1
         r = [] if a.features_only else verdict(ft, th, t['kind'])
-        if any(hamm(ft['ph'], p) <= th['ph_max'] for p in seen_ph): r.append('duplicate (pHash)')
+        if dup: r.append('duplicate (pHash)')
         seen_ph.append(ft['ph'])
         res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
         print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], flush=True)
     json.dump(res, open(out_f, 'w'), indent=1)
     mins = (time.time() - t0) / 60
     json.dump({'images': n, 'minutes': round(mins, 2), 'per_min': round(n / max(mins, 1e-3), 2)}, open(os.path.join(a.dir, f'speed.judge.a{a.attempt}.json'), 'w'))
+    # lượt gọi thị giác (neuron bể CF) – tên riêng mỗi việc ma trận để fillpub gộp không đè (scene-publish → fill-report.json)
+    import uuid
+    json.dump({'attempt': a.attempt, 'images': n, 'vision_calls': _API['calls'], 'vision_fails': _API['fails'], 'vision_skipped_local_fail': _API['skipped'], 'vision_dead': _API['dead']},
+              open(os.path.join(a.dir, f'judge-api.a{a.attempt}.{uuid.uuid4().hex[:8]}.json'), 'w'))
     fails = [k for k, v in res.items() if not v['pass']]
     if a.attempt == 1: json.dump({'items': fails}, open(os.path.join(a.dir, 'retry.json'), 'w'))
     else: json.dump({'items': fails, '_note': 'trượt 2 lần → hàng chờ; giám khảo API (GrabCast vision / Gemini) tuỳ chọn chỉ chấm hàng này'}, open(os.path.join(a.dir, 'queue.json'), 'w'))

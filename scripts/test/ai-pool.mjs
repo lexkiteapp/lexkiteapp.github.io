@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Test ai-pool (scripts/lib/ai-pool.mjs) – ngoại tuyến, mọi nhà cung cấp giả (fetch mock). docs/API-KEYS.md §8.
 import fs from 'fs';
-import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight } from '../lib/ai-pool.mjs';
+import { createPool, allowed, familyOf, judgeKey, modelInfo, CHAINS, untilPacificMidnight, JUDGE_B_SYS, sameFamOk, cfTextOn } from '../lib/ai-pool.mjs';
 import { agree } from '../content-qa/lib.mjs';
 import { build } from '../../functions/api/lexai.js';
 
@@ -59,22 +59,39 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
 {
   const m = mock({ lexai: b => J({ out: { 'apple#n': { s: 5 } }, model: b.model }), gc: gcEcho });
   const { a, b } = await mk(m).judgePair({ mode: 'lxjudge', items: ITEMS });
-  ok(a && b && a.route === 'gc-cf' && a.model === '@cf/meta/llama-3.3-70b-instruct-fp8-fast' && b.route === 'gc-groq' && b.model === 'openai/gpt-oss-120b', 'judgePair: A = CF Llama 3.3 70B, B = Groq gpt-oss-120b (khác họ)');
+  ok(a && b && a.route === 'gc-groq' && a.model === 'openai/gpt-oss-120b' && b.route === 'gc-groq' && b.model === 'openai/gpt-oss-20b', 'judgePair: A = Groq gpt-oss-120b, B = Groq gpt-oss-20b (25/10: không văn bản CF)');
+  const gp = m.calls.filter(c => c.url.startsWith(GC)).map(c => c.body);
+  ok(!gp.some(c => c.provider === 'cloudflare') && gp.find(c => c.model === 'openai/gpt-oss-20b').prompt.startsWith(JUDGE_B_SYS) && !gp.find(c => c.model === 'openai/gpt-oss-120b').prompt.startsWith(JUDGE_B_SYS), 'giám khảo B: lời nhắn khác A (JUDGE_B_SYS); không gọi provider cloudflare');
+  ok(agree({ j: { [judgeKey(a.model)]: 5, [judgeKey(b.model)]: 4 } }).ok && !agree({ j: { 'gpt-oss:gpt-oss-120b': 5, 'gpt-oss:openai/gpt-oss-120b': 5 } }).ok && !agree({ j: { 'qwen:qwen3-235b': 5, 'qwen:qwen3-32b': 5 } }).ok, 'content-qa: cặp gpt-oss 120b + 20b đạt; cùng mô hình / họ khác cùng họ thì không');
+  ok(sameFamOk('openai/gpt-oss-120b', 'openai/gpt-oss-20b') && !sameFamOk('openai/gpt-oss-120b', '@cf/openai/gpt-oss-120b') && !cfTextOn({}) && cfTextOn({ AI_POOL_CF_TEXT: '1' }), 'cặp cùng họ hợp lệ; cờ văn bản CF mặc định TẮT');
+}
+{ // A rơi về 20b (120b nghỉ) → B phải là 120b (khác mô hình), không bao giờ 2 lần 20b
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.model === 'openai/gpt-oss-120b' && !b.prompt.startsWith(JUDGE_B_SYS) ? J({ text: 'cut', provider: 'groq', model: b.model }) : gcEcho(b) }); // 120b trả hỏng cho A (không nghỉ)
+  const { a, b } = await mk(m).judgePair({ mode: 'lxjudge', items: ITEMS });
+  ok(a && b && a.model === 'openai/gpt-oss-20b' && b.model === 'openai/gpt-oss-120b', 'judgePair: A 20b → B 120b (khác mô hình)');
+}
+{ // GrabCast tự trả lời yêu cầu groq bằng Cloudflare → bỏ (neuron ảnh) + tuyến nghỉ; cờ AI_POOL_CF_TEXT=1 → nhận
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama }); const P = mk(m);
+  ok(await P.gen({ mode: 'lxgen', items: ITEMS }) === null && P.stats().used.cfLeak >= 1, 'GrabCast groq → CF: câu trả lời bị bỏ, đếm cfLeak');
+  const k = m.calls.filter(c => c.url.startsWith(GC)).length; await P.gen({ mode: 'lxgen', items: ITEMS });
+  ok(m.calls.filter(c => c.url.startsWith(GC)).length === k, 'sau rò CF: các tuyến GrabCast nghỉ 30 phút, không gọi lại');
+  const m2 = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama }); const r2 = await mk(m2, { env: { AI_POOL_CF_TEXT: '1' } }).gen({ mode: 'lxgen', items: ITEMS });
+  ok(r2 && r2.fam === 'llama', 'cờ AI_POOL_CF_TEXT=1: văn bản CF được dùng (dự phòng cuối)');
 }
 { // B chỉ còn cùng họ → b null (bỏ qua trung tính, không ghi điểm)
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama }); // GrabCast mọi yêu cầu đều rơi về Llama
-  const { a, b } = await mk(m).judgePair({ mode: 'lxjudge', items: ITEMS });
-  ok(a && a.fam === 'llama' && b === null, 'judgePair: chỉ còn 1 họ → b = null (không bao giờ 2 giám khảo cùng họ)');
+  const { a, b } = await mk(m, { env: { AI_POOL_CF_TEXT: '1' } }).judgePair({ mode: 'lxjudge', items: ITEMS });
+  ok(a && a.fam === 'llama' && b === null, 'judgePair: chỉ còn 1 họ (không phải cặp gpt-oss) → b = null');
 }
 { // GrabCast groq rơi về cloudflare (bad_request) → mô hình thật = llama; khi llama bị loại (exclude) → không nhận
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama });
-  const r = await mk(m).judge({ mode: 'lxjudge', items: ITEMS }, { exclude: ['llama'] });
+  const r = await mk(m, { env: { AI_POOL_CF_TEXT: '1' } }).judge({ mode: 'lxjudge', items: ITEMS }, { exclude: ['llama'] });
   ok(r === null, 'GrabCast tự rơi về họ bị loại → không nhận (kiểm theo mô hình THẬT trả lời)');
 }
 // 5) chuẩn chất lượng: xgen khi chỉ còn Llama → null (không soạn bằng mô hình kém)
 {
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama });
-  ok(await mk(m).gen({ mode: 'xgen', lang: 'en', items: ITEMS }) === null, 'xgen: chỉ còn Llama 70B → bỏ qua trung tính');
+  ok(await mk(m, { env: { AI_POOL_CF_TEXT: '1' } }).gen({ mode: 'xgen', lang: 'en', items: ITEMS }) === null, 'xgen: chỉ còn Llama 70B → bỏ qua trung tính');
 }
 // 6) tất cả hỏng → null, không ném lỗi
 {
@@ -108,7 +125,10 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
 {
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.provider === 'groq' ? J({ detail: { code: 'ai_exhausted' } }, 503) : gcEcho(b) });
   const P = mk(m); const r = await P.gen({ mode: 'lxgen', items: ITEMS }); const k = m.calls.filter(c => c.body.provider === 'groq').length; await P.gen({ mode: 'lxgen', items: ITEMS });
-  ok(r && r.route === 'gc-cf' && r.model === '@cf/openai/gpt-oss-120b' && m.calls.filter(c => c.body.provider === 'groq').length === k, 'ai_exhausted Groq → CF gpt-oss-120b, Groq nghỉ');
+  ok(r && r.route === 'gc-gemini' && !m.calls.some(c => c.body.provider === 'cloudflare') && m.calls.filter(c => c.body.provider === 'groq').length === k, 'ai_exhausted Groq → GrabCast Gemini (không văn bản CF), Groq nghỉ');
+  const mc = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.provider !== 'cloudflare' ? J({ detail: { code: 'ai_exhausted' } }, 503) : gcEcho(b) });
+  const rc = await mk(mc, { env: { AI_POOL_CF_TEXT: '1' } }).gen({ mode: 'lxgen', items: ITEMS });
+  ok(rc && rc.route === 'gc-cf' && rc.model === '@cf/openai/gpt-oss-120b', 'cờ bật: CF gpt-oss-120b là dự phòng CUỐI chuỗi');
   const mv = mock({ gc: b => J({ text: '{"name":"apple"}', provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' }) });
   const v = await mk(mv).vision({ question: 'q', image: 'AAAA' });
   ok(v && v.route === 'gc-vision' && mv.calls[0].url === GC + '/api/owner-ai/vision' && mv.calls[0].body.image_b64 === 'AAAA' && v.out.name === 'apple', 'vision: GrabCast /api/owner-ai/vision');

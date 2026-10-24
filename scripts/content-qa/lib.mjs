@@ -1,4 +1,4 @@
-import { allowed } from '../lib/ai-pool.mjs';
+import { allowed, SAME_FAM_PAIR } from '../lib/ai-pool.mjs';
 // 🛡️ Cổng QA nội dung – hàm kiểm thuần (không I/O), dùng chung cho gate.mjs, job sinh nội dung (explain/job.mjs…) và test.
 // Luật: docs/CONTENT-QA.md. Mọi nguồn nội dung đi qua: lược đồ + đối chiếu kho từ · cặp ✗/✓ · CEFR · 2 giám khảo độc lập · dịch · kiểm mẫu ≥5%/lô · báo lỗi tự ẩn.
 export const CE = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -24,9 +24,11 @@ export function agree(qa) {
   const j = (qa && qa.j) || {}, all = Object.keys(j).filter(k => Number.isFinite(+j[k]));
   // Chuẩn giám khảo (scripts/lib/ai-pool.mjs): mô hình hạng S (quá nhỏ/lạ) không được tính là giám khảo
   const ks = all.filter(k => allowed('judge', k.slice(k.indexOf(':') + 1)));
-  if (ks.length < all.length && new Set(ks.map(family)).size < 2) return { ok: false, why: 'giám khảo không đủ chuẩn (mô hình nhỏ/lạ – ai-pool TIERS)' };
-  const fams = new Set(ks.map(family)), sc = ks.map(k => +j[k]);
-  if (fams.size < 2) return { ok: false, why: 'cần 2 giám khảo độc lập (khác họ mô hình)' };
+  // độc lập = khác họ; NGOẠI LỆ duy nhất (25/10, neuron CF dành cho ảnh): cặp gpt-oss-120b + gpt-oss-20b (khác mô hình, giám khảo B lời nhắn khác – ai-pool JUDGE_B_SYS)
+  const ident = k => { const f = family(k), m = k.slice(k.indexOf(':') + 1).replace(/^.*\//, ''); return SAME_FAM_PAIR[f] && SAME_FAM_PAIR[f].includes(m) ? f + ':' + m : f; };
+  if (ks.length < all.length && new Set(ks.map(ident)).size < 2) return { ok: false, why: 'giám khảo không đủ chuẩn (mô hình nhỏ/lạ – ai-pool TIERS)' };
+  const fams = new Set(ks.map(ident)), sc = ks.map(k => +j[k]);
+  if (fams.size < 2) return { ok: false, why: 'cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)' };
   if (sc.some(s => s < 4)) return { ok: false, why: 'có giám khảo chấm < 4' };
   if (Math.max(...sc) - Math.min(...sc) > 1) return { ok: false, why: 'hai giám khảo lệch > 1 điểm' };
   return { ok: true };
