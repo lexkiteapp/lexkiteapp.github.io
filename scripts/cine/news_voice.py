@@ -10,6 +10,7 @@ V = f'{ND}/vis3'; os.makedirs(V, exist_ok=True)
 base = json.load(open(f'{ND}/ci/lines.json')); need = set()
 for i in IDS:
     sp = json.load(open(f'{ND}/lessons/{i}.json')); need |= {sp['hook']['line'], sp['recap']['line'], sp['end_line'], sp['recap'].get('line_alt'), sp.get('end_alt'), sp.get('share_line')} - {None} | {b['line'] for b in sp['beats']} | {x for v in base.get('reactions', {}).values() for x in v}   # listener reaction lines (news_tpl picks them)
+need |= {l['id'] for l in base['lines'] if l.get('pilot')}   # edit-style pilot lines (cine-render edit_pilot: solo host re-voices the other host's lines, '<id>_a')
 todo = [l for l in base['lines'] if l['id'] in need and not os.path.exists(f'{V}/{l["id"]}.wav')]
 print(f'{len(need)} lines needed, synthesising {len(todo)}')
 def synth(todo, tag):

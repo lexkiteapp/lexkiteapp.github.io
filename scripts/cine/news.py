@@ -27,12 +27,14 @@ def font(p, s): return ImageFont.truetype(p, s)
 def speech(k): nx = [x for x in CUES[k] if x['value'] != 'X']; return nx[0]['start'], nx[-1]['end']
 def wdur(k): return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{N}/vis3/{k}.wav']))
 S, OV, SFX = [], [], []
+EDIT = os.environ.get('NEWS_EDIT', '').upper()   # owner 24/10 edit-style layer (scripts/cine/news_edit.py): A | B | C pilots
 def line_tempo(line):   # caption reading speed <= 15 cps -> slow the line (>= 0.84x; news_voice.py re-synthesises lines that would need more)
     s0, s1 = speech(line); need = len(TEXT[line]) / 14.0 - 0.2   # v6: caption tail is ~0.25 s (no dead air), not 0.49
     return 1.0 if need <= s1 - s0 else max(0.84, round((s1 - s0) / need - 0.005, 3))
 def talk_dur(line, at, breath=0.4, tempo=None): return at + speech(line)[1] / (tempo or line_tempo(line)) + breath
 def shot(id, clip, who, frame, bg, line=None, dur=None, at=0.07, breath=0.4, frames=None, raw=False, other=None, tempo=None):
     """talk shot (line) = at + speech end + breath; hold shot = dur. frames: source indices (ping-pong through the clip by default)."""
+    if EDIT: id, clip, who, frame, at, other, frames = ED_shot(id, clip, who, frame, line, at, other, frames, tempo)
     if line:
         tempo = tempo or line_tempo(line); dur = talk_dur(line, at, breath, tempo)
     tempo = tempo or 1.0
@@ -268,21 +270,27 @@ STYLE = dict(moves=['push'], transition='cut')
 HTOP = {}   # bank_gestures safe_zone.hand_top_min per clip (source px)
 for _p in (f'{A}/green/bank_gestures.json',):
     if os.path.exists(_p): HTOP.update({c['id']: (c.get('safe_zone') or {}).get('hand_top_min') for c in json.load(open(_p)).get('clips', []) if (c.get('safe_zone') or {}).get('hand_top_min')})   # replaced by news_tpl.py (owner 22/10 §15 edit style)
-if os.path.exists(f'{N}/lessons/{LID}.json'): SPEC = json.load(open(f'{N}/lessons/{LID}.json')); exec(open(f'{HERE}/news_tpl.py').read())   # generated (gen_news.py)
+if os.path.exists(f'{N}/lessons/{LID}.json'):   # generated (gen_news.py)
+    SPEC = json.load(open(f'{N}/lessons/{LID}.json'))
+    if EDIT: exec(open(f'{HERE}/news_edit.py').read())
+    exec(open(f'{HERE}/news_tpl.py').read())
 else: exec(open(f'{N}/lessons/{LID}.py').read())
+if EDIT: ED_after_script()
 TOTAL = sum(x['dur'] for x in S); NF = int(round(TOTAL * FPS))
 CAP_ST = sorted(max(x['t0'] + l['at'] + speech(l['id'])[0] / l['tempo'] - 0.095, x['t0']) for x in S for l in x['lines'])   # first-chunk start of every line
 for s in S: captions(s)
 _caps = sorted([o for o in OV if o['style'] == 'Cap'], key=lambda o: o['t'][0])
 for o, o2 in zip(_caps, _caps[1:]):   # J-cuts: a caption's tail never overlaps the next line's first chunk
     if o2['line'] != o['line'] and o['t'][1] > o2['t'][0]: o['t'][1] = round(max(o['t'][0] + 0.05, o2['t'][0]), 3)
+if EDIT: ED_after_captions()
 if os.environ.get('NEWS_DRY'):   # dry run (Mac): timeline only, no frames
     for s in S: print(f"{s['t0']:6.2f} {s['dur']:5.2f} {s['id']:7s} {s['clip']:14s} {s['who']:6s} {s['frame']}")
     for o in OV:
         if o['style'] != 'Cap': print('  ', o['style'], o['t'], o['box'], o['text'][:50])
+    if EDIT: print(json.dumps(ED_report(), default=str))
     print('TOTAL', round(TOTAL, 2)); sys.exit(0)
 # ------------------------------------------------------------------ host frames (mouth swap on the keyed full-frame clip) + alpha
-RD = f'{N}/render5_{LID}_en'; os.makedirs(RD, exist_ok=True)
+RD = f'{N}/render5_{LID}_en' + (f'_{EDIT}' if EDIT else ''); os.makedirs(RD, exist_ok=True)
 for _f in glob.glob(f'{RD}/ref_*.png'): os.remove(_f)   # stale SSIM references from an earlier render of this lesson
 def finish_mask(M, k=1): x, y, w, h = [v * k for v in L.WM_CROP]; return cv2.resize(M[y:y + h, x:x + w], (1080 * k, 1920 * k), interpolation=cv2.INTER_LINEAR)
 def sr_sprites(cf, mo):   # owner 24/10: Carlos recap face acutance 0.87 < 0.90 - the swapped mouth was a 1x crop bicubic-upscaled to 2x (scale_mouth), then the x2 layer
@@ -378,7 +386,7 @@ if S[0]['bg'] in WIDE:   # owner 22/10 one location: Ama = crop L, Carlos = crop
 PANS = []   # owner 23/10 spatial continuity: the first speaker change (establishing) + one later key change = a 0.7 s pan across the shared plate
 for k in range(1, len(S)):
     a_, b_ = S[k - 1], S[k]
-    if len(PANS) < 2 and V4(b_['bg']) and a_['who'] != b_['who'] and not a_['other'] and not b_['other'] and a_['frame'] == b_['frame'] and b_['n'] >= 36 and a_['id'] != 'hook' \
+    if not EDIT and len(PANS) < 2 and V4(b_['bg']) and a_['who'] != b_['who'] and not a_['other'] and not b_['other'] and a_['frame'] == b_['frame'] and b_['n'] >= 36 and a_['id'] != 'hook' \
             and a_['bg'].split('@')[0] == b_['bg'].split('@')[0] and (not PANS or k - PANS[-1] >= 3): b_['pan'] = dict(src=k - 1, n=17); PANS.append(k)
 QA['pans'] = [S[k]['id'] for k in PANS]
 BGL = {}; BGM = {}
@@ -463,6 +471,7 @@ for x in S:   # wide scene: each host has its own L/R crop (tx 0); legacy 9:16 s
     sd = (side - 8, side + 8) if mv == 'slide' else (side, side); tl_ = (CAM_TY - 6, CAM_TY + 6) if mv == 'tilt' else (CAM_TY, CAM_TY)
     if mv in ('slide', 'tilt', 'handheld', 'rack'): z1 = z0 + 0.004 * x['dur']
     x['cam'] = dict(z=(z0, z1), tx=sd, ty=tl_, rot=(0, 0)); x['angle'] = ang; x['window'] = dict(tx=round(side, 1), z=round(zb, 4), bg=x['bg'])
+if EDIT: ED_cams()
 if S[-1]['id'] == 'loop':   # loop settles back to the hook's first camera state (last frame == first frame)
     S[-1]['cam']['z'] = (S[-1]['cam']['z'][0], S[0]['cam']['z'][0])
 ease = bg3d.ease
@@ -472,6 +481,7 @@ def cam_at(s, u):
     return c
 BOK = bg3d.Bokeh(); BQA = []; ZONES = [[24, 212, 948, 400], [24, 992, 948, 1521]]   # card + caption + lower-third band (+24 px)
 PZ = lambda s, j: 1 + 0.08 * (1 - (1 - min(1.0, j / FPS / 0.4)) ** 2) if s['id'] == 'hook' else 1.0   # owner 22/10: punch-in 1.0 -> 1.08 in 0.4 s
+if EDIT: PZ = ED_PZ   # edit layer: drift + key-word punches (host + bg + layout keep-out all use PZ)
 def cine_metrics(s, fi, Bbg, Bc, a, t):
     """owner 23/10 cine: on the mid frame of a single - bg clutter behind the head, background lines tangent to the head top / neck, host-vs-bg
     separation (luminance + sharpness), largest dead space (no host, no overlay) as a fraction of the frame."""
@@ -513,12 +523,13 @@ PLATE_USM = float(os.environ.get('NEWS_PLATE_USM', '0.35'))   # owner 23/10 shar
 def plate_usm(B): return B + PLATE_USM * (B - cv2.GaussianBlur(B, (0, 0), 0.9)) if PLATE_USM > 0 else B
 def bg_frame(s, j, t):
     if s.get('pan') and j < s['pan']['n']: return plate_usm(pan_bg(s, j))
+    if EDIT and s.get('other') and V4(s['bg']): return plate_usm(ED_master_bg(s, j))
     u = j / max(1, s['n'] - 1); L_ = layers(s['bg']); qa = j % 6 == 0
     c_ = cam_at(s, u); c_['z'] *= PZ(s, j); r = L_.render(c_, qa=qa); B = r[0] if qa else r
     if s.get('move') == 'rack' and j < 12: B = cv2.GaussianBlur(B, (0, 0), 1.6 * (1 - j / 12) + 1e-3)   # fake rack focus: bg settles sharp in 0.5 s
     if qa: BQA.append(dict(t=round(t, 2), fill=r[1], uncovered=r[2]))
     k = S.index(s); D = 7
-    if k > 0 and S[k - 1]['bg'] != s['bg'] and j < D:   # cross-dissolve 7 frames, outgoing camera keeps moving (zoom-through) with 3-sample motion blur
+    if not EDIT and k > 0 and S[k - 1]['bg'] != s['bg'] and j < D:   # cross-dissolve 7 frames, outgoing camera keeps moving (zoom-through) with 3-sample motion blur
         p = S[k - 1]; w = bg3d.ease((j + 1) / (D + 1)); acc = 0
         for d in (-0.5, 0, 0.5):
             c = cam_at(p, 1.0); c['z'] *= 1 + 0.006 * (j + 1 + d); acc = acc + layers(p['bg']).render(c)
@@ -528,7 +539,7 @@ def bg_frame(s, j, t):
     return BOK.apply(B, t)   # owner 22/10: no vignette
 SEG = [[x['bg'], x['t0'], x['t0'] + x['dur'], 1] for x in S]
 for k_, x in enumerate(S[1:], 1):
-    if S[k_ - 1]['bg'] != x['bg']: SFX.append(('whoosh.wav', round(x['t0'] - 0.12, 3)))
+    if not EDIT and S[k_ - 1]['bg'] != x['bg']: SFX.append(('whoosh.wav', round(x['t0'] - 0.12, 3)))
 # ------------------------------------------------------------------ render
 def _desk():   # flat 2D broadcast desk (brand teal, yellow rule, orange stripe), full width from DESK_Y down
     im = np.zeros((1920, 1080, 3), np.float32); al = np.zeros((1920, 1080, 1), np.float32); al[DESK_Y:] = 1
@@ -619,6 +630,7 @@ for s in S:
         ps = S[s['pan']['src']]; nP = s['pan']['n']; pf = list(reversed(ps['frames'][-nP:])) + [ps['frames'][0]] * max(0, nP - len(ps['frames']))
         frP, alP, _, _ = host_frames(dict(id=s['id'] + '_pan', frames=pf[:nP]), ps['clip'], ps['who'], [], False)
         R_.append((frP, alP, tuple(ps['xfs'][ps['clip']][:5]), ps['who'])); HS.append((ps['clip'], ps['who'], [], False, ps['frame'])); PANI = len(R_) - 1
+    KID = ('take', TAKE[s['id']]) if EDIT else s['id']   # edit layer: one key-light match per continuous take
     order = sorted(range(len(R_)), key=lambda i: R_[i][3] == 'ama')   # Ama (screen-left, front) composited last
     SAMP = os.environ.get('NEWS_SAMPLE')   # smoke test (Mac): composite 1 frame per shot, repeat it
     for j in range(s['n']):
@@ -645,14 +657,14 @@ for s in S:
             B0 = B.copy()
             f = f.astype(np.float32)
             if (a > 0.5).sum() < 400: continue   # off-screen (a pan slides a host in / out): nothing to composite
-            if (s['id'], i) not in KEYM and (a > 0.9).sum() < 20000: KEYM[(s['id'], i, 'tmp')] = True   # #89: a host still mostly off-screen at j=0 gave NaN key stats -> black shots
-            if (s['id'], i) not in KEYM and (a > 0.9).sum() >= 20000:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
+            if (KID, i) not in KEYM and (a > 0.9).sum() < 20000: KEYM[(KID, i, 'tmp')] = True   # #89: a host still mostly off-screen at j=0 gave NaN key stats -> black shots
+            if (KID, i) not in KEYM and (a > 0.9).sum() >= 20000:   # soft key-light match: host colour temperature + brightness pulled 20 % toward the background behind it
                 m_ = a > 0.9; ring_ = (cv2.dilate((a > 0.5).astype(np.uint8), np.ones((61, 61), np.uint8)) > 0) & ~m_
-                hm_ = f[m_].mean(0) + 1; bm_ = B[ring_].mean(0) + 1; KEYM[(s['id'], i)] = np.clip((bm_ / hm_) ** 0.2, 0.92, 1.08) * np.clip((bm_.mean() / hm_.mean()) ** 0.15, 0.94, 1.10)
-            f = f * KEYM.get((s['id'], i), 1.0) * 1.06 * HOSTG   # +6 % key (owner: brighter, real-camera exposure)
-            if (s['id'], i, 'c') not in KEYM and (a > 0.9).sum() >= 20000:   # contrast match + light direction from the background (left vs right third)
-                m_ = a > 0.9; hs_ = float(f[m_].std()) + 1; bs_ = float(B.std()) + 1; L3 = B.mean(2); KEYM[(s['id'], i, 'c')] = (float(np.clip((bs_ / hs_) ** 0.2, 0.92, 1.08)), f[m_].mean(0), 1 if L3[:, 720:].mean() > L3[:, :360].mean() else -1)
-            kc_, hm0_, ld_ = KEYM.get((s['id'], i, 'c'), (1.0, np.zeros(3, np.float32), 1)); f = hm0_ + (f - hm0_) * kc_
+                hm_ = f[m_].mean(0) + 1; bm_ = B[ring_].mean(0) + 1; KEYM[(KID, i)] = np.clip((bm_ / hm_) ** 0.2, 0.92, 1.08) * np.clip((bm_.mean() / hm_.mean()) ** 0.15, 0.94, 1.10)
+            f = f * KEYM.get((KID, i), 1.0) * 1.06 * HOSTG   # +6 % key (owner: brighter, real-camera exposure)
+            if (KID, i, 'c') not in KEYM and (a > 0.9).sum() >= 20000:   # contrast match + light direction from the background (left vs right third)
+                m_ = a > 0.9; hs_ = float(f[m_].std()) + 1; bs_ = float(B.std()) + 1; L3 = B.mean(2); KEYM[(KID, i, 'c')] = (float(np.clip((bs_ / hs_) ** 0.2, 0.92, 1.08)), f[m_].mean(0), 1 if L3[:, 720:].mean() > L3[:, :360].mean() else -1)
+            kc_, hm0_, ld_ = KEYM.get((KID, i, 'c'), (1.0, np.zeros(3, np.float32), 1)); f = hm0_ + (f - hm0_) * kc_
             if who == 'carlos': lum = f.mean(2, keepdims=True); f = f * (1 - 0.16 * np.clip((lum - 150) / 90, 0, 1))
             eo = (a > 0.08) & (a < 0.92); FRs.append(float(((f[..., 1] > f[..., 2] + 25) & (f[..., 1] > f[..., 0] + 25))[eo].mean()) if eo.any() else 0.0)
             f = MR.finish_host(f, a, B, ld_)   # e2922ec5 PRO edge treatment: 3 px subtle rim from the bg light side + 1 px light wrap, no extra despill
@@ -680,19 +692,22 @@ for s in S:
             m_ = float(B.mean()) / 255
             if not 0.45 <= m_ <= 0.52: EXPO = float(np.clip(EXPO * (0.48 / m_) ** 1.3, 0.55, 2.8)); HOSTG = float(np.clip((0.48 / m_) ** 0.6, 0.95, 1.25)); print('frame-0 luma %.3f -> bg gain %.2f, host gain %.2f' % (m_, EXPO, HOSTG))                         # one grade for host + background
         pass   # hook punch-in is done in camera space (host scale + bg zoom: one resample, no softening)
-        TR = 'cut' if s.get('pan') else STYLE.get('transition', 'cut'); k_s = S.index(s)   # a pan IS the transition
+        if EDIT: B = ED_plate(s, j, B)
+        TR = 'cut' if (s.get('pan') or EDIT) else STYLE.get('transition', 'cut'); k_s = S.index(s)   # a pan IS the transition
         if k_s > 0 and PREV_OUT is not None and TR == 'dissolve' and j < 4: B = B * ((j + 1) / 5) + PREV_OUT * (1 - (j + 1) / 5)   # 4-frame dissolve
         elif k_s > 0 and TR == 'whip' and j < 3: B = cv2.filter2D(B, -1, np.ones((1, 31 - 10 * j), np.float32) / (31 - 10 * j))   # whip: horizontal motion blur settling in 3 frames
         elif k_s > 0 and TR == 'zoom' and j < 4: z2 = 1.05 - 0.0125 * j; B = cv2.warpAffine(B, np.float32([[z2, 0, 540 * (1 - z2)], [0, z2, 960 * (1 - z2)]]), (1080, 1920), flags=cv2.INTER_LINEAR)
         if j == s['n'] - 1: PREV_OUT = B.copy()
         img = Image.fromarray(cv2.cvtColor(B.clip(0, 255).astype(np.uint8), cv2.COLOR_BGR2RGB)).convert('RGBA')
         for o in OVS:
-            if o['t'][0] - 1e-6 <= t < o['t'][1] - 1e-6 and o['_img'] is not None:
+            if o['t'][0] - 1e-6 <= t < o['t'][1] + (o.get('exit', 0) / FPS if EDIT else 0) - 1e-6 and o['_img'] is not None:
                 im = o['_img'](t) if callable(o['_img']) else o['_img']; age = t - o['t'][0]
-                if o['style'] not in ('Cap',) and age < 0.16 and not o.get('_chain'):
+                if EDIT: im = ED_ov(o, im, t)
+                elif o['style'] not in ('Cap',) and age < 0.16 and not o.get('_chain'):
                     k = age / 0.16; im = im.copy(); im.putalpha(im.split()[3].point(lambda v: int(v * k)))
                 img.alpha_composite(im)
         out = cv2.cvtColor(np.array(img.convert('RGB')), cv2.COLOR_RGB2BGR)
+        if EDIT: out = ED_post(s, j, out)
         if fi == int(0.9 * FPS): COVER = out.copy()
         if j == s['n'] // 2: cv2.imwrite(f'{RD}/ref_{fi:05d}.png', out)   # pre-encode reference for the SSIM gate
         if PRE: cv2.imwrite(f'{PRE_D}/{s["id"]}.jpg', cv2.resize(out, (432, 768), interpolation=cv2.INTER_AREA), [cv2.IMWRITE_JPEG_QUALITY, 82]); continue
@@ -702,14 +717,17 @@ enc.stdin.close(); enc.wait()
 # ------------------------------------------------------------------ audio: line wavs + studio room tone + sfx -> -16 LUFS
 # owner 22/10 "tiếng ồn lớn quá": the VOICE stem alone is normalised to -16 LUFS (digital silence in pauses stays silent), then the quiet bed
 # (room tone AMB_DB, default -40 dB) and SFX (-8 dB vs v3) are mixed in AFTER normalisation, so loudnorm never lifts the bed in the pauses
+if EDIT: ED_sfx()
 FD = f'{TL}/foley/'; ins = ['-i', FD + 'tone0.wav', '-stream_loop', '-1', '-i', AMB]; vl = []; fl = []; k = 2
 for s in S:
     for ln in s['lines']:
         ms = int(round((s['t0'] + ln['at']) * 1000)); ins += ['-i', f'{N}/vis3/{ln["id"]}.wav']; fl.append(f'[{k + 1}]highpass=f=80,equalizer=f=300:t=q:w=1:g=-2,equalizer=f=3200:t=q:w=1.2:g=2,' + (f'atempo={ln["tempo"]},' if ln['tempo'] != 1 else '') + f'adelay={ms}|{ms}[v{k}]'); vl.append(f'[v{k}]'); k += 1
 fl.append(f'[1]adelay=0|0[s0]'); fl.append(''.join(vl) + f'[s0]amix=inputs={len(vl) + 1}:normalize=0:duration=longest,apad=whole_dur={TOTAL:.3f},atrim=0:{TOTAL:.3f},loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[voice]')
 bl = ['[voice]', '[b1]']; fl.append(f'[2]volume={AMB_DB}dB,atrim=0:{TOTAL:.3f},aresample=48000[b1]')
+if EDIT:   # voice ducking: the -40 dB bed drops a further ~6 dB under speech (sidechain), back up in the pauses
+    fl[-1] = fl[-1].replace('[b1]', '[b0]'); fl.append('[voice]asplit=2[voiceA][vsc];[b0][vsc]sidechaincompress=threshold=0.03:ratio=4:attack=20:release=350[b1]'); bl = ['[voiceA]', '[b1]']
 for f_, t_ in SFX:
-    ms = int(round(max(0, t_) * 1000)); ins += ['-i', FD + f_]; fl.append(f'[{k + 1}]volume={-22 if f_ == "pop.wav" else -8 if t_ == 0 else -25}dB,adelay={ms}|{ms},aresample=48000[x{k}]'); bl.append(f'[x{k}]'); k += 1
+    ms = int(round(max(0, t_) * 1000)); ins += ['-i', (f'{RD}/' if f_.startswith('sfx_') else FD) + f_]; fl.append(f'[{k + 1}]volume={ED_VOL.get(f_, -25) if EDIT else -22 if f_ == "pop.wav" else -8 if t_ == 0 else -25}dB,adelay={ms}|{ms},aresample=48000[x{k}]'); bl.append(f'[x{k}]'); k += 1
 fl.append(''.join(bl) + f'amix=inputs={len(bl)}:normalize=0:duration=first,atrim=0:{TOTAL:.3f},alimiter=limit=0.89:level=0[out]')
 os.makedirs(f'{OUTD}/covers', exist_ok=True); OUTF = f'{OUTD}/{META["out"]}'
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-threads', '2', '-i', f'{RD}/video.mp4'] + ins + ['-filter_complex', ';'.join(fl), '-map', '0:v', '-map', '[out]',
@@ -721,7 +739,7 @@ if abs(_lu + 14) > 0.3:   # linear make-up gain to -16 LUFS (the bed stays as fa
 cv2.imwrite(f'{OUTD}/covers/' + os.path.basename(OUTF).replace('.mp4', '.jpg'), COVER if COVER is not None else out, [cv2.IMWRITE_JPEG_QUALITY, 95])   # cover from the pre-encode master frame, q95
 for o in OV: o.pop('_img', None); o.pop('_chain', None)
 json.dump(dict(seed=SEED, lesson=dict(META, out=META['out']), shots=[{k: v for k, v in s.items()}  for s in S],
-               overlays=OV, safe=SAFE, viral=True, punch={'hook': 0.0}, hook_kind='question', qa=QA, scene=TOTAL, total=TOTAL, end=0, endcard_boxes=[], sfx=SFX, avoid={}),
+               overlays=OV, safe=SAFE, viral=True, punch={'hook': 0.0}, hook_kind='question', qa=dict(QA, **({'edit': ED_report()} if EDIT else {})), scene=TOTAL, total=TOTAL, end=0, endcard_boxes=[], sfx=SFX, avoid={}),
           open(f'{RD}/timeline.json', 'w'), indent=1)
 json.dump(dict(bg_fill_visible_max=max(q['fill'] for q in BQA), bg_uncovered_max=max(q['uncovered'] for q in BQA), bottom_min=min(q['bottom'] for q in QC), two_gap_min=min([q['gap'] for q in QC if 'gap' in q] or [999]), fringe_max=max(q['fringe'] for q in QC), edge=EQ, bg_colour=BGC, hands={str(k): v for k, v in HB.items()}, flicker_max=max(q['flick'] for q in QC), flicker_mean=float(np.mean([q['flick'] for q in QC])), frames=len(QC)), open(f'{RD}/qc.json', 'w'))
 print('done', OUTF, f'{TOTAL:.2f} s', len(S), 'shots')

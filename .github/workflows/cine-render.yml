@@ -29,6 +29,10 @@ on:
         description: 'news: AI gates neutral-skip (test every non-AI gate while AI quotas are out)'
         type: boolean
         default: false
+      edit_pilot:
+        description: "news: edit-style PILOT (scripts/cine/news_edit.py), e.g. 'A,B,C' = hook->first reveal excerpt per style + qa_edit + previews + transition sheet; never stored / published"
+        required: false
+        default: ''
   workflow_call:   # news-auto.yml (A->Z driver, docs/AUTOMATION.md) calls this with scene=news and 'bank:<id>' items
     inputs:
       scene: { type: string, required: true }
@@ -37,6 +41,7 @@ on:
       viral: { type: boolean, required: false, default: true }
       outsuf: { type: string, required: false, default: '-v3' }
       ai_skip: { type: boolean, required: false, default: false }
+      edit_pilot: { type: string, required: false, default: '' }
     secrets:
       FOOTAGE_DEPLOY_KEY: { required: false }
       SHORTS_DEPLOY_KEY: { required: false }
@@ -330,6 +335,7 @@ jobs:
       NEWS_MATTE: pro
       NEWS_SR: '1'
       NEWS_AI_SKIP: ${{ inputs.ai_skip && '1' || '0' }}
+      EDIT_PILOT: ${{ inputs.edit_pilot }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4   # lessons materialized by news-plan (bank:<id> items)
@@ -413,12 +419,39 @@ jobs:
           mkdir -p "$NEWS_DIR"/ci "$NEWS_DIR"/lessons out/qa out/voices
           cp content/video/cine/news/lines.json "$NEWS_DIR/ci/lines.json"
           for i in ${SHARD//,/ }; do cp "content/video/cine/news/$i.json" "$NEWS_DIR/lessons/"; done
+          if [ -n "$EDIT_PILOT" ]; then   # edit pilot A (solo host): the other host's lines re-voiced by Ama ('<id>_a')
+            python3 - <<'PY'
+          import json, os
+          p = os.environ['NEWS_DIR'] + '/ci/lines.json'; d = json.load(open(p)); ids = os.environ['SHARD'].split(','); have = {l['id'] for l in d['lines']}
+          for i in ids:
+              sp = json.load(open(f"{os.environ['NEWS_DIR']}/lessons/{i}.json")); ln = {b['line'] for b in sp['beats'] if b['who'] != 'ama'}
+              d['lines'] += [dict(l, id=l['id'] + '_a', who='ama', pilot=True) for l in d['lines'] if l['id'] in ln and l['id'] + '_a' not in have]
+          json.dump(d, open(p, 'w'))
+          PY
+          fi
           python scripts/cine/news_voice.py "$NEWS_DIR" "$SHARD"
           cp "$NEWS_DIR"/vis3/* out/voices/
       - name: Dựng + qa_news
         env: { SHARD: '${{ matrix.shard }}', STUDIO_CALLBACK_SECRET: '${{ secrets.STUDIO_CALLBACK_SECRET }}' }   # AI gates: Workers AI -> Gemini pool -> neutral skip (scripts/cine/ai_gate.py)
         run: |
           : > out/passed.txt; fail=0
+          if [ -n "$EDIT_PILOT" ]; then   # owner 24/10 edit-style pilots: excerpt hook -> first reveal per style, edit-craft QC, no store
+            set -o pipefail; mkdir -p out/pilot
+            for lid in ${SHARD//,/ }; do for st in ${EDIT_PILOT//,/ }; do
+              echo "::group::pilot $lid $st"
+              NEWS_EDIT=$st NEWS_EXCERPT=1 python scripts/cine/news.py "$lid" 2>&1 | tee "out/qa/build_${lid}_${st}.log" || fail=1
+              rb="render5_${lid}_en_${st}"
+              if [ -f "$NEWS_DIR/$rb/timeline.json" ]; then
+                cp "$NEWS_DIR/$rb/timeline.json" "out/pilot/timeline_$st.json"
+                python scripts/cine/qa_edit.py "out/pilot/timeline_$st.json" "out/pilot/style-$st.mp4" "out/pilot/edit_craft_$st.json" | tee "out/pilot/qa_edit_$st.log" || fail=1
+                (cd "$NEWS_DIR" && python "$CINE_ROOT/scripts/cine/qa_news.py" "$rb") > "out/pilot/qa_news_$st.log" 2>&1 || true; tail -1 "out/pilot/qa_news_$st.log"
+              else fail=1; fi
+              echo "::endgroup::"
+            done; done
+            python scripts/cine/pilot_sheet.py out/pilot "$EDIT_PILOT" || fail=1
+            for f in out/pilot/qa_edit_*.log; do [ -f "$f" ] && echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
+            exit $fail
+          fi
           for lid in ${SHARD//,/ }; do
             echo "::group::news/$lid"; rb="render5_${lid}_en"
             # owner 22/10 §11: preflight = placement rules (bg zones) + AI vision gate on 3 composited frames; on failure retry another background (<= 2x)
@@ -513,6 +546,7 @@ jobs:
             out/*.mp4
             out/covers/*.jpg
             out/*-luma.png
+            out/pilot/
             out/qa/
             out/voices/
             out/passed.txt
