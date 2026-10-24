@@ -903,3 +903,7 @@ fun
 protect
 resource
 science
+disease
+balance
+damage
+basis
