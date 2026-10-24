@@ -104,7 +104,7 @@ for (const x of items) {
 }
 pend.n = Object.keys(pend.items).length;
 fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true });
-wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
+if (pend.n) wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
 wr(QUEUE, JSON.stringify(queue, null, 1) + '\n');
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
 const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0), skipped: why.infra || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, ukMiss: stat.ukMiss, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
