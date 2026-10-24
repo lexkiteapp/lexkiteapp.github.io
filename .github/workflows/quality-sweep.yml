@@ -158,6 +158,7 @@ jobs:
     timeout-minutes: 5
     outputs:
       note: ${{ steps.n.outputs.note }}
+      jn: ${{ steps.n.outputs.jn }}
     steps:
       - uses: actions/checkout@v4
       - name: Native E2E mỗi tuần (thứ Hai) – iOS Simulator + Android emulator
@@ -165,11 +166,20 @@ jobs:
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           if [ "${{ inputs.native }}" = 1 ] || { [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%u)" = 1 ]; }; then
+            echo "jn=1" >> "$GITHUB_OUTPUT"
             gh workflow run ios-e2e.yml && gh workflow run native-auth-e2e.yml && echo "note=đã kích hoạt ios-e2e + native-auth-e2e (Android emulator) – xem tab Actions" >> "$GITHUB_OUTPUT" || echo "note=kích hoạt native THẤT BẠI" >> "$GITHUB_OUTPUT"
           else echo "note=chưa đến tuần (chạy thứ Hai)" >> "$GITHUB_OUTPUT"; fi
 
+  # Hành trình người dùng đầu-cuối (journey-e2e.yml) – mỗi đêm web vi/en/ar × máy tính/điện thoại + add-on; thứ Hai thêm hành trình 1–3 trên Android + iOS
+  journey:
+    needs: [lease, native]
+    if: needs.lease.outputs.skip != '1'
+    uses: ./.github/workflows/journey-e2e.yml
+    with:
+      native: ${{ needs.native.outputs.jn || '0' }}
+
   report:
-    needs: [lease, build, sweep, lighthouse, ext, ext-heavy, native]
+    needs: [lease, build, sweep, lighthouse, ext, ext-heavy, native, journey]
     if: always() && needs.lease.outputs.skip != '1'
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -188,6 +198,7 @@ jobs:
         run: |
           node scripts/quality/report.mjs qs-in qs-report
           cat qs-report/summary.md >> "$GITHUB_STEP_SUMMARY"
+          echo "journey-e2e: ${{ needs.journey.result }}" >> "$GITHUB_STEP_SUMMARY"
       - name: Ảnh lỗi + diff → nhánh quality-qa (xem trực tiếp qua liên kết)
         run: |
           [ -n "$(ls -A qs-report/pub 2>/dev/null)" ] || exit 0
@@ -216,3 +227,4 @@ jobs:
         run: |
           total=$(node -p "require('./qs-report/result.json').total")
           if [ "$total" -gt 0 ]; then echo "::error::quality-sweep: $total lỗi – xem job summary + issue quality-sweep"; exit 1; fi
+          if [ "${{ needs.journey.result }}" = failure ]; then echo "::error::journey-e2e đỏ – xem job journey"; exit 1; fi
