@@ -2,7 +2,7 @@
 //   node scripts/video/tpl/hook-judge.mjs [--dir content/video/cine/news/tpl1b] [--ids a,b] [--force] [--dry-run] [--reviewed <file>]
 // --reviewed <file>: NO network call – verdicts come from a human/teacher-reviewed JSON
 //   {"verdicts": {"<lesson id>": {"wrong": "<learner line>", "right": "<correction>", "wrong_is_error": bool, "right_ok": bool,
-//    "hook_true": bool, "soft_hook_true": bool (optional, default = right_ok), "note": "...", "by": "..."}}}
+//    "hook_true": bool, "soft_hook_true": bool (optional, default = right_ok), "soft_quote": "natural phrase shown in green" (optional), "note": "...", "by": "..."}}}
 //   wrong/right must equal the lesson text (stale review = no verdict = not rendered). Ids not in the file get no verdict.
 // For every lesson without a current verdict (verdict.hash = sha of hook + wrong + right): asks the judge
 //   wrong_is_error – would a US English teacher mark the learner line as an error (ungrammatical / wrong word / clearly non-native)?
@@ -89,7 +89,7 @@ for (let pass = 0; pass < 2 && todo.length; pass++) {
     if (!v.right_ok) { x.d.reject = 'judge: correction not natural/correct – ' + x.d.hook.judge.note; stat.rejected++; }
     else if (x.d.hook.mode === 'strong' && !v.wrong_is_error) {   // the learner line is acceptable → soft hook, judged again next pass
       const [line, disp] = SOFT[parseInt(h6(x.d.id), 16) % SOFT.length];
-      x.d.hook = { ...x.d.hook, mode: 'soft', display: disp, judge: null, quote: null, rewritten_from: hl.text };
+      x.d.hook = { ...x.d.hook, mode: 'soft', display: disp, judge: null, quote: (RV && RV[x.d.id]?.soft_quote) || null, rewritten_from: hl.text };
       hl.text = line; byId[`n_${h6(x.d.id)}_g`].text = GUESS.soft; stat.rewritten++; again.push(x);
     } else if (!v.hook_true) { x.d.reject = 'judge: hook claim not true – ' + x.d.hook.judge.note; stat.rejected++; }
     else stat[x.d.hook.mode]++;

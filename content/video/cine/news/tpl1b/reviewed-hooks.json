@@ -4,19 +4,35 @@
  "reviewed_at": "2026-10-24",
  "verdicts": {
   "tpl1b_airport_gate_cc6fbe": {
-   "wrong": "The gate is change?", "right": "Excuse me, has the gate changed?",
-   "wrong_is_error": true, "right_ok": true, "hook_true": true,
-   "note": "'is change' is ungrammatical (be + base verb); present perfect question is correct and natural.", "by": "claude-teacher-review"
+   "wrong": "The gate is change?",
+   "right": "Excuse me, has the gate changed?",
+   "wrong_is_error": true,
+   "right_ok": true,
+   "hook_true": true,
+   "note": "'is change' is ungrammatical (be + base verb); present perfect question is correct and natural.",
+   "by": "claude-teacher-review"
   },
   "tpl1b_hotel_lobby_1dc7ab": {
-   "wrong": "My room card doesn't work.", "right": "My key card doesn't work.",
-   "wrong_is_error": false, "right_ok": true, "hook_true": false, "soft_hook_true": true,
-   "note": "'room card' is understood and acceptable; 'key card' is the usual US term -> soft hook.", "by": "claude-teacher-review"
+   "wrong": "My room card doesn't work.",
+   "right": "My key card doesn't work.",
+   "wrong_is_error": false,
+   "right_ok": true,
+   "hook_true": false,
+   "soft_hook_true": true,
+   "note": "'room card' is understood and acceptable; 'key card' is the usual US term -> soft hook.",
+   "by": "claude-teacher-review",
+   "soft_quote": "key card"
   },
   "tpl1b_restaurant_night_0a35f2": {
-   "wrong": "Let's divide the bill.", "right": "Let's split the bill.",
-   "wrong_is_error": false, "right_ok": true, "hook_true": false, "soft_hook_true": true,
-   "note": "'divide the bill' is grammatical but uncommon; 'split the bill' is the natural collocation -> soft hook.", "by": "claude-teacher-review"
+   "wrong": "Let's divide the bill.",
+   "right": "Let's split the bill.",
+   "wrong_is_error": false,
+   "right_ok": true,
+   "hook_true": false,
+   "soft_hook_true": true,
+   "note": "'divide the bill' is grammatical but uncommon; 'split the bill' is the natural collocation -> soft hook.",
+   "by": "claude-teacher-review",
+   "soft_quote": "split the bill"
   }
  }
 }

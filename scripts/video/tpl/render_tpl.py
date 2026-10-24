@@ -174,6 +174,7 @@ def measure(txt, size, kind, maxw): return len(wrap(txt.split(), F(kind, size), 
 
 # ------------------------------------------------------------------ lesson content (generic 'fix' schema)
 wrong, right = SP['wrong_line'].rstrip('.'), SP['key_line'].rstrip('.')
+endp = lambda t: t if t[-1:] in '?!' else t + '.'   # 'changed?' stays one mark (no 'changed?.')
 wt, rt = wrong.split(), right.split()
 import difflib
 sm = difflib.SequenceMatcher(None, [nrm(x) for x in wt], [nrm(x) for x in rt])
@@ -215,7 +216,7 @@ i0 = [nrm(x) for x in wt].index(nrm(BAD[0])) if BAD else 0
 SOFT = SP['hook'].get('mode') == 'soft'   # hook truth (§9): the learner line is acceptable -> no strike, no ✗, quote = the natural phrase
 if SOFT:
     j0 = [nrm(x) for x in rt].index(nrm(GOOD[0])) if GOOD else 0
-    HQ = ' '.join(rt[max(0, j0 - 1):j0 + max(1, len(GOOD))]).strip(',.?!')
+    HQ = SP['hook'].get('quote') or ' '.join(rt[max(0, j0 - 1):j0 + max(1, len(GOOD))]).strip(',.?!')   # reviewed soft_quote ('key card') wins
 else: HQ = (SP['hook'].get('quote') or ' '.join(wt[max(0, i0 - 1):i0 + 1]))   # 'considering to' = the word before the mistake + its first word (bank hook)
 hs1, hs2 = TYPE['display'], TYPE['h1']
 HT = SP['hook'].get('display') or ' '.join(L['h'].text.split()[:-1]) or 'Stop saying'   # display text (lesson) or hook line minus its last word ('this.')
@@ -231,7 +232,7 @@ if not SOFT: El('h.strike', bar(int(qx1 - qx) + 16, 12, INK if T1 else C['cream'
 CARD_PAD, BD = 32, 72
 inner = FULL - 2 * CARD_PAD - BD - 24
 sz = TYPE['h2']
-hx = measure(wrong + '.', sz, 'head', inner) + 2 * CARD_PAD; hv = measure(right + '.', sz, 'head', inner) + 2 * CARD_PAD
+hx = measure(endp(wrong), sz, 'head', inner) + 2 * CARD_PAD; hv = measure(endp(right), sz, 'head', inner) + 2 * CARD_PAD
 lab_h = int(TYPE['body'] * LEAD) + 16
 zone_h = ih + lab_h + hx + 32 + max(hv, 200)
 zy = stage_y(zone_h); bm, bg_, bk = BEAT['m'], BEAT['g'], BEAT['k']
@@ -242,7 +243,7 @@ cy = zy + lab_h; tx = ln.t(wt[0])
 card, pad = rrect(FULL, hx, 32, C['white'])
 xc = El('m.card', card, X0 - pad, cy - pad, 'm', tx - 0.15, bk['vout'], enter='slide', d_in='base', z=3, dim=(bk['vin'], 0.5 if T1 else 0.6, 'k'))
 El('m.badge', badge('nOK', BD, C['navy2']) if SOFT else badge('x', BD), X0 + CARD_PAD, cy + CARD_PAD, 'm', tx - 0.15, None, enter='none', parent=xc, z=7)
-_, wb = words_block('m.s', wrong + '.', sz, 'head', X0 + CARD_PAD + BD + 24, cy + CARD_PAD - 4, inner, 'm', ln, None, hi=BAD, hi_col=C['navy2'] if SOFT else C['red'], parent=xc, reveal='fade', after=tx)
+_, wb = words_block('m.s', endp(wrong), sz, 'head', X0 + CARD_PAD + BD + 24, cy + CARD_PAD - 4, inner, 'm', ln, None, hi=BAD, hi_col=C['navy2'] if SOFT else C['red'], parent=xc, reveal='fade', after=tx)
 bi = [k for k, v in wb.items() if nrm(wt[k]) in {nrm(x) for x in BAD}] if len(wb) == len(wt) else []
 if bi:
     u0, u1 = wb[bi[0]], wb[bi[-1]]
@@ -262,7 +263,7 @@ ln = L['k']; tr = ln.t(rt[0])
 card, pad = rrect(FULL, hv, 32, C['white'], outline=C['green'])
 vc = El('k.card', card, X0 - pad, slot - pad, 'k', tr - 0.15, bk['vout'], enter='slide', d_in='base', z=3)
 El('k.badge', badge('v', BD), X0 + CARD_PAD, slot + CARD_PAD, 'k', tr - 0.15, None, enter='none', parent=vc, z=7)
-_, vb = words_block('k.s', right + '.', sz, 'head', X0 + CARD_PAD + BD + 24, slot + CARD_PAD - 4, inner, 'k', ln, None, hi=GOOD, hi_col=C['green'], parent=vc, reveal='fade', after=tr)
+_, vb = words_block('k.s', endp(right), sz, 'head', X0 + CARD_PAD + BD + 24, slot + CARD_PAD - 4, inner, 'k', ln, None, hi=GOOD, hi_col=C['green'], parent=vc, reveal='fade', after=tr)
 gi = [k for k, v in vb.items() if nrm(rt[k]) in {nrm(x) for x in GOOD}] if len(vb) == len(rt) else []
 if gi:
     u0, u1 = vb[gi[0]], vb[gi[-1]]
@@ -314,11 +315,11 @@ if 'c' in SEQ:
 # normal speed: karaoke sentence + marker ----------------------------------
 b = BEAT['rn']; ln = L['rn']; g = 'rn'
 sz3 = TYPE['h1']
-h_ = ih + 72 + 24 + measure(right + '.', sz3, 'head', FULL)
+h_ = ih + 72 + 24 + measure(endp(right), sz3, 'head', FULL)
 y = stage_y(h_); y = place_icon('rn', y, b['vin'], b['vout'], g)
 nc = chip('NORMAL SPEED', C['green'], C['white']); El('rn.chip', nc, X0 + (FULL - nc.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='NORMAL SPEED', fs=TYPE['label'])
 y += 72 + 24; tr = ln.t(rt[0])
-_, kb = words_block('rn.s', right + '.', sz3, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, hi=GOOD, hi_col=C['green'] if T1 else C['yellow'], align='center', karaoke=True, after=b['vin'], z=7)
+_, kb = words_block('rn.s', endp(right), sz3, 'head', X0, y, FULL, g, ln, b['vout'], color=INK, hi=GOOD, hi_col=C['green'] if T1 else C['yellow'], align='center', karaoke=True, after=b['vin'], z=7)
 gi = [k for k in kb if k < len(rt) and nrm(rt[k]) in {nrm(x) for x in GOOD}]
 if gi:
     u0, u1 = kb[gi[0]], kb[gi[-1]]
