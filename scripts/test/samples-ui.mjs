@@ -44,6 +44,8 @@ const fresh = f => fs.existsSync(f) && fs.statSync(f).mtimeMs >= Math.max(...src
 const P = { vi: 'dist/samples/p5.html', en: 'dist/en/samples/p5.html', viIdx: 'dist/samples/index.html', enIdx: 'dist/en/samples/index.html', sp: 'dist/speaking/hoc-tap.html', lt: 'dist/viet-thu/gt1.html' };
 if (Object.values(P).every(fresh)) {
   const h = Object.fromEntries(Object.entries(P).map(([k, f]) => [k, fs.readFileSync(f, 'utf8')]));
+  // Mọi <script> nội tuyến của trang tĩnh phải chạy được (lỗi cú pháp = ô lọc, nút nghe, chip nhóm chết cả trang – lỗi 24/10)
+  for (const f of [...Object.values(P), 'dist/en/vocabulary/index.html', 'dist/tu-vung/index.html', 'dist/en/speaking/index.html']) if (fs.existsSync(f)) for (const m of fs.readFileSync(f, 'utf8').matchAll(/<script>([\s\S]*?)<\/script>/g)) { let e = ''; try { new Function(m[1]); } catch (x) { e = x.message; } ok(!e, `${f}: script nội tuyến hợp lệ${e ? ' – ' + e : ''}`); }
   for (const k of ['vi', 'en', 'lt']) {
     ok(/<article class="page smp smp-doc/.test(h[k]) && /class="ess-side"/.test(h[k]) && /class="side-box outline"/.test(h[k]) && /class="side-box legend"/.test(h[k]), `${k}: cột dàn bài + chú thích màu`);
     ok((h[k].match(/<section class="para r-/g) || []).length >= 4, `${k}: thẻ đoạn có vai trò`);

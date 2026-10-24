@@ -55,7 +55,7 @@
     var b = d.createElement('button');
     b.type = 'button'; b.className = 'lk-rep'; b.id = 'lkRep';
     b.innerHTML = '<span aria-hidden="true">⚑</span><span class="lk-rep-l" data-i18n="Báo lỗi">' + (w.t ? t('Báo lỗi') : 'Report') + '</span>'; // data-i18n: từ điển nạp sau vẫn dịch lại; nhãn ẩn = tên cho trình đọc màn hình
-    b.title = w.t ? t('Báo lỗi') : 'Report';
+    b.title = w.t ? t('Báo lỗi') : 'Report'; b.setAttribute('data-i18n-title', 'Báo lỗi');
     compactFoot();
     b.onclick = function () { b.disabled = true; load().then(function (R) { R.open(); }, function () {}).then(function () { b.disabled = false; }); };
     var html = d.documentElement, wide = w.matchMedia ? w.matchMedia('(min-width: 901px)') : null;
