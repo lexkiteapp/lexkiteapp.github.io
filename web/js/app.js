@@ -407,7 +407,13 @@
     const w = b.dataset.speak || b.dataset.saysent || b.dataset.say || b.dataset.speakText || b.dataset.slow || '';
     b.setAttribute('aria-label', (b.dataset.slow ? t('Nghe chậm') : t('Nghe')) + (w ? ': ' + w.slice(0, 80) : ''));
   });
-  if (window.MutationObserver) new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1) { if (n.matches && n.matches(SAY)) labelSay(n.parentNode || n); else labelSay(n); } }).observe(view, { childList: true, subtree: true });
+  // RTL (ar): mũi tên chỉ hướng ở ĐẦU/CUỐI nút & liên kết ("Bắt đầu →", "← Quay lại") lật theo hướng đọc; mũi tên giữa câu (en → vi) giữ nguyên
+  const rtlArrows = root => {
+    if (document.documentElement.dir !== 'rtl' || !root.querySelectorAll) return;
+    const els = root.matches && root.matches('a, button') ? [root] : root.querySelectorAll('a, button');
+    for (const el of els) { const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n; while ((n = w.nextNode())) { const v = n.nodeValue, nv = v.replace(/\s→\s*$/, ' ←').replace(/^(\s*)←\s/, '$1→ '); if (nv !== v) n.nodeValue = nv; } }
+  };
+  if (window.MutationObserver) new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1) { if (n.matches && n.matches(SAY)) labelSay(n.parentNode || n); else labelSay(n); rtlArrows(n.closest && n.closest('a, button') || n); } }).observe(view, { childList: true, subtree: true });
   // Bài đang học dở (nghe, đọc, viết, ngữ pháp, nói, đề thi…) → khối "Tiếp tục" ở trang Hôm nay mở lại bằng 1 chạm
   const RESUME = { listen: '🎧', read: '📰', write: '✍️', task1: '📈', letters: '✉️', grammar: '📐', speaking: '🗣️', 'toefl-p': '🏛️', 'toeic-r': '💼', 'toeic-test': '💼', 'listen-test': '🎧', model: '📄', pron: '🔤', cbt: '🖥️', ideas: '💡' };
   function markActivity(name, arg) {
