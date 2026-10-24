@@ -25,7 +25,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
 async function main() {
   const [cmd, job, ...rest] = process.argv.slice(2), opt = n => { const i = rest.indexOf('--' + n); return i >= 0 ? rest[i + 1] : undefined; };
   const BASE = String(process.env.LEXKITE_API_BASE || 'https://lexkite.com').replace(/\/+$/, '');
-  const run = `${process.env.GITHUB_RUN_ID || 'local'}-${process.env.GITHUB_RUN_ATTEMPT || 1}-${job}`;
+  const run = `${process.env.GITHUB_RUN_ID || 'local'}-${process.env.GITHUB_RUN_ATTEMPT || 1}-${job}${process.env.LEASE_SHARD ? '-s' + process.env.LEASE_SHARD : ''}`;   // LEASE_SHARD: mỗi việc ma trận một lượt thuê riêng
   const out = (k, v) => { if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `${k}=${String(v).replace(/\n/g, ' ')}\n`); };
   async function call(body) {
     const key = driveCliKey(); if (!key) return { status: 0, j: { error: 'no-key' } };

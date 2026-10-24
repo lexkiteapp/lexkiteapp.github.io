@@ -617,6 +617,29 @@
    "_note": "Ảnh minh hoạ từ vựng – ĐANG CHẠY (24/10 chủ duyệt s1/pilot2). Ưu tiên bulk (thấp nhất). MỌI THỨ qua GrabCast (ảnh FLUX + thẻ văn bản; không Workers AI Lexkite). Chủ 24/10: GrabCast chưa có người dùng thật → dùng tối đa, chừa ~10 %: khoá CI 3.000 lượt/ngày × 90 % ≈ 2.700; lượt này ≤ 400 ảnh + 220 thẻ + thăm dò ≈ 1.100 lượt; trần thật = khung ảnh 10/≈65 s (≈ 6 ảnh/phút) trong 85 phút. 429 → chờ lùi, 6 lần liên tiếp = dừng nhà đó. Giám khảo: GrabCast thị giác (khi có vars.GRABCAST_AI_VISION_URL) → Gemini kho Lexkite → hàng chờ."
   },
   {
+   "id": "vocab-img-scene",
+   "workflow": "vocab-img-scene.yml",
+   "cron": [
+    "40 16 * * *"
+   ],
+   "priority": "bulk",
+   "resources": [
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 120,
+   "est": {
+    "grabcast_images": 400,
+    "grabcast_text": 30,
+    "shards_max": 10,
+    "per_shard_images": "max_gc / shards",
+    "judge": "local CPU (0 token)"
+   },
+   "lease": true,
+   "paused": true,
+   "_note": "Ảnh mọi nghĩa (cảnh câu ví dụ cho nghĩa trừu tượng + ô khái niệm SVG cho hư từ) + ảnh bài học giai đoạn 1. Ma trận ≤ 10 việc, mỗi việc thuê riêng (LEASE_SHARD → run id -sN) và trần ảnh = max_gc / shards; 429 GrabCast → chờ lùi 65→240 s, 6 lần = dừng. Giám khảo CỤC BỘ trên CPU (local_judge.py) – không Gemini. TẠM DỪNG (paused) tới khi chủ duyệt tờ ảnh pilot; chạy tay mode=pilot|calibrate bằng --force. Sổ ảnh = git (content/lexicon/vimg-scenes.json, vimg-judge.json) – không D1, không Pages."
+  },
+  {
    "id": "d1-backup",
    "workflow": "d1-backup.yml",
    "cron": [

@@ -1,0 +1,136 @@
+# Ảnh cho MỌI nghĩa (~20k từ) + ảnh bài học giai đoạn 1 – docs/LEXICON.md § Ảnh mọi nghĩa, docs/VISUAL-LEARNING-PLAN.md.
+# Vẽ: GrabCast Cloudflare FLUX (gen.mjs PROVIDERS, 429 → chờ lùi). Thẻ cảnh: ai-pool (GrabCast văn bản). Giám khảo: CỤC BỘ trên CPU (local_judge.py:
+# CLIP + máy chú thích nhỏ + MiniLM + tesseract + NSFW + tâm phong cách + pHash) – 0 token, không phụ thuộc Gemini. Ô khái niệm hư từ = SVG tất định.
+# Ma trận ≤ 10 việc/lượt, mỗi việc một lượt thuê RIÊNG ở điều phối (LEASE_SHARD) + trần ảnh riêng (max_gc / shards).
+# Chế độ: pilot (60 trừu tượng + 20 hư từ + 74 ảnh bài học, KHÔNG đăng) · calibrate (chỉ hiệu chỉnh ngưỡng) · fill (CHƯA BẬT – chờ chủ duyệt tờ ảnh pilot).
+# Không ghi gì vào Pages, không ghi D1 (sổ ảnh = git/manifest), không đụng tệp của việc khác (vocab-img giữ img.json / vimg-cards.json).
+name: Ảnh mọi nghĩa (cảnh + khái niệm)
+on:
+  # lịch dự kiến khi bật fill: '40 16 * * *' (infra/jobs.json, đang paused – chưa có schedule tới khi chủ duyệt pilot)
+  workflow_dispatch:
+    inputs:
+      mode: { description: 'pilot | calibrate | fill', default: 'pilot' }
+      shards: { description: 'Số việc song song (1–10)', default: '1' }
+      max_gc: { description: 'Trần ảnh GrabCast CẢ lượt (chia đều cho các việc)', default: '400' }
+      recal: { description: '1 = hiệu chỉnh ngưỡng giám khảo trước khi chấm', default: '1' }
+permissions:
+  contents: read
+  actions: read     # tải artifact gán nhãn (calibrate)
+  id-token: write   # ai-pool /api/lexai (OIDC) – thẻ cảnh dùng GrabCast trước
+concurrency: { group: vocab-img-scene, cancel-in-progress: false }
+env:
+  MODE: ${{ github.event.inputs.mode || 'pilot' }}
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      shards: ${{ steps.p.outputs.shards }}
+      per: ${{ steps.p.outputs.per }}
+      skip: ${{ steps.p.outputs.skip }}
+    steps:
+      - id: p
+        run: |
+          n=${{ github.event.inputs.shards || '1' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
+          if [ "${{ github.event_name }}" = schedule ] || [ "$MODE" = fill ]; then echo "::notice::fill chưa bật – chờ chủ duyệt tờ ảnh pilot (docs/LEXICON.md § Ảnh mọi nghĩa)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
+          echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
+          echo "per=$(( ${{ github.event.inputs.max_gc || '400' }} / n ))" >> $GITHUB_OUTPUT
+  shard:
+    needs: plan
+    if: needs.plan.outputs.skip != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' }
+    env:
+      LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
+      GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+      LEASE_SHARD: ${{ matrix.shard }}
+      VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
+      VIMG_MAX_CF2: '0'
+      VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
+      AI_POOL_GC_MAX: '60'
+      HF_HUB_DISABLE_TELEMETRY: '1'
+      OUT: out/vimg-scene
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: .github/workflows/vocab-img-scene.yml }
+      - name: Thuê (điều phối – mỗi việc ma trận một lượt thuê)
+        id: lease
+        run: node scripts/jobs/lease.mjs acquire vocab-img-scene --force
+      - name: Bộ nhớ đệm trọng số mô hình (CLIP, SmolVLM, MiniLM, NSFW)
+        if: steps.lease.outputs.skip != '1'
+        uses: actions/cache@v4
+        with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
+      - name: Cài giám khảo cục bộ (CPU)
+        if: steps.lease.outputs.skip != '1'
+        run: |
+          sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
+          pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
+          pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 scipy==1.14.1 'numpy<2'
+      - name: Kho từ vựng + chọn khoá
+        if: steps.lease.outputs.skip != '1'
+        run: |
+          node scripts/build-lexicon.mjs --write >/dev/null
+          node scripts/vocab-img/scene.mjs --pilot --n 60 --fn 20 > pilot.json
+          node -e "const p=require('./pilot.json'),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));require('fs').writeFileSync('keys.json',JSON.stringify({items:[...p.items,...t.map(x=>'topic:'+x.id),...c],scene:p.scene}))"
+          echo "khoá: $(node -p "require('./keys.json').items.length")"
+      - name: Thẻ cảnh (câu ví dụ → mô tả hình; GrabCast văn bản)
+        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
+        run: node scripts/vocab-img/scene.mjs --cards --keys keys.json --write
+      - name: Hiệu chỉnh ngưỡng (tập gán nhãn ~180 ảnh)
+        if: steps.lease.outputs.skip != '1' && (env.MODE == 'calibrate' || github.event.inputs.recal == '1')
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          for r in fill:40069944527 pilot2:40059373319; do n=${r%%:*}; id=${r##*:}
+            gh run download $id -R ${{ github.repository }} -D lab/$n || echo "::warning::không tải được artifact $id"; done
+          f=$(find lab/fill -type d -name raw | head -1); p=$(find lab/pilot2 -type d -name raw | head -1)
+          cd scripts/vocab-img && python3 calibrate.py --img fill=$GITHUB_WORKSPACE/$f --img pilot2=$GITHUB_WORKSPACE/$p --write 2>&1 | tail -25 && mv calibration.json $GITHUB_WORKSPACE/
+      - name: Vẽ lần 1
+        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
+        run: node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt 1 --shard ${{ matrix.shard }}/${{ strategy.job-total }}
+      - name: Giám khảo cục bộ lần 1
+        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
+        run: python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 1
+      - name: Vẽ lại 1 lần (prompt tinh) + chấm lần 2
+        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
+        run: |
+          node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt 2 --shard ${{ matrix.shard }}/${{ strategy.job-total }} --only $OUT/retry.json || true
+          ls $OUT/raw/*.a2.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 2 || true
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.lease.outputs.skip != '1'
+        with:
+          name: vimg-scene-${{ matrix.shard }}
+          retention-days: 14
+          path: |
+            out/vimg-scene/
+            content/lexicon/vimg-scenes.json
+            content/lexicon/vimg-judge.json
+            calibration.json
+            keys.json
+            reports/
+      - name: Trả thuê
+        if: always() && steps.lease.outputs.skip != '1'
+        run: node scripts/jobs/lease.mjs release vocab-img-scene --status "${{ job.status }}"
+  final:
+    needs: [plan, shard]
+    if: always() && needs.plan.outputs.skip != '1' && github.event.inputs.mode != 'calibrate'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get install -y -qq librsvg2-bin fonts-dejavu-core >/dev/null && pip install -q pillow-avif-plugin==1.4.6 scipy==1.14.1 'numpy<2'
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'vimg-scene-*', path: parts }
+      - name: Gộp + mã hoá ≤ 6 KB + tờ ảnh
+        run: |
+          mkdir -p m/raw m/svg && for d in parts/*/; do cp -n $d/out/vimg-scene/raw/* m/raw/ 2>/dev/null; cp -n $d/out/vimg-scene/svg/* m/svg/ 2>/dev/null; cp -n $d/out/vimg-scene/*.json m/ 2>/dev/null
+            for f in $d/out/vimg-scene/judge.local.a*.json; do [ -f "$f" ] && python3 -c "import json,sys,os;o='m/'+os.path.basename(sys.argv[1]);a=json.load(open(o)) if os.path.exists(o) else {};a.update(json.load(open(sys.argv[1])));json.dump(a,open(o,'w'))" $f; done; done
+          python3 scripts/vocab-img/scene_final.py --dir m --sheet m/abstract-pilot.jpg
+      - uses: actions/upload-artifact@v4
+        with: { name: vimg-scene-final, retention-days: 14, path: m/ }

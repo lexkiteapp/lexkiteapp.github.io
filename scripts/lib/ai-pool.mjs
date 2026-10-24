@@ -56,6 +56,7 @@ export const TASKS = {
   vjudge: { kind: 'judge', deny: [] },
   judge: { kind: 'judge', deny: [] },
   vision: { kind: 'judge', deny: [] },
+  vscene: { kind: 'gen', deny: [] }, // thẻ cảnh ảnh minh hoạ (scripts/vocab-img/scene.mjs – prompt cục bộ, không qua /api/lexai)
 };
 export function allowed(mode, model) {
   const t = TASKS[mode]; if (!t) return false;

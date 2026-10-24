@@ -1,0 +1,109 @@
+#!/usr/bin/env python3
+"""Tổng hợp lượt "mọi nghĩa": ảnh qua giám khảo cục bộ (lần 1 hoặc lần 2) + ô khái niệm SVG → WebP + AVIF ≤ 6 KB, NỀN TRONG SUỐT khi viền là nền kem
+(chế độ tối không bao giờ hiện ô nền sáng – docs/LEXICON.md § Quy tắc tích hợp hình), result.json, tờ ảnh ghép có câu ví dụ dưới ảnh cảnh.
+  python3 scripts/vocab-img/scene_final.py --dir out/x [--sheet out/x/abstract-pilot.jpg]
+"""
+import argparse, io, json, os, re, subprocess, glob
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
+
+SIZE, MAXB = 384, 6144
+slug = lambda k: re.sub(r'[^a-zA-Z0-9_-]+', '-', k.replace('#', '__'))
+
+def keyed(im, tol=26):
+    """nền kem → alpha 0 bằng loang từ viền (chỉ khi ≥ 85 % viền là nền đều) – giữ nền trong vật thể"""
+    a = np.asarray(im.convert('RGB'), np.int16); h, w, _ = a.shape
+    edge = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(edge, 0)
+    near = (np.abs(a - bg).max(-1) <= tol)
+    if near[[0, -1], :].mean() < .85 or near[:, [0, -1]].mean() < .85: return im.convert('RGBA'), False
+    from scipy import ndimage
+    lab, _ = ndimage.label(near); border = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
+    mask = np.isin(lab, list(border))
+    alpha = np.where(mask, 0, 255).astype(np.uint8)
+    alpha = np.asarray(Image.fromarray(alpha).filter(__import__('PIL.ImageFilter', fromlist=['x']).GaussianBlur(1.2)))
+    rgba = np.dstack([a.astype(np.uint8), alpha]); return Image.fromarray(rgba, 'RGBA'), True
+
+def enc(im, fmt, qs):
+    for q in qs:
+        b = io.BytesIO()
+        if fmt == 'WEBP': im.save(b, 'WEBP', quality=q, method=6, alpha_quality=70)
+        else: im.save(b, 'AVIF', quality=q, speed=4)
+        if b.tell() <= MAXB: return b.getvalue(), q
+    return None, q
+
+def encode(im, dst):
+    for side in (384, 320, 288):   # hộp hiển thị ≤ 160 CSS px (/words/ 256 dùng @2x khi có) – thu nhỏ trước khi hạ chất lượng quá thấp
+        s = im.resize((side, side), Image.LANCZOS)
+        w, qw = enc(s, 'WEBP', (70, 60, 50, 42, 35));
+        try: av, qa = enc(s, 'AVIF', (60, 50, 40, 32, 25))
+        except Exception: av = None
+        if w and av:
+            open(dst + '.webp', 'wb').write(w); open(dst + '.avif', 'wb').write(av)
+            return {'side': side, 'webp': len(w), 'avif': len(av), 'q': qw}
+    return None
+
+def h16(path):
+    import hashlib; return hashlib.sha256(open(path, 'rb').read()).hexdigest()[:16]
+
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument('--dir', required=True); ap.add_argument('--sheet'); a = ap.parse_args()
+    D = a.dir; T = json.load(open(os.path.join(D, 'targets.json'))); os.makedirs(os.path.join(D, 'final'), exist_ok=True)
+    J = [json.load(open(f)) if os.path.exists(f) else {} for f in (os.path.join(D, 'judge.local.a1.json'), os.path.join(D, 'judge.local.a2.json'))]
+    res, stats = {}, {'n': len(T), 'passed': 0, 'scene': 0, 'scene_pass': 0, 'concept': 0, 'lesson': 0, 'lesson_pass': 0, 'object': 0, 'alpha': 0, 'bytes': []}
+    for k, t in T.items():
+        kd = t['kind']; r = {'kind': kd, 'pass': False}
+        if kd == 'concept' or t.get('fallback') == 'type':
+            svg = os.path.join(D, 'svg', slug(k) + '.svg'); png = svg[:-4] + '.png'
+            subprocess.run(['rsvg-convert', '-w', '768', '-h', '768', svg, '-o', png], check=True)
+            im = Image.open(png).convert('RGBA'); r.update(src='concept', fam=t.get('fam', 'type'), judge='rule', alpha=True); stats['concept'] += 1
+            im_used = im
+        else:
+            att = 2 if (J[1].get(k) or {}).get('pass') else 1
+            j = (J[att - 1].get(k) or J[0].get(k) or {}); r.update(att=att, reasons=j.get('reasons', ['not generated']), cap=(j.get('f') or {}).get('cap', ''), f={x: y for x, y in (j.get('f') or {}).items() if x != 'cap'})
+            stats[kd] = stats.get(kd, 0) + 1
+            raw = os.path.join(D, 'raw', f'{slug(k)}.a{att}.jpg')
+            if not os.path.exists(raw): res[k] = r; continue
+            im_used = Image.open(raw).convert('RGB')
+            if not j.get('pass'): r['raw'] = raw; res[k] = r; continue
+            im_used, al = keyed(im_used); r['alpha'] = al; stats['alpha'] += al
+        tmp = os.path.join(D, 'final', slug(k)); e = encode(im_used.convert('RGBA'), tmp)
+        if not e: r['reasons'] = ['size > 6 KB']; res[k] = r; continue
+        hh = h16(tmp + '.webp'); os.replace(tmp + '.webp', os.path.join(D, 'final', hh + '.webp')); os.replace(tmp + '.avif', os.path.join(D, 'final', hh + '.avif'))
+        r.update(h=hh, **e); r['pass'] = True; stats['passed'] += 1; stats['bytes'].append(e['webp'] + e['avif'])
+        if kd == 'scene': stats['scene_pass'] += 1
+        if kd in ('lesson', 'cover'): stats['lesson_pass'] += 1
+        res[k] = r
+    b = stats.pop('bytes'); stats['avg_pair_bytes'] = int(np.mean(b)) if b else 0; stats['max_pair_bytes'] = max(b) if b else 0
+    sp = {}
+    for f in glob.glob(os.path.join(D, 'speed.*.json')): sp[os.path.basename(f)[6:-5]] = json.load(open(f))
+    stats['speed'] = sp
+    json.dump({'stats': stats, 'items': res}, open(os.path.join(D, 'result.json'), 'w'), indent=1)
+    print(json.dumps(stats))
+    if a.sheet: sheet(D, T, res, a.sheet)
+
+def sheet(D, T, res, out):
+    """tờ ảnh: mỗi ô = ảnh (cảnh/khái niệm/bìa) + từ + câu ví dụ dưới ảnh (như thẻ học) + dấu ĐẠT/TRƯỢT"""
+    W, H, C = 240, 330, 8; keys = list(T.keys()); rows = (len(keys) + C - 1) // C
+    im = Image.new('RGB', (C * W, rows * H), '#ffffff'); dr = ImageDraw.Draw(im)
+    try: f = ImageFont.truetype('DejaVuSans.ttf', 12); fb = ImageFont.truetype('DejaVuSans-Bold.ttf', 14)
+    except Exception: f = fb = ImageFont.load_default()
+    for i, k in enumerate(keys):
+        x, y = (i % C) * W, (i // C) * H; r = res.get(k, {}); t = T[k]
+        p = os.path.join(D, 'final', r['h'] + '.webp') if r.get('h') else r.get('raw')
+        if p and os.path.exists(p):
+            th = Image.open(p).convert('RGBA').resize((W - 16, W - 16)); bg = Image.new('RGB', th.size, '#e9eef0'); bg.paste(th, (0, 0), th); im.paste(bg, (x + 8, y + 6))
+        col = '#1a7f3c' if r.get('pass') else '#c0392b'
+        dr.rectangle([x + 6, y + 4, x + W - 7, y + W - 8], outline=col, width=3)
+        dr.text((x + 8, y + W - 4), f"{k}  [{t['kind']}]"[:34], fill='#000', font=fb)
+        txt = t.get('ex') or t.get('target') or ''
+        if not r.get('pass'): txt = 'TRƯỢT: ' + '; '.join(r.get('reasons') or [])[:120]
+        words, line, ly = txt.split(), '', y + W + 14
+        for w_ in words:
+            if dr.textlength(line + ' ' + w_, font=f) > W - 12: dr.text((x + 8, ly), line, fill='#333', font=f); ly += 14; line = w_
+            else: line = (line + ' ' + w_).strip()
+            if ly > y + H - 16: break
+        if line and ly <= y + H - 16: dr.text((x + 8, ly), line, fill='#333', font=f)
+    im.save(out, quality=82); print('tờ ảnh', out, im.size)
+
+if __name__ == '__main__':
+    main()
