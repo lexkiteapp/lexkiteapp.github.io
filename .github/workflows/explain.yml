@@ -22,6 +22,11 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Sinh + duyệt
+        env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast → Workers AI tài khoản 2 (neuron = phần cấp điều phối) → GrabCast Groq
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+          AI_POOL_GC_MAX: '200'
         run: |
           for s in ${{ github.event.inputs.set || 'usage grammar' }}; do
             node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true

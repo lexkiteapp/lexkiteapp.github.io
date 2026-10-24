@@ -1,0 +1,97 @@
+{
+ "updated": "2026-10-24T07:29:50.012Z",
+ "measured": {
+  "_at": "2026-10-24",
+  "gemini": {
+   "flashRpdPerKey": 20,
+   "flashModels": 4,
+   "liteRpdPerKey": 135,
+   "note": "mỗi KHÓA phải thuộc một dự án Google Cloud riêng – hạn mức tính theo dự án, không theo khóa"
+  },
+  "gc-cf": {
+   "keys": 70,
+   "ciCallsPerDay": 3000,
+   "keep": 0.9,
+   "vocabImgShare": 1100,
+   "model": "llama-3.3-70b",
+   "note": "khóa CI GrabCast 3.000 lượt/ngày × 90 %, trừ phần vocab-img"
+  },
+  "cf2": {
+   "neuronsPerDay": 10000,
+   "grants": 3500,
+   "neuronsPerCall": 300,
+   "model": "gpt-oss-120b",
+   "status": "chờ quyền Workers AI (token tài khoản 2: 10000 Authentication error)"
+  },
+  "gc-groq": {
+   "keys": 108,
+   "callsPerDay": 0,
+   "status": "bad_request (24/10) – GrabCast tự rơi về Cloudflare"
+  }
+ },
+ "workload": {
+  "lexicon": {
+   "words": 12000,
+   "gen": 2400,
+   "genGeminiOnly": 1200,
+   "judgeA": 1200,
+   "judgeB": 1200
+  },
+  "explain": {
+   "gen": 3342,
+   "genGeminiOnly": 3342,
+   "judgeA": 2610,
+   "judgeB": 2610,
+   "items": 1732
+  },
+  "scriptBank": {
+   "scripts": 21323,
+   "gen": 1067,
+   "genGeminiOnly": 0,
+   "judgeA": 0,
+   "judgeB": 1067
+  },
+  "vocabImg": {
+   "perDay": 400
+  },
+  "total": {
+   "gen": 6809,
+   "genGeminiOnly": 4542,
+   "judge": 8687
+  }
+ },
+ "table": [
+  {
+   "keys": 0,
+   "days": null
+  },
+  {
+   "keys": 1,
+   "days": 56.8
+  },
+  {
+   "keys": 2,
+   "days": 28.4
+  },
+  {
+   "keys": 5,
+   "days": 11.4
+  },
+  {
+   "keys": 10,
+   "days": 5.7
+  },
+  {
+   "keys": 15,
+   "days": 3.8
+  },
+  {
+   "keys": 20,
+   "days": 2.8
+  },
+  {
+   "keys": 30,
+   "days": 1.9
+  }
+ ]
+}

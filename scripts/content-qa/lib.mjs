@@ -1,3 +1,4 @@
+import { allowed } from '../lib/ai-pool.mjs';
 // 🛡️ Cổng QA nội dung – hàm kiểm thuần (không I/O), dùng chung cho gate.mjs, job sinh nội dung (explain/job.mjs…) và test.
 // Luật: docs/CONTENT-QA.md. Mọi nguồn nội dung đi qua: lược đồ + đối chiếu kho từ · cặp ✗/✓ · CEFR · 2 giám khảo độc lập · dịch · kiểm mẫu ≥5%/lô · báo lỗi tự ẩn.
 export const CE = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -20,7 +21,10 @@ export function pairOk(bad, good, target) {
 // Không đạt → hàng duyệt (content/qa/review-queue.json), KHÔNG xuất.
 export const family = k => String(k).split(':')[0].toLowerCase();
 export function agree(qa) {
-  const j = (qa && qa.j) || {}, ks = Object.keys(j).filter(k => Number.isFinite(+j[k]));
+  const j = (qa && qa.j) || {}, all = Object.keys(j).filter(k => Number.isFinite(+j[k]));
+  // Chuẩn giám khảo (scripts/lib/ai-pool.mjs): mô hình hạng S (quá nhỏ/lạ) không được tính là giám khảo
+  const ks = all.filter(k => allowed('judge', k.slice(k.indexOf(':') + 1)));
+  if (ks.length < all.length && new Set(ks.map(family)).size < 2) return { ok: false, why: 'giám khảo không đủ chuẩn (mô hình nhỏ/lạ – ai-pool TIERS)' };
   const fams = new Set(ks.map(family)), sc = ks.map(k => +j[k]);
   if (fams.size < 2) return { ok: false, why: 'cần 2 giám khảo độc lập (khác họ mô hình)' };
   if (sc.some(s => s < 4)) return { ok: false, why: 'có giám khảo chấm < 4' };

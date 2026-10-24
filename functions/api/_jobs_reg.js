@@ -48,7 +48,7 @@ export const REG = {
    "exclusive": true
   },
   "grabcast_ai": {
-   "label": "GrabCast AI pool (ảnh)",
+   "label": "GrabCast AI pool (ảnh + chữ – tuyến dự phòng của scripts/lib/ai-pool.mjs)",
    "exclusive": false
   },
   "web_push": {
@@ -79,7 +79,8 @@ export const REG = {
    "safety_margin": 1000,
    "grants": {
     "news-auto": 3000,
-    "script-bank": 2000
+    "script-bank": 2000,
+    "lexicon-expand": 1500
    },
    "_note": "Việc nền dùng Workers AI tài khoản 2 (token cf-token-2: Account › Workers AI › Read + Edit; Pages: AI_B_TOKEN/AI_B_ACCOUNT_ID hoặc D1B_*). Tổng grants ≤ daily_neurons − safety_margin (jobs-check). 1 ảnh FLUX 4 bước ≈ 173 neuron."
   }
@@ -249,10 +250,14 @@ export const REG = {
    "priority": "render",
    "resources": [
     "gemini",
+    "grabcast_ai",
     "gh_minutes"
    ],
    "minutes": 40,
-   "est": {},
+   "est": {
+    "gemini_calls": 400,
+    "grabcast_text": 200
+   },
    "lease": false
   },
   {
@@ -417,11 +422,13 @@ export const REG = {
    "priority": "render",
    "resources": [
     "workers_ai_b",
+    "grabcast_ai",
     "gh_minutes"
    ],
    "minutes": 60,
    "est": {
-    "workers_ai_b_neurons": 2000
+    "workers_ai_b_neurons": 2000,
+    "grabcast_text": 60
    },
    "lease": true
   },
@@ -736,11 +743,15 @@ export const REG = {
    "priority": "render",
    "resources": [
     "gemini",
+    "grabcast_ai",
+    "workers_ai_b",
     "gh_minutes"
    ],
    "minutes": 120,
    "est": {
-    "gemini_calls": 400
+    "gemini_calls": 400,
+    "grabcast_text": 300,
+    "workers_ai_b_neurons": 1500
    },
    "lease": true
   }

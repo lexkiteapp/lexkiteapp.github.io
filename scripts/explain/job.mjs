@@ -5,6 +5,7 @@
 // Điểm ≤ 3 → content/explain/review.json (không xuất ra web). Nguồn: content/explain/<set>.json
 import fs from 'fs';
 import { items, LANGS } from './sets.mjs';
+import { createPool, judgeKey, allowed } from '../lib/ai-pool.mjs';
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const SET = arg('--set', 'usage'), CALLS = +arg('--calls', 200), DRY = process.argv.includes('--dry');
 const ONLY = (arg('--langs', '') || LANGS.join(',')).split(',').filter(l => LANGS.includes(l));
@@ -14,26 +15,16 @@ const DB = fs.existsSync(FILE) ? JSON.parse(fs.readFileSync(FILE, 'utf8')) : {};
 const save = () => { if (!DRY) { fs.mkdirSync(new URL('.', FILE), { recursive: true }); fs.writeFileSync(FILE, JSON.stringify(Object.fromEntries(Object.entries(DB).sort(([a], [b]) => (a < b ? -1 : 1))), null, 0).replace(/\},"/g, '},\n"')); } };
 const sig = x => [x.s, x.ans, x.alts.join('/')].join('#');
 
-let token = '';
-async function oidc() {
-  if (token) return token;
-  const u = process.env.ACTIONS_ID_TOKEN_REQUEST_URL, t = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
-  if (!u || !t) throw new Error('thiếu OIDC (permissions: id-token: write)');
-  return (token = (await (await fetch(u + '&audience=lexkite-lexai', { headers: { Authorization: 'Bearer ' + t } })).json()).value);
-}
+// AI qua ai-pool (scripts/lib/ai-pool.mjs): soạn/viết lại CHỈ mô hình hạng L đủ chuẩn (Llama 70B cấm: soát 22/10 sai ~13/30); chấm = 2 giám khảo khác họ.
+const AI = createPool({ budget: { lexai: CALLS * 2 } });
 let calls = 0, fails = 0, shown = 0, lastModel = '';
-const stat = { gen: 0, tr: 0, judged: 0, low: 0 };
+const stat = { gen: 0, tr: 0, judged: 0, low: 0, skip: 0 };
 async function call(mode, lang, list) {
   calls++;
   if (DRY) { console.log(`[dry] ${mode} ${lang} ${list.map(x => x.k).join(' ')}`.slice(0, 160)); return null; }
-  for (let i = 0; i < 3; i++) {
-    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await oidc(), 'User-Agent': 'lexkite-ci' }, body: JSON.stringify({ mode, lang, items: list }) }).catch(() => null);
-    if (r && r.ok) { fails = 0; const j = await r.json(); if (!shown++) console.log('mô hình:', j.model); lastModel = j.model || ''; return j.out || {}; }
-    if (r && i === 2) console.log(`${mode} ${lang}: HTTP ${r.status} ${(await r.text().catch(() => '')).slice(0, 120)}`);
-    if (r && r.status === 401) token = '';
-    await new Promise(s => setTimeout(s, 6000 * (i + 1)));
-  }
-  fails++; return null;
+  const r = await AI.gen({ mode, lang, items: list });
+  if (!r) { fails++; return null; }
+  fails = 0; if (!shown++) console.log('mô hình:', r.route, r.model); lastModel = r.model; return r.out || {};
 }
 const str = (v, n) => typeof v === 'string' && v.trim() && v.length <= n ? v.trim() : '';
 // kiểm khuôn: đủ ghi chú cho MỌI phương án nhiễu, mẫu có [đáp án]
@@ -44,7 +35,7 @@ function okText(o, alts) {
   return { why: o.why.trim(), hook: o.hook.trim(), wrong };
 }
 const ALL = items(SET), live = new Set(ALL.map(x => x.id));
-for (const id of Object.keys(DB)) if (!live.has(id) || !/gemini/.test(DB[id].m || '')) delete DB[id]; // câu đã xoá khỏi ngân hàng · bản không phải Gemini (Llama soạn sai, 22/10) → làm lại
+for (const id of Object.keys(DB)) if (!live.has(id) || !allowed('xgen', DB[id].m || '')) delete DB[id]; // câu đã xoá khỏi ngân hàng · bản do mô hình không đủ chuẩn soạn (Llama soạn sai, 22/10) → làm lại
 const loop = async (todo, size, fn) => { for (let i = 0; i < todo.length && calls < CALLS && fails < 3; i += size) await fn(todo.slice(i, i + size)); };
 const brief = x => ({ k: x.id, type: x.type, s: x.s, ans: x.ans, alts: x.alts, ctx: x.ctx });
 
@@ -60,11 +51,19 @@ await loop(ALL.filter(x => !DB[x.id] || DB[x.id].sig !== sig(x)), 6, async b => 
   save();
 });
 const pack = (x, l) => ({ ...brief(x), p: DB[x.id].p, ex: DB[x.id].ex, ...DB[x.id][l] });
-const judgeKey = m => (/gemini/i.test(m) ? 'gemini' : /llama/i.test(m) ? 'llama' : /qwen/i.test(m) ? 'qwen' : 'other') + ':' + String(m || '?').replace(/^@cf\//, '');
+// Chấm: 2 giám khảo KHÁC HỌ (ai-pool judgePair) → qa[l].j = { '<họ>:<mô hình>': điểm }; sc[l] = điểm thấp hơn. Thiếu giám khảo thứ 2 → không ghi gì (bỏ qua trung tính, lượt sau chấm lại).
 async function judge(l) {
   await loop(ALL.filter(x => DB[x.id] && DB[x.id][l] && DB[x.id].sc[l] == null), 10, async b => {
-    const out = await call('xjudge', l, b.map(x => pack(x, l))); if (!out) return;
-    for (const x of b) { const s = Math.round(+out[x.id]); if (s >= 1 && s <= 5) { DB[x.id].sc[l] = s; const qa = DB[x.id].qa = DB[x.id].qa || {}, q = qa[l] = qa[l] || {}; (q.j = q.j || {})[judgeKey(lastModel)] = s; stat.judged++; if (s <= 3) stat.low++; } } // qa.j: mỗi giám khảo 1 khóa '<họ>:<mô hình>' – xuất khi 2 họ khác nhau cùng ≥ 4 (content-qa/lib.mjs agree)
+    calls++;
+    if (DRY) return;
+    const { a, b: bb } = await AI.judgePair({ mode: 'xjudge', lang: l, items: b.map(x => pack(x, l)) });
+    if (!a || !bb) { stat.skip += b.length; fails++; return; } fails = 0;
+    for (const x of b) {
+      const sa = Math.round(+(a.out[x.id] && typeof a.out[x.id] === 'object' ? a.out[x.id].s : a.out[x.id])), sb = Math.round(+(bb.out[x.id] && typeof bb.out[x.id] === 'object' ? bb.out[x.id].s : bb.out[x.id]));
+      if (!(sa >= 1 && sa <= 5 && sb >= 1 && sb <= 5)) continue;
+      const s = Math.min(sa, sb); DB[x.id].sc[l] = s; const qa = DB[x.id].qa = DB[x.id].qa || {}, q = qa[l] = qa[l] || {};
+      q.j = { [judgeKey(a.model)]: sa, [judgeKey(bb.model)]: sb }; stat.judged++; if (s <= 3 || Math.abs(sa - sb) > 1) stat.low++;
+    }
     save();
   });
 }
@@ -89,5 +88,6 @@ if (!DRY) {
 }
 const ok = l => ALL.filter(x => DB[x.id] && DB[x.id].sc[l] >= 4).length;
 console.log(`${SET}: ${ALL.length} câu · en đạt ${ok('en')} · ${ONLY.map(l => `${l} ${ok(l)}`).join(' · ')} · cần duyệt ${review.length}`);
-console.log(`lượt này: ${calls} lần gọi · sinh ${stat.gen} · viết lại ${stat.tr} · chấm ${stat.judged} (thấp ${stat.low}) · lỗi liên tiếp ${fails}`);
-if (!DRY && calls > 0 && stat.gen + stat.tr + stat.judged === 0) { console.error('✗ explain: không sinh/chấm được mục nào'); process.exit(1); }
+console.log(`lượt này: ${calls} lần gọi · sinh ${stat.gen} · viết lại ${stat.tr} · chấm ${stat.judged} (thấp ${stat.low}) · bỏ qua trung tính ${stat.skip} · lỗi liên tiếp ${fails}`);
+if (!DRY) AI.report('explain');
+if (!DRY && calls > 0 && stat.gen + stat.tr + stat.judged === 0) { console.error('✗ explain: không sinh/chấm được mục nào – mọi tuyến AI hỏng (bỏ qua trung tính, không xuất gì)'); process.exit(1); }

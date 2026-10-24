@@ -4,7 +4,6 @@
  * POST { mode: 'translate'|'judge', lang, items: [{ k, w, pos, def, ex, tr? }] } → { out: { k: "bản dịch" | điểm 1–5 }, model }
  * Lời giải bài luyện (scripts/explain/job.mjs, docs/EXPLAIN.md): mode 'xgen' (lang en: soạn mẫu + vì sao + vì sao sai + mẹo + ví dụ),
  *   'xtr' (viết lại phần giải thích cho người nói <lang>, kể cả vi), 'xjudge' (chấm đúng/sư phạm 1–5). Mỗi lần ≤ 15 mục. */
-import { runModel, gemDiag } from './ai.js';
 import { candidates, report, gemFetch } from './_keys.js';
 
 import { stripBackgroundAI } from './_d1guard.js';
@@ -49,7 +48,6 @@ Return ONE JSON object mapping each item's "k" to {why, hook, wrong}.`;
 const XJUDGE = L => `You are a strict senior English teacher and native ${L} reviewer. Each item: quiz sentence "s", correct answer "ans", and an explanation in ${L} ("why", "hook", "wrong": option → note), plus "p" (pattern) and "ex" (examples).
 Rate 1–5: 5 = fully correct English grammar/usage facts, natural ${L}, every wrong-option note is true; 4 = correct with minor style issues; 3 = vague or one doubtful claim; 2 = a factual error (e.g. calls a wrong option correct, wrong meaning, bad example); 1 = wrong or wrong language.
 Return ONE JSON object mapping each item's "k" to an integer 1–5.`;
-const X_WAI = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 
 // ---------- Kho kịch bản video ngắn (scripts/scriptbank/job.mjs, docs/VIDEO-SCALE-PLAN.md §16) ----------
 // 'vgen': Gemini (mô hình chọn trong VMODELS – mỗi mô hình 1 hạn mức ngày riêng của CÙNG dự án) soạn ≤ 20 kịch bản/lần.
@@ -148,56 +146,40 @@ const cleanX = x => ({ k: cut(x.k, 120), type: cut(x.type, 40), s: cut(x.s, 300)
   ...(x.p ? { p: cut(x.p, 120) } : {}), ...(x.why ? { why: cut(x.why, 400), hook: cut(x.hook, 300), wrong: Object.fromEntries(Object.entries(x.wrong || {}).slice(0, 8).map(([a, v]) => [cut(a, 160), cut(v, 300)])) } : {}), ...(Array.isArray(x.ex) ? { ex: x.ex.slice(0, 2).map(e => cut(e, 200)) } : {}) });
 
 const J = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
-export async function onRequestPost({ request, env }) {
-  const claims = await verifyOidc((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
-  if (!claims) return J({ error: 'unauthorized' }, 401);
-  env = stripBackgroundAI(env); // lexai chỉ dành cho CI (OIDC) = việc nền: không tiêu neuron Workers AI chính (đặt chỗ cho người dùng)
-  const b = await request.json().catch(() => ({}));
-  if (b.mode === 'vgen') {
-    const items = Array.isArray(b.items) ? b.items.slice(0, 20).map(cutV) : [], model = VMODELS.includes(b.model) ? b.model : VMODELS[0];
-    if (!items.length) return J({ error: 'bad-request' }, 400);
-    const r = await vgen(env, items, model);
-    return r.out ? J(r) : J(r, 503);
-  }
+const JSON_ONLY = '\nReply with ONE valid JSON object only, no markdown.';
+/** Lời nhắn chuẩn cho mỗi mode (cùng cắt/lọc như khi gọi Gemini) – nguồn DUY NHẤT của prompt cho mọi nhà cung cấp (scripts/lib/ai-pool.mjs):
+ *  Gemini đi thẳng ở đây; GrabCast / Workers AI tài khoản 2 lấy { sys, user, temp } qua `prompt: true` rồi tự gọi. null = yêu cầu sai. */
+export function build(b) {
+  if (b.mode === 'vgen') { const items = Array.isArray(b.items) ? b.items.slice(0, 20).map(cutV) : []; return items.length ? { sys: VGEN, user: JSON.stringify(items), temp: 0.5, models: VMODELS } : null; }
+  if (b.mode === 'vjudge') { const items = Array.isArray(b.items) ? b.items.slice(0, 25).map(cutJ) : []; return items.length ? { sys: VJUDGE, user: JSON.stringify(items), temp: 0.1, models: LX_JUDGE } : null; }
   if (['lxgen', 'lxtr', 'lxjudge'].includes(b.mode)) {
-    const items = Array.isArray(b.items) ? b.items.slice(0, 10).map(cutL) : [];
-    const model = b.mode === 'lxjudge' ? (LX_JUDGE.includes(b.model) ? b.model : LX_JUDGE[0]) : (LX_GEN.includes(b.model) ? b.model : LX_GEN[0]);
-    if (!items.length) return J({ error: 'bad-request' }, 400);
+    const items = Array.isArray(b.items) ? b.items.slice(0, 10).map(cutL) : []; if (!items.length) return null;
     const strip = b.mode === 'lxgen' ? items.map(({ k, w, pos, gloss, cefr, lex, topics }) => ({ k, w, pos, gloss, cefr, lex, topics })) : b.mode === 'lxtr' ? items.map(({ k, w, pos, def, ex }) => ({ k, w, pos, def, ex: ex[0] || '' })) : items.map(({ topics, lex, ...x }) => x);
-    const r = await gemCall(env, model, b.mode === 'lxgen' ? LXGEN : b.mode === 'lxtr' ? LXTR : LXJUDGE, JSON.stringify(strip), b.mode === 'lxjudge' ? 0.1 : 0.3);
-    return r.out ? J(r) : J(r, 503);
-  }
-  if (b.mode === 'vjudge') {
-    const items = Array.isArray(b.items) ? b.items.slice(0, 25).map(cutJ) : [];
-    if (!items.length || !env.AI) return J({ error: 'bad-request' }, 400);
-    try {
-      const res = await env.AI.run(X_WAI, { messages: [{ role: 'system', content: VJUDGE + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: JSON.stringify(items) }], max_tokens: 2048, temperature: 0.1, response_format: { type: 'json_object' } });
-      const raw = res && (res.response ?? (res.result && res.result.response)), out = raw && typeof raw === 'object' ? raw : parseJSON(raw);
-      return out ? J({ out, model: X_WAI, usage: res.usage || null }) : J({ error: 'bad-json', model: X_WAI }, 503);
-    } catch (e) { return J({ error: String((e && e.message) || e).slice(0, 120) }, 503); }
+    return { sys: b.mode === 'lxgen' ? LXGEN : b.mode === 'lxtr' ? LXTR : LXJUDGE, user: JSON.stringify(strip), temp: b.mode === 'lxjudge' ? 0.1 : 0.3, models: b.mode === 'lxjudge' ? LX_JUDGE : LX_GEN };
   }
   if (['xgen', 'xtr', 'xjudge'].includes(b.mode)) {
     const L = NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 15).map(cleanX) : [];
-    if (!L || !items.length || (b.mode === 'xgen' && b.lang !== 'en')) return J({ error: 'bad-request' }, 400);
-    const sys = b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), temp = b.mode === 'xjudge' ? 0.1 : 0.3;
-    try { // Soạn/viết lại: CHỈ Gemini (Llama 3.3 70B soạn sai ~13/30 mẫu + ghi chú sai chung chung, soát 22/10). Chấm: Gemini → Llama 70B (chấm chéo).
-      const r = await runModel(env, sys, JSON.stringify(items), temp, { gemini: true, wai: false });
-      return J({ out: r.out || {}, model: r.model });
-    } catch (e) {
-      if (!env.AI || b.mode !== 'xjudge') return J({ error: String((e && e.message) || e).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 300) }, 503);
-      try {
-        const res = await env.AI.run(X_WAI, { messages: [{ role: 'system', content: sys + '\nReply with ONE valid JSON object only, no markdown.' }, { role: 'user', content: JSON.stringify(items) }], max_tokens: 4096, temperature: temp, response_format: { type: 'json_object' } });
-        const raw = res && (res.response ?? (res.result && res.result.response)), out = raw && typeof raw === 'object' ? raw : parseJSON(raw);
-        if (!out) return J({ error: 'bad-json', model: X_WAI }, 503);
-        return J({ out, model: X_WAI });
-      } catch (e2) { return J({ error: String((e2 && e2.message) || e2).slice(0, 80), diag: String(gemDiag || '').replace(/…\S{4}:/g, '…').slice(0, 200) }, 503); }
-    }
+    if (!L || !items.length || (b.mode === 'xgen' && b.lang !== 'en')) return null;
+    return { sys: b.mode === 'xgen' ? XGEN : b.mode === 'xtr' ? XTR(L) : XJUDGE(L), user: JSON.stringify(items), temp: b.mode === 'xjudge' ? 0.1 : 0.3, models: b.mode === 'xjudge' ? LX_JUDGE : LX_GEN };
   }
-  const L = b.lang !== 'en' && b.lang !== 'vi' && NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 30) : [];
-  if (!L || !items.length || !['translate', 'judge'].includes(b.mode)) return J({ error: 'bad-request' }, 400);
-  const clean = items.map(x => ({ k: String(x.k).slice(0, 80), w: String(x.w).slice(0, 80), pos: String(x.pos || '').slice(0, 20), def: String(x.def || '').slice(0, 240), ex: String(x.ex || '').slice(0, 240), ...(b.mode === 'judge' ? { tr: String(x.tr || '').slice(0, 120) } : {}) }));
-  try {
-    const r = await runModel(env, b.mode === 'judge' ? SYS_JUDGE(L) : SYS_TR(L), JSON.stringify(clean), 0.1);
-    return J({ out: r.out || {}, model: r.model });
-  } catch (e) { return J({ error: String((e && e.message) || e).slice(0, 80) }, 503); }
+  if (['translate', 'judge'].includes(b.mode)) {
+    const L = b.lang !== 'en' && b.lang !== 'vi' && NAMES[b.lang], items = Array.isArray(b.items) ? b.items.slice(0, 30) : [];
+    if (!L || !items.length) return null;
+    const clean = items.map(x => ({ k: String(x.k).slice(0, 80), w: String(x.w).slice(0, 80), pos: String(x.pos || '').slice(0, 20), def: String(x.def || '').slice(0, 240), ex: String(x.ex || '').slice(0, 240), ...(b.mode === 'judge' ? { tr: String(x.tr || '').slice(0, 120) } : {}) }));
+    return { sys: b.mode === 'judge' ? SYS_JUDGE(L) : SYS_TR(L), user: JSON.stringify(clean), temp: 0.1, models: LX_GEN };
+  }
+  return null;
+}
+export async function onRequestPost({ request, env }) {
+  const claims = await verifyOidc((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
+  if (!claims) return J({ error: 'unauthorized' }, 401);
+  env = stripBackgroundAI(env); // lexai chỉ dành cho CI (OIDC) = việc nền: KHÔNG bao giờ tiêu Workers AI tài khoản chính (đặt chỗ cho người dùng)
+  const b = await request.json().catch(() => ({}));
+  if (b.mode === 'ping') { const list = await candidates(env, 'gemini').catch(() => []); return J({ gemini: list.length }); } // sức khỏe kho Gemini – không gọi mô hình
+  const p = build(b); if (!p) return J({ error: 'bad-request' }, 400);
+  if (b.prompt === true) return J({ sys: p.sys + JSON_ONLY, user: p.user, temp: p.temp }); // cho nhà cung cấp khác (ai-pool) – không gọi mô hình
+  // Gemini/Gemma kho khóa Lexkite (xoay khóa; 429/503 theo mô hình không cho cả khóa nghỉ). Không còn dự phòng Workers AI ở đây: chuỗi dự phòng nằm ở ai-pool (CI).
+  const model = p.models.includes(b.model) ? b.model : p.models[0];
+  const r = b.mode === 'vgen' ? await vgen(env, JSON.parse(p.user), model) : await gemCall(env, model, p.sys, p.user, p.temp);
+  return r.out ? J(r) : J(r, 503);
 }

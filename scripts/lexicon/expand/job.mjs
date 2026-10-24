@@ -10,7 +10,8 @@ import fs from 'fs';
 import { arpaToIpa, badChars } from '../ipa.mjs';
 import { ROOT, rd, wr } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { gateEntry, doneWords, LANGS, TOPIC_CHOICES, QUEUE, poolEmpty, queueable, breaker } from './lib.mjs';
+import { gateEntry, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable } from './lib.mjs';
+import { createPool, judgeKey } from '../../lib/ai-pool.mjs';
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const N = +arg('--n', 400), CALLS = +arg('--calls', 400), PILOT = process.argv.includes('--pilot'), DRY = process.argv.includes('--dry');
 const API = process.env.LEXAI_URL || 'https://lexkite.com/api/lexai';
@@ -49,39 +50,28 @@ const clean = s => { s = String(s || '').trim(); const m = /^\/[^/]+\//.exec(s);
 async function pmap(list, n, f) { const out = []; let i = 0; await Promise.all(Array.from({ length: n }, async () => { while (i < list.length) { const k = i++; out[k] = await f(list[k], k); } })); return out; }
 const ipa = await pmap(pool, 6, async e => { const k = await kaikki(e.w, e.pos); const cmu = CMU.get(e.w); const us = cmu ? '/' + arpaToIpa(cmu) + '/' : clean(k.us); if (!k.uk) stat.ukMiss++; return { uk: clean(k.uk), us, ukSrc: k.uk ? 'wiktionary' : '' }; });
 
-// ---- AI qua /api/lexai (OIDC GitHub)
-let token = '', tokenAt = 0;
-const BRK = breaker(3), callOk = new Map();
-// token OIDC GitHub hết hạn ~5 phút → làm mới sau 4 phút (pilot cũ: 401 cuối lượt)
-async function oidc() { if (token && Date.now() - tokenAt < 240e3) return token; tokenAt = Date.now(); const u = process.env.ACTIONS_ID_TOKEN_REQUEST_URL, t = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN; if (!u || !t) throw new Error('thiếu OIDC (permissions: id-token: write)'); token = (await (await fetch(u + '&audience=lexkite-lexai', { headers: { Authorization: 'Bearer ' + t } })).json()).value; return token; }
-const MODELS = { lxgen: ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-3.8-flash'], lxtr: ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-3.8-flash'] };
-async function call(mode, items, model) {
-  const ms = model ? [model] : MODELS[mode];
-  for (let i = 0; i < 4; i++) {
-    if (stat.calls >= CALLS || BRK.open) return null; stat.calls++;
-    const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await oidc(), 'User-Agent': 'lexkite-ci' }, body: JSON.stringify({ mode, items, model: ms[i % ms.length] }) }).catch(() => null);
-    if (r && r.ok) { BRK.hit(false); const j = await r.json(); return { out: j.out || {}, model: j.model }; }
-    stat.fail++; if (r && r.status === 401) token = '';
-    const d = r ? await r.text().catch(() => '') : 'net'; console.log(`  ${mode} ${r && r.status} ${String(d).slice(0, 160)}`);
-    if (BRK.hit(!!r && poolEmpty(r.status, d))) { if (!stat.pool) console.error('✗ kho khóa Gemini rỗng/hết hạn mức (keys=0) – ngắt cầu dao, không gọi tiếp'); stat.pool = 'empty'; return null; }
-    await new Promise(s => setTimeout(s, 6000 * (i + 1)));
-  }
-  return null;
-}
+// ---- AI qua ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast Cloudflare → Workers AI tài khoản 2 → GrabCast Groq;
+// soạn chỉ mô hình hạng L (lxtr cấm Llama), 2 giám khảo KHÁC HỌ; mọi tuyến hỏng → null = bỏ qua trung tính (không vào hàng duyệt, lượt sau làm lại).
+const AI = createPool({ budget: { lexai: CALLS } }), callOk = new Map();
+const used = new Set();
+async function call(mode, items) { stat.calls++; const r = await AI.gen({ mode, items }); if (!r) { stat.fail++; stat.pool = 'empty'; } else used.add(r.route + ':' + r.model); return r; }
+await AI.health();
 const items = pool.map((e, i) => ({ k: e.w + '#' + e.pos, w: e.w, pos: e.pos, gloss: e.gloss, cefr: e.cefr, lex: e.lex, topics: TOPIC_CHOICES, _c: e, _ipa: ipa[i] }));
 const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(strip)), stat); process.exit(0); }
-const G = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = '';
-await pmap(chunks(items, 10), 5, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) G[x.k] = r.out[x.k]; } });
+const G = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = ''; const GM = {};
+await pmap(chunks(items, 10), 5, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { G[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
 const kept = items.filter(x => G[x.k] && G[x.k].keep !== false && G[x.k].def);
 await pmap(chunks(kept, 10), 5, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
 const forJudge = x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex, col: G[x.k].col, syn: G[x.k].syn, cefr: G[x.k].cefr, vi: G[x.k].vi, note_vi: G[x.k].note_vi, tr: T[x.k] || {} });
 const judged = kept.filter(x => T[x.k]);
-await pmap(chunks(judged, 10), 4, async ch => {
-  const [a, b] = await Promise.all([call('lxjudge', ch.map(forJudge), 'gemini-3.5-flash'), call('lxjudge', ch.map(forJudge), 'gemma-3-27b-it')]);
-  if (a) { mA = a.model; for (const x of ch) if (a.out[x.k]) JA[x.k] = a.out[x.k]; }
-  if (b) { mB = b.model; for (const x of ch) if (b.out[x.k]) JB[x.k] = b.out[x.k]; }
+const JK = {}; // k → { a: '<họ>:<mô hình>', b }
+await pmap(chunks(judged, 10), 3, async ch => {
+  const { a, b } = await AI.judgePair({ mode: 'lxjudge', items: ch.map(forJudge) });
+  if (!a || !b) return; // thiếu giám khảo thứ 2 khác họ → KHÔNG ghi điểm nào (bỏ qua trung tính)
+  for (const x of ch) if (a.out[x.k] && b.out[x.k]) { JA[x.k] = a.out[x.k]; JB[x.k] = b.out[x.k]; JK[x.k] = { a: judgeKey(a.model), b: judgeKey(b.model) }; }
+  mA = a.model; mB = b.model;
 });
 
 // ---- cổng + ghi
@@ -92,11 +82,13 @@ const why = {};
 for (const x of items) {
   const g = G[x.k], c = x._c;
   const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk, ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: g.cefr || c.cefr, cefrF: c.cefr, z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
-    src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, gen: mGen }, qa: {} } : null;
-  if (ent) { const a = JA[x.k], b = JB[x.k]; ent.qa = { j: { ...(a ? { ['gemini:' + mA]: +a.s } : {}), ...(b ? { ['gemma:' + mB]: +b.s } : {}) }, f: [a && a.f, b && b.f].filter(Boolean), tr: {}, bt: null };
+    src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, gen: GM[x.k] || mGen }, qa: {} } : null;
+  if (ent && JK[x.k]) { const a = JA[x.k], b = JB[x.k]; ent.qa = { j: { ...(a ? { [JK[x.k].a]: +a.s } : {}), ...(b ? { [JK[x.k].b]: +b.s } : {}) }, f: [a && a.f, b && b.f].filter(Boolean), tr: {}, bt: null };
     for (const l of LANGS) ent.qa.tr[l] = [a && a.tr && +a.tr[l], b && b.tr && +b.tr[l]].filter(Number.isFinite);
     ent.qa.btw = Object.fromEntries(LANGS.map(l => [l, [a && a.bt && a.bt[l], b && b.bt && b.bt[l]].filter(Boolean)])); }
   if (ent) ent.tp = assignTopics(ent); // chủ đề: miền → chủ đề → tiểu chủ đề (content/lexicon/topics.json)
+  // hạ tầng (không sinh được / không dịch được / thiếu 2 giám khảo) ≠ lỗi nội dung → bỏ qua, lượt sau làm lại
+  if ((ent && g.keep !== false && g.def && (!T[x.k] || !JK[x.k])) || (!g && callOk.get(x.k) === false)) { why.infra = (why.infra || 0) + 1; continue; }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }
@@ -107,7 +99,7 @@ fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true
 if (pend.n) wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
 wr(QUEUE, JSON.stringify(queue, null, 1) + '\n');
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
-const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0), skipped: why.infra || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, ukMiss: stat.ukMiss, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
-fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
+const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0), skipped: why.infra || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, ukMiss: stat.ukMiss, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
+AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
-if (!pass) { console.error('✗ lexicon-expand: 0 mục đạt' + (stat.pool ? ' – kho khóa Gemini rỗng/hết hạn mức (xem Quản trị › Khóa API)' : '')); process.exit(1); }
+if (!pass) { console.error('✗ lexicon-expand: 0 mục đạt' + (stat.pool ? ' – mọi tuyến AI hỏng/hết hạn mức (xem Quản trị › Khóa API › Sức chứa)' : '')); process.exit(1); }

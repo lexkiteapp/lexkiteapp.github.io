@@ -22,8 +22,8 @@ Mọi thư mục `content/*` và `web/js/*` (trừ vendor, i18n giao diện) ph�
 Nội dung soạn tay trước cổng (24/10/2026) có 2.183 lỗi cũ / 49 loại (`content/qa/baseline.json`). Cổng đỏ khi một loại TĂNG. Sửa xong → `node scripts/content-qa/gate.mjs --lower-baseline` (không bao giờ nâng; `--init-baseline` chỉ chạy khi chưa có file).
 
 ## 4. Luồng cho nội dung sinh tự động / số lượng lớn
-1. Soạn (Gemini pool hoặc Workers AI tài khoản 2 – KHÔNG AI tài khoản chính) → kiểm khuôn trong job.
-2. Giám khảo A + giám khảo B khác họ → ghi `qa.j`; dịch → dịch ngược → `qa.bt`.
+1. Soạn qua `scripts/lib/ai-pool.mjs` (Gemini kho Lexkite → GrabCast Cloudflare → Workers AI tài khoản 2 → GrabCast Groq; chỉ mô hình đủ chuẩn – docs/API-KEYS.md §8; KHÔNG AI tài khoản chính) → kiểm khuôn trong job.
+2. Giám khảo A + giám khảo B khác họ (`judgePair`; thiếu họ thứ 2 = bỏ qua trung tính, không xuất) → ghi `qa.j` (mô hình hạng S không được tính); dịch → dịch ngược → `qa.bt`.
 3. Không đồng ý → hàng duyệt. Đồng ý → vào nguồn kèm 1 tệp lô.
 4. Claude/Antigravity soát ≥ 5% mẫu, ghi `checked` → cổng quyết định xuất hay loại lô.
 5. Sau khi lên: báo lỗi của học viên tự ẩn mục; sửa → `unhide`.
