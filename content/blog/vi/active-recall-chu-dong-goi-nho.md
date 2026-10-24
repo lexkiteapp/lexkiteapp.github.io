@@ -117,6 +117,8 @@ Muốn hiểu thêm về cách thuật toán xếp lịch ôn, hãy đọc bài 
 
 {{youtube: | Gợi ý video: so sánh trực tiếp đọc lại và tự kiểm tra với cùng 10 từ vựng}}
 
+Lật thẻ hay gõ lại từ thì nhớ lâu hơn? Xem bài [flashcard có hiệu quả không](/vi/blog/flashcard-co-hieu-qua-khong/).
+
 ## Câu hỏi thường gặp
 
 ### Active recall khác gì flashcard?

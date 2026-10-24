@@ -10642,6 +10642,148 @@
    "source": "passive-voice-rules",
    "role": "cluster",
    "cluster": "passive-voice"
+  },
+  {
+   "slug": "speak-english-with-confidence",
+   "keyword": "speak english with confidence",
+   "category": "ky-nang",
+   "tags": [
+    "speaking",
+    "confidence",
+    "everyday-english",
+    "phrases"
+   ],
+   "shots": [
+    "practice-speak",
+    "speaking"
+   ],
+   "routes": [
+    "/#/confidence",
+    "/#/speaking"
+   ],
+   "angle": "12 everyday situations from café to disagreeing, grouped by level, with phrases to retire and natural swaps, rescue phrases and a 5–8 minute speaking routine",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "speaking-confidence"
+  },
+  {
+   "slug": "learn-vocabulary-from-reading",
+   "keyword": "learn vocabulary from reading",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulary",
+    "reading",
+    "context",
+    "spaced-repetition"
+   ],
+   "shots": [
+    "read-article",
+    "dict",
+    "review"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/review"
+   ],
+   "angle": "Keep the sentence where you met a word: why personal context beats lists, how to choose words, cards with your own sentence, 15-minute capture-and-review routine (browser add-on)",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "context-vocabulary"
+  },
+  {
+   "slug": "typing-recall-vs-flashcards",
+   "keyword": "typing recall vs flashcards",
+   "category": "phuong-phap",
+   "tags": [
+    "vocabulary",
+    "active-recall",
+    "flashcards",
+    "spelling"
+   ],
+   "shots": [
+    "review",
+    "practice-test",
+    "practice"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/library"
+   ],
+   "angle": "Recognition vs production: what flipping and typing train, when each wins, typing tips, mixing modes with spaced repetition",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "review-modes"
+  },
+  {
+   "slug": "giao-tiep-tieng-anh-tu-tin",
+   "keyword": "giao tiếp tiếng anh tự tin",
+   "category": "ky-nang",
+   "tags": [
+    "giao-tiep",
+    "noi",
+    "tu-tin",
+    "tinh-huong"
+   ],
+   "shots": [
+    "practice-speak",
+    "speaking"
+   ],
+   "routes": [
+    "/#/confidence",
+    "/#/speaking"
+   ],
+   "angle": "Vì sao người Việt ngại nói (dịch thẳng, sợ sai, không có lối thoát); 12 tình huống theo 3 nhóm với câu dịch thẳng vs câu tự nhiên; câu cứu nguy; buổi luyện 5–8 phút",
+   "intent": "informational",
+   "lang": "vi",
+   "cluster": "speaking-confidence"
+  },
+  {
+   "slug": "hoc-tu-vung-tu-cau-ban-doc",
+   "keyword": "học từ vựng từ câu bạn đọc",
+   "category": "tu-vung",
+   "tags": [
+    "tu-vung",
+    "doc-hieu",
+    "ngu-canh",
+    "on-tap"
+   ],
+   "shots": [
+    "dict",
+    "read-article",
+    "review"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/review"
+   ],
+   "angle": "Tra từ xong lại quên: giữ câu gốc thay vì cặp Anh–Việt, chọn 5–10 từ, thẻ ôn có câu của bạn, thói quen 15 phút (tiện ích trình duyệt)",
+   "intent": "informational",
+   "lang": "vi",
+   "cluster": "context-vocabulary"
+  },
+  {
+   "slug": "flashcard-co-hieu-qua-khong",
+   "keyword": "flashcard có hiệu quả không",
+   "category": "phuong-phap",
+   "tags": [
+    "tu-vung",
+    "flashcard",
+    "chinh-ta",
+    "on-tap"
+   ],
+   "shots": [
+    "practice",
+    "practice-test",
+    "review"
+   ],
+   "routes": [
+    "/#/review",
+    "/#/library"
+   ],
+   "angle": "Nhận ra – gợi lại – viết đúng; lật thẻ vs gõ từ cho người Việt hay sai chính tả khi viết IELTS/email; khi nào dùng cách nào",
+   "intent": "informational",
+   "lang": "vi",
+   "cluster": "review-modes"
   }
  ]
 }

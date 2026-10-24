@@ -140,6 +140,8 @@ Which of these are real active recall?
 5. **No.** Copying is input. Write from memory instead.
 6. **Yes.** Production (Level 3) is one of the strongest forms of recall.
 
+For a closer look at flipping versus typing the answer, read [typing recall vs flashcards](/en/blog/typing-recall-vs-flashcards/).
+
 ## Frequently asked questions
 
 ### What's the difference between active recall and flashcards?

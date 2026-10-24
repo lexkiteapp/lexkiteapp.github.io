@@ -116,6 +116,8 @@ Answer each question honestly with yes or no.
 
 **Answers and what they mean:** For question 2, the patterns are *emphasis on*, *reliance on* and *solution to*. For question 5, the stress falls on *enVIronment*, *COMfortable* (usually three syllables) and *deVELopment*. If you answered "no" to questions 1 or 4, your weak point is production: add step 7 every week. A "no" to question 3 means words are leaking between sessions, so set a fixed daily review time. Two or more "no" answers suggest you are learning too many new words; cut your daily batch in half for two weeks.
 
+If most of your new words come from articles and emails, try the routine in [learn vocabulary from reading](/en/blog/learn-vocabulary-from-reading/).
+
 ## Frequently asked questions
 
 ### How many IELTS words should I learn per day?

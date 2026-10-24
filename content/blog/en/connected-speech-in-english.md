@@ -169,6 +169,8 @@ To work on individual sounds such as /ə/ before tackling whole phrases, open th
 
 {{youtube: | Video idea: one natural sentence broken down into linking, elision and weak forms}}
 
+For phrases to practise these sounds in real situations, see [speak English with confidence](/en/blog/speak-english-with-confidence/).
+
 ## Frequently asked questions
 
 ### Do I need connected speech to get a high IELTS Speaking score?

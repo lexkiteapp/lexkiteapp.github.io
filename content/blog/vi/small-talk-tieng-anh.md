@@ -183,6 +183,8 @@ Muốn nói lâu hơn mà không ngập ngừng, đọc tiếp bài [cách luy�
 
 {{youtube: | Gợi ý video: Ba tình huống small talk tiếng Anh nơi công sở – đóng vai mẫu}}
 
+Muốn luyện thêm các tình huống khác ngoài small talk, xem [giao tiếp tiếng Anh tự tin qua 12 tình huống](/vi/blog/giao-tiep-tieng-anh-tu-tin/).
+
 ## Câu hỏi thường gặp
 
 ### Small talk tiếng Anh nên kéo dài bao lâu?
