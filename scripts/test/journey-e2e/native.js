@@ -30,10 +30,13 @@
       if (asked) { await click('#raN', 500); t.ok(D.getElementById('modal').hidden, '"Để sau" đóng hộp'); t.ok(+ls('lk.reask') > 0, 'ghi lk.reask'); }
       return t.bad; },
     async j1b() { const t = mk('j1'); t.ok(!/welcome/.test(location.hash), 'tải lại: không về màn chào'); await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1000); await learn(); await sleep(3500); t.ok(!askOn(), 'sau tải lại: không hỏi lại'); t.audit('j1b'); return t.bad; },
-    async j2a() { const t = mk('j2'); await go('#/home'); t.audit('home'); await go('#/day/1');
+    async j2s() { const t = mk('j2'); await go('#/welcome/setup'); if (vis('#noAcct')) await click('#noAcct'); await click('button.trk-opt'); await click('.trk-lv [data-lv]:not([data-lv="test"])'); await click('#go', 1500); t.ok(/#\/day/.test(location.hash), 'thiết lập → #/day'); return t.bad; },
+    async j2a() { const t = mk('j2'); await go('#/home'); t.ok(!/welcome/.test(location.hash), 'quay lại: vào thẳng trang chủ'); t.audit('home'); await go('#/day/1');
       const gl = D.querySelector('ol.day-steps a[data-step="gl"]'), pr = D.querySelector('ol.day-steps a[data-step="pr"]'); t.ok(gl, 'có bước ngữ pháp'); t.ok(pr, 'có bước phát âm');
       if (gl) { await click('ol.day-steps a[data-step="gl"]', 1200); if (!/view=full/.test(location.hash)) await go(location.hash.split('?')[0] + '?view=full'); for (const it of D.querySelectorAll('#gQuiz .q-item')) { const b = it.querySelector('.opts button'); b && b.click(); await sleep(250); } await go('#/day/1'); t.ok(D.querySelector('ol.day-steps a[data-step="gl"].ok'), 'ngữ pháp xong'); }
-      if (pr) { await click('ol.day-steps a[data-step="pr"]', 1200); for (const it of D.querySelectorAll('.q-item')) { const b = it.querySelector('.opts button'); b && b.click(); await sleep(250); } await go('#/day/1'); t.ok(D.querySelector('ol.day-steps a[data-step="pr"].ok'), 'phát âm xong'); }
+      if (pr) { await click('ol.day-steps a[data-step="pr"]', 1200); await wait('#view .q-item, #startPairs', 8000);
+        if (!D.querySelector('#view .q-item') && vis('#startPairs')) { await click('#startPairs', 900); for (let r = 0; r < 10 && !vis('#startPairs2'); r++) { const o = D.querySelector('#pairGame .option'); o && o.click(); await sleep(1100); } }
+        for (const it of D.querySelectorAll('.q-item')) { const b = it.querySelector('.opts button'); b && b.click(); await sleep(250); } await go('#/day/1'); t.ok(D.querySelector('ol.day-steps a[data-step="pr"].ok'), 'phát âm xong'); }
       await click('ol.day-steps a[data-step="learn"]', 1000); t.ok(await learn(), 'xong Học từ mới'); t.ok(await wait('.celebrate .path-reward', 6000), 'màn Tiếp theo'); await sleep(2500); t.audit('whats-next');
       await go('#/confidence/salary'); await click('#cfGo', 700); for (let i = 0; i < 8 && !vis('#cfRp'); i++) { if (vis('#cfSkip')) await click('#cfSkip', 500); else if (vis('#cfNext')) await click('#cfNext', 500); else await sleep(500); }
       if (t.ok(vis('#cfRp'), 'tới bước nhập vai')) { await click('#cfRp', 1500); t.ok(/\bB2\b/.test(D.getElementById('view').innerText), 'nhập vai B2'); }
@@ -41,6 +44,7 @@
     async j2b() { const t = mk('j2'); await go('#/day/1'); t.ok(D.querySelectorAll('ol.day-steps a.ok').length >= 1, 'tải lại: tiến độ còn'); return t.bad; },
     async j3a() { const t = mk('j3'), now = Date.now(), S = { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: now - DAY, last: now - 4 * DAY, step: 0, S: 3, D: 4 };
       const words = [['resilience', 'khả năng phục hồi'], ['sustainable', 'bền vững'], ['negotiate', 'đàm phán'], ['budget', 'ngân sách'], ['deadline', 'hạn chót']];
+      for (const [w] of words) await Core.Cards.remove(w).catch(() => {});
       for (const [w, vi] of words) { await Core.Cards.add({ word: w, vi, pos: 'noun' }, w === 'resilience' ? { text: 'Dense canopies improve the resilience of neighbourhoods during heatwaves.', source: 'https://www.bbc.com/', title: 'Forests' } : undefined).catch(() => {}); await Core.Cards.patch(w, c => { c.srs = { ...S }; }).catch(() => {}); }
       App.state.cards = await Core.Cards.all(); await go('#/review'); await sleep(800);
       const modes = ['flip', 'type', 'audio'], seen = new Set(); let own = false;

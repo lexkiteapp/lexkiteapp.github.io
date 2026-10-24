@@ -201,7 +201,7 @@
   // Hành trình 1–3 (journey-e2e.yml, native=1): scripts/test/journey-e2e/native.js (LKJN) – mỗi ngôn ngữ: hồ sơ mới → lần đầu → quay lại → ôn tập; tải lại giữa các pha
   function planJourney() {
     const S = [{ k: 'launch' }, { k: 'toapp' }];
-    for (const l of ['en', 'vi', 'ar']) S.push({ k: 'lang', l }, { k: 'jrn', f: 'reset' }, { k: 'reload' }, { k: 'jrn', f: 'j1a' }, { k: 'reload' }, { k: 'jrn', f: 'j1b' }, { k: 'jrn', f: 'j2a' }, { k: 'reload' }, { k: 'jrn', f: 'j2b' }, { k: 'jrn', f: 'j3a' }, { k: 'reload' }, { k: 'jrn', f: 'j3b' });
+    for (const l of ['en', 'vi', 'ar']) S.push({ k: 'lang', l }, { k: 'jrn', f: 'reset' }, { k: 'reload' }, { k: 'jrn', f: 'j1a' }, { k: 'reload' }, { k: 'jrn', f: 'j1b' }, { k: 'jrn', f: 'reset' }, { k: 'reload' }, { k: 'jrn', f: 'j2s' }, { k: 'reload' }, { k: 'jrn', f: 'j2a' }, { k: 'reload' }, { k: 'jrn', f: 'j2b' }, { k: 'jrn', f: 'j3a' }, { k: 'reload' }, { k: 'jrn', f: 'j3b' });
     S.push({ k: 'done' });
     return S;
   }

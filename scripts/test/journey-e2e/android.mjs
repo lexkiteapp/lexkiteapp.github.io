@@ -30,7 +30,7 @@ await ev(SRC + '; return 1');
 for (const l of ['en', 'vi', 'ar']) {
   await ev(`localStorage.setItem('vb.uiLang', ${JSON.stringify(l)}); return 1`);
   await ev('await LKJN.reset(); return 1'); await reload();
-  for (const f of ['j1a', 'R', 'j1b', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b']) {
+  for (const f of ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b']) {
     if (f === 'R') { await reload(); continue; }
     const e0 = errs.length, r = await ev(`return await LKJN.${f}()`);
     if (r && r.__err) bad.push(`[${l}] ${f}: kịch bản dừng ${r.__err}`); else for (const m of r || []) bad.push(`[${l}] ${m}`);
