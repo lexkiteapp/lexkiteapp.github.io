@@ -990,8 +990,7 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
         // 24/10: gắn vb-mark vào chữ do React/Vue quản lý trong hộp thoại/ô chọn làm hỏng trang (form Cloudflare tự đóng khi chọn) → không đụng UI tương tác
         if (p.closest(UI_SKIP)) return NodeFilter.FILTER_REJECT;
         // chữ trong khung SPA (React/Vue/Astro…): thay nút chữ → framework removeChild lỗi lúc vẽ lại (Cloudflare 24/10)
-        // → chỉ gạch trong đoạn văn tĩnh (p/li/article), bỏ mọi chữ framework khác
-        if (fwOwned(p) && !p.closest('p,li,blockquote,article,dd,td')) return NodeFilter.FILTER_REJECT;
+        if (fwOwned(p)) return NodeFilter.FILTER_REJECT; // cả <p> trong đảo React cũng bị vẽ lại khi trạng thái đổi (Cloudflare: chọn ô → removeChild lỗi) → bỏ hẳn
         return NodeFilter.FILTER_ACCEPT;
       },
     });
