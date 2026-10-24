@@ -1,6 +1,6 @@
 # Mở rộng kho từ tới 20k (docs/LEXICON.md §Mở rộng 20k) – việc nền `lexicon-expand` (infra/jobs.json, thuê gemini).
 # Chọn từ (wordfreq + WordNet + CMUdict + LDNOOBW, nguồn miễn phí) → sinh Gemini → 13 ngôn ngữ → 2 giám khảo khác họ (gemini + gemma) + dịch ngược → cổng.
-# Thông lượng (10/2026): 2.400 từ/ngày ≈ 6.700 lượt GrabCast (≤ 270/phút của ai-pool, trần AI_POOL_GC_MAX 20.000) ≈ 35–45 phút.
+# Thông lượng (10/2026): 2.400 từ/ngày ≈ 6.700 lượt GrabCast (≤ 270/phút của ai-pool, trần AI_POOL_GC_MAX 20.000) ≈ 60 phút (concurrency 8 – 16 làm GrabCast 500).
 # Đạt → content/lexicon/expand/pending (CHƯA xuất, chờ soát mẫu ≥ 5 % rồi promote.mjs); trượt → content/qa/review-queue.json. Tự đỏ khi 0 mục đạt.
 name: Mở rộng kho từ (lexicon-expand)
 on:

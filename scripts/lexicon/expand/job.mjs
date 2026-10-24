@@ -23,7 +23,9 @@ const t0 = Date.now(), stat = { calls: 0, fail: 0, kaikki: 0, ukMiss: 0 };
 
 // ---- chọn từ: nối tiếp (theo tần suất) hoặc pilot rải đều dải tần suất × nhóm WordNet
 const done = doneWords();
-let pool = C.items.filter(e => !done.has(e.w));
+const RETRY = 'content/lexicon/expand/retry/words.json', retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
+const want = new Set(retry.items.map(k => k.split('#')[0]));
+let pool = C.items.filter(e => !done.has(e.w) && !want.has(e.w)); // từ làm lại KHÔNG tính vào N từ mới
 if (PILOT) {
   const by = new Map(); for (const e of pool) { const b = Math.min(5.5, Math.max(2.5, e.band)); (by.get(b) || by.set(b, []).get(b)).push(e); }
   const bands = [...by.keys()].sort((a, b) => b - a), pick = [];
@@ -32,8 +34,7 @@ if (PILOT) {
   pool = pick;
 } else pool = pool.slice(0, N);
 // làm lại TRƯỚC: lỗ dữ liệu nguồn + mục đưa về chờ (content/lexicon/expand/retry/words.json) – ngoài N từ mới
-const RETRY = 'content/lexicon/expand/retry/words.json', retry = fs.existsSync(new URL(RETRY, ROOT)) ? JSON.parse(rd(RETRY)) : { _doc: 'Từ làm lại ở lượt kế (lỗ dữ liệu nguồn – không vào hàng duyệt). job.mjs tự thêm/bớt.', items: [] };
-{ const want = new Set(retry.items.map(k => k.split('#')[0])), inPool = new Set(pool.map(e => e.w)); pool = [...C.items.filter(e => want.has(e.w) && !done.has(e.w) && !inPool.has(e.w)), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); }
+{ const inPool = new Set(pool.map(e => e.w)); const seenW = new Set(); pool = [...C.items.filter(e => want.has(e.w) && !done.has(e.w) && !inPool.has(e.w) && !seenW.has(e.w) && seenW.add(e.w)), ...pool]; stat.retry = pool.length - Math.min(N, pool.length); }
 console.log(`lexicon-expand ${BATCH}: ${pool.length} từ (đã có ${done.size}) · bands ${JSON.stringify(pool.reduce((o, e) => (o[e.band] = (o[e.band] || 0) + 1, o), {}))}`);
 
 // ---- IPA: CMUdict (Mỹ) + Wiktionary/kaikki (Anh, Mỹ dự phòng)
@@ -56,13 +57,13 @@ const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) 
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(strip)), stat); process.exit(0); }
 const G = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = ''; const GM = {};
-await pmap(chunks(items, 10), 16, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { G[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
+await pmap(chunks(items, 10), 8, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { G[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
 const kept = items.filter(x => G[x.k] && G[x.k].keep !== false && G[x.k].def);
-await pmap(chunks(kept, 10), 16, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
+await pmap(chunks(kept, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
 const forJudge = x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex, col: G[x.k].col, syn: G[x.k].syn, cefr: G[x.k].cefr, vi: G[x.k].vi, note_vi: G[x.k].note_vi, tr: T[x.k] || {} });
 const judged = kept.filter(x => T[x.k]);
 const JK = {}; // k → { a: '<họ>:<mô hình>', b }
-await pmap(chunks(judged, 10), 12, async ch => {
+await pmap(chunks(judged, 10), 6, async ch => {
   const { a, b } = await AI.judgePair({ mode: 'lxjudge', items: ch.map(forJudge) });
   if (!a || !b) return; // thiếu giám khảo thứ 2 khác họ → KHÔNG ghi điểm nào (bỏ qua trung tính)
   for (const x of ch) if (a.out[x.k] && b.out[x.k]) { JA[x.k] = a.out[x.k]; JB[x.k] = b.out[x.k]; JK[x.k] = { a: judgeKey(a.model), b: judgeKey(b.model) }; }
@@ -95,7 +96,8 @@ pend.n = Object.keys(pend.items).length;
 fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true });
 if (pend.n) wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
 wr(QUEUE, JSON.stringify(queue, null, 1) + '\n');
-{ const doneNow = new Set(items.map(x => x.k)); retry.items = [...new Set([...retry.items.filter(k => !doneNow.has(k) || gaps.has(k)), ...gaps])].sort();
+{ const settled = new Set([...Object.keys(pend.items), ...queue.items.filter(q => q.src === 'lexicon-expand').map(q => q.id)]); // chỉ bỏ khỏi retry khi ĐÃ đạt hoặc vào hàng duyệt (hạ tầng hỏng → giữ; run 40080132264 xóa nhầm)
+  retry.items = [...new Set([...retry.items.filter(k => !settled.has(k)), ...gaps])].sort();
   fs.mkdirSync(new URL('content/lexicon/expand/retry/', ROOT), { recursive: true }); wr(RETRY, JSON.stringify(retry, null, 1) + '\n'); }
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
 const rep = { batch: BATCH, n: items.length, pass, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
