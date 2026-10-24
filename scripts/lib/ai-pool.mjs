@@ -101,9 +101,22 @@ export const untilUtcMidnight = (now = Date.now()) => { const d = new Date(now);
 
 // mô hình hay trả sai hình: 1 mục trần { k, … } hoặc mảng [{ k, … }] → chuẩn { k: … }
 export function normOut(out, items) {
+  out = normOut0(out, items);
+  // pilot 8: giám khảo trả khóa lệch (từ không kèm #loại, bọc 1 lớp {"results": {…}}, mảng không có "k") → khớp lại theo k / w
+  if (out && typeof out === 'object' && Array.isArray(items) && items.length && !items.some(x => x && x.k in out)) {
+    const vals = Object.values(out), one = vals.length === 1 && vals[0] && typeof vals[0] === 'object' ? normOut0(vals[0], items) : null;
+    if (one && items.some(x => x && x.k in one)) return one;
+    const byW = {}; for (const x of items) if (x && x.w != null && x.k != null) { const v = out[x.w] || out[String(x.k).split('#')[0]]; if (v && typeof v === 'object') byW[x.k] = v; }
+    if (Object.keys(byW).length) return byW;
+    if (Array.isArray(vals) && vals.length === items.length && vals.every(v => v && typeof v === 'object' && !Array.isArray(v))) return Object.fromEntries(items.map((x, i) => [x.k, vals[i]]));
+  }
+  return out;
+}
+function normOut0(out, items) {
+  if (Array.isArray(out) && Array.isArray(items) && out.length === items.length && out.every(x => x && typeof x === 'object' && x.k == null)) return Object.fromEntries(items.map((x, i) => [x.k, out[i]]));
   if (Array.isArray(out)) return Object.fromEntries(out.filter(x => x && x.k != null).map(({ k, ...v }) => [k, v]));
   if (out && typeof out === 'object' && typeof out.k === 'string' && !(out.k in out) && Array.isArray(items) && items.some(x => x && x.k === out.k)) { const { k, ...v } = out; return { [k]: v }; }
-  if (out && Array.isArray(out.items)) return normOut(out.items, items);
+  if (out && Array.isArray(out.items)) return normOut0(out.items, items);
   return out;
 }
 class PoolErr extends Error { constructor(kind, msg, ms) { super(msg); this.kind = kind; this.ms = ms; } }
@@ -297,6 +310,7 @@ export function createPool(opts = {}) {
     // mô hình bỏ sót mục (hoặc nửa lô chia đôi hỏng) → hỏi lại MỘT lần riêng các mục thiếu (cùng ràng buộc họ)
     if (r && Array.isArray(req.items) && !o._again) {
       const miss = req.items.filter(x => x && x.k != null && !(x.k in r.out));
+      if (miss.length === req.items.length) log(`[ai-pool] ${req.mode}: ${r.model} trả khóa lạ ${JSON.stringify(Object.keys(r.out || {}).slice(0, 4))} ${JSON.stringify(r.out).slice(0, 160)}`);
       if (miss.length && miss.length < req.items.length + 1) {
         const r2 = await runWait(chain, { ...req, items: miss }, { ...o, _again: true });
         if (r2 && (o.role !== 'judge' || r2.fam === r.fam)) r.out = { ...r.out, ...r2.out };
