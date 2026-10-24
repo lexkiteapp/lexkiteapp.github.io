@@ -70,3 +70,12 @@ export function loadExpand() {
 export const toIndex = e => ({ word: e.w, ipa: e.ipa, pos: e.pos, vi: e.vi, def: e.def, ex: e.ex[0], col: e.col, syn: e.syn, level: e.level, emoji: e.emoji || '', ipaUS: e.ipaUS === e.ipa ? '' : e.ipaUS, topic: e.topic || '', ex2: e.ex[1], ...(e.note_vi ? { note: e.note_vi } : {}), x: 1 });
 // Dạng dòng kho (scripts/lexicon/lib.mjs loadAll) cho việc Node hạ nguồn (âm thanh, kịch bản, dist/lexicon.json…)
 export const expandRows = () => loadExpand().map(({ e, batch, file }) => ({ file, line: -1, set: e.topic || 'xw-everyday', x: 1, batch, row: [e.w, e.ipa, e.pos, e.vi, e.def, e.ex[0], e.col.join('|'), e.syn.join('|'), e.level, e.emoji || '', e.ipaUS === e.ipa ? '' : e.ipaUS] }));
+
+// ---- lỗi hạ tầng ≠ lỗi nội dung (pilot 40070729116: kho Gemini 1 khóa hết hạn mức ngày → 503 no-model keys=0 → 500 từ bị đẩy nhầm vào hàng duyệt
+// và doneWords() loại chúng vĩnh viễn). Hạ tầng hỏng → dừng gọi (cầu dao), KHÔNG ghi hàng duyệt, job đỏ với lý do rõ.
+/** Phản hồi /api/lexai cho biết kho khóa rỗng/hết hạn mức (không phải lỗi mục) */
+export function poolEmpty(status, body) { return (status === 503 || status === 429) && /no-model/.test(String(body || '')) && /keys=0\b/.test(String(body || '')); }
+/** Mục chỉ vào hàng duyệt khi lỗi do NỘI DUNG; gen hỏng vì gọi API thất bại (callOk=false) → bỏ qua, lượt sau thử lại */
+export function queueable(r, callOk) { return !r.ok && !(callOk === false && /^gen:/.test(r.why[0] || '')); }
+/** Cầu dao: sau `max` lần liên tiếp kho rỗng thì mở (ngừng gọi) */
+export function breaker(max = 3) { let n = 0; const b = { open: false, hit(empty) { n = empty ? n + 1 : 0; if (n >= max) b.open = true; return b.open; } }; return b; }
