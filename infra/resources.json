@@ -233,7 +233,8 @@
         "cache.lexkite.internal",
         "rate.lexkite.internal",
         "quota.lexkite.internal",
-        "notices.lexkite.internal"
+        "notices.lexkite.internal",
+        "counts.lexkite.internal"
       ]
     },
     {

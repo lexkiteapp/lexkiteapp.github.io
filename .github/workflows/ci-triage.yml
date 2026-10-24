@@ -47,6 +47,7 @@ on:
       - 'iOS E2E (simulator)'
       - 'iOS → ảnh App Store'
       - 'iOS → TestFlight'
+      - 'Quality sweep'
       - 'Build iOS (simulator)'
       - 'Nghĩa từ vựng 13 ngôn ngữ (theo nghĩa + duyệt AI)'
       - 'library-build'

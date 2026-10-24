@@ -1,9 +1,17 @@
 // Cổng "liên kết nội bộ không được 404 – kể cả liên kết do JS sinh" (METHODS "Làm đúng 1 lần" bước 4; sự cố /vi/blog/-lang 24/10).
 // Chạy: node scripts/test/links-js.mjs [dist]   (cần dist đã build blog: bash scripts/build-web.sh hoặc node scripts/build-blog.mjs trên bản sao web/)
-import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm';
+import fs from 'node:fs'; import os from 'node:os'; import { spawnSync } from 'node:child_process'; import path from 'node:path'; import vm from 'node:vm';
 import { JSDOM } from 'jsdom';
 import { badPath, joinPath } from '../lib/url-guard.mjs';
-const DIST = process.argv[2] || 'dist', SITE = 'https://lexkite.com';
+let DIST = process.argv[2] || 'dist'; const SITE = 'https://lexkite.com';
+// Chưa có bản build blog (npm test thuần, không qua build-web.sh) → tự dựng bản tạm: sao web/ rồi chạy build-blog.mjs vào đó (không đụng dist/ thật).
+if (!fs.existsSync(path.join(DIST, 'vi/blog/index.html'))) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'links-js-'));
+  fs.cpSync('web', tmp, { recursive: true });
+  const r = spawnSync(process.execPath, ['scripts/build-blog.mjs'], { env: { ...process.env, BLOG_OUT: tmp }, encoding: 'utf8' });
+  if (r.status !== 0) { console.log('✗ links-js: không dựng được blog tạm:\n' + (r.stderr || r.stdout).slice(-600)); process.exit(1); }
+  DIST = tmp; console.log(`ℹ links-js: dist/ chưa build blog → dùng bản dựng tạm ${tmp}`);
+}
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗ ' + m); } };
 if (!fs.existsSync(path.join(DIST, 'vi/blog/index.html'))) { console.log(`✗ ${DIST}/vi/blog chưa build`); process.exit(1); }
 
