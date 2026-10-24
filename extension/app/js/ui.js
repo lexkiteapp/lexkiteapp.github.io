@@ -214,6 +214,7 @@
   }
   // speak(text, accent, url, slow): slow = true → bản ghi người thật phát chậm 0,7× (giữ cao độ); không có bản ghi → giọng máy chậm
   const wordMiss = new Set(), fnv36 = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
+  const S2 = ' to for of from and but at as a the can could must shall should would will do have be some than that there you we she he or nor so just into onto upon '; // từ dạng mạnh (scripts/word-audio-strong.mjs) → khóa |s2
   function speak(text, accent, url, slow) {
     accent = accent || prefs().accent || 'en-GB';
     const fb = () => tts(text, accent, slow ? 0.55 : undefined);
@@ -226,7 +227,7 @@
     if (we && !wordMiss.has(accent + wk)) {
       const v = accent === 'en-US' ? 'af_heart' : 'bf_emma', base = g.audioUrl('x').replace(/l\/x\.mp3$/, 'w/');
       stopSpeak();
-      const my = speakSeq, el = audioEl = new Audio(base + fnv36(v + '|' + we.word.trim()) + '.mp3'); el.preservesPitch = true; el.playbackRate = slow ? 0.7 : 1;
+      const my = speakSeq, el = audioEl = new Audio(base + fnv36(v + '|' + we.word.trim() + (S2.includes(' ' + we.word.trim() + ' ') ? '|s2' : '')) + '.mp3'); el.preservesPitch = true; el.playbackRate = slow ? 0.7 : 1;
       const miss = () => { if (el.onerror) { el.onerror = null; wordMiss.add(accent + wk); if (my === speakSeq) fb(); } };
       el.onerror = miss; try { const pr = el.play(); if (pr && pr.catch) pr.catch(miss); } catch (e) { miss(); }
       return;

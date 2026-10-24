@@ -61,6 +61,7 @@
 
   // Âm thanh: giọng Anh = mp3 Kokoro (bf_emma) trong kho audio.lexkite.com nếu có (khóa giống web/js/listen/kvoice.js), không thì giọng máy; giọng Mỹ = giọng máy en-US.
   const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
+  const S2 = ' to for of from and but at as a the can could must shall should would will do have be some than that there you we she he or nor so just into onto upon '; // từ dạng mạnh (scripts/word-audio-strong.mjs) → khóa audio/w …|s2
   const AU = ['https://audio.lexkite.com/audio/l/', 'https://lexkiteapp.github.io/lexkite-media-2/audio/l/', 'https://lexkiteapp.github.io/audio/l/']; // CDN → Pages kho media m2 → gốc cũ (1 bản phát hành)
   let audioEl = null;
   const pickVoice = lang => speechSynthesis.getVoices().filter(x => x.lang.replace('_', '-') === lang).sort((a, b) => (/Natural|Online|Google/.test(b.name) ? 1 : 0) - (/Natural|Online|Google/.test(a.name) ? 1 : 0))[0];
@@ -80,7 +81,7 @@
     if ('speechSynthesis' in self) speechSynthesis.cancel();
     const word = cur.word, lang = acc === 'us' ? 'en-US' : 'en-GB', ttsRate = isSlow ? 0.6 : settings.ttsRate || 0.92;
     if (cur.mp3 && (acc === 'uk' || cur.mp3 === 2)) { // 2 = file từ đơn Anh + Mỹ (audio/w/, gen-word-audio.mjs); 1 = câu Kokoro giọng Anh (audio/l/)
-      const key = fnv((acc === 'us' ? 'af_heart|' : 'bf_emma|') + word.trim()), dir = cur.mp3 === 2 ? 'w/' : 'l/', tryAt = i => {
+      const s2 = cur.mp3 === 2 && S2.includes(' ' + word.trim() + ' ') ? '|s2' : '', key = fnv((acc === 'us' ? 'af_heart|' : 'bf_emma|') + word.trim() + s2), dir = cur.mp3 === 2 ? 'w/' : 'l/', tryAt = i => {
         if (i >= AU.length || !navigator.onLine) return tts(word, lang, ttsRate);
         const el = audioEl = new Audio(); el.preservesPitch = true;
         el.defaultPlaybackRate = el.playbackRate = isSlow ? 0.7 : 1; // Chrome đặt lại playbackRate = defaultPlaybackRate khi nạp nguồn

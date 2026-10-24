@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       limit: { description: 'Số từ (mỗi từ 2 giọng)', default: '300' }
+      asr_sample: { description: 'Nghe lại (ASR) N file cũ ngẫu nhiên – chỉ báo cáo', default: '100' }
 permissions:
   contents: write
 concurrency: { group: word-audio, cancel-in-progress: false }
@@ -36,6 +37,16 @@ jobs:
         if: steps.count.outputs.left != '0'
         env: { WORD_AUDIO_EXPAND: '1' }
         run: AUDIO_MIN=70 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --limit "${{ github.event.inputs.limit || '300' }}"
+      # Từ dạng mạnh (to/for/the… – scripts/word-audio-strong.mjs): faster-whisper nghe lại từng bản thử, chọn bản đạt; không đạt → dừng, không đẩy
+      - uses: actions/setup-python@v5
+        if: hashFiles('.s2-cand/manifest.json') != '' || (github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0')
+        with: { python-version: '3.12' }
+      - name: Nghe lại giọng đọc (ASR + độ dài)
+        if: hashFiles('.s2-cand/manifest.json') != '' || (github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0')
+        run: |
+          command -v ffprobe >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
+          pip install -q faster-whisper==1.1.1
+          python3 scripts/word-audio-asr.py --sample "${{ github.event.inputs.asr_sample || '0' }}"
       - name: Khoá deploy kho media
         if: steps.count.outputs.left != '0'
         env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
@@ -51,7 +62,7 @@ jobs:
         run: |
           rm -f ~/.ssh/m2
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/audio/w/index.txt
+          git add web/audio/w/index.txt web/audio/w/s2.txt 2>/dev/null || git add web/audio/w/index.txt
           git diff --cached --quiet && exit 0
           git commit -qm "Giọng đọc từ vựng: thêm lô Kokoro Anh + Mỹ (còn ${{ steps.count.outputs.left }} từ trước lượt này)"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1

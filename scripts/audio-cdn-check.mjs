@@ -39,9 +39,9 @@ if (args.includes('--media')) {
       for (const ln of execFileSync('git', ['-C', dir, 'ls-tree', '-r', '--name-only', 'HEAD', 'audio'], { maxBuffer: 1 << 28 }).toString().split('\n')) if (ln) have.add(ln);
     } finally { fs.rmSync(dir, { recursive: true, force: true }); }
   }
-  const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
   const words = fs.readFileSync(path.join(root, 'web/audio/w/index.txt'), 'utf8').split('\n').filter(Boolean);
-  const miss = [...keys.map(k => `audio/l/${k}.mp3`), ...words.flatMap(w => ['bf_emma', 'af_heart'].map(v => `audio/w/${fnv(v + '|' + w)}.mp3`))].filter(f => !have.has(f));
+  const { wordKey } = await import('./word-audio-strong.mjs'), s2f = path.join(root, 'web/audio/w/s2.txt'), s2Done = new Set(fs.existsSync(s2f) ? fs.readFileSync(s2f, 'utf8').split('\n').filter(Boolean) : []);
+  const miss = [...keys.map(k => `audio/l/${k}.mp3`), ...words.flatMap(w => ['bf_emma', 'af_heart'].map(v => `audio/w/${wordKey(v, w, s2Done)}.mp3`))].filter(f => !have.has(f));
   console.log(`audio-cdn-check --media: ${keys.length} khóa câu + ${words.length} từ · kho có ${have.size} tệp · thiếu ${miss.length}`);
   if (miss.length) { console.log(miss.slice(0, 20).join(' ')); process.exit(1); }
   process.exit(0);
