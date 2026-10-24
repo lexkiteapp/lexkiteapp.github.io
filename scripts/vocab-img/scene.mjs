@@ -11,19 +11,30 @@
 //   node scripts/vocab-img/scene.mjs --dry --keys keys.json             → in prompt
 import fs from 'fs';
 import path from 'path';
-import { STYLE, PEOPLE, fnv } from './style.mjs';
+import { STYLE, PEOPLE, fnv, scrub, negHit, classOf } from './style.mjs';
 import { ruleCheck } from './strict.mjs';
 import { isFunction } from './concept.mjs';
 
-export const SCENE_V = 'e2';
+export const SCENE_V = 'e3';
 // MỘT bộ token phong cách cho cả 20k (cùng STYLE.base s1 đã duyệt) + phần riêng cho cảnh: tối đa 2 người, bố cục rõ, không chữ.
 // e2 (nhãn 24/10, 245 ảnh): FLUX schnell không có negative prompt – nhắc 'signs/speech bubbles' lại làm HIỆN biển/bong bóng chữ (HOSPITAL, BANK, HOTEL,
 // bong bóng thoại chữ vô nghĩa ở 30/74 ảnh bài học) → mô tả TÍCH CỰC: tường/mặt phẳng trơn, người giao tiếp bằng nét mặt + cử chỉ.
-export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday moment. At most two main people, simple geometric shapes, soft rounded edges, clean outlines, ' +
+// e3 (25/10, docs/VOCAB-IMG-STYLE.md – chuẩn học từ Drops/Duolingo/Lingokids): MỘT khoảnh khắc, đọc được ở 96–160 px – chủ thể lớn giữa khung, nền kem trơn,
+// tương phản cao, nhân vật kiểu Mỹ đa dạng, cảm xúc RÕ trên mặt; khuôn theo lớp từ (SCENE_CLASS); phủ định = gọt thẻ (scrub), KHÔNG nhắc trong prompt.
+export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday moment, readable as a tiny thumbnail. At most two main people, friendly modern American look, ' +
+  'simple geometric shapes, soft rounded edges, clean dark teal outlines, bold clear silhouettes, big expressive faces, ' +
   'limited palette of deep teal, warm orange, golden yellow, soft pink and cream, plain solid light cream background, the people and the key objects large and centered, ' +
-  'plain walls and plain surfaces, people communicate only with faces and hand gestures, purely pictorial. Friendly, culturally neutral, suitable for young children.';
+  'high contrast, plain walls and plain surfaces, people communicate only with faces and hand gestures, purely pictorial. Friendly, culturally neutral, suitable for young children.';
+// khuôn theo lớp từ (nghĩa CẢNH = trừu tượng): câu nhấn thêm sau mô tả thẻ – đặt TRƯỚC SCENE_STYLE (FLUX ưu tiên đầu prompt)
+export const SCENE_CLASS = {
+  noun: 'The one key moment that shows the idea fills the frame, every detail supports it.',
+  verb: 'The action is caught at its clearest moment, whole body and hands visible, the pose and face make the action obvious.',
+  adj: 'The quality is exaggerated and obvious at first glance; when two things are shown they stand side by side, one clearly with the quality and one clearly without.',
+  adv: 'The way the action is done is exaggerated and obvious at first glance, shown by pose, speed and face.',
+};
 // chính sách seed: API FLUX không nhận seed → tái lập = băm nội dung; biến thể bố cục + người TẤT ĐỊNH theo fnv(khoá) (không ngẫu nhiên giữa các lần chạy)
-const FRAMES = ['medium shot', 'wide shot showing the whole place', 'close medium shot', 'three-quarter view'];
+// e3: bỏ 'wide shot showing the whole place' (người/vật quá nhỏ ở 96–160 px)
+const FRAMES = ['medium shot', 'close medium shot', 'medium shot, three-quarter view', 'medium close-up'];
 export const RETRY_SCENE = 'Simpler composition: only the essential people and objects, larger, nothing in the background.';
 
 /** loại ảnh của một nghĩa */
@@ -35,12 +46,17 @@ export function kind(k, e, lexname = '', card = null) {
 }
 /** prompt cảnh từ thẻ (sc) – người trong thẻ ('a person', 'two people', 'a child') → xoay vòng tất định đa dạng */
 export function promptScene(k, sc, attempt = 1) {
-  const h = fnv(k), a = PEOPLE[h % PEOPLE.length], b = PEOPLE[(h >> 3) % PEOPLE.length] === a ? PEOPLE[(h + 1) % PEOPLE.length] : PEOPLE[(h >> 3) % PEOPLE.length];
-  let s = String(sc.sc || '').replace(/["“”]/g, '');
+  // >>> (không >>): fnv không dấu, >> 3 ra số ÂM → PEOPLE[-n] = undefined ("undefined (interviewer)" trong prompt e2)
+  const h = fnv(k), raw = String(sc.sc || '');
+  // giới tính thẻ ghi ngay sau person A/B ('person A, a young man') → chọn người CÙNG giới (e2 ghép 'a woman with … , a young man')
+  const sex = t => { const m = raw.match(new RegExp('\\bperson ' + t + '\\b\\s*[,(]?\\s*(?:an? )?(?:\\w+ ){0,2}?(woman|man|girl|boy)\\b', 'i')); return m ? (/woman|girl/i.test(m[1]) ? 'woman' : 'man') : ''; };
+  const pick = (g, i, not) => { const L = PEOPLE.filter(p => (!g || new RegExp('\\ba ' + g + '\\b').test(p)) && p !== not); return L[i % L.length]; };
+  const a = pick(sex('A'), h), b = pick(sex('B'), h >>> 3, a);
+  let s = scrub(String(sc.sc || '').replace(/["“”]/g, ''), String(k).split('#')[0]);   // gọt mệnh đề có biểu tượng/chữ (bóng đèn, bong bóng…) của thẻ cũ
   s = s.replace(/\bperson A\b/gi, a).replace(/\bperson B\b/gi, b).replace(/\ba person\b/i, a).replace(/\banother person\b/i, b);
   // biến thể v (fill: tới 6 lần/nghĩa, nhận lần ĐẦU qua giám khảo): API không nhận seed → đổi khung hình theo v (tất định), v chẵn = bố cục đơn giản hơn
   const fr = FRAMES[(h + attempt - 1) % FRAMES.length];
-  return `Illustration, ${fr}: ${s}.${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE}`;
+  return `Illustration, ${fr}: ${s.replace(/\.+$/, '')}. ${SCENE_CLASS[classOf(k)]}${attempt > 1 && attempt % 2 === 0 ? ' ' + RETRY_SCENE : ''} ${SCENE_STYLE}`;
 }
 
 // Bộ lọc an toàn prompt của Cloudflare (bad_request) → viết lại TRUNG TÍNH (không bao giờ gửi lại y nguyên): thay từ nhạy cảm, bỏ chi tiết cơ thể/xung đột, thêm khung gia đình.
@@ -55,7 +71,7 @@ export function soften(prompt, level = 1) {
 }
 // ---- thẻ cảnh: lời nhắn MỘT nguồn (người viết thẻ phải dùng câu ví dụ của kho; được trả skip) ----
 export const SCENE_SYS = `You turn dictionary example sentences into ONE wordless picture for a vocabulary card. The picture must show the SITUATION of the sentence so a learner who reads the sentence under the picture understands the word. Never draw a literal object for an abstract word, never a misleading symbol.
-Rules learned from reviewed pictures: (1) if the sentence names groups or compares (men and women, children and adults, equal, more, less, same, different, second, best), draw BOTH sides explicitly side by side so the comparison is visible (e.g. "a woman and a man each receive an identical stack of coins"; a race result = three runners on a podium of three heights); (2) show places (hospital, bank, hotel, station, school) only through objects inside them (bed, counter, key, ticket), never a building front; (3) the key thing of the sentence must be large and in the foreground (the mango, the conductor punching a ticket, the deep water under a small boat); (4) people talk with gestures, never speech bubbles, phones or screens unless the sentence is about them; (5) use people of different genders, ages and skin tones when the sentence implies it.
+Rules learned from reviewed pictures: (1) if the sentence names groups or compares (men and women, children and adults, equal, more, less, same, different, second, best), draw BOTH sides explicitly side by side so the comparison is visible (e.g. "a woman and a man each receive an identical stack of coins"; a race result = three runners on a podium of three heights); (2) show places (hospital, bank, hotel, station, school) only through objects inside them (bed, counter, key, ticket), never a building front; (3) the key thing of the sentence must be large and in the foreground (the mango, the conductor punching a ticket, the deep water under a small boat); (4) people talk with gestures, never speech bubbles, phones or screens unless the sentence is about them; (5) use people of different genders, ages and skin tones when the sentence implies it; (6) by word class: abstract noun = ONE everyday moment where the idea is obvious from faces and actions (fear = a person frozen, wide eyes, stepping back from a big barking dog); verb = the person at the clearest moment of the action, whole body visible; adjective = EXAGGERATE the quality or show a contrast pair side by side (careful vs careless); (7) never use symbols or metaphors: no lightbulbs, hearts, arrows, question marks, thought bubbles, charts, calendars or clocks – feelings show on faces and bodies; (8) at most two people, one place, large and close: the picture is seen as a small thumbnail.
 For each input item {k, w, pos, def, ex:[sentences]} reply with one JSON object keyed by k:
 {"ex": "the ONE input sentence (copied exactly) whose situation is easiest to draw", "sc": "what to draw: who (use 'person A'/'person B', or explicit people like 'a woman and a man' when the sentence needs them; at most three people), doing what, with which objects, where; 15-45 words, concrete and visible; no text, letters, numbers, signs, screens with writing, speech bubbles, flags or brands", "cap": "a neutral 6-14 word caption of that picture that does NOT contain the word w", "who": number of people 0-2}
 If no input sentence can be drawn without text or symbols (e.g. it is about grammar, numbers, time words or opinions only), reply {"skip": "short reason"} for that k.
@@ -71,6 +87,7 @@ export function sceneOk(e, c) {
   if (!exs.includes(String(c.ex || '').trim())) return 'ex not from lexicon';
   if (!c.sc || String(c.sc).split(/\s+/).length < 8) return 'sc too short';
   if (/\b(text|letters?|words?|sign|label|caption|written|writing|numbers?)\b/i.test(c.sc)) return 'sc asks for text';
+  { const h = negHit(c.sc, e.w); if (h) return 'sc uses a symbol: ' + h; }   // VOCAB-IMG-STYLE.md: danh sách phủ định
   if (!c.cap || new RegExp('\\b' + e.w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(c.cap)) return 'cap names the word';
   return '';
 }

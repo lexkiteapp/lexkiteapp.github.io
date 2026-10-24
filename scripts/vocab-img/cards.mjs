@@ -6,6 +6,7 @@
 // 429 → chờ lùi (backoff) rồi thử lại; lỗi khác → bỏ nghĩa đó lượt này (không ghi thẻ hỏng).
 import fs from 'fs';
 import { ruleCheck } from './strict.mjs';
+import { negHit } from './style.mjs';
 import { cfTextOn } from '../lib/ai-pool.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
@@ -19,6 +20,11 @@ const ASK = (k, e, lexname) => `You write one drawing card for a children's pict
 Word: ${e.w}  (part of speech: ${e.pos}; WordNet category: ${lexname || '?'})
 Meaning: ${e.def}
 Example sentence: ${e.ex || '-'}
+House style (docs/VOCAB-IMG-STYLE.md): ONE subject, centered, large, readable as a 96 px thumbnail, plain cream background.
+${e.pos === 'v' ? 'Verb: one person (or animal) at the clearest moment of the action, whole body and hands visible, the object of the action large; no motion lines, no arrows.'
+  : e.pos === 'adj' ? 'Adjective: one typical object that has the quality in an exaggerated, unmistakable way (a bright red balloon, a perfectly round ball).'
+  : 'Concrete noun: the most typical everyday example in its usual colour and shape, the whole object visible, seen from its most recognisable side; no cut-away, no packaging, no brand.'}
+Never ask for symbols or anything with writing: no signs, labels, logos, flags, screens with content, speech or thought bubbles, arrows, lightbulbs, hearts, question marks.
 Test: could a 5-year-old name this exact word from ONE simple picture of THIS meaning? If not (abstract, ambiguous, needs text, looks like another common thing), reply {"skip": "short reason"}.
 Otherwise reply JSON only:
 {"o": "the canonical object/scene to draw, concrete and specific, 6-25 words, starting with 'a'/'an'/'one'/'two' (for a verb: 'a person ...' doing the action with the whole body or hands visible)",
@@ -62,6 +68,7 @@ export function cleanCard(k, e, c) {
   const GENERIC = new Set(['drink', 'food', 'animal', 'tool', 'object', 'thing', 'item', 'plant', 'person', 'people', 'man', 'woman', 'child', 'kid', 'toy', 'device', 'machine', 'building', 'vehicle', 'clothing', 'clothes', 'furniture', 'container', 'equipment', 'snack', 'meal', 'fruit', 'vegetable', 'bird', 'fish', 'insect', 'pet']);
   s = [...new Set(s)].filter(x => x === e.w || !GENERIC.has(x)).slice(0, 6);
   if (o.split(/\s+/).length < 3 || o.length > 220 || /\b(text|label|sign|letters?|words?)\b/i.test(o + ' ' + cx)) return null;
+  if (negHit(o + ' ' + cx, e.w)) return null;   // danh sách phủ định VOCAB-IMG-STYLE.md (bóng đèn, bong bóng, mũi tên, logo… – trừ chính từ đang học)
   const out = { o, c: cx, s };
   if (e.pos === 'adj') { if (!['color', 'shape'].includes(c.k)) return null; out.k = c.k; }
   return out;

@@ -7,7 +7,7 @@
 // --shard i/n: chỉ khoá có fnv(k) % n == i (ma trận ≤ 10 việc / lượt, mỗi việc thuê riêng ở điều phối). 429 → chờ lùi trong gen.mjs (65→240 s, 6 lần = dừng nhà).
 import fs from 'fs';
 import path from 'path';
-import { PROVIDERS, slug, GC_STATS, Safety } from './gen.mjs';
+import { PROVIDERS, slug, GC_STATS, Safety, modelInUse } from './gen.mjs';
 import { promptFromCard } from './strict.mjs';
 import { kind, promptScene, SCENE_STYLE, RETRY_SCENE, soften } from './scene.mjs';
 import { conceptSvg, familyOf, conceptHash } from './concept.mjs';
@@ -24,7 +24,7 @@ const isImg = b => b && b.length > 1000 && ((b[0] === 0xff && b[1] === 0xd8) || 
 let LS = null;
 const lessonScene = k => { if (!LS) { try { LS = JSON.parse(fs.readFileSync(new URL('../../content/visual/lesson-scenes.json', import.meta.url), 'utf8')).items; } catch { LS = {}; } } return LS[k]; };
 export function lessonTarget(k, topics, conf) {
-  const who = PEOPLE[fnv(k) % PEOPLE.length], who2 = PEOPLE[(fnv(k) >> 3) % PEOPLE.length] === who ? PEOPLE[(fnv(k) + 1) % PEOPLE.length] : PEOPLE[(fnv(k) >> 3) % PEOPLE.length];
+  const who = PEOPLE[fnv(k) % PEOPLE.length], who2 = PEOPLE[(fnv(k) >>> 3) % PEOPLE.length] === who ? PEOPLE[(fnv(k) + 1) % PEOPLE.length] : PEOPLE[(fnv(k) >>> 3) % PEOPLE.length];
   const hand = lessonScene(k), fill = s => s.replace(/\{A\}/g, who).replace(/\{B\}/g, who2);
   if (k.startsWith('topic:')) {
     const t = topics.find(x => x.id === k.slice(6)); if (!t) return null; const name = t.name.en;
@@ -78,8 +78,8 @@ async function main() {
       // 24/10: GrabCast trả 500 "Something went wrong" cho ~40 % lượt → thử lại 2 lần (5 s, 15 s) trước khi bỏ nhà vẽ; 429 vẫn do gen.mjs (Retry-After)
       // 5xx: thử lại theo Retry-After của GrabCast (không có → 5 s, 15 s); mọi mã HTTP được đếm ở GC_STATS (gen.mjs) → gen-stats.s<i>.a<n>.json
       let pr = t.prompt, soft = 0;
-      for (let tr = 0; tr < 3; tr++) { let ra = 0; try { const buf = await p.run(pr); if (isImg(buf)) { fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s, tries: tr + 1, ...(soft ? { soft } : {}) }); return; } } catch (err) { if (err instanceof Safety) { if (soft >= 2) { safetyFail++; log.push({ k, attempt: ATT, provider: p.id, error: 'safety (rephrased ×2)' }); return; } soft++; safetyRe++; pr = soften(t.prompt, soft); continue; } if (err.constructor.name === 'Quota' || !(err.status >= 500 || /\b5\d\d\b/.test(String(err.message)))) break; ra = +err.retryAfter || 0; retries++; } await new Promise(r => setTimeout(r, ra ? Math.min(120, ra) * 1e3 : 5000 + 10000 * tr)); }
-      try { const buf = await p.run(pr); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - s }); return; }
+      for (let tr = 0; tr < 3; tr++) { let ra = 0; try { const buf = await p.run(pr); if (isImg(buf)) { fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ...(buf.meta ? { gc_provider: buf.meta.provider, model: buf.meta.model } : { model: modelInUse() }), ms: Date.now() - s, tries: tr + 1, ...(soft ? { soft } : {}) }); return; } } catch (err) { if (err instanceof Safety) { if (soft >= 2) { safetyFail++; log.push({ k, attempt: ATT, provider: p.id, error: 'safety (rephrased ×2)' }); return; } soft++; safetyRe++; pr = soften(t.prompt, soft); continue; } if (err.constructor.name === 'Quota' || !(err.status >= 500 || /\b5\d\d\b/.test(String(err.message)))) break; ra = +err.retryAfter || 0; retries++; } await new Promise(r => setTimeout(r, ra ? Math.min(120, ra) * 1e3 : 5000 + 10000 * tr)); }
+      try { const buf = await p.run(pr); if (!isImg(buf)) throw new Error('không phải ảnh'); fs.writeFileSync(file, buf); n++; log.push({ k, attempt: ATT, provider: p.id, ...(buf.meta ? { gc_provider: buf.meta.provider, model: buf.meta.model } : { model: modelInUse() }), ms: Date.now() - s }); return; }
       catch (err) { if (err instanceof Safety) { safetyFail++; log.push({ k, attempt: ATT, provider: p.id, error: 'safety' }); return; } if (err.constructor.name === 'Quota') { dead.add(p.id); console.warn(`⏸ ${p.id}: ${err.message}`); } else { console.warn(`✗ ${p.id} ${k}: ${err.message}`); log.push({ k, attempt: ATT, provider: p.id, error: String(err.message).slice(0, 160) }); } }
     }
     if (PROVIDERS.every(p => dead.has(p.id) || used[p.id] >= p.max)) stop = true;

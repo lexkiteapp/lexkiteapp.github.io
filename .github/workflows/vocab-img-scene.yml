@@ -15,12 +15,12 @@ on:
       mode: { description: 'pilot | calibrate | fill', default: 'pilot' }
       shards: { description: 'Số việc song song (1–10)', default: '1' }
       max_gc: { description: 'Trần ảnh GrabCast CẢ lượt (chia đều cho các việc; fill mặc định 6000)', default: '' }
-      variants: { description: 'fill: số biến thể tối đa mỗi nghĩa (1–6), nhận biến thể đầu qua giám khảo', default: '4' }
+      variants: { description: 'fill: số biến thể tối đa mỗi nghĩa (1–6), nhận biến thể đầu qua giám khảo · pilot: 1 = không vẽ lại ảnh trượt (thay input retry cũ)', default: '4' }
       recal: { description: '1 = hiệu chỉnh ngưỡng giám khảo trước khi chấm', default: '1' }
       from_run: { description: 'Chỉ chạy bước gộp/tờ ảnh trên artifact của lượt này (run id) – không vẽ lại', default: '' }
       pick: { description: 'Chọn khoá pilot n:from:fn (n nghĩa cảnh bỏ qua from nghĩa đầu, fn hư từ)', default: '60:0:20' }
-      extra: { description: 'Thêm khoá cảnh (phẩy), vd. ca lỗi đã biết equal#adj,race#n', default: '' }
-      retry: { description: '1 = vẽ lại 1 lần ảnh trượt', default: '1' }
+      model: { description: 'Mô hình ảnh GrabCast (A/B, docs/VOCAB-IMG-STYLE.md); rỗng = mặc định flux-1-schnell, không gửi trường model', default: '' }
+      only: { description: 'pilot: CHỈ các khoá này – tệp JSON {items} (vd. content/visual/pilot-40.json) hoặc danh sách phẩy · bắt đầu bằng + = THÊM vào pilot (thay input extra cũ, vd. +equal#adj,race#n)', default: '' }
       lab_run: { description: 'Lượt cũ (run id có vimg-scene-final) → tính lại đặc trưng giám khảo cảnh cho ảnh đã gán nhãn', default: '' }
 permissions:
   contents: read
@@ -57,6 +57,7 @@ jobs:
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
+      VIMG_MODEL: ${{ github.event.inputs.model || '' }}
       AI_POOL_GC_MAX: '60'
       HF_HUB_DISABLE_TELEMETRY: '1'
       OUT: out/vimg-scene
@@ -81,12 +82,16 @@ jobs:
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
       - name: Kho từ vựng + chọn khoá
         if: steps.lease.outputs.skip != '1'
+        env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}' }
         run: |
           node scripts/build-lexicon.mjs --write >/dev/null
           IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
           node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
-          EXTRA="${{ github.event.inputs.extra }}" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
-          echo "khoá: $(node -p "require('./keys.json').items.length")"
+          EXTRA="$( [ "${ONLY#+}" != "$ONLY" ] && echo "${ONLY#+}" )" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
+          if [ -n "$ONLY" ] && [ "${ONLY#+}" = "$ONLY" ]; then   # A/B mô hình: đúng danh sách (vd. pilot-40) – không bìa/bài học/hư từ
+            node -e "const fs=require('fs'),o=process.env.ONLY.trim(),ks=/\.json$/.test(o)?(JSON.parse(fs.readFileSync(o,'utf8')).items||JSON.parse(fs.readFileSync(o,'utf8'))):o.split(',').map(s=>s.trim()).filter(Boolean);if(!ks.length)throw new Error('only rỗng');fs.writeFileSync('keys.json',JSON.stringify({items:ks,scene:ks}))"
+          fi
+          echo "khoá: $(node -p "require('./keys.json').items.length") · model: ${VIMG_MODEL:-flux-1-schnell (mặc định)}"
       - name: Thẻ cảnh (câu ví dụ → mô tả hình; GrabCast văn bản)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
         run: node scripts/vocab-img/scene.mjs --cards --keys keys.json --write
@@ -120,6 +125,7 @@ jobs:
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
+      VIMG_MODEL: ${{ github.event.inputs.model || '' }}
       AI_POOL_GC_MAX: '60'
       HF_HUB_DISABLE_TELEMETRY: '1'
       OUT: out/vimg-scene
@@ -144,12 +150,16 @@ jobs:
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
       - name: Kho từ vựng + chọn khoá
         if: steps.lease.outputs.skip != '1'
+        env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}' }
         run: |
           node scripts/build-lexicon.mjs --write >/dev/null
           IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
           node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
-          EXTRA="${{ github.event.inputs.extra }}" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
-          echo "khoá: $(node -p "require('./keys.json').items.length")"
+          EXTRA="$( [ "${ONLY#+}" != "$ONLY" ] && echo "${ONLY#+}" )" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
+          if [ -n "$ONLY" ] && [ "${ONLY#+}" = "$ONLY" ]; then   # A/B mô hình: đúng danh sách (vd. pilot-40) – không bìa/bài học/hư từ
+            node -e "const fs=require('fs'),o=process.env.ONLY.trim(),ks=/\.json$/.test(o)?(JSON.parse(fs.readFileSync(o,'utf8')).items||JSON.parse(fs.readFileSync(o,'utf8'))):o.split(',').map(s=>s.trim()).filter(Boolean);if(!ks.length)throw new Error('only rỗng');fs.writeFileSync('keys.json',JSON.stringify({items:ks,scene:ks}))"
+          fi
+          echo "khoá: $(node -p "require('./keys.json').items.length") · model: ${VIMG_MODEL:-flux-1-schnell (mặc định)}"
       - name: Thẻ cảnh + ngưỡng từ bước chuẩn bị (MỘT bộ cho mọi việc ma trận)
         if: steps.lease.outputs.skip != '1'
         uses: actions/download-artifact@v4
@@ -166,7 +176,7 @@ jobs:
         if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
         run: python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 1
       - name: Vẽ lại 1 lần (prompt tinh) + chấm lần 2
-        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot' && github.event.inputs.retry != '0'
+        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot' && github.event.inputs.variants != '1'
         run: |
           node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt 2 --shard ${{ matrix.shard }}/${{ strategy.job-total }} --only $OUT/retry.json || true
           ls $OUT/raw/*.a2.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 2 || true
@@ -204,6 +214,7 @@ jobs:
       V: ${{ github.event.inputs.variants || '4' }}
       VIMG_MAX_CF2: '0'
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
+      VIMG_MODEL: ${{ github.event.inputs.model || '' }}
       # GrabCast 24/10: 115k/ngày/khoá, generate 300/phút/IP (mỗi runner 1 IP), ảnh 60/phút/IP, vision 120/phút/IP – thẻ cảnh trước đây dừng ~110/lượt vì AI_POOL_GC_MAX 60
       AI_POOL_GC_MAX: '1500'
       VIMG_CONC: '6'

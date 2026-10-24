@@ -48,16 +48,55 @@ async function studio(prompt) {
   if (!r.ok || !j.image) { const m = `${r.status} ${j.error || ''} ${j.detail || ''}`; if (r.status === 429 || quotaish(m)) throw new Quota(m); throw new Error(m); }
   return Buffer.from(j.image, 'base64');
 }
+// A/B mô hình (25/10, docs/VOCAB-IMG-STYLE.md § Pilot): VIMG_MODEL (workflow input "model") – rỗng = mặc định GrabCast (flux-1-schnell) và KHÔNG gửi trường model.
+// GrabCast /api/owner-ai/image (25/10): { prompt, provider, model, width, height, steps, aspect }; model chỉ với provider 'cloudflare', ngoài danh sách → 422 model_not_allowed.
+// Tên ngắn → id @cf/ đầy đủ. width+height gửi CÙNG nhau (bội 64, 256–1536); schnell KHÔNG nhận cỡ (422 size_not_supported) → không bao giờ gửi cỡ cho schnell;
+// mô hình khác mặc định 512×512, ghi đè VIMG_SIZE (512 | 768x512). steps: giữ mặc định của GrabCast (không gửi).
+export const MODELS = { 'flux-1-schnell': '@cf/black-forest-labs/flux-1-schnell', 'flux-2-klein-4b': '@cf/black-forest-labs/flux-2-klein-4b',
+  'flux-2-klein-9b': '@cf/black-forest-labs/flux-2-klein-9b', 'flux-2-dev': '@cf/black-forest-labs/flux-2-dev', 'lucid-origin': '@cf/leonardo/lucid-origin',
+  'phoenix-1.0': '@cf/leonardo/phoenix-1.0', 'sdxl-lightning': '@cf/bytedance/stable-diffusion-xl-lightning', 'sdxl-base-1.0': '@cf/stabilityai/stable-diffusion-xl-base-1.0' };
+export const MODEL_DEFAULT = MODELS['flux-1-schnell'];
+export function modelId(m) {
+  m = String(m || '').trim(); if (!m) return '';
+  if (m.startsWith('@cf/')) return m;
+  return MODELS[m] || MODELS[m.replace(/^leonardo\//, '')] || m;   // lạ → gửi nguyên, GrabCast trả 422 → dừng (cấu hình sai)
+}
+/** thân yêu cầu GrabCast cho prompt (tất định theo env) */
+export function gcBody(prompt, model = modelId(env.VIMG_MODEL), size = env.VIMG_SIZE) {
+  const b = { prompt, provider: 'cloudflare' };
+  if (!model) return b;
+  b.model = model;
+  if (!/flux-1-schnell$/.test(model)) {
+    const [w, h = w] = String(size || '512').toLowerCase().split('x').map(n => +n);
+    const okD = n => Number.isInteger(n) && n % 64 === 0 && n >= 256 && n <= 1536;
+    if (!okD(w) || !okD(h)) throw new Error(`VIMG_SIZE=${size} sai (bội 64, 256–1536)`);
+    b.width = w; b.height = h;
+  }
+  return b;
+}
+let gcModel = modelId(env.VIMG_MODEL);
+export const modelInUse = () => gcModel || MODEL_DEFAULT;
 const GC = String(env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 let gcWaits = 0;
 // đếm theo mã HTTP cho báo cáo GrabCast (24/10: ~40 % lượt 500) – scene-gen ghi vào gen-stats.s<i>.json
 // exhausted_at / ok_before_exhausted: thời điểm bể CF cạn (503 ai_exhausted) và số ảnh vẽ được trước đó (fill-report.json)
-export const GC_STATS = { exhausted_at: null, ok_before_exhausted: null, no_provider: 0, submit: 0, ok: 0, s429: 0, s5xx: 0, ai_busy: 0, ai_unavailable: 0, ai_exhausted: 0, safety: 0, s4xx: 0, job_err: 0, poll_err: 0, timeout: 0, content_err: 0, net: 0, retry_after_s: 0, by_code: {} };
+export const GC_STATS = { model: gcModel || MODEL_DEFAULT, model_sent: !!gcModel, size: gcModel && !/flux-1-schnell$/.test(gcModel) ? String(env.VIMG_SIZE || '512') : null, model_fallback: 0, by_model: {}, exhausted_at: null, ok_before_exhausted: null, no_provider: 0, submit: 0, ok: 0, s429: 0, s5xx: 0, ai_busy: 0, ai_unavailable: 0, ai_exhausted: 0, safety: 0, s4xx: 0, job_err: 0, poll_err: 0, timeout: 0, content_err: 0, net: 0, retry_after_s: 0, by_code: {} };
 const gcErr = (m, r) => { const e = new Error(m); e.status = r && r.status; const ra = r && r.headers && +r.headers.get('retry-after'); if (ra > 0) e.retryAfter = ra; return e; };
 async function grabcast(prompt) {
   const h = { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' };
   GC_STATS.submit++;
-  let r; try { r = await fetch(GC + '/api/owner-ai/image', { method: 'POST', headers: h, body: JSON.stringify({ prompt, provider: 'cloudflare' }) }); } catch (e) { GC_STATS.net++; throw e; }
+  const m = gcModel; let body; try { body = JSON.stringify(gcBody(prompt, m)); } catch (e) { console.error('✗ ' + e.message); throw new Quota('config ' + e.message); }
+  let r; try { r = await fetch(GC + '/api/owner-ai/image', { method: 'POST', headers: h, body }); } catch (e) { GC_STATS.net++; throw e; }
+  // 422 (model_not_allowed / size_not_supported / bad steps) = lỗi CẤU HÌNH → ghi log, DỪNG nhà này, không thử lại, không đổi sang mô hình khác (A/B sẽ sai)
+  if (r.status === 422) { const t = await r.text().catch(() => ''); GC_STATS.by_code[422] = (GC_STATS.by_code[422] || 0) + 1; GC_STATS.s4xx++; GC_STATS.config = (GC_STATS.config || 0) + 1;
+    console.error(`✗ GrabCast 422 (cấu hình, model=${m || 'mặc định'}): ${t.slice(0, 200).replace(/\s+/g, ' ')}`); throw new Quota(`config 422 ${t.slice(0, 120)}`); }
+  // 400 cho trường model (GrabCast cũ chưa có trường) → ghi log, gửi lại KHÔNG model cho cả lượt (gc.model_fallback ≠ 0 = lượt không hợp lệ cho A/B)
+  if (m && r.status === 400) {
+    const t = await r.text().catch(() => '');
+    console.warn(`⚠ GrabCast từ chối model=${m} (${r.status} ${t.slice(0, 160).replace(/\s+/g, ' ')}) – lượt này gửi KHÔNG model (mặc định ${MODEL_DEFAULT})`);
+    gcModel = ''; GC_STATS.model_fallback++; GC_STATS.model = 'default (fallback from ' + m + ')'; GC_STATS.model_sent = false; GC_STATS.submit--;
+    return grabcast(prompt);
+  }
   GC_STATS.by_code[r.status] = (GC_STATS.by_code[r.status] || 0) + 1;
   if (r.status === 429) GC_STATS.s429++; else if (r.status >= 500) GC_STATS.s5xx++; else if (r.status >= 400) GC_STATS.s4xx++;
   if (r.status !== 200 && +r.headers.get('retry-after') > 0) GC_STATS.retry_after_s += +r.headers.get('retry-after');
@@ -85,7 +124,10 @@ async function grabcast(prompt) {
   gcWaits = 0;
   const c = await fetch(`${GC}/api/owner-ai/image/${job.id}/content`, { headers: h }); if (!c.ok) { GC_STATS.content_err++; throw gcErr('content ' + c.status, c); }
   GC_STATS.ok++;
-  return Buffer.from(await c.arrayBuffer());
+  // job trả provider + model thật đã vẽ → ghi vào log ảnh (scene-gen) và by_model (fill-report)
+  const meta = { provider: job.provider || 'cloudflare', model: job.model || m || MODEL_DEFAULT }, mk = meta.provider + '|' + meta.model;
+  GC_STATS.by_model[mk] = (GC_STATS.by_model[mk] || 0) + 1;
+  const buf = Buffer.from(await c.arrayBuffer()); buf.meta = meta; return buf;
 }
 
 async function main() {
@@ -107,7 +149,7 @@ async function main() {
     for (let t = 0; t < PROVIDERS.length && !done; t++) {
       const p = PROVIDERS[(rr + t) % PROVIDERS.length]; if (dead.has(p.id) || used[p.id] >= p.max) continue;
       const t0 = Date.now();
-      try { const buf = await p.run(prompt); if (!isImg(buf)) throw new Error('không phải ảnh: ' + buf.slice(0, 60).toString().replace(/\s+/g, ' ')); fs.writeFileSync(file, buf); used[p.id]++; n++; done = true; log.push({ k, attempt: ATT, provider: p.id, ms: Date.now() - t0, bytes: buf.length, at: new Date().toISOString() }); }
+      try { const buf = await p.run(prompt); if (!isImg(buf)) throw new Error('không phải ảnh: ' + buf.slice(0, 60).toString().replace(/\s+/g, ' ')); fs.writeFileSync(file, buf); used[p.id]++; n++; done = true; log.push({ k, attempt: ATT, provider: p.id, ...(buf.meta ? { gc_provider: buf.meta.provider, model: buf.meta.model } : {}), ms: Date.now() - t0, bytes: buf.length, at: new Date().toISOString() }); }
       catch (err) { if (err instanceof Quota) { dead.add(p.id); console.warn(`⏸ ${p.id} hết hạn mức/không quyền: ${err.message}`); } else { console.warn(`✗ ${p.id} ${k}: ${err.message}`); log.push({ k, attempt: ATT, provider: p.id, error: err.message.slice(0, 200) }); } }
     }
     rr++;

@@ -67,6 +67,7 @@ const rep = { run: BATCH, accepted: n, images_generated: imgs, gc_image_calls: c
   http: codes, s5xx: sum('s5xx'), s429: sum('s429'), ai_busy: sum('ai_busy'), ai_unavailable: sum('ai_unavailable'), ai_exhausted: sum('ai_exhausted'), safety_refused: sum('safety'), safety_rephrased: gs.reduce((a, g) => a + (g.safety_rephrased || 0), 0), safety_failed: gs.reduce((a, g) => a + (g.safety_failed || 0), 0), job_err: sum('job_err'), timeout: sum('timeout'), net: sum('net'), s5xx_rate: calls ? +(sum('s5xx') / calls).toFixed(3) : 0,
   ai_exhausted_hit: exhausted, exhausted_at: exAt, images_before_exhausted: exhausted ? gs.reduce((a, g) => a + (g.gc.ok_before_exhausted ?? g.images), 0) : null, accepted_before_exhausted: exhausted ? n : null,
   vision_calls: vis, vision_skipped_local_fail: visSkip, neurons_est: { per_generated_image: NEURONS_PER_IMG, per_vision_call: NEURONS_PER_VISION, total: Math.round(neur), per_accepted_image: n ? Math.round(neur / n) : null },
+  by_model: gs.reduce((a, g) => { for (const [k_, v] of Object.entries(g.gc.by_model || {})) a[k_] = (a[k_] || 0) + v; return a; }, {}), model_fallback: sum('model_fallback'), config_err: sum('config'),
   cards_added: c, queued: qn, scene_total: Object.values(img.items).filter(x => x.kind === 'scene').length, img_total: Object.values(img.items).filter(x => x.h).length };
 fs.writeFileSync(path.join(D, 'fill-report.json'), JSON.stringify(rep, null, 1));
 console.log(JSON.stringify(rep));
