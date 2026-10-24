@@ -39,5 +39,6 @@
       ${m === 'sleep' ? '' : '<ellipse cx="32" cy="67" rx="7" ry="4.5" fill="#FF8FA3" opacity=".75"/><ellipse cx="88" cy="67" rx="7" ry="4.5" fill="#FF8FA3" opacity=".75"/>'}
     </svg>`;
   };
-  g.Kit = { svg: (m, s, anim = true) => kit(m, s, anim) };
+  // Bảng màu thương hiệu (docs/BRAND-RULES.md) – nguồn duy nhất cho hiệu ứng dùng màu (pháo giấy, huy hiệu…)
+  g.Kit = { svg: (m, s, anim = true) => kit(m, s, anim), palette: ['#E5502F', '#FFB054', '#FFC94A', '#2FBF71', '#FF8FA3', '#17595A', '#F2553B'] };
 })(typeof self !== 'undefined' ? self : this);

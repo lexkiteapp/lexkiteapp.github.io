@@ -147,7 +147,7 @@
     let ctx = null; try { ctx = c.getContext('2d'); } catch (e) { /* không có canvas */ }
     if (!ctx) { c.remove(); return; }
     const W = c.width = innerWidth * devicePixelRatio, H = c.height = innerHeight * devicePixelRatio;
-    const colors = ['#4f46e5', '#0ea5a4', '#f59e0b', '#e5484d', '#16a34a', '#8b5cf6'];
+    const colors = (g.Kit && g.Kit.palette) || ['#E5502F', '#FFB054', '#FFC94A', '#2FBF71', '#FF8FA3', '#17595A']; // màu thương hiệu từ kit.js (không còn tím/xanh dương lạ)
     const ps = Array.from({ length: n }, () => ({ x: W / 2 + (Math.random() - .5) * W * .3, y: H * .35, vx: (Math.random() - .5) * 26, vy: -Math.random() * 30 - 8, s: (Math.random() * 6 + 5) * devicePixelRatio, r: Math.random() * 6, vr: (Math.random() - .5) * .3, c: colors[Math.floor(Math.random() * colors.length)] }));
     let f = 0;
     (function step() {
