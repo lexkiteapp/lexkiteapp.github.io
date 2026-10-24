@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_1445ca_h",
-  "quote": null,
+  "quote": "A solution for this problem is easy.",
   "kind": "Stop saying 'solution for'",
   "mode": "strong",
   "display": "Stop saying",

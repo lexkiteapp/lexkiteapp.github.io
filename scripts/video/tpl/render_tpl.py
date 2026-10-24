@@ -13,6 +13,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE))); sys.path.insert(0, HERE)
 from tokens import *
+import hostframe as HF
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--tpl', type=int, required=True); ap.add_argument('--lesson', required=True); ap.add_argument('--lines', default=None)
@@ -213,20 +214,31 @@ El('series', SER, X0, 280, 'h', B0, None, enter='fade', d_in='base', z=2, text=S
 # hook ------------------------------------------------------------
 b = BEAT['h']; ln = L['h']; g = 'h'
 i0 = [nrm(x) for x in wt].index(nrm(BAD[0])) if BAD else 0
-SOFT = SP['hook'].get('mode') == 'soft'   # hook truth (§9): the learner line is acceptable -> no strike, no ✗, quote = the natural phrase
-if SOFT:
-    j0 = [nrm(x) for x in rt].index(nrm(GOOD[0])) if GOOD else 0
-    HQ = SP['hook'].get('quote') or ' '.join(rt[max(0, j0 - 1):j0 + max(1, len(GOOD))]).strip(',.?!')   # reviewed soft_quote ('key card') wins
-else: HQ = (SP['hook'].get('quote') or ' '.join(wt[max(0, i0 - 1):i0 + 1]))   # 'considering to' = the word before the mistake + its first word (bank hook)
-hs1, hs2 = TYPE['display'], TYPE['h1']
+SOFT = SP['hook'].get('mode') == 'soft'   # hook truth (§9): the learner line is acceptable -> no ✗, quote = the natural phrase
+from hookquote import hook_quote, underline as hq_under
+# quote = the REAL wrong phrase (strong: 'The gate is change?', never the correct fragment 'gate is') / the natural phrase (soft); reviewed quote wins
+HQ = SP['hook'].get('quote') or hook_quote(SP['wrong_line'], SP['key_line'], 'soft' if SOFT else 'strong')
 HT = SP['hook'].get('display') or ' '.join(L['h'].text.split()[:-1]) or 'Stop saying'   # display text (lesson) or hook line minus its last word ('this.')
-h_total = ih + measure(HT, hs1, 'display', FULL) + 16 + measure(f'“{HQ}”', hs2, 'display', FULL)
+if not HT.endswith(':'): HT += ':'   # 'Never say: “The gate is change?”' / 'Americans usually say: “split the bill”' = one sentence
+HOOK_FULL = f'{HT} “{HQ}”'           # qc_tpl hook_readable: this whole string is on screen, fully opaque, by 1.5 s
+hs1, hs2 = TYPE['display'], TYPE['h1']
+def hook_h(a, b_): return ih + measure(HT, a, 'display', FULL) + 16 + measure(f'“{HQ}”', b_, 'display', FULL)
+for a_, b2_ in ((TYPE['display'], TYPE['h1']), (TYPE['h1'], TYPE['h1']), (TYPE['h1'], TYPE['h2']), (TYPE['h2'], TYPE['h2'])):   # long quote -> smaller type, never fewer words
+    hs1, hs2 = a_, b2_
+    if hook_h(hs1, hs2) <= STAGE[1] - STAGE[0]: break
+h_total = hook_h(hs1, hs2)
 y = stage_y(h_total); y = place_icon('h', y, b['vin'], b['vout'], g)
-y2, bx = words_block('h.t1', HT, hs1, 'display', X0, y, FULL, g, ln, b['vout'], color=INK, align='center')
+# the whole hook enters as ONE block at the beat start (not word-by-word with the voice): readable long before 1.5 s
+y2, bx = words_block('h.t1', HT, hs1, 'display', X0, y, FULL, g, None, b['vout'], color=INK, align='center', after=b['vin'])
 tq = ln.words[-1]['s'] + ln.at
-y3, bx2 = words_block('h.t2', f'“{HQ}”', hs2, 'display', X0, y2 + 16, FULL, g, None, b['vout'], color=C['green'] if SOFT else C['red'], align='center', after=tq)
-qx, qy, qw, qh, _ = bx2[0]; qx1 = max(v[0] + v[2] for v in bx2.values())
-if not SOFT: El('h.strike', bar(int(qx1 - qx) + 16, 12, INK if T1 else C['cream']), qx - 8, qy + qh // 2 - 2, g, tq + DUR['fast'], b['vout'], enter='wipe', d_in='base', z=8)
+y3, bx2 = words_block('h.t2', f'“{HQ}”', hs2, 'display', X0, y2 + 16, FULL, g, None, b['vout'], color=C['green'] if SOFT else C['red'], align='center', after=b['vin'])
+if not SOFT:   # underline the error words inside the quote ('is change'), one bar per text row, when the voice says 'this'
+    ui = hq_under(HQ, SP['wrong_line'], SP['key_line'], 'strong'); rows_ = {}
+    for k_ in ui:
+        if k_ in bx2: rows_.setdefault(round(bx2[k_][1]), []).append(bx2[k_])
+    for r_, bs in enumerate(rows_.values()):
+        u0 = min(bs, key=lambda v: v[0]); u1 = max(bs, key=lambda v: v[0] + v[2])
+        El(f'h.under{r_}', bar(int(u1[0] + u1[2] - u0[0]), 10, C['red']), u0[0], u0[1] + u0[3] - 12, g, tq + DUR['fast'], b['vout'], enter='wipe', d_in='base', z=8)
 
 # wrong / guess / right: one comparison zone (x card fixed, the slot under it is the guess row, then the v card) ------------
 CARD_PAD, BD = 32, 72
@@ -417,12 +429,16 @@ if PLATE_N:
     L0, Lc = L_(PL), float(np.dot(C['cream'], [0.299, 0.587, 0.114]))
     a_top = float(np.clip(max(PLATE['scrim_top'], (PLATE['stage_luma'] + 1 - L0) / (Lc - L0)), 0, 0.92))   # adaptive: dark plates get more scrim
     scr = a_top * np.clip(1 - np.maximum(0, ys - 0.54) / (PLATE['scrim_y1'] - 0.54), 0, 1)   # cream scrim: full over the whole text stage, fades out over the host's head
-    PL = PL * (1 - scr) + np.array(C['cream'], np.float32) * scr
-    L_after = L_(PL)   # stage luma AFTER the scrim (what the type sits on)
+    PLs = PL * (1 - scr) + np.array(C['cream'], np.float32) * scr
+    L_after = L_(PLs)   # stage luma AFTER the scrim (what the type sits on)
     PL = np.clip(PL + (np.random.RandomState(7).rand(*PL.shape[:2], 1).astype(np.float32) - 0.5) * 1.6, 0, 255).astype(np.float32)
     PLH, PLW = PL.shape[:2]
+    # the scrim is a SCREEN layer that exists only while text is on screen (owner 24/10: the dark restaurant plate ended on a heavy white haze):
+    # frame 0 and the loop end show the clean plate (scrim = PLATE.scrim_rest for every plate); it eases in with the hook and out with the end card
+    ysS = np.linspace(0, 1, H, dtype=np.float32)[:, None, None]
+    SCR = (a_top * np.clip(1 - np.maximum(0, ysS - 0.54) / (PLATE['scrim_y1'] - 0.54), 0, 1)).astype(np.float32); CREAM = np.array(C['cream'], np.float32)
     # host colour match: plate tone under the host (lower third, after grade) vs neutral grey -> per-channel gain, clamped
-    reg_ = PL[int(PLH * 0.62):, int(PLW * 0.2):int(PLW * 0.8)].reshape(-1, 3).mean(0)
+    reg_ = PLs[int(PLH * 0.62):, int(PLW * 0.2):int(PLW * 0.8)].reshape(-1, 3).mean(0); del PLs
     HOST_GAIN = np.clip(1 + PLATE['host_match'] * (reg_ / reg_.mean() - 1), 0.94, 1.06).astype(np.float32)
     SH_COL = np.clip(reg_ * 0.35, 0, 255).astype(np.float32)                           # contact shadow = darkened plate tone (not navy)
     PLATE_LOG = dict(name=PLATE_N, tags=pm['tags'], people=pm['people'], text=pm['text'], checked=pm['checked'], push=PLATE['push'],
@@ -435,6 +451,11 @@ if PLATE_N:
         sx = cw / W; x0 = (PLW - cw) / 2; y0 = (PLH - ch) / 2
         M = np.array([[sx, 0, x0], [0, sx, y0]], np.float32)
         return cv2.warpAffine(PL, M, (W, H), flags=cv2.INTER_LINEAR | cv2.WARP_INVERSE_MAP, borderMode=cv2.BORDER_REFLECT), round(z, 5)
+    def scrim_k(t):
+        """0 = rest (clean plate, frame 0 + loop end), 1 = full scrim under text. In: with the hook (base), out: with the end card (slow, inout)."""
+        r = PLATE['scrim_rest'] / max(a_top, 1e-6); k = r + (1 - r) * bezier(EASE['out'], t / DUR['base'])
+        if END_OUT and t >= END_OUT: k = 1 - (1 - r) * bezier(EASE['inout'], (t - END_OUT) / DUR['slow'])
+        return float(min(1.0, max(0.0, k)))
     BG = None
 elif T1:
     BG = gradient((255, 249, 238), (226, 241, 235))
@@ -478,18 +499,25 @@ class Host:
             M = cv2.resize(s.MM[i], (1080, 1920), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
             rgb_ = Fm[..., ::-1].astype(np.float32)
             if PLATE_N: rgb_ = np.clip(rgb_ * HOST_GAIN, 0, 255)
-            if HSC != 1.0:   # 1b host lock: one fixed downscale (never up) so every host's head has the same size (tokens.HOST_LOCK)
-                sz_ = (int(round(1080 * HSC)), int(round(1920 * HSC))); rgb_ = cv2.resize(rgb_, sz_, interpolation=cv2.INTER_AREA); M = cv2.resize(M, sz_, interpolation=cv2.INTER_AREA)
+            if HEXT > 0:   # framing standard: legs continue under a tightly framed source (edge rows repeated, logged + capped by qc host_frame_std)
+                rgb_ = np.pad(rgb_, ((0, HEXT), (0, 0), (0, 0)), mode='edge'); M = np.pad(M, ((0, HEXT), (0, 0)), mode='edge')
+            if HSC != 1.0:   # 1b host lock: one fixed downscale (never up) = the framing standard of tokens.HOST_LOCK (hostframe.solve)
+                sz_ = (int(round(1080 * HSC)), int(round((1920 + HEXT) * HSC))); rgb_ = cv2.resize(rgb_, sz_, interpolation=cv2.INTER_AREA); M = cv2.resize(M, sz_, interpolation=cv2.INTER_AREA)
                 M = M * HOST_FEATHER[None, :]   # the scaled layer's side edges sit inside the frame -> feather them (no hard vertical cut through an arm)
             s.cache[key] = (rgb_, M)
         return s.cache[key], i, v
-    def head(s):
-        """native head size in 1080x1920 layer px: hair top (highest matte row over ALL frames, columns within +-band of the mouth) -> mouth centre"""
-        mh, mw = s.MM[0].shape; ky, kx = 1920 / mh, 1080 / mw; mx, my = s.mo.m['mouth_center']; b = HOST_LOCK['band']
-        c0, c1 = max(0, int(mx - b)), min(mw, int(mx + b))
-        top = min(int(np.nonzero((m_[:, c0:c1] > 128).any(1))[0][0]) for m_ in s.MM)
-        return dict(top=top * ky, mouth_x=mx * kx, mouth_y=my * ky, head=(my - top) * ky)
-HSC, HDX, HDY = 1.0, 0, 640         # host transform: scale 1.0 (no resample = sharpest), source y 440 (hair top) lands at screen 1080, under the stage
+    def landmarks(s, step=6):
+        """framing landmarks of the SOURCE matte (layer px 1080x1920), every <step>th frame merged (hostframe.merge)"""
+        cv2 = s.cv2; return HF.merge([HF.landmarks(cv2.resize(m_, (1080, 1920), interpolation=cv2.INTER_LINEAR)) for m_ in s.MM[::step]])
+    def screen_alpha(s, i):
+        """the matte of source frame i exactly as composited on screen (extension, scale, side feather, offset) -> HxW"""
+        cv2 = s.cv2; M = cv2.resize(s.MM[i], (1080, 1920), interpolation=cv2.INTER_LINEAR).astype(np.float32) / 255
+        if HEXT > 0: M = np.pad(M, ((0, HEXT), (0, 0)), mode='edge')
+        if HSC != 1.0: M = cv2.resize(M, (int(round(1080 * HSC)), int(round((1920 + HEXT) * HSC))), interpolation=cv2.INTER_AREA) * HOST_FEATHER[None, :]
+        lh, lw = M.shape; a = np.zeros((H, W), np.float32)
+        sx0, sy0, dx0, dy0 = max(0, -HDX), max(0, -HDY), max(0, HDX), max(0, HDY); w, h = min(lw - sx0, W - dx0), min(lh - sy0, H - dy0)
+        a[dy0:dy0 + h, dx0:dx0 + w] = M[sy0:sy0 + h, sx0:sx0 + w]; return a, HDY + lh
+HSC, HDX, HDY, HEXT = 1.0, 0, 640, 0         # host transform: scale 1.0 (no resample = sharpest), source y 440 (hair top) lands at screen 1080, under the stage
 def host_comp(base, rgb, m):
     """fixed transform: the (already scaled) layer is pasted at (HDX, HDY), clipped to the frame; soft contact shadow from the same alpha, fixed offset"""
     lh, lw = m.shape
@@ -510,17 +538,20 @@ def host_comp(base, rgb, m):
 HOST_SH_CACHE = {}
 host = Host() if (T1 and not o.fake_vo and not o.host_still) else None
 HOST_HEAD = None
-if host is not None and PLATE_N:   # 1b host lock (tokens.HOST_LOCK): same head size for every host, head top at y=top under the stage, mouth column at x=cx; ONE transform
-    hd = host.head(); HSC = round(min(HOST_LOCK['max_scale'], HOST_LOCK['head'] / hd['head']), 4)
-    HDY = int(round(HOST_LOCK['top'] - hd['top'] * HSC)); HDX = int(round(HOST_LOCK['cx'] - hd['mouth_x'] * HSC)); host.cache.clear()
-    HOST_HEAD = dict(native=round(hd['head'], 1), scale=HSC, head=round(hd['head'] * HSC, 1), target=HOST_LOCK['head'], top=HOST_LOCK['top'], x=HDX, y=HDY)
-    import cv2; lw_ = int(round(1080 * HSC)); FE = 56; HOST_FEATHER = np.ones(lw_, np.float32)
+if host is not None and PLATE_N:   # 1b framing standard (tokens.HOST_LOCK, hostframe.py): same shoulder width, head top, body centre, crop line for EVERY host
+    import cv2
+    lm = host.landmarks(); HSC, HDY, HDX = HF.solve(lm, HOST_LOCK)
+    HEXT = max(0, int(np.ceil((1920 - (HDY + 1920 * HSC)) / HSC)) + 8) if HDY + 1920 * HSC < 1920 + 4 else 0   # source rows to add under the legs
+    lw_ = int(round(1080 * HSC)); FE = max(8, int(round(12 + 24 * HSC))); HOST_FEATHER = np.ones(lw_, np.float32)   # feather ~ 50 source px: never fades an arm
     if HSC < 1.0: r_ = np.linspace(0, 1, FE, dtype=np.float32) ** 1.5; HOST_FEATHER[:FE] = r_; HOST_FEATHER[-FE:] = r_[::-1]
-    m0 = cv2.resize(host.MM[0], (lw_, int(round(1920 * HSC))), interpolation=cv2.INTER_AREA).astype(np.float32) / 255
-    vis = slice(max(0, -HDY), max(0, min(m0.shape[0], H - HDY)))   # layer rows that land on screen
-    side = (m0[vis, FE] > 0.5) | (m0[vis, -FE - 1] > 0.5); body = (m0[vis] > 0.5).any(1)
-    HOST_HEAD.update(side_cut_rows=int(side.sum()), host_rows=int(body.sum()), bottom=HDY + m0.shape[0])   # qc_tpl host_frame gate
-    print('host lock', HOSTN, HOST_HEAD)
+    host.cache.clear()
+    # measure the RESULT on screen (the gate never trusts the solver): landmarks of the composited matte over the clip
+    scr = [host.screen_alpha(i) for i in range(0, host.n, 6)]; SL = HF.merge([HF.landmarks(a_) for a_, _ in scr]); SL['layer_bottom'] = scr[0][1]
+    HOST_HEAD = dict(src=lm, scale=HSC, x=HDX, y=HDY, ext_rows=int(round(HEXT * HSC)), ext_src_rows=HEXT, screen=SL, std=HF.check(SL, HOST_LOCK, int(round(HEXT * HSC))),
+                     shoulder_w=SL['shoulder_w'], top=SL['top'], cx=SL['cx'], crop=SL['hands'], head=round((lm['neck'] - lm['top']) * HSC, 1))
+    m0 = scr[0][0]; side = (m0[:, max(0, HDX + FE)] > 0.5) | (m0[:, min(W - 1, HDX + lw_ - FE - 1)] > 0.5); body = (m0 > 0.5).any(1)
+    HOST_HEAD.update(side_cut_rows=int(side.sum()), host_rows=int(body.sum()), bottom=SL['layer_bottom'])   # qc_tpl host_frame gate
+    print('host frame', HOSTN, json.dumps(HOST_HEAD))
 LIPSYNC = None
 if host is not None:   # real host on screen -> every spoken line needs Rhubarb cues (no silent estimate; CI fails here when Rhubarb is missing)
     LIPSYNC = dict(lines={k: L[k].lipsrc for k in SEQ}, missing=[k for k in SEQ if not L[k].cues])
@@ -542,7 +573,10 @@ def prog_frac(t):
     return prev, False, None
 def compose(t, log):
     pz = None
-    if PLATE_N: base, pz = plate_at(t)
+    sk = None
+    if PLATE_N:
+        base, pz = plate_at(t); sk = scrim_k(t)
+        if sk > 0: base = base + (CREAM - base) * (SCR * sk)
     else: base = BG.copy()
     hl = None
     if host is not None:
@@ -572,7 +606,7 @@ def compose(t, log):
             im = im.crop((max(0, -xi), max(0, -yi), im.width, im.height)); xi, yi = max(0, xi), max(0, yi)
         fr.alpha_composite(im, (xi, yi))
         rec.append([e.id, round(x, 2), round(y, 2), im.width, im.height, round(a, 3), round(sc, 4), int(mv is not None), mv or e.grp, 1 if e.text else 0])
-    log.append(dict(t=round(t, 4), host=hl, els=rec, plate=pz))
+    log.append(dict(t=round(t, 4), host=hl, els=rec, plate=pz, scrim=None if sk is None else round(a_top * sk, 4)))
     return fr.convert('RGB')
 
 os.makedirs(os.path.dirname(os.path.abspath(o.out)), exist_ok=True)
@@ -648,7 +682,7 @@ for j, k in enumerate(SEQ):
     if k in shots: sheet.paste(shots[k], (12 + (j % 5) * 372, 12 + (j // 5) * 652))
 sheet.save(o.out + '.sheet.jpg', quality=88)
 LESSON_TXT = ' '.join([SP['series'][0], FORM, wrong, right, WHY, Q_PRE, Q_POST] + ROWS)
-json.dump(dict(id=LID, lesson=dict(topic=SP.get('topic'), area=SP.get('area'), text=LESSON_TXT, hook=SP.get('hook'), hook_text=L['h'].text, wrong=SP['wrong_line'], right=SP['key_line'], reject=SP.get('reject'), fix=SP.get('fix')),
+json.dump(dict(id=LID, hook_full=HOOK_FULL, lesson=dict(topic=SP.get('topic'), area=SP.get('area'), text=LESSON_TXT, hook=SP.get('hook'), hook_text=L['h'].text, wrong=SP['wrong_line'], right=SP['key_line'], reject=SP.get('reject'), fix=SP.get('fix')),
                host_head=HOST_HEAD, lipsync=LIPSYNC, tpl='1b' if PLATE_N else o.tpl, plate=PLATE_LOG, host_name=HOSTN, clip=CLIP, cta=CTA, fps=FPS, total=TOTAL, beats=BEAT, audio=AUD, video_kbps=vk, cuts=[],
                elements={e.id: dict(text=e.text, fs=e.fs, grp=e.grp, t_in=e.t_in, t_out=e.t_out, tweens=e.tweens(), inset=e.inset, parent=e.parent.id if e.parent else None) for e in ELS},
                progress=dict(tweens=[dict(kind='grow', dur='base', ease='out')] * len(PSTEPS)), frames=LOG), open(o.out + '.timeline.json', 'w'), default=float)

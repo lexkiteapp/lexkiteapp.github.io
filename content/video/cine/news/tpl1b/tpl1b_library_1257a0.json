@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_1257a0_h",
-  "quote": null,
+  "quote": "I study hard for pass the exam.",
   "kind": "Stop saying 'for pass'",
   "mode": "strong",
   "display": "Never say",

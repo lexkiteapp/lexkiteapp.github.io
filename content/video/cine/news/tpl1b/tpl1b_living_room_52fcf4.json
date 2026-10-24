@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_52fcf4_h",
-  "quote": null,
+  "quote": "The flood caused many damages.",
   "kind": "Stop saying 'many damages'",
   "mode": "strong",
   "display": "Natives never say",

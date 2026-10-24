@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_00f455_h",
-  "quote": null,
+  "quote": "The hotel is near to the beach.",
   "kind": "Stop saying 'near to'",
   "mode": "strong",
   "display": "Natives never say",

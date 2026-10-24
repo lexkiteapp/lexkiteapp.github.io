@@ -72,13 +72,19 @@ PLATES = dict(
 )
 # hosts with a PRO matte + mouth meta in the footage bank; voice = Kokoro voice used for EVERY line of that host's video
 HOSTS = dict(ama=dict(voice='af_bella'), carlos=dict(voice='am_fenrir'), mia=dict(voice='af_heart'), jake=dict(voice='am_michael'))
-PLATE = dict(blur=7.0, push=0.035, max_push_per_s=0.0025, scrim_top=0.70, scrim_y1=0.66, sat=0.82, host_match=0.35, stage_luma=226)   # depth blur px, total push-in, cream scrim alpha/extent, saturation, host colour-match strength
+PLATE = dict(blur=7.0, push=0.035, max_push_per_s=0.0025, scrim_top=0.70, scrim_y1=0.66, sat=0.82, host_match=0.35, stage_luma=226, scrim_rest=0.0)   # scrim_rest = scrim alpha with no text on screen (frame 0 + loop end: clean plate); depth blur px, total push-in, cream scrim alpha/extent, saturation, host colour-match strength
 
-# ---- one host scale for EVERY video and host (owner 24/10: Carlos looked smaller than Ama/Mia). Head = hair top (highest matte row over all frames,
-# within +-HEAD_BAND px of the mouth column) -> mouth centre (bank meta mouth_center, tracked frame 0), in screen px after the host transform.
-# render_tpl.py scales the layer by HOST_LOCK.head / measured (never above max_scale: no upscaled host, METHODS §7), puts the head top at y=top and the
-# mouth column at x=cx. qc_tpl gate host_scale: |head - target| <= tol; batch gate (rubric_tpl.py --batch): every host within +-tol of the batch median.
-HOST_LOCK = dict(head=248, top=1064, cx=540, max_scale=1.0, tol=0.03, band=140)
+# ---- ONE framing standard for every host (owner 24/10, 2nd round: head-pixel height was the wrong metric – Carlos (realistic proportions) came out
+# waist-cropped with wide shoulders, Ama/Mia (big-head style) small). Measured on the MATTE by hostframe.py, then re-measured on screen:
+#   shoulder = shoulder-corner silhouette width (px) – the size the eye compares; fit = how far the solver may move it to bring the crop line closer
+#   top = hair top y (same for everyone) · cx = body centre x (shoulder midpoint, not the mouth) · crop = target y of the rest-pose fingertips
+#   crop class 'mid-thigh': (1920 - fingertips) / shoulder in [crop_min, crop_max] = hands fully visible, frame cuts the thigh above the knee.
+#   Tightly framed sources (Carlos gc4 ends at the upper thigh) get their legs continued by edge rows: <= max_ext px on screen, logged.
+# qc_tpl host_frame_std = this check per video; batch gate (batch_report / rubric_tpl --batch): shoulder widths within +-shoulder_tol of the batch
+# median, head tops within px_tol, crop class for every host. Proportions differ (Carlos ~2.6 shoulder widths hair->fingertips, Ama ~3.2), so with
+# equal shoulders the crop line cannot also be pixel-identical: crop_spread (in shoulder widths) is the honest cap on that difference.
+HOST_LOCK = dict(shoulder=258, fit=0.02, shoulder_tol=0.05, top=1064, cx=540, crop=1880, crop_min=0.08, crop_max=0.65, crop_spread=0.45,
+                 px_tol=4, max_ext=120, max_scale=1.0)
 # hosts used by the batch pipeline (one natural-talk clip each; PRO matte + mouth meta in the footage bank)
 HOST_CLIPS = dict(ama='ga4_talk_natural', carlos='gc4_talk_natural', mia='gm1_talk_natural')
 # hook truth (docs/VIDEO-TEMPLATES.md §9): "Stop/Never saying" only when the Groq judge says the learner line is a real error

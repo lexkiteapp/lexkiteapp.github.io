@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_01d026_h",
-  "quote": null,
+  "quote": "Don't go at the full hours.",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Never say",

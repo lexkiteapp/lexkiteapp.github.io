@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_0acfd1_h",
-  "quote": null,
+  "quote": "A guest made a problem talk.",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Stop saying",

@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_05870e_h",
-  "quote": null,
+  "quote": "We follow with the rules.",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Never say",

@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_14cb88_h",
-  "quote": null,
+  "quote": "Wait me a moment.",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Natives never say",

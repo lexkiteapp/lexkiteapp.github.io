@@ -1,6 +1,6 @@
 // Template-1b batch pipeline invariants (docs/VIDEO-TEMPLATES.md §9) – no render, no network, < 1 s.
 // Lessons/plan consistent · hook truth (strong hook only with a judge verdict "real error", soft family otherwise, verdict hash = current text)
-// · host lock tokens (one head size, ±3 %, never upscale) · workflow: Rhubarb mandatory, ≤ 10 jobs, lease, no YouTube/social publishing.
+// · hook quote = the real wrong phrase (class rule hookquote.py, every lesson) · host framing standard tokens (shoulder ±5 %, never upscale) · workflow: Rhubarb mandatory, ≤ 10 jobs, lease, no YouTube/social publishing.
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
@@ -28,6 +28,15 @@ for (const it of plan.items) {
     if (d.hook.mode === 'strong' && !d.reject) ok(j.wrong_is_error === true && j.right_ok === true, `${it.id}: strong hook only when the judge says the learner line is a real error`);
     if (!j.right_ok) ok(!!d.reject, `${it.id}: wrong correction → rejected`);
   }
+  // hook quote (hookquote.py): strong = the learner's WRONG phrase incl. every error word (never a correct fragment like 'gate is');
+  // soft = the natural phrase from the key line
+  const nw = w => w.toLowerCase().replace(/’/g, "'").replace(/[^a-z0-9']/g, '').replace(/^'+|'+$/g, '');
+  const tk = t => t.trim().split(/\s+/), q = d.hook.quote;
+  if (d.hook.mode === 'strong') {
+    const rs = new Set(tk(d.key_line).map(nw)), err = tk(d.wrong_line).map(nw).filter(w => w && !rs.has(w)), qs = new Set(tk(q || '').map(nw));
+    ok(q && d.wrong_line.includes(q), `${it.id}: hook quote "${q}" is a phrase of the wrong line "${d.wrong_line}"`);
+    ok(err.every(w => qs.has(w)), `${it.id}: hook quote "${q}" contains every error word (${err.join(' ')})`);
+  } else if (q) ok(d.key_line.toLowerCase().includes(q.toLowerCase()), `${it.id}: soft quote "${q}" is a phrase of the key line`);
   ok(/\bLEXKITE\.COM\b|lexkite\.com/i.test(byId[`n_${d.hook.line.slice(2, 8)}_s`] || '') || (d.cta && d.cta.link.startsWith('https://lexkite.com/')), `${it.id}: CTA deep link`);
 }
 // the example the owner named: "room card" is acceptable → its lesson must never keep a strong hook once judged
@@ -37,12 +46,19 @@ if (rc) ok(!(rc.hook.judge && rc.hook.mode === 'strong'), 'room card lesson: no 
 for (const s of ['Americans usually say this.', 'Sound more natural.']) ok(judge.includes(s) && tok.includes(s), `soft hook "${s}" in tokens + judge`);
 ok(judge.includes("chain: ['gc-groq']"), 'hook judge runs on Groq only');
 ok(g2l.includes('What sounds better?') && judge.includes('What sounds better?'), 'soft guess line in sync');
-// host lock
+// the airport case the owner named: never 'gate is'
+const ag = J(`${TD}/tpl1b_airport_gate_cc6fbe.json`); ok(ag.hook.quote === 'The gate is change?', `airport hook quotes the real error (got "${ag.hook.quote}")`);
+ok(/hook_quote\(g\['w'\], g\['r'\], mode\)/.test(g2l), 'gold2lesson writes the hook quote with hookquote.hook_quote');
+// host framing standard
 const hl = tok.match(/HOST_LOCK = dict\(([^)]*)\)/)[1];
-ok(/max_scale=1\.0/.test(hl) && /tol=0\.03/.test(hl), 'HOST_LOCK: never upscale, ±3 % tolerance');
+ok(/max_scale=1\.0/.test(hl) && /shoulder_tol=0\.05/.test(hl) && /shoulder=\d+/.test(hl) && /crop=\d+/.test(hl) && /top=\d+/.test(hl) && /cx=540/.test(hl), 'HOST_LOCK: shoulder width ±5 %, same head top / centre / crop line, never upscale');
+const hf = fs.readFileSync('scripts/video/tpl/hostframe.py', 'utf8');
+ok(/def landmarks\(/.test(hf) && /def check\(/.test(hf) && /def batch\(/.test(hf), 'hostframe.py measures shoulder width + crop line on the matte, per video + batch');
+ok(/HF\.check\(SL, HOST_LOCK/.test(fs.readFileSync('scripts/video/tpl/render_tpl.py', 'utf8')), 'render re-measures the framing on the SCREEN matte');
 const qc = fs.readFileSync('scripts/video/tpl/qc_tpl.py', 'utf8');
-for (const g of ['host_scale', 'host_frame', 'lipsync_rhubarb', 'hook_truth']) ok(qc.includes(`R['${g}']`), `qc_tpl gate ${g}`);
-ok(fs.readFileSync('scripts/video/tpl/batch_report.py', 'utf8').includes('batch_host_scale'), 'batch host-scale gate across hosts');
+for (const g of ['host_frame_std', 'host_frame', 'lipsync_rhubarb', 'hook_truth', 'hook_readable', 'loop_end']) ok(qc.includes(`R['${g}']`), `qc_tpl gate ${g}`);
+ok(/batch_host_scale/.test(fs.readFileSync('scripts/video/tpl/batch_report.py', 'utf8')) && /HF\.batch\(/.test(fs.readFileSync('scripts/video/tpl/batch_report.py', 'utf8')), 'batch framing gate across hosts');
+ok(/scrim_last/.test(qc) && /hook_full/.test(qc), 'qc: loop end back to the clean plate, complete hook readable at 1.5 s');
 ok(/lip-sync: Rhubarb cues missing/.test(fs.readFileSync('scripts/video/tpl/render_tpl.py', 'utf8')), 'render refuses estimated visemes');
 // workflow
 const wf = fs.readFileSync('.github/workflows/video-tpl1b.yml', 'utf8');

@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_07d8ef_h",
-  "quote": null,
+  "quote": "This model is inferior than that one.",
   "kind": "Stop saying 'inferior than'",
   "mode": "strong",
   "display": "Stop saying",

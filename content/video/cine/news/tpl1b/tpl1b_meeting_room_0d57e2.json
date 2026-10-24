@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_0d57e2_h",
-  "quote": null,
+  "quote": "Sorry, no. The room is full.",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Natives never say",

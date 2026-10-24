@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_0edca2_h",
-  "quote": null,
+  "quote": "Can I have a free test?",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Stop saying",

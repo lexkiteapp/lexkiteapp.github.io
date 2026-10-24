@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_0f8cdb_h",
-  "quote": null,
+  "quote": "I like listening music.",
   "kind": "Stop saying 'listening music'",
   "mode": "strong",
   "display": "Natives never say",

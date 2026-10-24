@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_0c359c_h",
-  "quote": null,
+  "quote": "Translate this to English.",
   "kind": "Stop saying 'translate to'",
   "mode": "strong",
   "display": "Natives never say",

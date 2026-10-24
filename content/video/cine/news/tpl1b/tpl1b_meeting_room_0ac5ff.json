@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_0ac5ff_h",
-  "quote": null,
+  "quote": "What is your call number?",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Stop saying",

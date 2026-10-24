@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_040ec7_h",
-  "quote": null,
+  "quote": "I apologize you for the delay.",
   "kind": "Stop saying 'apologize you'",
   "mode": "strong",
   "display": "Never say",

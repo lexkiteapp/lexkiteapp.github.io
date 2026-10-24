@@ -14,7 +14,7 @@
  "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_08e239_h",
-  "quote": null,
+  "quote": "Your help was not valuable at all. Thanks!",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Stop saying",

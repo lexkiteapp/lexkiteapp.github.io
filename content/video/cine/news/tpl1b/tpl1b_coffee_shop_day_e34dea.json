@@ -14,7 +14,7 @@
  "clip": "ga4_talk_natural",
  "hook": {
   "line": "n_e34dea_h",
-  "quote": null,
+  "quote": "I will send you message the details.",
   "kind": "Say this instead",
   "mode": "strong",
   "display": "Never say",

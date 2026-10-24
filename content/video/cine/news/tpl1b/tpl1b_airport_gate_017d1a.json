@@ -14,7 +14,7 @@
  "clip": "ga4_talk_natural",
  "hook": {
   "line": "n_017d1a_h",
-  "quote": null,
+  "quote": "The car collided to a bus.",
   "kind": "Stop saying 'collided to'",
   "mode": "strong",
   "display": "Natives never say",

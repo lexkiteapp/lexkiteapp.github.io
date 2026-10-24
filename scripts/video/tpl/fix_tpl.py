@@ -29,7 +29,7 @@ fix = []
 if F & {'plate_contrast', 'plate_clean', 'plate_topic'}:
     alt = [p for p, v in PLATES.items() if SP['topic'] in v['tags'] and p != SP['plate']]
     if alt: SP['plate'] = alt[0]; SP['series'][0] = PLATES[alt[0]]['series']; fix.append('plate→' + alt[0])
-if F & {'host_scale', 'host_frame', 'lipsync_rhubarb', 'host_variance'}:
+if F & {'host_frame_std', 'host_frame', 'lipsync_rhubarb', 'host_variance'}:
     hs = list(HOST_CLIPS); nh = hs[(hs.index(SP['host']) + 1) % len(hs)] if SP['host'] in hs else hs[0]
     SP['host'], SP['clip'] = nh, HOST_CLIPS[nh]; fix.append('host→' + nh)
 # safe_area / readability: NO automatic fix – never shorten or cut content to pass a gate (owner rule 24/10); a human fixes layout/type

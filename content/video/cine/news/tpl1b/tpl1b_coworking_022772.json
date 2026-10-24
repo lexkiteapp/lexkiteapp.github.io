@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_022772_h",
-  "quote": null,
+  "quote": "What's the reason of the delay?",
   "kind": "Stop saying 'reason of'",
   "mode": "strong",
   "display": "Natives never say",

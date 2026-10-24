@@ -14,7 +14,7 @@
  "clip": "gm1_talk_natural",
  "hook": {
   "line": "n_011d16_h",
-  "quote": null,
+  "quote": "She smiled to me.",
   "kind": "Stop saying 'smile to me'",
   "mode": "strong",
   "display": "Never say",

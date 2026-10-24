@@ -4,11 +4,14 @@ Reads <video>.timeline.json (per-frame element log written by render_tpl.py) + f
 Gates: host transform variance = 0 | motion tokens only | text inside the safe area | readability (>= 0.8 s fully visible, >= 48 px)
 | no jitter (static elements never move by a sub-pixel; tweens monotonic) | <= 1 moving group per frame | no cuts | file: 25-35 s, >= 5.5 Mbps, <= 25 MB
 | tpl 1b: plate_topic, plate_clean, plate_motion (push-in only), loop_end (last frame text-free + CTA deep link)
-| lipsync_rhubarb (every spoken line has Rhubarb cues), host_scale (head = tokens.HOST_LOCK ±3 %), host_frame (no big side cut, body reaches the frame bottom),
+| lipsync_rhubarb (every spoken line has Rhubarb cues), host_frame_std (tokens.HOST_LOCK framing standard re-measured on the screen matte: shoulder width ±5 %,
+  head top, body centre, mid-thigh crop, leg extension cap), host_frame (no big side cut, body reaches the frame bottom),
+  hook_readable (the COMPLETE hook string 'Americans usually say: “split the bill”' fully opaque on screen at 1.5 s),
   hook_truth (Groq judge verdict for THIS hook text: strong hook only when the learner line is a real error; correction ok)."""
 import sys, os, re, json, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE, HOST_LOCK
+import hostframe as HF
 ok_all = True
 for vid in sys.argv[1:]:
     T = json.load(open(vid + '.timeline.json')); fr = T['frames']; E = T['elements']; fps = T['fps']; R = {}
@@ -77,17 +80,19 @@ for vid in sys.argv[1:]:
         rate = max(dz) * fps if dz else 0
         R['plate_motion'] = dict(ok=len(z) == len(fr) and all(d >= 0 for d in dz) and rate <= PLATE['max_push_per_s'] + 1e-6 and z[-1] - 1 <= PLATE['push'] + 1e-6,
                                  total_push=round(z[-1] - 1, 4) if z else None, max_rate_per_s=round(rate, 5))
-        # loop: the last frame shows no text (plate + host only, like frame 0)
-        last_txt = [r[0] for r in fr[-1]['els'] if r[5] > 0.004]
-        R['loop_end'] = dict(ok=not last_txt and bool(T.get('cta')), last_frame_elements=last_txt[:4], cta=(T.get('cta') or {}).get('link'))
+        # loop: the last frame = frame 0 = clean plate + host (no text, scrim back at rest – no cream haze left on the plate)
+        last_txt = [r[0] for r in fr[-1]['els'] if r[5] > 0.004]; s0, s1 = fr[0].get('scrim'), fr[-1].get('scrim')
+        R['loop_end'] = dict(ok=not last_txt and bool(T.get('cta')) and s0 is not None and s1 is not None and abs(s1 - s0) <= 0.01 and s1 <= PLATE['scrim_rest'] + 0.01,
+                             last_frame_elements=last_txt[:4], scrim_first=s0, scrim_last=s1, cta=(T.get('cta') or {}).get('link'))
     if T.get('lipsync') is not None or any(f['host'] for f in fr[:1]):
         LS_ = T.get('lipsync') or {}
         R['lipsync_rhubarb'] = dict(ok=bool(LS_) and not LS_.get('missing') and all(str(v or '').startswith('rhubarb') for v in (LS_.get('lines') or {}).values()) and bool(LS_.get('lines')),
                                     missing=LS_.get('missing'), sources=sorted({str(v) for v in (LS_.get('lines') or {}).values()}))
     if P:
-        HH = T.get('host_head') or {}; tgt = HOST_LOCK['head']
-        R['host_scale'] = dict(ok=bool(HH) and abs(HH.get('head', 0) - tgt) <= HOST_LOCK['tol'] * tgt and HH.get('scale', 9) <= HOST_LOCK['max_scale'] + 1e-6,
-                               head=HH.get('head'), target=tgt, scale=HH.get('scale'), native=HH.get('native'), host=T.get('host_name'))
+        HH = T.get('host_head') or {}; SC = HH.get('screen')
+        std = HF.check(SC, HOST_LOCK, HH.get('ext_rows', 0)) if SC else dict(ok=False, reason='no screen landmarks')
+        R['host_frame_std'] = dict(ok=bool(SC) and std['ok'] and HH.get('scale', 9) <= HOST_LOCK['max_scale'] + 1e-6, host=T.get('host_name'), scale=HH.get('scale'),
+                                   **{k: v for k, v in std.items() if k != 'ok'})
         R['host_frame'] = dict(ok=bool(HH) and HH.get('bottom', 0) >= 1920 and HH.get('side_cut_rows', 1e9) <= 0.35 * max(1, HH.get('host_rows', 0)),
                                side_cut_rows=HH.get('side_cut_rows'), host_rows=HH.get('host_rows'), bottom=HH.get('bottom'))
         hk = (Lz.get('hook') or {}); jd = hk.get('judge') or {}
@@ -96,6 +101,11 @@ for vid in sys.argv[1:]:
         R['hook_truth'] = dict(ok=bool(jd) and jd.get('hash') == cur and jd.get('right_ok') is True and jd.get('hook_true') is True and not Lz.get('reject')
                                and (hk.get('mode') == 'soft' or jd.get('wrong_is_error') is True),
                                mode=hk.get('mode'), hook=Lz.get('hook_text'), wrong_is_error=jd.get('wrong_is_error'), right_ok=jd.get('right_ok'), model=jd.get('model'), note=jd.get('note'))
+    if T.get('hook_full'):   # the COMPLETE hook sentence is on screen, fully opaque, at 1.5 s (owner: 'Americans usually' alone is not a hook)
+        f15 = max((f for f in fr if f['t'] <= 1.5 + 1e-6), key=lambda f: f['t'])
+        vis = ' '.join(E[r[0]]['text'] for r in f15['els'] if r[0].startswith('h.t') and r[5] >= 0.99 and E.get(r[0], {}).get('text'))
+        nz = lambda x: re.sub(r'\s+', ' ', x).strip()
+        R['hook_readable'] = dict(ok=nz(vis) == nz(T['hook_full']), at=f15['t'], expected=T['hook_full'], visible=vis)
     ok = all(v['ok'] for v in R.values()); ok_all &= ok
     json.dump(dict(video=os.path.basename(vid), ok=ok, gates=R), open(vid + '.qc.json', 'w'), indent=1)
     print(os.path.basename(vid), 'PASS' if ok else 'FAIL')

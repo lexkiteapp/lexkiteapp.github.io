@@ -70,13 +70,20 @@ Same engine, tokens and gates as tpl1; only the background, the host choice and 
 - **Plate** = `anchor/bg/<name>.png` from the footage bank, only names in `tokens.PLATES` (human-checked: no people, no readable text).
   Cover-resampled once, depth blur 7 px, saturation ×0.82, 12 % cream lift, cream scrim over the text stage (adaptive: the stage
   must reach luma ≥ 226 so navy type keeps contrast), very slow linear push-in (3.5 % over the whole video). No other camera move.
-- **Host**: any bank host with a PRO matte + mouth meta. ONE transform per video, **host lock** `tokens.HOST_LOCK` (24/10): head = hair top
-  (highest matte row over all frames near the mouth column) → mouth centre, scaled to 248 px for EVERY host (never above 1.0×; scaled layer
-  sides feathered 56 px), head top at y 1064, mouth column at x 540; colour-matched to the plate (gain ±6 %); contact shadow in plate tone.
-  Gates `host_scale` (±3 % of the target), `host_frame` (body reaches the bottom, side cut ≤ 35 % of host rows) + batch gate (every host
-  within ±3 % of the batch median).
-- **Hook** (first 1.5 s): host line "Stop saying this." / "Never say this." / "Natives never say this." + the same words in display
-  type + the struck quote (lesson `hook.quote`). **Payoff** = the ✓ card (≈ 8–10 s). **End**: CTA from `content/video/ecosystem.json`
+- **Host**: any bank host with a PRO matte + mouth meta. ONE transform per video, **framing standard** `tokens.HOST_LOCK` + `hostframe.py`
+  (25/10, replaces the 24/10 head-height lock: equal heads made Carlos – realistic proportions – waist-cropped and much wider than Ama/Mia).
+  Landmarks are measured on the matte: hair top, shoulder corner width + centre, rest-pose fingertips. ONE scale: shoulder width = 258 px
+  (±2 % used to bring the fingertips toward y 1880), hair top at y 1064, body centre at x 540, never above 1.0×; side feather ≈ 50 source px.
+  Crop class "mid-thigh": fingertips on screen, cut above the knee ((1920 − fingertips) / shoulder ∈ [0.08, 0.65]). A source framed tighter
+  than the standard (Carlos gc4 ends at the upper thigh) gets its legs continued with edge rows (≤ 120 px on screen, logged as `ext_rows`).
+  Gate `host_frame_std` re-measures the composited SCREEN matte (shoulder ±5 %, top ±4 px, centre ±8 px, crop class, extension cap),
+  `host_frame` (body reaches the bottom, side cut ≤ 35 %) + batch gate `hostframe.batch` (shoulders ±5 % of the batch median, same top,
+  crop spread ≤ 0.45 shoulder widths – body proportions differ, so equal shoulders cannot also give a pixel-identical crop line).
+  `batch_report.py` writes `hosts-sheet.jpg`: every video side by side at the same frame times with the top / crop guides.
+- **Hook** (first 1.5 s): host line "Stop saying this." / "Never say this." / "Natives never say this." + display type
+  "Never say:" + the quote (lesson `hook.quote`, rule `hookquote.py`: the WHOLE wrong sentence when ≤ 8 words, else the error span + 1 word;
+  soft = the natural phrase) with the error words underlined in red. The complete hook enters as one block at the beat start; gate
+  `hook_readable` = the full string fully opaque at 1.5 s. The cream scrim exists only while text is on screen (frame 0 + loop end = clean plate). **Payoff** = the ✓ card (≈ 8–10 s). **End**: CTA from `content/video/ecosystem.json`
   (spoken + on screen + area chip = deep link `lesson.cta.link`), then every element clears → the last frame is plate + host = frame 0 (loop).
 - **Encode**: `--crf 18` (5.5 Mbps floor: re-encoded CBR 5.8 Mbps when CRF lands lower).
 - **Extra gates** (qc_tpl.py, only when the timeline has a plate): `plate_topic` (lesson topic ∈ plate tags AND a scene tag such as

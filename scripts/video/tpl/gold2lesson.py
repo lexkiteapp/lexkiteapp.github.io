@@ -14,6 +14,7 @@ import json, os, re, sys, glob, argparse, hashlib
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tokens import PLATES, HOSTS, HOST_CLIPS, HOOKS
+from hookquote import hook_quote   # the quoted phrase = the real wrong phrase (strong) / natural phrase (soft), never a correct fragment
 
 def gold():
     G = {}
@@ -47,7 +48,7 @@ def make(g, plate, host, clip, area, series, formula, quote=None, mode='strong',
     hook_line, hook_disp = hook_pick(g['p'], mode)
     L, (pre, post, qa, qb) = lines_for(g, h6, host, hook_line, mode, cta)
     SP = dict(v=1, id=lid, template='fix', tpl='1b', source=dict(gold=g['p']), topic=g['t'], cefr=g['l'], area=area,
-              plate=plate, host=host, clip=clip, hook=dict(line=f'n_{h6}_h', quote=quote, kind=g['h'], mode=mode, display=hook_disp, judge=None),
+              plate=plate, host=host, clip=clip, hook=dict(line=f'n_{h6}_h', quote=quote or hook_quote(g['w'], g['r'], mode), kind=g['h'], mode=mode, display=hook_disp, judge=None),
               wrong_line=g['w'], key_line=g['r'], series=[series, formula],
               beats=[dict(kind='k', line=f'n_{h6}_k', card=dict(formula=formula)), dict(kind='y', line=f'n_{h6}_y', card=dict(text=g['y']))],
               recap=dict(rows=[g['r']] + g['e'][:2]), quiz=dict(pre=pre, post=post, a=qa, b=qb, answer=g['q'][2]),
