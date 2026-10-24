@@ -21,6 +21,9 @@ const VP = { desktop: { viewport: { width: 1280, height: 820 } }, mobile: { ...d
 const LOCALE = { vi: 'vi-VN', en: 'en-US', ar: 'ar-SA' };
 const results = [];
 const srv = await serve(ROOT, 0), O = srv.origin;
+// Hermetic cả với service worker: Playwright 1.50 KHÔNG cho ctx.route chặn fetch() TỪ SW (sw.js lk-vimg/âm thanh/lexkite.com) trừ khi bật cờ này
+// → không có cờ, ảnh vimg đi qua SW ra mạng thật (media.lexkite.com → 127.0.0.1) → lỗi → hộp 'gone' (J8 đỏ: không bao giờ 'on'), và vi phạm "0 lượt chạm prod".
+process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS ||= '1';
 const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required'] });
 
 // ---------- máy chủ API giả lập (mỗi hành trình 1 trạng thái) ----------

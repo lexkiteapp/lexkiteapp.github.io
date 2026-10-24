@@ -445,6 +445,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .g4.stats, .g3.keep { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .auto { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)) !important; }
   .entry-head { grid-template-columns: minmax(0, 1fr) 84px; }
+  .entry-head.has-vimg { grid-template-columns: minmax(0, 1fr); } /* ảnh từ vựng giữ đúng 160×160 (vai dict) → xuống dưới chữ thay vì bị bóp còn 84 px */
   .stat { gap: .55rem; } .stat .em { width: 38px; height: 38px; font-size: 1.1rem; } .stat b { font-size: 1.1rem; }
   .card { padding: 1rem; }
   .hero-main .row .btn.lg { padding: .75rem 1rem; font-size: .98rem; }

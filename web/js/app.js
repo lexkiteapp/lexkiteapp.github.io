@@ -953,9 +953,10 @@
     const keep = $('#ctx') ? $('#ctx').value : '';
     const card = state.cards[e.word];
 
+    const vh = App.vimg(e.word, e.pos, App.meanOf(e), { w: 'dict', photo: true }, [].concat(e.ex || [])[0] || ''); // hộp ảnh tra từ cố định 160 px (vai dict) – có ảnh thì điện thoại xếp dọc (cột 84 px của ảnh cũ sẽ bóp hộp)
     $('#result').innerHTML = `
       <div class="card">
-        <div class="entry-head">
+        <div class="entry-head${vh ? ' has-vimg' : ''}">
           <div>
             <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}${e.from ? `<span class="chip" data-from lang="en">${esc(e.from)} → ${esc(e.word)}</span>` : ''}</div>
             <div class="pron">
@@ -971,7 +972,7 @@
               ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">🔤 ${t('Chia động từ')}</a>` : ''}${window.LK_USAGE_IDX && LK_USAGE_IDX.w[e.word.toLowerCase()] ? `<a class="btn" href="#/usage/${encodeURIComponent(e.word.toLowerCase())}">📘 ${t('Cách dùng')}</a>` : ''}
             </div>
           </div>
-          ${App.vimg(e.word, e.pos, App.meanOf(e), { w: 'dict', photo: true }, [].concat(e.ex || [])[0] || '') || pic(e)}
+          ${vh || pic(e)}
         </div>
         ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div>` : ''}
         ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}

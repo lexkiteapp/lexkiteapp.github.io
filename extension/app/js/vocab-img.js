@@ -78,7 +78,7 @@
     (g.requestIdleCallback ? g.requestIdleCallback(run, { timeout: 2000 }) : setTimeout(run, 300));
   }
   // hiện sau decode() + mờ 150 ms; lỗi tải (CDN thiếu tệp / mạng) → ẨN hộp, GIỮ chỗ (không icon vỡ, CLS 0 – gỡ hộp sẽ làm xê dịch bố cục).
-  // Chế độ tối: ảnh nền kem (không data-a) không hiện (display:none áp từ đầu → không xê dịch).
+  // Chế độ tối: ảnh nền kem (không data-a) không hiện (display:none áp từ đầu → không xê dịch; !important vì hộp mang display:block nội tuyến).
   const D = g.document && g.document.documentElement ? g.document : null;
   if (D && D.addEventListener && !D.__vimg) {
     D.__vimg = 1;
@@ -86,7 +86,7 @@
       const st = D.createElement('style');
       st.textContent = '.vimg-js .vimg img{opacity:0;transition:opacity .15s ease}.vimg-js .vimg img.on{opacity:1}.vimg.gone{visibility:hidden}'
         + '@media (prefers-reduced-motion:reduce){.vimg-js .vimg img{transition:none}}'
-        + ':root[data-theme="dark"] .vimg:not([data-a]){display:none}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vimg:not([data-a]){display:none}}';
+        + ':root[data-theme="dark"] .vimg:not([data-a]){display:none!important}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .vimg:not([data-a]){display:none!important}}';
       (D.head || D.documentElement).appendChild(st); D.documentElement.classList.add('vimg-js');
     } catch (e) { /* bỏ qua */ }
     const show = i => { i.classList.add('on'); };
