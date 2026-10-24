@@ -16,6 +16,7 @@
     for (let i = 0; i < 40 && !vis('.study-wrap .celebrate'); i++) { await dismiss();
       if (vis('#nextQ')) await click('#nextQ', 450);
       else if (vis('#known')) await click('#known', 450); else if (vis('#gotIt')) await click('#gotIt', 450);
+      else if (vis('.study-wrap #skip')) await click('.study-wrap #skip', 500); // câu gõ/nghe-gõ: "Không biết – xem đáp án"
       else if (vis('.study-wrap .option')) { const w = ((D.querySelector('.study-wrap .q-card .entry-word') || {}).textContent || '').trim(), os = [...D.querySelectorAll('.study-wrap .option')]; await sleep(300); (os.find(o => o.dataset.o === w) || os[0]).click(); await sleep(500); }
       else await sleep(600); }
     return wait('.study-wrap .celebrate', 6000); }
@@ -59,7 +60,7 @@
       for (const w of Object.keys(all0)) if (!mine.has(w)) await Core.Cards.patch(w, c => { c.srs = { ...(c.srs || {}), due: now + 30 * DAY }; }).catch(() => {});
       App.state.cards = await Core.Cards.all(); await go('#/review'); await sleep(800);
       const modes = ['flip', 'type', 'audio'], seen = new Set(); let own = false;
-      for (let i = 0; i < 16 && !vis('.rev-done'); i++) { if (i) t.audit('review'); await dismiss(); const sel = D.getElementById('rmSel'); if (sel) { sel.value = modes[i % 3]; sel.dispatchEvent(new Event('change', { bubbles: true })); await sleep(500); }
+      for (let i = 0; i < 45 && !vis('.rev-done'); i++) { if (i) t.audit('review'); await dismiss(); const sel = D.getElementById('rmSel'); if (sel) { sel.value = modes[i % 3]; sel.dispatchEvent(new Event('change', { bubbles: true })); await sleep(500); }
         if (vis('figure.rctx.own')) own = true;
         if (vis('#typeIn')) { seen.add('type'); const x = D.getElementById('typeIn'); x.value = 'zzz'; x.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); await sleep(600); }
         else if (vis('[data-opt="0"]')) { seen.add('audio'); await click('[data-opt="0"]', 600); } else if (vis('#flipBtn')) { seen.add('flip'); await click('#flipBtn', 400); }
