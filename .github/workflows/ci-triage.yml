@@ -34,6 +34,7 @@ on:
       - 'SEO IndexNow'
       - 'UX public audit'
       - 'Review shots'
+      - 'UX shots'
       - 'd1-backup'
       - 'code-bundle'
       - 'release-archive'
