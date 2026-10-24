@@ -1862,6 +1862,82 @@
      "xw-everyday.v"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "trio#n",
+   "batch": "20261024-pool-pilot6",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "trio",
+    "pos": "n",
+    "ipa": "/ˈtriəʊ/",
+    "ipaUS": "/ˈtriːoʊ/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "B2",
+    "z": 3.94,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:three.n.01",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "jockey#v",
+   "batch": "20261024-pool-pilot6",
+   "why": [
+    "keep: không phải mục từ chuẩn"
+   ],
+   "at": "2026-10-24",
+   "data": {
+    "w": "jockey",
+    "pos": "v",
+    "ipa": "/ˈdʒɒki/",
+    "ipaUS": "/ˈdʒɑːki/",
+    "def": "",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "z": 3.57,
+    "emoji": "",
+    "topic": "",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:cheat.v.02",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "gen": "openai/gpt-oss-120b"
+    },
+    "qa": {},
+    "tp": [
+     "xw-everyday.v"
+    ]
+   }
   }
  ]
 }
