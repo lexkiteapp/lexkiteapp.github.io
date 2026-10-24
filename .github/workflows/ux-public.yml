@@ -1,0 +1,41 @@
+# UX audit of the public entry pages (docs/UX-PUBLIC.md): Playwright matrix (1280/375 × light/dark × en/vi/ar) + Lighthouse
+# (mobile median of 3, desktop 1×) for /en/vocabulary/, /en/samples/, /en/speaking/, /app/?hl=en. Artifact only, nothing committed.
+name: UX public audit
+on:
+  workflow_dispatch:
+    inputs:
+      label: { description: 'before / after', required: false, default: 'run' }
+      base: { description: 'Site to audit', required: false, default: 'https://lexkite.com' }
+permissions:
+  contents: read
+jobs:
+  ux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright matrix
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+          node scripts/test/ux-public.mjs "${{ github.event.inputs.base }}" ux-out
+      - name: Lighthouse
+        if: ${{ !cancelled() }}
+        run: |
+          B="${{ github.event.inputs.base }}"; mkdir -p ux-out/lh
+          for p in "en/vocabulary/" "en/samples/" "en/speaking/" "app/?hl=en"; do
+            k=$(echo "$p" | tr -c 'a-z0-9' '_')
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "$B/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/m$i.json --quiet || true; done
+            npx -y lighthouse@12.2.1 "$B/$p" --preset=desktop --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path=/tmp/d.json --quiet || true
+            node -e "
+              const fs=require('fs');const sum=f=>{const d=JSON.parse(fs.readFileSync(f)),a=d.audits;return{scores:Object.fromEntries(Object.entries(d.categories).map(([k,v])=>[k,Math.round(v.score*100)])),lcp:a['largest-contentful-paint'].displayValue,cls:a['cumulative-layout-shift'].displayValue,tbt:a['total-blocking-time'].displayValue,kb:Math.round(a['total-byte-weight'].numericValue/1024),fails:Object.values(a).filter(x=>x.score!==null&&x.score<0.9&&['binary','numeric','metricSavings'].includes(x.scoreDisplayMode)).map(x=>x.id).slice(0,20)}};
+              const m=[1,2,3].map(i=>'/tmp/m'+i+'.json').filter(f=>fs.existsSync(f)).map(sum).sort((a,b)=>a.scores.performance-b.scores.performance);
+              const o={url:'$p',mobile:m[Math.floor((m.length-1)/2)]||null,desktop:fs.existsSync('/tmp/d.json')?sum('/tmp/d.json'):null};
+              fs.writeFileSync('ux-out/lh/$k.json',JSON.stringify(o,null,1));console.log(JSON.stringify(o));"
+            rm -f /tmp/m?.json /tmp/d.json
+          done
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: 'ux-public-${{ github.event.inputs.label }}', path: ux-out, retention-days: 7 }
