@@ -45,7 +45,7 @@ export function promptScene(k, sc, attempt = 1) {
 
 // Bộ lọc an toàn prompt của Cloudflare (bad_request) → viết lại TRUNG TÍNH (không bao giờ gửi lại y nguyên): thay từ nhạy cảm, bỏ chi tiết cơ thể/xung đột, thêm khung gia đình.
 const SOFT = [[/\b(blood|bleeding|bloody|wound(ed)?|injur(y|ies|ed)|hurt)\b/gi, 'a small bandage'], [/\b(guns?|rifles?|pistols?|weapons?|knives|knife|swords?|bombs?|explosi\w*)\b/gi, 'tools'],
-  [/\b(kill(s|ed|ing)?|murder\w*|dead|death|dying|corpse)\b/gi, 'sad'], [/\b(fight(s|ing)?|attack\w*|hit(s|ting)?|punch\w*|war|soldiers?|violen\w*)\b/gi, 'argue'],
+  [/\b(kill(s|ed|ing)?|murder\w*|dead|death|dying|corpse)\b/gi, 'sad'], [/\b(fight(s|ing)?|attack\w*|hit(s|ting)?|punch\w*|war|violen\w*)\b/gi, 'disagree'], [/\bsoldiers?\b/gi, 'workers'],
   [/\b(drugs?|pills?|syringe|needle|alcohol|beer|wine|drunk|cigarettes?|smok\w*)\b/gi, 'cups of tea'], [/\b(naked|nude|undress\w*|bikini|underwear|bath(ing)?|shower(ing)?|bed with)\b/gi, 'dressed'],
   [/\b(police|prison|jail|arrest\w*|thief|steal\w*|crime|criminal)\b/gi, 'a guard'], [/\b(child|children|kids?|baby|babies|girl|boy)\b/gi, 'person'], [/\b(sick|ill|disease|hospital|vomit\w*)\b/gi, 'tired']];
 export function soften(prompt, level = 1) {
