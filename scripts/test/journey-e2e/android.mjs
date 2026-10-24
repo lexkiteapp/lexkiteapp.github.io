@@ -15,18 +15,28 @@ let sock = '';
 for (let k = 0; k < 30 && !sock; k++) { await sleep(2000); sock = (/@(webview_devtools_remote_\d+)/.exec(adb('shell', 'cat', '/proc/net/unix')) || [])[1] || ''; }
 if (!sock) { console.log('✗ không thấy socket DevTools của WebView'); process.exit(1); }
 adb('forward', 'tcp:9222', 'localabstract:' + sock); await sleep(8000);
-let pages = []; for (let k = 0; k < 10 && !pages.length; k++) { try { pages = (await (await fetch('http://127.0.0.1:9222/json')).json()).filter(p => p.type === 'page'); } catch (e) { /* chờ */ } if (!pages.length) await sleep(2000); }
-const ws = new WebSocket(pages[0].webSocketDebuggerUrl); await new Promise((y, n) => { ws.onopen = y; ws.onerror = n; });
-let id = 0; const pend = new Map();
-ws.onmessage = m => { const d = JSON.parse(m.data); if (d.id && pend.has(d.id)) { pend.get(d.id)(d); pend.delete(d.id); return; }
+let ws = null, id = 0; const pend = new Map();
+const onmsg = m => { const d = JSON.parse(m.data); if (d.id && pend.has(d.id)) { pend.get(d.id)(d); pend.delete(d.id); return; }
+  if (d.method === 'Page.javascriptDialogOpening') { errs.push('hộp thoại JS chặn trang: ' + d.params.type + ' ' + String(d.params.message).slice(0, 120)); ws.send(JSON.stringify({ id: ++id, method: 'Page.handleJavaScriptDialog', params: { accept: false } })); }
   if (d.method === 'Runtime.exceptionThrown') errs.push('exception: ' + String(d.params.exceptionDetails.exception?.description || d.params.exceptionDetails.text).slice(0, 200));
   if (d.method === 'Runtime.consoleAPICalled' && d.params.type === 'error') errs.push('console: ' + d.params.args.map(a => a.value ?? a.description ?? '').join(' ').slice(0, 200)); };
-const cdp = (method, params, ms = 240000) => new Promise(r => { const i = ++id; const tm = setTimeout(() => { pend.delete(i); r({ result: { exceptionDetails: { text: 'cdp timeout' } } }); }, ms); pend.set(i, d => { clearTimeout(tm); r(d); }); ws.send(JSON.stringify({ id: i, method, params })); });
-const ev = async expr => { const r = await cdp('Runtime.evaluate', { expression: `(async () => { ${expr} })()`, awaitPromise: true, returnByValue: true }); if (r.result && r.result.exceptionDetails) return { __err: JSON.stringify(r.result.exceptionDetails).slice(0, 300) }; return r.result && r.result.result ? r.result.result.value : undefined; };
-await cdp('Runtime.enable', {}); await cdp('Page.enable', {});
-await cdp('Page.addScriptToEvaluateOnNewDocument', { source: SRC });
+const cdp = (method, params, ms = 150000) => new Promise(r => { const i = ++id; const tm = setTimeout(() => { pend.delete(i); r({ result: { exceptionDetails: { text: 'cdp timeout' } } }); }, ms); pend.set(i, d => { clearTimeout(tm); r(d); }); try { ws.send(JSON.stringify({ id: i, method, params })); } catch (e) { clearTimeout(tm); pend.delete(i); r({ result: { exceptionDetails: { text: 'cdp closed' } } }); } });
+// (Kết nối lại) trang WebView: sau tải lại/đổi hướng RTL, đích DevTools cũ có thể chết → tìm lại trang + nạp lại đầu dò
+async function connect() {
+  try { ws && ws.close(); } catch (e) { /* */ }
+  if (ws) { const so = (/@(webview_devtools_remote_\d+)/.exec(adb('shell', 'cat', '/proc/net/unix')) || [])[1]; if (so && so !== sock) { sock = so; adb('forward', 'tcp:9222', 'localabstract:' + sock); await sleep(3000); } } // WebView khởi động lại → socket mới
+  let pages = []; for (let k = 0; k < 15 && !pages.length; k++) { try { pages = (await (await fetch('http://127.0.0.1:9222/json')).json()).filter(p => p.type === 'page'); } catch (e) { /* chờ */ } if (!pages.length) await sleep(2000); }
+  if (!pages.length) return false;
+  ws = new WebSocket(pages[0].webSocketDebuggerUrl); ws.onmessage = onmsg; await new Promise((y, n) => { ws.onopen = y; ws.onerror = n; setTimeout(n, 15000); }).catch(() => {});
+  await cdp('Runtime.enable', {}, 20000); await cdp('Page.enable', {}, 20000);
+  await cdp('Page.addScriptToEvaluateOnNewDocument', { source: SRC }, 20000);
+  await cdp('Runtime.evaluate', { expression: 'window.LKJN ? 1 : (function () {\n' + SRC + '\n;return 1; })()', returnByValue: true }, 20000);
+  return true;
+}
+if (!(await connect())) { console.log('✗ không kết nối được trang WebView'); process.exit(1); }
+const ev0 = async expr => { const r = await cdp('Runtime.evaluate', { expression: `(async () => { ${expr} })()`, awaitPromise: true, returnByValue: true }); if (r.result && r.result.exceptionDetails) return { __err: JSON.stringify(r.result.exceptionDetails).slice(0, 300) }; return r.result && r.result.result ? r.result.result.value : undefined; };
+const ev = async expr => { const r = await ev0(expr); if (r && r.__err && /cdp (timeout|closed)/.test(r.__err)) { console.log('… CDP không phản hồi → kết nối lại'); await connect(); } return r; };
 const reload = async () => { await cdp('Page.reload', {}); await sleep(9000); await ev('for (let i = 0; i < 40 && !(window.App && document.querySelector("#view") && document.querySelector("#view").children.length); i++) await new Promise(r => setTimeout(r, 500)); return 1'); };
-await ev(SRC + '; return 1');
 for (const l of ['en', 'vi', 'ar']) {
   await ev(`localStorage.setItem('vb.uiLang', ${JSON.stringify(l)}); return 1`);
   await ev('await LKJN.reset(); return 1'); await reload();

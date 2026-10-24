@@ -12,7 +12,13 @@
   const askOn = () => vis('#modal:not([hidden]) #raY');
   // Hộp chúc mừng (lên cấp…) mở giữa chừng → đóng như người dùng (không đụng hộp hỏi nhắc học #raY – hành trình 1 kiểm riêng)
   const dismiss = async () => { const m = D.getElementById('modal'); if (m && !m.hidden && !askOn()) { const b = m.querySelector('[data-close]'); if (b) { b.click(); await sleep(300); } } };
-  async function learn() { for (let i = 0; i < 14 && !vis('.study-wrap .celebrate'); i++) { await dismiss(); if (vis('#known')) await click('#known', 450); else if (vis('#gotIt')) await click('#gotIt', 450); else await sleep(600); } return wait('.study-wrap .celebrate', 6000); }
+  async function learn() { // "Học thông minh" có thể chen câu trắc nghiệm (.option) giữa các thẻ → chọn đáp án đúng (data-o = từ đang hỏi) rồi "Tiếp"
+    for (let i = 0; i < 40 && !vis('.study-wrap .celebrate'); i++) { await dismiss();
+      if (vis('#nextQ')) await click('#nextQ', 450);
+      else if (vis('#known')) await click('#known', 450); else if (vis('#gotIt')) await click('#gotIt', 450);
+      else if (vis('.study-wrap .option')) { const w = ((D.querySelector('.study-wrap .q-card .entry-word') || {}).textContent || '').trim(), os = [...D.querySelectorAll('.study-wrap .option')]; await sleep(300); (os.find(o => o.dataset.o === w) || os[0]).click(); await sleep(500); }
+      else await sleep(600); }
+    return wait('.study-wrap .celebrate', 6000); }
   function mk(tag) { const bad = []; return { bad, ok: (c, m) => { if (!c) bad.push('[' + tag + '] ' + m); return !!c; }, audit: s => { for (const b of LKJC.audit(s)) bad.push('[' + tag + '] ' + b.t + ': ' + b.msg); } }; }
   async function reset() { // hồ sơ mới cho hành trình 1 (giữ trạng thái bộ chạy __e2e + ngôn ngữ)
     const keep = {}; for (const k of ['__e2e', 'vb.uiLang', '__lkj']) if (ls(k) != null) keep[k] = ls(k);
@@ -49,6 +55,8 @@
       const words = [['resilience', 'khả năng phục hồi'], ['sustainable', 'bền vững'], ['negotiate', 'đàm phán'], ['budget', 'ngân sách'], ['deadline', 'hạn chót']];
       for (const [w] of words) await Core.Cards.remove(w).catch(() => {});
       for (const [w, vi] of words) { await Core.Cards.add({ word: w, vi, pos: 'noun' }, w === 'resilience' ? { text: 'Dense canopies improve the resilience of neighbourhoods during heatwaves.', source: 'https://www.bbc.com/', title: 'Forests' } : undefined).catch(() => {}); await Core.Cards.patch(w, c => { c.srs = { ...S }; }).catch(() => {}); }
+      const mine = new Set(words.map(x => x[0])), all0 = await Core.Cards.all(); // thẻ khác (học ở hành trình 1–2) dời hạn → phiên ôn chỉ 5 thẻ hạt giống
+      for (const w of Object.keys(all0)) if (!mine.has(w)) await Core.Cards.patch(w, c => { c.srs = { ...(c.srs || {}), due: now + 30 * DAY }; }).catch(() => {});
       App.state.cards = await Core.Cards.all(); await go('#/review'); await sleep(800);
       const modes = ['flip', 'type', 'audio'], seen = new Set(); let own = false;
       for (let i = 0; i < 16 && !vis('.rev-done'); i++) { if (i) t.audit('review'); await dismiss(); const sel = D.getElementById('rmSel'); if (sel) { sel.value = modes[i % 3]; sel.dispatchEvent(new Event('change', { bubbles: true })); await sleep(500); }
