@@ -13,7 +13,9 @@ import { pick, load } from './media-repo.mjs';
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
 const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, rd = p => JSON.parse(fs.readFileSync(p, 'utf8'));
 const D = arg('dir') || 'm', R = rd(path.join(D, 'result.json')), V = +(arg('variants') || 4);
-const ok = Object.entries(R.items).filter(([, r]) => r.pass && r.h && r.kind === 'scene');
+// CHỈ ảnh AI được giám khảo cảnh chấm (có câu trả lời thị giác) – ô chữ dự phòng (src concept, nghĩa không có thẻ) KHÔNG BAO GIỜ là ảnh cảnh
+// (lượt 40088424311: 1.900 ô chữ lọt vì scene_final đánh dấu pass cho fallback 'type' → đã gỡ)
+const ok = Object.entries(R.items).filter(([, r]) => r.pass && r.h && r.kind === 'scene' && r.src !== 'concept' && r.f && r.f.ask_yes === true && r.att);
 
 if (arg('stage')) {
   const dst = path.join(arg('stage'), 'vimg'); fs.mkdirSync(dst, { recursive: true }); let n = 0;

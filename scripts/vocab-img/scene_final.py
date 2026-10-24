@@ -63,7 +63,7 @@ def main():
         if kd == 'concept' or t.get('fallback') == 'type':
             svg = os.path.join(D, 'svg', slug(k) + '.svg'); png = svg[:-4] + '.png'
             if not os.path.exists(png): subprocess.run(['rsvg-convert', '-w', '768', '-h', '768', svg, '-o', png], check=True)
-            im = Image.open(png).convert('RGBA'); r.update(src='concept', fam=t.get('fam', 'type'), judge='rule', alpha=True); stats['concept'] += 1
+            im = Image.open(png).convert('RGBA'); r.update(kind='concept' if kd == 'concept' else 'type', src='concept', fam=t.get('fam', 'type'), judge='rule', alpha=True); stats['concept'] += 1
             im_used = im
         else:
             tried = [i + 1 for i in range(6) if k in J[i]]; ok_ = [i for i in tried if J[i - 1][k].get('pass')]
