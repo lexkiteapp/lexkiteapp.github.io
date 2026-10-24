@@ -2,6 +2,7 @@
 // Dùng chung cho build-blog, blog-check, blog-schedule, blog-due – không phụ thuộc gói ngoài.
 import fs from 'node:fs'; import path from 'node:path';
 import { parseFlow, bracketDepth } from './blog-images.mjs';
+import { joinPath } from './url-guard.mjs';
 export const ROOT = 'content/blog';
 export const CATEGORIES = { 'tu-vung': 'Từ vựng', ielts: 'IELTS', toeic: 'TOEIC', toefl: 'TOEFL', 'phuong-phap': 'Phương pháp học', 'ngu-phap': 'Ngữ pháp & cách dùng', 'phat-am': 'Phát âm', 'ky-nang': 'Kỹ năng tiếng Anh' };
 export const config = () => JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
@@ -101,4 +102,4 @@ export function mediaIds(root = ROOT) {
   return { ids: new Set(Object.keys(readJSON(path.join(root, 'shots.json'))?.shots || {})), fallback: true };
 }
 // URL tuyệt đối của bài: /<lang>/blog/<slug>/ (mọi ngôn ngữ, kể cả vi; /blog/ chuyển 301 sang /vi/blog/)
-export const postUrl = (p, base = 'https://lexkite.com', def = 'vi') => `${base.replace(/\/$/, '')}${'/' + p.lang}/blog/${p.slug}/`;
+export const postUrl = (p, base = 'https://lexkite.com', def = 'vi') => `${base.replace(/\/$/, '')}${joinPath(p.lang, 'blog', p.slug)}/`;

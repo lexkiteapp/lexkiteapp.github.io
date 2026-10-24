@@ -113,3 +113,5 @@ Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) �
 3. **Thử nhỏ → đo → mới nhân rộng** (1 clip / 1 bài / 60 ảnh / 1 lô) – chỉ nhân khi số đo đạt chuẩn.
 4. **Sửa theo LOẠI lỗi, không theo lần:** mỗi lỗi tìm gốc (5 lần "vì sao"), thêm 1 test/cổng chặn cả loại đó (vd. EXPLAIN chặn quét bảng, overflow gate chặn tràn chữ, lease fail-closed).
 5. **Một chủ mỗi mảng + agent ngắn** (TOKEN-RULES §9) – không 2 bên cùng sửa 1 file, không agent chạy dài.
+
+- **Liên kết nội bộ (24/10, /vi/blog/-lang 404):** gốc lỗi = `web/blog-lang.html` cắt `^/blog/?` làm "/blog-lang" thành đuôi "-lang". Cổng: `scripts/lib/url-guard.mjs` (badPath/joinPath – URL bài dựng qua joinPath), `scripts/test/links-js.mjs` (jsdom chạy script thật, quét liên kết DOM + tĩnh của mọi trang blog, ma trận chuyển hướng /blog*, gợi ý 404), `crawl.js` quét href do JS sinh. Mọi URL ghép từ biến → dùng joinPath, không nối chuỗi trần.

@@ -4,6 +4,7 @@
 import fs from 'node:fs'; import path from 'node:path';
 import { loadPosts, parse, FAQ_RE, isLive, publishTime, wordCount, config, CATEGORIES, ROOT, loadMedia } from './lib/blog-content.mjs';
 import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
+import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
@@ -121,7 +122,7 @@ const SEG = l => T(l).seg, catName = (k, l) => (L[l] && L[l].cats && L[l].cats[k
 const ABOUTS = new Set(Object.values(L).map(x => x.aboutSlug));
 const SEGS = new Set(Object.values(L).flatMap(x => Object.values(x.seg)));
 const base = l => `/${l}/blog/`; // thư mục theo ngôn ngữ: /vi/blog/, /en/blog/… (/blog/ → 301 sang /vi/blog/ trong _redirects)
-const postUrl = p => `${base(p.lang)}${p.slug}/`;
+const postUrl = p => joinPath(p.lang, 'blog', p.slug) + '/'; // joinPath ném lỗi nếu lang/slug rỗng (không bao giờ ra /vi/blog/-lang)
 const slugify = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/gi, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const fmtDate = (t, l) => new Date(t).toLocaleDateString(l === 'vi' ? 'vi-VN' : l, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Ho_Chi_Minh' });
 const iso = t => new Date(t).toISOString();

@@ -14,7 +14,8 @@
     if (s) want.push(s);
     (navigator.languages || [navigator.language]).forEach(function (n) { want.push(String(n || '').toLowerCase().split('-')[0]); });
     want = want.filter(function (l, i) { return S.indexOf(l) >= 0 && want.indexOf(l) === i; });
-    var rest = location.pathname.replace(/^\/blog\/?/, '');
+    /* Chỉ lấy đuôi khi đường dẫn đúng dạng /blog/<đuôi>: "/blog-lang" (URL gọn của chính file này) từng bị cắt thành "-lang" → /vi/blog/-lang (404). Đuôi không bắt đầu bằng chữ/số là rác → bỏ. */
+    var m = /^\/blog\/(.*)$/.exec(location.pathname), rest = m && /^[a-z0-9]/i.test(m[1]) ? m[1] : '';
     (function next(i) {
       var l = want[i];
       if (!l || l === 'en') return location.replace('/en/blog/' + rest);
