@@ -9,9 +9,10 @@ import { items as explainItems, LANGS as XL } from './explain/sets.mjs';
 export const MEASURED = {
   _at: '2026-10-24',
   gemini: { flashRpdPerKey: 20, flashModels: 4, liteRpdPerKey: 135, note: 'mỗi KHÓA phải thuộc một dự án Google Cloud riêng – hạn mức tính theo dự án, không theo khóa' },
-  'gc-cf': { keys: 70, ciCallsPerDay: 3000, keep: 0.9, vocabImgShare: 1100, model: 'llama-3.3-70b', note: 'khóa CI GrabCast 3.000 lượt/ngày × 90 %, trừ phần vocab-img' },
+  'gc-cf': { keys: 70, ciCallsPerDay: 115000, keep: 0.9, vocabImgShare: 1100, model: 'gpt-oss-120b · llama-3.3-70b', note: 'GrabCast MAX 24/10: 1.500/phút, 115.000/ngày/khóa (230.000/tài khoản); xô IP generate 300/phút → ai-pool nhịp 270/phút – chung cho Groq + Cloudflare; ×90 %, trừ vocab-img' },
+  jobs: { lexiconWordsPerDay: 400, explainCallsPerDay: 800, scriptsPerDay: 400, note: 'kích thước lượt hằng ngày (--n lexicon, --calls explain × 2 bộ, --max script-bank) – tăng ở workflow nếu muốn nhanh hơn' },
   cf2: { neuronsPerDay: 10000, grants: 3500, neuronsPerCall: 300, model: 'gpt-oss-120b', status: 'chờ quyền Workers AI (token tài khoản 2: 10000 Authentication error)' },
-  'gc-groq': { keys: 108, callsPerDay: 0, status: 'bad_request (24/10) – GrabCast tự rơi về Cloudflare' },
+  'gc-groq': { keys: 108, callsPerDay: 0, status: 'sống 24/10 (gpt-oss-120b) – tính chung trong hạn mức GrabCast ở dòng Cloudflare' },
 };
 const ceil = Math.ceil;
 
@@ -43,10 +44,12 @@ export function workload() {
 export function daysFor(k, W, M = MEASURED) {
   const flash = k * M.gemini.flashRpdPerKey * M.gemini.flashModels, lite = k * M.gemini.liteRpdPerKey;
   const gc = Math.max(0, M['gc-cf'].ciCallsPerDay * M['gc-cf'].keep - M['gc-cf'].vocabImgShare), cf2 = M.cf2.status.startsWith('chờ') ? 0 : M.cf2.grants / M.cf2.neuronsPerCall;
-  const geminiOnly = W.total.genGeminiOnly, other = W.total.gen - geminiOnly + W.total.judge; // việc mà Llama/GrabCast làm được
-  const dGem = geminiOnly / Math.max(1e-9, flash + cf2);
-  const dAll = (geminiOnly + other) / Math.max(1e-9, flash + lite + gc + cf2);
-  return Math.max(dGem, dAll);
+  // trần API: việc "chỉ Gemini/gpt-oss" chạy trên Gemini + GrabCast gpt-oss + tk2; mọi việc trên mọi tuyến
+  const api = Math.max(W.total.genGeminiOnly / Math.max(1e-9, flash + gc + cf2), (W.total.gen + W.total.judge) / Math.max(1e-9, flash + lite + gc + cf2));
+  // trần lượt hằng ngày của từng việc (thường là giới hạn thật khi GrabCast còn lượt)
+  const J = M.jobs, ex = W.explain.gen + W.explain.judgeA;
+  const job = Math.max(W.lexicon.words / J.lexiconWordsPerDay, ex / J.explainCallsPerDay, W.scriptBank.scripts / J.scriptsPerDay);
+  return Math.max(api, job);
 }
 
 if (process.argv[1] && process.argv[1].endsWith('ai-capacity.mjs')) {

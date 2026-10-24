@@ -5,10 +5,11 @@
 //
 // Tuyến (theo thứ tự ưu tiên mặc định):
 //   lexai     Gemini/Gemma kho khóa Lexkite (xoay khóa, functions/api/_keys.js) qua /api/lexai (OIDC GitHub)
-//   gc-cf     GrabCast /api/owner-ai/generate provider=cloudflare (≈ 70 khóa Cloudflare, Llama 3.3 70B) – env GRABCAST_AI_KEY
+//   gc-groq   GrabCast /api/owner-ai/generate provider=groq model=openai/gpt-oss-120b (24/10 nâng cấp: 600/phút, 60.000/ngày/khóa) – env GRABCAST_AI_KEY
+//   gc-cf     GrabCast provider=cloudflare: @cf/openai/gpt-oss-120b · @cf/meta/llama-3.3-70b-instruct-fp8-fast
 //   cf2       Workers AI TÀI KHOẢN 2 (REST, env CF_AI_TOKEN_2 + CF_ACCOUNT_2; neuron = phần cấp của điều phối LEASE_AI_B_NEURONS)
-//   gc-gemini GrabCast provider=gemini (kho Gemini riêng của GrabCast)
-//   gc-groq   GrabCast provider=groq (108 khóa; 24/10 đang trả bad_request → cuối chuỗi)
+//   gc-gemini GrabCast provider=gemini (2.5-flash/pro; 29 khóa thường hết hạn mức ngày → cuối chuỗi)
+//   gc-vision GrabCast /api/owner-ai/vision (CF Llama 4 Scout → Gemini → Groq) cho giám khảo ảnh
 // Workers AI TÀI KHOẢN CHÍNH bị CẤM cho việc nền: không có tuyến nào tới nó (test ai-pool khẳng định).
 // Lời nhắn (prompt) có MỘT nguồn: functions/api/lexai.js build(); tuyến không phải Gemini lấy { sys, user } qua `prompt: true`.
 import fs from 'fs';
@@ -66,11 +67,19 @@ export function allowed(mode, model) {
 }
 
 // ---------- chuỗi theo loại việc ----------
+// Chọn 24/10 (GrabCast nâng cấp): soạn = Groq gpt-oss-120b → CF gpt-oss-120b; giám khảo A = CF Llama 3.3 70B; giám khảo B = Groq gpt-oss-120b (khác họ).
+// Gemini kho Lexkite vẫn đứng đầu soạn khi có khóa sống (ping); 0 khóa → tuyến lexai nghỉ ngay từ kiểm sức khỏe.
 export const CHAINS = {
-  gen: ['lexai', 'gc-cf', 'cf2', 'gc-gemini', 'gc-groq'],
-  judgeA: ['lexai', 'gc-gemini', 'cf2', 'gc-cf', 'gc-groq'],
-  judgeB: ['cf2', 'gc-cf', 'lexai', 'gc-groq', 'gc-gemini'], // B ưu tiên họ KHÁC Gemini; bắt buộc khác họ của A
+  gen: ['lexai', 'gc-groq', 'gc-cf', 'cf2', 'gc-gemini'],
+  judgeA: ['gc-cf', 'lexai', 'cf2', 'gc-groq', 'gc-gemini'],
+  judgeB: ['gc-groq', 'cf2', 'gc-cf', 'lexai', 'gc-gemini'], // bắt buộc khác họ của A
   vision: ['gc-vision', 'studio', 'cf2-vision'],
+};
+// Mô hình GrabCast theo vai (allowlist GrabCast 24/10)
+const GC_MODELS = {
+  groq: { gen: ['openai/gpt-oss-120b'], judge: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'] },
+  cloudflare: { gen: ['@cf/openai/gpt-oss-120b', '@cf/meta/llama-3.3-70b-instruct-fp8-fast'], judge: ['@cf/meta/llama-3.3-70b-instruct-fp8-fast', '@cf/openai/gpt-oss-120b', '@cf/openai/gpt-oss-20b'] },
+  gemini: { gen: ['gemini-2.5-flash', 'gemini-2.5-pro'], judge: ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-2.5-pro'] },
 };
 const LEXAI_MODELS = {
   gen: ['gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-3.8-flash'],
@@ -90,9 +99,16 @@ export function untilPacificMidnight(now = Date.now()) {
 }
 export const untilUtcMidnight = (now = Date.now()) => { const d = new Date(now); return Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + 1) - now + 60e3; };
 
+// mô hình hay trả sai hình: 1 mục trần { k, … } hoặc mảng [{ k, … }] → chuẩn { k: … }
+export function normOut(out, items) {
+  if (Array.isArray(out)) return Object.fromEntries(out.filter(x => x && x.k != null).map(({ k, ...v }) => [k, v]));
+  if (out && typeof out === 'object' && typeof out.k === 'string' && !(out.k in out) && Array.isArray(items) && items.some(x => x && x.k === out.k)) { const { k, ...v } = out; return { [k]: v }; }
+  if (out && Array.isArray(out.items)) return normOut(out.items, items);
+  return out;
+}
 class PoolErr extends Error { constructor(kind, msg, ms) { super(msg); this.kind = kind; this.ms = ms; } }
 // kind: model (chỉ mô hình này nghỉ ms) · route (cả tuyến nghỉ: hết khóa/không quyền) · budget (hết ngân sách lượt này) · bad (trả lời hỏng/không đủ chuẩn – thử tuyến kế, không nghỉ) · net (tạm thời)
-const parseJSON = t => { if (t && typeof t === 'object') return t; try { const s = String(t || ''), m = s.match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : null; } catch { return null; } };
+const parseJSON = t => { if (t && typeof t === 'object') return t; try { const s = String(t || ''), m = s.match(/\{[\s\S]*\}|\[[\s\S]*\]/); return m ? JSON.parse(m[0]) : null; } catch { return null; } };
 
 /**
  * createPool(opts)
@@ -108,7 +124,7 @@ export function createPool(opts = {}) {
   const LEXAI = opts.lexaiUrl || env.LEXAI_URL || 'https://lexkite.com/api/lexai';
   const GC = String(opts.gcBase || env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
   const STUDIO = opts.studioUrl || env.STUDIO_API || 'https://lexkite.com/api/studio';
-  const budget = { lexai: +(opts.budget?.lexai ?? env.AI_POOL_LEXAI_MAX ?? 1e9), gc: +(opts.budget?.gc ?? env.AI_POOL_GC_MAX ?? 300), cf2: +(opts.budget?.cf2 ?? env.LEASE_AI_B_NEURONS ?? 0) };
+  const budget = { lexai: +(opts.budget?.lexai ?? env.AI_POOL_LEXAI_MAX ?? 1e9), gc: +(opts.budget?.gc ?? env.AI_POOL_GC_MAX ?? 10000), cf2: +(opts.budget?.cf2 ?? env.LEASE_AI_B_NEURONS ?? 0) };
   const used = { lexai: 0, gc: 0, cf2: 0 };
   const cool = new Map(); // `${route}|${model}` hoặc `${route}|*` → hết nghỉ lúc
   const stats = {}; // route|model → { ok, fail, bad }
@@ -161,26 +177,33 @@ export function createPool(opts = {}) {
       throw new PoolErr('net', `lexai ${r.status} ${t.slice(0, 100)}`);
     },
   };
+  // Nhịp theo xô route GrabCast (theo IP, 24/10 MAX): generate 300/phút · vision 120/phút → chừa ~10 % (270 · 108). Khóa: 1.500/phút, 115.000/ngày.
+  const RATE = { generate: +(env.AI_POOL_GC_RPM || 270), vision: +(env.AI_POOL_GC_VISION_RPM || 108) }, nextAt = { generate: 0, vision: 0 };
+  async function pace(bucket) { const gap = 60e3 / RATE[bucket], t = Math.max(now(), nextAt[bucket]); nextAt[bucket] = t + gap; if (t > now()) await sleep(t - now()); }
+  const retryAfter = r => { const v = +(r.headers && r.headers.get && r.headers.get('Retry-After')); return Number.isFinite(v) && v > 0 ? Math.min(600, v) * 1e3 : 65e3; };
   const GC_MAX_CHARS = 7900; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
   const gcRoute = provider => {
-    async function one(req, depth = 0) {
+    async function one(req, model, depth = 0) {
       const p = await promptFor(req), prompt = p.sys + '\n\nINPUT:\n' + p.user;
       if (prompt.length > GC_MAX_CHARS) {
         if (!Array.isArray(req.items) || req.items.length < 2 || depth > 5) throw new PoolErr('bad', `prompt ${prompt.length} > ${GC_MAX_CHARS} ký tự`);
-        const h = Math.ceil(req.items.length / 2), x = await one({ ...req, items: req.items.slice(0, h) }, depth + 1), y = await one({ ...req, items: req.items.slice(h) }, depth + 1);
+        const h = Math.ceil(req.items.length / 2), x = await one({ ...req, items: req.items.slice(0, h) }, model, depth + 1), y = await one({ ...req, items: req.items.slice(h) }, model, depth + 1);
         return { ...y, out: { ...(x.out || {}), ...(y.out || {}) }, fellBack: x.fellBack || y.fellBack, model: x.model === y.model ? y.model : y.model };
       }
       if (used.gc >= budget.gc) throw new PoolErr('budget', 'GrabCast budget'); used.gc++;
-      const r = await F(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt, provider }) }).catch(() => null);
+      await pace('generate');
+      const r = await F(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt, provider, ...(model ? { model } : {}) }) }).catch(() => null);
       if (!r) throw new PoolErr('net', 'grabcast net');
-      if (r.status === 429) throw new PoolErr('model', 'GrabCast 429', 65e3);
+      if (r.status === 429) throw new PoolErr('route', 'GrabCast 429 (Retry-After)', retryAfter(r)); // trần khóa/IP: cả tuyến chờ đúng Retry-After
       if (r.status === 401 || r.status === 403) throw new PoolErr('route', 'GrabCast ' + r.status, 6 * 3600e3);
-      const j = await r.json().catch(() => ({}));
+      const j = await r.json().catch(() => ({})), code = (j.detail && j.detail.code) || (j.error && j.error.code) || '';
+      if (code === 'ai_exhausted') throw new PoolErr('route', 'GrabCast ai_exhausted (mọi nhà cung cấp hết lượt)', 10 * 60e3);
+      if (code === 'ai_unavailable') throw new PoolErr('model', 'GrabCast ai_unavailable ' + JSON.stringify(j.detail.tried || []).slice(0, 80), 5 * 60e3);
       const why = j.error && j.error.code || (Array.isArray(j.detail) ? j.detail.map(d => d.msg).join('; ') : j.detail) || '';
       if (!r.ok || !j.text) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', `GrabCast ${r.status} ${String(why).slice(0, 80)}`);
-      return { out: parseJSON(j.text), model: j.model || provider, via: j.provider, fellBack: !!j.provider && j.provider !== provider };
+      return { out: parseJSON(j.text), model: j.model || model || provider, via: j.provider, fellBack: (!!j.provider && j.provider !== provider) || (!!model && !!j.model && j.model !== model) };
     }
-    return { ok: () => !!env.GRABCAST_AI_KEY, models: () => [provider], call: (_m, req) => one(req) };
+    return { ok: () => !!env.GRABCAST_AI_KEY, models: role => GC_MODELS[provider][role === 'gen' ? 'gen' : 'judge'], call: (m, req) => one(req, m) };
   };
   R['gc-cf'] = gcRoute('cloudflare'); R['gc-gemini'] = gcRoute('gemini'); R['gc-groq'] = gcRoute('groq');
   async function cf2Run(model, input) {
@@ -208,13 +231,17 @@ export function createPool(opts = {}) {
   };
   // thị giác (vocab-img giám khảo gọi tên): GrabCast vision (khi có URL) → Gemini kho Lexkite qua /api/studio (wai:0) → tài khoản 2 Llama 4 Scout
   R['gc-vision'] = {
-    ok: () => !!(env.GRABCAST_AI_VISION_URL && env.GRABCAST_AI_KEY), models: () => ['vision'],
+    ok: () => !!env.GRABCAST_AI_KEY, models: () => ['vision'],
     async call(_m, req) {
       if (used.gc >= budget.gc) throw new PoolErr('budget', 'GrabCast budget'); used.gc++;
-      const r = await F(env.GRABCAST_AI_VISION_URL, { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: req.question, image: req.image, images: [req.image], provider: 'cloudflare' }) }).catch(() => null);
-      if (!r) throw new PoolErr('net', 'gc-vision net'); if (r.status === 429) throw new PoolErr('model', 'GrabCast 429', 65e3);
-      const j = await r.json().catch(() => ({})); if (/no image provided/i.test(j.text || '')) throw new PoolErr('route', 'endpoint bỏ qua ảnh', 24 * 3600e3);
-      return { out: parseJSON(j.text), model: j.model || 'llama-3.2-11b-vision', text: j.text };
+      await pace('vision');
+      const r = await F(env.GRABCAST_AI_VISION_URL || GC + '/api/owner-ai/vision', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: req.question, image_b64: req.image, mime: 'jpeg' }) }).catch(() => null);
+      if (!r) throw new PoolErr('net', 'gc-vision net'); if (r.status === 429) throw new PoolErr('route', 'GrabCast vision 429', retryAfter(r));
+      const j = await r.json().catch(() => ({})), code = (j.detail && j.detail.code) || '';
+      if (code === 'ai_exhausted') throw new PoolErr('route', 'GrabCast vision ai_exhausted', 10 * 60e3);
+      if (!r.ok || !j.text) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', 'GrabCast vision ' + r.status + ' ' + code);
+      if (/no image provided/i.test(j.text || '')) throw new PoolErr('route', 'endpoint bỏ qua ảnh', 24 * 3600e3);
+      return { out: parseJSON(j.text), model: j.model || 'vision', text: j.text };
     },
   };
   R.studio = {
@@ -249,12 +276,10 @@ export function createPool(opts = {}) {
       for (const model of route.models(role)) {
         if (cooling(id, model)) continue;
         // lọc trước theo mô hình dự kiến (tuyến GrabCast tự chọn mô hình → lọc theo câu trả lời thật)
-        if (!/^(cloudflare|gemini|groq|vision|gemini-vision)$/.test(model) && (!allowed(mode, model) || exclude.includes(familyOf(model)))) continue;
-        if (id === 'gc-gemini' && exclude.includes('gemini')) continue;
-        if (id === 'gc-cf' && (exclude.includes('llama') || !allowed(mode, '@cf/meta/llama-3.3-70b-instruct-fp8-fast'))) continue; // GrabCast Cloudflare luôn trả Llama 3.3 70B (bỏ qua trường model)
+        if (!/^(vision|gemini-vision)$/.test(model) && (!allowed(mode, model) || exclude.includes(familyOf(model)))) continue;
         const t0 = now();
         try {
-          const r = await route.call(model, req);
+          const r = await route.call(model, req); r.out = normOut(r.out, req.items);
           const fam = familyOf(r.model);
           if (r.fellBack) rest(id, null, 15 * 60e3, `GrabCast ${id} tự rơi về ${r.via}`); // nhà cung cấp đó ở GrabCast đang hỏng → khỏi tốn lượt gọi lại
           if (!r.out || typeof r.out !== 'object') throw new PoolErr('bad', 'không phải JSON');
@@ -301,7 +326,7 @@ export function createPool(opts = {}) {
       const h = {};
       try { const r = await lexaiPost({ mode: 'ping' }); const j = r.ok ? await r.json() : {}; h.lexai = { ok: r.ok && j.gemini > 0, gemini: j.gemini ?? null }; if (r.ok && !j.gemini) rest('lexai', null, 30 * 60e3, 'kho Gemini rỗng (ping)'); } catch (e) { h.lexai = { ok: false, err: String(e.message).slice(0, 60) }; }
       if (grabcast && env.GRABCAST_AI_KEY) for (const p of ['cloudflare', 'groq', 'gemini']) {
-        const r = await F(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: 'Reply with JSON {"ok":1} only.', provider: p }) }).catch(() => null);
+        const r = await F(GC + '/api/owner-ai/generate', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: 'Reply with JSON {"ok":1} only.', provider: p, model: GC_MODELS[p].gen[0] }) }).catch(() => null);
         const j = r ? await r.json().catch(() => ({})) : {}; used.gc++;
         const ok = !!(r && r.ok && j.provider === p); h['gc-' + (p === 'cloudflare' ? 'cf' : p)] = { ok, model: j.model || '', fellBack: (j.fallback_from || []).map(f => f.code).slice(0, 3) };
         if (!ok) rest('gc-' + (p === 'cloudflare' ? 'cf' : p), null, 30 * 60e3, `health: ${p} trả lời qua ${j.provider || r && r.status || 'net'}`);

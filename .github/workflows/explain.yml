@@ -26,7 +26,7 @@ jobs:
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
-          AI_POOL_GC_MAX: '200'
+          AI_POOL_GC_MAX: '15000'
         run: |
           for s in ${{ github.event.inputs.set || 'usage grammar' }}; do
             node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true

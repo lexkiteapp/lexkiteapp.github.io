@@ -32,7 +32,7 @@ jobs:
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
-          AI_POOL_GC_MAX: '60'
+          AI_POOL_GC_MAX: '8000'
         if: ${{ steps.lease.outputs.skip != '1' }}
         run: node scripts/scriptbank/job.mjs --max "${{ github.event.inputs.max || '400' }}" --calls "${{ github.event.inputs.calls || '60' }}" --neurons "${{ steps.lease.outputs.ai_b_neurons || 0 }}" --cap "${{ github.event.inputs.cap || '6' }}"
       - name: Lưu kết quả

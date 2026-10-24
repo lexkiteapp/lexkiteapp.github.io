@@ -24,6 +24,8 @@ function mock(h) {
 const env = extra => ({ GRABCAST_AI_KEY: 'gk', ...extra });
 const mk = (m, o = {}) => createPool({ fetch: m.f, env: env(o.env), lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: () => {}, sleep: async () => {}, budget: o.budget, now: o.now });
 const gcLlama = () => J({ text: JSON.stringify({ 'apple#n': { s: 5, def: 'a fruit' } }), provider: 'cloudflare', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' });
+// GrabCast nâng cấp: tôn trọng provider + model
+const gcEcho = b => J({ text: JSON.stringify({ 'apple#n': { s: 5, def: 'a fruit' } }), provider: b.provider, model: b.model });
 
 // 1) mô hình / chuẩn chất lượng
 ok(familyOf('gemini-3.5-flash') === 'gemini' && familyOf('gemma-3-27b-it') === 'gemma' && familyOf('@cf/openai/gpt-oss-120b') === 'gpt-oss' && familyOf('@cf/meta/llama-3.3-70b-instruct-fp8-fast') === 'llama', 'họ mô hình');
@@ -36,9 +38,10 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
 
 // 2) dự phòng: kho Gemini rỗng → GrabCast Cloudflare trả lời; lexai nghỉ CẢ tuyến (keys=0), lượt sau không gọi lại
 {
-  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama }); const P = mk(m);
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcEcho }); const P = mk(m);
   const r = await P.gen({ mode: 'lxgen', items: ITEMS });
-  ok(r && r.route === 'gc-cf' && r.fam === 'llama' && r.out['apple#n'], 'lxgen: Gemini rỗng → GrabCast Cloudflare (Llama 70B)');
+  ok(r && r.route === 'gc-groq' && r.model === 'openai/gpt-oss-120b' && r.out['apple#n'], 'lxgen: Gemini rỗng → GrabCast Groq gpt-oss-120b');
+  ok(m.calls.some(c => c.url.startsWith(GC) && c.body.provider === 'groq' && c.body.model === 'openai/gpt-oss-120b'), 'gửi provider + model tới GrabCast');
   const before = m.calls.filter(c => c.url === LX && !c.body.prompt).length; await P.gen({ mode: 'lxgen', items: ITEMS });
   ok(m.calls.filter(c => c.url === LX && !c.body.prompt).length === before, 'keys=0 → cả tuyến lexai nghỉ, không gọi lại');
   ok(m.calls.some(c => c.url.startsWith(GC) && c.body.prompt.startsWith('SYS')), 'tuyến GrabCast dùng prompt của lexai build (prompt: true)');
@@ -54,14 +57,14 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
 }
 // 4) 2 giám khảo khác họ: A Gemini, B không được là Gemini (GrabCast-gemini bị loại, GrabCast tự rơi về gemini → loại)
 {
-  const m = mock({ lexai: b => J({ out: { 'apple#n': { s: 5 } }, model: b.model }), gc: b => b.provider === 'cloudflare' ? gcLlama() : J({ text: '{"apple#n":{"s":4}}', provider: 'gemini', model: 'gemini-2.5-flash' }) });
+  const m = mock({ lexai: b => J({ out: { 'apple#n': { s: 5 } }, model: b.model }), gc: gcEcho });
   const { a, b } = await mk(m).judgePair({ mode: 'lxjudge', items: ITEMS });
-  ok(a && b && a.fam === 'gemini' && b.fam === 'llama' && b.route === 'gc-cf', 'judgePair: gemini + llama (khác họ)');
+  ok(a && b && a.route === 'gc-cf' && a.model === '@cf/meta/llama-3.3-70b-instruct-fp8-fast' && b.route === 'gc-groq' && b.model === 'openai/gpt-oss-120b', 'judgePair: A = CF Llama 3.3 70B, B = Groq gpt-oss-120b (khác họ)');
 }
 { // B chỉ còn cùng họ → b null (bỏ qua trung tính, không ghi điểm)
-  const m = mock({ lexai: b => J({ out: { 'apple#n': { s: 5 } }, model: b.model }), gc: () => J({ text: '{"apple#n":{"s":4}}', provider: 'gemini', model: 'gemini-2.5-flash' }) });
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama }); // GrabCast mọi yêu cầu đều rơi về Llama
   const { a, b } = await mk(m).judgePair({ mode: 'lxjudge', items: ITEMS });
-  ok(a && a.fam === 'gemini' && (!b || b.fam === 'gemma'), 'judgePair: không có họ khác Gemini ngoài gemma → b = gemma hoặc null, không bao giờ 2 × gemini');
+  ok(a && a.fam === 'llama' && b === null, 'judgePair: chỉ còn 1 họ → b = null (không bao giờ 2 giám khảo cùng họ)');
 }
 { // GrabCast groq rơi về cloudflare (bad_request) → mô hình thật = llama; khi llama bị loại (exclude) → không nhận
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama });
@@ -91,16 +94,28 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
 }
 // 8) ngân sách GrabCast
 {
-  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcLlama }); const P = mk(m, { budget: { gc: 1 } });
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcEcho }); const P = mk(m, { budget: { gc: 1 } });
   ok(await P.gen({ mode: 'lxgen', items: ITEMS }) && await P.gen({ mode: 'lxgen', items: ITEMS }) === null, 'trần GrabCast lượt này');
 }
 // 8b) GrabCast ≤ 8.000 ký tự: lô dài bị chia đôi, gộp out
 {
   const big = Array.from({ length: 8 }, (_, i) => ({ k: 'w' + i, gloss: 'x'.repeat(1500) }));
-  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.prompt.length > 8000 ? J({ detail: [{ msg: 'too long' }] }, 422) : J({ text: JSON.stringify(Object.fromEntries(JSON.parse(b.prompt.split('INPUT:\n')[1]).map(x => [x.k, { def: 'd' }]))), provider: 'cloudflare', model: '@cf/meta/llama-3.3-70b-instruct-fp8-fast' }) });
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.prompt.length > 8000 ? J({ detail: [{ msg: 'too long' }] }, 422) : J({ text: JSON.stringify(Object.fromEntries(JSON.parse(b.prompt.split('INPUT:\n')[1]).map(x => [x.k, { def: 'd' }]))), provider: b.provider, model: b.model }) });
   const r = await mk(m).gen({ mode: 'lxgen', items: big });
   ok(r && Object.keys(r.out).length === 8 && m.calls.filter(c => c.url.startsWith(GC)).every(c => c.body.prompt.length <= 8000), 'GrabCast: chia lô cho vừa 8.000 ký tự, đủ 8 mục');
 }
+// 8c) ai_exhausted → cả tuyến nghỉ; vision qua /api/owner-ai/vision
+{
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: b => b.provider === 'groq' ? J({ detail: { code: 'ai_exhausted' } }, 503) : gcEcho(b) });
+  const P = mk(m); const r = await P.gen({ mode: 'lxgen', items: ITEMS }); const k = m.calls.filter(c => c.body.provider === 'groq').length; await P.gen({ mode: 'lxgen', items: ITEMS });
+  ok(r && r.route === 'gc-cf' && r.model === '@cf/openai/gpt-oss-120b' && m.calls.filter(c => c.body.provider === 'groq').length === k, 'ai_exhausted Groq → CF gpt-oss-120b, Groq nghỉ');
+  const mv = mock({ gc: b => J({ text: '{"name":"apple"}', provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' }) });
+  const v = await mk(mv).vision({ question: 'q', image: 'AAAA' });
+  ok(v && v.route === 'gc-vision' && mv.calls[0].url === GC + '/api/owner-ai/vision' && mv.calls[0].body.image_b64 === 'AAAA' && v.out.name === 'apple', 'vision: GrabCast /api/owner-ai/vision');
+}
+// 8d) chuẩn hình trả lời
+{ const { normOut } = await import('../lib/ai-pool.mjs');
+  ok(JSON.stringify(normOut({ k: 'a#n', s: 5 }, [{ k: 'a#n' }])) === '{"a#n":{"s":5}}' && JSON.stringify(normOut([{ k: 'a#n', s: 4 }], [{ k: 'a#n' }])) === '{"a#n":{"s":4}}' && normOut({ 'a#n': { s: 3 } }, [{ k: 'a#n' }])['a#n'].s === 3, 'normOut: mục trần / mảng → { k: … }'); }
 // 9) Workers AI TÀI KHOẢN CHÍNH bị cấm: ai-pool không có tuyến tới nó
 {
   const src = fs.readFileSync(new URL('../lib/ai-pool.mjs', import.meta.url), 'utf8').replace(/^\s*\/\/.*$/gm, '');

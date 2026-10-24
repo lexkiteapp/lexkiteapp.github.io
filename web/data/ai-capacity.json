@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24T07:50:21.333Z",
+ "updated": "2026-10-24T07:55:28.124Z",
  "measured": {
   "_at": "2026-10-24",
   "gemini": {
@@ -10,11 +10,17 @@
   },
   "gc-cf": {
    "keys": 70,
-   "ciCallsPerDay": 3000,
+   "ciCallsPerDay": 115000,
    "keep": 0.9,
    "vocabImgShare": 1100,
-   "model": "llama-3.3-70b",
-   "note": "khóa CI GrabCast 3.000 lượt/ngày × 90 %, trừ phần vocab-img"
+   "model": "gpt-oss-120b · llama-3.3-70b",
+   "note": "GrabCast MAX 24/10: 1.500/phút, 115.000/ngày/khóa (230.000/tài khoản); xô IP generate 300/phút → ai-pool nhịp 270/phút – chung cho Groq + Cloudflare; ×90 %, trừ vocab-img"
+  },
+  "jobs": {
+   "lexiconWordsPerDay": 400,
+   "explainCallsPerDay": 800,
+   "scriptsPerDay": 400,
+   "note": "kích thước lượt hằng ngày (--n lexicon, --calls explain × 2 bộ, --max script-bank) – tăng ở workflow nếu muốn nhanh hơn"
   },
   "cf2": {
    "neuronsPerDay": 10000,
@@ -26,7 +32,7 @@
   "gc-groq": {
    "keys": 108,
    "callsPerDay": 0,
-   "status": "bad_request (24/10) – GrabCast tự rơi về Cloudflare"
+   "status": "sống 24/10 (gpt-oss-120b) – tính chung trong hạn mức GrabCast ở dòng Cloudflare"
   }
  },
  "workload": {
@@ -63,35 +69,35 @@
  "table": [
   {
    "keys": 0,
-   "days": null
+   "days": 53.3
   },
   {
    "keys": 1,
-   "days": 56.7
+   "days": 53.3
   },
   {
    "keys": 2,
-   "days": 28.4
+   "days": 53.3
   },
   {
    "keys": 5,
-   "days": 11.3
+   "days": 53.3
   },
   {
    "keys": 10,
-   "days": 5.7
+   "days": 53.3
   },
   {
    "keys": 15,
-   "days": 3.8
+   "days": 53.3
   },
   {
    "keys": 20,
-   "days": 2.8
+   "days": 53.3
   },
   {
    "keys": 30,
-   "days": 1.9
+   "days": 53.3
   }
  ]
 }

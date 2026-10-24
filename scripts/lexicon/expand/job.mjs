@@ -61,13 +61,13 @@ const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) 
 const strip = x => { const { _c, _ipa, ...r } = x; return r; };
 if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(strip)), stat); process.exit(0); }
 const G = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = ''; const GM = {};
-await pmap(chunks(items, 10), 5, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { G[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
+await pmap(chunks(items, 10), 8, async ch => { const r = await call('lxgen', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { G[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
 const kept = items.filter(x => G[x.k] && G[x.k].keep !== false && G[x.k].def);
-await pmap(chunks(kept, 10), 5, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
+await pmap(chunks(kept, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, def: G[x.k].def, ex: G[x.k].ex || [] }))); if (r) for (const x of ch) if (r.out[x.k]) T[x.k] = r.out[x.k]; });
 const forJudge = x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.gloss, def: G[x.k].def, ex: G[x.k].ex, col: G[x.k].col, syn: G[x.k].syn, cefr: G[x.k].cefr, vi: G[x.k].vi, note_vi: G[x.k].note_vi, tr: T[x.k] || {} });
 const judged = kept.filter(x => T[x.k]);
 const JK = {}; // k → { a: '<họ>:<mô hình>', b }
-await pmap(chunks(judged, 10), 3, async ch => {
+await pmap(chunks(judged, 10), 6, async ch => {
   const { a, b } = await AI.judgePair({ mode: 'lxjudge', items: ch.map(forJudge) });
   if (!a || !b) return; // thiếu giám khảo thứ 2 khác họ → KHÔNG ghi điểm nào (bỏ qua trung tính)
   for (const x of ch) if (a.out[x.k] && b.out[x.k]) { JA[x.k] = a.out[x.k]; JB[x.k] = b.out[x.k]; JK[x.k] = { a: judgeKey(a.model), b: judgeKey(b.model) }; }
@@ -88,7 +88,8 @@ for (const x of items) {
     ent.qa.btw = Object.fromEntries(LANGS.map(l => [l, [a && a.bt && a.bt[l], b && b.bt && b.bt[l]].filter(Boolean)])); }
   if (ent) ent.tp = assignTopics(ent); // chủ đề: miền → chủ đề → tiểu chủ đề (content/lexicon/topics.json)
   // hạ tầng (không sinh được / không dịch được / thiếu 2 giám khảo) ≠ lỗi nội dung → bỏ qua, lượt sau làm lại
-  if ((ent && g.keep !== false && g.def && (!T[x.k] || !JK[x.k])) || (!g && callOk.get(x.k) === false)) { why.infra = (why.infra || 0) + 1; continue; }
+  if ((ent && g.keep !== false && g.def && (!T[x.k] || !JK[x.k])) || !g) { // !g: gọi lỗi HOẶC mô hình bỏ sót mục → lượt sau làm lại (không đốt từ vào hàng duyệt)
+    why.infra = (why.infra || 0) + 1; continue; }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }

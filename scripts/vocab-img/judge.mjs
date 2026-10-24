@@ -19,8 +19,8 @@ function small(file) {
   const py = process.env.VIMG_PY || 'python3';
   return execFileSync(py, ['-c', 'import sys,io,base64;from PIL import Image;b=io.BytesIO();Image.open(sys.argv[1]).convert("RGB").resize((384,384)).save(b,"JPEG",quality=85);sys.stdout.write(base64.b64encode(b.getvalue()).decode())', file]).toString();
 }
-// Chuỗi giám khảo: ai-pool (scripts/lib/ai-pool.mjs) CHAINS.vision = 1) GrabCast thị giác (CHỈ khi có env GRABCAST_AI_VISION_URL – đo 24/10:
-//   /api/owner-ai/generate BỎ QUA ảnh) → 2) Gemini kho khóa Lexkite qua /api/studio visionCheck (wai:0 = không Workers AI tài khoản chính)
+// Chuỗi giám khảo: ai-pool (scripts/lib/ai-pool.mjs) CHAINS.vision = 1) GrabCast /api/owner-ai/vision (CF Llama 4 Scout → Gemini → Groq; 24/10 mở cho API key;
+//   env GRABCAST_AI_VISION_URL ghi đè) → 2) Gemini kho khóa Lexkite qua /api/studio visionCheck (wai:0 = không Workers AI tài khoản chính)
 //   → 3) Workers AI TÀI KHOẢN 2 Llama 4 Scout (chỉ khi điều phối cấp neuron) → không ai trả lời = HÀNG CHỜ (không bao giờ đăng ảnh chưa chấm).
 let AI = null;
 export async function ask(b64) {
