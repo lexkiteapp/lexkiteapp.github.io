@@ -229,10 +229,10 @@ def features(im, k, t, T, LEX, keys_all, centroid):
             'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
             'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
 
-def verdict_scene(f, th):
+def verdict_scene(f, th, kind):
     """ảnh cảnh/bìa/bài học – ngưỡng content/lexicon/vimg-judge-scene.json (calibrate_scene.py trên nhãn tay ~470 ảnh, 24/10).
     Thiếu câu trả lời thị giác (API cạn/lỗi) → hàng chờ, KHÔNG nhận (độ chính xác ≥ 98 %)."""
-    s, r = th['scene'], []
+    s, r = th['scene_groups'][kind], []
     if len(f['ocr']) > s.get('ocr_max', 0): r.append('text: ' + ' '.join(f['ocr'])[:40])
     if f['nsfw'] >= th['nsfw_max']: r.append(f"nsfw {f['nsfw']}")
     if f.get('style') is not None and f['style'] < s.get('style_min', 0): r.append(f"style {f['style']}")
@@ -240,14 +240,16 @@ def verdict_scene(f, th):
     else:
         if not f['ask_yes'] or f.get('ask_conf', 0) < s.get('ask_conf', 0): r.append(f"vision: no ({f.get('ask_missing', '')})")
         if f.get('ask_text') and s.get('ask_text_block', True): r.append('vision: text')
+        if s.get('missing_empty') and str(f.get('ask_missing') or '').strip().lower() not in ('', 'none', 'nothing', 'n/a'): r.append(f"vision: missing {f.get('ask_missing')}")
     if f.get('clip_ex_rank', 99) > s.get('clip_ex_rank_max', 99) or f.get('clip_ex_margin', -1) < s.get('clip_ex_margin', -1): r.append(f"clip-sentence rank {f.get('clip_ex_rank')} margin {f.get('clip_ex_margin')}")
     if f.get('cap_ex', -1) < s.get('cap_ex_min', -1): r.append(f"caption-sentence sim {f.get('cap_ex')}")
     if f.get('clip_ex', -1) < s.get('clip_ex_min', -1): r.append(f"clip-sentence sim {f.get('clip_ex')}")
+    if f.get('api_ex', -1) < s.get('api_ex_min', -1): r.append(f"vision description-sentence sim {f.get('api_ex')}")
     return r
 
 def verdict(f, th, kind):
     r = []
-    if kind != 'object' and th.get('scene'): return verdict_scene(f, th)
+    if kind != 'object' and kind in (th.get('scene_groups') or {}): return verdict_scene(f, th, kind)
     if kind != 'object':   # cảnh: cùng phép xếp hạng, ngưỡng tương đồng riêng; phong cách so tâm CẢNH (không so tâm ảnh vật)
         th = {**th, 'cap_sim': th.get('cap_sim_scene', .35), 'api_sim': th.get('cap_sim_scene', .35), 'style_min': th.get('style_min_scene', .5)}
     if f['clip_rank'] != 1 or f['clip_margin'] < th['clip_margin']: r.append(f"clip rank {f['clip_rank']} margin {f['clip_margin']}")
@@ -271,7 +273,9 @@ def load_th():
     j = json.load(open(TH_FILE)) if os.path.exists(TH_FILE) else {}
     th = {**DEF_TH, **(j.get('th') or {})}
     sf = os.path.join(ROOT, 'content/lexicon/vimg-judge-scene.json')
-    if os.path.exists(sf): th['scene'] = json.load(open(sf))['th']
+    if os.path.exists(sf):
+        g = json.load(open(sf)).get('groups') or {}
+        th['scene_groups'] = {kd: v['th'] for v in g.values() for kd in (v.get('kinds') or ['scene'])}
     c = np.array(j['centroid'], dtype=np.float32) if j.get('centroid') else None
     return th, c, j
 

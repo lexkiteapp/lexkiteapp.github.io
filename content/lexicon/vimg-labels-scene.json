@@ -2,7 +2,8 @@
 "_note": "Nhãn tay ảnh CẢNH/bìa/bài học (Claude xem tờ ảnh, 24/10). Khoá = <lượt>/<slug>.a<N>; p1 = lượt 40079815158 (artifact gộp 40083235240), p2 = lượt 40084089087. l = ok|bad, why: T chữ, W sai/thiếu tình huống, V mơ hồ/chung chung, A lỗi hình.",
 "runs": {
 "p1": 40083235240,
-"p2": 40084089087
+"p2": 40084089087,
+"p3": 40085665924
 },
 "items": {
 "p1/additionally__adv.a1": {
@@ -984,6 +985,618 @@
 "p1/where__adv.a2": {
 "l": "bad",
 "why": "V"
+},
+"p2/accordingly__adv.a1": {
+"l": "bad",
+"why": "T dollar sign"
+},
+"p2/advertiser__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/billing__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/bioaccumulation__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/clearly__adv.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/cold__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-bank.a1": {
+"l": "bad",
+"why": "V no bank cues"
+},
+"p2/conf-calls.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-complaints.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-directions.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/conf-disagreeing.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-doctor.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-escalating.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-friends.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-greetings.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-interview.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-job-interview.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-meetings.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-networking.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-new-friends.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-opinions.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-phone.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-presenting.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-renting.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-salary.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-shopping.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-travel.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/conf-work-meeting.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/denunciation__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/diabetes__n.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/foreigner__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/insert__v.a1": {
+"l": "bad",
+"why": "T"
+},
+"p2/liability__n.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/maintain__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/passport__n.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/phrase__n.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/premier__adj.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/provide__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/read__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/refer__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/scrutinise__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/somewhat__adv.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/topic-architecture.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-consumerism.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-culture.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-edu.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-eng.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-env.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-hosp.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-it.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-law.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-log.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-med.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-dom-mkt.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-education.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-energy.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-environment.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-food.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-government.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-language.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-media.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-office-hr.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-science.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-space.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/topic-sport.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-technology.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-us-health.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-us-money.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-wildlife.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-xw-actions.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/topic-xw-arts.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-xw-everyday.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-xw-military.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-xw-nature.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-xw-people.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-xw-qualities.a1": {
+"l": "bad",
+"why": "V"
+},
+"p2/topic-xw-religion-history.a1": {
+"l": "ok",
+"why": ""
+},
+"p2/topic-xw-time-place.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/bake__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-airport.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-bank.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-calls.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-complaints.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-directions.a1": {
+"l": "bad",
+"why": "V"
+},
+"p3/conf-disagreeing.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-doctor.a1": {
+"l": "bad",
+"why": "V"
+},
+"p3/conf-escalating.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-friends.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-greetings.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-interview.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-job-interview.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-meetings.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-networking.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-new-friends.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-opinions.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-phone.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-presenting.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-renting.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-salary.a1": {
+"l": "bad",
+"why": "V"
+},
+"p3/conf-shopping.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-travel.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/conf-work-meeting.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/flip__v.a1": {
+"l": "bad",
+"why": "W"
+},
+"p3/fulfill__v.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-architecture.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-consumerism.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-crime.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-culture.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-biz.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-eng.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-env.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-hosp.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-it.a1": {
+"l": "bad",
+"why": "T"
+},
+"p3/topic-dom-law.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-log.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-med.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-dom-mkt.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-economy.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-education.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-energy.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-environment.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-food.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-government.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-health.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-language.a1": {
+"l": "bad",
+"why": "T"
+},
+"p3/topic-media.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-office-hr.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-office-it.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-science.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-society.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-space.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-sport.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-technology.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-travel.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-urban.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-us-health.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-us-housing.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-us-money.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-wildlife.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-work.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-actions.a1": {
+"l": "bad",
+"why": "V"
+},
+"p3/topic-xw-arts.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-body.a1": {
+"l": "bad",
+"why": "V"
+},
+"p3/topic-xw-everyday.a1": {
+"l": "bad",
+"why": "A"
+},
+"p3/topic-xw-feelings.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-home.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-military.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-nature.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-objects.a1": {
+"l": "bad",
+"why": "V"
+},
+"p3/topic-xw-people.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-qualities.a1": {
+"l": "bad",
+"why": "T"
+},
+"p3/topic-xw-religion-history.a1": {
+"l": "ok",
+"why": ""
+},
+"p3/topic-xw-time-place.a1": {
+"l": "ok",
+"why": ""
 }
 }
 }

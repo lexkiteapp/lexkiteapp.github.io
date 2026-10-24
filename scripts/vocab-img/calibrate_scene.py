@@ -9,14 +9,15 @@ import argparse, json, os, re, itertools, random
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 slug = lambda k: re.sub(r'[^a-zA-Z0-9_-]+', '-', k.replace('#', '__'))
-GRID = dict(ask_conf=[0, 60, 70, 80, 90], ocr_max=[0, 1, 2, 99], clip_ex_rank_max=[1, 2, 3, 99], clip_ex_margin=[-1, -.02, 0, .01, .02],
-            cap_ex_min=[-1, .2, .3, .4, .5], clip_ex_min=[-1, .2, .22, .24, .26, .28])
+GRID = dict(missing_empty=[0, 1], ask_conf=[0, 80, 90], ocr_max=[0, 1, 2, 99], clip_ex_rank_max=[1, 2, 3, 99], clip_ex_margin=[-1, -.02, 0, .01, .02],
+            cap_ex_min=[-1, .2, .3, .4], clip_ex_min=[-1, .22, .25, .28], api_ex_min=[-1, .3, .4, .5])
 
 def accept(f, th):
     if f.get('ask_yes') is not True or f.get('ask_conf', 0) < th['ask_conf'] or f.get('ask_text'): return False
+    if th['missing_empty'] and str(f.get('ask_missing') or '').strip().lower() not in ('', 'none', 'nothing', 'n/a'): return False
     if len(f.get('ocr') or []) > th['ocr_max'] or f.get('nsfw', 0) >= .2: return False
     if f.get('clip_ex_rank', 99) > th['clip_ex_rank_max'] or f.get('clip_ex_margin', -1) < th['clip_ex_margin']: return False
-    return f.get('cap_ex', -1) >= th['cap_ex_min'] and f.get('clip_ex', -1) >= th['clip_ex_min']
+    return f.get('cap_ex', -1) >= th['cap_ex_min'] and f.get('clip_ex', -1) >= th['clip_ex_min'] and f.get('api_ex', -1) >= th['api_ex_min']
 
 def search(rows, target):
     P = sum(ok for _, ok, _ in rows); pts = []
@@ -26,12 +27,12 @@ def search(rows, target):
         pts.append((sum(acc) / len(acc), sum(acc) / max(P, 1), len(acc), th))
     ok = [p for p in pts if p[0] >= target]
     # chọn: recall cao nhất; hoà → ngưỡng LỎNG ít nhất (bền hơn khi ra ngoài tập nhãn) = tổng hạng ngưỡng cao hơn
-    strict = lambda th: sum(GRID[k].index(v) for k, v in th.items() if k not in ('ocr_max', 'clip_ex_rank_max')) - GRID['ocr_max'].index(th['ocr_max']) - GRID['clip_ex_rank_max'].index(th['clip_ex_rank_max'])
+    strict = lambda th: sum(GRID[k].index(v) for k, v in th.items() if k not in ('ocr_max', 'clip_ex_rank_max', 'missing_empty')) - GRID['ocr_max'].index(th['ocr_max']) - GRID['clip_ex_rank_max'].index(th['clip_ex_rank_max'])
     best = max(ok, key=lambda p: (round(p[1], 3), strict(p[3]))) if ok else max(pts, key=lambda p: (p[0], p[1]))
     return best, pts
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('--feat', action='append', default=[]); ap.add_argument('--write', action='store_true'); ap.add_argument('--target', type=float, default=.98)
+    ap = argparse.ArgumentParser(); ap.add_argument('--feat', action='append', default=[]); ap.add_argument('--write', action='store_true'); ap.add_argument('--target', type=float, default=.98); ap.add_argument('--kinds', default=''); ap.add_argument('--group', default='scene')
     a = ap.parse_args()
     lab = json.load(open(os.path.join(ROOT, 'content/lexicon/vimg-labels-scene.json')))['items']
     F = {}
@@ -41,7 +42,7 @@ def main():
             p = os.path.join(d, f'judge.local.a{n}.json')
             if os.path.exists(p):
                 for k, v in json.load(open(p)).items(): F[f'{run}/{slug(k)}.a{n}'] = (k, v.get('kind'), v['f'])
-    rows = [(lid, lab[lid]['l'] == 'ok', F[lid][2]) for lid in lab if lid in F and F[lid][1] != 'object']
+    rows = [(lid, lab[lid]['l'] == 'ok', F[lid][2]) for lid in lab if lid in F and F[lid][1] != 'object' and (not a.kinds or F[lid][1] in a.kinds.split(','))]
     miss = [lid for lid in lab if lid not in F]
     P = sum(ok for _, ok, _ in rows)
     print(f'nhãn {len(lab)} · có đặc trưng {len(rows)} (ok {P}, bad {len(rows) - P}) · thiếu {len(miss)}')
@@ -76,7 +77,10 @@ def main():
     print('NGƯỠNG', json.dumps(th)); print('HIỆU CHỈNH', json.dumps(cal)); print('ĐƯỜNG CONG', json.dumps(front))
     out = {'_note': 'Ngưỡng giám khảo ảnh CẢNH/bìa/bài học (local_judge.py verdict_scene), do calibrate_scene.py sinh trên nhãn tay vimg-labels-scene.json – không sửa tay.',
            'th': {**th, 'ask_text_block': True}, 'cal': cal, 'curve': front}
-    if a.write: json.dump(out, open(os.path.join(ROOT, 'content/lexicon/vimg-judge-scene.json'), 'w'), indent=1)
+    if a.write:   # nhóm ngưỡng: scene (cảnh câu ví dụ) | lesson (bìa + bài học) – verdict_scene chọn theo loại ảnh
+        fp = os.path.join(ROOT, 'content/lexicon/vimg-judge-scene.json'); cur = json.load(open(fp)) if os.path.exists(fp) else {'_note': out['_note'], 'groups': {}}
+        cur.setdefault('groups', {})[a.group] = {'kinds': a.kinds.split(',') if a.kinds else [], 'th': out['th'], 'cal': cal, 'curve': front}
+        json.dump(cur, open(fp, 'w'), indent=1)
 
 if __name__ == '__main__':
     main()
