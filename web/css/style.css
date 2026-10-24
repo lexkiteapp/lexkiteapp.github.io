@@ -161,6 +161,11 @@ p { margin: .4rem 0; }
 input.input[type=date], input.input[type=datetime-local], input.input[type=time], input.input[type=month], input[type=date], input[type=datetime-local], input[type=time], input[type=month] { -webkit-appearance: none; appearance: none; min-width: 0; max-width: 100%; box-sizing: border-box; text-align: start; min-height: 2.9rem; }
 input[type=date]::-webkit-date-and-time-value, input[type=datetime-local]::-webkit-date-and-time-value, input[type=time]::-webkit-date-and-time-value { text-align: start; }
 .grid > label.field, .grid > .field, .row > label { min-width: 0; }
+/* Quét tràn khung cùng LOẠI lỗi ô ngày iOS (24/10): select/ô nhập không vượt khung cha (bề rộng nội tại của option dài, ô số);
+   chữ rất dài (URL, từ ghép de/ru/tr, email) tự xuống dòng thay vì đẩy trang tràn ngang trên điện thoại */
+select, input, textarea { max-width: 100%; }
+select { min-width: 0; text-overflow: ellipsis; }
+#view :where(h1, h2, h3, h4, p, li, dd, dt, td, th, blockquote, figcaption, label, .card, .chip) { overflow-wrap: break-word; }
 .input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 textarea.input { resize: vertical; min-height: 72px; }
 label.field { display: block; }
@@ -1542,7 +1547,7 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
   .btn, a.chip, button.chip, .lsw-b, .gsi, .goal-chip, .icon-btn, .fi-btn, .ctx-say, .me-more, .quest-line, .rings-legend a, .brand, select, summary, button.on, a.on, button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a { min-height: var(--tap) !important; }
   .icon-btn, .fi-btn, .ctx-say, .gsi, .lsw-b, .brand { min-width: var(--tap) !important; }
   button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a { display: inline-flex; align-items: center; }
-  .crumb a { margin-block: -12px; } summary { align-content: center; } input[type=range] { min-height: var(--tap); }
+  .crumb a { margin-block: -12px; min-width: var(--tap); } /* "Tôi"/"Me" ngắn: rộng đủ 44 px */ summary { align-content: center; } input[type=range] { min-height: var(--tap); }
 }
 /* Thanh kết quả (.sheet) cố định đáy: chừa chỗ để cuộn thấy hết đáp án phía dưới, không bị che */
 body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
