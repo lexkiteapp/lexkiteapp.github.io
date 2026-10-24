@@ -36,4 +36,4 @@ jobs:
         run: node scripts/vocab-img/publish-free.mjs --result out/free/result.json --push
       - name: CDN – mỗi mục img phải có file (HEAD mẫu 5 %)
         if: env.MODE == 'publish'
-        run: sleep 60 && node scripts/vocab-img/cdn-check.mjs --sample 0.05
+        run: for i in 1 2 3 4 5 6 7 8 9 10; do sleep 60; node scripts/vocab-img/cdn-check.mjs --sample 0.05 && exit 0; done; exit 1   # chờ Pages của lexkite-media triển khai (~2–5 phút)
