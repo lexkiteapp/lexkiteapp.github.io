@@ -1,0 +1,413 @@
+{
+ "_note": "Nghĩa cảnh đã thử đủ biến thể mà không ảnh nào qua giám khảo cảnh – fill bỏ qua tới khi sửa thẻ (vimg-scenes.json) / prompt rồi xoá mục khỏi đây (scene-publish.mjs).",
+ "items": {
+  "advertise#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (company, products, and advertising); clip-sentence sim 0.1875; vision description-sentence sim 0.1503",
+   "b": "40088424311"
+  },
+  "advertisement#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: text; vision description-sentence sim 0.1692",
+   "b": "40088424311"
+  },
+  "almost#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.2639",
+   "b": "40088424311"
+  },
+  "alternative#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (bridge closure and route); clip-sentence sim 0.122; vision description-sentence sim 0.0406",
+   "b": "40088424311"
+  },
+  "apart#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (distance indicator); clip-sentence sim 0.1993; vision description-sentence sim 0.2158",
+   "b": "40088424311"
+  },
+  "background#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "text: Ay; vision: no (diverse backgrounds); vision description-sentence sim 0.1906",
+   "b": "40088424311"
+  },
+  "boss#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (key action of leaving); clip-sentence sim 0.1737; vision description-sentence sim -0.0552",
+   "b": "40088424311"
+  },
+  "bright#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.17; vision description-sentence sim 0.2889",
+   "b": "40088424311"
+  },
+  "candidate#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (two more candidates); vision description-sentence sim 0.299",
+   "b": "40088424311"
+  },
+  "car rental#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (arrivals hall and car rental sign); clip-sentence sim 0.1253; vision description-sentence sim 0.0723",
+   "b": "40088424311"
+  },
+  "careless#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: text",
+   "b": "40088424311"
+  },
+  "changing rooms#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.217; vision description-sentence sim 0.1544",
+   "b": "40088424311"
+  },
+  "check-in#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (clock or time indication); vision description-sentence sim 0.2104",
+   "b": "40088424311"
+  },
+  "clause#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.0577",
+   "b": "40088424311"
+  },
+  "complain#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (multiple complainants); clip-sentence sim 0.2114; vision description-sentence sim 0.2751",
+   "b": "40088424311"
+  },
+  "contactless payment#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (contactless payment action); vision description-sentence sim 0.1683",
+   "b": "40088424311"
+  },
+  "contingency#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (project context and contingency); clip-sentence sim 0.2087; vision description-sentence sim 0.1828",
+   "b": "40088424311"
+  },
+  "countryside#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1825; vision description-sentence sim 0.0685",
+   "b": "40088424311"
+  },
+  "crazy#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (speed context or shocked face)",
+   "b": "40088424311"
+  },
+  "data#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (too few people); vision description-sentence sim 0.2049",
+   "b": "40088424311"
+  },
+  "decentralize#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (regional offices, decentralization action); vision description-sentence sim 0.1864",
+   "b": "40088424311"
+  },
+  "downside#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.1062",
+   "b": "40088424311"
+  },
+  "edit access#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (spreadsheet grid, edit access action); vision: text; clip-sentence sim 0.1935; vision description-sentence sim 0.1772",
+   "b": "40088424311"
+  },
+  "engineer#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.2167",
+   "b": "40088424311"
+  },
+  "extremely#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1688; vision description-sentence sim 0.091",
+   "b": "40088424311"
+  },
+  "flexible hours#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.1876",
+   "b": "40088424311"
+  },
+  "general#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.2044",
+   "b": "40088424311"
+  },
+  "generation#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.1726",
+   "b": "40088424311"
+  },
+  "globally#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "text: ly; vision: no (global recognition); vision: text; vision description-sentence sim 0.0936",
+   "b": "40088424311"
+  },
+  "group booking#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (more than ten rooms); clip-sentence sim 0.2091; vision description-sentence sim 0.1603",
+   "b": "40088424311"
+  },
+  "half#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "text: only halfddd class; vision: text; vision description-sentence sim 0.0914",
+   "b": "40088424311"
+  },
+  "here#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "text: Wa; clip-sentence sim 0.189; vision description-sentence sim 0.0822",
+   "b": "40088424311"
+  },
+  "home address#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1954; vision description-sentence sim 0.1418",
+   "b": "40088424311"
+  },
+  "illness#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1805; vision description-sentence sim 0.1257",
+   "b": "40088424311"
+  },
+  "immediately#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (problem unclear, no receiver); clip-sentence sim 0.193; vision description-sentence sim 0.1411",
+   "b": "40088424311"
+  },
+  "informal#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (new manager, informal chat)",
+   "b": "40088424311"
+  },
+  "intangible#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (intangible assets and company); clip-sentence sim 0.2103; vision description-sentence sim 0.0753",
+   "b": "40088424311"
+  },
+  "mention#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1906; vision description-sentence sim 0.1274",
+   "b": "40088424311"
+  },
+  "meter#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (room and measurement value); clip-sentence sim 0.1313; vision description-sentence sim 0.0921",
+   "b": "40088424311"
+  },
+  "mistake#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (mistake not shown); clip-sentence sim 0.2143; vision description-sentence sim 0.0526",
+   "b": "40088424311"
+  },
+  "mutually#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1883; vision description-sentence sim 0.0623",
+   "b": "40088424311"
+  },
+  "normally#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.2378",
+   "b": "40088424311"
+  },
+  "noticeboard#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (noticeboard and action of putting up); clip-sentence sim 0.1609; vision description-sentence sim 0.0727",
+   "b": "40088424311"
+  },
+  "party#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (name and day of party); vision description-sentence sim 0.2766",
+   "b": "40088424311"
+  },
+  "perhaps#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.0573",
+   "b": "40088424311"
+  },
+  "polite#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (phone call, customer); vision description-sentence sim 0.1858",
+   "b": "40088424311"
+  },
+  "poorly#adv": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (sales data or time frame); clip-sentence sim 0.1427; vision description-sentence sim -0.0257",
+   "b": "40088424311"
+  },
+  "postal#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (postal code, form details); clip-sentence sim 0.2015; vision description-sentence sim 0.0852",
+   "b": "40088424311"
+  },
+  "primary#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (specific year or age not shown); clip-sentence sim 0.1884; vision description-sentence sim 0.1835",
+   "b": "40088424311"
+  },
+  "print#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (document to print and action); clip-sentence sim 0.2052",
+   "b": "40088424311"
+  },
+  "producer#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (coffee plant and Brazil); vision description-sentence sim 0.0601",
+   "b": "40088424311"
+  },
+  "quantity#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (machinery producing paper)",
+   "b": "40088424311"
+  },
+  "quick#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.2154; vision description-sentence sim 0.1065",
+   "b": "40088424311"
+  },
+  "remember#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (restaurant or name); clip-sentence sim 0.1495; vision description-sentence sim 0.136",
+   "b": "40088424311"
+  },
+  "roommate#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (library not shown); clip-sentence sim 0.2177; vision description-sentence sim 0.2903",
+   "b": "40088424311"
+  },
+  "savings account#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (savings account and monthly action); clip-sentence sim 0.1982; vision description-sentence sim 0.0289",
+   "b": "40088424311"
+  },
+  "schedule#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (schedule or calendar); clip-sentence sim 0.1449; vision description-sentence sim -0.0213",
+   "b": "40088424311"
+  },
+  "season#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.0751",
+   "b": "40088424311"
+  },
+  "seller#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (agreement action unclear); clip-sentence sim 0.1708; vision description-sentence sim 0.1008",
+   "b": "40088424311"
+  },
+  "sister#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1965",
+   "b": "40088424311"
+  },
+  "slow#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1861; vision description-sentence sim 0.0419",
+   "b": "40088424311"
+  },
+  "smell#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.0921",
+   "b": "40088424311"
+  },
+  "smuggle#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (officer checking container)",
+   "b": "40088424311"
+  },
+  "specific#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (requester and specific example); clip-sentence sim 0.2003; vision description-sentence sim -0.0184",
+   "b": "40088424311"
+  },
+  "time off#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1785; vision description-sentence sim 0.0742",
+   "b": "40088424311"
+  },
+  "transport#n": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (no clear improvement action); vision: text; vision description-sentence sim 0.1487",
+   "b": "40088424311"
+  },
+  "weak#adj": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "vision: no (long illness context); clip-sentence sim 0.1737; vision description-sentence sim -0.0184",
+   "b": "40088424311"
+  },
+  "worry#v": {
+   "at": "2026-10-24",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1895; vision description-sentence sim 0.028",
+   "b": "40088424311"
+  }
+ }
+}
