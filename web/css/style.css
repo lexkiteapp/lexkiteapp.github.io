@@ -157,6 +157,10 @@ p { margin: .4rem 0; }
 .btn[disabled] { opacity: .5; cursor: default; pointer-events: none; }
 
 .input, select.input, textarea.input { width: 100%; padding: .7rem .9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); outline: none; transition: border-color .15s, box-shadow .15s; }
+/* iOS Safari: ô ngày/giờ có bề rộng nội tại > khung → tràn (24/10). Ép co theo khung, căn trái như ô khác. */
+input.input[type=date], input.input[type=datetime-local], input.input[type=time], input.input[type=month], input[type=date], input[type=datetime-local], input[type=time], input[type=month] { -webkit-appearance: none; appearance: none; min-width: 0; max-width: 100%; box-sizing: border-box; text-align: start; min-height: 2.9rem; }
+input[type=date]::-webkit-date-and-time-value, input[type=datetime-local]::-webkit-date-and-time-value, input[type=time]::-webkit-date-and-time-value { text-align: start; }
+.grid > label.field, .grid > .field, .row > label { min-width: 0; }
 .input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
 textarea.input { resize: vertical; min-height: 72px; }
 label.field { display: block; }

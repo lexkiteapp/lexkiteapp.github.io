@@ -157,8 +157,8 @@ jobs:
             done
           done
           echo "## cine-render: $SCENE" >> $GITHUB_STEP_SUMMARY
-          for f in out/*.mp4; do [ -f "$f" ] && echo "- $(basename "$f"): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f") s" >> $GITHUB_STEP_SUMMARY; done
-          for f in out/qa/qa_*.log; do [ -f "$f" ] && echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
+          for f in out/*.mp4; do [ ! -f "$f" ] || echo "- $(basename "$f"): $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f") s" >> $GITHUB_STEP_SUMMARY; done
+          for f in out/qa/qa_*.log; do [ ! -f "$f" ] || echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
           [ $n -gt 0 ] || { echo "::error::không dựng bài nào"; exit 1; }
           exit $fail
       - name: Tờ soát nhỏ (8 khung/bài, 5 bài/tờ) cho kiểm tra nhanh
@@ -449,7 +449,7 @@ jobs:
               echo "::endgroup::"
             done; done
             python scripts/cine/pilot_sheet.py out/pilot "$EDIT_PILOT" || fail=1
-            for f in out/pilot/qa_edit_*.log; do [ -f "$f" ] && echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
+            for f in out/pilot/qa_edit_*.log; do [ ! -f "$f" ] || echo "- $(basename "$f"): $(tail -1 "$f")" >> $GITHUB_STEP_SUMMARY; done
             exit $fail
           fi
           for lid in ${SHARD//,/ }; do
