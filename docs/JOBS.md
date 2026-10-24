@@ -103,4 +103,6 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/vocab-img/scene-gen.mjs` – vẽ ảnh nghĩa | `dist/lexicon.json` | vocab-img-scene |
 | `scripts/vocab-img/local_judge.py` – vẽ ảnh nghĩa | `dist/lexicon.json` | vocab-img-scene |
 | `scripts/vocab-img/calibrate.py` – vẽ ảnh nghĩa | `dist/lexicon.json` | vocab-img-scene |
+| `scripts/vocab-img/icons-lex.mjs` – icon theo nghĩa (tầng icon) | `dist/lexicon.json` | vocab-img |
+| `scripts/vocab-img/wiki.mjs` – ảnh Wikimedia theo nghĩa | `dist/lexicon.json` | vocab-img |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |

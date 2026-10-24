@@ -49,7 +49,7 @@ async function grabcast(prompt) {
   const r = await fetch(GC + '/api/owner-ai/image', { method: 'POST', headers: h, body: JSON.stringify({ prompt, provider: 'cloudflare' }) });
   const j = await r.json().catch(() => ({}));
   // đo 23/10: hết khung sau 10 ảnh, mở lại < 2 phút → chờ lùi 65 s, 130 s…; 6 lần 429 LIÊN TIẾP = hết hạn mức ngày → dừng nhà này
-  if (r.status === 429 && (gcWaits++ < 6)) { const w = Math.min(240, +r.headers.get('retry-after') || 65 * gcWaits);   // 24/10 GrabCast MAX: 115k/ngày/khoá, ảnh 60/phút/IP – theo Retry-After console.log(`… GrabCast 429 (khung 10 ảnh) – chờ ${w} s`); await new Promise(s => setTimeout(s, w * 1e3)); return grabcast(prompt); }
+  if (r.status === 429 && (gcWaits++ < 6)) { const w = Math.min(240, +r.headers.get('retry-after') || 65 * gcWaits); /* 24/10 GrabCast MAX: 115k/ngày/khoá, ảnh 60/phút/IP – theo Retry-After */ console.log(`… GrabCast 429 (khung 10 ảnh) – chờ ${w} s`); await new Promise(s => setTimeout(s, w * 1e3)); return grabcast(prompt); }
   if (r.status === 429 || quotaish(String(j.error && j.error.code || ''))) throw new Quota(`${r.status} ${JSON.stringify(j.error || '').slice(0, 120)}`);
   let job = j.job; if (!r.ok || !job) throw new Error(`${r.status} ${JSON.stringify(j).slice(0, 160)}`);
   for (let i = 0; job.status !== 'done' && i < 20; i++) {   // việc ảnh thường xong ngay; chờ tối đa ~60 s (không thăm dò vô hạn)
