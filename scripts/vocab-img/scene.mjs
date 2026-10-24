@@ -15,11 +15,13 @@ import { STYLE, PEOPLE, fnv } from './style.mjs';
 import { ruleCheck } from './strict.mjs';
 import { isFunction } from './concept.mjs';
 
-export const SCENE_V = 'e1';
+export const SCENE_V = 'e2';
 // MỘT bộ token phong cách cho cả 20k (cùng STYLE.base s1 đã duyệt) + phần riêng cho cảnh: tối đa 2 người, bố cục rõ, không chữ.
-export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday moment. At most two people, simple geometric shapes, soft rounded edges, clean outlines, ' +
+// e2 (nhãn 24/10, 245 ảnh): FLUX schnell không có negative prompt – nhắc 'signs/speech bubbles' lại làm HIỆN biển/bong bóng chữ (HOSPITAL, BANK, HOTEL,
+// bong bóng thoại chữ vô nghĩa ở 30/74 ảnh bài học) → mô tả TÍCH CỰC: tường/mặt phẳng trơn, người giao tiếp bằng nét mặt + cử chỉ.
+export const SCENE_STYLE = 'Wordless flat vector illustration of one everyday moment. At most two main people, simple geometric shapes, soft rounded edges, clean outlines, ' +
   'limited palette of deep teal, warm orange, golden yellow, soft pink and cream, plain solid light cream background, the people and the key objects large and centered, ' +
-  'no signs, no screens with writing, no speech bubbles, purely pictorial without any lettering. Friendly, culturally neutral, suitable for young children.';
+  'plain walls and plain surfaces, people communicate only with faces and hand gestures, purely pictorial. Friendly, culturally neutral, suitable for young children.';
 // chính sách seed: API FLUX không nhận seed → tái lập = băm nội dung; biến thể bố cục + người TẤT ĐỊNH theo fnv(khoá) (không ngẫu nhiên giữa các lần chạy)
 const FRAMES = ['medium shot', 'wide shot showing the whole place', 'close medium shot', 'three-quarter view'];
 export const RETRY_SCENE = 'Simpler composition: only the essential people and objects, larger, nothing in the background.';
@@ -41,9 +43,11 @@ export function promptScene(k, sc, attempt = 1) {
 
 // ---- thẻ cảnh: lời nhắn MỘT nguồn (người viết thẻ phải dùng câu ví dụ của kho; được trả skip) ----
 export const SCENE_SYS = `You turn dictionary example sentences into ONE wordless picture for a vocabulary card. The picture must show the SITUATION of the sentence so a learner who reads the sentence under the picture understands the word. Never draw a literal object for an abstract word, never a misleading symbol.
+Rules learned from reviewed pictures: (1) if the sentence names groups or compares (men and women, children and adults, equal, more, less, same, different, second, best), draw BOTH sides explicitly side by side so the comparison is visible (e.g. "a woman and a man each receive an identical stack of coins"; a race result = three runners on a podium of three heights); (2) show places (hospital, bank, hotel, station, school) only through objects inside them (bed, counter, key, ticket), never a building front; (3) the key thing of the sentence must be large and in the foreground (the mango, the conductor punching a ticket, the deep water under a small boat); (4) people talk with gestures, never speech bubbles, phones or screens unless the sentence is about them; (5) use people of different genders, ages and skin tones when the sentence implies it.
 For each input item {k, w, pos, def, ex:[sentences]} reply with one JSON object keyed by k:
-{"ex": "the ONE input sentence (copied exactly) whose situation is easiest to draw", "sc": "what to draw: who (use 'person A'/'person B', at most two people), doing what, with which objects, where; 15-40 words, concrete and visible; no text, letters, numbers, signs, screens with writing, speech bubbles, flags or brands", "cap": "a neutral 6-14 word caption of that picture that does NOT contain the word w", "who": number of people 0-2}
+{"ex": "the ONE input sentence (copied exactly) whose situation is easiest to draw", "sc": "what to draw: who (use 'person A'/'person B', or explicit people like 'a woman and a man' when the sentence needs them; at most three people), doing what, with which objects, where; 15-45 words, concrete and visible; no text, letters, numbers, signs, screens with writing, speech bubbles, flags or brands", "cap": "a neutral 6-14 word caption of that picture that does NOT contain the word w", "who": number of people 0-2}
 If no input sentence can be drawn without text or symbols (e.g. it is about grammar, numbers, time words or opinions only), reply {"skip": "short reason"} for that k.
+Example: equal (adj) "Men and women should receive equal pay." -> {"ex":"Men and women should receive equal pay.","sc":"a woman and a man in work clothes stand side by side, each holding out a hand receiving an identical stack of coins from a balance scale that is perfectly level","cap":"a woman and a man receiving identical stacks of coins","who":2}
 Example: consider (v) "We are considering moving to the countryside." -> {"ex":"We are considering moving to the countryside.","sc":"person A and person B sit at a kitchen table looking at two house photos, a city flat and a cottage with fields, thinking","cap":"a couple comparing pictures of a city flat and a country cottage","who":2}
 Reply JSON only.`;
 export const sceneUser = items => JSON.stringify(items.map(({ k, e }) => ({ k, w: e.w, pos: e.pos, def: String(e.def || '').slice(0, 200), ex: [].concat(e.ex || []).filter(Boolean).slice(0, 3).map(s => String(s).slice(0, 220)) })));
@@ -82,7 +86,7 @@ if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url
   const lex = rd('dist/lexicon.json'), sel = rd('content/lexicon/vimg-select.json').items;
   const SC = 'content/lexicon/vimg-scenes.json', cards = fs.existsSync(P(SC)) ? rd(SC) : { _note: 'Thẻ cảnh cho nghĩa trừu tượng (scene.mjs). ex = câu ví dụ của kho, sc = mô tả hình, cap = chú thích cho giám khảo.', v: SCENE_V, items: {} };
   const keysOf = () => { const f = arg('keys'); return f && fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, 'utf8')).scene || JSON.parse(fs.readFileSync(f, 'utf8')).items) : String(f || '').split(',').filter(Boolean); };
-  if (process.argv.includes('--pilot')) { process.stdout.write(JSON.stringify(pilot(lex, sel, +(arg('n') || 60), +(arg('fn') || 20)), null, 1)); }
+  if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }
   else if (process.argv.includes('--dry')) { for (const k of keysOf()) console.log(k, '→', cards.items[k] ? promptScene(k, cards.items[k]).slice(0, 220) : '(chưa có thẻ)'); }
   else if (process.argv.includes('--cards')) {
     const { createPool } = await import('../lib/ai-pool.mjs');

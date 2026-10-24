@@ -128,6 +128,41 @@ def api_vision(im):
             time.sleep(3); continue
     _API['fails'] += 1; return None
 
+ASK_Q = ('You check pictures for an English-learning app. Question: does this picture clearly show {desc}? A learner must understand it from the picture alone; '
+         'judge strictly (wrong people, missing key object or action, unclear situation = no). Reply JSON only: {{"shows": "yes" or "no", "confidence": 0-100, '
+         '"missing": "what is missing or wrong, max 8 words", "text": true if any letters, words or numbers are visible}}')
+def ask_q(t):
+    """câu hỏi có/không cho ảnh cảnh/bìa/bài học – CÙNG mẫu cho ảnh cũ và mới (không dùng prompt vẽ)"""
+    if t['kind'] == 'scene': return f'the situation of this sentence: "{t.get("ex") or t.get("target")}"'
+    if t['kind'] == 'cover': return f'the topic "{t["target"].replace("a picture about ", "")}" (recognisable objects or activity of this topic, not a generic room)'
+    return f'this situation: "{t["target"]}"'
+def api_ask(im, q):
+    """GrabCast vision: câu hỏi có/không về TÌNH HUỐNG → {'yes': bool, 'conf': 0-100, 'missing', 'text'} | None. 429 → Retry-After (vision 120/phút/IP)"""
+    key = os.environ.get('GRABCAST_AI_KEY'); base = os.environ.get('GRABCAST_API_BASE', 'https://grabcast-api-342720596878.us-central1.run.app').rstrip('/')
+    if not key or _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0': return None
+    import base64, io, urllib.request, urllib.error
+    b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
+    body = json.dumps({'prompt': ASK_Q.format(desc=q), 'image_b64': base64.b64encode(b.getvalue()).decode(), 'mime': 'image/jpeg'}).encode()
+    for i in range(6):
+        try:
+            req = urllib.request.Request(base + '/api/owner-ai/vision', data=body, headers={'X-API-Key': key, 'Content-Type': 'application/json'})
+            j = json.loads(urllib.request.urlopen(req, timeout=60).read()); _API['calls'] += 1
+            t = j.get('text') or ''; m = re.search(r'\{.*\}', t, re.S)
+            try: o = json.loads(m.group(0)) if m else {}
+            except Exception: o = {}
+            ans = str(o.get('shows', '')).strip().lower() or ('yes' if re.match(r'\W*yes', t, re.I) else 'no' if re.match(r'\W*no', t, re.I) else '')
+            if ans not in ('yes', 'no'): continue
+            try: cf = float(o.get('confidence', 50))
+            except Exception: cf = 50.0
+            return {'yes': ans == 'yes', 'conf': cf, 'missing': str(o.get('missing', ''))[:80], 'text': o.get('text') is True, 'model': j.get('model') or j.get('provider') or '?'}
+        except urllib.error.HTTPError as e:
+            if e.code == 503: _API['dead'] = True; print('⏸ GrabCast vision ai_exhausted', flush=True); return None
+            if e.code == 429: time.sleep(min(240, float(e.headers.get('Retry-After') or 20 * (i + 1)))); continue
+            _API['fails'] += 1; return None
+        except Exception:
+            time.sleep(3); continue
+    _API['fails'] += 1; return None
+
 def framing(im):
     """MỘT khuôn (chủ 24/10): chủ thể ở giữa, chừa lề ~10 %. Đo khung vật = điểm ảnh khác nền viền (trung vị) → lề nhỏ nhất (tỉ lệ cạnh) + lệch tâm."""
     a = np.asarray(im.convert('RGB').resize((128, 128)), np.int16); edge = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(edge, 0)
@@ -175,14 +210,44 @@ def features(im, k, t, T, LEX, keys_all, centroid):
         A = st.encode([str(api['describe'])], normalize_embeddings=True)[0]; ap, i = [], 0
         for rs in refs: ap.append(float(np.max(R[i:i + len(rs)] @ A)) if rs else -1.0); i += len(rs)
         ap = np.array(ap); arank = int((ap > ap[0]).sum()) + 1; asim = round(float(ap[0]), 4); aflags = {'text': api.get('text') is True, 'unsafe': api.get('unsafe') is True}
+    sc = {}
+    if t.get('kind', 'object') != 'object':
+        # tín hiệu RIÊNG cho cảnh (24/10): CLIP ảnh ↔ CÂU (không phải gloss), chú thích ↔ câu, giám khảo thị giác hỏi có/không về tình huống
+        sent = t.get('ex') or t['target']
+        dsent = [(T.get(d[0]) or {}).get('ex') or d[1] for d in ds]
+        cs = emb_txt([sent] + dsent) @ v
+        sc['clip_ex'] = round(float(cs[0]), 4); sc['clip_ex_rank'] = int((cs[1:] > cs[0]).sum()) + 1; sc['clip_ex_margin'] = round(float(cs[0] - cs[1:].max()), 4)
+        E2 = st.encode([c, sent] + dsent, normalize_embeddings=True); ss = E2[1:] @ E2[0]
+        sc['cap_ex'] = round(float(ss[0]), 4); sc['cap_ex_rank'] = int((ss[1:] > ss[0]).sum()) + 1; sc['cap_ex_margin'] = round(float(ss[0] - ss[1:].max()), 4)
+        if api and api.get('describe'):
+            E3 = st.encode([str(api['describe']), sent], normalize_embeddings=True); sc['api_ex'] = round(float(E3[0] @ E3[1]), 4)
+        ak = api_ask(im, ask_q(t))
+        if ak: sc.update(ask_yes=ak['yes'], ask_conf=ak['conf'], ask_missing=ak['missing'], ask_text=ak['text'], ask_model=ak['model'])
     fr = framing(im)
-    return {'frame': fr, 'api': (api or {}).get('describe'), 'api_model': (api or {}).get('model'), 'api_rank': arank, 'api_sim': asim, **{('api_' + k): v for k, v in aflags.items()},
+    return {**sc, 'frame': fr, 'api': (api or {}).get('describe'), 'api_model': (api or {}).get('model'), 'api_rank': arank, 'api_sim': asim, **{('api_' + k): v for k, v in aflags.items()},
             'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
             'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
             'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
 
+def verdict_scene(f, th):
+    """ảnh cảnh/bìa/bài học – ngưỡng content/lexicon/vimg-judge-scene.json (calibrate_scene.py trên nhãn tay ~470 ảnh, 24/10).
+    Thiếu câu trả lời thị giác (API cạn/lỗi) → hàng chờ, KHÔNG nhận (độ chính xác ≥ 98 %)."""
+    s, r = th['scene'], []
+    if len(f['ocr']) > s.get('ocr_max', 0): r.append('text: ' + ' '.join(f['ocr'])[:40])
+    if f['nsfw'] >= th['nsfw_max']: r.append(f"nsfw {f['nsfw']}")
+    if f.get('style') is not None and f['style'] < s.get('style_min', 0): r.append(f"style {f['style']}")
+    if f.get('ask_yes') is None: r.append('queue: vision judge unavailable')
+    else:
+        if not f['ask_yes'] or f.get('ask_conf', 0) < s.get('ask_conf', 0): r.append(f"vision: no ({f.get('ask_missing', '')})")
+        if f.get('ask_text') and s.get('ask_text_block', True): r.append('vision: text')
+    if f.get('clip_ex_rank', 99) > s.get('clip_ex_rank_max', 99) or f.get('clip_ex_margin', -1) < s.get('clip_ex_margin', -1): r.append(f"clip-sentence rank {f.get('clip_ex_rank')} margin {f.get('clip_ex_margin')}")
+    if f.get('cap_ex', -1) < s.get('cap_ex_min', -1): r.append(f"caption-sentence sim {f.get('cap_ex')}")
+    if f.get('clip_ex', -1) < s.get('clip_ex_min', -1): r.append(f"clip-sentence sim {f.get('clip_ex')}")
+    return r
+
 def verdict(f, th, kind):
     r = []
+    if kind != 'object' and th.get('scene'): return verdict_scene(f, th)
     if kind != 'object':   # cảnh: cùng phép xếp hạng, ngưỡng tương đồng riêng; phong cách so tâm CẢNH (không so tâm ảnh vật)
         th = {**th, 'cap_sim': th.get('cap_sim_scene', .35), 'api_sim': th.get('cap_sim_scene', .35), 'style_min': th.get('style_min_scene', .5)}
     if f['clip_rank'] != 1 or f['clip_margin'] < th['clip_margin']: r.append(f"clip rank {f['clip_rank']} margin {f['clip_margin']}")
@@ -205,6 +270,8 @@ def verdict(f, th, kind):
 def load_th():
     j = json.load(open(TH_FILE)) if os.path.exists(TH_FILE) else {}
     th = {**DEF_TH, **(j.get('th') or {})}
+    sf = os.path.join(ROOT, 'content/lexicon/vimg-judge-scene.json')
+    if os.path.exists(sf): th['scene'] = json.load(open(sf))['th']
     c = np.array(j['centroid'], dtype=np.float32) if j.get('centroid') else None
     return th, c, j
 

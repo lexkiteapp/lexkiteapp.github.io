@@ -20,14 +20,20 @@ const [SI, SN] = String(arg('shard') || '0/1').split('/').map(Number);
 const isImg = b => b && b.length > 1000 && ((b[0] === 0xff && b[1] === 0xd8) || (b[0] === 0x89 && b[1] === 0x50) || b.slice(8, 12).toString() === 'WEBP');
 
 /** bìa chủ đề + tình huống bài Tự tin → { prompt, target, caption_ref } (tất định, không AI viết thẻ) */
+// prompt tay content/visual/lesson-scenes.json (l2, sau nhãn 24/10: bìa 8/100 đạt – người ngồi phòng khách chung chung; bài học có biển/bong bóng chữ)
+let LS = null;
+const lessonScene = k => { if (!LS) { try { LS = JSON.parse(fs.readFileSync(new URL('../../content/visual/lesson-scenes.json', import.meta.url), 'utf8')).items; } catch { LS = {}; } } return LS[k]; };
 export function lessonTarget(k, topics, conf) {
-  const who = PEOPLE[fnv(k) % PEOPLE.length];
+  const who = PEOPLE[fnv(k) % PEOPLE.length], who2 = PEOPLE[(fnv(k) >> 3) % PEOPLE.length] === who ? PEOPLE[(fnv(k) + 1) % PEOPLE.length] : PEOPLE[(fnv(k) >> 3) % PEOPLE.length];
+  const hand = lessonScene(k), fill = s => s.replace(/\{A\}/g, who).replace(/\{B\}/g, who2);
   if (k.startsWith('topic:')) {
     const t = topics.find(x => x.id === k.slice(6)); if (!t) return null; const name = t.name.en;
+    if (hand) return { kind: 'cover', target: `a picture about ${name.toLowerCase()}`, sit: fill(hand).replace(/\{[AB]\}/g, 'a person'), caption_ref: [name, fill(hand)], prompt: `Illustration, one clear centered composition about ${name.toLowerCase()}: ${fill(hand)}. The objects are large, iconic and instantly recognisable. ${SCENE_STYLE}` };
     return { kind: 'cover', target: `a picture about ${name.toLowerCase()}`, caption_ref: [name], prompt: `Illustration, wide shot: one inviting everyday scene that clearly shows the topic ${name.toLowerCase()}, with ${who} and two or three typical objects of this topic. ${SCENE_STYLE}` };
   }
   if (k.startsWith('conf:')) {
     const u = conf[k.slice(5)]; if (!u) return null; const role = (u.dialogue && u.dialogue.aRole) || 'a helpful person';
+    if (hand) return { kind: 'lesson', target: `${u.title.en.toLowerCase()}: ${u.goal.en}`, sit: fill(hand), caption_ref: [u.title.en, u.goal.en, fill(hand)], prompt: `Illustration, medium shot: ${fill(hand)}. ${SCENE_STYLE}` };
     return { kind: 'lesson', target: `${u.title.en.toLowerCase()}: ${u.goal.en}`, caption_ref: [u.title.en, u.goal.en], prompt: `Illustration, medium shot: ${who} talking with ${role} in this situation: ${u.goal.en.replace(/\.$/, '')}. ${SCENE_STYLE}` };
   }
   return null;
@@ -43,7 +49,7 @@ export function buildTargets(keys, ctx) {
     if (kd === 'concept') { T[k] = { kind: 'concept', fam: familyOf(e.w), h: conceptHash(e.w), target: e.def }; continue; }
     if (kd === 'object') { const c = cards[k]; T[k] = { kind: 'object', target: `an illustration of ${e.w}: ${String(e.def || '').slice(0, 120)}`, caption_ref: [e.w, ...((c && c.s) || []), String(e.def || '')], sib, ...(c && !c.skip ? { prompt: promptFromCard(k, c, ATT) } : {}) }; continue; }
     const s = scenes[k];
-    T[k] = { kind: 'scene', ex: s && s.ex, target: s && s.cap ? s.cap : '', caption_ref: s && !s.skip ? [s.cap, s.ex] : [], sib, ...(s && !s.skip && s.sc ? { prompt: promptScene(k, s, ATT) } : { fallback: 'type' }) };
+    T[k] = { kind: 'scene', ex: s && s.ex, target: s && s.cap ? s.cap : '', caption_ref: s && !s.skip ? [s.cap, s.ex] : [], sib, sit: s && s.sc, ...(s && !s.skip && s.sc && s.ex ? { prompt: promptScene(k, s, ATT) } : { fallback: 'type' }) };
   }
   return T;
 }

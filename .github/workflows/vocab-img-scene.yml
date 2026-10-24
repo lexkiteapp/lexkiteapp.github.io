@@ -14,6 +14,10 @@ on:
       max_gc: { description: 'Trần ảnh GrabCast CẢ lượt (chia đều cho các việc)', default: '400' }
       recal: { description: '1 = hiệu chỉnh ngưỡng giám khảo trước khi chấm', default: '1' }
       from_run: { description: 'Chỉ chạy bước gộp/tờ ảnh trên artifact của lượt này (run id) – không vẽ lại', default: '' }
+      pick: { description: 'Chọn khoá pilot n:from:fn (n nghĩa cảnh bỏ qua from nghĩa đầu, fn hư từ)', default: '60:0:20' }
+      extra: { description: 'Thêm khoá cảnh (phẩy), vd. ca lỗi đã biết equal#adj,race#n', default: '' }
+      retry: { description: '1 = vẽ lại 1 lần ảnh trượt', default: '1' }
+      lab_run: { description: 'Lượt cũ (run id có vimg-scene-final) → tính lại đặc trưng giám khảo cảnh cho ảnh đã gán nhãn', default: '' }
 permissions:
   contents: read
   actions: read     # tải artifact gán nhãn (calibrate)
@@ -74,8 +78,9 @@ jobs:
         if: steps.lease.outputs.skip != '1'
         run: |
           node scripts/build-lexicon.mjs --write >/dev/null
-          node scripts/vocab-img/scene.mjs --pilot --n 60 --fn 20 > pilot.json
-          node -e "const p=require('./pilot.json'),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));require('fs').writeFileSync('keys.json',JSON.stringify({items:[...p.items,...t.map(x=>'topic:'+x.id),...c],scene:p.scene}))"
+          IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
+          node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
+          EXTRA="${{ github.event.inputs.extra }}" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
           echo "khoá: $(node -p "require('./keys.json').items.length")"
       - name: Thẻ cảnh (câu ví dụ → mô tả hình; GrabCast văn bản)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
@@ -136,8 +141,9 @@ jobs:
         if: steps.lease.outputs.skip != '1'
         run: |
           node scripts/build-lexicon.mjs --write >/dev/null
-          node scripts/vocab-img/scene.mjs --pilot --n 60 --fn 20 > pilot.json
-          node -e "const p=require('./pilot.json'),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));require('fs').writeFileSync('keys.json',JSON.stringify({items:[...p.items,...t.map(x=>'topic:'+x.id),...c],scene:p.scene}))"
+          IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
+          node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
+          EXTRA="${{ github.event.inputs.extra }}" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
           echo "khoá: $(node -p "require('./keys.json').items.length")"
       - name: Thẻ cảnh + ngưỡng từ bước chuẩn bị (MỘT bộ cho mọi việc ma trận)
         if: steps.lease.outputs.skip != '1'
@@ -155,7 +161,7 @@ jobs:
         if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
         run: python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 1
       - name: Vẽ lại 1 lần (prompt tinh) + chấm lần 2
-        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot'
+        if: steps.lease.outputs.skip != '1' && env.MODE == 'pilot' && github.event.inputs.retry != '0'
         run: |
           node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt 2 --shard ${{ matrix.shard }}/${{ strategy.job-total }} --only $OUT/retry.json || true
           ls $OUT/raw/*.a2.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt 2 || true
@@ -171,6 +177,51 @@ jobs:
             calibration.json
             keys.json
             reports/
+      - name: Trả thuê
+        if: always() && steps.lease.outputs.skip != '1'
+        run: node scripts/jobs/lease.mjs release vocab-img-scene --status "${{ job.status }}"
+  labfeat:
+    # đặc trưng giám khảo CẢNH (CLIP↔câu, chú thích↔câu, thị giác có/không) cho ảnh của lượt cũ đã gán nhãn – đầu vào calibrate_scene.py
+    needs: plan
+    if: github.event.inputs.lab_run != '' && needs.plan.outputs.skip != '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions: { contents: read, actions: read, id-token: write }
+    env:
+      LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
+      GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+      LEASE_SHARD: lab
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: .github/workflows/vocab-img-scene.yml }
+      - name: Thuê (điều phối)
+        id: lease
+        run: node scripts/jobs/lease.mjs acquire vocab-img-scene --force
+      - uses: actions/cache@v4
+        if: steps.lease.outputs.skip != '1'
+        with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
+      - if: steps.lease.outputs.skip != '1'
+        run: |
+          sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
+          pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
+          pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
+          node scripts/build-lexicon.mjs --write >/dev/null
+      - uses: actions/download-artifact@v4
+        if: steps.lease.outputs.skip != '1'
+        with: { name: vimg-scene-final, path: lab, run-id: '${{ github.event.inputs.lab_run }}', github-token: '${{ github.token }}' }
+      - name: Đặc trưng (không phán quyết)
+        if: steps.lease.outputs.skip != '1'
+        run: |
+          rm -f lab/judge.local.a*.json
+          python3 scripts/vocab-img/local_judge.py --dir lab --attempt 1 --features-only | tail -3
+          python3 scripts/vocab-img/local_judge.py --dir lab --attempt 2 --features-only | tail -3
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.lease.outputs.skip != '1'
+        with: { name: vimg-scene-labfeat, retention-days: 14, path: "lab/judge.local.a*.json\nlab/targets.json" }
       - name: Trả thuê
         if: always() && steps.lease.outputs.skip != '1'
         run: node scripts/jobs/lease.mjs release vocab-img-scene --status "${{ job.status }}"
