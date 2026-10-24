@@ -134,6 +134,16 @@
    "what": "vẽ ảnh nghĩa",
    "via": "dist/lexicon.json",
    "job": "vocab-img-scene"
+  },
+  "scripts/vocab-img/icons-lex.mjs": {
+   "what": "icon theo nghĩa (tầng icon)",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
+  },
+  "scripts/vocab-img/wiki.mjs": {
+   "what": "ảnh Wikimedia theo nghĩa",
+   "via": "dist/lexicon.json",
+   "job": "vocab-img"
   }
  },
  "todo": {

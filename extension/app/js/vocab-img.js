@@ -20,11 +20,20 @@
   const low = () => +nav.deviceMemory > 0 && +nav.deviceMemory <= 2;                       // máy yếu → ảnh nhỏ (không @2x)
   // VAI bề mặt → cỡ CSS cố định (một nguồn): thẻ học 120 · mặt sau ôn 128 · phản hồi câu đố 64 · tra từ 160 · trang /words/ 256
   const SIZE = { card: 120, back: 128, quiz: 64, dict: 160, words: 256 };
+  // BẬT DẦN (chủ 24/10): config vocab_img_pct (mặc định PCT = 10 %) theo nhóm thiết bị CỐ ĐỊNH lk.vb (0–99, ngẫu nhiên 1 lần); quản trị (lk.vimg.adm) và người thử (lk.vimg=1) luôn bật.
+  // Chỉ nâng lên 100 % sau khi journey-e2e "ảnh BẬT" đạt + 3 ngày không lỗi, giữ chân ổn định (docs/LEXICON.md § Quy tắc tích hợp hình).
+  const PCT = 10;
+  const on1 = v => v === true || v === 1 || v === '1' || v === 'true', off1 = v => v === false || v === 0 || v === '0' || v === 'false';
+  function bucket() { try { let b = localStorage.getItem('lk.vb'); if (b == null || isNaN(+b)) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.vb', b); } return +b; } catch (e) { return 99; } }
   function mode() {
-    if (lean()) return 0;
     try { const f = localStorage.getItem('lk.vimg'); if (f === '1') return 1; if (f === '0') return 0; } catch (e) { /* bỏ qua */ }
-    try { const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.vocab_img; if (v === true) return 1; if (v === false) return 0; } catch (e) { /* bỏ qua */ }
-    return -1;
+    if (lean()) return 0;
+    let v, pct = PCT;
+    try { const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'); v = c && c.v && c.v.vocab_img; const p = c && c.v && c.v.vocab_img_pct; if (p !== undefined && p !== null && p !== '' && !isNaN(+p)) pct = Math.max(0, Math.min(100, +p)); } catch (e) { /* bỏ qua */ }
+    if (off1(v)) return 0;
+    try { if (localStorage.getItem('lk.vimg.adm') === '1') return 1; } catch (e) { /* bỏ qua */ }
+    if (on1(v)) return 1;
+    return bucket() < pct ? -1 : 0;   // trong nhóm bật dần → TỰ ĐỘNG theo chỉ mục (on ≥ 150 ảnh đã chấm)
   }
   function enabled() { const m = mode(); return m === 1 || (m === -1 && !!(idx && idx.on)); }
   const src = (typeof document !== 'undefined' && document.currentScript && document.currentScript.src) || '';
