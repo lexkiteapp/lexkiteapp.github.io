@@ -29,6 +29,7 @@
 
 ## Mobile & cửa hàng
 - `STORE-READINESS.md` – trạng thái iOS/Android/CWS + việc 👤 còn mở (mục đầu). Khi đụng mobile/niêm yết.
+- `ADS.md` – quảng cáo (AdSense web / AdMob app, add-on không bao giờ): vị trí cho phép, tần suất, đồng ý TCF/UMP, cờ + công tắc khẩn cấp, cổng giữ chân, Quản trị › Quảng cáo. Khi đụng quảng cáo/kiếm tiền.
 
 ## Video
 - `VIDEO.md` – nguồn sự thật video (news-anchor, builder, CI, lưu trữ, bank). Khi làm video.

@@ -11,4 +11,6 @@ rsync -a --delete --exclude 'sw.js' --exclude 'audio/' --exclude '_headers' --ex
 cp web/app/index.html mobile/www/index.html && perl -0pi -e 's#<!--base-->.*?<!--/base-->##s' mobile/www/index.html
 # Đăng nhập gốc (Google/Apple): bật theo file cấu hình Firebase có mặt (GoogleService-Info.plist / google-services.json)
 node scripts/mobile-auth-config.mjs
+# Quảng cáo AdMob (docs/ADS.md §5): chỉ khi ADS_NATIVE=1 – mặc định app KHÔNG có SDK quảng cáo
+node scripts/mobile-ads.mjs
 cd mobile && npx cap sync >/dev/null && echo "✓ Đã đồng bộ app mobile (android/, ios/) từ bản web mới nhất"

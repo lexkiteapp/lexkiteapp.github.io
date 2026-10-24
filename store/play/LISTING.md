@@ -15,7 +15,7 @@ Character counts below are Unicode characters (what Play Console counts). Every 
 | Email | `support@lexkite.com` |
 | Website | `https://lexkite.com` |
 | Privacy policy | `https://lexkite.com/en/privacy` |
-| Contains ads | **No** (`web/js/ads-config.js` → `enabled: false`; update listing + Data safety when AdMob is turned on) |
+| Contains ads | **No** for builds without the AdMob SDK (default). The first build made with `ADS_NATIVE=1` → **Yes** + Data safety per `docs/STORE-READINESS.md` §E |
 | App access | All functionality is available without special access (no login) |
 
 Policy notes: no "best / #1 / top" or ranking claims, no price or "free" text in the app name or icon, no emoji, exam names used only descriptively + non-affiliation line. "Free" appears only in descriptions. The feature graphic and screenshots carry no "free" / call-to-action text.

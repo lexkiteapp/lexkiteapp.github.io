@@ -10,7 +10,7 @@
   const EN = {
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
-    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
+    'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Quảng cáo': 'Ads', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.': 'Per-platform flags, kill switch, estimated revenue, frequency caps, retention guard and consent by region.', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
     'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
@@ -201,7 +201,7 @@
 
   // ---------- Điều hướng: nhóm → mục [khóa, biểu tượng, nhãn, mô tả, id huy hiệu] ----------
   const NAV = [
-    ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.']]],
+    ['Tổng quan', [['overview', '📊', 'Tổng quan', 'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.'], ['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.'], ['ads', '💰', 'Quảng cáo', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.']]],
     ['Người dùng', [['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['notices', '📣', 'Thông báo', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc.', 'notN']]],
     ['Chất lượng', [['alerts', '🚨', 'Cảnh báo', 'Tác vụ tự động, lỗi JavaScript từ người dùng và nhật ký quản trị.', 'alertN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['quality', '🛡️', 'Chất lượng', 'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.']]],
     ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
@@ -1334,6 +1334,10 @@
       await lazy('AdminKeys', 'js/admin-keys.js'); main.innerHTML = '';
       AdminKeys.render(main, kapi, L, { esc, num, when, lang: () => LANG });
     },
+    async ads() { // 💰 Quảng cáo – js/admin-ads.js (tải lười) → op adsStats + config/configSet (docs/ADS.md)
+      await lazy('AdminAds', 'js/admin-ads.js'); main.innerHTML = '';
+      AdminAds.render(main, api, L, { esc, lang: () => LANG, toast, confirm: confirmDlg });
+    },
     async quota() { // Hạn mức & chống lạm dụng – js/admin-quota.js (tải lười, tự gọi /api/quota)
       await lazy('AdminQuota', 'js/admin-quota.js'); main.innerHTML = '';
       AdminQuota.render(main, L, { esc, num, when, lang: () => LANG });
@@ -1345,7 +1349,7 @@
     },
     async settings() {
       const [c, g] = await Promise.all([api('config'), api('geminiStatus').catch(() => null)]);
-      const keys = c.keys || [], vals = c.values || {}, known = new Set(SETTINGS.flatMap(s => s.fields.map(f => f.k)));
+      const keys = (c.keys || []).filter(k => !/^ads_/.test(k)), vals = c.values || {}, known = new Set(SETTINGS.flatMap(s => s.fields.map(f => f.k)));
       const groups = [...SETTINGS, ...(keys.some(k => !known.has(k)) ? [{ id: 'other', title: 'Khác@@set', desc: '', fields: keys.filter(k => !known.has(k)).map(k => ({ k, type: 'text', label: k, def: '' })) }] : [])]
         .map(s => ({ ...s, fields: s.fields.filter(f => keys.includes(f.k)) })).filter(s => s.fields.length);
       const F = {}; groups.forEach(s => s.fields.forEach(f => { const cur = String((vals[f.k] || {}).v ?? ''); F[f.k] = { f, cur, val: cur }; }));

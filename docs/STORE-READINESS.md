@@ -21,7 +21,7 @@ Rà soát ngày 17/10/2026 trên mã nguồn + log CI (android.yml, ios.yml đ�
 5. (Tùy chọn) Tên người bán hiện "MODIAN LUXURY JEWELRY LLC" – muốn hiện "Lexkite" thì đăng ký DBA (mục C).
 6. Kiểm hộp thư `support@lexkite.com` nhận được thư (Apple yêu cầu liên hệ thật).
 
-Khi bật đăng nhập hoặc AdMob: cập nhật A2 + B1 + `PrivacyInfo.xcprivacy` CÙNG LÚC trước khi phát hành bản đó.
+Khi bật đăng nhập hoặc AdMob: cập nhật A2 + B1 + `PrivacyInfo.xcprivacy` CÙNG LÚC trước khi phát hành bản đó. AdMob: mục **E** bên dưới (thiết kế `docs/ADS.md`).
 Mục đã xong/cũ (Kết luận 17/10, danh sách sửa, A1 tạo khóa ký, B1a bấm App Privacy, B4 các bước nộp 1.0, D thứ tự việc, trạng thái 18/10): `docs/archive/STORE-READINESS-HISTORY.md`.
 
 ## A. Google Play
@@ -36,7 +36,7 @@ Mục đã xong/cũ (Kết luận 17/10, danh sách sửa, A1 tạo khóa ký, B
 | ✅ | Xóa tài khoản trong app | Đã làm (Cài đặt → thẻ tài khoản → Xóa tài khoản) | Hiện app Android **chưa cho tạo/đăng nhập tài khoản** (chỉ trên web) nên yêu cầu này chưa áp dụng, nhưng đã sẵn cho khi bật đăng nhập. |
 | ✅ | URL xóa dữ liệu trên web (Data safety bắt buộc) | `https://lexkite.com/en/privacy#delete` | Nêu tên app, các bước (trong app / link / email), dữ liệu bị xóa, dữ liệu giữ lại & thời hạn. |
 | ✅ | Chính sách quyền riêng tư | `https://lexkite.com/privacy` (200, 15 ngôn ngữ, nêu MODIAN LUXURY JEWELRY LLC) | |
-| ✅ | Quảng cáo | `ADS_CONFIG.enabled = false`, không có SDK AdMob trong app | Play Console → App content → Ads: **No**. Khi bật AdMob: đổi khai báo, thêm UMP, cập nhật Data safety (Device ID, ads). |
+| ✅ | Quảng cáo | `web/js/ads/config.js` `enabled: false`, SDK AdMob CHỈ cài khi `ADS_NATIVE=1` (`scripts/mobile-ads.mjs`) → bản hiện tại không có SDK | Play Console → App content → Ads: **No** cho tới bản đầu tiên có SDK; khi đó làm mục **E**. |
 | ✅ | App access | Mọi tính năng dùng được **không cần đăng nhập** | Chọn "All functionality is available without special access". |
 | ⚠️ | Đối tượng & nội dung | Không hướng tới trẻ em | 👤 Target audience: **13–15, 16–17, 18+** (KHÔNG chọn dưới 13 → tránh chính sách Families). Content rating (IARC): Education/Reference; có tương tác người dùng hạn chế (biệt danh trên bảng xếp hạng, có lọc từ tục) và AI Roleplay → trả lời trung thực, thường ra Everyone/PEGI 3–12. |
 | ✅ | 12 tester × 14 ngày | **Không áp dụng cho tài khoản Organization** (chỉ áp cho tài khoản Personal tạo sau 13/11/2023) | Nếu vì lý do nào phải dùng tài khoản Personal → cần 12 người opt-in liên tục 14 ngày ở track Closed testing trước khi xin Production. |
@@ -77,7 +77,7 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 | ✅ | 5.1.1(v) Xóa tài khoản trong app | Đã làm | Như mục A. |
 | ✅ | Privacy manifest | `App/PrivacyInfo.xcprivacy` (UserDefaults CA92.1 + 1C8F.1 App Group, NSPrivacyTracking=false, dữ liệu thu thập), widget có manifest riêng; Capacitor có manifest riêng | |
 | ✅ | Info.plist | Micro + Speech Recognition (mới thêm), không cần Camera/Ảnh/Vị trí | ⚠️ 🛠 Mô tả quyền hiện chỉ tiếng Anh; nên thêm `vi.lproj/InfoPlist.strings` (+ ngôn ngữ khác) – cần sửa project Xcode, làm khi có máy build. |
-| ✅ | ATT (App Tracking Transparency) | Không theo dõi, không IDFA | Không cần hỏi ATT. Khi bật AdMob cá nhân hóa → phải thêm ATT + `NSUserTrackingUsageDescription`. |
+| ✅ | ATT (App Tracking Transparency) | Không theo dõi, không IDFA | Không cần hỏi ATT. Bản có AdMob: `mobile-ads.mjs` tự thêm `NSUserTrackingUsageDescription` + `SKAdNetworkItems`; `run.js` hỏi ATT sau UMP (mục **E**). |
 | ✅ | Export compliance | `ITSAppUsesNonExemptEncryption = false` (chỉ dùng HTTPS của hệ điều hành) | App Store Connect sẽ không hỏi lại. |
 | ✅ | UIBackgroundModes `audio` | Dùng thật cho Học rảnh tay (`#/handsfree`) | Ghi trong Review Notes cách thử, kẻo bị hỏi 2.5.4. |
 | ✅ | Icon & Launch screen | AppIcon 1024 (không alpha), LaunchScreen.storyboard + splash sáng/tối | |
@@ -139,3 +139,13 @@ Nguồn: `reviewNotes` trong `store/apple/listing.json` (script `asc-upload.mjs`
 | ⚠️ | Bàn phím / vùng an toàn | iOS `contentInset: never` + CSS `env(safe-area-inset-*)`; Android inset CSS của Capacitor 8 | 🛠 kiểm trên ảnh CI các trang có ô nhập (Viết, tra từ) với bàn phím mở. |
 | ⚠️ | Thương hiệu người bán | Tên hiển thị người bán = **MODIAN LUXURY JEWELRY LLC** (pháp nhân của D-U-N-S) | Không sai luật nhưng người dùng thấy "công ty trang sức" bán app học tiếng Anh. Nếu muốn hiện "Lexkite": đăng ký tên thương mại (DBA "Lexkite") với Wyoming + cập nhật D-U-N-S trước khi đăng ký Apple. |
 | ⚠️ | Email & website khi đăng ký Organization | | Apple/Google xác minh tổ chức: dùng email tên miền (`support@lexkite.com` hoặc `admin@lexkite.com`), website `https://lexkite.com` (trang chính sách đã nêu tên LLC + địa chỉ ✅). Số điện thoại của LLC phải nghe máy được (Apple gọi xác minh). |
+
+## E. Khi bật AdMob (bản app đầu tiên có SDK quảng cáo – docs/ADS.md)
+Làm CÙNG LÚC, trước khi gửi duyệt bản build có `ADS_NATIVE=1`:
+1. **Play Console → App content → Ads: Yes.** Data safety thêm: *Device or other IDs* (Advertising ID) – Collected + **Shared** (Google AdMob) – mục đích Advertising or marketing, Analytics; *App activity → App interactions* – Shared (Advertising); *App info & performance → Diagnostics* – Shared. Không bán dữ liệu. Thêm quyền `com.google.android.gms.permission.AD_ID` (plugin tự khai) – khai "Advertising ID: Yes, Advertising or marketing".
+2. **App Store Connect → App Privacy:** thêm *Identifiers → Device ID* và *Usage Data → Advertising Data*, mục đích Third-Party Advertising; **Used for Tracking = Yes** (vì quảng cáo cá nhân hóa khi người dùng cho phép ATT). `PrivacyInfo.xcprivacy`: `NSPrivacyTracking = true`, `NSPrivacyTrackingDomains` theo tài liệu Google Mobile Ads SDK (SDK có manifest riêng). Privacy choices URL: `https://lexkite.com/en/privacy#advertising`.
+3. **Target audience & content (Play) / Age rating (Apple):** giữ đối tượng 13+ (không chọn nhóm trẻ em – nếu chọn, Families Policy bắt buộc SDK được chứng nhận cho trẻ em). App chỉ yêu cầu quảng cáo xếp hạng `General`; lớp học và người dùng < 13 không bao giờ có quảng cáo (`web/js/ads/policy.js`).
+4. **UMP:** AdMob → Privacy & messaging → tạo thông điệp GDPR (EEA/UK/CH) + thông điệp luật bang Mỹ + IDFA explainer; Publish. App gọi `requestConsentInfo/showConsentForm` trước mọi quảng cáo.
+5. **app-ads.txt:** đổi `pub-0000000000000000` (web/app-ads.txt, build ghi đè từ `web/js/ads/config.js`) → AdMob → Apps → app-ads.txt status "Verified". Điền trang web của nhà phát triển `https://lexkite.com` trong Play Console + App Store Connect (AdMob đọc app-ads.txt từ đó).
+6. **Niêm yết:** mô tả đã đổi sang "Không quảng cáo trong lúc học, làm quiz hay thi" (`store/apple/listing.json`, đẩy bằng `node scripts/asc-upload.mjs --only text`); Play: bật nhãn "Contains ads".
+7. Thay mã THỬ bằng mã thật trong `web/js/ads/config.js` (`native.testing: false`) CHỈ ở bản phát hành; bản dev/CI giữ mã thử.

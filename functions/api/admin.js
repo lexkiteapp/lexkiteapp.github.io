@@ -7,11 +7,14 @@ import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from '.
 import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
 import { growthData } from './growth.js';
 import { purgeNotices } from './notices.js';
-import { purgeConfig } from './config.js';
+import { purgeConfig, ADS_PUBLIC } from './config.js';
+import { stats as adsStatsOf, guardOf, reporting as adsReporting } from './_ads.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
-const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate'];
+// Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu)
+const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min'];
+const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', ...ADS_KEYS];
 const DAY = 86400e3;
 // Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
 const tx = (b, vi, en) => (b && b.ui === 'en' ? en : vi);
@@ -411,6 +414,20 @@ const OPS = {
   async ping() { return { ok: true }; },
   async auditLog(db) { return { rows: await all(db, 'SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT 100') }; },
   // ---- Nhiều khóa Gemini xoay vòng (D1 config 'gemini_keys' = [{k, at, by}]) – không bao giờ trả nguyên khóa ----
+  // 💰 Quản trị › Quảng cáo (js/admin-ads.js): ext_events 'ad*' 35 ngày – PK (day, kind) → SEARCH theo khoảng ngày, đệm 10 phút; báo cáo AdSense/AdMob: stub
+  async adsStats(db, b, who, env) {
+    const data = await cached('ads-v1', 600, async () => {
+      const now = Date.now(), today = vday(now);
+      const [rows, cfg] = await Promise.all([
+        all(db, "SELECT day, kind, n FROM ext_events WHERE day >= ? AND kind >= 'ad' AND kind < 'ae'", vday(now - 35 * DAY)),
+        all(db, `SELECT k, v, at, by FROM config WHERE k IN (${ADS_KEYS.map(() => '?').join(',')})`, ...ADS_KEYS),
+      ]);
+      const c = Object.fromEntries(cfg.map(r => [r.k, r.v]));
+      const ecpm = { web: c.ads_ecpm_web ?? 1, android: c.ads_ecpm_android ?? 1, ios: c.ads_ecpm_ios ?? 1 };
+      return { at: now, today, ...adsStatsOf(rows, today, ecpm, 30), guard: guardOf(rows, today, { pct: c.ads_guard_pct, min: c.ads_guard_min, prev: c.ads_guard || 1 }), ecpm };
+    });
+    return { ...data, reporting: await adsReporting(env) };
+  },
   async geminiStatus(db, b, who, env) {
     const list = await gkList(db), keys = [];
     for (const x of list) keys.push({ last4: x.k.slice(-4), at: x.at, by: x.by, cooling: await isCooling(x.k) });

@@ -22,7 +22,7 @@ const ADM = rd('web/js/admin.js'), AEN = dict(ADM);
   const enBlock = ADM.slice(ADM.indexOf('const EN = {'), ADM.indexOf('const L = ('));
   const miss = [...new Set([...ADM.replace(enBlock, '').matchAll(/'((?:[^'\\\n]|\\.)*)'/g)].map(m => unq(m[1])).filter(k => VI.test(k) && !/[|\\^$]/.test(k)))].filter(k => !(k in AEN) && !/^(lk\.|adm\.)/.test(k));
   ok(!miss.length, 'admin.js: chuỗi tiếng Việt thiếu bản EN: ' + miss.slice(0, 5).join(' | '));
-  for (const [f, fn] of [['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-social-mgr.js', 'M'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B'], ['admin-video.js', 'V'], ['admin-prefs.js', 'P']]) {
+  for (const [f, fn] of [['admin-ads.js', 'A'], ['admin-quota.js', 'Q'], ['admin-keys.js', 'S'], ['admin-drive.js', 'S'], ['admin-reports.js', 'T'], ['admin-social.js', 'S'], ['admin-social-mgr.js', 'M'], ['admin-studio.js', 'S'], ['admin-growth.js', 'G'], ['admin-backlinks.js', 'B'], ['admin-video.js', 'V'], ['admin-prefs.js', 'P']]) {
     const src = rd('web/js/' + f), EN = dict(src);
     const m2 = [...new Set([...src.matchAll(new RegExp(`\\b(?:${fn}|L)\\(\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g'))].map(m => unq(m[1])))].filter(k => VI.test(k) && !(k in EN) && !(k in AEN));
     ok(!m2.length, `${f}: khóa tiếng Việt thiếu bản EN: ${m2.slice(0, 3).join(' | ')}`);
@@ -118,7 +118,7 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 18, 'thanh bên: 6 nhóm, 18 mục (+ Kênh & phân phối)');
+ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 19, 'thanh bên: 6 nhóm, 19 mục (+ Kênh & phân phối, Quảng cáo)');
 ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Overview|Users|Quality|Content & Video|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
 ok($('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas', '"Hạn mức" dịch thành Quotas ở EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');

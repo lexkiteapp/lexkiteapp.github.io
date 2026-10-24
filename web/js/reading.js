@@ -26,7 +26,7 @@
           <h3>${esc(r.title)}</h3>
           <div class="muted small">${esc(r.summaryVi)}</div>
           <div class="row"><span class="chip">⏱ ${t('{n} phút', { n: Math.max(2, Math.round(r.text.split(/\s+/).length / 140)) })}</span><span class="chip">${t('{n} câu hỏi', { n: r.questions.length })}</span>${done[r.id] ? `<span class="chip ok">✓ ${done[r.id]}</span>` : ''}</div>
-        </a>`).join('')}</div>${window.Ads ? Ads.slot('list') : ''}`;
+        </a>`).join('')}</div>`;
   };
 
   routes.read = function (id) {

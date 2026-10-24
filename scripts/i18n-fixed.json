@@ -25979,5 +25979,50 @@
     "ar": "الجزء التالي: {name}",
     "ru": "Следующая часть: {name}",
     "tr": "Sonraki bölüm: {name}"
+  },
+  "Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.": {
+    "es": "¿Sin turnos gratis hoy? Mira un video corto para conseguir {n} más.",
+    "pt": "Acabaram as tentativas grátis de hoje? Assista a um vídeo curto para ganhar mais {n}.",
+    "fr": "Plus d'essais gratuits aujourd'hui ? Regardez une courte vidéo pour en obtenir {n} de plus.",
+    "de": "Heute keine freien Versuche mehr? Sieh dir ein kurzes Video an und erhalte {n} weitere.",
+    "id": "Jatah gratis hari ini habis? Tonton video singkat untuk mendapat {n} lagi.",
+    "th": "สิทธิ์ฟรีวันนี้หมดแล้ว? ดูวิดีโอสั้น ๆ เพื่อรับเพิ่มอีก {n} ครั้ง",
+    "zh": "今天的免费次数用完了？观看一段短视频即可再获得 {n} 次。",
+    "ja": "今日の無料回数を使い切りましたか？短い動画を見ると、さらに {n} 回使えます。",
+    "ko": "오늘 무료 횟수를 다 썼나요? 짧은 동영상을 보면 {n}회를 더 받을 수 있어요.",
+    "hi": "आज के मुफ़्त मौके खत्म हो गए? एक छोटा वीडियो देखें और {n} और पाएँ।",
+    "ar": "نفدت محاولاتك المجانية اليوم؟ شاهد فيديو قصيرًا لتحصل على {n} إضافية.",
+    "ru": "Бесплатные попытки на сегодня закончились? Посмотрите короткое видео и получите ещё {n}.",
+    "tr": "Bugünkü ücretsiz hakların bitti mi? Kısa bir video izleyerek {n} hak daha kazan."
+  },
+  "Xem video": {
+    "es": "Ver video",
+    "pt": "Assistir ao vídeo",
+    "fr": "Regarder la vidéo",
+    "de": "Video ansehen",
+    "id": "Tonton video",
+    "th": "ดูวิดีโอ",
+    "zh": "观看视频",
+    "ja": "動画を見る",
+    "ko": "동영상 보기",
+    "hi": "वीडियो देखें",
+    "ar": "شاهد الفيديو",
+    "ru": "Смотреть видео",
+    "tr": "Videoyu izle"
+  },
+  "Đã cộng thêm lượt – thử lại sau vài giây.": {
+    "es": "Turnos extra añadidos: vuelve a intentarlo en unos segundos.",
+    "pt": "Tentativas extras adicionadas – tente de novo em alguns segundos.",
+    "fr": "Essais supplémentaires ajoutés – réessayez dans quelques secondes.",
+    "de": "Zusätzliche Versuche gutgeschrieben – versuche es in ein paar Sekunden erneut.",
+    "id": "Jatah tambahan sudah ditambahkan – coba lagi dalam beberapa detik.",
+    "th": "เพิ่มสิทธิ์แล้ว – ลองอีกครั้งในอีกไม่กี่วินาที",
+    "zh": "已增加次数——请几秒后再试。",
+    "ja": "回数を追加しました。数秒後にもう一度お試しください。",
+    "ko": "횟수가 추가되었어요. 몇 초 후에 다시 시도하세요.",
+    "hi": "अतिरिक्त मौके जोड़ दिए गए – कुछ सेकंड बाद फिर कोशिश करें।",
+    "ar": "تمت إضافة محاولات إضافية – حاول مجددًا بعد بضع ثوانٍ.",
+    "ru": "Дополнительные попытки начислены — попробуйте снова через несколько секунд.",
+    "tr": "Ek haklar eklendi – birkaç saniye sonra tekrar dene."
   }
 }

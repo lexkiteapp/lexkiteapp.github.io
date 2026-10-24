@@ -1,0 +1,3 @@
+# Lexkite – Authorized Digital Sellers (IAB ads.txt). Placeholder until the AdSense/AdMob account is approved:
+# replace pub-0000000000000000 with the real publisher id (web/js/ads/config.js → scripts/build-ads.mjs writes it at build time).
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

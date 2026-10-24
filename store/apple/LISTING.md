@@ -23,7 +23,7 @@ Apple rules applied: no price / "free" / "best" / "#1" in name, subtitle, keywor
 | Marketing URL | `https://lexkite.com/en/` (per language: `/<lang>/`, Vietnamese = `/`) |
 | Privacy policy URL | `https://lexkite.com/en/privacy` (per language: `/<lang>/privacy`) |
 | Price | Free (set by the owner in *Pricing and Availability*; not touched by the script) |
-| In-app purchases / ads | None / none (`web/js/ads-config.js` → `enabled: false`) |
+| In-app purchases / ads | None / none in builds without the AdMob SDK (`web/js/ads/config.js` → `enabled: false`; SDK only with `ADS_NATIVE=1` – then `docs/STORE-READINESS.md` §E) |
 | Export compliance | Already answered in the binary: `ITSAppUsesNonExemptEncryption = false` (HTTPS only) |
 | Sign-in | Not offered in the iOS app (`web/js/sync.js` → `nativeNoAuth`); no demo account needed; Sign in with Apple only becomes mandatory when in-app sign-in is turned on |
 
@@ -107,7 +107,7 @@ How to reach the main features (bottom tab bar: Today, Vocabulary, Skills, Tests
 
 Native iOS features: Home Screen and Lock Screen widgets (long-press the Home Screen, tap +, choose Lexkite), daily study reminders (local notifications; tapping one opens the review session), offline use (the whole app is bundled), haptic feedback, native text-to-speech, the share sheet for exports, and hands-free audio study that keeps playing with the screen locked (lock-screen controls), which is why the app declares the "audio" background mode.
 
-The microphone and speech recognition are used only when the user taps the microphone button in speaking or pronunciation practice. The app does not track users, shows no ads and has no in-app purchases.
+The microphone and speech recognition are used only when the user taps the microphone button in speaking or pronunciation practice. The app has no in-app purchases. This build shows no ads (the AdMob SDK is not included); a future build may show labelled ads outside lessons, with Google UMP consent and App Tracking Transparency.
 
 IELTS, TOEIC and TOEFL are mentioned only to describe practice content; Lexkite is not affiliated with their owners (stated at the end of the description).
 ```
@@ -128,7 +128,7 @@ IELTS, TOEIC and TOEFL are mentioned only to describe practice content; Lexkite 
 Learn English words a little every day with FSRS flashcards, a clear dictionary and practice tests for IELTS, TOEIC and TOEFL. No login needed, works offline.
 ```
 
-**Description (2500/4000):**
+**Description (2520/4000):**
 ```
 Lexkite helps you learn English vocabulary and practise for IELTS, TOEIC and TOEFL. No account or login is needed – open the app and start learning.
 
@@ -166,7 +166,7 @@ MADE FOR EVERYDAY STUDY
 • Interface in 15 languages: English, Vietnamese, Spanish, Portuguese, French, German, Indonesian, Thai, Chinese, Japanese, Korean, Hindi, Arabic, Russian and Turkish.
 
 PRIVATE BY DESIGN
-• Your learning data is stored on your device. No ads, no tracking.
+• Your learning data is stored on your device. No ads during lessons, quizzes or tests.
 • Privacy policy: https://lexkite.com/en/privacy
 
 Questions or feedback: support@lexkite.com · https://lexkite.com
@@ -190,7 +190,7 @@ Lexkite is an independent product and is not affiliated with or endorsed by the 
 Học từ vựng tiếng Anh mỗi ngày một chút với flashcard FSRS, từ điển rõ ràng và đề luyện IELTS, TOEIC, TOEFL. Không cần đăng nhập, dùng được khi không có mạng.
 ```
 
-**Description (2330/4000):**
+**Description (2346/4000):**
 ```
 Lexkite giúp bạn học từ vựng tiếng Anh và luyện thi IELTS, TOEIC, TOEFL. Không cần tạo tài khoản hay đăng nhập – mở app là học được ngay.
 
@@ -228,7 +228,7 @@ HỌC MỖI NGÀY THẬT DỄ
 • Giao diện 15 ngôn ngữ: Tiếng Việt, tiếng Anh, Tây Ban Nha, Bồ Đào Nha, Pháp, Đức, Indonesia, Thái, Trung, Nhật, Hàn, Hindi, Ả Rập, Nga và Thổ Nhĩ Kỳ.
 
 TÔN TRỌNG QUYỀN RIÊNG TƯ
-• Dữ liệu học được lưu trên thiết bị của bạn. Không quảng cáo, không theo dõi.
+• Dữ liệu học được lưu trên thiết bị của bạn. Không quảng cáo trong lúc học, làm quiz hay thi.
 • Chính sách quyền riêng tư: https://lexkite.com/vi/privacy
 
 Góp ý, hỏi đáp: support@lexkite.com · https://lexkite.com
@@ -252,7 +252,7 @@ Lexkite là sản phẩm độc lập, không liên kết và không được b�
 Aprende palabras en inglés un poco cada día con tarjetas FSRS, un diccionario claro y exámenes de práctica de IELTS, TOEIC y TOEFL. Sin registro y sin conexión.
 ```
 
-**Description (1664/4000):**
+**Description (1706/4000):**
 ```
 Lexkite te ayuda a aprender vocabulario en inglés y a prepararte para IELTS, TOEIC y TOEFL. No necesitas cuenta ni iniciar sesión.
 
@@ -265,7 +265,7 @@ Lexkite te ayuda a aprender vocabulario en inglés y a prepararte para IELTS, TO
 • Comentarios de IA sobre tu escritura y conversaciones de rol (requiere internet).
 • Funciona sin conexión para repasar y estudiar; buscar palabras nuevas y las funciones de IA requieren internet.
 • Widgets para la pantalla de inicio y la pantalla de bloqueo, recordatorios diarios, rachas, metas, estadísticas y modo oscuro.
-• Interfaz en 15 idiomas. Tus datos de aprendizaje se guardan en tu dispositivo. Sin anuncios ni seguimiento.
+• Interfaz en 15 idiomas. Tus datos de aprendizaje se guardan en tu dispositivo. Sin anuncios durante las lecciones, los cuestionarios ni los exámenes.
 
 Privacidad: https://lexkite.com/es/privacy · Soporte: support@lexkite.com
 
@@ -288,7 +288,7 @@ Lexkite es un producto independiente y no está afiliado ni respaldado por el Br
 Aprenda palavras em inglês um pouco por dia com flashcards FSRS, um dicionário claro e simulados de IELTS, TOEIC e TOEFL. Sem login e funciona offline.
 ```
 
-**Description (1592/4000):**
+**Description (1616/4000):**
 ```
 O Lexkite ajuda você a aprender vocabulário em inglês e a se preparar para IELTS, TOEIC e TOEFL. Não precisa de conta nem de login.
 
@@ -301,7 +301,7 @@ O Lexkite ajuda você a aprender vocabulário em inglês e a se preparar para IE
 • Feedback de IA para sua escrita e conversas de roleplay (requer internet).
 • Funciona offline para revisar e estudar; consultar palavras novas e os recursos de IA exigem internet.
 • Widgets na tela inicial e na tela bloqueada, lembretes diários, sequências, metas, estatísticas e modo escuro.
-• Interface em 15 idiomas. Seus dados de estudo ficam no seu dispositivo. Sem anúncios e sem rastreamento.
+• Interface em 15 idiomas. Seus dados de estudo ficam no seu dispositivo. Sem anúncios durante as lições, os quizzes ou as provas.
 
 Privacidade: https://lexkite.com/pt/privacy · Suporte: support@lexkite.com
 
@@ -324,7 +324,7 @@ O Lexkite é um produto independente e não é afiliado nem endossado pelo Briti
 Apprenez des mots anglais chaque jour avec des cartes FSRS, un dictionnaire clair et des tests d'entraînement IELTS, TOEIC et TOEFL. Sans compte, même hors ligne.
 ```
 
-**Description (1722/4000):**
+**Description (1757/4000):**
 ```
 Lexkite vous aide à apprendre le vocabulaire anglais et à préparer l'IELTS, le TOEIC et le TOEFL. Aucun compte ni connexion n'est nécessaire.
 
@@ -337,7 +337,7 @@ Lexkite vous aide à apprendre le vocabulaire anglais et à préparer l'IELTS, l
 • Retours de l'IA sur vos écrits et dialogues en jeu de rôle (connexion Internet requise).
 • Fonctionne hors ligne pour réviser et étudier ; la recherche de nouveaux mots et les fonctions d'IA nécessitent Internet.
 • Widgets pour l'écran d'accueil et l'écran verrouillé, rappels quotidiens, séries, objectifs, statistiques et mode sombre.
-• Interface en 15 langues. Vos données d'apprentissage sont stockées sur votre appareil. Ni publicité ni pistage.
+• Interface en 15 langues. Vos données d'apprentissage sont stockées sur votre appareil. Aucune publicité pendant les leçons, les quiz ou les tests.
 
 Confidentialité : https://lexkite.com/fr/privacy · Assistance : support@lexkite.com
 
@@ -360,7 +360,7 @@ Lexkite est un produit indépendant, sans lien avec le British Council, IDP, Cam
 Lerne jeden Tag ein paar englische Wörter – mit FSRS-Karteikarten, einem klaren Wörterbuch und Übungstests für IELTS, TOEIC und TOEFL. Ohne Anmeldung, auch offline.
 ```
 
-**Description (1737/4000):**
+**Description (1760/4000):**
 ```
 Lexkite hilft dir, englische Vokabeln zu lernen und dich auf IELTS, TOEIC und TOEFL vorzubereiten. Kein Konto und keine Anmeldung nötig.
 
@@ -373,7 +373,7 @@ Lexkite hilft dir, englische Vokabeln zu lernen und dich auf IELTS, TOEIC und TO
 • KI-Feedback zu deinen Texten und Rollenspiel-Gespräche (Internetverbindung erforderlich).
 • Funktioniert offline zum Wiederholen und Lernen; das Nachschlagen neuer Wörter und KI-Funktionen brauchen Internet.
 • Widgets für Home-Bildschirm und Sperrbildschirm, tägliche Erinnerungen, Lernserien, Ziele, Statistiken und dunkles Design.
-• Oberfläche in 15 Sprachen. Deine Lerndaten werden auf deinem Gerät gespeichert. Keine Werbung, kein Tracking.
+• Oberfläche in 15 Sprachen. Deine Lerndaten werden auf deinem Gerät gespeichert. Keine Werbung während Lektionen, Quizzen oder Tests.
 
 Datenschutz: https://lexkite.com/de/privacy · Support: support@lexkite.com
 
@@ -396,7 +396,7 @@ Lexkite ist ein unabhängiges Produkt und steht in keiner Verbindung zu British 
 Belajar kosakata bahasa Inggris sedikit demi sedikit setiap hari dengan kartu FSRS, kamus yang jelas, dan latihan IELTS, TOEIC, TOEFL. Tanpa login, bisa offline.
 ```
 
-**Description (1544/4000):**
+**Description (1555/4000):**
 ```
 Lexkite membantumu belajar kosakata bahasa Inggris dan berlatih IELTS, TOEIC, dan TOEFL. Tidak perlu akun atau login.
 
@@ -409,7 +409,7 @@ Lexkite membantumu belajar kosakata bahasa Inggris dan berlatih IELTS, TOEIC, da
 • Masukan AI untuk tulisanmu dan percakapan roleplay (perlu internet).
 • Bisa dipakai offline untuk mengulang dan belajar; mencari kata baru dan fitur AI perlu internet.
 • Widget layar utama dan layar kunci, pengingat harian, runtunan hari, target, statistik, dan mode gelap.
-• Antarmuka dalam 15 bahasa. Data belajarmu disimpan di perangkatmu. Tanpa iklan dan tanpa pelacakan.
+• Antarmuka dalam 15 bahasa. Data belajarmu disimpan di perangkatmu. Tanpa iklan saat pelajaran, kuis, atau tes.
 
 Privasi: https://lexkite.com/id/privacy · Dukungan: support@lexkite.com
 
@@ -432,7 +432,7 @@ Lexkite adalah produk independen dan tidak berafiliasi dengan atau didukung oleh
 ท่องศัพท์ภาษาอังกฤษวันละนิดด้วยแฟลชการ์ด FSRS พจนานุกรมที่อ่านง่าย และข้อสอบฝึก IELTS, TOEIC, TOEFL ไม่ต้องเข้าสู่ระบบ ใช้งานออฟไลน์ได้
 ```
 
-**Description (1406/4000):**
+**Description (1423/4000):**
 ```
 Lexkite ช่วยให้คุณเรียนคำศัพท์ภาษาอังกฤษและฝึกสอบ IELTS, TOEIC และ TOEFL ไม่ต้องสร้างบัญชีหรือเข้าสู่ระบบ
 
@@ -445,7 +445,7 @@ Lexkite ช่วยให้คุณเรียนคำศัพท์ภา
 • AI ให้คำแนะนำงานเขียนและฝึกสนทนาแบบบทบาทสมมติ (ต้องใช้อินเทอร์เน็ต)
 • ใช้งานออฟไลน์ได้สำหรับทบทวนและเรียน ส่วนการค้นหาคำใหม่และฟีเจอร์ AI ต้องใช้อินเทอร์เน็ต
 • วิดเจ็ตบนหน้าจอโฮมและหน้าจอล็อก การแจ้งเตือนรายวัน สถิติการเรียนต่อเนื่อง เป้าหมาย และโหมดมืด
-• อินเทอร์เฟซ 15 ภาษา ข้อมูลการเรียนจัดเก็บไว้ในอุปกรณ์ของคุณ ไม่มีโฆษณาและไม่มีการติดตาม
+• อินเทอร์เฟซ 15 ภาษา ข้อมูลการเรียนจัดเก็บไว้ในอุปกรณ์ของคุณ ไม่มีโฆษณาระหว่างบทเรียน แบบทดสอบ หรือการสอบ
 
 ความเป็นส่วนตัว: https://lexkite.com/th/privacy · ติดต่อ: support@lexkite.com
 
@@ -468,7 +468,7 @@ Lexkite เป็นผลิตภัณฑ์อิสระ ไม่มี�
 每天背一点英语单词：FSRS 闪卡、清晰的词典，以及 IELTS、TOEIC、TOEFL 练习题。无需登录，可离线使用。
 ```
 
-**Description (655/4000):**
+**Description (664/4000):**
 ```
 Lexkite 是一款英语词汇学习与 IELTS（雅思）、TOEIC（托业）、TOEFL（托福）备考应用。无需注册或登录。
 
@@ -481,7 +481,7 @@ Lexkite 是一款英语词汇学习与 IELTS（雅思）、TOEIC（托业）、T
 • AI 点评写作，并可进行情景对话练习（需联网）。
 • 可离线复习和学习；查新词和 AI 功能需要联网。
 • 主屏幕与锁定屏幕小组件、每日提醒、连续学习天数、目标、统计和深色模式。
-• 15 种界面语言。学习数据保存在你的设备上。无广告，不追踪。
+• 15 种界面语言。学习数据保存在你的设备上。学习、测验和考试过程中不显示广告。
 
 隐私政策：https://lexkite.com/zh/privacy · 联系：support@lexkite.com
 
@@ -504,7 +504,7 @@ Lexkite 是独立产品，与 British Council、IDP、Cambridge University Press
 FSRS の単語カード、わかりやすい辞書、IELTS・TOEIC・TOEFL の練習問題で、英単語を毎日少しずつ。ログイン不要、オフラインでも使えます。
 ```
 
-**Description (848/4000):**
+**Description (859/4000):**
 ```
 Lexkite は、英単語の学習と IELTS・TOEIC・TOEFL 対策ができるアプリです。アカウント登録やログインは不要です。
 
@@ -517,7 +517,7 @@ Lexkite は、英単語の学習と IELTS・TOEIC・TOEFL 対策ができるア�
 • AI による英作文のフィードバックとロールプレイ会話（インターネット接続が必要）。
 • 復習や学習はオフラインでも可能。新しい単語の検索と AI 機能にはインターネットが必要です。
 • ホーム画面とロック画面のウィジェット、毎日のリマインダー、連続学習日数、目標、統計、ダークモード。
-• 15 言語の表示に対応。学習データはお使いの端末に保存されます。広告やトラッキングはありません。
+• 15 言語の表示に対応。学習データはお使いの端末に保存されます。レッスン・クイズ・テストの最中に広告は表示されません。
 
 プライバシーポリシー：https://lexkite.com/ja/privacy · お問い合わせ：support@lexkite.com
 
@@ -540,7 +540,7 @@ Lexkite は独立した製品であり、British Council、IDP、Cambridge Unive
 FSRS 플래시카드, 알기 쉬운 사전, IELTS·TOEIC·TOEFL 연습 문제로 영어 단어를 매일 조금씩 익히세요. 로그인 없이, 오프라인에서도 사용할 수 있습니다.
 ```
 
-**Description (852/4000):**
+**Description (863/4000):**
 ```
 Lexkite는 영어 단어를 익히고 IELTS, TOEIC, TOEFL을 준비할 수 있는 앱입니다. 계정이나 로그인이 필요 없습니다.
 
@@ -553,7 +553,7 @@ Lexkite는 영어 단어를 익히고 IELTS, TOEIC, TOEFL을 준비할 수 있�
 • AI 작문 피드백과 롤플레이 대화(인터넷 연결 필요).
 • 복습과 학습은 오프라인에서도 가능하며, 새 단어 검색과 AI 기능은 인터넷이 필요합니다.
 • 홈 화면·잠금 화면 위젯, 매일 알림, 연속 학습일, 목표, 통계, 다크 모드.
-• 15개 언어 인터페이스. 학습 데이터는 기기에 저장됩니다. 광고와 추적이 없습니다.
+• 15개 언어 인터페이스. 학습 데이터는 기기에 저장됩니다. 수업, 퀴즈, 시험 중에는 광고가 없습니다.
 
 개인정보처리방침: https://lexkite.com/ko/privacy · 문의: support@lexkite.com
 
@@ -576,7 +576,7 @@ Lexkite는 독립 제품이며 British Council, IDP, Cambridge University Press 
 FSRS फ़्लैशकार्ड, साफ़ शब्दकोश और IELTS, TOEIC, TOEFL अभ्यास टेस्ट के साथ रोज़ थोड़े अंग्रेज़ी शब्द सीखें। लॉगिन की ज़रूरत नहीं, ऑफ़लाइन भी चलता है।
 ```
 
-**Description (1478/4000):**
+**Description (1496/4000):**
 ```
 Lexkite अंग्रेज़ी शब्दावली सीखने और IELTS, TOEIC व TOEFL की तैयारी में आपकी मदद करता है। कोई खाता या लॉगिन ज़रूरी नहीं।
 
@@ -589,7 +589,7 @@ Lexkite अंग्रेज़ी शब्दावली सीखने औ
 • आपके लेखन पर AI फ़ीडबैक और रोलप्ले बातचीत (इंटरनेट ज़रूरी)।
 • दोहराने और पढ़ने के लिए ऑफ़लाइन भी चलता है; नए शब्द खोजने और AI सुविधाओं के लिए इंटरनेट चाहिए।
 • होम स्क्रीन और लॉक स्क्रीन विजेट, रोज़ाना रिमाइंडर, लगातार दिनों की स्ट्रीक, लक्ष्य, आँकड़े और डार्क मोड।
-• 15 भाषाओं में इंटरफ़ेस। आपका सीखने का डेटा आपके डिवाइस पर रहता है। कोई विज्ञापन या ट्रैकिंग नहीं।
+• 15 भाषाओं में इंटरफ़ेस। आपका सीखने का डेटा आपके डिवाइस पर रहता है। पाठ, क्विज़ या टेस्ट के दौरान कोई विज्ञापन नहीं।
 
 गोपनीयता नीति: https://lexkite.com/hi/privacy · सहायता: support@lexkite.com
 
@@ -612,7 +612,7 @@ Lexkite एक स्वतंत्र उत्पाद है और British
 تعلّم كلمات إنجليزية قليلة كل يوم مع بطاقات FSRS وقاموس واضح واختبارات تدريبية لـ IELTS وTOEIC وTOEFL. دون تسجيل دخول، ويعمل دون اتصال.
 ```
 
-**Description (1504/4000):**
+**Description (1542/4000):**
 ```
 يساعدك Lexkite على تعلّم مفردات اللغة الإنجليزية والاستعداد لاختبارات IELTS وTOEIC وTOEFL. لا حاجة إلى حساب أو تسجيل دخول.
 
@@ -625,7 +625,7 @@ Lexkite एक स्वतंत्र उत्पाद है और British
 • ملاحظات بالذكاء الاصطناعي على كتابتك ومحادثات لعب الأدوار (يتطلب الاتصال بالإنترنت).
 • يعمل دون اتصال للمراجعة والدراسة، أما البحث عن كلمات جديدة وميزات الذكاء الاصطناعي فتتطلب الإنترنت.
 • أدوات للشاشة الرئيسية وشاشة القفل، وتذكيرات يومية، وسلسلة أيام التعلّم، وأهداف، وإحصاءات، ووضع داكن.
-• واجهة بـ 15 لغة. تُحفظ بيانات تعلّمك على جهازك. بلا إعلانات ولا تتبّع.
+• واجهة بـ 15 لغة. تُحفظ بيانات تعلّمك على جهازك. لا إعلانات أثناء الدروس أو الاختبارات القصيرة أو الامتحانات.
 
 سياسة الخصوصية: https://lexkite.com/ar/privacy · الدعم: support@lexkite.com
 
@@ -648,7 +648,7 @@ Lexkite منتج مستقل وغير تابع أو معتمد من British Counc
 Учите английские слова понемногу каждый день: карточки FSRS, понятный словарь и пробные тесты IELTS, TOEIC и TOEFL. Без входа в аккаунт, работает офлайн.
 ```
 
-**Description (1588/4000):**
+**Description (1608/4000):**
 ```
 Lexkite помогает учить английскую лексику и готовиться к IELTS, TOEIC и TOEFL. Не нужен ни аккаунт, ни вход.
 
@@ -661,7 +661,7 @@ Lexkite помогает учить английскую лексику и го�
 • Отзыв ИИ на ваши тексты и ролевые диалоги (нужен интернет).
 • Повторять и заниматься можно офлайн; поиск новых слов и функции ИИ требуют интернета.
 • Виджеты для экрана «Домой» и экрана блокировки, ежедневные напоминания, серии дней, цели, статистика и тёмная тема.
-• Интерфейс на 15 языках. Данные обучения хранятся на вашем устройстве. Без рекламы и отслеживания.
+• Интерфейс на 15 языках. Данные обучения хранятся на вашем устройстве. Без рекламы во время уроков, викторин и тестов.
 
 Конфиденциальность: https://lexkite.com/ru/privacy · Поддержка: support@lexkite.com
 
@@ -684,7 +684,7 @@ Lexkite — независимый продукт, не связанный с Br
 FSRS kartları, anlaşılır bir sözlük ve IELTS, TOEIC, TOEFL deneme testleriyle her gün biraz İngilizce kelime öğren. Giriş gerekmez, çevrimdışı da çalışır.
 ```
 
-**Description (1601/4000):**
+**Description (1631/4000):**
 ```
 Lexkite, İngilizce kelime öğrenmene ve IELTS, TOEIC ile TOEFL'a hazırlanmana yardımcı olur. Hesap veya giriş gerekmez.
 
@@ -697,7 +697,7 @@ Lexkite, İngilizce kelime öğrenmene ve IELTS, TOEIC ile TOEFL'a hazırlanmana
 • Yazdıklarına yapay zekâ geri bildirimi ve rol yapma konuşmaları (internet gerekir).
 • Tekrar ve çalışma için çevrimdışı çalışır; yeni kelime aramak ve yapay zekâ özellikleri internet gerektirir.
 • Ana ekran ve kilit ekranı widget'ları, günlük hatırlatıcılar, seri günler, hedefler, istatistikler ve karanlık mod.
-• 15 dilde arayüz. Öğrenme verilerin cihazında saklanır. Reklam ve takip yok.
+• 15 dilde arayüz. Öğrenme verilerin cihazında saklanır. Dersler, testler ve sınavlar sırasında reklam yok.
 
 Gizlilik: https://lexkite.com/tr/privacy · Destek: support@lexkite.com
 

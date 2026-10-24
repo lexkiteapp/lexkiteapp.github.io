@@ -526,13 +526,26 @@
     },
     {
       "key": "admob",
-      "name": "Google AdMob",
+      "name": "Google AdMob (app iOS/Android)",
       "kind": "ads",
-      "purpose": "Quảng cáo (sau này)",
+      "purpose": "Quảng cáo app gốc qua @capacitor-community/admob + UMP (docs/ADS.md). TẮT: SDK chỉ cài khi ADS_NATIVE=1 (scripts/mobile-ads.mjs), hiện dùng mã THỬ của Google. Thưởng AI xác minh SSV: /api/ads-reward (ADS_SSV=1) với khóa gstatic.com/admob/reward/verifier-keys.json",
       "console": "https://admob.google.com/",
-      "free": "—",
+      "free": "Miễn phí (Google chia doanh thu)",
       "upgrade": "—",
-      "status": "Chưa dùng",
+      "status": "Chưa dùng – chờ chủ tạo tài khoản",
+      "match": [
+        "admob/reward/verifier-keys.json"
+      ]
+    },
+    {
+      "key": "adsense",
+      "name": "Google AdSense (web) + CMP Privacy & messaging",
+      "kind": "ads",
+      "purpose": "Quảng cáo web: ô cố định ở Hôm nay + cuối bài blog, tải lười sau CMP (TCF v2.2 / luật bang Mỹ) – web/js/ads/run.js; ads.txt/app-ads.txt ở gốc (pub-0000000000000000 giữ chỗ). Cờ: Quản trị › Quảng cáo",
+      "console": "https://www.google.com/adsense/",
+      "free": "Miễn phí (Google chia doanh thu)",
+      "upgrade": "—",
+      "status": "Chưa dùng – chờ chủ tạo tài khoản",
       "match": [
         "pagead2.googlesyndication.com"
       ]

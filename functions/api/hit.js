@@ -13,6 +13,8 @@
 import { limit } from './sync.js';
 import { gate } from './_quota.js';
 import { once } from './_schema.js';
+import { adRows, guardOf } from './_ads.js';
+import { purgeConfig } from './config.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge']; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
@@ -131,6 +133,24 @@ async function migrate(db) {
   ]);
 }
 
+/** Cổng giữ chân quảng cáo (functions/api/_ads.js guardOf): nhóm có quảng cáo tụt > X % D1/D7/thời lượng phiên so với đối chứng → giảm tần suất (config ads_guard) + ghi lịch sử 'adg:<%>'. */
+export async function adsGuard(db, now = Date.now()) {
+  const today = dayOf(now), from = dayOf(now - 30 * DAY);
+  const [rs, cs] = await db.batch([
+    db.prepare("SELECT day, kind, n FROM ext_events WHERE day >= ?1 AND kind >= 'adc:' AND kind < 'adc;'").bind(from),
+    db.prepare("SELECT k, v FROM config WHERE k IN ('ads_guard', 'ads_guard_pct', 'ads_guard_min')"),
+  ]);
+  const cfg = Object.fromEntries((cs.results || []).map(r => [r.k, r.v]));
+  const g = guardOf(rs.results || [], today, { pct: cfg.ads_guard_pct, min: cfg.ads_guard_min, prev: cfg.ads_guard || 1 });
+  if (String(g.factor) === String(+cfg.ads_guard || 1)) return g;
+  await db.batch([
+    db.prepare("INSERT INTO config (k, v, at, by) VALUES ('ads_guard', ?1, ?2, 'auto-guard') ON CONFLICT (k) DO UPDATE SET v = ?1, at = ?2, by = 'auto-guard'").bind(String(g.factor), now),
+    db.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, 'adg:' + Math.round(g.factor * 100)),
+  ]);
+  await purgeConfig();
+  return g;
+}
+
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return ok();
   if ((await gate(request, env, 'hit', { who: null })).res) return ok(); // 1 IP gửi dồn dập → bỏ qua im lặng (thống kê không bao giờ làm hỏng app)
@@ -194,6 +214,13 @@ export async function onRequestPost({ request, env }) {
       if (ev.uninstall) batch.push(event('uninstall'));
       if (REASONS.includes(b.reason)) batch.push(event('uninstall:' + b.reason));
       if (batch.length) await env.DB.batch(batch);
+    } else if (b.t === 'ad') {
+      // 💰 Quảng cáo (web/js/ads/run.js, docs/ADS.md): 1 beacon/phiên – số đếm theo vị trí, nhóm a/h, đồng ý theo vùng → ext_events (PK day,kind; ≤ 30 dòng/beacon)
+      if (await limit('had:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
+      const day = dayOf(now), rows = adRows(b, request.cf && request.cf.country);
+      if (rows.length) await env.DB.batch(rows.map(([kind, n]) => env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, kind) DO UPDATE SET n = n + ?3').bind(day, kind, n)));
+      // Cổng giữ chân: tối đa 1 lần/giờ/trung tâm dữ liệu, chỉ đọc khoảng ngày (SEARCH theo PK) – không quét bảng
+      if (!(await limit('ads-guard', 1, 3600))) await adsGuard(env.DB, now).catch(() => {});
     } else if (b.t === 'e' && b.msg) {
       const msg = cut(b.msg, 300), src = cut(b.src, 200) + (b.line ? ':' + (+b.line || 0) : '');
       await env.DB.prepare('INSERT INTO errors (h, msg, src, path, ver, n, first, last) VALUES (?1, ?2, ?3, ?4, ?5, 1, ?6, ?6) ON CONFLICT (h) DO UPDATE SET n = n + 1, last = ?6, path = ?4, ver = ?5')

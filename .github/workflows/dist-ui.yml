@@ -4,7 +4,7 @@ name: Kênh & phân phối – giao diện + mặt tiền video
 on:
   push:
     branches: [main]
-    paths: ['web/js/admin-dist.js', 'web/js/lib/dist-rules.js', 'web/js/admin-clips.js', 'web/js/lesson-video.js', 'web/css/admin.css', 'functions/api/_role_meta.js', 'scripts/test/admin-dist-shots.mjs', 'scripts/test/facade-perf.mjs', '.github/workflows/dist-ui.yml']
+    paths: ['web/js/admin-dist.js', 'web/js/lib/dist-rules.js', 'web/js/admin-clips.js', 'web/js/lesson-video.js', 'web/css/admin.css', 'functions/api/_role_meta.js', 'scripts/test/admin-dist-shots.mjs', 'scripts/test/facade-perf.mjs', 'web/js/ads.js', 'web/js/ads/**', 'scripts/test/ads-cls.mjs', '.github/workflows/dist-ui.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,6 +25,9 @@ jobs:
       - name: Mặt tiền video + hiệu năng
         if: ${{ !cancelled() }}
         run: node scripts/test/facade-perf.mjs
+      - name: Ô quảng cáo – CLS = 0, CMP trước quảng cáo, DNT (docs/ADS.md)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/ads-cls.mjs
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with: { name: admin-dist-shots, path: out/admin-dist, retention-days: 14 }

@@ -7,7 +7,14 @@ import { specOf, mediaId, diagramHtml } from './lib/blog-images.mjs';
 import { joinPath } from './lib/url-guard.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
+import vm from 'node:vm';
+// 💰 Ô quảng cáo cuối bài (docs/ADS.md) – CHỈ khi web/js/ads/config.js bật + có mã ô 'blog'; mặc định tắt → 0 byte thêm vào trang
+const ADS = (() => { try { const c = { self: {} }; c.self = c; vm.runInNewContext(fs.readFileSync(new URL('../web/js/ads/config.js', import.meta.url), 'utf8'), c); const a = c.ADS_CONFIG || {}; return a.enabled && a.web && a.web.client && a.web.slots && a.web.slots.blog ? a : null; } catch (e) { return null; } })();
+const ADV = { en: 'Advertisement', vi: 'Quảng cáo', es: 'Publicidad', pt: 'Publicidade', fr: 'Publicité', de: 'Anzeige', id: 'Iklan', th: 'โฆษณา', zh: '广告', ja: '広告', ko: '광고', hi: 'विज्ञापन', ar: 'إعلان', ru: 'Реклама', tr: 'Reklam' };
+const adSlot = lang => (ADS ? `<aside class="ad-slot" data-ad="blog" aria-label="${ADV[lang] || ADV.en}" style="box-sizing:border-box;height:290px;max-width:340px;margin:1.5rem auto;padding:.4rem;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:center;contain:strict"><div class="ad-label" aria-hidden="true" style="height:1rem;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7;text-align:start">${ADV[lang] || ADV.en}</div></aside>` : '');
+const AD_JS = ADS ? '<script defer src="/js/ads/static.js"></script>' : '';
 const VIDEOS = (readVid(VID_MANIFEST, { items: [] }).items || []).filter(x => !x.test); // 🎬 video bài học khớp chủ đề bài (docs/VIDEO-SCALE-PLAN.md §10) – chỉ clip đã duyệt
 // Lời mời cài add-on cuối bài: chữ dùng chung với landing (content/landing/<lang>.json → ext), hiện/ẩn bởi EXT_JS (web/js/ext-cta.js)
 const EXT_EN = JSON.parse(fs.readFileSync('content/landing/en.json', 'utf8')).ext;
@@ -343,10 +350,10 @@ ${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${(p.tags || []).some(g => (TAGN.get(`
 ${extBox(p.lang)}
 ${pwaBox(p.lang)}
 </article>
-${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
+${adSlot(p.lang)}${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
   write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
-    script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) + `<script>${EXT_JS}</script>` + SMART_CTA_JS }));
+    script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) + `<script>${EXT_JS}</script>` + SMART_CTA_JS + AD_JS }));
   sm.push({ loc: postUrl(p), lastmod: iso(upd), alt: alts(p) });
 }
 CURP = null;

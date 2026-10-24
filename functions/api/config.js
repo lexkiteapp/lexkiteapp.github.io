@@ -1,7 +1,9 @@
 /* Cấu hình công khai do quản trị đặt (thông báo đầu trang…) – GET /api/config.
  * Đệm biên 5 phút (Cache API: mỗi trung tâm dữ liệu đọc D1 ≤ 1 lần/5 phút thay vì mỗi lượt gọi) + ETag/If-None-Match → 304 (docs/CAPACITY.md).
  * Quản trị đổi banner/hit_rate → hiệu lực ≤ 5 phút ở biên (máy khách còn tự đệm 1 giờ – web/js/app.js). */
-export const PUBLIC_KEYS = ['banner', 'banner_url', 'banner_level', 'hit_rate'];
+// ads_*: cờ quảng cáo theo nền tảng + công tắc khẩn cấp + tần suất + hệ số cổng giữ chân (docs/ADS.md) – mặc định trống = TẮT
+export const ADS_PUBLIC = ['ads_kill', 'ads_web', 'ads_android', 'ads_ios', 'ads_inter', 'ads_rew', 'ads_cap_sessions', 'ads_cap_gap', 'ads_cap_firstday', 'ads_guard'];
+export const PUBLIC_KEYS = ['banner', 'banner_url', 'banner_level', 'hit_rate', ...ADS_PUBLIC];
 export const TTL = 300;
 const KEY = 'https://cache.lexkite.internal/config/v1';
 const etagOf = s => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return '"c' + (h >>> 0).toString(36) + s.length.toString(36) + '"'; };

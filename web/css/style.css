@@ -1193,8 +1193,10 @@ a, button, label, .option, .card.hover, [role="button"] { touch-action: manipula
 }
 
 /* Quảng cáo: chừa sẵn chỗ (không làm nhảy trang), tách biệt rõ với nội dung học */
-.ad-slot.on { margin: 1.4rem 0 .4rem; min-height: 110px; padding: .5rem; border: 1px dashed var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
-.ad-slot .ad-label { font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 .3rem .2rem; }
+/* Ô quảng cáo (docs/ADS.md): kích thước CỐ ĐỊNH từ lúc vẽ → 0 CLS; luôn có nhãn "Quảng cáo"; không nhận focus */
+.ad-slot { box-sizing: border-box; height: 290px; margin: 1.4rem auto .4rem; padding: .4rem; max-width: 340px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; text-align: center; contain: strict; }
+.ad-slot.empty ins { visibility: hidden; }
+.ad-slot .ad-label { height: 1rem; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-align: start; margin: 0 0 .3rem .2rem; }
 html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
 
 /* Linh vật Kit */

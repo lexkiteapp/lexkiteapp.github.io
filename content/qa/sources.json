@@ -294,6 +294,7 @@
   "content/pr": "bài PR/danh bạ",
   "content/protection": "dấu bản quyền",
   "content/video": "kịch bản video – cổng riêng docs/VIDEO.md (duyệt mẫu trước khi chạy hàng loạt)",
-  "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)"
+  "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
+  "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs"
  }
 }
