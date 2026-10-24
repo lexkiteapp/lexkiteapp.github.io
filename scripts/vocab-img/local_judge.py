@@ -18,7 +18,7 @@ from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 TH_FILE = os.path.join(ROOT, 'content/lexicon/vimg-judge.json')
-DEF_TH = {'clip_margin': 0.02, 'cap_sim': 0.45, 'cap_margin': 0.05, 'ocr_max': 0, 'nsfw_max': 0.2, 'style_min': 0.70, 'ph_max': 6}
+DEF_TH = {'frame_min': 0.04, 'clip_margin': 0.02, 'cap_sim': 0.45, 'cap_margin': 0.05, 'ocr_max': 0, 'nsfw_max': 0.2, 'style_min': 0.70, 'ph_max': 6}
 
 def fnv(s):
     h = 0x811c9dc5
@@ -127,6 +127,15 @@ def api_vision(im):
             time.sleep(3); continue
     _API['fails'] += 1; return None
 
+def framing(im):
+    """MỘT khuôn (chủ 24/10): chủ thể ở giữa, chừa lề ~10 %. Đo khung vật = điểm ảnh khác nền viền (trung vị) → lề nhỏ nhất (tỉ lệ cạnh) + lệch tâm."""
+    a = np.asarray(im.convert('RGB').resize((128, 128)), np.int16); edge = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(edge, 0)
+    m = np.abs(a - bg).max(-1) > 30; ys, xs = np.where(m)
+    if not len(xs): return {'margin': 0.0, 'off': 1.0}
+    x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max()
+    margin = min(x0, y0, 127 - x1, 127 - y1) / 128; off = max(abs((x0 + x1) / 2 - 63.5), abs((y0 + y1) / 2 - 63.5)) / 128
+    return {'margin': round(float(margin), 3), 'off': round(float(off), 3)}
+
 def hamm(a, b): return bin(int(a, 16) ^ int(b, 16)).count('1')
 
 # ---------- nhiễu: anh em cùng chủ đề + từ ngẫu nhiên tất định → đủ 19 ----------
@@ -165,7 +174,8 @@ def features(im, k, t, T, LEX, keys_all, centroid):
         A = st.encode([str(api['describe'])], normalize_embeddings=True)[0]; ap, i = [], 0
         for rs in refs: ap.append(float(np.max(R[i:i + len(rs)] @ A)) if rs else -1.0); i += len(rs)
         ap = np.array(ap); arank = int((ap > ap[0]).sum()) + 1; asim = round(float(ap[0]), 4); aflags = {'text': api.get('text') is True, 'unsafe': api.get('unsafe') is True}
-    return {'api': (api or {}).get('describe'), 'api_model': (api or {}).get('model'), 'api_rank': arank, 'api_sim': asim, **{('api_' + k): v for k, v in aflags.items()},
+    fr = framing(im)
+    return {'frame': fr, 'api': (api or {}).get('describe'), 'api_model': (api or {}).get('model'), 'api_rank': arank, 'api_sim': asim, **{('api_' + k): v for k, v in aflags.items()},
             'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
             'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
             'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
@@ -177,6 +187,8 @@ def verdict(f, th, kind):
     if len(f['ocr']) > th['ocr_max']: r.append('text: ' + ' '.join(f['ocr'])[:40])
     if f['nsfw'] >= th['nsfw_max']: r.append(f"nsfw {f['nsfw']}")
     if f['style'] is not None and f['style'] < th['style_min']: r.append(f"style {f['style']}")
+    fr = f.get('frame') or {}
+    if kind == 'object' and fr and (fr['margin'] < th.get('frame_min', .04) or fr['off'] > .12): r.append(f"framing margin {fr['margin']} off {fr['off']}")   # cảnh được tràn khung, vật phải ở giữa + có lề
     if th.get('api', True) and not r:
         # chủ 24/10: nhận khi CẢ cục bộ VÀ giám khảo API đồng ý; API cạn → chỉ nhận khi cục bộ RẤT chắc (lề ×2), không thì hàng chờ
         if f.get('api_rank') is None:
