@@ -1,0 +1,673 @@
+{
+ "lang": "en",
+ "results": [
+  {
+   "lang": "en",
+   "check": "app: trang chủ hiển thị",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "môi trường: gọi được dịch máy (gtx)",
+   "ok": true,
+   "detail": "có"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/review có nội dung",
+   "ok": true,
+   "detail": "✕\n🎧\n✅ 0 · 29 cards left\n?\nReview mode\nAuto\nFlip card\nType it\nListen & pick\n🇬🇧"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/review không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "app: #/vocab có nội dung",
+   "ok": true,
+   "detail": "📚 Vocabulary\n\nLearn new words, review right before you forget, look things up f"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/vocab không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "app: #/settings có nội dung",
+   "ok": true,
+   "detail": "Me\nSettings\n\nAccount, reminders, goals and appearance\n\n☁️\nAccount\n🎨\nAppearance\n"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/settings không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "app: #/dict/house có nội dung",
+   "ok": true,
+   "detail": "Vocabulary\nEnglish – Vietnamese dictionary\n\nOxford Languages definitions · UK/US"
+  },
+  {
+   "lang": "en",
+   "check": "app: #/dict/house không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "dữ liệu mẫu: có thẻ trong chrome.storage",
+   "ok": true,
+   "detail": "60"
+  },
+  {
+   "lang": "en",
+   "check": "gạch chân bằng CSS Highlight API: không chèn <vb-mark> vào DOM trang",
+   "ok": true,
+   "detail": "api=true vb-mark=0"
+  },
+  {
+   "lang": "en",
+   "check": "content script: gạch chân từ học thuật / đánh dấu từ đã học trên trang",
+   "ok": true,
+   "detail": "20: Urban, infrastructure, Dense, resilience, initial, considerable"
+  },
+  {
+   "lang": "en",
+   "check": "gạch chân cả trong hộp thoại role=dialog (Highlight API không làm hỏng form React)",
+   "ok": true,
+   "detail": "8"
+  },
+  {
+   "lang": "en",
+   "check": "SPA kiểu React: có gạch chân trong khung #root + hộp thoại",
+   "ok": true,
+   "detail": "all=10 dlg=6"
+  },
+  {
+   "lang": "en",
+   "check": "SPA kiểu React: vẽ lại chữ sau khi gạch chân → không lỗi trang (removeChild)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "SPA kiểu React: gạch chân tính lại sau khi vẽ lại (kể cả hộp thoại)",
+   "ok": true,
+   "detail": "all=10 dlg=6 Considerable,approach,significant,research,approach"
+  },
+  {
+   "lang": "en",
+   "check": "bấm vào từ được gạch chân (Highlight API) → mở bảng tra",
+   "ok": true,
+   "detail": "🔬\nresearchnounA2\n/rɪˈsɜːtʃ/ · /riˈsɜːrtʃ/\n🔊 UK\n🔊 US\n🐢\nnoun\ncareful study to "
+  },
+  {
+   "lang": "en",
+   "check": "bấm đúp: hiện bảng tra",
+   "ok": true,
+   "detail": "✕\ni\nresiliencenounC1\n/rɪˈzɪlɪəns/ · /rɪˈzɪliəns/\n🔊 UK\n🔊 US\n🐢\nnoun\nthe ability"
+  },
+  {
+   "lang": "en",
+   "check": "bấm đúp: đúng từ + phiên âm",
+   "ok": true,
+   "detail": "✕\ni\nresiliencenounC1\n/rɪˈzɪlɪəns/ · /rɪˈzɪliəns/\n🔊 UK\n🔊 US\n🐢\nnoun\nthe ability to recover quickly from difficulties or"
+  },
+  {
+   "lang": "en",
+   "check": "bảng tra: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tương phản bảng tra (trang sáng) ≥ 4.5:1",
+   "ok": true,
+   "detail": "43 chữ; lỗi: "
+  },
+  {
+   "lang": "en",
+   "check": "trang sáng → bảng tra sáng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "bảng tra: không treo \"Đang dịch câu\"",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tra lồng trong bảng tra (bấm đúp từ trong định nghĩa)",
+   "ok": true,
+   "detail": "ability → ✕\ni\n←abilitynounA2\n/əˈbɪləti/\n🔊 UK\n🔊 US\n🐢\nnoun\nthe skill "
+  },
+  {
+   "lang": "en",
+   "check": "danh từ \"forest\": có ảnh minh họa (đã tải xong)",
+   "ok": true,
+   "detail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aer"
+  },
+  {
+   "lang": "en",
+   "check": "\"action\": không có tiêu đề từ loại trống",
+   "ok": true,
+   "detail": "0 nhóm trống"
+  },
+  {
+   "lang": "en",
+   "check": "\"action\": có ảnh minh họa (đã tải xong)",
+   "ok": true,
+   "detail": "https://live.staticflickr.com/2488/3775825809_bae0339293_n.j"
+  },
+  {
+   "lang": "en",
+   "check": "trạng từ \"exactly\": hiện bảng tra",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trạng từ \"exactly\": không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "en",
+   "check": "tính từ \"available\": không ảnh lệch nghĩa, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "en",
+   "check": "bôi đen (chế độ nút 🌐): hiện nút",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "bấm 🌐: hiện bản dịch",
+   "ok": true,
+   "detail": "🌐 Translate selection\nEN\n×\nAlthough the initial cost is considerable, the long-term benefits to public health far outwe"
+  },
+  {
+   "lang": "en",
+   "check": "tương phản bản dịch ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "bản dịch: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "bôi đen (tự dịch): hiện bản dịch ngay",
+   "ok": true,
+   "detail": "🌐 Translate selection\nEN\n×\nAlthough the initial cost is considerable, the long-"
+  },
+  {
+   "lang": "en",
+   "check": "bôi đen (tắt): không hiện gì",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "ô nhập chữ (textarea): bôi đen → nút 🌐",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tắt \"Bấm đúp để tra\": không hiện bảng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang CSP chặn ảnh: vẫn có ảnh (canvas)",
+   "ok": true,
+   "detail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Aer"
+  },
+  {
+   "lang": "en",
+   "check": "trang CSP chặn <style>: bảng tra vẫn đúng kiểu (adoptedStyleSheets)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trong iframe: bấm đúp tra được",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang RTL (Ả Rập): bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "máy chế độ tối + trang sáng: bảng tra hiện",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "máy tối + trang sáng → bảng tra SÁNG, tương phản đạt",
+   "ok": true,
+   "detail": "dark=false "
+  },
+  {
+   "lang": "en",
+   "check": "trang tối → bảng tra TỐI, tương phản đạt",
+   "ok": true,
+   "detail": "dark=true "
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": "dark=false "
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": true,
+   "detail": "img "
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (sáng): ảnh minh họa có alt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): \"available\" – bảng tra theo nền trang, tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": "dark=true "
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): tính từ \"available\" không ảnh, không ô chữ cái",
+   "ok": true,
+   "detail": "none"
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): danh từ \"library\" – tương phản ≥ 4.5:1, không ô chữ cái",
+   "ok": true,
+   "detail": "img "
+  },
+  {
+   "lang": "en",
+   "check": "thẻ thông báo (tối): ảnh minh họa có alt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: hiển thị số thẻ cần ôn",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: nút \"Ôn ngay\" không bị che",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "popup: bấm \"Ôn ngay\" mở ứng dụng",
+   "ok": true,
+   "detail": "chrome-extension://kblfilcmclonmeecilfiflfpingdofca/app/index.html#/review"
+  },
+  {
+   "lang": "en",
+   "check": "popup: tra nhanh \"house\"",
+   "ok": true,
+   "detail": "house\nn\nA1\n/haʊs/\n🔊\nngôi nhà\nbuilding in which a family, person lives\n+ Save fl"
+  },
+  {
+   "lang": "en",
+   "check": "popup: đổi \"Khi bôi đen chữ\" → lưu",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: có thẻ từ",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: vẽ thẻ < 100 ms (không chờ mạng)",
+   "ok": true,
+   "detail": "35 ms"
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: đầu thẻ có từ + nhãn (loại từ/CEFR/kỳ thi)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: có nút nghe giọng Anh",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: họ từ/cụm từ… thu gọn mặc định",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: thẻ + ô tìm ≤ 45 % màn 1366×768",
+   "ok": true,
+   "detail": "290 px"
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: nút UK phát âm",
+   "ok": true,
+   "detail": "{\"k\":\"mp3\",\"r\":1,\"d\":1,\"pp\":true}"
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: nút US phát âm",
+   "ok": true,
+   "detail": "{\"k\":\"tts\",\"r\":0.9200000166893005,\"l\":\"en-US\"}"
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: nút 🐢 phát âm",
+   "ok": true,
+   "detail": "{\"k\":\"tts\",\"r\":0.6000000238418579,\"l\":\"en-US\"}"
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: 🐢 phát chậm (tốc độ < 1, giọng vừa nghe = US)",
+   "ok": true,
+   "detail": "{\"k\":\"tts\",\"r\":0.6000000238418579,\"l\":\"en-US\"}"
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: chế độ Tự kiểm tra che nghĩa",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: Space hiện nghĩa",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: phím N sang từ khác",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: không lẫn tiếng Việt (giao diện)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "tab mới: bấm \"Đã nhớ\" sang thẻ khác / cập nhật",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "lexkite.com (chào mừng): bấm đúp có bảng tra (add-on hoặc web)",
+   "ok": true,
+   "detail": "từ=Vocabulary addon=true web=false"
+  },
+  {
+   "lang": "en",
+   "check": "lexkite.com: không hiện 2 bảng cùng lúc",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "lexkite.com đang thi (#/mock): add-on khóa tra",
+   "ok": true,
+   "detail": "null"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: mặc định TẮT (không gạch chân)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: textarea có lỗi → gạch chân",
+   "ok": true,
+   "detail": "u=3 u spelling,u grammar,u grammar"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: bấm chữ bị gạch → hộp gợi ý",
+   "ok": true,
+   "detail": "Spelling\nCommonly misspelled word\n×\nrecieve\nreceive\nIgnore\n💡 Why?\nTurn off here"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: \"Vì sao?\" có giải thích",
+   "ok": true,
+   "detail": "This word is misspelled. Learn the correct spelling – words you misspell often are added to your rev"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: hộp gợi ý không lẫn tiếng Việt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: sửa 1 chạm",
+   "ok": true,
+   "detail": "I receive your email and she have a informations about it. "
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: lỗi ngữ pháp có gợi ý",
+   "ok": true,
+   "detail": "Grammar\nSubject–verb agreement\n×\nhave\nhas\nIgnore\n💡 Why?\nTurn off here"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: ô mật khẩu → không gạch chân",
+   "ok": true,
+   "detail": "u=0"
+  },
+  {
+   "lang": "en",
+   "check": "soát lỗi viết: contenteditable → gạch chân",
+   "ok": true,
+   "detail": "u=3 u grammar,u grammar,u style"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật en.wikipedia.org: bấm đúp \"encyclopedia\" hiện bảng tra",
+   "ok": true,
+   "detail": "46 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật en.wikipedia.org: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật www.bbc.com: có chữ tiếng Anh để thử",
+   "ok": true,
+   "detail": "không tìm thấy từ phù hợp – bỏ qua"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com: bấm đúp \"watching\" hiện bảng tra",
+   "ok": true,
+   "detail": "31 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com (dark): bấm đúp \"watching\" hiện bảng tra",
+   "ok": true,
+   "detail": "31 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật github.com (dark): tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.apple.com: bấm đúp \"member\" hiện bảng tra",
+   "ok": true,
+   "detail": "63 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.apple.com: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật news.ycombinator.com: bấm đúp \"points\" hiện bảng tra",
+   "ok": true,
+   "detail": "90 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật news.ycombinator.com: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật www.theguardian.com: bấm đúp \"viewing\" hiện bảng tra",
+   "ok": true,
+   "detail": "48 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật www.theguardian.com: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật stackoverflow.com: bấm đúp \"security\" hiện bảng tra",
+   "ok": true,
+   "detail": "37 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật stackoverflow.com: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật old.reddit.com: bấm đúp \"request\" hiện bảng tra",
+   "ok": true,
+   "detail": "54 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật old.reddit.com: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật docs.python.org: bấm đúp \"tutorial\" hiện bảng tra",
+   "ok": true,
+   "detail": "47 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật docs.python.org: tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.mozilla.org (dark): bấm đúp \"language\" hiện bảng tra",
+   "ok": true,
+   "detail": "60 chữ"
+  },
+  {
+   "lang": "en",
+   "check": "trang thật developer.mozilla.org (dark): tương phản ≥ 4.5:1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "trang thật ar.wikipedia.org: có chữ tiếng Anh để thử",
+   "ok": true,
+   "detail": "không tìm thấy từ phù hợp – bỏ qua"
+  },
+  {
+   "lang": "en",
+   "check": "errLog của add-on rỗng",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "lang": "en",
+   "check": "không có lỗi console/trang từ add-on",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "errors": [],
+ "errLog": []
+}
