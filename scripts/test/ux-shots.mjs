@@ -6,7 +6,7 @@ import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } 
 import { chromium } from 'playwright';
 const [AFTER, BEFORE, OUT = 'out/ux'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const ROUTES = ['home', 'practice', 'review', 'vocab', 'tests', 'me', 'goal', 'dict/sustainable', 'confidence'];
+const ROUTES = ['home', 'practice', 'review', 'vocab', 'library', 'tests', 'me', 'goal', 'dict/sustainable', 'confidence'];
 const CONFIGS = [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'vi']];
 const browser = await chromium.launch();
 const report = { errs: [], metrics: {} };
@@ -54,7 +54,7 @@ fs.writeFileSync(path.join(OUT, 'report.json'), JSON.stringify(report, null, 1))
 try {
   for (const TAG of ['before', 'after']) for (const [vn, sc, lang] of CONFIGS) {
     const files = ROUTES.map(r => path.join(OUT, `${TAG}-${vn}-${sc}-${lang}-${r.replace(/\//g, '_')}.jpg`)).filter(f => fs.existsSync(f)); if (!files.length) continue;
-    execFileSync('montage', [...files, '-tile', vn === 'mobile' ? '9x1' : '3x3', '-geometry', vn === 'mobile' ? '300x+6+6' : '640x+6+6', '-background', '#888', '-quality', '72', path.join(OUT, `sheet-${TAG}-${vn}-${sc}-${lang}.jpg`)]);
+    execFileSync('montage', [...files, '-tile', vn === 'mobile' ? '10x1' : '5x2', '-geometry', vn === 'mobile' ? '300x+6+6' : '640x+6+6', '-background', '#888', '-quality', '72', path.join(OUT, `sheet-${TAG}-${vn}-${sc}-${lang}.jpg`)]);
   }
 } catch (e) { console.log('montage bỏ qua:', e.message); }
 const sum = Object.entries(report.metrics).filter(([k]) => k.startsWith('after')).map(([k, m]) => `${k}: tràn ${m.overflowX} · cắt ${m.clipped?.length} · chạm<44 ${m.smallTapsN}`);
