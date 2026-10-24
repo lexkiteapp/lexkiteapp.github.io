@@ -26,9 +26,14 @@ self.addEventListener('activate', e => {
 // (Worker = lượt tính hạn mức 100k/ngày – docs/CAPACITY.md §Kiến trúc A3; trước 600 file → người học nhiều bị đẩy ra rồi tải lại)
 const AUDIO = 'lk-audio', AUDIO_MAX = 2000;
 const trimAudio = c => c.keys().then(ks => { if (ks.length > AUDIO_MAX) return Promise.all(ks.slice(0, ks.length - AUDIO_MAX).map(k => c.delete(k))); });
-// Ảnh minh hoạ từ vựng (media.lexkite.com/vimg/<băm>.webp, ~12 KB, immutable): lưu khi xem, tối đa 400 ảnh (~5 MB) – offline được (docs/LEXICON.md § Ảnh minh hoạ)
-const VIMG = 'lk-vimg', VIMG_MAX = 400;
+// Ảnh minh họa từ vựng (media.lexkite.com/vimg/<băm>[@2x].avif|webp, ≤ 6 KB, immutable): lưu khi xem, LRU 800 ảnh (~5 MB) – offline được (docs/LEXICON.md § Ảnh minh họa)
+// LRU: keys() theo thứ tự ghi → trúng cache thì xóa + ghi lại (thành mới nhất), vượt trần thì xóa cũ nhất.
+const VIMG = 'lk-vimg', VIMG_MAX = 800, VIMG_RE = /^\/vimg\/[0-9a-f]{16}(@2x)?\.(avif|webp)$/;
 const trimVimg = c => c.keys().then(ks => { if (ks.length > VIMG_MAX) return Promise.all(ks.slice(0, ks.length - VIMG_MAX).map(k => c.delete(k))); });
+const vimgFetch = e => caches.open(VIMG).then(c => c.match(e.request).then(hit => {
+  if (hit) { const keep = hit.clone(); e.waitUntil(c.delete(e.request).then(() => c.put(e.request, keep)).catch(() => {})); return hit; } // làm mới thứ tự LRU
+  return fetch(e.request).then(r => { if (r.ok) { const x = r.clone(); e.waitUntil(c.put(e.request, x).then(() => trimVimg(c)).catch(() => {})); } return r; });
+}));
 const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$/; // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
@@ -47,8 +52,8 @@ self.addEventListener('fetch', e => {
     e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(AUDIO).then(x => x.put(e.request, c).then(() => trimAudio(x))); } return r; })));
     return;
   }
-  if (e.request.method === 'GET' && url.hostname === 'media.lexkite.com' && /^\/vimg\/[0-9a-f]{16}\.webp$/.test(url.pathname)) {
-    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request).then(r => { if (r.ok) { const c = r.clone(); caches.open(VIMG).then(x => x.put(e.request, c).then(() => trimVimg(x))); } return r; })));
+  if (e.request.method === 'GET' && url.hostname === 'media.lexkite.com' && VIMG_RE.test(url.pathname)) {
+    e.respondWith(vimgFetch(e));
     return;
   }
   if (e.request.method !== 'GET' || url.origin !== location.origin) return; // API từ điển luôn đi mạng

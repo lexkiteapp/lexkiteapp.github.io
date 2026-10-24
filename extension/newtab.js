@@ -141,7 +141,7 @@
     $('#ntCard').innerHTML = `
       <div class="nt-head"><h1 class="nt-word" dir="ltr" lang="en">${esc(c.word)}</h1><span class="nt-chips">${posChips}${c.level ? `<span class="chip cefr" title="CEFR">${esc(c.level)}</span>` : ''}${ex3}</span></div>
       ${ipaLine}<div class="spks">${pb('uk')}${pb('us')}<button class="spk" type="button" id="ntSlow" title="${esc(tx('ntSlow'))}" aria-label="${esc(tx('ntSlow'))}">🐢</button></div>
-      ${meanHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${meanHtml}<div class="veil"><button type="button" id="ntReveal" title="Space">${esc(tx('ntReveal'))}</button></div></div>` : ''}
+      ${meanHtml ? `<div class="nt-body${quiz ? ' quiz-hidden' : ''}" id="ntBody">${window.VImg && s1 ? VImg.slot(c.word, s1.p, meanMain(s1), 144) : ''}${meanHtml}<div class="veil"><button type="button" id="ntReveal" title="Space">${esc(tx('ntReveal'))}</button></div></div>` : ''}
       ${c.ex ? `<button class="ex" type="button" id="ntEx" title="${esc(L !== 'en' ? tx('ntTapTr') : tx('ntExample'))}" aria-label="${esc(tx('ntExample'))}"><span dir="ltr" lang="en">“${hl(c.ex, c.word)}”</span></button>` : ''}
       ${groups.length ? `<div class="more" role="group">${groups.map(([k, a], i) => `<button type="button" data-g="${i}" aria-expanded="false" aria-controls="ntPanel">${esc(tx(k))}<b>${a.length}</b></button>`).join('')}</div><div class="panel" id="ntPanel" dir="ltr" lang="en" hidden></div>` : ''}
       <div class="nt-act" id="ntAct">${c.saved ? `<button class="btn good" type="button" id="ntGood" title="1">${esc(tx('ntGot'))}</button><button class="btn" type="button" id="ntAgain" title="2">${esc(tx('ntAgain'))}</button>` : `<button class="btn add" type="button" id="ntAdd">${esc(tx('ntAdd'))}</button>`}<button class="btn next" type="button" id="ntNext" title="N">${esc(tx('ntNext'))}</button></div>`;
@@ -168,7 +168,11 @@
     if (mtOn) setTimeout(() => $('#ntCard').querySelectorAll('[data-mt]').forEach(async el => { const tr = await translate(el.dataset.mt); if (tr && cur === c) { el.textContent = tr; el.insertAdjacentHTML('beforeend', `<span class="mt-l">${esc(tx('ntMT'))}</span>`); el.hidden = false; } }), 150);
   };
   const reveal = () => { const b = $('#ntBody'); if (b && b.classList.contains('quiz-hidden')) { b.classList.remove('quiz-hidden'); $('#ntGood')?.focus(); return true; } return false; };
+  // 🖼️ Ảnh minh họa theo nghĩa (cờ thử localStorage lk.vimg=1, mặc định TẮT): module + chỉ mục chung app/js/ chỉ tải khi bật – web/js/vocab-img.js
+  const vimgP = (() => { try { if (localStorage.getItem('lk.vimg') !== '1') return Promise.resolve(null); } catch (e) { return Promise.resolve(null); }
+    return new Promise(r => { const s = document.createElement('script'); s.src = 'app/js/vocab-img.js'; s.onload = () => r(window.VImg ? VImg.ready() : null); s.onerror = () => r(null); document.head.appendChild(s); }); })();
   const show = async () => {
+    await vimgP;
     const item = qi < queue.length ? queue[qi] : { w: await randomWord(), tag: 'lex' }; qi++;
     render(build(item.w, await info(item.w), cards[keyOf(item.w)]), item.tag);
   };

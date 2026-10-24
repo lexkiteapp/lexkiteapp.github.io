@@ -100,7 +100,9 @@ if (usCov < 0.97) errs.push(`ipaUS phủ ${(usCov * 100).toFixed(1)}% từ đơn
 const IMGF = 'content/lexicon/img.json';
 const IMG = fs.existsSync(new URL(IMGF, ROOT)) ? JSON.parse(rd(IMGF)) : { v: 1, style: { v: 's1' }, base: 'https://media.lexkite.com/vimg/', items: {}, rejected: {} };
 errs.push(...checkImg(IMG, new Set(groups.keys())));
-const imgIndex = JSON.stringify({ v: IMG.v, base: IMG.base, sv: IMG.style.v, m: Object.fromEntries(Object.entries(IMG.items).map(([k, e]) => [k, e.h])) });
+// chỉ mục v2 gọn: m = {từ#loại: h}, x = khoá có bản @2x (768 px), w = khoá CHỈ có WebP (không AVIF – thường rỗng) – web/js/vocab-img.js
+const imgKeys = Object.keys(IMG.items);
+const imgIndex = JSON.stringify({ v: 2, base: IMG.base, sv: IMG.style.v, m: Object.fromEntries(imgKeys.map(k => [k, IMG.items[k].h])), x: imgKeys.filter(k => IMG.items[k].x2 === true), w: imgKeys.filter(k => !(IMG.items[k].fmt || []).includes('avif')) });
 for (const f of ['web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json']) {
   const ex = fs.existsSync(new URL(f, ROOT));
   if (WRITE) { if (!ex || rd(f) !== imgIndex + '\n') wr(f, imgIndex + '\n'); } else if (!ex || rd(f) !== imgIndex + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);

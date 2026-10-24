@@ -5,7 +5,7 @@
 // Ghi: dist/<lang>/words/**, dist/<lang>/conversations/**, dist/sitemap-words-<lang>.xml, dist/sitemap-conversations.xml,
 //   dist/data/seo-twins.json (app → bản tĩnh, web/js/seo-twin.js), .seo-urls.txt (URL + băm nội dung cho IndexNow – không deploy).
 // Chạy trong build-web.sh sau build-samples*/blog, trước build-sitemap-index. Tắt: SEO_PAGES=0. N: SEO_N_MAIN (1500), SEO_N_OTHER (400).
-import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process';
+import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import crypto from 'node:crypto'; import { execFileSync } from 'node:child_process';
 import { loadBrowserIndex } from './lexicon/shards.mjs';
 import { loadVocab } from './lib/seo-data.mjs';
 import { CSS, SEO_CSS, UI_JS, esc, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
@@ -27,6 +27,11 @@ const { INDEX, TOPICS } = loadBrowserIndex();
 const { audioKey } = loadVocab();
 const topicOf = new Map(TOPICS.map(t => [t.id, t]));
 const packs = Object.fromEntries(LANGS.filter(l => l !== 'vi' && l !== 'en').map(l => [l, J(`web/packs/${l}.json`)]));
+// 🖼️ Ảnh minh hoạ theo nghĩa: CHỈ khi chủ duyệt phong cách (img.json style.approved === true) và nghĩa có ảnh → <picture> dựng sẵn
+// bằng CHÍNH VImg.pic (web/js/vocab-img.js) → cùng markup với app; chưa duyệt → trang giữ nguyên từng byte (docs/LEXICON.md § Ảnh minh hoạ)
+const IMG = fs.existsSync('content/lexicon/img.json') ? J('content/lexicon/img.json') : null;
+const VPIC = IMG && IMG.style && IMG.style.approved === true && Object.keys(IMG.items || {}).length ? (() => { const ctx = {}; ctx.self = ctx; vm.runInNewContext(fs.readFileSync('web/js/vocab-img.js', 'utf8'), ctx); return ctx.VImg.pic; })() : null;
+const vimgOf = (e, alt) => { const it = VPIC && IMG.items[String(e.word).toLowerCase() + '#' + gpos(e.pos)]; return it ? VPIC(IMG.base, it.h, it.x2 === true, alt, 240, !(it.fmt || []).includes('avif')) : ''; };
 const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
 const gloss = (l, e) => { const p = packs[l], k = e.word.toLowerCase(); return (p && (p[k + '#' + gpos(e.pos)] || p[k])) || null; };
 
@@ -109,7 +114,7 @@ for (const l of LANGS) {
     const near = rel.length >= 4 ? rel : [...rel, ...list.slice(Math.max(0, i - 4), i + 5).filter(x => x !== e && !rel.includes(x))].slice(0, 8);
     const au = audioKey(w), n = l === 'vi' ? notes[k] : null;
     const body = `<article class="page wd">
-<header class="hero"><h1>${en(W)}</h1><div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp ? `<span class="chip">${en(tp.name || tp.id)}</span>` : ''}</div></header>
+<header class="hero"><h1>${en(W)}</h1>${vimgOf(e, `${w} – ${m}`)}<div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp ? `<span class="chip">${en(tp.name || tp.id)}</span>` : ''}</div></header>
 <section aria-labelledby="h-m"><h2 id="h-m">${esc(t.mean)}</h2><p class="mean"${l === 'en' ? ' lang="en"' : ''}>${esc(m)}${g && g[1] === 0 ? ` <span class="mt">(${esc(t.mt)})</span>` : ''}</p>${l !== 'en' ? `<p><b>${esc(t.def)}:</b> ${en(e.def)}</p>` : ''}</section>
 <section aria-labelledby="h-p"><h2 id="h-p">${esc(t.pron)}</h2><p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${e.ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(e.ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p></section>
 <section aria-labelledby="h-e"><h2 id="h-e">${esc(t.ex)}</h2><blockquote lang="en" dir="ltr">${esc(e.ex)}</blockquote></section>

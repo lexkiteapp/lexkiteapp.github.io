@@ -242,6 +242,7 @@
     uidx: ['js/usage-index.js'], usage: ['js/i18n/en/usage.js', 'js/choice-kit.js', 'js/usage-core.js', 'js/usage.js'], uP: ['js/usage/prep-adj.js', 'js/usage/prep-verb.js', 'js/usage/prep-noun.js'], uV: ['js/usage/verb.js'], uA: ['js/usage/adv.js'], uS: ['js/usage/struct.js'], uC: ['js/usage/pair.js'], // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
     placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
     lvideo: ['js/i18n/en/lvideo.js', 'js/lib/video-rank.js', 'js/lesson-video.js'], // 🎬 Video bài học (thẻ từ, ngữ pháp, ngày học) – docs/VIDEO-SCALE-PLAN.md §10
+    vimg: ['js/vocab-img.js'], // 🖼️ Ảnh minh họa theo nghĩa – CHỈ tải khi cờ vocab_img bật (App.vimgReady), khung app +0
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
     anki: ['js/lib/save-file.js', 'js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
     share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'], lsw: ['js/lang-menu.js'],
@@ -419,6 +420,12 @@
   // Chia theo chữ cái đầu (js/notes/a.json…) → chỉ tải phần cần; chỗ hiển thị là ô trống được điền khi dữ liệu về.
   const notesCache = {};
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
+  // 🖼️ Ảnh minh họa theo nghĩa (cờ vocab_img mặc định TẮT; thử: localStorage lk.vimg=1 – docs/LEXICON.md § Ảnh minh họa). Tắt → không tải gì, không hộp.
+  // Bật → tải trước module + chỉ mục lúc mở app; App.vimg() đồng bộ chỉ trả hộp cố định khi chỉ mục đã về và nghĩa có ảnh (CLS 0).
+  const vimgOn = () => { try { const f = localStorage.getItem('lk.vimg'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'); return !!(c && c.v && c.v.vocab_img === true); } catch (e) { return false; } };
+  App.vimgReady = () => (vimgOn() ? App.need('vimg').then(() => window.VImg && VImg.ready()).catch(() => null) : Promise.resolve(null));
+  App.vimg = (word, pos, gloss, w) => (window.VImg ? VImg.slot(word, pos, gloss, w) : '');
+  App.vimgReady();
   App.notesHtml = word => `<div class="wn-slot" data-notes="${esc(String(word || '').toLowerCase())}"></div>`;
   const fillNotes = () => document.querySelectorAll('.wn-slot[data-notes]:not([data-done])').forEach(el => { el.dataset.done = 1; const w = el.dataset.notes; Promise.all([notesFile(w), App.need('wordcard').then(() => window.WordCard && WordCard.ready)]).then(([m]) => { const n = Object.hasOwn(m, w) && m[w]; if (n && el.isConnected && window.WordCard) el.innerHTML = WordCard.notes(n, w); }).catch(() => {}); });
   // Chip cụm từ/đồng nghĩa/họ từ: chạm = nghe · chạm lần 2 (hoặc giữ) = tra nghĩa tại chỗ (đang học) / mở từ điển
@@ -902,7 +909,7 @@
   let extP = null;
   const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
   routes.dict = App.guard(async function (q) {
-    const fastP = q ? Dict.quick(q) : null; // tra song song với đọc 'recent' (từ trong kho: vài ms)
+    const fastP = q ? Dict.quick(q) : null, vimgP = App.vimgReady(); // tra song song với đọc 'recent' (từ trong kho: vài ms) + chỉ mục ảnh (cờ bật)
     const w = App.W, recent = await w(Store.get('recent', []));
     view.innerHTML = `
       <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
@@ -927,7 +934,7 @@
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
     const same = () => Dict.normWord(parseHash().arg) === Dict.normWord(q);
-    const fast = await w(fastP);
+    const fast = await w(fastP); await vimgP;
     if (!same()) return;
     if (fast) paint(fast, false);
     const full = await w(Dict.lookup(q));
@@ -964,7 +971,7 @@
               ${window.LK_VERBS && LK_VERBS.verbOf(e) ? `<a class="btn" href="#/verb/${encodeURIComponent(LK_VERBS.verbOf(e))}">🔤 ${t('Chia động từ')}</a>` : ''}${window.LK_USAGE_IDX && LK_USAGE_IDX.w[e.word.toLowerCase()] ? `<a class="btn" href="#/usage/${encodeURIComponent(e.word.toLowerCase())}">📘 ${t('Cách dùng')}</a>` : ''}
             </div>
           </div>
-          ${pic(e)}
+          ${App.vimg(e.word, e.pos, App.meanOf(e), 160) || pic(e)}
         </div>
         ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div>` : ''}
         ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}
