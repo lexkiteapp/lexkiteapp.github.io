@@ -1377,6 +1377,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "business#n": {
+   "h": "7aa304dddee6ee33",
+   "url": "https://media.lexkite.com/vimg/7aa304dddee6ee33.webp",
+   "alt": "business",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.295,
+    "vision": "qwen/qwen3.8-27b",
+    "conf": 95,
+    "tries": 1
+   },
+   "ph": "c38b9d38ac54dad2",
+   "at": "2026-10-24",
+   "b": "40093586113",
+   "repo": "m4"
+  },
   "butter#n": {
    "h": "81c0976ef2993592",
    "url": "https://media.lexkite.com/vimg/81c0976ef2993592.webp",
@@ -2805,6 +2831,32 @@
    "b": "40088424311",
    "repo": "m4"
   },
+  "evening#n": {
+   "h": "b893d2c34ca8ddad",
+   "url": "https://media.lexkite.com/vimg/b893d2c34ca8ddad.webp",
+   "alt": "evening",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.244,
+    "vision": "qwen/qwen3.8-27b",
+    "conf": 95,
+    "tries": 1
+   },
+   "ph": "f968245bc9314fc6",
+   "at": "2026-10-24",
+   "b": "40093586113",
+   "repo": "m4"
+  },
   "extinguisher#n": {
    "h": "177f32df89e1552f",
    "url": "https://media.lexkite.com/vimg/177f32df89e1552f.webp",
@@ -3437,6 +3489,33 @@
     }
    }
   },
+  "great#adj": {
+   "h": "63a1c174524120c0",
+   "url": "https://media.lexkite.com/vimg/63a1c174524120c0.webp",
+   "alt": "great",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.229,
+    "vision": "qwen/qwen3.8-27b",
+    "conf": 100,
+    "tries": 1
+   },
+   "ph": "9e8ee1f5e2580627",
+   "at": "2026-10-24",
+   "b": "40093586113",
+   "repo": "m4"
+  },
   "green#adj": {
    "h": "ca69af02ed11285c",
    "url": "https://media.lexkite.com/vimg/ca69af02ed11285c.webp",
@@ -3684,6 +3763,33 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "help#v": {
+   "h": "d49dabe730fb39be",
+   "url": "https://media.lexkite.com/vimg/d49dabe730fb39be.webp",
+   "alt": "help",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.287,
+    "vision": "qwen/qwen3.8-27b",
+    "conf": 95,
+    "tries": 1
+   },
+   "ph": "e699996689999993",
+   "at": "2026-10-24",
+   "b": "40093586113",
+   "repo": "m4"
   },
   "hill#n": {
    "alt": "hill",
@@ -5024,6 +5130,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "pair#n": {
+   "h": "3d4242c902d03aec",
+   "url": "https://media.lexkite.com/vimg/3d4242c902d03aec.webp",
+   "alt": "pair",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.259,
+    "vision": "qwen/qwen3.8-27b",
+    "conf": 95,
+    "tries": 1
+   },
+   "ph": "b5e00f8b9fc2598c",
+   "at": "2026-10-24",
+   "b": "40093586113",
+   "repo": "m4"
   },
   "park#n": {
    "h": "a42015c08701b8ef",
@@ -6437,6 +6569,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "show#v": {
+   "h": "cb295b82f6c54e74",
+   "url": "https://media.lexkite.com/vimg/cb295b82f6c54e74.webp",
+   "alt": "show",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.233,
+    "vision": "qwen/qwen3.8-27b",
+    "conf": 95,
+    "tries": 1
+   },
+   "ph": "afe4c03258c91f2f",
+   "at": "2026-10-24",
+   "b": "40093586113",
+   "repo": "m4"
   },
   "shower#n": {
    "h": "f7520bbea0197720",
@@ -8185,6 +8343,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "young#adj": {
+   "h": "9f9abf6e684078b6",
+   "url": "https://media.lexkite.com/vimg/9f9abf6e684078b6.webp",
+   "alt": "young",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.283,
+    "vision": "qwen/qwen3.8-27b",
+    "conf": 95,
+    "tries": 1
+   },
+   "ph": "e7e49a1b656494d1",
+   "at": "2026-10-24",
+   "b": "40093586113",
+   "repo": "m4"
   }
  },
  "rejected": {}
