@@ -55,6 +55,18 @@ def ED_after_script():
         if ci + 1 < len(cards) and abs(cards[ci + 1]['t'][0] - o['t'][1]) < 0.02: o['exit'] = 5
     for o in OV:
         if o['style'] in ('Recap', 'Share', 'Ring') and o['t'][0] > 0.05: o['enter'] = 7
+    q_ = list(cards)
+    while q_:
+        o = q_.pop(0); sid = o['shot']
+        for x in S:
+            if o['t'][0] + 0.3 < x['t0'] < o['t'][1] - 0.3 and bool(x['other']) != bool(next(y for y in S if y['id'] == sid)['other']):
+                o2 = dict(o, t=[round(x['t0'], 3), o['t'][1]], shot=x['id'], split=True, enter=7); o['t'][1] = round(x['t0'], 3)
+                OV.append(o2); q_.append(o2); break
+    OV[:] = [o for o in OV if not (o.get('split') and o['t'][1] - o['t'][0] < 1.0)]   # no 0.7 s card flash after a cut: the next card follows on its key word
+    cards = sorted([o for o in OV if o['style'] == 'Card'], key=lambda o: o['t'][0])
+    for ci, o in enumerate(cards):
+        o.pop('exit', None)
+        if ci + 1 < len(cards) and abs(cards[ci + 1]['t'][0] - o['t'][1]) < 0.02 and not cards[ci + 1].get('split'): o['exit'] = 5   # crossfade only inside one framing; a split part simply cuts with the picture
     # boundaries: cont (same host / size / clip = invisible), cut, whip (host switch), wipe (section change: into the lesson, into the reveal, into the recap)
     sect = {S[1]['id'] if len(S) > 1 else None, rv, 'recap'}; tk = 0; TAKE[S[0]['id']] = 0; TAKES.append(dict(t0=0.0, kf=[]))
     for k in range(1, len(S)):
@@ -69,15 +81,16 @@ def ED_after_script():
         if kind != 'cont': tk += 1; TAKES.append(dict(t0=c_, kf=[]))
         TAKE[b_['id']] = tk
     # sound design: soft whoosh peaking on whips / wipes, a tick on every card reveal; no bg-change whooshes, no pops
-    SFX[:] = [('slide.wav', 0.25)] + [('sfx_tick.wav', round(o['t'][0], 3)) for o in OV if o['style'] in ('Card', 'Recap', 'Share', 'Ring') and o['t'][0] > 0.05] \
+    SFX[:] = [('slide.wav', 0.25)] + [('sfx_tick.wav', round(o['t'][0], 3)) for o in OV if o['style'] in ('Card', 'Recap', 'Share', 'Ring') and o['t'][0] > 0.05 and not o.get('split')] \
         + [('sfx_whoosh.wav', round(max(0.0, b['t'] - (b['n_out'] + 3) / FPS), 3)) for b in BND if b['kind'] in ('whip', 'wipe')]
     SFX[:] = [(f_, t_) for f_, t_ in SFX if t_ < T_ - 0.1]
     META['out'] = f'pilot/style-{EDIT}.mp4'; os.makedirs(f'{OUTD}/pilot', exist_ok=True)
 def ED_after_captions():
     for o in OV:   # caption chunk entrance (4 f linear fade + 10 px rise); word highlights inside a chunk stay instant (karaoke)
         if o['style'] == 'Cap' and o.get('chunk'):
-            first = min(p_['part'] for p_ in OV if p_['style'] == 'Cap' and p_['line'] == o['line'] and (p_.get('chunk') or [None])[0] == o['chunk'][0])
-            if o['part'] == first: o['enter'] = 4; o['entry'] = True
+            grp = [p_ for p_ in OV if p_['style'] == 'Cap' and p_['line'] == o['line'] and (p_.get('chunk') or [None])[0] == o['chunk'][0]]
+            o['enter'] = 4; o['chunk_t0'] = min(p_['t'][0] for p_ in grp); o['ckey'] = f"{o['line']}#{o['chunk'][0]}"   # the whole chunk eases in (word highlights inside it stay instant)
+            if o['part'] == min(p_['part'] for p_ in grp): o['entry'] = True
         elif o['style'] not in ('Cap', 'Series') and o['t'][0] > 0.05: o['entry'] = True   # Series slides in by itself (prog 0 -> 1); VHook = frame 0
     _a, _b, bad, good = key_tokens(SPEC.get('wrong_line'), SPEC.get('key_line')) if SPEC.get('key_line') else ([], [], set(), set())
     EM = {_nrmw(x_) for x_ in set(bad) | set(good)}
@@ -146,12 +159,12 @@ def ED_post(s, j, out):   # branded section wipe (teal band, orange lead stripe,
     b.setdefault('log', []).append([f, round(float(m_.mean()), 3)]); return o_
 def _ea(u): return 1 - (1 - min(1.0, max(0.0, u))) ** 2
 def ED_ov(o, im, t):   # kinetic overlay entrance / exit; logs what was drawn (qa_edit counts pop-ins from this)
-    E_, X_ = o.get('enter', 0), o.get('exit', 0); af = int(round((t - o['t'][0]) * FPS)); ef = int(round((t - o['t'][1]) * FPS))
+    E_, X_ = o.get('enter', 0), o.get('exit', 0); af = int(round((t - o.get('chunk_t0', o['t'][0])) * FPS)); ef = int(round((t - o['t'][1]) * FPS))
     if X_ and ef >= 0: u = (ef + 1) / (X_ + 1); al, dy = 1 - u, -int(round(10 * u))
     elif E_ and af < E_:
         u = (af + 1) / (E_ + 1); al = u if o['style'] == 'Cap' else _ea(u); dy = int(round((10 if o['style'] == 'Cap' else 24) * (1 - _ea(u))))
     else: return im
-    if not (X_ and ef >= 0): o.setdefault('enter_log', []).append([af, round(al, 3), dy])
+    if not (X_ and ef >= 0): ENTER_LOG.setdefault(o.get('ckey') or str(id(o)), []).append([af, round(al, 3), dy]); o['_lk'] = o.get('ckey') or str(id(o))
     im2 = im.copy(); im2.putalpha(im2.split()[3].point(lambda v, k=al: int(v * k)))
     if dy: L_ = layer(); L_.alpha_composite(im2, dest=(0, dy)) if dy > 0 else L_.alpha_composite(im2, source=(0, -dy)); im2 = L_
     return im2
@@ -167,6 +180,10 @@ def ED_sfx():   # synthesised soft whoosh (band-limited noise swell, 0.32 s) + t
     n = int(0.028 * sr); t_ = np.arange(n) / sr; x = (np.sin(2 * np.pi * 2300 * t_) + 0.4 * np.sin(2 * np.pi * 4600 * t_)) * np.exp(-t_ / 0.006)
     wr(f'{RD}/sfx_tick.wav', 0.7 * x / np.abs(x).max())
 ED_VOL = {'sfx_tick.wav': -27, 'sfx_whoosh.wav': -21, 'slide.wav': -25}
+ENTER_LOG = {}
 def ED_report():
+    for o in OV:   # what was actually drawn during the entrance (per caption chunk / per overlay) -> qa_edit pop-in check
+        if o.get('entry'): o['enter_log'] = sorted({tuple(q) for q in ENTER_LOG.get(o.get('ckey') or o.get('_lk') or '', [])})
+    for o in OV: o.pop('_lk', None)
     return dict(style=EDIT, excerpt=EXCERPT, lead_frames=ES['lead'], drift=ES['drift'], punch=PUNCH, punch_frames=ES['pn'], bounds=BND,
                 takes=[dict(t0=T['t0'], kf=T['kf']) for T in TAKES], take_of=TAKE)
