@@ -62,6 +62,8 @@ async function grabcast(prompt) {
   // đo 23/10: hết khung sau 10 ảnh, mở lại < 2 phút → chờ lùi 65 s, 130 s…; 6 lần 429 LIÊN TIẾP = hết hạn mức ngày → dừng nhà này
   if (r.status === 429 && (gcWaits++ < 6)) { const w = Math.min(240, +r.headers.get('retry-after') || 65 * gcWaits); /* 24/10 GrabCast MAX: 115k/ngày/khoá, ảnh 60/phút/IP – theo Retry-After */ console.log(`… GrabCast 429 (khung 10 ảnh) – chờ ${w} s`); await new Promise(s => setTimeout(s, w * 1e3)); return grabcast(prompt); }
   // 24/10: 409 no_provider ×2772 lượt – lỗi cấu hình (401/403/409) không tự hết khi thử lại → dừng nhà này ngay, không gọi dồn
+  // GrabCast 24/10: cả bể CF hết neuron ngày → 503 ai_exhausted (Retry-After tới 00:00 UTC) = hết hạn mức, dừng nhà này (không ngủ trong runner)
+  if (/ai_exhausted/.test(JSON.stringify(j.detail || j.error || ''))) { GC_STATS.ai_exhausted++; throw new Quota(`ai_exhausted ${r.headers.get('retry-after') || ''}`); }
   if ([401, 403, 409].includes(r.status)) { GC_STATS.config = (GC_STATS.config || 0) + 1; throw new Quota(`config ${r.status} ${JSON.stringify(j.detail || j.error || '').slice(0, 120)}`); }
   if (r.status === 429 || quotaish(String(j.error && j.error.code || ''))) throw new Quota(`${r.status} ${JSON.stringify(j.error || '').slice(0, 120)}`);
   let job = j.job; if (!r.ok || !job) throw gcErr(`${r.status} ${JSON.stringify(j).slice(0, 160)}`, r);
