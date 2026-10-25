@@ -10,7 +10,10 @@ Rules (CapCut, 2-3 words per page; qc_v9 caption_script):
 END = '.?!:'
 SOFT = ',;'
 
-def paginate(words, fits1, fits2, maxw=3):
+def _solo_forced(words, j, fits1):   # v10 (caption cap height >= 80 px): a word whose two-word pages with BOTH neighbours are too wide for the column
+    return all(not fits1(words[a:a + 2]) for a in (j - 1, j) if 0 <= a and a + 2 <= len(words))
+
+def paginate(words, fits1, fits2, maxw=3, solo_ok=False):
     n = len(words); INF = float('inf')
     def solve(allow_single):
         best = [(0.0, [])] + [None] * n
@@ -20,9 +23,10 @@ def paginate(words, fits1, fits2, maxw=3):
                 if j < 0 or best[j] is None: continue
                 seg = words[j:i]; c = 0.0; split = None
                 if L == 1:
-                    natural = (i == n and seg[0][-1] in END) or n == 1
-                    if not natural and not allow_single: continue
-                    c += 0.8 if natural else 100.0
+                    natural = (i == n and seg[0][-1] in END) or n == 1 or (solo_ok and seg[0][-1] in END)   # v10: the last word of a sentence
+                    forced = solo_ok and not natural and _solo_forced(words, j, fits1)
+                    if not natural and not forced and not allow_single: continue
+                    c += 0.8 if natural else (3.0 if forced else 100.0)
                     if not fits1(seg) and not allow_single: continue
                 else:
                     if not fits1(seg):
@@ -38,6 +42,8 @@ def paginate(words, fits1, fits2, maxw=3):
     r = solve(False) or solve(True)   # the fallback (a forced single word) only when nothing else exists; qc_v9 then fails the video
     return r[1]
 
-def single_word_pages(words, pages):
-    """pages that qc_v9 caption_script rejects: one word that is not the natural final word of the line"""
-    return [words[j] for j, i, _ in pages if i - j == 1 and not ((i == len(words) and words[j][-1] in END) or len(words) == 1)]
+def single_word_pages(words, pages, fits1=None):
+    """pages that qc_v9 caption_script rejects: one word that is not the natural final word of the line (v10: unless both of its
+    two-word pages are measured too wide for the caption column at the minimum caption size)"""
+    return [words[j] for j, i, _ in pages if i - j == 1 and not ((i == len(words) and words[j][-1] in END) or len(words) == 1)
+            and not (fits1 and (_solo_forced(words, j, fits1) or words[j][-1] in END))]

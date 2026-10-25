@@ -23,7 +23,7 @@ med = lambda a: sorted(a)[len(a) // 2] if a else 0
 def inter(a, b): return a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
 vid, hooks = sys.argv[1], sys.argv[2]
 T = json.load(open(vid + '.timeline.json')); fr = T['frames']; fps = T['fps']; SP = T['spec']; R = {}
-els = lambda f: [dict(zip(('name', 'text', 'x0', 'y0', 'x1', 'y1', 'alpha', 'px', 'group', 'digit', 'where'), e)) for e in f['els']]
+els = lambda f: [dict(zip(('name', 'text', 'x0', 'y0', 'x1', 'y1', 'alpha', 'px', 'group', 'digit', 'where', 'm'), e)) for e in f['els']]
 BD = T.get('board')
 S = T['script']; W_ = T['words']; CP = T['captions']; POPS = {p['id']: p for p in T['pops']}
 # ---- hook truth: reviewed verdict + promise delivered
@@ -54,11 +54,28 @@ for lid, txt in S.items():
     toks = [W_[w]['w'] for c in pages for w in c['words']]
     if cap != txt or ' '.join(toks) != txt: bad.append((lid, cap, txt))
 sizes = [c['n'] for c in CP.values()]   # 2-3 words per page; a one-word page only as the natural final word of its line
-single_bad = [c['text'] for c in CP.values() if c['n'] == 1 and (c['text'][-1] not in '.?!:' or c.get('last') is False)]
+def _solo_ok(c):   # v10: a one-word page is the last word of a sentence, or both of its two-word pages measured wider than the caption column
+    if c['text'][-1] in '.?!:' and (c.get('last') is not False or T.get('style') == 'v10'): return True
+    return bool(c.get('solo_pairs')) and all(w > c['colw'] for w in c['solo_pairs'])
+single_bad = [c['text'] for c in CP.values() if c['n'] == 1 and not _solo_ok(c)]
 erx = SP.get('error_re'); err_lines = sorted({c['line'] for c in CP.values() if erx and re.search(erx, c['text'].lower())})
 R['caption_script'] = dict(ok=bool(CP) and not bad and max(sizes) <= 3 and not single_bad and set(err_lines) <= set(SP.get('error_lines', [])),
                            pages=len(CP), words_per_page=sorted(set(sizes)), mismatch=bad[:3], single_word_pages=single_bad, error_only_in=err_lines)
-R['caption_style'] = dict(ok=min(c['size'] for c in CP.values()) >= 72 and min(c['stroke'] for c in CP.values()) >= 10, sizes=sorted({c['size'] for c in CP.values()}))
+CAPR = T.get('cap_ratio', 0.74)
+R['caption_style'] = dict(ok=min(c['size'] for c in CP.values()) * CAPR >= (80 if T.get('style') == 'v10' else 53) and min(c['stroke'] for c in CP.values()) >= 12, sizes=sorted({c['size'] for c in CP.values()}),
+                          cap_px=round(min(c['size'] for c in CP.values()) * CAPR, 1), strokes=sorted({c['stroke'] for c in CP.values()}))
+# ---- v10 min_text_px: rendered glyph cap height per element type (caption / board hook+headline / board body) + card picture side, every fully visible frame
+MC = dict(T.get('min_cap') or dict(caption=80, hook=72, body=56)); MC['image'] = T.get('min_img', 300); mins = {}; low = []; unmeasured = set()
+for f in fr:
+    for e in els(f):
+        if e['alpha'] < 0.999: continue
+        ms = e.get('m') or []
+        if not ms: unmeasured.add(e['name']); continue
+        for et, v in ms:
+            mins[et] = min(mins.get(et, 1e9), v)
+            if v < MC[et] - 0.05: low.append((f['t'], e['name'], et, v))
+R['min_text_px'] = dict(ok=T.get('style') == 'v10' and not low and not unmeasured and 'caption' in mins and 'hook' in mins, min_by_type={k: round(v, 1) for k, v in mins.items()}, need=MC,
+                        too_small=low[:6], n_small=len(low), unmeasured=sorted(unmeasured)[:6], note='cap height = font size x measured H ratio x on-screen scale (fit x camera x board perspective); image = picture side px')
 pc = {}
 for f in fr:
     for e in els(f):

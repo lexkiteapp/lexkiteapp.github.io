@@ -208,3 +208,16 @@ workflow `video-templates9.yml` (dispatch, matrix), specs + reviewed scripts `co
 
 - Scripts are written and reviewed in-house (expert US English review; no GrabCast): `reviewed-hooks.json` holds the exact script, hook text and the
   hook's promise (5 cards, count + reveal, twin tiles + quiz, your-turn pause, stress dots); `hook_truth` fails if any of it drifts.
+
+## 15. v10 phone sizes (26/10/2026, owner review of templates-v3: "everything too small on a phone")
+- Framing: fixed punch-in crop per clip in `brand/library/cine/teachers/bank.json` `crop` {k, ox, oy} (desk d03 1.15, m03/k03 1.2; board a02/c01 1.15),
+  Lanczos + mild unsharp (0.6, sigma 1.1; host_sharp measures render vs the NATIVE uncropped face pixels). Board zone + caption band are
+  re-measured in the cropped frame (max free rectangle vs the body envelope); camera locked on cropped clips.
+- Minimum sizes (cap height on screen = font x measured H ratio 0.74 x fit x camera x board perspective): captions >= 80 px (110 px font,
+  stroke 12-14), board hook/headline >= 72 px, board body / widgets >= 56 px, card pictures >= 300 px. Nothing shrinks below these:
+  board text that does not fit paginates (more pages, more time; inner page edges cut without fades), widgets pick a layout that fits
+  (quiz: row / ring beside question / stacked / ring in place of the question; pair: side by side / no VS / stacked / focused tile;
+  card: picture + word, note on a second page; CTA: say + site pill, or two pages) or the render stops.
+- Captions: one row; a one-word page is allowed at a sentence end or when both two-word pages are measured wider than the column.
+- qc_v9 `min_text_px` gate reads the per-element measurements (`m` in every timeline element). Dissolves use a steep blend (<= 2 frames
+  with a faint second pose) against see-through arms at loop seams.

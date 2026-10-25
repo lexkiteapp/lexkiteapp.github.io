@@ -909,6 +909,7 @@
   },
   {
    "id": "a02_ama_board",
+   "crop": {"k": 1.15, "ox": 40, "oy": 27, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
    "file": "clips/a02_ama_board.mp4",
    "smooth": "tools/dl24/a02_ama_board.mp4",
    "first_frame": "frames/a_board.png",
@@ -1050,6 +1051,7 @@
   },
   {
    "id": "c01_carlos_board",
+   "crop": {"k": 1.15, "ox": 130, "oy": 27, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
    "file": "clips/c01_carlos_board.mp4",
    "smooth": "tools/dl24/c01_carlos_board.mp4",
    "first_frame": "frames/c_board.png",
@@ -1191,6 +1193,7 @@
   },
   {
    "id": "d03_daniel_desk",
+   "crop": {"k": 1.15, "ox": 70, "oy": 80, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
    "file": "clips/d03_daniel_desk.mp4",
    "smooth": "tools/dl24/d03_daniel_desk.mp4",
    "first_frame": "frames/d_desk.png",
@@ -1328,6 +1331,7 @@
   },
   {
    "id": "m03_mei_desk",
+   "crop": {"k": 1.2, "ox": 60, "oy": 90, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
    "file": "clips/m03_mei_desk.mp4",
    "smooth": "tools/dl24/m03_mei_desk.mp4",
    "first_frame": "frames/m_desk.png",
@@ -1465,6 +1469,7 @@
   },
   {
    "id": "k03_kai_desk",
+   "crop": {"k": 1.2, "ox": 110, "oy": 125, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
    "file": "clips/k03_kai_desk.mp4",
    "smooth": "tools/dl24/k03_kai_desk.mp4",
    "first_frame": "frames/k_desk.png",
