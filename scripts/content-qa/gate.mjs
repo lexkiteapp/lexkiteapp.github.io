@@ -9,7 +9,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
-import { CE, VI, lvOk, pairOk, agree, trIssues, spot, cefrOver, norm } from './lib.mjs';
+import { CE, VI, lvOk, pairOk, agree, trIssues, spot, cefrOver, norm, ipaDoubleStress, viHomographs, viDup, verbDefOk } from './lib.mjs';
+import { stressIndex } from '../lexicon/ipa.mjs';
 import { loadAll } from '../lexicon/lib.mjs';
 import { loadContent } from '../lib/content-load.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -29,11 +30,19 @@ for (const s of REG.sources) { if (!s.owner || !s.checks || !s.checks.length) H(
 
 // ---------- Kho từ (đối chiếu từ + CEFR) ----------
 const LEX = new Map();
+const STRESS_OK = new Set(Object.keys(J('content/qa/ipa-us-stress-ok.json').words || {}));
 for (const { row, file, line } of loadAll()) {
   const [w, , pos, vi, , , , , level] = row, where = `${path.basename(file)}:${line + 1} ${w}`;
   if (!w || !pos || !vi) C('vocab', 'schema', where);
   if (level && !lvOk(level)) C('vocab', 'cefr', where + ' (' + level + ')');
   const k = String(w || '').toLowerCase(); if (k && !LEX.has(k)) LEX.set(k, level || '');
+  // kiểm định 25/10/2026 – lỗi CỨNG (đã sửa hết theo lớp; mục mới phải sạch ngay)
+  const us = row[10] || '';
+  for (const s of [row[1], us]) if (ipaDoubleStress(w, s)) H('vocab', `${where}: IPA từ đơn có 2 trọng âm chính ${s}`);
+  if (viHomographs(vi, w).length) H('vocab', `${where}: nghĩa vi "${vi}" có khúc trùng chữ tiếng Anh (${viHomographs(vi, w).join(', ')}) – viết rõ nghĩa tiếng Việt`);
+  if (viDup(vi)) H('vocab', `${where}: nghĩa vi lặp khúc "${vi}"`);
+  if (pos === 'v' && !verbDefOk(row[4])) H('vocab', `${where}: mục động từ nhưng định nghĩa không phải nghĩa động từ ("${row[4]}")`);
+  if (!/\s/.test(String(w).trim()) && row[1] && us && /ˈ/.test(row[1]) && /ˈ/.test(us) && stressIndex(row[1]) !== stressIndex(us) && !STRESS_OK.has(k)) H('vocab', `${where}: trọng âm Anh ${row[1]} ≠ Mỹ ${us} – sửa (content/lexicon/overrides.json / ipaus-manual.json) hoặc thêm vào content/qa/ipa-us-stress-ok.json nếu là khác biệt Anh–Mỹ thật`);
 }
 info.vocab = LEX.size;
 const known = w => LEX.has(String(w).toLowerCase());
@@ -82,6 +91,14 @@ for (const f of fs.readdirSync(P('content/confidence/units')).filter(f => f.ends
     if (cefrOver(p.say, u.level, LEX, new Set(norm(p.gap || '').split(' '))).length > 1) C('confidence', 'cefr-fit', `${u.id}:${p.id}`);
   }
 }
+
+// ---------- Mini-quiz blog (kiểm định 25/10/2026): đáp án trong phạm vi, phương án không trùng (so cả dấu câu), có lời giải – lỗi CỨNG ----------
+{ const { loadPosts } = await import('../lib/blog-content.mjs'); const raw = x => String(x ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+  for (const p of loadPosts()) { const items = Array.isArray(p.quiz) ? p.quiz : (p.quiz && p.quiz.items) || [];
+    items.forEach((q, i) => { const o = q.options || [], at = `${p.lang}/${p.slug} câu ${i + 1}`;
+      if (o.length < 2 || !(q.answer >= 0 && q.answer < o.length)) H('blog', `${at}: thiếu phương án hoặc đáp án ngoài phạm vi`);
+      if (new Set(o.map(raw)).size !== o.length) H('blog', `${at}: phương án trùng nhau`);
+      if (!q.explain || !String(q.explain).trim()) H('blog', `${at}: thiếu lời giải`); }); } }
 
 // ---------- Lời giải sinh tự động (content/explain/<bộ>.json): 2 giám khảo + dịch – lỗi CỨNG ----------
 const queue = ex('content/qa/review-queue.json') ? J('content/qa/review-queue.json') : { items: [] };

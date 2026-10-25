@@ -64,3 +64,15 @@ export function cefrOver(text, level, lex, allow = new Set()) {
   if (!lvOk(level)) return [];
   return norm(text).split(' ').filter(w => w && !allow.has(w) && lex.has(w) && lvOk(lex.get(w)) && lvN(lex.get(w)) > lvN(level) + 1);
 }
+
+// ---- Kiểm định nội dung 25/10/2026 (docs/CONTENT-AUDIT-2026-10-25.md): luật tất định cho mục từ vựng ----
+// 1) IPA từ đơn có > 1 trọng âm chính (CMUdict ghi 2 ˈ cho từ ghép: /ˈhæfˈweɪ/)
+export const ipaDoubleStress = (word, ipa) => !!ipa && !/\s/.test(String(word).trim()) && (String(ipa).match(/ˈ/g) || []).length > 1;
+// 2) Nghĩa tiếng Việt có khúc trùng chữ tiếng Anh hay gặp (big = "to, lớn" → trắc nghiệm hiện "to" như giới từ tiếng Anh)
+export const VI_EN_HOMOGRAPH = new Set(['to', 'do', 'in', 'on', 'at', 'an', 'me', 'men', 'ban', 'pin', 'con', 'the', 'a', 'bar', 'photo', 'logic', 'framework']);
+export const viHomographs = (vi, word = '') => String(vi || '').split(/[;,]/).map(s => s.trim().toLowerCase()).filter(s => VI_EN_HOMOGRAPH.has(s) && s !== String(word).toLowerCase());
+// 3) Nghĩa tiếng Việt lặp khúc ("địa điểm tổ chức; địa điểm (tổ chức)")
+const viKey = s => s.toLowerCase().replace(/[()]/g, '').replace(/^(sự|lòng|việc|cái|thuộc về|thuộc|mang tính|một cách)\s+/, '').replace(/\s+/g, ' ').trim();
+export const viDup = vi => { const k = String(vi || '').split(/[;,]/).map(viKey).filter(Boolean); return new Set(k).size < k.length; };
+// 4) Từ loại ↔ định nghĩa: mục động từ phải có định nghĩa động từ ("to …"); trợ động từ khuyết thiếu dùng "used …"
+export const verbDefOk = def => /^(\([^)]*\)\s*)?to\b|^used\b|^modal\b|^expressing\b|^what is expected/i.test(String(def || '').trim());
