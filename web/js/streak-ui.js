@@ -43,12 +43,12 @@
       const pill = document.getElementById('streakPill');
       if (pill) {
         const text = pill.textContent || '';
-        const m = text.match(/🔥\s*(\d+)/);
+        const m = text.match(/(\d+)/); // icon lửa là SVG (UI.icon) – số đầu tiên là chuỗi ngày
         const count = m ? parseInt(m[1], 10) : 0;
         if (count >= 1 && !pill.classList.contains('flaming')) {
           pill.classList.add('flaming');
           if (!pill.querySelector('i.flame-icon')) {
-            const rest = text.replace('🔥', '').trim();
+            const rest = text.replace('🔥', '').trim(); // bản cũ (chữ 🔥) – bản mới đã có i.flame-icon
             pill.innerHTML = `<i class="flame-icon" aria-hidden="true">🔥</i> <span>${esc(rest)}</span>`;
           }
         }

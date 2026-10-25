@@ -49,3 +49,11 @@ Rule: quality only goes up. No feature or content is removed to simplify.
 
 ## 5. How to re-check
 `git push <remote> HEAD:refs/heads/ux-shots-<n>` → **UX shots** workflow. It compares against the remote `main` (before) and this branch (after), then builds `sheet-{before,after}-*.jpg` and `report.json`. The run fails on a JS error in the after build.
+
+## 6. UX v3: one icon family + tokens (25/10/2026)
+- **Icon family: Lucide** (ISC License, © Lucide Contributors; parts © Cole Bemis/Feather, MIT). Credited on `/credits`. Chosen over Phosphor because rounded 24 px strokes match Kit and the kite mark, and the paths are about 3× smaller.
+- The emoji UI chrome becomes one family:
+  - bottom nav (active = duotone fill + pill), sidebar, top bar (search, streak, XP, bell, language, theme);
+  - audio and slow audio, settings, close, back and chevrons, settings section headers.
+  Topic and celebration emoji stay (they are content).
+- Tokens: spacing 4–32, radius, type scale on Be Vietnam Pro, elevation, M3 motion (≤ 200 ms). The rules are in **docs/DESIGN-SYSTEM.md**.

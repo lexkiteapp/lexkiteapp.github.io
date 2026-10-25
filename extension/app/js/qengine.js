@@ -2,6 +2,45 @@
  * điền từ (form/note/table/sentence/summary, có giới hạn số từ), trắc nghiệm A–D, nối (tiêu đề i/ii/iii, đoạn A–F, đặc điểm),
  * chọn 2 đáp án, TRUE/FALSE/NOT GIVEN, YES/NO/NOT GIVEN. Chấm điểm + đánh dấu đúng/sai + nút "xem chỗ có đáp án". */
 (function (g) {
+  // CSS câu hỏi .lq-* (chuyển từ style.css 25/10 – giữ khung app ≤377 KB gz); nạp 1 lần khi tải gói đề
+  try { if (!document.getElementById('lqCss')) { const st = document.createElement('style'); st.id = 'lqCss'; st.textContent = `
+.lq-group { margin-bottom: 1.3rem; }
+.lq-instr { background: var(--primary-soft); border-radius: 10px; padding: .6rem .8rem; margin-bottom: .6rem; font-size: .92rem; }
+.lq-item { padding: .45rem .3rem; border-radius: 10px; }
+.lq-item.ok { background: rgba(22, 163, 74, .08); } .lq-item.no { background: rgba(229, 72, 77, .08); } .lq-item.half { background: rgba(245, 158, 11, .1); }
+.lq-gap { line-height: 2.3; }
+.lq-gap .gap { min-width: 8rem; }
+.lq-opts { display: grid; gap: .55rem; margin: .55rem 0 0 1.2rem; }
+.lq-opts label { position: relative; display: flex; gap: .65rem; align-items: center; cursor: pointer; padding: .65rem .95rem; border-radius: 12px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); font-weight: 500; box-shadow: 0 3px 0 color-mix(in srgb, var(--line) 75%, #000); transition: border-color .12s cubic-bezier(.2,.8,.4,1), background .12s cubic-bezier(.2,.8,.4,1), transform .12s cubic-bezier(.2,.8,.4,1), box-shadow .12s cubic-bezier(.2,.8,.4,1); user-select: none; }
+.lq-opts label input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.lq-opts label:has(:focus-visible) { outline: 3px solid color-mix(in srgb, var(--primary) 70%, transparent); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .lq-opts label:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,.04); } }
+.lq-opts label:active { transform: translateY(2px); border-bottom-width: 2.5px; box-shadow: 0 1px 0 color-mix(in srgb, var(--line) 75%, #000); }
+.lq-opts label:has(:checked), .lq-opts label.sel { border-color: var(--primary); background: var(--primary-soft); font-weight: 700; border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); box-shadow: 0 3px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-opts label:has(:checked):active, .lq-opts label.sel:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-opts label b { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 7px; background: var(--surface-2); font-size: .85rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; transition: all .12s ease; }
+@media (hover: hover) and (pointer: fine) { .lq-opts label:hover b { border-color: var(--primary); color: var(--primary); } }
+.lq-opts label:has(:checked) b, .lq-opts label.sel b { background: var(--primary); color: #fff; border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-opts label.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
+.lq-row { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.lq-row select { border: 2px solid var(--line); border-radius: 8px; padding: .3rem .4rem; font: inherit; background: var(--surface); color: inherit; }
+.lq-row .lq-fb { width: 100%; }
+.lq-box { border: 2px solid var(--line); border-radius: 12px; padding: .6rem .8rem; margin-bottom: .6rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .25rem .8rem; font-size: .92rem; }
+.lq-table .lq-item { border-bottom: 1px dashed var(--line); border-radius: 0; }
+.lq-fb { font-size: .88rem; margin-top: .25rem; }
+.lq-tf { display: flex; flex-wrap: wrap; gap: .55rem .85rem; margin: .55rem 0 0 1.2rem; font-size: .92rem; }
+.lq-tf label { position: relative; display: flex; gap: .55rem; align-items: center; cursor: pointer; padding: .55rem .95rem; border-radius: 12px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); font-weight: 600; box-shadow: 0 3px 0 color-mix(in srgb, var(--line) 75%, #000); transition: border-color .12s cubic-bezier(.2,.8,.4,1), background .12s cubic-bezier(.2,.8,.4,1), transform .12s cubic-bezier(.2,.8,.4,1), box-shadow .12s cubic-bezier(.2,.8,.4,1); user-select: none; }
+.lq-tf label input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.lq-tf label:has(:focus-visible) { outline: 3px solid color-mix(in srgb, var(--primary) 70%, transparent); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .lq-tf label:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,.04); } }
+.lq-tf label:active { transform: translateY(2px); border-bottom-width: 2.5px; box-shadow: 0 1px 0 color-mix(in srgb, var(--line) 75%, #000); }
+.lq-tf label:has(input:checked), .lq-tf label.sel { border-color: var(--primary); background: var(--primary-soft); font-weight: 700; border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); box-shadow: 0 3px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-tf label:has(input:checked):active, .lq-tf label.sel:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-tf label b { display: inline-grid; place-items: center; min-width: 24px; height: 24px; border-radius: 7px; background: var(--surface-2); font-size: .85rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; transition: all .12s ease; }
+@media (hover: hover) and (pointer: fine) { .lq-tf label:hover b { border-color: var(--primary); color: var(--primary); } }
+.lq-tf label:has(input:checked) b, .lq-tf label.sel b { background: var(--primary); color: #fff; border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-tf label.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
+`; document.head.appendChild(st); } } catch (e) { /* không có DOM (kiểm thử) */ }
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const L = 'ABCDEFGH';

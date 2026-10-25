@@ -403,8 +403,44 @@
   // Hạn mức máy chủ (functions/api/_quota.js): mã thiết bị ngẫu nhiên (X-Lexkite-Device) · 429 { error:'quota', msg, resetAt, signIn } → câu báo
   const dev = () => { try { let d = localStorage.getItem('lk.dev'); if (!d) localStorage.setItem('lk.dev', d = [...crypto.getRandomValues(new Uint8Array(20))].map(b => (b % 36).toString(36)).join('')); return d; } catch (e) { return ''; } };
   const quotaText = (j = {}) => { const r = j.resetAt, at = r && new Date(r).toLocaleString([], r - Date.now() > 864e5 ? { dateStyle: 'short', timeStyle: 'short' } : { timeStyle: 'short' }); return (j.msg === 'quota.daily' && at ? t('Đã hết lượt miễn phí hôm nay – mở lại lúc {time}.', { time: at }) : t('Máy chủ đang bận – thử lại sau ít phút.')) + (j.signIn ? ' ' + t('Đăng nhập để có thêm lượt.') : ''); };
+  // Icon UI: 1 bộ Lucide, sprite #lk-sprite (docs/DESIGN-SYSTEM.md)
+  const icon = (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+  const addIcons = h => { const s = document.getElementById('lk-sprite'); if (s && h) s.insertAdjacentHTML('beforeend', h); };
+  const GLYPH = { '🔊': ['volume-2', 'Nghe'], '🔉': ['volume-2', 'Nghe'], '🐢': ['turtle', 'Nghe chậm'], '⚙️': ['settings', 'Cài đặt'], '⚙': ['settings', 'Cài đặt'], '🔎': ['search', 'Tra từ'], '🔍': ['search', 'Tra từ'], '🔔': ['bell', 'Thông báo'], '🎙️': ['mic'], '🎙': ['mic'], '✕': ['x', 'Đóng', 1], '×': ['x', 'Đóng', 1], '✖': ['x', 'Đóng', 1], '←': ['arrow-left', 0, 0, 1], '‹': ['chevron-left', 0, 1, 1], '›': ['chevron-right', 0, 1, 1] }; // [icon, nhãn, chỉ khi đứng 1 mình, lật RTL]
+  const GRE = /^(\s*)(🔊|🔉|🐢|⚙️|⚙|🔎|🔍|🔔|🎙️|🎙|✕|×|✖|←|‹|›)(?=\s|$)\s*/u;
+  const PAINT = 'button, a, .ctx-say, .fi-btn, summary';
+  const paintEl = el => {
+    if (el.closest('[data-noicon], #lk-sprite, svg')) return;
+    const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n, hit;
+    while ((n = w.nextNode())) { if (/\S/.test(n.nodeValue)) { hit = n; break; } }
+    if (!hit) return;
+    const m = hit.nodeValue.match(GRE); if (!m) return;
+    const [ic, lab, solo, dir] = GLYPH[m[2]], rest = hit.nodeValue.slice(m[0].length);
+    if (solo && (rest.trim() || el.textContent.trim() !== m[2])) return;
+    const only = !el.textContent.replace(m[2], '').trim();
+    const name = el.getAttribute('aria-label') || el.getAttribute('title') || el.getAttribute('aria-labelledby');
+    if (only && !name) { if (!lab) return; el.setAttribute('aria-label', g.t ? g.t(lab) : lab); }
+    const t0 = document.createElement('template'); t0.innerHTML = icon(ic, dir ? 'i-dir' : '');
+    hit.nodeValue = m[1] + (rest && !/^\s/.test(rest) ? ' ' : '') + rest;
+    if (!hit.nodeValue.trim()) hit.nodeValue = '';
+    hit.parentNode.insertBefore(t0.content.firstChild, hit);
+    el.classList.add('has-i');
+  };
+  const paint = root => {
+    if (!root || root.nodeType !== 1 || !document.getElementById('lk-sprite')) return;
+    if (root.matches(PAINT)) paintEl(root);
+    root.querySelectorAll(PAINT).forEach(paintEl);
+  };
+  if (typeof document !== 'undefined' && g.MutationObserver) {
+    const start = () => {
+      if (!document.getElementById('lk-sprite')) return;
+      paint(document.body);
+      new MutationObserver(ms => { for (const m of ms) { if (m.type === 'characterData') { const p = m.target.parentElement, b = p && p.closest(PAINT); if (b) paintEl(b); continue; } for (const n of m.addedNodes) { if (n.nodeType === 1) { if (n.tagName !== 'svg') { paint(n); const b = n.parentElement && n.parentElement.closest(PAINT); if (b) paintEl(b); } } else if (n.nodeType === 3 && n.parentElement) { const b = n.parentElement.closest(PAINT); if (b) paintEl(b); } } } }).observe(document.body, { childList: true, subtree: true, characterData: true });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+  }
   // Khung chờ dùng chung (thay chữ "Đang tải…" trơn): giữ bố cục → không nhảy trang khi nội dung về; trình đọc màn hình nghe nhãn
   const skel = (label, n = 3) => `<div class="card skel-block" role="status" aria-busy="true"><span class="sr-only">${label}</span><div class="skel skel-h"></div>${'<div class="skel skel-l"></div>'.repeat(n)}</div>`;
   const skelPage = (label, n = 4) => `<div class="skel-page" role="status" aria-busy="true"><span class="sr-only">${label}</span><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(n)}</div></div>`;
-  g.UI = { skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { icon, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

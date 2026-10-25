@@ -1,5 +1,6 @@
 /* Trang Cài đặt (tải lười – tách khỏi khung app 23/10): giao diện, mục tiêu, âm thanh, nhắc học, dữ liệu. */
 (function () {
+  /*icons*/UI.addIcons('<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol><symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></symbol><symbol id="i-alarm-clock" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/><path d="M6.38 18.7 4 21"/><path d="M17.64 18.67 20 21"/></symbol><symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol><symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>');/*/icons*/
   const { Store, SRS, todayKey } = Core;
   const { $, $$, esc, toast, download, speak } = UI;
   const App = window.App;
@@ -18,23 +19,23 @@
     const seg = (id, items, cur) => `<div class="tabs seg" id="${id}">${items.map(([v, l, attr]) => `<button type="button" data-v="${v}" class="${cur === v ? 'on' : ''}"${attr || ''}>${l}</button>`).join('')}</div>`;
     const xt = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : ' target="_blank" rel="noopener"'; // app/add-on: mở trình duyệt ngoài
     const sec = (id, title, body) => `<section class="set-sec" id="set-${id}"><h3 class="set-h">${title}</h3><div class="set-list">${body}</div></section>`;
-    const NAV = [['account', '☁️', t('Tài khoản')], ['look', '🎨', t('Giao diện')], ['study', '🎯', t('Mục tiêu học')], ['sound', '🔊', t('Âm thanh')], ['remind', '⏰', t('Nhắc học')], ['ai', '🤖', 'AI'], ['data', '💾', t('Dữ liệu')]];
+    const NAV = [['account', UI.icon('cloud'), t('Tài khoản')], ['look', UI.icon('palette'), t('Giao diện')], ['study', UI.icon('target'), t('Mục tiêu học')], ['sound', UI.icon('volume-2'), t('Âm thanh')], ['remind', UI.icon('alarm-clock'), t('Nhắc học')], ['ai', UI.icon('bot'), 'AI'], ['data', UI.icon('database'), t('Dữ liệu')]];
     view.innerHTML = `
       <div class="set-wrap">
       <div class="page-head"><div><h1>${t('Cài đặt')}</h1><p class="muted">${t('Tài khoản, nhắc học, mục tiêu và giao diện')}</p></div></div>
       <nav class="set-nav" aria-label="${t('Cài đặt')}">${NAV.map(([id, ic, l]) => `<button type="button" data-jump="${id}"><span aria-hidden="true">${ic}</span> ${l}</button>`).join('')}</nav>
       <section class="set-sec" id="set-account"><div class="card stack" id="syncBox"></div><div id="leagueSetBox" style="margin-top:.75rem"></div></section>
-      <section class="set-sec" id="set-admin" hidden><h3 class="set-h">🛡️ ${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-grid">${adminTiles()}</div></section>
-      ${sec('look', '🎨 ' + t('Giao diện'),
+      <section class="set-sec" id="set-admin" hidden><h3 class="set-h">${UI.icon('shield')}${t('Quản trị hệ thống')}<span class="chip ok" style="margin-left:.5rem;font-size:.7rem">${t('Chỉ quản trị viên')}</span></h3><div class="adm-grid">${adminTiles()}</div></section>
+      ${sec('look', UI.icon('palette') + t('Giao diện'),
         row('🌐 ' + t('Ngôn ngữ giao diện'), App.langPicker())
         + row('📖 ' + t('Nghĩa từ hiển thị bằng'), seg('sMean', [['vi', 'Tiếng Việt', ' translate="no" lang="vi" data-keep-vi'], ['en', t('Định nghĩa tiếng Anh')]], I18N.meanLang()))
         + row(t('Chế độ màu'), seg('sTheme', [['auto', '🌓 ' + t('Tự động')], ['light', '☀️ ' + t('Sáng')], ['dark', '🌙 ' + t('Tối')]], s.theme)))}
-      ${sec('study', '🎯 ' + t('Mục tiêu học'),
+      ${sec('study', UI.icon('target') + t('Mục tiêu học'),
         slide(nc(t('Từ mới mỗi ngày:')), 'vNew', s.dailyNew, `<input type="range" min="0" max="50" id="sNew" value="${s.dailyNew}">`)
         + slide(nc(t('Mục tiêu lượt ôn mỗi ngày:')), 'vGoal', s.dailyGoal, `<input type="range" min="5" max="200" step="5" id="sGoal" value="${s.dailyGoal}">`)
         + slide(nc(t('Tối đa thẻ mỗi phiên ôn:')), 'vCap', s.sessionCap || t('Không giới hạn'), `<input type="range" min="0" max="200" step="10" id="sCap" value="${s.sessionCap}">`)
         + slide('🧠 ' + nc(t('Mục tiêu ghi nhớ (thuật toán FSRS):')), 'vRet', Math.round((s.retention || 0.9) * 100) + '%', `<input type="range" min="0.8" max="0.95" step="0.01" id="sRet" value="${s.retention || 0.9}">`, t('Khả năng còn nhớ mỗi từ khi đến lượt ôn. 90% là cân bằng tốt nhất; 95% nhớ chắc hơn nhưng số lượt ôn gần gấp đôi; 85% ít ôn hơn, hợp khi bận.')))}
-      ${sec('sound', '🔊 ' + t('Âm thanh & phát âm'),
+      ${sec('sound', UI.icon('volume-2') + t('Âm thanh & phát âm'),
         row(t('Giọng phát âm'), `<select class="input" id="sAccent"><option value="en-GB" ${s.accent === 'en-GB' ? 'selected' : ''}>🇬🇧 ${t('Anh – Anh (khuyên dùng cho IELTS)')}</option><option value="en-US" ${s.accent === 'en-US' ? 'selected' : ''}>🇺🇸 ${t('Anh – Mỹ')}</option></select>`)
         + row(t('Giọng đọc'), `<select class="input" id="sVoice"></select>`)
         + '<div id="voiceTip" class="tip small set-tip" hidden></div>'
@@ -44,7 +45,7 @@
         + tog('sWhisper', s.whisperMode, '🤫 ' + t('Chế độ thì thầm khi luyện nói'))
         + tog('sHq', s.hqVoice !== false, t('Giọng đọc tự nhiên cho bài nghe & giám khảo (tải âm thanh từ mạng)'))
         + tog('sSfx', s.sfx, t('Hiệu ứng âm thanh')))}
-      ${sec('remind', '⏰ ' + t('Nhắc học hằng ngày'),
+      ${sec('remind', UI.icon('alarm-clock') + t('Nhắc học hằng ngày'),
         tog('sRem', s.reminderOn, t('Bật nhắc học'))
         + `<div id="remOpts" ${s.reminderOn ? '' : 'hidden'}>`
         + row(t('Giờ nhắc'), `<input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}">`, Store.isExtension ? t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.') : t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.'))
@@ -60,8 +61,8 @@
         + tog('sDigest', s.emailDigest === true, '📧 ' + t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)'))
         + (window.VBNative && VBNative.is ? '<div id="wwBox"></div>' : ''))}
       <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
-      ${Store.isExtension ? '' : sec('ext', '🧩 ' + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span></div><a class="btn sm primary" data-ext-cta="set" hidden>${t('Thêm vào Chrome')}</a></div>`)}
-      ${sec('data', '💾 ' + t('Dữ liệu'),
+      ${Store.isExtension ? '' : sec('ext', UI.icon('puzzle') + t('Add-on từ điển cho Chrome'), `<div class="set-row"><div class="set-l"><span class="small">${t('Bấm đúp vào bất kỳ từ tiếng Anh nào trên web để xem phiên âm, nghĩa, hình ảnh và <b>lưu vào flashcard kèm câu gốc làm ngữ cảnh</b>. Bôi đen cả câu/đoạn để <b>dịch sang tiếng Việt</b>.')}</span></div><a class="btn sm primary" data-ext-cta="set" hidden>${t('Thêm vào Chrome')}</a></div>`)}
+      ${sec('data', UI.icon('database') + t('Dữ liệu'),
         row(t('Chuyển dữ liệu'), `<a class="btn sm" href="#/handoff">${t('📲 Chuyển sang điện thoại (không cần đăng nhập)')}</a>`)
         + row(t('Xuất sao lưu'), `<button type="button" class="btn sm" id="sExport">📦 Excel · PDF · JSON</button>`)
         + row('🃏 Anki', `<span class="set-btns"><button type="button" class="btn sm" id="sAnkiOut">${t('Xuất sang Anki')}</button><button type="button" class="btn sm" id="sAnkiIn">${t('Nhập từ Anki')}</button></span>`)
@@ -72,7 +73,7 @@
     extCta();
     App.blogLive().then(on => { const a = $('#sBlog'); if (a) a.href = App.blogHref(on); });
     // Mục quản trị: chỉ hiện sau khi máy chủ xác nhận quyền (thêm nút nhảy nhanh vào thanh mục lục)
-    App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">🛡️</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
+    App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">${UI.icon('shield')}</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
     $$('.set-nav [data-jump]').forEach(b => b.onclick = () => { const el = document.getElementById('set-' + b.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
 
     const save = async () => { await saveSettings(); Core.sfxOff = !s.sfx; updateChrome(); if (window.Sync) Sync.schedule(); };

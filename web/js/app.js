@@ -106,9 +106,9 @@
     const st = streak();
     const fi = (window.Core && Core.Stats && Core.Stats.freezeInfo) ? Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0 };
     const freezeCount = fi.left;
-    $('#streakPill').textContent = `🔥 ${st}${freezeCount ? ' 🧊' + freezeCount : ''}`;
+    $('#streakPill').innerHTML = `<i class="flame-icon" aria-hidden="true">${UI.icon('flame')}</i><span>${st}</span>${freezeCount ? `<span class="pill-sub">${UI.icon('snowflake')}${freezeCount}</span>` : ''}`;
     $('#streakPill').setAttribute('aria-label', freezeCount ? t('Chuỗi {n} ngày, {f} lượt đóng băng', { n: st, f: freezeCount }) : t('Chuỗi {n} ngày', { n: st }));
-    $('#xpPill').textContent = `⭐ ${state.game.xp.toLocaleString(I18N.lang())}`;
+    $('#xpPill').innerHTML = `${UI.icon('star')}<span>${state.game.xp.toLocaleString(I18N.lang())}</span>`;
     const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
     $$('[data-due]').forEach(b => { b.hidden = !total; b.textContent = total > 99 ? '99+' : total; });
     const L = Game.levelOf(state.game.xp);
