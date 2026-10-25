@@ -20,7 +20,7 @@ C = dict(navy=(15, 61, 62), navy2=(23, 89, 90), red=(229, 80, 47), cream=(255, 2
 DUR = dict(fast=0.2, base=0.3, slow=0.5)
 EASE = dict(out=(0.22, 1, 0.36, 1), inn=(0.64, 0, 0.78, 0), inout=(0.83, 0, 0.17, 1),
             spring=(0.34, 1.56, 0.64, 1))                         # spring = ONE overshoot then settle (card spring-in); qc no_jitter allows exactly one reversal for it
-BOUNCE = 0.08                                                     # correct-answer bounce: scale 1 -> 1.08 -> 1 over DUR.slow (one reversal)
+BOUNCE = 18                                                       # correct-answer bounce: a 18 px hop up and back over DUR.slow (one reversal)
 TRAVEL = dict(rise=40, slide=120)                                 # entry travel in px (rise = from below, slide = from the right)
 MIN_READ = 0.8                                                    # s a text block stays fully visible
 MIN_PX = 48

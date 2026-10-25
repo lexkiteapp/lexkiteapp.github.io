@@ -178,7 +178,7 @@ class El:
         if s.dyn_until is not None and s.t_in <= t < s.dyn_until: mv = mv or s.grp      # animated content (countdown ring) = this group is moving
         if s.bounce is not None and t >= s.bounce:
             q = (t - s.bounce) / DUR['slow']
-            if q < 1: sc *= 1 + BOUNCE * math.sin(math.pi * bezier(EASE['out'], q)); mv = s.grp
+            if q < 1: dy -= BOUNCE * math.sin(math.pi * bezier(EASE['out'], q)); mv = s.grp   # a vertical hop (a scale-up would push the left card out of the safe area)
         if s.dim and t >= s.dim[0]:
             q = min(1.0, (t - s.dim[0]) / DUR['base']); a *= 1 - (1 - s.dim[1]) * bezier(EASE['inout'], q); mv = s.dim[2] if q < 1 else mv
         if s.t_out is not None and t >= s.t_out:
@@ -470,7 +470,7 @@ if CD:   # v4: 'Comment your answer' + a 3-2-1 countdown ring in the same row, t
     d_.rounded_rectangle((p_ - 4, p_ - 4, p_ + ow_ + 3, p_ + oh_ + 3), 32, outline=C['green'] + (255,), width=8)
     ok_.alpha_composite(badge('v', 64), (p_ + ow_ - 64 - 24, p_ + (oh_ - 64) // 2))
     oc.bounce = T_REV
-    El('e.ok', ok_, oc.x, oc.y, g, T_REV, b['vout'], enter='pop', d_in='base', z=8, inset=oc.inset)
+    El('e.ok', ok_, oc.x, oc.y, g, T_REV, b['vout'], enter='pop', d_in='base', z=8, inset=oc.inset, bounce=T_REV)   # hops with its option
     OPTS[1 - ANS].dim = (T_REV, 0.4, g)
 else:
     words_block('e.cta', 'Comment your answer', TYPE['label'], 'head', X0, y, FULL, g, None, b['vout'], color=SUB, align='center', reveal='fade', after=tcm)
@@ -732,12 +732,20 @@ if PLATE_N:
     for k in SEQ:
         ln = L[k]; ws = ln.words
         if BOX[k][3] > CAPTION['y'] - 8: CAP_HIDDEN.append(k); continue   # tall card reaches the band: no caption over type (logged)
-        ch_, cur = [], []
+        wid = lambda ids: sum(fc.getlength(ws[x]['w']) for x in ids) + csp * (len(ids) - 1)
+        ph_, cur = [], []   # phrases end at punctuation; each phrase is split into the FEWEST balanced chunks that fit (no orphan word like 'changed?')
         for j, w in enumerate(ws):
-            wid = lambda ids: sum(fc.getlength(ws[x]['w']) for x in ids) + csp * (len(ids) - 1)
-            if cur and (len(cur) >= CAPTION['max_words'] or wid(cur + [j]) > FULL - 2 * CM or (len(cur) >= 2 and ws[cur[-1]]['w'][-1:] in '.,:?!')): ch_.append(cur); cur = []
             cur.append(j)
-        if cur: ch_.append(cur)
+            if w['w'][-1:] in '.,:?!;': ph_.append(cur); cur = []
+        if cur: ph_.append(cur)
+        ch_ = []
+        for p_ in ph_:
+            for n_ in range(1, len(p_) + 1):
+                sz_ = math.ceil(len(p_) / n_); parts = [p_[i:i + sz_] for i in range(0, len(p_), sz_)]
+                if all(len(x) <= CAPTION['max_words'] and wid(x) <= FULL - 2 * CM for x in parts): break
+            for x in parts:   # glue a one-word phrase ('Quiz:', 'Say:') to the next chunk when it fits
+                if ch_ and len(ch_[-1]) == 1 and len(ch_[-1]) + len(x) <= CAPTION['max_words'] and wid(ch_[-1] + x) <= FULL - 2 * CM and ch_[-1][-1] + 1 == x[0]: ch_[-1] = ch_[-1] + x
+                else: ch_.append(x)
         for c, ids in enumerate(ch_):
             t_on = ln.at + ws[ids[0]]['s']; t_off = (ln.at + ws[ch_[c + 1][0]]['s']) if c + 1 < len(ch_) else min(ln.at + ws[-1]['e'] + 0.35, BEAT[k]['vout'])
             tot = sum(fc.getlength(ws[x]['w']) for x in ids) + csp * (len(ids) - 1); xx = X0 + (FULL - tot) / 2; cid = f'cap.{k}.{c}'
