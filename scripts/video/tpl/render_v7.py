@@ -27,7 +27,7 @@ ap.add_argument('--kbps', type=int, default=8800)
 ap.add_argument('--debug-at', default='0,1.5,5,10,16,24,27,30', help='seconds: also write <out>.zones/*.png with protected zones + caption boxes drawn')
 o = ap.parse_args()
 W, H, FPS = 1080, 1920, 24
-V7 = dict(push=dict(two=0.04, mcu=0.03, scene=0.035), punch=1.06, punch_in=0.22,
+V7 = dict(push=dict(two=0.04, mcu=0.015, scene=0.035), base=dict(mcu=1.03), punch=1.06, punch_in=0.22,
           cap=dict(two=dict(sz=70, lines=2, bottom=1494, words=7), mcu=dict(sz=66, lines=1, bottom=1495, words=5), scene=dict(sz=72, lines=2, bottom=1490, words=7)),
           cap_min=64, stroke=10, ss=2, upcoming=0.62, accent=C['yellow'], acc_line={'v7_w': C['red'], 'v7_k': C['green']},
           quad=[(85, 272), (905, 272), (918, 672), (72, 672)], bezel=15, canvas=(820, 400), region=(150, 790),
@@ -67,7 +67,7 @@ for lid in TXT:
     LINES[lid] = dict(id=lid, text=TXT[lid], a=a, dur=len(a) / 24000, cues=cj['mouthCues'], gen=cj.get('generator'), words=refine(a, wj['words']), whisper=wj.get('whisper'))
 
 # ---------------- shots (bank = anchor | airport; kind -> caption mode + protected zones) ----------------
-TWO_A, MCU_A = (290, 1318), (520, 1440)   # camera anchors: desk line stays put while pushing in -> caption zone never shrinks
+TWO_A, MCU_A = (290, 1318), (520, 1800)   # camera anchors: two-shot desk line stays put; MCU = 1.03 cover crop anchored low -> the laptop rises clear of the caption strip
 SHOTS = [dict(id='hook', bank='anchor', clip='t01_two_ama_talks', kind='two', start=0, lines=['v7_h'], lead=0.30, tail=0.45, min=1.9, screen='hook', cam='push', A=TWO_A),
          dict(id='est', bank='airport', clip='b01_master_talk', kind='master', start=10, lines=[], dur=0.85, cam='push', A=(620, 760)),
          dict(id='wrong', bank='airport', clip='a02_ots_ama_talk', kind='ots_ama', start=6, lines=['v7_w'], lead=0.12, tail=0.80, cam='push', A=(345, 800), mark='x'),
@@ -126,10 +126,10 @@ SH = {s['id']: s for s in SHOTS}
 
 # ---------------- camera: uniform similarity only ----------------
 def cam_scale(sh, tl):
-    du = (sh['n'] - 1) / FPS; u = tl / max(du, 1e-6); p = V7['push'][cmode(sh['kind'])]
-    if sh['cam'] == 'hold': return 1.0
+    du = (sh['n'] - 1) / FPS; u = tl / max(du, 1e-6); p = V7['push'][cmode(sh['kind'])]; s0 = V7['base'].get(sh['kind'], 1.0)
+    if sh['cam'] == 'hold': return s0
     if sh['cam'] == 'loop': return 1.0 + p * math.sin(math.pi * min(1.0, u))   # creeps in, settles back to 1.0 on the loop frame
-    s = 1.0 + p * ease(u, EASE['inout'])
+    s = s0 + p * ease(u, EASE['inout'])
     if sh['cam'] == 'punch':
         lid, k = sh['punch']; tp = wt(lid, k)['s'] - 0.10 - sh['f0'] / FPS
         if tl >= tp: s = s + (V7['punch'] - s) * ease((tl - tp) / V7['punch_in'])
@@ -428,6 +428,12 @@ for sh in SHOTS:
         if sh['kind'] == 'two': els, luma = monitor(F, sh, T)
         s = cam_scale(sh, T - sh['f0'] / FPS); M = cam_M(sh, s); win = window(M, sw, shh)
         out = cv2.warpAffine(F, M, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE); out = sharpen(out, s * b)
+        if fi % 12 == 0:   # stretch detector: texture anisotropy (var d/dy : var d/dx) of the top wall band vs the SAME source rows; uniform scale keeps it, a k-x vertical stretch divides it by k^2
+            def aniso(g):
+                g = cv2.GaussianBlur(cv2.cvtColor(g, cv2.COLOR_BGR2GRAY).astype(np.float32), (0, 0), 1.2)
+                return float(cv2.Sobel(g, cv2.CV_32F, 0, 1).var()) / max(1e-6, float(cv2.Sobel(g, cv2.CV_32F, 1, 0).var()))
+            ys0, ys1 = max(0, int(round(win[1]))), int(round(win[1] + 240 / M[1, 1])); xs0, xs1 = max(0, int(round(win[0]))), min(sw, int(round(win[2])))
+            EDGES.append(dict(frame=fi, shot=sh['id'], ratio=round(aniso(out[:240]) / max(1e-6, aniso(F[ys0:ys1, xs0:xs1])), 3)))
         for e in els: e['bbox'] = tr_box(M, e['bbox']); e['px'] = round(e['px'] * s * b, 1); e.pop('cbox', None)
         if sh['kind'] in SCENE_KINDS:
             r = out[g0:].astype(np.float32); out[g0:] = np.clip(r * (1 - GRAD) + GRADC * GRAD, 0, 255).astype(np.uint8)
@@ -456,9 +462,6 @@ for sh in SHOTS:
             r = [max(0, r[0]), max(0, r[1]), min(W, r[2]), min(H, r[3])]; scr = cv2.cvtColor(out[r[1]:r[3], r[0]:r[2]], cv2.COLOR_BGR2GRAY)
             SHARP.append(dict(frame=fi, shot=sh['id'], s=round(s * b, 4), rect=r, var_native=round(float(cv2.Laplacian(nat, cv2.CV_64F).var()), 2), var_render=round(float(cv2.Laplacian(scr, cv2.CV_64F).var()), 2)))
             cv2.imwrite(f'{o.out}.samples/f{fi:04d}.png', out)
-        if fi % 24 == 0:   # stretch detector: top wall band texture vs the native frame (a stretch flattens it)
-            g_o = cv2.cvtColor(out[:200], cv2.COLOR_BGR2GRAY); g_n = cv2.cvtColor(F[:200], cv2.COLOR_BGR2GRAY)
-            EDGES.append(dict(frame=fi, shot=sh['id'], ratio=round(float(cv2.Laplacian(g_o, cv2.CV_64F).var()) / max(1e-3, float(cv2.Laplacian(g_n, cv2.CV_64F).var())), 3)))
         if luma is not None and fi % 12 == 6: PANEL.append(dict(frame=fi, luma=round(luma, 1)))
         if fi in DBG:
             dbg = out.copy()

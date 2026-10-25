@@ -4,7 +4,7 @@ Reads <video>.timeline.json + <video>.samples/ written by render_v7.py, decodes 
 Gates: hook_truth · hook_readable · structure (anchor hook -> scene wrong X -> scene right check -> anchor rule/examples -> quiz 3-2-1 -> end card;
 angles alternate; punch-ins; scene reaction shot) · safe_area · readability · caption_layout · caption_style (>= 64 px, stroke >= 10, 2x supersampled) ·
 caption_clear (caption ink+stroke never touches a protected face/torso/prop zone) · caption_sync (karaoke wipe <= 50 ms) · align_audio · lipsync_rhubarb ·
-scene_native (anchor + airport bank frames only, no cut-out) · no_stretch (uniform similarity, scale >= 1, source window inside the clip + top-band texture) ·
+scene_native (anchor + airport bank frames only, no cut-out) · no_stretch (uniform similarity, scale >= 1, source window inside the clip + top-band texture anisotropy vs the same source rows) ·
 no_name_lower_third · loop_end · host_sharp · no_light_panels · file (25-35 s, 1080x1920, 8-9.5 Mbps video)."""
 import sys, os, json, subprocess, hashlib
 import numpy as np, cv2
@@ -99,13 +99,13 @@ for vid in sys.argv[1:]:
                                 lines={k: l.get('gen') for k, l in T['lines'].items()}, lines_without_mouth_motion=nomouth)
     R['scene_native'] = dict(ok=all(f['bank'] in ('anchor', 'airport') and f['clip'] for f in fr), clips=sorted({f"{f['bank']}:{f['clip']}" for f in fr}),
                              note='every frame = one native bank frame (person generated inside the set) + mouth swap; overlays only (monitor = set object, captions, badges, bug)')
-    # stretch: transform must be a uniform similarity with scale >= cover scale and the visible window inside the clip; plus top-band texture vs native
+    # stretch: transform must be a uniform similarity with scale >= cover scale and the visible window inside the clip; plus top-band anisotropy vs the same source rows
     badT = []
     for f in fr:
         M = f['M']; sw, shh = f['src_size']; w = f['win']; b = f['b']
         if abs(M[0] - M[4]) > 1e-6 or M[1] != 0 or M[3] != 0 or M[0] < b - 1e-6 or w[0] < -0.01 or w[1] < -0.01 or w[2] > sw + 0.01 or w[3] > shh + 0.01: badT.append((f['t'], M, w))
     er = [e['ratio'] for e in T['edges']]
-    R['no_stretch'] = dict(ok=not badT and bool(er) and min(er) >= 0.60, bad_frames=badT[:4], n_bad=len(badT), top_band_texture_min=round(min(er, default=0), 3), top_band_texture_median=round(med(er), 3),
+    R['no_stretch'] = dict(ok=not badT and bool(er) and 0.75 <= min(er) and max(er) <= 1.33, bad_frames=badT[:4], n_bad=len(badT), top_band_anisotropy_ratio_min=round(min(er, default=0), 3), max=round(max(er, default=0), 3), median=round(med(er), 3), samples=len(er),
                            note='v6 stretched the wall rows above the head; v7 = crop/cover only (uniform scale about an anchor, window inside the source)')
     lt = [e['name'] for f in fr for e in els(f) if e['name'] == 'lt' or 'Lexkite English' in (e['text'] or '')]
     R['no_name_lower_third'] = dict(ok=not lt, found=len(lt))
