@@ -83,6 +83,8 @@ Além disso, investir em *collocations* acadêmicas faz com que o texto soe sofi
 
 ![Cartão de aprendizagem inteligente do Lexkite com definição, exemplos e dicas](media:practice-learn "Aprenda expressões com definição, exemplos e dicas de uso no IELTS")
 
+Alternar voz ativa e passiva mostra variedade gramatical; revise as regras em [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles/).
+
 {{cta: /#/write | Treinar redação do IELTS no laboratório de escrita}}
 
 ## Como gerenciar os 40 minutos sem entrar em pânico

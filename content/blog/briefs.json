@@ -11563,6 +11563,81 @@
    "lang": "es",
    "cluster": "cau-dieu-kien-tieng-anh-conditionals",
    "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "estilo-indirecto-en-ingles",
+   "keyword": "estilo indirecto en inglés",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "reported-speech",
+    "tenses",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "intent": "informational",
+   "lang": "es",
+   "cluster": "reported-speech",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "niveles-de-ingles-a1-a2-b1-b2-c1",
+   "keyword": "niveles de inglés",
+   "category": "phuong-phap",
+   "tags": [
+    "cefr",
+    "placement",
+    "english-level",
+    "study-plan"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "intent": "informational",
+   "lang": "es",
+   "cluster": "kiem-tra-trinh-do-tieng-anh",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "voz-passiva-em-ingles",
+   "keyword": "voz passiva em inglês",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "passive-voice",
+    "academic-writing"
+   ],
+   "routes": [
+    "/#/grammar/passive-voice",
+    "/#/grammar/passive-reporting-causative"
+   ],
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "passive-voice",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "discurso-indireto-em-ingles",
+   "keyword": "discurso indireto em inglês",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "reported-speech",
+    "tenses",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "reported-speech",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
   }
  ]
 }

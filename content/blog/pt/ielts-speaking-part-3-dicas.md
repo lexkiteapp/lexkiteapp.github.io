@@ -155,6 +155,8 @@ Corrija cada frase.
 
 Para mais exemplos em inglês, veja as [respostas modelo de Speaking](/en/speaking/) (página em inglês). Se você ainda está decidindo entre provas, leia [TOEFL ou IELTS: qual fazer](/pt/blog/toefl-ou-ielts-qual-fazer/); se vai fazer a versão para imigração, veja [como se preparar para o IELTS General Training](/pt/blog/como-se-preparar-para-o-ielts-general-training/).
 
+Contar o que outra pessoa disse (*My grandmother always told me that…*) enriquece os exemplos; revise o [discurso indireto em inglês](/pt/blog/discurso-indireto-em-ingles/).
+
 {{cta: /app/#/speaking/p3 | Treine respostas de Part 3 com o método ARES}}
 
 {{youtube: | Ideia de vídeo: a mesma pergunta de Part 3 respondida em band 5, 6.5 e 8 para comparar}}

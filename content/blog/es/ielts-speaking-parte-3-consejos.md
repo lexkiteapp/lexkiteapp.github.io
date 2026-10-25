@@ -153,6 +153,8 @@ Si fallaste la 1 o la 2, son tus errores "fósiles": grábate y escúchate busca
 
 Para mejorar la comprensión de preguntas largas, también ayuda entrenar el oído con [cómo mejorar el listening en inglés](/es/blog/como-mejorar-el-listening-en-ingles/). Tienes más ejemplos en inglés en nuestras [respuestas modelo de Speaking](/en/speaking/) (página en inglés).
 
+Contar lo que dijo otra persona (*My teacher once told me that…*) es una buena forma de desarrollar ejemplos; repasa cómo en [estilo indirecto en inglés](/es/blog/estilo-indirecto-en-ingles/).
+
 {{cta: /app/#/speaking/p3 | Practica respuestas de parte 3 con el método RREM}}
 
 {{youtube: | Idea de video: la misma pregunta de parte 3 respondida en band 5, 6.5 y 8}}

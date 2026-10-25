@@ -165,6 +165,8 @@ Acertou 6 ou 7? Você domina os modais. Errou a 1 ou a 2? São os erros mais tí
 
 Modais também aparecem em expressões com preposição (*be able to*, *be allowed to*); se você ainda tropeça nelas, veja [preposições em inglês: in, on, at](/pt/blog/preposicoes-em-ingles-in-on-at/). E cuidado com os [falsos cognatos](/pt/blog/falsos-cognatos-em-ingles/) ao traduzir verbos como *pretend* e *intend*.
 
+Com modais, a passiva usa *be* + particípio (*It must be signed*). Mais exemplos em [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles/).
+
 {{cta: /app/#/grammar/modals-obligation-advice | Pratique os verbos modais com exercícios curtos}}
 
 {{youtube: | Ideia de vídeo: a mesma situação dita com must, have to, should e could para mostrar como o tom muda}}

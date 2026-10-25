@@ -131,6 +131,8 @@ Para organizar tu calendario de estudio sin agobiarte, distribuye los objetivos 
 2. **Semanas 5 a 8 (Consolidación sintáctica y Writing formal):** Enfócate en *Key Word Transformations* complejas (inversiones y condicionales mixtos). Redacta dos ensayos semanales bajo límite de tiempo estricto (45 minutos por tarea) y solicita corrección detallada.
 3. **Semanas 9 a 12 (Simulacros cronometrados y Speaking):** Realiza al menos 4 exámenes completos en condiciones reales de prueba con cronómetro sin interrupciones. Practica la Parte 2 y 3 del Speaking grabando tu voz para evaluar entonación y fluidez continua.
 
+¿No sabes si ya estás en C1? Repasa qué significa cada uno de los [niveles de inglés del MCER](/es/blog/niveles-de-ingles-a1-a2-b1-b2-c1/) antes de inscribirte.
+
 {{cta: /app/#/placement | Evaluar tu nivel C1 en Lexkite}}
 
 {{youtube: | Cómo preparar el examen Cambridge C1 Advanced CAE con éxito}}

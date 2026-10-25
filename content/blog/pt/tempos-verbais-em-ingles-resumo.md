@@ -119,6 +119,8 @@ Aprofunde seus estudos teóricos no nosso [guia de gramática](/ngu-phap/) e uti
 
 Para falar de obrigação, conselho e possibilidade, veja o guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/).
 
+Todos esses tempos também têm forma passiva (*is done*, *was done*, *has been done*): veja o guia de [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles/).
+
 {{cta: /#/grammar | Estudar tempos verbais no módulo de gramática}}
 
 ## Erros frequentes de brasileiros com tempos verbais

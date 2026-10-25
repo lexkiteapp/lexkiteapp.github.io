@@ -177,6 +177,8 @@ Descubra mais referências em nossa página de [modelos de correspondência](/sa
 
 Pedidos educados com *could* e *would* são explicados no guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/).
 
+Para relatar o que um cliente disse ou pediu num e-mail (*The client asked us to…*), use as regras do [discurso indireto em inglês](/pt/blog/discurso-indireto-em-ingles/).
+
 {{cta: /#/write | Praticar escrita corporativa no Lexkite}}
 
 ## Erros e expressões informais que você deve evitar

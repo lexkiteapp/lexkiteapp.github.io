@@ -128,6 +128,8 @@ Consolida la retención a largo plazo repasando conceptos diariamente en el [mó
 
 Un buen lugar para poner a prueba este hábito es la [IELTS Speaking parte 3](/es/blog/ielts-speaking-parte-3-consejos/), donde las preguntas abstractas no dejan tiempo para traducir.
 
+Un buen test para saber si sigues traduciendo: el «me dijo que» y el «me pidió que». Lo explicamos en [estilo indirecto en inglés](/es/blog/estilo-indirecto-en-ingles/).
+
 {{cta: /app/#/review | Entrenar pensamiento en inglés con Lexkite}}
 
 {{youtube: | Cómo pensar en inglés sin traducir mentalmente: método 4 pasos}}

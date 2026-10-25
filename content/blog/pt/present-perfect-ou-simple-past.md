@@ -111,6 +111,8 @@ Pratique dezenas de outros desafios interativos nos [testes práticos](/#/practi
 
 Para pronunciar bem os verbos regulares no passado e no particípio, veja [pronúncia do ed em inglês](/pt/blog/pronuncia-do-ed-em-ingles/).
 
+Quando você conta o que alguém disse, esses tempos “voltam um passo” (*has finished* → *had finished*): veja o [discurso indireto em inglês](/pt/blog/discurso-indireto-em-ingles/).
+
 {{cta: /#/grammar | Praticar tempos verbais agora}}
 
 ## Perguntas frequentes
