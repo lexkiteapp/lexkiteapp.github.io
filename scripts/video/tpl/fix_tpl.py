@@ -2,14 +2,14 @@
 """ONE automatic fix for a rejected template-1b render (docs/VIDEO-TEMPLATES.md §9). Reads <video>.rubric.json + qc gates, picks the fix
 by failure CLASS, prints one action line for the workflow:
   remux     – audio loudness / true peak only: two-pass loudnorm on the audio, video stream copied (written in place)
-  reencode  – file gate (bitrate/size) only: CBR 5.8 Mbps re-encode (in place)
+  reencode  – file gate (bitrate/size) only: CBR tokens.VIDEO.target_kbps re-encode (in place)
   rerender <lesson.json> – a patched copy of the lesson: other plate of the same topic (plate_* gates), other host clip (host_* / lipsync gates
               → voice is rebuilt for the new host). Never shortens/cuts content (owner rule): safe_area / readability → none
   none      – nothing automatic can fix it (hook_truth / judge reject) → straight to the batch report
   python3 scripts/video/tpl/fix_tpl.py <video.mp4> <lesson.json> <out-dir>"""
 import sys, os, json, re, subprocess, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tokens import PLATES, HOST_CLIPS
+from tokens import PLATES, HOST_CLIPS, VIDEO
 vid, lp, od = sys.argv[1:4]
 R = json.load(open(vid + '.rubric.json')); F = set(R['failed']); SP = json.load(open(lp))
 def run(*a): subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', *a], check=True)
@@ -22,7 +22,7 @@ if audio_only:
     tmp = vid + '.fix.mp4'; run('-i', vid, '-c:v', 'copy', '-af', af, '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-movflags', '+faststart', tmp); os.replace(tmp, vid)
     print('remux'); sys.exit(0)
 if F == {'file'}:
-    tmp = vid + '.fix.mp4'; run('-i', vid, '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-b:v', '5800k', '-minrate', '5800k', '-maxrate', '5800k', '-bufsize', '5800k',
+    tmp = vid + '.fix.mp4'; run('-i', vid, '-c:v', 'libx264', '-preset', 'slow', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-b:v', f"{VIDEO['target_kbps']}k", '-minrate', f"{VIDEO['target_kbps']}k", '-maxrate', f"{VIDEO['target_kbps']}k", '-bufsize', f"{VIDEO['target_kbps']}k",
                                 '-x264-params', 'nal-hrd=cbr:force-cfr=1', '-c:a', 'copy', '-movflags', '+faststart', tmp); os.replace(tmp, vid)
     print('reencode'); sys.exit(0)
 fix = []

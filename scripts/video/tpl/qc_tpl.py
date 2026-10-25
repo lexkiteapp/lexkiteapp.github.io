@@ -10,7 +10,8 @@ Gates: host transform variance = 0 | motion tokens only | text inside the safe a
   hook_truth (Groq judge verdict for THIS hook text: strong hook only when the learner line is a real error; correction ok)."""
 import sys, os, re, json, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE, HOST_LOCK
+from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE, HOST_LOCK, VIDEO, SHARP, SWAY, CAPTION
+import math
 import hostframe as HF
 ok_all = True
 for vid in sys.argv[1:]:
@@ -39,19 +40,23 @@ for vid in sys.argv[1:]:
     for i, L in tr.items():
         if not L[0][9]: continue
         full = sum(1 for r in L if r[5] >= 0.99) / fps
-        if full < MIN_READ: short.append((i, round(full, 2)))
+        if full < MIN_READ and not E.get(i, {}).get('caption'): short.append((i, round(full, 2)))   # captions follow the voice word by word (caption_sync gate instead)
         fs = E.get(i, {}).get('fs')
         if fs and fs < MIN_PX: small.append((i, fs))
     R['readability'] = dict(ok=not short and not small, min_visible_s=MIN_READ, too_short=short[:8], too_small=small[:8],
                             text_elements=sum(1 for L in tr.values() if L[0][9]))
     # 5 jitter: a static element keeps exactly one position; a tween moves monotonically (no back-and-forth)
     jit = []
+    def springy(i):   # spring-in (one overshoot) / correct-answer bounce: exactly ONE reversal is the designed motion, more = jitter
+        e = E.get(i, {}); p = E.get(e.get('parent') or '', {})
+        return any(tw.get('ease') == 'spring' or tw.get('kind') == 'bounce' for tw in (e.get('tweens') or []) + (p.get('tweens') or []))
     for i, L in tr.items():
         st = {(r[1], r[2], r[6]) for r in L if not r[7]}
         if len(st) > 1: jit.append((i, 'static positions', len(st)))
         for k in (1, 2, 6):
             seq = [r[k] for r in L if r[7]]; d = [b - a for a, b in zip(seq, seq[1:]) if abs(b - a) > 1e-6]
-            if any(p * q < 0 for p, q in zip(d, d[1:])) and not (k == 6 and len(set(seq)) <= 2): jit.append((i, 'reversal', k))
+            rev = sum(1 for p, q in zip(d, d[1:]) if p * q < 0)
+            if rev > (1 if springy(i) else 0) and not (k == 6 and len(set(seq)) <= 2): jit.append((i, 'reversal', k, rev))
     R['no_jitter'] = dict(ok=not jit, bad=jit[:8])
     # 6 one moving group at a time
     multi = []
@@ -64,7 +69,9 @@ for vid in sys.argv[1:]:
     # 8 file
     pr = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,bit_rate,size:stream=codec_type,width,height,avg_frame_rate', '-of', 'json', vid]))
     dur, br, size = float(pr['format']['duration']), int(pr['format']['bit_rate']), int(pr['format']['size'])
-    R['file'] = dict(ok=25 <= dur <= 35 and br >= 5.5e6 and size <= 25 * 1024 * 1024, duration=round(dur, 2), mbps=round(br / 1e6, 2), mb=round(size / 1048576, 2))
+    vs = next((x for x in pr.get('streams', []) if x.get('codec_type') == 'video'), {})
+    R['file'] = dict(ok=VIDEO['min_s'] <= dur <= VIDEO['max_s'] and br >= VIDEO['min_mbps'] * 1e6 and size <= VIDEO['max_mb'] * 1024 * 1024 and (vs.get('width'), vs.get('height')) == (1080, 1920),
+                     duration=round(dur, 2), mbps=round(br / 1e6, 2), mb=round(size / 1048576, 2), size=f"{vs.get('width')}x{vs.get('height')}", encode=T.get('encode'))
     R['audio'] = dict(ok=True, **T.get('audio', {}))
     # 9 tpl 1b plate: topic-matched (lesson topic in the plate tags AND a scene-specific tag named in the on-screen lesson text),
     #   clean (human-checked people=0/text=0 in tokens.PLATES + no detected face), push-in only (monotonic, <= max rate, <= total)
@@ -82,8 +89,44 @@ for vid in sys.argv[1:]:
                                  total_push=round(z[-1] - 1, 4) if z else None, max_rate_per_s=round(rate, 5))
         # loop: the last frame = frame 0 = clean plate + host (no text, scrim back at rest – no cream haze left on the plate)
         last_txt = [r[0] for r in fr[-1]['els'] if r[5] > 0.004]; s0, s1 = fr[0].get('scrim'), fr[-1].get('scrim')
-        R['loop_end'] = dict(ok=not last_txt and bool(T.get('cta')) and s0 is not None and s1 is not None and abs(s1 - s0) <= 0.01 and s1 <= PLATE['scrim_rest'] + 0.01,
-                             last_frame_elements=last_txt[:4], scrim_first=s0, scrim_last=s1, cta=(T.get('cta') or {}).get('link'))
+        sw0, sw1 = ((fr[0].get('host') or {}).get('sway') or 0), ((fr[-1].get('host') or {}).get('sway') or 0)
+        R['loop_end'] = dict(ok=not last_txt and bool(T.get('cta')) and s0 is not None and s1 is not None and abs(s1 - s0) <= 0.01 and s1 <= PLATE['scrim_rest'] + 0.01
+                             and abs(sw1 - sw0) <= 0.02 and (fr[-1].get('brand') or 0) <= 0.004 and (fr[0].get('brand') or 0) <= 0.004,
+                             last_frame_elements=last_txt[:4], scrim_first=s0, scrim_last=s1, sway_first=sw0, sway_last=sw1, cta=(T.get('cta') or {}).get('link'))
+        # v4 host vs scene (owner 25/10): eye line on the plate horizon, host size plausible against the plate's reference object
+        PP = T.get('persp') or {}; rf = PP.get('ref') or {}; tol = 0.10 * (PP.get('ppm_host') or 0)
+        R['host_perspective'] = dict(ok=bool(PP.get('ppm_host')) and all(abs(h - PP['eye']) <= tol for h in PP.get('horizon', [])) and 1.0 <= (PP.get('ratio') or 0) <= 8.0
+                                     and (PP.get('host_floor') or 0) >= rf.get('bottom', 1e9) and 0.5 <= rf.get('cam_h', 0) <= 2.0,
+                                     eye=PP.get('eye'), horizon=PP.get('horizon'), tol_px=round(tol, 1), ratio=PP.get('ratio'), ref=rf.get('name'), ref_cam_h=rf.get('cam_h'),
+                                     host_floor=PP.get('host_floor'), ref_bottom=rf.get('bottom'), zoom=PP.get('zoom'))
+        # host idle sway: bounded, smooth (one sine), loops
+        sw = [((f.get('host') or {}).get('sway') or 0.0) for f in fr]; d2 = max((abs(a - 2 * b + c) for a, b, c in zip(sw, sw[1:], sw[2:])), default=0)
+        per = (T.get('sway') or {}).get('period') or SWAY['period']; d2max = SWAY['deg'] * (2 * math.pi / per) ** 2 / fps ** 2 * 1.5 + 1e-4
+        R['host_motion'] = dict(ok=max(map(abs, sw)) <= SWAY['deg'] + 1e-6 and d2 <= d2max, max_deg=round(max(map(abs, sw)), 4), max_d2=round(d2, 6), d2_cap=round(d2max, 6), period=per)
+        # host sharpness: Laplacian variance of the host core rect, encoded file vs the rendered frame (no blur added by the pipeline); never upscaled
+        SH = T.get('sharp') or {}; rc = SH.get('rect'); fs_ = SH.get('frames') or []
+        ratios = []
+        if rc and fs_:
+            import numpy as np, cv2
+            sel = '+'.join(f"eq(n\\,{x['frame']})" for x in fs_)
+            raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', vid, '-vf', f"select='{sel}'", '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'], capture_output=True).stdout
+            fsz = 1080 * 1920; gs = [np.frombuffer(raw[j * fsz:(j + 1) * fsz], np.uint8).reshape(1920, 1080) for j in range(len(raw) // fsz)]
+            for x, g_ in zip(fs_, gs): ratios.append(round(float(cv2.Laplacian(g_[rc[1]:rc[3], rc[0]:rc[2]], cv2.CV_64F).var()) / max(1e-6, x['var']), 3))
+        med = sorted(ratios)[len(ratios) // 2] if ratios else 0
+        R['host_sharp'] = dict(ok=bool(ratios) and len(ratios) == len(fs_) and med >= SHARP['min_ratio'] and (SH.get('scale') or 9) <= 1.0 + 1e-6,
+                               median_ratio=med, min_ratio=min(ratios) if ratios else None, rendered_var=[x['var'] for x in fs_][:9], scale=SH.get('scale'), method='INTER_AREA native downscale + Lanczos sway warp')
+        # captions: every word highlighted within CAPTION.sync_ms of its (audio-checked) start time, measured on the frame log
+        CW = (T.get('captions') or {}).get('words') or {}; first = {}
+        for f in fr:
+            for rec in f['els']:
+                if rec[0] in CW and rec[0] not in first: first[rec[0]] = f['t']
+        dts = {i: round(first[i] - w['audio_t'], 3) for i, w in CW.items() if i in first}; miss = [i for i, w in CW.items() if i not in first and (w.get('dur') or 1) >= 1 / fps]
+        bad_ = {i: d for i, d in dts.items() if abs(d) > CAPTION['sync_ms'] / 1000}
+        R['caption_sync'] = dict(ok=bool(CW) and not miss and not bad_ and not (T.get('captions') or {}).get('hidden'), words=len(CW), max_ms=round(1000 * max(map(abs, dts.values()), default=0)),
+                                 missing=miss[:5], late=list(bad_.items())[:5], hidden_beats=(T.get('captions') or {}).get('hidden'))
+        AL = [a for v in (T.get('align') or {}).values() for a in v]; mt = [a for a in AL if a.get('w')]
+        R['align_audio'] = dict(ok=bool(AL) and len(mt) >= 0.8 * len(AL), onsets=len(AL), matched=len(mt), whisper_drift_ms_max=round(1000 * max((abs(a['d_raw']) for a in mt), default=0)),
+                                whisper_drift_ms_median=round(1000 * sorted(abs(a['d_raw']) for a in mt)[len(mt) // 2]) if mt else None, note='matched onsets snapped (whisper -> audio)')
     if T.get('lipsync') is not None or any(f['host'] for f in fr[:1]):
         LS_ = T.get('lipsync') or {}
         R['lipsync_rhubarb'] = dict(ok=bool(LS_) and not LS_.get('missing') and all(str(v or '').startswith('rhubarb') for v in (LS_.get('lines') or {}).values()) and bool(LS_.get('lines')),

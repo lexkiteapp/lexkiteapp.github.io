@@ -8,6 +8,7 @@ Landmarks are measured on the MATTE (alpha), never guessed:
              shoulders, no visible slope -> the neck/hair-bottom row);
              shoulder_w = silhouette extent there, cx = its midpoint (the body centre, not the mouth)
   hands    = lowest row where the silhouette is still wider than the legs + 12 % of the shoulder width = rest-pose fingertips = CROP LINE reference
+v4 waist-up: waist = halfway shoulder corner -> fingertips; solve() puts it on lock.crop.
 solve() picks ONE scale + offset per host: shoulder width = HOST_LOCK.shoulder (kept within ±fit), hands row at HOST_LOCK.crop, head top at
 HOST_LOCK.top, body centre at HOST_LOCK.cx. render_tpl.py re-measures the transformed matte on screen -> qc_tpl host_frame_std gate + batch gate."""
 import numpy as np
@@ -35,29 +36,31 @@ def landmarks(alpha):
     legs = float(np.median(es[bot - max(8, int(0.05 * hgt)):bot + 1]))
     wide = np.nonzero(es[sh:bot + 1] > legs + 0.12 * sw)[0]             # arms/hands wider than the legs -> lowest such row = fingertips
     hands = int(sh + wide[-1]) if len(wide) else bot
-    return dict(top=top, neck=neck, shoulder_y=sh, shoulder_w=round(sw, 1), cx=round(cx, 1), hands=hands, bottom=bot)
+    return dict(top=top, neck=neck, shoulder_y=sh, shoulder_w=round(sw, 1), cx=round(cx, 1), hands=hands, bottom=bot, waist=round(sh + 0.5 * (hands - sh), 1))
 
 def merge(L):
     """landmarks of many frames -> one: top = highest hair over all frames, hands = rest pose (90th pct), the rest = median (talking motion)"""
-    L = [x for x in L if x]; med = lambda k: float(np.median([x[k] for x in L]))
+    L = [x for x in L if x]; med = lambda k: float(np.median([x[k] for x in L])); hp = float(np.percentile([x['hands'] for x in L], 90))
     return dict(top=min(x['top'] for x in L), neck=med('neck'), shoulder_y=med('shoulder_y'), shoulder_w=round(med('shoulder_w'), 1), cx=round(med('cx'), 1),
                 hands=float(np.percentile([x['hands'] for x in L], 90)),   # rest pose (arms down): gestures only lift the hands
-                bottom=max(x['bottom'] for x in L), frames=len(L))
+                bottom=max(x['bottom'] for x in L), frames=len(L), waist=round(med('shoulder_y') + 0.5 * (hp - med('shoulder_y')), 1))
 
 def solve(lm, lock):
     """one scale + offset: shoulder width = lock.shoulder (±lock.fit, used to bring the hands row onto lock.crop), head top = lock.top, centre = lock.cx"""
-    s_sw = lock['shoulder'] / lm['shoulder_w']; s_crop = (lock['crop'] - lock['top']) / max(1.0, lm['hands'] - lm['top'])
+    s_sw = lock['shoulder'] / lm['shoulder_w']; s_crop = (lock['crop'] - lock['top']) / max(1.0, lm['waist'] - lm['top'])   # v4: waist-up (waist row -> lock.crop)
     s = float(np.clip(s_crop, s_sw * (1 - lock['fit']), s_sw * (1 + lock['fit']))); s = min(s, lock['max_scale'])
     return round(s, 4), int(round(lock['top'] - lm['top'] * s)), int(round(lock['cx'] - lm['cx'] * s))
 
 def check(scr, lock, ext=0):
     """screen landmarks vs the standard -> per-metric ok + values (qc_tpl host_frame_std)"""
-    c = (1920 - scr['hands']) / max(1.0, scr['shoulder_w'])
-    R = dict(shoulder_w=scr['shoulder_w'], top=scr['top'], cx=scr['cx'], fingertips=scr['hands'], crop=round(c, 3), layer_bottom=scr.get('layer_bottom'), ext=ext)
+    c = (1920 - scr['waist']) / max(1.0, scr['shoulder_w'])   # waist-up: the waist sits at / just under the frame bottom (screen waist = source waist row transformed; it is at the frame edge)
+    R = dict(shoulder_w=scr['shoulder_w'], top=scr['top'], cx=scr['cx'], waist=scr['waist'], crop=round(c, 3), layer_bottom=scr.get('layer_bottom'), ext=ext,
+             height_frac=round((1920 - scr['top']) / 1920, 3))
     R['ok_shoulder'] = abs(scr['shoulder_w'] - lock['shoulder']) <= lock['shoulder_tol'] * lock['shoulder']
     R['ok_top'] = abs(scr['top'] - lock['top']) <= lock['px_tol']
     R['ok_cx'] = abs(scr['cx'] - lock['cx']) <= 2 * lock['px_tol']
-    R['ok_crop'] = lock['crop_min'] <= c <= lock['crop_max']            # mid-thigh: fingertips on screen, cut above the knee
+    R['ok_crop'] = lock['crop_min'] <= c <= lock['crop_max']            # waist-up: frame bottom between just above the waist and the hip
+    R['ok_height'] = 0.45 <= R['height_frac'] <= 0.50                   # owner 25/10: host ~45-50 % of the frame height
     R['ok_bottom'] = (scr.get('layer_bottom') or 0) >= 1920 and ext <= lock['max_ext']   # body runs past the frame edge, little leg extension
     R['ok'] = all(v for k, v in R.items() if k.startswith('ok_')); return R
 
@@ -68,5 +71,5 @@ def batch(items, lock):
     sw = [r['shoulder_w'] for _, _, r in items]; med = statistics.median(sw); tops = [r['top'] for _, _, r in items]; cr = [r['crop'] for _, _, r in items]
     out = [i for i, _, r in items if abs(r['shoulder_w'] - med) > lock['shoulder_tol'] * med or not r.get('ok')]
     R = dict(shoulder_median=med, shoulder_spread=round((max(sw) - min(sw)) / med, 3), top_spread=max(tops) - min(tops), crop_spread=round(max(cr) - min(cr), 3),
-             by_host={h: dict(shoulder_w=r['shoulder_w'], top=r['top'], cx=r['cx'], crop=r['crop'], fingertips=r['fingertips']) for _, h, r in items}, outliers=out)
+             by_host={h: dict(shoulder_w=r['shoulder_w'], top=r['top'], cx=r['cx'], crop=r['crop'], waist=r['waist']) for _, h, r in items}, outliers=out)
     R['ok'] = not out and R['top_spread'] <= lock['px_tol'] and R['crop_spread'] <= lock['crop_spread']; return R

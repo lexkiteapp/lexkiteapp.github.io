@@ -5,8 +5,8 @@
 Accept = every qc gate ok AND score >= tokens.RUBRIC_MIN (90). Points (rubric C):
   hook 15 (hook beat on screen <= 0.3 s, COMPLETE hook text readable by 1.5 s = gate hook_readable, hook_truth) · knowledge 20 (Groq judge: correction ok + honest hook)
   lip-sync 15 (Rhubarb cues on every line + one host transform) · audio 10 (-16 LUFS ±1, true peak <= -1 dBTP, music bed <= -24 dB)
-  text 10 (safe area + readability + no jitter) · pacing 10 (one moving group, no unmotivated cut, 25-35 s) · brand 10 (clean plate, motion tokens,
-  host framing standard) · CTA 5 (deep link + loop end) · share value 5 (quiz + recap present; real saves/shares are measured after publishing)."""
+  text 10 (safe area + readability + no jitter + caption_sync ±80 ms) · pacing 10 (one moving group, no unmotivated cut, 25-35 s) · brand 10 (clean plate, motion tokens,
+  host framing standard, host_perspective, host_sharp, host_motion) · CTA 5 (deep link + loop end) · share value 5 (quiz + recap present; real saves/shares are measured after publishing)."""
 import sys, os, json, re, subprocess, statistics
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tokens import RUBRIC_MIN, HOST_LOCK
@@ -24,12 +24,13 @@ def score(vid):
     pts = {}
     pts['hook'] = 15 if (hook_on and ok('hook_truth', 'hook_readable')) else (8 if hook_on else 0)
     pts['knowledge'] = 20 if ok('hook_truth') else 0
-    pts['lipsync'] = 15 if ok('lipsync_rhubarb', 'host_variance') else 0
+    pts['lipsync'] = 15 if ok('lipsync_rhubarb', 'host_variance', 'align_audio') else 0
     I, TP = loudness(vid); mus = (T.get('audio') or {}).get('music_rms_dbfs', 0)
     pts['audio'] = (6 if I is not None and abs(I + 16) <= 1 else 0) + (2 if TP is not None and TP <= -1.0 else 0) + (2 if mus <= -24 else 0)
-    pts['text'] = round(10 * sum(ok(k) for k in ('safe_area', 'readability', 'no_jitter')) / 3)
+    pts['text'] = round(10 * sum(ok(k) for k in ('safe_area', 'readability', 'no_jitter', 'caption_sync')) / 4)
     pts['pacing'] = round(10 * sum(ok(k) for k in ('one_moving_group', 'no_unmotivated_cut', 'file')) / 3)
-    pts['brand'] = round(10 * sum(ok(k) for k in ('plate_clean', 'plate_topic', 'motion_tokens', 'host_frame_std', 'host_frame', 'plate_contrast')) / 6)
+    BR = ('plate_clean', 'plate_topic', 'motion_tokens', 'host_frame_std', 'host_frame', 'plate_contrast', 'host_perspective', 'host_sharp', 'host_motion')
+    pts['brand'] = round(10 * sum(ok(k) for k in BR) / len(BR))
     pts['cta'] = 5 if ok('loop_end') and (T.get('cta') or {}).get('link', '').startswith('https://lexkite.com/') else 0
     pts['share'] = 5 if any(k.startswith('e.') for k in T['elements']) and T.get('beats', {}).get('r2') else 3
     total = sum(pts.values()); gates_ok = all(g['ok'] for g in G.values())

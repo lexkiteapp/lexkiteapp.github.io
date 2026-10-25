@@ -56,7 +56,7 @@ const hf = fs.readFileSync('scripts/video/tpl/hostframe.py', 'utf8');
 ok(/def landmarks\(/.test(hf) && /def check\(/.test(hf) && /def batch\(/.test(hf), 'hostframe.py measures shoulder width + crop line on the matte, per video + batch');
 ok(/HF\.check\(SL, HOST_LOCK/.test(fs.readFileSync('scripts/video/tpl/render_tpl.py', 'utf8')), 'render re-measures the framing on the SCREEN matte');
 const qc = fs.readFileSync('scripts/video/tpl/qc_tpl.py', 'utf8');
-for (const g of ['host_frame_std', 'host_frame', 'lipsync_rhubarb', 'hook_truth', 'hook_readable', 'loop_end']) ok(qc.includes(`R['${g}']`), `qc_tpl gate ${g}`);
+for (const g of ['host_frame_std', 'host_frame', 'lipsync_rhubarb', 'hook_truth', 'hook_readable', 'loop_end', 'host_perspective', 'host_sharp', 'host_motion', 'caption_sync', 'align_audio']) ok(qc.includes(`R['${g}']`), `qc_tpl gate ${g}`);
 ok(/batch_host_scale/.test(fs.readFileSync('scripts/video/tpl/batch_report.py', 'utf8')) && /HF\.batch\(/.test(fs.readFileSync('scripts/video/tpl/batch_report.py', 'utf8')), 'batch framing gate across hosts');
 ok(/scrim_last/.test(qc) && /hook_full/.test(qc), 'qc: loop end back to the clean plate, complete hook readable at 1.5 s');
 ok(/lip-sync: Rhubarb cues missing/.test(fs.readFileSync('scripts/video/tpl/render_tpl.py', 'utf8')), 'render refuses estimated visemes');

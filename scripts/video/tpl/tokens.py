@@ -18,7 +18,9 @@ C = dict(navy=(15, 61, 62), navy2=(23, 89, 90), red=(229, 80, 47), cream=(255, 2
 
 # motion: three durations, one easing family (quint cubic-beziers)
 DUR = dict(fast=0.2, base=0.3, slow=0.5)
-EASE = dict(out=(0.22, 1, 0.36, 1), inn=(0.64, 0, 0.78, 0), inout=(0.83, 0, 0.17, 1))
+EASE = dict(out=(0.22, 1, 0.36, 1), inn=(0.64, 0, 0.78, 0), inout=(0.83, 0, 0.17, 1),
+            spring=(0.34, 1.56, 0.64, 1))                         # spring = ONE overshoot then settle (card spring-in); qc no_jitter allows exactly one reversal for it
+BOUNCE = 0.08                                                     # correct-answer bounce: scale 1 -> 1.08 -> 1 over DUR.slow (one reversal)
 TRAVEL = dict(rise=40, slide=120)                                 # entry travel in px (rise = from below, slide = from the right)
 MIN_READ = 0.8                                                    # s a text block stays fully visible
 MIN_PX = 48
@@ -50,29 +52,39 @@ def bezier(p, x):
 # Plates = anchor/bg/<name>.png (lexkite-footage, 1536x2720 flat2d-warm). Only plates a human checked for "no people, no readable text"
 # are listed; tags = the lesson topics/areas a plate may illustrate (qc_tpl.py plate_topic gate).
 PLATES = dict(
-    airport_gate=dict(tags=['travel', 'airport', 'flight', 'boarding'], series='AIRPORT ENGLISH', people=0, text=0, checked='2026-10-24'),
-    airport_gate_night=dict(tags=['travel', 'airport', 'flight'], series='AIRPORT ENGLISH', people=0, text=0, checked='2026-10-24'),
-    hotel_lobby=dict(tags=['travel', 'hotel', 'check-in'], series='HOTEL ENGLISH', people=0, text=0, checked='2026-10-24'),
-    restaurant_night=dict(tags=['food', 'restaurant', 'ordering', 'dinner'], series='RESTAURANT ENGLISH', people=0, text=0, checked='2026-10-24'),
-    restaurant_day=dict(tags=['food', 'restaurant', 'ordering'], series='RESTAURANT ENGLISH', people=0, text=0, checked='2026-10-24'),
-    coffee_shop_day=dict(tags=['food', 'social', 'coffee', 'cafe', 'ordering'], series='CAFE ENGLISH', people=0, text=0, checked='2026-10-24'),
+    airport_gate=dict(tags=['travel', 'airport', 'flight', 'boarding'], series='AIRPORT ENGLISH', people=0, text=0, checked='2026-10-24', horizon=1590, ref=('seat back', 1700, 2050, 0.85)),
+    airport_gate_night=dict(tags=['travel', 'airport', 'flight'], series='AIRPORT ENGLISH', people=0, text=0, checked='2026-10-24', horizon=1630, ref=('bench', 1620, 2000, 0.85)),
+    hotel_lobby=dict(tags=['travel', 'hotel', 'check-in'], series='HOTEL ENGLISH', people=0, text=0, checked='2026-10-24', horizon=1640, ref=('door', 1370, 1760, 2.1)),
+    restaurant_night=dict(tags=['food', 'restaurant', 'ordering', 'dinner'], series='RESTAURANT ENGLISH', people=0, text=0, checked='2026-10-24', horizon=1480, ref=('chair', 1560, 2000, 0.95)),
+    restaurant_day=dict(tags=['food', 'restaurant', 'ordering'], series='RESTAURANT ENGLISH', people=0, text=0, checked='2026-10-24', horizon=1560, ref=('booth back', 1440, 2010, 1.2)),
+    coffee_shop_day=dict(tags=['food', 'social', 'coffee', 'cafe', 'ordering'], series='CAFE ENGLISH', people=0, text=0, checked='2026-10-24', horizon=1650, ref=('table', 1640, 2000, 0.75)),
     # 24/10 batch pipeline: plates checked on a contact sheet (no people, no readable text; bank/clinic/city_street_day REJECTED: wall signs);
     # 'vision' = checked by the pipeline agent, owner confirms on the first batch sheet (docs/VIDEO-TEMPLATES.md §9)
-    office_open_plan=dict(tags=['work', 'tech', 'office'], series='OFFICE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    meeting_room=dict(tags=['work', 'meeting', 'office'], series='MEETING ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    coworking=dict(tags=['work', 'tech', 'office'], series='OFFICE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    exam_hall=dict(tags=['exam', 'study', 'exams'], series='EXAM ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    library=dict(tags=['study', 'exam', 'library'], series='LIBRARY ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    clothing_store=dict(tags=['shopping', 'store'], series='STORE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    supermarket=dict(tags=['shopping', 'food', 'store'], series='STORE ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    pharmacy=dict(tags=['health', 'pharmacy'], series='PHARMACY ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    living_room=dict(tags=['home', 'daily', 'social'], series='HOME ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    kitchen=dict(tags=['home', 'daily', 'food', 'kitchen'], series='KITCHEN ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
-    park=dict(tags=['social', 'daily', 'park'], series='PARK ENGLISH', people=0, text=0, checked='2026-10-24 vision'),
+    office_open_plan=dict(tags=['work', 'tech', 'office'], series='OFFICE ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1500, ref=('desk', 1780, 2120, 0.75)),
+    meeting_room=dict(tags=['work', 'meeting', 'office'], series='MEETING ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1560, ref=('chair', 1640, 1880, 1.0)),
+    coworking=dict(tags=['work', 'tech', 'office'], series='OFFICE ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1500, ref=('chair', 1830, 2060, 0.9)),
+    exam_hall=dict(tags=['exam', 'study', 'exams'], series='EXAM ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1480, ref=('desk', 1620, 1980, 0.75)),
+    library=dict(tags=['study', 'exam', 'library'], series='LIBRARY ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1880, ref=('reading table', 1950, 2150, 0.75)),
+    clothing_store=dict(tags=['shopping', 'store'], series='STORE ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1640, ref=('fitting-room door', 1320, 1720, 2.0)),
+    supermarket=dict(tags=['shopping', 'food', 'store'], series='STORE ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1560, ref=('cart', 1570, 1680, 1.0)),
+    pharmacy=dict(tags=['health', 'pharmacy'], series='PHARMACY ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1560, ref=('counter', 1550, 1790, 1.0)),
+    living_room=dict(tags=['home', 'daily', 'social'], series='HOME ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1640, ref=('sofa', 1570, 1700, 0.9)),
+    kitchen=dict(tags=['home', 'daily', 'food', 'kitchen'], series='KITCHEN ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1540, ref=('counter', 1560, 1820, 0.9)),
+    park=dict(tags=['social', 'daily', 'park'], series='PARK ENGLISH', people=0, text=0, checked='2026-10-24 vision', horizon=1580, ref=('bench', 1660, 1740, 0.85)),
 )
 # hosts with a PRO matte + mouth meta in the footage bank; voice = Kokoro voice used for EVERY line of that host's video
-HOSTS = dict(ama=dict(voice='af_bella'), carlos=dict(voice='am_fenrir'), mia=dict(voice='af_heart'), jake=dict(voice='am_michael'))
-PLATE = dict(blur=7.0, push=0.035, max_push_per_s=0.0025, scrim_top=0.70, scrim_y1=0.66, sat=0.82, host_match=0.35, stage_luma=226, scrim_rest=0.0)   # scrim_rest = scrim alpha with no text on screen (frame 0 + loop end: clean plate); depth blur px, total push-in, cream scrim alpha/extent, saturation, host colour-match strength
+HOSTS = dict(ama=dict(voice='af_bella', eye=0.60), carlos=dict(voice='am_fenrir', eye=0.57), mia=dict(voice='af_heart', eye=0.52), jake=dict(voice='am_michael', eye=0.55))
+# eye = eye row as a fraction hair-top -> neck on the matte (measured on frame 0 of the talk clips, 25/10). Real shoulder width for the size check:
+SHOULDER_M, EYE_M = 0.42, 1.55
+SWAY = dict(deg=0.35, period=6.0, pivot_y=2600)   # host idle sway: rotation about a pivot under the frame (hips), whole periods per video (loop), Lanczos warp
+PLATE = dict(blur=3.5, push=0.035, max_push_per_s=0.0025, sat=1.0, lift=0.03, host_match=0.35, stage_luma=226, scrim_rest=0.0, max_zoom=1.36)
+# v4 (owner 25/10 'lighter wash'): NO full-width cream scrim any more – the plate stays vivid (less depth blur, full saturation, 3 % cream lift) and a soft
+# cream PANEL sits only behind the text cards of the current beat (feathered rounded rect, morphs between beats). panel alpha adapts per beat so the luma
+# UNDER the type stays >= stage_luma (qc plate_contrast measures it under every beat's panel). scrim_rest = panel alpha with no text (frame 0 + loop end).
+# Plate placement (owner 25/10 'physically plausible'): the plate is zoomed (<= max_zoom, never past the source resolution) and shifted so its horizon
+# (PLATES.horizon, eye-level line) lands on the host's eye line; the push-in is centred on that point. qc host_perspective checks it + the host size
+# against the plate's reference object (PLATES.ref: px top/bottom in the 1536x2720 plate + real height in m; measured by eye 25/10, owner to confirm).
+PANEL = dict(alpha=0.86, max_alpha=0.95, pad=36, radius=44, feather=22)   # scrim_rest = scrim alpha with no text on screen (frame 0 + loop end: clean plate); depth blur px, total push-in, cream scrim alpha/extent, saturation, host colour-match strength
 
 # ---- ONE framing standard for every host (owner 24/10, 2nd round: head-pixel height was the wrong metric – Carlos (realistic proportions) came out
 # waist-cropped with wide shoulders, Ama/Mia (big-head style) small). Measured on the MATTE by hostframe.py, then re-measured on screen:
@@ -83,8 +95,14 @@ PLATE = dict(blur=7.0, push=0.035, max_push_per_s=0.0025, scrim_top=0.70, scrim_
 # qc_tpl host_frame_std = this check per video; batch gate (batch_report / rubric_tpl --batch): shoulder widths within +-shoulder_tol of the batch
 # median, head tops within px_tol, crop class for every host. Proportions differ (Carlos ~2.6 shoulder widths hair->fingertips, Ama ~3.2), so with
 # equal shoulders the crop line cannot also be pixel-identical: crop_spread (in shoulder widths) is the honest cap on that difference.
-HOST_LOCK = dict(shoulder=258, fit=0.02, shoulder_tol=0.05, top=1064, cx=540, crop=1880, crop_min=0.08, crop_max=0.65, crop_spread=0.45,
+# v4 (owner 25/10): WAIST-UP medium shot, host ~47 % of the frame height (top 1024 -> frame bottom). crop = target screen y of the WAIST
+# (waist = halfway shoulder corner -> rest-pose fingertips on the matte); crop class 'waist-up': (1920 - waist) / shoulder in [crop_min, crop_max]
+# (frame bottom between just above the waist and the hip). Scale stays <= 1.0: every host is a native DOWNscale of the 1080x1916 matte (no upscale blur).
+HOST_LOCK = dict(shoulder=392, fit=0.03, shoulder_tol=0.05, top=1024, cx=540, crop=1861, crop_min=-0.35, crop_max=0.6, crop_spread=0.6,
                  px_tol=4, max_ext=120, max_scale=1.0)
+CAPTION = dict(size=76, y=928, max_words=4, stroke=6, pill=(255, 201, 74), sync_ms=80)   # word-level karaoke band between the cards and the host's head
+VIDEO = dict(min_mbps=8.0, min_s=25, max_s=40, max_mb=60, target_kbps=8600)              # samples: >= 8 Mbps 1080x1920 (owner 25/10)
+SHARP = dict(min_ratio=0.80)                                                              # host-region Laplacian variance, encoded / rendered frame
 # hosts used by the batch pipeline (one natural-talk clip each; PRO matte + mouth meta in the footage bank)
 HOST_CLIPS = dict(ama='ga4_talk_natural', carlos='gc4_talk_natural', mia='gm1_talk_natural')
 # hook truth (docs/VIDEO-TEMPLATES.md §9): "Stop/Never saying" only when the Groq judge says the learner line is a real error

@@ -4,10 +4,10 @@
 Reads <id>.result.txt / <id>.mp4.rubric.json of every matrix job → batch host-framing gate (hostframe.batch: shoulder widths within
 ±HOST_LOCK.shoulder_tol of the batch median, same head top, crop spread capped; outliers are rejected) → accepted.txt (store_tpl.py), report.json + report.md (scores, failed gates, the one fix tried,
 judge rejects), contact-sheet.jpg (hook / payoff / last frame of every render, label = id · host · score · status) and samples/ (3 best
-accepted mp4 at >= 5.5 Mbps). Exit 0 always – the workflow fails on 0 accepted."""
+accepted mp4 at >= tokens.VIDEO.min_mbps). Exit 0 always – the workflow fails on 0 accepted."""
 import sys, os, json, glob, statistics, subprocess, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tokens import HOST_LOCK
+from tokens import HOST_LOCK, VIDEO
 import hostframe as HF
 from PIL import Image, ImageDraw, ImageFont
 bd, bn = sys.argv[1], sys.argv[2]; jr = sys.argv[3] if len(sys.argv) > 3 else None
@@ -68,11 +68,11 @@ if vids:
             dh.text((x, y), f"{r['host']} · t={t:.1f}s", fill=(20, 60, 60), font=ft)
             if os.path.exists(fp):
                 im = Image.open(fp).convert('RGB'); d2 = ImageDraw.Draw(im)
-                for yy in (HOST_LOCK['top'], HOST_LOCK['crop']): d2.line((0, yy * HH_ / 1920, HW_, yy * HH_ / 1920), fill=(229, 80, 47), width=1)   # HOST_LOCK top / crop guides
+                for yy in (HOST_LOCK['top'], HOST_LOCK['crop']):   # head top / waist target d2.line((0, yy * HH_ / 1920, HW_, yy * HH_ / 1920), fill=(229, 80, 47), width=1)   # HOST_LOCK top / crop guides
                 hs.paste(im, (x, y + 22)); os.remove(fp)
     hs.save(f'{bd}/hosts-sheet.jpg', quality=88)
 os.makedirs(f'{bd}/samples', exist_ok=True)
-cand = sorted([r for r in acc if (r['mbps'] or 0) >= 5.5], key=lambda r: -r['score']); pick = []
+cand = sorted([r for r in acc if (r['mbps'] or 0) >= VIDEO['min_mbps']], key=lambda r: -r['score']); pick = []
 for r in cand:   # best per host first (one sample per host), then the next best
     if r['host'] not in {x['host'] for x in pick}: pick.append(r)
 pick += [r for r in cand if r not in pick]

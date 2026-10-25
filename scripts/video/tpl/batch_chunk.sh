@@ -1,6 +1,6 @@
 #!/bin/bash
 # One matrix job of video-tpl1b.yml (docs/VIDEO-TEMPLATES.md §9): for each lesson id → voice (Kokoro, host voice; Rhubarb; word times)
-# → render_tpl.py (tpl 1b, CRF 18 + 5.5 Mbps floor) → qc_tpl.py → rubric_tpl.py (accept = all gates + score ≥ 90).
+# → render_tpl.py (tpl 1b, lossless master → CRF 18 with the tokens.VIDEO 8 Mbps floor) → qc_tpl.py → rubric_tpl.py (accept = all gates + score ≥ 90).
 # Rejected → ONE automatic fix (fix_tpl.py: remux / re-encode / re-render with another plate / host / shorter formula) → qc + rubric again.
 # usage: batch_chunk.sh <id,id,...> <out-dir>   env: TD (lessons dir), ND (voice work dir), RHUBARB, KOKORO_NODE_PATH; footage/ = sparse bank
 #   NO_AUTOFIX=1 (video-tpl1b-samples.yml): no automatic fix – a rejected sample is fixed by hand at the real cause (host/plate stay as chosen)
