@@ -192,6 +192,9 @@ for c1 in RAW:
     for c2 in RAW:
         a1, a2 = np.stack(SMALL[c1]), np.stack(SMALL[c2]); D = _ghost(a1, a2)
         if FACE_S[c1][0].shape == FACE_S[c2][0].shape: D = D + 0.25 * _ghost(np.stack(FACE_S[c1]), np.stack(FACE_S[c2]))
+        if BRD:   # v10: the moving body (arms, hands) weighs in on its own: a seam joins matching arm poses, never a raised arm into a lowered one
+            ys_, xs_ = np.nonzero(_bmask(_bk[c1]['board']['body'])); y0_, y1_, x0_, x1_ = ys_.min() // 8, ys_.max() // 8 + 1, xs_.min() // 8, xs_.max() // 8 + 1
+            D = D + 1.5 * _ghost(a1[:, y0_:y1_, x0_:x1_], a2[:, y0_:y1_, x0_:x1_])
         DM[(c1, c2)] = D * 100   # percent of the frame
 def dif(c1, i1, c2, i2): return float(DM[(c1, c2)][i1, i2])
 SEAM = {}   # SEAM[(c, n)][b, e] = mean distance over the whole dissolve (c: b-XF+1 .. b  ->  n: e .. e+XF-1), worst frame weighted in
@@ -930,7 +933,7 @@ def morph(Fa, Fb, w):   # flow-based in-between of two frames at time w (0 = Fa,
     fab = cv2.resize(cv2.calcOpticalFlowFarneback(ga, gb, None, 0.5, 5, 31, 4, 7, 1.5, 0), (W, H)) * 2; fba = cv2.resize(cv2.calcOpticalFlowFarneback(gb, ga, None, 0.5, 5, 31, 4, 7, 1.5, 0), (W, H)) * 2
     Wa = cv2.remap(Fa, GX - w * fab[..., 0], GY - w * fab[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
     Wb = cv2.remap(Fb, GX - (1 - w) * fba[..., 0], GY - (1 - w) * fba[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-    wb = min(1.0, max(0.0, (w - 0.5) * 4 + 0.5))   # v10: steep blend (positions follow w): at most ~2 frames carry a faint second pose, no see-through arm frames
+    wb = 1.0 if w >= 0.5 else 0.0   # v10: flow-warped switch (positions follow w, no pixel blend): never a see-through arm / blurry hand at a seam
     return np.clip(Wa.astype(np.float32) * (1 - wb) + Wb.astype(np.float32) * wb + 0.5, 0, 255).astype(np.uint8)
 os.makedirs(o.out + '.samples', exist_ok=True)
 PREV = {min(NF - 1, int(round(float(x) * FPS))) for x in o.preview.split(',')} if o.preview else None
