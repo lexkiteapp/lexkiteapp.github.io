@@ -3,8 +3,8 @@
 // chuỗi rất ngắn rơi vào vùng style ít được huấn luyện. Các cách thử: câu mang (carrier) rồi cắt lấy từ, đệm dấu câu, style của chuỗi dài hơn.
 import fs from 'node:fs';
 export const SR = 24000;
-// q8 (lượng tử hoá 8 bit) nhanh nhưng bf_emma hay thêm đuôi "-y" ("justy", "breakfasty") – lab so với fp32
-export const DTYPE = process.env.KOKORO_DTYPE || 'q8';
+// fp32 (lab 25/10: đạt nhiều hơn q8 và tạo nhanh hơn trên CPU CI). Khóa |s3 gắn với lựa chọn này – đổi thì đổi hậu tố WAV.
+export const DTYPE = process.env.KOKORO_DTYPE || 'fp32';
 export async function loadKokoro(require) {
   const { KokoroTTS } = require('kokoro-js'), { Tensor } = require('@huggingface/transformers');
   let tts = null;
@@ -37,11 +37,12 @@ export function trim(pcm, thr = -45) { const db = frames(pcm), F = SR / 100; let
 const raw = async (k, carrier, w, v, ph, speed) => { const mid = a => a.slice(1, -1), c = ph ? k.phIds(ph + '.') : await k.ids(w + '.', v); return (await k.run([0, ...mid(await k.ids(carrier, v)), ...mid(k.phIds(' ')), ...mid(c), 0], v, speed)).pcm; };
 // Phương án theo thứ tự ưu tiên (gen-word-audio.mjs: vòng 1 = phương án đầu, vòng 2 = các phương án còn lại). (k, từ, giọng, phiên âm mạnh?) → pcm | null
 export const METHODS = {
-  cut_next: (k, w, v, ph) => raw(k, 'Next word.', w, v, ph, 0.9),
   cut_wordis: (k, w, v, ph) => raw(k, 'The word is:', w, v, ph, 0.9),
   dot100: async (k, w, v, ph) => trim((await k.run(ph ? k.phIds(ph + '.') : await k.ids(w + '.', v), v, 1.0)).pcm),
-  dot090: async (k, w, v, ph) => trim((await k.run(ph ? k.phIds(ph + '.') : await k.ids(w + '.', v), v, 0.9)).pcm),
+  cut_wordis100: (k, w, v, ph) => raw(k, 'The word is:', w, v, ph, 1.0),
+  cut_next: (k, w, v, ph) => raw(k, 'Next word.', w, v, ph, 0.9),
   plain095: async (k, w, v) => trim((await k.run(await k.ids(w, v), v, 0.95)).pcm),
+  dot090: async (k, w, v, ph) => trim((await k.run(ph ? k.phIds(ph + '.') : await k.ids(w + '.', v), v, 0.9)).pcm),
 };
 // lab: mọi phương án
 export function variants(k, w, v, ph) { return Object.fromEntries(Object.entries(METHODS).map(([n, f]) => [n, () => f(k, w, v, ph)])); }

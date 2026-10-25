@@ -1,81 +1,57 @@
-# Nghe lại giọng từ đơn bằng nhận dạng giọng nói (faster-whisper, chỉ chạy trên CI – word-audio.yml) + kiểm độ dài.
-#  1) Từ dạng mạnh (.s2-cand/manifest.json do gen-word-audio.mjs ghi): mỗi từ × giọng chọn bản thử đầu tiên được nhận đúng từ
-#     (chấp nhận đồng âm, vd. to → two/too) và dài 0,15–1,6 s → chép sang OUT/<fnv(giọng|từ|s2)>.mp3, ghi web/audio/w/s2.txt.
-#     Có từ không đạt → thoát 1 (job dừng, không đẩy file nào).
-#  2) --sample N: tải ngẫu nhiên N file cũ trên audio.lexkite.com/audio/w/ và báo bao nhiêu file không được nhận đúng (chỉ báo cáo).
-#   python3 scripts/word-audio-asr.py [--manifest .s2-cand/manifest.json] [--sample 100]
-import argparse, json, os, random, re, shutil, subprocess, sys, tempfile, urllib.request
+# Nghe lại giọng từ đơn bằng faster-whisper (chỉ CI – word-audio.yml) + kiểm độ dài. Chỉ file ĐẠT mới được chép ra để đẩy lên kho media.
+#  --manifest .s3-cand/manifest.json (gen-word-audio.mjs ghi): mỗi (từ, giọng) chọn bản thử đầu tiên được nghe đúng (đồng âm được chấp nhận, asr_lib.HOMO)
+#     và dài hợp lý (asr_lib.dur_ok) → chép sang out (…/<fnv(giọng|từ|s3)>.mp3). Kết quả → --res (JSON {"từ\tgiọng": "ok" | lý do});
+#     (từ, giọng) trượt → .s3-cand/fail.json cho vòng 2. --old: nghe luôn file cũ (khóa không |s3) để thống kê "trước".
+#  --sample N: tải ngẫu nhiên N file đang phục vụ trên audio.lexkite.com/audio/w/ và báo bao nhiêu file không được nhận đúng (chỉ báo cáo).
+import argparse, json, os, random, shutil, sys, tempfile, time
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'word-audio'))
+from asr_lib import check, fetch, fnv, prepare
 ap = argparse.ArgumentParser()
-ap.add_argument('--manifest', default='.s2-cand/manifest.json'); ap.add_argument('--sample', type=int, default=0)
-ap.add_argument('--model', default='small.en'); ap.add_argument('--base', default='https://audio.lexkite.com/audio/w/')
-a = ap.parse_args()
-HOMO = {'to': ['two', 'too'], 'for': ['four', 'fore'], 'a': ['ay', 'eh', 'hey a'], 'the': ['thee'], 'be': ['bee', 'b'], 'there': ['their', 'theyre'],
-        'you': ['u', 'yew', 'ewe'], 'we': ['wee', 'oui'], 'or': ['oar', 'ore', 'awe', 'aw'], 'nor': ['gnaw', 'naw'], 'so': ['sew', 'sow'],
-        'would': ['wood'], 'some': ['sum'], 'do': ['due', 'dew'], 'but': ['butt'], 'into': ['in to'], 'onto': ['on to'], 'he': ['hee'], 'and': ['an']}
-DIG = {'0': ' zero ', '1': ' one ', '2': ' two ', '3': ' three ', '4': ' four ', '5': ' five ', '6': ' six ', '7': ' seven ', '8': ' eight ', '9': ' nine '}
-# Whisper viết số ("2", "4") → đổi ra chữ trước khi so (trước đây "2" thành rỗng → to/for đúng mà bị đánh trượt); tiêu chí so khớp không đổi
-norm = lambda s: re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', '', re.sub(r'\d', lambda m: DIG[m.group()], s.lower()).replace('-', ' '))).strip()
-def heard_ok(word, text):
-    t = norm(text); ok = {norm(word)} | {norm(h) for h in HOMO.get(word.lower(), [])}
-    return t in ok or t.replace(' ', '') in {x.replace(' ', '') for x in ok}
-def dur(f):
-    try: return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).decode().strip())
-    except Exception: return 0.0
-def fnv(s):
-    h = 0x811c9dc5
-    for ch in s: h = ((h ^ ord(ch)) * 0x01000193) & 0xffffffff
-    d = '0123456789abcdefghijklmnopqrstuvwxyz'; o = ''
-    while True:
-        h, r = divmod(h, 36); o = d[r] + o
-        if not h: return o
-def fetch(url, f):
-    try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'lexkite-ci-asr'})
-        with urllib.request.urlopen(req, timeout=20) as r, open(f, 'wb') as w: w.write(r.read()); return True
-    except Exception: return False
-from faster_whisper import WhisperModel
-model = WhisperModel(a.model, device='cpu', compute_type='int8')
-# Whisper nghe kẹp < 1 s rất kém (base.en bịa thêm "I/We/You…", 25/10: 34/70 bản thử + 32/100 file cũ "sai" dù nghe đúng):
-# đệm 0,6 s lặng hai đầu (16 kHz mono) + mô hình small.en, giải mã tham lam nhiệt độ 0. Tiêu chí chấp nhận (heard_ok, độ dài) GIỮ NGUYÊN.
-def pad(f):
-    w = f + '.pad.wav'
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'adelay=600:all=1,apad=pad_dur=0.6', '-ar', '16000', '-ac', '1', w], check=True)
-    return w
-def hear(f):
-    seg, _ = model.transcribe(pad(f), language='en', beam_size=5, temperature=0.0, without_timestamps=True, condition_on_previous_text=False)
-    return ''.join(s.text for s in seg).strip()
-out, bad = [], 0
-tmp = tempfile.mkdtemp()
-if os.path.exists(a.manifest):
-    rows = json.load(open(a.manifest)); res = {}
-    out.append('## Từ dạng mạnh (s2)\n| từ | giọng | chọn | nghe được | dài mới | dài cũ |\n|---|---|---|---|---|---|')
+ap.add_argument('--manifest', default=''); ap.add_argument('--res', default='.wa-res/res.json'); ap.add_argument('--old', action='store_true')
+ap.add_argument('--sample', type=int, default=0); ap.add_argument('--suffix', default='|s3'); ap.add_argument('--minutes', type=float, default=1e6)
+ap.add_argument('--final', action='store_true')  # vòng cuối: trượt = lý do chính thức (không có: "pending: …" chờ vòng 2)
+ap.add_argument('--base', default='https://audio.lexkite.com/audio/w/')
+a = ap.parse_args(); t0 = time.time(); tmp = tempfile.mkdtemp(); out = []
+res = json.load(open(a.res)) if os.path.exists(a.res) else {}
+if a.manifest and os.path.exists(a.manifest):
+    rows = json.load(open(a.manifest)); fail, n_ok, n = [], 0, 0
     for r in rows:
-        pick, tried = None, []
-        for i, c in enumerate(r['cands']):
-            t, d = hear(c), dur(c); tried.append(f'c{i}:"{t}" {d:.2f}s')
-            if heard_ok(r['word'], t) and 0.15 <= d <= 1.6: pick = (i, t, d); break
-        old = os.path.join(tmp, 'old.mp3'); od = dur(old) if fetch(a.base + fnv(r['voice'] + '|' + r['word']) + '.mp3', old) else 0
+        if time.time() - t0 > a.minutes * 60: break  # hết giờ: (từ, giọng) chưa nghe → không ghi kết quả → lượt sau làm lại
+        key = r['word'] + '\t' + r['voice']; tried = []; pick = None
+        for c in r['cands']:
+            fs, why = prepare(r['word'], c['f'], c['m'])
+            if not fs: tried.append(f'{c["m"]}: {why}'); continue
+            for f in fs:
+                ok, t, d = check(r['word'], f); tried.append(f'{c["m"]}:"{t}" {d:.2f}s')
+                if ok: pick = dict(c, f=f); break
+            if pick: break
+        if a.old and r.get('old'):
+            f = os.path.join(tmp, 'old.mp3')
+            if fetch(a.base + fnv(r['voice'] + '|' + r['word']) + '.mp3', f):
+                ok, t, d = check(r['word'], f); res['old\t' + key] = 'ok' if ok else f'"{t}" {d:.2f}s'
+        n += 1
         if pick:
-            os.makedirs(os.path.dirname(r['out']), exist_ok=True); shutil.copyfile(r['cands'][pick[0]], r['out'])
-            out.append(f"| {r['word']} | {r['voice']} | c{pick[0]} | {pick[1]} | {pick[2]:.2f}s | {od:.2f}s |")
+            os.makedirs(os.path.dirname(r['out']), exist_ok=True); shutil.copyfile(pick['f'], r['out']); res[key] = 'ok'; n_ok += 1
         else:
-            bad += 1; out.append(f"| {r['word']} | {r['voice']} | ✗ | {' · '.join(tried)} | | {od:.2f}s |")
-        res.setdefault(r['word'], []).append(bool(pick))
-    done = sorted(w for w, v in res.items() if len(v) == 2 and all(v))
-    s2 = 'web/audio/w/s2.txt'; prev = set(open(s2).read().split()) if os.path.exists(s2) else set()
-    if not bad: open(s2, 'w').write('\n'.join(sorted(prev | set(done))) + '\n')
-    out.append(f'\n**s2: {len(done)}/{len(res)} từ đạt cả 2 giọng · {bad} file không đạt**')
+            prev = res.get(key, '').replace('pending: ', ''); why = ((prev + ' · ') if prev and prev != 'ok' else '') + (' · '.join(tried) or 'không tạo được bản thử')
+            res[key] = why if a.final else 'pending: ' + why
+            fail.append({k: r[k] for k in ('word', 'voice', 'old') if k in r})
+    os.makedirs(os.path.dirname(a.res) or '.', exist_ok=True); json.dump(res, open(a.res, 'w'), ensure_ascii=False, indent=0)
+    json.dump(fail, open(os.path.join(os.path.dirname(a.manifest), 'fail.json'), 'w'))
+    out.append(f'## {a.manifest}: {n_ok}/{n} (từ × giọng) đạt · {len(fail)} trượt' + (f' · {len(rows) - n} chưa nghe (hết giờ)' if n < len(rows) else ''))
+    out += ['- ' + x['word'] + '/' + x['voice'] + ': ' + res[x['word'] + '\t' + x['voice']][:200] for x in fail[:60]]
 if a.sample > 0:
-    s2w = set(re.findall(r"(\w+): \['", open('scripts/word-audio-strong.mjs').read()))
-    words = [w for w in open('web/audio/w/index.txt').read().split('\n') if w and w not in s2w]
+    st = {l.split('\t')[0]: l.split('\t')[1:] for l in open('web/audio/w/s3.tsv').read().split('\n') if l} if os.path.exists('web/audio/w/s3.tsv') else {}
+    words = [w for w in open('web/audio/w/index.txt').read().split('\n') if w]
     rnd = random.Random(os.environ.get('GITHUB_RUN_ID', '1')); fails, n = [], 0
     for w in rnd.sample(words, min(a.sample, len(words))):
-        v = rnd.choice(['bf_emma', 'af_heart']); f = os.path.join(tmp, 's.mp3')
-        if not fetch(a.base + fnv(v + '|' + w) + '.mp3', f): fails.append(f'{w}/{v}: tải lỗi'); n += 1; continue
-        t, d = hear(f), dur(f); n += 1
-        if not heard_ok(w, t) or not 0.15 <= d <= 3.0: fails.append(f'{w}/{v}: "{t}" {d:.2f}s')
-    out.append(f'\n## Mẫu {n} file cũ: {len(fails)} không được nhận đúng\n' + '\n'.join('- ' + x for x in fails))
+        vs = [v for i, v in enumerate(['bf_emma', 'af_heart']) if w not in st or (st[w][i:i + 1] or ['ok'])[0] == 'ok']
+        if not vs: continue
+        v = rnd.choice(vs); f = os.path.join(tmp, 's.mp3'); n += 1
+        if not fetch(a.base + fnv(v + '|' + w + a.suffix) + '.mp3', f): fails.append(f'{w}/{v}: tải lỗi'); continue
+        ok, t, d = check(w, f)
+        if not ok: fails.append(f'{w}/{v}: "{t}" {d:.2f}s')
+    out.append(f'\n## Mẫu {n} file đang phục vụ (khóa "{a.suffix}"): {len(fails)} không được nhận đúng\n' + '\n'.join('- ' + x for x in fails))
 txt = '\n'.join(out); print(txt)
 if os.environ.get('GITHUB_STEP_SUMMARY'): open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write(txt + '\n')
 shutil.rmtree(tmp, ignore_errors=True)
-sys.exit(1 if bad else 0)

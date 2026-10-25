@@ -1,70 +1,114 @@
-# Giọng đọc từ đơn Anh + Mỹ (Kokoro-82M, Apache-2.0) – miễn phí trên máy chủ GitHub, vài trăm từ/đêm, tiếp tục được.
-# File → kho media ngoài (infra/media-repos.json, m2 – scripts/media/push.mjs) → audio.lexkite.com/audio/w/ (Worker lexkite-audio dò các kho).
-# Repo chính chỉ giữ chỉ mục web/audio/w/index.txt. WORD_AUDIO_EXPAND=1 (từ mở rộng) bật lại 24/10 vì mp3 không còn vào repo chính. Xem docs/STORAGE.md.
+# Giọng đọc từ đơn Anh + Mỹ (Kokoro-82M, Apache-2.0) – miễn phí trên máy chủ GitHub, tiếp tục được (trạng thái: web/audio/w/s3.tsv).
+# Bản s3 (25/10): câu mang + cắt lấy từ (scripts/word-audio/kokoro.mjs), MỌI file qua faster-whisper + kiểm độ dài; chỉ file đạt mới đẩy.
+# Không đạt → giọng máy, có lý do trong s3.tsv. Xem docs/WORD-AUDIO.md. File → kho media (infra/media-repos.json, scripts/media/push.mjs)
+# → audio.lexkite.com/audio/w/<fnv(giọng|từ|s3)>.mp3. Repo chính chỉ giữ chỉ mục web/audio/w/index.txt + s3.tsv. Xem docs/STORAGE.md.
 name: Giọng đọc từ vựng (Kokoro)
 on:
   schedule:
-    - cron: '0 18 * * *'   # 01:00 giờ VN (trước audio.yml)
+    - cron: '20 */4 * * *'   # mỗi 4 giờ tới khi hết từ (bước "Đếm" bỏ qua khi xong)
   workflow_dispatch:
     inputs:
-      limit: { description: 'Số từ (mỗi từ 2 giọng)', default: '300' }
-      asr_sample: { description: 'Nghe lại (ASR) N file cũ ngẫu nhiên – chỉ báo cáo', default: '100' }
+      limit: { description: 'Số từ mỗi shard (mỗi từ 2 giọng)', default: '300' }
+      shards: { description: 'Số shard chạy song song', default: '10' }
+      asr_sample: { description: 'Nghe lại N file s3 đang phục vụ (chỉ báo cáo)', default: '0' }
 permissions:
   contents: write
 concurrency: { group: word-audio, cancel-in-progress: false }
+env: { WORD_AUDIO_EXPAND: '1' }
 jobs:
-  words:
+  plan:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 10
+    outputs:
+      left: ${{ steps.c.outputs.left }}
+      shards: ${{ steps.c.outputs.shards }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Đếm từ còn thiếu
-        id: count
-        env: { WORD_AUDIO_EXPAND: '1' }
-        run: echo "left=$(node scripts/gen-word-audio.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
-      - name: Cài kokoro-js + ffmpeg
-        if: steps.count.outputs.left != '0'
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
-      - name: Đệm mô hình Kokoro
-        if: steps.count.outputs.left != '0'
-        uses: actions/cache@v4
-        with:
-          path: /tmp/kk/node_modules/@huggingface/transformers/.cache
-          key: kokoro-82m-v1-q8
-      - name: Tạo giọng đọc từ
-        if: steps.count.outputs.left != '0'
-        env: { WORD_AUDIO_EXPAND: '1' }
-        run: AUDIO_MIN=70 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --limit "${{ github.event.inputs.limit || '300' }}"
-      # Từ dạng mạnh (to/for/the… – scripts/word-audio-strong.mjs): faster-whisper nghe lại từng bản thử, chọn bản đạt; không đạt → dừng, không đẩy
-      - uses: actions/setup-python@v5
-        if: hashFiles('.s2-cand/manifest.json') != '' || (github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0')
-        with: { python-version: '3.12' }
-      - name: Nghe lại giọng đọc (ASR + độ dài)
-        if: hashFiles('.s2-cand/manifest.json') != '' || (github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0')
+      - id: c
         run: |
-          command -v ffprobe >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
-          # PyAV 19 bỏ tham số metadata_errors mà faster-whisper (mọi bản ≤1.2.1) vẫn truyền vào av.open → khoá av<19
-          pip install -q 'faster-whisper==1.2.1' 'av==18.1.0' requests
-          python3 -c "import faster_whisper, av, ctranslate2; print('faster-whisper', faster_whisper.__version__, '· av', av.__version__, '· ctranslate2', ctranslate2.__version__)"
-          python3 scripts/word-audio-asr.py --sample "${{ github.event.inputs.asr_sample || '0' }}"
+          echo "left=$(node scripts/gen-word-audio.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
+          n="${{ github.event.inputs.shards || '10' }}"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
+  gen:
+    needs: plan
+    if: needs.plan.outputs.left != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    strategy: { fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Cài kokoro-js + ffmpeg + faster-whisper
+        # PyAV 19 bỏ tham số metadata_errors mà faster-whisper (≤1.2.1) vẫn truyền vào av.open → khoá av<19
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+          pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
+      - name: Vòng 1 – tạo (câu mang + cắt)
+        run: AUDIO_MIN=70 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --round 1 --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '300' }}"
+      - name: Vòng 1 – nghe lại (Whisper + độ dài) + nghe file cũ
+        run: python3 scripts/word-audio-asr.py --manifest .s3-cand/manifest.json --res .wa-res/res-${{ matrix.shard }}.json --old --minutes 85
+      - name: Vòng 2 – cách khác cho file trượt
+        run: AUDIO_MIN=15 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --round 2
+      - name: Vòng 2 – nghe lại
+        run: python3 scripts/word-audio-asr.py --manifest .s3-cand/manifest.json --res .wa-res/res-${{ matrix.shard }}.json --final --minutes 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wa-${{ matrix.shard }}
+          path: |
+            .media-out/
+            .wa-res/
+          retention-days: 3
+          include-hidden-files: true
+  publish:
+    needs: [plan, gen]
+    if: always() && needs.plan.outputs.left != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'wa-*', merge-multiple: true, path: . }
+      - name: Gộp kết quả → s3.tsv + index.txt
+        run: ls .wa-res/ && node scripts/word-audio/merge.mjs .wa-res/*.json
       - name: Khoá deploy kho media
-        if: steps.count.outputs.left != '0'
         env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           printf '%s\n' "$K" > ~/.ssh/m2 && chmod 600 ~/.ssh/m2 && echo "MEDIA_KEY_M2=$HOME/.ssh/m2" >> "$GITHUB_ENV"
-      - name: Đẩy mp3 lên kho media
-        if: steps.count.outputs.left != '0'
+      - name: Đẩy mp3 (chỉ file đạt) lên kho media
         run: |
-          node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/w: thêm giọng từ Kokoro (run ${{ github.run_id }})"
+          [ -d .media-out/audio/w ] && ls .media-out/audio/w | head -1 | grep -q . || { echo "không có file mới"; exit 0; }
+          node scripts/media/push.mjs --src .media-out --kind audio --msg "audio/w: giọng từ s3 (đã qua Whisper) – run ${{ github.run_id }}"
       - name: Lưu chỉ mục vào repo
-        if: steps.count.outputs.left != '0'
         run: |
           rm -f ~/.ssh/m2
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add web/audio/w/index.txt web/audio/w/s2.txt 2>/dev/null || git add web/audio/w/index.txt
+          git add web/audio/w/index.txt web/audio/w/s3.tsv web/audio/w/s3-stats.json
           git diff --cached --quiet && exit 0
-          git commit -qm "Giọng đọc từ vựng: thêm lô Kokoro Anh + Mỹ (còn ${{ steps.count.outputs.left }} từ trước lượt này)"
+          git commit -qm "Giọng đọc từ vựng s3: thêm lô đã qua Whisper (còn ${{ needs.plan.outputs.left }} từ trước lượt này)"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+  sample:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
+      - run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
+          python3 scripts/word-audio-asr.py --sample "${{ github.event.inputs.asr_sample }}"

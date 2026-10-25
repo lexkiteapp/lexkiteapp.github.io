@@ -40,8 +40,8 @@ if (args.includes('--media')) {
     } finally { fs.rmSync(dir, { recursive: true, force: true }); }
   }
   const words = fs.readFileSync(path.join(root, 'web/audio/w/index.txt'), 'utf8').split('\n').filter(Boolean);
-  const { wordKey } = await import('./word-audio-strong.mjs'), s2f = path.join(root, 'web/audio/w/s2.txt'), s2Done = new Set(fs.existsSync(s2f) ? fs.readFileSync(s2f, 'utf8').split('\n').filter(Boolean) : []);
-  const miss = [...keys.map(k => `audio/l/${k}.mp3`), ...words.flatMap(w => ['bf_emma', 'af_heart'].map(v => `audio/w/${wordKey(v, w, s2Done)}.mp3`))].filter(f => !have.has(f));
+  const { wordKey, fnv } = await import('./word-audio-strong.mjs'), st = new Map((fs.existsSync(path.join(root, 'web/audio/w/s3.tsv')) ? fs.readFileSync(path.join(root, 'web/audio/w/s3.tsv'), 'utf8') : '').split('\n').filter(Boolean).map(l => [l.split('\t')[0], l.split('\t').slice(1)]));
+  const miss = [...keys.map(k => `audio/l/${k}.mp3`), ...words.flatMap(w => ['bf_emma', 'af_heart'].filter((v, i) => !st.has(w) || st.get(w)[i] === 'ok').map(v => `audio/w/${st.size ? wordKey(v, w) : fnv(v + '|' + w)}.mp3`))].filter(f => !have.has(f));
   console.log(`audio-cdn-check --media: ${keys.length} khóa câu + ${words.length} từ · kho có ${have.size} tệp · thiếu ${miss.length}`);
   if (miss.length) { console.log(miss.slice(0, 20).join(' ')); process.exit(1); }
   process.exit(0);

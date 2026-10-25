@@ -3,7 +3,8 @@
 import json, os, re, subprocess, urllib.request
 HOMO = {'to': ['two', 'too'], 'for': ['four', 'fore'], 'a': ['ay', 'eh', 'hey a'], 'the': ['thee'], 'be': ['bee', 'b'], 'there': ['their', 'theyre'],
         'you': ['u', 'yew', 'ewe'], 'we': ['wee', 'oui'], 'or': ['oar', 'ore', 'awe', 'aw'], 'nor': ['gnaw', 'naw'], 'so': ['sew', 'sow'],
-        'would': ['wood'], 'some': ['sum'], 'do': ['due', 'dew'], 'but': ['butt'], 'into': ['in to'], 'onto': ['on to'], 'he': ['hee'], 'and': ['an']}
+        'would': ['wood'], 'some': ['sum'], 'do': ['due', 'dew'], 'but': ['butt'], 'into': ['in to'], 'onto': ['on to'], 'he': ['hee'], 'and': ['an'],
+        'see': ['sea', 'c']}  # đồng âm thật (cùng /siː/) – lab 25/10: Whisper viết "C" cho see đọc đúng
 DIG = {'0': ' zero ', '1': ' one ', '2': ' two ', '3': ' three ', '4': ' four ', '5': ' five ', '6': ' six ', '7': ' seven ', '8': ' eight ', '9': ' nine '}
 # Whisper viết số ("2", "4") → đổi ra chữ trước khi so; tiêu chí so khớp không đổi
 norm = lambda s: re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', '', re.sub(r'\d', lambda m: DIG[m.group()], s.lower()).replace('-', ' '))).strip()
