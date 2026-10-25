@@ -23,7 +23,7 @@ def paginate(words, fits1, fits2, maxw=3, solo_ok=False):
                 if j < 0 or best[j] is None: continue
                 seg = words[j:i]; c = 0.0; split = None
                 if L == 1:
-                    natural = (i == n and seg[0][-1] in END) or n == 1 or (solo_ok and seg[0][-1] in END)   # v10: the last word of a sentence
+                    natural = (i == n and seg[0][-1] in END) or n == 1 or (solo_ok and seg[0][-1] in END + SOFT)   # v10: the last word of a sentence / clause
                     forced = solo_ok and not natural and _solo_forced(words, j, fits1)
                     if not natural and not forced and not allow_single: continue
                     c += 0.8 if natural else (3.0 if forced else 100.0)
@@ -46,4 +46,4 @@ def single_word_pages(words, pages, fits1=None):
     """pages that qc_v9 caption_script rejects: one word that is not the natural final word of the line (v10: unless both of its
     two-word pages are measured too wide for the caption column at the minimum caption size)"""
     return [words[j] for j, i, _ in pages if i - j == 1 and not ((i == len(words) and words[j][-1] in END) or len(words) == 1)
-            and not (fits1 and (_solo_forced(words, j, fits1) or words[j][-1] in END))]
+            and not (fits1 and (_solo_forced(words, j, fits1) or words[j][-1] in END + SOFT))]

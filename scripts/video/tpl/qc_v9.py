@@ -55,7 +55,8 @@ for lid, txt in S.items():
     if cap != txt or ' '.join(toks) != txt: bad.append((lid, cap, txt))
 sizes = [c['n'] for c in CP.values()]   # 2-3 words per page; a one-word page only as the natural final word of its line
 def _solo_ok(c):   # v10: a one-word page is the last word of a sentence, or both of its two-word pages measured wider than the caption column
-    if c['text'][-1] in '.?!:' and (c.get('last') is not False or T.get('style') == 'v10'): return True
+    if c['text'][-1] in '.?!:' and c.get('last') is not False: return True
+    if T.get('style') == 'v10' and c['text'][-1] in '.?!:,;': return True   # v10: last word of a sentence / clause
     return bool(c.get('solo_pairs')) and all(w > c['colw'] for w in c['solo_pairs'])
 single_bad = [c['text'] for c in CP.values() if c['n'] == 1 and not _solo_ok(c)]
 erx = SP.get('error_re'); err_lines = sorted({c['line'] for c in CP.values() if erx and re.search(erx, c['text'].lower())})

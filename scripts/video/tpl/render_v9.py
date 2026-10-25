@@ -432,8 +432,8 @@ def ring(num, rem, d_=100):
     g.ellipse([8, 8, 2 * d_ - 8, 2 * d_ - 8], fill=COL['navy'] + (240,), outline=COL['mint'] + (90,), width=14)
     if rem > 0: g.arc([8, 8, 2 * d_ - 8, 2 * d_ - 8], -90, -90 + 360 * rem, fill=ACC + (255,) if ACC != COL['navy2'] else COL['yellow'] + (255,), width=14)
     g.text((d_, d_ + 4), num, font=font(d_ * 1.1), fill=(255, 255, 255, 255), anchor='mm'); return shadowed(im.reduce(2), 4, 5, 0.4)
-def pill(segs, sz, bg, dim=False, tight=False):
-    fo = font(sz * 2); tw = int(sum(fo.getlength(s) for s, _ in segs)); px_ = 2 * (18 if tight else 34); w = tw + 2 * px_; h = int(sz * 2 * (1.08 if tight else 1.32)) + (28 if tight else 64)
+def pill(segs, sz, bg, dim=False, tight=False, padx=None):
+    fo = font(sz * 2); tw = int(sum(fo.getlength(s) for s, _ in segs)); px_ = 2 * (padx or (18 if tight else 34)); w = tw + 2 * px_; h = int(sz * 2 * (1.08 if tight else 1.32)) + (28 if tight else 64)
     im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im); d.rounded_rectangle([0, 0, w - 1, h - 1], h // 2, fill=bg + (246,), outline=(255, 255, 255, 235), width=6); x = px_
     for s_, col in segs: d.text((x, h // 2), s_, font=fo, fill=col + (255,), anchor='lm'); x += fo.getlength(s_)
     im = shadowed(im.reduce(2), 5, 6, 0.45)
@@ -673,12 +673,12 @@ class Pop:
             big = i == st; on = active < 0 or i <= active
             col = ACC if big else COL['navy']; tc = COL['navy'] if (big and ACC in (COL['yellow'], COL['mint'], COL['cream'])) else (255, 255, 255)
             if BRD:   # board (v10): every syllable >= the body minimum, the stressed one at the headline minimum; tight pills
-                p = pill([(x, tc)], MINF_HOOK if big else MINF_BODY, col if on else COL['navy'], dim=not on, tight=True); dh = 46; r = 20 if big else 9
+                p = pill([(x, tc)], MINF_HOOK if big else MINF_BODY, col if on else COL['navy'], dim=not on, tight=True, padx=12); dh = 46; r = 20 if big else 9
             else: p = pill([(x, tc)], 96 if big else 72, col if on else COL['navy'], dim=not on); dh = 72; r = 30 if big else 13
             dot = Image.new('RGBA', (p.width, dh), (0, 0, 0, 0))
             ImageDraw.Draw(dot).ellipse([p.width // 2 - r, dh // 2 - r, p.width // 2 + r, dh // 2 + r], fill=(COL['yellow'] if big else (255, 255, 255)) + (255 if on else 110,), outline=STROKE + (255,), width=4)
             items.append(stack([dot, p], 2))
-        return hrow(items, 8 if BRD else 14)
+        return hrow(items, 6 if BRD else 14)
     def compose_turn(s, T):
         rem = 1.0 if T < s.b0 else max(0.0, 1 - (T - s.b0) / (s.b1 - s.b0)); bw = int(min(s.PW - 60, max(s.head_im.width, 520))); bar = Image.new('RGBA', (bw, 30), (0, 0, 0, 0)); d = ImageDraw.Draw(bar)
         d.rounded_rectangle([0, 0, bw - 1, 29], 15, fill=COL['navy'] + (230,), outline=(255, 255, 255, 220), width=3)
