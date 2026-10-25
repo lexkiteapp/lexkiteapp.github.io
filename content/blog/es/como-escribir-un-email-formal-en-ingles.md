@@ -216,6 +216,8 @@ Verifica si identificas las fórmulas profesionales adecuadas con estas 3 pregun
 * C) *Take care,*
 *(Respuesta correcta: B. "Cheers" y "Take care" son coloquiales y deben reservarse para amigos).*
 
+¿Preparas el TOEFL iBT? Además del email, la sección de Writing incluye un mensaje de foro: mira el [ejemplo de TOEFL Academic Discussion](/es/blog/toefl-academic-discussion-ejemplo/).
+
 {{cta: /#/write | Redacta y practica textos formales en Lexkite}}
 
 ## Preguntas frecuentes

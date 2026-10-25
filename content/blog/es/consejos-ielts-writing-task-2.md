@@ -158,6 +158,8 @@ Pon a prueba tu conocimiento de la estructura y vocabulario de Task 2 con este b
 
 Para usar la pasiva con criterio en tu redacción, consulta la guía de [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles/).
 
+Si también preparas el TOEFL, la misma lógica de postura, razón y ejemplo se aplica en versión corta en la [TOEFL Academic Discussion](/es/blog/toefl-academic-discussion-ejemplo/).
+
 {{cta: /#/write | Practica redacción para IELTS en Lexkite}}
 
 ## Preguntas frecuentes

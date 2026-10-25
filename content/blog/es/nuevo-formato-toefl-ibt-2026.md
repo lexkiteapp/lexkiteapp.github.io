@@ -114,6 +114,8 @@ Si dudas sobre la definición precisa de una palabra o sus colocaciones típicas
 
 También puedes explorar ejemplos de respuestas y criterios de evaluación en nuestra sección de [muestras y modelos de examen](/samples/) para calibrar el tono esperado en tus escritos.
 
+Para la tarea final de Writing tienes una guía completa con ejemplo comentado: [TOEFL Academic Discussion paso a paso](/es/blog/toefl-academic-discussion-ejemplo/).
+
 {{cta: /#/toefl | Practica el nuevo formato TOEFL iBT en Lexkite}}
 
 {{youtube: | Idea de vídeo: análisis de las nuevas tareas Complete the Words y Build a Sentence en TOEFL 2026}}

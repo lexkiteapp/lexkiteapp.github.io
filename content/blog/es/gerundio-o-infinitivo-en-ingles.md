@@ -202,6 +202,8 @@ Leer reglas ayuda, pero lo que fija el patrón es usarlo muchas veces. Abre la [
 
 El infinitivo pasivo (*to be done*, *is expected to rise*) se trata en la guía de [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles/).
 
+Otra estructura que los hispanohablantes traducen palabra por palabra son las [oraciones condicionales en inglés](/es/blog/oraciones-condicionales-en-ingles/), sobre todo el *would* después de *if*.
+
 {{cta: /#/grammar | Practicar gramática inglesa en Lexkite}}
 
 ## Preguntas frecuentes

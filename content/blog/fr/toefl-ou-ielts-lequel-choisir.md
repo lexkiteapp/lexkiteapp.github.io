@@ -151,6 +151,8 @@ Quel que soit votre choix final, les compétences linguistiques fondamentales re
 * Découvrez également les certifications européennes pérennes dans notre guide [Cambridge English B2 et C1](/fr/blog/cambridge-english-b2-c1/).
 * Familiarisez-vous avec des formulations de haut niveau en consultant nos [Exemples de textes académiques](/samples/).
 
+Si vous optez pour le TOEFL, notre guide de la [TOEFL Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/) détaille la dernière tâche de Writing, exemple corrigé à l'appui.
+
 {{cta: /app/#/mock | Passer un test blanc sur Lexkite}}
 
 {{youtube: | TOEFL ou IELTS quel examen choisir pour ses études à l étranger}}

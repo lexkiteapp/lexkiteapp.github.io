@@ -11506,6 +11506,63 @@
    "intent": "exam-prep",
    "lang": "hi",
    "cluster": "ielts-speaking-part-3"
+  },
+  {
+   "slug": "toefl-academic-discussion-ejemplo",
+   "keyword": "toefl academic discussion",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-ibt",
+    "toefl-writing",
+    "academic-discussion"
+   ],
+   "routes": [
+    "/#/toefl-p/discussion",
+    "/#/toefl"
+   ],
+   "intent": "exam-prep",
+   "lang": "es",
+   "cluster": "toefl-writing-academic-discussion",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "toefl-academic-discussion-conseils",
+   "keyword": "toefl academic discussion",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-ibt",
+    "toefl-writing",
+    "academic-discussion"
+   ],
+   "routes": [
+    "/#/toefl-p/discussion",
+    "/#/toefl"
+   ],
+   "intent": "exam-prep",
+   "lang": "fr",
+   "cluster": "toefl-writing-academic-discussion",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "oraciones-condicionales-en-ingles",
+   "keyword": "oraciones condicionales en inglés",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "conditionals",
+    "if-clauses"
+   ],
+   "routes": [
+    "/#/grammar/conditionals-0-1",
+    "/#/grammar/conditionals-2-3",
+    "/#/grammar/mixed-conditionals-wish"
+   ],
+   "intent": "informational",
+   "lang": "es",
+   "cluster": "cau-dieu-kien-tieng-anh-conditionals",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
   }
  ]
 }

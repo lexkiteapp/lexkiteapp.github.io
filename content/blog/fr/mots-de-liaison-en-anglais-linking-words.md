@@ -133,6 +133,8 @@ Si les mots de liaison structurent vos textes écrits, ils s'avèrent tout aussi
 
 Pour découvrir comment articuler vos idées devant un public professionnel, lisez notre guide complet sur la [présentation en anglais phrases](/fr/blog/reussir-une-presentation-en-anglais-phrases/) indispensables. Vous y trouverez des connecteurs oraux sur mesure pour rythmer vos diapositives avec aisance. De plus, pour fluidifier vos transitions à l'oral, apprenez à lier ces expressions selon les règles de [connected speech anglais](/fr/blog/connected-speech-anglais-liaisons-et-rythme/).
 
+Pour voir comment doser les connecteurs dans un texte de 130 mots, lisez notre exemple commenté de [TOEFL Academic Discussion](/fr/blog/toefl-academic-discussion-conseils/).
+
 {{cta: /app/#/write | Perfectionner ses connecteurs d écriture}}
 
 {{youtube: | Les connecteurs logiques essentiels en anglais}}
