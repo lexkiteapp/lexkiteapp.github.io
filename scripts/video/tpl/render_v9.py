@@ -487,7 +487,8 @@ class Pop:
         if b and b['s'] <= T < b['e']: n = 3 - min(2, int(T - b['s'])); mid = [ring(str(n), 1 - (T - b['s']) / (b['e'] - b['s']), 130)]; s.digit = str(n)
         else: s.digit = None
         if hrow([s.pA['n'], s.pB['n']], 24).width > s.PW - 8 and s.qim is not None:   # narrow board: options one under the other
-            q = hrow([s.qim] + mid, 20) if mid else s.qim; return stack([q, s.pA[st_a], s.pB[st_b]], 12)
+            if mid: mid = [ring(s.digit, 1 - (T - b['s']) / (b['e'] - b['s']), 96)]   # small ring beside option A: the question keeps its size
+            return stack([s.qim, hrow([s.pA[st_a]] + mid, 18) if mid else s.pA[st_a], s.pB[st_b]], 12)
         wide = hrow([s.pA['n'], ring('3', 1.0), s.pB['n']], 24).width > s.PW - 8
         if wide and s.qim is not None:   # long options: ring goes next to the question, pills keep their full size
             q = hrow([s.qim] + mid, 20) if mid else s.qim; return stack([q, hrow([s.pA[st_a], s.pB[st_b]], 24)], 14)
@@ -557,7 +558,8 @@ def keycol(lid, k):
 DESK = bool(BRD) and BRD['cap'].get('body_overlap_rows', 1) == 0 and BRD['cap']['w'] >= 700   # a clean desk-front / floor band below the teacher
 CAPINK = bool(BRD) and not DESK   # board mode: captions are WRITTEN ON THE BOARD in ink (navy, white edge, highlighter on the active word), moved with the camera
 CAP = dict(size=96, min=72, stroke=12, gapx=22, bounce=1.16, settle=1.08) if not BRD else dict(size=80, min=72, stroke=10 if CAPINK else 12, gapx=20, bounce=1.12, settle=1.06)
-ST, SS = CAP['stroke'], 2; HL_PAD = 10 if CAPINK else 0
+if CAPINK: CAP.update(bounce=1.08, settle=1.04)   # ink on a board: a small lift on the active word (page centre stays within 12 px)
+ST, SS = CAP['stroke'], 2; HL_PAD = 4 if CAPINK else 0
 _wc = {}
 def word_im(txt, sz, col, sc, hl=False):
     key = (txt, sz, col, round(sc, 2), hl)
@@ -679,7 +681,7 @@ CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), r
 print('pages', ' | '.join(p.text.replace(' ', '/', 1) if p.rows > 1 else p.text for p in PAGES), flush=True)
 TALL = [(p.t0, p.t1) for p in PAGES if p.rows > 1] if CAPINK else []   # two-row board pages need the strip above them
 def nwords(t): return len(re.findall(r"[A-Za-z0-9$][A-Za-z0-9$'’.\-]*", t))
-READ_PAD = 0.36   # entrance (spring 0.16 s to full alpha) + exit fade (0.16 s): the text is fully readable for t1 - t0 - READ_PAD
+READ_PAD = 0.5   # entrance (spring to full alpha) + exit fade + frame rounding: the text is fully readable for t1 - t0 - READ_PAD (measured 25/10)
 POPS = [Pop(p) for p in SP['pops']]
 if CAPINK:   # a two-row caption page needs the strip above it: a pop starting with it waits, one ending with it ends first, else it sits higher
     for a, b in TALL:
