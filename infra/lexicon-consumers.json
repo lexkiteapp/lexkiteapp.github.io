@@ -22,9 +22,14 @@
    "job": "build-web → indexnow"
   },
   "scripts/gen-word-audio.mjs": {
-   "what": "hàng âm thanh Kokoro Anh/Mỹ",
+   "what": "hàng âm thanh Kokoro Anh/Mỹ (kho từ qua scripts/word-audio/lib.mjs)",
    "via": "loadAllPlus",
-   "job": "word-audio 18:00 UTC"
+   "job": "word-audio mỗi 4 giờ"
+  },
+  "scripts/word-audio/lib.mjs": {
+   "what": "kho từ cần giọng đọc từ đơn s3 (gen-word-audio.mjs, merge.mjs)",
+   "via": "loadAllPlus",
+   "job": "word-audio mỗi 4 giờ"
   },
   "scripts/scriptbank/lib.mjs": {
    "what": "điểm học kịch bản video (từ#loại tra kho)",
