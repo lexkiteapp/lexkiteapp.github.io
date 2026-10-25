@@ -87,7 +87,7 @@ jobs:
           NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
           if [ "${{ github.event.inputs.plan }}" = "true" ]; then
             python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4 --plan $O/plan.json 2>&1 | grep -v '^frame ' | tee $O/plan.log
-            cp vo/vis3/*.words.json $O/ 2>/dev/null || true; exit 0
+            cp vo/vis3/*.words.json $O/ 2>/dev/null || true; mkdir -p $O/vo && cp vo/vis3/* $O/vo/ 2>/dev/null || true; exit 0
           fi
           python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
           grep -v '^frame ' $O/render.log | tail -8
