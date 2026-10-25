@@ -1,5 +1,5 @@
 /* Call Mia (#/call) – tiếng Anh giao diện */
-(function (g) { Object.assign(g.I18N_DICT.en, {
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
   'Mua cà phê cho cả nhóm': 'Coffee run for the team',
   'Kể chuyện cuối tuần': 'Talking about the weekend',
   'Ngày đầu đi làm ở Mỹ': 'First day at a US office',
@@ -16,7 +16,6 @@
   'Trước nghề nghiệp số ít cần mạo từ “a/an”.': 'Use “a/an” before a singular job title.',
   'Với he/she/it ở thì hiện tại đơn, động từ thêm -s/-es.': 'In the present simple, verbs after he/she/it take -s/-es.',
   'Chuyện đã xảy ra (hôm qua, cuối tuần trước…) dùng động từ ở thì quá khứ.': 'For things that already happened (yesterday, last weekend…), use the past tense.',
-  'Gọi cho Mia': 'Call Mia',
   'Cuộc gọi video luyện nói: Mia hỏi, bạn trả lời bằng giọng nói hoặc chọn gợi ý. Lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết.': 'Speaking practice by video call: Mia asks, you answer by voice or pick a suggestion. Mistakes are corrected gently, with a summary at the end.',
   'Lời bạn nói được nhận dạng ngay trên trình duyệt, Lexkite không lưu lại.': 'Your speech is recognized in the browser – Lexkite does not store it.',
   'Gọi ngay': 'Call now',
@@ -34,7 +33,5 @@
   'Không có lỗi nào cần sửa – tuyệt vời!': 'Nothing to correct – excellent!',
   'Cụm từ nên nhớ': 'Phrases to remember',
   'Thêm vào thẻ ôn': 'Add to review cards',
-  'Gọi lại': 'Call again',
   'Đã thêm {n} thẻ': 'Added {n} cards',
-  'Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng': 'Video-call speaking practice with gentle corrections',
 }); })(typeof self !== 'undefined' ? self : this);

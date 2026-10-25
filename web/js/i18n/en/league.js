@@ -2,13 +2,11 @@
  * English translations for Weekly League (web/js/league.js)
  */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
-  'Giải đấu tuần': 'Weekly League',
   'Bạn đang tham gia bảng xếp hạng 30 người': 'You are currently competing in a 30-learner leaderboard',
   'Rời bảng xếp hạng': 'Leave leaderboard',
   'Rời bảng xếp hạng tuần này? Điểm XP tuần này sẽ bị xóa khỏi giải đấu.': 'Leave this week’s leaderboard? Your XP for this week will be removed from the league.',
   'Đã rời bảng xếp hạng tuần': 'Left the weekly leaderboard',
   'Không thể rời bảng xếp hạng: {msg}': 'Cannot leave leaderboard: {msg}',
-  'Bảng xếp hạng 30 người học, thăng hạng mỗi tuần': '30-learner leaderboard, promote every week',
 
   // Tiers
   'Hạng Đồng': 'Bronze League',
@@ -32,7 +30,6 @@
   'Vùng xuống hạng': 'Demotion zone',
   'Vùng an toàn': 'Safe zone',
   '{xp} XP tuần này': '{xp} XP this week',
-  'Bảng xếp hạng': 'Leaderboard',
 
   // Nickname modal
   'Đổi biệt danh bảng xếp hạng': 'Change leaderboard nickname',
@@ -86,7 +83,6 @@
   'Vị trí an toàn': 'Safe position',
   'Nhóm 30 người': 'Group of 30',
   'Hạng #{rank}': 'Rank #{rank}',
-  'XP tuần': 'Weekly XP',
 
   // Board items & dividers
   'Vùng thăng hạng lên {tier}': 'Promotion zone to {tier}',

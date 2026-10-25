@@ -53,7 +53,6 @@
   // ---- reading / listening ----
   'Ô trống {n}': 'Blank {n}',
   'Nghe': 'Listen',
-  'Dừng': 'Stop',
   'Tạm dừng': 'Pause',
   'Nghe lại': 'Replay',
   'Đã nghe xong': 'Finished',
@@ -72,10 +71,8 @@
   '{n} từ': '{n} words',
   'nên viết ≥ {m} từ': 'aim for ≥ {m} words',
   'Hết giờ': 'Time’s up',
-  'Bài mẫu': 'Model answer',
   'Bài mức trung bình': 'Mid-level answer',
   'Vì sao kém hơn bài mẫu': 'Why it scores lower than the model',
-  'Dàn ý': 'Outline',
   'Từ nên dùng': 'Useful language',
   'Tự kiểm tra bài của bạn': 'Check your own response',
   'Đạt {a}/{b} tiêu chí': '{a}/{b} criteria met',
@@ -110,7 +107,6 @@
   'xem sau khi đã tự trả lời': 'view it after answering yourself',
   'Câu trước': 'Previous',
   'Câu hỏi tiếp': 'Next question',
-  'Hoàn thành': 'Finish',
   'Đã ghi âm – nghe lại và so với câu trả lời mẫu.': 'Recorded – play it back and compare it with the sample answer.',
   'Đang ghi âm – bấm lần nữa để dừng': 'Recording – tap again to stop',
   // ---- nav (index.html data-i18n) ----
