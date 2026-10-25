@@ -50,7 +50,9 @@ jobs:
           "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }
           echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: Voice → render → qc → phone copy → sheet
+        shell: bash
         run: |
+          set -o pipefail
           mkdir -p $O/phone
           python3 scripts/video/tpl/pilot5_voice.py "$LINES" vo
           python3 scripts/video/tpl/render_v6.py --lesson "$LESSON" --lines "$LINES" --vo vo/vis3 --lib footage/anchor --fonts brand/social/src/fonts \

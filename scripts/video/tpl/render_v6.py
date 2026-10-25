@@ -27,8 +27,8 @@ ap.add_argument('--total', type=float, default=29.6)
 ap.add_argument('--preview', default='', help='comma list of seconds: render only those frames to <out>.preview/*.png (no encode/audio)')
 o = ap.parse_args()
 W, H, FPS = 1080, 1920, 24
-V6 = dict(D=200, H0=300, anchor=(480, 830), push=0.025, punch=1.06, punch_in=0.22,
-          panel_top=(40, 1040), panel_bot=(28, 1052), panel_y1=512, radius=34, content=(64, 248, 904, 492),
+V6 = dict(D=220, H0=300, anchor=(480, 850), push=0.025, punch=1.06, punch_in=0.22,
+          panel_top=(40, 1040), panel_bot=(28, 1052), panel_y1=532, radius=34, content=(64, 272, 880, 512),
           ink=(15, 61, 62), ink_top=(9, 36, 38), glass_mix=0.80, glow=(220, 238, 232),
           cap_size=68, cap_min=58, cap_line=80, cap_bottom=1489, cap_x=(SAFE['x0'], SAFE['x1']), cap_words=8, cap_stroke=8,
           accent=C['yellow'], upcoming=0.60, lt_y=1196, bug=(964, 258, 60))
@@ -270,6 +270,7 @@ class Page:
                 b = df.textbbox((x, y), wtxt, font=fo, anchor='la'); s.rect[wid] = (int(b[0]), int(b[1]) - 6, int(math.ceil(b[2])), int(b[3]) + 8, wtxt); x += fo.getlength(wtxt + ' ') + GAPX
         s.fill = np.asarray(fill).astype(np.float32) / 255; s.strk = np.asarray(strk).astype(np.float32) / 255
         sh = cv2.GaussianBlur(np.roll(s.strk, 6, axis=0), (0, 0), 7); s.shadow = sh * 0.55
+        rs = [v[:4] for v in s.rect.values()]; s.ink = [s.box[0] + min(r[0] for r in rs), s.box[1] + min(r[1] for r in rs) + 6, s.box[0] + max(r[2] for r in rs), s.box[1] + max(r[3] for r in rs) - 8]   # glyph bbox (screen)
         s.t0 = WORDS[words[0][0]]['s'] - 0.12; s.t1 = WORDS[words[-1][0]]['e'] + 0.30
     def draw(s, F, tm):
         x0, y0, x1, y1 = s.box; reg = F[y0:y1, x0:x1].astype(np.float32)
@@ -330,7 +331,7 @@ ink_grad = np.zeros((PH, W, 3), np.float32)
 for y in range(PH): ink_grad[y] = np.array(V6['ink_top'], np.float32)[::-1] + (np.array(V6['ink'], np.float32)[::-1] - np.array(V6['ink_top'], np.float32)[::-1]) * min(1, y / V6['panel_y1'])
 sheen = np.zeros((PH, W), np.float32)
 for y in range(PH): sheen[y] = np.clip(1 - np.abs(np.arange(W) - (760 - 0.9 * y)) / 220, 0, 1) * 0.06   # one soft diagonal reflection
-FACE = (330, 420, 710, 840)   # bank mouth.json face_box (MCU clips), source coords
+FACE = (330, 420, 710, 840)   # source coords; screen rect = +D   # bank mouth.json face_box (MCU clips), source coords
 for sh in SHOTS:
     if sh['clip'] != cur_clip:
         cap = cv2.VideoCapture(f'{o.lib}/tools/dl24/{sh["clip"]}.mp4'); FR = []
@@ -385,7 +386,7 @@ for sh in SHOTS:
         wipe = {}
         for pi, p in enumerate(PAGES):
             if p.t0 <= T < p.t1:
-                wipe.update(p.draw(out, tm)); els.append(dict(name=f'cap.p{pi}', text=CAP_LOG[f'p{pi}']['text'], bbox=p.box, px=p.sz, alpha=1.0, group='caption'))
+                wipe.update(p.draw(out, tm)); els.append(dict(name=f'cap.p{pi}', text=CAP_LOG[f'p{pi}']['text'], bbox=p.ink, px=p.sz, alpha=1.0, group='caption'))
         if PREV is not None: cv2.imwrite(f'{o.out}.preview/t{T:05.2f}.png', out); continue
         enc.stdin.write(out.tobytes())
         rec = dict(t=round(T, 4), clip=sh['clip'], shot=sh['id'], src=src, s=round(s, 4), vis=vis, els=[[e['name'], e['text'], *e['bbox'], e['alpha'], e['px'], e['group']] for e in els], wipe=wipe, lt=round(lt_a, 3))
