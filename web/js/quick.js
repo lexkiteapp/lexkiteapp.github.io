@@ -93,7 +93,9 @@
 
     // 4 câu, mỗi câu 3 lựa chọn; phương án nhiễu khác nghĩa rõ ràng (không trùng/chứa nghĩa đúng)
     const D = g.Distract;
-    const questions = shuffle(pool).slice(0, N).map(w => {
+    // Phương án nhiễu (so với cả kho ~10k từ) tính từng câu khi cần: câu 1 ngay, các câu sau lúc rảnh → không có tác vụ dài khi vào trang
+    const picked = shuffle(pool).slice(0, N), questions = [];
+    const build = w => {
       const right = mean(w), rl = right.toLowerCase();
       const ok = x => x.word.toLowerCase() !== w.word.toLowerCase() && (() => { const m = mean(x).toLowerCase(); return m && m !== rl && !m.includes(rl) && !rl.includes(m); })();
       let ds = [];
@@ -101,9 +103,10 @@
       if (ds.length < 2) ds = ds.concat(shuffle(others.filter(x => ok(x) && !ds.includes(x))).slice(0, 2 - ds.length));
       const opts = shuffle([right, ...ds.slice(0, 2).map(mean)]);
       return { word: w.word, ipa: w.ipa || '', options: opts, correctIdx: opts.indexOf(right) };
-    });
+    };
+    const qAt = i => questions[i] || (questions[i] = build(picked[i]));
 
-    const total = questions.length;
+    const total = picked.length;
     let qIdx = 0, score = 0, busy = false, done = false, timer = null, secondsLeft = LIMIT, startTime = 0;
 
     const endPlay = timedOut => {
@@ -141,7 +144,7 @@
       if (done) return;
       if (qIdx >= total) return endPlay(false);
       if (startTime && usedSec() >= LIMIT) return endPlay(true);
-      const q = questions[qIdx];
+      const q = qAt(qIdx);
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="qk-top">
@@ -201,6 +204,9 @@
     renderQuestion();
     startTime = Date.now();
     timer = setInterval(tick, 250);
+    const idle = g.requestIdleCallback ? f => g.requestIdleCallback(f, { timeout: 300 }) : f => setTimeout(f, 16);
+    const pre = i => { if (done || i >= total) return; qAt(i); idle(() => pre(i + 1)); };
+    idle(() => pre(1));
   };
 
   // ==========================================

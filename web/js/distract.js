@@ -7,13 +7,15 @@
   const LV = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4, C2: 5 };
   const POS = { noun: 'n', verb: 'v', adjective: 'adj', adverb: 'adv', phrase: 'phr', idiom: 'phr', collocation: 'phr', phrasal: 'phr' };
   const posOf = p => { const s = String(p || '').toLowerCase().trim().split(/[\s/,;.()]+/)[0] || ''; return POS[s] || s; };
-  const fold = s => String(s == null ? '' : s).toLowerCase().normalize('NFC').replace(/\s+/g, ' ').trim();
+  // Hàm thuần theo chuỗi → nhớ kết quả (pick() so đáp án với cả kho ~10k từ; không nhớ thì mỗi lượt tách lại cùng chuỗi → tác vụ dài khi vào #/quick). Kết quả chỉ được đọc, không sửa.
+  const memo = f => { const m = new Map(); return s => { s = String(s == null ? '' : s); let v = m.get(s); if (v === undefined) { if (m.size > 50000) m.clear(); v = f(s); m.set(s, v); } return v; }; };
+  const fold = memo(s => s.toLowerCase().normalize('NFC').replace(/\s+/g, ' ').trim());
   // Từ chức năng không mang nghĩa riêng – không tính khi so nghĩa chồng lấn
   const STOP = new Set('to a an the of and or in on at for with by be is sb sth someone something one sự việc cái người làm được có một những các và hoặc của cho với bị để'.split(' '));
   // Trợ động từ / động từ khuyết thiếu: không dùng làm phương án nhiễu cho động từ thường (lộ đáp án)
   const FUNC = new Set('be have do will would can could shall should may might must ought'.split(' '));
-  const glosses = s => fold(s).replace(/\([^)]*\)/g, ' ').split(/\s*(?:[,;/]|\s–\s|\s-\s|\bor\b|\bhoặc\b)\s*/).map(x => x.trim()).filter(Boolean);
-  const toks = s => new Set(fold(s).replace(/\([^)]*\)/g, ' ').replace(/[^\p{L}\p{N}\s]/gu, ' ').split(' ').filter(x => x && !STOP.has(x)));
+  const glosses = memo(s => fold(s).replace(/\([^)]*\)/g, ' ').split(/\s*(?:[,;/]|\s–\s|\s-\s|\bor\b|\bhoặc\b)\s*/).map(x => x.trim()).filter(Boolean));
+  const toks = memo(s => new Set(fold(s).replace(/\([^)]*\)/g, ' ').replace(/[^\p{L}\p{N}\s]/gu, ' ').split(' ').filter(x => x && !STOP.has(x))));
   const synList = w => [].concat(w && w.syn || []).flatMap(x => String(x).split(/[,;]/)).map(fold).filter(Boolean);
   const hash = s => { let h = 2166136261; for (const c of String(s)) { h ^= c.codePointAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
   const rng = seed => { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; };
@@ -48,9 +50,12 @@
 
   /* pick(đáp án, kho, { n = 3, key = 'vi' | 'word', seed, mean }) → n phương án nhiễu (đối tượng từ của kho).
      key 'vi': hiển thị nghĩa (mean(x), mặc định x.vi); key 'word': hiển thị từ tiếng Anh. */
+  // mean(x) (App.meanOf → bản dịch theo ngôn ngữ) được gọi nhiều lần cho mỗi từ của kho trong một lượt pick: nhớ trong lượt (ngôn ngữ đổi giữa hai lượt vẫn đúng)
+  const DEF_MEAN = x => x.vi || x.def || '';
+  const memoMean = f => { const m = new WeakMap(); return x => { if (!x || typeof x !== 'object') return f(x); let v = m.get(x); if (v === undefined) { v = f(x); m.set(x, v); } return v; }; };
   function pick(w, pool, opt = {}) {
     const n = opt.n == null ? 3 : opt.n, key = opt.key || 'vi';
-    const mean = opt.mean || (x => x.vi || x.def || '');
+    const mean = memoMean(opt.mean || DEF_MEAN);
     const show = x => key === 'word' ? x.word : mean(x);
     const ans = fold(show(w)), wp = posOf(w.pos), wl = LV[String(w.level || '').toUpperCase()];
     const wLen = String(show(w)).length || 1, wParts = glosses(show(w)).length;
