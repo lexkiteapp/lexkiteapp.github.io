@@ -1038,7 +1038,7 @@ button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-sele
 .wc-chips { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
 .wc-chips + .wc-chips { margin-top: .55rem; }
 .wc-clb { flex-basis: 100%; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
-.wc-chip { min-height: 36px; padding: .3rem .75rem; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: 600 .9rem/1.2 var(--font); cursor: pointer; white-space: normal; text-align: start; transition: border-color .15s, background .15s, transform .12s; }
+.wc-chip { min-height: var(--tap, 36px); padding: .3rem .75rem; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: 600 .9rem/1.2 var(--font); cursor: pointer; white-space: normal; text-align: start; transition: border-color .15s, background .15s, transform .12s; }
 .wc-chip:hover { border-color: var(--accent); background: var(--accent-soft); }
 .wc-chip:active { transform: scale(.96); }
 .wc-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -1377,7 +1377,7 @@ body.focus .view { padding-top: calc(1rem + env(safe-area-inset-top)); } /* ch�
 .lk-banner button { position: absolute; right: .6rem; background: none; border: 0; color: #fff; font-size: 1.3rem; cursor: pointer; line-height: 1; }
 /* lsw – nút đổi ngôn ngữ (js/lang-menu.js): app + trang tĩnh dùng chung khối này (scripts/lib/site-layout.mjs chép nguyên văn) */
 .lsw{position:relative;flex:none}
-.lsw-b{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:700;line-height:1;cursor:pointer;white-space:nowrap}
+.lsw-b{display:inline-flex;align-items:center;gap:6px;min-height: var(--tap, 36px);padding:0 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font:inherit;font-size:14px;font-weight:700;line-height:1;cursor:pointer;white-space:nowrap}
 .lsw-b:hover,.lsw-b[aria-expanded=true]{border-color:var(--primary)}
 .lsw-b svg{width:16px;height:16px;flex:none}
 .lsw-m{position:absolute;top:calc(100% + 6px);right:0;z-index:40;min-width:200px;max-width:calc(100vw - 32px);max-height:min(70vh,560px);overflow:auto;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(20,20,60,.18)}
@@ -1463,7 +1463,7 @@ label.struck { text-decoration: line-through; opacity: .5; }
 /* Tài khoản (sync.js gBtn/Sync.chrome): nút "Đăng nhập với Google" theo hướng dẫn thương hiệu Google – nền trung tính, viền, logo G 4 màu */
 .gsi { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 40px; padding: 0 .95rem; border: 1px solid var(--muted); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; white-space: nowrap; flex: none; }
 .gsi:hover { background: var(--surface-2); } .gsi:focus-visible, button.avatar:focus-visible, #sideLevel:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-.gsi svg { flex: none; } .gsi-s { display: none; } .top-stats .gsi { min-height: 36px; padding: 0 .8rem; }
+.gsi svg { flex: none; } .gsi-s { display: none; } .top-stats .gsi { min-height: var(--tap, 36px); padding: 0 .8rem; }
 button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weight: 800; }
 .side-acct { margin-top: .6rem; } .side-acct p { margin: 0 0 .4rem; } .side-acct .gsi { width: 100%; }
 @media (max-width: 900px) { .top-stats .gsi { padding: 0 .65rem; gap: .4rem; } .top-stats .gsi-l { display: none; } .top-stats .gsi-s { display: inline; } }
@@ -1480,7 +1480,7 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
 .gmix-leg i { width: .7rem; height: .7rem; border-radius: 3px; display: inline-block; }
 .gm-again { background: var(--again); } .gm-hard { background: var(--hard); } .gm-good { background: var(--good); } .gm-easy { background: var(--accent); }
 .lv-filter { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin-top: .8rem; }
-.lv-filter .chip { cursor: pointer; min-height: 32px; font: inherit; font-size: .85rem; border: 1px solid var(--line); }
+.lv-filter .chip { cursor: pointer; min-height: var(--tap, 32px); font: inherit; font-size: .85rem; border: 1px solid var(--line); }
 .lv-filter .chip.on { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
 /* Thẻ "hub-hero": nút dài (es/de/ru…) không được ép cột chữ – điện thoại thì nút xuống dòng, rộng hết thẻ */
 .hub-hero { flex-wrap: wrap; }
@@ -1501,6 +1501,9 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
   .streak-freeze-badge { min-height: var(--tap) !important; }
   button.linkish, .w-foot a, .row > a.small, .grid > a.small, .crumb a, .view > a.small, .page-head > div > a.small:first-child, .word-row .w { display: inline-flex; align-items: center; }
   .crumb a { justify-content: center; }
+  /* Liên kết-nút đứng riêng (không nằm trong câu p/li/td/span – WCAG 2.5.8 chỉ miễn liên kết trong câu): tab dạng <a>, nút nav cài đặt, liên kết .small/.tiny cuối khối, từ trong bảng/danh sách thẻ */
+  .tabs a, .set-nav button, :is(div, nav, section, header, th) > a.small, :is(div, th, dt) > a:not([class]), .deck-row a:not(.btn) { min-height: var(--tap) !important; display: inline-flex; align-items: center; }
+  :is(div, th, dt) > a:not([class]), .deck-row a:not(.btn), .tabs a { min-width: var(--tap); justify-content: center; }
   .crumb a { margin-block: -12px; min-width: var(--tap); } /* "Tôi"/"Me" ngắn: rộng đủ 44 px */ summary { align-content: center; } input[type=range] { min-height: var(--tap); }
 }
 /* Thanh kết quả (.sheet) cố định đáy: chừa chỗ để cuộn thấy hết đáp án phía dưới, không bị che */

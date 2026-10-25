@@ -67,7 +67,7 @@
 .lfx-stat small{display:block;background:var(--c);color:#fff;font-weight:800;font-size:.75rem;padding:.3rem .25rem;overflow-wrap:anywhere}
 .lfx-stat b{display:block;padding:.5rem .2rem;font-size:1.2rem;font-variant-numeric:tabular-nums}
 .lfx-note{display:flex;gap:.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin:0 0 .7rem;padding:.45rem .7rem;border-radius:12px;background:var(--surface-2);font-size:.85rem}
-.lfx-note .btn{min-height:36px}.lfx-skip{min-height:44px}
+.lfx-note .btn{min-height: var(--tap, 36px)}.lfx-skip{min-height:44px}
 @media (prefers-reduced-motion: reduce){.lfx-combo span,.lfx-combo.bump span{animation:none!important}.study-top .progress i{transition:none!important}}`;
     d.head.appendChild(st);
   }

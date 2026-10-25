@@ -95,7 +95,7 @@
 .xc-why{font-weight:600}.xc-more summary{cursor:pointer;color:var(--primary);font-weight:700;min-height:44px;display:flex;align-items:center;list-style-position:inside}
 .xc-more summary:focus-visible{outline:3px solid var(--primary);outline-offset:2px;border-radius:6px}
 .xc-row{margin:.35rem 0}.xc-bad{border-inline-start:3px solid var(--again);padding-inline-start:.5rem}.xc-hook{border-inline-start:3px solid var(--primary);padding-inline-start:.5rem}
-.xc-ex{margin:0;padding-inline-start:1.1rem}.xc-ex li{margin:.1rem 0}.xc-fam{display:flex;flex-wrap:wrap;gap:.3rem}.xc-fam .chip{min-height:32px;display:inline-flex;align-items:center}
+.xc-ex{margin:0;padding-inline-start:1.1rem}.xc-ex li{margin:.1rem 0}.xc-fam{display:flex;flex-wrap:wrap;gap:.3rem}.xc-fam .chip{min-height: var(--tap, 32px);display:inline-flex;align-items:center}
 .xc-act{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.35rem}.xc-flag{margin-inline-start:auto}.xc-k{font-style:italic}
 .xc-at{border:1px solid var(--line);border-radius:6px;background:none;color:var(--primary);font:inherit;cursor:pointer;padding:0 .3rem}`;
   function style() { if (!g.document || document.getElementById('xc-css')) return; const s = document.createElement('style'); s.id = 'xc-css'; s.textContent = CSS; document.head.appendChild(s); }

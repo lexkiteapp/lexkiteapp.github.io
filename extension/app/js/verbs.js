@@ -40,7 +40,7 @@
 .vb-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem;margin:1.6rem 0 .8rem}
 .vb-bar h2{margin:0}.vb-ctl{display:flex;flex-wrap:wrap;gap:.5rem}
 .vb-seg{display:inline-flex;gap:.2rem;padding:.25rem;background:var(--surface-2);border-radius:12px}
-.vb-seg button{border:0;background:transparent;padding:.4rem .75rem;border-radius:9px;font-weight:700;color:var(--muted);cursor:pointer;min-height:36px}
+.vb-seg button{border:0;background:transparent;padding:.4rem .75rem;border-radius:9px;font-weight:700;color:var(--muted);cursor:pointer;min-height: var(--tap, 36px)}
 .vb-seg button[aria-pressed=true]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-sm)}
 .vb-pol{display:none;margin-bottom:.7rem}
 .vb-t{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:.6rem;overflow:hidden}
