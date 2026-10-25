@@ -10784,6 +10784,181 @@
    "intent": "informational",
    "lang": "vi",
    "cluster": "review-modes"
+  },
+  {
+   "slug": "toefl-academic-discussion-writing",
+   "keyword": "toefl academic discussion",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-ibt",
+    "toefl-writing",
+    "academic-discussion"
+   ],
+   "routes": [
+    "/#/toefl-p/discussion"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational/exam-prep",
+   "lang": "en",
+   "cluster": "toefl-writing-academic-discussion"
+  },
+  {
+   "slug": "modal-verbs-can-could-should-must",
+   "keyword": "modal verbs",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "modal-verbs",
+    "can-could",
+    "should-must"
+   ],
+   "routes": [
+    "/#/grammar/modals-obligation-advice"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must"
+  },
+  {
+   "slug": "prepositions-in-on-at",
+   "keyword": "prepositions in on at",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "prepositions",
+    "in-on-at"
+   ],
+   "routes": [
+    "/#/grammar/prepositions"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "gioi-tu-in-on-at-trong-tieng-anh"
+  },
+  {
+   "slug": "conditional-sentences-in-english",
+   "keyword": "conditional sentences",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "conditionals",
+    "if-clauses"
+   ],
+   "routes": [
+    "/#/grammar/conditionals-0-1"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "cau-dieu-kien-tieng-anh-conditionals"
+  },
+  {
+   "slug": "passive-voice-in-english",
+   "keyword": "passive voice",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "passive-voice",
+    "academic-writing"
+   ],
+   "routes": [
+    "/#/grammar/passive-voice"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "passive-voice"
+  },
+  {
+   "slug": "common-phrasal-verbs",
+   "keyword": "common phrasal verbs",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulary",
+    "phrasal-verbs",
+    "speaking"
+   ],
+   "routes": [
+    "/#/practice/learn"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational/list",
+   "lang": "en",
+   "cluster": "phrasal-verb-thong-dung"
+  },
+  {
+   "slug": "toeic-part-5-tips",
+   "keyword": "toeic part 5",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "toeic-reading",
+    "grammar",
+    "exam-tips"
+   ],
+   "routes": [
+    "/#/toeic-r/tr1?part=5"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "en",
+   "cluster": "toeic-part-5-meo-lam-bai"
+  },
+  {
+   "slug": "ielts-speaking-part-3-tips",
+   "keyword": "ielts speaking part 3",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-speaking",
+    "speaking-part-3"
+   ],
+   "routes": [
+    "/#/speaking/p3"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "en",
+   "cluster": "ielts-speaking-part-3"
+  },
+  {
+   "slug": "ielts-reading-matching-headings",
+   "keyword": "matching headings",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-reading",
+    "matching-headings",
+    "exam-tips"
+   ],
+   "routes": [
+    "/#/reading"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "en",
+   "cluster": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "ed-pronunciation-rules",
+   "keyword": "ed pronunciation",
+   "category": "phat-am",
+   "tags": [
+    "pronunciation",
+    "ed-endings",
+    "past-simple",
+    "speaking"
+   ],
+   "routes": [
+    "/#/grammar/ed-s-endings"
+   ],
+   "angle": "SEO program 11/2026 batch 1 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "cach-phat-am-ed-va-s-es"
   }
  ]
 }
