@@ -135,6 +135,8 @@ Dalam wawancara kerja multinasional atau diskusi proyek lintas negara, pemilihan
 
 Modal *would* dan *could* juga menjadi inti kalimat pengandaian; pelajari di [conditional sentence bahasa Inggris](/id/blog/conditional-sentence-bahasa-inggris/).
 
+Modal verbs juga bisa dipakai dalam kalimat pasif (*It must be signed*); lihat [passive voice bahasa Inggris](/id/blog/passive-voice-bahasa-inggris/).
+
 {{cta: /ngu-phap/ | Pelajari Aturan Tata Bahasa}}
 
 Perdalam wawasan gramatikal Anda dengan membaca kumpulan materi lengkap di [panduan tata bahasa Inggris dasar](/ngu-phap/).

@@ -11638,6 +11638,81 @@
    "lang": "pt",
    "cluster": "reported-speech",
    "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "niveis-de-ingles-cefr",
+   "keyword": "níveis de inglês",
+   "category": "phuong-phap",
+   "tags": [
+    "cefr",
+    "placement",
+    "english-level",
+    "study-plan"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "kiem-tra-trinh-do-tieng-anh",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "passive-voice-bahasa-inggris",
+   "keyword": "passive voice bahasa inggris",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "passive-voice",
+    "academic-writing"
+   ],
+   "routes": [
+    "/#/grammar/passive-voice",
+    "/#/grammar/passive-reporting-causative"
+   ],
+   "intent": "informational",
+   "lang": "id",
+   "cluster": "passive-voice",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "perbedaan-make-dan-do",
+   "keyword": "perbedaan make dan do",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulary",
+    "collocations",
+    "make-do",
+    "b1"
+   ],
+   "routes": [
+    "/#/usage/make",
+    "/#/usage/do"
+   ],
+   "intent": "informational",
+   "lang": "id",
+   "cluster": "diferencia-entre-make-y-do-en-ingles",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "tips-toeic-part-5",
+   "keyword": "tips toeic part 5",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "toeic-reading",
+    "grammar",
+    "exam-tips"
+   ],
+   "routes": [
+    "/#/toeic-r/tr1?part=5",
+    "/#/toeic"
+   ],
+   "intent": "exam-prep",
+   "lang": "id",
+   "cluster": "toeic-part-5-meo-lam-bai",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
   }
  ]
 }

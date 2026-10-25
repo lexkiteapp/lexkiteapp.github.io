@@ -128,6 +128,8 @@ Faça este auto-diagnóstico em 5 perguntas rápidas:
 4. **Você prefere perguntas de múltipla escolha ou preenchimento de lacunas?** O TOEFL favorece quem é bom em eliminar alternativas incorretas; o IELTS favorece quem tem precisão ortográfica impecável.
 5. **Você já montou seu planejamento de estudo?** Independentemente da prova, construir vocabulário com consistência é mandatório. Veja [como aprender inglês sozinho](/pt/blog/como-aprender-ingles-sozinho/) e pratique nos [simulados oficiais](/app/#/mock) do Lexkite.
 
+Antes de escolher a prova, vale entender os [níveis de inglês CEFR](/pt/blog/niveis-de-ingles-cefr/) e a nota que cada instituição pede.
+
 {{cta: /app/#/placement | Fazer teste de nivelamento gratuito no Lexkite}}
 
 {{youtube: | Comparativo TOEFL iBT vs IELTS: qual exame é o melhor para você}}

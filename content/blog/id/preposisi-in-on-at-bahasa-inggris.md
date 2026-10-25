@@ -150,6 +150,8 @@ Perluas bank frasa preposisi Anda dengan membaca panduan kosakata di [cara belaj
 
 ![Sesi review flashcard Lexkite dengan kartu kata 'pollution' dan tombol flip](media:review "Mengulang hafalan frasa preposisi secara berkala dengan algoritma FSRS")
 
+Soal preposisi seperti *by* vs *until* sering muncul di TOEIC; lihat strateginya di [tips TOEIC Part 5](/id/blog/tips-toeic-part-5/).
+
 {{cta: /ngu-phap/ | Pelajari Aturan Tata Bahasa}}
 
 Untuk menguasai ratusan aturan tata bahasa penting lainnya secara sistematis, kunjungi panduan komprehensif kami di [panduan tata bahasa Inggris dasar](/ngu-phap/).

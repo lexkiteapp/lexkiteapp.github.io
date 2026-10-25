@@ -133,6 +133,8 @@ Anda juga dapat membandingkan draf tulisan Anda dengan kumpulan contoh esai bera
 
 Untuk menjelaskan akibat sebuah kebijakan dengan kalimat if, baca [conditional sentence bahasa Inggris](/id/blog/conditional-sentence-bahasa-inggris/).
 
+Variasikan kalimat aktif dan pasif agar grammar-mu terlihat beragam; aturannya ada di [passive voice bahasa Inggris](/id/blog/passive-voice-bahasa-inggris/).
+
 {{cta: /#/write | Latih struktur esai Task 2 di Lexkite}}
 
 {{youtube: | Ide video: langkah menyusun outline esai IELTS Task 2 dalam 5 menit pertama}}

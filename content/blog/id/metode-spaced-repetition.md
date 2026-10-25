@@ -89,6 +89,8 @@ Bagaimana cara memulai kebiasaan baru ini agar bertahan lama dan tidak membosank
 
 {{youtube: | Panduan metode spaced repetition}}
 
+Contoh materi yang cocok untuk spaced repetition: daftar collocation di artikel [perbedaan make dan do](/id/blog/perbedaan-make-dan-do/).
+
 {{cta: /#/review | Mulai review kosakata dengan spaced repetition}}
 
 ## Pertanyaan yang sering diajukan

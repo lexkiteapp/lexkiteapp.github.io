@@ -141,6 +141,8 @@ Cek kesiapanmu menjawab pertanyaan interview kerja bahasa Inggris dengan tiga so
 * C) *I helped my boss to do computer tasks.*
 *(Kunci jawaban: B. Menggunakan "spearheaded", "workflow optimization", dan hasil kuantitatif).*
 
+Banyak perusahaan juga meminta sertifikat TOEIC; persiapkan bagian grammar dengan [tips TOEIC Part 5](/id/blog/tips-toeic-part-5/).
+
 {{cta: /#/speaking | Latih jawaban interview bahasa Inggris di Lexkite}}
 
 ## Pertanyaan yang sering diajukan (FAQ)

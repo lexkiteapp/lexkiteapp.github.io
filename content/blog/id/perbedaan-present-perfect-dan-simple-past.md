@@ -184,6 +184,8 @@ Soal yang salah sebaiknya masuk ke [Mistake log](/#/mistakes) supaya kamu mengul
 
 ![Halaman Mistake log Lexkite yang mengelompokkan kesalahan vocabulary, grammar, reading, dan listening](media:mistakes "Kumpulkan kalimat dengan tenses yang keliru di Mistake log untuk diulang")
 
+Kedua tense ini juga punya bentuk pasif (*has been done*, *was done*); pelajari polanya di [passive voice bahasa Inggris](/id/blog/passive-voice-bahasa-inggris/).
+
 {{cta: /#/grammar | Pelajari bab tenses di Lexkite}}
 
 {{youtube: | Ide video: Present perfect atau simple past? Cara memilih lewat bingkai waktu terbuka dan tertutup, dengan contoh kalimat orang Indonesia}}

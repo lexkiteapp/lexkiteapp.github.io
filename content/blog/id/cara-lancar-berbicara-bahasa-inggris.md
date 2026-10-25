@@ -153,6 +153,8 @@ Untuk latihan bertopik, [ruang latihan Speaking](/#/speaking) membagi pertanyaan
 
 Frasa penghubung dan kata yang sulit diucapkan bisa dilatih terpisah di [latihan pelafalan dengan penilaian](/#/practice/speak). Kalau ingin mencoba suasana ujian, pelajari strategi lengkap di [tips IELTS Speaking band 7](/id/blog/tips-ielts-speaking-band-7/) atau pilih bagian Speaking di [simulasi IELTS](/#/mock). Jika fokusmu adalah persiapan karir profesional, praktikkan metode STAR pada [pertanyaan interview bahasa Inggris dan jawabannya](/id/blog/pertanyaan-interview-bahasa-inggris/). Saat berpindah dari bicara ke menulis, kerangka argumen yang sama dipakai di [struktur Writing Task 2 IELTS](/id/blog/struktur-writing-task-2-ielts/), dan contoh jawaban per topik tersedia di [bank soal IELTS Speaking (berbahasa Inggris)](/en/speaking/).
 
+Salah satu kesalahan yang paling sering terdengar saat berbicara adalah *do a mistake*; baca [perbedaan make dan do](/id/blog/perbedaan-make-dan-do/).
+
 {{cta: /#/speaking | Pilih satu topik dan coba teknik 4/3/2 sekarang}}
 
 {{youtube: | Ide video: Contoh langsung teknik 4/3/2 untuk satu topik IELTS Speaking Part 2, putaran 4, 3, lalu 2 menit}}

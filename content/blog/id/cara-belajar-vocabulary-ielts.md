@@ -122,6 +122,8 @@ Tujuh langkah di atas bisa dikerjakan dengan kertas dan pulpen, tetapi memilih k
 
 ![Sesi review flashcard di Lexkite dengan kata “pollution”, transkripsi fonetik, dan tombol “Flip”](media:review "Mengulang kosakata IELTS dengan flashcard yang dijadwalkan otomatis oleh FSRS")
 
+Collocation dasar seperti *make a mistake* dan *do homework* sering salah dipakai; pelajari [perbedaan make dan do](/id/blog/perbedaan-make-dan-do/).
+
 {{cta: /#/library | Pilih set kata pertamamu dan pelajari 10 kata hari ini}}
 
 {{youtube: | Ide video: Rutinitas 10 kata IELTS per hari dengan flashcard di Lexkite, dari memilih set sampai sesi review}}

@@ -95,6 +95,8 @@ Treine estruturar suas principais histórias profissionais usando esse formato. 
 
 Para soar diplomático nas respostas, revise *should*, *could* e *might* no guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/).
 
+Na dúvida sobre como descrever seu inglês no currículo, veja nosso guia de [níveis de inglês CEFR](/pt/blog/niveis-de-ingles-cefr/).
+
 {{cta: /#/speaking | Praticar respostas para entrevista de emprego no Lexkite}}
 
 ## As melhores perguntas para fazer ao entrevistador no final
