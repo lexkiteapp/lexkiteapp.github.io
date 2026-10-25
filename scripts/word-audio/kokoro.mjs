@@ -28,43 +28,17 @@ export async function loadKokoro(require) {
 const frames = pcm => { const F = SR / 100, n = Math.floor(pcm.length / F), db = new Float32Array(n); let pk = 1e-9; for (const x of pcm) pk = Math.max(pk, Math.abs(x)); for (let i = 0; i < n; i++) { let s = 0; for (let j = i * F; j < (i + 1) * F; j++) s += pcm[j] * pcm[j]; db[i] = 10 * Math.log10(s / F + 1e-12) - 20 * Math.log10(pk); } return db; };
 // Gọt: lấy đoạn [a, b) mẫu, chừa lề, fade vào 8 ms / ra 25 ms
 export function clip(pcm, a, b) { a = Math.max(0, a); b = Math.min(pcm.length, b); const o = pcm.slice(a, b), fi = SR * 0.008, fo = SR * 0.025; for (let i = 0; i < o.length; i++) { const g = Math.min(1, i / fi, (o.length - 1 - i) / fo); o[i] *= Math.max(0, g); } return o; }
-// Câu mang "…: TỪ." → cắt sau khoảng lặng cuối cùng ≥ gapMs trước từ (từ ở cuối câu nên giữ ngữ điệu xuống của từ trích dẫn)
-export function cutAfterLastGap(pcm, gapMs = 180, thr = -42) {
-  const db = frames(pcm), F = SR / 100, sil = i => db[i] < thr; let end = db.length - 1; while (end > 0 && sil(end)) end--;
-  let i = end, run = 0;
-  for (; i >= 0; i--) { if (sil(i)) { if (++run * 10 >= gapMs) break; } else run = 0; }
-  if (i < 0) return null; // không có khoảng lặng → không cắt được
-  let st = i + run; while (st < end && sil(st)) st++;
-  return clip(pcm, (st - 3) * F, (end + 9) * F);
-}
 // Gọt lặng đầu/cuối (từ đứng một mình)
 export function trim(pcm, thr = -45) { const db = frames(pcm), F = SR / 100; let a = 0, b = db.length - 1; while (a < b && db[a] < thr) a++; while (b > a && db[b] < thr) b--; return clip(pcm, (a - 2) * F, (b + 8) * F); }
-// Cắt theo độ dài âm vị mô hình trả về (nếu có): durations[i] khung (mỗi khung 600 mẫu ở 24 kHz… tính theo tỉ lệ tổng)
-export function cutByDur(pcm, dur, from) { const tot = dur.reduce((s, x) => s + x, 0), spf = pcm.length / tot; let a = 0; for (let i = 0; i < from; i++) a += dur[i]; return trim(pcm.slice(Math.floor(a * spf)), -45); }
-const CARRIER = { bf_emma: 'The word is:', af_heart: 'The word is:' };
-// Các phương án (tên → () => pcm|null). ph = phiên âm dạng mạnh (STRONG) nếu có.
-export function variants(k, w, v, ph) {
-  const core = async (sp) => ph ? k.phIds(ph + '.') : await k.ids(w + '.', v);
-  const midOf = a => a.slice(1, -1);
-  return {
-    A_plain095: async () => trim((await k.run(await k.ids(w, v), v, 0.95)).pcm),
-    C_dot090: async () => trim((await k.run(await core(), v, 0.9)).pcm),
-    B_ellipsis: async () => { const p = midOf(k.phIds('… ')), c = midOf(await core()); return trim((await k.run([0, ...p, ...c, 0], v, 0.9)).pcm); },
-    B_comma: async () => { const p = midOf(k.phIds(', ')), c = midOf(await core()); return trim((await k.run([0, ...p, ...c, 0], v, 0.9)).pcm); },
-    D_style40: async () => trim((await k.run(await core(), v, 0.9, 40)).pcm),
-    E_carrier: async () => {
-      const car = midOf(await k.ids(CARRIER[v], v)), c = midOf(await core()), sp = midOf(k.phIds(' '));
-      const r = await k.run([0, ...car, ...sp, ...c, 0], v, 0.9);
-      return r.dur ? cutByDur(r.pcm, r.dur, 1 + car.length + sp.length) : cutAfterLastGap(r.pcm);
-    },
-    E_carrier_gap: async () => {
-      const car = midOf(await k.ids(CARRIER[v], v)), c = midOf(await core()), sp = midOf(k.phIds(' '));
-      return cutAfterLastGap((await k.run([0, ...car, ...sp, ...c, 0], v, 0.9)).pcm);
-    },
-    E_carrier100: async () => {
-      const car = midOf(await k.ids(CARRIER[v], v)), c = midOf(await core()), sp = midOf(k.phIds(' '));
-      const r = await k.run([0, ...car, ...sp, ...c, 0], v, 1.0);
-      return r.dur ? cutByDur(r.pcm, r.dur, 1 + car.length + sp.length) : cutAfterLastGap(r.pcm);
-    },
-  };
-}
+// Câu mang: Kokoro đọc trọn câu rất chuẩn (lab 25/10: Whisper nghe "The word is away." đúng 40/40) nhưng không ngắt hơi đủ để cắt theo khoảng lặng
+// → xuất NGUYÊN câu (tên bắt đầu "cut_"), scripts/word-audio/asr_lib.py cắt lấy từ cuối theo mốc thời gian từng chữ của Whisper rồi mới nghe lại.
+const raw = async (k, carrier, w, v, ph, speed) => { const mid = a => a.slice(1, -1), c = ph ? k.phIds(ph + '.') : await k.ids(w + '.', v); return (await k.run([0, ...mid(await k.ids(carrier, v)), ...mid(k.phIds(' ')), ...mid(c), 0], v, speed)).pcm; };
+// Phương án theo thứ tự ưu tiên (gen-word-audio.mjs: vòng 1 = phương án đầu, vòng 2 = các phương án còn lại). (k, từ, giọng, phiên âm mạnh?) → pcm | null
+export const METHODS = {
+  cut_next: (k, w, v, ph) => raw(k, 'Next word.', w, v, ph, 0.9),
+  cut_wordis: (k, w, v, ph) => raw(k, 'The word is:', w, v, ph, 0.9),
+  dot090: async (k, w, v, ph) => trim((await k.run(ph ? k.phIds(ph + '.') : await k.ids(w + '.', v), v, 0.9)).pcm),
+  plain095: async (k, w, v) => trim((await k.run(await k.ids(w, v), v, 0.95)).pcm),
+};
+// lab: mọi phương án
+export function variants(k, w, v, ph) { return Object.fromEntries(Object.entries(METHODS).map(([n, f]) => [n, () => f(k, w, v, ph)])); }

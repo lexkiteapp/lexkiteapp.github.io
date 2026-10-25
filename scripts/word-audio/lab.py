@@ -1,10 +1,11 @@
 # Thí nghiệm (word-audio-lab.yml): thêm Piper (MIT) làm phương án dự phòng, rồi nghe lại mọi bản trong .lab/manifest.json → bảng tỉ lệ đạt theo phương án.
 import json, os, sys, wave, collections, urllib.request
-sys.path.insert(0, os.path.dirname(__file__)); from asr_lib import check
+sys.path.insert(0, os.path.dirname(__file__)); from asr_lib import check, prepare
 rows = json.load(open('.lab/manifest.json')); words = sorted({r['word'] for r in rows})
 PIPER = {'bf_emma': 'en/en_GB/cori/high/en_GB-cori-high', 'af_heart': 'en/en_US/ljspeech/high/en_US-ljspeech-high'}
 cards = []
 try:
+    if not os.environ.get('PIPER'): raise RuntimeError('bỏ qua (PIPER=1 để thử)')
     from piper.voice import PiperVoice
     for v, p in PIPER.items():
         base = 'https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/' + p; name = p.split('/')[-1]
@@ -20,7 +21,9 @@ except Exception as e: print('Piper lỗi:', e)
 stat = collections.defaultdict(lambda: [0, 0]); detail = []
 for r in rows:
     if not r.get('file'): stat[r['variant']][1] += 1; detail.append(f"{r['word']}/{r['voice']}/{r['variant']}: ✗ {r.get('why')}"); continue
-    ok, t, d = check(r['word'], r['file']); s = stat[r['variant']]; s[0] += ok; s[1] += 1
+    f, why = prepare(r['word'], r['file'], r['variant'])
+    if not f: stat[r['variant']][1] += 1; detail.append(f"{r['word']}/{r['voice']}/{r['variant']}: ✗ {why}"); continue
+    ok, t, d = check(r['word'], f); s = stat[r['variant']]; s[0] += ok; s[1] += 1
     detail.append(f"{r['word']}/{r['voice']}/{r['variant']}: {'✓' if ok else '✗'} \"{t}\" {d:.2f}s")
 out = ['## Tỉ lệ đạt theo phương án', '| phương án | đạt | tổng |', '|---|---|---|'] + [f'| {k} | {a} | {b} |' for k, (a, b) in sorted(stat.items())]
 out += ['', '<details><summary>chi tiết</summary>', '', *['- ' + x for x in detail], '</details>', '', *cards]
