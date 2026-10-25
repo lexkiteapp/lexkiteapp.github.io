@@ -30,6 +30,8 @@ def score(vid):
     pts['text'] = round(10 * sum(ok(k) for k in ('safe_area', 'readability', 'no_jitter', 'caption_sync')) / 4)
     pts['pacing'] = round(10 * sum(ok(k) for k in ('one_moving_group', 'no_unmotivated_cut', 'file')) / 3)
     BR = ('plate_clean', 'plate_topic', 'motion_tokens', 'host_frame_std', 'host_frame', 'plate_contrast', 'host_perspective', 'host_sharp', 'host_motion')
+    if 'scene_native' in G: BR = ('scene_native', 'motion_tokens', 'no_light_panels')   # v5 A: native scene footage (no plate / composited host)
+    elif 'no_light_panels' in G: BR = BR + ('no_light_panels',)
     pts['brand'] = round(10 * sum(ok(k) for k in BR) / len(BR))
     pts['cta'] = 5 if ok('loop_end') and (T.get('cta') or {}).get('link', '').startswith('https://lexkite.com/') else 0
     pts['share'] = 5 if any(k.startswith('e.') for k in T['elements']) and T.get('beats', {}).get('r2') else 3

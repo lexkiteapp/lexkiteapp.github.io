@@ -109,3 +109,16 @@ HOST_CLIPS = dict(ama='ga4_talk_natural', carlos='gc4_talk_natural', mia='gm1_ta
 HOOKS = dict(strong=[('Stop saying this.', 'Stop saying'), ('Never say this.', 'Never say'), ('Natives never say this.', 'Natives never say')],
              soft=[('Americans usually say this.', 'Americans usually say'), ('Sound more natural.', 'Sound more natural:')])
 RUBRIC_MIN = 90
+
+# ---- pilot v5 (owner 25/10: cream panels look cheap, subtitles amateur, cartoon host does not match the painted plate). docs/VIDEO-TEMPLATES.md §10.
+# Renderer: render_v5.py (--dir A = native scene footage, --dir B = illustrated host on a stylised plate). Same element engine + timeline as render_tpl.py.
+V5 = dict(
+    panel=(15, 61, 62), panel_alpha=0.80, panel_max_alpha=0.95, panel_luma=78,   # dark ink glass: frosted background + kit navy wash; luma UNDER the type <= panel_luma
+    card=(23, 89, 90),                                                           # solid brand-ink cards (kit navy2) on the glass, coloured outline = wrong red / right green
+    light_max=110,                                                               # gate no_light_panels: median luma of every panel / card / option box (rendered + encoded) <= this
+    cap_size=84, cap_y=1376, cap_words=3, cap_stroke=9, cap_active=(255, 201, 74), cap_pop=0.12,   # captions: 2-3 words/page, heavy, white + dark stroke, active word kit yellow, lower third, pop-in
+    stage_top=(352, 912), stage_low=(1000, 1360),                                # A: faces sit at y 300-1050 in the airport bank -> speaking beats use the low stage
+    punch=1.06, punch_hold=1.4, anchor_a=(540, 760), anchor_b=(540, 1180),       # camera punch-in on beats (base layer only; text stays crisp)
+    shot_max=2.6,                                                                # A: a cut (phrase boundary) at least every 2.6 s, usually 1-2 s
+    b_flat=dict(sp=10, sr=26, blur=2.2, chroma=0.40, contrast=0.86, rim=0.42, shadow=0.34),   # B: mean-shift flat plate, host-palette grade, rim light, cast shadow
+)

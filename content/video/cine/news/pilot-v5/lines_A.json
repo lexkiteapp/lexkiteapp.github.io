@@ -1,0 +1,94 @@
+{
+ "note": "Pilot v5 (docs/VIDEO-TEMPLATES.md \u00a710). Lesson tpl1b_airport_gate_cc6fbe. A: teacher voice-over + on-camera Ama (learner) parts (Mei = listener, mouth closed), lip-synced with Rhubarb; parts are concatenated into one beat line. Teacher lines = the reviewed tpl1b lines, word for word.",
+ "voices": {
+  "ama": "af_bella",
+  "carlos": "am_fenrir",
+  "mia": "af_heart",
+  "jake": "am_michael",
+  "mei": "af_sarah"
+ },
+ "speed": 0.88,
+ "lines": [
+  {
+   "id": "n_cc6fbe_h",
+   "who": "carlos",
+   "text": "Never say this."
+  },
+  {
+   "id": "n_cc6fbe_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_cc6fbe_y",
+   "who": "carlos",
+   "text": "For a new change, ask: has it changed?"
+  },
+  {
+   "id": "n_cc6fbe_r2",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_cc6fbe_e",
+   "who": "carlos",
+   "text": "Quiz: Excuse me, blank the gate changed? Has, or is? Comment below."
+  },
+  {
+   "id": "n_cc6fbe_s",
+   "who": "carlos",
+   "text": "Roleplay this free on lexkite.com."
+  },
+  {
+   "id": "p5_m_t",
+   "who": "carlos",
+   "text": "Many learners say:"
+  },
+  {
+   "id": "p5_m_a",
+   "who": "ama",
+   "text": "The gate is change?"
+  },
+  {
+   "id": "p5_k_t",
+   "who": "carlos",
+   "text": "Say:"
+  },
+  {
+   "id": "p5_k_a",
+   "who": "ama",
+   "text": "Excuse me, has the gate changed?"
+  },
+  {
+   "id": "p5_rn_t",
+   "who": "carlos",
+   "text": "Now at normal speed:"
+  },
+  {
+   "id": "p5_rn_a",
+   "who": "ama",
+   "text": "Excuse me, has the gate changed?"
+  },
+  {
+   "id": "n_cc6fbe_m",
+   "parts": [
+    "p5_m_t",
+    "p5_m_a"
+   ]
+  },
+  {
+   "id": "n_cc6fbe_k",
+   "parts": [
+    "p5_k_t",
+    "p5_k_a"
+   ]
+  },
+  {
+   "id": "n_cc6fbe_rn",
+   "parts": [
+    "p5_rn_t",
+    "p5_rn_a"
+   ]
+  }
+ ]
+}

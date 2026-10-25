@@ -10,7 +10,7 @@ Gates: host transform variance = 0 | motion tokens only | text inside the safe a
   hook_truth (Groq judge verdict for THIS hook text: strong hook only when the learner line is a real error; correction ok)."""
 import sys, os, re, json, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE, HOST_LOCK, VIDEO, SHARP, SWAY, CAPTION
+from tokens import SAFE, DUR, EASE, MIN_READ, MIN_PX, TYPE, PLATES, PLATE, HOST_LOCK, VIDEO, SHARP, SWAY, CAPTION, V5
 import math
 import hostframe as HF
 ok_all = True
@@ -61,11 +61,14 @@ for vid in sys.argv[1:]:
     # 6 one moving group at a time
     multi = []
     for f in fr:
-        gs = {r[8] for r in f['els'] if r[7]}
+        gs = {r[8] for r in f['els'] if r[7] and r[8] != 'cap'}   # v5 caption pages pop on their own layer (the voice drives them), not a lesson group
         if len(gs) > 1: multi.append((f['t'], sorted(gs)))
     R['one_moving_group'] = dict(ok=not multi, frames=len(multi), first=multi[:4])
     # 7 cuts
-    R['no_unmotivated_cut'] = dict(ok=not T.get('cuts'), cuts=T.get('cuts'))
+    # v5 A (native scene): cuts are allowed only on a motivation (speaker change, phrase boundary at a word gap, beat start, countdown tick)
+    MOT = ('speaker:', 'phrase', 'beat:', 'countdown')
+    R['no_unmotivated_cut'] = dict(ok=all(str(c.get('reason', '')).startswith(MOT) and c.get('word_gap') for c in (T.get('cuts') or [])) if T.get('style') == 'v5' else not T.get('cuts'),
+                                   cuts=len(T.get('cuts') or []), max_shot_s=max((x['t1'] - x['t0'] for x in T.get('shots') or []), default=None), reasons=sorted({str(c.get('reason')) for c in T.get('cuts') or []}))
     # 8 file
     pr = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,bit_rate,size:stream=codec_type,width,height,avg_frame_rate', '-of', 'json', vid]))
     dur, br, size = float(pr['format']['duration']), int(pr['format']['bit_rate']), int(pr['format']['size'])
@@ -82,7 +85,8 @@ for vid in sys.argv[1:]:
         R['plate_topic'] = dict(ok=P['name'] in PLATES and Lz.get('topic') in P['tags'] and bool(scene), plate=P['name'], topic=Lz.get('topic'), scene_words=scene)
         R['plate_clean'] = dict(ok=P['name'] in PLATES and PLATES[P['name']]['people'] == 0 and PLATES[P['name']]['text'] == 0 and P.get('faces', 1) == 0,
                                 people=P['people'], text=P['text'], faces=P.get('faces'), checked=P.get('checked'))
-        R['plate_contrast'] = dict(ok=P.get('stage_luma', 0) >= PLATE['stage_luma'] - 2, stage_luma=P.get('stage_luma'), scrim=P.get('scrim'))   # text stage stays light enough for navy type
+        R['plate_contrast'] = dict(ok=(P.get('stage_luma', 999) <= V5['panel_luma'] + 12) if T.get('style') == 'v5' else P.get('stage_luma', 0) >= PLATE['stage_luma'] - 2,
+                                   stage_luma=P.get('stage_luma'), scrim=P.get('scrim'), rule='v5: white type on dark glass (luma under type <= panel_luma + 12)' if T.get('style') == 'v5' else 'navy type on light stage')   # text stage stays light enough for navy type
         z = [f['plate'] for f in fr if f.get('plate') is not None]; dz = [b - a for a, b in zip(z, z[1:])]
         rate = max(dz) * fps if dz else 0
         R['plate_motion'] = dict(ok=len(z) == len(fr) and all(d >= 0 for d in dz) and rate <= PLATE['max_push_per_s'] + 1e-6 and z[-1] - 1 <= PLATE['push'] + 1e-6,
@@ -115,6 +119,7 @@ for vid in sys.argv[1:]:
         med = sorted(ratios)[len(ratios) // 2] if ratios else 0
         R['host_sharp'] = dict(ok=bool(ratios) and len(ratios) == len(fs_) and med >= SHARP['min_ratio'] and (SH.get('scale') or 9) <= 1.0 + 1e-6,
                                median_ratio=med, min_ratio=min(ratios) if ratios else None, rendered_var=[x['var'] for x in fs_][:9], scale=SH.get('scale'), method='INTER_AREA native downscale + Lanczos sway warp')
+    if (T.get('captions') or {}).get('words') or T.get('style') == 'v5':
         # captions: every word highlighted within CAPTION.sync_ms of its (audio-checked) start time, measured on the frame log
         CW = (T.get('captions') or {}).get('words') or {}; first = {}
         for f in fr:
@@ -144,6 +149,26 @@ for vid in sys.argv[1:]:
         R['hook_truth'] = dict(ok=bool(jd) and jd.get('hash') == cur and jd.get('right_ok') is True and jd.get('hook_true') is True and not Lz.get('reject')
                                and (hk.get('mode') == 'soft' or jd.get('wrong_is_error') is True),
                                mode=hk.get('mode'), hook=Lz.get('hook_text'), wrong_is_error=jd.get('wrong_is_error'), right_ok=jd.get('right_ok'), model=jd.get('model'), note=jd.get('note'))
+    if T.get('style') == 'v5' and not P:   # A: loop end on the native scene = last frame text-free, brand mark hidden, CTA deep link
+        last_txt = [r[0] for r in fr[-1]['els'] if r[5] > 0.004]
+        R['loop_end'] = dict(ok=not last_txt and bool(T.get('cta')) and (fr[-1].get('brand') or 0) <= 0.004 and (fr[-1].get('scrim') or 0) <= 0.01, last_frame_elements=last_txt[:4], cta=(T.get('cta') or {}).get('link'))
+        sc = [f.get('scene') for f in fr]
+        R['scene_native'] = dict(ok=all(sc) and not any(f['host'] for f in fr) and bool(T.get('scene_bank')), bank=T.get('scene_bank'), clips=sorted({x['clip'] for x in sc if x}),
+                                 note='every base frame is a bank clip frame (characters generated inside the scene); no composited cut-out')
+    if T.get('style') == 'v5' or T.get('panel'):
+        # no light panels (owner 25/10: cream/white text panels look cheap): every panel's luma under the type, every big card/option box (median of its opaque
+        # body) and the ENCODED frames inside each beat's panel rect stay dark (<= V5.light_max). Legacy cream renders fail this gate by design.
+        LG = T.get('light') or {}; pn = LG.get('panels') or {k: dict(rect=v.get('rect'), luma_under=v.get('luma')) for k, v in (T.get('panel') or {}).items()}
+        bx = {i: v for i, v in (LG.get('boxes') or {}).items() if v is not None}; enc = {}
+        import numpy as np
+        for k, v in (T.get('panel') or {}).items():
+            if v.get('snap') is None: continue
+            raw = subprocess.run(['ffmpeg', '-v', 'error', '-ss', f"{v['snap']:.3f}", '-i', vid, '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'], capture_output=True).stdout
+            if len(raw) >= 1080 * 1920:
+                g_ = np.frombuffer(raw[:1080 * 1920], np.uint8).reshape(1920, 1080); x0, y0, x1, y1 = v['rect']; enc[k] = float(np.median(g_[y0 + 24:y1 - 24, x0 + 24:x1 - 24]))
+        lm = V5['light_max']
+        R['no_light_panels'] = dict(ok=bool(pn) and all((p_.get('luma_under') or 999) <= lm for p_ in pn.values()) and all(x <= lm for x in bx.values()) and bool(enc) and all(x <= lm for x in enc.values()),
+                                    max_luma=lm, panel_luma={k: p_.get('luma_under') for k, p_ in pn.items()}, boxes=bx, encoded_median=enc)
     if T.get('hook_full'):   # the COMPLETE hook sentence is on screen, fully opaque, at 1.5 s (owner: 'Americans usually' alone is not a hook)
         f15 = max((f for f in fr if f['t'] <= 1.5 + 1e-6), key=lambda f: f['t'])
         vis = ' '.join(E[r[0]]['text'] for r in f15['els'] if r[0].startswith('h.t') and r[5] >= 0.99 and E.get(r[0], {}).get('text'))

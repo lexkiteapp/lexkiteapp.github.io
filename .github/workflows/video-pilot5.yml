@@ -1,0 +1,80 @@
+# video-pilot5: ONE lesson (tpl1b_airport_gate_cc6fbe) in two visual directions for the owner's choice (docs/VIDEO-TEMPLATES.md §10).
+#   A = native airport scene footage (characters generated inside the scene, Rhubarb mouth swap), B = illustrated host on a stylised plate.
+# 0 credits: Kokoro + Rhubarb + faster-whisper on the runner. NO GrabCast / Groq (hook verdict is teacher-reviewed in the lesson file).
+# No store, no Drive, no publish. Artifact only: A.mp4 / B.mp4 (>= 8 Mbps 1080x1920) + phone copies (< 30 MB) + qc/rubric/timeline + contact sheets.
+name: video-pilot5
+on:
+  workflow_dispatch:
+    inputs:
+      dirs: { description: 'directions to render (A,B / A / B)', required: true, default: 'A,B' }
+permissions: { contents: read }
+concurrency: { group: video-pilot5, cancel-in-progress: false }
+env:
+  LESSON: content/video/cine/news/tpl1b/tpl1b_airport_gate_cc6fbe.json
+  PD: content/video/cine/news/pilot-v5
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inputs
+        env: { DIRS_IN: '${{ inputs.dirs }}' }
+        run: |
+          case "$DIRS_IN" in A|B|A,B|B,A) ;; *) echo "::error::dirs must be A, B or A,B"; exit 1;; esac
+          echo "DIRS=${DIRS_IN//,/ }" >> "$GITHUB_ENV"
+          python3 -c "import json,sys;d=json.load(open('$LESSON'));j=d['hook'].get('judge');sys.exit(0 if j and not d.get('reject') else 1)" || { echo "::error::lesson has no reviewed hook verdict"; exit 1; }
+      - name: Libraries + ffmpeg
+        run: |
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg librsvg2-bin fontconfig >/dev/null
+          mkdir -p ~/.local/share/fonts && find brand -path "*src/fonts/*.ttf" -exec cp {} ~/.local/share/fonts/ \; && fc-cache -f >/dev/null
+      - name: Footage (airport scene bank + the B plate/host, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          C=$(python3 -c "import json;print(json.load(open('$LESSON'))['clip'])"); P=$(python3 -c "import json;print(json.load(open('$LESSON'))['plate'])")
+          git -C footage sparse-checkout set --no-cone /airport/bank.json /airport/dl24/ /airport/meta/ /airport/tools/amb_airport.wav \
+            "/anchor/bg/$P.png" "/anchor/green/kfull_pro/$C.mp4" "/anchor/green/kmask_pro/$C.mkv" "/anchor/tools/meta/$C/" "/anchor/tools/dl24/$C.json"
+          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage/airport footage/anchor
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Kokoro model cache
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb (required – lip-sync fails without it)
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
+          "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice → render → qc → rubric (each direction)
+        run: |
+          mkdir -p out/pilot5/phone; rc=0
+          for D in $DIRS; do
+            python3 scripts/video/tpl/pilot5_voice.py "$PD/lines_$D.json" "vo/$D" || { echo "::error::voice $D failed"; rc=1; continue; }
+            if [ "$D" = A ]; then X="--scene footage/airport"; else X="--lib footage/anchor"; fi
+            python3 scripts/video/tpl/render_v5.py --tpl 1 --dir "$D" $X --crf 18 --lesson "$LESSON" --lines "$PD/lines_$D.json" --vo "vo/$D/vis3" \
+              --fonts brand/social/src/fonts --out "out/pilot5/$D.mp4" > "out/pilot5/$D.render.log" 2>&1 || { tail -30 "out/pilot5/$D.render.log"; rc=1; continue; }
+            grep -v '^frame ' "out/pilot5/$D.render.log" | tail -12
+            python3 scripts/video/tpl/qc_tpl.py "out/pilot5/$D.mp4" | tee "out/pilot5/$D.qc.log" || true
+            python3 scripts/video/tpl/rubric_tpl.py "out/pilot5/$D.mp4" || true
+            ffmpeg -nostdin -v error -y -i "out/pilot5/$D.mp4" -c:v libx264 -preset slow -crf 21 -maxrate 5500k -bufsize 11000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "out/pilot5/phone/$D.mp4"
+            ls -la "out/pilot5/$D.mp4" "out/pilot5/phone/$D.mp4"
+          done
+          rm -f out/pilot5/*.mix.wav
+          { echo "## pilot v5"; for D in $DIRS; do echo "### $D"; echo '```'; cat "out/pilot5/$D.qc.log" 2>/dev/null; python3 -c "import json;r=json.load(open('out/pilot5/$D.mp4.rubric.json'));print('rubric',r['score'],r['points'],'failed',r['failed'])" 2>/dev/null; echo '```'; done; } >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot5-${{ github.run_number }}
+          path: |
+            out/pilot5/
+          retention-days: 30

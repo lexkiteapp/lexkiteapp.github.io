@@ -119,3 +119,42 @@ Same engine, tokens and gates as tpl1; only the background, the host choice and 
   24/10: quality only goes up; safe_area/readability → no automatic fix).
 - **No auto-publish**: nothing goes to YouTube/social from this workflow; the owner approves in Admin (pack/upload stays manual) and the
   schedule is enabled only after the first batch is approved.
+
+## 10. Pilot v5 – viral visual grammar + two directions (25/10/2026)
+Owner rejected the v4 look: cream/white text panels look cheap, the subtitles look amateur, the cartoon host does not match the painted plate
+("not top-1 viral"). One lesson (`tpl1b_airport_gate_cc6fbe`, "The gate is change?" → "Has the gate changed?") rendered in two directions.
+
+**10 rules (research 25/10: caption-tool guides 2026 – opus.pro, blitzcutai, captions.ai; CapCut pattern-interrupt + 2026 algorithm notes; Splice
+retention guide; hook-formula write-ups. Vendor sources = directional, no published retention study; we treat cut/zoom intervals as hypotheses to
+test against our own analytics):**
+1. **Hook in the first frame, complete by 1.5 s**: the scroll decision is made in ~1–2 s. The full hook sentence is on screen at frame ~5, spoken at
+   once, and a first visual change (punch-in) lands before 1.5 s. No logo/intro first.
+2. **Captions = pages of 2–3 words**, cut on the voice (phrase-balanced, no orphan word), word-level sync ≤ 80 ms (gate `caption_sync`).
+3. **Caption style**: heavy display face (Bricolage ExtraBold 84 px), white fill + thick dark stroke (9 px) + soft drop shadow; never a box behind
+   every word. The **active word changes colour** (kit yellow #FFC94A) – no pill: the boxed "Hormozi" look is called oversaturated in 2026 guides.
+4. **Caption position**: centred in the lower third (text top y 1376, inside the 22 % bottom UI margin), same place for the whole video.
+5. **Pop-in**: each caption page scales .86 → 1 in 120 ms (out-quint); lesson cards keep the token motions (rise/slide/spring, one group at a time).
+6. **Text cards are dark**: frosted "ink glass" (background blur + kit navy #0F3D3E wash, luma under the type ≤ 78) with solid ink cards (navy2)
+   and coloured outlines (red = wrong, green = right). Never cream/white boxes (gate `no_light_panels`: every panel, card and option box ≤ luma 110,
+   re-measured on the encoded frames).
+7. **Pacing**: a visual change every 1–2.6 s – A cuts on speaker changes / phrase boundaries / countdown ticks (never mid-word, gate
+   `no_unmotivated_cut` checks the reason of every cut), both directions punch in 6 % on beats (hook word, ✗ card, ✓ card, rule, quiz reveal, end).
+8. **Show the mistake in context**: the learner says the wrong line *in the scene* (A: Ama, lip-synced), then the fix; the teacher explains over it
+   (sketch first, explanation second – the format of viral English-teacher sketch accounts).
+9. **Sound design**: voice at −19 dBFS, −16 LUFS master; whoosh on card entries, tick on highlights, 3-2-1 ticks + chime on the quiz reveal;
+   bed (pad / airport ambience) ≈ −40 dB so the voice always leads.
+10. **Interaction + loop**: quiz with a visible 3-2-1 countdown and "Comment your answer"; end card with the deep link (spoken + button + URL);
+    the last frame is text-free so the loop restarts cleanly.
+
+**Direction A "Cine native"** (`render_v5.py --dir A --scene <footage>/airport`): the airport check-in bank (Ama + Mei generated inside the scene by
+Kling – proportion and light match by construction). No cut-outs (gate `scene_native`). Ama's lines ("The gate is change?", "Excuse me, has the gate
+changed?") are her own Kokoro voice (af_bella) with Rhubarb mouth swap (`scripts/cine/lipsync.py`, bank meta); everyone else on screen keeps the mouth
+closed while the teacher voice-over (Carlos' voice, the reviewed tpl1b lines word for word) talks. Lines with `parts` in `pilot-v5/lines_A.json` are
+concatenated per beat. Faces sit at y 300–1050 in this bank → speaking beats (hook, ✗/✓, normal speed) use the LOW stage (1000–1360) under the faces;
+teaching beats (rule, tip, quiz, end) use the top stage over insert shots (printer, scale, passport) so no face is covered.
+**Direction B "Animated premium"** (`--dir B --lib <footage>/anchor`): tpl1b host + framing standard unchanged, the plate is re-drawn in a flat
+illustration language (mean-shift flat shading, chroma pulled 40 % toward the host palette, softer contrast, floor darkening), rim light on the host
+edge facing the plate's light side, tinted with the plate highlight, and a soft cast shadow of the whole silhouette away from the light.
+**CI**: `video-pilot5.yml` (input `dirs=A,B`) → artifact with A.mp4 / B.mp4 (≥ 8 Mbps), phone copies, qc/rubric/timeline, contact sheets.
+`render_v5.py` is a fork of `render_tpl.py` (same element engine + timeline + gates) until the owner picks a direction; it also fixes the rule card
+(the formula 'HAS + it + CHANGED?' was cut to 'HAS + it').
