@@ -109,6 +109,8 @@ Cuối tuần, làm một bài đọc đầy đủ theo định dạng mới đ�
 
 ![Màn hình “Vocabulary library” của Lexkite với các bộ từ chia theo nguồn và cấp độ A1–B2](media:library "Mỗi bộ từ có nhãn cấp độ, bạn chọn bộ vừa sức để học")
 
+Để dùng từ vựng học thuật trong bài viết 10 phút, xem [hướng dẫn TOEFL Academic Discussion](/vi/blog/toefl-academic-discussion/).
+
 {{cta: /#/toefl | Làm thử một bài Complete the Words}}
 
 ## Câu hỏi thường gặp

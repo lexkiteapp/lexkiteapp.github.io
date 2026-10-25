@@ -166,6 +166,8 @@ Câu 5 là lỗi rất phổ biến trong Task 1. Hãy nhớ cặp *raise prices
 
 3. Trong thư viện còn có bộ "Collocation band 7+" để bạn học thêm theo flashcard. Để thấy collocation được dùng trong cả bài hoàn chỉnh, đọc các [bài mẫu Task 2 band 8 có chú thích](/samples/).
 
+Giới từ đi kèm (interested in, depend on) cũng nên học theo cụm như collocation; xem [bài giới từ in on at](/vi/blog/gioi-tu-in-on-at-trong-tieng-anh/).
+
 {{cta: /#/phrases | Bắt đầu sổ collocation của riêng bạn}}
 
 {{youtube: | Gợi ý video: 10 lỗi collocation người Việt hay mắc trong IELTS Writing}}

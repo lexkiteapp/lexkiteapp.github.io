@@ -114,6 +114,8 @@ Phát âm rõ là điều kiện để giám khảo hiểu bạn ngay. Nếu b�
 
 Trong [Luyện phát âm](/#/practice/speak), bạn đọc từng cụm từ vào micro và được chấm theo giọng nói. Dùng nó cho những cụm bạn định dùng trong Part 1 – ví dụ *"cut down on"*, *"get used to"* – để chúng ra miệng tự nhiên khi thi. Khi Part 1 đã ổn, hãy chuyển sang [IELTS Speaking Part 2](/vi/blog/ielts-speaking-part-2-cue-card/), phần đòi hỏi nói dài và có cấu trúc.
 
+Khi đã quen trả lời ngắn ở Part 1, hãy luyện tiếp kiểu câu hỏi trừu tượng hơn trong [bài IELTS Speaking Part 3](/vi/blog/ielts-speaking-part-3/).
+
 {{cta: /#/speaking | Trả lời thử 5 câu hỏi Part 1 và ghi âm lại}}
 
 {{youtube: | Gợi ý video: So sánh câu trả lời Part 1 một chữ và câu trả lời 3 câu theo công thức Trả lời – Lý do – Chi tiết}}

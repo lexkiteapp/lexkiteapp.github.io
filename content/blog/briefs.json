@@ -10959,6 +10959,114 @@
    "intent": "informational",
    "lang": "en",
    "cluster": "cach-phat-am-ed-va-s-es"
+  },
+  {
+   "slug": "ielts-speaking-part-3",
+   "keyword": "ielts speaking part 3",
+   "category": "ielts",
+   "tags": [
+    "speaking",
+    "part-3",
+    "ielts"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "vi",
+   "cluster": "ielts-speaking-part-3"
+  },
+  {
+   "slug": "ielts-reading-matching-headings",
+   "keyword": "matching headings ielts",
+   "category": "ielts",
+   "tags": [
+    "reading",
+    "matching-headings",
+    "ielts"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "vi",
+   "cluster": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "cau-bi-dong-tieng-anh-passive-voice",
+   "keyword": "câu bị động",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "passive-voice",
+    "writing"
+   ],
+   "routes": [
+    "/#/grammar/passive-voice",
+    "/#/grammar/passive-reporting-causative"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "vi",
+   "cluster": "passive-voice"
+  },
+  {
+   "slug": "dong-tu-khuyet-thieu-can-could-should-must",
+   "keyword": "động từ khuyết thiếu",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "modal-verbs",
+    "giao-tiep"
+   ],
+   "routes": [
+    "/#/grammar/modals-obligation-advice",
+    "/#/grammar/modals-deduction"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "vi",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must"
+  },
+  {
+   "slug": "gioi-tu-in-on-at-trong-tieng-anh",
+   "keyword": "giới từ in on at",
+   "category": "ngu-phap",
+   "tags": [
+    "ngu-phap",
+    "prepositions",
+    "toeic"
+   ],
+   "routes": [
+    "/#/grammar/prepositions",
+    "/#/grammar/dependent-prepositions"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "vi",
+   "cluster": "gioi-tu-in-on-at-trong-tieng-anh"
+  },
+  {
+   "slug": "toefl-academic-discussion",
+   "keyword": "toefl academic discussion",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "writing",
+    "academic-discussion"
+   ],
+   "routes": [
+    "/#/toefl-p/discussion",
+    "/#/toefl"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational/exam-prep",
+   "lang": "vi",
+   "cluster": "toefl-writing-academic-discussion"
   }
  ]
 }

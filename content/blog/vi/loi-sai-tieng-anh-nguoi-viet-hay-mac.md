@@ -160,6 +160,8 @@ Khi luyện viết, dùng [Phòng viết IELTS Task 2](/#/write) để viết m�
 
 ![Mục Writing của Lexkite gồm gợi ý ý tưởng, khung viết và bài mẫu có chú thích](media:write "Viết lại câu bị lỗi trong phòng Writing rồi so với bài mẫu")
 
+Ba nhóm lỗi có bài phân tích riêng: [giới từ in on at](/vi/blog/gioi-tu-in-on-at-trong-tieng-anh/), [câu bị động](/vi/blog/cau-bi-dong-tieng-anh-passive-voice/) và [động từ khuyết thiếu](/vi/blog/dong-tu-khuyet-thieu-can-could-should-must/).
+
 {{cta: /#/mistakes | Mở Sổ lỗi sai và ôn lỗi của bạn}}
 
 {{youtube: | Gợi ý video: 10 lỗi tiếng Anh do dịch từ tiếng Việt và cách sửa nhanh}}

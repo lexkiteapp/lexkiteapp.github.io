@@ -106,6 +106,8 @@ Trong [Phòng luyện Speaking](/#/speaking), bạn có thể chọn Part 2 theo
 
 Khi đã luyện riêng Part 2 được một thời gian, hãy vào [Thi thử IELTS](/#/mock) và chọn Speaking để quen nhịp chuyển từ Part 1 sang Part 2 rồi Part 3. Cách tổ chức một buổi thi thử nghiêm túc có trong bài [thi thử IELTS online và học từ lỗi sai](/vi/blog/thi-thu-ielts-online/). Bạn cũng có thể đọc thêm câu hỏi và gợi ý theo chủ đề tại trang [luyện IELTS Speaking](/speaking/).
 
+Ngay sau thẻ đề là phần thảo luận mở rộng; cách trả lời có lý do và ví dụ được hướng dẫn trong [bài IELTS Speaking Part 3](/vi/blog/ielts-speaking-part-3/).
+
 {{cta: /#/speaking | Chọn một thẻ đề Part 2 và nói thử 2 phút}}
 
 {{youtube: | Gợi ý video: Ghi chú 1 phút cho một thẻ đề Part 2 và nói trọn 2 phút theo khung 4 bước}}

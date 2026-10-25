@@ -146,6 +146,8 @@ Thời gian tiết kiệm ở đây chính là thời gian bạn có thêm cho [
 
 5. Các cụm từ vựng gặp trong đề, hãy lưu thành flashcard để ôn mỗi ngày. Muốn có sẵn danh sách, xem [từ vựng TOEIC chia theo nhóm chủ đề](/vi/blog/tu-vung-toeic-theo-chu-de/).
 
+Câu hỏi giới từ thời gian và nơi chốn có bảng tổng hợp riêng trong [bài giới từ in on at](/vi/blog/gioi-tu-in-on-at-trong-tieng-anh/).
+
 {{cta: /#/toeic | Luyện TOEIC Part 5 ngay}}
 
 {{youtube: | Gợi ý video: giải nhanh 10 câu Part 5 tự soạn, mỗi câu dưới 20 giây, kèm lý do chọn đáp án}}

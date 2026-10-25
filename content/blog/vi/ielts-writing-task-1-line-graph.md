@@ -137,6 +137,8 @@ Trong [phần Writing Task 1](/#/task1), bạn có thể chọn riêng dạng bi
 
 Sau khi quen line graph, các dạng khác (cột, bảng) sẽ dễ hơn nhiều vì từ vựng và cách viết overview gần như giống nhau. Còn khi muốn chuyển sang bài luận, hãy xem hướng dẫn [cấu trúc IELTS Writing Task 2](/vi/blog/cau-truc-ielts-writing-task-2/) và đọc thêm [bài mẫu Task 2 band 8 có chú thích](/samples/).
 
+Khi đề là sơ đồ quy trình thay vì biểu đồ, câu bị động trở thành cấu trúc chính; xem [bài câu bị động](/vi/blog/cau-bi-dong-tieng-anh-passive-voice/).
+
 {{cta: /#/task1 | Luyện viết overview cho một biểu đồ đường}}
 
 {{youtube: | Gợi ý video: Viết overview cho biểu đồ đường trong 3 phút, từ đọc biểu đồ đến câu hoàn chỉnh}}

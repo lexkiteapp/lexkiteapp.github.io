@@ -105,6 +105,8 @@ Mỗi tuần chỉ cần hai, ba idiom đi hết bốn bước là đủ. Mườ
 
 3. Trong Thư viện còn có bộ "Thành ngữ cho Speaking" để ôn bằng flashcard. Sau khi ôn, tự ghi âm một câu trả lời và nghe lại xem idiom có trôi chảy không.
 
+Ở phần thảo luận cuối bài thi, lập luận rõ ràng quan trọng hơn idiom; xem khung trả lời trong [bài IELTS Speaking Part 3](/vi/blog/ielts-speaking-part-3/).
+
 {{cta: /#/speaking | Luyện một câu trả lời Part 1 có dùng idiom}}
 
 {{youtube: | Gợi ý video: So sánh câu trả lời Speaking lạm dụng idiom và câu trả lời tự nhiên}}

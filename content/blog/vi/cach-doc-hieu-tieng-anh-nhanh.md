@@ -156,6 +156,8 @@ Ví dụ trong [bài đọc về rác vũ trụ](/#/read/space-debris), từ kh�
 
 ![Kết quả tra từ “resilient” kèm câu ví dụ, collocation và nút lưu thành flashcard](media:dict "Tra “resilient” ngay khi gặp để hiểu từ trong ngữ cảnh bài đọc")
 
+Thói quen tóm ý chính mỗi đoạn bằng vài từ áp dụng trực tiếp cho [dạng matching headings IELTS](/vi/blog/ielts-reading-matching-headings/).
+
 {{cta: /#/reading | Chọn một bài đọc vừa sức và đo tốc độ}}
 
 {{youtube: | Gợi ý video: Luyện đọc theo cụm ý với một đoạn văn học thuật}}
