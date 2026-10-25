@@ -11196,6 +11196,60 @@
    "intent": "informational",
    "lang": "ja",
    "cluster": "passive-voice"
+  },
+  {
+   "slug": "yeongeo-ed-bareum-gyuchik",
+   "keyword": "ed 발음 규칙",
+   "category": "phat-am",
+   "tags": [
+    "balum",
+    "ed-endings",
+    "speaking"
+   ],
+   "routes": [
+    "/#/grammar/ed-s-endings",
+    "/#/pron"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "ko",
+   "cluster": "cach-phat-am-ed-va-s-es"
+  },
+  {
+   "slug": "ya-si-kou-yu-part-3-ji-qiao",
+   "keyword": "雅思口语part 3 技巧",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "part-3"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "zh",
+   "cluster": "ielts-speaking-part-3"
+  },
+  {
+   "slug": "ielts-speaking-part-3-nasaih",
+   "keyword": "ielts speaking part 3 نصائح",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "part-3"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "ar",
+   "cluster": "ielts-speaking-part-3"
   }
  ]
 }

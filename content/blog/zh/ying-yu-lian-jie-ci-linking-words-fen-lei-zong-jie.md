@@ -151,6 +151,8 @@ quiz: [
 3. **因果颠倒错误：** 混淆 *due to*（后接原因）与 *resulting in*（后接结果），导致整段论证逻辑彻底翻车；
 4. **Besides 的滥用：** 许多中国考生将 Besides 当作 Furthermore 使用。实际上 Besides 常常带有微弱的辩解或轻佻口吻（意为“更何况、反正是这样”），在严肃论文中应当使用 *Furthermore* 或 *Moreover*。
 
+在口语讨论题中灵活使用连接词的方法，可参考 [雅思口语 Part 3 技巧](/zh/blog/ya-si-kou-yu-part-3-ji-qiao/)。
+
 {{cta: /samples/ | 查阅学术论文与高分范文连接词库}}
 
 {{youtube: | 英语连接词 Linking Words 写作高分精讲}}

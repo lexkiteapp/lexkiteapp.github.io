@@ -179,6 +179,8 @@ quiz: [
 - [أدوات الربط في اللغة الإنجليزية واستخداماتها الأكاديمية](/ar/blog/adawat-al-rabt-fi-al-injliziyyah-linking-words/)
 - [ربط الأصوات في اللغة الإنجليزية وطرق النطق السلس](/ar/blog/al-idgham-wa-rabt-al-aswat-fi-al-injliziyyah-connected-speech/)
 
+أسئلة الافتراض في محادثة الآيلتس تعتمد على الشرط من النوع الثاني، انظر [ielts speaking part 3 نصائح](/ar/blog/ielts-speaking-part-3-nasaih/).
+
 {{cta: /app/#/grammar | ابدأ التدرب على قواعد الجمل الشرطية الآن}}
 
 {{youtube: | Mastering English Conditionals Zero First Second Third and Mixed}}

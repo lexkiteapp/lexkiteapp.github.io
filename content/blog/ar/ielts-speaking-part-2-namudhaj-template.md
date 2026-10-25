@@ -168,6 +168,8 @@ quiz: [
 
 يمكنك دراسة المزيد من نماذج الإجابات وتدريبات الأقسام عبر صفحة [نماذج إجابات التحدث والـ Speaking](/speaking/). كما يمكنك مراجعة تقنيات قراءة المقالات الأكاديمية عبر [استراتيجيات قراءة آيلتس skimming و scanning](/ar/blog/ielts-reading-skimming-scanning-istratijiyat/) وبناء المقالات في [كتابة ielts writing task 2](/ar/blog/ielts-writing-task-2-ar/).
 
+بعد بطاقة الجزء الثاني تأتي أسئلة النقاش مباشرة، وقد شرحناها في دليل [ielts speaking part 3 نصائح](/ar/blog/ielts-speaking-part-3-nasaih/).
+
 {{cta: /speaking/ | التدرب على نماذج إجابة التحدث آيلتس}}
 
 {{youtube: | IELTS Speaking Part 2 Master Template and Band 8 Sample}}
