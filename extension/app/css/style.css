@@ -827,9 +827,9 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
 /* ===== Bài mẫu có phân tích ===== */
 .md-head { margin-top: .6rem; padding: 1.2rem 1.3rem; }
 .md-title { margin: .45rem 0 0; font-size: 1.55rem; letter-spacing: -.01em; }
-.md-badge { display: inline-flex; align-items: center; font-size: .74rem; font-weight: 800; letter-spacing: .02em; padding: .22rem .6rem; border-radius: 99px; background: var(--primary); color: #fff; }
+.md-badge { display: inline-flex; align-items: center; font-size: .74rem; font-weight: 800; letter-spacing: .02em; padding: .22rem .6rem; border-radius: 99px; background: var(--primary); color: var(--primary-ink); }
 .md-badge.soft { background: var(--primary-soft); color: var(--primary-text); }
-.md-badge.band { background: #16a34a; }
+.md-badge.band { background: #15803d; color: #fff; } /* trắng trên #15803d = 5.0:1 (AA) – #16a34a chỉ 3.3:1 */
 .md-prompt { margin-top: 1rem; padding: .9rem 1rem; border-radius: 12px; background: var(--surface-2); border-left: 3px solid var(--primary); line-height: 1.65; }
 .md-chart { margin-top: .6rem; } .md-chart summary { cursor: pointer; color: var(--primary-text); font-weight: 700; }
 .md-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 1.2rem; align-items: start; }

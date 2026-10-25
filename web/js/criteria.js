@@ -633,12 +633,12 @@
   let curModelBand = '6.5'; // '5.0' | '6.5' | '8.0'
   const wc = s => (String(s || '').trim().match(/\S+/g) || []).length;
   const critMeta = {
-    tr: { color: 'var(--accent, #0ea5e9)', bg: 'var(--accent-soft)' },
-    cc: { color: 'var(--primary)', bg: 'var(--primary-soft)' },
-    lr: { color: '#d97706', bg: 'rgba(217, 119, 6, .12)' },
-    gra: { color: 'var(--good)', bg: 'var(--good-soft)' },
-    fc: { color: 'var(--accent, #0ea5e9)', bg: 'var(--accent-soft)' },
-    pr: { color: 'var(--primary)', bg: 'var(--primary-soft)' }
+    tr: { color: 'var(--accent-text)', bg: 'var(--accent-soft)' },
+    cc: { color: 'var(--primary-text)', bg: 'var(--primary-soft)' },
+    lr: { color: 'var(--gold-text)', bg: 'rgba(217, 119, 6, .12)' },
+    gra: { color: 'var(--good-text)', bg: 'var(--good-soft)' },
+    fc: { color: 'var(--accent-text)', bg: 'var(--accent-soft)' },
+    pr: { color: 'var(--primary-text)', bg: 'var(--primary-soft)' }
   };
 
   function renderPage() {
@@ -675,7 +675,7 @@
           <div class="row" style="gap:.45rem;align-items:center;flex-wrap:wrap">
             <span class="tiny muted"><b>${t('Lọc band:')}</b></span>
             <div class="row" id="bandFilters" style="gap:.3rem;flex-wrap:wrap">
-              ${['all', '4', '5', '6', '7', '8', '9'].map(b => `<button class="chip ${curBandFilter === b ? 'active' : ''}" data-band="${b}" style="cursor:pointer;padding:.25rem .6rem;font-weight:700;font-size:.82rem;border-radius:8px;${curBandFilter === b ? 'background:var(--primary);color:#fff;border-color:var(--primary)' : ''}">${b === 'all' ? t('Tất cả') : 'Band ' + b}</button>`).join('')}
+              ${['all', '4', '5', '6', '7', '8', '9'].map(b => `<button class="chip ${curBandFilter === b ? 'active' : ''}" data-band="${b}" style="cursor:pointer;padding:.25rem .6rem;font-weight:700;font-size:.82rem;border-radius:8px;${curBandFilter === b ? 'background:var(--primary);color:var(--primary-ink);border-color:var(--primary)' : ''}">${b === 'all' ? t('Tất cả') : 'Band ' + b}</button>`).join('')}
             </div>
           </div>
         </div>
@@ -690,7 +690,7 @@
 
         <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:1rem" id="criteriaGrid">
           ${d.criteria.map(c => {
-            const cm = critMeta[c.id] || { color: 'var(--primary)', bg: 'var(--primary-soft)' };
+            const cm = critMeta[c.id] || { color: 'var(--primary-text)', bg: 'var(--primary-soft)' };
             return `
             <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;border-top:4px solid ${cm.color};border-radius:14px;box-shadow:var(--shadow-sm)">
               <div>
@@ -794,7 +794,7 @@ ${esc(isW ? curModel.essay : curModel.transcript)}
               <div class="stack" style="gap:.6rem">
                 ${curModel.critique.map(c => `
                   <div style="background:var(--surface-2);border-radius:10px;padding:.75rem .95rem;border-left:3.5px solid var(--primary)">
-                    <b class="small" style="color:var(--primary)">${esc(t(c.title))}</b>
+                    <b class="small" style="color:var(--primary-text)">${esc(t(c.title))}</b>
                     <p class="tiny" style="margin:.3rem 0 0;line-height:1.55;color:var(--text)">${esc(t(c.text))}</p>
                   </div>
                 `).join('')}
@@ -810,7 +810,7 @@ ${esc(isW ? curModel.essay : curModel.transcript)}
             ${d.jumpTips.map(j => `
               <div class="card" style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:var(--shadow-sm)">
                 <div class="row between" style="margin-bottom:.65rem;align-items:center">
-                  <span class="chip" style="background:var(--primary-soft);color:var(--primary);font-weight:800;border:1px solid var(--primary)">Band ${j.from} ➔ Band ${j.to}</span>
+                  <span class="chip" style="background:var(--primary-soft);color:var(--primary-text);font-weight:800;border:1px solid var(--primary)">Band ${j.from} ➔ Band ${j.to}</span>
                   <span class="tiny muted" style="font-weight:600">✨ ${t('Bước nhảy vọt')}</span>
                 </div>
                 <h3 style="font-size:1.02rem;margin:0 0 .75rem;color:var(--text)">${esc(t(j.title))}</h3>
