@@ -793,9 +793,10 @@ def fits2(seg):
     if not ROW2: return None
     ok = [k for k in range(1, len(seg)) if fits1(seg[:k]) and fits1(seg[k:])]
     return min(ok, key=lambda k: abs(_wpx(seg[:k], CAP['min']) - _wpx(seg[k:], CAP['min']))) if ok else None
-BAD_PAGES = []
+BAD_PAGES = []; NOSPLIT = set()
 def pages_of(lid):
-    ws = [w['w'] for w in LINES[lid]['words']]; pg = paginate(ws, fits1, fits2, solo_ok=True); bad = single_word_pages(ws, pg, fits1)
+    ws = [w['w'] for w in LINES[lid]['words']]; paginate.fallback = False; pg = paginate(ws, fits1, fits2, solo_ok=True); bad = single_word_pages(ws, pg, fits1)
+    if paginate.fallback: NOSPLIT.add(lid); print(f'caption line {lid}: no 2-3 word pagination fits the column at the minimum size -> one-word pages {bad}', flush=True); bad = []
     if bad: print('WARN one-word caption page (qc caption_script fails)', lid, bad, flush=True); BAD_PAGES.append((lid, bad))
     return [([f'{lid}.{k}' for k in range(j, i)], split) for j, i, split in pg]
 def paste_scaled(F, im, cx, cy, sc, al, wipe=1.0):
@@ -862,7 +863,7 @@ def _solo_pairs(p):   # a one-word page: the two-word pages it could have joined
     k = WORDS[p.wids[0]]['k']; ws = [w['w'] for w in LINES[p.lid]['words']]; return [ws[a:a + 2] for a in (k - 1, k) if 0 <= a and a + 2 <= len(ws)]
 for a, b in zip(PAGES, PAGES[1:]): a.t1 = min(a.t1, b.t0)
 CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), rows=p.rows, size=p.sz, stroke=ST, ss=SS, cx=round((p.ink[0] + p.ink[1]) / 2, 1), ink=[round(v) for v in p.ink],
-                         last=WORDS[p.wids[-1]]['k'] == len(LINES[p.lid]['words']) - 1, bounce=p.bounce, colw=round(CAPWC),
+                         last=WORDS[p.wids[-1]]['k'] == len(LINES[p.lid]['words']) - 1, bounce=p.bounce, colw=round(CAPWC), nosplit=p.lid in NOSPLIT,
                          solo_pairs=[round(_wpx(x, CAP['min'])) for x in _solo_pairs(p)] if len(p.wids) == 1 else None) for j, p in enumerate(PAGES)}
 print('pages', ' | '.join(p.text.replace(' ', '/', 1) if p.rows > 1 else p.text for p in PAGES), flush=True)
 TALL = [(p.t0, p.t1) for p in PAGES if p.rows > 1] if CAPINK else []   # two-row board pages need the strip above them
@@ -940,7 +941,7 @@ else:
                             '-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation', '-b:v', f'{o.kbps}k', '-maxrate', f'{int(o.kbps * 1.35)}k', '-bufsize', f'{o.kbps * 2}k',
                             '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-g', '48', '-movflags', '+faststart', o.out + '.video.mp4'], stdin=subprocess.PIPE)
 SPK = [dict(cues=LINES[l]['cues'], at=at) for l, at in ATL.items()]
-FRAMES = []; SHARP = []
+FRAMES = []; SHARP = []; SHARP_DUE = False
 for fi in range(NF):
     T = fi / FPS; tm = T + 0.5 / FPS
     if PREV is not None and fi not in PREV: continue
@@ -979,7 +980,9 @@ for fi in range(NF):
     FRAMES.append(dict(t=round(T, 4), src=[[c, k, round(w_, 4)] for c, k, w_ in srcs], s=round(s, 5), M=[s, 0, (1 - s) * AX, 0, s, (1 - s) * AY], win=[round(x, 2) for x in win],
                        vis=v, wipe=wipe, els=[[e['name'], e['text'], *[round(x) for x in e['bbox']], e['alpha'], e['px'], e['group'], e['digit'], e['where'], e['m']] for e in els]))
     if fi in (0, NF - 1): cv2.imwrite(f'{o.out}.samples/f{fi:04d}.png', out)
-    if fi % 24 == 12:
+    if fi % 24 == 12: SHARP_DUE = True
+    if SHARP_DUE and len(srcs) == 1:   # sharpness sample every second, on the next single-source frame (a dissolve is not a resampling measure)
+        SHARP_DUE = False
         c0, k0 = srcs[0][0], srcs[0][1]; FR = HEAD_RAW[c0]; FR = [FR[0] + 80, FR[1] + 120, FR[2] - 80, FR[3] - 60]
         Fn = norm_frame(MO[c0].apply(RAW[c0][k0].copy(), k0, MO[c0].spr[v]), crop=False) if CROP else F
         nat = cv2.cvtColor(Fn[FR[1]:FR[3], FR[0]:FR[2]], cv2.COLOR_BGR2GRAY); r = [round(x) for x in to_screen(_tb(FR) if CROP else FR, s)]; r = [max(0, r[0]), max(0, r[1]), min(W, r[2]), min(H, r[3])]

@@ -39,7 +39,9 @@ def paginate(words, fits1, fits2, maxw=3, solo_ok=False):
                 tot = best[j][0] + c
                 if best[i] is None or tot < best[i][0]: best[i] = (tot, best[j][1] + [(j, i, split)])
         return best[n]
-    r = solve(False) or solve(True)   # the fallback (a forced single word) only when nothing else exists; qc_v9 then fails the video
+    r = solve(False)
+    if r is None and solo_ok: paginate.fallback = True
+    r = r or solve(True)   # the fallback (a forced single word) only when nothing else exists; qc_v9 then fails the video
     return r[1]
 
 def single_word_pages(words, pages, fits1=None):
