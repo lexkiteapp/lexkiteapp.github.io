@@ -66,6 +66,15 @@ Sets in teachers.json: `classroom` (seated MCU, whiteboard behind/above the head
 | k01_kai_class | Kai (am_liam) NEW, Native Hawaiian American | MCU frontal | 0–228 | 88 | |
 | a02_ama_board | Ama (af_bella) | standing medium, whiteboard | 0–223 | 85 | eyes open ~75 % |
 | c01_carlos_board | Carlos (am_fenrir) | standing medium, whiteboard | 0–199 | 84 | mouth track 0.87 (head yaw) – short lines |
+| d03_daniel_desk | Daniel | standing behind desk, board left | 0–218 | 88 | board-v2 26/10; caption band clear |
+| m03_mei_desk | Mei | standing behind desk, board left | 0–199 | 84 | eyes closed 19 % of usable |
+| k03_kai_desk | Kai (am_puck) | standing behind desk, board left | 0–211 | 85 | lively head tilts |
+
+**Board-v2 (26/10/2026, 208 cr of cap 230, ledger `== TEACHERS board-v2`):** framing `desk_standing` – the teacher stands BEHIND the bare light-oak desk
+beside the blank board, head→waist, right third; desk top ≈ y 1184, so the caption band x 36–936 × y 1237–1497 (bottom of the safe area) holds no body in
+any frame (measured 0 px change, `tools/qcdesk.py`). A standing teacher without the desk cannot clear that band: captions must stay above SAFE y1 1497 and a
+full body small enough to clear it gives a face too small for lip-sync. First frames are moved up 0-cr with `tools/shift.py` (Kling draws the desk lower
+than asked). Eyes: `tools/eyes.py` on the bank.py face track. r03_ruth_desk rejected (eyes closed 40 %); no retry inside the cap.
 
 Rejected: d01_daniel_talk (studio set before the classroom decision, motion fine), a01_ama_board (eyes closed ~45 %, stance shifts, face too small).
 Lessons: Kling local-file upload is blocked in the sandbox → refs go to lexkite-media `cine/teachers/` (tools/putmedia.sh); standing "explaining" clips need "eyes wide open" + "legs locked" and a head→thigh framing; ¾ angles from the accepted frontal frame work first try; bank.py face box must be aimed at the mouth (it locked on an eye twice).
@@ -86,7 +95,8 @@ Board text is done (§5). Kai's voice: am_liam is graded D in Kokoro's voice lis
 | d02 Daniel ¾ | 316×508 (right of the head) | only picture-card hooks; text rows < 50 px | 0 |
 | k01 Kai / m01, m02 Mei | ≤ 90 px strip or ≤ 146 px column | no | 0–41 |
 | a02 Ama / c01 Carlos standing | 818×320–340 | yes, everything on the board | a02: Ama's hip/hand beside the 640 px column; c01: Carlos' hand edge |
+| d03 Daniel / m03 Mei / k03 Kai behind desk | 456–544×310–376 | yes, ~4 rows of 64 px | 0 (caption w 768 on the desk front) |
 
 - So the v2 samples (content/video/cine/news/templates-v2) use Ruth (mistake), Carlos at the board (5 words, borrow/lend, roleplay) and Ama at
-  the board (guess, pronunciation). Daniel/Mei/Kai need a re-framed clip to carry board text: seated lower in frame (≥ 250 px of board above the
+  the board (guess, pronunciation). Daniel/Mei/Kai now have the desk_standing clips (board-v2, 26/10); Ruth still needs one. Earlier note: they needed a re-framed clip to carry board text: seated lower in frame (≥ 250 px of board above the
   hair) or standing beside the board like a02/c01 (≈ 50 cr per clip + 1 cr first frame, docs/CREDIT-RULES.md).

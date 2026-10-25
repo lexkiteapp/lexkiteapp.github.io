@@ -371,6 +371,60 @@
     695,
     775
    ]
+  },
+  "d03_daniel_desk": {
+   "set": "classroom_board",
+   "who": "daniel",
+   "usable": [
+    0,
+    218
+   ],
+   "head": [
+    610,
+    370,
+    1000,
+    790
+   ],
+   "anchor": [
+    805,
+    600
+   ]
+  },
+  "m03_mei_desk": {
+   "set": "classroom_board",
+   "who": "mei",
+   "usable": [
+    0,
+    199
+   ],
+   "head": [
+    570,
+    470,
+    880,
+    810
+   ],
+   "anchor": [
+    715,
+    650
+   ]
+  },
+  "k03_kai_desk": {
+   "set": "classroom_board",
+   "who": "kai",
+   "usable": [
+    0,
+    211
+   ],
+   "head": [
+    640,
+    470,
+    960,
+    870
+   ],
+   "anchor": [
+    780,
+    700
+   ]
   }
  }
 }

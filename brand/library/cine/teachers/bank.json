@@ -42,7 +42,8 @@
   "MCU: teacher seated ON chair behind teacher desk, whiteboard behind/above head = text zone, desk front (bottom ~30 %) = caption zone",
   "standing: teacher beside the blank whiteboard (board = text zone upper-left), medium shot head->thigh",
   "whiteboard is always blank; no text/logo/badge anywhere",
-  "mouth = Rhubarb swap from tools/meta (harvested from the same clip); clips play forward, loop end per clip"
+  "mouth = Rhubarb swap from tools/meta (harvested from the same clip); clips play forward, loop end per clip",
+  "desk_standing (26/10): teacher stands behind the bare teacher desk beside the blank whiteboard, head->waist, desk top ~y1184 (first frame reframed 0-cr by tools/shift.py) so the caption band never meets the body"
  ],
  "layout": {
   "mcu": {
@@ -69,17 +70,31 @@
     1300,
     1916
    ]
+  },
+  "desk_standing": {
+   "text_zone": "whiteboard left of the teacher, board_detect zone ~456-544 x 310-376 from y 302",
+   "head_y": [
+    370,
+    870
+   ],
+   "desk_top_y": 1184,
+   "caption_zone_y": [
+    1237,
+    1497
+   ],
+   "note": "teacher stands behind the bare desk; desk front = caption band, body never enters x36-936 y1237-1497"
   }
  },
  "credits": {
-  "images": 24,
-  "videos": 500,
-  "total": 524,
+  "images": 32,
+  "videos": 700,
+  "total": 732,
   "approved_plan": 610,
-  "cap": 650,
-  "accepted_clips": 8,
-  "rejected_clips": 2,
-  "note": "per-item lines in tools/ledger.txt"
+  "cap": 754,
+  "accepted_clips": 11,
+  "rejected_clips": 3,
+  "note": "per-item lines in tools/ledger.txt",
+  "board_v2": "26/10: 208 of task cap 230 (4 img x2 cr + 4 clips x50)"
  },
  "clips": [
   {
@@ -1173,6 +1188,417 @@
     },
     "method": "scripts/video/tpl/board_detect.py (white in every frame, RANSAC board edges, max rectangle)"
    }
+  },
+  {
+   "id": "d03_daniel_desk",
+   "file": "clips/d03_daniel_desk.mp4",
+   "smooth": "tools/dl24/d03_daniel_desk.mp4",
+   "first_frame": "frames/d_desk.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/d_desk.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AblUvaXHyMUMD92B6u9JxItR0IrQZYX53UbIZ-nqP4SUg_86uo-lu_s7hF4UqCE11ft64Nsy"
+   },
+   "set": "classroom_board",
+   "framing": "desk_standing",
+   "speakers": [
+    "daniel"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    218
+   ],
+   "loop": {
+    "end": 218,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "am_michael",
+   "mouth_sets": {
+    "daniel": "tools/meta/d03_daniel_desk/daniel/"
+   },
+   "head": [
+    610,
+    370,
+    1000,
+    790
+   ],
+   "anchor": [
+    805,
+    600
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "standing",
+    "whiteboard",
+    "desk",
+    "caption_band"
+   ],
+   "score": 88,
+   "qa": "PASS 88: stands behind bare desk beside blank board, palm presents board + hand-on-chest beats, eyes closed 3/24 samples (12 %), band x36-936 y1237-1497 untouched every frame (0 px), loop f218 diff 8.95, mouth cc 0.926/0.969 jit 0.51 (E re-picked f78, f9 mid-blink)",
+   "logic": "ok: stands behind the bare teacher desk beside the blank whiteboard, never touches the board; desk front = caption band (body never enters x36-936 y1237-1497)",
+   "board": {
+    "quad": [
+     [
+      -0.0,
+      -0.0
+     ],
+     [
+      929.0,
+      0.0
+     ],
+     [
+      929.0,
+      1143.0
+     ],
+     [
+      0.0,
+      1143.0
+     ]
+    ],
+    "edges": {
+     "top": [
+      0.0,
+      -0.0
+     ],
+     "bottom": [
+      -1e-05,
+      1143.0
+     ],
+     "left": [
+      0.0,
+      -0.0
+     ],
+     "right": [
+      0.0,
+      929.0
+     ]
+    },
+    "zone": [
+     74,
+     302,
+     584,
+     616
+    ],
+    "zone_wh": [
+     510,
+     314
+    ],
+    "frame": "normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)",
+    "cam_anchor": [
+     486,
+     1442
+    ],
+    "smax": 1.06,
+    "cap": {
+     "cx": 486,
+     "cy": 1442,
+     "w": 768,
+     "lines": 1,
+     "box": [
+      102,
+      1390,
+      870,
+      1494
+     ],
+     "body_overlap_rows": 0,
+     "body_overlap_px": 0,
+     "calm_span": [
+      876,
+      48,
+      924
+     ]
+    },
+    "body": {
+     "step": 8,
+     "rows": "360:606-1004;368:606-1004;376:606-1004;384:606-1004;392:606-1004;400:606-1004;408:606-1004;416:606-1004;424:606-1004;432:606-1004;440:606-1004;448:606-1004;456:606-1004;464:606-1004;472:606-1004;480:606-1004;488:606-1007;496:600-1012;504:594-1014;512:592-1014;520:591-1014;528:591-1013;536:591-1017;544:590-1019;552:588-1019;560:587-1019;568:587-1019;576:587-1016;584:589-1011;592:593-1011;600:593-1011;608:593-1011;616:593-1009;624:594-1007;632:464-1004;640:460-1004;648:380-1004;656:376-1004;664:376-1004;672:373-1004;680:360-1004;688:360-1004;696:355-1004;704:347-1004;712:345-1004;720:335-1004;728:335-1004;736:332-1004;744:314-1004;752:310-1004;760:307-1004;768:307-1004;776:307-1004;784:310-1004;792:311-1005;800:306-1007;808:296-1008;816:290-1010;824:289-1012;832:285-1013;840:285-1015;848:285-1017;856:287-1020;864:291-1022;872:301-1024;880:310-1027;888:342-1030;896:408-1032;904:408-1035;912:408-1038;920:409-1040;928:416-1043;936:426-1046;944:436-1048;952:446-1051;960:456-1053;968:466-1056;976:476-1059;984:486-1061;992:496-1064;1000:506-1066;1008:508-1069;1016:516-1071;1024:518-1074;1032:522-1076;1040:527-1077;1048:536-1078;1056:540-1079;1064:553-1079;1072:563-1079;1080:581-1078;1088:649-1075;1096:649-1070;1104:648-1061;1112:647-1047;1120:647-1033;1128:647-1017;1136:647-1043;1144:647-1043;1152:849-1043;1160:849-1019;1168:849-992;1176:844-961;1184:844-923;1192:844-871"
+    },
+    "method": "scripts/video/tpl/board_detect.py (white in every frame, RANSAC board edges, max rectangle)"
+   }
+  },
+  {
+   "id": "m03_mei_desk",
+   "file": "clips/m03_mei_desk.mp4",
+   "smooth": "tools/dl24/m03_mei_desk.mp4",
+   "first_frame": "frames/m_desk.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/m_desk.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AXDdxcblFoBKveZNB7spoQ3p1oPNHF98VClr_NVvqvhbFE06Hh-GXHHEhK_l2JeA8DeH-2P1"
+   },
+   "set": "classroom_board",
+   "framing": "desk_standing",
+   "speakers": [
+    "mei"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    199
+   ],
+   "loop": {
+    "end": 199,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "af_sarah",
+   "mouth_sets": {
+    "mei": "tools/meta/m03_mei_desk/mei/"
+   },
+   "head": [
+    570,
+    470,
+    880,
+    810
+   ],
+   "anchor": [
+    715,
+    650
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "standing",
+    "whiteboard",
+    "desk",
+    "caption_band"
+   ],
+   "score": 84,
+   "qa": "PASS 84: stands behind bare desk beside blank board, palm presents board + both-hands beats, eyes closed 19 % of usable 0-199 (eyes.py sclera track; long blink f132-143), band x36-936 y1237-1497 untouched (0 px), loop f199 diff 5.56, mouth cc 0.757/0.902 jit 1.39 (mouth window explicit: auto box locked on the eye)",
+   "logic": "ok: stands behind the bare teacher desk beside the blank whiteboard, never touches the board; desk front = caption band (body never enters x36-936 y1237-1497)",
+   "board": {
+    "quad": [
+     [
+      -0.0,
+      -0.0
+     ],
+     [
+      929.0,
+      0.0
+     ],
+     [
+      929.1,
+      1120.1
+     ],
+     [
+      0.0,
+      1120.0
+     ]
+    ],
+    "edges": {
+     "top": [
+      0.0,
+      -0.0
+     ],
+     "bottom": [
+      0.00011,
+      1120.0
+     ],
+     "left": [
+      0.0,
+      -0.0
+     ],
+     "right": [
+      0.00012,
+      929.0
+     ]
+    },
+    "zone": [
+     74,
+     302,
+     530,
+     678
+    ],
+    "zone_wh": [
+     456,
+     376
+    ],
+    "frame": "normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)",
+    "cam_anchor": [
+     486,
+     1442
+    ],
+    "smax": 1.06,
+    "cap": {
+     "cx": 486,
+     "cy": 1442,
+     "w": 768,
+     "lines": 1,
+     "box": [
+      102,
+      1390,
+      870,
+      1494
+     ],
+     "body_overlap_rows": 0,
+     "body_overlap_px": 0,
+     "calm_span": [
+      876,
+      48,
+      924
+     ]
+    },
+    "body": {
+     "step": 8,
+     "rows": "464:566-884;472:566-884;480:566-884;488:566-884;496:566-884;504:566-884;512:566-884;520:566-884;528:566-884;536:566-884;544:566-884;552:566-884;560:560-884;568:555-884;576:551-884;584:548-884;592:546-884;600:546-884;608:546-884;616:547-884;624:546-884;632:544-884;640:542-884;648:540-884;656:538-885;664:536-885;672:534-885;680:356-885;688:339-885;696:332-885;704:323-885;712:319-884;720:318-884;728:315-884;736:315-884;744:308-884;752:297-884;760:297-884;768:296-884;776:291-884;784:291-884;792:295-884;800:297-884;808:300-884;816:302-838;824:305-853;832:299-867;840:298-877;848:293-885;856:292-891;864:292-895;872:292-898;880:292-901;888:299-903;896:299-905;904:311-907;912:319-909;920:332-911;928:333-913;936:332-916;944:332-919;952:336-921;960:333-924;968:333-926;976:333-929;984:336-932;992:348-934;1000:367-936;1008:387-939;1016:402-941;1024:408-943;1032:410-945;1040:431-947;1048:447-947;1056:466-947;1064:470-947;1072:496-946;1080:506-942;1088:512-936;1096:525-929;1104:610-921;1112:611-902;1120:625-872;1128:630-845;1136:646-836;1144:654-813;1152:659-762;1160:663-740"
+    },
+    "method": "scripts/video/tpl/board_detect.py (white in every frame, RANSAC board edges, max rectangle)"
+   }
+  },
+  {
+   "id": "k03_kai_desk",
+   "file": "clips/k03_kai_desk.mp4",
+   "smooth": "tools/dl24/k03_kai_desk.mp4",
+   "first_frame": "frames/k_desk.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/k_desk.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AUjydYAbeYh2i4A1privbo4RWKAkv8PhEEiOowbQHe4YjQ05af50QjU7m4ZQX-hMWGxREVBs"
+   },
+   "set": "classroom_board",
+   "framing": "desk_standing",
+   "speakers": [
+    "kai"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    211
+   ],
+   "loop": {
+    "end": 211,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "am_puck",
+   "mouth_sets": {
+    "kai": "tools/meta/k03_kai_desk/kai/"
+   },
+   "head": [
+    640,
+    470,
+    960,
+    870
+   ],
+   "anchor": [
+    780,
+    700
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "standing",
+    "whiteboard",
+    "desk",
+    "caption_band"
+   ],
+   "score": 85,
+   "qa": "PASS 85: stands behind bare desk beside blank board, palm presents board (both sides) + hand-on-chest beats, lively head tilts, eyes closed 16 % of usable 0-211 (eyes.py), band untouched (0 px), loop f211 diff 6.60, mouth cc 0.758/0.887 jit 1.44 (E re-picked f72: f177 eyes closed)",
+   "logic": "ok: stands behind the bare teacher desk beside the blank whiteboard, never touches the board; desk front = caption band (body never enters x36-936 y1237-1497)",
+   "board": {
+    "quad": [
+     [
+      0.0,
+      67.0
+     ],
+     [
+      929.0,
+      67.0
+     ],
+     [
+      929.0,
+      1179.2
+     ],
+     [
+      0.0,
+      1179.3
+     ]
+    ],
+    "edges": {
+     "top": [
+      1e-05,
+      67.0
+     ],
+     "bottom": [
+      -0.00012,
+      1179.3
+     ],
+     "left": [
+      0.0,
+      -0.0
+     ],
+     "right": [
+      1e-05,
+      929.0
+     ]
+    },
+    "zone": [
+     74,
+     302,
+     618,
+     612
+    ],
+    "zone_wh": [
+     544,
+     310
+    ],
+    "frame": "normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)",
+    "cam_anchor": [
+     486,
+     1442
+    ],
+    "smax": 1.06,
+    "cap": {
+     "cx": 486,
+     "cy": 1442,
+     "w": 768,
+     "lines": 1,
+     "box": [
+      102,
+      1390,
+      870,
+      1494
+     ],
+     "body_overlap_rows": 0,
+     "body_overlap_px": 0,
+     "calm_span": [
+      876,
+      48,
+      924
+     ]
+    },
+    "body": {
+     "step": 8,
+     "rows": "464:636-964;472:636-964;480:636-964;488:636-964;496:636-964;504:636-964;512:636-964;520:636-964;528:636-964;536:636-964;544:636-964;552:636-964;560:636-964;568:633-964;576:632-964;584:632-964;592:632-964;600:625-964;608:619-964;616:366-964;624:362-964;632:361-964;640:360-964;648:360-964;656:360-964;664:361-964;672:363-964;680:366-964;688:369-964;696:372-964;704:375-964;712:357-964;720:354-964;728:354-964;736:354-964;744:355-964;752:319-964;760:308-964;768:308-964;776:308-964;784:309-964;792:300-964;800:299-964;808:299-964;816:299-964;824:250-964;832:235-964;840:234-964;848:231-964;856:231-969;864:231-975;872:232-978;880:242-981;888:249-983;896:254-985;904:253-987;912:251-988;920:249-990;928:249-992;936:249-993;944:251-995;952:255-997;960:269-999;968:285-1000;976:302-1002;984:318-1004;992:338-1005;1000:382-1007;1008:394-1009;1016:401-1011;1024:401-1012;1032:403-1014;1040:412-1016;1048:425-1018;1056:442-1020;1064:461-1022;1072:474-1024;1080:486-1025;1088:500-1028;1096:508-1029;1104:518-1031;1112:526-1033;1120:541-1033;1128:582-1033;1136:592-1032;1144:665-1030;1152:649-1025;1160:647-1015;1168:647-998;1176:653-969;1184:653-921;1192:821-886;1200:827-880"
+    },
+    "method": "scripts/video/tpl/board_detect.py (white in every frame, RANSAC board edges, max rectangle)"
+   }
   }
  ],
  "rejected": [
@@ -1185,6 +1611,11 @@
    "id": "a01_ama_board",
    "file": "tools/dl/a01_ama_board.mp4",
    "why": "eyes closed ~45 %, stance shifts f170-206, face too small"
+  },
+  {
+   "id": "r03_ruth_desk",
+   "file": "tools/dl/r03_ruth_desk.mp4",
+   "why": "eyes closed 40 % of 0-193 (EYES=dark eyes.py; long closure f36-62), no 7 s window <= 20 %; framing/band/board fine"
   }
  ]
 }
