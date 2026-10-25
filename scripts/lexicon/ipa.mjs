@@ -57,8 +57,12 @@ const UNSTR = { AH: 'ə', ER: 'ər', IY: 'i', UW: 'u' };
 const ONSETS = new Set(['pl', 'bl', 'kl', 'ɡl', 'fl', 'sl', 'pr', 'br', 'tr', 'dr', 'kr', 'ɡr', 'fr', 'θr', 'ʃr', 'tw', 'dw', 'kw', 'ɡw', 'sw', 'θw',
   'pj', 'bj', 'kj', 'ɡj', 'mj', 'fj', 'vj', 'hj', 'sp', 'st', 'sk', 'sm', 'sn', 'sf', 'spl', 'spr', 'str', 'skr', 'skw', 'spj', 'skj']);
 const isVowel = p => /\d$/.test(p);
-export function arpaToIpa(phones) {
-  const ph = phones.trim().split(/\s+/);
+// si = vị trí âm tiết trọng âm chính theo ô giọng Anh (nếu có): CMU hay ghi HAI trọng âm chính cho từ ghép (halfway HH AE1 F W EY1,
+// somewhat S AH1 M W AH1 T) → chỉ giữ 1 ˈ (trùng si, không có thì cái cuối), các ˈ khác hạ thành ˌ (kiểm định nội dung 25/10/2026)
+export function arpaToIpa(phones, si) {
+  let ph = phones.trim().split(/\s+/);
+  { const pv = ph.map((p, i) => [p, i]).filter(([p]) => /\d$/.test(p)); const prim = pv.map(([p, i], n) => (p.endsWith('1') ? n : -1)).filter(n => n >= 0);
+    if (prim.length > 1) { const keep = prim.includes(si) ? si : prim[prim.length - 1]; ph = ph.slice(); for (const n of prim) if (n !== keep) ph[pv[n][1]] = pv[n][0].replace(/1$/, '2'); } }
   const nV = ph.filter(isVowel).length;
   const seg = ph.map(p => {
     const m = /^([A-Z]+)(\d)?$/.exec(p); if (!m) return { s: '' };
@@ -69,6 +73,8 @@ export function arpaToIpa(phones) {
   const vi = seg.map((x, i) => (x.v ? i : -1)).filter(i => i >= 0);
   const pi = vi.findIndex(i => seg[i].st === 1);
   vi.forEach((i, n) => { const x = seg[i]; if (x.st === 2 && (pi < 0 || n > pi - 2)) { x.st = 0; if (x.a === 'IY') x.s = 'i'; } });
+  // EH0 đầu từ (enable, essential, erroneous) là nguyên âm yếu /ɪ/ như Oxford, không phải /e/
+  if (seg[0] && seg[0].a === 'EH' && seg[0].st === 0) seg[0].s = 'ɪ';
   const marks = new Array(seg.length).fill('');
   if (nV > 1) {
     let prevV = -1;
@@ -97,6 +103,7 @@ export function stressIndex(ipa) {
   return syllables(s.slice(0, i).replace(/ˌ/g, '') || '') || 0;
 }
 export const arpaStressIndex = phones => { const v = phones.trim().split(/\s+/).filter(isVowel); const i = v.findIndex(p => p.endsWith('1')); return i < 0 ? 0 : i; };
+export const arpaHasStressAt = (phones, si) => phones.trim().split(/\s+/).filter(isVowel).some((p, n) => n === si && p.endsWith('1'));
 
 // Biến thể chính tả Anh → Mỹ để tra CMUdict (analyse → analyze, colour → color…)
 export function usSpellings(w) {
@@ -105,4 +112,26 @@ export function usSpellings(w) {
     [/ogue$/, 'og'], [/ence$/, 'ense'], [/lled$/, 'led'], [/lling$/, 'ling'], [/ller$/, 'ler'], [/mme$/, 'm'], [/ae/, 'e'], [/oe/, 'e'], [/^grey/, 'gray'], [/ium$/, 'um'], [/eable$/, 'able'], [/ement$/, 'ment'], [/ce$/, 'se']];
   for (const [a, b] of R) if (a.test(w)) c.push(w.replace(a, b));
   return c;
+}
+
+// ---- Chuẩn hoá ô giọng Anh theo lối từ điển (Oxford/Cambridge) – kiểm định nội dung 25/10/2026, lớp lỗi "IPA kiểu Wiktionary":
+// t chen (sɪnts → sɪns), p chen (ˈkʌmpftəbl), k chen (streŋkθ), hw cổ (ˈhwɪspə), ŋ đồng hoá ở tiền tố (ɪŋˈkredɪbl), ký hiệu 'a'/'ʌɪ' kiểu mới
+// lẫn với hệ æ/aɪ của cả kho, và dạng MẠNH của hư từ giữa cụm (/eɪ stəʊnz θrəʊ/ → /ə …/). word = mục từ (để biết chính tả).
+const WEAKUK = { a: [/^eɪ$/, 'ə'], an: [/^æn$/, 'ən'], and: [/^ænd$/, 'ənd'], of: [/^ɒv$/, 'əv'], to: [/^tuː$/, 'tə'], from: [/^frɒm$/, 'frəm'], for: [/^fɔː$/, 'fə'], at: [/^æt$/, 'ət'], the: [/^ðiː$/, 'ðə'] };
+export function normUK(s, word = '') {
+  if (!s) return s;
+  const w = String(word).toLowerCase();
+  let o = s.replace(/\(h\)w/g, 'w').replace(/hw/g, 'w').replace(/ʌɪ/g, 'aɪ').replace(/a(?![ɪʊː])/g, 'æ')
+    .replace(/n\(t\)([sʃ])/g, 'n$1');
+  if (!/nts|ntz/.test(w)) o = o.replace(/nts/g, 'ns');
+  if (!/mpf|mph/.test(w)) o = o.replace(/mpf/g, 'mf');
+  if (/ngth/.test(w)) o = o.replace(/ŋkθ/g, 'ŋθ');
+  if (/^(in|en|con|syn)[cgkq]/.test(w)) o = o.replace(/^(\/?[ˈˌ]?(?:ɪ|e|ə|kə|kɒ|sɪ))ŋ([ˈˌ]?[kɡ])/, '$1n$2');
+  // hư từ dạng mạnh giữa cụm (chỉ khi số tiếng = số khúc IPA, khúc đó không mang trọng âm)
+  const ts = w.split(/\s+/).filter(Boolean), inner = o.replace(/^\/|\/$/g, ''), ch = inner.split(/\s+/);
+  if (ts.length > 1 && ts.length === ch.length) {
+    const out = ch.map((c, i) => { const r = WEAKUK[ts[i]]; return r && r[0].test(c) ? r[1] : c; });
+    if (out.join(' ') !== ch.join(' ')) o = (o.startsWith('/') ? '/' : '') + out.join(' ') + (o.endsWith('/') ? '/' : '');
+  }
+  return o;
 }

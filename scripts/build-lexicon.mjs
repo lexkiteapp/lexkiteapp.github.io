@@ -11,7 +11,7 @@
 import fs from 'fs';
 import { loadAll, saveAll, key, rd, wr, ROOT, SOURCES } from './lexicon/lib.mjs';
 import { checkImg } from './lexicon/img.mjs';
-import { fixBroken, fixUKr, stripMonoStress, arpaToIpa, stressIndex, arpaStressIndex, usSpellings, badChars } from './lexicon/ipa.mjs';
+import { fixBroken, fixUKr, stripMonoStress, arpaToIpa, stressIndex, arpaStressIndex, arpaHasStressAt, usSpellings, badChars, normUK } from './lexicon/ipa.mjs';
 
 const WRITE = process.argv.includes('--write');
 const ci = process.argv.indexOf('--cmu');
@@ -30,12 +30,22 @@ if (ci > 0) {
 const CMU = new Map();
 if (fs.existsSync(new URL(SUB, ROOT))) for (const l of rd(SUB).split('\n')) { if (!l || l[0] === '#') continue; const i = l.indexOf(' '); const w = l.slice(0, i).replace(/\(\d+\)$/, ''); (CMU.get(w) || CMU.set(w, []).get(w)).push(l.slice(i + 1)); }
 function cmuWord(w, ukIpa) {
+  if (w.includes('-') && String(ukIpa || '').split(/[\s-]+/).filter(Boolean).length === w.split('-').length) { const h = hyphenUS(w, ukIpa); if (h) return h; }
   for (const v of usSpellings(w)) {
     const vs = CMU.get(v); if (!vs) continue;
     const si = ukIpa ? stressIndex(ukIpa) : 0;
-    return arpaToIpa(vs.find(p => arpaStressIndex(p) === si) || vs[0]);
+    return arpaToIpa(vs.find(p => arpaStressIndex(p) === si) || vs.find(p => arpaHasStressAt(p, si)) || vs[0], ukIpa ? si : undefined);
   }
-  if (w.includes('-')) { const ps = w.split('-').map(p => cmuWord(p)); if (ps.every(Boolean)) return ps.join(''); }
+  // từ có gạch nối: phần cuối có ˈ thì chỉ phần CUỐI giữ ˈ, các phần trước hạ thành ˌ (e-commerce /ˌiːˈkɑːmərs/, không phải /ˈiːˈkɑːmərs/)
+  if (w.includes('-')) return hyphenUS(w, ukIpa);
+  return '';
+}
+function hyphenUS(w, ukIpa) {
+  { const ps = w.split('-').map(p => cmuWord(p)); if (!ps.every(Boolean)) return '';
+    // trọng âm theo ô giọng Anh khi số khúc khớp (/ˌkʌtɪŋ ˈedʒ/ → /ˌkʌtɪŋˈedʒ/; /ˈθɔːt prəvəʊkɪŋ/ → /ˈθɔːtprəvoʊkɪŋ/)
+    const uk = String(ukIpa || '').split(/[\s-]+/).filter(Boolean);
+    if (uk.length === ps.length) return ps.map((p, i) => { const c = uk[i], b = p.replace(/[ˈˌ]/g, ''); if (/^[ˈˌ]/.test(c)) return c[0] + b; if (/[ˈˌ]/.test(c)) return /[ˈˌ]/.test(p) ? p.replace(/[ˈˌ]/, c.match(/[ˈˌ]/)[0]) : b; return b; }).join('');
+    return ps.map((p, i) => (i < ps.length - 1 && /ˈ/.test(ps[ps.length - 1]) ? p.replace(/ˈ/g, 'ˌ') : p)).join(''); }
   return '';
 }
 const WEAK = { a: 'ə', an: 'ən', the: 'ðə', of: 'əv', to: 'tə', and: 'ənd', for: 'fər', at: 'ət', as: 'əz', than: 'ðən', from: 'frəm', or: 'ər', but: 'bət', some: 'səm', your: 'jər', can: 'kən', be: 'bi', been: 'bɪn', was: 'wəz', were: 'wər' };
@@ -54,13 +64,13 @@ const OV = JSON.parse(rd('content/lexicon/overrides.json'));
 const MUS = 'content/lexicon/ipaus-manual.json';
 if (!fs.existsSync(new URL(MUS, ROOT))) wr(MUS, JSON.stringify(Object.fromEntries(all.filter(e => e.row[10]).map(e => [key(e.row), e.row[10]])), null, 1) + '\n');
 const MANUAL_US = JSON.parse(rd(MUS));
-const stats = { broken: 0, ukR: 0, mono: 0, usAdded: 0, viMerged: 0, override: 0 };
-const ipaUK = s => { if (!s) return s; let o = fixBroken(s); if (o !== s) stats.broken++; const r = fixUKr(o.replace(/oʊ/g, 'əʊ')); if (r !== o) stats.ukR++; const m = stripMonoStress(r); if (m !== r) stats.mono++; return m; };
+const stats = { normUK: 0, broken: 0, ukR: 0, mono: 0, usAdded: 0, viMerged: 0, override: 0 };
+const ipaUK = (s, w) => { if (!s) return s; let o = fixBroken(s); if (o !== s) stats.broken++; { const n = normUK(o, w); if (n !== o) { stats.normUK++; o = n; } } const r = fixUKr(o.replace(/oʊ/g, 'əʊ')); if (r !== o) stats.ukR++; const m = stripMonoStress(r); if (m !== r) stats.mono++; return m; };
 
 for (const e of all) {
   const r = e.row; while (r.length < 11) r.push('');
   for (const o of [OV[key(r)], OV[key(r) + '@' + e.set]]) if (o) { for (const [f, i] of Object.entries({ ipa: 1, vi: 3, def: 4, ex: 5, col: 6, syn: 7, level: 8, ipaUS: 10 })) if (o[f] != null && r[i] !== o[f]) { r[i] = o[f]; stats.override++; } }
-  r[1] = ipaUK(r[1]);
+  r[1] = ipaUK(r[1], r[0]);
   const man = MANUAL_US[key(r)];
   if (man) r[10] = stripMonoStress(fixBroken(man));
   else { const u = usIpa(r[0], r[1]); if (u) { e.us = 1; const v = u === r[1] ? '' : u; if (v !== r[10]) { if (!r[10]) stats.usAdded++; r[10] = v; } } } // trùng IPA Anh → bỏ trống (giao diện tự dùng IPA Anh)
