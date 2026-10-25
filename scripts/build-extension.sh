@@ -18,7 +18,10 @@ perl -0pi -e 's#<!--base-->.*?<!--/base-->##s; s# media="print" onload="this\.me
 perl -pi -e 's#https://(?:www\.gstatic\.com/firebasejs/[\d.]+/|pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js|challenges\.cloudflare\.com/turnstile/v0/api\.js\?render=explicit|cdn\.jsdelivr\.net/npm/\@huggingface/transformers\@[\d.]+/dist/transformers\.min\.js|www\.youtube\.com/iframe_api)##g' "$APP"/js/*.js
 if grep -nE "(import\(|\.src *=|importScripts\().{0,4}['\"\`]https?://" "$ROOT"/extension/*.js "$APP"/js/*.js; then echo "✗ Còn mã tải từ xa trong add-on (xem dòng trên)" >&2; exit 1; fi
 if [[ "${1:-}" == "--check" ]]; then
-  if ! diff -rq "$APP" "$ROOT/extension/app" >&2; then echo "✗ extension/app lệch web/ (dòng trên) → chạy: bash scripts/build-extension.sh rồi commit" >&2; exit 1; fi
+  # So danh sách file + sha (bỏ qua thư mục rỗng: git không lưu chúng, CI checkout không có – vd css/vendor sau khi loại jsvectormap)
+  sums() { (cd "$1" && find . -type f -print0 | LC_ALL=C sort -z | xargs -0 shasum -a 256); }
+  sums "$APP" > "$TMP/a.sum"; sums "$ROOT/extension/app" > "$TMP/b.sum"
+  if ! diff "$TMP/a.sum" "$TMP/b.sum" >&2; then echo "✗ extension/app lệch web/ (dòng trên) → chạy: bash scripts/build-extension.sh rồi commit" >&2; exit 1; fi
   echo "✓ extension/app khớp web/"; exit 0
 fi
 rsync -a "$ROOT"/web/icons/icon-{16,32,48,128}.png "$ROOT/web/icons/icon.svg" "$ROOT/extension/icons/"
