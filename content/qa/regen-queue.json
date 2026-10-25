@@ -1,0 +1,1631 @@
+{
+ "_doc": "Hàng đợi SINH LẠI bằng AI khi GrabCast hoạt động lại (kiểm định nội dung 25/10/2026 – docs/CONTENT-AUDIT-2026-10-25.md). Không xoá mục để giấu lỗi: mục ở đây vẫn hiển thị, đã sửa phần sửa được bằng tay; job sinh lại xong thì gỡ khỏi danh sách (kèm lô content/qa/batches/ + 2 giám khảo).",
+ "at": "2026-10-25",
+ "groups": [
+  {
+   "kind": "meaning-i18n",
+   "why": "nghĩa vi/định nghĩa en đã sửa (sai từ loại, trùng chữ tiếng Anh, lặp khúc) → dịch lại nghĩa 13 ngôn ngữ trong web/packs/<lang>.json (scripts/lexicon/i18n-job.mjs) theo nghĩa mới",
+   "job": "lexicon-i18n.yml",
+   "items": [
+    {
+     "id": "work#v"
+    },
+    {
+     "id": "start#v"
+    },
+    {
+     "id": "set#v"
+    },
+    {
+     "id": "open#v"
+    },
+    {
+     "id": "close#v"
+    },
+    {
+     "id": "hope#v"
+    },
+    {
+     "id": "fall#v"
+    },
+    {
+     "id": "share#v"
+    },
+    {
+     "id": "cover#v"
+    },
+    {
+     "id": "bear#v"
+    },
+    {
+     "id": "focus#v"
+    },
+    {
+     "id": "catch#v"
+    },
+    {
+     "id": "contribute#v"
+    },
+    {
+     "id": "elect#v"
+    },
+    {
+     "id": "fascinate#v"
+    },
+    {
+     "id": "withdraw#v"
+    },
+    {
+     "id": "injure#v"
+    },
+    {
+     "id": "stimulate#v"
+    },
+    {
+     "id": "power#n"
+    },
+    {
+     "id": "conclude#v"
+    },
+    {
+     "id": "golden#adj"
+    },
+    {
+     "id": "altogether#adv"
+    },
+    {
+     "id": "theoretical#adj"
+    },
+    {
+     "id": "nocturnal#adj"
+    },
+    {
+     "id": "assignment#n"
+    },
+    {
+     "id": "minutes#n"
+    },
+    {
+     "id": "venue#n"
+    },
+    {
+     "id": "bug#n"
+    },
+    {
+     "id": "brand loyalty#n"
+    },
+    {
+     "id": "big#adj"
+    },
+    {
+     "id": "loud#adj"
+    },
+    {
+     "id": "loudly#adv"
+    },
+    {
+     "id": "due to#phrase"
+    },
+    {
+     "id": "owing to#phrase"
+    },
+    {
+     "id": "in light of#phrase"
+    },
+    {
+     "id": "print#v"
+    },
+    {
+     "id": "framework#n"
+    },
+    {
+     "id": "panel#n"
+    },
+    {
+     "id": "photocopy#n"
+    },
+    {
+     "id": "battery#n"
+    },
+    {
+     "id": "logical#adj"
+    },
+    {
+     "id": "enzyme#n"
+    }
+   ]
+  },
+  {
+   "kind": "pack-quality",
+   "why": "bản dịch máy lệch nghĩa chính / lặp (mẫu ja/ar): ja big 'ビッグ', loud '派手', golden 'ゴールデン, 良い'; ar power 'قوة, القوة' – đã sửa tay 4 mục, cần dịch lại cờ 1 cả gói ja/ar/es và chấm 2 giám khảo",
+   "job": "lexicon-i18n.yml",
+   "items": [
+    {
+     "id": "big#adj",
+     "lang": "ja"
+    },
+    {
+     "id": "loud#adj",
+     "lang": "ja"
+    },
+    {
+     "id": "golden#adj",
+     "lang": "ja"
+    },
+    {
+     "id": "power#n",
+     "lang": "ar"
+    }
+   ]
+  },
+  {
+   "kind": "ipa-review",
+   "why": "IPA Anh ↔ Mỹ lệch khung phụ âm (nhiều mục là khác biệt thật: yod Anh /tj/ ~ Mỹ /tʃ/, schedule, luxury; còn lại là lỗi CMUdict chọn biến thể / ô Anh kiểu Wiktionary). Soát tay hoặc sinh lại có giám khảo, sửa qua content/lexicon/overrides.json · ipaus-manual.json",
+   "job": "thủ công / lexicon-expand judges",
+   "items": [
+    {
+     "id": "without#prep",
+     "at": "ngsl.js:216",
+     "uk": "/wɪðˈaʊt/",
+     "us": "/wɪˈθaʊt/"
+    },
+    {
+     "id": "situation#n",
+     "at": "ngsl.js:436",
+     "uk": "/ˌsɪtjuːˈeɪʃən/",
+     "us": "/ˌsɪtʃuˈeɪʃn/"
+    },
+    {
+     "id": "reduce#v",
+     "at": "ngsl.js:592",
+     "uk": "/rɪˈdʒuːs/",
+     "us": "/rəˈduːs/"
+    },
+    {
+     "id": "introduce#v",
+     "at": "ngsl.js:780",
+     "uk": "/ˌɪntrəˈdʒuːs/",
+     "us": "/ˌɪntrəˈduːs/"
+    },
+    {
+     "id": "newspaper#n",
+     "at": "ngsl.js:939",
+     "uk": "/ˈnjuːsˌpeɪpə/",
+     "us": "/ˈnuːzpeɪpər/"
+    },
+    {
+     "id": "version#n",
+     "at": "ngsl.js:991",
+     "uk": "/ˈvɜːʃn/",
+     "us": "/ˈvɜːrʒn/"
+    },
+    {
+     "id": "institution#n",
+     "at": "ngsl.js:1149",
+     "uk": "/ˌɪnstɪˈtʃuːʃən/",
+     "us": "/ˌɪnstɪˈtuːʃn/"
+    },
+    {
+     "id": "schedule#n",
+     "at": "ngsl.js:1252",
+     "uk": "/ˈʃedjuːl/",
+     "us": "/ˈskedʒʊl/"
+    },
+    {
+     "id": "strength#n",
+     "at": "ngsl.js:1275",
+     "uk": "/streŋθ/",
+     "us": "/streŋkθ/"
+    },
+    {
+     "id": "unfortunately#adv",
+     "at": "ngsl.js:1281",
+     "uk": "/ʌnˈfɔːtjʊnətli/",
+     "us": "/ənˈfɔːrtʃənətli/"
+    },
+    {
+     "id": "length#n",
+     "at": "ngsl.js:1329",
+     "uk": "/leŋθ/",
+     "us": "/leŋkθ/"
+    },
+    {
+     "id": "actual#adj",
+     "at": "ngsl.js:1347",
+     "uk": "/ˈæktjʊəl/",
+     "us": "/ˈæktʃəwl/"
+    },
+    {
+     "id": "vehicle#n",
+     "at": "ngsl.js:1422",
+     "uk": "/ˈviːəkl/",
+     "us": "/ˈviːhɪkl/"
+    },
+    {
+     "id": "association#n",
+     "at": "ngsl.js:1609",
+     "uk": "/əˌsəʊʃiˈeɪʃn/",
+     "us": "/əˌsoʊsiˈeɪʃn/"
+    },
+    {
+     "id": "ancient#adj",
+     "at": "ngsl.js:1743",
+     "uk": "/ˈeɪnʃənt/",
+     "us": "/ˈeɪntʃənt/"
+    },
+    {
+     "id": "intention#n",
+     "at": "ngsl.js:1780",
+     "uk": "/ɪnˈtenʃn/",
+     "us": "/ɪnˈtentʃn/"
+    },
+    {
+     "id": "advertisement#n",
+     "at": "ngsl.js:1957",
+     "uk": "/ədˈvɜːtɪsmənt/",
+     "us": "/ˌædvərˈtaɪzmənt/"
+    },
+    {
+     "id": "agricultural#adj",
+     "at": "ngsl.js:2230",
+     "uk": "/ˌæɡrɪˈkʌltjʊərəl/",
+     "us": "/ˌæɡrəˈkʌltʃərl/"
+    },
+    {
+     "id": "regularly#adv",
+     "at": "ngsl.js:2277",
+     "uk": "/ˈreɡjəli/",
+     "us": "/ˈreɡjələrli/"
+    },
+    {
+     "id": "dismiss#v",
+     "at": "ngsl.js:2412",
+     "uk": "/dɪzˈmɪs/",
+     "us": "/dɪˈsmɪs/"
+    },
+    {
+     "id": "fortune#n",
+     "at": "ngsl.js:2536",
+     "uk": "/ˈfɔːtjuːn/",
+     "us": "/ˈfɔːrtʃn/"
+    },
+    {
+     "id": "luxury#n",
+     "at": "ngsl2.js:135",
+     "uk": "/ˈlʌkʃəri/",
+     "us": "/ˈlʌɡʒəri/"
+    },
+    {
+     "id": "functional#adj",
+     "at": "ngsl2.js:230",
+     "uk": "/ˈfʌŋktʃənəl/",
+     "us": "/ˈfʌŋkʃənl/"
+    },
+    {
+     "id": "module#n",
+     "at": "ngsl2.js:265",
+     "uk": "/ˈmɒdjuːl/",
+     "us": "/ˈmɑːdʒuːl/"
+    },
+    {
+     "id": "cutting-edge#adj",
+     "at": "data.js:54",
+     "uk": "/ˌkʌtɪŋ ˈedʒ/",
+     "us": "/ˌkʌtɪŋˈedʒ/"
+    },
+    {
+     "id": "user-friendly#adj",
+     "at": "data.js:58",
+     "uk": "/ˌjuːzə ˈfrendli/",
+     "us": "/ˌjuːzərˈfrendli/"
+    },
+    {
+     "id": "well-being#n",
+     "at": "data.js:66",
+     "uk": "/ˈwel biːɪŋ/",
+     "us": "/ˈwelbiːɪŋ/"
+    },
+    {
+     "id": "rehabilitation#n",
+     "at": "data.js:105",
+     "uk": "/ˌriːəˌbɪlɪˈteɪʃn/",
+     "us": "/ˌriːhəˌbɪləˈteɪʃn/"
+    },
+    {
+     "id": "excursion#n",
+     "at": "data.js:155",
+     "uk": "/ɪkˈskɜːʃn/",
+     "us": "/ɪkˈskɜːrʒn/"
+    },
+    {
+     "id": "energy-efficient#adj",
+     "at": "topics-more.js:141",
+     "uk": "/ˌenədʒi ɪˈfɪʃnt/",
+     "us": "/ˌenərdʒiɪˈfɪʃənt/"
+    },
+    {
+     "id": "high-rise#adj",
+     "at": "topics-more.js:170",
+     "uk": "/ˈhaɪ raɪz/",
+     "us": "/ˈhaɪraɪz/"
+    },
+    {
+     "id": "e-commerce#n",
+     "at": "topics-more.js:199",
+     "uk": "/ˈiː kɒmɜːs/",
+     "us": "/ˈiːkɑːmərs/"
+    },
+    {
+     "id": "translation#n",
+     "at": "topics-more.js:252",
+     "uk": "/trænsˈleɪʃn/",
+     "us": "/trænzˈleɪʃn/"
+    },
+    {
+     "id": "multilingual#adj",
+     "at": "topics-more.js:254",
+     "uk": "/ˌmʌltiˈlɪŋɡwəl/",
+     "us": "/ˌmʌltiˈlɪŋwl/"
+    },
+    {
+     "id": "through thick and thin#idiom",
+     "at": "skills.js:91",
+     "uk": "/θruː θɪk ənd ˈfɪn/",
+     "us": "/θruː θɪk ənd ˈθɪn/"
+    },
+    {
+     "id": "a stone's throw from#idiom",
+     "at": "skills.js:115",
+     "uk": "/ə stəʊn θrəʊ ˈfrɒm/",
+     "us": "/ə stoʊnz θroʊ ˈfrəm/"
+    },
+    {
+     "id": "down-to-earth#adj",
+     "at": "skills.js:123",
+     "uk": "/ˌdaʊn tu ˈɜːθ/",
+     "us": "/ˌdaʊntuːˈɜːrθ/"
+    },
+    {
+     "id": "easy-going#adj",
+     "at": "skills.js:124",
+     "uk": "/ˌiːzi ˈɡəʊɪŋ/",
+     "us": "/ˌiːziˈɡoʊɪŋ/"
+    },
+    {
+     "id": "run-down#adj",
+     "at": "skills.js:134",
+     "uk": "/ˌrʌn ˈdaʊn/",
+     "us": "/ˌrʌnˈdaʊn/"
+    },
+    {
+     "id": "hard-working#adj",
+     "at": "skills.js:141",
+     "uk": "/ˌhɑːd ˈwɜːkɪŋ/",
+     "us": "/ˌhɑːrdˈwɜːrkɪŋ/"
+    },
+    {
+     "id": "laid-back#adj",
+     "at": "skills.js:143",
+     "uk": "/ˌleɪd ˈbæk/",
+     "us": "/ˌleɪdˈbæk/"
+    },
+    {
+     "id": "thought-provoking#adj",
+     "at": "skills.js:146",
+     "uk": "/ˈθɔːt prəvəʊkɪŋ/",
+     "us": "/ˈθɔːtprəvoʊkɪŋ/"
+    },
+    {
+     "id": "nerve-racking#adj",
+     "at": "skills.js:147",
+     "uk": "/ˈnɜːv rækɪŋ/",
+     "us": "/ˈnɜːrvrækɪŋ/"
+    },
+    {
+     "id": "mouth-watering#adj",
+     "at": "skills.js:151",
+     "uk": "/ˈmaʊθ wɔːtərɪŋ/",
+     "us": "/ˈmaʊθwɔːtərɪŋ/"
+    },
+    {
+     "id": "eye-opening#adj",
+     "at": "skills.js:156",
+     "uk": "/ˈaɪ əʊpənɪŋ/",
+     "us": "/ˈaɪoʊpənɪŋ/"
+    },
+    {
+     "id": "jaw-dropping#adj",
+     "at": "skills.js:161",
+     "uk": "/ˈdʒɔː drɒpɪŋ/",
+     "us": "/ˈdʒɔːdrɑːpɪŋ/"
+    },
+    {
+     "id": "a double-edged sword#collocation",
+     "at": "skills.js:262",
+     "uk": "/eɪ ˈdʌbəl edʒd sɔːd/",
+     "us": "/ə ˈdʌbledʒd sɔːrd/"
+    },
+    {
+     "id": "long-term consequences#collocation",
+     "at": "skills.js:264",
+     "uk": "/lɒŋ tɜːm ˈkɒnsɪkwənsɪz/",
+     "us": "/lɔːŋˈtɜːrm ˈkɑːnsəkwensəz/"
+    },
+    {
+     "id": "semi-detached#adj",
+     "at": "exam-vocab.js:22",
+     "uk": "/ˌsemi dɪˈtætʃt/",
+     "us": "/ˌsemidɪˈtætʃt/"
+    },
+    {
+     "id": "under-fives#n",
+     "at": "exam-vocab.js:31",
+     "uk": "/ˌʌndə ˈfaɪvz/",
+     "us": "/ˌʌndərˈfaɪvz/"
+    },
+    {
+     "id": "off-peak#adj",
+     "at": "exam-vocab.js:37",
+     "uk": "/ˌɒf ˈpiːk/",
+     "us": "/ˌɔːfˈpiːk/"
+    },
+    {
+     "id": "fire exit#n",
+     "at": "exam-vocab.js:51",
+     "uk": "/ˈfaɪər ˌeksɪt/",
+     "us": "/ˈfaɪər ˈeɡzɪt/"
+    },
+    {
+     "id": "first-aid kit#n",
+     "at": "exam-vocab.js:65",
+     "uk": "/ˌfɜːst ˈeɪd kɪt/",
+     "us": "/fɜːrsteɪd kɪt/"
+    },
+    {
+     "id": "fundraising#n",
+     "at": "exam-vocab.js:73",
+     "uk": "/ˈfʌndreɪzɪŋ/",
+     "us": "/ˈfʌndreɪsɪŋ/"
+    },
+    {
+     "id": "gluten-free#adj",
+     "at": "exam-vocab.js:78",
+     "uk": "/ˌɡluːtn ˈfriː/",
+     "us": "/ˌɡluːtnˈfriː/"
+    },
+    {
+     "id": "one-way street#n",
+     "at": "exam-vocab.js:120",
+     "uk": "/ˌwʌn weɪ ˈstriːt/",
+     "us": "/wʌnˈweɪ striːt/"
+    },
+    {
+     "id": "postulate#v",
+     "at": "exam-vocab.js:141",
+     "uk": "/ˈpɒstjuleɪt/",
+     "us": "/ˈpɑːstʃəleɪt/"
+    },
+    {
+     "id": "substantiate#v",
+     "at": "exam-vocab.js:147",
+     "uk": "/səbˈstænʃieɪt/",
+     "us": "/səbˈstæntʃieɪt/"
+    },
+    {
+     "id": "peer-reviewed#adj",
+     "at": "exam-vocab.js:195",
+     "uk": "/ˌpɪə rɪˈvjuːd/",
+     "us": "/ˌpɪrriˈvjuːd/"
+    },
+    {
+     "id": "threshold#n",
+     "at": "exam-vocab.js:240",
+     "uk": "/ˈθreʃhəʊld/",
+     "us": "/ˈθreʃoʊld/"
+    },
+    {
+     "id": "trade-off#n",
+     "at": "exam-vocab.js:244",
+     "uk": "/ˈtreɪd ɒf/",
+     "us": "/ˈtreɪdɔːf/"
+    },
+    {
+     "id": "by-product#n",
+     "at": "exam-vocab.js:245",
+     "uk": "/ˈbaɪ ˌprɒdʌkt/",
+     "us": "/ˈbaɪprɑːdʌkt/"
+    },
+    {
+     "id": "by and large#phrase",
+     "at": "exam-vocab.js:253",
+     "uk": "/ˌbaɪ ən ˈlɑːdʒ/",
+     "us": "/ˌbaɪ ənd ˈlɑːrdʒ/"
+    },
+    {
+     "id": "two-thirds#n",
+     "at": "exam-vocab.js:299",
+     "uk": "/ˌtuː ˈθɜːdz/",
+     "us": "/ˌtuːˈθɜːrdz/"
+    },
+    {
+     "id": "a knock-on effect#phrase",
+     "at": "exam-vocab.js:343",
+     "uk": "/ə ˈnɒk ɒn ɪˌfekt/",
+     "us": "/ə nɑːkɑːn ˈiːfekt/"
+    },
+    {
+     "id": "a drain on resources#phrase",
+     "at": "exam-vocab.js:391",
+     "uk": "/ə ˌdreɪn ɒn rɪˈzɔːsɪz/",
+     "us": "/ə ˌdreɪn ɑːn ˈriːsɔːrsɪz/"
+    },
+    {
+     "id": "the pros and cons#phrase",
+     "at": "exam-vocab.js:392",
+     "uk": "/ðə ˌprəʊz ən ˈkɒnz/",
+     "us": "/ðə ˌproʊz ənd ˈkɑːnz/"
+    },
+    {
+     "id": "it goes without saying#phrase",
+     "at": "exam-vocab.js:414",
+     "uk": "/ɪt ˌɡəʊz wɪˌðaʊt ˈseɪɪŋ/",
+     "us": "/ɪt ˌɡoʊz wɪˈθaʊt ˈseɪɪŋ/"
+    },
+    {
+     "id": "every now and then#phrase",
+     "at": "exam-vocab.js:424",
+     "uk": "/ˌevri ˌnaʊ ən ˈðen/",
+     "us": "/ˈevəri ˌnaʊ ənd ˈðen/"
+    },
+    {
+     "id": "born and raised#phrase",
+     "at": "exam-vocab.js:433",
+     "uk": "/ˌbɔːn ən ˈreɪzd/",
+     "us": "/ˌbɔːrn ənd ˈreɪzd/"
+    },
+    {
+     "id": "close-knit#adj",
+     "at": "exam-vocab.js:434",
+     "uk": "/ˌkləʊs ˈnɪt/",
+     "us": "/ˌkloʊsˈnɪt/"
+    },
+    {
+     "id": "well-connected#adj",
+     "at": "exam-vocab.js:438",
+     "uk": "/ˌwel kəˈnektɪd/",
+     "us": "/ˌwelkəˈnektɪd/"
+    },
+    {
+     "id": "work-life balance#n",
+     "at": "exam-vocab.js:441",
+     "uk": "/ˌwɜːk ˈlaɪf ˌbæləns/",
+     "us": "/wɜːrklaɪf ˈbæləns/"
+    },
+    {
+     "id": "nine-to-five#adj",
+     "at": "exam-vocab.js:442",
+     "uk": "/ˌnaɪn tə ˈfaɪv/",
+     "us": "/ˌnaɪntuːˈfaɪv/"
+    },
+    {
+     "id": "hands-on#adj",
+     "at": "exam-vocab.js:443",
+     "uk": "/ˌhændz ˈɒn/",
+     "us": "/ˌhændzˈɑːn/"
+    },
+    {
+     "id": "binge-watch#v",
+     "at": "exam-vocab.js:452",
+     "uk": "/ˈbɪndʒ wɒtʃ/",
+     "us": "/ˈbɪndʒwɑːtʃ/"
+    },
+    {
+     "id": "lie-in#n",
+     "at": "exam-vocab.js:453",
+     "uk": "/ˈlaɪ ɪn/",
+     "us": "/ˈlaɪɪn/"
+    },
+    {
+     "id": "home-cooked#adj",
+     "at": "exam-vocab.js:470",
+     "uk": "/ˌhəʊm ˈkʊkt/",
+     "us": "/ˌhoʊmˈkʊkt/"
+    },
+    {
+     "id": "tech-savvy#adj",
+     "at": "exam-vocab.js:483",
+     "uk": "/ˈtek ˌsævi/",
+     "us": "/ˈtekˌsævi/"
+    },
+    {
+     "id": "state-of-the-art#adj",
+     "at": "exam-vocab.js:502",
+     "uk": "/ˌsteɪt əv ði ˈɑːt/",
+     "us": "/ˌsteɪtʌvðəˈɑːrt/"
+    },
+    {
+     "id": "old-fashioned#adj",
+     "at": "exam-vocab.js:503",
+     "uk": "/ˌəʊld ˈfæʃnd/",
+     "us": "/ˌoʊldˈfæʃənd/"
+    },
+    {
+     "id": "must-have#n",
+     "at": "exam-vocab.js:505",
+     "uk": "/ˈmʌst hæv/",
+     "us": "/ˈmʌsthæv/"
+    },
+    {
+     "id": "time-consuming#adj",
+     "at": "exam-vocab.js:506",
+     "uk": "/ˈtaɪm kənˌsjuːmɪŋ/",
+     "us": "/ˈtaɪmkənˌsuːmɪŋ/"
+    },
+    {
+     "id": "life-changing#adj",
+     "at": "exam-vocab.js:510",
+     "uk": "/ˈlaɪf ˌtʃeɪndʒɪŋ/",
+     "us": "/ˈlaɪfˌtʃeɪndʒɪŋ/"
+    },
+    {
+     "id": "add-drop period#n",
+     "at": "exam-vocab.js:531",
+     "uk": "/ˌæd ˈdrɒp ˌpɪəriəd/",
+     "us": "/æddrɑːp ˈpɪriəd/"
+    },
+    {
+     "id": "work-study#n",
+     "at": "exam-vocab.js:536",
+     "uk": "/ˈwɜːk ˌstʌdi/",
+     "us": "/ˈwɜːrkˌstʌdi/"
+    },
+    {
+     "id": "fungi#n",
+     "at": "exam-vocab.js:553",
+     "uk": "/ˈfʌŋɡiː/",
+     "us": "/ˈfʌndʒaɪ/"
+    },
+    {
+     "id": "glaciation#n",
+     "at": "exam-vocab.js:593",
+     "uk": "/ˌɡleɪsiˈeɪʃn/",
+     "us": "/ˌɡleɪʃiˈeɪʃn/"
+    },
+    {
+     "id": "celestial#adj",
+     "at": "exam-vocab.js:606",
+     "uk": "/səˈlestiəl/",
+     "us": "/səˈlestʃl/"
+    },
+    {
+     "id": "light-year#n",
+     "at": "exam-vocab.js:612",
+     "uk": "/ˈlaɪt jɪə/",
+     "us": "/ˈlaɪtjɪr/"
+    },
+    {
+     "id": "hunter-gatherer#n",
+     "at": "exam-vocab.js:624",
+     "uk": "/ˌhʌntə ˈɡæðərə/",
+     "us": "/ˌhʌntərˈɡæðərər/"
+    },
+    {
+     "id": "load a vehicle#phrase",
+     "at": "exam-vocab.js:674",
+     "uk": "/ˌləʊd ə ˈviːəkl/",
+     "us": "/ˌloʊd ə ˈviːhɪkl/"
+    },
+    {
+     "id": "behind schedule#phrase",
+     "at": "exam-vocab.js:724",
+     "uk": "/bɪˌhaɪnd ˈʃedjuːl/",
+     "us": "/bɪˈhaɪnd ˈskedʒʊl/"
+    },
+    {
+     "id": "ahead of schedule#phrase",
+     "at": "exam-vocab.js:725",
+     "uk": "/əˌhed əv ˈʃedjuːl/",
+     "us": "/əˈhed əv ˈskedʒʊl/"
+    },
+    {
+     "id": "round-trip#adj",
+     "at": "exam-vocab.js:746",
+     "uk": "/ˌraʊnd ˈtrɪp/",
+     "us": "/ˌraʊndˈtrɪp/"
+    },
+    {
+     "id": "back-ordered#adj",
+     "at": "exam-vocab.js:749",
+     "uk": "/ˌbæk ˈɔːdəd/",
+     "us": "/ˌbækˈɔːrdərd/"
+    },
+    {
+     "id": "without further ado#phrase",
+     "at": "exam-vocab.js:761",
+     "uk": "/wɪˌðaʊt ˌfɜːðər əˈduː/",
+     "us": "/wɪˈθaʊt ˈfɜːrðər əˈduː/"
+    },
+    {
+     "id": "be scheduled to#phrase",
+     "at": "exam-vocab.js:809",
+     "uk": "/biː ˈʃedjuːld tə/",
+     "us": "/bi ˈskedʒʊld tə/"
+    },
+    {
+     "id": "place an advertisement#phrase",
+     "at": "exam-vocab.js:826",
+     "uk": "/ˌpleɪs ən ədˈvɜːtɪsmənt/",
+     "us": "/ˌpleɪs ən ædˈvɜːrtəzmənt/"
+    },
+    {
+     "id": "solely#adv",
+     "at": "exam-vocab.js:864",
+     "uk": "/ˈsəʊlli/",
+     "us": "/ˈsoʊəli/"
+    },
+    {
+     "id": "long-standing#adj",
+     "at": "exam-vocab.js:877",
+     "uk": "/ˌlɒŋ ˈstændɪŋ/",
+     "us": "/ˌlɔːŋˈstændɪŋ/"
+    },
+    {
+     "id": "cost-effective#adj",
+     "at": "exam-vocab.js:878",
+     "uk": "/ˌkɒst ɪˈfektɪv/",
+     "us": "/ˌkɔːstɪˈfektɪv/"
+    },
+    {
+     "id": "roommate#n",
+     "at": "exam-vocab2.js:38",
+     "uk": "/ˈruːmmeɪt/",
+     "us": "/ˈruːmeɪt/"
+    },
+    {
+     "id": "student government#n",
+     "at": "exam-vocab2.js:49",
+     "uk": "/ˌstjuːdnt ˈɡʌvənmənt/",
+     "us": "/ˈstuːdənt ˈɡʌvərmənt/"
+    },
+    {
+     "id": "sign-up sheet#n",
+     "at": "exam-vocab2.js:56",
+     "uk": "/ˈsaɪn ʌp ʃiːt/",
+     "us": "/saɪnʌp ʃiːt/"
+    },
+    {
+     "id": "make-up exam#n",
+     "at": "exam-vocab2.js:88",
+     "uk": "/ˈmeɪk ʌp ɪɡˌzæm/",
+     "us": "/ˈmeɪkʌp ɪɡˈzæm/"
+    },
+    {
+     "id": "reschedule#v",
+     "at": "exam-vocab2.js:89",
+     "uk": "/ˌriːˈʃedjuːl/",
+     "us": "/riˈskedʒuːl/"
+    },
+    {
+     "id": "scheduling conflict#n",
+     "at": "exam-vocab2.js:90",
+     "uk": "/ˈʃedjuːlɪŋ ˌkɒnflɪkt/",
+     "us": "/ˈskedʒʊlɪŋ ˈkɑːnflɪkt/"
+    },
+    {
+     "id": "glacier#n",
+     "at": "exam-vocab2.js:148",
+     "uk": "/ˈɡlæsiə/",
+     "us": "/ˈɡleɪʃər/"
+    },
+    {
+     "id": "short-term memory#n",
+     "at": "exam-vocab2.js:220",
+     "uk": "/ˌʃɔːt tɜːm ˈmeməri/",
+     "us": "/ʃɔːrtˈtɜːrm ˈmeməri/"
+    },
+    {
+     "id": "long-term memory#n",
+     "at": "exam-vocab2.js:221",
+     "uk": "/ˌlɒŋ tɜːm ˈmeməri/",
+     "us": "/lɔːŋˈtɜːrm ˈmeməri/"
+    },
+    {
+     "id": "terms and conditions#n",
+     "at": "exam-vocab2.js:253",
+     "uk": "/ˌtɜːmz ən kənˈdɪʃnz/",
+     "us": "/ˌtɜːrmz ənd kənˈdɪʃənz/"
+    },
+    {
+     "id": "human resources#n",
+     "at": "exam-vocab2.js:296",
+     "uk": "/ˌhjuːmən rɪˈzɔːsɪz/",
+     "us": "/ˈhjuːmən ˈriːsɔːrsɪz/"
+    },
+    {
+     "id": "full-time#adj",
+     "at": "exam-vocab2.js:309",
+     "uk": "/ˌfʊl ˈtaɪm/",
+     "us": "/ˌfʊlˈtaɪm/"
+    },
+    {
+     "id": "one-way#adj",
+     "at": "exam-vocab2.js:361",
+     "uk": "/ˌwʌn ˈweɪ/",
+     "us": "/ˌwʌnˈweɪ/"
+    },
+    {
+     "id": "carry-on#adj",
+     "at": "exam-vocab2.js:362",
+     "uk": "/ˈkæri ɒn/",
+     "us": "/ˈkæriɑːn/"
+    },
+    {
+     "id": "postpone#v",
+     "at": "exam-vocab2.js:366",
+     "uk": "/pəˈspəʊn/",
+     "us": "/poʊstˈpoʊn/"
+    },
+    {
+     "id": "wake-up call#n",
+     "at": "exam-vocab2.js:395",
+     "uk": "/ˈweɪk ʌp kɔːl/",
+     "us": "/ˈweɪkʌp kɔːl/"
+    },
+    {
+     "id": "buffet#n",
+     "at": "exam-vocab2.js:399",
+     "uk": "/ˈbʊfeɪ/",
+     "us": "/ˈbʌfət/"
+    },
+    {
+     "id": "booth#n",
+     "at": "exam-vocab2.js:412",
+     "uk": "/buːð/",
+     "us": "/buːθ/"
+    },
+    {
+     "id": "rsvp#v",
+     "at": "exam-vocab2.js:415",
+     "uk": "/ˌɑːr es viː ˈpiː/",
+     "us": "/ˌɑːˌresviˈpiː/"
+    },
+    {
+     "id": "early-bird#adj",
+     "at": "exam-vocab2.js:424",
+     "uk": "/ˈɜːli bɜːd/",
+     "us": "/ˈɜːrlibɜːrd/"
+    },
+    {
+     "id": "fixed-term#adj",
+     "at": "exam-vocab3.js:11",
+     "uk": "/ˌfɪkst ˈtɜːm/",
+     "us": "/ˌfɪkstˈtɜːrm/"
+    },
+    {
+     "id": "wear and tear#phrase",
+     "at": "exam-vocab3.js:17",
+     "uk": "/ˌweər ən ˈteə/",
+     "us": "/ˌwer ənd ˈter/"
+    },
+    {
+     "id": "non-refundable#adj",
+     "at": "exam-vocab3.js:47",
+     "uk": "/ˌnɒn rɪˈfʌndəbl/",
+     "us": "/ˌnɑːnrɪˈfʌndəbl/"
+    },
+    {
+     "id": "cooling-off period#n",
+     "at": "exam-vocab3.js:48",
+     "uk": "/ˌkuːlɪŋ ˈɒf ˌpɪəriəd/",
+     "us": "/ˈkuːlɪŋɔːf ˈpɪriəd/"
+    },
+    {
+     "id": "drop-in session#n",
+     "at": "exam-vocab3.js:59",
+     "uk": "/ˈdrɒp ɪn ˌseʃn/",
+     "us": "/drɑːpɪn ˈseʃn/"
+    },
+    {
+     "id": "out-of-hours#adj",
+     "at": "exam-vocab3.js:73",
+     "uk": "/ˌaʊt əv ˈaʊəz/",
+     "us": "/ˌaʊtʌvˈaʊərz/"
+    },
+    {
+     "id": "part-time#adj",
+     "at": "exam-vocab3.js:83",
+     "uk": "/ˌpɑːt ˈtaɪm/",
+     "us": "/ˌpɑːrtˈtaɪm/"
+    },
+    {
+     "id": "apprenticeship#n",
+     "at": "exam-vocab3.js:94",
+     "uk": "/əˈprentɪʃɪp/",
+     "us": "/əˈprentəsʃɪp/"
+    },
+    {
+     "id": "self-employed#adj",
+     "at": "exam-vocab3.js:96",
+     "uk": "/ˌself ɪmˈplɔɪd/",
+     "us": "/ˌselfɪmˈplɔɪd/"
+    },
+    {
+     "id": "health and safety#n",
+     "at": "exam-vocab3.js:114",
+     "uk": "/ˌhelθ ən ˈseɪfti/",
+     "us": "/ˌhelθ ənd ˈseɪfti/"
+    },
+    {
+     "id": "i saw your advertisement in#phrase",
+     "at": "exam-vocab3.js:157",
+     "uk": "/aɪ ˌsɔː jər ədˈvɜːtɪsmənt ɪn/",
+     "us": "/aɪ ˌsɔː jər ædˈvɜːrtəzmənt ɪn/"
+    },
+    {
+     "id": "i wish to express my dissatisfaction with#phrase",
+     "at": "exam-vocab3.js:162",
+     "uk": "/aɪ ˌwɪʃ tʊ ɪkˌspres maɪ ˌdɪsˌsætɪsˈfækʃn wɪð/",
+     "us": "/aɪ ˌwɪʃ tə ɪkˈspres maɪ ˌdɪsætɪˈsfækʃn wɪð/"
+    },
+    {
+     "id": "thank you for your time and consideration#phrase",
+     "at": "exam-vocab3.js:227",
+     "uk": "/ˌθæŋk jʊ fə jɔː ˌtaɪm ən kənˌsɪdəˈreɪʃn/",
+     "us": "/ˌθæŋk juː fər jər ˌtaɪm ənd kənˌsɪdərˈeɪʃn/"
+    },
+    {
+     "id": "extrinsic#adj",
+     "at": "exam-vocab3.js:243",
+     "uk": "/eksˈtrɪnzɪk/",
+     "us": "/ɪkˈstrɪnsɪk/"
+    },
+    {
+     "id": "hegemony#n",
+     "at": "exam-vocab3.js:285",
+     "uk": "/hɪˈɡeməni/",
+     "us": "/hiˈdʒeməni/"
+    },
+    {
+     "id": "idiosyncratic#adj",
+     "at": "exam-vocab3.js:288",
+     "uk": "/ˌɪdiəʊsɪŋˈkrætɪk/",
+     "us": "/ˌɪdioʊsɪnˈkrætɪk/"
+    },
+    {
+     "id": "so-called#adj",
+     "at": "awl.js:599",
+     "uk": "/ˌsəʊ ˈkɔːld/",
+     "us": "/ˌsoʊˈkɔːld/"
+    },
+    {
+     "id": "conceptual#adj",
+     "at": "nawl.js:130",
+     "uk": "/kənˈseptjʊəl/",
+     "us": "/kənˈseptʃuəl/"
+    },
+    {
+     "id": "substitution#n",
+     "at": "nawl.js:222",
+     "uk": "/ˌsʌbstɪˈtʃuːʃən/",
+     "us": "/ˌsʌbstɪˈtuːʃn/"
+    },
+    {
+     "id": "transplant#n",
+     "at": "nawl.js:346",
+     "uk": "/trɑːnzˈplɑːnt/",
+     "us": "/trænˈsplænt/"
+    },
+    {
+     "id": "niche#n",
+     "at": "nawl.js:383",
+     "uk": "/niːʃ/",
+     "us": "/nɪtʃ/"
+    },
+    {
+     "id": "longitudinal#adj",
+     "at": "nawl.js:462",
+     "uk": "/ˌlɒŋɡɪˈtjuːdɪnəl/",
+     "us": "/ˌlɑːndʒəˈtuːdənl/"
+    },
+    {
+     "id": "inversion#n",
+     "at": "nawl.js:482",
+     "uk": "/ɪnˈvɜːʃən/",
+     "us": "/ɪnˈvɜːrʒn/"
+    },
+    {
+     "id": "exponential#adj",
+     "at": "nawl.js:496",
+     "uk": "/ˌekspəˈnentʃəl/",
+     "us": "/ˌekspoʊˈnenʃl/"
+    },
+    {
+     "id": "garage#n",
+     "at": "tsl-a.js:61",
+     "uk": "/ˈɡærɪdʒ/",
+     "us": "/ɡərˈɑːʒ/"
+    },
+    {
+     "id": "merchandise#n",
+     "at": "tsl-a.js:75",
+     "uk": "/ˈmɜːtʃənˌdaɪs/",
+     "us": "/ˈmɜːrtʃəndaɪz/"
+    },
+    {
+     "id": "exit#n",
+     "at": "tsl-a.js:105",
+     "uk": "/ˈeksɪt/",
+     "us": "/ˈeɡzɪt/"
+    },
+    {
+     "id": "sandwich#n",
+     "at": "tsl-a.js:116",
+     "uk": "/ˈsændwɪdʒ/",
+     "us": "/ˈsændwɪtʃ/"
+    },
+    {
+     "id": "departure#n",
+     "at": "tsl-a.js:117",
+     "uk": "/dɪˈpɑːtjə/",
+     "us": "/dɪˈpɑːrtʃər/"
+    },
+    {
+     "id": "ink#n",
+     "at": "tsl-a.js:204",
+     "uk": "/ɪnk/",
+     "us": "/ɪŋk/"
+    },
+    {
+     "id": "congratulation#n",
+     "at": "tsl-a.js:318",
+     "uk": "/kənˌɡrædʒʊˈleɪʃən/",
+     "us": "/kənˌɡrætʃəˈleɪʃn/"
+    },
+    {
+     "id": "graduation#n",
+     "at": "tsl-a.js:534",
+     "uk": "/ˌɡrædjuˈeɪʃən/",
+     "us": "/ˌɡrædʒuˈeɪʃn/"
+    },
+    {
+     "id": "massage#n",
+     "at": "tsl-b.js:17",
+     "uk": "/ˈmæsɑːdʒ/",
+     "us": "/məˈsɑːʒ/"
+    },
+    {
+     "id": "vase#n",
+     "at": "tsl-b.js:33",
+     "uk": "/vɑːz/",
+     "us": "/veɪs/"
+    },
+    {
+     "id": "translator#n",
+     "at": "tsl-b.js:72",
+     "uk": "/trænzˈleɪtə(r)/",
+     "us": "/trænˈsleɪtər/"
+    },
+    {
+     "id": "diagnose#v",
+     "at": "tsl-b.js:88",
+     "uk": "/ˈdaɪəɡˌnəʊz/",
+     "us": "/ˌdaɪəɡˈnoʊs/"
+    },
+    {
+     "id": "punctual#adj",
+     "at": "tsl-b.js:113",
+     "uk": "/ˈpʌŋktjʊəl/",
+     "us": "/ˈpʌŋktʃuəl/"
+    },
+    {
+     "id": "dissatisfy#v",
+     "at": "tsl-b.js:146",
+     "uk": "/dɪsˈsætɪsfaɪ/",
+     "us": "/dɪˈsætəsfaɪ/"
+    },
+    {
+     "id": "transmission#n",
+     "at": "tsl-b.js:335",
+     "uk": "/trænzˈmɪʃən/",
+     "us": "/trænˈsmɪʃn/"
+    },
+    {
+     "id": "bankruptcy#n",
+     "at": "tsl-b.js:416",
+     "uk": "/ˈbæŋkrʌptsi/",
+     "us": "/ˈbæŋkrəpsi/"
+    },
+    {
+     "id": "departmental#adj",
+     "at": "tsl-b.js:503",
+     "uk": "/dɪpɑːtˈmentəl/",
+     "us": "/dɪpɑːrtˈmenl/"
+    },
+    {
+     "id": "erase#v",
+     "at": "tsl-b.js:598",
+     "uk": "/ɪˈreɪz/",
+     "us": "/ɪˈreɪs/"
+    },
+    {
+     "id": "could we reschedule#phrase",
+     "at": "office.js:15",
+     "uk": "/kəd wiː ˌriːˈʃedjuːl/",
+     "us": "/kʊd wiː riˈskedʒuːl/"
+    },
+    {
+     "id": "heads-up#n",
+     "at": "office.js:26",
+     "uk": "/ˈhedz ʌp/",
+     "us": "/ˈhedzʌp/"
+    },
+    {
+     "id": "asap#abbr",
+     "at": "office.js:27",
+     "uk": "/ˌeɪ es eɪ ˈpiː/",
+     "us": "/ˌeɪˌeseɪˈpiː/"
+    },
+    {
+     "id": "follow-up#n",
+     "at": "office.js:36",
+     "uk": "/ˈfɒləʊ ʌp/",
+     "us": "/ˈfɑːloʊʌp/"
+    },
+    {
+     "id": "let's get started#phrase",
+     "at": "office.js:40",
+     "uk": "/let ɡet ˈstɑːtɪd/",
+     "us": "/lets ɡet ˈstɑːrtɪd/"
+    },
+    {
+     "id": "that's a fair point#phrase",
+     "at": "office.js:45",
+     "uk": "/ðət ə ˈfeə pɔɪnt/",
+     "us": "/ðæts ə ˈfer pɔɪnt/"
+    },
+    {
+     "id": "let's get back to the agenda#phrase",
+     "at": "office.js:48",
+     "uk": "/let ɡet bæk tə ðə əˈdʒendə/",
+     "us": "/lets ɡet bæk tə ðə əˈdʒendə/"
+    },
+    {
+     "id": "win-win#adj",
+     "at": "office.js:61",
+     "uk": "/ˌwɪn ˈwɪn/",
+     "us": "/ˌwɪnˈwɪn/"
+    },
+    {
+     "id": "my main strength is#phrase",
+     "at": "office.js:71",
+     "uk": "/mɪ meɪn streŋθ ɪz/",
+     "us": "/maɪ meɪn streŋkθ ɪz/"
+    },
+    {
+     "id": "two-factor authentication#n",
+     "at": "office.js:113",
+     "uk": "/tu ˈfæktə(r) ɔːˌθentɪˈkeɪʃn/",
+     "us": "/tuːˈfæktər ɔːˌθentəˈkeɪʃn/"
+    },
+    {
+     "id": "all-hands meeting#n",
+     "at": "office.js:137",
+     "uk": "/ˌɔːl ˈhændz ˌmiːtɪŋ/",
+     "us": "/ɔːlhændz ˈmiːtɪŋ/"
+    },
+    {
+     "id": "one-on-one#n",
+     "at": "office.js:138",
+     "uk": "/ˌwʌn ɒn ˈwʌn/",
+     "us": "/ˌwʌnɑːnˈwʌn/"
+    },
+    {
+     "id": "exit interview#n",
+     "at": "office.js:142",
+     "uk": "/ˈeksɪt ˌɪntəvjuː/",
+     "us": "/ˈeɡzɪt ˈɪntərvjuː/"
+    },
+    {
+     "id": "move-in date#n",
+     "at": "office.js:172",
+     "uk": "/ˈmuːv ɪn deɪt/",
+     "us": "/muːvɪn deɪt/"
+    },
+    {
+     "id": "month-to-month#adj",
+     "at": "office.js:178",
+     "uk": "/ˌmʌnθ tə ˈmʌnθ/",
+     "us": "/ˌmʌnθtuːˈmʌnθ/"
+    },
+    {
+     "id": "walk-in closet#n",
+     "at": "office.js:179",
+     "uk": "/ˌwɔːk ɪn ˈklɒzɪt/",
+     "us": "/ˈwɔːkɪn ˈklɑːzət/"
+    },
+    {
+     "id": "in-unit laundry#n",
+     "at": "office.js:186",
+     "uk": "/ˌɪn ˌjuːnɪt ˈlɔːndri/",
+     "us": "/ɪnˈjuːnət ˈlɔːndri/"
+    },
+    {
+     "id": "atm#n",
+     "at": "office.js:196",
+     "uk": "/ˌeɪ tiː ˈem/",
+     "us": "/ˌeɪtiˈem/"
+    },
+    {
+     "id": "self-checkout#n",
+     "at": "office.js:205",
+     "uk": "/ˌself ˈtʃekaʊt/",
+     "us": "/ˌselfˈtʃekaʊt/"
+    },
+    {
+     "id": "walk-in clinic#n",
+     "at": "office.js:220",
+     "uk": "/ˌwɔːk ɪn ˈklɪnɪk/",
+     "us": "/ˈwɔːkɪn ˈklɪnɪk/"
+    },
+    {
+     "id": "in-network#adj",
+     "at": "office.js:221",
+     "uk": "/ˌɪn ˈnetwɜːk/",
+     "us": "/ˌɪnˈnetwɜːrk/"
+    },
+    {
+     "id": "out-of-pocket#adj",
+     "at": "office.js:222",
+     "uk": "/ˌaʊt əv ˈpɒkɪt/",
+     "us": "/ˌaʊtʌvˈpɑːkət/"
+    },
+    {
+     "id": "follow-up appointment#n",
+     "at": "office.js:230",
+     "uk": "/ˈfɒləʊ ʌp əˌpɔɪntmənt/",
+     "us": "/ˈfɑːloʊʌp əˈpɔɪntmənt/"
+    },
+    {
+     "id": "maturity#n",
+     "at": "bsl.js:6",
+     "uk": "/məˈtjʊərɪti/",
+     "us": "/məˈtʃʊrəti/"
+    },
+    {
+     "id": "conversion#n",
+     "at": "bsl.js:24",
+     "uk": "/kənˈvɜːʃ(ə)n/",
+     "us": "/kənˈvɜːrʒn/"
+    },
+    {
+     "id": "statutory#adj",
+     "at": "bsl.js:97",
+     "uk": "/ˈstætjʊt(ə)rɪ/",
+     "us": "/ˈstætʃətɔːri/"
+    },
+    {
+     "id": "intermediary#adj",
+     "at": "bsl.js:121",
+     "uk": "/ˌɪntə(r)ˈmiːdiəri/",
+     "us": "/ˌɪnərˈmiːdieri/"
+    },
+    {
+     "id": "endure#v",
+     "at": "bsl.js:202",
+     "uk": "/ɪnˈdʒʊə(r)/",
+     "us": "/ɪndˈjʊr/"
+    },
+    {
+     "id": "debenture#n",
+     "at": "bsl.js:266",
+     "uk": "/dɪˈbentjʊə/",
+     "us": "/dəˈbentʃər/"
+    },
+    {
+     "id": "consortium#n",
+     "at": "bsl.js:277",
+     "uk": "/kənˈsɔːtiəm/",
+     "us": "/kənˈsɔːrʃiəm/"
+    },
+    {
+     "id": "tranche#n",
+     "at": "bsl.js:349",
+     "uk": "/trɒnʃ/",
+     "us": "/træntʃ/"
+    },
+    {
+     "id": "fraudulent#adj",
+     "at": "bsl.js:483",
+     "uk": "/ˈfrɔːdjʊlənt/",
+     "us": "/ˈfrɔːdʒələnt/"
+    },
+    {
+     "id": "constituent#adj",
+     "at": "bsl.js:484",
+     "uk": "/kənˈstɪtjuənt/",
+     "us": "/kənˈstɪtʃuənt/"
+    },
+    {
+     "id": "duly#adv",
+     "at": "bsl.js:496",
+     "uk": "/ˈdʒuːli/",
+     "us": "/ˈduːli/"
+    },
+    {
+     "id": "object-oriented programming#n",
+     "at": "domain-a.js:25",
+     "uk": "/ˈɒbdʒɪkt ˈɔːrɪˌentɪd ˈprəʊɡrəmɪŋ/",
+     "us": "/ˌɑːbdʒektˈɔːrientəd ˈproʊɡræmɪŋ/"
+    },
+    {
+     "id": "full-stack developer#n",
+     "at": "domain-a.js:37",
+     "uk": "/fʊl stæk dɪˈveləpə/",
+     "us": "/fʊlstæk dɪˈveləpər/"
+    },
+    {
+     "id": "version control#n",
+     "at": "domain-a.js:57",
+     "uk": "/ˈvɜːʃn kənˈtrəʊl/",
+     "us": "/ˈvɜːrʒn kənˈtroʊl/"
+    },
+    {
+     "id": "break-even point#n",
+     "at": "domain-a.js:163",
+     "uk": "/breɪk ˈiːvən pɔɪnt/",
+     "us": "/breɪkˈiːvɪn pɔɪnt/"
+    },
+    {
+     "id": "value-added tax#n",
+     "at": "domain-a.js:191",
+     "uk": "/ˈvæljuː ˈædəd tæks/",
+     "us": "/ˌvæljuːˈædəd tæks/"
+    },
+    {
+     "id": "joint-stock company#n",
+     "at": "domain-a.js:234",
+     "uk": "/dʒɔɪnt stɒk ˈkʌmpəni/",
+     "us": "/dʒɔɪntstɑːk ˈkʌmpəni/"
+    },
+    {
+     "id": "anesthesia#n",
+     "at": "domain-a.js:332",
+     "uk": "/ˌænəsˈθiːziə/",
+     "us": "/ˌænɪsˈθiːʒə/"
+    },
+    {
+     "id": "evidence-based medicine#n",
+     "at": "domain-a.js:394",
+     "uk": "/ˈevɪdəns beɪst ˈmedɪsɪn/",
+     "us": "/ˈevədənsbeɪst ˈmedəsn/"
+    },
+    {
+     "id": "blood transfusion#n",
+     "at": "domain-a.js:417",
+     "uk": "/blʌd trænzˈfjuʒən/",
+     "us": "/blʌd trænsˈfjuːʒn/"
+    },
+    {
+     "id": "asthma#n",
+     "at": "domain-a.js:424",
+     "uk": "/ˈæsmə/",
+     "us": "/ˈæzmə/"
+    },
+    {
+     "id": "dengue fever#n",
+     "at": "domain-a.js:427",
+     "uk": "/ˈdeŋɡi ˈfiːvə/",
+     "us": "/ˈdenɡ ˈfiːvər/"
+    },
+    {
+     "id": "organ transplant#n",
+     "at": "domain-a.js:439",
+     "uk": "/ˈɔːɡən trɑːnzˈplɑːnt/",
+     "us": "/ˈɔːrɡən trænˈsplænt/"
+    },
+    {
+     "id": "computer-aided design#n",
+     "at": "domain-a.js:474",
+     "uk": "/kəmˈpjuːtə ˈeɪdɪd dɪˈzaɪn/",
+     "us": "/kəmˌpjuːtərˈeɪdəd dɪˈzaɪn/"
+    },
+    {
+     "id": "tensile strength#n",
+     "at": "domain-a.js:517",
+     "uk": "/ˈtensaɪəl streŋθ/",
+     "us": "/ˈtensl streŋkθ/"
+    },
+    {
+     "id": "statute#n",
+     "at": "domain-a.js:615",
+     "uk": "/ˈstætjuːt/",
+     "us": "/ˈstætʃuːt/"
+    },
+    {
+     "id": "one-stop shop#n",
+     "at": "domain-a.js:707",
+     "uk": "/wʌn stɒp ʃɒp/",
+     "us": "/wʌnstɑːp ʃɑːp/"
+    },
+    {
+     "id": "people’s committee#n",
+     "at": "domain-a.js:712",
+     "uk": "/ˈpiːpəl kəˈmɪti/",
+     "us": "/ˈpiːpəlz kəˈmɪti/"
+    },
+    {
+     "id": "statute of limitations#n",
+     "at": "domain-a.js:744",
+     "uk": "/ˈstætjuːt əv lɪmɪˈteɪʃənz/",
+     "us": "/ˈstætʃuːt əv ˌlɪmɪˈteɪʃənz/"
+    },
+    {
+     "id": "niche market#n",
+     "at": "domain-b.js:25",
+     "uk": "/niːʃ ˈmɑːkɪt/",
+     "us": "/nɪtʃ ˈmɑːrkət/"
+    },
+    {
+     "id": "conversion rate#n",
+     "at": "domain-b.js:35",
+     "uk": "/kənˈvɜːʃ(ə)n reɪt/",
+     "us": "/kənˈvɜːrʒn reɪt/"
+    },
+    {
+     "id": "click-through rate#n",
+     "at": "domain-b.js:36",
+     "uk": "/klɪk θruː reɪt/",
+     "us": "/klɪkθruː reɪt/"
+    },
+    {
+     "id": "a/b testing#n",
+     "at": "domain-b.js:70",
+     "uk": "/æb ˈtestɪŋ/",
+     "us": "/ə biː ˈtestɪŋ/"
+    },
+    {
+     "id": "out-of-home advertising#n",
+     "at": "domain-b.js:94",
+     "uk": "/ˈaʊt ɒv həʊm ˈædvəˌtaɪzɪŋ/",
+     "us": "/aʊtʌvhoʊm ˈædvərtaɪzɪŋ/"
+    },
+    {
+     "id": "go-to-market strategy#n",
+     "at": "domain-b.js:152",
+     "uk": "/ɡəʊ tuː ˈmɑːkɪt ˈstrætədʒi/",
+     "us": "/ɡoʊtuːˈmɑːrkət ˈstrætədʒi/"
+    },
+    {
+     "id": "single-use plastic#n",
+     "at": "domain-b.js:192",
+     "uk": "/ˈsɪŋɡl juːz ˈplæstɪk/",
+     "us": "/ˈsɪŋɡljuːs ˈplæstɪk/"
+    },
+    {
+     "id": "mangrove#n",
+     "at": "domain-b.js:229",
+     "uk": "/ˈmæŋɡrəʊv/",
+     "us": "/ˈmænɡroʊv/"
+    },
+    {
+     "id": "electric vehicle#n",
+     "at": "domain-b.js:294",
+     "uk": "/ɪˈlektrɪk ˈviːəkl/",
+     "us": "/ɪˈlektrɪk ˈviːhɪkl/"
+    },
+    {
+     "id": "no-show#n",
+     "at": "domain-b.js:328",
+     "uk": "/ˌnəʊ ˈʃəʊ/",
+     "us": "/ˌnoʊˈʃoʊ/"
+    },
+    {
+     "id": "community-based tourism#n",
+     "at": "domain-b.js:368",
+     "uk": "/kəˈmjuːnəti beɪst ˈtʊərɪzəm/",
+     "us": "/kəˈmjuːnətibeɪst ˈtʊrɪzəm/"
+    },
+    {
+     "id": "walk-in guest#n",
+     "at": "domain-b.js:399",
+     "uk": "/wɔːk ən ɡest/",
+     "us": "/ˈwɔːkɪn ɡest/"
+    },
+    {
+     "id": "early departure#n",
+     "at": "domain-b.js:437",
+     "uk": "/ˈɜːli dɪˈpɑːtjə/",
+     "us": "/ˈɜːrli dɪˈpɑːrtʃər/"
+    },
+    {
+     "id": "emergency exit#n",
+     "at": "domain-b.js:445",
+     "uk": "/ɪˈmɜːdʒənsi ˈeksɪt/",
+     "us": "/ˈiːmərdʒənsi ˈeɡzɪt/"
+    },
+    {
+     "id": "student-centered learning#n",
+     "at": "domain-b.js:467",
+     "uk": "/ˈstʃuːdnt ˈsentəd ˈlɜːnɪŋ/",
+     "us": "/ˌstuːdəntˈsentərd ˈlɜːrnɪŋ/"
+    },
+    {
+     "id": "bachelor's degree#n",
+     "at": "domain-b.js:488",
+     "uk": "/ˈbætʃələ dɪˈɡriː/",
+     "us": "/ˈbætʃələrz dɪˈɡriː/"
+    },
+    {
+     "id": "master's degree#n",
+     "at": "domain-b.js:489",
+     "uk": "/ˈmɑːstə dɪˈɡriː/",
+     "us": "/ˈmæstərz dɪˈɡriː/"
+    },
+    {
+     "id": "longitudinal study#n",
+     "at": "domain-b.js:571",
+     "uk": "/ˌlɒŋɡɪˈtjuːdɪnəl ˈstʌdi/",
+     "us": "/ˌlɑːndʒəˈtuːdənl ˈstʌdi/"
+    },
+    {
+     "id": "incoterms#n",
+     "at": "domain-b.js:641",
+     "uk": "/ˈɪnkəʊtɜːmz/",
+     "us": "/ˈɪŋkoʊtɜːrmz/"
+    },
+    {
+     "id": "third-party logistics#n",
+     "at": "domain-b.js:677",
+     "uk": "/θɜːd ˈpɑːti ləˈdʒɪstɪks/",
+     "us": "/θɜːrdˈpɑːrti ləˈdʒɪstɪks/"
+    },
+    {
+     "id": "last-mile delivery#n",
+     "at": "domain-b.js:678",
+     "uk": "/lɑːst maɪl dɪˈlɪvəri/",
+     "us": "/læstmaɪl dɪˈlɪvəri/"
+    },
+    {
+     "id": "dangerous goods#n",
+     "at": "domain-b.js:683",
+     "uk": "/ˈdeɪnʒərəs ɡʊdz/",
+     "us": "/ˈdeɪndʒərəs ɡʊdz/"
+    },
+    {
+     "id": "cut-off time#n",
+     "at": "domain-b.js:698",
+     "uk": "/kʌt ɒf taɪm/",
+     "us": "/kʌtɔːf taɪm/"
+    },
+    {
+     "id": "cross-border e-commerce#n",
+     "at": "domain-b.js:738",
+     "uk": "/krɒs ˈbɔːdə ˈiː kɒmɜːs/",
+     "us": "/krɔːsˈbɔːrdər iˈkɑːmərs/"
+    },
+    {
+     "id": "anti-dumping duty#n",
+     "at": "domain-b.js:744",
+     "uk": "/ˈænti ˈdʌmpɪŋ ˈdjuːti/",
+     "us": "/ˌæntiˈdʌmpɪŋ ˈduːti/"
+    }
+   ]
+  },
+  {
+   "kind": "notes-review",
+   "why": "ghi chú từ (web/js/notes, Antigravity sinh) có mẹo nhớ kiểu 'từ nguyên dân gian' trình bày như gốc từ thật (belong = be + long 'lâu'); cần giám khảo kiểm từng mục 'm' có tách gốc từ",
+   "job": "vocab-notes",
+   "items": [
+    {
+     "id": "belong"
+    },
+    {
+     "id": "together"
+    },
+    {
+     "id": "tonight"
+    }
+   ]
+  }
+ ]
+}
