@@ -52,3 +52,8 @@ ice-cream, breakfast × 2 giọng = 48 (từ, giọng). Tỉ lệ đạt (Whispe
 - faster-whisper – MIT; Whisper small.en (OpenAI) – MIT. Chỉ dùng trên CI để kiểm, không phát hành.
 - Piper (đã thử làm dự phòng, KHÔNG dùng): `piper-tts==1.2.0` – MIT (bản 1.3+ là piper1-gpl, GPL-3); espeak-ng (phiên âm) – GPL-3, chỉ chạy trên CI.
   Giọng thử: en_GB-cori-high (dữ liệu LibriVox – public domain), en_US-ljspeech-high (LJ Speech – public domain).
+
+## Kết quả lượt s3 đầu (run 40205506275, 25/10)
+- 1499 từ (35 từ dạng mạnh + 909 từ có file cũ + từ NGSL tiếp theo) × 2 giọng: file s3 đạt 2844/2998 (94,9 %); file cũ cùng các từ: 1374/1820 (75,5 %).
+- 126 từ có ≥ 1 giọng dùng giọng máy (s3.tsv). Nhiều từ là đồng âm thật (weight/wait, son/sun, plane/plain, wear/where, route/root) –
+  Whisper không phân biệt được khi không có ngữ cảnh; theo quy tắc không nới tiêu chí, chúng giữ giọng máy tới khi có cách kiểm tốt hơn.

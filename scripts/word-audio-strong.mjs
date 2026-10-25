@@ -8,7 +8,6 @@ export const STRONG = {
   you: ['jˈuː', 'jˈuː'], we: ['wˈiː', 'wˈiː'], she: ['ʃˈiː', 'ʃˈiː'], he: ['hˈiː', 'hˈiː'], or: ['ˈɔː', 'ˈɔːɹ'], nor: ['nˈɔː', 'nˈɔːɹ'],
   so: ['sˈəʊ', 'sˈoʊ'], just: ['dʒˈʌst', 'dʒˈʌst'], into: ['ˈɪntuː', 'ˈɪntuː'], onto: ['ˈɒntuː', 'ˈɑːntuː'], upon: ['əpˈɒn', 'əpˈɑːn'],
 };
-export const S2 = ' ' + Object.keys(STRONG).join(' ') + ' '; // khóa cũ |s2 trong app – bỏ khi app đổi sang WAV (s3)
 export const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(36); };
 // Phiên bản khóa file audio/w: MỌI từ dùng fnv(giọng|từ|s3) (bản s3 = câu mang + cắt, qua Whisper – gen-word-audio.mjs). audio.lexkite.com đệm 1 năm
 // nên đổi cách tạo phải đổi hậu tố. Chuỗi WAV phải trùng web/js/ui.js + extension/newtab.js (scripts/test/word-audio-s2.mjs kiểm).
