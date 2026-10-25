@@ -3,10 +3,12 @@
 // chuỗi rất ngắn rơi vào vùng style ít được huấn luyện. Các cách thử: câu mang (carrier) rồi cắt lấy từ, đệm dấu câu, style của chuỗi dài hơn.
 import fs from 'node:fs';
 export const SR = 24000;
+// q8 (lượng tử hoá 8 bit) nhanh nhưng bf_emma hay thêm đuôi "-y" ("justy", "breakfasty") – lab so với fp32
+export const DTYPE = process.env.KOKORO_DTYPE || 'q8';
 export async function loadKokoro(require) {
   const { KokoroTTS } = require('kokoro-js'), { Tensor } = require('@huggingface/transformers');
   let tts = null;
-  for (let i = 1; i <= 6 && !tts; i++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: 'q8', device: 'cpu' }); } catch (e) { console.error(`Tải mô hình lỗi (lần ${i}): ${e.message}`); await new Promise(r => setTimeout(r, 15000 * i)); } }
+  for (let i = 1; i <= 6 && !tts; i++) { try { tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', { dtype: DTYPE, device: 'cpu' }); } catch (e) { console.error(`Tải mô hình lỗi (lần ${i}): ${e.message}`); await new Promise(r => setTimeout(r, 15000 * i)); } }
   if (!tts) throw new Error('Không tải được mô hình Kokoro');
   const vdir = require.resolve('kokoro-js').replace(/dist\/.*$/, 'voices/'), VC = {};
   const voice = v => VC[v] || (VC[v] = new Float32Array(new Uint8Array(fs.readFileSync(vdir + v + '.bin')).buffer));
@@ -37,6 +39,7 @@ const raw = async (k, carrier, w, v, ph, speed) => { const mid = a => a.slice(1,
 export const METHODS = {
   cut_next: (k, w, v, ph) => raw(k, 'Next word.', w, v, ph, 0.9),
   cut_wordis: (k, w, v, ph) => raw(k, 'The word is:', w, v, ph, 0.9),
+  dot100: async (k, w, v, ph) => trim((await k.run(ph ? k.phIds(ph + '.') : await k.ids(w + '.', v), v, 1.0)).pcm),
   dot090: async (k, w, v, ph) => trim((await k.run(ph ? k.phIds(ph + '.') : await k.ids(w + '.', v), v, 0.9)).pcm),
   plain095: async (k, w, v) => trim((await k.run(await k.ids(w, v), v, 0.95)).pcm),
 };

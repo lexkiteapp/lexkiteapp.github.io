@@ -21,9 +21,12 @@ except Exception as e: print('Piper lỗi:', e)
 stat = collections.defaultdict(lambda: [0, 0]); detail = []
 for r in rows:
     if not r.get('file'): stat[r['variant']][1] += 1; detail.append(f"{r['word']}/{r['voice']}/{r['variant']}: ✗ {r.get('why')}"); continue
-    f, why = prepare(r['word'], r['file'], r['variant'])
-    if not f: stat[r['variant']][1] += 1; detail.append(f"{r['word']}/{r['voice']}/{r['variant']}: ✗ {why}"); continue
-    ok, t, d = check(r['word'], f); s = stat[r['variant']]; s[0] += ok; s[1] += 1
+    fs, why = prepare(r['word'], r['file'], r['variant'])
+    if not fs: stat[r['variant']][1] += 1; detail.append(f"{r['word']}/{r['voice']}/{r['variant']}: ✗ {why}"); continue
+    for f in fs:
+        ok, t, d = check(r['word'], f)
+        if ok: break
+    s = stat[r['variant']]; s[0] += ok; s[1] += 1
     detail.append(f"{r['word']}/{r['voice']}/{r['variant']}: {'✓' if ok else '✗'} \"{t}\" {d:.2f}s")
 out = ['## Tỉ lệ đạt theo phương án', '| phương án | đạt | tổng |', '|---|---|---|'] + [f'| {k} | {a} | {b} |' for k, (a, b) in sorted(stat.items())]
 out += ['', '<details><summary>chi tiết</summary>', '', *['- ' + x for x in detail], '</details>', '', *cards]

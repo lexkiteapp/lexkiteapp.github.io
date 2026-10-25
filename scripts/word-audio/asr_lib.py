@@ -58,28 +58,34 @@ def load(f):
 def save_mp3(pcm, f):
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '1', '-i', '-', '-ac', '1', '-ar', str(SR), '-b:a', '40k', f], input=pcm.astype('float32').tobytes(), check=True)
 def cut_last(word, src, dst):
-    """Câu "…  TỪ." → dst chỉ còn TỪ. → (dst, '') hoặc (None, lý do). Câu phải được nghe ra đúng từ ở cuối."""
+    """Câu "…  TỪ." → các đoạn chỉ còn TỪ. → ([file…], '') hoặc ([], lý do). Câu phải được nghe ra đúng từ ở cuối."""
     import numpy as np
     seg, _ = model().transcribe(src, language='en', beam_size=5, temperature=0.0, word_timestamps=True, condition_on_previous_text=False)
-    ws = [w for s in seg for w in (s.words or [])]; n = len(word.split())
+    ws = [w for s in seg for w in (s.words or [])]; n = len(word.replace('-', ' ').split())
     full = ''.join(w.word for w in ws).strip()
-    if len(ws) < n + 1: return None, f'câu mang: "{full}"'
+    if len(ws) < n + 1: return [], f'câu mang: "{full}"'
     tgt = ws[-n:]
-    if not heard_ok(word, ''.join(w.word for w in tgt)): return None, f'câu mang: "{full}"'
+    if not heard_ok(word, ''.join(w.word for w in tgt)): return [], f'câu mang: "{full}"'
     pcm = load(src); fr = SR // 100
     db = 10 * np.log10(np.array([np.mean(pcm[i:i + fr] ** 2) for i in range(0, len(pcm) - fr, fr)]) + 1e-12); db -= db.max()
     a, b, pe = tgt[0].start, tgt[-1].end, ws[-n - 1].end
-    lo, hi = int(max(pe - 0.03, a - 0.18) * 100), int((a + 0.04) * 100)
-    lo = max(0, min(lo, hi - 1)); st = lo + int(np.argmin(db[lo:hi])) if hi > lo else int(a * 100)
-    while st < len(db) - 1 and db[st] < -50: st += 1        # bỏ lặng đầu, chừa 2 khung
-    st = max(0, st - 2); en = min(len(db) - 1, int(b * 100))
-    while en < len(db) - 1 and db[en] > -45: en += 1        # đuôi từ (Whisper hay cắt sớm phụ âm cuối)
-    o = pcm[st * fr:min(len(pcm), (en + 6) * fr)].copy()
-    fi, fo = int(SR * 0.008), int(SR * 0.025)
-    if len(o) < fi + fo: return None, 'đoạn cắt quá ngắn'
-    o[:fi] *= np.linspace(0, 1, fi); o[-fo:] *= np.linspace(1, 0, fo)
-    save_mp3(o, dst); return dst, ''
+    # Whisper hay đặt mốc đầu từ sớm (đoạn cắt dính đuôi chữ trước: "and away", "It's 2") → thử 2 điểm cắt: chỗ trũng năng lượng quanh mốc
+    # Whisper, rồi chỗ trũng muộn hơn (≤ 0,12 s sau mốc). Mỗi đoạn cắt vẫn phải qua check() như mọi file khác.
+    outs, seen = [], set()
+    for lo_s, hi_s in ((max(pe - 0.03, a - 0.18), a + 0.04), (a - 0.02, a + 0.12)):
+        lo, hi = max(0, int(lo_s * 100)), min(len(db) - 1, int(hi_s * 100))
+        st = lo + int(np.argmin(db[lo:hi])) if hi > lo else int(a * 100)
+        while st < len(db) - 1 and db[st] < -50: st += 1        # bỏ lặng đầu, chừa 2 khung
+        st = max(0, st - 2)
+        if st in seen: continue
+        seen.add(st); en = min(len(db) - 1, int(b * 100))
+        while en < len(db) - 1 and db[en] > -45: en += 1        # đuôi từ (Whisper hay cắt sớm phụ âm cuối)
+        o = pcm[st * fr:min(len(pcm), (en + 6) * fr)].copy(); fi, fo = int(SR * 0.008), int(SR * 0.025)
+        if len(o) < fi + fo: continue
+        o[:fi] *= np.linspace(0, 1, fi); o[-fo:] *= np.linspace(1, 0, fo)
+        f = f'{dst}.{len(outs)}.mp3'; save_mp3(o, f); outs.append(f)
+    return (outs, '') if outs else ([], 'đoạn cắt quá ngắn')
 def prepare(word, cand, m):
-    """Bản thử → file để nghe: bản cut_* được cắt trước. → (file, lý do)"""
-    if not m.startswith('cut_'): return cand, ''
-    return cut_last(word, cand, cand.rsplit('.', 1)[0] + '.cut.mp3')
+    """Bản thử → các file để nghe (bản cut_* được cắt trước). → ([file…], lý do)"""
+    if not m.startswith('cut_'): return [cand], ''
+    return cut_last(word, cand, cand.rsplit('.', 1)[0] + '.cut')
