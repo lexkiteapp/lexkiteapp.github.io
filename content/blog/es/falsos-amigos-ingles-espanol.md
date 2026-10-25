@@ -144,6 +144,8 @@ En Estados Unidos, *go to college* equivale a "ir a la universidad"; si hablas d
 
 ![Juego de emparejar tarjetas de Lexkite con palabras como privacy y perspective y un cronómetro](media:practice-match "Emparejar contra el reloj entrena el reconocimiento rápido de pares parecidos")
 
+Varios de estos falsos amigos aparecen en el examen oral; mira cómo evitarlos en la [IELTS Speaking parte 3](/es/blog/ielts-speaking-parte-3-consejos/).
+
 {{cta: /#/practice/test | Ponte a prueba con un test de vocabulario gratis}}
 
 {{youtube: | Idea de vídeo: 10 falsos amigos inglés–español en 3 minutos, con frases de ejemplo y pronunciación}}

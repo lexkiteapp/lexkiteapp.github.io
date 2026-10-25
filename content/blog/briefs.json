@@ -11452,6 +11452,60 @@
    "intent": "informational/list",
    "lang": "ja",
    "cluster": "phrasal-verb-thong-dung"
+  },
+  {
+   "slug": "ielts-speaking-part-3-dicas",
+   "keyword": "ielts speaking part 3 dicas",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "part-3"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "pt",
+   "cluster": "ielts-speaking-part-3"
+  },
+  {
+   "slug": "ielts-speaking-parte-3-consejos",
+   "keyword": "ielts speaking parte 3",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "part-3"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "es",
+   "cluster": "ielts-speaking-part-3"
+  },
+  {
+   "slug": "ielts-speaking-part-3-tips-hindi",
+   "keyword": "ielts speaking part 3 tips in hindi",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "speaking",
+    "part-3"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "hi",
+   "cluster": "ielts-speaking-part-3"
   }
  ]
 }

@@ -128,6 +128,8 @@ Para enriquecer tus respuestas orales con colocaciones naturales, revisa los [ph
 
 Si buscas inspiración para organizar argumentos complejos de forma lógica, estudia las estructuras de redacción en [consejos para IELTS Writing Task 2](/es/blog/consejos-ielts-writing-task-2/) y las estrategias de análisis rápido en [técnicas skimming scanning ielts reading](/es/blog/tecnicas-skimming-scanning-ielts-reading/). Puedes ver también transcripciones auténticas en nuestra sección de [conversación práctica](/speaking/).
 
+Si quieres profundizar solo en la discusión final, tenemos una guía completa de la [IELTS Speaking parte 3](/es/blog/ielts-speaking-parte-3-consejos/) con seis tipos de pregunta.
+
 {{cta: /app/#/speaking | Practicar IELTS Speaking en Lexkite}}
 
 {{youtube: | Estructura para IELTS Speaking Parte 2 Cue Card y Parte 3}}

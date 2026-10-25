@@ -69,6 +69,8 @@ qualityScore: 94
 - अपने उत्तरों में संतुलन दिखाएं (जैसे *On the one hand... but on the other hand...*)।
 - अधिक जानकारी और वास्तविक विषयों के लिए [IELTS Speaking सामग्री व प्रश्न](/speaking/) का अध्ययन करें।
 
+Band 7 के लिए सबसे निर्णायक हिस्सा अक्सर आखिरी चर्चा होती है; इसके लिए [IELTS Speaking Part 3 tips in Hindi](/hi/blog/ielts-speaking-part-3-tips-hindi/) पढ़ें।
+
 {{cta: /#/speaking | Lexkite पर IELTS Speaking Part 1, 2, 3 के मॉडल प्रश्नों और बैंड 7+ उत्तरों का अभ्यास करें}}
 
 ## दैनिक अभ्यास योजना: घर पर बैंड 7 की तैयारी

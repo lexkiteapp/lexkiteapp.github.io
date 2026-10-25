@@ -115,6 +115,8 @@ Acostume seus ouvidos com uma variedade de sotaques além do britânico: o exame
 
 No Speaking, fale em ritmo contínuo. Não use pausas longas procurando palavras difíceis; a clareza e a conectividade natural das frases valem muito mais pontos do que um vocabulário pomposo falado de forma travada. Você pode treinar pronúncia e ritmo de fala no módulo de [prática de pronúncia](/app/#/practice) do Lexkite.
 
+O Speaking é igual nas duas versões do IELTS; para a parte mais difícil, leia as [IELTS Speaking Part 3 dicas](/pt/blog/ielts-speaking-part-3-dicas/).
+
 {{cta: /app/#/mock | Treinar com simulados do IELTS no Lexkite}}
 
 ## Cronograma semanal recomendado de preparação (8 semanas)

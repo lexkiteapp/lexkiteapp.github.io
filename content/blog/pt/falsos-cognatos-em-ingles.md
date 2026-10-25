@@ -157,6 +157,8 @@ Ao redigir comunicações de trabalho, um falso cognato pode mudar o tom da mens
 
 Pratique também combinações naturais com nosso artigo sobre [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/) e faça checagens de definição no [dicionário do Lexkite](/app/#/dict).
 
+Na prova oral, o falso cognato *actually* é um dos que mais aparecem; veja como evitá-lo nas [IELTS Speaking Part 3 dicas](/pt/blog/ielts-speaking-part-3-dicas/).
+
 {{cta: /app/#/library | Explorar biblioteca de vocabulário no Lexkite}}
 
 {{youtube: | Os falsos cognatos mais perigosos em inglês e como evitar gafes}}

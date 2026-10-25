@@ -126,6 +126,8 @@ Para fixar essas regras gramaticais e automatizar sua lembrança sem hesitação
 
 A mesma vogal extra aparece no passado dos verbos; veja as três regras em [pronúncia do ed em inglês](/pt/blog/pronuncia-do-ed-em-ingles/).
 
+Para aplicar esses sons em respostas mais longas, treine com as [IELTS Speaking Part 3 dicas](/pt/blog/ielts-speaking-part-3-dicas/) e o método ARES.
+
 {{cta: /app/#/practice/speak | Praticar pronúncia com gravação no Lexkite}}
 
 {{youtube: | Os sons mais difíceis do inglês para brasileiros e como dominá-los}}

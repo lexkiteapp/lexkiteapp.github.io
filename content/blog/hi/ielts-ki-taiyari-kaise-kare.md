@@ -86,6 +86,8 @@ IELTS राइटिंग और स्पीकिंग में 25% अं
 
 {{youtube: | वीडियो आइडिया: बिना कोचिंग घर बैठे IELTS की तैयारी कैसे करें और Band 7.5 लाएं}}
 
+Speaking के कठिन हिस्से की तैयारी के लिए [IELTS Speaking Part 3 tips in Hindi](/hi/blog/ielts-speaking-part-3-tips-hindi/) उपयोगी रहेगा।
+
 {{cta: /#/path | IELTS स्टडी पाथ शुरू करें}}
 
 ## अक्सर पूछे जाने वाले सवाल
