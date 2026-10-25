@@ -188,3 +188,23 @@ Owner brief: the standard educational-Shorts format of the big channels (CapCut 
 - Pacing: TTS speed 1.0 kept (`NV_KEEP_SPEED=1` skips news_voice's slow re-synthesis), pauses 0.1–0.38 s; if the cut is < 25.4 s the pauses grow (never slower speech).
 - Gates: hook_truth (reviewed-hooks verdict, on-screen quote == reviewed wrong line), hook_readable, caption_script (caption == script word for word, 2–3 words per page, the error only in the marked wrong line), caption_style, caption_clear (captions vs head zone, all text vs face zone, moved with the camera), caption_sync ≤ 50 ms, align_audio, lipsync_rhubarb, single_shot, no_stretch (+ frame 0 == native bank frame), camera, quiz, safe_area, readability, loop_end, host_sharp, file (25–30.5 s, 8–9.5 Mbps).
 
+
+## 14. v9 template family on the v8 engine (25/10/2026, owner approved the v8 look)
+Six formats, ONE sample each (approval gate – no batch). Renderer `scripts/video/tpl/render_v9.py` (spec-driven), gates `scripts/video/tpl/qc_v9.py`,
+workflow `video-templates9.yml` (dispatch, matrix), specs + reviewed scripts `content/video/cine/news/templates-v1/`, teachers/sets `docs/VIDEO-TEACHERS.md`.
+- v8 fixes: hook/pops never touch the head (gate `head_clear`; pops sit under the chin, above the captions) · captions centred on x 540 (`caption_center`, was −54 px) ·
+  no padding: 0.22 s default gaps, ≤ 0.45 s, only declared beats (3-2-1, your-turn) are silent, length follows speech 18–35 s (`no_pad`) · no ping-pong:
+  forward playback, 10-frame cross-dissolves between talk clips at the best-matching frames, last 10 frames dissolve to frame 0 (`continuity`, loop-clean).
+- Per template: distinct accent (brand palette from web/js/kit.js), layout motif, hook style and deep-link CTA (content/video/ecosystem.json):
+
+| Template | Teacher · set | Accent | Hook style | Motif | CTA |
+|---|---|---|---|---|---|
+| mistake – “I am agree” | Carlos · studio | red | stop: red ✗ badge + quoted error, stamp-in | navy rule plate, green ✓ fix, A/B quiz + 3-2-1 | #/fix |
+| words5 – 5 hotel words | Ama · studio | yellow | number: giant numeral disc, drop-in | vocab picture cards (img.json CDN) + 1/5 chip | #/review |
+| guess – elevator | Ama · hotel | mint | question: picture clue card, spring | countdown ring in the card, stress pills, UK/US tiles | #/dict |
+| pair – borrow vs lend | Carlos · studio | green | versus: twin tiles + VS, slide | twin tiles, active one lit; fill-the-blank quiz | #/usage?c=pair |
+| roleplay – airport check-in | Ama · airport | cream | scene: cream ticket plate, slide | Agent/You name tags left/right, your-turn timer bar | #/roleplay |
+| pron – comfortable | Ama · studio | teal | sound: teal plate, wrong stress wipes in | syllable pills + stress dots, slow → normal sweep, your-turn bar | #/pron |
+
+- Scripts are written and reviewed in-house (expert US English review; no GrabCast): `reviewed-hooks.json` holds the exact script, hook text and the
+  hook's promise (5 cards, count + reveal, twin tiles + quiz, your-turn pause, stress dots); `hook_truth` fails if any of it drifts.
