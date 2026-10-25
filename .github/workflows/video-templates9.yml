@@ -8,6 +8,7 @@ on:
     inputs:
       templates: { description: 'comma list', default: 'mistake,words5,guess,pair,roleplay,pron' }
       dir: { description: 'spec folder under content/video/cine/news/ (templates-v2 = classroom, text on the whiteboard)', default: 'templates-v1' }
+      plan: { description: 'true = dry run: voices + layout/timing plan JSON only (no frames, no render)', default: 'false' }
 permissions: { contents: read }
 concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}', cancel-in-progress: false }
 jobs:
@@ -84,6 +85,10 @@ jobs:
           mkdir -p $O/phone $O/frames
           python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
           NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          if [ "${{ github.event.inputs.plan }}" = "true" ]; then
+            python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4 --plan $O/plan.json 2>&1 | grep -v '^frame ' | tee $O/plan.log
+            cp vo/vis3/*.words.json $O/ 2>/dev/null || true; exit 0
+          fi
           python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
           grep -v '^frame ' $O/render.log | tail -8
           V=$O/${{ matrix.t }}.mp4

@@ -96,7 +96,8 @@ if BD:   # ---- board mode: text on the whiteboard, captions clear of face AND b
             if e['x0'] < zs[0] or e['y0'] < zs[1] or e['x1'] > zs[2] or e['y1'] > zs[3]: off_b.append((f['t'], e['name'], [e['x0'], e['y0'], e['x1'], e['y1']], [round(v) for v in zs]))
     kinds = {p['id']: p['kind'] for p in T['pops']}; where = BD['where']
     text_band = [k for k, w in where.items() if w != 'board' and (kinds[k] == 'rich' or k == 'hook')]
-    R['text_on_board'] = dict(ok=not off_b and where.get('hook') == 'board' and not [k for k in text_band if k == 'hook'], outside_zone=off_b[:4], n_outside=len(off_b),
+    chest = [k for k, w in where.items() if w != 'board' and kinds[k] in ('quiz', 'cta')]   # quiz + CTA are written on the board, never on the chest
+    R['text_on_board'] = dict(ok=not off_b and where.get('hook') == 'board' and not [k for k in text_band if k == 'hook'] and not chest, outside_zone=off_b[:4], n_outside=len(off_b), quiz_cta_on_chest=chest,
                               text_pops_on_band=text_band, widgets_on_band=[k for k, w in where.items() if w != 'board' and k not in text_band], zone=Z,
                               note='hook always on the board; a text pop / widget that cannot reach 50 / 52 px on the board falls back to the under-chin band (listed)')
     bm = np.zeros((1920, 1080), bool); st_ = BD['body']['step']
@@ -205,6 +206,14 @@ def vis_runs(ts):
     return rs
 short = {k: [round(r, 2) for r in vis_runs(v) if r < MIN_READ] for k, v in full.items()}; short = {k: v for k, v in short.items() if v}
 R['readability'] = dict(ok=not short and not small, min_visible_s=MIN_READ, too_short=short, too_small=small[:6])
+# ---- read time per text line: a text pop (not the hook, hook_readable owns it) is fully visible >= words / 3 per second + 0.6 s
+nwords = lambda t: len(re.findall(r"[A-Za-z0-9$][A-Za-z0-9$'’.\-]*", t))
+rt = {}
+for p_ in T['pops']:
+    if p_['kind'] != 'rich' or p_.get('role') == 'hook' or p_['id'] == 'hook': continue
+    need = nwords(p_['text']) / 3 + 0.6; got = max(vis_runs(full.get('pop.' + p_['id'], [])), default=0)
+    if got + 0.5 / fps < need: rt[p_['id']] = dict(visible=round(got, 2), need=round(need, 2), text=p_['text'])
+R['read_time'] = dict(ok=not rt, short=rt, rule='fully visible >= words / 3 + 0.6 s')
 g = frames_px(vid, [0, T['n'] - 1]); md = float(np.abs(g[0].astype(np.int16) - g[1].astype(np.int16)).mean()) if len(g) == 2 else 99
 tl = [e['name'] for e in els(fr[-1]) if e['alpha'] > 0.004]; tf = [e['name'] for e in els(fr[0]) if e['alpha'] > 0.004 and e['group'] != 'hook']
 R['loop_end'] = dict(ok=md <= 3.0 and not tl and not tf, first_last_mean_abs_diff=round(md, 2), els_first=tf, els_last=tl)

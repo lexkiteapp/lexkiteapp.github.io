@@ -3,6 +3,7 @@
   python3 scripts/video/tpl/board_detect.py --foot <lexkite-footage> [--clips a,b] [--debug DIR]
 Works on the renderer's normalised frame (1080x1916 -> uniform 1920 scale, 1 px side crop). Per clip:
   quad   board corners TL,TR,BR,BL (screen px; lines fitted to the visible board edges, may lie outside the frame) -> text perspective
+  zone_free  the same rectangle inside SAFE at scale 1 (board captions + pops; render_v9 anchors the camera on the captions and trims it)
   zone   largest rectangle [x0,y0,x1,y1] that is board-white in EVERY frame (head / hands never pass), >= 14 px inside the board edge and the
          head mask, inside the platform safe area at every camera scale 1..smax about the camera anchor -> where board text is written
   cap    caption placement in the calm lower area: centre (cx, cy), column width, measured overlap with the body (px) and the camera anchor
@@ -119,11 +120,16 @@ for cl in B['clips']:
     hb = [hy[0] - 3, hy[1] - 3, hy[2] + 3, hy[3] + 3]; ok[max(0, hb[1]):hb[3], max(0, hb[0]):hb[2]] = False
     ok &= ~(cv2.dilate(busy.astype(np.uint8), np.ones((7, 7), np.uint8)) > 0)
     sx0 = AX - (AX - SAFE['x0']) / smax; sx1 = AX + (SAFE['x1'] - AX) / smax; sy0 = AY - (AY - SAFE['y0']) / smax; sy1 = min(SAFE['y1'], y0c - 20)
-    m = np.zeros_like(ok); m[int(np.ceil(sy0)):int(sy1), int(np.ceil(sx0)):int(sx1)] = True; ok &= m
+    m = np.zeros_like(ok); m[int(np.ceil(sy0)):int(sy1), int(np.ceil(sx0)):int(sx1)] = True
+    ok_free = ok.copy(); mf = np.zeros_like(ok); mf[SAFE['y0'] + 2:SAFE['y1'] - 2, SAFE['x0'] + 2:SAFE['x1'] - 2] = True; ok_free &= mf
+    ok &= m
     zone = max_rect(ok[::2, ::2], lambda w, h: min(w, 520) * min(h, 300) + 0.01 * w * h)
     zone = [int(2 * v) for v in zone]
+    # zone_free: the same board-white / off-head / off-body rectangle inside SAFE at scale 1 (no camera margin): render_v9 writes the hook, the pops
+    # AND the captions here (board captions, lower strip) and puts the camera anchor on the captions, then trims it to the camera-safe window
+    zf = max_rect(ok_free[::2, ::2], lambda w, h: min(w, 420) * min(h, 220) + 0.01 * w * h); zone_free = [int(2 * v) for v in zf]
     board = dict(quad=quad, edges=dict(top=[round(top[0], 5), round(top[1], 1)], bottom=[round(bot[0], 5), round(bot[1], 1)], left=[round(lef[0], 5), round(lef[1], 1)], right=[round(rig[0], 5), round(rig[1], 1)]),
-                 zone=zone, zone_wh=[zone[2] - zone[0], zone[3] - zone[1]], frame='normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)',
+                 zone=zone, zone_wh=[zone[2] - zone[0], zone[3] - zone[1]], zone_free=zone_free, frame='normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)',
                  cam_anchor=[AX, AY], smax=smax, cap=dict(cx=cx, cy=cy, w=capw, lines=lines, box=[x0c, y0c, x1c, y1c], body_overlap_rows=ov_rows, body_overlap_px=ov_px, calm_span=[int(v) for v in best]),
                  body=rle(body), method='scripts/video/tpl/board_detect.py (white in every frame, RANSAC board edges, max rectangle)')
     cl['board'] = board

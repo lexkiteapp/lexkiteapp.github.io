@@ -1,11 +1,11 @@
 {
  "id": "t1_mistake_agree",
  "template": "mistake",
- "title": "Stop saying “I am agree” (classroom, text on the whiteboard)",
- "teacher": "ruth",
- "set": "classroom",
+ "title": "Stop saying “I am agree” (classroom board, text on the whiteboard)",
+ "teacher": "ama",
+ "set": "classroom_board",
  "clips": [
-  "r01_ruth_class"
+  "a02_ama_board"
  ],
  "accent": "red",
  "active": "cream",
@@ -243,10 +243,10 @@
     -0.06
    ],
    "to": [
-    "m_x",
-    2,
-    "s",
-    -0.08
+    "m_t",
+    3,
+    "e",
+    0.0
    ],
    "rows": [
     [
@@ -258,6 +258,10 @@
       "@ok"
      ]
     ]
+   ],
+   "slot": [
+    0,
+    3
    ]
   },
   {
@@ -272,10 +276,10 @@
     -0.06
    ],
    "to": [
-    "m_x",
-    5,
-    "s",
-    -0.08
+    "m_t",
+    3,
+    "e",
+    0.0
    ],
    "rows": [
     [
@@ -284,6 +288,10 @@
       "green"
      ]
     ]
+   ],
+   "slot": [
+    1,
+    3
    ]
   },
   {
@@ -298,10 +306,10 @@
     -0.06
    ],
    "to": [
-    "m_x",
-    -1,
+    "m_t",
+    3,
     "e",
-    0.3
+    0.0
    ],
    "rows": [
     [
@@ -310,6 +318,10 @@
       "green"
      ]
     ]
+   ],
+   "slot": [
+    2,
+    3
    ]
   },
   {
@@ -319,7 +331,7 @@
    "size": 84,
    "from": [
     "m_t",
-    0,
+    4,
     "s",
     -0.06
    ],

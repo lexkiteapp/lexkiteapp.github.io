@@ -720,6 +720,12 @@
      536,
      150
     ],
+    "zone_free": [
+     388,
+     236,
+     922,
+     386
+    ],
     "frame": "normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)",
     "cam_anchor": [
      540,
@@ -989,6 +995,12 @@
      824,
      326
     ],
+    "zone_free": [
+     50,
+     234,
+     922,
+     628
+    ],
     "frame": "normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)",
     "cam_anchor": [
      372,
@@ -1123,6 +1135,12 @@
     "zone_wh": [
      824,
      346
+    ],
+    "zone_free": [
+     50,
+     234,
+     922,
+     648
     ],
     "frame": "normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)",
     "cam_anchor": [
