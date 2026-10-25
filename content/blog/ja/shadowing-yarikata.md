@@ -130,6 +130,8 @@ qualityScore: 93
 
 TOEICのリスニング対策として取り入れる場合は、学習全体の中での位置づけを[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で、リーディング問題の英文を音読に活用する方法を[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)で紹介しています。
 
+シャドーイング中に過去形の語尾が聞き取れないときは、[ed 発音のルール](/ja/blog/ed-hatsuon-rule/)を先に確認すると効果的です。
+
 {{cta: /#/listening | 音声の速さを調整してシャドーイングを始める}}
 
 {{youtube: | 動画のアイデア：1分の英語音声を使い、オーバーラッピングからシャドーイング、録音チェックまでを実演}}

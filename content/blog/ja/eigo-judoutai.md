@@ -178,6 +178,8 @@ TOEIC Part 5 では、選択肢に能動態と受動態が並ぶ問題が頻出�
 
 受動態は仮定法とも組み合わされます（*If the tax were introduced…*）。[英語の仮定法と条件文](/ja/blog/eigo-kateihou-joukenbun/)もあわせて読むと、フォーマルな文章の理解が深まります。英検の長文対策には[英検準1級対策](/ja/blog/eiken-jun-1-kyu-taisaku/)もどうぞ。
 
+受動態は関係代名詞と組み合わせて使うことも多い形です（*the bridge which was built in 1960*）。使い分けは[英語の関係代名詞まとめ](/ja/blog/eigo-kankei-daimeishi/)で整理しています。
+
 {{cta: /app/#/grammar/passive-voice | 受動態をすべての時制で練習する}}
 
 {{youtube: | 動画のアイデア：同じニュースを能動態と受動態で読み比べ、文の主役がどう変わるかを見せる}}

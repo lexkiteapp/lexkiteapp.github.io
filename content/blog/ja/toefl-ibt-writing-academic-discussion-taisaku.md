@@ -136,6 +136,8 @@ ETSの公式ルーブリック（採点基準）によると、Academic Discussi
 
 リーディング全体の速読力は[IELTS リーディング コツ](/ja/blog/ielts-reading-skimming-scanning-kotsu/)、論理的なアイデアの展開法は[IELTS スピーキング パート2 テンプレート](/ja/blog/ielts-speaking-part-2-template/)の構成法も参考になります。
 
+新形式のリーディング最初の課題については、[TOEFL Complete the Words 対策](/ja/blog/toefl-complete-the-words-taisaku/)で解き方と練習問題を紹介しています。
+
 {{cta: /samples/ | ライティング模範解答を見る}}
 
 実戦的なテーマで実際にタイピング練習を積むには、公式サンプルや[IELTS・TOEFLエッセイサンプル](/samples/)を活用して、制限時間を厳密に計りながら反復することが合格への確実なステップとなります。

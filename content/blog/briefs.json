@@ -11713,6 +11713,62 @@
    "lang": "id",
    "cluster": "toeic-part-5-meo-lam-bai",
    "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "eigo-kankei-daimeishi",
+   "keyword": "関係代名詞",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "relative-clauses",
+    "writing",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "intent": "informational",
+   "lang": "ja",
+   "cluster": "relative-clauses",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "toefl-complete-the-words-taisaku",
+   "keyword": "toefl complete the words",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-reading",
+    "complete-the-words",
+    "spelling"
+   ],
+   "routes": [
+    "/#/toefl-p/cw",
+    "/#/toefl"
+   ],
+   "intent": "exam-prep",
+   "lang": "ja",
+   "cluster": "toefl-complete-the-words",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "ed-hatsuon-rule",
+   "keyword": "ed 発音",
+   "category": "phat-am",
+   "tags": [
+    "pronunciation",
+    "ed-endings",
+    "past-simple",
+    "speaking"
+   ],
+   "routes": [
+    "/#/grammar/ed-s-endings",
+    "/#/pron"
+   ],
+   "intent": "informational",
+   "lang": "ja",
+   "cluster": "cach-phat-am-ed-va-s-es",
+   "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
   }
  ]
 }

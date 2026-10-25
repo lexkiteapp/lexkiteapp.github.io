@@ -99,6 +99,8 @@ Part 5はリーディングセクションの問題ですが、解いた英文�
 
 Part 5 で頻出の倒置 Had I known や態の問題は、[英語の仮定法と条件文](/ja/blog/eigo-kateihou-joukenbun/)と[英語の受動態](/ja/blog/eigo-judoutai/)で詳しく解説しています。
 
+Part 5で頻出の関係代名詞（主格・目的格・whose）の見分け方は、[英語の関係代名詞まとめ](/ja/blog/eigo-kankei-daimeishi/)で詳しく解説しています。
+
 {{cta: /#/toeic | TOEIC Part 5の演習を始める}}
 
 ## 実戦練習問題4選：即座に見抜く思考プロセス

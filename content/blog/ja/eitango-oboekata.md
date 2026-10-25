@@ -112,6 +112,8 @@ TOEICのスコアアップが目的なら、単語学習を全体の計画にど
 
 動詞に particle がついて意味が変わる表現は、[よく使う句動詞50選](/ja/blog/yoku-tsukau-kudoushi/) で場面別にまとめて覚えましょう。
 
+覚えた単語を「書ける」レベルにする練習は、TOEFLの新課題でも役立ちます。詳しくは[TOEFL Complete the Words 対策](/ja/blog/toefl-complete-the-words-taisaku/)へ。
+
 {{cta: /#/library | 単語セットを選んで今日の10語を始める}}
 
 {{youtube: | 動画のアイデア：英単語10語をフレーズ・音声・間隔反復で覚える1日30分の流れを、Lexkiteの画面で実演}}

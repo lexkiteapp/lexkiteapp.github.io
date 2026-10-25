@@ -80,6 +80,8 @@ qualityScore: 94
 
 語彙問題で狙われる句動詞の基本は [よく使う句動詞50選](/ja/blog/yoku-tsukau-kudoushi/) で整理しておくと安心です。
 
+英検で鍛えた語彙力をTOEFLに生かしたい人は、つづりの正確さが問われる[TOEFL Complete the Words](/ja/blog/toefl-complete-the-words-taisaku/)の対策も確認しておきましょう。
+
 {{cta: /#/reading | Lexkiteで長文読解と重要単語を練習する}}
 
 ## リスニングと2次面接（スピーキング）の突破法

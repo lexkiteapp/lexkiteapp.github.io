@@ -139,6 +139,8 @@ l と r と同じく、日本語にない音や区別のない音はいくつか
 
 TOEICのリスニング対策と組み合わせる場合は、学習全体の計画を[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で、*correct* と *collect* のような音の引っかけへの備え方を[TOEIC Part 2のコツ](/ja/blog/toeic-part2-kotsu/)で確認できます。リーディングの問題文を音読して発音を確かめる方法は、[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)でも触れています。
 
+過去形の語尾も日本人がつまずきやすい音です。[ed 発音のルール](/ja/blog/ed-hatsuon-rule/)で /t/・/d/・/ɪd/ の3パターンを確認しましょう。
+
 {{cta: /#/pron | 発音ライブラリで /l/ と /r/ を練習する}}
 
 {{youtube: | 動画のアイデア：鏡を使って /l/ と /r/ の舌の位置を見せ、light/right などのミニマルペアを聞き分けるクイズ}}
