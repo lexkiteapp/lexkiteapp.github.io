@@ -414,7 +414,7 @@ async function j7(lang) {
     ok(/canopies/.test(await nt.locator('#ntEx').innerText().catch(() => '')), 'tab mới: hiện câu ngữ cảnh đã lưu');
     await nt.screenshot({ path: `${OUT}/shots/${tag}-newtab.png` }).catch(() => {});
     const [app] = await Promise.all([ctx.waitForEvent('page', { timeout: 10000 }), nt.click('#ntOpen')]);
-    await app.waitForLoadState('load'); await app.waitForFunction(() => document.querySelector('#view') && document.querySelector('#view').children.length, null, { timeout: 20000 }).catch(() => {});
+    await app.waitForLoadState('load'); await app.locator('#view > *').first().waitFor({ state: 'attached', timeout: 20000 }).catch(() => {}); // không dùng waitForFunction: Playwright dựng hàm bằng eval → CSP MV3 của add-on chặn, bắn pageerror 'unsafe-eval' giả
     ok(app.url().startsWith(base + 'app/'), 'tab mới → "Mở app" mở app trong add-on: ' + app.url().replace(base, ''));
     await app.evaluate(() => { location.hash = '#/deck'; }); await sleep(1800);
     ok(/resilience/i.test(await app.locator('#view').innerText().catch(() => '')), 'app (add-on) có từ vừa lưu');
