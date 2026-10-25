@@ -1,0 +1,26 @@
+{
+ "note": "Pilot v7 'news + scene' (docs/VIDEO-TEMPLATES.md §12). Lesson tpl1b_airport_gate_cc6fbe. Anchor Ama (anchor bank, af_bella) introduces; CUT to the airport bank where traveller Ama (af_bella, same character) says the wrong line, agent Mei (af_sarah) reacts, Ama says the right line; back to the anchor for rule, examples, quiz, answer, CTA. v7_h = the reviewed hook line (hook-truth hash).",
+ "voices": { "ama": "af_bella", "mei": "af_sarah" },
+ "speed": 0.88,
+ "display": { "blank": "___" },
+ "lines": [
+  { "id": "v7_h", "who": "ama", "text": "Never say this." },
+  { "id": "v7_w", "who": "ama", "text": "The gate is change?" },
+  { "id": "v7_m1", "who": "mei", "text": "Sorry?" },
+  { "id": "v7_k", "who": "ama", "text": "Excuse me, has the gate changed?" },
+  { "id": "v7_m2", "who": "mei", "text": "Yes, it has." },
+  { "id": "v7_y", "who": "ama", "text": "For a new change, ask: has it changed?" },
+  { "id": "v7_x", "who": "ama", "text": "Has the time changed? Has the flight moved?" },
+  { "id": "v7_q", "who": "ama", "text": "Quiz! Excuse me, blank the gate changed? Has, or is?" },
+  { "id": "v7_a", "who": "ama", "text": "It's has. Excuse me, has the gate changed?" },
+  { "id": "v7_s", "who": "ama", "text": "Roleplay this free on lexkite.com." }
+ ],
+ "zones_note": "Protected face/torso/prop rects per clip in SOURCE pixels (x0,y0,x1,y1). Captions (ink + stroke) must never intersect them after the camera transform (qc_v7 caption_clear). Scene clips protect head + shoulders of every person facing camera; the lower-third gradient sits below.",
+ "zones": {
+  "mcu": { "head": [190, 330, 810, 860], "torso": [140, 840, 860, 1300], "laptop": [0, 985, 665, 1412] },
+  "two": { "ama": [100, 760, 450, 1268], "carlos": [590, 700, 1065, 1268], "laptop": [0, 1088, 345, 1314], "cup": [925, 1165, 1080, 1306] },
+  "ots_ama": { "ama_head": [40, 430, 650, 1180] },
+  "ots_mei": { "mei_head": [420, 240, 900, 900] },
+  "master": { "people": [380, 200, 1080, 1700] }
+ }
+}

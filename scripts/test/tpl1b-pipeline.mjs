@@ -76,5 +76,14 @@ ok(jobs && jobs.paused && jobs.lease && jobs.workflow === 'video-tpl1b.yml', 'in
   ok(/rhubarb/i.test(w6) && !/grabcast\.(com|io)|GRABCAST_|kling|groq/i.test(w6.replace(/NO GrabCast \/ Groq \/ Kling/, '')), 'video-pilot6: Rhubarb, no GrabCast/Groq/Kling');
   const d6 = J(`${TD}/tpl1b_airport_gate_cc6fbe.json`), h6 = l6.lines.find(l => l.id === 'v6_h').text;
   ok(d6.hook.judge && d6.hook.judge.hash === hash(h6, d6.wrong_line, d6.key_line), 'pilot v6 hook line = the reviewed hook text (verdict hash)'); }
+// pilot v7 news + scene (docs/VIDEO-TEMPLATES.md §12): gates present, 0-credit workflow, reviewed hook line, protected caption zones
+{ const q7 = fs.readFileSync('scripts/video/tpl/qc_v7.py', 'utf8'), w7 = fs.readFileSync('.github/workflows/video-pilot7.yml', 'utf8'), l7 = J('content/video/cine/news/pilot-v7/lines.json');
+  for (const g of ['hook_truth', 'hook_readable', 'structure', 'safe_area', 'readability', 'caption_layout', 'caption_style', 'caption_clear', 'caption_sync', 'align_audio', 'lipsync_rhubarb', 'scene_native', 'no_stretch', 'no_name_lower_third', 'loop_end', 'host_sharp', 'no_light_panels', 'file']) ok(q7.includes(`R['${g}']`), `qc_v7 gate ${g}`);
+  ok(/SYNC = 0\.050/.test(q7), 'qc_v7 karaoke sync limit 50 ms');
+  ok(/rhubarb/i.test(w7) && !/grabcast\.(com|io)|GRABCAST_|kling|groq/i.test(w7.replace(/NO GrabCast \/ Groq \/ Kling/, '')), 'video-pilot7: Rhubarb, no GrabCast/Groq/Kling');
+  for (const k of ['mcu', 'two', 'ots_ama', 'ots_mei']) ok(l7.zones && l7.zones[k] && Object.keys(l7.zones[k]).length, `pilot v7 protected zones for ${k}`);
+  const d7 = J(`${TD}/tpl1b_airport_gate_cc6fbe.json`), h7 = l7.lines.find(l => l.id === 'v7_h').text;
+  ok(l7.lines.find(l => l.id === 'v7_w').text === d7.wrong_line && l7.lines.find(l => l.id === 'v7_k').text === d7.key_line, 'pilot v7 scene lines = lesson wrong/key lines');
+  ok(d7.hook.judge && d7.hook.judge.hash === hash(h7, d7.wrong_line, d7.key_line), 'pilot v7 hook line = the reviewed hook text (verdict hash)'); }
 if (fails) { console.log(`✗ tpl1b-pipeline: ${fails} lỗi`); process.exit(1); }
 console.log(`✓ tpl1b-pipeline: ${plan.lessons} lessons, ${plan.needs_solution.length} needs-solution, invariants OK`);

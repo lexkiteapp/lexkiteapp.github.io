@@ -98,6 +98,7 @@ on:
       - 'video-tpl1b-samples'
       - 'video-pilot5'
       - 'video-pilot6'
+      - 'video-pilot7'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
   workflow_dispatch:
