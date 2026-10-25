@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { classify, excerpt, digest, issueBody } from '../ci/triage.mjs';
+import { classify, excerpt, digest, issueBody, supersededWhy, scriptRefs, importRefs } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
@@ -102,5 +102,17 @@ const pushed = (p) => execFileSync('git', ['--git-dir', origin, 'show', 'main:' 
 ok(sh.status === 0 && pushed('web/js/i18n/vi/tools.js') === 'tools 2\n' && pushed('web/js/i18n/vi.js') === 'core 2\n' && pushed('README') === 'r2\n', 'i18n: nhóm tải lười được commit + giữ lượt đẩy khác');
 try { fs.rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); } catch { /* dọn dẹp tạm: bỏ qua */ }
 
+// --- không chạy lại lượt đã bị thay thế (25/10: 2 lượt word-audio cũ bị "Re-run" với code cũ)
+{
+  const run = { id: 1, created_at: '2026-10-25T13:00:00Z', path: '.github/workflows/word-audio.yml' };
+  ok(/mới hơn/.test(supersededWhy(run, { newer: [{ id: 2, run_number: 9, created_at: '2026-10-25T13:30:00Z' }] })), 'có lượt mới hơn → thay thế');
+  ok(supersededWhy(run, { newer: [{ id: 1, created_at: run.created_at }, { id: 0, created_at: '2026-10-25T12:00:00Z' }] }) === '', 'chỉ lượt cũ hơn → không thay thế');
+  const refs = scriptRefs('run: node scripts/gen-word-audio.mjs && python3 scripts/word-audio-asr.py');
+  refs.push(...importRefs('scripts/gen-word-audio.mjs', "import { STRONG } from './word-audio-strong.mjs'; const k = await import('./word-audio/kokoro.mjs');"));
+  ok(refs.includes('scripts/word-audio/kokoro.mjs') && refs.includes('scripts/word-audio-strong.mjs'), 'theo import trực tiếp của script');
+  ok(/đã đổi/.test(supersededWhy(run, { changed: ['scripts/word-audio-strong.mjs'], refs })), 'module được import đã đổi → thay thế');
+  ok(/đã đổi/.test(supersededWhy(run, { changed: ['.github/workflows/word-audio.yml'], refs })), 'file workflow đã đổi → thay thế');
+  ok(supersededWhy(run, { changed: ['web/blog/x.html', 'scripts/other.mjs'], refs }) === '', 'đổi file không liên quan → vẫn được chạy lại');
+}
 if (fail) { console.error(`✗ ci-triage: ${fail} lỗi`); process.exit(1); }
 console.log('✓ ci-triage: phân loại, bỏ qua hạn mức D1, issue/bản tin, sửa youtube-*/i18n – tất cả đạt');
