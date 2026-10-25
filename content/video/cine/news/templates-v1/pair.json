@@ -1,6 +1,6 @@
 {
  "id": "t4_pair_borrow_lend", "template": "pair", "title": "Borrow vs lend",
- "teacher": "carlos", "set": "studio", "clips": ["c02_carlos_talk_smile", "c01_carlos_talk", "c03_carlos_explain"],
+ "teacher": "carlos", "set": "studio", "clips": ["c02_carlos_talk_smile", "c01_carlos_talk"],
  "accent": "green", "active": "green", "hook_style": "versus: two tiles slide in from both sides with a VS disc", "motif": "side-by-side twin tiles, the active one lit",
  "cta": { "area": "word-usage", "link": "https://lexkite.com/app/#/usage?c=pair", "say": "Compare tricky words" },
  "speed": 1.0, "display": { "blank": "___" },

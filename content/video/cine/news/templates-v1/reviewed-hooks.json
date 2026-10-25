@@ -13,6 +13,7 @@
     "m_k": "Just say: I agree.",
     "m_y": "Agree is a verb, so you don't need am.",
     "m_x": "I agree. I don't agree. Do you agree?",
+    "m_t": "To agree strongly, say: I totally agree.",
     "m_q": "Quiz! Which one is right, A or B?",
     "m_a": "B! I agree with you.",
     "m_c": "Check your grammar free on lexkite.com."
@@ -28,7 +29,7 @@
     "quiz": true,
     "count": true
    },
-   "note": "“I am agree” is a very common learner error (agree is a verb, not an adjective). “I agree.” / “I don't agree.” / “Do you agree?” are standard US English. Quiz answer B is right."
+   "note": "“I am agree” is a very common learner error (agree is a verb, not an adjective). “I agree.” / “I don't agree.” / “Do you agree?” are standard US English. Quiz answer B is right. “I totally agree” is a natural US intensifier."
   },
   "t2_words5_hotel": {
    "template": "words5",
@@ -44,6 +45,8 @@
     "w_4": "Four: shower. The shower isn't working.",
     "w_5": "Five: receipt. The p is silent.",
     "w_6": "Can I get a receipt, please?",
+    "w_r": "Which word was new for you?",
+    "w_t": "Save this for your next trip!",
     "w_c": "Review these words free on lexkite.com."
    },
    "promise": {
@@ -60,17 +63,19 @@
    "script": {
     "g_h": "Can you guess this word?",
     "g_c": "Hint: it takes you up and down.",
+    "g_c2": "Every big hotel has one.",
     "g_a": "It's an elevator!",
     "g_p": "Say it with me: elevator.",
     "g_u": "In British English, it's a lift.",
     "g_v": "But in America, we say elevator.",
+    "g_x": "Try it: Excuse me, where's the elevator?",
     "g_s": "Look up any word free on lexkite.com."
    },
    "promise": {
     "count": true,
     "reveal": "elevator"
    },
-   "note": "Picture clue = elevator icon, hint “takes you up and down” fits, answer revealed after 3-2-1. UK “lift” vs US “elevator” is accurate."
+   "note": "Picture clue = elevator icon, hint “takes you up and down” fits, answer revealed after 3-2-1. UK “lift” vs US “elevator” is accurate. “Excuse me, where's the elevator?” is the natural US question."
   },
   "t4_pair_borrow_lend": {
    "template": "pair",

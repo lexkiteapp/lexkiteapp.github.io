@@ -34,7 +34,7 @@ SET = TR['sets'][SP['set']]; CL = {c: TR['clips'][c] for c in SP['clips']}
 assert all(v['set'] == SP['set'] and v['who'] == SP['teacher'] for v in CL.values()), 'one teacher, one set'
 WHO = SP['teacher']; LIB = f"{o.foot}/{SET['lib']}"; SMAX = SET['smax']
 CX = W / 2; CAPW = 2 * (SAFE['x1'] - CX)          # centred column that stays inside the safe area: 156..924
-CAP_CY = 1410; BAND_Y1 = 1328; XF = 10; XFE = 10
+CAP_CY = 1410; BAND_Y1 = 1328; XF = 8; XFE = 14
 FH = f"{o.fonts}/BeVietnamPro-ExtraBold.ttf"; FBd = f"{o.fonts}/BeVietnamPro-Bold.ttf"
 _fc = {}
 def font(sz, f=None):
@@ -74,6 +74,7 @@ for l in LINE_SPEC:
 
 # ---------------- timeline: natural pacing, no stretch ----------------
 GAP0, GAPMAX, TAIL = 0.22, 0.45, 1.2
+GAP_GATE = 0.60   # measured silence between lines (incl. the TTS tail) – a natural sentence pause, never stretched
 t = 0.12; ATL = {}; BEATS = {}; GAPS = []; prev_end = None
 for l in SP['lines']:
     if l.get('beat'):
@@ -112,30 +113,42 @@ for c, v in CL.items():
     lo, hi = v['usable']; RAW[c] = fr[:hi + 1]; assert len(RAW[c]) > lo + 3 * XF, ('clip too short', c, len(fr))
     assert fr[0].shape[1] == W and fr[0].shape[0] in (1916, 1920), ('clip size', c, fr[0].shape)
 SMALL = {c: [cv2.resize(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY), (135, 240)).astype(np.float32) for f in fr] for c, fr in RAW.items()}
-def dif(c1, i1, c2, i2): return float(np.abs(SMALL[c1][i1] - SMALL[c2][i2]).mean())
-def plan(nf):
-    order = SP['clips']; seq = []; c = order[0]; a = CL[c]['usable'][0]; j = 0; joins = []
+def _face(c, f):
+    x0, y0, x1, y1 = CL[c]['head']; y1 = min(y1, f.shape[0]); g = cv2.cvtColor(f[y0:y1, x0:x1], cv2.COLOR_BGR2GRAY); return cv2.resize(g, ((x1 - x0) // 2, (y1 - y0) // 2)).astype(np.float32)
+FACE_S = {c: [_face(c, f) for f in fr] for c, fr in RAW.items()}
+def dif(c1, i1, c2, i2):   # whole frame + 2x weight on the face (eyes, mouth): the dissolve must not ghost the eyes
+    a, b = FACE_S[c1][i1], FACE_S[c2][i2]; h_, w_ = min(a.shape[0], b.shape[0]), min(a.shape[1], b.shape[1])
+    return float(np.abs(SMALL[c1][i1] - SMALL[c2][i2]).mean()) + 2 * float(np.abs(a[:h_, :w_] - b[:h_, :w_]).mean())
+def plan(nf, a0=None):
+    order = SP['clips']; seq = []; c = order[0]; a = CL[c]['usable'][0] if a0 is None else a0; j = 0; joins = []; used = {}
     while len(seq) < nf + XF:
-        hi = len(RAW[c]) - 1; n = order[(j + 1) % len(order)]; lo_n = CL[n]['usable'][0]
-        best = None
-        for b in range(max(a + 3 * XF, hi - 14), hi + 1):
-            for e in range(lo_n, min(lo_n + 14, len(RAW[n]) - 3 * XF)):
-                if n == c and e >= b - 3 * XF: continue
-                d = dif(c, b - XF // 2, n, e + XF // 2)
-                if best is None or d < best[0]: best = (d, b, e)
-        _, b, e = best
+        hi = len(RAW[c]) - 1; best = None
+        for n in order:   # next = any talk clip of this teacher (or a loop point of the same clip): the best-matching face wins, no ghosting
+            lo_n = CL[n]['usable'][0]
+            for b in range(max(a + 60, hi - 40), hi + 1, 2):
+                for e in range(lo_n, min(lo_n + 40, len(RAW[n]) - 60), 2):
+                    if n == c and e >= b - 60: continue
+                    d = dif(c, b - XF // 2, n, e + XF // 2) * (0.92 if n != c else 1.0) * (1 + 0.2 * used.get((c, b, n, e), 0))   # vary the loop points
+                    if best is None or d < best[0]: best = (d, b, e, n)
+        n = best[3]; used[(c, best[1], n, best[2])] = used.get((c, best[1], n, best[2]), 0) + 1
+        _, b, e, n = best
         for k in range(a, b - XF + 1): seq.append([(c, k, 1.0)])
         for q in range(XF):
             w = (q + 1) / (XF + 1); seq.append([(c, b - XF + 1 + q, 1 - w), (n, e + q, w)])
         joins.append(dict(at_frame=len(seq) - XF, from_clip=c, exit=b, to_clip=n, entry=e, diff=round(best[0], 2)))
         c, a, j = n, e + XF, j + 1
-    seq = seq[:nf]; c0, a0 = SP['clips'][0], CL[SP['clips'][0]]['usable'][0]
+    seq = seq[:nf]; c0 = SP['clips'][0]; a0 = CL[c0]['usable'][0] if a0 is None else a0
     for q in range(XFE):   # final dissolve back to frame 0 (loop)
         w = ease((q + 1) / XFE, EASE['inout']); fi = nf - XFE + q
-        seq[fi] = [(cc, kk, ww * (1 - w)) for cc, kk, ww in seq[fi] if ww * (1 - w) > 1e-4] + [(c0, a0, w)]
+        seq[fi] = [(cc, kk, ww * (1 - w)) for cc, kk, ww in seq[fi] if ww * (1 - w) > 1e-4] + [(c0, a0 - XFE + 1 + q, w)]   # target plays forward INTO the loop frame
     seq[-1] = [(c0, a0, 1.0)]
     return seq, joins
-SEQ, JOINS = plan(NF)
+def end_score(a0):   # how far the pose at the start of the final dissolve is from the loop frame (c0, a0)
+    sq, _ = plan(NF, a0); c, k, _w = max(sq[NF - XFE - 1], key=lambda x: x[2]); return dif(c, k, SP['clips'][0], a0 - XFE)
+_c0 = SP['clips'][0]; _lo = CL[_c0]['usable'][0]
+A0 = min(range(max(_lo, XFE), len(RAW[_c0]) - 64, 3), key=end_score)   # start frame chosen so the loop dissolve joins similar poses
+SEQ, JOINS = plan(NF, A0)
+print(f'loop frame {_c0}:{A0} end diff {end_score(A0):.2f}', flush=True)
 print('joins', JOINS, flush=True)
 MO = {c: LS.Mouth(f"{LIB}/{SET['meta']}/{c}/{WHO}") for c in CL}
 def norm_frame(F):
@@ -246,13 +259,13 @@ def plate_wrap(im, colname, pad=(34, 22)):
     w, h = im.width + 2 * pad[0], im.height + 2 * pad[1]; P = Image.new('RGBA', (w * 2, h * 2), (0, 0, 0, 0)); d = ImageDraw.Draw(P)
     d.rounded_rectangle([0, 0, w * 2 - 1, h * 2 - 1], min(h, 64) * 2 // 2, fill=COL[colname] + (246,), outline=(255, 255, 255, 235), width=8)
     P = P.resize((w, h), Image.LANCZOS); P.alpha_composite(im, (pad[0], pad[1])); return shadowed(P, 6, 8, 0.45)
-def rich(rows, sz, plate=None, maxw=None, maxh=None, pad=(34, 22)):
+def rich(rows, sz, plate=None, maxw=None, maxh=None, pad=(34, 22), sub=1.0):
     maxw = maxw or CAPW - 8; maxh = maxh or BAND_H - 6
     while True:
-        im = stack([rich_row(r, sz, bool(plate)) for r in rows], round(sz * 0.08))
+        im = stack([rich_row(r, sz if i == 0 else round(sz * sub), bool(plate)) for i, r in enumerate(rows)], round(sz * 0.08))
         if plate: im = plate_wrap(im, plate, pad)
         else: im = shadowed(im, 5, 6, 0.5)
-        if (im.width <= maxw and im.height <= maxh) or sz <= 52: return im, sz
+        if (im.width <= maxw and im.height <= maxh) or sz * min(1.0, sub) <= 50: return im, round(sz * min(1.0, sub))
         sz -= 2
 def rows_text(rows): return ' / '.join(''.join(tok_txt(s[0]) for s in r) for r in rows)
 IMGJ = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items']
@@ -305,14 +318,14 @@ class Pop:
                 s.im = hrow([tile, right], 30); s.text = (P.get('idx', '') + ' ' + P['word'] + (' / ' + ''.join(x[0] for x in P['sub']) if P.get('sub') else '')).strip(); s.count = None
             assert s.im.height <= BAND_H and s.im.width <= CAPW, ('card too big', s.id, s.im.size)
         elif k == 'pair':
-            def tile(d, lit=True, size=100 if P.get('vs') else 92):
+            def tile(d, lit=True, size=100 if P.get('vs') else 104):
                 rows = [[[d['title'], 'white']]] + ([d['sub']] if d.get('sub') else [])
-                im, sz_ = rich(rows, size, d.get('color', 'navy2'), maxw=(CAPW - (100 if P.get('vs') else 26)) // 2, maxh=BAND_H - 10, pad=(24, 16)); s.pxs.append(sz_)
+                im, sz_ = rich(rows, size, d.get('color', 'navy2'), sub=0.62, maxw=(CAPW - (96 if P.get('vs') else 26)) // 2, maxh=BAND_H - 10, pad=(16, 14) if P.get('vs') else (24, 16)); s.pxs.append(sz_)
                 if not lit: a = np.asarray(im).copy(); a[..., 3] = (a[..., 3] * 0.38).astype(np.uint8); im = Image.fromarray(a)
                 return im
             s.pxs = []; s.L = {True: tile(P['left']), False: tile(P['left'], False)}; s.R = {True: tile(P['right']), False: tile(P['right'], False)}
-            s.vs = shadowed(rich_row([['VS', 'yellow']], 60), 4, 5, 0.5) if P.get('vs') else None
-            s.focus = [(tm_of(a), f) for a, f in P.get('focus', [])]; s.px = min(s.pxs) * (0.8 if any(d.get('sub') for d in (P['left'], P['right'])) else 1); s.text = P['left']['title'] + ' | ' + P['right']['title']
+            s.vs = shadowed(rich_row([['VS', 'yellow']], 52), 4, 5, 0.5) if P.get('vs') else None
+            s.focus = [(tm_of(a), f) for a, f in P.get('focus', [])]; s.px = min(s.pxs); s.text = P['left']['title'] + ' | ' + P['right']['title']
             s.im = s.compose_pair('both')
         elif k == 'quiz':
             q = P.get('q'); s.qim = rich(q, 70, None)[0] if q else None
@@ -320,12 +333,12 @@ class Pop:
             s.pB = {st: pill([('B  ', COL['yellow'] if st != 'ok' else COL['navy']), (P['b'], (255, 255, 255) if st != 'ok' else COL['navy'])], 58, ca if st == 'ok' else COL['navy'], st == 'dim') for st in ('n', 'ok', 'dim')}
             s.rev = tm_of(P['reveal']); s.px = 58; s.text = f"A {P['a']} | B {P['b']}"; s.im = s.compose_quiz(0.0)
         elif k == 'stress':
-            s.px = 84; s.text = '·'.join(P['syl']); s.im = s.compose_stress(-1)
+            s.px = 72; s.text = '·'.join(P['syl']); s.im = s.compose_stress(-1)
         elif k == 'turn':
-            s.head_im, s.px = rich(P['rows'], 76, None, maxh=BAND_H - 60); s.text = rows_text(P['rows']); b = BEATS[P['beat']]; s.b0, s.b1 = b['s'], b['e']; s.im = s.compose_turn(0.0)
+            s.head_im, s.px = rich(P['rows'], 88, None, maxh=BAND_H - 60); s.text = rows_text(P['rows']); b = BEATS[P['beat']]; s.b0, s.b1 = b['s'], b['e']; s.im = s.compose_turn(0.0)
         assert s.im.height <= BAND_H + 2, ('pop taller than the band', s.id, s.im.size, BAND_H)
     def compose_pair(s, f):
-        L = s.L[f in ('left', 'both')]; R = s.R[f in ('right', 'both')]; items = [L] + ([s.vs] if s.vs else []) + [R]; return hrow(items, 22)
+        L = s.L[f in ('left', 'both')]; R = s.R[f in ('right', 'both')]; items = [L] + ([s.vs] if s.vs else []) + [R]; return hrow(items, 12 if s.vs else 22)
     def compose_quiz(s, T):
         st_a = st_b = 'n'
         if T >= s.rev: st_a, st_b = ('ok', 'dim') if s.P['correct'] == 'a' else ('dim', 'ok')
@@ -340,9 +353,9 @@ class Pop:
         for i, x in enumerate(syl):
             big = i == st; on = active < 0 or i <= active
             col = ACC if big else COL['navy']; tc = COL['navy'] if (big and ACC in (COL['yellow'], COL['mint'], COL['cream'])) else (255, 255, 255)
-            p = pill([(x, tc)], 76 if big else 58, col if on else COL['navy'], dim=not on)
-            dot = Image.new('RGBA', (p.width, 56), (0, 0, 0, 0)); r = 24 if big else 11
-            ImageDraw.Draw(dot).ellipse([p.width // 2 - r, 28 - r, p.width // 2 + r, 28 + r], fill=(COL['yellow'] if big else (255, 255, 255)) + (255 if on else 110,), outline=STROKE + (255,), width=4)
+            p = pill([(x, tc)], 96 if big else 72, col if on else COL['navy'], dim=not on)
+            dot = Image.new('RGBA', (p.width, 72), (0, 0, 0, 0)); r = 30 if big else 13
+            ImageDraw.Draw(dot).ellipse([p.width // 2 - r, 36 - r, p.width // 2 + r, 36 + r], fill=(COL['yellow'] if big else (255, 255, 255)) + (255 if on else 110,), outline=STROKE + (255,), width=4)
             items.append(stack([dot, p], 4))
         return hrow(items, 14)
     def compose_turn(s, T):
@@ -385,7 +398,7 @@ class Pop:
         if a == 'spring': v = u / 0.26; sc = 0.6 + 0.4 * bezier(EASE['spring'], min(1.0, v)); al = ease(v * 1.6)
         elif a == 'stamp': v = u / 0.20; sc = 1.45 - 0.45 * ease(v); al = ease(v * 2.0)
         elif a == 'drop': v = u / 0.30; dy = -70 * (1 - bezier(EASE['spring'], min(1.0, v))); al = ease(v * 2)
-        elif a == 'slide': v = u / 0.30; dx = (-90 if s.cx <= CX else 90) * (1 - ease(v)); al = ease(v * 2)
+        elif a == 'slide': v = u / 0.30; dx = -70 * (1 - ease(v)); al = ease(v * 2)
         elif a == 'wipe': v = u / 0.40; wp = ease(v); al = 1.0
         uo = (s.t1 - T) / 0.16
         if uo < 1: sc *= 0.92 + 0.08 * uo; al *= ease(uo, EASE['inout'])
@@ -442,10 +455,14 @@ class Page:
         s.wids = wids; s.lid = WORDS[wids[0]]['line']; s.txt = [disp(WORDS[w]['w']) for w in wids]; sz = CAP['size']
         while True:
             fo = font(sz); tw = sum(fo.getlength(x) for x in s.txt) + CAP['gapx'] * (len(s.txt) - 1) + fo.getlength(' ') * (len(s.txt) - 1)
-            if tw * CAP['bounce'] <= CAPW - 2 * ST - 8 or sz <= CAP['min']: break
+            if tw * CAP['bounce'] + 2 * ST + 24 <= CAPW or sz <= CAP['min']: break
             sz -= 2
         s.sz = sz; fo = font(sz); x = CX - tw / 2; s.cx = {}
         for w, tx in zip(wids, s.txt): wl = fo.getlength(tx); s.cx[w] = x + wl / 2; x += wl + fo.getlength(' ') + CAP['gapx']
+        ink = [1e9, -1e9]   # centre the page on its rendered ink (side bearings / punctuation), not on the advance widths
+        for w, tx in zip(wids, s.txt):
+            im, ib = word_im(tx, sz, (255, 255, 255), 1.0); x0 = s.cx[w] - im.width / 2; ink = [min(ink[0], x0 + ib[0]), max(ink[1], x0 + ib[2])]
+        sh = CX - (ink[0] + ink[1]) / 2; s.cx = {w: v + sh for w, v in s.cx.items()}; s.ink = [ink[0] + sh, ink[1] + sh]
         s.t0 = WORDS[wids[0]]['s'] - 0.06; s.t1 = WORDS[wids[-1]]['e'] + 0.28; s.text = ' '.join(s.txt)
     def draw(s, F, tm, T):
         bb = [1e9, 1e9, -1e9, -1e9]; wipe = {}; a_in = ease((T - s.t0) / 0.10); sc_in = 0.88 + 0.12 * a_in; items = []
@@ -465,8 +482,7 @@ class Page:
         return wipe, bb
 PAGES = [Page(p) for lid in ATL for p in pages_of(lid)]
 for a, b in zip(PAGES, PAGES[1:]): a.t1 = min(a.t1, b.t0)
-CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), size=p.sz, stroke=ST, ss=SS, cx=round(sum(p.cx.values()) / len(p.cx), 1),
-                         ink_cx=None) for j, p in enumerate(PAGES)}
+CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), size=p.sz, stroke=ST, ss=SS, cx=round((p.ink[0] + p.ink[1]) / 2, 1), ink=[round(v) for v in p.ink]) for j, p in enumerate(PAGES)}
 print('pages', ' | '.join(p.text for p in PAGES), flush=True)
 
 # ---------------- frame loop ----------------
@@ -520,8 +536,7 @@ for fi in range(NF):
     if fi % 48 == 0: print(f'frame {fi}/{NF} s={s:.3f}', flush=True)
 if PREV is not None: print('preview written', o.out + '.preview'); sys.exit(0)
 enc.stdin.close(); assert enc.wait() == 0, 'ffmpeg encode failed'
-c0, a0 = SP['clips'][0], CL[SP['clips'][0]]['usable'][0]
-cv2.imwrite(o.out + '.src0.png', norm_frame(RAW[c0][a0]))
+cv2.imwrite(o.out + '.src0.png', norm_frame(RAW[SP['clips'][0]][A0]))
 
 # ---------------- audio: voices + set ambience (-40 dB) + ticks + ding + soft pops ----------------
 SR = 24000; mix = np.zeros(int(TOTAL * SR) + SR, np.float32)
@@ -553,7 +568,7 @@ subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.out + '.video
                 '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000', '-ac', '2', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', o.out], check=True)
 os.remove(o.out + '.video.mp4')
 json.dump(dict(style='v9', spec=SP, fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, cx=CX, capw=CAPW, band=BAND, smax=SMAX, anchor=[AX, AY], head=HEAD, joins=JOINS, xf=XF, xfe=XFE,
-               beats=BEATS, gaps=GAPS, gap_max=GAPMAX, hook=dict(text=HOOK.text, t0=HOOK.t0, t1=HOOK.t1, kind=HOOK.kind),
+               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, hook=dict(text=HOOK.text, t0=HOOK.t0, t1=HOOK.t1, kind=HOOK.kind),
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None)) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},

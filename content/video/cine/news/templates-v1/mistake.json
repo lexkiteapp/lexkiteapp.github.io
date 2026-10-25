@@ -1,6 +1,6 @@
 {
  "id": "t1_mistake_agree", "template": "mistake", "title": "Stop saying “I am agree”",
- "teacher": "carlos", "set": "studio", "clips": ["c01_carlos_talk", "c03_carlos_explain", "c02_carlos_talk_smile"],
+ "teacher": "carlos", "set": "studio", "clips": ["c01_carlos_talk", "c02_carlos_talk_smile"],
  "accent": "red", "active": "cream", "hook_style": "stop: red X badge + quoted error, stamp-in", "motif": "red badges + quoted lines, green check on the fix",
  "cta": { "area": "grammar-check", "link": "https://lexkite.com/app/#/fix", "say": "Check your grammar" },
  "speed": 1.0, "error_lines": ["m_w"], "error_re": "\\bam agree\\b",
@@ -10,6 +10,7 @@
   { "id": "m_k", "text": "Just say: I agree.", "key": { "green": [2, 3] }, "gap": 0.35 },
   { "id": "m_y", "text": "Agree is a verb, so you don't need am.", "key": { "yellow": [0, 3], "red": [8] }, "gap": 0.3 },
   { "id": "m_x", "text": "I agree. I don't agree. Do you agree?", "key": { "green": [1, 4, 7] } },
+  { "id": "m_t", "text": "To agree strongly, say: I totally agree.", "key": { "green": [5, 6] }, "gap": 0.3 },
   { "id": "m_q", "text": "Quiz! Which one is right, A or B?", "key": { "yellow": [0] }, "gap": 0.3 },
   { "id": "_count", "beat": "count", "dur": 3.0 },
   { "id": "m_a", "text": "B! I agree with you.", "key": { "green": [0, 2] } },
@@ -24,6 +25,8 @@
     "rows": [[["agree", "yellow"], [" = a verb", "white"]], [["no ", "white"], ["“am”", "red"], [" needed", "white"]]] },
   { "id": "ex", "kind": "rich", "anim": "spring", "size": 70, "from": ["m_x", 0, "s", -0.06], "to": ["m_x", -1, "e", 0.3],
     "rows": [[["I agree.", "green"]], [["I don't agree.", "green"]], [["Do you agree?", "green"]]] },
+  { "id": "strong", "kind": "rich", "anim": "spring", "size": 84, "from": ["m_t", 0, "s", -0.06], "to": ["m_t", -1, "e", 0.3],
+    "rows": [[["@emoji:💯"], [" I ", "white"], ["totally", "yellow"], [" agree", "green"]]] },
   { "id": "quiz", "kind": "quiz", "from": ["m_q", 0, "s", -0.06], "to": ["m_a", -1, "e", 0.3], "a": "I am agree", "b": "I agree", "correct": "b",
     "reveal": ["m_a", 0, "s", -0.04], "q": [[["Which one is right?", "white"]]] },
   { "id": "cta", "kind": "cta", "from": ["m_c", 0, "s", -0.05], "to": ["end"] }

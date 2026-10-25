@@ -58,10 +58,10 @@ jobs:
         run: |
           mkdir -p img
           python3 - <<'PY'
-          import json, os, urllib.request
+          import json, os, subprocess
           s = json.load(open(os.environ['SPEC'])); I = json.load(open('content/lexicon/img.json'))['items']
-          for k in sorted({p['img'] for p in s['pops'] if p.get('img')}):
-              it = I[k]; urllib.request.urlretrieve(it['url'], f"img/{it['h']}.webp"); print(k, it['url'])
+          for k in sorted({p['img'] for p in s['pops'] if p.get('img')}):   # curl (the CDN refuses python-urllib's user agent)
+              it = I[k]; subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', f"img/{it['h']}.webp", it['url']], check=True); print(k, it['url'])
           PY
       - uses: actions/setup-node@v4
         with: { node-version: 20 }

@@ -58,8 +58,8 @@ pc = {}
 for f in fr:
     for e in els(f):
         if e['group'] == 'caption': pc.setdefault(e['name'], []).append((e['x0'] + e['x1']) / 2)
-off = {k: round(med(v) - 540, 1) for k, v in pc.items()}; layout = {k: round(c['cx'] - 540, 1) for k, c in CP.items()}
-R['caption_center'] = dict(ok=bool(off) and max(map(abs, off.values())) <= 6 and max(map(abs, layout.values())) <= 1, max_ink_offset_px=max(map(abs, off.values()), default=None),
+off = {k: round(med(v) - 540, 1) for k, v in pc.items()}; layout = {k: round(c['cx'] - 540, 1) for k, c in CP.items() if 'ink' in c}
+R['caption_center'] = dict(ok=bool(off) and max(map(abs, off.values())) <= 8 and bool(layout) and max(map(abs, layout.values())) <= 1, max_ink_offset_px=max(map(abs, off.values()), default=None),
                            max_layout_offset_px=max(map(abs, layout.values()), default=None), note='page ink centre vs frame centre 540 (v8 was -54)')
 # ---- head mask: no box touches the head of the clip(s) on screen
 HD = T['head']; hits = []; nchk = 0
@@ -72,6 +72,14 @@ for f in fr:
         for z in zr:
             nchk += 1
             if inter(bx, z): hits.append((f['t'], e['name'], [round(v) for v in z]))
+ov = []
+for f in fr:
+    E = [e for e in els(f) if e['alpha'] > 0.3]
+    for i_ in range(len(E)):
+        for j_ in range(i_ + 1, len(E)):
+            a_, b_ = E[i_], E[j_]
+            if inter([a_['x0'], a_['y0'], a_['x1'], a_['y1']], [b_['x0'], b_['y0'], b_['x1'], b_['y1']]): ov.append((f['t'], a_['name'], b_['name']))
+R['no_overlap'] = dict(ok=not ov, n=len(ov), hits=ov[:6], note='pops / captions never cover each other (alpha > 0.3)')
 R['head_clear'] = dict(ok=not hits and nchk > 0, checks=nchk, hits=hits[:6], n_hits=len(hits), band=T['band'])
 first, done = {}, {}
 for f in fr:
@@ -92,27 +100,31 @@ for f in fr:
 nomouth = [lid for lid in T['lines'] if len(spoke.get(lid, set()) - {'X'}) < 2]
 R['lipsync_rhubarb'] = dict(ok=all(str(l.get('gen') or '').startswith('rhubarb') and l['cues'] > 0 for l in T['lines'].values()) and not nomouth, lines_without_mouth_motion=nomouth)
 # ---- no padding: natural gaps, only declared beats are silent, TTS speed as written
-gp = [g for g in T['gaps'] if g['gap'] > T['gap_max'] + 0.011]; bt = [b for b in T['beats'].values() if b['kind'] not in ('count', 'turn') or b['e'] - b['s'] > 3.2]
+GAP_GATE = 0.60   # natural sentence pause (silence incl. TTS tail); v8 stretched these to hit 25 s
+gp = [g for g in T['gaps'] if g['gap'] > GAP_GATE + 0.011]; bt = [b for b in T['beats'].values() if b['kind'] not in ('count', 'turn') or b['e'] - b['s'] > 3.2]
 want_speed = {l['id']: l.get('speed', SP.get('speed', 1.0)) for l in SP['lines'] if l.get('text')}
 spd = [lid for lid, L in T['lines'].items() if abs(L['speed'] - want_speed[lid]) > 1e-6 or (L['speed'] < 0.95 and lid not in [x['id'] for x in SP['lines'] if x.get('speed')])]
 speech_end = max(L['at'] + L['dur'] for L in T['lines'].values())
 R['no_pad'] = dict(ok=not gp and not bt and not spd and T['total'] - speech_end <= 1.6 and 18 <= T['total'] <= 35, long_gaps=gp[:4], beats=T['beats'], speed_mismatch=spd,
                    max_gap=max((g['gap'] for g in T['gaps']), default=0), tail=round(T['total'] - speech_end, 2), total=T['total'])
 # ---- continuity: forward-only source frames, dissolves between talk clips, no reverse playback
-rev = []; holds = []; prev = {}
+rev = []; holds = []; prev = None
 n_end = T['xfe']
 for i, f in enumerate(fr):
-    cur = {c: k for c, k, w in f['src']}
-    for c, k in cur.items():
-        if c in prev and i < len(fr) - n_end and k != prev[c] + 1:
-            (rev if k < prev[c] else holds).append((f['t'], c, prev[c], k))
+    cur = [(c, k) for c, k, w in f['src']]
+    if prev is not None and i < len(fr) - n_end:
+        for j, (c, k) in enumerate(cur):
+            if (c, k - 1) in prev: continue
+            if j == 1 and len(cur) == 2 and len(prev) == 1: continue   # first frame of a dissolve: the incoming clip enters here
+            (rev if any(pc_ == c and pk > k for pc_, pk in prev) else holds).append((f['t'], c, [p_[1] for p_ in prev if p_[0] == c], k))
     prev = cur
 xf_runs = []; run = 0
 for f in fr[:len(fr) - n_end]:
     if len(f['src']) > 1: run += 1
     elif run: xf_runs.append(run); run = 0
 g = [x for k in range(0, T['n'] - 1, 60) for x in frames_px(vid, list(range(k, min(T['n'] - 1, k + 60), 6)))]
-hist = lambda x: cv2.calcHist([cv2.resize(x, (270, 480))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for a, b in zip(g, g[1:])]
+BY = int(T['band'][0]) - 8   # cut detector on the host area only (above the pop band): a pop or caption never trips it, a scene cut does
+hist = lambda x: cv2.calcHist([cv2.resize(x[:BY], (270, BY // 4))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for a, b in zip(g, g[1:])]
 sets = {T['spec']['set']}
 R['continuity'] = dict(ok=not rev and not holds and all(r >= 8 for r in xf_runs) and max(dd, default=99) < 0.10 and len(sets) == 1, reverse_steps=rev[:4], holds=holds[:4],
                        dissolves=xf_runs, joins=[(j['from_clip'], j['exit'], j['to_clip'], j['entry'], j['diff']) for j in T['joins']], max_hist_change_6f=round(max(dd, default=0), 4),

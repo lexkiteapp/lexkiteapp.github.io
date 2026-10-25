@@ -7,11 +7,13 @@
  "lines": [
   { "id": "g_h", "text": "Can you guess this word?" },
   { "id": "g_c", "text": "Hint: it takes you up and down.", "key": { "mint": [0] } },
+  { "id": "g_c2", "text": "Every big hotel has one.", "gap": 0.3 },
   { "id": "_count", "beat": "count", "dur": 3.0 },
   { "id": "g_a", "text": "It's an elevator!", "key": { "green": [2] } },
   { "id": "g_p", "text": "Say it with me: elevator.", "key": { "green": [4] }, "gap": 0.3 },
   { "id": "g_u", "text": "In British English, it's a lift.", "key": { "yellow": [5] }, "gap": 0.3 },
   { "id": "g_v", "text": "But in America, we say elevator.", "key": { "green": [5] } },
+  { "id": "g_x", "text": "Try it: Excuse me, where's the elevator?", "key": { "green": [5] }, "gap": 0.3 },
   { "id": "g_s", "text": "Look up any word free on lexkite.com.", "gap": 0.3 }
  ],
  "pops": [
@@ -20,6 +22,8 @@
   { "id": "stress", "kind": "stress", "anim": "spring", "syl": ["EL", "e", "va", "tor"], "stress": 0, "from": ["g_p", 4, "s", -0.06], "to": ["g_u", 3, "s", -0.08], "sweep": ["g_p", 4] },
   { "id": "ukus", "kind": "pair", "anim": "spring", "left": { "title": "lift", "sub": [["@emoji:🇬🇧"], [" UK", "white"]], "color": "navy2" }, "right": { "title": "elevator", "sub": [["@emoji:🇺🇸"], [" US", "white"]], "color": "green" },
     "focus": [[["g_u", 0, "s", 0], "left"], [["g_v", 0, "s", 0], "right"]], "from": ["g_u", 3, "s", -0.06], "to": ["g_v", -1, "e", 0.4] },
+  { "id": "try", "kind": "rich", "anim": "spring", "size": 74, "plate": "mint", "from": ["g_x", 0, "s", -0.06], "to": ["g_x", -1, "e", 0.4],
+    "rows": [[["Excuse me,", "navy"]], [["where's the ", "navy"], ["elevator", "green"], ["?", "navy"]]] },
   { "id": "cta", "kind": "cta", "from": ["g_s", 0, "s", -0.05], "to": ["end"] }
  ]
 }

@@ -12,6 +12,8 @@
   { "id": "w_4", "text": "Four: shower. The shower isn't working.", "key": { "yellow": [1] }, "gap": 0.3 },
   { "id": "w_5", "text": "Five: receipt. The p is silent.", "key": { "yellow": [1], "red": [3] }, "gap": 0.3 },
   { "id": "w_6", "text": "Can I get a receipt, please?", "key": { "yellow": [4] } },
+  { "id": "w_r", "text": "Which word was new for you?", "key": { "yellow": [1] }, "gap": 0.35 },
+  { "id": "w_t", "text": "Save this for your next trip!" },
   { "id": "w_c", "text": "Review these words free on lexkite.com.", "gap": 0.3 }
  ],
  "pops": [
@@ -22,6 +24,8 @@
   { "id": "c3", "kind": "card", "anim": "spring", "img": "elevator#n", "word": "elevator", "idx": "3/5", "from": ["w_3", 1, "s", -0.06], "to": ["w_3", -1, "e", 0.25] },
   { "id": "c4", "kind": "card", "anim": "spring", "img": "shower#n", "word": "shower", "idx": "4/5", "from": ["w_4", 1, "s", -0.06], "to": ["w_4", -1, "e", 0.25] },
   { "id": "c5", "kind": "card", "anim": "spring", "img": "receipt#n", "word": "receipt", "idx": "5/5", "sub": [["silent ", "white"], ["p", "red"]], "from": ["w_5", 1, "s", -0.06], "to": ["w_6", -1, "e", 0.3] },
+  { "id": "recap", "kind": "rich", "anim": "spring", "size": 70, "from": ["w_r", 0, "s", -0.06], "to": ["w_t", -1, "e", 0.3],
+    "rows": [[["key · luggage · elevator", "white"]], [["shower · receipt", "white"], [" ", "white"], ["@emoji:🤔"]]] },
   { "id": "cta", "kind": "cta", "from": ["w_c", 0, "s", -0.05], "to": ["end"] }
  ]
 }
