@@ -1548,3 +1548,5 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 .lsw-b .i { width: 16px; height: 16px; vertical-align: 0; }
 [dir="rtl"] .i-dir { transform: scaleX(-1); }
 a > .i-dir:first-child, button > .i-dir:first-child { margin-inline-end: .2em; }
+
+.err-state { max-width: 520px; margin: 2rem auto; text-align: center; display: grid; gap: var(--sp-3); justify-items: center; } .err-state h1 { font-size: var(--fs-lg); margin: 0; } .err-state p { margin: 0; } .err-ic { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--accent-text); } .err-ic .i { width: 28px; height: 28px; }

@@ -370,7 +370,7 @@
       const skelDefault = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(4)}</div></div>`;
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
-    if (b.length) { try { await App.need(...b); } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
+    if (b.length) { try { await App.need(...b); } catch (e) { if (my === routeSeq) errState(); throw e; } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
     if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
@@ -386,7 +386,7 @@
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
       window.scrollTo(0, 0); const preTitle = document.title;
-      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; throw e; } // lượt cũ lỗi vì bị hủy → im lặng
+      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } // lượt cũ lỗi vì bị hủy → im lặng
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
@@ -440,6 +440,12 @@
   const ROUTE_ALIAS = { wellcom: 'welcome', welcom: 'welcome', wellcome: 'welcome', welcomme: 'welcome', start: 'welcome', setup: 'welcome', onboarding: 'welcome', signup: 'welcome', login: 'me', signin: 'me', account: 'me', profile: 'me', hom: 'home', homepage: 'home', today: 'home', dashboard: 'home', learn: 'home', app: 'home', index: 'home', reveiw: 'review', reivew: 'review', revew: 'review', revise: 'review', flashcards: 'review', flashcard: 'review', dictionary: 'dict', lookup: 'dict', search: 'dict', test: 'tests', exam: 'tests', exams: 'tests', setting: 'settings', vocabulary: 'vocab', words: 'vocab', stat: 'stats', progress: 'stats', mistake: 'mistakes', leagues: 'league', grammer: 'grammar', pronunciation: 'pron', contacts: 'contact' };
   const lev = (a, b) => { const d = Array.from({ length: b.length + 1 }, (_, i) => i); for (let i = 1; i <= a.length; i++) { let p = d[0]; d[0] = i; for (let j = 1; j <= b.length; j++) { const q = d[j]; d[j] = Math.min(d[j] + 1, d[j - 1] + 1, p + (a[i - 1] === b[j - 1] ? 0 : 1)); p = q; } } return d[b.length]; };
   App.ROUTE_ALIAS = ROUTE_ALIAS;
+  // Trang không tải được (mất mạng / gói lỗi / hàm vẽ lỗi): thông báo thân thiện + nút chính "Thử lại" + lối về Hôm nay, thay cho màn trống hoặc khung chờ treo
+  function errState() {
+    const off = !navigator.onLine;
+    view.innerHTML = `<div class="card err-state" role="alert"><span class="err-ic">${UI.icon(off ? 'globe' : 'compass')}</span><h1>${t('Không tải được – thử lại sau')}</h1>${off ? `<p class="muted">${t('Mất kết nối – vẫn ôn tập được, tra từ mới cần mạng')}</p>` : ''}<div class="row center"><button class="btn primary" data-retry>${t('Thử lại')}</button><a class="btn" href="#/home">${t('Hôm nay')}</a></div></div>`;
+    const r = view.querySelector('[data-retry]'); if (r) r.onclick = () => route();
+  }
   function notFound() {
     const { name } = parseHash(), n = String(name || '').toLowerCase().slice(0, 30);
     const near = n.length > 2 ? Object.keys(routes).filter(r => r !== 'welcome' && Math.abs(r.length - n.length) <= 2).map(r => [r, lev(n, r)]).filter(x => x[1] <= Math.max(1, Math.floor(n.length / 4))).sort((a, b) => a[1] - b[1])[0] : null;
