@@ -499,13 +499,13 @@ export const REG = {
    "id": "word-audio",
    "workflow": "word-audio.yml",
    "cron": [
-    "0 18 * * *"
+    "20 */4 * * *"
    ],
    "priority": "render",
    "resources": [
     "gh_minutes"
    ],
-   "minutes": 60,
+   "minutes": 150,
    "est": {},
    "lease": false
   },

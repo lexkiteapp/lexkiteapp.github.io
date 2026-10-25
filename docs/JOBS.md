@@ -30,6 +30,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:12 | `ci-triage` | `12 * * * *` | reports | gh_minutes | 5 | d1_internal_reads≈10 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
+| 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
 | 01:00 | `lighthouse` | `0 1 * * 1` | reports | gh_minutes | 15 | — | — |
 | 01:00 | `mail-digest` | `0 1 * * *` | reports | d1_main_read | 2 | d1_main_reads≈3000 | — |
@@ -58,7 +59,6 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 13:05 | `video-tpl1b` | `5 13 * * *` | render (tạm dừng) | gh_minutes, grabcast_ai, drive_pool | 45 | clips≈12, grabcast_calls≈6, drive_calls≈40 | ✓ |
 | 13:10 | `vocab-img` | `10 13 * * *` | bulk | grabcast_ai, gh_minutes | 85 | grabcast_images≈400, grabcast_text≈220, senses≈220, images≈130 | ✓ |
 | 15:40 | `lexicon-expand` | `40 15 * * *` | render | gemini, grabcast_ai, workers_ai_b, gh_minutes | 120 | gemini_calls≈400, grabcast_text≈7000, workers_ai_b_neurons≈1500 | ✓ |
-| 18:00 | `word-audio` | `0 18 * * *` | render | gh_minutes | 60 | — | — |
 | 19:00 | `audio` | `0 19 * * *` | render | gh_minutes | 60 | — | — |
 | 20:30 | `word-packs` | `30 20 * * *` | render | gh_minutes, gemini | 45 | — | — |
 | 21:00 | `wordlists` | `0 21 * * *` | render | gh_minutes | 20 | — | — |
@@ -80,7 +80,8 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
 | `scripts/build-lexicon.mjs` – dist/lexicon.json (vimg, video-web, i18n) + cổng ảnh | `loadExpand` | build / npm test |
 | `scripts/build-seo-pages.mjs` – /<lang>/words/ + sitemap-words + IndexNow (.seo-urls.txt) | `loadBrowserIndex` | build-web → indexnow |
-| `scripts/gen-word-audio.mjs` – hàng âm thanh Kokoro Anh/Mỹ | `loadAllPlus` | word-audio 18:00 UTC |
+| `scripts/gen-word-audio.mjs` – hàng âm thanh Kokoro Anh/Mỹ (kho từ qua scripts/word-audio/lib.mjs) | `loadAllPlus` | word-audio mỗi 4 giờ |
+| `scripts/word-audio/lib.mjs` – kho từ cần giọng đọc từ đơn s3 (gen-word-audio.mjs, merge.mjs) | `loadAllPlus` | word-audio mỗi 4 giờ |
 | `scripts/scriptbank/lib.mjs` – điểm học kịch bản video (từ#loại tra kho) | `expandRows` | script-bank 00:50 UTC |
 | `scripts/vocab-img/imageability.py` – hàng ảnh theo nghĩa (chấm vẽ được) | `dist/lexicon.json` | vocab-img (tạm dừng) |
 | `scripts/vocab-img/gen.mjs` – vẽ ảnh nghĩa | `dist/lexicon.json` | vocab-img |
