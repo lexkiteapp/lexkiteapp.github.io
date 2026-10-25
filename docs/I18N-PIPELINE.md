@@ -1,5 +1,8 @@
 # Quy trình đa ngôn ngữ Lexkite (bắt buộc cho mọi tính năng, mọi lần mở rộng)
 
+> TL;DR: Quy trình 15 ngôn ngữ giao diện: nguồn chuẩn duy nhất, quy tắc thêm chữ mới, kiểm tra tự động, mở thêm ngôn ngữ, SEO/blog theo ngôn ngữ. Không lẫn tiếng, không sót.
+> Đọc khi: MỌI việc thêm chữ giao diện.
+
 Mục tiêu: 15 ngôn ngữ giao diện, **không lẫn tiếng, không sót, không chồng chéo**, nghĩa chuẩn như app bản địa.
 
 ## 1. Nguồn chuẩn duy nhất

@@ -1,5 +1,8 @@
 # Sổ tay vận hành Lexkite (nguồn chuẩn duy nhất)
 
+> TL;DR: Sổ tay vận hành cũ (15/10): kiến trúc 0 đồng, thứ tự ship, pipeline GitHub Actions, nội dung/bản quyền, giọng đọc. METHODS.md thắng khi lệch.
+> Đọc khi: tra quy trình cũ.
+
 > Nguyên tắc: **cái gì đã chuẩn thì làm theo đúng quy trình ở đây**. Có tính năng / pipeline mới → **bổ sung vào file này trong cùng commit**. Không làm khác quy trình mà không cập nhật sổ tay.
 > **Chuẩn công nghệ đầu vào: [TECH-RADAR.md](TECH-RADAR.md)** (đối chiếu trước mỗi lần nâng cấp).
 > Chi tiết riêng: [I18N-PIPELINE.md](I18N-PIPELINE.md) (đa ngôn ngữ) · [BLOG-RUNBOOK.md](BLOG-RUNBOOK.md) (blog) · [SEO-PLAN.md](SEO-PLAN.md) · [../content/wordlists/README.md](../content/wordlists/README.md) (kho từ nguồn mở).

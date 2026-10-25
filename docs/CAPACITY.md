@@ -1,5 +1,8 @@
 # CAPACITY – chi phí Cloudflare theo người dùng, kiến trúc mở rộng & khi nào nâng gói
 
+> TL;DR: Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng, hạn mức và trần DAU. Có ngưỡng hành động cho chủ khi nào nâng gói.
+> Đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1.
+
 Mục tiêu: biết **chi phí D1 / Functions thật cho mỗi người dùng**, có kiến trúc chịu được hàng triệu DAU, và được **cảnh báo trước** khi chạm hạn mức.
 Không bao giờ dội tải production để đo (D1 Free đã cạn 2 lần tuần 20/10) – mọi số dưới đây đo trên D1 cục bộ (Miniflare = bộ máy D1 thật).
 

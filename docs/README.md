@@ -1,5 +1,11 @@
 # docs/ – mục lục (đọc file này trước, chỉ mở file cần cho việc đang làm)
 
+> TL;DR: Thứ tự đọc đầu phiên (README + TOKEN-RULES + METHODS + agents/BOARD) và nhóm tài liệu theo vùng việc. Mục lục chuẩn đầy đủ từng file: [INDEX.md](INDEX.md).
+> Đọc khi: đầu phiên.
+
+> TL;DR: Mục lục đọc-trước của docs/: thứ tự đầu phiên và mô tả nhóm tài liệu. Bản đầy đủ từng file ở INDEX.md.
+> Đọc khi: đầu phiên.
+
 **Đầu mỗi phiên:** `README.md` + `TOKEN-RULES.md` + `METHODS.md` + `agents/BOARD.md`. Còn lại: đọc khi đụng tới vùng đó. "Tham khảo" = chỉ đọc khi cần tra.
 
 ## Lõi

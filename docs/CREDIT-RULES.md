@@ -1,5 +1,8 @@
 # LUẬT BẮT BUỘC khi tiêu credit (Kling / mọi dịch vụ trả phí) – chủ duyệt 20/10/2026
 
+> TL;DR: Luật bắt buộc khi tiêu credit (Kling/dịch vụ trả phí): làm hết phần 0 credit trước, phân tích, dry-run, thử 1 cái, hỏng 2 lần thì dừng. Chủ duyệt 20/10/2026.
+> Đọc khi: TRƯỚC mọi việc tốn credit.
+
 > Chủ: "không lãng phí credit tạo lỗi liên tục, phân tích chuẩn chỉnh chất lượng khi làm bất cứ gì". Mọi agent (Claude, Antigravity) PHẢI làm đúng thứ tự dưới đây. Vi phạm = dừng việc, báo lại.
 
 ## 1. Trước khi tiêu bất kỳ credit nào

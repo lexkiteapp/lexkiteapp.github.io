@@ -1,5 +1,8 @@
 # ADS – Quảng cáo Lexkite (thiết kế 1 lần, mọi cờ TẮT)
 
+> TL;DR: Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học. Cờ ở Quản trị, đồng ý/quyền riêng tư, đo lường và cổng giữ chân; code xong, chờ chủ tạo tài khoản.
+> Đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới.
+
 Quyết định đã chốt: Lexkite **miễn phí, kiếm tiền bằng quảng cáo**. App gốc = **Google AdMob**, web = **Google AdSense**, add-on Chrome = **không bao giờ**.
 Chuẩn tham chiếu: Duolingo / Quizlet – quảng cáo chỉ ở điểm nghỉ, không bao giờ cắt ngang việc học. Trạng thái 24/10/2026: code xong, **mọi cờ tắt**, chờ chủ tạo tài khoản.
 

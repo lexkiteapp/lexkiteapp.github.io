@@ -1,5 +1,8 @@
 # VIDEO-QC – chuẩn kiểm tra trước & sau, tự động trên GitHub (chủ 22/10/2026)
 
+> TL;DR: Chuẩn QC video trước & sau, tự động trên CI: trượt 1 cổng là không dùng/không đăng; kết quả qc/<id>.json + điểm 100. Chủ 22/10/2026.
+> Đọc khi: kiểm tài nguyên/clip video.
+
 Nguyên tắc: **mọi tài nguyên và mọi clip đi qua cổng QC tự động trên CI; trượt 1 cổng = không dùng / không đăng.** Kết quả ghi `qc/<id>.json` + điểm 100 (VIDEO-SCALE-PLAN §3). Không có cổng nào "chỉ cảnh báo" ở bước đăng.
 
 | Đối tượng | QC TRƯỚC (trước khi tốn credit / trước khi dựng) | QC SAU (khi nhận vào kho / sau render) | Công cụ |

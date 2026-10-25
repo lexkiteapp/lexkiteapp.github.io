@@ -1,5 +1,8 @@
 # Nguồn dữ liệu & giấy phép (từ điển)
 
+> TL;DR: Bảng nguồn dữ liệu và giấy phép (từ điển, mô hình/thư viện tách nền video). Kiểm giấy phép thương mại trước khi thêm nguồn.
+> Đọc khi: thêm dữ liệu/mô hình/giọng mới.
+
 | Dữ liệu | Nguồn | Giấy phép | Dùng ở |
 |---|---|---|---|
 | IPA Anh–Mỹ (ô `ipaUS`) | CMU Pronouncing Dictionary – github.com/cmusphinx/cmudict | BSD-2-Clause, © 1993-2015 Carnegie Mellon University | `content/lexicon/cmudict-subset.txt` → `scripts/build-lexicon.mjs` (ARPAbet → IPA kiểu Oxford) |

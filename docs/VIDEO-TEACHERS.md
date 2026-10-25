@@ -1,5 +1,8 @@
 # Video teachers, sets and talk clips (v9 template family, 25/10/2026)
 
+> TL;DR: Giáo viên video, bộ cảnh và clip nói (họ template v9): clip dùng ngay 0 credit, mặt nạ đầu, thêm giáo viên, bank CLASSROOM, chữ trên bảng. Nguồn: content/video/cine/teachers.json.
+> Đọc khi: sửa giáo viên/cảnh video.
+
 Source of truth for the renderer: `content/video/cine/teachers.json` (clip ids, usable frames, head mask, camera anchor, set paths).
 Footage lives in `lexkite-footage` (CI sparse checkout); 24 fps "dl24" clips, 1080×1920 (hotel/airport 1080×1916 → uniform 1920 scale + 1 px side crop).
 Rule (memory us-style-characters): teachers must feel American; Priya is excluded; voices are American Kokoro voices; one voice per teacher.

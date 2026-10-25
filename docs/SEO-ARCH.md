@@ -1,5 +1,8 @@
 # SEO-ARCH – nội dung công khai của app thành trang tĩnh có thể index (24/10/2026)
 
+> TL;DR: Biến nội dung công khai của app thành trang tĩnh index được: kiểm kê, mô hình trang tĩnh, sitemap/hreflang/IndexNow, cổng, nhân rộng. Nguồn: scripts/build-seo-pages.mjs.
+> Đọc khi: sửa SEO twin/trang tĩnh.
+
 Một nguồn: `scripts/build-seo-pages.mjs` (sinh) · `scripts/test/seo-pages.mjs` (cổng) · `web/js/seo-twin.js` (app → trang tĩnh).
 Đọc kèm: docs/SEO-PLAN.md, docs/SEO-GROWTH-PLAN.md §4, docs/BLOG-RUNBOOK.md, docs/LEXICON.md.
 

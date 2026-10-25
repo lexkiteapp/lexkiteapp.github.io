@@ -32,6 +32,9 @@ ${Object.entries(LC.todo || {}).map(([k, v]) => `| **CÒN THIẾU** ${k} | ${v} 
 ` : '';
 const md = `# JOBS – sổ việc nền & điều phối (sinh từ infra/jobs.json — KHÔNG sửa tay)
 
+> TL;DR: Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ. Sinh lại: node scripts/jobs/gen.mjs --write; jobs-check chặn lệch.
+> Đọc khi: thêm cron/CI nền.
+
 Nguồn duy nhất: \`infra/jobs.json\`. Sinh lại: \`node scripts/jobs/gen.mjs --write\`. CI (\`npm test\` → \`scripts/test/jobs-check.mjs\`) chặn: lịch lệch workflow, trùng, việc dùng chung tài nguyên ĐỘC QUYỀN chồng giờ, việc nặng chung phút bắt đầu, việc có lease thiếu bước thuê.
 
 ## Luật

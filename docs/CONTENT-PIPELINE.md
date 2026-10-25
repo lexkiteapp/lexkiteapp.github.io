@@ -1,5 +1,8 @@
 # Pipeline sản xuất nội dung học (chuẩn bắt buộc)
 
+> TL;DR: Quy trình sản xuất lô nội dung học: hàng đợi tự động, brief ≤15 dòng, viết, cổng tự động xanh, nghiệm thu. Chất lượng nằm ở CONTENT-RULES.md.
+> Đọc khi: giao/viết một lô nội dung.
+
 Quy tắc chất lượng: `docs/CONTENT-RULES.md`. File này là **quy trình** để mọi lô nội dung đạt chuẩn mà không phải đọc tay toàn bộ.
 
 ## 0. Vai trò

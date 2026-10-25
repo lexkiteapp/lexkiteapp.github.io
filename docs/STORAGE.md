@@ -1,5 +1,8 @@
 # STORAGE – dung lượng repo chính & kho media (24/10/2026)
 
+> TL;DR: Dung lượng repo chính và kho media (24/10): số đo trước→sau, âm thanh ở kho media, không viết lại lịch sử git, cổng size-guard. Số đo ở infra/storage-forecast.json.
+> Đọc khi: thêm file lớn/media.
+
 Nguồn sự thật: `infra/media-repos.json` (kho media, round-robin theo hash), `infra/resources.json` (sổ tài nguyên), số đo `infra/storage-forecast.json`
 (= `web/data/storage-forecast.json`, Quản trị › 💾 Lưu trữ). Đo lại: `node scripts/lexicon/expand/forecast.mjs --measure` (storage-watch hằng tuần, tự commit số đo).
 

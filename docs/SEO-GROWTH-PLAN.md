@@ -1,5 +1,8 @@
 # Kế hoạch tăng trưởng SEO 15 quốc gia – 6 tháng (17/10/2026 → 04/2027)
 
+> TL;DR: Kế hoạch tăng trưởng SEO 15 quốc gia 6 tháng (17/10/2026→04/2027): mục tiêu, nhịp đăng, nội dung theo nước, trang công cụ, đo lường. Bổ sung SEO-PLAN.md.
+> Đọc khi: lên kế hoạch nội dung SEO.
+
 ## 0. Hiện trạng (17/10)
 | ngôn ngữ | đã đăng | chờ đăng | hết bài sau |
 |---|---|---|---|

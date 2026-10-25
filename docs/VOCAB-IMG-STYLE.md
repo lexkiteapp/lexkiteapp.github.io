@@ -1,5 +1,8 @@
 # Chuẩn ảnh từ vựng Lexkite (VOCAB-IMG-STYLE)
 
+> TL;DR: Chuẩn ảnh từ vựng: nghiên cứu app lớn, khoa học học tập, phong cách nhà duy nhất, khung hình đọc được ở 96-160 px, luật theo lớp từ, dàn nhân vật. Code: scripts/vocab-img/style.mjs.
+> Đọc khi: sinh/duyệt ảnh từ vựng.
+
 Mục tiêu (chủ 24/10): ảnh **đẹp, dễ hiểu, dễ nhớ**, cùng một gia đình cho ~20k nghĩa, đọc được ở **96–160 px** trên thẻ học.
 Nguồn code: `scripts/vocab-img/style.mjs` (STYLE, PEOPLE, NEG, scrub, classOf) · `scene.mjs` (SCENE_STYLE, SCENE_CLASS, SCENE_SYS) ·
 `cards.mjs` (ASK, cleanCard) · `strict.mjs` (promptFromCard). Đổi chuẩn = sửa file này + các hằng trên, KHÔNG viết prompt riêng ở nơi khác.

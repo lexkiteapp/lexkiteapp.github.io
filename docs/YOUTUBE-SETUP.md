@@ -1,5 +1,8 @@
 # YouTube – tải short đã duyệt lên kênh ($0)
 
+> TL;DR: Tải short đã duyệt lên YouTube ($0): hiện đăng tay qua Studio, thiết lập một lần, dùng hằng ngày, kiểm định API compliance, bảo mật, nhiều kênh. Code: functions/api/youtube.js.
+> Đọc khi: đăng video lên YouTube.
+
 Code: `functions/api/youtube.js` (+ `youtube/callback.js`) · `scripts/video/yt-upload.mjs` · `.github/workflows/youtube-upload.yml` ·
 nút trong **Quản trị → 🎬 Thư viện video** (`web/js/admin-video.js`). Lưu trữ: `docs/VIDEO-STORAGE.md`.
 

@@ -1,5 +1,8 @@
 # Lexkite – SEO & blog tự đăng
 
+> TL;DR: SEO kỹ thuật và blog tự đăng: kiến trúc, rà soát & sửa, blog engine, lịch đăng, quy trình viết 7 bước, đặc tả định dạng bài. Mục tiêu top tìm kiếm tiếng Việt.
+> Đọc khi: sửa SEO kỹ thuật/blog engine.
+
 Mục tiêu: lexkite.com đứng top tìm kiếm tiếng Việt cho từ khóa học từ vựng / luyện thi IELTS, TOEIC, TOEFL; blog tĩnh nhanh, đúng chuẩn, tự đăng 2–3 bài/ngày, hạ tầng 0 đồng chịu được hàng chục nghìn bài; sau này thêm bản dịch.
 Cập nhật: 15/10/2026. Nhánh: `claude/seo-blog-3eb248` (cha gộp & phát hành).
 

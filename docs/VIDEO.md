@@ -1,5 +1,8 @@
 # VIDEO – nguồn sự thật hiện hành (22/10/2026)
 
+> TL;DR: Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage. Tài liệu video cũ toàn văn ở archive/.
+> Đọc khi: mọi việc video.
+
 Tiêu credit → `docs/CREDIT-RULES.md` trước. Tài liệu cũ (toàn văn, giữ số §): `docs/archive/{VIDEO-PIPELINE,VIDEO-SYSTEM-PLAN,CINE-SCENE-STANDARD,KLING-PLAN,LISTENING-CHANNEL-PLAN,VIDEO-CONTENT-PLAN}.md`.
 
 ## 1. Chiến lược (chủ chốt)

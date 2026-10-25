@@ -1,5 +1,8 @@
 # Kiểm định nội dung học – 25/10/2026
 
+> TL;DR: Kiểm định nội dung học 25/10: mẫu ngẫu nhiên, lớp lỗi toàn kho 9.588 dòng, sửa tại nguồn, cổng mới và hàng sinh lại. Không xóa nội dung để giấu lỗi.
+> Đọc khi: tra lịch sử sửa lỗi nội dung.
+
 Người soát: Claude (giáo viên tiếng Anh + ngôn ngữ học), KHÔNG gọi AI (GrabCast tắt). Luật chủ: chất lượng chỉ đi lên –
 không xoá nội dung để giấu lỗi; sửa tận nguồn theo LỚP lỗi, hoặc đưa vào `content/qa/regen-queue.json` (vẫn hiển thị).
 

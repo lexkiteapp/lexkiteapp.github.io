@@ -1,5 +1,8 @@
 # Quy tắc & pipeline nội dung học (từ vựng · bài tập · đề thi)
 
+> TL;DR: Quy tắc nội dung học (từ vựng, bài tập, đề thi): nguồn & bản quyền, chuẩn từng loại, đa ngôn ngữ, dung lượng/tốc độ, cổng kiểm. Quy trình lô ở CONTENT-PIPELINE.md.
+> Đọc khi: thêm hoặc sửa bất kỳ nội dung học.
+
 > Quy trình sản xuất từng lô (hàng đợi, brief, cổng kiểm, nghiệm thu): **`docs/CONTENT-PIPELINE.md`**.
 
 Áp dụng cho mọi người/agent thêm hoặc sửa nội dung (Claude, Antigravity, phiên phụ). Mục tiêu: **chất lượng top 1, nhẹ, mượt mọi thiết bị, 100% miễn phí, không bản quyền.**

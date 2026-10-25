@@ -1,5 +1,8 @@
 # ROLLBACK – sao lưu & khôi phục nhanh (bản xấu luôn quay lại được)
 
+> TL;DR: Sao lưu & khôi phục nhanh: mục 0 làm đúng thứ tự khi có sự cố; rollback Pages, git, D1 Time Travel, app/add-on, kho âm thanh. Mục 0 khi sự cố; còn lại tra cứu.
+> Đọc khi: CÓ SỰ CỐ hoặc cần khôi phục.
+
 Đọc mục **0** khi đang có sự cố. Còn lại là tra cứu. Cập nhật 23/10/2026. Mọi thứ miễn phí (GitHub Actions công khai + Kho Drive của chủ + D1 Time Travel).
 
 ## 0. Có sự cố? Làm đúng thứ tự này

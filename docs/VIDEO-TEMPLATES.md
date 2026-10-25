@@ -1,5 +1,8 @@
 # Video templates v1 – clean, consistent-by-design (24/10/2026)
 
+> TL;DR: Template video v1 (24/10) nhất quán theo thiết kế: lưới, thang chữ, màu từ kit.js, token chuyển động, luật, cấu trúc beat. Thay cách dựng cine/news bị chủ bác.
+> Đọc khi: sửa template video.
+
 Owner rejected the cine/news composite approach (two cartoon hosts on cropped AI plates, matting, pans, whip-pans,
 chaotic cuts, inconsistent proportions). These two templates replace it. Consistency is a property of the design,
 not something QC has to catch afterwards.

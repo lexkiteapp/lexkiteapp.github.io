@@ -1,5 +1,8 @@
 # 📦 BOARD – lưu trữ (thẻ đã xong, thread đã đóng, toàn văn thẻ đã rút gọn)
 
+> TL;DR: Lưu trữ BOARD: thẻ đã xong, thread đã đóng, toàn văn thẻ đã rút gọn (nguyên văn, chỉ để tra). Chỉ tra cứu.
+> Đọc khi: tra thẻ cũ.
+
 > Bảng đang dùng: `docs/agents/BOARD.md`. Nội dung dưới đây giữ NGUYÊN VĂN (chuyển 22/10/2026), chỉ để tra cứu.
 
 ## Toàn văn các thẻ còn mở (bản đầy đủ trước khi rút gọn)

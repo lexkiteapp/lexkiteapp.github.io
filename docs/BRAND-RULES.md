@@ -1,5 +1,8 @@
 # Quy tắc thương hiệu Lexkite (nguồn duy nhất – không vẽ lại ở nơi khác)
 
+> TL;DR: Nguồn thương hiệu duy nhất cho Lexkite: bảng màu (Kit chỉ từ web/js/kit.js, teal), thứ đã bỏ (xanh cũ #2F62C0), đổi tên thương hiệu, watermark video. brand-check chặn lệch.
+> Đọc khi: đụng logo, màu, tên, watermark.
+
 | Thành phần | Nguồn DUY NHẤT | Ghi chú |
 |---|---|---|
 | Linh vật **Kit** (6 cảm xúc: happy, win, cheer, think, sad, sleep) | `web/js/kit.js` → `Kit.svg(cảm xúc, cỡ, hoạt cảnh)` | `brand/kit-*.svg` được **xuất tự động** từ file này (`node scripts/build-social-kit.mjs`) – không sửa tay |

@@ -1,5 +1,8 @@
 # UX benchmark – Lexkite web app (/app/) vs top language apps
 
+> TL;DR: So sánh UX web app với Duolingo, Babbel, Busuu, Speak, Elsa, Anki/Quizlet: scorecard, tiêu chí, top 10 cải tiến, UX v3 (icon + token). Bằng chứng ảnh CI ux-shots.yml.
+> Đọc khi: cải tiến UX.
+
 Date 25/10/2026. Compared with Duolingo, Babbel, Busuu, Speak, Elsa, and Anki/Quizlet for review.
 Evidence: hermetic CI screenshots from `ux-shots.yml` (`scripts/test/ux-shots.mjs`). They cover 10 flows on phone 390×844 and desktop 1366×860, light and dark, in en/vi/ar.
 Each shot is measured for horizontal overflow, edge clipping, tap targets < 44 px and JS errors. The before/after sheets are in the `ux-shots` artifact.

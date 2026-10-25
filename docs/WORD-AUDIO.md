@@ -1,5 +1,8 @@
 # Giọng đọc từ đơn (audio/w) – bản s3
 
+> TL;DR: Giọng đọc từ đơn (audio/w) bản s3: vấn đề, thí nghiệm word-audio-lab, cách làm hiện tại, giấy phép, kết quả. Không nới ASR; từ không đạt dùng giọng máy.
+> Đọc khi: sửa âm thanh từ.
+
 Mục tiêu: mọi file phát âm từ đơn trên `audio.lexkite.com/audio/w/` phải ĐÚNG. Quy tắc chủ sản phẩm: chất lượng chỉ đi lên –
 không nới kiểm tra ASR, không bỏ từ; từ không đạt dùng giọng máy của thiết bị và nằm trong danh sách công khai có lý do.
 

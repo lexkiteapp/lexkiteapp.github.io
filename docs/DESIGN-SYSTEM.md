@@ -1,5 +1,8 @@
 # Lexkite design system (web app /app/ + add-on extension/app)
 
+> TL;DR: Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên, không bỏ tính năng.
+> Đọc khi: mọi thay đổi giao diện.
+
 One design language. Every UI change follows this page. Rule: quality only goes up. Never remove features or content.
 Sources: tokens in `web/css/style.css` `:root`, brand colours in `docs/BRAND-RULES.md` and `web/js/kit.js`, icons from `scripts/build-icons.mjs`.
 

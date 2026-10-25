@@ -1,5 +1,8 @@
 # Đăng Lexkite lên Microsoft Edge Add-ons – gói hồ sơ
 
+> TL;DR: Gói hồ sơ đăng Lexkite lên Microsoft Edge Add-ons: dùng chung zip Chrome, các bước trên Partner Center, lưu ý chính sách. Anh chủ tự làm phần tài khoản và bấm gửi.
+> Đọc khi: đăng/cập nhật add-on trên Edge.
+
 Anh ơi, Edge dùng chung nhân Chromium nên **cùng một gói zip với Chrome Web Store** chạy được trên Edge, không cần sửa mã. Em đã chuẩn bị sẵn chữ, ảnh và ghi chú; phần tài khoản và bấm gửi thì anh tự làm.
 
 Dashboard: Microsoft Partner Center → Microsoft Edge → https://partner.microsoft.com/dashboard/microsoftedge/overview

@@ -1,5 +1,8 @@
 # Kế hoạch kho video đa dạng + chuẩn 100/100 (22/10/2026)
 
+> TL;DR: Kho video đa dạng + chuẩn 100/100: tránh bị nền tảng coi trùng lặp, bảy trục đa dạng, thang 100 điểm, đường ống 0 credit. Hàng nghìn short bản tin Ama/Carlos.
+> Đọc khi: nhân rộng video.
+
 Mục tiêu: hàng nghìn short bản tin giáo viên (Ama/Carlos) mà **mỗi clip là nội dung gốc thật**, nền tảng không coi là trùng lặp/reused, không bóp đề xuất; chất lượng ≥ 90/100 mới đăng, nhắm 100.
 
 ## 1. Vì sao nền tảng hạ đề xuất & cách tránh

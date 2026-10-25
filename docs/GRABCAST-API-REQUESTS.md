@@ -1,5 +1,8 @@
 # GrabCast API – các endpoint cần mở cho khoá API (workspace) để Lexkite quản lý 100 % (22/10/2026)
 
+> TL;DR: Danh sách endpoint GrabCast cần mở cho khóa API workspace để Lexkite quản lý 100% (connect, insights, comments, inbox…). Khóa workspace 4 đang bị chặn các endpoint này.
+> Đọc khi: làm việc với GrabCast API.
+
 Hiện khoá API workspace 4 bị chặn: `connect/*`, `insights`, `comments`, `inbox`, `approval`, `best-times`, `queue/slots`, `hashtag-groups`, `caption-templates`, `accounts/{id}/check`. Lexkite gọi qua proxy máy chủ `functions/api/social.js` (khoá chỉ ở server, admin-gated, idempotency key).
 
 Yêu cầu chung: scope theo workspace của khoá; trả JSON; lỗi `{error:{code,message}}`; phân trang `cursor`; giới hạn tốc độ có header `RateLimit-*`; webhook ký HMAC.

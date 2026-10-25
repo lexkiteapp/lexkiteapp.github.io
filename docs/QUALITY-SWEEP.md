@@ -1,5 +1,8 @@
 # quality-sweep – quét lỗi tiềm ẩn hằng đêm (0 token LLM)
 
+> TL;DR: quality-sweep: quét lỗi tiềm ẩn hằng đêm (22:40 UTC, 0 token LLM) và journey-e2e; mở 1 issue + 1 dòng bản tin. Chạy tay: Actions → Quality sweep.
+> Đọc khi: sửa/đọc kết quả quét đêm.
+
 Workflow `.github/workflows/quality-sweep.yml` (22:40 UTC, sổ `infra/jobs.json` id `quality-sweep`, lease chỉ phút GitHub). Chạy tay: Actions → Quality sweep → `quick=1` để thử nhanh.
 
 | Phần | Làm gì | Mã |

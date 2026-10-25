@@ -1,5 +1,8 @@
 # UX công khai – trang vào cửa + app (audit 24/10/2026)
 
+> TL;DR: Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu. So với Duolingo/Babbel/Cambridge/Quizlet.
+> Đọc khi: sửa landing/UX công khai.
+
 Phạm vi: `/en/vocabulary/`, `/en/samples/`, `/en/speaking/` (+ bản vi `/tu-vung/`, `/samples/`, `/speaking/`), màn đầu app `/app/?hl=en|vi|ar`,
 và quét mẫu lỗi trên mọi route app. So với chuẩn Duolingo / Babbel / Cambridge Dictionary / Quizlet.
 

@@ -1,5 +1,8 @@
 # Add-on Chrome Lexkite – quy tắc Chrome Web Store & quy trình phát hành
 
+> TL;DR: Quy tắc Chrome Web Store và quy trình phát hành add-on: không mã từ xa, giới hạn cửa hàng, phát hành tự động, thiết lập workflow, kiểm thử. cws-check.mjs trong npm test tự kiểm.
+> Đọc khi: sửa extension/ hoặc phát hành add-on.
+
 Mọi thay đổi trong `extension/` (và mã web được chép vào `extension/app/`) phải giữ đúng các quy tắc dưới đây. `node scripts/cws-check.mjs` (chạy trong `npm test` và trước mỗi lần đăng) tự kiểm phần lớn; phần còn lại là trách nhiệm người sửa.
 
 ## 1. Quy tắc bắt buộc (vi phạm = bị từ chối hoặc gỡ)

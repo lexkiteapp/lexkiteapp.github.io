@@ -1,5 +1,8 @@
 # Kế hoạch mở rộng hạ tầng Cloudflare Workers (> 100k người học/ngày)
 
+> TL;DR: Kế hoạch mở rộng Cloudflare Workers > 100k người học/ngày: giới hạn gói miễn phí, chốt phòng thủ, lộ trình nâng cấp, bước bật gói Paid. Edge-first, local-first.
+> Đọc khi: cân nhắc nâng gói.
+
 > Tài liệu kỹ thuật vận hành và mở rộng cho **Lexkite**. Thiết kế theo triết lý Edge-first & Local-first: tối đa xử lý trên thiết bị người dùng và tại biên CDN, giữ chi phí tiệm cận 0 đồng kể cả khi quy mô người dùng tăng vọt.
 
 ---

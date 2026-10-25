@@ -1,5 +1,8 @@
 # Bộ hồ sơ DMCA của Lexkite (MẪU)
 
+> TL;DR: Bộ hồ sơ DMCA mẫu của Lexkite (không phải tư vấn pháp lý): thông báo và phản thông báo. Điều chỉnh theo từng vụ việc.
+> Đọc khi: xử lý DMCA.
+
 > **ĐÂY LÀ MẪU THAM KHẢO, KHÔNG PHẢI TƯ VẤN PHÁP LÝ.** Điều chỉnh theo từng vụ việc. Thông báo DMCA và phản thông báo được ký "under penalty of perjury" (chịu trách nhiệm hình sự nếu khai gian) và có thể dẫn tới kiện tụng tại Mỹ – vụ lớn, bên kia có luật sư, hoặc khi phải chấp nhận thẩm quyền tòa án Mỹ thì **hỏi luật sư sở hữu trí tuệ trước khi gửi**.
 
 Liên quan: `docs/CONTENT-PROTECTION.md` (WAF, sổ băm, giám sát) · sổ bằng chứng `content/protection/registry.jsonl`.

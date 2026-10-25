@@ -1,5 +1,8 @@
 # REMINDERS – nhắc học thông minh (24/10/2026)
 
+> TL;DR: Nhắc học thông minh: một nguồn lập lịch, máy chủ push.js (D1 nội bộ), hỏi quyền không dark pattern, cờ, FCM, test. Mục tiêu đồng ý ≥40%, CTR ≥8%, hủy <5%/tháng.
+> Đọc khi: sửa nhắc học/push.
+
 Mục tiêu đo được: tỉ lệ đồng ý ≥ 40 % ở lần hỏi mềm, CTR ≥ 8 % theo mẫu, hủy đăng ký < 5 %/tháng; 0 byte khung app; 0 dòng D1 người dùng; 100 % miễn phí.
 
 ## 1. Kiến trúc (một nguồn lập lịch)

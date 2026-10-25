@@ -1,4 +1,7 @@
 # Lexkite Blog & SEO – sổ tay vận hành (repo, dịch vụ, phương pháp)
+
+> TL;DR: Sổ tay vận hành blog & SEO: repo/dịch vụ, 15 ngôn ngữ và cụm bài, lịch đăng thông minh, workflow tự động, 6 bước viết bài. Không chứa bí mật; kỹ thuật chi tiết ở SEO-PLAN.md.
+> Đọc khi: viết/lên lịch/sửa bài blog hoặc ảnh blog.
 Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết kỹ thuật: docs/SEO-PLAN.md.
 
 ## Repo & dịch vụ

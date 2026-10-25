@@ -1,5 +1,8 @@
 # Sẵn sàng lên Google Play & App Store – Lexkite (com.lexkite.app)
 
+> TL;DR: Sẵn sàng lên Google Play & App Store (com.lexkite.app): trạng thái hiện tại, checklist Play, App Store, chung, và khi bật AdMob. Mục đã xong/cũ ở archive/STORE-READINESS-HISTORY.md.
+> Đọc khi: nộp/cập nhật app lên store.
+
 > **IARC (22/10/2026)**: rating Google Play đã live – Global Rating ID `56841d8a-867a-8d1d-8a40-3fb03be6354c` (dùng lại cho store khác có IARC).
 
 Rà soát ngày 17/10/2026 trên mã nguồn + log CI (android.yml, ios.yml đều xanh). Ký hiệu: ✅ đạt · ⚠️ cần kiểm/làm thêm nhưng không chặn nộp · ❌ chặn nộp.

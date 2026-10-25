@@ -1,5 +1,8 @@
 # Hạn mức & chống lạm dụng (Quotas)
 
+> TL;DR: Hạn mức & chống lạm dụng: rà endpoint, danh tính/bậc, hạn mức mặc định, cầu dao nhà cung cấp (≤80% gói miễn phí), phản hồi 429. Mọi thứ tĩnh vẫn miễn phí.
+> Đọc khi: thêm endpoint tốn tài nguyên.
+
 Mục tiêu: không một người dùng hay bot nào chiếm hết tài nguyên dùng chung. Mọi thứ tĩnh vẫn **miễn phí và không giới hạn**,
 và người trong danh sách cho phép được dùng không giới hạn.
 

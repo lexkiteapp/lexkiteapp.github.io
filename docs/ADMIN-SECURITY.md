@@ -1,5 +1,8 @@
 # ADMIN-SECURITY – bảo vệ trang quản trị (/admin) nhiều lớp (22/10/2026)
 
+> TL;DR: Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt, lớp biên Cloudflare Access (chưa bật). Người lạ nhận 403 và bị ghi admin_log.
+> Đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access.
+
 ## Các lớp đã bật trong mã
 1. **API** (`functions/api/admin.js` → `adminGate`): Origin của mình · giới hạn 120 lệnh/phút/IP · Firebase ID token + `email_verified` + email trong `ADMIN_EMAILS` (bí mật Pages). Người lạ → 403 `forbidden` và ghi `admin_log` (`denied`); quá 10 lần bị từ chối/10 phút → 429. **Giữ nguyên.**
 2. **Cổng cửa phía trình duyệt** (`web/js/admin.js`): ngay sau đăng nhập gọi op `whoami` (qua `adminGate`, chỉ trả `{admin:true}`, không lộ danh sách email). 403 → chỉ hiện "Tài khoản này không có quyền quản trị" + nút "Đăng nhập bằng tài khoản khác" (Google `prompt=select_account`), không vẽ thanh bên/nội dung, tự đăng xuất. Test: `scripts/test/admin-gate.mjs`, `api-security.mjs`.

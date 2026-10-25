@@ -1,5 +1,8 @@
 # Kiểm định Ngữ pháp – 10/2026
 
+> TL;DR: Audit ngữ pháp 10/2026. Báo cáo tại thời điểm đó.
+> Đọc khi: tra chất lượng ngữ pháp.
+
 Phạm vi: 77 bài (`web/js/grammar/*.js`), 1.020 câu trắc nghiệm, 920 câu tự luận (drills-a/b/c), bộ chấm tự luận và giao diện bài học (`web/js/grammar.js`).
 Cách làm: đọc toàn bộ từng file (5 người soát song song theo file), đối chiếu chuẩn Anh–Anh/Anh–Mỹ và thứ tự English Profile; chỉ sửa lỗi thật (đáp án sai, câu có 2 đáp án đúng, quy tắc sai/tuyệt đối hóa, ví dụ không tự nhiên, lời giải lệch đáp án). Không phát hiện nhãn CEFR lệch thô.
 

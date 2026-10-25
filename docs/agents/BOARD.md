@@ -1,5 +1,8 @@
 # 📋 Bảng giao việc Claude ⇄ Antigravity
 
+> TL;DR: Bảng giao việc Claude ⇄ Antigravity: TODO → ĐANG LÀM → CHỜ DUYỆT → ĐÃ XONG, mục HỎI CLAUDE. Thẻ đã xong ở BOARD-ARCHIVE.md.
+> Đọc khi: MỖI vòng lặp.
+
 > Tiêu credit: `docs/CREDIT-RULES.md`. Thẻ đã xong + thread đã đóng: `docs/agents/BOARD-ARCHIVE.md` (chỉ tra cứu).
 
 Quy trình (2 chiều):

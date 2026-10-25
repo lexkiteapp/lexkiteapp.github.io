@@ -1,5 +1,8 @@
 # Visual learning plan: where images help beyond vocab cards
 
+> TL;DR: Kế hoạch ảnh học ngoài thẻ từ vựng: các ứng viên theo giá trị/công sức, giai đoạn 1 (24/10), luật cho mọi giai đoạn. Dùng chung pipeline ảnh từ vựng.
+> Đọc khi: thêm ảnh minh họa mới.
+
 Owner request, 24/10/2026. Every image here goes through the same pipeline as the vocabulary images: `scripts/vocab-img/scene-gen.mjs` generates it, `local_judge.py` and the GrabCast vision judge must both agree, it is encoded as WebP and AVIF at 6 KB or less, it is stored in a media repo (`infra/media-repos.json`, never Pages), and the same weekly 5 % spot check applies. The display rules are the same too: fixed boxes, decode before showing, zero layout shift (docs/LEXICON.md § Quy tắc tích hợp hình).
 
 ## The candidates

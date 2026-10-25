@@ -1,5 +1,8 @@
 # DISTRIBUTION – kênh & phân phối (nhúng + social), 22/10/2026
 
+> TL;DR: Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app. Admin › Kênh & phân phối, /api/distribution.
+> Đọc khi: sửa phân phối/social.
+
 Quản trị › **🛰️ Kênh & phân phối** (`web/js/admin-dist.js`, mô hình luật `web/js/lib/dist-rules.js`) → `POST /api/distribution` (`functions/api/distribution.js`, adminGate, nhật ký `dist.*`, 120 lượt/phút).
 Bộ máy thuần: `functions/api/_distribution.js` (định tuyến, lịch) + `functions/api/_role_meta.js` (metadata theo vai trò). Test: `scripts/test/distribution.mjs`, `scripts/test/dist-roles.mjs`, `scripts/test/api-security.mjs`.
 

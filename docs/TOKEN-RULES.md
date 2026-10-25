@@ -1,5 +1,8 @@
 # TOKEN-RULES – làm việc hiệu quả, tiết kiệm token (bắt buộc, 22/10/2026)
 
+> TL;DR: Luật tiết kiệm token: đọc ít, giao việc cho agent ngắn, không chờ/poll, gộp kiểm thử, nội dung hàng loạt, báo cáo ngắn. BẮT BUỘC cho mọi agent.
+> Đọc khi: ĐẦU MỖI PHIÊN và khi giao việc.
+
 Áp dụng cho phiên chính, mọi agent con và Antigravity. Mục tiêu: cùng kết quả, ít token hơn ≥ 50 %.
 
 ## 1. Đọc

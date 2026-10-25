@@ -1,5 +1,8 @@
 # Lexkite – Nền tảng PR & backlink miễn phí (rà soát 17/10/2026)
 
+> TL;DR: Nền tảng PR & backlink miễn phí: tiến độ đăng, thay đổi 2026, danh sách xếp hạng 32 mục, cảnh báo, lộ trình 4 tuần. Chỉ gói miễn phí; anh chủ tự đăng ký/đăng bài.
+> Đọc khi: làm PR/backlink.
+
 Bổ sung cho `docs/SEO-GROWTH-PLAN.md` (nội dung on-site) và `docs/SEO-PLAN.md` (kỹ thuật). Tài liệu này chỉ lo **liên kết & uy tín ngoài site**. Bộ chữ dán sẵn: `content/pr/kit.md`.
 **Anh tự đăng ký / đăng bài** – em không tạo tài khoản, không đăng nhập, không gửi gì.
 

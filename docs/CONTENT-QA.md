@@ -1,5 +1,8 @@
 # 🛡️ Cổng QA nội dung (bắt buộc – mọi nguồn nội dung học)
 
+> TL;DR: Cổng QA nội dung bắt buộc cho mọi nguồn: sổ nguồn, bảy lớp kiểm, baseline chỉ được giảm, luồng cho nội dung sinh tự động. Mã ở scripts/content-qa/ và content/qa/.
+> Đọc khi: thêm/sinh nội dung học hàng loạt.
+
 Mục tiêu: không mục nội dung nào tới người học nếu chưa qua cùng một cổng, dù do Claude, Antigravity, bot CI (Gemini / Workers AI tài khoản 2) hay người soạn.
 Mã: `scripts/content-qa/lib.mjs` (luật thuần) · `scripts/content-qa/gate.mjs` (cổng) · `content/qa/` (sổ nguồn, baseline, hàng duyệt, lô).
 Chạy ở: `npm test` + `ci.yml` (mỗi push) · `explain.yml` trước khi commit nội dung sinh · `content-qa.yml` hằng đêm (bản tin xu hướng, `infra/jobs.json` id `content-qa`).

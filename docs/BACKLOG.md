@@ -1,5 +1,8 @@
 # Việc tồn đọng (cập nhật mỗi vòng – xong thì chuyển xuống "Đã xong")
 
+> TL;DR: Việc tồn đọng theo thứ tự ưu tiên: đang làm, chờ anh chủ; việc xong chuyển xuống mục đã xong. Số liệu mốc 15-16/10 có thể cũ; mục đã xong lưu ở archive/BACKLOG-DONE.md.
+> Đọc khi: chọn việc mới cần làm.
+
 Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](PLAYBOOK.md), chuẩn công nghệ theo [TECH-RADAR.md](TECH-RADAR.md).
 
 ## Đang làm / làm tiếp
@@ -34,5 +37,5 @@ Thứ tự = ưu tiên. Quy trình làm theo [PLAYBOOK.md](PLAYBOOK.md), chuẩn
 - (Tùy chọn) Gửi email từ support@lexkite.com: cần dịch vụ SMTP miễn phí (vd. Zoho Mail).
 - (Tùy chọn) Biến bí mật `GEMINI_KEY` trên Cloudflare Pages để chấm AI tốt hơn.
 
-## Đã xong hôm nay (15/10/2026)
-Email tên miền + form liên hệ · trang quản trị (người dùng, hộp thư, thống kê, cảnh báo, dịch vụ & API, cài đặt) · email cảnh báo 8h · chính sách/điều khoản 15 ngôn ngữ (thông tin công ty) · header trang chào mừng · ngôn ngữ theo quốc gia + nút 🌐 · /blog theo ngôn ngữ · giọng đọc thống nhất · popup tra từ màu thương hiệu · bài mẫu: khung nghĩa, nhãn đoạn dịch tay, gợi ý theo ngôn ngữ người học, ✓ chế độ + chế độ tiếp theo · đề: thống kê theo dạng câu hỏi + làm lại câu sai · hết lẫn tiếng 14 ngôn ngữ + công cụ rà tự động · 2.809 định nghĩa NGSL · khảo sát Study4 · PLAYBOOK + TECH-RADAR.
+## Đã xong
+Đã chuyển: `docs/archive/BACKLOG-DONE.md` (nguyên văn, mục 15/10/2026). Việc xong mới: ghi vào commit/BOARD.

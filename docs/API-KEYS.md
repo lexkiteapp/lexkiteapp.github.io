@@ -1,5 +1,8 @@
 # API key manager (Admin → Khóa API / API keys)
 
+> TL;DR: Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe. Gồm thiết lập một lần, lưu trữ, API quản trị /api/keys, cảnh báo, checklist bảo mật.
+> Đọc khi: thêm/xoay khóa hoặc sửa _keys.js.
+
 Lexkite keeps every provider key (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) in one encrypted pool. Server code picks keys from that pool and rotates them automatically. Admins manage the pool at `https://lexkite.com/admin.html#keys`.
 
 | Piece | File |

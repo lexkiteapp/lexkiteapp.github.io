@@ -1,5 +1,8 @@
 # 🗣️ Giao tiếp tự tin (#/confidence) – kế hoạch & cách vận hành
 
+> TL;DR: Lộ trình Giao tiếp tự tin (#/confidence) A1→B2: bài 5-8 phút, bộ công cụ tự tin, thử thách 2 phút/ngày, điểm tự tin. Tái dùng roleplay.js, UI.tts/recognize; AI có ngân sách.
+> Đọc khi: sửa/nối tính năng tự tin hoặc video liên quan.
+
 Mục tiêu: lộ trình có hướng dẫn giúp người học **dám nói** trong tình huống thật (A1 → B2), mỗi bài 5–8 phút, ít áp lực.
 Tái dùng, không viết trùng: `roleplay.js` (bộ não hội thoại Nano → /api/ai có hạn mức → kịch bản nhánh, chấm điểm), `UI.tts` / `UI.recognize`
 (Web Speech + Whisper trên máy), `App.addWord` (SRS), `App.reward` (XP/chuỗi), mẫu ghi âm + từ đệm + tốc độ của `speaking.js`.

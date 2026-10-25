@@ -1,5 +1,8 @@
 # Lộ trình nội dung (audit 24/10/2026): lỗ hổng → cách sửa → ai làm
 
+> TL;DR: Lộ trình nội dung (audit 24/10): điểm từng mảng, lỗi chặn, cách sửa, thứ tự làm và ai làm. Điểm /10: từ vựng 7, ngữ pháp 7, nói 5,5, lớp học 4…
+> Đọc khi: chọn mảng nội dung cần nâng.
+
 Điểm audit (/10): từ vựng 7 · ngữ pháp 7 · phát âm 6 · lớp học 4 · lộ trình 6 · đọc 7 · nghe 7.5 · viết 6 · nói 5.5 · TOEIC 7 · TOEFL 6.5 · roleplay 5 · tự tin 6.5 · luyện cách dùng 4.
 
 **Ai làm (chỉ 3 loại chủ):**

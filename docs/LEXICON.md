@@ -1,5 +1,8 @@
 # Kho từ vựng – một nguồn sự thật (đọc khi sửa từ vựng)
 
+> TL;DR: Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa. Không sửa tay extension/app/js/**.
+> Đọc khi: sửa từ vựng/nghĩa/ảnh từ.
+
 - **Nguồn duy nhất**: `web/js/data.js` + `web/js/lib/*.js` (dòng `[word, ipa, pos, vi, def, ex, col, syn, level, emoji, ipaUS?]`) + sửa tay `content/lexicon/overrides.json` (khóa `từ#loại` cho mọi bộ, `từ#loại@bộ` cho một bộ).
 - **Không sửa** `extension/app/js/**` bằng tay: là bản chép (build-extension.sh / build-lexicon). Mobile build từ `dist/` = cùng nguồn.
 - Sau khi sửa: `node scripts/build-lexicon.mjs --write` (chuẩn hóa + chép add-on + `dist/lexicon.json`). Cổng `node scripts/build-lexicon.mjs` (dict-consistency) chạy trong `npm test` và `mergecheck.sh`: lỗi khi nguồn chưa chuẩn hóa, bản chép lệch, IPA có ký hiệu ngoài bảng, cùng `từ#loại` khác nghĩa vi, IPA Mỹ phủ < 97% từ đơn.

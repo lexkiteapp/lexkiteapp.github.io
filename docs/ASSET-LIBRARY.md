@@ -1,5 +1,8 @@
 # Kho tài nguyên hình ảnh Lexkite – thiết kế để ghép tổ hợp vô hạn
 
+> TL;DR: Kho tài nguyên hình ảnh mô-đun (nhân vật, biểu cảm, phòng, đạo cụ…) để ghép tổ hợp vô hạn cho video, Call Mia, roleplay, bài học. Luật chống "lơ lửng", quy chuẩn chung, danh mục P1-P3, quy trình lô, bộ ghép, prompt khuôn Kling.
+> Đọc khi: sản xuất hoặc ghép tài nguyên ảnh/nhân vật.
+
 Mục tiêu: một kho **mô-đun** (nhân vật, biểu cảm, cử chỉ, phòng trống, đạo cụ, phương tiện, hiệu ứng) đủ phủ mọi nơi dùng trong hệ sinh thái – video Shorts/YouTube, "Call Mia", roleplay, bài học trong app, thumbnail, social, blog, email, thông báo, cửa hàng ứng dụng – và **ghép bằng script** thành hàng nghìn khung hình khác nhau mà vẫn đồng nhất phong cách. Ảnh AI (Kling) chỉ là **nguyên liệu**; sản phẩm cuối do máy dựng (SVG/Remotion) → $0/khung hình.
 
 Liên quan: `docs/VIDEO.md` (video hiện hành; bản cũ `docs/archive/VIDEO-PIPELINE.md`, `docs/archive/VIDEO-CONTENT-PLAN.md`), `docs/MEDIA-QA-RUBRIC.md` (chấm điểm), `content/video/assets.json` (danh mục máy đọc), `docs/BRAND-RULES.md`.

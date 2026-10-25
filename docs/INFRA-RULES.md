@@ -1,5 +1,8 @@
 # Quy tắc tài nguyên hệ thống (lưu trữ · mail · dịch vụ ngoài)
 
+> TL;DR: Quy tắc tài nguyên hệ thống: mọi dịch vụ/Worker/lưu trữ phải đăng ký ở infra/resources.json; hiện trạng lưu trữ, ngưỡng nâng cấp, mail. Sổ không ghi khóa/mật khẩu.
+> Đọc khi: thêm dịch vụ/host/Worker/lưu trữ mới.
+
 **Sổ đăng ký duy nhất:** `infra/resources.json` → tự hiện ở **Quản trị → Dịch vụ & tài khoản** (D1 `services`).
 Repo công khai: sổ chỉ ghi mục đích, bảng điều khiển, hạn mức miễn phí, cách nâng cấp – **không** ghi khóa/mật khẩu/token. Tài khoản & nơi để khóa nhập tay ở trang Quản trị (cột account/secret/note, chỉ 3 email quản trị xem được).
 
