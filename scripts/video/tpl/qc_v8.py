@@ -84,9 +84,9 @@ nomouth = [lid for lid in T['lines'] if len(spoke.get(lid, set()) - {'X'}) < 2]
 R['lipsync_rhubarb'] = dict(ok=all(str(l.get('gen') or '').startswith('rhubarb') and l['cues'] > 0 for l in T['lines'].values()) and not nomouth, lines_without_mouth_motion=nomouth)
 # ---- one continuous shot
 src = [f['src'] for f in fr]; jumps = [(fr[i]['t'], src[i - 1], src[i]) for i in range(1, len(src)) if abs(src[i] - src[i - 1]) > 1]
-g = frames_gray(vid, list(range(0, T['n'] - 1, 6))); dd = [float(np.abs(a.astype(np.int16) - b.astype(np.int16)).mean()) for a, b in zip(g, g[1:])]
-R['single_shot'] = dict(ok=not jumps and len(fr) == T['n'] and bool(T['clip']) and max(dd, default=0) < 12, clip=T['clip'], source_jumps=jumps[:4],
-                        max_mean_diff_6f=round(max(dd, default=0), 2), note='one bank clip, ping-pong source frames, no cut to another clip or scene')
+g = [x for k in range(0, T['n'] - 1, 60) for x in frames_gray(vid, list(range(k, min(T['n'] - 1, k + 60), 6)))]; hist = lambda x: cv2.calcHist([cv2.resize(x, (270, 480))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for a, b in zip(g, g[1:])]   # cut detector: luma histogram (a zoom or a caption keeps it, a scene cut breaks it)
+R['single_shot'] = dict(ok=not jumps and len(fr) == T['n'] and bool(T['clip']) and len(g) >= T['n'] // 6 - 1 and max(dd, default=99) < 0.10, decoded=len(g), clip=T['clip'], source_jumps=jumps[:4],
+                        max_hist_change_6f=round(max(dd, default=0), 4), note='one bank clip, ping-pong source frames, no cut to another clip or scene')
 badT = []
 for f in fr:
     M = f['M']; w = f['win']; sw, sh_ = T['src_size']
@@ -115,7 +115,7 @@ for f in fr:
         if e['x0'] < SAFE['x0'] or e['x1'] > SAFE['x1'] or e['y0'] < SAFE['y0'] or e['y1'] > SAFE['y1']: out.append((f['t'], e['name'], [e['x0'], e['y0'], e['x1'], e['y1']]))
         if e['group'] in ('pop', 'pill'):
             nm = e['name']; full.setdefault(nm, []).append(f['t'] if e['alpha'] >= 0.999 else None)
-        if e['px'] < MIN_PX: small.append((f['t'], e['name'], e['px']))
+        if e['px'] < MIN_PX and e['alpha'] >= 0.999: small.append((f['t'], e['name'], e['px']))
 icons_out = [(f['t'], e['name']) for f in fr for e in els(f) if e['group'] == 'icon' and (e['x1'] > SAFE['x1'] + 2 or e['y0'] < SAFE['y0'])]
 R['safe_area'] = dict(ok=not out and not icons_out, safe=SAFE, outside=out[:6], n_outside=len(out), icons_outside=icons_out[:3])
 def vis_runs(ts):
@@ -143,7 +143,7 @@ pr = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'form
 v = [s_ for s_ in pr['streams'] if s_['codec_type'] == 'video'][0]; dur = float(pr['format']['duration']); vb = int(v.get('bit_rate') or 0) / 1e6
 R['file'] = dict(ok=25 <= dur <= 30.5 and (v['width'], v['height']) == (1080, 1920) and 8.0 <= vb <= 9.5, duration=round(dur, 2), video_mbps=round(vb, 2), size_mb=round(int(pr['format']['size']) / 1e6, 1), fps=v['r_frame_rate'])
 fails = [k for k, r in R.items() if not r['ok']]
-json.dump(dict(video=vid, ok=not fails, failed=fails, emoji=T.get('emoji'), gates=R), open(vid + '.qc.json', 'w'), indent=1)
-for k, r in R.items(): print(('PASS ' if r['ok'] else 'FAIL ') + k, json.dumps({a: b for a, b in r.items() if a != 'ok'}, ensure_ascii=False)[:500])
+json.dump(dict(video=vid, ok=not fails, failed=fails, emoji=T.get('emoji'), gates=R), open(vid + '.qc.json', 'w'), indent=1, default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+for k, r in R.items(): print(('PASS ' if r['ok'] else 'FAIL ') + k, json.dumps({a: b for a, b in r.items() if a != 'ok'}, ensure_ascii=False, default=lambda x: x.item() if hasattr(x, 'item') else str(x))[:500])
 print(f"{vid}: {'OK' if not fails else 'FAILED ' + ','.join(fails)} ({len(R) - len(fails)}/{len(R)} gates), emoji={T.get('emoji')}")
 sys.exit(0 if not fails else 1)

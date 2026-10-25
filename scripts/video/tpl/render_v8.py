@@ -26,7 +26,7 @@ ap.add_argument('--preview', default='', help='comma list of seconds: render onl
 o = ap.parse_args()
 W, H, FPS = 1080, 1920, 24
 V8 = dict(anchor=(540, 430), push=0.04, punch=(0.05, 0.04), smax=1.10,
-          cap_size=96, cap_min=72, cap_stroke=12, cap_cy=1424, cap_words=3, gapx=22, bounce=1.16, settle=1.08,
+          cap_size=96, cap_min=72, cap_stroke=12, cap_cy=1410, cap_words=3, gapx=22, bounce=1.16, settle=1.08,
           top=(236, 436), pills_y=1218, icon=(822, 560, 96))
 AX, AY = V8['anchor']; SX0, SX1 = SAFE['x0'], SAFE['x1']; SCX = (SX0 + SX1) / 2
 FH = f"{o.fonts}/BeVietnamPro-ExtraBold.ttf"; FBd = f"{o.fonts}/BeVietnamPro-Bold.ttf"
@@ -60,7 +60,7 @@ def refine(a, words, sr=24000):
             if c: t = min(c, key=lambda t: abs(t - s)); rec.update(onset=round(t, 3), checked=True); s = t
         if out and s < out[-1]['s'] + 0.05: s = out[-1]['s'] + 0.05
         rec.update(s=round(s, 3), e=round(max(e, s + 0.08), 3)); out.append(rec)
-    for k in range(len(out) - 1): out[k]['e'] = round(min(out[k]['e'], out[k + 1]['s'] + 0.02), 3)
+    for k in range(len(out) - 1): out[k]['e'] = round(min(out[k]['e'], out[k + 1]['s']), 3)   # a word's highlight ends when the next word starts
     return out
 LINES = {}
 for lid in TXT:
@@ -207,9 +207,9 @@ def mk_end():
     ic = ICON.resize((76, 76), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 75, 75], 18, fill=255)
     ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
     l1 = hrow([ic, segs_line([('Lexkite', WHITE)], 60, 9)], 14)
-    segs = [('Practise free on ', WHITE), ('lexkite.com', YEL)]; sz = 50
-    while sz > 40 and pill_im(segs, sz, C['navy']).width > TOPW: sz -= 2
-    return stack([l1, pill_im(segs, sz, C['navy'])], 10), 'Practise free on lexkite.com', sz
+    segs = [('Practise free on ', WHITE), ('lexkite.com', YEL)]; sz = 58
+    while sz > 48 and pill_im(segs, sz, C['navy'], (24, 14), FBd).width > TOPW: sz -= 1
+    return stack([l1, pill_im(segs, sz, C['navy'], (24, 14), FBd)], 10), 'Practise free on lexkite.com', sz
 TOPS = {}
 for k, fn in dict(hook=mk_hook, correct=mk_correct, rule=mk_rule, quiz=mk_quiz, end=mk_end).items():
     im, txt, px = fn(); assert im.width <= TOPW and im.height <= V8['top'][1] - V8['top'][0], ('top pop too big', k, im.size)
@@ -296,8 +296,8 @@ class Page:
             if r: bb = [min(bb[0], r[0] + ib[0]), min(bb[1], r[1] + ib[1]), max(bb[2], r[0] + ib[2]), max(bb[3], r[1] + ib[3])]   # ink + stroke
         return wipe, bb
 PAGES = [Page(p) for lid in ATL for p in pages_of(lid)]
-for a, b in zip(PAGES, PAGES[1:]):
-    a.t1 = max(min(a.t1, b.t0), WORDS[a.wids[-1]]['e'] + 1.0 / FPS); b.t0 = max(b.t0, a.t1)
+for a, b in zip(PAGES, PAGES[1:]):   # the next page is on screen before its first word starts; the old one leaves exactly then
+    a.t1 = min(a.t1, b.t0)
 CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), size=p.sz, stroke=ST, ss=SS) for j, p in enumerate(PAGES)}
 print('pages', ' | '.join(p.text for p in PAGES), flush=True)
 
@@ -347,7 +347,8 @@ for fi in range(NF):
     for k, t0, t1, kind in TOP_EV:
         sc, al = pop_anim(T, t0, t1, kind)
         if al <= 0.003: continue
-        P = TOPS[k]; im = P['im']; cy = (V8['top'][0] + V8['top'][1]) / 2; r = paste_scaled(out, im, SCX, cy, sc, al)
+        P = TOPS[k]; im = P['im']; cy = (V8['top'][0] + V8['top'][1]) / 2; sc = min(sc, (TOPW - 2) / im.width, (V8['top'][1] - V8['top'][0]) / im.height)   # overshoot never leaves the safe band
+        r = paste_scaled(out, im, SCX, cy, sc, al)
         if r: els.append(dict(name=f'top.{k}', text=P['text'], bbox=r, px=round(P['px'] * sc, 1), alpha=round(al, 3), group='pop'))
     # emoji pops beside the head
     for k, t0, du in EMO_EV:
@@ -370,6 +371,8 @@ for fi in range(NF):
     # captions
     wipe = {}
     for pi, p in enumerate(PAGES):
+        if pi + 1 < len(PAGES) and PAGES[pi + 1].t0 <= T and p.t0 <= T and T < PAGES[pi + 1].t0 + 0.25:   # karaoke state of the page that just left (its last word ends as the next starts)
+            wipe.update({w: round(max(0.0, min(1.0, (tm - WORDS[w]['s']) / max(1e-3, WORDS[w]['e'] - WORDS[w]['s']))), 3) for w in p.wids})
         if p.t0 <= T < p.t1:
             wp, bb = p.draw(out, tm, T); wipe.update(wp)
             if bb[0] < 1e8: els.append(dict(name=f'cap.p{pi}', text=p.text, bbox=[round(v) for v in bb], px=p.sz, alpha=1.0, group='caption'))
