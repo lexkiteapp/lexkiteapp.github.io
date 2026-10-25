@@ -1,0 +1,22 @@
+# Thí nghiệm giọng từ đơn (chỉ chạy tay): so cách tổng hợp Kokoro cho từ ngắn + Piper dự phòng, nghe lại bằng faster-whisper. Không đẩy gì.
+name: word-audio-lab
+on:
+  workflow_dispatch:
+    inputs:
+      words: { description: 'Từ thử', default: 'away after see walk just to for the of and a be we or so do upon into there some' }
+permissions: { contents: read }
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null && npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-q8 }
+      - run: NODE_PATH=/tmp/kk/node_modules node scripts/word-audio/lab.mjs ${{ github.event.inputs.words }}
+      - run: pip install -q 'faster-whisper==1.2.1' 'av==18.1.0' 'piper-tts==1.2.0' && python3 scripts/word-audio/lab.py
