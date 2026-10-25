@@ -566,10 +566,11 @@ const POOL_OPS = {
     const left = (await replicaState(db, await all(db, 'SELECT * FROM drives'), { fresh: true })).n.under;
     return { ok: true, done, failed, bytes, remaining: left, lost_only: s.lost_only.map(brief) };
   },
-  /** CLI: link tải ký 5 phút cho 1 master/bìa short (chỉ thư mục shorts/, cls render) – tham chiếu cho shorts-rebuild / yt-upload. */
+  /** CLI: link tải ký 5 phút (CHỈ ĐỌC) cho 1 master/bìa short (shorts/, cls render), footage/ hoặc bản sao lưu backups/·releases/ (cls original)
+   *  – shorts-rebuild / yt-upload / drive-fetch, và diễn tập khôi phục (code-bundle · d1-restore · fetch-backup tải LẠI bản Drive, kiểm sha256). */
   async render_link(db, b, who, env) {
     const r = await one(db, "SELECT file_id, cls, folder FROM drive_files WHERE file_id = ? AND status = 'ok'", String(b.file_id || ''));
-    if (!r || !(isShortsRow(r) || isFootageRow(r))) return { status: 404, error: 'not-found' };
+    if (!r || !(isShortsRow(r) || isFootageRow(r) || isBackupRow(r))) return { status: 404, error: 'not-found' };
     return { url: await signLink(env, r.file_id), ttl: LINK_TTL };
   },
   /** Lô: nhiều upload_session / complete trong 1 yêu cầu (tối đa 50 mục). Gói miễn phí giới hạn ~50 truy vấn D1 + lượt gọi Google mỗi yêu cầu → dừng khi QN/FN > 30 và trả processed (máy khách gửi tiếp phần còn lại). */

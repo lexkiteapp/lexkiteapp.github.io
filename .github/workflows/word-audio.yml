@@ -45,7 +45,9 @@ jobs:
         if: hashFiles('.s2-cand/manifest.json') != '' || (github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0')
         run: |
           command -v ffprobe >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null)
-          pip install -q faster-whisper==1.1.1 requests
+          # PyAV 19 bỏ tham số metadata_errors mà faster-whisper (mọi bản ≤1.2.1) vẫn truyền vào av.open → khoá av<19
+          pip install -q 'faster-whisper==1.2.1' 'av==18.1.0' requests
+          python3 -c "import faster_whisper, av, ctranslate2; print('faster-whisper', faster_whisper.__version__, '· av', av.__version__, '· ctranslate2', ctranslate2.__version__)"
           python3 scripts/word-audio-asr.py --sample "${{ github.event.inputs.asr_sample || '0' }}"
       - name: Khoá deploy kho media
         if: steps.count.outputs.left != '0'

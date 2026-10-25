@@ -382,6 +382,14 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
     q1 = await cli({ op: 'list', sha256: [SHA_F] }); ok(q1.j.have[SHA_F].copies === 2 && q1.j.forecast === undefined, 'list theo sha (CLI): đủ bản, không tính dự báo/quét');
     q1 = await cli({ op: 'list' }); ok(q1.s === 200 && q1.j.drives.length >= 1 && q1.j.drives.every(d => d.files === undefined || d.files === 0), 'list CLI không gộp theo drive_files');
     q1 = await cli({ op: 'render_link', file_id: fids[0] }); ok(q1.s === 200 && /^\/api\/drive\/dl/.test(q1.j.url), 'render_link đọc được file footage/ (cls original)');
+    { // diễn tập khôi phục (code-bundle · d1-restore · fetch-backup): CLI tải LẠI bản sao lưu backups/ qua render_link; thư mục lạ vẫn 404
+      const SHA_B = createHash('sha256').update('bundle-one').digest('hex');
+      const qb = await cli({ op: 'upload_session', name: 'code.bundle', mime: 'application/octet-stream', size: 10, sha256: SHA_B, folder: 'backups/code', cls: 'original', replicas: 2, asset_id: 'backup:code:test' });
+      ok(qb.s === 200 && qb.j.sessions.length === 2, 'backups/code: 2 phiên / 2 Drive');
+      const bf = []; for (const ss of qb.j.sessions) { const pu = await fetch(ss.upload_url, { method: 'PUT', body: Buffer.from('bundle-one') }); const fid = (await pu.json()).id; bf.push(fid); await cli({ op: 'complete', drive_id: ss.drive_id, file_id: fid, sha256: SHA_B }); }
+      for (const fid of bf) { const rl = await cli({ op: 'render_link', file_id: fid }); ok(rl.s === 200 && /^\/api\/drive\/dl/.test(rl.j.url), 'render_link đọc được bản sao lưu backups/code (cả 2 bản)'); }
+      const rn = await cli({ op: 'render_link', file_id: 'không-có' }); ok(rn.s === 404, 'render_link file lạ → 404');
+    }
     q1 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q1.j.ok && q1.j.count === 1, 'refs_sync nguồn footage');
     q1 = await cli({ op: 'ext_alert', kind: 'gitsize', ok: false, n: 1, repo: 'x', gb: 3 }); ok(q1.j.ok, 'ext_alert gitsize');
     { // bản tin CI hằng ngày (ci-triage.yml): cảnh báo 'ci' mức warn + ≤ 1 thư / 20 h; ok → gỡ cảnh báo
