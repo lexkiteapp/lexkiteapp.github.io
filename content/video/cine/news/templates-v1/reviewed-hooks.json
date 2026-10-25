@@ -1,0 +1,149 @@
+{
+ "_note": "Reviewed hook + script verdicts for the v9 template samples (qc_v9 hook_truth). Script must equal the rendered script word for word; the hook text must equal the on-screen hook; promise = what the hook promises and the video must deliver.",
+ "verdicts": {
+  "t1_mistake_agree": {
+   "template": "mistake",
+   "hook": "✗ STOP saying / “I am agree.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I am agree.",
+    "m_k": "Just say: I agree.",
+    "m_y": "Agree is a verb, so you don't need am.",
+    "m_x": "I agree. I don't agree. Do you agree?",
+    "m_q": "Quiz! Which one is right, A or B?",
+    "m_a": "B! I agree with you.",
+    "m_c": "Check your grammar free on lexkite.com."
+   },
+   "promise": {
+    "wrong_line": "m_w",
+    "wrong": "I am agree.",
+    "right": "I agree",
+    "right_lines": [
+     "m_k",
+     "m_a"
+    ],
+    "quiz": true,
+    "count": true
+   },
+   "note": "“I am agree” is a very common learner error (agree is a verb, not an adjective). “I agree.” / “I don't agree.” / “Do you agree?” are standard US English. Quiz answer B is right."
+  },
+  "t2_words5_hotel": {
+   "template": "words5",
+   "hook": "5 hotel words / you need 🏨",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "w_h": "Five hotel words you need.",
+    "w_1": "One: key. Can I get a second key?",
+    "w_2": "Two: luggage. Can you hold my luggage?",
+    "w_3": "Three: elevator. Where's the elevator?",
+    "w_4": "Four: shower. The shower isn't working.",
+    "w_5": "Five: receipt. The p is silent.",
+    "w_6": "Can I get a receipt, please?",
+    "w_c": "Review these words free on lexkite.com."
+   },
+   "promise": {
+    "cards": 5
+   },
+   "note": "Five hotel nouns, each with a natural US example: second key, hold my luggage (uncountable), elevator (US), the shower isn't working, can I get a receipt (silent p — true: /rɪˈsiːt/)."
+  },
+  "t3_guess_elevator": {
+   "template": "guess",
+   "hook": "? / GUESS / the word",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "g_h": "Can you guess this word?",
+    "g_c": "Hint: it takes you up and down.",
+    "g_a": "It's an elevator!",
+    "g_p": "Say it with me: elevator.",
+    "g_u": "In British English, it's a lift.",
+    "g_v": "But in America, we say elevator.",
+    "g_s": "Look up any word free on lexkite.com."
+   },
+   "promise": {
+    "count": true,
+    "reveal": "elevator"
+   },
+   "note": "Picture clue = elevator icon, hint “takes you up and down” fits, answer revealed after 3-2-1. UK “lift” vs US “elevator” is accurate."
+  },
+  "t4_pair_borrow_lend": {
+   "template": "pair",
+   "hook": "BORROW | LEND",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "p_h": "Borrow or lend? Don't mix them up.",
+    "p_b": "Borrow means you take it, then give it back.",
+    "p_b2": "Can I borrow your pen?",
+    "p_l": "Lend means you give it, and get it back.",
+    "p_l2": "Can you lend me your pen?",
+    "p_q": "Quiz! My brother blank me ten dollars.",
+    "p_q2": "Lent, or borrowed?",
+    "p_a": "Lent! My brother lent me ten dollars.",
+    "p_c": "Compare tricky words free on lexkite.com."
+   },
+   "promise": {
+    "pair": [
+     "borrow",
+     "lend"
+    ],
+    "quiz": true,
+    "count": true
+   },
+   "note": "Borrow = take (and return), lend = give (and get back). “Can I borrow your pen?” / “Can you lend me your pen?” standard. Quiz: “My brother lent me ten dollars” correct; “borrowed me” is non-standard."
+  },
+  "t5_roleplay_checkin": {
+   "template": "roleplay",
+   "hook": "✈️ AIRPORT CHECK-IN / What do you say?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "r_h": "Airport check-in. Here's what to say.",
+    "r_1": "Hi! Can I see your passport, please?",
+    "r_2": "Sure, here you go.",
+    "r_3": "Are you checking any bags today?",
+    "r_4": "Just one, please.",
+    "r_5": "Your turn. Ask for a window seat.",
+    "r_6": "Could I get a window seat, please?",
+    "r_c": "Roleplay this free on lexkite.com."
+   },
+   "promise": {
+    "turn": true,
+    "tags": 4
+   },
+   "note": "Natural US airport check-in exchange (agent: passport, checking bags; traveler: here you go, just one). Your-turn prompt + model answer “Could I get a window seat, please?” is polite and idiomatic."
+  },
+  "t6_pron_comfortable": {
+   "template": "pron",
+   "hook": "🔊 comfortable / com·for·TA·ble✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "f_h": "Many learners say this word wrong.",
+    "f_w": "Not com, for, table.",
+    "f_s": "Slowly:",
+    "f_s2": "comfortable.",
+    "f_r": "Most Americans say three beats. Stress the first one.",
+    "f_n": "Normal speed: comfortable.",
+    "f_y": "Your turn. Repeat after me: comfortable.",
+    "f_e": "This chair is so comfortable!",
+    "f_c": "Practice pronunciation free on lexkite.com."
+   },
+   "promise": {
+    "stress": "COMF",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "comfortable /ˈkʌmftərbəl/: US dictionaries list the 3-syllable KUMF-ter-bul first; stress on the first syllable. Stressing “TA” (com-for-TA-ble) is a typical learner error. Slow (TTS 0.7) then normal speed, then repeat-after-me pause."
+  }
+ }
+}

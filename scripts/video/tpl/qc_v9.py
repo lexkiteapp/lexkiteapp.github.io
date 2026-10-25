@@ -1,0 +1,178 @@
+#!/usr/bin/env python3
+"""QC gates for the v9 template family (docs/VIDEO-TEMPLATES.md §14). python3 scripts/video/tpl/qc_v9.py <video.mp4> <reviewed-hooks.json>
+Reads <video>.timeline.json + <video>.samples/ + <video>.src0.png (render_v9.py); decodes the encoded file where a gate needs pixels. Exit 1 on any fail.
+New vs qc_v8: head_clear (NO text/pop/caption box may touch the head mask of the clip(s) on screen, moved with the camera), caption_center
+(|page centre - 540| <= 6 px), no_pad (pauses <= 0.45 s, only declared count/turn beats are silent, TTS speed as written), continuity (forward-only
+source frames, cross-dissolves >= 8 frames between talk clips, no reverse/ping-pong), hook_truth (reviewed verdict per template + the hook's promise
+is delivered: N cards, count + reveal, twin tiles + quiz, your-turn pause, stress dots), cta (deep link == content/video/ecosystem.json area link)."""
+import sys, os, re, json, subprocess
+import numpy as np, cv2
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from tokens import SAFE, MIN_READ, MIN_PX
+SYNC = 0.050
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..'))
+def frames_px(vid, idx, color=False):
+    sel = '+'.join(f"eq(n\\,{i})" for i in idx); pf, ch = ('bgr24', 3) if color else ('gray', 1)
+    raw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-i', vid, '-vf', f"select='{sel}'", '-vsync', '0', '-f', 'rawvideo', '-pix_fmt', pf, '-'], capture_output=True).stdout
+    n = 1080 * 1920 * ch; return [np.frombuffer(raw[j * n:(j + 1) * n], np.uint8).reshape((1920, 1080, ch) if color else (1920, 1080)) for j in range(len(raw) // n)]
+lap = lambda g: float(cv2.Laplacian(g, cv2.CV_64F).var())
+med = lambda a: sorted(a)[len(a) // 2] if a else 0
+def inter(a, b): return a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
+vid, hooks = sys.argv[1], sys.argv[2]
+T = json.load(open(vid + '.timeline.json')); fr = T['frames']; fps = T['fps']; SP = T['spec']; R = {}
+els = lambda f: [dict(zip(('name', 'text', 'x0', 'y0', 'x1', 'y1', 'alpha', 'px', 'group', 'digit'), e)) for e in f['els']]
+S = T['script']; W_ = T['words']; CP = T['captions']; POPS = {p['id']: p for p in T['pops']}
+# ---- hook truth: reviewed verdict + promise delivered
+HV = json.load(open(hooks))['verdicts'].get(SP['id']) or {}; pr = HV.get('promise', {}); chk = {}
+chk['verdict'] = bool(HV) and HV.get('hook_true') is True and HV.get('script_reviewed') is True
+chk['on_screen_hook_is_reviewed'] = T['hook']['text'] == HV.get('hook')
+chk['script_is_reviewed'] = HV.get('script') == S
+if 'wrong' in pr: chk['wrong_spoken'] = S.get(pr['wrong_line']) == pr['wrong'] and pr['wrong'].rstrip('.?!') in T['hook']['text']
+if 'right' in pr: chk['right_spoken'] = all(pr['right'] in S[l] for l in pr['right_lines'])
+if 'cards' in pr: chk['cards'] = sum(1 for p in T['pops'] if p['kind'] == 'card' and p['id'] != 'hook') == pr['cards'] and all(p.get('url') for p in T['pops'] if p['kind'] == 'card')
+if pr.get('count'): chk['count_beat'] = any(b['kind'] == 'count' for b in T['beats'].values())
+if 'reveal' in pr: chk['reveal'] = any(pr['reveal'] in p['text'] and p['t0'] >= max(b['e'] for b in T['beats'].values()) - 0.05 for p in T['pops'])
+if 'pair' in pr: chk['pair'] = any(p['kind'] == 'pair' and all(w.lower() in p['text'].lower() for w in pr['pair']) for p in T['pops'] if p['id'] != 'hook')
+if pr.get('quiz'): chk['quiz'] = any(p['kind'] == 'quiz' for p in T['pops'])
+if pr.get('turn'): chk['turn'] = any(b['kind'] == 'turn' for b in T['beats'].values()) and any(p['kind'] == 'turn' for p in T['pops'])
+if 'tags' in pr: chk['tags'] = sum(1 for p in T['pops'] if p['id'].startswith('t') and p['id'][1:].isdigit()) == pr['tags']
+if 'stress' in pr: chk['stress'] = any(p['kind'] == 'stress' and p['text'].split('·')[0] == pr['stress'] for p in T['pops'])
+if 'slow_line' in pr: chk['slow_line'] = T['lines'][pr['slow_line']]['speed'] <= 0.8
+R['hook_truth'] = dict(ok=all(chk.values()), checks=chk, hook=T['hook']['text'], note=HV.get('note'))
+f_on = [f['t'] for f in fr if any(e['group'] == 'hook' and e['alpha'] >= 0.999 for e in els(f))]
+hpx = [e['px'] for f in fr for e in els(f) if e['group'] == 'hook' and e['alpha'] >= 0.999]
+R['hook_readable'] = dict(ok=bool(f_on) and min(f_on) <= 0.40 and (len(f_on) / fps) >= 1.2 and min(hpx) >= 60, first_full=min(f_on, default=None), seconds=round(len(f_on) / fps, 2), px=min(hpx, default=0))
+# ---- captions == script
+D = T.get('display', {}); bad = []
+inv = lambda w: next((k + w[len(v):] for k, v in D.items() if w.startswith(v)), w)
+for lid, txt in S.items():
+    pages = [c for c in CP.values() if c['line'] == lid]; cap = ' '.join(inv(x) for c in pages for x in c['text'].split())
+    toks = [W_[w]['w'] for c in pages for w in c['words']]
+    if cap != txt or ' '.join(toks) != txt: bad.append((lid, cap, txt))
+sizes = [c['n'] for c in CP.values()]; single_bad = [c['text'] for c in CP.values() if c['n'] == 1 and c['text'][-1] not in '.?!:']
+erx = SP.get('error_re'); err_lines = sorted({c['line'] for c in CP.values() if erx and re.search(erx, c['text'].lower())})
+R['caption_script'] = dict(ok=bool(CP) and not bad and max(sizes) <= 3 and not single_bad and set(err_lines) <= set(SP.get('error_lines', [])),
+                           pages=len(CP), words_per_page=sorted(set(sizes)), mismatch=bad[:3], single_word_pages=single_bad, error_only_in=err_lines)
+R['caption_style'] = dict(ok=min(c['size'] for c in CP.values()) >= 72 and min(c['stroke'] for c in CP.values()) >= 10, sizes=sorted({c['size'] for c in CP.values()}))
+pc = {}
+for f in fr:
+    for e in els(f):
+        if e['group'] == 'caption': pc.setdefault(e['name'], []).append((e['x0'] + e['x1']) / 2)
+off = {k: round(med(v) - 540, 1) for k, v in pc.items()}; layout = {k: round(c['cx'] - 540, 1) for k, c in CP.items()}
+R['caption_center'] = dict(ok=bool(off) and max(map(abs, off.values())) <= 6 and max(map(abs, layout.values())) <= 1, max_ink_offset_px=max(map(abs, off.values()), default=None),
+                           max_layout_offset_px=max(map(abs, layout.values()), default=None), note='page ink centre vs frame centre 540 (v8 was -54)')
+# ---- head mask: no box touches the head of the clip(s) on screen
+HD = T['head']; hits = []; nchk = 0
+for f in fr:
+    M = f['M']; heads = [HD[c] for c, k, w in f['src'] if w > 0.02]
+    zr = [[M[0] * b[0] + M[2], M[4] * b[1] + M[5], M[0] * b[2] + M[2], M[4] * b[3] + M[5]] for b in heads]
+    for e in els(f):
+        if e['alpha'] <= 0.004: continue
+        bx = [e['x0'], e['y0'], e['x1'], e['y1']]
+        for z in zr:
+            nchk += 1
+            if inter(bx, z): hits.append((f['t'], e['name'], [round(v) for v in z]))
+R['head_clear'] = dict(ok=not hits and nchk > 0, checks=nchk, hits=hits[:6], n_hits=len(hits), band=T['band'])
+first, done = {}, {}
+for f in fr:
+    for wid, p in f['wipe'].items():
+        if p > 0 and wid not in first: first[wid] = f['t']
+        if p >= 1 and wid not in done: done[wid] = f['t']
+d0 = {w: round(first[w] - W_[w]['s'], 3) for w in W_ if w in first}; d1 = {w: round(done[w] - W_[w]['e'], 3) for w in W_ if w in done}
+miss = [w for w in W_ if w not in first or w not in done]; late = {w: d for w, d in list(d0.items()) + list(d1.items()) if abs(d) > SYNC}
+R['caption_sync'] = dict(ok=bool(W_) and not miss and not late, words=len(W_), max_start_ms=round(1000 * max(map(abs, d0.values()), default=0)),
+                         max_end_ms=round(1000 * max(map(abs, d1.values()), default=0)), missing=miss[:6], over=list(late.items())[:6], limit_ms=1000 * SYNC)
+chkd = [w for w in W_.values() if w['checked']]; dv = [abs(w['s'] - w['onset']) for w in chkd]; fw = [w for w in W_.values() if w['k'] == 0]
+R['align_audio'] = dict(ok=bool(chkd) and all(d <= SYNC for d in dv) and all(w['checked'] for w in fw), checked=len(chkd), words=len(W_),
+                        line_starts_checked=sum(w['checked'] for w in fw), lines=len(fw), max_ms=round(1000 * max(dv, default=0)))
+spoke = {}
+for f in fr:
+    for lid, L in T['lines'].items():
+        if L['at'] <= f['t'] <= L['at'] + L['dur']: spoke.setdefault(lid, set()).add(f['vis'])
+nomouth = [lid for lid in T['lines'] if len(spoke.get(lid, set()) - {'X'}) < 2]
+R['lipsync_rhubarb'] = dict(ok=all(str(l.get('gen') or '').startswith('rhubarb') and l['cues'] > 0 for l in T['lines'].values()) and not nomouth, lines_without_mouth_motion=nomouth)
+# ---- no padding: natural gaps, only declared beats are silent, TTS speed as written
+gp = [g for g in T['gaps'] if g['gap'] > T['gap_max'] + 0.011]; bt = [b for b in T['beats'].values() if b['kind'] not in ('count', 'turn') or b['e'] - b['s'] > 3.2]
+want_speed = {l['id']: l.get('speed', SP.get('speed', 1.0)) for l in SP['lines'] if l.get('text')}
+spd = [lid for lid, L in T['lines'].items() if abs(L['speed'] - want_speed[lid]) > 1e-6 or (L['speed'] < 0.95 and lid not in [x['id'] for x in SP['lines'] if x.get('speed')])]
+speech_end = max(L['at'] + L['dur'] for L in T['lines'].values())
+R['no_pad'] = dict(ok=not gp and not bt and not spd and T['total'] - speech_end <= 1.6 and 18 <= T['total'] <= 35, long_gaps=gp[:4], beats=T['beats'], speed_mismatch=spd,
+                   max_gap=max((g['gap'] for g in T['gaps']), default=0), tail=round(T['total'] - speech_end, 2), total=T['total'])
+# ---- continuity: forward-only source frames, dissolves between talk clips, no reverse playback
+rev = []; holds = []; prev = {}
+n_end = T['xfe']
+for i, f in enumerate(fr):
+    cur = {c: k for c, k, w in f['src']}
+    for c, k in cur.items():
+        if c in prev and i < len(fr) - n_end and k != prev[c] + 1:
+            (rev if k < prev[c] else holds).append((f['t'], c, prev[c], k))
+    prev = cur
+xf_runs = []; run = 0
+for f in fr[:len(fr) - n_end]:
+    if len(f['src']) > 1: run += 1
+    elif run: xf_runs.append(run); run = 0
+g = [x for k in range(0, T['n'] - 1, 60) for x in frames_px(vid, list(range(k, min(T['n'] - 1, k + 60), 6)))]
+hist = lambda x: cv2.calcHist([cv2.resize(x, (270, 480))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for a, b in zip(g, g[1:])]
+sets = {T['spec']['set']}
+R['continuity'] = dict(ok=not rev and not holds and all(r >= 8 for r in xf_runs) and max(dd, default=99) < 0.10 and len(sets) == 1, reverse_steps=rev[:4], holds=holds[:4],
+                       dissolves=xf_runs, joins=[(j['from_clip'], j['exit'], j['to_clip'], j['entry'], j['diff']) for j in T['joins']], max_hist_change_6f=round(max(dd, default=0), 4),
+                       note='forward playback only; talk clips cross-dissolve (10 f) at their best-matching frames; last 10 f dissolve to frame 0 (loop)')
+badT = []
+for f in fr:
+    M = f['M']; w = f['win']
+    if abs(M[0] - M[4]) > 1e-6 or M[1] != 0 or M[3] != 0 or M[0] < 1 - 1e-6 or w[0] < -0.01 or w[1] < -0.01 or w[2] > 1080.01 or w[3] > 1920.01: badT.append((f['t'], M))
+g0 = frames_px(vid, [0], True); s0 = cv2.imread(vid + '.src0.png'); psnr = 0
+if g0 and s0 is not None:
+    m = np.ones(s0.shape[:2], bool); hb = HD[SP['clips'][0]]; m[hb[1]:hb[3], hb[0]:hb[2]] = False   # mouth swap lives inside the head box
+    mse = float(np.mean((g0[0].astype(np.float32)[m] - s0.astype(np.float32)[m]) ** 2)); psnr = 99 if mse == 0 else 10 * np.log10(255 ** 2 / mse)
+R['no_stretch'] = dict(ok=not badT and psnr >= 32, bad_frames=badT[:4], frame0_vs_native_psnr=round(psnr, 2))
+ss = [f['s'] for f in fr]; runs = 0; prevup = False
+for i in range(1, len(ss)):
+    up = ss[i] - ss[i - 1] > 0.0012; runs += up and not prevup; prevup = up
+R['camera'] = dict(ok=abs(ss[0] - 1) < 1e-6 and abs(ss[-1] - 1) < 1e-6 and max(ss) <= T['smax'] + 1e-6 and 1 <= runs <= 3, max_scale=round(max(ss), 4), punch_ins=runs)
+digits = {}
+for f in fr:
+    for e in els(f):
+        if e['digit'] and e['alpha'] >= 0.999: digits[e['digit']] = digits.get(e['digit'], 0) + 1 / fps
+has_count = any(b['kind'] == 'count' for b in T['beats'].values())
+R['countdown'] = dict(ok=(not has_count) or all(digits.get(k, 0) >= 0.8 for k in '321'), digits={k: round(v, 2) for k, v in digits.items()}, applies=has_count)
+out, full, small = [], {}, []
+for f in fr:
+    for e in els(f):
+        if e['alpha'] <= 0.004: continue
+        if e['x0'] < SAFE['x0'] or e['x1'] > SAFE['x1'] or e['y0'] < SAFE['y0'] or e['y1'] > SAFE['y1']: out.append((f['t'], e['name'], [e['x0'], e['y0'], e['x1'], e['y1']]))
+        if e['group'] != 'caption': full.setdefault(e['name'], []).append(f['t'] if e['alpha'] >= 0.999 else None)
+        if e['px'] < MIN_PX and e['alpha'] >= 0.999: small.append((f['t'], e['name'], e['px']))
+R['safe_area'] = dict(ok=not out, safe=SAFE, outside=out[:6], n_outside=len(out))
+def vis_runs(ts):
+    rs, cur = [], 0
+    for x in ts:
+        if x is None: (rs.append(cur) if cur else None); cur = 0
+        else: cur += 1 / fps
+    if cur: rs.append(cur)
+    return rs
+short = {k: [round(r, 2) for r in vis_runs(v) if r < MIN_READ] for k, v in full.items()}; short = {k: v for k, v in short.items() if v}
+R['readability'] = dict(ok=not short and not small, min_visible_s=MIN_READ, too_short=short, too_small=small[:6])
+g = frames_px(vid, [0, T['n'] - 1]); md = float(np.abs(g[0].astype(np.int16) - g[1].astype(np.int16)).mean()) if len(g) == 2 else 99
+tl = [e['name'] for e in els(fr[-1]) if e['alpha'] > 0.004]; tf = [e['name'] for e in els(fr[0]) if e['alpha'] > 0.004 and e['group'] != 'hook']
+R['loop_end'] = dict(ok=md <= 3.0 and not tl and not tf, first_last_mean_abs_diff=round(md, 2), els_first=tf, els_last=tl)
+ECO = {a['id']: a for a in json.load(open(f'{ROOT}/content/video/ecosystem.json'))['areas']}; cta = SP['cta']; ctap = POPS.get('cta')
+R['cta'] = dict(ok=cta['area'] in ECO and ECO[cta['area']]['link'] == cta['link'] and bool(ctap) and 'lexkite.com' in ctap['text'] and any('lexkite.com' in s_ for s_ in S.values()),
+                area=cta['area'], link=cta['link'], on_screen=ctap and ctap['text'])
+R['emoji'] = dict(ok=all(v == 'noto' for v in T['emoji'].values()), used=T['emoji'])
+Sh = T['sharp']; up = [x['var_render'] / max(1e-6, x['var_native']) for x in Sh]
+gs = frames_px(vid, [x['frame'] for x in Sh]); enc = []
+for x, ge in zip(Sh, gs):
+    rp = f"{vid}.samples/f{x['frame']:04d}.png"; r = x['rect']
+    if os.path.exists(rp): gr = cv2.cvtColor(cv2.imread(rp), cv2.COLOR_BGR2GRAY); enc.append(lap(ge[r[1]:r[3], r[0]:r[2]]) / max(1e-6, lap(gr[r[1]:r[3], r[0]:r[2]])))
+R['host_sharp'] = dict(ok=bool(Sh) and len(enc) == len(Sh) and med(up) >= 0.80 and min(up) >= 0.65 and med(enc) >= 0.80,
+                       push_vs_native_median=round(med(up), 3), push_vs_native_min=round(min(up, default=0), 3), encoded_vs_rendered_median=round(med(enc), 3), samples=len(Sh))
+prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)
+v = [s_ for s_ in prb['streams'] if s_['codec_type'] == 'video'][0]; dur = float(prb['format']['duration']); vb = int(v.get('bit_rate') or 0) / 1e6
+R['file'] = dict(ok=18 <= dur <= 35.5 and (v['width'], v['height']) == (1080, 1920) and 8.0 <= vb <= 9.5, duration=round(dur, 2), video_mbps=round(vb, 2), size_mb=round(int(prb['format']['size']) / 1e6, 1), fps=v['r_frame_rate'])
+fails = [k for k, r in R.items() if not r['ok']]
+J = lambda x: x.item() if hasattr(x, 'item') else str(x)
+json.dump(dict(video=vid, template=SP['template'], ok=not fails, failed=fails, gates=R), open(vid + '.qc.json', 'w'), indent=1, default=J)
+for k, r in R.items(): print(('PASS ' if r['ok'] else 'FAIL ') + k, json.dumps({a: b for a, b in r.items() if a != 'ok'}, ensure_ascii=False, default=J)[:420])
+print(f"{vid}: {'OK' if not fails else 'FAILED ' + ','.join(fails)} ({len(R) - len(fails)}/{len(R)} gates)")
+sys.exit(0 if not fails else 1)

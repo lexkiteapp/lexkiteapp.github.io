@@ -1,0 +1,25 @@
+{
+ "id": "t3_guess_elevator", "template": "guess", "title": "Guess the word",
+ "teacher": "ama", "set": "hotel", "clips": ["h06_ama_mcu_talk"],
+ "accent": "mint", "active": "mint", "hook_style": "question: picture clue card + mint ? badge, spring", "motif": "picture card with a countdown ring, US/UK twin tiles",
+ "cta": { "area": "dictionary", "link": "https://lexkite.com/app/#/dict", "say": "Look up any word" },
+ "speed": 1.0,
+ "lines": [
+  { "id": "g_h", "text": "Can you guess this word?" },
+  { "id": "g_c", "text": "Hint: it takes you up and down.", "key": { "mint": [0] } },
+  { "id": "_count", "beat": "count", "dur": 3.0 },
+  { "id": "g_a", "text": "It's an elevator!", "key": { "green": [2] } },
+  { "id": "g_p", "text": "Say it with me: elevator.", "key": { "green": [4] }, "gap": 0.3 },
+  { "id": "g_u", "text": "In British English, it's a lift.", "key": { "yellow": [5] }, "gap": 0.3 },
+  { "id": "g_v", "text": "But in America, we say elevator.", "key": { "green": [5] } },
+  { "id": "g_s", "text": "Look up any word free on lexkite.com.", "gap": 0.3 }
+ ],
+ "pops": [
+  { "id": "hook", "kind": "card", "role": "hook", "anim": "spring", "img": "elevator#n", "right": [[["@q"]], [["GUESS", "mint"]], [["the word", "white"]]], "from": ["t", 0], "to": ["_count", null, "e", 0.0], "count": "_count" },
+  { "id": "reveal", "kind": "card", "anim": "stamp", "img": "elevator#n", "right": [[["elevator", "green"]], [["@ok"]]], "from": ["g_a", 0, "s", -0.04], "to": ["g_p", 4, "s", -0.08] },
+  { "id": "stress", "kind": "stress", "anim": "spring", "syl": ["EL", "e", "va", "tor"], "stress": 0, "from": ["g_p", 4, "s", -0.06], "to": ["g_u", 3, "s", -0.08], "sweep": ["g_p", 4] },
+  { "id": "ukus", "kind": "pair", "anim": "spring", "left": { "title": "lift", "sub": [["@emoji:🇬🇧"], [" UK", "white"]], "color": "navy2" }, "right": { "title": "elevator", "sub": [["@emoji:🇺🇸"], [" US", "white"]], "color": "green" },
+    "focus": [[["g_u", 0, "s", 0], "left"], [["g_v", 0, "s", 0], "right"]], "from": ["g_u", 3, "s", -0.06], "to": ["g_v", -1, "e", 0.4] },
+  { "id": "cta", "kind": "cta", "from": ["g_s", 0, "s", -0.05], "to": ["end"] }
+ ]
+}

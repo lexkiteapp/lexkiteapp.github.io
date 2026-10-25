@@ -1,0 +1,22 @@
+{
+ "_note": "Teacher / set / clip registry for the v9 template family (docs/VIDEO-TEACHERS.md). Only to-camera talk loops with a Rhubarb mouth set. head = protected head mask in SOURCE pixels (hair + ears + chin + neck, union over the whole clip incl. head sway, checked by eye on the 13-frame average); no text box may ever touch it (qc_v9 head_clear, moved with the camera per frame). anchor = camera push centre. band = where pops go: below the chin, above the captions (computed by render_v9 from head + smax). path/meta = folders inside lexkite-footage.",
+ "teachers": {
+  "ama": { "name": "Ama", "voice": "af_bella", "accent": "American (Kokoro af_bella)", "persona": "warm, upbeat American English teacher" },
+  "carlos": { "name": "Carlos", "voice": "am_fenrir", "accent": "American (Kokoro am_fenrir)", "persona": "calm, clear American English teacher" }
+ },
+ "sets": {
+  "studio": { "lib": "anchor", "path": "tools/dl24", "meta": "tools/meta", "amb": "tools/amb_studio.wav", "ding": "tools/foley/ding.wav", "smax": 1.10 },
+  "hotel": { "lib": "hotel", "path": "dl24", "meta": "meta", "amb": "tools/amb_hotel.wav", "ding": "tools/foley/ding.wav", "smax": 1.06 },
+  "airport": { "lib": "airport", "path": "dl24", "meta": "meta", "amb": "tools/amb_airport.wav", "ding": "", "smax": 1.06 }
+ },
+ "clips": {
+  "a01_ama_talk": { "set": "studio", "who": "ama", "usable": [0, 120], "head": [185, 305, 815, 910], "anchor": [540, 430] },
+  "a02_ama_talk_smile": { "set": "studio", "who": "ama", "usable": [0, 120], "head": [185, 305, 815, 910], "anchor": [540, 430] },
+  "a03_ama_explain": { "set": "studio", "who": "ama", "usable": [20, 120], "head": [185, 305, 815, 910], "anchor": [540, 430] },
+  "c01_carlos_talk": { "set": "studio", "who": "carlos", "usable": [0, 120], "head": [345, 290, 800, 890], "anchor": [560, 450] },
+  "c02_carlos_talk_smile": { "set": "studio", "who": "carlos", "usable": [0, 120], "head": [345, 290, 800, 890], "anchor": [560, 450] },
+  "c03_carlos_explain": { "set": "studio", "who": "carlos", "usable": [0, 120], "head": [345, 290, 800, 890], "anchor": [560, 450] },
+  "h06_ama_mcu_talk": { "set": "hotel", "who": "ama", "usable": [0, 120], "head": [40, 110, 1050, 1000], "anchor": [540, 560] },
+  "a07_ama_mcu_talk": { "set": "airport", "who": "ama", "usable": [0, 120], "head": [45, 140, 1045, 1010], "anchor": [540, 560] }
+ }
+}
