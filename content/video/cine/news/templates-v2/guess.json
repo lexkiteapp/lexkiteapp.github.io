@@ -2,10 +2,10 @@
  "id": "t3_guess_elevator",
  "template": "guess",
  "title": "Guess the word (classroom, text on the whiteboard)",
- "teacher": "ama",
+ "teacher": "kai",
  "set": "classroom_board",
  "clips": [
-  "a02_ama_board"
+  "k03_kai_desk"
  ],
  "accent": "mint",
  "active": "mint",
@@ -265,7 +265,7 @@
     "g_x",
     0,
     "s",
-    -0.06
+    -0.25
    ],
    "to": [
     "g_x",

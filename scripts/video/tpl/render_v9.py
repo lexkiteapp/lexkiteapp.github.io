@@ -333,6 +333,21 @@ def rich(rows, sz, plate=None, maxw=None, maxh=None, pad=(34, 22), sub=1.0, keep
         elif not INK: im = shadowed(im, 5, 6, 0.5)
         if (im.width <= maxw and im.height <= maxh) or sz * min(1.0, sub) <= 50: return im, round(sz * min(1.0, sub))
         sz -= 2
+def wrap_rows(rows, maxw, sz, plate=False):   # greedy word wrap of rich rows (colour runs and badges kept) to maxw at size sz
+    out = []
+    for r in rows:
+        units = []
+        for seg in r:
+            if seg[0].startswith('@'): units.append([seg])
+            else: units += [[[w_, seg[1]]] for w_ in re.findall(r'\S+\s*|\s+', seg[0])]
+        line = []
+        for u in units:
+            if line and rich_row(line + u, sz, plate).width > maxw:
+                out.append(line); u = [[u[0][0].lstrip(), u[0][1]]] if not u[0][0].startswith('@') else u; line = []
+                if not u[0][0]: continue
+            line = line + u
+        if line: out.append(line)
+    return out
 def rows_text(rows): return ' / '.join(''.join(tok_txt(s[0]) for s in r) for r in rows)
 IMGJ = json.load(open(f'{ROOT}/content/lexicon/img.json'))['items']
 def vocab_img(key, side):
@@ -367,8 +382,9 @@ class Pop:
     def variants(s):
         P = s.P; k = s.kind
         if k == 'rich':
-            v = ['rows'] + (['one'] if len(P['rows']) > 1 else []) + (['two_a', 'two_b'] if len(P['rows']) > 2 else []); return v
-        if k == 'card': return ['h', 'v']
+            v = ['rows'] + (['one'] if len(P['rows']) > 1 else []) + (['two_a', 'two_b'] if len(P['rows']) > 2 else []) + ['wrap']; return v
+        if k == 'card': return ['h', 'v', 'h2']
+        if k == 'pair': return ['h', 'v']
         return [None]
     def rows_v(s, rows):
         if s.variant == 'one': return [sum([list(r) if i == 0 else [[' ', 'white']] + list(r) for i, r in enumerate(rows)], [])]
@@ -402,19 +418,31 @@ class Pop:
         print(f'pop {s.id} -> {s.where} variant {s.variant} px {best[0]:.0f} (need {need}) region {s.region}', flush=True)
     def build(s):
         P = s.P; k = s.kind; PW, PH = s.PW, s.PH
-        if k == 'rich':   # board: start 1.3x bigger, rich() shrinks to the zone
+        if k == 'rich' and s.variant == 'wrap':   # narrow board: word-wrap the rows to the region width, largest size that fits
+            s.text = rows_text(P['rows']); cand = []; pad_ = 2 * 34 + 8 if P.get('plate') else 8
+            for sz0 in range(round(P.get('size', 76) * 1.3), 49, -4):
+                wr = wrap_rows(P['rows'], PW - pad_, sz0, bool(P.get('plate'))); im_, px_ = rich(wr, sz0, P.get('plate'), maxw=PW - 8, maxh=PH - 6); cand.append((im_, px_, len(wr)))
+            top = max(c[1] for c in cand); ok_ = [c for c in cand if c[1] >= 0.85 * top]   # fewest lines within 15 % of the largest size
+            s.im, s.px, _n = min(ok_, key=lambda c: (c[2], -c[1]))
+        elif k == 'rich':   # board: start 1.3x bigger, rich() shrinks to the zone
             s.im, s.px = rich(s.rows_v(P['rows']), round(P.get('size', 76) * (1.3 if INK else 1.0)), P.get('plate'), maxw=(PW - 8 if INK else 2 * min(s.cx - SAFE['x0'], SAFE['x1'] - s.cx) - 8)); s.text = rows_text(P['rows'])
         elif k == 'cta':
             ic = ICON.resize((72, 72), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 71, 71], 18, fill=255)
             ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
             seg = SP['cta']['say']; sz = 62
             while sz > 50 and hrow([ic, rich_row([[seg, 'white']], sz)], 14).width > PW - 12: sz -= 2
-            l1 = hrow([ic, rich_row([[seg, 'white']], sz)], 14); l1 = l1 if INK else shadowed(l1, 5, 6, 0.5)
+            l1 = hrow([ic, rich_row([[seg, 'white']], sz)], 14)
+            if l1.width > PW - 12 and ' ' in seg:   # narrow board: the call to action on two lines
+                ws_ = seg.split(); k_ = min(range(1, len(ws_)), key=lambda k: abs(len(' '.join(ws_[:k])) - len(' '.join(ws_[k:])))); sz = 62
+                two = lambda z: hrow([ic, stack([rich_row([[' '.join(ws_[:k_]), 'white']], z), rich_row([[' '.join(ws_[k_:]), 'white']], z)], 2)], 14)
+                while sz > 50 and two(sz).width > PW - 12: sz -= 2
+                l1 = two(sz)
+            l1 = l1 if INK else shadowed(l1, 5, 6, 0.5)
             pl = pill([('lexkite.com', ACC if ACC not in (COL['navy2'], COL['navy']) else COL['mint'])], 62, COL['navy'])
             s.im = stack([l1, pl], 12); s.px = min(sz, 62); s.text = f'{seg} / lexkite.com'
         elif k == 'card':
             vert = s.variant == 'v'
-            side = min(230, PW - 28, int(PH * 0.5)) if vert else min(230, PH - 40); tile, s.url = vocab_img(P['img'], side)
+            side = min(230, PW - 28, int(PH * 0.5)) if vert else min(150 if s.variant == 'h2' else 230, PH - 40); tile, s.url = vocab_img(P['img'], side)
             if 'right' in P:   # horizontal: picture + text block (guess); vertical (tall board zone): picture above the text
                 s.side_im = tile
                 rr, s.px = rich(P['right'], 78, None, maxw=PW - 8, maxh=PH - tile.height - 14) if vert else rich(P['right'], 78, None, maxw=PW - tile.width - 40, maxh=PH - 10)
@@ -429,8 +457,9 @@ class Pop:
             assert INK or (s.im.height <= PH and s.im.width <= PW), ('card too big', s.id, s.im.size)
         elif k == 'pair':
             def tile(d, lit=True, size=100 if P.get('vs') else 104):
-                rows = [[[d['title'], 'white']]] + ([d['sub']] if d.get('sub') else [])
-                im, sz_ = rich(rows, size, d.get('color', 'navy2'), keep_plate=True, sub=0.62, maxw=(PW - (96 if P.get('vs') else 26)) // 2, maxh=PH - 10, pad=(16, 14) if P.get('vs') else (24, 16)); s.pxs.append(sz_ if d.get('sub') else round(sz_ / 0.62))   # rich() reports the 0.62 sub size
+                vv = s.variant == 'v'   # stacked tiles on a narrow board: title + sub on ONE row per tile, same size
+                rows = ([[[d['title'], 'white']] + ([[' ', 'white']] + list(d['sub']) if d.get('sub') else [])]) if vv else [[[d['title'], 'white']]] + ([d['sub']] if d.get('sub') else [])
+                im, sz_ = rich(rows, size, d.get('color', 'navy2'), keep_plate=True, sub=1.0 if vv else 0.62, maxw=(PW - 8) if vv else (PW - (96 if P.get('vs') else 26)) // 2, maxh=((PH - (70 if P.get('vs') else 20)) // 2) if vv else PH - 10, pad=(16, 14) if P.get('vs') else (24, 16)); s.pxs.append(sz_ if (d.get('sub') or vv) else round(sz_ / 0.62))   # rich() reports the 0.62 sub size
                 if not lit: a = np.asarray(im).copy(); a[..., 3] = (a[..., 3] * 0.38).astype(np.uint8); im = Image.fromarray(a)
                 return im
             s.pxs = []; s.L = {True: tile(P['left']), False: tile(P['left'], False)}; s.R = {True: tile(P['right']), False: tile(P['right'], False)}
@@ -448,7 +477,8 @@ class Pop:
             s.head_im, s.px = rich(P['rows'], 88, None, maxh=PH - 60); s.text = rows_text(P['rows']); b = BEATS[P['beat']]; s.b0, s.b1 = b['s'], b['e']; s.im = s.compose_turn(0.0)
         assert INK or s.im.height <= PH + 2, ('pop taller than the band', s.id, s.im.size, PH)
     def compose_pair(s, f):
-        L = s.L[f in ('left', 'both')]; R = s.R[f in ('right', 'both')]; items = [L] + ([s.vs] if s.vs else []) + [R]; return hrow(items, 12 if s.vs else 22)
+        L = s.L[f in ('left', 'both')]; R = s.R[f in ('right', 'both')]; items = [L] + ([s.vs] if s.vs else []) + [R]
+        return stack(items, 8) if s.variant == 'v' else hrow(items, 12 if s.vs else 22)
     def compose_quiz(s, T):
         st_a = st_b = 'n'
         if T >= s.rev: st_a, st_b = ('ok', 'dim') if s.P['correct'] == 'a' else ('dim', 'ok')
@@ -456,6 +486,8 @@ class Pop:
         b = BEATS.get('_count')
         if b and b['s'] <= T < b['e']: n = 3 - min(2, int(T - b['s'])); mid = [ring(str(n), 1 - (T - b['s']) / (b['e'] - b['s']), 130)]; s.digit = str(n)
         else: s.digit = None
+        if hrow([s.pA['n'], s.pB['n']], 24).width > s.PW - 8 and s.qim is not None:   # narrow board: options one under the other
+            q = hrow([s.qim] + mid, 20) if mid else s.qim; return stack([q, s.pA[st_a], s.pB[st_b]], 12)
         wide = hrow([s.pA['n'], ring('3', 1.0), s.pB['n']], 24).width > s.PW - 8
         if wide and s.qim is not None:   # long options: ring goes next to the question, pills keep their full size
             q = hrow([s.qim] + mid, 20) if mid else s.qim; return stack([q, hrow([s.pA[st_a], s.pB[st_b]], 24)], 14)
@@ -522,8 +554,9 @@ def keycol(lid, k):
     for name in ('red', 'green', 'yellow', 'mint'):
         if k in KEY[lid].get(name, []): return COL[name]
     return None
-CAPINK = bool(BRD)   # board mode: captions are WRITTEN ON THE BOARD in ink (navy, white edge, highlighter on the active word), moved with the camera
-CAP = dict(size=96, min=72, stroke=12, gapx=22, bounce=1.16, settle=1.08) if not BRD else dict(size=80, min=72, stroke=10, gapx=20, bounce=1.12, settle=1.06)
+DESK = bool(BRD) and BRD['cap'].get('body_overlap_rows', 1) == 0 and BRD['cap']['w'] >= 700   # a clean desk-front / floor band below the teacher
+CAPINK = bool(BRD) and not DESK   # board mode: captions are WRITTEN ON THE BOARD in ink (navy, white edge, highlighter on the active word), moved with the camera
+CAP = dict(size=96, min=72, stroke=12, gapx=22, bounce=1.16, settle=1.08) if not BRD else dict(size=80, min=72, stroke=10 if CAPINK else 12, gapx=20, bounce=1.12, settle=1.06)
 ST, SS = CAP['stroke'], 2; HL_PAD = 10 if CAPINK else 0
 _wc = {}
 def word_im(txt, sz, col, sc, hl=False):
@@ -543,7 +576,19 @@ def _wpx(seg, sz):   # page row width incl. the active word's bounce, stroke and
     fo = font(sz); ww = [fo.getlength(disp(x)) for x in seg]
     return sum(ww) + (CAP['gapx'] + fo.getlength(' ')) * (len(seg) - 1) + max(ww) * (CAP['bounce'] - 1) + 2 * ST + 24 + 2 * HL_PAD
 ROW2 = False; PITCH = 0; STRIP1 = STRIP2 = None; POPZ = POPZ_TALL = ZONE
-if BRD:   # caption strip = the board's lower area, clear of the person mask in EVERY frame (bank.json board.body envelope + head boxes)
+if DESK:   # captions on the measured clean desk front / floor band (CapCut white + stroke, screen space, camera anchored on them)
+    BM = np.zeros((H, W), bool); _st = BRD['body']['step']
+    for _row in filter(None, BRD['body']['rows'].split(';')):
+        _y, _iv = _row.split(':'); _y = int(_y)
+        for _x in _iv.split(','): _a, _b = map(int, _x.split('-')); BM[_y:_y + _st, _a:_b] = True
+    for _h in HEAD.values(): BM[max(0, _h[1] - 6):_h[3] + 6, max(0, _h[0] - 6):_h[2] + 6] = True
+    _im, _ib = word_im('Hgjy', CAP['size'], (255, 255, 255), CAP['bounce']); CAP_CY = int(BRD['cap']['box'][3] - (_ib[3] - _im.height / 2) - 1)
+    _i1, _b1 = word_im('Hgjy', CAP['size'], (255, 255, 255), 1.0); PITCH = int(_b1[3] - _b1[1]) + 2
+    STRIP1 = [int(CCX - CAPWC / 2), int(CAP_CY + _ib[1] - _im.height / 2), int(CCX + CAPWC / 2), BRD['cap']['box'][3]]
+    STRIP2 = [STRIP1[0], STRIP1[1] - PITCH, STRIP1[2], STRIP1[3]]; ROW2 = not BM[max(0, STRIP2[1]):STRIP2[3], max(0, STRIP2[0]):STRIP2[2]].any() and STRIP2[1] > BAND_Y1
+    assert not BM[STRIP1[1]:STRIP1[3], max(0, STRIP1[0]):STRIP1[2]].any(), 'desk caption band touches the person mask'
+    print(f'desk captions: strip {STRIP1} (2-row ok={ROW2}), cx {CCX} w {CAPWC}, pops on the board zone {POPZ}', flush=True)
+elif BRD:   # caption strip = the board's lower area, clear of the person mask in EVERY frame (bank.json board.body envelope + head boxes)
     BM = np.zeros((H, W), bool); _st = BRD['body']['step']
     for _row in filter(None, BRD['body']['rows'].split(';')):
         _y, _iv = _row.split(':'); _y = int(_y)
@@ -632,11 +677,11 @@ for a, b in zip(PAGES, PAGES[1:]): a.t1 = min(a.t1, b.t0)
 CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), rows=p.rows, size=p.sz, stroke=ST, ss=SS, cx=round((p.ink[0] + p.ink[1]) / 2, 1), ink=[round(v) for v in p.ink],
                          last=WORDS[p.wids[-1]]['k'] == len(LINES[p.lid]['words']) - 1) for j, p in enumerate(PAGES)}
 print('pages', ' | '.join(p.text.replace(' ', '/', 1) if p.rows > 1 else p.text for p in PAGES), flush=True)
-TALL = [(p.t0, p.t1) for p in PAGES if p.rows > 1]
+TALL = [(p.t0, p.t1) for p in PAGES if p.rows > 1] if CAPINK else []   # two-row board pages need the strip above them
 def nwords(t): return len(re.findall(r"[A-Za-z0-9$][A-Za-z0-9$'’.\-]*", t))
 READ_PAD = 0.36   # entrance (spring 0.16 s to full alpha) + exit fade (0.16 s): the text is fully readable for t1 - t0 - READ_PAD
 POPS = [Pop(p) for p in SP['pops']]
-if BRD:   # a two-row caption page needs the strip above it: a pop starting with it waits, one ending with it ends first, else it sits higher
+if CAPINK:   # a two-row caption page needs the strip above it: a pop starting with it waits, one ending with it ends first, else it sits higher
     for a, b in TALL:
         for p in POPS:
             if p.t0 < b and p.t1 > a:

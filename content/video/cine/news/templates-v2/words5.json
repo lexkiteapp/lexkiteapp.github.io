@@ -2,10 +2,10 @@
  "id": "t2_words5_hotel",
  "template": "words5",
  "title": "5 hotel words you need (classroom, text on the whiteboard)",
- "teacher": "carlos",
+ "teacher": "mei",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board"
+  "m03_mei_desk"
  ],
  "accent": "yellow",
  "active": "yellow",

@@ -2,10 +2,10 @@
  "id": "t1_mistake_agree",
  "template": "mistake",
  "title": "Stop saying “I am agree” (classroom board, text on the whiteboard)",
- "teacher": "ama",
+ "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "a02_ama_board"
+  "d03_daniel_desk"
  ],
  "accent": "red",
  "active": "cream",
@@ -198,7 +198,7 @@
    "plate": "navy",
    "from": [
     "m_y",
-    2,
+    0,
     "s",
     -0.06
    ],
@@ -244,9 +244,9 @@
    ],
    "to": [
     "m_t",
-    3,
+    1,
     "e",
-    0.0
+    -0.04
    ],
    "rows": [
     [
@@ -271,15 +271,15 @@
    "size": 84,
    "from": [
     "m_x",
-    2,
+    0,
     "s",
-    -0.06
+    0.35
    ],
    "to": [
     "m_t",
-    3,
+    1,
     "e",
-    0.0
+    -0.04
    ],
    "rows": [
     [
@@ -301,15 +301,15 @@
    "size": 84,
    "from": [
     "m_x",
-    5,
+    0,
     "s",
-    -0.06
+    0.7
    ],
    "to": [
     "m_t",
-    3,
+    1,
     "e",
-    0.0
+    -0.04
    ],
    "rows": [
     [
@@ -331,9 +331,9 @@
    "size": 84,
    "from": [
     "m_t",
-    4,
-    "s",
-    -0.06
+    1,
+    "e",
+    0.0
    ],
    "to": [
     "m_t",
@@ -366,7 +366,7 @@
    "kind": "quiz",
    "from": [
     "m_q",
-    0,
+    1,
     "s",
     -0.06
    ],
