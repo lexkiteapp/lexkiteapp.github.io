@@ -12,7 +12,9 @@ a = ap.parse_args()
 HOMO = {'to': ['two', 'too'], 'for': ['four', 'fore'], 'a': ['ay', 'eh', 'hey a'], 'the': ['thee'], 'be': ['bee', 'b'], 'there': ['their', 'theyre'],
         'you': ['u', 'yew', 'ewe'], 'we': ['wee', 'oui'], 'or': ['oar', 'ore', 'awe', 'aw'], 'nor': ['gnaw', 'naw'], 'so': ['sew', 'sow'],
         'would': ['wood'], 'some': ['sum'], 'do': ['due', 'dew'], 'but': ['butt'], 'into': ['in to'], 'onto': ['on to'], 'he': ['hee'], 'and': ['an']}
-norm = lambda s: re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', '', s.lower().replace('-', ' '))).strip()
+DIG = {'0': ' zero ', '1': ' one ', '2': ' two ', '3': ' three ', '4': ' four ', '5': ' five ', '6': ' six ', '7': ' seven ', '8': ' eight ', '9': ' nine '}
+# Whisper viết số ("2", "4") → đổi ra chữ trước khi so (trước đây "2" thành rỗng → to/for đúng mà bị đánh trượt); tiêu chí so khớp không đổi
+norm = lambda s: re.sub(r'\s+', ' ', re.sub(r'[^a-z ]', '', re.sub(r'\d', lambda m: DIG[m.group()], s.lower()).replace('-', ' '))).strip()
 def heard_ok(word, text):
     t = norm(text); ok = {norm(word)} | {norm(h) for h in HOMO.get(word.lower(), [])}
     return t in ok or t.replace(' ', '') in {x.replace(' ', '') for x in ok}
