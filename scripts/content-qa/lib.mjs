@@ -76,3 +76,13 @@ const viKey = s => s.toLowerCase().replace(/[()]/g, '').replace(/^(sự|lòng|vi
 export const viDup = vi => { const k = String(vi || '').split(/[;,]/).map(viKey).filter(Boolean); return new Set(k).size < k.length; };
 // 4) Từ loại ↔ định nghĩa: mục động từ phải có định nghĩa động từ ("to …"); trợ động từ khuyết thiếu dùng "used …"
 export const verbDefOk = def => /^(\([^)]*\)\s*)?to\b|^used\b|^modal\b|^expressing\b|^what is expected/i.test(String(def || '').trim());
+// 5) Rà soát từ vựng lượt 1 (26/10/2026) – lớp lỗi mới
+// IPA Anh kiểu "(r)" tuỳ chọn (/ˈnʌmbə(r)/): kho ghi giọng Anh không r cuối – normUK() bỏ, cổng chặn tái phát
+export const ipaOptR = ipa => /\(r\)/.test(String(ipa || ''));
+// Hư từ ĐỨNG MỘT MÌNH làm đầu mục phải ghi dạng trích dẫn (mạnh), không phải dạng yếu: in /ɪn/ không /ən/, I /aɪ/ không /ə/
+export const WEAK_FORMS = { in: ['ən'], i: ['ə'], do: ['də'], there: ['ðə', 'ðər'], could: ['kəd'], should: ['ʃəd'], would: ['wəd'], must: ['məst'], that: ['ðət'], can: ['kən'],
+  was: ['wəz'], were: ['wə', 'wər'], have: ['həv', 'əv'], has: ['həz'], had: ['həd'], them: ['ðəm'], us: ['əs'], am: ['əm'], are: ['ə', 'ər'], at: ['ət'], for: ['fə', 'fər'],
+  from: ['frəm'], of: ['əv'], to: ['tə'], and: ['ən', 'ənd'], but: ['bət'], as: ['əz'], than: ['ðən'], or: ['ə', 'ər'], some: ['səm'], does: ['dəz'], shall: ['ʃəl'], an: ['ən'], your: ['jə'], you: ['jə'] };
+export const ipaWeakCitation = (word, ipa) => { const l = WEAK_FORMS[String(word || '').trim().toLowerCase()]; return !!l && !!ipa && l.includes(String(ipa).replace(/^\/|\/$/g, '').trim()); };
+// IPA Mỹ tiền tố re-/de-/be-/pre- yếu ghi /i/ trong khi ô Anh /ɪ/ (report /riˈpɔːrt/) – bộ đổi CMU đã sửa, cổng chặn tái phát
+export const usPrefixI = (uk, us) => { const m = /^\/((?:p?r|d|b))iˈ[^aeiouæɑɒɔəɜɪʊʌ]/.exec(String(us || '')); return !!m && String(uk || '').startsWith('/' + m[1] + 'ɪˈ'); };

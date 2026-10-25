@@ -75,6 +75,8 @@ export function arpaToIpa(phones, si) {
   vi.forEach((i, n) => { const x = seg[i]; if (x.st === 2 && (pi < 0 || n > pi - 2)) { x.st = 0; if (x.a === 'IY') x.s = 'i'; } });
   // EH0 đầu từ (enable, essential, erroneous) là nguyên âm yếu /ɪ/ như Oxford, không phải /e/
   if (seg[0] && seg[0].a === 'EH' && seg[0].st === 0) seg[0].s = 'ɪ';
+  // IY0 ở âm tiết đầu tiền tố re-/de-/be-/pre- trước phụ âm (report, prepare, review) là /ɪ/ như Oxford, không phải /i/ (rà soát từ vựng lượt 1, 26/10/2026)
+  { const f = seg.findIndex(x => x.v); if (f > 0 && f <= 2 && seg[f].a === 'IY' && seg[f].st === 0 && seg[f + 1] && seg[f + 1].c && seg.slice(0, f).every(x => x.c)) seg[f].s = 'ɪ'; }
   const marks = new Array(seg.length).fill('');
   if (nV > 1) {
     let prevV = -1;
@@ -121,7 +123,7 @@ const WEAKUK = { a: [/^eɪ$/, 'ə'], an: [/^æn$/, 'ən'], and: [/^ænd$/, 'ənd
 export function normUK(s, word = '') {
   if (!s) return s;
   const w = String(word).toLowerCase();
-  let o = s.replace(/\(h\)w/g, 'w').replace(/hw/g, 'w').replace(/ʌɪ/g, 'aɪ').replace(/a(?![ɪʊː])/g, 'æ')
+  let o = s.replace(/\(r\)/g, '').replace(/\(h\)w/g, 'w').replace(/hw/g, 'w').replace(/ʌɪ/g, 'aɪ').replace(/a(?![ɪʊː])/g, 'æ')
     .replace(/n\(t\)([sʃ])/g, 'n$1');
   if (!/nts|ntz/.test(w)) o = o.replace(/nts/g, 'ns');
   if (!/mpf|mph/.test(w)) o = o.replace(/mpf/g, 'mf');

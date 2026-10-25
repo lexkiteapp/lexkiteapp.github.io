@@ -1,7 +1,7 @@
 // 🛡️ Cổng QA nội dung – kiểm các luật lõi (scripts/content-qa/lib.mjs) + cổng chạy thật trên repo đỏ khi gặp lỗi CỨNG.
 // Chạy: node scripts/test/content-qa.mjs
 import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import { execFileSync } from 'node:child_process';
-import { pairOk, agree, trIssues, spot, cefrOver, ipaDoubleStress, viHomographs, viDup, verbDefOk } from '../content-qa/lib.mjs';
+import { pairOk, agree, trIssues, spot, cefrOver, ipaDoubleStress, viHomographs, viDup, verbDefOk, ipaOptR, ipaWeakCitation, usPrefixI } from '../content-qa/lib.mjs';
 import { normUK, arpaToIpa } from '../lexicon/ipa.mjs';
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 // ✗/✓
@@ -12,6 +12,9 @@ ok(!pairOk('I go to home.', 'I went home.', 'to'), '✗/✓: câu đúng phải 
 // kiểm định 25/10/2026: lớp lỗi từ vựng
 ok(ipaDoubleStress('halfway', '/ˈhæfˈweɪ/') && !ipaDoubleStress('halfway', '/ˌhæfˈweɪ/') && !ipaDoubleStress('take off', '/ˈteɪk ˈɒf/'), 'IPA: từ đơn 2 ˈ → lỗi; cụm được phép');
 ok(viHomographs('to, lớn').join() === 'to' && !viHomographs('lớn, to lớn').length && !viHomographs('in (ấn), in ra', 'print').length, 'nghĩa vi trùng chữ tiếng Anh (to) → lỗi');
+ok(ipaOptR('/ˈnʌmbə(r)/') && !ipaOptR('/ˈnʌmbə/'), 'IPA Anh (r) tuỳ chọn → lỗi');
+ok(ipaWeakCitation('in', '/ən/') && ipaWeakCitation('I', '/ə/') && !ipaWeakCitation('in', '/ɪn/') && !ipaWeakCitation('the', '/ðə/') && !ipaWeakCitation('in the end', '/ən/'), 'hư từ đầu mục dạng yếu → lỗi');
+ok(usPrefixI('/rɪˈpɔːt/', '/riˈpɔːrt/') && !usPrefixI('/rɪˈpɔːt/', '/rɪˈpɔːrt/') && !usPrefixI('/riˈækt/', '/riˈækt/'), 'IPA Mỹ tiền tố /i/ ≠ Anh /ɪ/ → lỗi');
 ok(viDup('địa điểm tổ chức; địa điểm (tổ chức)') && !viDup('bài tập; nhiệm vụ'), 'nghĩa vi lặp khúc → lỗi');
 ok(!verbDefOk('large brown animal with fur') && verbDefOk('to accept something unpleasant') && verbDefOk('(of animals) to sleep') && verbDefOk('used to express the future'), 'động từ phải có định nghĩa động từ');
 ok(normUK('/sɪnts/', 'since') === '/sɪns/' && normUK('/ˈhwɪspə/', 'whisper') === '/ˈwɪspə/' && normUK('/streŋkθ/', 'strength') === '/streŋθ/' && normUK('/ɪŋˈkredɪbl/', 'incredible') === '/ɪnˈkredɪbl/' && normUK('/eɪ stəʊnz θrəʊ/', "a stone's throw") === '/ə stəʊnz θrəʊ/', 'IPA Anh: bỏ t/k chen, hw, ŋ đồng hoá, dạng mạnh hư từ giữa cụm');

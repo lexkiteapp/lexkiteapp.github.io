@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
-import { CE, VI, lvOk, pairOk, agree, trIssues, spot, cefrOver, norm, ipaDoubleStress, viHomographs, viDup, verbDefOk } from './lib.mjs';
+import { CE, VI, lvOk, pairOk, agree, trIssues, spot, cefrOver, norm, ipaDoubleStress, viHomographs, viDup, verbDefOk, ipaOptR, ipaWeakCitation, usPrefixI } from './lib.mjs';
 import { stressIndex } from '../lexicon/ipa.mjs';
 import { loadAll } from '../lexicon/lib.mjs';
 import { loadContent } from '../lib/content-load.mjs';
@@ -40,6 +40,9 @@ for (const { row, file, line } of loadAll()) {
   const us = row[10] || '';
   for (const s of [row[1], us]) if (ipaDoubleStress(w, s)) H('vocab', `${where}: IPA từ đơn có 2 trọng âm chính ${s}`);
   if (viHomographs(vi, w).length) H('vocab', `${where}: nghĩa vi "${vi}" có khúc trùng chữ tiếng Anh (${viHomographs(vi, w).join(', ')}) – viết rõ nghĩa tiếng Việt`);
+  if (ipaOptR(row[1])) H('vocab', `${where}: IPA Anh có "(r)" tuỳ chọn ${row[1]} – bỏ (r)`);
+  for (const s of [row[1], us]) if (ipaWeakCitation(w, s)) H('vocab', `${where}: đầu mục hư từ ghi dạng yếu ${s} – dùng dạng trích dẫn (mạnh)`);
+  if (usPrefixI(row[1], us)) H('vocab', `${where}: IPA Mỹ tiền tố /i/ ${us} ≠ Anh ${row[1]} – dùng /ɪ/`);
   if (viDup(vi)) H('vocab', `${where}: nghĩa vi lặp khúc "${vi}"`);
   if (pos === 'v' && !verbDefOk(row[4])) H('vocab', `${where}: mục động từ nhưng định nghĩa không phải nghĩa động từ ("${row[4]}")`);
   if (!/\s/.test(String(w).trim()) && row[1] && us && /ˈ/.test(row[1]) && /ˈ/.test(us) && stressIndex(row[1]) !== stressIndex(us) && !STRESS_OK.has(k)) H('vocab', `${where}: trọng âm Anh ${row[1]} ≠ Mỹ ${us} – sửa (content/lexicon/overrides.json / ipaus-manual.json) hoặc thêm vào content/qa/ipa-us-stress-ok.json nếu là khác biệt Anh–Mỹ thật`);

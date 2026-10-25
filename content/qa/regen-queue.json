@@ -132,6 +132,302 @@
     },
     {
      "id": "enzyme#n"
+    },
+    {
+     "id": "he#pron",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "as#conj",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "by#prep",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "all#det",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "some#det",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "thing#n",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "right#adj",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "life#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "too#adv",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "high#adj",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "week#n",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "course#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "kind#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "state#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "form#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "spend#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "love#v",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "side#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "quite#adv",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "term#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "train#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "together#adv",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "hard#adj",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "matter#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "office#n",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "light#n",
+     "why": "rà soát lượt 1 (26/10): verb-noun-sense"
+    },
+    {
+     "id": "bit#n",
+     "why": "rà soát lượt 1 (26/10): vi-english"
+    },
+    {
+     "id": "subject#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "class#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "break#v",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "among#prep",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "free#adj",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "history#n",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "along#prep",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "add#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "pass#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "law#n",
+     "why": "rà soát lượt 1 (26/10): vi-dup"
+    },
+    {
+     "id": "strong#adj",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "else#adv",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "role#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "join#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "difference#n",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "outside#adv",
+     "why": "rà soát lượt 1 (26/10): verb-noun-sense"
+    },
+    {
+     "id": "charge#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "regard#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "itself#pron",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "raise#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "stage#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "single#adj",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "address#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "save#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "lie#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "pick#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "patient#n",
+     "why": "rà soát lượt 1 (26/10): vi-dup"
+    },
+    {
+     "id": "fine#adj",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "store#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "park#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "press#v",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "character#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "indeed#adv",
+     "why": "rà soát lượt 1 (26/10): vi-dup"
+    },
+    {
+     "id": "enter#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "argue#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "statement#n",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "strike#v",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "release#v",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "identify#v",
+     "why": "rà soát lượt 1 (26/10): vi-dup"
+    },
+    {
+     "id": "fish#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "energy#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "middle#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "match#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "huge#adj",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "speech#n",
+     "why": "rà soát lượt 1 (26/10): def-wrong"
+    },
+    {
+     "id": "oil#n",
+     "why": "rà soát lượt 1 (26/10): def-ex-mismatch"
+    },
+    {
+     "id": "dress#n",
+     "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
     }
    ]
   },
@@ -1624,6 +1920,28 @@
     },
     {
      "id": "tonight"
+    }
+   ]
+  },
+  {
+   "kind": "vocab-review",
+   "why": "rà soát lượt 1 (26/10): chưa đủ chắc để sửa tay – cần giám khảo/nguồn từ điển",
+   "items": [
+    {
+     "id": "accord#n",
+     "why": "NGSL tính \"according to\" vào đầu mục accord; nên cân nhắc nghĩa 1 = \"according to\" (theo như) thay vì \"sự đồng thuận\" (B2/C1)"
+    },
+    {
+     "id": "employee#n",
+     "why": "Mỹ dùng cả /ɪmˈplɔɪiː/ và /ˌemplɔɪˈiː/; đã chọn khớp ô Anh – xác nhận"
+    },
+    {
+     "id": "thus#adv",
+     "why": "nghĩa vi \"do đó; do vậy, như vậy\" gần lặp – rút gọn sau khi đối chiếu cách dùng"
+    },
+    {
+     "id": "resource#n",
+     "why": "Mỹ /ˈriːsɔːrs/ ≠ Anh /rɪˈsɔːs/ – khác biệt thật? xác nhận rồi thêm danh sách trắng"
     }
    ]
   }
