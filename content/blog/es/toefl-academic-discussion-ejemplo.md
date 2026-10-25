@@ -16,7 +16,7 @@ qualityScore: 92
 coverArt: {mood: think, icon: pen, chip: TOEFL}
 shots: [
   {id: s1, route: '#/toefl-p/discussion', crop: main},
-  {id: s2, route: '#/toefl', crop: main}
+  {id: s2, route: '#/toefl', crop: viewport}
 ]
 diagrams: [
   {id: d1, type: boxes, title: 'Plan de 10 minutos', parts: [{t: '0–2 min', r: 'lee la pregunta y elige postura'}, {t: '2–8 min', r: 'escribe postura, razón, ejemplo y contraste'}, {t: '8–10 min', r: 'revisa verbos, plurales y artículos'}]},

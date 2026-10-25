@@ -16,7 +16,7 @@ qualityScore: 92
 coverArt: {mood: think, icon: blocks, chip: TOEFL}
 shots: [
   {id: s1, route: '#/toefl-p/cw', crop: main},
-  {id: s2, route: '#/toefl', crop: main}
+  {id: s2, route: '#/toefl', crop: viewport}
 ]
 diagrams: [
   {id: d1, type: boxes, title: '空所を埋める5つの手がかり', parts: [{t: '1. 位置', r: '名詞・動詞・形容詞のどれ？'}, {t: '2. 見えている文字', r: '前半で候補を絞る'}, {t: '3. 残りの文字数', r: '何文字足りない？'}, {t: '4. 一致', r: '単数・複数、時制'}, {t: '5. 意味', r: '段落の流れに合うか'}]},

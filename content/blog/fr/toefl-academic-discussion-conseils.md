@@ -16,7 +16,7 @@ qualityScore: 92
 coverArt: {mood: think, icon: pen, chip: TOEFL}
 shots: [
   {id: s1, route: '#/toefl-p/discussion', crop: main},
-  {id: s2, route: '#/toefl', crop: main}
+  {id: s2, route: '#/toefl', crop: viewport}
 ]
 diagrams: [
   {id: d1, type: boxes, title: 'Méthode en 10 minutes', parts: [{t: '0–2 min', r: 'lire la question, choisir un avis'}, {t: '2–8 min', r: 'avis, lien, raison + exemple, nuance'}, {t: '8–10 min', r: 'relire verbes, articles, ponctuation'}]},
