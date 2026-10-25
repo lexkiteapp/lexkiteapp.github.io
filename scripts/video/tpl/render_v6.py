@@ -28,7 +28,7 @@ ap.add_argument('--preview', default='', help='comma list of seconds: render onl
 o = ap.parse_args()
 W, H, FPS = 1080, 1920, 24
 V6 = dict(D=220, H0=300, anchor=(480, 850), push=0.025, punch=1.06, punch_in=0.22,
-          panel_top=(40, 1040), panel_bot=(28, 1052), panel_y1=532, radius=34, content=(64, 272, 880, 512),
+          panel_top=(40, 1040), panel_bot=(28, 1052), panel_y1=532, radius=34, content=(76, 272, 880, 512),
           ink=(15, 61, 62), ink_top=(9, 36, 38), glass_mix=0.80, glow=(220, 238, 232),
           cap_size=68, cap_min=58, cap_line=80, cap_bottom=1489, cap_x=(SAFE['x0'], SAFE['x1']), cap_words=8, cap_stroke=8,
           accent=C['yellow'], upcoming=0.60, lt_y=1196, bug=(964, 258, 60))
