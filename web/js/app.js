@@ -1157,10 +1157,10 @@
       <div class="page-head"><div><h1>${t('Sổ từ của bạn')}</h1><p class="muted">${t('{n} từ · {k} đã thuộc', { n: list.length, k: masteredCount() })}</p></div>
         <div class="row"><a class="btn sm" href="#/practice/learn?src=deck">🧠 ${t('Học')}</a><a class="btn sm" href="#/practice/test?src=deck">📝 ${t('Kiểm tra')}</a><button class="btn sm" id="shareBtn">🔗 ${t('Chia sẻ bộ thẻ')}</button><button class="btn sm" id="exportBtn">⬇️ ${t('Xuất')}</button><label class="btn sm">⬆️ ${t('Nhập')}<input type="file" id="importFile" accept="application/json" hidden></label><button class="btn sm" id="ankiOut">🃏 ${t('Xuất sang Anki')}</button><button class="btn sm" id="ankiIn">🃏 ${t('Nhập từ Anki')}</button></div></div>
       <div class="grid g4" style="margin-bottom:1rem">
-        <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}">
+        <input class="input" id="filterQ" placeholder="${t('Tìm từ hoặc nghĩa…')}" aria-label="${t('Tìm từ hoặc nghĩa…')}">
         <select class="input" id="filterTopic" aria-label="${t('Chọn bộ từ')}"><option value="">${t('Tất cả bộ từ')}</option>${TOPICS.map(t => `<option value="${t.id}">${t.emoji} ${esc(t.name)}</option>`).join('')}<option value="mine">📌 ${t('Từ tự thêm')}</option>${[...new Set(list.map(c => c.deck).filter(Boolean))].sort().map(d => `<option value="deck:${esc(d)}">🃏 ${esc(d)}</option>`).join('')}</select>
         <select class="input" id="filterFrom" aria-label="${t('Mọi nguồn')}"><option value="">${t('Mọi nguồn')}</option>${Object.entries(ORIGINS).map(([k, o]) => `<option value="${k}" ${from === k ? 'selected' : ''}>${o.emoji} ${o.name}</option>`).join('')}<option value="forget" ${from === 'forget' ? 'selected' : ''}>⚠️ ${t('Sắp quên')}</option></select>
-        <select class="input" id="filterM"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
+        <select class="input" id="filterM" aria-label="${t('Mọi mức độ')}"><option value="">${t('Mọi mức độ')}</option><option value="0">${t('Chưa học')}</option><option value="1">${t('Đang học')}</option><option value="2">${t('Quen')}</option><option value="3">${t('Đã thuộc')}</option></select>
       </div>
       <div class="card" id="deckList"></div>`;
     let shownRows = list;
