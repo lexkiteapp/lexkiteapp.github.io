@@ -1,0 +1,253 @@
+{
+ "id": "t4_pair_borrow_lend",
+ "template": "pair",
+ "title": "Borrow vs lend (classroom, text on the whiteboard)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 1.0,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Borrow or lend? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_b",
+   "text": "Borrow means you take it, then give it back.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "p_b2",
+   "text": "Can I borrow your pen?",
+   "key": {
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_l",
+   "text": "Lend means you give it, and get it back.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "p_l2",
+   "text": "Can you lend me your pen?",
+   "key": {
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! My brother blank me ten dollars.",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "p_q2",
+   "text": "Lent, or borrowed?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Lent! My brother lent me ten dollars.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Compare tricky words free on lexkite.com.",
+   "gap": 0.3
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "BORROW",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "LEND",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_h",
+    -1,
+    "e",
+    0.25
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "borrow",
+    "sub": [
+     [
+      "@emoji:⬅️"
+     ],
+     [
+      " you take",
+      "white"
+     ]
+    ],
+    "color": "navy2"
+   },
+   "right": {
+    "title": "lend",
+    "sub": [
+     [
+      "you give ",
+      "white"
+     ],
+     [
+      "@emoji:➡️"
+     ]
+    ],
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_b",
+      0,
+      "s",
+      0
+     ],
+     "left"
+    ],
+    [
+     [
+      "p_l",
+      0,
+      "s",
+      0
+     ],
+     "right"
+    ]
+   ],
+   "from": [
+    "p_b",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_l2",
+    -1,
+    "e",
+    0.3
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_a",
+    -1,
+    "e",
+    0.3
+   ],
+   "a": "lent",
+   "b": "borrowed",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "My brother ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " me $10.",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ]
+}

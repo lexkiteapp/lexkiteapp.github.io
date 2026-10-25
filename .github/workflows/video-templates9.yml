@@ -7,8 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       templates: { description: 'comma list', default: 'mistake,words5,guess,pair,roleplay,pron' }
+      dir: { description: 'spec folder under content/video/cine/news/ (templates-v2 = classroom, text on the whiteboard)', default: 'templates-v1' }
 permissions: { contents: read }
-concurrency: { group: 'video-templates9-${{ github.event.inputs.templates }}', cancel-in-progress: false }
+concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}', cancel-in-progress: false }
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -24,7 +25,7 @@ jobs:
       fail-fast: false
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
     env:
-      SPEC: content/video/cine/news/templates-v1/${{ matrix.t }}.json
+      SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
       HOOKS: content/video/cine/news/templates-v1/reviewed-hooks.json
       O: out/tpl9/${{ matrix.t }}
     steps:
@@ -101,6 +102,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: tpl9-${{ matrix.t }}-${{ github.run_number }}
+          name: tpl9-${{ github.event.inputs.dir || 'templates-v1' }}-${{ matrix.t }}-${{ github.run_number }}
           path: out/tpl9/${{ matrix.t }}/
           retention-days: 30

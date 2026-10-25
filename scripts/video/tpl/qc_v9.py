@@ -4,7 +4,10 @@ Reads <video>.timeline.json + <video>.samples/ + <video>.src0.png (render_v9.py)
 New vs qc_v8: head_clear (NO text/pop/caption box may touch the head mask of the clip(s) on screen, moved with the camera), caption_center
 (|page centre - 540| <= 6 px), no_pad (pauses <= 0.45 s, only declared count/turn beats are silent, TTS speed as written), continuity (forward-only
 source frames, cross-dissolves >= 8 frames between talk clips, no reverse/ping-pong), hook_truth (reviewed verdict per template + the hook's promise
-is delivered: N cards, count + reveal, twin tiles + quiz, your-turn pause, stress dots), cta (deep link == content/video/ecosystem.json area link)."""
+is delivered: N cards, count + reveal, twin tiles + quiz, your-turn pause, stress dots), cta (deep link == content/video/ecosystem.json area link).
+Board mode (classroom, docs/VIDEO-TEACHERS.md §5): text_on_board (hook + text pops written inside the measured board zone, moved with the
+camera; widgets that fall back to the under-chin band are listed), caption_clear (caption boxes never touch the head mask or the measured
+moving-body envelope of the clip, bank.json board.body), caption_center on the measured caption column, locked camera allowed (smax 1.0)."""
 import sys, os, re, json, subprocess
 import numpy as np, cv2
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +23,8 @@ med = lambda a: sorted(a)[len(a) // 2] if a else 0
 def inter(a, b): return a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
 vid, hooks = sys.argv[1], sys.argv[2]
 T = json.load(open(vid + '.timeline.json')); fr = T['frames']; fps = T['fps']; SP = T['spec']; R = {}
-els = lambda f: [dict(zip(('name', 'text', 'x0', 'y0', 'x1', 'y1', 'alpha', 'px', 'group', 'digit'), e)) for e in f['els']]
+els = lambda f: [dict(zip(('name', 'text', 'x0', 'y0', 'x1', 'y1', 'alpha', 'px', 'group', 'digit', 'where'), e)) for e in f['els']]
+BD = T.get('board')
 S = T['script']; W_ = T['words']; CP = T['captions']; POPS = {p['id']: p for p in T['pops']}
 # ---- hook truth: reviewed verdict + promise delivered
 HV = json.load(open(hooks))['verdicts'].get(SP['id']) or {}; pr = HV.get('promise', {}); chk = {}
@@ -49,7 +53,8 @@ for lid, txt in S.items():
     pages = [c for c in CP.values() if c['line'] == lid]; cap = ' '.join(inv(x) for c in pages for x in c['text'].split())
     toks = [W_[w]['w'] for c in pages for w in c['words']]
     if cap != txt or ' '.join(toks) != txt: bad.append((lid, cap, txt))
-sizes = [c['n'] for c in CP.values()]; single_bad = [c['text'] for c in CP.values() if c['n'] == 1 and c['text'][-1] not in '.?!:']
+sizes = [c['n'] for c in CP.values()]   # 2-3 words per page; a one-word page only as the natural final word of its line
+single_bad = [c['text'] for c in CP.values() if c['n'] == 1 and (c['text'][-1] not in '.?!:' or c.get('last') is False)]
 erx = SP.get('error_re'); err_lines = sorted({c['line'] for c in CP.values() if erx and re.search(erx, c['text'].lower())})
 R['caption_script'] = dict(ok=bool(CP) and not bad and max(sizes) <= 3 and not single_bad and set(err_lines) <= set(SP.get('error_lines', [])),
                            pages=len(CP), words_per_page=sorted(set(sizes)), mismatch=bad[:3], single_word_pages=single_bad, error_only_in=err_lines)
@@ -58,9 +63,10 @@ pc = {}
 for f in fr:
     for e in els(f):
         if e['group'] == 'caption': pc.setdefault(e['name'], []).append((e['x0'] + e['x1']) / 2)
-off = {k: round(med(v) - 540, 1) for k, v in pc.items()}; layout = {k: round(c['cx'] - 540, 1) for k, c in CP.items() if 'ink' in c}
+CCX = T.get('cap_cx', 540)
+off = {k: round(med(v) - CCX, 1) for k, v in pc.items()}; layout = {k: round(c['cx'] - CCX, 1) for k, c in CP.items() if 'ink' in c}
 R['caption_center'] = dict(ok=bool(off) and max(map(abs, off.values())) <= 12 and bool(layout) and max(map(abs, layout.values())) <= 1, max_ink_offset_px=max(map(abs, off.values()), default=None),
-                           max_layout_offset_px=max(map(abs, layout.values()), default=None), note='layout = rest-state page ink centre vs 540 (<= 1 px; v8 was -54); animated = median over frames, the active word bounces 1.16x about its own centre (<= 12 px)')
+                           max_layout_offset_px=max(map(abs, layout.values()), default=None), column_cx=CCX, note='layout = rest-state page ink centre vs 540 (<= 1 px; v8 was -54); animated = median over frames, the active word bounces 1.16x about its own centre (<= 12 px)')
 # ---- head mask: no box touches the head of the clip(s) on screen
 HD = T['head']; hits = []; nchk = 0
 for f in fr:
@@ -81,6 +87,34 @@ for f in fr:
             if inter([a_['x0'], a_['y0'], a_['x1'], a_['y1']], [b_['x0'], b_['y0'], b_['x1'], b_['y1']]): ov.append((f['t'], a_['name'], b_['name']))
 R['no_overlap'] = dict(ok=not ov, n=len(ov), hits=ov[:6], note='pops / captions never cover each other (alpha > 0.3)')
 R['head_clear'] = dict(ok=not hits and nchk > 0, checks=nchk, hits=hits[:6], n_hits=len(hits), band=T['band'])
+if BD:   # ---- board mode: text on the whiteboard, captions clear of face AND body
+    Z = BD['zone']; off_b = []; band_fb = sorted({e['name'] for f in fr for e in els(f) if e['group'] in ('hook', 'pop', 'cta') and e.get('where') == 'band'})
+    for f in fr:
+        M = f['M']; zs = [M[0] * Z[0] + M[2] - 3, M[4] * Z[1] + M[5] - 3, M[0] * Z[2] + M[2] + 3, M[4] * Z[3] + M[5] + 3]
+        for e in els(f):
+            if e['group'] not in ('hook', 'pop', 'cta') or e['alpha'] <= 0.004 or e.get('where') != 'board': continue
+            if e['x0'] < zs[0] or e['y0'] < zs[1] or e['x1'] > zs[2] or e['y1'] > zs[3]: off_b.append((f['t'], e['name'], [e['x0'], e['y0'], e['x1'], e['y1']], [round(v) for v in zs]))
+    kinds = {p['id']: p['kind'] for p in T['pops']}; where = BD['where']
+    text_band = [k for k, w in where.items() if w != 'board' and (kinds[k] == 'rich' or k == 'hook')]
+    R['text_on_board'] = dict(ok=not off_b and where.get('hook') == 'board' and not [k for k in text_band if k == 'hook'], outside_zone=off_b[:4], n_outside=len(off_b),
+                              text_pops_on_band=text_band, widgets_on_band=[k for k, w in where.items() if w != 'board' and k not in text_band], zone=Z,
+                              note='hook always on the board; a text pop / widget that cannot reach 50 / 52 px on the board falls back to the under-chin band (listed)')
+    bm = np.zeros((1920, 1080), bool); st_ = BD['body']['step']
+    for row in filter(None, BD['body']['rows'].split(';')):
+        y, ivs = row.split(':'); y = int(y)
+        for iv in ivs.split(','): a_, b_ = map(int, iv.split('-')); bm[y:y + st_, a_:b_] = True
+    ch = []; worst = 0
+    for f in fr:
+        M = f['M']; s_ = M[0]; tx, ty = M[2], M[5]; heads = [HD[c] for c, k, w in f['src'] if w > 0.02]
+        zr = [[s_ * b[0] + tx, s_ * b[1] + ty, s_ * b[2] + tx, s_ * b[3] + ty] for b in heads]
+        for e in els(f):
+            if e['group'] != 'caption': continue
+            bx = [e['x0'], e['y0'], e['x1'], e['y1']]; hh = any(inter(bx, z) for z in zr)
+            sx0, sy0, sx1, sy1 = [int(round((bx[0] - tx) / s_)), int(round((bx[1] - ty) / s_)), int(round((bx[2] - tx) / s_)), int(round((bx[3] - ty) / s_))]
+            sub = bm[max(0, sy0):max(0, sy1), max(0, sx0):max(0, sx1)]; rows_ = int(sub.any(1).sum()) if sub.size else 0; worst = max(worst, rows_)
+            if hh or rows_: ch.append((f['t'], e['name'], e['text'], 'head' if hh else f'body {rows_} rows'))
+    R['caption_clear'] = dict(ok=not ch, n_frames=len(ch), worst_body_rows=worst, hits=ch[:5], cap_box=BD['cap_box'],
+                              note='caption ink box vs head mask + measured moving-body envelope (any frame, bank.json board.body), in source px')
 first, done = {}, {}
 for f in fr:
     for wid, p in f['wipe'].items():
@@ -124,7 +158,11 @@ for f in fr[:len(fr) - n_end]:
     elif run: xf_runs.append(run); run = 0
 g = [x for k in range(0, T['n'] - 1, 60) for x in frames_px(vid, list(range(k, min(T['n'] - 1, k + 60), 6)))]
 BY = int(T['band'][0]) - 8   # cut detector on the host area only (above the pop band): a pop or caption never trips it, a scene cut does
-hist = lambda x: cv2.calcHist([cv2.resize(x[:BY], (270, BY // 4))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for a, b in zip(g, g[1:])]
+def _host(x):
+    if BD:   # board text is drawn above the band: blank the board zone (+ camera margin) so writing never trips the cut detector
+        Z = BD['zone']; x = x.copy(); x[max(0, int(Z[1] * 0.94) - 10):int(Z[3] * 1.06) + 10, max(0, int(Z[0] * 0.94) - 10):int(Z[2] * 1.06) + 10] = 0
+    return x
+hist = lambda x: cv2.calcHist([cv2.resize(_host(x)[:BY], (270, BY // 4))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for a, b in zip(g, g[1:])]
 sets = {T['spec']['set']}
 R['continuity'] = dict(ok=not rev and not holds and all(r >= 8 for r in xf_runs) and max(dd, default=99) < 0.10 and len(sets) == 1, reverse_steps=rev[:4], holds=holds[:4],
                        dissolves=xf_runs, joins=[(j['from_clip'], j['exit'], j['to_clip'], j['entry'], j['diff']) for j in T['joins']], max_hist_change_6f=round(max(dd, default=0), 4),
@@ -141,7 +179,9 @@ R['no_stretch'] = dict(ok=not badT and psnr >= 32, bad_frames=badT[:4], frame0_v
 ss = [f['s'] for f in fr]; runs = 0; prevup = False
 for i in range(1, len(ss)):
     up = ss[i] - ss[i - 1] > 0.0012; runs += up and not prevup; prevup = up
-R['camera'] = dict(ok=abs(ss[0] - 1) < 1e-6 and abs(ss[-1] - 1) < 1e-6 and max(ss) <= T['smax'] + 1e-6 and 1 <= runs <= 3, max_scale=round(max(ss), 4), punch_ins=runs)
+locked = T['smax'] <= 1.0 + 1e-9   # classroom MCU: locked camera (board text + desk-lip captions), no push
+R['camera'] = dict(ok=abs(ss[0] - 1) < 1e-6 and abs(ss[-1] - 1) < 1e-6 and max(ss) <= T['smax'] + 1e-6 and ((runs == 0 and max(ss) <= 1 + 1e-9) if locked else 1 <= runs <= 3),
+                   max_scale=round(max(ss), 4), punch_ins=runs, locked=locked)
 digits = {}
 for f in fr:
     for e in els(f):

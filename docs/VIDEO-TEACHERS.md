@@ -69,4 +69,24 @@ Sets in teachers.json: `classroom` (seated MCU, whiteboard behind/above the head
 
 Rejected: d01_daniel_talk (studio set before the classroom decision, motion fine), a01_ama_board (eyes closed ~45 %, stance shifts, face too small).
 Lessons: Kling local-file upload is blocked in the sandbox → refs go to lexkite-media `cine/teachers/` (tools/putmedia.sh); standing "explaining" clips need "eyes wide open" + "legs locked" and a head→thigh framing; ¾ angles from the accepted frontal frame work first try; bank.py face box must be aimed at the mouth (it locked on an eye twice).
-render_v9 still puts pops in the band under the chin; using the whiteboard/top zone for text is a template change (0 credits) still to do.
+Board text is done (§5). Kai's voice: am_liam is graded D in Kokoro's voice list → **am_puck** (C+, US male); Ruth keeps af_kore (C+).
+
+## 5. Text on the whiteboard (render_v9 board mode, 25/10/2026, 0 credits)
+- `scripts/video/tpl/board_detect.py --foot <lexkite-footage>` measures every classroom clip ONCE → `bank.json clips[*].board`: board quad (RANSAC
+  edges), text `zone` (board-white in EVERY frame, off the head, inside the safe area at every camera scale), caption box on the calm desk lip /
+  floor, camera anchor (= caption centre) and the moving-body envelope (`body`, run-lengths) for qc `caption_clear`.
+- render_v9: the hook + text pops are written on the board (navy ink, red/green ink, yellow/mint = highlighter, no stroke, board perspective);
+  a widget goes on the board when it reaches 48 px there, else the under-chin band (text pop: 50 px). Classroom MCU camera is locked (smax 1.0).
+- Measured board room (px, frame 1080×1920; hook needs ≥ 60 px → ~2×64 px rows):
+
+| Clip | Zone w×h | Hook fits? | Caption body overlap (rows of 104) |
+|---|---|---|---|
+| r01 Ruth MCU | 528×142 (strip above the hair) | yes, 2 rows ≈ 62 px; widgets (quiz, CTA) fall back to the band | 41 (fingertips on the desk lip) |
+| d01 Daniel MCU | 530×124 | no (52 px) | 43 |
+| d02 Daniel ¾ | 316×508 (right of the head) | only picture-card hooks; text rows < 50 px | 0 |
+| k01 Kai / m01, m02 Mei | ≤ 90 px strip or ≤ 146 px column | no | 0–41 |
+| a02 Ama / c01 Carlos standing | 818×320–340 | yes, everything on the board | a02: Ama's hip/hand beside the 640 px column; c01: Carlos' hand edge |
+
+- So the v2 samples (content/video/cine/news/templates-v2) use Ruth (mistake), Carlos at the board (5 words, borrow/lend, roleplay) and Ama at
+  the board (guess, pronunciation). Daniel/Mei/Kai need a re-framed clip to carry board text: seated lower in frame (≥ 250 px of board above the
+  hair) or standing beside the board like a02/c01 (≈ 50 cr per clip + 1 cr first frame, docs/CREDIT-RULES.md).

@@ -11,6 +11,12 @@ v8 fixes (owner review 25/10):
 - no padding: pauses = the script's natural gaps (default 0.22 s, <= 0.45 s); length follows the speech (18-35 s), only declared beats are silent.
 - no ping-pong: clips play forward only; the next talk clip (or the same clip's best loop point) cross-dissolves in over 10 frames; the last
   10 frames dissolve back to frame 0 so the loop is clean.
+Board mode (teachers.json set with "bank", clip has bank.json "board" from board_detect.py; docs/VIDEO-TEACHERS.md §5):
+- the hook and every text pop are WRITTEN ON THE WHITEBOARD: dark ink / brand colours (yellow + mint = highlighter behind navy ink), no
+  stroke, warped with the board's perspective (fitted board edges), inside the detected board zone (white in every frame, off the head);
+  a widget (picture card, twin tiles, quiz pills, stress pills, timer, CTA) goes on the board when it fits at >= 52 px, else the under-chin band.
+- captions: CapCut style in the calm lower area measured per clip (desk lip / floor beside the teacher), 2-3 words per page.
+- camera: set smax (classroom MCU = 1.0, locked), anchor = caption centre so a push never moves the body into the captions.
 Captions = script tokens + TTS word times (never the whisper text). Writes <out>, <out>.timeline.json (qc_v9.py), <out>.samples/, <out>.src0.png."""
 import os, sys, json, math, argparse, subprocess, wave, re
 import numpy as np, cv2
@@ -33,8 +39,13 @@ SP = json.load(open(o.spec)); TR = json.load(open(o.teachers))
 SET = TR['sets'][SP['set']]; CL = {c: TR['clips'][c] for c in SP['clips']}
 assert all(v['set'] == SP['set'] and v['who'] == SP['teacher'] for v in CL.values()), 'one teacher, one set'
 WHO = SP['teacher']; LIB = f"{o.foot}/{SET['lib']}"; SMAX = SET['smax']
+BRD = None
+if SET.get('bank'):
+    _bk = {c['id']: c for c in json.load(open(f"{ROOT}/{SET['bank']}"))['clips']}; _b = [_bk.get(c, {}).get('board') for c in SP['clips']]
+    if all(_b): assert len(_b) == 1, 'board mode: one talk clip per video (the board zone is measured per clip)'; BRD = _b[0]
 CX = W / 2; CAPW = 2 * (SAFE['x1'] - CX)          # centred column that stays inside the safe area: 156..924
 CAP_CY = 1410; BAND_Y1 = 1328; XF = 8; XFE = 14
+CCX, CAPWC = (BRD['cap']['cx'], BRD['cap']['w']) if BRD else (CX, CAPW)   # caption column (board mode: calm desk lip / floor span)
 FH = f"{o.fonts}/BeVietnamPro-ExtraBold.ttf"; FBd = f"{o.fonts}/BeVietnamPro-Bold.ttf"
 _fc = {}
 def font(sz, f=None):
@@ -158,14 +169,15 @@ def norm_frame(F):
 # ---------------- camera: uniform scale about the face, slow push + punch-ins ----------------
 AXY = {c: tuple(v['anchor']) for c, v in CL.items()}; AX, AY = AXY[SP['clips'][0]]
 assert len(set(AXY.values())) == 1, 'one camera anchor per set'
+if BRD: AX, AY = BRD['cam_anchor']   # push about the caption centre: the body next to the captions never moves into them
 HEAD = {c: v['head'] for c, v in CL.items()}
 PUNCH = []
 for p in SP.get('punch', []): PUNCH.append((tm_of(p['from']), tm_of(p['to']), p.get('amp', 0.04)))
-if not PUNCH:   # default: punch on the first pop after the hook and on the last answer/fix pop
+if not PUNCH and SMAX > 1.0:   # default: punch on the first pop after the hook and on the last answer/fix pop
     cand = [p for p in SP['pops'] if p.get('role') != 'hook' and p['kind'] not in ('cta',)]
     for p in (cand[0], cand[-1]) if len(cand) > 1 else cand:
         a = tm_of(p['from']); PUNCH.append((a, min(a + 2.2, tm_of(p['to'])), 0.035 if SMAX < 1.08 else 0.05))
-PUSH = 0.025 if SMAX < 1.08 else 0.035; TB = TOTAL - 1.35
+PUSH = 0.0 if SMAX <= 1.0 else (0.025 if SMAX < 1.08 else 0.035); TB = TOTAL - 1.35
 def bump(T, a, b, amp, ri=0.22, ro=0.30):
     if T < a or T > b + ro: return 0.0
     return amp * (ease((T - a) / ri) if T < b else 1 - ease((T - b) / ro, EASE['inout']))
@@ -188,6 +200,24 @@ HEAD_MAX = [min(to_screen(h, SMAX)[k] for h in HEAD.values()) if k < 2 else max(
 BAND = (int(math.ceil(HEAD_MAX[3])) + 14, BAND_Y1); BAND_CY = (BAND[0] + BAND[1]) / 2; BAND_H = BAND[1] - BAND[0]
 print(f'pop band y {BAND[0]}..{BAND[1]} ({BAND_H} px), head at smax {[round(v) for v in HEAD_MAX]}', flush=True)
 assert BAND_H >= 240, 'no room under the chin for pops'
+POPW, POPH = CAPW, BAND_H; ZONE = None; MINPX_BOARD = 48; MINPX_TEXT = 50
+if BRD:
+    _z = BRD['zone']; ZONE = [_z[0] + 4, _z[1] + 4, _z[2] - 4, _z[3] - 4]; ZW, ZH = ZONE[2] - ZONE[0], ZONE[3] - ZONE[1]
+    _e = BRD['edges']; Tl = lambda x: _e['top'][0] * x + _e['top'][1]; Bl = lambda x: _e['bottom'][0] * x + _e['bottom'][1]
+    Ll = lambda y: _e['left'][0] * y + _e['left'][1]; Rl = lambda y: _e['right'][0] * y + _e['right'][1]
+    _xc, _yc = (ZONE[0] + ZONE[2]) / 2, (ZONE[1] + ZONE[3]) / 2; _src = []; _dst = []
+    for x, y in ((ZONE[0], ZONE[1]), (ZONE[2], ZONE[1]), (ZONE[2], ZONE[3]), (ZONE[0], ZONE[3])):   # rows follow the board's top/bottom edges
+        v = (y - Tl(_xc)) / (Bl(_xc) - Tl(_xc)); u = (x - Ll(_yc)) / (Rl(_yc) - Ll(_yc))
+        y2 = Tl(x) + v * (Bl(x) - Tl(x)); x2 = Ll(y) + u * (Rl(y) - Ll(y))
+        _src.append((x, y)); _dst.append((x + max(-6, min(6, x2 - x)), y + max(-6, min(6, y2 - y))))
+    _cx_, _cy_ = (sum(p[0] for p in _dst) / 4, sum(p[1] for p in _dst) / 4)   # keep the warped zone inside the zone (shrink about its centre)
+    _over = max(max(ZONE[0] - min(p[0] for p in _dst), max(p[0] for p in _dst) - ZONE[2], 0) / (ZW / 2), max(ZONE[1] - min(p[1] for p in _dst), max(p[1] for p in _dst) - ZONE[3], 0) / (ZH / 2))
+    _dst = [(_cx_ + (p[0] - _cx_) / (1 + _over), _cy_ + (p[1] - _cy_) / (1 + _over)) for p in _dst]
+    GB = cv2.getPerspectiveTransform(np.float32(_src), np.float32(_dst))
+    print(f'board zone {ZONE} ({ZW}x{ZH}), perspective {[[round(a, 1) for a in p] for p in _dst]}, captions cx {CCX} w {CAPWC}', flush=True)
+INK = False   # True while a pop is being built for the whiteboard (dark ink, no stroke, highlighter)
+INKCOL = dict(white=C['navy'], cream=C['navy'], navy=C['navy'], navy2=C['navy2'], ink=C['navy'], red=(214, 64, 34), green=(20, 138, 74), yellow=C['navy'], mint=C['navy'])
+HILITE = dict(yellow=(255, 201, 74), mint=(160, 222, 200))
 
 # ---------------- drawing primitives ----------------
 def rgba_np(im): a = np.asarray(im).astype(np.float32); return a[..., :3][..., ::-1].copy(), a[..., 3] / 255
@@ -236,14 +266,22 @@ def tok_txt(s):
 def rich_row(segs, sz, plate=False):
     """[[text, colour] | ['@x'|'@ok'|'@q'|'@num:5'|'@emoji:🔊']] -> RGBA row. Consecutive text segments are set as ONE line (true spacing);
     badges / emoji sit between runs. Dark stroke on video, plain text on a plate."""
-    ss = 2; st = 0 if plate else max(8, round(sz * 0.12)); fo = font(sz * ss); items = []; run = []
+    ink = INK and not plate; ss = 2; st = 0 if (plate or ink) else max(8, round(sz * 0.12)); fo = font(sz * ss); items = []; run = []
     def flush():
         if not run: return
-        txt = ''.join(t_ for t_, _ in run); tw = int(fo.getlength(txt)) + 4 * st * ss + 8; th = int(sz * ss * 1.5) + 4 * st * ss
-        im = Image.new('RGBA', (tw, th), (0, 0, 0, 0)); d = ImageDraw.Draw(im); x = 2 * st * ss + 4
+        txt = ''.join(t_ for t_, _ in run); tw = int(fo.getlength(txt)) + 4 * st * ss + 8 + (24 if ink else 0); th = int(sz * ss * 1.5) + 4 * st * ss
+        im = Image.new('RGBA', (tw, th), (0, 0, 0, 0)); d = ImageDraw.Draw(im); x = 2 * st * ss + 4 + (12 if ink else 0)
+        if ink:   # highlighter swash behind yellow / mint words (navy ink on top)
+            xh = x
+            for t_, c_ in run:
+                wl = fo.getlength(t_)
+                if c_ in HILITE and t_.strip():
+                    lead = fo.getlength(t_) - fo.getlength(t_.lstrip()); trail = fo.getlength(t_) - fo.getlength(t_.rstrip())
+                    d.rounded_rectangle([xh + lead - 10, th // 2 - sz * ss * 0.40, xh + wl - trail + 10, th // 2 + sz * ss * 0.46], round(sz * ss * 0.14), fill=HILITE[c_] + (235,))
+                xh += wl
         for t_, c_ in run:
-            d.text((x, th // 2), t_, font=fo, fill=COL[c_] + (255,), anchor='lm', stroke_width=st * ss, stroke_fill=STROKE + (255,)); x += fo.getlength(t_)
-        im = im.reduce(ss); bb = im.getbbox() or (0, 0, 1, 1); cy = im.height // 2; hh = round(sz * 0.62) + st
+            d.text((x, th // 2), t_, font=fo, fill=(INKCOL[c_] if ink else COL[c_]) + (255,), anchor='lm', stroke_width=st * ss, stroke_fill=STROKE + (255,)); x += fo.getlength(t_)
+        im = im.reduce(ss); bb = im.getbbox() or (0, 0, 1, 1); cy = im.height // 2; hh = round(sz * (0.50 if ink else 0.62)) + st   # board ink: tight rows
         items.append(im.crop((bb[0], min(bb[1], cy - hh), bb[2], max(bb[3], cy + hh)))); run.clear()
     for seg in segs:
         s_ = seg[0]
@@ -259,12 +297,13 @@ def plate_wrap(im, colname, pad=(34, 22)):
     w, h = im.width + 2 * pad[0], im.height + 2 * pad[1]; P = Image.new('RGBA', (w * 2, h * 2), (0, 0, 0, 0)); d = ImageDraw.Draw(P)
     d.rounded_rectangle([0, 0, w * 2 - 1, h * 2 - 1], min(h, 64) * 2 // 2, fill=COL[colname] + (246,), outline=(255, 255, 255, 235), width=8)
     P = P.resize((w, h), Image.LANCZOS); P.alpha_composite(im, (pad[0], pad[1])); return shadowed(P, 6, 8, 0.45)
-def rich(rows, sz, plate=None, maxw=None, maxh=None, pad=(34, 22), sub=1.0):
-    maxw = maxw or CAPW - 8; maxh = maxh or BAND_H - 6
+def rich(rows, sz, plate=None, maxw=None, maxh=None, pad=(34, 22), sub=1.0, keep_plate=False):
+    maxw = maxw or POPW - 8; maxh = maxh or POPH - 6
+    if INK and not keep_plate: plate = None   # text pops are written on the whiteboard in ink (tiles / pills keep their plates)
     while True:
-        im = stack([rich_row(r, sz if i == 0 else round(sz * sub), bool(plate)) for i, r in enumerate(rows)], round(sz * 0.08))
+        im = stack([rich_row(r, sz if i == 0 else round(sz * sub), bool(plate)) for i, r in enumerate(rows)], round(sz * (0.04 if INK and not plate else 0.08)))
         if plate: im = plate_wrap(im, plate, pad)
-        else: im = shadowed(im, 5, 6, 0.5)
+        elif not INK: im = shadowed(im, 5, 6, 0.5)
         if (im.width <= maxw and im.height <= maxh) or sz * min(1.0, sub) <= 50: return im, round(sz * min(1.0, sub))
         sz -= 2
 def rows_text(rows): return ' / '.join(''.join(tok_txt(s[0]) for s in r) for r in rows)
@@ -294,37 +333,78 @@ class Pop:
     def __init__(s, P):
         s.P = P; s.id = P['id']; s.kind = P['kind']; s.t0 = max(1.0 / FPS, tm_of(P['from'])) if P['from'][0] != 't' else max(1.0 / FPS, float(P['from'][1]))
         s.t1 = tm_of(P['to']) if P['to'][0] != 'end' else TOTAL - 0.40; s.an = P.get('anim', 'spring'); s.cx = P.get('cx', CX); s.cache = {}
-        s.text = ''; s.px = 0; s.build()
-    def build(s):
+        s.text = ''; s.px = 0; s.variant = None; s.where = 'band'; s.region = None; s.PW, s.PH = CAPW, BAND_H
+        if BRD: s.build_board()
+        else: s.build()
+    def variants(s):
         P = s.P; k = s.kind
         if k == 'rich':
-            s.im, s.px = rich(P['rows'], P.get('size', 76), P.get('plate'), maxw=(2 * min(s.cx - SAFE['x0'], SAFE['x1'] - s.cx) - 8)); s.text = rows_text(P['rows'])
+            v = ['rows'] + (['one'] if len(P['rows']) > 1 else []) + (['two_a', 'two_b'] if len(P['rows']) > 2 else []); return v
+        if k == 'card': return ['h', 'v']
+        return [None]
+    def rows_v(s, rows):
+        if s.variant == 'one': return [sum([list(r) if i == 0 else [[' ', 'white']] + list(r) for i, r in enumerate(rows)], [])]
+        if s.variant == 'two_a': return [rows[0] + [[' ', 'white']] + rows[1]] + rows[2:]
+        if s.variant == 'two_b': return rows[:-2] + [rows[-2] + [[' ', 'white']] + rows[-1]]
+        return rows
+    def build_board(s):
+        global INK, POPW, POPH
+        Z = ZONE; wide = ZW >= 1.4 * ZH
+        if 'cx' in s.P:   # tags beside each other: halves of the board zone (left/right on a wide zone, top/bottom on a tall one)
+            first = s.P['cx'] < CX
+            s.region = ([Z[0], Z[1], (Z[0] + Z[2]) // 2 - 8, Z[3]] if first else [(Z[0] + Z[2]) // 2 + 8, Z[1], Z[2], Z[3]]) if wide else \
+                       ([Z[0], Z[1], Z[2], (Z[1] + Z[3]) // 2 - 8] if first else [Z[0], (Z[1] + Z[3]) // 2 + 8, Z[2], Z[3]])
+        else: s.region = list(Z)
+        rw, rh = s.region[2] - s.region[0], s.region[3] - s.region[1]; best = None
+        for v in s.variants():
+            INK = True; POPW, POPH = rw, rh; s.variant = v; s.PW, s.PH = rw, rh
+            try: s.build(); fit = min(1.0, rw / s.im.width, rh / s.im.height); px = s.px * fit
+            finally: INK = False; POPW, POPH = CAPW, BAND_H
+            if best is None or px > best[0] + 0.5: best = (px, v)
+        need = 62 if s.P.get('role') == 'hook' else (MINPX_TEXT if s.kind == 'rich' else MINPX_BOARD)
+        if best[0] >= need or s.P.get('role') == 'hook':   # the hook is always written on the board
+            INK = True; POPW, POPH = rw, rh; s.variant = best[1]; s.PW, s.PH = rw, rh
+            try: s.build()
+            finally: INK = False; POPW, POPH = CAPW, BAND_H
+            s.where = 'board'
+        else:   # widget does not fit the board legibly: under-chin band (as v9)
+            s.variant = None; s.region = None; s.PW, s.PH = CAPW, BAND_H; s.build(); s.where = 'band'
+        print(f'pop {s.id} -> {s.where} variant {s.variant} px {best[0]:.0f} (need {need}) region {s.region}', flush=True)
+    def build(s):
+        P = s.P; k = s.kind; PW, PH = s.PW, s.PH
+        if k == 'rich':
+            s.im, s.px = rich(s.rows_v(P['rows']), round(P.get('size', 76) * (1.3 if INK else 1.0)), P.get('plate'),   # board: write bigger where the zone allows maxw=(PW - 8 if INK else 2 * min(s.cx - SAFE['x0'], SAFE['x1'] - s.cx) - 8)); s.text = rows_text(P['rows'])
         elif k == 'cta':
             ic = ICON.resize((72, 72), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 71, 71], 18, fill=255)
             ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
             seg = SP['cta']['say']; sz = 62
-            while sz > 50 and hrow([ic, rich_row([[seg, 'white']], sz)], 14).width > CAPW - 12: sz -= 2
-            l1 = shadowed(hrow([ic, rich_row([[seg, 'white']], sz)], 14), 5, 6, 0.5)
+            while sz > 50 and hrow([ic, rich_row([[seg, 'white']], sz)], 14).width > PW - 12: sz -= 2
+            l1 = hrow([ic, rich_row([[seg, 'white']], sz)], 14); l1 = l1 if INK else shadowed(l1, 5, 6, 0.5)
             pl = pill([('lexkite.com', ACC if ACC not in (COL['navy2'], COL['navy']) else COL['mint'])], 62, COL['navy'])
             s.im = stack([l1, pl], 12); s.px = min(sz, 62); s.text = f'{seg} / lexkite.com'
         elif k == 'card':
-            side = min(230, BAND_H - 40); tile, s.url = vocab_img(P['img'], side)
-            if 'right' in P:   # horizontal: picture + text block (guess)
-                s.side_im = tile; rr, s.px = rich(P['right'], 78, None, maxw=CAPW - tile.width - 40, maxh=BAND_H - 10)
-                s.im = hrow([tile, rr], 34); s.text = rows_text(P['right']); s.count = P.get('count')
+            vert = s.variant == 'v'
+            side = min(230, PW - 28, int(PH * 0.5)) if vert else min(230, PH - 40); tile, s.url = vocab_img(P['img'], side)
+            if 'right' in P:   # horizontal: picture + text block (guess); vertical (tall board zone): picture above the text
+                s.side_im = tile
+                rr, s.px = rich(P['right'], 78, None, maxw=PW - 8, maxh=PH - tile.height - 14) if vert else rich(P['right'], 78, None, maxw=PW - tile.width - 40, maxh=PH - 10)
+                s.im = stack([tile, rr], 10) if vert else hrow([tile, rr], 34); s.text = rows_text(P['right']); s.count = P.get('count')
             else:
                 chip = pill([(P['idx'], COL['navy'])], 44, ACC)
-                rows = [[[P['word'], 'white']]] + ([P['sub']] if P.get('sub') else []); rr, s.px = rich(rows, 92, None, maxw=CAPW - tile.width - 40, maxh=BAND_H - chip.height - 12); right = stack([chip, rr], 6) if P.get('idx') else rr
-                s.im = hrow([tile, right], 30); s.text = (P.get('idx', '') + ' ' + P['word'] + (' / ' + ''.join(x[0] for x in P['sub']) if P.get('sub') else '')).strip(); s.count = None
-            assert s.im.height <= BAND_H and s.im.width <= CAPW, ('card too big', s.id, s.im.size)
+                rows = [[[P['word'], 'white']]] + ([P['sub']] if P.get('sub') else [])
+                if vert: rr, s.px = rich(rows, 92, None, maxw=PW - 8, maxh=PH - tile.height - chip.height - 20)
+                else: rr, s.px = rich(rows, 92, None, maxw=PW - tile.width - 40, maxh=PH - chip.height - 12)
+                right = stack([chip, rr], 6) if P.get('idx') else rr
+                s.im = stack([tile, right], 10) if vert else hrow([tile, right], 30); s.text = (P.get('idx', '') + ' ' + P['word'] + (' / ' + ''.join(x[0] for x in P['sub']) if P.get('sub') else '')).strip(); s.count = None
+            assert INK or (s.im.height <= PH and s.im.width <= PW), ('card too big', s.id, s.im.size)
         elif k == 'pair':
             def tile(d, lit=True, size=100 if P.get('vs') else 104):
                 rows = [[[d['title'], 'white']]] + ([d['sub']] if d.get('sub') else [])
-                im, sz_ = rich(rows, size, d.get('color', 'navy2'), sub=0.62, maxw=(CAPW - (96 if P.get('vs') else 26)) // 2, maxh=BAND_H - 10, pad=(16, 14) if P.get('vs') else (24, 16)); s.pxs.append(sz_)
+                im, sz_ = rich(rows, size, d.get('color', 'navy2'), keep_plate=True, sub=0.62, maxw=(PW - (96 if P.get('vs') else 26)) // 2, maxh=PH - 10, pad=(16, 14) if P.get('vs') else (24, 16)); s.pxs.append(sz_ if d.get('sub') else round(sz_ / 0.62))   # rich() reports the 0.62 sub size
                 if not lit: a = np.asarray(im).copy(); a[..., 3] = (a[..., 3] * 0.38).astype(np.uint8); im = Image.fromarray(a)
                 return im
             s.pxs = []; s.L = {True: tile(P['left']), False: tile(P['left'], False)}; s.R = {True: tile(P['right']), False: tile(P['right'], False)}
-            s.vs = shadowed(rich_row([['VS', 'yellow']], 52), 4, 5, 0.5) if P.get('vs') else None
+            s.vs = (rich_row([['VS', 'red']], 52) if INK else shadowed(rich_row([['VS', 'yellow']], 52), 4, 5, 0.5)) if P.get('vs') else None
             s.focus = [(tm_of(a), f) for a, f in P.get('focus', [])]; s.px = min(s.pxs); s.text = P['left']['title'] + ' | ' + P['right']['title']
             s.im = s.compose_pair('both')
         elif k == 'quiz':
@@ -335,8 +415,8 @@ class Pop:
         elif k == 'stress':
             s.px = 72; s.text = '·'.join(P['syl']); s.im = s.compose_stress(-1)
         elif k == 'turn':
-            s.head_im, s.px = rich(P['rows'], 88, None, maxh=BAND_H - 60); s.text = rows_text(P['rows']); b = BEATS[P['beat']]; s.b0, s.b1 = b['s'], b['e']; s.im = s.compose_turn(0.0)
-        assert s.im.height <= BAND_H + 2, ('pop taller than the band', s.id, s.im.size, BAND_H)
+            s.head_im, s.px = rich(P['rows'], 88, None, maxh=PH - 60); s.text = rows_text(P['rows']); b = BEATS[P['beat']]; s.b0, s.b1 = b['s'], b['e']; s.im = s.compose_turn(0.0)
+        assert INK or s.im.height <= PH + 2, ('pop taller than the band', s.id, s.im.size, PH)
     def compose_pair(s, f):
         L = s.L[f in ('left', 'both')]; R = s.R[f in ('right', 'both')]; items = [L] + ([s.vs] if s.vs else []) + [R]; return hrow(items, 12 if s.vs else 22)
     def compose_quiz(s, T):
@@ -346,7 +426,7 @@ class Pop:
         b = BEATS.get('_count')
         if b and b['s'] <= T < b['e']: n = 3 - min(2, int(T - b['s'])); mid = [ring(str(n), 1 - (T - b['s']) / (b['e'] - b['s']), 130)]; s.digit = str(n)
         else: s.digit = None
-        wide = hrow([s.pA['n'], ring('3', 1.0), s.pB['n']], 24).width > CAPW - 8
+        wide = hrow([s.pA['n'], ring('3', 1.0), s.pB['n']], 24).width > s.PW - 8
         if wide and s.qim is not None:   # long options: ring goes next to the question, pills keep their full size
             q = hrow([s.qim] + mid, 20) if mid else s.qim; return stack([q, hrow([s.pA[st_a], s.pB[st_b]], 24)], 14)
         row = hrow([s.pA[st_a]] + mid + [s.pB[st_b]], 24)
@@ -362,7 +442,7 @@ class Pop:
             items.append(stack([dot, p], 4))
         return hrow(items, 14)
     def compose_turn(s, T):
-        rem = 1.0 if T < s.b0 else max(0.0, 1 - (T - s.b0) / (s.b1 - s.b0)); bw = int(min(CAPW - 60, max(s.head_im.width, 520))); bar = Image.new('RGBA', (bw, 30), (0, 0, 0, 0)); d = ImageDraw.Draw(bar)
+        rem = 1.0 if T < s.b0 else max(0.0, 1 - (T - s.b0) / (s.b1 - s.b0)); bw = int(min(s.PW - 60, max(s.head_im.width, 520))); bar = Image.new('RGBA', (bw, 30), (0, 0, 0, 0)); d = ImageDraw.Draw(bar)
         d.rounded_rectangle([0, 0, bw - 1, 29], 15, fill=COL['navy'] + (230,), outline=(255, 255, 255, 220), width=3)
         if rem > 0: d.rounded_rectangle([4, 4, 4 + max(22, round((bw - 9) * rem)), 25], 11, fill=COL['yellow'] + (255,))
         return stack([s.head_im, shadowed(bar, 4, 5, 0.4)], 16)
@@ -407,13 +487,17 @@ class Pop:
         if uo < 1: sc *= 0.92 + 0.08 * uo; al *= ease(uo, EASE['inout'])
         return sc, al, dx, dy, wp
 POPS = [Pop(p) for p in SP['pops']]
-for a in POPS:   # band holds pops side by side only if they never overlap (checked per frame below); same-cx pops never overlap in time
+def _share(a, b):   # same place on screen (band: same cx; board: intersecting zone regions)
+    if a.where != b.where: return False
+    if a.where == 'band': return a.cx == b.cx
+    r, q = a.region, b.region; return r[0] < q[2] and q[0] < r[2] and r[1] < q[3] and q[1] < r[3]
+for a in POPS:   # pops side by side only if they never overlap (checked per frame below); pops in the same place never overlap in time
     for b in POPS:
-        if a is not b and a.cx == b.cx and a.t0 < b.t0 < a.t1: a.t1 = b.t0 - 0.02
+        if a is not b and _share(a, b) and a.t0 < b.t0 < a.t1: a.t1 = b.t0 - 0.02
 for p in POPS:
     if p.t1 - p.t0 < 1.0 and p.kind != 'cta': print('WARN pop shorter than 1.0 s (qc readability decides)', p.id, round(p.t1 - p.t0, 2), flush=True)
 HOOK = next(p for p in POPS if p.P.get('role') == 'hook')
-print('pops', [(p.id, round(p.t0, 2), round(p.t1, 2), p.im.size) for p in POPS], flush=True)
+print('pops', [(p.id, p.where, round(p.t0, 2), round(p.t1, 2), p.im.size) for p in POPS], flush=True)
 
 # ---------------- captions (v8 CapCut style, centred on x 540) ----------------
 PUN = lambda w: w[-1] in '.?!:,;'
@@ -424,9 +508,10 @@ def pages_of(lid):
             j = i - L
             if j < 0 or best[j] is None: continue
             seg = [toks[x]['w'] for x in range(j, i)]; c = 0.0
-            fo = font(CAP['size']); wpx = (sum(fo.getlength(disp(x)) for x in seg) + (CAP['gapx'] + fo.getlength(' ')) * (L - 1)) * CAP['bounce'] * CAP['min'] / CAP['size']
-            if L > 1 and wpx + 2 * ST + 40 > CAPW: continue   # a page must fit (with the bounce) at the minimum size, else split it
-            if L == 1: c += 0.8 if seg[0][-1] in '!?.:' else 3.0
+            fo = font(CAP['size']); ww = [fo.getlength(disp(x)) for x in seg]   # page at the minimum size + the active word's bounce
+            wpx = (sum(ww) + (CAP['gapx'] + fo.getlength(' ')) * (L - 1) + max(ww) * (CAP['bounce'] - 1)) * CAP['min'] / CAP['size']
+            if L > 1 and wpx + 2 * ST + 40 > CAPWC: continue   # a page must fit (with the bounce) at the minimum size, else split it
+            if L == 1: c += (0.8 if seg[0][-1] in '!?.:' else 3.0) if i == n else 60.0   # one-word page only as the line's natural final word
             if L == 3: c += 0.3
             c += 0.0 if (i == n or seg[-1][-1] in '.?!:') else (0.4 if seg[-1][-1] in ',;' else 1.2)
             c += sum(2.5 if s[-1] in '.?!:' else 0.9 for s in seg[:-1] if PUN(s))
@@ -438,7 +523,7 @@ def keycol(lid, k):
     for name in ('red', 'green', 'yellow', 'mint'):
         if k in KEY[lid].get(name, []): return COL[name]
     return None
-CAP = dict(size=96, min=72, stroke=12, gapx=22, bounce=1.16, settle=1.08); ST, SS = CAP['stroke'], 2
+CAP = dict(size=96, min=72, stroke=12, gapx=22, bounce=1.16, settle=1.08) if not BRD else dict(size=80, min=72, stroke=12, gapx=20, bounce=1.12, settle=1.06); ST, SS = CAP['stroke'], 2
 _wc = {}
 def word_im(txt, sz, col, sc):
     key = (txt, sz, col, round(sc, 2))
@@ -455,19 +540,37 @@ def paste_scaled(F, im, cx, cy, sc, al, wipe=1.0):
     x, y = round(cx - w / 2), round(cy - h / 2); rgb, a = rgba_np(r)
     if wipe < 1.0: a = a.copy(); a[:, int(w * wipe):] = 0
     over(F, rgb, a, x, y, al); return [x, y, x + w, y + h]
+if BRD:   # captions sit on the measured calm desk lip / floor: the ink box (incl. the active-word bounce) ends on the box bottom (<= safe y1)
+    _im, _ib = word_im('Hgjy', CAP['size'], (255, 255, 255), CAP['bounce']); CAP_CY = int(BRD['cap']['box'][3] - (_ib[3] - _im.height / 2) - 1)
+    print(f'captions cy {CAP_CY} (box {BRD["cap"]["box"]}, measured body overlap rows {BRD["cap"]["body_overlap_rows"]})', flush=True)
+def paste_board(F, im, reg, sc, al, dx, dy, wipe, s_cam):
+    """Write a pop on the whiteboard: centred in its zone region, board perspective (GB), then the camera; returns the screen bbox."""
+    if al <= 0.003 or sc <= 0.05: return None
+    if sc < 0.8: im = im.resize((max(1, round(im.width * sc)), max(1, round(im.height * sc))), Image.LANCZOS); k = 1.0
+    else: k = sc
+    w, h = im.width * k, im.height * k; cx_, cy_ = (reg[0] + reg[2]) / 2 + dx, (reg[1] + reg[3]) / 2 + dy
+    flat = np.float32([[cx_ - w / 2, cy_ - h / 2], [cx_ + w / 2, cy_ - h / 2], [cx_ + w / 2, cy_ + h / 2], [cx_ - w / 2, cy_ + h / 2]])
+    q = cv2.perspectiveTransform(flat[None], GB)[0]; q = np.float32([[AX + (x - AX) * s_cam, AY + (y - AY) * s_cam] for x, y in q])
+    x0, y0 = int(np.floor(q[:, 0].min())), int(np.floor(q[:, 1].min())); x1, y1 = int(np.ceil(q[:, 0].max())) + 1, int(np.ceil(q[:, 1].max())) + 1
+    A = np.asarray(im).astype(np.float32); a = A[..., 3:4] / 255; pre = np.concatenate([A[..., :3][..., ::-1] * a, a * 255], 2)
+    if wipe < 1.0: pre[:, int(im.width * wipe):] = 0
+    Mp = cv2.getPerspectiveTransform(np.float32([[0, 0], [im.width, 0], [im.width, im.height], [0, im.height]]), q - np.float32([x0, y0]))
+    out = cv2.warpPerspective(pre, Mp, (x1 - x0, y1 - y0), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
+    al_ = out[..., 3] / 255; rgb = out[..., :3] / np.maximum(al_[..., None], 1e-4)
+    over(F, rgb, al_, x0, y0, al); return [x0, y0, x1, y1]
 class Page:
     def __init__(s, wids):
         s.wids = wids; s.lid = WORDS[wids[0]]['line']; s.txt = [disp(WORDS[w]['w']) for w in wids]; sz = CAP['size']
         while True:
             fo = font(sz); tw = sum(fo.getlength(x) for x in s.txt) + CAP['gapx'] * (len(s.txt) - 1) + fo.getlength(' ') * (len(s.txt) - 1)
-            if tw * CAP['bounce'] + 2 * ST + 24 <= CAPW or sz <= CAP['min']: break
+            if tw * CAP['bounce'] + 2 * ST + 24 <= CAPWC or sz <= CAP['min']: break
             sz -= 2
-        s.sz = sz; fo = font(sz); x = CX - tw / 2; s.cx = {}
+        s.sz = sz; fo = font(sz); x = CCX - tw / 2; s.cx = {}
         for w, tx in zip(wids, s.txt): wl = fo.getlength(tx); s.cx[w] = x + wl / 2; x += wl + fo.getlength(' ') + CAP['gapx']
         ink = [1e9, -1e9]   # centre the page on its rendered ink (side bearings / punctuation), not on the advance widths
         for w, tx in zip(wids, s.txt):
             im, ib = word_im(tx, sz, (255, 255, 255), 1.0); x0 = s.cx[w] - im.width / 2; ink = [min(ink[0], x0 + ib[0]), max(ink[1], x0 + ib[2])]
-        sh = CX - (ink[0] + ink[1]) / 2; s.cx = {w: v + sh for w, v in s.cx.items()}; s.ink = [ink[0] + sh, ink[1] + sh]
+        sh = CCX - (ink[0] + ink[1]) / 2; s.cx = {w: v + sh for w, v in s.cx.items()}; s.ink = [ink[0] + sh, ink[1] + sh]
         s.t0 = WORDS[wids[0]]['s'] - 0.06; s.t1 = WORDS[wids[-1]]['e'] + 0.28; s.text = ' '.join(s.txt)
     def draw(s, F, tm, T):
         bb = [1e9, 1e9, -1e9, -1e9]; wipe = {}; a_in = ease((T - s.t0) / 0.10); sc_in = 0.88 + 0.12 * a_in; items = []
@@ -482,12 +585,13 @@ class Page:
                 col = kc if (kc and tm >= Wd['s']) else (255, 255, 255)
             items.append((act, w, tx, col, sc * sc_in))
         for act, w, tx, col, sc in sorted(items, key=lambda x: x[0]):
-            im, ib = word_im(tx, s.sz, col, sc); cx = CX + (s.cx[w] - CX) * sc_in; r = paste_scaled(F, im, cx, CAP_CY, 1.0, a_in)
+            im, ib = word_im(tx, s.sz, col, sc); cx = CCX + (s.cx[w] - CCX) * sc_in; r = paste_scaled(F, im, cx, CAP_CY, 1.0, a_in)
             if r: bb = [min(bb[0], r[0] + ib[0]), min(bb[1], r[1] + ib[1]), max(bb[2], r[0] + ib[2]), max(bb[3], r[1] + ib[3])]
         return wipe, bb
 PAGES = [Page(p) for lid in ATL for p in pages_of(lid)]
 for a, b in zip(PAGES, PAGES[1:]): a.t1 = min(a.t1, b.t0)
-CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), size=p.sz, stroke=ST, ss=SS, cx=round((p.ink[0] + p.ink[1]) / 2, 1), ink=[round(v) for v in p.ink]) for j, p in enumerate(PAGES)}
+CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), size=p.sz, stroke=ST, ss=SS, cx=round((p.ink[0] + p.ink[1]) / 2, 1), ink=[round(v) for v in p.ink],
+                         last=WORDS[p.wids[-1]]['k'] == len(LINES[p.lid]['words']) - 1) for j, p in enumerate(PAGES)}
 print('pages', ' | '.join(p.text for p in PAGES), flush=True)
 
 # ---------------- frame loop ----------------
@@ -515,22 +619,25 @@ for fi in range(NF):
     for p in POPS:
         sc, al, dx, dy, wp = p.anim(T)
         if al <= 0.003: continue
-        im = p.frame_im(T); sc = min(sc, (CAPW - 2) / im.width if p.cx == CX else 9, (BAND_H - 2) / im.height)
-        r = paste_scaled(out, im, p.cx + dx, BAND_CY + dy, sc, al, wp)
-        if r: els.append(dict(name=f'pop.{p.id}', text=p.text, bbox=r, px=round(p.px * sc, 1), alpha=round(al, 3), group='hook' if p is HOOK else ('cta' if p.kind == 'cta' else 'pop'),
-                              digit=getattr(p, 'digit', None) if p.kind in ('quiz', 'card') else None))
+        im = p.frame_im(T)
+        if p.where == 'board':
+            rg = p.region; sc = min(sc, (rg[2] - rg[0]) / im.width, (rg[3] - rg[1]) / im.height); r = paste_board(out, im, rg, sc, al, dx, dy, wp, s); pxs = round(p.px * sc * s, 1)
+        else:
+            sc = min(sc, (CAPW - 2) / im.width if p.cx == CX else 9, (BAND_H - 2) / im.height); r = paste_scaled(out, im, p.cx + dx, BAND_CY + dy, sc, al, wp); pxs = round(p.px * sc, 1)
+        if r: els.append(dict(name=f'pop.{p.id}', text=p.text, bbox=r, px=pxs, alpha=round(al, 3), group='hook' if p is HOOK else ('cta' if p.kind == 'cta' else 'pop'),
+                              digit=getattr(p, 'digit', None) if p.kind in ('quiz', 'card') else None, where=p.where))
     wipe = {}
     for pi, p in enumerate(PAGES):
         if pi + 1 < len(PAGES) and PAGES[pi + 1].t0 <= T and p.t0 <= T and T < PAGES[pi + 1].t0 + 0.25:
             wipe.update({w: round(max(0.0, min(1.0, (tm - WORDS[w]['s']) / max(1e-3, WORDS[w]['e'] - WORDS[w]['s']))), 3) for w in p.wids})
         if p.t0 <= T < p.t1:
             wp_, bb = p.draw(out, tm, T); wipe.update(wp_)
-            if bb[0] < 1e8: els.append(dict(name=f'cap.p{pi}', text=p.text, bbox=[round(x) for x in bb], px=p.sz, alpha=1.0, group='caption', digit=None))
+            if bb[0] < 1e8: els.append(dict(name=f'cap.p{pi}', text=p.text, bbox=[round(x) for x in bb], px=p.sz, alpha=1.0, group='caption', digit=None, where='cap'))
     if PREV is not None: cv2.imwrite(f'{o.out}.preview/t{T:05.2f}.png', out); continue
     enc.stdin.write(out.tobytes())
     win = [AX - AX / s, AY - AY / s, AX + (W - AX) / s, AY + (H - AY) / s]
     FRAMES.append(dict(t=round(T, 4), src=[[c, k, round(w_, 4)] for c, k, w_ in srcs], s=round(s, 5), M=[s, 0, (1 - s) * AX, 0, s, (1 - s) * AY], win=[round(x, 2) for x in win],
-                       vis=v, wipe=wipe, els=[[e['name'], e['text'], *[round(x) for x in e['bbox']], e['alpha'], e['px'], e['group'], e['digit']] for e in els]))
+                       vis=v, wipe=wipe, els=[[e['name'], e['text'], *[round(x) for x in e['bbox']], e['alpha'], e['px'], e['group'], e['digit'], e['where']] for e in els]))
     if fi in (0, NF - 1): cv2.imwrite(f'{o.out}.samples/f{fi:04d}.png', out)
     if fi % 24 == 12:
         c0 = srcs[0][0]; FACE = HEAD[c0]; FACE = [FACE[0] + 80, FACE[1] + 120, FACE[2] - 80, FACE[3] - 60]
@@ -573,8 +680,9 @@ subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.out + '.video
                 '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000', '-ac', '2', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', o.out], check=True)
 os.remove(o.out + '.video.mp4')
 json.dump(dict(style='v9', spec=SP, fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, cx=CX, capw=CAPW, band=BAND, smax=SMAX, anchor=[AX, AY], head=HEAD, joins=JOINS, xf=XF, xfe=XFE,
-               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, hook=dict(text=HOOK.text, t0=HOOK.t0, t1=HOOK.t1, kind=HOOK.kind),
-               pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None)) for p in POPS],
+               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY,
+               board=dict(zone=ZONE, quad=BRD['quad'], perspective=GB.tolist(), cap_box=BRD['cap']['box'], body=BRD['body'], where={p.id: p.where for p in POPS}) if BRD else None, hook=dict(text=HOOK.text, t0=HOOK.t0, t1=HOOK.t1, kind=HOOK.kind),
+               pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
                words=WORDS, captions=CAP_LOG, sharp=SHARP, frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
