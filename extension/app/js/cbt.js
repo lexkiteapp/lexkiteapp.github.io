@@ -21,7 +21,7 @@
 .cbt-opt.sel:active, .cbt-opt:has(:checked):active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
 .cbt-opt .cbt-key { display: inline-grid; place-items: center; min-width: 26px; height: 26px; padding: 0 .25rem; border-radius: 7px; font-size: .82rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; background: var(--surface-2); color: var(--text); flex-shrink: 0; transition: all .12s ease; }
 @media (hover: hover) and (pointer: fine) { .cbt-opt:hover .cbt-key { border-color: var(--primary); color: var(--primary); } }
-.cbt-opt.sel .cbt-key, .cbt-opt:has(:checked) .cbt-key { background: var(--primary); color: #fff; border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.cbt-opt.sel .cbt-key, .cbt-opt:has(:checked) .cbt-key { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
 .cbt-opt.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
 .cbt-nav { display: flex; align-items: center; gap: .8rem; padding: .6rem 1rem; background: var(--surface); border-top: 1px solid var(--line); overflow-x: auto; scrollbar-width: thin; }
 .cbt-part { display: flex; align-items: center; gap: .3rem; padding: .25rem .45rem; border-radius: 10px; background: var(--surface-2); }

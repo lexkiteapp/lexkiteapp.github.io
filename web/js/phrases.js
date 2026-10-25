@@ -214,7 +214,7 @@
   function lineExercise(m, box, mode) {
     const sents = sentencesOf(m);
     box.innerHTML = `<div class="card"><p class="small muted">${mode === 'copy' ? t('Mỗi câu chỉ hiện <b>chữ cái đầu</b> của từng từ. Nhớ lại và gõ cả câu – luyện ghi nhớ cấu trúc câu band 8.') : t('Dịch <b>câu tiếng Việt</b> sang tiếng Anh theo cách diễn đạt học thuật, rồi so với bài mẫu.')}</p>
-      <div id="lines">${sents.map((x, i) => `<div class="line" data-i="${i}">${x.role ? `<span class="an-role" translate="no" style="display:inline-block;background:#16a34a;color:#fff;border-radius:6px;padding:.05rem .5rem;font-size:.75rem;font-weight:700">${esc(x.role)}</span> ` : ''}<span class="lhint">${mode === 'copy' ? esc(hint(x.s)) : `<i class="muted">⏳ ${t('đang dịch…')}</i>`}</span>
+      <div id="lines">${sents.map((x, i) => `<div class="line" data-i="${i}">${x.role ? `<span class="an-role" translate="no" style="display:inline-block;background:var(--good);color:#fff;border-radius:6px;padding:.05rem .5rem;font-size:.75rem;font-weight:700">${esc(x.role)}</span> ` : ''}<span class="lhint">${mode === 'copy' ? esc(hint(x.s)) : `<i class="muted">⏳ ${t('đang dịch…')}</i>`}</span>
         <textarea class="input lin" rows="2" placeholder="${t('Gõ câu tiếng Anh…')}" spellcheck="false"></textarea><div class="lres small"></div></div>`).join('')}</div>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="chk">${t('Kiểm tra tất cả')}</button><button class="btn" id="show">${t('Xem bài mẫu')}</button></div></div>`;
     if (mode === 'write') {

@@ -20,7 +20,7 @@
 .lq-opts label:has(:checked):active, .lq-opts label.sel:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
 .lq-opts label b { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 7px; background: var(--surface-2); font-size: .85rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; transition: all .12s ease; }
 @media (hover: hover) and (pointer: fine) { .lq-opts label:hover b { border-color: var(--primary); color: var(--primary); } }
-.lq-opts label:has(:checked) b, .lq-opts label.sel b { background: var(--primary); color: #fff; border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-opts label:has(:checked) b, .lq-opts label.sel b { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
 .lq-opts label.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
 .lq-row { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
 .lq-row select { border: 2px solid var(--line); border-radius: 8px; padding: .3rem .4rem; font: inherit; background: var(--surface); color: inherit; }
@@ -38,7 +38,7 @@
 .lq-tf label:has(input:checked):active, .lq-tf label.sel:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
 .lq-tf label b { display: inline-grid; place-items: center; min-width: 24px; height: 24px; border-radius: 7px; background: var(--surface-2); font-size: .85rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; transition: all .12s ease; }
 @media (hover: hover) and (pointer: fine) { .lq-tf label:hover b { border-color: var(--primary); color: var(--primary); } }
-.lq-tf label:has(input:checked) b, .lq-tf label.sel b { background: var(--primary); color: #fff; border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-tf label:has(input:checked) b, .lq-tf label.sel b { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
 .lq-tf label.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
 `; document.head.appendChild(st); } } catch (e) { /* không có DOM (kiểm thử) */ }
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

@@ -761,7 +761,7 @@
                   <span class="tiny muted">(${t('{n} từ', { n: wc(isW ? curModel.essay : curModel.transcript) })})</span>
                 </div>
                 <div class="row" style="gap:.4rem;align-items:center">
-                  <span class="chip lv" style="background:var(--primary);color:#fff;font-weight:800">${curModel.band}</span>
+                  <span class="chip lv" style="background:var(--primary);color:var(--primary-ink);font-weight:800">${curModel.band}</span>
                   <button class="btn sm ghost" id="crCopy" style="padding:.25rem .5rem" title="${t('Sao chép')}" aria-label="${t('Sao chép')}">📋</button>
                   ${!isW ? `<button class="btn sm primary" id="crTts" style="padding:.25rem .6rem">🔊 ${t('Phát âm')}</button>` : ''}
                 </div>
