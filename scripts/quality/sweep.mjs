@@ -173,11 +173,16 @@ async function runCombo(c) {
     if (extra.cls > 0.1) found.push({ type: 'cls', key: 'layout-shift', msg: `CLS ${extra.cls.toFixed(3)} > 0.1 [${extra.src}]` });
     const lt = Math.max(0, ...extra.lt); if (lt > 200) found.push({ type: 'longtask', key: 'longtask', msg: `tác vụ dài ${lt} ms > 200` });
     for (const m of extra.rej) found.push({ type: 'rejection', key: norm(m), msg: norm(m) });
+    let cvAll = null;
     try {
+      // content-visibility:auto (danh sách dài, vd .word-row) bỏ bố cục các hàng ngoài màn hình → axe không đo được hình học chữ: phần lớn thành "incomplete" (không kiểm),
+      // vài hàng ra kết quả sai (nền mặc định trắng). Chỉ lúc chạy axe (sau khi đã đo tác vụ dài/CLS): ép hiển thị để axe kiểm MỌI hàng như người dùng thấy khi cuộn tới – tăng độ phủ, không nới ngưỡng.
+      cvAll = await page.addStyleTag({ content: '*{content-visibility:visible!important}' }).catch(() => null);
       await page.addScriptTag({ content: AXE });
       const ax = await page.evaluate(async () => { const res = await axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] }, resultTypes: ['violations'] }); return res.violations.filter(v => v.impact === 'serious' || v.impact === 'critical').map(v => ({ id: v.id, impact: v.impact, help: v.help, nodes: v.nodes.slice(0, 2).map(n => n.target.join(' ')) })); });
       for (const v of ax) found.push({ type: 'axe-' + v.impact, key: v.id + ' ' + (v.nodes[0] || '').slice(0, 60), msg: `${v.id}: ${v.help} [${v.nodes.join(' | ').slice(0, 100)}]` });
     } catch (e) { found.push({ type: 'probe-error', key: 'axe', msg: 'axe: ' + String(e.message).slice(0, 80) }); }
+    if (cvAll) await cvAll.evaluate(e => e.remove()).catch(() => {}); // gỡ ngay: route sau vẫn đo tác vụ dài/CLS với bố cục thật
     let shot = '';
     if (found.length && shots < SHOT_CAP) { shot = `shots/${tag}__${slug(id)}.png`; shots++; await page.screenshot({ path: `${OUT}/${shot}` }).catch(() => { shot = ''; }); }
     for (const f of found) { if (f.type === 'probe-error') continue; p.bad++; findings.push({ ...f, sev: SEV[f.type] || 'low', page: `${kind === 'app' ? '#/' : ''}${id}`, tag, shot }); }
