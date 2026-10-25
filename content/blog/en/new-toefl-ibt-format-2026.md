@@ -78,7 +78,7 @@ That makes 12 task types in total. Here is what each section looks like and how 
 
 **Write an Email.** Respond to a situation in about 7 minutes, covering every point the task asks for. Test takers more often lose points by missing a required point than by using simple vocabulary. Our guide on [how to write a formal email](/en/blog/how-to-write-a-formal-email/) covers openings, polite requests and closings.
 
-**Write for an Academic Discussion.** Contribute a post to an online class discussion in about 10 minutes. Your post should add a **new** idea with a reason, not simply repeat what other students have said. Measured language (*this may suggest*, *in many cases*) makes academic claims more convincing; see [hedging in academic writing](/en/blog/hedging-in-academic-writing/).
+**Write for an Academic Discussion.** Contribute a post to an online class discussion in about 10 minutes. Your post should add a **new** idea with a reason, not simply repeat what other students have said. Measured language (*this may suggest*, *in many cases*) makes academic claims more convincing; see [hedging in academic writing](/en/blog/hedging-in-academic-writing/). Our [TOEFL Academic Discussion guide](/en/blog/toefl-academic-discussion-writing/) walks through a full model post.
 
 ## Speaking: short but demanding
 

@@ -149,7 +149,7 @@ In **IELTS Writing Task 1**, graphs with past years need the past simple: *Sales
 
 In **IELTS Writing Task 2** and **Speaking**, the present perfect is natural for trends that continue to now: *Remote work has become far more common in recent years.* In a **Speaking Part 2** story you will move between both: *I've always enjoyed cooking, but the first time I really cooked for guests was when I was sixteen.* See our [IELTS Speaking Part 2](/en/blog/ielts-speaking-part-2-tips/) guide for story structure.
 
-In **TOEIC Part 5**, look for the time clue first. *Since*, *for* and *so far* usually point to the present perfect; *last*, *ago* and a specific date point to the past simple. The [TOEIC test format](/en/blog/toeic-test-format/) guide explains where these grammar questions appear.
+In **TOEIC Part 5**, look for the time clue first. *Since*, *for* and *so far* usually point to the present perfect; *last*, *ago* and a specific date point to the past simple. The [TOEIC test format](/en/blog/toeic-test-format/) guide explains where these grammar questions appear. More Part 5 clues are collected in our [TOEIC Part 5 guide](/en/blog/toeic-part-5-tips/).
 
 ## Self-check
 

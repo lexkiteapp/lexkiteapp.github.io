@@ -31,7 +31,7 @@ Think of idioms as seasoning rather than the meal. If your core vocabulary is th
 
 ### Idioms, phrasal verbs and collocations are not the same thing
 
-Learners often lump these together, but the difference matters for how you study them:
+Learners often lump these together, but the difference matters for how you study them: For a practical starting list, see our [40 common phrasal verbs](/en/blog/common-phrasal-verbs/).
 
 | Type | Example | Can you guess the meaning from the words? |
 |---|---|---|

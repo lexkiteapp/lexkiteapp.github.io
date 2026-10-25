@@ -27,7 +27,7 @@ Hedging does three jobs:
 
 1. **Accuracy.** It states the claim at the level your evidence supports.
 2. **Protection.** A reader cannot dismiss your point with one counterexample.
-3. **Politeness.** It acknowledges that other researchers may see things differently, which is the expected tone in academic discussion.
+3. **Politeness.** It acknowledges that other researchers may see things differently, which is the expected tone in academic discussion. The same tone suits the [TOEFL Academic Discussion](/en/blog/toefl-academic-discussion-writing/) writing task.
 
 ### Where learners go wrong
 
@@ -70,7 +70,7 @@ Scope phrases are underused by learners and very effective. *Cars cause pollutio
 
 ### Hedging nouns and introductory phrases
 
-*There is some evidence that…*, *One possible explanation is…*, *It is possible that…*, *This may be due to…*. Use these sparingly; they add words, so they work best when the claim really is uncertain.
+*There is some evidence that…*, *One possible explanation is…*, *It is possible that…*, *This may be due to…*. Use these sparingly; they add words, so they work best when the claim really is uncertain. For the grammar of *may*, *might* and *could* themselves, see [modal verbs explained](/en/blog/modal-verbs-can-could-should-must/).
 
 ### Impersonal and conditional hedges
 

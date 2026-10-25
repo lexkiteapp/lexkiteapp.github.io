@@ -47,7 +47,7 @@ The good news: collocations are learnable in chunks, and because IELTS topics re
 | Verb + preposition | *depend on, contribute to, result in, cope with* |
 | Noun + preposition | *an increase in, the impact of X on Y, a solution to* |
 
-Verb + noun combinations cause the most errors because the verbs are short, common words (*make, do, take, have, give*) whose choice in English often feels arbitrary to learners.
+Verb + noun combinations cause the most errors because the verbs are short, common words (*make, do, take, have, give*) whose choice in English often feels arbitrary to learners. Phrasal verbs are a related but separate area; see [common phrasal verbs](/en/blog/common-phrasal-verbs/).
 
 ## 45 useful IELTS collocations by topic
 

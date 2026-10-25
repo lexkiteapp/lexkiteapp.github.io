@@ -96,7 +96,7 @@ The famous trap is that *to* is sometimes a preposition, not part of an infiniti
 - *He objected **to paying** twice.*
 - *When it comes **to cooking**, I'm hopeless.*
 
-A quick test: if you can put a noun after *to* (*I look forward to the weekend*), then *to* is a preposition, and a verb there must be a gerund.
+A quick test: if you can put a noun after *to* (*I look forward to the weekend*), then *to* is a preposition, and a verb there must be a gerund. *Look forward to* is one of the [common phrasal verbs](/en/blog/common-phrasal-verbs/) where this matters most.
 
 ### After a few fixed expressions
 

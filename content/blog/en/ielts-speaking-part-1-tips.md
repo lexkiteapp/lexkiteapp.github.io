@@ -104,14 +104,14 @@ Some problems are universal; others depend on your first language. Check which o
 ### Problems almost everyone has
 
 - **One-word answers.** *"Yes." "No." "Madrid."* The examiner has nothing to assess.
-- **Answers that are far too long.** Speaking for a minute about whether you like rain eats into the time for other questions. Save extended turns for Part 2.
+- **Answers that are far too long.** Speaking for a minute about whether you like rain eats into the time for other questions. Save extended turns for Part 2. Developed answers belong in Part 3; see our [IELTS Speaking Part 3 guide](/en/blog/ielts-speaking-part-3-tips/).
 - **Memorised scripts.** A flat, recited tone and bookish language for a simple question are easy to spot, and examiners are trained to notice them.
 - **Repeating the question.** *"Do I like walking? Yes, I like walking."* It wastes time and adds nothing. Just answer, or use a natural opener such as *"Yes, quite a lot."*
 - **The same opener every time.** Starting every reply with *"Well, to be honest…"* turns a natural phrase into a verbal tic.
 
 ### Problems linked to your first language
 
-- **Dropping final sounds.** Speakers of Vietnamese, Thai or Cantonese often lose word endings: *"I like walk"*, *"two year"*. To the examiner this sounds like a grammar mistake as well as a pronunciation one.
+- **Dropping final sounds.** Speakers of Vietnamese, Thai or Cantonese often lose word endings: *"I like walk"*, *"two year"*. To the examiner this sounds like a grammar mistake as well as a pronunciation one. For past tense verbs, [ed pronunciation rules](/en/blog/ed-pronunciation-rules/) show which ending to use.
 - **Adding extra vowels.** Spanish and Portuguese speakers may say *"estudent"* or *"espeak"*; Japanese speakers sometimes add a vowel after consonants (*"worku"*). Practising consonant clusters slowly helps.
 - **Present tense for duration.** German, French and Spanish speakers often say *"I live here since 2019"*. In English it is *"I've lived here since 2019"*; our [present perfect vs past simple](/en/blog/present-perfect-vs-past-simple/) guide explains why.
 - **Translated phrases.** *"I have 22 years"* (French, Spanish, Italian), *"make a party"* or *"open the light"* come straight from another language. The natural forms are *"I'm 22"*, *"have a party"* and *"turn on the light"*.
