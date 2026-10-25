@@ -12,12 +12,16 @@ const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko'
 const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
 let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en';
 const uiDicts = {};
+const I18NX = ['structs', 'toefl', 'league', 'call', 'handoff']; // = BUNDLES.i18nx trong web/js/app.js (test ext-selection.mjs so khớp)
 // en: chỉ bảng tên cấu trúc ngữ pháp (chữ EN khác có sẵn trong từng file); ngôn ngữ khác: từ điển web đầy đủ
 async function uiDict(lang) {
   if (!lang || lang === 'vi') return {};
   if (uiDicts[lang]) return uiDicts[lang];
   const one = async f => { try { const s = await (await fetch(chrome.runtime.getURL(f))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); return JSON.parse(s.slice(i, j + 1)); } catch (e) { return {}; } };
-  uiDicts[lang] = lang === 'en' ? Object.assign(await one('app/js/i18n/en/structs.js'), await one('app/js/i18n/en/writecheck.js')) : await one(`app/js/i18n/${lang}.js`); // en: cấu trúc + soát lỗi viết (định dạng JSON)
+  // en: cấu trúc + soát lỗi viết (định dạng JSON). Ngôn ngữ khác: nền tiếng Anh (khóa thiếu → English, KHÔNG BAO GIỜ tiếng Việt)
+  // + <lang>.js + các nhóm i18nx (<lang>/<nhóm>.js – ra khỏi <lang>.js từ 22ca39d, gồm tên cấu trúc câu của bảng 🌐 Dịch)
+  const en = Object.assign(await one('app/js/i18n/en/structs.js'), await one('app/js/i18n/en/writecheck.js'));
+  uiDicts[lang] = lang === 'en' ? en : Object.assign(en, await one(`app/js/i18n/${lang}.js`), ...await Promise.all(I18NX.map(n => one(`app/js/i18n/${lang}/${n}.js`))));
   return uiDicts[lang];
 }
 let XD = {};

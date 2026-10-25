@@ -14,6 +14,7 @@ const { JSDOM } = jsdom;
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const MIXED = 'Kiểm thử add-on (E2E): Some jobs were not successful';
 const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 const loadDict = l => {
@@ -266,6 +267,32 @@ route = url => (/translate\.googleapis/.test(url) ? resp(500, null) : /mymemory/
 r = await send({ type: 'translate', text: MIXED + ' 2', tl: 'en', sl: 'auto', hint: 'vi' });
 ok(r.vi === 'Testing add-on' && r.src === 'vi', 'Google lỗi → dự phòng MyMemory theo gợi ý nguồn vi (không rỗng)');
 ok(fetches.some(f => /mymemory.*langpair=vi(\||%7C)en/.test(f.url)), 'MyMemory gọi đúng cặp vi|en');
+
+// ---------- 3) Tên cấu trúc câu (🧩) trong bảng Dịch theo ngôn ngữ giao diện – hồi quy run 40152310424 ----------
+// 22ca39d tách nhóm structs ra khỏi <lang>.js (gói i18nx) → uiDict của service worker chỉ đọc <lang>.js → tên cấu trúc hiện tiếng Việt.
+{
+  const appI18nx = (rd('web/js/app.js').match(/i18nx: \[([^\]]*)\]/) || [])[1] || '';
+  const bgI18nx = (rd('extension/background.js').match(/const I18NX = \[([^\]]*)\]/) || [])[1] || '';
+  ok(appI18nx && appI18nx.replace(/\s/g, '') === bgI18nx.replace(/\s/g, ''), `background.js I18NX = BUNDLES.i18nx của web/js/app.js (${bgI18nx} | ${appI18nx})`);
+  route = url => { const m = url.match(/^chrome-extension:\/\/abc\/(app\/js\/i18n\/[\w/-]+\.js)$/); if (!m) return null; const f = new URL('../../extension/' + m[1], import.meta.url); return fs.existsSync(f) ? { ok: true, status: 200, text: async () => fs.readFileSync(f, 'utf8') } : resp(404, null); };
+  const SENT = 'Although it rained, we went out and the number of people has increased.';
+  for (const l of ['es', 'ja', ...LANGS.filter(x => x !== 'es' && x !== 'ja')]) {
+    const dict = ((await send({ type: 'uiDict', lang: l })) || {}).dict || {};
+    ok(dict['Mệnh đề nhượng bộ / đối lập'] && !VI.test(dict['Mệnh đề nhượng bộ / đối lập']), `${l}: uiDict có tên cấu trúc "Mệnh đề nhượng bộ / đối lập" đã dịch`);
+    if (l !== 'es' && l !== 'ja') continue; // dựng bảng thật cho es/ja (đủ bắt lỗi, giữ test nhanh)
+    const p = await page(l, { dict, on: { translate: () => ({ vi: l === 'es' ? 'Aunque llovió, salimos.' : '雨が降ったが、出かけた。', src: 'en', tl: l }) } });
+    p.w.eval(rd('web/js/structures.js'));
+    await p.select(SENT); await sleep(120);
+    const names = [...p.root().querySelectorAll('.st-n')].map(x => x.textContent);
+    ok(names.length >= 2, `${l}: bảng Dịch có 🧩 cấu trúc (được ${names.length})`);
+    ok(names.every(x => !VI.test(x)), `${l}: tên cấu trúc không lẫn tiếng Việt (${JSON.stringify(names)})`);
+    ok(names.includes(dict['Mệnh đề nhượng bộ / đối lập']), `${l}: “Although” → ${dict['Mệnh đề nhượng bộ / đối lập']}`);
+  }
+  // Khóa thiếu ở ngôn ngữ giao diện → English, không bao giờ tiếng Việt
+  const enS = (() => { const t = rd('web/js/i18n/en/structs.js'); return JSON.parse(t.slice(t.indexOf('{"', t.indexOf('Object.assign(')), t.lastIndexOf('});') + 1)); })();
+  const es = ((await send({ type: 'uiDict', lang: 'es' })) || {}).dict || {};
+  const miss = Object.keys(enS).filter(k => !es[k] || VI.test(es[k])); ok(!miss.length, 'es: mọi khóa cấu trúc có bản dịch / English ' + JSON.stringify(miss.slice(0, 3)));
+}
 
 console.log(fails ? `✗ ext-selection: ${fails}/${n} lỗi` : `✓ ext-selection: ${n} kiểm tra đạt`);
 process.exit(fails ? 1 : 0);
