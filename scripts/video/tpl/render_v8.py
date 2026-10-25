@@ -71,7 +71,7 @@ for lid in TXT:
 
 # ---------------- timeline: one continuous shot, pacing by short pauses ----------------
 PLAN = [('v8_h', 0.20), ('v8_w', 0.10), ('v8_k', 0.38), ('v8_y', 0.30), ('v8_x', 0.24), ('v8_q', 0.28), ('count', 0.12), ('v8_a', 0.10), ('v8_s', 0.32)]
-COUNT = 3.0; TAIL = 1.25
+COUNT = 3.0; TAIL = 1.5
 def place(k):
     t = 0.0; atl = {}; c0 = 0
     for lid, gap in PLAN:
@@ -80,7 +80,7 @@ def place(k):
         atl[lid] = t; t += LINES[lid]['words'][-1]['e'] + (LINES[lid]['dur'] - LINES[lid]['words'][-1]['e']) * 0.5
     return t, atl, c0
 GK = 1.0
-while place(GK)[0] + TAIL < 25.4 and GK < 2.0: GK += 0.05   # too short -> slightly longer pauses (never slower speech); 25-30 s target
+while place(GK)[0] + TAIL < 25.4 and GK < 2.2: GK += 0.05   # too short -> slightly longer pauses (never slower speech); 25-30 s target
 END, ATL, C0 = place(GK); NF = int(math.ceil((END + TAIL) * FPS))
 BANK = {c['id']: c for c in json.load(open(f'{o.lib}/bank.json'))['clips']}; LO, HI = BANK[o.clip].get('usable_frames', [0, 120])
 def pp_hi(nf):   # ping-pong 0..hi..0 k times must end exactly on frame 0 (loop): nf - 1 = 2 k hi
@@ -216,11 +216,12 @@ for k, fn in dict(hook=mk_hook, correct=mk_correct, rule=mk_rule, quiz=mk_quiz, 
     TOPS[k] = dict(im=im, text=txt, px=px)
 TOP_EV = [('hook', 1.0 / FPS, lend('v8_w') + 0.12, 'spring'),
           ('correct', wt('v8_k', 4)['s'] - 0.06, wt('v8_k', 4)['s'] + 2.1, 'spring'),
-          ('rule', wt('v8_y', 5)['s'] - 0.06, lend('v8_y') + 0.35, 'spring'),
+          ('rule', ATL['v8_y'] + 0.25, lend('v8_y') + 0.9, 'spring'),
           ('quiz', wt('v8_q', 1)['s'] - 0.06, C0 + COUNT, 'spring'),
           ('correct', wt('v8_a', 4)['s'] - 0.06, max(lend('v8_a') + 0.1, wt('v8_a', 4)['s'] + 1.9), 'spring'),
           ('end', ATL['v8_s'] - 0.05, TOTAL - 0.40, 'spring')]
 TOP_EV = [(k, a, min(b, TOP_EV[j + 1][1] - 0.02) if j + 1 < len(TOP_EV) else b, kd) for j, (k, a, b, kd) in enumerate(TOP_EV)]   # one pop at a time
+TOP_EV = [(k, a, max(b, min(a + 1.3, TOP_EV[j + 1][1] - 0.02 if j + 1 < len(TOP_EV) else b)), kd) for j, (k, a, b, kd) in enumerate(TOP_EV)]
 for e in TOP_EV: assert e[2] - e[1] >= 1.2, ('top pop too short', e)
 def pop_anim(T, t0, t1, kind):
     """-> (scale, alpha). spring in (0.26 s: 0.6 -> 1.06 -> 1.0), fade/scale out 0.16 s."""

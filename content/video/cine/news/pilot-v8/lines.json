@@ -1,7 +1,7 @@
 {
  "note": "Pilot v8 'one continuous talking head' (docs/VIDEO-TEMPLATES.md §13). Lesson tpl1b_airport_gate_cc6fbe, hook verdict from content/video/cine/news/tpl1b/reviewed-hooks.json. Captions are rendered from THESE texts (TTS word timings aligned to the exact tokens) – never from the whisper transcript; qc_v8 gate caption_script. 'key' = word indexes that keep a colour after they are spoken (red = the error, green = the fix).",
  "voices": { "ama": "af_bella" },
- "speed": 1.03,
+ "speed": 1.0,
  "display": { "blank": "___" },
  "lines": [
   { "id": "v8_h", "who": "ama", "text": "Stop saying this." },
