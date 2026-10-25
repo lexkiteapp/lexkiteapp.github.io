@@ -50,3 +50,23 @@ no text/logo, mouth closed at start and end so the loop dissolves cleanly), firs
 Order per CREDIT-RULES: 0-credit work first (done: 2 teachers × 3 sets already rotate) → analysis ticket per clip → first frame (1 cr) checked
 (pose, 180°, hands, no text) → ONE 10 s clip → frame-by-frame review → only then the second angle / next teacher; stop after 2 fails.
 Add each clip to `teachers.json` with a measured head mask and a Rhubarb mouth set (scripts/cine bank tools) before use.
+
+## 4. Teachers bank v1 – CLASSROOM (generated 25/10/2026, 524 / 650 credits)
+Owner decision 25/10: every new teacher clip in ONE bright American classroom ("our school": window with daylight, big BLANK whiteboard, student desks, light-oak teacher desk).
+Bank: `brand/library/cine/teachers/bank.json` (schema = anchor bank + `head`, `anchor`, `loop`, `voice`, `set`); binaries in `lexkite-footage/teachers/` (clips/, tools/dl24, tools/meta, frames/, refs/); ledger + prompts in `brand/library/cine/teachers/tools/`.
+Sets in teachers.json: `classroom` (seated MCU, whiteboard behind/above the head = text zone, desk front = caption zone) and `classroom_board` (standing beside the board, board = text zone).
+
+| Clip | Teacher (voice) | Framing | Usable | Score | Note |
+|---|---|---|---|---|---|
+| d01_daniel_class | Daniel (am_michael) | MCU frontal | 0–227 | 90 | pilot; master set frame `frames/d_class.png` |
+| d02_daniel_ang2 | Daniel | MCU ¾ from left | 0–216 | 89 | |
+| m01_mei_class | Mei (af_sarah) | MCU frontal | 0–213 | 87 | 2 brief side glances |
+| m02_mei_ang2 | Mei | MCU ¾ from right | 0–239 | 88 | |
+| r01_ruth_class | Ruth (af_kore) NEW, early 60s | MCU frontal | 0–240 | 89 | |
+| k01_kai_class | Kai (am_liam) NEW, Native Hawaiian American | MCU frontal | 0–228 | 88 | |
+| a02_ama_board | Ama (af_bella) | standing medium, whiteboard | 0–223 | 85 | eyes open ~75 % |
+| c01_carlos_board | Carlos (am_fenrir) | standing medium, whiteboard | 0–199 | 84 | mouth track 0.87 (head yaw) – short lines |
+
+Rejected: d01_daniel_talk (studio set before the classroom decision, motion fine), a01_ama_board (eyes closed ~45 %, stance shifts, face too small).
+Lessons: Kling local-file upload is blocked in the sandbox → refs go to lexkite-media `cine/teachers/` (tools/putmedia.sh); standing "explaining" clips need "eyes wide open" + "legs locked" and a head→thigh framing; ¾ angles from the accepted frontal frame work first try; bank.py face box must be aimed at the mouth (it locked on an eye twice).
+render_v9 still puts pops in the band under the chin; using the whiteboard/top zone for text is a template change (0 credits) still to do.

@@ -1,22 +1,373 @@
 {
  "_note": "Teacher / set / clip registry for the v9 template family (docs/VIDEO-TEACHERS.md). Only to-camera talk loops with a Rhubarb mouth set. head = protected head mask in SOURCE pixels (hair + ears + chin + neck, union over the whole clip incl. head sway, checked by eye on the 13-frame average); no text box may ever touch it (qc_v9 head_clear, moved with the camera per frame). anchor = camera push centre. band = where pops go: below the chin, above the captions (computed by render_v9 from head + smax). path/meta = folders inside lexkite-footage.",
  "teachers": {
-  "ama": { "name": "Ama", "voice": "af_bella", "accent": "American (Kokoro af_bella)", "persona": "warm, upbeat American English teacher" },
-  "carlos": { "name": "Carlos", "voice": "am_fenrir", "accent": "American (Kokoro am_fenrir)", "persona": "calm, clear American English teacher" }
+  "ama": {
+   "name": "Ama",
+   "voice": "af_bella",
+   "accent": "American (Kokoro af_bella)",
+   "persona": "warm, upbeat American English teacher"
+  },
+  "carlos": {
+   "name": "Carlos",
+   "voice": "am_fenrir",
+   "accent": "American (Kokoro am_fenrir)",
+   "persona": "calm, clear American English teacher"
+  },
+  "daniel": {
+   "name": "Daniel",
+   "voice": "am_michael",
+   "accent": "American (Kokoro am_michael)",
+   "persona": "friendly, clear American English teacher"
+  },
+  "mei": {
+   "name": "Mei",
+   "voice": "af_sarah",
+   "accent": "American (Kokoro af_sarah)",
+   "persona": "bright, precise American English teacher"
+  },
+  "ruth": {
+   "name": "Ruth",
+   "voice": "af_kore",
+   "accent": "American (Kokoro af_kore)",
+   "persona": "warm, experienced American English teacher"
+  },
+  "kai": {
+   "name": "Kai",
+   "voice": "am_liam",
+   "accent": "American (Kokoro am_liam)",
+   "persona": "easy-going, upbeat American English teacher"
+  }
  },
  "sets": {
-  "studio": { "lib": "anchor", "path": "tools/dl24", "meta": "tools/meta", "amb": "tools/amb_studio.wav", "ding": "tools/foley/ding.wav", "smax": 1.10 },
-  "hotel": { "lib": "hotel", "path": "dl24", "meta": "meta", "amb": "tools/amb_hotel.wav", "ding": "tools/foley/ding.wav", "smax": 1.06 },
-  "airport": { "lib": "airport", "path": "dl24", "meta": "meta", "amb": "tools/amb_airport.wav", "ding": "", "smax": 1.06 }
+  "studio": {
+   "lib": "anchor",
+   "path": "tools/dl24",
+   "meta": "tools/meta",
+   "amb": "tools/amb_studio.wav",
+   "ding": "tools/foley/ding.wav",
+   "smax": 1.1
+  },
+  "hotel": {
+   "lib": "hotel",
+   "path": "dl24",
+   "meta": "meta",
+   "amb": "tools/amb_hotel.wav",
+   "ding": "tools/foley/ding.wav",
+   "smax": 1.06
+  },
+  "airport": {
+   "lib": "airport",
+   "path": "dl24",
+   "meta": "meta",
+   "amb": "tools/amb_airport.wav",
+   "ding": "",
+   "smax": 1.06
+  },
+  "classroom": {
+   "lib": "teachers",
+   "path": "tools/dl24",
+   "meta": "tools/meta",
+   "amb": "tools/amb_classroom.wav",
+   "ding": "",
+   "smax": 1.1
+  },
+  "classroom_board": {
+   "lib": "teachers",
+   "path": "tools/dl24",
+   "meta": "tools/meta",
+   "amb": "tools/amb_classroom.wav",
+   "ding": "",
+   "smax": 1.06
+  }
  },
  "clips": {
-  "a01_ama_talk": { "set": "studio", "who": "ama", "usable": [0, 120], "head": [185, 305, 815, 910], "anchor": [540, 430] },
-  "a02_ama_talk_smile": { "set": "studio", "who": "ama", "usable": [0, 120], "head": [185, 305, 815, 910], "anchor": [540, 430] },
-  "a03_ama_explain": { "set": "studio", "who": "ama", "usable": [20, 120], "head": [185, 305, 815, 910], "anchor": [540, 430] },
-  "c01_carlos_talk": { "set": "studio", "who": "carlos", "usable": [0, 120], "head": [345, 290, 800, 890], "anchor": [560, 450] },
-  "c02_carlos_talk_smile": { "set": "studio", "who": "carlos", "usable": [0, 120], "head": [345, 290, 800, 890], "anchor": [560, 450] },
-  "c03_carlos_explain": { "set": "studio", "who": "carlos", "usable": [0, 120], "head": [345, 290, 800, 890], "anchor": [560, 450] },
-  "h06_ama_mcu_talk": { "set": "hotel", "who": "ama", "usable": [0, 120], "head": [40, 110, 1050, 1000], "anchor": [540, 560] },
-  "a07_ama_mcu_talk": { "set": "airport", "who": "ama", "usable": [0, 120], "head": [45, 140, 1045, 1010], "anchor": [540, 560] }
+  "a01_ama_talk": {
+   "set": "studio",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    185,
+    305,
+    815,
+    910
+   ],
+   "anchor": [
+    540,
+    430
+   ]
+  },
+  "a02_ama_talk_smile": {
+   "set": "studio",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    185,
+    305,
+    815,
+    910
+   ],
+   "anchor": [
+    540,
+    430
+   ]
+  },
+  "a03_ama_explain": {
+   "set": "studio",
+   "who": "ama",
+   "usable": [
+    20,
+    120
+   ],
+   "head": [
+    185,
+    305,
+    815,
+    910
+   ],
+   "anchor": [
+    540,
+    430
+   ]
+  },
+  "c01_carlos_talk": {
+   "set": "studio",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    345,
+    290,
+    800,
+    890
+   ],
+   "anchor": [
+    560,
+    450
+   ]
+  },
+  "c02_carlos_talk_smile": {
+   "set": "studio",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    345,
+    290,
+    800,
+    890
+   ],
+   "anchor": [
+    560,
+    450
+   ]
+  },
+  "c03_carlos_explain": {
+   "set": "studio",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    345,
+    290,
+    800,
+    890
+   ],
+   "anchor": [
+    560,
+    450
+   ]
+  },
+  "h06_ama_mcu_talk": {
+   "set": "hotel",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    40,
+    110,
+    1050,
+    1000
+   ],
+   "anchor": [
+    540,
+    560
+   ]
+  },
+  "a07_ama_mcu_talk": {
+   "set": "airport",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    45,
+    140,
+    1045,
+    1010
+   ],
+   "anchor": [
+    540,
+    560
+   ]
+  },
+  "d01_daniel_class": {
+   "set": "classroom",
+   "who": "daniel",
+   "usable": [
+    0,
+    227
+   ],
+   "head": [
+    230,
+    370,
+    820,
+    960
+   ],
+   "anchor": [
+    525,
+    495
+   ]
+  },
+  "d02_daniel_ang2": {
+   "set": "classroom",
+   "who": "daniel",
+   "usable": [
+    0,
+    216
+   ],
+   "head": [
+    80,
+    420,
+    560,
+    940
+   ],
+   "anchor": [
+    320,
+    545
+   ]
+  },
+  "m01_mei_class": {
+   "set": "classroom",
+   "who": "mei",
+   "usable": [
+    0,
+    213
+   ],
+   "head": [
+    250,
+    400,
+    750,
+    940
+   ],
+   "anchor": [
+    500,
+    525
+   ]
+  },
+  "m02_mei_ang2": {
+   "set": "classroom",
+   "who": "mei",
+   "usable": [
+    0,
+    239
+   ],
+   "head": [
+    400,
+    420,
+    940,
+    980
+   ],
+   "anchor": [
+    670,
+    545
+   ]
+  },
+  "r01_ruth_class": {
+   "set": "classroom",
+   "who": "ruth",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    210,
+    420,
+    750,
+    980
+   ],
+   "anchor": [
+    480,
+    545
+   ]
+  },
+  "k01_kai_class": {
+   "set": "classroom",
+   "who": "kai",
+   "usable": [
+    0,
+    228
+   ],
+   "head": [
+    290,
+    310,
+    770,
+    920
+   ],
+   "anchor": [
+    530,
+    435
+   ]
+  },
+  "a02_ama_board": {
+   "set": "classroom_board",
+   "who": "ama",
+   "usable": [
+    0,
+    223
+   ],
+   "head": [
+    500,
+    630,
+    840,
+    990
+   ],
+   "anchor": [
+    670,
+    755
+   ]
+  },
+  "c01_carlos_board": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    199
+   ],
+   "head": [
+    530,
+    650,
+    860,
+    1000
+   ],
+   "anchor": [
+    695,
+    775
+   ]
+  }
  }
 }

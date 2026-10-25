@@ -1,0 +1,360 @@
+{
+ "id": "tv1_daniel_mistake_agree",
+ "template": "mistake",
+ "title": "Teachers v1 sample: Daniel, classroom (script = t1_mistake_agree)",
+ "teacher": "daniel",
+ "set": "classroom",
+ "clips": [
+  "d01_daniel_class"
+ ],
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 1.0,
+ "error_lines": [
+  "m_w"
+ ],
+ "error_re": "\\bam agree\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying this."
+  },
+  {
+   "id": "m_w",
+   "text": "I am agree.",
+   "key": {
+    "red": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: I agree.",
+   "key": {
+    "green": [
+     2,
+     3
+    ]
+   },
+   "gap": 0.35
+  },
+  {
+   "id": "m_y",
+   "text": "Agree is a verb, so you don't need am.",
+   "key": {
+    "yellow": [
+     0,
+     3
+    ],
+    "red": [
+     8
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "m_x",
+   "text": "I agree. I don't agree. Do you agree?",
+   "key": {
+    "green": [
+     1,
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "id": "m_t",
+   "text": "To agree strongly, say: I totally agree.",
+   "key": {
+    "green": [
+     5,
+     6
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "m_q",
+   "text": "Quiz! Which one is right, A or B?",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.3
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "B! I agree with you.",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "id": "m_c",
+   "text": "Check your grammar free on lexkite.com.",
+   "gap": 0.3
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_w",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " STOP",
+      "red"
+     ],
+     [
+      " saying",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“I ",
+      "white"
+     ],
+     [
+      "am agree",
+      "red"
+     ],
+     [
+      ".”",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 92,
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_k",
+    -1,
+    "e",
+    1.0
+   ],
+   "rows": [
+    [
+     [
+      "I agree.",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "rule",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 76,
+   "plate": "navy",
+   "from": [
+    "m_y",
+    2,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_y",
+    -1,
+    "e",
+    0.4
+   ],
+   "rows": [
+    [
+     [
+      "agree",
+      "yellow"
+     ],
+     [
+      " = a verb",
+      "white"
+     ]
+    ],
+    [
+     [
+      "no ",
+      "white"
+     ],
+     [
+      "“am”",
+      "red"
+     ],
+     [
+      " needed",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 70,
+   "from": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_x",
+    -1,
+    "e",
+    0.3
+   ],
+   "rows": [
+    [
+     [
+      "I agree.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "I don't agree.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "Do you agree?",
+      "green"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "strong",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    -1,
+    "e",
+    0.3
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:💯"
+     ],
+     [
+      " I ",
+      "white"
+     ],
+     [
+      "totally",
+      "yellow"
+     ],
+     [
+      " agree",
+      "green"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "from": [
+    "m_q",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.3
+   ],
+   "a": "I am agree",
+   "b": "I agree",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "Which one is right?",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ]
+}

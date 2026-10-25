@@ -1,0 +1,548 @@
+{
+ "scene": "teachers",
+ "version": 1,
+ "created": "2026-10-25",
+ "standard": "docs/VIDEO-TEACHERS.md + docs/CREDIT-RULES.md",
+ "characters": {
+  "daniel": {
+   "look": "Black American man, late 20s, short afro, beard, round gold glasses, moss-green blazer, white shirt",
+   "voice": "am_michael",
+   "ref": "refs/ref-daniel.png"
+  },
+  "mei": {
+   "look": "Chinese-American woman, early 30s, black bob, maroon-plum blazer, white top",
+   "voice": "af_sarah",
+   "ref": "refs/ref-mei.png"
+  },
+  "ruth": {
+   "look": "white American woman, early 60s, silver bob, red reading glasses, pearl studs, navy cardigan, cream blouse",
+   "voice": "af_kore",
+   "ref": "refs/ref-ruth.png",
+   "new": true
+  },
+  "kai": {
+   "look": "Native Hawaiian American man, early 30s, wavy black hair, chambray shirt + charcoal knit vest",
+   "voice": "am_liam",
+   "ref": "refs/ref-kai.png",
+   "new": true
+  },
+  "ama": {
+   "look": "as anchor bank (teal blazer, coral top, yellow headband) + black trousers",
+   "voice": "af_bella",
+   "ref": "refs/mcuama.png"
+  },
+  "carlos": {
+   "look": "as anchor bank (navy blazer, olive henley, moustache) + dark-grey trousers",
+   "voice": "am_fenrir",
+   "ref": "refs/mcucarlos.png"
+  }
+ },
+ "set": "ONE classroom = \"our school\" (owner 25/10): cream walls, tall white-framed window with daylight (left), big silver-framed BLANK whiteboard, light-wood student desks with blue chairs, light-oak teacher desk; master frame frames/d_class.png. Same flat 2D style/line weight as anchor mcuama/mcucarlos.",
+ "rules": [
+  "MCU: teacher seated ON chair behind teacher desk, whiteboard behind/above head = text zone, desk front (bottom ~30 %) = caption zone",
+  "standing: teacher beside the blank whiteboard (board = text zone upper-left), medium shot head->thigh",
+  "whiteboard is always blank; no text/logo/badge anywhere",
+  "mouth = Rhubarb swap from tools/meta (harvested from the same clip); clips play forward, loop end per clip"
+ ],
+ "layout": {
+  "mcu": {
+   "text_zone_y": [
+    0,
+    360
+   ],
+   "head_y": [
+    370,
+    980
+   ],
+   "caption_zone_y": [
+    1300,
+    1916
+   ]
+  },
+  "standing": {
+   "text_zone": "whiteboard x 0..~560, y 100..900",
+   "head_y": [
+    630,
+    1000
+   ],
+   "caption_zone_y": [
+    1300,
+    1916
+   ]
+  }
+ },
+ "credits": {
+  "images": 24,
+  "videos": 500,
+  "total": 524,
+  "approved_plan": 610,
+  "cap": 650,
+  "accepted_clips": 8,
+  "rejected_clips": 2,
+  "note": "per-item lines in tools/ledger.txt"
+ },
+ "clips": [
+  {
+   "id": "d01_daniel_class",
+   "file": "clips/d01_daniel_class.mp4",
+   "smooth": "tools/dl24/d01_daniel_class.mp4",
+   "first_frame": "frames/d_class.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/d_class.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AWjRLHCqYNB0BMFjo5uyISk4Pyr1AHHHicM4OFL8ja9r7_FX-J26gGaYk-t3su6j3mAEpWn2"
+   },
+   "set": "classroom",
+   "framing": "mcu",
+   "speakers": [
+    "daniel"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    227
+   ],
+   "loop": {
+    "end": 227,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "am_michael",
+   "mouth_sets": {
+    "daniel": "tools/meta/d01_daniel_class/daniel/"
+   },
+   "head": [
+    230,
+    370,
+    820,
+    960
+   ],
+   "anchor": [
+    525,
+    495
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "frontal"
+   ],
+   "score": 90,
+   "qa": "PASS 90: frontal MCU, gestures s2.8/s6.5, blink f158, loop f227 diff 6.5, mouth cc 0.795/0.938",
+   "logic": "ok: seated ON chair behind teacher desk, hands on desk, whiteboard blank"
+  },
+  {
+   "id": "d02_daniel_ang2",
+   "file": "clips/d02_daniel_ang2.mp4",
+   "smooth": "tools/dl24/d02_daniel_ang2.mp4",
+   "first_frame": "frames/d_ang2.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/d_ang2.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AUXJN3h2C988BzsR9yHf6SIV_ya-IPyajIkIG9wl3bmDoxJBDQ8oG_Ur8PF8VpQz0ma9pU1B"
+   },
+   "set": "classroom",
+   "framing": "mcu_34",
+   "speakers": [
+    "daniel"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    216
+   ],
+   "loop": {
+    "end": 216,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "am_michael",
+   "mouth_sets": {
+    "daniel": "tools/meta/d02_daniel_ang2/daniel/"
+   },
+   "head": [
+    80,
+    420,
+    560,
+    940
+   ],
+   "anchor": [
+    320,
+    545
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "three_quarter"
+   ],
+   "score": 89,
+   "qa": "PASS 89: 3/4 from left, gestures s3/s6, loop f216 diff 4.8, mouth cc 0.907/0.974",
+   "logic": "ok: seated ON chair behind teacher desk, hands on desk, whiteboard blank"
+  },
+  {
+   "id": "m01_mei_class",
+   "file": "clips/m01_mei_class.mp4",
+   "smooth": "tools/dl24/m01_mei_class.mp4",
+   "first_frame": "frames/m_class.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/m_class.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AdQdrLSULlkgMfMCoLsuu7YDoGtc1l2iX6e98TcIXd6fDIVqFiAoxlU9Mg2dxTw1baOfK0hR"
+   },
+   "set": "classroom",
+   "framing": "mcu",
+   "speakers": [
+    "mei"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    213
+   ],
+   "loop": {
+    "end": 213,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "af_sarah",
+   "mouth_sets": {
+    "mei": "tools/meta/m01_mei_class/mei/"
+   },
+   "head": [
+    250,
+    400,
+    750,
+    940
+   ],
+   "anchor": [
+    500,
+    525
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "frontal"
+   ],
+   "score": 87,
+   "qa": "PASS 87: frontal MCU, 2 brief side glances, loop f213 diff 7.2, mouth cc 0.804/0.908",
+   "logic": "ok: seated ON chair behind teacher desk, hands on desk, whiteboard blank"
+  },
+  {
+   "id": "m02_mei_ang2",
+   "file": "clips/m02_mei_ang2.mp4",
+   "smooth": "tools/dl24/m02_mei_ang2.mp4",
+   "first_frame": "frames/m_ang2.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/m_ang2.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AQJzrl_hrMiXMi9FRkC_RNT29taXvidgNjQVR07fy_7nOuXVO-Hi1I8CpZCGeJgsyWMD6l4p"
+   },
+   "set": "classroom",
+   "framing": "mcu_34",
+   "speakers": [
+    "mei"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    239
+   ],
+   "loop": {
+    "end": 239,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "af_sarah",
+   "mouth_sets": {
+    "mei": "tools/meta/m02_mei_ang2/mei/"
+   },
+   "head": [
+    400,
+    420,
+    940,
+    980
+   ],
+   "anchor": [
+    670,
+    545
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "three_quarter"
+   ],
+   "score": 88,
+   "qa": "PASS 88: 3/4 from right, loop f239 diff 8.4, mouth cc 0.852/0.965",
+   "logic": "ok: seated ON chair behind teacher desk, hands on desk, whiteboard blank"
+  },
+  {
+   "id": "r01_ruth_class",
+   "file": "clips/r01_ruth_class.mp4",
+   "smooth": "tools/dl24/r01_ruth_class.mp4",
+   "first_frame": "frames/r_class.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/r_class.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "Ae3oWN_hfzDqoICC2_qs9FbybTayH434llJtmag57qlLMjK2LCfGeWN4ZpyLjXJcVsbAuz_I"
+   },
+   "set": "classroom",
+   "framing": "mcu",
+   "speakers": [
+    "ruth"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    240
+   ],
+   "loop": {
+    "end": 240,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "af_kore",
+   "mouth_sets": {
+    "ruth": "tools/meta/r01_ruth_class/ruth/"
+   },
+   "head": [
+    210,
+    420,
+    750,
+    980
+   ],
+   "anchor": [
+    480,
+    545
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "frontal"
+   ],
+   "score": 89,
+   "qa": "PASS 89: frontal MCU, gestures s2.5/s5, loop f240 diff 5.7, mouth cc 0.654/0.883",
+   "logic": "ok: seated ON chair behind teacher desk, hands on desk, whiteboard blank"
+  },
+  {
+   "id": "k01_kai_class",
+   "file": "clips/k01_kai_class.mp4",
+   "smooth": "tools/dl24/k01_kai_class.mp4",
+   "first_frame": "frames/k_class.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/k_class.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AYOv_HD4mcXi6VkxFIMR-I8U6zgXby0N3KVWM_2w0VPK2-vnYVNrzn6TMeASpBDBqJ9oV8l8"
+   },
+   "set": "classroom",
+   "framing": "mcu",
+   "speakers": [
+    "kai"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    228
+   ],
+   "loop": {
+    "end": 228,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "am_liam",
+   "mouth_sets": {
+    "kai": "tools/meta/k01_kai_class/kai/"
+   },
+   "head": [
+    290,
+    310,
+    770,
+    920
+   ],
+   "anchor": [
+    530,
+    435
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "frontal"
+   ],
+   "score": 88,
+   "qa": "PASS 88: frontal MCU, gestures s2.5/s4/s8.5, loop f228 diff 6.1, mouth cc 0.646/0.935",
+   "logic": "ok: seated ON chair behind teacher desk, hands on desk, whiteboard blank"
+  },
+  {
+   "id": "a02_ama_board",
+   "file": "clips/a02_ama_board.mp4",
+   "smooth": "tools/dl24/a02_ama_board.mp4",
+   "first_frame": "frames/a_board.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/a_board2.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AeK68XxM5iOfpZTx2wRKQNBw7FdH8zkbygKDAwj1B5711CMYelLj1wPIsq6P4Reqo6e781ZN"
+   },
+   "set": "classroom_board",
+   "framing": "medium_standing",
+   "speakers": [
+    "ama"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    223
+   ],
+   "loop": {
+    "end": 223,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "af_bella",
+   "mouth_sets": {
+    "ama": "tools/meta/a02_ama_board/ama/"
+   },
+   "head": [
+    500,
+    630,
+    840,
+    990
+   ],
+   "anchor": [
+    670,
+    755
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "standing",
+    "whiteboard"
+   ],
+   "score": 85,
+   "qa": "PASS 85: standing beside blank whiteboard, presenting gesture, eyes open ~75 %, small head drift, loop f223 diff 6.4, mouth cc 0.561/0.924 (A re-picked f158)",
+   "logic": "ok: standing on floor beside blank whiteboard, feet planted, never touches board"
+  },
+  {
+   "id": "c01_carlos_board",
+   "file": "clips/c01_carlos_board.mp4",
+   "smooth": "tools/dl24/c01_carlos_board.mp4",
+   "first_frame": "frames/c_board.png",
+   "first_frame_url": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/c_board.png",
+   "kling": {
+    "model": "kling-video-v2_5",
+    "duration": 10,
+    "resolution": "1080p",
+    "generationId": "AXI9nEWsqJx4BmV7wqIKHctLw7V4Az3Ckb2xd3_SWIEPH1dDDIJl2RH39StK8ZCW7rQgCAhc"
+   },
+   "set": "classroom_board",
+   "framing": "medium_standing",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    199
+   ],
+   "loop": {
+    "end": 199,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9)"
+   },
+   "voice": "am_fenrir",
+   "mouth_sets": {
+    "carlos": "tools/meta/c01_carlos_board/carlos/"
+   },
+   "head": [
+    530,
+    650,
+    860,
+    1000
+   ],
+   "anchor": [
+    695,
+    775
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "standing",
+    "whiteboard"
+   ],
+   "score": 84,
+   "qa": "PASS 84: standing beside blank whiteboard, presenting gesture, eyes open, loop f199 diff 4.0; mouth track cc 0.798/0.873 (head yaw) -> short lines / check before long reads",
+   "logic": "ok: standing on floor beside blank whiteboard, feet planted, never touches board"
+  }
+ ],
+ "rejected": [
+  {
+   "id": "d01_daniel_talk",
+   "file": "tools/dl/d01_daniel_talk.mp4",
+   "why": "studio set (owner switched to classroom 25/10); motion itself passed"
+  },
+  {
+   "id": "a01_ama_board",
+   "file": "tools/dl/a01_ama_board.mp4",
+   "why": "eyes closed ~45 %, stance shifts f170-206, face too small"
+  }
+ ]
+}

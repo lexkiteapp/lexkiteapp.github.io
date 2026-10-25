@@ -1,0 +1,71 @@
+== TEACHERS bank start 2026-10-25T14:32:33Z – owner approval 25/10 "ok credit còn e làm chất lượng nha": plan ~610, HARD CAP 650 (cap.sh guard)
+TICKET plan: 8 clips x 10 s (kling-video-v2_5 1080p, ~50 cr) = 400 + first frames (kling-image-v3_0 2k, 2 per pass ~2 cr) ~20 + 2 new refs ~4 => ~424; retries within 610.
+TICKET order: d_mcu (PILOT) -> m_mcu -> m_ang2 -> d_ang2 -> ref ruth/kai -> r_mcu -> k_mcu -> ama_board -> carlos_board. One at a time, 2 consecutive fails = STOP.
+TICKET criteria frame: frontal MCU, sits ON chair behind desk, hands flat on desk 5 fingers, proportions adult, style = mcuama (line weight/palette/light), plain wall top 25 % (text zone), calm desk front bottom 25 % (captions), no text/logo/badge, 1 person.
+TICKET criteria clip: no warping/morph of face/hands, mouth visible+moving (Rhubarb harvest), camera locked, loop: pose at end ~ start, usable >= 6 s.
+TICKET d_mcu img: i2i kling-image-v3_0 2k 9:16 x2, refs mcuama.png (style) + ref-daniel.png (character); prompt prompts/img_daniel_mcu.txt; est 2 cr.
+img d_mcu 2 AeGiu79Uw7xNB3qV3t6aYnO2FQ1kHAo59_dJ2w_PTgeIUNL2Bg_DAvkkL5wfeaMgkBJ1UaJV
+FRAME d_mcu: ACCEPT d_mcu-1 (frontal, seated behind desk, hands flat on desk, style = mcuama, plain teal wall above head ~20 %, desk front bottom 1/3, no text/badge). REJECT d_mcu-2 (name badge + tie).
+TICKET d01_daniel_talk clip: kling-video-v2_5 1080p 10 s, first frame frames/d_mcu.png, prompt prompts/clip_mcu_talk.txt; est 50 cr; criteria above.
+video d01_daniel_talk https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/d_mcu.png 50 ASr66hdQvXK8xg92Nq53Q28SwLh9la3owp88XGkBgT9BW5nDRpUexFXxv-a4XWnlfOsli773
+QC d01_daniel_talk (studio): motion PASS (no warp, mouth readable, gestures s3 & s7.5, end pose = start, camera locked) BUT REJECT – owner decision 25/10 (via coordinator): every teacher clip in ONE consistent bright American CLASSROOM, whiteboard behind. 50 cr counted as fail #1. Motion prompt clip_mcu_talk.txt validated -> reuse.
+TICKET d_class img: i2i 2k 9:16 x2 from frames/d_mcu.png, prompts/img_daniel_class.txt (classroom master set = our school); est 2 cr.
+img d_class 2 AdTevZI3qq15cBhb02wTqoJ2TROJ3DJ9HX4CwADOjfLzBVPi2cqORt-JdbUHtnuTzU-p1aNX
+FRAME d_class: ACCEPT d_class-1 (classroom = MASTER SET "our school": blank whiteboard behind/above head, window left, few student desks right, teacher desk front = caption zone; hands flat; no text). REJECT d_class-2 (desks crowd both sides).
+TICKET d01_daniel_class clip: v2_5 1080p 10 s, frames/d_class.png, prompts/clip_mcu_class.txt; est 50.
+video d01_daniel_class https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/d_class.png 50 AWjRLHCqYNB0BMFjo5uyISk4Pyr1AHHHicM4OFL8ja9r7_FX-J26gGaYk-t3su6j3mAEpWn2
+QC d01_daniel_class: PASS 90 – camera locked, no warp (hands 5 fingers in gestures f68/f157), blink f158, gestures s2.8/s6.5, loop end f227 diff 6.5 (usable 0-227), interp24 holds 134, mouth set cc 0.795/0.938 jit 0.71 (better than a01). Note: rest mouth = open smile (no closed sprite) -> next frames ask mouth closed. PILOT PASSED -> continue.
+TICKET m_class img: i2i x2, refs d_class.png (set) + ref-mei.png, prompts/img_mei_class.txt; est 2.
+img m_class 2 AXftmkEySBCgGOkuB3JaS2vMBS7QuinX29YyEwitJPnGoWWmMFCddl5QxMJCYIQK_7tIf7Y0
+FRAME m_class: ACCEPT m_class (work 1; work 2 stuck RUNNING >15 min, not used): same set, face = ref-mei, hands flat 5 fingers (left hand close to frame edge -> prompt keeps hands inside), blazer maroon-plum, no text.
+TICKET m01_mei_class clip: v2_5 1080p 10 s, frames/m_class.png, prompts/clip_mcu_class_f.txt; est 50.
+video m01_mei_class https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/m_class.png 50 AdQdrLSULlkgMfMCoLsuu7YDoGtc1l2iX6e98TcIXd6fDIVqFiAoxlU9Mg2dxTw1baOfK0hR
+QC m01_mei_class: PASS 87 – no warp, hands ok, 2 brief side glances (natural), loop end f213 diff 7.2, mouth set full (A..H, closed B/F/G) cc 0.804/0.908 jit 1.59.
+TICKET m_ang2 img: i2i x2 from m_class.png, prompts/img_mei_ang2.txt (3/4 view, camera 30deg right); est 2.
+img m_ang2 2 ATXe8-FrX2kO6zAP698BlPdtVGe0POWIaVRyfLGLEVBoRWf48NZr1Bqs3Tv2cHz_5z7KpUGH
+FRAME m_ang2: ACCEPT m_ang2-2 (3/4 from right, window + blank board = same school, eyes to lens, mouth visible, hands on desk 5 fingers). REJECT -1 (no window, student desks crowd behind).
+TICKET m02_mei_ang2 clip: v2_5 1080p 10 s, frames/m_ang2.png, prompts/clip_ang2_f.txt; est 50.
+video m02_mei_ang2 https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/m_ang2.png 50 AQJzrl_hrMiXMi9FRkC_RNT29taXvidgNjQVR07fy_7nOuXVO-Hi1I8CpZCGeJgsyWMD6l4p
+QC m02_mei_ang2: PASS 88 – no warp, gestures s3/s6.5, loop end f239 diff 8.4, mouth set cc 0.852/0.965 (box re-aimed, 0 cr).
+TICKET d_ang2 img: i2i x2 from d_class.png, prompts/img_daniel_ang2.txt (3/4, camera 30deg left); est 2.
+img d_ang2 2 AT9cSiJhp0YBLn7XIAi0flmjjvKSakz8_j2cclzuokgqeDgQFVPfg1DEe557KBjAisbzd5M1
+FRAME d_ang2: ACCEPT d_ang2-1 (3/4 from left, he left / blank board right, window, eyes to lens, both hands on desk). REJECT -2 (still frontal = not a second angle).
+TICKET d02_daniel_ang2 clip: v2_5 1080p 10 s, frames/d_ang2.png, prompts/clip_ang2_m.txt; est 50.
+video d02_daniel_ang2 https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/d_ang2.png 50 AUXJN3h2C988BzsR9yHf6SIV_ya-IPyajIkIG9wl3bmDoxJBDQ8oG_Ur8PF8VpQz0ma9pU1B
+QC d02_daniel_ang2: PASS 89 – no warp, gestures s3/s6, blink, loop end f216 diff 4.8, mouth cc 0.907/0.974.
+TICKET ref_ruth + ref_kai: i2i x2 each, format refs ref-mei.png / ref-daniel.png; prompts/img_ref_{ruth,kai}.txt; est 4.
+img ref_ruth 2 AeFIEGqVSr9hx5BNKvabftMHjrSfCVIRJSs1DjQ0yqhcbETY4m_i2NcTTqUu0duvUBhHsX_D
+img ref_kai 2 AbKMDsiCsgxxdz_t9WRvwn4Dids9XnaQBEsIL5t7l740Ju5pUHjsO2uGica8-krl0GEZlLc2
+REF ruth: ACCEPT ref_ruth-1 (white American woman early 60s, silver bob, red glasses, navy cardigan). REJECT -2 (reads 80+, frail).
+REF kai: ACCEPT ref_kai-2 (Native Hawaiian American man, adult, chambray shirt + grey vest). REJECT -1 (reads teenage).
+TICKET r_class img: i2i x2 refs d_class.png + ref-ruth.png; est 2.
+img r_class 2 AX82-8Qc3OVwnuLDaWwl6xgNo8WqLbBJQNNL2HD-oR00k5GHMXVuDFN8Pc9jegGu54VHA2q2
+FRAME r_class: ACCEPT r_class-2 (master set identical, Ruth = ref, hands flat 5 fingers, no text). REJECT -1 (board fills whole bg, no window/desks = off-set).
+TICKET r01_ruth_class clip: v2_5 1080p 10 s, frames/r_class.png, prompts/clip_mcu_class_f2.txt; est 50.
+video r01_ruth_class https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/r_class.png 50 Ae3oWN_hfzDqoICC2_qs9FbybTayH434llJtmag57qlLMjK2LCfGeWN4ZpyLjXJcVsbAuz_I
+QC r01_ruth_class: PASS 89 – no warp, gestures s2.5/s5, blinks, loop end f240 diff 5.7, mouth set full cc 0.654/0.883 jit 0.47 (box re-aimed, 0 cr).
+TICKET k_class img: i2i x2 refs d_class.png + ref-kai.png; est 2.
+img k_class 2 AfPrTMo8k4-H17DcaC-JDb2epAjm1W_J0CKmOhX4l-EWJM7laoKsVTRvz5xeXzQ6yueVhPNp
+FRAME k_class: ACCEPT k_class-1 (master set, Kai = ref, hands flat, no text; reads young-adult). REJECT -2 (board fills whole bg, off-set).
+TICKET k01_kai_class clip: v2_5 1080p 10 s, frames/k_class.png, prompts/clip_mcu_class_m2.txt; est 50.
+video k01_kai_class https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/k_class.png 50 AYOv_HD4mcXi6VkxFIMR-I8U6zgXby0N3KVWM_2w0VPK2-vnYVNrzn6TMeASpBDBqJ9oV8l8
+QC k01_kai_class: PASS 88 – no warp, gestures s2.5/s4/s8.5, loop end f228 diff 6.1, mouth set full cc 0.646/0.935.
+TICKET a_board img: i2i x2 refs d_class.png (set) + mcuama.png (Ama), prompts/img_board_ama.txt; standing next to blank board; est 2.
+img a_board 2 AVxZO9CZg1L0rkRlyrZw1GkExd7WMfHFw8AORRi5eYowd3Qf7ClPJ8_p-E2pjbmElVMZzeQF
+FRAME a_board: ACCEPT a_board-1 (Ama full-body standing on floor, feet planted, presenting big blank board = text zone upper-left, same palette/desks; window off-frame). REJECT -2 (waving hand, smaller board).
+TICKET a01_ama_board clip: v2_5 1080p 10 s, frames/a_board.png, prompts/clip_board_ama.txt; est 50.
+video a01_ama_board https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/a_board.png 50 Ad9NI_Ug4kHy2n-k2UusydiPSftc5EQqzOwdK9lzgTBIuQKo-tiQp8w3Wbq2N3sr3rjQo8wv
+QC a01_ama_board: FAIL – eyes closed f~100-206 (~45 % of clip, reads sleepy), stance shifts (feet/knees change f170-206, jumps f199-205), face small (head ~270 px -> mouth ~50 px). Board stayed blank, no warp. Kept as b-roll candidate f0-90 only (not banked). Consecutive fail #1.
+LESSON: standing full-body -> Kling closes eyes while "explaining"; prompt must force eyes open + legs locked; frame closer (3/4 shot) for a readable mouth.
+TICKET a_board2 img: i2i x2 refs d_class.png + mcuama.png, prompts/img_board_ama2.txt (medium shot, bigger face); est 2.
+img a_board2 2 AZhm-TkVtD6NTS1Tdm5na9FRwR7qxVPt72oGl7qzgp1FdxR7GTkBFOT0iCNH8SBOxG1NDItY
+FRAME a_board2: ACCEPT a_board2-2 (medium shot head->thigh, face ~1.5x bigger, presenting big blank board = text zone, same school wall/floor, no glasses). REJECT -1 (Ama given Daniel's glasses).
+TICKET a02_ama_board clip: v2_5 1080p 10 s, frames/a_board.png (a_board2-2), prompts/clip_board_ama.txt (+eyes open, legs locked); est 50. If FAIL -> 2 consecutive -> STOP standing clips.
+video a02_ama_board https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/a_board2.png 50 AeK68XxM5iOfpZTx2wRKQNBw7FdH8zkbygKDAwj1B5711CMYelLj1wPIsq6P4Reqo6e781ZN
+QC a02_ama_board: PASS 85 – camera locked, board blank all clip, eyes open ~75 % (blinks/looks down 4/17 samples), small head drift (ORB track), legs steady, loop end f223 diff 6.4; mouth set cc 0.561/0.924, A re-picked f158 (Kling drew no mouth f6-10). Consecutive-fail counter reset.
+TICKET c_board img: i2i x2 refs d_class.png + mcucarlos.png, prompts/img_board_carlos2.txt; est 2.
+img c_board 2 Ad6rFAdrYnrBAl-JtgEdSkO31Jwr7TbAEiesyofOOpFjWqMI2HXpBRbb9SqSSAOhG3_cHHTF
+FRAME c_board: ACCEPT c_board-1 (medium shot, same composition as Ama board, blank board, markers in tray only, no text). REJECT -2 (too close, head near top = less text zone).
+TICKET c01_carlos_board clip: v2_5 1080p 10 s, frames/c_board.png, prompts/clip_board_carlos.txt; est 50.
+video c01_carlos_board https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/teachers/c_board.png 50 AXI9nEWsqJx4BmV7wqIKHctLw7V4Az3Ckb2xd3_SWIEPH1dDDIJl2RH39StK8ZCW7rQgCAhc
+== TEACHERS bank end 2026-10-25T15:59:36Z: 524 cr (img 24 + video 10x50=500) of cap 650; 8 clips accepted, 2 rejected (d01_daniel_talk studio->owner switched to classroom; a01_ama_board eyes closed/stance).

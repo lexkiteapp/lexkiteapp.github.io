@@ -149,6 +149,60 @@
     "slow_line": "f_s2"
    },
    "note": "comfortable /ˈkʌmftərbəl/: US dictionaries list the 3-syllable KUMF-ter-bul first; stress on the first syllable. Stressing “TA” (com-for-TA-ble) is a typical learner error. Slow (TTS 0.7) then normal speed, then repeat-after-me pause."
+  },
+  "tv1_daniel_mistake_agree": {
+   "template": "mistake",
+   "hook": "✗ STOP saying / “I am agree.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I am agree.",
+    "m_k": "Just say: I agree.",
+    "m_y": "Agree is a verb, so you don't need am.",
+    "m_x": "I agree. I don't agree. Do you agree?",
+    "m_t": "To agree strongly, say: I totally agree.",
+    "m_q": "Quiz! Which one is right, A or B?",
+    "m_a": "B! I agree with you.",
+    "m_c": "Check your grammar free on lexkite.com."
+   },
+   "promise": {
+    "wrong_line": "m_w",
+    "wrong": "I am agree.",
+    "right": "I agree",
+    "right_lines": [
+     "m_k",
+     "m_a"
+    ],
+    "quiz": true,
+    "count": true
+   },
+   "note": "same reviewed script/hook as t1_mistake_agree, teacher swap only (teachers bank v1)"
+  },
+  "tv1_ama_board_pron": {
+   "template": "pron",
+   "hook": "🔊 comfortable / com·for·TA·ble✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "script": {
+    "f_h": "Many learners say this word wrong.",
+    "f_w": "Not com, for, table.",
+    "f_s": "Slowly:",
+    "f_s2": "comfortable.",
+    "f_r": "Most Americans say three beats. Stress the first one.",
+    "f_n": "Normal speed: comfortable.",
+    "f_y": "Your turn. Repeat after me: comfortable.",
+    "f_e": "This chair is so comfortable!",
+    "f_c": "Practice pronunciation free on lexkite.com."
+   },
+   "promise": {
+    "stress": "COMF",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "same reviewed script/hook as t6_pron_comfortable, set swap only (teachers bank v1)"
   }
  }
 }
