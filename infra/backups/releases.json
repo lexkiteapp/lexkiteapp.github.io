@@ -4,6 +4,27 @@
  "kinds": {
   "android-aab": [
    {
+    "run": 40155662428,
+    "run_number": 603,
+    "version": "1.0.0",
+    "build": 1603,
+    "name": "lexkite-1.0.0-1603.aab",
+    "sha256": "aee1eedbbddd484fbee3915c46a45f743c7e09aa84174cadec309f83ae0f91c4",
+    "size": 146555132,
+    "commit": "8b6a5da7b577b3b0f54f38cc2a5dc5b1d3779f3c",
+    "at": "2026-10-25T02:52:23Z",
+    "copies": [
+     {
+      "driveId": 9,
+      "fileId": "1xS8CufOQ-qiJFGtSZh_ZjNzUvDMAPnIT"
+     },
+     {
+      "driveId": 2,
+      "fileId": "1YGrSoiNRweGs3e8WyaYM_XECFSBlAm4O"
+     }
+    ]
+   },
+   {
     "run": 40151369019,
     "run_number": 602,
     "version": "1.0.0",
@@ -44,31 +65,10 @@
       "fileId": "1WmB-NAE6Dclqq0RZ6u_xSuQQMTpXYAcf"
      }
     ]
-   },
-   {
-    "run": 40147723904,
-    "run_number": 599,
-    "version": "1.0.0",
-    "build": 1599,
-    "name": "lexkite-1.0.0-1599.aab",
-    "sha256": "c6b1507d1510f8478eebd244c3ec03bf64d0f7d9025b7be9cf5e7196e18d74a5",
-    "size": 146812924,
-    "commit": "bf87fcc8ee8129a5ca214f82742260c82e8f8280",
-    "at": "2026-10-25T00:50:46Z",
-    "copies": [
-     {
-      "driveId": 4,
-      "fileId": "1sdKRowqOuAzQZ0QY5rP5n7M_sI9hdWvn"
-     },
-     {
-      "driveId": 3,
-      "fileId": "1q3uQh43zFEle4iXgp-B0JC6KTZrIy38C"
-     }
-    ]
    }
   ],
   "ios-ipa": [],
   "addon-zip": []
  },
- "updated": "2026-10-25T01:46:02.472Z"
+ "updated": "2026-10-25T02:53:34.931Z"
 }
