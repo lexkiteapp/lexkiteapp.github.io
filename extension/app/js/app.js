@@ -331,6 +331,14 @@
   let scope = { id: 0, ac: new AbortController() };
   App.routeToken = () => routeSeq;
   App.routeStale = tok => tok !== routeSeq;
+  // Lượt vẽ gần nhất đã xong (token + hash): test/công cụ chờ trang ổn định bằng tín hiệu thật thay vì đoán thời gian
+  let drawn = { tok: 0, hash: '' };
+  App.drawn = () => drawn;
+  // Trang đang có phiên làm dở (vd. 🧭 kiểm tra đầu vào đã bấm Bắt đầu) gọi App.holdRoute() → lần vẽ lại lúc khởi động xong (boot) không xóa tiến độ.
+  // Mỗi lượt route() mới tự bỏ cờ (người học tự điều hướng = rời phiên).
+  let held = false;
+  App.holdRoute = () => { held = true; };
+  App.routeHeld = () => held || document.body.classList.contains('focus');
   App.signal = () => scope.ac.signal; // AbortSignal của trang hiện tại: fetch(url, { signal: App.signal() }) → tự hủy khi đổi trang
   // Nạp gói lười cho trang đang mở: đã sang trang khác → lời hứa treo, không vẽ đè
   App.lazy = (...names) => { const tok = routeSeq, pending = new Promise(() => {}); return App.need(...names).then(v => (tok !== routeSeq ? pending : v), e => (tok !== routeSeq ? pending : Promise.reject(e))); };
@@ -345,6 +353,7 @@
   };
   async function route() {
     const my = ++routeSeq; // token của lượt này
+    held = false;
     scope.ac.abort(); scope = { id: my, ac: new AbortController() };
     if (!state.game) { await dataReadyP; if (my !== routeSeq) return; }
     const { name, arg, query } = parseHash();
@@ -381,7 +390,7 @@
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
       const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
       if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
-      if (my === routeSeq) { markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
+      if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
     // Chỉ hiệu ứng mờ-trồi nhẹ bằng CSS trên #view – mượt, không bao giờ vẽ sai.
@@ -1640,8 +1649,8 @@
     if (!Store.sandbox) try { fresh ? localStorage.removeItem('lk.onb') : localStorage.setItem('lk.onb', '1'); } catch (e) { /* bỏ qua */ } // sandbox: dữ liệu thử tách riêng → không ghi gợi ý (lk.onb sai làm trang giới thiệu chuyển vào app, bỏ khung chào → nhảy bố cục CLS 0,7 trên máy tính) // khung dựng sẵn trong index.html chỉ hiện cho người mới
     if (!fresh) document.body.classList.remove('bare');
     if (fresh && /^(#\/?(home)?)?$/.test(location.hash)) { location.hash = '#/welcome'; addEventListener('pointerdown', App.prefetchAll, { once: true }); return; }
-    // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc đang ở trang thường
-    if (!routeSeq || !document.body.classList.contains('focus')) route();
+    // Người học đã điều hướng/mở phiên học trong lúc app còn khởi động → vẽ lại lúc này sẽ làm mất phiên (từ khác, đếm lại từ 0): chỉ vẽ lại khi chưa có lượt vẽ nào hoặc trang không giữ phiên (App.routeHeld)
+    if (!routeSeq || !App.routeHeld()) route();
     App.prefetchAll();
     const nb = $('#notifBtn');
     if (nb) {

@@ -25,6 +25,9 @@ require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const $ = (s, r = w.document) => r.querySelector(s);
 const go = async (h, ms = 150) => { w.location.hash = h; await tick(ms); };
+// Chờ lượt điều hướng CUỐI vẽ xong (tín hiệu App.drawn: token mới nhất + đúng hash), rồi thêm ms để lượt cũ nào về muộn cũng kịp lộ ra.
+// Không đoán bằng thời gian cố định: máy bận (CI/chạy song song) làm trang chậm hơn 260 ms → báo sai “vẽ đè”.
+const settle = async (ms) => { const t0 = Date.now(); await tick(0); while (Date.now() - t0 < 8000) { const d = w.App.drawn(); if (d.tok === w.App.routeToken() && d.hash === w.location.hash) break; await tick(10); } await tick(ms); };
 w.UI.speak = () => {}; w.speechSynthesis = { speak() {}, cancel() {}, getVoices: () => [], pause() {}, resume() {} };
 w.SpeechSynthesisUtterance = function (t) { this.text = t; };
 w.Audio = function () { return { play: async () => {}, pause() {}, load() {}, addEventListener() {}, removeEventListener() {}, setAttribute() {}, removeAttribute() {}, style: {} }; };
@@ -63,17 +66,18 @@ for (const h of ['#/stats', '#/vocab', '#/settings']) {
 {
   const view = () => $('#view'), snap = () => ((view() || {}).textContent || '').replace(/\s+/g, ' ').trim().slice(0, 200) + '|' + ((view() || {}).children.length);
   const names = Object.keys(w.App.routes).filter(k => !['call', 'handoff', 'welcome', 'report'].includes(k));
+  ok(typeof w.App.drawn === 'function', 'App.drawn() báo lượt vẽ đã xong');
   ok(names.length > 40, 'bảng route có ' + names.length + ' trang');
   // Làm chậm đọc dữ liệu (Store.get/App.need) 40 ms để lượt vẽ cũ về MUỘN hơn lượt mới — nếu không, đọc tức thì xong trước khi lượt sau bắt đầu và race không bao giờ xảy ra.
   const slow = o => { if (!o || !o.get) return; const g0 = o.get.bind(o); o.get = (...a) => new Promise(r => setTimeout(r, 40)).then(() => g0(...a)); };
   slow(w.Store); slow(w.Core && w.Core.Store);
-  const solo = {}, stable = {}; await go('#/stats', 150); solo.stats = snap();
-  for (const r of names) { await go('#/' + r, 90); await tick(90); solo[r] = snap(); await go('#/stats', 60); await go('#/' + r, 90); await tick(90); stable[r] = snap() === solo[r]; } // trang có nội dung ngẫu nhiên (quick, paraphrase…) chỉ kiểm "không phải stats"
+  const solo = {}, stable = {}; await go('#/stats', 0); await settle(150); solo.stats = snap();
+  for (const r of names) { await go('#/' + r, 0); await settle(180); solo[r] = snap(); await go('#/stats', 0); await settle(60); await go('#/' + r, 0); await settle(180); stable[r] = snap() === solo[r]; } // trang có nội dung ngẫu nhiên (quick, paraphrase…) chỉ kiểm "không phải stats"
   for (const [i, r] of names.entries()) {
     const gap = i % 2 ? 0 : 15; // xen kẽ độ trễ để giữ test < 1 phút
-    await go('#/home', 50); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(260);
+    await go('#/home', 50); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await settle(260);
     ok(snap() === solo.stats, `route "${r}" → stats (gap ${gap}ms): trang cuối là stats, không bị "${r}" vẽ đè`);
-    w.location.hash = '#/stats'; await tick(5); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(10); w.location.hash = '#/' + r; await tick(260);
+    w.location.hash = '#/stats'; await tick(5); w.location.hash = '#/' + r; await tick(gap); w.location.hash = '#/stats'; await tick(10); w.location.hash = '#/' + r; await settle(260);
     ok(stable[r] ? snap() === solo[r] : snap() !== solo.stats, `stats → "${r}" (gap ${gap}ms): trang cuối là "${r}" như khi vào thẳng`);
   }
 }

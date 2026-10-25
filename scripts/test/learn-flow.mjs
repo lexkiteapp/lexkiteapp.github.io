@@ -135,6 +135,7 @@ ok($$('.pl-wrap .option').length >= 4 && $('.opt-idk'), 'câu 1: có phương á
 ok(!$$('.pl-wrap .option').some(b => /picked|right|wrong/.test(b.className) || b.getAttribute('aria-pressed')), 'không phương án nào được chọn sẵn');
 const prog = () => ($('.study-top .small') || {}).textContent;
 ok(prog() === '1/20', 'bộ đếm 1/20');
+ok(w.App.routeHeld(), 'đang làm bài → giữ phiên: lần vẽ lại lúc khởi động xong (boot) không xóa tiến độ');
 const first = $('.pl-wrap .opt-idk'); click(first); click(first); await tick(320);
 ok(prog() === '2/20', 'chạm đúp chỉ tính 1 câu (bộ đếm 2/20, không nhảy 3/20)');
 click($('.pl-wrap .opt-idk')); await tick(320);
