@@ -143,6 +143,8 @@ for vid in sys.argv[1:]:
                                    **{k: v for k, v in std.items() if k != 'ok'})
         R['host_frame'] = dict(ok=bool(HH) and HH.get('bottom', 0) >= 1920 and HH.get('side_cut_rows', 1e9) <= 0.35 * max(1, HH.get('host_rows', 0)),
                                side_cut_rows=HH.get('side_cut_rows'), host_rows=HH.get('host_rows'), bottom=HH.get('bottom'))
+    if P or T.get('style') == 'v5':   # hook truth: every location render (plate or native scene)
+        Lz = T.get('lesson', {})
         hk = (Lz.get('hook') or {}); jd = hk.get('judge') or {}
         import hashlib
         cur = hashlib.sha1('\n'.join([Lz.get('hook_text') or '', Lz.get('wrong') or '', Lz.get('right') or '']).encode()).hexdigest()[:12]
