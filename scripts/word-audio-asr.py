@@ -7,7 +7,7 @@
 import argparse, json, os, random, re, shutil, subprocess, sys, tempfile, urllib.request
 ap = argparse.ArgumentParser()
 ap.add_argument('--manifest', default='.s2-cand/manifest.json'); ap.add_argument('--sample', type=int, default=0)
-ap.add_argument('--model', default='base.en'); ap.add_argument('--base', default='https://audio.lexkite.com/audio/w/')
+ap.add_argument('--model', default='small.en'); ap.add_argument('--base', default='https://audio.lexkite.com/audio/w/')
 a = ap.parse_args()
 HOMO = {'to': ['two', 'too'], 'for': ['four', 'fore'], 'a': ['ay', 'eh', 'hey a'], 'the': ['thee'], 'be': ['bee', 'b'], 'there': ['their', 'theyre'],
         'you': ['u', 'yew', 'ewe'], 'we': ['wee', 'oui'], 'or': ['oar', 'ore', 'awe', 'aw'], 'nor': ['gnaw', 'naw'], 'so': ['sew', 'sow'],
@@ -33,8 +33,14 @@ def fetch(url, f):
     except Exception: return False
 from faster_whisper import WhisperModel
 model = WhisperModel(a.model, device='cpu', compute_type='int8')
+# Whisper nghe kẹp < 1 s rất kém (base.en bịa thêm "I/We/You…", 25/10: 34/70 bản thử + 32/100 file cũ "sai" dù nghe đúng):
+# đệm 0,6 s lặng hai đầu (16 kHz mono) + mô hình small.en, giải mã tham lam nhiệt độ 0. Tiêu chí chấp nhận (heard_ok, độ dài) GIỮ NGUYÊN.
+def pad(f):
+    w = f + '.pad.wav'
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f, '-af', 'adelay=600:all=1,apad=pad_dur=0.6', '-ar', '16000', '-ac', '1', w], check=True)
+    return w
 def hear(f):
-    seg, _ = model.transcribe(f, language='en', beam_size=5, without_timestamps=True, condition_on_previous_text=False)
+    seg, _ = model.transcribe(pad(f), language='en', beam_size=5, temperature=0.0, without_timestamps=True, condition_on_previous_text=False)
     return ''.join(s.text for s in seg).strip()
 out, bad = [], 0
 tmp = tempfile.mkdtemp()
