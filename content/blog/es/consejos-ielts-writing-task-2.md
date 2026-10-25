@@ -156,6 +156,8 @@ Pon a prueba tu conocimiento de la estructura y vocabulario de Task 2 con este b
 * C) *In another hand*
 *(Respuesta correcta: B. "On the other hand" o "Conversely" marcan contraste entre dos bloques argumentativos).*
 
+Para usar la pasiva con criterio en tu redacción, consulta la guía de [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles/).
+
 {{cta: /#/write | Practica redacción para IELTS en Lexkite}}
 
 ## Preguntas frecuentes

@@ -109,6 +109,8 @@ Pratique dezenas de outros desafios interativos nos [testes práticos](/#/practi
 
 {{youtube: | Ideia de vídeo: Present perfect versus simple past explicado de forma definitiva em 10 minutos}}
 
+Para pronunciar bem os verbos regulares no passado e no particípio, veja [pronúncia do ed em inglês](/pt/blog/pronuncia-do-ed-em-ingles/).
+
 {{cta: /#/grammar | Praticar tempos verbais agora}}
 
 ## Perguntas frequentes

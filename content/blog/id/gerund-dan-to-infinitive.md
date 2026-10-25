@@ -190,6 +190,8 @@ Soal yang salah bisa kamu tinjau lagi di [Mistake log](/#/mistakes) supaya kamu 
 
 ![Halaman Mistake log Lexkite yang mengelompokkan kesalahan vocabulary, grammar, reading, dan listening](media:mistakes "Kesalahan dikelompokkan per kategori, termasuk grammar, sehingga mudah diulang")
 
+Struktur ini sering muncul bersama kalimat if; lihat [conditional sentence bahasa Inggris](/id/blog/conditional-sentence-bahasa-inggris/).
+
 {{cta: /#/grammar | Pelajari bab tata bahasa di Lexkite}}
 
 {{youtube: | Ide video: Stop, remember, try – kenapa artinya berubah saat diikuti V-ing atau to infinitive, dengan contoh kalimat orang Indonesia}}

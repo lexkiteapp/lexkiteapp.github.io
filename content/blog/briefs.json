@@ -11067,6 +11067,135 @@
    "intent": "informational/exam-prep",
    "lang": "vi",
    "cluster": "toefl-writing-academic-discussion"
+  },
+  {
+   "slug": "voz-pasiva-en-ingles",
+   "keyword": "voz pasiva en inglés",
+   "category": "ngu-phap",
+   "tags": [
+    "gramatica",
+    "voz-pasiva",
+    "writing"
+   ],
+   "routes": [
+    "/#/grammar/passive-voice",
+    "/#/grammar/passive-reporting-causative"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "es",
+   "cluster": "passive-voice"
+  },
+  {
+   "slug": "pronuncia-do-ed-em-ingles",
+   "keyword": "pronúncia do ed em inglês",
+   "category": "phat-am",
+   "tags": [
+    "pronuncia",
+    "ed-endings",
+    "passado"
+   ],
+   "routes": [
+    "/#/grammar/ed-s-endings",
+    "/#/pron"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "cach-phat-am-ed-va-s-es"
+  },
+  {
+   "slug": "verbos-modais-em-ingles",
+   "keyword": "verbos modais em inglês",
+   "category": "ngu-phap",
+   "tags": [
+    "gramatica",
+    "modal-verbs",
+    "conversacao"
+   ],
+   "routes": [
+    "/#/grammar/modals-obligation-advice",
+    "/#/grammar/modals-deduction"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must"
+  },
+  {
+   "slug": "conditional-sentence-bahasa-inggris",
+   "keyword": "conditional sentence bahasa inggris",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "conditional-sentence",
+    "toefl"
+   ],
+   "routes": [
+    "/#/grammar/conditionals-0-1",
+    "/#/grammar/conditionals-2-3",
+    "/#/grammar/mixed-conditionals-wish"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "id",
+   "cluster": "cau-dieu-kien-tieng-anh-conditionals"
+  },
+  {
+   "slug": "toeic-part-5-theknik",
+   "keyword": "toeic part 5 เทคนิค",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "part-5",
+    "grammar"
+   ],
+   "routes": [
+    "/#/toeic-r/tr1?part=5",
+    "/#/toeic"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "th",
+   "cluster": "toeic-part-5-meo-lam-bai"
+  },
+  {
+   "slug": "eigo-kateihou-joukenbun",
+   "keyword": "英語 仮定法 条件文",
+   "category": "ngu-phap",
+   "tags": [
+    "bunpou",
+    "conditionals",
+    "toeic",
+    "eiken"
+   ],
+   "routes": [
+    "/#/grammar/conditionals-0-1",
+    "/#/grammar/conditionals-2-3",
+    "/#/grammar/mixed-conditionals-wish"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "ja",
+   "cluster": "cau-dieu-kien-tieng-anh-conditionals"
+  },
+  {
+   "slug": "eigo-judoutai",
+   "keyword": "受動態 英語",
+   "category": "ngu-phap",
+   "tags": [
+    "bunpou",
+    "passive-voice",
+    "toeic"
+   ],
+   "routes": [
+    "/#/grammar/passive-voice",
+    "/#/grammar/passive-reporting-causative"
+   ],
+   "angle": "SEO program 11/2026 batch 2 (localised) – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "ja",
+   "cluster": "passive-voice"
   }
  ]
 }

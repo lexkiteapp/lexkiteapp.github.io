@@ -146,6 +146,8 @@ Complementa tu preparación con el contraste de tiempos en [present perfect vs p
 
 Explora miles de ejemplos contextuales en la [biblioteca de vocabulario](/app/#/library) del Lexkite.
 
+Los modales también se combinan con la pasiva (*It must be done*); lo explicamos en nuestra guía de [voz pasiva en inglés](/es/blog/voz-pasiva-en-ingles/).
+
 {{cta: /app/#/grammar | Practicar verbos modales en Lexkite}}
 
 {{youtube: | Verbos modales en inglés: can, could, should, must y might}}

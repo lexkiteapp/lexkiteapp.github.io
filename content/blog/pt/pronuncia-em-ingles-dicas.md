@@ -74,6 +74,8 @@ Em inglês, quando uma palavra termina em som de consoante e a próxima começa 
 
 Além disso, as palavras estruturais (preposições, pronomes, artigos, verbos auxiliares como *to*, *for*, *at*, *can*, *was*) quase sempre sofrem redução para o som neutro conhecido como **Schwa (/ə/)**. Por exemplo, na frase *"I can go"*, o verbo modal *can* não é pronunciado /kæn/, mas sim /kən/, permitindo que a ênfase total recaia sobre o verbo de ação *go*. Esse mesmo princípio ajuda no entendimento das ligações nas [dicas de IELTS Listening](/pt/blog/dicas-ielts-listening/) e na execução de expressões informais como [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/).
 
+Um dos pontos que mais melhora o sotaque é o final dos verbos no passado: confira [pronúncia do ed em inglês](/pt/blog/pronuncia-do-ed-em-ingles/).
+
 {{cta: /#/pron | Praticar fonética e pronúncia no Lexkite}}
 
 ## Exercícios práticos diários para destravar a fala

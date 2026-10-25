@@ -93,6 +93,8 @@ R - Result (Resultado)   : O impacto final positivo, quantificado com métricas 
 
 Treine estruturar suas principais histórias profissionais usando esse formato. Para aperfeiçoar sua articulação e velocidade de fala, confira nossas dicas sobre [como melhorar a pronúncia em inglês](/pt/blog/pronuncia-em-ingles-dicas/) e integre [phrasal verbs mais usados](/pt/blog/phrasal-verbs-mais-usados/) com naturalidade.
 
+Para soar diplomático nas respostas, revise *should*, *could* e *might* no guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/).
+
 {{cta: /#/speaking | Praticar respostas para entrevista de emprego no Lexkite}}
 
 ## As melhores perguntas para fazer ao entrevistador no final

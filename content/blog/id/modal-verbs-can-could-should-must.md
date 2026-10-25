@@ -133,6 +133,8 @@ Dalam wawancara kerja multinasional atau diskusi proyek lintas negara, pemilihan
 
 ![Sesi review flashcard Lexkite dengan kartu kata 'pollution' dan tombol flip](media:review "Mengulang hafalan frasa modal verbs secara berkala dengan algoritma FSRS")
 
+Modal *would* dan *could* juga menjadi inti kalimat pengandaian; pelajari di [conditional sentence bahasa Inggris](/id/blog/conditional-sentence-bahasa-inggris/).
+
 {{cta: /ngu-phap/ | Pelajari Aturan Tata Bahasa}}
 
 Perdalam wawasan gramatikal Anda dengan membaca kumpulan materi lengkap di [panduan tata bahasa Inggris dasar](/ngu-phap/).

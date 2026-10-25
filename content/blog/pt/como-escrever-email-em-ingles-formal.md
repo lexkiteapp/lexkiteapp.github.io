@@ -175,6 +175,8 @@ Customer Experience Lead | Lexkite Inc.
 
 Descubra mais referências em nossa página de [modelos de correspondência](/samples/).
 
+Pedidos educados com *could* e *would* são explicados no guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/).
+
 {{cta: /#/write | Praticar escrita corporativa no Lexkite}}
 
 ## Erros e expressões informais que você deve evitar

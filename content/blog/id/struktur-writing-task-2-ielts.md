@@ -131,6 +131,8 @@ Kosa kata penting dari topik pendidikan, lingkungan, atau teknologi yang baru An
 
 Anda juga dapat membandingkan draf tulisan Anda dengan kumpulan contoh esai beraneka topik di [pustaka model esai ujian](/samples/) untuk memahami standar penilaian penguji. Jika Anda juga perlu mengasah kemampuan menulis korespondensi kantor profesional, pelajari panduan lengkap [cara menulis email bahasa Inggris formal](/id/blog/cara-menulis-email-bahasa-inggris-bisnis/).
 
+Untuk menjelaskan akibat sebuah kebijakan dengan kalimat if, baca [conditional sentence bahasa Inggris](/id/blog/conditional-sentence-bahasa-inggris/).
+
 {{cta: /#/write | Latih struktur esai Task 2 di Lexkite}}
 
 {{youtube: | Ide video: langkah menyusun outline esai IELTS Task 2 dalam 5 menit pertama}}

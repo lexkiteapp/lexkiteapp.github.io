@@ -144,6 +144,8 @@ Kenji
 
 フォーマルな英文の論理構成は、[模範解答集](/samples/)のエッセイ例も参考になります。また、資格試験やアカデミックな場での長文対策については[英検準1級対策完全ガイド](/ja/blog/eiken-jun-1-kyu-taisaku/)や[TOEIC勉強法のコツ](/ja/blog/toeic-benkyouhou/)も合わせてご覧ください。
 
+The invoice has been sent. のような受動態を使うと、メールの表現がやわらかくなります。詳しくは[英語の受動態](/ja/blog/eigo-judoutai/)をご覧ください。
+
 {{cta: /#/write | Lexkiteで英語ライティングの基礎と表現を練習する}}
 
 ## 日本人が陥りやすいメール表現のNGパターン

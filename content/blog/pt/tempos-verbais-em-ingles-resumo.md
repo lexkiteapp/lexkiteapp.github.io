@@ -117,6 +117,8 @@ Aprofunde seus estudos teóricos no nosso [guia de gramática](/ngu-phap/) e uti
 
 ![Biblioteca de vocabulário do Lexkite com mais de 6.800 termos organizados por nível](media:library "Amplie o vocabulário com as listas NGSL, IELTS e TOEIC para montar frases mais ricas")
 
+Para falar de obrigação, conselho e possibilidade, veja o guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/).
+
 {{cta: /#/grammar | Estudar tempos verbais no módulo de gramática}}
 
 ## Erros frequentes de brasileiros com tempos verbais
