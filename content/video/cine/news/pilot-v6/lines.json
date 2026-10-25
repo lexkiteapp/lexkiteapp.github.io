@@ -1,0 +1,16 @@
+{
+ "note": "Pilot v6 'presenter show' (docs/VIDEO-TEMPLATES.md §11). Lesson tpl1b_airport_gate_cc6fbe, one host (Ama, anchor bank MCU), Kokoro af_bella. v6_h = the reviewed hook line (hook-truth hash), v6_y = the reviewed rule line, v6_s = the lesson CTA.",
+ "voices": { "ama": "af_bella" },
+ "speed": 0.88,
+ "display": { "blank": "___" },
+ "lines": [
+  { "id": "v6_h", "who": "ama", "text": "Never say this." },
+  { "id": "v6_w", "who": "ama", "text": "The gate is change?" },
+  { "id": "v6_k", "who": "ama", "text": "Say: Excuse me, has the gate changed?" },
+  { "id": "v6_y", "who": "ama", "text": "For a new change, ask: has it changed?" },
+  { "id": "v6_x", "who": "ama", "text": "Has the time changed? Has the flight moved?" },
+  { "id": "v6_q", "who": "ama", "text": "Quiz! Excuse me, blank the gate changed? Has, or is?" },
+  { "id": "v6_a", "who": "ama", "text": "It's has. Excuse me, has the gate changed?" },
+  { "id": "v6_s", "who": "ama", "text": "Roleplay this free on lexkite.com." }
+ ]
+}

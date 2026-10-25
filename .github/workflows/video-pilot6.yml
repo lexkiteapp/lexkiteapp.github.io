@@ -1,0 +1,74 @@
+# video-pilot6: ONE presenter-show pilot (docs/VIDEO-TEMPLATES.md §11) – lesson tpl1b_airport_gate_cc6fbe, host Ama at the anchor news desk.
+# Full-frame native anchor-bank MCU clips (host generated inside the set, no cut-out) + Rhubarb mouth swap, studio-screen panel, karaoke captions.
+# 0 credits: Kokoro + Rhubarb + faster-whisper on the runner. NO GrabCast / Groq / Kling (hook verdict is teacher-reviewed in the lesson file).
+# No store, no Drive, no publish. Artifact only: presenter.mp4 (8-9 Mbps 1080x1920) + phone/presenter.mp4 (< 30 MB) + qc + timeline + sheet.jpg.
+name: video-pilot6
+on:
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency: { group: video-pilot6, cancel-in-progress: false }
+env:
+  LESSON: content/video/cine/news/tpl1b/tpl1b_airport_gate_cc6fbe.json
+  LINES: content/video/cine/news/pilot-v6/lines.json
+  O: out/pilot6
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reviewed hook verdict present
+        run: python3 -c "import json,sys;d=json.load(open('$LESSON'));j=d['hook'].get('judge');sys.exit(0 if j and not d.get('reject') else 1)" || { echo "::error::lesson has no reviewed hook verdict"; exit 1; }
+      - name: Libraries + ffmpeg
+        run: |
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - name: Footage (anchor bank, Ama MCU clips only, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          P="/anchor/bank.json /anchor/tools/amb_studio.wav /anchor/tools/foley/ding.wav"
+          for c in a01_ama_talk a02_ama_talk_smile a03_ama_explain a04_ama_listen; do P="$P /anchor/tools/dl24/$c.mp4 /anchor/tools/dl24/$c.json /anchor/tools/meta/$c/"; done
+          git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage
+          ls footage/anchor/tools/dl24 | grep -c mp4 | grep -qx 4 || { echo "::error::anchor clips missing"; exit 1; }
+          du -sh footage/anchor
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Kokoro model cache
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb (required – lip-sync fails without it)
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
+          "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice → render → qc → phone copy → sheet
+        run: |
+          mkdir -p $O/phone
+          python3 scripts/video/tpl/pilot5_voice.py "$LINES" vo
+          python3 scripts/video/tpl/render_v6.py --lesson "$LESSON" --lines "$LINES" --vo vo/vis3 --lib footage/anchor --fonts brand/social/src/fonts \
+            --out $O/presenter.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
+          grep -v '^frame ' $O/render.log | tail -6
+          rc=0; python3 scripts/video/tpl/qc_v6.py $O/presenter.mp4 | tee $O/qc.log || rc=1
+          ffmpeg -nostdin -v error -y -i $O/presenter.mp4 -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/presenter.mp4
+          S=$(stat -c %s $O/phone/presenter.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+          for t in 0 1.5 5 10 20 28; do ffmpeg -nostdin -v error -y -ss $t -i $O/presenter.mp4 -frames:v 1 -vf scale=360:640 $O/s_$t.png; done
+          ffmpeg -nostdin -v error -y -i $O/s_0.png -i $O/s_1.5.png -i $O/s_5.png -i $O/s_10.png -i $O/s_20.png -i $O/s_28.png \
+            -filter_complex "[0][1][2]hstack=3[a];[3][4][5]hstack=3[b];[a][b]vstack" -q:v 3 $O/sheet.jpg && rm -f $O/s_*.png
+          cp vo/vis3/*.words.json $O/ 2>/dev/null || true; rm -f $O/presenter.mp4.mix.wav
+          ls -la $O $O/phone
+          { echo "## pilot v6 presenter"; echo '```'; cat $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pilot6-${{ github.run_number }}
+          path: out/pilot6/
+          retention-days: 30

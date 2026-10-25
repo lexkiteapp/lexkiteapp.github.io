@@ -69,5 +69,12 @@ ok(!/formula→|rsplit\(|\[:18\]/.test(fs.readFileSync('scripts/video/tpl/fix_tp
 ok(!/yt-upload|youtube-upload|publish-grabcast|social/i.test(wf.replace(/YouTube\/social|social stay/g, '')), 'no auto-publish to YouTube/social');
 const jobs = J('infra/jobs.json').jobs.find(j => j.id === 'video-tpl1b');
 ok(jobs && jobs.paused && jobs.lease && jobs.workflow === 'video-tpl1b.yml', 'infra/jobs.json: video-tpl1b registered (paused = dispatch only, lease)');
+// pilot v6 presenter show (docs/VIDEO-TEMPLATES.md §11): gates present, 0-credit workflow, reviewed hook line
+{ const q6 = fs.readFileSync('scripts/video/tpl/qc_v6.py', 'utf8'), w6 = fs.readFileSync('.github/workflows/video-pilot6.yml', 'utf8'), l6 = J('content/video/cine/news/pilot-v6/lines.json');
+  for (const g of ['hook_truth', 'hook_readable', 'safe_area', 'readability', 'caption_layout', 'caption_sync', 'align_audio', 'lipsync_rhubarb', 'scene_native', 'lower_third', 'loop_end', 'host_sharp', 'no_light_panels', 'file']) ok(q6.includes(`R['${g}']`), `qc_v6 gate ${g}`);
+  ok(/SYNC = 0\.050/.test(q6), 'qc_v6 karaoke sync limit 50 ms');
+  ok(/rhubarb/i.test(w6) && !/grabcast\.(com|io)|GRABCAST_|kling|groq/i.test(w6.replace(/NO GrabCast \/ Groq \/ Kling/, '')), 'video-pilot6: Rhubarb, no GrabCast/Groq/Kling');
+  const d6 = J(`${TD}/tpl1b_airport_gate_cc6fbe.json`), h6 = l6.lines.find(l => l.id === 'v6_h').text;
+  ok(d6.hook.judge && d6.hook.judge.hash === hash(h6, d6.wrong_line, d6.key_line), 'pilot v6 hook line = the reviewed hook text (verdict hash)'); }
 if (fails) { console.log(`✗ tpl1b-pipeline: ${fails} lỗi`); process.exit(1); }
 console.log(`✓ tpl1b-pipeline: ${plan.lessons} lessons, ${plan.needs_solution.length} needs-solution, invariants OK`);

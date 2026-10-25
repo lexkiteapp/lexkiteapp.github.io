@@ -158,3 +158,13 @@ edge facing the plate's light side, tinted with the plate highlight, and a soft 
 **CI**: `video-pilot5.yml` (input `dirs=A,B`) → artifact with A.mp4 / B.mp4 (≥ 8 Mbps), phone copies, qc/rubric/timeline, contact sheets.
 `render_v5.py` is a fork of `render_tpl.py` (same element engine + timeline + gates) until the owner picks a direction; it also fixes the rule card
 (the formula 'HAS + it + CHANGED?' was cut to 'HAS + it').
+
+## 11. Pilot v6 – presenter show (25/10/2026, owner rejected v4 + v5)
+Owner brief: a big TV-show presenter who belongs to the set (correct proportions), REAL karaoke subtitles. One 30 s pilot, no batch, 0 credits, CI only, no GrabCast.
+- Renderer `scripts/video/tpl/render_v6.py`, gates `scripts/video/tpl/qc_v6.py`, workflow `video-pilot6.yml` (dispatch), lines `content/video/cine/news/pilot-v6/lines.json`.
+- Host: Ama, anchor bank MCU clips `a01/a02/a03/a04` (dl24, native 1080×1920, generated inside the news set → no cut-out, no compositing). Mouth = Rhubarb visemes on the bank's own sprites (`scripts/cine/lipsync.py`). Same clip never twice in a row; the 2-shot `t01` was tried and dropped (Ama small, silent Carlos dominates).
+- Framing: set shifted down 200 px; wall rows above the hair (src 0–300) stretched into the top (they sit behind the glass). Host never scaled down; camera push ≤ 1.025, one punch-in 1.06 on the key line (Lanczos + matched unsharp; `host_sharp` compares with the native bank face).
+- Studio screen: dark ink glass monitor (kit navy gradient + 20 % frosted wall + one diagonal sheen, mint bezel line, wall contact shadow + light spill), moves with the camera (world layer). Beats: NEVER SAY → SAY THIS → rule formula → examples → QUIZ + 3-2-1 ring → ANSWER → end card (logo + deep link).
+- Karaoke: whole spoken line (≤ 8 words, ≤ 2 lines, Be Vietnam Pro ExtraBold 68 px, dark stroke + shadow) over the desk inside the safe area; upcoming words white 60 %, the current word fills left→right in kit yellow over exactly [start, end] of the word, past words white. Word times = faster-whisper, starts after a pause snapped to the measured speech onset. Gate `caption_sync` ≤ 50 ms (start and end of every wipe), `align_audio` ≤ 50 ms on post-pause words.
+- Lower third "Ama · Lexkite English" 0–3 s (owner asked again 25/10; supersedes the 22/10 "no name lower-third" note for this format), app-icon bug top-right of the screen.
+- Loop: the last shot plays a01 backwards into frame 0, camera back to 1.0, screen empty → encoded last frame == first frame (`loop_end`).
