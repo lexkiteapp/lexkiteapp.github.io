@@ -416,7 +416,7 @@ y += 72 + 32; t0 = ln.t('save')
 ingw = {nrm(w_) for w_ in GOOD} if 'quiz' in SP else {nrm(w_) for r_ in ROWS for w_ in r_.split() if nrm(w_).endswith('ing') and nrm(w_) not in ('considering',)}
 for i, r_ in enumerate(ROWS):
     ti = t0 + i * DUR['fast']
-    rowp = El(f'r2.row{i}', badge(f'n{i + 1}', 64, bg=None if T1 else C['yellow']), X0, y + (int(rs * LEAD) - 64) // 2, g, ti, b['vout'], enter='slide', d_in='base', z=6)
+    rowp = El(f'r2.row{i}', badge(f'n{i + 1}', 64, bg=None if T1 else C['yellow']), X0, y + (int(rs * LEAD) - 64) // 2, g, ti, b['vout'], enter='rise' if PLATE_N else 'slide', d_in='base', z=6)   # 1b: rise (a slide from the right pushed long rows past the safe edge on the first entry frame)
     f = F('head', rs); sp = f.getlength(' '); yy = y; j = 0
     for r, ws in enumerate(wrap(r_.split(), f, rw)):
         xx = X0 + 64 + 24; yy = y + r * int(rs * LEAD)

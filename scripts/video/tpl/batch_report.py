@@ -68,7 +68,7 @@ if vids:
             dh.text((x, y), f"{r['host']} · t={t:.1f}s", fill=(20, 60, 60), font=ft)
             if os.path.exists(fp):
                 im = Image.open(fp).convert('RGB'); d2 = ImageDraw.Draw(im)
-                for yy in (HOST_LOCK['top'], HOST_LOCK['crop']):   # head top / waist target d2.line((0, yy * HH_ / 1920, HW_, yy * HH_ / 1920), fill=(229, 80, 47), width=1)   # HOST_LOCK top / crop guides
+                for yy in (HOST_LOCK['top'], HOST_LOCK['crop']): d2.line((0, yy * HH_ / 1920, HW_, yy * HH_ / 1920), fill=(229, 80, 47), width=1)   # HOST_LOCK top / crop guides
                 hs.paste(im, (x, y + 22)); os.remove(fp)
     hs.save(f'{bd}/hosts-sheet.jpg', quality=88)
 os.makedirs(f'{bd}/samples', exist_ok=True)
