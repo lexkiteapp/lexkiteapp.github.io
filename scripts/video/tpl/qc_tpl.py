@@ -159,7 +159,9 @@ for vid in sys.argv[1:]:
         # no light panels (owner 25/10: cream/white text panels look cheap): every panel's luma under the type, every big card/option box (median of its opaque
         # body) and the ENCODED frames inside each beat's panel rect stay dark (<= V5.light_max). Legacy cream renders fail this gate by design.
         LG = T.get('light') or {}; pn = LG.get('panels') or {k: dict(rect=v.get('rect'), luma_under=v.get('luma')) for k, v in (T.get('panel') or {}).items()}
+        # a LIGHT box = bright AND near-neutral (cream / white / pale grey); saturated brand buttons (red CTA, yellow chip) are not panels
         bx = {i: v for i, v in (LG.get('boxes') or {}).items() if v is not None}; enc = {}
+        lightbox = lambda v: (v['luma'] if isinstance(v, dict) else v) > V5['light_max'] and (v.get('sat', 0) if isinstance(v, dict) else 0) < 0.30
         import numpy as np
         for k, v in (T.get('panel') or {}).items():
             if v.get('snap') is None: continue
@@ -167,7 +169,7 @@ for vid in sys.argv[1:]:
             if len(raw) >= 1080 * 1920:
                 g_ = np.frombuffer(raw[:1080 * 1920], np.uint8).reshape(1920, 1080); x0, y0, x1, y1 = v['rect']; enc[k] = float(np.median(g_[y0 + 24:y1 - 24, x0 + 24:x1 - 24]))
         lm = V5['light_max']
-        R['no_light_panels'] = dict(ok=bool(pn) and all((p_.get('luma_under') or 999) <= lm for p_ in pn.values()) and all(x <= lm for x in bx.values()) and bool(enc) and all(x <= lm for x in enc.values()),
+        R['no_light_panels'] = dict(ok=bool(pn) and all((p_.get('luma_under') or 999) <= lm for p_ in pn.values()) and not any(lightbox(x) for x in bx.values()) and bool(enc) and all(x <= lm for x in enc.values()),
                                     max_luma=lm, panel_luma={k: p_.get('luma_under') for k, p_ in pn.items()}, boxes=bx, encoded_median=enc)
     if T.get('hook_full'):   # the COMPLETE hook sentence is on screen, fully opaque, at 1.5 s (owner: 'Americans usually' alone is not a hook)
         f15 = max((f for f in fr if f['t'] <= 1.5 + 1e-6), key=lambda f: f['t'])

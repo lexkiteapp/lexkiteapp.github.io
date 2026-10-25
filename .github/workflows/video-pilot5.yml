@@ -65,7 +65,7 @@ jobs:
             grep -v '^frame ' "out/pilot5/$D.render.log" | tail -12
             python3 scripts/video/tpl/qc_tpl.py "out/pilot5/$D.mp4" | tee "out/pilot5/$D.qc.log" || true
             python3 scripts/video/tpl/rubric_tpl.py "out/pilot5/$D.mp4" || true
-            ffmpeg -nostdin -v error -y -i "out/pilot5/$D.mp4" -c:v libx264 -preset slow -crf 21 -maxrate 5500k -bufsize 11000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "out/pilot5/phone/$D.mp4"
+            ffmpeg -nostdin -v error -y -i "out/pilot5/$D.mp4" -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "out/pilot5/phone/$D.mp4"
             ls -la "out/pilot5/$D.mp4" "out/pilot5/phone/$D.mp4"
           done
           rm -f out/pilot5/*.mix.wav

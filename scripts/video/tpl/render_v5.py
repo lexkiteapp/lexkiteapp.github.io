@@ -323,9 +323,10 @@ for a_, b2_ in ((TYPE['display'], TYPE['h1']), (TYPE['h1'], TYPE['h1']), (TYPE['
 h_total = hook_h(hs1, hs2)
 y = stage_y(h_total); y = place_icon('h', y, b['vin'], b['vout'], g)
 # the whole hook enters as ONE block at the beat start (not word-by-word with the voice): readable long before 1.5 s
-y2, bx = words_block('h.t1', HT, hs1, 'display', X0, y, FULL, g, None, b['vout'], color=INK, align='center', after=b['vin'])
+y2, bx = words_block('h.t1', HT, hs1, 'display', X0, y, FULL, g, None, b['vout'], color=C['yellow'], align='center', after=b['vin'])
 tq = ln.words[-1]['s'] + ln.at
-y3, bx2 = words_block('h.t2', f'“{HQ}”', hs2, 'display', X0, y2 + 16, FULL, g, None, b['vout'], color=C['green'] if SOFT else C['red'], align='center', after=b['vin'])
+y3, bx2 = words_block('h.t2', f'“{HQ}”', hs2, 'display', X0, y2 + 16, FULL, g, None, b['vout'], color=C['green'] if SOFT else C['white'],   # v5: red type on dark glass read weak -> white quote, the red underline marks the error
+ align='center', after=b['vin'])
 if not SOFT:   # underline the error words inside the quote ('is change'), one bar per text row, when the voice says 'this'
     ui = hq_under(HQ, SP['wrong_line'], SP['key_line'], 'strong'); rows_ = {}
     for k_ in ui:
@@ -339,7 +340,7 @@ CARD_PAD, BD = (24, 64) if DIRA else (32, 72); ST('m')
 LAB_S = TYPE['label'] if DIRA else TYPE['body']
 inner = FULL - 2 * CARD_PAD - BD - 24
 lab_h = int(LAB_S * LEAD) + 16
-for sz in (TYPE['h2'], TYPE['body']):   # 1b v4: the bigger host leaves a 560 px stage -> long sentences step down ONE type size (never fewer words)
+for sz in ((TYPE['h2'], TYPE['body'], TYPE['label']) if DIRA else (TYPE['h2'], TYPE['body'])):   # 1b v4: the bigger host leaves a 560 px stage -> long sentences step down ONE type size (never fewer words)
     hx = measure(endp(wrong), sz, 'head', inner) + 2 * CARD_PAD; hv = measure(endp(right), sz, 'head', inner) + 2 * CARD_PAD
     zone_h = ih + lab_h + hx + 32 + max(hv, measure('What sounds better?', sz, 'head', FULL - BD - 24) + 24 + 28)
     if zone_h <= STAGE[1] - STAGE[0]: break
@@ -423,7 +424,7 @@ if 'c' in SEQ:
 
 # normal speed: karaoke sentence + marker ----------------------------------
 b = BEAT['rn']; ln = L['rn']; g = 'rn'; ST('rn')
-sz3 = TYPE['h1']
+sz3 = TYPE['h2'] if DIRA else TYPE['h1']   # A: the low stage under the faces is 360 px (3 rows of h1 ran into the caption band)
 h_ = ih + 72 + 24 + measure(endp(right), sz3, 'head', FULL)
 y = stage_y(h_); y = place_icon('rn', y, b['vin'], b['vout'], g)
 nc = chip('NORMAL SPEED', C['green'], C['white']); El('rn.chip', nc, X0 + (FULL - nc.width) // 2, y, g, b['vin'], b['vout'], enter='fade', d_in='base', text='NORMAL SPEED', fs=TYPE['label'])
@@ -866,16 +867,25 @@ for k in SEQ:
     x0_, y0_, x1_, y1_ = [int(v) for v in RECT[k]]; P_ = frost(bg_at((BEAT[k]['vin'] + BEAT[k]['vout']) / 2)); L0 = LUM(P_[y0_:y1_, x0_:x1_])
     PA[k] = float(np.clip(max(V5['panel_alpha'], (L0 - V5['panel_luma']) / max(1.0, L0 - Lp)), 0, V5['panel_max_alpha']))
 lerp = lambda a, b, q: tuple(x + (y - x) * q for x, y in zip(a, b))
+# v5 (render-1 review): the panel HUGS the visible type – it grows with every element that enters (eased, base) and fades with the beat's
+# exits, so there is never an empty dark box waiting for words that the voice has not said yet
+BEL = {}
+for e in ELS:
+    if e.id in ('progress.track', 'series') or e.grp not in BEAT: continue
+    n = e.inset; BEL.setdefault(e.grp, []).append((e.t_in, e.x + n, e.y + n, e.x + e.img.width - n, e.y + e.img.height - n))
 def panel_at(t):
-    k0_ = SEQ[0]; t0_ = BEAT[k0_]['vin'] + DUR['base']
-    if t < t0_: return RECT[k0_], PA[k0_] * bezier(EASE['out'], t / t0_)
-    for A, B in zip(SEQ, SEQ[1:]):
-        ta, tb = BEAT[A]['vout'], BEAT[B]['vin'] + DUR['base']
-        if t < ta: return RECT[A], PA[A]
-        if t < tb: q = bezier(EASE['inout'], (t - ta) / (tb - ta)); return lerp(RECT[A], RECT[B], q), PA[A] + (PA[B] - PA[A]) * q
-    kl = SEQ[-1]
-    if END_OUT and t >= END_OUT: return RECT[kl], PA[kl] * (1 - bezier(EASE['inout'], min(1.0, (t - END_OUT) / DUR['slow'])))
-    return RECT[kl], PA[kl]
+    k = None
+    for k_ in SEQ:
+        if BEAT[k_]['vin'] - 0.05 <= t: k = k_
+    if k is None or not BEL.get(k): return RECT[SEQ[0]], 0.0
+    on = [x for x in BEL[k] if x[0] <= t]
+    if not on: return RECT[k], 0.0
+    t_first = min(x[0] for x in on); pres = bezier(EASE['out'], min(1.0, (t - t_first) / DUR['base']))
+    vo = BEAT[k]['vout'] if not (k == SEQ[-1] and END_OUT) else END_OUT
+    if t >= vo: pres *= max(0.0, 1 - bezier(EASE['inn'], (t - vo) / DUR['fast'] if k != SEQ[-1] else (t - vo) / DUR['slow']))
+    top = min(x[2] for x in on); bot = max(x[2] + (x[4] - x[2]) * bezier(EASE['out'], min(1.0, (t - x[0]) / DUR['base'])) for x in on)
+    r = (24, max(PY + 24, top - PANEL['pad']), W - 24, min(V5['cap_y'] - 12, bot + PANEL['pad']))
+    return r, PA[k] * pres
 MASKS = {}
 def panel_mask(r):
     key = tuple(int(round(v)) for v in r)
@@ -1019,10 +1029,12 @@ for k, ts in zip(SEQ, SNAP):   # v5: luma UNDER the type = background + dark gla
     b_ = cam_apply(bg_at(ts), cam_z(ts)); r_, a_ = panel_at(ts); b_ = glass(b_, r_, a_)
     x0_, y0_, x1_, y1_ = [int(v) for v in BOX[k]]; STAGE_L[k] = round(LUM(b_[y0_:y1_, x0_:x1_]), 1)
 if PLATE_N: PLATE_LOG.update(stage_luma=max(STAGE_L.values()), scrim=round(max(PA.values()), 3), panel_alpha={k: round(v, 3) for k, v in PA.items()})
-print('panel', json.dumps({k: [RECT[k], round(PA[k], 3), STAGE_L[k]] for k in SEQ}, default=float))
+print('panel', json.dumps({k: [RECT[k], round(PA[k], 3), STAGE_L[k], [round(v) for v in BOX[k]]] for k in SEQ}, default=float))
 def med_luma(im):   # median luma of the opaque body of a card / option box (text pixels are a minority)
     a_ = np.asarray(im.convert('RGBA'), np.float32); m_ = a_[..., 3] > 250
-    return round(float(np.median((0.299 * a_[..., 0] + 0.587 * a_[..., 1] + 0.114 * a_[..., 2])[m_])), 1) if m_.mean() >= 0.5 else None   # boxes only (bare type = transparent)
+    if m_.mean() < 0.5: return None   # boxes only (bare type = transparent)
+    px = a_[..., :3][m_]; mx, mn = px.max(1), px.min(1)
+    return dict(luma=round(float(np.median(0.299 * px[:, 0] + 0.587 * px[:, 1] + 0.114 * px[:, 2])), 1), sat=round(float(np.median((mx - mn) / np.maximum(mx, 1))), 3))
 LIGHT = dict(panels={k: dict(rect=[round(v) for v in RECT[k]], alpha=round(PA[k], 3), color=list(V5['panel']), luma_under=STAGE_L[k]) for k in SEQ},
              boxes={e.id: med_luma(e.img) for e in ELS if e.img.width * e.img.height >= 0.025 * W * H})
 if o.stills:
