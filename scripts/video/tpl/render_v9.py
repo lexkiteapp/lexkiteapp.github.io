@@ -372,8 +372,8 @@ class Pop:
         print(f'pop {s.id} -> {s.where} variant {s.variant} px {best[0]:.0f} (need {need}) region {s.region}', flush=True)
     def build(s):
         P = s.P; k = s.kind; PW, PH = s.PW, s.PH
-        if k == 'rich':
-            s.im, s.px = rich(s.rows_v(P['rows']), round(P.get('size', 76) * (1.3 if INK else 1.0)), P.get('plate'),   # board: write bigger where the zone allows maxw=(PW - 8 if INK else 2 * min(s.cx - SAFE['x0'], SAFE['x1'] - s.cx) - 8)); s.text = rows_text(P['rows'])
+        if k == 'rich':   # board: start 1.3x bigger, rich() shrinks to the zone
+            s.im, s.px = rich(s.rows_v(P['rows']), round(P.get('size', 76) * (1.3 if INK else 1.0)), P.get('plate'), maxw=(PW - 8 if INK else 2 * min(s.cx - SAFE['x0'], SAFE['x1'] - s.cx) - 8)); s.text = rows_text(P['rows'])
         elif k == 'cta':
             ic = ICON.resize((72, 72), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 71, 71], 18, fill=255)
             ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
