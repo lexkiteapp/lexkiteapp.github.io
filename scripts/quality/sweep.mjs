@@ -109,10 +109,15 @@ function probe(mobile) {
   const cap = items.slice(0, 250);
   for (let i = 0; i < cap.length; i++) for (let j = i + 1; j < cap.length; j++) {
     const a = cap[i], b = cap[j]; if (a.fixed !== b.fixed || a.e.contains(b.e) || b.e.contains(a.e)) continue;
-    const ix = Math.min(a.r.right, b.r.right) - Math.max(a.r.left, b.r.left), iy = Math.min(a.r.bottom, b.r.bottom) - Math.max(a.r.top, b.r.top);
-    if (ix <= 2 || iy <= 2) continue;
-    const small = Math.min(a.r.width * a.r.height, b.r.width * b.r.height);
-    if (ix * iy > 0.25 * small) add('overlap', b.e, `${sel(a.e)} ⟷ ${sel(b.e)} (${Math.round(ix)}x${Math.round(iy)}px)`);
+    // Liên kết inline xuống dòng: getBoundingClientRect là hộp bao 2 dòng (phủ cả liên kết kế bên dù không đè) → so từng hộp dòng thật (getClientRects)
+    const boxes = it => it.inline ? [...it.e.getClientRects()].filter(q => q.width > 1 && q.height > 1) : [it.r];
+    let hit = null;
+    for (const p of boxes(a)) for (const q of boxes(b)) {
+      const ix = Math.min(p.right, q.right) - Math.max(p.left, q.left), iy = Math.min(p.bottom, q.bottom) - Math.max(p.top, q.top);
+      if (ix <= 2 || iy <= 2) continue;
+      if (ix * iy > 0.25 * Math.min(p.width * p.height, q.width * q.height) && !hit) hit = [ix, iy];
+    }
+    if (hit) add('overlap', b.e, `${sel(a.e)} ⟷ ${sel(b.e)} (${Math.round(hit[0])}x${Math.round(hit[1])}px)`);
   }
   return out;
 }
