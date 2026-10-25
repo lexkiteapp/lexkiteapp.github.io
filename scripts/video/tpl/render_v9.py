@@ -344,8 +344,11 @@ class Pop:
         if T >= s.rev: st_a, st_b = ('ok', 'dim') if s.P['correct'] == 'a' else ('dim', 'ok')
         mid = []
         b = BEATS.get('_count')
-        if b and b['s'] <= T < b['e']: n = 3 - min(2, int(T - b['s'])); mid = [ring(str(n), 1 - (T - b['s']) / (b['e'] - b['s']))]; s.digit = str(n)
+        if b and b['s'] <= T < b['e']: n = 3 - min(2, int(T - b['s'])); mid = [ring(str(n), 1 - (T - b['s']) / (b['e'] - b['s']), 130)]; s.digit = str(n)
         else: s.digit = None
+        wide = hrow([s.pA['n'], ring('3', 1.0), s.pB['n']], 24).width > CAPW - 8
+        if wide and s.qim is not None:   # long options: ring goes next to the question, pills keep their full size
+            q = hrow([s.qim] + mid, 20) if mid else s.qim; return stack([q, hrow([s.pA[st_a], s.pB[st_b]], 24)], 14)
         row = hrow([s.pA[st_a]] + mid + [s.pB[st_b]], 24)
         return stack([s.qim, row], 14) if s.qim else row
     def compose_stress(s, active):
@@ -421,6 +424,8 @@ def pages_of(lid):
             j = i - L
             if j < 0 or best[j] is None: continue
             seg = [toks[x]['w'] for x in range(j, i)]; c = 0.0
+            fo = font(CAP['size']); wpx = (sum(fo.getlength(disp(x)) for x in seg) + (CAP['gapx'] + fo.getlength(' ')) * (L - 1)) * CAP['bounce'] * CAP['min'] / CAP['size']
+            if L > 1 and wpx + 2 * ST + 40 > CAPW: continue   # a page must fit (with the bounce) at the minimum size, else split it
             if L == 1: c += 0.8 if seg[0][-1] in '!?.:' else 3.0
             if L == 3: c += 0.3
             c += 0.0 if (i == n or seg[-1][-1] in '.?!:') else (0.4 if seg[-1][-1] in ',;' else 1.2)

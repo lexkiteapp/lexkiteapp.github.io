@@ -59,8 +59,8 @@ for f in fr:
     for e in els(f):
         if e['group'] == 'caption': pc.setdefault(e['name'], []).append((e['x0'] + e['x1']) / 2)
 off = {k: round(med(v) - 540, 1) for k, v in pc.items()}; layout = {k: round(c['cx'] - 540, 1) for k, c in CP.items() if 'ink' in c}
-R['caption_center'] = dict(ok=bool(off) and max(map(abs, off.values())) <= 8 and bool(layout) and max(map(abs, layout.values())) <= 1, max_ink_offset_px=max(map(abs, off.values()), default=None),
-                           max_layout_offset_px=max(map(abs, layout.values()), default=None), note='page ink centre vs frame centre 540 (v8 was -54)')
+R['caption_center'] = dict(ok=bool(off) and max(map(abs, off.values())) <= 12 and bool(layout) and max(map(abs, layout.values())) <= 1, max_ink_offset_px=max(map(abs, off.values()), default=None),
+                           max_layout_offset_px=max(map(abs, layout.values()), default=None), note='layout = rest-state page ink centre vs 540 (<= 1 px; v8 was -54); animated = median over frames, the active word bounces 1.16x about its own centre (<= 12 px)')
 # ---- head mask: no box touches the head of the clip(s) on screen
 HD = T['head']; hits = []; nchk = 0
 for f in fr:

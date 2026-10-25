@@ -13,7 +13,7 @@ Rule (memory us-style-characters): teachers must feel American; Priya is exclude
 | Ama | af_bella | studio | `a03_ama_explain` | MCU | 20–120 → 4.2 s | same | right-hand explain gesture |
 | Carlos | am_fenrir | studio (anchor) | `c01_carlos_talk` | MCU | 0–120 → 5.0 s | y 948–1328 (380 px) | mug on desk right |
 | Carlos | am_fenrir | studio | `c02_carlos_talk_smile` | MCU | 0–120 → 5.0 s | same | |
-| Carlos | am_fenrir | studio | `c03_carlos_explain` | MCU | 0–120 → 5.0 s | same | hand to mug |
+| Carlos | am_fenrir | studio | `c03_carlos_explain` | MCU | 0–120 → 5.0 s | same | **not used**: turns to the mug, eyes off camera for ~1 s (render-1 review) |
 | Ama | af_bella | hotel lobby | `h06_ama_mcu_talk` | close MCU | 0–120 → 5.0 s | y 1041–1328 (287 px) | casual look (hoodie); only one clip → loops on its own best frame pair |
 | Ama | af_bella | airport | `a07_ama_mcu_talk` | close MCU | 0–120 → 5.0 s | y 1051–1328 (277 px) | casual look; one clip |
 
@@ -25,7 +25,10 @@ Checked but **not used as a teacher shot**:
 - Daniel (hotel h02/h03/h09) and Mei (airport a01/a03/a08) exist only as over-the-shoulder counter staff → no to-camera teacher clip.
 
 Rotation used by the 6 samples (≥ 2 teachers, ≥ 3 sets): Carlos·studio (mistake, borrow/lend), Ama·studio (5 words, pronunciation), Ama·hotel (guess), Ama·airport (roleplay).
-Within one video the studio teachers cross-dissolve between their 3 talk clips (10 frames at the best-matching frame pair); hotel/airport loop their one clip.
+Clip joins: the renderer scores every candidate join (same clip loop point or another talk clip) on the whole frame + 2× the face, and takes the best;
+an 8-frame dissolve hides the join. Render 1 showed that dissolving between DIFFERENT talk clips ghosts the eyes (head positions differ by 10–20 px), so in
+practice each video forward-loops one clip at 2–3 varied loop points (never reversed); the last 14 frames dissolve forward into frame 0 (loop-clean).
+Truly different talk clips per video need new loops filmed from the same locked pose (see §3).
 
 ## 2. Head mask and layout (v8 fix)
 `head` in teachers.json = hair + ears + chin + neck over the whole clip (13-frame average with sway), in source pixels. qc_v9 `head_clear` fails if any
