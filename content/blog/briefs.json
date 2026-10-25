@@ -11362,6 +11362,96 @@
    "intent": "informational",
    "lang": "en",
    "cluster": "diferencia-entre-make-y-do-en-ingles"
+  },
+  {
+   "slug": "matching-headings-ielts-reading",
+   "keyword": "matching headings ielts reading",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "matching-headings"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "id",
+   "cluster": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "ielts-reading-matching-headings-theknik",
+   "keyword": "ielts reading matching headings",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "matching-headings"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "th",
+   "cluster": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "ielts-reading-matching-headings-gongryak",
+   "keyword": "아이엘츠 리딩 매칭 헤딩",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "reading",
+    "matching-headings"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "ko",
+   "cluster": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "jaju-sseuneun-gudongsa",
+   "keyword": "자주 쓰는 구동사",
+   "category": "tu-vung",
+   "tags": [
+    "phrasal-verbs",
+    "vocabulary",
+    "speaking"
+   ],
+   "routes": [
+    "/#/grammar/phrasal-verbs-grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational/list",
+   "lang": "ko",
+   "cluster": "phrasal-verb-thong-dung"
+  },
+  {
+   "slug": "yoku-tsukau-kudoushi",
+   "keyword": "句動詞 よく使う",
+   "category": "tu-vung",
+   "tags": [
+    "phrasal-verbs",
+    "vocabulary",
+    "speaking"
+   ],
+   "routes": [
+    "/#/grammar/phrasal-verbs-grammar",
+    "/#/practice/learn"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational/list",
+   "lang": "ja",
+   "cluster": "phrasal-verb-thong-dung"
   }
  ]
 }

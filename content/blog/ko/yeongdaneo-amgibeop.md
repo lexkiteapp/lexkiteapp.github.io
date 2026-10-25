@@ -108,6 +108,8 @@ qualityScore: 94
 
 {{youtube: | 영상 아이디어: 영어 단어 절대 안 까먹는 7단계 암기법과 망각곡선 극복 팁}}
 
+동사 하나에 particle이 붙어 뜻이 바뀌는 표현은 [자주 쓰는 구동사 정리](/ko/blog/jaju-sseuneun-gudongsa/)에서 상황별로 익힐 수 있습니다.
+
 {{cta: /#/library | 맞춤형 어휘 라이브러리 시작하기}}
 
 ## 자주 묻는 질문

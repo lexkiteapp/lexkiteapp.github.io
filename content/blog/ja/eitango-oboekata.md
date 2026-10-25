@@ -110,6 +110,8 @@ qualityScore: 92
 
 TOEICのスコアアップが目的なら、単語学習を全体の計画にどう組み込むかを[TOEIC勉強法](/ja/blog/toeic-benkyouhou/)で解説しています。Part 5の語彙・文法問題対策には[TOEIC Part 5のコツ](/ja/blog/toeic-part5-kotsu/)、長文読解の時間不足には[TOEIC Part 7の時間配分](/ja/blog/toeic-part7-jikan-haibun/)もどうぞ。さらに上位資格を目指すなら[英検準1級対策の勉強法](/ja/blog/eiken-jun-1-kyu-taisaku/)、覚えた語彙を実務で生かすなら[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)や[英語面接質問対策](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)も合わせて確認してみてください。また、動詞の活用や過去分詞の用法に迷ったら[現在完了と過去形の違いの完全解説](/ja/blog/genzai-kanryou-kakokei-chigai/)も役立ちます。
 
+動詞に particle がついて意味が変わる表現は、[よく使う句動詞50選](/ja/blog/yoku-tsukau-kudoushi/) で場面別にまとめて覚えましょう。
+
 {{cta: /#/library | 単語セットを選んで今日の10語を始める}}
 
 {{youtube: | 動画のアイデア：英単語10語をフレーズ・音声・間隔反復で覚える1日30分の流れを、Lexkiteの画面で実演}}

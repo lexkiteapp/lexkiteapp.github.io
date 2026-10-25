@@ -151,6 +151,8 @@ quiz: [
 
 회의 후 감사 이메일과 미팅 록을 작성할 때는 [비즈니스 영어 이메일 표현](/ko/blog/business-yeongeo-email-pyohyeon/)을 참고하시고, 해외 이직이나 커리어 확장을 준비 중이라면 [영문 이력서 레주메 작성법](/ko/blog/yeongmun-ilyeokseo-resume-jakseongbeop/)과 [영어 면접 질문 대비법](/ko/blog/yeongeo-myeonjeop-jajunawonun-jilmun/)을 함께 살펴보세요. 미묘한 완곡 화법의 조동사 원리는 [영어 조동사 정리](/ko/blog/yeongeo-jodongsa-can-could-should-must/)에서 체계적으로 복습하실 수 있으며, 추가적인 비즈니스 표현은 [자료실](/samples/)을 자유롭게 활용해 보세요.
 
+회의에서 자주 나오는 *set up*, *go over*, *put off* 같은 표현은 [자주 쓰는 구동사 정리](/ko/blog/jaju-sseuneun-gudongsa/)에서 어순 규칙과 함께 확인하세요.
+
 {{cta: /app/#/library | Lexkite에서 비즈니스 회의 필수 어휘 정복하기}}
 
 {{youtube: | 비즈니스 영어 회의 표현과 글로벌 화상 미팅 완벽 실전 가이드}}

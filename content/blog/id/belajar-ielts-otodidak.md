@@ -136,6 +136,8 @@ Lexkite menyediakan alat untuk tiga langkah terpenting dalam belajar mandiri: me
 
 ![Halaman metode belajar Lexkite: putaran harian sekitar 30 menit dari ulang kartu, kata baru, latihan, membaca dan mendengar, hingga berbicara, ditambah kurva lupa dan keseimbangan 4 skill](media:method "Putaran harian sekitar 30 menit cocok untuk hari-hari ketika waktumu sempit")
 
+Untuk latihan reading yang lebih terarah, mulai dari tipe soal tersulit lewat [panduan matching headings IELTS Reading](/id/blog/matching-headings-ielts-reading/).
+
 {{cta: /#/placement | Kerjakan tes penempatan 5 menit}}
 
 {{youtube: | Ide video: cara menyusun jadwal belajar IELTS mingguan untuk karyawan yang hanya punya 1 jam sehari}}

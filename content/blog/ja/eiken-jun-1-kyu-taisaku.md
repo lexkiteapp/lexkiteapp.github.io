@@ -78,6 +78,8 @@ qualityScore: 94
 
 文法問題で狙われる仮定法の倒置は、[英語の仮定法と条件文](/ja/blog/eigo-kateihou-joukenbun/)で確認できます。
 
+語彙問題で狙われる句動詞の基本は [よく使う句動詞50選](/ja/blog/yoku-tsukau-kudoushi/) で整理しておくと安心です。
+
 {{cta: /#/reading | Lexkiteで長文読解と重要単語を練習する}}
 
 ## リスニングと2次面接（スピーキング）の突破法

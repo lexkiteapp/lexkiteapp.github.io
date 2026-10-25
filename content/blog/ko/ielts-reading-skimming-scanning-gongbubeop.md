@@ -147,6 +147,8 @@ quiz: [
 
 아이엘츠 독해 능력을 기르는 과정에서 문장 구조 분석이 막힌다면 [영어 기초 문법 총정리](/ko/blog/yeongeo-gicho-munbeop-chongjeongri/)를 통해 복문과 관계대명사 구문을 점검하고, 토익 고득점 팁이 담긴 [토익 파트7 독해 비법](/ko/blog/toeic-part7-dokhae-bibeop/)과 [토플 라이팅 템플릿](/ko/blog/toefl-ibt-writing-template/)을 함께 비교 학습하면 아카데믹 영어에 대한 깊이 있는 통찰을 얻을 수 있습니다. 또한 기초 리딩 연습을 위해 유용한 [단어 및 리딩 자료실](/samples/)을 자유롭게 탐색해 보세요.
 
+스키밍을 가장 많이 쓰는 유형은 [아이엘츠 리딩 매칭 헤딩](/ko/blog/ielts-reading-matching-headings-gongryak/)이니 5단계 풀이법도 함께 익혀 두세요.
+
 {{cta: /app/#/reading | Lexkite에서 아이엘츠 리딩 실전 연습 시작하기}}
 
 {{youtube: | 아이엘츠 리딩 시간 단축 비법과 스키밍 스캐닝 실전 풀이법}}

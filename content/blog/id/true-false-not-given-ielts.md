@@ -129,6 +129,8 @@ Saat menemukan kata yang kemungkinan menjadi parafrase, cari di [kamus Lexkite](
 
 Untuk melihat bagaimana penulis band 8 memakai pembatas dan bahasa berhati-hati, buka [kumpulan esai contoh Writing Task 2](/en/samples/) (halaman berbahasa Inggris).
 
+Soal lain yang sering muncul di passage yang sama dibahas di [matching headings IELTS Reading](/id/blog/matching-headings-ielts-reading/), lengkap dengan contoh dan kunci.
+
 {{cta: /#/reading | Buka satu bacaan dan coba lima soal True/False/Not Given}}
 
 {{youtube: | Ide video: membedah lima pernyataan True/False/Not Given yang menjebak dan menjelaskan kenapa masing-masing False atau Not Given}}
