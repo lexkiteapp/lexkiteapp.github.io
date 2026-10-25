@@ -136,6 +136,7 @@ export const SMP_CSS = `.smp .prompt{position:relative;background:var(--surface)
 .tools button{font:inherit;font-size:13px;font-weight:700;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:4px 12px;cursor:pointer}
 .tools button[aria-pressed=true]{background:var(--ac2);border-color:var(--ac2);color:var(--surface)}
 .tools button[aria-pressed]::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor;margin-right:6px;vertical-align:1px}.tools button[aria-pressed=true]::before{background:currentColor}
+@media (pointer:coarse){.outline a,.tools button{min-height:44px;box-sizing:border-box}.tools button{min-width:44px}} /* vùng chạm ≥ 44 px (quality-sweep, WCAG 2.5.8) */
 .r-intro{--rc:var(--brand)}.r-body{--rc:var(--ac2)}.r-concl{--rc:var(--link)}.r-greet{--rc:var(--muted)}
 .ess-main>h2{font-size:22px;margin:0 0 14px}.ess-main>h2~h2{margin-top:36px}
 .ess2{font-size:18px;line-height:1.8}
