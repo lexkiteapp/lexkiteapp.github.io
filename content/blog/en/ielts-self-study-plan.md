@@ -113,6 +113,8 @@ Use your phone to record your answers to recent exam topics. When playing back y
 
 To track your progress along each step of your journey, [explore the structured IELTS study path](/#/path) inside the app to see your daily milestones and skill progression.
 
+Not sure where to start? [CEFR levels explained](/en/blog/cefr-levels-explained/) helps you check your current level before you set a target band.
+
 {{cta: /#/placement | Start with the 5-minute placement test}}
 
 ## Frequently Asked Questions

@@ -141,6 +141,8 @@ Questions 4 and 6 also overlap with word-choice problems covered in [commonly co
 
 ![Lexkite IELTS Task 2 Writing room with prompts grouped by topic, idea hints, vocabulary suggestions and an essay outline](media:write "Choose a Task 2 topic and plan a paragraph around three new collocations")
 
+The verbs *make* and *do* cause more collocation errors than almost any others; our [make vs do guide](/en/blog/make-vs-do/) sorts them into clear groups.
+
 {{cta: /#/phrases | Start your own collocation notebook}}
 
 {{youtube: | Video idea: correcting ten common collocation mistakes from real-style Task 2 sentences}}

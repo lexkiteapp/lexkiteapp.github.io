@@ -206,6 +206,8 @@ If you are not sure whether a word suits a formal email, look it up in the [dict
 
 ![Lexkite dictionary entry for "resilient" with IPA, example sentence, collocations and a Save flashcard button](media:dict "Example sentences show whether a word fits a formal register")
 
+If you are taking IELTS General Training, the same formal register is tested in the letter task; see our [IELTS General Training letter guide](/en/blog/ielts-general-training-letter/).
+
 {{cta: /#/letters | Compare model letters at three levels of formality}}
 
 {{youtube: | Video idea: rewriting a blunt work email into a polite, clear one, line by line}}

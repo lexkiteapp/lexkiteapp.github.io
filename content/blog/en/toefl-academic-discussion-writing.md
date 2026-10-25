@@ -182,6 +182,8 @@ If you marked 4 or 5 correctly, your instinct for openings is sound. Next, pract
 
 Our [formal email guide](/en/blog/how-to-write-a-formal-email/) pairs well with this one, because Write an Email sits in the same Writing section. For model answers to longer essay tasks, browse the [writing samples](/en/samples/).
 
+The Reading section opens with a different challenge, typing the missing letters of words; our [TOEFL Complete the Words guide](/en/blog/toefl-complete-the-words/) explains how to prepare.
+
 {{cta: /app/#/toefl-p/discussion | Write a timed Academic Discussion post now}}
 
 {{youtube: | Video idea: building a TOEFL Academic Discussion post live in 10 minutes, move by move}}

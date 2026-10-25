@@ -199,6 +199,8 @@ When you save new verbs, write the pattern in the example sentence. The [Smart L
 
 These patterns also matter in writing. A formal email often closes with *I look forward to hearing from you*; see [how to write a formal email](/en/blog/how-to-write-a-formal-email/) for more phrases like that. For other grammar areas that cause similar fossilised errors, read our guides to [articles a, an and the](/en/blog/articles-a-an-the-rules/) and [present perfect vs past simple](/en/blog/present-perfect-vs-past-simple/). You can also look at verb patterns used naturally in the [band 8 sample essays](/en/samples/).
 
+Many reporting verbs follow these same patterns (*deny doing*, *promise to do*), so the next step is our guide to [reported speech](/en/blog/reported-speech/).
+
 {{cta: /#/grammar | Revise verb patterns in the Grammar section}}
 
 {{youtube: | Video idea: stop, remember and try – why the meaning changes with -ing or to}}

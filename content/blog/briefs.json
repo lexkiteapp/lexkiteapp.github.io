@@ -11250,6 +11250,118 @@
    "intent": "exam-prep",
    "lang": "ar",
    "cluster": "ielts-speaking-part-3"
+  },
+  {
+   "slug": "relative-clauses-who-which-that",
+   "keyword": "relative clauses",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "relative-clauses",
+    "writing",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "relative-clauses"
+  },
+  {
+   "slug": "reported-speech",
+   "keyword": "reported speech",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "reported-speech",
+    "tenses",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "reported-speech"
+  },
+  {
+   "slug": "cefr-levels-explained",
+   "keyword": "cefr levels",
+   "category": "phuong-phap",
+   "tags": [
+    "cefr",
+    "placement",
+    "english-level",
+    "study-plan"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "kiem-tra-trinh-do-tieng-anh"
+  },
+  {
+   "slug": "ielts-general-training-letter",
+   "keyword": "ielts general training letter",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-general",
+    "writing",
+    "letter-writing"
+   ],
+   "routes": [
+    "/#/letters"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "en",
+   "cluster": "ielts-general-writing-task-1-viet-thu"
+  },
+  {
+   "slug": "toefl-complete-the-words",
+   "keyword": "toefl complete the words",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-reading",
+    "complete-the-words",
+    "spelling"
+   ],
+   "routes": [
+    "/#/toefl-p/cw",
+    "/#/toefl"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "exam-prep",
+   "lang": "en",
+   "cluster": "toefl-complete-the-words"
+  },
+  {
+   "slug": "make-vs-do",
+   "keyword": "make vs do",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulary",
+    "collocations",
+    "make-do",
+    "b1"
+   ],
+   "routes": [
+    "/#/usage/make",
+    "/#/usage/do"
+   ],
+   "angle": "SEO program 11/2026 batch 3 – see content/blog/plan/2026-11-seo-program.json",
+   "intent": "informational",
+   "lang": "en",
+   "cluster": "diferencia-entre-make-y-do-en-ingles"
   }
  ]
 }

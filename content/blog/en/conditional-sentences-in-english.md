@@ -200,6 +200,8 @@ Score 7 or more and you are ready to use conditionals actively in speaking. If t
 
 Conditionals often appear with the passive in formal writing (*If the law were changed…*); our guide to the [passive voice](/en/blog/passive-voice-in-english/) covers that structure.
 
+For another structure that builds longer, connected sentences, see our guide to [relative clauses](/en/blog/relative-clauses-who-which-that/).
+
 {{cta: /app/#/grammar/conditionals-2-3 | Practise second and third conditionals now}}
 
 {{youtube: | Video idea: one situation told four ways, from a zero conditional fact to a third conditional regret}}

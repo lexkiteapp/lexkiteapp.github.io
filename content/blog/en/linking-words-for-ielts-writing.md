@@ -116,6 +116,8 @@ If you missed two or more, review the grammar column of the table above before y
 
 ![Lexkite Phrases notebook with saved sentences and structures labelled by task and band](media:phrases "Store linking patterns you want to reuse, labelled by Task 1 or Task 2")
 
+Linking works differently in letters, where tone matters as much as logic; see the [IELTS General Training letter guide](/en/blog/ielts-general-training-letter/) for examples.
+
 {{cta: /#/write | Plan a Task 2 paragraph in the Writing room}}
 
 {{youtube: | Video idea: rewriting an over-linked Task 2 paragraph into a natural one, sentence by sentence}}

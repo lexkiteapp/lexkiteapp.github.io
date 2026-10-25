@@ -187,6 +187,8 @@ The [grammar section](/#/grammar) follows a chapter roadmap through the 12 tense
 
 Tenses interact with other grammar points. Next, read about [a, an, the rules](/en/blog/articles-a-an-the-rules/) and [gerunds and infinitives](/en/blog/gerunds-and-infinitives/), and check [commonly confused words](/en/blog/commonly-confused-words-in-english/) such as *lie* and *lay*, whose past forms trip up many learners. For model essays that use both tenses well, browse our [IELTS Task 2 samples](/en/samples/).
 
+When you retell what someone said, these tenses shift back one step; [reported speech](/en/blog/reported-speech/) shows how *I have finished* becomes *she said she had finished*.
+
 {{cta: /#/grammar | Practise present perfect and past simple side by side}}
 
 {{youtube: | Video idea: open versus closed time frames drawn on a timeline, with six paired example sentences}}

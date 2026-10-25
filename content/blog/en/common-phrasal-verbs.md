@@ -208,6 +208,8 @@ Got 7 or 8? Now make the knowledge active: write one sentence about your own lif
 2. Use [Smart Learn](/app/#/practice/learn) to study phrases like *come up with* with meaning, example and common mistake on one card.
 3. Save any new phrasal verb you meet while reading, then let spaced reviews bring it back before you forget it. For a plan to build exam vocabulary week by week, see [how to learn IELTS vocabulary](/en/blog/how-to-learn-ielts-vocabulary/).
 
+Phrasal verbs with *make* and *do* (*make up*, *do without*) are explained alongside their collocations in [make vs do](/en/blog/make-vs-do/).
+
 {{cta: /app/#/practice/learn | Learn phrasal verbs with examples and reviews}}
 
 {{youtube: | Video idea: ten everyday phrasal verbs acted out in a two-minute morning routine}}

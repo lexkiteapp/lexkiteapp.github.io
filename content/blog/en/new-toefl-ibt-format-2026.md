@@ -130,6 +130,8 @@ Still deciding between exams? Our explanation of the [TOEIC test format](/en/blo
 
 ![Lexkite mistake log grouping missed questions by vocabulary, grammar, reading and listening](media:mistakes "Missed Complete the Words and Build a Sentence items are grouped so you can see whether spelling or word order is the weak point")
 
+For a full strategy and a practice paragraph, read our [TOEFL Complete the Words guide](/en/blog/toefl-complete-the-words/). To see how the new 1–6 bands relate to other exams, check [CEFR levels explained](/en/blog/cefr-levels-explained/).
+
 {{cta: /#/toefl | Try Complete the Words and Build a Sentence}}
 
 {{youtube: | Video idea: a tour of all 12 new TOEFL iBT task types, each with one original example}}

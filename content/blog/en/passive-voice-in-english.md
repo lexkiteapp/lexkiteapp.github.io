@@ -191,6 +191,8 @@ Seven or eight correct shows solid control. When you read academic texts, notice
 
 Passive forms often combine with conditionals in formal writing (*If the tax were introduced…*), covered in [conditional sentences](/en/blog/conditional-sentences-in-english/), and with infinitives (*is expected to rise*), covered in [gerunds and infinitives](/en/blog/gerunds-and-infinitives/).
 
+Passive participles also shorten relative clauses (*the data which was collected* → *the data collected*); see our guide to [relative clauses](/en/blog/relative-clauses-who-which-that/).
+
 {{cta: /app/#/grammar/passive-voice | Practise the passive voice in every tense}}
 
 {{youtube: | Video idea: one news story told twice, in the active and the passive, to show how the focus changes}}

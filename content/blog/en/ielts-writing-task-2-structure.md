@@ -148,6 +148,8 @@ In the [Writing room](/#/write) you can choose a Task 2 question by topic, read 
 
 More model essays sorted by question type are on our [IELTS Task 2 samples page](/en/samples/). To upgrade the language inside the frame, pair this guide with [IELTS collocations](/en/blog/ielts-collocations/) and the [Academic Word List](/en/blog/academic-word-list/). And because Task 1 shares the same hour, read the [IELTS line graph guide](/en/blog/ielts-writing-task-1-line-graph/) as well.
 
+General Training candidates also write a letter in Task 1; our [IELTS General Training letter guide](/en/blog/ielts-general-training-letter/) covers tone, structure and timing.
+
 {{cta: /#/write | Plan and write a Task 2 essay in the Writing room}}
 
 {{youtube: | Video idea: planning a Task 2 essay in five minutes, from underlining the question to a finished paragraph outline}}
