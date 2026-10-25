@@ -135,7 +135,7 @@ ${group2('all', 'Chủ đề', `${made.length} ${L.items}`, made.map(spCard))}</
     const rows = x.words.map((w, i) => { const k = audioKey(w.word); return `<tr><td class="no">${i + 1}</td><td><span class="w">${k ? audioBtn(k, w.word, 'vi') : ''}${esc(w.word)}</span>${w.pos ? `<span class="pos">${esc(w.pos)}</span>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td><td>${esc(w.vi || '')}</td><td class="ex">${esc(w.ex || '')}</td></tr>`; }).join('');
     const body = `${hero(esc(x.name), { emoji: x.emoji || '📘', lead: x.desc ? esc(x.desc) : '', chips: [g, ...chipsOf(x)] })}
 ${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, '🃏 Học bộ này bằng flashcard (miễn phí)', 'Mở bộ từ trong app', 'Ôn lặp lại ngắt quãng FSRS, nghe phát âm, tự kiểm tra – lưu tiến độ tự động.', 'vocab')}
-<div class="tbl"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
+<div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
 ${ctaBox(`/app/#/topic/${encodeURIComponent(x.id)}`, `Thuộc ${n} từ này trong vài ngày`, 'Học ngay', 'Mỗi ngày vài phút, app tự nhắc đúng lúc bạn sắp quên.', 'vocab')}
 ${related(relatedOf(TP, x, y => y.group === x.group), vCard)}
 ${extBox('vi', 'vocab')}
@@ -161,10 +161,10 @@ ${Object.entries(byG).map(([k, xs]) => group(k, GROUP[k] || k, `${xs.length} ${L
   fs.mkdirSync('dist/ngu-phap', { recursive: true });
   const hlEx = s => esc(s).replace(/\[\[(.+?)\]\]/g, "<b>$1</b>"); // [[…]] = cấu trúc mục tiêu
   const blk = b => {
-    if (b.type === 'formula') return `<h2>Công thức</h2><div class="tbl"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(r.label || '')}</th><td>${r.parts.map(p => esc(p.t)).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
+    if (b.type === 'formula') return `<h2>Công thức</h2><div class="tbl" tabindex="0"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(r.label || '')}</th><td>${r.parts.map(p => esc(p.t)).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
     if (b.type === 'uses') return `<h2>Cách dùng</h2><ol class="uses">${b.items.map(u => `<li><b>${esc(u.title)}</b>${u.ex ? `<br><i>${hlEx(u.ex)}</i>` : ''}${u.vi ? ` – ${esc(u.vi)}` : ''}</li>`).join('')}</ol>`;
     if (b.type === 'signals') return `<h2>Dấu hiệu nhận biết</h2><p class="sig">${b.words.map(w => `<span class="chip">${esc(w)}</span>`).join(' ')}</p>`;
-    if (b.type === 'table') return `<div class="tbl"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (b.type === 'table') return `<div class="tbl" tabindex="0"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     if (b.type === 'tip') return `<div class="tip">💡 ${esc(b.text)}</div>`;
     if (b.type === 'mistake') return `<div class="err">❌ <s>${esc(b.wrong)}</s><br>✅ <b>${esc(b.right)}</b>${b.why ? `<br><span class="why">${esc(b.why)}</span>` : ''}</div>`;
     if (b.type === 'ielts') return `<h2>Ứng dụng trong IELTS</h2><p>${esc(b.text)}</p>`;
@@ -206,11 +206,11 @@ ${order.map(k => { const u = unitOf(k); return group(k, `${u.emoji ? u.emoji + '
     const qs = (x.quiz || []).slice(0, 3);
     const body = `<article class="page">${hero(esc(x.title), { emoji: x.emoji || '🗣️', lead: esc(x.how), chips: [[x.ipa, 'ink'], ...(x.level ? [[x.level, 'alt']] : []), GN[x.group] || x.group] })}
 ${ctaBox(href, '🎙️ Luyện âm này bằng micro (miễn phí)', 'Mở trong app', 'Nghe mẫu, tự ghi âm và được nhận xét từng từ ngay.')}
-${(x.rules || []).length ? `<h2>Quy tắc</h2><div class="tbl"><table><thead><tr><th scope="col">Quy tắc</th><th scope="col">Khi nào</th><th scope="col">Ví dụ</th></tr></thead><tbody>${x.rules.map(r => `<tr><td><b>${esc(r.label)}</b></td><td>${esc(r.when)}</td><td lang="en">${(r.ex || []).map(esc).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${(x.rules || []).length ? `<h2>Quy tắc</h2><div class="tbl" tabindex="0"><table><thead><tr><th scope="col">Quy tắc</th><th scope="col">Khi nào</th><th scope="col">Ví dụ</th></tr></thead><tbody>${x.rules.map(r => `<tr><td><b>${esc(r.label)}</b></td><td>${esc(r.when)}</td><td lang="en">${(r.ex || []).map(esc).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
 ${x.vn ? `<h2>Lỗi người Việt hay mắc</h2><div class="err">${esc(x.vn)}</div>` : ''}
 ${x.tip ? `<div class="tip">💡 ${esc(x.tip)}</div>` : ''}
-${ws.length ? `<h2>Từ ví dụ</h2><div class="tbl"><table class="wt"><thead><tr><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th></tr></thead><tbody>${ws.map(w => `<tr><td><span class="w" lang="en">${au(w.w)}${esc(w.w)}</span>${w.note ? ` <small>${esc(w.note)}</small>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
-${pairs.length ? `<h2>Cặp từ tối thiểu (minimal pairs)</h2><p>Mỗi cặp chỉ khác nhau một âm – đọc to để nghe rõ sự khác biệt.</p><div class="tbl"><table class="wt"><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w" lang="en">${au(a)}${esc(a)}</span></td><td>–</td><td><span class="w" lang="en">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
+${ws.length ? `<h2>Từ ví dụ</h2><div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th></tr></thead><tbody>${ws.map(w => `<tr><td><span class="w" lang="en">${au(w.w)}${esc(w.w)}</span>${w.note ? ` <small>${esc(w.note)}</small>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${pairs.length ? `<h2>Cặp từ tối thiểu (minimal pairs)</h2><p>Mỗi cặp chỉ khác nhau một âm – đọc to để nghe rõ sự khác biệt.</p><div class="tbl" tabindex="0"><table class="wt"><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w" lang="en">${au(a)}${esc(a)}</span></td><td>–</td><td><span class="w" lang="en">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
 ${(x.sentences || []).length ? `<h2>Câu luyện tập</h2><ul class="uses">${x.sentences.map(z => `<li lang="en">${esc(z)}</li>`).join('')}</ul>` : ''}
 ${qs.length ? `<h2>Kiểm tra nhanh</h2><ol class="uses">${qs.map(q => `<li><p><b>${esc(q.q)}</b></p><ol type="a">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol><details><summary>Xem đáp án</summary><p>✅ <b>${esc(q.options[q.answer])}</b>${q.explain ? ` – ${esc(q.explain)}` : ''}</p></details></li>`).join('')}</ol>` : ''}
 ${ctaBox(href, `🗣️ Tự ghi âm các từ có ${esc(x.ipa)}`, 'Luyện trong app')}

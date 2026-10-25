@@ -229,7 +229,7 @@ function render(md, lang, cover) {
       flush(); const row = r => r.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
       const head = row(ln); i += 2; const body = [];
       while (i < lines.length && /^\|.*\|\s*$/.test(lines[i])) body.push(row(lines[i++]));
-      out.push(`<div class="tbl"><table><thead><tr>${head.map(h => `<th>${inline(h)}</th>`).join('')}</tr></thead><tbody>${body.map(r => `<tr>${r.map(c => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`); continue;
+      out.push(`<div class="tbl" tabindex="0"><table><thead><tr>${head.map(h => `<th>${inline(h)}</th>`).join('')}</tr></thead><tbody>${body.map(r => `<tr>${r.map(c => `<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`); continue;
     }
     if (/^\s*([-*]|\d+[.)])\s+/.test(ln)) {
       flush(); const ol = /^\s*\d/.test(ln), items = [];

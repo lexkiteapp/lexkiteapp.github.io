@@ -133,7 +133,7 @@ ${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard))}</div>$
     out(`en/vocabulary/${x.id}`, `tu-vung/${x.id}`, page(`${g}: ${nm} – ${n} Words with IPA, Definitions & Examples`, `${n} ${g.toLowerCase()} words (${nm}) with IPA, English definitions and example sentences: ${x.words.slice(0, 8).map(w => w.word).join(', ')}… Learn with free flashcards.`, `en/vocabulary/${x.id}`, `tu-vung/${x.id}`,
       `${hero(esc(nm), { emoji: x.emoji || '📘', chips: [g, ...chipsOf(x)] })}
 ${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, '🃏 Learn this set with free flashcards', 'Open this set in the app', 'FSRS spaced repetition, audio and self-tests – progress saved automatically.', 'vocab')}
-<div class="tbl"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
+<div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col" class="no">${L.col.no}</th><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th><th scope="col">${L.col.mean}</th><th scope="col">${L.col.ex}</th></tr></thead><tbody>${rows}</tbody></table></div>
 ${ctaBox(`${APP}/topic/${encodeURIComponent(x.id)}`, `Remember all ${n} words in a few days`, 'Start learning', 'A few minutes a day – the app reminds you right before you forget.', 'vocab')}
 ${related(relatedOf(TP, x, y => y.group === x.group), vCard)}
 ${extBox('en', 'vocab')}
@@ -177,10 +177,10 @@ const cnt = (k, idx) => nL[k][idx ? 0 : 1]++;
   G.forEach((l, gi) => {
     const t = tr.get(l), idx = idxG.has(l.id), bl = l.blocks || [], prev = G[gi - 1], next = G[gi + 1];
     const blk = b => {
-      if (b.type === 'formula') return `<h2>Formula</h2><div class="tbl"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(t(r.label || ''))}</th><td>${r.parts.map(p => esc(t(p.t))).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
+      if (b.type === 'formula') return `<h2>Formula</h2><div class="tbl" tabindex="0"><table class="fx"><tbody>${b.rows.map(r => `<tr><th scope="row">${esc(t(r.label || ''))}</th><td>${r.parts.map(p => esc(t(p.t))).join(' + ')}${r.ex ? `<br><i class="ex">${hlEx(r.ex)}</i>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
       if (b.type === 'uses') return `<h2>When to use ${esc(l.en)}</h2><ol class="uses">${b.items.map(u => `<li><b>${esc(t(u.title))}</b>${u.ex ? `<br><i>${hlEx(u.ex)}</i>` : ''}</li>`).join('')}</ol>`;
       if (b.type === 'signals') return `<h2>Signal words</h2><p class="sig">${b.words.map(w => `<span class="chip">${esc(t(w))}</span>`).join(' ')}</p>`;
-      if (b.type === 'table') return `<div class="tbl"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(t(h))}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(t(String(x)))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+      if (b.type === 'table') return `<div class="tbl" tabindex="0"><table>${b.head ? `<thead><tr>${b.head.map(h => `<th scope="col">${esc(t(h))}</th>`).join('')}</tr></thead>` : ''}<tbody>${(b.rows || []).map(r => `<tr>${r.map(x => `<td>${esc(t(String(x)))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
       if (b.type === 'tip') return t(b.text) ? `<div class="tip">💡 ${esc(t(b.text))}</div>` : '';
       if (b.type === 'mistake') return `<div class="err">❌ <s>${esc(enOnly(b.wrong))}</s><br>✅ <b>${esc(enOnly(b.right))}</b>${t(b.why) ? `<br><span class="why">${esc(t(b.why))}</span>` : ''}</div>`;
       if (b.type === 'ielts') return t(b.text) ? `<h2>Using it in IELTS</h2><p>${esc(t(b.text))}</p>${b.ex ? `<p><i>${hlEx(b.ex)}</i></p>` : ''}` : '';
@@ -225,11 +225,11 @@ ${order.map(k => group(k, `${(UNITS.find(u => u.id === k) || {}).emoji || ''} ${
     const body = `<article class="page">${hero(esc(nm), { emoji: x.emoji || '🗣️', lead: sound ? `Mouth position, ${(x.words || []).length} example words with IPA, ${(x.pairs || []).length} minimal pairs and practice sentences for ${esc(x.ipa)}.` : esc(t(x.how)), chips: [[x.ipa, 'ink'], ...(x.level ? [[x.level, 'alt']] : []), GN[x.group] || x.group] })}
 ${ctaBox(href, '🎙️ Practise this sound with your microphone (free)', 'Open in the app', 'Listen, record yourself and get instant feedback on each word.')}
 ${sound ? `<h2>How to pronounce ${esc(x.ipa)}</h2><p>${esc(t(x.how))}</p><p class="sig">${[sound.voiced === true ? 'voiced' : sound.voiced === false ? 'voiceless' : '', sound.long ? 'long' : '', sound.lips ? `lips: ${sound.lips}` : '', sound.tongue ? `tongue: ${sound.tongue}` : '', sound.jaw ? `jaw: ${sound.jaw}` : ''].filter(Boolean).map(c => `<span class="chip">${esc(c)}</span>`).join(' ')}</p>` : ''}
-${(x.rules || []).length ? `<h2>Rules</h2><div class="tbl"><table><thead><tr><th scope="col">Rule</th><th scope="col">When</th><th scope="col">Examples</th></tr></thead><tbody>${x.rules.map(r => `<tr><td><b>${esc(t(r.label))}</b></td><td>${esc(t(r.when))}</td><td lang="en">${(r.ex || []).map(e => esc(t(e))).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${(x.rules || []).length ? `<h2>Rules</h2><div class="tbl" tabindex="0"><table><thead><tr><th scope="col">Rule</th><th scope="col">When</th><th scope="col">Examples</th></tr></thead><tbody>${x.rules.map(r => `<tr><td><b>${esc(t(r.label))}</b></td><td>${esc(t(r.when))}</td><td lang="en">${(r.ex || []).map(e => esc(t(e))).join('<br>')}</td></tr>`).join('')}</tbody></table></div>` : ''}
 ${t(x.vn) ? `<h2>Common mistakes</h2><div class="err">${esc(t(x.vn))}</div>` : ''}
 ${t(x.tip) ? `<div class="tip">💡 ${esc(t(x.tip))}</div>` : ''}
-${ws.length ? `<h2>Example words</h2><div class="tbl"><table class="wt"><thead><tr><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th></tr></thead><tbody>${ws.map(w => `<tr><td><span class="w">${au(w.w)}${esc(w.w)}</span>${t(w.note) ? ` <small>${esc(t(w.note))}</small>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
-${pairs.length ? `<h2>Minimal pairs</h2><p>Each pair differs by one sound only – say them aloud and hear the difference.</p><div class="tbl"><table class="wt"><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w">${au(a)}${esc(a)}</span></td><td>vs</td><td><span class="w">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
+${ws.length ? `<h2>Example words</h2><div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th></tr></thead><tbody>${ws.map(w => `<tr><td><span class="w">${au(w.w)}${esc(w.w)}</span>${t(w.note) ? ` <small>${esc(t(w.note))}</small>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+${pairs.length ? `<h2>Minimal pairs</h2><p>Each pair differs by one sound only – say them aloud and hear the difference.</p><div class="tbl" tabindex="0"><table class="wt"><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w">${au(a)}${esc(a)}</span></td><td>vs</td><td><span class="w">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
 ${(x.sentences || []).length ? `<h2>Practice sentences</h2><ul class="uses">${x.sentences.map(z => `<li lang="en">${esc(t(z))}</li>`).join('')}</ul>` : ''}
 ${quizHtml((x.quiz || []).slice(0, 3), t)}
 ${ctaBox(href, `🗣️ Record yourself saying ${esc(x.ipa)} words`, 'Practise in the app')}
@@ -256,8 +256,8 @@ ${Object.entries(by).map(([k, xs]) => group(k, GN[k] || k, `${xs.length} ${L.les
   const { SETS, MODELS } = loadTask1(), TY = { line: 'Line graph', bar: 'Bar chart', pie: 'Pie chart', table: 'Table', process: 'Process diagram', map: 'Maps' };
   const made = SETS.map(x => [x, MODELS.find(m => m.id === 't1-' + x.id)]).filter(([, m]) => m);
   const dataHtml = x => {
-    if (x.x && x.series) return `<div class="tbl"><table><thead><tr><th scope="col">${x.unit ? esc(x.unit) : ''}</th>${x.x.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${x.series.map(([n, v]) => `<tr><th scope="row">${esc(n)}</th>${v.map(y => `<td>${esc(y)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-    if (x.head && x.rows) return `<div class="tbl"><table><thead><tr>${x.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${x.rows.map(r => `<tr>${r.map(y => `<td>${esc(y)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (x.x && x.series) return `<div class="tbl" tabindex="0"><table><thead><tr><th scope="col">${x.unit ? esc(x.unit) : ''}</th>${x.x.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${x.series.map(([n, v]) => `<tr><th scope="row">${esc(n)}</th>${v.map(y => `<td>${esc(y)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+    if (x.head && x.rows) return `<div class="tbl" tabindex="0"><table><thead><tr>${x.head.map(h => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${x.rows.map(r => `<tr>${r.map(y => `<td>${esc(y)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
     if (x.pies) return x.pies.map(([n, sl]) => `<p><b>${esc(n)}:</b> ${sl.map(([a, b]) => `${esc(a)} ${esc(b)}%`).join(' · ')}</p>`).join('');
     if (x.steps) return `<ol>${x.steps.map(z => `<li>${esc(z)}</li>`).join('')}</ol>`;
     if (x.maps) return x.maps.map(([n, ps]) => `<p><b>${esc(n)}:</b> ${ps.map(p => esc(p[0])).join(', ')}</p>`).join('');
