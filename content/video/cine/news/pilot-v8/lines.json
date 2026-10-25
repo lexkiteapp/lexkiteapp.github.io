@@ -1,0 +1,18 @@
+{
+ "note": "Pilot v8 'one continuous talking head' (docs/VIDEO-TEMPLATES.md §13). Lesson tpl1b_airport_gate_cc6fbe, hook verdict from content/video/cine/news/tpl1b/reviewed-hooks.json. Captions are rendered from THESE texts (TTS word timings aligned to the exact tokens) – never from the whisper transcript; qc_v8 gate caption_script. 'key' = word indexes that keep a colour after they are spoken (red = the error, green = the fix).",
+ "voices": { "ama": "af_bella" },
+ "speed": 1.03,
+ "display": { "blank": "___" },
+ "lines": [
+  { "id": "v8_h", "who": "ama", "text": "Stop saying this." },
+  { "id": "v8_w", "who": "ama", "text": "The gate is change?", "key": { "red": [2, 3] } },
+  { "id": "v8_k", "who": "ama", "text": "Instead, say: Excuse me, has the gate changed?", "key": { "green": [4, 7] } },
+  { "id": "v8_y", "who": "ama", "text": "For a new change, ask: has it changed?", "key": { "green": [5, 7] } },
+  { "id": "v8_x", "who": "ama", "text": "Has the time changed? Has the flight moved?", "key": { "green": [0, 3, 4, 7] } },
+  { "id": "v8_q", "who": "ama", "text": "Quiz! Excuse me, blank the gate changed? Has, or is?", "key": { "yellow": [3] } },
+  { "id": "v8_a", "who": "ama", "text": "Answer: has! Excuse me, has the gate changed?", "key": { "green": [1, 4, 7] } },
+  { "id": "v8_s", "who": "ama", "text": "Practise free on lexkite.com." }
+ ],
+ "zones_note": "Protected rects in SOURCE pixels of the anchor MCU a01 (x0,y0,x1,y1). face = headband..chin: no text ever. head = hair + ears + neck: captions never touch it. Moved with the camera per frame.",
+ "zones": { "face": [300, 440, 700, 845], "head": [210, 340, 790, 905] }
+}

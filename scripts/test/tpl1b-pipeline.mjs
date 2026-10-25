@@ -85,5 +85,17 @@ ok(jobs && jobs.paused && jobs.lease && jobs.workflow === 'video-tpl1b.yml', 'in
   const d7 = J(`${TD}/tpl1b_airport_gate_cc6fbe.json`), h7 = l7.lines.find(l => l.id === 'v7_h').text;
   ok(l7.lines.find(l => l.id === 'v7_w').text === d7.wrong_line && l7.lines.find(l => l.id === 'v7_k').text === d7.key_line, 'pilot v7 scene lines = lesson wrong/key lines');
   ok(d7.hook.judge && d7.hook.judge.hash === hash(h7, d7.wrong_line, d7.key_line), 'pilot v7 hook line = the reviewed hook text (verdict hash)'); }
+// pilot v8 one continuous talking head (docs/VIDEO-TEMPLATES.md §13): gates present, 0-credit workflow, reviewed-hooks verdict, script lines correct English
+{ const q8 = fs.readFileSync('scripts/video/tpl/qc_v8.py', 'utf8'), w8 = fs.readFileSync('.github/workflows/video-pilot8.yml', 'utf8'), l8 = J('content/video/cine/news/pilot-v8/lines.json'), r8 = fs.readFileSync('scripts/video/tpl/render_v8.py', 'utf8');
+  for (const g of ['hook_truth', 'hook_readable', 'caption_script', 'caption_style', 'caption_clear', 'caption_sync', 'align_audio', 'lipsync_rhubarb', 'single_shot', 'no_stretch', 'camera', 'quiz', 'safe_area', 'readability', 'loop_end', 'host_sharp', 'file']) ok(q8.includes(`R['${g}']`), `qc_v8 gate ${g}`);
+  ok(/SYNC = 0\.050/.test(q8), 'qc_v8 karaoke sync limit 50 ms');
+  ok(/rhubarb/i.test(w8) && !/grabcast\.(com|io)|GRABCAST_|kling|groq/i.test(w8.replace(/NO GrabCast \/ Groq \/ Kling/, '')), 'video-pilot8: Rhubarb, no GrabCast/Groq/Kling');
+  const d8 = J(`${TD}/tpl1b_airport_gate_cc6fbe.json`), v8 = J(`${TD}/reviewed-hooks.json`).verdicts[d8.id], L = Object.fromEntries(l8.lines.map(l => [l.id, l.text]));
+  ok(v8 && v8.hook_true && v8.right_ok && v8.wrong === d8.wrong_line && v8.right === d8.key_line, 'pilot v8: reviewed-hooks verdict for the lesson');
+  ok(L.v8_w === v8.wrong && L.v8_k.includes(v8.right) && L.v8_a.includes(v8.right), 'pilot v8 script carries the reviewed wrong/right lines verbatim');
+  ok(Object.entries(L).every(([k, t]) => !/\bit's has\b/i.test(t) && (k === 'v8_w' || !/\bis change\b/i.test(t))), 'pilot v8 script: correct English outside the marked wrong line');
+  ok(l8.speed >= 1.0 && l8.speed <= 1.05 && /NV_KEEP_SPEED=1/.test(w8), 'pilot v8 TTS speed 1.0-1.05, kept (no slow re-synthesis)');
+  ok(!/whisper/.test(r8.replace(/whisper=wj\.get\('whisper'\)|whisper=LINES\[lid\]\['whisper'\]|whisper is only a clock|from the whisper transcript/g, '')), 'render_v8 never reads caption text from whisper');
+  ok(l8.zones && l8.zones.face && l8.zones.head, 'pilot v8 protected face/head zones'); }
 if (fails) { console.log(`✗ tpl1b-pipeline: ${fails} lỗi`); process.exit(1); }
 console.log(`✓ tpl1b-pipeline: ${plan.lessons} lessons, ${plan.needs_solution.length} needs-solution, invariants OK`);
