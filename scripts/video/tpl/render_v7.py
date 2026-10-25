@@ -30,8 +30,8 @@ W, H, FPS = 1080, 1920, 24
 V7 = dict(push=dict(two=0.04, mcu=0.03, scene=0.035), punch=1.06, punch_in=0.22,
           cap=dict(two=dict(sz=70, lines=2, bottom=1494, words=7), mcu=dict(sz=66, lines=1, bottom=1495, words=5), scene=dict(sz=72, lines=2, bottom=1490, words=7)),
           cap_min=64, stroke=10, ss=2, upcoming=0.62, accent=C['yellow'], acc_line={'v7_w': C['red'], 'v7_k': C['green']},
-          quad=[(122, 268), (958, 268), (972, 676), (108, 676)], bezel=15, canvas=(840, 400), region=(150, 790),
-          ink_top=(9, 36, 38), ink=(15, 58, 60), bug=(964, 258, 60), badge=(800, 520, 84), grad=(1130, 1500, 0.58, 0.68))
+          quad=[(85, 272), (905, 272), (918, 672), (72, 672)], bezel=15, canvas=(820, 400), region=(150, 790),
+          ink_top=(9, 36, 38), ink=(15, 58, 60), bug=(964, 258, 60), badge=(800, 520, 96), grad=(1130, 1500, 0.58, 0.68))
 FH = f"{o.fonts}/BeVietnamPro-ExtraBold.ttf"; FBd = f"{o.fonts}/BeVietnamPro-Bold.ttf"
 _fc = {}
 def font(sz, f=None):
@@ -157,8 +157,8 @@ def pmask(P):
     return m.astype(np.float32) / 255
 SCR = pmask(Q); BEZ = pmask(grow(Q, V7['bezel'])); LIP = pmask(grow(Q, 3))
 yy, xx = np.mgrid[0:RH_, 0:W].astype(np.float32); yw = yy + RY0
-SHADOW = np.clip(cv2.GaussianBlur(np.roll(BEZ, 20, axis=0), (0, 0), 22) * 0.45, 0, 1) * (1 - BEZ)                 # contact shadow on the wall
-GLOW = np.clip(cv2.GaussianBlur(SCR, (0, 0), 50) * 0.16, 0, 1) * (1 - BEZ)                                          # screen light spill on the wall
+SHADOW = np.clip(cv2.GaussianBlur(np.roll(BEZ, 22, axis=0), (0, 0), 24) * 0.58, 0, 1) * (1 - BEZ)                 # contact shadow on the wall
+GLOW = np.clip(cv2.GaussianBlur(SCR, (0, 0), 56) * 0.26, 0, 1) * (1 - BEZ)                                          # screen light spill on the wall
 GLOWC = np.array([196, 214, 120], np.float32)                                                                          # BGR of the teal-mint emission
 bt, bb_ = Q[:, 1].min() - V7['bezel'], Q[:, 1].max() + V7['bezel']
 gv = np.clip((yw - bt) / (bb_ - bt), 0, 1)[..., None]
@@ -211,7 +211,7 @@ class Cv:   # one 2x RGBA layer, coordinates in 1x canvas units
                 bb = [min(bb[0], b[0]), min(bb[1], b[1]), max(bb[2], b[2]), max(bb[3], b[3])]; cx += fo.getlength(w) + sp + (12 * K if hl and i in hl else 0); i += 1
             yy_ += round(sz * lh * K)
         return [v / K for v in bb]
-CX = 40; CMAX = 730   # canvas content x range (keeps every glyph inside the safe area at the strongest push)
+CX = 40; CMAX = 770   # canvas content x range (keeps every glyph inside the safe area at the strongest push)
 def st_hook(L, T):
     els = [('hook.pill', 'NEVER SAY', L.pill(CX, 34, 'NEVER SAY', RED), 48)]
     q = '“The gate is change?”'; sz = 84
@@ -233,8 +233,9 @@ def st_ex(L, T, lay):
     return els
 def st_quiz(L, T):
     els = [('quiz.pill', 'QUIZ', L.pill(CX, 30, 'QUIZ', YEL, INK), 48)]
-    els.append(('quiz.q', 'Excuse me, ___ the gate changed?', L.rich(CX, 112, [(w, WHITE) for w in 'Excuse me, ___ the gate changed?'.split()], 62, 560), 62))
-    c0 = SH['count']['f0'] / FPS; cx, cy, r = 700, 128, 66; rem = max(0.0, 1 - (T - c0) / 3.0)
+    b1 = L.text(CX, 104, [('Excuse me, ___', WHITE)], 62); b2 = L.text(CX, 178, [('the gate changed?', WHITE)], 62)
+    els.append(('quiz.q', 'Excuse me, ___ the gate changed?', [min(b1[0], b2[0]), b1[1], max(b1[2], b2[2]), b2[3]], 62))
+    c0 = SH['count']['f0'] / FPS; cx, cy, r = 690, 112, 62; rem = max(0.0, 1 - (T - c0) / 3.0)
     L.d.ellipse([(cx - r) * K, (cy - r) * K, (cx + r) * K, (cy + r) * K], outline=MINT + (70,), width=12 * K)
     if rem > 0: L.d.arc([(cx - r) * K, (cy - r) * K, (cx + r) * K, (cy + r) * K], -90, -90 + 360 * rem, fill=YEL + (255,), width=12 * K)
     num = str(max(1, 3 - int(max(0.0, T - c0)))); fo = font(96 * K)
@@ -242,7 +243,7 @@ def st_quiz(L, T):
     els.append((f'quiz.count{num}', num, [v / K for v in b], 96))
     x = CX
     for lbl, wd, nm in (('A', 'has', 'quiz.chipA'), ('B', 'is', 'quiz.chipB')):
-        f1, f2 = font(48 * K), font(56 * K); w = 30 + L.length(lbl, 48) + 20 + L.length(wd, 56) + 34; y = 288
+        f1, f2 = font(48 * K), font(56 * K); w = 30 + L.length(lbl, 48) + 20 + L.length(wd, 56) + 34; y = 286
         L.d.rounded_rectangle([x * K, y * K, (x + w) * K, (y + 84) * K], 22 * K, fill=C['navy2'] + (255,), outline=MINT + (140,), width=3 * K)
         L.d.text(((x + 30) * K, (y + 42) * K), lbl, font=f1, fill=YEL + (255,), anchor='lm'); L.d.text(((x + 30 + L.length(lbl, 48) + 20) * K, (y + 44) * K), wd, font=f2, fill=WHITE + (255,), anchor='lm')
         els.append((nm, f'{lbl} {wd}', [x, y, x + w, y + 84], 56)); x += w + 36
@@ -252,7 +253,7 @@ def st_end(L, T):
     L.im.alpha_composite(LOGO2, (CX * K, 112 * K)); els.append(('end.logo', '', [CX, 112, CX + LOGO2.width / K, 176], 0))
     els.append(('end.cta', 'Roleplay this free', L.text(CX, 196, [('Roleplay this free', WHITE)], 70), 70))
     link = (LZ.get('cta') or {}).get('link', 'https://lexkite.com/app/#/roleplay').replace('https://', '')
-    els.append(('end.link', link, L.text(CX, 292, [(link, YEL)], 50, FBd), 50)); return els
+    els.append(('end.link', link, L.text(CX, 296, [(link, YEL)], 48, FBd), 48)); return els
 DRAW = dict(hook=st_hook, quiz=st_quiz, end=st_end)
 def screen_window(sh):
     on = sh['f0'] / FPS + (1.0 / FPS if sh['id'] == 'hook' else 0.0); off = (sh['f0'] + sh['n']) / FPS
@@ -514,5 +515,5 @@ json.dump(dict(style='v7', fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, v
                shots=[dict(id=s['id'], bank=s['bank'], clip=s['clip'], kind=s['kind'], f0=s['f0'], n=s['n'], cam=s['cam'], screen=s.get('screen'), raw=bool(s.get('raw')), mark=s.get('mark'),
                            lines=s['lines'], frames=[s['frames'][0], s['frames'][-1]]) for s in SHOTS],
                lines={la['id']: dict(at=round(la['at'], 3), dur=round(LINES[la['id']]['dur'], 3), gen=LINES[la['id']]['gen'], cues=len(LINES[la['id']]['cues']), text=TXT[la['id']], whisper=LINES[la['id']]['whisper']) for la in LAT},
-               words=WORDS, captions=CAP_LOG, sharp=SHARP, panel=PANEL, edges=EDGES, frames=FRAMES), open(o.out + '.timeline.json', 'w'))
+               words=WORDS, captions=CAP_LOG, sharp=SHARP, panel=PANEL, edges=EDGES, frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=float)
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames, shots ' + ' '.join(f"{s['id']}:{s['clip']}:{s['n']}" for s in SHOTS))
