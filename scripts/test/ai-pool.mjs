@@ -109,6 +109,22 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
   const k = m1.calls.filter(c => c.url.includes('cloudflare.com')).length; await P1.gen({ mode: 'lxgen', items: ITEMS });
   ok(k === 1 && m1.calls.filter(c => c.url.includes('cloudflare.com')).length === 1, 'cf2 10000 (chưa có quyền) → nghỉ cả tuyến sau 1 lần');
 }
+// 7b) kho CF_POOL (26/10, GrabCast hỏng): xoay vòng tài khoản; 4006 → bỏ tài khoản tới 00:00 UTC, gọi ngay tài khoản kế; không tài khoản chính; 2 giám khảo khác họ chỉ bằng kho
+{
+  const A = 'a'.repeat(32), B = 'b'.repeat(32), M = 'c'.repeat(32), seen = [];
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), cf2: (url, body) => { const acct = url.split('/accounts/')[1].split('/')[0]; seen.push(acct);
+    if (acct === A) return J({ success: false, errors: [{ code: 4006, message: 'daily free allocation of 10,000 neurons' }] }, 429);
+    const model = url.split('/ai/run/')[1]; return J({ success: true, result: { response: JSON.stringify({ 'apple#n': { s: 5, def: 'a fruit' } }), usage: { prompt_tokens: 500, completion_tokens: 100 } }, model }); } });
+  const P = mk(m, { env: { GRABCAST_AI_KEY: '', CF_POOL: `${A}:ta\n${B}:tb\n${M}:tm`, CF_ACCOUNT_1: M, VIMG_POOL_SKIP: '0' }, budget: { cf2: 1e6 } });
+  const r1 = await P.gen({ mode: 'lxdef', items: ITEMS }), r2 = await P.gen({ mode: 'lxdef', items: ITEMS });
+  ok(r1 && r2 && r1.route === 'cf2' && seen.filter(x => x === A).length === 1 && !seen.includes(M), 'kho CF: 4006 → tài khoản kế ngay, không gọi lại tài khoản hết neuron, không tài khoản chính');
+  ok(P.stats().used.cf2Dead.some(x => /4006/.test(x)), 'kho CF: ghi tài khoản hết neuron');
+  const { a, b } = await P.judgePair({ mode: 'lxjudge', items: ITEMS });
+  ok(a && b && a.fam === 'gpt-oss' && b.fam === 'llama', 'kho CF: giám khảo A gpt-oss-120b, B llama-3.3-70b (khác họ)');
+  const m2 = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), cf2: () => J({ success: false, errors: [{ code: 4006 }] }, 429) });
+  const P2 = mk(m2, { env: { GRABCAST_AI_KEY: '', CF_POOL: `${A}:ta\n${B}:tb`, VIMG_POOL_SKIP: '0' }, budget: { cf2: 1e6 } });
+  ok(await P2.gen({ mode: 'lxdef', items: ITEMS }) === null && await P2.gen({ mode: 'lxdef', items: ITEMS }) === null && m2.calls.filter(c => c.url.includes('cloudflare.com')).length === 2, 'kho CF: mọi tài khoản 4006 → cả tuyến nghỉ, không gọi thêm');
+}
 // 8) ngân sách GrabCast
 {
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcEcho }); const P = mk(m, { budget: { gc: 1 } });

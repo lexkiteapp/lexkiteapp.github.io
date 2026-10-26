@@ -47,6 +47,10 @@
    "label": "Workers AI tài khoản 2 (neuron, 10.000/ngày miễn phí) – dành cho việc nền",
    "exclusive": true
   },
+  "cf_pool": {
+   "label": "Kho tài khoản Workers AI miễn phí (secret CF_POOL, 116 × 10.000 neuron/ngày, scripts/lib/cf-pool.mjs) – dùng chung ảnh vocab-img-scene + văn bản ai-pool cf2; 4006 → tài khoản kế",
+   "exclusive": false
+  },
   "grabcast_ai": {
    "label": "GrabCast AI pool (ảnh + chữ – tuyến dự phòng của scripts/lib/ai-pool.mjs)",
    "exclusive": false
@@ -788,22 +792,22 @@
    "id": "lexicon-expand",
    "workflow": "lexicon-expand.yml",
    "cron": [
-    "40 15 * * *"
+    "12 0 * * *",
+    "35 11 * * *"
    ],
    "priority": "render",
    "resources": [
     "gemini",
-    "grabcast_ai",
-    "workers_ai_b",
+    "cf_pool",
     "gh_minutes"
    ],
    "minutes": 120,
    "est": {
     "gemini_calls": 400,
-    "grabcast_text": 7000,
-    "workers_ai_b_neurons": 1500
+    "cf_pool_neurons": 450000
    },
-   "lease": true
+   "lease": true,
+   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay 116 tài khoản, 4006/429 → tài khoản kế), trần 450k neuron/lượt ≈ 40 % kho; chạy sau 00:00 UTC (neuron đặt lại) + 11:35 vét, xen giữa fill ảnh 01:40/07:40/13:40/19:40; không dùng tài khoản 2 (VIMG_CF_USE_CF2=0 – workers_ai_b của script-bank/news-auto)."
   },
   {
    "id": "video-tpl1b",

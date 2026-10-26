@@ -9,12 +9,13 @@
 //   gc-cf     GrabCast provider=cloudflare: @cf/openai/gpt-oss-120b · @cf/meta/llama-3.3-70b-instruct-fp8-fast
 //             25/10: TẮT mặc định – neuron bể CF GrabCast (~70 tài khoản × 10k/ngày, về 0 lúc 00:00 UTC) dành cho ẢNH; văn bản CF làm cạn bể và chặn lượt ảnh.
 //             Chỉ bật khi AI_POOL_CF_TEXT=1 (dự phòng cuối chuỗi). Câu trả lời GrabCast từ Cloudflare cho yêu cầu groq/gemini cũng bị bỏ + tuyến nghỉ 30 phút.
-//   cf2       Workers AI TÀI KHOẢN 2 (REST, env CF_AI_TOKEN_2 + CF_ACCOUNT_2; neuron = phần cấp của điều phối LEASE_AI_B_NEURONS)
+//   cf2       Workers AI kho CF_POOL (xoay vòng, 4006 → tài khoản kế) + TÀI KHOẢN 2 (CF_AI_TOKEN_2 + CF_ACCOUNT_2); neuron = phần cấp LEASE_AI_B_NEURONS
 //   gc-gemini GrabCast provider=gemini (2.5-flash/pro; 29 khóa thường hết hạn mức ngày → cuối chuỗi)
 //   gc-vision GrabCast /api/owner-ai/vision (CF Llama 4 Scout → Gemini → Groq) cho giám khảo ảnh
 // Workers AI TÀI KHOẢN CHÍNH bị CẤM cho việc nền: không có tuyến nào tới nó (test ai-pool khẳng định).
 // Lời nhắn (prompt) có MỘT nguồn: functions/api/lexai.js build(); tuyến không phải Gemini lấy { sys, user } qua `prompt: true`.
 import fs from 'fs';
+import { poolAccounts } from './cf-pool.mjs';
 
 // ---------- mô hình: họ + hạng (chất lượng) ----------
 // L = soạn + chấm · M = CHỈ chấm · S = cấm (quá nhỏ). Mô hình lạ = S (phải thêm vào đây sau khi đo).
@@ -268,22 +269,31 @@ export function createPool(opts = {}) {
     return { ok: () => !!env.GRABCAST_AI_KEY && (provider !== 'cloudflare' || CF_TEXT), models: (role, slot) => (role !== 'gen' && slot === 'B' && GC_MODELS[provider].judgeB) || GC_MODELS[provider][role === 'gen' ? 'gen' : 'judge'], call: (m, req) => one(req, m) };
   };
   R['gc-cf'] = gcRoute('cloudflare'); R['gc-gemini'] = gcRoute('gemini'); R['gc-groq'] = gcRoute('groq');
+  // cf2 = kho tài khoản Workers AI (secret CF_POOL, scripts/lib/cf-pool.mjs) + tài khoản 2 cuối; KHÔNG BAO GIỜ tài khoản chính.
+  // Xoay vòng từng lần gọi (chia tải); 4006/hết neuron → bỏ tài khoản đó tới 00:00 UTC; 401/403/10000 → bỏ tài khoản đó; hết tài khoản sống → cả tuyến nghỉ.
+  const CF2 = poolAccounts(env).map(a => ({ ...a, dead: 0 })); let cf2i = 0; used.cf2Dead = [];
+  const cf2Live = () => CF2.filter(a => a.dead <= now());
   async function cf2Run(model, input) {
-    const r = await F(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_2}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + env.CF_AI_TOKEN_2, 'Content-Type': 'application/json' }, body: JSON.stringify(input) }).catch(() => null);
-    if (!r) throw new PoolErr('net', 'cf2 net');
-    const j = await r.json().catch(() => ({})), code = ((j.errors || [])[0] || {}).code;
-    if (code === 10000 || r.status === 401 || r.status === 403) throw new PoolErr('route', 'tài khoản 2 chưa có quyền Workers AI', 6 * 3600e3);
-    if (code === 4006 || /neuron/i.test(JSON.stringify(j.errors || ''))) throw new PoolErr('route', 'hết neuron tài khoản 2', untilUtcMidnight(now()));
-    if (r.status === 429) throw new PoolErr('model', 'cf2 429', 65e3);
-    if (!r.ok || !j.result) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', 'cf2 ' + r.status);
-    const res = j.result, u = res.usage || {};
-    let text = res.response ?? (res.choices && res.choices[0] && res.choices[0].message && res.choices[0].message.content);
-    if (text == null && Array.isArray(res.output)) text = res.output.filter(o => o.type === 'message').flatMap(o => o.content || []).map(c => c.text || '').join('');
-    used.cf2 += neuronsOf(model, { in: u.prompt_tokens || u.input_tokens, out: u.completion_tokens || u.output_tokens });
-    return text;
+    for (let tries = 0; tries < CF2.length; tries++) {
+      const live = cf2Live(); if (!live.length) { const ms = Math.max(5e3, Math.min(...CF2.map(x => x.dead)) - now()); throw new PoolErr('route', `kho CF: không còn tài khoản sống (${CF2.length}; ${used.cf2Dead.filter(x => /4006/.test(x)).length} hết neuron)`, ms); }
+      const a = live[cf2i++ % live.length];
+      const r = await F(`https://api.cloudflare.com/client/v4/accounts/${a.acct}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + a.tok, 'Content-Type': 'application/json' }, body: JSON.stringify(input) }).catch(() => null);
+      if (!r) throw new PoolErr('net', 'cf2 net');
+      const j = await r.json().catch(() => ({})), code = ((j.errors || [])[0] || {}).code;
+      if (code === 10000 || r.status === 401 || r.status === 403) { a.dead = now() + 6 * 3600e3; used.cf2Dead.push(a.id + ' auth'); continue; }
+      if (code === 4006 || /neuron/i.test(JSON.stringify(j.errors || ''))) { a.dead = now() + untilUtcMidnight(now()); used.cf2Dead.push(a.id + ' 4006'); continue; }
+      if (r.status === 429) { a.dead = now() + 65e3; continue; } // trần nhịp của MỘT tài khoản → tài khoản kế
+      if (!r.ok || !j.result) throw new PoolErr(r.status >= 500 ? 'net' : 'bad', 'cf2 ' + r.status);
+      const res = j.result, u = res.usage || {};
+      let text = res.response ?? (res.choices && res.choices[0] && res.choices[0].message && res.choices[0].message.content);
+      if (text == null && Array.isArray(res.output)) text = res.output.filter(o => o.type === 'message').flatMap(o => o.content || []).map(c => c.text || '').join('');
+      used.cf2 += neuronsOf(model, { in: u.prompt_tokens || u.input_tokens, out: u.completion_tokens || u.output_tokens });
+      return text;
+    }
+    throw new PoolErr('route', CF2.length ? `mọi tài khoản kho CF bị từ chối (${CF2.length})` : 'chưa có CF_POOL/CF_AI_TOKEN_2', untilUtcMidnight(now()));
   }
   R.cf2 = {
-    ok: () => !!(env.CF_AI_TOKEN_2 && env.CF_ACCOUNT_2) && budget.cf2 > 0, models: () => CF2_MODELS,
+    ok: () => CF2.length > 0 && budget.cf2 > 0, models: () => CF2_MODELS,
     async call(model, req) {
       if (used.cf2 >= budget.cf2) throw new PoolErr('budget', 'neuron tài khoản 2 (phần cấp điều phối) đã hết');
       const p = await promptFor(req);
@@ -317,7 +327,7 @@ export function createPool(opts = {}) {
     },
   };
   R['cf2-vision'] = {
-    ok: () => !!(env.CF_AI_TOKEN_2 && env.CF_ACCOUNT_2) && budget.cf2 > 0, models: () => [CF2_VISION],
+    ok: () => CF2.length > 0 && budget.cf2 > 0, models: () => [CF2_VISION],
     async call(model, req) {
       if (used.cf2 >= budget.cf2) throw new PoolErr('budget', 'neuron tài khoản 2 đã hết');
       const text = await cf2Run(model, { messages: [{ role: 'user', content: [{ type: 'text', text: req.question }, { type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + req.image } }] }], max_tokens: 300, temperature: 0 });
@@ -421,8 +431,8 @@ export function createPool(opts = {}) {
         const ok = !!(r && r.ok && j.provider === p); h['gc-' + (p === 'cloudflare' ? 'cf' : p)] = { ok, model: j.model || '', fellBack: (j.fallback_from || []).map(f => f.code).slice(0, 3) };
         if (!ok) rest('gc-' + (p === 'cloudflare' ? 'cf' : p), null, 30 * 60e3, `health: ${p} trả lời qua ${j.provider || r && r.status || 'net'}`);
       }
-      if (env.CF_AI_TOKEN_2 && env.CF_ACCOUNT_2) { try { await cf2Run('@cf/meta/llama-3.1-8b-instruct-fast', { messages: [{ role: 'user', content: 'ok' }], max_tokens: 2 }); h.cf2 = { ok: true }; } catch (e) { h.cf2 = { ok: false, err: e.message }; if (e.kind === 'route') rest('cf2', null, e.ms, e.message); } }
-      else h.cf2 = { ok: false, err: 'chưa có CF_AI_TOKEN_2/CF_ACCOUNT_2' };
+      if (CF2.length) { try { await cf2Run('@cf/meta/llama-3.1-8b-instruct-fast', { messages: [{ role: 'user', content: 'ok' }], max_tokens: 2 }); h.cf2 = { ok: true, accounts: CF2.length }; } catch (e) { h.cf2 = { ok: false, err: e.message }; if (e.kind === 'route') rest('cf2', null, e.ms, e.message); } }
+      else h.cf2 = { ok: false, err: 'chưa có CF_POOL/CF_AI_TOKEN_2' };
       log('[ai-pool] sức khỏe ' + JSON.stringify(h)); return h;
     },
     stats: () => ({ used: { ...used }, budget: { ...budget }, by: JSON.parse(JSON.stringify(stats)) }),
