@@ -1,0 +1,65 @@
+# 📈 Tự mở index trang từ điển theo giai đoạn (docs/SEO-DICT-PAGES.md §5b) – không ai phải nhớ.
+# Thứ Ba (sau vòng GSC thứ Hai): scripts/dict/metrics.mjs đo (Search Analytics + URL Inspection mẫu) → reports/seo/dict-metrics.json → scripts/dict/stage.mjs quyết lên/giữ/lùi → commit content/dict/stage.json
+# → dựng lại + deploy Worker lexkite-dict (chỉ khi có secret CLOUDFLARE_API_TOKEN) → ghi kết quả vào issue "dict-stage". Miễn phí (GitHub Actions).
+name: Trang từ điển – giai đoạn mở index
+on:
+  schedule:
+    - cron: '0 2 * * 2'
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency: { group: dict-stage, cancel-in-progress: false }
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 50 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Route lexkite.com đã chạy? R2 có chưa?
+        id: env
+        env:
+          CF: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          R2: ${{ vars.DICT_R2 }}
+        run: |
+          code=$(curl -s -o /tmp/hub.html -w '%{http_code}' https://lexkite.com/vi/tu-dien/ || true)
+          if [ "$code" = 200 ] && grep -q 'DefinedTermSet' /tmp/hub.html; then echo "live=1" >> $GITHUB_OUTPUT; else echo "live=0" >> $GITHUB_OUTPUT; fi
+          echo "r2=${R2:-0}" >> $GITHUB_OUTPUT; [ -n "$CF" ] && echo "cf=1" >> $GITHUB_OUTPUT || echo "cf=0" >> $GITHUB_OUTPUT
+      - name: Số đo GSC (dùng lại scripts/seo/gsc.mjs – bỏ qua an toàn khi thiếu secret)
+        env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}' }
+        run: node scripts/dict/metrics.mjs
+      - name: Quyết định giai đoạn
+        id: st
+        env: { DICT_LIVE: '${{ steps.env.outputs.live }}', DICT_R2: '${{ steps.env.outputs.r2 }}' }
+        run: node scripts/test/dict-stage.mjs && node scripts/dict/stage.mjs
+      - name: Commit trạng thái mới
+        if: steps.st.outputs.changed == '1'
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add content/dict/stage.json; [ -f reports/seo/dict-metrics.json ] && git add reports/seo/dict-metrics.json; git commit -qm "Từ điển: ${{ steps.st.outputs.summary }}"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
+      - name: Dựng + kiểm + deploy Worker
+        if: (steps.st.outputs.changed == '1' || github.event_name == 'workflow_dispatch') && steps.env.outputs.cf == '1'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7
+        run: |
+          node scripts/dict/build.mjs && node scripts/test/dict-pages.mjs
+          cd workers/dict && npx -y wrangler@3.114.0 deploy --var "DICT_INDEX:${{ steps.st.outputs.index }}"
+      - name: Ghi issue dict-stage
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SUMMARY: ${{ steps.st.outputs.summary }}
+          CF: ${{ steps.env.outputs.cf }}
+        run: |
+          body="$SUMMARY"; [ "$CF" = 1 ] || body="$body · ⚠️ thiếu secret CLOUDFLARE_API_TOKEN → chưa deploy được (docs/SEO-DICT-PAGES.md §8)"
+          [ -n "$SUMMARY" ] || body="✗ bộ điều khiển lỗi – xem log ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          api=https://api.github.com/repos/${{ github.repository }}
+          n=$(curl -s -H "Authorization: Bearer $GH_TOKEN" "$api/issues?state=open&labels=dict-stage" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{const a=JSON.parse(s);console.log(a[0]?a[0].number:'')})")
+          j=$(node -e "console.log(JSON.stringify({body:process.argv[1]}))" "$body")
+          if [ -z "$n" ]; then curl -s -X POST -H "Authorization: Bearer $GH_TOKEN" "$api/issues" -d "$(node -e "console.log(JSON.stringify({title:'Trang từ điển – giai đoạn mở index (tự động)',labels:['dict-stage'],body:process.argv[1]}))" "$body")" >/dev/null
+          else curl -s -X POST -H "Authorization: Bearer $GH_TOKEN" "$api/issues/$n/comments" -d "$j" >/dev/null; fi

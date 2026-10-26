@@ -70,6 +70,12 @@ for (const mode of ['', 'all']) {
     r = await go('/vi/tu-dien/a/b/'); ok(r.status === 404, 'worker: đường dẫn lạ phải 404');
     r = await go(`/en/dictionary/${pages.en[0].slug}/`, { DICT: R2, DICT_INDEX: 'all' }); const be = await r.text();
     ok(r.status === 200 && (pages.en[0].quality.index ? !r.headers.get('x-robots-tag') : /noindex/.test(r.headers.get('x-robots-tag'))), 'worker: DICT_INDEX mở → header robots theo cổng chất lượng');
+    { const o = files['assets/dict-open.json']; const ASSETS = { fetch: async () => new Response(JSON.stringify({ vi: [slug], en: [] })) };
+      ok(o && Array.isArray(JSON.parse(o).vi), 'dict-open.json có trong asset');
+      const realFetch = globalThis.fetch; globalThis.fetch = async () => new Response('pages', { status: 200 });
+      r = await go(`/vi/words/${slug}`, { DICT: R2, DICT_INDEX: '', ASSETS }); ok(r.status === 301 && r.headers.get('location').endsWith(`/vi/tu-dien/${slug}/`), `worker: /words/ đã mở → 301 (${r.status})`);
+      r = await go('/vi/words/zz-chua-mo', { DICT: R2, DICT_INDEX: '', ASSETS }); ok(r.status === 200 && (await r.text()) === 'pages', 'worker: /words/ chưa mở → đi tiếp tới Pages');
+      globalThis.fetch = realFetch; }
     ok(parse('/vi/tu-dien/make/').slug === 'make' && parse('/vi/tu-dien/%3Cx%3E/') === null, 'worker: parse');
     void be;
   }

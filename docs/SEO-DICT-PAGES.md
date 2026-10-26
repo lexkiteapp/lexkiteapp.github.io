@@ -1,6 +1,6 @@
 # SEO-DICT-PAGES – trang từ điển tự sinh (programmatic SEO) + vòng dữ liệu Search Console (26/10/2026)
 
-> TL;DR: Trang từ điển theo truy vấn bản địa (/vi/tu-dien/<từ>/ "X là gì", /en/dictionary/<từ>/ "X meaning"), nội dung độc nhất từ dữ liệu tự soạn của app, phục vụ bằng Worker lexkite-dict (asset tĩnh miễn phí + JSON trên R2), noindex mặc định, mở index dần theo cổng chất lượng và số đo GSC. Thí điểm 200 từ vi/en dựng trên CI. §9 thiết kế script GSC.
+> TL;DR: Trang từ điển theo truy vấn bản địa (/vi/tu-dien/<từ>/ "X là gì", /en/dictionary/<từ>/ "X meaning"), nội dung độc nhất từ dữ liệu tự soạn của app, phục vụ bằng Worker lexkite-dict (asset tĩnh miễn phí + JSON trên R2), noindex mặc định, mở index dần TỰ ĐỘNG hằng tuần theo cổng chất lượng và số đo GSC (§5b, dict-stage.yml). Thí điểm 200 từ vi/en; bản xem thử lexkite-dict.vintagezulilyjewelry.workers.dev. §9 vòng GSC (PR #60).
 > Đọc khi: sửa trang từ điển, mở index, mở thêm ngôn ngữ, làm vòng dữ liệu GSC.
 
 Nguồn: `workers/dict/render.mjs` (dựng HTML, thuần – chạy cả trong Worker lẫn CI) · `workers/dict/index.mjs` (Worker) · `scripts/dict/build.mjs` (dữ liệu + tầng tĩnh) · `scripts/test/dict-pages.mjs` (cổng, trong `npm test`) · `.github/workflows/dict-pages.yml` (CI: cổng + Lighthouse + ảnh chụp).
@@ -81,6 +81,15 @@ Thí điểm 26/10 (200 từ): vi điểm trung vị 73 · en 67; 54 từ có c�
 | S3 | `all`, `DICT_N` 1.000 → 5.000 → 20.000 | nhân ×5 mỗi lần | như S1 cho shard mới | dừng nhân, làm giàu nội dung |
 | S4 | thêm ngôn ngữ (§2) | 400 → 1.000 từ/ngôn ngữ | như S1 | như S1 |
 
+## 5b. Tự động hoá giai đoạn (không cần ai nhớ)
+- Trạng thái: `content/dict/stage.json` (chỉ bot sửa). Bậc + luật: `LADDER`/`RULES` trong `scripts/dict/stage.mjs` (test `scripts/test/dict-stage.mjs`, trong `npm test`).
+- `.github/workflows/dict-stage.yml` – thứ Ba 09:00 VN (sau vòng GSC thứ Hai):
+  1. Kiểm route `lexkite.com/vi/tu-dien/` đã do Worker phục vụ chưa (S0 → S1 tự xảy ra ngay tuần route chạy).
+  2. `scripts/dict/metrics.mjs` (dùng lại `scripts/seo/gsc.mjs`): hiển thị/bấm theo thư mục từ điển + **URL Inspection mẫu 60 URL/ngôn ngữ** → tỷ lệ index thật (Sitemaps API không còn trả số "indexed") + biến động hiển thị toàn site → `reports/seo/dict-metrics.json`.
+  3. `stage.mjs` quyết: **lên bậc** khi ≥ 28 ngày + mọi ngôn ngữ đạt ngưỡng; **giữ** khi thiếu số đo (không mở mù); **lùi** (về noindex/bậc trước) khi sau 6 tuần index < 30 % hoặc hiển thị toàn site giảm ≥ 20 %; **dừng chờ người** ở S4 (ngôn ngữ mới cần nhãn dịch thật) và khi bậc kế vượt 19.000 trang tĩnh mà chưa có R2 (biến repo `DICT_R2=1`).
+  4. Đổi bậc → commit `stage.json` → dựng + cổng `dict-pages` → `wrangler deploy --var DICT_INDEX:…` (khi có secret `CLOUDFLARE_API_TOKEN`) → Pages build lại theo push: `/sitemap.xml` tự thêm shard `sitemap-dict-*` khi đã mở (`build-sitemap-index.mjs`), trang `/words/` của từ đã mở tự noindex + rời sitemap/hreflang (`build-seo-pages.mjs`), Worker trả 301 `/<lang>/words/<từ>` → trang từ điển (asset `dict-open.json`; từ chưa mở đi tiếp tới Pages).
+  5. Mỗi lần chạy ghi 1 dòng vào issue `dict-stage` (lý do lên/giữ/lùi, thiếu gì).
+
 Làm giàu trước khi nhân (không hạ ngưỡng): thêm cặp dễ nhầm/lỗi hay gặp cho từ dưới ngưỡng (danh sách `report.json → below`), ghi chú tiếng Anh cho trang en (lỗi theo L1 phổ biến), đồng nghĩa/trái nghĩa từ Open English WordNet (§7), thêm từ có truy vấn GSC thật (§9).
 
 ## 6. Kiến trúc phục vụ – trong giới hạn miễn phí
@@ -115,12 +124,12 @@ trình duyệt / Googlebot ──► lexkite.com/vi/tu-dien/<từ>/   (route Wor
 - `scripts/test/dict-pages.mjs` (trong `npm test`, ≈ 1 s): 2 chế độ (noindex mặc định · mở `all`) × vi/en × 200 từ + Worker với R2 giả: canonical, tiêu đề/mô tả duy nhất, h1, JSON-LD (trường bắt buộc, FAQ khớp chữ hiển thị), hreflang hai chiều + x-default, sitemap = đúng tập index được, link nội bộ/blog tồn tại, audio/IPA/ví dụ có thật, quiz 1 đáp án, chữ Việt không lọt trang en, ≤ 16 KB gzip, Worker 200/301/404/x-robots-tag.
 - `.github/workflows/dict-pages.yml`: dựng → cổng → bản xem thử chế độ mở (không deploy) → Lighthouse điện thoại trên 4 trang (ngưỡng perf 90 · a11y 95 · best-practices 90 · SEO 95) → ảnh chụp (`shots/`) → `wrangler deploy --dry-run` (bundle được) → artifact `dict-pages` 14 ngày. Kết quả 0 trang → đỏ.
 
-## 8. Việc chủ app cần làm (theo thứ tự)
-1. Xem PR + artifact CI `dict-pages` (ảnh `shots/*.jpg`, `report.json`) → duyệt giao diện/nội dung thí điểm.
-2. Cloudflare (tài khoản vintagezulilyjewelry@gmail.com): tạo bucket `wrangler r2 bucket create lexkite-dict-data`; tạo API token chỉ quyền *Workers Scripts: Edit* + *R2: Edit* bucket này → lưu thẳng vào secret GitHub `CLOUDFLARE_API_TOKEN` (giao diện GitHub, không dán vào chat/file).
-3. Duyệt deploy Worker lên `lexkite-dict.<tài-khoản>.workers.dev` (vẫn noindex) để xem URL thật; rồi duyệt gắn route `lexkite.com/vi/tu-dien*`, `/en/dictionary*`, `/sitemap-dict-*` (fail open).
-4. Duyệt bước S1 (§5): đặt `DICT_INDEX`, nộp sitemap shard trong GSC, bật 301 `/words/` → `/tu-dien/` cho đúng các từ đã mở.
-5. Cấp service account GSC cho §9.
+## 8. Việc chủ app cần làm (một lần – sau đó tự động)
+Đã xong 26/10: bản xem thử noindex `https://lexkite-dict.vintagezulilyjewelry.workers.dev/vi/tu-dien/advice/` (tầng tĩnh, chưa R2, chưa route).
+1. Duyệt giao diện/nội dung (bản xem thử + artifact CI `dict-pages`), merge PR #59 và #60.
+2. GitHub → Secrets: `CLOUDFLARE_API_TOKEN` (token chỉ *Workers Scripts: Edit* + *Workers Routes: Edit* zone lexkite.com, thêm *R2: Edit* khi bật R2) và `GSC_SA_JSON` (§9). Dán thẳng vào ô secret trên GitHub, không qua chat/file.
+3. Gắn route (bỏ `#` khối `routes` trong `workers/dict/wrangler.toml` hoặc Cloudflare → Workers → lexkite-dict → Domains & Routes, chế độ fail open). Tuần sau đó bot tự sang S1.
+4. Chỉ khi bot báo cần (S3c, > 19.000 trang tĩnh): bật R2 (trang R2 đòi "Add R2 subscription" gắn thẻ đã có – 0 đồng trong hạn mức, nhưng vượt hạn mức sẽ tính tiền: đặt cảnh báo Billing), tạo bucket `lexkite-dict-data`, đặt biến repo `DICT_R2=1`.
 
 ## 9. Vòng dữ liệu Search Console (thiết kế – chưa làm)
 **Mục tiêu:** xếp lại thứ tự viết blog và mở trang từ điển theo cầu thật: (a) truy vấn có hiển thị mà chưa có bài đúng ý, (b) trang đang ở hạng 8–30 ("striking distance") cần làm mới, (c) từ người ta tra mà tập từ điển chưa có.

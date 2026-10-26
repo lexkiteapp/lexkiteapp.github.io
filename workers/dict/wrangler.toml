@@ -6,6 +6,7 @@ workers_dev = true
 
 # Tầng 1: trang dựng sẵn – phục vụ miễn phí, không tính 100k lượt/ngày (≤ 20.000 file/phiên bản ở gói Free).
 [assets]
+binding = "ASSETS"
 directory = "../../dist-dict/assets"
 html_handling = "auto-trailing-slash"
 not_found_handling = "none"
@@ -24,4 +25,6 @@ DICT_INDEX = ""
 #   { pattern = "lexkite.com/vi/tu-dien*", zone_name = "lexkite.com" },
 #   { pattern = "lexkite.com/en/dictionary*", zone_name = "lexkite.com" },
 #   { pattern = "lexkite.com/sitemap-dict-*", zone_name = "lexkite.com" },
+#   { pattern = "lexkite.com/vi/words/*", zone_name = "lexkite.com" },   # 301 từ đã mở; từ chưa mở → đi tiếp tới Pages
+#   { pattern = "lexkite.com/en/words/*", zone_name = "lexkite.com" },
 # ]

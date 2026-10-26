@@ -983,9 +983,10 @@
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-dict/production",
       "free": "Asset tĩnh: không giới hạn, không tính lượt · Script: 100.000 lượt/ngày DÙNG CHUNG cả tài khoản (audio, media, Pages Functions…) · 10 ms CPU/lượt",
       "upgrade": "Khi đuôi dài > ~40k lượt/ngày: thêm Worker shard theo ngôn ngữ (mỗi Worker 20.000 asset) trước; cuối cùng Workers Paid 5 USD/tháng (10 triệu lượt, 100.000 asset)",
-      "status": "Thí điểm – chưa deploy (chờ chủ duyệt)",
+      "status": "Bản xem thử noindex đã deploy 26/10 (lexkite-dict.vintagezulilyjewelry.workers.dev, chỉ tầng tĩnh) – chưa route lexkite.com, chờ chủ duyệt; sau đó dict-stage.yml tự mở index theo giai đoạn",
       "match": [
-        "lexkite-dict"
+        "lexkite-dict",
+        "lexkite-dict.vintagezulilyjewelry.workers.dev"
       ],
       "cap": {
         "day": 100000,

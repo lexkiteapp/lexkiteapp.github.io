@@ -6,6 +6,8 @@ import { renderWord, parseOpen, DICT_PATH, ENABLED, hubPath } from './render.mjs
 
 const ROUTE = new Map(ENABLED.map(l => [`/${l}/${DICT_PATH[l]}/`, l]));
 let SHELL = null; // khung chung đọc 1 lần mỗi isolate (R2 v1/shell.json)
+let OPEN = null; // danh sách từ đã mở index (asset dict-open.json, dựng cùng giai đoạn) – đọc 1 lần mỗi isolate
+const opened = async env => { if (OPEN) return OPEN; try { const r = env.ASSETS && (await env.ASSETS.fetch('http://assets/dict-open.json')); const j = r && r.ok ? await r.json() : {}; OPEN = Object.fromEntries(Object.entries(j).map(([l, a]) => [l, new Set(a)])); } catch { OPEN = {}; } return OPEN; };
 const nf = (msg = 'Not found') => new Response(msg, { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8', 'x-robots-tag': 'noindex', 'cache-control': 'public, max-age=300' } });
 
 export function parse(pathname) {
@@ -27,6 +29,8 @@ export default {
     if (req.method !== 'GET' && req.method !== 'HEAD') return new Response('', { status: 405, headers: { allow: 'GET, HEAD' } });
     const u = new URL(req.url);
     if (ROUTE.has(u.pathname.replace(/\/?$/, '/')) && !u.pathname.endsWith('/')) return Response.redirect(u.origin + u.pathname + '/', 301);
+    const mv = u.pathname.match(/^\/(vi|en)\/words\/([a-z0-9-]+)\/?$/); // trang /words/ cũ (SEO-ARCH): từ đã mở index ở đây → 301, còn lại → Pages như cũ
+    if (mv) { const o = await opened(env); return o[mv[1]] && o[mv[1]].has(mv[2]) ? Response.redirect(`${u.origin}${hubPath(mv[1])}${mv[2]}/`, 301) : fetch(req); }
     const r = parse(u.pathname);
     if (!r) return nf();
     if (r.redirect) return Response.redirect(u.origin + r.redirect, 301);

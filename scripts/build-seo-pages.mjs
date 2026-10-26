@@ -62,6 +62,11 @@ for (const l of LANGS) {
 const phrasesOf = new Map(); { const byTok = new Map(); for (const e of Object.values(INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = byTok.get(t) || byTok.set(t, []).get(t); if (a.length < 6) a.push(e); } for (const e of ranked) phrasesOf.set(e, (byTok.get(e.word.toLowerCase()) || []).filter(p => p.word !== e.word)); }
 const thin = (l, e) => (l !== 'en' && l !== 'vi' && (gloss(l, e) || [])[1] === 0) || (!(e.col || []).length && !(e.syn || []).length && !phrasesOf.get(e).length);
 const idxW = {}; for (const l of LANGS) idxW[l] = new Set(setOf[l].filter(e => !thin(l, e)));
+// Từ đã mở index ở trang từ điển (docs/SEO-DICT-PAGES.md §1, content/dict/stage.json): trang /words/ của từ đó → noindex, rời sitemap/hreflang;
+// Worker lexkite-dict trả 301 sang /vi/tu-dien/, /en/dictionary/ – không bao giờ 2 URL index được cho cùng 1 từ
+{ const st = fs.existsSync('content/dict/stage.json') ? J('content/dict/stage.json') : null;
+  if (st && st.index) { const { build: dictBuild } = await import('./dict/build.mjs'); const { isIndexable, parseOpen } = await import('../workers/dict/render.mjs'); const o = parseOpen(st.index), { pages } = dictBuild({ n: st.n, index: st.index, write: false });
+    for (const l of ['vi', 'en']) { const m = new Set(pages[l].filter(d => isIndexable(d, o)).map(d => d.word.toLowerCase())); for (const e of setOf[l]) if (m.has(e.word.toLowerCase())) idxW[l].delete(e); } } }
 const inSet = {}; for (const l of LANGS) inSet[l] = new Map(setOf[l].map(e => [e.word.toLowerCase(), e]));
 
 // ---------- Khung trang ----------

@@ -138,6 +138,7 @@ export function build({ out = 'dist-dict', n = 200, staticN = Infinity, index = 
     for (const r of rows) { if (r.alts.length > 1 && r.alts.some(([x]) => x === 'en')) r.alts.push(['x-default', r.alts.find(([x]) => x === 'en')[1]]); else r.alts = []; }
     for (let s = 0; s * 10000 < rows.length; s++) put(`assets/sitemap-dict-${l}-${s + 1}.xml`, renderSitemap(rows.slice(s * 10000, (s + 1) * 10000)));
   }
+  put('assets/dict-open.json', JSON.stringify(Object.fromEntries(ENABLED.map(l => [l, pages[l].filter(d => isIndexable(d, open)).map(d => d.slug)])))); // Worker: /<lang>/words/<từ> đã mở → 301 (§1)
   put('data/v1/shell.json', JSON.stringify(shell)); put('data/v1/manifest.json', JSON.stringify(manifest));
   put('assets/_headers', '/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Cache-Control: public, max-age=3600, s-maxage=86400\n');
   const report = { at: new Date().toISOString(), n: list.length, index: index || '(tắt – noindex hết)', thresholds: { QUALITY_MIN, WORDS_MIN }, langs: {} };
@@ -148,7 +149,8 @@ export function build({ out = 'dist-dict', n = 200, staticN = Infinity, index = 
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const r = build({ out: process.env.DICT_OUT || 'dist-dict', n: +(process.env.DICT_N || 200), staticN: +(process.env.DICT_STATIC_N || Infinity), index: process.env.DICT_INDEX || '' }).report;
+  const st = JSON.parse(fs.readFileSync('content/dict/stage.json', 'utf8')); // mặc định = giai đoạn hiện tại do scripts/dict/stage.mjs giữ
+  const r = build({ out: process.env.DICT_OUT || 'dist-dict', n: +(process.env.DICT_N || st.n), staticN: +(process.env.DICT_STATIC_N || Math.floor(19000 / ENABLED.length)), index: process.env.DICT_INDEX ?? st.index }).report;
   for (const [l, x] of Object.entries(r.langs)) console.log(`· ${l}: ${x.pages} trang · ứng viên index ${x.candidates} · đang index ${x.indexable} · điểm min/trung vị ${x.scoreMin}/${x.scoreMedian} · từ dễ nhầm ${x.withConfusables} · blog ${x.withBlog} · quiz đủ 3 câu ${x.quiz3}`);
   if (!r.n || Object.values(r.langs).some(x => !x.pages)) { console.error('✗ dict: 0 trang – dừng (METHODS §4: workflow tự đỏ khi kết quả = 0)'); process.exit(1); }
 }
