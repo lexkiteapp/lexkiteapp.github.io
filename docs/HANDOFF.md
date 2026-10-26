@@ -15,8 +15,11 @@ Cập nhật: 26/10/2026.
 - Tiếp: đo neuron/ảnh sau 1 ngày; nâng sản lượng 3–5× bằng hiệu chỉnh giám khảo theo phong cách klein (`calibrate_scene.py`) – cần chủ gán nhãn 1 tờ ảnh (~5 phút).
 
 ## Kho từ 20k (`lexicon-expand`) – ĐANG LÀM (phiên riêng)
-- Kho hiện 8.230 nghĩa. Workflow bật lại, AI qua kho CF (`f1d9baf7`), pilot 11 run 40289481506; soát 50 mẫu (mục tiêu sai ≤ 1/50) rồi chạy hàng loạt tới ~20k.
-- Lịch xen kẽ khung ảnh để cùng chia neuron kho CF. Nghĩa mới phải có câu ví dụ (ảnh vẽ theo câu này).
+- Kho 9.010 từ đầu mục (8.230 nghĩa). AI = kho CF_POOL xoay vòng (ai-pool cf2: gpt-oss-120b soạn + giám khảo A, llama-3.3-70b giám khảo B); Gemini bỏ (kho rỗng), không cần điều phối.
+- Pilot 11 (run 40289481506): 3/300 đạt, 2/3 sai → KHÔNG xuất. Đã sửa: JSON giám khảo bị cắt (16k + chia đôi lô), cổng định nghĩa đúng hình từ loại. Pilot 12 (26/10 ~09 UTC): kho đã 4006 hết (ảnh vắt) → 0 chạy.
+- Lịch: 00:12 UTC (ngay sau neuron đặt lại, trước ảnh 01:40), trần 600k neuron. Biến repo LX_PILOT=1, LX_N=300 → lượt 27/10 là pilot.
+- Tiếp: soát 50 mẫu lô `20261027-pilot` (sai ≤ 1/50) → LX_PILOT=0, LX_N=2400 (hàng loạt) → `promote.mjs <lô> --checked` sau soát 5 %/lô.
+- Thứ tự từ: tầng 0 hồ sơ người học CEFR-J/Octanove/NGSL/NAWL/BSL (2.546 từ, A1→C2) rồi tầng 1 tần suất. Ước ~2–3k từ/ngày → ~5 ngày tới 20k.
 
 ## Chờ chủ
 - Gán nhãn đúng/sai 1 tờ ảnh để hiệu chỉnh giám khảo (tuỳ chọn, tăng sản lượng).
