@@ -726,9 +726,11 @@ class Pop:
     def build_quiz_ink(s, rw, rh):
         P = s.P; z = MINF_BODY; s.etype = 'body'; s.ringd = 140   # 140: the digit still reaches the body minimum (cap 57 px); fits 'I am agree' + ring on a 500 px desk board
         s.qim = stack([rich_row(r, z) for r in wrap_bal(P['q'], rw - 8, z)], 2) if P.get('q') else None
-        segs = lambda lab, txt, st: [(lab + ' ', COL['yellow'] if st != 'ok' else COL['navy']), (txt, (255, 255, 255) if st != 'ok' else COL['navy'])]
-        mw = max(pill_w(segs('A', P['a'], 'n'), z, tight=True), pill_w(segs('B', P['b'], 'n'), z, tight=True))
-        mk = lambda lab, txt, st: pill(segs(lab, txt, st), z, COL['green'] if st == 'ok' else COL['navy'], st == 'dim', tight=True, minw=mw)
+        sp_ = ' '; pdx = None
+        segs = lambda lab, txt, st: [(lab + sp_, COL['yellow'] if st != 'ok' else COL['navy']), (txt, (255, 255, 255) if st != 'ok' else COL['navy'])]
+        if max(pill_w(segs('A', P['a'], 'n'), z, tight=True), pill_w(segs('B', P['b'], 'n'), z, tight=True)) > rw - 8: z = 58; s.etype = 'card'   # narrow board: the owner-approved mock's quiz pills (58 px)
+        mw = max(pill_w(segs('A', P['a'], 'n'), z, tight=True, padx=pdx), pill_w(segs('B', P['b'], 'n'), z, tight=True, padx=pdx))
+        mk = lambda lab, txt, st: pill(segs(lab, txt, st), z, COL['green'] if st == 'ok' else COL['navy'], st == 'dim', tight=True, padx=pdx, minw=mw)
         s.pA = {st: mk('A', P['a'], st) for st in ('n', 'ok', 'dim')}; s.pB = {st: mk('B', P['b'], st) for st in ('n', 'ok', 'dim')}
         assert s.pA['n'].width == s.pB['n'].width, ('quiz option pills must share one width (aligned)', s.id)
         s.rev = tm_of(P['reveal']); s.px = z; s.text = f"A {P['a']} | B {P['b']}"; b = BEATS.get('_count')
@@ -737,7 +739,7 @@ class Pop:
             s.variant = var
             if all(s.fits(s.compose_quiz(T_), rw, rh) for T_ in ([b['s'] + 0.5] if b else []) + [s.rev + 0.1, s.t0 + 0.01]): break
         else: raise AssertionError(('quiz does not fit the board at the minimum size', s.id, s.compose_quiz(s.t0 + 0.01).size, rw, rh))
-        s.im = s.compose_quiz(s.t0 + 0.01); s.meas = [('body', CAPR * z)]
+        s.im = s.compose_quiz(s.t0 + 0.01); s.meas = [(s.etype, CAPR * z)]
     def build_stress_ink(s, rw, rh):
         s.etype = 'body'; s.px = MINF_BODY; s.text = '\u00b7'.join(s.P['syl']); s.im = s.compose_stress(-1)
         assert s.fits(s.im, rw, rh), ('stress pills do not fit the board at the minimum size', s.id, s.im.size, rw, rh)
