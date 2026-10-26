@@ -33,6 +33,7 @@
 - [EDGE-SUBMIT.md](EDGE-SUBMIT.md) — Gói hồ sơ đăng Lexkite lên Microsoft Edge Add-ons: dùng chung zip Chrome, các bước trên Partner Center, lưu ý chính sách. Anh chủ tự làm phần tài khoản và bấm gửi; đọc khi: đăng/cập nhật add-on trên Edge
 - [EXPLAIN.md](EXPLAIN.md) — Lược đồ lời giải đáp án: một thẻ dùng chung explain-card.js, dữ liệu web/js/explain/<bộ>/<lang>.json, mặc định hiện Cấu trúc + Vì sao. Cổng explain-check trong npm test; đọc khi: sửa phản hồi bài luyện
 - [GRABCAST-API-REQUESTS.md](GRABCAST-API-REQUESTS.md) — Danh sách endpoint GrabCast cần mở cho khóa API workspace để Lexkite quản lý 100% (connect, insights, comments, inbox…). Khóa workspace 4 đang bị chặn các endpoint này; đọc khi: làm việc với GrabCast API
+- [HANDOFF.md](HANDOFF.md) — Bàn giao ngắn: việc nền đang chạy (ảnh từ vựng hàng loạt qua kho CF, kho từ 20k), số liệu mới nhất, việc tiếp theo, việc chờ chủ; đọc khi: đầu phiên, trước khi nhận việc ảnh từ vựng / kho từ
 - [I18N-PIPELINE.md](I18N-PIPELINE.md) — Quy trình 15 ngôn ngữ giao diện: nguồn chuẩn duy nhất, quy tắc thêm chữ mới, kiểm tra tự động, mở thêm ngôn ngữ, SEO/blog theo ngôn ngữ. Không lẫn tiếng, không sót; đọc khi: MỌI việc thêm chữ giao diện
 - [INFRA-RULES.md](INFRA-RULES.md) — Quy tắc tài nguyên hệ thống: mọi dịch vụ/Worker/lưu trữ phải đăng ký ở infra/resources.json; hiện trạng lưu trữ, ngưỡng nâng cấp, mail. Sổ không ghi khóa/mật khẩu; đọc khi: thêm dịch vụ/host/Worker/lưu trữ mới
 - [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
