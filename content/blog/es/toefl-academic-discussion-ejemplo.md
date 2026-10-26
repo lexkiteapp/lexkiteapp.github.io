@@ -52,7 +52,7 @@ En esta guía verás el formato, un plan de diez minutos, un ejemplo comentado y
 
 ## Qué es la TOEFL Academic Discussion en el formato 2026
 
-Desde el 21 de enero de 2026 el TOEFL iBT es más corto y adaptativo. La sección de Writing tiene tres tipos de tarea: *Build a Sentence*, *Write an Email* y *Write for an Academic Discussion*. Si aún no conoces el formato completo, lee primero nuestro resumen del [nuevo formato del TOEFL iBT 2026](/es/blog/nuevo-formato-toefl-ibt-2026/).
+Desde el 21 de enero de 2026 el TOEFL iBT es más corto y adaptativo. La sección de Writing tiene tres tipos de tarea: *Build a Sentence*, *Write an Email* y *Write for an Academic Discussion*. Si aún no conoces el formato completo, lee primero nuestro resumen del [nuevo formato del TOEFL iBT 2026](/es/blog/nuevo-formato-toefl-ibt-2026/). En Reading, la tarea nueva que más sorprende es [Complete the Words](/es/blog/toefl-complete-the-words/), donde escribes las letras que faltan.
 
 En la Academic Discussion ves tres textos en pantalla:
 

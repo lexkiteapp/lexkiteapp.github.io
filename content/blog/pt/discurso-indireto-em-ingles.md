@@ -82,7 +82,7 @@ Junto com os tempos, mudam pronomes e referências:
 
 **Sempre muda?** Não. Se a informação ainda é verdade, pode manter o presente: *She said she lives in São Paulo* (e ainda mora). Se o verbo introdutório está no presente (*He says…*), nada muda. Para revisar a relação entre os tempos, veja nosso [resumo dos tempos verbais em inglês](/pt/blog/tempos-verbais-em-ingles-resumo/).
 
-Os modais *could*, *would*, *should* e *might* não mudam: *"You should rest"* → *She said I should rest*. Detalhes no guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/).
+Os modais *could*, *would*, *should* e *might* não mudam: *"You should rest"* → *She said I should rest*. Detalhes no guia de [verbos modais em inglês](/pt/blog/verbos-modais-em-ingles/). O mesmo vale para frases condicionais relatadas, como mostra o guia de [condicionais em inglês](/pt/blog/condicionais-em-ingles/).
 
 Pratique as transformações no [capítulo de reported speech](/app/#/grammar/reported-speech) do Lexkite, com correção imediata.
 

@@ -184,7 +184,7 @@ No. La mayoría de las pasivas no llevan *by*, porque el agente es desconocido, 
 
 ### ¿Qué diferencia hay entre la pasiva con "be" y con "get"?
 
-*Get* (*He got fired*, *The window got broken*) es más coloquial y suele indicar algo inesperado o negativo. En textos académicos y formales usa *be*.
+*Get* (*He got fired*, *The window got broken*) es más coloquial y suele indicar algo inesperado o negativo. En textos académicos y formales usa *be*. En esos mismos textos son frecuentes las relativas reducidas (*data collected in 2020*), que explica la guía de [pronombres relativos en inglés](/es/blog/pronombres-relativos-en-ingles/).
 
 ### ¿Es correcto usar la pasiva en el IELTS Speaking?
 

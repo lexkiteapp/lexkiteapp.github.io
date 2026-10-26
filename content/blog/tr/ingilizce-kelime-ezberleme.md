@@ -31,7 +31,7 @@ Ayrıca sınav ve iş hayatına yönelik hedefleriniz için [tematik kelime list
 
 İlk adım, seviyenizi bilerek kelime seçmektir. Henüz A2 seviyesinde temel fiilleri oturtmadan C1 düzeyindeki akademik makale sözcüklerine boğulmak motivasyonunuzu tüketir. [Kelime kütüphanesini](/#/library) kullanarak CEFR seviyenize (A1–C1) uygun sözcük paketleriyle çalışmaya başlayın.
 
-İkinci adım, kelimeleri tekil olarak değil "kelime ailesi" (word family) ve sık kullanılan eşdizimler (collocations) halinde öğrenmektir. Bir fiili öğrenirken onun isim, sıfat ve zarf hallerini de not edin. Örneğin:
+İkinci adım, kelimeleri tekil olarak değil "kelime ailesi" (word family) ve sık kullanılan eşdizimler (collocations) halinde öğrenmektir. Bir fiili öğrenirken onun isim, sıfat ve zarf hallerini de not edin. Örneğin: Başlamak için en iyi örneklerden biri make ve do kalıplarıdır; bkz. [make ve do farkı](/tr/blog/make-ve-do-farki/).
 - Fiil: *compete* (yarışmak, rekabet etmek)
 - İsim: *competition* (yarışma, rekabet), *competitor* (yarışmacı, rakip)
 - Sıfat: *competitive* (rekabetçi, iddialı)

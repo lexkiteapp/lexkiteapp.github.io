@@ -70,7 +70,7 @@ La elección del saludo depende de si conoces el nombre del destinatario y de su
 | Equipo o departamento general | *Dear Marketing Team, / Dear Hiring Committee,* | Mucho más cálido y moderno que fórmulas despersonalizadas. |
 | Destinatario desconocido | *Dear Sir or Madam,* | Úsalo solo como último recurso cuando no haya forma de saber el nombre. |
 
-*Nota:* La fórmula tradicional *"To Whom It May Concern"* se reserva hoy casi exclusivamente para cartas de recomendación formales dirigidas a instituciones; en correos electrónicos directos resulta distante y anticuada.
+*Nota:* La fórmula tradicional *"To Whom It May Concern"* se reserva hoy casi exclusivamente para cartas de recomendación formales dirigidas a instituciones; en correos electrónicos directos resulta distante y anticuada. En el examen de IELTS General se espera *Dear Sir or Madam*, como explica la guía de la [carta IELTS General Training](/es/blog/carta-ielts-general-training/).
 
 ### 3. La frase de apertura (*Opening Line*)
 

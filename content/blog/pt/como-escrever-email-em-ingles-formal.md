@@ -31,7 +31,7 @@ Um e-mail corporativo impecável segue uma sequência arquitetônica previsível
 5. Encerramento e Assinatura    : Despedida formal e dados de contato profissionais
 ```
 
-Manter essa estrutura organizada facilita a leitura dinâmica de quem recebe dezenas de mensagens por dia e transmite organização mental. Para garantir que suas frases não contenham desvios estruturais, aproveite para revisar nosso [resumo dos tempos verbais em inglês](/pt/blog/tempos-verbais-em-ingles-resumo/).
+Manter essa estrutura organizada facilita a leitura dinâmica de quem recebe dezenas de mensagens por dia e transmite organização mental. Para garantir que suas frases não contenham desvios estruturais, aproveite para revisar nosso [resumo dos tempos verbais em inglês](/pt/blog/tempos-verbais-em-ingles-resumo/). Frases mais longas e bem amarradas, com *who* e *which*, também ajudam; veja o guia de [pronomes relativos em inglês](/pt/blog/pronomes-relativos-em-ingles/).
 
 ![Biblioteca de vocabulário do Lexkite com mais de 6.800 palavras, abas NGSL, IELTS e TOEIC e níveis de A1 a B2](media:library "As listas TOEIC da biblioteca reúnem muito vocabulário de escritório útil para e-mails formais")
 
@@ -49,7 +49,7 @@ O assunto deve comunicar o conteúdo em no máximo 7 palavras. É muito comum us
 ### 2. Saudações profissionais (Salutations)
 - **Altamente formal (primeiro contato, clientes ou fornecedores):** `Dear Mr. Anderson,` / `Dear Ms. Davis,` (use sempre `Ms.` para mulheres, sem tentar adivinhar estado civil).
 - **Formal moderno (colegas de outras filiais ou parceiros conhecidos):** `Dear Sarah,` / `Good morning David,`
-- **Quando o nome do responsável não é conhecido:** `Dear Hiring Manager,` ou `Dear Support Team,` (evite a fórmula antiga e impessoal `To Whom It May Concern`).
+- **Quando o nome do responsável não é conhecido:** `Dear Hiring Manager,` ou `Dear Support Team,` (evite a fórmula antiga e impessoal `To Whom It May Concern`). Na prova do IELTS General a regra é outra: lá se usa *Dear Sir or Madam*, como explica o guia da [carta IELTS General Training](/pt/blog/carta-ielts-general-training/).
 
 ### 3. Abertura e justificativa do contato (Opening Lines)
 Vá direto ao ponto usando verbos performativos:

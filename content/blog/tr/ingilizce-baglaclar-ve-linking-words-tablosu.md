@@ -50,7 +50,7 @@ quiz: [
   }
 ]
 ---
-İngilizce makale, akademik essay ya da profesyonel e-posta yazarken karşılaşılan en büyük zorluklardan biri fikirler arasındaki mantıksal geçişleri pürüzsüzce sağlayabilmektir. Cümlelerin birbirinden kopuk ve parça parça durmasını engelleyen, düşünceleri birbirine bağlayan temel yapı taşları **ingilizce bağlaçlar** ve geçiş ifadeleridir (Linking Words / Transitions).
+İngilizce makale, akademik essay ya da profesyonel e-posta yazarken karşılaşılan en büyük zorluklardan biri fikirler arasındaki mantıksal geçişleri pürüzsüzce sağlayabilmektir. Cümlelerin birbirinden kopuk ve parça parça durmasını engelleyen, düşünceleri birbirine bağlayan temel yapı taşları **ingilizce bağlaçlar** ve geçiş ifadeleridir (Linking Words / Transitions). Bağlaçların yanında *who, which, whose* ile cümle birleştirmek de akıcılığı artırır; bkz. [İngilizce relative clauses konu anlatımı](/tr/blog/ingilizce-relative-clauses-konu-anlatimi/).
 
 IELTS ve TOEFL gibi uluslararası sınavlarda puanınızın %25'i "Coherence and Cohesion" (Mantıksal Bütünlük ve Bağlantılılık) kriterine göre belirlenir. Bağlaçları doğru yerde, doğru noktalama kurallarıyla ve abartıya kaçmadan kullanabilmek yüksek bant skoruna ulaşmanın en kritik anahtarıdır. Yazılarınızı denemek için [Lexkite essay atölyesi](/app/#/write) aracını kullanabilir ve akademik geçiş ifadelerini [kelime kütüphanesi](/app/#/library) üzerinden pekiştirebilirsiniz. Ayrıca zengin örnekler için [örnek makaleler](/samples/) arşivimize göz atabilirsiniz.
 

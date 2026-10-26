@@ -27,7 +27,7 @@ Conviene distinguir tres casos:
 - **Falsos amigos totales:** se parecen, pero no comparten el significado principal. *Carpet* (alfombra) y "carpeta".
 - **Falsos amigos parciales:** coinciden solo en algunos usos. *Argument* puede ser un razonamiento, como "argumento", pero en el día a día casi siempre significa "discusión, pelea".
 
-La buena noticia: los falsos amigos son un grupo relativamente pequeño frente a la enorme cantidad de cognados útiles. No hace falta desconfiar de todo, solo conocer bien los que más se repiten.
+La buena noticia: los falsos amigos son un grupo relativamente pequeño frente a la enorme cantidad de cognados útiles. No hace falta desconfiar de todo, solo conocer bien los que más se repiten. Eso sí, incluso los cognados útiles cambian su ortografía, algo que se nota en la tarea [TOEFL Complete the Words](/es/blog/toefl-complete-the-words/).
 
 De hecho, muchas terminaciones funcionan como un puente fiable: *-tion* suele corresponder a "-ción" (*nation*, *solution*), *-ty* a "-dad" (*city*, *university*), *-ous* a "-oso" (*famous*, *curious*) y *-ly* a "-mente" (*rapidly*, *probably*). Aprovecha estos patrones para ampliar tu vocabulario pasivo muy rápido, pero comprueba cada palabra nueva antes de usarla en un examen o en un correo importante: el patrón te da una pista, no una garantía. Recuerda también que, aunque el significado coincida, la sílaba tónica suele cambiar (*hospital* se acentúa en la primera sílaba en inglés).
 

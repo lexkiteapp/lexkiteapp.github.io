@@ -91,7 +91,7 @@ O módulo de escrita dura exatamente uma hora e exige disciplina rigorosa no ger
 > Leia também: [Small Talk em Inglês: Guia para Conversas Casuais e Networking](/pt/blog/small-talk-em-ingles/) · [TOEFL ou IELTS Qual Fazer? Comparativo Completo para Decidir](/pt/blog/toefl-ou-ielts-qual-fazer/)
 
 ### Task 1: A arte de redigir a carta perfeita (20 minutos, mínimo de 150 palavras)
-O enunciado da Task 1 sempre descreve uma situação e traz três tópicos pontuais (*bullet points*) que você é obrigado a cobrir. O primeiro passo crucial é identificar o tom exigido:
+O enunciado da Task 1 sempre descreve uma situação e traz três tópicos pontuais (*bullet points*) que você é obrigado a cobrir. O primeiro passo crucial é identificar o tom exigido: O passo a passo completo, com carta modelo, está no guia da [carta IELTS General Training](/pt/blog/carta-ielts-general-training/).
 - **Carta Formal:** Para alguém que você não conhece pelo nome ou para uma instituição governamental (abertura: *Dear Sir or Madam,* / fechamento: *Yours faithfully,*). Veja modelos formais no guia de [como escrever e-mail formal em inglês](/pt/blog/como-escrever-email-em-ingles-formal/).
 - **Carta Semiformal:** Para um chefe, gerente de banco ou proprietário de imóvel conhecido pelo sobrenome (abertura: *Dear Mr. Smith,* / fechamento: *Yours sincerely,*).
 - **Carta Informal:** Para um amigo próximo ou colega de confiança (abertura: *Dear Lucas,* / fechamento: *Warm regards,* ou *Best wishes,*).

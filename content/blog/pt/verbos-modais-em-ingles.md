@@ -44,7 +44,7 @@ quiz: [
 ]
 publishAt: 2026-11-12T12:03:00-03:00
 ---
-Os **verbos modais em inglês**, como *can, could, may, might, should* e *must*, são pequenos mas mudam o tom inteiro da frase. *You must call her* é uma ordem; *You should call her*, um conselho; *You could call her*, apenas uma sugestão. Para brasileiros, a gramática é fácil. O difícil é que o português resolve quase tudo com dois verbos, **"poder" e "dever"**, enquanto o inglês tem um modal para cada nuance. Este guia mostra como escolher o certo, com os erros típicos de quem fala português e exercícios no final.
+Os **verbos modais em inglês**, como *can, could, may, might, should* e *must*, são pequenos mas mudam o tom inteiro da frase. *You must call her* é uma ordem; *You should call her*, um conselho; *You could call her*, apenas uma sugestão. Para brasileiros, a gramática é fácil. O difícil é que o português resolve quase tudo com dois verbos, **"poder" e "dever"**, enquanto o inglês tem um modal para cada nuance. Este guia mostra como escolher o certo, com os erros típicos de quem fala português e exercícios no final. Nas frases com *if*, *would* e *could* ganham um papel próprio, explicado no guia de [condicionais em inglês](/pt/blog/condicionais-em-ingles/).
 
 ## Verbos modais em inglês: as 3 regras de ouro
 

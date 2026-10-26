@@ -78,7 +78,7 @@ Hablas de algo que puede pasar y de su consecuencia probable: *if* + presente, r
 
 Aquí el error típico no está en *if*, sino en *when*, *as soon as*, *before* o *until*. En español decimos "cuando llegues" (subjuntivo) y muchos lo traducen con futuro: ~~*When you will arrive, call me.*~~ Lo correcto es **presente**: *When you arrive, call me.* *As soon as I finish, I'll send it.*
 
-Practica las estructuras del tipo 0 y 1 en el [capítulo de condicionales 0 y 1](/app/#/grammar/conditionals-0-1) de Lexkite, con ejemplos y ejercicios corregidos al momento.
+Practica las estructuras del tipo 0 y 1 en el [capítulo de condicionales 0 y 1](/app/#/grammar/conditionals-0-1) de Lexkite, con ejemplos y ejercicios corregidos al momento. Si quieres combinarlas con oraciones de *who* y *which*, revisa los [pronombres relativos en inglés](/es/blog/pronombres-relativos-en-ingles/).
 
 ![](media:@s1 "El capítulo de condicionales 0 y 1 reúne la estructura, ejemplos y ejercicios para practicar")
 

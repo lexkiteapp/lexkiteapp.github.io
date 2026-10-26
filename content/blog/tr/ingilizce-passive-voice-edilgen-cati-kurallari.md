@@ -148,7 +148,7 @@ Bu cümleleri doğru bağlantılarla essay içinde sunmak için [İngilizce bağ
 
 ## Kişisiz Edilgen Yapılar (Impersonal Passive): It is said that...
 
-Akademik dilde ve haber bültenlerinde söylentileri, araştırmacıların ortak görüşlerini veya genel inançları aktarırken Impersonal Passive yapıları kullanılır. Bu yapılar iki farklı şekilde kurulabilir:
+Akademik dilde ve haber bültenlerinde söylentileri, araştırmacıların ortak görüşlerini veya genel inançları aktarırken Impersonal Passive yapıları kullanılır. Bu yapılar iki farklı şekilde kurulabilir: Edilgen yapının bir de kısaltılmış relative clause hâli vardır (*data collected in 2020*); ayrıntılar [İngilizce relative clauses konu anlatımı](/tr/blog/ingilizce-relative-clauses-konu-anlatimi/) yazısında.
 
 ### 1. Kalıp: It + Passive fiil (said / believed / thought / reported) + that + Cümle
 - *It is widely believed that artificial intelligence will revolutionize diagnostic medicine.* (Yapay zekanın teşhis tıbbında devrim yaratacağına yaygın olarak inanılmaktadır.)

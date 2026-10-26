@@ -17,7 +17,7 @@ qualityScore: 94
 ---
 El ensayo académico de IELTS suele ser el obstáculo más temido por quienes aspiran a estudiar o trabajar en el extranjero. Representa dos tercios de la calificación total de Writing y exige redactar al menos 250 palabras en apenas 40 minutos. Si buscas **consejos ielts writing task 2** rigurosos y prácticos, este artículo reúne la estrategia probada para organizar tus ideas, evitar vicios típicos del español y convencer a los examinadores con un texto coherente de banda 7 o superior.
 
-Muchos estudiantes cometen el error de pensar que necesitan vocabulario extravagante o ideas filosóficas profundas. En realidad, los examinadores de IELTS evalúan cuatro criterios muy específicos con el mismo peso (25% cada uno): respuesta a la tarea (*Task Response*), coherencia y cohesión (*Coherence and Cohesion*), recurso léxico (*Lexical Resource*) y variedad y precisión gramatical (*Grammatical Range and Accuracy*). Con la preparación adecuada, dominarás cada uno de estos aspectos.
+Muchos estudiantes cometen el error de pensar que necesitan vocabulario extravagante o ideas filosóficas profundas. En realidad, los examinadores de IELTS evalúan cuatro criterios muy específicos con el mismo peso (25% cada uno): respuesta a la tarea (*Task Response*), coherencia y cohesión (*Coherence and Cohesion*), recurso léxico (*Lexical Resource*) y variedad y precisión gramatical (*Grammatical Range and Accuracy*). Con la preparación adecuada, dominarás cada uno de estos aspectos. Una forma sencilla de mostrar variedad gramatical es usar bien las relativas; repasa los [pronombres relativos en inglés](/es/blog/pronombres-relativos-en-ingles/).
 
 ## Los 4 criterios de evaluación que debes dominar
 
@@ -64,7 +64,7 @@ La arquitectura más sólida y predecible para completar el ensayo dentro del l�
 
 No gastes más de 5 minutos en la introducción. Tu objetivo es simplemente demostrar que comprendes el tema y declarar tu postura con nitidez.
 
-* **Paso 1: Parafrasear el enunciado.** Cambia la estructura gramatical y sustituye palabras clave por sinónimos precisos. Si el enunciado dice *"Some people believe that university education should be free for all citizens"*, puedes escribir: *"It is often argued that higher education ought to be publicly funded without tuition fees for university students."*
+* **Paso 1: Parafrasear el enunciado.** Cambia la estructura gramatical y sustituye palabras clave por sinónimos precisos. Si el enunciado dice *"Some people believe that university education should be free for all citizens"*, puedes escribir: *"It is often argued that higher education ought to be publicly funded without tuition fees for university students."* Si presentas el módulo General, antes de esta tarea escribes una carta; mira la guía de la [carta IELTS General Training](/es/blog/carta-ielts-general-training/).
 * **Paso 2: Declarar la tesis (*thesis statement*).** Informa al examinador de tu posición desde el inicio. Por ejemplo: *"In my view, while universal access to tertiary institutions encourages social mobility, governments should prioritize vocational training to match labor market demands."*
 
 ### 2. El cuerpo: el método PEEL

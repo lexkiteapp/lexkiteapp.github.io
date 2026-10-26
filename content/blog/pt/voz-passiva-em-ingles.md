@@ -131,7 +131,7 @@ Essas estruturas, junto com *have something done*, estão no capítulo de [passi
 
 Se você lê notícias em inglês, já viu a passiva em quase todas as manchetes, muitas vezes sem o verbo *to be*: *Three people injured in crash* (= *were injured*), *New vaccine approved* (= *has been approved*). Esse “estilo de manchete” é só para títulos; no texto da notícia, o *to be* volta: *Three people were injured when two cars collided.*
 
-Em relatórios e textos acadêmicos, a passiva ajuda a manter o foco nos dados e não nas pessoas:
+Em relatórios e textos acadêmicos, a passiva ajuda a manter o foco nos dados e não nas pessoas: Outra forma de condensar informação nesses textos são as orações relativas reduzidas, explicadas no guia de [pronomes relativos em inglês](/pt/blog/pronomes-relativos-em-ingles/).
 
 - *The survey was carried out in 2025.*
 - *Participants were asked to complete a questionnaire.*

@@ -17,7 +17,7 @@ qualityScore: 94
 ---
 Türkçe konuşan bir öğrenci için İngilizce öğrenirken en çok kafa karıştıran konulardan biri present perfect simple past farkı konusudur. Bu karmaşanın temel sebebi, Türkçede her iki zaman kipinin de çoğunlukla "-di'li geçmiş zaman" ekiyle karşılanmasıdır. "Dün anahtarımı kaybettim" derken de, "Hayatımda hiç uçağa binmedim" derken de aynı geçmiş zaman yapısını kullanırız. Ancak bir İngiliz için bu iki cümlenin zamana bakışı taban tabana zıttır.
 
-İngilizcede geçmiş bir olay ya tamamen kapanmış bir zaman dilimine aittir ya da bugünkü anla doğrudan bir bağa sahiptir. Bu temel mantığı kavramadan kuralları ezberlemeye çalışmak, konuşurken duraklamanıza ve sınavlarda puan kaybetmenize yol açar. Bu rehberde, ana dili İngilizce olanların zaman algısını, kritik zaman sinyallerini, zıt örnek cümleleri ve Türk öğrencilerin en sık düştüğü 4 büyük hatayı detaylarıyla inceleyeceğiz.
+İngilizcede geçmiş bir olay ya tamamen kapanmış bir zaman dilimine aittir ya da bugünkü anla doğrudan bir bağa sahiptir. Bu temel mantığı kavramadan kuralları ezberlemeye çalışmak, konuşurken duraklamanıza ve sınavlarda puan kaybetmenize yol açar. Bu rehberde, ana dili İngilizce olanların zaman algısını, kritik zaman sinyallerini, zıt örnek cümleleri ve Türk öğrencilerin en sık düştüğü 4 büyük hatayı detaylarıyla inceleyeceğiz. Bu iki zamanın aktarılan cümlelerde nasıl past perfect'e dönüştüğünü [İngilizce dolaylı anlatım](/tr/blog/ingilizce-dolayli-anlatim-reported-speech/) yazısı anlatıyor.
 
 ## Temel mantık: Kapanmış geçmiş zaman ile şimdiki zaman bağı
 

@@ -11968,6 +11968,207 @@
    "cluster": "diferencia-entre-make-y-do-en-ingles",
    "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
    "source": "make-vs-do"
+  },
+  {
+   "slug": "condicionais-em-ingles",
+   "keyword": "condicionais em inglês",
+   "category": "ngu-phap",
+   "tags": [
+    "gramatica",
+    "conditionals",
+    "if-clauses",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/conditionals-0-1",
+    "/#/grammar/conditionals-2-3",
+    "/#/grammar/mixed-conditionals-wish"
+   ],
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "cau-dieu-kien-tieng-anh-conditionals",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "conditional-sentences-in-english"
+  },
+  {
+   "slug": "pronomes-relativos-em-ingles",
+   "keyword": "pronomes relativos em inglês",
+   "category": "ngu-phap",
+   "tags": [
+    "gramatica",
+    "relative-clauses",
+    "writing",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "relative-clauses",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "relative-clauses-who-which-that"
+  },
+  {
+   "slug": "carta-ielts-general-training",
+   "keyword": "carta ielts general training",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-general",
+    "writing",
+    "carta",
+    "imigracao"
+   ],
+   "routes": [
+    "/#/letters"
+   ],
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "ielts-general-writing-task-1-viet-thu",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-general-training-letter"
+  },
+  {
+   "slug": "diferenca-entre-make-e-do",
+   "keyword": "diferença entre make e do",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulario",
+    "collocations",
+    "make-do",
+    "b1"
+   ],
+   "routes": [
+    "/#/usage/make",
+    "/#/usage/do"
+   ],
+   "intent": "informational",
+   "lang": "pt",
+   "cluster": "diferencia-entre-make-y-do-en-ingles",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "make-vs-do"
+  },
+  {
+   "slug": "pronombres-relativos-en-ingles",
+   "keyword": "pronombres relativos en inglés",
+   "category": "ngu-phap",
+   "tags": [
+    "gramatica",
+    "relative-clauses",
+    "writing",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "intent": "informational",
+   "lang": "es",
+   "cluster": "relative-clauses",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "relative-clauses-who-which-that"
+  },
+  {
+   "slug": "toefl-complete-the-words",
+   "keyword": "toefl complete the words",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-reading",
+    "complete-the-words",
+    "ortografia"
+   ],
+   "routes": [
+    "/#/toefl-p/cw",
+    "/#/toefl"
+   ],
+   "intent": "informational",
+   "lang": "es",
+   "cluster": "toefl-complete-the-words",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "toefl-complete-the-words"
+  },
+  {
+   "slug": "carta-ielts-general-training",
+   "keyword": "carta ielts general training",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-general",
+    "writing",
+    "carta",
+    "migracion"
+   ],
+   "routes": [
+    "/#/letters"
+   ],
+   "intent": "informational",
+   "lang": "es",
+   "cluster": "ielts-general-writing-task-1-viet-thu",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-general-training-letter"
+  },
+  {
+   "slug": "ingilizce-dolayli-anlatim-reported-speech",
+   "keyword": "ingilizce dolaylı anlatım",
+   "category": "ngu-phap",
+   "tags": [
+    "gramer",
+    "reported-speech",
+    "zamanlar",
+    "yds",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "intent": "informational",
+   "lang": "tr",
+   "cluster": "reported-speech",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "reported-speech"
+  },
+  {
+   "slug": "ingilizce-relative-clauses-konu-anlatimi",
+   "keyword": "ingilizce relative clauses konu anlatımı",
+   "category": "ngu-phap",
+   "tags": [
+    "gramer",
+    "relative-clauses",
+    "yds",
+    "writing",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "intent": "informational",
+   "lang": "tr",
+   "cluster": "relative-clauses",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "relative-clauses-who-which-that"
+  },
+  {
+   "slug": "make-ve-do-farki",
+   "keyword": "make ve do farkı",
+   "category": "tu-vung",
+   "tags": [
+    "kelime",
+    "collocations",
+    "make-do",
+    "yds",
+    "b1"
+   ],
+   "routes": [
+    "/#/usage/make",
+    "/#/usage/do"
+   ],
+   "intent": "informational",
+   "lang": "tr",
+   "cluster": "diferencia-entre-make-y-do-en-ingles",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "make-vs-do"
   }
  ]
 }

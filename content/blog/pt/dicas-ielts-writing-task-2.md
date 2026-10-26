@@ -19,7 +19,7 @@ A prova de redação acadêmica do IELTS (*International English Language Testin
 
 Como a Task 2 vale o dobro dos pontos da Task 1 e exige pelo menos 250 palavras em 40 minutos, o seu resultado geral nesta etapa depende da sua capacidade de estruturar uma dissertação lógica. Reunir as melhores **dicas ielts writing task 2** é o caminho mais seguro para alcançar a prestigiosa nota 7.0, 7.5 ou superior (*band score*).
 
-Muitos estudantes acreditam erroneamente que, para tirar uma nota alta no IELTS Writing, é necessário inventar ideias mirabolantes ou empregar palavras rebuscadas do inglês arcaico. Na realidade, os examinadores do British Council e do IDP não avaliam a sua erudição filosófica, mas sim a sua capacidade de responder exatamente à pergunta feita, com clareza estrutural, coesão entre parágrafos e precisão léxico-gramatical. A seguir, detalhamos o roteiro prático para gabaritar cada um desses aspectos.
+Muitos estudantes acreditam erroneamente que, para tirar uma nota alta no IELTS Writing, é necessário inventar ideias mirabolantes ou empregar palavras rebuscadas do inglês arcaico. Na realidade, os examinadores do British Council e do IDP não avaliam a sua erudição filosófica, mas sim a sua capacidade de responder exatamente à pergunta feita, com clareza estrutural, coesão entre parágrafos e precisão léxico-gramatical. A seguir, detalhamos o roteiro prático para gabaritar cada um desses aspectos. Se você faz o módulo General, a primeira tarefa é uma carta, tema do guia da [carta IELTS General Training](/pt/blog/carta-ielts-general-training/).
 
 ## Os 4 critérios oficiais de avaliação do IELTS Writing
 
@@ -83,7 +83,7 @@ Além disso, investir em *collocations* acadêmicas faz com que o texto soe sofi
 
 ![Cartão de aprendizagem inteligente do Lexkite com definição, exemplos e dicas](media:practice-learn "Aprenda expressões com definição, exemplos e dicas de uso no IELTS")
 
-Alternar voz ativa e passiva mostra variedade gramatical; revise as regras em [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles/).
+Alternar voz ativa e passiva mostra variedade gramatical; revise as regras em [voz passiva em inglês](/pt/blog/voz-passiva-em-ingles/). Orações com *who*, *which* e *whose* também ajudam; veja o guia de [pronomes relativos em inglês](/pt/blog/pronomes-relativos-em-ingles/).
 
 {{cta: /#/write | Treinar redação do IELTS no laboratório de escrita}}
 
