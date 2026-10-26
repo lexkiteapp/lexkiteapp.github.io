@@ -95,7 +95,7 @@ jobs:
         if: steps.lease.outputs.skip != '1'
         env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}' }
         run: |
-          node scripts/build-lexicon.mjs --write >/dev/null
+          { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
           node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
           EXTRA="$( [ "${ONLY#+}" != "$ONLY" ] && echo "${ONLY#+}" )" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
@@ -171,7 +171,7 @@ jobs:
         if: steps.lease.outputs.skip != '1'
         env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}' }
         run: |
-          node scripts/build-lexicon.mjs --write >/dev/null
+          { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
           node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
           EXTRA="$( [ "${ONLY#+}" != "$ONLY" ] && echo "${ONLY#+}" )" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
@@ -268,7 +268,7 @@ jobs:
       - name: Nghĩa còn thiếu ảnh (shard) + thẻ cảnh
         if: steps.lease.outputs.skip != '1'
         run: |
-          node scripts/build-lexicon.mjs --write >/dev/null
+          { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           NK=$(( PER / 3 )); [ "$NK" -lt 5 ] && NK=5
           node scripts/vocab-img/scene.mjs --gaps $NK --shard ${{ matrix.shard }}/$NSH > keys.json
           echo "nghĩa: $(node -p "require('./keys.json').items.length")"
@@ -329,7 +329,7 @@ jobs:
             h=$(ls .media-out/vimg | head -1); for i in $(seq 1 20); do c=$(curl -s -o /dev/null -w '%{http_code}' https://media.lexkite.com/vimg/$h); [ "$c" = 200 ] && break; sleep 15; done; echo "CDN $h → $c"
           fi
           node scripts/vocab-img/scene-publish.mjs --dir m --index --variants ${{ github.event.inputs.variants || '6' }}
-          node scripts/build-lexicon.mjs --write >/dev/null
+          { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           git config user.name lexkite-bot; git config user.email lexkite-bot@users.noreply.github.com
           git add content/lexicon/img.json content/lexicon/vimg-scenes.json content/lexicon/vimg-scene-queue.json web/js/lexicon-img.json extension/app/js/lexicon-img.json
           git diff --cached --quiet && exit 0
@@ -346,11 +346,11 @@ jobs:
         if: always()
         with: { name: vimg-fill-final, retention-days: 14, path: "m/result.json\nm/fill-report.json\nm/fill-sheet.jpg\nm/gen-stats.*.json\nm/judge-api.*.json\nm/speed.*.json\nm/final/" }
       - name: Tự nối lượt (vắt hết kho CF trong ngày – cron GitHub hay trễ/bỏ lượt)
-        if: vars.VIMG_CHAIN != '0'
-        env: { GH_TOKEN: '${{ github.token }}' }
+        env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.VIMG_CHAIN }}' }
         run: |
+          [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (VIMG_CHAIN=0)"; exit 0; }   # so trong bash: biểu thức GitHub coi '' == '0' → bước bị bỏ (26/10)
           if ls parts/*/out/vimg-fill/EXHAUSTED >/dev/null 2>&1; then echo "⏹ kho CF hết neuron ngày – chờ cron sau 00:00 UTC"; exit 0; fi
-          node scripts/build-lexicon.mjs --write >/dev/null
+          { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           G=$(node scripts/vocab-img/scene.mjs --gaps 1 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
           [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa thiếu ảnh (trừ hàng chờ) – dừng chuỗi"; exit 0; }
           gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
@@ -392,7 +392,7 @@ jobs:
           sudo apt-get install -y -qq tesseract-ocr librsvg2-bin >/dev/null
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
-          node scripts/build-lexicon.mjs --write >/dev/null
+          { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
       - uses: actions/download-artifact@v4
         if: steps.lease.outputs.skip != '1'
         with: { name: vimg-scene-final, path: lab, run-id: '${{ github.event.inputs.lab_run }}', github-token: '${{ github.token }}' }
