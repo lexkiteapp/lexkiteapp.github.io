@@ -1,0 +1,344 @@
+{
+ "id": "sts_b56e5263",
+ "template": "mistake",
+ "title": "Stop Saying This #28 – Say \"Are you free this Saturday? A few of us are going hiking.\" instead of \"You want join us?\"",
+ "teacher": "daniel",
+ "set": "classroom_board",
+ "clips": [
+  "d03_daniel_desk"
+ ],
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "error_lines": [
+  "m_w"
+ ],
+ "error_re": "\\byou\\W+want\\W+join\\W+us\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying this."
+  },
+  {
+   "id": "m_w",
+   "text": "You want join us?",
+   "key": {
+    "red": [
+     0,
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "m_y",
+   "text": "Ask if they are free, then give the plan.",
+   "key": {
+    "yellow": [
+     3,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: Are you free this Saturday?",
+   "key": {
+    "green": [
+     2,
+     4,
+     5,
+     6
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_x",
+   "text": "Are you free on Friday? Do you want to join us?",
+   "key": {
+    "green": [
+     0,
+     1,
+     2,
+     6
+    ]
+   }
+  },
+  {
+   "id": "m_t",
+   "text": "Want needs to: want to join us!",
+   "key": {
+    "yellow": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q",
+   "text": "Quick quiz! Do you want blank us?",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q2",
+   "text": "Join, or to join?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "To join! Do you want to join us?",
+   "key": {
+    "green": [
+     0,
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Stop saying",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“You want join us?”",
+      "red"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "“You want join us”",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“Are free this Saturday”",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "Are ",
+      "green"
+     ],
+     [
+      "you ",
+      "white"
+     ],
+     [
+      "free this Saturday?",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "Are you free on Friday?",
+      "green"
+     ]
+    ],
+    [
+     [
+      "Do you want to join us?",
+      "green"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " ARE YOU FREE + day? / WANT TO",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "join",
+   "b": "to join",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "Do you want ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " us?",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 28
+ },
+ "source": {
+  "bank": "sb_b56e5263",
+  "pid": "cf:new-friends:are-you-free:x",
+  "cefr": "B1",
+  "diff": "medium"
+ }
+}

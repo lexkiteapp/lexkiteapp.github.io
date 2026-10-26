@@ -1,0 +1,350 @@
+{
+ "id": "sts_cc4c2bf0",
+ "template": "mistake",
+ "title": "Stop Saying This #29 – Say \"How much is the security deposit?\" instead of \"How much money I give before?\"",
+ "teacher": "daniel",
+ "set": "classroom_board",
+ "clips": [
+  "d03_daniel_desk"
+ ],
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "error_lines": [
+  "m_w"
+ ],
+ "error_re": "\\bmuch\\W+money\\W+i\\W+give\\W+before\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying this."
+  },
+  {
+   "id": "m_w",
+   "text": "How much money I give before?",
+   "key": {
+    "red": [
+     2,
+     3,
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "id": "m_y",
+   "text": "The deposit is money you pay before you move in.",
+   "key": {
+    "yellow": [
+     1,
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: How much is the security deposit?",
+   "key": {
+    "green": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_x",
+   "text": "How much is the deposit? We paid a security deposit.",
+   "key": {
+    "green": [
+     2,
+     3,
+     4,
+     8
+    ]
+   }
+  },
+  {
+   "id": "m_t",
+   "text": "You usually get your deposit back when you leave!",
+   "key": {
+    "yellow": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q",
+   "text": "Quick quiz! How much blank the security deposit?",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q2",
+   "text": "I give, or is?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "Is! How much is the security deposit?",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " ",
+      "white"
+     ],
+     [
+      "“How much ",
+      "white"
+     ],
+     [
+      "money I give before?”",
+      "red"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "“money I give before”",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“is the security deposit”",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "How much ",
+      "white"
+     ],
+     [
+      "is the security deposit?",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "How much is the deposit?",
+      "green"
+     ]
+    ],
+    [
+     [
+      "We paid a security deposit.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " DEPOSIT = money first",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " back later",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "I give",
+   "b": "is",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "How much ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " the security deposit?",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 29
+ },
+ "source": {
+  "bank": "sb_cc4c2bf0",
+  "pid": "cf:renting:security-deposit:x",
+  "cefr": "B1",
+  "diff": "medium"
+ }
+}

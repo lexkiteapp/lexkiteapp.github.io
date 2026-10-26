@@ -1,0 +1,363 @@
+{
+ "id": "sod_2ed92c40",
+ "template": "pair",
+ "title": "Same or Different? #18 – beside (prep) vs besides (prep/adv)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Beside or besides? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: Sit besides me.",
+   "key": {
+    "red": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_k",
+   "text": "Say: Sit beside me.",
+   "key": {
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_y",
+   "text": "Beside means next to. Besides means also.",
+   "key": {
+    "yellow": [
+     0,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_x",
+   "text": "The lamp is beside the bed. Besides English, I speak French.",
+   "key": {
+    "green": [
+     3,
+     6
+    ]
+   }
+  },
+  {
+   "id": "p_t",
+   "text": "One extra S changes the meaning!",
+   "gap": 0.6
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! blank coffee, I also like tea.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q2",
+   "text": "Besides, or Beside?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Besides! Besides coffee, I also like tea.",
+   "key": {
+    "green": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "BESIDE",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "BESIDES",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "Sit ",
+      "white"
+     ],
+     [
+      "besides ",
+      "red"
+     ],
+     [
+      "me.",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "Sit ",
+      "white"
+     ],
+     [
+      "beside ",
+      "green"
+     ],
+     [
+      "me.",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "beside",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "besides",
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_y",
+      0,
+      "s",
+      0
+     ],
+     "left"
+    ]
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "The lamp is beside the bed.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "Besides English, I speak French.",
+      "green"
+     ]
+    ]
+   ],
+   "from": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " beside = next to",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " besideS = plus",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "Besides",
+   "b": "Beside",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " coffee, I also like tea.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 18
+ },
+ "source": {
+  "bank": "sb_2ed92c40",
+  "pid": "u:c:beside-besides",
+  "cefr": "B2",
+  "diff": "medium"
+ }
+}

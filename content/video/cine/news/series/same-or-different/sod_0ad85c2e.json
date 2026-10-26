@@ -1,0 +1,375 @@
+{
+ "id": "sod_0ad85c2e",
+ "template": "pair",
+ "title": "Same or Different? #6 – alone (adj/adv) vs lonely (adj)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Alone or lonely? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: I live lonely.",
+   "key": {
+    "red": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "p_k",
+   "text": "Say: I live alone.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_y",
+   "text": "Alone means no people. Lonely means sad.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_x",
+   "text": "She likes to travel alone. He felt lonely in the new city.",
+   "key": {
+    "green": [
+     4,
+     7
+    ]
+   }
+  },
+  {
+   "id": "p_t",
+   "text": "You can be alone and happy!",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! I live blank, but I'm not lonely.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q2",
+   "text": "Alone, or lonely?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Alone! I live alone, but I'm not lonely.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "ALONE",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "LONELY",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "I live ",
+      "white"
+     ],
+     [
+      "lonely.",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "I live ",
+      "white"
+     ],
+     [
+      "alone.",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "alone",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "lonely",
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_y",
+      0,
+      "s",
+      0
+     ],
+     "left"
+    ],
+    [
+     [
+      "p_y",
+      4,
+      "s",
+      0
+     ],
+     "right"
+    ]
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "She likes to travel alone.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "He felt lonely in the new city.",
+      "green"
+     ]
+    ]
+   ],
+   "from": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " ALONE = no people",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " LONELY = sad",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "alone",
+   "b": "lonely",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "I live ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      ", but I'm not lonely.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 6
+ },
+ "source": {
+  "bank": "sb_0ad85c2e",
+  "pid": "u:c:alone-lonely",
+  "cefr": "A2",
+  "diff": "easy"
+ }
+}

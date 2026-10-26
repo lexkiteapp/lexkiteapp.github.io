@@ -1,0 +1,342 @@
+{
+ "id": "sts_90abd680",
+ "template": "mistake",
+ "title": "Stop Saying This #44 – Stop saying \"I wish I can speak French.\" – say \"I wish I could speak French.\"",
+ "teacher": "daniel",
+ "set": "classroom_board",
+ "clips": [
+  "d03_daniel_desk"
+ ],
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "error_lines": [
+  "m_w"
+ ],
+ "error_re": "\\bi\\W+can\\W+speak\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying this."
+  },
+  {
+   "id": "m_w",
+   "text": "I wish I can speak French.",
+   "key": {
+    "red": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "m_y",
+   "text": "Wish is about unreal things, so use could.",
+   "key": {
+    "yellow": [
+     0,
+     7
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: I wish I could speak French.",
+   "key": {
+    "green": [
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_x",
+   "text": "I wish I had more time. I wish I could cook.",
+   "key": {
+    "green": [
+     1,
+     3,
+     7,
+     9
+    ]
+   }
+  },
+  {
+   "id": "m_t",
+   "text": "Wish moves the verb back in time!",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q",
+   "text": "Quick quiz! I wish I blank swim.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q2",
+   "text": "Can, or could?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "Could! I wish I could swim.",
+   "key": {
+    "green": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " ",
+      "white"
+     ],
+     [
+      "“I wish I ",
+      "white"
+     ],
+     [
+      "can ",
+      "red"
+     ],
+     [
+      "speak French.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "“can”",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“could”",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "I wish I ",
+      "white"
+     ],
+     [
+      "could ",
+      "green"
+     ],
+     [
+      "speak French.",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "I wish I had more time.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "I wish I could cook.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " wish + COULD / HAD",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "can",
+   "b": "could",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "I wish I ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " swim.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 44
+ },
+ "source": {
+  "bank": "sb_90abd680",
+  "pid": "u:s:wish:m0",
+  "cefr": "C1",
+  "diff": "hard"
+ }
+}

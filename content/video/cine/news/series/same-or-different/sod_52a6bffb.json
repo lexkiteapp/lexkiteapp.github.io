@@ -1,0 +1,357 @@
+{
+ "id": "sod_52a6bffb",
+ "template": "pair",
+ "title": "Same or Different? #17 – whose (det/pron) vs who's (contraction)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Whose or who's? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: Who's bag is this?",
+   "key": {
+    "red": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "p_k",
+   "text": "Say: Whose bag is this?",
+   "key": {
+    "green": [
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_y",
+   "text": "Whose asks who owns it. Who's means who is.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_x",
+   "text": "Whose phone is ringing? Who's coming tonight?",
+   "key": {
+    "green": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "id": "p_t",
+   "text": "Same sound, very different meaning!",
+   "gap": 0.6
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! blank car is outside?",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q2",
+   "text": "Whose, or Who's?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Whose! Whose car is outside?",
+   "key": {
+    "green": [
+     0,
+     1
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "WHOSE",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "WHO'S",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "Who's ",
+      "red"
+     ],
+     [
+      "bag is this?",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "Whose ",
+      "green"
+     ],
+     [
+      "bag is this?",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "whose",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "who's",
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_y",
+      0,
+      "s",
+      0
+     ],
+     "left"
+    ],
+    [
+     [
+      "p_y",
+      5,
+      "s",
+      0
+     ],
+     "right"
+    ]
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "Whose phone is ringing?",
+      "green"
+     ]
+    ],
+    [
+     [
+      "Who's coming tonight?",
+      "green"
+     ]
+    ]
+   ],
+   "from": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " WHO'S = who is",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "Whose",
+   "b": "Who's",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " car is outside?",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 17
+ },
+ "source": {
+  "bank": "sb_52a6bffb",
+  "pid": "u:c:whose-who-s",
+  "cefr": "B1",
+  "diff": "medium"
+ }
+}

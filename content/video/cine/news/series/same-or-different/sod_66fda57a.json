@@ -1,0 +1,384 @@
+{
+ "id": "sod_66fda57a",
+ "template": "pair",
+ "title": "Same or Different? #9 – discover (v) vs invent (v)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Discover or invent? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: Edison discovered the light bulb.",
+   "key": {
+    "red": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_k",
+   "text": "Say: Edison invented the light bulb.",
+   "key": {
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_y",
+   "text": "Invent makes something new. Discover finds it.",
+   "key": {
+    "yellow": [
+     4
+    ],
+    "green": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_x",
+   "text": "Who invented the phone? They discovered a new island.",
+   "key": {
+    "green": [
+     1,
+     5,
+     7
+    ]
+   }
+  },
+  {
+   "id": "p_t",
+   "text": "Nobody invented America. It was always there!",
+   "key": {
+    "yellow": [
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! Scientists blank a new kind of fish.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q2",
+   "text": "Invented, or discovered?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Discovered! Scientists discovered a new kind of fish.",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "DISCOVER",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "INVENT",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "Edison ",
+      "white"
+     ],
+     [
+      "discovered ",
+      "red"
+     ],
+     [
+      "the light bulb.",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "Edison ",
+      "white"
+     ],
+     [
+      "invented ",
+      "green"
+     ],
+     [
+      "the light bulb.",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "discover",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "invent",
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_y",
+      0,
+      "s",
+      0
+     ],
+     "right"
+    ],
+    [
+     [
+      "p_y",
+      4,
+      "s",
+      0
+     ],
+     "left"
+    ]
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "Who invented the phone?",
+      "green"
+     ]
+    ],
+    [
+     [
+      "They discovered a new island.",
+      "green"
+     ]
+    ]
+   ],
+   "from": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " new thing = INVENT",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " hidden thing = DISCOVER",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "invented",
+   "b": "discovered",
+   "correct": "b",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "Scientists ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " a new kind of fish.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 9
+ },
+ "source": {
+  "bank": "sb_66fda57a",
+  "pid": "u:c:discover-invent",
+  "cefr": "A2",
+  "diff": "easy"
+ }
+}

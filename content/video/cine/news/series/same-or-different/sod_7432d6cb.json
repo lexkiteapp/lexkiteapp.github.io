@@ -1,0 +1,385 @@
+{
+ "id": "sod_7432d6cb",
+ "template": "pair",
+ "title": "Same or Different? #5 – win (v) vs beat (v)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Win or beat? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: We won the other team.",
+   "key": {
+    "red": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_k",
+   "text": "Say: We beat the other team.",
+   "key": {
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_y",
+   "text": "You beat people. You win games.",
+   "key": {
+    "yellow": [
+     4
+    ],
+    "green": [
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_x",
+   "text": "We won the game. She beat me at chess.",
+   "key": {
+    "green": [
+     1,
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "id": "p_t",
+   "text": "You win a prize, but beat a player!",
+   "key": {
+    "yellow": [
+     1,
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! Our team blank them 3 to 1.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q2",
+   "text": "Beat, or won?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Beat! Our team beat them 3 to 1.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "WIN",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "BEAT",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "We ",
+      "white"
+     ],
+     [
+      "won ",
+      "red"
+     ],
+     [
+      "the other team.",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "We ",
+      "white"
+     ],
+     [
+      "beat ",
+      "green"
+     ],
+     [
+      "the other team.",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "win",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "beat",
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_y",
+      1,
+      "s",
+      0
+     ],
+     "right"
+    ],
+    [
+     [
+      "p_y",
+      4,
+      "s",
+      0
+     ],
+     "left"
+    ]
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "We won the game.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "She beat me at chess.",
+      "green"
+     ]
+    ]
+   ],
+   "from": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " WIN the game",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " BEAT the team",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "beat",
+   "b": "won",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "Our team ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " them 3 to 1.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 5
+ },
+ "source": {
+  "bank": "sb_7432d6cb",
+  "pid": "u:c:win-beat",
+  "cefr": "A1",
+  "diff": "easy"
+ }
+}

@@ -1,0 +1,352 @@
+{
+ "id": "sts_14cb88e7",
+ "template": "mistake",
+ "title": "Stop Saying This #10 – Say \"Could you hold on a second?\" instead of \"Wait me a moment.\"",
+ "teacher": "daniel",
+ "set": "classroom_board",
+ "clips": [
+  "d03_daniel_desk"
+ ],
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "error_lines": [
+  "m_w"
+ ],
+ "error_re": "\\bwait\\W+me\\W+a\\W+moment\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying this."
+  },
+  {
+   "id": "m_w",
+   "text": "Wait me a moment.",
+   "key": {
+    "red": [
+     0,
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "m_y",
+   "text": "Don't say wait me. Say hold on or wait for me.",
+   "key": {
+    "yellow": [
+     2,
+     5,
+     8
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: Could you hold on a second?",
+   "key": {
+    "green": [
+     2,
+     3,
+     4,
+     5,
+     7
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_x",
+   "text": "Could you hold on? I'll get him. Please wait for me here.",
+   "key": {
+    "green": [
+     0,
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "m_t",
+   "text": "On the phone, hold on is the normal way!",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q",
+   "text": "Quick quiz! Could you blank a second?",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q2",
+   "text": "Wait me, or hold on?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "Hold on! Could you hold on a second?",
+   "key": {
+    "green": [
+     0,
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Stop saying",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“Wait me ",
+      "red"
+     ],
+     [
+      "a ",
+      "white"
+     ],
+     [
+      "moment.”",
+      "red"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "“Wait me moment”",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“Could you hold on second”",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "Could you hold on ",
+      "green"
+     ],
+     [
+      "a ",
+      "white"
+     ],
+     [
+      "second?",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "Could you hold on? I'll get him.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "Please wait for me here.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " WAIT FOR me / HOLD ON",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "wait me",
+   "b": "hold on",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "Could you ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " a second?",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 10
+ },
+ "source": {
+  "bank": "sb_14cb88e7",
+  "pid": "cf:calls:hold-on:x",
+  "cefr": "B1",
+  "diff": "medium"
+ }
+}

@@ -1,0 +1,394 @@
+{
+ "id": "sod_6e178745",
+ "template": "pair",
+ "title": "Same or Different? #20 – hope (v) vs wish (v)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Hope or wish? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: I wish you will pass the test.",
+   "key": {
+    "red": [
+     2,
+     4
+    ]
+   }
+  },
+  {
+   "id": "p_k",
+   "text": "Say: I hope you pass the test.",
+   "key": {
+    "green": [
+     2,
+     3,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_y",
+   "text": "Hope is for possible things. Wish is for unreal.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_x",
+   "text": "I hope it doesn't rain. I wish I could fly.",
+   "key": {
+    "green": [
+     1,
+     6
+    ]
+   }
+  },
+  {
+   "id": "p_t",
+   "text": "But: I wish you good luck is fine!",
+   "key": {
+    "yellow": [
+     2
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! I blank you have a great trip!",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q2",
+   "text": "Wish, or hope?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Hope! I hope you have a great trip!",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "HOPE",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "WISH",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "I ",
+      "white"
+     ],
+     [
+      "wish ",
+      "red"
+     ],
+     [
+      "you ",
+      "white"
+     ],
+     [
+      "will ",
+      "red"
+     ],
+     [
+      "pass the test.",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "I ",
+      "white"
+     ],
+     [
+      "hope you pass ",
+      "green"
+     ],
+     [
+      "the test.",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "hope",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "wish",
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_y",
+      0,
+      "s",
+      0
+     ],
+     "left"
+    ],
+    [
+     [
+      "p_y",
+      5,
+      "s",
+      0
+     ],
+     "right"
+    ]
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "I hope it doesn't rain.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "I wish I could fly.",
+      "green"
+     ]
+    ]
+   ],
+   "from": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " possible = HOPE",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " unreal = WISH",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "wish",
+   "b": "hope",
+   "correct": "b",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "I ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " you have a great trip!",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 20
+ },
+ "source": {
+  "bank": "sb_6e178745",
+  "pid": "u:c:hope-wish",
+  "cefr": "C1",
+  "diff": "hard"
+ }
+}

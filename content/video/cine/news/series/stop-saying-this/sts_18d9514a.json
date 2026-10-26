@@ -1,0 +1,355 @@
+{
+ "id": "sts_18d9514a",
+ "template": "mistake",
+ "title": "Stop Saying This #42 – Stop saying \"The number of student are increasing.\" – say \"The number of students is increasing.\"",
+ "teacher": "daniel",
+ "set": "classroom_board",
+ "clips": [
+  "d03_daniel_desk"
+ ],
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "error_lines": [
+  "m_w"
+ ],
+ "error_re": "\\bof\\W+student\\W+are\\W+increasing\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying this."
+  },
+  {
+   "id": "m_w",
+   "text": "The number of student are increasing.",
+   "key": {
+    "red": [
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "id": "m_y",
+   "text": "The number takes is. A number takes are.",
+   "key": {
+    "yellow": [
+     1,
+     5,
+     7
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: The number of students is increasing.",
+   "key": {
+    "green": [
+     5,
+     6
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_x",
+   "text": "The number of cars is growing. A number of people are waiting.",
+   "key": {
+    "green": [
+     1,
+     4,
+     7,
+     10
+    ]
+   }
+  },
+  {
+   "id": "m_t",
+   "text": "A number of students are here. Both rules work!",
+   "key": {
+    "yellow": [
+     1,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q",
+   "text": "Quick quiz! The number of tourists blank rising.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q2",
+   "text": "Are, or is?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "Is! The number of tourists is rising.",
+   "key": {
+    "green": [
+     0,
+     5
+    ]
+   }
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " ",
+      "white"
+     ],
+     [
+      "“The number of ",
+      "white"
+     ],
+     [
+      "student are ",
+      "red"
+     ],
+     [
+      "increasing.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "“student are”",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“students is”",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "The number of ",
+      "white"
+     ],
+     [
+      "students is ",
+      "green"
+     ],
+     [
+      "increasing.",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "The number of cars is growing.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "A number of people are waiting.",
+      "green"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " THE number IS",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " A number ARE",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "are",
+   "b": "is",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "The number of tourists ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " rising.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 42
+ },
+ "source": {
+  "bank": "sb_18d9514a",
+  "pid": "u:p:number:m0",
+  "cefr": "C1",
+  "diff": "hard"
+ }
+}

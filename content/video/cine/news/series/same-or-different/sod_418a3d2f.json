@@ -1,0 +1,378 @@
+{
+ "id": "sod_418a3d2f",
+ "template": "pair",
+ "title": "Same or Different? #8 – salary (n) vs wage (n)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c01_carlos_board"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Salary or wage? Don't mix them up.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: My hourly salary is fifteen dollars.",
+   "key": {
+    "red": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "p_k",
+   "text": "Say: My hourly wage is fifteen dollars.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_y",
+   "text": "Pay by the hour is a wage. A salary is yearly.",
+   "key": {
+    "yellow": [
+     8
+    ],
+    "green": [
+     6
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_x",
+   "text": "Her salary is paid every month.",
+   "key": {
+    "green": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "p_t",
+   "text": "Minimum wage is always wage, never salary!",
+   "key": {
+    "yellow": [
+     1,
+     4,
+     6
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! He earns twenty dollars an hour. That's his blank.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_q2",
+   "text": "Wage, or salary?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Wage! He earns twenty dollars an hour. That's his wage.",
+   "key": {
+    "green": [
+     0,
+     9
+    ]
+   }
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "pair",
+   "role": "hook",
+   "anim": "slide",
+   "vs": true,
+   "left": {
+    "title": "SALARY",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "WAGE",
+    "color": "green"
+   },
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "My hourly ",
+      "white"
+     ],
+     [
+      "salary ",
+      "red"
+     ],
+     [
+      "is fifteen dollars.",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "My hourly ",
+      "white"
+     ],
+     [
+      "wage ",
+      "green"
+     ],
+     [
+      "is fifteen dollars.",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "explain",
+   "kind": "pair",
+   "anim": "spring",
+   "left": {
+    "title": "salary",
+    "color": "navy2"
+   },
+   "right": {
+    "title": "wage",
+    "color": "green"
+   },
+   "focus": [
+    [
+     [
+      "p_y",
+      6,
+      "s",
+      0
+     ],
+     "right"
+    ],
+    [
+     [
+      "p_y",
+      8,
+      "s",
+      0
+     ],
+     "left"
+    ]
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "rows": [
+    [
+     [
+      "Her salary is paid every month.",
+      "green"
+     ]
+    ]
+   ],
+   "from": [
+    "p_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " hour = WAGE",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@emoji:💡"
+     ],
+     [
+      " year = SALARY",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "wage",
+   "b": "salary",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "He earns twenty dollars an hour. That's his ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      ".",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 8
+ },
+ "source": {
+  "bank": "sb_418a3d2f",
+  "pid": "u:c:salary-wage",
+  "cefr": "A2",
+  "diff": "easy"
+ }
+}

@@ -1,0 +1,594 @@
+{
+ "_note": "Same or Different?: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "sod_0ce10d3a": {
+   "template": "pair",
+   "hook": "AGO | BEFORE",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Ago or before? Don't mix them up.",
+    "p_w": "Not: I met her three years before.",
+    "p_k": "Say: I met her three years ago.",
+    "p_y": "Ago counts back from now.",
+    "p_x": "He left ten minutes ago. I had never been there before.",
+    "p_t": "Ago always comes after the time: two days ago!",
+    "p_q": "Quiz! I started this job two years blank.",
+    "p_q2": "Before, or ago?",
+    "p_a": "Ago! I started this job two years ago.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I met her three years ago.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "ago",
+     "before"
+    ]
+   },
+   "source": "sb_0ce10d3a"
+  },
+  "sod_3100c569": {
+   "template": "pair",
+   "hook": "EVERY | EACH",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Every or each? Don't mix them up.",
+    "p_w": "Not: Every of us came.",
+    "p_k": "Say: Each of us came.",
+    "p_y": "Each can go before of. Every can't.",
+    "p_x": "Every child needs love. Each room has its own bathroom.",
+    "p_t": "Every one, as two words, works!",
+    "p_q": "Quiz! blank of my friends came to the party.",
+    "p_q2": "Every, or Each?",
+    "p_a": "Each! Each of my friends came to the party.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Each of us came.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "every",
+     "each"
+    ]
+   },
+   "source": "sb_3100c569"
+  },
+  "sod_347efc2c": {
+   "template": "pair",
+   "hook": "A FEW | FEW",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "A few or few? Don't mix them up.",
+    "p_w": "Not: I have few friends, so I'm happy.",
+    "p_k": "Say: I have a few friends, so I'm happy.",
+    "p_y": "A few is some. Few is not many.",
+    "p_x": "Few people came, so it was quiet.",
+    "p_t": "One small word changes the feeling!",
+    "p_q": "Quiz! Good news! We have blank tickets left.",
+    "p_q2": "Few, or a few?",
+    "p_a": "A few! Good news! We have a few tickets left.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I have a few friends, so I'm happy.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "a few",
+     "few"
+    ]
+   },
+   "source": "sb_347efc2c"
+  },
+  "sod_7432d6cb": {
+   "template": "pair",
+   "hook": "WIN | BEAT",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Win or beat? Don't mix them up.",
+    "p_w": "Not: We won the other team.",
+    "p_k": "Say: We beat the other team.",
+    "p_y": "You beat people. You win games.",
+    "p_x": "We won the game. She beat me at chess.",
+    "p_t": "You win a prize, but beat a player!",
+    "p_q": "Quiz! Our team blank them 3 to 1.",
+    "p_q2": "Beat, or won?",
+    "p_a": "Beat! Our team beat them 3 to 1.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "We beat the other team.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "win",
+     "beat"
+    ]
+   },
+   "source": "sb_7432d6cb"
+  },
+  "sod_0ad85c2e": {
+   "template": "pair",
+   "hook": "ALONE | LONELY",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Alone or lonely? Don't mix them up.",
+    "p_w": "Not: I live lonely.",
+    "p_k": "Say: I live alone.",
+    "p_y": "Alone means no people. Lonely means sad.",
+    "p_x": "She likes to travel alone. He felt lonely in the new city.",
+    "p_t": "You can be alone and happy!",
+    "p_q": "Quiz! I live blank, but I'm not lonely.",
+    "p_q2": "Alone, or lonely?",
+    "p_a": "Alone! I live alone, but I'm not lonely.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I live alone.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "alone",
+     "lonely"
+    ]
+   },
+   "source": "sb_0ad85c2e"
+  },
+  "sod_3e77d39c": {
+   "template": "pair",
+   "hook": "RISE | RAISE",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Rise or raise? Don't mix them up.",
+    "p_w": "Not: Please rise your hand.",
+    "p_k": "Say: Please raise your hand.",
+    "p_y": "Raise moves something. Rise moves by itself.",
+    "p_x": "Prices rise every year. Raise your glass!",
+    "p_t": "The sun rises. Nobody raises it!",
+    "p_q": "Quiz! The sun blank at six.",
+    "p_q2": "Raises, or rises?",
+    "p_a": "Rises! The sun rises at six.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Please raise your hand.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "rise",
+     "raise"
+    ]
+   },
+   "source": "sb_3e77d39c"
+  },
+  "sod_418a3d2f": {
+   "template": "pair",
+   "hook": "SALARY | WAGE",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Salary or wage? Don't mix them up.",
+    "p_w": "Not: My hourly salary is fifteen dollars.",
+    "p_k": "Say: My hourly wage is fifteen dollars.",
+    "p_y": "Pay by the hour is a wage. A salary is yearly.",
+    "p_x": "Her salary is paid every month.",
+    "p_t": "Minimum wage is always wage, never salary!",
+    "p_q": "Quiz! He earns twenty dollars an hour. That's his blank.",
+    "p_q2": "Wage, or salary?",
+    "p_a": "Wage! He earns twenty dollars an hour. That's his wage.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "My hourly wage is fifteen dollars.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "salary",
+     "wage"
+    ]
+   },
+   "source": "sb_418a3d2f"
+  },
+  "sod_66fda57a": {
+   "template": "pair",
+   "hook": "DISCOVER | INVENT",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Discover or invent? Don't mix them up.",
+    "p_w": "Not: Edison discovered the light bulb.",
+    "p_k": "Say: Edison invented the light bulb.",
+    "p_y": "Invent makes something new. Discover finds it.",
+    "p_x": "Who invented the phone? They discovered a new island.",
+    "p_t": "Nobody invented America. It was always there!",
+    "p_q": "Quiz! Scientists blank a new kind of fish.",
+    "p_q2": "Invented, or discovered?",
+    "p_a": "Discovered! Scientists discovered a new kind of fish.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Edison invented the light bulb.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "discover",
+     "invent"
+    ]
+   },
+   "source": "sb_66fda57a"
+  },
+  "sod_93a2ff88": {
+   "template": "pair",
+   "hook": "PERCENT | PERCENTAGE",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Percent or percentage? Don't mix them up.",
+    "p_w": "Not: A big percent of people agree.",
+    "p_k": "Say: A big percentage of people agree.",
+    "p_y": "Use percent with a number. Percentage without.",
+    "p_x": "Fifty percent of us voted. What percentage of students passed?",
+    "p_t": "Ten percent, but a high percentage!",
+    "p_q": "Quiz! A high blank of users are young.",
+    "p_q2": "Percentage, or percent?",
+    "p_a": "Percentage! A high percentage of users are young.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "A big percentage of people agree.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "percent",
+     "percentage"
+    ]
+   },
+   "source": "sb_93a2ff88"
+  },
+  "sod_13a16c00": {
+   "template": "pair",
+   "hook": "EXCITED | EXCITING",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Excited or exciting? Don't mix them up.",
+    "p_w": "Not: I'm so exciting about the trip!",
+    "p_k": "Say: I'm so excited about the trip!",
+    "p_y": "-ed is how you feel. -ing is the thing.",
+    "p_x": "The game was exciting. The kids are excited.",
+    "p_t": "I'm exciting means people get excited by you!",
+    "p_q": "Quiz! The movie was so blank!",
+    "p_q2": "Excited, or exciting?",
+    "p_a": "Exciting! The movie was so exciting!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I'm so excited about the trip!",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "excited",
+     "exciting"
+    ]
+   },
+   "source": "sb_13a16c00"
+  },
+  "sod_1798babe": {
+   "template": "pair",
+   "hook": "DAMAGE | HARM",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Damage or harm? Don't mix them up.",
+    "p_w": "Not: The storm harmed the roof.",
+    "p_k": "Say: The storm damaged the roof.",
+    "p_y": "Things get damaged. People get harmed.",
+    "p_x": "The car was damaged. Smoking harms your health.",
+    "p_t": "Too much sun can harm your skin!",
+    "p_q": "Quiz! The flood blank many houses.",
+    "p_q2": "Damaged, or harmed?",
+    "p_a": "Damaged! The flood damaged many houses.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "The storm damaged the roof.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "damage",
+     "harm"
+    ]
+   },
+   "source": "sb_1798babe"
+  },
+  "sod_20315a8f": {
+   "template": "pair",
+   "hook": "ITS | IT'S",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Its or it's? Don't mix them up.",
+    "p_w": "Not: The dog wagged it's tail.",
+    "p_k": "Say: The dog wagged its tail.",
+    "p_y": "It's means it is. Its means belonging to it.",
+    "p_x": "It's cold today. The company changed its name.",
+    "p_t": "Try saying it is. If it fails, use its!",
+    "p_q": "Quiz! The bird hurt blank wing.",
+    "p_q2": "Its, or it's?",
+    "p_a": "Its! The bird hurt its wing.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "The dog wagged its tail.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "its",
+     "it's"
+    ]
+   },
+   "source": "sb_20315a8f"
+  },
+  "sod_3aca1292": {
+   "template": "pair",
+   "hook": "YOUR | YOU'RE",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Your or you're? Don't mix them up.",
+    "p_w": "Not: Your welcome!",
+    "p_k": "Say: You're welcome!",
+    "p_y": "You're means you are.",
+    "p_x": "You're very kind. Is this your phone?",
+    "p_t": "Read it as you are. Does it work? Then you're!",
+    "p_q": "Quiz! blank going to love this!",
+    "p_q2": "You're, or Your?",
+    "p_a": "You're! You're going to love this!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "You're welcome!",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "your",
+     "you're"
+    ]
+   },
+   "source": "sb_3aca1292"
+  },
+  "sod_4404e98f": {
+   "template": "pair",
+   "hook": "FARTHER | FURTHER",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Farther or further? Don't mix them up.",
+    "p_w": "Not: For farther information, call us.",
+    "p_k": "Say: For further information, call us.",
+    "p_y": "Further means more. Farther is distance.",
+    "p_x": "The station is farther than I thought. Do you have any further questions?",
+    "p_t": "Further works for distance too!",
+    "p_q": "Quiz! We need blank details.",
+    "p_q2": "Farther, or further?",
+    "p_a": "Further! We need further details.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "For further information, call us.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "farther",
+     "further"
+    ]
+   },
+   "source": "sb_4404e98f"
+  },
+  "sod_47b3e9e9": {
+   "template": "pair",
+   "hook": "ROB | STEAL",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Rob or steal? Don't mix them up.",
+    "p_w": "Not: Someone robbed my phone.",
+    "p_k": "Say: Someone stole my phone.",
+    "p_y": "You steal things. You rob people or places.",
+    "p_x": "They robbed a store. My bike was stolen.",
+    "p_t": "Thieves rob a bank and steal the money!",
+    "p_q": "Quiz! Someone blank my wallet!",
+    "p_q2": "Stole, or robbed?",
+    "p_a": "Stole! Someone stole my wallet!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Someone stole my phone.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "rob",
+     "steal"
+    ]
+   },
+   "source": "sb_47b3e9e9"
+  },
+  "sod_52a6bffb": {
+   "template": "pair",
+   "hook": "WHOSE | WHO'S",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Whose or who's? Don't mix them up.",
+    "p_w": "Not: Who's bag is this?",
+    "p_k": "Say: Whose bag is this?",
+    "p_y": "Whose asks who owns it. Who's means who is.",
+    "p_x": "Whose phone is ringing? Who's coming tonight?",
+    "p_t": "Same sound, very different meaning!",
+    "p_q": "Quiz! blank car is outside?",
+    "p_q2": "Whose, or Who's?",
+    "p_a": "Whose! Whose car is outside?",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Whose bag is this?",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "whose",
+     "who's"
+    ]
+   },
+   "source": "sb_52a6bffb"
+  },
+  "sod_2ed92c40": {
+   "template": "pair",
+   "hook": "BESIDE | BESIDES",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Beside or besides? Don't mix them up.",
+    "p_w": "Not: Sit besides me.",
+    "p_k": "Say: Sit beside me.",
+    "p_y": "Beside means next to. Besides means also.",
+    "p_x": "The lamp is beside the bed. Besides English, I speak French.",
+    "p_t": "One extra S changes the meaning!",
+    "p_q": "Quiz! blank coffee, I also like tea.",
+    "p_q2": "Besides, or Beside?",
+    "p_a": "Besides! Besides coffee, I also like tea.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Sit beside me.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "beside",
+     "besides"
+    ]
+   },
+   "source": "sb_2ed92c40"
+  },
+  "sod_34ccb489": {
+   "template": "pair",
+   "hook": "CLASSIC | CLASSICAL",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Classic or classical? Don't mix them up.",
+    "p_w": "Not: I love classic music like Mozart.",
+    "p_k": "Say: I love classical music like Mozart.",
+    "p_y": "Classical is old serious music. Classic means famous and great.",
+    "p_x": "Casablanca is a classic movie. She plays classical piano.",
+    "p_t": "A classic car is old and loved!",
+    "p_q": "Quiz! Beethoven wrote blank music.",
+    "p_q2": "Classical, or classic?",
+    "p_a": "Classical! Beethoven wrote classical music.",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I love classical music like Mozart.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "classic",
+     "classical"
+    ]
+   },
+   "source": "sb_34ccb489"
+  },
+  "sod_6e178745": {
+   "template": "pair",
+   "hook": "HOPE | WISH",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "p_h": "Hope or wish? Don't mix them up.",
+    "p_w": "Not: I wish you will pass the test.",
+    "p_k": "Say: I hope you pass the test.",
+    "p_y": "Hope is for possible things. Wish is for unreal.",
+    "p_x": "I hope it doesn't rain. I wish I could fly.",
+    "p_t": "But: I wish you good luck is fine!",
+    "p_q": "Quiz! I blank you have a great trip!",
+    "p_q2": "Wish, or hope?",
+    "p_a": "Hope! I hope you have a great trip!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I hope you pass the test.",
+    "right_lines": [
+     "p_k"
+    ],
+    "pair": [
+     "hope",
+     "wish"
+    ]
+   },
+   "source": "sb_6e178745"
+  }
+ }
+}

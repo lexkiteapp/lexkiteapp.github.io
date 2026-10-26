@@ -1,0 +1,153 @@
+# video-series: render numbered series episodes (docs/VIDEO-SERIES.md "Pipeline v10") from content/video/cine/news/<dir>/<series>/.
+# Specs come from scripts/video/tpl/gold2v9.py; ONLY episodes whose verdict (<series>/reviewed-hooks.json) has hook_true + script_reviewed render.
+# Same engine/steps as video-templates9.yml (Kokoro + Rhubarb + whisper word clock, render_v9, qc_v9), 0 credits.
+# Dedupe gate: series/registry.json content hash (series + key sentence) + 8-frame pHash (Hamming <= 6 on >= 6/8) -> duplicate fails.
+# Artifact only: no store, no Drive, no publish (owner approval gate). Red when 0 videos pass qc + dedupe.
+name: video-series
+on:
+  workflow_dispatch:
+    inputs:
+      series: { description: 'series folder (stop-saying-this | same-or-different)', default: 'stop-saying-this' }
+      ids: { description: 'comma list of spec ids (empty = next `count` reviewed, unregistered episodes in plan order)', default: '' }
+      count: { description: 'how many when ids is empty (max 12)', default: '3' }
+      dir: { description: 'spec root under content/video/cine/news/', default: 'series' }
+permissions: { contents: read }
+concurrency: { group: 'video-series-${{ github.event.inputs.series }}-${{ github.event.inputs.ids }}', cancel-in-progress: false }
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs: { list: '${{ steps.m.outputs.list }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        env: { D: 'content/video/cine/news/${{ github.event.inputs.dir }}/${{ github.event.inputs.series }}', IDS: '${{ github.event.inputs.ids }}', N: '${{ github.event.inputs.count }}', REG: 'content/video/cine/news/${{ github.event.inputs.dir }}/registry.json' }
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os, sys
+          D = os.environ['D']; V = json.load(open(f'{D}/reviewed-hooks.json'))['verdicts']; plan = json.load(open(f'{D}/plan.json'))['order']
+          reg = json.load(open(os.environ['REG']))['entries'] if os.path.exists(os.environ['REG']) else {}
+          ok = lambda i: (V.get(i) or {}).get('hook_true') is True and (V.get(i) or {}).get('script_reviewed') is True
+          ids = [x.strip() for x in os.environ['IDS'].split(',') if x.strip()]
+          if not ids: ids = [o['id'] for o in plan if ok(o['id']) and o['content_hash'] not in reg][:int(os.environ['N'] or 3)]
+          bad = [i for i in ids if not ok(i) or not os.path.exists(f'{D}/{i}.json')]
+          if bad or not ids or len(ids) > 12: print(f'::error::ids not reviewed / missing / count: {bad or ids}', file=sys.stderr); sys.exit(1)
+          print('list=' + json.dumps(ids)); print(ids, file=sys.stderr)
+          PY
+  render:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix: { id: '${{ fromJSON(needs.setup.outputs.list) }}' }
+    env:
+      SPEC: content/video/cine/news/${{ github.event.inputs.dir }}/${{ github.event.inputs.series }}/${{ matrix.id }}.json
+      HOOKS: content/video/cine/news/${{ github.event.inputs.dir }}/${{ github.event.inputs.series }}/reviewed-hooks.json
+      O: out/series/${{ matrix.id }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reviewed script + hook verdict present
+        run: python3 -c "import json,sys;s=json.load(open('$SPEC'));v=json.load(open('$HOOKS'))['verdicts'].get(s['id']) or {};sys.exit(0 if v.get('hook_true') is True and v.get('script_reviewed') is True and v.get('script')=={l['id']:l['text'] for l in s['lines'] if l.get('text')} else 1)" || { echo "::error::script/hook not reviewed"; exit 1; }
+      - name: Libraries + ffmpeg + colour emoji font
+        run: |
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null
+          ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf
+      - name: Footage (only the talk clips of this spec, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          P=$(python3 - <<'PY'
+          import json, os
+          s = json.load(open(os.environ['SPEC'])); tr = json.load(open('content/video/cine/teachers.json')); st = tr['sets'][s['set']]; L = st['lib']
+          p = ['/anchor/tools/foley/ding.wav'] + [f"/{L}/{st[k]}" for k in ('amb', 'ding') if st.get(k)]
+          for c in s['clips']: p += [f"/{L}/{st['path']}/{c}.mp4", f"/{L}/{st['path']}/{c}.json", f"/{L}/{st['meta']}/{c}/{s['teacher']}/"]
+          print(' '.join(p))
+          PY
+          )
+          echo "$P"; git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage
+          du -sh footage/*
+      - name: Vocab images (live CDN, content/lexicon/img.json)
+        run: |
+          mkdir -p img
+          python3 - <<'PY'
+          import json, os, subprocess
+          s = json.load(open(os.environ['SPEC'])); I = json.load(open('content/lexicon/img.json'))['items']
+          for k in sorted({p['img'] for p in s['pops'] if p.get('img')}):   # curl (the CDN refuses python-urllib's user agent)
+              it = I[k]; subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', f"img/{it['h']}.webp", it['url']], check=True); print(k, it['url'])
+          PY
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Kokoro model cache
+        uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb (required – lip-sync fails without it)
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
+          "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice → render → qc → phone copy → frames + sheet
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p $O/phone $O/frames
+          python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
+          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.id }}.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
+          grep -v '^frame ' $O/render.log | tail -8
+          V=$O/${{ matrix.id }}.mp4
+          rc=0; python3 scripts/video/tpl/qc_v9.py $V "$HOOKS" | tee $O/qc.log || rc=1
+          ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.id }}.mp4
+          S=$(stat -c %s $O/phone/${{ matrix.id }}.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+          D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $V)
+          for k in 0 1 2 3 4 5 6 7; do t=$(python3 -c "print(round(0.6 + $k * ($D - 1.4) / 7, 2))")
+            ffmpeg -nostdin -v error -y -ss $t -i $V -frames:v 1 -q:v 2 $O/frames/t$(printf %05.2f $t).jpg
+            ffmpeg -nostdin -v error -y -ss $t -i $V -frames:v 1 -vf scale=360:640 $O/s_$k.png; done
+          ffmpeg -nostdin -v error -y $(for i in 0 1 2 3 4 5 6 7; do echo -i $O/s_$i.png; done) -filter_complex "[0][1][2][3]hstack=4[a];[4][5][6][7]hstack=4[b];[a][b]vstack" -q:v 3 $O/sheet.jpg && rm -f $O/s_*.png
+          rm -f $V.mix.wav; cp vo/vis3/*.words.json $O/ 2>/dev/null || true
+          ls -la $O $O/phone
+          { echo "## ${{ matrix.id }}"; echo '```'; cat $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          echo "{\"id\": \"${{ matrix.id }}\", \"qc\": $([ $rc = 0 ] && echo true || echo false)}" > $O/status.json
+          python3 scripts/video/tpl/series_dedupe.py entry "$SPEC" $O/frames $O/entry.json ${{ github.run_id }}
+          exit $rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: series-${{ github.event.inputs.series }}-${{ matrix.id }}-${{ github.run_number }}
+          path: out/series/${{ matrix.id }}/
+          retention-days: 30
+  dedupe:
+    needs: render
+    if: always() && needs.render.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'series-${{ github.event.inputs.series }}-*-${{ github.run_number }}', path: got }
+      - name: Dedupe vs registry + same run, count passing videos
+        shell: bash
+        run: |
+          pip install -q numpy pillow
+          E=$(ls got/*/entry.json 2>/dev/null || true)
+          [ -n "$E" ] && { python3 scripts/video/tpl/series_dedupe.py check content/video/cine/news/${{ github.event.inputs.dir }}/registry.json $E || true; }
+          python3 - <<'PY' | tee -a "$GITHUB_STEP_SUMMARY"
+          import glob, json, os, sys
+          rows = []
+          for d in sorted(glob.glob('got/*/')):
+              st = json.load(open(d + 'status.json')) if os.path.exists(d + 'status.json') else {'id': d, 'qc': False}
+              dd = json.load(open(d + 'entry.dedupe.json')) if os.path.exists(d + 'entry.dedupe.json') else {'ok': False, 'why': ['no entry']}
+              rows.append((st['id'], st['qc'], dd['ok'], '; '.join(dd['why'])))
+          print('| id | qc | unique | note |\n|---|---|---|---|'); [print(f'| {i} | {q} | {u} | {w} |') for i, q, u, w in rows]
+          n = sum(q and u for _, q, u, _ in rows); dup = sum(not u for _, _, u, _ in rows)
+          print(f'\n**{n} of {len(rows)} videos pass qc + dedupe** (artifact only; owner approval gate before registry add / publish)')
+          if dup: print(f'::error::{dup} duplicate render(s)', file=sys.stderr)
+          if n == 0: print('::error::0 videos passed', file=sys.stderr)
+          sys.exit(1 if n == 0 or dup else 0)
+          PY

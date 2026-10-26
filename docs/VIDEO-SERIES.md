@@ -56,3 +56,19 @@ not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per 
 
 ## Gate (owner)
 Bulk episodes only after the owner approves the re-paced v10 samples (`video-approval-gate`). Until then: ≤ 3 samples per round.
+
+## Pipeline v10 – how to run (series generator, 26/10/2026)
+1. **Generate** (deterministic, no AI): `python3 scripts/video/tpl/gold2v9.py` reads the gold bank `content/video/scripts/bank/*.jsonl` and writes
+   `content/video/cine/news/series/<slug>/<id>.json` (v9 specs, same line/pop/anchor pattern as the templates-v2 episode-1 gold specs) + `plan.json`
+   (episode order, skipped items with reasons) + `reviewed-hooks.json` (verdicts). Series: `stop-saying-this` (mistake, Daniel) and
+   `same-or-different` (pair, Carlos). Every sentence is a bank field or a fixed connective. Self-checks: 50–80 words (gold band 55–76), est. ≤ 45 s,
+   key indices inside lines, quiz answer spoken, CTA "Save this, and … on lexkite.com.", hook ≤ 6 words on screen, error phrase only in the error line.
+   `--check` = dry run. Re-running keeps a verdict only while its script + hook are unchanged.
+2. **Review** (gate 1): `python3 scripts/video/tpl/review_queue.py <slug> 10` prints the next unreviewed episodes; record with
+   `--ok <id> "note"` / `--bad <id> "why"`. Fixes go into the bank line (then regenerate), never into the spec by hand.
+3. **Render** (CI only): dispatch `video-series.yml` with `series`, `ids` (or `count` ≤ 12 = next reviewed, unregistered episodes). It refuses
+   unreviewed specs, renders a matrix (Kokoro 0.75 → Rhubarb → whisper clock → render_v9 → qc_v9 against the series verdict file), then the
+   dedupe job checks `series/registry.json` (content hash = series + key sentence; 8-frame pHash, Hamming ≤ 6 on ≥ 6/8 = duplicate) and goes red
+   on any duplicate or when 0 videos pass.
+4. **Approval gate** (owner): output is an artifact only (no store, Drive or publish). After the owner OKs a video, register it with
+   `python3 scripts/video/tpl/series_dedupe.py add content/video/cine/news/series/registry.json <entry.json>` and commit; publishing is a separate step.
