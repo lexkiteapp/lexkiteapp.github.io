@@ -36,14 +36,24 @@ export function decide({ mode = 'git', event, urgent = false, force = false, las
   return { act, reason: `${changed < 0 ? '?' : changed} tệp site đổi${urgent ? ' (gấp)' : ''}` };
 }
 
-async function lastProd(tok, acct, project) {
+async function lastProd(tok, acct, project, mode = 'git') {
   const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${acct}/pages/projects/${project}/deployments?env=production&per_page=10`, { headers: { Authorization: 'Bearer ' + tok } });
   const j = await r.json().catch(() => ({}));
   if (!r.ok || !j.success) throw new Error(`pages deployments ${r.status}`);
-  // bỏ bản bị skip ([CF-Pages-Skip]) và bản lỗi – chỉ bản đã/đang thật sự build tính là "đã deploy"
-  for (const d of j.result || []) {
-    const st = d.latest_stage || {}, md = (d.deployment_trigger || {}).metadata || {};
+  return pickLast(j.result || [], mode);
+}
+
+/**
+ * Bản production cuối thật sự đã/đang build. Bỏ bản skip ([CF-Pages-Skip]), lỗi, huỷ.
+ * Chế độ hook/direct (đã tắt automatic production deployments): Cloudflare vẫn tạo bản `github:push`
+ * cho mỗi push nhưng để mãi ở stage `queued` – không bao giờ build → bỏ qua, nếu không cổng tưởng
+ * "HEAD đang build" và không bao giờ gọi hook (sự cố 26/10/2026: site đứng ở bản 08:26).
+ */
+export function pickLast(list, mode = 'git') {
+  for (const d of list) {
+    const st = d.latest_stage || {}, tr = d.deployment_trigger || {}, md = tr.metadata || {};
     if (st.status === 'skipped' || st.status === 'failure' || st.status === 'canceled') continue;
+    if (mode !== 'git' && tr.type === 'github:push' && st.name === 'queued') continue;
     return { hash: md.commit_hash || '', created: d.created_on, building: st.name !== 'deploy' || st.status !== 'success' };
   }
   return null;
@@ -57,7 +67,7 @@ function changedSince(hash) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href && process.argv[2] === 'plan') {
   const E = process.env, head = execFileSync('git', ['rev-parse', 'HEAD']).toString().trim();
   let last = null, note = '';
-  try { if (E.CF_TOKEN) last = await lastProd(E.CF_TOKEN, E.CF_ACCOUNT_ID, E.CF_PROJECT || 'lexkite'); else note = ' (thiếu CF_TOKEN – không biết bản cuối)'; }
+  try { if (E.CF_TOKEN) last = await lastProd(E.CF_TOKEN, E.CF_ACCOUNT_ID, E.CF_PROJECT || 'lexkite', E.PAGES_DEPLOY || 'git'); else note = ' (thiếu CF_TOKEN – không biết bản cuối)'; }
   catch (e) { note = ` (API lỗi: ${e.message})`; }
   const r = decide({ mode: E.PAGES_DEPLOY, event: E.EVENT, urgent: E.URGENT === 'true', force: E.FORCE === 'true', last, changed: changedSince(last && last.hash), head, minGapMin: +(E.MIN_GAP_MIN || 180) });
   console.log(`pages-deploy: chế độ ${E.PAGES_DEPLOY || 'git'} · sự kiện ${E.EVENT} → ${r.act}: ${r.reason}${note}`);

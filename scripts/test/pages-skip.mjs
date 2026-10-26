@@ -4,7 +4,7 @@
 //   2) chỉ pages-deploy.yml dùng secret CF_PAGES_DEPLOY_HOOK / `wrangler pages deploy` – nơi khác gọi `gh workflow run pages-deploy.yml`
 //   3) script trong scripts/ có `commit` phải gắn tag hoặc nằm trong EXTERNAL (commit vào kho KHÁC repo chính: media/footage)
 //   4) scripts/pages/deploy.mjs decide()/isSite() đúng logic gom
-import fs from 'node:fs'; import path from 'node:path'; import { decide, isSite } from '../pages/deploy.mjs';
+import fs from 'node:fs'; import path from 'node:path'; import { decide, isSite, pickLast } from '../pages/deploy.mjs';
 const TAG = '[CF-Pages-Skip]', WF = '.github/workflows';
 // commit vào repo KHÁC (không phải lexkiteapp.github.io) → không kích build Pages
 const EXTERNAL = new Set(['scripts/media/push.mjs', 'scripts/lib/media-store.mjs', 'scripts/blog-media.mjs', 'scripts/footage-backup.sh',
@@ -41,6 +41,14 @@ t('build treo > 60 phút không chặn', decide({ mode: 'hook', event: 'schedule
 t('direct không cần giãn cách', decide({ mode: 'direct', event: 'push', head: 'b', last: { hash: 'a', created: ago(5) }, changed: 1, now }).act, 'direct');
 t('force', decide({ mode: 'hook', event: 'workflow_dispatch', force: true, head: 'a', last: { hash: 'a', created: ago(1) }, changed: 0, now }).act, 'hook');
 t('chế độ lạ → git', decide({ mode: 'xyz', event: 'push', head: 'b', now }).act, 'none');
+// pickLast: bản github:push kẹt `queued` (đã tắt auto deploy) không được coi là "đang build" ở chế độ hook/direct
+const dep = (hash, type, name, status) => ({ created_on: '2026-10-26T09:00:00Z', latest_stage: { name, status }, deployment_trigger: { type, metadata: { commit_hash: hash } } });
+const ph = [dep('new', 'github:push', 'queued', 'idle'), dep('old', 'ad_hoc', 'deploy', 'success')];
+t('pickLast hook bỏ push kẹt queued', (pickLast(ph, 'hook') || {}).hash, 'old');
+t('pickLast direct bỏ push kẹt queued', (pickLast(ph, 'direct') || {}).hash, 'old');
+t('pickLast git vẫn tính push đang chờ', (pickLast(ph, 'git') || {}).hash, 'new');
+t('pickLast hook giữ hook đang build', (pickLast([dep('h', 'deploy_hook', 'build', 'active')], 'hook') || {}).building, true);
+t('pickLast bỏ bản huỷ', (pickLast([dep('x', 'deploy_hook', 'deploy', 'canceled'), dep('y', 'deploy_hook', 'deploy', 'success')], 'hook') || {}).hash, 'y');
 for (const [p, w] of [['web/js/app.js', true], ['content/blog/vi/a.md', true], ['docs/FREE-TIER.md', false], ['reports/seo/x.json', false],
   ['brand/library/cine/bank.json', false], ['scripts/build-blog.mjs', true], ['scripts/video/x.mjs', false], ['README.md', false], ['functions/api/x.js', true]])
   if (isSite(p) !== w) bad(`isSite(${p}) = ${!w}, cần ${w}`);
