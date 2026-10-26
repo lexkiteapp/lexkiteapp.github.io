@@ -806,8 +806,7 @@
    "id": "lexicon-expand",
    "workflow": "lexicon-expand.yml",
    "cron": [
-    "12 0 * * *",
-    "35 11 * * *"
+    "12 0 * * *"
    ],
    "priority": "render",
    "resources": [
@@ -816,10 +815,10 @@
    ],
    "minutes": 120,
    "est": {
-    "cf_pool_neurons": 450000
+    "cf_pool_neurons": 600000
    },
    "lease": true,
-   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay 116 tài khoản, 4006/429 → tài khoản kế), trần 450k neuron/lượt ≈ 40 % kho; chạy sau 00:00 UTC (neuron đặt lại) + 11:35 vét, xen giữa fill ảnh 01:40/07:40/13:40/19:40; không dùng tài khoản 2 (VIMG_CF_USE_CF2=0 – workers_ai_b của script-bank/news-auto). 26/10: kho Gemini rỗng → bỏ Gemini (calls 0, không giữ tài nguyên độc quyền) → chạy được cả khi điều phối sập (d1-quota)."
+   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay ~120 tài khoản, 4006/429 → tài khoản kế; JSON bị cắt → chia đôi lô). Trần 600k neuron/lượt ≈ 50 % kho, chạy 00:12 UTC ngay sau giờ đặt lại neuron, trước lượt ảnh 01:40 (ảnh 8 lượt/ngày vắt kho). Kho Gemini rỗng → bỏ Gemini (calls 0) → chỉ cf_pool + gh_minutes, chạy được cả khi điều phối sập (d1-quota)."
   },
   {
    "id": "video-tpl1b",

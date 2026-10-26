@@ -41,6 +41,15 @@ const GAP = /^ipa[ :]/;
 export const sourceGap = r => !!(r && !r.ok && r.why.length && r.why.every(x => GAP.test(x)));
 const formOf = (w, s) => { const t = words(s), st = w.split('-')[0].slice(0, Math.min(w.length, 4)); return t.some(x => x === w || x.startsWith(st)); }; // biến tố/bất quy tắc (forsook) vẫn khớp 4 chữ đầu
 // Cổng 1 mục (CỨNG): lược đồ · IPA hợp lệ (Anh từ Wiktionary, Mỹ từ CMUdict) · 2 giám khảo khác họ ≥ 4 lệch ≤ 1 · CEFR · dịch (≥ 4 cả 2 giám khảo, đúng chữ viết, không lẫn tiếng Việt, dịch ngược ≥ 0.8)
+// định nghĩa đúng HÌNH từ loại (quy ước kho, đo 26/10: v 1348/1348 "to …", adj/adv 0 mạo từ/"to", n 0 "to") – pilot 11: purple#adj "a colour that…"
+export const DEF_POS_FIX = { v: 'a verb definition must start with "to …"', adj: 'an adjective definition must describe a quality (no "a/an/the …" noun phrase, no "to …")', adv: 'an adverb definition must not start with "a/an/the" or "to"', n: 'a noun definition must not start with "to …"' };
+export function defPosOk(def, pos) {
+  const d = String(def || '').trim().toLowerCase();
+  if (pos === 'v') return /^to /.test(d);
+  if (pos === 'adj' || pos === 'adv') return !/^(to|a|an|the) /.test(d);
+  if (pos === 'n') return !/^to /.test(d);
+  return true;
+}
 export function gateEntry(e, { keep } = {}) {
   const why = [];
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
@@ -49,6 +58,7 @@ export function gateEntry(e, { keep } = {}) {
   if (!e.ipa) why.push('ipa: thiếu IPA Anh (Wiktionary + espeak)'); else if (badChars(e.ipa).length) why.push('ipa: ký hiệu ngoài bảng ' + badChars(e.ipa).join(''));
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
+  else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
   if (e.defChanged) why.push('def: viết lại khác nghĩa gloss WordNet (' + String(e.defChanged).slice(0, 80) + ')');

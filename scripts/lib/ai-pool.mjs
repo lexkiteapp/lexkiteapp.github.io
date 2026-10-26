@@ -296,9 +296,14 @@ export function createPool(opts = {}) {
     ok: () => CF2.length > 0 && budget.cf2 > 0, models: () => CF2_MODELS,
     async call(model, req) {
       if (used.cf2 >= budget.cf2) throw new PoolErr('budget', 'neuron tài khoản 2 (phần cấp điều phối) đã hết');
-      const p = await promptFor(req);
-      const text = await cf2Run(model, { messages: [{ role: 'system', content: sysFor(p, req) }, { role: 'user', content: p.user }], max_tokens: 4096, temperature: p.temp ?? 0.2, response_format: { type: 'json_object' } });
-      return { out: parseJSON(text), model };
+      // pilot 11 (26/10): gpt-oss-120b tính cả suy luận vào max_tokens → lxjudge 10 mục × 14 ngôn ngữ bị cắt ở 4096 = JSON hỏng (120/120 lượt giám khảo B).
+      // Trần 16k + JSON hỏng → chia đôi lô (tối đa 2 tầng) rồi gộp; vẫn hỏng → 'bad' như cũ (không bao giờ nhận nửa câu trả lời).
+      const one = async r => { const p = await promptFor(r); return parseJSON(await cf2Run(model, { messages: [{ role: 'system', content: sysFor(p, r) }, { role: 'user', content: p.user }], max_tokens: 16384, temperature: p.temp ?? 0.2, response_format: { type: 'json_object' } })); };
+      const whole = (o, r) => (o && typeof o === 'object' ? o : null);
+      const go = async (r, depth) => { const o = whole(await one(r), r); if (o || depth >= 2 || !Array.isArray(r.items) || r.items.length < 2) return o;
+        used.cf2Split = (used.cf2Split || 0) + 1; const h = Math.ceil(r.items.length / 2), a = await go({ ...r, items: r.items.slice(0, h) }, depth + 1); if (!a) return null;
+        const b = await go({ ...r, items: r.items.slice(h) }, depth + 1); return b ? { ...a, ...b } : null; };
+      return { out: await go(req, 0), model };
     },
   };
   // thị giác (vocab-img giám khảo gọi tên): GrabCast vision (khi có URL) → Gemini kho Lexkite qua /api/studio (wai:0) → tài khoản 2 Llama 4 Scout

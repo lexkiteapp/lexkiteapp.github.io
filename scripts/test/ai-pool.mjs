@@ -125,6 +125,15 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
   const P2 = mk(m2, { env: { GRABCAST_AI_KEY: '', CF_POOL: `${A}:ta\n${B}:tb`, VIMG_POOL_SKIP: '0' }, budget: { cf2: 1e6 } });
   ok(await P2.gen({ mode: 'lxdef', items: ITEMS }) === null && await P2.gen({ mode: 'lxdef', items: ITEMS }) === null && m2.calls.filter(c => c.url.includes('cloudflare.com')).length === 2, 'kho CF: mọi tài khoản 4006 → cả tuyến nghỉ, không gọi thêm');
 }
+// 7c) pilot 11: gpt-oss trên kho CF trả JSON bị cắt khi lô lớn → chia đôi lô, gộp kết quả
+{
+  const A = 'a'.repeat(32), I2 = [{ k: 'apple#n', w: 'apple' }, { k: 'pear#n', w: 'pear' }];
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), cf2: (url, body) => { const u = JSON.parse(body.messages[1].content || '[]'), ks = (Array.isArray(u) ? u : []).map(x => x.k);
+    return J({ success: true, result: { response: ks.length > 1 ? '{"apple#n":{"s":5},"pear#n":{"s"' : JSON.stringify({ [ks[0]]: { s: 4 } }), usage: { prompt_tokens: 100, completion_tokens: 50 } } }); } });
+  const P = createPool({ fetch: m.f, env: { CF_POOL: `${A}:t`, VIMG_POOL_SKIP: '0' }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: () => {}, sleep: async () => {}, budget: { cf2: 1e6 }, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
+  const r = await P.gen({ mode: 'lxdef', items: I2 });
+  ok(r && r.out['apple#n'] && r.out['pear#n'] && P.stats().used.cf2Split === 1, 'kho CF: JSON bị cắt → chia đôi lô, gộp đủ mục');
+}
 // 8) ngân sách GrabCast
 {
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcEcho }); const P = mk(m, { budget: { gc: 1 } });
