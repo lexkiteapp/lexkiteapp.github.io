@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Mảnh kho từ (docs/LEXICON.md §Mảnh): dựng từ ĐÚNG những gì trình duyệt có trong IELTS_DATA.INDEX sau khi nạp data.js + gói words + tsl
 // (chạy chính các file đó trong vm → mục từ giống hệt mọi giao diện, kể cả trường mới như `img` khi data.js thêm) + gói nghĩa web/packs/<lang>.json.
 //   node scripts/lexicon/shards.mjs --out dist      ghi dist/data/lex-index.json + dist/data/lex/** (build-web.sh gọi)
@@ -12,7 +13,7 @@ import crypto from 'crypto';
 import { createRequire } from 'module';
 import { loadExpand, toIndex } from './expand/lib.mjs';
 
-const ROOT = new URL('../../', import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const require = createRequire(import.meta.url);
 const Lex = require(path.join(ROOT, 'web/js/lex.js'));
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Xoay vòng kho media ẢNH ngoài Pages (infra/media-repos.json, kind img – âm thanh do scripts/lib/media-repos.mjs) cho ảnh minh hoạ ~20k × (WebP + AVIF ≤ 6 KB) ≈ 240 MB.
 //   node scripts/vocab-img/media-repo.mjs check [--apply]   → đo cỡ từng kho (GitHub API repo.size), ≥ alert (70 %) cảnh báo, ≥ soft_mb → state=full;
 //                                                             không còn kho open → (--apply) TẠO kho kế tiếp lexkite-media-N qua API + ghi sổ (state open)
@@ -23,7 +24,7 @@ export function plan(reg, sizes) {
 }
 export function nextRepo(reg) { const n = reg.repos.length + 1; return { id: 'm' + n, repo: `lexkiteapp/lexkite-media-${n}`, cdn: `https://media.lexkite.com/m${n}/`, kinds: ['img'], state: 'open', at: new Date().toISOString().slice(0, 10) }; }
 
-if (process.argv[1] && new URL(import.meta.url).pathname === fs.realpathSync(process.argv[1])) {
+if (process.argv[1] && fileURLToPath(new URL(import.meta.url)) === fs.realpathSync(process.argv[1])) {
   const [cmd, a1] = process.argv.slice(2), reg = load(), tok = process.env.LEXKITE_MEDIA_TOKEN || process.env.GH_TOKEN;
   if (cmd === 'pick') { console.log(JSON.stringify(pick(reg, a1))); process.exit(0); }
   const H = { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'User-Agent': 'lexkite-ci' };

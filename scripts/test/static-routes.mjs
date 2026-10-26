@@ -1,7 +1,8 @@
+import { fileURLToPath } from 'node:url';
 // File tĩnh trên lexkite.com không bao giờ được trả 500 vì mã server: Pages Functions chỉ chạy ở /api/* (web/_routes.json),
 // không có middleware/catch-all chạy trên mọi đường dẫn; JSON tĩnh mà app tải (seo-twins.json, blog-langs.json) thử lại khi gặp 5xx tạm thời.
 import fs from 'node:fs'; import path from 'node:path';
-const R = new URL('../../', import.meta.url).pathname;
+const R = fileURLToPath(new URL('../../', import.meta.url));
 let fail = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} static-routes: ${m}`); if (!c) fail++; };
 const routes = JSON.parse(fs.readFileSync(path.join(R, 'web/_routes.json'), 'utf8'));
 ok(routes.version === 1 && Array.isArray(routes.include) && Array.isArray(routes.exclude), '_routes.json đúng định dạng Cloudflare Pages (version 1, include, exclude)');

@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Lời giải đáp án (docs/EXPLAIN.md): (1) vẽ thẻ web/js/explain-card.js  (2) dữ liệu content/explain/*.json ↔ ngân hàng câu hỏi ↔ web/js/explain/**
 // Chạy: node scripts/test/explain.mjs
 import fs from 'node:fs';
@@ -78,7 +79,7 @@ for (const set of Object.keys(SETS)) {
     n++;
   }
 }
-try { execFileSync('node', [new URL('../explain/build.mjs', import.meta.url).pathname, '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/js/explain lệch nguồn – chạy node scripts/explain/build.mjs'); }
+try { execFileSync('node', [fileURLToPath(new URL('../explain/build.mjs', import.meta.url)), '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/js/explain lệch nguồn – chạy node scripts/explain/build.mjs'); }
 // id phía app (U.xid) = id phía dữ liệu
 const usage = (await import('../explain/sets.mjs')).usage(), q = usage.quiz(usage.list('p'), 5, 7)[0];
 ok(items('usage').some(i => i.id === usage.xid(q)), 'usage: U.xid khớp sets.mjs');

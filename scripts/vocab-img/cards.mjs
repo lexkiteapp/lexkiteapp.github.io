@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Viết THẺ VẼ (content/lexicon/vimg-cards.json) cho nghĩa chưa có thẻ – từ định nghĩa + câu ví dụ của kho từ vựng, qua GrabCast /api/owner-ai/generate
 // (văn bản; KHÔNG dùng Workers AI tài khoản chính). Thẻ chỉ là đầu vào: ảnh vẫn phải qua giám khảo GỌI TÊN + QC (strict.mjs) mới được đăng.
 //   node scripts/vocab-img/cards.mjs --keys <file.json> [--max N] [--write]   → in số thẻ mới; --write ghi vào vimg-cards.json
@@ -10,7 +11,7 @@ import { negHit } from './style.mjs';
 import { cfTextOn } from '../lib/ai-pool.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
-const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
+const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT)), rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
 const CARDS = 'content/lexicon/vimg-cards.json';
 const GC = String(process.env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 const KEY = process.env.GRABCAST_AI_KEY;
@@ -95,4 +96,4 @@ async function main() {
   }
   console.log(`thẻ mới: ${n} vẽ · ${sk} skip · ${bad} hỏng (trên ${todo.length} cần)`);
 }
-if (process.argv[1] && new URL(import.meta.url).pathname === fs.realpathSync(process.argv[1])) main();
+if (process.argv[1] && fileURLToPath(new URL(import.meta.url)) === fs.realpathSync(process.argv[1])) main();

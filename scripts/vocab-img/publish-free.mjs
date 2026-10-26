@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Đăng tầng MIỄN PHÍ (free_tier.py) vào CÙNG chỉ mục một nguồn content/lexicon/img.json + kho lexkite-media/vimg/ (media.lexkite.com/vimg/<h>.*).
 //   node scripts/vocab-img/publish-free.mjs --result out/free/result.json [--push]
 // icon → mục ảnh chính (h) – tất định, đã soát tay (vimg-icon-overrides.json), q.vision = 'deterministic' (KHÔNG cần giám khảo AI);
@@ -9,7 +10,7 @@ import { execFileSync } from 'child_process';
 import { STYLE } from './style.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
-const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, J = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
+const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT)), J = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
 const IMGF = 'content/lexicon/img.json', img = J(IMGF), ic = J('content/lexicon/vimg-icons-lex.json').items, wk = J('content/lexicon/vimg-wiki.json').items;
 const rf = arg('result'), res = JSON.parse(fs.readFileSync(rf, 'utf8')).items, dir = path.join(path.dirname(rf), 'final');
 const media = process.env.MEDIA_DIR || path.join(process.env.RUNNER_TEMP || '/tmp', 'lexkite-media'), PUSH = process.argv.includes('--push');

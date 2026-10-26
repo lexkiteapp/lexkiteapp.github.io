@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Kho kịch bản video ngắn (chỉ CHỮ – không dựng, không credit, không tự đăng). docs/VIDEO-SCALE-PLAN.md §16.
 // Nguồn sự thật DUY NHẤT của điểm học: lexicon (web/js/data.js + web/js/lib/*.js), Cách dùng từ (web/js/usage/*.js: cặp dễ nhầm, giới từ,
 // mẫu động từ, trạng từ, cấu trúc + lỗi hay gặp), ngữ pháp (web/js/grammar/*.js, câu đố cuối bài) và bảng tình huống nhỏ dưới đây.
@@ -11,7 +12,7 @@ import { loadAll, key as lexKey } from '../lexicon/lib.mjs';
 import { expandRows } from '../lexicon/expand/lib.mjs';
 import { syllables, stressIndex } from '../lexicon/ipa.mjs';
 
-const ROOT = new URL('../../', import.meta.url), R = p => new URL(p, ROOT).pathname;
+const ROOT = new URL('../../', import.meta.url), R = p => fileURLToPath(new URL(p, ROOT));
 const require = createRequire(import.meta.url);
 export const DIR = R('content/video/scripts');
 export const h8 = s => crypto.createHash('sha1').update(s).digest('hex').slice(0, 8);

@@ -1,6 +1,7 @@
+import { fileURLToPath } from 'node:url';
 // Chặn tái phát lỗi quality-sweep #17: CLS logo (/en/, /ar/ → app), nút đè ở #/review, vùng chạm < 44px (trang chủ, blog), SEO link-text /app/.
 import fs from 'node:fs';
-const R = new URL('../../', import.meta.url).pathname, rd = f => fs.readFileSync(R + f, 'utf8');
+const R = fileURLToPath(new URL('../../', import.meta.url)), rd = f => fs.readFileSync(R + f, 'utf8');
 let fail = 0; const ok = (c, m) => { console.log(`${c ? '✓' : '✗'} layout-guards: ${m}`); if (!c) fail++; };
 const app = rd('web/js/app.js'), html = rd('web/app/index.html'), css = rd('web/css/style.css');
 const logos = [...(app + html).matchAll(/<img class="logo"[^>]*>/g)].map(m => m[0]);

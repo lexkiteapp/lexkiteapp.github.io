@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // IPA Anh dự phòng từ espeak-ng en-gb (miễn phí, tất định) khi Wiktionary thiếu – docs/LEXICON.md §Mở rộng 20k.
 // espeak_uk.py trả IPA thô (ˈ đặt trước nguyên âm, ɹ, a…) → normEspeak() đưa về quy ước kho (ˈ ở đầu âm tiết, r, æ, e, không ˈ ở từ 1 âm tiết).
 // Hiệu chuẩn (calibrate): so với IPA Anh Wiktionary của ~300 từ – chỉ dùng khi khớp gần ≥ 90 % (ACCEPT); mục ghi src.ipaUK = 'espeak'.
@@ -59,6 +60,6 @@ export const compare = (es, wk) => { const a = cmpKey(es); const dd = a ? Math.m
 /** gọi espeak_uk.py cho danh sách từ → { w: '/ipa/' } (rỗng nếu không chạy được) */
 export function espeakUK(words, py = process.env.ESPEAK_PY || 'python3') {
   if (!words.length) return {};
-  try { const raw = JSON.parse(execFileSync(py, ['-I', new URL('./espeak_uk.py', import.meta.url).pathname], { input: words.join('\n'), maxBuffer: 64 << 20 }).toString());
+  try { const raw = JSON.parse(execFileSync(py, ['-I', fileURLToPath(new URL('./espeak_uk.py', import.meta.url))], { input: words.join('\n'), maxBuffer: 64 << 20 }).toString());
     return Object.fromEntries(Object.entries(raw).map(([w, v]) => [w, normEspeak(v)])); } catch (e) { console.error('espeak: ' + String(e.message).slice(0, 200)); return {}; }
 }

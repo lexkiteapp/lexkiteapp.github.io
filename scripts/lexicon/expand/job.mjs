@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ tới 20k (docs/LEXICON.md §Mở rộng 20k) – việc nền `lexicon-expand` (infra/jobs.json), chạy trên CI, tiếp tục được, idempotent.
 //   node scripts/lexicon/expand/job.mjs --candidates <candidates.json> --cmu <cmudict.dict> [--n 400] [--pilot] [--calls 400] [--batch <id>] [--dry] [--no-retry]
 // Mỗi từ: IPA Mỹ CMUdict (BSD-2) · IPA Anh Wiktionary qua kaikki.org (CC BY-SA 4.0, ghi công) · nghĩa WordNet làm khung
@@ -89,7 +90,7 @@ const VIOK = new Set(); { const f = arg('--viwords'); if (f && fs.existsSync(f))
   if (VIOK.size) for (const r of loadAll()) for (const v of String(r.row[3] || '').split(/[;,]/)) if (v.trim()) VIOK.add(v.replace(/\([^)]*\)/g, '').trim().toLowerCase().normalize('NFC')); console.log('vi từ điển kiểm: ' + VIOK.size); }
 if (TAT && fs.existsSync(TAT)) { const tmp = (process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp') + '/lx-ex-' + process.pid;
   fs.writeFileSync(tmp + '.in.json', JSON.stringify(items.map(x => ({ k: x.k, w: x.w, pos: x.pos }))));
-  try { console.log(execFileSync('python3', [new URL('examples.py', import.meta.url).pathname, '--words', tmp + '.in.json', '--tatoeba', TAT, '--out', tmp + '.out.json', ...(arg('--bad') ? ['--bad', arg('--bad')] : [])], { encoding: 'utf8', maxBuffer: 1 << 26 }).trim()); Object.assign(EXT, JSON.parse(fs.readFileSync(tmp + '.out.json', 'utf8'))); }
+  try { console.log(execFileSync('python3', [fileURLToPath(new URL('examples.py', import.meta.url)), '--words', tmp + '.in.json', '--tatoeba', TAT, '--out', tmp + '.out.json', ...(arg('--bad') ? ['--bad', arg('--bad')] : [])], { encoding: 'utf8', maxBuffer: 1 << 26 }).trim()); Object.assign(EXT, JSON.parse(fs.readFileSync(tmp + '.out.json', 'utf8'))); }
   catch (e) { console.error('✗ examples.py', String(e.stderr || e.message).slice(-400)); } }
 else console.warn('⚠ không có Tatoeba (--tatoeba) – ví dụ chỉ từ Wiktionary/AI');
 const formRe = w => new RegExp('\\b' + w.replace(/[^a-z-]/g, '').slice(0, Math.max(3, Math.min(w.length, w.length - 1))) + '[a-z]*\\b', 'i');

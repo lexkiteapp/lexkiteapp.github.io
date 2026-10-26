@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Ảnh cho MỌI nghĩa (chủ 24/10: ~20.000 từ đều có ảnh AI, nhẹ, cùng một gia đình) – phân loại + prompt + thẻ cảnh.
 //   kind(k, e, lexname, card) → 'object' (nghĩa cụ thể: tranh vật/hành động s1 như cũ – strict.mjs)
 //                             | 'concept' (hư từ: ô SVG tất định – concept.mjs, không AI)
@@ -109,9 +110,9 @@ export function pilot(lex, sel, n = 60, fnN = 20) {
   return { items: [...out, ...fns], scene: out, concept: fns };
 }
 
-if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url).pathname)) {
+if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(import.meta.url)))) {
   const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
-  const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
+  const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT)), rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
   const lex = rd('dist/lexicon.json'), sel = rd('content/lexicon/vimg-select.json').items;
   const QF = 'content/lexicon/vimg-scene-queue.json', SC = 'content/lexicon/vimg-scenes.json', cards = fs.existsSync(P(SC)) ? rd(SC) : { _note: 'Thẻ cảnh cho nghĩa trừu tượng (scene.mjs). ex = câu ví dụ của kho, sc = mô tả hình, cap = chú thích cho giám khảo.', v: SCENE_V, items: {} };
   const keysOf = () => { const f = arg('keys'); return f && fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, 'utf8')).scene || JSON.parse(fs.readFileSync(f, 'utf8')).items) : String(f || '').split(',').filter(Boolean); };

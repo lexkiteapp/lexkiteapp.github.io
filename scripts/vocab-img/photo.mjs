@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Tầng ẢNH CHỤP (tuỳ chọn, CHỈ cho trang /words/ SEO – thẻ app không bao giờ dùng ảnh chụp, xem docs/LEXICON.md § Chính sách hình theo bề mặt).
 // Nguồn miễn phí: Pixabay API (giấy phép Pixabay: được tải & tự lưu trữ, không cần ghi công nhưng ta vẫn ghi) → Pexels API (ghi công khuyến nghị).
 // KHÔNG hotlink: tải về out/<dir>/raw/<slug>.a1.jpg → cùng cổng QC (giám khảo gọi tên…) → nén ≤ 6 KB AVIF/WebP → lexkite-media/vimg/ (trường `photo` của mục img.json).
@@ -38,4 +39,4 @@ async function main() {
   }
   fs.writeFileSync(sf, JSON.stringify(src, null, 1));
 }
-if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url).pathname)) main();
+if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(import.meta.url)))) main();

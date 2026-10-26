@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Ô KHÁI NIỆM cho hư từ (the, of, although…) – SVG TẤT ĐỊNH, không AI, không giám khảo mô hình (luật = bảng tay dưới đây, kiểm mẫu tuần như mọi lô).
 // Phong cách c1: nền vuông bo góc teal #0F3D3E (đẹp cả sáng lẫn tối – không bao giờ nền trắng trên nền tối), hình sơ đồ cam/vàng/kem (docs/BRAND-RULES.md).
 // Mỗi hư từ → một HỌ sơ đồ (vị trí, thời gian, tương phản, nguyên nhân, lượng, đại từ…) + tham số → cùng một "gia đình" hình.
@@ -146,7 +147,7 @@ export function conceptSvg(w) {
 }
 export const conceptHash = w => (fnv(CONCEPT_V + '|' + w).toString(16).padStart(8, '0') + fnv('c|' + w + '|' + CONCEPT_V).toString(16).padStart(8, '0'));
 
-if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url).pathname)) {
+if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(import.meta.url)))) {
   const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
   const ks = arg('keys') || ''; const keys = fs.existsSync(ks) ? (JSON.parse(fs.readFileSync(ks, 'utf8')).items || []) : ks.split(',').filter(Boolean);
   const out = arg('out') || 'out/vocab-img-scene'; fs.mkdirSync(path.join(out, 'svg'), { recursive: true });

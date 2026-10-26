@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Visual check of Admin → Video (#video) on SANDBOX fixtures (no account, no API, no network): Playwright Chromium on CI
 // (.github/workflows/admin-video-ui.yml). light/dark × desktop(1280)/mobile(390) → <out>/<tag>-<section>-<theme>-<vp>.png + <tag>.json.
 // Works with the old module (tabs [data-t]) and the new one (sub-nav .vx-nav [data-sec]) so before/after can be compared.
@@ -23,7 +24,7 @@ if (process.argv[2] === '--compare') { // side-by-side sheets: before (left) | a
 }
 
 const OUT = process.argv[2] || 'out/admin-video', TAG = process.argv[3] || 'after', WEB = process.argv[4] || 'web'; fs.mkdirSync(OUT, { recursive: true });
-let axe = null; try { axe = fs.readFileSync(path.join(path.dirname(new URL(import.meta.resolve('axe-core')).pathname), 'axe.min.js'), 'utf8'); } catch (e) { /* optional */ }
+let axe = null; try { axe = fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.resolve('axe-core'))), 'axe.min.js'), 'utf8'); } catch (e) { /* optional */ }
 
 // ---- sandbox fixtures (deterministic) ----
 const SCENES = ['cafe', 'airport', 'hotel', 'office', 'anchor'], TPL = ['choose', 'listen', 'news', 'fix-it'], CEFR = ['A2', 'B1', 'B2'], AREAS = ['listening', 'grammar', 'dictionary', 'speaking', 'exam'];

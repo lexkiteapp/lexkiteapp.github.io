@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Đăng ảnh CẢNH đã qua giám khảo cảnh (ngưỡng độ chính xác cao vimg-judge-scene.json) của lượt `fill` – docs/LEXICON.md § Ảnh mọi nghĩa.
 //   node scripts/vocab-img/scene-publish.mjs --dir m --stage .media-out         chép final/<h>.webp|.avif → .media-out/vimg/ (scripts/media/push.mjs --kind img đẩy lên kho open, nay m4)
 //   node scripts/vocab-img/scene-publish.mjs --dir m --index [--variants 4]      SAU khi đẩy thành công: img.json (+ kind scene, repo), thẻ cảnh mới, hàng chờ sửa prompt, báo cáo
@@ -14,7 +15,7 @@ import { NEURONS_PER_IMG } from './gen.mjs';
 const NEURONS_PER_VISION = +(process.env.VIMG_NEURONS_PER_VISION || 31);
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
-const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, rd = p => JSON.parse(fs.readFileSync(p, 'utf8'));
+const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT)), rd = p => JSON.parse(fs.readFileSync(p, 'utf8'));
 const D = arg('dir') || 'm', R = rd(path.join(D, 'result.json')), V = +(arg('variants') || 4);
 // CHỈ ảnh AI được giám khảo cảnh chấm (có câu trả lời thị giác) – ô chữ dự phòng (src concept, nghĩa không có thẻ) KHÔNG BAO GIỜ là ảnh cảnh
 // (lượt 40088424311: 1.900 ô chữ lọt vì scene_final đánh dấu pass cho fallback 'type' → đã gỡ)

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Đăng ảnh minh hoạ đã qua QC vào kho từ vựng MỘT NGUỒN (content/lexicon/img.json) + kho ảnh lexkite-media/vimg/ (media.lexkite.com/vimg/<h>.webp).
 //   node scripts/vocab-img/publish.mjs --gaps N                     in {items:[…]} N nghĩa vẽ được (vimg-select.json) chưa có ảnh/đã bị gỡ, điểm cao trước
 //   node scripts/vocab-img/publish.mjs --result r.json --review v.json [--push]
@@ -10,7 +11,7 @@ import { execFileSync } from 'child_process';
 import { STYLE } from './style.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
-const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname;
+const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT));
 const J = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
 const IMG = 'content/lexicon/img.json', REV = 'content/lexicon/img-review.json';
 const img = J(IMG);

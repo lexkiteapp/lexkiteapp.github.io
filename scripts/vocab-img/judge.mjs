@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Giám khảo GỌI TÊN (cổng chính của QC ảnh minh hoạ, strict.mjs): hỏi mô hình thị giác "ảnh này vẽ cái gì" mà KHÔNG nói từ đích,
 // rồi khớp tên với đồng nghĩa của thẻ. Nhà cung cấp: /api/studio op visionCheck (wai:0 → bỏ Llama YES/NO, đi Gemini – kho khóa Lexkite).
 // Không trả lời (hết hạn mức) = KHÔNG đạt ('judge unavailable') – nghiêm: không có giám khảo thì không có ảnh.
@@ -45,4 +46,4 @@ async function main() {
   fs.writeFileSync(f, JSON.stringify(res, null, 1));
   console.log(`giám khảo lần ${ATT}: ${ok}/${files.length} gọi đúng tên`);
 }
-if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url).pathname)) main();
+if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(import.meta.url)))) main();

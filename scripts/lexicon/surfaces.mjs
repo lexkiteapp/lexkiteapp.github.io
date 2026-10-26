@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 // Cổng nhất quán giữa các giao diện (gọi từ scripts/build-lexicon.mjs = dict-consistency): cùng 1 từ → cùng dữ liệu ở mọi nơi.
 // Kiểm bằng DỮ LIỆU mà từng giao diện thực sự đọc (bản hiển thị thật trên Chromium: scripts/test/dict-perf.mjs, CI dict-perf.yml):
 //   web/app tra từ + thẻ/quiz/widget/lớp học (IELTS_DATA.INDEX) ⇄ mảnh Lex (web, mobile, add-on service worker/popup) ⇄ tab mới add-on (extension/nt)
@@ -7,7 +8,7 @@ import path from 'path';
 import { createRequire } from 'module';
 import { loadBrowserIndex, buildShards } from './shards.mjs';
 
-const ROOT = new URL('../../', import.meta.url).pathname, rd = p => fs.readFileSync(path.join(ROOT, p), 'utf8');
+const ROOT = fileURLToPath(new URL('../../', import.meta.url)), rd = p => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const require = createRequire(import.meta.url);
 
 export function surfaceErrors() {

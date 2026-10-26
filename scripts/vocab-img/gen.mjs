@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Vẽ ảnh minh hoạ từ vựng – CHỈ dịch vụ miễn phí, ưu tiên thấp nhất (việc nền `vocab-img`, infra/jobs.json).
 //   node scripts/vocab-img/gen.mjs --keys <file.json|k1,k2> --out <dir> [--attempt 1|2] [--dry-run]
 // Nhà cung cấp (thứ tự; mỗi nhà có trần ảnh/ngày suy từ neuron miễn phí – NEURONS_PER_IMG):
@@ -159,4 +160,4 @@ async function main() {
   console.log(`✓ vẽ ${n} ảnh (lần ${ATT}) · lỗi ${fail} · dùng ${JSON.stringify(used)} · ước neuron ${((used.grabcast + used.cf2 + used.main) * NEURONS_PER_IMG).toFixed(0)} (${NEURONS_PER_IMG}/ảnh)${GC_STATS.exhausted_at ? ` · bể CF cạn lúc ${GC_STATS.exhausted_at} sau ${GC_STATS.ok_before_exhausted} ảnh` : ''}`);
   if (!DRY && keys.length && n === 0 && !fs.readdirSync(path.join(OUT, 'raw')).length) process.exit(1);   // workflow tự đỏ khi = 0
 }
-if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url).pathname)) main();
+if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(import.meta.url)))) main();

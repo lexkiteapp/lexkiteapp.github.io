@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Lượt vẽ cho ảnh "mọi nghĩa" + ảnh bài học giai đoạn 1 (docs/VISUAL-LEARNING-PLAN.md) – CÙNG nhà vẽ (gen.mjs PROVIDERS: GrabCast Cloudflare FLUX), cùng cổng.
 //   node scripts/vocab-img/scene-gen.mjs --keys keys.json --out <dir> [--attempt 1|2] [--shard i/n] [--targets-only]
 // keys.json {items:[…]}: 'từ#loại' (nghĩa kho) · 'topic:<id>' (bìa chủ đề, content/lexicon/topics.json) · 'conf:<id>' (tình huống bài Tự tin, content/confidence/units).
@@ -14,7 +15,7 @@ import { conceptSvg, familyOf, conceptHash } from './concept.mjs';
 import { fnv, PEOPLE } from './style.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
-const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
+const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT)), rd = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
 const OUT = arg('out') || 'out/vocab-img-scene', ATT = +(arg('attempt') || 1);
 const [SI, SN] = String(arg('shard') || '0/1').split('/').map(Number);
 const isImg = b => b && b.length > 1000 && ((b[0] === 0xff && b[1] === 0xd8) || (b[0] === 0x89 && b[1] === 0x50) || b.slice(8, 12).toString() === 'WEBP');
@@ -95,4 +96,4 @@ async function main() {
   fs.writeFileSync(path.join(OUT, `speed.gen.s${SI}.a${ATT}.json`), JSON.stringify({ images: n, minutes: +min.toFixed(2), per_min: +(n / Math.max(min, 1e-3)).toFixed(2) }));
   console.log(`✓ vẽ ${n} ảnh (lần ${ATT}, shard ${SI}/${SN}) trong ${min.toFixed(1)} phút = ${(n / Math.max(min, 1e-3)).toFixed(2)} ảnh/phút · ${JSON.stringify(used)}`);
 }
-if (path.resolve(process.argv[1] || '') === path.resolve(new URL(import.meta.url).pathname)) main();
+if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(import.meta.url)))) main();

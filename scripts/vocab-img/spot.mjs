@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { fileURLToPath } from 'node:url';
 // Kiểm tra mẫu HẰNG TUẦN bởi tác tử Claude (docs/LEXICON.md § Ảnh minh hoạ › Kiểm mẫu tuần): 5 % ảnh mỗi lô đăng trong N ngày, tất định.
 //   node scripts/vocab-img/spot.mjs --sample [--days 7]          → JSON [{k, b, url, def, card}] (Claude xem từng ảnh: đúng NGHĨA? không chữ? an toàn?)
 //   node scripts/vocab-img/spot.mjs --verdict v.json [--write]   v.json = {"từ#loại": "ok" | "bad: lý do"}
@@ -9,7 +10,7 @@ import { execFileSync } from 'child_process';
 import { fnv } from './style.mjs';
 
 const arg = n => { const i = process.argv.indexOf('--' + n); return i > 0 ? process.argv[i + 1] : undefined; };
-const ROOT = new URL('../../', import.meta.url), P = p => new URL(p, ROOT).pathname, J = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
+const ROOT = new URL('../../', import.meta.url), P = p => fileURLToPath(new URL(p, ROOT)), J = p => JSON.parse(fs.readFileSync(P(p), 'utf8'));
 const IMG = 'content/lexicon/img.json', MAX_BAD = 0.02, RATE = 0.05;
 const img = J(IMG);
 
@@ -46,4 +47,4 @@ function main() {
   fs.writeFileSync(P(IMG), JSON.stringify(img, null, 1) + '\n');
   execFileSync('node', [P('scripts/build-lexicon.mjs'), '--write'], { stdio: 'inherit' });
 }
-if (process.argv[1] && new URL(import.meta.url).pathname === fs.realpathSync(process.argv[1])) main();
+if (process.argv[1] && fileURLToPath(new URL(import.meta.url)) === fs.realpathSync(process.argv[1])) main();
