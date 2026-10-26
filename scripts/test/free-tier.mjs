@@ -104,4 +104,11 @@ await ok('workflow wired', () => {
   const jobs = JSON.parse(fs.readFileSync('infra/jobs.json', 'utf8')).jobs; assert.ok(jobs.find(j => j.workflow === 'free-tier-guard.yml'));
   const svc = JSON.parse(fs.readFileSync('infra/resources.json', 'utf8')).services; assert.ok(svc.find(s => s.key === 'free-tier-guard'));
 });
+await ok('dict: shed holds stage advance, rollback path untouched', async () => {
+  const { decide } = await import('../dict/stage.mjs');
+  const s0 = { stage: 'S0', index: '', n: 200, since: '2026-10-01' };
+  assert.equal(decide(s0, null, { live: true }).change, true);
+  const h = decide(s0, null, { live: true, shed: true }); assert.equal(h.change, false); assert.match(h.why, /shed/);
+  const w = fs.readFileSync('workers/dict/index.mjs', 'utf8'); assert.match(w, /edgeCached\(/); assert.match(w, /mode\(\)/); assert.match(w, /stale-while-revalidate|cacheControl\(/);
+});
 console.log(`free-tier: ${n}/${n} ok`);

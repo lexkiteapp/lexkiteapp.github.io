@@ -19,12 +19,13 @@ const days = (a, b) => Math.floor((Date.parse(b) - Date.parse(a)) / 864e5);
 
 // m = { at, langs: { vi: { submitted, indexed, crawledNotIndexed, impressions, clicks }, … }, cwvGood: bool, siteImpressionsDelta: số (−0,25 = giảm 25 %) }
 export const STATIC_CAP = 19000; // asset tĩnh/Worker (trần Free 20.000) – vượt thì trang đuôi dài cần R2
-export function decide(state, m, { today = new Date().toISOString().slice(0, 10), live = false, r2 = false, langs = 2, wordsRoute = false } = {}) {
+export function decide(state, m, { today = new Date().toISOString().slice(0, 10), live = false, r2 = false, langs = 2, wordsRoute = false, shed = false } = {}) {
   const i = LADDER.findIndex(x => x.stage === state.stage), cur = LADDER[i], age = days(state.since, today);
   const go = (to, why) => ({ change: true, next: { ...state, stage: to.stage, index: to.index, n: to.n, since: today, history: [...(state.history || []), { at: today, from: state.stage, to: to.stage, why }].slice(-30) }, why });
   const hold = why => ({ change: false, next: state, why });
   if (i < 0) return hold(`trạng thái lạ ${state.stage}`);
-  if (cur.stage === 'S0') return live ? go(LADDER[1], 'route lexkite.com đã chạy → mở 50 vi/30 en ứng viên tốt nhất') : hold('chờ route lexkite.com (chủ duyệt gắn route, docs §8)');
+  const SHED = 'free-tier shed (Workers ≥ 80 % trần/ngày, web/free-tier-state.json – docs/FREE-TIER.md §3): không mở thêm trang thí điểm';
+  if (cur.stage === 'S0') return live ? (shed ? hold(SHED) : go(LADDER[1], 'route lexkite.com đã chạy → mở 50 vi/30 en ứng viên tốt nhất')) : hold('chờ route lexkite.com (chủ duyệt gắn route, docs §8)');
   if (!m || !m.langs) return hold('chưa có số đo GSC (reports/seo/dict-metrics.json) – giữ nguyên, không tự mở thêm');
   const L = Object.entries(m.langs).filter(([, x]) => x && x.submitted >= RULES.minSubmitted);
   if (!L.length) return hold('sitemap chưa đủ URL để đo');
@@ -41,13 +42,15 @@ export function decide(state, m, { today = new Date().toISOString().slice(0, 10)
   if (!nx || nx.human) return hold(nx ? nx.human : 'đã ở bậc cuối');
   if (nx.stage === 'S3a' && !wordsRoute) return hold('đạt ngưỡng nhưng S3a bắt đầu trùng trang /words/ – cần gắn route lexkite.com/vi/words/*, /en/words/* cho Worker (wrangler.toml) để 301, tránh 2 URL cho 1 từ');
   if (nx.n * langs > STATIC_CAP && !r2) return hold(`đạt ngưỡng nhưng ${nx.stage} (${nx.n} từ × ${langs}) vượt ${STATIC_CAP} trang tĩnh – cần bucket R2 lexkite-dict-data (docs §8)`);
+  if (shed) return hold(SHED); // lùi bậc vẫn chạy (giảm tải); chỉ chặn lên bậc
   return go(nx, `đạt ngưỡng ${age} ngày (index ≥ ${RULES.indexedMin * 100} %, CTR ≥ ${RULES.ctrMin * 100} %) → ${nx.stage}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const F = 'content/dict/stage.json', M = 'reports/seo/dict-metrics.json';
   const state = JSON.parse(fs.readFileSync(F, 'utf8')), m = fs.existsSync(M) ? JSON.parse(fs.readFileSync(M, 'utf8')) : null;
-  const r = decide(state, m, { live: process.env.DICT_LIVE === '1', r2: process.env.DICT_R2 === '1', wordsRoute: process.env.DICT_WORDS_ROUTE === '1' });
+  let shed = false; try { shed = JSON.parse(fs.readFileSync('web/free-tier-state.json', 'utf8')).mode === 'shed'; } catch { /* không có → normal */ }
+  const r = decide(state, m, { live: process.env.DICT_LIVE === '1', r2: process.env.DICT_R2 === '1', wordsRoute: process.env.DICT_WORDS_ROUTE === '1', shed });
   if (r.change) fs.writeFileSync(F, JSON.stringify(r.next, null, 1) + '\n');
   const out = `${r.change ? 'ĐỔI' : 'GIỮ'} ${state.stage}${r.change ? ' → ' + r.next.stage : ''}: ${r.why}`;
   console.log(out);
