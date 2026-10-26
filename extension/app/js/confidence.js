@@ -4,6 +4,7 @@
  * App.addWord (SRS), App.reward (XP/chuỗi). Âm thanh thử thách ngày chỉ ở bộ nhớ trình duyệt (không tải lên, không lưu).
  * Route: #/confidence · #/confidence/<bài>[#<cụm>] · #/confidence/toolkit[#<nhóm>-<cụm>] · #/confidence/daily */
 (function () {
+  /*icons*/UI.addIcons('<symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol><symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></symbol><symbol id="i-shopping-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol><symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol><symbol id="i-stethoscope" viewBox="0 0 24 24"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></symbol><symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/><path d="m7.5 4.27 9 5.15"/></symbol><symbol id="i-plane-takeoff" viewBox="0 0 24 24"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 1.1-.55a2 2 0 0 1 1.8 0l.17.1a2 2 0 0 0 1.8 0L8 12 5 6l.9-.45a2 2 0 0 1 2.09.2l4.02 3a2 2 0 0 0 2.1.2l4.19-2.06a2.41 2.41 0 0 1 1.73-.17L21 7a1.4 1.4 0 0 1 .87 1.99l-.38.76c-.23.46-.6.84-1.07 1.08L7.58 17.2a2 2 0 0 1-1.22.18Z"/></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></symbol><symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></symbol><symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol><symbol id="i-folders" viewBox="0 0 24 24"><path d="M20 17a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.9a2 2 0 0 1-1.69-.9l-.81-1.2a2 2 0 0 0-1.67-.9H8a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2Z"/><path d="M2 8v11a2 2 0 0 0 2 2h14"/></symbol><symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol><symbol id="i-message-circle-question" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>');/*/icons*/
   const { $, $$, esc, toast } = UI;
   const App = window.App, { state, routes } = App, view = App.view;
   const D = () => window.CONF || { units: [], toolkit: [], daily: [] };
@@ -11,6 +12,8 @@
   const KEY = 'vb.conf';
   const load = () => { try { return Object.assign({ done: {}, daily: [] }, JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { return { done: {}, daily: [] }; } };
   const save = s => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) { /* riêng tư/đầy bộ nhớ – vẫn dùng được */ } };
+  const CI = {'🛫': 'plane-takeoff', '🏦': 'landmark', '☕': 'coffee', '📱': 'smartphone', '📦': 'package', '🧭': 'compass', '🤔': 'message-circle-question', '🩺': 'stethoscope', '🧾': 'receipt', '🤝': 'handshake', '👋': 'hand', '🎯': 'target', '💼': 'briefcase', '🎟': 'ticket', '🧑‍🤝‍🧑': 'users', '💬': 'message-circle', '📞': 'phone', '🎤': 'mic', '🏠': 'house', '💰': 'coins', '🛍': 'shopping-bag', '✈': 'plane', '🗂': 'folders', '🔧': 'wrench', '⏳': 'hourglass', '☀': 'sun', '🧩': 'puzzle'}; // emoji dữ liệu bài/bộ công cụ → icon Lucide (dữ liệu giữ nguyên làm văn bản an toàn cho toast/thuộc tính, chỉ đổi lúc vẽ HTML)
+  const ci = e => { const n = CI[String(e == null ? '' : e).replace(/\uFE0F/g, '')]; return UI.icon(n || 'message-circle'); };
   const day = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
   const accent = () => state.settings.accent || 'en-US';
   const other = a => (a === 'en-GB' ? 'en-US' : 'en-GB'); // 2 giọng khác nhau cho 2 người trong hội thoại mẫu
@@ -72,7 +75,7 @@
   function overview() {
     const P = load(), units = D().units, last = P.daily[P.daily.length - 1], doneToday = last && last.d === day();
     const next = units.find(u => !P.done[u.id]);
-    const card = u => `<a class="cf-unit${next && next.id === u.id ? ' next' : ''}" href="#/confidence/${u.id}"><span class="em" aria-hidden="true">${u.em}</span><span><b>${esc(t(u.title))}</b>${enSub(u)}${next && next.id === u.id ? `<span class="chip ok" style="margin-top:.3rem">${t('Bài tiếp theo')}</span>` : ''}</span>${P.done[u.id] ? `<span class="cf-done" role="img" aria-label="${t('Đã xong')}">${UI.icon('circle-check')}</span>` : ''}</a>`;
+    const card = u => `<a class="cf-unit${next && next.id === u.id ? ' next' : ''}" href="#/confidence/${u.id}"><span class="em" aria-hidden="true">${ci(u.em)}</span><span><b>${esc(t(u.title))}</b>${enSub(u)}${next && next.id === u.id ? `<span class="chip ok" style="margin-top:.3rem">${t('Bài tiếp theo')}</span>` : ''}</span>${P.done[u.id] ? `<span class="cf-done" role="img" aria-label="${t('Đã xong')}">${UI.icon('circle-check')}</span>` : ''}</a>`;
     view.innerHTML = head(UI.icon('message-circle') + ' ' + t('Giao tiếp tự tin'), t('Mỗi bài là một tình huống thật, 5–8 phút: nghe, học cụm câu, nói theo, rồi tự tin nói chuyện. Sai cũng không sao – cứ nói!'))
       + `<section class="card cf-hero"><div>${UI.ring(last ? last.score : 0, last ? last.score : '–', 'var(--primary)')}</div><div class="grow"><h2 style="margin:0">${t('Điểm tự tin')}</h2>
         <p class="small muted" style="margin:.2rem 0">${last ? t('Lần gần nhất: {n}/100 · chuỗi {d} ngày', { n: last.score, d: streakDays(P.daily) }) : t('Nói 2 phút mỗi ngày để theo dõi độ lưu loát và sự tự tin của bạn.')}</p>${spark(P.daily)}
@@ -94,7 +97,7 @@
 
   function unitPage(u, ph) {
     const P = load(), S = STEPS();
-    view.innerHTML = head(u.em + ' ' + esc(t(u.title)), `${I18N.lang() === 'en' ? '' : `<span lang="en">${esc(u.titleEn)}</span> · `}${chip(u.level)}`, '#/confidence')
+    view.innerHTML = head(ci(u.em) + ' ' + esc(t(u.title)), `${I18N.lang() === 'en' ? '' : `<span lang="en">${esc(u.titleEn)}</span> · `}${chip(u.level)}`, '#/confidence')
       + `<div class="card"><h2 class="set-h">🎯 ${t('Sau bài này bạn có thể')}</h2><p>${esc(t(u.goal))}</p>
         <ol class="small" style="padding-inline-start:1.2rem">${S.map(([e, n]) => `<li>${UI.icon(e)} ${n}</li>`).join('')}</ol>
         <div class="cf-bar"><button class="btn primary lg" id="cfGo">▶ ${P.done[u.id] ? t('Học lại') : t('Bắt đầu')} · ≈ ${t('{m} phút', { m: 7 })}</button></div></div>
@@ -225,7 +228,7 @@
         <div class="cf-stats"><div><b>${u.phrases.length}</b><span class="tiny muted">${t('Cụm câu')}</span></div><div><b>${sh != null ? sh + '%' : '–'}</b><span class="tiny muted">${t('Nói theo')}</span></div><div><b>${R.rp && R.rp.avg != null ? R.rp.avg : '–'}</b><span class="tiny muted">${t('Hội thoại')}</span></div></div>
         <p id="cfSaved" class="small" aria-live="polite">⏳ ${t('Đang lưu cụm câu vào thẻ ôn…')}</p>
         <ul class="small">${u.phrases.map(p => `<li><b lang="en">${esc(p.say)}</b> – ${esc(t(p.mean))}</li>`).join('')}</ul>
-        <div class="cf-bar">${nx ? `<a class="btn primary" href="#/confidence/${nx.id}">${nx.em} ${t('Bài tiếp theo')}: ${esc(t(nx.title))}</a>` : ''}<a class="btn" href="#/confidence/daily">⏱️ ${t('Thử thách 2 phút hôm nay')}</a><a class="btn" href="#/confidence">${t('Về lộ trình')}</a></div>`;
+        <div class="cf-bar">${nx ? `<a class="btn primary" href="#/confidence/${nx.id}">${ci(nx.em)} ${t('Bài tiếp theo')}: ${esc(t(nx.title))}</a>` : ''}<a class="btn" href="#/confidence/daily">⏱️ ${t('Thử thách 2 phút hôm nay')}</a><a class="btn" href="#/confidence">${t('Về lộ trình')}</a></div>`;
       $('#cfNext').hidden = true;
       let n = 0;
       for (const p of u.phrases) {
@@ -243,7 +246,7 @@
   // ---------- Bộ công cụ ----------
   function toolkit(ph) {
     view.innerHTML = head(UI.icon('briefcase') + ' ' + t('Bộ công cụ tự tin'), t('5 bộ câu giúp bạn không bị "đứng hình": nhờ nhắc lại, câu giờ, bắt chuyện, phản đối lịch sự và nói khi quên từ.'), '#/confidence')
-      + D().toolkit.map(g => `<section class="card" style="margin-bottom:.8rem" id="${g.id}"><h2 class="set-h" style="margin-top:0">${g.em} ${esc(t(g.title))}</h2><p class="small muted">${esc(t(g.intro))}</p>
+      + D().toolkit.map(g => `<section class="card" style="margin-bottom:.8rem" id="${g.id}"><h2 class="set-h" style="margin-top:0">${ci(g.em)} ${esc(t(g.title))}</h2><p class="small muted">${esc(t(g.intro))}</p>
         ${g.phrases.map(p => `<div class="cf-ph" id="${g.id}-${p.id}"><div class="say"><span lang="en">${esc(p.say)}</span>${speakBtn(p.say)}<button type="button" class="ic" data-try="${esc(p.say)}" aria-label="${t('Nói thử')}">🎙️</button></div><div class="small muted">${esc(t(p.mean))}</div><div class="small" data-fb aria-live="polite"></div></div>`).join('')}</section>`).join('');
     bindSay(view);
     let cur = null;

@@ -62,7 +62,7 @@
           ${x.kind === 'vocab' && x.ref ? `<a class="btn sm ghost" href="#/dict/${encodeURIComponent(x.ref)}">${UI.icon('search')} ${t('Tra lại từ')}</a>${App.inDeck(x.ref) ? '' : `<button class="btn sm ghost" data-add-seed="${esc(x.ref)}">+ Flashcard</button>`}` : ''}
           ${x.kind === 'reading' && x.ref ? `<a class="btn sm ghost" href="#/read/${esc(x.ref)}">${UI.icon('book-open')} ${t('Đọc lại bài')}</a>` : ''}
           ${x.kind === 'listening' && x.ref ? `<a class="btn sm ghost" href="#/listen/${esc(x.ref)}">${UI.icon('headphones')} ${t('Nghe lại phần này')}</a>` : ''}</div></div>`).join('')
-        : `<div class="card empty"><div class="em">🎉</div>${t('Không có lỗi sai nào cần xem lại.')}</div>`;
+        : `<div class="card empty"><div class="em">${UI.icon('party-popper')}</div>${t('Không có lỗi sai nào cần xem lại.')}</div>`;
       App.bindCommon();
       // Làm lại: tự nhớ đáp án trước khi xem (active recall) → đúng thì gỡ khỏi sổ, sai thì tăng số lần sai
       const settle = async (card, key, ok) => {
