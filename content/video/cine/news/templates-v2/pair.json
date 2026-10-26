@@ -27,23 +27,13 @@
   },
   {
    "id": "p_s",
-   "text": "Borrow: you take it.",
+   "text": "Borrow: you take it, and give it back later.",
    "key": {
     "yellow": [
      0
     ]
    },
-   "gap": 0.6
-  },
-  {
-   "id": "p_l",
-   "text": "Lend: you give it.",
-   "key": {
-    "green": [
-     0
-    ]
-   },
-   "gap": 0.5
+   "gap": 0.7
   },
   {
    "id": "p_b2",
@@ -56,6 +46,16 @@
    "gap": 0.6
   },
   {
+   "id": "p_l",
+   "text": "Lend: you give it, and get it back later.",
+   "key": {
+    "green": [
+     0
+    ]
+   },
+   "gap": 0.7
+  },
+  {
    "id": "p_l2",
    "text": "Sure! I can lend you my pen.",
    "key": {
@@ -63,7 +63,7 @@
      3
     ]
    },
-   "gap": 0.5
+   "gap": 0.6
   },
   {
    "id": "p_t",
@@ -78,7 +78,7 @@
      8
     ]
    },
-   "gap": 0.6
+   "gap": 0.7
   },
   {
    "id": "p_q",
@@ -89,7 +89,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.7
   },
   {
    "id": "p_q2",
@@ -113,12 +113,12 @@
   {
    "id": "p_sh",
    "text": "Send this to a friend who mixes them up!",
-   "gap": 0.6
+   "gap": 0.7
   },
   {
    "id": "p_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.5
+   "gap": 0.6
   }
  ],
  "pops": [
@@ -148,55 +148,10 @@
    ]
   },
   {
-   "id": "explain",
-   "kind": "pair",
+   "id": "borrow",
+   "kind": "rich",
    "anim": "spring",
-   "left": {
-    "title": "borrow",
-    "sub": [
-     [
-      "@emoji:⬅️"
-     ],
-     [
-      " you take",
-      "white"
-     ]
-    ],
-    "color": "navy2"
-   },
-   "right": {
-    "title": "lend",
-    "sub": [
-     [
-      "you give ",
-      "white"
-     ],
-     [
-      "@emoji:➡️"
-     ]
-    ],
-    "color": "green"
-   },
-   "focus": [
-    [
-     [
-      "p_s",
-      0,
-      "s",
-      0
-     ],
-     "left"
-    ],
-    [
-     [
-      "p_l",
-      0,
-      "s",
-      0
-     ],
-     "right"
-    ]
-   ],
+   "size": 80,
    "from": [
     "p_s",
     0,
@@ -204,19 +159,55 @@
     -0.06
    ],
    "to": [
-    "p_b2",
+    "p_l",
     0,
     "s",
     -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:⬅️"
+     ],
+     [
+      " borrow",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "@ipa:/ˈbɑːroʊ/"
+     ]
+    ],
+    [
+     [
+      "= take it for a while",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“Can I ",
+      "white"
+     ],
+     [
+      "borrow",
+      "yellow"
+     ],
+     [
+      " a pen?”",
+      "white"
+     ]
+    ]
    ]
   },
   {
-   "id": "ex",
+   "id": "lend",
    "kind": "rich",
    "anim": "spring",
-   "size": 84,
+   "size": 80,
    "from": [
-    "p_b2",
+    "p_l",
     0,
     "s",
     -0.06
@@ -230,20 +221,36 @@
    "rows": [
     [
      [
-      "borrow ",
-      "yellow"
+      "@emoji:➡️"
      ],
      [
-      "@ipa:/ˈbɑːroʊ/"
+      " lend",
+      "green"
      ]
     ],
     [
      [
-      "lend ",
+      "@ipa:/lend/"
+     ]
+    ],
+    [
+     [
+      "= give it for a while",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“I can ",
+      "white"
+     ],
+     [
+      "lend",
       "green"
      ],
      [
-      "@ipa:/lend/"
+      " you a pen.”",
+      "white"
      ]
     ]
    ]
@@ -252,7 +259,7 @@
    "id": "trick",
    "kind": "rich",
    "anim": "spring",
-   "size": 84,
+   "size": 90,
    "from": [
     "p_t",
     0,
@@ -286,7 +293,8 @@
       "white"
      ]
     ]
-   ]
+   ],
+   "align": "l"
   },
   {
    "id": "qs",
@@ -350,10 +358,10 @@
    ]
   },
   {
-   "id": "share",
+   "id": "save",
    "kind": "rich",
    "anim": "spring",
-   "size": 84,
+   "size": 80,
    "from": [
     "p_a",
     -1,
@@ -369,17 +377,34 @@
    "rows": [
     [
      [
-      "@emoji:📲"
+      "SAVE THIS",
+      "red"
+     ]
+    ],
+    [
+     [
+      "@emoji:⬅️"
      ],
      [
-      " Send to",
+      " borrow",
+      "yellow"
+     ],
+     [
+      " = take · FROM",
       "white"
      ]
     ],
     [
      [
-      "a friend",
-      "yellow"
+      "@emoji:➡️"
+     ],
+     [
+      " lend",
+      "green"
+     ],
+     [
+      " = give · TO",
+      "white"
      ]
     ]
    ]
@@ -401,5 +426,6 @@
  "series": {
   "name": "Same or Different?",
   "ep": 1
- }
+ },
+ "caption_cap": 62
 }

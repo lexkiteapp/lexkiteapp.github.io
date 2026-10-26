@@ -109,7 +109,7 @@ def font(sz, f=None):
     return _fc[k]
 ease = lambda x, p=EASE['out']: bezier(p, max(0.0, min(1.0, x)))
 CAPR = -ImageFont.truetype(FH, 1000).getbbox('H', anchor='ls')[1] / 1000   # rendered cap height / font size (BeVietnamPro ExtraBold H = 0.74)
-MIN_CAP = dict(caption=80, hook=72, body=56); MIN_IMG = 300   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
+MIN_CAP = dict(caption=int(SP.get('caption_cap', 80)), hook=72, body=56); MIN_IMG = 300   # layout v12: spec caption_cap (teaching series 62: the board holds the lesson)   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
 CAPF = math.ceil(MIN_CAP['caption'] / CAPR) + 1
 COL = dict(white=(255, 255, 255), red=C['red'], green=C['green'], yellow=C['yellow'], cream=C['cream'], mint=C['mint'], navy=C['navy'], navy2=C['navy2'], ink=C['navy'])
 STROKE = (10, 22, 26); ACT = COL[SP.get('active', 'yellow')]; ACC = COL[SP['accent']]
@@ -422,7 +422,7 @@ def rich_row(segs, sz, plate=False):
     flush()
     return hrow(items, round(sz * 0.18))
 def ipa_im(txt, sz, ink):   # US IPA (owner 26/10: "ghi phiên âm luôn"): Noto Sans has every IPA glyph (Be Vietnam Pro has none of ˈəɪʊ…)
-    ss = 2; z = round(sz * 0.86); fo = ImageFont.truetype(f"{o.fonts}/NotoSans-Medium.ttf", z * ss); st = 0 if ink else max(6, round(z * 0.10))
+    ss = 2; z = sz; fo = ImageFont.truetype(f"{o.fonts}/NotoSans-Medium.ttf", z * ss); st = 0 if ink else max(6, round(z * 0.10))
     tw = int(fo.getlength(txt)) + 4 * st * ss + 8; th = int(z * ss * 1.6) + 4 * st * ss; im = Image.new('RGBA', (tw, th), (0, 0, 0, 0))
     ImageDraw.Draw(im).text((2 * st * ss + 4, th // 2), txt, font=fo, fill=(C['navy2'] if ink else (255, 255, 255)) + (255,), anchor='lm', stroke_width=st * ss, stroke_fill=STROKE + (255,))
     im = im.reduce(ss); bb = im.getbbox() or (0, 0, 1, 1); return im.crop((bb[0], bb[1] - 4, bb[2], bb[3] + 4))
@@ -708,10 +708,10 @@ class Pop:
         if s.variant in ('row', 'qring', 'stack', 'pages'):   # board (v10): layouts at the minimum size, chosen in build_quiz_ink
             rg = [ring(s.digit, 1 - (T - b['s']) / (b['e'] - b['s']), s.ringd)] if mid else []
             A, B = s.pA[st_a], s.pB[st_b]; q = s.qim
-            if s.variant == 'row': return stack(([q] if q else []) + [hrow([A] + rg + [B], 20)], 10)
-            if s.variant == 'qring': return stack(([hrow([q] + rg, 24) if q else hrow(rg, 0)] if (q or rg) else []) + [hrow([A, B], 20)], 10)
-            if s.variant == 'stack': return stack(([q] if q else []) + [hrow([A] + rg, 18), B], 8)
-            return stack([rg[0] if rg else q, A, B] if q is not None or rg else [A, B], 8)   # narrow board: the ring takes the question's place during 3-2-1
+            if s.variant == 'row': return stack(([q] if q else []) + [hrow([A] + rg + [B], 20)], 10, 'l')
+            if s.variant == 'qring': return stack(([hrow([q] + rg, 24) if q else hrow(rg, 0)] if (q or rg) else []) + [hrow([A, B], 20)], 10, 'l')
+            if s.variant == 'stack': return stack(([q] if q else []) + [hrow([A] + rg, 18), B], 8, 'l')
+            return stack([rg[0] if rg else q, A, B] if q is not None or rg else [A, B], 8, 'l')   # narrow board: the ring takes the question's place during 3-2-1
         if hrow([s.pA['n'], s.pB['n']], 24).width > s.PW - 8 and s.qim is not None:   # narrow board: options one under the other
             if mid: mid = [ring(s.digit, 1 - (T - b['s']) / (b['e'] - b['s']), 96)]   # small ring beside option A: the question keeps its size
             return stack([s.qim, hrow([s.pA[st_a]] + mid, 18) if mid else s.pA[st_a], s.pB[st_b]], 12)

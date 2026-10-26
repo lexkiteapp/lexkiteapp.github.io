@@ -41,8 +41,7 @@
     "green": [
      3
     ]
-   },
-   "gap": 0.7
+   }
   },
   {
    "id": "u_uk",
@@ -80,10 +79,11 @@
   },
   {
    "id": "u_q",
-   "text": "Quiz! You're in London. What do you ask for?",
+   "text": "Quick quiz! You're in London. What do you ask for?",
    "key": {
     "yellow": [
-     0
+     0,
+     1
     ]
    },
    "gap": 0.7
@@ -100,13 +100,17 @@
     "green": [
      1
     ]
-   },
+   }
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend who loves cookies!",
    "gap": 0.7
   },
   {
    "id": "u_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.7
+   "gap": 0.6
   }
  ],
  "pops": [
@@ -193,55 +197,52 @@
    ]
   },
   {
-   "id": "explain",
-   "kind": "pair",
+   "id": "us",
+   "kind": "rich",
    "anim": "spring",
-   "left": {
-    "title": "cookie",
-    "sub": [
+   "size": 80,
+   "from": [
+    "u_us",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_uk",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
      [
       "@emoji:🇺🇸"
      ],
      [
+      " cookie",
+      "green"
+     ]
+    ],
+    [
+     [
       "@ipa:/ˈkʊki/"
      ]
     ],
-    "color": "navy2"
-   },
-   "right": {
-    "title": "biscuit",
-    "sub": [
+    [
      [
-      "@emoji:🇬🇧"
-     ],
-     [
-      "@ipa:/ˈbɪskɪt/"
+      "= sweet snack",
+      "white"
      ]
-    ],
-    "color": "green"
-   },
-   "focus": [
-    [
-     [
-      "u_us",
-      0,
-      "s",
-      0
-     ],
-     "left"
-    ],
-    [
-     [
-      "u_uk",
-      0,
-      "s",
-      0
-     ],
-     "right"
     ]
-   ],
+   ]
+  },
+  {
+   "id": "uk",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
    "from": [
-    "u_us",
+    "u_uk",
     0,
     "s",
     -0.06
@@ -251,6 +252,28 @@
     0,
     "s",
     -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🇬🇧"
+     ],
+     [
+      " biscuit",
+      "navy2"
+     ]
+    ],
+    [
+     [
+      "@ipa:/ˈbɪskɪt/"
+     ]
+    ],
+    [
+     [
+      "= the same snack",
+      "white"
+     ]
+    ]
    ]
   },
   {
@@ -383,8 +406,10 @@
    ]
   },
   {
-   "id": "cta",
-   "kind": "cta",
+   "id": "save",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
    "from": [
     "u_a",
     -1,
@@ -392,8 +417,58 @@
     0.35
    ],
    "to": [
+    "u_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "SAVE THIS",
+      "red"
+     ]
+    ],
+    [
+     [
+      "@emoji:🇺🇸"
+     ],
+     [
+      " cookie = ",
+      "green"
+     ],
+     [
+      "@emoji:🇬🇧"
+     ],
+     [
+      " biscuit",
+      "navy2"
+     ]
+    ],
+    [
+     [
+      "@emoji:🇺🇸"
+     ],
+     [
+      " biscuit = bread",
+      "yellow"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
     "end"
    ]
   }
- ]
+ ],
+ "caption_cap": 62
 }

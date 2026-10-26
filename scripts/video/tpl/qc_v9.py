@@ -64,7 +64,7 @@ erx = SP.get('error_re'); err_lines = sorted({c['line'] for c in CP.values() if 
 R['caption_script'] = dict(ok=bool(CP) and not bad and max(sizes) <= 3 and not single_bad and set(err_lines) <= set(SP.get('error_lines', [])),
                            pages=len(CP), words_per_page=sorted(set(sizes)), mismatch=bad[:3], single_word_pages=single_bad, error_only_in=err_lines)
 CAPR = T.get('cap_ratio', 0.74)
-R['caption_style'] = dict(ok=min(c['size'] for c in CP.values()) * CAPR >= (80 if T.get('style') == 'v10' else 53) and min(c['stroke'] for c in CP.values()) >= 12, sizes=sorted({c['size'] for c in CP.values()}),
+R['caption_style'] = dict(ok=min(c['size'] for c in CP.values()) * CAPR >= ((T.get('min_cap') or {}).get('caption', 80) if T.get('style') == 'v10' else 53) and min(c['stroke'] for c in CP.values()) >= 12, sizes=sorted({c['size'] for c in CP.values()}),
                           cap_px=round(min(c['size'] for c in CP.values()) * CAPR, 1), strokes=sorted({c['stroke'] for c in CP.values()}))
 # ---- v10 min_text_px: rendered glyph cap height per element type (caption / board hook+headline / board body) + card picture side, every fully visible frame
 MC = dict(T.get('min_cap') or dict(caption=80, hook=72, body=56)); MC['image'] = T.get('min_img', 300); mins = {}; low = []; unmeasured = set()

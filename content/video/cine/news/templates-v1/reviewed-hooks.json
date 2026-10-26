@@ -87,9 +87,9 @@
    "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
    "script": {
     "p_h": "Borrow or lend? You probably mix these up.",
-    "p_s": "Borrow: you take it.",
-    "p_l": "Lend: you give it.",
+    "p_s": "Borrow: you take it, and give it back later.",
     "p_b2": "Can I borrow your pen?",
+    "p_l": "Lend: you give it, and get it back later.",
     "p_l2": "Sure! I can lend you my pen.",
     "p_t": "Remember: you borrow from someone, and you lend to someone.",
     "p_q": "Quick quiz! My brother blank me ten dollars.",
@@ -99,10 +99,6 @@
     "p_c": "Save this, and compare tricky words on lexkite.com."
    },
    "promise": {
-    "pair": [
-     "borrow",
-     "lend"
-    ],
     "quiz": true,
     "count": true
    },
@@ -247,15 +243,12 @@
     "u_uk": "In Britain, it's a biscuit.",
     "u_tw": "Careful! In America, a biscuit is soft bread.",
     "u_x": "Can I have a cookie, please?",
-    "u_q": "Quiz! You're in London. What do you ask for?",
+    "u_q": "Quick quiz! You're in London. What do you ask for?",
     "u_a": "A biscuit! With tea, of course.",
+    "u_sh": "Send this to a friend who loves cookies!",
     "u_c": "Save this, and compare tricky words on lexkite.com."
    },
    "promise": {
-    "pair": [
-     "cookie",
-     "biscuit"
-    ],
     "quiz": true,
     "count": true
    },
@@ -274,19 +267,41 @@
     "u_uk": "In Britain, it's a biscuit.",
     "u_tw": "Careful! In America, a biscuit is soft bread.",
     "u_x": "Can I have a cookie, please?",
-    "u_q": "Quiz! You're in London. What do you ask for?",
+    "u_q": "Quick quiz! You're in London. What do you ask for?",
     "u_a": "A biscuit! With tea, of course.",
+    "u_sh": "Send this to a friend who loves cookies!",
     "u_c": "Save this, and compare tricky words on lexkite.com."
    },
    "promise": {
-    "pair": [
-     "cookie",
-     "biscuit"
-    ],
     "quiz": true,
     "count": true
    },
    "note": "US cookie = UK biscuit (sweet baked snack). In the US a 'biscuit' is a soft, scone-like quick bread (biscuits and gravy) – true surprise fact. In London you ask for a biscuit with tea."
+  },
+  "t4_pair_borrow_lend_3d": {
+   "template": "pair",
+   "hook": "BORROW | LEND",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "p_h": "Borrow or lend? You probably mix these up.",
+    "p_s": "Borrow: you take it, and give it back later.",
+    "p_b2": "Can I borrow your pen?",
+    "p_l": "Lend: you give it, and get it back later.",
+    "p_l2": "Sure! I can lend you my pen.",
+    "p_t": "Remember: you borrow from someone, and you lend to someone.",
+    "p_q": "Quick quiz! My brother blank me ten dollars.",
+    "p_q2": "Lent, or borrowed?",
+    "p_a": "Lent! My brother lent me ten dollars.",
+    "p_sh": "Send this to a friend who mixes them up!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true
+   },
+   "note": "Borrow = take temporarily (from); lend = give temporarily (to). 'My brother lent me $10' correct."
   }
  }
 }
