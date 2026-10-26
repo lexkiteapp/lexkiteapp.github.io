@@ -29,7 +29,8 @@ jobs:
       - if: matrix.part != 'static'
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          # máy CI đôi khi treo ở bước apt → giới hạn 8 phút, thử lại 1 lần
+          timeout 480 npx playwright install --with-deps chromium || timeout 480 npx playwright install --with-deps chromium
           sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
       - if: matrix.part == 'blog'
         run: node scripts/build-blog.mjs
