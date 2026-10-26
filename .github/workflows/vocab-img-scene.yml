@@ -9,7 +9,7 @@
 name: Ảnh mọi nghĩa (cảnh + khái niệm)
 on:
   schedule:
-    - cron: '40 1,7,13,19 * * *'   # fill 4 lượt/ngày (infra/jobs.json vocab-img-scene)
+    - cron: '40 1,4,7,10,13,16,19,22 * * *'   # fill 8 lượt/ngày (chủ 26/10: vắt hết kho CF; lượt tự dừng khi mọi tài khoản báo 4006) – infra/jobs.json vocab-img-scene
   workflow_dispatch:
     inputs:
       mode: { description: 'pilot | calibrate | fill', default: 'pilot' }
