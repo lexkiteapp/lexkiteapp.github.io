@@ -12,6 +12,8 @@ Cập nhật: 26/10/2026.
 - Cổng tự động trên CI, ngưỡng giữ nguyên: OCR · NSFW · phong cách · pHash · CLIP câu ví dụ · Llama 4 Scout (mô tả mù + có/không) · ≤ 6 KB. Trượt đủ biến thể → `vimg-scene-queue.json`, thử lại sau 2 ngày.
 - Lượt đầu 40277982540: 6.000 ảnh → 264 đạt (~4,4 %). Ước 900–2.000 ảnh đạt/ngày; 6.425 nghĩa thiếu ≈ 4–7 ngày. Neuron/ảnh thật chưa đo (đang ước 26–60).
 - Ảnh gốc cho video: Release `vimg-masters` (zip mỗi lượt, ≤ 768 px WebP + manifest.json). Ảnh app: `media.lexkite.com/vimg/` (kho m4).
+- Chia kho (26/10): vẽ 60 % đầu (`VIMG_DRAW_SHARE`), giám khảo thị giác từ đuôi, văn bản/kho từ từ mốc 60 % (`AI_POOL_CF_START`) – lượt 26/10 vẽ cạn kho làm 0 ảnh được chấm. Giám khảo hết neuron → vòng vẽ dừng.
+- Giám khảo KÉP (`VIMG_CONSENSUS=1`): ảnh qua cổng cứng nhưng trượt cổng mềm được llama-4-scout + mistral-small-3.1 chấm (yes câu ví dụ + no câu anh em). Soát: `mode=rejudge lab_run=<run>` → tờ `cons-*.jpg`. CHƯA soát được (kho cạn 26/10) – soát sau 00:00 UTC 27/10.
 - Tiếp: đo neuron/ảnh sau 1 ngày; nâng sản lượng 3–5× bằng hiệu chỉnh giám khảo theo phong cách klein (`calibrate_scene.py`) – cần chủ gán nhãn 1 tờ ảnh (~5 phút).
 
 ## Kho từ 20k (`lexicon-expand`) – ĐANG LÀM (phiên riêng)

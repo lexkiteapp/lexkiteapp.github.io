@@ -60,6 +60,8 @@ jobs:
       CF_POOL: ${{ secrets.CF_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
+      VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
+      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -136,6 +138,8 @@ jobs:
       CF_POOL: ${{ secrets.CF_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
+      VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
+      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -231,6 +235,8 @@ jobs:
       CF_POOL: ${{ secrets.CF_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
+      VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
+      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -286,6 +292,7 @@ jobs:
             VIMG_MAX_GC=$LEFT VIMG_MAX_CF=$LEFT node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt $a --shard ${{ matrix.shard }}/$NSH --only pending.json || true
             ls $OUT/raw/*.a$a.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt $a | tail -2 || true
             [ -f $OUT/EXHAUSTED ] && { echo "⏹ bể neuron CF cạn (ai_exhausted) – dừng sạch"; break; }
+            grep -l '"vision_dead": true' $OUT/judge-api.a$a.*.json >/dev/null 2>&1 && { echo "⏹ giám khảo thị giác hết neuron – không vẽ thêm ảnh không ai chấm"; touch $OUT/EXHAUSTED; break; }
           done
           true   # vòng lặp kết thúc bằng phép kiểm false → không để bước báo lỗi giả
       - uses: actions/upload-artifact@v4
@@ -408,6 +415,8 @@ jobs:
       CF_POOL: ${{ secrets.CF_POOL }}
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
+      VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
+      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}

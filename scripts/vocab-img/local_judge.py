@@ -115,7 +115,7 @@ def _cf_accts():
         items = [(a.lower(), t) for a, t in items if a and t and not (a.lower() in seen or seen.add(a.lower()))]   # cùng tài khoản: giữ token đầu (cùng thứ tự với cf-direct.mjs)
         out = items[int(os.environ.get('VIMG_POOL_SKIP', '5')):]
         if os.environ.get('CF_ACCOUNT_2') and os.environ.get('CF_AI_TOKEN_2') and os.environ.get('VIMG_CF_USE_CF2') != '0': out.append((os.environ['CF_ACCOUNT_2'], os.environ['CF_AI_TOKEN_2']))
-        main = os.environ.get('CF_ACCOUNT_1'); _CFV['accts'] = [a for a in dict(out).items() if a[0] != main]
+        main = os.environ.get('CF_ACCOUNT_1'); _CFV['accts'] = [a for a in dict(out).items() if a[0] != main][::-1]   # từ ĐUÔI kho (vẽ dùng phần đầu – VIMG_DRAW_SHARE)
     return _CFV['accts']
 def use_cf_vision():
     return (os.environ.get('VIMG_VISION') == 'cf' or not os.environ.get('GRABCAST_AI_KEY')) and bool(_cf_accts())

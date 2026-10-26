@@ -271,7 +271,7 @@ export function createPool(opts = {}) {
   R['gc-cf'] = gcRoute('cloudflare'); R['gc-gemini'] = gcRoute('gemini'); R['gc-groq'] = gcRoute('groq');
   // cf2 = kho tài khoản Workers AI (secret CF_POOL, scripts/lib/cf-pool.mjs) + tài khoản 2 cuối; KHÔNG BAO GIỜ tài khoản chính.
   // Xoay vòng từng lần gọi (chia tải); 4006/hết neuron → bỏ tài khoản đó tới 00:00 UTC; 401/403/10000 → bỏ tài khoản đó; hết tài khoản sống → cả tuyến nghỉ.
-  const CF2 = poolAccounts(env).map(a => ({ ...a, dead: 0 })); let cf2i = 0; used.cf2Dead = [];
+  const CF2 = poolAccounts(env).map(a => ({ ...a, dead: 0 })); let cf2i = Math.floor(CF2.length * Math.min(1, +(env.AI_POOL_CF_START ?? 0.6))); used.cf2Dead = [];   // 26/10: văn bản bắt đầu sau 60 % đầu kho (phần vẽ ảnh, VIMG_DRAW_SHARE) – vẽ không làm đói kho từ
   const cf2Live = () => CF2.filter(a => a.dead <= now());
   async function cf2Run(model, input) {
     for (let tries = 0; tries < CF2.length; tries++) {
