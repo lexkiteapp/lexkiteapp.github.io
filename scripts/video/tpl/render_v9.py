@@ -46,6 +46,7 @@ if SET.get('bank'):
     _bk = {c['id']: c for c in json.load(open(f"{ROOT}/{SET['bank']}"))['clips']}; _b = _bk.get(SP['clips'][0], {}).get('board')
     _fam = {TR['clips'][c].get('parent') or c for c in SP['clips'] + SP.get('listen', [])}   # chained talk / listen clips start from the parent's frames: same framing
     if _b: assert _fam == {SP['clips'][0]}, ('board mode: every clip must be the first clip or one of its chained children', _fam); BRD = _b
+    for c in SP['clips'] + SP.get('listen', []): _bk.setdefault(c, _bk.get(TR['clips'][c].get('parent') or c, {}))   # chained children share the parent's bank entry (same framing)
 CROP = None; CA = None
 def _bmask(body):
     M = np.zeros((H, W), bool); st = body['step']
