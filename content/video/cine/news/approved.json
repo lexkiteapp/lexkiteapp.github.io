@@ -1,20 +1,129 @@
 {
- "_note": "Owner-approved episodes = production standard. Recipe-first storage (docs/VIDEO-STORAGE.md): spec + reviewed verdict + engine commit re-render the same video; mp4 sha256 for identity.",
+ "_note": "Owner-approved episodes = production standard (27/10/2026: 6 series ep1, raw host, speech-gated talk/listen cuts, layout v12 lesson/note cards, IPA, qc incl. body_clear). Recipe-first: spec + reviewed verdict + engine commit re-render the same video; mp4 sha256 for identity.",
  "approved": [
+  {
+   "id": "t7_usuk_cookie",
+   "series": "US or UK?",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/usuk.json",
+   "teacher": "carlos",
+   "clips": [
+    "c01_carlos_board",
+    "c01t2_carlos_talk2",
+    "c01t3_carlos_talk3"
+   ],
+   "listen": [
+    "c01l_carlos_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v12-final",
+   "plan": "speech-gated (talk while voice, listen in silences)",
+   "approved": "2026-10-27",
+   "mp4_sha256": "86548f0a32711669eabddc66887952ef2cb221b1b4a7183b372716519e274f9a",
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+  },
   {
    "id": "t6_pron_comfortable",
    "series": "Where's the Stress?",
    "ep": 1,
    "spec": "content/video/cine/news/templates-v2/pron.json",
    "teacher": "ama",
-   "clip": "a02_ama_board",
+   "clips": [
+    "a02_ama_board",
+    "a02t2_ama_talk2",
+    "a02t3_ama_talk3"
+   ],
+   "listen": [
+    "a02l_ama_listen"
+   ],
    "host_fx": "raw",
-   "layout": "v12",
-   "run": 40290309763,
-   "engine_commit": "889d481b2",
-   "mp4_sha256": "49a5aa0ba9ea5e21a1ee985eafc7eb04c6f90c38f87f27657a57229affac7fd3",
-   "approved": "2026-10-26",
-   "owner_note": "khá ok – lưu vào kho, làm số lượng lớn đa dạng nội dung chất lượng"
+   "layout": "v12-final",
+   "plan": "speech-gated (talk while voice, listen in silences)",
+   "approved": "2026-10-27",
+   "mp4_sha256": "338a9cdfd6f1a306ff40dd8491fb267751c36ce89ec55b2a4f9437e3c88ecfb9",
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t4_pair_borrow_lend",
+   "series": "Same or Different?",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/pair.json",
+   "teacher": "carlos",
+   "clips": [
+    "c01_carlos_board",
+    "c01t2_carlos_talk2",
+    "c01t3_carlos_talk3"
+   ],
+   "listen": [
+    "c01l_carlos_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v12-final",
+   "plan": "speech-gated (talk while voice, listen in silences)",
+   "approved": "2026-10-27",
+   "mp4_sha256": "8596189aa68b070ca56363326fcc85039ae17e8273f7a54ea656a016d74fd29f",
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t1_mistake_agree",
+   "series": "Stop Saying This",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/mistake.json",
+   "teacher": "daniel",
+   "clips": [
+    "d03_daniel_desk",
+    "d03t2_daniel_talk2",
+    "d03t3_daniel_talk3"
+   ],
+   "listen": [
+    "d03l_daniel_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v12-final",
+   "plan": "speech-gated (talk while voice, listen in silences)",
+   "approved": "2026-10-27",
+   "mp4_sha256": "1362d388631cf130b41ca2b85e0d41985b78a5346429522cbf635e4fda99b5c8",
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t3_guess_elevator",
+   "series": "Guess the Word",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/guess.json",
+   "teacher": "kai",
+   "clips": [
+    "k03_kai_desk",
+    "k03t3_kai_talk3"
+   ],
+   "listen": [
+    "k03l2_kai_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v12-final",
+   "plan": "speech-gated (talk while voice, listen in silences)",
+   "approved": "2026-10-27",
+   "mp4_sha256": "b0b6e8cfd9caa2a347da41e8e4d91574a80435f2e3c55f8dd4b30efe00db8cc6",
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t2_words5_verygood",
+   "series": "Say It Like a Native",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/words5.json",
+   "teacher": "mei",
+   "clips": [
+    "m03_mei_desk",
+    "m03t3_mei_talk3"
+   ],
+   "listen": [
+    "m03l2_mei_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v12-final",
+   "plan": "speech-gated (talk while voice, listen in silences)",
+   "approved": "2026-10-27",
+   "mp4_sha256": "ab38bc124b324f0a3133f1047aea0b605c1012b04aacd58b3ff8036394c62f4b",
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
   }
  ]
 }
