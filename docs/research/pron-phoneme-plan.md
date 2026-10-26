@@ -1,6 +1,6 @@
 # Lexkite – Chấm phát âm từng âm vị (kiểu ELSA), 100 % miễn phí – kế hoạch R&D
 
-> TL;DR: Chạy mô hình nhận dạng âm vị CTC (họ wav2vec2, ONNX lượng tử hoá q4, ~50–60 MB, tải 1 lần) ngay trên máy người học trong Web Worker; căn chỉnh cưỡng bức theo chuỗi âm vị Mỹ đã tính sẵn trên CI (CMUdict) → GOP theo từng âm → điểm 0–100 + 1–2 mẹo lấy từ `web/js/pron/sounds.js`/`skills.js`. Web Speech hiện tại vẫn là dự phòng. Viết 26/10/2026, chỉ nghiên cứu, chưa đổi code.
+> TL;DR: Chạy mô hình nhận dạng âm vị CTC (họ wav2vec2, ONNX lượng tử hoá q4, ~50–60 MB, tải 1 lần) ngay trên máy người học trong Web Worker; căn chỉnh cưỡng bức theo chuỗi âm vị Mỹ đã tính sẵn trên CI (CMUdict) → GOP theo từng âm → điểm 0–100 + 1–2 mẹo lấy từ `web/js/pron/sounds.js`/`skills.js`. Web Speech hiện tại vẫn là dự phòng. Viết 26/10/2026; lõi chấm P0 `scripts/pron/gop.mjs` (CTC + GOP-AF) đã có – §5b.
 > Đọc khi: làm chấm phát âm theo âm vị (P0–P3), chọn mô hình/kiến trúc.
 > Độ chắc: kiến trúc & cách chấm = cao (đã có trong văn liệu, chạy được trong trình duyệt). **Chưa chắc**: mô hình nào ≤ 60 MB đạt chất lượng, độ trễ trên Android tầm trung khi chỉ có WASM 1 luồng, iOS WebKit. P0 tồn tại để trả lời 3 câu này bằng số đo.
 
@@ -44,6 +44,13 @@ Bấm mic → sóng âm trực tiếp → thả/tự dừng theo VAD → (< 1,5 
 **P1 – Cấp từ (ship sau cờ `pron_gop`).** Worker + tải lười + modal + tô màu chữ + mẹo; tính sẵn chuỗi âm cho toàn bộ từ trong `sounds.js`/`skills.js`/từ vựng; dự phòng Web Speech; i18n 15 ngôn ngữ (theo docs/I18N-PIPELINE.md); Playwright mic giả (`--use-file-for-fake-audio-capture` với wav mẫu) khẳng định điểm nằm trong dải mong đợi.
 **P2 – Cấp câu.** Câu ≤ 15 từ, căn chỉnh liên từ (bỏ từ/chèn từ), điểm đầy đủ, chèn vào `confidence.js`, bài nghe–nói, roleplay; chunk 10 s cho câu dài.
 **P3 (tuỳ chọn).** Trọng âm từ (năng lượng + F0 + thời lượng), ngữ điệu câu; ORT gốc trong Capacitor (nhanh hơn WKWebView); add-on (MV3 cấm mã từ xa → phải đóng gói runtime trong add-on, xin duyệt CWS).
+
+## 5b. P0 – gop.mjs (đã có, 26/10)
+`scripts/pron/gop.mjs` – ES module JS thuần, không phụ thuộc (Node CI + Web Worker). Test: `scripts/test/pron-gop.mjs` (trong `npm test`).
+- **API:** `ARPA39` (39 âm, không trọng âm) · `decodeGreedy({logp,T,V,vocab,blankId}) → string[]` (argmax → gộp lặp → bỏ blank, bỏ nhãn null/lạ, `AH0→AH`) · `score({logp /*Float32Array T×V log-softmax*/, T, V, vocab /*id→nhãn|null*/, blankId, expected /*ARPA[]*/}, {calib?, competitors?}) → {phones:[{p, score 0–100, start, end, best, gop, gopAF, lpp, afBest}], wordScore, per, decoded, ok, reason?}` · `CALIB {a,b,clip,feature}` · `calibrate(x, calib)` · `fitCalib(pairs [[x, y0–100]]) → {a,b,…}` (logistic nhãn mềm, Newton; speechocean762 nhãn 0–2 → ×50) · `pcc(xs, ys)`.
+- **Cách chấm:** gộp cột vocab về 39 âm + blank (log-sum-exp) → Viterbi CTC trên chuỗi xen blank (start/end = khung nhãn; `best` = âm khác có đỉnh log-prob cao nhất trong vùng giữa 2 âm kề) → **GOP-AF** (điểm chính): `log P(chuỗi đúng) − max(log P(thay âm i bằng q), log P(xoá âm i))`, mỗi giả thuyết 1 lượt forward CTC log-space; `afBest` = giả thuyết thắng (`-` = xoá). Mặc định thử cả 38 âm khi L·T ≤ 4000, câu dài chỉ 10 âm mạnh nhất trong đoạn. Thêm `lpp`/`gop` theo đoạn làm đặc trưng phụ (`CALIB.feature`). `score = 100·sigmoid(a·clip(x)+b)`, mặc định a=1, b=1 (LPR 0 → 73 vàng) – harness học lại. `wordScore` = trung bình có trọng số thời lượng; `per` = Levenshtein(greedy, mong đợi)/L.
+- **Biên:** T=0 → `reason:'empty'`; T < số khung tối thiểu → `reason:'too-short'`, điểm 0, thời gian chia đều; âm ngoài ARPA39/vocab → `score:null, unknown:true` (không vào wordScore); NaN/-Inf trong logit an toàn. Âm chèn thừa: âm mong đợi kề bên có thể xuống ~73 (LPR ≈ 0) – đúng bản chất GOP-AF, phát hiện chèn dùng `per`/`decoded`.
+- **Số đo (logit tổng hợp):** đúng ≥ 80; thay âm → ≤ 40 và `best` = âm thay; xoá → ≤ 40; im lặng ≤ 20; T=50, L=8 ≈ 3 ms/lần Node; T=500, L=40 < 1,5 s.
 
 ## 6. Cổng chất lượng (đo trên CI, chặn ship)
 | Chỉ số | P0 "đi tiếp" | P1 ship | Tham chiếu |
