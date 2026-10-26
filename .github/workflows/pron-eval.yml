@@ -1,0 +1,79 @@
+name: pron-eval
+# P0 spike for per-phoneme pronunciation scoring (docs/research/pron-phoneme-plan.md): export candidate wav2vec2-CTC phoneme models to ONNX,
+# quantise (q8, MatMul only), run scripts/pron/gop.mjs on speechocean762 (CC BY 4.0) + LibriSpeech test-clean (CC BY 4.0) via onnxruntime-node.
+# 100 % free: GitHub CPU runners, public HF models/datasets, no secrets. Fails (red) if scripts/pron/gop.mjs is missing or metrics are empty.
+on:
+  workflow_dispatch:
+    inputs:
+      candidates: { description: 'candidate ids (scripts/pron/candidates.json)', default: 'B1,C' }
+      n_so: { description: 'speechocean762 test sample size', default: '500' }
+      n_ls: { description: 'LibriSpeech test-clean utterances', default: '150' }
+      quant: { description: 'fp32,q8', default: 'fp32,q8' }
+permissions: { contents: read }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs: { matrix: '${{ steps.p.outputs.matrix }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        env: { CANDS: '${{ inputs.candidates }}', QUANT: '${{ inputs.quant }}' }
+        run: python3 scripts/pron/plan.py
+  data:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - id: c
+        uses: actions/cache@v4
+        with: { path: pron-data, key: 'pron-data-v1-${{ inputs.n_so }}-${{ inputs.n_ls }}-${{ hashFiles(''scripts/pron/prep_data.py'') }}' }
+      - uses: actions/setup-python@v5
+        if: steps.c.outputs.cache-hit != 'true'
+        with: { python-version: '3.11' }
+      - if: steps.c.outputs.cache-hit != 'true'
+        run: |
+          pip install -q numpy scipy soundfile pandas pyarrow huggingface_hub
+          python scripts/pron/prep_data.py "${{ inputs.n_so }}" "${{ inputs.n_ls }}" pron-data
+      - uses: actions/upload-artifact@v4
+        with: { name: pron-data, path: pron-data, retention-days: 3 }
+  eval:
+    needs: [plan, data]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy: { fail-fast: false, matrix: { cand: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: pron-data, path: pron-data }
+      - id: mc
+        uses: actions/cache@v4
+        with: { path: 'models/${{ matrix.cand.id }}', key: 'pron-model-v1-${{ matrix.cand.id }}-${{ hashFiles(''scripts/pron/export.py'') }}' }
+      - uses: actions/setup-python@v5
+        if: steps.mc.outputs.cache-hit != 'true'
+        with: { python-version: '3.11' }
+      - if: steps.mc.outputs.cache-hit != 'true'
+        run: |
+          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -q "optimum[onnxruntime]==1.23.3" "transformers==4.46.3" onnxruntime==1.20.1 huggingface_hub
+          python scripts/pron/export.py "${{ matrix.cand.repo }}" "models/${{ matrix.cand.id }}"
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: npm install --no-save --no-package-lock --ignore-scripts=false onnxruntime-node@1.20.1
+      - run: node scripts/pron/eval.mjs --cand "${{ matrix.cand.id }}" --dir "models/${{ matrix.cand.id }}" --data pron-data --quant "${{ inputs.quant }}" --out "reports/pron-eval-${{ matrix.cand.id }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'pron-eval-${{ matrix.cand.id }}', path: 'reports/pron-eval-*.json', if-no-files-found: ignore }
+  report:
+    needs: eval
+    if: always() && needs.eval.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'pron-eval-*', path: parts }
+      - run: |
+          python3 scripts/pron/merge.py | tee -a "$GITHUB_STEP_SUMMARY"
+          test -s reports/pron-eval.json
+      - uses: actions/upload-artifact@v4
+        with: { name: pron-eval, path: reports/pron-eval.json }
