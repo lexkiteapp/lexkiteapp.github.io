@@ -11,7 +11,7 @@
       { t: 'combine', q: "The council built a library. The library opens at 8 a.m.", hint: "which", start: "The council built a library,", a: ["The council built a library, which opens at 8 a.m."], ex: "Nhắc lần đầu dùng a; which thay cho danh từ đã xác định." },
       { t: 'combine', q: "I bought an umbrella. The umbrella broke the next day.", hint: "but", a: ["I bought an umbrella, but it broke the next day.", "I bought an umbrella, but the umbrella broke the next day."], ex: "Lần đầu dùng an, lần sau dùng the hoặc thay bằng it." },
       { t: 'error', parts: ["The unemployment", "remains", "a serious problem", "in many cities."], w: 0, fix: "Unemployment", ex: "Danh từ không đếm được nói chung chung thì không dùng mạo từ." },
-      { t: 'error', parts: ["She plays", "piano", "for an hour", "every evening."], w: 1, fix: "the piano", ex: "Chơi nhạc cụ thường dùng the trước tên nhạc cụ (tiếng Anh-Mỹ đôi khi bỏ the: play piano, nhưng play the piano là dạng chuẩn)." }
+      { t: 'error', parts: ["She", "visited", "United States", "last year."], w: 2, fix: "the United States", ex: "Tên nước có States/Kingdom/Republic dùng the: the United States." }
     ],
     'countable-uncountable': [
       { t: 'fill', q: "There is very ___ evidence to support this claim. (little/few)", a: ["little"], ex: "Evidence không đếm được nên dùng little." },

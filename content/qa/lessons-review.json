@@ -1,26 +1,37 @@
 {
- "_doc": "Tien do ra soat chuyen gia noi dung bai hoc (tu tin, meo nho). passes[]: area, range, checked, fixed, errorRate, fixTypes.",
- "passes": [
-  {
-   "area": "confidence",
-   "range": "24 units (greetings..work-meeting) + toolkit + daily",
-   "checked": "24 units, ~165 phrases, toolkit 25, daily prompts",
-   "fixed": 2,
-   "errorRate": "1.2%",
-   "fixTypes": [
-    "grammar (this has happened)",
-    "natural collocation (fee)"
-   ],
-   "notes": "Phrases/quiz gaps/ids OK; ids.lock untouched. Say-text is English-only (no i18n change needed). Not checked: per-lang i18n tone."
-  },
-  {
-   "area": "mnemonics",
-   "range": "path/study",
-   "checked": "web/js/path*.js, study.js",
-   "fixed": 0,
-   "errorRate": "n/a",
-   "fixTypes": [],
-   "notes": "No static mnemonics in learning path; mnemonic generated at runtime by AI in study.js (prompt fine). Grammar mnemonics in web/js/grammar belong to another agent."
-  }
- ]
+  "_doc": "Tiến độ rà soát chuyên gia nội dung bài học (ngữ pháp, tự tin, mẹo nhớ...). passes[]: area, range, checked, fixed, errorRate, fixTypes. nextGrammar = chỉ số bài (0-76, theo thứ tự nạp GRAMMAR) cần rà tiếp; đã có audit 10/2026 (docs/audits/grammar-2026-10.md).",
+  "passes": [
+    {
+      "area": "confidence",
+      "range": "24 units (greetings..work-meeting) + toolkit + daily",
+      "checked": "24 units, ~165 phrases, toolkit 25, daily prompts",
+      "fixed": 2,
+      "errorRate": "1.2%",
+      "fixTypes": [
+        "grammar (this has happened)",
+        "natural collocation (fee)"
+      ],
+      "notes": "Phrases/quiz gaps/ids OK; ids.lock untouched. Say-text is English-only (no i18n change needed). Not checked: per-lang i18n tone."
+    },
+    {
+      "area": "mnemonics",
+      "range": "path/study",
+      "checked": "web/js/path*.js, study.js",
+      "fixed": 0,
+      "errorRate": "n/a",
+      "fixTypes": [],
+      "notes": "No static mnemonics in learning path; mnemonic generated at runtime by AI in study.js (prompt fine). Grammar mnemonics in web/js/grammar belong to another agent."
+    },
+    {
+      "area": "grammar",
+      "date": "2026-10-26",
+      "range": "idx 0-7 (parts-of-speech..imperatives-suggestions), 31 subjunctive, 53-54 (used-to-would, stative-dynamic), 61-62 (conditionals), 66-67 articles, 70-71 (prepositions, SVA); l1/*.js toàn bộ 14 ngôn ngữ",
+      "checked": 16,
+      "fixed": 4,
+      "errorRate": "4 lỗi / ~480 mục (quiz+drill) ≈ 0.8%; L1: 0/~110 ghi chú",
+      "fixTypes": ["ambiguous (3)", "wrong-key AmE-valid (2)"],
+      "notes": "Sửa: imperatives Q 'How about we start' (2 đáp án đúng), subjunctive 'don't' và 'fails' (2 đáp án), articles error-spot 'plays piano' (đúng trong Anh-Mỹ) x2. L1 notes đúng, id bài đều tồn tại."
+    }
+  ],
+  "nextGrammar": "idx 8-30, 32-52, 55-60, 63-65, 68-69, 72-76 chưa rà đợt này (đã qua audit 10/2026). Ưu tiên: 28 as-if-unreal-past, 57-58 modals, 59-60 passive, 64 reported-speech, 72-76 clauses/inversion; kiểm khối blocks (quy tắc, ghi chú Anh-Mỹ) vì đợt này chỉ rà quiz/drill + L1. Cách làm: nạp web/js/grammar/*.js bằng vm, in quiz+drills."
 }
