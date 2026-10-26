@@ -50,7 +50,7 @@ const w = dom.window, d = w.document;
 const toasts = [], calls = [];
 let reauthN = 0, signedOut = 0, delN = 0;
 w.t = (k, p) => { let s = String(k); if (p) for (const [a, b] of Object.entries(p)) s = s.replaceAll('{' + a + '}', b); return s; };
-w.UI = { esc: s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]), toast: m => toasts.push(m),
+w.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, esc: s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]), toast: m => toasts.push(m),
   modal: html => { const m = d.getElementById('modal'); m.innerHTML = html; m.hidden = false; }, closeModal: () => { d.getElementById('modal').hidden = true; } };
 const store = {};
 w.Core = { Store: { set: async (k, v) => { store[k] = v; }, get: async (k, def) => (k in store ? store[k] : def) } };

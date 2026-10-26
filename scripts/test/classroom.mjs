@@ -102,7 +102,7 @@ console.log('✓ xóa tài khoản: dọn lớp học (học sinh + giáo viên)
   const w = dom.window, d = w.document, $ = (s, el = d) => el.querySelector(s), toasts = [];
   w.t = (k, p) => { let x = String(k); for (const [a, b] of Object.entries(p || {})) x = x.replaceAll('{' + a + '}', b); return x; };
   w.I18N = { lang: () => 'en' };
-  w.UI = { $, $$: (s, el = d) => [...el.querySelectorAll(s)], esc: x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])), toast: m => toasts.push(m),
+  w.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, $, $$: (s, el = d) => [...el.querySelectorAll(s)], esc: x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])), toast: m => toasts.push(m),
     modal: h => { const b = $('#modalBox'); b.innerHTML = h; $('#modal').hidden = false; return b; }, closeModal: () => { $('#modal').hidden = true; }, download: () => {} };
   const W = p => p; W.signal = {}; W.stale = () => false;
   w.App = { view: $('#view'), routes: {}, need: async () => {}, W, guard: fn => (...a) => { w.App.W = W; return fn(...a); } };

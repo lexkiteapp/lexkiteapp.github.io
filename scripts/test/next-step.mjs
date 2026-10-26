@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 const J = f => fs.readFileSync('web/js/' + f, 'utf8');
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
-const g = { UI: { esc: s => String(s).replace(/[&<>"]/g, c => '&#' + c.charCodeAt(0) + ';') }, t: (k, v = {}) => k.replace(/\{(\w+)\}/g, (_, x) => v[x]) };
+const g = { UI: { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, esc: s => String(s).replace(/[&<>"]/g, c => '&#' + c.charCodeAt(0) + ';') }, t: (k, v = {}) => k.replace(/\{(\w+)\}/g, (_, x) => v[x]) };
 g.self = g; g.window = g; vm.createContext(g);
 for (const f of ['readings.js', 'readings-more.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(k => `listen/test${k}.js`), 'next-step.js']) vm.runInContext(J(f), g, { filename: f });
 for (const f of fs.readdirSync('web/js/toeic').filter(f => /^listening\d+\.js$/.test(f))) vm.runInContext(J('toeic/' + f), g, { filename: f });

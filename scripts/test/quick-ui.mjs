@@ -21,7 +21,7 @@ global.t = window.t = (k, p) => {
   return s;
 };
 
-window.UI = {
+window.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {},
   $: s => document.querySelector(s),
   $$: s => document.querySelectorAll(s),
   esc: s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]),

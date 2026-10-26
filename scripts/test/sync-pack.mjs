@@ -46,7 +46,7 @@ async function device(uid, disk) {
   w.IELTS_DATA = { INDEX: {} };
   w.fetch = server;
   w.CompressionStream = globalThis.CompressionStream; w.DecompressionStream = globalThis.DecompressionStream; w.Response = globalThis.Response; w.Blob = globalThis.Blob;
-  w.UI = { $: s => w.document.querySelector(s), esc: s => String(s), toast: () => {}, modal: () => w.document.getElementById('modalBox'), closeModal: () => {} };
+  w.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, $: s => w.document.querySelector(s), esc: s => String(s), toast: () => {}, modal: () => w.document.getElementById('modalBox'), closeModal: () => {} };
   w.App = { state: { cards: {} }, updateChrome: () => {}, load: async () => {}, route: () => {}, need: async () => {} };
   w.FIREBASE_CONFIG = { apiKey: 'test' };
   w.confirm = () => true; w.scrollTo = () => {};

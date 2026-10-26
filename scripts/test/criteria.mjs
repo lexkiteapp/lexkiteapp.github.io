@@ -17,7 +17,7 @@ console.log(`✓ Kích thước file: ${(stat.size / 1024).toFixed(1)} KB (rất
 
 // Chạy môi trường giả lập
 const mockWindow = {
-  UI: {
+  UI: { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {},
     $: () => null,
     $$: () => [],
     esc: s => String(s || ''),
