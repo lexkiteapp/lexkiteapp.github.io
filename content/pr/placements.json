@@ -151,6 +151,30 @@
       "expectLink": "lexkite.com",
       "expectedRel": "unknown",
       "notes": "Public dataset repo (README + CSV/JSON + .zenodo.json); homepage = research page."
+    },
+    {
+      "id": "huggingface-confused-words",
+      "platform": "Hugging Face",
+      "type": "listing",
+      "url": "https://huggingface.co/datasets/mrquyenbkpro/confused-english-words",
+      "account": "mrquyenbkpro",
+      "submittedAt": "2026-10-26",
+      "status": "live",
+      "expectLink": "lexkite.com",
+      "expectedRel": "unknown",
+      "notes": "Dataset card + CSV/JSON, CC BY 4.0, DOI 10.5281/zenodo.23662626."
+    },
+    {
+      "id": "kaggle-confused-words",
+      "platform": "Kaggle",
+      "type": "listing",
+      "url": "https://www.kaggle.com/datasets/zulilyjewelryvintage/commonly-confused-english-words-lexkite",
+      "account": "zulilyjewelryvintage",
+      "submittedAt": "2026-10-26",
+      "status": "live",
+      "expectLink": "lexkite.com",
+      "expectedRel": "unknown",
+      "notes": "Public dataset, CC BY 4.0, description cites DOI + source page."
     }
   ]
 }
