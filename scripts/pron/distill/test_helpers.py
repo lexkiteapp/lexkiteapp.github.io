@@ -31,7 +31,7 @@ else:
     with torch.no_grad(): c = m.front.codes(w); y = m(w)
     assert c.shape == (1, 98, 80) and y.shape == (1, 49, 40) and Student.out_len(98) == 49, (c.shape, y.shape)
     # batched path with lengths == single path
-    with torch.no_grad(): y2 = m.from_codes(torch.cat([c, torch.zeros(1, 20, 80)]), torch.tensor([98, 98]))[0:1, :49]
+    with torch.no_grad(): y2 = m.from_codes(torch.cat([torch.cat([c, torch.zeros(1, 20, 80)], 1)] * 2), torch.tensor([98, 98]))[0:1, :49]
     assert torch.allclose(y, y2, atol=1e-3), (y - y2).abs().max()
     print(f'student {n / 1e6:.1f} M params')
 print('ok: pron distill helpers')
