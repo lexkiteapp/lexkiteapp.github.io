@@ -1,0 +1,26 @@
+{
+ "_doc": "Tien do ra soat chuyen gia noi dung bai hoc (tu tin, meo nho). passes[]: area, range, checked, fixed, errorRate, fixTypes.",
+ "passes": [
+  {
+   "area": "confidence",
+   "range": "24 units (greetings..work-meeting) + toolkit + daily",
+   "checked": "24 units, ~165 phrases, toolkit 25, daily prompts",
+   "fixed": 2,
+   "errorRate": "1.2%",
+   "fixTypes": [
+    "grammar (this has happened)",
+    "natural collocation (fee)"
+   ],
+   "notes": "Phrases/quiz gaps/ids OK; ids.lock untouched. Say-text is English-only (no i18n change needed). Not checked: per-lang i18n tone."
+  },
+  {
+   "area": "mnemonics",
+   "range": "path/study",
+   "checked": "web/js/path*.js, study.js",
+   "fixed": 0,
+   "errorRate": "n/a",
+   "fixTypes": [],
+   "notes": "No static mnemonics in learning path; mnemonic generated at runtime by AI in study.js (prompt fine). Grammar mnemonics in web/js/grammar belong to another agent."
+  }
+ ]
+}

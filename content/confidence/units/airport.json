@@ -94,7 +94,7 @@
     },
     {
       "id": "overweight",
-      "say": "How much is it if my bag is overweight?",
+      "say": "How much is the fee if my bag is overweight?",
       "not": "My bag is too much heavy.",
       "gap": "overweight",
       "mean": {

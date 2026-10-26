@@ -29,7 +29,7 @@
     { "id": "confirm-by-email", "say": "Could you confirm that by email?", "not": "Write me.", "gap": "confirm",
       "mean": { "vi": "Xin xác nhận bằng văn bản", "en": "Ask them to confirm it in writing" },
       "why": { "vi": "Xin email xác nhận giúp bạn có bằng chứng về điều đã thỏa thuận.", "en": "An email gives you a record of what you agreed." } },
-    { "id": "i-understand-but", "say": "I understand, but this is the second time it happened.", "not": "No! You are wrong!", "gap": "understand", "tk": "disagree",
+    { "id": "i-understand-but", "say": "I understand, but this is the second time this has happened.", "not": "No! You are wrong!", "gap": "understand", "tk": "disagree",
       "mean": { "vi": "Giữ quan điểm mà vẫn tôn trọng", "en": "Keep your point and still show respect" },
       "why": { "vi": "\"I understand, but…\" cho thấy bạn tôn trọng người kia mà vẫn giữ ý mình.", "en": "\"I understand, but…\" shows respect and still keeps your point." } },
     { "id": "appreciate-your-help", "say": "I'd really appreciate your help with this.", "not": "You must fix it.", "gap": "appreciate",
