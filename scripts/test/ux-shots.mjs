@@ -9,7 +9,7 @@ const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css
 const ROUTES = ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'plan', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence'];
 const CONFIGS = [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'vi']];
 const browser = await chromium.launch();
-const report = { errs: [], metrics: {} }; globalThis.report0 = [];
+const report = { errs: [], metrics: {} };
 async function run(TAG, ROOT, vn, scheme, lang) {
   const vp = vn === 'mobile' ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width: 1366, height: 860 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block' });
@@ -40,7 +40,7 @@ async function run(TAG, ROOT, vn, scheme, lang) {
         if (el.matches('a[href], button, [role=button], input:not([type=hidden]), select, summary') && b.top < H && b.bottom > 0 && (b.width < 44 || b.height < 44) && !el.closest('p, li > span')) out.smallTaps.push(lab(el) + ` ${Math.round(b.width)}x${Math.round(b.height)}`);
       }
       out.clipped = out.clipped.slice(0, 12); out.smallTapsN = out.smallTaps.length; out.smallTaps = out.smallTaps.slice(0, 12);
-      out.rawSvg = /<svg|<use /.test(document.body.innerText); if (out.rawSvg) report0.push(location.hash); out.h1 = (document.querySelector('#view h1, #view h2') || {}).textContent?.trim().slice(0, 40) || '';
+      out.rawSvg = /<svg|<use /.test(document.body.innerText); out.h1 = (document.querySelector('#view h1, #view h2') || {}).textContent?.trim().slice(0, 40) || '';
       out.font = getComputedStyle(document.querySelector('#view h1, #view h2') || document.body).fontSize;
       return out;
     }).catch(e => ({ err: e.message }));
