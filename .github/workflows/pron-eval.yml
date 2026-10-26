@@ -54,7 +54,7 @@ jobs:
         with: { python-version: '3.11' }
       - if: steps.mc.outputs.cache-hit != 'true'
         run: |
-          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -q "torch==2.4.1" --index-url https://download.pytorch.org/whl/cpu
           pip install -q "optimum[onnxruntime]==1.23.3" "transformers==4.46.3" onnxruntime==1.20.1 huggingface_hub
           python scripts/pron/export.py "${{ matrix.cand.repo }}" "models/${{ matrix.cand.id }}"
       - uses: actions/setup-node@v4
