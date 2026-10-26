@@ -29,6 +29,8 @@ Quy ước cột:
 | 8 | Medium | ✅ Đang hiển thị | 17/10/2026 | https://medium.com/@vintagezulilyjewelry/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-fe8adf6601d9 | article · @vintagezulilyjewelry | Import từ dev.to, canonical về dev.to. Tên hiển thị Lexkite + logo; 5 chủ đề. Medium hay chặn bot – có thể phải kiểm tay. |
 | 9 | Peerlist | ✅ Đang hiển thị | 17/10/2026 | https://peerlist.io/lexkite | profile · @lexkite | Hồ sơ dự án 100% (logo, ảnh bìa, mô tả, danh mục). Launchpad cần hồ sơ cá nhân tên thật. Trang có chống bot – thường phải kiểm tay. |
 | 10 | Hashnode | ✅ Đang hiển thị | 17/10/2026 | https://lexkite.hashnode.dev/building-a-15-language-fsrs-vocabulary-app-in-vanilla-js-and-exporting-real-anki-apkg-files-in-the-browser | article · @lexkite | Blog "Lexkite Engineering" (lexkite.hashnode.dev), canonical về dev.to; thẻ JavaScript/Web Development/PWA. |
+| 11 | Zenodo | ✅ Đang hiển thị | 26/10/2026 | https://zenodo.org/records/23662627 | listing · @lexkiteapp | Dataset CC BY 4.0, DOI 10.5281/zenodo.23662627 (concept 10.5281/zenodo.23662626), archived from GitHub release v1.0.0. |
+| 12 | GitHub | ✅ Đang hiển thị | 26/10/2026 | https://github.com/lexkiteapp/confused-words-dataset | listing · @lexkiteapp | Public dataset repo (README + CSV/JSON + .zenodo.json); homepage = research page. |
 <!-- pr-table:end -->
 
 Tiếp theo (miễn phí, chưa làm – chỉ trang ỔN ĐỊNH, mình làm chủ hồ sơ/bài): Peerlist, Indie Hackers (trang Product), Hashnode (blog riêng, canonical về dev.to), Medium (import, canonical), LinkedIn Company Page, Viblo (bài thuần kỹ thuật), Microsoft Edge Add-ons, Firefox Add-ons, Educational App Store, TinyLaunch, HackerNoon, GitHub (repo/README giới thiệu), Wellfound (hồ sơ công ty).

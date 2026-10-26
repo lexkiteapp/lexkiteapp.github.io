@@ -7,7 +7,7 @@ export const SITE = 'https://lexkite.com';
 // Slug vĩnh viễn (đổi = mất thứ hạng/backlink). Tiếng Anh ở mọi ngôn ngữ: trang uy tín ít truy vấn bản địa, link ngoài dễ chia sẻ.
 export const AUTH_SLUGS = { hub: 'about/', team: 'about/editorial-team/', policy: 'about/editorial-policy/', corrections: 'about/corrections/', sources: 'about/sources/', research: 'research/confused-words/', embed: 'embed/' };
 export const authPath = (lang, kind) => `/${lang}/${AUTH_SLUGS[kind]}`;
-export const DATASET = { csv: '/research/confused-words.csv', json: '/research/confused-words.json', license: 'https://creativecommons.org/licenses/by/4.0/' };
+export const DATASET = { csv: '/research/confused-words.csv', json: '/research/confused-words.json', license: 'https://creativecommons.org/licenses/by/4.0/', doi: '10.5281/zenodo.23662626', repo: 'https://github.com/lexkiteapp/confused-words-dataset' };
 const cache = {};
 export const authStrings = lang => {
   if (lang in cache) return cache[lang];
