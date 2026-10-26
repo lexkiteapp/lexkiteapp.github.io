@@ -974,6 +974,36 @@
         "static.cloudflareinsights.com",
         "cloudflareinsights.com"
       ]
+    },
+    {
+      "key": "dict-worker",
+      "name": "Cloudflare Worker lexkite-dict (trang từ điển /vi/tu-dien/, /en/dictionary/)",
+      "kind": "hosting",
+      "purpose": "Trang từ điển SEO (docs/SEO-DICT-PAGES.md): tầng 1 = Workers Static Assets dựng sẵn trên CI (dist-dict/assets, phục vụ miễn phí, không tính lượt, ≤ 20.000 file/phiên bản – ngoài trần 20.000 file của Pages); tầng 2 = script đọc JSON từng từ trên R2 lexkite-dict-data → render.mjs → Cache API. Mặc định noindex (DICT_INDEX rỗng). Thí điểm 26/10/2026: 200 từ × vi/en, CHƯA deploy, chưa gắn route lexkite.com – chờ chủ duyệt",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/workers/services/view/lexkite-dict/production",
+      "free": "Asset tĩnh: không giới hạn, không tính lượt · Script: 100.000 lượt/ngày DÙNG CHUNG cả tài khoản (audio, media, Pages Functions…) · 10 ms CPU/lượt",
+      "upgrade": "Khi đuôi dài > ~40k lượt/ngày: thêm Worker shard theo ngôn ngữ (mỗi Worker 20.000 asset) trước; cuối cùng Workers Paid 5 USD/tháng (10 triệu lượt, 100.000 asset)",
+      "status": "Thí điểm – chưa deploy (chờ chủ duyệt)",
+      "match": [
+        "lexkite-dict"
+      ],
+      "cap": {
+        "day": 100000,
+        "unit": "request"
+      }
+    },
+    {
+      "key": "dict-r2",
+      "name": "Cloudflare R2 lexkite-dict-data (JSON trang từ điển)",
+      "kind": "storage",
+      "purpose": "JSON từng từ v1/<lang>/<slug>.json + v1/shell.json + v1/manifest.json do scripts/dict/build.mjs sinh; Worker lexkite-dict (binding DICT) đọc cho trang đuôi dài. Đẩy chỉ file đổi theo manifest (băm). Không chứa dữ liệu người dùng. Chưa tạo bucket",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/r2/default/buckets/lexkite-dict-data",
+      "free": "10 GB + 1 triệu ghi + 10 triệu đọc/tháng (JSON ~3 KB → 100k từ × 15 ngôn ngữ ≈ 4,5 GB)",
+      "upgrade": "Đọc > 10 triệu/tháng: Cache API ở biên giữ trang 1 ngày nên đọc R2 ≈ số trang khác nhau/ngày, không phải số lượt xem",
+      "status": "Chưa tạo (chờ chủ duyệt thí điểm)",
+      "match": [
+        "lexkite-dict-data"
+      ]
     }
   ],
   "links": {
