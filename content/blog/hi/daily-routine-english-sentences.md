@@ -27,7 +27,7 @@ qualityScore: 95
 
 ### 1. सुबह की दिनचर्या और घर पर बातचीत (Morning Routine & Home Life)
 
-सुबह आँख खुलने से लेकर नाश्ता करने और तैयार होने तक घर पर बोले जाने वाले आवश्यक वाक्य:
+सुबह आँख खुलने से लेकर नाश्ता करने और तैयार होने तक घर पर बोले जाने वाले आवश्यक वाक्य नीचे हैं (*wake up, get up, turn off* जैसे शब्द-समूहों का पूरा अर्थ और word order [phrasal verbs in Hindi](/hi/blog/phrasal-verbs-in-hindi/) वाले लेख में है):
 
 1. *Wake up, it is already 7 o'clock.* — जाग जाओ, 7 बज चुके हैं।
 2. *Let me sleep for five more minutes.* — मुझे पाँच मिनट और सोने दो।

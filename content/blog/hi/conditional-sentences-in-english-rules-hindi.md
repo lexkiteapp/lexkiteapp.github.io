@@ -1,6 +1,7 @@
 ---
 title: "Conditional Sentences in English in Hindi: सभी 4 प्रकार के नियम"
 slug: "conditional-sentences-in-english-rules-hindi"
+translationKey: cau-dieu-kien-tieng-anh-conditionals
 description: "Conditional sentences in english in hindi: Zero, First, Second, Third कंडीशनल वाक्यों की पहचान, फॉर्मूला, उदाहरण और सामान्य गलतियों की संपूर्ण मार्गदर्शिका।"
 readMinutes: 12
 category: "ngu-phap"

@@ -12169,6 +12169,147 @@
    "cluster": "diferencia-entre-make-y-do-en-ingles",
    "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
    "source": "make-vs-do"
+  },
+  {
+   "slug": "phrasal-verbs-in-hindi",
+   "keyword": "phrasal verbs in hindi",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulary",
+    "phrasal-verbs",
+    "speaking",
+    "ielts",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/phrasal-verbs-grammar",
+    "/#/practice/learn"
+   ],
+   "intent": "informational/list",
+   "lang": "hi",
+   "cluster": "phrasal-verb-thong-dung",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "common-phrasal-verbs"
+  },
+  {
+   "slug": "ielts-reading-matching-headings-tips-hindi",
+   "keyword": "ielts reading matching headings tips",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-reading",
+    "matching-headings",
+    "exam-tips"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris"
+   ],
+   "intent": "exam-prep",
+   "lang": "hi",
+   "cluster": "ielts-reading-matching-headings",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "ielts-general-letter-writing-hindi",
+   "keyword": "ielts general letter writing",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-general",
+    "writing",
+    "letter-writing",
+    "canada"
+   ],
+   "routes": [
+    "/#/letters"
+   ],
+   "intent": "exam-prep",
+   "lang": "hi",
+   "cluster": "ielts-general-writing-task-1-viet-thu",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-general-training-letter"
+  },
+  {
+   "slug": "matching-headings-ielts-nasaih",
+   "keyword": "matching headings ielts",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-reading",
+    "matching-headings",
+    "exam-tips"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris"
+   ],
+   "intent": "exam-prep",
+   "lang": "ar",
+   "cluster": "ielts-reading-matching-headings",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "risalat-ielts-general-training-letter",
+   "keyword": "ielts general training letter",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-general",
+    "writing",
+    "letter-writing"
+   ],
+   "routes": [
+    "/#/letters"
+   ],
+   "intent": "exam-prep",
+   "lang": "ar",
+   "cluster": "ielts-general-writing-task-1-viet-thu",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-general-training-letter"
+  },
+  {
+   "slug": "kosvennaya-rech-v-angliyskom-reported-speech",
+   "keyword": "косвенная речь в английском",
+   "category": "ngu-phap",
+   "tags": [
+    "grammatika",
+    "reported-speech",
+    "vremena",
+    "ege",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "intent": "informational",
+   "lang": "ru",
+   "cluster": "reported-speech",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "reported-speech"
+  },
+  {
+   "slug": "relative-clauses-v-angliyskom-who-which-that",
+   "keyword": "relative clauses в английском",
+   "category": "ngu-phap",
+   "tags": [
+    "grammatika",
+    "relative-clauses",
+    "writing",
+    "ege",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "intent": "informational",
+   "lang": "ru",
+   "cluster": "relative-clauses",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "relative-clauses-who-which-that"
   }
  ]
 }

@@ -178,6 +178,8 @@ quiz: [
 ### مقالات مقترحة لتطوير مهاراتك الإنجليزية:
 - [شرح ielts writing task 1 وكتابة التقارير الرسمية](/ar/blog/ielts-writing-task-1-wasf-al-rusum-al-bayaniyyah/)
 - [الجمل الشرطية في اللغة الإنجليزية وقواعد If](/ar/blog/al-jumal-al-shartiyyah-fi-al-injliziyyah/)
+- [matching headings ielts: كيف تكشف أدوات الربط غرض الفقرة](/ar/blog/matching-headings-ielts-nasaih/)
+- [ielts general training letter: الرسالة الرسمية والودية](/ar/blog/risalat-ielts-general-training-letter/)
 - [تقديم عرض تقديمي باللغة الإنجليزية بطلاقة](/ar/blog/taqdim-ard-taqdimi-bi-al-injliziyyah-presentation-skills/)
 
 {{cta: /app/#/write | تدرب على كتابة مقالات متماسكة في محاكي Lexkite}}

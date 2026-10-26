@@ -125,3 +125,4 @@ qualityScore: 94
 ## संबंधित अध्ययन सामग्री
 
 - [IELTS Writing Task 1: चार्ट और ग्राफ विश्लेषण गाइड](/hi/blog/ielts-writing-task-1-graph-description-hindi/)
+- [IELTS General Letter Writing: फ़ॉर्मेट और नमूना पत्र](/hi/blog/ielts-general-letter-writing-hindi/)

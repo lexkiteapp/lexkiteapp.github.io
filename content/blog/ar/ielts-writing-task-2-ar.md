@@ -43,7 +43,7 @@ qualityScore: 94
 - **الجملة 2 (Thesis Statement & Outline):** بيان أطروحتك وموقفك الصريح وتوضيح النقاط الرئيسية التي ستناقشها في المقال.
 
 ### الفقرة الثانية: جسم المقال الأول (Body Paragraph 1 - حوالي 80 إلى 90 كلمة)
-- **الجملة 1 (Topic Sentence):** الفكرة الرئيسية الأولى للفقرة بكل وضوح.
+- **الجملة 1 (Topic Sentence):** الفكرة الرئيسية الأولى للفقرة بكل وضوح. وهي الجملة نفسها التي تبحث عنها في قسم القراءة عند حل [matching headings ielts](/ar/blog/matching-headings-ielts-nasaih/).
 - **الجملتان 2-3 (Explanation):** شرح الأسباب المنطقية وكيف يؤدي السبب إلى النتيجة.
 - **الجملة 4 (Specific Example):** مثال واقعي أو دراسة أو حقيقة تدعم التعليل.
 - **الجملة 5 (Result/Link):** جملة ختامية تربط النتيجة بالسؤال الأساسي.
@@ -124,3 +124,5 @@ In conclusion, I firmly support the inclusion of compulsory community service in
 قسم وقتك بحزم وفق قاعدة (5 - 30 - 5): خصص أول 5 دقائق لتحليل السؤال والعصف الذهني وكتابة مخطط الأفكار، ثم 30 دقيقة للكتابة المتواصلة والتركيز على الروابط والفقرات، واحتفظ بآخر 5 دقائق كاملة لقراءة المقال بعناية وتصحيح الأخطاء الإملائية والنحوية وتطابق الجمع والمفرد.
 
 > اقرأ أيضًا: [IELTS Writing Task 1: شرح شامل لوصف الرسوم البيانية](/ar/blog/ielts-writing-task-1-wasf-al-rusum-al-bayaniyyah/)
+
+> اقرأ أيضًا: [IELTS General Training Letter: دليل الرسالة ونموذج Band 8](/ar/blog/risalat-ielts-general-training-letter/)

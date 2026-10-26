@@ -33,7 +33,7 @@ qualityScore: 94
 ### 2. Lexical Resource (शब्दावली और विषयगत शब्द - 25%)
 - **बैंड 7 की आवश्यकता:** आपके पास विभिन्न विषयों पर बात करने के लिए शब्दों का पर्याप्त और विविध भंडार होना चाहिए।
 - कम प्रचलित शब्दों (less common vocabulary) और सही कोलोकेशन (collocations) का सटीक प्रयोग करें। उदाहरण के लिए, "big problem" के स्थान पर "pressing issue" या "acute challenge" कहना बेहतर है।
-- शब्दों को जबरदस्ती न थोपें; संदर्भ के अनुसार मुहावरेदार भाषा (idiomatic expressions) का सहज प्रयोग करें।
+- शब्दों को जबरदस्ती न थोपें; संदर्भ के अनुसार मुहावरेदार भाषा (idiomatic expressions) का सहज प्रयोग करें। बोलचाल में स्वाभाविक phrasal verbs (*grew up, look up to, sort out*) भी इसमें मदद करते हैं – सूची [phrasal verbs in Hindi](/hi/blog/phrasal-verbs-in-hindi/) में।
 
 ### 3. Grammatical Range and Accuracy (व्याकरणिक विविधता और सटीकता - 25%)
 - **बैंड 7 की आवश्यकता:** आप केवल सरल वाक्य (Simple Sentences) ही न बोलें, बल्कि मिश्रित और जटिल वाक्यों (Complex and Compound Sentences) का मिश्रण प्रस्तुत करें।
