@@ -602,6 +602,189 @@
     },
     {
      "id": "resolution#n"
+    },
+    {
+     "id": "passage#n"
+    },
+    {
+     "id": "perfectly#adv"
+    },
+    {
+     "id": "valuable#adj"
+    },
+    {
+     "id": "personally#adv"
+    },
+    {
+     "id": "chip#n"
+    },
+    {
+     "id": "minor#adj"
+    },
+    {
+     "id": "acquisition#n"
+    },
+    {
+     "id": "agenda#n"
+    },
+    {
+     "id": "wire#n"
+    },
+    {
+     "id": "unknown#adj"
+    },
+    {
+     "id": "ease#n"
+    },
+    {
+     "id": "input#n"
+    },
+    {
+     "id": "secondary#adj"
+    },
+    {
+     "id": "welfare#n"
+    },
+    {
+     "id": "exclude#v"
+    },
+    {
+     "id": "sink#v"
+    },
+    {
+     "id": "steady#adj"
+    },
+    {
+     "id": "heavily#adv"
+    },
+    {
+     "id": "guilty#adj"
+    },
+    {
+     "id": "naturally#adv"
+    },
+    {
+     "id": "ratio#n"
+    },
+    {
+     "id": "disorder#n"
+    },
+    {
+     "id": "foundation#n"
+    },
+    {
+     "id": "strain#n"
+    },
+    {
+     "id": "extension#n"
+    },
+    {
+     "id": "bid#n"
+    },
+    {
+     "id": "breed#v"
+    },
+    {
+     "id": "stem#n"
+    },
+    {
+     "id": "consult#v"
+    },
+    {
+     "id": "strip#n"
+    },
+    {
+     "id": "vice#n"
+    },
+    {
+     "id": "membership#n"
+    },
+    {
+     "id": "mature#adj"
+    },
+    {
+     "id": "parallel#adj"
+    },
+    {
+     "id": "bath#n"
+    },
+    {
+     "id": "tap#v"
+    },
+    {
+     "id": "attribute#n"
+    },
+    {
+     "id": "grab#v"
+    },
+    {
+     "id": "edit#v"
+    },
+    {
+     "id": "deposit#n"
+    },
+    {
+     "id": "advocate#v"
+    },
+    {
+     "id": "seal#v"
+    },
+    {
+     "id": "mount#v"
+    },
+    {
+     "id": "musician#n"
+    },
+    {
+     "id": "visual#adj"
+    },
+    {
+     "id": "twin#n"
+    },
+    {
+     "id": "custom#n"
+    },
+    {
+     "id": "incentive#n"
+    },
+    {
+     "id": "dismiss#v"
+    },
+    {
+     "id": "resist#v"
+    },
+    {
+     "id": "successfully#adv"
+    },
+    {
+     "id": "genetic#adj"
+    },
+    {
+     "id": "embrace#v"
+    },
+    {
+     "id": "compensation#n"
+    },
+    {
+     "id": "classical#adj"
+    },
+    {
+     "id": "weigh#v"
+    },
+    {
+     "id": "entertain#v"
+    },
+    {
+     "id": "historic#adj"
+    },
+    {
+     "id": "pregnant#adj"
+    },
+    {
+     "id": "stake#n"
+    },
+    {
+     "id": "clause#n"
     }
    ]
   },
@@ -2099,7 +2282,7 @@
   },
   {
    "kind": "vocab-review",
-   "why": "rà soát lượt 1–2 (26/10): chưa đủ chắc để sửa tay – cần giám khảo/nguồn từ điển",
+   "why": "rà soát lượt 1–3 (26/10): chưa đủ chắc để sửa tay – cần giám khảo/nguồn từ điển",
    "items": [
     {
      "id": "accord#n",
@@ -2140,6 +2323,38 @@
     {
      "id": "tire#n",
      "why": "mục NGSL \"tire\" – cân nhắc nghĩa động từ \"mệt\" ở mục riêng tire#v; đã đổi mục n sang lốp xe"
+    },
+    {
+     "id": "swing#v",
+     "why": "CEFR C1 có vẻ cao (Oxford ~B2) – xác nhận"
+    },
+    {
+     "id": "moderate#adj",
+     "why": "CEFR C1 có vẻ cao (Oxford ~B2)"
+    },
+    {
+     "id": "march#v",
+     "why": "CEFR C1 có vẻ cao (Oxford ~B2)"
+    },
+    {
+     "id": "pump#n",
+     "why": "CEFR C1 có vẻ cao (Oxford ~B2)"
+    },
+    {
+     "id": "gear#n",
+     "why": "CEFR C1 có vẻ cao (Oxford ~B2)"
+    },
+    {
+     "id": "sink#v",
+     "why": "emoji 🚰 (vòi nước) hợp danh từ 'bồn rửa', không hợp động từ 'chìm' – overrides chưa có trường emoji"
+    },
+    {
+     "id": "mature#adj",
+     "why": "CEFR C1 có vẻ cao (Oxford ~B2)"
+    },
+    {
+     "id": "quantity#n",
+     "why": "CEFR A2 có vẻ thấp (Oxford ~B1)"
     }
    ]
   }
