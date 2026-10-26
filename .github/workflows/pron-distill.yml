@@ -17,6 +17,7 @@ on:
       force: { description: 'rebuild shards that already exist', default: 'false' }
       eval_small: { description: 'smoke: pron-eval with tiny samples', default: 'false' }
 permissions: { contents: write, actions: write }
+concurrency: { group: pron-distill, cancel-in-progress: false }   # free plan = 20 shared runners: never starve deploys/tests (teacher matrix max-parallel 6)
 env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}', TORCH_CPU: 'https://download.pytorch.org/whl/cpu' }
 jobs:
   plan:
@@ -40,7 +41,7 @@ jobs:
     if: needs.plan.outputs.n != '' && needs.plan.outputs.n != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 150
-    strategy: { fail-fast: false, max-parallel: 20, matrix: { sh: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
+    strategy: { fail-fast: false, max-parallel: 6, matrix: { sh: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -68,7 +69,6 @@ jobs:
     if: always() && (inputs.stage == 'train' || (inputs.stage == 'all' && needs.teacher.result != 'failure' && needs.teacher.result != 'cancelled'))
     runs-on: ubuntu-latest
     timeout-minutes: 355
-    concurrency: { group: 'pron-distill-train-${{ inputs.tag }}', cancel-in-progress: false }
     outputs: { finished: '${{ steps.t.outputs.finished }}' }
     steps:
       - uses: actions/checkout@v4
