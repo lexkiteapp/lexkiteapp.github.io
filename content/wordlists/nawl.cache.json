@@ -110,7 +110,7 @@
   "syn": [],
   "vi": "thú vị",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "marker": {
   "ipa": "/ˈmɑː(ɹ)kə(ɹ)/",
@@ -693,7 +693,7 @@
   "syn": [],
   "vi": "về mặt chính trị",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "positively": {
   "ipa": "/ˈpɒz.ɪ.tɪv.li/",
@@ -1246,7 +1246,7 @@
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "crystal": {
   "ipa": "/ˈkɹɪstəl/",
@@ -1507,7 +1507,7 @@
   ],
   "vi": "rõ ràng",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "fertility": {
   "ipa": "/fə(ɹ)ˈtɪlɪti/",
@@ -1546,7 +1546,7 @@
   "syn": [],
   "vi": "công thức",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "founds": {
   "ipa": "/faʊndz/",
@@ -1921,7 +1921,7 @@
   "syn": [],
   "vi": "chọn ngẫu nhiên",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "randomly": {
   "ipa": "/ˈɹændm̩li/",
@@ -2135,9 +2135,9 @@
   "def": "representing a larger quality",
   "ex": "",
   "syn": [],
-  "vi": "",
+  "vi": "tượng trưng",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "technically": {
   "ipa": "/ˈtɛk.nɪˌkəl.i/",
@@ -2930,9 +2930,9 @@
   "def": "not in a line",
   "ex": "a film with a nonlinear plot",
   "syn": [],
-  "vi": "",
+  "vi": "phi tuyến",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "obscure": {
   "ipa": "/əbˈskjʊə(ɹ)/",
@@ -3445,9 +3445,9 @@
   "def": "a number multiplied by a variable in an algebraic expression.",
   "ex": "The quadratic coefficient in this term is questionable.",
   "syn": [],
-  "vi": "",
+  "vi": "hệ số",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "composite": {
   "ipa": "/ˈkɒmpəzɪt/",
@@ -3537,7 +3537,7 @@
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "diffusion": {
   "ipa": "/dɪˈfjuː.ʒən/",
@@ -3667,7 +3667,7 @@
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "kidney": {
   "ipa": "/ˈkɪdni/",
@@ -3715,9 +3715,9 @@
   "def": "involving many countries",
   "ex": "Global multinational corporations are engaged in environmental violence.",
   "syn": [],
-  "vi": "",
+  "vi": "đa quốc gia",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "niche": {
   "ipa": "/niːʃ/",
@@ -4275,9 +4275,9 @@
   "def": "forward",
   "ex": "The sky faded, and the road snaked onwards.",
   "syn": [],
-  "vi": "",
+  "vi": "trở đi",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "oscillation": {
   "ipa": "/ˌɒ.sɪˈleɪ.ʃən/",
@@ -4447,7 +4447,7 @@
   "syn": [],
   "vi": "",
   "v": 2,
-  "tries": 2
+  "tries": 3
  },
  "confound": {
   "ipa": "/kənˈfaʊnd/",
@@ -5187,8 +5187,8 @@
   "def": "{a person considered as descended from some ancestor or race}",
   "ex": "",
   "syn": [],
-  "vi": "",
+  "vi": "hậu duệ",
   "v": 2,
-  "tries": 2
+  "tries": 3
  }
 }
