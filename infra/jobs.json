@@ -352,6 +352,20 @@
    "lease": false
   },
   {
+   "id": "seo-gsc",
+   "workflow": "seo-gsc.yml",
+   "cron": [
+    "0 0 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "nav-render",
    "workflow": "nav-render.yml",
    "cron": [
