@@ -116,8 +116,11 @@ if (args.includes('--scan')) {
   for (const [lang, dictAt] of plan) {
     // Bấm chọn ngôn ngữ như người dùng → I18N.set lưu lựa chọn rồi tải lại trang (jsdom: không tải lại → mở trang mới với cùng localStorage)
     const { w: wv } = await boot(before, 'modules');
-    wv.document.querySelector('#langBtn').click(); await tick(60);
-    const pick = wv.document.querySelector(`[data-lang-pick] [data-v="${lang}"]`); if (pick) pick.click();
+    // Nút ngôn ngữ ở thanh trên đã chuyển vào Cài đặt (trang chủ gọn) → chọn trong #/settings như người dùng
+    wv.location.hash = '#/settings'; for (let i = 0; i < 60 && !wv.document.querySelector('[data-lang-select], [data-lang-pick]'); i++) await tick(50);
+    const sel = wv.document.querySelector('#view [data-lang-select]');
+    if (sel) { sel.value = lang; sel.dispatchEvent(new wv.Event('change', { bubbles: true })); }
+    else { const pick = wv.document.querySelector(`#view [data-lang-pick] [data-v="${lang}"]`); if (pick) pick.click(); }
     if (wv.localStorage.getItem('vb.uiLang') !== lang) { console.log(`✗ ${lang}: bấm chọn ngôn ngữ không lưu vb.uiLang`); total++; continue; }
     const { w, errors } = await boot(dump(wv), dictAt);
     const leaks = new Map(), VI = /fr|pt/.test(lang) ? VI0 : VIS;
