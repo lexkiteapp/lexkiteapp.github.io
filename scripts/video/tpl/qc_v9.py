@@ -216,13 +216,14 @@ for f in fr:
         if e['digit'] and e['alpha'] >= 0.999: digits[e['digit']] = digits.get(e['digit'], 0) + 1 / fps
 has_count = any(b['kind'] == 'count' for b in T['beats'].values())
 R['countdown'] = dict(ok=(not has_count) or all(digits.get(k, 0) >= 0.8 for k in '321'), digits={k: round(v, 2) for k, v in digits.items()}, applies=has_count)
+LESSON = {'pop.' + p['id'] for p in SP['pops'] if p.get('kind') == 'lesson'}
 out, full, small = [], {}, []
 for f in fr:
     for e in els(f):
         if e['alpha'] <= 0.004: continue
         if e['x0'] < SAFE['x0'] or e['x1'] > SAFE['x1'] or e['y0'] < SAFE['y0'] or e['y1'] > SAFE['y1']: out.append((f['t'], e['name'], [e['x0'], e['y0'], e['x1'], e['y1']]))
         if e['group'] != 'caption': full.setdefault(e['name'], []).append(f['t'] if e['alpha'] >= 0.999 else None)
-        if e['px'] < MIN_PX and e['alpha'] >= 0.999: small.append((f['t'], e['name'], e['px']))
+        if e['px'] < (34 if e['name'] in LESSON else MIN_PX) and e['alpha'] >= 0.999: small.append((f['t'], e['name'], e['px']))   # lesson cards: owner-approved mock (38 px examples, >= 0.9x)
 R['safe_area'] = dict(ok=not out, safe=SAFE, outside=out[:6], n_outside=len(out))
 def vis_runs(ts):
     rs, cur = [], 0

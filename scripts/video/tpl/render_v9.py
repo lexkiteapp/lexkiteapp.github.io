@@ -109,7 +109,7 @@ def font(sz, f=None):
     return _fc[k]
 ease = lambda x, p=EASE['out']: bezier(p, max(0.0, min(1.0, x)))
 CAPR = -ImageFont.truetype(FH, 1000).getbbox('H', anchor='ls')[1] / 1000   # rendered cap height / font size (BeVietnamPro ExtraBold H = 0.74)
-MIN_CAP = dict(caption=int(SP.get('caption_cap', 80)), hook=72, body=56, card=26); MIN_IMG = 300   # card = owner-approved layout-v12 mock (26/10): example lines 38 px font   # layout v12: spec caption_cap (teaching series 62: the board holds the lesson)   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
+MIN_CAP = dict(caption=int(SP.get('caption_cap', 80)), hook=72, body=56, card=25); MIN_IMG = 300   # card = owner-approved layout-v12 mock (26/10): example lines 38 px font   # layout v12: spec caption_cap (teaching series 62: the board holds the lesson)   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
 CAPF = math.ceil(MIN_CAP['caption'] / CAPR) + 1
 COL = dict(white=(255, 255, 255), red=C['red'], green=C['green'], yellow=C['yellow'], cream=C['cream'], mint=C['mint'], navy=C['navy'], navy2=C['navy2'], ink=C['navy'])
 STROKE = (10, 22, 26); ACT = COL[SP.get('active', 'yellow')]; ACC = COL[SP['accent']]
