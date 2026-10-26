@@ -112,4 +112,8 @@ arrow, heart symbol, emoji, icon, screen with…, chart, graph, calendar, newspa
 - GrabCast trả 500 cho 700/700 ảnh (24/10) → `vocab-img-scene.yml` input `provider` mặc định `cf`: vẽ (`cf-direct.mjs`) và giám khảo thị giác (`local_judge.py` Llama 4 Scout) gọi thẳng REST Workers AI.
 - Tài khoản: secret `CF_POOL` (mỗi mục `account_id:token`, ngăn bằng xuống dòng/phẩy; chủ dán, agent không đọc kho khoá), bỏ 5 tài khoản đầu (GrabCast còn dùng), rồi tài khoản 2. Không bao giờ tài khoản chính.
 - Trần: `max_gc` (dùng chung) ≤ Σ tài khoản × floor(9.000 neuron / neuron mỗi ảnh `NPI`). `NPI` là ước tính – đo lại bằng analytics trước khi chạy hàng loạt.
-- Lịch fill chỉ chạy khi biến repo `VIMG_SCHEDULE=1` (chủ bật sau khi duyệt tờ ảnh).
+- Lịch fill chỉ chạy khi biến repo `VIMG_SCHEDULE=1`.
+- **Chốt 26/10 (A/B 40 nghĩa khó):** `flux-2-klein-4b` (phẳng, nền kem, đúng bảng màu); schnell rối hơn; sdxl-lightning loại (gần ảnh chụp, có chữ). Mặc định workflow = klein-4b (ghi đè `vars.VIMG_MODEL`).
+- **Vắt hết kho (chủ 26/10, kho chỉ Lexkite dùng):** `VIMG_POOL_SKIP=0`, `VIMG_CF_UNCAPPED=1` – mỗi tài khoản vẽ tới 4006 rồi chuyển. Thẻ cảnh (văn bản) cũng qua kho (ai-pool tuyến cf2 xoay CF_POOL, `scripts/lib/cf-pool.mjs`).
+- **Cổng chất lượng tự động (giữ nguyên ngưỡng, không hạ):** OCR chữ · NSFW · tâm phong cách · pHash trùng · CLIP câu ví dụ vs anh em · Llama 4 Scout mô tả mù + hỏi có/không · ≤ 6 KB · tờ ảnh 40 ảnh nhận mỗi lượt · 5 % kiểm mẫu tuần. Trượt hết biến thể → `vimg-scene-queue.json`.
+- **Kho ảnh gốc cho video:** mỗi lượt fill tải `vimg-masters-<run>.zip` (≤768 px WebP + manifest.json) lên Release `vimg-masters` (`masters.py`, infra `vimg-masters`).

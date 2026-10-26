@@ -58,15 +58,17 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
+      VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
+      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
       LEASE_SHARD: prep
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
-      VIMG_MODEL: ${{ github.event.inputs.model || '' }}
+      VIMG_MODEL: ${{ github.event.inputs.model || vars.VIMG_MODEL || 'flux-2-klein-4b' }}   # A/B 26/10: klein-4b thắng (phẳng, nền kem, đúng bảng màu)
       AI_POOL_GC_MAX: '60'
       HF_HUB_DISABLE_TELEMETRY: '1'
       OUT: out/vimg-scene
@@ -132,15 +134,17 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
+      VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
+      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
       LEASE_SHARD: ${{ matrix.shard }}
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
-      VIMG_MODEL: ${{ github.event.inputs.model || '' }}
+      VIMG_MODEL: ${{ github.event.inputs.model || vars.VIMG_MODEL || 'flux-2-klein-4b' }}   # A/B 26/10: klein-4b thắng (phẳng, nền kem, đúng bảng màu)
       AI_POOL_GC_MAX: '60'
       HF_HUB_DISABLE_TELEMETRY: '1'
       OUT: out/vimg-scene
@@ -225,17 +229,19 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
+      VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
+      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
       LEASE_SHARD: ${{ matrix.shard }}
       PER: ${{ needs.plan.outputs.per }}
       NSH: ${{ strategy.job-total }}
       V: ${{ github.event.inputs.variants || '4' }}
       VIMG_MAX_CF2: '0'
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
-      VIMG_MODEL: ${{ github.event.inputs.model || '' }}
+      VIMG_MODEL: ${{ github.event.inputs.model || vars.VIMG_MODEL || 'flux-2-klein-4b' }}   # A/B 26/10: klein-4b thắng (phẳng, nền kem, đúng bảng màu)
       # GrabCast 24/10: 115k/ngày/khoá, generate 300/phút/IP (mỗi runner 1 IP), ảnh 60/phút/IP, vision 120/phút/IP – thẻ cảnh trước đây dừng ~110/lượt vì AI_POOL_GC_MAX 60
       AI_POOL_GC_MAX: '1500'
       VIMG_CONC: '6'
@@ -274,10 +280,10 @@ jobs:
           T0=$(date +%s)
           for a in $(seq 1 $V); do
             node -e "const fs=require('fs'),O=process.env.OUT,ks=require('./keys.json').items,sc=require('./content/lexicon/vimg-scenes.json').items,ok=new Set();for(let a=1;a<=6;a++){const f=O+'/judge.local.a'+a+'.json';if(fs.existsSync(f))for(const[k,v]of Object.entries(JSON.parse(fs.readFileSync(f,'utf8'))))if(v.pass)ok.add(k)}fs.writeFileSync('pending.json',JSON.stringify({items:ks.filter(k=>sc[k]&&!sc[k].skip&&!ok.has(k))}))"
-            P=$(node -p "require('./pending.json').items.length"); USED=$(node -e "const fs=require('fs'),O=process.env.OUT;console.log(fs.readdirSync(O).filter(f=>/^gen-stats\./.test(f)).reduce((a,f)=>a+JSON.parse(fs.readFileSync(O+'/'+f,'utf8')).gc.submit,0))")
+            P=$(node -p "require('./pending.json').items.length"); USED=$(node -e "const fs=require('fs'),O=process.env.OUT;console.log(fs.readdirSync(O).filter(f=>/^gen-stats\./.test(f)).reduce((a,f)=>{const g=JSON.parse(fs.readFileSync(O+'/'+f,'utf8'));return a+g.gc.submit+((g.cf&&g.cf.ok)||0)},0))")
             LEFT=$(( PER - ${USED:-0} )); echo "biến thể $a: còn $P nghĩa · đã gọi ${USED:-0}/$PER"
             [ "$P" -eq 0 ] && break; [ "$LEFT" -le 0 ] && { echo "⏹ hết trần ảnh việc"; break; }; [ $(( $(date +%s) - T0 )) -gt 5400 ] && { echo "⏹ hết giờ"; break; }
-            VIMG_MAX_GC=$LEFT node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt $a --shard ${{ matrix.shard }}/$NSH --only pending.json || true
+            VIMG_MAX_GC=$LEFT VIMG_MAX_CF=$LEFT node scripts/vocab-img/scene-gen.mjs --keys keys.json --out $OUT --attempt $a --shard ${{ matrix.shard }}/$NSH --only pending.json || true
             ls $OUT/raw/*.a$a.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt $a | tail -2 || true
             [ -f $OUT/EXHAUSTED ] && { echo "⏹ bể neuron CF cạn (ai_exhausted) – dừng sạch"; break; }
           done
@@ -328,6 +334,13 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -qm "Ảnh cảnh theo nghĩa: lượt fill ${{ github.run_id }} ($(node -p "require('./m/fill-report.json').accepted") ảnh)"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep $((i * 10)); done
+      - name: Kho ảnh gốc cho video (GitHub Release 'vimg-masters' – miễn phí, không vào Pages/kho media)
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          [ -f m/result.json ] || exit 0
+          python3 scripts/vocab-img/masters.py --dir m --out vimg-masters-${{ github.run_id }}.zip --run ${{ github.run_id }}
+          gh release view vimg-masters -R ${{ github.repository }} >/dev/null 2>&1 || gh release create vimg-masters -R ${{ github.repository }} --title 'Kho ảnh gốc từ vựng (video)' --notes 'Ảnh cảnh đã qua giám khảo, ≤768 px WebP + manifest.json mỗi lượt fill. Dùng cho video giảng dạy (docs/VOCAB-IMG-STYLE.md §11).' --prerelease
+          gh release upload vimg-masters vimg-masters-${{ github.run_id }}.zip -R ${{ github.repository }} --clobber
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: vimg-fill-final, retention-days: 14, path: "m/result.json\nm/fill-report.json\nm/fill-sheet.jpg\nm/gen-stats.*.json\nm/judge-api.*.json\nm/speed.*.json\nm/final/" }
@@ -343,10 +356,12 @@ jobs:
       # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
       GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
       CF_POOL: ${{ secrets.CF_POOL }}
+      VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
+      VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
+      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
       LEASE_SHARD: lab
       HF_HUB_DISABLE_TELEMETRY: '1'
     steps:

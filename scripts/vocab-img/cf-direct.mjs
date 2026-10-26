@@ -76,7 +76,8 @@ export async function cfImage(a, model, prompt, size, F = fetch) {
 /** nhà vẽ xoay vòng tài khoản: max = tổng trần ảnh mọi tài khoản (≤ VIMG_MAX_CF) */
 export function cfProvider(model, env = process.env, F = fetch) {
   const accts = poolAccounts(env), npi = npiOf(model, env), keep = 1 - Math.min(0.9, Math.max(0, +(env.VIMG_CF_RESERVE ?? 0.1)));
-  const per = Math.floor(DAILY_NEURONS * keep / npi), left = new Map(accts.map(a => [a.id, per])), stats = { accounts: accts.length, per_account: per, npi, ok: 0, by_acct: {}, dead: [] };
+  // VIMG_CF_UNCAPPED=1 (chủ 26/10: kho chỉ Lexkite dùng → vắt hết): không trần ước tính, mỗi tài khoản vẽ tới khi Cloudflare báo 4006 hết neuron ngày
+  const per = env.VIMG_CF_UNCAPPED === '1' ? 1e6 : Math.floor(DAILY_NEURONS * keep / npi), left = new Map(accts.map(a => [a.id, per])), stats = { accounts: accts.length, per_account: per, npi, ok: 0, by_acct: {}, dead: [] };
   let i = 0;
   const cap = Math.min(+(env.VIMG_MAX_CF || 0), per * accts.length);
   return {

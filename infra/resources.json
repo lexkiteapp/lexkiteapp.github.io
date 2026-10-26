@@ -935,6 +935,20 @@
       ]
     },
     {
+      "key": "vimg-masters",
+      "name": "Kho ảnh gốc từ vựng cho video (GitHub Release vimg-masters)",
+      "kind": "storage",
+      "purpose": "Ảnh cảnh đã qua giám khảo, ≤768 px WebP q85 + manifest.json (khoá → câu ví dụ, mô hình, lượt) – mỗi lượt fill vocab-img-scene tải 1 zip lên Release 'vimg-masters' của repo; video giảng dạy lấy ảnh từ đây (scripts/vocab-img/masters.py).",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases/tag/vimg-masters",
+      "free": "GitHub Release: không giới hạn số tệp, ≤2 GB/tệp, không tính vào Pages hay dung lượng repo (~24 KB/ảnh → 20k ảnh ≈ 480 MB)",
+      "upgrade": "Không cần; nếu GitHub đổi chính sách → R2 lexkite-blog-media prefix vimg-masters/",
+      "status": "Đang chạy (26/10)",
+      "match": [
+        "releases/tag/vimg-masters",
+        "vimg-masters"
+      ]
+    },
+    {
       "key": "backup-rollback",
       "name": "Sao lưu & khôi phục nhanh (rollback)",
       "kind": "storage",
