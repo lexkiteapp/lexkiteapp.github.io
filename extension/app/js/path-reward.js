@@ -13,7 +13,9 @@
 .pr-steps{list-style:none;padding:0;margin:0 0 .9rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.4rem}
 .pr-steps a{display:flex;gap:.4rem;align-items:center;min-height:44px;padding:.4rem .6rem;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none;font-size:.9rem}
 .pr-steps a.ok{border-color:var(--good);background:var(--good-soft,transparent)}.pr-rem{margin-top:.8rem;padding:.7rem .8rem;border-radius:12px;background:var(--surface-2);display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
-.pr-rem p{margin:0;flex:1 1 180px}.pr-rem .btn{min-height:44px}`;
+.pr-rem p{margin:0;flex:1 1 180px}.pr-rem .btn{min-height:44px}
+.pr-save{margin-top:.9rem;padding:.9rem;border-radius:16px;border:2px solid var(--primary);background:var(--primary-soft);display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+.pr-save svg{flex:none}.pr-save>div{flex:1 1 200px}.pr-save p{margin:.2rem 0 0}.pr-save .row{flex:1 1 100%;gap:.5rem}.pr-save .btn{min-height:44px}`;
     document.head.appendChild(st);
   }
   function remNudge() {
@@ -23,6 +25,14 @@
     const last = +ls('remNudge') || 0; if (Date.now() - last < 7 * 864e5) return '';
     return `<div class="pr-rem" id="prRem"><p class="small">🔔 ${t('Học đều mỗi ngày dễ hơn khi có lời nhắc nhẹ nhàng.')}</p>
       <button class="btn sm primary" id="prRemOn">${t('Nhắc tôi lúc {time}', { time: esc(s.reminderTime || '20:00') })}</button><button class="btn sm ghost" id="prRemNo">${t('Để sau')}</button></div>`;
+  }
+  // Lưu tiến độ: chỉ mời đăng nhập SAU khi xong 1 buổi (Ngày 1 trở đi) – không bắt tạo tài khoản trước khi thấy giá trị. "Để sau" → hỏi lại sau 3 ngày.
+  function saveNudge(c) {
+    const S = g.Sync;
+    if (!c.title || App.state.user || !S || !S.gBtn || S.can === false) return '';
+    const last = +ls('saveNudge') || 0; if (Date.now() - last < 3 * 864e5) return '';
+    return `<div class="pr-save" id="prSave">${g.Kit ? Kit.svg('cheer', 52) : ''}<div><b>${t('Lưu tiến độ của bạn')}</b><p class="small">${t('Đăng nhập miễn phí để giữ chuỗi ngày, XP và từ đã học – học tiếp trên mọi thiết bị.')}</p></div>
+      <div class="row">${S.authBtns ? S.authBtns('prSaveIn') : S.gBtn('prSaveIn')}<button class="btn ghost sm" id="prSaveNo">${t('Để sau')}</button></div></div>`;
   }
   g.PathReward = {
     // Xử lý khi xong 1 lượt luyện của bài lộ trình id (P = hàm nội bộ của path.js)
@@ -60,8 +70,9 @@
         ${c.title ? `<h2 style="margin:.2rem 0 .3rem;text-align:center">${esc(c.title)}</h2>` : ''}<h3 style="margin:.2rem 0 .5rem">${esc(c.unit.topic.name)}</h3>
         <ol class="pr-steps">${c.steps.map(x => `<li><a class="${x.ok ? 'ok' : ''}" href="${x.href}"><span aria-hidden="true">${x.ok ? '✅' : x.em}</span>${esc(x.name)}${x.ok ? `<span class="sr-only"> – ${t('Đã hoàn thành')}</span>` : ''}</a></li>`).join('')}</ol>
         ${nx ? `<a class="btn primary lg block" href="${nx.href}">${nx.same ? t('Bước tiếp theo: {step}', { step: esc(nx.name) }) : `${nx.emoji} ${t('Bài mới đã mở: {name}', { name: esc(nx.name) })}`} →</a>` : `<p class="center">🏆 ${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</p>`}
-        ${remNudge()}`;
+        ${saveNudge(c) || remNudge()}`;
       card.appendChild(sec);
+      const sv = sec.querySelector('#prSaveNo'); if (sv) sv.onclick = () => { ls('saveNudge', Date.now()); sec.querySelector('#prSave').remove(); };
       const on = sec.querySelector('#prRemOn'), no = sec.querySelector('#prRemNo');
       if (no) no.onclick = () => { ls('remNudge', Date.now()); sec.querySelector('#prRem').remove(); };
       if (on) on.onclick = async () => {

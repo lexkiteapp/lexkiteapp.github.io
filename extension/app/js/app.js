@@ -110,7 +110,7 @@
     $('#streakPill').setAttribute('aria-label', freezeCount ? t('Chuỗi {n} ngày, {f} lượt đóng băng', { n: st, f: freezeCount }) : t('Chuỗi {n} ngày', { n: st }));
     $('#xpPill').innerHTML = `${UI.icon('star')}<span>${state.game.xp.toLocaleString(I18N.lang())}</span>`;
     const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
-    $$('[data-due]').forEach(b => { b.hidden = !total; b.textContent = total > 99 ? '99+' : total; });
+    $$('[data-due]').forEach(b => { b.hidden = !total; b.textContent = total > 99 ? '99+' : total; b.title = t('{n} thẻ cần ôn', { n: total }); }); // tab Từ vựng: chấm nhỏ (CSS), số vẫn đọc được bằng trình đọc màn hình
     const L = Game.levelOf(state.game.xp);
     const name = state.user ? (state.user.displayName || state.user.email || t('Bạn')) : t('Bạn');
     $('#sideLevel').innerHTML = `<div class="lv-row">${avatarHtml()}<div class="grow"><b>${esc(name)}</b><div class="tiny muted">${t('Cấp {n}', { n: L.level })} · ${esc(L.title)}</div></div></div>
@@ -234,7 +234,7 @@
     nxs: ['js/i18n/en/nextstep.js', 'js/next-step.js'], league: ['js/league.js'], classroom: ['js/i18n/en/classroom.js', 'js/classroom.js'], // 🏫 Lớp học (giáo viên/học sinh)
     criteria: ['js/i18n/en/criteria.js', 'js/criteria.js'],
     resources: ['js/i18n/en/resources.js', 'js/resources.js'], // 🌐 Tài nguyên miễn phí (tách khỏi khung)
-    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
+    pathx: ['js/i18n/en/pathx.js', 'js/path-reward.js', 'js/tracks.js', 'js/path-mix.js', 'js/path-day.js'], onb: ['js/onboard.js'], // 🚀 thiết lập lần đầu từng bước (chuỗi ở en/pathx.js) // 🏁 Màn thưởng cuối bước lộ trình (path.js gọi khi xong lượt)
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
     remind: ['js/i18n/en/remind.js', 'js/remind.js'], settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
     streak: ['js/streak-ui.js'], struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
@@ -648,20 +648,22 @@
         <div class="grow"><div class="muted small">${greet}${name ? ', ' + esc(name) : ''}</div><div class="kit-say" id="kitSay">${late ? t('Học 5 phút với mình để giữ chuỗi nhé!') : t('Đây là kế hoạch của bạn hôm nay')}</div></div>
         ${chip}
       </div>
-      <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
-      ${ringsHtml()}
-      <div id="leagueHomeCard"></div>
-      <a class="card hover hub-card quick-play-card" href="#/quick"><span class="hub-ic" aria-hidden="true">${UI.icon('zap')}</span><span class="hub-tx"><b>${t('Chơi nhanh 15 giây')}</b><small>${t('4 câu cực ngắn · Không sợ sai, giữ phản xạ')}</small></span><span class="chip ok">${t('Chơi ngay')} →</span></a>
-      <a class="card hover hub-card" href="#/confidence"><span class="hub-ic" aria-hidden="true">${UI.icon('message-circle')}</span><span class="hub-tx"><b>${t('Giao tiếp tự tin')}</b><small>${t('Nói tự tin trong tình huống thật · 5–8 phút/bài')}</small></span><span class="chev" aria-hidden="true">›</span></a>
-      ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${/^[a-z][a-z-]*$/.test(a.em) ? UI.icon(a.em) : a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
-      <a class="quest-line small" href="#/stats?s=quests">${UI.icon('medal')} ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => UI.glyph(q.icon)).join(' ')} <span aria-hidden="true">›</span></a>
-      <div class="card wotd wotd-sm">
-        ${pic(w)}
-        <div>
-          <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
-          <div class="row"><a class="wotd-w" href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
-          <div class="vi">${esc(App.meanOf(w))}</div>
-          <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
+      <section class="card today-card home-hero" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
+      <h2 class="home-more-h">${t('Thêm cho hôm nay')}</h2>
+      <div class="home-more">
+        <div class="home-col">${ringsHtml()}<a class="quest-line small" href="#/stats?s=quests">${UI.icon('medal')} ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => UI.glyph(q.icon)).join(' ')} <span aria-hidden="true">›</span></a><div id="leagueHomeCard"></div></div>
+        <div class="home-col">
+          <a class="card hover hub-card quick-play-card" href="#/quick"><span class="hub-ic" aria-hidden="true">${UI.icon('zap')}</span><span class="hub-tx"><b>${t('Chơi nhanh 15 giây')}</b><small>${t('4 câu cực ngắn · Không sợ sai, giữ phản xạ')}</small></span><span class="chip ok">${t('Chơi ngay')} →</span></a>
+          <a class="card hover hub-card" href="#/confidence"><span class="hub-ic" aria-hidden="true">${UI.icon('message-circle')}</span><span class="hub-tx"><b>${t('Giao tiếp tự tin')}</b><small>${t('Nói tự tin trong tình huống thật · 5–8 phút/bài')}</small></span><span class="chev" aria-hidden="true">›</span></a>
+          <div class="card wotd wotd-sm">
+            ${pic(w)}
+            <div>
+              <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
+              <div class="row"><a class="wotd-w" href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
+              <div class="vi">${esc(App.meanOf(w))}</div>
+              <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
+            </div>
+          </div>
         </div>
       </div>
       ${window.Ads ? Ads.slot('home') : ''}
@@ -675,16 +677,18 @@
       const el = $('#todayPlan'); if (!el) return;
       el.removeAttribute('aria-busy');
       const n = tasks.filter(x => x.done).length, next = tasks.find(x => !x.done), mins = tasks.filter(x => !x.done).reduce((a, x) => a + (x.mins || 0), 0);
+      const ra = App.lastActivity(), resume = ra && (!next || ra.href !== next.href) ? `<a class="home-resume small" href="${esc(ra.href)}">${t('Tiếp tục bài đang học')}: <b>${esc(ra.title)}</b> ›</a>` : ''; // bài đang học dở: liên kết phụ trong thẻ chính (trước đây là thẻ riêng tranh nút chính)
       if (!next) {
         el.innerHTML = `<div class="today-done">${window.Kit ? Kit.svg('win', 72, true) : UI.icon('party-popper')}<h2>${t('Xong kế hoạch hôm nay!')} ${UI.icon('party-popper')}</h2><p class="muted">${t('Ngày mai quay lại để giữ chuỗi nhé. Muốn học thêm?')}</p>
-          <div class="row center"><a class="btn" href="#/practice">⚡ ${t('Trò chơi từ vựng')}</a><a class="btn" href="#/skills">🎯 ${t('Luyện thêm kỹ năng')}</a></div></div>`;
+          <div class="row center"><a class="btn" href="#/practice">⚡ ${t('Trò chơi từ vựng')}</a><a class="btn" href="#/skills">🎯 ${t('Luyện thêm kỹ năng')}</a></div>${resume}</div>`;
         const ks = $('#kitSay'); if (ks) ks.textContent = t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉');
         return;
       }
-      // Kiểu Duolingo/Busuu: 1 hành động chính ngay dưới tiêu đề (luôn trên màn hình đầu), danh sách việc bên dưới
-      el.innerHTML = `<div class="row between nowrap"><div><h2 style="margin:0">${t('Kế hoạch hôm nay')}</h2><div class="muted small">${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</div></div>${ring(Math.round(n / tasks.length * 100), n + '/' + tasks.length, 'var(--primary)')}</div>
-        <a class="btn primary lg block today-cta" href="${next.href}">${next.day ? (next.started ? t('Tiếp tục Ngày {n}', { n: next.day }) : t('Bắt đầu Ngày {n}', { n: next.day })) + (next.track ? ' · ' + esc(next.track) : '') + ' · ≈ ' + t('{m} phút', { m: next.mins }) : n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>${next.sw || ''}
-        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${UI.glyph(x.done ? 'circle-check' : x.em)}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>`;
+      // Kiểu Duolingo/Busuu: 1 thẻ "Học tiếp" duy nhất nổi bật – 1 nút chính; danh sách việc + bài đang học dở gọn bên dưới (không cạnh tranh nút chính)
+      el.innerHTML = `<div class="row between nowrap"><div class="grow"><div class="home-hero-k">${t('Học tiếp')}</div><h2 class="home-hero-t">${esc(next.t)}</h2><div class="muted small">${esc(next.sub || '')}</div></div>${ring(Math.round(n / tasks.length * 100), n + '/' + tasks.length, 'var(--primary)')}</div>
+        <a class="btn primary lg block today-cta" href="${next.href}">${next.day ? (next.started ? t('Tiếp tục Ngày {n}', { n: next.day }) : t('Bắt đầu Ngày {n}', { n: next.day })) + (next.track ? ' · ' + esc(next.track) : '') + ' · ≈ ' + t('{m} phút', { m: next.mins }) : n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>${next.sw || ''}${resume}
+        <details class="plan-more"><summary>${t('Kế hoạch hôm nay')} · ${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</summary>
+        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${UI.glyph(x.done ? 'circle-check' : x.em)}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div></details>`;
     });
   };
 
@@ -1494,52 +1498,12 @@
     if (App.blogLive) App.blogLive().then(on => { const a = view.querySelector('.w-nav a[data-blog]'); if (on && a) { a.hidden = false; a.href = App.blogUrl(); } });
   };
 
-  // Thiết lập lần đầu: mục tiêu (gói học – tracks.js) → điểm mục tiêu theo kỳ thi của gói → cường độ → trình độ / kiểm tra đầu vào → vào thẳng Ngày 1
-  function setup(login) {
-    const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
-    const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
-    const TOPIC_GROUPS = { ielts: ['topics', 'writing'], ieltsgt: ['topics', 'speaking'], toeic: ['toeic', 'bsl'], toefl: ['awl', 'nawl', 'topics'], general: ['core', 'topics'] };
-    const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set(), v: {}, lv: '' };
-    const paces = [[10, '🐢 ' + t('Nhẹ nhàng'), t('5 phút/ngày · 5 từ mới')], [20, '🚶 ' + t('Đều đặn'), t('10–15 phút/ngày · 10 từ mới')], [40, '🚀 ' + t('Tăng tốc'), t('25 phút/ngày · 20 từ mới')]];
-    const topicsFor = ex => TOPICS.filter(x => TOPIC_GROUPS[ex].includes(x.group)).slice(0, 15);
-    const setExam = async ex => {
-      if (!App.loaded('pathx')) await App.need('pathx').catch(() => {});
-      const TK = window.Tracks; if (TK) { if (TR_ID) pick.track = TR_ID; else pick.track = pick.track || TK.EX2T[ex] || 'ielts'; TR_ID = ''; ex = TK.pickExam(pick); }
-      if (ex !== pick.exam || !pick.target) pick.target = DEF_T[ex];
-      pick.exam = ex;
-      if (!App.loaded('words')) await App.need('words').catch(() => {});
-      if ((ex === 'toeic' || ex === 'toefl') && !App.loaded('tsl')) { await App.need('tsl').catch(() => {}); }
-      const list = topicsFor(ex); pick.topics = new Set(list.slice(0, 3).map(x => x.id));
-      draw();
-    };
-    let TR_ID = '';
-    const draw = () => {
-      const tLabel = pick.exam === 'toeic' ? t('Điểm TOEIC mục tiêu?') : pick.exam === 'toefl' ? t('Band TOEFL mục tiêu?') : pick.exam === 'general' ? t('Trình độ bạn muốn đạt?') : t('Band mục tiêu của bạn?');
-      view.innerHTML = `<div style="max-width:760px;margin:0 auto" class="stack">
-        <div class="row between"><span class="brand" style="padding:0"><img class="logo" src="icons/icon.svg" width="36" height="36" alt=""><span class="wordmark">lex<b>kite</b></span></span><a class="small" href="#/welcome">← ${t('Quay lại')}</a></div>
-        ${window.Kit ? `<div class="kit-greet card" style="background:var(--primary-soft);border:0">${Kit.svg('happy', 58)}<div><div class="kit-say">${t('Chào bạn, mình là Kit! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')}</div></div></div>` : ''}
-        ${window.Sync && Sync.gBtn && !state.user && !pick.noAcct ? `<div class="card row between" id="haveAcct"><div><b>${t('Đã có tài khoản?')}</b><div class="small muted">${t('Đăng nhập để khôi phục dữ liệu học của bạn.')}</div></div><div class="row">${Sync.gBtn('setupIn')}<button type="button" class="btn" id="noAcct">${t('Học không cần tài khoản')}</button></div></div>` : ''}
-        ${window.Tracks ? Tracks.setupCards(pick) : ''}
-        <div class="card"><h2>🎯 ${tLabel}</h2><div class="tabs" style="display:inline-flex;margin-top:.4rem" id="bandT">${TARGETS[pick.exam].map(b => `<button data-v="${b}" class="${pick.target === b ? 'on' : ''}">${b}</button>`).join('')}</div></div>
-        <div class="card"><h2>⏱ ${t('Bạn muốn học với cường độ nào?')}</h2><div class="grid g3" style="margin-top:.6rem">${paces.map(([v, pt, d]) => `<button class="option ${pick.pace === v ? 'right' : ''}" data-pace="${v}" style="flex-direction:column;align-items:flex-start;gap:.2rem"><b>${pt}</b><span class="small muted">${d}</span></button>`).join('')}</div></div>
-        <button class="btn primary lg block" id="go">${t('Bắt đầu Ngày {n}', { n: 1 })} →</button>
-      </div>`;
-      if (login && $('#haveAcct') && !pick.shownLogin) { pick.shownLogin = 1; const h = $('#haveAcct'); h.style.outline = '3px solid var(--primary)'; h.scrollIntoView({ block: 'center' }); const b = $('#setupIn'); if (b) b.focus(); }
-      if ($('#setupIn')) { $('#setupIn').onclick = e => { e.stopPropagation(); loginOnboard(); }; $('#noAcct').onclick = () => { pick.noAcct = 1; $('#haveAcct').remove(); const f = $('.trk-opt[aria-pressed="true"], .trk-opt, #go'); if (f) f.focus(); }; /* [data-exam] cũ không còn sau khi đổi sang lộ trình → null.focus() ném lỗi */ }
-      if (window.Tracks) Tracks.bindSetup(view, pick, id => { TR_ID = id; setExam(pick.exam); }, draw);
-      $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; draw(); });
-      $$('[data-pace]').forEach(b => b.onclick = () => { pick.pace = +b.dataset.pace; draw(); });
-      $('#go').onclick = async () => {
-        $('#go').disabled = true; $('#go').textContent = '⏳ ' + t('Đang chuẩn bị bộ thẻ…');
-        Object.assign(state.settings, { exam: pick.exam, examTarget: pick.target, dailyGoal: pick.pace, dailyNew: pick.pace === 10 ? 5 : pick.pace === 20 ? 10 : 20 });
-        if (/^ielts/.test(pick.exam)) state.settings.targetBand = pick.target;
-        const to = window.Tracks ? await Tracks.startSetup(pick) : '#/review';
-        await saveSettings();
-        for (const id of pick.topics) for (const w of topicOf(id).words) if (!inDeck(w.word)) await addWord(w, null, { silent: true }); // bộ thẻ ôn ban đầu hợp mục tiêu
-        await finishOnboarding(true, to); // vào thẳng Ngày 1 của gói (hoặc bài kiểm tra đầu vào)
-      };
-    };
-    setExam(pick.exam);
+  // Thiết lập lần đầu TỪNG BƯỚC (1 câu hỏi/màn – js/onboard.js, tải lười): mục tiêu → trình độ / kiểm tra đầu vào → điểm mục tiêu → cường độ → vào thẳng Ngày 1 (chưa cần tài khoản)
+  async function setup(login) {
+    view.innerHTML = `<div class="onb" style="max-width:600px;margin:0 auto" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></div>`;
+    await App.need('pathx', 'onb').catch(() => {});
+    if (!window.Onboard) { view.innerHTML = `<div class="empty">${t('Không tải được – thử lại sau')}</div>`; return; }
+    Onboard.run(login, { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish: finishOnboarding, login: loginOnboard });
   }
 
   // Đăng nhập ở màn chào/thiết lập → chờ tài khoản sẵn sàng (≤ 6 s) rồi vào app; dữ liệu cũ tự gộp về (sync.js pullMerge)
