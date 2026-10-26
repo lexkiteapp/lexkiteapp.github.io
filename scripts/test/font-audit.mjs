@@ -35,7 +35,7 @@ function staticScan() {
       for (const m of line.matchAll(/font(?:-family)?\s*:\s*([^;}"'`]*(?:["'][^"']+["'][^;}"'`]*)*)/g)) {
         const v = m[1];
         if (!v || /var\(--|inherit|monospace|initial|unset/.test(v)) continue;
-        if (/templates\//.test(f) || /--[\w-]+\s*:/.test(line.slice(0, m.index + 1).split(/[;{]/).pop())) continue; // bỏ email template & chỗ định nghĩa biến font
+        if (/templates\//.test(f) || /[-\w]$/.test(line.slice(0, m.index))) continue; // bỏ email template & chỗ định nghĩa biến font
         if (/-apple-system|system-ui|sans-serif|serif|Arial|Helvetica|Roboto|Segoe/.test(v)) issues.push({ type: 'hardcoded-stack', sev: 'warn', at, msg: `font cứng "${v.trim().slice(0, 70)}" – nên dùng var(--font)` });
       }
     });
