@@ -230,8 +230,18 @@
   let localTr = null;
   // Cài đặt "Dùng AI trên máy" (mặc định bật) – tắt thì chỉ dùng đường dịch cũ
   const localOk = () => { try { const s = g.App && g.App.state && g.App.state.settings; return !s || s.aiLocal !== false; } catch (e) { return true; } };
+  // App gốc: plugin LexAI (ML Kit / Apple Translation) – chỉ gói ngôn ngữ đã có, không tự tải; không có/lỗi → '' (đường cũ)
+  async function nativeTr(text, sl, tl) {
+    try {
+      const C = g.Capacitor, P = C && C.isNativePlatform && C.isNativePlatform() && C.Plugins && C.Plugins.LexAI;
+      if (!P || !P.translate || !localOk()) return '';
+      const r = await Promise.race([P.translate({ text, from: sl, to: tl, allowDownload: false, timeout: 6000 }), new Promise(res => setTimeout(() => res(null), 7000))]);
+      return r && !r.unavailable && r.text ? String(r.text).trim() : '';
+    } catch (e) { return ''; }
+  }
   async function onDeviceVi(text) {
     try {
+      const nv = await nativeTr(text, 'en', 'vi'); if (nv) return fixVi(nv);
       const TR = g.Translator; if (!TR || !localOk()) return '';
       if (!localTr) { if ((await TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' })) !== 'available') return ''; localTr = await TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' }); }
       return fixVi(await localTr.translate(text));
@@ -251,6 +261,7 @@
   const onDevice = new Map();
   async function deviceTranslate(text, tl, sl = 'en') {
     try {
+      const nv = await nativeTr(text, sl, tl); if (nv) return nv;
       const T = g.Translator; if (!T || !T.availability || !localOk()) return null;
       const key = sl + '>' + tl;
       if (!onDevice.has(key)) onDevice.set(key, T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null)).catch(() => null));

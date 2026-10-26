@@ -83,7 +83,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
 
   // ---------- AI trên máy dùng chung (web/js/ai-local.js, tải lười): thử trước, sai/không có → đường cũ ----------
   // Chỉ nạp module khi trình duyệt có ít nhất một API AI và người dùng không tắt – trình duyệt khác không tốn gì
-  const hasLocal = () => !!(self.LanguageModel || self.Translator || self.Proofreader || self.LanguageDetector);
+  const hasLocal = () => !!(self.LanguageModel || self.Translator || self.Proofreader || self.LanguageDetector || (self.Capacitor && self.Capacitor.isNativePlatform && self.Capacitor.isNativePlatform() && self.Capacitor.Plugins && self.Capacitor.Plugins.LexAI)); // app gốc: plugin LexAI
   const localOn = () => (state.settings.aiLocal === false || !hasLocal() || !App.need ? Promise.resolve(null) : App.need('ailocal').then(() => window.AILocal || null).catch(() => null));
   const toEn = p => p.replace(/\(Vietnamese[^)]*\)/g, '(English)').replace(/in Vietnamese/g, 'in English').replace(/Vietnamese meaning/g, 'English meaning').replace(/Vietnamese IELTS learner/g, 'IELTS learner');
   const LSYS = 'You are a helpful, accurate English teacher. Write in clear, simple English. Return ONLY valid JSON matching the requested schema.';

@@ -69,4 +69,43 @@ let n = 0; const ok = m => { n++; console.log('  ✓ ' + m); };
   assert(/return call\(prompt\);/.test(ai) && /callProxy/.test(ai), 'askLocal phải rơi về máy chủ');
   assert(fs.existsSync('extension/app/js/ai-local.js'), 'add-on phải có bản sao (ext-sync)');
   ok('lazy, không vào khung app, còn đường máy chủ, có bản add-on'); }
+// 6) App gốc (Capacitor): plugin LexAI trước, cùng kiểu trả về; {unavailable} / lỗi / treo → nhánh trình duyệt; tải chỉ khi người dùng bấm
+{ const mkCap = impl => { const calls = []; const P = {}; ['caps', 'prompt', 'translate', 'detect', 'proofread', 'summarize', 'download'].forEach(m => { P[m] = async a => { calls.push([m, a]); return impl(m, a); }; });
+    return { calls, Capacitor: { isNativePlatform: () => true, Plugins: { LexAI: P } } }; };
+  const good = (m, a) => ({ caps: { native: true, platform: 'android', prompt: 'available', summarize: 'available', proofread: 'downloadable', translate: 'downloadable', detect: 'available' },
+    prompt: { text: a.system && /JSON/.test(a.system) ? '{"mnemonic":"a vivid picture"}' : '  hello  ' }, translate: { text: 'VI:' + a.text }, detect: { lang: 'en', confidence: 0.9 },
+    proofread: { corrected: 'He goes to school.' }, summarize: { text: 'short' }, download: { ok: true } })[m];
+  let cap = mkCap(good), g = load({ Capacitor: cap.Capacitor }), A = g.AILocal;
+  assert.equal(A.native(), true);
+  assert.equal(await A.prompt('x'), 'hello');
+  const schema = { type: 'object', required: ['mnemonic'], properties: { mnemonic: { type: 'string', minLength: 5 } } };
+  assert.deepEqual({ ...(await A.prompt('x', { schema })) }, { mnemonic: 'a vivid picture' });
+  assert.equal(await A.translate('hello', 'en', 'vi'), 'VI:hello');
+  assert.deepEqual({ ...(await A.detect('hello world')) }, { lang: 'en', confidence: 0.9 });
+  const p = await A.proofread('He go to school.'); assert.equal(p.corrected, 'He goes to school.');
+  assert.equal(p.corrections.length, 1); assert.equal('He go to school.'.slice(p.corrections[0].start, p.corrections[0].end), 'go'); assert.equal(p.corrections[0].fix, 'goes');
+  assert.equal(await A.summarize('long text'), 'short'); assert.equal(await A.rewrite('abc', { tone: 'formal' }), 'hello');
+  const c = await A.caps(); assert.equal(c.native, 'android'); assert.equal(c.prompt, 'available'); assert.equal(c.proofread, 'downloadable');
+  assert(cap.calls.filter(([m]) => m !== 'caps' && m !== 'download').every(([, a]) => a.allowDownload !== true), 'không tự tải khi chưa bấm');
+  await A.translate('hi', 'en', 'ja', { allowDownload: true }); assert.equal(cap.calls.at(-1)[1].allowDownload, false, 'chưa có user activation → không tải');
+  g.navigator.userActivation.isActive = true; await A.translate('hey', 'en', 'ko', { allowDownload: true });
+  assert.equal(cap.calls.at(-1)[1].allowDownload, true); assert.equal(cap.calls.at(-1)[1].wifiOnly, true);
+  assert.equal(await A.download('prompt'), true);
+  // plugin báo không dùng được → nhánh trình duyệt (Translator) vẫn chạy; không có gì → null
+  const TR = mkApi('available', () => ({ translate: async t => 'WEB:' + t }));
+  cap = mkCap(() => ({ unavailable: true })); g = load({ Capacitor: cap.Capacitor, Translator: TR }); A = g.AILocal;
+  assert.equal(await A.translate('hi', 'en', 'vi'), 'WEB:hi'); assert.equal(await A.prompt('x'), null); assert.equal(await A.proofread('x'), null); assert.equal(await A.detect('hello'), null);
+  // lỗi / treo → null, không throw
+  cap = mkCap(() => { throw new Error('native boom'); }); A = load({ Capacitor: cap.Capacitor }).AILocal; assert.equal(await A.prompt('x'), null); assert.equal(await A.summarize('x'), null);
+  cap = mkCap(() => new Promise(() => {})); A = load({ Capacitor: cap.Capacitor }).AILocal; assert.equal(await A.translate('x', 'en', 'vi', { timeout: 30 }), null);
+  // cài đặt tắt → không gọi plugin
+  cap = mkCap(good); A = load({ Capacitor: cap.Capacitor, App: { state: { settings: { aiLocal: false } } } }).AILocal; assert.equal(await A.prompt('x'), null); assert.equal(cap.calls.length, 0);
+  // không phải app gốc → không đụng plugin
+  cap = mkCap(good); cap.Capacitor.isNativePlatform = () => false; A = load({ Capacitor: cap.Capacitor }).AILocal; assert.equal(await A.prompt('x'), null); assert.equal(cap.calls.length, 0);
+  // mã gốc có mặt + đã đăng ký
+  assert(/registerPlugin\(LexAIPlugin\.class\)/.test(fs.readFileSync('mobile/android/app/src/main/java/com/vocaband/app/MainActivity.java', 'utf8')));
+  assert(/registerPluginInstance\(LexAIPlugin\(\)\)/.test(fs.readFileSync('mobile/ios/App/App/LexkiteBridgeViewController.swift', 'utf8')));
+  assert(/LexAIPlugin\.swift in Sources/.test(fs.readFileSync('mobile/ios/App/App.xcodeproj/project.pbxproj', 'utf8')));
+  const sw = fs.readFileSync('mobile/ios/App/App/LexAIPlugin.swift', 'utf8'); assert(/#if canImport\(FoundationModels\)/.test(sw) && /#available\(iOS 26\.0, \*\)/.test(sw), 'iOS: phải có guard SDK/OS');
+  ok('app gốc: plugin LexAI trước, rơi về trình duyệt/máy chủ, không tự tải'); }
 console.log(`✓ ai-local: ${n} nhóm kiểm thử`);

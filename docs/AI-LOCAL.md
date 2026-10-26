@@ -23,3 +23,15 @@ Chung: `X.availability(opts)` → `'unavailable' | 'downloadable' | 'downloading
 - Kiểm chất lượng: JSON theo schema (`AILocal.valid`), độ dài, ngôn ngữ (`AILocal.check`) – sai → máy chủ. Kết quả trên máy gắn `_local: true` (huy hiệu "Trên máy").
 - Đang dùng: chấm Writing (`AI.grade` → `localAI`), mẹo nhớ/giải thích (`AI.askLocal`, `AI.explain`), dịch nghĩa (`Dict.translateTo/translateVi` → Translator đã có sẵn gói).
 - Kiểm thử: `scripts/test/ai-local.mjs` (giả lập các global).
+
+## App gốc (Capacitor) – plugin `LexAI` (kiểm docs 26/10/2026)
+`AILocal.*` trong app gốc gọi `Capacitor.Plugins.LexAI` trước (`mobile/android/app/src/main/java/com/vocaband/app/LexAIPlugin.kt` + `LexGenAI.kt`, `mobile/ios/App/App/LexAIPlugin.swift`), `{unavailable:true}`/lỗi/quá giờ → nhánh trình duyệt → máy chủ. Hàm: `caps, prompt({text,system,maxTokens}), translate({text,from,to,allowDownload,wifiOnly}), detect, proofread → {corrected}` (JS tự tính `corrections` bằng diff từ), `summarize, download({kind})`. rewrite/write = Prompt + chỉ dẫn.
+| OS | API | Trạng thái | Ghi chú |
+|---|---|---|---|
+| Android | ML Kit GenAI Prompt `genai-prompt:1.0.0-beta4` | Beta | Gemini Nano qua AICore, API ≥ 26, máy hỗ trợ (Pixel 9+, Galaxy S25…), không chạy khi mở bootloader; `checkStatus()` → AVAILABLE/DOWNLOADABLE/DOWNLOADING/UNAVAILABLE; vào ~4000 token |
+| Android | Summarization / Proofreading `1.0.0-beta1` | Beta | Tóm tắt: en/ja/ko, bài > 400 ký tự; sửa lỗi: < 256 token; `checkFeatureStatus()`, `downloadFeature()` |
+| Android | ML Kit Translation 17.0.3 + Language ID 17.0.6 | Ổn định | Hầu hết máy; gói dịch ~30 MB/ngôn ngữ, tải khi bấm, mặc định `requireWifi()`; Language ID đóng gói sẵn |
+| iOS | Foundation Models | iOS 26+, máy Apple Intelligence | `SystemLanguageModel.default.availability`; `.modelNotReady` = hệ thống đang tải; app không tự tải được |
+| iOS | Translation | iOS 18+ | iOS 26: `TranslationSession(installedSource:target:)` (gói đã cài, không cần SwiftUI); iOS 18–25 / cần tải: view SwiftUI ẩn + `.translationTask` (`prepareTranslation()` hiện hộp thoại hệ thống) |
+| iOS | NaturalLanguage `NLLanguageRecognizer` | Mọi iOS | Dò ngôn ngữ |
+Quy tắc: minSdk vẫn 24 (`tools:overrideLibrary` cho các gói GenAI; lớp GenAI chỉ nạp khi SDK ≥ 26); iOS target 15: `#if canImport(FoundationModels)` + `#available(iOS 26)`, `-weak_framework Translation/FoundationModels`. Không thêm quyền Android. Tải chỉ khi JS gửi `allowDownload` (nút người dùng bấm + user activation). Kiểm thử: nhóm 6 trong `scripts/test/ai-local.mjs` (Capacitor giả lập).
