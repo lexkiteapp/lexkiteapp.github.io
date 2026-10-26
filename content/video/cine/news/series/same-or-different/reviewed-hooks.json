@@ -64,37 +64,6 @@
     ]
    },
    "source": "sb_47b3e9e9"
-  },
-  "sod_6e178745": {
-   "template": "pair",
-   "hook": "hope or / wish?",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "p_h": "Hope or wish? You probably mix these up.",
-    "p_y": "Hope is for possible things. Wish is for unreal.",
-    "p_x": "I hope it doesn't rain.",
-    "p_w": "Not: I wish you will pass the test.",
-    "p_k": "Say: I hope you pass the test.",
-    "p_t": "But: I wish you good luck is fine!",
-    "p_q": "Quiz! I blank you have a great trip!",
-    "p_q2": "Wish, or hope?",
-    "p_a": "Hope! I hope you have a great trip!",
-    "p_c": "Save this, and compare tricky words on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "I hope you pass the test.",
-    "right_lines": [
-     "p_k"
-    ],
-    "pair": [
-     "hope",
-     "wish"
-    ]
-   },
-   "source": "sb_6e178745"
   }
  }
 }

@@ -180,16 +180,11 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
-       "I like listening"
-      ]
-     ]
-    },
-    {
-     "st": "big",
-     "segs": [
+       "I like listening "
+      ],
       [
        "to ",
        "green"
@@ -211,6 +206,21 @@
       ],
       [
        "@ipa:/ˈlɪsn/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "listening music",
+       "red"
+      ],
+      [
+       "”"
       ]
      ]
     }

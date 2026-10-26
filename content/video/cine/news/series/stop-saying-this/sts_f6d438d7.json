@@ -1,7 +1,7 @@
 {
  "id": "sts_f6d438d7",
  "template": "mistake",
- "title": "Stop Saying This #24 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
+ "title": "Stop Saying This #9 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -183,7 +183,7 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
        "It depends "
@@ -195,7 +195,7 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
        "the weather."
@@ -368,9 +368,14 @@
        "@emoji:💡"
       ],
       [
-       " DEPEND ON. ",
+       " DEPEND ON.",
        "hl"
-      ],
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
       [
        "Never "
       ],
@@ -543,7 +548,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 24
+  "ep": 9
  },
  "source": {
   "bank": "sb_f6d438d7",

@@ -1,7 +1,7 @@
 {
  "id": "sts_43b7bd40",
  "template": "mistake",
- "title": "Stop Saying This #15 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
+ "title": "Stop Saying This #6 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
@@ -183,22 +183,13 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
        "They "
       ],
       [
-       "lack",
-       "green"
-      ]
-     ]
-    },
-    {
-     "st": "big",
-     "segs": [
-      [
-       "experience.",
+       "lack experience.",
        "green"
       ]
      ]
@@ -215,6 +206,21 @@
       ],
       [
        "@ipa:/læk/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "of",
+       "red"
+      ],
+      [
+       "”"
       ]
      ]
     }
@@ -546,7 +552,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 15
+  "ep": 6
  },
  "source": {
   "bank": "sb_43b7bd40",

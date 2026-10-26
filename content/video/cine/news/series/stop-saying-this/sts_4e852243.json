@@ -1,7 +1,7 @@
 {
  "id": "sts_4e852243",
  "template": "mistake",
- "title": "Stop Saying This #16 – Stop saying \"I feel like to sleep.\" – say \"I feel like sleeping.\"",
+ "title": "Stop Saying This #7 – Stop saying \"I feel like to sleep.\" – say \"I feel like sleeping.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -183,16 +183,11 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
-       "I feel like"
-      ]
-     ]
-    },
-    {
-     "st": "big",
-     "segs": [
+       "I feel like "
+      ],
       [
        "sleeping.",
        "green"
@@ -211,6 +206,21 @@
       ],
       [
        "@ipa:/sliːp/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "to sleep",
+       "red"
+      ],
+      [
+       "”"
       ]
      ]
     }
@@ -404,16 +414,13 @@
      "st": "text",
      "segs": [
       [
-       "I don't feel"
+       "I don't feel like"
       ]
      ]
     },
     {
      "st": "text",
      "segs": [
-      [
-       "like "
-      ],
       [
        "___ ",
        "green"
@@ -544,7 +551,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 16
+  "ep": 7
  },
  "source": {
   "bank": "sb_4e852243",

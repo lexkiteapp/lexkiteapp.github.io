@@ -1,7 +1,7 @@
 {
  "id": "sts_25206a92",
  "template": "mistake",
- "title": "Stop Saying This #13 – Say \"Let's keep in touch!\" instead of \"Let's keep contact!\"",
+ "title": "Stop Saying This #5 – Say \"Let's keep in touch!\" instead of \"Let's keep contact!\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -181,7 +181,7 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
        "Let's keep "
@@ -531,7 +531,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 13
+  "ep": 5
  },
  "source": {
   "bank": "sb_25206a92",

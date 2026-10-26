@@ -16,17 +16,6 @@
   },
   {
    "ep": 3,
-   "id": "sts_1740b6df",
-   "point": "Stop saying \"Remember me to call her.\" – say \"Remind me to call her.\"",
-   "cefr": "A1",
-   "diff": "easy",
-   "words": 63,
-   "est_s": 42.3,
-   "ipa": "/rɪˈmaɪnd/",
-   "content_hash": "0beb71dbcfb381ae"
-  },
-  {
-   "ep": 4,
    "id": "sts_2bcb2bbd",
    "point": "Stop saying \"I'm afraid with dogs.\" – say \"I'm afraid of dogs.\"",
    "cefr": "A1",
@@ -37,7 +26,7 @@
    "content_hash": "8fa3d6358bbeb213"
   },
   {
-   "ep": 5,
+   "ep": 4,
    "id": "sts_37234b0e",
    "point": "Stop saying \"She did a mistake.\" – say \"She made a mistake.\"",
    "cefr": "A1",
@@ -48,84 +37,7 @@
    "content_hash": "33e520153ff00d6b"
   },
   {
-   "ep": 6,
-   "id": "sts_068cf065",
-   "point": "Stop saying \"I'm considering to buy a car.\" – say \"I'm considering buying a car.\"",
-   "cefr": "A2",
-   "diff": "easy",
-   "words": 69,
-   "est_s": 45.4,
-   "ipa": "/baɪ/",
-   "content_hash": "22e28d15026aa212"
-  },
-  {
-   "ep": 7,
-   "id": "sts_466c0a2d",
-   "point": "Stop saying \"They don't allow to smoke here.\" – say \"They don't allow smoking here. / They don't allow people to smoke here.\"",
-   "cefr": "A2",
-   "diff": "easy",
-   "words": 65,
-   "est_s": 41.4,
-   "ipa": "/smoʊk/",
-   "content_hash": "55ca6e52831a2444"
-  },
-  {
-   "ep": 8,
-   "id": "sts_040ec72a",
-   "point": "Stop saying \"I apologise you for the delay.\" – say \"I apologise to you for the delay.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 67,
-   "est_s": 42.4,
-   "ipa": "/əˈpɑːlədʒaɪz/",
-   "content_hash": "d38e8c37223bc972"
-  },
-  {
-   "ep": 9,
-   "id": "sts_0c359c74",
-   "point": "Stop saying \"Translate this to English.\" – say \"Translate this into English.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 67,
-   "est_s": 44.4,
-   "ipa": "/ˈɪntuː/",
-   "content_hash": "c1b12d32afe6024d"
-  },
-  {
-   "ep": 10,
-   "id": "sts_14cb88e7",
-   "point": "Say \"Could you hold on a second?\" instead of \"Wait me a moment.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 70,
-   "est_s": 43.9,
-   "ipa": "/hoʊld/",
-   "content_hash": "9e670812e1d64d10"
-  },
-  {
-   "ep": 11,
-   "id": "sts_19bde506",
-   "point": "Stop saying \"He married with a teacher.\" – say \"He married a teacher.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 62,
-   "est_s": 39.9,
-   "ipa": "/ˈmeri/",
-   "content_hash": "4a260bb58c771bd6"
-  },
-  {
-   "ep": 12,
-   "id": "sts_21612f29",
-   "point": "Stop saying \"We are committed to reduce waste.\" – say \"We are committed to reducing waste.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 68,
-   "est_s": 44.9,
-   "ipa": "/rɪˈduːs/",
-   "content_hash": "80b7ad65a8f2dc1c"
-  },
-  {
-   "ep": 13,
+   "ep": 5,
    "id": "sts_25206a92",
    "point": "Say \"Let's keep in touch!\" instead of \"Let's keep contact!\"",
    "cefr": "B1",
@@ -136,18 +48,7 @@
    "content_hash": "3f4d3cd2276cf8ca"
   },
   {
-   "ep": 14,
-   "id": "sts_3237e46f",
-   "point": "Say \"I missed my connecting flight. What are my options?\" instead of \"My plane go already. What I do?\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 69,
-   "est_s": 43.4,
-   "ipa": "/wʌt/",
-   "content_hash": "2ffee4dd0749828e"
-  },
-  {
-   "ep": 15,
+   "ep": 6,
    "id": "sts_43b7bd40",
    "point": "Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
    "cefr": "B1",
@@ -158,7 +59,7 @@
    "content_hash": "8b093b9e0dd5d18d"
   },
   {
-   "ep": 16,
+   "ep": 7,
    "id": "sts_4e852243",
    "point": "Stop saying \"I feel like to sleep.\" – say \"I feel like sleeping.\"",
    "cefr": "B1",
@@ -169,29 +70,7 @@
    "content_hash": "ea06c4793cc2792e"
   },
   {
-   "ep": 17,
-   "id": "sts_52fcf41b",
-   "point": "Stop saying \"The flood caused many damages.\" – say \"The flood caused a lot of damage.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 71,
-   "est_s": 46.5,
-   "ipa": "/ˈdæmədʒ/",
-   "content_hash": "155d7fe21932f4b8"
-  },
-  {
-   "ep": 18,
-   "id": "sts_55270c0b",
-   "point": "Say \"What does a typical day look like in this role?\" instead of \"What I must do every day?\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 68,
-   "est_s": 42.9,
-   "ipa": "/wʌt/",
-   "content_hash": "be3e6479693e5790"
-  },
-  {
-   "ep": 19,
+   "ep": 8,
    "id": "sts_7281e267",
    "point": "Say \"So how do you know Emma?\" instead of \"From where you know Emma?\"",
    "cefr": "B1",
@@ -202,51 +81,7 @@
    "content_hash": "316f34e920cbca10"
   },
   {
-   "ep": 20,
-   "id": "sts_9172f8df",
-   "point": "Say \"My bag didn't arrive. Where do I report it?\" instead of \"I lost my luggages.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 61,
-   "est_s": 41.2,
-   "ipa": null,
-   "content_hash": "cce04760444b5acf"
-  },
-  {
-   "ep": 21,
-   "id": "sts_9f45e757",
-   "point": "Say \"I'm interested in this role because I like helping people.\" instead of \"I am interesting in this job.\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 66,
-   "est_s": 43.8,
-   "ipa": "/ˈɪntrəst/",
-   "content_hash": "1ab32d8206058d61"
-  },
-  {
-   "ep": 22,
-   "id": "sts_b56e5263",
-   "point": "Say \"Are you free this Saturday? A few of us are going hiking.\" instead of \"You want join us?\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 68,
-   "est_s": 42.9,
-   "ipa": "/friː/",
-   "content_hash": "c2ead0adbec6fd06"
-  },
-  {
-   "ep": 23,
-   "id": "sts_cc4c2bf0",
-   "point": "Say \"How much is the security deposit?\" instead of \"How much money I give before?\"",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 68,
-   "est_s": 42.9,
-   "ipa": "/dɪˈpɑːzɪt/",
-   "content_hash": "3a5c701eddaafe91"
-  },
-  {
-   "ep": 24,
+   "ep": 9,
    "id": "sts_f6d438d7",
    "point": "Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
    "cefr": "B1",
@@ -257,62 +92,7 @@
    "content_hash": "646566e3c50ea78c"
   },
   {
-   "ep": 25,
-   "id": "sts_04105eed",
-   "point": "Stop saying \"We rely in technology.\" – say \"We rely on technology.\"",
-   "cefr": "B2",
-   "diff": "medium",
-   "words": 60,
-   "est_s": 40.7,
-   "ipa": "/rɪˈlaɪ/",
-   "content_hash": "b8ab4adc34f04adb"
-  },
-  {
-   "ep": 26,
-   "id": "sts_076acb56",
-   "point": "Stop saying \"He was accused for lying.\" – say \"He was accused of lying.\"",
-   "cefr": "B2",
-   "diff": "medium",
-   "words": 63,
-   "est_s": 40.4,
-   "ipa": "/əˈkjuːz/",
-   "content_hash": "c5281b4326dd8c26"
-  },
-  {
-   "ep": 27,
-   "id": "sts_1ec77f5c",
-   "point": "Say \"I'd like this fixed by Friday.\" instead of \"Please fix until Friday.\"",
-   "cefr": "B2",
-   "diff": "medium",
-   "words": 68,
-   "est_s": 42.9,
-   "ipa": null,
-   "content_hash": "b4b1a3ab2237e841"
-  },
-  {
-   "ep": 28,
-   "id": "sts_2b4d86ec",
-   "point": "Say \"I see it a bit differently.\" instead of \"I think different.\"",
-   "cefr": "B2",
-   "diff": "medium",
-   "words": 62,
-   "est_s": 41.7,
-   "ipa": "/ˈdɪfrəntli/",
-   "content_hash": "e02cc225ed75b9f8"
-  },
-  {
-   "ep": 29,
-   "id": "sts_57e42a5c",
-   "point": "Say \"To wrap up, Lee will send the report by Friday.\" instead of \"For finish, Lee sends report Friday.\"",
-   "cefr": "B2",
-   "diff": "medium",
-   "words": 69,
-   "est_s": 43.4,
-   "ipa": "/ræp/",
-   "content_hash": "587a150760c32820"
-  },
-  {
-   "ep": 30,
+   "ep": 10,
    "id": "sts_42fa0282",
    "point": "Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
    "cefr": "C1",
@@ -323,18 +103,7 @@
    "content_hash": "7ee92b4afee65a55"
   },
   {
-   "ep": 31,
-   "id": "sts_90abd680",
-   "point": "Stop saying \"I wish I can speak French.\" – say \"I wish I could speak French.\"",
-   "cefr": "C1",
-   "diff": "hard",
-   "words": 67,
-   "est_s": 42.4,
-   "ipa": "/kʊd/",
-   "content_hash": "1428cc127d173e7a"
-  },
-  {
-   "ep": 32,
+   "ep": 11,
    "id": "sts_91e27418",
    "point": "Stop saying \"I don't rarely go out.\" – say \"I rarely go out.\"",
    "cefr": "C1",
@@ -343,17 +112,6 @@
    "est_s": 37.9,
    "ipa": "/ˈrerli/",
    "content_hash": "689d14b87fca36a7"
-  },
-  {
-   "ep": 33,
-   "id": "sts_9e149cb1",
-   "point": "Stop saying \"He resembles to his father.\" – say \"He resembles his father.\"",
-   "cefr": "C1",
-   "diff": "hard",
-   "words": 56,
-   "est_s": 36.9,
-   "ipa": "/rɪˈzembl/",
-   "content_hash": "8f45f7af3fc9b587"
   }
  ],
  "skipped": [
@@ -375,12 +133,22 @@
   {
    "bank": "sb_14cf6349",
    "point": "Stop saying \"I take 30 minutes to go to school.\" – say \"It takes me 30 minutes to go to school.\"",
-   "reason": "self-check: note fix height 442; hook 7 words on screen"
+   "reason": "self-check: hook 7 words on screen"
+  },
+  {
+   "bank": "sb_1740b6df",
+   "point": "Stop saying \"Remember me to call her.\" – say \"Remind me to call her.\"",
+   "reason": "self-check: note ex line > 26 chars: [['Remind ', 'green'], ['me about the meeting.']]; note qs line > 26 chars: [['Can you '], ['___ ', 'green'], ['me to buy milk?']]"
+  },
+  {
+   "bank": "sb_068cf065",
+   "point": "Stop saying \"I'm considering to buy a car.\" – say \"I'm considering buying a car.\"",
+   "reason": "self-check: note fix line > 26 chars: [[\"I'm considering \"], ['buying ', 'green'], ['a car.']]; note ex line > 26 chars: [['She '], ['considered ', 'green'], ['taking a taxi.']]; note qs line > 26 chars: [[\"I'm considering \"], ['___ ', 'green'], ['a new phone.']]"
   },
   {
    "bank": "sb_14363e18",
    "point": "Stop saying \"It has a big effect to the economy.\" – say \"It has a big effect on the economy.\"",
-   "reason": "self-check: hook 8 words on screen"
+   "reason": "self-check: note fix line > 26 chars: [['It has a big effect '], ['on ', 'green'], ['the economy.']]; note ex line > 26 chars: [['Music has a calming '], ['effect on ', 'green'], ['me.']]; note trick line > 26 chars: [['@emoji:💡'], [' effect / impact / influence + '], ['ON', 'hl']]; note trick line 796 px > 780; hook 8 words on screen"
   },
   {
    "bank": "sb_1445ca42",
@@ -390,22 +158,67 @@
   {
    "bank": "sb_272a4518",
    "point": "Stop saying \"I recommend you to visit Hue.\" – say \"I recommend that you visit Hue. / I recommend visiting Hue.\"",
-   "reason": "self-check: hook 7 words on screen"
+   "reason": "self-check: note fix line > 26 chars: [['I recommend '], ['visiting ', 'green'], ['the museum.']]; note qs line > 26 chars: [['I recommend '], ['___ ', 'green'], ['the museum.']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_466c0a2d",
+   "point": "Stop saying \"They don't allow to smoke here.\" – say \"They don't allow smoking here. / They don't allow people to smoke here.\"",
+   "reason": "self-check: note ex height 346 > 335"
+  },
+  {
+   "bank": "sb_040ec72a",
+   "point": "Stop saying \"I apologise you for the delay.\" – say \"I apologise to you for the delay.\"",
+   "reason": "self-check: note ex height 346 > 335; note trick line 553 px > 540"
+  },
+  {
+   "bank": "sb_0c359c74",
+   "point": "Stop saying \"Translate this to English.\" – say \"Translate this into English.\"",
+   "reason": "self-check: note fix line > 26 chars: [['Translate this '], ['into ', 'green'], ['English.']]; note ex height 346 > 335"
   },
   {
    "bank": "sb_14311c65",
    "point": "Say \"My flight was canceled. Can you rebook me?\" instead of \"They cancel my flight, give me other.\"",
-   "reason": "self-check: note fix height 442; note why line > 26 chars: [['@emoji:✅'], [' My was canceled. Can you rebook me', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' My was canceled. Can you rebook me', 'green']]; hook 7 words on screen"
+   "reason": "self-check: note why line 587 px > 540; note why line > 26 chars: [['@emoji:✅'], [' My was canceled. Can you rebook me', 'green']]; note why line 914 px > 540; note save line 587 px > 540; note save line > 26 chars: [['@emoji:✅'], [' My was canceled. Can you rebook me', 'green']]; note save line 914 px > 540; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_14cb88e7",
+   "point": "Say \"Could you hold on a second?\" instead of \"Wait me a moment.\"",
+   "reason": "self-check: note why line 648 px > 540; note save line 648 px > 540"
+  },
+  {
+   "bank": "sb_19bde506",
+   "point": "Stop saying \"He married with a teacher.\" – say \"He married a teacher.\"",
+   "reason": "self-check: note ex height 346 > 335"
   },
   {
    "bank": "sb_1c747068",
    "point": "Stop saying \"She is responsible of the budget.\" – say \"She is responsible for the budget.\"",
-   "reason": "self-check: note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
+   "reason": "self-check: note fix line > 26 chars: [['She is responsible '], ['for ', 'green'], ['the budget.']]; note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note ex line > 26 chars: [['Who is '], ['responsible for ', 'green'], ['this?']]; note ex line > 26 chars: [[\"He's \"], ['responsible for ', 'green'], ['sales.']]; note qs line > 26 chars: [[\"I'm responsible \"], ['___ ', 'green'], ['the team.']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
+  },
+  {
+   "bank": "sb_21612f29",
+   "point": "Stop saying \"We are committed to reduce waste.\" – say \"We are committed to reducing waste.\"",
+   "reason": "self-check: note ex line > 26 chars: [['She is '], ['committed ', 'green'], ['to helping kids.']]"
   },
   {
    "bank": "sb_24f9ee05",
    "point": "Say \"In my opinion, it depends on the job.\" instead of \"According to me, it depends on the job.\"",
    "reason": "quiz option longer than 12 characters"
+  },
+  {
+   "bank": "sb_3237e46f",
+   "point": "Say \"I missed my connecting flight. What are my options?\" instead of \"My plane go already. What I do?\"",
+   "reason": "self-check: note ex height 346 > 335"
+  },
+  {
+   "bank": "sb_52fcf41b",
+   "point": "Stop saying \"The flood caused many damages.\" – say \"The flood caused a lot of damage.\"",
+   "reason": "self-check: note fix line > 26 chars: [['The flood caused '], ['a lot of damage.', 'green']]; note ex line > 26 chars: [['The storm caused little '], ['damage.', 'green']]; note ex line > 26 chars: [['Was there any '], ['damage ', 'green'], ['to the car?']]; note qs line > 26 chars: [['The fire caused a lot of '], ['___.', 'green']]"
+  },
+  {
+   "bank": "sb_55270c0b",
+   "point": "Say \"What does a typical day look like in this role?\" instead of \"What I must do every day?\"",
+   "reason": "self-check: note why line 591 px > 540; note save line 591 px > 540"
   },
   {
    "bank": "sb_5b373a0c",
@@ -415,7 +228,7 @@
   {
    "bank": "sb_5c2deea7",
    "point": "Say \"So, what brings you here today?\" instead of \"Why you are here?\"",
-   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' So, what brings you here today', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' So, what brings you here today', 'green']]"
+   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' So, what brings you here today', 'green']]; note why line 770 px > 540; note ex height 346 > 335; note save line > 26 chars: [['@emoji:✅'], [' So, what brings you here today', 'green']]; note save line 770 px > 540"
   },
   {
    "bank": "sb_645d6b51",
@@ -440,12 +253,12 @@
   {
    "bank": "sb_851ba94f",
    "point": "Say \"I'm really into hiking these days.\" instead of \"I am very like hiking.\"",
-   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [\" I'm really into these days\", 'green']]; note save line > 26 chars: [['@emoji:✅'], [\" I'm really into these days\", 'green']]"
+   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [\" I'm really into these days\", 'green']]; note why line 628 px > 540; note save line > 26 chars: [['@emoji:✅'], [\" I'm really into these days\", 'green']]; note save line 628 px > 540"
   },
   {
    "bank": "sb_8ce033f9",
    "point": "Say \"Let me check and get back to you.\" instead of \"I will answer you after.\"",
-   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' Let me check and get back to you', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Let me check and get back to you', 'green']]"
+   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' Let me check and get back to you', 'green']]; note why line 826 px > 540; note save line > 26 chars: [['@emoji:✅'], [' Let me check and get back to you', 'green']]; note save line 826 px > 540"
   },
   {
    "bank": "sb_8fea8dee",
@@ -453,14 +266,34 @@
    "reason": "quiz option longer than 12 characters"
   },
   {
+   "bank": "sb_9172f8df",
+   "point": "Say \"My bag didn't arrive. Where do I report it?\" instead of \"I lost my luggages.\"",
+   "reason": "self-check: note ex line > 26 chars: [['All '], ['my luggage ', 'green'], ['is in one suitcase.']]"
+  },
+  {
    "bank": "sb_939893fe",
    "point": "Say \"There's something wrong with the heating.\" instead of \"The heater has problem.\"",
    "reason": "why not TTS-clean (symbols/emoji/quotes): \"Say something's wrong with + the thing.\""
   },
   {
+   "bank": "sb_9f45e757",
+   "point": "Say \"I'm interested in this role because I like helping people.\" instead of \"I am interesting in this job.\"",
+   "reason": "self-check: note fix line > 26 chars: [[\"I'm interested \", 'green'], ['in this job.']]; note ex line > 26 chars: [['The job sounds '], ['interesting.', 'green']]; note qs line > 26 chars: [[\"I'm really \"], ['___ ', 'green'], ['in this role.']]"
+  },
+  {
+   "bank": "sb_b56e5263",
+   "point": "Say \"Are you free this Saturday? A few of us are going hiking.\" instead of \"You want join us?\"",
+   "reason": "self-check: note why line 570 px > 540; note save line 570 px > 540"
+  },
+  {
    "bank": "sb_bf3fc815",
    "point": "Say \"I'm planning to move out at the end of June.\" instead of \"I will out of the house June end.\"",
-   "reason": "self-check: note fix line > 26 chars: [['not “'], ['I will out of the house end', 'red'], ['”']]; note why line > 26 chars: [['@emoji:❌'], [' I will out of the house end', 'red']]; note why line > 26 chars: [['@emoji:✅'], [\" I'm moving at the end of June\", 'green']]; note save line > 26 chars: [['@emoji:❌'], [' I will out of the house end', 'red']]; note save line > 26 chars: [['@emoji:✅'], [\" I'm moving at the end of June\", 'green']]; hook 8 words on screen"
+   "reason": "self-check: note fix line > 26 chars: [['not “'], ['I will out of the house end', 'red'], ['”']]; note fix line 596 px > 540; note why line > 26 chars: [['@emoji:❌'], [' I will out of the house end', 'red']]; note why line 640 px > 540; note why line > 26 chars: [['@emoji:✅'], [\" I'm moving at the end of June\", 'green']]; note why line 715 px > 540; note save line > 26 chars: [['@emoji:❌'], [' I will out of the house end', 'red']]; note save line 640 px > 540; note save line > 26 chars: [['@emoji:✅'], [\" I'm moving at the end of June\", 'green']]; note save line 715 px > 540; hook 8 words on screen"
+  },
+  {
+   "bank": "sb_cc4c2bf0",
+   "point": "Say \"How much is the security deposit?\" instead of \"How much money I give before?\"",
+   "reason": "self-check: note why line 572 px > 540; note save line 572 px > 540"
   },
   {
    "bank": "sb_cc6fbe77",
@@ -470,7 +303,7 @@
   {
    "bank": "sb_d11da4f4",
    "point": "Say \"How do I transfer money to another account?\" instead of \"How I can send money other account?\"",
-   "reason": "self-check: note fix height 378; hook 7 words on screen"
+   "reason": "self-check: hook 7 words on screen"
   },
   {
    "bank": "sb_d7a49df5",
@@ -483,9 +316,29 @@
    "reason": "self-check: hook 7 words on screen"
   },
   {
+   "bank": "sb_04105eed",
+   "point": "Stop saying \"We rely in technology.\" – say \"We rely on technology.\"",
+   "reason": "self-check: note ex line > 26 chars: [['Many people '], ['rely on ', 'green'], ['their phones.']]"
+  },
+  {
+   "bank": "sb_076acb56",
+   "point": "Stop saying \"He was accused for lying.\" – say \"He was accused of lying.\"",
+   "reason": "self-check: note ex height 346 > 335"
+  },
+  {
+   "bank": "sb_1ec77f5c",
+   "point": "Say \"I'd like this fixed by Friday.\" instead of \"Please fix until Friday.\"",
+   "reason": "self-check: note ex height 346 > 335"
+  },
+  {
    "bank": "sb_27e08c50",
    "point": "Say \"The key point to remember is that users want speed.\" instead of \"The most important is users want speed.\"",
-   "reason": "self-check: note fix height 378; note why line > 26 chars: [['@emoji:✅'], [' key point to remember that', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' key point to remember that', 'green']]; hook 7 words on screen"
+   "reason": "self-check: note why line 600 px > 540; note why line > 26 chars: [['@emoji:✅'], [' key point to remember that', 'green']]; note why line 683 px > 540; note save line 600 px > 540; note save line > 26 chars: [['@emoji:✅'], [' key point to remember that', 'green']]; note save line 683 px > 540; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_2b4d86ec",
+   "point": "Say \"I see it a bit differently.\" instead of \"I think different.\"",
+   "reason": "self-check: note fix line > 26 chars: [['I '], ['see it a bit differently.', 'green']]; note ex line > 26 chars: [['He dresses '], ['differently ', 'green'], ['now.']]"
   },
   {
    "bank": "sb_30c60846",
@@ -495,12 +348,12 @@
   {
    "bank": "sb_36b7cec3",
    "point": "Say \"Let's get started. Thanks, everyone, for coming.\" instead of \"We start now. Thank you for your coming.\"",
-   "reason": "self-check: note fix height 442; note why line > 26 chars: [['@emoji:✅'], [\" Let's get started. Thanks, everyone, for coming\", 'green']]; note save line > 26 chars: [['@emoji:✅'], [\" Let's get started. Thanks, everyone, for coming\", 'green']]"
+   "reason": "self-check: note fix height 346 > 335; note why line > 26 chars: [['@emoji:✅'], [\" Let's get started. Thanks, everyone, for coming\", 'green']]; note why line 1133 px > 540; note ex height 346 > 335; note save line > 26 chars: [['@emoji:✅'], [\" Let's get started. Thanks, everyone, for coming\", 'green']]; note save line 1133 px > 540"
   },
   {
    "bank": "sb_3899b628",
    "point": "Say \"In my last role, I was responsible for a team of five.\" instead of \"In my last job I was responsible of five people.\"",
-   "reason": "self-check: note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
+   "reason": "self-check: note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note ex line > 26 chars: [[\"She's \"], ['responsible for ', 'green'], ['sales.']]; note trick line > 26 chars: [['@emoji:💡'], [' RESPONSIBLE FOR. ', 'hl'], ['Never '], ['OF.', 'hl']]; note qs line > 26 chars: [['I was responsible '], ['___ ', 'green'], ['the budget.']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
   },
   {
    "bank": "sb_4f5a34f3",
@@ -508,9 +361,14 @@
    "reason": "already episode 1 (templates-v2 gold)"
   },
   {
+   "bank": "sb_57e42a5c",
+   "point": "Say \"To wrap up, Lee will send the report by Friday.\" instead of \"For finish, Lee sends report Friday.\"",
+   "reason": "self-check: note why line 632 px > 540; note save line 632 px > 540"
+  },
+  {
    "bank": "sb_5af5827b",
    "point": "Say \"What are the next steps in the process?\" instead of \"When you will call me?\"",
-   "reason": "self-check: note fix height 442; note why line > 26 chars: [['@emoji:✅'], [' What are the next steps in the process', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' What are the next steps in the process', 'green']]"
+   "reason": "self-check: note why line 555 px > 540; note why line > 26 chars: [['@emoji:✅'], [' What are the next steps in the process', 'green']]; note why line 934 px > 540; note save line 555 px > 540; note save line > 26 chars: [['@emoji:✅'], [' What are the next steps in the process', 'green']]; note save line 934 px > 540"
   },
   {
    "bank": "sb_786153bb",
@@ -520,7 +378,7 @@
   {
    "bank": "sb_803a54ea",
    "point": "Say \"That sounds fair. I'm happy to accept the offer.\" instead of \"OK, I agree your offer.\"",
-   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' That sounds fair. accept the', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' That sounds fair. accept the', 'green']]"
+   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' That sounds fair. accept the', 'green']]; note why line 710 px > 540; note save line > 26 chars: [['@emoji:✅'], [' That sounds fair. accept the', 'green']]; note save line 710 px > 540"
   },
   {
    "bank": "sb_816745d7",
@@ -535,27 +393,37 @@
   {
    "bank": "sb_90df73b3",
    "point": "Say \"Let me walk you through my background.\" instead of \"I will explain you my CV.\"",
-   "reason": "self-check: note fix height 378; note why line > 26 chars: [['@emoji:✅'], [' Let me walk through background', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Let me walk through background', 'green']]"
+   "reason": "self-check: note why line 598 px > 540; note why line > 26 chars: [['@emoji:✅'], [' Let me walk through background', 'green']]; note why line 813 px > 540; note save line 598 px > 540; note save line > 26 chars: [['@emoji:✅'], [' Let me walk through background', 'green']]; note save line 813 px > 540"
   },
   {
    "bank": "sb_c03dbf46",
    "point": "Say \"Today, I'll be talking about our new app.\" instead of \"Today I will present you our new app.\"",
-   "reason": "self-check: note fix height 442; note why line > 26 chars: [['@emoji:✅'], [\" Today, I'll be talking about\", 'green']]; note save line > 26 chars: [['@emoji:✅'], [\" Today, I'll be talking about\", 'green']]"
+   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [\" Today, I'll be talking about\", 'green']]; note why line 670 px > 540; note ex height 346 > 335; note save line > 26 chars: [['@emoji:✅'], [\" Today, I'll be talking about\", 'green']]; note save line 670 px > 540"
   },
   {
    "bank": "sb_e42d6eb4",
    "point": "Say \"Are we all on the same page?\" instead of \"Everybody understand?\"",
-   "reason": "self-check: note why line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; error phrase in ['m_w', 'm_x']"
+   "reason": "self-check: note fix line > 26 chars: [['Are we all on the same page?', 'green']]; note why line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; note qs line > 26 chars: [['Are we all on the same '], ['___?', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; error phrase in ['m_w', 'm_x']"
   },
   {
    "bank": "sb_f940bc04",
    "point": "Say \"I'm really excited about this offer.\" instead of \"I am very exciting for this offer.\"",
-   "reason": "self-check: hook 7 words on screen"
+   "reason": "self-check: note why line 547 px > 540; note why line 601 px > 540; note save line 547 px > 540; note save line 601 px > 540; hook 7 words on screen"
   },
   {
    "bank": "sb_18d9514a",
    "point": "Stop saying \"The number of student are increasing.\" – say \"The number of students is increasing.\"",
-   "reason": "self-check: note fix height 442"
+   "reason": "self-check: note ex line > 26 chars: [['The '], ['number ', 'green'], ['of cars '], ['is ', 'green'], ['growing.']]; note qs line > 26 chars: [['The number of tourists '], ['___ ', 'green'], ['rising.']]"
+  },
+  {
+   "bank": "sb_90abd680",
+   "point": "Stop saying \"I wish I can speak French.\" – say \"I wish I could speak French.\"",
+   "reason": "self-check: note trick line 562 px > 540"
+  },
+  {
+   "bank": "sb_9e149cb1",
+   "point": "Stop saying \"He resembles to his father.\" – say \"He resembles his father.\"",
+   "reason": "self-check: note ex height 346 > 335"
   }
  ]
 }

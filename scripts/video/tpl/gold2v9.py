@@ -120,17 +120,17 @@ def ipa_of(word):
         if r and r[0]: return r[0], r[1]
     return None, ''
 
-def wrap(items, maxc=26):
+def wrap(items, maxc=26, m=len):
     """items = [(token, colour)] -> rows of [text, colour] segs, each row <= maxc characters (greedy word wrap)."""
     def greedy(mx):
         rows, cur, n = [], [], 0
         for t, c in items:
-            if cur and n + 1 + len(t) > mx: rows.append(cur); cur, n = [], 0
-            cur.append((t, c)); n += len(t) + (1 if n else 0)
+            if cur and m(' '.join(x for x, _ in cur + [(t, c)])) > mx: rows.append(cur); cur = []
+            cur.append((t, c))
         if cur: rows.append(cur)
         return rows
     rows = greedy(maxc)
-    for mx in range(max(len(t) for t, _ in items), maxc):   # balanced rows: the narrowest width that keeps the same row count
+    for mx in range(int(max(m(t) for t, _ in items)), int(maxc), 4 if m is not len else 1):   # balanced rows: the narrowest width that keeps the same row count
         if len(greedy(mx)) == len(rows): rows = greedy(mx); break
     out = []
     for r in rows:
@@ -158,21 +158,38 @@ def _old_wrap(items, maxc=26):
         out.append([[t, c] if c else [t] for t, c in segs_])
     return out
 
-def wrap_s(sentence, idx=(), colour='green', base=None, maxc=26):
+NOTE_SZ = dict(title=(58, 'ExtraBold'), big=(78, 'ExtraBold'), text=(44, 'Bold'), small=(38, 'Bold'))
+_FT = {}
+def tw(st, text):   # rendered width of a note text segment in render_v9's mock typography (px at k = 1.0)
+    from PIL import ImageFont
+    z, w = NOTE_SZ[st]; k = (z, w)
+    if k not in _FT: _FT[k] = ImageFont.truetype(os.path.join(os.path.dirname(__file__), f'../../../brand/social/src/fonts/BeVietnamPro-{w}.ttf'), z)
+    return _FT[k].getlength(text)
+def seg_w(st, sg):
+    t = sg[0]
+    if t.startswith('@emoji:'): return NOTE_SZ[st][0] + 22
+    if t.startswith('@ipa:'):
+        from PIL import ImageFont
+        return ImageFont.truetype(os.path.join(os.path.dirname(__file__), '../../../brand/social/src/fonts/NotoSans-Medium.ttf'), NOTE_SZ[st][0]).getlength(t[5:])
+    return tw(st, t) + (12 if len(sg) > 1 and sg[1] == 'hl' else 0)
+def row_w(st, segs): return 4 + sum(seg_w(st, sg) for sg in segs)
+PXW = {'d03': 540, 'c01': 780}   # usable note width (px at the mock size): board zone / 0.89 minus margin (render_v9 build_note)
+def wrap_s(sentence, idx=(), colour='green', base=None, maxc=26, st=None, lead=0):
+    if st: return wrap([(w, colour if i in idx else base) for i, w in enumerate(toks(sentence))], maxc - lead - 8, lambda t: tw(st, t))
     return wrap([(w, colour if i in idx else base) for i, w in enumerate(toks(sentence))], maxc)
 
 def note(nid, frm, to, title, lines, anim='spring'):
     return dict(id=nid, kind='note', anim=anim, from_=frm, to_=to, lines=[{'st': 'title', 'segs': [[title]]}] + [{'st': st, 'segs': sg} for st, sg in lines])
 
-NOTE_H = dict(title=90, big=96, text=64, small=56)
+NOTE_H = dict(title=90, big=96, text=64, small=56); NOTE_MAXH = 335   # board region 306 px / 0.89 (render_v9 build_note)
 def line_len(segs): return sum(len(t[0].split(':', 1)[1]) if t[0].startswith('@ipa:') else 0 if t[0].startswith('@') else len(t[0]) for t in segs)
-def memory_rows(memory):
+def memory_rows(memory, px=540):
     """Memory trick -> note text rows: UPPERCASE words highlighted, ✓/✗ become emoji tokens, a bulb on the first row."""
     rows = []
     for piece in [x.strip() for x in memory.split(',') if x.strip()]:
         emo = []; piece = re.sub(r'\s*(✓|✗)', lambda m: (emo.append('@emoji:✅' if m.group(1) == '✓' else '@emoji:❌'), '')[1], piece)
         em = [m.group(0) for m in EMO.finditer(piece)]; piece = EMO.sub('', piece).strip()
-        for r in wrap([(w, 'hl' if w.strip('+-=').isupper() and len(w.strip('+-=')) >= 2 else None) for w in toks(piece)], 24):
+        for r in wrap([(w, 'hl' if w.strip('+-=').isupper() and len(w.strip('+-=')) >= 2 else None) for w in toks(piece)], px - 70, lambda t: tw('text', t)):
             rows.append(r)
         if emo or em:
             rows[-1] = rows[-1] + [[e] for e in ([x for x in emo] + [x for x in em][:1])]
@@ -206,6 +223,7 @@ def build(slug, it, ep):
         if k: d['key'] = k
         if gap: d['gap'] = gap
         lines.append(d); return d
+    PX = PXW[C['clips'][0][:3]]
     span_w = {norm(toks(wrong)[i]) for i in wi} | {norm(toks(right)[i]) for i in ri}
     G = 0.65
     if slug == 'stop-saying-this':
@@ -240,20 +258,23 @@ def build(slug, it, ep):
     for w_ in ([toks(right)[i] for i in ri][:2] if len(ri) <= 2 else []) + [w for w in toks(right) if any(norm(w).startswith(m_) or m_.startswith(norm(w)) for m_ in mw) and len(norm(w)) >= 4]:
         if len(norm(w_)) >= 4 and ipa_of(w_)[0]: ip, ipw = ipa_of(w_)[0], norm(w_); break
     ipa_seg = [['  '], ['@ipa:' + ip]] if ip else []
-    qs_rows = wrap_s(Q['q'], {i for i, w in enumerate(toks(Q['q'])) if '___' in w}, 'green')
+    qs_rows = wrap_s(Q['q'], {i for i, w in enumerate(toks(Q['q'])) if '___' in w}, 'green', None, PX, 'text')
     qs = note('qs', a('q', 1 if slug == 'stop-saying-this' else 0, -0.06), None, 'QUICK QUIZ', [('text', r) for r in qs_rows])
     if slug == 'stop-saying-this':
         n_hook = 2 + len(toks(wrong))
         lead = [[' Stop saying', 'white']] if n_hook <= HOOK_MAX else [[' Stop', 'white']] if n_hook - 1 <= HOOK_MAX else []
         hook_rows = [[['@x']] + lead, segs(wrong, set(wi), 'red', quote=True)]
-        fixl = [('big', r) for r in wrap_s(right, set(ri), 'green', None, 20)] + ([('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []) 
-        if sum(NOTE_H[st] for st, _ in fixl) + NOTE_H['title'] + NOTE_H['small'] <= 360: fixl.append(('small', [['not “'], [wrong_sp, 'red'], ['”']]))
+        ipl = [('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []
+        for st_ in ('big', 'text'):   # the hero sentence in big type when title + rows + IPA fit the board, else normal text
+            fixl = [(st_, r) for r in wrap_s(right, set(ri), 'green', None, PX, st_)] + ipl
+            if NOTE_H['title'] + sum(NOTE_H[st] for st, _ in fixl) <= NOTE_MAXH: break
+        if NOTE_H['title'] + sum(NOTE_H[st] for st, _ in fixl) + NOTE_H['small'] <= NOTE_MAXH: fixl.append(('small', [['not “'], [wrong_sp, 'red'], ['”']]))
         wl = [('text', [['@emoji:❌'], [' ' + wrong_sp, 'red']]), ('text', [['@emoji:✅'], [' ' + right_sp, 'green']])]
         P = [dict(id='hook', kind='rich', role='hook', anim='stamp', size=84, from_=['t', 0], rows=hook_rows),
              note('fix', a('k', 0, -0.2), None, 'SAY THIS', fixl),
              note('why', a('y', 0, -0.06), None, 'WHY?', wl,),
-             note('ex', a('x', 0, -0.06), None, 'EXAMPLE', [('text', r) for e, ix in [(e, key_idx(e, sorted(span_w | set(mw)), 4)) for e in ex] for r in wrap_s(e, set(ix), 'green', None, 26)])]
-        mr = memory_rows(it['memory'])
+             note('ex', a('x', 0, -0.06), None, 'EXAMPLE', [('text', r) for e, ix in [(e, key_idx(e, sorted(span_w | set(mw)), 4)) for e in ex] for r in wrap_s(e, set(ix), 'green', None, PX, 'text')])]
+        mr = memory_rows(it['memory'], PX)
         if mr: P.append(note('trick', a('t', 0, -0.06), None, 'REMEMBER', [('text', r) for r in mr]))
         P += [qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),
               note('save', [f'{L}_a', -1, 'e', 0.35], None, 'SAVE THIS', [wl[0], ('text', [['@emoji:✅'], [' ' + right_sp, 'green']]), ] + ([('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []))]
@@ -268,13 +289,13 @@ def build(slug, it, ep):
         sv = [dict(it_, **({'mean': cards[it_['word']].get('save_mean', it_['mean'])})) for it_ in items]
         for it_ in sv: it_.pop('at', None)
         def emo_rows(emo, sentence, idx, colour):   # emoji on the first row, continuation rows indented, all rows <= 22 characters
-            rr = wrap_s(sentence, idx, colour, None, 24)
-            return [('text', ([[emo]] if i == 0 else [['  ']]) + [[' ' + r[0][0]] + r[0][1:]] + r[1:]) for i, r in enumerate(rr)]
+            rr = wrap_s(sentence, idx, colour, None, PX, 'text', 58)
+            return [('text', ([[emo]] if i == 0 else []) + [[(' ' if i == 0 else '      ') + r[0][0]] + r[0][1:]] + r[1:]) for i, r in enumerate(rr)]
         fixl = emo_rows('@emoji:❌', wrong, wi, 'red') + emo_rows('@emoji:✅', right, ri, 'green')
         P = [dict(id='hook', kind='rich', role='hook', anim='stamp', size=96, from_=['t', 0], rows=[[[X, 'yellow'], [' or', 'white']], [[Y, 'green'], ['?', 'white']]], align='l'),
              dict(id='lesson', kind='lesson', anim='spring', from_=a('y', 0, -0.06), to_=None, title=f'{X.upper()} vs {Y.upper()}', items=items),
              note('fix', a('w', 0, -0.06), None, 'NOT / SAY', fixl),
-             note('trick', a('t', 0, -0.06), None, 'MEMORY TRICK', [('text', r) for r in memory_rows(it['memory'])]),
+             note('trick', a('t', 0, -0.06), None, 'MEMORY TRICK', [('text', r) for r in memory_rows(it['memory'], PX)]),
              qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),
              dict(id='save', kind='lesson', anim='spring', from_=[f'{L}_a', -1, 'e', 0.35], to_=None, title='SAVE THIS', save=True, items=sv, footer='lexkite.com')]
     P.append(dict(id='cta', kind='cta', from_=a('c', 0, -0.05)))
@@ -307,10 +328,11 @@ def selfcheck(s):
     if any(l.get('gap', 0.22) < 0.4 and l['id'] not in (s['lines'][0]['id'], s['lines'][0]['id'][0] + '_q2', s['lines'][0]['id'][0] + '_a', s['lines'][0]['id'][0] + '_w') for l in T): e.append('gap < 0.4 s')
     for p in s['pops']:
         if p['kind'] == 'note':
-            hgt = sum(NOTE_H[x['st']] for x in p['lines'])
-            if hgt > 360: e.append(f'note {p["id"]} height {hgt}')
+            hgt = sum(NOTE_H[x['st']] for x in p['lines']); px = PXW[s['clips'][0][:3]]
+            if hgt > NOTE_MAXH: e.append(f'note {p["id"]} height {hgt} > {NOTE_MAXH}')
             for x in p['lines']:
-                if line_len(x['segs'][0:0] + [sg for sg in x['segs']]) > LINE_MAX: e.append(f'note {p["id"]} line > {LINE_MAX} chars: {x["segs"]}')
+                if line_len(x['segs']) > LINE_MAX: e.append(f'note {p["id"]} line > {LINE_MAX} chars: {x["segs"]}')
+                if row_w(x['st'], x['segs']) > px: e.append(f'note {p["id"]} line {row_w(x["st"], x["segs"]):.0f} px > {px}')
                 if any('✓' in sg[0] or '✗' in sg[0] for sg in x['segs']): e.append('✓/✗ char in note')
         if p['kind'] == 'quiz' and (len(p['a']) > QOPT_MAX or len(p['b']) > QOPT_MAX): e.append('quiz option too long')
     for l in T:

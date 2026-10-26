@@ -24,17 +24,6 @@
    "est_s": 42.3,
    "ipa": null,
    "content_hash": "3bc746c83b8fb10d"
-  },
-  {
-   "ep": 4,
-   "id": "sod_6e178745",
-   "point": "hope (v) vs wish (v)",
-   "cefr": "C1",
-   "diff": "hard",
-   "words": 72,
-   "est_s": 47.0,
-   "ipa": "/hoʊp/",
-   "content_hash": "597109b5f2b5ce79"
   }
  ],
  "skipped": [
@@ -157,6 +146,11 @@
    "bank": "sb_01260417",
    "point": "itemised vs detailed",
    "reason": "not a two-way pair: 'itemised vs detailed'"
+  },
+  {
+   "bank": "sb_6e178745",
+   "point": "hope (v) vs wish (v)",
+   "reason": "self-check: note fix line > 26 chars: [['@emoji:❌'], [' I '], ['wish ', 'red'], ['you '], ['will ', 'red'], ['pass the test.']]; note qs line > 26 chars: [['I '], ['___ ', 'green'], ['you have a great trip!']]"
   }
  ]
 }

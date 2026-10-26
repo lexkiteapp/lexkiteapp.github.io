@@ -1,7 +1,7 @@
 {
  "id": "sts_42fa0282",
  "template": "mistake",
- "title": "Stop Saying This #30 – Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
+ "title": "Stop Saying This #10 – Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -183,7 +183,7 @@
      ]
     },
     {
-     "st": "big",
+     "st": "text",
      "segs": [
       [
        "I suggest "
@@ -371,8 +371,13 @@
        "@emoji:💡"
       ],
       [
-       " suggest "
-      ],
+       " suggest"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
       [
        "(THAT) ",
        "hl"
@@ -417,8 +422,13 @@
      "st": "text",
      "segs": [
       [
-       "I suggest you "
-      ],
+       "I suggest you"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
       [
        "___ ",
        "green"
@@ -549,7 +559,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 30
+  "ep": 10
  },
  "source": {
   "bank": "sb_42fa0282",
