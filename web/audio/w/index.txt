@@ -7318,3 +7318,402 @@ demographics
 psychographics
 consumer insight
 metric
+sponsored post
+native advertising
+brand guidelines
+earned media
+owned media
+paid media
+media relations
+internal communications
+market penetration
+go-to-market strategy
+personalization
+marketing automation
+climate change
+global warming
+greenhouse gas
+greenhouse effect
+carbon dioxide
+methane
+net zero
+carbon neutral
+carbon offset
+carbon capture
+solar power
+hydropower
+geothermal energy
+air quality
+particulate matter
+smog
+acid rain
+contamination
+pollutant
+toxic waste
+hazardous waste
+wastewater
+sewage
+recycling
+waste management
+microplastic
+single-use plastic
+biodegradable
+compost
+circular economy
+sustainability
+habitat loss
+endangered species
+reforestation
+desertification
+soil erosion
+saltwater intrusion
+sea level rise
+extreme weather
+natural disaster
+heatwave
+mitigation
+resilience
+environmental impact assessment
+ozone layer
+ocean acidification
+coral bleaching
+permafrost
+water scarcity
+watershed
+wetland
+mangrove
+invasive species
+carbon cycle
+water cycle
+genetic diversity
+DNA
+molecule
+atom
+chemical reaction
+catalyst
+velocity
+nuclear energy
+specimen
+scientific method
+empirical evidence
+climate model
+typhoon
+flash flood
+landslide
+natural resources
+non-renewable
+overfishing
+runoff
+algal bloom
+organic farming
+emissions trading
+carbon tax
+environmental regulation
+eco-friendly
+green technology
+electric vehicle
+energy storage
+life cycle assessment
+ecological footprint
+carrying capacity
+indicator species
+bioaccumulation
+environmental monitoring
+remote sensing
+protected area
+urban heat island
+check-in
+check-out
+bellboy
+room attendant
+single room
+double room
+twin room
+room rate
+occupancy rate
+overbooking
+no-show
+cancellation policy
+minibar
+key card
+guest folio
+incidental charges
+property management system
+revenue management
+average daily rate
+RevPAR
+food and beverage
+set menu
+food allergy
+sommelier
+bartender
+executive chef
+tour operator
+tour guide
+tour leader
+inbound tourism
+outbound tourism
+domestic tourism
+community-based tourism
+homestay
+boutique hotel
+star rating
+all-inclusive
+half board
+full board
+bed and breakfast
+peak season
+off-season
+shoulder season
+tourist attraction
+heritage site
+travel insurance
+baggage allowance
+car rental
+guest satisfaction
+guest complaint
+duty manager
+general manager
+guest relations
+VIP guest
+walk-in guest
+turndown service
+laundry service
+lost and found
+fitness center
+MICE
+incentive trip
+conference room
+familiarization trip
+group booking
+allotment
+rack rate
+corporate rate
+online travel agency
+direct booking
+online review
+guest experience
+personalized service
+service standard
+front office
+night audit
+backpacker
+local cuisine
+tourism board
+overtourism
+sustainable tourism
+hospitality management
+guest profile
+early departure
+extension of stay
+hotel chain
+management contract
+pre-arrival
+amenity kit
+do not disturb
+emergency exit
+tipping
+service charge
+currency exchange
+seasonality
+day tour
+deluxe room
+connecting rooms
+welcome drink
+registration card
+linen
+adventure tourism
+learning outcome
+lesson plan
+pedagogy
+teaching method
+student-centered learning
+active learning
+blended learning
+distance learning
+e-learning
+flipped classroom
+learner autonomy
+critical thinking
+formative assessment
+summative assessment
+grading
+grade point average
+compulsory subject
+postgraduate
+bachelor's degree
+master's degree
+doctorate
+PhD candidate
+thesis defense
+tuition fee
+entrance exam
+academic year
+tutorial
+professional development
+teacher training
+classroom management
+differentiated instruction
+inclusive education
+special needs
+numeracy
+vocational training
+lifelong learning
+accreditation
+research question
+research gap
+literature review
+qualitative research
+quantitative research
+mixed methods
+research ethics
+sampling
+sample size
+data collection
+data analysis
+statistical significance
+correlation
+causation
+academic writing
+reference list
+academic integrity
+academic journal
+impact factor
+manuscript
+conference paper
+research grant
+principal investigator
+pilot study
+longitudinal study
+extracurricular activities
+dropout rate
+standardized test
+competency
+higher education
+primary education
+secondary education
+early childhood education
+education policy
+educational reform
+learning management system
+MOOC
+peer feedback
+group work
+oral presentation
+invigilator
+mock exam
+academic calendar
+course registration
+visiting scholar
+research assistant
+scientific article
+co-author
+open access
+learning style
+academic performance
+supply chain management
+freight forwarder
+shipping line
+shipper
+consignee
+notify party
+FCL
+LCL
+consolidation
+bill of lading
+air waybill
+commercial invoice
+proforma invoice
+packing list
+certificate of origin
+telegraphic transfer
+documents against payment
+payment terms
+Incoterms
+FOB
+DDP
+customs clearance
+customs declaration
+customs broker
+HS code
+import duty
+VAT
+quota
+customs inspection
+bonded warehouse
+warehousing
+distribution center
+fulfillment center
+stock level
+safety stock
+stockout
+sales contract
+sourcing
+third-party logistics
+last-mile delivery
+reverse logistics
+cold chain
+reefer container
+perishable goods
+dangerous goods
+loading dock
+picking and packing
+barcode
+tracking number
+shipment tracking
+transit time
+port of loading
+port of discharge
+transshipment
+cut-off time
+demurrage
+detention
+free time
+surcharge
+terminal handling charge
+freight collect
+freight prepaid
+cargo insurance
+insurance certificate
+inspection certificate
+fumigation
+shipping mark
+gross weight
+net weight
+volumetric weight
+cubic meter
+multimodal transport
+road freight
+rail freight
+air freight
+sea freight
+inland waterway
+dry port
+container yard
+container freight station
+port congestion
+route optimization
+haulage
+trucking
+door-to-door
+delivery note
+proof of delivery
+cross-border e-commerce
+re-export
+trade balance
+trade barrier
+anti-dumping duty
+rules of origin
+tariff preference
+minimum order quantity
+sample order
+demand forecasting
+bullwhip effect
+warehouse management system
+cycle count
+backorder
+cross-docking
+logistics hub
+customs bond
+shipping instructions
+customs valuation

@@ -7495,3 +7495,409 @@ psychographics	ok	ok
 consumer insight	ok	ok
 metric	ok	ok
 cost per mille	cut_wordis: câu mang: "The word is cost per mil." · dot100:"Cost per mil" 1.13s · cut_wordis100: câu mang: "The word is cost per mil." · cut_next: câu mang: "Next word cost per mil" · plain095:"Cost per mili" 1.08s · dot090:"Cost per milli." 1.25s	cut_wordis: câu mang: "The word is cost per mill." · dot100:"Cost per mil." 0.96s · cut_wordis100: câu mang: "The word is cost per mill." · cut_next: câu mang: "Next word, cost per mill." · plain095:"Cost per mil." 0.98s · dot090:"Cost per mil." 1.06s
+sponsored post	ok	ok
+native advertising	ok	ok
+brand guidelines	ok	ok
+earned media	ok	ok
+owned media	ok	ok
+paid media	ok	ok
+media relations	ok	ok
+internal communications	ok	ok
+market penetration	ok	ok
+go-to-market strategy	ok	ok
+personalization	ok	ok
+marketing automation	ok	ok
+climate change	ok	ok
+global warming	ok	ok
+greenhouse gas	ok	ok
+greenhouse effect	ok	ok
+carbon dioxide	ok	ok
+methane	ok	ok
+net zero	ok	ok
+carbon neutral	ok	ok
+carbon offset	ok	ok
+carbon capture	ok	ok
+solar power	ok	ok
+hydropower	ok	ok
+geothermal energy	ok	ok
+air quality	ok	ok
+particulate matter	ok	ok
+smog	ok	ok
+acid rain	ok	ok
+contamination	ok	ok
+pollutant	ok	ok
+toxic waste	ok	ok
+hazardous waste	ok	ok
+wastewater	ok	ok
+sewage	ok	ok
+recycling	ok	ok
+waste management	ok	ok
+microplastic	ok	ok
+single-use plastic	ok	ok
+biodegradable	ok	ok
+compost	ok	ok
+circular economy	ok	ok
+sustainability	ok	ok
+habitat loss	ok	ok
+endangered species	ok	ok
+reforestation	ok	ok
+desertification	ok	ok
+soil erosion	ok	ok
+saltwater intrusion	ok	ok
+sea level rise	ok	ok
+extreme weather	ok	ok
+natural disaster	ok	ok
+heatwave	ok	ok
+mitigation	ok	ok
+resilience	ok	ok
+environmental impact assessment	ok	ok
+ozone layer	ok	ok
+ocean acidification	ok	ok
+coral bleaching	ok	ok
+permafrost	ok	ok
+water scarcity	ok	ok
+watershed	ok	ok
+wetland	ok	ok
+mangrove	ok	ok
+invasive species	ok	ok
+carbon cycle	ok	ok
+water cycle	ok	ok
+genetic diversity	ok	ok
+DNA	ok	ok
+molecule	ok	ok
+atom	ok	cut_wordis: câu mang: "The word is Adam." · dot100:"Adam." 0.60s · cut_wordis100: câu mang: "The word is Adam." · cut_next:"Adam." 0.62s · cut_next:"Adam." 0.62s · plain095:"Adam." 0.60s · dot090:"Adam." 0.70s
+chemical reaction	ok	ok
+catalyst	ok	ok
+velocity	ok	ok
+nuclear energy	ok	ok
+specimen	ok	ok
+scientific method	ok	ok
+empirical evidence	ok	ok
+climate model	ok	ok
+typhoon	ok	ok
+flash flood	ok	ok
+landslide	ok	ok
+natural resources	ok	ok
+non-renewable	ok	ok
+overfishing	ok	ok
+runoff	cut_wordis: câu mang: "The word is run off." · dot100:"Run us." 1.06s · cut_wordis100: câu mang: "The word is run off." · cut_next: câu mang: "Next word, run off it." · plain095:"You ran off." 0.67s · dot090:"You ran off." 1.18s	ok
+algal bloom	ok	ok
+organic farming	ok	ok
+emissions trading	ok	ok
+carbon tax	ok	ok
+environmental regulation	ok	ok
+eco-friendly	ok	ok
+green technology	ok	ok
+electric vehicle	ok	ok
+energy storage	ok	ok
+life cycle assessment	ok	ok
+ecological footprint	ok	ok
+carrying capacity	ok	ok
+indicator species	ok	ok
+bioaccumulation	ok	ok
+environmental monitoring	ok	ok
+remote sensing	ok	ok
+protected area	ok	ok
+urban heat island	ok	ok
+check-in	ok	ok
+check-out	ok	ok
+bellboy	ok	ok
+room attendant	ok	ok
+single room	ok	ok
+double room	ok	ok
+twin room	ok	ok
+room rate	ok	ok
+occupancy rate	ok	ok
+overbooking	ok	ok
+no-show	ok	ok
+cancellation policy	ok	ok
+minibar	ok	ok
+key card	ok	ok
+guest folio	ok	ok
+incidental charges	ok	ok
+property management system	ok	ok
+revenue management	ok	ok
+average daily rate	ok	ok
+RevPAR	cut_wordis: câu mang: "The word is rev-par." · dot100:"Res per." 0.86s · cut_wordis100: câu mang: "The word is rev-par." · cut_next: câu mang: "Next word, rev-par." · plain095:"Res part." 0.91s · dot090:"Resper." 0.94s	ok
+food and beverage	ok	ok
+set menu	ok	ok
+food allergy	ok	ok
+sommelier	ok	ok
+bartender	ok	ok
+executive chef	ok	ok
+tour operator	ok	ok
+tour guide	ok	ok
+tour leader	ok	ok
+inbound tourism	ok	ok
+outbound tourism	ok	ok
+domestic tourism	ok	ok
+community-based tourism	ok	ok
+homestay	ok	ok
+boutique hotel	ok	ok
+star rating	ok	ok
+all-inclusive	ok	ok
+half board	ok	ok
+full board	ok	ok
+bed and breakfast	ok	ok
+peak season	ok	ok
+off-season	ok	ok
+shoulder season	ok	ok
+tourist attraction	ok	ok
+heritage site	ok	ok
+travel insurance	ok	ok
+baggage allowance	ok	ok
+car rental	ok	ok
+guest satisfaction	ok	ok
+guest complaint	ok	ok
+duty manager	ok	ok
+general manager	ok	ok
+guest relations	ok	ok
+VIP guest	ok	ok
+walk-in guest	ok	ok
+turndown service	ok	ok
+laundry service	ok	ok
+lost and found	ok	ok
+fitness center	ok	ok
+MICE	ok	ok
+incentive trip	ok	ok
+conference room	ok	ok
+familiarization trip	ok	ok
+group booking	ok	ok
+allotment	ok	ok
+rack rate	ok	ok
+corporate rate	ok	ok
+online travel agency	ok	ok
+direct booking	ok	ok
+online review	ok	ok
+guest experience	ok	ok
+personalized service	ok	ok
+service standard	ok	ok
+front office	ok	ok
+night audit	ok	ok
+hostel	cut_wordis: câu mang: "The word is hostile." · dot100:"Hostile." 0.77s · cut_wordis100: câu mang: "The word is hostile." · cut_next: câu mang: "Next word hostile" · plain095:"Hostile" 0.72s · dot090:"Hostile." 0.82s	cut_wordis: câu mang: "The word is hostile." · dot100:"Hostile" 0.74s · cut_wordis100: câu mang: "The word is hostile." · cut_next: câu mang: "Next word, hostile." · plain095:"Hostile" 0.77s · dot090:"Hostile" 0.79s
+backpacker	ok	ok
+local cuisine	ok	ok
+tourism board	ok	ok
+overtourism	ok	ok
+sustainable tourism	ok	ok
+hospitality management	ok	ok
+guest profile	ok	ok
+early departure	ok	ok
+extension of stay	ok	ok
+hotel chain	ok	ok
+management contract	ok	ok
+pre-arrival	ok	ok
+amenity kit	ok	ok
+do not disturb	ok	ok
+emergency exit	ok	ok
+tipping	ok	ok
+service charge	ok	ok
+currency exchange	ok	ok
+seasonality	ok	ok
+day tour	ok	ok
+deluxe room	ok	ok
+connecting rooms	ok	ok
+welcome drink	ok	ok
+registration card	ok	ok
+linen	ok	ok
+adventure tourism	ok	ok
+learning outcome	ok	ok
+lesson plan	ok	ok
+pedagogy	ok	ok
+teaching method	ok	ok
+student-centered learning	ok	ok
+active learning	ok	ok
+blended learning	ok	ok
+distance learning	ok	ok
+e-learning	ok	ok
+flipped classroom	ok	ok
+learner autonomy	ok	ok
+critical thinking	ok	ok
+formative assessment	ok	ok
+summative assessment	ok	ok
+grading	ok	ok
+grade point average	ok	ok
+compulsory subject	ok	ok
+postgraduate	ok	ok
+bachelor's degree	ok	ok
+master's degree	ok	ok
+doctorate	ok	ok
+PhD candidate	ok	ok
+thesis defense	ok	ok
+tuition fee	ok	ok
+entrance exam	ok	ok
+academic year	ok	ok
+tutorial	ok	ok
+professional development	ok	ok
+teacher training	ok	ok
+classroom management	ok	ok
+differentiated instruction	ok	ok
+inclusive education	ok	ok
+special needs	ok	ok
+numeracy	ok	ok
+vocational training	ok	ok
+lifelong learning	ok	ok
+accreditation	ok	ok
+research question	ok	ok
+research gap	ok	ok
+literature review	ok	ok
+qualitative research	ok	ok
+quantitative research	ok	ok
+mixed methods	ok	ok
+research ethics	ok	ok
+sampling	ok	ok
+sample size	ok	ok
+data collection	ok	ok
+data analysis	ok	ok
+statistical significance	ok	ok
+correlation	ok	ok
+causation	ok	ok
+academic writing	ok	ok
+reference list	ok	ok
+academic integrity	ok	ok
+academic journal	ok	ok
+impact factor	ok	ok
+manuscript	ok	ok
+conference paper	ok	ok
+research grant	ok	ok
+principal investigator	ok	ok
+pilot study	ok	ok
+longitudinal study	ok	ok
+extracurricular activities	ok	ok
+dropout rate	ok	ok
+standardized test	ok	ok
+competency	ok	ok
+higher education	ok	ok
+primary education	ok	ok
+secondary education	ok	ok
+early childhood education	ok	ok
+education policy	ok	ok
+educational reform	ok	ok
+learning management system	ok	ok
+MOOC	cut_wordis: câu mang: "The word is mukki." · dot100:"Mooke." 0.91s · cut_wordis100:"Smoky." 0.74s · cut_wordis100:"Mookie." 0.72s · cut_next: câu mang: "The next word Mookie" · plain095:"Amoka." 0.60s · dot090:"The Mooke." 1.01s	ok
+peer feedback	ok	ok
+group work	ok	ok
+oral presentation	ok	ok
+invigilator	ok	ok
+mock exam	ok	ok
+academic calendar	ok	ok
+course registration	ok	ok
+visiting scholar	ok	ok
+research assistant	ok	ok
+scientific article	ok	ok
+co-author	ok	ok
+open access	ok	ok
+learning style	ok	ok
+academic performance	ok	ok
+supply chain management	ok	ok
+freight forwarder	ok	ok
+shipping line	ok	ok
+shipper	ok	ok
+consignee	ok	ok
+notify party	ok	ok
+TEU	cut_wordis: câu mang: "The word is TU." · dot100:"2" 0.79s · cut_wordis100: câu mang: "The word is TU." · cut_next: câu mang: "The next word to" · plain095:"That's you." 0.55s · dot090:"It's you." 0.67s	cut_wordis: câu mang: "The word is TU." · dot100:"to..." 0.62s · cut_wordis100: câu mang: "The word is TU." · cut_next: câu mang: "Next word, too." · plain095:"Tew" 0.62s · dot090:"It's you." 0.67s
+FCL	ok	ok
+LCL	ok	ok
+consolidation	ok	ok
+bill of lading	ok	ok
+air waybill	ok	cut_wordis: câu mang: "The word is air-wable." · dot100:"AirWable" 0.82s · cut_wordis100: câu mang: "The word is air-wable." · cut_next: câu mang: "Next word, air-wable." · plain095:"Air Wavell" 0.82s · dot090:"AirWable" 0.94s
+commercial invoice	ok	ok
+proforma invoice	cut_wordis: câu mang: "The word is Proformer Invoice." · dot100:"Proformer invoice." 1.34s · cut_wordis100: câu mang: "The word is proformer invoice." · cut_next: câu mang: "Next word, proformer invoice." · plain095:"Proformer invoice" 1.25s · dot090:"Proformer invoice." 1.42s	ok
+packing list	ok	ok
+certificate of origin	ok	ok
+telegraphic transfer	ok	ok
+documents against payment	ok	ok
+payment terms	ok	ok
+Incoterms	ok	cut_wordis: câu mang: "The word is encoderms." · dot100:"Encoderms" 0.89s · cut_wordis100: câu mang: "The word is encoderms." · cut_next: câu mang: "Next word in coderms" · plain095:"in coders." 0.89s · dot090:"in coderms" 1.01s
+FOB	cut_wordis: câu mang: "The word is Fobby." · dot100:"Subit." 0.77s · cut_wordis100: câu mang: "The word is Fobby." · cut_next: câu mang: "Next word for me" · plain095:"Sub." 0.60s · dot090:"Thub." 0.70s	ok
+CIF	cut_wordis: câu mang: "The word is syphae." · dot100:"As if." 0.60s · cut_wordis100: câu mang: "The word is siffy." · cut_next: câu mang: "Next word is syphae." · plain095:"As if." 0.60s · dot090:"As if." 0.65s	cut_wordis: câu mang: "The word is sif." · dot100:"Zeph." 0.62s · cut_wordis100: câu mang: "The word is sif." · cut_next: câu mang: "Next word, sif." · plain095:"As if." 0.62s · dot090:"As if." 0.70s
+EXW	cut_wordis: câu mang: "The word is exwa." · dot100:"Ex-Wyr" 0.72s · cut_wordis100: câu mang: "The word is exwa." · cut_next: câu mang: "Next word x-word" · plain095:"Ex-wah" 0.67s · dot090:"Ex-Wer" 0.77s	cut_wordis: câu mang: "The word is exwa." · dot100:"Ex-Wah" 0.67s · cut_wordis100: câu mang: "The word is exwa." · cut_next: câu mang: "Next word, exwa." · plain095:"xy" 0.72s · dot090:"x-wa" 0.77s
+DDP	ok	ok
+customs clearance	ok	ok
+customs declaration	ok	ok
+customs broker	ok	ok
+HS code	ok	ok
+import duty	ok	ok
+VAT	ok	ok
+quota	ok	ok
+export licence	cut_wordis: câu mang: "The word is export license." · dot100:"Export Licency" 1.30s · cut_wordis100: câu mang: "The word is export license." · cut_next: câu mang: "Next word, export license" · plain095:"Export license" 1.37s · dot090:"Export licensee" 1.49s	cut_wordis: câu mang: "The word is, export license." · dot100:"Export license" 1.10s · cut_wordis100: câu mang: "The word is export license." · cut_next: câu mang: "Next word, export license." · plain095:"Export license" 1.18s · dot090:"Export license" 1.18s
+customs inspection	ok	ok
+bonded warehouse	ok	ok
+warehousing	ok	ok
+distribution center	ok	ok
+fulfillment center	ok	ok
+stock level	ok	ok
+safety stock	ok	ok
+stockout	ok	ok
+sales contract	ok	ok
+sourcing	ok	ok
+third-party logistics	ok	ok
+last-mile delivery	ok	ok
+reverse logistics	ok	ok
+cold chain	ok	ok
+reefer container	ok	ok
+perishable goods	ok	ok
+dangerous goods	ok	ok
+pallet	cut_wordis:"Palette." 0.84s · cut_wordis:"Palette" 0.77s · dot100:"Palette" 0.67s · cut_wordis100: câu mang: "The word is palette." · cut_next: câu mang: "Next word, palliative." · plain095:"Palette" 0.70s · dot090:"A palette." 0.77s	cut_wordis: câu mang: "The word is palette." · dot100:"Palette" 0.67s · cut_wordis100: câu mang: "The word is palette." · cut_next: câu mang: "Next word, palette." · plain095:"Palette" 0.67s · dot090:"Palette" 0.72s
+loading dock	ok	ok
+picking and packing	ok	ok
+barcode	ok	ok
+tracking number	ok	ok
+shipment tracking	ok	ok
+transit time	ok	ok
+port of loading	ok	ok
+port of discharge	ok	ok
+transshipment	ok	ok
+cut-off time	ok	ok
+demurrage	cut_wordis: câu mang: "The word is demurrigi." · dot100:"demarriage" 0.86s · cut_wordis100:"The marriage." 0.84s · cut_wordis100:"demarriage" 0.79s · cut_next: câu mang: "Next word demurrigi" · plain095:"demarriage" 0.82s · dot090:"The marriage." 0.96s	ok
+detention	ok	ok
+free time	ok	ok
+surcharge	cut_wordis: câu mang: "The word is search-argy." · dot100:"Search charge." 1.01s · cut_wordis100: câu mang: "The word is a search arg." · cut_next: câu mang: "Next word, search rg" · plain095:"The search charge" 0.96s · dot090:"I'll set charge" 1.06s	ok
+terminal handling charge	ok	ok
+freight collect	ok	ok
+freight prepaid	ok	ok
+cargo insurance	ok	ok
+insurance certificate	ok	ok
+inspection certificate	ok	ok
+phytosanitary certificate	cut_wordis: câu mang: "The word is, Fight a Sanitary Certificate." · dot100:"Fight a sanitary certificate" 1.85s · cut_wordis100: câu mang: "The word is, Fight a sanitary certificate." · cut_next: câu mang: "Next word, Fight a sanitary certificate." · plain095:"Fight a sanitary certificate" 1.92s · 	cut_wordis: câu mang: "The word is, Fire to Sanitary Certificate." · dot100:"Fire the sanitary certificate." 1.68s · cut_wordis100:"Fight a sanitary certificate." 1.80s · cut_wordis100:"Fight a sanitary certificate." 1.56s · cut_next: câu mang: "Next word, fire a sanitary certificate." · plain095:"F
+fumigation	ok	ok
+shipping mark	ok	ok
+gross weight	ok	ok
+net weight	ok	ok
+volumetric weight	ok	ok
+cubic meter	ok	ok
+multimodal transport	ok	ok
+road freight	ok	ok
+rail freight	ok	ok
+air freight	ok	ok
+sea freight	ok	ok
+inland waterway	ok	ok
+dry port	ok	ok
+container yard	ok	ok
+container freight station	ok	ok
+port congestion	ok	ok
+route optimization	cut_wordis: câu mang: "The word is root optimization." · dot100:"Root Optimization" 1.56s · cut_wordis100: câu mang: "The word is root optimization." · cut_next: câu mang: "Next word, root optimization." · plain095:"Root optimization" 1.56s · dot090:"Root Optimization" 1.68s	ok
+haulage	ok	ok
+trucking	ok	ok
+door-to-door	ok	ok
+delivery note	ok	ok
+proof of delivery	ok	ok
+cross-border e-commerce	ok	ok
+re-export	ok	ok
+trade balance	ok	ok
+trade barrier	ok	ok
+anti-dumping duty	ok	ok
+rules of origin	ok	ok
+tariff preference	ok	ok
+minimum order quantity	ok	ok
+sample order	ok	ok
+demand forecasting	ok	ok
+bullwhip effect	ok	ok
+warehouse management system	ok	ok
+cycle count	ok	ok
+backorder	ok	ok
+cross-docking	ok	ok
+logistics hub	cut_wordis: câu mang: "The word is logistics hubby." · dot100:"Logistics Herbie" 1.34s · cut_wordis100: câu mang: "The word is Logistics Hubby." · cut_next: câu mang: "Next word, logistics hobby." · plain095:"Logistics Hubby" 1.37s · dot090:"Logistics hobby" 1.44s	ok
+customs bond	ok	ok
+shipping instructions	ok	ok
+customs valuation	ok	ok
