@@ -19,6 +19,7 @@ on:
       retry: { description: 'Làm lại danh sách retry trước (0 = lượt kiểm nhỏ, bỏ qua)', default: '1' }
 permissions:
   contents: write
+  actions: write    # tự nối lượt (workflow_dispatch) khi còn việc + còn neuron
   id-token: write   # JWT OIDC cho /api/lexai
 concurrency: { group: lexicon-expand, cancel-in-progress: false }
 jobs:
@@ -60,7 +61,15 @@ jobs:
           VIMG_POOL_SKIP: '0'
           VIMG_CF_USE_CF2: '0'   # tài khoản 2 thuộc script-bank/news-auto (workers_ai_b độc quyền) – lexicon chỉ dùng kho
         # LEASE_AI_B_NEURONS đặt NGAY trong lệnh: bước thuê ghi LEASE_AI_B_NEURONS=0 vào GITHUB_ENV (đè env của bước)
-        run: LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "${{ github.event.inputs.n || vars.LX_N || '2400' }}" --calls "${{ github.event.inputs.calls || '0' }}" ${{ (github.event.inputs.pilot || vars.LX_PILOT) == '1' && '--pilot' || '' }} ${{ (github.event.inputs.retry || vars.LX_RETRY) == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
+        # biến repo so TRONG bash: biểu thức GitHub coi '' == '0' (26/10) – dispatch thắng biến repo
+        run: |
+          N="${{ github.event.inputs.n }}"; N="${N:-${{ vars.LX_N }}}"; N="${N:-2400}"
+          P="${{ github.event.inputs.pilot }}"; P="${P:-${{ vars.LX_PILOT }}}"
+          RT="${{ github.event.inputs.retry }}"; RT="${RT:-${{ vars.LX_RETRY }}}"
+          EXTRA=(); [ "$P" = 1 ] && EXTRA+=(--pilot); [ "$RT" = 0 ] && EXTRA+=(--no-retry)
+          B="${{ github.event.inputs.batch }}"; [ -n "$B" ] && EXTRA+=(--batch "$B")
+          echo "LX_RUN_N=$N" >> "$GITHUB_ENV"; echo "LX_RUN_PILOT=$P" >> "$GITHUB_ENV"
+          LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
       - name: Lưu kết quả (chờ soát – chưa xuất)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |
@@ -74,6 +83,18 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: lexicon-expand, path: reports/, retention-days: 14 }
+      - name: Tự nối lượt (chạy liên tục trong ngày thay vì chờ cron – như vocab-img-scene)
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.LX_CHAIN }}' }
+        run: |
+          [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (LX_CHAIN=0)"; exit 0; }
+          [ "$LX_RUN_PILOT" = 1 ] && { echo "pilot → không nối (chờ soát 50 mẫu, rồi đặt LX_PILOT=0)"; exit 0; }
+          [ -s reports/lexicon-expand.json ] || { echo "không có báo cáo → dừng chuỗi"; exit 0; }
+          # nối khi: lượt có mục đạt, ≤ 50 % bỏ qua hạ tầng (kho CF còn neuron), và còn đủ ứng viên (n ≥ 90 % N)
+          GO=$(node -p "const r=require('./reports/lexicon-expand.json'), inf=(r.why||{}).infra||0; (r.pass>0 && inf<=r.n*0.5 && r.n>=0.9*(+process.env.LX_RUN_N||2400)) ? 1 : 0")
+          [ "$GO" = 1 ] || { echo "⏹ dừng chuỗi: hết neuron kho CF (4006) / hết ứng viên / 0 mục đạt – lượt cron 00:12 UTC tiếp"; exit 0; }
+          gh workflow run lexicon-expand.yml -R ${{ github.repository }} --ref main
+          echo "↻ đã gọi lượt lexicon-expand kế tiếp"
       - name: Trả thuê
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
