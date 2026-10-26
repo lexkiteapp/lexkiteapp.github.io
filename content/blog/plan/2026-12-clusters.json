@@ -1,0 +1,5248 @@
+{
+ "_note": "SEO roadmap item 3 (26/10/2026): missing exam/topic clusters, PLAN ONLY (no posts written). Weekly writing run reads plan/gsc-priority.json first, then 2026-11-seo-program.json progress.remaining.priority1_localise, then this file's nextBatches. Same field rules as 2026-11-seo-program.json; native rewrite per market (content/blog/prompts/5-localize.md), never machine translation.",
+ "method": {
+  "data": "No GSC data yet (seo-gsc first run had 0 items). Demand = public market logic: which exams/intents each market actually searches (DET: hi zh ar vi id tr pt es; Cambridge: es pt fr de tr ru + KET/PET kids in zh vi; PTE: hi zh vi ar id; TOEIC S&W: ko ja vi th zh; kids/parents: ko zh ja vi id th; IT: vi ja ko zh hi id ru; healthcare: hi ar id es pt tr; hospitality: vi th id tr es ar). Competition: non-English SERPs for exam-task and industry intents are thin (forums/YouTube), so priority 1 = high demand × thin SERP × strong app feature. Re-rank by GSC impressions once seo-gsc reports items.",
+  "dedupe": "Checked against all 569 posts (translationKey + keyword per language) and 556 existing briefs on 26/10/2026. Existing business posts (email, meeting, presentation, interview, CV, small talk) and traveller-phrase posts are NOT re-planned: this file only adds uncovered intents and lists the old posts in otherKeys to link. relative-clauses / reported-speech / make-vs-do reuse the existing translationKeys so hreflang joins.",
+  "rules": [
+   "One primary keyword per post per language; langTargets only lists languages without a post on that translationKey.",
+   "otherKeys = nearby existing posts: link to them, never write a 2nd post on their keyword; where it says 'enrich', add a section to the old post instead.",
+   "origin = language to write first (en unless the market is native-first, e.g. ko for TOEIC Speaking, vi for kids/IT/hospitality). Any later language localises from the first written version.",
+   "category must be a CATEGORIES key (scripts/lib/blog-content.mjs). DET/Cambridge/PTE/business/industry use 'ky-nang', kids 'phuong-phap'; examTag + tags carry the exam/cluster. A dedicated 'other exams' category needs owner OK + 15-lang i18n (follow-up).",
+   "links.tools: 'test' = /<lang>/<toolPath test>/, 'test/b2' = level page, 'toeic' = TOEIC Part 5 quiz; resolve with toolPath() in scripts/lib/tools-links.mjs (PR #67). links.dict: words to link on dictionary pages (/vi/tu-dien/<w>/, /en/dictionary/<w>/ – vi/en only while dict stage is S1; skip for other languages).",
+   "Kids cluster: content is for parents/adult learners; never present the app as a children's app (store + privacy rules).",
+   "Healthcare: OET is mentioned for comparison only; no medical advice.",
+   "Schedule: blog-schedule --from >=36 h ahead, ≤1 post/lang/day, same cluster ≥7 days apart. Gates: blog-check, blog-dupes, blog-schedule --verify, test/blog-images, test/blog-captions, npm test."
+  ],
+  "fields": "Same as 2026-11-seo-program.json plus: role pillar|satellite, origin, links {tools, dict}, examTag (exam/industry label kept for tags).",
+  "demandCheck": {
+   "date": "2026-10-26",
+   "how": "Every native keyword was checked against the market's own autocomplete: Google Suggest with hl/gl per market (vi-VN en-US es-MX pt-BR fr-FR de-DE id-ID th-TH ja-JP hi-IN ar-SA tr-TR), Baidu for zh, Naver for ko, Yandex for ru. Zero-suggestion keywords were replaced by the closest suggested phrase with the SAME intent (topics[].demand[lang].was keeps the old one); intent mismatches were removed (topics[].rejectedTargets). demand.suggest = number of autocomplete completions (0–10, a presence signal, not volume); demand.related = real completions to use for H2/FAQ.",
+   "result": {
+    "verified": 237,
+    "replaced": 81,
+    "unverified": 25,
+    "rejected": 4
+   },
+   "rule": "Weekly run: write targets with demand.suggest>=1 first; suggest==0 targets only after GSC shows impressions or a manual check of the SERP."
+  }
+ },
+ "clusters": [
+  {
+   "id": "duolingo-english-test",
+   "name": "Duolingo English Test (DET)",
+   "why": "Cheap online exam accepted by many US/UK/AU universities; demand strongest in India, China, Gulf/Egypt, Vietnam, Indonesia, Brazil/LatAm, Turkey. Low competition in non-English SERPs (mostly forums/YouTube).",
+   "pillar": "duolingo-english-test-guide",
+   "items": 6
+  },
+  {
+   "id": "cambridge-exams",
+   "name": "Cambridge B1 Preliminary / B2 First / C1 Advanced",
+   "why": "Main school/job certificates in Spain, Portugal, Italy-style markets, also France, Germany, Turkey, Russia; KET/PET huge for children in China and Vietnam. Each level is its own head term, so one pillar per family + level satellites.",
+   "pillar": "cambridge-english-exams-guide",
+   "items": 7
+  },
+  {
+   "id": "pte-academic",
+   "name": "PTE Academic",
+   "why": "Computer-scored exam for Australia/NZ migration and study; huge in India, strong in China, Vietnam (Úc), Gulf/Pakistan-adjacent Arabic, Nepal/Philippines via English. Exam-format queries are very specific (task names), low competition in local languages.",
+   "pillar": "pte-academic-guide",
+   "items": 6
+  },
+  {
+   "id": "toeic-speaking-writing",
+   "name": "TOEIC Speaking & Writing",
+   "why": "Required by employers/universities in Korea (토익스피킹 is a top exam term), Japan (TOEIC SW), Vietnam (TOEIC 4 kỹ năng), Taiwan/China, Thailand, France. App has a dedicated #/toeic-sw module — strongest feature fit in this plan.",
+   "pillar": "toeic-speaking-writing-guide",
+   "items": 6
+  },
+  {
+   "id": "business-english",
+   "name": "Business English (new angles only)",
+   "why": "Email, meeting, presentation, interview, CV and small talk already exist in most languages: this cluster adds a hub plus the UNCOVERED intents (phone calls, negotiation, chat/Slack, vocabulary, polite softening, salary talk). Roleplay for Work (#/roleplay) is the feature.",
+   "pillar": "business-english-guide",
+   "items": 7
+  },
+  {
+   "id": "english-for-kids",
+   "name": "English for kids & parents",
+   "why": "Parents search in their own language for home methods, not for \"English grammar\". Very strong in Korea (엄마표 영어), China (少儿英语/启蒙), Vietnam, Japan (おうち英語), Indonesia, Thailand, Turkey, Arabic Gulf, Brazil/Spain. Adult-app angle: parent learns alongside; never claim the app is made for children (store/privacy rules).",
+   "pillar": "english-for-kids-at-home",
+   "items": 6
+  },
+  {
+   "id": "english-for-it",
+   "name": "English for IT & software",
+   "why": "Developers in Vietnam, Japan (エンジニア 英語), Korea, China, India, Indonesia, Russia, Turkey, Brazil search for job-focused English. Roleplay has a \"dev-interview\" scenario.",
+   "pillar": "english-for-it-guide",
+   "items": 5
+  },
+  {
+   "id": "english-for-healthcare",
+   "name": "English for healthcare (medical & nursing)",
+   "why": "Nurses/doctors working abroad: India, Philippines-style English searches, Arabic Gulf, Indonesia, Thailand, Brazil, Spain, Turkey. OET is the healthcare-specific exam (link, never claim app prepares OET fully).",
+   "pillar": "medical-english-guide",
+   "items": 5
+  },
+  {
+   "id": "english-for-hospitality",
+   "name": "English for tourism & hospitality (staff side)",
+   "why": "Hotel/restaurant/tour staff in Vietnam, Thailand, Indonesia (Bali), Turkey, Spain, Gulf, India, Brazil, China. Traveller-phrase posts already exist (ar hi id ja ru th tr): this cluster is the WORKER intent, link to traveller posts only.",
+   "pillar": "hospitality-english-guide",
+   "items": 5
+  },
+  {
+   "id": "grammar-gaps-vi-plus",
+   "name": "Grammar gaps: relative clauses, reported speech, make/do (vi first + markets still missing)",
+   "why": "The 3 vi gaps already sit in 2026-11-seo-program.json progress.remaining.priority1_localise under the SAME translationKeys: write them from there (do not create new keys). This cluster adds the other languages still missing these topics plus 3 deeper vi satellites that do not cannibalise the pillar keywords.",
+   "pillar": "relative-clauses-who-which-that",
+   "items": 6
+  }
+ ],
+ "topics": [
+  {
+   "id": "duolingo-english-test-guide",
+   "translationKey": "duolingo-english-test",
+   "otherKeys": [],
+   "keyword": "duolingo english test",
+   "category": "ky-nang",
+   "intent": "informational/exam-overview",
+   "feature": "/app/#/placement",
+   "shots": [
+    "#/placement",
+    "#/tests"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "proficiency",
+     "fluency"
+    ]
+   },
+   "cluster": "duolingo-english-test",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "en": "duolingo english test",
+    "hi": "duolingo english test kya hai",
+    "zh": "多邻国英语测试",
+    "ar": "اختبار دولينجو",
+    "vi": "duolingo english test là gì",
+    "id": "duolingo english test adalah",
+    "tr": "duolingo english test nedir",
+    "pt": "duolingo english test como funciona",
+    "es": "duolingo english test qué es",
+    "ko": "듀오링고 영어 시험",
+    "th": "duolingo english test คือ"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "det",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo english test practice",
+      "duolingo english test price",
+      "duolingo english test fee"
+     ]
+    },
+    "hi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "duolingo english test kya hota hai"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "多邻国英语测试官网入口",
+      "多邻国英语测试多少钱",
+      "多邻国英语测试怎么考"
+     ]
+    },
+    "ar": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "اختبار دولينجو",
+      "اختبار دولينجو تجريبي",
+      "اختبار دولينجو لتحديد المستوى"
+     ],
+     "was": "اختبار دولينجو للغة الإنجليزية"
+    },
+    "vi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "duolingo english test det là gì"
+     ]
+    },
+    "id": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "tr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "pt": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "duolingo english test como fazer"
+     ]
+    },
+    "es": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "duolingo english test es gratis",
+      "duolingo english test escala"
+     ]
+    },
+    "ko": {
+     "suggest": 7,
+     "engine": "naver",
+     "related": [
+      "듀오링고 영어 시험 후기",
+      "듀오링고 영어 시험 점수",
+      "듀오링고 영어 시험 공부"
+     ]
+    },
+    "th": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "det-score-chart",
+   "translationKey": "det-score-ielts",
+   "otherKeys": [
+    "nen-thi-ielts-toeic-hay-toefl (vi en hi es id: link, do not rewrite exam-choice)"
+   ],
+   "keyword": "duolingo english test score to ielts",
+   "category": "ky-nang",
+   "intent": "informational/comparison",
+   "feature": "/app/#/goal",
+   "shots": [
+    "#/goal",
+    "#/placement"
+   ],
+   "links": {
+    "tools": [
+     "test",
+     "test/b2"
+    ],
+    "dict": []
+   },
+   "cluster": "duolingo-english-test",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "duolingo english test score to ielts",
+    "hi": "duolingo score to ielts",
+    "zh": "多邻国 分数 雅思 对照",
+    "ar": "اختبار دولينجو كم تعادل ايلتس",
+    "vi": "quy đổi điểm duolingo sang ielts",
+    "id": "konversi skor duolingo ke ielts",
+    "tr": "duolingo puanı",
+    "pt": "duolingo english test pontuação equivalente ielts"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "det",
+   "demand": {
+    "en": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "duolingo english test score equivalent to ielts",
+      "duolingo english test score compared to ielts",
+      "duolingo english test score vs ielts"
+     ]
+    },
+    "hi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo score to ielts calculator",
+      "duolingo score to ielts band",
+      "duolingo score to ielts and toefl"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "多邻国考试分数与雅思对照表",
+      "多邻国110分相当于雅思多少分",
+      "多邻国和雅思哪个好考"
+     ]
+    },
+    "ar": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "اختبار دولينجو كم تعادل ايلتس"
+     ],
+     "was": "درجات اختبار دولينجو مقارنة ايلتس"
+    },
+    "vi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "bảng quy đổi điểm duolingo sang ielts"
+     ]
+    },
+    "id": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "tr": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "duolingo puanı ne işe yarar",
+      "duolingo puanı nedir",
+      "duolingo puanı"
+     ],
+     "was": "duolingo puanı ielts karşılığı"
+    },
+    "pt": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    }
+   }
+  },
+  {
+   "id": "det-read-and-select",
+   "translationKey": "det-read-and-select",
+   "otherKeys": [
+    "toefl-complete-the-words (similar task type: cross-link)"
+   ],
+   "keyword": "duolingo read and select",
+   "category": "ky-nang",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/practice/learn",
+   "shots": [
+    "#/practice/learn",
+    "#/practice/test"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "spelling"
+    ]
+   },
+   "cluster": "duolingo-english-test",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "duolingo read and select",
+    "hi": "duolingo read and select tips",
+    "zh": "多邻国 read and select 技巧",
+    "vi": "duolingo read and select",
+    "ar": "duolingo read and select"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "det",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo read and select questions",
+      "duolingo read and select",
+      "duolingo read and select words"
+     ]
+    },
+    "hi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "zh": {
+     "suggest": 0,
+     "engine": "baidu",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo read and select practice",
+      "duolingo read and select questions",
+      "duolingo read and select"
+     ],
+     "was": "duolingo read and select mẹo"
+    },
+    "ar": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo read and select questions",
+      "duolingo read and select",
+      "duolingo read and select words"
+     ]
+    }
+   }
+  },
+  {
+   "id": "det-writing-sample",
+   "translationKey": "det-writing-tasks",
+   "otherKeys": [],
+   "keyword": "duolingo english test writing sample",
+   "category": "ky-nang",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/write",
+   "shots": [
+    "#/write",
+    "#/write/p"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "duolingo-english-test",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "duolingo english test writing sample",
+    "hi": "duolingo writing sample answers",
+    "zh": "多邻国 写作 范文",
+    "ar": "نماذج كتابة اختبار دولينجو",
+    "vi": "duolingo english test writing",
+    "pt": "duolingo english test writing"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "det",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo english test writing sample",
+      "duolingo english test writing sample questions",
+      "duolingo english test writing sample questions pdf"
+     ]
+    },
+    "hi": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "duolingo interactive writing sample answers",
+      "duolingo writing samples with answers pdf",
+      "duolingo english test writing sample questions and answers"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "多邻国写作真题",
+      "多邻国写作评分标准",
+      "多邻国考试写作获得帮助"
+     ]
+    },
+    "ar": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo english test writing sample questions and answers",
+      "duolingo english test writing",
+      "duolingo english test writing template"
+     ],
+     "was": "duolingo english test writing mẫu"
+    },
+    "pt": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo english test writing sample questions and answers",
+      "duolingo english test writing",
+      "duolingo english test writing template"
+     ],
+     "was": "duolingo english test writing exemplos"
+    }
+   }
+  },
+  {
+   "id": "det-speaking-tips",
+   "translationKey": "det-speaking-tasks",
+   "otherKeys": [],
+   "keyword": "duolingo english test speaking tips",
+   "category": "ky-nang",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/speaking",
+   "shots": [
+    "#/speaking",
+    "#/practice/speak"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "duolingo-english-test",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "duolingo english test speaking tips",
+    "hi": "duolingo speaking tips",
+    "zh": "多邻国 口语 技巧",
+    "ar": "نصائح محادثة اختبار دولينجو",
+    "id": "tips speaking duolingo english test"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "det",
+   "demand": {
+    "en": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "is the duolingo english test difficult",
+      "is duolingo english test hard",
+      "what is a good score on duolingo english test"
+     ]
+    },
+    "hi": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "duolingo speaking tips and tricks",
+      "duolingo speaking tips reddit",
+      "duolingo speaking skills"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "多邻国口语模板",
+      "多邻国口语万能套话",
+      "多邻国口语一直不正确怎么办"
+     ]
+    },
+    "ar": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "id": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "det-vs-ielts",
+   "translationKey": "det-vs-ielts",
+   "otherKeys": [
+    "nen-thi-ielts-toeic-hay-toefl (exam choice post: link both ways)"
+   ],
+   "keyword": "duolingo english test vs ielts",
+   "category": "ky-nang",
+   "intent": "commercial/comparison",
+   "feature": "/app/#/goal",
+   "shots": [
+    "#/goal",
+    "#/tests"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "duolingo-english-test",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "duolingo english test vs ielts",
+    "hi": "duolingo vs ielts which is easier",
+    "zh": "多邻国 和 雅思 哪个好",
+    "ar": "الفرق بين دولينجو وايلتس",
+    "tr": "duolingo mu ielts mi",
+    "vi": "nên thi duolingo hay ielts",
+    "pt": "duolingo ou ielts qual aceito"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "det",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "duolingo english test vs ielts vs toefl",
+      "duolingo english test vs ielts difficulty",
+      "duolingo english test vs ielts score"
+     ]
+    },
+    "hi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "ielts vs toefl vs pte vs duolingo which is easier",
+      "duolingo vs ielts which is better",
+      "duolingo vs ielts which is easy"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "多邻国考试分数与雅思对照表",
+      "多邻国雅思托福分数对照表",
+      "多邻国和雅思哪个更难"
+     ]
+    },
+    "ar": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "tr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "pt": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    }
+   }
+  },
+  {
+   "id": "cambridge-english-exams-guide",
+   "translationKey": "cambridge-english-exams",
+   "otherKeys": [
+    "cambridge-b2-first-c1-advanced (fr: covers B2+C1, link only)"
+   ],
+   "keyword": "cambridge english exams",
+   "category": "ky-nang",
+   "intent": "informational/exam-overview",
+   "feature": "/app/#/placement",
+   "shots": [
+    "#/placement",
+    "#/tests"
+   ],
+   "links": {
+    "tools": [
+     "test",
+     "test/b1",
+     "test/b2",
+     "test/c1"
+    ],
+    "dict": []
+   },
+   "cluster": "cambridge-exams",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "en": "cambridge english exams levels",
+    "es": "exámenes cambridge niveles",
+    "pt": "exames cambridge níveis",
+    "de": "cambridge englisch prüfungen",
+    "tr": "cambridge ingilizce sınavları",
+    "ru": "экзамены cambridge english",
+    "zh": "剑桥英语考试 等级",
+    "vi": "chứng chỉ cambridge là gì"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "cambridge",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "cambridge english test levels free",
+      "cambridge english test levels pdf",
+      "cambridge english test level b1"
+     ]
+    },
+    "es": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "exámenes cambridge niveles niños",
+      "examenes ingles cambridge niveles",
+      "examenes cambridge por niveles"
+     ]
+    },
+    "pt": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "de": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "tr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ru": {
+     "suggest": 2,
+     "engine": "yandex",
+     "related": [
+      "экзамены cambridge english",
+      "экзамен cambridge english"
+     ],
+     "was": "экзамены cambridge english уровни"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "剑桥英语考试等级",
+      "剑桥英语考试等级对应难度",
+      "剑桥英语考试等级有哪些"
+     ]
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "chứng chỉ cambridge starters là gì",
+      "chứng chỉ cambridge flyers là gì",
+      "thi chứng chỉ cambridge là gì"
+     ]
+    }
+   }
+  },
+  {
+   "id": "b1-preliminary-pet",
+   "translationKey": "cambridge-b1-preliminary",
+   "otherKeys": [],
+   "keyword": "b1 preliminary",
+   "category": "ky-nang",
+   "intent": "exam-prep/overview",
+   "feature": "/app/#/grammar",
+   "shots": [
+    "#/grammar",
+    "#/placement"
+   ],
+   "links": {
+    "tools": [
+     "test/b1"
+    ],
+    "dict": []
+   },
+   "cluster": "cambridge-exams",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "b1 preliminary exam",
+    "es": "b1 preliminary cambridge",
+    "pt": "b1 preliminary cambridge",
+    "de": "cambridge b1 preliminary prüfung",
+    "zh": "PET考试 题型",
+    "vi": "chứng chỉ pet cambridge",
+    "tr": "cambridge b1 preliminary",
+    "ru": "экзамен pet"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "cambridge",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "b1 preliminary exam booster",
+      "b1 preliminary exam format",
+      "b1 preliminary exam pdf"
+     ]
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "b1 preliminary cambridge exam",
+      "b1 preliminary cambridge pdf",
+      "b1 preliminary cambridge sample test"
+     ]
+    },
+    "pt": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "b1 preliminary cambridge",
+      "b1 preliminary cambridge test",
+      "b1 preliminary cambridge book"
+     ],
+     "was": "b1 preliminary cambridge como é a prova"
+    },
+    "de": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "PET考试题型",
+      "PET考试各部分题型解析",
+      "PET考试试题"
+     ]
+    },
+    "vi": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "chứng chỉ pet cambridge",
+      "chứng chỉ cambridge pet là gì",
+      "đề thi chứng chỉ pet cambridge"
+     ],
+     "was": "chứng chỉ pet cambridge b1"
+    },
+    "tr": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "cambridge b1 preliminary",
+      "cambridge b1 preliminary (pet)",
+      "cambridge b1 preliminary vocabulary list pdf"
+     ],
+     "was": "cambridge b1 preliminary sınavı"
+    },
+    "ru": {
+     "suggest": 10,
+     "engine": "yandex",
+     "related": [
+      "экзамен pet по английскому демоверсия",
+      "экзамен pet",
+      "экзамен pet какой уровень"
+     ],
+     "was": "экзамен pet b1 preliminary"
+    }
+   }
+  },
+  {
+   "id": "b2-first-fce",
+   "translationKey": "cambridge-b2-first",
+   "otherKeys": [
+    "cambridge-b2-first-c1-advanced (fr: exists, do not write fr)"
+   ],
+   "keyword": "b2 first exam",
+   "category": "ky-nang",
+   "intent": "exam-prep/overview",
+   "feature": "/app/#/write",
+   "shots": [
+    "#/write",
+    "#/grammar"
+   ],
+   "links": {
+    "tools": [
+     "test/b2"
+    ],
+    "dict": []
+   },
+   "cluster": "cambridge-exams",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "b2 first exam format",
+    "es": "examen b2 first cambridge",
+    "pt": "b2 first cambridge prova",
+    "de": "cambridge b2 first prüfung",
+    "tr": "cambridge b2 first fce",
+    "ru": "экзамен fce",
+    "zh": "FCE考试 备考"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "cambridge",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "b2 first exam format cambridge",
+      "b2 first exam format cambridge english",
+      "b2 first exam format pdf"
+     ]
+    },
+    "es": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "examen b2 first cambridge pdf",
+      "precio examen b2 first cambridge",
+      "examen cambridge b2 first for schools"
+     ]
+    },
+    "pt": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "de": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "cambridge b2 first prüfungsvorbereitung"
+     ]
+    },
+    "tr": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "cambridge b2 first fce practice test pdf",
+      "cambridge b2 first fce exam 1 speaking",
+      "cambridge b2 first fce practice tests"
+     ]
+    },
+    "ru": {
+     "suggest": 10,
+     "engine": "yandex",
+     "related": [
+      "экзамен fce",
+      "экзамен fce по английскому",
+      "экзамен fce по английскому что это"
+     ],
+     "was": "экзамен fce b2 first"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "fce考试",
+      "fce考试官网",
+      "fce备考攻略"
+     ]
+    }
+   }
+  },
+  {
+   "id": "c1-advanced-cae",
+   "translationKey": "preparacion-examen-cambridge-c1-advanced",
+   "otherKeys": [
+    "preparacion-examen-cambridge-c1-advanced (es exists)",
+    "cambridge-c1-advanced-tipps (de exists, no translationKey: add this key in a blog-session follow-up)",
+    "cambridge-b2-first-c1-advanced (fr)"
+   ],
+   "keyword": "c1 advanced exam",
+   "category": "ky-nang",
+   "intent": "exam-prep/overview",
+   "feature": "/app/#/write",
+   "shots": [
+    "#/write",
+    "#/reading"
+   ],
+   "links": {
+    "tools": [
+     "test/c1"
+    ],
+    "dict": []
+   },
+   "cluster": "cambridge-exams",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "c1 advanced exam tips",
+    "pt": "c1 advanced cambridge",
+    "tr": "cambridge c1 advanced cae",
+    "ru": "экзамен cae"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "cambridge",
+   "demand": {
+    "en": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "cambridge c1 advanced exam preparation",
+      "c1 advanced exam preparation exercises",
+      "c1 exam tips"
+     ]
+    },
+    "pt": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "c1 advanced cambridge",
+      "c1 advanced cambridge exercises",
+      "c1 advanced cambridge mock test"
+     ],
+     "was": "c1 advanced cambridge dicas"
+    },
+    "tr": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "cambridge c1 advanced cae",
+      "cambridge c1 advanced cae practice tests",
+      "cambridge c1 advanced cae 230 key word transformations with answers"
+     ]
+    },
+    "ru": {
+     "suggest": 10,
+     "engine": "yandex",
+     "related": [
+      "экзамен cae по английскому что это",
+      "экзамен cae по английскому",
+      "экзамен cae"
+     ],
+     "was": "экзамен cae c1 advanced подготовка"
+    }
+   }
+  },
+  {
+   "id": "b2-first-writing-essay",
+   "translationKey": "cambridge-b2-first-writing",
+   "otherKeys": [
+    "cau-truc-ielts-writing-task-2 (different exam: link only)"
+   ],
+   "keyword": "b2 first writing essay",
+   "category": "ky-nang",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/write/p",
+   "shots": [
+    "#/write/p",
+    "#/write"
+   ],
+   "links": {
+    "tools": [
+     "test/b2"
+    ],
+    "dict": []
+   },
+   "cluster": "cambridge-exams",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "b2 first essay example",
+    "es": "writing b2 first essay",
+    "pt": "b2 first writing essay",
+    "de": "b2 first essay"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "cambridge",
+   "demand": {
+    "en": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "b2 first essay topics",
+      "cambridge b2 first essay examples",
+      "b2 essay examples"
+     ]
+    },
+    "es": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "writing b2 first essay",
+      "cambridge b2 first writing essay",
+      "b2 first for schools writing essay"
+     ],
+     "was": "writing b2 first essay ejemplo"
+    },
+    "pt": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "b2 first writing essay",
+      "cambridge b2 first writing essay",
+      "b2 first for schools writing essay"
+     ],
+     "was": "b2 first writing essay exemplo"
+    },
+    "de": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "b2 first essay",
+      "b2 first essay example",
+      "b2 first essay writing"
+     ],
+     "was": "b2 first essay beispiel"
+    }
+   }
+  },
+  {
+   "id": "b2-first-use-of-english",
+   "translationKey": "cambridge-use-of-english",
+   "otherKeys": [],
+   "keyword": "b2 first use of english",
+   "category": "ky-nang",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/grammar/mix",
+   "shots": [
+    "#/grammar/mix",
+    "#/practice/test"
+   ],
+   "links": {
+    "tools": [
+     "test/b2"
+    ],
+    "dict": [
+     "despite",
+     "unless"
+    ]
+   },
+   "cluster": "cambridge-exams",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "b2 first use of english",
+    "es": "use of english b2 trucos",
+    "pt": "use of english b2 first",
+    "ru": "use of english fce"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "cambridge",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "b2 first use of english",
+      "b2 first use of english practice",
+      "b2 first use of english pdf"
+     ],
+     "was": "b2 first use of english tips"
+    },
+    "es": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "trucos reading and use of english b2",
+      "trucos para aprobar el use of english b2"
+     ]
+    },
+    "pt": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "use of english b2 first",
+      "use of english b2 first pdf",
+      "use of english b2 first practice"
+     ],
+     "was": "use of english b2 first dicas"
+    },
+    "ru": {
+     "suggest": 10,
+     "engine": "yandex",
+     "related": [
+      "use of english fce",
+      "use of english fce word formation",
+      "fce use of english"
+     ],
+     "was": "use of english fce задания"
+    }
+   }
+  },
+  {
+   "id": "a2-key-ket-for-kids",
+   "translationKey": "cambridge-a2-key-kids",
+   "otherKeys": [
+    "english-for-kids-at-home (kids pillar: link)"
+   ],
+   "keyword": "a2 key for schools",
+   "category": "ky-nang",
+   "intent": "exam-prep/parents",
+   "feature": "/app/#/practice/match",
+   "shots": [
+    "#/practice/match",
+    "#/practice/learn"
+   ],
+   "links": {
+    "tools": [
+     "test/a2"
+    ],
+    "dict": []
+   },
+   "cluster": "cambridge-exams",
+   "role": "satellite",
+   "origin": "zh",
+   "langTargets": {
+    "zh": "KET考试 小学 备考",
+    "vi": "chứng chỉ ket cambridge",
+    "es": "a2 key for schools cambridge",
+    "en": "a2 key for schools"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "cambridge",
+   "demand": {
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "小学考ket如何自学准备",
+      "KET备考",
+      "小学ket什么水平"
+     ]
+    },
+    "vi": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "chứng chỉ ket cambridge",
+      "chứng chỉ cambridge ket là gì",
+      "chứng chỉ cambridge ket pet"
+     ],
+     "was": "chứng chỉ ket cho trẻ em"
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "a2 key for schools cambridge pdf",
+      "a2 key for schools cambridge exam",
+      "a2 key for schools cambridge english"
+     ]
+    },
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "a2 key for schools trainer",
+      "a2 key for schools with answers pdf",
+      "a2 key for schools sample test"
+     ]
+    }
+   }
+  },
+  {
+   "id": "pte-academic-guide",
+   "translationKey": "pte-academic",
+   "otherKeys": [
+    "nen-thi-ielts-toeic-hay-toefl (link)"
+   ],
+   "keyword": "pte academic",
+   "category": "ky-nang",
+   "intent": "informational/exam-overview",
+   "feature": "/app/#/tests",
+   "shots": [
+    "#/tests",
+    "#/placement"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "pte-academic",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "en": "pte academic exam format",
+    "hi": "pte exam kya hai",
+    "zh": "PTE考试 是什么",
+    "vi": "pte academic là gì",
+    "ar": "اختبار pte academic",
+    "id": "tes pte academic adalah"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "pte",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte academic exam format 2026",
+      "pte academic exam format 2025",
+      "pte academic test format pdf"
+     ]
+    },
+    "hi": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "pte exam kya hai in hindi",
+      "pte exam kya hota hai",
+      "pte exam me kya hota hai"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "PTE考试是用来干嘛的",
+      "PTE考试含金量高吗",
+      "PTE考试全称是什么"
+     ]
+    },
+    "vi": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "pte academic test là gì",
+      "pearson pte academic là gì",
+      "pte academic ukvi là gì"
+     ]
+    },
+    "ar": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "سعر اختبار pte academic",
+      "حجز اختبار pte academic",
+      "اختبار ال pte academic"
+     ]
+    },
+    "id": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "pte-read-aloud",
+   "translationKey": "pte-read-aloud",
+   "otherKeys": [],
+   "keyword": "pte read aloud tips",
+   "category": "ky-nang",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/pron",
+   "shots": [
+    "#/pron",
+    "#/practice/speak"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "pronunciation"
+    ]
+   },
+   "cluster": "pte-academic",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "pte read aloud tips",
+    "hi": "read aloud in pte tips",
+    "zh": "PTE 朗读 技巧",
+    "vi": "pte read aloud"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "pte",
+   "demand": {
+    "en": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "pte read aloud tips and tricks",
+      "pte core read aloud tips and tricks",
+      "pte speaking read aloud tips and tricks"
+     ]
+    },
+    "hi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "read aloud in pte tips",
+      "read aloud pte tips and tricks"
+     ],
+     "was": "pte read aloud tips in hindi"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "PTE怎么样用",
+      "PTE怎么读",
+      "pte技巧大全"
+     ]
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte read aloud",
+      "pte read aloud practice",
+      "pte read aloud practice free"
+     ],
+     "was": "pte read aloud mẹo"
+    }
+   }
+  },
+  {
+   "id": "pte-repeat-sentence",
+   "translationKey": "pte-repeat-sentence",
+   "otherKeys": [
+    "shadowing-luyen-noi-tieng-anh (method: link)"
+   ],
+   "keyword": "pte repeat sentence",
+   "category": "ky-nang",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/practice/listen",
+   "shots": [
+    "#/practice/listen",
+    "#/listening"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "pte-academic",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "pte repeat sentence tips",
+    "hi": "pte repeat sentence tricks",
+    "zh": "PTE 复述句子 技巧"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "pte",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte repeat sentence tips",
+      "pte repeat sentence tips and tricks pdf",
+      "pte repeat sentence tricks"
+     ]
+    },
+    "hi": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "pte repeat sentence tips",
+      "pte repeat sentence tips and tricks",
+      "pte repeat sentence tips and tricks pdf"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "复述的英文prden",
+      "复述的英文怎么说",
+      "复述的英语retell"
+     ]
+    }
+   }
+  },
+  {
+   "id": "pte-describe-image",
+   "translationKey": "pte-describe-image",
+   "otherKeys": [
+    "ielts-writing-task-1-line-graph (graph language: link)"
+   ],
+   "keyword": "pte describe image template",
+   "category": "ky-nang",
+   "intent": "exam-prep/template",
+   "feature": "/app/#/speaking",
+   "shots": [
+    "#/speaking",
+    "#/practice/speak"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "pte-academic",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "pte describe image template",
+    "hi": "pte describe image template",
+    "zh": "PTE 描述图片 模板",
+    "vi": "pte describe image template"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "pte",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte describe image template 2026",
+      "pte describe image template pdf",
+      "pte describe image template for bar graph"
+     ]
+    },
+    "hi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte describe image template 2026",
+      "pte describe image template for bar graph",
+      "pte describe image template pdf"
+     ]
+    },
+    "zh": {
+     "suggest": 1,
+     "engine": "baidu",
+     "related": []
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte describe image template 2026",
+      "pte describe image template 2025",
+      "pte describe image template pdf"
+     ]
+    }
+   }
+  },
+  {
+   "id": "pte-write-essay",
+   "translationKey": "pte-write-essay",
+   "otherKeys": [
+    "cau-truc-ielts-writing-task-2 (link)"
+   ],
+   "keyword": "pte essay template",
+   "category": "ky-nang",
+   "intent": "exam-prep/template",
+   "feature": "/app/#/write/p",
+   "shots": [
+    "#/write/p",
+    "#/write"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "pte-academic",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "pte essay template",
+    "hi": "pte essay template",
+    "zh": "PTE 写作 模板"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "pte",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte essay template 2026",
+      "pte essay template for all essays",
+      "pte essay template for 90 score"
+     ]
+    },
+    "hi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte essay template 2026",
+      "pte essay template for 90 score",
+      "pte essay template for all essays"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "pte写作高分模板",
+      "PTE写作",
+      "pte写作真题及范文"
+     ]
+    }
+   }
+  },
+  {
+   "id": "pte-vs-ielts",
+   "translationKey": "pte-vs-ielts",
+   "otherKeys": [
+    "nen-thi-ielts-toeic-hay-toefl (link)",
+    "det-vs-ielts (sibling comparison: different exam, no overlap)"
+   ],
+   "keyword": "pte vs ielts",
+   "category": "ky-nang",
+   "intent": "commercial/comparison",
+   "feature": "/app/#/goal",
+   "shots": [
+    "#/goal",
+    "#/tests"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "pte-academic",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "pte vs ielts which is easier",
+    "hi": "pte or ielts which is better",
+    "zh": "PTE 和 雅思 哪个容易",
+    "vi": "nên thi pte hay ielts",
+    "ar": "الفرق بين pte و ielts"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "pte",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte vs ielts which is easy",
+      "pte vs ielts which is better",
+      "pte vs ielts which is better for australia"
+     ]
+    },
+    "hi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "pte or ielts which is better for australia pr",
+      "pte or ielts which is better for australia",
+      "pte or ielts which is better for canada"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "PTE和雅思哪个容易拿分",
+      "雅思哪个难度大",
+      "PTE和雅思哪个更好考"
+     ]
+    },
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ar": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "difference between pte and ielts academic"
+     ]
+    }
+   }
+  },
+  {
+   "id": "toeic-speaking-writing-guide",
+   "translationKey": "toeic-speaking-writing",
+   "otherKeys": [
+    "cau-truc-de-thi-toeic (vi: L&R structure, link)",
+    "lo-trinh-tu-hoc-toeic (vi: link)",
+    "toeic-benkyouhou (ja: L&R study, link)"
+   ],
+   "keyword": "toeic speaking and writing test",
+   "category": "toeic",
+   "intent": "informational/exam-overview",
+   "feature": "/app/#/toeic-sw",
+   "shots": [
+    "#/toeic-sw",
+    "#/toeic"
+   ],
+   "links": {
+    "tools": [
+     "toeic",
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "toeic-speaking-writing",
+   "role": "pillar",
+   "origin": "ko",
+   "langTargets": {
+    "ko": "토익스피킹 시험 구성",
+    "ja": "toeic sw 対策",
+    "vi": "toeic 4 kỹ năng",
+    "en": "toeic speaking and writing test",
+    "th": "toeic speaking writing คือ",
+    "zh": "托业口语写作 考试",
+    "fr": "toeic speaking and writing",
+    "id": "toeic speaking writing test"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "toeic",
+   "demand": {
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": []
+    },
+    "ja": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "toeic sw 対策 本",
+      "toeic sw 対策 アプリ",
+      "toeic sw 対策 オンライン"
+     ]
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "toeic 4 kỹ năng",
+      "toeic 4 kỹ năng bao nhiêu tiền",
+      "toeic 4 kỹ năng điểm tối đa"
+     ],
+     "was": "toeic 4 kỹ năng speaking writing"
+    },
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "toeic speaking and writing test score",
+      "toeic speaking and writing tests pdf",
+      "toeic speaking and writing test online"
+     ]
+    },
+    "th": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "托业口语写作考试亲历者怎么写",
+      "托业口语写作考试真题",
+      "托业口语写作考试时间2025年"
+     ]
+    },
+    "fr": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "toeic speaking and writing test gratuit",
+      "toeic speaking and writing test",
+      "toeic speaking and writing mock test"
+     ]
+    },
+    "id": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "toeic speaking writing test sample",
+      "toeic speaking writing test score",
+      "toeic speaking & writing tests"
+     ]
+    }
+   }
+  },
+  {
+   "id": "toeic-speaking-tips",
+   "translationKey": "toeic-speaking-tips",
+   "otherKeys": [],
+   "keyword": "toeic speaking tips",
+   "category": "toeic",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/toeic-sw",
+   "shots": [
+    "#/toeic-sw",
+    "#/practice/speak"
+   ],
+   "links": {
+    "tools": [
+     "toeic"
+    ],
+    "dict": []
+   },
+   "cluster": "toeic-speaking-writing",
+   "role": "satellite",
+   "origin": "ko",
+   "langTargets": {
+    "ko": "토익스피킹 독학 방법",
+    "ja": "toeic スピーキング 対策",
+    "vi": "luyện toeic speaking",
+    "th": "toeic speaking",
+    "en": "toeic speaking tips",
+    "zh": "托业口语 技巧"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "toeic",
+   "demand": {
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": [
+      "토익스피킹 독학 방법"
+     ],
+     "was": "토익스피킹 독학 꿀팁"
+    },
+    "ja": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "toeic スピーキング 対策",
+      "toeic スピーキング 対策 アプリ",
+      "toeic スピーキング 対策 オンライン"
+     ],
+     "was": "toeic スピーキング 対策 コツ"
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "luyện toeic speaking",
+      "luyện toeic speaking and writing",
+      "luyện toeic speaking part 2"
+     ]
+    },
+    "th": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "toeic speaking test",
+      "toeic speaking and writing tests ราคา",
+      "toeic speaking"
+     ],
+     "was": "toeic speaking เทคนิค"
+    },
+    "en": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "toeic speaking guide",
+      "toeic speaking skills",
+      "toeic speaking and writing tips"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "托业口语 技巧有哪些",
+      "托业口语 技巧大全",
+      "托业口语 技巧视频"
+     ]
+    }
+   }
+  },
+  {
+   "id": "toeic-speaking-templates",
+   "translationKey": "toeic-speaking-templates",
+   "otherKeys": [],
+   "keyword": "toeic speaking templates",
+   "category": "toeic",
+   "intent": "exam-prep/template",
+   "feature": "/app/#/toeic-sw",
+   "shots": [
+    "#/toeic-sw",
+    "#/speaking"
+   ],
+   "links": {
+    "tools": [
+     "toeic"
+    ],
+    "dict": []
+   },
+   "cluster": "toeic-speaking-writing",
+   "role": "satellite",
+   "origin": "ko",
+   "langTargets": {
+    "ko": "토익스피킹 템플릿",
+    "ja": "toeic スピーキング テンプレート",
+    "vi": "mẫu câu toeic speaking",
+    "en": "toeic speaking templates"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "toeic",
+   "demand": {
+    "ko": {
+     "suggest": 6,
+     "engine": "naver",
+     "related": [
+      "토익스피킹 템플릿 2026 pdf",
+      "토익스피킹 템플릿 무료",
+      "토익스피킹 템플릿 다운"
+     ]
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "vi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "mẫu câu trả lời toeic speaking"
+     ]
+    },
+    "en": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "toeic speaking template pdf",
+      "does toeic have speaking",
+      "toeic speaking test score"
+     ]
+    }
+   }
+  },
+  {
+   "id": "toeic-writing-email",
+   "translationKey": "toeic-writing-email",
+   "otherKeys": [
+    "cach-viet-email-tieng-anh / business-eigo-mail-kakikata (general business email: link, keep exam angle)"
+   ],
+   "keyword": "toeic writing email",
+   "category": "toeic",
+   "intent": "exam-prep/task",
+   "feature": "/app/#/toeic-sw",
+   "shots": [
+    "#/toeic-sw",
+    "#/write"
+   ],
+   "links": {
+    "tools": [
+     "toeic"
+    ],
+    "dict": []
+   },
+   "cluster": "toeic-speaking-writing",
+   "role": "satellite",
+   "origin": "ja",
+   "langTargets": {
+    "ja": "toeic ライティング eメール",
+    "ko": "토익라이팅 이메일",
+    "vi": "toeic writing viết email",
+    "en": "toeic writing respond to a written request"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "toeic",
+   "demand": {
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "toeic ライティング eメール"
+     ],
+     "was": "toeic ライティング eメール 書き方"
+    },
+    "ko": {
+     "suggest": 0,
+     "engine": "naver",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "en": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "toeic writing sample answers",
+      "toeic writing topics",
+      "toeic writing tips"
+     ]
+    }
+   }
+  },
+  {
+   "id": "toeic-writing-opinion-essay",
+   "translationKey": "toeic-writing-opinion",
+   "otherKeys": [],
+   "keyword": "toeic writing opinion essay",
+   "category": "toeic",
+   "intent": "exam-prep/template",
+   "feature": "/app/#/toeic-sw",
+   "shots": [
+    "#/toeic-sw",
+    "#/write/p"
+   ],
+   "links": {
+    "tools": [
+     "toeic"
+    ],
+    "dict": []
+   },
+   "cluster": "toeic-speaking-writing",
+   "role": "satellite",
+   "origin": "ja",
+   "langTargets": {
+    "ja": "toeic ライティング 意見",
+    "ko": "토익라이팅 에세이",
+    "vi": "toeic writing opinion essay",
+    "en": "toeic writing opinion essay"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "toeic",
+   "demand": {
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "toeic ライティング 意見"
+     ],
+     "was": "toeic ライティング 意見を述べる 型"
+    },
+    "ko": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "토익라이팅 에세이"
+     ],
+     "was": "토익라이팅 에세이 템플릿"
+    },
+    "vi": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "toeic writing opinion essay sample",
+      "toeic writing opinion essay",
+      "toeic writing opinion essay topics"
+     ],
+     "was": "toeic writing opinion essay mẫu"
+    },
+    "en": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "toeic writing opinion essay sample",
+      "toeic write an opinion essay",
+      "toeic essay examples"
+     ]
+    }
+   }
+  },
+  {
+   "id": "toeic-sw-score-levels",
+   "translationKey": "toeic-sw-score",
+   "otherKeys": [],
+   "keyword": "toeic speaking score levels",
+   "category": "toeic",
+   "intent": "informational/scores",
+   "feature": "/app/#/goal",
+   "shots": [
+    "#/goal",
+    "#/toeic-sw"
+   ],
+   "links": {
+    "tools": [
+     "toeic",
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "toeic-speaking-writing",
+   "role": "satellite",
+   "origin": "ko",
+   "langTargets": {
+    "ko": "토익스피킹 레벨 등급",
+    "ja": "toeic sw スコア 目安",
+    "vi": "thang điểm toeic speaking writing",
+    "en": "toeic speaking score levels"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "toeic",
+   "demand": {
+    "ko": {
+     "suggest": 3,
+     "engine": "naver",
+     "related": [
+      "토익스피킹 레벨 등급",
+      "토익스피킹 레벨 등급 im3",
+      "토익스피킹 레벨 등급 토익비교"
+     ],
+     "was": "토익스피킹 레벨 점수표"
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "vi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "thang điểm toeic speaking và writing"
+     ]
+    },
+    "en": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "toeic speaking score range",
+      "toeic speaking test score",
+      "toeic score level"
+     ]
+    }
+   }
+  },
+  {
+   "id": "business-english-guide",
+   "translationKey": "business-english",
+   "otherKeys": [
+    "all existing email/meeting/presentation/interview/CV posts: link from the hub, never duplicate"
+   ],
+   "keyword": "business english",
+   "category": "ky-nang",
+   "intent": "informational/hub",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/tracks"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "negotiate",
+     "deadline",
+     "invoice"
+    ]
+   },
+   "cluster": "business-english",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "en": "business english for beginners",
+    "ja": "ビジネス英語 初心者",
+    "ko": "비즈니스 영어",
+    "zh": "商务英语 入门",
+    "vi": "tiếng anh công sở",
+    "de": "business englisch lernen",
+    "fr": "anglais professionnel apprendre",
+    "es": "inglés para negocios",
+    "pt": "inglês para negócios",
+    "id": "bahasa inggris untuk bisnis",
+    "tr": "iş ingilizcesi öğrenmek",
+    "th": "ภาษาอังกฤษธุรกิจ เริ่มต้น"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "business",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "business english for beginners pdf",
+      "business english for beginners pdf free download",
+      "business english for beginners a1 a2 pdf"
+     ]
+    },
+    "ja": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "ビジネス英語 初心者",
+      "ビジネス英語 初心者 本",
+      "ビジネス英語 初心者 おすすめ"
+     ],
+     "was": "ビジネス英語 初心者 勉強法"
+    },
+    "ko": {
+     "suggest": 10,
+     "engine": "naver",
+     "related": [
+      "비즈니스 영어로",
+      "비즈니스 영어",
+      "비즈니스 영어회화"
+     ],
+     "was": "비즈니스 영어 공부법"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "商务英语入门",
+      "商务英语入门任书梅课后答案",
+      "商务英语入门任书梅电子版"
+     ]
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tiếng anh công sở",
+      "tiếng anh công sở và giao tiếp xã hội",
+      "tiếng anh công sở pdf"
+     ],
+     "was": "tiếng anh công sở cho người đi làm"
+    },
+    "de": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "business englisch lernen app",
+      "business englisch lernen kostenlos",
+      "business englisch lernen app kostenlos"
+     ]
+    },
+    "fr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "inglés para negocios",
+      "inglés para negocios pdf",
+      "inglés para negocios elemental"
+     ],
+     "was": "inglés de negocios para principiantes"
+    },
+    "pt": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "ingles para negócios",
+      "inglês para negócios gratuito",
+      "inglês para negócios livro pdf"
+     ],
+     "was": "inglês para negócios iniciantes"
+    },
+    "id": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "bahasa inggris untuk bisnis",
+      "bahasa inggris untuk bisnis dan profesional",
+      "bahasa inggris untuk bisnis dan profesional uns"
+     ],
+     "was": "bahasa inggris bisnis untuk pemula"
+    },
+    "tr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "th": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "english-phone-calls-at-work",
+   "translationKey": "business-phone-english",
+   "otherKeys": [],
+   "keyword": "english phone call phrases",
+   "category": "ky-nang",
+   "intent": "informational/phrases",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/practice/listen"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "extension",
+     "hold on"
+    ]
+   },
+   "cluster": "business-english",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "phone call phrases in english",
+    "ja": "ビジネス英語 電話 フレーズ",
+    "ko": "영어 전화 표현 비즈니스",
+    "zh": "英语 电话 用语 商务",
+    "vi": "tiếng anh giao tiếp qua điện thoại",
+    "de": "telefonieren auf englisch phrasen",
+    "fr": "téléphoner en anglais phrases",
+    "es": "frases para llamadas en inglés",
+    "pt": "ligação em inglês",
+    "tr": "ingilizce telefon konuşması",
+    "th": "บทสนทนา ภาษา อังกฤษ คุย โทรศัพท์"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "business",
+   "demand": {
+    "en": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "phone call phrases in english",
+      "phone call expressions in english",
+      "phone call love quotes in english"
+     ],
+     "was": "english phone call phrases for work"
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ko": {
+     "suggest": 0,
+     "engine": "naver",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "英语电话用语有哪些",
+      "英语电话用语的常用表达",
+      "常见英语口语 电话用语"
+     ]
+    },
+    "vi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "các tình huống giao tiếp tiếng anh qua điện thoại"
+     ]
+    },
+    "de": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "telefonieren englisch phrasen pdf"
+     ]
+    },
+    "fr": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "telephone english phrases"
+     ]
+    },
+    "es": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "pt": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "ligação em ingles",
+      "ligação em inglês tradução",
+      "ligação em ingles call"
+     ],
+     "was": "frases em inglês para ligação telefônica"
+    },
+    "tr": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "ingilizce telefon konuşması",
+      "ingilizce telefon konuşması diyalog",
+      "ingilizce telefon konuşması diyalog 8 sınıf"
+     ],
+     "was": "ingilizce telefon konuşması kalıpları"
+    },
+    "th": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "บทสนทนา ภาษา อังกฤษ คุย โทรศัพท์",
+      "ตัวอย่าง บทสนทนา ภาษา อังกฤษ คุย โทรศัพท์ กับ เพื่อน สั้น ๆ",
+      "ตัวอย่าง บทสนทนา ภาษา อังกฤษ คุย โทรศัพท์ กับ ลูกค้า"
+     ],
+     "was": "ภาษาอังกฤษ คุยโทรศัพท์ ที่ทำงาน"
+    }
+   }
+  },
+  {
+   "id": "negotiation-english-phrases",
+   "translationKey": "business-negotiation-english",
+   "otherKeys": [],
+   "keyword": "negotiation phrases in english",
+   "category": "ky-nang",
+   "intent": "informational/phrases",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/phrases"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "negotiate",
+     "compromise"
+    ]
+   },
+   "cluster": "business-english",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "negotiation phrases in english",
+    "ja": "英語 交渉 フレーズ",
+    "ko": "영어 협상 표현",
+    "zh": "英语 谈判 常用语",
+    "de": "verhandeln auf englisch",
+    "fr": "négocier en anglais vocabulaire",
+    "es": "frases para negociar en inglés",
+    "pt": "negociação em inglês frases"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "business",
+   "demand": {
+    "en": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "bargaining phrases in english",
+      "negation expressions in english",
+      "deal phrases"
+     ]
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ko": {
+     "suggest": 0,
+     "engine": "naver",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "英语 谈判 常用语大全",
+      "英语谈判怎么写",
+      "英语谈判怎么说"
+     ]
+    },
+    "de": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "verhandeln auf englisch vokabeln",
+      "preis verhandeln auf englisch",
+      "neu verhandeln auf englisch"
+     ]
+    },
+    "fr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "es": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "pt": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    }
+   }
+  },
+  {
+   "id": "polite-english-at-work",
+   "translationKey": "polite-business-english",
+   "otherKeys": [
+    "hedging-trong-academic-writing (vi: academic hedging, link only)"
+   ],
+   "keyword": "polite english phrases for work",
+   "category": "ky-nang",
+   "intent": "informational/phrases",
+   "feature": "/app/#/phrases",
+   "shots": [
+    "#/phrases",
+    "#/roleplay"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "would",
+     "appreciate"
+    ]
+   },
+   "cluster": "business-english",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "polite english phrases",
+    "ja": "ビジネス英語 丁寧な言い方",
+    "ko": "영어 정중한 표현",
+    "zh": "商务英语 委婉 表达",
+    "vi": "tiếng anh lịch sự",
+    "id": "bahasa inggris sopan",
+    "th": "ภาษา อังกฤษ สุภาพ",
+    "de": "höfliches englisch"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "business",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "polite english phrases",
+      "polite english phrases pdf",
+      "english polite phrases and idioms in business"
+     ],
+     "was": "polite english phrases for work"
+    },
+    "ja": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": [
+      "영어 정중한 표현"
+     ],
+     "was": "비즈니스 영어 정중한 표현"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "商务英语开口说",
+      "商务英语话术怎么写",
+      "商务英语口语表达日常用语"
+     ]
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tiếng anh lịch sự",
+      "tiếng anh lịch sự là gì",
+      "chào tiếng anh lịch sự"
+     ],
+     "was": "cách nói lịch sự trong tiếng anh công sở"
+    },
+    "id": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "bahasa inggris sopan",
+      "bahasa inggris sopan santun",
+      "bahasa inggris sopan adalah"
+     ],
+     "was": "bahasa inggris sopan di kantor"
+    },
+    "th": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "ภาษา อังกฤษ สุภาพ",
+      "ภาษา อังกฤษ สุภาพ ร",
+      "อุจจาระ ภาษา อังกฤษ สุภาพ"
+     ],
+     "was": "ภาษาอังกฤษสุภาพ ที่ทำงาน"
+    },
+    "de": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "höfliches englisch",
+      "höfliches anschreiben englisch",
+      "höfliches briefende englisch"
+     ],
+     "was": "höfliches englisch im beruf"
+    }
+   }
+  },
+  {
+   "id": "slack-teams-chat-english",
+   "translationKey": "business-chat-english",
+   "otherKeys": [],
+   "keyword": "english chat messages at work",
+   "category": "ky-nang",
+   "intent": "informational/phrases",
+   "feature": "/app/#/write",
+   "shots": [
+    "#/write",
+    "#/phrases"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "asap",
+     "fyi"
+    ]
+   },
+   "cluster": "business-english",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "slack message examples",
+    "ja": "英語 チャット ビジネス",
+    "vi": "nhắn tin tiếng anh với đồng nghiệp"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "business",
+   "rejectedTargets": {
+    "hi": "hi suggestions = office conversation (overlaps business hub), no chat intent",
+    "id": "no suggest demand for any variant"
+   },
+   "demand": {
+    "en": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "slack message examples",
+      "slack message formatting examples",
+      "slack format messages"
+     ],
+     "was": "slack messages in english examples"
+    },
+    "ja": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "英語 チャット ビジネス",
+      "英語 チャット 挨拶 ビジネス",
+      "英語 ビジネス チャット 書き出し"
+     ],
+     "was": "英語 チャット ビジネス 表現"
+    },
+    "vi": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    }
+   }
+  },
+  {
+   "id": "business-english-vocabulary",
+   "translationKey": "business-english-vocabulary",
+   "otherKeys": [
+    "tu-vung-ielts-chu-de-work (vi: IELTS topic, different intent)",
+    "tu-vung-toeic-theo-chu-de (vi: link)"
+   ],
+   "keyword": "business english vocabulary",
+   "category": "ky-nang",
+   "intent": "informational/list",
+   "feature": "/app/#/practice/learn",
+   "shots": [
+    "#/practice/learn",
+    "#/topic"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "revenue",
+     "stakeholder",
+     "deadline"
+    ]
+   },
+   "cluster": "business-english",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "business english vocabulary list",
+    "vi": "từ vựng tiếng anh thương mại",
+    "zh": "商务英语 词汇",
+    "ko": "비즈니스 영어 단어",
+    "es": "vocabulario de inglés de negocios",
+    "pt": "inglês para negócios vocabulário",
+    "ar": "مصطلحات انجليزية في العمل",
+    "ru": "деловой английский лексика",
+    "tr": "iş ingilizcesi kelimeler"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "business",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "business english vocabulary list pdf",
+      "business english vocabulary list german pdf",
+      "business english word list"
+     ]
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "từ vựng tiếng anh thương mại",
+      "từ vựng tiếng anh thương mại thông dụng",
+      "từ vựng tiếng anh thương mại điện tử"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "外贸商务英语词汇",
+      "商务英语词汇",
+      "商务英语词汇量"
+     ]
+    },
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": [
+      "비즈니스 영어 단어 pdf",
+      "비즈니스 영어 단어 모음",
+      "비즈니스 영어 단어 책"
+     ]
+    },
+    "es": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "vocabulario en ingles de negocios internacionales",
+      "vocabulario en ingles de negocios pdf"
+     ]
+    },
+    "pt": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "inglês para negócios vocabulário"
+     ],
+     "was": "vocabulário de inglês para negócios"
+    },
+    "ar": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "مصطلحات انجليزية في العمل",
+      "مصطلحات انجليزية في خدمة العملاء",
+      "مصطلحات انجليزية مهمة في العمل"
+     ]
+    },
+    "ru": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "деловой английский лексика"
+     ],
+     "was": "деловой английский лексика"
+    },
+    "tr": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "iş ingilizcesi kelimeleri pdf",
+      "iş ingilizcesi en çok kullanılan kelimeler",
+      "iş ingilizcesi kelimeler"
+     ]
+    }
+   }
+  },
+  {
+   "id": "salary-negotiation-english",
+   "translationKey": "salary-negotiation-english",
+   "otherKeys": [
+    "interview posts in all langs (link)"
+   ],
+   "keyword": "how to negotiate salary in english",
+   "category": "ky-nang",
+   "intent": "informational/how-to",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/speaking"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "salary",
+     "offer"
+    ]
+   },
+   "cluster": "business-english",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "how to negotiate salary in english",
+    "hi": "salary negotiation in english",
+    "vi": "đàm phán lương bằng tiếng anh"
+   },
+   "priority": 3,
+   "status": "planned",
+   "examTag": "business",
+   "rejectedTargets": {
+    "ar": "Arabic suggestions are about salary negotiation in general, not in English: intent mismatch"
+   },
+   "demand": {
+    "en": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "salary negotiation meaning",
+      "how to phrase salary negotiation"
+     ]
+    },
+    "hi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "salary negotiation meaning in english"
+     ]
+    },
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "english-for-kids-at-home",
+   "translationKey": "english-for-kids-at-home",
+   "otherKeys": [],
+   "keyword": "how to teach english to kids at home",
+   "category": "phuong-phap",
+   "intent": "informational/how-to",
+   "feature": "/app/#/practice/match",
+   "shots": [
+    "#/practice/match",
+    "#/practice/learn"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "english-for-kids",
+   "role": "pillar",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "dạy tiếng anh cho trẻ tại nhà",
+    "ko": "엄마표 영어 시작하는 방법",
+    "ja": "おうち英語 始め方",
+    "zh": "英语启蒙 在家怎么做",
+    "id": "cara mengajari anak bahasa inggris di rumah",
+    "th": "สอนลูกพูดภาษาอังกฤษ",
+    "tr": "çocuklara evde ingilizce öğretmek",
+    "es": "cómo enseñar inglés a niños en casa",
+    "pt": "como ensinar inglês para criança em casa",
+    "ar": "تعليم الاطفال اللغة الانجليزية من الصفر",
+    "en": "how to teach english to kids at home"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "kids",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tự dạy tiếng anh cho trẻ tại nhà",
+      "cách dạy tiếng anh cho trẻ tại nhà",
+      "dạy tiếng anh cho trẻ 3 tuổi tại nhà"
+     ]
+    },
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": [
+      "엄마표 영어 시작하는 방법"
+     ],
+     "was": "엄마표 영어 시작하는 법"
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "英语启蒙图片",
+      "英语启蒙app推荐排行榜",
+      "英语启蒙软件哪个好"
+     ]
+    },
+    "id": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "th": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "สอนลูกพูดภาษาอังกฤษ",
+      "สอนลูกพูดภาษาอังกฤษในชีวิต ประ จํา วัน"
+     ],
+     "was": "สอนลูกพูดภาษาอังกฤษ ที่บ้าน"
+    },
+    "tr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "es": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "como enseñar las partes de la casa en ingles a niños"
+     ]
+    },
+    "pt": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "como ensinar inglês para criança de 4 anos",
+      "como ensinar ingles para criancas de 2 anos",
+      "como ensinar inglês para criança"
+     ]
+    },
+    "ar": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "تعليم الاطفال اللغة الانجليزية من الصفر"
+     ],
+     "was": "تعليم الاطفال اللغة الانجليزية في المنزل"
+    },
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "how to teach english to kids at home step by step",
+      "how to teach english to kids at home pdf",
+      "how to teach english alphabet to kids at home"
+     ]
+    }
+   }
+  },
+  {
+   "id": "english-words-for-kids",
+   "translationKey": "english-words-for-kids",
+   "otherKeys": [],
+   "keyword": "basic english words for kids",
+   "category": "phuong-phap",
+   "intent": "informational/list",
+   "feature": "/app/#/practice/learn",
+   "shots": [
+    "#/practice/learn",
+    "#/practice/match"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "apple",
+     "family"
+    ]
+   },
+   "cluster": "english-for-kids",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "từ vựng tiếng anh cho trẻ em theo chủ đề",
+    "id": "kosakata bahasa inggris untuk anak",
+    "th": "คำศัพท์ภาษาอังกฤษ สำหรับเด็ก",
+    "zh": "儿童英语单词 分类",
+    "ar": "كلمات انجليزية للاطفال",
+    "es": "vocabulario en inglés para niños",
+    "pt": "vocabulário em inglês para crianças"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "kids",
+   "demand": {
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "id": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "kosakata bahasa inggris untuk anak kelas 1 sd",
+      "kosakata bahasa inggris untuk anak tk",
+      "kosakata bahasa inggris untuk anak kelas 3 sd"
+     ]
+    },
+    "th": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "儿童英语单词",
+      "儿童英语单词跟读",
+      "儿童英语单词启蒙0-6岁"
+     ]
+    },
+    "ar": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "كلمات انجليزية للاطفال pdf",
+      "كلمات انجليزية للاطفال مترجمة",
+      "كلمات انجليزية للاطفال من ثلاث حروف"
+     ]
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "vocabulario en ingles para niños",
+      "vocabulario en inglés para niños de primaria",
+      "vocabulario en inglés para niños para imprimir"
+     ]
+    },
+    "pt": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "phonics-for-kids",
+   "translationKey": "phonics-for-kids",
+   "otherKeys": [
+    "cach-doc-phien-am-ipa (vi: IPA for adults, link)"
+   ],
+   "keyword": "phonics for kids",
+   "category": "phuong-phap",
+   "intent": "informational/how-to",
+   "feature": "/app/#/pron",
+   "shots": [
+    "#/pron",
+    "#/practice/listen"
+   ],
+   "links": {
+    "tools": [],
+    "dict": []
+   },
+   "cluster": "english-for-kids",
+   "role": "satellite",
+   "origin": "ko",
+   "langTargets": {
+    "ko": "파닉스 순서",
+    "zh": "自然拼读 怎么教",
+    "ja": "フォニックス 家庭学習",
+    "vi": "phonics là gì",
+    "en": "phonics for kids at home",
+    "id": "phonics untuk anak"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "kids",
+   "demand": {
+    "ko": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "파닉스 순서"
+     ],
+     "was": "파닉스 순서 엄마표"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "自然拼读怎么教孩子学",
+      "Volleyball自然拼读怎么教",
+      "station自然拼读怎么教"
+     ]
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "フォニックス 家庭学習"
+     ],
+     "was": "フォニックス 家庭 教え方"
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "phonics là gì",
+      "học phonics là gì",
+      "jolly phonics là gì"
+     ],
+     "was": "phonics là gì cách dạy"
+    },
+    "en": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "phonics games for kids at home",
+      "phonics classes for kids at home",
+      "phonics for kids homeschool"
+     ]
+    },
+    "id": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "phonics anak tk"
+     ]
+    }
+   }
+  },
+  {
+   "id": "english-daily-phrases-parents",
+   "translationKey": "english-phrases-for-parents",
+   "otherKeys": [],
+   "keyword": "english phrases for parents",
+   "category": "phuong-phap",
+   "intent": "informational/phrases",
+   "feature": "/app/#/phrases",
+   "shots": [
+    "#/phrases",
+    "#/practice/speak"
+   ],
+   "links": {
+    "tools": [],
+    "dict": []
+   },
+   "cluster": "english-for-kids",
+   "role": "satellite",
+   "origin": "ko",
+   "langTargets": {
+    "ko": "엄마표 영어 생활 영어 표현",
+    "ja": "親子英語",
+    "vi": "những câu tiếng anh giao tiếp với con hàng ngày",
+    "zh": "亲子英语 日常用语",
+    "th": "ประโยคภาษาอังกฤษ พ่อแม่พูดกับลูก"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "kids",
+   "demand": {
+    "ko": {
+     "suggest": 0,
+     "engine": "naver",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "ja": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "親子英語",
+      "親子英語で",
+      "親子英語教室"
+     ],
+     "was": "親子英語 フレーズ"
+    },
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "những câu tiếng anh giao tiếp với con hàng ngày"
+     ],
+     "was": "mẫu câu tiếng anh bố mẹ nói với con"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "亲子英语100句",
+      "亲子英语8000句",
+      "亲子英语必备2000句"
+     ]
+    },
+    "th": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    }
+   }
+  },
+  {
+   "id": "english-screen-time-cartoons",
+   "translationKey": "english-cartoons-for-kids",
+   "otherKeys": [
+    "hoc-tieng-anh-qua-phim (adults via films: link only)"
+   ],
+   "keyword": "best english cartoons for kids",
+   "category": "phuong-phap",
+   "intent": "commercial/list",
+   "feature": "/app/#/practice/listen",
+   "shots": [
+    "#/practice/listen",
+    "#/listening"
+   ],
+   "links": {
+    "tools": [],
+    "dict": []
+   },
+   "cluster": "english-for-kids",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "phim hoạt hình tiếng anh cho bé",
+    "ko": "영어 영상 노출",
+    "ja": "英語 アニメ 子供 おすすめ",
+    "zh": "英语启蒙动画片 推荐",
+    "es": "dibujos animados en inglés para niños",
+    "tr": "çocuklar için ingilizce çizgi film"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "kids",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "phim hoạt hình tiếng anh cho bé lớp 1",
+      "phim hoạt hình tiếng anh cho be 5 tuổi",
+      "phim hoạt hình tiếng anh cho bé có phụ đề"
+     ]
+    },
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": [
+      "영어 영상 노출"
+     ],
+     "was": "영어 영상 노출 추천"
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "三年级英语启蒙动画片推荐",
+      "英语启蒙动画片推荐高清免费",
+      "英语启蒙动画片推荐"
+     ]
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "dibujos animados en inglés para niños de 3 años",
+      "dibujos animados en inglés para niños de primaria",
+      "dibujos animados en ingles para niños youtube"
+     ]
+    },
+    "tr": {
+     "suggest": 9,
+     "engine": "google",
+     "related": [
+      "çocuklar için ingilizce çizgi film önerileri",
+      "çocuklar için ingilizce çizgi film netflix",
+      "çoçuklar için ingilizce çizgi film izle"
+     ]
+    }
+   }
+  },
+  {
+   "id": "what-age-start-english",
+   "translationKey": "english-age-to-start",
+   "otherKeys": [],
+   "keyword": "what age should kids start learning english",
+   "category": "phuong-phap",
+   "intent": "informational/question",
+   "feature": "/app/#/practice/learn",
+   "shots": [
+    "#/practice/learn"
+   ],
+   "links": {
+    "tools": [],
+    "dict": []
+   },
+   "cluster": "english-for-kids",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "trẻ mấy tuổi nên học tiếng anh",
+    "ja": "英語 何歳から 子供",
+    "zh": "英语启蒙 几岁开始",
+    "ar": "متى يبدأ الطفل تعلم الانجليزية"
+   },
+   "priority": 3,
+   "status": "planned",
+   "examTag": "kids",
+   "demand": {
+    "vi": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "trẻ mấy tuổi nên đi học tiếng anh",
+      "trẻ mấy tuổi nên bắt đầu học tiếng anh"
+     ]
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "英语启蒙几岁开始学比较好",
+      "英语启蒙几岁开始最合适",
+      "英语启蒙动画片免费观看"
+     ]
+    },
+    "ar": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    }
+   }
+  },
+  {
+   "id": "english-for-it-guide",
+   "translationKey": "english-for-it",
+   "otherKeys": [
+    "phong-van-xin-viec-tieng-anh-star family (general interview: link)"
+   ],
+   "keyword": "english for software developers",
+   "category": "ky-nang",
+   "intent": "informational/hub",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/topic"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "deploy",
+     "bug",
+     "requirement"
+    ]
+   },
+   "cluster": "english-for-it",
+   "role": "pillar",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "tiếng anh cho dân it",
+    "ja": "エンジニア 英語 勉強法",
+    "ko": "개발자 영어",
+    "zh": "程序员 英语 学习",
+    "en": "english for software developers",
+    "hi": "english for it professionals",
+    "id": "bahasa inggris untuk programmer",
+    "ru": "английский для программистов",
+    "tr": "yazılımcılar için ingilizce",
+    "pt": "inglês para programação",
+    "es": "inglés para programadores"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "vi": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "tiếng anh cho dân it voz",
+      "học tiếng anh cho dân it",
+      "sách tiếng anh cho dân it"
+     ]
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": [
+      "개발자 영어로"
+     ],
+     "was": "개발자 영어 공부"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "程序员学英语有哪些坑",
+      "程序员的英语教程",
+      "程序员英语要求高吗"
+     ]
+    },
+    "en": {
+     "suggest": 9,
+     "engine": "google",
+     "related": [
+      "english for software developers pdf",
+      "professional english for software developers",
+      "professional english for software developers pdf"
+     ]
+    },
+    "hi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "english for it professionals pdf",
+      "english for it professionals course",
+      "business english for it professionals"
+     ]
+    },
+    "id": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "bahasa inggris programmer"
+     ]
+    },
+    "ru": {
+     "suggest": 8,
+     "engine": "yandex",
+     "related": [
+      "английский для программистов с нуля",
+      "английский для программистов учебник",
+      "английский для программистов с нуля бесплатно"
+     ]
+    },
+    "tr": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "yazılımcılar için ingilizce"
+     ]
+    },
+    "pt": {
+     "suggest": 9,
+     "engine": "google",
+     "related": [
+      "inglês para programação gratuito",
+      "inglês para programação pdf",
+      "ingles para programação"
+     ],
+     "was": "inglês para programadores"
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "inglés para programadores",
+      "inglés para programadores gratis",
+      "ingles para programadores freecodecamp"
+     ]
+    }
+   }
+  },
+  {
+   "id": "it-english-vocabulary",
+   "translationKey": "it-english-vocabulary",
+   "otherKeys": [
+    "tu-vung-ielts-chu-de-technology (vi: IELTS topic, different intent)"
+   ],
+   "keyword": "it english vocabulary",
+   "category": "ky-nang",
+   "intent": "informational/list",
+   "feature": "/app/#/practice/learn",
+   "shots": [
+    "#/practice/learn",
+    "#/topic"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "deploy",
+     "merge",
+     "latency"
+    ]
+   },
+   "cluster": "english-for-it",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "từ vựng tiếng anh chuyên ngành it",
+    "ja": "it 英語",
+    "zh": "IT英语 词汇",
+    "id": "kosakata bahasa inggris it",
+    "ru": "английский для it словарь",
+    "pt": "vocabulário de inglês para ti",
+    "en": "it english vocabulary"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ja": {
+     "suggest": 9,
+     "engine": "google",
+     "related": [
+      "it 英語",
+      "it 英語 意味",
+      "it 英語 本"
+     ],
+     "was": "IT英語 単語"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "it英语词汇pdf",
+      "it英语词汇pdf 下载",
+      "it词汇jam"
+     ]
+    },
+    "id": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "kosakata bahasa inggris it"
+     ]
+    },
+    "ru": {
+     "suggest": 0,
+     "engine": "yandex",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "pt": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "vocabulario ingles tiempo",
+      "vocabulario en ingles para tienda de ropa"
+     ]
+    },
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "it english vocabulary pdf",
+      "it english words",
+      "it english dictionary"
+     ]
+    }
+   }
+  },
+  {
+   "id": "technical-interview-english",
+   "translationKey": "technical-interview-english",
+   "otherKeys": [
+    "job interview posts in every lang (general: link)"
+   ],
+   "keyword": "technical interview in english",
+   "category": "ky-nang",
+   "intent": "informational/how-to",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/speaking"
+   ],
+   "links": {
+    "tools": [],
+    "dict": []
+   },
+   "cluster": "english-for-it",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "technical interview in english tips",
+    "vi": "phỏng vấn it bằng tiếng anh",
+    "ja": "外資系 エンジニア 英語面接",
+    "hi": "technical interview english preparation",
+    "ru": "техническое собеседование на английском",
+    "pt": "entrevista técnica em inglês"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "en": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "what kind of questions are asked in a technical interview",
+      "what to expect in a technical interview"
+     ]
+    },
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ja": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "hi": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "ru": {
+     "suggest": 0,
+     "engine": "yandex",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "pt": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "english-standup-code-review",
+   "translationKey": "english-for-dev-meetings",
+   "otherKeys": [
+    "meeting phrase posts (general meetings: link)"
+   ],
+   "keyword": "english for daily standup",
+   "category": "ky-nang",
+   "intent": "informational/phrases",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/phrases"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "blocker"
+    ]
+   },
+   "cluster": "english-for-it",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "daily scrum",
+    "ja": "英語 スタンドアップ 会議 エンジニア",
+    "en": "daily standup meeting english"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "industry",
+   "rejectedTargets": {
+    "id": "suggestions = daily activity/routine, not standups"
+   },
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "daily scrum",
+      "daily scrum là gì",
+      "daily scrum meeting"
+     ],
+     "was": "tiếng anh họp daily scrum"
+    },
+    "ja": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "en": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "daily standup meeting english",
+      "what is the purpose of daily standup meeting",
+      "what is a daily stand up meeting"
+     ],
+     "was": "english phrases for daily standup"
+    }
+   }
+  },
+  {
+   "id": "reading-technical-docs-english",
+   "translationKey": "reading-tech-docs-english",
+   "otherKeys": [
+    "cach-doc-hieu-tieng-anh-nhanh (vi: general reading, link)"
+   ],
+   "keyword": "how to read english documentation",
+   "category": "ky-nang",
+   "intent": "informational/how-to",
+   "feature": "/app/#/reading",
+   "shots": [
+    "#/reading",
+    "#/practice/learn"
+   ],
+   "links": {
+    "tools": [],
+    "dict": []
+   },
+   "cluster": "english-for-it",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "cách đọc tài liệu tiếng anh chuyên ngành",
+    "ja": "技術ドキュメント 英語",
+    "zh": "程序员 看英文文档"
+   },
+   "priority": 3,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "cách đọc tài liệu tiếng anh chuyên ngành"
+     ],
+     "was": "cách đọc tài liệu tiếng anh chuyên ngành it"
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "技術ドキュメント 英語"
+     ],
+     "was": "英語 技術ドキュメント 読み方"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "程序员 看英文文档的软件",
+      "程序员 看英文文档有用吗",
+      "程序员的英文TXT"
+     ]
+    }
+   }
+  },
+  {
+   "id": "medical-english-guide",
+   "translationKey": "medical-english",
+   "otherKeys": [
+    "tu-vung-ielts-chu-de-health (vi: IELTS topic, different intent)"
+   ],
+   "keyword": "medical english",
+   "category": "ky-nang",
+   "intent": "informational/hub",
+   "feature": "/app/#/topic",
+   "shots": [
+    "#/topic",
+    "#/practice/learn"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "symptom",
+     "diagnosis"
+    ]
+   },
+   "cluster": "english-for-healthcare",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "en": "medical english for healthcare workers",
+    "hi": "medical english for nurses",
+    "ar": "اللغة الانجليزية الطبية",
+    "id": "bahasa inggris untuk perawat",
+    "vi": "tiếng anh chuyên ngành y",
+    "es": "inglés médico",
+    "pt": "inglês para área da saúde",
+    "tr": "tıbbi ingilizce",
+    "th": "ภาษาอังกฤษทางการแพทย์"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "en": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "medical english for healthcare professionals pdf",
+      "words for healthcare workers"
+     ]
+    },
+    "hi": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "medical english for nurses pdf",
+      "english for nurses and medical professionals",
+      "english for nurses and medical professionals pdf"
+     ]
+    },
+    "ar": {
+     "suggest": 9,
+     "engine": "google",
+     "related": [
+      "موقع اللغة الانجليزية الطبية",
+      "منصة اللغة الانجليزية الطبية",
+      "تعلم اللغة الانجليزية الطبية"
+     ]
+    },
+    "id": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "kursus bahasa inggris untuk perawat",
+      "belajar bahasa inggris untuk perawat",
+      "buku bahasa inggris untuk perawat"
+     ]
+    },
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tiếng anh chuyên ngành yds",
+      "tiếng anh chuyên ngành y khoa đh y khoa phạm ngọc thạch",
+      "tiếng anh chuyên ngành y khoa dịch"
+     ]
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "inglés médico pdf",
+      "inglés médico libro pdf gratis",
+      "inglés médico"
+     ],
+     "was": "inglés médico para enfermería"
+    },
+    "pt": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "inglês para área da saúde",
+      "curso de inglês para área da saúde",
+      "inglês na área da saúde"
+     ]
+    },
+    "tr": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tıbbi ingilizce ders notları pdf",
+      "tıbbi ingilizce kelimeler",
+      "tıbbi ingilizce pdf"
+     ]
+    },
+    "th": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "nursing-english-phrases",
+   "translationKey": "nursing-english-phrases",
+   "otherKeys": [],
+   "keyword": "english phrases for nurses",
+   "category": "ky-nang",
+   "intent": "informational/phrases",
+   "feature": "/app/#/phrases",
+   "shots": [
+    "#/phrases",
+    "#/practice/speak"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "pain",
+     "medication"
+    ]
+   },
+   "cluster": "english-for-healthcare",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "english phrases for nurses",
+    "hi": "nursing english speaking practice",
+    "ar": "كلمات انجليزي للتمريض",
+    "id": "percakapan bahasa inggris perawat",
+    "es": "inglés para enfermería",
+    "tr": "hemşireler için ingilizce"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "en": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "english quotes for nurses",
+      "100 english phrases for nurses",
+      "what to say to a new nurse"
+     ]
+    },
+    "hi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ar": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "كلمات انجليزي للتمريض",
+      "كلمات انجليزي مهمه للتمريض"
+     ],
+     "was": "عبارات انجليزية للممرضين"
+    },
+    "id": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "percakapan bahasa inggris perawat dan pasien singkat",
+      "percakapan bahasa inggris perawat",
+      "contoh percakapan bahasa inggris perawat dan pasien"
+     ]
+    },
+    "es": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "inglés para enfermería pdf",
+      "inglés para enfermería",
+      "inglés para enfermería gratis"
+     ],
+     "was": "frases en inglés para enfermeras"
+    },
+    "tr": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "hemşireler ingilizce"
+     ]
+    }
+   }
+  },
+  {
+   "id": "medical-terminology-basics",
+   "translationKey": "medical-terminology",
+   "otherKeys": [
+    "cau-tao-tu-tien-to-hau-to (vi: general affixes, link)"
+   ],
+   "keyword": "medical terminology prefixes suffixes",
+   "category": "ky-nang",
+   "intent": "informational/list",
+   "feature": "/app/#/practice/learn",
+   "shots": [
+    "#/practice/learn",
+    "#/topic"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "cardio"
+    ]
+   },
+   "cluster": "english-for-healthcare",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "medical terminology prefixes and suffixes",
+    "vi": "thuật ngữ y khoa tiếng anh",
+    "ar": "المصطلحات الطبية باللغة الانجليزية",
+    "pt": "terminologia médica em inglês"
+   },
+   "priority": 3,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "medical terminology prefixes and suffixes list",
+      "medical terminology prefixes and suffixes and root words",
+      "medical terminology prefixes and suffixes quizlet"
+     ]
+    },
+    "vi": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "thuật ngữ y khoa tiếng anh nguyễn thái duy pdf",
+      "thuật ngữ y khoa tiếng anh là gì",
+      "thuật ngữ y khoa tiếng anh pdf"
+     ]
+    },
+    "ar": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "المصطلحات الطبية باللغة الانجليزية",
+      "المصطلحات الطبية باللغة الانجليزية وترجمتها بالعربية",
+      "جميع المصطلحات الطبية باللغة الانجليزية pdf"
+     ],
+     "was": "المصطلحات الطبية بالانجليزية"
+    },
+    "pt": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "terminologia medica ingles español pdf",
+      "terminologia medica en ingles pdf"
+     ]
+    }
+   }
+  },
+  {
+   "id": "oet-vs-ielts-nurses",
+   "translationKey": "oet-vs-ielts",
+   "otherKeys": [
+    "nen-thi-ielts-toeic-hay-toefl (link)"
+   ],
+   "keyword": "oet vs ielts for nurses",
+   "category": "ky-nang",
+   "intent": "commercial/comparison",
+   "feature": "/app/#/goal",
+   "shots": [
+    "#/goal",
+    "#/tests"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": []
+   },
+   "cluster": "english-for-healthcare",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "oet vs ielts for nurses",
+    "hi": "oet or ielts which is easier for nurses",
+    "ar": "الفرق بين ielts و oet"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "en": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "oet or ielts for nurses",
+      "oet or ielts for nurses in uk",
+      "oet or ielts is better for nurses"
+     ]
+    },
+    "hi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "oet or ielts which is easier for nurses",
+      "oet or ielts which is better for nurses"
+     ],
+     "was": "oet or ielts for nurses which is easy"
+    },
+    "ar": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "الفرق بين ielts و oet",
+      "difference between ielts and oet",
+      "difference between ielts pte and oet"
+     ],
+     "was": "الفرق بين oet و ielts للممرضين"
+    }
+   }
+  },
+  {
+   "id": "patient-conversation-english",
+   "translationKey": "doctor-patient-english",
+   "otherKeys": [],
+   "keyword": "doctor patient conversation in english",
+   "category": "ky-nang",
+   "intent": "informational/dialogue",
+   "feature": "/app/#/practice/listen",
+   "shots": [
+    "#/practice/listen",
+    "#/roleplay"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "prescription"
+    ]
+   },
+   "cluster": "english-for-healthcare",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "doctor patient conversation in english",
+    "vi": "hội thoại tiếng anh bác sĩ bệnh nhân",
+    "th": "บทสนทนาภาษาอังกฤษ หมอกับคนไข้",
+    "id": "percakapan dokter dan pasien bahasa inggris"
+   },
+   "priority": 3,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "doctor patient conversation in english short",
+      "doctor patient conversation in english pdf",
+      "doctor patient conversation in spanish"
+     ]
+    },
+    "vi": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "th": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "บทสนทนา ภาษา อังกฤษ หมอ กับ คนไข้ ยาว ๆ",
+      "บทสนทนา ภาษา อังกฤษ หมอ กับ คนไข้ ปวด ท้อง",
+      "บทสนทนา ภาษา อังกฤษ หมอ ฟัน กับ คนไข้"
+     ]
+    },
+    "id": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "percakapan dokter dan pasien dalam bahasa inggris dan artinya",
+      "dialog percakapan dokter dan pasien singkat bahasa inggris",
+      "percakapan dokter gigi dan pasien dalam bahasa inggris dan artinya"
+     ]
+    }
+   }
+  },
+  {
+   "id": "hospitality-english-guide",
+   "translationKey": "hospitality-english",
+   "otherKeys": [
+    "tieng-anh-du-lich-nuoc-ngoai family (traveller intent: link, no overlap)"
+   ],
+   "keyword": "english for hospitality",
+   "category": "ky-nang",
+   "intent": "informational/hub",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/phrases"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "reservation",
+     "check-in"
+    ]
+   },
+   "cluster": "english-for-hospitality",
+   "role": "pillar",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "tiếng anh nhà hàng khách sạn",
+    "th": "ภาษาอังกฤษสำหรับงานโรงแรม",
+    "id": "bahasa inggris perhotelan",
+    "tr": "otelcilik ingilizcesi",
+    "es": "inglés para hostelería",
+    "ar": "اللغة الانجليزية للفنادق",
+    "hi": "hotel management english speaking",
+    "pt": "inglês para hotelaria",
+    "zh": "酒店英语 常用语",
+    "en": "english for hospitality workers"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tiếng anh nhà hàng khách sạn",
+      "tiếng anh nhà hàng khách sạn ctu",
+      "tiếng anh trong nhà hàng khách sạn"
+     ]
+    },
+    "th": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "id": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "bahasa inggris perhotelan dan pariwisata",
+      "bahasa inggris perhotelan pdf",
+      "bahasa inggris jurusan perhotelan"
+     ]
+    },
+    "tr": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "turizm otelcilik ingilizcesi"
+     ]
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "inglés para hostelería pdf",
+      "inglés para hostelería y turismo pdf",
+      "inglés para hostelería gratis"
+     ]
+    },
+    "ar": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "hi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "hotel management english language"
+     ]
+    },
+    "pt": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "inglês para hotelaria",
+      "ingles para hotelaria e turismo",
+      "ingles para hotelaria livro"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "酒店英语教材电子版",
+      "酒店英语餐厅点菜",
+      "酒店英语自我介绍简短面试"
+     ]
+    },
+    "en": {
+     "suggest": 7,
+     "engine": "google",
+     "related": [
+      "english for hospitality industry",
+      "english for hospitality industry pdf",
+      "english for hospitality staff"
+     ]
+    }
+   }
+  },
+  {
+   "id": "hotel-front-desk-english",
+   "translationKey": "front-desk-english",
+   "otherKeys": [],
+   "keyword": "hotel front desk english phrases",
+   "category": "ky-nang",
+   "intent": "informational/dialogue",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/practice/listen"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "check-in",
+     "deposit"
+    ]
+   },
+   "cluster": "english-for-hospitality",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "tiếng anh lễ tân khách sạn",
+    "th": "ภาษาอังกฤษ พนักงานต้อนรับ โรงแรม",
+    "id": "percakapan resepsionis hotel bahasa inggris",
+    "tr": "otel resepsiyon ingilizce diyalog",
+    "es": "inglés para recepcionista de hotel",
+    "en": "hotel front desk english conversation",
+    "zh": "酒店前台英语"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tiếng anh lễ tân khách sạn",
+      "tiếng anh lễ tân khách sạn check in",
+      "học tiếng anh lễ tân khách sạn"
+     ]
+    },
+    "th": {
+     "suggest": 6,
+     "engine": "google",
+     "related": [
+      "บทสนทนา ภาษา อังกฤษ พนักงาน ต้อนรับ โรงแรม",
+      "ประโยค ภาษา อังกฤษ พนักงาน ต้อนรับ โรงแรม",
+      "ภาษาอังกฤษ สําหรับพนักงานต้อนรับโรงแรม"
+     ]
+    },
+    "id": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "percakapan resepsionis hotel dengan tamu bahasa inggris",
+      "percakapan resepsionis hotel dengan tamu dalam bahasa inggris singkat",
+      "percakapan bahasa inggris resepsionis hotel dan tamu"
+     ]
+    },
+    "tr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "es": {
+     "suggest": 9,
+     "engine": "google",
+     "related": [
+      "ingles para recepcionista de hotel pdf",
+      "ingles basico para recepcionista de hotel",
+      "curso de ingles para recepcionista de hotel"
+     ]
+    },
+    "en": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "hotel front desk english conversation",
+      "how to speak english in hotel reception",
+      "front desk hotel description"
+     ],
+     "was": "hotel front desk english phrases"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "酒店前台英语怎么读的",
+      "酒店前台英语常用语",
+      "酒店前台英语翻译"
+     ]
+    }
+   }
+  },
+  {
+   "id": "restaurant-waiter-english",
+   "translationKey": "restaurant-staff-english",
+   "otherKeys": [],
+   "keyword": "english for waiters",
+   "category": "ky-nang",
+   "intent": "informational/dialogue",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/practice/speak"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "menu",
+     "bill"
+    ]
+   },
+   "cluster": "english-for-hospitality",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "tiếng anh cho nhân viên phục vụ nhà hàng",
+    "th": "ภาษาอังกฤษ พนักงานเสิร์ฟ",
+    "id": "bahasa inggris untuk waiter",
+    "tr": "garsonlar için ingilizce",
+    "es": "inglés para camareros",
+    "en": "english for waiters and waitresses"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "vi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "tiếng anh cho nhân viên phục vụ nhà hàng pdf"
+     ]
+    },
+    "th": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "ประโยค ภาษา อังกฤษ พนักงาน เสิร์ฟ",
+      "ศัพท์ ภาษา อังกฤษ พนักงาน เสิร์ฟ",
+      "ภาษาอังกฤษสําหรับพนักงานเสิร์ฟ"
+     ]
+    },
+    "id": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "belajar bahasa inggris untuk waiter",
+      "bahasa inggris waiter",
+      "bahasa inggris waitress"
+     ]
+    },
+    "tr": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "garsonlar için ingilizce cümleler",
+      "garsonlar için ingilizce kelimeler",
+      "garsonlar ingilizce"
+     ]
+    },
+    "es": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "inglés para camareros",
+      "inglés para camareros gratis",
+      "ingles para camareros frases"
+     ]
+    },
+    "en": {
+     "suggest": 5,
+     "engine": "google",
+     "related": [
+      "what do waiters and waitresses do",
+      "another name for waiters and waitresses",
+      "french word for waiters and waitresses"
+     ]
+    }
+   }
+  },
+  {
+   "id": "tour-guide-english",
+   "translationKey": "tour-guide-english",
+   "otherKeys": [],
+   "keyword": "english for tour guides",
+   "category": "ky-nang",
+   "intent": "informational/phrases",
+   "feature": "/app/#/speaking",
+   "shots": [
+    "#/speaking",
+    "#/phrases"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "itinerary"
+    ]
+   },
+   "cluster": "english-for-hospitality",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "tiếng anh hướng dẫn viên du lịch",
+    "th": "ภาษาอังกฤษ ไกด์นำเที่ยว",
+    "id": "bahasa inggris untuk tour guide",
+    "tr": "turist rehberi ingilizce"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "tiếng anh cho hướng dẫn viên du lịch pdf",
+      "học tiếng anh hướng dẫn viên du lịch",
+      "sách tiếng anh cho hướng dẫn viên du lịch"
+     ]
+    },
+    "th": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "id": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "belajar bahasa inggris untuk tour guide",
+      "percakapan bahasa inggris tour guide",
+      "tulisan bahasa inggris tour guide"
+     ]
+    },
+    "tr": {
+     "suggest": 4,
+     "engine": "google",
+     "related": [
+      "istanbul turist rehberi ingilizce",
+      "ingilizce turist rehberi iş ilanları",
+      "ingilizce turist rehberi diyalogları"
+     ]
+    }
+   }
+  },
+  {
+   "id": "handling-guest-complaints-english",
+   "translationKey": "guest-complaints-english",
+   "otherKeys": [
+    "polite-english-at-work (business: link)"
+   ],
+   "keyword": "handling guest complaints in english",
+   "category": "ky-nang",
+   "intent": "informational/dialogue",
+   "feature": "/app/#/roleplay",
+   "shots": [
+    "#/roleplay",
+    "#/phrases"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "apologize",
+     "refund"
+    ]
+   },
+   "cluster": "english-for-hospitality",
+   "role": "satellite",
+   "origin": "en",
+   "langTargets": {
+    "en": "handling guest complaints in hotel",
+    "vi": "xử lý phàn nàn của khách bằng tiếng anh",
+    "th": "ลูกค้า ร้องเรียน ภาษา อังกฤษ",
+    "ar": "التعامل مع شكاوى النزلاء بالانجليزية"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "industry",
+   "demand": {
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "handling guest complaints in hotel",
+      "handling guest complaints in hotel dialogue pdf",
+      "handling guest complaints in hotel script"
+     ],
+     "was": "handling guest complaints in english"
+    },
+    "vi": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "th": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "ลูกค้า ร้องเรียน ภาษา อังกฤษ",
+      "ตอบ ลูกค้า ร้องเรียน ภาษา อังกฤษ",
+      "ข้อร้องเรียนลูกค้า ภาษาอังกฤษ"
+     ],
+     "was": "รับมือลูกค้าร้องเรียน ภาษาอังกฤษ"
+    },
+    "ar": {
+     "suggest": 0,
+     "engine": "google",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    }
+   }
+  },
+  {
+   "id": "relative-clauses-who-which-that",
+   "translationKey": "relative-clauses",
+   "otherKeys": [
+    "written: de en es ja ko pt ru tr",
+    "vi listed in 2026-11 priority1_localise (same key)"
+   ],
+   "keyword": "relative clauses",
+   "category": "ngu-phap",
+   "intent": "informational/grammar",
+   "feature": "/app/#/grammar/relative-clauses",
+   "shots": [
+    "#/grammar/relative-clauses",
+    "#/grammar/mix"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "whom",
+     "whose"
+    ]
+   },
+   "cluster": "grammar-gaps-vi-plus",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "vi": "mệnh đề quan hệ",
+    "fr": "pronoms relatifs anglais who which that",
+    "id": "relative clause bahasa inggris",
+    "th": "relative clause คือ",
+    "zh": "英语定语从句",
+    "hi": "relative clauses in hindi",
+    "ar": "الضمائر الموصولة في الانجليزية"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "ngu-phap",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "mệnh đề quan hệ rút gọn tiếng anh",
+      "mệnh đề quan hệ xác định và không xác định là gì",
+      "mệnh đề quan hệ tiếng anh"
+     ]
+    },
+    "fr": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "id": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "pengertian relative clause dalam bahasa inggris",
+      "contoh kalimat relative clause dalam bahasa inggris"
+     ]
+    },
+    "th": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "relative clause คือ สรุป",
+      "relative clause คือ pdf",
+      "relative clause คือ อะไร มี อะไร บ้าง"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "英语定语从句思维导图",
+      "英语定语从句是什么意思",
+      "英语定语从句用法归纳"
+     ]
+    },
+    "hi": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "relative clause meaning in hindi",
+      "relative clauses meaning in hindi"
+     ]
+    },
+    "ar": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    }
+   }
+  },
+  {
+   "id": "reported-speech",
+   "translationKey": "reported-speech",
+   "otherKeys": [
+    "written: de en es fr id pt ru tr",
+    "vi listed in 2026-11 priority1_localise (same key)"
+   ],
+   "keyword": "reported speech",
+   "category": "ngu-phap",
+   "intent": "informational/grammar",
+   "feature": "/app/#/grammar/reported-speech",
+   "shots": [
+    "#/grammar/reported-speech",
+    "#/grammar/mix"
+   ],
+   "links": {
+    "tools": [
+     "test"
+    ],
+    "dict": [
+     "said",
+     "told"
+    ]
+   },
+   "cluster": "grammar-gaps-vi-plus",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "vi": "câu tường thuật",
+    "ja": "英語 話法の転換",
+    "ko": "화법전환",
+    "th": "reported speech คือ",
+    "zh": "英语 间接引语",
+    "hi": "reported speech in hindi",
+    "ar": "الكلام المنقول في الانجليزية"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "ngu-phap",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "câu tường thuật tiếng anh là gì",
+      "câu tường thuật câu hỏi",
+      "câu tường thuật yes/no"
+     ]
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": [
+      "英語 話法の転換"
+     ],
+     "was": "英語 話法 間接話法"
+    },
+    "ko": {
+     "suggest": 1,
+     "engine": "naver",
+     "related": [
+      "화법전환"
+     ],
+     "was": "화법 전환 영어"
+    },
+    "th": {
+     "suggest": 8,
+     "engine": "google",
+     "related": [
+      "reported speech คือ สรุป",
+      "reported speech คือ pdf",
+      "reported speech statements คือ"
+     ]
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "英语间接引语怎么改",
+      "英语间接引语",
+      "英语间接引语例句10个"
+     ]
+    },
+    "hi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "reported speech in hindi meaning",
+      "reported speech in hindi grammar",
+      "रिपोर्टेड स्पीच इन हिंदी"
+     ]
+    },
+    "ar": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "قواعد الكلام المنقول في اللغة الانجليزية",
+      "شرح الكلام المنقول في اللغة الانجليزية"
+     ]
+    }
+   }
+  },
+  {
+   "id": "make-vs-do",
+   "translationKey": "diferencia-entre-make-y-do-en-ingles",
+   "otherKeys": [
+    "written: de en es fr id pt tr",
+    "vi listed in 2026-11 priority1_localise (same key)"
+   ],
+   "keyword": "make vs do",
+   "category": "tu-vung",
+   "intent": "informational/usage",
+   "feature": "/app/#/usage/make",
+   "shots": [
+    "#/usage/make",
+    "#/practice/learn"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "make",
+     "do"
+    ]
+   },
+   "cluster": "grammar-gaps-vi-plus",
+   "role": "pillar",
+   "origin": "en",
+   "langTargets": {
+    "vi": "phân biệt make và do",
+    "ja": "make do 違い",
+    "ko": "make do 차이",
+    "ru": "make или do правило",
+    "zh": "make和do的区别",
+    "th": "make กับ do ต่างกันอย่างไร",
+    "ar": "الفرق بين make و do"
+   },
+   "priority": 1,
+   "status": "planned",
+   "examTag": "tu-vung",
+   "demand": {
+    "vi": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "phân biệt do make và take"
+     ]
+    },
+    "ja": {
+     "suggest": 1,
+     "engine": "google",
+     "related": []
+    },
+    "ko": {
+     "suggest": 0,
+     "engine": "naver",
+     "related": [],
+     "note": "no autocomplete: long-tail, write after verified targets"
+    },
+    "ru": {
+     "suggest": 4,
+     "engine": "yandex",
+     "related": [
+      "make или do правило в английском языке",
+      "make или do правило",
+      "make или do правило в английском"
+     ],
+     "was": "make или do разница"
+    },
+    "zh": {
+     "suggest": 8,
+     "engine": "baidu",
+     "related": [
+      "make和do的区别及用法",
+      "make和do的区别顺口溜",
+      "make和do的区别在哪"
+     ]
+    },
+    "th": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "make กับ do ใช้ ต่าง กัน อย่างไร"
+     ]
+    },
+    "ar": {
+     "suggest": 2,
+     "engine": "google",
+     "related": [
+      "الفرق بين do و make بالانجليزي"
+     ]
+    }
+   }
+  },
+  {
+   "id": "reduced-relative-clauses",
+   "translationKey": "rut-gon-menh-de-quan-he",
+   "otherKeys": [
+    "relative-clauses (pillar: link up, different keyword)",
+    "ja eigo-kankei-daimeishi / tr ingilizce-relative-clauses-konu-anlatimi: enrich those posts with a reduced-clause section instead of a 2nd post"
+   ],
+   "keyword": "reduced relative clauses",
+   "category": "ngu-phap",
+   "intent": "informational/grammar",
+   "feature": "/app/#/grammar/relative-clauses",
+   "shots": [
+    "#/grammar/relative-clauses"
+   ],
+   "links": {
+    "tools": [
+     "test/b2"
+    ],
+    "dict": []
+   },
+   "cluster": "grammar-gaps-vi-plus",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "rút gọn mệnh đề quan hệ",
+    "en": "reduced relative clauses"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "ngu-phap",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "rút gọn mệnh đề quan hệ khi nào",
+      "rút gọn mệnh đề quan hệ với tính từ",
+      "rút gọn mệnh đề quan hệ dạng chủ động"
+     ]
+    },
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "reduced relative clauses exercises",
+      "reduced relative clauses exercises pdf",
+      "reduced relative clauses examples"
+     ]
+    }
+   }
+  },
+  {
+   "id": "reported-questions-commands",
+   "translationKey": "cau-tuong-thuat-cau-hoi",
+   "otherKeys": [
+    "reported-speech (pillar: link up)"
+   ],
+   "keyword": "reported questions",
+   "category": "ngu-phap",
+   "intent": "informational/grammar",
+   "feature": "/app/#/grammar/reported-advanced",
+   "shots": [
+    "#/grammar/reported-advanced",
+    "#/grammar/reported-speech"
+   ],
+   "links": {
+    "tools": [
+     "test/b1"
+    ],
+    "dict": [
+     "asked"
+    ]
+   },
+   "cluster": "grammar-gaps-vi-plus",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "câu tường thuật dạng câu hỏi",
+    "en": "reported questions and commands"
+   },
+   "priority": 2,
+   "status": "planned",
+   "examTag": "ngu-phap",
+   "demand": {
+    "vi": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "câu tường thuật dạng câu hỏi công thức",
+      "câu tường thuật dạng câu hỏi wh",
+      "câu tường thuật dạng câu hỏi yes/no lớp 9"
+     ]
+    },
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "reported questions and commands exercises",
+      "reported questions and commands exercises pdf",
+      "reported questions and commands bamboozle"
+     ]
+    }
+   }
+  },
+  {
+   "id": "collocations-make-do-take-have",
+   "translationKey": "collocation-make-do-take-have",
+   "otherKeys": [
+    "make-vs-do (pillar)",
+    "collocation-ielts (vi: IELTS collocations, link)"
+   ],
+   "keyword": "collocations with make do take have",
+   "category": "tu-vung",
+   "intent": "informational/list",
+   "feature": "/app/#/usage/make",
+   "shots": [
+    "#/usage/make",
+    "#/practice/learn"
+   ],
+   "links": {
+    "tools": [],
+    "dict": [
+     "take",
+     "have"
+    ]
+   },
+   "cluster": "grammar-gaps-vi-plus",
+   "role": "satellite",
+   "origin": "vi",
+   "langTargets": {
+    "vi": "collocation make do have take",
+    "en": "collocations with make do take have"
+   },
+   "priority": 3,
+   "status": "planned",
+   "examTag": "tu-vung",
+   "demand": {
+    "vi": {
+     "suggest": 3,
+     "engine": "google",
+     "related": [
+      "collocation make do have take",
+      "collocation make do take",
+      "collocation give take make get do have"
+     ],
+     "was": "collocation với make do take have"
+    },
+    "en": {
+     "suggest": 10,
+     "engine": "google",
+     "related": [
+      "make do take have collocations pdf",
+      "collocations with take do make get have and go",
+      "collocations and phrases with make take do and have"
+     ]
+    }
+   }
+  }
+ ],
+ "progress": {
+  "_note": "26/10/2026: plan only. Briefs for W1–W4 (all with demand.suggest>=1) added to briefs.json (append-only, angle starts 'SEO clusters 12/2026'). Move lang/id from remaining to done as posts land.",
+  "postsByLang_2026_10_26": {
+   "vi": 92,
+   "ja": 28,
+   "ru": 30,
+   "pt": 32,
+   "zh": 32,
+   "ar": 31,
+   "prompts": 10,
+   "hi": 32,
+   "de": 34,
+   "ko": 33,
+   "id": 30,
+   "fr": 33,
+   "es": 31,
+   "en": 58,
+   "th": 32,
+   "tr": 31
+  },
+  "done": [],
+  "briefed": [
+   "ja/toeic-speaking-writing-guide",
+   "ja/toeic-speaking-tips",
+   "ja/toeic-writing-email",
+   "ja/business-english-guide",
+   "ja/english-phone-calls-at-work",
+   "ja/slack-teams-chat-english",
+   "ja/english-for-it-guide",
+   "ja/reported-speech",
+   "ja/make-vs-do",
+   "ja/english-for-kids-at-home",
+   "vi/relative-clauses-who-which-that",
+   "vi/reported-speech",
+   "vi/make-vs-do",
+   "vi/english-for-kids-at-home",
+   "ja/toeic-speaking-templates",
+   "ja/toeic-writing-opinion-essay",
+   "ja/it-english-vocabulary",
+   "ja/phonics-for-kids",
+   "ja/english-daily-phrases-parents",
+   "ko/toeic-speaking-writing-guide",
+   "ko/toeic-speaking-tips",
+   "ko/toeic-speaking-templates",
+   "ko/phonics-for-kids",
+   "ko/english-for-kids-at-home",
+   "vi/toeic-speaking-writing-guide",
+   "vi/english-for-it-guide",
+   "vi/hospitality-english-guide",
+   "en/duolingo-english-test-guide",
+   "en/pte-academic-guide",
+   "en/cambridge-english-exams-guide",
+   "hi/duolingo-english-test-guide",
+   "hi/pte-academic-guide",
+   "hi/pte-read-aloud",
+   "zh/duolingo-english-test-guide",
+   "zh/pte-academic-guide",
+   "zh/english-for-kids-at-home",
+   "zh/b1-preliminary-pet",
+   "es/cambridge-english-exams-guide",
+   "es/b1-preliminary-pet",
+   "es/b2-first-fce",
+   "pt/cambridge-english-exams-guide",
+   "pt/b2-first-fce",
+   "ar/duolingo-english-test-guide",
+   "th/hospitality-english-guide",
+   "th/hotel-front-desk-english",
+   "th/toeic-speaking-writing-guide",
+   "id/hospitality-english-guide",
+   "id/duolingo-english-test-guide",
+   "id/english-for-kids-at-home",
+   "tr/duolingo-english-test-guide",
+   "tr/cambridge-english-exams-guide",
+   "tr/hospitality-english-guide",
+   "vi/hotel-front-desk-english",
+   "vi/restaurant-waiter-english",
+   "vi/it-english-vocabulary",
+   "vi/duolingo-english-test-guide",
+   "en/det-score-chart",
+   "hi/det-score-chart"
+  ],
+  "remaining_count": 343
+ },
+ "nextBatches": [
+  {
+   "week": "W1 (write 27/10–02/11)",
+   "items": [
+    "ja/toeic-speaking-writing-guide",
+    "ja/toeic-speaking-tips",
+    "ja/toeic-writing-email",
+    "ja/business-english-guide",
+    "ja/english-phone-calls-at-work",
+    "ja/slack-teams-chat-english",
+    "ja/english-for-it-guide",
+    "ja/reported-speech",
+    "ja/make-vs-do",
+    "ja/english-for-kids-at-home",
+    "vi/relative-clauses-who-which-that",
+    "vi/reported-speech",
+    "vi/make-vs-do",
+    "vi/english-for-kids-at-home"
+   ]
+  },
+  {
+   "week": "W2 (03/11–09/11)",
+   "items": [
+    "ja/toeic-speaking-templates",
+    "ja/toeic-writing-opinion-essay",
+    "ja/it-english-vocabulary",
+    "ja/phonics-for-kids",
+    "ja/english-daily-phrases-parents",
+    "ko/toeic-speaking-writing-guide",
+    "ko/toeic-speaking-tips",
+    "ko/toeic-speaking-templates",
+    "ko/phonics-for-kids",
+    "ko/english-for-kids-at-home",
+    "vi/toeic-speaking-writing-guide",
+    "vi/english-for-it-guide",
+    "vi/hospitality-english-guide",
+    "en/duolingo-english-test-guide"
+   ]
+  },
+  {
+   "week": "W3 (10/11–16/11)",
+   "items": [
+    "en/pte-academic-guide",
+    "en/cambridge-english-exams-guide",
+    "hi/duolingo-english-test-guide",
+    "hi/pte-academic-guide",
+    "hi/pte-read-aloud",
+    "zh/duolingo-english-test-guide",
+    "zh/pte-academic-guide",
+    "zh/english-for-kids-at-home",
+    "zh/b1-preliminary-pet",
+    "es/cambridge-english-exams-guide",
+    "es/b1-preliminary-pet",
+    "es/b2-first-fce",
+    "pt/cambridge-english-exams-guide",
+    "pt/b2-first-fce",
+    "ar/duolingo-english-test-guide"
+   ]
+  },
+  {
+   "week": "W4 (17/11–23/11)",
+   "items": [
+    "th/hospitality-english-guide",
+    "th/hotel-front-desk-english",
+    "th/toeic-speaking-writing-guide",
+    "id/hospitality-english-guide",
+    "id/duolingo-english-test-guide",
+    "id/english-for-kids-at-home",
+    "tr/duolingo-english-test-guide",
+    "tr/cambridge-english-exams-guide",
+    "tr/hospitality-english-guide",
+    "vi/hotel-front-desk-english",
+    "vi/restaurant-waiter-english",
+    "vi/it-english-vocabulary",
+    "vi/duolingo-english-test-guide",
+    "en/det-score-chart",
+    "hi/det-score-chart"
+   ]
+  },
+  "After W4: take 10–15 lang/id from topics not yet in progress.done, priority 1 before 2 before 3, languages with the fewest posts scheduled in the next 30 days first; write each cluster's pillar in a language before its satellites; add a briefs.json entry (append-only) per item.",
+  "W1 is ja-heavy on purpose: ja's furthest publishAt is 16/11; 10 ja posts at 1/day fill 17–26/11.",
+  "The 3 vi grammar gaps in W1 are the same items as 2026-11-seo-program.json priority1_localise: mark both files when written."
+ ]
+}
