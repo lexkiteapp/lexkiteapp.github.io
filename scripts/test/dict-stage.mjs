@@ -33,4 +33,7 @@ ok(LADDER.every((x, i) => i === 0 || x.n >= LADDER[i - 1].n), 'bậc chỉ tăng
   ok(Math.abs(m.siteImpressionsDelta + 0.1) < 1e-9 && insp === 60, 'metrics: delta toàn site −10 %, 60 lượt inspect');
   ok(calls.some(c => c.dimensionFilterGroups && c.dimensionFilterGroups[0].filters[0].expression === '/vi/tu-dien/'), 'metrics: lọc đúng thư mục');
 }
+// wrangler.toml: routes phải ở cấp ngoài (trước [assets]/[vars]) – 26/10 đặt sau [vars] → Cloudflare tạo BIẾN tên routes, không gắn route
+{ const fs = await import('node:fs'), w = fs.readFileSync('workers/dict/wrangler.toml', 'utf8').split('\n'), r = w.findIndex(x => /^routes\s*=/.test(x)), t = w.findIndex(x => /^\[/.test(x));
+  ok(r >= 0 && t > r, 'wrangler.toml: routes nằm trước mọi [bảng]'); }
 console.log(f ? `✗ dict-stage: ${f}/${n} lỗi` : `✓ dict-stage: ${n} kiểm tra đạt`); process.exit(f ? 1 : 0);

@@ -4,6 +4,17 @@ main = "index.mjs"
 compatibility_date = "2026-09-01"
 workers_dev = true
 
+# Gắn vào lexkite.com (chủ duyệt 26/10/2026) – PHẢI nằm trước mọi [bảng] (TOML: khoá sau [vars] thuộc về vars). Không đụng các đường dẫn khác của Pages. Hết lượt Worker → fail open (về Pages).
+routes = [
+  { pattern = "lexkite.com/vi/tu-dien*", zone_name = "lexkite.com" },
+  { pattern = "lexkite.com/en/dictionary*", zone_name = "lexkite.com" },
+  { pattern = "lexkite.com/sitemap-dict-*", zone_name = "lexkite.com" },
+]
+# Trước bậc S3a (từ điển bắt đầu trùng /words/): thêm 2 route dưới → Worker 301 từ đã mở, còn lại đi tiếp tới Pages (stage.mjs giữ S2 tới khi có):
+#   { pattern = "lexkite.com/vi/words/*", zone_name = "lexkite.com" },
+#   { pattern = "lexkite.com/en/words/*", zone_name = "lexkite.com" },
+
+
 # Tầng 1: trang dựng sẵn – phục vụ miễn phí, không tính 100k lượt/ngày (≤ 20.000 file/phiên bản ở gói Free).
 [assets]
 binding = "ASSETS"
@@ -19,13 +30,3 @@ DICT_INDEX = ""
 # [[r2_buckets]]
 # binding = "DICT"
 # bucket_name = "lexkite-dict-data"
-
-# Gắn vào lexkite.com (chủ duyệt 26/10/2026). Không đụng các đường dẫn khác của Pages. Hết lượt Worker → fail open (về Pages).
-routes = [
-  { pattern = "lexkite.com/vi/tu-dien*", zone_name = "lexkite.com" },
-  { pattern = "lexkite.com/en/dictionary*", zone_name = "lexkite.com" },
-  { pattern = "lexkite.com/sitemap-dict-*", zone_name = "lexkite.com" },
-]
-# Trước bậc S3a (từ điển bắt đầu trùng /words/): thêm 2 route dưới → Worker 301 từ đã mở, còn lại đi tiếp tới Pages (stage.mjs giữ S2 tới khi có):
-#   { pattern = "lexkite.com/vi/words/*", zone_name = "lexkite.com" },
-#   { pattern = "lexkite.com/en/words/*", zone_name = "lexkite.com" },
