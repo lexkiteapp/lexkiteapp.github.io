@@ -1,5 +1,19 @@
 {
-  "Tỉ lệ đúng": {"es": "Precisión", "pt": "Precisão", "fr": "Précision", "de": "Genauigkeit", "id": "Akurasi", "th": "ความแม่นยำ", "zh": "正确率", "ja": "正答率", "ko": "정확도", "hi": "सटीकता", "ar": "الدقة", "ru": "Точность", "tr": "Doğruluk"},
+  "Tỉ lệ đúng": {
+    "es": "Precisión",
+    "pt": "Precisão",
+    "fr": "Précision",
+    "de": "Genauigkeit",
+    "id": "Akurasi",
+    "th": "ความแม่นยำ",
+    "zh": "正确率",
+    "ja": "正答率",
+    "ko": "정확도",
+    "hi": "सटीकता",
+    "ar": "الدقة",
+    "ru": "Точность",
+    "tr": "Doğruluk"
+  },
   "_note": "Bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa. scripts/i18n-fix.mjs áp vào web/js/i18n/<lang>.js sau mỗi lần dịch tự động.",
   "Ghi chú": {
     "es": "Nota",
