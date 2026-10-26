@@ -10,7 +10,7 @@
 
   const UI = g.UI || {};
   const { $, $$, esc, modal } = UI;
-  /*icons*/UI.addIcons('<symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>');/*/icons*/
+  /*icons*/UI.addIcons('<symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>');/*/icons*/
   const { state, routes } = App;
   const view = App.view;
 
@@ -336,9 +336,9 @@
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="card sty-card sty-res-box">
-            <div style="margin-bottom:.5rem" aria-hidden="true">${g.Kit && typeof g.Kit.svg === 'function' ? g.Kit.svg('win', 68) : winnerStyle.icon}</div>
+            <div style="margin-bottom:.5rem" aria-hidden="true">${g.Kit && typeof g.Kit.svg === 'function' ? g.Kit.svg('win', 68) : UI.glyph(winnerStyle.icon)}</div>
             <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem">${t('Kết quả phong cách tiếng Anh')}</div>
-            <h1 class="sty-badge">${winnerStyle.icon} ${esc(winnerStyle.name)}</h1>
+            <h1 class="sty-badge">${UI.glyph(winnerStyle.icon)} ${esc(winnerStyle.name)}</h1>
             <p class="sty-desc">${esc(winnerStyle.desc)}</p>
 
             <div class="sty-recs">

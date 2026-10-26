@@ -72,8 +72,8 @@
   function overview() {
     const P = load(), units = D().units, last = P.daily[P.daily.length - 1], doneToday = last && last.d === day();
     const next = units.find(u => !P.done[u.id]);
-    const card = u => `<a class="cf-unit${next && next.id === u.id ? ' next' : ''}" href="#/confidence/${u.id}"><span class="em" aria-hidden="true">${u.em}</span><span><b>${esc(t(u.title))}</b>${enSub(u)}${next && next.id === u.id ? `<span class="chip ok" style="margin-top:.3rem">${t('Bài tiếp theo')}</span>` : ''}</span>${P.done[u.id] ? `<span class="cf-done" role="img" aria-label="${t('Đã xong')}">✅</span>` : ''}</a>`;
-    view.innerHTML = head('🗣️ ' + t('Giao tiếp tự tin'), t('Mỗi bài là một tình huống thật, 5–8 phút: nghe, học cụm câu, nói theo, rồi tự tin nói chuyện. Sai cũng không sao – cứ nói!'))
+    const card = u => `<a class="cf-unit${next && next.id === u.id ? ' next' : ''}" href="#/confidence/${u.id}"><span class="em" aria-hidden="true">${u.em}</span><span><b>${esc(t(u.title))}</b>${enSub(u)}${next && next.id === u.id ? `<span class="chip ok" style="margin-top:.3rem">${t('Bài tiếp theo')}</span>` : ''}</span>${P.done[u.id] ? `<span class="cf-done" role="img" aria-label="${t('Đã xong')}">${UI.icon('circle-check')}</span>` : ''}</a>`;
+    view.innerHTML = head(UI.icon('message-circle') + ' ' + t('Giao tiếp tự tin'), t('Mỗi bài là một tình huống thật, 5–8 phút: nghe, học cụm câu, nói theo, rồi tự tin nói chuyện. Sai cũng không sao – cứ nói!'))
       + `<section class="card cf-hero"><div>${UI.ring(last ? last.score : 0, last ? last.score : '–', 'var(--primary)')}</div><div class="grow"><h2 style="margin:0">${t('Điểm tự tin')}</h2>
         <p class="small muted" style="margin:.2rem 0">${last ? t('Lần gần nhất: {n}/100 · chuỗi {d} ngày', { n: last.score, d: streakDays(P.daily) }) : t('Nói 2 phút mỗi ngày để theo dõi độ lưu loát và sự tự tin của bạn.')}</p>${spark(P.daily)}
         <div class="cf-bar"><a class="btn primary" href="#/confidence/daily">${doneToday ? '✅ ' + t('Đã nói hôm nay – nói thêm?') : '⏱️ ' + t('Thử thách 2 phút hôm nay')}</a><a class="btn" href="#/confidence/toolkit">🧰 ${t('Bộ công cụ tự tin')}</a></div></div></section>`
@@ -87,7 +87,7 @@
   }
 
   // ---------- Trang 1 bài ----------
-  const STEPS = () => [['🎧', t('Nghe hội thoại mẫu')], ['🧩', t('Cụm câu nên nói')], ['🔁', t('Nói theo')], ['✏️', t('Nói điền chỗ trống')], ['🎭', t('Hội thoại ngắn')], ['🏁', t('Tổng kết')]];
+  const STEPS = () => [['headphones', t('Nghe hội thoại mẫu')], ['puzzle', t('Cụm câu nên nói')], ['repeat', t('Nói theo')], ['pencil', t('Nói điền chỗ trống')], ['smile', t('Hội thoại ngắn')], ['flag', t('Tổng kết')]];
   const phraseCard = (u, p, opts = {}) => `<div class="cf-ph" id="${esc(p.id)}"${opts.hl ? ' tabindex="-1"' : ''}><div class="say"><span lang="en">${esc(p.say)}</span>${speakBtn(p.say)}${speakBtn(p.say, t('Nghe chậm'), true).replace('🔊', '🐢')}</div>
     <div class="small muted">${esc(t(p.mean))}</div>
     ${p.not ? `<div class="cf-pair"><span aria-hidden="true">✗</span><span><s lang="en">${esc(p.not)}</s> <span class="sr-only">${t('Tránh nói')}</span></span><span aria-hidden="true">✓</span><span><b lang="en">${esc(p.say)}</b></span></div><div class="small" style="margin-top:.3rem">💡 ${esc(t(p.why))}</div>` : ''}</div>`;
@@ -96,7 +96,7 @@
     const P = load(), S = STEPS();
     view.innerHTML = head(u.em + ' ' + esc(t(u.title)), `${I18N.lang() === 'en' ? '' : `<span lang="en">${esc(u.titleEn)}</span> · `}${chip(u.level)}`, '#/confidence')
       + `<div class="card"><h2 class="set-h">🎯 ${t('Sau bài này bạn có thể')}</h2><p>${esc(t(u.goal))}</p>
-        <ol class="small" style="padding-inline-start:1.2rem">${S.map(([e, n]) => `<li>${e} ${n}</li>`).join('')}</ol>
+        <ol class="small" style="padding-inline-start:1.2rem">${S.map(([e, n]) => `<li>${UI.icon(e)} ${n}</li>`).join('')}</ol>
         <div class="cf-bar"><button class="btn primary lg" id="cfGo">▶ ${P.done[u.id] ? t('Học lại') : t('Bắt đầu')} · ≈ ${t('{m} phút', { m: 7 })}</button></div></div>
         <h2 class="set-h" style="margin-top:1rem">🧩 ${t('Cụm câu nên nói')}</h2>${u.phrases.map(p => phraseCard(u, p, { hl: p.id === ph })).join('')}`;
     bindSay(view);
@@ -110,7 +110,7 @@
     let dead = false; const rec = { cur: null };
     App.onCleanup(() => { dead = true; UI.stopSpeak(); try { if (rec.cur) rec.cur.stop(); } catch (e) { /* đã dừng */ } });
     const shell = i => {
-      view.innerHTML = `<div class="page-head"><div><a class="small" href="#/confidence/${u.id}">← ${esc(t(u.title))}</a><h1 style="margin:.2rem 0">${S[i][0]} ${S[i][1]}</h1>
+      view.innerHTML = `<div class="page-head"><div><a class="small" href="#/confidence/${u.id}">← ${esc(t(u.title))}</a><h1 style="margin:.2rem 0">${UI.icon(S[i][0])} ${S[i][1]}</h1>
         <div class="cf-steps" role="progressbar" aria-valuemin="1" aria-valuemax="${S.length}" aria-valuenow="${i + 1}" aria-label="${t('Bước {i}/{n}', { i: i + 1, n: S.length })}">${S.map((x, k) => `<span class="${k <= i ? 'on' : ''}"></span>`).join('')}</div>
         <p class="small muted">${t('Bước {i}/{n}', { i: i + 1, n: S.length })}</p></div></div><div class="card" id="cfBody"></div>
         <div class="cf-bar"><button class="btn primary" id="cfNext">${t('Tiếp tục')} →</button>${i < S.length - 1 ? `<button class="btn" id="cfSkip">${t('Bỏ qua')}</button>` : ''}</div>`;
@@ -242,7 +242,7 @@
 
   // ---------- Bộ công cụ ----------
   function toolkit(ph) {
-    view.innerHTML = head('🧰 ' + t('Bộ công cụ tự tin'), t('5 bộ câu giúp bạn không bị "đứng hình": nhờ nhắc lại, câu giờ, bắt chuyện, phản đối lịch sự và nói khi quên từ.'), '#/confidence')
+    view.innerHTML = head(UI.icon('briefcase') + ' ' + t('Bộ công cụ tự tin'), t('5 bộ câu giúp bạn không bị "đứng hình": nhờ nhắc lại, câu giờ, bắt chuyện, phản đối lịch sự và nói khi quên từ.'), '#/confidence')
       + D().toolkit.map(g => `<section class="card" style="margin-bottom:.8rem" id="${g.id}"><h2 class="set-h" style="margin-top:0">${g.em} ${esc(t(g.title))}</h2><p class="small muted">${esc(t(g.intro))}</p>
         ${g.phrases.map(p => `<div class="cf-ph" id="${g.id}-${p.id}"><div class="say"><span lang="en">${esc(p.say)}</span>${speakBtn(p.say)}<button type="button" class="ic" data-try="${esc(p.say)}" aria-label="${t('Nói thử')}">🎙️</button></div><div class="small muted">${esc(t(p.mean))}</div><div class="small" data-fb aria-live="polite"></div></div>`).join('')}</section>`).join('');
     bindSay(view);
@@ -261,7 +261,7 @@
   const allPhrases = () => [...D().units.flatMap(u => u.phrases.map(p => p.say)), ...D().toolkit.flatMap(g => g.phrases.map(p => p.say))].map(s => norm(s.split('…')[0])).filter(s => s.split(' ').length >= 2);
   function daily() {
     const list = D().daily, n = Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5), q = list[n % list.length] || { q: '', tip: '' };
-    view.innerHTML = head('⏱️ ' + t('Thử thách 2 phút hôm nay'), t('Nói liên tục tối đa 2 phút về đề bên dưới. Không ai chấm lỗi – mục tiêu là nói trôi chảy và dám nói.'), '#/confidence')
+    view.innerHTML = head(UI.icon('timer') + ' ' + t('Thử thách 2 phút hôm nay'), t('Nói liên tục tối đa 2 phút về đề bên dưới. Không ai chấm lỗi – mục tiêu là nói trôi chảy và dám nói.'), '#/confidence')
       + `<section class="card"><div class="cf-big" lang="en">${esc(q.q)}</div><p class="small">💡 <span lang="en">${esc(q.tip)}</span> ${speakBtn(q.q, t('Nghe đề'))}</p>
         <div class="cf-clock" id="cfClock" role="timer" aria-live="off">2:00</div>
         <div class="cf-bar" style="justify-content:center">${mic('cfRec', t('Bắt đầu nói'))}</div><p class="small muted" id="cfLive" lang="en" style="min-height:1.5em;text-align:center"></p>

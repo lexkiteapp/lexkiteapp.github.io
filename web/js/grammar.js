@@ -441,7 +441,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       view.innerHTML = `
         <div class="row between"><a href="#/grammar" class="small">← ${t('Ngữ pháp')}</a><a class="btn sm ghost" href="#/grammar/${x.id}?view=full">${UI.icon('book-open')} ${t('Xem toàn bài')}</a></div>
         ${cur === 0 ? heroHtml(x, unit) : `<div class="row nowrap" style="margin:.7rem 0"><span style="font-size:1.8rem" aria-hidden="true">${x.emoji}</span><div><b>${esc(TTL(x))}</b>${TTL(x) !== x.en ? `<div class="tiny muted" lang="en">${esc(x.en)}</div>` : ''}</div></div>`}
-        <div class="steps">${steps.map((s, k) => `<button class="stepdot ${k === cur ? 'on' : ''} ${k < cur ? 'done' : ''}" data-step="${k}" title="${esc(s.name)}" ${k === cur ? 'aria-current="step"' : ''}><span>${k < cur ? '✓' : s.em}</span><small>${esc(s.name)}</small></button>`).join('')}</div>
+        <div class="steps">${steps.map((s, k) => `<button class="stepdot ${k === cur ? 'on' : ''} ${k < cur ? 'done' : ''}" data-step="${k}" title="${esc(s.name)}" ${k === cur ? 'aria-current="step"' : ''}><span>${k < cur ? "✓" : UI.glyph(s.em)}</span><small>${esc(s.name)}</small></button>`).join('')}</div>
         <div class="step-body">${st.html()}</div>
         ${cur < steps.length - 1 ? `<div class="row between" style="margin-top:1rem">${cur > 0 ? `<button class="btn" id="sPrev">← ${t('Quay lại')}</button>` : '<span></span>'}<button class="btn primary lg" id="sNext" ${gateOk ? '' : 'disabled'}>${t('Tiếp tục')} →</button></div>` : `<div class="row" style="margin-top:1rem"><button class="btn" id="sPrev">← ${t('Quay lại')}</button></div>`}`;
       App.bindCommon();
