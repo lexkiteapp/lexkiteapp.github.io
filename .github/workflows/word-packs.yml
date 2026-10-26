@@ -28,6 +28,6 @@ jobs:
           git config user.email "lexkite-bot@users.noreply.github.com"
           git add -A web/packs
           git diff --cached --quiet && exit 0
-          git commit -m "Gói nghĩa từ vựng: cập nhật tự động"
+          git commit -m "Gói nghĩa từ vựng: cập nhật tự động [CF-Pages-Skip]"
           for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
           exit 1

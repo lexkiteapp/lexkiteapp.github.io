@@ -1,12 +1,12 @@
-# Tự đăng blog: mỗi giờ (phút 7) kiểm bài vừa đến giờ đăng → gọi deploy hook Cloudflare Pages (build lại site) → báo IndexNow
+# Tự đăng blog: mỗi 3 giờ (phút 7, trùng khung cron pages-deploy) kiểm bài đến giờ trong 3 giờ qua – 151 giờ đăng khác nhau/tháng 11 nếu mỗi giờ 1 build > trần 500 build → yêu cầu pages-deploy.yml (1 build cho cả khung) → báo IndexNow
 # → ping WebSub cho RSS từng ngôn ngữ → ghi sổ băm nội dung (content/protection/registry.jsonl, bằng chứng tác quyền)
 # → Wayback → OpenTimestamps (content/protection/ots/<hash>.ots, không chặn) + commit.
 # Commit sổ có [CF-Pages-Skip] (Cloudflare không build lại). Header X-Lexkite-CI (secret LEXKITE_CI_HEADER) để qua WAF – docs/CONTENT-PROTECTION.md.
-# Không có bài đến hạn → không làm gì (không tốn lượt build). Secret cần: CF_PAGES_DEPLOY_HOOK (xem docs/SEO-PLAN.md "Vận hành blog").
+# Không có bài đến hạn → không làm gì (không tốn lượt build). Bài cùng khung giờ (--since 70) gom vào 1 deploy, gọi qua pages-deploy.yml (urgent, docs/FREE-TIER.md §7).
 name: Blog publish
 on:
   schedule:
-    - cron: '7 * * * *'
+    - cron: '7 */3 * * *'   # gom: ≤ 8 build blog/ngày (docs/FREE-TIER.md §7)
   workflow_dispatch:
     inputs:
       force:
@@ -15,6 +15,7 @@ on:
         default: false
 permissions:
   contents: write
+  actions: write   # gọi pages-deploy.yml
 concurrency:
   group: blog-publish
   cancel-in-progress: false
@@ -30,21 +31,16 @@ jobs:
       - name: Bài đến hạn
         id: due
         run: |
-          node scripts/blog-due.mjs --since 70 > due.txt
+          node scripts/blog-due.mjs --since 190 > due.txt   # 3 giờ + 10 phút đệm
           cat due.txt
           echo "count=$(grep -c '^https://' due.txt || true)" >> "$GITHUB_OUTPUT"
-      - name: Deploy hook Cloudflare Pages
+      - name: Yêu cầu deploy Pages (1 lần cho mọi bài trong khung giờ)
         if: steps.due.outputs.count != '0' || inputs.force
-        env:
-          CF_PAGES_DEPLOY_HOOK: ${{ secrets.CF_PAGES_DEPLOY_HOOK }}
+        env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          if [ -z "$CF_PAGES_DEPLOY_HOOK" ]; then
-            echo "::error::Thiếu secret CF_PAGES_DEPLOY_HOOK (Cloudflare Pages → Settings → Builds → Deploy hooks; GitHub → Settings → Secrets → Actions)"
-            exit 1
-          fi
-          curl -fsS -X POST "$CF_PAGES_DEPLOY_HOOK" > /dev/null
-          echo "✓ đã gọi deploy hook – chờ Cloudflare build (~5 phút)"
-          sleep 300
+          gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f force=${{ inputs.force || false }} -f reason="blog-publish ${{ steps.due.outputs.count }} bài"
+          echo "✓ đã yêu cầu deploy – chờ build (~6 phút) rồi mới báo IndexNow"
+          sleep 420
       - name: IndexNow
         if: steps.due.outputs.count != '0' || inputs.force
         run: node scripts/indexnow.mjs < due.txt

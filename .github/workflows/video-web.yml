@@ -14,6 +14,7 @@ on:
       force: { description: 'Dựng lại mọi clip (bỏ qua so khớp rev)', type: boolean, default: false }
 permissions:
   contents: write
+  actions: write   # gọi pages-deploy.yml
 concurrency: { group: video-web, cancel-in-progress: false }
 jobs:
   web:
@@ -65,16 +66,18 @@ jobs:
         run: node scripts/video/web-rendition.mjs manifest shorts-repo && node scripts/test/video-web.mjs --schema-only
       - name: Commit + triển khai + IndexNow
         if: ${{ steps.lease.outputs.skip != '1' }}
-        env: { HOOK: '${{ secrets.CF_PAGES_DEPLOY_HOOK }}' }
+        env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           git add web/data/videos.json content/video/web/captions
           if git diff --cached --quiet; then echo "không có thay đổi"; exit 0; fi
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"   # cả lúc pull --rebase
-          git commit -qm "video-web: cập nhật bản web của short bản tin"
+          git commit -qm "video-web: cập nhật bản web của short bản tin [CF-Pages-Skip]"
           git checkout -q -- .   # bỏ thay đổi phụ (build-lexicon --write) để rebase được
           for k in 1 2 3 4 5; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
-          [ -n "$HOOK" ] && curl -fsS -X POST "$HOOK" >/dev/null && echo "đã gọi deploy hook" || echo "::warning::không gọi được deploy hook"
-          if [ -s .webvid/new-urls.txt ]; then sleep 240; node scripts/indexnow.mjs < .webvid/new-urls.txt || echo "::warning::IndexNow lỗi"; fi
+          # có URL mới cần IndexNow → gấp (1 build); chỉ cập nhật bản cũ → gom (pages-deploy chờ yên + giãn cách)
+          if [ -s .webvid/new-urls.txt ]; then u=true; q=0; else u=false; q=15; fi
+          gh workflow run pages-deploy.yml --ref main -f urgent=$u -f quiet=$q -f reason="video-web" && echo "đã yêu cầu deploy" || echo "::warning::không gọi được pages-deploy"
+          if [ -s .webvid/new-urls.txt ]; then sleep 420; node scripts/indexnow.mjs < .webvid/new-urls.txt || echo "::warning::IndexNow lỗi"; fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:

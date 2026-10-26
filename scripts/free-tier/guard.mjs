@@ -49,10 +49,11 @@ export function cfUsage({ a, y }, { second = false } = {}) {
   return out;
 }
 
-/** Đếm build Pages từ đầu tháng (UTC). Commit có [CF-Pages-Skip] không build → không đếm. Dừng khi gặp bản trước đầu tháng. */
-export async function pagesBuilds(tok, acct, project, now, fetcher = fetch, maxPages = 45) {
+/** Đếm build Pages từ đầu tháng (UTC). Commit có [CF-Pages-Skip] không build → không đếm; Direct Upload (wrangler, trigger ad_hoc) không dùng
+ *  hệ build Cloudflare → không đếm (docs/FREE-TIER.md §7). Dừng khi gặp bản trước đầu tháng. */
+export async function pagesBuilds(tok, acct, project, now, fetcher = fetch, maxPages = 100) {
   const start = dayOf(now).slice(0, 8) + '01';
-  let n = 0, preview = 0, total = 0;
+  let n = 0, preview = 0, total = 0, direct = 0;
   for (let p = 1; p <= maxPages; p++) {
     const r = await fetcher(`https://api.cloudflare.com/client/v4/accounts/${acct}/pages/projects/${project}/deployments?per_page=25&page=${p}`, { headers: { Authorization: 'Bearer ' + tok } });
     const j = await r.json().catch(() => ({}));
@@ -63,9 +64,10 @@ export async function pagesBuilds(tok, acct, project, now, fetcher = fetch, maxP
       total++;
       const msg = ((d.deployment_trigger || {}).metadata || {}).commit_message || '';
       if (SKIP_RE.test(msg)) continue;
+      if ((d.deployment_trigger || {}).type === 'ad_hoc') { direct++; continue; }
       n++; if (d.environment === 'preview') preview++;
     }
-    if (older || !(j.result || []).length) return { value: n, note: `${preview} preview; ${total} bản ghi từ ${start}` };
+    if (older || !(j.result || []).length) return { value: n, note: `${preview} preview; ${direct} Direct Upload (không tính); ${total} bản ghi từ ${start}` };
   }
   return { value: n, note: `≥ ${maxPages * 25} bản ghi – số thật có thể lớn hơn` };
 }

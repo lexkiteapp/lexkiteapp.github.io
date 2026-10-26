@@ -39,7 +39,7 @@ jobs:
           cd /tmp/shorts
           python3 "$GITHUB_WORKSPACE/scripts/cine/shorts_migrate.py" apply /tmp/shorts
           git add -A recipes .gitignore shorts/index.json
-          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "recipe-first: media → Kho Drive, giữ công thức + manifest (shorts-migrate #${{ github.run_number }})" || { echo "không có gì đổi"; exit 0; }
+          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "recipe-first: media → Kho Drive, giữ công thức + manifest (shorts-migrate #${{ github.run_number }}) [CF-Pages-Skip]" || { echo "không có gì đổi"; exit 0; }
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
           for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase origin main; done
           git ls-tree -r -l HEAD | awk '{s+=$4} END {printf "tip sau: %.1f MB\n", s/1e6}' | tee -a $GITHUB_STEP_SUMMARY

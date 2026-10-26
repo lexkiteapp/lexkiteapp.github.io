@@ -37,7 +37,7 @@
 |---|---|
 | Workers+Functions ≥ 80 % (80k/ngày) **3 ngày liền**, hoặc đỉnh 7 ngày ≥ 90k | Chủ bật **Workers Paid 5 USD/tháng** (10 tr lượt/tháng, D1 25 tỉ đọc/50 tr ghi/tháng kèm theo). Trước đó: shed tự bật. |
 | Worker ảnh/âm thanh chiếm phần lớn lượt (bảng script trong issue) | Đổi `media`/`audio` sang gốc không-Worker: CNAME proxied → GitHub Pages + Cache Rule + Origin Rule đổi Host (docs/CAPACITY.md §5). Hoặc route Worker với **Request limit failure mode = Fail open** để quá trần thì đi thẳng gốc. |
-| Pages build ≥ 80 %/tháng | Pages › Settings › Builds › **Branch control: chỉ production** (tắt preview build nhánh); commit máy `[CF-Pages-Skip]`; gom deploy theo lịch. Cân nhắc deploy từ GitHub Actions bằng `wrangler pages deploy` (Direct Upload) – kiểm lại trên tài liệu Cloudflare rằng không tính vào 500 build trước khi chuyển. |
+| Pages build ≥ 80 %/tháng | Xem §7 (cổng `pages-deploy.yml`, chế độ `hook`/`direct`). |
 | D1 tài khoản 2 ghi ≥ 80 % | Gộp ghi theo lô ở việc nền (drive*, job_runs). |
 
 ## 5. Khoá cần thêm (GitHub › Settings › Secrets › Actions)
@@ -47,3 +47,31 @@ ID tài khoản chính ghi thẳng trong workflow (công khai). Tài khoản 2 c
 
 ## 6. Số đo đầu tiên (26/10/2026, chạy tay `--dry`)
 Workers+Functions hôm qua 13,4k (13 %; đỉnh 7 ngày 32,8k = 33 %) · D1 sync ghi 33k (33 %; đỉnh 57,6k) · **D1 tài khoản 2 ghi 120k (120 %)** · **Pages build tháng 10: 941 (188 %)** – build vẫn chạy nhưng vượt trần công bố · repo web 916 MB (89 %) · lexkite-media 677 MB (66 %) · Actions cache 9,85 GB (mềm) · R2 chưa có số liệu (bucket blog chưa dùng).
+
+## 7. Pages build: nguồn, cổng gom, mục tiêu ≤ 300/tháng (26/10/2026)
+**Đo tháng 10** (Pages API, `scripts/free-tier/guard.mjs`): 1.975 bản ghi = 1.592 production + 383 preview (preview đã tắt 26/10); 1.846 do push, 129 do deploy hook. 7 ngày 20–26/10: 1.034 build production ≈ 148/ngày:
+push của người/phiên agent ≈ 640 (62 %), commit máy `lexkite-bot`/`Lexkite CI` không skip ≈ 283 (27 %), deploy hook (blog-publish, video-web, blog-images) ≈ 75 (7 %).
+video-web vừa push không skip vừa gọi hook → 2 build/lượt. blog-publish mỗi giờ có bài = 1 build (tháng 11 có 151 giờ đăng khác nhau).
+
+**Vượt 500 thì sao** (quan sát thật, không phải tài liệu): build thứ 500 lúc 17/10 09:29 UTC; sau đó vẫn 1.064 deploy thành công, tỉ lệ lỗi không tăng (≈ 10 % so với ≈ 18 % trước) → Cloudflare
+**chưa chặn, chưa xếp hàng thêm**. Tài liệu (developers.cloudflare.com/pages/platform/limits) chỉ ghi "500 builds/month" + "1 build at a time", không nói hậu quả → có thể bị áp bất cứ lúc nào: coi 500 là trần cứng.
+Hàng đợi chỉ do 1 build đồng thời: build mới chờ build cũ (226 bản `queued/idle` bị bản mới hơn thay thế).
+
+**Cổng `pages-deploy.yml`** (`scripts/pages/deploy.mjs`, test `scripts/test/pages-skip.mjs` trong `npm test`):
+- Mọi commit máy (workflow + script) có `[CF-Pages-Skip]`; chỉ `pages-deploy.yml` được dùng `CF_PAGES_DEPLOY_HOOK`/`wrangler pages deploy`. Workflow cần lên site gọi `gh workflow run pages-deploy.yml -f urgent=… -f quiet=… -f reason=…` (cần `permissions: actions: write`).
+- Gom: concurrency theo job `cancel-in-progress` + chờ yên `quiet` phút (push 15, dispatch mặc định 10) → chuỗi yêu cầu liền nhau còn 1; nhóm `urgent` tách riêng để yêu cầu thường không huỷ bài blog đến giờ.
+- Bỏ khi HEAD đã deploy/đang build, hoặc không đổi tệp site (`NON_SITE`: docs, reports, brand, mobile, store, workers, infra, .github, scripts video/cine/footage/test, *.md ngoài content/web).
+- Giãn cách `PAGES_MIN_GAP_MIN` (mặc định 180 phút) giữa 2 build trừ `urgent` (blog-publish, video-web có URL mới, free-tier-guard đổi chế độ shed). Cron `23 */3` bù commit máy đã skip.
+- blog-publish chạy `7 */3` (`--since 190`): mọi bài trong khung 3 giờ = 1 build, trùng khung cron → tối đa 8 build/ngày từ blog + bù.
+
+**Chế độ** (biến repo `PAGES_DEPLOY`, GitHub › Settings › Variables):
+| Chế độ | Ai build | Build/tháng dự kiến | Chủ cần làm |
+|---|---|---|---|
+| `git` (mặc định, hiện tại) | Cloudflare build mọi push không skip | ≈ 2.700 (push người/agent ≈ 91/ngày; máy + hook về ≈ 0) – **vẫn vượt** | – |
+| `hook` | chỉ cổng gọi deploy hook | ≤ 8 khung × 30 + ≤ 30 gấp video ≈ **≤ 270** (thường ~150–200) | Pages › Settings › Builds › Branch control: tắt **automatic production deployments**; đặt `PAGES_DEPLOY=hook` |
+| `direct` (khuyến nghị) | GitHub Actions dựng `dist` + `wrangler pages deploy` | **0** (Direct Upload không qua hệ build Cloudflare; deploy thì không giới hạn số lượt) | như `hook` + thêm quyền **Cloudflare Pages: Edit** cho secret `CLOUDFLARE_API_TOKEN`; đặt `PAGES_DEPLOY=direct` |
+Git-integrated project vẫn nhận Direct Upload sau khi tắt automatic deployments (developers.cloudflare.com/pages/configuration/git-integration). Biến môi trường/secret của Functions là cấu hình dự án → giữ nguyên.
+Quay lại: bật lại automatic production deployments + xoá biến `PAGES_DEPLOY`.
+
+**Đo**: guard hằng ngày đếm build = deployment tháng này trừ `[CF-Pages-Skip]` và trừ Direct Upload (`ad_hoc`), tối đa 100 trang API. Mục tiêu ≤ 300 (60 %); ≥ 400 (80 %) mở issue `free-tier`.
+Log mỗi lượt cổng ghi `chế độ · sự kiện → act: lý do` (Actions › Pages deploy).

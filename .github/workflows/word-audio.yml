@@ -97,7 +97,7 @@ jobs:
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add web/audio/w/index.txt web/audio/w/s3.tsv web/audio/w/s3-stats.json
           git diff --cached --quiet && exit 0
-          git commit -qm "Giọng đọc từ vựng s3: thêm lô đã qua Whisper (còn ${{ needs.plan.outputs.left }} từ trước lượt này)"
+          git commit -qm "Giọng đọc từ vựng s3: thêm lô đã qua Whisper (còn ${{ needs.plan.outputs.left }} từ trước lượt này) [CF-Pages-Skip]"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
   sample:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0'

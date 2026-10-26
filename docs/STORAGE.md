@@ -51,3 +51,14 @@ Tệp đã đặt không bao giờ dời; Worker dò mọi kho nên URL không �
 ## 5. Quản trị › 💾 Lưu trữ
 `web/js/admin-storage.js` đọc `/data/storage-forecast.json`: từng repo (MB cây đầu nhánh, MB cả lịch sử, số tệp, %, dự báo khi đủ 20k từ), cảnh báo ≥ 70 %,
 dự báo kho 20k (âm thanh/ảnh từ mới, tệp Pages kho từ so với cổng 18.000).
+
+## 6. Soát 26/10/2026 (issue #69: GitHub API size 920 MB / 1 GB)
+- Đo cục bộ cả lịch sử `main`: 45.561 blob, **655 MB nén trên đĩa** (GitHub đếm 920 MB, gồm cả ref PR/nhánh cũ). Theo đuôi: mp3 443 MB (đã rời cây 24/10, còn trong lịch sử) · **npz 94 MB** · json 50 · js 20 · png 18 · jpg 11.
+- **Lọt vào git**: 16 `brand/library/cine/cafe/meta/*/*/crops.npz` = 89 MB (lớn nhất 13,8 MB) – vào cùng commit blog 20/10 (trước khi có size-guard). Cả 16 có bản gốc ở Kho Drive (`archive-manifest.json`, 2 bản). Đã gỡ khỏi cây (`git rm --cached`) + `.gitignore brand/library/**/*.npz` → cây HEAD 235 → 142 MB; lịch sử giữ nguyên. Còn 45 wav (5 MB) + 48 npy (0,2 MB) nhỏ, chưa có bản Drive – giữ. Không có thư mục footage nào khác trong git (footage ở repo riêng `lexkite-footage`).
+- Máy khác có bản npz đang dùng: sau khi kéo commit gỡ, git XOÁ tệp khỏi thư mục làm việc → lấy lại: `git show <commit trước>:<đường dẫn> > <đường dẫn>` hoặc từ Kho Drive.
+- Chặn tái phát: `size-guard.yml` (commit thêm > 20 MB nhị phân → đỏ) + `.gitignore` brand/library (ảnh, mp4, npz); tệp nặng mới → kho media theo `infra/media-repos.json`.
+
+### Phương án dọn lịch sử – CHỜ CHỦ DUYỆT, chưa làm
+`git filter-repo --path-glob 'web/audio/**/*.mp3' --path-glob '*.npz' --invert-paths` trên bản clone mới → push `--force` mọi nhánh + tag. Ước giảm ≈ 537 MB (mp3 + npz) → còn ~120 MB nén.
+Rủi ro: (1) đổi SHA mọi commit → mọi clone/worktree/phiên agent phải clone lại, PR mở hỏng diff, tag `prod-*` và `release-archive` phải ghi lại; (2) Cloudflare Pages/Workers ghi commit hash cũ – rollback `scripts/ops/pages-rollback.mjs` theo hash mất tác dụng; (3) GitHub vẫn giữ object cũ qua ref `refs/pull/*` tới khi Support GC → số `size` có thể không giảm ngay (phải mở ticket); (4) sổ bằng chứng tác quyền (`content/protection`) tham chiếu commit → mất dấu thời gian git (OTS/Wayback vẫn còn).
+Thay thế ít rủi ro hơn: repo mới từ ảnh chụp cây (không lịch sử) cho Pages, repo cũ lưu trữ chỉ đọc. Trần 1 GB là **khuyến nghị** (cảnh báo, không chặn push < 100 MB/tệp), nên chưa gấp: tăng hiện tại ≈ 0 sau 24/10.

@@ -58,12 +58,12 @@ jobs:
           cd /tmp/shorts; git diff --quiet shorts/index.json && { echo "index không đổi"; rm -f ~/.ssh/shorts; exit 0; }
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/shorts -o IdentitiesOnly=yes"
           cp shorts/index.json /tmp/index.new.json
-          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qam "drive-shorts #${{ github.run_number }}: vị trí Kho Drive"
+          git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qam "drive-shorts #${{ github.run_number }}: vị trí Kho Drive [CF-Pages-Skip]"
           for k in 1 2 3 4; do git push -q origin HEAD:main && break
             # đua với cine-render: lấy bản mới rồi gộp trường drive theo id
             git fetch -q origin main && git reset -q --hard origin/main
             python3 -c "import json;n={e['id']:e.get('drive') for e in json.load(open('/tmp/index.new.json'))['items'] if e.get('drive')};p='shorts/index.json';d=json.load(open(p));[e.__setitem__('drive',n[e['id']]) for e in d['items'] if e['id'] in n and 'drive' not in e];json.dump(d,open(p,'w'),indent=1,ensure_ascii=False)"
-            git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qam "drive-shorts #${{ github.run_number }}: vị trí Kho Drive" || break
+            git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qam "drive-shorts #${{ github.run_number }}: vị trí Kho Drive [CF-Pages-Skip]" || break
           done
           rm -f ~/.ssh/shorts
       - name: Trả thuê

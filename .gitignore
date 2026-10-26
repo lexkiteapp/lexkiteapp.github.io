@@ -50,6 +50,8 @@ brand/library/**/*.jpg
 brand/library/**/*.mp4
 brand/library/**/*.svg
 brand/library/**/*.src
+# crops.npz (89 MB, 26/10) đã lọt vào git – bản gốc ở Kho Drive theo brand/library/cine/archive-manifest.json (docs/STORAGE.md §6)
+brand/library/**/*.npz
 brand/library/_web/
 brand/library/_review/
 brand/library/_cache/

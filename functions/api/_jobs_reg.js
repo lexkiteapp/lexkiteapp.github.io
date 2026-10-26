@@ -123,7 +123,7 @@ export const REG = {
    "id": "blog-publish",
    "workflow": "blog-publish.yml",
    "cron": [
-    "7 * * * *"
+    "7 */3 * * *"
    ],
    "priority": "publishing",
    "resources": [
@@ -162,6 +162,20 @@ export const REG = {
    "est": {
     "d1_main_reads": 40
    },
+   "lease": false
+  },
+  {
+   "id": "pages-deploy",
+   "workflow": "pages-deploy.yml",
+   "cron": [
+    "23 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
    "lease": false
   },
   {

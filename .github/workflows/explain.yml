@@ -38,5 +38,5 @@ jobs:
         run: |
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add content/explain web/js/explain
-          git commit -qm "Lời giải đáp án: sinh + duyệt AI (lô tự động)"
-          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && node scripts/explain/build.mjs && git add web/js/explain && (git diff --cached --quiet || git commit -qm "Lời giải: dựng lại sau rebase") ; git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
+          git commit -qm "Lời giải đáp án: sinh + duyệt AI (lô tự động) [CF-Pages-Skip]"
+          for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && node scripts/explain/build.mjs && git add web/js/explain && (git diff --cached --quiet || git commit -qm "Lời giải: dựng lại sau rebase [CF-Pages-Skip]") ; git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1
