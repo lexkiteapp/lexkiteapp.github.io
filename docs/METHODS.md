@@ -22,6 +22,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Mergecheck: `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp). Remote thật: github.com/lexkiteapp/lexkiteapp.github.io (origin cục bộ là repo CŨ).
 - Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
+- **Trước MỖI lần push: `npm run prepush`** (tự dựng lại ci-triage, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
 - `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
