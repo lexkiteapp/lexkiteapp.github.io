@@ -288,9 +288,10 @@
       $('[data-mnem]', lb).onclick = async ev => {
         const out = $('[data-mnem-out]', lb), b = ev.currentTarget; b.disabled = true; out.textContent = '⏳ ' + t('AI đang nghĩ mẹo nhớ…');
         try {
-          const r = await AI.ask(`Create a memory aid for the English word "${c.word}" (${c.pos || ''}) meaning "${c.vi}" for a ${I18N.learnLang() === 'vi' ? 'Vietnamese' : I18N.LANGS[I18N.learnLang()][0]} learner. Return ONLY JSON: {"mnemonic": "a vivid sound-alike or image association in the learner's language, max 30 words", "parts": "word parts / root meaning if useful, else empty", "confuse": "a commonly confused word and the difference, else empty"}`);
+          const ask = AI.askLocal || AI.ask, wq = `"${c.word}" (${c.pos || ''})`;
+          const r = await ask(`Create a memory aid for the English word "${c.word}" (${c.pos || ''}) meaning "${c.vi}" for a ${I18N.learnLang() === 'vi' ? 'Vietnamese' : I18N.LANGS[I18N.learnLang()][0]} learner. Return ONLY JSON: {"mnemonic": "a vivid sound-alike or image association in the learner's language, max 30 words", "parts": "word parts / root meaning if useful, else empty", "confuse": "a commonly confused word and the difference, else empty"}`, { keys: ['mnemonic', 'parts', 'confuse'], localPrompt: `Create a memory aid for the English word ${wq} meaning "${c.vi}". Return ONLY JSON: {"mnemonic": "a vivid image association, max 30 words", "parts": "word parts / root meaning if useful, else empty", "confuse": "a commonly confused word and the difference, else empty"}`, schema: { type: 'object', required: ['mnemonic'], properties: { mnemonic: { type: 'string', minLength: 8, maxLength: 400 }, parts: { type: 'string' }, confuse: { type: 'string' } } } });
           const tip = [r.mnemonic, r.parts, r.confuse].filter(Boolean).join(' · ');
-          out.innerHTML = `💡 ${esc(tip)}`;
+          out.innerHTML = `💡 ${esc(tip)}${AI.badge ? AI.badge(r) : ''}`;
           if (r.mnemonic && !c.note) { await saveNote(r.mnemonic); $('[data-note]', lb).value = c.note; }
         } catch (e) { out.innerHTML = `${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}`; const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog(); }
         b.disabled = false;

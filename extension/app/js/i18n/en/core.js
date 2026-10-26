@@ -4,6 +4,11 @@
   '1.500 thuật ngữ thông dụng của 10 ngành: CNTT, kinh doanh, y khoa, kỹ thuật, luật, marketing, môi trường, du lịch, giáo dục, logistics': '1,500 essential terms across 10 fields: IT, business, medicine, engineering, law, marketing, environment, tourism, education and logistics',
   // ai.js
   'AI trên máy': 'on-device AI',
+  'Trên máy': 'On-device',
+  'Chạy trên máy của bạn – miễn phí, không gửi đi đâu': 'Runs on your device – free, nothing is sent anywhere',
+  'Dùng AI trên máy (miễn phí, riêng tư)': 'Use on-device AI (free, private)',
+  'Nên dùng Wi-Fi – tải tiếp được nếu bị ngắt': 'Wi-Fi recommended – the download resumes if interrupted',
+  'Đang dùng dữ liệu di động – hãy bật Wi-Fi để tải': 'You are on mobile data – switch to Wi-Fi to download',
   'Mở {link} và đăng nhập Google.': 'Open {link} and sign in with Google.',
   'Bấm <b>Create API key</b> → sao chép khóa (bắt đầu bằng “AIza…”).': 'Click <b>Create API key</b> → copy the key (it starts with “AIza…”).',
   'Dán vào ô dưới đây.': 'Paste it into the box below.',

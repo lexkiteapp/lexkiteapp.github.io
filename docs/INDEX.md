@@ -35,6 +35,7 @@
 - [GRABCAST-API-REQUESTS.md](GRABCAST-API-REQUESTS.md) — Danh sách endpoint GrabCast cần mở cho khóa API workspace để Lexkite quản lý 100% (connect, insights, comments, inbox…). Khóa workspace 4 đang bị chặn các endpoint này; đọc khi: làm việc với GrabCast API
 - [HANDOFF.md](HANDOFF.md) — Bàn giao ngắn: việc nền đang chạy (ảnh từ vựng hàng loạt qua kho CF, kho từ 20k), số liệu mới nhất, việc tiếp theo, việc chờ chủ; đọc khi: đầu phiên, trước khi nhận việc ảnh từ vựng / kho từ
 - [I18N-PIPELINE.md](I18N-PIPELINE.md) — Quy trình 15 ngôn ngữ giao diện: nguồn chuẩn duy nhất, quy tắc thêm chữ mới, kiểm tra tự động, mở thêm ngôn ngữ, SEO/blog theo ngôn ngữ. Không lẫn tiếng, không sót; đọc khi: MỌI việc thêm chữ giao diện
+- [AI-LOCAL.md](AI-LOCAL.md) — AI có sẵn trong trình duyệt (Prompt/Translator/Detector/Proofreader…): trạng thái API, quy tắc tải, fallback máy chủ; đọc khi: thêm/sửa tính năng AI
 - [INFRA-RULES.md](INFRA-RULES.md) — Quy tắc tài nguyên hệ thống: mọi dịch vụ/Worker/lưu trữ phải đăng ký ở infra/resources.json; hiện trạng lưu trữ, ngưỡng nâng cấp, mail. Sổ không ghi khóa/mật khẩu; đọc khi: thêm dịch vụ/host/Worker/lưu trữ mới
 - [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
 - [JOBS.md](JOBS.md) — Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ. Sinh lại: node scripts/jobs/gen.mjs --write; jobs-check chặn lệch; đọc khi: thêm cron/CI nền

@@ -228,14 +228,17 @@
   // Dịch cả câu (dùng cho câu ngữ cảnh)
   // Dự phòng: Translator API có sẵn trong Chrome (dịch trên máy, miễn phí, chạy được offline) – chỉ dùng khi mô hình đã sẵn sàng
   let localTr = null;
+  // Cài đặt "Dùng AI trên máy" (mặc định bật) – tắt thì chỉ dùng đường dịch cũ
+  const localOk = () => { try { const s = g.App && g.App.state && g.App.state.settings; return !s || s.aiLocal !== false; } catch (e) { return true; } };
   async function onDeviceVi(text) {
     try {
-      const TR = g.Translator; if (!TR) return '';
+      const TR = g.Translator; if (!TR || !localOk()) return '';
       if (!localTr) { if ((await TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' })) !== 'available') return ''; localTr = await TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' }); }
       return fixVi(await localTr.translate(text));
     } catch (e) { return ''; }
   }
   async function translateVi(text) {
+    const dv = await onDeviceVi(text); if (dv && dv.trim()) return dv.trim(); // Translator trên máy (gói đã có sẵn) trước – nhanh, offline, không tốn lượt
     const d = await fetchJSON(`${GTX}&dt=t&q=${encodeURIComponent(text)}`);
     const t = d && fixVi((d.sentences || []).map(s => s.trans || '').join('').trim());
     return t || (await onDeviceVi(text)) || myMemory(text, 'vi', 'en');
@@ -248,7 +251,7 @@
   const onDevice = new Map();
   async function deviceTranslate(text, tl, sl = 'en') {
     try {
-      const T = g.Translator; if (!T || !T.availability) return null;
+      const T = g.Translator; if (!T || !T.availability || !localOk()) return null;
       const key = sl + '>' + tl;
       if (!onDevice.has(key)) onDevice.set(key, T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null)).catch(() => null));
       const tr = await onDevice.get(key); if (!tr) return null;

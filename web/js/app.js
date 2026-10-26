@@ -244,6 +244,7 @@
     lvideo: ['js/i18n/en/lvideo.js', 'js/lib/video-rank.js', 'js/lesson-video.js'], // 🎬 Video bài học (thẻ từ, ngữ pháp, ngày học) – docs/VIDEO-SCALE-PLAN.md §10
     vimg: ['js/vocab-img.js'], // 🖼️ Ảnh minh họa theo nghĩa – CHỈ tải khi cờ vocab_img bật (App.vimgReady), khung app +0
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
+    ailocal: ['js/ai-local.js'], // 🔒 AI trên máy (Chrome/Edge built-in AI) – chỉ tải khi một tính năng AI cần, xem docs/AI-LOCAL.md
     anki: ['js/lib/save-file.js', 'js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
     share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'], xport: ['js/export.js'], file: ['js/lib/save-file.js'], lsw: ['js/lang-menu.js'],
     quick: ['js/i18n/en/quick.js', 'js/quick.js'],

@@ -67,9 +67,9 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
   }
   // Dịch các trường nhận xét sang ngôn ngữ người học (một lần gọi dịch cho cả bài)
   const VI_KEYS = new Set(['summary', 'strengths', 'improvements', 'comment', 'why', 'note', 'meaning', 'explain', 'grammar', 'tip']);
-  async function toLocalized(obj) {
-    const slots = [];
-    const walk = (o, inVi) => { if (Array.isArray(o)) o.forEach((x, i) => typeof x === 'string' ? inVi && slots.push([o, i]) : walk(x, inVi)); else if (o && typeof o === 'object') Object.keys(o).forEach(k => typeof o[k] === 'string' ? VI_KEYS.has(k) && slots.push([o, k]) : walk(o[k], VI_KEYS.has(k))); };
+  async function toLocalized(obj, extra) {
+    const slots = [], has = k => VI_KEYS.has(k) || (extra && extra.includes(k));
+    const walk = (o, inVi) => { if (Array.isArray(o)) o.forEach((x, i) => typeof x === 'string' ? inVi && slots.push([o, i]) : walk(x, inVi)); else if (o && typeof o === 'object') Object.keys(o).forEach(k => typeof o[k] === 'string' ? has(k) && slots.push([o, k]) : walk(o[k], has(k))); };
     walk(obj, false);
     (obj.examples || []).forEach(e => { if (e && e.en) slots.push([e, 'vi', e.en]); });
     if (!slots.length || !window.Dict) return obj;
@@ -80,6 +80,46 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     slots.forEach(([o, k], i) => { if (trans[i]) o[k] = trans[i].trim(); });
     return obj;
   }
+
+  // ---------- AI trên máy dùng chung (web/js/ai-local.js, tải lười): thử trước, sai/không có → đường cũ ----------
+  // Chỉ nạp module khi trình duyệt có ít nhất một API AI và người dùng không tắt – trình duyệt khác không tốn gì
+  const hasLocal = () => !!(self.LanguageModel || self.Translator || self.Proofreader || self.LanguageDetector);
+  const localOn = () => (state.settings.aiLocal === false || !hasLocal() || !App.need ? Promise.resolve(null) : App.need('ailocal').then(() => window.AILocal || null).catch(() => null));
+  const toEn = p => p.replace(/\(Vietnamese[^)]*\)/g, '(English)').replace(/in Vietnamese/g, 'in English').replace(/Vietnamese meaning/g, 'English meaning').replace(/Vietnamese IELTS learner/g, 'IELTS learner');
+  const LSYS = 'You are a helpful, accurate English teacher. Write in clear, simple English. Return ONLY valid JSON matching the requested schema.';
+  const strs = o => (Array.isArray(o) ? o.flatMap(strs) : o && typeof o === 'object' ? Object.values(o).flatMap(strs) : typeof o === 'string' ? [o] : []);
+  const markLocal = j => Object.assign(j, { _local: true, _model: 'Gemini Nano (' + t('AI trên máy') + ')' });
+  // askLocal(prompt, { schema, localPrompt, ok, keys, timeout }) → JSON như AI.ask; kết quả trên máy được kiểm schema + tiếng Anh rồi dịch sang ngôn ngữ người học
+  async function askLocal(prompt, o = {}) {
+    const L = self.LanguageModel ? await localOn() : null;
+    if (L) {
+      const j = await L.prompt((o.localPrompt || toEn(prompt)) + '\nReturn only JSON.', { system: LSYS, schema: o.schema, timeout: o.timeout || 8000 });
+      if (j && (!o.ok || o.ok(j)) && (await L.check(strs(j).join(' '), { min: 3, max: 6000, lang: 'en' }))) return toLocalized(markLocal(j), o.keys);
+    }
+    return call(prompt);
+  }
+  const NUM = { type: 'number', minimum: 0, maximum: 9 }, STR = { type: 'string' };
+  const GRADE_SCHEMA = { type: 'object', required: ['overall', 'criteria', 'summary'], properties: {
+    overall: NUM, summary: { type: 'string', minLength: 20 },
+    criteria: { type: 'array', minItems: 3, items: { type: 'object', required: ['name', 'band', 'comment'], properties: { name: STR, band: NUM, comment: STR } } },
+    strengths: { type: 'array', items: STR }, improvements: { type: 'array', items: STR },
+    errors: { type: 'array', items: { type: 'object', required: ['quote', 'fix'], properties: { quote: STR, fix: STR, why: STR } } },
+    vocab: { type: 'array', items: { type: 'object', required: ['from', 'to'], properties: { from: STR, to: STR, note: STR } } }, rewrite: STR, sample: STR } };
+  // Chấm Writing trên máy (Prompt API + Proofreader) – cùng định dạng kết quả với máy chủ; Speaking vẫn qua máy chủ
+  async function localAI(kind, body, text) {
+    if (kind === 'speaking' || !self.LanguageModel) return null;
+    const L = await localOn(); if (!L) return null;
+    const j = await L.prompt(toEn(body) + '\nReturn only JSON.', { system: SYS.replace(/Write all comments[^.]*\./, 'Write all comments in clear, simple English.'), schema: GRADE_SCHEMA, timeout: 15000 });
+    if (!j || !(await L.check([j.summary, ...j.criteria.map(c => c.comment)].join(' '), { min: 20, lang: 'en' }))) return null;
+    const half = x => Math.max(1, Math.min(9, Math.round(x * 2) / 2));
+    j.overall = half(j.overall); j.criteria.forEach(c => { c.band = half(c.band); });
+    if (!(j.errors || []).length && self.Proofreader) { // lỗi chính xác theo vị trí từ Proofreader
+      const p = await L.proofread(text, { timeout: 8000 });
+      if (p) j.errors = p.corrections.filter(c => c.end > c.start).slice(0, 8).map(c => ({ quote: text.slice(c.start, c.end), fix: c.fix, why: c.type || '' }));
+    }
+    return toLocalized(markLocal(j));
+  }
+  const badge = r => (r && r._local ? ` <span class="chip" title="${t('Chạy trên máy của bạn – miễn phí, không gửi đi đâu')}">${UI.icon('lock')} ${t('Trên máy')}</span>` : '');
 
   // AI miễn phí của Lexkite (máy chủ /api/ai): ai cũng chấm được, không cần tự lấy khóa – có hạn mức lượt/ngày
   const PROXY = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/ai' : 'https://lexkite.com/api/ai';
@@ -138,7 +178,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const body = kind === 'speaking'
       ? `Assess this IELTS Speaking performance (machine transcript, punctuation may be missing). Questions and answers:\n${text}\n\n${SCHEMA(kind)}`
       : `IELTS Writing ${kind === 'task1' ? 'Task 1 (Academic)' : 'Task 2'} question:\n"""${task}"""\n${extra ? `Data for Task 1:\n${extra}\n` : ''}\nCandidate's response (${(text.match(/[A-Za-z][A-Za-z'’-]*/g) || []).length} words):\n"""${text}"""\n\n${SCHEMA(kind)}`;
-    const res = await call(body);
+    const res = (await localAI(kind, body, text)) || await call(body);
     const keys = Object.keys(cache); if (keys.length >= 20) delete cache[keys[0]];
     cache[id] = { ...res, at: Date.now() };
     await Store.set('aiCache', cache);
@@ -233,7 +273,7 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
       ${r.errors && r.errors.length ? `<div><b class="small">${UI.icon('pencil')} ${t('Lỗi cần sửa')}</b>${r.errors.map(e => `<div class="ai-err"><span class="bad">${esc(e.quote)}</span> → <span class="good">${esc(e.fix)}</span><div class="tiny muted">${esc(e.why || '')}</div></div>`).join('')}</div>` : ''}
       ${r.vocab && r.vocab.length ? `<div style="margin-top:.6rem"><b class="small">💎 ${t('Nâng cấp từ vựng')}</b><div class="ai-vocab">${r.vocab.map(v => `<div><span class="muted">${esc(v.from)}</span> → <b>${esc(v.to)}</b><div class="tiny muted">${esc(v.note || '')}</div></div>`).join('')}</div></div>` : ''}
       ${r.rewrite || r.sample ? `<details style="margin-top:.6rem"><summary class="small"><b>${kind === 'speaking' ? UI.icon('message-circle') + ' ' + t('Câu trả lời mẫu band 8') : UI.icon('file-pen') + ' ' + t('Viết lại đoạn yếu nhất ở band 8')}</b></summary><div class="example-box small" style="margin-top:.4rem;white-space:pre-wrap">${esc(r.rewrite || r.sample)}</div>${r.sample || r.rewrite ? `<button class="ctx-say sm" data-saysent="${esc(r.rewrite || r.sample)}" title="${t('Nghe')}">🔊</button>` : ''}</details>` : ''}
-      <div class="tiny muted" style="margin-top:.5rem">${t('Chấm bởi {model} – AI có thể sai sót, hãy dùng như một ý kiến tham khảo của giám khảo.', { model: esc(r._model || 'Gemini') })}</div></div>`;
+      <div class="tiny muted" style="margin-top:.5rem">${t('Chấm bởi {model} – AI có thể sai sót, hãy dùng như một ý kiến tham khảo của giám khảo.', { model: esc(r._model || 'Gemini') })}${badge(r)}</div></div>`;
   }
 
   // Gắn nút "Chấm chi tiết bằng AI" vào một vùng; getInput() trả về { kind, task, text, extra }
@@ -270,7 +310,8 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     return `<h3 class="set-h">🤖 ${t('Chấm bài bằng AI')}</h3><div class="set-list">
       ${r('🎁 ' + t('AI chấm Writing & Speaking miễn phí của Lexkite'), `<b class="good small">${UI.icon('circle-check')} ${t('Luôn có')}</b>`, t('3 lượt mỗi ngày, đăng nhập được 5 lượt – không cần khóa'))}
       ${r(UI.icon('zap') + ' ' + t('Chấm nhanh & ghi chú từ soạn sẵn'), `<b class="good small">${UI.icon('circle-check')} ${t('Luôn có')}</b>`)}
-      ${r('💻 ' + t('AI có sẵn trong Chrome (trên máy, riêng tư)'), `<span class="small">${nano}</span>`)}
+      ${hasLocal() ? r(UI.icon('lock') + ' ' + t('Dùng AI trên máy (miễn phí, riêng tư)'), `<input type="checkbox" id="aiLocalT" aria-label="${t('Dùng AI trên máy (miễn phí, riêng tư)')}" ${state.settings.aiLocal !== false ? 'checked' : ''}>`, t('Chạy trên máy của bạn – miễn phí, không gửi đi đâu')) : ''}
+      ${r('💻 ' + t('AI có sẵn trong Chrome (trên máy, riêng tư)'), `<span class="small">${nano}</span>`, ns === 'downloadable' ? t('Nên dùng Wi-Fi – tải tiếp được nếu bị ngắt') : '')}
       ${r(UI.icon('sparkles') + ' ' + t('Gemini – chấm chi tiết như giám khảo'), `<span class="set-btns">${k ? `<span class="chip ok">✓ ${t('Đã có khóa {key}…', { key: esc(k.slice(0, 6)) })}</span>` : ''}<button type="button" class="btn sm" id="aiSet">${k ? t('Đổi khóa') : t('Thêm khóa')}</button>${k ? `<button type="button" class="btn sm ghost" id="aiDel">${t('Xóa khóa')}</button>` : ''}</span>`, t('Không bắt buộc – thêm khóa Gemini miễn phí của riêng bạn để chấm không giới hạn. Khóa chỉ lưu trên máy này.'))}
       ${r(t('Mô hình'), `<select class="input" id="aiModel" aria-label="${t('Mô hình')}">${['', ...MODELS].map(m => `<option value="${m}" ${(state.settings.aiModel || '') === m ? 'selected' : ''}>${m || t('Tự động (khuyên dùng)')}</option>`).join('')}</select>`)}</div>`;
   }
@@ -278,7 +319,9 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const s = $('#aiSet'); if (s) s.onclick = () => keyDialog(rerender);
     const d = $('#aiDel'); if (d) d.onclick = async () => { await setKey(''); toast(t('Đã xóa khóa AI')); rerender(); };
     const m = $('#aiModel'); if (m) m.onchange = () => { state.settings.aiModel = m.value; App.saveSettings(); };
+    const lt = $('#aiLocalT'); if (lt) lt.onchange = () => { state.settings.aiLocal = lt.checked; App.saveSettings(); if (window.AILocal) AILocal.setEnabled(null); };
     const dl = $('#aiNanoDl'); if (dl) dl.onclick = async () => { // người dùng chủ động tải AI của Chrome, có tiến độ
+      const c = navigator.connection; if (c && (c.saveData || c.type === 'cellular')) return toast(t('Đang dùng dữ liệu di động – hãy bật Wi-Fi để tải'));
       dl.disabled = true; nanoOptIn = true;
       try { const sess = await LMapi().create({ ...LMopts, monitor(m) { m.addEventListener('downloadprogress', e => { dl.textContent = `⬇️ ${Math.round(e.loaded * 100)}%`; }); } }); sess.destroy(); toast('✅ ' + t('AI của Chrome đã sẵn sàng')); rerender(); }
       catch (e) { dl.disabled = false; dl.textContent = '⚠️ ' + t('Không tải được – thử lại sau'); }
@@ -290,14 +333,15 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
     const id = 'ex:' + hash(text + '|' + (sentence || ''));
     const cache = await Store.get('aiCache', {});
     if (cache[id]) return cache[id];
-    const r = await call(`Explain the English expression for a Vietnamese IELTS learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
-Return ONLY JSON: {"meaning": string (Vietnamese meaning in THIS context), "structure": [{"pattern": string, "explain": string (Vietnamese)}] (1-3), "grammar": string (Vietnamese), "collocations": [string] (3-5), "examples": [{"en": string, "vi": string}] (2, IELTS style), "tip": string (Vietnamese: how to use it in IELTS Writing/Speaking)}`);
+    const r = await askLocal(`Explain the English expression for a Vietnamese IELTS learner. Expression: "${text}"${sentence && sentence !== text ? `\nSentence it appears in: "${sentence}"` : ''}
+Return ONLY JSON: {"meaning": string (Vietnamese meaning in THIS context), "structure": [{"pattern": string, "explain": string (Vietnamese)}] (1-3), "grammar": string (Vietnamese), "collocations": [string] (3-5), "examples": [{"en": string, "vi": string}] (2, IELTS style), "tip": string (Vietnamese: how to use it in IELTS Writing/Speaking)}`, { schema: EX_SCHEMA, ok: x => x.meaning.trim().length >= 2 && x.examples.length >= 1 });
     const keys = Object.keys(cache); if (keys.length >= 20) delete cache[keys[0]];
     cache[id] = r; await Store.set('aiCache', cache);
     return r;
   }
+  const EX_SCHEMA = { type: 'object', required: ['meaning', 'examples'], properties: { meaning: { type: 'string', minLength: 2 }, structure: { type: 'array', items: { type: 'object', required: ['pattern'], properties: { pattern: STR, explain: STR } } }, grammar: STR, collocations: { type: 'array', items: STR }, examples: { type: 'array', minItems: 1, items: { type: 'object', required: ['en'], properties: { en: STR, vi: STR } } }, tip: STR } };
   function renderExplain(x) {
-    return `<div class="ai-ex"><b>🤖 ${t('Giải thích sâu')}</b>
+    return `<div class="ai-ex"><b>🤖 ${t('Giải thích sâu')}</b>${badge(x)}
       ${x.meaning ? `<div class="small"><b>${t('Nghĩa trong ngữ cảnh:')}</b> ${esc(x.meaning)}</div>` : ''}
       ${(x.structure || []).map(y => `<div class="small" style="margin-top:.3rem"><b style="color:var(--primary)">${esc(y.pattern)}</b> – ${esc(y.explain)}</div>`).join('')}
       ${x.grammar ? `<div class="small" style="margin-top:.3rem"><b>${t('Ngữ pháp:')}</b> ${esc(x.grammar)}</div>` : ''}
@@ -306,5 +350,5 @@ Return ONLY JSON: {"meaning": string (Vietnamese meaning in THIS context), "stru
       ${x.tip ? `<div class="small" style="margin-top:.35rem">${UI.icon('lightbulb')} ${esc(x.tip)}</div>` : ''}</div>`;
   }
 
-  window.AI = { localGrade, ask: p => call(p), nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
+  window.AI = { localGrade, ask: p => call(p), askLocal, localOn, badge, nanoStatus, onNanoProgress: f => { nanoProgress = f; nanoOptIn = true; }, explain, renderExplain, errText: e => errText(e), getKey, grade, attach, keyDialog, settingsHtml, bindSettings };
 })();
