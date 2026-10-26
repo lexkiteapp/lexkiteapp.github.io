@@ -88411,6 +88411,1207 @@
      "society.v"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "allergic#adj",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (def narrows meaning to reactions only)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)",
+    "dịch es: rỗng"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "allergic",
+    "pos": "adj",
+    "ipa": "/əˈlɜːdʒɪk/",
+    "ipaUS": "/əˈlɜːrdʒɪk/",
+    "def": "having a reaction caused by an allergy",
+    "ex": [
+     "I am allergic to cats.",
+     "You aren't allergic to anything, are you?"
+    ],
+    "col": [
+     "allergic reaction"
+    ],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.78,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:allergic.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "wiktionary",
+      "tatoeba:6898155"
+     ],
+     "tr": {},
+     "trSense": "pertaining to allergy",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "def narrows meaning to reactions only",
+    "tp": [
+     "health.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "curse#n",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (added 'rude or obscene')",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "curse",
+    "pos": "n",
+    "ipa": "/kɜːs/",
+    "ipaUS": "/kɜːrs/",
+    "def": "a rude or obscene word said in surprise or anger",
+    "ex": [],
+    "col": [
+     "curse word"
+    ],
+    "syn": [
+     "oath",
+     "swearing",
+     "cuss"
+    ],
+    "level": "A2",
+    "cefrF": "B2",
+    "cefrSrc": "cefrj",
+    "z": 4.07,
+    "emoji": "",
+    "topic": "language",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:curse.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "vulgar epithet",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "added 'rude or obscene'",
+    "tp": [
+     "language.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "itch#v",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: định nghĩa",
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (lost 'relieve itching')",
+    "dịch vi: không phải tiếng Việt"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "itch",
+    "pos": "v",
+    "ipa": "/ɪtʃ/",
+    "ipaUS": "/ɪtʃ/",
+    "def": "to rub or scratch to stop an itch",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "rub",
+     "scratch"
+    ],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "z": 3.36,
+    "emoji": "",
+    "topic": "xw-body",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:rub.v.03",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "to feel the need to scratch",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "lost 'relieve itching'",
+    "tp": [
+     "xw-body.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "recess#n",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (added indentation)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "recess",
+    "pos": "n",
+    "ipa": "/ˈriːses/",
+    "ipaUS": "/ˈriːses/",
+    "def": "a small hollow or indentation",
+    "ex": [],
+    "col": [
+     "pharyngeal recess"
+    ],
+    "syn": [
+     "recession",
+     "niche",
+     "corner"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "octanove",
+    "z": 3.53,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:recess.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "added indentation",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "obsess#v",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (lost haunt sense)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "obsess",
+    "pos": "v",
+    "ipa": "/ɒbˈses/",
+    "ipaUS": "/əbˈses/",
+    "def": "to disturb by constantly thinking about or chasing something",
+    "ex": [
+     "Why are you obsessing on something like that?"
+    ],
+    "col": [],
+    "syn": [
+     "haunt",
+     "ghost"
+    ],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "z": 2.9,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:haunt.v.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:11415204"
+     ],
+     "tr": {},
+     "trSense": "to be preoccupied with a single topic or emotion",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "lost haunt sense",
+    "tp": [
+     "xw-feelings.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "trample#n",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (wrong part of speech)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "trample",
+    "pos": "n",
+    "ipa": "/ˈtræmpəl/",
+    "ipaUS": "/ˈtræmpl/",
+    "def": "the loud noise made by heavy steps or stomping",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "z": 2.83,
+    "emoji": "",
+    "topic": "xw-objects",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:trample.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "the sound of heavy footsteps",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "wrong part of speech",
+    "tp": [
+     "xw-objects.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "laziness#n",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (lost lazy sense)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)",
+    "dịch es: rỗng"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "laziness",
+    "pos": "n",
+    "ipa": "/ˈleɪzinəs/",
+    "ipaUS": "/ˈleɪzinəs/",
+    "def": "a way of doing things that is relaxed and requires little effort",
+    "ex": [
+     "Laziness is a lot of work.",
+     "Laziness doesn't pay in the end."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "A2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "z": 3.17,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:laziness.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:14038070",
+      "tatoeba:13898233"
+     ],
+     "tr": {},
+     "trSense": "quality of being lazy",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "lost lazy sense",
+    "tp": [
+     "xw-feelings.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "possessive#adj",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (too broad)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)",
+    "dịch es: rỗng"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "possessive",
+    "pos": "adj",
+    "ipa": "/pəˈzesɪv/",
+    "ipaUS": "/pəˈzesɪv/",
+    "def": "used to show that something belongs to someone",
+    "ex": [
+     "He's very possessive, isn't he?",
+     "You're very possessive, aren't you?"
+    ],
+    "col": [
+     "possessive case",
+     "quite possessive"
+    ],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "z": 3.17,
+    "emoji": "",
+    "topic": "language",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:possessive.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:8528327",
+      "tatoeba:5937199"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "too broad",
+    "tp": [
+     "language.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "indent#v",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (too specific)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "indent",
+    "pos": "v",
+    "ipa": "/ˌɪnˈdent/",
+    "ipaUS": "/ɪnˈdent/",
+    "def": "to start a line farther from the edge of the page",
+    "ex": [
+     "to indent the first line of a paragraph one em"
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "z": 2.44,
+    "emoji": "",
+    "topic": "education",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:indent.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "wiktionary"
+     ],
+     "tr": {},
+     "trSense": "typography: to begin a line or lines at a greater or less distance from the margin",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "too specific",
+    "tp": [
+     "education.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "indulge#v",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (too narrow)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)",
+    "dịch es: rỗng"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "indulge",
+    "pos": "v",
+    "ipa": "/ɪnˈdʌldʒ/",
+    "ipaUS": "/ɪnˈdʌldʒ/",
+    "def": "to allow someone to do whatever they want",
+    "ex": [
+     "It’s nice to indulge.",
+     "I really like indulging myself."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.54,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:indulge.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:13448381",
+      "tatoeba:12268562"
+     ],
+     "tr": {},
+     "trSense": "to satisfy the wishes or whims of",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "too narrow",
+    "tp": [
+     "xw-actions.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fulfil#v",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (too general)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "fulfil",
+    "pos": "v",
+    "ipa": "/fʊlˈfɪl/",
+    "ipaUS": "/fʊlˈfɪl/",
+    "def": "to make something happen or be carried out",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "accomplish",
+     "execute",
+     "action"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.55,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:carry_through.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "too general",
+    "tp": [
+     "xw-actions.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "suppression#n",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (voter suppression not related to organ)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "suppression",
+    "pos": "n",
+    "ipa": "/səˈpreʃən/",
+    "ipaUS": "/səˈpreʃn/",
+    "def": "the failure to develop a part or organ",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "z": 3.68,
+    "emoji": "",
+    "topic": "xw-body",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:suppression.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "voter suppression not related to organ",
+    "tp": [
+     "xw-body.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "animate#v",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (missing heighten sense)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "animate",
+    "pos": "v",
+    "ipa": "/ˈænɪmeɪt/",
+    "ipaUS": "/ˈænəmeɪt/",
+    "def": "to make something stronger or more intense",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "inspire"
+    ],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "z": 3.14,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:inspire.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "missing heighten sense",
+    "tp": [
+     "xw-qualities.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "repose#v",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (missing confide sense)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "repose",
+    "pos": "v",
+    "ipa": "/rɪˈpəʊz/",
+    "ipaUS": "/rɪˈpoʊz/",
+    "def": "to place something in a person or thing",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "z": 2.75,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:repose.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "missing confide sense",
+    "tp": [
+     "xw-feelings.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fairy#n",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "dịch ko: phiên âm tiếng Anh"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "fairy",
+    "pos": "n",
+    "ipa": "/ˈfeəri/",
+    "ipaUS": "/ˈferi/",
+    "def": "a tiny human-like creature that is playful and has magical powers",
+    "ex": [
+     "I don't believe in fairies.",
+     "Have you ever seen a fairy before?"
+    ],
+    "col": [
+     "tooth fairy"
+    ],
+    "syn": [
+     "fay",
+     "sprite"
+    ],
+    "level": "A1",
+    "cefrF": "B2",
+    "cefrSrc": "cefrj",
+    "z": 4.08,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "tiên nữ",
+    "note_vi": "",
+    "m": {
+     "es": "hada",
+     "pt": "fada",
+     "fr": "fée",
+     "de": "Fee",
+     "id": "peri",
+     "th": "นางฟ้า",
+     "zh": "仙女",
+     "ja": "妖精",
+     "ko": "페어리",
+     "hi": "परी",
+     "ar": "جنية",
+     "ru": "фея",
+     "tr": "peri"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fairy.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:6118946",
+      "tatoeba:9690930"
+     ],
+     "tr": {
+      "ar": "wiktionary",
+      "zh": "wiktionary",
+      "fr": "wiktionary",
+      "de": "wiktionary",
+      "hi": "wiktionary",
+      "id": "wiktionary",
+      "ja": "wiktionary",
+      "ko": "wiktionary",
+      "pt": "wiktionary",
+      "ru": "wiktionary",
+      "es": "wiktionary",
+      "th": "wiktionary",
+      "tr": "wiktionary",
+      "vi": "wiktionary"
+     },
+     "trSense": "mythical being",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {
+     "j": {
+      "gpt-oss:gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5
+      ],
+      "th": [
+       5,
+       5
+      ],
+      "zh": [
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       4
+      ],
+      "ko": [
+       2,
+       5
+      ],
+      "hi": [
+       5,
+       5
+      ],
+      "ar": [
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "fairy",
+       "fairy; fairy tale; fairy godmother"
+      ],
+      "pt": [
+       "fairy",
+       "fairy; fairy tale"
+      ],
+      "fr": [
+       "fairy",
+       "fairy; fairy tale"
+      ],
+      "de": [
+       "fairy",
+       "fairy; fairy tale"
+      ],
+      "id": [
+       "fairy",
+       "fairy; peri"
+      ],
+      "th": [
+       "fairy",
+       "fairy; angel"
+      ],
+      "zh": [
+       "fairy",
+       "fairy; fairy tale"
+      ],
+      "ja": [
+       "fairy",
+       "fairy; supernatural being"
+      ],
+      "ko": [
+       "fairy",
+       "fairy; fairy tale"
+      ],
+      "hi": [
+       "fairy",
+       "fairy; pari"
+      ],
+      "ar": [
+       "fairy",
+       "fairy; jinn"
+      ],
+      "ru": [
+       "fairy",
+       "fairy; fairy tale"
+      ],
+      "tr": [
+       "fairy",
+       "fairy; peri"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "A1",
+      "A1"
+     ],
+     "bad": {
+      "ko": "translit"
+     }
+    },
+    "tp": [
+     "culture.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "lid#n",
+   "batch": "20261026-cf-pilot11",
+   "why": [
+    "giám khảo: có giám khảo chấm < 4",
+    "dịch es: giám khảo < 4 (2/4)",
+    "dịch pt: giám khảo < 4 (2/4)",
+    "dịch fr: giám khảo < 4 (2/4)"
+   ],
+   "at": "2026-10-26",
+   "data": {
+    "w": "lid",
+    "pos": "n",
+    "ipa": "/lɪd/",
+    "ipaUS": "/lɪd/",
+    "def": "one of two skin folds that can cover or open the eye",
+    "ex": [
+     "He blinked quickly, his lids shielding his eyes from the bright light.",
+     "She rubbed her tired lids before falling asleep on the couch."
+    ],
+    "col": [],
+    "syn": [
+     "eyelid"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "z": 3.81,
+    "emoji": "",
+    "topic": "health",
+    "vi": "nắp",
+    "note_vi": "",
+    "m": {
+     "es": "tapa",
+     "pt": "tampa",
+     "fr": "couvercle",
+     "de": "Deckel",
+     "id": "tudung",
+     "th": "ฝา",
+     "zh": "盖子",
+     "ja": "蓋",
+     "ko": "뚜껑",
+     "hi": "ढक्कन",
+     "ar": "غطاء",
+     "ru": "крышка",
+     "tr": "kapak"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:eyelid.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "ai",
+      "ai"
+     ],
+     "tr": {
+      "ar": "wiktionary",
+      "zh": "wiktionary",
+      "fr": "wiktionary",
+      "de": "wiktionary",
+      "hi": "wiktionary",
+      "id": "wiktionary",
+      "ja": "wiktionary",
+      "ko": "wiktionary",
+      "pt": "wiktionary",
+      "ru": "wiktionary",
+      "es": "wiktionary",
+      "th": "wiktionary",
+      "tr": "wiktionary",
+      "vi": "wiktionary"
+     },
+     "trSense": "top or cover",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {
+     "j": {
+      "gpt-oss:gpt-oss-120b": 2,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [
+      "translations give generic lid, not eyelid"
+     ],
+     "tr": {
+      "es": [
+       2,
+       4
+      ],
+      "pt": [
+       2,
+       4
+      ],
+      "fr": [
+       2,
+       4
+      ],
+      "de": [
+       2,
+       4
+      ],
+      "id": [
+       2,
+       4
+      ],
+      "th": [
+       2,
+       4
+      ],
+      "zh": [
+       2,
+       4
+      ],
+      "ja": [
+       2,
+       4
+      ],
+      "ko": [
+       2,
+       4
+      ],
+      "hi": [
+       2,
+       4
+      ],
+      "ar": [
+       2,
+       4
+      ],
+      "ru": [
+       2,
+       4
+      ],
+      "tr": [
+       2,
+       4
+      ]
+     },
+     "bt": null,
+     "btw": {
+      "es": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "pt": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "fr": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "de": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "id": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "th": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "zh": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "ja": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "ko": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "hi": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "ar": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "ru": [
+       "lid",
+       "cover; lid; top"
+      ],
+      "tr": [
+       "lid",
+       "cover; lid; top"
+      ]
+     },
+     "sense": [
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "B1",
+      "B1"
+     ],
+     "bad": {}
+    },
+    "tp": [
+     "health.n"
+    ]
+   }
   }
  ]
 }
