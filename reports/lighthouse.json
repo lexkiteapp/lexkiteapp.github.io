@@ -1,9 +1,9 @@
 {
  "home": {
   "url": "https://lexkite.com/",
-  "at": "2026-10-24T01:40:41.437Z",
+  "at": "2026-10-26T01:38:27.202Z",
   "scores": {
-   "performance": 98,
+   "performance": 99,
    "accessibility": 100,
    "best-practices": 96,
    "seo": 100
@@ -16,7 +16,6 @@
    "speed-index": "1.8 s"
   },
   "fails": [
-   "First Contentful Paint – 1.8 s",
    "Elements with visible text labels do not have matching accessible names.",
    "Serve static assets with an efficient cache policy – 2 resources found",
    "Properly size images – Potential savings of 7 KiB",
@@ -26,31 +25,153 @@
  },
  "vi/blog/": {
   "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-10-24T01:42:26.938Z",
+  "at": "2026-10-26T01:40:27.603Z",
   "scores": {
-   "performance": 98,
+   "performance": 99,
    "accessibility": 100,
    "best-practices": 96,
    "seo": 100
   },
   "metrics": {
-   "first-contentful-paint": "0.9 s",
-   "largest-contentful-paint": "2.3 s",
+   "first-contentful-paint": "1.6 s",
+   "largest-contentful-paint": "1.9 s",
    "total-blocking-time": "0 ms",
    "cumulative-layout-shift": "0",
-   "speed-index": "0.9 s"
+   "speed-index": "1.6 s"
   },
   "fails": [
    "Elements with visible text labels do not have matching accessible names.",
    "Serve static assets with an efficient cache policy – 2 resources found",
-   "Properly size images – Potential savings of 68 KiB",
    "Issues were logged in the `Issues` panel in Chrome Devtools"
   ],
-  "lcp": "largest-contentful-paint=\"2.3 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  },
  "en/": {
   "url": "https://lexkite.com/en/",
-  "at": "2026-10-24T01:40:52.196Z",
+  "at": "2026-10-26T01:38:50.531Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.8 s",
+   "largest-contentful-paint": "1.8 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.8 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Properly size images – Potential savings of 7 KiB",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "app/": {
+  "url": "https://lexkite.com/app/#/welcome",
+  "at": "2026-10-26T01:39:41.146Z",
+  "scores": {
+   "performance": 98,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 92
+  },
+  "metrics": {
+   "first-contentful-paint": "1.9 s",
+   "largest-contentful-paint": "2.0 s",
+   "total-blocking-time": "20 ms",
+   "cumulative-layout-shift": "0.015",
+   "speed-index": "1.9 s"
+  },
+  "fails": [
+   "First Contentful Paint – 1.9 s",
+   "Time to Interactive – 6.0 s",
+   "Serve static assets with an efficient cache policy – 4 resources found",
+   "Reduce unused CSS – Potential savings of 25 KiB",
+   "Reduce unused JavaScript – Potential savings of 55 KiB",
+   "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
+   "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
+   "Avoid an excessive DOM size – 877 elements",
+   "Issues were logged in the `Issues` panel in Chrome Devtools",
+   "Document does not have a valid `rel=canonical`"
+  ],
+  "lcp": "largest-contentful-paint=\"2.0 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "es/words/acquire": {
+  "url": "https://lexkite.com/es/words/acquire",
+  "at": "2026-10-26T01:41:02.722Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.6 s",
+   "largest-contentful-paint": "1.6 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.6 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "lcp": "largest-contentful-paint=\"1.6 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "en/conversations/cafe": {
+  "url": "https://lexkite.com/en/conversations/cafe",
+  "at": "2026-10-26T01:41:37.529Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.6 s",
+   "largest-contentful-paint": "1.6 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.6 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "lcp": "largest-contentful-paint=\"1.6 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "en/grammar/past-continuous": {
+  "url": "https://lexkite.com/en/grammar/past-continuous",
+  "at": "2026-10-26T01:42:09.233Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.7 s",
+   "largest-contentful-paint": "1.9 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.7 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "en/pronunciation/long-ee-sound": {
+  "url": "https://lexkite.com/en/pronunciation/long-ee-sound",
+  "at": "2026-10-26T01:42:32.890Z",
   "scores": {
    "performance": 99,
    "accessibility": 100,
@@ -66,128 +187,10 @@
   },
   "fails": [
    "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Properly size images – Potential savings of 7 KiB",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "app/": {
-  "url": "https://lexkite.com/app/#/welcome",
-  "at": "2026-10-24T01:41:58.691Z",
-  "scores": {
-   "performance": 84,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 61
-  },
-  "metrics": {
-   "first-contentful-paint": "1.8 s",
-   "largest-contentful-paint": "4.4 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.8 s"
-  },
-  "fails": [
-   "First Contentful Paint – 1.8 s",
-   "Largest Contentful Paint – 4.4 s",
-   "Time to Interactive – 4.4 s",
-   "Serve static assets with an efficient cache policy – 4 resources found",
-   "Reduce unused CSS – Potential savings of 24 KiB",
-   "Reduce unused JavaScript – Potential savings of 55 KiB",
-   "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
-   "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
-   "Issues were logged in the `Issues` panel in Chrome Devtools",
-   "Links do not have descriptive text – 1 link found",
-   "Page is blocked from indexing"
-  ],
-  "lcp": "largest-contentful-paint=\"4.4 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "es/words/acquire": {
-  "url": "https://lexkite.com/es/words/acquire",
-  "at": "2026-10-24T01:42:56.176Z",
-  "scores": {
-   "performance": 0,
-   "accessibility": 100,
-   "best-practices": 0,
-   "seo": 100
-  },
-  "metrics": {},
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/conversations/cafe": {
-  "url": "https://lexkite.com/en/conversations/cafe",
-  "at": "2026-10-24T01:43:14.200Z",
-  "scores": {
-   "performance": 100,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "0.9 s",
-   "largest-contentful-paint": "1.0 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "0.9 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.0 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/grammar/past-continuous": {
-  "url": "https://lexkite.com/en/grammar/past-continuous",
-  "at": "2026-10-24T01:44:07.647Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.8 s",
-   "largest-contentful-paint": "1.9 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.8 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/pronunciation/long-ee-sound": {
-  "url": "https://lexkite.com/en/pronunciation/long-ee-sound",
-  "at": "2026-10-24T01:44:18.421Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.7 s",
-   "largest-contentful-paint": "1.8 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.7 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
    "`<td>` elements in a large `<table>` do not have table headers.",
    "Serve static assets with an efficient cache policy – 2 resources found",
    "Issues were logged in the `Issues` panel in Chrome Devtools"
   ],
-  "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "lcp": "largest-contentful-paint=\"1.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  }
 }
