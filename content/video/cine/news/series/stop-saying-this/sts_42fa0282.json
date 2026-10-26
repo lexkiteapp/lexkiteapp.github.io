@@ -1,11 +1,16 @@
 {
  "id": "sts_42fa0282",
  "template": "mistake",
- "title": "Stop Saying This #43 – Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
+ "title": "Stop Saying This #30 – Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -36,17 +43,8 @@
     "red": [
      3
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "There is no suggest someone to.",
-   "key": {
-    "yellow": [
-     3
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -57,7 +55,17 @@
      5
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "There is no suggest someone to.",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -68,7 +76,8 @@
      2,
      6
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -78,7 +87,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -89,7 +98,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -108,12 +117,13 @@
      0,
      4
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -153,44 +163,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“to”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“you go”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -199,29 +171,116 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I suggest ",
-      "white"
-     ],
-     [
-      "you go.",
-      "green"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "I suggest "
+      ],
+      [
+       "you go.",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "suggest",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/səˈdʒest/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "to",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " to",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " you go",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -232,34 +291,104 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I suggest you call him.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "She suggested taking a taxi.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I "
+      ],
+      [
+       "suggest you ",
+       "green"
+      ],
+      [
+       "call him."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " suggest (THAT) you GO",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She "
+      ],
+      [
+       "suggested",
+       "green"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "taking a taxi."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " suggest "
+      ],
+      [
+       "(THAT) ",
+       "hl"
+      ],
+      [
+       "you "
+      ],
+      [
+       "GO",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -272,25 +401,33 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I suggest you ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " early.",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I suggest you "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "early."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -317,27 +454,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…suggest you ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " early.",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " to",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " you go",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "suggest",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/səˈdʒest/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -362,12 +549,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 43
+  "ep": 30
  },
  "source": {
   "bank": "sb_42fa0282",
   "pid": "u:v:suggest:m0",
   "cefr": "C1",
-  "diff": "hard"
+  "diff": "hard",
+  "ipa": "/səˈdʒest/"
  }
 }

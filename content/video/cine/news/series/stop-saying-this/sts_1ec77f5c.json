@@ -1,11 +1,16 @@
 {
  "id": "sts_1ec77f5c",
  "template": "mistake",
- "title": "Stop Saying This #33 – Say \"I'd like this fixed by Friday.\" instead of \"Please fix until Friday.\"",
+ "title": "Stop Saying This #27 – Say \"I'd like this fixed by Friday.\" instead of \"Please fix until Friday.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -38,19 +45,8 @@
      1,
      2
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "Use by for the last day. Until means all the time before.",
-   "key": {
-    "yellow": [
-     6,
-     8,
-     10
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -64,7 +60,19 @@
      6
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "Use by for the last day. Until means all the time before.",
+   "key": {
+    "yellow": [
+     6,
+     8,
+     10
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -75,7 +83,8 @@
      2,
      8
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -86,7 +95,7 @@
      5
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -97,7 +106,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -116,12 +125,13 @@
      0,
      4
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -157,44 +167,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“Please fix until”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“I'd like this fixed by”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -203,29 +175,110 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I'd like this fixed by ",
-      "green"
-     ],
-     [
-      "Friday.",
-      "white"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "I'd like this",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "fixed by ",
+       "green"
+      ],
+      [
+       "Friday."
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "Please fix until",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " Please fix until",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " I'd like this fixed by",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -236,34 +289,116 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "Please reply by Monday.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "The shop is open until six.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Please ",
+       "green"
+      ],
+      [
+       "reply "
+      ],
+      [
+       "by ",
+       "green"
+      ],
+      [
+       "Monday."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " BY = deadline. UNTIL = all the time",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "The shop is"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "open "
+      ],
+      [
+       "until ",
+       "green"
+      ],
+      [
+       "six."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " BY ",
+       "hl"
+      ],
+      [
+       "= deadline. "
+      ],
+      [
+       "UNTIL",
+       "hl"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "= all the time"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -276,25 +411,33 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "Please send it ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " Friday.",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Please send it "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "Friday."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -321,27 +464,62 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…send it ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " Friday.",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " Please fix until",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " I'd like this fixed by",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -366,12 +544,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 33
+  "ep": 27
  },
  "source": {
   "bank": "sb_1ec77f5c",
   "pid": "cf:escalating:by-friday:x",
   "cefr": "B2",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": null
  }
 }

@@ -5,7 +5,12 @@
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -36,17 +43,8 @@
     "red": [
      2
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "The verb marry needs no word after it.",
-   "key": {
-    "yellow": [
-     2
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -57,7 +55,17 @@
      4
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "The verb marry needs no word after it.",
+   "key": {
+    "yellow": [
+     2
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -67,7 +75,8 @@
      1,
      6
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -77,7 +86,7 @@
      3
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -88,7 +97,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -106,12 +115,13 @@
     "green": [
      0
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -151,44 +161,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“with”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“married a”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -197,33 +169,113 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "He ",
-      "white"
-     ],
-     [
-      "married a ",
-      "green"
-     ],
-     [
-      "teacher.",
-      "white"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "He "
+      ],
+      [
+       "married",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "a ",
+       "green"
+      ],
+      [
+       "teacher."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "married",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/ˈmeri/"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " with",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " married a",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -234,43 +286,117 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "She married her best friend.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "They're married to each other.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She "
+      ],
+      [
+       "married ",
+       "green"
+      ],
+      [
+       "her"
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " MARRY someone",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "best friend."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " married TO",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "They're "
+      ],
+      [
+       "married",
+       "green"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "to each other."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " MARRY ",
+       "hl"
+      ],
+      [
+       "someone"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "married "
+      ],
+      [
+       "TO",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -283,25 +409,33 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "She married ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " a doctor.",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She married "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "a doctor."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -328,27 +462,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "She married ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " a…",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " with",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " married a",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "married",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/ˈmeri/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -379,6 +563,7 @@
   "bank": "sb_19bde506",
   "pid": "u:p:married:m0",
   "cefr": "B1",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": "/ˈmeri/"
  }
 }

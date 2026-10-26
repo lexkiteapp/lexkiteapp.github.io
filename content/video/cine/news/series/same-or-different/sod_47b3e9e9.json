@@ -1,11 +1,16 @@
 {
  "id": "sod_47b3e9e9",
  "template": "pair",
- "title": "Same or Different? #16 – rob (v) vs steal (v)",
+ "title": "Same or Different? #3 – rob (v) vs steal (v)",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board"
+  "c01_carlos_board",
+  "c01t2_carlos_talk2",
+  "c01t3_carlos_talk3"
+ ],
+ "listen": [
+  "c01l_carlos_listen"
  ],
  "accent": "green",
  "active": "green",
@@ -16,14 +21,15 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 0.75,
+ "speed": 0.68,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "lines": [
   {
    "id": "p_h",
-   "text": "Rob or steal? Don't mix them up.",
+   "text": "Rob or steal? You probably mix these up.",
    "key": {
     "yellow": [
      0
@@ -31,26 +37,8 @@
     "green": [
      2
     ]
-   }
-  },
-  {
-   "id": "p_w",
-   "text": "Not: Someone robbed my phone.",
-   "key": {
-    "red": [
-     2
-    ]
-   }
-  },
-  {
-   "id": "p_k",
-   "text": "Say: Someone stole my phone.",
-   "key": {
-    "green": [
-     2
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_y",
@@ -63,7 +51,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_x",
@@ -73,7 +61,28 @@
      1,
      7
     ]
-   }
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "p_w",
+   "text": "Not: Someone robbed my phone.",
+   "key": {
+    "red": [
+     2
+    ]
+   },
+   "gap": 0.5
+  },
+  {
+   "id": "p_k",
+   "text": "Say: Someone stole my phone.",
+   "key": {
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "p_t",
@@ -84,7 +93,7 @@
      5
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_q",
@@ -94,7 +103,7 @@
      0
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_q2",
@@ -113,233 +122,254 @@
      0,
      2
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "p_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
   {
    "id": "hook",
-   "kind": "pair",
+   "kind": "rich",
    "role": "hook",
-   "anim": "slide",
-   "vs": true,
-   "left": {
-    "title": "ROB",
-    "color": "navy2"
-   },
-   "right": {
-    "title": "STEAL",
-    "color": "green"
-   },
+   "anim": "stamp",
+   "size": 96,
+   "rows": [
+    [
+     [
+      "rob",
+      "yellow"
+     ],
+     [
+      " or",
+      "white"
+     ]
+    ],
+    [
+     [
+      "steal",
+      "green"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l",
    "from": [
     "t",
     0
    ],
    "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "lesson",
+   "kind": "lesson",
+   "anim": "spring",
+   "title": "ROB vs STEAL",
+   "items": [
+    {
+     "icon": "💬",
+     "color": "green",
+     "word": "rob",
+     "mean": "= take from a person or place",
+     "ex": [
+      "“They ",
+      "robbed",
+      " a store.”"
+     ]
+    },
+    {
+     "icon": "🦹",
+     "color": "blue",
+     "word": "steal",
+     "ipa": "/stiːl/",
+     "mean": "= take a thing",
+     "ex": [
+      "“My bike was ",
+      "stolen",
+      ".”"
+     ],
+     "at": [
+      "p_y",
+      1,
+      "s",
+      -0.06
+     ]
+    }
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
     "p_w",
     0,
     "s",
-    -0.1
+    -0.06
    ]
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 80,
-   "rows": [
-    [
-     [
-      "Someone ",
-      "white"
-     ],
-     [
-      "robbed ",
-      "red"
-     ],
-     [
-      "my phone.",
-      "white"
-     ],
-     [
-      "@x"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "NOT / SAY"
+      ]
      ]
-    ],
-    [
-     [
-      "Someone ",
-      "white"
-     ],
-     [
-      "stole ",
-      "green"
-     ],
-     [
-      "my phone.",
-      "white"
-     ],
-     [
-      "@ok"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " Someone "
+      ],
+      [
+       "robbed ",
+       "red"
+      ],
+      [
+       "my phone."
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " Someone "
+      ],
+      [
+       "stole ",
+       "green"
+      ],
+      [
+       "my phone."
+      ]
+     ]
+    }
    ],
    "from": [
     "p_w",
     0,
     "s",
-    -0.1
-   ],
-   "to": [
-    "p_y",
-    0,
-    "s",
-    -0.06
-   ]
-  },
-  {
-   "id": "explain",
-   "kind": "pair",
-   "anim": "spring",
-   "left": {
-    "title": "rob",
-    "color": "navy2"
-   },
-   "right": {
-    "title": "steal",
-    "color": "green"
-   },
-   "focus": [
-    [
-     [
-      "p_y",
-      1,
-      "s",
-      0
-     ],
-     "right"
-    ],
-    [
-     [
-      "p_y",
-      4,
-      "s",
-      0
-     ],
-     "left"
-    ]
-   ],
-   "from": [
-    "p_y",
-    0,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "p_x",
-    0,
-    "s",
-    -0.06
-   ]
-  },
-  {
-   "id": "ex",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 80,
-   "rows": [
-    [
-     [
-      "They robbed a store.",
-      "green"
-     ]
-    ],
-    [
-     [
-      "My bike was stolen.",
-      "green"
-     ]
-    ]
-   ],
-   "from": [
-    "p_x",
-    0,
-    "s",
     -0.06
    ],
    "to": [
     "p_t",
     0,
     "s",
-    -0.1
+    -0.06
    ]
   },
   {
    "id": "trick",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " STEAL a thing",
-      "yellow"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "MEMORY TRICK"
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " ROB a person/place",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " STEAL ",
+       "hl"
+      ],
+      [
+       "a thing"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "ROB ",
+       "hl"
+      ],
+      [
+       "a person/place"
+      ]
+     ]
+    }
    ],
    "from": [
     "p_t",
     0,
     "s",
-    -0.1
+    -0.06
    ],
    "to": [
     "p_q",
-    1,
+    0,
     "s",
     -0.06
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "Someone ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " my wallet!",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Someone "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "my wallet!"
+      ]
+     ]
+    }
    ],
    "from": [
     "p_q",
-    1,
+    0,
     "s",
     -0.06
    ],
@@ -362,27 +392,56 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "Someone ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " my…",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "p_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "p_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "lesson",
+   "anim": "spring",
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "💬",
+     "color": "green",
+     "word": "rob",
+     "mean": "= a person · a place",
+     "ex": [
+      "“They ",
+      "robbed",
+      " a store.”"
+     ]
+    },
+    {
+     "icon": "🦹",
+     "color": "blue",
+     "word": "steal",
+     "ipa": "/stiːl/",
+     "mean": "= a thing",
+     "ex": [
+      "“My bike was ",
+      "stolen",
+      ".”"
+     ]
+    }
+   ],
+   "footer": "lexkite.com",
+   "from": [
+    "p_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "p_c",
@@ -407,12 +466,13 @@
  ],
  "series": {
   "name": "Same or Different?",
-  "ep": 16
+  "ep": 3
  },
  "source": {
   "bank": "sb_47b3e9e9",
   "pid": "u:c:rob-steal",
   "cefr": "B1",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": null
  }
 }

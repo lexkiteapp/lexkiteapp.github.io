@@ -12,31 +12,32 @@ No facts are invented: every spoken sentence is a gold-script field or a fixed c
 the answer line, CTA line has lexkite.com, hook <= 6 words on screen, error phrase only in the error line, spoken text TTS-clean.
 Usage: python3 scripts/video/tpl/gold2v9.py [--check]   (--check = build in memory, print the summary, write nothing)
 """
-import difflib, glob, hashlib, json, os, re, sys
+import difflib, glob, hashlib, json, os, re, subprocess, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 OUT = f'{ROOT}/content/video/cine/news/series'
 GOLD_EP1 = {'stop-saying-this': ['i am agree'], 'same-or-different': ['borrow', 'lend']}   # templates-v2 episode 1 (hand-written)
 BOARDW = {'d03_daniel_desk': 532, 'k03_kai_desk': 548, 'm03_mei_desk': 532, 'c01_carlos_board': 852, 'a02_ama_board': 856}   # measured board text width (render logs)
-ALT = {'stop-saying-this': dict(teacher='carlos', clips=['c01_carlos_board'])}   # wide-board presenter when a hook word does not fit the series desk board
+ALT = {'stop-saying-this': dict(teacher='carlos', clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.68)}   # wide-board presenter when a hook word does not fit the series desk board
 SERIES = {
     'stop-saying-this': dict(name='Stop Saying This', template='mistake', type='stop-saying', pre='sts', L='m', teacher='daniel', set='classroom_board',
-                             clips=['d03_daniel_desk'], accent='red', active='cream', hook_style='stop: red X badge + quoted error, stamp-in',
+                             clips=['d03_daniel_desk', 'd03t2_daniel_talk2', 'd03t3_daniel_talk3'], listen=['d03l_daniel_listen'], speed=0.72, accent='red', active='cream', hook_style='stop: red X badge + quoted error, stamp-in',
                              motif='red badges + quoted lines, green check on the fix',
                              cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
     'same-or-different': dict(name='Same or Different?', template='pair', type='x-vs-y', pre='sod', L='p', teacher='carlos', set='classroom_board',
-                              clips=['c01_carlos_board'], accent='green', active='green', hook_style='versus: two tiles slide in from both sides with a VS disc',
+                              clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.68, accent='green', active='green', hook_style='versus: two tiles slide in from both sides with a VS disc',
                               motif='side-by-side twin tiles, the active one lit',
                               cta={'area': 'word-usage', 'link': 'https://lexkite.com/app/#/usage?c=pair', 'say': 'Compare tricky words'}),
 }
-WMIN, WMAX, WSOFT, EST_MAX, HOOK_MAX = 50, 80, 76, 45.0, 6
+WMIN, WMAX, WSOFT, EST_MAX, HOOK_MAX = 50, 75, 71, 50.0, 6   # production standard: 50-75 words at speed 0.68-0.75 with 0.6-0.7 s gaps (<= 130 wpm)
+LINE_MAX, QOPT_MAX = 26, 12   # note line (desk board 502 px) and quiz option character limits
 EMO = re.compile('[←-⇿☀-➿\U0001F000-\U0001FAFF]️?')
 norm = lambda w: re.sub(r"[^a-z0-9'-]", '', w.lower().replace('’', "'")).strip("-'")
 toks = lambda s: s.split()
 
-def est_seconds(lines):   # calibrated on the gold samples: Kokoro 0.75 ~ 2.1 words/s, 0.22 s base gap, declared gaps, beats
+def est_seconds(lines, speed=0.72):   # Kokoro 0.75 ~ 2.1 words/s (scaled by speed), 0.22 s base gap, declared gaps, beats
     w = sum(len(toks(l['text'])) for l in lines if l.get('text'))
-    return w / 2.1 + sum(l.get('gap', 0.22) for l in lines if l.get('text')) + sum(l.get('dur', 0) for l in lines if l.get('beat')) + 0.4
+    return w / (2.1 * speed / 0.75) + sum(l.get('gap', 0.22) for l in lines if l.get('text')) + sum(l.get('dur', 0) for l in lines if l.get('beat')) + 0.4
 
 def diff_span(wrong, right):
     """Word indices of `wrong` that differ from `right` (insertion in right -> the two wrong words around it), and the right-side indices."""
@@ -85,7 +86,7 @@ def quiz_parts(q):
     if any(not spoken_ok(x) for x in spoken) or q['q'].count('___') != 1: return None
     filled = re.sub(r'\s+', ' ', q['q'].replace('___', '' if o[a].startswith('(') else o[a])).replace(' ,', ',').replace(' .', '.').strip()
     filled = filled[0].upper() + filled[1:]
-    return dict(o=o, a=a, say=spoken, q_spoken=q['q'].replace('___', 'blank'), filled=filled,
+    return dict(q=q['q'], o=o, a=a, say=spoken, q_spoken=q['q'].replace('___', 'blank'), filled=filled,
                 q_rows=[[[p, 'white'] if p != '___' else ['___', 'yellow'] for p in re.split(r'(___)', q['q']) if p]], q_win=blank_window(q['q']))
 
 def blank_window(q, before=2, after=1):
@@ -96,21 +97,107 @@ def blank_window(q, before=2, after=1):
 
 def cap(s): return s[0].upper() + s[1:]
 
+_DICT = {}
+def dict_rows(words):
+    """US IPA / emoji from the app dictionary (scripts/scriptbank/lib.mjs sources().byWord: row[10] US IPA, else row[1]); batch, cached."""
+    need = sorted({w for w in words if w and w not in _DICT})
+    if need:
+        js = "import('./scripts/scriptbank/lib.mjs').then(m=>{const s=m.sources();const o={};for(const w of JSON.parse(process.argv[1])){const r=s.byWord.get(w);if(r)o[w]=[r[10]||r[1],r[9]||'']}console.log(JSON.stringify(o))})"
+        out = subprocess.run(['node', '-e', js, json.dumps(need)], cwd=ROOT, capture_output=True, text=True, check=True).stdout
+        got = json.loads(out.strip().splitlines()[-1])
+        for w in need: _DICT[w] = got.get(w)
+    return _DICT
+
+def lemmas(w):
+    w = norm(w); c = [w]
+    for suf, rep in (('ing', ''), ('ing', 'e'), ('ed', ''), ('ed', 'e'), ('d', ''), ('es', ''), ('s', ''), ('ied', 'y'), ('ies', 'y')):
+        if w.endswith(suf) and len(w) - len(suf) >= 3: c.append(w[:-len(suf)] + rep)
+    return c
+
+def ipa_of(word):
+    for c in lemmas(word):
+        r = dict_rows([c]).get(c)
+        if r and r[0]: return r[0], r[1]
+    return None, ''
+
+def wrap(items, maxc=26):
+    """items = [(token, colour)] -> rows of [text, colour] segs, each row <= maxc characters (greedy word wrap)."""
+    def greedy(mx):
+        rows, cur, n = [], [], 0
+        for t, c in items:
+            if cur and n + 1 + len(t) > mx: rows.append(cur); cur, n = [], 0
+            cur.append((t, c)); n += len(t) + (1 if n else 0)
+        if cur: rows.append(cur)
+        return rows
+    rows = greedy(maxc)
+    for mx in range(max(len(t) for t, _ in items), maxc):   # balanced rows: the narrowest width that keeps the same row count
+        if len(greedy(mx)) == len(rows): rows = greedy(mx); break
+    out = []
+    for r in rows:
+        segs_ = []
+        for i, (t, c) in enumerate(r):
+            t = t + (' ' if i < len(r) - 1 else '')
+            if segs_ and segs_[-1][1] == c: segs_[-1][0] += t
+            else: segs_.append([t, c])
+        out.append([[t, c] if c else [t] for t, c in segs_])
+    return out
+
+def _old_wrap(items, maxc=26):
+    rows, cur, n = [], [], 0
+    for t, c in items:
+        if cur and n + 1 + len(t) > maxc: rows.append(cur); cur, n = [], 0
+        cur.append((t, c)); n += len(t) + (1 if n else 0)
+    if cur: rows.append(cur)
+    out = []
+    for r in rows:
+        segs_ = []
+        for i, (t, c) in enumerate(r):
+            t = t + (' ' if i < len(r) - 1 else '')
+            if segs_ and segs_[-1][1] == c: segs_[-1][0] += t
+            else: segs_.append([t, c])
+        out.append([[t, c] if c else [t] for t, c in segs_])
+    return out
+
+def wrap_s(sentence, idx=(), colour='green', base=None, maxc=26):
+    return wrap([(w, colour if i in idx else base) for i, w in enumerate(toks(sentence))], maxc)
+
+def note(nid, frm, to, title, lines, anim='spring'):
+    return dict(id=nid, kind='note', anim=anim, from_=frm, to_=to, lines=[{'st': 'title', 'segs': [[title]]}] + [{'st': st, 'segs': sg} for st, sg in lines])
+
+NOTE_H = dict(title=90, big=96, text=64, small=56)
+def line_len(segs): return sum(len(t[0].split(':', 1)[1]) if t[0].startswith('@ipa:') else 0 if t[0].startswith('@') else len(t[0]) for t in segs)
+def memory_rows(memory):
+    """Memory trick -> note text rows: UPPERCASE words highlighted, ✓/✗ become emoji tokens, a bulb on the first row."""
+    rows = []
+    for piece in [x.strip() for x in memory.split(',') if x.strip()]:
+        emo = []; piece = re.sub(r'\s*(✓|✗)', lambda m: (emo.append('@emoji:✅' if m.group(1) == '✓' else '@emoji:❌'), '')[1], piece)
+        em = [m.group(0) for m in EMO.finditer(piece)]; piece = EMO.sub('', piece).strip()
+        for r in wrap([(w, 'hl' if w.strip('+-=').isupper() and len(w.strip('+-=')) >= 2 else None) for w in toks(piece)], 24):
+            rows.append(r)
+        if emo or em:
+            rows[-1] = rows[-1] + [[e] for e in ([x for x in emo] + [x for x in em][:1])]
+    if rows: rows[0] = [['@emoji:💡']] + [[' ' + rows[0][0][0]] + rows[0][0][1:]] + rows[0][1:]
+    return rows
+
 def build(slug, it, ep):
     C = SERIES[slug]; L = C['L']; why, aha, ex, right, wrong = it['why'], it['aha'], list(it['ex']), it['right'], it['wrong']
     for k, s in [('why', why), ('aha', aha), ('wrong', wrong), ('right', right)] + [(f'ex{i}', e) for i, e in enumerate(ex)]:
         if not spoken_ok(s): return None, f'{k} not TTS-clean (symbols/emoji/quotes): {s!r}'
     Q = quiz_parts(it['quiz'])
     if not Q: return None, 'quiz not speakable (needs one ___ and plain options)'
+    if any(len(x) > QOPT_MAX for x in Q['o']): return None, f'quiz option longer than {QOPT_MAX} characters'
     wi, ri = diff_span(wrong, right)
     if not wi or not ri: return None, 'wrong/right identical'
     mw = mem_words(it['memory'])
+    cards = None
     if slug == 'same-or-different':
         m = re.match(r'^(.+?) \([^)]*\) vs (.+?) \([^)]*\)$', it['point'])
         if not m: return None, f'not a two-way pair: {it["point"]!r}'
         X, Y = m.group(1).strip(), m.group(2).strip()
         if len(X.split()) > 2 or len(Y.split()) > 2: return None, 'pair word too long for twin tiles'
         if sorted([X.lower(), Y.lower()]) == sorted(GOLD_EP1[slug]): return None, 'already episode 1 (templates-v2 gold)'
+        cards = json.load(open(f'{ROOT}/content/video/scripts/bank/pair-cards.json')).get(it['id'])
+        if not cards: return None, 'no hand-checked lesson cards (meaning + example) in bank/pair-cards.json'
     elif any(g in wrong.lower() for g in GOLD_EP1[slug]): return None, 'already episode 1 (templates-v2 gold)'
     lines = []
     def add(i, text, gap=None, **key):
@@ -120,76 +207,88 @@ def build(slug, it, ep):
         if gap: d['gap'] = gap
         lines.append(d); return d
     span_w = {norm(toks(wrong)[i]) for i in wi} | {norm(toks(right)[i]) for i in ri}
+    G = 0.65
     if slug == 'stop-saying-this':
-        add('h', 'Stop saying this.')
-        add('w', wrong, red=wi)
-        add('y', why, 0.6, yellow=key_idx(why, mw, 3))
-        k = add('k', 'Just say: ' + right, 0.6, green=[i + 2 for i in ri])
+        add('h', 'Stop saying this.', 0.5)
+        add('w', wrong, G, red=wi)
+        k = add('k', 'Just say: ' + right, G, green=[i + 2 for i in ri])
+        add('y', why, G, yellow=key_idx(why, mw, 3))
     else:
-        add('h', f'{cap(X)} or {Y}? Don\'t mix them up.', yellow=[0], green=[2])
-        add('w', 'Not: ' + wrong, red=[i + 1 for i in wi])
-        k = add('k', 'Say: ' + right, 0.6, green=[i + 1 for i in ri])
-        xs, ys = [norm(w) for w in X.split()], [norm(w) for w in Y.split()]
-        yi = key_idx(why, xs, 2); gi = [i for i in key_idx(why, ys, 2) if i not in yi]
-        add('y', why, 0.6, yellow=yi, green=gi)
+        add('h', f'{cap(X)} or {Y}? You probably mix these up.', G, yellow=[0], green=[2])
+        add('y', why, G, yellow=key_idx(why, [norm(w) for w in X.split()], 2), green=[i for i in key_idx(why, [norm(w) for w in Y.split()], 2) if i not in key_idx(why, [norm(w) for w in X.split()], 2)])
     exl = ' '.join(ex)
-    xl = add('x', exl, None, green=key_idx(exl, sorted(span_w | set(mw)), 4))
-    add('t', aha, 0.6, yellow=key_idx(aha, mw, 3))
-    add('q', ('Quick quiz! ' if slug == 'stop-saying-this' else 'Quiz! ') + Q['q_spoken'], 0.6, yellow=[0, 1] if slug == 'stop-saying-this' else [0])
+    xl = add('x', exl, G, green=key_idx(exl, sorted(span_w | set(mw)), 4))
+    if slug == 'same-or-different':
+        add('w', 'Not: ' + wrong, 0.5, red=[i + 1 for i in wi])
+        k = add('k', 'Say: ' + right, G, green=[i + 1 for i in ri])
+    add('t', aha, G, yellow=key_idx(aha, mw, 3))
+    add('q', ('Quick quiz! ' if slug == 'stop-saying-this' else 'Quiz! ') + Q['q_spoken'], G, yellow=[0, 1] if slug == 'stop-saying-this' else [0])
     add('q2', f"{cap(Q['say'][0])}, or {Q['say'][1]}?")
     lines.append({'id': '_count', 'beat': 'count', 'dur': 3.0})
     ans = Q['say'][Q['a']]; aline = f"{cap(ans)}! {Q['filled']}"
     fi = key_idx(Q['filled'], [norm(w) for w in ans.split()], 3) if not Q['o'][Q['a']].startswith('(') else []
-    add('a', aline, None, green=[0] + [i + 1 for i in fi])
-    add('c', f"Save this, and {C['cta']['say'][0].lower() + C['cta']['say'][1:]} on lexkite.com.", 0.6)
-    # stay inside the gold-standard band (<= 76 words, <= 45 s): two examples when they fit, else one (never pad)
+    add('a', aline, 0.5, green=[0] + [i + 1 for i in fi])
+    add('c', f"Save this, and {C['cta']['say'][0].lower() + C['cta']['say'][1:]} on lexkite.com.", G)
     nw = lambda: sum(len(toks(l['text'])) for l in lines if l.get('text'))
-    if (nw() > WSOFT or est_seconds(lines) > EST_MAX - 1) and len(ex) > 1:
+    if (nw() > WSOFT or est_seconds(lines, C['speed']) > EST_MAX - 1) and len(ex) > 1:   # one example when two do not fit (never pad)
         xl['text'] = ex[0]; kk = key_idx(ex[0], sorted(span_w | set(mw)), 4); xl.pop('key', None)
         if kk: xl['key'] = {'green': kk}
         ex = ex[:1]
-    LID = {l['id']: l for l in lines}
-    # ---- pops (anchors [line, word_idx, 's'|'e', offset]; chained: each pop's `to` == the next pop's `from`, so the board is never empty)
     a = lambda lid, k=0, off=-0.1: [f'{L}_{lid}', k, 's', off]
+    wrong_sp = ' '.join(toks(wrong)[i] for i in wi).strip('.,!?'); right_sp = ' '.join(toks(right)[i] for i in ri).strip('.,!?')
+    ip, ipw = (None, None)   # IPA word: a changed word (>= 4 letters), else a memory-trick word that is in the right sentence (US IPA, app dictionary)
+    for w_ in ([toks(right)[i] for i in ri][:2] if len(ri) <= 2 else []) + [w for w in toks(right) if any(norm(w).startswith(m_) or m_.startswith(norm(w)) for m_ in mw) and len(norm(w)) >= 4]:
+        if len(norm(w_)) >= 4 and ipa_of(w_)[0]: ip, ipw = ipa_of(w_)[0], norm(w_); break
+    ipa_seg = [['  '], ['@ipa:' + ip]] if ip else []
+    qs_rows = wrap_s(Q['q'], {i for i, w in enumerate(toks(Q['q'])) if '___' in w}, 'green')
+    qs = note('qs', a('q', 1 if slug == 'stop-saying-this' else 0, -0.06), None, 'QUICK QUIZ', [('text', r) for r in qs_rows])
     if slug == 'stop-saying-this':
         n_hook = 2 + len(toks(wrong))
-        # badge (+ "Stop saying" / "Stop" while the hook stays <= 6 words) on its own row, the quoted error on the next row (fits the desk board)
         lead = [[' Stop saying', 'white']] if n_hook <= HOOK_MAX else [[' Stop', 'white']] if n_hook - 1 <= HOOK_MAX else []
         hook_rows = [[['@x']] + lead, segs(wrong, set(wi), 'red', quote=True)]
-        wrong_sp = ' '.join(toks(wrong)[i] for i in wi); right_sp = ' '.join(toks(right)[i] for i in ri)
+        fixl = [('big', r) for r in wrap_s(right, set(ri), 'green', None, 20)] + ([('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []) 
+        if sum(NOTE_H[st] for st, _ in fixl) + NOTE_H['title'] + NOTE_H['small'] <= 360: fixl.append(('small', [['not “'], [wrong_sp, 'red'], ['”']]))
+        wl = [('text', [['@emoji:❌'], [' ' + wrong_sp, 'red']]), ('text', [['@emoji:✅'], [' ' + right_sp, 'green']])]
         P = [dict(id='hook', kind='rich', role='hook', anim='stamp', size=84, from_=['t', 0], rows=hook_rows),
-             dict(id='why', kind='rich', anim='spring', size=84, from_=a('y', 0, -0.2),
-                  rows=[[['“' + wrong_sp.strip('.,!?') + '”', 'red'], ['@x']], [['“' + right_sp.strip('.,!?') + '”', 'green'], ['@ok']]]),
-             dict(id='fix', kind='rich', anim='spring', size=84, from_=a('k', 0, -0.2), rows=[segs(right, set(ri), 'green') + [['@ok']]]),
-             dict(id='ex', kind='rich', anim='spring', size=84, from_=a('x', 0, -0.06),
-                  rows=[[[e, 'green']] for e in ex] + [[['@emoji:💡']] + [[' ' + s[0], s[1]] if i == 0 and not s[0].startswith('@') else s for i, s in enumerate(board_row(r.strip(), 'yellow'))] for r in it['memory'].split(',') if r.strip()])]
+             note('fix', a('k', 0, -0.2), None, 'SAY THIS', fixl),
+             note('why', a('y', 0, -0.06), None, 'WHY?', wl,),
+             note('ex', a('x', 0, -0.06), None, 'EXAMPLE', [('text', r) for e, ix in [(e, key_idx(e, sorted(span_w | set(mw)), 4)) for e in ex] for r in wrap_s(e, set(ix), 'green', None, 26)])]
+        mr = memory_rows(it['memory'])
+        if mr: P.append(note('trick', a('t', 0, -0.06), None, 'REMEMBER', [('text', r) for r in mr]))
+        P += [qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),
+              note('save', [f'{L}_a', -1, 'e', 0.35], None, 'SAVE THIS', [wl[0], ('text', [['@emoji:✅'], [' ' + right_sp, 'green']]), ] + ([('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []))]
     else:
-        P = [dict(id='hook', kind='pair', role='hook', anim='slide', vs=True, left={'title': X.upper(), 'color': 'navy2'}, right={'title': Y.upper(), 'color': 'green'}, from_=['t', 0]),
-             dict(id='fix', kind='rich', anim='spring', size=80, from_=a('w', 0, -0.1),
-                  rows=[segs(wrong, set(wi), 'red') + [['@x']], segs(right, set(ri), 'green') + [['@ok']]]),
-             dict(id='explain', kind='pair', anim='spring', left={'title': X, 'color': 'navy2'}, right={'title': Y, 'color': 'green'}, from_=a('y', 0, -0.06),
-                  focus=[[a('y', i, 0), side] for i, side in sorted([(LID[f'{L}_y'].get('key', {}).get('yellow', [None])[0], 'left'), (LID[f'{L}_y'].get('key', {}).get('green', [None])[0], 'right')], key=lambda z: (z[0] is None, z[0] or 0)) if i is not None]),
-             dict(id='ex', kind='rich', anim='spring', size=80, from_=a('x', 0, -0.06), rows=[[[e, 'green']] for e in ex]),
-             dict(id='trick', kind='rich', anim='spring', size=84, from_=a('t', 0, -0.1),
-                  rows=[[['@emoji:💡']] + [[' ' + s[0], s[1]] if i == 0 and not s[0].startswith('@') else s for i, s in enumerate(board_row(r.strip(), 'yellow'))] for r in it['memory'].split(',') if r.strip()])]
-        if not P[2]['focus']: P[2].pop('focus')
-    # full blank sentence on the board while it is read, then the A/B quiz with a short window around the blank (the quiz widget must fit
-    # the smallest board zone at the v10 minimum sizes; the desk board is ~384 px tall)
-    P.append(dict(id='qline', kind='rich', anim='spring', size=84, from_=a('q', 1, -0.06), rows=Q['q_rows']))
-    P.append(dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04), q=Q['q_win']))
+        items = []
+        for nm, col, ico in ((X, 'green', None), (Y, 'blue', None)):
+            cd = cards.get(nm.lower())
+            if not cd: return None, f'pair-cards.json lacks {nm}'
+            i_, e_ = ipa_of(nm); items.append(dict(icon=cd.get('icon') or e_ or '💬', color=col, word=nm.lower(), **({'ipa': i_} if i_ else {}), mean=cd['mean'], ex=cd['ex']))
+        wy = key_idx(why, [norm(Y)], 1)
+        if wy: items[1]['at'] = a('y', wy[0], -0.06)
+        sv = [dict(it_, **({'mean': cards[it_['word']].get('save_mean', it_['mean'])})) for it_ in items]
+        for it_ in sv: it_.pop('at', None)
+        def emo_rows(emo, sentence, idx, colour):   # emoji on the first row, continuation rows indented, all rows <= 22 characters
+            rr = wrap_s(sentence, idx, colour, None, 24)
+            return [('text', ([[emo]] if i == 0 else [['  ']]) + [[' ' + r[0][0]] + r[0][1:]] + r[1:]) for i, r in enumerate(rr)]
+        fixl = emo_rows('@emoji:❌', wrong, wi, 'red') + emo_rows('@emoji:✅', right, ri, 'green')
+        P = [dict(id='hook', kind='rich', role='hook', anim='stamp', size=96, from_=['t', 0], rows=[[[X, 'yellow'], [' or', 'white']], [[Y, 'green'], ['?', 'white']]], align='l'),
+             dict(id='lesson', kind='lesson', anim='spring', from_=a('y', 0, -0.06), to_=None, title=f'{X.upper()} vs {Y.upper()}', items=items),
+             note('fix', a('w', 0, -0.06), None, 'NOT / SAY', fixl),
+             note('trick', a('t', 0, -0.06), None, 'MEMORY TRICK', [('text', r) for r in memory_rows(it['memory'])]),
+             qs, dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04)),
+             dict(id='save', kind='lesson', anim='spring', from_=[f'{L}_a', -1, 'e', 0.35], to_=None, title='SAVE THIS', save=True, items=sv, footer='lexkite.com')]
     P.append(dict(id='cta', kind='cta', from_=a('c', 0, -0.05)))
     pops = []
     for i, p in enumerate(P):
-        d = {k: v for k, v in p.items() if k != 'from_'}; d['from'] = p['from_']; d['to'] = P[i + 1]['from_'] if i + 1 < len(P) else ['end']
+        d = {k: v for k, v in p.items() if k not in ('from_', 'to_')}; d['from'] = p['from_']; d['to'] = P[i + 1]['from_'] if i + 1 < len(P) else ['end']
         pops.append(d)
     spec = {'id': f"{C['pre']}_{it['id'].split('_', 1)[1]}", 'template': C['template'],
-            'title': f"{C['name']} #{ep} – {it['point']}", 'teacher': C['teacher'], 'set': C['set'], 'clips': C['clips'], 'accent': C['accent'],
-            'active': C['active'], 'hook_style': C['hook_style'], 'motif': C['motif'], 'cta': C['cta'], 'speed': 0.75, 'display': {'blank': '___'}}
+            'title': f"{C['name']} #{ep} – {it['point']}", 'teacher': C['teacher'], 'set': C['set'], 'clips': C['clips'], 'listen': C['listen'], 'accent': C['accent'],
+            'active': C['active'], 'hook_style': C['hook_style'], 'motif': C['motif'], 'cta': C['cta'], 'speed': C['speed'], 'display': {'blank': '___'}, 'caption_cap': 42}
     if slug == 'stop-saying-this':
-        # error phrase = the contiguous wrong range plus one word of context on each side (specific enough to never hit an explanation line)
         tw = [norm(x) for x in toks(wrong)]; span = tw[max(0, wi[0] - 1): min(len(tw), wi[-1] + 2)]
         spec['error_lines'] = [f'{L}_w']; spec['error_re'] = r'\b' + r'\W+'.join(re.escape(w) for w in span if w) + r'\b'
-    spec.update(lines=lines, pops=pops, series={'name': C['name'], 'ep': ep}, source={'bank': it['id'], 'pid': it.get('pid'), 'cefr': it.get('cefr'), 'diff': it.get('diff')})
+    spec.update(lines=lines, pops=pops, series={'name': C['name'], 'ep': ep}, source={'bank': it['id'], 'pid': it.get('pid'), 'cefr': it.get('cefr'), 'diff': it.get('diff'), 'ipa': ip})
     err = selfcheck(spec)
     return (None, 'self-check: ' + '; '.join(err)) if err else (spec, None)
 
@@ -203,7 +302,17 @@ def selfcheck(s):
     e = []; T = [l for l in s['lines'] if l.get('text')]; S = {l['id']: l['text'] for l in T}
     w = sum(len(toks(t)) for t in S.values())
     if not WMIN <= w <= WMAX: e.append(f'{w} words (need {WMIN}-{WMAX})')
-    if est_seconds(s['lines']) > EST_MAX: e.append(f'est {est_seconds(s["lines"]):.1f} s > {EST_MAX}')
+    if est_seconds(s['lines'], s['speed']) > EST_MAX: e.append(f'est {est_seconds(s["lines"], s["speed"]):.1f} s > {EST_MAX}')
+    if not s.get('listen') or not 0.65 <= s['speed'] <= 0.75 or s.get('caption_cap') != 42: e.append('production-standard fields (listen, speed 0.65-0.75, caption_cap 42)')
+    if any(l.get('gap', 0.22) < 0.4 and l['id'] not in (s['lines'][0]['id'], s['lines'][0]['id'][0] + '_q2', s['lines'][0]['id'][0] + '_a', s['lines'][0]['id'][0] + '_w') for l in T): e.append('gap < 0.4 s')
+    for p in s['pops']:
+        if p['kind'] == 'note':
+            hgt = sum(NOTE_H[x['st']] for x in p['lines'])
+            if hgt > 360: e.append(f'note {p["id"]} height {hgt}')
+            for x in p['lines']:
+                if line_len(x['segs'][0:0] + [sg for sg in x['segs']]) > LINE_MAX: e.append(f'note {p["id"]} line > {LINE_MAX} chars: {x["segs"]}')
+                if any('✓' in sg[0] or '✗' in sg[0] for sg in x['segs']): e.append('✓/✗ char in note')
+        if p['kind'] == 'quiz' and (len(p['a']) > QOPT_MAX or len(p['b']) > QOPT_MAX): e.append('quiz option too long')
     for l in T:
         for c, ix in l.get('key', {}).items():
             if any(not 0 <= i < len(toks(l['text'])) for i in ix): e.append(f'key {c} {ix} outside {l["id"]}')
@@ -255,13 +364,13 @@ def main():
             seen.add(content_hash(spec)); S = {l['id']: l['text'] for l in spec['lines'] if l.get('text')}; L = C['L']
             pr = {'quiz': True, 'count': True, 'right': it['right'], 'right_lines': [f'{L}_k']}
             if slug == 'stop-saying-this': pr.update(wrong_line=f'{L}_w', wrong=it['wrong'])
-            else: pr['pair'] = [spec['pops'][0]['left']['title'].lower(), spec['pops'][0]['right']['title'].lower()]
+            else: pr['pair'] = [i['word'] for i in next(p for p in spec['pops'] if p['kind'] == 'lesson')['items']]
             v = dict(template=C['template'], hook=hook_text(spec), hook_true=None, script_reviewed=False, script=S, promise=pr, source=it['id'])
             o = old.get(spec['id'])
             if o and o.get('script') == S and o.get('hook') == v['hook']: v = o   # keep a review only while it still matches word for word
             verdicts[spec['id']] = v
             plan.append({'ep': ep, 'id': spec['id'], 'point': it['point'], 'cefr': it.get('cefr'), 'diff': it.get('diff'), 'words': sum(len(t.split()) for t in S.values()),
-                         'est_s': round(est_seconds(spec['lines']), 1), 'content_hash': content_hash(spec)})
+                         'est_s': round(est_seconds(spec['lines'], spec['speed']), 1), 'ipa': spec['source'].get('ipa'), 'content_hash': content_hash(spec)})
             ep += 1
             if not check:
                 os.makedirs(d, exist_ok=True); json.dump(spec, open(f"{d}/{spec['id']}.json", 'w'), ensure_ascii=False, indent=1)

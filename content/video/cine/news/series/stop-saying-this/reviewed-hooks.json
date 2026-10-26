@@ -89,19 +89,19 @@
     "wrong": "I'm afraid with dogs."
    },
    "source": "sb_2bcb2bbd",
-   "reviewer": "Claude (expert American English teacher review)",
-   "note": "afraid takes of for the thing feared (afraid of dogs/the dark/flying); “afraid with” is a real L1-transfer error. Bank why reworded: the old “Afraid always takes of” overclaimed (afraid for = worried about someone, afraid that + clause). scared of / frightened of note is correct. Hook true."
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: facts true, natural US English, hook true; US IPA from the app dictionary; no GrabCast)",
+   "note": "'afraid with' is a common learner error; correct is 'afraid of' (scared of / frightened of work the same). No overclaim: the hook only says stop saying the quoted phrase."
   },
   "sts_37234b0e": {
    "template": "mistake",
    "hook": "✗ Stop saying / “She did a mistake.”",
-   "hook_true": null,
-   "script_reviewed": false,
+   "hook_true": true,
+   "script_reviewed": true,
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "She did a mistake.",
-    "m_y": "We always make a mistake.",
     "m_k": "Just say: She made a mistake.",
+    "m_y": "With mistake, we always use make.",
     "m_x": "I made a big mistake. Everyone makes mistakes.",
     "m_t": "Also make a plan, make a choice!",
     "m_q": "Quick quiz! I blank a mistake on the test.",
@@ -119,7 +119,9 @@
     "wrong_line": "m_w",
     "wrong": "She did a mistake."
    },
-   "source": "sb_37234b0e"
+   "source": "sb_37234b0e",
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: facts true, natural US English, hook true; US IPA from the app dictionary; no GrabCast)",
+   "note": "'do a mistake' is a very common learner error (many languages say 'do'); standard English collocation is 'make a mistake' (also make a plan, make a choice). Quiz 'I made a mistake on the test' is natural US English."
   },
   "sts_068cf065": {
    "template": "mistake",
@@ -245,9 +247,9 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "Wait me a moment.",
-    "m_y": "Don't say wait me. Say hold on or wait for me.",
     "m_k": "Just say: Could you hold on a second?",
-    "m_x": "Could you hold on? I'll get him. Please wait for me here.",
+    "m_y": "Don't say wait me. Say hold on or wait for me.",
+    "m_x": "Could you hold on? I'll get him.",
     "m_t": "On the phone, hold on is the normal way!",
     "m_q": "Quick quiz! Could you blank a second?",
     "m_q2": "Wait me, or hold on?",
@@ -295,35 +297,6 @@
    },
    "source": "sb_19bde506"
   },
-  "sts_1c747068": {
-   "template": "mistake",
-   "hook": "✗ / “She is responsible of the budget.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "She is responsible of the budget.",
-    "m_y": "In charge of something? Responsible for.",
-    "m_k": "Just say: She is responsible for the budget.",
-    "m_x": "Who is responsible for this? He's responsible for sales.",
-    "m_t": "In charge of uses of. Responsible uses for!",
-    "m_q": "Quick quiz! I'm responsible blank the team.",
-    "m_q2": "Of, or for?",
-    "m_a": "For! I'm responsible for the team.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "She is responsible for the budget.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "She is responsible of the budget."
-   },
-   "source": "sb_1c747068"
-  },
   "sts_21612f29": {
    "template": "mistake",
    "hook": "✗ / “We are committed to reduce waste.”",
@@ -332,9 +305,9 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "We are committed to reduce waste.",
-    "m_y": "Here to is a preposition, so use -ing.",
     "m_k": "Just say: We are committed to reducing waste.",
-    "m_x": "She is committed to helping kids. We're committed to saving energy.",
+    "m_y": "Here to is a preposition, so use -ing.",
+    "m_x": "She is committed to helping kids.",
     "m_t": "Same with look forward to seeing you!",
     "m_q": "Quick quiz! The company is committed to blank prices low.",
     "m_q2": "Keep, or keeping?",
@@ -352,35 +325,6 @@
     "wrong": "We are committed to reduce waste."
    },
    "source": "sb_21612f29"
-  },
-  "sts_24f9ee05": {
-   "template": "mistake",
-   "hook": "✗ Stop / “According to me, it depends.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "According to me, it depends.",
-    "m_y": "According to is for others, not for you.",
-    "m_k": "Just say: In my opinion, it depends.",
-    "m_x": "In my opinion, it's too expensive. According to the news, it will rain.",
-    "m_t": "According to her, but in my opinion!",
-    "m_q": "Quick quiz! blank, remote work is better.",
-    "m_q2": "In my opinion, or According to me?",
-    "m_a": "In my opinion! In my opinion, remote work is better.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "In my opinion, it depends.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "According to me, it depends."
-   },
-   "source": "sb_24f9ee05"
   },
   "sts_25206a92": {
    "template": "mistake",
@@ -535,9 +479,9 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "What I must do every day?",
-    "m_y": "In questions, put does before the subject.",
     "m_k": "Just say: What does a typical day look like?",
-    "m_x": "What does a typical week look like? What does the team do every day?",
+    "m_y": "In questions, put does before the subject.",
+    "m_x": "What does a typical week look like?",
     "m_t": "It also shows real interest in the job!",
     "m_q": "Quick quiz! What blank a typical day look like?",
     "m_q2": "Is, or does?",
@@ -555,35 +499,6 @@
     "wrong": "What I must do every day?"
    },
    "source": "sb_55270c0b"
-  },
-  "sts_5c2deea7": {
-   "template": "mistake",
-   "hook": "✗ Stop saying / “Why you are here?”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "Why you are here?",
-    "m_y": "Questions put are before you. This sounds friendlier.",
-    "m_k": "Just say: So, what brings you here today?",
-    "m_x": "What brings you to London? So, what brings you here tonight?",
-    "m_t": "It sounds curious, not like a guard!",
-    "m_q": "Quick quiz! So, what blank you here today?",
-    "m_q2": "Brings, or bring?",
-    "m_a": "Brings! So, what brings you here today?",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "So, what brings you here today?",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "Why you are here?"
-   },
-   "source": "sb_5c2deea7"
   },
   "sts_7281e267": {
    "template": "mistake",
@@ -613,93 +528,6 @@
     "wrong": "From where you know Emma?"
    },
    "source": "sb_7281e267"
-  },
-  "sts_7c1c35bd": {
-   "template": "mistake",
-   "hook": "✗ Stop saying / “It is not work.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "It is not work.",
-    "m_y": "For machines, use isn't working.",
-    "m_k": "Just say: It isn't working properly.",
-    "m_x": "The printer isn't working. My phone isn't working properly.",
-    "m_t": "Work here needs -ing, because it's happening now!",
-    "m_q": "Quick quiz! The coffee machine blank.",
-    "m_q2": "Is not work, or isn't working?",
-    "m_a": "Isn't working! The coffee machine isn't working.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "It isn't working properly.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "It is not work."
-   },
-   "source": "sb_7c1c35bd"
-  },
-  "sts_851ba94f": {
-   "template": "mistake",
-   "hook": "✗ Stop / “I am very like hiking.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "I am very like hiking.",
-    "m_y": "Like is a verb, so no am. Or say I'm into.",
-    "m_k": "Just say: I'm really into hiking these days.",
-    "m_x": "I'm really into cooking. I really like hiking.",
-    "m_t": "I'm into means I really enjoy it!",
-    "m_q": "Quick quiz! I'm really blank hiking.",
-    "m_q2": "Like, or into?",
-    "m_a": "Into! I'm really into hiking.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "I'm really into hiking these days.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "I am very like hiking."
-   },
-   "source": "sb_851ba94f"
-  },
-  "sts_8ce033f9": {
-   "template": "mistake",
-   "hook": "✗ Stop / “I will answer you after.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "I will answer you after.",
-    "m_y": "Get back to you means you will reply later.",
-    "m_k": "Just say: Let me check and get back to you.",
-    "m_x": "Let me check and get back to you. I'll get back to you tomorrow.",
-    "m_t": "After needs an object. Say later instead!",
-    "m_q": "Quick quiz! I'll blank to you tomorrow.",
-    "m_q2": "Answer back, or get back?",
-    "m_a": "Get back! I'll get back to you tomorrow.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "Let me check and get back to you.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "I will answer you after."
-   },
-   "source": "sb_8ce033f9"
   },
   "sts_9172f8df": {
    "template": "mistake",
@@ -796,9 +624,9 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "How much money I give before?",
-    "m_y": "The deposit is money you pay before you move in.",
     "m_k": "Just say: How much is the security deposit?",
-    "m_x": "How much is the deposit? We paid a security deposit.",
+    "m_y": "The deposit is money you pay before you move in.",
+    "m_x": "How much is the deposit?",
     "m_t": "You usually get your deposit back when you leave!",
     "m_q": "Quick quiz! How much blank the security deposit?",
     "m_q2": "I give, or is?",
@@ -962,64 +790,6 @@
    },
    "source": "sb_2b4d86ec"
   },
-  "sts_36b7cec3": {
-   "template": "mistake",
-   "hook": "✗ Stop / “Thank you for your coming.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "Thank you for your coming.",
-    "m_y": "Say thanks for coming, without your.",
-    "m_k": "Just say: Let's get started. Thanks, everyone, for coming.",
-    "m_x": "Thanks for coming, everyone. Thank you for joining us today.",
-    "m_t": "Coming here is an action, not a thing you own!",
-    "m_q": "Quick quiz! Thanks, everyone, for blank.",
-    "m_q2": "Your coming, or coming?",
-    "m_a": "Coming! Thanks, everyone, for coming.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "Let's get started. Thanks, everyone, for coming.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "Thank you for your coming."
-   },
-   "source": "sb_36b7cec3"
-  },
-  "sts_3899b628": {
-   "template": "mistake",
-   "hook": "✗ / “I was responsible of five people.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "I was responsible of five people.",
-    "m_y": "Responsible always takes for.",
-    "m_k": "Just say: I was responsible for a team of five.",
-    "m_x": "She's responsible for sales. Who is responsible for this project?",
-    "m_t": "Same family: in charge of, but responsible for!",
-    "m_q": "Quick quiz! I was responsible blank the budget.",
-    "m_q2": "Of, or for?",
-    "m_a": "For! I was responsible for the budget.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "I was responsible for a team of five.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "I was responsible of five people."
-   },
-   "source": "sb_3899b628"
-  },
   "sts_57e42a5c": {
    "template": "mistake",
    "hook": "✗ Stop / “For finish, Lee sends report.”",
@@ -1028,9 +798,9 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "For finish, Lee sends report.",
-    "m_y": "To wrap up ends a meeting.",
     "m_k": "Just say: To wrap up, Lee will send the report.",
-    "m_x": "To wrap up, let's review tasks. Let's wrap up the meeting.",
+    "m_y": "To wrap up ends a meeting.",
+    "m_x": "To wrap up, let's review tasks.",
     "m_t": "Like closing a gift: the end!",
     "m_q": "Quick quiz! blank, Lee will send the report.",
     "m_q2": "To wrap up, or For finish?",
@@ -1048,151 +818,6 @@
     "wrong": "For finish, Lee sends report."
    },
    "source": "sb_57e42a5c"
-  },
-  "sts_5af5827b": {
-   "template": "mistake",
-   "hook": "✗ Stop / “When you will call me?”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "When you will call me?",
-    "m_y": "In questions, will comes before you.",
-    "m_k": "Just say: What are the next steps in the process?",
-    "m_x": "What are the next steps? When will you decide?",
-    "m_t": "Next steps sounds calm and ready!",
-    "m_q": "Quick quiz! When blank call me?",
-    "m_q2": "You will, or will you?",
-    "m_a": "Will you! When will you call me?",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "What are the next steps in the process?",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "When you will call me?"
-   },
-   "source": "sb_5af5827b"
-  },
-  "sts_803a54ea": {
-   "template": "mistake",
-   "hook": "✗ Stop / “OK, I agree your offer.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "OK, I agree your offer.",
-    "m_y": "Agree to an offer, or just accept it.",
-    "m_k": "Just say: That sounds fair. I accept the offer.",
-    "m_x": "I accept the offer. We agreed to the new price.",
-    "m_t": "Agree with a person, agree to a plan!",
-    "m_q": "Quick quiz! I'm happy to blank the offer.",
-    "m_q2": "Agree, or accept?",
-    "m_a": "Accept! I'm happy to accept the offer.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "That sounds fair. I accept the offer.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "OK, I agree your offer."
-   },
-   "source": "sb_803a54ea"
-  },
-  "sts_90df73b3": {
-   "template": "mistake",
-   "hook": "✗ / “I will explain you my CV.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "I will explain you my CV.",
-    "m_y": "Explain needs to: explain it to you.",
-    "m_k": "Just say: Let me walk you through my background.",
-    "m_x": "Let me walk you through the plan. Can you explain it to me?",
-    "m_t": "Walk you through means show you step by step!",
-    "m_q": "Quick quiz! Let me blank you through my background.",
-    "m_q2": "Explain, or walk?",
-    "m_a": "Walk! Let me walk you through my background.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "Let me walk you through my background.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "I will explain you my CV."
-   },
-   "source": "sb_90df73b3"
-  },
-  "sts_c03dbf46": {
-   "template": "mistake",
-   "hook": "✗ / “I will present you our app.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "I will present you our app.",
-    "m_y": "Say present to you, or talk about.",
-    "m_k": "Just say: Today, I'll be talking about our app.",
-    "m_x": "Today I'll present our results. I'll be talking about the plan.",
-    "m_t": "Present it to you. Always to!",
-    "m_q": "Quick quiz! Today I'll present our app blank you.",
-    "m_q2": "For, or to?",
-    "m_a": "To! Today I'll present our app to you.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "Today, I'll be talking about our app.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "I will present you our app."
-   },
-   "source": "sb_c03dbf46"
-  },
-  "sts_18d9514a": {
-   "template": "mistake",
-   "hook": "✗ / “The number of student are increasing.”",
-   "hook_true": null,
-   "script_reviewed": false,
-   "script": {
-    "m_h": "Stop saying this.",
-    "m_w": "The number of student are increasing.",
-    "m_y": "The number takes is. A number takes are.",
-    "m_k": "Just say: The number of students is increasing.",
-    "m_x": "The number of cars is growing. A number of people are waiting.",
-    "m_t": "A number of students are here. Both rules work!",
-    "m_q": "Quick quiz! The number of tourists blank rising.",
-    "m_q2": "Are, or is?",
-    "m_a": "Is! The number of tourists is rising.",
-    "m_c": "Save this, and check your grammar on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "The number of students is increasing.",
-    "right_lines": [
-     "m_k"
-    ],
-    "wrong_line": "m_w",
-    "wrong": "The number of student are increasing."
-   },
-   "source": "sb_18d9514a"
   },
   "sts_42fa0282": {
    "template": "mistake",

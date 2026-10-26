@@ -5,192 +5,35 @@
  "order": [
   {
    "ep": 2,
-   "id": "sod_0ce10d3a",
-   "point": "ago (adv) vs before (adv/prep)",
-   "cefr": "A1",
-   "diff": "easy",
-   "words": 73,
-   "est_s": 42.3,
-   "content_hash": "d19a3935cc1a313f"
-  },
-  {
-   "ep": 3,
-   "id": "sod_3100c569",
-   "point": "every (det) vs each (det/pron)",
-   "cefr": "A1",
-   "diff": "easy",
-   "words": 69,
-   "est_s": 40.4,
-   "content_hash": "9fe00a812cc14a7e"
-  },
-  {
-   "ep": 4,
-   "id": "sod_347efc2c",
-   "point": "a few (det) vs few (det)",
-   "cefr": "A1",
-   "diff": "easy",
-   "words": 76,
-   "est_s": 43.7,
-   "content_hash": "6e1419ed0d05365f"
-  },
-  {
-   "ep": 5,
    "id": "sod_7432d6cb",
    "point": "win (v) vs beat (v)",
    "cefr": "A1",
    "diff": "easy",
-   "words": 69,
-   "est_s": 40.4,
+   "words": 70,
+   "est_s": 45.9,
+   "ipa": "/biːt/",
    "content_hash": "40adafa2cee70cd0"
   },
   {
-   "ep": 6,
-   "id": "sod_0ad85c2e",
-   "point": "alone (adj/adv) vs lonely (adj)",
-   "cefr": "A2",
-   "diff": "easy",
-   "words": 67,
-   "est_s": 39.4,
-   "content_hash": "f7adfc8c6415e9c5"
-  },
-  {
-   "ep": 7,
-   "id": "sod_3e77d39c",
-   "point": "rise (v) vs raise (v)",
-   "cefr": "A2",
-   "diff": "easy",
-   "words": 60,
-   "est_s": 36.1,
-   "content_hash": "f8ba0d3ec4fd7022"
-  },
-  {
-   "ep": 8,
-   "id": "sod_418a3d2f",
-   "point": "salary (n) vs wage (n)",
-   "cefr": "A2",
-   "diff": "easy",
-   "words": 76,
-   "est_s": 43.7,
-   "content_hash": "0a1d773c5d12df15"
-  },
-  {
-   "ep": 9,
-   "id": "sod_66fda57a",
-   "point": "discover (v) vs invent (v)",
-   "cefr": "A2",
-   "diff": "easy",
-   "words": 69,
-   "est_s": 40.4,
-   "content_hash": "891a7f186c382bda"
-  },
-  {
-   "ep": 10,
-   "id": "sod_93a2ff88",
-   "point": "percent (n) vs percentage (n)",
-   "cefr": "A2",
-   "diff": "easy",
-   "words": 71,
-   "est_s": 41.3,
-   "content_hash": "7ca8e4ee8defee98"
-  },
-  {
-   "ep": 11,
-   "id": "sod_13a16c00",
-   "point": "excited (adj) vs exciting (adj)",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 69,
-   "est_s": 40.4,
-   "content_hash": "b0041fcb82e2855b"
-  },
-  {
-   "ep": 12,
-   "id": "sod_1798babe",
-   "point": "damage (n/v) vs harm (n/v)",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 63,
-   "est_s": 37.5,
-   "content_hash": "10f0f1671f527ba1"
-  },
-  {
-   "ep": 13,
-   "id": "sod_20315a8f",
-   "point": "its (det) vs it's (contraction)",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 68,
-   "est_s": 39.9,
-   "content_hash": "cde0835088fdeabe"
-  },
-  {
-   "ep": 14,
-   "id": "sod_3aca1292",
-   "point": "your (det) vs you're (contraction)",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 57,
-   "est_s": 34.6,
-   "content_hash": "02e8110163e063e2"
-  },
-  {
-   "ep": 15,
-   "id": "sod_4404e98f",
-   "point": "farther (adj/adv) vs further (adj/adv)",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 64,
-   "est_s": 38.0,
-   "content_hash": "0ac1cd5cd7b25389"
-  },
-  {
-   "ep": 16,
+   "ep": 3,
    "id": "sod_47b3e9e9",
    "point": "rob (v) vs steal (v)",
    "cefr": "B1",
    "diff": "medium",
-   "words": 62,
-   "est_s": 37.0,
+   "words": 63,
+   "est_s": 42.3,
+   "ipa": null,
    "content_hash": "3bc746c83b8fb10d"
   },
   {
-   "ep": 17,
-   "id": "sod_52a6bffb",
-   "point": "whose (det/pron) vs who's (contraction)",
-   "cefr": "B1",
-   "diff": "medium",
-   "words": 59,
-   "est_s": 35.6,
-   "content_hash": "7c60e45ada2d2886"
-  },
-  {
-   "ep": 18,
-   "id": "sod_2ed92c40",
-   "point": "beside (prep) vs besides (prep/adv)",
-   "cefr": "B2",
-   "diff": "medium",
-   "words": 64,
-   "est_s": 38.0,
-   "content_hash": "1171a12de3c95911"
-  },
-  {
-   "ep": 19,
-   "id": "sod_34ccb489",
-   "point": "classic (adj/n) vs classical (adj)",
-   "cefr": "B2",
-   "diff": "medium",
-   "words": 68,
-   "est_s": 39.9,
-   "content_hash": "27e305eec7580054"
-  },
-  {
-   "ep": 20,
+   "ep": 4,
    "id": "sod_6e178745",
    "point": "hope (v) vs wish (v)",
    "cefr": "C1",
    "diff": "hard",
-   "words": 76,
-   "est_s": 43.7,
+   "words": 72,
+   "est_s": 47.0,
+   "ipa": "/hoʊp/",
    "content_hash": "597109b5f2b5ce79"
   }
  ],
@@ -199,6 +42,21 @@
    "bank": "sb_0873110e",
    "point": "see (v) vs look (v) vs watch (v)",
    "reason": "pair word too long for twin tiles"
+  },
+  {
+   "bank": "sb_0ce10d3a",
+   "point": "ago (adv) vs before (adv/prep)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_3100c569",
+   "point": "every (det) vs each (det/pron)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_347efc2c",
+   "point": "a few (det) vs few (det)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
   },
   {
    "bank": "sb_5bd6385f",
@@ -211,14 +69,79 @@
    "reason": "wrong not TTS-clean (symbols/emoji/quotes): 'I need to practise every day. (in the US)'"
   },
   {
+   "bank": "sb_0ad85c2e",
+   "point": "alone (adj/adv) vs lonely (adj)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
    "bank": "sb_3e6dff01",
    "point": "opportunity (n) vs possibility (n) vs chance (n)",
    "reason": "pair word too long for twin tiles"
   },
   {
+   "bank": "sb_3e77d39c",
+   "point": "rise (v) vs raise (v)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_418a3d2f",
+   "point": "salary (n) vs wage (n)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_66fda57a",
+   "point": "discover (v) vs invent (v)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_93a2ff88",
+   "point": "percent (n) vs percentage (n)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_13a16c00",
+   "point": "excited (adj) vs exciting (adj)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_1798babe",
+   "point": "damage (n/v) vs harm (n/v)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_20315a8f",
+   "point": "its (det) vs it's (contraction)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_3aca1292",
+   "point": "your (det) vs you're (contraction)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
    "bank": "sb_40706a40",
    "point": "their (det) vs there (adv) vs they're (contraction)",
    "reason": "pair word too long for twin tiles"
+  },
+  {
+   "bank": "sb_4404e98f",
+   "point": "farther (adj/adv) vs further (adj/adv)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_52a6bffb",
+   "point": "whose (det/pron) vs who's (contraction)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_2ed92c40",
+   "point": "beside (prep) vs besides (prep/adv)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
+  },
+  {
+   "bank": "sb_34ccb489",
+   "point": "classic (adj/n) vs classical (adj)",
+   "reason": "no hand-checked lesson cards (meaning + example) in bank/pair-cards.json"
   },
   {
    "bank": "sb_000f9214",
@@ -228,7 +151,7 @@
   {
    "bank": "sb_000ea4b6",
    "point": "malnutrition vs undernourishment",
-   "reason": "not a two-way pair: 'malnutrition vs undernourishment'"
+   "reason": "quiz option longer than 12 characters"
   },
   {
    "bank": "sb_01260417",

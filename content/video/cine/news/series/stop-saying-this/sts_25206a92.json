@@ -1,11 +1,16 @@
 {
  "id": "sts_25206a92",
  "template": "mistake",
- "title": "Stop Saying This #15 – Say \"Let's keep in touch!\" instead of \"Let's keep contact!\"",
+ "title": "Stop Saying This #13 – Say \"Let's keep in touch!\" instead of \"Let's keep contact!\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -36,18 +43,8 @@
     "red": [
      2
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "The fixed phrase is keep in touch.",
-   "key": {
-    "yellow": [
-     4,
-     6
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -58,7 +55,18 @@
      5
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "The fixed phrase is keep in touch.",
+   "key": {
+    "yellow": [
+     4,
+     6
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -70,7 +78,8 @@
      6,
      7
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -80,7 +89,7 @@
      6
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -91,7 +100,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -110,12 +119,13 @@
      0,
      4
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -151,44 +161,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“contact”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“in touch”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -197,29 +169,116 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "Let's keep ",
-      "white"
-     ],
-     [
-      "in touch!",
-      "green"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "Let's keep "
+      ],
+      [
+       "in touch!",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "touch",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/tʌtʃ/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "contact",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " contact",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " in touch",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -230,34 +289,91 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "Let's stay in touch.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "We kept in touch after school.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Let's stay "
+      ],
+      [
+       "in touch.",
+       "green"
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " KEEP IN TOUCH",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "We kept "
+      ],
+      [
+       "in touch",
+       "green"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "after school."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " KEEP IN TOUCH",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -270,25 +386,30 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "Let's keep in ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      "!",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Let's keep in "
+      ],
+      [
+       "___!",
+       "green"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -315,23 +436,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…keep in ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " contact",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " in touch",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "touch",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/tʌtʃ/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -356,12 +531,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 15
+  "ep": 13
  },
  "source": {
   "bank": "sb_25206a92",
   "pid": "cf:new-friends:keep-in-touch:x",
   "cefr": "B1",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": "/tʌtʃ/"
  }
 }

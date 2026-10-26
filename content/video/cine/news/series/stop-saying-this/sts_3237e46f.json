@@ -1,11 +1,16 @@
 {
  "id": "sts_3237e46f",
  "template": "mistake",
- "title": "Stop Saying This #16 – Say \"I missed my connecting flight. What are my options?\" instead of \"My plane go already. What I do?\"",
+ "title": "Stop Saying This #14 – Say \"I missed my connecting flight. What are my options?\" instead of \"My plane go already. What I do?\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -37,17 +44,8 @@
      1,
      2
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "Ask for options. The agent will offer solutions.",
-   "key": {
-    "yellow": [
-     2
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -59,7 +57,17 @@
      5
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "Ask for options. The agent will offer solutions.",
+   "key": {
+    "yellow": [
+     2
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -71,12 +79,13 @@
      5,
      6
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
    "text": "One question opens many doors!",
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -87,7 +96,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -106,12 +115,13 @@
      0,
      6
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -147,44 +157,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“I do”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“are my options”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -193,29 +165,116 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "What ",
-      "white"
-     ],
-     [
-      "are my options?",
-      "green"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "What "
+      ],
+      [
+       "are my options?",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "what",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/wʌt/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "I do",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " I do",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " are my options",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -226,34 +285,114 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I missed my flight. What are my options?",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "What are my options for tonight?",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I missed "
+      ],
+      [
+       "my ",
+       "green"
+      ],
+      [
+       "flight."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " PROBLEM + what are my options?",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What are my ",
+       "green"
+      ],
+      [
+       "options?"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What are my options",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "for tonight?"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " PROBLEM ",
+       "hl"
+      ],
+      [
+       "+ what"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "are my options?"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -266,25 +405,41 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I missed my flight. What ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " my options?",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I missed my flight."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "my options?"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -311,27 +466,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…flight. What ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " my…",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " I do",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " are my options",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "what",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/wʌt/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -356,12 +561,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 16
+  "ep": 14
  },
  "source": {
   "bank": "sb_3237e46f",
   "pid": "cf:airport:whats-my-options:x",
   "cefr": "B1",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": "/wʌt/"
  }
 }

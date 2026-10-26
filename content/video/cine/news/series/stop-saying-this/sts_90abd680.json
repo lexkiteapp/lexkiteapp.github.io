@@ -1,11 +1,16 @@
 {
  "id": "sts_90abd680",
  "template": "mistake",
- "title": "Stop Saying This #44 – Stop saying \"I wish I can speak French.\" – say \"I wish I could speak French.\"",
+ "title": "Stop Saying This #31 – Stop saying \"I wish I can speak French.\" – say \"I wish I could speak French.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -36,7 +43,18 @@
     "red": [
      3
     ]
-   }
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: I wish I could speak French.",
+   "key": {
+    "green": [
+     5
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_y",
@@ -47,17 +65,7 @@
      7
     ]
    },
-   "gap": 0.6
-  },
-  {
-   "id": "m_k",
-   "text": "Just say: I wish I could speak French.",
-   "key": {
-    "green": [
-     5
-    ]
-   },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -69,7 +77,8 @@
      7,
      9
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -79,7 +88,7 @@
      0
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -90,7 +99,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -109,12 +118,13 @@
      0,
      4
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -150,44 +160,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“can”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“could”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -196,33 +168,109 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I wish I ",
-      "white"
-     ],
-     [
-      "could ",
-      "green"
-     ],
-     [
-      "speak French.",
-      "white"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "I wish I "
+      ],
+      [
+       "could",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "speak French."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "could",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/kʊd/"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " can",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " could",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -233,34 +281,113 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I wish I had more time.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "I wish I could cook.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I "
+      ],
+      [
+       "wish ",
+       "green"
+      ],
+      [
+       "I "
+      ],
+      [
+       "had ",
+       "green"
+      ],
+      [
+       "more time."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " wish + COULD / HAD",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I "
+      ],
+      [
+       "wish ",
+       "green"
+      ],
+      [
+       "I "
+      ],
+      [
+       "could ",
+       "green"
+      ],
+      [
+       "cook."
+      ]
      ]
-    ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " wish + "
+      ],
+      [
+       "COULD ",
+       "hl"
+      ],
+      [
+       "/ "
+      ],
+      [
+       "HAD",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -273,25 +400,33 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I wish I ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " swim.",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I wish I "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "swim."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -318,27 +453,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…wish I ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " swim.",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " can",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " could",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "could",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/kʊd/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -363,12 +548,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 44
+  "ep": 31
  },
  "source": {
   "bank": "sb_90abd680",
   "pid": "u:s:wish:m0",
   "cefr": "C1",
-  "diff": "hard"
+  "diff": "hard",
+  "ipa": "/kʊd/"
  }
 }

@@ -1,11 +1,16 @@
 {
  "id": "sts_04105eed",
  "template": "mistake",
- "title": "Stop Saying This #31 – Stop saying \"We rely in technology.\" – say \"We rely on technology.\"",
+ "title": "Stop Saying This #25 – Stop saying \"We rely in technology.\" – say \"We rely on technology.\"",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board"
+  "c01_carlos_board",
+  "c01t2_carlos_talk2",
+  "c01t3_carlos_talk3"
+ ],
+ "listen": [
+  "c01l_carlos_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.68,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -36,17 +43,8 @@
     "red": [
      2
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "Rely always takes on.",
-   "key": {
-    "yellow": [
-     0
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -56,7 +54,17 @@
      4
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "Rely always takes on.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -68,7 +76,8 @@
      7,
      8
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -79,7 +88,7 @@
      4
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -90,7 +99,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -109,12 +118,13 @@
      0,
      4
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -154,44 +164,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“in”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“on”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -200,33 +172,109 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "We rely ",
-      "white"
-     ],
-     [
-      "on ",
-      "green"
-     ],
-     [
-      "technology.",
-      "white"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "We rely "
+      ],
+      [
+       "on",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "technology."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "rely",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/rɪˈlaɪ/"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " in",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " on",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -237,34 +285,101 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "You can rely on me.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "Many people rely on their phones.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "You can "
+      ],
+      [
+       "rely on ",
+       "green"
+      ],
+      [
+       "me."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " rely / depend ON",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Many people "
+      ],
+      [
+       "rely",
+       "green"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "on ",
+       "green"
+      ],
+      [
+       "their phones."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " rely / depend "
+      ],
+      [
+       "ON",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -277,25 +392,38 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "Small shops rely ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " local customers.",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Small shops rely "
+      ],
+      [
+       "___",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "local customers."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -322,27 +450,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…shops rely ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " local…",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " in",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " on",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "rely",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/rɪˈlaɪ/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -367,12 +545,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 31
+  "ep": 25
  },
  "source": {
   "bank": "sb_04105eed",
   "pid": "u:p:rely:m0",
   "cefr": "B2",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": "/rɪˈlaɪ/"
  }
 }

@@ -1,11 +1,16 @@
 {
  "id": "sts_f6d438d7",
  "template": "mistake",
- "title": "Stop Saying This #30 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
+ "title": "Stop Saying This #24 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -36,17 +43,8 @@
     "red": [
      2
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "The word after depends is always on.",
-   "key": {
-    "yellow": [
-     3
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -56,7 +54,17 @@
      4
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "The word after depends is always on.",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -68,7 +76,8 @@
      7,
      8
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -78,7 +87,7 @@
      4
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -89,7 +98,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -108,12 +117,13 @@
      0,
      4
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -153,44 +163,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“of”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“on”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -199,33 +171,109 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "It depends ",
-      "white"
-     ],
-     [
-      "on ",
-      "green"
-     ],
-     [
-      "the weather.",
-      "white"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "It depends "
+      ],
+      [
+       "on",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "the weather."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "depends",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/dɪˈpend/"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " of",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " on",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -236,34 +284,105 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "It depends on the price.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "Our plan depends on the weather.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "It "
+      ],
+      [
+       "depends on ",
+       "green"
+      ],
+      [
+       "the price."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " DEPEND ON. Never OF.",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Our plan "
+      ],
+      [
+       "depends",
+       "green"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "on ",
+       "green"
+      ],
+      [
+       "the weather."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " DEPEND ON. ",
+       "hl"
+      ],
+      [
+       "Never "
+      ],
+      [
+       "OF.",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -276,25 +395,33 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "It all depends ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " you.",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "It all depends "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "you."
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -321,27 +448,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…all depends ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " you.",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " of",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " on",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "depends",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/dɪˈpend/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -366,12 +543,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 30
+  "ep": 24
  },
  "source": {
   "bank": "sb_f6d438d7",
   "pid": "cf:opinions:depends-on:x",
   "cefr": "B1",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": "/dɪˈpend/"
  }
 }

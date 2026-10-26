@@ -1,11 +1,16 @@
 {
  "id": "sod_6e178745",
  "template": "pair",
- "title": "Same or Different? #20 – hope (v) vs wish (v)",
+ "title": "Same or Different? #4 – hope (v) vs wish (v)",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board"
+  "c01_carlos_board",
+  "c01t2_carlos_talk2",
+  "c01t3_carlos_talk3"
+ ],
+ "listen": [
+  "c01l_carlos_listen"
  ],
  "accent": "green",
  "active": "green",
@@ -16,14 +21,15 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 0.75,
+ "speed": 0.68,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "lines": [
   {
    "id": "p_h",
-   "text": "Hope or wish? Don't mix them up.",
+   "text": "Hope or wish? You probably mix these up.",
    "key": {
     "yellow": [
      0
@@ -31,29 +37,8 @@
     "green": [
      2
     ]
-   }
-  },
-  {
-   "id": "p_w",
-   "text": "Not: I wish you will pass the test.",
-   "key": {
-    "red": [
-     2,
-     4
-    ]
-   }
-  },
-  {
-   "id": "p_k",
-   "text": "Say: I hope you pass the test.",
-   "key": {
-    "green": [
-     2,
-     3,
-     4
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_y",
@@ -66,17 +51,40 @@
      5
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_x",
-   "text": "I hope it doesn't rain. I wish I could fly.",
+   "text": "I hope it doesn't rain.",
+   "gap": 0.65,
    "key": {
     "green": [
-     1,
-     6
+     1
     ]
    }
+  },
+  {
+   "id": "p_w",
+   "text": "Not: I wish you will pass the test.",
+   "key": {
+    "red": [
+     2,
+     4
+    ]
+   },
+   "gap": 0.5
+  },
+  {
+   "id": "p_k",
+   "text": "Say: I hope you pass the test.",
+   "key": {
+    "green": [
+     2,
+     3,
+     4
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "p_t",
@@ -86,7 +94,7 @@
      2
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_q",
@@ -96,7 +104,7 @@
      0
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "p_q2",
@@ -115,241 +123,290 @@
      0,
      2
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "p_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
   {
    "id": "hook",
-   "kind": "pair",
+   "kind": "rich",
    "role": "hook",
-   "anim": "slide",
-   "vs": true,
-   "left": {
-    "title": "HOPE",
-    "color": "navy2"
-   },
-   "right": {
-    "title": "WISH",
-    "color": "green"
-   },
+   "anim": "stamp",
+   "size": 96,
+   "rows": [
+    [
+     [
+      "hope",
+      "yellow"
+     ],
+     [
+      " or",
+      "white"
+     ]
+    ],
+    [
+     [
+      "wish",
+      "green"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l",
    "from": [
     "t",
     0
    ],
    "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "lesson",
+   "kind": "lesson",
+   "anim": "spring",
+   "title": "HOPE vs WISH",
+   "items": [
+    {
+     "icon": "🌈",
+     "color": "green",
+     "word": "hope",
+     "ipa": "/hoʊp/",
+     "mean": "= it could really happen",
+     "ex": [
+      "“I ",
+      "hope",
+      " it doesn't rain.”"
+     ]
+    },
+    {
+     "icon": "🌠",
+     "color": "blue",
+     "word": "wish",
+     "ipa": "/wɪʃ/",
+     "mean": "= it is not real",
+     "ex": [
+      "“I ",
+      "wish",
+      " I could fly.”"
+     ],
+     "at": [
+      "p_y",
+      5,
+      "s",
+      -0.06
+     ]
+    }
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
     "p_w",
     0,
     "s",
-    -0.1
+    -0.06
    ]
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 80,
-   "rows": [
-    [
-     [
-      "I ",
-      "white"
-     ],
-     [
-      "wish ",
-      "red"
-     ],
-     [
-      "you ",
-      "white"
-     ],
-     [
-      "will ",
-      "red"
-     ],
-     [
-      "pass the test.",
-      "white"
-     ],
-     [
-      "@x"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "NOT / SAY"
+      ]
      ]
-    ],
-    [
-     [
-      "I ",
-      "white"
-     ],
-     [
-      "hope you pass ",
-      "green"
-     ],
-     [
-      "the test.",
-      "white"
-     ],
-     [
-      "@ok"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " I "
+      ],
+      [
+       "wish ",
+       "red"
+      ],
+      [
+       "you "
+      ],
+      [
+       "will",
+       "red"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "  "
+      ],
+      [
+       " pass the test."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " I "
+      ],
+      [
+       "hope you",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "  "
+      ],
+      [
+       " pass ",
+       "green"
+      ],
+      [
+       "the test."
+      ]
+     ]
+    }
    ],
    "from": [
     "p_w",
     0,
     "s",
-    -0.1
-   ],
-   "to": [
-    "p_y",
-    0,
-    "s",
-    -0.06
-   ]
-  },
-  {
-   "id": "explain",
-   "kind": "pair",
-   "anim": "spring",
-   "left": {
-    "title": "hope",
-    "color": "navy2"
-   },
-   "right": {
-    "title": "wish",
-    "color": "green"
-   },
-   "focus": [
-    [
-     [
-      "p_y",
-      0,
-      "s",
-      0
-     ],
-     "left"
-    ],
-    [
-     [
-      "p_y",
-      5,
-      "s",
-      0
-     ],
-     "right"
-    ]
-   ],
-   "from": [
-    "p_y",
-    0,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "p_x",
-    0,
-    "s",
-    -0.06
-   ]
-  },
-  {
-   "id": "ex",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 80,
-   "rows": [
-    [
-     [
-      "I hope it doesn't rain.",
-      "green"
-     ]
-    ],
-    [
-     [
-      "I wish I could fly.",
-      "green"
-     ]
-    ]
-   ],
-   "from": [
-    "p_x",
-    0,
-    "s",
     -0.06
    ],
    "to": [
     "p_t",
     0,
     "s",
-    -0.1
+    -0.06
    ]
   },
   {
    "id": "trick",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " possible = HOPE",
-      "yellow"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "MEMORY TRICK"
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " unreal = WISH",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " possible = "
+      ],
+      [
+       "HOPE",
+       "hl"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "unreal = "
+      ],
+      [
+       "WISH",
+       "hl"
+      ]
+     ]
+    }
    ],
    "from": [
     "p_t",
     0,
     "s",
-    -0.1
+    -0.06
    ],
    "to": [
     "p_q",
-    1,
+    0,
     "s",
     -0.06
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "I ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " you have a great trip!",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "you have"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "a great trip!"
+      ]
+     ]
+    }
    ],
    "from": [
     "p_q",
-    1,
+    0,
     "s",
     -0.06
    ],
@@ -372,27 +429,57 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "I ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " you…",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "p_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "p_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "lesson",
+   "anim": "spring",
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "🌈",
+     "color": "green",
+     "word": "hope",
+     "ipa": "/hoʊp/",
+     "mean": "= possible",
+     "ex": [
+      "“I ",
+      "hope",
+      " it doesn't rain.”"
+     ]
+    },
+    {
+     "icon": "🌠",
+     "color": "blue",
+     "word": "wish",
+     "ipa": "/wɪʃ/",
+     "mean": "= not real",
+     "ex": [
+      "“I ",
+      "wish",
+      " I could fly.”"
+     ]
+    }
+   ],
+   "footer": "lexkite.com",
+   "from": [
+    "p_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "p_c",
@@ -417,12 +504,13 @@
  ],
  "series": {
   "name": "Same or Different?",
-  "ep": 20
+  "ep": 4
  },
  "source": {
   "bank": "sb_6e178745",
   "pid": "u:c:hope-wish",
   "cefr": "C1",
-  "diff": "hard"
+  "diff": "hard",
+  "ipa": "/hoʊp/"
  }
 }

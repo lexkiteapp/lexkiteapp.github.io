@@ -1,11 +1,16 @@
 {
  "id": "sts_55270c0b",
  "template": "mistake",
- "title": "Stop Saying This #20 – Say \"What does a typical day look like in this role?\" instead of \"What I must do every day?\"",
+ "title": "Stop Saying This #18 – Say \"What does a typical day look like in this role?\" instead of \"What I must do every day?\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2",
+  "d03t3_daniel_talk3"
+ ],
+ "listen": [
+  "d03l_daniel_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.72,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -40,17 +47,8 @@
      4,
      5
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "In questions, put does before the subject.",
-   "key": {
-    "yellow": [
-     3
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -64,11 +62,22 @@
      8
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "In questions, put does before the subject.",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
-   "text": "What does a typical week look like? What does the team do every day?",
+   "text": "What does a typical week look like?",
+   "gap": 0.65,
    "key": {
     "green": [
      0,
@@ -81,7 +90,7 @@
   {
    "id": "m_t",
    "text": "It also shows real interest in the job!",
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -92,7 +101,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -111,12 +120,13 @@
      0,
      2
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -148,44 +158,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“I must do every day”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“does a typical look like”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -194,37 +166,113 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "What ",
-      "white"
-     ],
-     [
-      "does a typical ",
-      "green"
-     ],
-     [
-      "day ",
-      "white"
-     ],
-     [
-      "look like?",
-      "green"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "What "
+      ],
+      [
+       "does a typical",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "day "
+      ],
+      [
+       "look like?",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "what",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/wʌt/"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " I must do every day",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " does a typical look like",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -235,34 +283,105 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "What does a typical week look like?",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "What does the team do every day?",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What does ",
+       "green"
+      ],
+      [
+       "a "
+      ],
+      [
+       "typical",
+       "green"
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " WHAT DOES + it + LOOK LIKE?",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "week "
+      ],
+      [
+       "look ",
+       "green"
+      ],
+      [
+       "like?"
+      ]
      ]
-    ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " WHAT DOES ",
+       "hl"
+      ],
+      [
+       "+ it"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "+ "
+      ],
+      [
+       "LOOK LIKE?",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -275,25 +394,41 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "What ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " a typical day look like?",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "a typical"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "day look like?"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -320,27 +455,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "What ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " a…",
-      "white"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " I must do every day",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " does a typical look like",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "what",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/wʌt/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -365,12 +550,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 20
+  "ep": 18
  },
  "source": {
   "bank": "sb_55270c0b",
   "pid": "cf:interview:typical-day:x",
   "cefr": "B1",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": "/wʌt/"
  }
 }

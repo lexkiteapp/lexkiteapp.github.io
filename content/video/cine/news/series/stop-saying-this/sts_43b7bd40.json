@@ -1,11 +1,16 @@
 {
  "id": "sts_43b7bd40",
  "template": "mistake",
- "title": "Stop Saying This #17 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
+ "title": "Stop Saying This #15 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board"
+  "c01_carlos_board",
+  "c01t2_carlos_talk2",
+  "c01t3_carlos_talk3"
+ ],
+ "listen": [
+  "c01l_carlos_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -16,10 +21,11 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.75,
+ "speed": 0.68,
  "display": {
   "blank": "___"
  },
+ "caption_cap": 42,
  "error_lines": [
   "m_w"
  ],
@@ -27,7 +33,8 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Stop saying this.",
+   "gap": 0.5
   },
   {
    "id": "m_w",
@@ -36,17 +43,8 @@
     "red": [
      2
     ]
-   }
-  },
-  {
-   "id": "m_y",
-   "text": "The verb lack takes no of.",
-   "key": {
-    "yellow": [
-     2
-    ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -57,7 +55,17 @@
      4
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "The verb lack takes no of.",
+   "key": {
+    "yellow": [
+     2
+    ]
+   },
+   "gap": 0.65
   },
   {
    "id": "m_x",
@@ -68,7 +76,8 @@
      6,
      7
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -78,7 +87,7 @@
      5
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -89,7 +98,7 @@
      1
     ]
    },
-   "gap": 0.6
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -108,12 +117,13 @@
      0,
      4
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -153,44 +163,6 @@
     0
    ],
    "to": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "“of”",
-      "red"
-     ],
-     [
-      "@x"
-     ]
-    ],
-    [
-     [
-      "“lack experience”",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ]
-   ],
-   "from": [
-    "m_y",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
     "m_k",
     0,
     "s",
@@ -199,29 +171,110 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "They ",
-      "white"
-     ],
-     [
-      "lack experience.",
-      "green"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "They "
+      ],
+      [
+       "lack",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "experience.",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "lack",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/læk/"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_k",
     0,
     "s",
     -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " of",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " lack experience",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
    ],
    "to": [
     "m_x",
@@ -232,49 +285,110 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "The team lacks money.",
-      "green"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
      ]
-    ],
-    [
-     [
-      "There's a lack of time.",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "The team "
+      ],
+      [
+       "lacks ",
+       "green"
+      ],
+      [
+       "money."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " they LACK ",
-      "yellow"
-     ],
-     [
-      "@ok"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "There's a "
+      ],
+      [
+       "lack of ",
+       "green"
+      ],
+      [
+       "time."
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:💡"
-     ],
-     [
-      " a lack OF ",
-      "yellow"
-     ],
-     [
-      "@ok"
-     ]
-    ]
+    }
    ],
    "from": [
     "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " they "
+      ],
+      [
+       "LACK",
+       "hl"
+      ],
+      [
+       "@emoji:✅"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "a lack "
+      ],
+      [
+       "OF",
+       "hl"
+      ],
+      [
+       "@emoji:✅"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
@@ -287,25 +401,30 @@
    ]
   },
   {
-   "id": "qline",
-   "kind": "rich",
+   "id": "qs",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
-   "rows": [
-    [
-     [
-      "This soup lacks ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      ".",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "This soup lacks "
+      ],
+      [
+       "___.",
+       "green"
+      ]
+     ]
+    }
    ],
    "from": [
     "m_q",
@@ -332,23 +451,77 @@
     "s",
     -0.04
    ],
-   "q": [
-    [
-     [
-      "…soup lacks ",
-      "white"
-     ],
-     [
-      "___",
-      "yellow"
-     ]
-    ]
-   ],
    "from": [
     "m_q2",
     0,
     "s",
     -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " of",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " lack experience",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "lack",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/læk/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "m_c",
@@ -373,12 +546,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 17
+  "ep": 15
  },
  "source": {
   "bank": "sb_43b7bd40",
   "pid": "u:p:lack:m0",
   "cefr": "B1",
-  "diff": "medium"
+  "diff": "medium",
+  "ipa": "/læk/"
  }
 }
