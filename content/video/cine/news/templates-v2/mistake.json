@@ -285,13 +285,45 @@
    ]
   },
   {
+   "id": "qs",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "m_q",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_count",
+    null,
+    "s",
+    -0.02
+   ],
+   "rows": [
+    [
+     [
+      "Which one",
+      "white"
+     ]
+    ],
+    [
+     [
+      "is right?",
+      "yellow"
+     ]
+    ]
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "from": [
-    "m_q",
-    1,
+    "_count",
+    null,
     "s",
-    -0.06
+    0.0
    ],
    "to": [
     "m_a",
@@ -307,14 +339,6 @@
     0,
     "s",
     -0.04
-   ],
-   "q": [
-    [
-     [
-      "Which one is right?",
-      "white"
-     ]
-    ]
    ]
   },
   {

@@ -627,6 +627,7 @@ class Pop:
         ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
         say = stack([rich_row(r, z) for r in wrap_rows([[[seg, 'white']]], rw - 8 - 110, z)], 2); pl = pill([('lexkite.com', ACC if ACC not in (COL['navy2'], COL['navy']) else COL['mint'])], z, COL['navy'], tight=True)
         if pl.width > rw - 8: pl = rich_row([['lexkite.com', 'green']], z)   # narrow board column (layout v12): the site in board ink, same size, no pill
+        if pl.width > rw - 8: pl = stack([rich_row([['lexkite', 'green']], z), rich_row([['.com', 'green']], z)], 2, 'l')   # still too wide (Mei's desk board, 448 px): the site on two lines at the same size
         one = stack([hrow([ic, say], 14), pl], 10); s.cta_pages = None
         if s.fits(one, rw, rh): s.im = one
         else:   # two board pages: the call to action, then the site pill when "lexkite.com" is spoken
