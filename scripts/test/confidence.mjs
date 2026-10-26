@@ -32,7 +32,7 @@ async function boot(lang, { offline = false } = {}) {
   const spoken = [];
   w.UI.speak = () => {}; w.UI.tts = (text, acc, rate, opts = {}) => { spoken.push([text, rate]); if (opts.onEnd) setTimeout(opts.onEnd, 1); };
   w.UI.recognize = (target, acc, cb = {}) => { setTimeout(() => { cb.start && cb.start(); cb.result && cb.result({ heard: target, score: 92, audio: '' }); cb.end && cb.end(); }, 2); return { stop() {} }; };
-  await tick(300); if (w.I18N.whenReady) await w.I18N.whenReady(); await w.App.ready; await tick(300); w.location.hash = '#/welcome/setup'; await tick(150); const g = w.document.querySelector('#go'); if (g) g.click(); await tick(1500);
+  await tick(300); if (w.I18N.whenReady) await w.I18N.whenReady(); await w.App.ready; await tick(300); w.location.hash = '#/welcome/setup'; await tick(150); const q = s => w.document.querySelector(s); for (let i = 0; i < 60 && !q('#go'); i++) { if (q('#obNext')) q('#obNext').click(); await tick(100); } const g = w.document.querySelector('#go'); if (g) g.click(); await tick(1500);
   const $ = (s, r = w.document) => r.querySelector(s), $$ = (s, r = w.document) => [...r.querySelectorAll(s)];
   const go = async (h, ms = 200) => { w.location.hash = h; await tick(ms); };
   const click = el => el && el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));

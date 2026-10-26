@@ -30,7 +30,7 @@ const txt = s => ($(s) || {}).textContent || '';
 const click = el => el && el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
 const key = (el, k) => el.dispatchEvent(new w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
 
-await tick(300); await go('#/welcome/setup'); if ($('#go')) $('#go').click(); await tick(1500);
+await tick(300); await go('#/welcome/setup'); for (let i = 0; i < 60 && !$('#go'); i++) { if ($('#obNext')) $('#obNext').click(); await tick(100); } if ($('#go')) $('#go').click(); await tick(1500); // thiết lập từng bước (onboard.js): bấm Tiếp tục tới màn cuối rồi Bắt đầu
 ok(w.LK_VERBS && w.LK_WRITE, 'nạp 2 bộ máy: LK_VERBS, LK_WRITE');
 
 // ================= 🔤 Chia động từ =================

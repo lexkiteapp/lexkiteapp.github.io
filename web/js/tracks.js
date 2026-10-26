@@ -167,12 +167,21 @@
   // ---------- Thiết lập lần đầu (app.js setup): "Mục tiêu của bạn là gì?" → trình độ → Ngày 1 ----------
   const lvBtns = (tr, sel) => tr.stages.map((s, i) => `<button type="button" data-lv="${s.id}" aria-pressed="${sel === s.id || (!sel && !i)}">${esc(tr.id === 'ielts' ? s.cefr + ' · ' + s.band : 'CEFR ' + s.cefr)}</button>`).join('');
   const vsBtns = (tr, v) => (tr.vs ? `<div class="trk-vs" role="group" aria-label="${esc(tr.name)}">${tr.vs.map(([k, n]) => `<button type="button" data-tv="${k}" aria-pressed="${v === k}">${n}</button>`).join('')}</div>` : '');
+  const pickTr = pick => TR[pick.track] || TR[(cfg() || {}).cur] || TR[IDS[0]]; // mở lần đầu / gói lạ: không để tr undefined (lỗi 'stages')
+  // Từng phần riêng cho thiết lập từng bước (onboard.js: 1 câu hỏi/màn); setupCards = cả 2 phần (bố cục cũ, vẫn dùng được)
+  function setupGoal(pick) {
+    css(); if (!pick) pick = {}; if (!pick.v) pick.v = {};
+    return `<div class="trk-list">${IDS.map(id => { const x = TR[id], on = id === pick.track;
+      return `<div><button type="button" class="trk-opt" data-track="${id}" aria-pressed="${on}"><span class="trk-em" aria-hidden="true">${x.em}</span><span><b>${esc(x.name)}</b><span class="small">${esc(x.benefit)}</span></span></button>${on ? vsBtns(x, pick.v[id]) : ''}</div>`; }).join('')}</div>`;
+  }
+  function setupLevel(pick, noTest) { // noTest: màn trình độ của onboard.js tự vẽ ô "kiểm tra 5 phút" lớn riêng
+    css(); if (!pick) pick = {};
+    return `<div class="trk-lv" role="group">${lvBtns(pickTr(pick), pick.lv)}${noTest ? '' : `<button type="button" data-lv="test" aria-pressed="${pick.lv === 'test'}">🧭 ${t('Làm bài kiểm tra đầu vào')}</button>`}</div>`;
+  }
   function setupCards(pick) {
-    css(); if (!pick) pick = {}; if (!pick.v) pick.v = {}; const tr = TR[pick.track] || TR[(cfg() || {}).cur] || TR[IDS[0]]; // mở lần đầu / gói lạ: không để tr undefined (lỗi 'stages')
-    return `<div class="card"><h2>🎯 ${t('Mục tiêu của bạn là gì?')}</h2><p class="muted small">${t('Chọn 1 gói – có thể học thêm gói khác sau.')}</p>
-      <div class="trk-list">${IDS.map(id => { const x = TR[id], on = id === pick.track;
-        return `<div><button type="button" class="trk-opt" data-track="${id}" aria-pressed="${on}"><span class="trk-em" aria-hidden="true">${x.em}</span><span><b>${esc(x.name)}</b><span class="small">${esc(x.benefit)}</span></span></button>${on ? vsBtns(x, pick.v[id]) : ''}</div>`; }).join('')}</div></div>
-      <div class="card"><h2>📶 ${t('Trình độ hiện tại của bạn?')}</h2><div class="trk-lv" role="group">${lvBtns(tr, pick.lv)}<button type="button" data-lv="test" aria-pressed="${pick.lv === 'test'}">🧭 ${t('Làm bài kiểm tra đầu vào')}</button></div></div>`;
+    if (!pick) pick = {}; if (!pick.v) pick.v = {};
+    return `<div class="card"><h2>🎯 ${t('Mục tiêu của bạn là gì?')}</h2><p class="muted small">${t('Chọn 1 gói – có thể học thêm gói khác sau.')}</p>${setupGoal(pick)}</div>
+      <div class="card"><h2>📶 ${t('Trình độ hiện tại của bạn?')}</h2>${setupLevel(pick)}</div>`;
   }
   function bindSetup(root, pick, onTrack, draw) {
     root.querySelectorAll('[data-track]').forEach(b => b.onclick = () => { if (b.dataset.track !== pick.track) { pick.lv = ''; onTrack(b.dataset.track); } });
@@ -214,5 +223,5 @@
       if (c2.cur === id) await use(id, b.dataset.tv); else await App.saveSettings(); page(); });
   }
 
-  g.Tracks = { TR, IDS, cfg, cur, variant, examOf, isLegacy, key, readsOld, ready, start, tierOf, skill, use, unfollow, setLevel, switcher, setupCards, bindSetup, pickExam, startSetup, page, EX2T };
+  g.Tracks = { TR, IDS, cfg, cur, variant, examOf, isLegacy, key, readsOld, ready, start, tierOf, skill, use, unfollow, setLevel, switcher, setupCards, setupGoal, setupLevel, bindSetup, pickExam, startSetup, page, EX2T };
 })(self);

@@ -35,7 +35,7 @@ if (w.speechSynthesis) w.speechSynthesis.speak = u => said.push(u.text); else w.
 w.SpeechSynthesisUtterance = w.SpeechSynthesisUtterance || function (t) { this.text = t; };
 w.Audio = function () { return { play: async () => { said.push('audio'); }, pause() {}, addEventListener() {} }; };
 
-await tick(300); await go('#/welcome/setup'); if ($('#go')) $('#go').click(); await tick(1500);
+await tick(300); await go('#/welcome/setup'); for (let i = 0; i < 60 && !$('#go'); i++) { if ($('#obNext')) $('#obNext').click(); await tick(100); } if ($('#go')) $('#go').click(); await tick(1500); // thiết lập từng bước (onboard.js): bấm Tiếp tục tới màn cuối rồi Bắt đầu
 ok(w.WordCard && typeof w.WordCard.parseErrors === 'function', 'nạp module wordcard (bundle lười)');
 
 // ===== Bộ tách dữ liệu =====

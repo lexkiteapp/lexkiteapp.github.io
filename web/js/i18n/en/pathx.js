@@ -66,5 +66,21 @@
     "Tiếp theo học gì? Chọn một hướng:": "What's next? Pick a direction:",
     "Tiếp theo học gì?": "What's next?",
     "Luyện nói tự tin": "Speak with confidence",
+    // 🚀 Thiết lập lần đầu từng bước (onboard.js) + mời lưu tiến độ sau Ngày 1 (path-reward.js)
+    "Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.": "Great! I'll pick lessons that fit your {name} goal.",
+    "Chưa chắc trình độ? Làm bài kiểm tra 5 phút để mình xếp đúng chặng.": "Not sure about your level? Take the 5-minute test so I can place you on the right stage.",
+    "Lựa chọn thông minh! Bài kiểm tra chỉ mất khoảng 5 phút.": "Smart choice! The test only takes about 5 minutes.",
+    "Được rồi, mình bắt đầu từ {lv} nhé.": "Got it – we'll start at {lv}.",
+    "Mục tiêu {t} – mình sẽ cùng bạn chinh phục!": "Target {t} – let's reach it together!",
+    "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.": "A clear target helps me choose the right difficulty.",
+    "Từ từ mà chắc – 5 phút mỗi ngày cũng tạo khác biệt lớn.": "Slow and steady – 5 minutes a day still makes a big difference.",
+    "Tăng tốc nào! Mình sẽ nhắc bạn ôn đúng lúc.": "Let's speed up! I'll remind you to review at the right time.",
+    "Đều đặn mỗi ngày là bí quyết nhớ lâu!": "A little every day is the secret to remembering for longer!",
+    "Lộ trình đã sẵn sàng! Làm bài kiểm tra 5 phút rồi học Ngày 1 – không cần tài khoản.": "Your plan is ready! Take the 5-minute test, then start Day 1 – no account needed.",
+    "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.": "Your plan is ready! Start Day 1 now – no account needed.",
+    "Hoặc tự chọn trình độ:": "Or choose your level yourself:",
+    "Lộ trình của bạn": "Your plan",
+    "Lưu tiến độ của bạn": "Save your progress",
+    "Đăng nhập miễn phí để giữ chuỗi ngày, XP và từ đã học – học tiếp trên mọi thiết bị.": "Sign in for free to keep your streak, XP and learned words – and continue on any device.",
   });
 })(typeof self !== 'undefined' ? self : this);

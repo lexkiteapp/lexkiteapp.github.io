@@ -56,7 +56,7 @@ async function run(lang, word) {
   const w = dom.window;
   for (let i = 0; i < 60 && !(w.App && w.App.need && w.document.querySelector('#view')); i++) await tick(100);
   if (!w.App) return { leaks: ['app không nạp: ' + errors.slice(0, 3).join(' | ')], errors, shown: 0 };
-  await tick(300); w.location.hash = '#/welcome/setup'; await tick(150); const go = w.document.querySelector('#go'); if (go) go.click(); await tick(1200);
+  await tick(300); w.location.hash = '#/welcome/setup'; await tick(150); const q = s => w.document.querySelector(s); for (let i = 0; i < 60 && !q('#go'); i++) { if (q('#obNext')) q('#obNext').click(); await tick(100); } const go = q('#go'); if (go) go.click(); await tick(1200); // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   w.location.hash = '#/dict/' + word; await tick(3500);
   const leaks = new Set();
   const tw = w.document.createTreeWalker(w.document.body, w.NodeFilter.SHOW_TEXT); let n;

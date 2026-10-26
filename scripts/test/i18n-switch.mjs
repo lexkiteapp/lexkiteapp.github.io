@@ -101,7 +101,7 @@ if (args.includes('--scan')) {
   // Phiên tiếng Việt: dùng app (onboarding, XP, lỗi sai, ngữ cảnh từ) rồi bấm đổi ngôn ngữ trong hộp 🌐
   const vi = await boot({ 'vb.uiLang': 'vi', 'vb.geo': '-' }, 'modules');
   { const { w } = vi;
-    w.location.hash = '#/welcome/setup'; await tick(120); const go = w.document.querySelector('#go'); if (go) go.click(); await tick(800);
+    w.location.hash = '#/welcome/setup'; await tick(120); const q = s => w.document.querySelector(s); for (let i = 0; i < 60 && !q('#go'); i++) { if (q('#obNext')) q('#obNext').click(); await tick(100); } const go = w.document.querySelector('#go'); if (go) go.click(); await tick(800);
     await w.Game.track({ xp: 30, reviews: 1 }, { cards: 1, mastered: 0, streak: 1 });
     const tk = w.I18N.tk || ((k, v) => w.t(k, v)); // mã cũ (trước I18N.tk) lưu chữ đã dịch
     await w.App.logMistake({ kind: 'reading', q: tk('{title} – câu {n}: {q}', { title: 'Passage 1', n: 3, q: 'What is the main idea?' }), answer: 'B', given: tk('(bỏ trống)') });

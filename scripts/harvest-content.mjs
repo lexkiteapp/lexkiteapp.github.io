@@ -33,7 +33,7 @@ for (const f of scripts) {
 }
 if (!w.App) { console.error('nạp lỗi:', errors.slice(0, 5).join(' | ')); process.exit(2); }
 require('./test/lazyfix.js')(w, fs, path, WEB, errors);
-await tick(300); w.location.hash = '#/welcome/setup'; await tick(120); const go = w.document.querySelector('#go'); if (go) go.click(); await tick(1500);
+await tick(300); w.location.hash = '#/welcome/setup'; await tick(120); const q = s => w.document.querySelector(s); for (let i = 0; i < 60 && !q('#go'); i++) { if (q('#obNext')) q('#obNext').click(); await tick(100); } const go = w.document.querySelector('#go'); if (go) go.click(); await tick(1500);
 const SKIP = /^#\/(welcome|admin|logout|signin|auth|play|session|quiz\/|exam\/run)/;
 const queue = ['#/home', '#/vocab', '#/library', '#/practice', '#/path', '#/stats', '#/settings', '#/me', '#/skills', '#/tests', '#/phrases', '#/models', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/letters', '#/toeic', '#/toefl', '#/courses', '#/paraphrase', '#/mistakes', '#/goal', '#/placement', '#/review', '#/practice/learn'];
 const seen = new Set(queue); let n = 0;

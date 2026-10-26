@@ -31,7 +31,7 @@ async function run(lang) {
   }
   if (!w.App) { console.log('nạp lỗi:', errors.slice(0, 5).join(' | ')); process.exit(2); }
   require('./lazyfix.js')(w, fs, path, WEB, errors);
-  await tick(300); w.location.hash = '#/welcome/setup'; await tick(120); const go = w.document.querySelector('#go'); if (go) go.click(); await tick(1500);
+  await tick(300); w.location.hash = '#/welcome/setup'; await tick(120); const q = s => w.document.querySelector(s); for (let i = 0; i < 60 && !q('#go'); i++) { if (q('#obNext')) q('#obNext').click(); await tick(100); } const go = q('#go'); if (go) go.click(); await tick(1500); // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   const leaks = new Map();
   const scan = route => {
     const tw = w.document.createTreeWalker(w.document.body, w.NodeFilter.SHOW_TEXT); let n;

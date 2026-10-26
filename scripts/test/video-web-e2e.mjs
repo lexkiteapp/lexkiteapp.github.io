@@ -21,7 +21,7 @@ for (const lang of ['vi', 'ar', 'ja']) for (const [vp, opt] of Object.entries(VP
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 160)));
   await page.goto(`${BASE}/app/?sandbox=1&vtest=1&hl=${lang}#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
-  const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1500); }
+  await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1500); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   for (const [place, open] of Object.entries(PLACES)) {
     const tag = `${lang}-${vp}-${place}`, bad = m => { fails.push(`${tag}: ${m}`); log(`✗ ${tag}: ${m}`); };
     try {
