@@ -70,9 +70,13 @@ class Student(nn.Module):
                 f = np.random.randint(0, 15); f0 = np.random.randint(0, NMEL - f); x[b, :, f0:f0 + f] = 0
                 for _ in range(2):
                     t = np.random.randint(0, 20); t0 = np.random.randint(0, max(1, (lens[b] if lens is not None else T) - t)); x[b, t0:t0 + t, :] = 0
-        x = s.sub(x.transpose(1, 2)).transpose(1, 2); mask = valid = None
+        mask = valid = None
+        if lens is not None: x = x * (torch.arange(x.shape[1])[None, :] < lens[:, None])[:, :, None].float()   # padding == conv zero padding, as at inference
+        x = s.sub[1](s.sub[0](x.transpose(1, 2)))
         if lens is not None:
-            ol = (lens + 1) // 2; T = x.shape[1]; ok = torch.arange(T)[None, :] < ol[:, None]
+            ol = (lens + 1) // 2; ok = torch.arange(x.shape[2])[None, :] < ol[:, None]; x = x * ok[:, None, :].float()
+        x = s.sub[3](s.sub[2](x)).transpose(1, 2)
+        if lens is not None:
             mask = torch.where(ok, 0.0, -1e9)[:, None, None, :]; valid = ok[:, :, None].float(); x = x * valid
         for b in s.blocks: x = b(x, mask, valid)
         return s.out(x)
