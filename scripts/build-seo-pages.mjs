@@ -11,6 +11,9 @@ import { seoPic } from './lexicon/img.mjs';
 import { loadVocab } from './lib/seo-data.mjs';
 import { CSS, SEO_CSS, UI_JS, esc, clip, ld, siteHeader, siteFooter, crumbsHtml, landingHref, appHref, LANG_NAMES } from './lib/site-layout.mjs';
 import { LANGS, S, POS, YOU, fill } from './lib/seo-pages-i18n.mjs';
+import { toolPath, toolStrings } from './lib/tools-links.mjs';
+// Liên kết nội bộ sang bài kiểm tra trình độ miễn phí (docs/SEO-TOOLS.md) – chuỗi theo ngôn ngữ trang, thiếu bản dịch → không hiện
+const toolLine = l => { const s = toolStrings(l); return s ? `<p><a href="${toolPath(l, 'test')}">${esc(s.toeic.otherTool)}</a></p>` : ''; };
 
 if (process.env.SEO_PAGES === '0') { console.log('· SEO pages: tắt (SEO_PAGES=0)'); process.exit(0); }
 const SITE = 'https://lexkite.com', D = process.env.SEO_DIST || 'dist';
@@ -128,7 +131,7 @@ ${(e.col || []).length ? `<section aria-labelledby="h-c"><h2 id="h-c">${esc(t.co
 ${(e.syn || []).length ? `<section aria-labelledby="h-s"><h2 id="h-s">${esc(t.syn)}</h2><p class="chips">${e.syn.map(link).join('')}</p></section>` : ''}
 ${phrasesOf.get(e).length ? `<section aria-labelledby="h-f"><h2 id="h-f">${esc(fill(t.phr, { w }))}</h2><ul>${phrasesOf.get(e).map(x => `<li>${link(x.word)} – ${esc(l === 'vi' ? x.vi || x.def : l === 'en' ? x.def : (gloss(l, x) || [x.def])[0])}</li>`).join('')}</ul></section>` : ''}
 ${n ? `<section aria-labelledby="h-n"><h2 id="h-n">${esc(t.notes)}</h2>${[['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => n[q]).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(n[q])}</p>`).join('')}</section>` : ''}
-${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}
+${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}${toolLine(l)}
 ${near.length ? `<section aria-labelledby="h-r"><h2 id="h-r">${esc(t.rel)}</h2><p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p></section>` : ''}
 <nav class="pager" aria-label="${esc(t.words)}">${list[i - 1] ? `<a href="${wPath(l, list[i - 1])}" rel="prev" lang="en" dir="ltr">← ${esc(list[i - 1].word)}</a>` : '<span></span>'}${list[i + 1] ? `<a href="${wPath(l, list[i + 1])}" rel="next" lang="en" dir="ltr">${esc(list[i + 1].word)} →</a>` : ''}</nav>
 </article>`;
@@ -145,7 +148,7 @@ ${near.length ? `<section aria-labelledby="h-r"><h2 id="h-r">${esc(t.rel)}</h2><
   const body = `<article class="page"><header class="hero"><h1>${esc(title)}</h1><p>${esc(desc)}</p></header>
 <nav class="letters" aria-label="A–Z">${Object.keys(by).map(c => `<a href="#l-${c}">${c}</a>`).join('')}</nav>
 ${Object.entries(by).map(([c, es]) => `<section aria-labelledby="l-${c}"><h2 id="l-${c}">${c}</h2><ul class="az">${es.map(e => `<li><a href="${wPath(l, e)}" lang="en" dir="ltr">${esc(e.word)}</a> <small>${esc(clip(l === 'en' ? e.def : l === 'vi' ? e.vi : gloss(l, e)[0], 40))}</small></li>`).join('')}</ul></section>`).join('\n')}
-${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}</article>`;
+${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}${toolLine(l)}</article>`;
   const jl = { '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: t.words, description: desc, inLanguage: l, url: url(hp) };
   write(hp, page({ lang: l, title: title + ' | Lexkite', desc, p: hp, alts, crumbs: [[t.home, landingHref(l)], [t.words, hp]], body, jsonld: [jl], langHref: x => `/${x}/words/`, section: hp }), { lm: lmW, alts, type: 'words', lang: l, index: true });
 }

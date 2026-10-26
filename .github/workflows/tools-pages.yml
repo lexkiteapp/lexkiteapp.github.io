@@ -1,0 +1,57 @@
+# 🧰 Công cụ miễn phí (docs/SEO-TOOLS.md): dựng 120 trang công cụ 15 ngôn ngữ, cổng tools-pages, Lighthouse điện thoại trên bản xem thử (máy chủ tĩnh
+# cục bộ trong runner, median 3 lần/URL), ảnh chụp, artifact. Miễn phí (GitHub Actions), không deploy – deploy theo luồng Pages thường của main.
+name: Công cụ miễn phí (tools pages)
+on:
+  pull_request:
+    paths: ['content/tools/**', 'scripts/build-tools.mjs', 'scripts/lib/tools-links.mjs', 'scripts/test/tools-pages.mjs', 'web/js/tools/**', 'web/img/tools/**', 'scripts/lib/site-layout.mjs', '.github/workflows/tools-pages.yml']
+  push:
+    branches: [main]
+    paths: ['content/tools/**', 'scripts/build-tools.mjs', 'web/js/tools/**', '.github/workflows/tools-pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 50 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund --ignore-scripts
+      - name: Cổng tools-pages (ngân hàng câu, engine, i18n 15 ngôn ngữ, hreflang, JSON-LD, deep-link)
+        run: node scripts/test/tools-pages.mjs
+      - name: Bản xem thử (trang + JS rút gọn như build thật)
+        run: |
+          TOOLS_DIST=preview node scripts/build-tools.mjs
+          mkdir -p preview/js/tools preview/img && cp -r web/icons preview/icons && cp -r web/img/tools preview/img/tools
+          (cd web && npx -y esbuild@0.24.0 js/tools/*.js --minify --charset=utf8 --log-level=warning --outdir=../preview/js/tools)
+      - name: Lighthouse (điện thoại, 4G giả lập) – median 3 lần + ảnh chụp
+        run: |
+          (cd preview && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 2
+          mkdir -p reports/tools shots
+          fail=0
+          for p in vi/kiem-tra-trinh-do-tieng-anh/ en/english-level-test/ en/english-level-test/b2/ ja/english-level-test/ ar/english-level-test/ en/toeic-part-5-practice/ vi/luyen-toeic-part-5/; do
+            id=$(echo "$p" | tr '/' '_')
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path="reports/tools/$id-$i.json" --quiet || true; done
+            node -e "
+              const fs=require('fs');const runs=[1,2,3].map(i=>'reports/tools/$id-'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>require('./'+f));
+              if(!runs.length){console.log('✗ lighthouse lỗi $p');process.exit(1)}
+              const cats=Object.keys(runs[0].categories),med=a=>a.sort((x,y)=>x-y)[Math.floor(a.length/2)];
+              const s=Object.fromEntries(cats.map(k=>[k,med(runs.map(r=>Math.round(r.categories[k].score*100)))]));
+              const min={performance:90,accessibility:95,'best-practices':90,seo:95};
+              const shot=runs[0].audits['final-screenshot']&&runs[0].audits['final-screenshot'].details;if(shot)fs.writeFileSync('shots/$id.jpg',Buffer.from(shot.data.split(',')[1],'base64'));
+              const bad=Object.entries(min).filter(([k,v])=>s[k]<v);console.log('$p',JSON.stringify(s),'LCP',runs[0].audits['largest-contentful-paint'].displayValue,'CLS',runs[0].audits['cumulative-layout-shift'].displayValue);
+              if(bad.length){console.log('  ✗ dưới ngưỡng:',bad.map(([k,v])=>k+' '+s[k]+'<'+v).join(', '));console.log('  ',Object.values(runs[0].audits).filter(a=>a.score!==null&&a.score<0.9).map(a=>a.id).join(' '));process.exit(1)}" || fail=1
+          done
+          exit $fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tools-pages
+          retention-days: 14
+          path: |
+            reports/tools/
+            shots/
+            preview/en/english-level-test/
