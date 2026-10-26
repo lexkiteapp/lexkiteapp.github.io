@@ -10,7 +10,8 @@ import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as 
 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
 import vm from 'node:vm';
-import { blogToolBox, TOOL_BOX_CSS } from './lib/tools-links.mjs'; // hộp liên kết công cụ miễn phí cùng chủ đề (docs/SEO-TOOLS.md)
+import { blogToolBox, TOOL_BOX_CSS } from './lib/tools-links.mjs';
+import { editorialNode, blogByline } from './lib/authority-links.mjs'; // tác giả = Lexkite Editorial Team + trang hồ sơ đội (docs/SEO-AUTHORITY.md) // hộp liên kết công cụ miễn phí cùng chủ đề (docs/SEO-TOOLS.md)
 // 💰 Ô quảng cáo cuối bài (docs/ADS.md) – CHỈ khi web/js/ads/config.js bật + có mã ô 'blog'; mặc định tắt → 0 byte thêm vào trang
 const ADS = (() => { try { const c = { self: {} }; c.self = c; vm.runInNewContext(fs.readFileSync(new URL('../web/js/ads/config.js', import.meta.url), 'utf8'), c); const a = c.ADS_CONFIG || {}; return a.enabled && a.web && a.web.client && a.web.slots && a.web.slots.blog ? a : null; } catch (e) { return null; } })();
 const ADV = { en: 'Advertisement', vi: 'Quảng cáo', es: 'Publicidad', pt: 'Publicidade', fr: 'Publicité', de: 'Anzeige', id: 'Iklan', th: 'โฆษณา', zh: '广告', ja: '広告', ko: '광고', hi: 'विज्ञापन', ar: 'إعلان', ru: 'Реклама', tr: 'Reklam' };
@@ -274,7 +275,7 @@ function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="${robots}">
-<meta name="author" content="Lexkite">
+<meta name="author" content="Lexkite Editorial Team">
 <link rel="canonical" href="${SITE}${url}">
 ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}">`).join('\n')}
 <link rel="alternate" type="application/rss+xml" title="${esc(C.blogName[lang] || C.blogName.en)}" href="${SITE}${b}rss.xml">
@@ -341,7 +342,7 @@ for (const p of posts) {
   const cat = catName(p.category, p.lang), b = base(p.lang), sg = SEG(p.lang);
   const crumbs = [[t.home, landingHref(p.lang)], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: { '@type': 'Organization', name: p.author || 'Lexkite', url: `${SITE}${base(p.lang)}${T(p.lang).aboutSlug}/` }, publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: editorialNode(p.lang), publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
@@ -351,7 +352,7 @@ for (const p of posts) {
   const body = `${crumbsHtml(crumbs)}
 <article class="post">
 <h1>${esc(p.title)}</h1>
-<div class="meta"><a class="chip" href="${b}${sg.cat}/${p.category}/">${esc(cat)}</a><span><time datetime="${iso(pub)}">${fmtDate(pub, p.lang)}</time></span>${upd > pub + 864e5 ? `<span>${t.updated} <time datetime="${iso(upd)}">${fmtDate(upd, p.lang)}</time></span>` : ''}<span>${mins} ${t.min}</span></div>
+<div class="meta"><a class="chip" href="${b}${sg.cat}/${p.category}/">${esc(cat)}</a><span><time datetime="${iso(pub)}">${fmtDate(pub, p.lang)}</time></span>${upd > pub + 864e5 ? `<span>${t.updated} <time datetime="${iso(upd)}">${fmtDate(upd, p.lang)}</time></span>` : ''}<span>${mins} ${t.min}</span>${blogByline(p.lang, p.factChecked, x => fmtDate(x, p.lang))}</div>
 <figure class="cover">${picture(cv.id, cv.alt, { eager: true })}</figure>
 ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${toc.map(h => `<li><a href="#${h.id}">${inline(h.txt)}</a></li>`).join('')}</ol></details>` : ''}
 ${html}

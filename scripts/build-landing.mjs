@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
 import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
@@ -85,7 +86,7 @@ export function render(lang) {
   const grades = ['Quên', 'Khó', 'Nhớ', 'Dễ'].map((k, i) => `<span${i === 2 ? ' class="ok"' : ''}>${esc(ui(lang, k))}</span>`).join('');
   const faqLd = { '@type': 'FAQPage', mainEntity: c.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) };
   const graph = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Organization', '@id': `${SITE}/#org`, name: 'Lexkite', url: `${SITE}/`, logo: `${SITE}/icons/icon-512.png?v=2`, email: 'support@lexkite.com' },
+    orgNode(),
     { '@type': 'WebSite', '@id': `${SITE}/#website`, name: 'Lexkite', url: `${SITE}/`, inLanguage: LANGS, publisher: { '@id': `${SITE}/#org` } },
     { '@type': 'WebPage', '@id': `${url}#page`, url, name: c.title, description: c.description, inLanguage: lang, isPartOf: { '@id': `${SITE}/#website` }, about: { '@id': `${SITE}/#app` } },
     { '@type': 'WebApplication', '@id': `${SITE}/#app`, name: 'Lexkite', url: `${SITE}/app/`, applicationCategory: 'EducationalApplication', operatingSystem: 'Web browser, Chrome', browserRequirements: 'Requires JavaScript. Works in modern browsers.', isAccessibleForFree: true, inLanguage: LANGS, image: `${SITE}/og-default.png`, featureList: c.features.map(f => f[1]), offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, publisher: { '@id': `${SITE}/#org` } },

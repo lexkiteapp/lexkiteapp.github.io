@@ -52,6 +52,17 @@
   Referrer-Policy: no-referrer
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+# Widget nhúng (docs/SEO-AUTHORITY.md): cho phép trang khác nhúng iframe (gỡ X-Frame-Options chung), CSP thật chặt cho trang tĩnh không request ngoài,
+# không gửi referrer (không theo dõi trang nhúng), noindex (đích index là /<lang>/research/confused-words/).
+/embed/*
+  ! X-Frame-Options
+  ! Content-Security-Policy-Report-Only
+  ! Referrer-Policy
+  Content-Security-Policy: default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors *
+  Referrer-Policy: no-referrer
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=3600
+
 /packs/*
   Cache-Control: public, max-age=86400
   Access-Control-Allow-Origin: *

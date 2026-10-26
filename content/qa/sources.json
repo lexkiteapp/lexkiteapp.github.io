@@ -320,6 +320,21 @@
    "delegate": [
     "test/tools-pages.mjs"
    ]
+  },
+  {
+   "id": "authority",
+   "paths": [
+    "content/authority"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/authority-pages.mjs"
+   ]
   }
  ],
  "skip": {

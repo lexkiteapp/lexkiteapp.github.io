@@ -1,0 +1,57 @@
+# 🏛️ Uy tín / E-E-A-T (docs/SEO-AUTHORITY.md): dựng 105 trang Giới thiệu/biên tập/nghiên cứu/widget 15 ngôn ngữ, cổng authority-pages (JSON-LD bắt buộc
+# của Google: Organization, ProfilePage, Dataset, BreadcrumbList), Lighthouse điện thoại trên bản xem thử (máy chủ tĩnh cục bộ, median 3 lần/URL), ảnh chụp.
+# Miễn phí (GitHub Actions), không deploy – deploy theo luồng Pages thường của main.
+name: Uy tín (authority pages)
+on:
+  pull_request:
+    paths: ['content/authority/**', 'scripts/build-authority.mjs', 'scripts/lib/authority-links.mjs', 'scripts/test/authority-pages.mjs', 'web/js/usage/pair.js', 'scripts/lib/site-layout.mjs', 'web/_headers', '.github/workflows/authority-pages.yml']
+  push:
+    branches: [main]
+    paths: ['content/authority/**', 'scripts/build-authority.mjs', 'scripts/lib/authority-links.mjs', '.github/workflows/authority-pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 50 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund --ignore-scripts
+      - name: Cổng authority-pages (i18n 15 ngôn ngữ, sameAs kênh thật, dữ liệu không PII, hreflang, JSON-LD, widget không theo dõi)
+        run: node scripts/test/authority-pages.mjs
+      - name: Bản xem thử
+        run: |
+          AUTHORITY_DIST=preview node scripts/build-authority.mjs
+          cp -r web/icons preview/icons
+      - name: Lighthouse (điện thoại, 4G giả lập) – median 3 lần + ảnh chụp
+        run: |
+          (cd preview && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 2
+          mkdir -p reports/authority shots
+          fail=0
+          for p in en/about/ vi/about/editorial-policy/ en/about/editorial-team/ en/research/confused-words/ ja/research/confused-words/ ar/research/confused-words/ en/embed/; do
+            id=$(echo "$p" | tr '/' '_')
+            for i in 1 2 3; do npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path="reports/authority/$id-$i.json" --quiet || true; done
+            node -e "
+              const fs=require('fs');const runs=[1,2,3].map(i=>'reports/authority/$id-'+i+'.json').filter(f=>fs.existsSync(f)).map(f=>require('./'+f));
+              if(!runs.length){console.log('✗ lighthouse lỗi $p');process.exit(1)}
+              const cats=Object.keys(runs[0].categories),med=a=>a.sort((x,y)=>x-y)[Math.floor(a.length/2)];
+              const s=Object.fromEntries(cats.map(k=>[k,med(runs.map(r=>Math.round(r.categories[k].score*100)))]));
+              const min={performance:90,accessibility:95,'best-practices':90,seo:95};
+              const shot=runs[0].audits['final-screenshot']&&runs[0].audits['final-screenshot'].details;if(shot)fs.writeFileSync('shots/$id.jpg',Buffer.from(shot.data.split(',')[1],'base64'));
+              const bad=Object.entries(min).filter(([k,v])=>s[k]<v);console.log('$p',JSON.stringify(s),'LCP',runs[0].audits['largest-contentful-paint'].displayValue,'CLS',runs[0].audits['cumulative-layout-shift'].displayValue);
+              if(bad.length){console.log('  ✗ dưới ngưỡng:',bad.map(([k,v])=>k+' '+s[k]+'<'+v).join(', '));console.log('  ',Object.values(runs[0].audits).filter(a=>a.score!==null&&a.score<0.9).map(a=>a.id).join(' '));process.exit(1)}" || fail=1
+          done
+          exit $fail
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: authority-pages
+          retention-days: 14
+          path: |
+            reports/authority/
+            shots/
+            preview/en/research/
