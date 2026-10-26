@@ -57,30 +57,22 @@ not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per 
   and the your-turn beat use the teacher's **closed-mouth listen/nod clip**; (3) every bank teacher therefore has ≥ 3 chained talk clips + 1 listen
   clip (2D and 3D). Voice pace itself stays ≤ 130 wpm (qc `pace`).
 
-## Coverage map – one viral format per web area (owner 26/10: "phủ hết hệ thống web")
-Every area of `content/video/ecosystem.json` gets a series; the CTA deep-links to that area. Data = our own (machine-checkable). ✓ = template exists.
-| Area | Series (format) | Data source | Template |
+## Core series (owner 26/10: keep only what fits the build – raw host, v12 lesson card, quiz, IPA, img.json pictures, our own data)
+| # | Series | Web areas (CTA) | Fit |
 |---|---|---|---|
-| dictionary | Guess the Word + **Word Story** (origin + memory tip, plan §4A) – 3 picture clues, 3 s count, word + IPA + example | img.json (→ 20k words) | ✓ guess |
-| vocab-review | Say It Like a Native – 5 better words | lexicon synonyms | ✓ words5 |
-| grammar | **Grammar in 60s** + **Ama asks why** (plan §4A/B) – ✗ vs ✓, one rule, quiz | grammar lessons (889 points) | ✓ mistake |
-| grammar-check | Stop Saying This (**Don't say… Say…**, plan §4B) – common error, why, fix, native upgrade | usage mistakes (350) + confidence | ✓ mistake |
-| verbs | Verb Forms Challenge – go / went / gone, 3 s each | verb tables | new: verb3 |
-| phrases | Phrasal Verb in 30 s – meaning card + picture + example | idiom-phrasal (685) | ✓ lesson card |
-| word-usage | Same or Different? + US or UK? + **3-second quiz** (affect/effect, plan §4B) | x-vs-y (1107) | ✓ pair / lesson |
-| paraphrase | **Native vs textbook** (plan §4B) – textbook line → 3 natural versions | collocations (4222) | ✓ words5 |
-| pronunciation | Where's the Stress? – stress dots + IPA | CMU / IPA (2934) | ✓ pron |
-| speaking | **IELTS Speaking Band 7+** (plan §4A) – band 6 → band 8 answer upgrade | speaking samples | ✓ lesson card |
-| roleplay | **Office English 101** / What Would You Say? – situation card, 2 replies, quiz (one host) | confidence toolkit (1376) | ✓ mistake/quiz |
-| confidence | Say This, Not That – polite vs rude phrasing | confidence units | ✓ pair |
-| listening | Catch the Word – fast sentence, fill the blank, slow replay | TTS + text | new: listen |
-| reading | Guess the Meaning – word in a real sentence | word-in-use (6433) | ✓ guess |
-| writing-ielts | Band-9 Phrase – one sentence upgrade | writing samples | ✓ lesson card |
-| ielts | IELTS Word – academic word + collocation | academic list | ✓ lesson card |
-| toefl | TOEFL Word in Context | academic list | ✓ lesson card |
-| toeic | **TOEIC Part 5 Speedrun** (plan §4A) – 5 sentences, 3 s each + Office word with picture | img.json + TOEIC list | ✓ lesson card |
-| placement | What's Your Level? – 3 questions A1→C1 | grammar quizzes by level | new: level3 |
-Plan §4B formats needing acting/memes (POV office, Mia's cringe moments, trend remix) stay parked by the strength filter. Rotation fills zero-coverage areas first (shorts/index.json per area); each episode = one point, IPA, example, picture when img.json has the exact key.
+| 1 | Guess the Word | dictionary, reading | picture clues from img.json (→ 20k words), 3 s count, IPA |
+| 2 | Stop Saying This (= Don't say… Say…) | grammar-check | real errors from our data, ✗/✓, quiz |
+| 3 | Same or Different? (+ 3-second quiz affect/effect) | word-usage | two lesson cards, memory trick |
+| 4 | US or UK? | word-usage, dictionary | owner: "dễ hiểu rành mạch"; flags + pictures |
+| 5 | Where's the Stress? | pronunciation | approved into the bank (approved.json) |
+| 6 | Say It Like a Native (incl. Native vs textbook) | vocab-review, paraphrase | 5-word card, save-worthy |
+| 7 | Grammar in 60s (incl. Ama asks why) | grammar | one rule, ✗/✓, quiz (889 grammar points) |
+| 8 | Phrasal Verb in 30s | phrases | meaning card + example + scene picture |
+| 9 | Word in Context (IELTS / TOEFL / TOEIC tag) | ielts, toefl, toeic | academic / office word + real sentence |
+| 10 | Verb Forms Challenge (go / went / gone) | verbs | simple, visual; one small new template |
+**Dropped / parked:** POV office, Mia's cringe, trend remix (acting/memes); Office English 101 (multi-character); Word Story (etymology hard to verify);
+IELTS Speaking Band 7+ (long answers > 45 s); TOEIC Part 5 Speedrun (busy, small text); listening fill-in and level test – later, after the 10 run well.
+Rotation fills zero-coverage areas first; each episode = one point, IPA, example, picture when img.json has the exact key.
 
 ## Series rules (every episode)
 - Hook ≤ 1.5 s naming the payoff ("99 % of learners say this wrong"). The hook must be true (hook_truth gate).
