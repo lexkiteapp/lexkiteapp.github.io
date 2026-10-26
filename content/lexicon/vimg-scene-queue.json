@@ -13,12 +13,6 @@
    "why": "vision: text; vision description-sentence sim 0.1692",
    "b": "40088424311"
   },
-  "almost#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.2639",
-   "b": "40088424311"
-  },
   "alternative#n": {
    "at": "2026-10-24",
    "tries": 4,
