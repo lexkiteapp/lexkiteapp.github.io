@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/dict",
   "say": "Look up any word"
  },
- "speed": 0.8,
+ "speed": 0.75,
  "lines": [
   {
    "id": "g_h",

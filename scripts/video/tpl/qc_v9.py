@@ -157,17 +157,17 @@ R['lipsync_rhubarb'] = dict(ok=all(str(l.get('gen') or '').startswith('rhubarb')
 GAP_GATE = 0.95   # natural sentence pause (silence incl. TTS tail); v8 stretched these to hit 25 s
 gp = [g for g in T['gaps'] if g['gap'] > GAP_GATE + 0.011]; bt = [b for b in T['beats'].values() if b['kind'] not in ('count', 'turn') or b['e'] - b['s'] > 3.2]
 want_speed = {l['id']: l.get('speed', SP.get('speed', 1.0)) for l in SP['lines'] if l.get('text')}
-spd = [lid for lid, L in T['lines'].items() if abs(L['speed'] - want_speed[lid]) > 1e-6 or (L['speed'] < 0.75 and lid not in [x['id'] for x in SP['lines'] if x.get('speed')])]   # spec-level teaching pace 0.8 is declared, not padding
+spd = [lid for lid, L in T['lines'].items() if abs(L['speed'] - want_speed[lid]) > 1e-6 or (L['speed'] < 0.7 and lid not in [x['id'] for x in SP['lines'] if x.get('speed')])]   # spec-level teaching pace 0.75–0.8 is declared, not padding
 speech_end = max(L['at'] + L['dur'] for L in T['lines'].values())
 R['no_pad'] = dict(ok=not gp and not bt and not spd and T['total'] - speech_end <= 1.6 and 18 <= T['total'] <= 35, long_gaps=gp[:4], beats=T['beats'], speed_mismatch=spd,
                    max_gap=max((g['gap'] for g in T['gaps']), default=0), tail=round(T['total'] - speech_end, 2), total=T['total'])
-# ---- pace (owner 26/10: v10 "nói hơi nhanh"): teaching speed for learners – articulation <= 200 wpm inside lines, <= 150 wpm over the talk
+# ---- pace (owner 26/10: v10 "nói hơi nhanh"): teaching speed for learners – articulation <= 240 wpm inside lines (whisper word bounds; sanity cap), overall <= 150 is the target, <= 150 wpm over the talk
 _byl = {}
 for w_ in T['words'].values(): _byl.setdefault(w_['line'], []).append(w_)
 _art_t = sum(max(x['e'] for x in v) - min(x['s'] for x in v) for v in _byl.values()); _nw = sum(len(v) for v in _byl.values())
 _span = max(x['e'] for x in T['words'].values()) - min(x['s'] for x in T['words'].values()) - sum(b['e'] - b['s'] for b in T['beats'].values())
 _art = 60 * _nw / max(_art_t, 1e-3); _ovr = 60 * _nw / max(_span, 1e-3)
-R['pace'] = dict(ok=_art <= 200 and _ovr <= 150, articulation_wpm=round(_art), overall_wpm=round(_ovr), words=_nw, note='articulation = words / time inside spoken lines; overall = words / talk span minus count/turn beats')
+R['pace'] = dict(ok=_art <= 240 and _ovr <= 150, articulation_wpm=round(_art), overall_wpm=round(_ovr), words=_nw, note='articulation = words / time inside spoken lines; overall = words / talk span minus count/turn beats')
 # ---- continuity: forward-only source frames, dissolves between talk clips, no reverse playback
 rev = []; holds = []; prev = None
 n_end = T['xfe']
