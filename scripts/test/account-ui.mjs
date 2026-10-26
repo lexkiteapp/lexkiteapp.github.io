@@ -26,7 +26,7 @@ w.Core = {
 w.Game = { get: async () => ({ xp: 0, days: {} }) };
 w.IELTS_DATA = { INDEX: {} };
 w.fetch = async () => ({ ok: true, status: 200, json: async () => ({ docs: {} }) });
-w.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {},
+w.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, glyph: e => e,
   $: s => d.querySelector(s), esc: s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]),
   toast: () => {},
   modal: html => { const b = d.getElementById('modalBox'); b.innerHTML = html; d.getElementById('modal').hidden = false; return b; },

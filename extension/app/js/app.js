@@ -151,7 +151,7 @@
     if (delta.xp) xpFloat(delta.xp, el);
     for (const ev of r.events) {
       if (ev.type === 'quest') { Sfx.win(); toast(`🎉 ${t('Hoàn thành nhiệm vụ: {q} (+{xp} XP)', { q: ev.quest.text, xp: ev.quest.xp })}`, 3200); }
-      if (ev.type === 'badge') { Sfx.win(); confetti(80); toast(`🏅 ${t('Huy hiệu mới: {b}', { b: ev.badge.icon + ' ' + ev.badge.name })}`, 3500); }
+      if (ev.type === 'badge') { Sfx.win(); confetti(80); toast(`${t('Huy hiệu mới: {b}', { b: ev.badge.name })}`, 3500); }
       if (ev.type === 'level') {
         Sfx.win(); confetti(160);
         modal(`<div class="celebrate"><div class="em">🎖️</div><h2>${t('Lên cấp {n}!', { n: ev.level })}</h2><p class="muted">${t('Danh hiệu mới: <b>{title}</b>', { title: esc(ev.title) })}</p><button class="btn primary lg" data-close>${t('Tuyệt vời!')}</button></div>`);
@@ -428,7 +428,7 @@
   };
   if (window.MutationObserver) new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1) { if (n.matches && n.matches(SAY)) labelSay(n.parentNode || n); else labelSay(n); rtlArrows(n.closest && n.closest('a, button') || n); } }).observe(view, { childList: true, subtree: true });
   // Bài đang học dở (nghe, đọc, viết, ngữ pháp, nói, đề thi…) → khối "Tiếp tục" ở trang Hôm nay mở lại bằng 1 chạm
-  const RESUME = { listen: '🎧', read: '📰', write: '✍️', task1: '📈', letters: '✉️', grammar: '📐', speaking: '🗣️', 'toefl-p': '🏛️', 'toeic-r': '💼', 'toeic-test': '💼', 'listen-test': '🎧', model: '📄', pron: '🔤', cbt: '🖥️', ideas: '💡' };
+  const RESUME = { listen: 'headphones', read: 'newspaper', write: 'pen-line', task1: 'trending-up', letters: 'mail', grammar: 'ruler', speaking: 'message-circle', 'toefl-p': 'landmark', 'toeic-r': 'briefcase', 'toeic-test': 'briefcase', 'listen-test': 'headphones', model: 'file-text', pron: 'audio-lines', cbt: 'monitor', ideas: 'lightbulb' };
   function markActivity(name, arg) {
     if (!RESUME[name] || !arg || arg === 'mix') return;
     const h = view.querySelector('.page-head h1, h1, h2'); const title = h ? h.textContent.replace(/\s+/g, ' ').trim().slice(0, 90) : '';
@@ -633,10 +633,10 @@
     const todayReviews = state.stats.days[k] || 0;
     const greet = h < 11 ? t('Chào buổi sáng') : h < 18 ? t('Chào buổi chiều') : t('Chào buổi tối');
     const name = state.user ? (state.user.displayName || '').split(' ').pop() : '';
-    const ex = App.exam ? App.exam() : 'ielts', X = (App.EXAMS || {})[ex] || { ic: '🎓', short: 'IELTS' };
+    const ex = App.exam ? App.exam() : 'ielts', X = (App.EXAMS || {})[ex] || { ic: 'graduation-cap', short: 'IELTS' };
     const g = state.settings.goal;
     const left = g && g.date ? Math.ceil((new Date(g.date) - now) / DAY) : null;
-    const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${X.ic} ${esc(X.short)} ${esc(g.exam === 'general' ? ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'][g.target - 1] || '' : String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
+    const chip = g && g.target ? `<a class="goal-chip" href="#/goal">${UI.icon(X.ic)} ${esc(X.short)} ${esc(g.exam === 'general' ? ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'][g.target - 1] || '' : String(g.target))}${left > 0 ? ' · ' + t('còn {n} ngày', { n: left }) : ''}</a>` : `<a class="goal-chip" href="#/goal">🚩 ${t('Đặt mục tiêu')}</a>`;
     const late = h >= 19 && !todayReviews && cards.length;
     const seed = allWords(), w = seed[Math.floor(Date.now() / DAY) % seed.length];
     const quests = Game.questsFor(k), doneQ = state.game.questsDone[k] || [];
@@ -650,10 +650,10 @@
       <section class="card today-card" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
       ${ringsHtml()}
       <div id="leagueHomeCard"></div>
-      <a class="card hover hub-card quick-play-card" href="#/quick"><span class="hub-ic" aria-hidden="true">⚡</span><span class="hub-tx"><b>${t('Chơi nhanh 15 giây')}</b><small>${t('4 câu cực ngắn · Không sợ sai, giữ phản xạ')}</small></span><span class="chip ok">${t('Chơi ngay')} →</span></a>
-      <a class="card hover hub-card" href="#/confidence"><span class="hub-ic" aria-hidden="true">🗣️</span><span class="hub-tx"><b>${t('Giao tiếp tự tin')}</b><small>${t('Nói tự tin trong tình huống thật · 5–8 phút/bài')}</small></span><span class="chev" aria-hidden="true">›</span></a>
-      ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
-      <a class="quest-line small" href="#/stats?s=quests">🏅 ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => q.icon).join(' ')} <span aria-hidden="true">›</span></a>
+      <a class="card hover hub-card quick-play-card" href="#/quick"><span class="hub-ic" aria-hidden="true">${UI.icon('zap')}</span><span class="hub-tx"><b>${t('Chơi nhanh 15 giây')}</b><small>${t('4 câu cực ngắn · Không sợ sai, giữ phản xạ')}</small></span><span class="chip ok">${t('Chơi ngay')} →</span></a>
+      <a class="card hover hub-card" href="#/confidence"><span class="hub-ic" aria-hidden="true">${UI.icon('message-circle')}</span><span class="hub-tx"><b>${t('Giao tiếp tự tin')}</b><small>${t('Nói tự tin trong tình huống thật · 5–8 phút/bài')}</small></span><span class="chev" aria-hidden="true">›</span></a>
+      ${(() => { const a = App.lastActivity(); return a ? `<a class="card hover hub-card resume" href="${esc(a.href)}"><span class="hub-ic" aria-hidden="true">${/^[a-z][a-z-]*$/.test(a.em) ? UI.icon(a.em) : a.em}</span><span class="hub-tx"><small>${t('Tiếp tục bài đang học')}</small><b>${esc(a.title)}</b></span><span class="btn sm">${t('Mở lại')} →</span></a>` : ''; })()}
+      <a class="quest-line small" href="#/stats?s=quests">${UI.icon('medal')} ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => UI.glyph(q.icon)).join(' ')} <span aria-hidden="true">›</span></a>
       <div class="card wotd wotd-sm">
         ${pic(w)}
         <div>
@@ -683,7 +683,7 @@
       // Kiểu Duolingo/Busuu: 1 hành động chính ngay dưới tiêu đề (luôn trên màn hình đầu), danh sách việc bên dưới
       el.innerHTML = `<div class="row between nowrap"><div><h2 style="margin:0">${t('Kế hoạch hôm nay')}</h2><div class="muted small">${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</div></div>${ring(Math.round(n / tasks.length * 100), n + '/' + tasks.length, 'var(--primary)')}</div>
         <a class="btn primary lg block today-cta" href="${next.href}">${next.day ? (next.started ? t('Tiếp tục Ngày {n}', { n: next.day }) : t('Bắt đầu Ngày {n}', { n: next.day })) + (next.track ? ' · ' + esc(next.track) : '') + ' · ≈ ' + t('{m} phút', { m: next.mins }) : n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>${next.sw || ''}
-        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${x.done ? '✅' : x.em}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>`;
+        <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${UI.glyph(x.done ? 'circle-check' : x.em)}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div>`;
     });
   };
 
@@ -693,17 +693,17 @@
       const now = Golden.dueNow(state.cards);
       const nx = Golden.next(state.cards);
       if (now) {
-        el.innerHTML = `<div class="row nowrap"><div style="font-size:2.4rem">⏰</div><div class="grow"><h3 style="margin:0">${t('Đang là thời điểm vàng!')}</h3>
+        el.innerHTML = `<div class="row nowrap"><div style="font-size:2.4rem">${UI.icon('alarm-clock')}</div><div class="grow"><h3 style="margin:0">${t('Đang là thời điểm vàng!')}</h3>
           <div class="muted small">${t('<b style="color:var(--again)">{n} từ</b> đang ở thời điểm sắp quên – ôn ngay để nhớ lâu nhất.', { n: now })}</div></div></div>
           <a class="btn primary block" style="margin-top:.8rem" href="#/review">${t('Ôn {n} từ ngay →', { n: now })}</a>`;
       } else if (nx) {
         const ms = nx.at - Date.now(), h = Math.floor(ms / 3600000), m = Math.ceil(ms % 3600000 / 60000);
-        el.innerHTML = `<div class="row nowrap"><div style="font-size:2.4rem">⏳</div><div class="grow"><h3 style="margin:0">${t('Thời điểm vàng tiếp theo')}</h3>
+        el.innerHTML = `<div class="row nowrap"><div style="font-size:2.4rem">${UI.icon('hourglass')}</div><div class="grow"><h3 style="margin:0">${t('Thời điểm vàng tiếp theo')}</h3>
           <div class="muted small">${t('Còn <b style="color:var(--primary);font-size:1.1rem">{time}</b> · {n} từ sẽ cần ôn', { time: h ? t('{h} giờ {m} phút', { h, m }) : t('{m} phút', { m }), n: nx.count })}</div></div></div>
           <p class="small muted" style="margin:.6rem 0 0">${t('Lexkite sẽ nhắc bạn đúng lúc từ sắp bị quên. Trong lúc chờ, hãy học thêm từ mới hoặc chơi Ghép thẻ.')}</p>`;
       } else {
         const fresh = Cards.dueCount(state.cards, state.settings, state.stats).newCount;
-        el.innerHTML = `<div class="row nowrap"><div style="font-size:2.4rem">🌱</div><div><h3 style="margin:0">${t('Chưa có lịch ôn')}</h3><div class="muted small">${t('Học từ mới đầu tiên – Lexkite sẽ tự tính “thời điểm vàng” để nhắc bạn ôn đúng lúc sắp quên.')}</div></div></div>
+        el.innerHTML = `<div class="row nowrap"><div style="font-size:2.4rem">${UI.icon('sprout')}</div><div><h3 style="margin:0">${t('Chưa có lịch ôn')}</h3><div class="muted small">${t('Học từ mới đầu tiên – Lexkite sẽ tự tính “thời điểm vàng” để nhắc bạn ôn đúng lúc sắp quên.')}</div></div></div>
           <div class="row" style="margin-top:.9rem">${fresh ? `<a class="btn primary" href="#/review">✨ ${t('Học {n} từ mới ngay', { n: fresh })}</a>` : `<a class="btn primary" href="#/library">📚 ${t('Chọn bộ từ')}</a>`}<a class="btn" href="#/method">${t('Thời điểm vàng là gì?')}</a></div>
           <div class="tiny muted" style="margin-top:.8rem">${t('Đường cong quên lãng: sau 1 ngày bạn quên ~50% từ mới học – ôn đúng lúc giúp nhớ gần như mãi mãi.')}</div>`;
       }
@@ -713,16 +713,16 @@
       const D = state.game.days || {}, sum = (from, n) => { const o = { newWords: 0, reviews: 0, quizzes: 0, xp: 0, active: 0 }; for (let i = 0; i < n; i++) { const d = new Date(from); d.setDate(d.getDate() - i); const x = D[todayKey(d)]; if (x) { o.newWords += x.newWords || 0; o.reviews += x.reviews || 0; o.quizzes += x.quizzes || 0; o.xp += x.xp || 0; if (x.xp || x.reviews) o.active++; } } return o; };
       const now = new Date(), dow = (now.getDay() + 6) % 7, cur = sum(now, dow + 1), lastEnd = new Date(now); lastEnd.setDate(now.getDate() - dow - 1); const prev = sum(lastEnd, 7);
       if (!prev.xp && !cur.xp) return;
-      const cell = (em, label, a, b) => { const d = a - b; return `<div class="wk-cell"><span>${em}</span><b>${a}</b><small>${label}</small>${b || a ? `<i class="${d >= 0 ? 'up' : 'down'}">${d >= 0 ? '▲' : '▼'} ${Math.abs(d)}</i>` : ''}</div>`; };
+      const cell = (em, label, a, b) => { const d = a - b; return `<div class="wk-cell"><span>${UI.glyph(em)}</span><b>${a}</b><small>${label}</small>${b || a ? `<i class="${d >= 0 ? 'up' : 'down'}">${d >= 0 ? '▲' : '▼'} ${Math.abs(d)}</i>` : ''}</div>`; };
       if (!el) return;
-      el.innerHTML = `<div class="card" style="margin-top:1rem"><div class="row between"><b>📅 ${t('Tuần này của bạn')}</b><span class="tiny muted">${t('so với cả tuần trước')}</span></div>
+      el.innerHTML = `<div class="card" style="margin-top:1rem"><div class="row between"><b>${UI.icon('calendar')} ${t('Tuần này của bạn')}</b><span class="tiny muted">${t('so với cả tuần trước')}</span></div>
         <div class="wk-grid">${cell('✨', t('Từ mới'), cur.newWords, prev.newWords)}${cell('🔁', t('Lượt ôn'), cur.reviews, prev.reviews)}${cell('🎯', t('Bài luyện'), cur.quizzes, prev.quizzes)}${cell('🔥', t('Ngày học'), cur.active, prev.active)}</div></div>`;
   }
 
   function levelBars() {
     const n = [0, 0, 0, 0, 0, 0];
     Object.values(state.cards).forEach(c => n[SRS.level5(c.srs)]++);
-    if (!n.slice(1).some(Boolean)) return `<div class="empty" style="padding:1.2rem .5rem"><div style="font-size:2rem">📶</div><div class="small">${t('Từ của bạn sẽ đi qua <b>5 cấp độ nhớ</b>: từ “mới học” (cấp 1) đến “nhớ lâu dài” (cấp 5) sau mỗi lần ôn đúng lúc.')}</div><div class="row center" style="margin-top:.6rem;gap:.3rem">${[1, 2, 3, 4, 5].map(i => `<span class="chip">${t('Cấp {n}', { n: i })}</span>`).join('→')}</div></div>`;
+    if (!n.slice(1).some(Boolean)) return `<div class="empty" style="padding:1.2rem .5rem"><div style="font-size:2rem">${UI.icon('signal')}</div><div class="small">${t('Từ của bạn sẽ đi qua <b>5 cấp độ nhớ</b>: từ “mới học” (cấp 1) đến “nhớ lâu dài” (cấp 5) sau mỗi lần ôn đúng lúc.')}</div><div class="row center" style="margin-top:.6rem;gap:.3rem">${[1, 2, 3, 4, 5].map(i => `<span class="chip">${t('Cấp {n}', { n: i })}</span>`).join('→')}</div></div>`;
     const max = Math.max(1, ...n.slice(1));
     const col = ['', '#e5484d', '#f59e0b', '#eab308', '#22c55e', '#0ea5a4'];
     const lab = ['', t('< 1 ngày'), t('1–3 ngày'), t('4–10 ngày'), t('11–30 ngày'), t('> 1 tháng')];
@@ -744,7 +744,7 @@
       ['test', '📝', t('Bài kiểm tra'), t('20 câu tổng hợp, chấm điểm'), '#f3e8ff'],
       ['write', '✍️', t('Phòng viết'), t('Viết Task 2, phân tích từ vựng'), '#fff1e6'],
       ['speaking', '🗣️', t('Phòng Speaking'), t('Part 1–3, ghi âm, chấm từ vựng'), '#e0f2fe'],
-    ].map(([id, em, name, desc, bg]) => `<a class="mode" href="${id === 'write' || id === 'speaking' || id === 'handsfree' || id === 'reflex' ? '#/' + id : '#/practice/' + id}"><span class="em" style="background:${bg}">${em}</span><b>${name}</b><span class="muted small">${desc}</span></a>`);
+    ].map(([id, em, name, desc, bg]) => `<a class="mode" href="${id === 'write' || id === 'speaking' || id === 'handsfree' || id === 'reflex' ? '#/' + id : '#/practice/' + id}"><span class="em" style="background:${bg}">${UI.glyph(em)}</span><b>${name}</b><span class="muted small">${desc}</span></a>`);
   }
   App.modeTiles = modeTiles;
 
@@ -1329,7 +1329,7 @@
       </div>
 
       <div class="section-title"><h2>${t('Huy hiệu')}</h2><span class="muted small">${Object.keys(state.game.badges).length}/${Game.BADGES.length}</span></div>
-      <div class="badge-grid">${Game.BADGES.map(b => `<div class="badge-card ${state.game.badges[b.id] ? '' : 'locked'}" title="${esc(b.desc)}"><div class="em">${b.icon}</div><b class="small">${esc(b.name)}</b><div class="tiny muted">${esc(b.desc)}</div></div>`).join('')}</div>`;
+      <div class="badge-grid">${Game.BADGES.map(b => `<div class="badge-card ${state.game.badges[b.id] ? '' : 'locked'}" title="${esc(b.desc)}"><div class="em">${UI.glyph(b.icon)}</div><b class="small">${esc(b.name)}</b><div class="tiny muted">${esc(b.desc)}</div></div>`).join('')}</div>`;
   };
 
 
@@ -1345,7 +1345,7 @@
     const ph = view.querySelector('.page-head');
     const html = `<div class="grid g2 stats-top">
       <div class="card" id="quests"><div class="row between"><h3 style="margin:0">🏅 ${t('Nhiệm vụ hôm nay')}</h3><span class="chip">${doneQ.length}/${quests.length}</span></div>
-        ${quests.map(q => { const v = Math.min(q.goal, gd[q.metric] || 0); const ok = doneQ.includes(q.id); return `<div class="quest ${ok ? 'done' : ''}"><div class="em">${ok ? '✅' : q.icon}</div><div class="grow"><div class="row between small"><b>${esc(q.text)}</b><span class="muted">+${q.xp} XP</span></div><div class="progress thin xp" style="margin-top:.35rem"><i style="width:${v / q.goal * 100}%"></i></div><div class="tiny muted">${v}/${q.goal}</div></div></div>`; }).join('')}</div>
+        ${quests.map(q => { const v = Math.min(q.goal, gd[q.metric] || 0); const ok = doneQ.includes(q.id); return `<div class="quest ${ok ? 'done' : ''}"><div class="em">${UI.glyph(ok ? 'circle-check' : q.icon)}</div><div class="grow"><div class="row between small"><b>${esc(q.text)}</b><span class="muted">+${q.xp} XP</span></div><div class="progress thin xp" style="margin-top:.35rem"><i style="width:${v / q.goal * 100}%"></i></div><div class="tiny muted">${v}/${q.goal}</div></div></div>`; }).join('')}</div>
       <div class="card" id="goldenCard"></div>
       <div class="card"><div class="row between"><h3 style="margin:0">${t('Cấp độ nhớ')}</h3><a class="small" href="#/method">${t('Vì sao? →')}</a></div>${levelBars()}</div>
       <div id="weekCard"></div></div>`;

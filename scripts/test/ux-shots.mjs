@@ -6,10 +6,10 @@ import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } 
 import { chromium } from 'playwright';
 const [AFTER, BEFORE, OUT = 'out/ux'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const ROUTES = ['home', 'practice', 'review', 'vocab', 'library', 'tests', 'me', 'goal', 'dict/sustainable', 'confidence'];
+const ROUTES = ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'plan', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence'];
 const CONFIGS = [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'vi']];
 const browser = await chromium.launch();
-const report = { errs: [], metrics: {} };
+const report = { errs: [], metrics: {} }; globalThis.report0 = [];
 async function run(TAG, ROOT, vn, scheme, lang) {
   const vp = vn === 'mobile' ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width: 1366, height: 860 } };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block' });
@@ -40,7 +40,7 @@ async function run(TAG, ROOT, vn, scheme, lang) {
         if (el.matches('a[href], button, [role=button], input:not([type=hidden]), select, summary') && b.top < H && b.bottom > 0 && (b.width < 44 || b.height < 44) && !el.closest('p, li > span')) out.smallTaps.push(lab(el) + ` ${Math.round(b.width)}x${Math.round(b.height)}`);
       }
       out.clipped = out.clipped.slice(0, 12); out.smallTapsN = out.smallTaps.length; out.smallTaps = out.smallTaps.slice(0, 12);
-      out.h1 = (document.querySelector('#view h1, #view h2') || {}).textContent?.trim().slice(0, 40) || '';
+      out.rawSvg = /<svg|<use /.test(document.body.innerText); if (out.rawSvg) report0.push(location.hash); out.h1 = (document.querySelector('#view h1, #view h2') || {}).textContent?.trim().slice(0, 40) || '';
       out.font = getComputedStyle(document.querySelector('#view h1, #view h2') || document.body).fontSize;
       return out;
     }).catch(e => ({ err: e.message }));
@@ -54,7 +54,7 @@ fs.writeFileSync(path.join(OUT, 'report.json'), JSON.stringify(report, null, 1))
 try {
   for (const TAG of ['before', 'after']) for (const [vn, sc, lang] of CONFIGS) {
     const files = ROUTES.map(r => path.join(OUT, `${TAG}-${vn}-${sc}-${lang}-${r.replace(/\//g, '_')}.jpg`)).filter(f => fs.existsSync(f)); if (!files.length) continue;
-    execFileSync('montage', [...files, '-tile', vn === 'mobile' ? '10x1' : '5x2', '-geometry', vn === 'mobile' ? '300x+6+6' : '640x+6+6', '-background', '#888', '-quality', '72', path.join(OUT, `sheet-${TAG}-${vn}-${sc}-${lang}.jpg`)]);
+    execFileSync('montage', [...files, '-tile', vn === 'mobile' ? '13x1' : '5x3', '-geometry', vn === 'mobile' ? '300x+6+6' : '640x+6+6', '-background', '#888', '-quality', '72', path.join(OUT, `sheet-${TAG}-${vn}-${sc}-${lang}.jpg`)]);
   }
 } catch (e) { console.log('montage bỏ qua:', e.message); }
 const sum = Object.entries(report.metrics).filter(([k]) => k.startsWith('after')).map(([k, m]) => `${k}: tràn ${m.overflowX} · cắt ${m.clipped?.length} · chạm<44 ${m.smallTapsN}`);
