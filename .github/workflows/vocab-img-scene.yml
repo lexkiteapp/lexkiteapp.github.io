@@ -397,7 +397,7 @@ jobs:
   labfeat:
     # đặc trưng giám khảo CẢNH (CLIP↔câu, chú thích↔câu, thị giác có/không) cho ảnh của lượt cũ đã gán nhãn – đầu vào calibrate_scene.py
     needs: plan
-    if: github.event.inputs.lab_run != '' && needs.plan.outputs.skip != '1'
+    if: github.event.inputs.lab_run != '' && needs.plan.outputs.skip != '1' && github.event.inputs.mode != 'rejudge'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions: { contents: read, actions: read, id-token: write }
