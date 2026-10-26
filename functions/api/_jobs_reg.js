@@ -704,7 +704,7 @@ export const REG = {
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [
-    "40 1,4,7,10,13,16,19,22 * * *"
+    "40 2,4,7,10,13,16,19,22 * * *"
    ],
    "priority": "bulk",
    "resources": [

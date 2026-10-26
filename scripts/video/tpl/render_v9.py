@@ -295,6 +295,11 @@ def plan_gated(nf):
         seq[fi] = [(cc, kk, ww * (1 - w)) for cc, kk, ww in seq[fi] if ww * (1 - w) > 1e-4] + [(c0, k0, w)]
     seq[-1] = [(c0, k0, 1.0)]
     return seq, joins
+def move_mask(c):   # cells (8 px) where the teacher actually moves in this clip (hands, arms, head): text over them = occlusion
+    fr_ = [cv2.resize(cv2.cvtColor(norm_frame(RAW[c][k]), cv2.COLOR_BGR2GRAY), (W // 8, H // 8), interpolation=cv2.INTER_AREA).astype(np.int16) for k in range(CL[c]['usable'][0], min(len(RAW[c]), CL[c]['usable'][1] + 1), 3)]
+    med = np.median(np.stack(fr_), 0); m_ = np.zeros_like(med, bool)
+    for f_ in fr_: m_ |= np.abs(f_ - med) > 28
+    return cv2.dilate(m_.astype(np.uint8), np.ones((3, 3), np.uint8)) > 0
 if SP.get('listen'):
     SEQ, JOINS = plan_gated(NF); print('gated plan: talk while the voice speaks, listen clip in silences', flush=True)
 else: SEQ, JOINS = plan(NF, A0)
@@ -863,7 +868,7 @@ class Pop:
             if key not in s.cache: s.cache[key] = s.compose_stress(act)
             return s.cache[key]
         if k == 'turn': return s.compose_turn(T)
-        if k == 'lesson': s.mcur = s.meas; return s.lesson_frame(sum(1 for r in s.reveal if T >= r - 0.02), s.im.height)
+        if k == 'lesson': s.mcur = s.meas; s.last_im = s.lesson_frame(sum(1 for r in s.reveal if T >= r - 0.02), s.im.height); return s.last_im
         s.mcur = s.meas
         if k == 'card' and getattr(s, 'sub_at', None) and T >= s.sub_at: s.mcur = s.meas_sub; return s.im_sub
         if k == 'cta' and getattr(s, 'cta_pages', None) and T >= s.cta_pages[0]: return s.cta_pages[1]
@@ -1108,7 +1113,7 @@ MOTION['mouth_changes'] = sum(1 for fi in range(1, NF) if VSEQ[fi] != VSEQ[fi - 
 def mouth_spr(c, fi):   # the frame where the shape changes shows the halfway mouth (previous + new), so the lips move instead of popping
     v = VSEQ[fi]; sp = MO[c].spr[v]
     return sp if fi == 0 or VSEQ[fi - 1] == v else 0.5 * sp + 0.5 * MO[c].spr[VSEQ[fi - 1]]
-FRAMES = []; SHARP = []; SHARP_DUE = False
+FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {}; POPID = {f'pop.{p.id}': p for p in POPS}
 for fi in range(NF):
     T = fi / FPS; tm = T + 0.5 / FPS
     if PREV is not None and fi not in PREV: continue
@@ -1141,6 +1146,16 @@ for fi in range(NF):
         if p.t0 <= T < p.t1:
             wp_, bb = p.draw(out, tm, T, s); wipe.update(wp_)
             if bb[0] < 1e8: els.append(dict(name=f'cap.p{pi}', text=p.text, bbox=[round(x) for x in bb], px=p.sz, alpha=1.0, group='caption', digit=None, where='cap', m=[['caption', round(CAPR * p.sz * (s if CAPINK else 1.0), 1)]]))
+    if MOVE:   # owner 26/10 "tránh che khuất chồng chéo": no settled board text over the moving teacher of THIS frame's clip
+        cm = max(srcs, key=lambda x: x[2])[0]; Mv = MOVE[cm]
+        for e in els:
+            if e['where'] != 'board' or e['alpha'] < 0.999 or e['group'] == 'caption': continue
+            p_ = POPID.get(e['name']); bb = e['bbox']
+            if p_ is not None and p_.kind in ('lesson', 'note'):
+                cb = getattr(p_, 'last_im', p_.im).getbbox()
+                if cb: bb = [p_.region[0] + 2 + cb[0], p_.region[1] + 2 + cb[1], p_.region[0] + 2 + cb[2], p_.region[1] + 2 + cb[3]]
+            x0_, y0_, x1_, y1_ = [max(0, int(v) // 8) for v in bb]; cells = Mv[y0_:max(y0_ + 1, y1_), x0_:max(x0_ + 1, x1_)]
+            if cells.size and cells.mean() > 0.02: BODY_HITS.append((round(T, 2), e['name'], cm, round(float(cells.mean()), 3)))
     if PREV is not None: cv2.imwrite(f'{o.out}.preview/t{T:05.2f}.png', out); continue
     enc.stdin.write(out.tobytes())
     win = [AX - AX / s, AY - AY / s, AX + (W - AX) / s, AY + (H - AY) / s]
@@ -1196,5 +1211,5 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
-               words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+               words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')
