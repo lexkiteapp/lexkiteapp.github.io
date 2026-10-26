@@ -152,7 +152,7 @@ Lexkiteの[ed・sの語尾の発音レッスン](/app/#/grammar/ed-s-endings)で
 
 **5. 受動態でも同じルール。** 過去分詞の *-ed* も同じ発音です：*The window was opened* /d/、*The package was delivered* /d/、*The meeting was cancelled* /d/、*The report was finished* /t/。[英語の受動態](/ja/blog/eigo-judoutai/)を練習するときも、ed の音を意識しましょう。
 
-LとRの区別など、ほかの日本人が苦手な音もあわせて練習したい人は、[LとRの発音](/ja/blog/l-to-r-hatsuon/)も読んでみてください。リスニング全般の上達法は[英語リスニング上達法](/ja/blog/eigo-listening-joutatsu/)にまとめています。
+LとRの区別など、ほかの日本人が苦手な音もあわせて練習したい人は、[LとRの発音](/ja/blog/l-to-r-hatsuon/)も読んでみてください。TOEIC Speakingの音読問題で発音を評価される人は、[TOEIC スピーキング対策のコツ](/ja/blog/toeic-speaking-kotsu/)も参考になります。リスニング全般の上達法は[英語リスニング上達法](/ja/blog/eigo-listening-joutatsu/)にまとめています。
 
 ## 練習問題：edの発音を分類しよう
 

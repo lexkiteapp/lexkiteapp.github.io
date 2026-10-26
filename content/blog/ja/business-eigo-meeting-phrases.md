@@ -82,7 +82,7 @@ quiz: [
 - **賛同する**: `"I completely agree with Sarah's point regarding cost efficiency."`（コスト効率に関するサラの意見に完全に同意します）
 - **柔らかく異論を唱える**: `"I see where you're coming from, but my main concern is the tight deadline."`（おっしゃる意図はよく分かりますが、私の懸念はタイトな納期です）
 
-助動詞を使った丁寧なニュアンスのコントロール法は[英語 助動詞 can could should must](/ja/blog/eigo-jodoushi-can-could-should-must/)で復習しておくと役立ちます。
+助動詞を使った丁寧なニュアンスのコントロール法は[英語 助動詞 can could should must](/ja/blog/eigo-jodoushi-can-could-should-must/)で復習しておくと役立ちます。電話会議での名乗り方や聞き返し方は[ビジネス英語の電話フレーズ](/ja/blog/business-eigo-denwa-phrases/)で紹介しています。
 
 ![Lexkiteの語彙ライブラリ画面：6,800語以上の重要単語とビジネス語彙を整理](media:library "ビジネスミーティングで使える重要表現を6,800語のライブラリで確認")
 
@@ -98,7 +98,7 @@ quiz: [
 ### 話を遮られた側が主導権を取り戻すフレーズ
 - `"Could you let me finish my thought first? Then I'd love to hear your take."`（先に私の考えを最後まで言わせてもらえますか？その後でぜひご意見を伺いたいです）
 
-メールでのフォローアップや事前調整の文面については[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)を参考にしてください。
+メールでのフォローアップや事前調整の文面については[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)を参考にしてください。メール・電話・チャットなど場面全体の地図は[ビジネス英語 初心者の勉強法](/ja/blog/business-eigo-benkyouhou/)にまとめています。
 
 ## オンライン会議特有のテクニカルトラブル対応フレーズ
 

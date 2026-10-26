@@ -100,7 +100,7 @@ quiz: [
   - **極めて強い推量（95〜100%）**: `You have been working for 12 hours straight; you must be exhausted.`（12時間もぶっ続けで働いたなら、疲れているに違いない）
   - ※注意: 目上の人や同僚に対して `You must...` と言うと、「上から目線の命令」に聞こえてしまうため、ビジネスシーンでは `You might want to consider...` や `I recommend that...` のような表現に置き換えるのが賢明です。
 
-文法問題の解法スピードを高める手法は[TOEIC Part 5 コツ](/ja/blog/toeic-part5-kotsu/)でも詳しく触れています。
+文法問題の解法スピードを高める手法は[TOEIC Part 5 コツ](/ja/blog/toeic-part5-kotsu/)でも詳しく触れています。could / would を使った依頼文は、[TOEIC ライティングのEメール問題](/ja/blog/toeic-writing-email-kakikata/)でもそのまま得点につながります。
 
 ![Lexkiteの語彙ライブラリ画面：6,800語以上の重要単語とNGSLコア語彙を整理](media:library "ビジネスで役立つ助動詞の表現を6,800語のライブラリで確認")
 

@@ -5099,13 +5099,14 @@
    "th": 32,
    "tr": 31
   },
-  "done": [],
+  "done": [
+    "ja/toeic-speaking-writing-guide",
+    "ja/toeic-speaking-tips",
+    "ja/toeic-writing-email",
+    "ja/business-english-guide",
+    "ja/english-phone-calls-at-work"
+  ],
   "briefed": [
-   "ja/toeic-speaking-writing-guide",
-   "ja/toeic-speaking-tips",
-   "ja/toeic-writing-email",
-   "ja/business-english-guide",
-   "ja/english-phone-calls-at-work",
    "ja/slack-teams-chat-english",
    "ja/english-for-it-guide",
    "ja/reported-speech",

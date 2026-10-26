@@ -110,7 +110,7 @@ quiz: [
 | 別のサイズを探す | `"Do you have this in a medium / in another color?"` |
 | 免税手続き | `"Can I get a tax-free refund for this purchase?"` |
 
-会議などビジネスでの丁寧な受け答えは[ビジネス英語 ミーティング フレーズ](/ja/blog/business-eigo-meeting-phrases/)でも詳しく解説しています。
+会議などビジネスでの丁寧な受け答えは[ビジネス英語 ミーティング フレーズ](/ja/blog/business-eigo-meeting-phrases/)でも詳しく解説しています。ホテルの予約確認など電話でのやりとりが不安な人は、[ビジネス英語の電話フレーズ](/ja/blog/business-eigo-denwa-phrases/)の聞き返し表現も役立ちます。
 
 > あわせて読みたい: [IELTS スピーキング パート2 テンプレート：1分準備と2分スピーチの構成法](/ja/blog/ielts-speaking-part-2-template/)
 
