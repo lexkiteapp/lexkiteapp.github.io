@@ -27,7 +27,7 @@ permissions:
   contents: read
   actions: read     # tải artifact gán nhãn (calibrate)
   id-token: write   # ai-pool /api/lexai (OIDC) – thẻ cảnh dùng GrabCast trước
-concurrency: { group: vocab-img-scene, cancel-in-progress: false }
+concurrency: { group: "vocab-img-scene-${{ github.event.inputs.model || 'default' }}", cancel-in-progress: false }   # A/B: mỗi mô hình một nhóm → chạy song song
 env:
   MODE: ${{ github.event.inputs.mode || (github.event_name == 'schedule' && 'fill') || 'pilot' }}
 jobs:
