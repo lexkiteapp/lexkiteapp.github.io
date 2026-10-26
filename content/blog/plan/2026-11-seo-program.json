@@ -57,7 +57,8 @@
       "batch5-lot1": "localised (10): de modalverben-englisch-can-could-should-must, ed-aussprache-englisch, relativsaetze-englisch-who-which-that, indirekte-rede-englisch-reported-speech, englisch-niveau-a1-bis-c2-ger, make-oder-do-unterschied; fr prononciation-ed-anglais, discours-indirect-anglais-reported-speech, niveaux-anglais-cecrl-a1-c2, make-ou-do-difference – scheduled 17–22/11/2026",
       "batch5-lot2": "localised (10): pt condicionais-em-ingles, pronomes-relativos-em-ingles, carta-ielts-general-training, diferenca-entre-make-e-do; es pronombres-relativos-en-ingles, toefl-complete-the-words, carta-ielts-general-training (new es target); tr ingilizce-dolayli-anlatim-reported-speech, ingilizce-relative-clauses-konu-anlatimi, make-ve-do-farki (new tr targets) – scheduled 16–20/11/2026",
       "batch5-lot3": "localised (7): hi phrasal-verbs-in-hindi, ielts-reading-matching-headings-tips-hindi, ielts-general-letter-writing-hindi; ar matching-headings-ielts-nasaih, risalat-ielts-general-training-letter; ru kosvennaya-rech-v-angliyskom-reported-speech, relative-clauses-v-angliyskom-who-which-that (new ru targets) – scheduled 17–20/11/2026. hi/conditional, ar/phrasal, ru/phrasal already existed without a key: translationKey added to hi conditional-sentences-in-english-rules-hindi, ar al-afal-al-murakkaba, ru frazeologicheskie-glagoly-v-angliyskom instead of duplicate posts",
-      "batch5-lot4": "localised (10): zh tuo-ye-part-5-ji-qiao, ya-si-yue-du-duan-luo-biao-ti-pei-dui, tuo-fu-complete-the-words; id phrasal-verb-yang-sering-digunakan, tips-ielts-speaking-part-3, reported-speech-bahasa-inggris; th phrasal-verb-thi-chai-boi, ielts-speaking-part-3-theknik; ko gwangye-daemyeongsa-jeongri, toefl-complete-the-words-gongryak – scheduled 16–21/11/2026. Batch 5 ended here (owner option C). The 3 vi items left in remaining were checked 26/10: vi has NO dedicated post on relative clauses, reported speech or make vs do (only ngu-phap-ielts-cau-phuc, a different intent with its own key), so they need new posts in a weekly run."
+      "batch5-lot4": "localised (10): zh tuo-ye-part-5-ji-qiao, ya-si-yue-du-duan-luo-biao-ti-pei-dui, tuo-fu-complete-the-words; id phrasal-verb-yang-sering-digunakan, tips-ielts-speaking-part-3, reported-speech-bahasa-inggris; th phrasal-verb-thi-chai-boi, ielts-speaking-part-3-theknik; ko gwangye-daemyeongsa-jeongri, toefl-complete-the-words-gongryak – scheduled 16–21/11/2026. Batch 5 ended here (owner option C). The 3 vi items left in remaining were checked 26/10: vi has NO dedicated post on relative clauses, reported speech or make vs do (only ngu-phap-ielts-cau-phuc, a different intent with its own key), so they need new posts in a weekly run.",
+      "batch5-w1": "W1 of 2026-12-clusters.json (owner OK 26/10): 10 ja (toeic-sw-taisaku, toeic-speaking-kotsu, toeic-writing-email-kakikata, business-eigo-benkyouhou, business-eigo-denwa-phrases, eigo-chat-business-hyougen, engineer-eigo-benkyouhou, eigo-wahou-kansetsu-wahou, make-do-chigai, ouchi-eigo-hajimekata) + 4 vi (menh-de-quan-he, cau-tuong-thuat, phan-biet-make-va-do, day-tieng-anh-cho-tre-tai-nha) – closes the last 3 vi priority-1 gaps"
     },
     "postsNext30DaysByLang_2026-10-26": {
       "ar": 24,
@@ -78,9 +79,6 @@
     },
     "remaining": {
       "priority1_localise": [
-        "vi/relative-clauses-who-which-that – mệnh đề quan hệ",
-        "vi/reported-speech – câu tường thuật",
-        "vi/make-vs-do – phân biệt make và do"
       ],
       "priority2_3": [
         "vi/ielts-opinion-essay – bài opinion ielts writing task 2 (needs en original first)",

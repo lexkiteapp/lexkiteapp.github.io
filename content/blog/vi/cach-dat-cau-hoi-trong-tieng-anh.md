@@ -121,7 +121,7 @@ Khi muốn hỏi lịch sự, nhất là với người lạ, khách hàng, cấ
 
 Lỗi hay gặp: *Can you tell me where is the station?*, *Do you know what time does the shop open?* – người học "đảo hai lần". Câu hỏi Yes/No bên trong cần thêm *if* hoặc *whether*.
 
-Câu hỏi gián tiếp đặc biệt hữu ích trong email và trong các tình huống giao tiếp như [small talk tiếng Anh](/vi/blog/small-talk-tieng-anh/), nơi câu hỏi trực tiếp đôi khi nghe đột ngột.
+Câu hỏi gián tiếp đặc biệt hữu ích trong email và trong các tình huống giao tiếp như [small talk tiếng Anh](/vi/blog/small-talk-tieng-anh/), nơi câu hỏi trực tiếp đôi khi nghe đột ngột. Trật tự này cũng dùng khi kể lại câu hỏi của người khác trong [câu tường thuật](/vi/blog/cau-tuong-thuat/).
 
 ## Câu hỏi đuôi (question tags)
 

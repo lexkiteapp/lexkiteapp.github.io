@@ -92,7 +92,7 @@ Lỗi thứ hai: *very* với tính từ vốn đã mang nghĩa cực độ: *ve
 | Thảo luận về vấn đề | *discuss about the issue* | *discuss the issue* |
 | Cưới cô ấy | *marry with her* | *marry her* |
 
-Ba dòng cuối thuộc một nhóm riêng: **giới từ thừa** sau động từ vốn đã có tân ngữ trực tiếp (*discuss, marry, mention, contact, enter, approach*). Tiếng Việt cần "về", "với", nhưng tiếng Anh thì không. Nguyên tắc khắc phục chung là học **cụm**, không học từ lẻ – đây cũng là tinh thần của bài [collocation IELTS](/vi/blog/collocation-ielts/).
+Ba dòng cuối thuộc một nhóm riêng: **giới từ thừa** sau động từ vốn đã có tân ngữ trực tiếp (*discuss, marry, mention, contact, enter, approach*). Tiếng Việt cần "về", "với", nhưng tiếng Anh thì không. Nguyên tắc khắc phục chung là học **cụm**, không học từ lẻ – đây cũng là tinh thần của bài [collocation IELTS](/vi/blog/collocation-ielts/). Chữ "làm" là ví dụ điển hình: lúc là *make*, lúc là *do* ([phân biệt make và do](/vi/blog/phan-biet-make-va-do/)).
 
 ### 10. "Although… but", "Because… so"
 

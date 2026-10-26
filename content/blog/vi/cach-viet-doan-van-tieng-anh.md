@@ -100,7 +100,7 @@ Không có độ dài "đúng" cho câu tiếng Anh, nhưng có hai cực cần 
 - **Chuỗi câu đơn ngắn** (*Cars are bad. They pollute. People should use buses.*) – đúng ngữ pháp nhưng nghe như liệt kê, không thể hiện quan hệ giữa các ý.
 - **Câu dài nối bằng dấu phẩy** – lỗi rất "Việt": tiếng Việt cho phép nối nhiều vế bằng dấu phẩy, tiếng Anh thì không. *Many people use cars, this causes pollution, the government should act.* là lỗi comma splice.
 
-Cách sửa là kết hợp câu đơn với câu phức có chủ đích: một câu dài chứa mệnh đề quan hệ hoặc mệnh đề phụ để giải thích, xen một câu ngắn để nhấn ý. Ví dụ: *Because most commuters still rely on private cars, traffic in the city centre rarely moves smoothly at rush hour. The cost is not only time.* Câu ngắn thứ hai tạo nhịp và dẫn sang ý mới về chi phí.
+Cách sửa là kết hợp câu đơn với câu phức có chủ đích: một câu dài chứa [mệnh đề quan hệ](/vi/blog/menh-de-quan-he/) hoặc mệnh đề phụ để giải thích, xen một câu ngắn để nhấn ý. Ví dụ: *Because most commuters still rely on private cars, traffic in the city centre rarely moves smoothly at rush hour. The cost is not only time.* Câu ngắn thứ hai tạo nhịp và dẫn sang ý mới về chi phí.
 
 ![Màn hình “Grammar” của Lexkite với lộ trình chương, 12 thì và các cấp độ từ A1 đến B2](media:grammar "Ôn ngữ pháp theo chương để câu trong đoạn có độ dài và nhịp hợp lý")
 

@@ -24,7 +24,7 @@ Một vài ví dụ dễ thấy:
 
 - Ta nói *a strong argument* nhưng *a heavy smoker*, không phải *a strong smoker*.
 - Ta *pay attention*, không *give attention* trong đa số ngữ cảnh.
-- Ta *take a photo*, *make a decision*, *do homework*.
+- Ta *take a photo*, *make a decision*, *do homework* (cặp này được phân tích riêng trong bài [phân biệt make và do](/vi/blog/phan-biet-make-va-do/)).
 
 Người Việt dễ sai collocation vì hay dịch từng từ từ tiếng Việt sang. "Mưa to" thành *big rain*, "học kiến thức" thành *learn knowledge* (tự nhiên hơn là *gain knowledge* hoặc *acquire knowledge*).
 

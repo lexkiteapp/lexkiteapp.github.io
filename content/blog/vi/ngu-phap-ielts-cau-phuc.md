@@ -35,7 +35,7 @@ Câu phức (complex sentence) là câu có một mệnh đề chính và ít nh
 
 ## Loại 1: Mệnh đề quan hệ (relative clauses)
 
-Mệnh đề quan hệ bổ sung thông tin cho một danh từ, thường bắt đầu bằng *who*, *which*, *that*, *whose*, *where*, *when*.
+Mệnh đề quan hệ bổ sung thông tin cho một danh từ, thường bắt đầu bằng *who*, *which*, *that*, *whose*, *where*, *when*. Cách chọn từng đại từ và quy tắc rút gọn có trong bài [mệnh đề quan hệ](/vi/blog/menh-de-quan-he/).
 
 **Xác định (defining)** – thông tin cần thiết để biết đang nói về ai, cái gì, không có dấu phẩy:
 - *Students **who study abroad** often become more independent.*

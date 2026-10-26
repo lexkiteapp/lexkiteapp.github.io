@@ -20,7 +20,7 @@ Học tiếng Anh qua bài hát hiệu quả cho ba việc: làm quen nhịp đi
 
 ### Lặp lại mà không chán
 
-Một bài hát thường lặp điệp khúc nhiều lần, và bạn sẵn lòng nghe đi nghe lại cả bài hàng chục lần. Không giáo trình nào có được mức lặp lại tự nguyện đó. Những cụm từ trong điệp khúc vì vậy đi vào trí nhớ gần như không tốn công.
+Một bài hát thường lặp điệp khúc nhiều lần, và bạn sẵn lòng nghe đi nghe lại cả bài hàng chục lần. Không giáo trình nào có được mức lặp lại tự nguyện đó. Những cụm từ trong điệp khúc vì vậy đi vào trí nhớ gần như không tốn công. Đó cũng là lý do bài hát là điểm khởi đầu tốt khi [dạy tiếng Anh cho trẻ tại nhà](/vi/blog/day-tieng-anh-cho-tre-tai-nha/).
 
 ### Giai điệu làm "móc" cho trí nhớ
 
