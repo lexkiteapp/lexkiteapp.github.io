@@ -81,7 +81,7 @@
   function nextBox(tr) {
     const others = TK().IDS.filter(id => id !== tr.id).map(id => TK().TR[id]);
     const a = (h, em, tx) => `<a class="btn" href="${h}"><span aria-hidden="true">${em}</span> ${esc(tx)}</a>`;
-    return `<section class="card center path-next" role="status" aria-labelledby="pnH"><div style="font-size:2rem" aria-hidden="true">🏆</div><h2 id="pnH" style="margin:.3rem 0">${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</h2>
+    return `<section class="card center path-next" role="status" aria-labelledby="pnH"><div style="font-size:2rem" aria-hidden="true">${UI.icon('trophy')}</div><h2 id="pnH" style="margin:.3rem 0">${t('Bạn đã hoàn thành toàn bộ lộ trình!')}</h2>
       <p class="muted">${t('Tiếp theo học gì? Chọn một hướng:')}</p>
       <div class="row center" style="flex-wrap:wrap;gap:.5rem">${others.map(x => a('#/tracks?use=' + x.id, x.em, x.name)).join('')}</div>
       <div class="row center" style="flex-wrap:wrap;gap:.5rem;margin-top:.6rem">${a('#/courses', '🎓', t('Khóa học'))}${a('#/confidence', '🗣️', t('Luyện nói tự tin'))}${a('#/review', '🔁', t('Ôn tập'))}</div></section>`;
@@ -192,7 +192,7 @@
       <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${st.length}" aria-valuenow="${okN}" aria-label="${esc(t('{a}/{b} hoạt động', { a: okN, b: st.length }))}"><i style="width:${okN / st.length * 100}%"></i></div>
       <p class="small muted" style="margin:.4rem 0 0">${t('{a}/{b} hoạt động', { a: okN, b: st.length })} · ${t('Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.')}</p>
       ${nx ? `<a class="btn primary lg block" style="margin-top:1rem" href="${nx.href}" data-step="${nx.k}">${okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })}: ${esc(nx.name)} →</a>`
-        : `<div class="card center" role="status" style="margin-top:1rem"><div style="font-size:2rem" aria-hidden="true">🎉</div><h2 style="margin:.3rem 0">${t('Hoàn thành Ngày {n}!', { n: d.n })}</h2>${ds[d.n] && ds[d.n].status !== 'locked' ? `<a class="btn primary" href="#/day/${d.n + 1}">${t('Học tiếp Ngày {n}', { n: d.n + 1 })} →</a>` : ''}</div>${ds[d.n] ? '' : nextBox(d.tr)}`}
+        : `<div class="card center" role="status" style="margin-top:1rem"><div style="font-size:2rem" aria-hidden="true">${UI.icon('party-popper')}</div><h2 style="margin:.3rem 0">${t('Hoàn thành Ngày {n}!', { n: d.n })}</h2>${ds[d.n] && ds[d.n].status !== 'locked' ? `<a class="btn primary" href="#/day/${d.n + 1}">${t('Học tiếp Ngày {n}', { n: d.n + 1 })} →</a>` : ''}</div>${ds[d.n] ? '' : nextBox(d.tr)}`}
       <ol class="day-steps">${st.map((s, i) => `<li><a class="${s.ok ? 'ok' : ''}${s === nx ? ' next' : ''}" href="${s.href}" data-step="${s.k}"${s === nx ? ' aria-current="step"' : ''}>
         <span class="ds-em" aria-hidden="true">${s.ok ? '✅' : s.em}</span><span class="grow"><b>${i + 1}. ${esc(s.name)}</b><span class="small muted" style="display:block">${esc(s.sub || '')}</span></span>
         ${s.ok ? `<span class="sr-only">${t('Đã hoàn thành')}</span>` : `<span class="ds-min">${t('{m} phút', { m: s.mins })}</span>`}</a></li>`).join('')}</ol>

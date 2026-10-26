@@ -675,7 +675,7 @@
       el.removeAttribute('aria-busy');
       const n = tasks.filter(x => x.done).length, next = tasks.find(x => !x.done), mins = tasks.filter(x => !x.done).reduce((a, x) => a + (x.mins || 0), 0);
       if (!next) {
-        el.innerHTML = `<div class="today-done">${window.Kit ? Kit.svg('win', 72, true) : '🎉'}<h2>${t('Xong kế hoạch hôm nay!')} 🎉</h2><p class="muted">${t('Ngày mai quay lại để giữ chuỗi nhé. Muốn học thêm?')}</p>
+        el.innerHTML = `<div class="today-done">${window.Kit ? Kit.svg('win', 72, true) : UI.icon('party-popper')}<h2>${t('Xong kế hoạch hôm nay!')} ${UI.icon('party-popper')}</h2><p class="muted">${t('Ngày mai quay lại để giữ chuỗi nhé. Muốn học thêm?')}</p>
           <div class="row center"><a class="btn" href="#/practice">⚡ ${t('Trò chơi từ vựng')}</a><a class="btn" href="#/skills">🎯 ${t('Luyện thêm kỹ năng')}</a></div></div>`;
         const ks = $('#kitSay'); if (ks) ks.textContent = t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉');
         return;

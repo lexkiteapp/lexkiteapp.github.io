@@ -268,7 +268,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
       + `</div><h3 class="set-h">${t('Tìm hiểu thêm')}</h3><div class="set-list">`
       + row('#/method', UI.icon('flask-conical'), t('Cách Lexkite giúp bạn nhớ lâu'))
       + row(App.blogHref(blogOn), UI.icon('newspaper'), t('Blog học tiếng Anh'), t('Mẹo thi, từ vựng theo chủ đề, phương pháp học'), !sameSite) /* ngôn ngữ chưa có blog → /en/blog/ */
-      + row(App.aboutUrl(), 'ℹ️', t('Trang giới thiệu'), '', !sameSite)
+      + row(App.aboutUrl(), UI.icon('info'), t('Trang giới thiệu'), '', !sameSite)
       + row('#/resources', UI.icon('globe'), t('Tài nguyên miễn phí'))
       + (I18N.lang() === 'vi' ? [['samples', UI.icon('file-text'), 'Bài mẫu Writing Task 2'], ['speaking', UI.icon('message-circle'), 'Chủ đề Speaking'], ['tu-vung', UI.icon('library'), 'Từ vựng theo chủ đề'], ['ngu-phap', UI.icon('brain'), 'Ngữ pháp tiếng Anh'], ['viet-thu', UI.icon('mail'), 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
