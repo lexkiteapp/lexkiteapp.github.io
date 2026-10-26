@@ -35,11 +35,11 @@
   },
   {
    "id": "g_1a",
-   "text": "Luggage! Can you help me with my luggage?",
+   "text": "Luggage! Carry my luggage?",
    "key": {
     "green": [
      0,
-     6
+     3
     ]
    }
   },
@@ -67,7 +67,7 @@
   },
   {
    "id": "g_3",
-   "text": "Number three. The hotel gives it to you after you pay.",
+   "text": "Number three. You get it after you pay.",
    "gap": 0.68
   },
   {
