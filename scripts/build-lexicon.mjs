@@ -69,7 +69,7 @@ const ipaUK = (s, w) => { if (!s) return s; let o = fixBroken(s); if (o !== s) s
 
 for (const e of all) {
   const r = e.row; while (r.length < 11) r.push('');
-  for (const o of [OV[key(r)], OV[key(r) + '@' + e.set]]) if (o) { for (const [f, i] of Object.entries({ ipa: 1, vi: 3, def: 4, ex: 5, col: 6, syn: 7, level: 8, ipaUS: 10 })) if (o[f] != null && r[i] !== o[f]) { r[i] = o[f]; stats.override++; } }
+  for (const o of [OV[key(r)], OV[key(r) + '@' + e.set]]) if (o) { for (const [f, i] of Object.entries({ ipa: 1, vi: 3, def: 4, ex: 5, col: 6, syn: 7, level: 8, emoji: 9, ipaUS: 10 })) if (o[f] != null && r[i] !== o[f]) { r[i] = o[f]; stats.override++; } }
   r[1] = ipaUK(r[1], r[0]);
   const man = MANUAL_US[key(r)];
   if (man) r[10] = stripMonoStress(fixBroken(man));

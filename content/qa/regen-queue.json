@@ -785,6 +785,33 @@
     },
     {
      "id": "clause#n"
+    },
+    {
+     "id": "authority#n"
+    },
+    {
+     "id": "consequent#adj"
+    },
+    {
+     "id": "proportion#n"
+    },
+    {
+     "id": "logic#n"
+    },
+    {
+     "id": "attach#v"
+    },
+    {
+     "id": "ministry#n"
+    },
+    {
+     "id": "empirical#adj"
+    },
+    {
+     "id": "bias#n"
+    },
+    {
+     "id": "revise#v"
     }
    ]
   },
@@ -2355,6 +2382,54 @@
     {
      "id": "quantity#n",
      "why": "CEFR A2 có vẻ thấp (Oxford ~B1)"
+    },
+    {
+     "id": "create#v",
+     "why": "lượt 4 (AWL): CEFR A1 có vẻ thấp (Oxford ~A2)"
+    },
+    {
+     "id": "constitute#v",
+     "why": "lượt 4 (AWL): CEFR C1 có thể cao (Oxford ~B2)"
+    },
+    {
+     "id": "strategy#n",
+     "why": "lượt 4 (AWL): CEFR A2 có vẻ thấp (Oxford ~B1)"
+    },
+    {
+     "id": "legislate#v",
+     "why": "lượt 4 (AWL): CEFR C2 có thể cao (~C1)"
+    },
+    {
+     "id": "precede#v",
+     "why": "lượt 4 (AWL): CEFR B2 có thể thấp (Oxford ~C1)"
+    },
+    {
+     "id": "cooperate#v",
+     "why": "lượt 4 (AWL): CEFR C1 có thể cao (~B2)"
+    },
+    {
+     "id": "straightforward#adj",
+     "why": "lượt 4 (AWL): CEFR C1 có thể cao (Oxford ~B2)"
+    },
+    {
+     "id": "substitute#n",
+     "why": "lượt 4 (AWL): CEFR C1 có thể cao (~B2)"
+    },
+    {
+     "id": "volume#n",
+     "why": "lượt 4 (AWL): vi gộp theo từ#loại: \"âm lượng\" đứng đầu hợp NGSL, nhưng AWL dùng nghĩa khối lượng – cần quyết định nghĩa 1 chung"
+    },
+    {
+     "id": "shift#n",
+     "why": "lượt 4 (AWL): vi gộp: \"ca làm việc\" đứng đầu hợp NGSL, AWL dùng nghĩa sự thay đổi – cần quyết định nghĩa 1 chung"
+    },
+    {
+     "id": "vehicle#n",
+     "why": "lượt 4 (AWL): IPA Mỹ /ˈviːhɪkl/ (CMU) vs /ˈviːəkl/ – cần từ điển chọn dạng chuẩn"
+    },
+    {
+     "id": "export#n",
+     "why": "lượt 4 (AWL): syn \"overseas sale\" gượng – cần từ đồng nghĩa tốt hơn"
     }
    ]
   }
