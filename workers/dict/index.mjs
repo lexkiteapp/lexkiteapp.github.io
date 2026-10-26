@@ -3,6 +3,7 @@
 // Tầng 2 (script này, chỉ khi không có asset): trang đuôi dài = JSON trên R2 (binding DICT, bucket lexkite-dict-data) → render.mjs → Cache API ở biên.
 // Không D1, không KV, không gọi mạng ngoài. noindex mặc định: DICT_INDEX rỗng (wrangler.toml [vars]); mở dần theo docs §5.
 import { renderWord, parseOpen, DICT_PATH, ENABLED, hubPath } from './render.mjs';
+import { edgeCached, mode, cacheControl } from '../lib/edge.mjs'; // Cache API + SWR, chế độ shed (docs/FREE-TIER.md §3)
 
 const ROUTE = new Map(ENABLED.map(l => [`/${l}/${DICT_PATH[l]}/`, l]));
 let SHELL = null; // khung chung đọc 1 lần mỗi isolate (R2 v1/shell.json)
@@ -34,19 +35,17 @@ export default {
     const r = parse(u.pathname);
     if (!r) return nf();
     if (r.redirect) return Response.redirect(u.origin + r.redirect, 301);
-    const cache = typeof caches !== 'undefined' ? caches.default : null, key = new Request(u.origin + u.pathname);
-    const hit = cache && (await cache.match(key));
-    if (hit) return hit;
-    if (!env.DICT) return nf();
-    const [obj, shell] = await Promise.all([env.DICT.get(`v1/${r.lang}/${r.slug}.json`), SHELL || env.DICT.get('v1/shell.json').then(o => (o ? o.json() : null))]);
-    if (!obj || !shell) return nf();
-    SHELL = shell;
-    const d = await obj.json(), open = parseOpen(env.DICT_INDEX || '');
-    const html = renderWord(d, shell, { open }), idx = !/<meta name="robots" content="noindex/.test(html);
-    const res = new Response(req.method === 'HEAD' ? null : html, { headers: {
-      'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=600, s-maxage=86400', 'x-content-type-options': 'nosniff',
-      ...(idx ? {} : { 'x-robots-tag': 'noindex, follow' }), etag: `"${obj.etag || ''}${open[r.lang] || 0}"`, link: `<https://lexkite.com${hubPath(r.lang)}>; rel="up"` } });
-    if (cache && req.method === 'GET') ctx.waitUntil(cache.put(key, res.clone()));
-    return res;
+    // Biên: bản lưu 30 ngày, quá 1 ngày → trả bản cũ + làm mới nền; shed → chỉ trả bản cache (miss vẫn render – không chặn người dùng)
+    return edgeCached(req, ctx, async () => {
+      if (!env.DICT) return nf();
+      const [obj, shell] = await Promise.all([env.DICT.get(`v1/${r.lang}/${r.slug}.json`), SHELL || env.DICT.get('v1/shell.json').then(o => (o ? o.json() : null))]);
+      if (!obj || !shell) return nf();
+      SHELL = shell;
+      const d = await obj.json(), open = parseOpen(env.DICT_INDEX || '');
+      const html = renderWord(d, shell, { open }), idx = !/<meta name="robots" content="noindex/.test(html);
+      return new Response(html, { headers: {
+        'content-type': 'text/html; charset=utf-8', 'cache-control': cacheControl({ maxAge: 600, sMaxAge: 86400, swr: 604800 }), 'x-content-type-options': 'nosniff',
+        ...(idx ? {} : { 'x-robots-tag': 'noindex, follow' }), etag: `"${obj.etag || ''}${open[r.lang] || 0}"`, link: `<https://lexkite.com${hubPath(r.lang)}>; rel="up"` } });
+    }, { fresh: 86400, shed: (await mode()) === 'shed' });
   },
 };
