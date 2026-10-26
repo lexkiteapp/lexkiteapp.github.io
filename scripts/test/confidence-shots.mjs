@@ -18,7 +18,7 @@ async function pass(tag, base, routes, vn, lang) {
   if (tag === 'after') page.on('pageerror', e => report.errors.push(`${vn}-${lang}: ${e.message}`));
   const url = r => `${base}/app/?sandbox=1&hl=${lang}#/${r}`;
   await page.goto(url('welcome/setup'), { waitUntil: 'networkidle' }).catch(() => {});
-  const g = await page.$('#go'); if (g) { await g.click(); await page.waitForTimeout(2500); }
+  await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const g = await page.$('#go'); if (g) { await g.click(); await page.waitForTimeout(2500); } // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   for (const r0 of routes) {
     const [r, act] = r0.split('@');
     await page.goto(url(r), { waitUntil: 'networkidle' }).catch(() => {}); await page.waitForTimeout(1500);

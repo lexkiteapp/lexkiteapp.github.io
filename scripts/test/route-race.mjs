@@ -32,7 +32,7 @@ w.UI.speak = () => {}; w.speechSynthesis = { speak() {}, cancel() {}, getVoices:
 w.SpeechSynthesisUtterance = function (t) { this.text = t; };
 w.Audio = function () { return { play: async () => {}, pause() {}, load() {}, addEventListener() {}, removeEventListener() {}, setAttribute() {}, removeAttribute() {}, style: {} }; };
 
-await tick(300); await go('#/welcome/setup'); if ($('#go')) $('#go').click(); await tick(1500);
+await tick(300); await go('#/welcome/setup'); for (let i = 0; i < 60 && !$('#go'); i++) { if ($('#obNext')) $('#obNext').click(); await tick(100); } if ($('#go')) $('#go').click(); await tick(1500); // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
 const { IELTS_DATA } = w;
 const ALL = IELTS_DATA.TOPICS.flatMap(t => t.words).filter(x => x.vi && x.level && !/\s/.test(x.word));
 for (const x of ['live', 'house', 'water', 'family']) { const e = ALL.find(y => y.word === x); if (e && !w.App.inDeck(x)) await w.App.addWord(e, null, { silent: true }); }

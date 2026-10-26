@@ -15,7 +15,7 @@ require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const $ = s => w.document.querySelector(s);
 const go = async (h, ms = 60) => { w.location.hash = h; await tick(ms); };
-(async () => { await tick(300); await go('#/welcome/setup'); $('#go').click(); await tick(1500);
+(async () => { await tick(300); await go('#/welcome/setup'); for (let i = 0; i < 60 && !$('#go'); i++) { if ($('#obNext')) $('#obNext').click(); await tick(100); } $('#go').click(); await tick(1500);
   // nạp sẵn mọi gói để có danh sách id
   for (const b of ['writing', 'listening', 'toeic', 'toefl', 'mock', 'grammar', 'speak', 'readings', 'tsl', 'pron']) { try { await w.App.need(b); } catch (e) { errors.push('need ' + b + ': ' + e.message); } }
   const ids = {

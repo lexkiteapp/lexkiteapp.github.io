@@ -85,7 +85,7 @@ async function run(name, cfg) {
   await page.addInitScript(MOCK, cfg);
   await page.clock.install();
   await page.goto(`${BASE}app/?sandbox=1&hl=vi#/welcome/setup`, { waitUntil: 'load' });
-  await page.waitForTimeout(1500); const go0 = await page.$('#go'); if (go0) { await go0.click().catch(() => {}); await page.waitForTimeout(1000); }
+  await page.waitForTimeout(1500); await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go0 = await page.$('#go'); if (go0) { await go0.click().catch(() => {}); await page.waitForTimeout(1000); }
   await page.evaluate(() => { location.hash = '#/toeic-sw/read?i=0'; });
   await page.waitForSelector('#swGo', { timeout: 15000 });
   ok((await page.textContent('.toeic-pass')).includes('Greenfield Market'), `${name}: hiện đề "${UNIT.title}"`);

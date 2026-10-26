@@ -7,7 +7,7 @@ const w = dom.window, errors = []; w.console.error = (...a) => errors.push(a.joi
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms)), $ = s => w.document.querySelector(s);
-(async () => { await tick(300); w.location.hash = '#/welcome/setup'; await tick(80); $('#go').click(); await tick(1500);
+(async () => { await tick(300); w.location.hash = '#/welcome/setup'; await tick(80); for (let i = 0; i < 60 && !$('#go'); i++) { if ($('#obNext')) $('#obNext').click(); await tick(100); } $('#go').click(); await tick(1500); // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
   for (const b of ['writing', 'listening', 'toeic', 'toefl', 'mock', 'grammar', 'speak', 'readings', 'tsl', 'pron']) { try { await w.App.need(b); } catch (e) {} }
   const R = ['home', 'vocab', 'review', 'path', 'library', 'deck', 'practice', 'phrases', 'dict', 'skills', 'skill/listening', 'skill/reading', 'skill/writing', 'skill/speaking', 'listening', 'reading', 'rtype', 'cbt', 'write', 'task1', 'letters', 'ideas', 'models', 'speaking', 'grammar', 'pron', 'toeic', 'toefl', 'tests', 'mock', 'placement', 'me', 'goal', 'stats', 'mistakes', 'settings', 'method', 'resources'];
   const out = [];

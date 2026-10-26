@@ -2221,6 +2221,8 @@
 (function (g) { Object.assign(g.I18N_DICT.en, {"Tra từ ngay trên mọi trang web": "Look up words on any website", "Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.": "Double-click any word while you read to see its meaning and IPA, and save it to your flashcards – with the Lexkite add-on for Chrome.", "Thêm vào Chrome": "Add to Chrome", "Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.": "You've looked up a few words. With the free Lexkite add-on, you can look up words right on any website you read."}); })(typeof self !== 'undefined' ? self : this);
 /* Khóa của nhóm tải lười (toefl/league/call/handoff) mà khung app vẽ ngay (thẻ trang chủ, nút) – giữ trong en.js */
 (function (g) { Object.assign(g.I18N_DICT.en, {"Dừng": "Stop", "Bài mẫu": "Model answer", "Dàn ý": "Outline", "Hoàn thành": "Finish", "Giải đấu tuần": "Weekly League", "Bảng xếp hạng 30 người học, thăng hạng mỗi tuần": "30-learner leaderboard, promote every week", "Bảng xếp hạng": "Leaderboard", "XP tuần": "Weekly XP", "Gọi cho Mia": "Call Mia", "Gọi lại": "Call again", "Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng": "Video-call speaking practice with gentle corrections", "Xong": "Done", "Chuyển dữ liệu": "Move data"}); })(typeof self !== 'undefined' ? self : this);
+/* Trang chủ gọn (1 thẻ "Học tiếp" + khối phụ) · chấm tab Từ vựng */
+(function (g) { Object.assign(g.I18N_DICT.en, {"Thêm cho hôm nay": "More for today", "{n} thẻ cần ôn": "{n} cards to review"}); })(typeof self !== 'undefined' ? self : this);
 
 /* Chữ giao diện add-on (content/popup/background) – nguồn tiếng Anh để Actions dịch sang 13 ngôn ngữ khác */
 (function (g) { Object.assign(g.I18N_DICT.en, {

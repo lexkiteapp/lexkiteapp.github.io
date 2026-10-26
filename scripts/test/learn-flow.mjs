@@ -34,7 +34,7 @@ w.UI.speak = () => {}; w.speechSynthesis = { speak() {}, cancel() {}, getVoices:
 w.SpeechSynthesisUtterance = function (t) { this.text = t; };
 w.Audio = function () { return { play: async () => {}, pause() {}, addEventListener() {} }; };
 
-await tick(300); await go('#/welcome/setup'); if ($('#go')) $('#go').click(); await tick(1500);
+await tick(300); await go('#/welcome/setup'); for (let i = 0; i < 60 && !$('#go'); i++) { if ($('#obNext')) $('#obNext').click(); await tick(100); } if ($('#go')) $('#go').click(); await tick(1500); // thiết lập từng bước (onboard.js): bấm Tiếp tục tới màn cuối rồi Bắt đầu
 const { Distract: D, Placement: P, IELTS_DATA } = w;
 ok(D && P, 'nạp js/distract.js (gói words) + js/placement.js (gói placement)');
 const ALL = IELTS_DATA.TOPICS.flatMap(t => t.words).filter(x => x.vi && x.level && !/\s/.test(x.word));
@@ -303,6 +303,12 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   ok(plan[0].track === 'TOEFL 2026' && plan[0].sw && /Ngày|Day/.test(plan[0].t), 'Hôm nay: “Ngày N · TOEFL 2026” + thanh đổi gói');
   await go('#/home', 500);
   ok(/TOEFL 2026/.test(($('.today-cta') || {}).textContent || '') && $('#todayPlan .trk-sw'), 'nút chính trang chủ ghi tên gói: ' + (($('.today-cta') || {}).textContent || '').trim());
+  // Trang chủ gọn: 1 thẻ "Học tiếp" duy nhất có nút chính; khối phụ gom dưới "Thêm cho hôm nay" – không mất khối nào
+  ok($$('#view .btn.primary.lg').length === 1 && $('#todayPlan.home-hero .home-hero-k') && $('#todayPlan details.plan-more .plan-item'), 'trang chủ: 1 thẻ Học tiếp, 1 nút chính, kế hoạch thu gọn trong thẻ');
+  const more = $('.home-more');
+  ok(more && ['.rings-card', '.quest-line', '#leagueHomeCard', 'a[href="#/quick"]', 'a[href="#/confidence"]', '.wotd'].every(s => more.querySelector(s)) && $('.home-more-h'), 'trang chủ: khối phụ đủ (3 vòng, nhiệm vụ, giải đấu, chơi nhanh, giao tiếp, từ của ngày) dưới "Thêm cho hôm nay"');
+  ok(!w.document.querySelector('.topbar [data-lsw]') && /lang-select|data-lang-pick/.test(w.App.langPicker()), 'thanh trên không còn nút ngôn ngữ (đổi ở Cài đặt)');
+  ok(/\.bottom-nav \.badge \{[^}]*width: 9px[^}]*font-size: 0/.test(css), 'tab Từ vựng: chấm nhỏ thay số đỏ');
   // chuyển dữ liệu người dùng cũ: kỳ thi → gói; giữ XP/chuỗi/bản ghi ngày cũ
   const xp0 = S.game.xp, rec0 = await w.Core.Store.get('pathDays', {});
   for (const [ex, id] of [['general', 'comm'], ['ieltsgt', 'ielts'], ['toeic', 'toeic'], ['toefl', 'toefl'], ['ielts', 'ielts']]) {
@@ -315,11 +321,22 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   delete S.settings.tracks;
   await go('#/welcome/setup', 900);
   ok($$('.trk-opt[data-track]').length === 5 && $$('.trk-opt[aria-pressed=true]').length === 1, 'thiết lập: “Mục tiêu của bạn là gì?” 5 gói');
+  ok($('.onb .progress[aria-valuenow="1"]') && $('#onbBack') && $('.onb-say') && $('#obNext') && !$('#go') && !$('[data-lv]'), 'thiết lập từng bước: 1 câu hỏi/màn, thanh tiến độ, nút quay lại, Kit, nút Tiếp tục');
+  const say0 = $('.onb-say').textContent;
   click($('[data-track=work]')); await tick(600);
+  ok($('.onb-say').textContent !== say0 && $('[data-track=work][aria-pressed=true]'), 'Kit phản hồi khi chọn gói');
+  click($('#obNext')); await tick(100);
+  ok($('.onb .progress[aria-valuenow="2"]') && $('.onb-test[data-lv=test]') && $('[data-lv=work2]'), 'màn 2: kiểm tra đầu vào 5 phút + trình độ của gói Công sở');
+  click($('#onbBack')); await tick(100);
+  ok($('[data-track=work][aria-pressed=true]') && $('.onb .progress[aria-valuenow="1"]'), 'quay lại màn 1 giữ lựa chọn');
+  click($('#obNext')); await tick(100);
   click($('[data-lv=work2]')); await tick(100);
-  ok($('[data-lv=work2][aria-pressed=true]') && /Day 1|Ngày 1/.test($('#go').textContent), 'chọn gói Công sở + trình độ → nút Bắt đầu Ngày 1');
+  ok($('[data-lv=work2][aria-pressed=true]'), 'chọn trình độ chặng 2');
+  for (let i = 0; i < 5 && !$('#go'); i++) { click($('#obNext')); await tick(100); }
+  ok($('#go') && /Day 1|Ngày 1/.test($('#go').textContent) && $('.onb-sum'), 'chọn gói Công sở + trình độ → màn tóm tắt + nút Bắt đầu Ngày 1');
   click($('#go')); await tick(1500);
   ok(S.settings.tracks.cur === 'work' && S.settings.tracks.lv.work.s === 'work2' && S.settings.exam === 'general' && /^#\/day/.test(w.location.hash), 'thiết lập xong → gói Công sở, chặng 2, vào Ngày 1 của gói: ' + w.location.hash);
+  ok(!S.user && !w.document.querySelector('#view [data-acct], #view .gsi'), 'vào Ngày 1 KHÔNG cần tài khoản, không có nút đăng nhập trên trang bài học');
 }
 
 // ===== 5) 🔥 Nhịp buổi học (web/js/lesson-fx.js): chuỗi đúng liền + hoàn hảo, mời chế độ khó, lỗi chính tả nhỏ, 3 thẻ số liệu, tạm tắt nghe/nói =====
@@ -375,6 +392,22 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   let thrown = '';
   try { for (const pk of [{ v: {} }, { track: 'khong-co', v: {}, lv: '' }, undefined]) { const h = w.Tracks.setupCards(pk); if (!/trk-opt/.test(h)) thrown = 'thiếu thẻ gói'; } } catch (e) { thrown = e.message; }
   ok(!thrown, 'Tracks.setupCards chịu được pick.track thiếu/lạ: ' + thrown);
+  ok(/trk-opt/.test(w.Tracks.setupGoal({ v: {} })) && /data-lv="test"/.test(w.Tracks.setupLevel({})) && !/data-lv="test"/.test(w.Tracks.setupLevel({}, true)), 'Tracks.setupGoal/setupLevel (màn riêng của thiết lập từng bước)');
+}
+
+// ===== Mời lưu tiến độ CHỈ sau khi xong 1 buổi (path-reward.js), không khi đã đăng nhập; "Để sau" → ẩn 3 ngày =====
+{
+  const S0 = w.Sync, u0 = w.App.state.user;
+  w.Sync = Object.assign(Object.create(S0 || {}), { gBtn: id => `<button type="button" id="${id}" data-acct="in">G</button>`, can: true, authBtns: null });
+  w.localStorage.removeItem('vb.saveNudge');
+  const show = title => { w.App.view.innerHTML = '<div class="card celebrate"></div>'; w.PathReward.show({ unit: { topic: { name: 'Ngày 1', emoji: '📅' } }, steps: [{ m: 'a', em: '🧠', name: 'A', ok: 1, href: '#' }], next: null, title }); return w.App.view; };
+  w.App.state.user = null;
+  ok(!show('').querySelector('#prSave'), 'chưa xong buổi (không có tiêu đề hoàn thành) → không mời đăng nhập');
+  const v = show('🎉 Ngày 1'); ok(v.querySelector('#prSave #prSaveIn[data-acct=in]'), 'xong Ngày 1, chưa đăng nhập → thẻ “Lưu tiến độ” + nút đăng nhập');
+  click(v.querySelector('#prSaveNo')); ok(!v.querySelector('#prSave') && !show('🎉 Ngày 2').querySelector('#prSave'), '“Để sau” → ẩn, không hỏi lại ngay');
+  w.localStorage.removeItem('vb.saveNudge'); w.App.state.user = { uid: 'x' };
+  ok(!show('🎉 Ngày 1').querySelector('#prSave'), 'đã đăng nhập → không mời');
+  w.App.state.user = u0; w.Sync = S0; w.localStorage.removeItem('vb.saveNudge');
 }
 
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));

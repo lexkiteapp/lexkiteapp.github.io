@@ -26,7 +26,7 @@ for (const lang of LANGS) for (const [vn, vp] of Object.entries(VIEWS)) {
   page.on('console', m => { if (m.type() === 'error' && !BENIGN.test(m.text()) && !/Failed to load resource/.test(m.text())) add('console', lang, vn, route, m.text()); });
   page.on('response', r => { const u = r.url(); if (r.status() >= 400 && !/\/api\/(hit|sync)|translate\.googleapis|youtube|google-analytics|doubleclick/.test(u) && !BENIGN.test(u)) add('http', lang, vn, route, `${r.status()} ${u.slice(0, 160)}`); });
   await page.goto(`${BASE}?sandbox=1&hl=${lang}#/welcome/setup`, { waitUntil: 'load', timeout: 45000 }).catch(e => add('load', lang, vn, 'welcome', e.message));
-  await page.waitForTimeout(2500); const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); }
+  await page.waitForTimeout(2500); await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); }
   for (const r of ROUTES) {
     route = r; pages++;
     await page.evaluate(h => { location.hash = h; }, '#/' + r); await page.waitForTimeout(900);

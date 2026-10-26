@@ -457,7 +457,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .bottom-nav a { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: .25rem .2rem; min-height: 44px; min-width: 44px; font-size: .66rem; font-weight: 700; color: var(--muted); flex: 1; box-sizing: border-box; }
   .bottom-nav a span { font-size: 1.3rem; line-height: 1; }
   .bottom-nav a.active { color: var(--primary); }
-  .bottom-nav .badge { position: absolute; top: 1px; right: 18%; margin: 0; }
+  .bottom-nav .badge { position: absolute; top: 4px; right: calc(50% - 16px); margin: 0; min-width: 0; width: 9px; height: 9px; padding: 0; border-radius: 50%; font-size: 0; line-height: 0; background: var(--accent, var(--again)); box-shadow: 0 0 0 2px var(--surface); } /* tab Từ vựng: chấm nhỏ thay số đỏ (số vẫn trong DOM cho trình đọc màn hình) */
   .g2, .g3, .g4, .grid { grid-template-columns: minmax(0, 1fr) !important; }
   .g4.stats, .g3.keep { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .auto { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)) !important; }
@@ -1288,6 +1288,18 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .today-done h2 { margin: .4rem 0 .2rem; }
 .quest-line { display: flex; align-items: center; gap: .4rem; margin: .7rem .3rem 1rem; color: var(--muted); font-weight: 600; }
 .quest-line:hover { color: var(--primary); text-decoration: none; }
+/* Trang chủ: 1 thẻ "Học tiếp" nổi bật + khối phụ gom bên dưới */
+.home-hero { padding: 1.4rem; border: 2px solid color-mix(in srgb, var(--primary) 45%, var(--line)); background: linear-gradient(160deg, var(--primary-soft), var(--surface) 70%); }
+.home-hero-k { font-size: .78rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--primary); }
+.home-hero-t { margin: .15rem 0 .2rem; font-size: clamp(1.25rem, 4.2vw, 1.6rem); line-height: 1.2; }
+.home-hero .today-cta { min-height: 56px; font-size: 1.08rem; margin: 1rem 0 .3rem; }
+.home-resume { display: block; margin: .6rem .1rem 0; color: var(--muted); } .home-resume:hover { color: var(--primary); text-decoration: none; }
+.plan-more { margin-top: .8rem; border-top: 1px solid var(--line); padding-top: .4rem; }
+.plan-more > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: .4rem; font-weight: 700; color: var(--muted); list-style: none; }
+.plan-more > summary::-webkit-details-marker { display: none; } .plan-more > summary::after { content: '▾'; margin-inline-start: auto; transition: transform .2s; } .plan-more[open] > summary::after { transform: rotate(180deg); }
+.home-more-h { margin: 1.8rem .2rem .7rem; font-size: 1rem; color: var(--muted); font-weight: 800; }
+.home-more { display: grid; gap: 0 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); align-items: start; }
+.home-col > .card, .home-col > a.card { margin-bottom: .8rem; } .home-col .quest-line { margin-top: 0; }
 .wotd-sm { grid-template-columns: 80px minmax(0, 1fr); gap: 1rem; }
 .stats-top { margin-bottom: 1rem; }
 @media (max-width: 640px) {
