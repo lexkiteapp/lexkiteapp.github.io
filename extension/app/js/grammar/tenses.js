@@ -45,7 +45,7 @@
       { q: 'Phần nào sai? Each of the participants (A) receive a certificate (B) when the course (C) finishes (D) at the end of June.', options: ['(A) receive', '(B) when', '(C) finishes', '(D) at the end of'], answer: 0, explain: 'Each of + danh từ số nhiều vẫn là chủ ngữ số ít → sửa receive thành receives. when, finishes (chủ ngữ the course số ít) và at the end of đều đúng.' },
       { q: 'Phần nào sai? My brother (A) doesn\'t (B) likes (C) travelling by plane because he (D) gets anxious.', options: ['(A) doesn\'t', '(B) likes', '(C) travelling', '(D) gets'], answer: 1, explain: 'Sau doesn\'t phải dùng động từ nguyên mẫu → sửa likes thành like. doesn\'t, travelling (like + V-ing) và gets đều đúng.' },
       { q: 'Task 1 (quy trình): Once the grapes are harvested, the juice ___ into large steel tanks.', options: ['is poured', 'was poured', 'is pouring', 'has poured'], answer: 0, explain: 'Mô tả quy trình dùng hiện tại đơn, thường ở dạng bị động: is poured. was poured là quá khứ; is pouring là chủ động tiếp diễn; has poured là chủ động, sai nghĩa.' },
-      { q: 'Speaking Part 1: "What do you do in your free time?" – "I usually ___ football with my colleagues at weekends."', options: ['am playing', 'play', 'played', 'plays'], answer: 1, explain: 'Thói quen (usually, at weekends) dùng hiện tại đơn; chủ ngữ I nên dùng play. am playing chỉ việc đang làm; played là quá khứ; plays dùng cho ngôi ba số ít.' }
+      { q: 'Speaking Part 1: "What do you do in your free time?" – "I usually ___ football with my colleagues on weekends."', options: ['am playing', 'play', 'played', 'plays'], answer: 1, explain: 'Thói quen (usually, on weekends) dùng hiện tại đơn; chủ ngữ I nên dùng play. am playing chỉ việc đang làm; played là quá khứ; plays dùng cho ngôi ba số ít.' }
     ]
   });
 
@@ -64,7 +64,7 @@
         { title: 'Hành động đang diễn ra ngay lúc nói', ex: 'Please be quiet – the students [[are taking]] a test.', vi: 'Làm ơn giữ trật tự – sinh viên đang làm bài kiểm tra.' },
         { title: 'Tình huống tạm thời quanh thời điểm hiện tại', ex: 'I[[\'m staying]] with my cousin until I find a flat.', vi: 'Tôi đang ở tạm nhà anh họ cho đến khi tìm được căn hộ.' },
         { title: 'Xu hướng, sự thay đổi đang diễn ra', ex: 'More and more people [[are working]] remotely.', vi: 'Ngày càng nhiều người làm việc từ xa.' },
-        { title: 'Thói quen gây khó chịu (với always)', ex: 'My flatmate [[is always leaving]] dirty dishes in the sink.', vi: 'Bạn cùng phòng tôi cứ suốt ngày để bát đĩa bẩn trong bồn rửa.' } ] },
+        { title: 'Thói quen gây khó chịu (với always)', ex: 'My roommate [[is always leaving]] dirty dishes in the sink.', vi: 'Bạn cùng phòng tôi cứ suốt ngày để bát đĩa bẩn trong bồn rửa.' } ] },
       { type: 'signals', words: ['now', 'right now', 'at the moment', 'currently', 'at present', 'these days', 'this week / term', 'Look!', 'Listen!'] },
       { type: 'table', head: ['Quy tắc thêm -ing', 'Ví dụ'], rows: [
         ['Hầu hết động từ: + ing', 'read → reading, study → studying'],
