@@ -481,7 +481,8 @@
         { label: 'Ước lượng', parts: [ { t: 'just over / just under / roughly / approximately', c: 'adv' }, { t: 'số / phân số', c: 'obj' } ], ex: '[[Just under a third]] of respondents disagreed.' },
         { label: 'Bội số (danh từ)', parts: [ { t: 'a twofold / threefold / fivefold', c: 'adv' }, { t: 'increase / rise', c: 'obj' } ], ex: 'There was a [[fivefold increase]] in online sales.' },
         { label: 'Bội số (so sánh)', parts: [ { t: 'S', c: 'subj' }, { t: 'V', c: 'verb' }, { t: 'twice / three times as many as', c: 'adv' } ], ex: 'Men spent [[twice as much time]] on sport as women.' },
-        { label: 'Ngày tháng (Anh – Anh)', parts: [ { t: 'on', c: 'time' }, { t: 'the 3rd of May / 3 May', c: 'time' }, { t: 'in 2015 / in the 1990s', c: 'time' } ], ex: 'The bridge opened on [[3 May 2015]].' }
+        { label: 'Ngày tháng (Anh – Anh)', parts: [ { t: 'on', c: 'time' }, { t: 'the 3rd of May / 3 May', c: 'time' }, { t: 'in 2015 / in the 1990s', c: 'time' } ], ex: 'The bridge opened on [[3 May 2015]].' },
+        { label: 'Ngày tháng (Anh – Mỹ)', parts: [ { t: 'on', c: 'time' }, { t: 'May 3, 2015 / May 3rd', c: 'time' }, { t: 'in 2015 / in the 1990s', c: 'time' } ], ex: 'The bridge opened on [[May 3, 2015]].' }
       ] },
       { type: 'uses', items: [
         { title: 'Phân số: tử số là số đếm, mẫu số là số thứ tự (+ s nếu tử > 1)', ex: '[[Two fifths]] of the budget went on healthcare.', vi: 'Hai phần năm ngân sách được chi cho y tế.' },
@@ -501,6 +502,7 @@
       ] },
       { type: 'tip', text: 'Đừng lặp đi lặp lại "X%". Xen kẽ con số với cách nói bằng lời (a third, the majority, one in five) để tăng điểm Lexical Resource.' },
       { type: 'tip', text: 'Number (đếm được) vs amount (không đếm được): the number of tourists, the amount of water. Proportion / percentage / share dùng cho tỷ lệ.' },
+      { type: 'tip', text: 'Anh – Mỹ: viết percent (một từ): 8 percent, 45 percent of households; Anh – Anh hay viết per cent. Ngày tháng Anh – Mỹ: tháng trước, ngày sau – May 3, 2015 (đọc "May third"); dạng số 5/3/2015 = ngày 3 tháng 5 (Anh – Anh hiểu là 5 tháng 3), nên trong bài viết hãy ghi tên tháng để tránh nhầm.' },
       { type: 'mistake', wrong: 'The percentage of unemployment was 8 percents.', right: 'The unemployment rate was 8 per cent.', why: 'Per cent / percent không bao giờ thêm s.' },
       { type: 'mistake', wrong: 'Two third of students live at home.', right: 'Two thirds of students live at home.', why: 'Tử số > 1 → mẫu số thêm s: two thirds.' },
       { type: 'mistake', wrong: 'The population reached 5 millions.', right: 'The population reached 5 million.', why: 'Khi có số đứng trước, million/thousand/hundred không thêm s.' },
@@ -683,7 +685,7 @@
       { q: 'Câu nào đúng?', options: ['He doesn\'t hardly ever cook.', 'He cooks hardly ever not.', 'He hardly ever doesn\'t cook.', 'He hardly ever cooks.'], answer: 3, explain: 'Hardly ever đã mang nghĩa phủ định, đứng trước động từ thường. "doesn\'t hardly" là phủ định kép; hai câu còn lại sai trật tự và thừa phủ định.' },
       { q: 'Phần nào sai? "Tourists (A) visit usually (B) the old quarter (C) in the evening (D)."', options: ['Tourists', 'visit usually', 'the old quarter', 'in the evening'], answer: 1, explain: 'usually đứng trước động từ thường → usually visit, nên phần sai là (B) visit usually. Tourists, the old quarter, in the evening đều đúng.' },
       { q: 'Phần nào sai? "The government (A) has spent (B) money wisely (C) never (D)."', options: ['The government', 'has spent', 'money wisely', 'never'], answer: 3, explain: 'Never đứng sau trợ động từ: has never spent money wisely. The government, has spent và money wisely đều đúng.' },
-      { q: 'Phần nào sai? "My brother (A) plays very well (B) the guitar (C) at weekends (D)."', options: ['My brother', 'plays very well', 'the guitar', 'at weekends'], answer: 1, explain: 'Không đặt very well giữa động từ và tân ngữ: plays the guitar very well. My brother, the guitar và at weekends đều đúng.' }
+      { q: 'Phần nào sai? "My brother (A) plays very well (B) the guitar (C) on weekends (D)."', options: ['My brother', 'plays very well', 'the guitar', 'on weekends'], answer: 1, explain: 'Không đặt very well giữa động từ và tân ngữ: plays the guitar very well. My brother, the guitar và at weekends đều đúng.' }
     ]
   });
 })(typeof self !== 'undefined' ? self : this);

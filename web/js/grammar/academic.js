@@ -16,7 +16,7 @@
         { t: 'Chủ động, xảy ra trước? → Having + V3', c: 'if' },
         { t: 'Having analysed the data, the council changed the policy.', c: 'result' },
         { t: 'Bị động? → V3/ed: Built in 1990, the bridge needs repairs.', c: 'passive' },
-        { t: 'Chủ động, cùng lúc? → V-ing: Living abroad, I learnt to cook.', c: 'active' }
+        { t: 'Chủ động, cùng lúc? → V-ing: Living abroad, I learned to cook.', c: 'active' }
       ] },
       { type: 'formula', rows: [
         { label: 'Chủ động, đồng thời / nguyên nhân', parts: [ { t: 'V-ing …', c: 'verb' }, { t: ',', c: 'adv' }, { t: 'S', c: 'subj' }, { t: 'V …', c: 'verb' } ], ex: '[[Realising the deadline was close]], the students worked through the night.' },
@@ -57,7 +57,7 @@
       { q: 'Câu nào đúng?', options: ['The data collecting by the team was unreliable.', 'People wanting to apply should register online.', 'Students wanted to apply should register online.', 'The report publishing last year was criticised.'], answer: 1, explain: 'People want to apply (chủ động) → wanting. Các câu khác đảo ngược chủ động/bị động. Câu 1 và 4 dùng V-ing với nghĩa bị động (dữ liệu được thu thập, báo cáo được xuất bản); câu 3 dùng V3 với nghĩa chủ động.' },
       { q: 'Câu nào cùng nghĩa? “Because she had lived in Japan, she spoke fluent Japanese.”', options: ['Living in Japan, she will speak fluent Japanese.', 'Lived in Japan, she spoke fluent Japanese.', 'Having been lived in Japan, she spoke fluent Japanese.', 'Having lived in Japan, she spoke fluent Japanese.'], answer: 3, explain: 'Hành động sống ở Nhật xảy ra trước, chủ động → Having lived. "Living… will speak" sai thì; "Lived" sai dạng; "Having been lived" là bị động, sai.' },
       { q: 'Câu nào cùng nghĩa? “The policy, which was introduced in 2015, reduced plastic waste.”', options: ['The policy introducing in 2015 reduced plastic waste.', 'The policy, introduced in 2015, reduced plastic waste.', 'Introducing in 2015, the policy reduced plastic waste.', 'The policy, having introduced in 2015, reduced plastic waste.'], answer: 1, explain: 'Rút gọn mệnh đề quan hệ bị động (which was introduced) → introduced. introducing/Introducing mang nghĩa chủ động (chính sách tự giới thiệu); having introduced cũng chủ động, sai nghĩa.' },
-      { q: 'Câu nào cùng nghĩa? “The price of oil fell, and this led to lower petrol costs.”', options: ['The price of oil fell, led to lower petrol costs.', 'Leading to lower petrol costs, the price of oil was fallen.', 'The price of oil fell, leading to lower petrol costs.', 'The price of oil falling, which led to lower petrol costs.'], answer: 2, explain: '“…, V-ing” thay cho “and this + V” để nêu kết quả. "fell, led" là comma splice; câu 2 sai bị động "was fallen"; câu 4 thiếu động từ chính.' }
+      { q: 'Câu nào cùng nghĩa? “The price of oil fell, and this led to lower gas prices.”', options: ['The price of oil fell, led to lower gas prices.', 'Leading to lower gas prices, the price of oil was fallen.', 'The price of oil fell, leading to lower gas prices.', 'The price of oil falling, which led to lower gas prices.'], answer: 2, explain: '“…, V-ing” thay cho “and this + V” để nêu kết quả. "fell, led" là comma splice; câu 2 sai bị động "was fallen"; câu 4 thiếu động từ chính.' }
     ]
   });
 

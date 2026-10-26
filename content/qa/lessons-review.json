@@ -29,9 +29,27 @@
       "checked": 16,
       "fixed": 4,
       "errorRate": "4 lỗi / ~480 mục (quiz+drill) ≈ 0.8%; L1: 0/~110 ghi chú",
-      "fixTypes": ["ambiguous (3)", "wrong-key AmE-valid (2)"],
+      "fixTypes": [
+        "ambiguous (3)",
+        "wrong-key AmE-valid (2)"
+      ],
       "notes": "Sửa: imperatives Q 'How about we start' (2 đáp án đúng), subjunctive 'don't' và 'fails' (2 đáp án), articles error-spot 'plays piano' (đúng trong Anh-Mỹ) x2. L1 notes đúng, id bài đều tồn tại."
+    },
+    {
+      "area": "grammar",
+      "date": "2026-10-26",
+      "range": "idx 8-30 (numbers-data-language..participle-clauses): foundation 8-11, chapters 12-20, book2 21-29, academic 30; rà cả blocks (quy tắc, ví dụ, ghi chú) + quiz + drill",
+      "checked": 23,
+      "fixed": 14,
+      "errorRate": "lỗi chấm/đáp án: 4 / ~526 mục (276 quiz + 250 drill) ≈ 0.8%; từ vựng Anh-Anh trong mục chấm/ví dụ đổi sang Anh-Mỹ: 10",
+      "fixTypes": [
+        "ambiguous (1)",
+        "missing accepted answer (3)",
+        "AmE lexis/usage (10)",
+        "upgrade AmE notes (3 tip + 1 formula row + 7 ghi chú)"
+      ],
+      "notes": "Sửa: possessive Q 'chemist' (đúng trong Anh-Anh văn nói → thay 'chemists'); drill thêm đáp án 'until the rain has stopped', 'zoos should close', 'Every one of/Every single participant'. Anh-Mỹ: at weekends→on weekends (Q+D, cinema→movies), flatmate→roommate, sat→took the exam, any more→anymore (Q+formula), learnt→learned x2, lay the table→lay the groundwork, car park→parking garage/lot, petrol costs→gas prices, mum→mom. Nâng cấp: tip percent + ngày tháng Mỹ (May 3, 2015) + hàng công thức ngày Mỹ; tip like/as if (Mỹ văn nói); tip phiên âm Mỹ cho -ed/-s; ghi chú data/collective nouns số ít (Mỹ), pence, at the dentist, a ten-minute drive, grain of salt, as-if Q0. Chính tả -ise/-our giữ (bộ chấm đã chuẩn hóa -ize). ids/cấu trúc giữ nguyên, extension đồng bộ, content-check 0 lỗi."
     }
   ],
-  "nextGrammar": "idx 8-30, 32-52, 55-60, 63-65, 68-69, 72-76 chưa rà đợt này (đã qua audit 10/2026). Ưu tiên: 28 as-if-unreal-past, 57-58 modals, 59-60 passive, 64 reported-speech, 72-76 clauses/inversion; kiểm khối blocks (quy tắc, ghi chú Anh-Mỹ) vì đợt này chỉ rà quiz/drill + L1. Cách làm: nạp web/js/grammar/*.js bằng vm, in quiz+drills."
+  "nextGrammar": "idx 32-52, 55-60, 63-65, 68-69, 72-76 chưa rà đợt này (đã qua audit 10/2026). Chỉ số theo thứ tự nạp foundation, chapters, book2, academic, tenses, verbs, sentences (khác thứ tự app.js). Ưu tiên: 57-58 modals, 59-60 passive, 64 reported-speech, 72-76 clauses/inversion. Rà cả blocks + Anh-Mỹ (đã thấy ngoài phạm vi: tenses present-simple Q 'at weekends', present-continuous ví dụ 'My flatmate'). Cách làm: nạp web/js/grammar/*.js bằng vm, in blocks+quiz+drills (gồm start/hint)."
 }

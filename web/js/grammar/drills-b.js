@@ -274,7 +274,7 @@
       { t: 'rewrite', q: "She goes to work by bus every day without exception.", start: "She always", a: ["She always goes to work by bus."], ex: "Always đứng trước động từ thường." },
       { t: 'combine', q: "Students are tired. This happens often.", hint: "often", start: "Students", a: ["Students are often tired."], ex: "Trạng từ tần suất đứng sau be." },
       { t: 'combine', q: "Teenagers check their phones. They do this constantly.", hint: "constantly", start: "Teenagers", a: ["Teenagers constantly check their phones.", "Teenagers check their phones constantly."], ex: "Constantly đứng trước động từ hoặc cuối câu." },
-      { t: 'error', parts: ["My brother", "goes often", "to the cinema", "at weekends."], w: 1, fix: "often goes", ex: "Trạng từ tần suất đứng trước động từ thường." },
+      { t: 'error', parts: ["My brother", "goes often", "to the movies", "on weekends."], w: 1, fix: "often goes", ex: "Trạng từ tần suất đứng trước động từ thường." },
       { t: 'error', parts: ["He", "speaks", "English", "fluently very."], w: 3, fix: "very fluently.", ex: "Trạng từ mức độ very đứng trước trạng từ nó bổ nghĩa." }
     ]
   };
