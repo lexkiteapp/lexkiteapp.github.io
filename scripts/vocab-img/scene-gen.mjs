@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 // --shard i/n: chỉ khoá có fnv(k) % n == i (ma trận ≤ 10 việc / lượt, mỗi việc thuê riêng ở điều phối). 429 → chờ lùi trong gen.mjs (65→240 s, 6 lần = dừng nhà).
 import fs from 'fs';
 import path from 'path';
-import { PROVIDERS, slug, GC_STATS, Safety, modelInUse } from './gen.mjs';
+import { PROVIDERS, slug, GC_STATS, Safety, modelInUse, cfStats } from './gen.mjs';
 import { promptFromCard } from './strict.mjs';
 import { kind, promptScene, SCENE_STYLE, RETRY_SCENE, soften } from './scene.mjs';
 import { conceptSvg, familyOf, conceptHash } from './concept.mjs';
@@ -90,8 +90,8 @@ async function main() {
   // bể CF cạn (503 ai_exhausted / 409 no_provider) → dấu EXHAUSTED: vòng biến thể của workflow dừng, không gọi lại tới 00:00 UTC
   if (GC_STATS.exhausted_at || GC_STATS.no_provider) { fs.writeFileSync(path.join(OUT, 'EXHAUSTED'), JSON.stringify({ at: GC_STATS.exhausted_at || new Date().toISOString(), ok_before: GC_STATS.ok_before_exhausted ?? GC_STATS.ok })); console.log(`⏹ bể neuron CF cạn – ${GC_STATS.ok_before_exhausted ?? GC_STATS.ok} ảnh trước khi cạn`); }
   fs.writeFileSync(logF, JSON.stringify(log, null, 1));
-  fs.writeFileSync(path.join(OUT, `gen-stats.s${SI}.a${ATT}.json`), JSON.stringify({ shard: SI, attempt: ATT, wanted: n + todo.length, images: n, retries_5xx: retries, safety_rephrased: safetyRe, safety_failed: safetyFail, gc: GC_STATS }));
-  console.log('GrabCast ảnh:', JSON.stringify(GC_STATS));
+  fs.writeFileSync(path.join(OUT, `gen-stats.s${SI}.a${ATT}.json`), JSON.stringify({ shard: SI, attempt: ATT, wanted: n + todo.length, images: n, retries_5xx: retries, safety_rephrased: safetyRe, safety_failed: safetyFail, gc: GC_STATS, cf: cfStats() }));
+  console.log('GrabCast ảnh:', JSON.stringify(GC_STATS)); console.log('Workers AI thẳng (cf):', JSON.stringify(cfStats()));
   const min = (Date.now() - t0) / 60e3;
   fs.writeFileSync(path.join(OUT, `speed.gen.s${SI}.a${ATT}.json`), JSON.stringify({ images: n, minutes: +min.toFixed(2), per_min: +(n / Math.max(min, 1e-3)).toFixed(2) }));
   console.log(`✓ vẽ ${n} ảnh (lần ${ATT}, shard ${SI}/${SN}) trong ${min.toFixed(1)} phút = ${(n / Math.max(min, 1e-3)).toFixed(2)} ảnh/phút · ${JSON.stringify(used)}`);

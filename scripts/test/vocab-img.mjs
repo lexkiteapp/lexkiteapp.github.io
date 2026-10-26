@@ -174,4 +174,14 @@ const reg = J('infra/jobs.json'), job = reg.jobs.find(j => j.id === 'vocab-img')
 ok(job && job.paused === false, 'vocab-img đăng ký & ĐANG CHẠY (chủ duyệt s1 24/10)'); ok(job.priority === reg.priorities[reg.priorities.length - 1], 'ưu tiên thấp nhất');
 ok(job.resources.includes('grabcast_ai') && !job.resources.some(r => /^workers_ai/.test(r)) && job.lease, 'chỉ GrabCast (không Workers AI Lexkite)'); ok(/^\s*schedule:/m.test(wf) && /VIMG_MAX_MAIN: '0'/.test(wf) && /VIMG_MAX_CF2: '0'/.test(wf), 'đang chạy → workflow có lịch; tài khoản chính/2 = 0 ảnh');
 ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng ký ở infra/resources.json');
+
+// 6. Workers AI thẳng (26/10, cf-direct.mjs): bỏ 5 tài khoản đầu CF_POOL, không bao giờ tài khoản chính, mọi mô hình A/B có giá neuron
+{
+  const cf = await import('../vocab-img/cf-direct.mjs'), g = await import('../vocab-img/gen.mjs');
+  const ids = cf.poolAccounts({ CF_POOL: 'a0:t,a1:t,a2:t,a3:t,a4:t,a5:t,M:t', CF_ACCOUNT_1: 'M', CF_ACCOUNT_2: 'b', CF_AI_TOKEN_2: 'x' }).map(a => a.acct);
+  ok(JSON.stringify(ids) === '["a5","b"]', 'CF_POOL: bỏ 5 đầu, loại tài khoản chính, thêm tài khoản 2 cuối');
+  ok(Object.values(g.MODELS).every(m => cf.npiOf(m) < 1000 || /klein-9b/.test(m)), 'mọi mô hình trong MODELS có giá neuron ước tính');
+  ok(cf.cfProvider(g.MODEL_DEFAULT, { CF_ACCOUNT_2: 'b', CF_AI_TOKEN_2: 'x' }).max === 0, 'VIMG_MAX_CF mặc định 0 = tắt');
+  ok(cf.cfInput('@cf/black-forest-labs/flux-1-schnell', 'p').json.width === undefined && cf.cfInput('@cf/black-forest-labs/flux-2-dev', 'p').form, 'schnell không gửi cỡ; FLUX.2 gửi multipart');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);

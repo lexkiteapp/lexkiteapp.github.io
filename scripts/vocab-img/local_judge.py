@@ -105,12 +105,51 @@ def phash(im):
 API_Q = ('Describe this picture for a vocabulary app in one sentence: who or what is shown and what is happening. Do not guess what it was meant to teach. '
          'Reply JSON only: {"describe": "one sentence", "text": true if any letters, words or numbers are visible, "unsafe": true if unsuitable for children}')
 _API = {'dead': False, 'calls': 0, 'fails': 0, 'skipped': 0}   # skipped = ảnh trượt cục bộ → không gọi thị giác (25/10: neuron CF dành cho ảnh)
+_CFV = {'accts': None, 'i': 0, 'model': '@cf/meta/llama-4-scout-17b-16e-instruct'}
+def _cf_accts():
+    """26/10: thị giác THẲNG trên Workers AI (cùng tài khoản với cf-direct.mjs: CF_POOL bỏ VIMG_POOL_SKIP đầu → tài khoản 2; không bao giờ tài khoản chính)"""
+    if _CFV['accts'] is None:
+        raw, out = os.environ.get('CF_POOL', '').strip(), []
+        try: items = [(o.get('account') or o.get('account_id'), o.get('token') or o.get('api_token')) for o in json.loads(raw)] if raw.startswith('[') else [re.split(r'[:=\s|]+', x.strip()) for x in re.split(r'[\n,;]+', raw) if x.strip()]
+        except Exception: items = []
+        out = [(x[0], x[1]) for x in items[int(os.environ.get('VIMG_POOL_SKIP', '5')):] if len(x) >= 2 and x[0] and x[1]]
+        if os.environ.get('CF_ACCOUNT_2') and os.environ.get('CF_AI_TOKEN_2') and os.environ.get('VIMG_CF_USE_CF2') != '0': out.append((os.environ['CF_ACCOUNT_2'], os.environ['CF_AI_TOKEN_2']))
+        main = os.environ.get('CF_ACCOUNT_1'); _CFV['accts'] = [a for a in dict(out).items() if a[0] != main]
+    return _CFV['accts']
+def use_cf_vision():
+    return (os.environ.get('VIMG_VISION') == 'cf' or not os.environ.get('GRABCAST_AI_KEY')) and bool(_cf_accts())
+def cf_vision(prompt, jpeg):
+    """→ {'text', 'model'} | None; 4006/401/403 → bỏ tài khoản; hết tài khoản → _API dead"""
+    import base64, urllib.request, urllib.error
+    body = json.dumps({'messages': [{'role': 'user', 'content': [{'type': 'text', 'text': prompt}, {'type': 'image_url', 'image_url': {'url': 'data:image/jpeg;base64,' + base64.b64encode(jpeg).decode()}}]}], 'max_tokens': 300, 'temperature': 0}).encode()
+    acc = _cf_accts()
+    for i in range(6):
+        if not acc: _API['dead'] = True; print('⏸ thị giác CF: mọi tài khoản hết lượt', flush=True); return None
+        a, t = acc[_CFV['i'] % len(acc)]
+        try:
+            req = urllib.request.Request(f'https://api.cloudflare.com/client/v4/accounts/{a}/ai/run/{_CFV["model"]}', data=body, headers={'Authorization': 'Bearer ' + t, 'Content-Type': 'application/json'})
+            j = json.loads(urllib.request.urlopen(req, timeout=90).read()); _API['calls'] += 1; _CFV['i'] += 1
+            r = (j.get('result') or {}).get('response'); return {'text': r if isinstance(r, str) else json.dumps(r), 'model': _CFV['model']}
+        except urllib.error.HTTPError as e:
+            m = e.read().decode('utf8', 'ignore')[:200]
+            if e.code in (401, 403) or '4006' in m or 'neuron' in m.lower(): acc.remove((a, t)); continue
+            time.sleep(min(60, 5 * (i + 1))); continue
+        except Exception:
+            time.sleep(3); continue
+    _API['fails'] += 1; return None
 def api_vision(im):
     """→ dict | None (None = không có/đã cạn → người gọi xử lý 'API exhausted')"""
     key = os.environ.get('GRABCAST_AI_KEY'); base = os.environ.get('GRABCAST_API_BASE', 'https://grabcast-api-342720596878.us-central1.run.app').rstrip('/')
-    if not key or _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0': return None
+    if _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0' or not (key or use_cf_vision()): return None
     import base64, io, urllib.request, urllib.error
     b = io.BytesIO(); im.convert('RGB').resize((384, 384)).save(b, 'JPEG', quality=85)
+    if use_cf_vision():
+        j = cf_vision(API_Q, b.getvalue())
+        if not j: return None
+        t = j['text'] or ''; m = re.search(r'\{.*\}', t, re.S)
+        try: o = json.loads(m.group(0)) if m else {'describe': t}
+        except Exception: o = {'describe': t}
+        o['model'] = j['model']; return o
     body = json.dumps({'prompt': API_Q, 'image_b64': base64.b64encode(b.getvalue()).decode(), 'mime': 'image/jpeg'}).encode()
     for i in range(5):
         try:
@@ -139,14 +178,18 @@ def ask_q(t):
 def api_ask(im, q):
     """GrabCast vision: câu hỏi có/không về TÌNH HUỐNG → {'yes': bool, 'conf': 0-100, 'missing', 'text'} | None. 429 → Retry-After (vision 120/phút/IP)"""
     key = os.environ.get('GRABCAST_AI_KEY'); base = os.environ.get('GRABCAST_API_BASE', 'https://grabcast-api-342720596878.us-central1.run.app').rstrip('/')
-    if not key or _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0': return None
+    if _API['dead'] or os.environ.get('VIMG_API_JUDGE', '1') == '0' or not (key or use_cf_vision()): return None
     import base64, io, urllib.request, urllib.error
     b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
     body = json.dumps({'prompt': ASK_Q.format(desc=q), 'image_b64': base64.b64encode(b.getvalue()).decode(), 'mime': 'image/jpeg'}).encode()
     for i in range(6):
         try:
-            req = urllib.request.Request(base + '/api/owner-ai/vision', data=body, headers={'X-API-Key': key, 'Content-Type': 'application/json'})
-            j = json.loads(urllib.request.urlopen(req, timeout=60).read()); _API['calls'] += 1
+            if use_cf_vision():
+                j = cf_vision(ASK_Q.format(desc=q), b.getvalue())
+                if not j: return None
+            else:
+                req = urllib.request.Request(base + '/api/owner-ai/vision', data=body, headers={'X-API-Key': key, 'Content-Type': 'application/json'})
+                j = json.loads(urllib.request.urlopen(req, timeout=60).read()); _API['calls'] += 1
             t = j.get('text') or ''; m = re.search(r'\{.*\}', t, re.S)
             try: o = json.loads(m.group(0)) if m else {}
             except Exception: o = {}

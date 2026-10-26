@@ -19,6 +19,7 @@ on:
       recal: { description: '1 = hiệu chỉnh ngưỡng giám khảo trước khi chấm', default: '1' }
       from_run: { description: 'Chỉ chạy bước gộp/tờ ảnh trên artifact của lượt này (run id) – không vẽ lại', default: '' }
       pick: { description: 'Chọn khoá pilot n:from:fn (n nghĩa cảnh bỏ qua from nghĩa đầu, fn hư từ)', default: '60:0:20' }
+      provider: { description: 'Nhà vẽ + giám khảo thị giác: cf = Workers AI THẲNG (CF_POOL → tài khoản 2, cf-direct.mjs; 26/10 GrabCast hỏng) · grabcast', default: 'cf' }
       model: { description: 'Mô hình ảnh GrabCast (A/B, docs/VOCAB-IMG-STYLE.md); rỗng = mặc định flux-1-schnell, không gửi trường model', default: '' }
       only: { description: 'pilot: CHỈ các khoá này – tệp JSON {items} (vd. content/visual/pilot-40.json) hoặc danh sách phẩy · bắt đầu bằng + = THÊM vào pilot (thay input extra cũ, vd. +equal#adj,race#n)', default: '' }
       lab_run: { description: 'Lượt cũ (run id có vimg-scene-final) → tính lại đặc trưng giám khảo cảnh cho ảnh đã gán nhãn', default: '' }
@@ -41,6 +42,8 @@ jobs:
         run: |
           n=${{ github.event.inputs.shards || '1' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
           if [ -n "${{ github.event.inputs.from_run }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
+          # 26/10: lịch fill CHỈ chạy khi chủ bật biến repo VIMG_SCHEDULE=1 (bật lại workflow để chạy thử tay không kéo theo fill 4 lượt/ngày)
+          if [ "${{ github.event_name }}" = schedule ] && [ "${{ vars.VIMG_SCHEDULE }}" != 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || '10' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
@@ -52,7 +55,13 @@ jobs:
     timeout-minutes: 120
     env:
       LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
-      GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+      # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
+      GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
+      CF_POOL: ${{ secrets.CF_POOL }}
+      CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+      CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+      VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
       LEASE_SHARD: prep
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
@@ -120,7 +129,13 @@ jobs:
       matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' }
     env:
       LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
-      GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+      # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
+      GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
+      CF_POOL: ${{ secrets.CF_POOL }}
+      CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+      CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+      VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
       LEASE_SHARD: ${{ matrix.shard }}
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
@@ -207,7 +222,13 @@ jobs:
       matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' }
     env:
       LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
-      GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+      # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
+      GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
+      CF_POOL: ${{ secrets.CF_POOL }}
+      CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+      CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+      VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
       LEASE_SHARD: ${{ matrix.shard }}
       PER: ${{ needs.plan.outputs.per }}
       NSH: ${{ strategy.job-total }}
@@ -319,7 +340,13 @@ jobs:
     permissions: { contents: read, actions: read, id-token: write }
     env:
       LEXKITE_DRIVE_CLI_KEY: ${{ secrets.LEXKITE_DRIVE_CLI_KEY }}
-      GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+      # 26/10: GrabCast 500 cho 700/700 ảnh → mặc định cf (Workers AI thẳng); lịch (fill) dùng vars.VIMG_PROVIDER
+      GRABCAST_AI_KEY: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'grabcast' && secrets.GRABCAST_AI_KEY || '' }}
+      CF_POOL: ${{ secrets.CF_POOL }}
+      CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+      CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+      VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
+      LEASE_AI_B_NEURONS: '1500'   # ai-pool tuyến cf2 (thẻ cảnh văn bản khi không có GrabCast) – trần nhỏ, neuron để vẽ
       LEASE_SHARD: lab
       HF_HUB_DISABLE_TELEMETRY: '1'
     steps:

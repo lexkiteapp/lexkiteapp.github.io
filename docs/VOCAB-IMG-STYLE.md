@@ -107,3 +107,9 @@ arrow, heart symbol, emoji, icon, screen with…, chart, graph, calendar, newspa
   (`gc.model_fallback` ≠ 0 = lượt KHÔNG hợp lệ cho A/B). 503 ai_exhausted = hết bể, dừng sạch như cũ.
 - Mỗi ảnh ghi `gc_provider` + `model` thật của job (log `gen.s*.json`); `fill-report.json` có `by_model`, `model_fallback`, `config_err`.
 - So sánh: tỷ lệ qua giám khảo cục bộ (ngưỡng giữ nguyên) + chủ duyệt tờ ảnh theo §8. Thắng → ghi mô hình vào workflow fill, tăng `STYLE.v`.
+
+## 11. Vẽ thẳng trên Workers AI (26/10)
+- GrabCast trả 500 cho 700/700 ảnh (24/10) → `vocab-img-scene.yml` input `provider` mặc định `cf`: vẽ (`cf-direct.mjs`) và giám khảo thị giác (`local_judge.py` Llama 4 Scout) gọi thẳng REST Workers AI.
+- Tài khoản: secret `CF_POOL` (mỗi mục `account_id:token`, ngăn bằng xuống dòng/phẩy; chủ dán, agent không đọc kho khoá), bỏ 5 tài khoản đầu (GrabCast còn dùng), rồi tài khoản 2. Không bao giờ tài khoản chính.
+- Trần: `max_gc` (dùng chung) ≤ Σ tài khoản × floor(9.000 neuron / neuron mỗi ảnh `NPI`). `NPI` là ước tính – đo lại bằng analytics trước khi chạy hàng loạt.
+- Lịch fill chỉ chạy khi biến repo `VIMG_SCHEDULE=1` (chủ bật sau khi duyệt tờ ảnh).
