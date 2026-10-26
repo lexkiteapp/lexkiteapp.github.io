@@ -17,7 +17,7 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
@@ -27,10 +27,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - if: matrix.part != 'static'
+        timeout-minutes: 12   # máy CI đôi khi treo ở apt; không tự thử lại (tiến trình apt bị cắt giữ khoá dpkg)
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          # máy CI đôi khi treo ở bước apt → giới hạn 8 phút, thử lại 1 lần
-          timeout 480 npx playwright install --with-deps chromium || timeout 480 npx playwright install --with-deps chromium
+          npx playwright install --with-deps chromium
           sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
       - if: matrix.part == 'blog'
         run: node scripts/build-blog.mjs
