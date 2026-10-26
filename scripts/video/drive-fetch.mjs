@@ -7,6 +7,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { driveApi } from './library.mjs';
+import { pathToFileURL } from 'node:url';
 
 export const API_ORIGIN = 'https://lexkite.com';
 
@@ -29,7 +30,7 @@ export function fetchFromGit(repo, rel, out) {
   return buf.length;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = process.argv.slice(2), opt = n => { const i = a.indexOf('--' + n); return i >= 0 ? a[i + 1] : undefined; };
   const kind = opt('kind') || 'video', idx = JSON.parse(fs.readFileSync(opt('index'), 'utf8'));
   const it = (idx.items || []).find(x => x.id === opt('id')); if (!it) { console.error('✗ unknown id'); process.exit(2); }

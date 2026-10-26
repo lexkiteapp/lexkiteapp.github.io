@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { driveApi, driveSign, driveCliKey } from './library.mjs';
+import { pathToFileURL } from 'node:url';
 
 export const RETAIN_DAYS = 30;
 const DAY = 86400e3;
@@ -87,7 +88,7 @@ export async function runArchive({ repo, dry = false, maxRetire = 50, rebalanceC
   return rep;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = process.argv.slice(2), opt = n => { const i = a.indexOf('--' + n); return i >= 0 ? a[i + 1] : undefined; };
   const rep = await runArchive({ repo: opt('repo') || '/tmp/shorts', dry: a.includes('--dry-run'), maxRetire: +(opt('max-retire') || 50), rebalanceCalls: +(opt('rebalance-calls') || 10) });
   const line = `2 bản: ${rep.promote} file (chép bù ${rep.repaired}) · giữ ${RETAIN_DAYS} ngày: ${rep.retired}/${rep.retire} master vào thùng rác · cân bằng: ${rep.rebalanced} file, còn ${rep.remaining}`;

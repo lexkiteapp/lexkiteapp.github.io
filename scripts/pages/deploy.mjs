@@ -8,6 +8,7 @@
 // Gom: concurrency cancel-in-progress + chờ yên (quiet) trong workflow; ở đây thêm giãn cách tối thiểu giữa 2 build (minGap) trừ khi urgent.
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import { pathToFileURL } from 'node:url';
 
 // Đường dẫn KHÔNG vào dist (scripts/build-web.sh không đọc) – đổi ở đây chỉ đổi khi dist thật sự đổi. Cũng dùng làm Build watch paths (exclude) của Pages.
 export const NON_SITE = [/^docs\//, /^reports\//, /^brand\//, /^mobile\//, /^store\//, /^workers\//, /^infra\//, /^\.github\//,
@@ -53,7 +54,7 @@ function changedSince(hash) {
   try { return execFileSync('git', ['diff', '--name-only', hash, 'HEAD']).toString().split('\n').filter(Boolean).filter(isSite).length; } catch { return -1; }
 }
 
-if (import.meta.url === `file://${process.argv[1]}` && process.argv[2] === 'plan') {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href && process.argv[2] === 'plan') {
   const E = process.env, head = execFileSync('git', ['rev-parse', 'HEAD']).toString().trim();
   let last = null, note = '';
   try { if (E.CF_TOKEN) last = await lastProd(E.CF_TOKEN, E.CF_ACCOUNT_ID, E.CF_PROJECT || 'lexkite'); else note = ' (thiếu CF_TOKEN – không biết bản cuối)'; }
