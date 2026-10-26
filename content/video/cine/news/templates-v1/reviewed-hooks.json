@@ -3,20 +3,21 @@
  "verdicts": {
   "t1_mistake_agree": {
    "template": "mistake",
-   "hook": "✗ Don't say this / at work: “I am agree.”",
+   "hook": "✗ Never say / “I am agree”",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite for engagement; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
    "script": {
-    "m_h": "Don't say this at work.",
+    "m_h": "Stop! Native speakers never say this.",
     "m_w": "I am agree.",
-    "m_s": "It feels like: I am happy. I am tired.",
-    "m_y": "But agree is an action, like want or need.",
-    "m_k": "Drop the am. Just say: I agree.",
-    "m_x": "I don't agree. Do you agree?",
-    "m_t": "Sound like a native: I couldn't agree more!",
+    "m_k": "Just say: I agree. No am.",
+    "m_l": "Think of the word like.",
+    "m_p": "You don't say: I am like pizza!",
+    "m_n": "So don't say: I am agree.",
+    "m_t": "Sound native: I totally agree!",
     "m_q": "Quick quiz! Which one is right?",
     "m_a": "B! I agree with you.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -30,7 +31,7 @@
     "quiz": true,
     "count": true
    },
-   "note": "“I am agree” is a very common learner error (agree is a verb; learners copy be + adjective like happy/tired). Fix: I agree / I don't agree / Do you agree? Native upgrade “I couldn't agree more” = strong agreement, natural US/UK. Hook 'at work' is true: it is a frequent meeting phrase and sounds non-native."
+   "note": "“I am agree” is a very common learner error; native speakers don't say it. Analogy: agree is a verb like 'like' – nobody says 'I am like pizza'. 'I totally agree' is natural US English."
   },
   "t2_words5_hotel": {
    "template": "words5",
@@ -84,18 +85,18 @@
    "hook": "BORROW | LEND",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 series rewrite for engagement; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
    "script": {
-    "p_h": "Borrow or lend? Don't mix them up.",
-    "p_s": "You need a pen. Your friend has one.",
-    "p_b": "Borrow means you take it, then give it back.",
+    "p_h": "Borrow or lend? You probably mix these up.",
+    "p_s": "Borrow: you take it.",
+    "p_l": "Lend: you give it.",
     "p_b2": "Can I borrow your pen?",
-    "p_l": "Lend means you give it, and get it back.",
     "p_l2": "Sure! I can lend you my pen.",
     "p_t": "Remember: you borrow from someone, and you lend to someone.",
     "p_q": "Quick quiz! My brother blank me ten dollars.",
     "p_q2": "Lent, or borrowed?",
     "p_a": "Lent! My brother lent me ten dollars.",
+    "p_sh": "Send this to a friend who mixes them up!",
     "p_c": "Save this, and compare tricky words on lexkite.com."
    },
    "promise": {
@@ -106,7 +107,7 @@
     "quiz": true,
     "count": true
    },
-   "note": "Borrow = receive temporarily (borrow FROM); lend = give temporarily (lend TO). 'My brother lent me $10' is correct; 'borrowed me' is a common learner error. The 'from/to' trick is standard teacher practice."
+   "note": "Borrow = take temporarily (from); lend = give temporarily (to). 'My brother lent me $10' correct."
   },
   "t5_roleplay_checkin": {
    "template": "roleplay",
@@ -135,9 +136,9 @@
    "hook": "🔊 comfortable / com·for·TA·ble✗",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 series rewrite for engagement; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
    "script": {
-    "f_h": "Many learners say this word wrong.",
+    "f_h": "You're probably saying this word wrong.",
     "f_w": "Not com, for, table.",
     "f_m": "That sounds like a table you can sit on!",
     "f_s": "Slowly:",
@@ -147,6 +148,7 @@
     "f_y": "Your turn. Repeat after me: comfortable.",
     "f_e": "This chair is so comfortable!",
     "f_b": "Same trick: vegetable has three beats, not four.",
+    "f_sh": "Send this to a friend who says it wrong!",
     "f_c": "Save this, and practice pronunciation on lexkite.com."
    },
    "promise": {
@@ -212,12 +214,12 @@
   },
   "t2_words5_verygood": {
    "template": "words5",
-   "hook": "Don't just say / “very good”",
+   "hook": "“very good”😴 / Try these 5",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 series rewrite for engagement; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
    "script": {
-    "w_h": "Don't just say very good. Try these instead.",
+    "w_h": "Stop saying very good all the time. Try these!",
     "w_s": "Your friend cooks dinner. Very good? Too boring!",
     "w_1": "One: great. This is great!",
     "w_2": "Two: delicious. Use it for food.",
@@ -225,6 +227,7 @@
     "w_4": "Four: awesome. That's awesome!",
     "w_5": "Five: outstanding. For really great work.",
     "w_r": "Which one will you use today? Tell me in the comments!",
+    "w_sh": "Send this to a friend who always says very good!",
     "w_c": "Save this, and review your words on lexkite.com."
    },
    "promise": {

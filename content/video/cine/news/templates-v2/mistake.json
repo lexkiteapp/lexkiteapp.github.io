@@ -18,13 +18,14 @@
  },
  "speed": 0.75,
  "error_lines": [
-  "m_w"
+  "m_w",
+  "m_n"
  ],
  "error_re": "\\bam agree\\b",
  "lines": [
   {
    "id": "m_h",
-   "text": "Don't say this at work."
+   "text": "Stop! Native speakers never say this."
   },
   {
    "id": "m_w",
@@ -37,62 +38,58 @@
    }
   },
   {
-   "id": "m_s",
-   "text": "It feels like: I am happy. I am tired.",
-   "key": {
-    "yellow": [
-     4,
-     7
-    ]
-   },
-   "gap": 0.6
-  },
-  {
-   "id": "m_y",
-   "text": "But agree is an action, like want or need.",
-   "key": {
-    "yellow": [
-     1
-    ],
-    "green": [
-     6,
-     8
-    ]
-   }
-  },
-  {
    "id": "m_k",
-   "text": "Drop the am. Just say: I agree.",
-   "key": {
-    "red": [
-     2
-    ],
-    "green": [
-     5,
-     6
-    ]
-   },
-   "gap": 0.6
-  },
-  {
-   "id": "m_x",
-   "text": "I don't agree. Do you agree?",
+   "text": "Just say: I agree. No am.",
    "key": {
     "green": [
      2,
+     3
+    ],
+    "red": [
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_l",
+   "text": "Think of the word like.",
+   "key": {
+    "yellow": [
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_p",
+   "text": "You don't say: I am like pizza!",
+   "key": {
+    "red": [
+     4,
      5
     ]
    }
   },
   {
+   "id": "m_n",
+   "text": "So don't say: I am agree.",
+   "key": {
+    "red": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.5
+  },
+  {
    "id": "m_t",
-   "text": "Sound like a native: I couldn't agree more!",
+   "text": "Sound native: I totally agree!",
    "key": {
     "green": [
-     4,
-     5,
-     6,
-     7
+     2,
+     3,
+     4
     ]
    },
    "gap": 0.6
@@ -124,9 +121,14 @@
    }
   },
   {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.6
+  },
+  {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.5
   }
  ],
  "pops": [
@@ -152,15 +154,11 @@
       "@x"
      ],
      [
-      " Don't say this",
+      " Never say",
       "white"
      ]
     ],
     [
-     [
-      "at work: ",
-      "yellow"
-     ],
      [
       "“I ",
       "white"
@@ -170,55 +168,8 @@
       "red"
      ],
      [
-      ".”",
+      "”",
       "white"
-     ]
-    ]
-   ]
-  },
-  {
-   "id": "why",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 84,
-   "from": [
-    "m_s",
-    0,
-    "s",
-    -0.2
-   ],
-   "to": [
-    "m_k",
-    0,
-    "s",
-    -0.25
-   ],
-   "rows": [
-    [
-     [
-      "I am happy",
-      "white"
-     ],
-     [
-      "@ok"
-     ]
-    ],
-    [
-     [
-      "I am tired",
-      "white"
-     ],
-     [
-      "@ok"
-     ]
-    ],
-    [
-     [
-      "I am agree",
-      "red"
-     ],
-     [
-      "@x"
      ]
     ]
    ]
@@ -235,7 +186,7 @@
     -0.2
    ],
    "to": [
-    "m_x",
+    "m_l",
     0,
     "s",
     -0.08
@@ -252,16 +203,6 @@
     ],
     [
      [
-      "agree",
-      "yellow"
-     ],
-     [
-      " = a verb",
-      "white"
-     ]
-    ],
-    [
-     [
       "no ",
       "white"
      ],
@@ -273,54 +214,76 @@
    ]
   },
   {
-   "id": "ex",
+   "id": "like",
    "kind": "rich",
    "anim": "spring",
    "size": 84,
    "from": [
-    "m_x",
+    "m_l",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🍕"
+     ],
+     [
+      " I am like",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "I like pizza",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "native",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "m_t",
     0,
     "s",
     -0.06
    ],
    "to": [
     "m_q",
-    1,
+    0,
     "s",
-    -0.12
+    -0.08
    ],
    "rows": [
-    [
-     [
-      "I agree.",
-      "green"
-     ],
-     [
-      "@ok"
-     ]
-    ],
-    [
-     [
-      "I don't agree.",
-      "green"
-     ]
-    ],
-    [
-     [
-      "Do you agree?",
-      "green"
-     ]
-    ],
     [
      [
       "@emoji:💯"
      ],
      [
-      " I couldn't ",
+      " I totally",
       "white"
-     ],
+     ]
+    ],
+    [
      [
-      "agree more!",
+      "agree!",
       "green"
      ]
     ]
@@ -360,13 +323,48 @@
    ]
   },
   {
-   "id": "cta",
-   "kind": "cta",
+   "id": "share",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
    "from": [
     "m_a",
     -1,
     "e",
     0.35
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:📲"
+     ],
+     [
+      " Send to",
+      "white"
+     ]
+    ],
+    [
+     [
+      "a friend",
+      "yellow"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
    ],
    "to": [
     "end"

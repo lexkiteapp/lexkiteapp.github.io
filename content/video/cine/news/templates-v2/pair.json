@@ -23,21 +23,27 @@
  "lines": [
   {
    "id": "p_h",
-   "text": "Borrow or lend? Don't mix them up."
+   "text": "Borrow or lend? You probably mix these up."
   },
   {
    "id": "p_s",
-   "text": "You need a pen. Your friend has one.",
-   "gap": 0.68
-  },
-  {
-   "id": "p_b",
-   "text": "Borrow means you take it, then give it back.",
+   "text": "Borrow: you take it.",
    "key": {
     "yellow": [
      0
     ]
-   }
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "p_l",
+   "text": "Lend: you give it.",
+   "key": {
+    "green": [
+     0
+    ]
+   },
+   "gap": 0.5
   },
   {
    "id": "p_b2",
@@ -46,17 +52,8 @@
     "yellow": [
      2
     ]
-   }
-  },
-  {
-   "id": "p_l",
-   "text": "Lend means you give it, and get it back.",
-   "key": {
-    "green": [
-     0
-    ]
    },
-   "gap": 0.68
+   "gap": 0.6
   },
   {
    "id": "p_l2",
@@ -65,7 +62,8 @@
     "green": [
      3
     ]
-   }
+   },
+   "gap": 0.5
   },
   {
    "id": "p_t",
@@ -80,7 +78,7 @@
      8
     ]
    },
-   "gap": 0.68
+   "gap": 0.6
   },
   {
    "id": "p_q",
@@ -91,7 +89,7 @@
      1
     ]
    },
-   "gap": 0.68
+   "gap": 0.6
   },
   {
    "id": "p_q2",
@@ -113,9 +111,14 @@
    }
   },
   {
+   "id": "p_sh",
+   "text": "Send this to a friend who mixes them up!",
+   "gap": 0.6
+  },
+  {
    "id": "p_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.68
+   "gap": 0.5
   }
  ],
  "pops": [
@@ -142,35 +145,6 @@
     -1,
     "e",
     0.25
-   ]
-  },
-  {
-   "id": "sit",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 80,
-   "from": [
-    "p_s",
-    0,
-    "s",
-    -0.1
-   ],
-   "to": [
-    "p_b",
-    0,
-    "s",
-    -0.08
-   ],
-   "rows": [
-    [
-     [
-      "@emoji:✏️"
-     ],
-     [
-      " You need a pen",
-      "white"
-     ]
-    ]
    ]
   },
   {
@@ -206,7 +180,7 @@
    "focus": [
     [
      [
-      "p_b",
+      "p_s",
       0,
       "s",
       0
@@ -224,7 +198,25 @@
     ]
    ],
    "from": [
-    "p_b",
+    "p_s",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_b2",
+    0,
+    "s",
+    -0.08
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "p_b2",
     0,
     "s",
     -0.06
@@ -233,7 +225,37 @@
     "p_t",
     0,
     "s",
-    -0.1
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "Can I ",
+      "white"
+     ],
+     [
+      "borrow",
+      "yellow"
+     ],
+     [
+      " it?",
+      "white"
+     ]
+    ],
+    [
+     [
+      "I can ",
+      "white"
+     ],
+     [
+      "lend",
+      "green"
+     ],
+     [
+      " it!",
+      "white"
+     ]
+    ]
    ]
   },
   {
@@ -245,7 +267,7 @@
     "p_t",
     0,
     "s",
-    -0.1
+    -0.06
    ],
    "to": [
     "p_q",
@@ -338,13 +360,48 @@
    ]
   },
   {
-   "id": "cta",
-   "kind": "cta",
+   "id": "share",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
    "from": [
     "p_a",
     -1,
     "e",
     0.35
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:📲"
+     ],
+     [
+      " Send to",
+      "white"
+     ]
+    ],
+    [
+     [
+      "a friend",
+      "yellow"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
    ],
    "to": [
     "end"

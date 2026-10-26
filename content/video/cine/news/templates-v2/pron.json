@@ -24,7 +24,7 @@
  "lines": [
   {
    "id": "f_h",
-   "text": "Many learners say this word wrong."
+   "text": "You're probably saying this word wrong."
   },
   {
    "id": "f_w",
@@ -92,6 +92,11 @@
      5
     ]
    },
+   "gap": 0.6
+  },
+  {
+   "id": "f_sh",
+   "text": "Send this to a friend who says it wrong!",
    "gap": 0.6
   },
   {
@@ -302,10 +307,10 @@
     -0.06
    ],
    "to": [
-    "f_c",
-    0,
-    "s",
-    -0.08
+    "f_b",
+    -1,
+    "e",
+    0.3
    ],
    "rows": [
     [
@@ -325,6 +330,41 @@
      ],
      [
       "@ok"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "share",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "f_b",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "f_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:📲"
+     ],
+     [
+      " Send to",
+      "white"
+     ]
+    ],
+    [
+     [
+      "a friend",
+      "yellow"
      ]
     ]
    ]
