@@ -190,8 +190,9 @@ def _tween(Fa, Fb, w):
     gx, gy = np.meshgrid(np.arange(w_, dtype=np.float32), np.arange(h_, dtype=np.float32))
     if w < 0.5: f = cv2.resize(cv2.calcOpticalFlowFarneback(ga, gb, None, 0.5, 5, 31, 4, 7, 1.5, 0), (w_, h_)) * 2; return cv2.remap(Fa, gx - w * f[..., 0], gy - w * f[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
     f = cv2.resize(cv2.calcOpticalFlowFarneback(gb, ga, None, 0.5, 5, 31, 4, 7, 1.5, 0), (w_, h_)) * 2; return cv2.remap(Fb, gx - (1 - w) * f[..., 0], gy - (1 - w) * f[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
-HOLDS = {}; MOTION = dict(held_frames_smoothed=0, holds=0)
-for c, fr in RAW.items():
+HOSTFX = SP.get('host_fx', 'raw'); print('host_fx', HOSTFX, flush=True)   # raw = the Kling clip as generated (owner 26/10): no mouth swap, no hold smoothing
+HOLDS = {}; MOTION = dict(held_frames_smoothed=0, holds=0, host_fx=HOSTFX)
+for c, fr in (RAW.items() if HOSTFX != 'raw' else []):
     g = [cv2.resize(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY), (135, 240)).astype(np.float32) for f in fr]
     d = np.array([np.abs(g[k + 1] - g[k]).mean() for k in range(len(g) - 1)]); thr = max(0.12, 0.2 * float(np.median(d))); runs = []; k = 0
     while k < len(d):
@@ -1008,7 +1009,7 @@ for fi in range(NF):
     if PREV is not None and fi not in PREV: continue
     v = VSEQ[fi]; acc = None; srcs = SEQ[fi]; ims = []
     for c, k, wgt in srcs:
-        Fm = norm_frame(MO[c].apply(RAW[c][k].copy(), k, mouth_spr(c, fi))); ims.append(Fm)
+        Fm = norm_frame(RAW[c][k].copy() if HOSTFX == 'raw' else MO[c].apply(RAW[c][k].copy(), k, mouth_spr(c, fi))); ims.append(Fm)
         acc = Fm.astype(np.float32) * wgt if acc is None else acc + Fm.astype(np.float32) * wgt
     if len(srcs) == 2: F = morph(ims[0], ims[1], srcs[1][2] / max(1e-6, srcs[0][2] + srcs[1][2]))   # dissolve = flow morph (no double arms / heads)
     else: F = np.clip(acc + 0.5, 0, 255).astype(np.uint8) if len(srcs) > 1 else Fm
@@ -1045,7 +1046,7 @@ for fi in range(NF):
     if SHARP_DUE and len(srcs) == 1:   # sharpness sample every second, on the next single-source frame (a dissolve is not a resampling measure)
         SHARP_DUE = False
         c0, k0 = srcs[0][0], srcs[0][1]; FR = HEAD_RAW[c0]; FR = [FR[0] + 80, FR[1] + 120, FR[2] - 80, FR[3] - 60]
-        Fn = norm_frame(MO[c0].apply(RAW[c0][k0].copy(), k0, mouth_spr(c0, fi)), crop=False) if CROP else F
+        Fn = norm_frame(RAW[c0][k0].copy() if HOSTFX == 'raw' else MO[c0].apply(RAW[c0][k0].copy(), k0, mouth_spr(c0, fi)), crop=False) if CROP else F
         nat = cv2.cvtColor(Fn[FR[1]:FR[3], FR[0]:FR[2]], cv2.COLOR_BGR2GRAY); r = [round(x) for x in to_screen(_tb(FR) if CROP else FR, s)]; r = [max(0, r[0]), max(0, r[1]), min(W, r[2]), min(H, r[3])]
         scr = cv2.cvtColor(out[r[1]:r[3], r[0]:r[2]], cv2.COLOR_BGR2GRAY)
         SHARP.append(dict(frame=fi, s=round(s, 4), rect=r, var_native=round(float(cv2.Laplacian(nat, cv2.CV_64F).var()), 2), var_render=round(float(cv2.Laplacian(scr, cv2.CV_64F).var()), 2)))

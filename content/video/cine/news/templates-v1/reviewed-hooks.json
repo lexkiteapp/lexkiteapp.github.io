@@ -220,7 +220,7 @@
     "w_2": "Two: delicious. Use it for food.",
     "w_3": "Three: amazing. It's amazing!",
     "w_4": "Four: awesome. That's awesome!",
-    "w_5": "Five: outstanding. For really great work.",
+    "w_5": "Five: excellent. For really great work.",
     "w_r": "Which one will you use today? Tell me in the comments!",
     "w_sh": "Send this to a friend who always says very good!",
     "w_c": "Save this, and review your words on lexkite.com."
@@ -228,7 +228,7 @@
    "promise": {
     "tags": 5
    },
-   "note": "'Very good' is correct but plain; the five alternatives are natural US English: great (general), delicious (food only), amazing, awesome (casual), outstanding (work/results). Hook says 'don't JUST say' – not a false error claim."
+   "note": "'Very good' is correct but plain; the five alternatives are natural US English: great (general), delicious (food only), amazing, awesome (casual), excellent (work/results). Hook says 'don't JUST say' – not a false error claim."
   },
   "t7_usuk_cookie": {
    "template": "pair",

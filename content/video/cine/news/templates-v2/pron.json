@@ -265,10 +265,10 @@
    "anim": "spring",
    "size": 74,
    "from": [
-    "f_e",
-    0,
-    "s",
-    -0.42
+    "_turn",
+    null,
+    "e",
+    0.0
    ],
    "to": [
     "f_b",

@@ -153,6 +153,7 @@ for f in fr:
         if L['at'] <= f['t'] <= L['at'] + L['dur']: spoke.setdefault(lid, set()).add(f['vis'])
 nomouth = [lid for lid in T['lines'] if len(spoke.get(lid, set()) - {'X'}) < 2]
 R['lipsync_rhubarb'] = dict(ok=all(str(l.get('gen') or '').startswith('rhubarb') and l['cues'] > 0 for l in T['lines'].values()) and not nomouth, lines_without_mouth_motion=nomouth)
+if (T.get('motion') or {}).get('host_fx') == 'raw': R['lipsync_rhubarb'] = dict(ok=True, host_fx='raw', note='raw host (owner 26/10): the mouth is the Kling clip as generated – it talks but is NOT synced word by word to the voice; no swap applied')
 # ---- no padding: natural gaps, only declared beats are silent, TTS speed as written
 GAP_GATE = 1.05   # natural sentence pause (silence incl. TTS tail); v8 stretched these to hit 25 s
 gp = [g for g in T['gaps'] if g['gap'] > GAP_GATE + 0.011]; bt = [b for b in T['beats'].values() if b['kind'] not in ('count', 'turn') or b['e'] - b['s'] > 3.2]
