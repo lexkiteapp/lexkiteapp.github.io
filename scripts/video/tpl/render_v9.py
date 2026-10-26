@@ -502,6 +502,7 @@ def note_im(lines, k=1.0, rw=None):   # layout-v12 note: mock typography for eve
         for seg in l['segs']:
             t_, c_ = seg[0], (seg[1] if len(seg) > 1 else dc or 'navy')
             if t_.startswith('@emoji:'):
+                if x > S_(4): x += S_(10)   # a gap before an emoji that follows text (owner: ✅/❌ stuck to the word)
                 e_ = emoji_im(t_[7:], S_(z)); f2 = min(1.0, S_(z) / max(e_.width, e_.height)); e_ = e_.resize((max(1, int(e_.width * f2)), max(1, int(e_.height * f2))), Image.LANCZOS)
                 im.alpha_composite(e_, (int(x), int(y + (S_(lh) - e_.height) / 2))); x += e_.width + S_(12); continue
             if t_.startswith('@ipa:'): f3 = ImageFont.truetype(f"{o.fonts}/NotoSans-Medium.ttf", S_(z)); d.text((x, y + S_(lh) / 2), t_[5:], font=f3, fill=LCOL['grey'] + (255,), anchor='lm'); x += f3.getlength(t_[5:]); continue
