@@ -109,7 +109,7 @@ def font(sz, f=None):
     return _fc[k]
 ease = lambda x, p=EASE['out']: bezier(p, max(0.0, min(1.0, x)))
 CAPR = -ImageFont.truetype(FH, 1000).getbbox('H', anchor='ls')[1] / 1000   # rendered cap height / font size (BeVietnamPro ExtraBold H = 0.74)
-MIN_CAP = dict(caption=int(SP.get('caption_cap', 80)), hook=72, body=56); MIN_IMG = 300   # layout v12: spec caption_cap (teaching series 62: the board holds the lesson)   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
+MIN_CAP = dict(caption=int(SP.get('caption_cap', 80)), hook=72, body=56, card=26); MIN_IMG = 300   # card = owner-approved layout-v12 mock (26/10): example lines 38 px font   # layout v12: spec caption_cap (teaching series 62: the board holds the lesson)   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
 CAPF = math.ceil(MIN_CAP['caption'] / CAPR) + 1
 COL = dict(white=(255, 255, 255), red=C['red'], green=C['green'], yellow=C['yellow'], cream=C['cream'], mint=C['mint'], navy=C['navy'], navy2=C['navy2'], ink=C['navy'])
 STROKE = (10, 22, 26); ACT = COL[SP.get('active', 'yellow')]; ACC = COL[SP['accent']]
@@ -427,6 +427,31 @@ def ipa_im(txt, sz, ink):   # US IPA (owner 26/10: "ghi phiên âm luôn"): Noto
     tw = int(fo.getlength(txt)) + 4 * st * ss + 8; th = int(z * ss * 1.6) + 4 * st * ss; im = Image.new('RGBA', (tw, th), (0, 0, 0, 0))
     ImageDraw.Draw(im).text((2 * st * ss + 4, th // 2), txt, font=fo, fill=(C['navy2'] if ink else (255, 255, 255)) + (255,), anchor='lm', stroke_width=st * ss, stroke_fill=STROKE + (255,))
     im = im.reduce(ss); bb = im.getbbox() or (0, 0, 1, 1); return im.crop((bb[0], bb[1] - 4, bb[2], bb[3] + 4))
+LCOL = dict(green=(20, 138, 74), blue=(40, 90, 160), red=(214, 64, 34), navy=(22, 52, 64), grey=(92, 110, 120), yellow=(255, 214, 90), white=(255, 255, 255))
+def lesson_im(P, n_items, k=1.0, rw=None):   # layout-v12 lesson card (owner-approved mock, out/news/layout-v12): one left edge, word/IPA/meaning/example
+    XB_ = lambda z: font(round(z * k)); BD_ = lambda z: font(round(z * k), FBd); NO_ = lambda z: ImageFont.truetype(f"{o.fonts}/NotoSans-Medium.ttf", round(z * k))
+    S_ = lambda v: round(v * k); items = P['items'][:n_items]; save = P.get('save'); pad = S_(30) if save else 0
+    H_ = pad + (S_(90) if P.get('title') else 0) + len(items) * S_(290) + (S_(70) if P.get('footer') else 0) + pad
+    W_ = rw or 2000; im = Image.new('RGBA', (W_, H_), (0, 0, 0, 0)); d = ImageDraw.Draw(im); y = pad; x0 = pad + S_(4); wmax = 0
+    if save: d.rounded_rectangle([0, 0, W_ - 1, H_ - 1], S_(36), fill=(255, 253, 246, 255), outline=LCOL['navy'] + (255,), width=max(3, S_(6)))
+    if P.get('title'): d.text((x0, y), P['title'], font=XB_(58), fill=LCOL['red'] + (255,)); wmax = max(wmax, x0 + XB_(58).getlength(P['title'])); y += S_(90)
+    for it in items:
+        col = LCOL[it.get('color', 'green')]; ic = it.get('icon', 'in'); dd = S_(78)
+        if ic in ('in', 'out'):
+            d.ellipse([x0, y + S_(8), x0 + dd, y + S_(8) + dd], fill=col + (255,)); ax, ay = x0 + dd / 2, y + S_(8) + dd / 2; r_ = S_(22)
+            if ic == 'in': d.polygon([(ax - r_, ay), (ax + 2, ay - S_(18)), (ax + 2, ay + S_(18))], fill=(255, 255, 255, 255)); d.rectangle([ax, ay - S_(7), ax + r_, ay + S_(7)], fill=(255, 255, 255, 255))
+            else: d.polygon([(ax + r_, ay), (ax - 2, ay - S_(18)), (ax - 2, ay + S_(18))], fill=(255, 255, 255, 255)); d.rectangle([ax - r_, ay - S_(7), ax, ay + S_(7)], fill=(255, 255, 255, 255))
+        else: e_ = emoji_im(ic, dd); im.alpha_composite(e_, (int(x0), int(y + S_(8))))
+        x = x0 + S_(100); d.text((x, y), it['word'], font=XB_(78), fill=col + (255,)); wmax = max(wmax, x + XB_(78).getlength(it['word']))
+        if it.get('ipa'): d.text((x, y + S_(92)), it['ipa'], font=NO_(44), fill=LCOL['grey'] + (255,)); wmax = max(wmax, x + NO_(44).getlength(it['ipa']))
+        if it.get('mean'): d.text((x, y + S_(152)), it['mean'], font=BD_(40), fill=LCOL['navy'] + (255,)); wmax = max(wmax, x + BD_(40).getlength(it['mean']))
+        if it.get('ex'):
+            pre, w_, post = it['ex']; f_ = BD_(38); fx = x; yy = y + S_(214); d.text((fx, yy), pre, font=f_, fill=LCOL['grey'] + (255,)); fx += f_.getlength(pre); ww = f_.getlength(w_)
+            d.rounded_rectangle([fx - S_(6), yy + 2, fx + ww + S_(6), yy + S_(52)], S_(10), fill=LCOL['yellow'] + (255,)); d.text((fx, yy), w_, font=f_, fill=LCOL['navy'] + (255,)); fx += ww
+            d.text((fx, yy), post, font=f_, fill=LCOL['grey'] + (255,)); wmax = max(wmax, fx + f_.getlength(post))
+        y += S_(290)
+    if P.get('footer'): d.text((x0, y), P['footer'], font=XB_(44), fill=LCOL['green'] + (255,)); wmax = max(wmax, x0 + XB_(44).getlength(P['footer']))
+    return im, wmax + pad
 def plate_wrap(im, colname, pad=(34, 22)):
     w, h = im.width + 2 * pad[0], im.height + 2 * pad[1]; P = Image.new('RGBA', (w * 2, h * 2), (0, 0, 0, 0)); d = ImageDraw.Draw(P)
     d.rounded_rectangle([0, 0, w * 2 - 1, h * 2 - 1], min(h, 64) * 2 // 2, fill=COL[colname] + (246,), outline=(255, 255, 255, 235), width=8)
@@ -531,10 +556,26 @@ class Pop:
             elif s.kind == 'stress': s.build_stress_ink(rw, rh)
             elif s.kind == 'turn': s.build_turn_ink(rw, rh)
             elif s.kind == 'cta': s.build_cta_ink(rw, rh)
+            elif s.kind == 'lesson': s.build_lesson(rw, rh)
         finally: INK = False; POPW, POPH = CAPW, BAND_H
         s.where = 'board'; s.mcur = s.meas
         print(f"pop {s.id} -> board {s.variant or ''} {s.im.size} in {rw}x{rh} meas {[(a, round(b)) for a, b in s.meas]} pages {len(getattr(s, 'pages', []) or [1])} region {s.region}", flush=True)
     def fits(s, im, rw, rh): return im.width <= rw - 4 and im.height <= rh - 4
+    def build_lesson(s, rw, rh):   # largest scale <= 1 at which the FULL card (all items) fits the board region; never below 0.85 of the mock
+        P = s.P; s.etype = 'card'; n = len(P['items'])
+        for k in [x / 100 for x in range(100, 84, -1)]:
+            im, wneed = lesson_im(P, n, k, rw - 4)
+            if wneed <= rw - 4 and im.height <= rh - 4: break
+        else: raise AssertionError(('lesson card does not fit the board region at 0.85 of the mock size', s.id, round(wneed), im.height, rw, rh))
+        s.k = k; s.rw = rw - 4; s.reveal = [s.t0] + [tm_of(it['at']) if it.get('at') else s.t0 for it in P['items'][1:]]
+        s.text = ' / '.join(it['word'] + (' ' + it.get('ipa', '')) for it in P['items']); s.px = 38 * k
+        s.meas = [('card', CAPR * 38 * k)]
+        s.im = s.lesson_frame(n, rh - 4)   # canvas = whole region height: the card sits at the TOP-left like the mock
+    def lesson_frame(s, m, H):   # same canvas height for every build-up step (no jump), content top-left
+        key = ('ls', m)
+        if key not in s.cache:
+            im = lesson_im(s.P, m, s.k, s.rw)[0]; c = Image.new('RGBA', (s.rw, H), (0, 0, 0, 0)); c.alpha_composite(im, (0, 0)); s.cache[key] = c
+        return s.cache[key]
     def build_rich_ink(s, rw, rh):
         P = s.P; head = P.get('role') in ('hook', 'headline'); minf = MINF_HOOK if head else MINF_BODY; s.etype = 'hook' if head else 'body'
         s.text = P.get('_text') or rows_text(P['rows']); g_ = lambda z: round(z * 0.04)
@@ -760,6 +801,7 @@ class Pop:
             if key not in s.cache: s.cache[key] = s.compose_stress(act)
             return s.cache[key]
         if k == 'turn': return s.compose_turn(T)
+        if k == 'lesson': s.mcur = s.meas; return s.lesson_frame(sum(1 for r in s.reveal if T >= r - 0.02), s.im.height)
         s.mcur = s.meas
         if k == 'card' and getattr(s, 'sub_at', None) and T >= s.sub_at: s.mcur = s.meas_sub; return s.im_sub
         if k == 'cta' and getattr(s, 'cta_pages', None) and T >= s.cta_pages[0]: return s.cta_pages[1]

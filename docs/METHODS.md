@@ -71,6 +71,8 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
 - Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
 
+- Video dạy học (chủ 26/10): nhân vật để NGUYÊN clip (không ghép miệng/tay); kho footage nối tiếp mỗi giáo viên (≥3 clip nói + 1 clip ngậm miệng nghe, 2D/3D); nhịp miệng clip khớp nhịp giọng ±20 % (`mouth_tempo.py`), giọng ≤130 từ/phút; đoạn nói chỉ chạy khi có giọng, lúc nghỉ dùng clip ngậm miệng; bố cục cột trái v12. Chi tiết `docs/VIDEO-SERIES.md` §Production standard.
+
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
 - Mảng zsh 1-based → gửi Kling prompt rỗng (−50 cr): dùng `bash -c`, dry-run in lệnh.

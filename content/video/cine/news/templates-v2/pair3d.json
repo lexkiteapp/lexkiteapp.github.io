@@ -163,66 +163,11 @@
    "align": "l"
   },
   {
-   "id": "borrow",
-   "kind": "rich",
+   "id": "lesson",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 80,
    "from": [
     "p_s",
-    0,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "p_l",
-    0,
-    "s",
-    -0.08
-   ],
-   "rows": [
-    [
-     [
-      "@emoji:⬅️"
-     ],
-     [
-      " borrow",
-      "yellow"
-     ]
-    ],
-    [
-     [
-      "@ipa:/ˈbɑːroʊ/"
-     ]
-    ],
-    [
-     [
-      "= take it for a while",
-      "white"
-     ]
-    ],
-    [
-     [
-      "“Can I ",
-      "white"
-     ],
-     [
-      "borrow",
-      "yellow"
-     ],
-     [
-      " a pen?”",
-      "white"
-     ]
-    ]
-   ]
-  },
-  {
-   "id": "lend",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 80,
-   "from": [
-    "p_l",
     0,
     "s",
     -0.06
@@ -233,41 +178,38 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:➡️"
-     ],
-     [
-      " lend",
-      "green"
+   "title": "BORROW vs LEND",
+   "items": [
+    {
+     "icon": "in",
+     "color": "green",
+     "word": "borrow",
+     "ipa": "/ˈbɑːroʊ/",
+     "mean": "= take it for a while",
+     "ex": [
+      "“Can I ",
+      "borrow",
+      " a pen?”"
      ]
-    ],
-    [
-     [
-      "@ipa:/lend/"
-     ]
-    ],
-    [
-     [
-      "= give it for a while",
-      "white"
-     ]
-    ],
-    [
-     [
+    },
+    {
+     "icon": "out",
+     "color": "blue",
+     "word": "lend",
+     "ipa": "/lend/",
+     "mean": "= give it for a while",
+     "ex": [
       "“I can ",
-      "white"
-     ],
-     [
       "lend",
-      "green"
+      " you a pen.”"
      ],
-     [
-      " you a pen.”",
-      "white"
+     "at": [
+      "p_l",
+      0,
+      "s",
+      -0.06
      ]
-    ]
+    }
    ]
   },
   {
@@ -374,9 +316,8 @@
   },
   {
    "id": "save",
-   "kind": "rich",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 80,
    "from": [
     "p_a",
     -1,
@@ -389,40 +330,35 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "SAVE THIS",
-      "red"
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "in",
+     "color": "green",
+     "word": "borrow",
+     "ipa": "/ˈbɑːroʊ/",
+     "mean": "= take  ·  FROM",
+     "ex": [
+      "“Can I ",
+      "borrow",
+      " it?”"
      ]
-    ],
-    [
-     [
-      "@emoji:⬅️"
-     ],
-     [
-      " borrow",
-      "yellow"
-     ],
-     [
-      " = take · FROM",
-      "white"
+    },
+    {
+     "icon": "out",
+     "color": "blue",
+     "word": "lend",
+     "ipa": "/lend/",
+     "mean": "= give  ·  TO",
+     "ex": [
+      "“I can ",
+      "lend",
+      " it.”"
      ]
-    ],
-    [
-     [
-      "@emoji:➡️"
-     ],
-     [
-      " lend",
-      "green"
-     ],
-     [
-      " = give · TO",
-      "white"
-     ]
-    ]
-   ]
+    }
+   ],
+   "footer": "lexkite.com"
   },
   {
    "id": "cta",
@@ -442,5 +378,5 @@
   "name": "Same or Different?",
   "ep": 1
  },
- "caption_cap": 56
+ "caption_cap": 42
 }

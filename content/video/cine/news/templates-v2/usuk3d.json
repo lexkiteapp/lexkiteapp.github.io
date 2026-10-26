@@ -197,52 +197,11 @@
    ]
   },
   {
-   "id": "us",
-   "kind": "rich",
+   "id": "lesson",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 80,
    "from": [
     "u_us",
-    0,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "u_uk",
-    0,
-    "s",
-    -0.08
-   ],
-   "rows": [
-    [
-     [
-      "@emoji:🇺🇸"
-     ],
-     [
-      " cookie",
-      "green"
-     ]
-    ],
-    [
-     [
-      "@ipa:/ˈkʊki/"
-     ]
-    ],
-    [
-     [
-      "= sweet snack",
-      "white"
-     ]
-    ]
-   ]
-  },
-  {
-   "id": "uk",
-   "kind": "rich",
-   "anim": "spring",
-   "size": 80,
-   "from": [
-    "u_uk",
     0,
     "s",
     -0.06
@@ -253,27 +212,38 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🇬🇧"
+   "title": "US vs UK",
+   "items": [
+    {
+     "icon": "🇺🇸",
+     "color": "green",
+     "word": "cookie",
+     "ipa": "/ˈkʊki/",
+     "mean": "= sweet snack (US)",
+     "ex": [
+      "“A ",
+      "cookie",
+      ", please!”"
+     ]
+    },
+    {
+     "icon": "🇬🇧",
+     "color": "blue",
+     "word": "biscuit",
+     "ipa": "/ˈbɪskɪt/",
+     "mean": "= same snack (UK)",
+     "ex": [
+      "“A ",
+      "biscuit",
+      " with tea.”"
      ],
-     [
-      " biscuit",
-      "navy2"
+     "at": [
+      "u_uk",
+      0,
+      "s",
+      -0.06
      ]
-    ],
-    [
-     [
-      "@ipa:/ˈbɪskɪt/"
-     ]
-    ],
-    [
-     [
-      "= the same snack",
-      "white"
-     ]
-    ]
+    }
    ]
   },
   {
@@ -407,9 +377,8 @@
   },
   {
    "id": "save",
-   "kind": "rich",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 80,
    "from": [
     "u_a",
     -1,
@@ -422,39 +391,35 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "SAVE THIS",
-      "red"
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "🇺🇸",
+     "color": "green",
+     "word": "cookie",
+     "ipa": "/ˈkʊki/",
+     "mean": "= biscuit (UK)",
+     "ex": [
+      "“A ",
+      "cookie",
+      ", please!”"
      ]
-    ],
-    [
-     [
-      "@emoji:🇺🇸"
-     ],
-     [
-      " cookie = ",
-      "green"
-     ],
-     [
-      "@emoji:🇬🇧"
-     ],
-     [
-      " biscuit",
-      "navy2"
+    },
+    {
+     "icon": "🇺🇸",
+     "color": "blue",
+     "word": "biscuit",
+     "ipa": "/ˈbɪskɪt/",
+     "mean": "= soft bread (US)",
+     "ex": [
+      "“",
+      "Biscuits",
+      " & gravy”"
      ]
-    ],
-    [
-     [
-      "@emoji:🇺🇸"
-     ],
-     [
-      " biscuit = bread",
-      "yellow"
-     ]
-    ]
-   ]
+    }
+   ],
+   "footer": "lexkite.com"
   },
   {
    "id": "cta",
@@ -470,5 +435,5 @@
    ]
   }
  ],
- "caption_cap": 56
+ "caption_cap": 42
 }

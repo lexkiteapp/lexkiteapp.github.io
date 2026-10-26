@@ -50,6 +50,12 @@ not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per 
 - Footage bank, not per-video generation: chained Kling clips per teacher (2D and 3D alternate for variety); videos reuse the bank at 0 credits.
 - Layout v12: one left board column – lesson cards (word / IPA / meaning / example), left-aligned quiz with equal pills, 'SAVE THIS' card, one-line captions; qc text_on_board / head_clear / caption_clear catch any overflow.
 - Pace ≤ 130 wpm (qc `pace`), 0.6–0.8 s breaths; IPA from the app dictionary (Noto Sans glyphs).
+- **Mouth tempo = voice tempo (owner 26/10).** The host mouth is never edited, so the FOOTAGE must match the voice: (1) bank talk clips are
+  generated with a slow teaching cadence ("speaks slowly and calmly, gentle mouth movement"); each clip's mouth cadence (open/close cycles per
+  second, measured on the face crop by `scripts/video/tpl/mouth_tempo.py`) must sit within ±20 % of the voice syllable rate (≈ 2.0–2.4 syl/s at
+  ≤ 130 wpm), else the clip is not used for talk; (2) speech-gated assembly: talk clips play only while the voice speaks; pauses, the 3-2-1 count
+  and the your-turn beat use the teacher's **closed-mouth listen/nod clip**; (3) every bank teacher therefore has ≥ 3 chained talk clips + 1 listen
+  clip (2D and 3D). Voice pace itself stays ≤ 130 wpm (qc `pace`).
 
 ## Series rules (every episode)
 - Hook ≤ 1.5 s naming the payoff ("99 % of learners say this wrong"). The hook must be true (hook_truth gate).
