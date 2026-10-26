@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/roleplay",
   "say": "Roleplay it out loud"
  },
- "speed": 1.0,
+ "speed": 0.8,
  "lines": [
   {
    "id": "r_h",
@@ -30,7 +30,7 @@
   {
    "id": "r_2",
    "text": "Sure, here you go.",
-   "speed": 0.95,
+   "speed": 0.8,
    "gap": 0.3
   },
   {
@@ -41,7 +41,7 @@
   {
    "id": "r_4",
    "text": "Just one, please.",
-   "speed": 0.95,
+   "speed": 0.8,
    "gap": 0.3
   },
   {

@@ -141,8 +141,8 @@ for l in LINE_SPEC:
                       whisper=wj.get('whisper'), speed=l.get('speed', SP.get('speed', 1.0)))
 
 # ---------------- timeline: natural pacing, no stretch ----------------
-GAP0, GAPMAX, TAIL = 0.22, 0.45, 1.2
-GAP_GATE = 0.60   # measured silence between lines (incl. the TTS tail) – a natural sentence pause, never stretched
+GAP0, GAPMAX, TAIL = 0.35, 0.60, 1.2   # teaching pace (owner 26/10: v10 'nói hơi nhanh'): a breath between sentences
+GAP_GATE = 0.80   # measured silence between lines (incl. the TTS tail) – a natural sentence pause, never stretched
 t = 0.12; ATL = {}; BEATS = {}; GAPS = []; prev_end = None
 for l in SP['lines']:
     if l.get('beat'):

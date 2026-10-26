@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/pron",
   "say": "Practice pronunciation"
  },
- "speed": 1.0,
+ "speed": 0.8,
  "error_lines": [
   "f_w"
  ],

@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 1.0,
+ "speed": 0.8,
  "error_lines": [
   "m_w"
  ],

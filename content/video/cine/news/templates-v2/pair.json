@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 1.0,
+ "speed": 0.8,
  "display": {
   "blank": "___"
  },

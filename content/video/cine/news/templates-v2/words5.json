@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/review",
   "say": "Review your words"
  },
- "speed": 1.0,
+ "speed": 0.8,
  "lines": [
   {
    "id": "w_h",
