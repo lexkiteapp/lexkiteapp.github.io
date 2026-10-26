@@ -13,5 +13,5 @@ node scripts/test/docs-budget.mjs
 node scripts/test/infra-check.mjs
 node scripts/test/no-url-pathname.mjs
 node scripts/test/ci-triage.mjs
-node scripts/jobs/gen.mjs >/dev/null && node scripts/test/jobs-check.mjs   # workflow có lịch → infra/jobs.json
+node scripts/jobs/gen.mjs --write >/dev/null && node scripts/jobs/gen.mjs && node scripts/test/jobs-check.mjs   # workflow có lịch → infra/jobs.json
 git status --short

@@ -372,6 +372,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "seo-gsc",
+   "workflow": "seo-gsc.yml",
+   "cron": [
+    "0 0 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "nav-render",
    "workflow": "nav-render.yml",
    "cron": [
@@ -676,7 +690,7 @@ export const REG = {
    },
    "lease": true,
    "paused": false,
-   "_note": "Ảnh mọi nghĩa – fill BẬT 24/10 (chủ: chất lượng trước, dùng tối đa GrabCast): 4 lượt/ngày, ma trận ≤ 10 việc, mỗi việc thuê riêng (LEASE_SHARD → run id -sN), trần ảnh việc = max_gc / shards (fill 6000/lượt). Mỗi nghĩa cảnh tới `variants` (4, ≤ 6) biến thể, nhận biến thể ĐẦU qua giám khảo cảnh ngưỡng độ chính xác cao (vimg-judge-scene.json); trượt hết → content/lexicon/vimg-scene-queue.json (sửa prompt sau). Ảnh → kho m4 (MEDIA4_DEPLOY_KEY) qua media.lexkite.com/vimg/. Mở dần 10 % (vocab_img_pct), dự phòng Noto/Wikimedia giữ. Sổ ảnh = git – không D1, không Pages."
+   "_note": "26/10: GrabCast hỏng (500 ×700 ảnh) → provider cf = Workers AI thẳng (cf-direct.mjs: CF_POOL bỏ 5 đầu → tài khoản 2) cho vẽ + giám khảo thị giác; lịch chỉ chạy khi vars.VIMG_SCHEDULE=1. Ảnh mọi nghĩa – fill BẬT 24/10 (chủ: chất lượng trước, dùng tối đa GrabCast): 4 lượt/ngày, ma trận ≤ 10 việc, mỗi việc thuê riêng (LEASE_SHARD → run id -sN), trần ảnh việc = max_gc / shards (fill 6000/lượt). Mỗi nghĩa cảnh tới `variants` (4, ≤ 6) biến thể, nhận biến thể ĐẦU qua giám khảo cảnh ngưỡng độ chính xác cao (vimg-judge-scene.json); trượt hết → content/lexicon/vimg-scene-queue.json (sửa prompt sau). Ảnh → kho m4 (MEDIA4_DEPLOY_KEY) qua media.lexkite.com/vimg/. Mở dần 10 % (vocab_img_pct), dự phòng Noto/Wikimedia giữ. Sổ ảnh = git – không D1, không Pages."
   },
   {
    "id": "d1-backup",
@@ -818,6 +832,20 @@ export const REG = {
    "lease": true,
    "paused": true,
    "_note": "tpl1b batch shorts (docs/VIDEO-TEMPLATES.md §9): dispatch only (lease --force) until the owner approves batch 1; cron = planned slot; the lease covers the store job (Drive pool, ≤ 45 min), render jobs use GitHub minutes only. Groq hook judge + ≤ 10 render jobs + store to lexkite-shorts/Drive; never publishes"
+  },
+  {
+   "id": "dict-stage",
+   "workflow": "dict-stage.yml",
+   "cron": [
+    "0 2 * * 2"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
+   "lease": false
   }
  ]
 };

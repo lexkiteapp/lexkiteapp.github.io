@@ -28,6 +28,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | Giờ UTC | Việc | Lịch cron | Ưu tiên | Tài nguyên | Phút | Ước lượng | Thuê |
 |---|---|---|---|---|---|---|---|
 | 00:00 | `health` | `0 0 * * *` | reports | gh_minutes | 45 | d1_main_reads≈20000 | — |
+| 00:00 | `seo-gsc` | `0 0 * * 1` | reports | gh_minutes | 2 | — | — |
 | 00:00 | `push` | `*/10 * * * *` | publishing | web_push | 1 | d1_internal_reads≈17000, d1_internal_writes≈2000 | — |
 | 00:07 | `blog-publish` | `7 * * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
@@ -44,6 +45,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:40 | `vocab-img-scene` | `40 1,7,13,19 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
 | 01:45 | `footage-archive` | `45 1,2,6,14,15,16,17,18,20,21,22 * * *` | archive | drive_pool, d1_internal, gh_minutes | 50 | d1_internal_reads≈3000, drive_calls≈700 | ✓ |
 | 01:50 | `contrast` | `50 1 * * *` | reports | gh_minutes | 15 | — | — |
+| 02:00 | `dict-stage` | `0 2 * * 2` | reports | gh_minutes | 5 | — | — |
 | 02:10 | `nav-render` | `10 2 * * *` | render | gh_minutes | 20 | — | — |
 | 02:17 | `content-protect` | `17 2 * * 0` | reports | gh_minutes | 10 | — | — |
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
@@ -112,4 +114,5 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/vocab-img/icons-lex.mjs` – icon theo nghĩa (tầng icon) | `dist/lexicon.json` | vocab-img |
 | `scripts/vocab-img/wiki.mjs` – ảnh Wikimedia theo nghĩa | `dist/lexicon.json` | vocab-img |
 | `scripts/lexicon/expand/job.mjs` – tập vi của kho hiện có = danh sách kiểm vi do AI lấp (cùng Viet74K) | bỏ qua: chỉ đọc nghĩa vi để kiểm chính tả/từ có thật; không ghi/xuất kho | — |
+| `scripts/dict/build.mjs` – trang từ điển tĩnh /dict (docs/SEO-DICT-PAGES.md) | `loadBrowserIndex` | dict-pages.yml (CI) |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |
