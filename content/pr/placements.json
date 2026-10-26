@@ -199,6 +199,18 @@
       "expectLink": "lexkite.com",
       "expectedRel": "unknown",
       "notes": "Submitted from web (librarian review). CC BY, English Language Arts, HS/CC/Adult, Data Set. REJECTED 26/10 by OER Commons review (generic reasons: duplicate/out of scope/quality/copyright). Retry later via Open Author as an instructional worksheet (CC BY), not a link to the dataset page."
+    },
+    {
+      "id": "oercommons-worksheet-confused-pairs",
+      "platform": "OER Commons (Open Author)",
+      "type": "listing",
+      "url": "https://oercommons.org/courseware/lesson/148864/overview",
+      "account": "Quyen Khieu Dinh",
+      "submittedAt": "2026-10-26",
+      "status": "pending",
+      "expectLink": "doi.org",
+      "expectedRel": "unknown",
+      "notes": "CC BY worksheet (10 pairs + answer key) adapted from the dataset; source line links the Zenodo DOI. Published by owner after the form bug; anonymous curl gets 403 (bot protection or under review)."
     }
   ]
 }
