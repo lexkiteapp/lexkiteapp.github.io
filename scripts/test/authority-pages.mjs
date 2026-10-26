@@ -54,6 +54,11 @@ const { loadPairs, stats } = await import('../build-authority.mjs');
 const pairs = loadPairs(), st = stats(pairs);
 ok(pairs.length >= 60, `dataset: chỉ ${pairs.length} nhóm`);
 ok(pairs.every(p => p.mistakes.length && p.words.length >= 2 && p.words.every(w => w.w && w.def)), `dataset: nhóm thiếu từ/định nghĩa/lỗi điển hình: ${pairs.filter(p => !p.mistakes.length || p.words.some(w => !w.def)).map(p => p.id).join(', ')}`);
+// Mô tả công khai (trang, Zenodo, Figshare, HF, Kaggle) ghi "each group has a memory tip" → mọi nhóm phải có mẹo (dòng # trong web/js/usage/pair.js)
+ok(pairs.every(p => p.tip.length >= 20), `dataset: nhóm thiếu memory_tip (thêm dòng # vi | en vào web/js/usage/pair.js): ${pairs.filter(p => p.tip.length < 20).map(p => p.id).join(', ')}`);
+// mistake_note: chỉ được trống ở nhóm không có lỗi điển hình rõ ràng (đã xét tay); nhóm mới phải có dòng ! … => … | vi | en
+const NO_NOTE = new Set(['emigrate-immigrate', 'convince-persuade']);
+ok(pairs.every(p => (p.mistakes[0] || {}).note || NO_NOTE.has(p.id)), `dataset: nhóm thiếu mistake_note: ${pairs.filter(p => !(p.mistakes[0] || {}).note && !NO_NOTE.has(p.id)).map(p => p.id).join(', ')}`);
 ok(pairs.every(p => !VI.test(JSON.stringify({ ...p, words: p.words.map(w => [w.w, w.pos, w.def, w.ex]) }))), 'dataset: lẫn chữ Việt trong bản tiếng Anh tải về');
 const csv = fs.readFileSync(path.join(D, 'research/confused-words.csv'), 'utf8').trim().split('\n');
 ok(csv.length === pairs.length + 1 && csv[0].split(',').length === 12, `csv: ${csv.length - 1} dòng / ${csv[0].split(',').length} cột`);
