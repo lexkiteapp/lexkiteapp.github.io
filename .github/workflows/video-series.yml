@@ -138,10 +138,10 @@ jobs:
           E=$(ls got/*/entry.json 2>/dev/null || true)
           [ -n "$E" ] && { python3 scripts/video/tpl/series_dedupe.py check content/video/cine/news/${{ github.event.inputs.dir }}/registry.json $E || true; }
           python3 - <<'PY' | tee -a "$GITHUB_STEP_SUMMARY"
-          import glob, json, os, sys
+          import glob, json, os, re, sys
           rows = []
           for d in sorted(glob.glob('got/*/')):
-              st = json.load(open(d + 'status.json')) if os.path.exists(d + 'status.json') else {'id': d.split('-sts_')[-1].split('-sod_')[-1].rstrip('/'), 'qc': False}
+              st = json.load(open(d + 'status.json')) if os.path.exists(d + 'status.json') else {'id': re.sub(r'^.*-(s(?:ts|od)_[0-9a-f]+)-[0-9]+/?$', r'\1', d), 'qc': False}
               dd = json.load(open(d + 'entry.dedupe.json')) if os.path.exists(d + 'entry.dedupe.json') else {'ok': None, 'why': ['render failed (no frames)']}
               rows.append((st['id'], st['qc'], dd['ok'], '; '.join(dd['why'])))
           print('| id | qc | unique | note |\n|---|---|---|---|'); [print(f'| {i} | {q} | {u} | {w} |') for i, q, u, w in rows]

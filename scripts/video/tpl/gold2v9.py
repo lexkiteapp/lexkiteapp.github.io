@@ -151,8 +151,9 @@ def build(slug, it, ep):
     a = lambda lid, k=0, off=-0.1: [f'{L}_{lid}', k, 's', off]
     if slug == 'stop-saying-this':
         n_hook = 2 + len(toks(wrong))
-        hook_rows = [[['@x'], [' Stop saying', 'white']], segs(wrong, set(wi), 'red', quote=True)] if n_hook <= HOOK_MAX else \
-                    [[['@x'], [' ', 'white']] + segs(wrong, set(wi), 'red', quote=True)]   # long error: the X badge alone says "stop"
+        # badge (+ "Stop saying" / "Stop" while the hook stays <= 6 words) on its own row, the quoted error on the next row (fits the desk board)
+        lead = [[' Stop saying', 'white']] if n_hook <= HOOK_MAX else [[' Stop', 'white']] if n_hook - 1 <= HOOK_MAX else []
+        hook_rows = [[['@x']] + lead, segs(wrong, set(wi), 'red', quote=True)]
         wrong_sp = ' '.join(toks(wrong)[i] for i in wi); right_sp = ' '.join(toks(right)[i] for i in ri)
         P = [dict(id='hook', kind='rich', role='hook', anim='stamp', size=84, from_=['t', 0], rows=hook_rows),
              dict(id='why', kind='rich', anim='spring', size=84, from_=a('y', 0, -0.2),

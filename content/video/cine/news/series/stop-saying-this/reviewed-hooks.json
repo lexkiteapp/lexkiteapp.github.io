@@ -34,7 +34,7 @@
   },
   "sts_1740b6df": {
    "template": "mistake",
-   "hook": "✗ “Remember me to call her.”",
+   "hook": "✗ Stop / “Remember me to call her.”",
    "hook_true": true,
    "script_reviewed": true,
    "script": {
@@ -61,7 +61,7 @@
    },
    "source": "sb_1740b6df",
    "reviewer": "Claude (expert American English teacher review)",
-   "note": "remember/remind confusion is very common (one verb in many L1s). “Remember me to call her” is wrong in US English (the old UK “remember me to someone” = send regards is a different pattern). Rule, examples and quiz (Can you remind me to buy milk?) are correct. Hook true."
+   "note": "remember/remind confusion is very common (one verb in many L1s). “Remember me to call her” is wrong in US English (the old UK “remember me to someone” = send regards is a different pattern). Rule, examples and quiz (Can you remind me to buy milk?) are correct. Hook “✗ Stop / Remember me to call her.” is true. Re-recorded after the hook row layout change (script unchanged)."
   },
   "sts_2bcb2bbd": {
    "template": "mistake",
@@ -125,7 +125,7 @@
   },
   "sts_068cf065": {
    "template": "mistake",
-   "hook": "✗ “I'm considering to buy a car.”",
+   "hook": "✗ / “I'm considering to buy a car.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -154,7 +154,7 @@
   },
   "sts_466c0a2d": {
    "template": "mistake",
-   "hook": "✗ “They don't allow to smoke here.”",
+   "hook": "✗ / “They don't allow to smoke here.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -183,7 +183,7 @@
   },
   "sts_040ec72a": {
    "template": "mistake",
-   "hook": "✗ “I apologize you for the delay.”",
+   "hook": "✗ / “I apologize you for the delay.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -270,7 +270,7 @@
   },
   "sts_19bde506": {
    "template": "mistake",
-   "hook": "✗ “He married with a teacher.”",
+   "hook": "✗ Stop / “He married with a teacher.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -299,7 +299,7 @@
   },
   "sts_1c747068": {
    "template": "mistake",
-   "hook": "✗ “She is responsible of the budget.”",
+   "hook": "✗ / “She is responsible of the budget.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -328,7 +328,7 @@
   },
   "sts_21612f29": {
    "template": "mistake",
-   "hook": "✗ “We are committed to reduce waste.”",
+   "hook": "✗ / “We are committed to reduce waste.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -357,7 +357,7 @@
   },
   "sts_24f9ee05": {
    "template": "mistake",
-   "hook": "✗ “According to me, it depends.”",
+   "hook": "✗ Stop / “According to me, it depends.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -473,7 +473,7 @@
   },
   "sts_4e852243": {
    "template": "mistake",
-   "hook": "✗ “I feel like to sleep.”",
+   "hook": "✗ Stop / “I feel like to sleep.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -502,7 +502,7 @@
   },
   "sts_52fcf41b": {
    "template": "mistake",
-   "hook": "✗ “The flood caused many damages.”",
+   "hook": "✗ Stop / “The flood caused many damages.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -531,7 +531,7 @@
   },
   "sts_55270c0b": {
    "template": "mistake",
-   "hook": "✗ “What I must do every day?”",
+   "hook": "✗ / “What I must do every day?”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -589,7 +589,7 @@
   },
   "sts_7281e267": {
    "template": "mistake",
-   "hook": "✗ “From where you know Emma?”",
+   "hook": "✗ Stop / “From where you know Emma?”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -647,7 +647,7 @@
   },
   "sts_851ba94f": {
    "template": "mistake",
-   "hook": "✗ “I am very like hiking.”",
+   "hook": "✗ Stop / “I am very like hiking.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -676,7 +676,7 @@
   },
   "sts_8ce033f9": {
    "template": "mistake",
-   "hook": "✗ “I will answer you after.”",
+   "hook": "✗ Stop / “I will answer you after.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -734,7 +734,7 @@
   },
   "sts_9f45e757": {
    "template": "mistake",
-   "hook": "✗ “I am interesting in this job.”",
+   "hook": "✗ / “I am interesting in this job.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -792,7 +792,7 @@
   },
   "sts_cc4c2bf0": {
    "template": "mistake",
-   "hook": "✗ “How much money I give before?”",
+   "hook": "✗ / “How much money I give before?”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -821,7 +821,7 @@
   },
   "sts_f6d438d7": {
    "template": "mistake",
-   "hook": "✗ “It depends of the weather.”",
+   "hook": "✗ Stop / “It depends of the weather.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -879,7 +879,7 @@
   },
   "sts_076acb56": {
    "template": "mistake",
-   "hook": "✗ “He was accused for lying.”",
+   "hook": "✗ Stop / “He was accused for lying.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -966,7 +966,7 @@
   },
   "sts_36b7cec3": {
    "template": "mistake",
-   "hook": "✗ “Thank you for your coming.”",
+   "hook": "✗ Stop / “Thank you for your coming.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -995,7 +995,7 @@
   },
   "sts_3899b628": {
    "template": "mistake",
-   "hook": "✗ “I was responsible of five people.”",
+   "hook": "✗ / “I was responsible of five people.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1024,7 +1024,7 @@
   },
   "sts_57e42a5c": {
    "template": "mistake",
-   "hook": "✗ “For finish, Lee sends report.”",
+   "hook": "✗ Stop / “For finish, Lee sends report.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1053,7 +1053,7 @@
   },
   "sts_5af5827b": {
    "template": "mistake",
-   "hook": "✗ “When you will call me?”",
+   "hook": "✗ Stop / “When you will call me?”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1082,7 +1082,7 @@
   },
   "sts_803a54ea": {
    "template": "mistake",
-   "hook": "✗ “OK, I agree your offer.”",
+   "hook": "✗ Stop / “OK, I agree your offer.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1111,7 +1111,7 @@
   },
   "sts_90df73b3": {
    "template": "mistake",
-   "hook": "✗ “I will explain you my CV.”",
+   "hook": "✗ / “I will explain you my CV.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1140,7 +1140,7 @@
   },
   "sts_c03dbf46": {
    "template": "mistake",
-   "hook": "✗ “I will present you our app.”",
+   "hook": "✗ / “I will present you our app.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1169,7 +1169,7 @@
   },
   "sts_18d9514a": {
    "template": "mistake",
-   "hook": "✗ “The number of student are increasing.”",
+   "hook": "✗ / “The number of student are increasing.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1198,7 +1198,7 @@
   },
   "sts_42fa0282": {
    "template": "mistake",
-   "hook": "✗ “I suggest you to go.”",
+   "hook": "✗ Stop / “I suggest you to go.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1227,7 +1227,7 @@
   },
   "sts_90abd680": {
    "template": "mistake",
-   "hook": "✗ “I wish I can speak French.”",
+   "hook": "✗ / “I wish I can speak French.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1256,7 +1256,7 @@
   },
   "sts_91e27418": {
    "template": "mistake",
-   "hook": "✗ “I don't rarely go out.”",
+   "hook": "✗ Stop / “I don't rarely go out.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
@@ -1285,7 +1285,7 @@
   },
   "sts_9e149cb1": {
    "template": "mistake",
-   "hook": "✗ “He resembles to his father.”",
+   "hook": "✗ Stop / “He resembles to his father.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
