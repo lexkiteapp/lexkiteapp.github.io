@@ -1,11 +1,11 @@
 {
- "at": "2026-10-24",
+ "at": "2026-10-26",
  "words_now": 8177,
  "target": 20000,
  "add": 11823,
  "pages_files": {
   "lex_now": 1360,
-  "lex_at_target": 4182,
+  "lex_at_target": 4301,
   "dist_now": null,
   "dist_at_target": null,
   "gate": 18000
@@ -20,7 +20,7 @@
  "repo_mb": {
   "source_expand": 12.4,
   "source_expand_git": 4.1,
-  "main_repo_now": 920,
+  "main_repo_now": 916,
   "soft": 1000
  },
  "web_js_bytes": 0,
@@ -28,7 +28,7 @@
   "audio_new": 143,
   "audio_files": 23646,
   "images_new": 21,
-  "media_repo_now": 573,
+  "media_repo_now": 677,
   "soft": 1000
  },
  "repos": [
@@ -39,14 +39,14 @@
    "kinds": [
     "code"
    ],
-   "tree_mb": 231.3,
-   "files": 4253,
-   "api_mb": 920,
+   "tree_mb": 234.3,
+   "files": 4948,
+   "api_mb": 916,
    "soft_mb": 1000,
    "soft_files": null,
-   "size_mb": 920,
-   "at_target_mb": 924,
-   "at_target_files": 4253,
+   "size_mb": 916,
+   "at_target_mb": 920,
+   "at_target_files": 4948,
    "pct": 92,
    "pct_target": 92
   },
@@ -59,16 +59,16 @@
     "library",
     "cine"
    ],
-   "tree_mb": 561.7,
-   "files": 1264,
-   "api_mb": 573,
+   "tree_mb": 677.2,
+   "files": 4080,
+   "api_mb": 677,
    "soft_mb": 1000,
    "soft_files": 60000,
-   "size_mb": 573,
-   "at_target_mb": 573,
-   "at_target_files": 1264,
-   "pct": 57,
-   "pct_target": 57
+   "size_mb": 677.2,
+   "at_target_mb": 677,
+   "at_target_files": 4080,
+   "pct": 68,
+   "pct_target": 68
   },
   {
    "id": "m2",
@@ -77,16 +77,16 @@
    "kinds": [
     "audio"
    ],
-   "tree_mb": 481.6,
-   "files": 27497,
-   "api_mb": 444,
+   "tree_mb": 557.9,
+   "files": 42557,
+   "api_mb": 513,
    "soft_mb": 1000,
    "soft_files": 60000,
-   "size_mb": 481.6,
-   "at_target_mb": 625,
-   "at_target_files": 51143,
-   "pct": 48,
-   "pct_target": 63
+   "size_mb": 557.9,
+   "at_target_mb": 701,
+   "at_target_files": 66203,
+   "pct": 56,
+   "pct_target": 70
   },
   {
    "id": "m3",
@@ -105,10 +105,29 @@
    "at_target_files": null,
    "pct": 0,
    "pct_target": 0
+  },
+  {
+   "id": "m4",
+   "repo": "lexkiteapp/lexkite-media-4",
+   "state": "open",
+   "kinds": [
+    "img"
+   ],
+   "tree_mb": 13.9,
+   "files": 3830,
+   "api_mb": 13,
+   "soft_mb": 1000,
+   "soft_files": 60000,
+   "size_mb": 13.9,
+   "at_target_mb": 14,
+   "at_target_files": 3830,
+   "pct": 1,
+   "pct_target": 1
   }
  ],
  "alerts": [
-  "repo chính 920 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 231.3 MB",
-  "lexkite-media-2: 51143 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
+  "repo chính 916 MB / 1000 MB (≥ 70 %) – phần lớn là lịch sử git (không viết lại, docs/STORAGE.md §3); cây đầu nhánh 234.3 MB",
+  "lexkite-media-2 701 MB / 1000 MB khi đủ 20000 từ (≥ 70 %) – chuyển state=full, mở kho kế (infra/media-repos.json)",
+  "lexkite-media-2: 66203 tệp khi đủ 20000 từ (≥ 70 % của 60000)"
  ]
 }
