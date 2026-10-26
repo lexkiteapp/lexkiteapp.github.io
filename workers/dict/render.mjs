@@ -83,12 +83,12 @@ export function renderWord(d, shell, { open = {} } = {}) {
   const body = [
     // ① Khung tra từ y hệt cửa sổ add-on (CSS lấy từ extension/content.js – build.mjs addonCss())
     `<div class="lkb"><div class="head"><div class="pic${d.emoji ? '' : ' ltr'}" aria-hidden="true">${esc(d.emoji || w.charAt(0))}</div><div class="mw0">
-<div><h1 class="w" lang="en" dir="ltr">${esc(w)}</h1>${posL ? `<span class="chip">${esc(posL)}</span>` : ''}${d.level ? `<span class="chip lv" title="CEFR">${esc(d.level)}</span>` : ''}</div>
+<div><h1 class="w" lang="en" dir="ltr">${esc(w)}</h1>${d.pos ? `<span class="chip" title="${esc(posL)}">${esc(d.pos)}</span>` : ''}${d.level ? `<span class="chip lv" title="CEFR">${esc(d.level)}</span>` : ''}</div>
 <div class="ipa" dir="ltr">${esc(d.ipa)}${d.ipaUS && d.ipaUS !== d.ipa ? ` · <span title="${esc(t.us)}">${esc(d.ipaUS)}</span>` : ''}</div>
 <div class="spks"><button type="button" class="spk" data-acc="en-GB" data-w="${esc(w)}"${d.audio ? ` data-a="${esc(d.audio)}"` : ''} aria-label="${esc(t.play)} (${esc(t.uk)})">🔊 UK</button><button type="button" class="spk" data-acc="en-US" data-w="${esc(w)}" aria-label="${esc(t.play)} (${esc(t.us)})">🔊 US</button><button type="button" class="spk" data-acc="en-GB" data-w="${esc(w)}" data-slow aria-label="${esc(t.slow)}">🐢</button></div>
 <h2 class="sr-only" id="h-m">${esc(fill(t.mean, { w }))}</h2><div class="vi"${l === 'en' ? ' lang="en"' : ''}>${esc(l === 'en' ? d.def : d.meaning)}</div>
 </div></div>
-<div class="body"><div class="pg">${posL ? `<span class="chip">${esc(posL)}</span>` : ''}${l === 'en' ? '' : `<span class="pvi">${esc(d.meaning)}</span>`}<div class="pdef" lang="en" dir="ltr">${esc(d.def)}<span class="pex">“${hl(d.examples[0])}”</span></div></div>
+<div class="body"><div class="pg">${posL ? `<span class="chip">${esc(posL)}</span>` : ''}${l === 'en' ? '' : `<span class="pvi">${esc(d.meaning)}</span>`}<div class="pdef" lang="en" dir="ltr">${esc(d.def)}<span class="pex">“${hl(d.examples[0])}” <button type="button" class="spk mini" data-text="${esc(d.examples[0])}" aria-label="${esc(t.play)}">🔊</button></span></div></div>
 ${d.note && (d.note.m || d.note.e) ? `<div class="wn-x">${d.note.m ? `<div>💡 ${esc(d.note.m)}</div>` : ''}${d.note.e ? `<div>⚠️ ${esc(d.note.e)}</div>` : ''}</div>` : ''}</div>
 <div class="foot"><a class="btn p" href="${esc(d.app)}">+ ${esc(t.save)}</a><a class="btn" href="${esc(d.app)}">${esc(t.more)}</a>${d.usage ? `<a class="btn" href="${esc(d.app.replace(/#\/dict\/.*/, '#/usage/' + encodeURIComponent(w.toLowerCase())))}">📘 ${esc(t.usage)}</a>` : ''}</div></div>`,
     // ② Phần "Chi tiết" như màn tra từ của app: ví dụ, hay đi với, đồng nghĩa, 🧠 Hiểu sâu

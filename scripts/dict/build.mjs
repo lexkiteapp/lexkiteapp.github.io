@@ -130,7 +130,7 @@ export function appCss() {
 }
 
 // ---------- Khung tra từ của ADD-ON (một nguồn: CSS trong extension/content.js) – đầu trang từ điển giống hệt cửa sổ tra từ của add-on ----------
-const ADDON_SEL = /^\.(box|head|pic|w|chip|lv|ipa|spks|spk|vi|body|def|ex|pg|pvi|pdef|wn-x|pex|foot|btn)(?![\w-])|^mark(?![\w-])/;
+const ADDON_SEL = /^\.(box|head|pic|w|chip|lv|ipa|spks|spk|vi|body|def|ex|pg|pvi|pdef|wn-x|pex|foot|btn|f1|mw0)(?![\w-])|^mark(?![\w-])/;
 export function addonCss() {
   const src = fs.readFileSync('extension/content.js', 'utf8'), css = (src.match(/const CSS = `([\s\S]*?)`;/) || [])[1] || '';
   if (!css) throw new Error('addonCss: không thấy CSS trong extension/content.js');
@@ -148,7 +148,7 @@ export function addonCss() {
     if (L.length) light.push(L.join(',') + body);
     if (Dk.length) dark.push(Dk.join(',') + body);
   }
-  const fix = '.lkb{position:static;width:auto;max-width:none;max-height:none;z-index:auto;margin:0 0 1rem}.lkb .body{max-height:none;overflow:visible}.lkb .head{padding:18px 18px 10px}.lkb .body{padding:0 18px 14px}.lkb .foot{padding:12px 18px}.lkb .w{font-size:26px;margin:0;display:inline}.lkb .vi{font-size:17px}.lkb .spk{height:32px;line-height:32px;padding:0 12px}.lkb .btn{min-height:40px;padding:0 12px;display:inline-flex;align-items:center;text-decoration:none;font-size:13px;color:#1c1d2b!important}.lkb .btn.p{color:#fff!important}.lkb .foot{flex-wrap:wrap}.lkb .pic{width:72px;height:72px}';
+  const fix = '.lkb{position:static;width:auto;max-width:none;max-height:none;z-index:auto;margin:0 0 1rem;animation:none}.lkb .body{max-height:none;overflow:visible}.lkb .w{margin:0;display:inline;line-height:inherit}.lkb .btn{text-decoration:none;display:inline-flex;align-items:center;min-height:32px;padding:7px 12px;font-size:13px;font-weight:600;line-height:1;border-radius:10px;box-shadow:none;color:#1c1d2b!important}.lkb .btn.p{color:#fff!important}.lkb .foot{flex-wrap:wrap}.lkb .pic{font-size:32px}.lkb .pex .spk.mini{margin-left:4px}';
   const fixDark = `${D} .btn{color:#ecedf5!important}${D} .btn.p{color:#fff!important}`;
   return [light.join(''), fix, `@media (prefers-color-scheme:dark){${dark.join('')}${fixDark}}`].join('\n').replace(/\s*\n\s*/g, ' ').replace(/\s*([{};,])\s*/g, '$1');
 }
@@ -185,7 +185,7 @@ export function buildShell() {
     header[l] = siteHeader({ nav: [[`/${l}/blog/`, 'Blog'], [hubPath(l), T[l].hub]], open: [appHref(l) + '#/dict', T[l].open], home: landingHref(l), lang: l, langHref: lh });
     footer[l] = siteFooter({ lang: l, text: T[l].foot, langHref: lh });
   }
-  const SPK_JS = `(function(d){var L=['https://audio.lexkite.com/audio/l/','https://lexkiteapp.github.io/lexkite-media-2/audio/l/'],cur;function tts(w,acc,r){try{var u=new SpeechSynthesisUtterance(w);u.lang=acc;u.rate=r||.95;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}d.addEventListener('click',function(e){var b=e.target.closest('.spk');if(!b)return;var w=b.getAttribute('data-w'),k=b.getAttribute('data-a'),acc=b.getAttribute('data-acc');if(b.hasAttribute('data-slow'))return tts(w,acc,.55);if(!k)return tts(w,acc);if(cur)cur.pause();var i=0,a=new Audio(L[0]+k+'.mp3');cur=a;a.onerror=function(){if(++i<L.length){a.src=L[i]+k+'.mp3';a.play().catch(function(){})}else tts(w,acc)};a.play().catch(function(){tts(w,acc)})})})(document);`; // nút 🔊 UK (file giọng đọc của app, lỗi → giọng máy) · 🔊 US · 🐢 (giọng máy) như add-on
+  const SPK_JS = `(function(d){var L=['https://audio.lexkite.com/audio/l/','https://lexkiteapp.github.io/lexkite-media-2/audio/l/'],cur;function tts(w,acc,r){try{var u=new SpeechSynthesisUtterance(w);u.lang=acc;u.rate=r||.95;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}d.addEventListener('click',function(e){var b=e.target.closest('.spk');if(!b)return;var w=b.getAttribute('data-w')||b.getAttribute('data-text'),k=b.getAttribute('data-a'),acc=b.getAttribute('data-acc')||'en-GB';if(b.hasAttribute('data-slow'))return tts(w,acc,.55);if(!k)return tts(w,acc);if(cur)cur.pause();var i=0,a=new Audio(L[0]+k+'.mp3');cur=a;a.onerror=function(){if(++i<L.length){a.src=L[i]+k+'.mp3';a.play().catch(function(){})}else tts(w,acc)};a.play().catch(function(){tts(w,acc)})})})(document);`; // nút 🔊 UK (file giọng đọc của app, lỗi → giọng máy) · 🔊 US · 🐢 (giọng máy) như add-on
   return { v: 1, css: `${CSS}\n${SEO_CSS}\n${APP_CSS}\n${CSS2}`, header, footer, js: UI_JS + '\n' + SPK_JS };
 }
 
