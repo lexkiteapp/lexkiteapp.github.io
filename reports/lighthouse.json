@@ -1,177 +1,7 @@
 {
  "home": {
   "url": "https://lexkite.com/",
-  "at": "2026-10-26T01:38:27.202Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.8 s",
-   "largest-contentful-paint": "1.8 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.8 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Properly size images – Potential savings of 7 KiB",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "vi/blog/": {
-  "url": "https://lexkite.com/vi/blog/",
-  "at": "2026-10-26T01:40:27.603Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.6 s",
-   "largest-contentful-paint": "1.9 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.6 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/": {
-  "url": "https://lexkite.com/en/",
-  "at": "2026-10-26T01:38:50.531Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.8 s",
-   "largest-contentful-paint": "1.8 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.8 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Properly size images – Potential savings of 7 KiB",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "app/": {
-  "url": "https://lexkite.com/app/#/welcome",
-  "at": "2026-10-26T01:39:41.146Z",
-  "scores": {
-   "performance": 98,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 92
-  },
-  "metrics": {
-   "first-contentful-paint": "1.9 s",
-   "largest-contentful-paint": "2.0 s",
-   "total-blocking-time": "20 ms",
-   "cumulative-layout-shift": "0.015",
-   "speed-index": "1.9 s"
-  },
-  "fails": [
-   "First Contentful Paint – 1.9 s",
-   "Time to Interactive – 6.0 s",
-   "Serve static assets with an efficient cache policy – 4 resources found",
-   "Reduce unused CSS – Potential savings of 25 KiB",
-   "Reduce unused JavaScript – Potential savings of 55 KiB",
-   "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
-   "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
-   "Avoid an excessive DOM size – 877 elements",
-   "Issues were logged in the `Issues` panel in Chrome Devtools",
-   "Document does not have a valid `rel=canonical`"
-  ],
-  "lcp": "largest-contentful-paint=\"2.0 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "es/words/acquire": {
-  "url": "https://lexkite.com/es/words/acquire",
-  "at": "2026-10-26T01:41:02.722Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.6 s",
-   "largest-contentful-paint": "1.6 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.6 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.6 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/conversations/cafe": {
-  "url": "https://lexkite.com/en/conversations/cafe",
-  "at": "2026-10-26T01:41:37.529Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.6 s",
-   "largest-contentful-paint": "1.6 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.6 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.6 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/grammar/past-continuous": {
-  "url": "https://lexkite.com/en/grammar/past-continuous",
-  "at": "2026-10-26T01:42:09.233Z",
-  "scores": {
-   "performance": 99,
-   "accessibility": 100,
-   "best-practices": 96,
-   "seo": 100
-  },
-  "metrics": {
-   "first-contentful-paint": "1.7 s",
-   "largest-contentful-paint": "1.9 s",
-   "total-blocking-time": "0 ms",
-   "cumulative-layout-shift": "0",
-   "speed-index": "1.7 s"
-  },
-  "fails": [
-   "Elements with visible text labels do not have matching accessible names.",
-   "Serve static assets with an efficient cache policy – 2 resources found",
-   "Issues were logged in the `Issues` panel in Chrome Devtools"
-  ],
-  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
- },
- "en/pronunciation/long-ee-sound": {
-  "url": "https://lexkite.com/en/pronunciation/long-ee-sound",
-  "at": "2026-10-26T01:42:32.890Z",
+  "at": "2026-10-26T03:30:25.940Z",
   "scores": {
    "performance": 99,
    "accessibility": 100,
@@ -187,10 +17,303 @@
   },
   "fails": [
    "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Properly size images – Potential savings of 7 KiB",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "failItems": {
+   "label-content-name-mismatch": [
+    "div.bar > nav.main > div.lsw > button.lsw-b <button type=\"button\" class=\"lsw-b\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"lsw-m\" aria-label=\"Ngôn ngữ: Tiếng Việt\">"
+   ],
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2"
+   ],
+   "uses-responsive-images": [
+    "body > main#nd > section#addon > img <img src=\"/img/ext-lookup.webp\" width=\"752\" height=\"602\" loading=\"lazy\" decoding=\"async\" alt=\"Add-on Lexkite: bấm đúp vào từ “resilience” trong bài báo hiện phiên âm, n…\">"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"1.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "vi/blog/": {
+  "url": "https://lexkite.com/vi/blog/",
+  "at": "2026-10-26T03:32:05.617Z",
+  "scores": {
+   "performance": 87,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "0.8 s",
+   "largest-contentful-paint": "1.9 s",
+   "total-blocking-time": "480 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "0.8 s"
+  },
+  "fails": [
+   "Total Blocking Time – 480 ms",
+   "Max Potential First Input Delay – 530 ms",
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "failItems": {
+   "label-content-name-mismatch": [
+    "div.bar > nav.main > div.lsw > button.lsw-b <button type=\"button\" class=\"lsw-b\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"lsw-m\" aria-label=\"Ngôn ngữ: Tiếng Việt\">"
+   ],
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"1.9 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "en/": {
+  "url": "https://lexkite.com/en/",
+  "at": "2026-10-26T03:30:57.547Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.8 s",
+   "largest-contentful-paint": "1.8 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.8 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Properly size images – Potential savings of 7 KiB",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "failItems": {
+   "label-content-name-mismatch": [
+    "div.bar > nav.main > div.lsw > button.lsw-b <button type=\"button\" class=\"lsw-b\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"lsw-m\" aria-label=\"Language: English\">"
+   ],
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2"
+   ],
+   "uses-responsive-images": [
+    "body > main#nd > section#addon > img <img src=\"/img/ext-lookup.webp\" width=\"752\" height=\"602\" loading=\"lazy\" decoding=\"async\" alt=\"Lexkite add-on: double-clicking “resilience” in a news article shows IPA, …\">"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "app/": {
+  "url": "https://lexkite.com/app/#/welcome",
+  "at": "2026-10-26T03:31:53.352Z",
+  "scores": {
+   "performance": 98,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 92
+  },
+  "metrics": {
+   "first-contentful-paint": "1.8 s",
+   "largest-contentful-paint": "2.0 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0.015",
+   "speed-index": "1.8 s"
+  },
+  "fails": [
+   "First Contentful Paint – 1.8 s",
+   "Serve static assets with an efficient cache policy – 4 resources found",
+   "Reduce unused CSS – Potential savings of 25 KiB",
+   "Reduce unused JavaScript – Potential savings of 55 KiB",
+   "Remove duplicate modules in JavaScript bundles – Potential savings of 2 KiB",
+   "Avoid serving legacy JavaScript to modern browsers – Potential savings of 9 KiB",
+   "Avoid an excessive DOM size – 893 elements",
+   "Issues were logged in the `Issues` panel in Chrome Devtools",
+   "Document does not have a valid `rel=canonical`"
+  ],
+  "failItems": {
+   "uses-long-cache-ttl": [
+    "https://lexkite-app.firebaseapp.com/__/auth/iframe.js",
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2",
+    "https://lexkite.com/icons/icon.svg"
+   ],
+   "unused-css-rules": [
+    "https://lexkite.com/css/style.css"
+   ],
+   "unused-javascript": [
+    "https://lexkite.com/js/app.js",
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"
+   ],
+   "duplicated-javascript": [
+    "{\"source\":\"Other\",\"wastedBytes\":1908,\"url\":\"\",\"totalBytes\":0,\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js\"},{\"url\":\"https://www.gstatic.com/firebasejs/1"
+   ],
+   "legacy-javascript": [
+    "https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.en.etOqPKhAhvg.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo-l5JrVgGKVELwC844E6riBHX86-w/cb=gapi.loaded_0?le=scs"
+   ],
+   "dom-size": [
+    "{\"statistic\":\"Total DOM Elements\",\"value\":{\"type\":\"numeric\",\"granularity\":1,\"value\":893}}",
+    "button#wSay > span > svg.i > use <use href=\"#i-volume-2\">",
+    "body.bare > svg#lk-sprite <svg id=\"lk-sprite\" width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\" focusable=\"false\">"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"2.0 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "es/words/acquire": {
+  "url": "https://lexkite.com/es/words/acquire",
+  "at": "2026-10-26T03:32:44.539Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.6 s",
+   "largest-contentful-paint": "1.6 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.6 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "failItems": {
+   "label-content-name-mismatch": [
+    "div.bar > nav.main > div.lsw > button.lsw-b <button type=\"button\" class=\"lsw-b\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"lsw-m\" aria-label=\"Idioma: Español\">"
+   ],
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"1.6 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "en/conversations/cafe": {
+  "url": "https://lexkite.com/en/conversations/cafe",
+  "at": "2026-10-26T03:33:16.230Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.5 s",
+   "largest-contentful-paint": "1.7 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.5 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "failItems": {
+   "label-content-name-mismatch": [
+    "div.bar > nav.main > div.lsw > button.lsw-b <button type=\"button\" class=\"lsw-b\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"lsw-m\" aria-label=\"Language: English\">"
+   ],
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"1.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "en/grammar/past-continuous": {
+  "url": "https://lexkite.com/en/grammar/past-continuous",
+  "at": "2026-10-26T03:33:47.699Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.8 s",
+   "largest-contentful-paint": "1.8 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.8 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
+   "Serve static assets with an efficient cache policy – 2 resources found",
+   "Issues were logged in the `Issues` panel in Chrome Devtools"
+  ],
+  "failItems": {
+   "label-content-name-mismatch": [
+    "div.bar > nav.main > div.lsw > button.lsw-b <button type=\"button\" class=\"lsw-b\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"lsw-m\" aria-label=\"Language: English\">"
+   ],
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+ },
+ "en/pronunciation/long-ee-sound": {
+  "url": "https://lexkite.com/en/pronunciation/long-ee-sound",
+  "at": "2026-10-26T03:34:19.123Z",
+  "scores": {
+   "performance": 99,
+   "accessibility": 100,
+   "best-practices": 96,
+   "seo": 100
+  },
+  "metrics": {
+   "first-contentful-paint": "1.8 s",
+   "largest-contentful-paint": "1.8 s",
+   "total-blocking-time": "0 ms",
+   "cumulative-layout-shift": "0",
+   "speed-index": "1.8 s"
+  },
+  "fails": [
+   "Elements with visible text labels do not have matching accessible names.",
    "`<td>` elements in a large `<table>` do not have table headers.",
    "Serve static assets with an efficient cache policy – 2 resources found",
    "Issues were logged in the `Issues` panel in Chrome Devtools"
   ],
-  "lcp": "largest-contentful-paint=\"1.7 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
+  "failItems": {
+   "label-content-name-mismatch": [
+    "div.bar > nav.main > div.lsw > button.lsw-b <button type=\"button\" class=\"lsw-b\" aria-haspopup=\"true\" aria-expanded=\"false\" aria-controls=\"lsw-m\" aria-label=\"Language: English\">"
+   ],
+   "td-has-header": [
+    "main#nd > article.page > div.tbl > table.wt <table class=\"wt\">"
+   ],
+   "uses-long-cache-ttl": [
+    "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "https://lexkite.com/icons/icon.svg?v=2"
+   ],
+   "inspector-issues": [
+    "{\"issueType\":\"Content security policy\",\"subItems\":{\"type\":\"subitems\",\"items\":[{\"url\":\"https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092\"}]}}"
+   ]
+  },
+  "lcp": "largest-contentful-paint=\"1.8 s\" || largest-contentful-paint-element=\"\" || lcp-lazy-loaded=\"\" || prioritize-lcp-image=\"\" || render-blocking-resources=\"\""
  }
 }
