@@ -2320,5 +2320,20 @@
   "awl:567|straightforward#adj|fixed|ipa-style|ipaUS",
   "awl:568|undergo#v|ok",
   "awl:569|whereby#adv|ok"
- ]
+ ],
+ "cefrRecheck": {
+  "at": "2026-10-26",
+  "by": "Claude (không gọi AI)",
+  "note": "Đối chiếu Oxford 3000/5000 + Cambridge Wordlist cho 8 từ regen-queue ghi nghi ngờ. Sửa qua overrides.json (level/emoji), build-lexicon --write + gen-newtab.",
+  "decisions": {
+   "swing#v": "C1→B2 (đung đưa/đổi hướng là từ B2 phổ biến; Oxford 5000 B2)",
+   "moderate#adj": "C1→B2 (vừa phải, ôn hòa; Oxford 5000 B2)",
+   "march#v": "C1→B2 (diễu hành/hành quân; Cambridge B2)",
+   "pump#n": "C1→B2 (cái bơm, trạm bơm; từ vựng đời thường B2)",
+   "gear#n": "C1→B2 (thiết bị, bánh răng/số xe; Oxford 5000 B2)",
+   "mature#adj": "C1→B2 (trưởng thành; Oxford 3000 B2)",
+   "quantity#n": "A2→B1 (số lượng; Oxford 3000 B1)",
+   "sink#v": "CEFR giữ B1; emoji 🚰 (vòi nước, hợp danh từ 'bồn rửa') đổi ⚓ (chìm xuống) bằng trường emoji của overrides.json"
+  }
+ }
 }
