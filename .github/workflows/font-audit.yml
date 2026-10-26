@@ -11,7 +11,9 @@ on:
     - cron: '20 2 * * 1'   # thứ Hai 09:20 giờ Việt Nam
 permissions:
   contents: read
-concurrency: { group: font-audit-${{ github.ref }}, cancel-in-progress: true }
+concurrency:
+  group: font-audit-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   audit:
     runs-on: ubuntu-latest
