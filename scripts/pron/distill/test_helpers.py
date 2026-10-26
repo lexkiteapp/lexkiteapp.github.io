@@ -17,7 +17,7 @@ assert (ids[:, 0] == x.argmax(1)).all(); d = C.unpack_topk(ids, lpk)
 assert d.shape == (7, 40) and np.allclose(d[np.arange(7)[:, None], ids.astype(int)], lpk.astype('float32')) and (d > -30).sum() == 35
 # chain logic
 assert C.next_action(100, 100, 1, 12) == 'export' and C.next_action(50, 100, 3, 12) == 'redispatch' and C.next_action(50, 100, 12, 12) == 'export'
-# shard planning: 14 files / 20 shards -> 2 parts per file
+# shard planning: 14 files / 20 shards (ceil) -> 2 parts per file
 fs = [f'f{i}.parquet' for i in range(14)]; sh = C.shard_assets(fs, 20)
 assert len(sh) == 28 and sh[0]['id'] == 'ls-00-0' and sh[1]['part'] == 1 and C.asset_name('so') == 'shard-so.npz' and len(C.shard_assets(fs, 2)) == 14
 try:

@@ -59,7 +59,7 @@ def next_action(step, total, chain, max_chain):
 
 def shard_assets(files, nshards):
     """Plan LibriSpeech shards: each parquet file split by row stripes so ~nshards shards exist. -> [{id,kind,file,part,nparts}]"""
-    nparts = max(1, round(nshards / max(1, len(files))))
+    nparts = max(1, -(-nshards // max(1, len(files))))
     return [{'id': f'ls-{fi:02d}-{p}', 'kind': 'ls', 'file': f, 'part': p, 'nparts': nparts} for fi, f in enumerate(files) for p in range(nparts)]
 
 
