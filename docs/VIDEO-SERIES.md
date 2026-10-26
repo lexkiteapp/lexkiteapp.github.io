@@ -1,24 +1,49 @@
 # Video series plan (owner 26/10/2026)
 
-TL;DR: 6 numbered series, one per v10 template. Each episode teaches ONE useful point and gives the viewer a reason to save it (a list or rule they will need later) and a reason to share it (a common mistake, a challenge or a quiz). Teaching pace is 0.8 with a short breath between sentences (qc gate `pace`, ≤ 150 wpm). Voice, captions and mouth are all derived from the same audio (gates `caption_sync` and `lipsync_rhubarb`). Viral rules: `VIDEO-SCALE-PLAN.md` §12–13.
+TL;DR: 6 numbered series on the v10 templates, ONLY topics our automatic pipeline does well (§Strength filter). Each episode teaches ONE useful point and gives the viewer a reason to save it (a list or rule they will need later) and a reason to share it (a common mistake, a challenge or a quiz). Teaching pace is 0.8 with a 0.5–0.7 s breath between sentences (qc gate `pace`, ≤ 150 wpm). Voice, captions and mouth are all derived from the same audio (gates `caption_sync` and `lipsync_rhubarb`). Viral rules: `VIDEO-SCALE-PLAN.md` §12–13.
 
 ## What goes viral AND helps the learner (ranked)
 | # | Series (template) | Why people save / share / comment | Level |
 |---|---|---|---|
 | 1 | **Stop Saying This** (`mistake`) | Share: "send this to a friend who says it". Comment: "I said this for years". The mistakes are real L1 transfer errors, so the video has real value. | A2–B1 |
 | 2 | **Same or Different?** (`pair`) | Save: one rule settles a confusion for good. Comment: people argue over the answer. | A2–B2 |
-| 3 | **Can You Say It?** (`pron`) | Challenge: viewers duet/stitch it and test friends. Word-stress dots and a slow repeat are screenshot-worthy. | all |
+| 3 | **Where's the Stress?** (`pron`, word stress ONLY) | Challenge: viewers test friends. Stress dots are screenshot-worthy. Only words whose CMU/IPA stress matches and whose TTS audio round-trips through whisper. | all |
 | 4 | **Say It Like a Native** (`words5`) | Highest save rate: 5 ready-to-use alternatives, a list people keep. | B1–B2 |
-| 5 | **Survive in English** (`roleplay`) | Save before a trip or interview. Phrases are for one real situation. | A2–B1 |
+| 5 | **US or UK?** (`pair`, twin tiles) | Comments: people argue over which they use. Save: the word table. All text + pictures, a perfect fit for automation. | A2–B2 |
 | 6 | **Guess the Word** (`guess`) | Comments: viewers type their answer before the reveal. A cheap engagement episode between heavier ones. | A1–B1 |
 
 ## Episode bank (first 10 per series, in order; text scripts self-reviewed, not sent to owner)
 1. Stop Saying This: I am agree · discuss about · explain me · I have 20 years old · return back · very like · open the light · How to say…? · I'm boring · Me too (negative → "Me neither").
 2. Same or Different?: borrow/lend · say/tell · fun/funny · bored/boring · make/do · lose/miss · since/for · already/yet · hear/listen · remember/remind.
-3. Can You Say It?: comfortable · vegetable · Wednesday · clothes · recipe · February · island · suite · photographer/photograph · determine.
+3. Where's the Stress?: comfortable · vegetable · photograph/photographer · develop · hotel · event · record (n/v) · present (n/v) · banana · interesting.
 4. Say It Like a Native: instead of very good · I think · sorry · thank you · I don't know · very tired · very big · I'm busy · goodbye · I like it.
-5. Survive in English: coffee order · hotel check-in · airport check-in · asking directions · doctor · returning an item · job-interview opener · small talk with a neighbour · phone call booking · restaurant complaint.
+5. US or UK?: elevator/lift · apartment/flat · cookie/biscuit · fries/chips · vacation/holiday · sidewalk/pavement · trash/rubbish · line/queue · gas/petrol · check/bill.
 6. Guess the Word: elevator/lift · receipt · luggage · cashier · pharmacy · sidewalk · appointment · refund · umbrella · neighbor.
+
+## Strength filter (owner 26/10: only teach what the automatic pipeline does well)
+**Strong (use):** one teacher explaining to camera + text on the board + picture cards. Common mistakes, confusing pairs, US vs UK words,
+5-way alternatives, collocations, verb patterns, prepositions, short grammar rules with one example, picture-word quizzes, word stress.
+Every one of these is checkable by machine: the source of truth is our own data (usage DB, lexicon, CMU/IPA, img.json), not the AI's opinion.
+**Weak (do not make):**
+- Multi-character dialogue / roleplay acted by one host (the bank has one host per clip; two-voice scenes are paused, `VIDEO.md`).
+- Sounds, accents, intonation, connected speech, "wrong vs right" pronunciation: TTS cannot say the wrong form reliably and nobody checks the audio.
+- Emotion or acting, gestures that point/count/hold objects (the gesture bank is neutral by design).
+- Slang, memes, trending phrases (they date fast, and an AI judge cannot verify current usage), culture/politics/religion, idioms with no checkable source.
+- Long listening or story content (> 35 s, a talking head cannot hold it) and exam-strategy claims we cannot prove.
+A topic is admitted only if its key fact comes from our data and a QC gate can verify it; otherwise it goes to `review.jsonl`, never into the bank.
+
+## Scale pipeline (standard for v10; details `VIDEO-SCALE-PLAN.md` §5, §7, §16)
+1. **Point bank** (`scripts/scriptbank`, 21,221 unique `pid` from usage/grammar/lexicon) → filtered by the strength filter above.
+2. **Planner**: series × point × level × teacher × set × hook style × layout × accent colour. Each clip differs from the last 30 on ≥ 4 of 7 axes; the content hash (point + key sentence) is never reused.
+3. **Script** (deterministic template + data) → `lib.qc` → AI judge only scores (≥ 4) → `reviewed-hooks.json` (hook_true).
+4. **Render on GitHub Actions** (0 credits): Kokoro 0.8 → Rhubarb mouth → whisper word clock → render_v9 → qc_v9 (27 gates incl. pace,
+   caption_sync, lipsync, min_text_px, continuity, host_sharp) → rubric ≥ 90 → pHash/chromaprint vs every published clip.
+5. **Queue** → Admin "Chờ duyệt" → owner approves → publish. Cron/bulk only after the owner approves the template samples.
+6. **Feedback**: save/share/completion per series → re-weights the planner each week. New template ≥ 1 per month so the look never goes stale.
+
+**Honest ceiling:** truly different videos ≈ unique points × useful angles (≈ 21k × 2–3 ≈ 50k). Beyond that, extra variants repeat the same lesson,
+and platforms down-rank mass-produced repeats. "Millions" therefore means growing the point bank (more usage data and levels),
+not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per day.
 
 ## Series rules (every episode)
 - Hook ≤ 1.5 s naming the payoff ("99 % of learners say this wrong"). The hook must be true (hook_truth gate).
