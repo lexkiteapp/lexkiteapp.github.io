@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/dict",
   "say": "Look up any word"
  },
- "speed": 0.7,
+ "speed": 0.68,
  "lines": [
   {
    "id": "g_h",
@@ -25,12 +25,12 @@
   {
    "id": "g_c",
    "text": "Hint: it takes you up and down.",
-   "gap": 0.72
+   "gap": 0.68
   },
   {
    "id": "g_c2",
    "text": "Every big hotel has one.",
-   "gap": 0.72
+   "gap": 0.68
   },
   {
    "id": "_count",
@@ -45,7 +45,7 @@
      2
     ]
    },
-   "gap": 0.8
+   "gap": 0.68
   },
   {
    "id": "g_p",
@@ -55,7 +55,7 @@
      4
     ]
    },
-   "gap": 0.72
+   "gap": 0.68
   },
   {
    "id": "g_u",
@@ -65,7 +65,7 @@
      5
     ]
    },
-   "gap": 0.72
+   "gap": 0.68
   },
   {
    "id": "g_v",
@@ -75,7 +75,7 @@
      4
     ]
    },
-   "gap": 0.8
+   "gap": 0.68
   },
   {
    "id": "g_x",
@@ -85,17 +85,17 @@
      6
     ]
    },
-   "gap": 0.8
+   "gap": 0.68
   },
   {
    "id": "g_r",
    "text": "Did you get it? Tell me in the comments!",
-   "gap": 0.8
+   "gap": 0.68
   },
   {
    "id": "g_s",
    "text": "Save this, and look up any word on lexkite.com.",
-   "gap": 0.8
+   "gap": 0.68
   }
  ],
  "pops": [

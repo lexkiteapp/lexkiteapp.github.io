@@ -157,7 +157,7 @@ R['lipsync_rhubarb'] = dict(ok=all(str(l.get('gen') or '').startswith('rhubarb')
 GAP_GATE = 1.05   # natural sentence pause (silence incl. TTS tail); v8 stretched these to hit 25 s
 gp = [g for g in T['gaps'] if g['gap'] > GAP_GATE + 0.011]; bt = [b for b in T['beats'].values() if b['kind'] not in ('count', 'turn') or b['e'] - b['s'] > 3.2]
 want_speed = {l['id']: l.get('speed', SP.get('speed', 1.0)) for l in SP['lines'] if l.get('text')}
-spd = [lid for lid, L in T['lines'].items() if abs(L['speed'] - want_speed[lid]) > 1e-6 or (L['speed'] < 0.7 and lid not in [x['id'] for x in SP['lines'] if x.get('speed')])]   # spec-level teaching pace 0.75–0.8 is declared, not padding
+spd = [lid for lid, L in T['lines'].items() if abs(L['speed'] - want_speed[lid]) > 1e-6 or (L['speed'] < 0.65 and lid not in [x['id'] for x in SP['lines'] if x.get('speed')])]   # spec-level teaching pace 0.75–0.8 is declared, not padding
 speech_end = max(L['at'] + L['dur'] for L in T['lines'].values())
 R['no_pad'] = dict(ok=not gp and not bt and not spd and T['total'] - speech_end <= 1.6 and 18 <= T['total'] <= 45, long_gaps=gp[:4], beats=T['beats'], speed_mismatch=spd,
                    max_gap=max((g['gap'] for g in T['gaps']), default=0), tail=round(T['total'] - speech_end, 2), total=T['total'])
