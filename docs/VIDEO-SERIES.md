@@ -1,6 +1,6 @@
 # Video series plan (owner 26/10/2026)
 
-TL;DR: 6 numbered series on the v10 templates, ONLY topics our automatic pipeline does well (§Strength filter). Each episode teaches ONE useful point and gives the viewer a reason to save it (a list or rule they will need later) and a reason to share it (a common mistake, a challenge or a quiz). Teaching pace is 0.8 with a 0.5–0.7 s breath between sentences (qc gate `pace`, ≤ 150 wpm). Voice, captions and mouth are all derived from the same audio (gates `caption_sync` and `lipsync_rhubarb`). Viral rules: `VIDEO-SCALE-PLAN.md` §12–13.
+> TL;DR: 6 numbered series on the v10 templates, ONLY topics our automatic pipeline does well (§Strength filter). Each episode teaches ONE useful point and gives the viewer a reason to save it (a list or rule they will need later) and a reason to share it (a common mistake, a challenge or a quiz). Teaching pace is 0.8 with a 0.5–0.7 s breath between sentences (qc gate `pace`, ≤ 150 wpm). Voice, captions and mouth are all derived from the same audio (gates `caption_sync` and `lipsync_rhubarb`). Viral rules: `VIDEO-SCALE-PLAN.md` §12–13.
 
 ## What goes viral AND helps the learner (ranked)
 | # | Series (template) | Why people save / share / comment | Level |
