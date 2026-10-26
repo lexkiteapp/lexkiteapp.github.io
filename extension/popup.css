@@ -55,3 +55,6 @@ body.popup { width: 360px; padding: 14px; margin: 0; }
 .pp-rate-x { background: none; border: 0; color: var(--muted); font-size: 12px; text-decoration: underline; cursor: pointer; padding: 4px; margin-inline-start: auto; }
 /* RTL (ar): bố cục flex tự lật; từ tiếng Anh/IPA giữ ltr */
 [dir="rtl"] .pp-word b, [dir="rtl"] .ipa, [dir="rtl"] [lang="en"] { direction: ltr; unicode-bidi: isolate; } [dir="rtl"] .pp-quick { text-align: start; }
+
+/* Add-on: font hệ thống (không tải webfont từ xa – nhanh, ngoại tuyến, hợp quy định CWS) */
+:root { --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
