@@ -480,7 +480,7 @@ def ring(num, rem, d_=100):
     g.text((d_, d_ + 4), num, font=font(d_ * 1.1), fill=(255, 255, 255, 255), anchor='mm'); return shadowed(im.reduce(2), 4, 5, 0.4)
 def pill_w(segs, sz, tight=False, padx=None): fo = font(sz * 2); return int(sum(fo.getlength(s) for s, _ in segs)) + 4 * (padx or (18 if tight else 34))
 def pill(segs, sz, bg, dim=False, tight=False, padx=None, minw=0):   # minw (in pill_w units): option pills of one quiz share one width
-    fo = font(sz * 2); tw = int(sum(fo.getlength(s) for s, _ in segs)); px_ = 2 * (padx or (18 if tight else 34)); w = max(tw + 2 * px_, minw); h = int(sz * 2 * (1.08 if tight else 1.32)) + (28 if tight else 64)
+    fo = font(sz * 2); tw = int(sum(fo.getlength(s) for s, _ in segs)); px_ = 2 * (padx or (18 if tight else 34)); w = max(tw + 2 * px_, minw); h = int(sz * 2 * (1.08 if tight else 1.32)) + (14 if tight else 64)
     im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im); d.rounded_rectangle([0, 0, w - 1, h - 1], h // 2, fill=bg + (246,), outline=(255, 255, 255, 235), width=6); x = px_
     for s_, col in segs: d.text((x, h // 2), s_, font=fo, fill=col + (255,), anchor='lm'); x += fo.getlength(s_)
     im = shadowed(im.reduce(2), 5, 6, 0.45)
