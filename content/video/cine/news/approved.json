@@ -1,0 +1,20 @@
+{
+ "_note": "Owner-approved episodes = production standard. Recipe-first storage (docs/VIDEO-STORAGE.md): spec + reviewed verdict + engine commit re-render the same video; mp4 sha256 for identity.",
+ "approved": [
+  {
+   "id": "t6_pron_comfortable",
+   "series": "Where's the Stress?",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/pron.json",
+   "teacher": "ama",
+   "clip": "a02_ama_board",
+   "host_fx": "raw",
+   "layout": "v12",
+   "run": 40290309763,
+   "engine_commit": "889d481b2",
+   "mp4_sha256": "49a5aa0ba9ea5e21a1ee985eafc7eb04c6f90c38f87f27657a57229affac7fd3",
+   "approved": "2026-10-26",
+   "owner_note": "khá ok – lưu vào kho, làm số lượng lớn đa dạng nội dung chất lượng"
+  }
+ ]
+}

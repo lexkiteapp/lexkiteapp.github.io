@@ -45,6 +45,12 @@ A topic is admitted only if its key fact comes from our data and a QC gate can v
 and platforms down-rank mass-produced repeats. "Millions" therefore means growing the point bank (more usage data and levels),
 not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per day.
 
+## Production standard (owner-approved 26/10/2026, `content/video/cine/news/approved.json`)
+- Host clip plays **as generated** (`host_fx: raw`): no mouth swap, no hold smoothing – processing the teacher caused the visible glitches. The mouth talks but is not word-synced.
+- Footage bank, not per-video generation: chained Kling clips per teacher (2D and 3D alternate for variety); videos reuse the bank at 0 credits.
+- Layout v12: one left board column – lesson cards (word / IPA / meaning / example), left-aligned quiz with equal pills, 'SAVE THIS' card, one-line captions; qc text_on_board / head_clear / caption_clear catch any overflow.
+- Pace ≤ 130 wpm (qc `pace`), 0.6–0.8 s breaths; IPA from the app dictionary (Noto Sans glyphs).
+
 ## Series rules (every episode)
 - Hook ≤ 1.5 s naming the payoff ("99 % of learners say this wrong"). The hook must be true (hook_truth gate).
 - Fixed series look: title chip "Stop Saying This · Part 7", series colour, same teacher per series (consistency gives follows).
