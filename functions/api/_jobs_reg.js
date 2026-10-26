@@ -875,6 +875,20 @@ export const REG = {
    "minutes": 5,
    "est": {},
    "lease": false
+  },
+  {
+   "id": "font-audit",
+   "workflow": "font-audit.yml",
+   "cron": [
+    "20 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
   }
  ]
 };
