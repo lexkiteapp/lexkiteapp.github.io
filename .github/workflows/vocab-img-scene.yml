@@ -299,7 +299,7 @@ jobs:
     if: always() && needs.plan.outputs.skip != '1' && (github.event_name == 'schedule' || github.event.inputs.mode == 'fill')
     runs-on: ubuntu-latest
     timeout-minutes: 40
-    permissions: { contents: write, actions: read }
+    permissions: { contents: write, actions: write }   # actions: write = tự nối lượt (workflow_dispatch)
     concurrency: { group: vocab-img-publish, cancel-in-progress: false }
     steps:
       - uses: actions/checkout@v4
@@ -345,6 +345,16 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: vimg-fill-final, retention-days: 14, path: "m/result.json\nm/fill-report.json\nm/fill-sheet.jpg\nm/gen-stats.*.json\nm/judge-api.*.json\nm/speed.*.json\nm/final/" }
+      - name: Tự nối lượt (vắt hết kho CF trong ngày – cron GitHub hay trễ/bỏ lượt)
+        if: vars.VIMG_CHAIN != '0'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          if ls parts/*/out/vimg-fill/EXHAUSTED >/dev/null 2>&1; then echo "⏹ kho CF hết neuron ngày – chờ cron sau 00:00 UTC"; exit 0; fi
+          node scripts/build-lexicon.mjs --write >/dev/null
+          G=$(node scripts/vocab-img/scene.mjs --gaps 1 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
+          [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa thiếu ảnh (trừ hàng chờ) – dừng chuỗi"; exit 0; }
+          gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
+          echo "↻ đã gọi lượt fill kế tiếp"
   labfeat:
     # đặc trưng giám khảo CẢNH (CLIP↔câu, chú thích↔câu, thị giác có/không) cho ảnh của lượt cũ đã gán nhãn – đầu vào calibrate_scene.py
     needs: plan

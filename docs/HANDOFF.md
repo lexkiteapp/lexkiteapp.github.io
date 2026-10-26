@@ -7,7 +7,8 @@ Cập nhật: 26/10/2026.
 
 ## Ảnh từ vựng (`vocab-img-scene`) – ĐANG CHẠY hàng loạt
 - Vẽ `flux-2-klein-4b` (thắng A/B 40 nghĩa khó) thẳng trên Workers AI qua kho tài khoản secret `CF_POOL` (`scripts/lib/cf-pool.mjs`, `scripts/vocab-img/cf-direct.mjs`). GrabCast KHÔNG dùng nữa (500 từ 24/10).
-- Lịch 8 lượt/ngày (`40 1,4,…,22 * * *`), 10 shard × 600 ảnh, 6 biến thể/nghĩa; vắt hết kho (`VIMG_POOL_SKIP=0`, `VIMG_CF_UNCAPPED=1`), lượt dừng sạch khi mọi tài khoản báo 4006. Tắt lịch: biến repo `VIMG_SCHEDULE` ≠ 1.
+- Tự nối lượt: fill xong còn neuron + còn nghĩa thiếu → tự gọi lượt kế (tắt: biến `VIMG_CHAIN=0`); cron 8 lượt/ngày (`40 1,4,…,22 * * *`) chỉ là dự phòng/khởi động lại sau 00:00 UTC.
+- Mỗi lượt: 10 shard × 600 ảnh, 6 biến thể/nghĩa; vắt hết kho (`VIMG_POOL_SKIP=0`, `VIMG_CF_UNCAPPED=1`), lượt dừng sạch khi mọi tài khoản báo 4006. Tắt lịch: biến repo `VIMG_SCHEDULE` ≠ 1.
 - Cổng tự động trên CI, ngưỡng giữ nguyên: OCR · NSFW · phong cách · pHash · CLIP câu ví dụ · Llama 4 Scout (mô tả mù + có/không) · ≤ 6 KB. Trượt đủ biến thể → `vimg-scene-queue.json`, thử lại sau 2 ngày.
 - Lượt đầu 40277982540: 6.000 ảnh → 264 đạt (~4,4 %). Ước 900–2.000 ảnh đạt/ngày; 6.425 nghĩa thiếu ≈ 4–7 ngày. Neuron/ảnh thật chưa đo (đang ước 26–60).
 - Ảnh gốc cho video: Release `vimg-masters` (zip mỗi lượt, ≤ 768 px WebP + manifest.json). Ảnh app: `media.lexkite.com/vimg/` (kho m4).
