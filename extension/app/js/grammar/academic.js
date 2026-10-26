@@ -133,7 +133,7 @@
       ] },
       { type: 'uses', items: [
         { title: 'Had better: lời khuyên kèm hậu quả nếu không làm', ex: 'You[[\'d better book]] early, or the course will be full.', vi: 'Bạn nên đăng ký sớm, nếu không khóa học sẽ hết chỗ.' },
-        { title: 'Would rather + V: ưu tiên của bản thân', ex: 'Many young people [[would rather rent than buy]] a flat.', vi: 'Nhiều người trẻ thích thuê hơn là mua căn hộ.' },
+        { title: 'Would rather + V: ưu tiên của bản thân', ex: 'Many young people [[would rather rent than buy]] an apartment.', vi: 'Nhiều người trẻ thích thuê hơn là mua căn hộ.' },
         { title: 'Would rather + S + quá khứ: mong người khác làm (ở hiện tại)', ex: 'My parents [[would rather I studied]] medicine.', vi: 'Bố mẹ tôi muốn tôi học y hơn.' },
         { title: 'Would prefer + to V / O + to V', ex: 'I [[would prefer my children to spend]] less time online.', vi: 'Tôi muốn con mình dành ít thời gian trên mạng hơn.' },
         { title: 'It\'s (high) time + quá khứ: lẽ ra phải làm rồi', ex: '[[It\'s about time the city invested]] in a metro system.', vi: 'Đã đến lúc thành phố đầu tư vào hệ thống tàu điện ngầm (lẽ ra phải làm từ lâu).' }
@@ -147,6 +147,7 @@
         ['It\'s time', 'to V / for O + to V / S + V2', 'It\'s time to go. / It\'s time we went.']
       ] },
       { type: 'tip', text: '“Had better” dù có chữ had nhưng nói về hiện tại/tương lai. Phủ định là had better NOT + V, không phải hadn\'t better.' },
+      { type: 'tip', text: "Anh-Mỹ văn nói hay bỏ had: “You better hurry!” – nghe tự nhiên khi nói chuyện, nhưng trong bài viết và bài thi hãy dùng đầy đủ had better / 'd better. Tương tự, người Mỹ đôi khi nói “I'd rather you don't…”, nhưng dạng chuẩn vẫn là I'd rather you didn't…" },
       { type: 'mistake', wrong: 'You had better to check your answers.', right: 'You had better check your answers.', why: 'Sau had better dùng V nguyên mẫu không có to.' },
       { type: 'mistake', wrong: 'I would rather staying at home tonight.', right: 'I would rather stay at home tonight.', why: 'Would rather + V nguyên mẫu, không dùng V-ing.' },
       { type: 'mistake', wrong: 'It\'s high time we invest in renewable energy.', right: 'It\'s high time we invested in renewable energy.', why: 'Sau It\'s (high) time + S, động từ chia quá khứ dù nói về hiện tại.' },
@@ -161,7 +162,7 @@
       { q: 'We\'d better ___ late, or we\'ll miss the opening speech.', options: ['not be', 'not to be', 'don\'t be', 'haven\'t been'], answer: 0, explain: 'Phủ định của had better: had better not + V → We\'d better not be late. "not to be" thừa to; "don\'t be" và "haven\'t been" sai cấu trúc.' },
       { q: 'Câu nào đúng?', options: ['I\'d rather to take the train.', 'I\'d rather take the train than to drive.', 'I\'d rather take the train than drive.', 'I\'d rather taking the train than driving.'], answer: 2, explain: 'would rather V than V – cả hai động từ đều nguyên mẫu không to. "rather to take" thừa to; "than to drive" thừa to; "taking… driving" sai dạng.' },
       { q: 'Câu nào đúng?', options: ['You hadn\'t better ignore the warning.', 'You had better not ignore the warning.', 'You had not better to ignore the warning.', 'You better not to ignore the warning.'], answer: 1, explain: 'Phủ định đúng: had better not + V → You had better not ignore. "hadn\'t better" và "had not better to" sai vị trí not; "better not to" thiếu had và thừa to.' },
-      { q: 'Câu nào đúng?', options: ['It\'s time for us leaving.', 'It\'s time we leave.', 'It\'s time us to leave.', 'It\'s time for us to leave.'], answer: 3, explain: 'It\'s time for + tân ngữ + to V → It\'s time for us to leave (hoặc It\'s time we left). "for us leaving", "we leave" (phải dùng V2), "us to leave" thiếu for đều sai.' },
+      { q: 'Câu nào đúng?', options: ['It\'s time for us leaving.', 'It\'s time for we to leave.', 'It\'s time us to leave.', 'It\'s time for us to leave.'], answer: 3, explain: 'It\'s time for + tân ngữ + to V → It\'s time for us to leave (hoặc It\'s time we left). "for us leaving", "for we" (phải dùng tân ngữ us), "us to leave" thiếu for đều sai.' },
       { q: 'Câu nào cùng nghĩa? “I want you to stay here rather than go out.”', options: ['I\'d rather you stayed here.', 'I\'d rather you to stay here.', 'I\'d rather stay here.', 'I\'d better you stayed here.'], answer: 0, explain: 'Mong người khác làm gì: would rather + S + V2 → I\'d rather you stayed here. "rather you to stay" sai cấu trúc; "I\'d rather stay" đổi người thực hiện; "I\'d better you stayed" sai cấu trúc.' },
       { q: 'Câu nào cùng nghĩa? “The council should have repaired the roads long ago.”', options: ['It\'s time the council repairs the roads.', 'The council had better repaired the roads.', 'It\'s high time the council repaired the roads.', 'The council would rather repair the roads.'], answer: 2, explain: 'Lẽ ra phải làm từ lâu → It\'s high time + S + V2 → It\'s high time the council repaired… "repairs" phải lùi về V2; "had better repaired" sai dạng; would rather đổi nghĩa thành sở thích.' },
       { q: 'Câu nào cùng nghĩa? “I like cycling more than driving.”', options: ['I prefer cycling than driving.', 'I would rather cycling to driving.', 'I prefer to cycle to drive.', 'I prefer cycling to driving.'], answer: 3, explain: 'prefer V-ing TO V-ing (thích cái này hơn cái kia) → I prefer cycling to driving. Không dùng "than" sau prefer; would rather + V nguyên mẫu (không phải V-ing); prefer to V thì so sánh bằng "rather than".' }
@@ -187,7 +188,7 @@
       ] },
       { type: 'uses', items: [
         { title: 'Đại từ luôn đứng giữa động từ và tiểu từ (loại tách được)', ex: 'The survey was long, but we [[carried it out]] in two weeks.', vi: 'Cuộc khảo sát dài nhưng chúng tôi đã thực hiện xong trong hai tuần.' },
-        { title: 'Tân ngữ dài thường đặt sau tiểu từ', ex: 'The government [[phased out]] petrol cars that failed emission tests.', vi: 'Chính phủ loại bỏ dần những xe chạy xăng không đạt kiểm tra khí thải.' },
+        { title: 'Tân ngữ dài thường đặt sau tiểu từ', ex: 'The government [[phased out]] gasoline cars that failed emission tests.', vi: 'Chính phủ loại bỏ dần những xe chạy xăng không đạt kiểm tra khí thải.' },
         { title: 'Loại không tách: tân ngữ luôn sau giới từ', ex: 'Many elderly people [[rely on]] their neighbours for help.', vi: 'Nhiều người cao tuổi dựa vào hàng xóm để được giúp đỡ.' },
         { title: 'Ba thành phần không bao giờ tách', ex: 'Families should [[cut down on]] sugary drinks.', vi: 'Các gia đình nên cắt giảm đồ uống có đường.' },
         { title: 'Bị động: giữ nguyên tiểu từ sau V3', ex: 'The experiment was [[carried out]] by a team in Oslo.', vi: 'Thí nghiệm được thực hiện bởi một nhóm ở Oslo.' }
@@ -201,10 +202,11 @@
         ['level off', 'stabilise', 'Sales levelled off in 2018.']
       ] },
       { type: 'tip', text: 'Không chắc một cụm có tách được không? Tra từ điển: nếu ghi “sth” ở giữa (set sth up) là tách được; nếu ghi ở cuối (look after sb) là không tách được.' },
+      { type: 'tip', text: "Anh-Mỹ: người Mỹ nói fill out a form (Anh-Anh: fill in a form) – cả hai đều tách được: fill it out / fill it in. Chính tả Mỹ: leveled off, leveling off (một chữ l), stabilize (-ize), neighbors (-or); Anh-Anh viết levelled, stabilise, neighbours. Chọn một chuẩn và dùng nhất quán." },
       { type: 'tip', text: 'Task 2 trang trọng nên dùng xen kẽ: cụm động từ phổ biến (carry out, set up) vẫn chấp nhận được, nhưng tránh cụm quá thân mật (put up with → tolerate).' },
       { type: 'mistake', wrong: 'The old rules were confusing, so the school threw away them.', right: 'The old rules were confusing, so the school threw them away.', why: 'Với cụm tách được, đại từ (them) phải đứng giữa động từ và tiểu từ.' },
       { type: 'mistake', wrong: 'Who will look the children after?', right: 'Who will look after the children?', why: '“look after” không tách được; tân ngữ luôn đứng sau after.' },
-      { type: 'mistake', wrong: 'We have run out petrol.', right: 'We have run out of petrol.', why: 'Cụm ba thành phần “run out of” không được bỏ giới từ cuối.' },
+      { type: 'mistake', wrong: 'We have run out gas.', right: 'We have run out of gas.', why: 'Cụm ba thành phần “run out of” không được bỏ giới từ cuối.' },
       { type: 'ielts', text: 'Speaking: dùng cụm động từ tự nhiên giúp tăng điểm Lexical Resource (idiomatic language). Task 1: level off, shoot up, drop off, pick up mô tả xu hướng rất hiệu quả.', ex: 'Sales [[shot up]] in the first quarter before [[levelling off]] at around 2,000 units.' }
     ],
     quiz: [
@@ -256,6 +258,7 @@
         ['married / similar / addicted', 'to', 'married with ✗']
       ] },
       { type: 'tip', text: 'Nếu “to” là giới từ (look forward to, object to, adapt to, be used to, contribute to, key to) thì động từ theo sau phải ở dạng V-ing: contribute to reducing emissions.' },
+      { type: 'tip', text: "Anh-Mỹ và Anh-Anh khác nhau ở vài giới từ: different from (chuẩn cả hai) / different than (Mỹ, văn nói) / different to (Anh); on the weekend (Mỹ) / at the weekend (Anh); in the hospital (Mỹ) / in hospital (Anh); fill out a form (Mỹ) / fill in a form (Anh)." },
       { type: 'mistake', wrong: 'Smartphones have a negative impact to children\'s sleep.', right: 'Smartphones have a negative impact on children\'s sleep.', why: 'impact/effect/influence đi với on.' },
       { type: 'mistake', wrong: 'This essay will discuss about the advantages of online learning.', right: 'This essay will discuss the advantages of online learning.', why: 'discuss là ngoại động từ, không cần about (dù tiếng Việt nói “thảo luận về”).' },
       { type: 'mistake', wrong: 'Young people are more interested about technology.', right: 'Young people are more interested in technology.', why: 'interested đi với in.' },
@@ -263,12 +266,12 @@
     ],
     quiz: [
       { q: 'Plastic waste is harmful ___ marine life.', options: ['at', 'to', 'with', 'on'], answer: 1, explain: 'Tính từ harmful đi với giới từ to: harmful to sb/sth (có hại cho ai/cái gì) → to. at, with, on không đi với harmful.' },
-      { q: 'Remote work has had a considerable effect ___ city-centre businesses.', options: ['to', 'in', 'on', 'for'], answer: 2, explain: 'Danh từ effect đi với on: have an effect on sth (có tác động đến) → on. to, in, for không đi với effect theo nghĩa tác động đến.' },
+      { q: 'Remote work has had a considerable effect ___ downtown businesses.', options: ['to', 'in', 'on', 'for'], answer: 2, explain: 'Danh từ effect đi với on: have an effect on sth (có tác động đến) → on. to, in, for không đi với effect theo nghĩa tác động đến.' },
       { q: 'Teenagers account ___ almost 40% of online gamers.', options: ['for', 'to', 'of', 'in'], answer: 0, explain: 'account for = chiếm (tỉ lệ) → account for almost 40%. to, of, in không đi với account theo nghĩa này.' },
       { q: 'There was a sharp rise ___ the number of electric cars.', options: ['of', 'on', 'at', 'in'], answer: 3, explain: 'rise/increase/fall in + thứ thay đổi → a sharp rise in the number. of dùng với con số (a rise of 10%); on và at sai giới từ.' },
       { q: 'Many residents object ___ a new airport near their homes.', options: ['to build', 'to building', 'building', 'for building'], answer: 1, explain: 'object to + V-ing (to là giới từ) → object to building. "to build" dùng V nguyên mẫu sai; "building" thiếu to; "for building" sai giới từ.' },
       { q: 'The diet mainly consists ___ rice and vegetables.', options: ['in', 'with', 'of', 'from'], answer: 2, explain: 'consist of = gồm có, bao gồm → of. (consist in = nằm ở, cốt ở – nghĩa khác.) in (consist in) mang nghĩa khác; with và from không đi với consist.' },
-      { q: 'Câu nào đúng?', options: ['The government should invest on public transport.', 'The government should invest in public transport.', 'The government should invest to public transport.', 'The government should invest for public transport.'], answer: 1, explain: 'invest in sth = đầu tư vào cái gì → invest in public transport. Không dùng on/to/for. on, to, for không đi với invest theo nghĩa đầu tư vào.' },
+      { q: 'Câu nào đúng?', options: ['The government should invest on public transportation.', 'The government should invest in public transportation.', 'The government should invest to public transportation.', 'The government should invest for public transportation.'], answer: 1, explain: 'invest in sth = đầu tư vào cái gì → invest in public transportation. Không dùng on/to/for. on, to, for không đi với invest theo nghĩa đầu tư vào.' },
       { q: 'Câu nào đúng?', options: ['Pollution can affect to people\'s health.', 'Pollution can affect on people\'s health.', 'Pollution can have an effect to people\'s health.', 'Pollution can affect people\'s health.'], answer: 3, explain: 'affect là ngoại động từ, không có giới từ; danh từ effect đi với on. Ba câu còn lại thêm giới từ sai sau affect hoặc dùng effect với to.' },
       { q: 'Câu nào đúng?', options: ['Access to clean water is a basic right.', 'Access for clean water is a basic right.', 'Access of clean water is a basic right.', 'Access on clean water is a basic right.'], answer: 0, explain: 'Danh từ access đi với to: access to sth (quyền/khả năng tiếp cận cái gì) → Access to clean water.' },
       { q: 'Câu nào cùng nghĩa? “Tourism greatly influences local culture.”', options: ['Tourism has a great influence to local culture.', 'Tourism has a great influence on local culture.', 'Tourism has a great influence in local culture.', 'Tourism has a great influence with local culture.'], answer: 1, explain: 'influence (v) không cần giới từ; khi đổi sang danh từ thì dùng have an influence ON sth → a great influence on local culture.' },
@@ -314,9 +317,10 @@
         ['Cả mệnh đề', 'so / not', 'Will prices rise? I think so / I hope not.']
       ] },
       { type: 'tip', text: 'Đừng để “This” đứng một mình nếu người đọc có thể hiểu nhầm nó chỉ cái gì. “This rise”, “This problem”, “These measures” rõ ràng hơn nhiều so với chỉ “This”.' },
+      { type: 'tip', text: "the former / the latter chỉ dùng khi có đúng HAI đối tượng. Từ ba đối tượng trở lên, dùng the first / the second / the last: Students chose math, art, or music; the last was the most popular." },
       { type: 'mistake', wrong: 'Living costs in London are higher than Manchester.', right: 'Living costs in London are higher than those in Manchester.', why: 'Phải so chi phí với chi phí. Dùng those thay cho living costs (số nhiều).' },
       { type: 'mistake', wrong: 'I want a cheap phone, not an expensive.', right: 'I want a cheap phone, not an expensive one.', why: 'Sau tính từ cần one/ones để thay danh từ đếm được, không để tính từ đứng một mình.' },
-      { type: 'mistake', wrong: 'Some people use public transport, the other people drive. The latter is cheaper.', right: 'Some people use public transport, while others drive. The former is cheaper.', why: 'Public transport (nhắc trước) rẻ hơn → the former. Cũng tránh lặp “people” bằng others.' },
+      { type: 'mistake', wrong: 'Some people use public transportation, the other people drive. The latter is cheaper.', right: 'Some people use public transportation, while others drive. The former is cheaper.', why: 'Public transport (nhắc trước) rẻ hơn → the former. Cũng tránh lặp “people” bằng others.' },
       { type: 'ielts', text: 'Giám khảo đánh giá “referencing” ở band 7+: dùng linh hoạt this/such/these + N thay cho lặp danh từ. Tuy nhiên, lạm dụng the former/the latter có thể khiến bài khó đọc.', ex: 'Some argue that zoos protect endangered species, while others see them as cruel. Although [[the latter view]] has some merit, I believe [[such institutions]] play a vital role in conservation.' }
     ],
     quiz: [
@@ -357,12 +361,13 @@
       ] },
       { type: 'table', head: ['Quá tuyệt đối', 'Thận trọng hơn'], rows: [
         ['All teenagers are addicted to their phones.', 'Many teenagers appear to be overly dependent on their phones.'],
-        ['This will solve the problem.', 'This could go some way towards solving the problem.'],
+        ['This will solve the problem.', 'This could go some way toward solving the problem.'],
         ['Video games cause violence.', 'There may be a link between violent games and aggression.'],
         ['People always prefer cheap products.', 'Consumers often tend to choose cheaper products.'],
         ['It is a fact that…', 'There is considerable evidence that…']
       ] },
       { type: 'tip', text: 'Đừng “hedge” mọi câu: quan điểm chính (thesis) cần rõ ràng. Hedging phù hợp nhất khi nêu nguyên nhân, kết quả, dự đoán và khái quát hóa về một nhóm người.' },
+      { type: 'tip', text: "Anh-Mỹ dùng likely như trạng từ ngay sau will: Prices will likely rise next year (= will probably rise). Anh-Anh ưu tiên will probably hoặc are likely to rise. Cả hai đều chuẩn, nhưng không viết “Prices are likely rise” (thiếu to)." },
       { type: 'mistake', wrong: 'Everyone knows that social media destroys relationships.', right: 'It could be argued that social media can weaken some relationships.', why: 'Khái quát hóa quá mức (everyone, destroys) dễ bị giám khảo đánh giá là thiếu thuyết phục.' },
       { type: 'mistake', wrong: 'Young people tend to spending more time online.', right: 'Young people tend to spend more time online.', why: 'tend to + V nguyên mẫu (to ở đây là một phần của động từ nguyên mẫu, không phải giới từ).' },
       { type: 'mistake', wrong: 'It seems that maybe the prices might possibly rise.', right: 'It seems likely that prices will rise.', why: 'Chồng chất quá nhiều từ thận trọng làm câu yếu và rườm rà. Một từ là đủ.' },
@@ -382,7 +387,7 @@
       { q: 'Câu nào cùng nghĩa? “Probably, the bridge will be finished by 2030.”', options: ['The bridge tends to finish by 2030.', 'The bridge appears finishing by 2030.', 'The bridge is likely to be finished by 2030.', 'The bridge is likely finishing by 2030.'], answer: 2, explain: 'Probably will → be likely to + V (bị động: to be finished). "tends to finish" mang nghĩa thói quen; "appears finishing" sai dạng; "likely finishing" sai dạng.' },
       { q: 'Câu nào cùng nghĩa? “People say that the town was founded by monks.”', options: ['The town is said founding by monks.', 'It says that the town was founded by monks.', 'The town says to have been founded by monks.', 'The town is said to have been founded by monks.'], answer: 3, explain: 'Bị động khách quan: S + is said + to have been V3 (sự việc trong quá khứ). "is said founding" sai dạng; "It says" là chủ động; "The town says" sai chủ thể.' },
       { q: 'The results ___ that the drug may be effective, but further research is needed.', options: ['confirm', 'guarantee', 'suggest', 'prove'], answer: 2, explain: 'Câu có may và "further research is needed" → kết luận còn dè dặt, dùng động từ rào đón suggest (gợi ý rằng). prove/confirm/guarantee khẳng định chắc chắn, mâu thuẫn với phần sau.' },
-      { q: 'It ___ be argued that social media has improved political participation.', options: ['could', 'must', 'will', 'shall'], answer: 0, explain: 'Cụm rào đón quen thuộc trong văn học thuật: It could be argued that… (có thể lập luận rằng…).' },
+      { q: 'It ___ be argued that social media has improved political participation. (chọn cách nói rào đón)', options: ['could', 'must', 'will', 'shall'], answer: 0, explain: 'Cụm rào đón quen thuộc trong văn học thuật: It could be argued that… (có thể lập luận rằng…).' },
       { q: 'Câu nào dùng cách nói rào đón (hedging) phù hợp nhất cho văn học thuật?', options: ['This proves that all older drivers are cautious.', 'Older drivers are always more cautious.', 'It is a fact that every older driver is cautious.', 'This tends to suggest that older drivers are more cautious.'], answer: 3, explain: 'tend to + suggest làm nhẹ mức khẳng định – phù hợp văn học thuật. Các câu còn lại khái quát tuyệt đối (all, always, every, It is a fact) nên dễ bị coi là thiếu căn cứ.' },
       { q: 'Prices are likely ___ further next year.', options: ['rose', 'to rise', 'rising', 'rise'], answer: 1, explain: 'be likely + to V (có khả năng sẽ…) → are likely to rise. rose, rising, rise không đi sau be likely.' },
       { q: 'The decline ___ partly due to lower birth rates.', options: ['may been', 'may be', 'may being', 'may to be'], answer: 1, explain: 'Động từ khuyết thiếu may + V nguyên mẫu → may be (có thể là), dùng để rào đón. "may been", "may being", "may to be" đều sai dạng sau may.' },
@@ -421,9 +426,10 @@
         ['develop', 'development', 'the development of AI'],
         ['able / available', 'ability / availability', 'the availability of jobs'],
         ['reduce / increase', 'reduction / increase', 'a reduction in waste'],
-        ['analyse / emerge', 'analysis / emergence', 'the emergence of online retail']
+        ['analyze / emerge', 'analysis / emergence', 'the emergence of online retail']
       ] },
       { type: 'tip', text: 'Đừng danh từ hóa mọi câu: quá nhiều danh từ liên tiếp (the implementation of the reduction of the consumption of…) làm câu khó đọc. Mỗi đoạn 1–2 cụm là vừa.' },
+      { type: 'tip', text: "Chính tả Anh-Mỹ cho danh từ hóa: analyze → analysis, urbanize → urbanization, organize → organization, aging (Anh-Anh: ageing), canceled / cancellation (Mỹ: canceled một chữ l, nhưng cancellation hai chữ l). Danh từ analysis giống nhau ở cả hai chuẩn." },
       { type: 'mistake', wrong: 'Because of the government invested more, unemployment fell.', right: 'Because of greater government investment, unemployment fell.', why: 'Because of + cụm danh từ, không + mệnh đề. Hoặc dùng Because the government invested more…' },
       { type: 'mistake', wrong: 'There was a significant increase of the price of rice.', right: 'There was a significant increase in the price of rice.', why: 'increase in + thứ thay đổi; increase of + con số (an increase of 10%).' },
       { type: 'mistake', wrong: 'The develop of technology has changed education.', right: 'The development of technology has changed education.', why: 'Sau the cần danh từ (development), không dùng động từ nguyên mẫu.' },
@@ -432,7 +438,7 @@
     quiz: [
       { q: 'The ___ of the new metro line took six years.', options: ['construct', 'construction', 'constructive', 'constructed'], answer: 1, explain: 'Sau The… of cần danh từ → construction. construct là động từ; constructive là tính từ; constructed là V3.' },
       { q: 'There was a slight ___ in unemployment in 2019.', options: ['reduce', 'reducing', 'reductive', 'reduction'], answer: 3, explain: 'Sau a + tính từ (slight) cần danh từ → reduction (sự giảm). reduce là động từ, reductive là tính từ.' },
-      { q: '___ heavy rain, the match was cancelled.', options: ['Due to', 'Because', 'Although', 'Since'], answer: 0, explain: 'Due to + cụm danh từ (heavy rain) → Due to heavy rain. Because và Since cần mệnh đề; Although chỉ sự tương phản.' },
+      { q: '___ heavy rain, the game was canceled.', options: ['Due to', 'Because', 'Although', 'Since'], answer: 0, explain: 'Due to + cụm danh từ (heavy rain) → Due to heavy rain. Because và Since cần mệnh đề; Although chỉ sự tương phản.' },
       { q: 'The ___ of affordable housing is a major concern in big cities.', options: ['available', 'availability', 'avail', 'availably'], answer: 1, explain: 'Sau The… of cần danh từ: available → availability. available là tính từ; avail là động từ; availably không tồn tại.' },
       { q: 'The government\'s ___ to ban plastic bags was widely welcomed.', options: ['decide', 'decisive', 'decision', 'deciding'], answer: 2, explain: 'Sau sở hữu cách (The government\'s) cần danh từ: decision to + V. decide là động từ; decisive là tính từ; deciding không tự nhiên trong cấu trúc này.' },
       { q: 'The chart shows an increase ___ 12% in exports.', options: ['in', 'on', 'at', 'of'], answer: 3, explain: 'increase of + con số (tăng 12%); increase in + thứ thay đổi → an increase of 12% in exports. in, on, at không đi trước con số trong cấu trúc này.' },
@@ -473,7 +479,7 @@
         { title: 'Song song động từ nguyên mẫu', ex: 'Students need to [[manage their time, set goals and ask for help]].', vi: 'Sinh viên cần quản lý thời gian, đặt mục tiêu và nhờ giúp đỡ.' },
         { title: 'Song song V-ing', ex: 'I enjoy [[hiking, swimming and cycling]].', vi: 'Tôi thích đi bộ đường dài, bơi và đạp xe.' },
         { title: 'Not only… but also: hai vế cùng loại từ', ex: 'The policy is [[not only unfair but also ineffective]].', vi: 'Chính sách này không chỉ bất công mà còn kém hiệu quả.' },
-        { title: 'So sánh cùng loại đối tượng', ex: '[[Spending on health]] was higher than [[spending on defence]].', vi: 'Chi tiêu cho y tế cao hơn chi tiêu cho quốc phòng.' }
+        { title: 'So sánh cùng loại đối tượng', ex: '[[Spending on health]] was higher than [[spending on defense]].', vi: 'Chi tiêu cho y tế cao hơn chi tiêu cho quốc phòng.' }
       ] },
       { type: 'table', head: ['Sai (không song song)', 'Đúng'], rows: [
         ['She likes reading, to swim and yoga.', 'She likes reading, swimming and doing yoga.'],
@@ -483,6 +489,7 @@
         ['Her essay was better than the other students.', 'Her essay was better than those of the other students.']
       ] },
       { type: 'tip', text: 'Mẹo kiểm tra: che từ nối (and/or/but) rồi đọc từng thành phần ghép với phần đầu câu. “The scheme aims to… safer roads” nghe sai ngay.' },
+      { type: 'tip', text: "So sánh có giới từ cũng song song được: Rents in London are higher than in Tokyo (lặp giới từ in) là câu đúng, tương đương than those in Tokyo. Chỉ sai khi đem rents so với một thành phố: …higher than Tokyo." },
       { type: 'mistake', wrong: 'Online courses are cheap, flexible and you can study anywhere.', right: 'Online courses are cheap, flexible and accessible from anywhere.', why: 'Hai thành phần đầu là tính từ, thành phần thứ ba lại là mệnh đề → đổi thành tính từ.' },
       { type: 'mistake', wrong: 'The salary of a nurse is lower than a doctor.', right: 'The salary of a nurse is lower than that of a doctor.', why: 'Phải so lương với lương, không so lương với bác sĩ.' },
       { type: 'mistake', wrong: 'Not only cars pollute the air but also make noise.', right: 'Cars not only pollute the air but also make noise.', why: 'Not only và but also phải đứng trước cùng loại thành phần (ở đây là động từ). Nếu đặt Not only đầu câu thì phải đảo ngữ.' },
@@ -494,13 +501,13 @@
       { q: 'The population of Vietnam is larger than ___ of Thailand.', options: ['that', 'those', 'it', 'the one'], answer: 0, explain: 'So sánh dân số với dân số; population số ít → that of Thailand. those là số nhiều; it và the one không dùng với of trong phép so sánh này.' },
       { q: 'You can either pay online or ___ at the counter.', options: ['paying', 'to pay', 'paid', 'pay'], answer: 3, explain: 'either… or… nối hai thành phần cùng dạng → either pay… or pay. paying, to pay, paid không song song với pay.' },
       { q: 'The festival is popular not only with locals but also ___.', options: ['tourists like it', 'with tourists', 'tourists', 'for tourists like'], answer: 1, explain: 'Cấu trúc song song: not only with locals but also WITH tourists – hai vế phải cùng dạng (giới từ + danh từ).' },
-      { q: 'I prefer travelling by train to ___.', options: ['fly', 'flying', 'the plane flies', 'to fly'], answer: 1, explain: 'prefer V-ing to V-ing: hai vế song song cùng dạng V-ing → travelling … to flying. fly và to fly không song song với travelling; "the plane flies" là mệnh đề.' },
+      { q: 'I prefer traveling by train to ___.', options: ['fly', 'flying', 'the plane flies', 'to fly'], answer: 1, explain: 'prefer V-ing to V-ing: hai vế song song cùng dạng V-ing → traveling … to flying. fly và to fly không song song với traveling; "the plane flies" là mệnh đề.' },
       { q: 'Câu nào đúng?', options: ['The aim is to reduce costs, improving services and more jobs.', 'The aim is reducing costs, to improve services and create jobs.', 'The aim is to reduce costs, improve services and create jobs.', 'The aim is to reduce costs, improve services and creation of jobs.'], answer: 2, explain: 'Ba động từ nguyên mẫu song song sau to → to reduce costs, improve services and create jobs. Các câu khác trộn to V, V-ing và danh từ.' },
       { q: 'Câu nào đúng?', options: ['Wages in the private sector rose faster than the public sector.', 'Wages in the private sector rose faster than those in the public sector.', 'Wages in the private sector rose faster than that in the public sector.', 'Wages in the private sector rose faster than public.'], answer: 1, explain: 'So lương với lương; wages số nhiều → those in the public sector. Câu 1 so lương với một khu vực (sai logic); that là số ít; "than public" thiếu danh từ.' },
-      { q: 'Câu nào đúng?', options: ['The flat is both cheap and it is central.', 'The flat is both cheap and in centre.', 'The flat both is cheap and central.', 'The flat is both cheap and central.'], answer: 3, explain: 'both A and B: A và B cùng loại từ (tính từ + tính từ) → both cheap and central. Không chèn thêm mệnh đề "it is" vào vế sau.' },
+      { q: 'Câu nào đúng?', options: ['The apartment is both cheap and it is central.', 'The apartment is both cheap and in the center.', 'The apartment both is cheap and central.', 'The apartment is both cheap and central.'], answer: 3, explain: 'both A and B: A và B cùng loại từ (tính từ + tính từ) → both cheap and central. Không chèn thêm mệnh đề "it is" vào vế sau.' },
       { q: 'Câu nào cùng nghĩa? “Cycling is healthy. It is also cheap.”', options: ['Cycling is not only healthy but also cheap.', 'Cycling is not only healthy but also it is cheap.', 'Not only cycling is healthy but also cheap.', 'Cycling not only is healthy but cheapness.'], answer: 0, explain: 'not only + adj + but also + adj, song song hoàn hảo. Câu 2 thêm mệnh đề phá vỡ song song; câu 3 đặt not only sai vị trí; câu 4 dùng danh từ cheapness.' },
       { q: 'Câu nào cùng nghĩa? “Tokyo\'s rents are high, but London\'s rents are higher.”', options: ['London\'s rents are higher than Tokyo.', 'London is higher rents than Tokyo.', 'Rents in London are higher than in Tokyo\'s.', 'Rents in London are higher than those in Tokyo.'], answer: 3, explain: 'So rents với rents → those in Tokyo. Câu 1 so tiền thuê với thành phố; câu 2 sai cấu trúc; "than in Tokyo\'s" thừa sở hữu cách.' },
-      { q: 'Câu nào cùng nghĩa? “The job involves writing reports. It also involves meeting clients and travelling abroad.”', options: ['The job involves writing reports, to meet clients and travel abroad.', 'The job involves writing reports, meeting clients and travelling abroad.', 'The job involves writing reports, meet clients and travelling abroad.', 'The job involves to write reports, meeting clients and travels abroad.'], answer: 1, explain: 'involve + V-ing; ba hành động liệt kê phải song song cùng dạng V-ing → writing reports, meeting clients and travelling abroad.' }
+      { q: 'Câu nào cùng nghĩa? “The job involves writing reports. It also involves meeting clients and traveling abroad.”', options: ['The job involves writing reports, to meet clients and travel abroad.', 'The job involves writing reports, meeting clients and traveling abroad.', 'The job involves writing reports, meet clients and traveling abroad.', 'The job involves to write reports, meeting clients and travels abroad.'], answer: 1, explain: 'involve + V-ing; ba hành động liệt kê phải song song cùng dạng V-ing → writing reports, meeting clients and traveling abroad.' }
     ]
   });
 
@@ -524,7 +531,7 @@
         { label: 'Tính từ ghép trước danh từ', parts: [ { t: 'a', c: 'aux' }, { t: 'well-known / five-year', c: 'verb' }, { t: 'N', c: 'obj' } ], ex: 'The government launched a [[ten-year]] plan.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Dấu phẩy sau từ nối đầu câu', ex: 'In addition[[,]] the bridge will reduce journey times.', vi: 'Thêm vào đó, cây cầu sẽ rút ngắn thời gian di chuyển.' },
+        { title: 'Dấu phẩy sau từ nối đầu câu', ex: 'In addition[[,]] the bridge will reduce commute times.', vi: 'Thêm vào đó, cây cầu sẽ rút ngắn thời gian di chuyển.' },
         { title: 'Dấu phẩy quanh mệnh đề quan hệ không xác định', ex: 'Hanoi[[, which is the capital,]] has a population of over eight million.', vi: 'Hà Nội, vốn là thủ đô, có dân số hơn tám triệu người.' },
         { title: 'Dấu chấm phẩy nối hai ý liên quan chặt', ex: 'Some people work to live[[;]] others live to work.', vi: 'Một số người làm việc để sống; số khác sống để làm việc.' },
         { title: 'Dấu nháy sở hữu: số ít \'s, số nhiều s\'', ex: 'The [[country\'s]] economy depends on its [[farmers\']] exports.', vi: 'Nền kinh tế của đất nước phụ thuộc vào hàng xuất khẩu của nông dân.' },
@@ -534,12 +541,13 @@
         [', (phẩy)', 'Sau mệnh đề phụ / từ nối đầu câu; liệt kê', 'However, the data is limited.'],
         ['; (chấm phẩy)', 'Nối hai câu độc lập liên quan', 'Rents rose; wages did not.'],
         [': (hai chấm)', 'Sau câu hoàn chỉnh, trước danh sách/giải thích', 'One factor stands out: cost.'],
-        ['\'s / s\'', 'Sở hữu số ít / số nhiều tận cùng s', 'the city\'s parks / the students\' union'],
+        ['\'s / s\'', 'Sở hữu số ít / số nhiều tận cùng s', 'the city\'s parks / the students\' grades'],
         ['its vs it\'s', 'its = của nó; it\'s = it is', 'The company raised its prices.'],
         ['- (gạch nối)', 'Tính từ ghép đứng trước danh từ', 'a well-paid job (nhưng: the job is well paid)']
       ] },
       { type: 'tip', text: 'Không đặt dấu phẩy giữa chủ ngữ và động từ, và không đặt dấu phẩy trước “that” trong mệnh đề danh từ: “Many people believe that…” – không có dấu phẩy.' },
       { type: 'tip', text: 'Không viết tắt (don\'t, it\'s, can\'t) trong IELTS Writing; viết đầy đủ do not, it is, cannot để giữ văn phong trang trọng.' },
+      { type: 'tip', text: "Anh-Mỹ: (1) Dấu phẩy Oxford (serial comma) trước and/or cuối danh sách là chuẩn trong hầu hết sách hướng dẫn văn phong Mỹ: tourism, retail, and IT. Anh-Anh thường bỏ. Cả hai đều chấp nhận được – miễn là nhất quán. (2) Dấu chấm và dấu phẩy đặt BÊN TRONG ngoặc kép: The sign said “Closed.” (Anh-Anh thường đặt ngoài)." },
       { type: 'mistake', wrong: 'Many people live alone, this can lead to loneliness.', right: 'Many people live alone, which can lead to loneliness.', why: 'Comma splice: không được nối hai câu độc lập chỉ bằng dấu phẩy. Dùng which, dấu chấm hoặc chấm phẩy.' },
       { type: 'mistake', wrong: 'The company increased it\'s profits.', right: 'The company increased its profits.', why: 'its (sở hữu) không có dấu nháy; it\'s = it is.' },
       { type: 'mistake', wrong: 'The number of tourist\'s rose; however the profits fell.', right: 'The number of tourists rose; however, the profits fell.', why: 'Số nhiều không có dấu nháy; sau however cần dấu phẩy.' },
@@ -557,7 +565,7 @@
       { q: 'Câu nào đúng?', options: ['Unemployment fell, this was good news.', 'Unemployment fell this was good news.', 'Unemployment fell, which was good news.', 'Unemployment fell: which was good news.'], answer: 2, explain: 'Nối hai ý bằng mệnh đề quan hệ which để tránh lỗi comma splice → Unemployment fell, which was good news. Câu 1 nối hai câu bằng dấu phẩy (comma splice); câu 2 thiếu dấu câu; dấu hai chấm không đứng trước which.' },
       { q: 'Câu nào cùng nghĩa? “The economy of the country grew. The exports of its farmers rose.”', options: ['The countrys economy grew, and its farmer\'s exports rose.', 'The country\'s economy grew, and its farmers\' exports rose.', 'The countries economy grew, and it\'s farmers exports rose.', 'The country\'s economy grew and it\'s farmers\' exports rose.'], answer: 1, explain: 'country\'s (số ít), farmers\' (số nhiều), its (sở hữu). Các phương án khác viết sai sở hữu cách (countrys, farmer\'s, countries) hoặc nhầm it\'s với its.' },
       { q: 'Câu nào cùng nghĩa? “Some prefer cities. Others prefer the countryside.”', options: ['Some prefer cities, others prefer the countryside.', 'Some prefer cities: others, prefer the countryside.', 'Some prefer cities others prefer the countryside.', 'Some prefer cities; others prefer the countryside.'], answer: 3, explain: 'Hai câu độc lập liên quan → chấm phẩy (không dùng chỉ dấu phẩy). Câu 1 là comma splice; câu 2 đặt dấu sai; câu 3 thiếu dấu câu (run-on).' },
-      { q: 'Câu nào cùng nghĩa? “The job pays well. It is a job in the city centre.”', options: ['It is a well-paid job in the city centre.', 'It is a well paid-job in the city centre.', 'It is a well-paid-job in the city-centre.', 'It is a wellpaid job in the city centre.'], answer: 0, explain: 'Tính từ ghép đứng trước danh từ có gạch nối → a well-paid job; city centre không cần gạch nối. Các phương án khác đặt gạch nối sai vị trí, thừa gạch nối hoặc viết liền "wellpaid".' }
+      { q: 'Câu nào cùng nghĩa? “The job pays well. It is a job downtown.”', options: ['It is a well-paid job downtown.', 'It is a well paid-job downtown.', 'It is a well-paid-job down-town.', 'It is a wellpaid job downtown.'], answer: 0, explain: 'Tính từ ghép đứng trước danh từ có gạch nối → a well-paid job; downtown viết liền, không có gạch nối. Các phương án khác đặt gạch nối sai vị trí, thừa gạch nối hoặc viết liền "wellpaid".' }
     ]
   });
 
@@ -582,7 +590,7 @@
         { label: 'Kế hoạch đã sắp xếp', parts: [ { t: 'S', c: 'subj' }, { t: 'was / were', c: 'aux' }, { t: 'V-ing', c: 'verb' }, { t: 'the next day', c: 'time' } ], ex: 'She [[was flying]] to Singapore the next morning.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Kế hoạch bị thay đổi', ex: 'The council [[was going to build]] a car park, but residents protested.', vi: 'Hội đồng định xây bãi đỗ xe, nhưng người dân phản đối.' },
+        { title: 'Kế hoạch bị thay đổi', ex: 'The council [[was going to build]] a parking garage, but residents protested.', vi: 'Hội đồng định xây bãi đỗ xe, nhưng người dân phản đối.' },
         { title: 'Suýt nữa / sắp sửa thì…', ex: 'I [[was about to give up]] when I finally found a job.', vi: 'Tôi đã sắp bỏ cuộc thì cuối cùng cũng tìm được việc.' },
         { title: 'Lời dự đoán trong quá khứ (tường thuật)', ex: 'In 2000, few people thought smartphones [[would become]] so common.', vi: 'Năm 2000, ít ai nghĩ điện thoại thông minh sẽ trở nên phổ biến như vậy.' },
         { title: 'Định mệnh, kể chuyện (was to / would)', ex: 'She moved to London in 1990, where she [[would spend]] the rest of her life.', vi: 'Bà chuyển đến London năm 1990, nơi bà sẽ sống phần đời còn lại.' },
@@ -591,7 +599,7 @@
       { type: 'table', head: ['Hiện tại', 'Tương lai trong quá khứ', 'Ví dụ'], rows: [
         ['am/is/are going to', 'was/were going to', 'I thought it was going to rain.'],
         ['will', 'would', 'He promised he would help.'],
-        ['am/is/are about to', 'was/were about to', 'The film was about to start.'],
+        ['am/is/are about to', 'was/were about to', 'The movie was about to start.'],
         ['am/is/are V-ing (kế hoạch)', 'was/were V-ing', 'They were meeting at six.'],
         ['is to + V (sắp xếp chính thức)', 'was to + V', 'The summit was to take place in May.']
       ] },
@@ -599,13 +607,13 @@
       { type: 'mistake', wrong: 'I was going to visit my aunt, and I visited her.', right: 'I was going to visit my aunt, but I didn\'t have time.', why: '“was going to” thường ngụ ý kế hoạch KHÔNG xảy ra; nếu đã làm thì dùng quá khứ đơn: I visited my aunt.' },
       { type: 'mistake', wrong: 'In 2010, experts said that prices will double.', right: 'In 2010, experts said that prices would double.', why: 'Lời dự đoán trong quá khứ → lùi will thành would (chỉ giữ will khi điều được dự đoán vẫn còn ở tương lai so với hiện tại).' },
       { type: 'mistake', wrong: 'We were about leaving when it started to rain.', right: 'We were about to leave when it started to rain.', why: 'be about to + V nguyên mẫu.' },
-      { type: 'ielts', text: 'Task 1 có dự báo: “It was predicted that…would…”. Speaking Part 2 về một kế hoạch đã thay đổi hoặc một quyết định: dùng was going to và was about to.', ex: 'I [[was originally going to study]] engineering, but just as I [[was about to submit]] my application, I realised my real passion was design.' }
+      { type: 'ielts', text: 'Task 1 có dự báo: “It was predicted that…would…”. Speaking Part 2 về một kế hoạch đã thay đổi hoặc một quyết định: dùng was going to và was about to.', ex: 'I [[was originally going to study]] engineering, but just as I [[was about to submit]] my application, I realized my real passion was design.' }
     ],
     quiz: [
       { q: 'I ___ call you, but my phone battery died.', options: ['was going to', 'am going to', 'will', 'was about'], answer: 0, explain: 'Kế hoạch trong quá khứ không thành → was going to. am going to và will là hiện tại/tương lai; "was about" thiếu to.' },
       { q: 'The plane ___ take off when the engine failed.', options: ['would', 'was about to', 'is about to', 'was going'], answer: 1, explain: 'Việc sắp xảy ra ngay lúc đó (máy bay sắp cất cánh thì hỏng động cơ) → was about to + V. would không diễn tả "sắp sửa"; is about to sai thì; "was going" thiếu to.' },
       { q: 'In 1995, nobody believed the internet ___ change shopping so dramatically.', options: ['will', 'is going to', 'would', 'has'], answer: 2, explain: 'Dự đoán trong quá khứ về tương lai (năm 1995) → would + V. will và is going to là thì hiện tại; has sai cấu trúc.' },
-      { q: 'We ___ to meet at the station, but the train was cancelled.', options: ['are going', 'would', 'will', 'were going'], answer: 3, explain: 'was/were going to + V = đã định làm gì trong quá khứ (nhưng không thành) → were going to meet.' },
+      { q: 'We ___ to meet at the station, but the train was canceled.', options: ['are going', 'would', 'will', 'were going'], answer: 3, explain: 'was/were going to + V = đã định làm gì trong quá khứ (nhưng không thành) → were going to meet.' },
       { q: 'He promised that he ___ the report by Friday.', options: ['would finish', 'will finish', 'finishes', 'was finish'], answer: 0, explain: 'Tường thuật lời hứa trong quá khứ → would + V → would finish. will finish không lùi thì; finishes sai thì; "was finish" sai cấu trúc.' },
       { q: 'The opening ceremony ___ to take place in March, but it was postponed.', options: ['is', 'was', 'will be', 'has been'], answer: 1, explain: 'was to + V: sự sắp xếp chính thức trong quá khứ (nhưng bị hoãn) → was. is và will be là hiện tại/tương lai; has been sai thì.' },
       { q: 'Câu nào đúng?', options: ['I was about to leaving when she arrived.', 'I was about leave when she arrived.', 'I was about to leave when she arrived.', 'I am about to leave when she arrived.'], answer: 2, explain: 'was about to + V nguyên mẫu, nhất quán thì quá khứ. "about to leaving" sai dạng; "about leave" thiếu to; "am about to" sai thì.' },
@@ -636,7 +644,7 @@
         { label: 'Đảo ngữ loại 3', parts: [ { t: 'Had', c: 'aux' }, { t: 'S', c: 'subj' }, { t: '(not) V3', c: 'verb' }, { t: ', S + would have V3', c: 'obj' } ], ex: '[[Had we left]] earlier, we would have caught the train.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Unless = if … not', ex: '[[Unless]] cities invest in public transport, congestion will worsen.', vi: 'Nếu các thành phố không đầu tư vào giao thông công cộng, ùn tắc sẽ tệ hơn.' },
+        { title: 'Unless = if … not', ex: '[[Unless]] cities invest in public transportation, congestion will worsen.', vi: 'Nếu các thành phố không đầu tư vào giao thông công cộng, ùn tắc sẽ tệ hơn.' },
         { title: 'Provided that / as long as: điều kiện tiên quyết', ex: 'Online learning works well [[provided that]] students are self-disciplined.', vi: 'Học trực tuyến hiệu quả với điều kiện sinh viên có tính kỷ luật.' },
         { title: 'In case: phòng khi (làm trước để đề phòng)', ex: 'Take an umbrella [[in case]] it rains.', vi: 'Mang theo ô phòng khi trời mưa.' },
         { title: 'Otherwise: nếu không thì', ex: 'Governments must cut emissions; [[otherwise]], sea levels will continue to rise.', vi: 'Chính phủ phải cắt giảm khí thải; nếu không, mực nước biển sẽ tiếp tục dâng.' },
@@ -651,6 +659,7 @@
         ['Had S V3', '= If S had V3 (loại 3)', 'Phủ định: Had S not V3 (không viết tắt)']
       ] },
       { type: 'tip', text: 'Sau unless, provided, as long as, in case: dùng hiện tại đơn để nói về tương lai, KHÔNG dùng will: “in case it rains”, không phải “in case it will rain”.' },
+      { type: 'tip', text: "Anh-Mỹ văn nói đôi khi dùng in case với nghĩa gần như if: In case you're wondering, the meeting is at 3. Trong bài thi và văn viết, hãy giữ phân biệt chuẩn: in case = phòng khi (làm trước để đề phòng), if = nếu (chỉ làm khi điều kiện xảy ra)." },
       { type: 'mistake', wrong: 'Unless you don\'t study, you will fail.', right: 'Unless you study, you will fail.', why: 'Unless đã mang nghĩa phủ định (if … not), thêm don\'t sẽ thành phủ định kép, sai nghĩa.' },
       { type: 'mistake', wrong: 'I\'ll bring a jacket if it gets cold – I want to be ready.', right: 'I\'ll bring a jacket in case it gets cold.', why: 'Muốn nói “mang theo trước để đề phòng” → in case. “if” nghĩa là chỉ mang khi trời lạnh.' },
       { type: 'mistake', wrong: 'Had I knew the answer, I would have told you.', right: 'Had I known the answer, I would have told you.', why: 'Đảo ngữ loại 3: Had + S + V3 (known).' },
@@ -669,7 +678,7 @@
       { q: 'Câu nào cùng nghĩa? “If you don\'t apply before May, you won\'t get a place.”', options: ['Unless you apply before May, you won\'t get a place.', 'Unless you don\'t apply before May, you will get a place.', 'In case you apply before May, you won\'t get a place.', 'Provided you don\'t apply before May, you will get a place.'], answer: 0, explain: 'if … not = unless (trừ khi). Unless đã mang nghĩa phủ định nên không dùng thêm don\'t → Unless you apply before May, you won\'t get a place.' },
       { q: 'Câu nào cùng nghĩa? “If I had known about the strike, I would have taken a taxi.”', options: ['Should I know about the strike, I would take a taxi.', 'Were I to know about the strike, I would take a taxi.', 'Had I known about the strike, I would have taken a taxi.', 'Had I know about the strike, I would have taken a taxi.'], answer: 2, explain: 'Đảo ngữ loại 3: Had + S + V3 → Had I known… would have taken. Câu 1, 2 là loại 1, 2 (sai thời điểm); câu 4 dùng know thay vì known.' },
       { q: 'Câu nào cùng nghĩa? “The project will succeed, but only if it receives enough funding.”', options: ['The project will succeed unless it receives enough funding.', 'The project will succeed in case it receives enough funding.', 'The project will succeed otherwise it receives enough funding.', 'The project will succeed provided that it receives enough funding.'], answer: 3, explain: 'only if = provided that (với điều kiện tiên quyết) → succeed provided that it receives enough funding. unless đảo nghĩa; in case nghĩa là phòng khi; otherwise sai cấu trúc.' },
-      { q: '___ you need any help, please call reception.', options: ['Unless', 'Provided not', 'Should', 'Would'], answer: 2, explain: 'Đảo ngữ câu điều kiện loại 1: Should + S + V = If + S + V (nếu… thì) → Should you need any help.' },
+      { q: '___ you need any help, please call the front desk.', options: ['Unless', 'Provided not', 'Should', 'Would'], answer: 2, explain: 'Đảo ngữ câu điều kiện loại 1: Should + S + V = If + S + V (nếu… thì) → Should you need any help.' },
       { q: 'You can borrow my car ___ you return it by six.', options: ['provided that', 'unless', 'in case of', 'otherwise'], answer: 0, explain: 'provided (that) = với điều kiện là → provided that you return it by six. unless (trừ khi) sai nghĩa; in case of + danh từ.' },
       { q: '___ the storm, the ferry would have left on time.', options: ['Unless', 'Provided', 'As long as', 'But for'], answer: 3, explain: 'But for + danh từ = If it had not been for (nếu không có…) → But for the storm. Unless/Provided/As long as phải đi với mệnh đề.' },
       { q: 'Take an umbrella ___ it rains.', options: ['as long as', 'in case', 'unless', 'provided'], answer: 1, explain: 'in case + mệnh đề = phòng khi → Take an umbrella in case it rains. Các phương án còn lại sai nghĩa.' },
@@ -719,7 +728,7 @@
     ],
     quiz: [
       { q: 'I know you think I forgot, but I ___ send the email.', options: ['did', 'do', 'was', 'have'], answer: 0, explain: 'Nhấn mạnh hành động trong quá khứ (phản bác) → did + V. do là hiện tại, không hợp với việc gửi email đã qua; was và have không đi với send theo cách này.' },
-      { q: 'Public transport ___ reduce congestion, despite its critics.', options: ['do', 'does', 'is', 'did to'], answer: 1, explain: 'Trợ động từ nhấn mạnh: chủ ngữ số ít (Public transport), hiện tại → does + V nguyên mẫu → does reduce. do chia số nhiều; is sai cấu trúc; "did to" thừa to.' },
+      { q: 'Public transportation ___ reduce congestion, despite its critics.', options: ['do', 'does', 'is', 'did to'], answer: 1, explain: 'Trợ động từ nhấn mạnh: chủ ngữ số ít (Public transport), hiện tại → does + V nguyên mẫu → does reduce. do chia số nhiều; is sai cấu trúc; "did to" thừa to.' },
       { q: '___ the government should do is invest in renewable energy.', options: ['That', 'It', 'Which', 'What'], answer: 3, explain: 'Câu chẻ What + S + V + is… → What the government should do is… That, It, Which không mở đầu mệnh đề danh từ thiếu tân ngữ như vậy.' },
       { q: 'The reason why sales fell is ___ prices went up.', options: ['because', 'that', 'why', 'which'], answer: 1, explain: 'The reason why … is that + mệnh đề. Không dùng because sau "The reason … is" vì bị lặp nghĩa nguyên nhân → that.' },
       { q: 'What surprised researchers ___ the speed of the change.', options: ['were', 'it was', 'was', 'are'], answer: 2, explain: 'Mệnh đề What… làm chủ ngữ số ít → động từ was. were và are chia số nhiều; "it was" thừa chủ ngữ.' },

@@ -49,7 +49,22 @@
         "upgrade AmE notes (3 tip + 1 formula row + 7 ghi chú)"
       ],
       "notes": "Sửa: possessive Q 'chemist' (đúng trong Anh-Anh văn nói → thay 'chemists'); drill thêm đáp án 'until the rain has stopped', 'zoos should close', 'Every one of/Every single participant'. Anh-Mỹ: at weekends→on weekends (Q+D, cinema→movies), flatmate→roommate, sat→took the exam, any more→anymore (Q+formula), learnt→learned x2, lay the table→lay the groundwork, car park→parking garage/lot, petrol costs→gas prices, mum→mom. Nâng cấp: tip percent + ngày tháng Mỹ (May 3, 2015) + hàng công thức ngày Mỹ; tip like/as if (Mỹ văn nói); tip phiên âm Mỹ cho -ed/-s; ghi chú data/collective nouns số ít (Mỹ), pence, at the dentist, a ten-minute drive, grain of salt, as-if Q0. Chính tả -ise/-our giữ (bộ chấm đã chuẩn hóa -ize). ids/cấu trúc giữ nguyên, extension đồng bộ, content-check 0 lỗi."
+    },
+    {
+      "area": "grammar",
+      "date": "2026-10-26",
+      "range": "idx 32-52 (preference-advice..future-continuous-perfect): academic 32-42, tenses 43-52; rà blocks + quiz + drill",
+      "checked": 21,
+      "fixed": 84,
+      "errorRate": "lỗi chấm/đáp án: 14 / ~620 mục (≈2.3%: 10 câu nhiều đáp án đúng về ngữ pháp, 4 drill thiếu đáp án); từ vựng/chính tả Anh-Anh đổi sang Anh-Mỹ: ~70 chỗ",
+      "fixTypes": [
+        "ambiguous (10)",
+        "missing accepted answer (4)",
+        "AmE lexis/spelling (~70)",
+        "upgrade AmE/usage notes (10 tip + 1 hàng bảng)"
+      ],
+      "notes": "Đa đáp án: Q 'It's time we leave' (Mỹ văn nói chấp nhận) → 'It's time for we to leave'; hedging Q13/19/20/21/23-27 thêm gợi ý '(chọn cách nói rào đón)' vì phương án khác (will be argued, definitely seems, all of the cases…) vẫn đúng ngữ pháp. Thiếu đáp án: would rather cycle to work than drive to work; game was canceled/cancelled; aging/ageing; aunt's apartment/flat. Anh-Mỹ: flat→apartment, petrol→gas/gasoline, public transport→public transportation/transit, city centre→downtown, cinema/film→movie theater/movie, football→soccer, holiday→vacation, university→college, primary→elementary school, revise→study, sit an exam→take, timetable/programme→schedule, CV→résumé, 5 September→September 5, 11.30→11:30, car park→parking garage, garden→yard/backyard, reception→front desk, marked→graded, scheme→program, journey→commute, phone→call, shop→store; chính tả travelling→traveling, cancelled→canceled, practise(v)→practice, neighbourhood, defence, urbanisation, ageing, learnt, realised. Nâng cấp tip: You better (Mỹ văn nói), fill out/in + chính tả Mỹ, giới từ Mỹ-Anh (different from/than/to, on the weekend, in the hospital), the former/latter chỉ cho 2 đối tượng, will likely (Mỹ), chính tả danh từ hóa Mỹ, so sánh 'than in Tokyo', dấu phẩy Oxford + dấu câu trong ngoặc kép, in case≈if (Mỹ văn nói), Do you have…? + giờ 7:15; bảng -l: traveling (Mỹ)/travelling (Anh). Không thấy lỗi quy tắc/khóa đáp án sai. ids/cấu trúc giữ nguyên, extension đồng bộ, content-check 0 lỗi."
     }
   ],
-  "nextGrammar": "idx 32-52, 55-60, 63-65, 68-69, 72-76 chưa rà đợt này (đã qua audit 10/2026). Chỉ số theo thứ tự nạp foundation, chapters, book2, academic, tenses, verbs, sentences (khác thứ tự app.js). Ưu tiên: 57-58 modals, 59-60 passive, 64 reported-speech, 72-76 clauses/inversion. Rà cả blocks + Anh-Mỹ (đã thấy ngoài phạm vi: tenses present-simple Q 'at weekends', present-continuous ví dụ 'My flatmate'). Cách làm: nạp web/js/grammar/*.js bằng vm, in blocks+quiz+drills (gồm start/hint)."
+  "nextGrammar": "idx 55-60, 63-65, 68-69, 72-76 chưa rà đợt này (đã qua audit 10/2026); 32-52 xong 26/10. Chỉ số theo thứ tự nạp foundation, chapters, book2, academic, tenses, verbs, sentences (khác thứ tự app.js). Ưu tiên: 57-58 modals, 59-60 passive, 64 reported-speech, 72-76 clauses/inversion. Rà cả blocks + Anh-Mỹ (còn sót ngoài phạm vi: chapters 'the cinema, the film', foundation 'the match was cancelled', drills-b 'on holiday'; chính tả -our/-ise ở ví dụ chưa đổi hết). Cách làm: nạp web/js/grammar/*.js bằng vm, in blocks+quiz+drills (gồm start/hint); sửa bằng script anchor-duy-nhất; quiz dạng chọn 'rào đón' cần gợi ý ở đề."
 }
