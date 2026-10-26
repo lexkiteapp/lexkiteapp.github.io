@@ -49,6 +49,12 @@
    "why": "clip-sentence sim 0.17; vision description-sentence sim 0.2889",
    "b": "40088424311"
   },
+  "busy#adj": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1823",
+   "b": "40276144478"
+  },
   "candidate#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -84,6 +90,12 @@
    "tries": 4,
    "why": "vision description-sentence sim 0.0577",
    "b": "40088424311"
+  },
+  "color#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.18",
+   "b": "40276144478"
   },
   "complain#v": {
    "at": "2026-10-24",
@@ -127,17 +139,41 @@
    "why": "vision: no (regional offices, decentralization action); vision description-sentence sim 0.1864",
    "b": "40088424311"
   },
+  "discuss#v": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1542",
+   "b": "40276144478"
+  },
+  "do#v": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1856",
+   "b": "40276144478"
+  },
   "downside#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision description-sentence sim 0.1062",
    "b": "40088424311"
   },
+  "downstairs#adv": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.196",
+   "b": "40276144478"
+  },
   "edit access#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (spreadsheet grid, edit access action); vision: text; clip-sentence sim 0.1935; vision description-sentence sim 0.1772",
    "b": "40088424311"
+  },
+  "email#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.195",
+   "b": "40276144478"
   },
   "engineer#n": {
    "at": "2026-10-24",
@@ -151,11 +187,29 @@
    "why": "clip-sentence sim 0.1688; vision description-sentence sim 0.091",
    "b": "40088424311"
   },
+  "fine#adj": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.2101",
+   "b": "40276144478"
+  },
   "flexible hours#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision description-sentence sim 0.1876",
    "b": "40088424311"
+  },
+  "football#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (brother, Saturday, alone); vision description-sentence sim 0.2876",
+   "b": "40276144478"
+  },
+  "future#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1617",
+   "b": "40276144478"
   },
   "general#adj": {
    "at": "2026-10-24",
@@ -180,6 +234,12 @@
    "tries": 4,
    "why": "vision: no (more than ten rooms); clip-sentence sim 0.2091; vision description-sentence sim 0.1603",
    "b": "40088424311"
+  },
+  "group#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.2078",
+   "b": "40276144478"
   },
   "half#n": {
    "at": "2026-10-24",
@@ -223,6 +283,24 @@
    "why": "vision: no (intangible assets and company); clip-sentence sim 0.2103; vision description-sentence sim 0.0753",
    "b": "40088424311"
   },
+  "keep#v": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "text: RECEPIT UNNS",
+   "b": "40276144478"
+  },
+  "live#v": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (village, small)",
+   "b": "40276144478"
+  },
+  "member#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (school team logo or uniform); vision: text; vision description-sentence sim 0.1736",
+   "b": "40276144478"
+  },
   "mention#v": {
    "at": "2026-10-24",
    "tries": 4,
@@ -247,6 +325,12 @@
    "why": "clip-sentence sim 0.1883; vision description-sentence sim 0.0623",
    "b": "40088424311"
   },
+  "natural#adj": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (no clear resource shown); vision description-sentence sim 0.0994",
+   "b": "40276144478"
+  },
   "normally#adv": {
    "at": "2026-10-24",
    "tries": 4,
@@ -258,6 +342,24 @@
    "tries": 4,
    "why": "vision: no (noticeboard and action of putting up); clip-sentence sim 0.1609; vision description-sentence sim 0.0727",
    "b": "40088424311"
+  },
+  "object#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (thousands of objects); vision description-sentence sim 0.1904",
+   "b": "40276144478"
+  },
+  "page#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1967",
+   "b": "40276144478"
+  },
+  "partner#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (café background)",
+   "b": "40276144478"
   },
   "party#n": {
    "at": "2026-10-24",
@@ -319,11 +421,23 @@
    "why": "clip-sentence sim 0.2154; vision description-sentence sim 0.1065",
    "b": "40088424311"
   },
+  "reader#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (thousands of readers); vision description-sentence sim 0.175",
+   "b": "40276144478"
+  },
   "remember#v": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (restaurant or name); clip-sentence sim 0.1495; vision description-sentence sim 0.136",
    "b": "40088424311"
+  },
+  "result#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1702",
+   "b": "40276144478"
   },
   "roommate#n": {
    "at": "2026-10-24",
@@ -342,6 +456,12 @@
    "tries": 4,
    "why": "vision: no (schedule or calendar); clip-sentence sim 0.1449; vision description-sentence sim -0.0213",
    "b": "40088424311"
+  },
+  "science#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.1962",
+   "b": "40276144478"
   },
   "season#n": {
    "at": "2026-10-24",
@@ -385,17 +505,47 @@
    "why": "vision: no (requester and specific example); clip-sentence sim 0.2003; vision description-sentence sim -0.0184",
    "b": "40088424311"
   },
+  "talk#v": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "clip-sentence sim 0.1727",
+   "b": "40276144478"
+  },
+  "terrible#adj": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision description-sentence sim 0.1122",
+   "b": "40276144478"
+  },
+  "there#adv": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (street view and bakery sign)",
+   "b": "40276144478"
+  },
   "time off#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "clip-sentence sim 0.1785; vision description-sentence sim 0.0742",
    "b": "40088424311"
   },
+  "topic#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (no clear discussion topic shown); vision description-sentence sim 0.0918",
+   "b": "40276144478"
+  },
   "transport#n": {
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (no clear improvement action); vision: text; vision description-sentence sim 0.1487",
    "b": "40088424311"
+  },
+  "water#n": {
+   "at": "2026-10-26",
+   "tries": 4,
+   "why": "vision: no (request action unclear)",
+   "b": "40276144478"
   },
   "weak#adj": {
    "at": "2026-10-24",
