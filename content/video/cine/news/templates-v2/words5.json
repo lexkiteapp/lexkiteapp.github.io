@@ -1,7 +1,7 @@
 {
- "id": "t2_words5_hotel",
+ "id": "t2_words5_verygood",
  "template": "words5",
- "title": "5 hotel words you need (classroom, text on the whiteboard)",
+ "title": "Say It Like a Native #1 – 5 words instead of “very good”",
  "teacher": "mei",
  "set": "classroom_board",
  "clips": [
@@ -16,110 +16,307 @@
   "link": "https://lexkite.com/app/#/review",
   "say": "Review your words"
  },
- "speed": 0.8,
+ "speed": 0.75,
  "lines": [
   {
    "id": "w_h",
-   "text": "Five hotel words you need."
+   "text": "Don't just say very good. Try these instead."
+  },
+  {
+   "id": "w_s",
+   "text": "Your friend cooks dinner. Very good? Too boring!",
+   "key": {
+    "red": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.6
   },
   {
    "id": "w_1",
-   "text": "One: key. Can I get a second key?",
+   "text": "One: great. This is great!",
    "key": {
-    "yellow": [
-     1
+    "green": [
+     1,
+     4
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
    "id": "w_2",
-   "text": "Two: luggage. Can you hold my luggage?",
+   "text": "Two: delicious. Use it for food.",
    "key": {
-    "yellow": [
+    "green": [
      1
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
    "id": "w_3",
-   "text": "Three: elevator. Where's the elevator?",
+   "text": "Three: amazing. It's amazing!",
    "key": {
-    "yellow": [
-     1
-    ]
-   },
-   "gap": 0.3
-  },
-  {
-   "id": "w_4",
-   "text": "Four: shower. The shower isn't working.",
-   "key": {
-    "yellow": [
-     1
-    ]
-   },
-   "gap": 0.3
-  },
-  {
-   "id": "w_5",
-   "text": "Five: receipt. The p is silent.",
-   "key": {
-    "yellow": [
-     1
-    ],
-    "red": [
+    "green": [
+     1,
      3
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
-   "id": "w_6",
-   "text": "Can I get a receipt, please?",
+   "id": "w_4",
+   "text": "Four: awesome. That's awesome!",
    "key": {
-    "yellow": [
-     4
+    "green": [
+     1,
+     3
     ]
-   }
+   },
+   "gap": 0.6
   },
   {
-   "id": "w_r",
-   "text": "Which word was new for you?",
+   "id": "w_5",
+   "text": "Five: outstanding. For really great work.",
    "key": {
-    "yellow": [
+    "green": [
      1
     ]
    },
-   "gap": 0.35
+   "gap": 0.6
   },
   {
-   "id": "w_t",
-   "text": "Save this for your next trip!"
+   "id": "w_r",
+   "text": "Which one will you use today?",
+   "gap": 0.6
   },
   {
    "id": "w_c",
-   "text": "Review these words free on lexkite.com.",
-   "gap": 0.3
+   "text": "Save this, and review your words on lexkite.com.",
+   "gap": 0.6
   }
  ],
  "pops": [
   {
    "id": "hook",
    "kind": "rich",
-   "role": "hook",
-   "anim": "drop",
+   "anim": "stamp",
    "size": 84,
    "from": [
     "t",
     0
    ],
    "to": [
-    "w_1",
-    1,
+    "w_s",
+    0,
     "s",
-    0.1
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "Don't just say",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“very good”",
+      "red"
+     ]
+    ]
+   ],
+   "role": "hook"
+  },
+  {
+   "id": "sit",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "from": [
+    "w_s",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_1",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🍝"
+     ],
+     [
+      " very good?",
+      "red"
+     ]
+    ],
+    [
+     [
+      "@emoji:😴"
+     ],
+     [
+      " boring!",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "t1",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 96,
+   "from": [
+    "w_1",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_2",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@num:1"
+     ],
+     [
+      " great",
+      "green"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "t2",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 96,
+   "from": [
+    "w_2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_3",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@num:2"
+     ],
+     [
+      " delicious",
+      "green"
+     ]
+    ],
+    [
+     [
+      "@emoji:🍝"
+     ],
+     [
+      " food",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "t3",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 96,
+   "from": [
+    "w_3",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_4",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@num:3"
+     ],
+     [
+      " amazing",
+      "green"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "t4",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 96,
+   "from": [
+    "w_4",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_5",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@num:4"
+     ],
+     [
+      " awesome",
+      "green"
+     ]
+    ],
+    [
+     [
+      "@emoji:🙌"
+     ],
+     [
+      " casual",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "t5",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 96,
+   "from": [
+    "w_5",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "w_r",
+    0,
+    "s",
+    -0.08
    ],
    "rows": [
     [
@@ -127,135 +324,19 @@
       "@num:5"
      ],
      [
-      " hotel words",
-      "white"
+      " outstanding",
+      "green"
      ]
     ],
     [
      [
-      "you need ",
-      "yellow"
+      "@emoji:🏆"
      ],
      [
-      "@emoji:🏨"
+      " work",
+      "white"
      ]
     ]
-   ]
-  },
-  {
-   "id": "c1",
-   "kind": "card",
-   "anim": "spring",
-   "img": "key#n",
-   "word": "key",
-   "idx": "1/5",
-   "from": [
-    "w_1",
-    1,
-    "s",
-    0.18
-   ],
-   "to": [
-    "w_1",
-    -1,
-    "e",
-    0.25
-   ]
-  },
-  {
-   "id": "c2",
-   "kind": "card",
-   "anim": "spring",
-   "img": "luggage#n",
-   "word": "luggage",
-   "idx": "2/5",
-   "from": [
-    "w_2",
-    1,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "w_2",
-    -1,
-    "e",
-    0.25
-   ]
-  },
-  {
-   "id": "c3",
-   "kind": "card",
-   "anim": "spring",
-   "img": "elevator#n",
-   "word": "elevator",
-   "idx": "3/5",
-   "from": [
-    "w_3",
-    1,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "w_3",
-    -1,
-    "e",
-    0.25
-   ]
-  },
-  {
-   "id": "c4",
-   "kind": "card",
-   "anim": "spring",
-   "img": "shower#n",
-   "word": "shower",
-   "idx": "4/5",
-   "from": [
-    "w_4",
-    1,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "w_4",
-    -1,
-    "e",
-    0.25
-   ]
-  },
-  {
-   "id": "c5",
-   "kind": "card",
-   "anim": "spring",
-   "img": "receipt#n",
-   "word": "receipt",
-   "idx": "5/5",
-   "sub": [
-    [
-     "silent ",
-     "white"
-    ],
-    [
-     "p",
-     "red"
-    ]
-   ],
-   "from": [
-    "w_5",
-    1,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "w_6",
-    -1,
-    "e",
-    0.3
-   ],
-   "sub_at": [
-    "w_5",
-    2,
-    "s",
-    -0.1
    ]
   },
   {
@@ -270,25 +351,27 @@
     -0.06
    ],
    "to": [
-    "w_t",
-    -1,
-    "e",
-    0.3
+    "w_c",
+    0,
+    "s",
+    -0.08
    ],
    "rows": [
     [
      [
-      "key · luggage · elevator",
+      "great · delicious",
       "white"
      ]
     ],
     [
      [
-      "shower · receipt",
+      "amazing · awesome",
       "white"
-     ],
+     ]
+    ],
+    [
      [
-      " ",
+      "outstanding",
       "white"
      ],
      [
@@ -310,5 +393,9 @@
     "end"
    ]
   }
- ]
+ ],
+ "series": {
+  "name": "Say It Like a Native",
+  "ep": 1
+ }
 }

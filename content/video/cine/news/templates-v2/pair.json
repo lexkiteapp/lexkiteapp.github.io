@@ -1,7 +1,7 @@
 {
  "id": "t4_pair_borrow_lend",
  "template": "pair",
- "title": "Borrow vs lend (classroom, text on the whiteboard)",
+ "title": "Same or Different? #1 – borrow vs lend (situation, rule, trick, quiz, save)",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
@@ -16,37 +16,34 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 0.8,
+ "speed": 0.75,
  "display": {
   "blank": "___"
  },
  "lines": [
   {
    "id": "p_h",
-   "text": "Borrow or lend? Don't mix them up.",
-   "key": {
-    "yellow": [
-     0,
-     2
-    ]
-   }
+   "text": "Borrow or lend? Don't mix them up."
+  },
+  {
+   "id": "p_s",
+   "text": "You need a pen. Your friend has one.",
+   "gap": 0.6
   },
   {
    "id": "p_b",
    "text": "Borrow means you take it, then give it back.",
    "key": {
-    "green": [
-     0,
-     3
+    "yellow": [
+     0
     ]
-   },
-   "gap": 0.3
+   }
   },
   {
    "id": "p_b2",
    "text": "Can I borrow your pen?",
    "key": {
-    "green": [
+    "yellow": [
      2
     ]
    }
@@ -56,30 +53,44 @@
    "text": "Lend means you give it, and get it back.",
    "key": {
     "green": [
-     0,
-     3
+     0
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
    "id": "p_l2",
-   "text": "Can you lend me your pen?",
+   "text": "Sure! I can lend you my pen.",
    "key": {
     "green": [
-     2
+     3
     ]
    }
+  },
+  {
+   "id": "p_t",
+   "text": "Easy trick: borrow from, lend to.",
+   "key": {
+    "yellow": [
+     2,
+     3
+    ],
+    "green": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.6
   },
   {
    "id": "p_q",
    "text": "Quiz! My brother blank me ten dollars.",
    "key": {
     "yellow": [
-     3
+     0
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
    "id": "p_q2",
@@ -102,8 +113,8 @@
   },
   {
    "id": "p_c",
-   "text": "Compare tricky words free on lexkite.com.",
-   "gap": 0.3
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
   }
  ],
  "pops": [
@@ -130,6 +141,35 @@
     -1,
     "e",
     0.25
+   ]
+  },
+  {
+   "id": "sit",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "from": [
+    "p_s",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_b",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:✏️"
+     ],
+     [
+      " You need a pen",
+      "white"
+     ]
+    ]
    ]
   },
   {
@@ -189,10 +229,50 @@
     -0.06
    ],
    "to": [
-    "p_l2",
-    -1,
-    "e",
-    0.3
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "p_q",
+    1,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "borrow",
+      "yellow"
+     ],
+     [
+      " FROM",
+      "white"
+     ]
+    ],
+    [
+     [
+      "lend",
+      "green"
+     ],
+     [
+      " TO",
+      "white"
+     ]
+    ]
    ]
   },
   {
@@ -205,10 +285,10 @@
     -0.06
    ],
    "to": [
-    "p_a",
-    -1,
-    "e",
-    0.3
+    "p_c",
+    0,
+    "s",
+    -0.08
    ],
    "a": "lent",
    "b": "borrowed",
@@ -249,5 +329,9 @@
     "end"
    ]
   }
- ]
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 1
+ }
 }

@@ -1,7 +1,7 @@
 {
  "id": "t6_pron_comfortable",
  "template": "pron",
- "title": "Say “comfortable” like an American (classroom, text on the whiteboard)",
+ "title": "Where's the Stress? #1 – comfortable (3 beats, first stressed; joke, slow, your turn, bonus)",
  "teacher": "ama",
  "set": "classroom_board",
  "clips": [
@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/pron",
   "say": "Practice pronunciation"
  },
- "speed": 0.8,
+ "speed": 0.75,
  "error_lines": [
   "f_w"
  ],
@@ -28,65 +28,43 @@
   },
   {
    "id": "f_w",
-   "text": "Not com, for, table.",
-   "key": {
-    "red": [
-     1,
-     2,
-     3
-    ]
-   }
+   "text": "Not com, for, table."
+  },
+  {
+   "id": "f_m",
+   "text": "That sounds like a table you can sit on!",
+   "gap": 0.6
   },
   {
    "id": "f_s",
    "text": "Slowly:",
-   "gap": 0.35
+   "gap": 0.6
   },
   {
    "id": "f_s2",
    "text": "comfortable.",
    "speed": 0.7,
-   "key": {
-    "green": [
-     0
-    ]
-   },
-   "gap": 0.15
+   "gap": 0.3
   },
   {
    "id": "f_r",
-   "text": "Most Americans say three beats. Stress the first one.",
+   "text": "Only three beats. Stress the first one.",
    "key": {
-    "mint": [
-     3,
-     6
-    ]
-   },
-   "gap": 0.3
-  },
-  {
-   "id": "f_n",
-   "text": "Normal speed: comfortable.",
-   "key": {
-    "green": [
+    "yellow": [
+     1,
      2
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
+  },
+  {
+   "id": "f_n",
+   "text": "Normal speed: comfortable."
   },
   {
    "id": "f_y",
    "text": "Your turn. Repeat after me: comfortable.",
-   "key": {
-    "yellow": [
-     0,
-     1
-    ],
-    "green": [
-     5
-    ]
-   },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
    "id": "_turn",
@@ -103,9 +81,23 @@
    }
   },
   {
+   "id": "f_b",
+   "text": "Same trick: vegetable has three beats, not four.",
+   "key": {
+    "green": [
+     2
+    ],
+    "yellow": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
    "id": "f_c",
-   "text": "Practice pronunciation free on lexkite.com.",
-   "gap": 0.3
+   "text": "Save this, and practice pronunciation on lexkite.com.",
+   "gap": 0.6
   }
  ],
  "pops": [
@@ -151,6 +143,43 @@
      ],
      [
       "@x"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "joke",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "f_m",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "f_s",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🪑"
+     ],
+     [
+      " a ",
+      "white"
+     ],
+     [
+      "TABLE",
+      "red"
+     ],
+     [
+      "?",
+      "white"
      ]
     ]
    ]
@@ -237,10 +266,10 @@
     -0.42
    ],
    "to": [
-    "f_e",
-    -1,
-    "e",
-    0.5
+    "f_b",
+    0,
+    "s",
+    -0.1
    ],
    "rows": [
     [
@@ -262,6 +291,45 @@
    ]
   },
   {
+   "id": "bonus",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 80,
+   "from": [
+    "f_b",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "VEG",
+      "mint"
+     ],
+     [
+      "·ta·ble",
+      "white"
+     ]
+    ],
+    [
+     [
+      "3 beats",
+      "yellow"
+     ],
+     [
+      "@ok"
+     ]
+    ]
+   ]
+  },
+  {
    "id": "cta",
    "kind": "cta",
    "from": [
@@ -274,5 +342,9 @@
     "end"
    ]
   }
- ]
+ ],
+ "series": {
+  "name": "Where's the Stress?",
+  "ep": 1
+ }
 }

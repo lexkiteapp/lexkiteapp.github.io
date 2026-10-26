@@ -1,7 +1,7 @@
 {
  "id": "t3_guess_elevator",
  "template": "guess",
- "title": "Guess the word (classroom, text on the whiteboard)",
+ "title": "Guess the Word #1 – elevator (3-second challenge, US/UK, try it, comment)",
  "teacher": "kai",
  "set": "classroom_board",
  "clips": [
@@ -20,21 +20,16 @@
  "lines": [
   {
    "id": "g_h",
-   "text": "Can you guess this word?"
+   "text": "Can you guess this word in three seconds?"
   },
   {
    "id": "g_c",
-   "text": "Hint: it takes you up and down.",
-   "key": {
-    "mint": [
-     0
-    ]
-   }
+   "text": "Hint: it takes you up and down."
   },
   {
    "id": "g_c2",
    "text": "Every big hotel has one.",
-   "gap": 0.3
+   "gap": 0.5
   },
   {
    "id": "_count",
@@ -58,24 +53,24 @@
      4
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
    "id": "g_u",
-   "text": "In British English, it's a lift.",
+   "text": "But in London, people say lift.",
    "key": {
     "yellow": [
      5
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
   },
   {
    "id": "g_v",
-   "text": "But in America, we say elevator.",
+   "text": "In America, we say elevator.",
    "key": {
     "green": [
-     5
+     4
     ]
    }
   },
@@ -84,15 +79,20 @@
    "text": "Try it: Excuse me, where's the elevator?",
    "key": {
     "green": [
-     5
+     6
     ]
    },
-   "gap": 0.3
+   "gap": 0.6
+  },
+  {
+   "id": "g_r",
+   "text": "Did you get it? Tell me in the comments!",
+   "gap": 0.6
   },
   {
    "id": "g_s",
-   "text": "Look up any word free on lexkite.com.",
-   "gap": 0.3
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.6
   }
  ],
  "pops": [
@@ -126,7 +126,7 @@
     ],
     [
      [
-      "the word",
+      "in 3 seconds",
       "white"
      ]
     ]
@@ -266,10 +266,10 @@
     -0.06
    ],
    "to": [
-    "g_v",
-    -1,
-    "e",
-    0.4
+    "g_x",
+    0,
+    "s",
+    -0.1
    ]
   },
   {
@@ -282,13 +282,13 @@
     "g_x",
     0,
     "s",
-    -0.35
+    -0.06
    ],
    "to": [
-    "g_x",
-    -1,
-    "e",
-    0.4
+    "g_r",
+    0,
+    "s",
+    -0.08
    ],
    "rows": [
     [
@@ -314,11 +314,46 @@
    ]
   },
   {
+   "id": "comment",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "g_r",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "g_s",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:💬"
+     ],
+     [
+      " Did you",
+      "white"
+     ]
+    ],
+    [
+     [
+      "get it?",
+      "green"
+     ]
+    ]
+   ]
+  },
+  {
    "id": "cta",
    "kind": "cta",
    "from": [
     "g_s",
-    3,
+    0,
     "s",
     -0.05
    ],
@@ -326,5 +361,9 @@
     "end"
    ]
   }
- ]
+ ],
+ "series": {
+  "name": "Guess the Word",
+  "ep": 1
+ }
 }

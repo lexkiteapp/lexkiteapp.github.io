@@ -326,9 +326,9 @@ def over(F, rgb, al, x, y, mult=1.0):
 def shadowed(im, off=6, blur=7, k=0.55):
     a = np.asarray(im)[..., 3].astype(np.float32) / 255; sh = cv2.GaussianBlur(np.roll(a, off, axis=0), (0, 0), blur) * k
     arr = np.zeros((im.size[1], im.size[0], 4), np.uint8); arr[..., 3] = (sh * 255).astype(np.uint8); base = Image.fromarray(arr); base.alpha_composite(im); return base
-def stack(rows, gap=8):
+def stack(rows, gap=8, align='c'):   # align 'l': list rows share one left edge (owner 26/10: "thẳng hàng thẳng lối")
     w = max(r.width for r in rows); h = sum(r.height for r in rows) + gap * (len(rows) - 1); im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); y = 0
-    for r in rows: im.alpha_composite(r, ((w - r.width) // 2, y)); y += r.height + gap
+    for r in rows: im.alpha_composite(r, (0 if align == 'l' else (w - r.width) // 2, y)); y += r.height + gap
     return im
 def hrow(items, gap=18):
     w = sum(i.width for i in items) + gap * (len(items) - 1); h = max(i.height for i in items); im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); x = 0
@@ -406,15 +406,22 @@ def rich(rows, sz, plate=None, maxw=None, maxh=None, pad=(34, 22), sub=1.0, keep
 def wrap_rows(rows, maxw, sz, plate=False):   # greedy word wrap of rich rows (colour runs and badges kept) to maxw at size sz
     out = []
     for r in rows:
-        units = []
+        units = []; lead = []   # badges never sit alone on a line (owner 26/10: "I am happy" / "✓" split)
         for seg in r:
-            if seg[0].startswith('@'): units.append([seg])
-            else: units += [[[w_, seg[1]]] for w_ in re.findall(r'\S+\s*|\s+', seg[0])]
+            if seg[0].startswith('@'):
+                if seg[0] in ('@ok', '@x') and units and not lead: units[-1] = units[-1] + [seg]
+                else: lead.append(seg)
+            else:
+                ws = [[[w_, seg[1]]] for w_ in re.findall(r'\S+\s*|\s+', seg[0])]
+                if lead and ws: ws[0] = lead + ws[0]; lead = []
+                units += ws
+        if lead: units.append(lead)
         line = []
         for u in units:
             if line and rich_row(line + u, sz, plate).width > maxw:
-                out.append(line); u = [[u[0][0].lstrip(), u[0][1]]] if not u[0][0].startswith('@') else u; line = []
-                if not u[0][0]: continue
+                out.append(line); u = ([[u[0][0].lstrip(), u[0][1]]] + u[1:]) if not u[0][0].startswith('@') else u; line = []
+                if not u[0][0]: u = u[1:]
+                if not u: continue
             line = line + u
         if line: out.append(line)
     return out
@@ -435,8 +442,9 @@ def ring(num, rem, d_=100):
     g.ellipse([8, 8, 2 * d_ - 8, 2 * d_ - 8], fill=COL['navy'] + (240,), outline=COL['mint'] + (90,), width=14)
     if rem > 0: g.arc([8, 8, 2 * d_ - 8, 2 * d_ - 8], -90, -90 + 360 * rem, fill=ACC + (255,) if ACC != COL['navy2'] else COL['yellow'] + (255,), width=14)
     g.text((d_, d_ + 4), num, font=font(d_ * 1.1), fill=(255, 255, 255, 255), anchor='mm'); return shadowed(im.reduce(2), 4, 5, 0.4)
-def pill(segs, sz, bg, dim=False, tight=False, padx=None):
-    fo = font(sz * 2); tw = int(sum(fo.getlength(s) for s, _ in segs)); px_ = 2 * (padx or (18 if tight else 34)); w = tw + 2 * px_; h = int(sz * 2 * (1.08 if tight else 1.32)) + (28 if tight else 64)
+def pill_w(segs, sz, tight=False, padx=None): fo = font(sz * 2); return int(sum(fo.getlength(s) for s, _ in segs)) + 4 * (padx or (18 if tight else 34))
+def pill(segs, sz, bg, dim=False, tight=False, padx=None, minw=0):   # minw (in pill_w units): option pills of one quiz share one width
+    fo = font(sz * 2); tw = int(sum(fo.getlength(s) for s, _ in segs)); px_ = 2 * (padx or (18 if tight else 34)); w = max(tw + 2 * px_, minw); h = int(sz * 2 * (1.08 if tight else 1.32)) + (28 if tight else 64)
     im = Image.new('RGBA', (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im); d.rounded_rectangle([0, 0, w - 1, h - 1], h // 2, fill=bg + (246,), outline=(255, 255, 255, 235), width=6); x = px_
     for s_, col in segs: d.text((x, h // 2), s_, font=fo, fill=col + (255,), anchor='lm'); x += fo.getlength(s_)
     im = shadowed(im.reduce(2), 5, 6, 0.45)
@@ -493,7 +501,8 @@ class Pop:
     def build_rich_ink(s, rw, rh):
         P = s.P; head = P.get('role') in ('hook', 'headline'); minf = MINF_HOOK if head else MINF_BODY; s.etype = 'hook' if head else 'body'
         s.text = P.get('_text') or rows_text(P['rows']); g_ = lambda z: round(z * 0.04)
-        lay = lambda ls, z: stack([rich_row(r, z) for r in ls], g_(z))
+        al = P.get('align') or ('l' if len(P['rows']) >= 3 and not head else 'c'); s.align = al
+        lay = lambda ls, z: stack([rich_row(r, z) for r in ls], g_(z), al)
         sizes = [P['size']] if '_page' in P else list(range(max(minf, round(P.get('size', 76) * 1.25)), minf - 1, -2))
         for sz in sizes:   # largest size whose word wrap fits ONE board page
             im = lay(wrap_rows(P['rows'], rw - 8, sz), sz)
@@ -554,8 +563,11 @@ class Pop:
     def build_quiz_ink(s, rw, rh):
         P = s.P; z = MINF_BODY; s.etype = 'body'; s.ringd = 150
         s.qim = stack([rich_row(r, z) for r in wrap_bal(P['q'], rw - 8, z)], 2) if P.get('q') else None
-        mk = lambda lab, txt, st: pill([(lab + ' ', COL['yellow'] if st != 'ok' else COL['navy']), (txt, (255, 255, 255) if st != 'ok' else COL['navy'])], z, COL['green'] if st == 'ok' else COL['navy'], st == 'dim', tight=True)
+        segs = lambda lab, txt, st: [(lab + ' ', COL['yellow'] if st != 'ok' else COL['navy']), (txt, (255, 255, 255) if st != 'ok' else COL['navy'])]
+        mw = max(pill_w(segs('A', P['a'], 'n'), z, tight=True), pill_w(segs('B', P['b'], 'n'), z, tight=True))
+        mk = lambda lab, txt, st: pill(segs(lab, txt, st), z, COL['green'] if st == 'ok' else COL['navy'], st == 'dim', tight=True, minw=mw)
         s.pA = {st: mk('A', P['a'], st) for st in ('n', 'ok', 'dim')}; s.pB = {st: mk('B', P['b'], st) for st in ('n', 'ok', 'dim')}
+        assert s.pA['n'].width == s.pB['n'].width, ('quiz option pills must share one width (aligned)', s.id)
         s.rev = tm_of(P['reveal']); s.px = z; s.text = f"A {P['a']} | B {P['b']}"; b = BEATS.get('_count')
         s.opts_at = tm_of(P['opts_at']) if P.get('opts_at') else (b['s'] if b else s.rev)
         for var in ('row', 'qring', 'stack', 'pages'):
@@ -636,8 +648,10 @@ class Pop:
             s.im = s.compose_pair('both')
         elif k == 'quiz':
             q = P.get('q'); s.qim = rich(q, 70, None)[0] if q else None
-            ca = COL['green']; s.pA = {st: pill([('A  ', COL['yellow'] if st != 'ok' else COL['navy']), (P['a'], (255, 255, 255) if st != 'ok' else COL['navy'])], 58, ca if st == 'ok' else COL['navy'], st == 'dim') for st in ('n', 'ok', 'dim')}
-            s.pB = {st: pill([('B  ', COL['yellow'] if st != 'ok' else COL['navy']), (P['b'], (255, 255, 255) if st != 'ok' else COL['navy'])], 58, ca if st == 'ok' else COL['navy'], st == 'dim') for st in ('n', 'ok', 'dim')}
+            ca = COL['green']; sg = lambda lab, txt, st: [(lab + '  ', COL['yellow'] if st != 'ok' else COL['navy']), (txt, (255, 255, 255) if st != 'ok' else COL['navy'])]
+            mw = max(pill_w(sg('A', P['a'], 'n'), 58), pill_w(sg('B', P['b'], 'n'), 58))
+            s.pA = {st: pill(sg('A', P['a'], st), 58, ca if st == 'ok' else COL['navy'], st == 'dim', minw=mw) for st in ('n', 'ok', 'dim')}
+            s.pB = {st: pill(sg('B', P['b'], st), 58, ca if st == 'ok' else COL['navy'], st == 'dim', minw=mw) for st in ('n', 'ok', 'dim')}
             s.rev = tm_of(P['reveal']); s.px = 58; s.text = f"A {P['a']} | B {P['b']}"; s.im = s.compose_quiz(0.0)
         elif k == 'stress':
             s.px = 72; s.text = '·'.join(P['syl']); s.im = s.compose_stress(-1)
