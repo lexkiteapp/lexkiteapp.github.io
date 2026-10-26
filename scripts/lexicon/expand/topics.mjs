@@ -7,6 +7,7 @@ import fs from 'fs';
 import vm from 'vm';
 import { ROOT, rd, wr } from '../lib.mjs';
 import { VI, SCRIPT } from '../../content-qa/lib.mjs';
+import { pathToFileURL } from 'node:url';
 
 export const TAX = () => JSON.parse(rd('content/lexicon/topics.json'));
 const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], cr = l => { const i = CEFR.indexOf(String(l || '').toUpperCase().slice(0, 2)); return i < 0 ? 6 : i; };
@@ -108,7 +109,7 @@ export function allEntries(batch) {
   return files.map(f => ({ f, J: JSON.parse(rd(f)) })).filter(x => x.J && x.J.items);
 }
 
-if (import.meta.url === 'file://' + process.argv[1]) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const arg = n => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : null; };
   const tax = TAX(), ex = existingSets(), files = allEntries(arg('--batch')), entries = [];
   for (const { f, J } of files) {

@@ -9,6 +9,7 @@ import path from 'node:path';
 import { driveSign, driveCliKey } from './library.mjs';
 import { fetchFromDrive } from './drive-fetch.mjs';
 import { titleOf, slugOf, readJSON } from '../lib/video-web.mjs';
+import { pathToFileURL } from 'node:url';
 
 const BASE = String(process.env.LEXKITE_API_BASE || 'https://lexkite.com').replace(/\/+$/, '');
 export async function ytApi(op, body = {}, { fetcher = fetch, key = driveCliKey() } = {}) {
@@ -89,7 +90,7 @@ export async function runUploads({ index, max = 6, dry = false, api = ytApi, fet
   return rep;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = process.argv.slice(2), opt = n => { const i = a.indexOf('--' + n); return i >= 0 ? a[i + 1] : undefined; };
   const rep = await runUploads({ index: opt('index') || '/tmp/shorts/shorts/index.json', max: +(opt('max') || 6), dry: a.includes('--dry-run') });
   const q = rep.quota || {}, line = `YouTube: ${rep.uploaded.length} lên · ${rep.failed.length} lỗi · hạn mức còn ${q.left ?? '?'} / ${q.limit ?? 10000} đơn vị (≈ ${q.uploads_left ?? '?'} video) hôm nay (${q.day || ''} PT)`;
