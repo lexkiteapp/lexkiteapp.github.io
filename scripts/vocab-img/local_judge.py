@@ -119,7 +119,7 @@ def _cf_accts():
     return _CFV['accts']
 def use_cf_vision():
     return (os.environ.get('VIMG_VISION') == 'cf' or not os.environ.get('GRABCAST_AI_KEY')) and bool(_cf_accts())
-def cf_vision(prompt, jpeg):
+def cf_vision(prompt, jpeg, model=None):
     """→ {'text', 'model'} | None; 4006/401/403 → bỏ tài khoản; hết tài khoản → _API dead"""
     import base64, urllib.request, urllib.error
     body = json.dumps({'messages': [{'role': 'user', 'content': [{'type': 'text', 'text': prompt}, {'type': 'image_url', 'image_url': {'url': 'data:image/jpeg;base64,' + base64.b64encode(jpeg).decode()}}]}], 'max_tokens': 300, 'temperature': 0}).encode()
@@ -128,9 +128,11 @@ def cf_vision(prompt, jpeg):
         if not acc: _API['dead'] = True; print('⏸ thị giác CF: mọi tài khoản hết lượt', flush=True); return None
         a, t = acc[_CFV['i'] % len(acc)]
         try:
-            req = urllib.request.Request(f'https://api.cloudflare.com/client/v4/accounts/{a}/ai/run/{_CFV["model"]}', data=body, headers={'Authorization': 'Bearer ' + t, 'Content-Type': 'application/json'})
+            req = urllib.request.Request(f'https://api.cloudflare.com/client/v4/accounts/{a}/ai/run/{model or _CFV["model"]}', data=body, headers={'Authorization': 'Bearer ' + t, 'Content-Type': 'application/json'})
             j = json.loads(urllib.request.urlopen(req, timeout=90).read()); _API['calls'] += 1; _CFV['i'] += 1
-            r = (j.get('result') or {}).get('response'); return {'text': r if isinstance(r, str) else json.dumps(r), 'model': _CFV['model']}
+            res = j.get('result') or {}; r = res.get('response')
+            if r is None and res.get('choices'): r = res['choices'][0].get('message', {}).get('content')
+            return {'text': r if isinstance(r, str) else json.dumps(r), 'model': model or _CFV['model']}
         except urllib.error.HTTPError as e:
             m = e.read().decode('utf8', 'ignore')[:200]
             if e.code in (401, 403) or '4006' in m or 'neuron' in m.lower(): acc.remove((a, t)); continue
@@ -255,6 +257,7 @@ def features(im, k, t, T, LEX, keys_all, centroid):
         sent = t.get('ex') or t['target']
         dsent = [(T.get(d[0]) or {}).get('ex') or d[1] for d in ds]
         cs = emb_txt([sent] + dsent) @ v
+        sc['hard_ex'] = dsent[int(np.argmax(cs[1:]))] if len(dsent) else None   # câu anh em CLIP thấy giống nhất → câu đối chứng cho giám khảo kép
         sc['clip_ex'] = round(float(cs[0]), 4); sc['clip_ex_rank'] = int((cs[1:] > cs[0]).sum()) + 1; sc['clip_ex_margin'] = round(float(cs[0] - cs[1:].max()), 4)
         E2 = st.encode([c, sent] + dsent, normalize_embeddings=True); ss = E2[1:] @ E2[0]
         sc['cap_ex'] = round(float(ss[0]), 4); sc['cap_ex_rank'] = int((ss[1:] > ss[0]).sum()) + 1; sc['cap_ex_margin'] = round(float(ss[0] - ss[1:].max()), 4)
@@ -279,6 +282,42 @@ def add_api(f, ctx, im, t):
     if t.get('kind', 'object') != 'object':
         ak = api_ask(im, ask_q(t))
         if ak: f.update(ask_yes=ak['yes'], ask_conf=ak['conf'], ask_missing=ak['missing'], ask_text=ak['text'], ask_model=ak['model'])
+
+
+# ---------- giám khảo KÉP đối chứng (26/10, chủ: tự động hoàn toàn, không cần nhãn tay) ----------
+# Ngưỡng CLIP/MiniLM hiệu chỉnh trên ảnh schnell → lệch với phong cách klein (phẳng): ảnh đúng nghĩa trượt "clip-sentence sim".
+# Ảnh đã qua MỌI cổng cứng (chữ, NSFW, phong cách, trùng) mà chỉ trượt cổng mềm (tương đồng nhúng) được chấm lại bởi 2 mô hình nhìn KHÁC HỌ:
+# mỗi mô hình phải trả "yes" (≥ CONS_CONF) cho câu ví dụ VÀ "no" cho câu anh em giống nhất (chống gật bừa). Cả 2 đồng ý mới nhận.
+CONS_MODELS = [m for m in os.environ.get('VIMG_CONS_MODELS', '@cf/meta/llama-4-scout-17b-16e-instruct,@cf/mistralai/mistral-small-3.1-24b-instruct').split(',') if m]
+CONS_CONF = float(os.environ.get('VIMG_CONS_CONF', '80'))
+HARD = ('text:', 'nsfw', 'style', 'duplicate', 'vision: text', 'api: unsafe', 'queue:')
+def _yesno(im, q, model):
+    import io
+    b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
+    for _ in range(2):
+        j = cf_vision(ASK_Q.format(desc=q), b.getvalue(), model)
+        if not j: return None
+        t = j['text'] or ''; m = re.search(r'\{.*\}', t, re.S)
+        try: o = json.loads(m.group(0)) if m else {}
+        except Exception: o = {}
+        ans = str(o.get('shows', '')).strip().lower() or ('yes' if re.match(r'\W*yes', t, re.I) else 'no' if re.match(r'\W*no', t, re.I) else '')
+        if ans in ('yes', 'no'):
+            try: cf = float(o.get('confidence', 50))
+            except Exception: cf = 50.0
+            return {'yes': ans == 'yes', 'conf': cf, 'text': o.get('text') is True}
+    return None
+def consensus(im, t, f):
+    """→ (ok, chi tiết). Chỉ gọi khi VIMG_CONSENSUS=1, ảnh cảnh, có câu ví dụ + câu đối chứng, và đã qua cổng cứng."""
+    sent, hard = t.get('ex') or t.get('target'), f.get('hard_ex')
+    if not sent or not hard or not use_cf_vision(): return False, 'no-sentence/no-vision'
+    det = []
+    for m in CONS_MODELS:
+        a = _yesno(im, f'the situation of this sentence: "{sent}"', m); b = _yesno(im, f'the situation of this sentence: "{hard}"', m)
+        if not a or not b: return False, f'{m.split("/")[-1]}: no answer'
+        ok = a['yes'] and a['conf'] >= CONS_CONF and not a['text'] and not (b['yes'] and b['conf'] >= 50)
+        det.append(f"{m.split('/')[-1]}:{'Y' if a['yes'] else 'N'}{int(a['conf'])}/{'Y' if b['yes'] else 'N'}{int(b['conf'])}")
+        if not ok: return False, ' '.join(det)
+    return True, ' '.join(det)
 
 def verdict_scene(f, th, kind, local_only=False):
     """ảnh cảnh/bìa/bài học – ngưỡng content/lexicon/vimg-judge-scene.json (calibrate_scene.py trên nhãn tay ~470 ảnh, 24/10).
@@ -356,6 +395,9 @@ def main():
         else: ft['api_skipped'] = 'local fail'; _API['skipped'] += 1
         r = [] if a.features_only else verdict(ft, th, t['kind'])
         if dup: r.append('duplicate (pHash)')
+        if r and os.environ.get('VIMG_CONSENSUS') == '1' and t['kind'] != 'object' and not any(x.startswith(HARD) for x in r):
+            ok, det = consensus(im, t, ft); ft['cons'] = det
+            if ok: ft['cons_soft'] = r; ft.update(ask_yes=True, ask_model='consensus:' + '+'.join(m.split('/')[-1] for m in CONS_MODELS), ask_conf=ft.get('ask_conf') or CONS_CONF); r = []   # nhận nhờ giám khảo kép; giữ lý do cổng mềm để soát
         seen_ph.append(ft['ph'])
         res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
         print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], flush=True)

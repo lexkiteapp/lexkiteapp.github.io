@@ -12,7 +12,7 @@ on:
     - cron: '40 1,4,7,10,13,16,19,22 * * *'   # fill 8 lượt/ngày (chủ 26/10: vắt hết kho CF; lượt tự dừng khi mọi tài khoản báo 4006) – infra/jobs.json vocab-img-scene
   workflow_dispatch:
     inputs:
-      mode: { description: 'pilot | calibrate | fill', default: 'pilot' }
+      mode: { description: 'pilot | calibrate | fill | rejudge (chấm lại lượt lab_run bằng giám khảo kép, xuất tờ soát)', default: 'pilot' }
       shards: { description: 'Số việc song song (1–10)', default: '1' }
       max_gc: { description: 'Trần ảnh GrabCast CẢ lượt (chia đều cho các việc; fill mặc định 6000)', default: '' }
       variants: { description: 'fill: số biến thể tối đa mỗi nghĩa (1–6), nhận biến thể đầu qua giám khảo · pilot: 1 = không vẽ lại ảnh trượt (thay input retry cũ)', default: '4' }
@@ -50,7 +50,7 @@ jobs:
           echo "per=$(( G / n ))" >> $GITHUB_OUTPUT
   prep:
     needs: plan
-    if: needs.plan.outputs.skip != '1' && github.event_name != 'schedule' && github.event.inputs.mode != 'fill'
+    if: needs.plan.outputs.skip != '1' && github.event_name != 'schedule' && github.event.inputs.mode != 'fill' && github.event.inputs.mode != 'rejudge'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
@@ -122,7 +122,7 @@ jobs:
         run: node scripts/jobs/lease.mjs release vocab-img-scene --status "${{ job.status }}"
   shard:
     needs: [plan, prep]
-    if: needs.plan.outputs.skip != '1' && github.event.inputs.mode != 'calibrate' && github.event.inputs.mode != 'fill' && github.event_name != 'schedule'
+    if: needs.plan.outputs.skip != '1' && github.event.inputs.mode != 'calibrate' && github.event.inputs.mode != 'fill' && github.event_name != 'schedule' && github.event.inputs.mode != 'rejudge'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:
@@ -294,6 +294,45 @@ jobs:
       - name: Trả thuê
         if: always() && steps.lease.outputs.skip != '1'
         run: node scripts/jobs/lease.mjs release vocab-img-scene --status "${{ job.status }}"
+  rejudge:
+    # 26/10: soát giám khảo KÉP đối chứng trên ảnh lượt cũ (lab_run, danh sách phẩy) – không vẽ, không đăng
+    needs: plan
+    if: github.event.inputs.mode == 'rejudge'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions: { contents: read, actions: read }
+    env:
+      CF_POOL: ${{ secrets.CF_POOL }}
+      VIMG_POOL_SKIP: '0'
+      VIMG_CONSENSUS: '1'
+      VIMG_VISION: cf
+      HF_HUB_DISABLE_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12', cache: pip, cache-dependency-path: .github/workflows/vocab-img-scene.yml }
+      - uses: actions/cache@v4
+        with: { path: '~/.cache/huggingface', key: vimg-judge-models-v1 }
+      - run: |
+          sudo apt-get install -y -qq tesseract-ocr librsvg2-bin fonts-dejavu-core >/dev/null
+          pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1
+          pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
+      - name: Chấm lại bằng giám khảo kép + tờ soát
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; }
+          mkdir -p rj
+          for id in $(echo "${{ github.event.inputs.lab_run }}" | tr ',' ' '); do
+            gh run download $id -R ${{ github.repository }} -n vimg-scene-final -D rj/$id || { echo "::warning::không tải được $id"; continue; }
+            rm -f rj/$id/judge.local.a1.json
+            python3 scripts/vocab-img/local_judge.py --dir rj/$id --attempt 1 | tail -1
+            python3 scripts/vocab-img/cons_sheet.py --dir rj/$id --out rj/cons-$id.jpg
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: vimg-rejudge, retention-days: 14, path: "rj/cons-*.jpg\nrj/*/judge.local.a1.json" }
   fillpub:
     needs: [plan, fill]
     if: always() && needs.plan.outputs.skip != '1' && (github.event_name == 'schedule' || github.event.inputs.mode == 'fill')
@@ -410,7 +449,7 @@ jobs:
         run: node scripts/jobs/lease.mjs release vocab-img-scene --status "${{ job.status }}"
   final:
     needs: [plan, shard]
-    if: always() && (needs.plan.outputs.skip != '1' || github.event.inputs.from_run != '') && github.event.inputs.mode != 'calibrate' && github.event.inputs.mode != 'fill' && github.event_name != 'schedule'
+    if: always() && (needs.plan.outputs.skip != '1' || github.event.inputs.from_run != '') && github.event.inputs.mode != 'calibrate' && github.event.inputs.mode != 'fill' && github.event_name != 'schedule' && github.event.inputs.mode != 'rejudge'
     runs-on: ubuntu-latest
     permissions: { contents: read, actions: read }
     steps:
