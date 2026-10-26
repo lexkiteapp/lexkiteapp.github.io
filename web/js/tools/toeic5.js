@@ -45,5 +45,13 @@
       '<p>' + esc(U.full) + '</p><div class="row"><a class="btn" href="' + U.app + '" data-hit="tool_toeic_app">' + esc(U.openApp) + ' →</a><button type="button" class="idk" id="qz-again">' + esc(U.again) + '</button></div>';
     d.getElementById('qz-again').onclick = begin; d.getElementById('qz-r').focus();
   }
+  // Phím tắt (máy tính): 1–4 / A–D chọn đáp án; Enter sang câu tiếp khi đã có giải thích; bỏ qua khi đang gõ hoặc giữ phím bổ trợ
+  d.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test((e.target && e.target.tagName) || '')) return;
+    var k = e.key.toLowerCase(), i = '1234'.indexOf(k) >= 0 ? '1234'.indexOf(k) : 'abcd'.indexOf(k);
+    var bs = box.querySelectorAll('.opts button:not([disabled])'), nb = d.getElementById('qz-next');
+    if (k.length === 1 && i >= 0 && bs[i]) { e.preventDefault(); bs[i].click(); }
+    else if (k === 'enter' && nb && e.target !== nb) { e.preventDefault(); nb.click(); }
+  });
   var start = d.getElementById('qz-start'); start.onclick = begin; start.disabled = false;
 })();

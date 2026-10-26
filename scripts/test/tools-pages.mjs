@@ -126,7 +126,9 @@ ok(fs.readFileSync('scripts/build-web.sh', 'utf8').includes('build-tools.mjs'), 
       const q = d.getElementById('qz-q').textContent.replace(/_____/g, '___'), psg = (d.querySelector('#qz .psg') || {}).textContent || '', it = byQ.get(psg + '|' + q);
       if (!it) { errs.push(`e2e ${p}: không khớp câu "${q}"`); break; }
       const good = LV.indexOf(it.lv) <= LV.indexOf('B2'), btns = [...d.querySelectorAll('#qz .opts button')];
-      (good ? btns[it.a] : btns[(it.a + 1) % 4]).click(); asked++;
+      const pick = good ? it.a : (it.a + 1) % 4;
+      if (asked % 2) d.dispatchEvent(new w.KeyboardEvent('keydown', { key: asked % 4 === 1 ? '1234'[pick] : 'ABCD'[pick], bubbles: true })); else btns[pick].click(); // xen kẽ phím tắt 1–4 / A–D và bấm chuột
+      asked++;
     }
     const res = d.querySelector('#qz .big');
     ok(res && ['B1', 'B2', 'C1'].includes(res.textContent), `e2e ${p}: kết quả ${res && res.textContent} (mong đợi quanh B2) sau ${asked} câu`);
@@ -143,7 +145,7 @@ ok(fs.readFileSync('scripts/build-web.sh', 'utf8').includes('build-tools.mjs'), 
   for (const lang of ['en', 'ja']) {
     const p = toolPath(lang, 'toeic'), w = open(p, '/js/tools/toeic5.js'), d = w.document, U = JSON.parse(d.getElementById('tool-data').textContent);
     d.getElementById('qz-start').click(); for (let k = 0; k < 5; k++) await tick();
-    let n = 0; while (d.querySelector('#qz .opts button:not([disabled])') && n < 12) { d.querySelector('#qz .opts button').click(); ok(d.querySelector('#qz .fb'), `e2e ${p}: thiếu giải thích`); d.getElementById('qz-next').click(); n++; }
+    let n = 0; while (d.querySelector('#qz .opts button:not([disabled])') && n < 12) { if (n % 2) d.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'b', bubbles: true })); else d.querySelector('#qz .opts button').click(); ok(d.querySelector('#qz .opts button[disabled]'), `e2e ${p}: phím tắt/bấm không chọn được đáp án`); ok(d.querySelector('#qz .fb'), `e2e ${p}: thiếu giải thích`); d.getElementById('qz-next').click(); n++; }
     ok(n === 10 && /\d/.test((d.getElementById('qz-r') || {}).textContent || ''), `e2e ${p}: lượt ${n} câu, không có điểm`);
     ok(d.querySelector(`#qz a[href="${U.app}"]`), `e2e ${p}: thiếu deep-link app #/toeic`);
   }

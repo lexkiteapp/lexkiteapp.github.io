@@ -40,7 +40,7 @@
       '<div class="bar" aria-hidden="true"><i style="width:' + Math.min(100, Math.round((i - 1) / est * 100)) + '%"></i></div>' +
       (it.p ? '<p class="psg" lang="en" dir="ltr">' + esc(it.p) + '</p>' : '') +
       '<p class="q" id="qz-q" tabindex="-1" lang="en" dir="ltr">' + esc(it.q).replace(/_{3}/g, '<span aria-label="blank">_____</span>') + '</p>' +
-      '<div class="opts" role="group" aria-labelledby="qz-q" lang="en" dir="ltr">' + it.o.map(function (o, k) { return '<button type="button" data-k="' + k + '">' + esc(o) + '</button>'; }).join('') + '</div>' +
+      '<div class="opts" role="group" aria-labelledby="qz-q" lang="en" dir="ltr">' + it.o.map(function (o, k) { return '<button type="button" data-k="' + k + '"><kbd aria-hidden="true">' + 'ABCD'[k] + '</kbd>' + esc(o) + '</button>'; }).join('') + '</div>' +
       '<p><button type="button" class="idk" data-k="-1">' + esc(U.idk) + '</button></p>' + (i === 1 ? '<p class="hint">' + esc(U.idkHint) + '</p>' : '');
     box.querySelectorAll('button[data-k]').forEach(function (b) {
       b.onclick = function () { var k = +b.getAttribute('data-k'); test.answer(it.id, k < 0 ? 'idk' : k === it.a ? 'right' : 'wrong'); save(); ask(); };
@@ -66,6 +66,13 @@
     d.getElementById('qz-again').onclick = function () { begin(false); };
     d.getElementById('qz-r').focus({ preventScroll: false });
   }
+  // Phím tắt (máy tính): 1–4 hoặc A–D chọn đáp án, 0 = "Tôi không biết"; bỏ qua khi đang gõ hoặc giữ phím bổ trợ
+  d.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test((e.target && e.target.tagName) || '')) return;
+    var k = e.key.toLowerCase(), i = '1234'.indexOf(k) >= 0 ? '1234'.indexOf(k) : 'abcd'.indexOf(k) >= 0 ? 'abcd'.indexOf(k) : k === '0' ? -1 : null;
+    if (i === null || k === '') return;
+    var b = box.querySelector('button[data-k="' + i + '"]'); if (b) { e.preventDefault(); b.click(); }
+  });
   // Bài đang dở → nút "Làm tiếp" + "Làm lại"; nút chỉ bật khi JS chạy (HTML tĩnh để disabled → không có nút chết khi tắt JS)
   var run = get(KR);
   if (run && run.resp && run.resp.length) {
