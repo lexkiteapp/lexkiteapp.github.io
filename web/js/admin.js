@@ -637,7 +637,8 @@
   const chart = (rows, key, label) => {
     if (!rows.length) return NODATA();
     const W = 600, H = 170, max = Math.max(1, ...rows.map(r => +r[key] || 0)), bw = W / rows.length;
-    return `<svg class="chart" viewBox="0 0 ${W} ${H + 18}" preserveAspectRatio="none" role="img" aria-label="${esc(label)}">${rows.map((r, i) => { const h = (+r[key] || 0) / max * H; return `<rect x="${i * bw + 1}" y="${H - h}" width="${Math.max(bw - 2, 1)}" height="${h}" rx="2" fill="var(--primary)"><title>${esc(r.day)}: ${num(r[key])}</title></rect>`; }).join('')}<text x="0" y="${H + 14}">${esc(rows[0].day)}</text><text x="${W}" y="${H + 14}" text-anchor="end">${esc(rows[rows.length - 1].day)}</text><text x="2" y="10">${num(max)}</text></svg>`;
+    // Nhãn để ngoài SVG: SVG co giãn (preserveAspectRatio=none) sẽ kéo méo chữ
+    return `<div class="chart-w"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(label)}">${rows.map((r, i) => { const h = (+r[key] || 0) / max * H; return `<rect x="${i * bw + 1}" y="${H - h}" width="${Math.max(bw - 2, 1)}" height="${h}" rx="2" fill="var(--primary)"><title>${esc(r.day)}: ${num(r[key])}</title></rect>`; }).join('')}</svg><span class="chart-max">${num(max)}</span><div class="chart-x"><span>${esc(rows[0].day)}</span><span>${esc(rows[rows.length - 1].day)}</span></div></div>`;
   };
 
   // ---------- Phân tích trực tiếp: thẻ KPI, biểu đồ vùng 14 ngày, bản đồ thế giới (jsvectormap tải lười) ----------

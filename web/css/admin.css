@@ -319,7 +319,9 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .hchart small { font-size: .64rem; font-weight: 600; color: var(--muted); height: 14px; }
 .lg { display: inline-block; width: 10px; height: 10px; border-radius: 3px; vertical-align: middle; margin: 0 .25rem 0 .6rem; }
 .lg.new { background: var(--primary); } .lg.back, .lg.vis { background: var(--accent); }
-.chart { width: 100%; height: 180px; } .chart text { font-size: 10px; fill: var(--muted); }
+.chart-w { position: relative; } .chart { display: block; width: 100%; height: 170px; }
+.chart-max, .chart-x { font: 600 11px/1 var(--font); color: var(--muted); font-variant-numeric: tabular-nums; }
+.chart-max { position: absolute; top: 0; left: 2px; } .chart-x { display: flex; justify-content: space-between; margin-top: 6px; }
 .area-chart { width: 100%; height: auto; max-height: 240px; display: block; overflow: visible; }
 .area-chart text { font-size: 10px; fill: var(--muted); font-variant-numeric: tabular-nums; }
 .area-chart .ac-grid { stroke: var(--line); stroke-dasharray: 3 4; }
