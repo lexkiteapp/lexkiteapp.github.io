@@ -1,6 +1,6 @@
 # Lexkite Blog & SEO – sổ tay vận hành (repo, dịch vụ, phương pháp)
 
-> TL;DR: Sổ tay vận hành blog & SEO: repo/dịch vụ, 15 ngôn ngữ và cụm bài, lịch đăng thông minh, workflow tự động, 6 bước viết bài. Không chứa bí mật; kỹ thuật chi tiết ở SEO-PLAN.md.
+> TL;DR: Sổ tay vận hành blog & SEO: repo/dịch vụ, 15 ngôn ngữ và cụm bài, lịch đăng thông minh, workflow tự động, vòng dữ liệu GSC hằng tuần (gsc-priority.json), 6 bước viết bài. Không chứa bí mật; kỹ thuật chi tiết ở SEO-PLAN.md.
 > Đọc khi: viết/lên lịch/sửa bài blog hoặc ảnh blog.
 Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết kỹ thuật: docs/SEO-PLAN.md.
 
@@ -37,7 +37,22 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 ## Tự động (GitHub Actions, miễn phí)
 - `blog-publish.yml` – mỗi giờ: có bài đến giờ → gọi deploy hook → IndexNow.
 - `blog-daily.yml` – 06:30 VN: xếp lịch bài `status: ready` chưa có giờ (2–3 bài/ngày/ngôn ngữ) + commit; mở issue `blog-health` khi < 7 ngày bài chờ hoặc bài kiểm chứng > 12 tháng.
+- `seo-gsc.yml` – thứ Hai 07:00 VN (trước lượt viết 9h): `scripts/seo/gsc.mjs` kéo Search Console 28 ngày → `reports/seo/gsc-<ngày>.{json,md}` + `content/blog/plan/gsc-priority.json` (commit `[CF-Pages-Skip]`) + issue `seo-weekly`. Xem § Vòng dữ liệu GSC.
 - Build Cloudflare tự chạy `blog-check` → bài lỗi làm build dừng (site giữ bản cũ).
+
+## Vòng dữ liệu GSC (26/10/2026)
+- **Đọc gì:** lượt viết hằng tuần đọc `content/blog/plan/gsc-priority.json` TRƯỚC `2026-11-seo-program.json` / `briefs.json`. Mỗi mục có `type`: `write-brief` (brief có sẵn chưa viết) · `new-brief` (soạn brief mới, 1 từ khoá chính/bài) · `enrich` (đã có bài nhưng hạng > 30 → làm giàu bài cũ, KHÔNG viết bài thứ 2) · `refresh-title` (hạng 8–30, CTR thấp → sửa title/description theo truy vấn, không đổi slug) · `cannibal` (2 URL cùng truy vấn → phân vai/link/301) · `decline` (trang tụt ≥ 40 % hiển thị). `gain` = ước tính thêm lượt bấm/28 ngày, xếp giảm dần. Không tự đổi lịch đăng – `blog-schedule.mjs` vẫn giữ luật ≤ 1 bài/ngôn ngữ/ngày, cụm cách ≥ 7 ngày.
+- **Báo cáo:** `reports/seo/gsc-<ngày>.json` (chi tiết, giữ 26 tuần) + `.md` (tóm tắt 4 phần a–d, cũng là nội dung issue `seo-weekly`). Chỉ số tổng hợp của GSC, không dữ liệu cá nhân.
+- **Ngưỡng** (hằng `T` đầu `scripts/seo/gsc.mjs`, chỉ được chặt hơn): cụm truy vấn ≥ 50 hiển thị · striking 8–30 & ≥ 100 hiển thị & CTR < 75 % đường CTR tự nhiên · cannibal ≥ 50 hiển thị, mỗi URL ≥ 10 % · tụt ≥ 40 % và ≥ 50 hiển thị so với 28 ngày trước. Test: `scripts/test/gsc.mjs` (dữ liệu giả, trong `npm test`).
+- **Chạy tay:** GitHub → Actions → "SEO GSC weekly" → Run workflow. Thiếu secret → xanh kèm cảnh báo, không báo cáo; khoá sai / 0 dòng → đỏ.
+
+### Việc anh chủ làm 1 lần – GSC (≈ 10 phút, 0 đồng)
+> ⚠️ Dùng tài khoản **vintagezulilyjewelry@gmail.com**. KHÔNG dùng khieudinhthong – tài khoản đó bị cấm GCP.
+1. https://console.cloud.google.com → chọn/tạo dự án (vd. `lexkite-seo`) → *APIs & Services → Library* → tìm **Google Search Console API** → **Enable**.
+2. *IAM & Admin → Service accounts → Create service account* (tên `gsc-reader`, **không** cấp vai trò nào) → mở service account → *Keys → Add key → Create new key → JSON* → file tải về máy anh. Không gửi file/nội dung vào chat, issue, email.
+3. https://search.google.com/search-console → thuộc tính **lexkite.com** (miền) → *Cài đặt → Người dùng và quyền → Thêm người dùng* → dán email service account (`gsc-reader@<dự án>.iam.gserviceaccount.com`) → quyền **Bị hạn chế (Restricted)** = chỉ đọc.
+4. GitHub `lexkiteapp/lexkiteapp.github.io` → *Settings → Secrets and variables → Actions → New repository secret* → tên **`GSC_SA_JSON`**, giá trị = toàn bộ nội dung file JSON → Add. Xoá file JSON khỏi máy nếu không cần nữa.
+5. Actions → "SEO GSC weekly" → Run workflow → xem issue `seo-weekly`. Lỗi `HTTP 403` = chưa thêm email ở bước 3 hoặc chưa bật API ở bước 1.
 
 ## Phương pháp viết (6 bước, mẫu ở `content/blog/prompts/`)
 1 brief từ khóa bản địa & đối thủ top 10 → 2 dàn ý → 3 viết (chuyên gia, tự viết 100%) → 4 kiểm chứng (nguồn chính thức) → 5 bản địa hóa (không dịch máy) → 6 chấm 100 điểm, **≥ 90** mới `status: ready`.

@@ -165,6 +165,20 @@
       ]
     },
     {
+      "key": "gsc",
+      "name": "Google Search Console API (sc-domain:lexkite.com)",
+      "kind": "seo",
+      "purpose": "Vòng dữ liệu SEO hằng tuần: scripts/seo/gsc.mjs (workflow seo-gsc.yml, thứ Hai) kéo searchAnalytics 28 ngày → reports/seo/ + content/blog/plan/gsc-priority.json + issue seo-weekly. Xác thực service account JWT (secret GitHub GSC_SA_JSON, quyền Restricted = chỉ đọc), dự án GCP của vintagezulilyjewelry@gmail.com",
+      "console": "https://search.google.com/search-console?resource_id=sc-domain%3Alexkite.com",
+      "free": "Miễn phí · 1.200 truy vấn/phút/site · 30 triệu/ngày/dự án (dùng < 10/tuần) · URL Inspection 2.000/ngày",
+      "upgrade": "Không cần",
+      "status": "Chờ chủ: tạo service account + secret GSC_SA_JSON (docs/BLOG-RUNBOOK.md § GSC)",
+      "match": [
+        "searchconsole.googleapis.com",
+        "search.google.com"
+      ]
+    },
+    {
       "key": "gemini",
       "name": "Gemini API",
       "kind": "ai",
