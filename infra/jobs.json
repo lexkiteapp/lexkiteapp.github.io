@@ -380,6 +380,20 @@
    "lease": false
   },
   {
+   "id": "dict-stage",
+   "workflow": "dict-stage.yml",
+   "cron": [
+    "0 2 * * 2"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "nav-render",
    "workflow": "nav-render.yml",
    "cron": [
