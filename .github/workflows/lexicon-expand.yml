@@ -8,7 +8,7 @@ on:
     # 26/10: AI qua kho CF_POOL (116 tài khoản × 10k neuron/ngày, về 0 lúc 00:00 UTC) – chung với vocab-img-scene (8 lượt/ngày 01:40, 04:40 … 22:40 UTC, vắt tới 4006)
     # → chạy NGAY sau giờ đặt lại neuron, trước khi các lượt ảnh (8 lượt/ngày 01:40…22:40 UTC) vắt kho tới 4006; trần `neurons` ≈ 50 % kho, phần còn lại cho ảnh.
     # Không lượt vét giữa ngày: ảnh đã vắt kho → lượt đó chỉ toàn 4006.
-    - cron: '12 0 * * *'
+    - cron: '12 0 * * *'   # lịch theo biến repo: LX_PILOT=1 (pilot rải đều, chờ soát 50 mẫu) → 0 khi pilot đạt ≤ 1/50; LX_N số từ mới/lượt; LX_RETRY
   workflow_dispatch:
     inputs:
       n: { description: 'Số từ MỚI lượt này (+ từ làm lại ở content/lexicon/expand/retry)', default: '2400' }
@@ -60,7 +60,7 @@ jobs:
           VIMG_POOL_SKIP: '0'
           VIMG_CF_USE_CF2: '0'   # tài khoản 2 thuộc script-bank/news-auto (workers_ai_b độc quyền) – lexicon chỉ dùng kho
         # LEASE_AI_B_NEURONS đặt NGAY trong lệnh: bước thuê ghi LEASE_AI_B_NEURONS=0 vào GITHUB_ENV (đè env của bước)
-        run: LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '0' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.retry == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
+        run: LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "${{ github.event.inputs.n || vars.LX_N || '2400' }}" --calls "${{ github.event.inputs.calls || '0' }}" ${{ (github.event.inputs.pilot || vars.LX_PILOT) == '1' && '--pilot' || '' }} ${{ (github.event.inputs.retry || vars.LX_RETRY) == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
       - name: Lưu kết quả (chờ soát – chưa xuất)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |
