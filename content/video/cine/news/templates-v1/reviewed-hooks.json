@@ -260,6 +260,33 @@
     "count": true
    },
    "note": "US cookie = UK biscuit (sweet baked snack). In the US a 'biscuit' is a soft, scone-like quick bread (biscuits and gravy) – true surprise fact. In London you ask for a biscuit with tea."
+  },
+  "t7_usuk_cookie_3d": {
+   "template": "pair",
+   "hook": "🇺🇸 or 🇬🇧? / cookie · biscuit",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "u_h": "US or UK? Which word do you use?",
+    "u_s": "You want a sweet snack with your coffee.",
+    "u_us": "In America, it's a cookie.",
+    "u_uk": "In Britain, it's a biscuit.",
+    "u_tw": "Careful! In America, a biscuit is soft bread.",
+    "u_x": "Can I have a cookie, please?",
+    "u_q": "Quiz! You're in London. What do you ask for?",
+    "u_a": "A biscuit! With tea, of course.",
+    "u_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "pair": [
+     "cookie",
+     "biscuit"
+    ],
+    "quiz": true,
+    "count": true
+   },
+   "note": "US cookie = UK biscuit (sweet baked snack). In the US a 'biscuit' is a soft, scone-like quick bread (biscuits and gravy) – true surprise fact. In London you ask for a biscuit with tea."
   }
  }
 }

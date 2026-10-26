@@ -425,6 +425,24 @@
     780,
     700
    ]
+  },
+  "c04_carlos_3d": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    204
+   ],
+   "head": [
+    615,
+    590,
+    960,
+    1036
+   ],
+   "anchor": [
+    787,
+    813
+   ]
   }
  }
 }

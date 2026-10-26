@@ -909,7 +909,14 @@
   },
   {
    "id": "a02_ama_board",
-   "crop": {"k": 1.15, "ox": 40, "oy": 27, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
+   "crop": {
+    "k": 1.15,
+    "ox": 40,
+    "oy": 27,
+    "sharp": 0.6,
+    "sigma": 1.1,
+    "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"
+   },
    "file": "clips/a02_ama_board.mp4",
    "smooth": "tools/dl24/a02_ama_board.mp4",
    "first_frame": "frames/a_board.png",
@@ -1051,7 +1058,14 @@
   },
   {
    "id": "c01_carlos_board",
-   "crop": {"k": 1.15, "ox": 130, "oy": 27, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
+   "crop": {
+    "k": 1.15,
+    "ox": 130,
+    "oy": 27,
+    "sharp": 0.6,
+    "sigma": 1.1,
+    "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"
+   },
    "file": "clips/c01_carlos_board.mp4",
    "smooth": "tools/dl24/c01_carlos_board.mp4",
    "first_frame": "frames/c_board.png",
@@ -1193,7 +1207,14 @@
   },
   {
    "id": "d03_daniel_desk",
-   "crop": {"k": 1.15, "ox": 70, "oy": 80, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
+   "crop": {
+    "k": 1.15,
+    "ox": 70,
+    "oy": 80,
+    "sharp": 0.6,
+    "sigma": 1.1,
+    "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"
+   },
    "file": "clips/d03_daniel_desk.mp4",
    "smooth": "tools/dl24/d03_daniel_desk.mp4",
    "first_frame": "frames/d_desk.png",
@@ -1331,7 +1352,14 @@
   },
   {
    "id": "m03_mei_desk",
-   "crop": {"k": 1.2, "ox": 60, "oy": 90, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
+   "crop": {
+    "k": 1.2,
+    "ox": 60,
+    "oy": 90,
+    "sharp": 0.6,
+    "sigma": 1.1,
+    "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"
+   },
    "file": "clips/m03_mei_desk.mp4",
    "smooth": "tools/dl24/m03_mei_desk.mp4",
    "first_frame": "frames/m_desk.png",
@@ -1469,7 +1497,14 @@
   },
   {
    "id": "k03_kai_desk",
-   "crop": {"k": 1.2, "ox": 110, "oy": 125, "sharp": 0.6, "sigma": 1.1, "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"},
+   "crop": {
+    "k": 1.2,
+    "ox": 110,
+    "oy": 125,
+    "sharp": 0.6,
+    "sigma": 1.1,
+    "why": "v10 phone framing: punch-in on teacher + board (templates-v4)"
+   },
    "file": "clips/k03_kai_desk.mp4",
    "smooth": "tools/dl24/k03_kai_desk.mp4",
    "first_frame": "frames/k_desk.png",
@@ -1604,6 +1639,162 @@
     },
     "method": "scripts/video/tpl/board_detect.py (white in every frame, RANSAC board edges, max rectangle)"
    }
+  },
+  {
+   "id": "c04_carlos_3d",
+   "crop": {
+    "k": 1.15,
+    "ox": 130,
+    "oy": 27,
+    "sharp": 0.6,
+    "sigma": 1.1,
+    "why": "v10 phone framing: punch-in on teacher + board (same as c01)"
+   },
+   "file": "clips/c04_carlos_3d.mp4",
+   "smooth": "tools/dl24/c04_carlos_3d.mp4",
+   "first_frame": "frames/c04_3d_3.png",
+   "set": "classroom_board",
+   "framing": "medium_standing",
+   "speakers": [
+    "carlos"
+   ],
+   "listeners": [],
+   "fps": 24,
+   "frames": 241,
+   "size": [
+    1080,
+    1916
+   ],
+   "usable_frames": [
+    0,
+    204
+   ],
+   "loop": {
+    "end": 204,
+    "back_to": 0,
+    "note": "forward play, dissolve last 10 frames to frame 0 (render_v9); head turns away after ~f205"
+   },
+   "voice": "am_fenrir",
+   "mouth_sets": {
+    "carlos": "tools/meta/c04_carlos_3d/carlos/"
+   },
+   "head": [
+    615,
+    590,
+    960,
+    1036
+   ],
+   "anchor": [
+    787,
+    813
+   ],
+   "tags": [
+    "talk",
+    "gesture",
+    "standing",
+    "whiteboard",
+    "3d"
+   ],
+   "score": 80,
+   "qa": "3D Pixar-style Carlos (Kling 10 s, 0-credit mouth swap): mouth track cc 0.804/0.879 on 0-204; eyes closed 17% (blinks); loop f204 diff 5.2; head turns away after f205",
+   "logic": "ok: standing beside blank whiteboard, person-shadow on board left (static)",
+   "kling": {
+    "model": "kling",
+    "duration": 10,
+    "resolution": "1080p",
+    "note": "3D clip supplied by owner 26/10"
+   },
+   "board": {
+    "quad": [
+     [
+      0.0,
+      134.0
+     ],
+     [
+      913.4,
+      134.0
+     ],
+     [
+      914.9,
+      1477.2
+     ],
+     [
+      0.0,
+      1474.0
+     ]
+    ],
+    "edges": {
+     "top": [
+      0.0,
+      134.0
+     ],
+     "bottom": [
+      0.00348,
+      1474.0
+     ],
+     "left": [
+      0.0,
+      -0.0
+     ],
+     "right": [
+      0.00122,
+      913.1
+     ]
+    },
+    "zone": [
+     78,
+     668,
+     578,
+     1012
+    ],
+    "zone_wh": [
+     500,
+     344
+    ],
+    "zone_free": [
+     74,
+     670,
+     578,
+     1012
+    ],
+    "frame": "normalised 1080x1920 (1916 -> 1920 uniform, 1 px side crop)",
+    "cam_anchor": [
+     540,
+     1442
+    ],
+    "smax": 1.06,
+    "cap": {
+     "cx": 540,
+     "cy": 1442,
+     "w": 768,
+     "lines": 1,
+     "box": [
+      156,
+      1390,
+      924,
+      1494
+     ],
+     "body_overlap_rows": 104,
+     "body_overlap_px": 54212,
+     "calm_span": [
+      278,
+      48,
+      326
+     ]
+    },
+    "body": {
+     "step": 8,
+     "rows": "584:611-964;592:611-964;600:611-964;608:611-964;616:611-964;624:611-964;632:611-964;640:611-964;648:611-964;656:611-964;664:611-964;672:611-964;680:611-964;688:611-964;696:611-964;704:611-964;712:611-964;720:611-964;728:611-964;736:611-964;744:611-964;752:611-964;760:611-964;768:611-964;776:611-964;784:611-964;792:611-964;800:611-964;808:611-964;816:611-964;824:611-964;832:611-964;840:611-964;848:611-964;856:611-964;864:611-964;872:611-964;880:611-964;888:611-964;896:611-964;904:611-964;912:611-964;920:611-964;928:611-964;936:611-964;944:611-964;952:611-964;960:611-964;968:611-964;976:611-964;984:603-972;992:591-981;1000:584-986;1008:581-990;1016:577-993;1024:574-996;1032:571-999;1040:568-1001;1048:326-1003;1056:326-1006;1064:326-1009;1072:326-1011;1080:326-1013;1088:326-1016;1096:326-1019;1104:326-1022;1112:326-1025;1120:326-1029;1128:326-1032;1136:326-1035;1144:326-1039;1152:326-1042;1160:326-1045;1168:326-1049;1176:326-1052;1184:326-1055;1192:326-1058;1200:326-1061;1208:326-1064;1216:326-1066;1224:326-1069;1232:326-1071;1240:326-1072;1248:326-1073;1256:326-1074;1264:326-1075;1272:338-1075;1280:356-1075;1288:372-1072;1296:388-1068;1304:403-1068;1312:417-1064;1320:326-1059;1328:326-1056;1336:326-1048;1344:326-1041;1352:326-1033;1360:326-1015;1368:326-993;1376:326-975;1384:326-954;1392:326-955;1400:326-957;1408:326-958;1416:326-960;1424:326-962;1432:326-964;1440:326-966;1448:326-968;1456:329-969;1464:591-971;1472:590-973;1480:590-975;1488:589-977;1496:589-978;1504:393-978;1512:393-978;1520:395-976;1528:396-972;1536:402-968;1544:405-961;1552:608-951;1560:610-945;1568:610-946;1576:610-946;1584:610-946;1592:326-947;1600:326-947;1608:326-947;1616:326-948;1624:326-948;1632:326-948;1640:326-949;1648:326-949;1656:326-950;1664:326-950;1672:326-951;1680:326-951;1688:326-952;1696:326-952;1704:326-953;1712:326-954;1720:326-954;1728:326-955;1736:326-956;1744:326-956;1752:326-957;1760:326-957;1768:326-958;1776:326-958;1784:605-959;1792:604-959;1800:604-960;1808:604-960;1816:604-961;1824:604-962;1832:604-963;1840:604-963;1848:604-964;1856:604-965;1864:605-966;1872:605-967;1880:605-968;1888:606-970;1896:606-971;1904:607-973;1912:608-973"
+    },
+    "method": "scripts/video/tpl/board_detect.py (white in every frame, RANSAC board edges, max rectangle)",
+    "note": "top edge set by hand (the board shadow breaks the white-component fit); shadow x<330,y>980 ignored for the body mask (body_ignore)"
+   },
+   "body_ignore": [
+    0,
+    980,
+    330,
+    1920
+   ]
   }
  ],
  "rejected": [

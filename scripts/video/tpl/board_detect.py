@@ -74,6 +74,7 @@ for cl in B['clips']:
     med = np.median(np.stack(sub), 0).astype(np.int16); mv = np.zeros((H, W), np.float32)
     for f in fr[::2]: mv += (np.abs(f.astype(np.int16) - med).max(2) > 40)
     busy = mv / len(fr[::2]) > 0.01
+    if cl.get('body_ignore'): ix0, iy0, ix1, iy1 = cl['body_ignore']; busy[iy0:iy1, ix0:ix1] = False   # bank.json: a static-but-morphing prop (3D clip: the person-shadow on the board) is not the body
     hd = tc['head']; hy = [round(v * H / 1916) if i % 2 else v for i, v in enumerate(hd)]
     busy[max(0, hy[1]):hy[3], max(0, hy[0]):hy[2]] = True
     busy = cv2.morphologyEx(busy.astype(np.uint8), cv2.MORPH_OPEN, np.ones((5, 5), np.uint8)) > 0
