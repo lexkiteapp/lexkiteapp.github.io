@@ -1,0 +1,50 @@
+# footage-reel: owner review of the footage banks (26/10/2026) – every clip plays 4 s AS GENERATED (no processing), labelled, one reel + contact sheet per bank.
+# 0 credits, artifact only. Banks: teachers, anchor (clips + green-screen kfull_pro), airport, cafe, hotel (restaurant excluded – owner 22/10).
+name: footage-reel
+on:
+  workflow_dispatch:
+    inputs:
+      banks: { description: 'comma list', default: 'teachers,anchor,anchor_green,airport,cafe,hotel' }
+permissions: { contents: read }
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: ffmpeg + font
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+      - name: Footage (clip folders only, sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          git -C footage sparse-checkout set --no-cone /teachers/clips/ /anchor/clips/ /anchor/green/kfull_pro/ /airport/clips/ /cafe/clips/ /hotel/clips/
+          git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage/*
+      - name: Reels (4 s per clip, labelled, no processing)
+        env: { BANKS: '${{ inputs.banks }}' }
+        run: |
+          mkdir -p out; F=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf; n_all=0
+          for b in ${BANKS//,/ }; do
+            case $b in anchor_green) D=footage/anchor/green/kfull_pro;; *) D=footage/$b/clips;; esac
+            [ -d "$D" ] || { echo "::warning::no $D"; continue; }
+            rm -f list.txt; i=0
+            for f in "$D"/*.mp4; do
+              n=$(basename "$f" .mp4); d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f"); ss=$(python3 -c "print(max(0.0, ($d - 4) / 2))")
+              ffmpeg -nostdin -v error -y -ss "$ss" -t 4 -i "$f" -an -vf "scale=540:960:force_original_aspect_ratio=decrease,pad=540:960:(ow-iw)/2:(oh-ih)/2:color=0x808080,fps=24,drawtext=fontfile=$F:text='$b / $n':fontsize=26:fontcolor=white:box=1:boxcolor=black@0.6:x=12:y=12" -c:v libx264 -preset veryfast -crf 23 -pix_fmt yuv420p seg_${b}_$i.mp4 && echo "file 'seg_${b}_$i.mp4'" >> list.txt
+              ffmpeg -nostdin -v error -y -ss "$ss" -i "$f" -frames:v 1 -vf "scale=180:320:force_original_aspect_ratio=decrease,pad=180:320:(ow-iw)/2:(oh-ih)/2:color=0x808080,drawtext=fontfile=$F:text='$n':fontsize=13:fontcolor=white:box=1:boxcolor=black@0.6:x=4:y=4" th_${b}_$(printf %03d $i).png
+              i=$((i+1))
+            done
+            [ $i -gt 0 ] || continue; n_all=$((n_all+i))
+            ffmpeg -nostdin -v error -y -f concat -safe 0 -i list.txt -c copy out/reel_$b.mp4
+            cols=6; rows=$(( (i + cols - 1) / cols ))
+            ffmpeg -nostdin -v error -y -framerate 1 -pattern_type glob -i "th_${b}_*.png" -vf "tile=${cols}x${rows}:padding=4:color=white" -frames:v 1 out/sheet_$b.jpg
+            echo "$b: $i clips -> reel $(du -h out/reel_$b.mp4 | cut -f1)" | tee -a out/summary.txt
+            rm -f seg_${b}_*.mp4 th_${b}_*.png
+          done
+          [ $n_all -gt 0 ] || { echo "::error::0 clips"; exit 1; }
+          cat out/summary.txt >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: 'footage-reels-${{ github.run_number }}', path: out/, retention-days: 30 }
