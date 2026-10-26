@@ -25,6 +25,10 @@ await J.release(ENV, DB, { job: 'footage-verify', run: 'r6', status: 'success' }
 r = await J.acquire(ENVB, DB, { job: 'drive-shorts', run: 'r7' }, T0 + 9e6); ok(!r.ok && /55%/.test(r.reason), 'drive-shorts (archive, trần 50 %) bỏ qua khi D1 55 % (chưa tách tài khoản): ' + r.reason);
 r = await J.acquire(ENVB, DB, { job: 'youtube-manual', run: 'r8' }, T0 + 9.2e6); ok(r.ok, 'youtube-manual (publishing, trần 70 %) vẫn chạy ở 55 %');
 r = await J.acquire(ENVB, DB, { job: 'storage-watch', run: 'r9' }, T0 + 9.3e6); ok(r.ok, 'storage-watch không dùng D1 → không bị chặn bởi ngân sách');
+// 4b) 26/10: dòng GHI cũng tính (hạn mức 100k/ngày) – đọc ít nhưng ghi 60k → việc nền archive bỏ qua
+globalThis.fetch = async () => ({ json: async () => ({ data: { viewer: { accounts: [{ d1AnalyticsAdaptiveGroups: [{ sum: { rowsRead: 1000, rowsWritten: 60000 } }] }] } } }) }); G.resetD1Cache();
+r = await J.acquire(ENVB, DB, { job: 'drive-shorts', run: 'r7w' }, T0 + 9.4e6); ok(!r.ok && /60%/.test(r.reason), 'ghi 60k/100k (đọc gần 0) → drive-shorts bỏ qua: ' + r.reason);
+{ const u = await G.d1Usage(ENVB, DB); ok(u.block && u.kind === 'writes' && Math.round(u.ratio * 100) === 60, 'd1Usage: ratio = max(đọc, ghi), kind=writes'); }
 globalThis.fetch = async () => ({ json: async () => ({ data: { viewer: { accounts: [{ d1AnalyticsAdaptiveGroups: [{ sum: { rowsRead: 2250000, rowsWritten: 10 } }] }] } } }) }); G.resetD1Cache();
 // 5) tách tài khoản: có D1B → việc d1_internal đo tài khoản 2, d1_main_read đo tài khoản 1
 G.resetD1Cache();
