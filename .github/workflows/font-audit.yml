@@ -1,0 +1,36 @@
+# Rà font chữ web/app/add-on từng phần trên Chromium thật – mỗi phần 1 job song song; kết quả ở Summary + artifact font-<phần> (JSON, md, ảnh).
+# Lỗi (chữ SVG kéo méo, lọt Times, nút không kế thừa font) làm đỏ PR; cảnh báo chỉ báo cáo.
+name: Font audit
+on:
+  workflow_dispatch:
+    inputs:
+      part: { description: 'Phần: all | static | landing | legal | app | admin | blog | ext', required: false, default: 'all' }
+  pull_request:
+    paths: ['web/css/**', 'web/js/**', 'web/**/*.html', 'extension/**/*.css', 'extension/**/*.html', 'scripts/test/font-audit.mjs', '.github/workflows/font-audit.yml']
+  schedule:
+    - cron: '20 2 * * 1'   # thứ Hai 09:20 giờ Việt Nam
+permissions:
+  contents: read
+concurrency: { group: font-audit-${{ github.ref }}, cancel-in-progress: true }
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        part: ${{ fromJSON((github.event.inputs.part && github.event.inputs.part != 'all') && format('["{0}"]', github.event.inputs.part) || '["static","landing","legal","app","admin","blog","ext"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - if: matrix.part != 'static'
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+          sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+      - name: Kiểm ${{ matrix.part }}
+        run: node scripts/test/font-audit.mjs ${{ matrix.part }} --strict
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: font-${{ matrix.part }}, path: font-report/, retention-days: 14, if-no-files-found: ignore }
