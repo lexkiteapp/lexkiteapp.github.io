@@ -25,12 +25,12 @@
   {
    "id": "g_c",
    "text": "Hint: it takes you up and down.",
-   "gap": 0.8
+   "gap": 0.72
   },
   {
    "id": "g_c2",
    "text": "Every big hotel has one.",
-   "gap": 0.8
+   "gap": 0.72
   },
   {
    "id": "_count",
@@ -55,7 +55,7 @@
      4
     ]
    },
-   "gap": 0.8
+   "gap": 0.72
   },
   {
    "id": "g_u",
@@ -65,7 +65,7 @@
      5
     ]
    },
-   "gap": 0.8
+   "gap": 0.72
   },
   {
    "id": "g_v",

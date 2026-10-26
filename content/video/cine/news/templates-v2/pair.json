@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 0.75,
+ "speed": 0.7,
  "display": {
   "blank": "___"
  },
@@ -28,7 +28,7 @@
   {
    "id": "p_s",
    "text": "You need a pen. Your friend has one.",
-   "gap": 0.6
+   "gap": 0.7
   },
   {
    "id": "p_b",
@@ -56,7 +56,7 @@
      0
     ]
    },
-   "gap": 0.6
+   "gap": 0.7
   },
   {
    "id": "p_l2",
@@ -69,18 +69,18 @@
   },
   {
    "id": "p_t",
-   "text": "Easy trick: borrow from, lend to.",
+   "text": "Remember: you borrow from someone, and you lend to someone.",
    "key": {
     "yellow": [
      2,
      3
     ],
     "green": [
-     4,
-     5
+     7,
+     8
     ]
    },
-   "gap": 0.6
+   "gap": 0.7
   },
   {
    "id": "p_q",
@@ -90,7 +90,7 @@
      0
     ]
    },
-   "gap": 0.6
+   "gap": 0.7
   },
   {
    "id": "p_q2",
@@ -114,7 +114,7 @@
   {
    "id": "p_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.7
   }
  ],
  "pops": [
