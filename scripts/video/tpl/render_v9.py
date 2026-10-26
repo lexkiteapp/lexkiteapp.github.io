@@ -180,6 +180,30 @@ for c, v in CL.items():
         fr.append(f)
     lo, hi = v['usable']; RAW[c] = fr[:hi + 1]; assert len(RAW[c]) > lo + 3 * XF, ('clip too short', c, len(fr))
     assert fr[0].shape[1] == W and fr[0].shape[0] in (1916, 1920), ('clip size', c, fr[0].shape)
+# ---- v11 smooth motion (owner 26/10: "hình hơi giật lag"): Kling's flat-2D clips hold a pose for 1-6 frames and then jump
+# (13 % still frames on c01). Each short hold is replaced by flow in-betweens from the held pose to the next new pose (positions follow
+# the time, no pixel blend -> no see-through hand); longer stills are real pauses and stay. The mouth track moves the same way.
+def _tween(Fa, Fb, w):
+    h_, w_ = Fa.shape[:2]; ga = cv2.cvtColor(cv2.resize(Fa, (w_ // 2, h_ // 2), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
+    gb = cv2.cvtColor(cv2.resize(Fb, (w_ // 2, h_ // 2), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
+    gx, gy = np.meshgrid(np.arange(w_, dtype=np.float32), np.arange(h_, dtype=np.float32))
+    if w < 0.5: f = cv2.resize(cv2.calcOpticalFlowFarneback(ga, gb, None, 0.5, 5, 31, 4, 7, 1.5, 0), (w_, h_)) * 2; return cv2.remap(Fa, gx - w * f[..., 0], gy - w * f[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+    f = cv2.resize(cv2.calcOpticalFlowFarneback(gb, ga, None, 0.5, 5, 31, 4, 7, 1.5, 0), (w_, h_)) * 2; return cv2.remap(Fb, gx - (1 - w) * f[..., 0], gy - (1 - w) * f[..., 1], cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+HOLDS = {}; MOTION = dict(held_frames_smoothed=0, holds=0)
+for c, fr in RAW.items():
+    g = [cv2.resize(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY), (135, 240)).astype(np.float32) for f in fr]
+    d = np.array([np.abs(g[k + 1] - g[k]).mean() for k in range(len(g) - 1)]); thr = max(0.12, 0.2 * float(np.median(d))); runs = []; k = 0
+    while k < len(d):
+        if d[k] < thr:
+            a = k
+            while k < len(d) and d[k] < thr: k += 1
+            if k < len(d) and k - a <= 6 and a > 0: runs.append((a, k + 1))   # frames a+1..k held, k+1 = next new pose
+        else: k += 1
+    for a, b in runs:
+        for i in range(a + 1, b): fr[i] = _tween(fr[a], fr[b], (i - a) / (b - a))
+        MOTION['held_frames_smoothed'] += b - a - 1
+    HOLDS[c] = runs; MOTION['holds'] += len(runs)
+print('smooth motion:', MOTION, flush=True)
 SMALL = {c: [cv2.resize(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY), (135, 240)).astype(np.float32) for f in fr] for c, fr in RAW.items()}
 def _face(c, f):
     x0, y0, x1, y1 = CL[c]['head']; y1 = min(y1, f.shape[0]); g = cv2.cvtColor(f[y0:y1, x0:x1], cv2.COLOR_BGR2GRAY); return cv2.resize(g, ((x1 - x0) // 2, (y1 - y0) // 2)).astype(np.float32)
@@ -241,6 +265,11 @@ SEQ, JOINS = plan(NF, A0)
 print(f'loop frame {_c0}:{A0} end diff {end_score(A0):.2f}', flush=True)
 print('joins', JOINS, flush=True)
 MO = {c: LS.Mouth(f"{LIB}/{SET['meta']}/{c}/{WHO}") for c in CL}
+for c, runs in HOLDS.items():   # v11: the mouth track moves with the smoothed in-betweens
+    MS_ = MO[c].MS
+    for a, b in runs:
+        if b < len(MS_):
+            for i in range(a + 1, b): MS_[i] = MS_[a] + (MS_[b] - MS_[a]) * (i - a) / (b - a)
 def norm_frame(F, crop=True):
     if F.shape[0] != H:
         r = cv2.resize(F, (round(W * H / F.shape[0]), H), interpolation=cv2.INTER_LANCZOS4); x0 = (r.shape[1] - W) // 2; F = r[:, x0:x0 + W].copy()   # uniform 1916 -> 1920
@@ -958,13 +987,20 @@ else:
                             '-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation', '-b:v', f'{o.kbps}k', '-maxrate', f'{int(o.kbps * 1.35)}k', '-bufsize', f'{o.kbps * 2}k',
                             '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-g', '48', '-movflags', '+faststart', o.out + '.video.mp4'], stdin=subprocess.PIPE)
 SPK = [dict(cues=LINES[l]['cues'], at=at) for l, at in ATL.items()]
+VSEQ = [LS.viseme_at(SPK, fi / FPS) for fi in range(NF)]   # v11 mouth smoothing (owner 26/10: "mắt miệng ko tự nhiên"): no 1-frame shapes
+for fi in range(1, NF - 1):
+    if VSEQ[fi] != VSEQ[fi - 1] and VSEQ[fi] != VSEQ[fi + 1]: VSEQ[fi] = VSEQ[fi - 1]; MOTION['mouth_flicks_merged'] = MOTION.get('mouth_flicks_merged', 0) + 1
+MOTION['mouth_changes'] = sum(1 for fi in range(1, NF) if VSEQ[fi] != VSEQ[fi - 1])
+def mouth_spr(c, fi):   # the frame where the shape changes shows the halfway mouth (previous + new), so the lips move instead of popping
+    v = VSEQ[fi]; sp = MO[c].spr[v]
+    return sp if fi == 0 or VSEQ[fi - 1] == v else 0.5 * sp + 0.5 * MO[c].spr[VSEQ[fi - 1]]
 FRAMES = []; SHARP = []; SHARP_DUE = False
 for fi in range(NF):
     T = fi / FPS; tm = T + 0.5 / FPS
     if PREV is not None and fi not in PREV: continue
-    v = LS.viseme_at(SPK, T); acc = None; srcs = SEQ[fi]; ims = []
+    v = VSEQ[fi]; acc = None; srcs = SEQ[fi]; ims = []
     for c, k, wgt in srcs:
-        Fm = norm_frame(MO[c].apply(RAW[c][k].copy(), k, MO[c].spr[v])); ims.append(Fm)
+        Fm = norm_frame(MO[c].apply(RAW[c][k].copy(), k, mouth_spr(c, fi))); ims.append(Fm)
         acc = Fm.astype(np.float32) * wgt if acc is None else acc + Fm.astype(np.float32) * wgt
     if len(srcs) == 2: F = morph(ims[0], ims[1], srcs[1][2] / max(1e-6, srcs[0][2] + srcs[1][2]))   # dissolve = flow morph (no double arms / heads)
     else: F = np.clip(acc + 0.5, 0, 255).astype(np.uint8) if len(srcs) > 1 else Fm
@@ -1001,7 +1037,7 @@ for fi in range(NF):
     if SHARP_DUE and len(srcs) == 1:   # sharpness sample every second, on the next single-source frame (a dissolve is not a resampling measure)
         SHARP_DUE = False
         c0, k0 = srcs[0][0], srcs[0][1]; FR = HEAD_RAW[c0]; FR = [FR[0] + 80, FR[1] + 120, FR[2] - 80, FR[3] - 60]
-        Fn = norm_frame(MO[c0].apply(RAW[c0][k0].copy(), k0, MO[c0].spr[v]), crop=False) if CROP else F
+        Fn = norm_frame(MO[c0].apply(RAW[c0][k0].copy(), k0, mouth_spr(c0, fi)), crop=False) if CROP else F
         nat = cv2.cvtColor(Fn[FR[1]:FR[3], FR[0]:FR[2]], cv2.COLOR_BGR2GRAY); r = [round(x) for x in to_screen(_tb(FR) if CROP else FR, s)]; r = [max(0, r[0]), max(0, r[1]), min(W, r[2]), min(H, r[3])]
         scr = cv2.cvtColor(out[r[1]:r[3], r[0]:r[2]], cv2.COLOR_BGR2GRAY)
         SHARP.append(dict(frame=fi, s=round(s, 4), rect=r, var_native=round(float(cv2.Laplacian(nat, cv2.CV_64F).var()), 2), var_render=round(float(cv2.Laplacian(scr, cv2.CV_64F).var()), 2)))
@@ -1046,5 +1082,5 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
-               words=WORDS, captions=CAP_LOG, sharp=SHARP, frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+               words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')
