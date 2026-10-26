@@ -13,5 +13,8 @@ for (const f of files) {
   const x = fs.readFileSync(D + f, 'utf8'), c = (x.match(/<loc>/g) || []).length; n += c;
   if (!x.includes('<urlset') || c > 50000 || Buffer.byteLength(x) > 50 * 1024 * 1024) throw new Error(`build-sitemap-index: ${f} không hợp lệ hoặc vượt giới hạn (${c} URL)`);
 }
-fs.writeFileSync(D + 'sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${files.map(f => `  <sitemap><loc>${SITE}${f}</loc><lastmod>${today}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
+// Trang từ điển (docs/SEO-DICT-PAGES.md §4): shard sitemap do Worker lexkite-dict phục vụ – chỉ liệt kê khi bộ điều khiển giai đoạn đã mở index (content/dict/stage.json)
+const ST = fs.existsSync('content/dict/stage.json') ? JSON.parse(fs.readFileSync('content/dict/stage.json', 'utf8')) : null;
+const dict = ST && ST.index ? ['vi', 'en'].flatMap(l => Array.from({ length: Math.ceil(ST.n / 10000) }, (_, i) => `sitemap-dict-${l}-${i + 1}.xml`)) : [];
+fs.writeFileSync(D + 'sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...files, ...dict].map(f => `  <sitemap><loc>${SITE}${f}</loc><lastmod>${today}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 console.log(`✓ Sitemap index: ${files.length} file (${files.join(', ')}), ${n} URL`);

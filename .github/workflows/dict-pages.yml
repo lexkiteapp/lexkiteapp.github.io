@@ -1,0 +1,62 @@
+# 📖 Trang từ điển (docs/SEO-DICT-PAGES.md): dựng dữ liệu + tầng tĩnh 200 từ vi/en, cổng dict-pages, Lighthouse trên bản xem thử (máy chủ tĩnh
+# cục bộ trong runner), ảnh chụp trang mẫu, artifact. Miễn phí (GitHub Actions). Không deploy – deploy là bước riêng sau khi chủ duyệt (docs §8).
+name: Trang từ điển (dict pages)
+on:
+  pull_request:
+    paths: ['scripts/dict/**', 'workers/dict/**', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml', 'web/js/data.js', 'web/js/lib/**', 'web/js/usage/**', 'web/js/notes/**', 'scripts/lib/site-layout.mjs']
+  push:
+    branches: [main]
+    paths: ['scripts/dict/**', 'workers/dict/**', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 50 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng dữ liệu + tầng tĩnh (mặc định noindex)
+        run: node scripts/dict/build.mjs && cat dist-dict/report.json | head -40
+      - name: Cổng dict-pages (2 chế độ, structured data, hreflang, sitemap, Worker)
+        run: node scripts/test/dict-pages.mjs
+      - name: Bản xem thử chế độ mở (chỉ để đo Lighthouse SEO – không deploy)
+        run: |
+          DICT_OUT=dist-dict-open DICT_INDEX=all node scripts/dict/build.mjs
+          mkdir -p preview && cp -r dist-dict-open/assets/. preview/ && cp -r web/icons preview/icons && cp web/og-default.png preview/ 2>/dev/null || true
+      - name: Lighthouse (điện thoại, 4G giả lập) + ảnh chụp
+        run: |
+          (cd preview && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 2
+          mkdir -p reports/dict shots
+          # trang ứng viên index cao điểm nhất + 1 trang dưới ngưỡng + 2 hub
+          VI=$(node -e "const r=require('./dist-dict-open/data/v1/manifest.json');const fs=require('fs');const p=Object.keys(r.langs.vi).map(s=>JSON.parse(fs.readFileSync('dist-dict-open/data/v1/vi/'+s+'.json'))).sort((a,b)=>a.quality.rank-b.quality.rank);console.log(p[0].slug)")
+          EN=$(node -e "const r=require('./dist-dict-open/data/v1/manifest.json');const fs=require('fs');const p=Object.keys(r.langs.en).map(s=>JSON.parse(fs.readFileSync('dist-dict-open/data/v1/en/'+s+'.json'))).sort((a,b)=>a.quality.rank-b.quality.rank);console.log(p[0].slug)")
+          fail=0
+          for p in "vi/tu-dien/$VI/" "en/dictionary/$EN/" "vi/tu-dien/" "en/dictionary/"; do
+            id=$(echo "$p" | tr '/' '_')
+            npx -y lighthouse@12.2.1 "http://localhost:8080/$p" --form-factor=mobile --only-categories=performance,accessibility,best-practices,seo --chrome-flags="--headless=new --no-sandbox" --output=json --output-path="reports/dict/$id.json" --quiet || { echo "✗ lighthouse lỗi $p"; fail=1; continue; }
+            node -e "
+              const d=require('./reports/dict/$id.json'),c=d.categories,s=Object.fromEntries(Object.entries(c).map(([k,v])=>[k,Math.round(v.score*100)]));
+              const min={performance:90,accessibility:95,'best-practices':90,seo:95};
+              const shot=d.audits['final-screenshot']&&d.audits['final-screenshot'].details;if(shot)require('fs').writeFileSync('shots/$id.jpg',Buffer.from(shot.data.split(',')[1],'base64'));
+              const bad=Object.entries(min).filter(([k,v])=>s[k]<v);console.log('$p',JSON.stringify(s));
+              if(bad.length){console.log('  ✗ dưới ngưỡng:',bad.map(([k,v])=>k+' '+s[k]+'<'+v).join(', '));console.log('  ',Object.values(d.audits).filter(a=>a.score!==null&&a.score<0.9).map(a=>a.id).join(' '));process.exit(1)}" || fail=1
+          done
+          exit $fail
+      - name: Kiểm Worker bằng wrangler (bundle được, không deploy)
+        run: cd workers/dict && npx -y wrangler@3.114.0 deploy --dry-run --outdir ../../dist-dict/worker
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dict-pages
+          retention-days: 14
+          path: |
+            dist-dict/report.json
+            dist-dict/data/v1/manifest.json
+            dist-dict/assets/vi/tu-dien/
+            dist-dict/assets/en/dictionary/
+            reports/dict/
+            shots/
