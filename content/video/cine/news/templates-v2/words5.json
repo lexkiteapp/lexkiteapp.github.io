@@ -88,7 +88,7 @@
   },
   {
    "id": "w_r",
-   "text": "Which one will you use today?",
+   "text": "Which one will you use today? Tell me in the comments!",
    "gap": 0.6
   },
   {
@@ -359,13 +359,13 @@
    "rows": [
     [
      [
-      "great · delicious",
+      "great · amazing",
       "white"
      ]
     ],
     [
      [
-      "amazing · awesome",
+      "awesome · delicious",
       "white"
      ]
     ],
@@ -375,10 +375,15 @@
       "white"
      ],
      [
+      " ",
+      "white"
+     ],
+     [
       "@emoji:🤔"
      ]
     ]
-   ]
+   ],
+   "align": "c"
   },
   {
    "id": "cta",

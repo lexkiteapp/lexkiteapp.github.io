@@ -2,10 +2,10 @@
  "id": "t7_usuk_cookie",
  "template": "pair",
  "title": "US or UK? #1 – cookie vs biscuit (snack situation, surprise US biscuit, London quiz)",
- "teacher": "ama",
+ "teacher": "kai",
  "set": "classroom_board",
  "clips": [
-  "a02_ama_board"
+  "k03_kai_desk"
  ],
  "accent": "navy2",
  "active": "mint",
@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 0.75,
+ "speed": 0.7,
  "display": {
   "blank": "___"
  },
@@ -32,7 +32,7 @@
   {
    "id": "u_s",
    "text": "You want a sweet snack with your coffee.",
-   "gap": 0.6
+   "gap": 0.8
   },
   {
    "id": "u_us",
@@ -41,7 +41,8 @@
     "green": [
      3
     ]
-   }
+   },
+   "gap": 0.8
   },
   {
    "id": "u_uk",
@@ -51,7 +52,7 @@
      3
     ]
    },
-   "gap": 0.6
+   "gap": 0.8
   },
   {
    "id": "u_tw",
@@ -65,7 +66,7 @@
      7
     ]
    },
-   "gap": 0.6
+   "gap": 0.8
   },
   {
    "id": "u_x",
@@ -75,7 +76,7 @@
      4
     ]
    },
-   "gap": 0.6
+   "gap": 0.8
   },
   {
    "id": "u_q",
@@ -85,7 +86,7 @@
      0
     ]
    },
-   "gap": 0.6
+   "gap": 0.8
   },
   {
    "id": "_count",
@@ -99,12 +100,13 @@
     "green": [
      1
     ]
-   }
+   },
+   "gap": 0.8
   },
   {
    "id": "u_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.8
   }
  ],
  "pops": [
@@ -127,10 +129,10 @@
     0
    ],
    "to": [
-    "u_s",
-    0,
-    "s",
-    -0.08
+    "u_h",
+    -1,
+    "e",
+    0.25
    ]
   },
   {
@@ -139,10 +141,10 @@
    "anim": "spring",
    "size": 96,
    "from": [
-    "u_s",
-    0,
-    "s",
-    -0.06
+    "u_h",
+    -1,
+    "e",
+    0.3
    ],
    "to": [
     "u_us",
@@ -313,10 +315,10 @@
     -0.06
    ],
    "to": [
-    "u_c",
-    0,
-    "s",
-    -0.08
+    "u_a",
+    -1,
+    "e",
+    0.3
    ],
    "a": "cookie",
    "b": "biscuit",
@@ -340,10 +342,10 @@
    "id": "cta",
    "kind": "cta",
    "from": [
-    "u_c",
-    0,
-    "s",
-    -0.05
+    "u_a",
+    -1,
+    "e",
+    0.35
    ],
    "to": [
     "end"
