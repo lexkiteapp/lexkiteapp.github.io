@@ -117,10 +117,10 @@ if (path.resolve(process.argv[1] || '') === path.resolve(fileURLToPath(new URL(i
   const QF = 'content/lexicon/vimg-scene-queue.json', SC = 'content/lexicon/vimg-scenes.json', cards = fs.existsSync(P(SC)) ? rd(SC) : { _note: 'Thẻ cảnh cho nghĩa trừu tượng (scene.mjs). ex = câu ví dụ của kho, sc = mô tả hình, cap = chú thích cho giám khảo.', v: SCENE_V, items: {} };
   const keysOf = () => { const f = arg('keys'); return f && fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, 'utf8')).scene || JSON.parse(fs.readFileSync(f, 'utf8')).items) : String(f || '').split(',').filter(Boolean); };
   if (arg('gaps')) {
-    // fill: nghĩa loại scene chưa có ảnh, không bị gỡ, không trong hàng chờ sửa prompt, thẻ không skip; A1 trước, rồi tất định fnv; --shard i/n
+    // fill: nghĩa loại scene chưa có ảnh, không bị gỡ, không trong hàng chờ (26/10: hàng chờ thử lại sau VIMG_QUEUE_RETRY_DAYS=2 ngày, ảnh mới ngẫu nhiên), thẻ không skip; A1 trước, rồi tất định fnv; --shard i/n
     const img = rd('content/lexicon/img.json'), q = fs.existsSync(P(QF)) ? rd(QF).items : {}, [SI, SN] = String(arg('shard') || '0/1').split('/').map(Number);
     const LV = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 6 };
-    const ks = Object.entries(lex).filter(([k, e]) => e && e.ex && !(img.items[k] && img.items[k].h) && !img.rejected[k] && !q[k] && !(cards.items[k] && cards.items[k].skip) && (SN <= 1 || fnv(k) % SN === SI) && ['n', 'v', 'adj', 'adv'].includes(e.pos) && kind(k, e, (sel[k] || [])[1]) === 'scene')
+    const ks = Object.entries(lex).filter(([k, e]) => e && e.ex && !(img.items[k] && img.items[k].h) && !img.rejected[k] && !(q[k] && (Date.now() - Date.parse(q[k].at || 0)) / 864e5 < +(process.env.VIMG_QUEUE_RETRY_DAYS ?? 2)) && !(cards.items[k] && cards.items[k].skip) && (SN <= 1 || fnv(k) % SN === SI) && ['n', 'v', 'adj', 'adv'].includes(e.pos) && kind(k, e, (sel[k] || [])[1]) === 'scene')
       .map(([k]) => k).sort((a, b) => (LV[lex[a].level] || 9) - (LV[lex[b].level] || 9) || fnv('g|' + a) - fnv('g|' + b)).slice(0, +arg('gaps'));
     process.stdout.write(JSON.stringify({ items: ks, scene: ks }));
   } else if (process.argv.includes('--pilot')) { const fr = +(arg('from') || 0), pl = pilot(lex, sel, +(arg('n') || 60) + fr, +(arg('fn') || 20)); if (fr) { pl.scene = pl.scene.slice(fr); pl.items = [...pl.scene, ...pl.concept]; } process.stdout.write(JSON.stringify(pl, null, 1)); }

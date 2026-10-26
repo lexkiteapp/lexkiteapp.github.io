@@ -50,9 +50,11 @@ cur.items = sorted(cur.items); fs.writeFileSync(SC, JSON.stringify(cur, null, 1)
 const q = fs.existsSync(QF) ? rd(QF) : { _note: 'Nghĩa cảnh đã thử đủ biến thể mà không ảnh nào qua giám khảo cảnh – fill bỏ qua tới khi sửa thẻ (vimg-scenes.json) / prompt rồi xoá mục khỏi đây (scene-publish.mjs).', items: {} };
 let qn = 0;
 for (const [k, r] of Object.entries(R.items)) {
-  if (r.kind !== 'scene' || r.pass || q.items[k] || img.items[k] && img.items[k].kind === 'scene') continue;
+  if (r.kind === 'scene' && img.items[k] && img.items[k].kind === 'scene') { delete q.items[k]; continue; }   // thử lại (26/10) rồi qua → ra khỏi hàng chờ
+  if (r.kind !== 'scene' || r.pass) continue;
   const why = (r.reasons || []).join('; ');
-  if ((r.tries || 0) >= V && !/vision judge unavailable/.test(why)) { q.items[k] = { at: now, tries: r.tries, why: why.slice(0, 160), b: BATCH }; qn++; }
+  // trượt đủ biến thể → (vào lại) hàng chờ với ngày mới; tries cộng dồn qua các lượt thử lại (scene.mjs --gaps thử lại sau VIMG_QUEUE_RETRY_DAYS)
+  if ((r.tries || 0) >= V && !/vision judge unavailable/.test(why)) { q.items[k] = { at: now, tries: (q.items[k] ? q.items[k].tries || 0 : 0) + r.tries, why: why.slice(0, 160), b: BATCH }; qn++; }
 }
 q.items = sorted(q.items); fs.writeFileSync(QF, JSON.stringify(q, null, 1) + '\n');
 // báo cáo lượt: ảnh nhận, lượt gọi GrabCast / ảnh nhận, mã HTTP (gửi GrabCast)

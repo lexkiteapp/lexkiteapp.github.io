@@ -157,7 +157,7 @@ export function createPool(opts = {}) {
   const LEXAI = opts.lexaiUrl || env.LEXAI_URL || 'https://lexkite.com/api/lexai';
   const GC = String(opts.gcBase || env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
   const STUDIO = opts.studioUrl || env.STUDIO_API || 'https://lexkite.com/api/studio';
-  const budget = { lexai: +(opts.budget?.lexai ?? env.AI_POOL_LEXAI_MAX ?? 1e9), gc: +(opts.budget?.gc ?? env.AI_POOL_GC_MAX ?? 10000), cf2: +(opts.budget?.cf2 ?? env.LEASE_AI_B_NEURONS ?? 0) };
+  const budget = { lexai: +(opts.budget?.lexai ?? env.AI_POOL_LEXAI_MAX ?? 1e9), gc: +(opts.budget?.gc ?? env.AI_POOL_GC_MAX ?? 10000), cf2: +(opts.budget?.cf2 ?? env.AI_POOL_CF2_NEURONS ?? env.LEASE_AI_B_NEURONS ?? 0)   /* AI_POOL_CF2_NEURONS: việc dùng kho CF_POOL tự đặt trần (lease ghi đè LEASE_AI_B_NEURONS=0) */ };
   const used = { lexai: 0, gc: 0, cf2: 0, cfLeak: 0 };
   const cool = new Map(); // `${route}|${model}` hoặc `${route}|*` → hết nghỉ lúc
   const stats = {}; // route|model → { ok, fail, bad }

@@ -63,7 +63,7 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
+      AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: prep
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
@@ -139,7 +139,7 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
+      AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: ${{ matrix.shard }}
       VIMG_MAX_GC: ${{ needs.plan.outputs.per }}
       VIMG_MAX_CF2: '0'
@@ -234,11 +234,11 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
+      AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: ${{ matrix.shard }}
       PER: ${{ needs.plan.outputs.per }}
       NSH: ${{ strategy.job-total }}
-      V: ${{ github.event.inputs.variants || '4' }}
+      V: ${{ github.event.inputs.variants || '6' }}   # 26/10: klein ~6 %/ảnh qua giám khảo nghiêm → 6 biến thể/lượt; trượt hết → hàng chờ, thử lại sau VIMG_QUEUE_RETRY_DAYS
       VIMG_MAX_CF2: '0'
       VIMG_MAX_MAIN: '0'   # KHÔNG BAO GIỜ Workers AI tài khoản chính
       VIMG_MODEL: ${{ github.event.inputs.model || vars.VIMG_MODEL || 'flux-2-klein-4b' }}   # A/B 26/10: klein-4b thắng (phẳng, nền kem, đúng bảng màu)
@@ -287,6 +287,7 @@ jobs:
             ls $OUT/raw/*.a$a.jpg >/dev/null 2>&1 && python3 scripts/vocab-img/local_judge.py --dir $OUT --attempt $a | tail -2 || true
             [ -f $OUT/EXHAUSTED ] && { echo "⏹ bể neuron CF cạn (ai_exhausted) – dừng sạch"; break; }
           done
+          true   # vòng lặp kết thúc bằng phép kiểm false → không để bước báo lỗi giả
       - uses: actions/upload-artifact@v4
         if: always() && steps.lease.outputs.skip != '1'
         with: { name: 'vimg-fill-${{ matrix.shard }}', retention-days: 14, path: "out/vimg-fill/\nkeys.json" }
@@ -327,7 +328,7 @@ jobs:
             MEDIA_KEY_M4=$RUNNER_TEMP/m4key node scripts/media/push.mjs --src .media-out --kind img --msg "vimg: lượt fill ${{ github.run_id }}"
             h=$(ls .media-out/vimg | head -1); for i in $(seq 1 20); do c=$(curl -s -o /dev/null -w '%{http_code}' https://media.lexkite.com/vimg/$h); [ "$c" = 200 ] && break; sleep 15; done; echo "CDN $h → $c"
           fi
-          node scripts/vocab-img/scene-publish.mjs --dir m --index --variants ${{ github.event.inputs.variants || '4' }}
+          node scripts/vocab-img/scene-publish.mjs --dir m --index --variants ${{ github.event.inputs.variants || '6' }}
           node scripts/build-lexicon.mjs --write >/dev/null
           git config user.name lexkite-bot; git config user.email lexkite-bot@users.noreply.github.com
           git add content/lexicon/img.json content/lexicon/vimg-scenes.json content/lexicon/vimg-scene-queue.json web/js/lexicon-img.json extension/app/js/lexicon-img.json
@@ -361,7 +362,7 @@ jobs:
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
-      LEASE_AI_B_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc
+      AI_POOL_CF2_NEURONS: '150000'   # ai-pool tuyến cf2 = kho CF_POOL (thẻ cảnh văn bản) – trần mỗi việc (lease ghi LEASE_AI_B_NEURONS=0)
       LEASE_SHARD: lab
       HF_HUB_DISABLE_TELEMETRY: '1'
     steps:
