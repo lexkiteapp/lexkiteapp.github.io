@@ -1,8 +1,15 @@
 {
  "_note": "Trạng thái mở index trang từ điển – CHỈ workflow dict-stage.yml (scripts/dict/stage.mjs) sửa file này. Luật: docs/SEO-DICT-PAGES.md §5.",
- "stage": "S0",
- "index": "",
+ "stage": "S1",
+ "index": "{\"vi\":50,\"en\":30}",
  "n": 200,
  "since": "2026-10-26",
- "history": []
+ "history": [
+  {
+   "at": "2026-10-26",
+   "from": "S0",
+   "to": "S1",
+   "why": "route lexkite.com đã chạy → mở 50 vi/30 en ứng viên tốt nhất"
+  }
+ ]
 }
