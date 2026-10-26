@@ -3,6 +3,7 @@
    • Phong cách: 6 câu tình huống vui, không có đáp án sai → xác định hệ phong cách & gợi ý lộ trình.
    • Nạp lười hoàn toàn, CSS đóng gói bên trong, không phình khung shell. */
 (function () {
+  /*icons*/UI.addIcons('<symbol id="i-sprout" viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>');/*/icons*/
   'use strict';
   const g = typeof window !== 'undefined' ? window : globalThis;
   const App = g.App;
@@ -125,13 +126,13 @@
       view.innerHTML = `
         <div class="qk-wrap">
           <div class="card qk-card qk-result-box" role="status">
-            <div class="qk-result-em" aria-hidden="true">${isGood ? '⚡' : '🌱'}</div>
+            <div class="qk-result-em" aria-hidden="true">${isGood ? UI.icon('zap') : UI.icon('sprout')}</div>
             <h1 class="qk-result-title">${timedOut ? t('Hết 15 giây!') : t('Hoàn thành trong {s} giây!', { s: elapsed })}</h1>
             <div class="muted">${t('Đúng {n}/{total} câu', { n: score, total })}${xp ? ` · +${xp} XP` : ''}</div>
             <p class="qk-result-sub">${praise}</p>
             <div class="qk-actions">
-              ${isGood ? `<button type="button" class="btn primary lg" data-share="${pct}">📸 ${t('Khoe thành tích')}</button>` : ''}
-              <button type="button" class="btn lg${isGood ? '' : ' primary'}" id="qkAgain">⚡ ${t('Làm thêm lượt nữa')}</button>
+              ${isGood ? `<button type="button" class="btn primary lg" data-share="${pct}">${UI.icon('camera')} ${t('Khoe thành tích')}</button>` : ''}
+              <button type="button" class="btn lg${isGood ? '' : ' primary'}" id="qkAgain">${UI.icon('zap')} ${t('Làm thêm lượt nữa')}</button>
               <a class="btn ghost" href="#/home">${t('Về trang chủ')}</a>
             </div>
           </div>
@@ -152,10 +153,10 @@
             <div class="qk-progress-wrap" role="progressbar" aria-label="${t('Câu {i}/{total}', { i: qIdx + 1, total })}" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${qIdx}">
               <div class="qk-progress-bar" style="width:${(qIdx / total) * 100}%"></div>
             </div>
-            <span class="qk-timer-pill" aria-hidden="true">⏱️ <span id="qkTimer">${secondsLeft}s</span></span>
+            <span class="qk-timer-pill" aria-hidden="true">${UI.icon('timer')} <span id="qkTimer">${secondsLeft}s</span></span>
           </div>
           <div class="card qk-card">
-            <div class="qk-badge">⚡ ${t('Câu {i}/{total}', { i: qIdx + 1, total })}</div>
+            <div class="qk-badge">${UI.icon('zap')} ${t('Câu {i}/{total}', { i: qIdx + 1, total })}</div>
             <div class="qk-word" lang="en">${esc(q.word)}</div>
             ${q.ipa ? `<div class="small muted" style="margin-bottom:.4rem">${esc(q.ipa)}</div>` : ''}
             <div class="qk-prompt">${t('Chọn nghĩa đúng')}</div>
@@ -349,7 +350,7 @@
 
             <div class="qk-actions">
               <a class="btn primary lg" href="#/path">🚀 ${t('Bắt đầu lộ trình ngay')}</a>
-              <a class="btn" href="#/placement">🧭 ${t('Kiểm tra trình độ chi tiết (20 câu)')}</a>
+              <a class="btn" href="#/placement">${UI.icon('compass')} ${t('Kiểm tra trình độ chi tiết (20 câu)')}</a>
               <button type="button" class="btn ghost" id="styShare">📤 ${t('Chia sẻ phong cách')}</button>
             </div>
           </div>

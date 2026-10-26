@@ -67,7 +67,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   const loadL1 = () => { const lg = I18N.lang(); if (!L1_LANGS.includes(lg)) return Promise.resolve(null); if (window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg) return Promise.resolve(GRAMMAR_L1);
     return l1P || (l1P = new Promise(res => { const s = document.createElement('script'); s.src = `js/grammar/l1/${lg}.js`; s.onload = () => res(window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg ? GRAMMAR_L1 : null); s.onerror = () => { l1P = null; res(null); }; document.head.appendChild(s); })); };
   const l1Html = (x, D) => { const ns = D && D.notes[x.id]; if (!ns || !ns.length) return '';
-    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">🌐 ${esc(D.title)}</h3>${ns.map(([w, r, why]) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b> ${sayBtn(r)}</div><div class="small muted">${esc(why)}</div></div>`).join('')}</section>`; };
+    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">${UI.icon('globe')} ${esc(D.title)}</h3>${ns.map(([w, r, why]) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b> ${sayBtn(r)}</div><div class="small muted">${esc(why)}</div></div>`).join('')}</section>`; };
   const fillL1 = x => loadL1().then(D => { const slot = document.querySelector(`.g-l1-slot[data-l1="${x.id}"]`); if (slot && !slot.childElementCount) { const h = l1Html(x, D); if (h) { slot.innerHTML = h; App.bindCommon(); } } });
   const l1Slot = x => `<div class="g-l1-slot" data-l1="${esc(x.id)}"></div>`;
 
@@ -92,22 +92,22 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     const SUM = x => vi || t(x.summary) !== x.summary ? t(x.summary) : '';
     const row = (x, c) => `<a class="g-row" href="#/grammar/${x.id}"><span class="em" aria-hidden="true">${x.emoji}</span><span class="g-tx"><b>${esc(TT(x))}</b>${SUB(x) ? `<small>${esc(SUB(x))}</small>` : ''}</span>${d[x.id] != null ? `<span class="chip ${d[x.id] >= 80 ? 'ok' : ''}">${d[x.id] >= 80 ? '✓ ' : ''}${d[x.id]}%</span>` : levelChip(x.level)}</a>`;
     view.innerHTML = `
-      <div class="page-head"><div><h1>📐 ${t('Ngữ pháp')}</h1><p class="muted">${t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length })}</p></div>
+      <div class="page-head"><div><h1>${UI.icon('ruler')} ${t('Ngữ pháp')}</h1><p class="muted">${t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length })}</p></div>
         ${ring(all.length ? nDone / all.length * 100 : 0, `${nDone}/${all.length}`, 'var(--good)')}</div>
       ${nx ? `<a class="card hover hub-hero" href="#/grammar/${nx.x.id}"><span class="hub-ic" aria-hidden="true">${nx.x.emoji}</span><span class="hub-tx"><small>${d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : t('Bài tiếp theo')} · ${t('Chương {n}', { n: nx.c.n })}</small><b>${esc(TT(nx.x))}</b>${SUM(nx.x) ? `<small>${esc(SUM(nx.x))}</small>` : ''}</span><span class="btn primary sm">${t('Học ngay')} →</span></a>` : ''}
-      <div class="tabs seg g-tabs" id="gTabs" role="tablist">${[['all', t('Tất cả {n} bài', { n: all.length })], ['ielts', '🎓 ' + t('Trọng tâm IELTS 7.0+')], ['toeic', '💼 ' + t('Bí kíp TOEIC Part 5 & 6')]].map(([k, l]) => `<button type="button" role="tab" aria-selected="${gtab === k}" class="${gtab === k ? 'on' : ''}" data-gt="${k}">${l}</button>`).join('')}</div>
-      ${gtab !== 'all' ? (() => { const ls = FOCUS[gtab].map(id => all.find(x => x.id === id)).filter(Boolean), dn = ls.filter(x => d[x.id] >= 80).length; return `<div class="card g-focus"><div class="row between" style="margin-bottom:.6rem"><b>${gtab === 'ielts' ? '🎓 ' + t('Trọng tâm IELTS 7.0+') : '💼 ' + t('Bí kíp TOEIC Part 5 & 6')}</b>${ring(ls.length ? dn / ls.length * 100 : 0, `${dn}/${ls.length}`, 'var(--good)')}</div><div class="g-list">${ls.map(x => row(x, chapterOf(x.id))).join('')}</div></div>`; })() : `<div class="g-chapters">${CHAPTERS.map(c => {
+      <div class="tabs seg g-tabs" id="gTabs" role="tablist">${[['all', t('Tất cả {n} bài', { n: all.length })], ['ielts', UI.icon('graduation-cap') + ' ' + t('Trọng tâm IELTS 7.0+')], ['toeic', UI.icon('briefcase') + ' ' + t('Bí kíp TOEIC Part 5 & 6')]].map(([k, l]) => `<button type="button" role="tab" aria-selected="${gtab === k}" class="${gtab === k ? 'on' : ''}" data-gt="${k}">${l}</button>`).join('')}</div>
+      ${gtab !== 'all' ? (() => { const ls = FOCUS[gtab].map(id => all.find(x => x.id === id)).filter(Boolean), dn = ls.filter(x => d[x.id] >= 80).length; return `<div class="card g-focus"><div class="row between" style="margin-bottom:.6rem"><b>${gtab === 'ielts' ? UI.icon('graduation-cap') + ' ' + t('Trọng tâm IELTS 7.0+') : UI.icon('briefcase') + ' ' + t('Bí kíp TOEIC Part 5 & 6')}</b>${ring(ls.length ? dn / ls.length * 100 : 0, `${dn}/${ls.length}`, 'var(--good)')}</div><div class="g-list">${ls.map(x => row(x, chapterOf(x.id))).join('')}</div></div>`; })() : `<div class="g-chapters">${CHAPTERS.map(c => {
         const ls = lessonsOf(c); if (!ls.length) return '';
         const dn = ls.filter(x => d[x.id] >= 80).length, open = nx && nx.c === c;
         return `<details class="g-chap" id="chap${c.n}" ${open ? 'open' : ''} style="--cc:${c.color}"><summary><span class="em" aria-hidden="true">${c.emoji}</span><span class="g-tx"><b>${t('Chương {n}', { n: c.n })} · ${esc(t(c.name))}</b><small>${esc(t(c.desc))}</small></span><span class="g-prog"><span class="small muted">${dn}/${ls.length}</span><span class="progress thin"><i style="width:${dn / ls.length * 100}%"></i></span></span></summary>
-          <div class="g-list">${ls.map(x => row(x, c)).join('')}<a class="g-row g-test" href="#/grammar/mix?ch=${c.n}"><span class="em" aria-hidden="true">📝</span><span class="g-tx"><b>${t('Kiểm tra chương')}</b><small>${t('Trộn câu hỏi của cả chương')}</small></span><span aria-hidden="true">›</span></a></div></details>`;
-      }).join('') || `<div class="card empty"><div class="em">📐</div>${t('Đang cập nhật bài học…')}</div>`}</div>`}
-      <h3 class="set-h hub-h">📝 ${t('Kiểm tra tổng hợp')}</h3>
+          <div class="g-list">${ls.map(x => row(x, c)).join('')}<a class="g-row g-test" href="#/grammar/mix?ch=${c.n}"><span class="em" aria-hidden="true">${UI.icon('file-pen')}</span><span class="g-tx"><b>${t('Kiểm tra chương')}</b><small>${t('Trộn câu hỏi của cả chương')}</small></span><span aria-hidden="true">›</span></a></div></details>`;
+      }).join('') || `<div class="card empty"><div class="em">${UI.icon('ruler')}</div>${t('Đang cập nhật bài học…')}</div>`}</div>`}
+      <h3 class="set-h hub-h">${UI.icon('file-pen')} ${t('Kiểm tra tổng hợp')}</h3>
       <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">🔀</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
         <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">${UI.icon('flag')}</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>
       <h3 class="set-h hub-h">🧰 ${t('Công cụ ngữ pháp')}</h3>
-      <div class="hub-grid"><a class="card hover hub-card" href="#/verb"><span class="hub-ic" aria-hidden="true">🔤</span><span class="hub-tx"><b>${t('Chia động từ')}</b><small>${t('Mọi thì, bị động, cách đọc -ed/-s')}</small></span></a>
-        <a class="card hover hub-card" href="#/fix"><span class="hub-ic" aria-hidden="true">✍️</span><span class="hub-tx"><b>${t('Sửa ngữ pháp')}</b><small>${t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')}</small></span></a></div>`;
+      <div class="hub-grid"><a class="card hover hub-card" href="#/verb"><span class="hub-ic" aria-hidden="true">${UI.icon('a-large-small')}</span><span class="hub-tx"><b>${t('Chia động từ')}</b><small>${t('Mọi thì, bị động, cách đọc -ed/-s')}</small></span></a>
+        <a class="card hover hub-card" href="#/fix"><span class="hub-ic" aria-hidden="true">${UI.icon('pen-line')}</span><span class="hub-tx"><b>${t('Sửa ngữ pháp')}</b><small>${t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')}</small></span></a></div>`;
     $$('[data-gt]').forEach(b => b.onclick = () => { try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (e) { /* bỏ qua */ } routes.grammar(); });
   };
   const levelChip = l => l ? `<span class="chip lv ${esc(l)}">${esc(l)}</span>` : '';
@@ -132,12 +132,12 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       <div class="fparts">${r.parts.map(p => `<span class="fp ${esc(p.c || '')}">${esc(p.t)}</span>`).join('<span class="fplus">+</span>')}</div>
       ${r.ex ? `<div class="fex" lang="en">➜ ${hx(r)} ${sayBtn(r.ex)}</div>` : ''}</div>`).join('')}
       <div class="tiny muted" style="margin-top:.4rem"><span class="fp subj">${t('Chủ ngữ')}</span> <span class="fp aux">${t('Trợ động từ')}</span> <span class="fp verb">${t('Động từ')}</span> <span class="fp neg">${t('Phủ định')}</span> <span class="fp obj">${t('Tân ngữ')}</span> <span class="fp time">${t('Thời gian')}</span></div></div>`;
-  const uses = b => `<div class="g-block"><h3>🎯 ${t('Khi nào dùng?')}</h3><div class="uses">${b.items.map((u, i) => `<div class="use"><span class="unum">${i + 1}</span><div><b>${esc(u.title)}</b><div class="uex" lang="en">${hx(u)} ${sayBtn(u.ex)}</div><div class="muted small">${esc(u.vi || '')}</div></div></div>`).join('')}</div></div>`;
+  const uses = b => `<div class="g-block"><h3>${UI.icon('target')} ${t('Khi nào dùng?')}</h3><div class="uses">${b.items.map((u, i) => `<div class="use"><span class="unum">${i + 1}</span><div><b>${esc(u.title)}</b><div class="uex" lang="en">${hx(u)} ${sayBtn(u.ex)}</div><div class="muted small">${esc(u.vi || '')}</div></div></div>`).join('')}</div></div>`;
   const signals = b => `<div class="g-block"><h3>🚦 ${t('Dấu hiệu nhận biết')}</h3><div class="row">${b.words.map(w => `<span class="chip lv">${esc(w)}</span>`).join('')}</div></div>`;
   const table = b => `<div class="g-block g-tbl" tabindex="0" role="region" aria-label="${esc(b.head.join(' · '))}"><table class="gtable"><thead><tr>${b.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-  const tip = b => `<div class="g-tip">💡 ${esc(b.text)}</div>`;
+  const tip = b => `<div class="g-tip">${UI.icon('lightbulb')} ${esc(b.text)}</div>`;
   const mistake = b => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(b.wrong)}</s></div><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(b.right)}</b> ${sayBtn(b.right)}</div><div class="small muted">${esc(b.why)}</div></div>`;
-  const ielts = b => `<div class="g-ielts"><b>🎓 ${t('Trong IELTS:')}</b> ${esc(b.text)}${b.ex ? `<div class="ex" lang="en" style="margin-top:.3rem">“${hx(b)}” ${sayBtn(b.ex)}</div>` : ''}</div>`;
+  const ielts = b => `<div class="g-ielts"><b>${UI.icon('graduation-cap')} ${t('Trong IELTS:')}</b> ${esc(b.text)}${b.ex ? `<div class="ex" lang="en" style="margin-top:.3rem">“${hx(b)}” ${sayBtn(b.ex)}</div>` : ''}</div>`;
   const diagram = b => `<div class="g-visual"><div class="flow">${b.steps.map(s => `<div class="fstep ${esc(s.c || '')}">${esc(s.t)}</div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
   const scale = b => `<div class="g-visual"><div class="scale">${b.items.slice().sort((x, y) => y.v - x.v).map(i => `<div class="srow"><b>${esc(i.t)}</b><div class="sbar"><i style="width:${i.v}%;background:hsl(${i.v * 1.2},70%,48%)"></i></div><span class="tiny muted">${i.v}%</span></div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
   const sort = b => `<div class="g-visual"><div class="grid g2">${b.groups.map(gr => `<div class="sortbox"><div style="font-size:1.6rem">${gr.emoji || ''}</div><b>${esc(gr.title)}</b><div class="row center" style="margin-top:.4rem">${gr.items.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div></div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
@@ -181,7 +181,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         $$('.option')[q.answer].classList.add('right'); if (!ok) b.classList.add('wrong');
         ok ? (right++, Sfx.correct()) : Sfx.wrong();
         if (!ok && App.logMistake) App.logMistake({ kind: 'grammar', q: q.q, answer: q.options[q.answer], given: q.options[+b.dataset.k], explain: q.explain, ref: x.id });
-        $('#fb').innerHTML = `<div class="feedback ${ok ? 'ok' : 'no'}"><b>${ok ? '✅ ' + t('Chính xác!') : '❌ ' + t('Chưa đúng')}</b><div class="small">${esc(q.explain)}</div><div class="row" style="margin-top:.5rem"><button class="btn primary" id="nx">${t('Tiếp')} ↵</button><a class="btn sm ghost" href="#/grammar/${x.id}">${t('Xem lại bài')}</a></div></div>`;
+        $('#fb').innerHTML = `<div class="feedback ${ok ? 'ok' : 'no'}"><b>${ok ? UI.icon('circle-check') + ' ' + t('Chính xác!') : '❌ ' + t('Chưa đúng')}</b><div class="small">${esc(q.explain)}</div><div class="row" style="margin-top:.5rem"><button class="btn primary" id="nx">${t('Tiếp')} ↵</button><a class="btn sm ghost" href="#/grammar/${x.id}">${t('Xem lại bài')}</a></div></div>`;
         $('#nx').onclick = () => { i++; next(); }; $('#nx').focus();
       });
     };
@@ -201,7 +201,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
 
   // ---------- Bài tập (dùng chung cho cả 2 chế độ) ----------
   function quizHtml(x) {
-    return `<div class="card" id="gQuiz"><h2>✏️ ${t('Luyện tập ({n} câu)', { n: x.quiz.length })}</h2>
+    return `<div class="card" id="gQuiz"><h2>${UI.icon('pencil')} ${t('Luyện tập ({n} câu)', { n: x.quiz.length })}</h2>
       ${x.quiz.map((q, k) => `<div class="q-item" data-q="${k}" role="group" aria-labelledby="gq${k}"><b id="gq${k}" lang="en">${k + 1}. ${esc(q.q)}</b><div class="opts" lang="en">${q.options.map((o, j) => `<button data-v="${j}">${esc(o)}</button>`).join('')}</div><div class="small" data-explain hidden aria-live="polite" style="margin-top:.4rem"></div></div>`).join('')}
       <div id="gRes" style="margin-top:1rem"></div></div>`;
   }
@@ -217,7 +217,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       if (!ok) btn.classList.add('wrong');
       ok ? Sfx.correct() : Sfx.wrong();
       if (!ok && App.logMistake) App.logMistake({ kind: 'grammar', q: q.q, answer: q.options[q.answer], given: q.options[+btn.dataset.v], explain: q.explain, ref: x.id });
-      const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = ok ? `✅ ${esc(q.explain)}` : `❌ ${t('Bạn chọn:')} <s>${esc(q.options[+btn.dataset.v])}</s> · ${t('Đáp án: <b>{a}</b>', { a: esc(q.options[q.answer]) })}<div>${esc(q.explain)}</div>`;
+      const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = ok ? `${UI.icon('circle-check')} ${esc(q.explain)}` : `❌ ${t('Bạn chọn:')} <s>${esc(q.options[+btn.dataset.v])}</s> · ${t('Đáp án: <b>{a}</b>', { a: esc(q.options[q.answer]) })}<div>${esc(q.explain)}</div>`;
       xcGram(x, q, ok, q.options[+btn.dataset.v], ex);
       const nextItem = item.nextElementSibling; if (nextItem && nextItem.classList.contains('q-item')) setTimeout(() => nextItem.scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
       if (answered === x.quiz.length) {
@@ -227,7 +227,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         if (pct >= 80) { Sfx.win(); confetti(); }
         $('#gRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: x.quiz.length, pct })}</b> · +${10 + right * 3} XP
           ${pct < 80 ? `<div class="small">${t('Xem lại phần công thức và lỗi hay gặp rồi làm lại nhé. Câu sai đã vào Sổ lỗi sai.')}</div>` : ''}
-          <div class="row" style="margin-top:.6rem"><button class="btn sm" id="gAgain">↺ ${t('Làm lại')}</button>${right < x.quiz.length ? `<a class="btn sm" href="#/mistakes">📒 ${t('Sổ lỗi sai')}</a>` : ''}${next ? `<a class="btn sm primary" href="#/grammar/${next.id}">${t('Bài tiếp theo')} →</a>` : ''}</div></div>${recapHtml(x)}`;
+          <div class="row" style="margin-top:.6rem"><button class="btn sm" id="gAgain">↺ ${t('Làm lại')}</button>${right < x.quiz.length ? `<a class="btn sm" href="#/mistakes">${UI.icon('notebook')} ${t('Sổ lỗi sai')}</a>` : ''}${next ? `<a class="btn sm primary" href="#/grammar/${next.id}">${t('Bài tiếp theo')} →</a>` : ''}</div></div>${recapHtml(x)}`;
         $('#gRes').scrollIntoView({ behavior: 'smooth', block: 'center' });
         $('#gAgain').onclick = again;
       }
@@ -241,7 +241,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       ${m ? `<div class="small" style="margin-top:.4rem"><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(m.wrong)}</s> → <span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div>` : ''}</div>`;
   }
   // ---------- Bài tập tự luận: chia động từ, dạng từ, điền từ, viết lại câu, nối câu, tìm lỗi sai ----------
-  const dkind = k => { const K = { verb: '🔤 ' + t('Chia động từ'), form: '🧬 ' + t('Dạng đúng của từ'), fill: '✏️ ' + t('Điền từ'), rewrite: '🔁 ' + t('Viết lại câu'), combine: '🔗 ' + t('Nối câu'), error: '🕵️ ' + t('Tìm lỗi sai') }; return K[k] || K.fill; };
+  const dkind = k => { const K = { verb: UI.icon('a-large-small') + ' ' + t('Chia động từ'), form: '🧬 ' + t('Dạng đúng của từ'), fill: UI.icon('pencil') + ' ' + t('Điền từ'), rewrite: UI.icon('repeat') + ' ' + t('Viết lại câu'), combine: '🔗 ' + t('Nối câu'), error: '🕵️ ' + t('Tìm lỗi sai') }; return K[k] || K.fill; };
   const dnorm = s => ' ' + String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/won't/g, 'will not').replace(/can't|can not/g, 'cannot').replace(/n't\b/g, ' not').replace(/'re\b/g, ' are').replace(/'ve\b/g, ' have').replace(/'ll\b/g, ' will').replace(/'m\b/g, ' am')
     .replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
   // Chuẩn hóa thêm: chính tả Anh–Mỹ (-ize/-ise), "per cent"/"percent" → "%"
@@ -286,13 +286,13 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       const c = $('.dr-chk', item); if (c) c.remove();
     }
     item.dataset.locked = 1; fb.hidden = false;
-    fb.innerHTML = `${typoR ? window.LessonFx.typoHead(typoR.marks) : ok ? `✅ <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <b>{a}</b>', { a: esc(answer) })}`}${d.ex ? `<div class="muted">${esc(d.ex)}</div>` : ''}`;
+    fb.innerHTML = `${typoR ? window.LessonFx.typoHead(typoR.marks) : ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <b>{a}</b>', { a: esc(answer) })}`}${d.ex ? `<div class="muted">${esc(d.ex)}</div>` : ''}`;
     ok ? Sfx.correct() : Sfx.wrong();
     return { ok, given, answer };
   }
   function drillsHtml(x) {
     const ds = drillsOf(x);
-    return `<div class="card" id="gDrill"><h2>✍️ ${t('Bài tập tự luận ({n} câu)', { n: ds.length })}</h2><p class="small muted">${t('Các dạng bài quen thuộc trong đề thi: chia động từ, viết lại câu, nối câu, tìm lỗi sai. Gõ đáp án rồi bấm Kiểm tra (hoặc Enter).')}</p>
+    return `<div class="card" id="gDrill"><h2>${UI.icon('pen-line')} ${t('Bài tập tự luận ({n} câu)', { n: ds.length })}</h2><p class="small muted">${t('Các dạng bài quen thuộc trong đề thi: chia động từ, viết lại câu, nối câu, tìm lỗi sai. Gõ đáp án rồi bấm Kiểm tra (hoặc Enter).')}</p>
       <div class="stack">${ds.map(drillItem).join('')}</div><div id="dRes" style="margin-top:1rem"></div></div>`;
   }
   function bindDrills(x, onDone) {
@@ -332,7 +332,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
 
   // ---------- Chế độ xem toàn bài ----------
   // ✍️ Thử thách tự đặt câu: nhận diện cấu trúc mục tiêu trên máy (grammar/check.js + structures.js), đúng → tô xanh, +15 XP, lưu câu
-  const challengeHtml = x => (window.GRAMMAR_CHECK || {})[x.id] ? `<div class="g-block g-chal" id="gChal"><h3>✍️ ${t('Thử thách tự đặt câu')}</h3>
+  const challengeHtml = x => (window.GRAMMAR_CHECK || {})[x.id] ? `<div class="g-block g-chal" id="gChal"><h3>${UI.icon('pen-line')} ${t('Thử thách tự đặt câu')}</h3>
       <p class="small muted">${t('Đặt một câu hoàn chỉnh sử dụng cấu trúc bạn vừa học')} · <b translate="no">${esc(GRAMMAR_CHECK[x.id][1])}</b></p>
       <textarea class="input" id="gcIn" rows="2" spellcheck="true" lang="en" placeholder="${t('Gõ câu tiếng Anh của bạn…')}"></textarea>
       <div class="row" style="margin-top:.6rem"><button class="btn primary" id="gcChk">${t('Kiểm tra câu')}</button></div><div id="gcOut" aria-live="polite"></div></div>` : '';
@@ -363,7 +363,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     const unit = UNITS.find(u => u.id === x.unit) || UNITS[0];
     const prev = all[i - 1], next = all[i + 1];
     view.innerHTML = `
-      <div class="row between"><a href="#/grammar" class="small">← ${t('Ngữ pháp')}</a><a class="btn sm" href="#/grammar/${x.id}">🎯 ${t('Học từng bước')}</a></div>
+      <div class="row between"><a href="#/grammar" class="small">← ${t('Ngữ pháp')}</a><a class="btn sm" href="#/grammar/${x.id}">${UI.icon('target')} ${t('Học từng bước')}</a></div>
       ${heroHtml(x, unit)}
       <div class="stack" id="gBody">${x.blocks.map(b => (R[b.type] || (() => ''))(b)).join('')}${l1Slot(x)}</div>
       <div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'grammar', grammar: [x.id], level: x.level || '' }))}"></div>
@@ -412,7 +412,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (uses.length) steps.push({ name: t('Cách dùng'), em: '🎯', html: () => `<div class="g-block"><h3>🎯 ${t('Khi nào dùng?')} <span class="muted small">${t('Bấm vào từng thẻ để xem ví dụ')}</span></h3><div class="uses">${uses[0].items.map((u, k) => `<button class="use use-card" data-k="${k}"><span class="unum">${k + 1}</span><div style="text-align:start"><b>${esc(u.title)}</b><div class="use-more" hidden><div class="uex" lang="en">${hx(u)}</div><div class="muted small">${esc(u.vi || '')}</div></div></div></button>`).join('')}</div></div>`,
       bind: () => $$('.use-card').forEach(b => b.onclick = () => { const m = $('.use-more', b); if (m.hidden) { m.hidden = false; Sfx.flip(); UI.speak(uses[0].items[+b.dataset.k].ex, state.settings.accent); } }) });
     if (extras.length) steps.push({ name: t('Mẹo & dấu hiệu'), em: '💡', html: () => `<div class="stack">${extras.map(b => R[b.type](b)).join('')}</div>` });
-    if (mistakes.length) steps.push({ name: t('Bắt lỗi'), em: '🕵️', html: () => `<div class="stack"><div class="small muted">${t('Đọc câu sai, tự tìm lỗi trong đầu rồi bấm để kiểm tra – cách nhớ lâu nhất là tự phát hiện.')}</div>${mistakes.map((m, k) => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <span lang="en">${esc(m.wrong)}</span></div><button class="btn sm" data-reveal="${k}" style="margin-top:.5rem">🔍 ${t('Tôi đã tìm ra lỗi – xem đáp án')}</button><div data-ans="${k}" hidden style="margin-top:.4rem" aria-live="polite"><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div><div class="small muted">${esc(m.why)}</div></div></div>`).join('')}${l1Slot(x)}</div>`,
+    if (mistakes.length) steps.push({ name: t('Bắt lỗi'), em: '🕵️', html: () => `<div class="stack"><div class="small muted">${t('Đọc câu sai, tự tìm lỗi trong đầu rồi bấm để kiểm tra – cách nhớ lâu nhất là tự phát hiện.')}</div>${mistakes.map((m, k) => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <span lang="en">${esc(m.wrong)}</span></div><button class="btn sm" data-reveal="${k}" style="margin-top:.5rem">${UI.icon('search')} ${t('Tôi đã tìm ra lỗi – xem đáp án')}</button><div data-ans="${k}" hidden style="margin-top:.4rem" aria-live="polite"><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div><div class="small muted">${esc(m.why)}</div></div></div>`).join('')}${l1Slot(x)}</div>`,
       bind: () => $$('[data-reveal]').forEach(b => b.onclick = () => { $(`[data-ans="${b.dataset.reveal}"]`).hidden = false; b.remove(); Sfx.flip(); }) });
     if (builds.length) steps.push({ name: t('Xếp câu'), em: '🧩', html: () => `<div class="stack">${builds.map((s, k) => `<div class="g-block" data-build="${k}"><h3>🧩 ${t('Xếp các từ thành câu đúng')}</h3><div class="build-slot" data-slot="${k}"></div>
         <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button class="chip wpick" data-j="${j}" style="border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem">${esc(w)}</button>`).join('')}</div>
@@ -423,7 +423,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         const check = () => {
           if (built.length < words.length) return;
           const ok = built.map(j => words[j]).join(' ') === words.join(' ');
-          msg.innerHTML = ok ? `✅ <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; ok ? Sfx.correct() : Sfx.wrong();
+          msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; ok ? Sfx.correct() : Sfx.wrong();
           if (ok) UI.speak(s, state.settings.accent);
           slot.classList.add(ok ? 'ok' : 'no');
         };
@@ -439,7 +439,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     const draw = () => {
       const st = steps[cur]; gateOk = !st.gate;
       view.innerHTML = `
-        <div class="row between"><a href="#/grammar" class="small">← ${t('Ngữ pháp')}</a><a class="btn sm ghost" href="#/grammar/${x.id}?view=full">📖 ${t('Xem toàn bài')}</a></div>
+        <div class="row between"><a href="#/grammar" class="small">← ${t('Ngữ pháp')}</a><a class="btn sm ghost" href="#/grammar/${x.id}?view=full">${UI.icon('book-open')} ${t('Xem toàn bài')}</a></div>
         ${cur === 0 ? heroHtml(x, unit) : `<div class="row nowrap" style="margin:.7rem 0"><span style="font-size:1.8rem" aria-hidden="true">${x.emoji}</span><div><b>${esc(TTL(x))}</b>${TTL(x) !== x.en ? `<div class="tiny muted" lang="en">${esc(x.en)}</div>` : ''}</div></div>`}
         <div class="steps">${steps.map((s, k) => `<button class="stepdot ${k === cur ? 'on' : ''} ${k < cur ? 'done' : ''}" data-step="${k}" title="${esc(s.name)}" ${k === cur ? 'aria-current="step"' : ''}><span>${k < cur ? '✓' : s.em}</span><small>${esc(s.name)}</small></button>`).join('')}</div>
         <div class="step-body">${st.html()}</div>

@@ -1544,6 +1544,9 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 .icon-btn .i { width: 18px; height: 18px; vertical-align: 0; }
 .icon-btn.sm .i { width: 16px; height: 16px; }
 .btn .i, .chip .i, .ctx-say .i, .fi-btn .i, .sheet-say .i { width: 1.15em; height: 1.15em; }
+.hub-ic .i, .me-icon-box .i, .em .i, .exam-opt .em .i { width: 1.4em; height: 1.4em; vertical-align: 0; }
+.empty .em .i, .celebrate .em .i, .qk-result-em .i { width: 2.4rem; height: 2.4rem; vertical-align: 0; }
+.page-head h1 .i, h2 .i, h3 .i, .me-card-lbl .i, .me-exam-badge .i { vertical-align: -.2em; }
 .top-stats .pill .i { width: 16px; height: 16px; vertical-align: 0; }
 .pill.fire .i { color: #F2553B; fill: #FFB054; fill-opacity: .55; }
 .pill.xp .i { color: var(--gold); fill: currentColor; fill-opacity: .9; }

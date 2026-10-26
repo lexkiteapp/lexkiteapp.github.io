@@ -359,7 +359,7 @@
   Sync.nice = v => { const n = String(v || '').trim(); if (n.length < 4 || n !== n.toUpperCase() || n === n.toLowerCase()) return n; return n.toLowerCase().replace(/(^|[\s'’.-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase()); };
   // Trạng thái hiển thị: mất mạng (đã đăng nhập) được ưu tiên báo rõ
   Sync.stKind = () => (Sync.user && navigator.onLine === false ? 'offline' : Sync.status);
-  Sync.stText = () => ({ idle: '', offline: '📴 ' + t('Ngoại tuyến – sẽ tự đồng bộ khi có mạng'), syncing: '⏳ ' + t('Đang đồng bộ…'), ok: Sync.msg ? esc(Sync.msg) : '✓ ' + t('Đã đồng bộ {time}', { time: Sync.ago(Sync.lastSync || Date.now()) }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.stKind()] || '');
+  Sync.stText = () => ({ idle: '', offline: '📴 ' + t('Ngoại tuyến – sẽ tự đồng bộ khi có mạng'), syncing: UI.icon('hourglass') + ' ' + t('Đang đồng bộ…'), ok: Sync.msg ? esc(Sync.msg) : '✓ ' + t('Đã đồng bộ {time}', { time: Sync.ago(Sync.lastSync || Date.now()) }), error: '⚠️ ' + t('Lỗi đồng bộ: {msg}', { msg: esc(Sync.msg) }) }[Sync.stKind()] || '');
 
   // ---------- Nút tài khoản (đầu trang + thanh bên): chưa đăng nhập = nút Google; đã đăng nhập = avatar mở menu (js/account.js, tải lười) ----------
   const GSVG = '<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
@@ -425,7 +425,7 @@
         <span class="avatar acct-av" aria-hidden="true">${Sync.av(u)}</span>
         <div class="acct-id"><b class="acct-name" title="${esc(name)}">${esc(Sync.nice(name))}</b>${mail ? `<span class="acct-mail" dir="ltr" title="${esc(mail)}">${esc(mail)}</span>` : ''}</div>
         <p class="acct-st" role="status" aria-live="polite"${k === 'ok' && exact ? ` title="${esc(exact)}"` : ''}>${st || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</p>
-        <div class="acct-act"><button type="button" class="btn sm" data-acct="sync"${k === 'syncing' || k === 'offline' ? ' disabled' : ''}${k === 'syncing' ? ' aria-busy="true"' : ''}><span aria-hidden="true">🔄</span> ${k === 'error' ? t('Thử lại') : t('Đồng bộ ngay')}</button><button type="button" class="btn sm ghost danger" data-acct="out"><span aria-hidden="true">↪</span> ${t('Đăng xuất')}</button></div>
+        <div class="acct-act"><button type="button" class="btn sm" data-acct="sync"${k === 'syncing' || k === 'offline' ? ' disabled' : ''}${k === 'syncing' ? ' aria-busy="true"' : ''}><span aria-hidden="true">${UI.icon('refresh-cw')}</span> ${k === 'error' ? t('Thử lại') : t('Đồng bộ ngay')}</button><button type="button" class="btn sm ghost danger" data-acct="out"><span aria-hidden="true">↪</span> ${t('Đăng xuất')}</button></div>
         <p class="acct-del small"><button type="button" data-acct="del">${t('Xóa tài khoản')}</button></p>
       </div>`;
       if (k === 'ok' && !Sync.msg) agoT = setTimeout(render, 60e3); // "5 phút trước" tự cập nhật khi thẻ còn trên màn hình

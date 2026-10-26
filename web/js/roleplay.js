@@ -103,8 +103,8 @@ Rules: stay in character; speak natural spoken English at ${lvOf(s)[L]} level ($
     const L = level();
     view.innerHTML = `<div class="page-head"><div><h1>${s.em} ${esc(nm(s))}</h1><p class="muted" lang="en">${esc(s.title)}</p></div></div>
       <div class="card"><h2 class="set-h">🎭 ${t('Vai của AI')}</h2><p lang="en"><b>${esc(s.ai.name)}</b> – ${esc(s.ai.role)}<br><span class="muted small">${esc(s.ai.persona)}</span></p>
-      <h2 class="set-h">🎯 ${t('Mục tiêu của bạn')}</h2>${s.cando ? `<p><b>${esc(t(s.cando))}</b></p>` : ''}<p lang="en"${s.cando ? ' class="small muted"' : ''}>${esc(s.you)}</p>
-      <h2 class="set-h">📚 ${t('Từ vựng chủ đề')}</h2><div class="rp-chips">${s.vocab.map(([w, d], i) => `<button class="btn sm" data-v="${i}" title="${esc(d)}" lang="en">+ ${esc(w)}</button>`).join('')}</div>
+      <h2 class="set-h">${UI.icon('target')} ${t('Mục tiêu của bạn')}</h2>${s.cando ? `<p><b>${esc(t(s.cando))}</b></p>` : ''}<p lang="en"${s.cando ? ' class="small muted"' : ''}>${esc(s.you)}</p>
+      <h2 class="set-h">${UI.icon('library')} ${t('Từ vựng chủ đề')}</h2><div class="rp-chips">${s.vocab.map(([w, d], i) => `<button class="btn sm" data-v="${i}" title="${esc(d)}" lang="en">+ ${esc(w)}</button>`).join('')}</div>
       <p class="tiny muted">${t('Bấm để lưu từ vào flashcard.')}</p>
       <div class="row" style="gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:1rem"><div class="rp-seg" role="group" aria-label="${t('Trình độ')}">${lvOf(s).map((x, i) => `<button type="button" data-lv="${i}" aria-pressed="${i === L}">${x}</button>`).join('')}</div>
       <button class="btn primary lg" id="rpGo">▶ ${t('Bắt đầu hội thoại')}</button><a class="btn" href="#/roleplay">${t('Chọn tình huống khác')}</a></div></div>`;
@@ -133,7 +133,7 @@ Rules: stay in character; speak natural spoken English at ${lvOf(s)[L]} level ($
       <div class="card"><div class="rp-chat" id="rpChat" aria-live="polite"></div>
       <div id="rpHintBox"></div>
       <div class="rp-bar"><button class="btn primary rp-mic" id="rpMic" aria-label="${t('Nói')}">🎙️</button><input id="rpIn" type="text" autocomplete="off" lang="en" placeholder="${t('Nói hoặc gõ câu trả lời…')}" aria-label="${t('Câu trả lời của bạn')}"><button class="btn" id="rpSend">${t('Gửi')}</button></div>
-      <div class="rp-bar"><button class="btn sm" id="rpHint">💡 ${t('Gợi ý')}</button>${opts.help ? `<button class="btn sm" id="rpHelp">🆘 ${t('Giúp tôi nói')}</button>` : ''}<button class="btn sm" id="rpEnd">🏁 ${t('Kết thúc & chấm điểm')}</button></div></div>`;
+      <div class="rp-bar"><button class="btn sm" id="rpHint">${UI.icon('lightbulb')} ${t('Gợi ý')}</button>${opts.help ? `<button class="btn sm" id="rpHelp">🆘 ${t('Giúp tôi nói')}</button>` : ''}<button class="btn sm" id="rpEnd">${UI.icon('flag')} ${t('Kết thúc & chấm điểm')}</button></div></div>`;
     const alive = () => !dead && document.body.contains($('#rpChat'));
     const setN = () => { const n = $('#rpN'); if (n) n.textContent = t('Lượt {i}/{n}', { i: Math.min(i + 1, s.turns.length), n: s.turns.length }); };
     const bubble = (who, text) => {
@@ -182,7 +182,7 @@ Rules: stay in character; speak natural spoken English at ${lvOf(s)[L]} level ($
     $('#rpIn').onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); send($('#rpIn').value); } };
     $('#rpHint').onclick = () => {
       const tr = s.turns[Math.min(i, s.turns.length - 1)]; hintsUsed++;
-      $('#rpHintBox').innerHTML = `<div class="rp-hint">${tr.tip ? `<div class="small">🧭 ${esc(t(tr.tip))}</div>` : ''}<div class="tiny muted">💡 ${t('Bạn có thể nói:')}</div><div lang="en">${esc(tr.h[L])} <button class="btn sm" data-hs aria-label="${t('Nghe')}">🔊</button></div></div>`;
+      $('#rpHintBox').innerHTML = `<div class="rp-hint">${tr.tip ? `<div class="small">${UI.icon('compass')} ${esc(t(tr.tip))}</div>` : ''}<div class="tiny muted">${UI.icon('lightbulb')} ${t('Bạn có thể nói:')}</div><div lang="en">${esc(tr.h[L])} <button class="btn sm" data-hs aria-label="${t('Nghe')}">🔊</button></div></div>`;
       $('[data-hs]', view).onclick = () => UI.tts(tr.h[L], accent, RATE[L]);
     };
     // 🆘 Giúp tôi nói: đọc chậm câu gợi ý và đặt sẵn vào ô trả lời – người học nói theo (micro) hoặc bấm Gửi
@@ -263,7 +263,7 @@ Assess ONLY the learner's lines. Return JSON: {"natural": 0-100, "polite": 0-100
 
   async function report(s, L, hist, mode, hintsUsed, opts = {}) {
     const spoken = hist.filter(m => m.who === 'me').length;
-    view.innerHTML = `<div class="page-head"><div><h1>🏁 ${t('Kết quả hội thoại')}</h1><p class="muted">${s.em} ${esc(nm(s))} · ${lvOf(s)[L]}</p></div></div><div class="card" id="rpRep" aria-busy="true"><p class="muted">⏳ ${t('Đang chấm…')}</p></div>`;
+    view.innerHTML = `<div class="page-head"><div><h1>${UI.icon('flag')} ${t('Kết quả hội thoại')}</h1><p class="muted">${s.em} ${esc(nm(s))} · ${lvOf(s)[L]}</p></div></div><div class="card" id="rpRep" aria-busy="true"><p class="muted">${UI.icon('hourglass')} ${t('Đang chấm…')}</p></div>`;
     if (!spoken) { $('#rpRep').innerHTML = `<p>${t('Bạn chưa trả lời câu nào – hãy thử lại nhé.')}</p>${opts.done ? `<button class="btn primary" id="rpDone">${t('Tiếp tục')} →</button>` : `<a class="btn primary" href="#/roleplay/${s.id}">↻ ${t('Thử lại')}</a>`}`; if (opts.done) $('#rpDone').onclick = () => opts.done({ avg: null }); return; }
     const loc = localScore(s, L, hist);
     let r = null;
@@ -280,10 +280,10 @@ Assess ONLY the learner's lines. Return JSON: {"natural": 0-100, "polite": 0-100
     $('#rpRep').innerHTML = `<div class="row between" style="flex-wrap:wrap;gap:.8rem"><div>${UI.ring(avg, avg)}</div><div style="flex:1 1 220px">${crit.map(([k, n]) => { const v = Math.max(0, Math.min(100, Math.round(+res[k] || 0))); return `<div class="rp-meter"><span class="small">${n}</span><i role="img" aria-label="${n}: ${v}/100"><b style="width:${v}%"></b></i><b class="small">${v}</b></div>`; }).join('')}</div></div>
       ${res.summary ? `<p style="margin-top:.8rem">${esc(res.summary)}</p>` : ''}
       <p class="tiny muted">${ok ? t('Chấm bởi AI') : t('Ước lượng nhanh trên máy (không có AI).')} · +${Math.max(5, xp)} XP</p>
-      <h2 class="set-h" style="margin-top:1rem">✨ ${t('3 câu nói sắc hơn')}</h2>
-      ${rws.map((x, n) => `<div class="rp-rw"><div class="small"><s lang="en">${esc(x.you || '')}</s></div><div lang="en"><b>${esc(x.better)}</b> <button class="btn sm" data-say="${n}" aria-label="${t('Nghe')}">🔊</button></div>${x.meaning ? `<div class="small muted">${esc(x.meaning)}</div>` : ''}<div class="small">💡 ${esc(x.why || '')}</div><button class="btn sm" data-save="${n}">+ ${t('Lưu vào flashcard')}</button></div>`).join('') || `<p class="muted">${t('Rất tốt – không có câu nào cần viết lại!')}</p>`}
+      <h2 class="set-h" style="margin-top:1rem">${UI.icon('sparkles')} ${t('3 câu nói sắc hơn')}</h2>
+      ${rws.map((x, n) => `<div class="rp-rw"><div class="small"><s lang="en">${esc(x.you || '')}</s></div><div lang="en"><b>${esc(x.better)}</b> <button class="btn sm" data-say="${n}" aria-label="${t('Nghe')}">🔊</button></div>${x.meaning ? `<div class="small muted">${esc(x.meaning)}</div>` : ''}<div class="small">${UI.icon('lightbulb')} ${esc(x.why || '')}</div><button class="btn sm" data-save="${n}">+ ${t('Lưu vào flashcard')}</button></div>`).join('') || `<p class="muted">${t('Rất tốt – không có câu nào cần viết lại!')}</p>`}
       <div class="row" style="gap:.6rem;flex-wrap:wrap;margin-top:1rem">${opts.done ? `<button class="btn primary" id="rpDone">${t('Tiếp tục')} →</button>` : `<a class="btn primary" href="#/roleplay/${s.id}">↻ ${t('Luyện lại')}</a><a class="btn" href="#/roleplay">${t('Chọn tình huống khác')}</a>`}</div>
-      ${opts.done ? '' : `<a class="card hover hub-card" style="margin-top:1rem" href="#/confidence${CONF[s.id] ? '/' + CONF[s.id] : ''}"><span class="hub-ic" aria-hidden="true">🗣️</span><span class="hub-tx"><b>${t('Giao tiếp tự tin')}</b><small>${CONF[s.id] ? t('Học các cụm câu tự nhiên cho đúng tình huống này') : t('Lộ trình nói theo tình huống thật, từ A1 đến B2')}</small></span><span class="chev" aria-hidden="true">›</span></a>`}`;
+      ${opts.done ? '' : `<a class="card hover hub-card" style="margin-top:1rem" href="#/confidence${CONF[s.id] ? '/' + CONF[s.id] : ''}"><span class="hub-ic" aria-hidden="true">${UI.icon('message-circle')}</span><span class="hub-tx"><b>${t('Giao tiếp tự tin')}</b><small>${CONF[s.id] ? t('Học các cụm câu tự nhiên cho đúng tình huống này') : t('Lộ trình nói theo tình huống thật, từ A1 đến B2')}</small></span><span class="chev" aria-hidden="true">›</span></a>`}`;
     if (opts.done) $('#rpDone').onclick = () => opts.done({ avg });
     $$('[data-say]', view).forEach(b => b.onclick = () => UI.tts(rws[+b.dataset.say].better, state.settings.accent || 'en-GB', RATE[L]));
     $$('[data-save]', view).forEach(b => b.onclick = async () => {

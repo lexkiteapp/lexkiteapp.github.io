@@ -25,7 +25,7 @@
           <div class="row between"><span class="em">${r.emoji}</span>${levelChip(r.level)}</div>
           <h3>${esc(r.title)}</h3>
           <div class="muted small">${esc(r.summaryVi)}</div>
-          <div class="row"><span class="chip">⏱ ${t('{n} phút', { n: Math.max(2, Math.round(r.text.split(/\s+/).length / 140)) })}</span><span class="chip">${t('{n} câu hỏi', { n: r.questions.length })}</span>${done[r.id] ? `<span class="chip ok">✓ ${done[r.id]}</span>` : ''}</div>
+          <div class="row"><span class="chip">${UI.icon('timer')} ${t('{n} phút', { n: Math.max(2, Math.round(r.text.split(/\s+/).length / 140)) })}</span><span class="chip">${t('{n} câu hỏi', { n: r.questions.length })}</span>${done[r.id] ? `<span class="chip ok">✓ ${done[r.id]}</span>` : ''}</div>
         </a>`).join('')}</div>`;
   };
 
@@ -47,15 +47,15 @@
           <p class="muted" style="margin-bottom:.8rem">${esc(r.summaryVi)}</p>
           <div class="hl-bar" id="hlBar">
             <span class="tiny muted" style="font-weight:700">${t('TÔ SÁNG:')}</span>
-            ${[['kw', '🔑 ' + t('Từ khóa')], ['awl', '🎓 ' + t('Học thuật AWL')], ['link', '🧷 ' + t('Từ nối & cụm')], ['mine', '📒 ' + t('Từ của tôi')]].map(([k, l]) => `<button class="hl-chip ${k} ${hl.includes(k) ? 'on' : ''}" data-hl="${k}">${l} <b data-count="${k}"></b></button>`).join('')}
+            ${[['kw', '🔑 ' + t('Từ khóa')], ['awl', UI.icon('graduation-cap') + ' ' + t('Học thuật AWL')], ['link', '🧷 ' + t('Từ nối & cụm')], ['mine', UI.icon('notebook') + ' ' + t('Từ của tôi')]].map(([k, l]) => `<button class="hl-chip ${k} ${hl.includes(k) ? 'on' : ''}" data-hl="${k}">${l} <b data-count="${k}"></b></button>`).join('')}
           </div>
           <div class="passage ${hl.map(x => 'hl-' + x).join(' ')}" id="passage">${paras}</div>
-          <div class="small muted">💡 ${t('Chạm vào từ để tra · bấm đúp vào câu để nghe câu đó · gạch chấm = từ khóa IELTS · nền xanh = từ đã có trong sổ')}</div>
+          <div class="small muted">${UI.icon('lightbulb')} ${t('Chạm vào từ để tra · bấm đúp vào câu để nghe câu đó · gạch chấm = từ khóa IELTS · nền xanh = từ đã có trong sổ')}</div>
         </div>
         <div style="position:sticky;top:80px" class="stack">
           <div class="card"><h3>🔑 ${t('Từ khóa')}</h3><div class="row">${r.keywords.map(k => `<button class="chip" data-kw="${esc(k)}" style="border:0;cursor:pointer">${esc(k)}</button>`).join('')}</div>
             <button class="btn sm block" id="addKw" style="margin-top:.8rem">+ ${t('Lưu tất cả từ khóa')}</button></div>
-          <div class="card"><h3>📝 ${t('Câu hỏi')}</h3><p class="small muted">${t('{n} câu · True/False/Not Given & trắc nghiệm', { n: r.questions.length })}</p><a class="btn sm primary block" href="#qs">${t('Làm bài')} →</a></div>
+          <div class="card"><h3>${UI.icon('file-pen')} ${t('Câu hỏi')}</h3><p class="small muted">${t('{n} câu · True/False/Not Given & trắc nghiệm', { n: r.questions.length })}</p><a class="btn sm primary block" href="#qs">${t('Làm bài')} →</a></div>
         </div>
       </div>
       <div class="card" style="margin-top:1rem" id="qs">
@@ -95,7 +95,7 @@
       const pr = paper.getBoundingClientRect(), er = el.getBoundingClientRect();
       pop.style.left = Math.max(8, Math.min(er.left - pr.left - 20, pr.width - 370)) + 'px';
       pop.style.top = (er.bottom - pr.top + 8) + 'px';
-      pop.innerHTML = `<div class="muted">⏳ ${t('Đang tra “{w}”…', { w: esc(word) })}</div>`;
+      pop.innerHTML = `<div class="muted">${UI.icon('hourglass')} ${t('Đang tra “{w}”…', { w: esc(word) })}</div>`;
       paper.appendChild(pop);
       const mine = pop;
       // Tra nhanh (~0,4 giây); âm thanh/ảnh sẽ được bổ sung ngầm khi lưu thẻ
@@ -183,7 +183,7 @@
         if (ok) score++;
         else if (App.logMistake) App.logMistake({ kind: 'reading', q: `${r.title}: ${q.q}`, answer: q.type === 'tfng' ? right : q.options[+right], given: answers[i] == null ? I18N.tk('(bỏ trống)') : q.type === 'tfng' ? answers[i] : q.options[+answers[i]], explain: q.explain, ref: r.id });
         $$('.opts button', item).forEach(b => { if (b.dataset.v === right) b.classList.add('right'); else if (b.classList.contains('sel')) b.classList.add('wrong'); });
-        const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${ok ? '✅' : '❌'} ${esc(q.explain)}`;
+        const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${ok ? UI.icon('circle-check') : '❌'} ${esc(q.explain)}`;
       });
       $('#check').disabled = true;
       const pct = Math.round(score / r.questions.length * 100);

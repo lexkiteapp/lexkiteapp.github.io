@@ -33,7 +33,7 @@
     else list.unshift({ ...m, key, n: 1, at: Date.now(), fixed: false });
     await Store.set('mistakes', list.slice(0, 300));
   }));
-  const KIND = () => ({ vocab: ['🔤', t('Từ vựng')], grammar: ['📐', t('Ngữ pháp')], reading: ['📖', t('Đọc hiểu')], listening: ['🎧', t('Nghe')] });
+  const KIND = () => ({ vocab: [UI.icon('a-large-small'), t('Từ vựng')], grammar: [UI.icon('ruler'), t('Ngữ pháp')], reading: [UI.icon('book-open'), t('Đọc hiểu')], listening: [UI.icon('headphones'), t('Nghe')] });
 
   routes.mistakes = App.guard(async function (arg, query) {
     const w = App.W;
@@ -42,8 +42,8 @@
     if (migrate(list)) await w(Store.set('mistakes', list));
     const open = list.filter(x => !x.fixed);
     view.innerHTML = `
-      <div class="page-head"><div><h1>📕 ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
-        <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">📋 ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">🔁 ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
+      <div class="page-head"><div><h1>${UI.icon('book-x')} ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
+        <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">${UI.icon('clipboard-list')} ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">${UI.icon('repeat')} ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
       <div class="tabs" style="display:inline-flex;margin-bottom:1rem" id="mTabs"><button class="on" data-k="">${t('Tất cả ({n})', { n: open.length })}</button>${Object.entries(KIND()).map(([k, [e, n]]) => `<button data-k="${k}">${e} ${n} (${open.filter(x => x.kind === k).length})</button>`).join('')}</div>
       <div id="mList"></div>`;
     const draw = k => {
@@ -55,13 +55,13 @@
         ${retry ? `<div class="row" style="margin-top:.5rem;gap:.4rem" data-rt="${esc(x.key)}">${String(x.answer || '').split(/\s+/).length <= 4 ? `<input class="input" style="flex:1;min-width:0" placeholder="${t('Gõ đáp án của bạn')}" data-in><button class="btn sm primary" data-chk>${t('Kiểm tra')}</button>` : `<button class="btn sm primary" data-show>${t('Hiện đáp án')}</button>`}</div><div data-ans hidden>` : '<div>'}
         ${x.given ? `<div class="small" style="margin-top:.3rem"><span style="color:var(--again-text)">✗ ${esc(tr(x, 'given'))}</span></div>` : ''}
         <div class="small"><span style="color:var(--good-text)">✓ ${esc(x.answer)}</span></div>
-        ${x.explain ? `<div class="small muted" style="margin-top:.3rem">💡 ${esc(tr(x, 'explain'))}</div>` : ''}
-        ${retry ? `<div class="row" style="margin-top:.4rem" data-self><button class="btn sm" data-ok>✅ ${t('Mình làm đúng')}</button><button class="btn sm ghost" data-no>✗ ${t('Vẫn sai')}</button></div>` : ''}</div>
+        ${x.explain ? `<div class="small muted" style="margin-top:.3rem">${UI.icon('lightbulb')} ${esc(tr(x, 'explain'))}</div>` : ''}
+        ${retry ? `<div class="row" style="margin-top:.4rem" data-self><button class="btn sm" data-ok>${UI.icon('circle-check')} ${t('Mình làm đúng')}</button><button class="btn sm ghost" data-no>✗ ${t('Vẫn sai')}</button></div>` : ''}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-fix="${esc(x.key)}">✓ ${t('Đã hiểu')}</button>
-          ${x.kind === 'grammar' && x.ref ? `<a class="btn sm ghost" href="#/grammar/${esc(x.ref)}">📐 ${t('Xem lại bài')}</a>` : ''}
-          ${x.kind === 'vocab' && x.ref ? `<a class="btn sm ghost" href="#/dict/${encodeURIComponent(x.ref)}">🔎 ${t('Tra lại từ')}</a>${App.inDeck(x.ref) ? '' : `<button class="btn sm ghost" data-add-seed="${esc(x.ref)}">+ Flashcard</button>`}` : ''}
-          ${x.kind === 'reading' && x.ref ? `<a class="btn sm ghost" href="#/read/${esc(x.ref)}">📖 ${t('Đọc lại bài')}</a>` : ''}
-          ${x.kind === 'listening' && x.ref ? `<a class="btn sm ghost" href="#/listen/${esc(x.ref)}">🎧 ${t('Nghe lại phần này')}</a>` : ''}</div></div>`).join('')
+          ${x.kind === 'grammar' && x.ref ? `<a class="btn sm ghost" href="#/grammar/${esc(x.ref)}">${UI.icon('ruler')} ${t('Xem lại bài')}</a>` : ''}
+          ${x.kind === 'vocab' && x.ref ? `<a class="btn sm ghost" href="#/dict/${encodeURIComponent(x.ref)}">${UI.icon('search')} ${t('Tra lại từ')}</a>${App.inDeck(x.ref) ? '' : `<button class="btn sm ghost" data-add-seed="${esc(x.ref)}">+ Flashcard</button>`}` : ''}
+          ${x.kind === 'reading' && x.ref ? `<a class="btn sm ghost" href="#/read/${esc(x.ref)}">${UI.icon('book-open')} ${t('Đọc lại bài')}</a>` : ''}
+          ${x.kind === 'listening' && x.ref ? `<a class="btn sm ghost" href="#/listen/${esc(x.ref)}">${UI.icon('headphones')} ${t('Nghe lại phần này')}</a>` : ''}</div></div>`).join('')
         : `<div class="card empty"><div class="em">🎉</div>${t('Không có lỗi sai nào cần xem lại.')}</div>`;
       App.bindCommon();
       // Làm lại: tự nhớ đáp án trước khi xem (active recall) → đúng thì gỡ khỏi sổ, sai thì tăng số lần sai
@@ -123,7 +123,7 @@
     if (sk && !tasks.some(x => x.href === sk.href)) tasks.push(sk);
     return tasks.slice(0, 5);
   };
-  const TOEFL_ROT = [['response', '🎧', 'Listen and Choose a Response'], ['cw', '🧩', 'Complete the Words'], ['email', '📧', 'Write an Email'], ['repeat', '🔁', 'Listen and Repeat'], ['conversation', '👥', 'Listen to a Conversation'], ['daily', '📱', 'Read in Daily Life'], ['sentence', '🧱', 'Build a Sentence'], ['interview', '🎙️', 'Take an Interview'], ['announcement', '📢', 'Listen to an Announcement'], ['academic', '📚', 'Read an Academic Passage'], ['discussion', '💬', 'Write for an Academic Discussion'], ['talk', '🎓', 'Listen to an Academic Talk']];
+  const TOEFL_ROT = [['response', UI.icon('headphones'), 'Listen and Choose a Response'], ['cw', UI.icon('puzzle'), 'Complete the Words'], ['email', UI.icon('mail'), 'Write an Email'], ['repeat', UI.icon('repeat'), 'Listen and Repeat'], ['conversation', UI.icon('users'), 'Listen to a Conversation'], ['daily', UI.icon('smartphone'), 'Read in Daily Life'], ['sentence', UI.icon('brick-wall'), 'Build a Sentence'], ['interview', UI.icon('mic'), 'Take an Interview'], ['announcement', '📢', 'Listen to an Announcement'], ['academic', UI.icon('library'), 'Read an Academic Passage'], ['discussion', UI.icon('message-circle'), 'Write for an Academic Discussion'], ['talk', UI.icon('graduation-cap'), 'Listen to an Academic Talk']];
   async function skillTask(ex, dow, d) {
     const g = state.game;
     if (ex === 'toefl') { const [k, em, n] = TOEFL_ROT[Math.floor(Date.now() / Core.DAY) % TOEFL_ROT.length]; return { em, t: 'TOEFL · ' + n, sub: t('Bài luyện hôm nay theo đúng dạng đề 2026'), href: '#/toefl-p/' + k, mins: 10, done: false }; }

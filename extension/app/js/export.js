@@ -101,9 +101,9 @@ html.lk-print{background:#fff}#lkPrint .ph{display:flex;justify-content:space-be
     const cards = () => scope === 'shown' ? shown : all, title = () => scope === 'shown' && opts.name ? opts.name : T('Sổ từ của bạn');
     const tile = (id, ic, b, s) => `<button type="button" class="xp-t" id="${id}"${all.length || id === 'xpJson' ? '' : ' disabled'}><span class="ic" aria-hidden="true">${ic}</span><span><b>${b}</b><small>${s}</small></span></button>`;
     const box = modal(`<div class="xp"><div><h2 id="xpTitle">📦 ${T('Dữ liệu của bạn')}</h2><p class="small muted" style="margin:.25rem 0 0">${T('Dữ liệu là của bạn – xuất bất cứ lúc nào, không bị giam giữ.')}</p></div>
-      ${shown ? `<div class="xp-scope" role="radiogroup"><label><input type="radio" name="xpS" value="shown" checked> ${T('Đang lọc: {name} ({n})', { name: esc(opts.name || ''), n: shown.length })}</label><label><input type="radio" name="xpS" value="all"> ${T('Toàn bộ sổ từ ({n})', { n: all.length })}</label></div>` : `<p class="small muted" style="margin:0">📚 ${T('{n} từ', { n: all.length })}</p>`}
+      ${shown ? `<div class="xp-scope" role="radiogroup"><label><input type="radio" name="xpS" value="shown" checked> ${T('Đang lọc: {name} ({n})', { name: esc(opts.name || ''), n: shown.length })}</label><label><input type="radio" name="xpS" value="all"> ${T('Toàn bộ sổ từ ({n})', { n: all.length })}</label></div>` : `<p class="small muted" style="margin:0">${UI.icon('library')} ${T('{n} từ', { n: all.length })}</p>`}
       <div class="xp-grid">${tile('xpXlsx', '📗', T('Bảng tính Excel (.xlsx)'), T('Từ, phiên âm, nghĩa, ví dụ, ngữ cảnh, cấp CEFR, lịch ôn – mở bằng Excel, Google Sheets, Numbers'))}
-      ${native ? '' : tile('xpPdf', '📄', T('In / Lưu PDF'), T('Danh sách từ khổ A4 – trong hộp in chọn “Lưu thành PDF”'))}
+      ${native ? '' : tile('xpPdf', UI.icon('file-text'), T('In / Lưu PDF'), T('Danh sách từ khổ A4 – trong hộp in chọn “Lưu thành PDF”'))}
       ${tile('xpAnki', '🃏', T('Anki · CSV'), T('Gói .apkg, văn bản Anki hoặc CSV'))}
       ${tile('xpJson', '💾', T('Sao lưu đầy đủ (.json)'), T('Mọi thẻ, tiến độ FSRS, chuỗi ngày và XP – nhập lại được ở Cài đặt'))}</div>
       <div class="row end"><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div></div>`);

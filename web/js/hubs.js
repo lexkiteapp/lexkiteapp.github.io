@@ -41,16 +41,16 @@
     const { total } = Core.Cards.dueCount(state.cards, state.settings, state.stats);
     const deck = Object.values(state.cards), mastered = deck.filter(c => c.srs && c.srs.interval >= 21).length;
     const ex = App.exam();
-    view.innerHTML = head('📚 ' + t('Từ vựng'), t('Học từ mới, ôn đúng lúc sắp quên và tra cứu nhanh.'))
+    view.innerHTML = head(UI.icon('library') + ' ' + t('Từ vựng'), t('Học từ mới, ôn đúng lúc sắp quên và tra cứu nhanh.'))
       + `<a class="card hover hub-hero" href="#/review"><span class="hub-ic" aria-hidden="true">🃏</span><span class="hub-tx"><b>${total ? t('Ôn {n} thẻ hôm nay', { n: total }) : t('Không còn thẻ cần ôn – học từ mới nhé')}</b><small>${t('Ôn đúng lúc sắp quên giúp nhớ lâu gấp nhiều lần')}</small></span><span class="btn primary sm">${total ? t('Ôn ngay') : t('Học từ mới')} →</span></a>`
-      + sect(t('Học & ôn'), card('#/path', '🗺️', t('Lộ trình từ vựng'), t('Từng chặng nhỏ, mở khóa dần theo trình độ'))
-        + card('#/library' + (ex === 'toeic' ? '?g=toeic' : ''), '📖', t('Thư viện từ'), t('Bộ từ theo chủ đề, kỳ thi và trình độ'))
-        + card('#/deck', '📒', t('Sổ từ của tôi'), t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered }))
-        + card('#/practice', '⚡', t('Trò chơi từ vựng'), t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm')))
-      + sect(t('Tra cứu'), card('#/dict', '🔎', t('Từ điển'), t('Phát âm, nghĩa, ví dụ, lưu thành thẻ'))
-        + card('#/verb', '🔤', t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s'))
-        + card('#/usage', '📘', t('Cách dùng từ'), t('Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm'))
-        + card('#/phrases', '🧩', t('Cụm từ & cấu trúc'), t('Collocation và cấu trúc ăn điểm')));
+      + sect(t('Học & ôn'), card('#/path', UI.icon('map'), t('Lộ trình từ vựng'), t('Từng chặng nhỏ, mở khóa dần theo trình độ'))
+        + card('#/library' + (ex === 'toeic' ? '?g=toeic' : ''), UI.icon('book-open'), t('Thư viện từ'), t('Bộ từ theo chủ đề, kỳ thi và trình độ'))
+        + card('#/deck', UI.icon('notebook'), t('Sổ từ của tôi'), t('{n} từ · {m} từ đã thuộc', { n: deck.length, m: mastered }))
+        + card('#/practice', UI.icon('zap'), t('Trò chơi từ vựng'), t('Ghép thẻ, gõ từ, nghe – gõ, trắc nghiệm')))
+      + sect(t('Tra cứu'), card('#/dict', UI.icon('search'), t('Từ điển'), t('Phát âm, nghĩa, ví dụ, lưu thành thẻ'))
+        + card('#/verb', UI.icon('a-large-small'), t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s'))
+        + card('#/usage', UI.icon('book-a'), t('Cách dùng từ'), t('Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm'))
+        + card('#/phrases', UI.icon('puzzle'), t('Cụm từ & cấu trúc'), t('Collocation và cấu trúc ăn điểm')));
   };
 
   // ---------- Kỹ năng ----------
@@ -64,33 +64,33 @@
   const TOEFL_T = (k, ic, n, d) => ['#/toefl-p/' + k, ic, n, d];
   const CONTENT = {
     listening: {
-      ielts: () => [['#/listening', '🎧', t('Luyện theo phần'), t('Part 1–4, có transcript và giải thích')], ['#/practice/listen', '⌨️', t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')]],
-      toeic: () => [['#/toeic', '💼', t('TOEIC Part 1–4'), t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói')]],
-      toefl: () => [TOEFL_T('response', '💬', 'Listen and Choose a Response', t('Chọn câu đáp phù hợp')), TOEFL_T('conversation', '👥', 'Listen to a Conversation', t('Hội thoại đời sống')), TOEFL_T('announcement', '📢', 'Listen to an Announcement', t('Thông báo trong trường')), TOEFL_T('talk', '🎓', 'Listen to an Academic Talk', t('Bài giảng ngắn'))],
-      general: () => [['#/listening', '🎧', t('Luyện nghe'), t('Bài nghe theo trình độ, có transcript')], ['#/practice/listen', '⌨️', t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')]],
+      ielts: () => [['#/listening', UI.icon('headphones'), t('Luyện theo phần'), t('Part 1–4, có transcript và giải thích')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')]],
+      toeic: () => [['#/toeic', UI.icon('briefcase'), t('TOEIC Part 1–4'), t('Mô tả tranh, hỏi – đáp, hội thoại, bài nói')]],
+      toefl: () => [TOEFL_T('response', UI.icon('message-circle'), 'Listen and Choose a Response', t('Chọn câu đáp phù hợp')), TOEFL_T('conversation', UI.icon('users'), 'Listen to a Conversation', t('Hội thoại đời sống')), TOEFL_T('announcement', '📢', 'Listen to an Announcement', t('Thông báo trong trường')), TOEFL_T('talk', UI.icon('graduation-cap'), 'Listen to an Academic Talk', t('Bài giảng ngắn'))],
+      general: () => [['#/listening', UI.icon('headphones'), t('Luyện nghe'), t('Bài nghe theo trình độ, có transcript')], ['#/practice/listen', UI.icon('keyboard'), t('Nghe – gõ từ'), t('Nghe từ trong sổ và gõ lại')]],
     },
     reading: {
-      ielts: () => [['#/reading', '📰', t('Bài đọc theo trình độ'), t('30 bài, có thể làm ở chế độ thi trên máy')], ['#/rtype', '🎯', t('Luyện theo dạng câu hỏi'), t('True/False/Not Given, Matching, điền từ…')], ['#/paraphrase', '🔁', t('Luyện paraphrase'), t('Nhận ra cách bài đọc diễn đạt lại từ khóa câu hỏi')], ['#/cbt', '🖥️', t('Đọc trên máy tính'), t('Giao diện như thi IELTS trên máy')]],
-      toeic: () => [['#/toeic', '💼', t('TOEIC Part 5–7'), t('Điền câu, điền đoạn, đọc hiểu')]],
-      toefl: () => [TOEFL_T('cw', '🧩', 'Complete the Words', t('Điền chữ còn thiếu')), TOEFL_T('daily', '📱', 'Read in Daily Life', t('Tin nhắn, thông báo, email')), TOEFL_T('academic', '📚', 'Read an Academic Passage', t('Đoạn văn học thuật ngắn'))],
-      general: () => [['#/reading', '📰', t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')]],
+      ielts: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('30 bài, có thể làm ở chế độ thi trên máy')], ['#/rtype', UI.icon('target'), t('Luyện theo dạng câu hỏi'), t('True/False/Not Given, Matching, điền từ…')], ['#/paraphrase', UI.icon('repeat'), t('Luyện paraphrase'), t('Nhận ra cách bài đọc diễn đạt lại từ khóa câu hỏi')], ['#/cbt', '🖥️', t('Đọc trên máy tính'), t('Giao diện như thi IELTS trên máy')]],
+      toeic: () => [['#/toeic', UI.icon('briefcase'), t('TOEIC Part 5–7'), t('Điền câu, điền đoạn, đọc hiểu')]],
+      toefl: () => [TOEFL_T('cw', UI.icon('puzzle'), 'Complete the Words', t('Điền chữ còn thiếu')), TOEFL_T('daily', UI.icon('smartphone'), 'Read in Daily Life', t('Tin nhắn, thông báo, email')), TOEFL_T('academic', UI.icon('library'), 'Read an Academic Passage', t('Đoạn văn học thuật ngắn'))],
+      general: () => [['#/reading', UI.icon('newspaper'), t('Bài đọc theo trình độ'), t('Đọc vừa sức, lưu từ mới kèm câu gốc')]],
     },
     writing: {
-      ielts: () => [['#/task1', '📈', t('Task 1 – Biểu đồ'), t('Mô tả số liệu, có bài mẫu')], ['#/write', '✍️', 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', '💡', t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models', '📄', t('Bài mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
-      ieltsgt: () => [['#/letters', '✉️', t('Task 1 – Viết thư'), t('Thư trang trọng, bán trang trọng, thân mật')], ['#/write', '✍️', 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', '💡', t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models?t=gt', '📄', t('Thư mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
-      toefl: () => [TOEFL_T('sentence', '🧱', 'Build a Sentence', t('Sắp xếp từ thành câu')), TOEFL_T('email', '📧', 'Write an Email', t('Viết email theo tình huống')), TOEFL_T('discussion', '💬', 'Write for an Academic Discussion', t('Thảo luận trên lớp học trực tuyến'))],
-      general: () => [['#/write', '✍️', t('Luyện viết'), t('Viết đoạn văn, AI sửa lỗi và gợi ý')], ['#/phrases', '🧩', t('Cụm từ & cấu trúc'), t('Cấu trúc hay dùng')]],
+      ielts: () => [['#/task1', UI.icon('trending-up'), t('Task 1 – Biểu đồ'), t('Mô tả số liệu, có bài mẫu')], ['#/write', UI.icon('pen-line'), 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', UI.icon('lightbulb'), t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models', UI.icon('file-text'), t('Bài mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
+      ieltsgt: () => [['#/letters', UI.icon('mail'), t('Task 1 – Viết thư'), t('Thư trang trọng, bán trang trọng, thân mật')], ['#/write', UI.icon('pen-line'), 'Writing Task 2', t('Viết luận, AI chấm theo 4 tiêu chí')], ['#/ideas', UI.icon('lightbulb'), t('Ngân hàng ý tưởng'), t('Ý tưởng và từ vựng theo chủ đề')], ['#/models?t=gt', UI.icon('file-text'), t('Thư mẫu band 8'), t('Có đánh dấu cụm từ hay và từ nối')]],
+      toefl: () => [TOEFL_T('sentence', UI.icon('brick-wall'), 'Build a Sentence', t('Sắp xếp từ thành câu')), TOEFL_T('email', UI.icon('mail'), 'Write an Email', t('Viết email theo tình huống')), TOEFL_T('discussion', UI.icon('message-circle'), 'Write for an Academic Discussion', t('Thảo luận trên lớp học trực tuyến'))],
+      general: () => [['#/write', UI.icon('pen-line'), t('Luyện viết'), t('Viết đoạn văn, AI sửa lỗi và gợi ý')], ['#/phrases', UI.icon('puzzle'), t('Cụm từ & cấu trúc'), t('Cấu trúc hay dùng')]],
     },
     speaking: {
-      ielts: () => [['#/speaking/p1', '🙂', 'Speaking Part 1', t('Câu hỏi quen thuộc về bản thân')], ['#/speaking/p2', '⏱️', 'Speaking Part 2', t('Nói 2 phút theo thẻ đề')], ['#/speaking/p3', '🧠', 'Speaking Part 3', t('Thảo luận sâu, nêu quan điểm')]],
-      toefl: () => [TOEFL_T('repeat', '🔁', 'Listen and Repeat', t('Nghe và nhắc lại câu')), TOEFL_T('interview', '🎙️', 'Take an Interview', t('Trả lời phỏng vấn ngắn'))],
-      general: () => [['#/speaking/p1', '🙂', t('Luyện nói'), t('Trả lời câu hỏi đời thường, ghi âm và nghe lại')], ['#/pron', '🔤', t('Phát âm'), t('Âm khó, trọng âm, nối âm')]],
+      ielts: () => [['#/speaking/p1', UI.icon('smile'), 'Speaking Part 1', t('Câu hỏi quen thuộc về bản thân')], ['#/speaking/p2', UI.icon('timer'), 'Speaking Part 2', t('Nói 2 phút theo thẻ đề')], ['#/speaking/p3', '🧠', 'Speaking Part 3', t('Thảo luận sâu, nêu quan điểm')]],
+      toefl: () => [TOEFL_T('repeat', UI.icon('repeat'), 'Listen and Repeat', t('Nghe và nhắc lại câu')), TOEFL_T('interview', UI.icon('mic'), 'Take an Interview', t('Trả lời phỏng vấn ngắn'))],
+      general: () => [['#/speaking/p1', UI.icon('smile'), t('Luyện nói'), t('Trả lời câu hỏi đời thường, ghi âm và nghe lại')], ['#/pron', UI.icon('a-large-small'), t('Phát âm'), t('Âm khó, trọng âm, nối âm')]],
     },
   };
   CONTENT.listening.ieltsgt = CONTENT.listening.ielts; CONTENT.reading.ieltsgt = CONTENT.reading.ielts; CONTENT.speaking.ieltsgt = CONTENT.speaking.ielts;
-  const FIX = () => ['#/fix', '✍️', t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')];
-  const RP = () => ['#/roleplay', '💼', t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', '📞', t('Gọi cho Mia'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
-  const CONF = () => ['#/confidence', '🗣️', t('Giao tiếp tự tin'), t('Nói tự tin trong tình huống thật · 5–8 phút/bài')];
+  const FIX = () => ['#/fix', UI.icon('pen-line'), t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm')];
+  const RP = () => ['#/roleplay', UI.icon('briefcase'), t('Roleplay công sở'), t('Đóng vai họp, phỏng vấn, đàm phán với AI')], CALL = () => ['#/call', UI.icon('phone'), t('Gọi cho Mia'), t('Cuộc gọi video luyện nói, sửa lỗi nhẹ nhàng')];
+  const CONF = () => ['#/confidence', UI.icon('message-circle'), t('Giao tiếp tự tin'), t('Nói tự tin trong tình huống thật · 5–8 phút/bài')];
   const itemsFor = (sk, ex) => (CONTENT[sk][ex] || (() => null))();
   const tiles = list => list.map(([h, ic, n, d]) => card(h, ic, esc(n), d)).join('');
 
@@ -99,13 +99,13 @@
     const done = { listening: cnt(g.listenDone), reading: cnt(g.readDone), grammar: cnt(g.grammarDone), pron: cnt(g.pronDone) };
     const skillCard = k => { const list = itemsFor(k, ex); return list ? card('#/skill/' + k, SK[k].ic, SK[k].name(), list.map(x => esc(x[2])).slice(0, 3).join(' · '), done[k] ? t('{n} bài đã làm', { n: done[k] }) : '') : ''; };
     const off = Object.keys(SK).filter(k => !itemsFor(k, ex));
-    view.innerHTML = head('🎯 ' + t('Kỹ năng'), t('Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.'), examBtn())
-      + `<a class="card hover hub-hero" href="#/courses"><span class="hub-ic" aria-hidden="true">📚</span><span class="hub-tx"><b>${t('Khóa học theo lộ trình')}</b><small>${t('Học theo chương, tự đánh dấu hoàn thành, luôn biết bài tiếp theo')}</small></span><span class="chev" aria-hidden="true">›</span></a>`
+    view.innerHTML = head(UI.icon('target') + ' ' + t('Kỹ năng'), t('Luyện từng kỹ năng theo đúng dạng bài của kỳ thi bạn chọn.'), examBtn())
+      + `<a class="card hover hub-hero" href="#/courses"><span class="hub-ic" aria-hidden="true">${UI.icon('library')}</span><span class="hub-tx"><b>${t('Khóa học theo lộ trình')}</b><small>${t('Học theo chương, tự đánh dấu hoàn thành, luôn biết bài tiếp theo')}</small></span><span class="chev" aria-hidden="true">›</span></a>`
       + `<div class="hub-grid">${Object.keys(SK).map(skillCard).join('')}
-        ${card('#/grammar', '📐', t('Ngữ pháp'), t('Bài học ngắn kèm bài tập'), done.grammar ? t('{n} bài đã làm', { n: done.grammar }) : '')}
-        ${card('#/pron', '🔤', t('Phát âm'), t('Âm khó, trọng âm, chấm phát âm từ'), done.pron ? t('{n} bài đã làm', { n: done.pron }) : '')}</div>`
+        ${card('#/grammar', UI.icon('ruler'), t('Ngữ pháp'), t('Bài học ngắn kèm bài tập'), done.grammar ? t('{n} bài đã làm', { n: done.grammar }) : '')}
+        ${card('#/pron', UI.icon('a-large-small'), t('Phát âm'), t('Âm khó, trọng âm, chấm phát âm từ'), done.pron ? t('{n} bài đã làm', { n: done.pron }) : '')}</div>`
       + (off.length ? `<p class="small muted" style="margin-top:.8rem">${t('{exam} không thi {skills}.', { exam: EXAMS[ex].short, skills: off.map(k => SK[k].name()).join(', ') })} <a href="#/skill/${off[0]}">${t('Vẫn muốn luyện?')}</a></p>` : '')
-      + sect(t('Ôn lại'), card('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai để không sai lần nữa'))
+      + sect(t('Ôn lại'), card('#/mistakes', UI.icon('book-x'), t('Sổ lỗi sai'), t('Làm lại các câu đã sai để không sai lần nữa'))
         + card('#/tests', UI.icon('flag'), t('Thi thử'), t('Làm đề đầy đủ có tính giờ khi đã sẵn sàng')));
   };
 
@@ -126,10 +126,10 @@
     const mocks = await w(Core.Store.get('mocks', []));
     const toeic = (g.toeicTests || []).slice(-5).reverse(), lb = g.listenBest || {};
     const T = {
-      ielts: [card('#/mock', UI.icon('flag'), t('Thi thử IELTS 4 kỹ năng'), t('Nghe – Đọc – Viết – Nói, có quy đổi band')), card('#/listening', '🎧', t('Đề Listening 40 câu'), t('Chọn đề ở trang Luyện nghe, làm như thi thật')), card('#/cbt', '🖥️', t('Đề Reading trên máy (60 phút)'), t('3 passage, giao diện như thi trên máy'))],
-      toeic: [card('#/toeic', '💼', t('Đề TOEIC đầy đủ'), t('Listening & Reading, quy đổi điểm 10–990'))],
-      toefl: [card('#/toefl', '🏛️', t('Luyện theo phần TOEFL iBT'), t('Reading, Listening, Writing, Speaking theo đúng dạng bài 2026'))],
-      general: [card('#/grammar/mix?n=40', '📐', t('Kiểm tra ngữ pháp 40 câu'), t('Trộn mọi chủ điểm, chấm ngay'))],
+      ielts: [card('#/mock', UI.icon('flag'), t('Thi thử IELTS 4 kỹ năng'), t('Nghe – Đọc – Viết – Nói, có quy đổi band')), card('#/listening', UI.icon('headphones'), t('Đề Listening 40 câu'), t('Chọn đề ở trang Luyện nghe, làm như thi thật')), card('#/cbt', '🖥️', t('Đề Reading trên máy (60 phút)'), t('3 passage, giao diện như thi trên máy'))],
+      toeic: [card('#/toeic', UI.icon('briefcase'), t('Đề TOEIC đầy đủ'), t('Listening & Reading, quy đổi điểm 10–990'))],
+      toefl: [card('#/toefl', UI.icon('landmark'), t('Luyện theo phần TOEFL iBT'), t('Reading, Listening, Writing, Speaking theo đúng dạng bài 2026'))],
+      general: [card('#/grammar/mix?n=40', UI.icon('ruler'), t('Kiểm tra ngữ pháp 40 câu'), t('Trộn mọi chủ điểm, chấm ngay'))],
     };
     T.ieltsgt = T.ielts;
     const rows = [...mocks.slice(0, 5).map(m => [m.date || m.at, 'IELTS', t('Thi thử 4 kỹ năng'), m.overall != null ? 'Band ' + m.overall : '']),
@@ -137,8 +137,8 @@
       ...Object.entries(lb).map(([n, b]) => ['', 'IELTS', 'Listening Test ' + n, 'Band ' + b])].slice(0, 8);
     const fmt = d => { if (!d) return ''; try { return new Date(d).toLocaleDateString(I18N.lang()); } catch (e) { return ''; } };
     view.innerHTML = head(UI.icon('flag') + ' ' + t('Thi thử'), t('Làm đề đầy đủ có tính giờ để biết mình đang ở đâu.'), examBtn())
-      + `<div class="hub-grid">${card('#/placement', '🧭', t('Kiểm tra trình độ (5 phút)'), state.settings.placement ? t('Làm lại để cập nhật trình độ') : t('Biết ngay trình độ để có lộ trình phù hợp'))}${(T[ex] || T.ielts).join('')}</div>`
-      + `<h3 class="set-h hub-h" id="history">📈 ${t('Lịch sử điểm')}</h3>`
+      + `<div class="hub-grid">${card('#/placement', UI.icon('compass'), t('Kiểm tra trình độ (5 phút)'), state.settings.placement ? t('Làm lại để cập nhật trình độ') : t('Biết ngay trình độ để có lộ trình phù hợp'))}${(T[ex] || T.ielts).join('')}</div>`
+      + `<h3 class="set-h hub-h" id="history">${UI.icon('trending-up')} ${t('Lịch sử điểm')}</h3>`
       + (rows.length ? `<div class="set-list">${rows.map(r => `<div class="set-row"><div class="set-l"><span>${esc(r[2])}</span><small>${esc(r[1])}${fmt(r[0]) ? ' · ' + fmt(r[0]) : ''}</small></div><div class="set-c"><b>${esc(r[3])}</b></div></div>`).join('')}</div>`
         : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Chưa có bài thi nào. Làm bài kiểm tra trình độ 5 phút để bắt đầu.')}</p></div>`)
       + `<details class="hub-more"><summary>${t('Kỳ thi khác')}</summary><div class="hub-grid">${Object.keys(T).filter(e => e !== ex && e !== 'ieltsgt' && !(ex === 'ieltsgt' && e === 'ielts')).map(e => T[e].join('')).join('')}</div></details>`;
@@ -199,59 +199,59 @@
       + `<div class="card me-head">
           <div class="me-avatar-wrap">
             <span class="avatar lg">${u && u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc(((u && (u.displayName || u.email)) || 'L')[0].toUpperCase())}</span>
-            ${streak > 0 ? `<span class="me-streak-flame" role="img" aria-label="${t('Chuỗi {n} ngày', { n: streak })}" title="${t('Chuỗi {n} ngày', { n: streak })}"><span aria-hidden="true">🔥 ${streak}</span></span>` : ''}${freezeLeft ? `<button type="button" class="streak-freeze-badge" data-streak-freeze aria-label="${t('{n} lượt đóng băng chuỗi', { n: freezeLeft })}" title="${t('Đóng băng chuỗi: còn {n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 })}">🧊×${freezeLeft}</button>` : ''}
+            ${streak > 0 ? `<span class="me-streak-flame" role="img" aria-label="${t('Chuỗi {n} ngày', { n: streak })}" title="${t('Chuỗi {n} ngày', { n: streak })}"><span aria-hidden="true">${UI.icon('flame')} ${streak}</span></span>` : ''}${freezeLeft ? `<button type="button" class="streak-freeze-badge" data-streak-freeze aria-label="${t('{n} lượt đóng băng chuỗi', { n: freezeLeft })}" title="${t('Đóng băng chuỗi: còn {n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 })}">${UI.icon('snowflake')}×${freezeLeft}</button>` : ''}
           </div>
           <div class="me-tx">
             <div class="me-name-row">
               <b class="me-name" title="${esc((u && u.displayName) || '')}">${esc(window.Sync && Sync.nice ? Sync.nice((u && u.displayName) || t('Bạn')) : (u && u.displayName) || t('Bạn'))}</b>
               <span class="me-exam-badge">${examObj.ic} ${esc(examObj.short)}</span>
             </div>
-            <div class="me-title-chip"><span aria-hidden="true">👑</span><span>${esc(L.title || '')}</span><span class="me-lv">${t('Cấp {n}', { n: L.level || 1 })}</span></div>
+            <div class="me-title-chip"><span aria-hidden="true">${UI.icon('crown')}</span><span>${esc(L.title || '')}</span><span class="me-lv">${t('Cấp {n}', { n: L.level || 1 })}</span></div>
             <div class="me-xp-container">
               <div class="me-xp-bar"><div class="me-xp-fill" style="width:${xpPct}%"></div></div>
               <div class="me-xp-sub">
                 <span>${t('{a}/{b} XP tới cấp {n}', { a: L.into, b: L.need, n: L.level + 1 })}</span>
-                <span>⭐ ${t('Tổng {xp} XP', { xp: (g.xp || 0).toLocaleString(I18N.lang()) })}</span>
+                <span>${UI.icon('star')} ${t('Tổng {xp} XP', { xp: (g.xp || 0).toLocaleString(I18N.lang()) })}</span>
               </div>
             </div>
           </div>
         </div>
 ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" aria-label="${esc(t('Tài khoản & đồng bộ'))}"></section>` : ''}
         <section class="card me-vocab" aria-labelledby="meVocH">
-          <div class="me-vocab-head"><h2 id="meVocH">📚 ${t('Từ vựng')}</h2>${totalC ? `<a class="me-more" href="#/deck">${t('Sổ từ của tôi')} <span aria-hidden="true">›</span></a>` : ''}</div>
+          <div class="me-vocab-head"><h2 id="meVocH">${UI.icon('library')} ${t('Từ vựng')}</h2>${totalC ? `<a class="me-more" href="#/deck">${t('Sổ từ của tôi')} <span aria-hidden="true">›</span></a>` : ''}</div>
           ${totalC ? `<ul class="me-stats">
             <li><a class="me-stat" href="#/deck"><b>${totalC.toLocaleString(I18N.lang())}</b><span>${t('Đã lưu')}</span></a></li>
             <li><a class="me-stat" href="#/deck"><b>${learningC.toLocaleString(I18N.lang())}</b><span>${t('Đang học')}</span></a></li>
             <li><a class="me-stat good" href="#/deck"><b>${masteredC.toLocaleString(I18N.lang())}</b><span>${t('Đã thuộc')}</span></a></li>
             <li><a class="me-stat${dueC ? ' due' : ''}" href="#/review"><b>${dueC.toLocaleString(I18N.lang())}</b><span>${t('Cần ôn hôm nay')}</span></a></li>
-          </ul>` : `<div class="me-empty"><p class="muted small">${t('Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.')}</p><a class="btn primary me-cta" href="#/path"><span aria-hidden="true">✨</span> ${t('Bắt đầu học {n} từ đầu tiên', { n: 10 })}</a></div>`}
+          </ul>` : `<div class="me-empty"><p class="muted small">${t('Lưu từ khi tra cứu hoặc học theo lộ trình – Lexkite nhắc bạn ôn đúng lúc sắp quên.')}</p><a class="btn primary me-cta" href="#/path"><span aria-hidden="true">${UI.icon('sparkles')}</span> ${t('Bắt đầu học {n} từ đầu tiên', { n: 10 })}</a></div>`}
         </section>
         <div class="me-bento">
 
           <a class="me-card" href="#/stats">
-            <div class="me-card-head"><span class="me-card-lbl">🔥 ${t('Chuỗi ngày')}</span></div>
+            <div class="me-card-head"><span class="me-card-lbl">${UI.icon('flame')} ${t('Chuỗi ngày')}</span></div>
             <div class="me-card-val">${streak || 0}</div>
-            <div class="me-card-sub">${freezeLeft ? '🧊 ' + t('{n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 }) : t('{n} ngày', { n: streak || 0 })}</div>
+            <div class="me-card-sub">${freezeLeft ? UI.icon('snowflake') + ' ' + t('{n}/{max} lượt', { n: freezeLeft, max: fi.max || 2 }) : t('{n} ngày', { n: streak || 0 })}</div>
           </a>
 
           <a class="me-card" href="#/review?src=forgetting">
-            <div class="me-card-head"><span class="me-card-lbl">⏰ ${t('Thời điểm vàng')}</span></div>
+            <div class="me-card-head"><span class="me-card-lbl">${UI.icon('alarm-clock')} ${t('Thời điểm vàng')}</span></div>
             <div class="me-card-val${forgettingC ? ' warn' : ''}">${forgettingC}</div>
             <div class="me-card-sub">${forgettingC ? t('{n} từ đang sắp quên', { n: forgettingC }) : t('Chưa có từ sắp quên')}</div>
           </a>
         </div>
 
         <h3 class="set-h">${t('Việc học')}</h3><div class="set-list">`
-      + row('#/tracks', '🧭', t('Gói học'), t('Đổi gói hoặc học nhiều gói cùng lúc'))
-      + row('#/goal', '🚩', t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
-      + row('#/stats', '📊', t('Tiến độ & huy hiệu'), t('Chuỗi {n} ngày · {xp} XP', { n: streak || 0, xp: (g.xp || 0).toLocaleString(I18N.lang()) }))
-      + row('#/stats', '✨', t('Khoe thành tích')).replace('<a ', '<a data-share ')
-      + row('#/league', '🏆', t('Giải đấu tuần'), t('Bảng xếp hạng 30 người học, thăng hạng mỗi tuần'))
-      + row('#/class', '🏫', t('Lớp học'), t('Giáo viên giao bài, học sinh nhập mã lớp'))
-      + row('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai'), false, openMistakes ? `<span class="pill-count warn">${openMistakes}</span>` : '')
+      + row('#/tracks', UI.icon('compass'), t('Gói học'), t('Đổi gói hoặc học nhiều gói cùng lúc'))
+      + row('#/goal', UI.icon('flag'), t('Mục tiêu & kế hoạch'), t('Kỳ thi, điểm mục tiêu, ngày thi'))
+      + row('#/stats', UI.icon('chart-column'), t('Tiến độ & huy hiệu'), t('Chuỗi {n} ngày · {xp} XP', { n: streak || 0, xp: (g.xp || 0).toLocaleString(I18N.lang()) }))
+      + row('#/stats', UI.icon('sparkles'), t('Khoe thành tích')).replace('<a ', '<a data-share ')
+      + row('#/league', UI.icon('trophy'), t('Giải đấu tuần'), t('Bảng xếp hạng 30 người học, thăng hạng mỗi tuần'))
+      + row('#/class', UI.icon('school'), t('Lớp học'), t('Giáo viên giao bài, học sinh nhập mã lớp'))
+      + row('#/mistakes', UI.icon('book-x'), t('Sổ lỗi sai'), t('Làm lại các câu đã sai'), false, openMistakes ? `<span class="pill-count warn">${openMistakes}</span>` : '')
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`
-      + (isAdmin ? row(App.adminUrl(), '🛡️', t('Quản trị hệ thống'), t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API'), true) : '')
-      + row('#/settings', '⚙️', t('Cài đặt'), t('Tài khoản, nhắc học, âm thanh, giao diện'))
+      + (isAdmin ? row(App.adminUrl(), UI.icon('shield'), t('Quản trị hệ thống'), t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API'), true) : '')
+      + row('#/settings', UI.icon('settings'), t('Cài đặt'), t('Tài khoản, nhắc học, âm thanh, giao diện'))
       + `<button type="button" class="set-row me-row" data-exam-pick>
           <div class="me-row-left">
             <span class="me-icon-box" aria-hidden="true">${examObj.ic}</span>
@@ -266,11 +266,11 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
           </div>
         </button>`
       + `</div><h3 class="set-h">${t('Tìm hiểu thêm')}</h3><div class="set-list">`
-      + row('#/method', '🧪', t('Cách Lexkite giúp bạn nhớ lâu'))
-      + row(App.blogHref(blogOn), '📰', t('Blog học tiếng Anh'), t('Mẹo thi, từ vựng theo chủ đề, phương pháp học'), !sameSite) /* ngôn ngữ chưa có blog → /en/blog/ */
+      + row('#/method', UI.icon('flask-conical'), t('Cách Lexkite giúp bạn nhớ lâu'))
+      + row(App.blogHref(blogOn), UI.icon('newspaper'), t('Blog học tiếng Anh'), t('Mẹo thi, từ vựng theo chủ đề, phương pháp học'), !sameSite) /* ngôn ngữ chưa có blog → /en/blog/ */
       + row(App.aboutUrl(), 'ℹ️', t('Trang giới thiệu'), '', !sameSite)
-      + row('#/resources', '🌐', t('Tài nguyên miễn phí'))
-      + (I18N.lang() === 'vi' ? [['samples', '📄', 'Bài mẫu Writing Task 2'], ['speaking', '🗣️', 'Chủ đề Speaking'], ['tu-vung', '📚', 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', '✉️', 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
+      + row('#/resources', UI.icon('globe'), t('Tài nguyên miễn phí'))
+      + (I18N.lang() === 'vi' ? [['samples', UI.icon('file-text'), 'Bài mẫu Writing Task 2'], ['speaking', UI.icon('message-circle'), 'Chủ đề Speaking'], ['tu-vung', UI.icon('library'), 'Từ vựng theo chủ đề'], ['ngu-phap', '🧠', 'Ngữ pháp tiếng Anh'], ['viet-thu', UI.icon('mail'), 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
     const acct = view.querySelector('#meAcct'); if (acct) Sync.renderBox(acct); // thẻ tài khoản dùng chung với Cài đặt (sync.js) – tự cập nhật trạng thái
   });
@@ -322,7 +322,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     if (['me', 'goal', 'stats', 'league', 'class', 'mistakes', 'settings', 'method', 'resources'].includes(name)) return ['me', name];
     return [null, null];
   };
-  const TAB = { vocab: ['📚', () => t('Từ vựng')], skills: ['🎯', () => t('Kỹ năng')], tests: ['🏁', () => t('Thi thử')], me: ['👤', () => t('Tôi')] };
+  const TAB = { vocab: [UI.icon('library'), () => t('Từ vựng')], skills: [UI.icon('target'), () => t('Kỹ năng')], tests: [UI.icon('flag'), () => t('Thi thử')], me: [UI.icon('user'), () => t('Tôi')] };
   // Đường dẫn ngược (breadcrumb) trên các trang con – chèn tự động vào đầu tiêu đề trang
   App.crumb = (name, arg) => {
     const [tab, item] = App.navOf(name, arg);

@@ -109,13 +109,13 @@
 
   // ---------- Chưa đăng nhập ----------
   function signedOut(extra) {
-    view.innerHTML = head('🏫 ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + `
+    view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + `
       <div class="card" style="text-align:center;padding:2rem 1.2rem">
         ${extra || ''}
         <div class="grid g3" style="max-width:680px;margin:0 auto 1.5rem;text-align:start;gap:.8rem">
           <div class="card"><div style="font-size:1.5rem">👩‍🏫</div><b>${t('Giáo viên')}</b><div class="muted small">${t('Tạo lớp, giao bộ từ và đề luyện, xem tiến độ từng học sinh.')}</div></div>
-          <div class="card"><div style="font-size:1.5rem">🧑‍🎓</div><b>${t('Học sinh')}</b><div class="muted small">${t('Nhập mã lớp 6 ký tự, làm bài được giao, kết quả tự gửi cho giáo viên.')}</div></div>
-          <div class="card"><div style="font-size:1.5rem">🔒</div><b>${t('Riêng tư')}</b><div class="muted small">${t('Giáo viên chỉ thấy tên bạn tự đặt và kết quả bài được giao. Không quảng cáo.')}</div></div>
+          <div class="card"><div style="font-size:1.5rem">🧑‍${UI.icon('graduation-cap')}</div><b>${t('Học sinh')}</b><div class="muted small">${t('Nhập mã lớp 6 ký tự, làm bài được giao, kết quả tự gửi cho giáo viên.')}</div></div>
+          <div class="card"><div style="font-size:1.5rem">${UI.icon('lock')}</div><b>${t('Riêng tư')}</b><div class="muted small">${t('Giáo viên chỉ thấy tên bạn tự đặt và kết quả bài được giao. Không quảng cáo.')}</div></div>
         </div>
         ${window.Sync && Sync.can === false ? `<p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/#/class" target="_blank" rel="noopener">lexkite.com</a>' })}</p>` : `<button type="button" class="btn primary lg" id="crIn">${t('Đăng nhập với Google')}</button>`}
         <p class="tiny muted" style="margin-top:1rem"><a href="${site(schoolsUrl())}" target="_blank" rel="noopener">${t('Hướng dẫn cho nhà trường & quản trị viên')} →</a></p>
@@ -127,13 +127,13 @@
   async function hub(code, task) {
     const w = App.W;
     if (!window.Sync || !Sync.user) return signedOut(code ? `<p><b>${t('Bạn được mời vào lớp {code}.', { code: `<span translate="no">${esc(code)}</span>` })}</b> ${t('Đăng nhập để tham gia.')}</p>` : '');
-    view.innerHTML = head('🏫 ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
-    let d; try { d = await w(mine(true, w.signal)); } catch (e) { view.innerHTML = head('🏫 ' + t('Lớp học')) + `<div class="card">${esc(ERR()[e.code] || t('Có lỗi kết nối – thử lại sau.'))}</div>`; return; }
+    view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
+    let d; try { d = await w(mine(true, w.signal)); } catch (e) { view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học')) + `<div class="card">${esc(ERR()[e.code] || t('Có lỗi kết nối – thử lại sau.'))}</div>`; return; }
     await w(needTopics(d.learn.flatMap(c => c.tasks.map(x => x.ref))));
     const me = (Sync.user.displayName || '').split(' ').slice(-1)[0] || '';
     const done = c => c.tasks.filter(x => c.prog.some(p => p.task === x.id)).length;
-    view.innerHTML = head('🏫 ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + `
-      <div class="card" id="crJoinCard"><h2 style="margin-top:0">🧑‍🎓 ${t('Tham gia lớp')}</h2>
+    view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học'), t('Giáo viên giao bài, học sinh luyện tập – miễn phí, không quảng cáo.')) + `
+      <div class="card" id="crJoinCard"><h2 style="margin-top:0">🧑‍${UI.icon('graduation-cap')} ${t('Tham gia lớp')}</h2>
         <form id="crJoin" class="row wrap" style="gap:.5rem;align-items:flex-end">
           <label class="grow" style="min-width:150px"><span class="tiny muted">${t('Mã lớp')}</span><input class="input" id="crCode" maxlength="7" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="K7M2QX" value="${esc(code || '')}" required style="text-transform:uppercase;letter-spacing:.12em" translate="no"></label>
           <label class="grow" style="min-width:180px"><span class="tiny muted">${t('Tên hiển thị với giáo viên')}</span><input class="input" id="crName" maxlength="40" autocomplete="nickname" value="${esc(me)}" required></label>
@@ -162,7 +162,7 @@
   // ---------- Học sinh: bài được giao ----------
   function student(c) {
     const P = id => c.prog.find(p => p.task === id);
-    view.innerHTML = head('🏫 ' + esc(c.name), t('Tên của bạn: {name}', { name: esc(c.me) }), true) + `
+    view.innerHTML = head(UI.icon('school') + ' ' + esc(c.name), t('Tên của bạn: {name}', { name: esc(c.me) }), true) + `
       <div class="card"><h2 style="margin-top:0">${t('Bài được giao')}</h2>
         <p class="tiny muted">${t('Bộ từ: học rồi làm bài Kiểm tra hoặc Ghép thẻ. Đề thi: làm và nộp bài. Kết quả tự gửi cho giáo viên khi bạn đăng nhập.')}</p>
         <div class="cr-list">${c.tasks.map(x => { const i = info(x.ref), p = P(x.id), late = x.due && !p && x.due < Date.now(); return `<div class="cr-item" style="border-top:1px solid var(--line);padding-top:.6rem"><div class="row nowrap" style="gap:.6rem"><span class="em" aria-hidden="true">${i.em}</span><div><b>${esc(i.title)}</b><div class="tiny muted">${esc(i.sub)}${x.due ? ` · <span${late ? ' style="color:var(--again,#e5502f)"' : ''}>${t('Hạn {d}', { d: day(x.due) })}</span>` : ''}</div></div></div>
@@ -192,7 +192,7 @@
           ${R.members.map(m => { const s = stat(m); return `<tr><td><b>${esc(m.name)}</b></td><td><span class="cr-pct ${pctCls(T ? s.done / T * 100 : 100)}">${s.done}/${T}</span></td><td>${s.acc == null ? '–' : `<span class="cr-pct ${pctCls(s.acc)}">${s.acc}%</span>`}</td><td class="tiny">${esc(rel(s.last))}</td>${R.tasks.map(x => { const p = prog(x.id, m.id); return `<td>${p ? `<span class="cr-pct ${pctCls(p.best)}" title="${esc(t('Cao nhất {b}% · lần gần nhất {l}% · {n} lượt', { b: p.best, l: p.last, n: p.tries }))}">${p.best}</span>` : '<span class="muted">·</span>'}</td>`; }).join('')}<td><button class="btn ghost sm" data-kick="${esc(m.id)}" data-nm="${esc(m.name)}" aria-label="${esc(t('Xóa khỏi lớp'))}" title="${esc(t('Xóa khỏi lớp'))}">✕</button></td></tr>`; }).join('')}
           </tbody></table></div>` : `<p class="muted small">${t('Chưa có học sinh. Gửi mã lớp hoặc chia sẻ lên Google Classroom để học sinh tham gia.')}</p>`}
       </div>
-      <div class="row wrap" style="gap:.5rem;margin-top:1rem"><button class="btn ghost sm" id="crRename">✏️ ${t('Đổi tên lớp')}</button><button class="btn ghost sm" id="crDel" style="color:var(--again,#e5502f)">🗑 ${t('Xóa lớp')}</button></div>`;
+      <div class="row wrap" style="gap:.5rem;margin-top:1rem"><button class="btn ghost sm" id="crRename">${UI.icon('pencil')} ${t('Đổi tên lớp')}</button><button class="btn ghost sm" id="crDel" style="color:var(--again,#e5502f)">🗑 ${t('Xóa lớp')}</button></div>`;
     const again = () => teacher(id);
     $('#crCopy').onclick = async () => { try { await navigator.clipboard.writeText(url); toast('✅ ' + t('Đã sao chép')); } catch (e) { prompt(t('Sao chép link'), url); } };
     $('#crCodeNew').onclick = async () => { if (!confirm(t('Tạo mã mới? Mã cũ sẽ không dùng được nữa (học sinh đã vào lớp không bị ảnh hưởng).'))) return; try { await call('newcode', { cls: id }); again(); } catch (e) { fail(e); } };
@@ -217,10 +217,10 @@
     const G = (window.IELTS_DATA && IELTS_DATA.GROUPS) || [];
     const opt = (ref, em, title, sub) => `<label><input type="radio" name="crRef" value="${esc(ref)}"${have.includes(ref) ? ' disabled' : ''}><span aria-hidden="true">${em}</span><span class="grow"><b>${esc(title)}</b>${sub ? `<span class="tiny muted"> · ${esc(sub)}</span>` : ''}</span>${have.includes(ref) ? `<span class="tiny muted">${t('Đã giao')}</span>` : ''}</label>`;
     const tabs = [
-      ['vocab', '📚 ' + t('Bộ từ vựng'), () => G.map(g => { const tps = TOPICS().filter(x => x.group === g.id); return tps.length ? `<div class="tiny muted" style="margin-top:.4rem">${g.emoji} ${esc(g.name)}</div>` + tps.map(x => opt('topic:' + x.id, x.emoji, t(x.name), t('{n} từ', { n: x.words.length }))).join('') : ''; }).join('')],
-      ['il', '🎧 IELTS Listening', () => NUM.il.map(n => { const i = info('il:' + n); return opt('il:' + n, i.em, i.title, i.sub); }).join('')],
-      ['ir', '📖 IELTS Reading', () => NUM.ir.map(n => { const i = info('ir:' + n); return opt('ir:' + n, i.em, i.title, i.sub); }).join('')],
-      ['toeic', '💼 TOEIC', () => NUM.toeic.map(n => { const i = info('toeic:' + n); return opt('toeic:' + n, i.em, i.title, i.sub); }).join('')],
+      ['vocab', UI.icon('library') + ' ' + t('Bộ từ vựng'), () => G.map(g => { const tps = TOPICS().filter(x => x.group === g.id); return tps.length ? `<div class="tiny muted" style="margin-top:.4rem">${g.emoji} ${esc(g.name)}</div>` + tps.map(x => opt('topic:' + x.id, x.emoji, t(x.name), t('{n} từ', { n: x.words.length }))).join('') : ''; }).join('')],
+      ['il', UI.icon('headphones') + ' IELTS Listening', () => NUM.il.map(n => { const i = info('il:' + n); return opt('il:' + n, i.em, i.title, i.sub); }).join('')],
+      ['ir', UI.icon('book-open') + ' IELTS Reading', () => NUM.ir.map(n => { const i = info('ir:' + n); return opt('ir:' + n, i.em, i.title, i.sub); }).join('')],
+      ['toeic', UI.icon('briefcase') + ' TOEIC', () => NUM.toeic.map(n => { const i = info('toeic:' + n); return opt('toeic:' + n, i.em, i.title, i.sub); }).join('')],
     ];
     const box = UI.modal(`<h2 style="margin-top:0">＋ ${t('Giao bài')} · <span class="muted">${esc(c.name)}</span></h2>
       <div class="tabs" id="crTabs" role="tablist">${tabs.map(([k, l], i) => `<button type="button" role="tab" data-k="${k}" class="${i ? '' : 'on'}" aria-selected="${!i}">${l}</button>`).join('')}</div>
@@ -246,7 +246,7 @@
     if (a.startsWith('join/')) return hub(a.slice(5).toUpperCase(), query && query.get('task'));
     if (!a) return hub();
     if (!window.Sync || !Sync.user) return signedOut();
-    view.innerHTML = head('🏫 ' + t('Lớp học'), '', true) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
+    view.innerHTML = head(UI.icon('school') + ' ' + t('Lớp học'), '', true) + '<div class="skel skel-l"></div><div class="skel skel-l"></div>';
     let d; try { d = await w(mine(false, w.signal)); } catch (e) { return fail(e); }
     if (d.teach.some(c => c.id === a)) return teacher(a);
     const c = d.learn.find(x => x.id === a);

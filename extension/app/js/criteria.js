@@ -653,14 +653,14 @@
             ${window.Kit ? `<div class="kit-cele" style="flex-shrink:0" aria-hidden="true">${Kit.svg('think', 64, true)}</div>` : ''}
             <div>
               <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.05em">IELTS Writing · Speaking</div>
-              <h1 style="margin:.15rem 0 .25rem">📊 ${t('Tiêu chí chấm IELTS')}</h1>
+              <h1 style="margin:.15rem 0 .25rem">${UI.icon('chart-column')} ${t('Tiêu chí chấm IELTS')}</h1>
               <p class="muted small" style="margin:0">${t('Nắm vững 4 tiêu chí chấm Writing & Speaking từ band 4–9 và cách nâng band bài thi thực tế.')}</p>
               <p class="tiny muted" style="margin:.25rem 0 0">${t('Diễn giải từ bảng mô tả band công khai của IELTS, không phải văn bản chính thức – bản gốc xem tại ielts.org.')}</p>
             </div>
           </div>
           <div class="row" style="gap:.5rem">
-            <a href="#/write" class="btn sm ghost">✍️ ${t('Phòng viết')}</a>
-            <a href="#/speaking" class="btn sm ghost">🗣️ ${t('Phòng Speaking')}</a>
+            <a href="#/write" class="btn sm ghost">${UI.icon('pen-line')} ${t('Phòng viết')}</a>
+            <a href="#/speaking" class="btn sm ghost">${UI.icon('message-circle')} ${t('Phòng Speaking')}</a>
           </div>
         </div>
       </div>
@@ -669,8 +669,8 @@
       <div class="card" style="margin-bottom:1.2rem;padding:.7rem .9rem;box-shadow:var(--shadow-sm);border-radius:14px">
         <div class="row between" style="flex-wrap:wrap;gap:.8rem;align-items:center">
           <div class="row" style="gap:.5rem" id="skillTabs">
-            <button class="btn sm ${isW ? 'primary' : 'ghost'}" data-skill="writing" style="font-weight:700;border-radius:10px">✍️ ${t('IELTS Writing')}</button>
-            <button class="btn sm ${!isW ? 'primary' : 'ghost'}" data-skill="speaking" style="font-weight:700;border-radius:10px">🗣️ ${t('IELTS Speaking')}</button>
+            <button class="btn sm ${isW ? 'primary' : 'ghost'}" data-skill="writing" style="font-weight:700;border-radius:10px">${UI.icon('pen-line')} ${t('IELTS Writing')}</button>
+            <button class="btn sm ${!isW ? 'primary' : 'ghost'}" data-skill="speaking" style="font-weight:700;border-radius:10px">${UI.icon('message-circle')} ${t('IELTS Speaking')}</button>
           </div>
           <div class="row" style="gap:.45rem;align-items:center;flex-wrap:wrap">
             <span class="tiny muted"><b>${t('Lọc band:')}</b></span>
@@ -684,7 +684,7 @@
       <!-- 4 Criteria Bento Grid -->
       <div class="stack" style="gap:1.2rem">
         <div class="row between" style="align-items:baseline">
-          <h2 style="font-size:1.35rem;margin:0">${isW ? '✍️ ' + t('4 Tiêu chí IELTS Writing') : '🗣️ ' + t('4 Tiêu chí IELTS Speaking')}</h2>
+          <h2 style="font-size:1.35rem;margin:0">${isW ? UI.icon('pen-line') + ' ' + t('4 Tiêu chí IELTS Writing') : UI.icon('message-circle') + ' ' + t('4 Tiêu chí IELTS Speaking')}</h2>
           <span class="small muted">${esc(t(d.desc))}</span>
         </div>
 
@@ -762,7 +762,7 @@
                 </div>
                 <div class="row" style="gap:.4rem;align-items:center">
                   <span class="chip lv" style="background:var(--primary);color:var(--primary-ink);font-weight:800">${curModel.band}</span>
-                  <button class="btn sm ghost" id="crCopy" style="padding:.25rem .5rem" title="${t('Sao chép')}" aria-label="${t('Sao chép')}">📋</button>
+                  <button class="btn sm ghost" id="crCopy" style="padding:.25rem .5rem" title="${t('Sao chép')}" aria-label="${t('Sao chép')}">${UI.icon('clipboard-list')}</button>
                   ${!isW ? `<button class="btn sm primary" id="crTts" style="padding:.25rem .6rem">🔊 ${t('Phát âm')}</button>` : ''}
                 </div>
               </div>
@@ -774,7 +774,7 @@ ${esc(isW ? curModel.essay : curModel.transcript)}
             <!-- Detailed Feedback per Criteria -->
             <div class="stack" style="gap:.8rem">
               <div class="card" style="padding:1.1rem;background:var(--surface);border-radius:14px;box-shadow:var(--shadow-sm);border:1px solid var(--line)">
-                <h3 style="font-size:1.05rem;margin:0 0 .7rem">🔍 ${t('Phân tích điểm số 4 tiêu chí')}</h3>
+                <h3 style="font-size:1.05rem;margin:0 0 .7rem">${UI.icon('search')} ${t('Phân tích điểm số 4 tiêu chí')}</h3>
                 <div class="stack" style="gap:.6rem">
                   ${Object.entries(curModel.scores).map(([k, score]) => {
                     const bCol = score >= 8 ? 'var(--accent-text)' : score >= 6.5 ? 'var(--good-text)' : 'var(--gold-text)';
@@ -811,7 +811,7 @@ ${esc(isW ? curModel.essay : curModel.transcript)}
               <div class="card" style="background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.15rem;box-shadow:var(--shadow-sm)">
                 <div class="row between" style="margin-bottom:.65rem;align-items:center">
                   <span class="chip" style="background:var(--primary-soft);color:var(--primary-text);font-weight:800;border:1px solid var(--primary)">Band ${j.from} ➔ Band ${j.to}</span>
-                  <span class="tiny muted" style="font-weight:600">✨ ${t('Bước nhảy vọt')}</span>
+                  <span class="tiny muted" style="font-weight:600">${UI.icon('sparkles')} ${t('Bước nhảy vọt')}</span>
                 </div>
                 <h3 style="font-size:1.02rem;margin:0 0 .75rem;color:var(--text)">${esc(t(j.title))}</h3>
                 <ul class="small" style="padding-left:1.2rem;margin:0;line-height:1.7">
@@ -824,12 +824,12 @@ ${esc(isW ? curModel.essay : curModel.transcript)}
 
         <!-- Action Call Buttons -->
         <div class="card" style="text-align:center;padding:1.8rem 1rem;border-radius:16px">
-          <h3 style="font-size:1.2rem;margin:0 0 .5rem">💡 ${t('Sẵn sàng áp dụng tiêu chí vào thực chiến?')}</h3>
+          <h3 style="font-size:1.2rem;margin:0 0 .5rem">${UI.icon('lightbulb')} ${t('Sẵn sàng áp dụng tiêu chí vào thực chiến?')}</h3>
           <p class="muted small" style="margin:0 0 1.2rem">${t('Áp dụng ngay: luyện viết Task 2 hoặc luyện nói với đồng hồ bấm giờ như khi thi.')}</p>
           <div class="row" style="justify-content:center;gap:.8rem;flex-wrap:wrap">
-            <a href="#/write" class="btn primary" style="font-weight:700">✍️ ${t('Thực hành viết Task 2 ngay')}</a>
-            <a href="#/speaking" class="btn" style="font-weight:700">🗣️ ${t('Luyện nói Speaking ngay')}</a>
-            <a href="#/task1" class="btn ghost" style="font-weight:700">📈 ${t('Luyện Task 1 (biểu đồ)')}</a>
+            <a href="#/write" class="btn primary" style="font-weight:700">${UI.icon('pen-line')} ${t('Thực hành viết Task 2 ngay')}</a>
+            <a href="#/speaking" class="btn" style="font-weight:700">${UI.icon('message-circle')} ${t('Luyện nói Speaking ngay')}</a>
+            <a href="#/task1" class="btn ghost" style="font-weight:700">${UI.icon('trending-up')} ${t('Luyện Task 1 (biểu đồ)')}</a>
           </div>
         </div>
       </div>

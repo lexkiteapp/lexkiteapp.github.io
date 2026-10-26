@@ -34,7 +34,7 @@
 .cbt-num.done { border: 1.5px solid var(--accent); background: var(--accent); color: #fff; box-shadow: 0 2px 4px color-mix(in srgb, var(--accent) 30%, transparent); }
 .cbt-num.flag { border-color: var(--hard); background: var(--gold-soft); color: var(--text); }
 .cbt-num.flag.done { background: var(--accent); color: #fff; border-color: var(--hard); }
-.cbt-num.flag::after { content: "🚩"; position: absolute; top: -8px; right: -6px; font-size: .75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
+.cbt-num.flag::after { content: "${UI.icon('flag')}"; position: absolute; top: -8px; right: -6px; font-size: .75rem; filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
 .cbt-num.cur { outline: 2px solid var(--primary); outline-offset: 2px; font-weight: 800; }
 mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 3px; padding: 0 2px; }
 .cbt-hlbtn { position: absolute; z-index: 60; }
@@ -110,7 +110,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     view.innerHTML = `
       <div class="page-head"><div><h1>🖥️ ${t('Thi thử Reading trên máy tính')}</h1><p class="muted">${t('Làm quen giao diện thi IELTS trên máy: đồng hồ đếm ngược, tô sáng văn bản, đánh dấu câu cần xem lại và thanh điều hướng câu hỏi.')}</p></div></div>
       <div class="grid g2">
-        <a class="card hover" href="#/cbt/${full.join(',')}" style="color:var(--text)"><div style="font-size:2.4rem">🏁</div><h2>${t('Bài thi đầy đủ · 3 passage')}</h2><p class="muted">${t('60 phút · {n} câu · độ khó tăng dần B1 → B2 → C1', { n: full.length * 5 })}</p><span class="btn primary">${t('Bắt đầu thi')} →</span></a>
+        <a class="card hover" href="#/cbt/${full.join(',')}" style="color:var(--text)"><div style="font-size:2.4rem">${UI.icon('flag')}</div><h2>${t('Bài thi đầy đủ · 3 passage')}</h2><p class="muted">${t('60 phút · {n} câu · độ khó tăng dần B1 → B2 → C1', { n: full.length * 5 })}</p><span class="btn primary">${t('Bắt đầu thi')} →</span></a>
         <div class="card"><h3>📌 ${t('Mẹo thi trên máy')}</h3><ul class="small" style="padding-left:1.1rem;line-height:1.8"><li>${t('<b>Bôi đen</b> từ khóa trong bài rồi bấm “Tô sáng” – giống bút highlight trên giấy.')}</li><li>${t('Tích <b>“Xem lại”</b> cho câu chưa chắc, cuối giờ bấm vào số câu có cờ 🚩 để quay lại.')}</li><li>${t('Không bị trừ điểm khi sai – <b>đừng bỏ trống</b> câu nào.')}</li><li>${t('Phân bổ ~20 phút cho mỗi passage; passage 3 thường khó nhất.')}</li></ul></div>
       </div>
       <div class="section-title"><h2>${t('Luyện từng passage (20 phút)')}</h2></div>
@@ -160,7 +160,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
         <header class="cbt-top" style="position:relative">
           <div class="row nowrap"><img src="icons/icon.svg" alt="" style="width:28px;height:28px;border-radius:8px"><b>Lexkite</b><span class="tiny muted">IELTS Reading · ${t('Mô phỏng thi trên máy')}</span></div>
           <div class="row nowrap">
-            <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pacingPop" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">⚡ <span>${t('Đúng tiến độ (ước tính)')}</span></button>
+            <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pacingPop" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">${UI.icon('zap')} <span>${t('Đúng tiến độ (ước tính)')}</span></button>
             <span class="cbt-clock" id="clock"></span>
             <button class="btn sm" id="hideC" type="button">${t('Ẩn giờ')}</button>
             <button class="btn sm" id="fsDown" type="button" title="${t('Giảm cỡ chữ')}">A−</button>
@@ -178,7 +178,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
           <button type="button" class="cbt-hl-dot y" data-c="y" title="${t('Tô sáng vàng (Từ khóa)')}" aria-label="${t('Tô sáng vàng')}"></button>
           <button type="button" class="cbt-hl-dot g" data-c="g" title="${t('Tô sáng xanh (Bằng chứng)')}" aria-label="${t('Tô sáng xanh')}"></button>
           <button type="button" class="cbt-hl-dot p" data-c="p" title="${t('Tô sáng hồng (Bẫy/Mâu thuẫn)')}" aria-label="${t('Tô sáng hồng')}"></button>
-          <button type="button" class="cbt-hl-btn" data-act="note">📝 ${t('Ghi chú')}</button>
+          <button type="button" class="cbt-hl-btn" data-act="note">${UI.icon('file-pen')} ${t('Ghi chú')}</button>
           <button type="button" class="cbt-hl-btn" data-act="clear">🗑️ ${t('Xóa')}</button>
         </div>
       </div>`;
@@ -206,7 +206,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
         ${list.map(({ q, i }) => `<div class="cbt-q ${i === cur ? 'cur' : ''}" id="q${i}">
           <div class="row between">
             <b>${i + 1}. ${esc(q.q)}</b>
-            <button type="button" class="cbt-flag-btn ${flag[i] ? 'on' : ''}" data-flag="${i}" aria-pressed="${!!flag[i]}" title="${t('Đánh dấu để xem lại sau (Phím F)')}">🚩 <span>${t('Xem lại')}</span></button>
+            <button type="button" class="cbt-flag-btn ${flag[i] ? 'on' : ''}" data-flag="${i}" aria-pressed="${!!flag[i]}" title="${t('Đánh dấu để xem lại sau (Phím F)')}">${UI.icon('flag')} <span>${t('Xem lại')}</span></button>
           </div>
           <div class="cbt-opts">${(q.type === 'tfng' ? ['TRUE', 'FALSE', 'NOT GIVEN'] : q.options).map((o, k) => {
             const v = q.type === 'tfng' ? o : String(k);
@@ -253,7 +253,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
         + `<div class="cbt-filter-bar">
           <button type="button" class="cbt-filter-chip ${navFilter === 'all' ? 'on' : ''}" data-filter="all" aria-pressed="${navFilter === 'all'}">${t('Tất cả')}</button>
           <button type="button" class="cbt-filter-chip ${navFilter === 'todo' ? 'on' : ''}" data-filter="todo" aria-pressed="${navFilter === 'todo'}">${t('Chưa làm ({n})', { n: missingCount })}</button>
-          <button type="button" class="cbt-filter-chip cbt-filter-flag ${navFilter === 'flag' ? 'on' : ''}" data-filter="flag" aria-pressed="${navFilter === 'flag'}">🚩 ${t('Xem lại ({n})', { n: flagCount })}</button>
+          <button type="button" class="cbt-filter-chip cbt-filter-flag ${navFilter === 'flag' ? 'on' : ''}" data-filter="flag" aria-pressed="${navFilter === 'flag'}">${UI.icon('flag')} ${t('Xem lại ({n})', { n: flagCount })}</button>
         </div>`;
 
       $$('[data-part]').forEach(b => b.onclick = () => {
@@ -303,7 +303,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       if (chip.dataset.l !== p.status + p.label) {
         chip.dataset.l = p.status + p.label;
         chip.className = `cbt-pacing-chip ${p.status}`;
-        chip.innerHTML = `⚡ <span>${esc(p.label)}</span>`;
+        chip.innerHTML = `${UI.icon('zap')} <span>${esc(p.label)}</span>`;
       }
 
       const pop = $('#pacingPop');
@@ -315,7 +315,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       if (!pop) return;
       pop.innerHTML = `
         <div class="row between" style="margin-bottom:.5rem">
-          <b>⚡ ${t('Ước tính nhịp độ làm bài')}</b>
+          <b>${UI.icon('zap')} ${t('Ước tính nhịp độ làm bài')}</b>
           <button type="button" class="btn sm" id="closePacingPop" style="padding:2px 8px;font-size:.78rem">${t('Đóng')}</button>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.6rem">
@@ -323,8 +323,8 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
           <div class="card" style="padding:.5rem;margin:0"><div class="tiny muted">${t('Tốc độ thực tế')}</div><b>${p.actualSec} ${t('s / câu')}</b></div>
         </div>
         <div class="small" style="line-height:1.7">
-          <div>📊 ${t('Tiến độ')}: <b>${p.answered}/${p.totalQs}</b></div>
-          <div>⏳ ${t('Dự kiến hoàn thành')}: <b>${p.delta >= 0 ? t('Dư khoảng {m} phút (ước tính)', { m: Math.max(0, Math.round(p.delta / 60)) }) : t('Thiếu khoảng {m} phút (ước tính)', { m: Math.ceil(Math.abs(p.delta) / 60) })}</b></div>
+          <div>${UI.icon('chart-column')} ${t('Tiến độ')}: <b>${p.answered}/${p.totalQs}</b></div>
+          <div>${UI.icon('hourglass')} ${t('Dự kiến hoàn thành')}: <b>${p.delta >= 0 ? t('Dư khoảng {m} phút (ước tính)', { m: Math.max(0, Math.round(p.delta / 60)) }) : t('Thiếu khoảng {m} phút (ước tính)', { m: Math.ceil(Math.abs(p.delta) / 60) })}</b></div>
         </div>
         <div class="tiny muted" style="margin-top:.5rem;border-top:1px dashed var(--line);padding-top:.4rem">*${t('Các chỉ số mang tính ước tính nhằm hỗ trợ phân bổ thời gian thi.')}</div>`;
       $('#closePacingPop').onclick = () => { pop.hidden = true; showPacingPop = false; $('#pacingChip').setAttribute('aria-expanded', 'false'); };
@@ -514,13 +514,13 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       document.body.classList.remove('cbt-mode');
       if (pct >= 80) { Sfx.win(); confetti(); }
       view.innerHTML = `<div class="study-wrap" style="max-width:820px">
-        <div class="card celebrate"><div class="em">${window.Kit ? Kit.svg(pct >= 80 ? 'win' : pct >= 50 ? 'happy' : 'think', 80, true) : (timeUp ? '⏰' : '🏁')}</div><h2>${timeUp ? t('Hết giờ!') : t('Đã nộp bài')} · ${t('{a}/{b} câu đúng', { a: score, b: qs.length })}</h2>
+        <div class="card celebrate"><div class="em">${window.Kit ? Kit.svg(pct >= 80 ? 'win' : pct >= 50 ? 'happy' : 'think', 80, true) : (timeUp ? UI.icon('alarm-clock') : UI.icon('flag'))}</div><h2>${timeUp ? t('Hết giờ!') : t('Đã nộp bài')} · ${t('{a}/{b} câu đúng', { a: score, b: qs.length })}</h2>
           <div class="score-ring" style="--p:${pct};--c:${pct >= 70 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
           <p class="muted">${t('Thời gian làm: {m} phút {s} giây · +{xp} XP · câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>', { m: Math.floor(used / 60), s: used % 60, xp: 15 + score * 4 })}</p></div>
-        <div class="card" style="margin-top:1rem"><h3>${t('Đáp án & giải thích')}</h3>${rows.map(({ q, i, ok }) => `<div class="q-item"><b>${ok ? '✅' : '❌'} ${i + 1}. ${esc(q.q)}</b>
+        <div class="card" style="margin-top:1rem"><h3>${t('Đáp án & giải thích')}</h3>${rows.map(({ q, i, ok }) => `<div class="q-item"><b>${ok ? UI.icon('circle-check') : '❌'} ${i + 1}. ${esc(q.q)}</b>
           <div class="small">${t('Đáp án:')} <b style="color:var(--good-text)">${esc(q.type === 'tfng' ? q.answer : q.options[q.answer])}</b>${!ok ? ` · ${t('Bạn chọn:')} <span style="color:var(--again-text)">${esc(ans[i] == null ? t('(bỏ trống)') : q.type === 'tfng' ? ans[i] : q.options[+ans[i]])}</span>` : ''}</div>
-          <div class="small muted">💡 ${esc(q.explain)}</div></div>`).join('')}</div>
-        <div class="row center" style="margin-top:1rem"><a class="btn primary" href="#/cbt">${t('Làm đề khác')}</a>${rs.map(r => `<a class="btn" href="#/read/${r.id}">📖 ${t('Học từ vựng bài “{title}”', { title: esc(r.title) })}</a>`).join('')}</div></div>`;
+          <div class="small muted">${UI.icon('lightbulb')} ${esc(q.explain)}</div></div>`).join('')}</div>
+        <div class="row center" style="margin-top:1rem"><a class="btn primary" href="#/cbt">${t('Làm đề khác')}</a>${rs.map(r => `<a class="btn" href="#/read/${r.id}">${UI.icon('book-open')} ${t('Học từ vựng bài “{title}”', { title: esc(r.title) })}</a>`).join('')}</div></div>`;
       document.body.classList.remove('bare');
     }
   }

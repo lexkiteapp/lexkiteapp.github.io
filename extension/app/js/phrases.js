@@ -38,7 +38,7 @@
 
   routes.model = function (id) {
     const m = (window.MODELS || []).find(x => x.id === id);
-    if (!m) { view.innerHTML = `<div class="card empty"><div class="em">📄</div>${t('Chưa có bài mẫu này.')}</div>`; return; }
+    if (!m) { view.innerHTML = `<div class="card empty"><div class="em">${UI.icon('file-text')}</div>${t('Chưa có bài mẫu này.')}</div>`; return; }
     const p2 = m.task === 2 ? (window.WRITE_PROMPTS || []).find(p => p.id === m.ref) : null;
     const d1 = m.task === 1 && App.task1 ? App.task1.SETS.find(x => x.id === m.ref) : null;
     const gl = m.task === 'gt' ? (window.GT_LETTERS || []).find(x => x.id === m.ref) : null; // IELTS General – viết thư
@@ -55,12 +55,12 @@
         <div class="row between" style="align-items:flex-start">
           <div><div class="row" style="gap:.35rem"><span class="md-badge">${gl ? 'General · Task 1' : 'Writing Task ' + m.task}</span><span class="md-badge soft">${esc(kind)}</span><span class="md-badge band">Band ${esc(m.band)}</span></div>
             <h1 class="md-title">${t('Bài mẫu có phân tích')}</h1></div>
-          <div class="row"><span class="chip">${t('{n} từ', { n: m.words })}</span><button class="btn sm" id="readM">🔊 ${t('Nghe bài')}</button><a class="btn sm ghost" href="${back}">✍️ ${t('Tự viết đề này')}</a></div>
+          <div class="row"><span class="chip">${t('{n} từ', { n: m.words })}</span><button class="btn sm" id="readM">🔊 ${t('Nghe bài')}</button><a class="btn sm ghost" href="${back}">${UI.icon('pen-line')} ${t('Tự viết đề này')}</a></div>
         </div>
-        <div class="md-prompt">${gl ? `<div class="small muted" style="margin-bottom:.4rem">${t('ĐỀ BÀI')}</div><div>${esc(gl.situation)}</div><ul style="margin:.4rem 0 0;padding-left:1.2rem">${gl.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>` : m.task === 1 ? `<div class="small muted" style="margin-bottom:.4rem">${t('ĐỀ BÀI')}</div><div>${esc(d1 ? d1.title : 'Task 1 · ' + m.ref)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</div>${d1 ? `<details class="md-chart"><summary class="small">📊 ${t('Xem biểu đồ')}</summary><div class="t1chart">${App.task1.draw(d1)}</div></details>` : ''}`
+        <div class="md-prompt">${gl ? `<div class="small muted" style="margin-bottom:.4rem">${t('ĐỀ BÀI')}</div><div>${esc(gl.situation)}</div><ul style="margin:.4rem 0 0;padding-left:1.2rem">${gl.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>` : m.task === 1 ? `<div class="small muted" style="margin-bottom:.4rem">${t('ĐỀ BÀI')}</div><div>${esc(d1 ? d1.title : 'Task 1 · ' + m.ref)} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</div>${d1 ? `<details class="md-chart"><summary class="small">${UI.icon('chart-column')} ${t('Xem biểu đồ')}</summary><div class="t1chart">${App.task1.draw(d1)}</div></details>` : ''}`
           : `<div class="small muted" style="margin-bottom:.4rem">${t('ĐỀ BÀI')}</div><div>${esc(p2 ? p2.text : 'Task 2 · ' + m.ref)}</div>`}</div>
       </div>
-      <div class="tabs" id="mTabs" style="margin:1rem 0">${[['read', `📄 ${t('Đọc bài mẫu')}`], ['vocab', `🧩 ${t('Điền cụm từ')}`], ['gram', `🛠️ ${t('Sửa lỗi ngữ pháp')}`], ['link', `🔗 ${t('Từ nối')}`], ['copy', `⌨️ ${t('Chép cả bài')}`], ['write', `✍️ ${t('Viết từ từ gốc')}`]].map(([k, l], i) => `<button class="${i ? '' : 'on'}" data-mt="${k}">${l}</button>`).join('')}</div>
+      <div class="tabs" id="mTabs" style="margin:1rem 0">${[['read', `${UI.icon('file-text')} ${t('Đọc bài mẫu')}`], ['vocab', `${UI.icon('puzzle')} ${t('Điền cụm từ')}`], ['gram', `🛠️ ${t('Sửa lỗi ngữ pháp')}`], ['link', `🔗 ${t('Từ nối')}`], ['copy', `${UI.icon('keyboard')} ${t('Chép cả bài')}`], ['write', `${UI.icon('pen-line')} ${t('Viết từ từ gốc')}`]].map(([k, l], i) => `<button class="${i ? '' : 'on'}" data-mt="${k}">${l}</button>`).join('')}</div>
       <div id="mPane" hidden></div>
       <div id="mRead" class="md-grid">
         <div>
@@ -69,23 +69,23 @@
             <button class="btn sm ghost" id="hlMode" title="${t('Bôi đen chữ trong bài để tô màu – tự lưu')}">🖍 ${t('Tô sáng')}</button><button class="btn sm ghost" id="hlClear" title="${t('Xóa mọi chỗ tô sáng của bạn')}">↺</button>
           </div>
           <article class="card annot md-paper ${['ch', 'gl', 'lk', 'role'].filter(on).map(k => 'an-' + k).join(' ')}" id="annot">${renderAnnotated(m.text)}</article>
-          <p class="tiny muted" style="margin-top:.5rem">💡 ${t('Di chuột / chạm vào cụm tô màu để xem nghĩa, bấm để lưu. Bôi đen bất kỳ chữ nào để tra nghĩa hoặc lưu cấu trúc của riêng bạn.')}</p>
+          <p class="tiny muted" style="margin-top:.5rem">${UI.icon('lightbulb')} ${t('Di chuột / chạm vào cụm tô màu để xem nghĩa, bấm để lưu. Bôi đen bất kỳ chữ nào để tra nghĩa hoặc lưu cấu trúc của riêng bạn.')}</p>
         </div>
         <aside class="md-side">
           <div class="card">
-            <div class="row between"><h3 style="margin:0">🧩 ${t('Cụm từ hay')} <span class="muted small">(${chunks.length})</span></h3><button class="btn sm primary" id="saveAll">${t('Lưu tất cả')}</button></div>
+            <div class="row between"><h3 style="margin:0">${UI.icon('puzzle')} ${t('Cụm từ hay')} <span class="muted small">(${chunks.length})</span></h3><button class="btn sm primary" id="saveAll">${t('Lưu tất cả')}</button></div>
             <div class="md-list">${chunks.map((c, i) => `<div class="md-item"><div><b>${esc(c.en)}</b><div class="small muted">${esc(c.vi)}</div></div><button class="icon-btn sm" data-sv="${i}" title="${t('Lưu vào Sổ cụm từ')}">${App.inDeck(c.en) ? '✓' : '+'}</button></div>`).join('')}</div>
           </div>
           ${links.length ? `<div class="card" style="margin-top:1rem"><h3 style="margin:0 0 .5rem">🔗 ${t('Từ nối & liên kết')}</h3><div class="row">${links.map(l => `<span class="md-lchip">${esc(l)}</span>`).join('')}</div></div>` : ''}
         </aside>
       </div>
       ${m.band6 || m.outline || m.vocab || m.pitfalls ? `<div id="mExtra" class="grid g2" style="align-items:start;margin-top:1rem">
-        ${m.outline ? `<div class="card" style="margin:0"><h3 style="margin-top:0">🧭 ${t('Dàn ý')}</h3><ol class="small" style="margin:0;padding-left:1.3rem;line-height:1.7">${m.outline.map(o => `<li>${esc(o)}</li>`).join('')}</ol></div>` : ''}
-        ${m.vocab ? `<div class="card" style="margin:0"><h3 style="margin-top:0">🔤 ${t('Từ vựng chủ đề')}</h3><div class="md-list">${m.vocab.map(([en, vi]) => `<div class="md-item"><div><b>${esc(en)}</b><div class="small muted">${esc(vi)}</div></div></div>`).join('')}</div></div>` : ''}
+        ${m.outline ? `<div class="card" style="margin:0"><h3 style="margin-top:0">${UI.icon('compass')} ${t('Dàn ý')}</h3><ol class="small" style="margin:0;padding-left:1.3rem;line-height:1.7">${m.outline.map(o => `<li>${esc(o)}</li>`).join('')}</ol></div>` : ''}
+        ${m.vocab ? `<div class="card" style="margin:0"><h3 style="margin-top:0">${UI.icon('a-large-small')} ${t('Từ vựng chủ đề')}</h3><div class="md-list">${m.vocab.map(([en, vi]) => `<div class="md-item"><div><b>${esc(en)}</b><div class="small muted">${esc(vi)}</div></div></div>`).join('')}</div></div>` : ''}
         ${m.pitfalls ? `<div class="card" style="margin:0"><h3 style="margin-top:0">⚠️ ${t('Lỗi hay gặp')}</h3><ul class="small" style="margin:0;padding-left:1.2rem;line-height:1.7">${m.pitfalls.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
         ${m.band6 ? `<details class="card" style="margin:0;grid-column:1/-1"><summary style="cursor:pointer;font-weight:700">📉 ${t('Bài band 6 để so sánh')} <span class="md-badge band">Band 6.0</span></summary>
           <div style="white-space:pre-wrap;line-height:1.7;margin-top:.8rem">${esc(m.band6.text)}</div>
-          <h4 style="margin:1rem 0 .4rem">🔍 ${t('Vì sao chỉ đạt band 6')}</h4>
+          <h4 style="margin:1rem 0 .4rem">${UI.icon('search')} ${t('Vì sao chỉ đạt band 6')}</h4>
           ${[['TR', 'Task Response'], ['CC', 'Coherence & Cohesion'], ['LR', 'Lexical Resource'], ['GRA', 'Grammatical Range & Accuracy']].filter(([k]) => m.band6.notes && m.band6.notes[k]).map(([k, n]) => `<div class="tip small" style="margin:.4rem 0"><b>${k} · ${n}:</b> ${esc(m.band6.notes[k])}</div>`).join('')}</details>` : ''}
       </div>` : ''}`;
     $$('[data-sv]').forEach(b => b.onclick = async () => {
@@ -214,12 +214,12 @@
   function lineExercise(m, box, mode) {
     const sents = sentencesOf(m);
     box.innerHTML = `<div class="card"><p class="small muted">${mode === 'copy' ? t('Mỗi câu chỉ hiện <b>chữ cái đầu</b> của từng từ. Nhớ lại và gõ cả câu – luyện ghi nhớ cấu trúc câu band 8.') : t('Dịch <b>câu tiếng Việt</b> sang tiếng Anh theo cách diễn đạt học thuật, rồi so với bài mẫu.')}</p>
-      <div id="lines">${sents.map((x, i) => `<div class="line" data-i="${i}">${x.role ? `<span class="an-role" translate="no" style="display:inline-block;background:var(--good);color:#fff;border-radius:6px;padding:.05rem .5rem;font-size:.75rem;font-weight:700">${esc(x.role)}</span> ` : ''}<span class="lhint">${mode === 'copy' ? esc(hint(x.s)) : `<i class="muted">⏳ ${t('đang dịch…')}</i>`}</span>
+      <div id="lines">${sents.map((x, i) => `<div class="line" data-i="${i}">${x.role ? `<span class="an-role" translate="no" style="display:inline-block;background:var(--good);color:#fff;border-radius:6px;padding:.05rem .5rem;font-size:.75rem;font-weight:700">${esc(x.role)}</span> ` : ''}<span class="lhint">${mode === 'copy' ? esc(hint(x.s)) : `<i class="muted">${UI.icon('hourglass')} ${t('đang dịch…')}</i>`}</span>
         <textarea class="input lin" rows="2" placeholder="${t('Gõ câu tiếng Anh…')}" spellcheck="false"></textarea><div class="lres small"></div></div>`).join('')}</div>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="chk">${t('Kiểm tra tất cả')}</button><button class="btn" id="show">${t('Xem bài mẫu')}</button></div></div>`;
     if (mode === 'write') {
       const L = (I18N && I18N.lang && I18N.lang()) || 'vi';
-      const flg = (I18N && I18N.flag ? I18N.flag(L) : (L === 'vi' ? '🇻🇳' : '🌐'));
+      const flg = (I18N && I18N.flag ? I18N.flag(L) : (L === 'vi' ? '🇻🇳' : UI.icon('globe')));
       sents.forEach(async (x, i) => {
         const v = L === 'vi' ? await Dict.translateVi(x.s) : await Dict.translateTo(x.s, L);
         const el = box.querySelector(`.line[data-i="${i}"] .lhint`);
@@ -342,7 +342,7 @@
         const s = sents[+l.dataset.i].s, v = l.querySelector('.lin').value.trim(); if (!v) return;
         const exact = norm(v) === norm(s), sc = Math.round(UI.similarity(norm(v), norm(s)) * 100);
         if (exact || sc >= 95) r++;
-        l.querySelector('.lres').innerHTML = exact ? `<b style="color:var(--good-text)">✅ ${t('Chính xác!')}</b>` : `<b style="color:${sc >= 85 ? 'var(--hard)' : 'var(--again)'}">${t('{n}% khớp', { n: sc })}</b> · ${diffHtml(v, s)}`;
+        l.querySelector('.lres').innerHTML = exact ? `<b style="color:var(--good-text)">${UI.icon('circle-check')} ${t('Chính xác!')}</b>` : `<b style="color:${sc >= 85 ? 'var(--hard)' : 'var(--again)'}">${t('{n}% khớp', { n: sc })}</b> · ${diffHtml(v, s)}`;
       });
       finish(m, 'write', r, sents.length, box.firstElementChild);
     };
@@ -354,7 +354,7 @@
 
   // ---------- Hộp thoại lưu cụm từ / cấu trúc ----------
   async function savePhraseDialog({ phrase, vi = '', sentence = '', title = '' }) {
-    const box = modal(`<h2>🧩 ${t('Lưu cụm từ / cấu trúc')}</h2>
+    const box = modal(`<h2>${UI.icon('puzzle')} ${t('Lưu cụm từ / cấu trúc')}</h2>
       <div class="stack">
         <label class="field"><span>${t('Cụm từ hoặc cấu trúc')}</span><input class="input" id="pPh" value="${esc(phrase)}" placeholder="${t('vd: pose a threat to / not only … but also …')}"></label>
         <label class="field"><span>${t('Nghĩa theo cụm')}</span><div class="row nowrap"><input class="input" id="pVi" value="${esc(vi)}" placeholder="${t('Nghĩa tiếng Việt của cả cụm')}"><button class="btn sm" id="pTr" type="button">🌐 ${t('Dịch')}</button></div></label>
@@ -362,7 +362,7 @@
         <label class="field"><span>${t('Câu ví dụ / ngữ cảnh')}</span><textarea class="input" id="pEx">${esc(sentence)}</textarea></label>
       </div>
       <div class="row between" style="margin-top:1rem"><button class="btn" data-close>${t('Hủy')}</button><button class="btn primary" id="pSave">${t('Lưu vào Sổ cụm từ')}</button></div>`);
-    const tr = async () => { const ph = $('#pPh').value.trim(); if (!ph) return; $('#pVi').placeholder = `⏳ ${t('Đang dịch…')}`; const L = I18N.learnLang(); const v = L === 'vi' ? await Dict.translateVi(ph) : await Dict.translateTo(ph, L); if (!$('#pVi').value) $('#pVi').value = v; $('#pVi').placeholder = t('Nghĩa tiếng Việt của cả cụm'); };
+    const tr = async () => { const ph = $('#pPh').value.trim(); if (!ph) return; $('#pVi').placeholder = `${UI.icon('hourglass')} ${t('Đang dịch…')}`; const L = I18N.learnLang(); const v = L === 'vi' ? await Dict.translateVi(ph) : await Dict.translateTo(ph, L); if (!$('#pVi').value) $('#pVi').value = v; $('#pVi').placeholder = t('Nghĩa tiếng Việt của cả cụm'); };
     $('#pTr').onclick = tr;
     if (!vi) tr();
     $('#pSave').onclick = async () => {
@@ -390,7 +390,7 @@
   function phrasePop(el, info) {
     bar.hidden = true; pop.hidden = false;
     pop.innerHTML = `<div class="row between nowrap" style="gap:.6rem"><b>${esc(info.phrase)}</b><button class="icon-btn sm" data-x aria-label="${t('Đóng')}">✕</button></div>
-      <div class="vi" style="margin:.35rem 0 .6rem">${info.vi ? esc(info.vi) : `<span class="muted small">⏳ ${t('Đang dịch…')}</span>`}</div>
+      <div class="vi" style="margin:.35rem 0 .6rem">${info.vi ? esc(info.vi) : `<span class="muted small">${UI.icon('hourglass')} ${t('Đang dịch…')}</span>`}</div>
       <div class="row" style="gap:.4rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm primary" data-save>${App.inDeck && App.inDeck(info.phrase) ? t('✓ Đã lưu') : '＋ ' + t('Lưu vào Sổ cụm từ')}</button></div>`;
     place(pop, el.getBoundingClientRect());
     $('[data-x]', pop).onclick = () => { pop.hidden = true; };
@@ -423,7 +423,7 @@
     if (!info) { bar.hidden = true; return; }
     selInfo = info;
     const n = info.text.split(/\s+/).length;
-    bar.innerHTML = `${n <= 4 ? `<button data-act="look">🔎 ${t('Tra nghĩa')}</button>` : `<button data-act="tr">🌐 ${t('Dịch')}</button>`}${n >= 2 && n <= 14 ? `<button data-act="save">🧩 ${t('Lưu cụm')}</button>` : ''}${n <= 4 ? `<button data-act="say" title="${t('Nghe')}">🔊</button>` : ''}`;
+    bar.innerHTML = `${n <= 4 ? `<button data-act="look">${UI.icon('search')} ${t('Tra nghĩa')}</button>` : `<button data-act="tr">${UI.icon('globe')} ${t('Dịch')}</button>`}${n >= 2 && n <= 14 ? `<button data-act="save">${UI.icon('puzzle')} ${t('Lưu cụm')}</button>` : ''}${n <= 4 ? `<button data-act="say" title="${t('Nghe')}">🔊</button>` : ''}`;
     bar.hidden = false; place(bar, info.rect);
   }, 10);
   document.addEventListener('mouseup', e => { if (!bar.contains(e.target) && !pop.contains(e.target)) onSelect(); });
@@ -438,14 +438,14 @@
     if (k === 'say') return UI.speak(info.text, state.settings.accent);
     bar.hidden = true;
     if (k === 'save') { getSelection().removeAllRanges(); return savePhraseDialog({ phrase: info.text, sentence: info.sentence, title: t('Lưu từ Lexkite') }); }
-    pop.hidden = false; pop.innerHTML = `<div class="muted small">⏳ ${k === 'look' ? t('Đang tra “{text}”…', { text: esc(info.text.slice(0, 60)) }) : t('Đang dịch “{text}”…', { text: esc(info.text.slice(0, 60)) })}</div>`; place(pop, info.rect);
+    pop.hidden = false; pop.innerHTML = `<div class="muted small">${UI.icon('hourglass')} ${k === 'look' ? t('Đang tra “{text}”…', { text: esc(info.text.slice(0, 60)) }) : t('Đang dịch “{text}”…', { text: esc(info.text.slice(0, 60)) })}</div>`; place(pop, info.rect);
     if (k === 'tr') {
       const L = I18N.learnLang();
       const vi = L === 'vi' ? await Dict.translateVi(info.text) : await Dict.translateTo(info.text, L);
       if (!window.VBStruct) await App.need('struct').catch(() => {});
       const structs = window.VBStruct ? VBStruct.analyze(info.text, 4) : [];
-      pop.innerHTML = `<div class="row between nowrap"><b class="small">🌐 ${t('Bản dịch')}</b><button class="icon-btn sm" data-x>✕</button></div><div style="margin:.4rem 0;line-height:1.6">${esc(vi || t('Không dịch được – thử lại sau.'))}</div>
-        ${structs.length ? `<div class="st-box"><b class="small">🧩 ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(t(x.name))}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(t(x.vi))}</div><a class="small" href="#/grammar/${esc(x.lesson)}">📐 ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''}
+      pop.innerHTML = `<div class="row between nowrap"><b class="small">${UI.icon('globe')} ${t('Bản dịch')}</b><button class="icon-btn sm" data-x>✕</button></div><div style="margin:.4rem 0;line-height:1.6">${esc(vi || t('Không dịch được – thử lại sau.'))}</div>
+        ${structs.length ? `<div class="st-box"><b class="small">${UI.icon('puzzle')} ${t('Cấu trúc trong đoạn')}</b>${structs.map(x => `<div class="st-row"><b>${esc(t(x.name))}</b> <i class="muted">“${esc(x.match)}”</i><div class="small muted">${esc(t(x.vi))}</div><a class="small" href="#/grammar/${esc(x.lesson)}">${UI.icon('ruler')} ${t('Học bài này →')}</a></div>`).join('')}</div>` : ''}
         <div data-aiout></div>
         <div class="row" style="margin-top:.5rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm" data-sps>🐢</button><button class="btn sm primary" data-deep>🤖 ${t('Giải thích sâu')}</button></div>`;
       $('[data-sp]', pop).onclick = () => UI.tts(info.text, state.settings.accent);
@@ -455,7 +455,7 @@
         // 1) Phân tích từ vựng tức thì, miễn phí (từ điển sẵn có) – luôn có kết quả, không phụ thuộc AI
         const STOP = new Set('the a an and or but of to in on at for with by from as is are was were be been being it its this that these those which who whom whose what when where why how than then there their they them we our you your he she his her i me my not no do does did have has had can could will would should may might must shall also very more most such into over under about after before between through during without within upon'.split(' '));
         const ws = [...new Set((info.text.match(/[A-Za-z][A-Za-z'-]{3,}/g) || []).map(x => x.toLowerCase()).filter(x => !STOP.has(x)))].slice(0, 8);
-        out.innerHTML = `<div class="small muted">⏳ ${t('Đang phân tích từ vựng…')}</div>`;
+        out.innerHTML = `<div class="small muted">${UI.icon('hourglass')} ${t('Đang phân tích từ vựng…')}</div>`;
         // Nhanh & tiết kiệm: từ có trong thư viện → lấy ngay trên máy; từ còn lại → 1 lượt dịch gộp duy nhất (không gọi từng từ)
         const lem = w0 => (App.lemma && App.lemma(w0)) || w0;
         const local = ws.map(w0 => IELTS_DATA.INDEX[lem(w0)] || IELTS_DATA.INDEX[w0] || null);
@@ -463,12 +463,12 @@
         const tr = miss.length ? (await (L === 'vi' ? Dict.translateVi(miss.map(lem).join('\n')) : Dict.translateTo(miss.map(lem).join('\n'), L)).catch(() => '')).split('\n') : [];
         const looks = ws.map((w0, i) => { const loc = local[i]; if (loc) return { w: loc.word, vi: App.meanOf ? App.meanOf(loc) : loc.vi, ipa: loc.ipa || '', pos: loc.pos || '' }; const k = miss.indexOf(w0), vi = (tr[k] || '').trim(); return vi && vi.toLowerCase() !== lem(w0) ? { w: lem(w0), vi: L === 'vi' ? Dict.fixVi(vi) : vi, ipa: '', pos: '' } : null; });
         const vocab = looks.filter(Boolean);
-        out.innerHTML = `${vocab.length ? `<div class="st-box"><b class="small">📚 ${t('Từ vựng quan trọng')}</b>${vocab.map(v => `<div class="st-row"><b>${esc(v.w)}</b> <span class="muted small">${esc(v.ipa)} ${esc(v.pos)}</span><div class="small">${esc(v.vi)}</div></div>`).join('')}</div>` : ''}<div data-ai2></div>`;
+        out.innerHTML = `${vocab.length ? `<div class="st-box"><b class="small">${UI.icon('library')} ${t('Từ vựng quan trọng')}</b>${vocab.map(v => `<div class="st-row"><b>${esc(v.w)}</b> <span class="muted small">${esc(v.ipa)} ${esc(v.pos)}</span><div class="small">${esc(v.vi)}</div></div>`).join('')}</div>` : ''}<div data-ai2></div>`;
         place(pop, info.rect);
         // 2) Giải thích sâu bằng AI miễn phí (không đòi khóa); mất mạng → báo rõ + đề nghị tải AI của Chrome
         const box = $('[data-ai2]', out);
         const run = async () => {
-          box.innerHTML = `<div class="small muted">⏳ ${t('AI đang phân tích…')}</div>`;
+          box.innerHTML = `<div class="small muted">${UI.icon('hourglass')} ${t('AI đang phân tích…')}</div>`;
           try { box.innerHTML = AI.renderExplain(await AI.explain(info.text, info.sentence)); } catch (e) { box.innerHTML = `<div class="small">⚠️ ${esc(AI.errText(e))}</div>`; }
           place(pop, info.rect);
         };
@@ -486,7 +486,7 @@
       const L = I18N.learnLang();
       if (!d || !d.found) {
         const vi = (d && (App.meanOf ? App.meanOf(d) : d.vi)) || (L === 'vi' ? await Dict.translateVi(info.text) : await Dict.translateTo(info.text, L));
-        pop.innerHTML = `<div class="row between nowrap"><b>${esc(info.text)}</b><button class="icon-btn sm" data-x>✕</button></div><div class="vi" style="margin:.3rem 0">${esc(vi || t('Không tìm thấy'))}</div>${info.text.includes(' ') ? `<button class="btn sm primary" data-ph>🧩 ${t('Lưu cụm')}</button>` : ''}`;
+        pop.innerHTML = `<div class="row between nowrap"><b>${esc(info.text)}</b><button class="icon-btn sm" data-x>✕</button></div><div class="vi" style="margin:.3rem 0">${esc(vi || t('Không tìm thấy'))}</div>${info.text.includes(' ') ? `<button class="btn sm primary" data-ph>${UI.icon('puzzle')} ${t('Lưu cụm')}</button>` : ''}`;
       } else {
         const mText = App.meanOf ? App.meanOf(d) : d.vi;
         pop.innerHTML = `<div class="row between nowrap"><div><b style="font-size:1.2rem">${esc(d.word)}</b> ${UI.posChip ? UI.posChip(d.pos) : ''}</div><button class="icon-btn sm" data-x>✕</button></div>
@@ -494,7 +494,7 @@
           ${mText ? `<div class="vi" style="font-size:1.05rem;margin:.2rem 0">${esc(mText)}</div>` : ''}
           ${d.def && d.def !== mText ? `<div class="small muted">${esc(d.def)}</div>` : ''}
           ${info.sentence && info.sentence !== info.text ? UI.ctxBox(info.sentence, d.word) : ''}
-          <div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-save>${App.inDeck(d.word) ? `+ ${t('Thêm ngữ cảnh')}` : `+ ${t('Lưu flashcard')}`}</button>${info.text.includes(' ') ? `<button class="btn sm" data-ph>🧩 ${t('Lưu cụm')}</button>` : ''}<a class="btn sm ghost" href="#/dict/${encodeURIComponent(d.word)}">${t('Chi tiết')}</a></div>`;
+          <div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-save>${App.inDeck(d.word) ? `+ ${t('Thêm ngữ cảnh')}` : `+ ${t('Lưu flashcard')}`}</button>${info.text.includes(' ') ? `<button class="btn sm" data-ph>${UI.icon('puzzle')} ${t('Lưu cụm')}</button>` : ''}<a class="btn sm ghost" href="#/dict/${encodeURIComponent(d.word)}">${t('Chi tiết')}</a></div>`;
         $('[data-sp]', pop).onclick = () => UI.speak(d.word, state.settings.accent, d.audio);
         $('[data-save]', pop).onclick = async ev => {
           const b = ev.currentTarget; b.disabled = true;
@@ -535,7 +535,7 @@
         : `<div class="card empty-note"><p class="muted" style="margin:0">${t('Không có bài mẫu phù hợp.')}</p></div>`;
       $$('#mTabs button').forEach(b => b.classList.toggle('on', b.dataset.v === tab));
     };
-    view.innerHTML = `<div class="page-head"><div><h1>📄 ${t('Bài mẫu band 8')}</h1><p class="muted">${t('Bài mẫu tự biên soạn, có đánh dấu cụm từ hay, từ nối và vai trò từng câu. Bấm vào cụm để lưu vào sổ.')}</p></div></div>
+    view.innerHTML = `<div class="page-head"><div><h1>${UI.icon('file-text')} ${t('Bài mẫu band 8')}</h1><p class="muted">${t('Bài mẫu tự biên soạn, có đánh dấu cụm từ hay, từ nối và vai trò từng câu. Bấm vào cụm để lưu vào sổ.')}</p></div></div>
       <div class="row between" style="gap:.6rem;margin-bottom:.8rem"><div class="tabs seg" id="mTabs">${TABS.map(([v, l]) => `<button type="button" data-v="${v}">${l} <span class="muted small">${rows.filter(r => String(r.m.task) === v).length}</span></button>`).join('')}</div>
       <input class="input" id="mq" type="search" placeholder="${t('Tìm theo chủ đề, dạng bài…')}" style="max-width:280px"></div>
       <div class="model-list" id="mList"></div>`;
@@ -548,11 +548,11 @@
     const list = Object.values(state.cards).filter(isPhrase).sort((a, b) => b.added - a.added);
     const models = window.MODELS || [];
     view.innerHTML = `
-      <div class="page-head"><div><h1>🧩 ${t('Sổ cụm từ & cấu trúc')}</h1><p class="muted">${t('Học theo <b>cụm</b> (chunk) giúp nói và viết tự nhiên hơn học từng từ rời. Lưu cụm từ, cấu trúc câu kèm nghĩa theo cụm, cách dùng và câu ví dụ – ôn đúng thời điểm vàng như từ vựng.')}</p></div>
+      <div class="page-head"><div><h1>${UI.icon('puzzle')} ${t('Sổ cụm từ & cấu trúc')}</h1><p class="muted">${t('Học theo <b>cụm</b> (chunk) giúp nói và viết tự nhiên hơn học từng từ rời. Lưu cụm từ, cấu trúc câu kèm nghĩa theo cụm, cách dùng và câu ví dụ – ôn đúng thời điểm vàng như từ vựng.')}</p></div>
         <div class="row"><button class="btn primary" id="addP">＋ ${t('Thêm cụm / cấu trúc')}</button>${list.length >= 4 ? `<a class="btn" href="#/practice/learn?src=phrases">🧠 ${t('Học các cụm')}</a>` : ''}</div></div>
-      <a class="card hover hub-card" href="#/models" style="margin-bottom:1rem"><span class="hub-ic" aria-hidden="true">📄</span><span class="hub-tx"><b>${t('Bài mẫu band 8 có đánh dấu cụm từ')}</b><small>${t('Đọc bài mẫu, bấm vào cụm hay để lưu vào sổ này')}</small></span><span class="hub-meta">${models.length ? t('{n} bài', { n: models.length }) : ''} ›</span></a>
+      <a class="card hover hub-card" href="#/models" style="margin-bottom:1rem"><span class="hub-ic" aria-hidden="true">${UI.icon('file-text')}</span><span class="hub-tx"><b>${t('Bài mẫu band 8 có đánh dấu cụm từ')}</b><small>${t('Đọc bài mẫu, bấm vào cụm hay để lưu vào sổ này')}</small></span><span class="hub-meta">${models.length ? t('{n} bài', { n: models.length }) : ''} ›</span></a>
       <div class="card" style="margin-top:1rem" id="pList">${list.length ? list.map(c => `<div class="deck-row" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) auto">
-          <div style="min-width:0"><b>${esc(c.word)}</b><div class="small" style="color:var(--accent-text);font-weight:700">${esc(App.meanOf(c))}</div>${c.note ? `<div class="tiny muted">📐 ${esc(c.note)}</div>` : ''}</div>
+          <div style="min-width:0"><b>${esc(c.word)}</b><div class="small" style="color:var(--accent-text);font-weight:700">${esc(App.meanOf(c))}</div>${c.note ? `<div class="tiny muted">${UI.icon('ruler')} ${esc(c.note)}</div>` : ''}</div>
           <div class="small muted hide-sm">${c.contexts[0] ? `“${UI.highlight(c.contexts[0].text.slice(0, 140), c.word)}”` : esc(c.ex || '')}</div>
           <div class="row nowrap" style="gap:.3rem"><button class="icon-btn sm" data-speak="${esc(c.word)}">🔊</button>${App.masteryDots(c.srs)}</div></div>`).join('')
         : `<div class="empty"><div class="em">🧩</div>${t('Chưa có cụm từ nào. Bôi đen một cụm trong bài đọc, bài mẫu hay ví dụ từ điển rồi bấm “🧩 Lưu cụm này”, hoặc thêm thủ công.')}${models.length ? `<div style="margin-top:1rem"><button class="btn primary" id="starter">✨ ${t('Thêm nhanh 20 cụm hay từ bài mẫu')}</button></div>` : ''}</div>`}</div>`;
