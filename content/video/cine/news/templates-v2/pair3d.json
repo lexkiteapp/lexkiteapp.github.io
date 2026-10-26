@@ -214,9 +214,8 @@
   },
   {
    "id": "trick",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 90,
    "from": [
     "p_t",
     0,
@@ -229,35 +228,45 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "borrow",
-      "yellow"
-     ],
-     [
-      " FROM",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "MEMORY TRICK"
+      ]
      ]
-    ],
-    [
-     [
-      "lend",
-      "green"
-     ],
-     [
-      " TO",
-      "white"
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "borrow",
+       "green"
+      ],
+      [
+       " FROM"
+      ]
      ]
-    ]
-   ],
-   "align": "l"
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "lend",
+       "blue"
+      ],
+      [
+       " TO"
+      ]
+     ]
+    }
+   ]
   },
   {
    "id": "qs",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "p_q",
     2,
@@ -270,23 +279,35 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "My brother",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ],
-    [
-     [
-      "___",
-      "yellow"
-     ],
-     [
-      " me $10.",
-      "white"
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "My brother"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "___",
+       "green"
+      ],
+      [
+       " me $10."
+      ]
+     ]
+    }
    ]
   },
   {

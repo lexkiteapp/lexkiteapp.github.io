@@ -166,9 +166,8 @@
   },
   {
    "id": "sit",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 96,
    "from": [
     "u_h",
     -1,
@@ -181,19 +180,34 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🍪"
-     ],
-     [
-      " + ",
-      "white"
-     ],
-     [
-      "@emoji:☕"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SNACK TIME"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🍪"
+      ],
+      [
+       "@emoji:☕"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What do you call it?"
+      ]
+     ]
+    }
    ]
   },
   {
@@ -248,9 +262,8 @@
   },
   {
    "id": "twist",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 80,
    "from": [
     "u_tw",
     0,
@@ -263,32 +276,56 @@
     "e",
     0.25
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🇺🇸"
-     ],
-     [
-      " biscuit =",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "CAREFUL!"
+      ]
      ]
-    ],
-    [
-     [
-      "soft bread",
-      "yellow"
-     ],
-     [
-      "@emoji:🍞"
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🇺🇸"
+      ],
+      [
+       "biscuit",
+       "blue"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "= soft bread"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "“"
+      ],
+      [
+       "Biscuits",
+       "hl"
+      ],
+      [
+       " and gravy”"
+      ]
+     ]
+    }
    ]
   },
   {
    "id": "try",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 74,
    "from": [
     "u_tw",
     -1,
@@ -301,31 +338,41 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "Can I have a",
-      "navy"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "TRY IT"
+      ]
      ]
-    ],
-    [
-     [
-      "cookie",
-      "green"
-     ],
-     [
-      ", please?",
-      "navy"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "“Can I have a"
+      ]
      ]
-    ]
-   ],
-   "plate": "mint"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "cookie",
+       "hl"
+      ],
+      [
+       ", please?”"
+      ]
+     ]
+    }
+   ]
   },
   {
    "id": "qs",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "u_q",
     0,
@@ -338,16 +385,27 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🇬🇧"
-     ],
-     [
-      " In London",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🇬🇧"
+      ],
+      [
+       "In London…",
+       "navy"
+      ]
+     ]
+    }
    ]
   },
   {

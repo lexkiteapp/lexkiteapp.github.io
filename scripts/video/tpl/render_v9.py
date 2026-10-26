@@ -441,7 +441,9 @@ def lesson_im(P, n_items, k=1.0, rw=None):   # layout-v12 lesson card (owner-app
             d.ellipse([x0, y + S_(8), x0 + dd, y + S_(8) + dd], fill=col + (255,)); ax, ay = x0 + dd / 2, y + S_(8) + dd / 2; r_ = S_(22)
             if ic == 'in': d.polygon([(ax - r_, ay), (ax + 2, ay - S_(18)), (ax + 2, ay + S_(18))], fill=(255, 255, 255, 255)); d.rectangle([ax, ay - S_(7), ax + r_, ay + S_(7)], fill=(255, 255, 255, 255))
             else: d.polygon([(ax + r_, ay), (ax - 2, ay - S_(18)), (ax - 2, ay + S_(18))], fill=(255, 255, 255, 255)); d.rectangle([ax - r_, ay - S_(7), ax, ay + S_(7)], fill=(255, 255, 255, 255))
-        else: e_ = emoji_im(ic, dd); im.alpha_composite(e_, (int(x0), int(y + S_(8))))
+        else:
+            e_ = emoji_im(ic, dd); f_ = min(1.0, dd / max(e_.width, e_.height)); e_ = e_.resize((max(1, int(e_.width * f_)), max(1, int(e_.height * f_))), Image.LANCZOS)
+            im.alpha_composite(e_, (int(x0 + (dd - e_.width) / 2), int(y + S_(8) + (dd - e_.height) / 2)))
         x = x0 + S_(100); d.text((x, y), it['word'], font=XB_(78), fill=col + (255,)); wmax = max(wmax, x + XB_(78).getlength(it['word']))
         if it.get('ipa'): d.text((x, y + S_(92)), it['ipa'], font=NO_(44), fill=LCOL['grey'] + (255,)); wmax = max(wmax, x + NO_(44).getlength(it['ipa']))
         if it.get('mean'): d.text((x, y + S_(152)), it['mean'], font=BD_(40), fill=LCOL['navy'] + (255,)); wmax = max(wmax, x + BD_(40).getlength(it['mean']))
@@ -452,6 +454,23 @@ def lesson_im(P, n_items, k=1.0, rw=None):   # layout-v12 lesson card (owner-app
         y += S_(290)
     if P.get('footer'): d.text((x0, y), P['footer'], font=XB_(44), fill=LCOL['green'] + (255,)); wmax = max(wmax, x0 + XB_(44).getlength(P['footer']))
     return im, wmax + pad
+NOTE_ST = dict(title=(58, 'XB', 'red', 90), big=(78, 'XB', None, 96), text=(44, 'BD', 'navy', 64), small=(38, 'BD', 'grey', 56))
+def note_im(lines, k=1.0, rw=None):   # layout-v12 note: mock typography for every other board text (no word wrap – the spec keeps lines short)
+    fonts = dict(XB=lambda z: font(round(z * k)), BD=lambda z: font(round(z * k), FBd)); S_ = lambda v: round(v * k)
+    H_ = sum(S_(NOTE_ST[l['st']][3]) for l in lines); W_ = rw or 2000; im = Image.new('RGBA', (W_, max(1, H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im); y = 0; wmax = 0
+    for l in lines:
+        z, fk, dc, lh = NOTE_ST[l['st']]; f_ = fonts[fk](z); x = S_(4)
+        for seg in l['segs']:
+            t_, c_ = seg[0], (seg[1] if len(seg) > 1 else dc or 'navy')
+            if t_.startswith('@emoji:'):
+                e_ = emoji_im(t_[7:], S_(z)); f2 = min(1.0, S_(z) / max(e_.width, e_.height)); e_ = e_.resize((max(1, int(e_.width * f2)), max(1, int(e_.height * f2))), Image.LANCZOS)
+                im.alpha_composite(e_, (int(x), int(y + (S_(lh) - e_.height) / 2))); x += e_.width + S_(12); continue
+            if t_.startswith('@ipa:'): f3 = ImageFont.truetype(f"{o.fonts}/NotoSans-Medium.ttf", S_(z)); d.text((x, y + S_(lh) / 2), t_[5:], font=f3, fill=LCOL['grey'] + (255,), anchor='lm'); x += f3.getlength(t_[5:]); continue
+            w_ = f_.getlength(t_)
+            if c_ == 'hl': d.rounded_rectangle([x - S_(6), y + S_(lh) * 0.14, x + w_ + S_(6), y + S_(lh) * 0.86], S_(10), fill=LCOL['yellow'] + (255,)); c_ = 'navy'
+            d.text((x, y + S_(lh) / 2), t_, font=f_, fill=LCOL[c_] + (255,), anchor='lm'); x += w_
+        wmax = max(wmax, x); y += S_(lh)
+    return im, wmax
 def plate_wrap(im, colname, pad=(34, 22)):
     w, h = im.width + 2 * pad[0], im.height + 2 * pad[1]; P = Image.new('RGBA', (w * 2, h * 2), (0, 0, 0, 0)); d = ImageDraw.Draw(P)
     d.rounded_rectangle([0, 0, w * 2 - 1, h * 2 - 1], min(h, 64) * 2 // 2, fill=COL[colname] + (246,), outline=(255, 255, 255, 235), width=8)
@@ -557,6 +576,7 @@ class Pop:
             elif s.kind == 'turn': s.build_turn_ink(rw, rh)
             elif s.kind == 'cta': s.build_cta_ink(rw, rh)
             elif s.kind == 'lesson': s.build_lesson(rw, rh)
+            elif s.kind == 'note': s.build_note(rw, rh)
         finally: INK = False; POPW, POPH = CAPW, BAND_H
         s.where = 'board'; s.mcur = s.meas
         print(f"pop {s.id} -> board {s.variant or ''} {s.im.size} in {rw}x{rh} meas {[(a, round(b)) for a, b in s.meas]} pages {len(getattr(s, 'pages', []) or [1])} region {s.region}", flush=True)
@@ -571,6 +591,14 @@ class Pop:
         s.text = ' / '.join(it['word'] + (' ' + it.get('ipa', '')) for it in P['items']); s.px = 38 * k
         s.meas = [('card', CAPR * 38 * k)]
         s.im = s.lesson_frame(n, rh - 4)   # canvas = whole region height: the card sits at the TOP-left like the mock
+    def build_note(s, rw, rh):   # mock typography at the largest scale <= 1 that fits; never below 0.85
+        L_ = s.P['lines']; s.etype = 'card'
+        for k in [x / 100 for x in range(100, 84, -1)]:
+            im, wneed = note_im(L_, k, rw - 4)
+            if wneed <= rw - 4 and im.height <= rh - 4: break
+        else: raise AssertionError(('note does not fit the board region at 0.85 of the mock size', s.id, round(wneed), im.height, rw, rh))
+        c = Image.new('RGBA', (rw - 4, rh - 4), (0, 0, 0, 0)); c.alpha_composite(im, (0, 0)); s.im = c; s.px = 38 * k
+        s.text = ' / '.join(''.join(sg[0].split(':', 1)[1] if sg[0].startswith('@') else sg[0] for sg in l['segs']) for l in L_); s.meas = [('card', CAPR * min(NOTE_ST[l['st']][0] for l in L_) * k)]
     def lesson_frame(s, m, H):   # same canvas height for every build-up step (no jump), content top-left
         key = ('ls', m)
         if key not in s.cache:
