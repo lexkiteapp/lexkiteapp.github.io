@@ -250,11 +250,11 @@
       nums.filter(n => !res[n].ok).forEach(n => App.logMistake && App.logMistake({ kind: 'listening', q: I18N.tk('{title} – Câu {n}: {q}', { title: p.title, n, q: res[n].q }), answer: res[n].answer, given: res[n].given || I18N.tk('(bỏ trống)'), explain: res[n].cue ? I18N.tk('Nghe: “…{cue}…”', { cue: res[n].cue }) : '', ref: p.id }));
       state.game = await Game.mutate(gs => { gs.listenDone = { ...(gs.listenDone || {}), [p.id]: Math.max(right, (gs.listenDone || {})[p.id] || 0) }; });
       await App.reward({ quizzes: 1, listens: 1, perfect: right === nums.length ? 1 : 0, xp: 15 + right * 3 }, $('#lRes'));
-      if (right >= 8) { Sfx.win(); confetti(); }
       $('#lRes').innerHTML = `<div class="feedback ${right >= 7 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} câu đúng', { a: right, b: nums.length })}</b> · +${15 + right * 3} XP
         <div class="small">${right >= 9 ? t('Xuất sắc – mức band 8+ cho phần này.') : right >= 7 ? t('Tốt! Xem lại các câu sai trong lời thoại.') : t('Mở lời thoại bên cạnh, bấm “Nghe đoạn có đáp án” để nghe lại chỗ sai. Câu sai đã vào Sổ lỗi sai.')}</div>
         <div class="row" style="margin-top:.6rem"><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả phần này')}</a><button class="btn sm" id="lAgain">↺ ${t('Làm lại')}</button></div></div>
         ${p.vocab && p.vocab.length ? `<div class="card" style="box-shadow:none;border:1px solid var(--line);margin-top:.8rem"><h3 style="margin-top:0">${UI.icon('library')} ${t('Từ vựng đáng học trong bài')}</h3><div class="lvocab">${p.vocab.map((v, k) => `<div class="row between nowrap"><span><b>${esc(v.w)}</b> <span class="muted small">${esc(v.vi)}</span></span><button class="btn sm ghost" data-v="${k}">${App.inDeck(v.w) ? '✓' : '+ ' + t('Lưu')}</button></div>`).join('')}</div></div>` : ''}`;
+      Sfx.finish({ pct: Math.round(right / nums.length * 100), xp: 15 + right * 3, el: $('#lRes') }); // âm thắng + pháo giấy ≥ 8/10 + thẻ số liệu
       $('#lAgain').onclick = () => routes.listen(id, query);
       App.lazy('nxs').then(() => NextStep.render($('#lRes .feedback'), 'listen', p.id)).catch(() => {});
       $$('[data-v]', $('#lRes')).forEach(b => b.onclick = async () => {
@@ -409,7 +409,7 @@
         let pct;
         if (mode === 'full') { const d = diff(l.t, $('#dIn').value); pct = d.pct; $('#dFb').innerHTML = `<div class="feedback ${pct >= 0.9 ? 'ok' : 'no'}" style="position:static"><b>${t('{p}% chính xác', { p: Math.round(pct * 100) })}</b><div style="margin-top:.4rem;line-height:1.9">${d.html}</div><div class="tiny muted" style="margin-top:.3rem"><span class="dk ok">${t('đúng')}</span> <span class="dk miss">${t('bỏ sót')}</span> <span class="dk extra">${t('thừa/sai')}</span></div></div>`; }
         else { let r = 0; hs.forEach(h => { const a = clean(words[+h.dataset.i]), ok = clean(h.value) === a; h.classList.add(ok ? 'ok' : 'no'); if (!ok) h.title = words[+h.dataset.i]; if (ok) r++; }); pct = hs.length ? r / hs.length : 1; $('#dFb').innerHTML = `<div class="feedback ${pct >= 0.9 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} ô đúng', { a: r, b: hs.length })}</b><div class="small" style="margin-top:.3rem">${esc(l.t)}</div></div>`; }
-        score += pct; pct >= 0.9 ? Sfx.correct() : Sfx.wrong();
+        score += pct; Sfx.answer(pct >= 0.9, { el: $('#dFb') });
         $('#dChk').textContent = t('Câu tiếp') + ' ↵';
       };
       $('#dChk').onclick = check;

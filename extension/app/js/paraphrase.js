@@ -37,7 +37,7 @@
       $$('[data-o]').forEach(b => b.onclick = () => {
         const ok = b.dataset.o === it.p; if (ok) right++;
         $$('[data-o]').forEach(x => { x.disabled = true; if (x.dataset.o === it.p) x.classList.add('correct'); else if (x === b) x.classList.add('wrong'); });
-        ok ? Sfx.correct() : Sfx.wrong();
+        Sfx.answer(ok);
         $('#ppFb').innerHTML = `<div class="feedback ${ok ? 'ok' : 'no'}" style="position:static"><i translate="no">${esc(it.q)}</i> ≈ <b translate="no">${esc(it.p)}</b> <button class="btn sm primary" id="ppNext" style="margin-left:.6rem">${t('Tiếp')} →</button></div>`;
         $('#ppNext').onclick = () => { i++; draw(); };
       });

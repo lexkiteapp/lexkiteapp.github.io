@@ -323,7 +323,7 @@
         pend = []; fb.innerHTML = `${ok ? `<span class="ok">✓ ${t('Chính xác!')}</span>` : `<span class="bad">✗ ${t('Chưa đúng.')}</span> ${t('Đáp án:')} <b lang="en" translate="no">${esc(q.ans)}</b>`} <span lang="en" translate="no">· ${esc(full)}</span> ${sayBtn(full, t('Nghe câu'))}${why ? `<br><span class="small muted us-why0">${why}</span>` : ''}`; settle();
         // Thẻ giải thích (mẫu · vì sao · vì sao sai · ví dụ · mẹo · cùng nhóm) – tải lười; lỗi mạng → giữ dòng nghĩa ở trên
         xcFor(qs).then(map => { if (!fb.isConnected) return; const card = xcHtml(q, map, ok, inp.value, why); if (!card) return; const w0 = fb.querySelector('.us-why0'); if (w0) { w0.previousElementSibling && w0.previousElementSibling.remove(); w0.remove(); } fb.insertAdjacentHTML('beforeend', card); ExplainCard.bind(box, xcHooks(qs)); }).catch(() => {});
-        if (window.Sfx) { try { ok ? Sfx.correct && Sfx.correct() : Sfx.wrong && Sfx.wrong(); } catch (er) { /* bỏ qua */ } }
+        if (window.Sfx) { try { Sfx.answer ? Sfx.answer(ok) : ok ? Sfx.correct && Sfx.correct() : Sfx.wrong && Sfx.wrong(); } catch (er) { /* bỏ qua */ } }
         if (done === qs.length) {
           $('#usScore', box).innerHTML = `<div class="us-score" role="status"><b>${right}/${qs.length}</b><span>${right === qs.length ? t('Tuyệt vời – bạn nắm chắc rồi!') : right >= qs.length - 1 ? t('Rất tốt! Xem lại câu sai một chút nhé.') : t('Đọc lại ví dụ ở trên rồi làm lại nhé.')}</span><button type="button" class="btn sm" id="usAgain">↻ ${t('Làm bộ câu khác')}</button></div>`;
           $('#usAgain', box).onclick = () => { seed++; run(); const f = box.querySelector('input'); if (f) f.focus(); };

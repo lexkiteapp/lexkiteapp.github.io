@@ -61,7 +61,7 @@
           if (!alive()) return;
           const c = colorize(it.text, heard); score += c.pct; done++;
           $('#rxStage').innerHTML = `<div class="rx-sent">${c.html}</div><div class="small muted" style="margin-top:.4rem">${t('Bạn nói')}: “${esc(heard || '…')}” · <b>${c.pct}%</b></div>`;
-          c.pct >= 80 ? Sfx.correct() : Sfx.wrong && Sfx.wrong();
+          Sfx.answer(c.pct >= 80);
           $('#rxNext').hidden = false;
         },
         error: () => { if (!alive()) return; $('#rxStage').insertAdjacentHTML('beforeend', `<p class="small muted">${t('Không nghe rõ – thử lại hoặc bỏ qua.')}</p>`); $('#rxNext').hidden = false; },

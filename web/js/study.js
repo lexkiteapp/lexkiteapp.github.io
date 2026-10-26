@@ -339,8 +339,7 @@
       if (g === 0) updateKit('think');
       else if (g >= 2) updateKit('win');
       else updateKit('happy');
-      g === 0 ? Sfx.wrong() : Sfx.correct();
-      haptic(g > 0);
+      Sfx.answer(g > 0); // âm + rung + aria-live + chuỗi đúng liền (game.js)
       const fc = $('#flash');
       if (fc && !swiped) {
         fc.classList.remove('ans-bounce', 'ans-shake');
@@ -409,8 +408,7 @@
     const finish = (ok, given, ty) => {
       if (answered) return; answered = true;
       if (!ok && App.logMistake) App.logMistake({ kind: 'vocab', q: q.type.startsWith('mcq-en') || q.type === 'type-vi' || q.type === 'type-spell' ? I18N.tk('Từ tiếng Anh nghĩa là “{vi}”?', { vi: mean(w) }) : q.type === 'type-cloze' && w.ex ? I18N.tk('Điền từ: {sentence}', { sentence: w.ex.replace(UI.wordRegex(w.word), '___') }) : I18N.tk('Nghĩa của “{word}”?', { word: w.word }), answer: q.type === 'mcq-vi' ? w.vi : (q.answer || w.word), given: given || '', explain: `${w.word} ${w.ipa || ''} = ${w.vi}`, ref: w.word });
-      ok ? Sfx.correct() : Sfx.wrong();
-      haptic(ok);
+      Sfx.answer(ok, { badge: false }); // huy hiệu chuỗi: lượt quiz đã có chip LessonFx.decorate
       const fb = $('#fb', box);
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
         <div class="sheet-head">${ty && ty.typo ? FX.typoHead(ty.marks) : ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer || w.word) })}</div>
@@ -581,7 +579,6 @@
       const pct = Math.round(run.score / qs.length * 100);
       const perfect = pct === 100;
       App.reward({ quizzes: 1, perfect: perfect ? 1 : 0, xp: perfect ? 15 : 5 });
-      if (pct >= 80) { Sfx.win(); confetti(); }
       const unit = new URLSearchParams(location.hash.split('?')[1] || '').get('unit');
       const unitPassed = unit && App.completeUnit ? App.completeUnit(unit, pct) : null;
       const band = mode === 'test' ? (pct >= 95 ? '8.5+' : pct >= 85 ? '7.5–8.0' : pct >= 70 ? '6.5–7.0' : pct >= 50 ? '5.5–6.0' : '< 5.5') : '';
@@ -596,6 +593,7 @@
         ${unit ? `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static;margin:1rem 0">${pct >= 80 ? '🏁 ' + t('<b>Hoàn thành bài!</b> Các từ đã được thêm vào flashcard để ôn đúng thời điểm vàng.') : '🔁 ' + t('Cần đạt <b>80%</b> để hoàn thành bài – ôn lại các từ sai rồi thử lại nhé.')}</div>` : ''}
         <div class="row center" style="margin-top:1rem">${unit ? `<a class="btn primary" href="#/path">🗺️ ${t('Về lộ trình')}</a><button class="btn" id="again">${t('Làm lại')}</button>` : `<button class="btn primary" id="again">${t('Làm lượt mới')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Đổi chế độ')}</a>`}${FX ? FX.shareBtn(pct) : ''}</div>
       </div></div>`;
+      Sfx.finish({ pct }); // âm thắng + pháo giấy ≥ 80% (thẻ số liệu đã có trong FX.summary)
       if (unitPassed) unitPassed.then(first => { if (first) { confetti(160); Sfx.win(); } });
       practiceDone({ mode: as || mode, src, pct, wait: unitPassed });
       $('#again').onclick = again;

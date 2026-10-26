@@ -158,8 +158,9 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     const next = () => {
       if (i >= qs.length) {
         const pct = Math.round(right / qs.length * 100);
-        App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 2 }); if (pct >= 80) { Sfx.win(); confetti(); }
+        App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 2 });
         view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">${UI.icon('shuffle')}</div><h2>${t('{right}/{total} câu đúng ({pct}%)', { right, total: qs.length, pct })}</h2><p class="muted">${t('Câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>.')}</p><div class="row center"><a class="btn primary" href="#/grammar/mix">${t('Luyện lượt mới')}</a><a class="btn" href="#/grammar">${t('Về danh sách bài')}</a></div></div></div>`;
+        Sfx.finish({ pct, xp: 10 + right * 2, el: $('.celebrate', view) }); // âm thắng + pháo giấy ≥ 80% + thẻ số liệu
         return;
       }
       const { q, x, d } = qs[i];
@@ -183,7 +184,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         if ($('#fb').innerHTML) return;
         const ok = +b.dataset.k === q.answer;
         $$('.option')[q.answer].classList.add('right'); if (!ok) b.classList.add('wrong');
-        ok ? (right++, Sfx.correct()) : Sfx.wrong();
+        if (ok) right++; Sfx.answer(ok, { el: b, answer: q.options[q.answer] });
         if (!ok && App.logMistake) App.logMistake({ kind: 'grammar', q: q.q, answer: q.options[q.answer], given: q.options[+b.dataset.k], explain: q.explain, ref: x.id });
         $('#fb').innerHTML = `<div class="feedback ${ok ? 'ok' : 'no'}"><b>${ok ? UI.icon('circle-check') + ' ' + t('Chính xác!') : '❌ ' + t('Chưa đúng')}</b><div class="small">${esc(q.explain)}</div><div class="row" style="margin-top:.5rem"><button class="btn primary" id="nx">${t('Tiếp')} ↵</button><a class="btn sm ghost" href="#/grammar/${x.id}">${t('Xem lại bài')}</a></div></div>`;
         $('#nx').onclick = () => { i++; next(); }; $('#nx').focus();
@@ -219,7 +220,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       answered++; if (ok) right++;
       $$('.opts button', item).forEach(b2 => { if (+b2.dataset.v === q.answer) b2.classList.add('right'); });
       if (!ok) btn.classList.add('wrong');
-      ok ? Sfx.correct() : Sfx.wrong();
+      Sfx.answer(ok, { el: btn, answer: q.options[q.answer] });
       if (!ok && App.logMistake) App.logMistake({ kind: 'grammar', q: q.q, answer: q.options[q.answer], given: q.options[+btn.dataset.v], explain: q.explain, ref: x.id });
       const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = ok ? `${UI.icon('circle-check')} ${esc(q.explain)}` : `❌ ${t('Bạn chọn:')} <s>${esc(q.options[+btn.dataset.v])}</s> · ${t('Đáp án: <b>{a}</b>', { a: esc(q.options[q.answer]) })}<div>${esc(q.explain)}</div>`;
       xcGram(x, q, ok, q.options[+btn.dataset.v], ex);
@@ -228,10 +229,10 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         const pct = Math.round(right / x.quiz.length * 100);
         await App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 3 }, $('#gRes'));
         state.game = await Game.mutate(gs => { gs.grammarDone = { ...(gs.grammarDone || {}), [x.id]: Math.max(pct, (gs.grammarDone || {})[x.id] || 0) }; });
-        if (pct >= 80) { Sfx.win(); confetti(); }
         $('#gRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: x.quiz.length, pct })}</b> · +${10 + right * 3} XP
           ${pct < 80 ? `<div class="small">${t('Xem lại phần công thức và lỗi hay gặp rồi làm lại nhé. Câu sai đã vào Sổ lỗi sai.')}</div>` : ''}
           <div class="row" style="margin-top:.6rem"><button class="btn sm" id="gAgain">↺ ${t('Làm lại')}</button>${right < x.quiz.length ? `<a class="btn sm" href="#/mistakes">${UI.icon('notebook')} ${t('Sổ lỗi sai')}</a>` : ''}${next ? `<a class="btn sm primary" href="#/grammar/${next.id}">${t('Bài tiếp theo')} →</a>` : ''}</div></div>${recapHtml(x)}`;
+        Sfx.finish({ pct, xp: 10 + right * 3, el: $('#gRes') });
         $('#gRes').scrollIntoView({ behavior: 'smooth', block: 'center' });
         $('#gAgain').onclick = again;
       }
@@ -291,7 +292,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     }
     item.dataset.locked = 1; fb.hidden = false;
     fb.innerHTML = `${typoR ? window.LessonFx.typoHead(typoR.marks) : ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <b>{a}</b>', { a: esc(answer) })}`}${d.ex ? `<div class="muted">${esc(d.ex)}</div>` : ''}`;
-    ok ? Sfx.correct() : Sfx.wrong();
+    Sfx.answer(ok, { el: item, answer });
     return { ok, given, answer };
   }
   function drillsHtml(x) {
@@ -307,8 +308,8 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       if (answered === ds.length) {
         const pct = Math.round(right / ds.length * 100);
         await App.reward({ quizzes: 1, grammar: 1, writes: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 4 }, $('#dRes'));
-        if (pct >= 80) { Sfx.win(); confetti(); }
         $('#dRes').innerHTML = `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static"><b>${t('{right}/{total} câu đúng ({pct}%)', { right, total: ds.length, pct })}</b> · +${10 + right * 4} XP${onDone ? '' : ''}</div>`;
+        Sfx.finish({ pct, xp: 10 + right * 4, el: $('#dRes') });
         if (onDone) onDone(pct);
       }
     };
@@ -352,11 +353,11 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         const i = sen.toLowerCase().indexOf(hit.toLowerCase()), marked = i >= 0 ? esc(sen.slice(0, i)) + `<mark class="g-ok">${esc(sen.slice(i, i + hit.length))}</mark>` + esc(sen.slice(i + hit.length)) : esc(sen);
         const first = !(state.game && state.game.gch && state.game.gch[x.id + '|' + sen.toLowerCase()]);
         if (first) { App.reward({ xp: 15 }); Game.mutate(gs => { gs.gch = gs.gch || {}; gs.gch[x.id + '|' + sen.toLowerCase()] = 1; }).then(g2 => { state.game = g2; }); }
-        Sfx.correct();
+        Sfx.answer(true, { el: out });
         out.innerHTML = `<div class="feedback ok" style="position:static;margin-top:.6rem;display:flex;gap:.8rem;align-items:center">${window.Kit ? Kit.svg('cheer', 56) : '🎉'}<div><div>${marked}</div><b>${t('Tuyệt! Bạn đã dùng đúng cấu trúc của bài.')}</b>${first ? ' +15 XP' : ''}<div style="margin-top:.4rem"><button class="btn sm" id="gcSave">＋ ${t('Lưu câu này vào Sổ tay ôn tập')}</button></div></div></div>`;
         const sv = $('#gcSave', out); if (sv) sv.onclick = () => App.savePhraseDialog ? App.savePhraseDialog({ phrase: x.en, vi: I18N.lang() === 'vi' ? x.title : '', sentence: sen, title: t('Ngữ pháp') }) : null;
       } else {
-        Sfx.wrong && Sfx.wrong();
+        Sfx.answer(false, { el: out });
         out.innerHTML = `<div class="feedback no" style="position:static;margin-top:.6rem">${t('Chưa thấy cấu trúc của bài trong câu.')} ${t('Công thức')}: <b translate="no">${esc(formula)}</b><div class="small" style="margin-top:.3rem">${t('Gợi ý: xem lại ví dụ ở phần “Cách dùng”, rồi viết lại câu theo đúng công thức.')}</div></div>`;
       }
     };
@@ -427,7 +428,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
         const check = () => {
           if (built.length < words.length) return;
           const ok = built.map(j => words[j]).join(' ') === words.join(' ');
-          msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; ok ? Sfx.correct() : Sfx.wrong();
+          msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; Sfx.answer(ok, { el: slot, answer: s });
           if (ok) UI.speak(s, state.settings.accent);
           slot.classList.add(ok ? 'ok' : 'no');
         };

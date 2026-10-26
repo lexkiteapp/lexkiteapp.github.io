@@ -41,6 +41,8 @@ window.Kit = {
 window.Sfx = {
   win: () => {},
   levelUp: () => {},
+  answer: () => 0,
+  finish: () => {},
 };
 
 let rewarded = 0;
