@@ -449,9 +449,9 @@
   function notFound() {
     const { name } = parseHash(), n = String(name || '').toLowerCase().slice(0, 30);
     const near = n.length > 2 ? Object.keys(routes).filter(r => r !== 'welcome' && Math.abs(r.length - n.length) <= 2).map(r => [r, lev(n, r)]).filter(x => x[1] <= Math.max(1, Math.floor(n.length / 4))).sort((a, b) => a[1] - b[1])[0] : null;
-    view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">🧭</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
+    view.innerHTML = `<div class="card empty-note" style="max-width:560px;margin:2rem auto;text-align:center"><div style="font-size:2.4rem">${UI.icon('compass')}</div><h1 style="margin:.3rem 0">${t('Không tìm thấy trang')}</h1><p class="muted">${t('Liên kết có thể đã cũ. Chọn một mục bên dưới để tiếp tục học.')}</p>
       ${near ? `<p><a class="btn primary sm" href="#/${near[0]}">${t('Có phải bạn muốn mở:')} #/${near[0]}</a></p>` : ''}
-      <div class="row center" style="flex-wrap:wrap">${[['home', '🏠', t('Hôm nay')], ['vocab', '📚', t('Từ vựng')], ['skills', '🎯', t('Kỹ năng')], ['tests', '🏁', t('Thi thử')], ['me', '👤', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${ic} ${l}</a>`).join('')}</div></div>`;
+      <div class="row center" style="flex-wrap:wrap">${[['home', 'house', t('Hôm nay')], ['vocab', 'library', t('Từ vựng')], ['skills', 'target', t('Kỹ năng')], ['tests', 'flag', t('Thi thử')], ['me', 'user', t('Tôi')]].map(([r, ic, l]) => `<a class="btn sm" href="#/${r}">${UI.icon(ic)} ${l}</a>`).join('')}</div></div>`;
   }
   // Tải trước gói của trang khi người dùng sắp bấm (rê chuột/chạm vào liên kết) → mở trang gần như tức thì
   const prefetchFor = a => { const h = a && a.getAttribute && a.getAttribute('href'); if (!h || !h.startsWith('#/')) return; const n = h.slice(2).split(/[/?]/)[0]; const b = [].concat(ROUTE_BUNDLE[n] || []); if (b.some(x => !App.loaded(x))) App.need(...b).catch(() => {}); };

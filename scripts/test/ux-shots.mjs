@@ -6,7 +6,7 @@ import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } 
 import { chromium } from 'playwright';
 const [AFTER, BEFORE, OUT = 'out/ux'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const ROUTES = ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'plan', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence'];
+const ROUTES = ['home', 'skills', 'practice', 'review', 'vocab', 'library', 'tests', 'mistakes', 'quick', 'me', 'goal', 'dict/sustainable', 'confidence'];
 const CONFIGS = [['mobile', 'light', 'en'], ['mobile', 'dark', 'en'], ['mobile', 'light', 'ar'], ['desktop', 'light', 'en'], ['desktop', 'dark', 'vi']];
 const browser = await chromium.launch();
 const report = { errs: [], metrics: {} };
