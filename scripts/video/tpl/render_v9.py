@@ -88,7 +88,7 @@ if BRD and _bk[SP['clips'][0]].get('crop'):   # v10 punch-in: a fixed uniform cr
         hb = _tb(TR['clips'][c]['head']); _P[max(0, hb[1] - 6):hb[3] + 6, max(0, hb[0] - 6):hb[2] + 6] = True
     _q = _B['quad']; _qx1 = min(_q[1][0], _q[2][0]); _qy1 = min(_q[2][1], _q[3][1])
     _fr = np.zeros((H, W), bool); _fr[SAFE['y0'] + 6:int(min(SAFE['y1'], _qy1)) - 6, SAFE['x0'] + 4:int(min(SAFE['x1'], _qx1)) - 6] = True; _fr &= ~_P
-    _r = _maxrect(_fr.reshape(H // 4, 4, W // 4, 4).all((1, 3)), CROP.get('zone_hcap', 0) // 4 or None)   # bank crop.zone_hcap: prefer the wide strip over a tall narrow one (3D clip c04); _B['zone'] = [v * 4 for v in _r]; _B['zone_wh'] = [_B['zone'][2] - _B['zone'][0], _B['zone'][3] - _B['zone'][1]]; _B.pop('zone_free', None)
+    _r = _maxrect(_fr.reshape(H // 4, 4, W // 4, 4).all((1, 3)), CROP.get('zone_hcap', 0) // 4 or None)   # bank crop.zone_hcap: prefer the wide strip over a tall narrow one (3D clip c04); _B['zone'] = list(CROP['zone_force']) if CROP.get('zone_force') else [v * 4 for v in _r]; _B['zone_wh'] = [_B['zone'][2] - _B['zone'][0], _B['zone'][3] - _B['zone'][1]]; _B.pop('zone_free', None)   # zone_force: bank-declared board column (crop coords), still checked by qc text_on_board / head_clear
     _rows = [y for y in range(SAFE['y0'], SAFE['y1']) if _P[y, SAFE['x0']:SAFE['x1']].any()]; _bt, _bb = max(_rows) + 8, SAFE['y1'] - 3
     if _bb - _bt >= 150:   # seated: the desk top below the hands is the caption band (screen space, full safe width)
         _B['cap'] = dict(cx=(SAFE['x0'] + SAFE['x1']) / 2, cy=(_bt + _bb) / 2, w=SAFE['x1'] - SAFE['x0'], lines=1, box=[SAFE['x0'], _bt, SAFE['x1'], _bb], body_overlap_rows=0, body_overlap_px=0)

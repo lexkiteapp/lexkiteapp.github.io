@@ -1648,7 +1648,13 @@
     "oy": 27,
     "sharp": 0.6,
     "sigma": 1.1,
-    "why": "v10 phone framing: punch-in on teacher + board (same as c01) · layout v12: tall left board column (no zone_hcap)"
+    "why": "v10 phone framing: punch-in on teacher + board (same as c01) · layout v12: tall left board column (no zone_hcap)",
+    "zone_force": [
+     78,
+     240,
+     580,
+     1180
+    ]
    },
    "file": "clips/c04_carlos_3d.mp4",
    "smooth": "tools/dl24/c04_carlos_3d.mp4",

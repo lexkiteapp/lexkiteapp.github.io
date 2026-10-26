@@ -161,6 +161,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "free-tier-guard",
+   "workflow": "free-tier-guard.yml",
+   "cron": [
+    "35 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ci-triage",
    "workflow": "ci-triage.yml",
    "cron": [
