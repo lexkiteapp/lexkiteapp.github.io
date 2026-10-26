@@ -391,6 +391,9 @@ ok(logs.length >= 8 && logs.some(l => l.email === 'cli') && logs.some(l => l.op 
       const rn = await cli({ op: 'render_link', file_id: 'không-có' }); ok(rn.s === 404, 'render_link file lạ → 404');
     }
     q1 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q1.j.ok && q1.j.count === 1, 'refs_sync nguồn footage');
+    { const q2 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q2.j.ok && q2.j.added === 0 && q2.j.removed === 0, 'refs_sync lặp lại không đổi → 0 dòng ghi (chỉ ghi phần khác)');
+      const q3 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }, { s: 'f7'.repeat(32), st: 'approved' }] }); ok(q3.j.added === 1 && q3.j.removed === 0, 'refs_sync thêm 1 → chỉ chèn 1');
+      const q4 = await cli({ op: 'refs_sync', source: 'footage', items: [{ s: SHA_F, st: 'approved' }] }); ok(q4.j.added === 0 && q4.j.removed === 1, 'refs_sync bớt 1 → chỉ xoá 1'); }
     q1 = await cli({ op: 'ext_alert', kind: 'gitsize', ok: false, n: 1, repo: 'x', gb: 3 }); ok(q1.j.ok, 'ext_alert gitsize');
     { // bản tin CI hằng ngày (ci-triage.yml): cảnh báo 'ci' mức warn + ≤ 1 thư / 20 h; ok → gỡ cảnh báo
       const m0 = mails.length;
@@ -558,6 +561,9 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
   let r = await cliE(E0, { op: 'd1b_counts' }); ok(r.s === 200 && r.j.match === false, 'trước khi sao: số dòng D1 chính ≠ nội bộ');
   for (const t of TABLES) { let after = 0, pages = 0; if (['drive_alerts', 'drive_meta', 'drive_nonce'].includes(t)) after = ''; for (;;) { r = await cliE(E0, { op: 'd1b_copy', table: t, after, limit: 7 }); ok(r.s === 200 && r.j.ok, 'd1b_copy ' + t); pages++; if (r.j.done || pages > 400) break; after = r.j.last; } }
   r = await cliE(E0, { op: 'd1b_counts' }); ok(r.j.match === true && r.j.counts.drive_files.main === cnt(sql, 'drive_files') && r.j.counts.drive_files.main > 5, 'sau khi sao: số dòng khớp mọi bảng (drive_files ' + r.j.counts.drive_files.main + ')');
+  // 26/10: chạy lại toàn bộ lần 2 không được nhân đôi drive_refs (trước: chèn thêm → không bao giờ khớp → sao lại mỗi ngày)
+  for (const t of TABLES) { let after = 0, pages = 0; if (['drive_alerts', 'drive_meta', 'drive_nonce'].includes(t)) after = ''; for (;;) { r = await cliE(E0, { op: 'd1b_copy', table: t, after, limit: 7 }); pages++; if (r.j.done || pages > 400) break; after = r.j.last; } }
+  r = await cliE(E0, { op: 'd1b_counts' }); ok(r.j.match === true && r.j.counts.drive_refs.internal === cnt(sql, 'drive_refs') && cnt(sql, 'drive_refs') > 0, 'sao lại lần 2: vẫn khớp, drive_refs không nhân đôi (' + r.j.counts.drive_refs.internal + ')');
   ok(!r.text.includes('tok-secret-b'), 'không lộ token D1B'); ok((await cliE(E0, { op: 'd1b_copy', table: 'users' })).s === 400, 'd1b_copy chỉ cho bảng nội bộ trong danh sách');
   // 2) ghi đôi: upload mới xuất hiện ở CẢ HAI, id khớp
   const SHA_D = createHash('sha256').update('dual-one').digest('hex');

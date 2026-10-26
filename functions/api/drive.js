@@ -586,10 +586,13 @@ const POOL_OPS = {
     const after = key && key !== 'id' && key !== '_offset' ? String(b.after || '') : +b.after || 0;
     const sel = key === '_offset' ? `SELECT * FROM ${t} ORDER BY 1, 2 LIMIT ${lim} OFFSET ?` : key === 'id' ? `SELECT * FROM ${t} WHERE id > ? ORDER BY id LIMIT ${lim}` : key ? `SELECT * FROM ${t} WHERE ${key} > ? ORDER BY ${key} LIMIT ${lim}` : `SELECT rowid AS _rid, * FROM ${t} WHERE rowid > ? ORDER BY rowid LIMIT ${lim}`;
     const rows = (await env.DB.prepare(sel).bind(after).all()).results || [];
+    // drive_refs (không khoá): trang đầu xoá sạch bên nội bộ rồi sao KÈM rowid – trước 26/10 chèn thêm mỗi lần chạy → dòng nhân đôi, số dòng không bao giờ khớp → sao lại toàn bộ mỗi ngày (> 100k dòng ghi).
+    const sts = !key && !after ? [bdb.prepare(`DELETE FROM ${t}`)] : [];
     if (rows.length) {
-      const cols = Object.keys(rows[0]).filter(c => c !== '_rid'), ins = `INSERT OR REPLACE INTO ${t} (${cols.join(', ')}) VALUES (${cols.map(() => '?').join(', ')})`;
-      await bdb.batch(rows.map(r => bdb.prepare(ins).bind(...cols.map(c => (r[c] === undefined ? null : r[c])))));
+      const cols = Object.keys(rows[0]).filter(c => c !== '_rid'), dst = key ? cols : ['rowid', ...cols], ins = `INSERT OR REPLACE INTO ${t} (${dst.join(', ')}) VALUES (${dst.map(() => '?').join(', ')})`;
+      for (const r of rows) sts.push(bdb.prepare(ins).bind(...(key ? [] : [r._rid]), ...cols.map(c => (r[c] === undefined ? null : r[c]))));
     }
+    if (sts.length) await bdb.batch(sts);
     const last = key === '_offset' ? after + rows.length : rows.length ? (key === 'id' ? rows[rows.length - 1].id : key ? rows[rows.length - 1][key] : rows[rows.length - 1]._rid) : after;
     if (rows.length < lim && key === 'id') try { // id AUTOINCREMENT của hai bên phải tiếp nối cùng số (ghi đôi dùng id tự sinh ở cả hai)
       const sq = await env.DB.prepare('SELECT seq FROM sqlite_sequence WHERE name = ?').bind(t).first();
@@ -694,10 +697,17 @@ const OPS = {
     const src = b.source === 'manifest' ? 'manifest' : b.source === 'library' ? 'library' : b.source === 'footage' ? 'footage' : null, items = Array.isArray(b.items) ? b.items : null;
     if (!src || !items || items.length > 5000) return { status: 400, error: 'bad-input' };
     const rows = items.map(x => ({ s: /^[0-9a-f]{64}$/.test(String(x.s || '').toLowerCase()) ? String(x.s).toLowerCase() : null, f: /^[A-Za-z0-9_-]{10,120}$/.test(String(x.f || '')) ? String(x.f) : null, n: x.n ? String(x.n).slice(0, 200) : null, st: /^[a-z_]{1,20}$/.test(String(x.st || '')) ? String(x.st) : null })).filter(x => x.s || x.f || x.n);
-    const now = Date.now(), st = [db.prepare('DELETE FROM drive_refs WHERE src = ?').bind(src)];
-    for (const x of rows) st.push(db.prepare('INSERT INTO drive_refs (src, sha, file_id, name, status, at) VALUES (?, ?, ?, ?, ?, ?)').bind(src, x.s, x.f, x.n, x.st, now));
+    // 26/10: chỉ ghi PHẦN KHÁC (trước: xoá + chèn lại cả nguồn mỗi lượt = ~20k dòng ghi/lượt footage × 2 D1 khi ghi đôi → D1 nội bộ vượt 100k dòng ghi/ngày).
+    // So theo nội dung (không theo rowid: rowid hai D1 khác nhau khi ghi đôi) – nhóm khác số lượng → xoá cả nhóm rồi chèn đúng số lượng mới.
+    const k = x => JSON.stringify([x.s, x.f, x.n, x.st]), want = new Map(), have = new Map();
+    for (const x of rows) { const e = want.get(k(x)); e ? e.n++ : want.set(k(x), { x, n: 1 }); }
+    for (const r of await all(db, 'SELECT sha, file_id, name, status FROM drive_refs WHERE src = ?', src)) { const x = { s: r.sha, f: r.file_id, n: r.name, st: r.status }, e = have.get(k(x)); e ? e.n++ : have.set(k(x), { x, n: 1 }); }
+    const now = Date.now(), st = [], ins = x => db.prepare('INSERT INTO drive_refs (src, sha, file_id, name, status, at) VALUES (?, ?, ?, ?, ?, ?)').bind(src, x.s, x.f, x.n, x.st, now);
+    let added = 0, removed = 0;
+    for (const [key, e] of have) if ((want.get(key) || { n: 0 }).n !== e.n) { st.push(db.prepare('DELETE FROM drive_refs WHERE src = ? AND sha IS ? AND file_id IS ? AND name IS ? AND status IS ?').bind(src, e.x.s, e.x.f, e.x.n, e.x.st)); removed += e.n; }
+    for (const [key, e] of want) { const h = (have.get(key) || { n: 0 }).n; if (h !== e.n) for (let i = 0; i < e.n; i++) { st.push(ins(e.x)); added++; } }
     for (let i = 0; i < st.length; i += 100) await db.batch(st.slice(i, i + 100));
-    return { ok: true, source: src, count: rows.length };
+    return { ok: true, source: src, count: rows.length, added, removed };
   },
   health: (db, b, who, env) => runHealth(env, db),
   /** Banner + huy hiệu Quản trị: cảnh báo hiện có; > 6 h chưa kiểm → kiểm lười ngay. */
