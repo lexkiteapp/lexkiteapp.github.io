@@ -230,30 +230,20 @@
    "rows": [
     [
      [
-      "Can I ",
-      "white"
-     ],
-     [
-      "borrow",
+      "borrow ",
       "yellow"
      ],
      [
-      " it?",
-      "white"
+      "@ipa:/ˈbɑːroʊ/"
      ]
     ],
     [
      [
-      "I can ",
-      "white"
-     ],
-     [
-      "lend",
+      "lend ",
       "green"
      ],
      [
-      " it!",
-      "white"
+      "@ipa:/lend/"
      ]
     ]
    ]

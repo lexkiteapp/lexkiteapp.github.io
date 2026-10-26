@@ -6,7 +6,7 @@
    "hook": "✗ Never say / “I am agree”",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
    "script": {
     "m_h": "Stop! Native speakers never say this.",
     "m_w": "I am agree.",
@@ -58,34 +58,33 @@
   },
   "t3_guess_elevator": {
    "template": "guess",
-   "hook": "? / GUESS / in 3 seconds",
+   "hook": "? Guess 3 / hotel words🏨",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 series rewrite for engagement; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
    "script": {
-    "g_h": "Can you guess this word in three seconds?",
-    "g_c": "Hint: it takes you up and down.",
-    "g_c2": "Every big hotel has one.",
-    "g_a": "It's an elevator!",
-    "g_p": "Say it with me: elevator.",
-    "g_u": "But in London, people say lift.",
-    "g_v": "In America, we say elevator.",
-    "g_x": "Try it: Excuse me, where's the elevator?",
-    "g_r": "Did you get it? Tell me in the comments!",
+    "g_h": "Guess these three hotel words. Three seconds each!",
+    "g_1": "Number one. You pack your clothes in it.",
+    "g_1a": "Luggage! Can you help me with my luggage?",
+    "g_2": "Number two. It takes you up and down.",
+    "g_2a": "Elevator! In the UK, they call it a lift.",
+    "g_3": "Number three. The hotel gives it to you after you pay.",
+    "g_3a": "Receipt! The p is silent.",
+    "g_r": "How many did you get? Tell me in the comments!",
     "g_s": "Save this, and look up any word on lexkite.com."
    },
    "promise": {
     "count": true,
-    "reveal": "elevator"
+    "reveal": "receipt"
    },
-   "note": "Picture clue = elevator. US 'elevator' / UK 'lift' is standard. The 3-second promise matches the 3.0 s count beat."
+   "note": "Three picture clues from content/lexicon/img.json (luggage, elevator, receipt). IPA from the app dictionary (US where present). UK 'lift' = US 'elevator'. 'receipt': silent p – true."
   },
   "t4_pair_borrow_lend": {
    "template": "pair",
    "hook": "BORROW | LEND",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
    "script": {
     "p_h": "Borrow or lend? You probably mix these up.",
     "p_s": "Borrow: you take it.",
@@ -136,14 +135,14 @@
    "hook": "🔊 comfortable / com·for·TA·ble✗",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
    "script": {
     "f_h": "You're probably saying this word wrong.",
     "f_w": "Not com, for, table.",
     "f_m": "That sounds like a table you can sit on!",
     "f_s": "Slowly:",
     "f_s2": "comfortable.",
-    "f_r": "Only three beats. Stress the first one.",
+    "f_r": "Most Americans say three beats. Stress the first one.",
     "f_n": "Normal speed: comfortable.",
     "f_y": "Your turn. Repeat after me: comfortable.",
     "f_e": "This chair is so comfortable!",
@@ -156,7 +155,7 @@
     "turn": true,
     "slow_line": "f_s2"
    },
-   "note": "US /ˈkʌmftərbəl/ ~ /ˈkʌmftɚbəl/: 3 syllables in natural speech (COMF-ter-ble), stress on the first; 'com-for-TA-ble' is a common learner error. 'vegetable' /ˈvɛdʒtəbəl/ = 3 syllables (VEJ-tuh-ble) in natural US speech. The 'table' joke is about the learner form, not a claim."
+   "note": "Natural US speech: /ˈkʌmftərbəl/ (COMF-ter-ble, 3 beats, most common); the careful 4-syllable /ˈkʌmfərtəbl/ (app dictionary) also exists, so the script says 'most Americans'. 'com-for-TA-ble' is a learner error. 'vegetable' /ˈvedʒtəbl/ = 3 beats."
   },
   "tv1_daniel_mistake_agree": {
    "template": "mistake",
@@ -217,7 +216,7 @@
    "hook": "“very good”😴 / Try these 5",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite to the US-or-UK clarity standard; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
    "script": {
     "w_h": "Stop saying very good all the time. Try these!",
     "w_s": "Your friend cooks dinner. Very good? Too boring!",
@@ -240,7 +239,7 @@
    "hook": "🇺🇸 or 🇬🇧? / cookie · biscuit",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 26/10/2026 series rewrite for engagement; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
    "script": {
     "u_h": "US or UK? Which word do you use?",
     "u_s": "You want a sweet snack with your coffee.",

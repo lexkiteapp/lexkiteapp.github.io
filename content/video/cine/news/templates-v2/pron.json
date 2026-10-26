@@ -48,11 +48,11 @@
   },
   {
    "id": "f_r",
-   "text": "Only three beats. Stress the first one.",
+   "text": "Most Americans say three beats. Stress the first one.",
    "key": {
     "yellow": [
-     1,
-     2
+     3,
+     4
     ]
    },
    "gap": 0.6
@@ -291,6 +291,11 @@
      ],
      [
       "@ok"
+     ]
+    ],
+    [
+     [
+      "@ipa:/ˈkʌmftərbəl/"
      ]
     ]
    ]

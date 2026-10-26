@@ -1,7 +1,7 @@
 {
  "id": "t3_guess_elevator",
  "template": "guess",
- "title": "Guess the Word #1 – elevator (3-second challenge, US/UK, try it, comment)",
+ "title": "Guess the Word #1 – 3 hotel words (picture clue, 3 s count, IPA + example each)",
  "teacher": "kai",
  "set": "classroom_board",
  "clips": [
@@ -20,89 +20,87 @@
  "lines": [
   {
    "id": "g_h",
-   "text": "Can you guess this word in three seconds?"
+   "text": "Guess these three hotel words. Three seconds each!"
   },
   {
-   "id": "g_c",
-   "text": "Hint: it takes you up and down.",
-   "gap": 0.68
+   "id": "g_1",
+   "text": "Number one. You pack your clothes in it.",
+   "gap": 0.6
   },
   {
-   "id": "g_c2",
-   "text": "Every big hotel has one.",
-   "gap": 0.68
-  },
-  {
-   "id": "_count",
+   "id": "_c1",
    "beat": "count",
    "dur": 3.0
   },
   {
-   "id": "g_a",
-   "text": "It's an elevator!",
+   "id": "g_1a",
+   "text": "Luggage! Can you help me with my luggage?",
    "key": {
     "green": [
-     2
-    ]
-   },
-   "gap": 0.68
-  },
-  {
-   "id": "g_p",
-   "text": "Say it with me: elevator.",
-   "key": {
-    "green": [
-     4
-    ]
-   },
-   "gap": 0.68
-  },
-  {
-   "id": "g_u",
-   "text": "But in London, people say lift.",
-   "key": {
-    "yellow": [
-     5
-    ]
-   },
-   "gap": 0.68
-  },
-  {
-   "id": "g_v",
-   "text": "In America, we say elevator.",
-   "key": {
-    "green": [
-     4
-    ]
-   },
-   "gap": 0.68
-  },
-  {
-   "id": "g_x",
-   "text": "Try it: Excuse me, where's the elevator?",
-   "key": {
-    "green": [
+     0,
      6
     ]
-   },
+   }
+  },
+  {
+   "id": "g_2",
+   "text": "Number two. It takes you up and down.",
    "gap": 0.68
+  },
+  {
+   "id": "_c2",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_2a",
+   "text": "Elevator! In the UK, they call it a lift.",
+   "key": {
+    "green": [
+     0
+    ],
+    "yellow": [
+     8
+    ]
+   }
+  },
+  {
+   "id": "g_3",
+   "text": "Number three. The hotel gives it to you after you pay.",
+   "gap": 0.68
+  },
+  {
+   "id": "_c3",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_3a",
+   "text": "Receipt! The p is silent.",
+   "key": {
+    "green": [
+     0
+    ],
+    "red": [
+     2
+    ]
+   }
   },
   {
    "id": "g_r",
-   "text": "Did you get it? Tell me in the comments!",
+   "text": "How many did you get? Tell me in the comments!",
    "gap": 0.68
   },
   {
    "id": "g_s",
    "text": "Save this, and look up any word on lexkite.com.",
-   "gap": 0.68
+   "gap": 0.6
   }
  ],
  "pops": [
   {
    "id": "hook",
    "kind": "rich",
-   "role": "hook",
    "anim": "spring",
    "size": 96,
    "from": [
@@ -110,65 +108,119 @@
     0
    ],
    "to": [
-    "g_c",
-    1,
+    "g_1",
+    0,
     "s",
-    -0.06
+    -0.08
    ],
    "rows": [
     [
      [
       "@q"
-     ]
-    ],
-    [
+     ],
      [
-      "GUESS",
+      " Guess 3",
       "mint"
      ]
     ],
     [
      [
-      "in 3 seconds",
+      "hotel words",
       "white"
+     ],
+     [
+      "@emoji:🏨"
      ]
     ]
-   ]
+   ],
+   "role": "hook"
   },
   {
-   "id": "clue",
+   "id": "clue1",
    "kind": "card",
    "anim": "spring",
-   "img": "elevator#n",
-   "count": "_count",
+   "img": "luggage#n",
+   "count": "_c1",
    "from": [
-    "g_c",
-    1,
+    "g_1",
+    0,
     "s",
-    -0.04
+    -0.06
    ],
    "to": [
-    "_count",
+    "_c1",
     null,
     "e",
     0.0
    ]
   },
   {
-   "id": "reveal",
+   "id": "rev1",
    "kind": "rich",
-   "role": "headline",
    "anim": "stamp",
-   "size": 110,
+   "size": 96,
    "from": [
-    "g_a",
+    "g_1a",
     0,
     "s",
     -0.04
    ],
    "to": [
-    "g_p",
-    4,
+    "g_2",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "luggage",
+      "green"
+     ],
+     [
+      "@ok"
+     ]
+    ],
+    [
+     [
+      "@ipa:/ˈlʌɡɪdʒ/"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "clue2",
+   "kind": "card",
+   "anim": "spring",
+   "img": "elevator#n",
+   "count": "_c2",
+   "from": [
+    "g_2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_c2",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "rev2",
+   "kind": "rich",
+   "anim": "stamp",
+   "size": 90,
+   "from": [
+    "g_2a",
+    0,
+    "s",
+    -0.04
+   ],
+   "to": [
+    "g_3",
+    0,
     "s",
     -0.08
    ],
@@ -181,111 +233,53 @@
      [
       "@ok"
      ]
-    ]
-   ]
-  },
-  {
-   "id": "stress",
-   "kind": "stress",
-   "anim": "spring",
-   "syl": [
-    "EL",
-    "e",
-    "va",
-    "tor"
-   ],
-   "stress": 0,
-   "from": [
-    "g_p",
-    4,
-    "s",
-    -0.06
-   ],
-   "to": [
-    "g_u",
-    3,
-    "s",
-    -0.08
-   ],
-   "sweep": [
-    "g_p",
-    4
-   ]
-  },
-  {
-   "id": "ukus",
-   "kind": "pair",
-   "anim": "spring",
-   "left": {
-    "title": "lift",
-    "sub": [
+    ],
+    [
+     [
+      "@ipa:/ˈeləveɪtər/"
+     ]
+    ],
+    [
      [
       "@emoji:🇬🇧"
      ],
      [
-      " UK",
-      "white"
+      " lift",
+      "yellow"
      ]
-    ],
-    "color": "navy2"
-   },
-   "right": {
-    "title": "elevator",
-    "sub": [
-     [
-      "@emoji:🇺🇸"
-     ],
-     [
-      " US",
-      "white"
-     ]
-    ],
-    "color": "green"
-   },
-   "focus": [
-    [
-     [
-      "g_u",
-      0,
-      "s",
-      0
-     ],
-     "left"
-    ],
-    [
-     [
-      "g_v",
-      0,
-      "s",
-      0
-     ],
-     "right"
     ]
-   ],
+   ]
+  },
+  {
+   "id": "clue3",
+   "kind": "card",
+   "anim": "spring",
+   "img": "receipt#n",
+   "count": "_c3",
    "from": [
-    "g_u",
-    3,
+    "g_3",
+    0,
     "s",
     -0.06
    ],
    "to": [
-    "g_x",
-    0,
-    "s",
-    -0.1
+    "_c3",
+    null,
+    "e",
+    0.0
    ]
   },
   {
-   "id": "try",
+   "id": "reveal",
    "kind": "rich",
-   "anim": "spring",
-   "size": 74,
-   "plate": "mint",
+   "role": "headline",
+   "anim": "stamp",
+   "size": 96,
    "from": [
-    "g_x",
+    "g_3a",
     0,
     "s",
-    -0.06
+    -0.04
    ],
    "to": [
     "g_r",
@@ -296,22 +290,26 @@
    "rows": [
     [
      [
-      "Excuse me,",
-      "navy"
+      "receipt",
+      "green"
+     ],
+     [
+      "@ok"
      ]
     ],
     [
      [
-      "where's the ",
-      "navy"
+      "@ipa:/rɪˈsiːt/"
+     ]
+    ],
+    [
+     [
+      "silent ",
+      "white"
      ],
      [
-      "elevator",
-      "green"
-     ],
-     [
-      "?",
-      "navy"
+      "p",
+      "red"
      ]
     ]
    ]
@@ -339,13 +337,13 @@
       "@emoji:💬"
      ],
      [
-      " Did you",
+      " How many",
       "white"
      ]
     ],
     [
      [
-      "get it?",
+      "did you get?",
       "green"
      ]
     ]
