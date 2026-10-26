@@ -8,9 +8,9 @@ import path from 'path';
 import http from 'http';
 
 const args = process.argv.slice(2);
-const PART = args.find(a => !a.startsWith('--')) || 'all';
+const PART = args.find((a, i) => !a.startsWith('--') && args[i - 1] !== '--base') || 'all';
 const STRICT = args.includes('--strict');
-const BASE_ARG = (args[args.indexOf('--base') + 1] || '').replace(/\/$/, '');
+const BASE_ARG = (args.includes('--base') ? args[args.indexOf('--base') + 1] || '' : '').replace(/\/$/, '');
 const OUT = 'font-report';
 fs.mkdirSync(OUT, { recursive: true });
 let ROOT = path.resolve('web');
@@ -164,10 +164,10 @@ function report(part, results, staticIssues) {
   for (const i of all) (byType[i.type] ||= { sev: i.sev, n: 0, ex: new Map() }).n++, byType[i.type].ex.size < 8 && byType[i.type].ex.set(i.sel ? `${i.sel} "${i.text}"` : i.at, i);
   const stacks = {};
   for (const r of results) for (const [k, v] of Object.entries(r.stacks || {})) stacks[k] = (stacks[k] || 0) + v;
-  const errors = all.filter(i => i.sev === 'error').length;
-  let md = `## 🔤 Font audit – ${part}\n\n${results.length ? `${results.length} lượt trang · ` : ''}**${errors} lỗi**, ${all.length - errors} cảnh báo\n\n`;
   const broken = results.filter(r => r.error);
-  if (broken.length) md += `⚠️ Không mở được: ${broken.map(r => r.url).join(', ')}\n\n`;
+  const errors = all.filter(i => i.sev === 'error').length + broken.length; // trang không mở được = lỗi (không cho xanh giả)
+  let md = `## 🔤 Font audit – ${part}\n\n${results.length ? `${results.length} lượt trang · ` : ''}**${errors} lỗi**, ${all.length - errors} cảnh báo\n\n`;
+  if (broken.length) md += `❌ Không mở được (${broken.length}): ${broken.slice(0, 6).map(r => `${r.url} – ${r.error}`).join(' · ')}\n\n`;
   for (const [t, o] of Object.entries(byType).sort((a, b) => (a[1].sev === 'error' ? -1 : 1) - (b[1].sev === 'error' ? -1 : 1) || b[1].n - a[1].n)) {
     md += `### ${o.sev === 'error' ? '❌' : '⚠️'} ${t} (${o.n})\n`;
     for (const [, i] of o.ex) md += `- \`${i.at}\` ${i.sel ? `\`${i.sel}\` ` : ''}${i.text ? `“${i.text}” ` : ''}– ${i.msg}\n`;

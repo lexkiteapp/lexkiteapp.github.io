@@ -11,11 +11,13 @@ on:
     - cron: '20 2 * * 1'   # thứ Hai 09:20 giờ Việt Nam
 permissions:
   contents: read
-concurrency: { group: font-audit-${{ github.ref }}, cancel-in-progress: true }
+concurrency:
+  group: font-audit-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
@@ -25,14 +27,19 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - if: matrix.part != 'static'
+        timeout-minutes: 12
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+          npx playwright install chromium   # không --with-deps: runner đã có thư viện của Chrome; apt hay kẹt khoá do cập nhật nền
+          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
       - if: matrix.part == 'blog'
         run: node scripts/build-blog.mjs
       - name: Kiểm ${{ matrix.part }}
         run: node scripts/test/font-audit.mjs ${{ matrix.part }} --strict
       - if: always()
         uses: actions/upload-artifact@v4
-        with: { name: font-${{ matrix.part }}, path: font-report/, retention-days: 14, if-no-files-found: ignore }
+        with:
+          name: font-${{ matrix.part }}
+          path: font-report/
+          retention-days: 14
+          if-no-files-found: ignore
