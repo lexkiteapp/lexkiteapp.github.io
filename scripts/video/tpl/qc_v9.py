@@ -194,7 +194,7 @@ def _host(x):
     if BD:   # board text is drawn above the band: blank the board zone (+ camera margin) so writing never trips the cut detector
         Z = BD['zone']; x = x.copy(); x[max(0, int(Z[1] * 0.94) - 10):int(Z[3] * 1.06) + 10, max(0, int(Z[0] * 0.94) - 10):int(Z[2] * 1.06) + 10] = 0
     return x
-hist = lambda x: cv2.calcHist([cv2.resize(_host(x)[:BY], (270, BY // 4))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for (a, b, ia, ib) in zip(g, g[1:], _gi, _gi[1:]) if not any(ia < c_ <= ib for c_ in CUTS)]   # a declared talk/listen cut is an edit, not a scene change
+hist = lambda x: cv2.calcHist([cv2.resize(_host(x)[:BY], (270, BY // 4))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for (a, b, ia, ib) in zip(g, g[1:], _gi, _gi[1:]) if not any(ia < c_ <= ib for c_ in CUTS) and not (CUTS and ib >= T['n'] - n_end - 1)]   # gated plan: the loop-end dissolve is an edit too   # a declared talk/listen cut is an edit, not a scene change
 sets = {T['spec']['set']}
 R['continuity'] = dict(ok=not rev and not holds and all(r >= 8 for r in xf_runs) and max(dd, default=99) < 0.10 and len(sets) == 1, reverse_steps=rev[:4], holds=holds[:4],
                        dissolves=xf_runs, joins=[(j.get('from_clip'), j.get('exit'), j['to_clip'], j['entry'], j.get('diff', j.get('cut'))) for j in T['joins']], max_hist_change_6f=round(max(dd, default=0), 4),
