@@ -173,4 +173,20 @@ ok((await call(B, { op: 'pull', have: {} })).s === 200, 'mở khóa → đồng 
   ok(p.items.length === 1 && p.items[0].id === 'due1' && p.items[0].ipa === '/us/' && p.items[0].mean === 'nghĩa due1' && p.items[0].ex.length <= 120 && p.intervalMin === 30, 'widget: payload { w, ipa (theo giọng), mean (ngôn ngữ giao diện), ex (cắt ngắn), id }');
 }
 
+// ---------- Thẻ đến hạn: dueCount & nguồn luyện 'due' dùng CHUNG một định nghĩa (bug: bước "Ôn nhanh từ cũ" mở màn rỗng) ----------
+{
+  const C = ctx.Core.Cards, now = Date.now(), st = { newToday: { day: '', n: 0 } }, set = { dailyNew: 10 };
+  const mk = (w, srs, vi) => ({ word: w, vi, srs });
+  const fresh = ctx.Core.SRS.newState();
+  ok(C.dueList({}).length === 0 && C.dueCount({}, set, st).total === 0, 'due: người dùng mới (0 thẻ) → không có thẻ đến hạn');
+  const onlyNew = {}; for (let i = 0; i < 12; i++) onlyNew['n' + i] = mk('n' + i, { ...fresh }, 'nghĩa');
+  const cn = C.dueCount(onlyNew, set, st);
+  ok(cn.total === 10 && cn.due === 0 && C.dueList(onlyNew).length === 0 && C.dueList(onlyNew, { practicable: true }).length === 0, 'due: chỉ có thẻ mới → total>0 (huy hiệu) nhưng KHÔNG có thẻ đến hạn để ôn');
+  const mixed = { a: mk('a', { ...fresh, reps: 2, last: now - 3 * DAY, due: now - DAY }, 'x'), b: mk('b', { ...fresh, reps: 2, last: now, due: now + 30 * DAY }, 'y'), c: mk('c', { ...fresh, reps: 2, last: now - 3 * DAY, due: now - DAY }, '') };
+  ok(C.dueList(mixed).length === 2 && C.dueList(mixed, { practicable: true }).length === 1 && C.dueCount(mixed, set, st).due === 2, 'due: dueCount.due = dueList; practicable bỏ thẻ không có nghĩa');
+  const pd = fs.readFileSync(new URL('../../web/js/path-day.js', import.meta.url), 'utf8'), sy = fs.readFileSync(new URL('../../web/js/study.js', import.meta.url), 'utf8');
+  ok(/dueList\(state\.cards, \{ practicable: true \}\)/.test(pd) && !/Cards\.dueCount/.test(pd), 'due: kế hoạch ngày quyết định bước ôn bằng dueList (không dùng total gồm thẻ mới)');
+  ok(/src === 'due'\) list = Cards\.dueList\(state\.cards, \{ practicable: true \}\)/.test(sy), 'due: nguồn luyện due dùng cùng dueList');
+}
+
 console.log(fails ? `✗ unit: ${fails} lỗi`: '✓ unit: FSRS, API đồng bộ & xuất Excel – tất cả đạt'); process.exit(fails ? 1 : 0);

@@ -348,10 +348,14 @@
     },
 
 
+    // Định nghĩa duy nhất của thẻ đến hạn hôm nay (practicable: chỉ thẻ có nghĩa như nguồn luyện 'due')
+    dueList(map, opts) {
+      const end = endOfToday(), need = opts && opts.practicable;
+      return Object.values(map).filter(c => (c.srs.reps > 0 || c.srs.last) && c.srs.due <= end && (!need || c.vi));
+    },
     dueCount(map, settings, stats) {
       const list = Object.values(map);
-      const end = endOfToday();
-      const due = list.filter(c => c.srs.reps > 0 || c.srs.last ? c.srs.due <= end : false).length;
+      const due = Cards.dueList(map).length;
       const introduced = (stats && stats.newToday && stats.newToday.day === todayKey()) ? stats.newToday.n : 0;
       const newAvail = list.filter(c => c.srs.reps === 0 && !c.srs.last).length;
       const newCount = Math.min(newAvail, Math.max(0, (settings || DEFAULT_SETTINGS).dailyNew - introduced));

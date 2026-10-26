@@ -46,8 +46,8 @@
     const X = (k, em, name, sub, mins, href, c) => ({ k, em, name, sub, mins, href, ext: c, tap: !c }); // tap: trang không cộng điểm → xong khi mở
     const ST = P().STEPS(), sub = k => (ST.find(x => x[0] === k) || [])[3];
     const out = [];
-    const due = Core.Cards.dueCount(state.cards, state.settings, state.stats).total;
-    if (d.n > 1 && (due >= 3 || (d.rec.s || []).includes('review'))) out.push({ ...S('review', '🔁', t('Ôn nhanh từ cũ'), t('Lặp lại ngắt quãng – ưu tiên số 1'), 1), href: '#/practice/mcq?src=due', mode: 'mcq', src: 'due' });
+    const due = Core.Cards.dueList(state.cards, { practicable: true }).length;
+    if (d.n > 1 && due > 0 && (due >= 3 || (d.rec.s || []).includes('review'))) out.push({ ...S('review', '🔁', t('Ôn nhanh từ cũ'), t('Lặp lại ngắt quãng – ưu tiên số 1'), 1), href: '#/practice/mcq?src=due', mode: 'mcq', src: 'due' });
     out.push(S('learn', '🧠', t('Học từ mới'), sub('learn'), 3));
     out.push(S('match', '⚡', t('Ghép thẻ'), sub('match'), 1));
     const early = tier === 0 && d.n <= 3; // 3 ngày đầu cho người mới: chỉ nhận diện (thắng sớm), chưa bắt gõ/nghe chép
