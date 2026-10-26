@@ -175,6 +175,18 @@
       "expectLink": "lexkite.com",
       "expectedRel": "unknown",
       "notes": "Public dataset, CC BY 4.0, description cites DOI + source page."
+    },
+    {
+      "id": "figshare-confused-words",
+      "platform": "Figshare",
+      "type": "listing",
+      "url": "https://figshare.com/articles/dataset/Commonly_Confused_English_Words_an_open_dataset_Lexkite_/34789332",
+      "account": "Quyen Khieu Dinh",
+      "submittedAt": "2026-10-26",
+      "status": "live",
+      "expectLink": "lexkite.com",
+      "expectedRel": "unknown",
+      "notes": "Dataset CC BY 4.0, DOI 10.6084/m9.figshare.34789332.v1; description links research page + Zenodo DOI."
     }
   ]
 }
