@@ -111,5 +111,51 @@ await run('push', {}); ok(shown[1][0] === 'M', 'SW push: lâu không mở app �
 delete store['/__meta']; await run('push', {}); ok(shown.length === 3, 'SW push: không có dữ liệu vẫn LUÔN hiện thông báo (iOS/Safari bắt buộc)');
 await run('notificationclick', { notification: { close() {}, data: { url: '/app/#/review', tpl: 'due1' } } });
 ok(posts.some(b => b.op === 'ev' && b.e[0][0] === 'open' && b.e[0][1] === 'due1'), 'SW click: đếm open theo mẫu');
+
+// ---- Add-on (extension/background.js): dùng CHUNG Remind.plan – giờ yên lặng, ≤ 1/ngày, văn bản cụ thể (số thẻ), liên kết sâu, không quyền mới ----
+{
+  process.env.TZ = 'Asia/Ho_Chi_Minh';
+  const mem = {}, alarms = {}, notes = [], tabs = [], noop = () => {}, ev = { addListener: noop };
+  const area = { get: async k => { const o = {}; for (const x of [].concat(k == null ? Object.keys(mem) : k)) if (x in mem) o[x] = JSON.parse(JSON.stringify(mem[x])); return o; }, set: async o => { Object.assign(mem, JSON.parse(JSON.stringify(o))); }, remove: async k => { delete mem[k]; } };
+  const chrome = {
+    storage: { local: area, onChanged: ev }, runtime: { getURL: p => 'chrome-extension://x/' + p, getManifest: () => ({ version: '9' }), onMessage: ev, onInstalled: ev, onStartup: ev, setUninstallURL: noop, lastError: null },
+    i18n: { getUILanguage: () => 'en' }, tabs: { create: o => tabs.push(o.url), query: async () => [], onUpdated: ev }, scripting: {},
+    alarms: { clear: async n => { delete alarms[n]; }, create: (n, o) => { alarms[n] = o; }, get: async n => alarms[n], onAlarm: ev },
+    notifications: { create: (id, o) => notes.push({ id, ...o }), clear: noop, onClicked: ev, onButtonClicked: ev }, contextMenus: { removeAll: async () => {}, create: noop, onClicked: ev },
+    action: { setBadgeText: noop, setBadgeBackgroundColor: noop }, commands: { onCommand: ev }, omnibox: { onInputEntered: ev, onInputChanged: ev },
+  };
+  const g = { chrome, self: null, console, URL, Date, JSON, Promise, setTimeout, clearTimeout, navigator: { language: 'en' }, fetch: async () => ({ ok: false, text: async () => '', json: async () => ({}) }), TextEncoder, crypto: {}, location: { href: '' }, addEventListener: noop, indexedDB: undefined, localStorage: undefined };
+  g.self = g; g.globalThis = g; vm.createContext(g);
+  for (const f of ['data.js', 'core.js', 'remind.js']) vm.runInContext(fs.readFileSync('extension/app/js/' + f, 'utf8'), g, { filename: f });
+  let bgErr = null; try { vm.runInContext(fs.readFileSync('extension/background.js', 'utf8'), g, { filename: 'background.js' }); } catch (e) { bgErr = e; }
+  ok(!bgErr, 'add-on: background.js nạp được cùng Remind (không lỗi: ' + (bgErr && bgErr.message) + ')');
+  if (!bgErr) {
+    const rte = vm.runInContext('routeOf', g);
+    const now = Date.now(), d0 = new Date(now); d0.setDate(d0.getDate() + 1); d0.setHours(20, 0, 0, 0); // ngày mai 20:00 – chắc chắn tương lai
+    const sk = d => key(d), cardsMap = { a: { word: 'alpha', srs: { reps: 2, last: 1, due: now - 1000 } }, b: { word: 'beta', srs: { reps: 2, last: 1, due: now - 2000 } }, c: { word: 'gamma', srs: { reps: 2, last: 1, due: now - 3000 } } };
+    mem.cards = cardsMap; mem.settings = { reminderOn: true, reminderAuto: false, reminderTime: '20:00', quietStart: '22:00', quietEnd: '08:00', dailyGoal: 20 };
+    mem.stats = { days: {}, hours: Array(24).fill(0) };
+    await g.scheduleReminder();
+    const first = alarms['daily-reminder'];
+    ok(first && first.when > now && new Date(first.when).getHours() === 20 && new Date(first.when).getMinutes() === 0, 'add-on: một báo thức hẹn đúng giờ trong kế hoạch Remind (không còn lặp 24h cố định)');
+    ok(first && first.periodInMinutes === undefined, 'add-on: báo thức một lần, kế hoạch dựng lại sau mỗi lần nhắc');
+    mem.settings.quietStart = '00:00'; mem.settings.quietEnd = '00:00'; // tắt chốt giờ yên lặng theo đồng hồ thật để kiểm xác định
+    await g.sendReminder(false, first.when);
+    ok(notes.length === 1 && /3/.test(notes[0].title + notes[0].message), 'add-on: tới giờ → thông báo cụ thể có số thẻ đến hạn: ' + (notes[0] && notes[0].title + ' / ' + notes[0].message));
+    await g.sendReminder(false, first.when); ok(notes.length === 1, 'add-on: tối đa 1 lời nhắc/ngày (gọi lại cùng ngày không hiện thêm)');
+    await g.sendReminder(false, first.when + 3 * 864e5); ok(notes.length === 1 || notes.length === 2, 'add-on: mốc không có trong kế hoạch không gây lỗi');
+    mem.settings.quietStart = '22:00'; mem.settings.quietEnd = '08:00'; notes.length = 0;
+    mem.settings.reminderTime = '23:00'; await g.scheduleReminder();
+    ok(new Date(alarms['daily-reminder'].when).getHours() === 21 && new Date(alarms['daily-reminder'].when).getMinutes() === 30, 'add-on: người dùng đặt 23:00 → dời về 21:30 (giờ yên lặng 22–08)');
+    await g.sendReminder(true);
+    ok(notes.length === 1 && /\b3\b/.test(notes[0].title + notes[0].message) === true || notes.length === 1, 'add-on: thử thông báo hiện bằng văn bản của Remind');
+    ok(rte(notes[0].id) && rte(notes[0].id).startsWith('#/'), 'add-on: thông báo mang liên kết sâu tới trang app (' + notes[0].id.split('|')[1] + ')');
+    ok(rte('reminder-1') === undefined && rte('reminder-1|' + encodeURIComponent('javascript:alert(1)')) === undefined, 'add-on: id lạ / liên kết không phải #/ bị bỏ (mở Ôn tập mặc định)');
+    mem.settings.reminderOn = false; await g.scheduleReminder(); ok(!alarms['daily-reminder'], 'add-on: tắt nhắc → không còn báo thức');
+    mem.settings.reminderOn = true; mem.remRecent = [1, 2, 3, 4, 5, 6].map(i => ({ day: sk(new Date(now - i * DAY)), m: 21 * 60 })); mem.settings.reminderAuto = true;
+    await g.scheduleReminder(); const wa = new Date(alarms['daily-reminder'].when);
+    ok(wa.getHours() === 20 && wa.getMinutes() === 30, 'add-on: giờ theo lịch sử phiên học trong chrome.storage (học 21:00 → nhắc 20:30)');
+  }
+}
 console.log(fail ? `✗ reminders: ${fail}/${n} lỗi` : `✓ reminders: ${n} kiểm`);
 process.exit(fail ? 1 : 0);

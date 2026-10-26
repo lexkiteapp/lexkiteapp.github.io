@@ -238,7 +238,7 @@
       const el = $('#cfSaved'); if (el) el.textContent = '✓ ' + (n ? t('Đã lưu {n} cụm câu vào thẻ ôn.', { n }) : t('Các cụm câu đã có trong thẻ ôn.'));
       if (first && !R.rp) App.reward({ spoken: Object.keys(R.shadow).length, xp: 15 }); // hội thoại đã tự cộng XP (roleplay.js)
       else if (first) App.reward({ xp: 5 });
-      if (window.Sfx) Sfx.win();
+      if (window.Sfx) Sfx.finish({ pct: sh, xp: first ? (R.rp ? null : 15) : 0, good: 0, el: b }); // 4 thẻ số liệu; thiếu số liệu → '–'
     }
     [listen, pack, shadow, gaps, roleplay, recap][step](step);
   }

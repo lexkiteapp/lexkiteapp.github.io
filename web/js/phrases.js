@@ -146,9 +146,10 @@
   function finish(m, kind, right, total, box) {
     const pct = Math.round(right / Math.max(1, total) * 100);
     if (pct >= 70) Core.Store.get('mdone:' + m.id, []).then(d => { if (!d.includes(kind)) { d.push(kind); Core.Store.set('mdone:' + m.id, d); } markDone(d); });
-    App.reward({ quizzes: 1, perfect: pct === 100 ? 1 : 0, xp: 5 + right * 2 }); pct >= 80 ? (Sfx.win(), confetti(80)) : Sfx.correct();
+    App.reward({ quizzes: 1, perfect: pct === 100 ? 1 : 0, xp: 5 + right * 2 }); if (pct < 80) Sfx.correct();
     const tabs = [...document.querySelectorAll('#mTabs button[data-mt]')], cur = tabs.findIndex(b => b.dataset.mt === kind), nx = tabs[cur + 1];
     box.insertAdjacentHTML('beforeend', `<div class="feedback ${pct >= 70 ? 'ok' : 'no'}" style="position:static;margin-top:1rem"><b>${t('{right}/{total} đúng ({pct}%)', { right, total, pct })}</b> · +${5 + right * 2} XP${pct >= 70 && nx ? ` <button class="btn sm primary" id="mNext" style="margin-left:.6rem">${t('Chế độ tiếp theo')} → ${esc(nx.textContent.replace(/✓/g, '').trim())}</button>` : ''}</div>`);
+    Sfx.finish({ pct, xp: 5 + right * 2, good: 80, el: box });
     const nb = box.querySelector('#mNext'); if (nb) nb.onclick = () => { nx.click(); nx.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
   }
   // Ô điền + ngân hàng từ (dùng cho từ vựng & liên kết)

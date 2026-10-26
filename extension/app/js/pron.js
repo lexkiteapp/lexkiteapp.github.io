@@ -135,8 +135,10 @@
         if (r >= rounds.length) {
           const pct = Math.round(ok / rounds.length * 100);
           box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static"><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
-          App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 }); if (pct >= 75) Sfx.win();
-          $('#startPairs2').onclick = sp.onclick; return;
+          App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 });
+          $('#startPairs2').onclick = sp.onclick;
+          Sfx.finish({ pct, xp: 5 + ok * 2, good: 75, el: box });
+          return;
         }
         const { p, ans } = rounds[r];
         box.innerHTML = `<div class="row"><button class="btn" id="replay">🔊 ${t('Nghe lại ({i}/{n})', { i: r + 1, n: rounds.length })}</button></div>
@@ -167,7 +169,7 @@
         const pct = Math.round(qr / qa * 100);
         await App.reward({ quizzes: 1, pron: 1, perfect: pct === 100 ? 1 : 0, xp: 8 + qr * 3 });
         state.game = await Game.mutate(g => { g.pronDone = { ...(g.pronDone || {}), [x.id]: Math.max(pct, (g.pronDone || {})[x.id] || 0) }; });
-        if (pct >= 80) { Sfx.win(); confetti(80); }
+        Sfx.finish({ pct, xp: 8 + qr * 3, el: item.parentNode });
       }
     }));
   }

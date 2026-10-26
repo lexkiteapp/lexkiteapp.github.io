@@ -165,10 +165,10 @@
   // Màn hoàn thành dùng chung (Sfx.finish): 4 thẻ số liệu – độ chính xác · XP · thời gian · chuỗi ngày – chèn 1 lần vào el
   function stats(el, o) {
     css(); if (!el || !el.insertAdjacentHTML || el.querySelector('.lfx-s4')) return;
-    const A = g.App, sk = A && A.streak ? A.streak() : 0, pct = Math.max(0, Math.min(100, Math.round(+o.pct || 0)));
+    const A = g.App, sk = A && A.streak ? A.streak() : 0, pct = o.pct == null || isNaN(+o.pct) ? null : Math.max(0, Math.min(100, Math.round(+o.pct))), nx = o.xp == null || isNaN(+o.xp) ? null : Math.round(+o.xp); // thiếu số liệu → hiện '–', không bịa
     const card = (col, label, val) => `<div class="lfx-stat" style="--c:${col}"><small>${esc(label)}</small><b>${esc(val)}</b></div>`;
-    el.insertAdjacentHTML('beforeend', `<div class="lfx-stats lfx-s4" role="group" aria-label="${esc(T('Kết quả lượt học'))}">${card('var(--good)', T('Tỉ lệ đúng'), pct + '%')}${card('#9A5B00', T('Tổng XP'), '+' + (Math.round(+o.xp) || 0))}${card('#17595A', T('Thời gian'), '⏱ ' + mmss(o.ms || 0))}${card('#B7472A', T('Chuỗi ngày'), '🔥 ' + sk)}</div>`);
-    if (pct >= 80 && g.Sfx && g.Sfx.shimmer) g.Sfx.shimmer();
+    el.insertAdjacentHTML('beforeend', `<div class="lfx-stats lfx-s4" role="group" aria-label="${esc(T('Kết quả lượt học'))}">${card('var(--good)', T('Tỉ lệ đúng'), pct == null ? '–' : pct + '%')}${card('#9A5B00', T('Tổng XP'), nx == null ? '–' : '+' + nx)}${card('#17595A', T('Thời gian'), '⏱ ' + mmss(o.ms || 0))}${card('#B7472A', T('Chuỗi ngày'), '🔥 ' + sk)}</div>`);
+    if (pct != null && pct >= 80 && g.Sfx && g.Sfx.shimmer) g.Sfx.shimmer();
   }
   const shareBtn = pct => `<button class="btn" data-share="${+pct || 0}">📤 ${esc(T('Khoe kết quả'))}</button>`;
 

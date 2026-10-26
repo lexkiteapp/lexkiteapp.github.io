@@ -45,7 +45,6 @@
       const best = state.game.best.match;
       const xp = 10 + (time < 25 ? 10 : time < 40 ? 5 : 0);
       await App.reward({ matches: 1, quizzes: 1, perfect: misses === 0 ? 1 : 0, matchTime: time, xp });
-      Sfx.win(); confetti();
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
         <div class="em">⚡</div><h2>${time}s</h2>
         <p>${!best || time < best ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}s', { best })} · ${t('{n} lần sai', { n: misses })} · +${xp} XP</p>
@@ -53,6 +52,7 @@
         <div class="row center" style="margin-top:1.2rem"><button class="btn primary" id="again">${t('Chơi lại')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Chế độ khác')}</a></div>
       </div></div>`;
       $('#again').onclick = () => runMatch(src);
+      Sfx.finish({ pct: Math.round(items.length / (items.length + misses) * 100), xp, ms: time * 1000, good: 0, el: $('.celebrate', view) }); // âm thắng + pháo giấy + 4 thẻ số liệu (đúng ngay lần đầu)
       practiceDone({ mode: 'match', src, pct: 100 });
     }
   }
@@ -130,11 +130,11 @@
     };
     const finish = () => {
       App.reward({ quizzes: 1, xp: 5 });
-      Sfx.win(); if (good >= items.length * 0.7) confetti();
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate"><div class="em">🎙️</div>
         <h2>${t('Phát âm tốt {good}/{total} từ', { good, total: items.length })}</h2><p class="muted">${t('Luyện đều mỗi ngày để Speaking tự nhiên hơn.')}</p>
         <div class="row center"><button class="btn primary" id="again">${t('Luyện tiếp')}</button><a class="btn" href="#/practice">${t('Chế độ khác')}</a></div></div></div>`;
       $('#again').onclick = () => runSpeak(src);
+      Sfx.finish({ pct: Math.round(good / Math.max(1, items.length) * 100), xp: 5, good: 70, el: $('.celebrate', view) });
       practiceDone({ mode: 'speak', src, pct: Math.round(good / Math.max(1, items.length) * 100) }); // buổi học theo Ngày (path-day.js)
     };
     show();

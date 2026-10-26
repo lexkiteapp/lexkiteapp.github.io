@@ -156,6 +156,7 @@
     const day = todayKey(), r = starts(); if (!((state.stats.days || {})[day] > 0) || r.some(x => x.day === day)) return;
     const d = new Date(sess), m = keyOf(d) === day ? d.getHours() * 60 + d.getMinutes() : 0; // phiên bắt đầu từ hôm qua (qua nửa đêm) → 00:00
     r.push({ day, m }); ls.set('lk.rems', r.slice(-21)); P.setRecent(starts());
+    if (EXT) Promise.resolve(Store.set('remRecent', starts())).catch(() => {}); // add-on: service worker không đọc được localStorage → chép sang chrome.storage (chỉ trên máy)
   }
   const hist = () => ls.get('lk.remh', []).filter(h => h && h.day >= keyOf(new Date(Date.now() - 8 * DAY)));
   /** Lời nhắc đã tới giờ trong kế hoạch cũ = đã hiện (app gốc không báo lại) → vào lịch sử chống lặp + đếm 'shown'. */

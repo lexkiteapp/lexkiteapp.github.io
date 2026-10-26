@@ -7,7 +7,7 @@ OUT="$ROOT/dist-firefox"; rm -rf "$OUT"; cp -R "$ROOT/extension" "$OUT"
 python3 - "$OUT/manifest.json" <<'PY'
 import json, sys
 p = sys.argv[1]; m = json.load(open(p))
-m['background'] = {'scripts': ['app/js/data.js', 'app/js/core.js', 'app/js/vi-check.js', 'app/js/lex.js', 'app/js/dictionary.js', 'background.js']}
+m['background'] = {'scripts': ['app/js/data.js', 'app/js/core.js', 'app/js/remind.js', 'app/js/vi-check.js', 'app/js/lex.js', 'app/js/dictionary.js', 'background.js']}
 m['browser_specific_settings'] = {'gecko': {'id': 'lexkite@lexkite.com', 'strict_min_version': '128.0'}}
 json.dump(m, open(p, 'w'), ensure_ascii=False, indent=2)
 PY

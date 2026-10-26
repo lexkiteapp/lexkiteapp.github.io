@@ -4,7 +4,7 @@ const logErr = (where, e) => { try { const m = String((e && (e.stack || e.messag
 self.addEventListener('error', e => logErr('bg', e.error || e.message));
 self.addEventListener('unhandledrejection', e => logErr('bg-promise', e.reason));
 // Chrome/Edge: service worker → importScripts; Firefox: manifest nạp sẵn các file này qua background.scripts
-if (typeof importScripts === 'function' && typeof Core === 'undefined') importScripts('app/js/data.js', 'app/js/core.js', 'app/js/ctx.js', 'app/js/vi-check.js', 'app/js/lex.js', 'app/js/dictionary.js');
+if (typeof importScripts === 'function' && typeof Core === 'undefined') importScripts('app/js/data.js', 'app/js/core.js', 'app/js/remind.js', 'app/js/ctx.js', 'app/js/vi-check.js', 'app/js/lex.js', 'app/js/dictionary.js');
 const { Store, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey } = Core;
 // Ngôn ngữ giao diện (thông báo, menu chuột phải): chỉ en / vi như web app, ngôn ngữ khác → English
 // Giao diện add-on theo 15 ngôn ngữ của web: vi = chữ gốc, en = bảng EN, ngôn ngữ khác = từ điển web (app/js/i18n/<lang>.js)
@@ -12,16 +12,17 @@ const XLANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko'
 const pickLang = l => { l = String(l || '').toLowerCase().split('-')[0]; return XLANGS.includes(l) ? l : null; };
 let UI_LANG = pickLang(chrome.i18n && chrome.i18n.getUILanguage ? chrome.i18n.getUILanguage() : navigator.language) || 'en';
 const uiDicts = {};
-const I18NX = ['structs', 'toefl', 'league', 'call', 'handoff']; // = BUNDLES.i18nx trong web/js/app.js (test ext-selection.mjs so khớp)
+const I18NX = ['structs', 'toefl', 'league', 'call', 'handoff'];
+const REMX = ['remind']; // văn bản nhắc học dùng chung với web (Remind.plan) – chỉ add-on nạp, nên tách khỏi I18NX // = BUNDLES.i18nx trong web/js/app.js (test ext-selection.mjs so khớp)
 // en: chỉ bảng tên cấu trúc ngữ pháp (chữ EN khác có sẵn trong từng file); ngôn ngữ khác: từ điển web đầy đủ
 async function uiDict(lang) {
   if (!lang || lang === 'vi') return {};
   if (uiDicts[lang]) return uiDicts[lang];
-  const one = async f => { try { const s = await (await fetch(chrome.runtime.getURL(f))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); return JSON.parse(s.slice(i, j + 1)); } catch (e) { return {}; } };
+  const one = async f => { try { const s = await (await fetch(chrome.runtime.getURL(f))).text(); const i = s.indexOf('{"', s.indexOf('Object.assign(')), j = s.lastIndexOf('});'); try { return JSON.parse(s.slice(i, j + 1)); } catch (e) { const k = s.indexOf('{', s.indexOf('|| {}, ') + 6); return JSON.parse(s.slice(k, j + 1).replace(/,\s*}$/, '}')); } } catch (e) { return {}; } };
   // en: cấu trúc + soát lỗi viết (định dạng JSON). Ngôn ngữ khác: nền tiếng Anh (khóa thiếu → English, KHÔNG BAO GIỜ tiếng Việt)
   // + <lang>.js + các nhóm i18nx (<lang>/<nhóm>.js – ra khỏi <lang>.js từ 22ca39d, gồm tên cấu trúc câu của bảng 🌐 Dịch)
-  const en = Object.assign(await one('app/js/i18n/en/structs.js'), await one('app/js/i18n/en/writecheck.js'));
-  uiDicts[lang] = lang === 'en' ? en : Object.assign(en, await one(`app/js/i18n/${lang}.js`), ...await Promise.all(I18NX.map(n => one(`app/js/i18n/${lang}/${n}.js`))));
+  const en = Object.assign(await one('app/js/i18n/en/structs.js'), await one('app/js/i18n/en/writecheck.js'), await one('app/js/i18n/en/remind.js'));
+  uiDicts[lang] = lang === 'en' ? en : Object.assign(en, await one(`app/js/i18n/${lang}.js`), ...await Promise.all([...I18NX, ...REMX].map(n => one(`app/js/i18n/${lang}/${n}.js`))));
   return uiDicts[lang];
 }
 let XD = {};
@@ -62,29 +63,42 @@ const APP_URL = chrome.runtime.getURL('app/index.html');
 const getSettings = async () => ({ ...DEFAULT_SETTINGS, ...(await Store.get('settings', {})) });
 
 // ---------- Nhắc học ----------
+// Dùng CHUNG bộ lập lịch thuần của web (app/js/remind.js → self.Remind.plan): giờ theo phiên học gần đây, giờ yên lặng, tối đa 1 lời nhắc/ngày,
+// giãn cách sau 3 lần bỏ qua, ngày 14 là lời cuối, nội dung cụ thể (số thẻ đến hạn, từ trong sổ, chuỗi ngày, tiến độ mục tiêu), không lặp mẫu 7 ngày.
+// Không cần quyền mới: chỉ storage + alarms + notifications. Lịch sử phiên (remRecent, do trang app ghi) và lời nhắc đã hiện (remHist) nằm trong chrome.storage.local, chỉ trên máy.
+const REM_DAY = 864e5, REM_LATE = 3 * 3600e3, REM_TOL = 10 * 60e3;
+const remKey = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+async function remPlan(now) {
+  const [s, cards, stats, recent, hist] = await Promise.all([getSettings(), Cards.all(), Stats.get(), Store.get('remRecent', []), Store.get('remHist', [])]);
+  const p = self.Remind ? self.Remind.plan({ now, cards: Object.values(cards || {}), stats, settings: s, streak: Stats.streak(stats), hist, recent, t: tx }) : [];
+  return { s, p, stats };
+}
 async function scheduleReminder() {
-  const s = await getSettings();
+  await langReady; // văn bản đã dịch (kế hoạch chỉ dùng giờ, nhưng đợi để SW vừa thức dậy dùng đúng ngôn ngữ)
   await chrome.alarms.clear('daily-reminder');
-  if (!s.reminderOn) return;
-  const [hh, mm] = s.reminderTime.split(':').map(Number);
-  const next = new Date(); next.setHours(hh, mm, 0, 0);
-  if (next.getTime() <= Date.now()) next.setDate(next.getDate() + 1);
-  chrome.alarms.create('daily-reminder', { when: next.getTime(), periodInMinutes: 24 * 60 });
+  const { p } = await remPlan(Date.now());
+  if (p.length) chrome.alarms.create('daily-reminder', { when: p[0].at });
 }
 
-async function sendReminder(force = false) {
+// at: giờ báo thức đã hẹn (alarm.scheduledTime). Tính lại kế hoạch ngay trước mốc đó → lời nhắc phản ánh trạng thái mới nhất (đã học chưa, số thẻ, chuỗi).
+async function sendReminder(force = false, at = Date.now()) {
   await langReady; // thông báo đúng ngôn ngữ người dùng chọn kể cả khi SW vừa được alarm đánh thức
-  const [s, cards, stats] = await Promise.all([getSettings(), Cards.all(), Stats.get()]);
-  const done = stats.days[todayKey()] || 0;
-  if (!force && done >= s.dailyGoal) return;
-  if (!force && Golden.quiet(s)) return; // giờ yên lặng (mặc định 22:00–08:00) – giờ nhắc tự động đã né, đây là chốt chặn khi người dùng tự đặt giờ
-  const { total } = Cards.dueCount(cards, s, stats);
-  const streak = Stats.streak(stats);
-  chrome.notifications.create('reminder-' + Date.now(), {
+  const R = self.Remind, now = Date.now();
+  const { s, p, stats } = await remPlan(force ? now : at - 90e3);
+  let it = force ? p[0] || (R && R.generic(tx).gen) : p.find(x => Math.abs(x.at - at) <= REM_TOL);
+  if (!force) {
+    if (!it || now - at > REM_LATE) return;          // hôm nay không còn lời nhắc (đã học đủ / tắt loại / giãn cách) hoặc SW dậy quá muộn
+    if (Golden.quiet(s)) return;                      // giờ yên lặng (kể cả khi người dùng tự đặt giờ nhắc vào đó)
+    const hist = await Store.get('remHist', []), today = it.day || remKey(new Date(now));
+    if (hist.some(h => h && h.day === today)) return;  // tối đa 1 lời nhắc/ngày
+    await Store.set('remHist', [...hist, { day: today, tpl: it.tpl }].filter(h => h && h.day >= remKey(new Date(now - 8 * REM_DAY))).slice(-20));
+  }
+  if (!it) return;
+  chrome.notifications.create('reminder-' + now + '|' + encodeURIComponent(it.url || '#/review'), {
     type: 'basic',
     iconUrl: 'icons/icon-128.png',
-    title: tx('Lexkite – đến giờ học rồi! 📚'),
-    message: total ? tx('Bạn có {n} thẻ cần ôn hôm nay.', { n: total }) + (streak ? tx(' Giữ chuỗi {n} ngày 🔥', { n: streak }) : '') : tx('Thêm vài từ mới để giữ chuỗi ngày học nhé 🔥'),
+    title: it.title,
+    message: it.body,
     buttons: [{ title: tx('Ôn ngay') }],
     priority: 2,
   });
@@ -178,15 +192,17 @@ chrome.runtime.onStartup.addListener(async () => {
 
 chrome.alarms.onAlarm.addListener(a => {
   if (a.name === 'dev-reload') return;
-  if (a.name === 'daily-reminder') sendReminder();
-  if (a.name === 'badge') checkGolden();
+  if (a.name === 'daily-reminder') sendReminder(false, a.scheduledTime).catch(() => {}).then(() => scheduleReminder()).catch(() => {});
+  if (a.name === 'badge') { checkGolden(); chrome.alarms.get('daily-reminder').then(x => { if (!x) scheduleReminder(); }).catch(() => {}); } // alarm nhắc bị mất / hết lịch → dựng lại
   updateBadge();
 });
-chrome.notifications.onClicked.addListener(id => { chrome.notifications.clear(id); openApp(); });
-chrome.notifications.onButtonClicked.addListener(id => { chrome.notifications.clear(id); openApp(); });
+// Bấm thông báo nhắc → mở đúng trang (liên kết sâu nằm sau dấu | trong id); thông báo khác → Ôn tập
+const routeOf = id => { const m = /\|(.+)$/.exec(String(id)); try { const h = m ? decodeURIComponent(m[1]) : ''; return /^#\/[\w\-/?=&%.]*$/.test(h) ? h : undefined; } catch (e) { return undefined; } };
+chrome.notifications.onClicked.addListener(id => { chrome.notifications.clear(id); openApp(routeOf(id)); });
+chrome.notifications.onButtonClicked.addListener(id => { chrome.notifications.clear(id); openApp(routeOf(id)); });
 
 chrome.storage.onChanged.addListener(ch => {
-  if (ch.settings) scheduleReminder();
+  if (ch.settings || ch.remRecent) scheduleReminder();
   if (ch.cards || ch.stats || ch.settings) updateBadge();
 });
 
