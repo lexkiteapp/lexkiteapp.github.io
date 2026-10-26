@@ -85,7 +85,9 @@ function entryJson(src, e, l, ctx) {
   if (gap) { const [s, mm] = gap, form = mm[1].toLowerCase(), suf = form.slice(k.length), o = shuffle([form, ...shuffle(pool, rnd).slice(0, 3).map(x => x.word + suf)], rnd); quiz.push({ q: T[l].qGap, s: s.replace(mm[0], '_____'), o, a: o.indexOf(form), oEn: true }); }
   if (mistakes[0]) { const o = shuffle([mistakes[0].r, mistakes[0].w], rnd); quiz.push({ q: T[l].qRight, o, a: o.indexOf(mistakes[0].r), oEn: true }); }
   const note = l === 'vi' && notes[k] ? Object.fromEntries(['m', 'e', 'u', 'f'].filter(q => notes[k][q]).map(q => [q, notes[k][q]])) : null;
-  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, ipa: e.ipa, ipaUS: e.ipaUS || '', audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, confus: confus.slice(0, 2), mistakes, note, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
+  // trang web mở sẵn mọi mục (đọc đủ + máy tìm kiếm thấy hết); app mặc định chỉ mở "Mẹo nhớ"
+  const noteHtml = note ? wordCard().notes(notes[k], w).replace(/<details class="(wc-sec[^"]*)" data-wc="(\w)">/g, '<details class="$1" data-wc="$2" open>') : '';
+  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, ipa: e.ipa, ipaUS: e.ipaUS || '', audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, confus: confus.slice(0, 2), mistakes, note, noteHtml, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
   d.quality = quality(d);
   return d;
 }
@@ -104,15 +106,62 @@ export function quality(d) {
   return { score, words, parts: p, index: score >= QUALITY_MIN && words >= WORDS_MIN, rank: 0 };
 }
 
+
+// ---------- CSS thẻ tra từ lấy từ app (một nguồn: web/css/style.css, web/css/wordcard.css) ----------
+const APP_SEL = /^(\.(card|chip|icon-btn|entry-head|entry-word|pron|vi|ipa|example-box|ex|row|muted|small|tiny|pos-block|pos-head|wc-chips|wc-clb|wc-chip)(?![\w-])|mark(?![\w-])|a\.chip|\.btn(?![\w-]))/;
+function topRules(css) { // tách quy tắc cấp ngoài (bỏ @media/@keyframes – xử lý riêng)
+  const out = []; let i = 0, depth = 0, start = 0;
+  css = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  for (; i < css.length; i++) { const c = css[i]; if (c === '{') depth++; else if (c === '}' && --depth === 0) { out.push(css.slice(start, i + 1).trim()); start = i + 1; } }
+  return out;
+}
+export function appCss() {
+  const src = fs.readFileSync('web/css/style.css', 'utf8'), rules = topRules(src), out = [];
+  const scope = sel => sel.split(',').map(x => x.trim()).map(x => (x.startsWith(':root') ? x.replace(/^(:root(?::not\(\[data-theme="light"\]\)|\[data-theme="dark"\])?)$/, '$1 .wd') : `.wd ${x}`)).join(',');
+  for (const r of rules) {
+    const sel = r.slice(0, r.indexOf('{')).trim(), body = r.slice(r.indexOf('{'));
+    if (/^:root(\[data-theme="dark"\])?$/.test(sel)) out.push(scope(sel) + body.replace(/\s+/g, ' '));
+    else if (/^@media \(prefers-color-scheme: dark\)/.test(sel) && /^\s*\{\s*:root:not\(\[data-theme="light"\]\)\s*\{\s*--/.test(body)) out.push(sel + '{' + body.slice(1).replace(/:root:not\(\[data-theme="light"\]\)\s*\{/, ':root:not([data-theme="light"]) .wd{').replace(/\s+/g, ' '));
+    else if (/^@media \(max-width/.test(sel)) { const inner = topRules(body.slice(1, -1)).filter(x => sel && APP_SEL.test(x.trim())); if (inner.length) out.push(`${sel}{${inner.map(x => scope(x.slice(0, x.indexOf('{'))) + x.slice(x.indexOf('{'))).join('')}}`); }
+    else if (!sel.startsWith('@') && sel.split(',').every(x => APP_SEL.test(x.trim()))) out.push(scope(sel) + body);
+  }
+  const wc = fs.readFileSync('web/css/wordcard.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+  return (out.join('\n') + '\n' + wc).replace(/\n\s*/g, '\n').replace(/\s*([{};:,])\s*/g, '$1').replace(/;}/g, '}');
+}
+
+// ---------- Khối "Hiểu sâu" của app (web/js/wordcard.js chạy trong vm) – trang vi dùng đúng markup thẻ từ của app ----------
+let WC = null;
+function wordCard() {
+  if (WC) return WC;
+  const ctx = { console, Promise, setTimeout: () => 0 }; ctx.window = ctx; ctx.self = ctx;
+  ctx.document = { querySelector: () => ({}), addEventListener() {}, createElement: () => ({ dataset: {} }), head: { appendChild() {} } };
+  ctx.I18N = { learnLang: () => 'vi' }; ctx.t = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s);
+  vm.createContext(ctx); vm.runInContext(fs.readFileSync('web/js/wordcard.js', 'utf8'), ctx, { filename: 'wordcard.js' });
+  return (WC = ctx.WordCard);
+}
+
+// ---------- Lọc CSS không dùng (giữ trang ≤ 16 KB gzip mà không bỏ nội dung): giữ quy tắc có ≥ 1 bộ chọn mà MỌI class đều xuất hiện
+// trong HTML đã dựng hoặc trong chuỗi JS (class do script thêm lúc chạy). Không class (thẻ, :root, @font-face, @keyframes) → giữ.
+export function purgeCss(css, used) {
+  const keepSel = sel => sel.split(',').some(x => (x.match(/\.[\w-]+/g) || []).every(c => used.has(c.slice(1))));
+  const walk = src => { let out = '', i = 0, depth = 0, start = 0;
+    for (; i < src.length; i++) { const c = src[i]; if (c === '{') depth++; else if (c === '}' && --depth === 0) { const r = src.slice(start, i + 1).trim(), b = r.indexOf('{'), sel = r.slice(0, b).trim();
+      if (/^@(media|supports)/.test(sel)) { const inner = walk(r.slice(b + 1, -1)); if (inner) out += `${sel}{${inner}}`; } else if (sel.startsWith('@') || keepSel(sel)) out += r; start = i + 1; } }
+    return out; };
+  return walk(css.replace(/\/\*[\s\S]*?\*\//g, ''));
+}
+export const usedClasses = (htmls, js) => { const u = new Set(); for (const h of htmls) for (const m of h.matchAll(/class="([^"]*)"/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); for (const m of js.matchAll(/['"`]([\w -]+)['"`]/g)) m[1].split(/\s+/).forEach(c => c && u.add(c)); return u; };
+
 export function buildShell() {
-  const CSS2 = `.wd .mean{font-size:1.25rem;margin:.2rem 0 .6rem}.wd .pr{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}.wd blockquote{margin:.4rem 0;padding:.6rem .9rem;border-inline-start:4px solid var(--accent);background:var(--accent-soft);border-radius:8px}.wd .chips a,.wd .chips span{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;margin:.2rem .3rem .2rem 0;padding:.25rem .6rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:inherit}.wd .note{margin:.3rem 0}.ph{border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.7rem 0;background:var(--surface)}.ph p{margin:.3rem 0}.ph .say{font-weight:600}.ph .no{color:var(--muted)}.wd section{margin:1.1rem 0}.wd h2{font-size:1.15rem;margin:.2rem 0 .4rem}.wd h3{font-size:1rem;margin:.8rem 0 .2rem}.quiz>li{margin:.6rem 0}.quiz ul{margin:.2rem 0;padding-inline-start:1.2rem}.quiz details{margin:.3rem 0}.quiz summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--link)}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}`;
+  const CSS2 = `.wd .pron .au{margin:0}.wd .acts .btn{text-decoration:none}.wd .acts .btn:not(.primary){color:var(--text)!important;background:var(--surface)}.wd .entry-head{grid-template-columns:minmax(0,1fr)}.wd h1.entry-word{margin:0}.wd .def{margin-top:.4rem}.wd .acts{margin-top:.9rem}.wd .example-box{margin-top:1rem}.wd .example-box p{margin:.3rem 0}.wd .wc-chips{margin-top:.9rem}.wd .wn.wc{margin-top:1rem}.wd .blk{margin-top:1rem}.wd .card h2{font-size:1.1rem;margin:0 0 .6rem}.wd .card h3{font-size:1rem;margin:.9rem 0 .2rem}.wd .pair+.pair{border-top:1px dashed var(--line);margin-top:.6rem;padding-top:.4rem}.wd .tip{margin:.6rem 0 0;padding:.6rem .8rem;border-radius:12px;background:var(--gold-soft)}.wd .note{margin:.3rem 0}.wd .notes{margin-top:1rem}.quiz{padding-inline-start:1.2rem;margin:0}.quiz>li{margin:.8rem 0}.quiz .opts{list-style:none;padding:0;margin:.3rem 0;display:flex;flex-wrap:wrap;gap:.4rem}.quiz .opts .chip{font-size:.9rem;white-space:normal}.quiz details{margin:.3rem 0}.quiz summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--link)}.wd .ok{color:var(--good-text)}.wd .wc-chip{min-height:44px;box-sizing:border-box;text-decoration:none}.wd .cta{margin-top:1rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}`;
   const header = {}, footer = {};
+  const APP_CSS = appCss(); // thẻ tra từ giống hệt app/add-on: lấy CHÍNH CSS của app (web/css/style.css + wordcard.css), đóng khung trong .wd
   for (const l of ENABLED) {
     const lh = x => `__LH_${x}__`;
     header[l] = siteHeader({ nav: [[`/${l}/blog/`, 'Blog'], [hubPath(l), T[l].hub]], open: [appHref(l) + '#/dict', T[l].open], home: landingHref(l), lang: l, langHref: lh });
     footer[l] = siteFooter({ lang: l, text: T[l].foot, langHref: lh });
   }
-  return { v: 1, css: `${CSS}\n${SEO_CSS}\n${CSS2}`, header, footer, js: UI_JS };
+  return { v: 1, css: `${CSS}\n${SEO_CSS}\n${APP_CSS}\n${CSS2}`, header, footer, js: UI_JS };
 }
 
 export function build({ out = 'dist-dict', n = 200, staticN = Infinity, index = '', write = true } = {}) {
@@ -126,6 +175,10 @@ export function build({ out = 'dist-dict', n = 200, staticN = Infinity, index = 
   }
   for (const l of ENABLED) for (const d of pages[l]) d.alts = Object.fromEntries(ENABLED.filter(x => x !== l).map(x => { const o = pages[x].find(y => y.word === d.word); return [x, { slug: o.slug, q: { index: o.quality.index, rank: o.quality.rank } }]; }).concat([[l, { slug: d.slug, q: { index: d.quality.index, rank: d.quality.rank } }]]));
   const shell = buildShell(), files = {}, put = (p, s) => (files[p] = s);
+  { // lần dựng nháp với CSS đầy đủ → lấy tập class thật sự dùng → lọc CSS (cả 2 chế độ noindex/mở cho cùng markup)
+    const drafts = ENABLED.flatMap(l => [renderHub(l, pages[l], shell, { open: { vi: 1e9, en: 1e9 } }), ...pages[l].map(d => renderWord(d, shell, { open: { vi: 1e9, en: 1e9 } }))]);
+    shell.css = purgeCss(shell.css, usedClasses(drafts, shell.js + Object.values(shell.footer).join('') + ['workers/dict/render.mjs', 'web/js/wordcard.js'].map(f => fs.readFileSync(f, 'utf8')).join('') + "'A1 A2 B1 B2 C1 C2'")); // + mọi class trong mã dựng → trang đuôi dài (Worker) không thiếu kiểu
+  }
   const manifest = { v: 1, lastmod, langs: {} };
   for (const l of ENABLED) {
     manifest.langs[l] = {};
@@ -140,7 +193,7 @@ export function build({ out = 'dist-dict', n = 200, staticN = Infinity, index = 
   }
   put('assets/dict-open.json', JSON.stringify(Object.fromEntries(ENABLED.map(l => [l, pages[l].filter(d => isIndexable(d, open)).map(d => d.slug)])))); // Worker: /<lang>/words/<từ> đã mở → 301 (§1)
   put('data/v1/shell.json', JSON.stringify(shell)); put('data/v1/manifest.json', JSON.stringify(manifest));
-  put('assets/_headers', '/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Cache-Control: public, max-age=3600, s-maxage=86400\n');
+  put('assets/_headers', '/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Cache-Control: public, max-age=600, s-maxage=86400\n');
   const report = { at: new Date().toISOString(), n: list.length, index: index || '(tắt – noindex hết)', thresholds: { QUALITY_MIN, WORDS_MIN }, langs: {} };
   for (const l of ENABLED) { const ps = pages[l], sc = ps.map(d => d.quality.score).sort((a, b) => a - b); report.langs[l] = { pages: ps.length, candidates: ps.filter(d => d.quality.index).length, indexable: ps.filter(d => isIndexable(d, open)).length, scoreMin: sc[0], scoreMedian: sc[sc.length >> 1], withConfusables: ps.filter(d => d.confus.length).length, withBlog: ps.filter(d => d.blog.length).length, quiz3: ps.filter(d => d.quiz.length >= 3).length, below: ps.filter(d => !d.quality.index).map(d => `${d.word}:${d.quality.score}/${d.quality.words}w`) }; }
   put('report.json', JSON.stringify(report, null, 1));

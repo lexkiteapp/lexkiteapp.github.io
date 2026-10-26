@@ -23,6 +23,7 @@ export const T = {
     fMean: '{W} là gì?', aMean: '“{w}” nghĩa là {m}. Định nghĩa tiếng Anh: {d}.', fPron: 'Phát âm “{w}” thế nào?', fDiff: '“{a}” và “{b}” khác nhau thế nào?',
     aPron: 'Anh–Anh {uk}{us}. Bấm nút loa trên trang để nghe.', aPronUS: ', Anh–Mỹ {us}',
     cta: 'Học “{w}” bằng flashcard và ôn lặp lại ngắt quãng', ctaN: 'Miễn phí, có phát âm và nhắc ôn đúng lúc.', ctaB: 'Mở “{w}” trong app',
+    goes: 'Hay đi với', synL: 'Đồng nghĩa', save: 'Lưu flashcard', speak: 'Luyện phát âm',
     lv: 'Cấp độ', pos: { n: 'danh từ', v: 'động từ', adj: 'tính từ', adv: 'trạng từ', prep: 'giới từ', conj: 'liên từ', pron: 'đại từ', det: 'hạn định từ', phr: 'cụm từ', phrv: 'cụm động từ', idiom: 'thành ngữ', int: 'thán từ', num: 'số từ' },
     hubTitle: 'Từ điển Anh–Việt: {n} từ thông dụng có phát âm và ví dụ', hubDesc: 'Tra nghĩa {n} từ tiếng Anh thông dụng: phát âm Anh–Anh/Anh–Mỹ có audio, ví dụ, collocation, từ dễ nhầm và bài tập nhỏ.',
     hubLead: 'Mỗi trang giải thích một từ: nghĩa, phát âm, ví dụ, cách dùng, lỗi người Việt hay mắc và câu hỏi tự kiểm tra.',
@@ -40,6 +41,7 @@ export const T = {
     fMean: 'What does {w} mean?', aMean: '“{w}” ({p}) means {d}.', fPron: 'How do you pronounce “{w}”?', fDiff: 'What is the difference between “{a}” and “{b}”?',
     aPron: 'UK {uk}{us}. Use the speaker button on this page to listen.', aPronUS: ', US {us}',
     cta: 'Learn “{w}” with flashcards and spaced review', ctaN: 'Free, with audio and reminders at the right time.', ctaB: 'Open “{w}” in the app',
+    goes: 'Goes with', synL: 'Synonyms', save: 'Save to flashcards', speak: 'Practise pronunciation',
     lv: 'Level', pos: { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', phr: 'phrase', phrv: 'phrasal verb', idiom: 'idiom', int: 'interjection', num: 'number' },
     hubTitle: 'English dictionary: {n} common words with audio and examples', hubDesc: 'Meanings of {n} common English words with UK/US pronunciation audio, example sentences, collocations, confusing pairs and quick quizzes.',
     hubLead: 'Each page explains one word: meaning, pronunciation, examples, usage, common mistakes and a self-check.',
@@ -71,24 +73,32 @@ export function renderWord(d, shell, { open = {} } = {}) {
   const crumbs = [[t.home, landing(l)], [t.hub, hubPath(l)], [W, p]];
   const faq = [[fill(t.fMean, { W, w }), fill(t.aMean, { w, m: d.meaning, d: d.def, p: posL })], [fill(t.fPron, { w }), fill(t.aPron, { uk: d.ipa, us: d.ipaUS ? fill(t.aPronUS, { us: d.ipaUS }) : '' })]];
   for (const c of (d.confus || []).slice(0, 1)) if (c.tip && c.items.length >= 2) faq.push([fill(t.fDiff, { a: c.items[0].h, b: c.items[1].h }), c.tip.replace(/\*+/g, '')]);
-  const sec = (id, h, inner, cls = '') => `<section aria-labelledby="h-${id}"${cls ? ` class="${cls}"` : ''}><h2 id="h-${id}">${esc(h)}</h2>${inner}</section>`;
-  const link = x => (x.href ? `<a href="${x.href}" lang="en" dir="ltr">${esc(x.w)}</a>` : en(x.w));
+  // Thẻ chính = CÙNG markup/CSS với màn tra từ của app & add-on (web/js/app.js paint(), web/css/style.css – build.mjs appCss()); các khối sau là thẻ .card
+  const sec = (id, h, inner, ic = '') => `<section class="card blk" aria-labelledby="h-${id}"><h2 id="h-${id}">${ic ? `<span aria-hidden="true">${ic}</span> ` : ''}${esc(h)}</h2>${inner}</section>`;
+  const link = x => (x.href ? `<a class="chip wc-chip" href="${x.href}" lang="en" dir="ltr">${esc(x.w)}</a>` : `<span class="chip wc-chip" lang="en" dir="ltr">${esc(x.w)}</span>`);
+  const re = new RegExp(`\\b(${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:s|es|d|ed|ing)?)\\b`, 'gi');
+  const hl = x => esc(x).replace(re, '<mark>$1</mark>');
+  const chips = (ic, lb, list) => (list.length ? `<div class="wc-chips"><span class="wc-clb">${ic} ${esc(lb)}</span>${list.join('')}</div>` : '');
+  const pairs = list => `<ul class="wc-pairs">${list.map(x => `<li class="wc-pair"><div class="wc-wrong"><span class="wc-mk" aria-hidden="true">✕</span><span class="sr-only">${esc(t.wrong)}: </span><span><s lang="en">${esc(x.w)}</s></span></div><div class="wc-right"><span class="wc-mk" aria-hidden="true">✓</span><span class="sr-only">${esc(t.right)}: </span><span><b lang="en">${esc(x.r)}</b>${x.why ? ` <span class="wc-why">${md(x.why)}</span>` : ''}</span></div></li>`).join('')}</ul>`;
   const body = [
-    `<header class="hero"><h1>${en(W)}</h1><div class="sub">${posL ? `<span class="chip">${esc(posL)}</span>` : ''}${d.level ? `<span class="chip">${esc(t.lv)} ${esc(d.level)}</span>` : ''}</div></header>`,
-    sec('m', fill(t.mean, { w }), `<p class="mean"${l === 'en' ? ' lang="en"' : ''}>${esc(d.meaning)}</p>${l !== 'en' ? `<p><b>${esc(t.def)}:</b> ${en(d.def)}</p>` : ''}`),
-    sec('p', t.pron, `<p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(d.ipa)}</span></span>${d.ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(d.ipaUS)}</span></span>` : ''}${d.audio ? `<button type="button" class="au" data-a="${esc(d.audio)}" aria-label="${esc(t.play)}: ${esc(w)}" aria-pressed="false"></button>` : ''}</p>`),
-    sec('e', t.ex, d.examples.map(x => `<blockquote lang="en" dir="ltr">${md(x)}</blockquote>`).join('')),
-    d.col.length ? sec('c', t.col, `<p class="chips">${d.col.map(x => en(x)).join('')}</p>`) : '',
-    d.patterns.length ? sec('t', t.pat, `<ul>${d.patterns.map(x => `<li>${en(x.h, 'b')} – ${esc(x.m)}${x.ex ? `<br>${en(x.ex, 'i')}` : ''}</li>`).join('')}</ul>`) : '',
-    d.syn.length ? sec('s', t.syn, `<p class="chips">${d.syn.map(link).join('')}</p>`) : '',
-    d.confus.length ? sec('k', fill(t.conf, { w }), d.confus.map(c => `<div class="ph">${c.items.map(x => `<p>${en(x.h, 'b')} – ${esc(x.m)}${x.ex ? `<br>${en(x.ex, 'i')}` : ''}</p>`).join('')}${c.tip ? `<p class="tip">💡 ${md(c.tip)}</p>` : ''}</div>`).join('')) : '',
-    d.mistakes.length ? sec('x', t.mis, d.mistakes.map(x => `<div class="ph"><p class="no">✗ ${esc(t.wrong)}: ${en(x.w)}</p><p class="say">✓ ${esc(t.right)}: ${en(x.r)}</p>${x.why ? `<p>${md(x.why)}</p>` : ''}</div>`).join('')) : '',
-    d.note ? sec('n', t.note, [['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => d.note[q]).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(d.note[q])}</p>`).join('')) : '',
-    d.quiz.length ? sec('q', t.quiz, `<ol class="quiz">${d.quiz.map(q => `<li><p>${esc(q.q)}</p>${q.s ? `<p>${en(q.s, 'i')}</p>` : ''}<ul>${q.o.map(o => `<li>${q.oEn ? en(o) : esc(o)}</li>`).join('')}</ul><details><summary>${esc(t.ans)}</summary><p>${q.oEn ? en(q.o[q.a], 'b') : `<b>${esc(q.o[q.a])}</b>`}</p></details></li>`).join('')}</ol>`) : '',
+    `<div class="card entry"><div class="entry-head"><div>
+<div class="row"><h1 class="entry-word" lang="en" dir="ltr">${esc(w)}</h1>${posL ? `<span class="chip pos">${esc(posL)}</span>` : ''}${d.level ? `<span class="chip lv ${esc(d.level)}">${esc(d.level)}</span>` : ''}</div>
+<div class="pron"><span><b class="small">🇬🇧 UK</b> <span class="ipa" dir="ltr">${esc(d.ipa)}</span>${d.audio ? `<button type="button" class="au" data-a="${esc(d.audio)}" aria-label="${esc(t.play)}: ${esc(w)}" aria-pressed="false"></button>` : ''}</span>${d.ipaUS ? `<span><b class="small">🇺🇸 US</b> <span class="ipa" dir="ltr">${esc(d.ipaUS)}</span></span>` : ''}</div>
+<h2 class="sr-only" id="h-m">${esc(fill(t.mean, { w }))}</h2>${l === 'en' ? `<div class="vi" lang="en">${esc(d.def)}</div>` : `<div class="vi">${esc(d.meaning)}</div><div class="def" lang="en" dir="ltr">${esc(d.def)}</div>`}
+<div class="row acts"><a class="btn primary" href="${esc(d.app)}">+ ${esc(t.save)}</a><a class="btn" href="${esc(d.app.replace(/#\/dict\/.*/, '#/practice/speak?w=' + encodeURIComponent(w)))}">🎙️ ${esc(t.speak)}</a></div>
+</div></div>
+<div class="example-box"><div class="small muted">${esc(t.ex)}</div>${d.examples.map(x => `<p lang="en" dir="ltr">${hl(x)}</p>`).join('')}</div>
+${chips('🔗', t.goes, d.col.map(x => `<span class="chip wc-chip" lang="en" dir="ltr">${esc(x)}</span>`))}${chips('≈', t.synL, d.syn.map(link))}
+${d.noteHtml || (d.note ? `<div class="notes">${[['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => d.note[q]).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(d.note[q])}</p>`).join('')}</div>` : '')}
+</div>`,
+    d.patterns.length ? sec('t', t.pat, `<ul class="wc-use">${d.patterns.map(x => `<li><span class="wc-tag" lang="en">${esc(x.h)}</span><span>${esc(x.m)}${x.ex ? `<br><i lang="en" dir="ltr">${hl(x.ex)}</i>` : ''}</span></li>`).join('')}</ul>`, '📐') : '',
+    d.confus.length ? sec('k', fill(t.conf, { w }), d.confus.map(c => `<div class="pair">${c.items.map(x => `<div class="pos-block"><div class="pos-head"><b lang="en" dir="ltr">${esc(x.h)}</b><span class="vi">${esc(x.m)}</span></div>${x.ex ? `<div class="ex" lang="en" dir="ltr">“${hl(x.ex)}”</div>` : ''}</div>`).join('')}${c.tip ? `<p class="tip">💡 ${md(c.tip)}</p>` : ''}</div>`).join(''), '⚖️') : '',
+    d.mistakes.length ? sec('x', t.mis, pairs(d.mistakes), '⚠️') : '',
+    d.quiz.length ? sec('q', t.quiz, `<ol class="quiz">${d.quiz.map(q => `<li><p><b>${esc(q.q)}</b></p>${q.s ? `<p class="ex">${en(q.s)}</p>` : ''}<ul class="opts">${q.o.map(o => `<li><span class="chip">${q.oEn ? en(o) : esc(o)}</span></li>`).join('')}</ul><details><summary>${esc(t.ans)}</summary><p class="ok">✓ ${q.oEn ? en(q.o[q.a], 'b') : `<b>${esc(q.o[q.a])}</b>`}</p></details></li>`).join('')}</ol>`, '✍️') : '',
     `<div class="cta"><p><strong>${esc(fill(t.cta, { w }))}</strong><small>${esc(t.ctaN)}</small></p><a class="btn" href="${esc(d.app)}">${esc(fill(t.ctaB, { w }))} →</a></div>`,
-    sec('f', t.faq, faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join('')),
-    d.blog.length ? sec('b', t.blog, `<ul>${d.blog.map(b => `<li><a href="${b.href}">${esc(b.t)}</a></li>`).join('')}</ul>`) : '',
-    d.related.length ? sec('r', t.rel, `<p class="chips">${d.related.map(link).join('')}</p>`) : '',
+    sec('f', t.faq, faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join(''), '❓'),
+    d.blog.length ? sec('b', t.blog, `<ul>${d.blog.map(b => `<li><a href="${b.href}">${esc(b.t)}</a></li>`).join('')}</ul>`, '📚') : '',
+    d.related.length ? sec('r', t.rel, `<div class="wc-chips">${d.related.map(link).join('')}</div>`, '🔎') : '',
   ].filter(Boolean).join('\n');
   const jl = [
     { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: w, description: l === 'en' ? d.def : `${d.meaning} – ${d.def}`, inLanguage: l, url: u, termCode: d.slug, inDefinedTermSet: { '@type': 'DefinedTermSet', name: `Lexkite – ${t.hub}`, url: SITE + hubPath(l) } },

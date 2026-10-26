@@ -26,7 +26,7 @@ for (const mode of ['', 'all']) {
     ok(canon === SITE + p, `${p}: canonical ${canon}`);
     const t = (h.match(/<title>([^<]+)<\/title>/) || [])[1], d = (h.match(/<meta name="description" content="([^"]+)"/) || [])[1];
     ok(t && !titles.has(t), `${p}: tiêu đề trống/trùng`); titles.add(t); ok(d && d.length <= 160 && !descs.has(d), `${p}: mô tả trống/trùng/dài`); descs.add(d);
-    ok(/<h1>/.test(h), `${p}: thiếu h1`);
+    ok(/<h1[\s>]/.test(h), `${p}: thiếu h1`);
     if (!mode) { ok(noidx, `${p}: mặc định phải noindex`); ok(!/hreflang=/.test(h.replace(/<(header|footer)[\s\S]*?<\/\1>/g, '')), `${p}: noindex không được có hreflang`); }
     const lds = ldOf(h), types = lds.map(x => x['@type']);
     ok(types.includes('BreadcrumbList'), `${p}: thiếu BreadcrumbList`);
@@ -63,7 +63,7 @@ for (const mode of ['', 'all']) {
     const env = { DICT: R2, DICT_INDEX: '' }, go = (p, e = env) => worker.fetch(new Request('https://lexkite.com' + p), e, { waitUntil() {} });
     const slug = pages.vi[0].slug;
     let r = await go(`/vi/tu-dien/${slug}/`); const b = await r.text();
-    ok(r.status === 200 && /noindex/.test(r.headers.get('x-robots-tag') || '') && b.includes('<h1>'), `worker: trang đuôi dài ${r.status}`);
+    ok(r.status === 200 && /noindex/.test(r.headers.get('x-robots-tag') || '') && /<h1[\s>]/.test(b), `worker: trang đuôi dài ${r.status}`);
     ok(b === files[`assets/vi/tu-dien/${slug}/index.html`], 'worker: HTML phải trùng từng byte với tầng tĩnh (cùng render.mjs)');
     r = await go(`/vi/tu-dien/${slug.toUpperCase()}`); ok(r.status === 301 && r.headers.get('location').endsWith(`/vi/tu-dien/${slug}/`), `worker: 301 chuẩn hoá ${r.status}`);
     r = await go('/en/dictionary/zzzz-not-a-word/'); ok(r.status === 404 && r.headers.get('x-robots-tag') === 'noindex', `worker: 404 ${r.status}`);

@@ -44,7 +44,7 @@ export default {
     const d = await obj.json(), open = parseOpen(env.DICT_INDEX || '');
     const html = renderWord(d, shell, { open }), idx = !/<meta name="robots" content="noindex/.test(html);
     const res = new Response(req.method === 'HEAD' ? null : html, { headers: {
-      'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, s-maxage=86400', 'x-content-type-options': 'nosniff',
+      'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=600, s-maxage=86400', 'x-content-type-options': 'nosniff',
       ...(idx ? {} : { 'x-robots-tag': 'noindex, follow' }), etag: `"${obj.etag || ''}${open[r.lang] || 0}"`, link: `<https://lexkite.com${hubPath(r.lang)}>; rel="up"` } });
     if (cache && req.method === 'GET') ctx.waitUntil(cache.put(key, res.clone()));
     return res;
