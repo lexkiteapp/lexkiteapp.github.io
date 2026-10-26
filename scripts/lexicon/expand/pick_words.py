@@ -94,8 +94,10 @@ def comps(w):
     return [x for x in c if zipf_frequency(x, 'en') >= 2.3][:4]
 out, seen, excl = [], set(), {}
 need = a.target - len(have)
+OLPW = {h for h, _ in OLP}
+nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – trần need × 1,25 (dư 25 % cho hàng duyệt/loại); từ danh sách người học luôn lấy hết
 for w in top_n_list('en', 80000):
-    if len(out) >= need * 1.25: break  # dư 25 % cho hàng duyệt/loại
+    if nfreq >= need * 1.25 and w not in OLPW and not lists.get(w): continue
     if w in have or w in seen or not re.fullmatch(r'[a-z]{3,}(-[a-z]+)?', w) or w not in cmu and '-' not in w: continue
     if w in bad or any(b in bad for b in w.split('-')): continue
     syn = wn.synsets(w)
@@ -106,6 +108,9 @@ for w in top_n_list('en', 80000):
     cnt = {}
     for l in lem: p = POSMAP[l.synset().pos()]; cnt[p] = cnt.get(p, 0) + l.count() + 1
     pos = max(cnt, key=cnt.get)
+    if (w, pos) not in OLP:  # hồ sơ người học ghi từ loại khác (CEFR-J: record = verb A2) → theo hồ sơ nếu WordNet có từ loại đó, cấp thấp nhất trước
+        alt = sorted((LV.index(OLP[(w, p)][0]), p) for p in cnt if (w, p) in OLP)
+        if alt: pos = alt[0][1]
     # KHÓA NGHĨA: đúng 1 nghĩa = nghĩa người học hay gặp nhất của từ loại này: số đếm SemCor (WordNet lemma.count) lớn nhất,
     # hoà → thứ tự nghĩa WordNet (cũng xếp theo tần suất). Ưu tiên nghĩa mà từ là lemma ĐẦU (không phải biến thể/từ cắt của từ khác).
     cand = [l for l in lem if POSMAP[l.synset().pos()] == pos]
@@ -115,6 +120,7 @@ for w in top_n_list('en', 80000):
     z = zipf_frequency(w, 'en')
     seen.add(w)
     lv, lsrc = OLP.get((w, pos), (cefr(z), 'freq'))
+    if lsrc == 'freq' and not lists.get(w): nfreq += 1
     out.append({'w': w, 'pos': pos, 'z': round(z, 2), 'cefr': lv, 'cefrSrc': lsrc, 'cefrZ': cefr(z), 'lex': s0.lexname(), 'syn': s0.name(), 'gloss': s0.definition(),
                 'lemmas': [l.name().replace('_', ' ') for l in s0.lemmas() if l.name() != w][:4], 'wnex': s0.examples()[:2],
                 # đồng nghĩa = lemma CÙNG synset (WordNet, đúng nghĩa khóa), chỉ từ đơn đủ phổ biến – không có → [] (không bịa)
@@ -124,9 +130,11 @@ for w in top_n_list('en', 80000):
                 'alts': [{'syn': l.synset().name(), 'gloss': l.synset().definition(), 'lemmas': [m.name().replace('_', ' ') for m in l.synset().lemmas() if m.name() != w][:4], 'wnex': l.synset().examples()[:2],
                           'syns': [m.name() for m in l.synset().lemmas() if m.name() != w and '_' not in m.name() and m.name().islower() and zipf_frequency(m.name(), 'en') >= 2.8][:3], 'lex': l.synset().lexname()}
                          for l in cand if l.synset() != s0][:3], 'lists': sorted(set(lists.get(w, [])))})
-# ưu tiên: từ có trong danh sách học thuật/kinh doanh của repo lên trước trong cùng dải Zipf 0,5
-out.sort(key=lambda e: (-round(e['z'] * 2) / 2, 0 if e['lists'] else 1, -e['z'], e['w']))
-for i, e in enumerate(out): e['rank'] = i + 1; e['band'] = int(e['z'] * 2) / 2
+# thứ tự sinh (26/10, chuẩn từ điển người học): TẦNG 0 = hồ sơ CEFR kiểu EVP (CEFR-J A1–B2 + Octanove C1/C2) hoặc danh sách NGSL/NAWL/BSL
+# của repo, xếp theo cấp A1 → C2 rồi tần suất; TẦNG 1 = chỉ tần suất (wordfreq), dải Zipf 0,5 giảm dần. Tầng 0 hết → kho đủ lõi người học rồi mới mở rộng theo tần suất.
+tier = lambda e: 0 if e['cefrSrc'] != 'freq' or e['lists'] else 1
+out.sort(key=lambda e: (tier(e), LV.index(e['cefr']) if tier(e) == 0 else 0, -round(e['z'] * 2) / 2, 0 if e['lists'] else 1, -e['z'], e['w']))
+for i, e in enumerate(out): e['rank'] = i + 1; e['band'] = int(e['z'] * 2) / 2; e['tier'] = tier(e)
 json.dump({'_doc': 'Ứng viên mở rộng kho từ (scripts/lexicon/expand/pick_words.py) – thứ tự sinh. Nguồn & giấy phép: wordfreq 3.1 CC BY-SA 4.0 (SUBTLEX, Google Books Ngram…), WordNet 3.0 (Princeton), CMUdict BSD-2, LDNOOBW CC BY 4.0 (lọc), NGSL/NAWL/BSL CC BY-SA 4.0.',
            'cuts': [round(c, 2) for c in cuts], 'existing': len(have), 'target': a.target, 'n': len(out), 'items': out},
           open(a.out, 'w'), ensure_ascii=False, separators=(',', ':'))
