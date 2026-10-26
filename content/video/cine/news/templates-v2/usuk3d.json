@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 0.7,
+ "speed": 0.68,
  "display": {
   "blank": "___"
  },
@@ -45,7 +45,7 @@
   },
   {
    "id": "u_uk",
-   "text": "In Britain, it's a biscuit.",
+   "text": "In Britain, it's a biscuit. Same snack!",
    "key": {
     "yellow": [
      3
@@ -364,7 +364,7 @@
    ],
    "to": [
     "u_q",
-    4,
+    5,
     "s",
     -0.08
    ],
@@ -385,7 +385,7 @@
    "kind": "quiz",
    "from": [
     "u_q",
-    4,
+    5,
     "s",
     -0.06
    ],
@@ -470,5 +470,5 @@
    ]
   }
  ],
- "caption_cap": 62
+ "caption_cap": 56
 }
