@@ -92,6 +92,7 @@
 - [DMCA-KIT.md](legal/DMCA-KIT.md) — Bộ hồ sơ DMCA mẫu của Lexkite (không phải tư vấn pháp lý): thông báo và phản thông báo. Điều chỉnh theo từng vụ việc; đọc khi: xử lý DMCA
 - [study4-courses.md](research/study4-courses.md) — Ghi chú nghiên cứu cấu trúc khóa học & bài tập của Study4 (15/10/2026, duyệt chỉ đọc). Chỉ học mẫu, không chép; đọc khi: thiết kế khóa học/bài tập
 - [study4-syllabi.md](research/study4-syllabi.md) — Ghi chú nghiên cứu giáo trình Study4. Chỉ học mẫu, không chép; đọc khi: thiết kế giáo trình
+- [pron-phoneme-plan.md](research/pron-phoneme-plan.md) — Kế hoạch R&D chấm phát âm từng âm vị kiểu ELSA, 100% miễn phí (wav2vec2 ONNX trên máy, GOP, P0–P3 + ước lượng token); đọc khi: làm chấm phát âm
 
 ## Lưu trữ (docs/archive/ – nguyên văn, chỉ để tra cứu)
 - [BACKLOG-DONE.md](archive/BACKLOG-DONE.md) — Việc đã xong 15/10/2026 (tách từ BACKLOG.md, nguyên văn); đọc khi: tra việc đã xong
