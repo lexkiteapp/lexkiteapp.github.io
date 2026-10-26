@@ -8,14 +8,15 @@ assert os.path.exists('scripts/pron/gop.mjs'), 'scripts/pron/gop.mjs missing - w
 ok, notes = [], []
 for c in want:
     if c not in cands: notes.append(f'{c}: unknown candidate id, skipped'); continue
-    if cands[c].get('artifact'):  # locally trained model (pron-train.yml) -> ONNX from a run artifact, no HF export
-        run_id = os.environ.get('A_RUN', '').strip()
-        if not run_id: notes.append(f'{c}: needs input a_run_id (run that uploaded artifact {cands[c]["artifact"]}), skipped'); continue
-        ok.append({'id': c, 'repo': '', 'artifact': cands[c]['artifact'], 'run_id': run_id}); continue
+    if cands[c].get('artifact'):  # locally trained model (pron-train.yml): ONNX from a release URL (model_url) or a run artifact
+        url, run_id = os.environ.get('MODEL_URL', '').strip().rstrip('/'), os.environ.get('A_RUN', '').strip()
+        if url: ok.append({'id': c, 'repo': '', 'source': 'url', 'url': url, 'artifact': '', 'run_id': ''}); continue
+        if run_id: ok.append({'id': c, 'repo': '', 'source': 'artifact', 'url': '', 'artifact': cands[c]['artifact'], 'run_id': run_id}); continue
+        notes.append(f'{c}: needs model_url (release from pron-train) or a_run_id, skipped'); continue
     repo = cands[c]['repo']
     try:
         urllib.request.urlopen(urllib.request.Request(f'https://huggingface.co/api/models/{repo}'), timeout=30).read()
-        ok.append({'id': c, 'repo': repo, 'artifact': '', 'run_id': ''})
+        ok.append({'id': c, 'repo': repo, 'source': 'hf', 'url': '', 'artifact': '', 'run_id': ''})
     except Exception as e:
         notes.append(f'{c}: HF repo {repo} not reachable ({e}), skipped')
 for n in notes: print('::warning::' + n)

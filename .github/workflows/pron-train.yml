@@ -2,7 +2,9 @@ name: pron-train
 # Train pron candidate A (wav2vec2-base CTC ARPA39) on Modal GPU (Starter plan, $30/month free credit), then evaluate it with pron-eval.
 # docs/research/pron-phoneme-plan.md "Training on Modal". Needs secrets MODAL_TOKEN_ID / MODAL_TOKEN_SECRET (fails fast if missing).
 # Cost guard (scripts/pron/train/modal_train.py): worst case (hours + 0.5 h) x Modal price must be <= $12 per run, else abort before any GPU.
-# GitHub jobs are capped at 6 h, so: start (prepare + spawn, detached) -> wait1/wait2 (poll the GPU call) -> export (ONNX fp32/q8/q4) -> eval.
+# All compute on Modal: detached remote pipeline (prepare -> train -> export ONNX fp32/q8/q4) writes Volume lexkite-pron:/pron-model-a[-dry]/.
+# GitHub jobs are capped at 6 h, so: start (spawn, detached) -> wait1/wait2 (poll) -> publish (fetch Volume, artifact, release) -> eval (model_url).
+# fetch_only=true skips training and publishes/evaluates what is already in the Volume (e.g. after a wait job timed out).
 on:
   workflow_dispatch:
     inputs:
@@ -12,20 +14,19 @@ on:
       include360: { description: 'add LibriSpeech train-clean-360', type: boolean, default: false }
       dry_run: { description: '5-minute GPU smoke on 200 utterances (cheap pipeline check)', type: boolean, default: true }
       gpu: { description: 'Modal GPU', type: choice, options: [L4, T4, A10G], default: L4 }
+      fetch_only: { description: 'skip training: fetch Volume result, publish, eval', type: boolean, default: false }
 permissions: { contents: read, actions: read }
 concurrency: { group: pron-train, cancel-in-progress: false }
 env:
   MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
   MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
-  PRON_GPU: ${{ inputs.gpu }}
-  PRON_HOURS: ${{ inputs.hours }}
-  PRON_DRY: ${{ inputs.dry_run }}
   ARGS: --hours ${{ inputs.hours }} --steps ${{ inputs.steps }} --layers ${{ inputs.layers }} --include360 ${{ inputs.include360 }} --dry-run ${{ inputs.dry_run }} --gpu ${{ inputs.gpu }} --job-id ${{ github.run_id }}
   APP: scripts/pron/train/modal_train.py
 jobs:
   start:
+    if: ${{ !inputs.fetch_only }}
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 30
     outputs: { call_id: '${{ steps.s.outputs.call_id }}' }
     steps:
       - name: Check Modal secrets
@@ -39,9 +40,9 @@ jobs:
       - name: Cost guard
         run: python "$APP" --cost-only --hours "${{ inputs.hours }}" --gpu "${{ inputs.gpu }}" --include360 "${{ inputs.include360 }}" --dry-run "${{ inputs.dry_run }}" | tee -a "$GITHUB_STEP_SUMMARY"
       - id: s
-        name: Prepare data (CPU) + spawn GPU training (detached)
+        name: Spawn remote pipeline (detached; runs on Modal without this runner)
         run: |
-          modal run --detach "$APP" --mode start $ARGS --state st.json
+          modal run --detach "$APP" --mode spawn $ARGS --state st.json
           echo "call_id=$(python -c 'import json;print(json.load(open("st.json"))["call_id"])')" >> "$GITHUB_OUTPUT"
   wait1:
     needs: start
@@ -71,26 +72,33 @@ jobs:
       - run: |
           modal run "$APP" --mode wait $ARGS --call-id "${{ needs.start.outputs.call_id }}" --wait-s 20400 --state w.json
           python scripts/pron/train/summary.py wait w.json --require-done >> "$GITHUB_STEP_SUMMARY"
-  export:
+  publish:
     needs: [wait1, wait2]
-    if: always() && (needs.wait1.outputs.done == 'true' || needs.wait2.result == 'success')
+    if: always() && (inputs.fetch_only || needs.wait1.outputs.done == 'true' || needs.wait2.result == 'success')
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 60
+    permissions: { contents: write }
+    outputs: { model_url: '${{ steps.p.outputs.model_url }}' }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - run: pip install -q "modal>=1.0,<2"
-      - name: Export ONNX fp32 / q8 / q4 (Modal CPU) and download
+      - name: Fetch ONNX + metrics from Volume lexkite-pron
         run: |
-          modal run "$APP" --mode export $ARGS --out pron-model-a
+          modal run "$APP" --mode fetch $ARGS --out pron-model-a
           ls -la pron-model-a
           python scripts/pron/train/summary.py export pron-model-a/train_report.json >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         with: { name: pron-model-a, path: pron-model-a, retention-days: 30 }
+      - id: p
+        name: Publish release assets (real runs only)
+        if: ${{ !inputs.dry_run }}
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: bash scripts/pron/train/publish.sh pron-model-a "pron-model-a-$(date -u +%Y%m%d)-${{ github.run_id }}" | tee -a "$GITHUB_STEP_SUMMARY"
   eval:
-    needs: export
-    if: always() && needs.export.result == 'success'
+    needs: publish
+    if: always() && needs.publish.result == 'success'
     uses: ./.github/workflows/pron-eval.yml
     with:
       candidates: ${{ inputs.dry_run && 'A' || 'A,C' }}
@@ -99,3 +107,4 @@ jobs:
       n_tr: ${{ inputs.dry_run && '100' || '600' }}
       quant: fp32,q8,q4
       a_run_id: ${{ github.run_id }}
+      model_url: ${{ needs.publish.outputs.model_url }}

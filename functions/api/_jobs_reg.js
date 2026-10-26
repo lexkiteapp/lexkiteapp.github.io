@@ -704,7 +704,7 @@ export const REG = {
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [
-    "40 1,7,13,19 * * *"
+    "40 1,4,7,10,13,16,19,22 * * *"
    ],
    "priority": "bulk",
    "resources": [
@@ -831,17 +831,15 @@ export const REG = {
    ],
    "priority": "render",
    "resources": [
-    "gemini",
     "cf_pool",
     "gh_minutes"
    ],
    "minutes": 120,
    "est": {
-    "gemini_calls": 400,
     "cf_pool_neurons": 450000
    },
    "lease": true,
-   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay 116 tài khoản, 4006/429 → tài khoản kế), trần 450k neuron/lượt ≈ 40 % kho; chạy sau 00:00 UTC (neuron đặt lại) + 11:35 vét, xen giữa fill ảnh 01:40/07:40/13:40/19:40; không dùng tài khoản 2 (VIMG_CF_USE_CF2=0 – workers_ai_b của script-bank/news-auto)."
+   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay 116 tài khoản, 4006/429 → tài khoản kế), trần 450k neuron/lượt ≈ 40 % kho; chạy sau 00:00 UTC (neuron đặt lại) + 11:35 vét, xen giữa fill ảnh 01:40/07:40/13:40/19:40; không dùng tài khoản 2 (VIMG_CF_USE_CF2=0 – workers_ai_b của script-bank/news-auto). 26/10: kho Gemini rỗng → bỏ Gemini (calls 0, không giữ tài nguyên độc quyền) → chạy được cả khi điều phối sập (d1-quota)."
   },
   {
    "id": "video-tpl1b",

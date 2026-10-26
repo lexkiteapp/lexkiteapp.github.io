@@ -12,6 +12,7 @@ on:
       n_tr: { description: 'speechocean762 TRAIN sample for CALIB fit (0 = no calibration)', default: '600' }
       quant: { description: 'fp32,q8,q4', default: 'fp32,q8' }
       a_run_id: { description: 'run id that uploaded artifact pron-model-a (pron-train.yml), for candidate A', default: '' }
+      model_url: { description: 'release download base for candidate A (publish.sh prints it), wins over a_run_id', default: '' }
   workflow_call:
     inputs:
       candidates: { type: string, default: 'A,C' }
@@ -20,6 +21,7 @@ on:
       n_tr: { type: string, default: '600' }
       quant: { type: string, default: 'fp32,q8,q4' }
       a_run_id: { type: string, default: '' }
+      model_url: { type: string, default: '' }
 permissions: { contents: read, actions: read }
 jobs:
   plan:
@@ -28,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: p
-        env: { CANDS: '${{ inputs.candidates }}', QUANT: '${{ inputs.quant }}', A_RUN: '${{ inputs.a_run_id }}' }
+        env: { CANDS: '${{ inputs.candidates }}', QUANT: '${{ inputs.quant }}', A_RUN: '${{ inputs.a_run_id }}', MODEL_URL: '${{ inputs.model_url }}' }
         run: python3 scripts/pron/plan.py
   data:
     needs: plan
@@ -57,17 +59,24 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with: { name: pron-data, path: pron-data }
-      - if: matrix.cand.artifact != ''
+      - if: matrix.cand.source == 'url'
+        env: { BASE: '${{ matrix.cand.url }}', OUT: 'models/${{ matrix.cand.id }}' }
+        run: |
+          mkdir -p "$OUT"
+          for f in meta.json vocab.json preprocessor_config.json; do curl -fsSL --retry 3 -o "$OUT/$f" "$BASE/$f"; done
+          for f in $(python3 -c 'import json,sys;print(" ".join(json.load(open(sys.argv[1]))["variants"].values()))' "$OUT/meta.json"); do curl -fsSL --retry 3 -o "$OUT/$f" "$BASE/$f"; done
+          ls -la "$OUT"
+      - if: matrix.cand.source == 'artifact'
         uses: actions/download-artifact@v4
         with: { name: '${{ matrix.cand.artifact }}', path: 'models/${{ matrix.cand.id }}', run-id: '${{ matrix.cand.run_id }}', github-token: '${{ github.token }}' }
       - id: mc
-        if: matrix.cand.artifact == ''
+        if: matrix.cand.source == 'hf'
         uses: actions/cache@v4
         with: { path: 'models/${{ matrix.cand.id }}', key: 'pron-model-v1-${{ matrix.cand.id }}-${{ hashFiles(''scripts/pron/export.py'') }}' }
       - uses: actions/setup-python@v5
-        if: matrix.cand.artifact == '' && steps.mc.outputs.cache-hit != 'true'
+        if: matrix.cand.source == 'hf' && steps.mc.outputs.cache-hit != 'true'
         with: { python-version: '3.11' }
-      - if: matrix.cand.artifact == '' && steps.mc.outputs.cache-hit != 'true'
+      - if: matrix.cand.source == 'hf' && steps.mc.outputs.cache-hit != 'true'
         run: |
           pip install -q "torch==2.4.1" --index-url https://download.pytorch.org/whl/cpu
           pip install -q "optimum[onnxruntime]==1.23.3" "transformers==4.46.3" onnxruntime==1.20.1 huggingface_hub

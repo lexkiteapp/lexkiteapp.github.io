@@ -4,10 +4,13 @@ Data (commercially usable only): LibriSpeech train-clean-100 (+360 opt., CC BY 4
 fallback openslr.org tar) labelled with CMUdict (BSD-2; OOV utterances skipped) + speechocean762 TRAIN split (CC BY 4.0, its own
 phone labels incl. annotated mispronunciations, mapped to ARPA39). The speechocean762 TEST split is never touched here.
 
-Modes (orchestrated by .github/workflows/pron-train.yml; every GitHub job stays < 6 h):
-  modal run --detach modal_train.py --mode start  ...   cost guard -> prepare data (CPU) -> spawn train (GPU) -> writes call id
-  modal run modal_train.py --mode wait --call-id X       waits up to --wait-s for the GPU call, writes done=true|false
-  modal run modal_train.py --mode export --out DIR       ONNX opset 17 fp32 + q8 (MatMul int8) + q4 (MatMulNBits) -> DIR
+Everything runs on Modal; the remote `pipeline` function does prepare (CPU) -> train (GPU) -> export ONNX fp32/q8/q4 (CPU) and writes
+the result to Volume lexkite-pron:/pron-model-a/ (dry run: /pron-model-a-dry/) incl. train_report.json + DONE.json, so no client
+needs to stay connected. Primary path = .github/workflows/pron-train.yml. Modes:
+  modal run --detach modal_train.py --mode spawn ...    cost guard -> spawn pipeline, write call id (CI)
+  modal run modal_train.py --mode wait --call-id X       wait up to --wait-s, write done=true|false (CI)
+  modal run --detach modal_train.py [--mode launch] ...  fallback from a terminal: same pipeline, terminal may close
+  modal run modal_train.py --mode fetch [--dry-run true] Volume -> ./out/pron-model-a[-dry]/
   python modal_train.py --cost-only --hours 8 --gpu L4   cost guard only (no Modal call)
 Resume-safe: dataset cache + checkpoints on Modal Volume "lexkite-pron"; a re-dispatch with the same layers/include360 resumes.
 Cost guard: abort if worst-case (hours + 0.5 h margin) x (GPU + CPU + RAM price) + prep > $12 (Modal Starter credit is $30/month).
@@ -27,7 +30,8 @@ def estimate_usd(hours, gpu, include360=False, dry_run=False):
     train = h * 3600 * (PRICE_S[gpu] + TRAIN_CPU * CPU_S + TRAIN_MEM_GB * MEM_S)
     prep_h = 0.2 if dry_run else (2.5 if include360 else 1.0)
     prep = prep_h * 3600 * (PREP_CPU * CPU_S + PREP_MEM_GB * MEM_S) + 0.3 * 3600 * (4 * CPU_S + 16 * MEM_S)  # + export
-    return round(train + prep, 2)
+    orch = (h + 6) * 3600 * (0.25 * CPU_S + 1 * MEM_S)  # pipeline orchestrator (0.25 core, 1 GiB)
+    return round(train + prep + orch, 2)
 
 
 def cost_guard(hours, gpu, include360, dry_run):
@@ -47,9 +51,12 @@ import modal  # noqa: E402
 ARPA39 = 'AA AE AH AO AW AY B CH D DH EH ER EY F G HH IH IY JH K L M N NG OW OY P R S SH T TH UH UW V W Y Z ZH'.split()
 VOCAB = {'<pad>': 0, **{p: i + 1 for i, p in enumerate(ARPA39)}}  # 0 = CTC blank (= pad, as in HF wav2vec2)
 BASE = 'facebook/wav2vec2-base'
-GPU = os.environ.get('PRON_GPU', 'L4')
-HOURS = float(os.environ.get('PRON_HOURS', '8'))
-DRY = os.environ.get('PRON_DRY', 'false') == 'true'
+def _cli(flag, env, default):  # decorator options (gpu/timeout) come from the local CLI args; containers ignore them
+    a = sys.argv
+    return a[a.index(flag) + 1] if flag in a and a.index(flag) + 1 < len(a) else os.environ.get(env, default)
+GPU = _cli('--gpu', 'PRON_GPU', 'L4')
+HOURS = float(_cli('--hours', 'PRON_HOURS', '8'))
+DRY = _cli('--dry-run', 'PRON_DRY', 'false') == 'true'
 TRAIN_TIMEOUT = int((0.15 if DRY else HOURS + 0.5) * 3600)
 
 app = modal.App('lexkite-pron-train')
@@ -61,6 +68,38 @@ V = '/vol'
 
 
 def _log(*a): print(time.strftime('%H:%M:%S'), *a, flush=True)
+
+
+def so762_phones(words):
+    """speechocean762 word list -> what was actually said in ARPA39 (annotated mispronunciation replaces the canonical phone,
+    <DEL> drops it). Returns None if any phone is unknown or scored 0 without annotation (never teach a wrong label)."""
+    import re
+    ph = []
+    for w in words:
+        can = [re.sub(r'\d', '', str(x).upper()) for x in w['phones']]; acc = [float(a) for a in w['phones-accuracy']]
+        mm = w.get('mispronunciations'); mis = {int(m['index']): str(m['pronounced-phone']) for m in (mm if mm is not None else [])}
+        for i, c in enumerate(can):
+            if i in mis:
+                pr = mis[i]
+                if pr.lower().startswith('<del'): continue
+                pr = re.sub(r'\d', '', pr.upper())
+                if pr not in VOCAB: return None
+                ph.append(pr)
+            elif c in VOCAB and (i >= len(acc) or acc[i] >= 0.5): ph.append(c)
+            else: return None
+    return ph or None
+
+
+def lev(a, b):
+    d = list(range(len(b) + 1))
+    for x in a:
+        nd = [d[0] + 1] + [0] * len(b)
+        for j in range(1, len(b) + 1): nd[j] = min(d[j] + 1, nd[j - 1] + 1, d[j - 1] + (b[j - 1] != x))
+        d = nd
+    return d[-1]
+
+
+def out_dir(dry_run): return 'pron-model-a-dry' if dry_run else 'pron-model-a'  # final ONNX + metrics, Volume root
 
 
 # ------------------------------------------------------------------ data (CPU)
@@ -139,21 +178,8 @@ def prepare(include360: bool = False, dry_run: bool = False):
         for fp in files:
             df = pd.read_parquet(hf_hub_download('mispeech/speechocean762', fp, repo_type='dataset', cache_dir=f'{V}/hf'))
             for k, r in df.iterrows():
-                ph, ok = [], True
-                for w in r['words']:
-                    can = [strip(x) for x in w['phones']]; acc = [float(a) for a in w['phones-accuracy']]
-                    mis = {int(m['index']): str(m['pronounced-phone']) for m in (w.get('mispronunciations') if w.get('mispronunciations') is not None else [])}
-                    for i, c in enumerate(can):
-                        if i in mis:
-                            pr = mis[i]
-                            if pr.lower().startswith('<del'): continue
-                            pr = strip(pr)
-                            if pr not in VOCAB: ok = False; break
-                            ph.append(pr)
-                        elif c in VOCAB and (i >= len(acc) or acc[i] >= 0.5): ph.append(c)
-                        else: ok = False; break  # unknown what was said -> do not teach a wrong label
-                    if not ok: break
-                if not ok or not ph: drop += 1; continue
+                ph = so762_phones(r['words'])
+                if not ph: drop += 1; continue
                 x, sr = sf.read(io.BytesIO(r['audio']['bytes']), dtype='float32')
                 if x.ndim > 1: x = x.mean(1)
                 if sr != 16000: g = gcd(sr, 16000); x = resample_poly(x, 16000 // g, sr // g).astype('float32')
@@ -193,12 +219,7 @@ def _per(model, rows, dev, dtype, bs=8):
                     if t != prev and t != 0: hyp.append(int(t))
                     prev = t
                 ref = [VOCAB[p] for p in r['ph']]
-                d = np.arange(len(hyp) + 1)
-                for a in ref:  # Levenshtein, 1 row
-                    nd = d.copy(); nd[0] = d[0] + 1
-                    for k in range(1, len(hyp) + 1): nd[k] = min(d[k] + 1, nd[k - 1] + 1, d[k - 1] + (hyp[k - 1] != a))
-                    d = nd
-                E += int(d[-1]); N += len(ref)
+                E += lev(ref, hyp); N += len(ref)
     model.train(); return E / max(N, 1)
 
 
@@ -316,7 +337,7 @@ def _fp16_conv_weights(path_in, path_out):
 
 
 @app.function(image=image, volumes={V: vol}, cpu=4, memory=16 * 1024, timeout=3600)
-def export(run: str):
+def export(run: str, dry_run: bool = False):
     import numpy as np, torch, onnx, onnxruntime as ort
     from transformers import Wav2Vec2ForCTC
     from onnxruntime.quantization import quantize_dynamic, QuantType
@@ -362,45 +383,61 @@ def export(run: str):
             for t in lg.argmax(-1):
                 if t != prev and t != 0: hyp.append(int(t))
                 prev = t
-            ref_ids = [VOCAB[p] for p in r['ph']]; d = list(range(len(hyp) + 1))
-            for a in ref_ids:
-                nd = [d[0] + 1] + [0] * len(hyp)
-                for j in range(1, len(hyp) + 1): nd[j] = min(d[j] + 1, nd[j - 1] + 1, d[j - 1] + (hyp[j - 1] != a))
-                d = nd
-            E += d[-1]; N += len(ref_ids)
+            ref_ids = [VOCAB[p] for p in r['ph']]
+            E += lev(ref_ids, hyp); N += len(ref_ids)
         rep['variants'][k] = {'size_mb': round(os.path.getsize(f'{O}/{f}') / 1048576, 1), 'max_abs_diff_vs_torch': round(diff, 4), 'PER_dev_clean_100': round(E / N, 4)}
         _log(k, rep['variants'][k])
     json.dump(VOCAB, open(f'{O}/vocab.json', 'w'))
     json.dump({'feature_extractor_type': 'Wav2Vec2FeatureExtractor', 'feature_size': 1, 'sampling_rate': 16000, 'padding_value': 0.0,
                'do_normalize': True, 'return_attention_mask': False}, open(f'{O}/preprocessor_config.json', 'w'))
     json.dump({'repo': f'lexkite/pron-a ({BASE} CTC ARPA39, run {run})', 'variants': variants}, open(f'{O}/meta.json', 'w'))
-    json.dump(rep, open(f'{O}/train_report.json', 'w'), indent=1); vol.commit()
-    return sorted(os.listdir(O))
+    json.dump(rep, open(f'{O}/train_report.json', 'w'), indent=1)
+    import shutil
+    F = f'{V}/{out_dir(dry_run)}'; shutil.rmtree(F, ignore_errors=True); shutil.copytree(O, F)
+    json.dump({'done': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()), 'run': run, 'files': sorted(os.listdir(O))}, open(f'{F}/DONE.json', 'w'))
+    vol.commit(); return sorted(os.listdir(F))
 
 
-# ------------------------------------------------------------------ local entrypoint (GitHub runner)
+# ------------------------------------------------------------------ remote orchestrator (survives the client disconnecting)
+@app.function(image=image, volumes={V: vol}, cpu=0.25, memory=1024, timeout=min(86400, TRAIN_TIMEOUT + 6 * 3600))
+def pipeline(run: str, job_id: str, hours: float, steps: int, layers: int, include360: bool, dry_run: bool):
+    """prepare (CPU) -> train (GPU) -> export (CPU) -> Volume lexkite-pron:/pron-model-a[-dry]/ (ONNX + train_report.json + DONE.json)."""
+    prepare.remote(include360, dry_run)
+    res = train.remote(run, job_id, hours, steps, layers, include360, dry_run)
+    res['files'] = export.remote(run, dry_run)
+    _log('pipeline done', json.dumps(res)[:1500]); return res
+
+
+# ------------------------------------------------------------------ local entrypoint (GitHub runner, or fallback terminal)
 @app.local_entrypoint()
-def main(mode: str = 'start', hours: float = 8.0, steps: int = 20000, layers: int = 12, include360: str = 'false', dry_run: str = 'false',
-         gpu: str = 'L4', job_id: str = 'local', call_id: str = '', wait_s: int = 20000, out: str = 'pron-model-a', state: str = 'pron-train-state.json'):
+def main(mode: str = 'launch', hours: float = 8.0, steps: int = 20000, layers: int = 12, include360: str = 'false', dry_run: str = 'false',
+         gpu: str = 'L4', job_id: str = '', call_id: str = '', wait_s: int = 20000, out: str = '', state: str = 'pron-train-state.json'):
+    """launch: run the whole pipeline remotely (use `modal run --detach`, the client may disconnect) · spawn: same, return call id (CI)
+    wait: wait for a spawned call · fetch: download Volume /pron-model-a[-dry]/ -> out (default ./out/pron-model-a[-dry])"""
     inc, dry = include360 == 'true', dry_run == 'true'
     run = 'dry' if dry else f'a{layers}' + ('_360' if inc else '')
     if not 1 <= layers <= 12: raise SystemExit('layers must be 1..12')
-    if mode == 'start':
-        if gpu != GPU or (not dry and hours != HOURS) or dry != DRY: raise SystemExit('set env PRON_GPU/PRON_HOURS/PRON_DRY to match --gpu/--hours/--dry-run')
+    job_id = job_id or time.strftime('local-%Y%m%d%H%M%S')
+    if mode in ('launch', 'spawn'):
         cost_guard(hours, gpu, inc, dry)
-        prepare.remote(inc, dry)
-        fc = train.spawn(run, job_id, hours, steps, layers, inc, dry)
-        json.dump({'call_id': fc.object_id, 'run': run}, open(state, 'w')); print('spawned train call', fc.object_id, 'run', run)
+        if mode == 'launch':
+            print('launched; results -> Volume lexkite-pron:/' + out_dir(dry) + ' (safe to close this terminal when started with --detach)')
+            print(json.dumps(pipeline.remote(run, job_id, hours, steps, layers, inc, dry))[:3000])
+        else:
+            fc = pipeline.spawn(run, job_id, hours, steps, layers, inc, dry)
+            json.dump({'call_id': fc.object_id, 'run': run}, open(state, 'w')); print('spawned pipeline call', fc.object_id, 'run', run)
     elif mode == 'wait':
         fc = modal.FunctionCall.from_id(call_id)
         try: res = fc.get(timeout=wait_s)
         except (TimeoutError, getattr(modal.exception, 'TimeoutError', TimeoutError)): res = None
-        done = res is not None
-        json.dump({'done': done, 'result': res, 'run': run}, open(state, 'w')); print('done' if done else 'still running', json.dumps(res)[:2000] if res else '')
-    elif mode == 'export':
-        files = export.remote(run); os.makedirs(out, exist_ok=True)
-        for f in files:
-            with open(os.path.join(out, f), 'wb') as fh:
-                for chunk in vol.read_file(f'ckpt/{run}/onnx/{f}'): fh.write(chunk)
-        print('exported', files)
-    else: raise SystemExit('mode must be start|wait|export')
+        json.dump({'done': res is not None, 'result': res, 'run': run}, open(state, 'w'))
+        print('done' if res is not None else 'still running', json.dumps(res)[:2000] if res else '')
+    elif mode == 'fetch':
+        src = out_dir(dry); dst = out or os.path.join('out', src); os.makedirs(dst, exist_ok=True)
+        names = [os.path.basename(e.path) for e in vol.listdir(src)]
+        if 'DONE.json' not in names: raise SystemExit(f'Volume lexkite-pron:/{src} has no DONE.json yet (training/export not finished)')
+        for f in names:
+            with open(os.path.join(dst, f), 'wb') as fh:
+                for chunk in vol.read_file(f'{src}/{f}'): fh.write(chunk)
+        print('fetched', names, '->', dst)
+    else: raise SystemExit('mode must be launch|spawn|wait|fetch')
