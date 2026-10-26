@@ -229,7 +229,7 @@ ${(x.rules || []).length ? `<h2>Rules</h2><div class="tbl" tabindex="0"><table><
 ${t(x.vn) ? `<h2>Common mistakes</h2><div class="err">${esc(t(x.vn))}</div>` : ''}
 ${t(x.tip) ? `<div class="tip">💡 ${esc(t(x.tip))}</div>` : ''}
 ${ws.length ? `<h2>Example words</h2><div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col">${L.col.word}</th><th scope="col">${L.col.ipa}</th></tr></thead><tbody>${ws.map(w => `<tr><td><span class="w">${au(w.w)}${esc(w.w)}</span>${t(w.note) ? ` <small>${esc(t(w.note))}</small>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
-${pairs.length ? `<h2>Minimal pairs</h2><p>Each pair differs by one sound only – say them aloud and hear the difference.</p><div class="tbl" tabindex="0"><table class="wt"><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w">${au(a)}${esc(a)}</span></td><td>vs</td><td><span class="w">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
+${pairs.length ? `<h2>Minimal pairs</h2><p>Each pair differs by one sound only – say them aloud and hear the difference.</p><div class="tbl" tabindex="0"><table class="wt"><thead><tr><th scope="col">Word</th><th scope="col">vs</th><th scope="col">Word</th></tr></thead><tbody>${pairs.map(([a, b]) => `<tr><td><span class="w">${au(a)}${esc(a)}</span></td><td>vs</td><td><span class="w">${au(b)}${esc(b)}</span></td></tr>`).join('')}</tbody></table></div>` : ''}
 ${(x.sentences || []).length ? `<h2>Practice sentences</h2><ul class="uses">${x.sentences.map(z => `<li lang="en">${esc(t(z))}</li>`).join('')}</ul>` : ''}
 ${quizHtml((x.quiz || []).slice(0, 3), t)}
 ${ctaBox(href, `🗣️ Record yourself saying ${esc(x.ipa)} words`, 'Practise in the app')}

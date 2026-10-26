@@ -136,7 +136,7 @@ ${siteHeader({ nav, open: [start, esc(c.nav.start)], home: landingHref(lang), la
 <section class="sec" id="features" aria-labelledby="hf"><h2 id="hf">${esc(c.featuresH)}</h2><p class="sub">${esc(c.featuresSub)}</p>
 <ul class="feat">${c.features.map(([ic, h, p]) => `<li><span class="ic" aria-hidden="true">${ic}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join('')}</ul></section>
 <section class="sec xf" id="addon" aria-labelledby="hx"><div><h2 id="hx">${esc(c.ext.h)}</h2><p class="sub">${esc(c.ext.p)}</p><ul>${c.ext.pts.map(x => `<li>${esc(x)}</li>`).join('')}</ul><a class="btn lg" href="${EXT_STORE}" target="_blank" rel="noopener" data-ext-cta="feat" hidden>🧩 ${esc(c.ext.btn)}</a></div>
-<img src="/img/ext-lookup.webp" width="752" height="602" loading="lazy" decoding="async" alt="${esc(c.ext.alt)}"></section>
+<img src="/img/ext-lookup.webp" srcset="/img/ext-lookup-480.webp 480w, /img/ext-lookup.webp 752w" sizes="(max-width: 800px) 92vw, 752px" width="752" height="602" loading="lazy" decoding="async" alt="${esc(c.ext.alt)}"></section>
 <section class="sec" id="how" aria-labelledby="hh"><h2 id="hh">${esc(c.stepsH)}</h2>
 <ol class="steps">${c.steps.map(([h, p]) => `<li><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join('')}</ol></section>
 <section class="sec" id="free" aria-labelledby="hr"><h2 id="hr">${esc(c.resH)}</h2><p class="sub">${esc(c.resSub)}</p>

@@ -946,6 +946,20 @@
         "backup_export",
         "backup_open"
       ]
+    },
+    {
+      "key": "cf-web-analytics",
+      "name": "Cloudflare Web Analytics (beacon)",
+      "kind": "analytics",
+      "purpose": "Cloudflare Pages tự chèn beacon đo lượt xem (không cookie); CSP cho phép static.cloudflareinsights.com + cloudflareinsights.com",
+      "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/web-analytics",
+      "free": "Miễn phí, không giới hạn",
+      "upgrade": "Không cần",
+      "status": "Miễn phí",
+      "match": [
+        "static.cloudflareinsights.com",
+        "cloudflareinsights.com"
+      ]
     }
   ],
   "links": {
