@@ -17,6 +17,8 @@ Mục tiêu đo được: tỉ lệ đồng ý ≥ 40 % ở lần hỏi mềm, C
 - App gốc: mỗi lần mở app / lưu Cài đặt → hủy & lên lịch lại cả chu kỳ (id 100–111). Có FCM → lịch cục bộ chỉ giữ ngày 0–2, máy chủ lo ngày ≥ 3 + tuần. Lên lịch lại nền: FCM chính là "lần chạm" khi app đóng lâu; Background Runner chưa dùng (cần plugin native riêng – để sau).
 - Khung app: `app.js`/`native.js` chỉ gọi `App.need('remind')` (khung giảm ~2,2 KB gz). `settings` nạp kèm `remind`.
 
+- **Nâng cấp 26/10** (thuần, test trong `reminders.mjs`): giờ = 30 phút trước giờ BẮT ĐẦU phiên học gần đây (`lk.rems`, cuộn 21 phiên, chỉ trên máy, cần ≥ 5 ngày; phiên mới nặng hơn; trung bình vòng tròn) → rồi mới tới histogram; giờ yên lặng mặc định 22:00–08:00; "chuỗi sắp mất" chỉ khi giờ nhắc ≥ 17:00 và chưa học; học dở mục tiêu ngày → lời nhắc `goal` ("{n}/{g} thẻ", còn {r}); bỏ qua ≥ 3 lời nhắc liên tiếp (đã hiện mà không học) → cách ≥ 2 ngày. Add-on: `sendReminder` tôn trọng giờ yên lặng.
+
 ## 2. Máy chủ (`functions/api/push.js`) – D1 NỘI BỘ `lexkite-internal` (coordDb), không có D1B → 503, không bao giờ ghi D1 người dùng
 - `push_subs`: 1 dòng/thiết bị (id = sha256(endpoint|token)), `k` web|fcm, `tz` IANA, `lmin` giờ địa phương, `q1/q2` giờ yên lặng, `lang`, `act/std` ngày địa phương mở app/học, `last`, `n`, `done`. Chỉ mục `(slot, last)`.
 - `slot` (UTC) do máy chủ tính từ `tz + lmin` bằng `Intl` cho NGÀY kế tiếp → đúng đổi giờ mùa hè; tính lại sau mỗi lần gửi và mỗi `touch`. Cron vẫn kiểm giờ ĐỊA PHƯƠNG (cửa sổ 40 phút) + giờ yên lặng địa phương. Đi du lịch/đổi ngôn ngữ → máy khách `touch` (chỉ khi chữ ký `lmin|quiet|tz|lang`, ngày mở app hoặc "đã học" đổi → ≤ 2 ghi/ngày/thiết bị).

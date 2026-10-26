@@ -40,6 +40,28 @@ for (const TZ of ['Asia/Ho_Chi_Minh', 'America/New_York', 'Asia/Kolkata', 'Pacif
   const ty = R.plan({ ...base, settings: { ...base.settings, remTypes: { streak: false, word: false, conf: false, week: false } } });
   ok(ty.filter(x => x.type !== 'miss').every(x => x.type === 'due'), `${TZ}: lọc theo loại người dùng chọn`);
   const late = R.plan({ ...base, now: new Date(2026, 9, 28, 21, 0).getTime() }); ok(late[0].d === 1, `${TZ}: giờ hôm nay đã qua → bắt đầu từ mai`);
+  // ---------- Nâng cấp 26/10: giờ theo phiên gần đây, giờ yên lặng 22–08, chuỗi chỉ buổi tối, mục tiêu ngày, giãn cách khi bị bỏ qua ----------
+  const rec = ms => ms.map((m, i) => ({ day: key(new Date(now - (ms.length - i) * DAY)), m }));
+  const hr = R.plan({ ...base, recent: rec([1150, 1145, 1160, 1155, 1150, 1158, 1152]) }); // ~19:12 dù histogram nói 20:00
+  ok(hr.every(x => { const d = new Date(x.at); return d.getHours() * 60 + d.getMinutes() === 1125; }), `${TZ}: giờ nhắc theo 7 phiên gần đây (~19:15 → 18:45): ${hr.map(x => new Date(x.at).toTimeString().slice(0, 5))}`);
+  const sh = R.habitMin(rec([...Array(10).fill(480), ...Array(6).fill(1080)])); ok(sh >= 1070 && sh <= 1090, `${TZ}: đổi thói quen 08:00 → 18:00, phiên mới nặng hơn (${sh})`);
+  ok(R.habitMin(rec([1150, 1150, 1150, 1150])) === -1 && R.pickTime(base.stats, base.settings, rec([600, 600, 600, 600])) === 1170, `${TZ}: < 5 phiên → dùng histogram`);
+  ok(R.pickTime(base.stats, { ...base.settings, reminderAuto: false, reminderTime: '18:00' }, rec([600, 600, 600, 600, 600])) === 1080, `${TZ}: tự chọn giờ → bỏ qua lịch sử`);
+  ok(R.habitMin(rec([1430, 5, 1435, 10, 0, 1425])) >= 1420 || R.habitMin(rec([1430, 5, 1435, 10, 0, 1425])) <= 15, `${TZ}: trung bình vòng tròn qua nửa đêm`);
+  ok(R.inQuiet(7 * 60 + 30, {}) && !R.inQuiet(8 * 60, {}) && R.clampQuiet(7 * 60, {}) === 480, `${TZ}: giờ yên lặng mặc định 22:00–08:00`);
+  const mo = R.plan({ ...base, stats: { hours: hours(9), days: daysAgo(now, 5) }, now: new Date(2026, 9, 28, 6, 0).getTime() });
+  ok(mo.length && !mo.some(x => x.type === 'streak'), `${TZ}: giờ nhắc buổi sáng → không nhắc "chuỗi sắp mất" (${mo.map(x => x.type)})`);
+  const tk = key(new Date(now)), gs = { ...base.settings, dailyGoal: 20 };
+  const gl = R.plan({ ...base, settings: gs, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 5 } } });
+  ok(gl[0].d === 0 && gl[0].type === 'goal' && /5\/20/.test(gl[0].title + gl[0].body) && /15/.test(gl[0].title + gl[0].body) && gl[0].url === '#/review', `${TZ}: học dở mục tiêu → nhắc tiến độ mục tiêu (${gl[0].type}: ${gl[0].title} / ${gl[0].body})`);
+  ok(new Set(gl.map(x => x.day)).size === gl.length, `${TZ}: lời nhắc mục tiêu vẫn ≤ 1/ngày`);
+  ok(!R.plan({ ...base, settings: gs, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 20 } } }).some(x => x.d === 0), `${TZ}: đủ mục tiêu → không nhắc hôm nay`);
+  ok(!R.plan({ ...base, settings: { ...gs, remTypes: { goal: false } }, stats: { ...base.stats, days: { ...base.stats.days, [tk]: 5 } } }).some(x => x.d === 0), `${TZ}: tắt loại mục tiêu → không nhắc`);
+  const ih = [1, 2, 3].map(i => ({ day: key(new Date(now - i * DAY)), tpl: 'due1' })), noStudy = { hours: hours(20), days: {} };
+  ok(R.ignoredOf(ih, {}, tk).n === 3 && R.ignoredOf(ih, { [ih[1].day]: 4 }, tk).n === 1, `${TZ}: đếm lời nhắc bị bỏ qua liên tiếp`);
+  const bo = R.plan({ ...base, stats: noStudy, hist: ih }), gaps = bo.slice(1).map((x, i) => Math.round((x.at - bo[i].at) / DAY));
+  ok(bo.length >= 4 && bo[0].d >= 1 && gaps.every(g => g >= 2), `${TZ}: bỏ qua 3 lần → cách ≥ 2 ngày (${bo.map(x => x.d)})`);
+  ok(R.plan({ ...base, stats: noStudy, hist: ih.slice(0, 2) }).some(x => x.d === 0), `${TZ}: bỏ qua 2 lần → vẫn nhắc bình thường`);
 }
 process.env.TZ = 'UTC';
 // ---------- Máy chủ: khung UTC theo múi giờ IANA, giờ địa phương, giờ yên lặng, đổi giờ mùa hè ----------

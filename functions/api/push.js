@@ -148,7 +148,7 @@ export async function onRequestPost({ request, env }) {
       const k = b.k === 'fcm' ? 'fcm' : 'web', ep = String((k === 'fcm' ? b.token : b.ep) || '');
       if (k === 'web' ? (pct(env) <= 0 || !PUSH_HOST.test(ep) || ep.length > 700) : (!fcmOn(env) || !/^[\w:\-.]{20,400}$/.test(ep))) return json(request, 400, { error: 'bad-sub' });
       const lmin = minOk(b.lmin); if (lmin == null) return json(request, 400, { error: 'lmin' });
-      const tz = tzOk(b.tz), id = await sha(k + '|' + ep), today = localDay(now, tz), lang = LANGS.includes(b.lang) ? b.lang : 'en', q = Array.isArray(b.q) ? b.q.map(minOk) : [1320, 420];
+      const tz = tzOk(b.tz), id = await sha(k + '|' + ep), today = localDay(now, tz), lang = LANGS.includes(b.lang) ? b.lang : 'en', q = Array.isArray(b.q) ? b.q.map(minOk) : [1320, 480];
       await db.batch([db.prepare('INSERT INTO push_subs (id, k, ep, slot, tz, lmin, q1, q2, act, std, last, n, done, lang, at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, 0, 0, 0, ?11, ?12) ON CONFLICT (id) DO UPDATE SET slot = ?4, tz = ?5, lmin = ?6, q1 = ?7, q2 = ?8, act = ?9, std = MAX(std, ?10), n = 0, done = 0, lang = ?11')
         .bind(id, k, ep, slotFor(lmin, tz, now), tz, lmin, q[0], q[1], today, b.st ? today : 0, lang, now), bump(db, day(now), 'subs:' + k)]);
       return json(request, 200, { id });

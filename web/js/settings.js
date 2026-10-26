@@ -49,9 +49,9 @@
         tog('sRem', s.reminderOn, t('Bật nhắc học'))
         + `<div id="remOpts" ${s.reminderOn ? '' : 'hidden'}>`
         + row(t('Giờ nhắc'), `<input type="time" class="input" id="sTime" value="${esc(s.reminderTime)}">`, Store.isExtension ? t('Add-on gửi thông báo vào giờ này mỗi ngày (kể cả khi chưa mở trang) và hiện số thẻ cần ôn trên biểu tượng.') : t('Trình duyệt chỉ nhắc được khi trang đang mở. Để nhắc chắc chắn, thêm lịch nhắc vào điện thoại hoặc dùng add-on Chrome.'))
-        + tog('sAuto', s.reminderAuto !== false, t('Tự động theo giờ bạn hay học'), t('Nhắc 30 phút trước giờ bạn hay học nhất (sau vài ngày học).'))
+        + tog('sAuto', s.reminderAuto !== false, t('Tự động theo giờ bạn hay học'), t('Nhắc 30 phút trước giờ bạn hay học nhất (sau vài ngày học).') + (R && R.habitMin && R.habitMin(R.recent()) >= 0 ? ' ' + t('Kit thấy bạn hay học lúc khoảng {time}.', { time: R.hm(R.habitMin(R.recent())) }) : ''))
         + row(t('Giờ yên lặng từ'), `<span class="set-btns"><input type="time" class="input" id="sQ1" value="${esc(s.quietStart)}"><span class="muted">${t('đến')}</span><input type="time" class="input" id="sQ2" value="${esc(s.quietEnd)}"></span>`, t('Không nhắc trong khung giờ này. Tối đa 1 lời nhắc mỗi ngày.'))
-        + `<fieldset class="set-row col" style="border:0;margin:0;padding:0"><legend class="set-l"><span>${t('Loại lời nhắc')}</span></legend>${[['due', t('Thẻ đến hạn')], ['word', t('Từ trong sổ của bạn')], ['streak', t('Chuỗi ngày sắp mất')], ['conf', t('Bài tự tin')], ['week', t('Tiến bộ tuần')]].map(([k, l]) => tog('sTy_' + k, ((s.remTypes || {})[k]) !== false, l)).join('')}</fieldset>`
+        + `<fieldset class="set-row col" style="border:0;margin:0;padding:0"><legend class="set-l"><span>${t('Loại lời nhắc')}</span></legend>${[['due', t('Thẻ đến hạn')], ['word', t('Từ trong sổ của bạn')], ['streak', t('Chuỗi ngày sắp mất')], ['conf', t('Bài tự tin')], ['week', t('Tiến bộ tuần')], ['goal', t('Mục tiêu hôm nay')]].map(([k, l]) => tog('sTy_' + k, ((s.remTypes || {})[k]) !== false, l)).join('')}</fieldset>`
         + '<div id="remPush"></div>'
         + `<div class="set-row"><div class="set-btns">${Store.isExtension ? '' : `<button type="button" class="btn sm" id="sPerm" ${perm === 'granted' || perm === 'unsupported' ? 'disabled' : ''}>${perm === 'granted' ? '✓ ' + t('Đã cho phép thông báo') : perm === 'unsupported' ? t('Không hỗ trợ thông báo') : '🔔 ' + t('Cho phép thông báo')}</button><button type="button" class="btn sm" id="sIcs">📅 ${t('Thêm vào Lịch (.ics)')}</button>`}<button type="button" class="btn sm ghost" id="sTest">${t('Thử gửi thông báo')}</button></div></div></div>`
         + tog('sGold', s.goldenOn, t('Nhắc “thời điểm vàng”'), t('Báo khi có từ sắp bị quên'))
@@ -100,7 +100,7 @@
     $('#sGold').onchange = e => { s.goldenOn = e.target.checked; $('#goldOpts').hidden = !s.goldenOn; save(); };
     $('#sGMin').oninput = e => { s.goldenMin = +e.target.value; $('#vGMin').textContent = s.goldenMin; save(); };
     $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:00'; save(); };
-    $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '07:00'; save(); };
+    $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '08:00'; save(); };
     $('#sCap').oninput = e => { s.sessionCap = +e.target.value; $('#vCap').textContent = s.sessionCap || t('Không giới hạn'); save(); };
     $('#sDigest').onchange = e => { s.emailDigest = e.target.checked; save(); };
     const fillVoices = () => {

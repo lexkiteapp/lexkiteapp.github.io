@@ -77,6 +77,7 @@ async function sendReminder(force = false) {
   const [s, cards, stats] = await Promise.all([getSettings(), Cards.all(), Stats.get()]);
   const done = stats.days[todayKey()] || 0;
   if (!force && done >= s.dailyGoal) return;
+  if (!force && Golden.quiet(s)) return; // giờ yên lặng (mặc định 22:00–08:00) – giờ nhắc tự động đã né, đây là chốt chặn khi người dùng tự đặt giờ
   const { total } = Cards.dueCount(cards, s, stats);
   const streak = Stats.streak(stats);
   chrome.notifications.create('reminder-' + Date.now(), {
