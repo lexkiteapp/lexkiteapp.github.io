@@ -234,7 +234,7 @@ def plan(nf, a0=None):
         hi = len(RAW[c]) - 1; best = None; need = nf + XF - len(seq)
         for n in order:   # next = any talk clip of this teacher or a loop point of the same clip, anywhere in it: the cleanest dissolve wins
             lo_n = CL[n]['usable'][0]; S_ = SEAM[(c, n)]
-            b0 = hi if a + need + XF - 1 <= hi else min(hi, a + 72)   # play >= 3 s before a join; no join at all when the clip covers the rest
+            b0 = hi if a + need + XF - 1 <= hi else min(hi, max(a + 72, hi - 36))   # v12 (owner 26/10 'giật lag'): play (almost) the whole clip before a join – exits only in its last 1.5 s, so a 10 s clip loops ~4x, not 10x
             for b in range(b0, hi + 1):
                 row = S_[b, lo_n:len(RAW[n]) - 60]
                 if not len(row): continue
