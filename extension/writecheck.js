@@ -26,7 +26,7 @@
   const sget = k => { if (!alive()) { stop(); return Promise.resolve({}); } try { return Promise.resolve(chrome.storage.local.get(k)).then(r => r || {}, () => { if (!alive()) stop(); return {}; }); } catch (e) { if (!alive()) stop(); return Promise.resolve({}); } };
   const sset = o => { if (!alive()) { stop(); return Promise.resolve(); } try { return Promise.resolve(chrome.storage.local.set(o)).catch(() => { if (!alive()) stop(); }); } catch (e) { if (!alive()) stop(); return Promise.resolve(); } };
   const chromeOn = (ev, fn) => { const h = guard(fn); try { ev.addListener(h); cleanups.push(() => { try { ev.removeListener(h); } catch (e) { /* bỏ qua */ } }); } catch (e) { /* bỏ qua */ } };
-  const uiLangOf = () => { try { return uiLangOf(); } catch (e) { return navigator.language; } };
+  const uiLangOf = () => { try { return chrome.i18n.getUILanguage(); } catch (e) { return navigator.language; } };
   bind(document, 'ielts-lexi-takeover', ev => { try { if (ev.detail !== chrome.runtime.id) return; } catch (x) { /* bản cũ */ } stop(); });
 
   // ---------- Ngôn ngữ giao diện (cùng cách content.js): vi = chữ gốc, ngôn ngữ khác = từ điển web, thiếu khóa → tiếng Anh ----------

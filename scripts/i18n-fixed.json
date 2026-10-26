@@ -26969,5 +26969,35 @@
     "ar": "جارٍ المعالجة…",
     "ru": "Обработка…",
     "tr": "İşleniyor…"
+  },
+  "Lexkite trên {site}": {
+    "es": "Lexkite en {site}",
+    "pt": "Lexkite em {site}",
+    "fr": "Lexkite sur {site}",
+    "de": "Lexkite auf {site}",
+    "id": "Lexkite di {site}",
+    "th": "Lexkite บน {site}",
+    "zh": "在 {site} 上使用 Lexkite",
+    "ja": "{site} で Lexkite を使う",
+    "ko": "{site}에서 Lexkite 사용",
+    "hi": "{site} पर Lexkite",
+    "ar": "Lexkite على {site}",
+    "ru": "Lexkite на {site}",
+    "tr": "{site} üzerinde Lexkite"
+  },
+  "Tắt để Lexkite nghỉ hẳn trên trang này: không tra từ, không đánh dấu từ, không soát lỗi viết.": {
+    "es": "Desactívalo para pausar Lexkite por completo en este sitio: sin búsqueda de palabras, sin resaltado de palabras y sin revisión de escritura.",
+    "pt": "Desative para pausar o Lexkite por completo neste site: sem consulta de palavras, sem destaque de palavras e sem verificação da escrita.",
+    "fr": "Désactivez pour mettre Lexkite entièrement en pause sur ce site : pas de recherche de mots, pas de surlignage des mots, pas de vérification de l’écriture.",
+    "de": "Ausschalten, um Lexkite auf dieser Website komplett zu pausieren: kein Nachschlagen von Wörtern, keine Wortmarkierung, keine Schreibprüfung.",
+    "id": "Matikan untuk menjeda Lexkite sepenuhnya di situs ini: tanpa pencarian kata, tanpa penandaan kata, tanpa pemeriksaan tulisan.",
+    "th": "ปิดเพื่อหยุด Lexkite บนเว็บไซต์นี้ทั้งหมด: ไม่ค้นหาคำ ไม่ไฮไลต์คำ และไม่ตรวจงานเขียน",
+    "zh": "关闭后，Lexkite 将在此网站完全暂停：不查词、不标记单词、不检查写作。",
+    "ja": "オフにすると、このサイトでは Lexkite が完全に停止します（単語の検索、単語のハイライト、ライティングチェックを行いません）。",
+    "ko": "끄면 이 사이트에서 Lexkite가 완전히 멈춥니다: 단어 검색, 단어 강조, 글쓰기 검사를 하지 않습니다.",
+    "hi": "इस साइट पर Lexkite को पूरी तरह रोकने के लिए बंद करें: न शब्द खोज, न शब्द हाइलाइट, न लेखन जाँच।",
+    "ar": "أوقف التشغيل لإيقاف Lexkite مؤقتًا بالكامل على هذا الموقع: بلا بحث عن الكلمات، وبلا تمييز للكلمات، وبلا تدقيق للكتابة.",
+    "ru": "Выключите, чтобы полностью приостановить Lexkite на этом сайте: без поиска слов, без выделения слов и без проверки текста.",
+    "tr": "Lexkite'ı bu sitede tamamen duraklatmak için kapatın: kelime arama, kelime vurgulama ve yazım denetimi yapılmaz."
   }
 }

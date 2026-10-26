@@ -2225,6 +2225,8 @@
 /* Chữ giao diện add-on (content/popup/background) – nguồn tiếng Anh để Actions dịch sang 13 ngôn ngữ khác */
 (function (g) { Object.assign(g.I18N_DICT.en, {
   'Dịch với Lexkite': 'Translate with Lexkite',
+  'Lexkite trên {site}': 'Lexkite on {site}',
+  'Tắt để Lexkite nghỉ hẳn trên trang này: không tra từ, không đánh dấu từ, không soát lỗi viết.': 'Turn off to pause Lexkite completely on this site: no word lookup, no word highlighting, no writing check.',
   'Nghe câu ví dụ': 'Play example',
   'Quay lại từ trước': 'Back to previous word',
   'Anh–Mỹ': 'US English',
