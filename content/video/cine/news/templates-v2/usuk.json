@@ -2,10 +2,10 @@
  "id": "t7_usuk_cookie",
  "template": "pair",
  "title": "US or UK? #1 – cookie vs biscuit (snack situation, surprise US biscuit, London quiz)",
- "teacher": "kai",
+ "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "k03_kai_desk"
+  "c01_carlos_board"
  ],
  "accent": "navy2",
  "active": "mint",
@@ -32,7 +32,7 @@
   {
    "id": "u_s",
    "text": "You want a sweet snack with your coffee.",
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "u_us",
@@ -42,7 +42,7 @@
      3
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "u_uk",
@@ -52,7 +52,7 @@
      3
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "u_tw",
@@ -66,7 +66,7 @@
      7
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "u_x",
@@ -76,7 +76,7 @@
      4
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "u_q",
@@ -86,7 +86,7 @@
      0
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "_count",
@@ -101,12 +101,12 @@
      1
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "u_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.8
+   "gap": 0.7
   }
  ],
  "pops": [
@@ -137,17 +137,23 @@
      ],
      [
       "@emoji:🇬🇧"
+     ],
+     [
+      "?",
+      "white"
      ]
     ],
     [
      [
       "cookie",
       "green"
-     ]
-    ],
-    [
+     ],
      [
-      "or biscuit?",
+      " · ",
+      "white"
+     ],
+     [
+      "biscuit",
       "navy2"
      ]
     ]
