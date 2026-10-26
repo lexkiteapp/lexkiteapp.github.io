@@ -101,7 +101,7 @@
 
   // Sau khi trả lời: lật thẻ + gợi ý mức chấm (người học vẫn đổi được: 1–4, Enter xác nhận)
   const settle = (o, gr) => { o.flip(); const b = document.querySelector(`[data-grade="${gr}"]`); if (b) { b.classList.add('suggest'); b.focus(); } };
-  const fb = ok => { try { ok ? Sfx.correct() : Sfx.wrong(); if (navigator.vibrate && !matchMedia('(prefers-reduced-motion: reduce)').matches) navigator.vibrate(ok ? 35 : [50, 40, 50]); } catch (e) { /* bỏ qua */ } };
+  const fb = (ok, el) => { try { Sfx.answer(ok, { el }); } catch (e) { /* bỏ qua */ } }; // âm + rung + aria-live + chuỗi đúng liền (game.js)
 
   function bind(mode, c, o) {
     const $ = s => document.querySelector(s), t0 = Date.now(), res = $('#typeRes');

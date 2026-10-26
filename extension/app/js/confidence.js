@@ -180,7 +180,7 @@
           const msg = score >= 85 ? '🌟 ' + t('Tuyệt! Nghe rất tự nhiên.') : score >= 60 ? '👍 ' + t('Tốt lắm! Thử thêm 1 lần để chắc hơn?') : '🌱 ' + t('Nghe lại bản chậm rồi nói từng cụm nhỏ nhé.');
           $('#cfT').innerHTML = words.map(w => { const n = norm(w); return n ? `<span class="cf-w ${got.has(n) ? 'y' : 'n'}">${esc(w)}</span>` : esc(w); }).join(' ');
           $('#cfFb').innerHTML = `<div><b>${score}%</b> · ${msg}</div>${heard ? `<div class="small muted">${t('Máy nghe được:')} <span lang="en">“${esc(heard)}”</span></div>` : ''}${audio ? `<audio controls src="${audio}" style="margin-top:.4rem;max-width:100%" aria-label="${t('Giọng của bạn')}"></audio>` : ''}`;
-          if (score >= 85 && window.Sfx) Sfx.correct();
+          if (window.Sfx && Sfx.answer && (score >= 85 || score < 60)) Sfx.answer(score >= 85, { el: $('#cfFb') }); // ≥ 85 đúng · < 60 âm mềm + rung nhẹ
         });
       };
       draw();
@@ -196,8 +196,8 @@
           <div class="cf-big" lang="en">${blank(p)}</div><div class="small muted">${esc(t(p.mean))}</div>
           <div class="cf-bar">${mic('cfMic', t('Nói cả câu'))}<input class="cf-in" id="cfIn" lang="en" autocomplete="off" aria-label="${t('Hoặc gõ từ còn thiếu')}" placeholder="${t('Hoặc gõ từ còn thiếu')}"><button class="btn" id="cfChk">${t('Kiểm tra')}</button><button class="btn sm" id="cfHint">💡 ${t('Gợi ý')}</button></div>
           <div id="cfFb" aria-live="polite" style="margin-top:.6rem"></div>`;
-        const ok = () => { R.gaps++; if (window.Sfx) Sfx.correct(); $('#cfFb').innerHTML = `✅ <b lang="en">${esc(p.say)}</b> ${speakBtn(p.say)}<div class="cf-bar"><button class="btn primary sm" id="cfGn">${t('Câu sau')} →</button></div>`; bindSay(b); say(p.say); $('#cfGn').onclick = () => { k++; draw(); }; };
-        const miss = heard => { $('#cfFb').innerHTML = `🌱 ${t('Gần đúng rồi! Thử lại nhé.')}${heard ? ` <span class="small muted">${t('Máy nghe được:')} <span lang="en">“${esc(heard)}”</span></span>` : ''}`; };
+        const ok = () => { R.gaps++; if (window.Sfx) Sfx.answer ? Sfx.answer(true, { el: $('#cfFb') }) : Sfx.correct(); $('#cfFb').innerHTML = `✅ <b lang="en">${esc(p.say)}</b> ${speakBtn(p.say)}<div class="cf-bar"><button class="btn primary sm" id="cfGn">${t('Câu sau')} →</button></div>`; bindSay(b); say(p.say); $('#cfGn').onclick = () => { k++; draw(); }; };
+        const miss = heard => { if (window.Sfx && Sfx.answer) Sfx.answer(false, { el: $('#cfFb') }); $('#cfFb').innerHTML = `🌱 ${t('Gần đúng rồi! Thử lại nhé.')}${heard ? ` <span class="small muted">${t('Máy nghe được:')} <span lang="en">“${esc(heard)}”</span></span>` : ''}`; };
         const g = norm(p.gap);
         $('#cfMic').onclick = () => listenMic(p.say, $('#cfMic'), ({ heard }) => (` ${norm(heard)} `.includes(` ${g} `) ? ok() : miss(heard)));
         $('#cfChk').onclick = () => (norm($('#cfIn').value) === g ? ok() : miss(''));

@@ -118,7 +118,6 @@
       const pct = Math.round((score / total) * 100);
       const isGood = pct >= 75;
       const xp = score * 2;
-      if (isGood && g.Sfx && g.Sfx.win) g.Sfx.win();
       if (xp && App.reward) App.reward({ xp });
       const praise = pct === 100 ? t('Phản xạ thần tốc! Trí nhớ như máy quét ⚡')
         : isGood ? t('Rất xuất sắc! Não bộ vừa được khởi động cực mượt 🚀')
@@ -137,6 +136,7 @@
             </div>
           </div>
         </div>`;
+      if (g.Sfx && g.Sfx.finish) g.Sfx.finish({ pct, xp, ms: elapsed * 1000, good: 75, el: $('.qk-result-box', view) }); // âm thắng ≥ 75% + thẻ số liệu
       const againBtn = $('#qkAgain');
       if (againBtn) againBtn.onclick = () => routes.quick();
     };
@@ -170,8 +170,9 @@
           if (busy || done) return;
           busy = true;
           const isCorrect = +btn.dataset.idx === q.correctIdx;
-          if (isCorrect) { score++; btn.classList.add('qk-right'); if (g.Sfx && g.Sfx.correct) g.Sfx.correct(); }
+          if (isCorrect) { score++; btn.classList.add('qk-right'); }
           else { btn.classList.add('qk-wrong'); const rb = $$('#qkOpts .qk-btn')[q.correctIdx]; if (rb) rb.classList.add('qk-reveal'); }
+          if (g.Sfx && g.Sfx.answer) g.Sfx.answer(isCorrect, { el: btn, answer: isCorrect ? '' : ($$('#qkOpts .qk-btn')[q.correctIdx] || {}).textContent }); // âm + rung + aria + chuỗi đúng liền
           // Sai: giữ đáp án đúng lâu hơn một chút để kịp đọc (thời gian này không tính vào 15 giây)
           const hold = isCorrect ? 320 : 900;
           paused += hold;

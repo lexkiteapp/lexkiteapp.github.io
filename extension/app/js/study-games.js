@@ -10,7 +10,7 @@
   // CSS Ghép thẻ (chuyển từ style.css)
   if (!document.getElementById('mgCss')) { const st = document.createElement('style'); st.id = 'mgCss'; st.textContent = `.match-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7rem; } .tile { min-height: 96px; padding: .7rem; border-radius: 14px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); cursor: pointer; font-weight: 700; display: grid; place-items: center; text-align: center; transition: transform .12s, opacity .3s, border-color .12s; font-size: .95rem; } .tile:hover { border-color: var(--primary); } .tile.sel { border-color: var(--primary); background: var(--primary-soft); } .tile.bad { border-color: var(--again); background: var(--again-soft); animation: shakeWrong .35s ease-in-out; } .tile.gone { opacity: 0; transform: scale(.85); pointer-events: none; } @media (max-width: 900px) { .match-grid { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 480px) { .match-grid { grid-template-columns: repeat(2, 1fr); } }`; document.head.appendChild(st); }
   window.StudyGames = H => {
-    const { accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName } = H;
+    const { accent, emptySource, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName } = H;
   function runMatch(src) {
     const list = pool(src).filter(w => w.vi);
     const items = shuffle(list).slice(0, 6);
@@ -32,10 +32,10 @@
       if (sel === b) { b.classList.remove('sel'); sel = null; return; }
       const a = tiles[+sel.dataset.i];
       if (a.id === t.id && a.kind !== t.kind) {
-        Sfx.correct(); haptic(true); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
+        Sfx.answer(true, { el: b }); sel.classList.add('gone'); b.classList.add('gone'); sel = null; left--;
         if (!left) done();
       } else {
-        Sfx.wrong(); haptic(false); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
+        Sfx.answer(false, { el: b }); misses++; const s = sel; s.classList.remove('sel'); s.classList.add('bad'); b.classList.add('bad');
         setTimeout(() => { s.classList.remove('bad'); b.classList.remove('bad'); }, 400); sel = null;
       }
     });

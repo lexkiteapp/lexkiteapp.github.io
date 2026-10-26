@@ -68,7 +68,12 @@
 .lfx-stat b{display:block;padding:.5rem .2rem;font-size:1.2rem;font-variant-numeric:tabular-nums}
 .lfx-note{display:flex;gap:.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin:0 0 .7rem;padding:.45rem .7rem;border-radius:12px;background:var(--surface-2);font-size:.85rem}
 .lfx-note .btn{min-height: var(--tap, 36px)}.lfx-skip{min-height:44px}
-@media (prefers-reduced-motion: reduce){.lfx-combo span,.lfx-combo.bump span{animation:none!important}.study-top .progress i{transition:none!important}}`;
+.lfx-cb{position:fixed;z-index:9998;pointer-events:none;transform:translate(-50%,0);padding:.3rem .8rem;border-radius:999px;font-weight:800;font-size:.9rem;background:linear-gradient(90deg,#E5502F,#FFB054);color:#fff;box-shadow:0 4px 14px rgba(229,80,47,.35);white-space:nowrap;animation:lfxCb 1.4s ease-out forwards}
+@keyframes lfxCb{0%{opacity:0;transform:translate(-50%,8px) scale(.8)}15%{opacity:1;transform:translate(-50%,0) scale(1.08)}30%{transform:translate(-50%,0) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-14px)}}
+.lfx-stats.lfx-s4{grid-template-columns:repeat(4,minmax(0,1fr));max-width:520px}
+@media (max-width:420px){.lfx-stats.lfx-s4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.lfx-s4 .lfx-stat{animation:lfxBump .4s ease-out backwards}.lfx-s4 .lfx-stat:nth-child(2){animation-delay:.08s}.lfx-s4 .lfx-stat:nth-child(3){animation-delay:.16s}.lfx-s4 .lfx-stat:nth-child(4){animation-delay:.24s}
+@media (prefers-reduced-motion: reduce){.lfx-cb,.lfx-s4 .lfx-stat{animation:none!important}.lfx-combo span,.lfx-combo.bump span{animation:none!important}.study-top .progress i{transition:none!important}}`;
     d.head.appendChild(st);
   }
 
@@ -147,6 +152,24 @@
     return `<p class="lfx-head">${esc(headline(pct, c.t0))}</p>
       <div class="lfx-stats" role="group" aria-label="${esc(T('Kết quả lượt học'))}">${card('#9A5B00', T('Tổng XP'), '+' + xp)}${card('#B7472A', T('Chuỗi dài nhất'), '🔥 ' + c.best)}${card('#17595A', T('Thời gian'), '⏱ ' + mmss(Date.now() - c.t0))}</div>`;
   }
+  // Huy hiệu chuỗi đúng liền nổi nhỏ cạnh đáp án (Sfx.answer gọi ở mốc 3/5/10/15…) – dùng chung mọi bề mặt luyện tập
+  function comboBadge(n, el) {
+    css(); if (!d || !d.body) return;
+    const r = el && el.getBoundingClientRect ? el.getBoundingClientRect() : null;
+    const b = d.createElement('div'); b.className = 'lfx-cb'; b.setAttribute('role', 'status');
+    b.textContent = '🔥 ' + T('{n} câu đúng liền!', { n });
+    const top = r && r.height ? Math.max(8, r.top - 40) : 72;
+    b.style.left = (r && r.width ? r.left + r.width / 2 : g.innerWidth / 2) + 'px'; b.style.top = top + 'px';
+    d.body.appendChild(b); setTimeout(() => b.remove(), 1500);
+  }
+  // Màn hoàn thành dùng chung (Sfx.finish): 4 thẻ số liệu – độ chính xác · XP · thời gian · chuỗi ngày – chèn 1 lần vào el
+  function stats(el, o) {
+    css(); if (!el || !el.insertAdjacentHTML || el.querySelector('.lfx-s4')) return;
+    const A = g.App, sk = A && A.streak ? A.streak() : 0, pct = Math.max(0, Math.min(100, Math.round(+o.pct || 0)));
+    const card = (col, label, val) => `<div class="lfx-stat" style="--c:${col}"><small>${esc(label)}</small><b>${esc(val)}</b></div>`;
+    el.insertAdjacentHTML('beforeend', `<div class="lfx-stats lfx-s4" role="group" aria-label="${esc(T('Kết quả lượt học'))}">${card('var(--good)', T('Tỉ lệ đúng'), pct + '%')}${card('#9A5B00', T('Tổng XP'), '+' + (Math.round(+o.xp) || 0))}${card('#17595A', T('Thời gian'), '⏱ ' + mmss(o.ms || 0))}${card('#B7472A', T('Chuỗi ngày'), '🔥 ' + sk)}</div>`);
+    if (pct >= 80 && g.Sfx && g.Sfx.shimmer) g.Sfx.shimmer();
+  }
   const shareBtn = pct => `<button class="btn" data-share="${+pct || 0}">📤 ${esc(T('Khoe kết quả'))}</button>`;
 
   // ---------- (e) Tạm tắt bài nghe / nói 15 phút ----------
@@ -167,5 +190,5 @@
     return el;
   }
 
-  g.LessonFx = { typo, typoHtml, typoHead, norm, combo, hit, decorate, wantsHard, offerHard, harden, explain, notesOf, summary, headline, shareBtn, audioOff, micOff, pauseAudio, pauseMic, resume, skipAudioBtn, skipMicBtn, note, HARD_AT };
+  g.LessonFx = { comboBadge, stats, typo, typoHtml, typoHead, norm, combo, hit, decorate, wantsHard, offerHard, harden, explain, notesOf, summary, headline, shareBtn, audioOff, micOff, pauseAudio, pauseMic, resume, skipAudioBtn, skipMicBtn, note, HARD_AT };
 })(typeof self !== 'undefined' ? self : this);

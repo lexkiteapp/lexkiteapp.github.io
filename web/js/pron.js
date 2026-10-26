@@ -161,7 +161,7 @@
       qa++; if (okk) qr++;
       $$('.opts button', item).forEach(b2 => { if (+b2.dataset.v === q.answer) b2.classList.add('right'); });
       if (!okk) btn.classList.add('wrong');
-      okk ? Sfx.correct() : Sfx.wrong();
+      Sfx.answer(okk);
       const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${okk ? '✅' : '❌'} ${esc(q.explain)}`;
       if (qa === x.quiz.length) {
         const pct = Math.round(qr / qa * 100);
