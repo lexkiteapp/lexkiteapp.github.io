@@ -81,7 +81,7 @@
   },
   "t4_pair_borrow_lend": {
    "template": "pair",
-   "hook": "BORROW | LEND",
+   "hook": "borrow or / lend?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
