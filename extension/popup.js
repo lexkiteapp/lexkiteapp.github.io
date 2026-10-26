@@ -18,7 +18,7 @@
     '⏳ Đang đồng bộ…': '⏳ Syncing…', '✓ Đã đồng bộ': '✓ Synced', 'Thử lại': 'Retry', '⏳ Đang tra…': '⏳ Looking up…',
     '✓ Đã có': '✓ Saved', '+ Lưu flashcard': '+ Save flashcard', 'Chi tiết': 'Details', '✓ Đã lưu': '✓ Saved',
     '✍️ Soát lỗi viết': '✍️ Writing check', 'Gạch chân lỗi tiếng Anh khi bạn gõ trên mọi trang · bấm để sửa và xem vì sao sai': 'Underlines English mistakes as you type on any site · tap to fix and see why',
-    'Kiểm nâng cao (LanguageTool)': 'Advanced check (LanguageTool)', 'Bật trên {site}': 'On for {site}', 'Trang này không hỗ trợ soát lỗi viết': 'Writing check is not available on this page',
+    'Kiểm nâng cao (LanguageTool)': 'Advanced check (LanguageTool)', 'Bật trên {site}': 'On for {site}', 'Lexkite trên {site}': 'Lexkite on {site}', 'Tắt để Lexkite nghỉ hẳn trên trang này: không tra từ, không đánh dấu từ, không soát lỗi viết.': 'Turn off to pause Lexkite completely on this site: no word lookup, no word highlighting, no writing check.', 'Trang này không hỗ trợ soát lỗi viết': 'Writing check is not available on this page',
     'Mặc định chữ chỉ được soát ngay trên máy. Kiểm nâng cao gửi chữ trong ô bạn đang gõ tới LanguageTool. Không bao giờ soát ô mật khẩu, email, thẻ thanh toán và trang ngân hàng.': 'By default your text is checked on your device only. Advanced check sends the text of the box you are typing in to LanguageTool. Password, email and payment card fields and banking sites are never checked.',
     'Mở trên điện thoại (mã QR)': 'Open on phone (QR code)', 'Báo cáo sự cố': 'Report a problem', 'Không tìm thấy “{q}”.': 'No results for “{q}”.', ' Dịch: <b>{vi}</b>': ' Translation: <b>{vi}</b>', 'Chính sách quyền riêng tư': 'Privacy policy', 'Quét bằng camera điện thoại để học:': 'Scan with your phone camera to study:',
   };
@@ -119,6 +119,17 @@
   if ($('#acOn')) { $('#acOn').checked = settings.markAcademic !== false; $('#acOn').onchange = async e => { settings.markAcademic = e.target.checked; await Store.set('settings', settings); }; }
   if ($('#ctxOn')) { $('#ctxOn').checked = settings.saveCtx !== false; $('#ctxOn').onchange = async e => { settings.saveCtx = e.target.checked; await Store.set('settings', settings); }; }
   if ($('#ntOn')) { $('#ntOn').checked = settings.newtabOn !== false; $('#ntOn').onchange = async e => { settings.newtabOn = e.target.checked; await Store.set('settings', settings); }; }
+
+  // 🌐 Tắt Lexkite theo trang (lkOffSites, tên miền bỏ "www."): boot.js không chèn gì và gỡ ngay bản đang chạy. Trang Lexkite luôn bật (cầu nối dữ liệu).
+  {
+    let site = '';
+    try { const [tab] = await chrome.tabs.query({ active: true, currentWindow: true }); const u = new URL(tab && tab.url || ''); if (/^https?:$/.test(u.protocol)) site = u.hostname.replace(/^www\./, ''); } catch (e) { /* trang nội bộ của Chrome */ }
+    if (site && !/(^|\.)lexkite\.com$|^lexkite\.pages\.dev$/.test(site)) {
+      const { lkOffSites = [] } = await chrome.storage.local.get('lkOffSites');
+      $('#siteBox').hidden = false; $('#siteTxt').textContent = tx('Lexkite trên {site}', { site }); $('#siteOn').checked = !lkOffSites.includes(site);
+      $('#siteOn').onchange = async e => { const { lkOffSites: cur = [] } = await chrome.storage.local.get('lkOffSites'); const next = e.target.checked ? cur.filter(h => h !== site) : [...new Set([...cur, site])]; await chrome.storage.local.set({ lkOffSites: next.slice(-500) }); };
+    }
+  }
 
   // ✍️ Soát lỗi viết: bật chung (mặc định tắt) · bật/tắt riêng trang đang mở · kiểm nâng cao bằng LanguageTool
   {

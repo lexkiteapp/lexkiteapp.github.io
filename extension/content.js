@@ -21,7 +21,7 @@
   const sget = k => { if (!alive()) { stop(); return Promise.resolve({}); } try { return Promise.resolve(chrome.storage.local.get(k)).then(r => r || {}, () => { if (!alive()) stop(); return {}; }); } catch (e) { if (!alive()) stop(); return Promise.resolve({}); } };
   const sset = o => { if (!alive()) { stop(); return Promise.resolve(); } try { return Promise.resolve(chrome.storage.local.set(o)).catch(() => { if (!alive()) stop(); }); } catch (e) { if (!alive()) stop(); return Promise.resolve(); } };
   const chromeOn = (ev, fn) => { const h = guard(fn); try { ev.addListener(h); cleanups.push(() => { try { ev.removeListener(h); } catch (e) { /* bỏ qua */ } }); } catch (e) { /* bỏ qua */ } };
-  const uiLangOf = () => { try { return uiLangOf(); } catch (e) { return navigator.language; } };
+  const uiLangOf = () => { try { return chrome.i18n.getUILanguage(); } catch (e) { return navigator.language; } };
 
   // Cầu nối đồng bộ: trên trang Lexkite (đã đăng nhập Google) web app đọc/ghi dữ liệu add-on để gộp chung theo tài khoản
   if (window.top === window && /^(www\.)?lexkite\.com$|^lexkite\.pages\.dev$/.test(location.hostname)) { // chỉ tên miền đang sở hữu – tên miền cũ *.web.app có thể rơi vào tay người khác
@@ -34,7 +34,7 @@
         else if (e.data.op === 'diag') { const { errLog } = await sget('errLog'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { v: chrome.runtime.getManifest().version, errLog: errLog || [], ui: UI_LANG, ml: ML(), nav: navigator.language } }, location.origin); }
         else if (e.data.op === 'lang') { const l = (e.data.data || {}).lang; if (pickLang(l)) await sset({ uiLang: pickLang(l) }); window.postMessage({ lkBridge: 'res', id: e.data.id, ok: true }, location.origin); }
         else if (e.data.op === 'linked') { const d = e.data.data || {}; await sset({ linked: { email: String(d.email || '').slice(0, 120), name: String(d.name || '').slice(0, 80), at: Date.now() } }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
-        else if (e.data.op === 'aiKeyGet') { const { aiKey } = await sget('aiKey'); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { aiKey: aiKey || '' } }, location.origin); }
+        // aiKeyGet đã bỏ: khóa AI nhập trong add-on không bao giờ trả ra trang (script lạ/quảng cáo/XSS trên lexkite.com sẽ đọc được). Chỉ chiều web → add-on.
         else if (e.data.op === 'aiKeySet') { const k = String((e.data.data || {}).aiKey || ''); if (!k || /^(AIza[\w-]{20,}|AQ\.[\w.-]{20,})$/.test(k)) await sset({ aiKey: k }); window.postMessage({ lkBridge: 'res', id: e.data.id, data: { ok: true } }, location.origin); }
         else if (e.data.op === 'set') {
           // Gộp (không ghi đè): service worker/popup/tab mới có thể vừa lưu thẻ sau lúc web đọc → giữ cả hai, bản hoạt động mới hơn thắng (như mergeCards ở web/js/sync.js)

@@ -8,11 +8,10 @@
   const API = (m, k) => `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent`;
   const hash = s => { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); };
 
-  // Khóa AI dùng chung giữa web app và add-on trên cùng máy (qua cầu nối cục bộ, không lên cloud)
+  // Khóa AI: web → add-on (một chiều, qua cầu nối cục bộ, không lên cloud). Add-on không trả khóa ra trang (bỏ aiKeyGet).
   const bridge = () => window.VBBridge && VBBridge.ready() ? VBBridge : null;
   async function getKey() {
     let k = await Store.get('aiKey', '');
-    if (!k && bridge()) { try { const r = await bridge().call('aiKeyGet'); const rk = r && r.data && r.data.aiKey; if (rk) { k = rk; await Store.set('aiKey', k); } } catch (e) { /* add-on cũ */ } }
     return k;
   }
   const setKey = async k => { await Store.set('aiKey', k); if (bridge()) try { await bridge().call('aiKeySet', { aiKey: k }); } catch (e) { /* bỏ qua */ } };
