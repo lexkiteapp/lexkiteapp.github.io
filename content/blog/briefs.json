@@ -12528,7 +12528,7 @@
     "/#/toeic-sw",
     "/#/toeic"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar): Trụ cột TOEIC S&W: Speaking 11 câu ~20 phút, Writing 8 câu ~60 phút, mỗi phần 0–200 + cấp độ; khác L&R ra sao, ai yêu cầu (doanh nghiệp/trường ở thị trường đó). Bảng dạng câu → mẹo → link vệ tinh + module TOEIC S&W của app. Kiểm định dạng hiện hành trên ETS, ghi ngày. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ. Dùng làm H2/FAQ (autocomplete thật): toeic sw 対策 本 · toeic sw 対策 アプリ · toeic sw 対策 オンライン.",
    "intent": "informational",
    "lang": "ja",
    "source": "toeic-speaking-writing",
@@ -12538,7 +12538,7 @@
   },
   {
    "slug": "toeic-speaking-kotsu",
-   "keyword": "toeic スピーキング 対策 コツ",
+   "keyword": "toeic スピーキング 対策",
    "category": "toeic",
    "tags": [
     "toeic",
@@ -12552,7 +12552,7 @@
     "/#/toeic-sw",
     "/#/practice/speak"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/task; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite): Mẹo từng dạng Speaking (đọc to, tả ảnh, trả lời câu hỏi, dùng thông tin, nêu ý kiến): thời gian chuẩn bị/trả lời, khung trả lời, tự chấm theo tiêu chí ETS; lịch luyện 2–4 tuần; lỗi phát âm + 'đơ' phổ biến của thị trường. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ. Dùng làm H2/FAQ (autocomplete thật): toeic スピーキング 対策 アプリ · toeic スピーキング 対策 オンライン.",
    "intent": "exam-prep",
    "lang": "ja",
    "source": "toeic-speaking-tips",
@@ -12562,7 +12562,7 @@
   },
   {
    "slug": "toeic-writing-email-kakikata",
-   "keyword": "toeic ライティング eメール 書き方",
+   "keyword": "toeic ライティング eメール",
    "category": "toeic",
    "tags": [
     "toeic",
@@ -12576,7 +12576,7 @@
     "/#/toeic-sw",
     "/#/write"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/task; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite): Dạng Respond to a written request: 10 phút, đọc yêu cầu → 3 nhiệm vụ → khung email 5 câu; 2 email mẫu (đạt / chưa đạt) có chú thích; lỗi lịch sự & mạo từ của thị trường. Link bài email công sở chung (không lặp nội dung). Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "exam-prep",
    "lang": "ja",
    "source": "toeic-writing-email",
@@ -12586,7 +12586,7 @@
   },
   {
    "slug": "business-eigo-benkyouhou",
-   "keyword": "ビジネス英語 初心者 勉強法",
+   "keyword": "ビジネス英語 初心者",
    "category": "ky-nang",
    "tags": [
     "business",
@@ -12600,7 +12600,7 @@
     "/#/roleplay",
     "/#/tracks"
    ],
-   "angle": "SEO clusters 12/2026 (business-english, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/hub; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (business-english, pillar): Hub tiếng Anh công sở: bản đồ tình huống (email, họp, thuyết trình, điện thoại, chat, đàm phán, phỏng vấn) → mỗi tình huống 3 câu then chốt + link bài chuyên sâu (bài cũ cùng ngôn ngữ). Lộ trình 30 ngày cho người đi làm bận + Roleplay for Work. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ. Dùng làm H2/FAQ (autocomplete thật): ビジネス英語 初心者 本 · ビジネス英語 初心者 おすすめ.",
    "intent": "informational",
    "lang": "ja",
    "source": "business-english",
@@ -12624,7 +12624,7 @@
     "/#/roleplay",
     "/#/practice/listen"
    ],
-   "angle": "SEO clusters 12/2026 (business-english, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/phrases; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (business-english, satellite): Gọi/nhận điện thoại công việc: mở đầu, chuyển máy, để lại lời nhắn, xác nhận chính tả tên/số, kết thúc; 2 hội thoại mẫu có audio trong app; mẹo nghe khi đường truyền kém; lỗi dịch từng chữ của thị trường. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "informational",
    "lang": "ja",
    "source": "business-phone-english",
@@ -12633,25 +12633,25 @@
    "pillar": "business-eigo-benkyouhou"
   },
   {
-   "slug": "business-eigo-teinei-iikata",
-   "keyword": "ビジネス英語 丁寧な言い方",
+   "slug": "eigo-chat-business-hyougen",
+   "keyword": "英語 チャット ビジネス",
    "category": "ky-nang",
    "tags": [
     "business",
     "business-english"
    ],
    "shots": [
-    "phrases",
-    "roleplay"
+    "write",
+    "phrases"
    ],
    "routes": [
-    "/#/phrases",
-    "/#/roleplay"
+    "/#/write",
+    "/#/phrases"
    ],
-   "angle": "SEO clusters 12/2026 (business-english, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/phrases; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (business-english, satellite): Nhắn Slack/Teams với đồng nghiệp nước ngoài: độ trang trọng của chat, viết tắt (FYI, ASAP, EOD) dùng khi nào, cách nhắc việc không gắt, cảm ơn/xin lỗi ngắn; bảng 'câu dịch thẳng → câu tự nhiên'. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ. Dùng làm H2/FAQ (autocomplete thật): 英語 チャット 挨拶 ビジネス · 英語 ビジネス チャット 書き出し.",
    "intent": "informational",
    "lang": "ja",
-   "source": "polite-business-english",
+   "source": "business-chat-english",
    "cluster": "business-english",
    "role": "satellite",
    "pillar": "business-eigo-benkyouhou"
@@ -12672,7 +12672,7 @@
     "/#/roleplay",
     "/#/topic"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-it, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/hub; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-it, pillar): Hub tiếng Anh cho dân IT: đọc tài liệu, viết commit/PR/ticket, họp daily, phỏng vấn kỹ thuật, làm việc với khách nước ngoài; lộ trình theo vai trò (dev/QA/BA); link vệ tinh + Roleplay 'dev interview'. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "informational",
    "lang": "ja",
    "source": "english-for-it",
@@ -12682,7 +12682,7 @@
   },
   {
    "slug": "eigo-wahou-kansetsu-wahou",
-   "keyword": "英語 話法 間接話法",
+   "keyword": "英語 話法の転換",
    "category": "ngu-phap",
    "tags": [
     "ngu-phap",
@@ -12696,7 +12696,7 @@
     "/#/grammar/reported-speech",
     "/#/grammar/mix"
    ],
-   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/grammar; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar): Bản vi/ja/… (key reported-speech): lùi thì, đổi đại từ/trạng từ, câu hỏi & mệnh lệnh, khi nào KHÔNG lùi thì; lỗi theo L1; bài tập có đáp án + module ngữ pháp. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "informational",
    "lang": "ja",
    "source": "reported-speech",
@@ -12720,7 +12720,7 @@
     "/#/usage/make",
     "/#/practice/learn"
    ],
-   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/usage; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar): Key diferencia-entre-make-y-do-en-ingles: quy tắc tạo ra (make) vs thực hiện (do), 40 collocation hay gặp, mẹo nhớ, bài tập; lỗi theo L1 (vi 'làm' = cả hai; ja する/作る). Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "informational",
    "lang": "ja",
    "source": "diferencia-entre-make-y-do-en-ingles",
@@ -12744,7 +12744,7 @@
     "/#/practice/match",
     "/#/practice/learn"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-kids, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, pillar): Trụ cột cho PHỤ HUYNH: dạy con tiếng Anh tại nhà theo độ tuổi (3–5, 6–8, 9–12), 15 phút/ngày, nghe trước nói sau, sách/âm thanh/trò chơi; bố mẹ không giỏi tiếng Anh vẫn làm được (bố mẹ tự học cùng app). Không quảng cáo app là app trẻ em. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "informational",
    "lang": "ja",
    "source": "english-for-kids-at-home",
@@ -12768,7 +12768,7 @@
     "/#/grammar/relative-clauses",
     "/#/grammar/mix"
    ],
-   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/grammar; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar): Bản vi (key relative-clauses, theo 2026-11): who/which/that/whose/whom/where, xác định vs không xác định (dấu phẩy), lỗi người Việt (thừa đại từ 'the man who he', dùng that sau dấu phẩy); bài tập + link module ngữ pháp. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): mệnh đề quan hệ rút gọn tiếng anh · mệnh đề quan hệ xác định và không xác định là gì · mệnh đề quan hệ tiếng anh.",
    "intent": "informational",
    "lang": "vi",
    "source": "relative-clauses",
@@ -12792,7 +12792,7 @@
     "/#/grammar/reported-speech",
     "/#/grammar/mix"
    ],
-   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/grammar; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar): Bản vi/ja/… (key reported-speech): lùi thì, đổi đại từ/trạng từ, câu hỏi & mệnh lệnh, khi nào KHÔNG lùi thì; lỗi theo L1; bài tập có đáp án + module ngữ pháp. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): câu tường thuật tiếng anh là gì · câu tường thuật câu hỏi · câu tường thuật yes/no.",
    "intent": "informational",
    "lang": "vi",
    "source": "reported-speech",
@@ -12816,7 +12816,7 @@
     "/#/usage/make",
     "/#/practice/learn"
    ],
-   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/usage; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (grammar-gaps-vi-plus, pillar): Key diferencia-entre-make-y-do-en-ingles: quy tắc tạo ra (make) vs thực hiện (do), 40 collocation hay gặp, mẹo nhớ, bài tập; lỗi theo L1 (vi 'làm' = cả hai; ja する/作る). Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): phân biệt do make và take.",
    "intent": "informational",
    "lang": "vi",
    "source": "diferencia-entre-make-y-do-en-ingles",
@@ -12840,7 +12840,7 @@
     "/#/practice/match",
     "/#/practice/learn"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-kids, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, pillar): Trụ cột cho PHỤ HUYNH: dạy con tiếng Anh tại nhà theo độ tuổi (3–5, 6–8, 9–12), 15 phút/ngày, nghe trước nói sau, sách/âm thanh/trò chơi; bố mẹ không giỏi tiếng Anh vẫn làm được (bố mẹ tự học cùng app). Không quảng cáo app là app trẻ em. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): tự dạy tiếng anh cho trẻ tại nhà · cách dạy tiếng anh cho trẻ tại nhà · dạy tiếng anh cho trẻ 3 tuổi tại nhà.",
    "intent": "informational",
    "lang": "vi",
    "source": "english-for-kids-at-home",
@@ -12864,7 +12864,7 @@
     "/#/toeic-sw",
     "/#/speaking"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/template; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite): Mẫu câu khung cho từng dạng Speaking, mỗi mẫu có 1 câu trả lời mẫu đầy đủ và 1 bản 'tệ → tốt' để thấy khác biệt; cảnh báo học thuộc máy móc bị trừ điểm; luyện bằng ghi âm trong app. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "exam-prep",
    "lang": "ja",
    "source": "toeic-speaking-templates",
@@ -12874,7 +12874,7 @@
   },
   {
    "slug": "toeic-writing-iken-kata",
-   "keyword": "toeic ライティング 意見を述べる 型",
+   "keyword": "toeic ライティング 意見",
    "category": "toeic",
    "tags": [
     "toeic",
@@ -12888,7 +12888,7 @@
     "/#/toeic-sw",
     "/#/write/p"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/template; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite): Opinion essay TOEIC Writing: 30 phút, ≥300 từ, khung 4 đoạn, cách lập dàn ý 3 phút, 1 bài mẫu có chấm điểm theo tiêu chí; phân biệt với IELTS Task 2 (link bài IELTS). Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "exam-prep",
    "lang": "ja",
    "source": "toeic-writing-opinion",
@@ -12898,7 +12898,7 @@
   },
   {
    "slug": "it-eigo-tango",
-   "keyword": "IT英語 単語",
+   "keyword": "it 英語",
    "category": "ky-nang",
    "tags": [
     "industry",
@@ -12912,7 +12912,7 @@
     "/#/practice/learn",
     "/#/topic"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-it, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/list; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-it, satellite): Từ vựng IT theo nhóm (vòng đời phần mềm, hạ tầng, bug/QA, Agile), mỗi từ có câu ví dụ thật từ PR/ticket, phát âm từ hay đọc sai (cache, Linux, GUI…); bộ thẻ để ôn bằng FSRS. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ. Dùng làm H2/FAQ (autocomplete thật): it 英語 意味 · it 英語 本.",
    "intent": "informational",
    "lang": "ja",
    "source": "it-english-vocabulary",
@@ -12922,7 +12922,7 @@
   },
   {
    "slug": "phonics-katei-oshiekata",
-   "keyword": "フォニックス 家庭 教え方",
+   "keyword": "フォニックス 家庭学習",
    "category": "phuong-phap",
    "tags": [
     "kids",
@@ -12936,7 +12936,7 @@
     "/#/pron",
     "/#/practice/listen"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-kids, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, satellite): Phonics là gì, thứ tự dạy (âm đơn → ghép → nguyên âm dài), 5 trò chơi tại nhà, khi nào chuyển sang đọc; phân biệt phonics với IPA (link bài IPA cho người lớn); phụ huynh tự luyện phát âm trước với app. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ.",
    "intent": "informational",
    "lang": "ja",
    "source": "phonics-for-kids",
@@ -12945,28 +12945,28 @@
    "pillar": "ouchi-eigo-hajimekata"
   },
   {
-   "slug": "gaishikei-engineer-eigo-mensetsu",
-   "keyword": "外資系 エンジニア 英語面接",
-   "category": "ky-nang",
+   "slug": "oyako-eigo-phrases",
+   "keyword": "親子英語",
+   "category": "phuong-phap",
    "tags": [
-    "industry",
-    "english-for-it"
+    "kids",
+    "english-for-kids"
    ],
    "shots": [
-    "roleplay",
-    "speaking"
+    "phrases",
+    "practice/speak"
    ],
    "routes": [
-    "/#/roleplay",
-    "/#/speaking"
+    "/#/phrases",
+    "/#/practice/speak"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-it, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for ja L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, satellite): Câu tiếng Anh bố mẹ dùng hằng ngày với con theo khung giờ (sáng, ăn, chơi, tắm, ngủ), mỗi câu có phát âm; cách lồng tiếng Anh mà không ép; phụ huynh lưu câu vào flashcard của app. Viết lại cho ja – 日本語話者: カタカナ発音, 冠詞, 直訳の不自然さ. Dùng làm H2/FAQ (autocomplete thật): 親子英語で · 親子英語教室.",
    "intent": "informational",
    "lang": "ja",
-   "source": "technical-interview-english",
-   "cluster": "english-for-it",
+   "source": "english-phrases-for-parents",
+   "cluster": "english-for-kids",
    "role": "satellite",
-   "pillar": "engineer-eigo-benkyouhou"
+   "pillar": "ouchi-eigo-hajimekata"
   },
   {
    "slug": "toeic-speaking-siheom-guseong",
@@ -12984,7 +12984,7 @@
     "/#/toeic-sw",
     "/#/toeic"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for ko L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar): Trụ cột TOEIC S&W: Speaking 11 câu ~20 phút, Writing 8 câu ~60 phút, mỗi phần 0–200 + cấp độ; khác L&R ra sao, ai yêu cầu (doanh nghiệp/trường ở thị trường đó). Bảng dạng câu → mẹo → link vệ tinh + module TOEIC S&W của app. Kiểm định dạng hiện hành trên ETS, ghi ngày. Viết lại cho ko – 한국어 화자: 관사, 시제, 콩글리시.",
    "intent": "informational",
    "lang": "ko",
    "source": "toeic-speaking-writing",
@@ -12994,7 +12994,7 @@
   },
   {
    "slug": "toeic-speaking-dokhak-kkultip",
-   "keyword": "토익스피킹 독학 꿀팁",
+   "keyword": "토익스피킹 독학 방법",
    "category": "toeic",
    "tags": [
     "toeic",
@@ -13008,7 +13008,7 @@
     "/#/toeic-sw",
     "/#/practice/speak"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/task; native rewrite for ko L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite): Mẹo từng dạng Speaking (đọc to, tả ảnh, trả lời câu hỏi, dùng thông tin, nêu ý kiến): thời gian chuẩn bị/trả lời, khung trả lời, tự chấm theo tiêu chí ETS; lịch luyện 2–4 tuần; lỗi phát âm + 'đơ' phổ biến của thị trường. Viết lại cho ko – 한국어 화자: 관사, 시제, 콩글리시.",
    "intent": "exam-prep",
    "lang": "ko",
    "source": "toeic-speaking-tips",
@@ -13032,7 +13032,7 @@
     "/#/toeic-sw",
     "/#/speaking"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/template; native rewrite for ko L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, satellite): Mẫu câu khung cho từng dạng Speaking, mỗi mẫu có 1 câu trả lời mẫu đầy đủ và 1 bản 'tệ → tốt' để thấy khác biệt; cảnh báo học thuộc máy móc bị trừ điểm; luyện bằng ghi âm trong app. Viết lại cho ko – 한국어 화자: 관사, 시제, 콩글리시. Dùng làm H2/FAQ (autocomplete thật): 토익스피킹 템플릿 2026 pdf · 토익스피킹 템플릿 무료 · 토익스피킹 템플릿 다운.",
    "intent": "exam-prep",
    "lang": "ko",
    "source": "toeic-speaking-templates",
@@ -13042,7 +13042,7 @@
   },
   {
    "slug": "phonics-sunseo-eommapyo",
-   "keyword": "파닉스 순서 엄마표",
+   "keyword": "파닉스 순서",
    "category": "phuong-phap",
    "tags": [
     "kids",
@@ -13056,7 +13056,7 @@
     "/#/pron",
     "/#/practice/listen"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-kids, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for ko L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, satellite): Phonics là gì, thứ tự dạy (âm đơn → ghép → nguyên âm dài), 5 trò chơi tại nhà, khi nào chuyển sang đọc; phân biệt phonics với IPA (link bài IPA cho người lớn); phụ huynh tự luyện phát âm trước với app. Viết lại cho ko – 한국어 화자: 관사, 시제, 콩글리시.",
    "intent": "informational",
    "lang": "ko",
    "source": "phonics-for-kids",
@@ -13066,7 +13066,7 @@
   },
   {
    "slug": "eommapyo-yeongeo-sijakhaneun-beop",
-   "keyword": "엄마표 영어 시작하는 법",
+   "keyword": "엄마표 영어 시작하는 방법",
    "category": "phuong-phap",
    "tags": [
     "kids",
@@ -13080,7 +13080,7 @@
     "/#/practice/match",
     "/#/practice/learn"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-kids, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for ko L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, pillar): Trụ cột cho PHỤ HUYNH: dạy con tiếng Anh tại nhà theo độ tuổi (3–5, 6–8, 9–12), 15 phút/ngày, nghe trước nói sau, sách/âm thanh/trò chơi; bố mẹ không giỏi tiếng Anh vẫn làm được (bố mẹ tự học cùng app). Không quảng cáo app là app trẻ em. Viết lại cho ko – 한국어 화자: 관사, 시제, 콩글리시.",
    "intent": "informational",
    "lang": "ko",
    "source": "english-for-kids-at-home",
@@ -13090,7 +13090,7 @@
   },
   {
    "slug": "toeic-4-ky-nang-speaking-writing",
-   "keyword": "toeic 4 kỹ năng speaking writing",
+   "keyword": "toeic 4 kỹ năng",
    "category": "toeic",
    "tags": [
     "toeic",
@@ -13104,7 +13104,7 @@
     "/#/toeic-sw",
     "/#/toeic"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar): Trụ cột TOEIC S&W: Speaking 11 câu ~20 phút, Writing 8 câu ~60 phút, mỗi phần 0–200 + cấp độ; khác L&R ra sao, ai yêu cầu (doanh nghiệp/trường ở thị trường đó). Bảng dạng câu → mẹo → link vệ tinh + module TOEIC S&W của app. Kiểm định dạng hiện hành trên ETS, ghi ngày. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): toeic 4 kỹ năng bao nhiêu tiền · toeic 4 kỹ năng điểm tối đa.",
    "intent": "informational",
    "lang": "vi",
    "source": "toeic-speaking-writing",
@@ -13128,7 +13128,7 @@
     "/#/roleplay",
     "/#/topic"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-it, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/hub; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-it, pillar): Hub tiếng Anh cho dân IT: đọc tài liệu, viết commit/PR/ticket, họp daily, phỏng vấn kỹ thuật, làm việc với khách nước ngoài; lộ trình theo vai trò (dev/QA/BA); link vệ tinh + Roleplay 'dev interview'. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): tiếng anh cho dân it voz · học tiếng anh cho dân it · sách tiếng anh cho dân it.",
    "intent": "informational",
    "lang": "vi",
    "source": "english-for-it",
@@ -13152,7 +13152,7 @@
     "/#/roleplay",
     "/#/phrases"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/hub; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar): Hub tiếng Anh nhà hàng–khách sạn cho NHÂN VIÊN: chào đón, đặt chỗ, xử lý yêu cầu, xin lỗi, thanh toán; mức lịch sự (could/would/may); link vệ tinh lễ tân, phục vụ, phàn nàn; link bài du lịch cho khách (không lặp). Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): tiếng anh nhà hàng khách sạn ctu · tiếng anh trong nhà hàng khách sạn.",
    "intent": "informational",
    "lang": "vi",
    "source": "hospitality-english",
@@ -13176,7 +13176,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for en L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar): Trụ cột DET: thi online ~1 giờ, thích ứng, thang 10–160; ai chấp nhận (tra cứu trường), giá & thời gian có điểm (dẫn trang chính thức, ghi ngày kiểm). Bảng các dạng câu theo kỹ năng → mỗi dạng 1 mẹo + link vệ tinh. Kết bằng bài kiểm tra trình độ miễn phí để ước điểm. Viết lại cho en – người học ESL toàn cầu: ví dụ trung tính, không giả định L1. Dùng làm H2/FAQ (autocomplete thật): duolingo english test practice · duolingo english test price · duolingo english test fee.",
    "intent": "informational",
    "lang": "en",
    "source": "duolingo-english-test",
@@ -13200,7 +13200,7 @@
     "/#/tests",
     "/#/placement"
    ],
-   "angle": "SEO clusters 12/2026 (pte-academic, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for en L1 errors",
+   "angle": "SEO clusters 12/2026 (pte-academic, pillar): Trụ cột PTE: chấm máy, 2 giờ, thang 10–90, kết quả thường trong 48 h (kiểm trang Pearson); 3 phần Speaking & Writing / Reading / Listening, bảng dạng câu nào cộng điểm cho kỹ năng nào (integrated scoring) → link vệ tinh. Ai chấp nhận: Úc/NZ/UK visa (dẫn nguồn). Viết lại cho en – người học ESL toàn cầu: ví dụ trung tính, không giả định L1. Dùng làm H2/FAQ (autocomplete thật): pte academic exam format 2026 · pte academic exam format 2025 · pte academic test format pdf.",
    "intent": "informational",
    "lang": "en",
    "source": "pte-academic",
@@ -13224,7 +13224,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for en L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar): Trụ cột Cambridge: A2 Key → B1 Preliminary → B2 First → C1 Advanced → C2, thang Cambridge English Scale (B1 120–170, B2 140–190, C1 160–210), chứng chỉ không hết hạn, bản 'for Schools'. Bảng chọn kỳ thi theo mục tiêu; link bài kiểm tra trình độ + trang cấp độ B1/B2/C1. Viết lại cho en – người học ESL toàn cầu: ví dụ trung tính, không giả định L1. Dùng làm H2/FAQ (autocomplete thật): cambridge english test levels free · cambridge english test levels pdf · cambridge english test level b1.",
    "intent": "informational",
    "lang": "en",
    "source": "cambridge-english-exams",
@@ -13248,7 +13248,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for hi L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar): Trụ cột DET: thi online ~1 giờ, thích ứng, thang 10–160; ai chấp nhận (tra cứu trường), giá & thời gian có điểm (dẫn trang chính thức, ghi ngày kiểm). Bảng các dạng câu theo kỹ năng → mỗi dạng 1 mẹo + link vệ tinh. Kết bằng bài kiểm tra trình độ miễn phí để ước điểm. Viết lại cho hi – Hindi speakers: Indian-English quirks (prepone, do the needful), v/w, th. Dùng làm H2/FAQ (autocomplete thật): duolingo english test kya hota hai.",
    "intent": "informational",
    "lang": "hi",
    "source": "duolingo-english-test",
@@ -13272,7 +13272,7 @@
     "/#/tests",
     "/#/placement"
    ],
-   "angle": "SEO clusters 12/2026 (pte-academic, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for hi L1 errors",
+   "angle": "SEO clusters 12/2026 (pte-academic, pillar): Trụ cột PTE: chấm máy, 2 giờ, thang 10–90, kết quả thường trong 48 h (kiểm trang Pearson); 3 phần Speaking & Writing / Reading / Listening, bảng dạng câu nào cộng điểm cho kỹ năng nào (integrated scoring) → link vệ tinh. Ai chấp nhận: Úc/NZ/UK visa (dẫn nguồn). Viết lại cho hi – Hindi speakers: Indian-English quirks (prepone, do the needful), v/w, th. Dùng làm H2/FAQ (autocomplete thật): pte exam kya hai in hindi · pte exam kya hota hai · pte exam me kya hota hai.",
    "intent": "informational",
    "lang": "hi",
    "source": "pte-academic",
@@ -13282,7 +13282,7 @@
   },
   {
    "slug": "pte-read-aloud-tips-in-hindi",
-   "keyword": "pte read aloud tips in hindi",
+   "keyword": "read aloud in pte tips",
    "category": "ky-nang",
    "tags": [
     "pte",
@@ -13296,7 +13296,7 @@
     "/#/pron",
     "/#/practice/speak"
    ],
-   "angle": "SEO clusters 12/2026 (pte-academic, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/task; native rewrite for hi L1 errors",
+   "angle": "SEO clusters 12/2026 (pte-academic, satellite): Read Aloud: máy chấm nội dung + phát âm + trôi chảy; quy trình 35–40 giây đọc thầm, ngắt cụm, không tự sửa; lỗi phát âm điển hình của thị trường (vd. hi: v/w, th, nhấn âm); luyện với chức năng phát âm của app. Viết lại cho hi – Hindi speakers: Indian-English quirks (prepone, do the needful), v/w, th. Dùng làm H2/FAQ (autocomplete thật): read aloud pte tips and tricks.",
    "intent": "exam-prep",
    "lang": "hi",
    "source": "pte-read-aloud",
@@ -13320,7 +13320,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for zh L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar): Trụ cột DET: thi online ~1 giờ, thích ứng, thang 10–160; ai chấp nhận (tra cứu trường), giá & thời gian có điểm (dẫn trang chính thức, ghi ngày kiểm). Bảng các dạng câu theo kỹ năng → mỗi dạng 1 mẹo + link vệ tinh. Kết bằng bài kiểm tra trình độ miễn phí để ước điểm. Viết lại cho zh – 中文母语: 时态/冠词/单复数, 中式直译. Dùng làm H2/FAQ (autocomplete thật): 多邻国英语测试官网入口 · 多邻国英语测试多少钱 · 多邻国英语测试怎么考.",
    "intent": "informational",
    "lang": "zh",
    "source": "duolingo-english-test",
@@ -13344,7 +13344,7 @@
     "/#/tests",
     "/#/placement"
    ],
-   "angle": "SEO clusters 12/2026 (pte-academic, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for zh L1 errors",
+   "angle": "SEO clusters 12/2026 (pte-academic, pillar): Trụ cột PTE: chấm máy, 2 giờ, thang 10–90, kết quả thường trong 48 h (kiểm trang Pearson); 3 phần Speaking & Writing / Reading / Listening, bảng dạng câu nào cộng điểm cho kỹ năng nào (integrated scoring) → link vệ tinh. Ai chấp nhận: Úc/NZ/UK visa (dẫn nguồn). Viết lại cho zh – 中文母语: 时态/冠词/单复数, 中式直译. Dùng làm H2/FAQ (autocomplete thật): PTE考试是用来干嘛的 · PTE考试含金量高吗 · PTE考试全称是什么.",
    "intent": "informational",
    "lang": "zh",
    "source": "pte-academic",
@@ -13368,7 +13368,7 @@
     "/#/practice/match",
     "/#/practice/learn"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-kids, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for zh L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, pillar): Trụ cột cho PHỤ HUYNH: dạy con tiếng Anh tại nhà theo độ tuổi (3–5, 6–8, 9–12), 15 phút/ngày, nghe trước nói sau, sách/âm thanh/trò chơi; bố mẹ không giỏi tiếng Anh vẫn làm được (bố mẹ tự học cùng app). Không quảng cáo app là app trẻ em. Viết lại cho zh – 中文母语: 时态/冠词/单复数, 中式直译. Dùng làm H2/FAQ (autocomplete thật): 英语启蒙图片 · 英语启蒙app推荐排行榜 · 英语启蒙软件哪个好.",
    "intent": "informational",
    "lang": "zh",
    "source": "english-for-kids-at-home",
@@ -13392,7 +13392,7 @@
     "/#/grammar",
     "/#/placement"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/overview; native rewrite for zh L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite): B1 Preliminary: 4 bài thi (Reading, Writing, Listening, Speaking), cấu trúc từng part, thời lượng, điểm đỗ/Pass with Merit; lộ trình 8 tuần; lỗi hay gặp của người học bản địa ở Writing (email + story/article). Viết lại cho zh – 中文母语: 时态/冠词/单复数, 中式直译. Dùng làm H2/FAQ (autocomplete thật): PET考试题型 · PET考试各部分题型解析 · PET考试试题.",
    "intent": "exam-prep",
    "lang": "zh",
    "source": "cambridge-b1-preliminary",
@@ -13415,7 +13415,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for es L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar): Trụ cột Cambridge: A2 Key → B1 Preliminary → B2 First → C1 Advanced → C2, thang Cambridge English Scale (B1 120–170, B2 140–190, C1 160–210), chứng chỉ không hết hạn, bản 'for Schools'. Bảng chọn kỳ thi theo mục tiêu; link bài kiểm tra trình độ + trang cấp độ B1/B2/C1. Viết lại cho es – hispanohablantes: false friends, thì hiện tại hoàn thành, phát âm nguyên âm. Dùng làm H2/FAQ (autocomplete thật): exámenes cambridge niveles niños · examenes ingles cambridge niveles · examenes cambridge por niveles.",
    "intent": "informational",
    "lang": "es",
    "source": "cambridge-english-exams",
@@ -13439,7 +13439,7 @@
     "/#/grammar",
     "/#/placement"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/overview; native rewrite for es L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite): B1 Preliminary: 4 bài thi (Reading, Writing, Listening, Speaking), cấu trúc từng part, thời lượng, điểm đỗ/Pass with Merit; lộ trình 8 tuần; lỗi hay gặp của người học bản địa ở Writing (email + story/article). Viết lại cho es – hispanohablantes: false friends, thì hiện tại hoàn thành, phát âm nguyên âm. Dùng làm H2/FAQ (autocomplete thật): b1 preliminary cambridge exam · b1 preliminary cambridge pdf · b1 preliminary cambridge sample test.",
    "intent": "exam-prep",
    "lang": "es",
    "source": "cambridge-b1-preliminary",
@@ -13463,7 +13463,7 @@
     "/#/write",
     "/#/grammar"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/overview; native rewrite for es L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite): B2 First: Reading & Use of English (7 part), Writing (essay bắt buộc + 1 lựa chọn), Listening, Speaking theo cặp; điểm 160 = B2, 180 = C1; kế hoạch 12 tuần; trọng tâm Use of English (word formation, key word transformation). Viết lại cho es – hispanohablantes: false friends, thì hiện tại hoàn thành, phát âm nguyên âm. Dùng làm H2/FAQ (autocomplete thật): examen b2 first cambridge pdf · precio examen b2 first cambridge · examen cambridge b2 first for schools.",
    "intent": "exam-prep",
    "lang": "es",
    "source": "cambridge-b2-first",
@@ -13487,7 +13487,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for pt L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar): Trụ cột Cambridge: A2 Key → B1 Preliminary → B2 First → C1 Advanced → C2, thang Cambridge English Scale (B1 120–170, B2 140–190, C1 160–210), chứng chỉ không hết hạn, bản 'for Schools'. Bảng chọn kỳ thi theo mục tiêu; link bài kiểm tra trình độ + trang cấp độ B1/B2/C1. Viết lại cho pt – brasileiros: falsos cognatos, th, nguyên âm cuối thêm i.",
    "intent": "informational",
    "lang": "pt",
    "source": "cambridge-english-exams",
@@ -13511,7 +13511,7 @@
     "/#/write",
     "/#/grammar"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite) – see content/blog/plan/2026-12-clusters.json; intent exam-prep/overview; native rewrite for pt L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, satellite): B2 First: Reading & Use of English (7 part), Writing (essay bắt buộc + 1 lựa chọn), Listening, Speaking theo cặp; điểm 160 = B2, 180 = C1; kế hoạch 12 tuần; trọng tâm Use of English (word formation, key word transformation). Viết lại cho pt – brasileiros: falsos cognatos, th, nguyên âm cuối thêm i.",
    "intent": "exam-prep",
    "lang": "pt",
    "source": "cambridge-b2-first",
@@ -13521,7 +13521,7 @@
   },
   {
    "slug": "ikhtibar-duolingo-lil-lugha-al-injliziyyah",
-   "keyword": "اختبار دولينجو للغة الإنجليزية",
+   "keyword": "اختبار دولينجو",
    "category": "ky-nang",
    "tags": [
     "det",
@@ -13535,7 +13535,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for ar L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar): Trụ cột DET: thi online ~1 giờ, thích ứng, thang 10–160; ai chấp nhận (tra cứu trường), giá & thời gian có điểm (dẫn trang chính thức, ghi ngày kiểm). Bảng các dạng câu theo kỹ năng → mỗi dạng 1 mẹo + link vệ tinh. Kết bằng bài kiểm tra trình độ miễn phí để ước điểm. Viết lại cho ar – متحدثو العربية: p/b, حروف العلة, ترتيب الصفات. Dùng làm H2/FAQ (autocomplete thật): اختبار دولينجو تجريبي · اختبار دولينجو لتحديد المستوى.",
    "intent": "informational",
    "lang": "ar",
    "source": "duolingo-english-test",
@@ -13559,7 +13559,7 @@
     "/#/roleplay",
     "/#/phrases"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/hub; native rewrite for th L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar): Hub tiếng Anh nhà hàng–khách sạn cho NHÂN VIÊN: chào đón, đặt chỗ, xử lý yêu cầu, xin lỗi, thanh toán; mức lịch sự (could/would/may); link vệ tinh lễ tân, phục vụ, phàn nàn; link bài du lịch cho khách (không lặp). Viết lại cho th – người Thái: phụ âm cuối, s số nhiều, thì.",
    "intent": "informational",
    "lang": "th",
    "source": "hospitality-english",
@@ -13583,7 +13583,7 @@
     "/#/roleplay",
     "/#/practice/listen"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-hospitality, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/dialogue; native rewrite for th L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-hospitality, satellite): Lễ tân: nhận/trả phòng, đặt cọc, nâng hạng, giới thiệu tiện ích, xử lý quá đặt phòng; 3 hội thoại mẫu; cách đánh vần tên & số thẻ phòng; bảng câu 'thô → lịch sự'. Viết lại cho th – người Thái: phụ âm cuối, s số nhiều, thì. Dùng làm H2/FAQ (autocomplete thật): บทสนทนา ภาษา อังกฤษ พนักงาน ต้อนรับ โรงแรม · ประโยค ภาษา อังกฤษ พนักงาน ต้อนรับ โรงแรม · ภาษาอังกฤษ สําหรับพนักงานต้อนรับโรงแรม.",
    "intent": "informational",
    "lang": "th",
    "source": "front-desk-english",
@@ -13607,7 +13607,7 @@
     "/#/toeic-sw",
     "/#/toeic"
    ],
-   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for th L1 errors",
+   "angle": "SEO clusters 12/2026 (toeic-speaking-writing, pillar): Trụ cột TOEIC S&W: Speaking 11 câu ~20 phút, Writing 8 câu ~60 phút, mỗi phần 0–200 + cấp độ; khác L&R ra sao, ai yêu cầu (doanh nghiệp/trường ở thị trường đó). Bảng dạng câu → mẹo → link vệ tinh + module TOEIC S&W của app. Kiểm định dạng hiện hành trên ETS, ghi ngày. Viết lại cho th – người Thái: phụ âm cuối, s số nhiều, thì.",
    "intent": "informational",
    "lang": "th",
    "source": "toeic-speaking-writing",
@@ -13631,7 +13631,7 @@
     "/#/roleplay",
     "/#/phrases"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/hub; native rewrite for id L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar): Hub tiếng Anh nhà hàng–khách sạn cho NHÂN VIÊN: chào đón, đặt chỗ, xử lý yêu cầu, xin lỗi, thanh toán; mức lịch sự (could/would/may); link vệ tinh lễ tân, phục vụ, phàn nàn; link bài du lịch cho khách (không lặp). Viết lại cho id – penutur Indonesia: thì động từ, số nhiều, phụ âm cuối. Dùng làm H2/FAQ (autocomplete thật): bahasa inggris perhotelan dan pariwisata · bahasa inggris perhotelan pdf · bahasa inggris jurusan perhotelan.",
    "intent": "informational",
    "lang": "id",
    "source": "hospitality-english",
@@ -13655,7 +13655,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for id L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar): Trụ cột DET: thi online ~1 giờ, thích ứng, thang 10–160; ai chấp nhận (tra cứu trường), giá & thời gian có điểm (dẫn trang chính thức, ghi ngày kiểm). Bảng các dạng câu theo kỹ năng → mỗi dạng 1 mẹo + link vệ tinh. Kết bằng bài kiểm tra trình độ miễn phí để ước điểm. Viết lại cho id – penutur Indonesia: thì động từ, số nhiều, phụ âm cuối.",
    "intent": "informational",
    "lang": "id",
    "source": "duolingo-english-test",
@@ -13679,7 +13679,7 @@
     "/#/practice/match",
     "/#/practice/learn"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-kids, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/how-to; native rewrite for id L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-kids, pillar): Trụ cột cho PHỤ HUYNH: dạy con tiếng Anh tại nhà theo độ tuổi (3–5, 6–8, 9–12), 15 phút/ngày, nghe trước nói sau, sách/âm thanh/trò chơi; bố mẹ không giỏi tiếng Anh vẫn làm được (bố mẹ tự học cùng app). Không quảng cáo app là app trẻ em. Viết lại cho id – penutur Indonesia: thì động từ, số nhiều, phụ âm cuối.",
    "intent": "informational",
    "lang": "id",
    "source": "english-for-kids-at-home",
@@ -13703,7 +13703,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for tr L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar): Trụ cột DET: thi online ~1 giờ, thích ứng, thang 10–160; ai chấp nhận (tra cứu trường), giá & thời gian có điểm (dẫn trang chính thức, ghi ngày kiểm). Bảng các dạng câu theo kỹ năng → mỗi dạng 1 mẹo + link vệ tinh. Kết bằng bài kiểm tra trình độ miễn phí để ước điểm. Viết lại cho tr – Türkçe konuşanlar: artikel, zaman, kelime sırası.",
    "intent": "informational",
    "lang": "tr",
    "source": "duolingo-english-test",
@@ -13727,7 +13727,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for tr L1 errors",
+   "angle": "SEO clusters 12/2026 (cambridge-exams, pillar): Trụ cột Cambridge: A2 Key → B1 Preliminary → B2 First → C1 Advanced → C2, thang Cambridge English Scale (B1 120–170, B2 140–190, C1 160–210), chứng chỉ không hết hạn, bản 'for Schools'. Bảng chọn kỳ thi theo mục tiêu; link bài kiểm tra trình độ + trang cấp độ B1/B2/C1. Viết lại cho tr – Türkçe konuşanlar: artikel, zaman, kelime sırası.",
    "intent": "informational",
    "lang": "tr",
    "source": "cambridge-english-exams",
@@ -13751,7 +13751,7 @@
     "/#/roleplay",
     "/#/phrases"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/hub; native rewrite for tr L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-hospitality, pillar): Hub tiếng Anh nhà hàng–khách sạn cho NHÂN VIÊN: chào đón, đặt chỗ, xử lý yêu cầu, xin lỗi, thanh toán; mức lịch sự (could/would/may); link vệ tinh lễ tân, phục vụ, phàn nàn; link bài du lịch cho khách (không lặp). Viết lại cho tr – Türkçe konuşanlar: artikel, zaman, kelime sırası. Dùng làm H2/FAQ (autocomplete thật): turizm otelcilik ingilizcesi.",
    "intent": "informational",
    "lang": "tr",
    "source": "hospitality-english",
@@ -13775,7 +13775,7 @@
     "/#/roleplay",
     "/#/practice/listen"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-hospitality, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/dialogue; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-hospitality, satellite): Lễ tân: nhận/trả phòng, đặt cọc, nâng hạng, giới thiệu tiện ích, xử lý quá đặt phòng; 3 hội thoại mẫu; cách đánh vần tên & số thẻ phòng; bảng câu 'thô → lịch sự'. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): tiếng anh lễ tân khách sạn check in · học tiếng anh lễ tân khách sạn.",
    "intent": "informational",
    "lang": "vi",
    "source": "front-desk-english",
@@ -13799,7 +13799,7 @@
     "/#/roleplay",
     "/#/practice/speak"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-hospitality, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/dialogue; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-hospitality, satellite): Phục vụ nhà hàng: đón khách, giới thiệu món, dị ứng thực phẩm, gọi thêm, tính tiền/tip; hội thoại mẫu; lỗi hay gặp (a/an, số đếm, giá). Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): tiếng anh cho nhân viên phục vụ nhà hàng pdf.",
    "intent": "informational",
    "lang": "vi",
    "source": "restaurant-staff-english",
@@ -13823,7 +13823,7 @@
     "/#/practice/learn",
     "/#/topic"
    ],
-   "angle": "SEO clusters 12/2026 (english-for-it, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/list; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (english-for-it, satellite): Từ vựng IT theo nhóm (vòng đời phần mềm, hạ tầng, bug/QA, Agile), mỗi từ có câu ví dụ thật từ PR/ticket, phát âm từ hay đọc sai (cache, Linux, GUI…); bộ thẻ để ôn bằng FSRS. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ.",
    "intent": "informational",
    "lang": "vi",
    "source": "it-english-vocabulary",
@@ -13847,7 +13847,7 @@
     "/#/placement",
     "/#/tests"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar) – see content/blog/plan/2026-12-clusters.json; intent informational/exam-overview; native rewrite for vi L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, pillar): Trụ cột DET: thi online ~1 giờ, thích ứng, thang 10–160; ai chấp nhận (tra cứu trường), giá & thời gian có điểm (dẫn trang chính thức, ghi ngày kiểm). Bảng các dạng câu theo kỹ năng → mỗi dạng 1 mẹo + link vệ tinh. Kết bằng bài kiểm tra trình độ miễn phí để ước điểm. Viết lại cho vi – lỗi người Việt: bỏ s/ed cuối, thiếu mạo từ, dịch từng chữ. Dùng làm H2/FAQ (autocomplete thật): duolingo english test det là gì.",
    "intent": "informational",
    "lang": "vi",
    "source": "duolingo-english-test",
@@ -13871,7 +13871,7 @@
     "/#/goal",
     "/#/placement"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/comparison; native rewrite for en L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, satellite): Bảng quy đổi DET ↔ IELTS ↔ CEFR lấy từ bảng chính thức của Duolingo (trích nguồn + ngày), giải thích vì sao quy đổi chỉ là ước lượng; ví dụ hồ sơ trường yêu cầu 'IELTS 6.5 or DET 120'. Không bịa số. Viết lại cho en – người học ESL toàn cầu: ví dụ trung tính, không giả định L1. Dùng làm H2/FAQ (autocomplete thật): duolingo english test score equivalent to ielts · duolingo english test score compared to ielts · duolingo english test score vs ielts.",
    "intent": "informational",
    "lang": "en",
    "source": "det-score-ielts",
@@ -13895,7 +13895,7 @@
     "/#/goal",
     "/#/placement"
    ],
-   "angle": "SEO clusters 12/2026 (duolingo-english-test, satellite) – see content/blog/plan/2026-12-clusters.json; intent informational/comparison; native rewrite for hi L1 errors",
+   "angle": "SEO clusters 12/2026 (duolingo-english-test, satellite): Bảng quy đổi DET ↔ IELTS ↔ CEFR lấy từ bảng chính thức của Duolingo (trích nguồn + ngày), giải thích vì sao quy đổi chỉ là ước lượng; ví dụ hồ sơ trường yêu cầu 'IELTS 6.5 or DET 120'. Không bịa số. Viết lại cho hi – Hindi speakers: Indian-English quirks (prepone, do the needful), v/w, th. Dùng làm H2/FAQ (autocomplete thật): duolingo score to ielts calculator · duolingo score to ielts band · duolingo score to ielts and toefl.",
    "intent": "informational",
    "lang": "hi",
    "source": "det-score-ielts",
