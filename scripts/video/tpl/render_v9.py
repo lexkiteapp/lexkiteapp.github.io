@@ -43,8 +43,9 @@ assert all(v['set'] == SP['set'] and v['who'] == SP['teacher'] for v in CL.value
 WHO = SP['teacher']; LIB = f"{o.foot}/{SET['lib']}"; SMAX = SET['smax']
 BRD = None
 if SET.get('bank'):
-    _bk = {c['id']: c for c in json.load(open(f"{ROOT}/{SET['bank']}"))['clips']}; _b = [_bk.get(c, {}).get('board') for c in SP['clips']]
-    if all(_b): assert len(_b) == 1, 'board mode: one talk clip per video (the board zone is measured per clip)'; BRD = _b[0]
+    _bk = {c['id']: c for c in json.load(open(f"{ROOT}/{SET['bank']}"))['clips']}; _b = _bk.get(SP['clips'][0], {}).get('board')
+    _fam = {TR['clips'][c].get('parent') or c for c in SP['clips'] + SP.get('listen', [])}   # chained talk / listen clips start from the parent's frames: same framing
+    if _b: assert _fam == {SP['clips'][0]}, ('board mode: every clip must be the first clip or one of its chained children', _fam); BRD = _b
 CROP = None; CA = None
 def _bmask(body):
     M = np.zeros((H, W), bool); st = body['step']
