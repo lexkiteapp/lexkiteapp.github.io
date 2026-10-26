@@ -7,6 +7,7 @@ from scipy.signal import resample_poly
 from huggingface_hub import hf_hub_download
 
 N_SO, N_LS = int(sys.argv[1]), int(sys.argv[2]); OUT = sys.argv[3]
+N_TR = int(sys.argv[4]) if len(sys.argv) > 4 else 0  # speechocean762 TRAIN sample: only for fitting CALIB (never fit on test)
 os.makedirs(OUT + '/wav', exist_ok=True)
 ARPA = set('AA AE AH AO AW AY B CH D DH EH ER EY F G HH IH IY JH K L M N NG OW OY P R S SH T TH UH UW V W Y Z ZH'.split())
 strip = lambda p: re.sub(r'\d', '', p.upper())
@@ -35,6 +36,20 @@ for i in idx:
     sf.write(f'{OUT}/wav/{name}', x, 16000, subtype='PCM_16')
     items.append({'set': 'so', 'wav': name, 'text': r['text'], 'expected': exp, 'labels': lab, 'dur': len(x) / 16000})
 print('so', len(items))
+# ---- speechocean762 TRAIN sample (set 'tr'): calibration fit only, never scored as a metric
+if N_TR:
+    dtr = pd.read_parquet(hf_hub_download('mispeech/speechocean762', 'data/train-00000-of-00001.parquet', repo_type='dataset'))
+    ntr = 0
+    for i in np.random.RandomState(11).permutation(len(dtr)):
+        if ntr >= N_TR: break
+        r = dtr.iloc[int(i)]; exp, lab = [], []
+        for w in r['words']:
+            exp += [strip(x) for x in w['phones']]; lab += [float(a) for a in w['phones-accuracy']]
+        if not exp or len(exp) != len(lab) or any(e not in ARPA for e in exp): continue
+        x, sr = sf.read(io.BytesIO(r['audio']['bytes']), dtype='float32'); x = to16k(x, sr)
+        name = f'tr_{ntr:04d}.wav'; sf.write(f'{OUT}/wav/{name}', x, 16000, subtype='PCM_16')
+        items.append({'set': 'tr', 'wav': name, 'text': r['text'], 'expected': exp, 'labels': lab, 'dur': len(x) / 16000}); ntr += 1
+    print('tr', ntr)
 
 # ---- CMUdict
 cmu = {}

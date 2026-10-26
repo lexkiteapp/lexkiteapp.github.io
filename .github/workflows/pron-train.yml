@@ -1,0 +1,101 @@
+name: pron-train
+# Train pron candidate A (wav2vec2-base CTC ARPA39) on Modal GPU (Starter plan, $30/month free credit), then evaluate it with pron-eval.
+# docs/research/pron-phoneme-plan.md "Training on Modal". Needs secrets MODAL_TOKEN_ID / MODAL_TOKEN_SECRET (fails fast if missing).
+# Cost guard (scripts/pron/train/modal_train.py): worst case (hours + 0.5 h) x Modal price must be <= $12 per run, else abort before any GPU.
+# GitHub jobs are capped at 6 h, so: start (prepare + spawn, detached) -> wait1/wait2 (poll the GPU call) -> export (ONNX fp32/q8/q4) -> eval.
+on:
+  workflow_dispatch:
+    inputs:
+      hours: { description: 'training time box in hours (hard timeout = hours + 0.5)', default: '8' }
+      steps: { description: 'max optimizer steps', default: '20000' }
+      layers: { description: 'transformer layers kept (12 = full, 8 = smaller student A-prime)', default: '12' }
+      include360: { description: 'add LibriSpeech train-clean-360', type: boolean, default: false }
+      dry_run: { description: '5-minute GPU smoke on 200 utterances (cheap pipeline check)', type: boolean, default: true }
+      gpu: { description: 'Modal GPU', type: choice, options: [L4, T4, A10G], default: L4 }
+permissions: { contents: read, actions: read }
+concurrency: { group: pron-train, cancel-in-progress: false }
+env:
+  MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+  MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+  PRON_GPU: ${{ inputs.gpu }}
+  PRON_HOURS: ${{ inputs.hours }}
+  PRON_DRY: ${{ inputs.dry_run }}
+  ARGS: --hours ${{ inputs.hours }} --steps ${{ inputs.steps }} --layers ${{ inputs.layers }} --include360 ${{ inputs.include360 }} --dry-run ${{ inputs.dry_run }} --gpu ${{ inputs.gpu }} --job-id ${{ github.run_id }}
+  APP: scripts/pron/train/modal_train.py
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    outputs: { call_id: '${{ steps.s.outputs.call_id }}' }
+    steps:
+      - name: Check Modal secrets
+        run: |
+          if [ -z "$MODAL_TOKEN_ID" ] || [ -z "$MODAL_TOKEN_SECRET" ]; then
+            echo "::error::Missing repo secrets MODAL_TOKEN_ID / MODAL_TOKEN_SECRET (modal.com -> Settings -> API tokens; Starter plan). Nothing was run."; exit 1; fi
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q "modal>=1.0,<2"
+      - name: Cost guard
+        run: python "$APP" --cost-only --hours "${{ inputs.hours }}" --gpu "${{ inputs.gpu }}" --include360 "${{ inputs.include360 }}" --dry-run "${{ inputs.dry_run }}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - id: s
+        name: Prepare data (CPU) + spawn GPU training (detached)
+        run: |
+          modal run --detach "$APP" --mode start $ARGS --state st.json
+          echo "call_id=$(python -c 'import json;print(json.load(open("st.json"))["call_id"])')" >> "$GITHUB_OUTPUT"
+  wait1:
+    needs: start
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    outputs: { done: '${{ steps.w.outputs.done }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q "modal>=1.0,<2"
+      - id: w
+        run: |
+          modal run "$APP" --mode wait $ARGS --call-id "${{ needs.start.outputs.call_id }}" --wait-s 20400 --state w.json
+          python -c 'import json;d=json.load(open("w.json"));print("done=" + str(d["done"]).lower())' >> "$GITHUB_OUTPUT"
+          python scripts/pron/train/summary.py wait w.json >> "$GITHUB_STEP_SUMMARY"
+  wait2:
+    needs: [start, wait1]
+    if: needs.wait1.outputs.done != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q "modal>=1.0,<2"
+      - run: |
+          modal run "$APP" --mode wait $ARGS --call-id "${{ needs.start.outputs.call_id }}" --wait-s 20400 --state w.json
+          python scripts/pron/train/summary.py wait w.json --require-done >> "$GITHUB_STEP_SUMMARY"
+  export:
+    needs: [wait1, wait2]
+    if: always() && (needs.wait1.outputs.done == 'true' || needs.wait2.result == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q "modal>=1.0,<2"
+      - name: Export ONNX fp32 / q8 / q4 (Modal CPU) and download
+        run: |
+          modal run "$APP" --mode export $ARGS --out pron-model-a
+          ls -la pron-model-a
+          python scripts/pron/train/summary.py export pron-model-a/train_report.json >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: pron-model-a, path: pron-model-a, retention-days: 30 }
+  eval:
+    needs: export
+    if: always() && needs.export.result == 'success'
+    uses: ./.github/workflows/pron-eval.yml
+    with:
+      candidates: ${{ inputs.dry_run && 'A' || 'A,C' }}
+      n_so: ${{ inputs.dry_run && '100' || '500' }}
+      n_ls: ${{ inputs.dry_run && '30' || '150' }}
+      n_tr: ${{ inputs.dry_run && '100' || '600' }}
+      quant: fp32,q8,q4
+      a_run_id: ${{ github.run_id }}

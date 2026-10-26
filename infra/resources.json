@@ -1033,6 +1033,19 @@
         "api.cloudflare.com/client/v4/graphql",
         "free-tier-state.json"
       ]
+    },
+    {
+      "key": "modal",
+      "name": "Modal (GPU serverless, Starter plan)",
+      "kind": "ci",
+      "purpose": "Train pron model A (wav2vec2-base CTC ARPA39) on GPU từ pron-train.yml; Volume lexkite-pron giữ dữ liệu + checkpoint; không phục vụ người dùng",
+      "console": "https://modal.com/apps",
+      "free": "Starter: $30 credit/tháng; L4 ≈ $0,80/h GPU (+CPU/RAM); cost guard mỗi lượt ≤ $12",
+      "upgrade": "Không nâng cấp – vượt $30/tháng thì chờ tháng sau; secret MODAL_TOKEN_ID/MODAL_TOKEN_SECRET (GitHub)",
+      "status": "Miễn phí (chờ secret)",
+      "match": [
+        "modal.com"
+      ]
     }
   ],
   "links": {

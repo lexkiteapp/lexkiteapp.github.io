@@ -16,7 +16,7 @@
 **Mô hình (ứng viên, P0 chọn bằng số đo):**
 | # | Ứng viên | Tham số | q4 ước tính | Giấy phép | Ghi chú |
 |---|---|---|---|---|---|
-| A | wav2vec2-base (95 M) fine-tune CTC 39 âm ARPAbet trên LibriSpeech 960h (CC BY 4.0) + speechocean762 train (CC BY 4.0), nhãn từ CMUdict | 95 M | ~50–58 MB | Apache-2.0 (gốc facebook/wav2vec2-base) + dữ liệu thương mại được | **Đề xuất chính.** Cần GPU 1 lần (~6–10 h): Kaggle Notebook miễn phí (30 h GPU/tuần), CI gọi qua Kaggle API. GitHub Actions không có GPU miễn phí. |
+| A | wav2vec2-base (95 M) fine-tune CTC 39 âm ARPAbet trên LibriSpeech 960h (CC BY 4.0) + speechocean762 train (CC BY 4.0), nhãn từ CMUdict | 95 M | ~50–58 MB | Apache-2.0 (gốc facebook/wav2vec2-base) + dữ liệu thương mại được | **Đề xuất chính.** Cần GPU 1 lần (~6–10 h): **Modal Starter** ($30 credit/tháng), CI gọi qua `pron-train.yml` (§5c). GitHub Actions không có GPU miễn phí. |
 | B | Checkpoint cộng đồng sẵn có (vd `mostafaashahin/wav2vec2-base-timit-phoneme-arpa-39-v2`, `robg/speako-phoneme-recognizer` = xls-r-300m TIMIT, 355 MB q8) | 95–300 M | 55–170 MB | Apache trên thẻ, **nhưng train trên TIMIT (LDC, không phải giấy phép mở)** | Chỉ dùng để đo so sánh trong P0, không ship. |
 | C | `facebook/wav2vec2-xlsr-53-espeak-cv-ft` / `lv-60-espeak-cv-ft` | 300 M | ~170 MB | Apache-2.0 | Quá nặng cho máy; dùng làm **thầy** (gán nhãn giả/chưng cất) và trần chất lượng trên CI. |
 | D | ZIPA-CR small (ACL 2025, Zipformer, đa ngôn ngữ IPA) | ~60 M? | ~35 MB? | **chưa xác minh** | Theo dõi; xuất ONNX Zipformer phức tạp hơn. Chỉ thử nếu giấy phép trọng số cho thương mại. |
@@ -51,6 +51,15 @@ Bấm mic → sóng âm trực tiếp → thả/tự dừng theo VAD → (< 1,5 
 - **Cách chấm:** gộp cột vocab về 39 âm + blank (log-sum-exp) → Viterbi CTC trên chuỗi xen blank (start/end = khung nhãn; `best` = âm khác có đỉnh log-prob cao nhất trong vùng giữa 2 âm kề) → **GOP-AF** (điểm chính): `log P(chuỗi đúng) − max(log P(thay âm i bằng q), log P(xoá âm i))`, mỗi giả thuyết 1 lượt forward CTC log-space; `afBest` = giả thuyết thắng (`-` = xoá). Mặc định thử cả 38 âm khi L·T ≤ 4000, câu dài chỉ 10 âm mạnh nhất trong đoạn. Thêm `lpp`/`gop` theo đoạn làm đặc trưng phụ (`CALIB.feature`). `score = 100·sigmoid(a·clip(x)+b)`, mặc định a=1, b=1 (LPR 0 → 73 vàng) – harness học lại. `wordScore` = trung bình có trọng số thời lượng; `per` = Levenshtein(greedy, mong đợi)/L.
 - **Biên:** T=0 → `reason:'empty'`; T < số khung tối thiểu → `reason:'too-short'`, điểm 0, thời gian chia đều; âm ngoài ARPA39/vocab → `score:null, unknown:true` (không vào wordScore); NaN/-Inf trong logit an toàn. Âm chèn thừa: âm mong đợi kề bên có thể xuống ~73 (LPR ≈ 0) – đúng bản chất GOP-AF, phát hiện chèn dùng `per`/`decoded`.
 - **Số đo (logit tổng hợp):** đúng ≥ 80; thay âm → ≤ 40 và `best` = âm thay; xoá → ≤ 40; im lặng ≤ 20; T=50, L=8 ≈ 3 ms/lần Node; T=500, L=40 < 1,5 s.
+
+## 5c. Training on Modal (A, 26/10)
+- **Mã:** `scripts/pron/train/modal_train.py` (CPU `prepare` → GPU `train` → CPU `export`), workflow `pron-train.yml` (dispatch: `hours`, `steps`, `layers`, `include360`, `dry_run`, `gpu`). Cần secret `MODAL_TOKEN_ID`/`MODAL_TOKEN_SECRET` – thiếu thì job đỏ ngay, không chạy gì.
+- **Dữ liệu:** LibriSpeech train-clean-100 (+360 tuỳ chọn) nhãn CMUdict (bỏ câu OOV, > 16,5 s) + speechocean762 **train** (nhãn âm riêng, âm phát sai thay bằng `pronounced-phone`, bỏ câu có âm 0 điểm không rõ đã nói gì; ×3). Không dùng test. Volume `lexkite-pron` giữ cache + checkpoint (resume an toàn; dispatch lại cùng `layers/include360` thì chạy tiếp).
+- **Train:** wav2vec2-base + CTC 40 lớp (blank + ARPA39), bf16 (fp16 trên T4), gradient checkpointing, khoá encoder 10 % bước đầu, lr 1e-4 cosine, ≤ 20k bước hoặc hết `hours`; PER dev-clean (500 câu) mỗi 1000 bước, giữ best. `layers=8` = học trò A' (cắt lớp trước khi fine-tune). Chưng cất từ C: chưa làm (CTC thuần trước).
+- **Cost guard:** giá Modal 26/10 (L4 $0,000222/s, T4 $0,000164/s, A10G $0,000306/s + CPU/RAM) × (hours + 0,5 h timeout cứng) + chuẩn bị/xuất > **$12** → huỷ trước khi bật GPU. L4 8 h ≈ $10,4 tệ nhất. Dry run ≈ $0,2.
+- **Chạy:** dispatch `dry_run=true` trước (200 câu, ~5 phút GPU, kiểm cả xuất + eval) → xanh thì `dry_run=false, hours=8`. Job GitHub tối đa 6 h nên chia `start → wait1 → wait2 → export → eval`.
+- **Đọc kết quả:** summary run: PER dev-clean theo bước; bảng biến thể fp32/q8/q4 (MB, PER 100 câu, lệch so với torch); rồi bảng `pron-eval` (A và C) với 4 cổng §6 + PCC trước/sau hiệu chỉnh. Artifact `pron-model-a` (30 ngày) có ONNX + `train_report.json`.
+- **Hiệu chỉnh (mọi ứng viên):** `pron-eval` lấy mẫu speechocean762 **train** (`n_tr`, mặc định 600 câu), `fitCalib` cho từng đặc trưng (gopAF/lpp/gop), chọn theo PCC trên train, báo PCC/báo nhầm **trên test** trước/sau. Không bao giờ fit trên test.
 
 ## 6. Cổng chất lượng (đo trên CI, chặn ship)
 | Chỉ số | P0 "đi tiếp" | P1 ship | Tham chiếu |

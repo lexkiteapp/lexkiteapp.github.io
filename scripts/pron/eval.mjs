@@ -1,10 +1,11 @@
 // Pronunciation-scoring P0 harness: runs ONNX CTC phoneme models over speechocean762 + LibriSpeech samples and reports
 // PER, phone-level PCC vs human labels, false-alarm rate on native speech, latency, model size.
 //   node scripts/pron/eval.mjs --cand C --dir models/C --data data --quant fp32,q8 --out reports/pron-eval-C.json
+// Calibration: items with set 'tr' (speechocean762 TRAIN sample) only fit CALIB via gop.mjs fitCalib; metrics before/after are on TEST.
 import fs from 'node:fs';
 import path from 'node:path';
 import * as ort from 'onnxruntime-node';
-import { score, decodeGreedy } from './gop.mjs';
+import { score, decodeGreedy, fitCalib, calibrate } from './gop.mjs';
 import { mapVocab, ARPA39 } from './vocab-map.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
@@ -29,7 +30,9 @@ function pcc(x, y) { const n = x.length; if (n < 3) return null; const mx = x.re
 const pct = (a, q) => { const s = [...a].sort((x, y) => x - y); return s.length ? s[Math.min(s.length - 1, Math.floor(q * s.length))] : null; };
 const r = (v, d = 4) => v == null ? null : +v.toFixed(d);
 
-const result = { cand, repo: meta.repo, n_so: items.filter(i => i.set === 'so').length, n_ls: items.filter(i => i.set === 'ls').length, quant: {}, notes: [] };
+const result = { cand, repo: meta.repo, n_so: items.filter(i => i.set === 'so').length, n_ls: items.filter(i => i.set === 'ls').length, n_tr: items.filter(i => i.set === 'tr').length, quant: {}, notes: [] };
+const FEATS = ['gopAF', 'lpp', 'gop'];
+const feats = p => Object.fromEntries(FEATS.map(k => [k, p[k]]));
 let mapInfo = null;
 for (const q of wantQ) {
   const file = meta.variants[q];
@@ -41,6 +44,7 @@ for (const q of wantQ) {
   await run(new Float32Array(16000)); // warm-up
   let editSum = 0, refSum = 0, lsPh = 0, lsRed = 0, mism = 0, soPh = 0, soRed = 0, soGoodN = 0, soGoodRed = 0;
   const sc = [], hu = [], lat = [], gopMs = [], lsScoreAll = [], errs = [];
+  const trF = [], trY = [], soF = [], lsF = []; // per-phone raw GOP features for calibration (train) and re-scoring (test)
   for (const it of items) {
     let x, o;
     try { x = readWav(`${dataDir}/wav/${it.wav}`); o = await run(x); } catch (e) { errs.push(`${it.wav}: ${e.message}`); continue; }
@@ -56,8 +60,9 @@ for (const q of wantQ) {
     }
     const ph = res.phones || [];
     if (ph.length !== it.expected.length) { mism++; continue; }
-    if (it.set === 'ls') { for (const p of ph) { lsPh++; lsScoreAll.push(p.score); if (p.score < 50) lsRed++; } }
-    else ph.forEach((p, i) => { sc.push(p.score); hu.push(it.labels[i]); soPh++; if (it.labels[i] >= 1.8) { soGoodN++; if (p.score < 50) soGoodRed++; } if (p.score < 50) soRed++; });
+    if (it.set === 'tr') { ph.forEach((p, i) => { trF.push(feats(p)); trY.push(it.labels[i]); }); continue; }
+    if (it.set === 'ls') { for (const p of ph) { lsPh++; lsScoreAll.push(p.score); lsF.push(feats(p)); if (p.score < 50) lsRed++; } }
+    else ph.forEach((p, i) => { sc.push(p.score); soF.push(feats(p)); hu.push(it.labels[i]); soPh++; if (it.labels[i] >= 1.8) { soGoodN++; if (p.score < 50) soGoodRed++; } if (p.score < 50) soRed++; });
   }
   const good = sc.filter((_, i) => hu[i] >= 1.8), bad = sc.filter((_, i) => hu[i] <= 1);
   const mean = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : null;
@@ -72,6 +77,23 @@ for (const q of wantQ) {
     gop_ms_per_utt_mean: r(mean(gopMs), 1),
     counts: { so_phones: soPh, ls_phones: lsPh, length_mismatch_utts: mism, errors: errs.length },
   };
+  // ---- calibration: fit on speechocean762 TRAIN only, pick the feature by TRAIN PCC, report TEST before/after
+  if (trF.length >= 50) {
+    const cal = {};
+    for (const f of FEATS) {
+      const pairs = trF.map((x, i) => [x[f], trY[i] * 50]).filter(([x]) => Number.isFinite(x));
+      if (pairs.length < 50) continue;
+      const c = fitCalib(pairs, { feature: f });
+      const s = (F) => F.map(x => calibrate(x[f], c));
+      cal[f] = { calib: { a: r(c.a, 5), b: r(c.b, 5), clip: c.clip, feature: f, n: c.n }, pcc_train: r(pcc(s(trF), trY)),
+        pcc_test: r(pcc(s(soF), hu)), false_alarm_native_ls: r(lsF.length ? s(lsF).filter(v => v < 50).length / lsF.length : null),
+        false_alarm_so_good_phones: r((() => { const g = s(soF).filter((_, i) => hu[i] >= 1.8); return g.length ? g.filter(v => v < 50).length / g.length : null; })()) };
+    }
+    const best = Object.keys(cal).sort((x, y) => (cal[y].pcc_train ?? -1) - (cal[x].pcc_train ?? -1))[0];
+    if (best) result.quant[q].calibrated = { chosen_by: 'max PCC on speechocean762 TRAIN', feature: best, n_train_phones: trF.length,
+      PCC_before: result.quant[q].PCC_phone_so762, PCC_after: cal[best].pcc_test, false_alarm_native_ls_after: cal[best].false_alarm_native_ls,
+      false_alarm_so_good_after: cal[best].false_alarm_so_good_phones, calib: cal[best].calib, per_feature: cal };
+  } else if (result.n_tr) result.notes.push(`${q}: only ${trF.length} train phones - calibration skipped`);
   if (errs.length) result.notes.push(`${q}: ${errs.slice(0, 3).join(' | ')}`);
   console.log(cand, q, JSON.stringify(result.quant[q]));
   await sess.release?.();

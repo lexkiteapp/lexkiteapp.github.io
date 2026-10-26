@@ -1,5 +1,22 @@
 {
-  "B1": { "repo": "mostafaashahin/wav2vec2-base-timit-phoneme-arpa-39-v2", "shippable": false, "note": "TIMIT-trained (LDC) - benchmark only, NOT shippable" },
-  "B2": { "repo": "robg/speako-phoneme-recognizer", "shippable": false, "note": "xls-r-300m TIMIT, repo ships ONNX q8 only - benchmark only" },
-  "C":  { "repo": "facebook/wav2vec2-lv-60-espeak-cv-ft", "shippable": true, "note": "Apache-2.0, espeak IPA vocab mapped to ARPA39" }
+ "A": {
+  "artifact": "pron-model-a",
+  "shippable": true,
+  "note": "wav2vec2-base CTC ARPA39 fine-tuned on Modal (pron-train.yml): LibriSpeech + speechocean762 train"
+ },
+ "B1": {
+  "repo": "mostafaashahin/wav2vec2-base-timit-phoneme-arpa-39-v2",
+  "shippable": false,
+  "note": "TIMIT-trained (LDC) - benchmark only, NOT shippable"
+ },
+ "B2": {
+  "repo": "robg/speako-phoneme-recognizer",
+  "shippable": false,
+  "note": "xls-r-300m TIMIT, repo ships ONNX q8 only - benchmark only"
+ },
+ "C": {
+  "repo": "facebook/wav2vec2-lv-60-espeak-cv-ft",
+  "shippable": true,
+  "note": "Apache-2.0, espeak IPA vocab mapped to ARPA39"
+ }
 }
