@@ -428,6 +428,180 @@
     {
      "id": "dress#n",
      "why": "rà soát lượt 1 (26/10): vi-pos-mismatch"
+    },
+    {
+     "id": "ring#n"
+    },
+    {
+     "id": "dead#adj"
+    },
+    {
+     "id": "agency#n"
+    },
+    {
+     "id": "legal#adj"
+    },
+    {
+     "id": "glass#n"
+    },
+    {
+     "id": "trial#n"
+    },
+    {
+     "id": "text#n"
+    },
+    {
+     "id": "primary#adj"
+    },
+    {
+     "id": "appeal#n"
+    },
+    {
+     "id": "flat#adj"
+    },
+    {
+     "id": "display#v"
+    },
+    {
+     "id": "dinner#n"
+    },
+    {
+     "id": "suit#n"
+    },
+    {
+     "id": "launch#v"
+    },
+    {
+     "id": "grant#n"
+    },
+    {
+     "id": "wave#n"
+    },
+    {
+     "id": "net#n"
+    },
+    {
+     "id": "spread#v"
+    },
+    {
+     "id": "driver#n"
+    },
+    {
+     "id": "confirm#v"
+    },
+    {
+     "id": "smoke#n"
+    },
+    {
+     "id": "mass#n"
+    },
+    {
+     "id": "waste#v"
+    },
+    {
+     "id": "expression#n"
+    },
+    {
+     "id": "demonstrate#v"
+    },
+    {
+     "id": "essential#adj"
+    },
+    {
+     "id": "settle#v"
+    },
+    {
+     "id": "commit#v"
+    },
+    {
+     "id": "tire#n"
+    },
+    {
+     "id": "whereas#conj"
+    },
+    {
+     "id": "cycle#n"
+    },
+    {
+     "id": "objective#n"
+    },
+    {
+     "id": "taste#n"
+    },
+    {
+     "id": "sight#n"
+    },
+    {
+     "id": "quote#v"
+    },
+    {
+     "id": "square#n"
+    },
+    {
+     "id": "proper#adj"
+    },
+    {
+     "id": "suspect#v"
+    },
+    {
+     "id": "bright#adj"
+    },
+    {
+     "id": "tie#v"
+    },
+    {
+     "id": "principal#adj"
+    },
+    {
+     "id": "master#n"
+    },
+    {
+     "id": "rent#n"
+    },
+    {
+     "id": "judgment#n"
+    },
+    {
+     "id": "permit#v"
+    },
+    {
+     "id": "commission#n"
+    },
+    {
+     "id": "sheet#n"
+    },
+    {
+     "id": "cast#n"
+    },
+    {
+     "id": "mental#adj"
+    },
+    {
+     "id": "capture#v"
+    },
+    {
+     "id": "joint#adj"
+    },
+    {
+     "id": "yield#v"
+    },
+    {
+     "id": "legislation#n"
+    },
+    {
+     "id": "academic#adj"
+    },
+    {
+     "id": "settlement#n"
+    },
+    {
+     "id": "variable#n"
+    },
+    {
+     "id": "smell#n"
+    },
+    {
+     "id": "resolution#n"
     }
    ]
   },
@@ -1925,7 +2099,7 @@
   },
   {
    "kind": "vocab-review",
-   "why": "rà soát lượt 1 (26/10): chưa đủ chắc để sửa tay – cần giám khảo/nguồn từ điển",
+   "why": "rà soát lượt 1–2 (26/10): chưa đủ chắc để sửa tay – cần giám khảo/nguồn từ điển",
    "items": [
     {
      "id": "accord#n",
@@ -1942,6 +2116,30 @@
     {
      "id": "resource#n",
      "why": "Mỹ /ˈriːsɔːrs/ ≠ Anh /rɪˈsɔːs/ – khác biệt thật? xác nhận rồi thêm danh sách trắng"
+    },
+    {
+     "id": "researcher#n",
+     "why": "Mỹ /ˈriːsɜːrtʃər/ vs /rɪˈsɜːrtʃər/ – hai biến thể; ô Mỹ đang để dạng nhấn đầu, xác nhận"
+    },
+    {
+     "id": "implement#v",
+     "why": "ipaUS động từ thường /ˈɪmpləment/ (danh từ /-mənt/); xác nhận theo từ điển"
+    },
+    {
+     "id": "partner#n",
+     "why": "CEFR A1 có vẻ thấp (B1 hợp lý hơn) – đối chiếu danh sách CEFR"
+    },
+    {
+     "id": "peak#n",
+     "why": "CEFR C1 có vẻ cao (B2) – đối chiếu"
+    },
+    {
+     "id": "joint#adj",
+     "why": "CEFR C1 + nghĩa chính \"khớp/chung\" – xác nhận thứ tự nghĩa"
+    },
+    {
+     "id": "tire#n",
+     "why": "mục NGSL \"tire\" – cân nhắc nghĩa động từ \"mệt\" ở mục riêng tire#v; đã đổi mục n sang lốp xe"
     }
    ]
   }

@@ -1,5 +1,5 @@
 {
- "_doc": "Rà soát chuyên gia kho từ vựng theo thứ tự NGSL (Claude, không gọi AI). Lượt 1: 930 đầu mục đầu tiên của web/js/lib/ngsl.js (bộ ngsl1–ngsl4). Sửa qua content/lexicon/overrides.json + ipaus-manual.json; bộ đổi CMU (tiền tố /ɪ/) và normUK ((r)) sửa tại nguồn cho toàn kho. Lượt sau bắt đầu ở nextStart.",
+ "_doc": "Rà soát chuyên gia kho từ vựng theo thứ tự NGSL (Claude, không gọi AI). Lượt 1: 930 đầu mục đầu tiên của web/js/lib/ngsl.js (bộ ngsl1–ngsl4). Sửa qua content/lexicon/overrides.json + ipaus-manual.json; bộ đổi CMU (tiền tố /ɪ/) và normUK ((r)) sửa tại nguồn cho toàn kho. Lượt 2: mục 930–1849 (88 sửa). Lượt sau bắt đầu ở nextStart.",
  "passes": [
   {
    "pass": 1,
@@ -34,12 +34,45 @@
     "normUK (r)": "toàn kho ~190 dòng",
     "arpaToIpa IY0 tiền tố": "~37 dòng IPA Mỹ"
    }
+  },
+  {
+   "pass": 2,
+   "at": "2026-10-26",
+   "source": "web/js/lib/ngsl.js",
+   "range": [
+    930,
+    1849
+   ],
+   "reviewed": 920,
+   "fixed": 88,
+   "errorRate": 9.6,
+   "errorsByClass": {
+    "vi-pos-mismatch": 22,
+    "def-ex-mismatch": 20,
+    "ipa-uk-wrong": 11,
+    "vi-english": 2,
+    "vi-dup": 8,
+    "ipa-us-wrong": 15,
+    "def-wrong": 4,
+    "ipa-style": 3,
+    "vi-style": 1,
+    "vi-order": 1,
+    "verb-noun-sense": 1
+   },
+   "newGates": [],
+   "sourceFixes": {
+    "note": "sửa qua overrides.json (def/vi/ex/ipa) + ipaus-manual.json (IPA Mỹ); không đổi bộ đổi CMU"
+   },
+   "queued": {
+    "meaning-i18n": 58,
+    "vocab-review": 6
+   }
   }
  ],
  "nextStart": {
   "file": "web/js/lib/ngsl.js",
-  "index": 930,
-  "word": "conclusion"
+  "index": 1850,
+  "word": "complicate"
  },
  "words": [
   "0|the#det|ok",
