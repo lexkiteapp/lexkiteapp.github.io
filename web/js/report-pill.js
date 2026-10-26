@@ -16,7 +16,7 @@
   // máy tính = mục trong chân thanh bên (không nổi trên nội dung). Ẩn khi gõ phím, khi có hộp thoại/thanh hành động dính đáy/bảng kết quả.
   var CSS = '.lk-rep{position:fixed;left:calc(12px + env(safe-area-inset-left));bottom:calc(68px + env(safe-area-inset-bottom));z-index:30;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border-radius:50%;border:1px solid var(--line,#ccc);background:var(--surface,#fff);color:var(--muted,#555);box-shadow:var(--shadow,0 2px 10px rgba(0,0,0,.15));font:600 1.05rem/1 var(--font,system-ui);cursor:pointer;transition:transform .22s ease,opacity .22s ease}'
     + '.lk-rep:hover,.lk-rep:focus-visible{color:var(--text,#111)}.lk-rep:focus-visible{outline:2px solid var(--primary,#0F3D3E);outline-offset:2px}'
-    + '.lk-rep-l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}'
+    + '.lk-rep-l{position:absolute;width:1px;height:1px;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}'
     + '.lk-rep.off{transform:translateY(140%);opacity:0;pointer-events:none}'
     + '[dir=rtl] .lk-rep:not(.in-side){left:auto;right:calc(12px + env(safe-area-inset-right))}'
     + 'html.has-banner .lk-rep{bottom:calc(132px + env(safe-area-inset-bottom))}'

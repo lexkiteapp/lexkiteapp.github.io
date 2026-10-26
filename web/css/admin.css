@@ -29,7 +29,7 @@ body.adm {
 .adm-brand .logo { width: 30px; height: 30px; border-radius: 8px; box-shadow: none; transition: transform .15s ease; }
 .adm-brand:hover .logo { transform: rotate(-4deg) scale(1.04); }
 .adm-brand .wordmark { font-size: 1.15rem; letter-spacing: -.02em; }
-.adm-tag { font-size: .65rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent); border-radius: 999px; padding: .14rem .5rem; line-height: 1; }
+.adm-tag { font-size: .6875rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent); border-radius: 999px; padding: .14rem .5rem; line-height: 1; }
 .adm-ibtn { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; font-size: 1.05rem; flex: none; transition: background .15s ease, border-color .15s ease, transform .1s ease, box-shadow .15s ease; }
 .adm-ibtn:hover { background: var(--surface-2); border-color: color-mix(in srgb, var(--primary) 35%, var(--line)); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04); }
 .adm-ibtn:active { transform: scale(0.96); }
@@ -499,3 +499,6 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .adm-divider { border: 0; border-top: 1px solid var(--line); margin: 1.5rem 0 1.25rem; }
 
 
+
+/* Trang nội bộ: font hệ thống, không tải webfont */
+.adm { --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }

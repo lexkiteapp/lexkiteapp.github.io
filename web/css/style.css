@@ -30,7 +30,7 @@
   --radius: var(--r-lg);
   --radius-sm: var(--r-sm);
   --font: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  --ipa: "Charis SIL", "Doulos SIL", "Gentium Plus", "Segoe UI", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; /* đủ ɪ ʊ ə ː ˈ ˌ trên Windows/macOS/Android/Linux, không tải file font */
+  --ipa: "Segoe UI", "Charis SIL", "Doulos SIL", "Gentium Plus", "Lucida Sans Unicode", "Arial Unicode MS", "Noto Sans", "DejaVu Sans", Roboto, sans-serif; /* đủ ɪ ʊ ə ː ˈ ˌ trên Windows/macOS/Android/Linux, không tải file font */
   /* Design tokens (docs/DESIGN-SYSTEM.md): khoảng cách 4/8/12/16/24/32 · bo góc · cỡ chữ (Be Vietnam Pro đã nạp) · độ nổi · chuyển động M3 */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
   --r-xs: 8px; --r-sm: 12px; --r-md: 14px; --r-lg: 18px; --r-xl: 24px; --r-pill: 999px;
@@ -454,10 +454,10 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
   .top-stats .pill.xp, .top-stats #themeBtn { display: none; }
   .view { padding: 1rem 1rem 6.5rem; }
   .bottom-nav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; justify-content: space-around; background: var(--surface); border-top: 1px solid var(--line); padding: .25rem .25rem calc(.25rem + env(safe-area-inset-bottom)); }
-  .bottom-nav a { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: .25rem .2rem; min-height: 44px; min-width: 44px; font-size: .66rem; font-weight: 700; color: var(--muted); flex: 1; box-sizing: border-box; }
+  .bottom-nav a { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: .25rem .2rem; min-height: 44px; min-width: 44px; font-size: .6875rem; font-weight: 700; color: var(--muted); flex: 1; box-sizing: border-box; }
   .bottom-nav a span { font-size: 1.3rem; line-height: 1; }
   .bottom-nav a.active { color: var(--primary); }
-  .bottom-nav .badge { position: absolute; top: 4px; right: calc(50% - 16px); margin: 0; min-width: 0; width: 9px; height: 9px; padding: 0; border-radius: 50%; font-size: 0; line-height: 0; background: var(--accent, var(--again)); box-shadow: 0 0 0 2px var(--surface); } /* tab Từ vựng: chấm nhỏ thay số đỏ (số vẫn trong DOM cho trình đọc màn hình) */
+  .bottom-nav .badge { position: absolute; top: 4px; right: calc(50% - 16px); margin: 0; min-width: 0; width: 9px; height: 9px; padding: 0; border-radius: 50%; font-size: 11px; line-height: 0; color: transparent; overflow: visible; background: var(--accent, var(--again)); box-shadow: 0 0 0 2px var(--surface); } /* tab Từ vựng: chấm nhỏ thay số đỏ (số vẫn trong DOM cho trình đọc màn hình) */
   .g2, .g3, .g4, .grid { grid-template-columns: minmax(0, 1fr) !important; }
   .g4.stats, .g3.keep { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .auto { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)) !important; }
@@ -1031,7 +1031,7 @@ button, .btn, .option, .tabs, .bottom-nav { -webkit-user-select: none; user-sele
 .wn-slot:empty { display: none; }
 .wn-slot { margin-top: 1rem; }
 /* 🧠 Thẻ từ: chip cụm từ + khối "Hiểu sâu" (web/js/wordcard.js) */
-.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
 .wc-hd .wc-wrow { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
 .wc-hd .wc-word { font-size: 2rem; line-height: 1.15; word-break: break-word; }
 .wc-hd .wi-pron { margin-top: .3rem; } .wc-hd .wi-vi { margin-top: .5rem; }
@@ -1571,3 +1571,6 @@ body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom
 a > .i-dir:first-child, button > .i-dir:first-child { margin-inline-end: .2em; }
 
 .err-state { max-width: 520px; margin: 2rem auto; text-align: center; display: grid; gap: var(--sp-3); justify-items: center; } .err-state h1 { font-size: var(--fs-lg); margin: 0; } .err-state p { margin: 0; } .err-ic { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--accent-text); } .err-ic .i { width: 28px; height: 28px; }
+
+/* Trang pháp lý: dùng font hệ thống (văn bản dài, không cần webfont → nhẹ hơn, không đợi tải font) */
+body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
