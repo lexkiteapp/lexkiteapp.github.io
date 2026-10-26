@@ -276,7 +276,7 @@
         { t: 'If you heat ice, it melts.', c: 'if' },
         { t: 'Loại 0: hiện tại đơn → hiện tại đơn (luôn đúng)', c: 'note' },
         { t: '↓', c: 'arrow' },
-        { t: 'If it rains tomorrow, the match will be cancelled.', c: 'if' },
+        { t: 'If it rains tomorrow, the match will be canceled.', c: 'if' },
         { t: 'Loại 1: hiện tại đơn → will + V (có thể xảy ra)', c: 'result' }
       ] },
       { type: 'formula', rows: [
@@ -297,10 +297,10 @@
         ['1 (lịch sự)', 'should + V (đảo ngữ: Should you…)', 'please + V', 'Trang trọng, ít khả năng hơn']
       ] },
       { type: 'tip', text: 'Không dùng will trong mệnh đề if (và sau when, as soon as, before, until khi nói về tương lai): As soon as I arrive, I will text you.' },
-      { type: 'tip', text: 'Khi mệnh đề if đứng đầu thì có dấu phẩy; khi đứng sau thì thường không: The match will be cancelled if it rains.' },
+      { type: 'tip', text: 'Khi mệnh đề if đứng đầu thì có dấu phẩy; khi đứng sau thì thường không: The match will be canceled if it rains.' },
       { type: 'mistake', wrong: 'If it will rain tomorrow, we will stay home.', right: 'If it rains tomorrow, we will stay home.', why: 'Mệnh đề if dùng hiện tại đơn dù nói về tương lai – người Việt hay thêm will vì có chữ "ngày mai".' },
       { type: 'mistake', wrong: 'If you will heat metal, it expands.', right: 'If you heat metal, it expands.', why: 'Sự thật khoa học → loại 0, cả hai vế hiện tại đơn.' },
-      { type: 'ielts', text: 'Task 2: dùng loại 1 để trình bày hệ quả của một chính sách hoặc giải pháp. Speaking Part 3: dùng loại 0 để nói về xu hướng chung trong xã hội.', ex: '[[If]] governments [[subsidise]] public transport, fewer people [[will rely]] on private cars, and air quality [[will improve]].' }
+      { type: 'ielts', text: 'Task 2: dùng loại 1 để trình bày hệ quả của một chính sách hoặc giải pháp. Speaking Part 3: dùng loại 0 để nói về xu hướng chung trong xã hội.', ex: '[[If]] governments [[subsidize]] public transport, fewer people [[will rely]] on private cars, and air quality [[will improve]].' }
     ],
     quiz: [
       { q: 'If you mix red and blue, you ___ purple.', options: ['got', 'will got', 'get', 'would get'], answer: 2, explain: 'Sự thật luôn đúng → câu điều kiện loại 0: if + hiện tại đơn, hiện tại đơn → get. got là quá khứ; "will got" sai dạng; would get là loại 2.' },
@@ -313,7 +313,7 @@
       { q: 'Câu nào đúng ngữ pháp?', options: ['If you will heat ice, it melts.', 'If you heat ice, it will melted.', 'If you heated ice, it melts.', 'If you heat ice, it melts.'], answer: 3, explain: 'Loại 0 (sự thật chung): If + hiện tại đơn, hiện tại đơn. "will heat" sai vì mệnh đề if không dùng will; "will melted" sai dạng; "heated… melts" trộn thì.' },
       { q: 'Phần nào sai? If the government (A) will raise taxes, many people (B) will (C) be (D) unhappy.', options: ['(A) will raise', '(B) will', '(C) be', '(D) unhappy'], answer: 0, explain: 'Mệnh đề if loại 1 dùng hiện tại đơn → sửa will raise thành raises. will, be và unhappy đều đúng.' },
       { q: 'Phần nào sai? If you (A) mix blue and yellow, you (B) get green, (C) but if you (D) adds red, it turns brown.', options: ['(A) mix', '(B) get', '(C) but', '(D) adds'], answer: 3, explain: 'Chủ ngữ you dùng động từ nguyên mẫu → sửa adds thành add. mix, get và but đều đúng.' },
-      { q: 'Task 2: If cities invest in cycle lanes, more people ___ to work by bike.', options: ['travelled', 'would travelled', 'will travel', 'will travelling'], answer: 2, explain: 'Loại 1 (kết quả có thể xảy ra): If + hiện tại đơn, will + V nguyên mẫu. travelled là quá khứ; "would travelled" sai dạng; "will travelling" sai dạng.' },
+      { q: 'Task 2: If cities invest in cycle lanes, more people ___ to work by bike.', options: ['traveled', 'would traveled', 'will travel', 'will traveling'], answer: 2, explain: 'Loại 1 (kết quả có thể xảy ra): If + hiện tại đơn, will + V nguyên mẫu. traveled là quá khứ; "would traveled" sai dạng; "will traveling" sai dạng.' },
       { q: 'Speaking Part 1: "What do you do when you feel stressed?" – "If I ___ stressed, I usually go for a run."', options: ['will feel', 'feel', 'felt', 'am feel'], answer: 1, explain: 'Thói quen/sự thật chung (loại 0): If + hiện tại đơn, hiện tại đơn. "will feel" sai vì mệnh đề if không dùng will; felt là quá khứ; "am feel" sai cấu trúc.' }
     ]
   });
@@ -338,7 +338,7 @@
         { label: 'Đảo ngữ', parts: [ { t: 'Were / Had', c: 'aux' }, { t: 'S', c: 'subj' }, { t: '(to V / V3)', c: 'verb' }, { t: ', S + would…', c: 'obj' } ], ex: '[[Had I known]] about the strike, I [[would have taken]] a taxi.' }
       ] },
       { type: 'uses', items: [
-        { title: 'Loại 2: tình huống trái với hiện tại', ex: '[[If]] I [[lived]] closer to the city centre, I [[wouldn\'t need]] a car.', vi: 'Nếu tôi sống gần trung tâm hơn, tôi sẽ không cần xe hơi.' },
+        { title: 'Loại 2: tình huống trái với hiện tại', ex: '[[If]] I [[lived]] closer to the city center, I [[wouldn\'t need]] a car.', vi: 'Nếu tôi sống gần trung tâm hơn, tôi sẽ không cần xe hơi.' },
         { title: 'Loại 2: giả định khó xảy ra ở tương lai', ex: '[[If]] I [[won]] the lottery, I [[would set up]] a charity.', vi: 'Nếu trúng xổ số, tôi sẽ lập một quỹ từ thiện.' },
         { title: 'Loại 2: lời khuyên (If I were you…)', ex: '[[If I were you]], I [[would focus]] on Writing Task 2.', vi: 'Nếu tôi là bạn, tôi sẽ tập trung vào Writing Task 2.' },
         { title: 'Loại 3: tiếc nuối hoặc phê bình quá khứ', ex: '[[If]] she [[had applied]] on time, she [[would have got]] the job.', vi: 'Nếu cô ấy nộp hồ sơ đúng hạn thì đã được nhận việc rồi.' },
@@ -422,7 +422,7 @@
       { q: 'If he weren\'t so shy, he ___ to the party last night.', options: ['would go', 'will go', 'would have gone', 'had gone'], answer: 2, explain: 'Hỗn hợp: tính cách hiện tại (V2) → kết quả quá khứ (would have V3). would go là kết quả hiện tại (không hợp với last night); will go là loại 1; had gone sai cấu trúc.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['If I had taken that job, I will be rich now.', 'If I had taken that job, I would be rich now.', 'If I would have taken that job, I would be rich now.', 'If I have taken that job, I would be rich now.'], answer: 1, explain: 'Điều kiện hỗn hợp: If + had V3 (quá khứ), would + V (kết quả hiện tại, now). will be không hợp với điều kiện quá khứ; không dùng would have trong mệnh đề if; "have taken" sai thì.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['I wish I can speak English fluently.', 'I wish I would can speak English fluently.', 'I wish I spoken English fluently.', 'I wish I could speak English fluently.'], answer: 3, explain: 'Ước điều trái hiện tại: wish + quá khứ đơn / could + V. can không lùi thì sau wish; "would can" sai; "spoken" thiếu had.' },
-      { q: 'Phần nào sai? (A) Unless you (B) don\'t (C) practice regularly, your speaking (D) will not improve.', options: ['(A) Unless', '(B) don\'t', '(C) practice', '(D) will not improve'], answer: 1, explain: 'Unless đã mang nghĩa phủ định (= if not) → bỏ don\'t: Unless you practise… Unless, practise và will not improve đều đúng.' },
+      { q: 'Phần nào sai? (A) Unless you (B) don\'t (C) practice regularly, your speaking (D) will not improve.', options: ['(A) Unless', '(B) don\'t', '(C) practice', '(D) will not improve'], answer: 1, explain: 'Unless đã mang nghĩa phủ định (= if not) → bỏ don\'t: Unless you practice… Unless, practice và will not improve đều đúng.' },
       { q: 'Phần nào sai? I wish I (A) didn\'t spend so (B) much money (C) on clothes (D) last month.', options: ['(A) didn\'t spend', '(B) much', '(C) on', '(D) last month'], answer: 0, explain: 'Ước điều trái quá khứ (last month) → wish + had V3: hadn\'t spent. much, on và last month đều đúng.' },
       { q: 'Task 2: ___ governments take urgent action, climate change will continue to accelerate.', options: ['If not', 'Unless', 'Wish', 'Despite'], answer: 1, explain: 'Unless = if … not: trừ khi chính phủ hành động khẩn cấp. If not thiếu chủ ngữ và sai cấu trúc; Wish và Despite không nối mệnh đề điều kiện.' },
       { q: 'Speaking Part 2: "Is there anything you regret?" – "Yes, I wish I ___ harder at school (tiếc điều đã qua)."', options: ['studied', 'have studied', 'had studied', 'would study'], answer: 2, explain: 'Tiếc nuối về quá khứ (thời đi học) → wish + had V3: had studied. studied là ước cho hiện tại; have studied không dùng sau wish; would study chỉ mong muốn thay đổi trong tương lai.' }

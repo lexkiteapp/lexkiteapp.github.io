@@ -10,17 +10,17 @@
     summary: 'Rút gọn mệnh đề trạng ngữ hoặc mệnh đề quan hệ bằng V-ing, V3/ed hoặc Having V3 để câu văn gọn và học thuật hơn – với điều kiện hai vế cùng chủ ngữ.',
     blocks: [
       { type: 'diagram', caption: 'Rút gọn một mệnh đề trạng ngữ thành mệnh đề phân từ', steps: [
-        { t: 'After the council had analysed the data, it changed the policy.', c: 'note' },
+        { t: 'After the council had analyzed the data, it changed the policy.', c: 'note' },
         { t: 'Hai vế có cùng chủ ngữ (the council = it)?', c: 'if' },
         { t: '↓ Có → bỏ liên từ và chủ ngữ ở vế phụ', c: 'arrow' },
         { t: 'Chủ động, xảy ra trước? → Having + V3', c: 'if' },
-        { t: 'Having analysed the data, the council changed the policy.', c: 'result' },
+        { t: 'Having analyzed the data, the council changed the policy.', c: 'result' },
         { t: 'Bị động? → V3/ed: Built in 1990, the bridge needs repairs.', c: 'passive' },
         { t: 'Chủ động, cùng lúc? → V-ing: Living abroad, I learned to cook.', c: 'active' }
       ] },
       { type: 'formula', rows: [
-        { label: 'Chủ động, đồng thời / nguyên nhân', parts: [ { t: 'V-ing …', c: 'verb' }, { t: ',', c: 'adv' }, { t: 'S', c: 'subj' }, { t: 'V …', c: 'verb' } ], ex: '[[Realising the deadline was close]], the students worked through the night.' },
-        { label: 'Chủ động, xảy ra trước', parts: [ { t: 'Having + V3 …', c: 'aux' }, { t: ',', c: 'adv' }, { t: 'S', c: 'subj' }, { t: 'V …', c: 'verb' } ], ex: '[[Having completed the survey]], researchers began to analyse the results.' },
+        { label: 'Chủ động, đồng thời / nguyên nhân', parts: [ { t: 'V-ing …', c: 'verb' }, { t: ',', c: 'adv' }, { t: 'S', c: 'subj' }, { t: 'V …', c: 'verb' } ], ex: '[[Realizing the deadline was close]], the students worked through the night.' },
+        { label: 'Chủ động, xảy ra trước', parts: [ { t: 'Having + V3 …', c: 'aux' }, { t: ',', c: 'adv' }, { t: 'S', c: 'subj' }, { t: 'V …', c: 'verb' } ], ex: '[[Having completed the survey]], researchers began to analyze the results.' },
         { label: 'Bị động', parts: [ { t: 'V3/ed …', c: 'verb' }, { t: ',', c: 'adv' }, { t: 'S', c: 'subj' }, { t: 'V …', c: 'verb' } ], ex: '[[Designed for commuters]], the app shows live bus times.' },
         { label: 'Phủ định', parts: [ { t: 'Not', c: 'neg' }, { t: 'V-ing / having V3 …', c: 'verb' }, { t: ',', c: 'adv' }, { t: 'S', c: 'subj' }, { t: 'V …', c: 'verb' } ], ex: '[[Not having studied economics]], she found the lecture difficult.' }
       ] },
@@ -52,7 +52,7 @@
       { q: '___ enough sleep, many teenagers find it hard to concentrate.', options: ['Not getting', 'Getting not', 'Don\'t getting', 'No got'], answer: 0, explain: 'Phủ định của mệnh đề phân từ: Not + V-ing → Not getting enough sleep. "Getting not", "Don\'t getting", "No got" đều sai trật tự hoặc sai dạng.' },
       { q: 'Most of the goods ___ in this factory are exported to Europe.', options: ['producing', 'produce', 'produced', 'are produced'], answer: 2, explain: 'Rút gọn mệnh đề quan hệ bị động “which are produced” → produced. producing mang nghĩa chủ động; produce và "are produced" tạo thêm động từ chính.' },
       { q: 'When ___ properly, solar panels can last for 25 years.', options: ['maintaining', 'maintained', 'maintain', 'having maintained'], answer: 1, explain: 'Tấm pin được bảo dưỡng (bị động) → When maintained. maintaining mang nghĩa chủ động (tấm pin tự bảo dưỡng); maintain và having maintained sai dạng/nghĩa.' },
-      { q: 'Câu nào đúng?', options: ['Arriving at the airport, my flight had been cancelled.', 'Having arrived at the airport, the flight was cancelled.', 'Arriving at the airport, I discovered my flight had been cancelled.', 'Arrived at the airport, I discovered the flight was cancelled.'], answer: 2, explain: 'Chủ ngữ “I” là người đến sân bay → hợp lý. Hai câu đầu bị lỗi dangling participle; câu cuối sai dạng (Arrived mang nghĩa bị động).' },
+      { q: 'Câu nào đúng?', options: ['Arriving at the airport, my flight had been canceled.', 'Having arrived at the airport, the flight was canceled.', 'Arriving at the airport, I discovered my flight had been canceled.', 'Arrived at the airport, I discovered the flight was canceled.'], answer: 2, explain: 'Chủ ngữ “I” là người đến sân bay → hợp lý. Hai câu đầu bị lỗi dangling participle; câu cuối sai dạng (Arrived mang nghĩa bị động).' },
       { q: 'Câu nào đúng?', options: ['Having been warned about the storm, the fishermen stayed in port.', 'Having warned about the storm, the fishermen stayed in port.', 'Warning about the storm, the fishermen stayed in port.', 'Been warned about the storm, the fishermen stayed in port.'], answer: 0, explain: 'Ngư dân được cảnh báo (bị động, xảy ra trước) → Having been + V3. "Having warned" và "Warning" mang nghĩa chủ động (ngư dân cảnh báo); "Been warned" thiếu Having.' },
       { q: 'Câu nào đúng?', options: ['The data collecting by the team was unreliable.', 'People wanting to apply should register online.', 'Students wanted to apply should register online.', 'The report publishing last year was criticised.'], answer: 1, explain: 'People want to apply (chủ động) → wanting. Các câu khác đảo ngược chủ động/bị động. Câu 1 và 4 dùng V-ing với nghĩa bị động (dữ liệu được thu thập, báo cáo được xuất bản); câu 3 dùng V3 với nghĩa chủ động.' },
       { q: 'Câu nào cùng nghĩa? “Because she had lived in Japan, she spoke fluent Japanese.”', options: ['Living in Japan, she will speak fluent Japanese.', 'Lived in Japan, she spoke fluent Japanese.', 'Having been lived in Japan, she spoke fluent Japanese.', 'Having lived in Japan, she spoke fluent Japanese.'], answer: 3, explain: 'Hành động sống ở Nhật xảy ra trước, chủ động → Having lived. "Living… will speak" sai thì; "Lived" sai dạng; "Having been lived" là bị động, sai.' },
@@ -81,7 +81,7 @@
         { title: 'Nhấn mạnh sự cần thiết', ex: 'It is [[essential that every citizen have]] access to clean water.', vi: 'Điều thiết yếu là mọi công dân được tiếp cận nước sạch.' },
         { title: 'Yêu cầu, quy định chính thức', ex: 'The university [[requires that each applicant submit]] two references.', vi: 'Trường đại học yêu cầu mỗi ứng viên nộp hai thư giới thiệu.' },
         { title: 'Dạng bị động với be', ex: 'Campaigners [[demand that the forest be protected]].', vi: 'Các nhà vận động yêu cầu khu rừng phải được bảo vệ.' },
-        { title: 'Cách thay thế (Anh-Anh): should + V', ex: 'The report [[recommends that cars should be banned]] from the centre.', vi: 'Báo cáo khuyến nghị cấm ô tô vào khu trung tâm.' }
+        { title: 'Cách thay thế (Anh-Anh): should + V', ex: 'The report [[recommends that cars should be banned]] from the center.', vi: 'Báo cáo khuyến nghị cấm ô tô vào khu trung tâm.' }
       ] },
       { type: 'table', head: ['Cấu trúc', 'Đúng', 'Sai'], rows: [
         ['suggest that + S + V', 'She suggested that he apply early.', 'She suggested him to apply early.'],
@@ -103,7 +103,7 @@
       { q: 'The landlord insisted that the rent ___ paid on the first of the month.', options: ['being', 'to be', 'been', 'be'], answer: 3, explain: 'insist that + S + be + V3 (giả định, bị động) → be paid. being, to be, been đều sai dạng sau that + chủ ngữ.' },
       { q: 'Doctors advise that patients ___ eat for six hours before surgery.', options: ['are not', 'not', 'not to', 'doesn\'t'], answer: 1, explain: 'Phủ định thức giả định: that + S + not + V, không cần trợ động từ do. are not không đi với V nguyên mẫu; doesn\'t sai ngôi (patients số nhiều); "not to" thừa to.' },
       { q: 'It is vital that the public ___ informed about the risks.', options: ['being', 'been', 'be', 'to be'], answer: 2, explain: 'It is vital that + S + be + V3 (giả định bị động) → be informed. being, been, to be đều sai dạng sau that + chủ ngữ.' },
-      { q: 'Câu nào đúng (thức giả định, văn trang trọng)?', options: ['The manager demanded that he apologises.', 'The manager demanded that he apologise.', 'The manager demanded him to apologise.', 'The manager demanded that he apologised.'], answer: 1, explain: 'demand that + S + V nguyên mẫu (không thêm -s) → he apologise. apologises và apologised chia thường; "demanded him to apologise" sai cấu trúc với demand.' },
+      { q: 'Câu nào đúng (thức giả định, văn trang trọng)?', options: ['The manager demanded that he apologizes.', 'The manager demanded that he apologize.', 'The manager demanded him to apologize.', 'The manager demanded that he apologized.'], answer: 1, explain: 'demand that + S + V nguyên mẫu (không thêm -s) → he apologize. apologizes và apologized chia thường; "demanded him to apologize" sai cấu trúc với demand.' },
       { q: 'Câu nào đúng (thức giả định, văn trang trọng)?', options: ['I propose that the council builds more cycle lanes.', 'I propose the council to build more cycle lanes.', 'I propose that the council build more cycle lanes.', 'I propose that the council building more cycle lanes.'], answer: 2, explain: 'propose that + S + V nguyên mẫu (build, không có -s). builds chia thường; "the council to build" sai cấu trúc; "building" sai dạng.' },
       { q: 'Câu nào đúng?', options: ['It is crucial that she not miss the deadline.', 'It is crucial that she doesn\'t misses the deadline.', 'It is crucial that she not to miss the deadline.', 'It is crucial for she not miss the deadline.'], answer: 0, explain: 'Phủ định thể giả định: S + not + V nguyên mẫu → she not miss. "doesn\'t misses" sai dạng; "not to miss" thừa to; "for she" sai đại từ sau for.' },
       { q: 'Câu nào cùng nghĩa? “Students must wear ID badges – the school insists on it.”', options: ['The school insists that students wear ID badges.', 'The school insists students to wear ID badges.', 'The school insists on students wear ID badges.', 'The school insists that students wore ID badges.'], answer: 0, explain: 'insist that + S + V nguyên mẫu → insists that students wear. "insists students to wear" sai cấu trúc; "insists on students wear" phải là wearing; "wore" chia quá khứ, không giả định.' },
@@ -199,7 +199,7 @@
         ['cut down on', 'reduce', 'cut down on plastic'],
         ['look into', 'investigate', 'look into the causes'],
         ['come up with', 'devise / propose', 'come up with a solution'],
-        ['level off', 'stabilise', 'Sales levelled off in 2018.']
+        ['level off', 'stabilize', 'Sales leveled off in 2018.']
       ] },
       { type: 'tip', text: 'Không chắc một cụm có tách được không? Tra từ điển: nếu ghi “sth” ở giữa (set sth up) là tách được; nếu ghi ở cuối (look after sb) là không tách được.' },
       { type: 'tip', text: "Anh-Mỹ: người Mỹ nói fill out a form (Anh-Anh: fill in a form) – cả hai đều tách được: fill it out / fill it in. Chính tả Mỹ: leveled off, leveling off (một chữ l), stabilize (-ize), neighbors (-or); Anh-Anh viết levelled, stabilise, neighbours. Chọn một chuẩn và dùng nhất quán." },
@@ -207,7 +207,7 @@
       { type: 'mistake', wrong: 'The old rules were confusing, so the school threw away them.', right: 'The old rules were confusing, so the school threw them away.', why: 'Với cụm tách được, đại từ (them) phải đứng giữa động từ và tiểu từ.' },
       { type: 'mistake', wrong: 'Who will look the children after?', right: 'Who will look after the children?', why: '“look after” không tách được; tân ngữ luôn đứng sau after.' },
       { type: 'mistake', wrong: 'We have run out gas.', right: 'We have run out of gas.', why: 'Cụm ba thành phần “run out of” không được bỏ giới từ cuối.' },
-      { type: 'ielts', text: 'Speaking: dùng cụm động từ tự nhiên giúp tăng điểm Lexical Resource (idiomatic language). Task 1: level off, shoot up, drop off, pick up mô tả xu hướng rất hiệu quả.', ex: 'Sales [[shot up]] in the first quarter before [[levelling off]] at around 2,000 units.' }
+      { type: 'ielts', text: 'Speaking: dùng cụm động từ tự nhiên giúp tăng điểm Lexical Resource (idiomatic language). Task 1: level off, shoot up, drop off, pick up mô tả xu hướng rất hiệu quả.', ex: 'Sales [[shot up]] in the first quarter before [[leveling off]] at around 2,000 units.' }
     ],
     quiz: [
       { q: 'The report was confusing, so the editor ___.', options: ['rewrote up it', 'wrote it up again', 'wrote up again it', 'up wrote it'], answer: 1, explain: 'Đại từ it phải đứng giữa động từ và tiểu từ: wrote it up. "rewrote up it" và "wrote up again it" đặt đại từ sai vị trí; "up wrote it" sai trật tự.' },
@@ -215,7 +215,7 @@
       { q: 'The government needs to ___ the housing crisis urgently.', options: ['deal the crisis with', 'deal it with', 'deal on', 'deal with'], answer: 3, explain: 'deal with không tách được, tân ngữ đứng sau with → deal with the crisis. "deal the crisis with", "deal it with" tách sai; "deal on" sai giới từ.' },
       { q: 'The factory was too old, so the council ___.', options: ['pulled down it', 'pulled it down', 'pulled down', 'it pulled down'], answer: 1, explain: 'pull down tách được; khi tân ngữ là đại từ thì phải đặt ở giữa → pulled it down. "pulled down it" sai vị trí đại từ; "pulled down" thiếu tân ngữ; "it pulled down" sai nghĩa.' },
       { q: 'The research ___ by a team of volunteers.', options: ['was carried out', 'was carried', 'carried out', 'was out carried'], answer: 0, explain: 'Bị động vẫn giữ nguyên tiểu từ của cụm động từ → was carried out. "was carried" thiếu out; "carried out" là chủ động, sai nghĩa; "was out carried" sai trật tự.' },
-      { q: 'Unemployment rose for three years before it ___.', options: ['levelled off it', 'levelled it off', 'off levelled', 'levelled off'], answer: 3, explain: 'level off (chững lại) là nội động từ, không có tân ngữ → it levelled off. "levelled off it" và "levelled it off" thừa tân ngữ; "off levelled" sai trật tự.' },
+      { q: 'Unemployment rose for three years before it ___.', options: ['leveled off it', 'leveled it off', 'off leveled', 'leveled off'], answer: 3, explain: 'level off (chững lại) là nội động từ, không có tân ngữ → it leveled off. "leveled off it" và "leveled it off" thừa tân ngữ; "off leveled" sai trật tự.' },
       { q: 'Câu nào đúng?', options: ['I came across it in an old textbook.', 'I came it across in an old textbook.', 'I came across in an old textbook it.', 'I across came it in an old textbook.'], answer: 0, explain: 'come across (tình cờ thấy) không tách được → came across it. Các câu khác đặt it sai vị trí hoặc đảo trật tự cụm động từ.' },
       { q: 'Câu nào đúng?', options: ['She turned down it because the pay was low.', 'She turned it down because the pay was low.', 'She turned down because the pay was low it.', 'She down turned it because the pay was low.'], answer: 1, explain: 'turn down tách được; đại từ it phải đặt giữa → turned it down. "turned down it" sai vị trí đại từ; hai câu còn lại sai trật tự.' },
       { q: 'Câu nào đúng?', options: ['We must cut on down waste.', 'We must cut down waste on.', 'We must cut down on waste.', 'We must cut waste down on.'], answer: 2, explain: 'cut down on + tân ngữ: ba thành phần đứng liền nhau → cut down on waste. Các câu khác tách hoặc đảo vị trí tiểu từ.' },
@@ -251,7 +251,7 @@
       ] },
       { type: 'table', head: ['Từ', 'Giới từ', 'Lỗi hay gặp của người Việt'], rows: [
         ['impact / effect / influence', 'on', 'impact to ✗'],
-        ['discuss / emphasise / affect', '(không giới từ)', 'discuss about ✗, affect to ✗'],
+        ['discuss / emphasize / affect', '(không giới từ)', 'discuss about ✗, affect to ✗'],
         ['solution / key / approach', 'to', 'solution for ✗ (ít tự nhiên)'],
         ['interested / invest / rise', 'in', 'interested about ✗'],
         ['concerned / worried', 'about', 'worried of ✗'],
@@ -286,7 +286,7 @@
     summary: 'Tránh lặp từ và nối các câu chặt chẽ bằng this/these + danh từ, such, the former/the latter, do so, one/ones – yếu tố quan trọng của tiêu chí Coherence & Cohesion.',
     blocks: [
       { type: 'diagram', caption: 'Thay vì lặp lại, hãy trỏ ngược về ý trước', steps: [
-        { t: 'Many cities have banned cars from the centre.', c: 'note' },
+        { t: 'Many cities have banned cars from the center.', c: 'note' },
         { t: 'Bạn muốn nhắc lại cả ý vừa nêu?', c: 'if' },
         { t: 'This policy / Such a measure has reduced pollution.', c: 'result' },
         { t: 'Bạn muốn nhắc lại hành động?', c: 'if' },
@@ -303,7 +303,7 @@
       ] },
       { type: 'uses', items: [
         { title: 'This + danh từ tóm tắt (this issue, this approach)', ex: 'Some schools have banned phones. [[This approach]] has improved concentration.', vi: 'Một số trường cấm điện thoại. Cách làm này đã cải thiện sự tập trung.' },
-        { title: 'Such + N: chỉ loại sự việc vừa nhắc', ex: 'Fines for littering are common, but [[such penalties]] rarely change behaviour.', vi: 'Phạt xả rác khá phổ biến, nhưng những hình phạt như vậy hiếm khi thay đổi hành vi.' },
+        { title: 'Such + N: chỉ loại sự việc vừa nhắc', ex: 'Fines for littering are common, but [[such penalties]] rarely change behavior.', vi: 'Phạt xả rác khá phổ biến, nhưng những hình phạt như vậy hiếm khi thay đổi hành vi.' },
         { title: 'The former / the latter', ex: 'Students can study online or on campus; [[the latter]] offers more social contact.', vi: 'Sinh viên có thể học trực tuyến hoặc tại trường; cách thứ hai có nhiều giao tiếp xã hội hơn.' },
         { title: 'Do so: tránh lặp lại cả cụm động từ', ex: 'Governments should regulate AI, and they must [[do so]] quickly.', vi: 'Chính phủ nên quản lý AI, và phải làm điều đó nhanh chóng.' },
         { title: 'That of / those of trong so sánh (Task 1)', ex: 'The population of Lagos is larger than [[that of]] Cairo.', vi: 'Dân số Lagos lớn hơn dân số Cairo.' }
@@ -329,7 +329,7 @@
       { q: 'Some countries have taxed sugary drinks. ___ has reduced consumption.', options: ['This measure', 'These measure', 'Such measure', 'The latter measures'], answer: 0, explain: 'Tóm tắt hành động đánh thuế bằng This measure (số ít). "These measure" sai số; "Such measure" thiếu a; "The latter measures" sai vì chỉ có một biện pháp được nhắc.' },
       { q: 'The council promised to repair the roads but has not ___.', options: ['done it so', 'done such', 'done one', 'done so'], answer: 3, explain: 'do so thay cho cả cụm động từ đã nhắc (repair the roads) → has not done so. "done it so", "done such", "done one" không phải cách thay thế đúng.' },
       { q: 'I considered law and medicine and chose ___ because I enjoy biology.', options: ['the latter', 'the former', 'the one', 'such'], answer: 0, explain: 'Trong hai thứ đã nhắc, medicine được nhắc sau → the latter. the former là thứ nhắc trước (law); the one và such không chỉ rõ thứ tự.' },
-      { q: 'Violent video games are popular, but ___ games may affect behaviour.', options: ['such a', 'so', 'such', 'this'], answer: 2, explain: 'such + danh từ số nhiều (không có a) → such games. "such a" chỉ đi với danh từ số ít; so không đứng trước danh từ; this không đi với danh từ số nhiều.' },
+      { q: 'Violent video games are popular, but ___ games may affect behavior.', options: ['such a', 'so', 'such', 'this'], answer: 2, explain: 'such + danh từ số nhiều (không có a) → such games. "such a" chỉ đi với danh từ số ít; so không đứng trước danh từ; this không đi với danh từ số nhiều.' },
       { q: 'Câu nào đúng?', options: ['The climate of Spain is warmer than Norway.', 'The climate of Spain is warmer than that of Norway.', 'The climate of Spain is warmer than those of Norway.', 'The climate of Spain is warmer than one of Norway.'], answer: 1, explain: 'So sánh khí hậu với khí hậu (số ít) → that of Norway. Câu 1 so sánh khí hậu với một đất nước (sai logic); those là số nhiều; one of không dùng như vậy.' },
       { q: 'Câu nào đúng?', options: ['Students who wish to leave early may do it so.', 'Students who wish to leave early may do such.', 'Students who wish to leave early may make so.', 'Students who wish to leave early may do so.'], answer: 3, explain: 'do so thay cho cả cụm động từ đã nhắc (leave early) để tránh lặp → may do so. "do it so", "do such", "make so" đều không phải cách thay thế đúng.' },
       { q: 'Câu nào đúng?', options: ['Such a policy would be unpopular.', 'Such policy would be unpopular.', 'A such policy would be unpopular.', 'Such the policy would be unpopular.'], answer: 0, explain: 'such + a/an + danh từ đếm được số ít → Such a policy. "Such policy" thiếu a; "A such" sai trật tự; "Such the" sai mạo từ.' },
@@ -380,7 +380,7 @@
       { q: 'I agree with this statement to ___ extent.', options: ['some', 'any', 'an', 'many'], answer: 0, explain: 'Cụm cố định: to some extent / to a certain extent. any, an, many không đi với extent trong cụm cố định này.' },
       { q: 'Unemployment is ___ to fall if the economy recovers.', options: ['tend', 'possible', 'probably', 'likely'], answer: 3, explain: 'be likely to + V → is likely to fall. "is tend" sai (tend là động từ, không đứng sau is); possible không đi với to V theo cách này (phải là It is possible that…); probably là trạng từ.' },
       { q: 'It is widely ___ that exercise improves mental health.', options: ['believe', 'believing', 'believed', 'belief'], answer: 2, explain: 'Bị động khách quan: It is widely believed that… believe là động từ nguyên mẫu; believing sai dạng; belief là danh từ.' },
-      { q: 'Câu nào thận trọng và đúng ngữ pháp nhất?', options: ['Video games definitely make children violent.', 'Video games may be linked to aggressive behaviour in some children.', 'Video games might possibly perhaps cause violence.', 'Video games are tend to cause violence.'], answer: 1, explain: 'Câu B thận trọng hợp lý; A tuyệt đối, C chồng từ, D sai ngữ pháp. Câu A khẳng định tuyệt đối (definitely); câu C chồng ba từ rào đón; câu D sai ngữ pháp (are tend).' },
+      { q: 'Câu nào thận trọng và đúng ngữ pháp nhất?', options: ['Video games definitely make children violent.', 'Video games may be linked to aggressive behavior in some children.', 'Video games might possibly perhaps cause violence.', 'Video games are tend to cause violence.'], answer: 1, explain: 'Câu B thận trọng hợp lý; A tuyệt đối, C chồng từ, D sai ngữ pháp. Câu A khẳng định tuyệt đối (definitely); câu C chồng ba từ rào đón; câu D sai ngữ pháp (are tend).' },
       { q: 'Câu nào đúng?', options: ['There appears to be a link between diet and memory.', 'There appears being a link between diet and memory.', 'It appears to be that a link between diet and memory.', 'There is appeared a link between diet and memory.'], answer: 0, explain: 'Cấu trúc rào đón There appears/seems to be + N (dường như có…) → There appears to be a link. Sau appear dùng to be, không dùng being; appear là nội động từ nên không có bị động.' },
       { q: 'Câu nào đúng?', options: ['Older workers seem be less willing to retrain.', 'Older workers are seem less willing to retrain.', 'Older workers seeming less willing to retrain.', 'Older workers seem to be less willing to retrain.'], answer: 3, explain: 'seem + to be + tính từ (dường như…) → seem to be less willing. "seem be" thiếu to; "are seem" sai vì seem đã là động từ chính.' },
       { q: 'Câu nào cùng nghĩa, nhưng thận trọng hơn? “Online learning is worse than classroom learning.”', options: ['Online learning is always worse than classroom learning.', 'Online learning can be less effective than classroom learning for some students.', 'Online learning must be worse than classroom learning.', 'Online learning is surely worse than classroom learning.'], answer: 1, explain: 'can be + for some students giới hạn phạm vi khẳng định. always và must khẳng định tuyệt đối, không thận trọng hơn câu gốc.' },
@@ -397,7 +397,7 @@
 
   G.push({
     id: 'nominalisation', unit: 'academic', order: 8,
-    title: 'Danh từ hóa trong văn học thuật', en: 'Nominalisation', level: 'C1', emoji: '🧱',
+    title: 'Danh từ hóa trong văn học thuật', en: 'Nominalization', level: 'C1', emoji: '🧱',
     summary: 'Biến động từ/tính từ thành danh từ (decide → decision, rise → a rise) để gói cả mệnh đề vào một cụm danh từ – giúp câu văn cô đọng, khách quan và mang tính học thuật.',
     blocks: [
       { type: 'diagram', caption: 'Biến một mệnh đề thành cụm danh từ', steps: [
@@ -444,7 +444,7 @@
       { q: 'The chart shows an increase ___ 12% in exports.', options: ['in', 'on', 'at', 'of'], answer: 3, explain: 'increase of + con số (tăng 12%); increase in + thứ thay đổi → an increase of 12% in exports. in, on, at không đi trước con số trong cấu trúc này.' },
       { q: 'Câu nào đúng?', options: ['The rapid growth of online shopping has hurt local stores.', 'The rapid grow of online shopping has hurt local stores.', 'The rapidly growth of online shopping has hurt local stores.', 'The rapid growing of online shopping have hurt local stores.'], answer: 0, explain: 'tính từ + danh từ: rapid growth; chủ ngữ số ít → has hurt. "grow" là động từ; "rapidly growth" sai (trạng từ không bổ nghĩa danh từ); "growing… have" sai hòa hợp.' },
       { q: 'Câu nào đúng?', options: ['Because of people moved to cities, rural schools closed.', 'Because of migration to cities, rural schools closed.', 'Because migration to cities, rural schools closed.', 'Due to people migrate to cities, rural schools closed.'], answer: 1, explain: 'Because of + cụm danh từ → Because of migration to cities. "Because of people moved" và "Due to people migrate" đặt mệnh đề sau giới từ; "Because migration" thiếu of.' },
-      { q: 'Câu nào đúng?', options: ['The analyse of the data took weeks.', 'The analysing of data took weeks.', 'The analyst of the data took weeks.', 'The analysis of the data took weeks.'], answer: 3, explain: 'Danh từ của analyse là analysis → The analysis of the data. analyse là động từ; analysing không tự nhiên ở đây; analyst là người phân tích, sai nghĩa.' },
+      { q: 'Câu nào đúng?', options: ['The analyze of the data took weeks.', 'The analyzing of data took weeks.', 'The analyst of the data took weeks.', 'The analysis of the data took weeks.'], answer: 3, explain: 'Danh từ của analyze là analysis → The analysis of the data. analyze là động từ; analyzing không tự nhiên ở đây; analyst là người phân tích, sai nghĩa.' },
       { q: 'Câu nào cùng nghĩa? “Sales fell sharply in May.”', options: ['There was a sharp fall in sales in May.', 'There was a sharply fall in sales in May.', 'There was a sharp fall of sales in May.', 'Sales had a sharp falling at May.'], answer: 0, explain: 'Danh từ hóa: fell sharply → a sharp fall (tính từ + danh từ); danh từ fall/rise đi với in để chỉ cái gì tăng giảm → a sharp fall in sales.' },
       { q: 'Câu nào cùng nghĩa? “Because the factory closed, 500 people lost their jobs.”', options: ['The factory closing led 500 people lost their jobs.', 'The closure of the factory resulted in 500 job losses.', 'The close of factory resulted 500 job losses.', 'Because of the factory closed, 500 jobs lost.'], answer: 1, explain: 'Danh từ hóa: the factory closed → the closure of the factory; dẫn đến kết quả dùng result in + danh từ → resulted in 500 job losses.' },
       { q: 'Câu nào cùng nghĩa? “Scientists failed to predict the earthquake, which caused public anger.”', options: ['Scientists\' fail to predict the earthquake caused public anger.', 'The failing of scientists predicted the earthquake caused anger.', 'Scientists\' failure to predict the earthquake caused public anger.', 'Scientists failure predicting the earthquake angry the public.'], answer: 2, explain: 'failed → failure to + V; dùng sở hữu cách Scientists\'. "Scientists\' fail" dùng động từ làm danh từ; câu 2 đổi nghĩa; các phương án còn lại sai cấu trúc danh từ hóa.' },
@@ -707,7 +707,7 @@
       ] },
       { type: 'uses', items: [
         { title: 'Do/does/did: khẳng định mạnh, đặc biệt khi phản bác', ex: 'Although the course is expensive, it [[does offer]] excellent career prospects.', vi: 'Mặc dù khóa học đắt, nó thực sự mang lại triển vọng nghề nghiệp xuất sắc.' },
-        { title: 'Did để nhấn mạnh trong quá khứ', ex: 'The campaign [[did raise]] awareness, even if it failed to change behaviour.', vi: 'Chiến dịch quả thực đã nâng cao nhận thức, dù không thay đổi được hành vi.' },
+        { title: 'Did để nhấn mạnh trong quá khứ', ex: 'The campaign [[did raise]] awareness, even if it failed to change behavior.', vi: 'Chiến dịch quả thực đã nâng cao nhận thức, dù không thay đổi được hành vi.' },
         { title: 'What… is…: nêu điều quan trọng nhất', ex: '[[What young people need is]] practical work experience.', vi: 'Điều người trẻ cần là kinh nghiệm làm việc thực tế.' },
         { title: 'All (that)… is…: chỉ cần', ex: '[[All you need to do is]] fill in this form.', vi: 'Tất cả những gì bạn cần làm là điền vào mẫu này.' },
         { title: 'Fronting tính từ / trạng ngữ', ex: '[[Particularly worrying is]] the rise in childhood obesity.', vi: 'Đặc biệt đáng lo ngại là sự gia tăng béo phì ở trẻ em.' }

@@ -204,7 +204,7 @@
         ['2', 'Kích thước (size)', 'a huge old building'],
         ['3', 'Tuổi (age)', 'a new round table'],
         ['4', 'Hình dạng (shape)', 'a square blue box'],
-        ['5', 'Màu sắc (colour)', 'a white Japanese car'],
+        ['5', 'Màu sắc (color)', 'a white Japanese car'],
         ['6', 'Nguồn gốc (origin)', 'a French silk scarf'],
         ['7', 'Chất liệu (material)', 'a plastic shopping bag'],
         ['8', 'Mục đích (purpose)', 'a pair of comfortable running shoes']
@@ -263,7 +263,7 @@
         { label: 'So sánh bằng', parts: [ { t: 'S + V', c: 'subj' }, { t: 'as + adj / adv + as', c: 'adv' }, { t: 'N / mệnh đề', c: 'obj' } ], ex: 'This year\'s exam was [[just as difficult as]] last year\'s.' },
         { label: 'So sánh không bằng', parts: [ { t: 'S + be', c: 'subj' }, { t: 'not as / not so + adj + as', c: 'neg' }, { t: 'N', c: 'obj' } ], ex: 'The second film was [[not as exciting as]] the first.' },
         { label: 'Gấp nhiều lần', parts: [ { t: 'S + V', c: 'subj' }, { t: 'twice / three times', c: 'adv' }, { t: 'as + adj + as', c: 'verb' }, { t: 'N', c: 'obj' } ], ex: 'Car sales in 2020 were [[twice as high as]] in 2010.' },
-        { label: 'Càng … càng …', parts: [ { t: 'The + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'subj' }, { t: 'the + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'verb' } ], ex: '[[The more you practise, the more confident]] you become.' },
+        { label: 'Càng … càng …', parts: [ { t: 'The + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'subj' }, { t: 'the + so sánh hơn', c: 'adv' }, { t: 'S + V', c: 'verb' } ], ex: '[[The more you practice, the more confident]] you become.' },
         { label: 'Ngày càng …', parts: [ { t: 'S + V', c: 'subj' }, { t: 'so sánh hơn + and + so sánh hơn', c: 'adv' } ], ex: 'Cities are becoming [[more and more crowded]].' },
         { label: 'Mức độ + so sánh hơn', parts: [ { t: 'much / far / slightly', c: 'adv' }, { t: 'so sánh hơn', c: 'verb' }, { t: 'than', c: 'aux' }, { t: 'N', c: 'obj' } ], ex: 'Online sales were [[slightly higher than]] in-store sales.' }
       ] },
@@ -311,7 +311,7 @@
       { t: 'fill', q: 'Her answer was exactly the same ___ mine.', a: ['as'], ex: 'the same as = giống như → as.' },
       { t: 'form', q: 'For ___ details, please visit our website. (FAR)', a: ['further'], ex: 'Nghĩa "thêm" → further.' },
       { t: 'rewrite', q: 'The red car is not as expensive as the blue car.', start: 'The blue car is', a: ['The blue car is more expensive than the red car.', 'The blue car is more expensive than the red one.'], ex: 'Not as…as ↔ so sánh hơn theo chiều ngược lại.' },
-      { t: 'rewrite', q: 'If you practise more, you will become more confident.', start: 'The more', a: ['The more you practise, the more confident you will become.', 'The more you practise, the more confident you become.', 'The more you practice, the more confident you will become.', 'The more you practice, the more confident you become.'], ex: 'So sánh kép (càng… càng…): The more + S + V, the more + adj + S + V → The more you practise, the more confident you will become.' },
+      { t: 'rewrite', q: 'If you practice more, you will become more confident.', start: 'The more', a: ['The more you practice, the more confident you will become.', 'The more you practice, the more confident you become.', 'The more you practise, the more confident you will become.', 'The more you practise, the more confident you become.'], ex: 'So sánh kép (càng… càng…): The more + S + V, the more + adj + S + V → The more you practice, the more confident you will become.' },
       { t: 'rewrite', q: 'The figure for 2020 was double the figure for 2010.', start: 'The figure for 2020 was twice', a: ['The figure for 2020 was twice as high as the figure for 2010.', 'The figure for 2020 was twice as high as that for 2010.', 'The figure for 2020 was twice as high as the one for 2010.', 'The figure for 2020 was twice as large as the figure for 2010.', 'The figure for 2020 was twice as large as that for 2010.'], ex: 'Gấp đôi: twice as + adj + as.' },
       { t: 'combine', q: 'Traffic is getting bad. It gets worse every year.', hint: 'so sánh hơn + and + so sánh hơn', start: 'Traffic is getting', a: ['Traffic is getting worse and worse every year.', 'Traffic is getting worse and worse.'], ex: 'Ngày càng tệ: worse and worse.' },
       { t: 'combine', q: 'Everest is very high. No other mountain in the world is as high.', hint: 'so sánh nhất + in', start: 'Everest is', a: ['Everest is the highest mountain in the world.'], ex: 'So sánh nhất + in + nơi chốn.' },
@@ -405,7 +405,7 @@
       { t: 'rewrite', q: 'They plan the trip carefully.', start: 'Last month, they', a: ['Last month, they planned the trip carefully.'], ex: 'Plan → planned (gấp đôi n).' },
       { t: 'rewrite', q: 'She tries to visit her grandparents every week.', start: 'Last year, she', a: ['Last year, she tried to visit her grandparents every week.'], ex: 'Phụ âm + y → ied: tried.' },
       { t: 'rewrite', q: 'The dog lies on the sofa every afternoon.', start: 'At the moment, the dog', a: ['At the moment, the dog is lying on the sofa.'], ex: 'At the moment → hiện tại tiếp diễn; lie → lying (đổi ie → y trước -ing).' },
-      { t: 'combine', q: 'He admitted his mistake. He apologised to the team.', hint: 'and', start: 'He admitted', a: ['He admitted his mistake and apologised to the team.', 'He admitted his mistake and apologized to the team.'], ex: 'Admit có trọng âm cuối → admitted.' },
+      { t: 'combine', q: 'He admitted his mistake. He apologized to the team.', hint: 'and', start: 'He admitted', a: ['He admitted his mistake and apologized to the team.', 'He admitted his mistake and apologised to the team.'], ex: 'Admit có trọng âm cuối → admitted.' },
       { t: 'combine', q: 'She was writing an email. The phone rang.', hint: 'while', start: 'While she was', a: ['While she was writing an email, the phone rang.', 'While she was writing an email the phone rang.'], ex: 'Write → writing (bỏ e câm).' },
       { t: 'error', parts: ['The company', 'offerred', 'me a job', 'last week.'], w: 1, fix: 'offered', ex: 'Offer có trọng âm ở âm tiết đầu → không gấp đôi r.' },
       { t: 'error', parts: ['They are', 'planing', 'a trip', 'to Hue.'], w: 1, fix: 'planning', ex: 'Plan → planning (gấp đôi n).' }
@@ -496,9 +496,9 @@
     summary: 'Nguyên nhân: because / as / since / now that + MỆNH ĐỀ ↔ because of / due to / owing to / on account of + DANH TỪ / V-ing. Tương phản: although / even though / though / while / whereas + MỆNH ĐỀ ↔ despite / in spite of + DANH TỪ / V-ing. Khi bí, dùng "the fact that + mệnh đề". Nối hai câu: however, nevertheless, on the other hand.',
     blocks: [
       { type: 'diagram', caption: 'Mệnh đề (S + V) ↔ cụm danh từ – dạng biến đổi rất hay gặp trong đề thi', steps: [
-        { t: 'The match was cancelled because it rained heavily.', c: 'note' },
+        { t: 'The match was canceled because it rained heavily.', c: 'note' },
         { t: '↓ because + mệnh đề → because of + cụm danh từ', c: 'arrow' },
-        { t: 'The match was cancelled because of the heavy rain.', c: 'result' },
+        { t: 'The match was canceled because of the heavy rain.', c: 'result' },
         { t: '↓ although + mệnh đề', c: 'arrow' },
         { t: 'Although it rained heavily, they kept playing.', c: 'active' },
         { t: '↓ despite + cụm danh từ', c: 'arrow' },
@@ -558,7 +558,7 @@
     drills: [
       { t: 'fill', q: '___ spite of the cold weather, they went swimming in the sea.', a: ['in'], ex: 'In spite of + danh từ/V-ing = mặc dù → In spite of the cold weather.' },
       { t: 'fill', q: 'Some people love city life, ___ others prefer the peace of the countryside.', a: ['whereas', 'while'], ex: 'Đối lập hai vế: whereas / while.' },
-      { t: 'fill', q: 'The concert was cancelled on account ___ the storm.', a: ['of'], ex: 'on account of + danh từ = because of (vì, do) → on account of the storm.' },
+      { t: 'fill', q: 'The concert was canceled on account ___ the storm.', a: ['of'], ex: 'on account of + danh từ = because of (vì, do) → on account of the storm.' },
       { t: 'rewrite', q: 'Although it was raining, the match continued.', start: 'Despite', a: ['Despite the rain, the match continued.', 'Despite the fact that it was raining, the match continued.', 'Despite it raining, the match continued.'], ex: 'Although + mệnh đề → despite + cụm danh từ / the fact that.' },
       { t: 'rewrite', q: 'Because he was ill, he missed the exam.', start: 'Because of', a: ['Because of his illness, he missed the exam.', 'Because of being ill, he missed the exam.'], ex: 'Because + mệnh đề → because of + cụm danh từ / V-ing.' },
       { t: 'rewrite', q: 'In spite of his lack of experience, he got the job.', start: 'Although', a: ['Although he lacked experience, he got the job.', 'Although he had no experience, he got the job.', 'Although he did not have experience, he got the job.', 'Although he did not have any experience, he got the job.', 'Although he was inexperienced, he got the job.', 'Although he had little experience, he got the job.'], ex: 'In spite of + N → although + mệnh đề.' },
@@ -688,7 +688,7 @@
         { title: 'hit the books – học hành chăm chỉ', ex: 'I need to [[hit the books]] before my exam next week.', vi: 'Tôi cần học chăm trước kỳ thi tuần sau.' },
         { title: 'under the weather – hơi mệt, không khỏe', ex: 'I was feeling a bit [[under the weather]] last weekend.', vi: 'Cuối tuần trước tôi thấy hơi mệt.' },
         { title: 'over the moon – vô cùng vui sướng', ex: 'My mom was [[over the moon]] when I passed my driving test.', vi: 'Mẹ tôi vui mừng khôn xiết khi tôi thi đỗ bằng lái.' },
-        { title: 'cost an arm and a leg – rất đắt', ex: 'Renting a flat in the city centre [[costs an arm and a leg]].', vi: 'Thuê căn hộ ở trung tâm thành phố đắt cắt cổ.' },
+        { title: 'cost an arm and a leg – rất đắt', ex: 'Renting a flat in the city center [[costs an arm and a leg]].', vi: 'Thuê căn hộ ở trung tâm thành phố đắt cắt cổ.' },
         { title: 'on the same page – cùng quan điểm, hiểu ý nhau', ex: 'My friends and I are usually [[on the same page]] about music.', vi: 'Tôi và bạn bè thường hợp gu âm nhạc.' },
         { title: 'a breath of fresh air – điều mới mẻ, dễ chịu', ex: 'The new teacher was [[a breath of fresh air]] for our class.', vi: 'Thầy giáo mới như một làn gió mới với lớp tôi.' },
         { title: 'up to my ears (in work) – ngập đầu công việc', ex: 'I am [[up to my ears]] in work at the moment.', vi: 'Dạo này tôi ngập đầu trong công việc.' },
@@ -715,7 +715,7 @@
       { q: 'Câu nào phù hợp nhất cho Writing Task 1?', options: ['The number of visitors rose significantly in 2015.', 'The number of visitors went up a lot in 2015.', 'Loads more visitors came in 2015.', 'Visitor numbers kind of jumped in 2015.'], answer: 0, explain: 'Rose significantly trang trọng và chính xác hơn went up a lot. went up a lot, loads more và kind of jumped là văn nói.' },
       { q: 'Câu nào dùng thành ngữ ĐÚNG ngữ cảnh (Speaking)?', options: ['I was over the moon when my phone broke.', 'I was over the moon when I got my exam results.', 'My hometown is a piece of cake.', 'I hit the books when I went to the beach.'], answer: 1, explain: 'Over the moon = rất vui → hợp với tin vui như có kết quả thi tốt. over the moon không hợp với tin xấu; "a piece of cake" và "hit the books" dùng sai ngữ cảnh.' },
       { q: 'Câu nào cùng nghĩa, văn phong trang trọng hơn? "Lots of people think the internet is bad for kids."', options: ['Tons of people think the net is bad for kids.', 'People reckon the internet is rubbish for kids.', 'A lot of folks say the internet is bad for kids.', 'Many people believe that the internet is harmful to children.'], answer: 3, explain: 'Many people believe / harmful / children là từ vựng trang trọng. tons of, reckon, folks đều là văn nói thân mật.' },
-      { q: 'Câu nào cùng nghĩa, trang trọng hơn? "The company put off the meeting."', options: ['The company cancelled the meeting.', 'The company called the meeting.', 'The company postponed the meeting.', 'The company held the meeting.'], answer: 2, explain: 'Put off = postpone (hoãn), không phải cancel (hủy). cancel là hủy (khác hoãn); call và hold là triệu tập/tổ chức.' },
+      { q: 'Câu nào cùng nghĩa, trang trọng hơn? "The company put off the meeting."', options: ['The company canceled the meeting.', 'The company called the meeting.', 'The company postponed the meeting.', 'The company held the meeting.'], answer: 2, explain: 'Put off = postpone (hoãn), không phải cancel (hủy). cancel là hủy (khác hoãn); call và hold là triệu tập/tổ chức.' },
       { q: 'Câu nào cùng nghĩa? "I only eat sweets once in a blue moon."', options: ['I very rarely eat sweets.', 'I eat sweets every day.', 'I eat sweets when I feel sad.', 'I eat sweets at night.'], answer: 0, explain: 'once in a blue moon = rất hiếm khi → I very rarely eat sweets. Các phương án còn lại nói về tần suất thường xuyên hoặc thời điểm, sai nghĩa.' }
     ],
     drills: [

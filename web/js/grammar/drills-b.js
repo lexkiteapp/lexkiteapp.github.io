@@ -20,7 +20,7 @@
       { t: 'rewrite', q: "She gave me some useful advice.", start: "She gave me a useful", a: ["She gave me a useful piece of advice."], ex: "Advice không đếm được, muốn đếm phải dùng a piece of." },
       { t: 'rewrite', q: "There aren't many jobs in this small town.", start: "There are", a: ["There are few jobs in this small town.", "There are very few jobs in this small town.", "There are only a few jobs in this small town."], ex: "Few + danh từ đếm được số nhiều = rất ít." },
       { t: 'rewrite', q: "We don't have much time before the exam.", start: "We have", a: ["We have little time before the exam.", "We have very little time before the exam.", "We have only a little time before the exam."], ex: "Little + danh từ không đếm được = rất ít." },
-      { t: 'combine', q: "The amount of plastic waste fell. The number of recycling centres grew.", hint: "while / whereas", a: ["The amount of plastic waste fell, while the number of recycling centres grew.", "The amount of plastic waste fell, whereas the number of recycling centres grew.", "While the amount of plastic waste fell, the number of recycling centres grew.", "Whereas the amount of plastic waste fell, the number of recycling centres grew."], ex: "Amount đi với danh từ không đếm được, number đi với danh từ đếm được." },
+      { t: 'combine', q: "The amount of plastic waste fell. The number of recycling centers grew.", hint: "while / whereas", a: ["The amount of plastic waste fell, while the number of recycling centers grew.", "The amount of plastic waste fell, whereas the number of recycling centers grew.", "While the amount of plastic waste fell, the number of recycling centers grew.", "Whereas the amount of plastic waste fell, the number of recycling centers grew.", "The amount of plastic waste fell, while the number of recycling centres grew.", "The amount of plastic waste fell, whereas the number of recycling centres grew.", "While the amount of plastic waste fell, the number of recycling centres grew.", "Whereas the amount of plastic waste fell, the number of recycling centres grew."], ex: "Amount đi với danh từ không đếm được, number đi với danh từ đếm được." },
       { t: 'rewrite', q: "A lot of people visit the museum every day.", start: "Many", a: ["Many people visit the museum every day."], ex: "Many dùng với danh từ đếm được số nhiều." },
       { t: 'error', parts: ["We need", "more informations", "about the course", "before we apply."], w: 1, fix: "more information", ex: "Information không đếm được nên không có dạng số nhiều." },
       { t: 'error', parts: ["The company", "bought", "many new equipments", "last year."], w: 2, fix: "a lot of new equipment", ex: "Equipment không đếm được: không thêm -s, không dùng many." }
@@ -136,7 +136,7 @@
     'parts-of-speech-patterns': [
       { t: 'form', q: "The ___ of the city has slowed recently. (GROW)", a: ["growth"], ex: "Sau the và trước of cần danh từ." },
       { t: 'form', q: "Many people find city life ___. (STRESS)", a: ["stressful"], ex: "Mẫu S + V + O + C: bổ ngữ là tính từ." },
-      { t: 'form', q: "The new policy will ___ pollution in the city centre. (REDUCTION)", a: ["reduce"], ex: "Sau will cần động từ nguyên mẫu." },
+      { t: 'form', q: "The new policy will ___ pollution in the city center. (REDUCTION)", a: ["reduce"], ex: "Sau will cần động từ nguyên mẫu." },
       { t: 'rewrite', q: "The teacher gave a good mark to Lan.", start: "The teacher gave Lan", a: ["The teacher gave Lan a good mark."], ex: "Mẫu S + V + O (người) + O (vật)." },
       { t: 'rewrite', q: "In my opinion, the course is useful.", start: "I find", a: ["I find the course useful."], ex: "Mẫu S + find + O + C (tính từ)." },
       { t: 'rewrite', q: "There was a significant improvement in air quality.", start: "Air quality", a: ["Air quality improved significantly."], ex: "Mẫu S + V (nội động từ) + trạng từ." },
@@ -153,7 +153,7 @@
       { t: 'form', q: "Public transport in this city is cheap and ___. (RELY)", a: ["reliable"], ex: "Hậu tố -able tạo tính từ." },
       { t: 'rewrite', q: "The government decided to raise taxes.", start: "The government made a", a: ["The government made a decision to raise taxes."], ex: "Danh từ của decide là decision." },
       { t: 'rewrite', q: "It is not possible to finish the project on time.", start: "It is", a: ["It is impossible to finish the project on time."], ex: "Tiền tố im- đứng trước tính từ bắt đầu bằng p." },
-      { t: 'rewrite', q: "The children's behaviour was not acceptable.", start: "The children's behaviour was", a: ["The children's behaviour was unacceptable."], ex: "Tiền tố un- tạo nghĩa phủ định." },
+      { t: 'rewrite', q: "The children's behavior was not acceptable.", start: "The children's behavior was", a: ["The children's behavior was unacceptable.", "The children's behaviour was unacceptable."], ex: "Tiền tố un- tạo nghĩa phủ định." },
       { t: 'error', parts: ["Tourism", "has a big", "effective", "on the local economy."], w: 2, fix: "effect", ex: "Sau tính từ big cần danh từ effect." },
       { t: 'error', parts: ["She", "was very", "success", "in her career."], w: 2, fix: "successful", ex: "Sau very cần tính từ successful." }
     ],
@@ -184,7 +184,7 @@
     'there-is-empty-it': [
       { t: 'fill', q: "___ are three parks near my house.", a: ["There"], ex: "There are + danh từ số nhiều giới thiệu sự tồn tại." },
       { t: 'fill', q: "___ takes about an hour to get to the airport.", a: ["It"], ex: "It takes + thời gian + to V." },
-      { t: 'verb', q: "There ___ a lot of traffic in the city centre yesterday. (be)", a: ["was"], ex: "Traffic không đếm được nên dùng there was." },
+      { t: 'verb', q: "There ___ a lot of traffic in the city center yesterday. (be)", a: ["was"], ex: "Traffic không đếm được nên dùng there was." },
       { t: 'rewrite', q: "To learn a new language is difficult.", start: "It is difficult", a: ["It is difficult to learn a new language."], ex: "It is + Adj + to V, it là chủ ngữ giả." },
       { t: 'rewrite', q: "The town has two hospitals.", start: "There are", a: ["There are two hospitals in the town."], ex: "There are + danh từ số nhiều + nơi chốn." },
       { t: 'rewrite', q: "I spend 20 minutes walking to school.", start: "It takes", a: ["It takes me 20 minutes to walk to school.", "It takes me twenty minutes to walk to school."], ex: "It takes + sb + thời gian + to V." },
@@ -249,7 +249,7 @@
       { t: 'rewrite', q: "Learning about history interests her.", start: "She is interested", a: ["She is interested in learning about history."], ex: 'Tính từ -ed chỉ cảm xúc của người: be interested IN + V-ing → She is interested in learning about history.' },
       { t: 'rewrite', q: "The news shocked everyone.", start: "Everyone was", a: ["Everyone was shocked by the news.", "Everyone was shocked at the news."], ex: "Cảm xúc của người dùng tính từ -ed." },
       { t: 'combine', q: "Parents must keep their children safe. It is their responsibility.", hint: "responsible for", start: "Parents are responsible", a: ["Parents are responsible for keeping their children safe."], ex: 'be responsible FOR + V-ing (chịu trách nhiệm làm gì) → Parents are responsible for keeping their children safe.' },
-      { t: 'combine', q: "He is a strong student. His best subject is maths.", hint: "good at", start: "He is good", a: ["He is good at maths.", "He is good at math."], ex: "Good at + môn học/việc." },
+      { t: 'combine', q: "He is a strong student. His best subject is math.", hint: "good at", start: "He is good", a: ["He is good at math.", "He is good at maths."], ex: "Good at + môn học/việc." },
       { t: 'error', parts: ["I am", "very interesting", "in", "modern art."], w: 1, fix: "very interested", ex: "Người cảm thấy hứng thú dùng interested." },
       { t: 'error', parts: ["She", "is afraid", "from", "spiders."], w: 2, fix: "of", ex: "Afraid đi với giới từ of." }
     ],

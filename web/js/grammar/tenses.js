@@ -78,7 +78,7 @@
       { type: 'mistake', wrong: 'I studying for my exams at the moment.', right: 'I am studying for my exams at the moment.', why: 'Người Việt hay bỏ to be vì tiếng Việt chỉ cần nói "đang học". Tiếng Anh bắt buộc có am/is/are.' },
       { type: 'mistake', wrong: 'I am understanding the lesson now.', right: 'I understand the lesson now.', why: 'Understand là động từ chỉ trạng thái (stative), thường không dùng ở dạng tiếp diễn.' },
       { type: 'mistake', wrong: 'Look! The children swim in the lake.', right: 'Look! The children are swimming in the lake.', why: 'Hành động đang diễn ra trước mắt phải dùng tiếp diễn, không dùng hiện tại đơn.' },
-      { type: 'ielts', text: 'Rất hữu ích để nói về xu hướng xã hội trong Writing Task 2 và Speaking Part 3 (ví dụ: urbanisation, technology). Kết hợp với increasingly, more and more, gradually để câu tự nhiên hơn.', ex: 'Young people [[are increasingly turning]] to social media for news rather than newspapers.' }
+      { type: 'ielts', text: 'Rất hữu ích để nói về xu hướng xã hội trong Writing Task 2 và Speaking Part 3 (ví dụ: urbanization, technology). Kết hợp với increasingly, more and more, gradually để câu tự nhiên hơn.', ex: 'Young people [[are increasingly turning]] to social media for news rather than newspapers.' }
     ],
     quiz: [
       { q: 'Listen! Someone ___ (knock) at the door.', options: ['knocks', 'knock', 'is knocking', 'knocking'], answer: 2, explain: 'Listen! báo hiệu hành động đang xảy ra ngay lúc nói → is knocking. knocks/knock là hiện tại đơn (thói quen); knocking thiếu is.' },
@@ -465,7 +465,7 @@
       { type: 'mistake', wrong: 'I am used to get up early.', right: 'I am used to getting up early.', why: 'Sau be used to phải là V-ing. Người học hay nhầm với used to + V nguyên mẫu.' },
       { type: 'mistake', wrong: 'I use to play badminton when I was at school.', right: 'I used to play badminton when I was at school.', why: 'Câu khẳng định phải dùng used (có -d). Chỉ sau did/didn\'t mới dùng use to.' },
       { type: 'mistake', wrong: 'My hometown would be very quiet.', right: 'My hometown used to be very quiet.', why: 'Be quiet là trạng thái, không phải hành động lặp lại, nên không dùng would.' },
-      { type: 'ielts', text: 'Speaking Part 1 và 2 thường hỏi về tuổi thơ hay sự thay đổi của quê hương (Has your hometown changed?). Used to và would giúp bạn so sánh quá khứ–hiện tại tự nhiên và đa dạng hơn so với chỉ dùng quá khứ đơn.', ex: 'My neighbourhood [[used to be]] full of rice fields, and we [[would spend]] whole afternoons flying kites there.' }
+      { type: 'ielts', text: 'Speaking Part 1 và 2 thường hỏi về tuổi thơ hay sự thay đổi của quê hương (Has your hometown changed?). Used to và would giúp bạn so sánh quá khứ–hiện tại tự nhiên và đa dạng hơn so với chỉ dùng quá khứ đơn.', ex: 'My neighborhood [[used to be]] full of rice fields, and we [[would spend]] whole afternoons flying kites there.' }
     ],
     quiz: [
       { q: 'When I was a child, I ___ (be) afraid of the dark.', options: ['would be', 'was used to be', 'used to be', 'am used to'], answer: 2, explain: 'Trạng thái trong quá khứ → used to be; không dùng would cho trạng thái. would không dùng cho trạng thái; "was used to be" sai cấu trúc; am used to là hiện tại và cần V-ing.' },
@@ -492,10 +492,10 @@
       { type: 'timeline', caption: 'Trạng thái kéo dài liên tục, không có điểm đầu–cuối rõ ràng như một hành động.', marks: [ { kind: 'range', from: 6, to: 94, label: 'I know her' }, { kind: 'now', at: 50 } ] },
       { type: 'formula', rows: [
         { label: 'Khẳng định (+)', parts: [ { t: 'S', c: 'subj' }, { t: 'động từ trạng thái (dạng đơn)', c: 'verb' }, { t: 'O', c: 'obj' } ], ex: 'Most experts [[believe]] that the climate [[is changing]].' },
-        { label: 'Phủ định (−)', parts: [ { t: 'S', c: 'subj' }, { t: 'do / does / did', c: 'aux' }, { t: 'not', c: 'neg' }, { t: 'động từ trạng thái', c: 'verb' } ], ex: 'I [[don\'t recognise]] that building – is it new?' },
+        { label: 'Phủ định (−)', parts: [ { t: 'S', c: 'subj' }, { t: 'do / does / did', c: 'aux' }, { t: 'not', c: 'neg' }, { t: 'động từ trạng thái', c: 'verb' } ], ex: 'I [[don\'t recognize]] that building – is it new?' },
         { label: 'Nghi vấn (?)', parts: [ { t: 'Do / Does / Did', c: 'aux' }, { t: 'S', c: 'subj' }, { t: 'động từ trạng thái?', c: 'verb' } ], ex: '[[Do]] you [[prefer]] studying alone or in a group?' } ] },
       { type: 'uses', items: [
-        { title: 'Suy nghĩ, nhận thức: know, believe, understand, remember, realise', ex: 'I [[understand]] why people [[prefer]] to live near the city centre.', vi: 'Tôi hiểu vì sao mọi người thích sống gần trung tâm thành phố.' },
+        { title: 'Suy nghĩ, nhận thức: know, believe, understand, remember, realize', ex: 'I [[understand]] why people [[prefer]] to live near the city center.', vi: 'Tôi hiểu vì sao mọi người thích sống gần trung tâm thành phố.' },
         { title: 'Cảm xúc, mong muốn: like, love, hate, prefer, want, need', ex: 'Many employees [[want]] more flexible working hours.', vi: 'Nhiều nhân viên muốn có giờ làm việc linh hoạt hơn.' },
         { title: 'Sở hữu, cấu tạo: have (sở hữu), own, belong, contain, consist of', ex: 'This report [[contains]] data from twelve countries.', vi: 'Bản báo cáo này chứa số liệu từ mười hai quốc gia.' },
         { title: 'Giác quan, mô tả: seem, look (trông có vẻ), smell, taste, sound', ex: 'The new policy [[seems]] effective so far.', vi: 'Chính sách mới cho đến nay có vẻ hiệu quả.' } ] },
