@@ -234,7 +234,7 @@
   },
   "t7_usuk_cookie": {
    "template": "pair",
-   "hook": "COOKIE | BISCUIT",
+   "hook": "🇺🇸 or 🇬🇧 / cookie / or biscuit?",
    "hook_true": true,
    "script_reviewed": true,
    "reviewer": "Claude (expert American English teacher review, 26/10/2026 series rewrite for engagement; no GrabCast)",

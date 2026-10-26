@@ -112,18 +112,10 @@
  "pops": [
   {
    "id": "hook",
-   "kind": "pair",
+   "kind": "rich",
    "role": "hook",
-   "anim": "slide",
-   "vs": true,
-   "left": {
-    "title": "COOKIE",
-    "color": "navy2"
-   },
-   "right": {
-    "title": "BISCUIT",
-    "color": "green"
-   },
+   "anim": "stamp",
+   "size": 84,
    "from": [
     "t",
     0
@@ -133,7 +125,34 @@
     -1,
     "e",
     0.25
-   ]
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🇺🇸"
+     ],
+     [
+      " or ",
+      "white"
+     ],
+     [
+      "@emoji:🇬🇧"
+     ]
+    ],
+    [
+     [
+      "cookie",
+      "green"
+     ]
+    ],
+    [
+     [
+      "or biscuit?",
+      "navy2"
+     ]
+    ]
+   ],
+   "align": "c"
   },
   {
    "id": "sit",
