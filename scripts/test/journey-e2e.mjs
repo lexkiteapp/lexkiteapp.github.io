@@ -97,7 +97,17 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
     async boot(hash, q = h.q) { await page.goto(h.url(hash, q), { waitUntil: 'load', timeout: 45000 }); await h.ready(); },
     async ready() { await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }); await sleep(700); },
     async go(hash) { await page.evaluate(x => { location.hash = x; }, hash); await sleep(900); },
-    async click(sel, o = {}) { const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: o.timeout || 10000 }); await l.scrollIntoViewIfNeeded().catch(() => {}); await l.click({ timeout: 8000 }); await sleep(o.wait ?? 400); },
+    /** Hộp "Lên cấp N!" (app.js → modal) bật trễ sau khi cộng XP → che nút đang bấm (J2 en: #cfGo timeout). Người dùng thật bấm "Tuyệt vời!" rồi đi tiếp. */
+    async dismissLevelUp() { const b = page.locator('#modal:not([hidden]) #modalBox > .celebrate:has(> .em:text-is("🎖️")) > button[data-close]').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng hộp "Lên cấp"'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
+    async click(sel, o = {}) {
+      const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: o.timeout || 10000 }); await l.scrollIntoViewIfNeeded().catch(() => {});
+      const end = Date.now() + 20000, inModal = /#modal/.test(sel);
+      for (;;) { // chờ tới khi bấm được (tối đa 20 s), mỗi vòng gỡ hộp "Lên cấp" nếu nó vừa bật đè lên
+        if (!inModal) await h.dismissLevelUp();
+        try { await l.click({ timeout: 5000 }); break; } catch (e) { if (Date.now() > end) throw new Error(`click ${sel}: ${String(e.message).split('\n')[0]}`); }
+      }
+      await sleep(o.wait ?? 400);
+    },
     has: (sel) => page.locator(sel).first().isVisible().catch(() => false),
     async wait(sel, ms = 10000) { return page.locator(sel).first().waitFor({ state: 'visible', timeout: ms }).then(() => true, () => false); },
     async audit(step) { const bad = await page.evaluate(s => window.LKJC ? LKJC.audit(s) : [{ t: 'probe', msg: 'không nạp được đầu dò' }], step).catch(e => [{ t: 'probe', msg: e.message }]); for (const b of bad) fail(b.t + ': ' + b.msg); return bad; },
@@ -399,13 +409,17 @@ async function j7(lang) {
     await sw.evaluate(() => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), selectMode: 'icon', dblclickOn: true } })));
     await sleep(1500); for (const p of ctx.pages()) if (p.url().startsWith(base)) await p.close().catch(() => {});
     const pg = await ctx.newPage(); await pg.goto('https://news.example.test/article'); await sleep(1200);
-    await pg.locator('#w').dblclick(); await sleep(6000);
+    // boot.js chạy lúc document_idle rồi mới nhờ SW chèn content.js → chờ ĐIỀU KIỆN (bảng tra hiện), nhấp đúp lại nếu lần trước rơi vào lúc mồi chưa gắn
+    const popUp = () => pg.waitForFunction(() => { const b = document.querySelector('ielts-lexi-popup')?.shadowRoot?.querySelector('.box'); return !!(b && !b.hidden && b.getBoundingClientRect().height > 0); }, null, { timeout: 8000 }).then(() => true, () => false);
+    for (let i = 0; i < 4; i++) { await pg.locator('#w').dblclick(); if (await popUp()) break; }
+    await pg.waitForFunction(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return !!(r && r.querySelector('#save') && /\S/.test((r.querySelector('.ctx') || {}).innerText || '')); }, null, { timeout: 15000 }).catch(() => {});
     const pop = () => pg.evaluate(() => { const r = document.querySelector('ielts-lexi-popup')?.shadowRoot; return r ? { box: !!(r.querySelector('.box') && !r.querySelector('.box').hidden), ctx: (r.querySelector('.ctx') || {}).innerText || '', save: !!r.querySelector('#save'), saved: !!(r.querySelector('#save') || {}).disabled } : null; });
     const p1 = await pop();
     ok(p1 && p1.box, 'add-on: nhấp đúp → bảng tra hiện');
     ok(p1 && /canopies/.test(p1.ctx), 'add-on: bảng tra kèm câu ngữ cảnh sẽ lưu');
-    await pg.evaluate(() => document.querySelector('ielts-lexi-popup').shadowRoot.querySelector('#save').click()); await sleep(1500);
-    const c = await sw.evaluate(() => chrome.storage.local.get('cards').then(o => (o.cards || {}).resilience || null));
+    await pg.evaluate(() => document.querySelector('ielts-lexi-popup').shadowRoot.querySelector('#save').click());
+    const getCard = () => sw.evaluate(() => chrome.storage.local.get('cards').then(o => (o.cards || {}).resilience || null));
+    let c = null; for (let i = 0; i < 40 && !(c && c.ctx); i++) { c = await getCard(); if (!(c && c.ctx)) await sleep(250); }
     ok(c && /canopies/.test(c.ctx || '') && c.src === 'news.example.test', 'add-on: thẻ lưu kèm ctx + src: ' + JSON.stringify(c && { ctx: (c.ctx || '').slice(0, 30), src: c.src }));
     await pg.screenshot({ path: `${OUT}/shots/${tag}-popup.png` }).catch(() => {});
     const nt = await ctx.newPage(); await nt.goto(base + 'newtab.html'); await sleep(1500);
