@@ -5,7 +5,9 @@
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board"
+  "c01_carlos_board",
+  "c01t2_carlos_talk2",
+  "c01t3_carlos_talk3"
  ],
  "accent": "navy2",
  "active": "mint",
@@ -470,5 +472,8 @@
    ]
   }
  ],
- "caption_cap": 62
+ "caption_cap": 62,
+ "listen": [
+  "c01l_carlos_listen"
+ ]
 }

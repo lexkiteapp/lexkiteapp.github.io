@@ -5,7 +5,8 @@
  "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "a02_ama_board"
+  "a02_ama_board",
+  "a02t2_ama_talk2"
  ],
  "accent": "navy2",
  "active": "mint",
@@ -392,5 +393,8 @@
   "name": "Where's the Stress?",
   "ep": 1
  },
- "caption_cap": 62
+ "caption_cap": 62,
+ "listen": [
+  "a02l_ama_listen"
+ ]
 }

@@ -38,7 +38,7 @@ ap.add_argument('--plan', default='', help='write the layout plan (pages, pops, 
 o = ap.parse_args()
 W, H, FPS = 1080, 1920, 24
 SP = json.load(open(o.spec)); TR = json.load(open(o.teachers))
-SET = TR['sets'][SP['set']]; CL = {c: TR['clips'][c] for c in SP['clips']}
+SET = TR['sets'][SP['set']]; CL = {c: TR['clips'][c] for c in SP['clips'] + SP.get('listen', [])}   # listen = closed-mouth clips for the silent beats (owner 26/10)
 assert all(v['set'] == SP['set'] and v['who'] == SP['teacher'] for v in CL.values()), 'one teacher, one set'
 WHO = SP['teacher']; LIB = f"{o.foot}/{SET['lib']}"; SMAX = SET['smax']
 BRD = None
@@ -171,7 +171,9 @@ def tm_of(a):
 print(f'total {TOTAL:.2f} s, {NF} frames, lines ' + ' '.join(f'{k}@{v:.2f}' for k, v in ATL.items()) + ' beats ' + json.dumps(BEATS), flush=True)
 
 # ---------------- clips: forward play, cross-dissolves between talk clips, no reverse ----------------
-def clip_path(c): return f"{LIB}/{SET['path']}/{c}.mp4"
+def clip_path(c):   # raw host (default): the original Kling clip; lipsync mode keeps the dl24 copy its mouth track was built on
+    raw_ = f"{LIB}/clips/{c}.mp4"
+    return raw_ if SP.get('host_fx', 'raw') == 'raw' and os.path.exists(raw_) else f"{LIB}/{SET['path']}/{c}.mp4"
 RAW = {}
 for c, v in CL.items():
     cap = cv2.VideoCapture(clip_path(c)); fr = []
@@ -263,11 +265,41 @@ def end_score(a0):   # ghosting of the final loop dissolve: mean + worst distanc
     return float(np.mean(ds) + 0.5 * max(ds))
 _c0 = SP['clips'][0]; _lo = CL[_c0]['usable'][0]
 A0 = min(range(max(_lo, XFE), len(RAW[_c0]) - 64, 3), key=end_score)   # start frame chosen so the loop dissolve joins similar poses
-SEQ, JOINS = plan(NF, A0)
+def plan_gated(nf):
+    talk = SP['clips']; lis = SP['listen']; sp = np.zeros(nf, bool)
+    for lid, at in ATL.items():
+        w_ = LINES[lid]['words']; a_, b_ = int((at + w_[0]['s'] - 0.08) * FPS), int((at + w_[-1]['e'] + 0.12) * FPS); sp[max(0, a_):min(nf, b_ + 1)] = True
+    runs = []; i = 0
+    while i < nf:
+        j = i
+        while j < nf and sp[j] == sp[i]: j += 1
+        runs.append([bool(sp[i]), i, j]); i = j
+    for r in runs:   # short breaths stay on the talk clip (no flicker cuts)
+        if not r[0] and r[2] - r[1] < int(0.5 * FPS) and r[1] > 0: r[0] = True
+    cur = {c: CL[c]['usable'][0] for c in talk + lis}; ti = 0; seq = []; joins = []; prev = None
+    for talking, a_, b_ in runs:
+        n_ = b_ - a_
+        while n_ > 0:
+            c = talk[ti % len(talk)] if talking else lis[0]; hi = CL[c]['usable'][1]
+            if cur[c] > hi - 6: cur[c] = CL[c]['usable'][0]
+            if talking and prev is not None and prev[0] == c and cur[c] == CL[c]['usable'][0]: ti += 1; c = talk[ti % len(talk)]
+            m_ = min(n_, hi - cur[c] + 1)
+            if prev is not None and (prev[0] != c or prev[1] != cur[c]): joins.append(dict(at_frame=len(seq), to_clip=c, entry=cur[c], cut='hard', talking=talking))
+            seq += [[(c, k, 1.0)] for k in range(cur[c], cur[c] + m_)]; cur[c] += m_; n_ -= m_; prev = (c, cur[c])
+            if talking and cur[c] > hi - 6: ti += 1
+    seq = seq[:nf]; c0, k0 = seq[0][0][0], seq[0][0][1]
+    for q in range(XFE):   # loop: the last frames dissolve into frame 0 (an edit transition, the host pixels are untouched)
+        w = ease((q + 1) / XFE, EASE['inout']); fi = nf - XFE + q
+        seq[fi] = [(cc, kk, ww * (1 - w)) for cc, kk, ww in seq[fi] if ww * (1 - w) > 1e-4] + [(c0, k0, w)]
+    seq[-1] = [(c0, k0, 1.0)]
+    return seq, joins
+if SP.get('listen'):
+    SEQ, JOINS = plan_gated(NF); print('gated plan: talk while the voice speaks, listen clip in silences', flush=True)
+else: SEQ, JOINS = plan(NF, A0)
 print(f'loop frame {_c0}:{A0} end diff {end_score(A0):.2f}', flush=True)
 print('joins', JOINS, flush=True)
-MO = {c: LS.Mouth(f"{LIB}/{SET['meta']}/{c}/{WHO}") for c in CL}
-for c, runs in HOLDS.items():   # v11: the mouth track moves with the smoothed in-betweens
+MO = {c: LS.Mouth(f"{LIB}/{SET['meta']}/{c}/{WHO}") for c in CL} if HOSTFX != 'raw' else {}   # raw host needs no mouth track
+for c, runs in (HOLDS.items() if MO else []):   # v11: the mouth track moves with the smoothed in-betweens
     MS_ = MO[c].MS
     for a, b in runs:
         if b < len(MS_):

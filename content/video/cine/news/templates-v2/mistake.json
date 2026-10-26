@@ -5,7 +5,8 @@
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "d03_daniel_desk",
+  "d03t2_daniel_talk2"
  ],
  "accent": "red",
  "active": "cream",
@@ -394,5 +395,8 @@
   "name": "Stop Saying This",
   "ep": 1
  },
- "caption_cap": 62
+ "caption_cap": 62,
+ "listen": [
+  "d03l_daniel_listen"
+ ]
 }

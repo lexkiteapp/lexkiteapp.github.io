@@ -5,7 +5,9 @@
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c04_carlos_3d"
+  "c04_carlos_3d",
+  "c04t2_carlos_3d_talk2",
+  "c04t3_carlos_3d_talk3"
  ],
  "accent": "green",
  "active": "green",
@@ -399,5 +401,8 @@
   "name": "Same or Different?",
   "ep": 1
  },
- "caption_cap": 42
+ "caption_cap": 42,
+ "listen": [
+  "c04l_carlos_3d_listen"
+ ]
 }

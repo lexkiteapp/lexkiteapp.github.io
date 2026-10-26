@@ -171,10 +171,11 @@ _art = 60 * _nw / max(_art_t, 1e-3); _ovr = 60 * _nw / max(_span, 1e-3)
 R['pace'] = dict(ok=_art <= 240 and _ovr <= 130, articulation_wpm=round(_art), overall_wpm=round(_ovr), words=_nw, note='articulation = words / time inside spoken lines; overall = words / talk span minus count/turn beats')
 # ---- continuity: forward-only source frames, dissolves between talk clips, no reverse playback
 rev = []; holds = []; prev = None
+CUTS = {j['at_frame'] for j in T['joins'] if j.get('cut') == 'hard'}
 n_end = T['xfe']
 for i, f in enumerate(fr):
     cur = [(c, k) for c, k, w in f['src']]
-    if prev is not None and i < len(fr) - n_end:
+    if prev is not None and i < len(fr) - n_end and i not in CUTS:   # gated plan: declared hard cuts (talk <-> listen) are edits, not reverse steps
         for j, (c, k) in enumerate(cur):
             if (c, k - 1) in prev: continue
             if j == 1 and len(cur) == 2 and len(prev) == 1: continue   # first frame of a dissolve: the incoming clip enters here
@@ -193,7 +194,7 @@ def _host(x):
 hist = lambda x: cv2.calcHist([cv2.resize(_host(x)[:BY], (270, BY // 4))], [0], None, [64], [0, 256]); dd = [1 - float(cv2.compareHist(hist(a), hist(b), cv2.HISTCMP_CORREL)) for a, b in zip(g, g[1:])]
 sets = {T['spec']['set']}
 R['continuity'] = dict(ok=not rev and not holds and all(r >= 8 for r in xf_runs) and max(dd, default=99) < 0.10 and len(sets) == 1, reverse_steps=rev[:4], holds=holds[:4],
-                       dissolves=xf_runs, joins=[(j['from_clip'], j['exit'], j['to_clip'], j['entry'], j['diff']) for j in T['joins']], max_hist_change_6f=round(max(dd, default=0), 4),
+                       dissolves=xf_runs, joins=[(j.get('from_clip'), j.get('exit'), j['to_clip'], j['entry'], j.get('diff', j.get('cut'))) for j in T['joins']], max_hist_change_6f=round(max(dd, default=0), 4),
                        note='forward playback only; talk clips cross-dissolve (10 f) at their best-matching frames; last 10 f dissolve to frame 0 (loop)')
 badT = []
 for f in fr:

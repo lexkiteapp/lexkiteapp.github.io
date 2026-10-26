@@ -443,6 +443,246 @@
     787,
     813
    ]
+  },
+  "c04t2_carlos_3d_talk2": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    183
+   ],
+   "head": [
+    615,
+    590,
+    960,
+    1036
+   ],
+   "anchor": [
+    787,
+    813
+   ],
+   "parent": "c04_carlos_3d",
+   "raw": true
+  },
+  "c04t3_carlos_3d_talk3": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    140
+   ],
+   "head": [
+    615,
+    590,
+    960,
+    1036
+   ],
+   "anchor": [
+    787,
+    813
+   ],
+   "parent": "c04_carlos_3d",
+   "raw": true
+  },
+  "c04l_carlos_3d_listen": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    93
+   ],
+   "head": [
+    615,
+    590,
+    960,
+    1036
+   ],
+   "anchor": [
+    787,
+    813
+   ],
+   "parent": "c04_carlos_3d",
+   "raw": true
+  },
+  "a02t2_ama_talk2": {
+   "set": "classroom_board",
+   "who": "ama",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    500,
+    630,
+    840,
+    990
+   ],
+   "anchor": [
+    670,
+    755
+   ],
+   "parent": "a02_ama_board",
+   "raw": true
+  },
+  "a02l_ama_listen": {
+   "set": "classroom_board",
+   "who": "ama",
+   "usable": [
+    0,
+    200
+   ],
+   "head": [
+    500,
+    630,
+    840,
+    990
+   ],
+   "anchor": [
+    670,
+    755
+   ],
+   "parent": "a02_ama_board",
+   "raw": true
+  },
+  "c01t2_carlos_talk2": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    530,
+    650,
+    860,
+    1000
+   ],
+   "anchor": [
+    695,
+    775
+   ],
+   "parent": "c01_carlos_board",
+   "raw": true
+  },
+  "c01t3_carlos_talk3": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    150
+   ],
+   "head": [
+    530,
+    650,
+    860,
+    1000
+   ],
+   "anchor": [
+    695,
+    775
+   ],
+   "parent": "c01_carlos_board",
+   "raw": true
+  },
+  "c01l_carlos_listen": {
+   "set": "classroom_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    170
+   ],
+   "head": [
+    530,
+    650,
+    860,
+    1000
+   ],
+   "anchor": [
+    695,
+    775
+   ],
+   "parent": "c01_carlos_board",
+   "raw": true
+  },
+  "d03t2_daniel_talk2": {
+   "set": "classroom_board",
+   "who": "daniel",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    610,
+    370,
+    1000,
+    790
+   ],
+   "anchor": [
+    805,
+    600
+   ],
+   "parent": "d03_daniel_desk",
+   "raw": true
+  },
+  "d03l_daniel_listen": {
+   "set": "classroom_board",
+   "who": "daniel",
+   "usable": [
+    0,
+    230
+   ],
+   "head": [
+    610,
+    370,
+    1000,
+    790
+   ],
+   "anchor": [
+    805,
+    600
+   ],
+   "parent": "d03_daniel_desk",
+   "raw": true
+  },
+  "k03l2_kai_listen": {
+   "set": "classroom_board",
+   "who": "kai",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    640,
+    470,
+    960,
+    870
+   ],
+   "anchor": [
+    780,
+    700
+   ],
+   "parent": "k03_kai_desk",
+   "raw": true
+  },
+  "m03l2_mei_listen": {
+   "set": "classroom_board",
+   "who": "mei",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    570,
+    470,
+    880,
+    810
+   ],
+   "anchor": [
+    715,
+    650
+   ],
+   "parent": "m03_mei_desk",
+   "raw": true
   }
  }
 }
