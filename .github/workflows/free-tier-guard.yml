@@ -1,7 +1,7 @@
 # Free-tier guard hằng ngày (docs/FREE-TIER.md): số dùng THẬT (Cloudflare GraphQL + Pages API + GitHub API) so với trần gói miễn phí.
 # ≥ 60 % → ::warning + bảng trong Summary · ≥ 80 % → mở/cập nhật issue nhãn 'free-tier' kèm hành động đề xuất (hết nguy cơ → tự đóng).
 # Lượt Worker+Functions ≥ 80 % → web/free-tier-state.json mode "shed" (Worker trả bản cache, trang thí điểm noindex) – chỉ commit khi chế độ ĐỔI.
-# Không bao giờ tự nâng gói. Secrets: CF_ANALYTICS_TOKEN (+ CF_ACCOUNT_ID có sẵn), CF_ANALYTICS_TOKEN_2 (+ CF_ACCOUNT_2 có sẵn) – thiếu → bỏ qua trung tính phần đó.
+# Không bao giờ tự nâng gói. Secrets: CF_ANALYTICS_TOKEN (đã thêm 26/10), CF_ANALYTICS_TOKEN_2 + CF_ACCOUNT_2 (tài khoản 2, chưa có) – thiếu → bỏ qua trung tính phần đó.
 name: free-tier-guard
 on:
   schedule:
@@ -22,7 +22,7 @@ jobs:
         id: guard
         env:
           CF_ANALYTICS_TOKEN: '${{ secrets.CF_ANALYTICS_TOKEN }}'
-          CF_ACCOUNT_ID: '${{ secrets.CF_ACCOUNT_ID }}'
+          CF_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7 # ID tài khoản chính (công khai, như dict-stage.yml)
           CF_ANALYTICS_TOKEN_2: '${{ secrets.CF_ANALYTICS_TOKEN_2 }}'
           CF_ACCOUNT_2: '${{ secrets.CF_ACCOUNT_2 }}'
           GITHUB_TOKEN: '${{ github.token }}'

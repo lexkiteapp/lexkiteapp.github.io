@@ -43,7 +43,7 @@
 ## 5. Khoá cần thêm (GitHub › Settings › Secrets › Actions)
 1. `CF_ANALYTICS_TOKEN` – tài khoản Cloudflare chính, Custom Token: **Account › Account Analytics › Read** + **Account › Cloudflare Pages › Read**, chỉ tài khoản `e34e14b7…`. (Có thể dùng cùng khoá `lexkite-analytics-read` ở docs/CAPACITY.md §5 nếu thêm quyền Pages Read.)
 2. `CF_ANALYTICS_TOKEN_2` – tài khoản 2, **Account Analytics › Read**.
-`CF_ACCOUNT_ID`, `CF_ACCOUNT_2` đã có. Không dùng khoá đa năng `cf-token`.
+ID tài khoản chính ghi thẳng trong workflow (công khai). Tài khoản 2 cần thêm secret `CF_ACCOUNT_2` (ID tài khoản 2) cùng `CF_ANALYTICS_TOKEN_2`. Không dùng khoá đa năng `cf-token`. Trạng thái 26/10: `CF_ANALYTICS_TOKEN` đã thêm.
 
 ## 6. Số đo đầu tiên (26/10/2026, chạy tay `--dry`)
 Workers+Functions hôm qua 13,4k (13 %; đỉnh 7 ngày 32,8k = 33 %) · D1 sync ghi 33k (33 %; đỉnh 57,6k) · **D1 tài khoản 2 ghi 120k (120 %)** · **Pages build tháng 10: 941 (188 %)** – build vẫn chạy nhưng vượt trần công bố · repo web 916 MB (89 %) · lexkite-media 677 MB (66 %) · Actions cache 9,85 GB (mềm) · R2 chưa có số liệu (bucket blog chưa dùng).
