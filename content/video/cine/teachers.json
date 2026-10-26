@@ -683,6 +683,106 @@
    ],
    "parent": "m03_mei_desk",
    "raw": true
+  },
+  "a02t3_ama_talk3": {
+   "set": "classroom_board",
+   "who": "ama",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    500,
+    630,
+    840,
+    990
+   ],
+   "anchor": [
+    670,
+    755
+   ],
+   "parent": "a02_ama_board",
+   "raw": true
+  },
+  "d03t3_daniel_talk3": {
+   "set": "classroom_board",
+   "who": "daniel",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    610,
+    370,
+    1000,
+    790
+   ],
+   "anchor": [
+    805,
+    600
+   ],
+   "parent": "d03_daniel_desk",
+   "raw": true
+  },
+  "k03t3_kai_talk3": {
+   "set": "classroom_board",
+   "who": "kai",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    640,
+    470,
+    960,
+    870
+   ],
+   "anchor": [
+    780,
+    700
+   ],
+   "parent": "k03_kai_desk",
+   "raw": true
+  },
+  "m03t2_mei_talk2": {
+   "set": "classroom_board",
+   "who": "mei",
+   "usable": [
+    0,
+    240
+   ],
+   "head": [
+    570,
+    470,
+    880,
+    810
+   ],
+   "anchor": [
+    715,
+    650
+   ],
+   "parent": "m03_mei_desk",
+   "raw": true
+  },
+  "m03t3_mei_talk3": {
+   "set": "classroom_board",
+   "who": "mei",
+   "usable": [
+    0,
+    190
+   ],
+   "head": [
+    570,
+    470,
+    880,
+    810
+   ],
+   "anchor": [
+    715,
+    650
+   ],
+   "parent": "m03_mei_desk",
+   "raw": true
   }
  }
 }
