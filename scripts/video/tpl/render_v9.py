@@ -625,6 +625,7 @@ class Pop:
         ic = ICON.resize((96, 96), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 95, 95], 24, fill=255)
         ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
         say = stack([rich_row(r, z) for r in wrap_rows([[[seg, 'white']]], rw - 8 - 110, z)], 2); pl = pill([('lexkite.com', ACC if ACC not in (COL['navy2'], COL['navy']) else COL['mint'])], z, COL['navy'], tight=True)
+        if pl.width > rw - 8: pl = rich_row([['lexkite.com', 'green']], z)   # narrow board column (layout v12): the site in board ink, same size, no pill
         one = stack([hrow([ic, say], 14), pl], 10); s.cta_pages = None
         if s.fits(one, rw, rh): s.im = one
         else:   # two board pages: the call to action, then the site pill when "lexkite.com" is spoken

@@ -124,18 +124,10 @@
  "pops": [
   {
    "id": "hook",
-   "kind": "pair",
+   "kind": "rich",
    "role": "hook",
-   "anim": "slide",
-   "vs": true,
-   "left": {
-    "title": "BORROW",
-    "color": "navy2"
-   },
-   "right": {
-    "title": "LEND",
-    "color": "green"
-   },
+   "anim": "stamp",
+   "size": 96,
    "from": [
     "t",
     0
@@ -145,7 +137,30 @@
     -1,
     "e",
     0.25
-   ]
+   ],
+   "rows": [
+    [
+     [
+      "borrow",
+      "yellow"
+     ],
+     [
+      " or",
+      "white"
+     ]
+    ],
+    [
+     [
+      "lend",
+      "green"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
   },
   {
    "id": "borrow",
