@@ -1159,7 +1159,7 @@ for fi in range(NF):
     if fi % 48 == 0: print(f'frame {fi}/{NF} s={s:.3f}', flush=True)
 if PREV is not None: print('preview written', o.out + '.preview'); sys.exit(0)
 enc.stdin.close(); assert enc.wait() == 0, 'ffmpeg encode failed'
-cv2.imwrite(o.out + '.src0.png', norm_frame(RAW[SP['clips'][0]][A0]))
+cv2.imwrite(o.out + '.src0.png', norm_frame(RAW[SEQ[0][0][0]][SEQ[0][0][1]]))   # the source frame actually shown at t = 0 (gated plan starts at the talk clip's first usable frame)
 
 # ---------------- audio: voices + set ambience (-40 dB) + ticks + ding + soft pops ----------------
 SR = 24000; mix = np.zeros(int(TOTAL * SR) + SR, np.float32)
