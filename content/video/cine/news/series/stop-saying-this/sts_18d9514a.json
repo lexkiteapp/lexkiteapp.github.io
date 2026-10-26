@@ -2,10 +2,10 @@
  "id": "sts_18d9514a",
  "template": "mistake",
  "title": "Stop Saying This #42 – Stop saying \"The number of student are increasing.\" – say \"The number of students is increasing.\"",
- "teacher": "daniel",
+ "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk"
+  "c01_carlos_board"
  ],
  "accent": "red",
  "active": "cream",

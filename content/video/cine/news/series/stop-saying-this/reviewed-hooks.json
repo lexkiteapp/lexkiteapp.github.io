@@ -35,8 +35,8 @@
   "sts_1740b6df": {
    "template": "mistake",
    "hook": "✗ Stop / “Remember me to call her.”",
-   "hook_true": true,
-   "script_reviewed": true,
+   "hook_true": null,
+   "script_reviewed": false,
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "Remember me to call her.",
@@ -59,9 +59,7 @@
     "wrong_line": "m_w",
     "wrong": "Remember me to call her."
    },
-   "source": "sb_1740b6df",
-   "reviewer": "Claude (expert American English teacher review)",
-   "note": "remember/remind confusion is very common (one verb in many L1s). “Remember me to call her” is wrong in US English (the old UK “remember me to someone” = send regards is a different pattern). Rule, examples and quiz (Can you remind me to buy milk?) are correct. Hook “✗ Stop / Remember me to call her.” is true. Re-recorded after the hook row layout change (script unchanged)."
+   "source": "sb_1740b6df"
   },
   "sts_2bcb2bbd": {
    "template": "mistake",

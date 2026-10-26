@@ -17,6 +17,8 @@ import difflib, glob, hashlib, json, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 OUT = f'{ROOT}/content/video/cine/news/series'
 GOLD_EP1 = {'stop-saying-this': ['i am agree'], 'same-or-different': ['borrow', 'lend']}   # templates-v2 episode 1 (hand-written)
+BOARDW = {'d03_daniel_desk': 532, 'k03_kai_desk': 548, 'm03_mei_desk': 532, 'c01_carlos_board': 852, 'a02_ama_board': 856}   # measured board text width (render logs)
+ALT = {'stop-saying-this': dict(teacher='carlos', clips=['c01_carlos_board'])}   # wide-board presenter when a hook word does not fit the series desk board
 SERIES = {
     'stop-saying-this': dict(name='Stop Saying This', template='mistake', type='stop-saying', pre='sts', L='m', teacher='daniel', set='classroom_board',
                              clips=['d03_daniel_desk'], accent='red', active='cream', hook_style='stop: red X badge + quoted error, stamp-in',
@@ -210,6 +212,15 @@ def selfcheck(s):
     if 'lexkite.com' not in S[f'{L}_c'] or not S[f'{L}_c'].startswith('Save this, and '): e.append('CTA line')
     hw = len([x for x in re.split(r'[\s/|]+', hook_text(s)) if re.search(r'[A-Za-z]', x)])
     if hw > HOOK_MAX: e.append(f'hook {hw} words on screen')
+    # the narrowest board (desk sets, 532 px) must hold the widest single hook word at the 72 px minimum (render_v9 draws at ~1.35x the
+    # font's advance width incl. stroke); a wider word stops the render (sts_1740b6df: “Remember = 581 px), so it is caught here instead
+    hk = next(p for p in s['pops'] if p.get('role') == 'hook')
+    if hk['kind'] == 'rich':
+        from PIL import ImageFont
+        fo = ImageFont.truetype(os.path.join(os.path.dirname(__file__), '../../../brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf'), 72)
+        wide = max((x for r in hk['rows'] for seg in r if not seg[0].startswith('@') for x in seg[0].split()), key=fo.getlength, default='')
+        bw = BOARDW.get(s['clips'][0], 532) - 12
+        if wide and 1.35 * fo.getlength(wide) > bw: e.append(f'hook word "{wide}" too wide for the {s["clips"][0]} board')
     if s.get('error_re'):
         rx = re.compile(s['error_re']); hit = [k for k, t in S.items() if rx.search(t.lower())]
         if hit != s['error_lines']: e.append(f'error phrase in {hit}')
@@ -235,6 +246,10 @@ def main():
         plan, skipped, verdicts, seen = [], [], {}, set(); ep = 2   # episode 1 = hand-written templates-v2 gold spec
         for it in items:
             spec, why = build(slug, it, ep)
+            if not spec and 'too wide' in (why or '') and slug in ALT:   # same lesson on the wide board instead of skipping it
+                keep = {k: C[k] for k in ALT[slug]}; C.update(ALT[slug])
+                try: spec, why = build(slug, it, ep)
+                finally: C.update(keep)
             if spec and content_hash(spec) in seen: spec, why = None, 'duplicate key sentence'
             if not spec: skipped.append({'bank': it['id'], 'point': it['point'], 'reason': why}); continue
             seen.add(content_hash(spec)); S = {l['id']: l['text'] for l in spec['lines'] if l.get('text')}; L = C['L']
