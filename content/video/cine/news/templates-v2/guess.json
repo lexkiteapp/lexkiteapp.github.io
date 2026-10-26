@@ -157,9 +157,8 @@
   },
   {
    "id": "rev1",
-   "kind": "rich",
-   "anim": "stamp",
-   "size": 96,
+   "kind": "lesson",
+   "anim": "spring",
    "from": [
     "g_1a",
     0,
@@ -172,21 +171,19 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
+   "items": [
+    {
+     "icon": "🧳",
+     "color": "green",
+     "word": "luggage",
+     "ipa": "/ˈlʌɡɪdʒ/",
+     "mean": "= bags for a trip",
+     "ex": [
+      "“Help me with my ",
       "luggage",
-      "green"
-     ],
-     [
-      "@ok"
+      ".”"
      ]
-    ],
-    [
-     [
-      "@ipa:/ˈlʌɡɪdʒ/"
-     ]
-    ]
+    }
    ]
   },
   {
@@ -210,9 +207,8 @@
   },
   {
    "id": "rev2",
-   "kind": "rich",
-   "anim": "stamp",
-   "size": 90,
+   "kind": "lesson",
+   "anim": "spring",
    "from": [
     "g_2a",
     0,
@@ -225,30 +221,19 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
+   "items": [
+    {
+     "icon": "🛗",
+     "color": "green",
+     "word": "elevator",
+     "ipa": "/ˈeləveɪtər/",
+     "mean": "= lift (UK)",
+     "ex": [
+      "“Where is the ",
       "elevator",
-      "green"
-     ],
-     [
-      "@ok"
+      "?”"
      ]
-    ],
-    [
-     [
-      "@ipa:/ˈeləveɪtər/"
-     ]
-    ],
-    [
-     [
-      "@emoji:🇬🇧"
-     ],
-     [
-      " lift",
-      "yellow"
-     ]
-    ]
+    }
    ]
   },
   {
@@ -272,10 +257,8 @@
   },
   {
    "id": "reveal",
-   "kind": "rich",
-   "role": "headline",
-   "anim": "stamp",
-   "size": 96,
+   "kind": "lesson",
+   "anim": "spring",
    "from": [
     "g_3a",
     0,
@@ -288,38 +271,26 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
+   "items": [
+    {
+     "icon": "🧾",
+     "color": "green",
+     "word": "receipt",
+     "ipa": "/rɪˈsiːt/",
+     "mean": "= silent p!",
+     "ex": [
+      "“Can I get a ",
       "receipt",
-      "green"
-     ],
-     [
-      "@ok"
+      "?”"
      ]
-    ],
-    [
-     [
-      "@ipa:/rɪˈsiːt/"
-     ]
-    ],
-    [
-     [
-      "silent ",
-      "white"
-     ],
-     [
-      "p",
-      "red"
-     ]
-    ]
-   ]
+    }
+   ],
+   "role": "headline"
   },
   {
    "id": "comment",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "g_r",
     0,
@@ -332,22 +303,36 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:💬"
-     ],
-     [
-      " How many",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "YOUR SCORE?"
+      ]
      ]
-    ],
-    [
-     [
-      "did you get?",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💬"
+      ],
+      [
+       "Tell me in",
+       "navy"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "the comments!",
+       "green"
+      ]
+     ]
+    }
    ]
   },
   {
@@ -368,7 +353,7 @@
   "name": "Guess the Word",
   "ep": 1
  },
- "caption_cap": 62,
+ "caption_cap": 42,
  "listen": [
   "k03l2_kai_listen"
  ]

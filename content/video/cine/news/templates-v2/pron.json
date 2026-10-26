@@ -156,9 +156,8 @@
   },
   {
    "id": "joke",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "f_m",
     0,
@@ -171,24 +170,47 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🪑"
-     ],
-     [
-      " a ",
-      "white"
-     ],
-     [
-      "TABLE",
-      "red"
-     ],
-     [
-      "?",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "NOT THIS"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "com·for·",
+       "navy"
+      ],
+      [
+       "TA",
+       "red"
+      ],
+      [
+       "·ble",
+       "navy"
+      ],
+      [
+       "@emoji:❌"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🪑"
+      ],
+      [
+       " a table?",
+       "red"
+      ]
+     ]
+    }
    ]
   },
   {
@@ -263,9 +285,8 @@
   },
   {
    "id": "ex",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 74,
    "from": [
     "_turn",
     null,
@@ -278,35 +299,49 @@
     "s",
     -0.1
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🪑"
-     ],
-     [
-      " so ",
-      "white"
-     ],
-     [
-      "comfortable",
-      "green"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "IN A SENTENCE"
+      ]
      ]
-    ],
-    [
-     [
-      "@ipa:/ˈkʌmftərbəl/"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "This chair is so"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "comfortable",
+       "hl"
+      ],
+      [
+       "!"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "@ipa:/ˈkʌmftərbəl/"
+      ]
+     ]
+    }
    ]
   },
   {
    "id": "bonus",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 80,
    "from": [
     "f_b",
     0,
@@ -319,33 +354,45 @@
     "e",
     0.3
    ],
-   "rows": [
-    [
-     [
-      "VEG",
-      "mint"
-     ],
-     [
-      "·ta·ble",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAME TRICK"
+      ]
      ]
-    ],
-    [
-     [
-      "3 beats",
-      "yellow"
-     ],
-     [
-      "@ok"
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "VEG",
+       "green"
+      ],
+      [
+       "·ta·ble"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "3 beats",
+       "green"
+      ],
+      [
+       "@emoji:✅"
+      ]
+     ]
+    }
    ]
   },
   {
    "id": "share",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "f_b",
     -1,
@@ -358,22 +405,55 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:📲"
-     ],
-     [
-      " Send to",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
      ]
-    ],
-    [
-     [
-      "a friend",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "COMF",
+       "green"
+      ],
+      [
+       "·ter·ble"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "@ipa:/ˈkʌmftərbəl/"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "VEG",
+       "green"
+      ],
+      [
+       "·ta·ble"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "3 beats, stress first"
+      ]
+     ]
+    }
    ]
   },
   {
@@ -394,7 +474,7 @@
   "name": "Where's the Stress?",
   "ep": 1
  },
- "caption_cap": 62,
+ "caption_cap": 42,
  "listen": [
   "a02l_ama_listen"
  ]

@@ -622,22 +622,39 @@ class Pop:
     def fits(s, im, rw, rh): return im.width <= rw - 4 and im.height <= rh - 4
     def build_lesson(s, rw, rh):   # largest scale <= 1 at which the FULL card (all items) fits the board region; never below 0.85 of the mock
         P = s.P; s.etype = 'card'; n = len(P['items'])
-        for k in [x / 100 for x in range(100, 84, -1)]:
+        s.paged = False
+        for k in [x / 100 for x in range(100, 88, -1)]:
             im, wneed = lesson_im(P, n, k, rw - 4)
             if wneed <= rw - 4 and im.height <= rh - 4: break
-        else: raise AssertionError(('lesson card does not fit the board region at 0.85 of the mock size', s.id, round(wneed), im.height, rw, rh))
-        s.k = k; s.rw = rw - 4; s.reveal = [s.t0] + [tm_of(it['at']) if it.get('at') else s.t0 for it in P['items'][1:]]
+        else:   # low board strip (2D desk / board clips): ONE item per page, same mock typography (title kept when it fits)
+            s.paged = True; best = None
+            for k in [x / 100 for x in range(100, 88, -1)]:
+                for tt in ([True, False] if P.get('title') else [False]):
+                    ok_ = all(lesson_im(dict(P, items=[it], title=P['title'] if tt else None, footer=None), 1, k, rw - 4)[1] <= rw - 4 and
+                              lesson_im(dict(P, items=[it], title=P['title'] if tt else None, footer=None), 1, k, rw - 4)[0].height <= rh - 4 for it in P['items'])
+                    if ok_: best = (k, tt); break
+                if best: break
+            assert best, ('lesson card: not even one item per page fits the board region at 0.89 of the mock size', s.id, rw, rh)
+            k, s.ptitle = best
+        s.k = k; s.rw = rw - 4; s.rh = rh - 4; n_ = len(P['items'])
+        s.reveal = [s.t0] + [tm_of(it['at']) if it.get('at') else s.t0 + (s.t1 - s.t0) * i / n_ for i, it in enumerate(P['items'][1:], 1)]
         s.text = ' / '.join(it['word'] + (' ' + it.get('ipa', '')) for it in P['items']); s.px = 38 * k
         s.meas = [('card', CAPR * 38 * k)]
-        s.im = s.lesson_frame(n, rh - 4)   # canvas = whole region height: the card sits at the TOP-left like the mock
+        s.im = s.lesson_frame(n, rh - 4) if not s.paged else s.lesson_page(0)   # canvas = whole region height: the card sits at the TOP-left like the mock
     def build_note(s, rw, rh):   # mock typography at the largest scale <= 1 that fits; never below 0.85
         L_ = s.P['lines']; s.etype = 'card'
-        for k in [x / 100 for x in range(100, 84, -1)]:
+        for k in [x / 100 for x in range(100, 88, -1)]:
             im, wneed = note_im(L_, k, rw - 4)
             if wneed <= rw - 4 and im.height <= rh - 4: break
-        else: raise AssertionError(('note does not fit the board region at 0.85 of the mock size', s.id, round(wneed), im.height, rw, rh))
+        else: raise AssertionError(('note does not fit the board region at 0.89 of the mock size', s.id, round(wneed), im.height, rw, rh))
         c = Image.new('RGBA', (rw - 4, rh - 4), (0, 0, 0, 0)); c.alpha_composite(im, (0, 0)); s.im = c; s.px = 38 * k
         s.text = ' / '.join(''.join(sg[0].split(':', 1)[1] if sg[0].startswith('@') else sg[0] for sg in l['segs']) for l in L_); s.meas = [('card', CAPR * min(NOTE_ST[l['st']][0] for l in L_) * k)]
+    def lesson_page(s, i):   # paged mode: item i alone (one word per page)
+        key = ('pg', i)
+        if key not in s.cache:
+            P = s.P; im = lesson_im(dict(P, items=[P['items'][i]], title=P.get('title') if s.ptitle else None, footer=None), 1, s.k, s.rw)[0]
+            c = Image.new('RGBA', (s.rw, s.rh), (0, 0, 0, 0)); c.alpha_composite(im, (0, 0)); s.cache[key] = c
+        return s.cache[key]
     def lesson_frame(s, m, H):   # same canvas height for every build-up step (no jump), content top-left
         key = ('ls', m)
         if key not in s.cache:
@@ -868,7 +885,9 @@ class Pop:
             if key not in s.cache: s.cache[key] = s.compose_stress(act)
             return s.cache[key]
         if k == 'turn': return s.compose_turn(T)
-        if k == 'lesson': s.mcur = s.meas; s.last_im = s.lesson_frame(sum(1 for r in s.reveal if T >= r - 0.02), s.im.height); return s.last_im
+        if k == 'lesson':
+            s.mcur = s.meas; m_ = sum(1 for r in s.reveal if T >= r - 0.02)
+            s.last_im = s.lesson_page(max(0, m_ - 1)) if s.paged else s.lesson_frame(m_, s.im.height); return s.last_im
         s.mcur = s.meas
         if k == 'card' and getattr(s, 'sub_at', None) and T >= s.sub_at: s.mcur = s.meas_sub; return s.im_sub
         if k == 'cta' and getattr(s, 'cta_pages', None) and T >= s.cta_pages[0]: return s.cta_pages[1]

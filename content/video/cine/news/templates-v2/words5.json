@@ -140,9 +140,8 @@
   },
   {
    "id": "sit",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 80,
    "from": [
     "w_s",
     0,
@@ -155,32 +154,45 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🍝"
-     ],
-     [
-      " very good?",
-      "red"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "DINNER TIME"
+      ]
      ]
-    ],
-    [
-     [
-      "@emoji:😴"
-     ],
-     [
-      " boring!",
-      "white"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🍝"
+      ],
+      [
+       "very good?",
+       "red"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:😴"
+      ],
+      [
+       "too boring!",
+       "navy"
+      ]
+     ]
+    }
    ]
   },
   {
    "id": "t1",
-   "kind": "rich",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 96,
    "from": [
     "w_1",
     0,
@@ -193,28 +205,20 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@num:1"
-     ],
-     [
-      " great",
-      "green"
-     ]
-    ],
-    [
-     [
-      "@ipa:/ɡreɪt/"
-     ]
-    ]
+   "items": [
+    {
+     "icon": "1️⃣",
+     "color": "green",
+     "word": "great",
+     "ipa": "/ɡreɪt/",
+     "mean": "= very good"
+    }
    ]
   },
   {
    "id": "t2",
-   "kind": "rich",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 96,
    "from": [
     "w_2",
     0,
@@ -227,37 +231,20 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@num:2"
-     ],
-     [
-      " delicious",
-      "green"
-     ]
-    ],
-    [
-     [
-      "@ipa:/dɪˈlɪʃəs/"
-     ]
-    ],
-    [
-     [
-      "@emoji:🍝"
-     ],
-     [
-      " food",
-      "white"
-     ]
-    ]
+   "items": [
+    {
+     "icon": "2️⃣",
+     "color": "green",
+     "word": "delicious",
+     "ipa": "/dɪˈlɪʃəs/",
+     "mean": "= for food"
+    }
    ]
   },
   {
    "id": "t3",
-   "kind": "rich",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 96,
    "from": [
     "w_3",
     0,
@@ -270,28 +257,20 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@num:3"
-     ],
-     [
-      " amazing",
-      "green"
-     ]
-    ],
-    [
-     [
-      "@ipa:/əˈmeɪzɪŋ/"
-     ]
-    ]
+   "items": [
+    {
+     "icon": "3️⃣",
+     "color": "green",
+     "word": "amazing",
+     "ipa": "/əˈmeɪzɪŋ/",
+     "mean": "= very surprising"
+    }
    ]
   },
   {
    "id": "t4",
-   "kind": "rich",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 96,
    "from": [
     "w_4",
     0,
@@ -304,37 +283,20 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@num:4"
-     ],
-     [
-      " awesome",
-      "green"
-     ]
-    ],
-    [
-     [
-      "@ipa:/ˈɔːsəm/"
-     ]
-    ],
-    [
-     [
-      "@emoji:🙌"
-     ],
-     [
-      " casual",
-      "white"
-     ]
-    ]
+   "items": [
+    {
+     "icon": "4️⃣",
+     "color": "green",
+     "word": "awesome",
+     "ipa": "/ˈɔːsəm/",
+     "mean": "= casual"
+    }
    ]
   },
   {
    "id": "t5",
-   "kind": "rich",
+   "kind": "lesson",
    "anim": "spring",
-   "size": 96,
    "from": [
     "w_5",
     0,
@@ -347,37 +309,20 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@num:5"
-     ],
-     [
-      " excellent",
-      "green"
-     ]
-    ],
-    [
-     [
-      "@ipa:/ˈeksələnt/"
-     ]
-    ],
-    [
-     [
-      "@emoji:🏆"
-     ],
-     [
-      " work",
-      "white"
-     ]
-    ]
+   "items": [
+    {
+     "icon": "5️⃣",
+     "color": "green",
+     "word": "excellent",
+     "ipa": "/ˈeksələnt/",
+     "mean": "= great work"
+    }
    ]
   },
   {
    "id": "recap",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 70,
    "from": [
     "w_r",
     0,
@@ -390,34 +335,43 @@
     "e",
     0.3
    ],
-   "rows": [
-    [
-     [
-      "great · amazing",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
      ]
-    ],
-    [
-     [
-      "awesome · delicious",
-      "white"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "great · amazing",
+       "green"
+      ]
      ]
-    ],
-    [
-     [
-      "excellent",
-      "white"
-     ],
-     [
-      " ",
-      "white"
-     ],
-     [
-      "@emoji:🤔"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "awesome · delicious",
+       "green"
+      ]
      ]
-    ]
-   ],
-   "align": "c"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "excellent",
+       "green"
+      ]
+     ]
+    }
+   ]
   },
   {
    "id": "share",
@@ -472,7 +426,7 @@
   "name": "Say It Like a Native",
   "ep": 1
  },
- "caption_cap": 62,
+ "caption_cap": 42,
  "listen": [
   "m03l2_mei_listen"
  ]

@@ -178,9 +178,8 @@
   },
   {
    "id": "fix",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "m_k",
     0,
@@ -193,28 +192,53 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "I agree.",
-      "green"
-     ],
-     [
-      "@ok"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
      ]
-    ],
-    [
-     [
-      "@ipa:/əˈɡriː/"
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "I agree.",
+       "green"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@ipa:/aɪ əˈɡriː/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "no “"
+      ],
+      [
+       "am",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
    ]
   },
   {
    "id": "like",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "m_l",
     0,
@@ -227,35 +251,63 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:🍕"
-     ],
-     [
-      " I am like",
-      "red"
-     ],
-     [
-      "@x"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
      ]
-    ],
-    [
-     [
-      "I like pizza",
-      "green"
-     ],
-     [
-      "@ok"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🍕"
+      ],
+      [
+       "I like pizza",
+       "green"
+      ],
+      [
+       "@emoji:✅"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🍕"
+      ],
+      [
+       "I am like pizza",
+       "red"
+      ],
+      [
+       "@emoji:❌"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "agree works like "
+      ],
+      [
+       "like",
+       "hl"
+      ]
+     ]
+    }
    ]
   },
   {
    "id": "native",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "m_t",
     0,
@@ -268,29 +320,33 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:💯"
-     ],
-     [
-      " I totally",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SOUND NATIVE"
+      ]
      ]
-    ],
-    [
-     [
-      "agree!",
-      "green"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💯"
+      ],
+      [
+       "I totally agree!",
+       "green"
+      ]
      ]
-    ]
+    }
    ]
   },
   {
    "id": "qs",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "m_q",
     0,
@@ -303,19 +359,31 @@
     "s",
     -0.02
    ],
-   "rows": [
-    [
-     [
-      "Which one",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
      ]
-    ],
-    [
-     [
-      "is right?",
-      "yellow"
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "Which one"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "is right?"
+      ]
+     ]
+    }
    ]
   },
   {
@@ -345,9 +413,8 @@
   },
   {
    "id": "share",
-   "kind": "rich",
+   "kind": "note",
    "anim": "spring",
-   "size": 84,
    "from": [
     "m_a",
     -1,
@@ -360,22 +427,45 @@
     "s",
     -0.08
    ],
-   "rows": [
-    [
-     [
-      "@emoji:📲"
-     ],
-     [
-      " Send to",
-      "white"
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
      ]
-    ],
-    [
-     [
-      "a friend",
-      "yellow"
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " I am agree",
+       "red"
+      ]
      ]
-    ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " I agree",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/əˈɡriː/"
+      ]
+     ]
+    }
    ]
   },
   {
@@ -396,7 +486,7 @@
   "name": "Stop Saying This",
   "ep": 1
  },
- "caption_cap": 62,
+ "caption_cap": 42,
  "listen": [
   "d03l_daniel_listen"
  ]
