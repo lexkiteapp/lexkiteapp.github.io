@@ -29,5 +29,5 @@ jobs:
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add web/packs
           git diff --cached --quiet && exit 0
-          git commit -qm "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động)"
+          git commit -qm "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động) [CF-Pages-Skip]"
           for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 7)); done; exit 1

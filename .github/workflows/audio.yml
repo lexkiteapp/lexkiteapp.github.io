@@ -55,5 +55,5 @@ jobs:
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           git add web/js/listen/audio-index.js
           git diff --cached --quiet && exit 0
-          git commit -qm "Âm thanh: thêm giọng Kokoro (còn ${{ steps.count.outputs.left }} câu trước lượt này)"
+          git commit -qm "Âm thanh: thêm giọng Kokoro (còn ${{ steps.count.outputs.left }} câu trước lượt này) [CF-Pages-Skip]"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1

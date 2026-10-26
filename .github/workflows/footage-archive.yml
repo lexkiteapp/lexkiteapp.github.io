@@ -50,7 +50,7 @@ jobs:
           git config user.name "Lexkite CI"; git config user.email "lexkiteapp@users.noreply.github.com"
           git add brand/library/cine/archive-manifest.json
           git diff --cached --quiet && { echo "manifest không đổi"; exit 0; }
-          git commit -qm "footage-archive #${{ github.run_number }}: manifest Kho Drive"
+          git commit -qm "footage-archive #${{ github.run_number }}: manifest Kho Drive [CF-Pages-Skip]"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; exit 1
       - name: Giữ manifest làm artifact (dự phòng nếu đẩy main lỗi)
         if: ${{ steps.lease.outputs.skip != '1' && (always() && github.event.inputs.dry_run != 'true') }}

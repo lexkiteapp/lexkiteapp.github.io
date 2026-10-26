@@ -25,5 +25,5 @@ jobs:
         run: |
           cd /tmp/play-shots && git init -q && git checkout -q -b play-shots
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add . && git commit -qm "Ảnh Google Play $(date -u +%F)"
+          git add . && git commit -qm "Ảnh Google Play $(date -u +%F) [CF-Pages-Skip]"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" play-shots

@@ -102,6 +102,6 @@ jobs:
           git config user.name "lexkite-bot"; git config user.email "actions@users.noreply.github.com"
           git checkout -b "$br"
           git add content/video/library.json brand/library/manifest.json
-          git commit -q -m "library: bản stacked từ CI library-build #${{ github.run_number }}"
+          git commit -q -m "library: bản stacked từ CI library-build #${{ github.run_number }} [CF-Pages-Skip]"
           git push -q origin "$br"
           gh pr create --title "library: bản stacked (CI #${{ github.run_number }})" --body "Kết quả workflow library-build: foot/figH/w/h + trạng thái cổng stacked trong content/video/library.json, manifest dựng brand/library/manifest.json. Bảng ghép mục WARN/FAIL: artifact library-results." --base "${{ github.ref_name }}" --head "$br" || echo "::warning::Không mở được PR (quyền Actions) – lấy artifact library-results"

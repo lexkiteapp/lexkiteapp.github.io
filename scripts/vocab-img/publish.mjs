@@ -66,6 +66,6 @@ if (process.argv.includes('--push') && n) {
   execFileSync('node', [P('scripts/build-lexicon.mjs'), '--write'], { stdio: 'inherit' });
   const m = (...a) => execFileSync('git', ['-C', P('.'), ...a], { stdio: 'inherit' });
   m('-c', 'user.name=lexkite-bot', '-c', 'user.email=lexkite-bot@users.noreply.github.com', 'add', IMG, REV, CARDS, 'web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json');
-  m('-c', 'user.name=lexkite-bot', '-c', 'user.email=lexkite-bot@users.noreply.github.com', 'commit', '-qm', `Ảnh minh hoạ từ vựng: +${n}`);
+  m('-c', 'user.name=lexkite-bot', '-c', 'user.email=lexkite-bot@users.noreply.github.com', 'commit', '-qm', `Ảnh minh hoạ từ vựng: +${n} [CF-Pages-Skip]`);
   for (let i = 0; i < 5; i++) { try { m('pull', '-q', '--rebase', 'origin', 'main'); m('push', '-q', 'origin', 'HEAD:main'); break; } catch (e) { if (i === 4) throw e; } }
 }
