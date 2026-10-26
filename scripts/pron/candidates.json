@@ -18,5 +18,10 @@
   "repo": "facebook/wav2vec2-lv-60-espeak-cv-ft",
   "shippable": true,
   "note": "Apache-2.0, espeak IPA vocab mapped to ARPA39"
+ },
+ "S": {
+  "artifact": "pron-model-s",
+  "shippable": true,
+  "note": "Conformer-CTC student (~12 M) distilled from C on GitHub CPU runners (pron-distill.yml); in-graph log-mel, input = normalised waveform"
  }
 }

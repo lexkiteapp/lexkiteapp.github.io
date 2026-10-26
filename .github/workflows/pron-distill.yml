@@ -1,0 +1,112 @@
+name: pron-distill
+# CPU distillation of a small browser-sized pronunciation student (docs/research/pron-phoneme-plan.md, "CPU distillation on GitHub"). 100 % free: GitHub CPU runners
+# (public repo), public HF data (LibriSpeech train-clean-100 + speechocean762 train, CC BY 4.0), teacher = facebook/wav2vec2-lv-60-espeak-cv-ft (Apache-2.0).
+# stage=teacher: matrix of shards -> soft targets as assets of release <tag>. stage=train: time-boxed chunk; re-dispatches itself until steps/max_chain.
+# stage=export: ONNX q8 -> release pron-model-s-<date> -> pron-eval.yml (4 gate metrics). stage=all: teacher -> train -> (chain) -> export. Modal path (pron-train.yml) untouched.
+on:
+  workflow_dispatch:
+    inputs:
+      stage: { description: 'teacher | train | export | all', default: 'all' }
+      shards: { description: 'LibriSpeech shards (~)', default: '20' }
+      limit: { description: 'utterances per shard (0 = all; smoke = 50)', default: '0' }
+      tag: { description: 'release tag holding shards + checkpoint', default: 'pron-distill-data' }
+      steps: { description: 'total optimiser steps (LR schedule length)', default: '80000' }
+      budget_min: { description: 'train minutes per chunk (job limit 360)', default: '320' }
+      chain: { description: 'index of this train chunk (set by the chain)', default: '1' }
+      max_chain: { description: 'max train chunks (~5.5 h each, 12 = ~3 days)', default: '12' }
+      force: { description: 'rebuild shards that already exist', default: 'false' }
+      eval_small: { description: 'smoke: pron-eval with tiny samples', default: 'false' }
+permissions: { contents: write, actions: write }
+env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}', TORCH_CPU: 'https://download.pytorch.org/whl/cpu' }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs: { matrix: '${{ steps.p.outputs.matrix }}', n: '${{ steps.p.outputs.n }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: py_compile + helper tests
+        run: |
+          pip install -q numpy==1.26.4 huggingface_hub==0.26.2
+          python -m py_compile scripts/pron/distill/*.py
+          python scripts/pron/distill/test_helpers.py
+      - id: p
+        if: inputs.stage == 'teacher' || inputs.stage == 'all'
+        run: python scripts/pron/distill/plan.py "${{ inputs.shards }}" "${{ inputs.limit }}" "${{ inputs.tag }}" "${{ inputs.force }}"
+  teacher:
+    needs: plan
+    if: needs.plan.outputs.n != '' && needs.plan.outputs.n != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy: { fail-fast: false, max-parallel: 20, matrix: { sh: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/pip, key: 'pron-distill-pip-v1-${{ hashFiles(''.github/workflows/pron-distill.yml'') }}' }
+      - id: mc
+        uses: actions/cache@v4
+        with: { path: models/C, key: 'pron-model-v1-C-${{ hashFiles(''scripts/pron/export.py'') }}' }
+      - name: deps
+        run: |
+          pip install -q torch==2.4.1 --index-url "$TORCH_CPU"
+          pip install -q numpy==1.26.4 scipy==1.13.1 soundfile==0.12.1 pandas==2.2.2 pyarrow==16.1.0 huggingface_hub==0.26.2 onnxruntime==1.20.1
+      - name: export teacher C (q8 ONNX) on cache miss
+        if: steps.mc.outputs.cache-hit != 'true'
+        run: |
+          pip install -q "optimum[onnxruntime]==1.23.3" "transformers==4.46.3"
+          python scripts/pron/export.py facebook/wav2vec2-lv-60-espeak-cv-ft models/C
+      - name: teacher shard
+        run: python scripts/pron/distill/teacher.py '${{ toJSON(matrix.sh) }}' shard.npz models/C "${{ inputs.limit }}"
+      - name: upload shard (release asset, never prints the token)
+        run: python scripts/pron/distill/common.py upload "${{ inputs.tag }}" shard.npz "shard-${{ matrix.sh.id }}.npz" replace
+  train:
+    needs: [plan, teacher]
+    if: always() && (inputs.stage == 'train' || (inputs.stage == 'all' && needs.teacher.result != 'failure' && needs.teacher.result != 'cancelled'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    concurrency: { group: 'pron-distill-train-${{ inputs.tag }}', cancel-in-progress: false }
+    outputs: { finished: '${{ steps.t.outputs.finished }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/pip, key: 'pron-distill-pip-v1-${{ hashFiles(''.github/workflows/pron-distill.yml'') }}' }
+      - run: |
+          pip install -q torch==2.4.1 --index-url "$TORCH_CPU"
+          pip install -q numpy==1.26.4 scipy==1.13.1 huggingface_hub==0.26.2
+          python scripts/pron/distill/test_helpers.py
+      - id: t
+        run: python -u scripts/pron/distill/train.py "${{ inputs.tag }}" "${{ inputs.budget_min }}" "${{ inputs.steps }}" "${{ inputs.chain }}" "${{ inputs.max_chain }}" dd
+      - name: not converged -> next chunk (self re-dispatch, capped by max_chain)
+        if: steps.t.outputs.finished == 'false'
+        run: |
+          python scripts/pron/distill/common.py dispatch pron-distill.yml stage=train tag="${{ inputs.tag }}" steps="${{ inputs.steps }}" budget_min="${{ inputs.budget_min }}" \
+            chain="$(( ${{ inputs.chain }} + 1 ))" max_chain="${{ inputs.max_chain }}" eval_small="${{ inputs.eval_small }}"
+      - if: always()
+        run: |
+          { echo "### pron-distill train chunk ${{ inputs.chain }}/${{ inputs.max_chain }}"; echo "step ${{ steps.t.outputs.step }} / ${{ inputs.steps }}, best dev PER ${{ steps.t.outputs.per }}, finished=${{ steps.t.outputs.finished }}"; } >> "$GITHUB_STEP_SUMMARY"
+  export:
+    needs: [train]
+    if: always() && (inputs.stage == 'export' || (needs.train.result == 'success' && needs.train.outputs.finished == 'true'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: |
+          pip install -q torch==2.4.1 --index-url "$TORCH_CPU"
+          pip install -q numpy==1.26.4 scipy==1.13.1 onnx==1.17.0 onnxruntime==1.20.1
+      - id: e
+        run: python -u scripts/pron/distill/export.py "${{ inputs.tag }}" out-s
+      - name: pron-eval (4 gate metrics) on the new model, with teacher C as reference
+        run: |
+          small=""; [ "${{ inputs.eval_small }}" = "true" ] && small="n_so=20 n_ls=10 n_tr=0"
+          python scripts/pron/distill/common.py dispatch pron-eval.yml candidates=S,C model_url="${{ steps.e.outputs.model_url }}" quant=fp32,q8 $small
+          echo "model: ${{ steps.e.outputs.model_url }} (pron-eval dispatched)" >> "$GITHUB_STEP_SUMMARY"
+          cat out-s/train_report.json | python -c 'import json,sys;r=json.load(sys.stdin);print(json.dumps({k:r[k] for k in ("step","best_dev_PER_torch","params_M","variants")},indent=1))' >> "$GITHUB_STEP_SUMMARY"

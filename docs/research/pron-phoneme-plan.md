@@ -62,6 +62,13 @@ Bấm mic → sóng âm trực tiếp → thả/tự dừng theo VAD → (< 1,5 
 - **Đọc kết quả:** summary run: PER dev-clean theo bước; bảng biến thể fp32/q8/q4 (MB, PER 100 câu, lệch so với torch); rồi bảng `pron-eval` (A và C) với 4 cổng §6 + PCC trước/sau hiệu chỉnh. Artifact `pron-model-a` (30 ngày) có ONNX + `train_report.json`.
 - **Hiệu chỉnh (mọi ứng viên):** `pron-eval` lấy mẫu speechocean762 **train** (`n_tr`, mặc định 600 câu), `fitCalib` cho từng đặc trưng (gopAF/lpp/gop), chọn theo PCC trên train, báo PCC/báo nhầm **trên test** trước/sau. Không bao giờ fit trên test.
 
+## 5d. CPU distillation on GitHub (student S, 26/10)
+Không GPU, không trả tiền: `.github/workflows/pron-distill.yml` (public repo = phút miễn phí; mã `scripts/pron/distill/`). Thầy = C (q8) → trò = Conformer-CTC ~12 M tham số, **log-mel nằm trong đồ thị** (đầu vào = sóng chuẩn hoá như wav2vec2, nên `eval.mjs`/`gop.mjs` dùng nguyên; ra [T×40] 50 khung/s, blank + ARPA39).
+- `teacher`: matrix ~28 shard LibriSpeech train-clean-100 + speechocean762 train + dev-clean 300 câu → top-5 logp (uint8 id + fp16) + mã log-mel 8-bit + nhãn CMUdict, lưu thành asset của release `pron-distill-data` (idempotent: shard đã có thì bỏ qua).
+- `train`: CTC (CMUdict) + KL top-5, PyTorch CPU, ≤ 320 phút/chunk, checkpoint `pron-student-ckpt.pt` (tải tạm tên `.new.pt` rồi thay, không mất khi lỗi), chấm PER dev-clean mỗi ~50 phút, giữ bản tốt nhất. Chưa đủ `steps` thì tự `workflow_dispatch` chunk kế (`max_chain` mặc định 12 ≈ 3 ngày).
+- `export`: ONNX opset 17 fp32 + q8 → release `pron-model-s-<ngày>` → tự gọi `pron-eval` (ứng viên `S` + `C`) ra 4 chỉ số cổng trong step summary.
+- Smoke: `stage=all shards=2 limit=50 tag=pron-distill-smoke steps=40 budget_min=3 eval_small=true`. Test thuần: `python scripts/pron/distill/test_helpers.py` (chạy ở job `plan`). Đường Modal (`pron-train.yml`) giữ nguyên.
+
 ## 6. Cổng chất lượng (đo trên CI, chặn ship)
 | Chỉ số | P0 "đi tiếp" | P1 ship | Tham chiếu |
 |---|---|---|---|
