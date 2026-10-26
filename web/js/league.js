@@ -58,7 +58,7 @@
         <div class="card league-home-card">
           <div class="row between wrap" style="gap:.6rem;align-items:center">
             <div class="row nowrap" style="gap:.75rem;align-items:center">
-              <span class="league-tier-ic" style="background:rgba(245,158,11,.15);color:#f59e0b" aria-hidden="true">🏆</span>
+              <span class="league-tier-ic" style="background:rgba(245,158,11,.15);color:#f59e0b" aria-hidden="true">${UI.icon('trophy')}</span>
               <div>
                 <b>${t('Giải đấu tuần')}</b>
                 <div class="muted small">${t('Thi đua XP cùng 30 người học, thăng hạng mỗi tuần')}</div>
@@ -165,7 +165,7 @@
         <div class="page-head">
           <div class="row between wrap" style="gap:.75rem;align-items:flex-start">
             <div>
-              <h1>🏆 ${t('Giải đấu tuần')}</h1>
+              <h1>${UI.icon('trophy')} ${t('Giải đấu tuần')}</h1>
               <p class="muted">${t('Bảng xếp hạng 30 người học cùng hạng · Cập nhật theo tuần')}</p>
             </div>
             <div id="leagueHeaderMeta" class="row nowrap" style="gap:.5rem"></div>
@@ -184,7 +184,7 @@
       body.removeAttribute('aria-busy');
       body.innerHTML = `
         <div class="card league-welcome-card" style="text-align:center;padding:2rem 1.2rem">
-          <div style="font-size:3.2rem;margin-bottom:.5rem">🏆</div>
+          <div style="font-size:3.2rem;margin-bottom:.5rem">${UI.icon('trophy')}</div>
           <h2 style="margin:0 0 .5rem">${t('Đua top bảng xếp hạng cùng cộng đồng')}</h2>
           <p class="muted" style="max-width:520px;margin:0 auto 1.5rem">
             ${t('Đăng nhập với Google để tham gia giải đấu tuần. Mỗi tuần bạn sẽ được xếp vào một nhóm 30 người học có cùng trình độ để thi đua nhận XP, leo từ Hạng Đồng lên Hạng Kim Cương!')}

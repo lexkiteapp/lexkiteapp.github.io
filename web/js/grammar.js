@@ -107,7 +107,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
           <div class="g-list">${ls.map(x => row(x, c)).join('')}<a class="g-row g-test" href="#/grammar/mix?ch=${c.n}"><span class="em" aria-hidden="true">${UI.icon('file-pen')}</span><span class="g-tx"><b>${t('Kiểm tra chương')}</b><small>${t('Trộn câu hỏi của cả chương')}</small></span><span aria-hidden="true">›</span></a></div></details>`;
       }).join('') || `<div class="card empty"><div class="em">${UI.icon('ruler')}</div>${t('Đang cập nhật bài học…')}</div>`}</div>`}
       <h3 class="set-h hub-h">${UI.icon('file-pen')} ${t('Kiểm tra tổng hợp')}</h3>
-      <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">🔀</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
+      <div class="hub-grid"><a class="card hover hub-card" href="#/grammar/mix"><span class="hub-ic" aria-hidden="true">${UI.icon('shuffle')}</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 20 })}</b><small>${t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')}</small></span></a>
         <a class="card hover hub-card" href="#/grammar/mix?n=40"><span class="hub-ic" aria-hidden="true">${UI.icon('flag')}</span><span class="hub-tx"><b>${t('Đề tổng hợp {n} câu', { n: 40 })}</b><small>${t('Ôn toàn bộ chương trình – như bài thi cuối khóa')}</small></span></a></div>
       <h3 class="set-h hub-h">🧰 ${t('Công cụ ngữ pháp')}</h3>
       <div class="hub-grid"><a class="card hover hub-card" href="#/verb"><span class="hub-ic" aria-hidden="true">${UI.icon('a-large-small')}</span><span class="hub-tx"><b>${t('Chia động từ')}</b><small>${t('Mọi thì, bị động, cách đọc -ed/-s')}</small></span></a>
@@ -159,7 +159,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       if (i >= qs.length) {
         const pct = Math.round(right / qs.length * 100);
         App.reward({ quizzes: 1, grammar: 1, perfect: pct === 100 ? 1 : 0, xp: 10 + right * 2 }); if (pct >= 80) { Sfx.win(); confetti(); }
-        view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">🔀</div><h2>${t('{right}/{total} câu đúng ({pct}%)', { right, total: qs.length, pct })}</h2><p class="muted">${t('Câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>.')}</p><div class="row center"><a class="btn primary" href="#/grammar/mix">${t('Luyện lượt mới')}</a><a class="btn" href="#/grammar">${t('Về danh sách bài')}</a></div></div></div>`;
+        view.innerHTML = `<div class="study-wrap"><div class="card celebrate empty"><div class="em">${UI.icon('shuffle')}</div><h2>${t('{right}/{total} câu đúng ({pct}%)', { right, total: qs.length, pct })}</h2><p class="muted">${t('Câu sai đã được ghi vào <a href="#/mistakes">Sổ lỗi sai</a>.')}</p><div class="row center"><a class="btn primary" href="#/grammar/mix">${t('Luyện lượt mới')}</a><a class="btn" href="#/grammar">${t('Về danh sách bài')}</a></div></div></div>`;
         return;
       }
       const { q, x, d } = qs[i];

@@ -142,7 +142,7 @@
       try { on = localStorage.getItem('lk.league') || '0'; } catch (e) { /* bỏ qua */ }
       if (on !== '1' || !window.Sync || !Sync.user) { lb.innerHTML = ''; return; }
       lb.innerHTML = `<div class="card"><div class="row between wrap" style="gap:.6rem;align-items:center">
-        <div><b>🏆 ${t('Giải đấu tuần')}</b><div class="muted small">${t('Bạn đang tham gia bảng xếp hạng 30 người')}</div></div>
+        <div><b>${UI.icon('trophy')} ${t('Giải đấu tuần')}</b><div class="muted small">${t('Bạn đang tham gia bảng xếp hạng 30 người')}</div></div>
         <button type="button" class="btn sm ghost danger" id="btnLeaveLeague">${t('Rời bảng xếp hạng')}</button>
       </div></div>`;
       const btn = $('#btnLeaveLeague');
