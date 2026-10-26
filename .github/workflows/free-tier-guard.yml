@@ -1,0 +1,34 @@
+# Free-tier guard hằng ngày (docs/FREE-TIER.md): số dùng THẬT (Cloudflare GraphQL + Pages API + GitHub API) so với trần gói miễn phí.
+# ≥ 60 % → ::warning + bảng trong Summary · ≥ 80 % → mở/cập nhật issue nhãn 'free-tier' kèm hành động đề xuất (hết nguy cơ → tự đóng).
+# Lượt Worker+Functions ≥ 80 % → web/free-tier-state.json mode "shed" (Worker trả bản cache, trang thí điểm noindex) – chỉ commit khi chế độ ĐỔI.
+# Không bao giờ tự nâng gói. Secrets: CF_ANALYTICS_TOKEN (+ CF_ACCOUNT_ID có sẵn), CF_ANALYTICS_TOKEN_2 (+ CF_ACCOUNT_2 có sẵn) – thiếu → bỏ qua trung tính phần đó.
+name: free-tier-guard
+on:
+  schedule:
+    - cron: '35 1 * * *'
+  workflow_dispatch:
+concurrency: { group: free-tier-guard, cancel-in-progress: false }
+permissions: { contents: write, issues: write }
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts\ninfra\nweb/free-tier-state.json", sparse-checkout-cone-mode: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - name: Đo & đánh giá
+        id: guard
+        env:
+          CF_ANALYTICS_TOKEN: '${{ secrets.CF_ANALYTICS_TOKEN }}'
+          CF_ACCOUNT_ID: '${{ secrets.CF_ACCOUNT_ID }}'
+          CF_ANALYTICS_TOKEN_2: '${{ secrets.CF_ANALYTICS_TOKEN_2 }}'
+          CF_ACCOUNT_2: '${{ secrets.CF_ACCOUNT_2 }}'
+          GITHUB_TOKEN: '${{ github.token }}'
+        run: node scripts/free-tier/guard.mjs
+      - name: Ghi chế độ Worker (chỉ khi đổi – cần deploy Pages để Worker đọc được)
+        if: ${{ steps.guard.outputs.state_changed == '1' }}
+        run: |
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add web/free-tier-state.json && git commit -m "free-tier-guard: chế độ Worker $(node -p "require('./web/free-tier-state.json').mode")" && git push

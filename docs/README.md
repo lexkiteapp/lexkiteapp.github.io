@@ -28,6 +28,7 @@
 - `QUOTAS.md` – hạn mức & chống lạm dụng. Khi đụng API/AI.
 - `CONFIDENCE.md` – 🗣️ Giao tiếp tự tin (#/confidence): nguồn content/confidence, build, id vĩnh viễn cho video, QA. Khi sửa bài nói/cụm câu.
 - `CAPACITY.md` – chi phí D1/Functions mỗi người dùng, trần DAU gói Free/Paid, ngưỡng nâng gói, cảnh báo hằng ngày. Khi thêm truy vấn/endpoint.
+- `FREE-TIER.md` – free-tier-guard hằng ngày: số dùng thật so với trần gói miễn phí, chế độ shed của Worker, ngưỡng nâng Workers Paid. Khi thêm Worker/trang tự sinh/việc nền.
 - `REMINDERS.md` – nhắc học thông minh: lịch cục bộ, Web Push (VAPID), FCM, cờ PUSH_PCT/FCM_ON, việc của chủ. Khi đụng thông báo/nhắc học.
 - `i18n-review-2026-10-16.md` – rà dịch 16/10. Tham khảo.
 

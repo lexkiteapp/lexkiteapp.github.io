@@ -1005,6 +1005,20 @@
       "match": [
         "lexkite-dict-data"
       ]
+    },
+    {
+      "key": "free-tier-guard",
+      "name": "Free-tier guard (giám sát trần gói miễn phí)",
+      "kind": "monitor",
+      "purpose": "Cron hằng ngày .github/workflows/free-tier-guard.yml → scripts/free-tier/guard.mjs: Cloudflare GraphQL Analytics (Workers theo script + Pages Functions chung trần 100k/ngày, D1 lexkite-sync & lexkite-internal đọc/ghi, R2 dung lượng + Class A/B), Pages API (build/tháng), GitHub API (dung lượng repo web + kho media, Actions cache). ≥ 60 % cảnh báo, ≥ 80 % issue nhãn free-tier. Lượt ≥ 80 % → web/free-tier-state.json mode shed, Worker đọc qua workers/lib/edge.mjs (trả bản cache, trang thí điểm noindex). Không tự nâng gói. Secret GitHub: CF_ANALYTICS_TOKEN (Account Analytics: Read + Cloudflare Pages: Read, tài khoản chính), CF_ANALYTICS_TOKEN_2 (Account Analytics: Read, tài khoản 2). Tài liệu: docs/FREE-TIER.md",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/actions/workflows/free-tier-guard.yml",
+      "free": "GitHub Actions repo công khai (≈ 1 phút/ngày) · GraphQL Analytics miễn phí (4 truy vấn/ngày) · Pages API ≤ 45 lượt/ngày",
+      "upgrade": "Không cần; ngưỡng nâng Workers Paid 5 USD xem docs/FREE-TIER.md §4",
+      "status": "Miễn phí",
+      "match": [
+        "api.cloudflare.com/client/v4/graphql",
+        "free-tier-state.json"
+      ]
     }
   ],
   "links": {

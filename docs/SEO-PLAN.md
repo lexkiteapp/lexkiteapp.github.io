@@ -148,12 +148,14 @@ node scripts/indexnow.mjs --dry [url…]           # xem payload IndexNow (bỏ 
 - **Thiết lập 1 lần (anh/cha):** Cloudflare Dashboard → Workers & Pages → `lexkite` → Settings → Builds → Deploy hooks → Add (tên `blog-cron`, nhánh `main`) → sao chép URL → GitHub `lexkiteapp/lexkiteapp.github.io` → Settings → Secrets and variables → Actions → New repository secret `CF_PAGES_DEPLOY_HOOK` = URL đó. Không ghi URL hook vào repo. Thiếu secret → workflow báo lỗi rõ ràng.
 
 ## 12. Mở rộng hàng chục nghìn bài – vẫn 0 đồng, vẫn nhẹ
+> Giám sát tự động (hạng mục 6, 26/10/2026): `free-tier-guard.yml` đo số dùng thật mỗi ngày (Workers+Functions, D1, R2, Pages build, repo/kho media) – ≥ 60 % cảnh báo, ≥ 80 % issue `free-tier`, Worker có chế độ shed (bản cache + noindex trang thí điểm). Chi tiết, ngưỡng nâng Workers Paid 5 USD và việc của chủ: **docs/FREE-TIER.md**. Đo 26/10: Pages build tháng 10 = 941/500 → bắt buộc giảm build (§4 FREE-TIER).
+
 | Tài nguyên | Giới hạn miễn phí | Blog dùng | Cách giữ an toàn |
 |---|---|---|---|
 | Cloudflare Pages: số file/lần deploy | 20.000 | 1 file/bài + trang danh sách/chuyên mục/thẻ (thẻ < 2 bài không tạo trang) | `build-web.sh` cảnh báo > 15.000, chặn > 19.500. App còn ~690 file (âm thanh đã chuyển sang CDN lexkiteapp.github.io/audio ngày 15/10/2026) → còn chỗ ~18.000 bài. |
-| Cloudflare Pages: build | 500 lần/tháng, 20 phút/lần | cron chỉ gọi build khi có bài đến giờ (2–3 lần/ngày ≈ 90/tháng) | engine dựng 80 bài < 1 giây |
+| Cloudflare Pages: build | 500 lần/tháng, 20 phút/lần | cron chỉ gọi build khi có bài đến giờ (2–3 lần/ngày ≈ 90/tháng) – nhưng toàn repo đã 941 build tháng 10 (đo 26/10) | engine dựng 80 bài < 1 giây; commit máy `[CF-Pages-Skip]`; free-tier-guard đếm hằng ngày |
 | Repo git | khuyến nghị < 1 GB | chỉ Markdown (~15 KB/bài → 10.000 bài ≈ 150 MB) | ảnh/video KHÔNG vào repo |
-| Ảnh: GitHub Pages `lexkite-media` | ~1 GB/kho, ~100 GB băng thông/tháng | ảnh chụp app tiếng Anh DÙNG CHUNG mọi bài & mọi ngôn ngữ (~5 MB tổng), AVIF/WebP 3 cỡ | kho đầy → kho shard mới, `base` theo ảnh trong media.json |
+| Ảnh: GitHub Pages `lexkite-media` (677 MB = 66 % ngày 26/10 – kho đã `full`, ảnh mới vào kho shard) | ~1 GB/kho, ~100 GB băng thông/tháng | ảnh chụp app tiếng Anh DÙNG CHUNG mọi bài & mọi ngôn ngữ (~5 MB tổng), AVIF/WebP 3 cỡ | kho đầy → kho shard mới, `base` theo ảnh trong media.json |
 | Video | – | YouTube (kênh Lexkite), facade: chỉ tải iframe khi bấm | 0 KB lúc tải trang |
 | Trang | – | ~9 KB HTML gzip, 0 JS (trừ bài có video), CSS nội tuyến, font hệ thống | CLS 0 nhờ width/height |
 | Sitemap / RSS | 50.000 URL/file | `sitemap-blog-<lang>.xml` chia 10.000 URL/file; RSS 20 bài mới | sitemap index tự gom |
