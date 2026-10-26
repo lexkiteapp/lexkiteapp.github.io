@@ -186,8 +186,9 @@ xf_runs = []; run = 0
 for f in fr[:len(fr) - n_end]:
     if len(f['src']) > 1: run += 1
     elif run: xf_runs.append(run); run = 0
-_gi = [i for k in range(0, T['n'] - 1, 60) for i in range(k, min(T['n'] - 1, k + 60), 6)]
-g = [x for k in range(0, T['n'] - 1, 60) for x in frames_px(vid, list(range(k, min(T['n'] - 1, k + 60), 6)))]
+_gi = list(range(0, T['n'] - 1, 6))
+g = [x for k in range(0, len(_gi), 10) for x in frames_px(vid, _gi[k:k + 10])]   # same index list for frames and cut check (was misaligned per 60-frame chunk)
+assert len(g) == len(_gi), ('frame sampling mismatch', len(g), len(_gi))
 BY = int(T['band'][0]) - 8   # cut detector on the host area only (above the pop band): a pop or caption never trips it, a scene cut does
 def _host(x):
     if BD:   # board text is drawn above the band: blank the board zone (+ camera margin) so writing never trips the cut detector

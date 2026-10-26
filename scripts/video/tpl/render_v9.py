@@ -628,14 +628,15 @@ class Pop:
             if wneed <= rw - 4 and im.height <= rh - 4: break
         else:   # low board strip (2D desk / board clips): ONE item per page, same mock typography (title kept when it fits)
             s.paged = True; best = None
-            for k in [x / 100 for x in range(100, 88, -1)]:
-                for tt in ([True, False] if P.get('title') else [False]):
-                    ok_ = all(lesson_im(dict(P, items=[it], title=P['title'] if tt else None, footer=None), 1, k, rw - 4)[1] <= rw - 4 and
-                              lesson_im(dict(P, items=[it], title=P['title'] if tt else None, footer=None), 1, k, rw - 4)[0].height <= rh - 4 for it in P['items'])
-                    if ok_: best = (k, tt); break
+            for sv in ([True, False] if P.get('save') else [False]):   # a framed SAVE card drops its frame on a very low strip before anything shrinks
+                for k in [x / 100 for x in range(100, 88, -1)]:
+                    for tt in ([True, False] if P.get('title') else [False]):
+                        Q = dict(P, title=P['title'] if tt else None, footer=None, save=sv)
+                        if all(lesson_im(dict(Q, items=[it]), 1, k, rw - 4)[1] <= rw - 4 and lesson_im(dict(Q, items=[it]), 1, k, rw - 4)[0].height <= rh - 4 for it in P['items']): best = (k, tt, sv); break
+                    if best: break
                 if best: break
             assert best, ('lesson card: not even one item per page fits the board region at 0.89 of the mock size', s.id, rw, rh)
-            k, s.ptitle = best
+            k, s.ptitle, s.psave = best
         s.k = k; s.rw = rw - 4; s.rh = rh - 4; n_ = len(P['items'])
         s.reveal = [s.t0] + [tm_of(it['at']) if it.get('at') else s.t0 + (s.t1 - s.t0) * i / n_ for i, it in enumerate(P['items'][1:], 1)]
         s.text = ' / '.join(it['word'] + (' ' + it.get('ipa', '')) for it in P['items']); s.px = 38 * k
@@ -652,7 +653,7 @@ class Pop:
     def lesson_page(s, i):   # paged mode: item i alone (one word per page)
         key = ('pg', i)
         if key not in s.cache:
-            P = s.P; im = lesson_im(dict(P, items=[P['items'][i]], title=P.get('title') if s.ptitle else None, footer=None), 1, s.k, s.rw)[0]
+            P = s.P; im = lesson_im(dict(P, items=[P['items'][i]], title=P.get('title') if s.ptitle else None, footer=None, save=s.psave), 1, s.k, s.rw)[0]
             c = Image.new('RGBA', (s.rw, s.rh), (0, 0, 0, 0)); c.alpha_composite(im, (0, 0)); s.cache[key] = c
         return s.cache[key]
     def lesson_frame(s, m, H):   # same canvas height for every build-up step (no jump), content top-left
@@ -723,7 +724,7 @@ class Pop:
         else: raise AssertionError(('pair does not fit the board at the minimum size', s.id, s.compose_pair('both').size, rw, rh))
         s.im = s.compose_pair('both'); s.meas = [(s.etype, CAPR * z)] + ([('body', CAPR * MINF_BODY)] if s.vs else [])
     def build_quiz_ink(s, rw, rh):
-        P = s.P; z = MINF_BODY; s.etype = 'body'; s.ringd = 150
+        P = s.P; z = MINF_BODY; s.etype = 'body'; s.ringd = 140   # 140: the digit still reaches the body minimum (cap 57 px); fits 'I am agree' + ring on a 500 px desk board
         s.qim = stack([rich_row(r, z) for r in wrap_bal(P['q'], rw - 8, z)], 2) if P.get('q') else None
         segs = lambda lab, txt, st: [(lab + ' ', COL['yellow'] if st != 'ok' else COL['navy']), (txt, (255, 255, 255) if st != 'ok' else COL['navy'])]
         mw = max(pill_w(segs('A', P['a'], 'n'), z, tight=True), pill_w(segs('B', P['b'], 'n'), z, tight=True))
@@ -838,7 +839,7 @@ class Pop:
             A, B = s.pA[st_a], s.pB[st_b]; q = s.qim
             if s.variant == 'row': return stack(([q] if q else []) + [hrow([A] + rg + [B], 20)], 10, 'l')
             if s.variant == 'qring': return stack(([hrow([q] + rg, 24) if q else hrow(rg, 0)] if (q or rg) else []) + [hrow([A, B], 20)], 10, 'l')
-            if s.variant == 'stack': return stack(([q] if q else []) + [hrow([A] + rg, 18), B], 8, 'l')
+            if s.variant == 'stack': return stack(([q] if q else []) + [hrow([A] + rg, 8), B], 8, 'l')
             return stack([rg[0] if rg else q, A, B] if q is not None or rg else [A, B], 8, 'l')   # narrow board: the ring takes the question's place during 3-2-1
         if hrow([s.pA['n'], s.pB['n']], 24).width > s.PW - 8 and s.qim is not None:   # narrow board: options one under the other
             if mid: mid = [ring(s.digit, 1 - (T - b['s']) / (b['e'] - b['s']), 96)]   # small ring beside option A: the question keeps its size
