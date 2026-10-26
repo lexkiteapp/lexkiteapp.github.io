@@ -19,6 +19,7 @@ const drop = decide(S('S3a'), { ...good, siteImpressionsDelta: -0.3 }, { today: 
 ok(!decide({ ...S('S3a'), index: '' }, good, { today: T }).change, 'đang tạm noindex → chờ người');
 ok(!decide(S('S1'), { ...good, cwvGood: false }, { today: T }).change, 'CWV xấu → giữ');
 ok(!decide(S('S3b'), good, { today: T }).change && decide(S('S3b'), good, { today: T, r2: true }).next.stage === 'S3c', 'S3c vượt trang tĩnh → cần R2');
+ok(!decide(S('S2'), good, { today: T }).change && decide(S('S2'), good, { today: T, wordsRoute: true }).next.stage === 'S3a', 'S3a cần route /words/ (301)');
 ok(LADDER.every((x, i) => i === 0 || x.n >= LADDER[i - 1].n), 'bậc chỉ tăng N');
 // Bộ thu số đo với GSC giả (không mạng)
 {

@@ -30,7 +30,7 @@ export default {
     const u = new URL(req.url);
     if (ROUTE.has(u.pathname.replace(/\/?$/, '/')) && !u.pathname.endsWith('/')) return Response.redirect(u.origin + u.pathname + '/', 301);
     const mv = u.pathname.match(/^\/(vi|en)\/words\/([a-z0-9-]+)\/?$/); // trang /words/ cũ (SEO-ARCH): từ đã mở index ở đây → 301, còn lại → Pages như cũ
-    if (mv) { const o = await opened(env); return o[mv[1]] && o[mv[1]].has(mv[2]) ? Response.redirect(`${u.origin}${hubPath(mv[1])}${mv[2]}/`, 301) : fetch(req); }
+    if (mv) { const o = await opened(env); if (o[mv[1]] && o[mv[1]].has(mv[2])) return Response.redirect(`${u.origin}${hubPath(mv[1])}${mv[2]}/`, 301); const pr = await fetch(req), out = new Response(pr.body, pr); out.headers.set('x-lexkite-dict', 'pass'); return out; } // dấu để dict-stage.yml biết route /words/ đã gắn
     const r = parse(u.pathname);
     if (!r) return nf();
     if (r.redirect) return Response.redirect(u.origin + r.redirect, 301);

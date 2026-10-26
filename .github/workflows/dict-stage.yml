@@ -27,13 +27,14 @@ jobs:
         run: |
           code=$(curl -s -o /tmp/hub.html -w '%{http_code}' https://lexkite.com/vi/tu-dien/ || true)
           if [ "$code" = 200 ] && grep -q 'DefinedTermSet' /tmp/hub.html; then echo "live=1" >> $GITHUB_OUTPUT; else echo "live=0" >> $GITHUB_OUTPUT; fi
+          curl -sI https://lexkite.com/vi/words/abandon | grep -qi '^x-lexkite-dict' && echo "words=1" >> $GITHUB_OUTPUT || echo "words=0" >> $GITHUB_OUTPUT
           echo "r2=${R2:-0}" >> $GITHUB_OUTPUT; [ -n "$CF" ] && echo "cf=1" >> $GITHUB_OUTPUT || echo "cf=0" >> $GITHUB_OUTPUT
       - name: Số đo GSC (dùng lại scripts/seo/gsc.mjs – bỏ qua an toàn khi thiếu secret)
         env: { GSC_SA_JSON: '${{ secrets.GSC_SA_JSON }}' }
         run: node scripts/dict/metrics.mjs
       - name: Quyết định giai đoạn
         id: st
-        env: { DICT_LIVE: '${{ steps.env.outputs.live }}', DICT_R2: '${{ steps.env.outputs.r2 }}' }
+        env: { DICT_LIVE: '${{ steps.env.outputs.live }}', DICT_R2: '${{ steps.env.outputs.r2 }}', DICT_WORDS_ROUTE: '${{ steps.env.outputs.words }}' }
         run: node scripts/test/dict-stage.mjs && node scripts/dict/stage.mjs
       - name: Commit trạng thái mới
         if: steps.st.outputs.changed == '1'

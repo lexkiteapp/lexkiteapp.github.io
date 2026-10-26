@@ -20,11 +20,12 @@ DICT_INDEX = ""
 # binding = "DICT"
 # bucket_name = "lexkite-dict-data"
 
-# Gắn vào lexkite.com – CHỈ sau khi chủ duyệt bản xem thử (docs §8). Không đụng các đường dẫn khác của Pages.
-# routes = [
-#   { pattern = "lexkite.com/vi/tu-dien*", zone_name = "lexkite.com" },
-#   { pattern = "lexkite.com/en/dictionary*", zone_name = "lexkite.com" },
-#   { pattern = "lexkite.com/sitemap-dict-*", zone_name = "lexkite.com" },
-#   { pattern = "lexkite.com/vi/words/*", zone_name = "lexkite.com" },   # 301 từ đã mở; từ chưa mở → đi tiếp tới Pages
+# Gắn vào lexkite.com (chủ duyệt 26/10/2026). Không đụng các đường dẫn khác của Pages. Hết lượt Worker → fail open (về Pages).
+routes = [
+  { pattern = "lexkite.com/vi/tu-dien*", zone_name = "lexkite.com" },
+  { pattern = "lexkite.com/en/dictionary*", zone_name = "lexkite.com" },
+  { pattern = "lexkite.com/sitemap-dict-*", zone_name = "lexkite.com" },
+]
+# Trước bậc S3a (từ điển bắt đầu trùng /words/): thêm 2 route dưới → Worker 301 từ đã mở, còn lại đi tiếp tới Pages (stage.mjs giữ S2 tới khi có):
+#   { pattern = "lexkite.com/vi/words/*", zone_name = "lexkite.com" },
 #   { pattern = "lexkite.com/en/words/*", zone_name = "lexkite.com" },
-# ]
