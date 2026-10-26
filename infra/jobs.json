@@ -812,6 +812,20 @@
    "lease": true,
    "paused": true,
    "_note": "tpl1b batch shorts (docs/VIDEO-TEMPLATES.md §9): dispatch only (lease --force) until the owner approves batch 1; cron = planned slot; the lease covers the store job (Drive pool, ≤ 45 min), render jobs use GitHub minutes only. Groq hook judge + ≤ 10 render jobs + store to lexkite-shorts/Drive; never publishes"
+  },
+  {
+   "id": "dict-stage",
+   "workflow": "dict-stage.yml",
+   "cron": [
+    "0 2 * * 2"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
+   "lease": false
   }
  ],
  "reservations": {
