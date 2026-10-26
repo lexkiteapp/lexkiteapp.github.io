@@ -156,6 +156,11 @@
   "scripts/lexicon/expand/job.mjs": {
    "what": "tập vi của kho hiện có = danh sách kiểm vi do AI lấp (cùng Viet74K)",
    "skip": "chỉ đọc nghĩa vi để kiểm chính tả/từ có thật; không ghi/xuất kho"
+  },
+  "scripts/dict/build.mjs": {
+   "what": "trang từ điển tĩnh /dict (docs/SEO-DICT-PAGES.md)",
+   "via": "loadBrowserIndex",
+   "job": "dict-pages.yml (CI)"
   }
  },
  "todo": {
