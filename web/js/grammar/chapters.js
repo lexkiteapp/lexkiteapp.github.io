@@ -31,7 +31,7 @@
       { type: 'signals', words: ['when', 'as soon as', 'once', 'until / till', 'before', 'after', 'while', 'by the time', 'the moment'] },
       { type: 'tip', text: 'Mẹo nhớ: trong mệnh đề thời gian, "will" bị cấm cửa. Nói tương lai thì vế chính mang will, vế thời gian mang hiện tại.' },
       { type: 'mistake', wrong: 'I will call you when I will arrive in London.', right: 'I will call you when I arrive in London.', why: 'Mệnh đề thời gian (when…) chỉ tương lai dùng hiện tại đơn, không dùng will.' },
-      { type: 'mistake', wrong: 'By the time we got to the cinema, the film already started.', right: 'By the time we got to the cinema, the film had already started.', why: 'Hành động xảy ra trước mốc "by the time + quá khứ" cần quá khứ hoàn thành.' },
+      { type: 'mistake', wrong: 'By the time we got to the movie theater, the movie already started.', right: 'By the time we got to the movie theater, the movie had already started.', why: 'Hành động xảy ra trước mốc "by the time + quá khứ" cần quá khứ hoàn thành.' },
       { type: 'mistake', wrong: 'We will wait here until the rain will stop.', right: 'We will wait here until the rain stops.', why: 'Until cũng là liên từ thời gian → hiện tại đơn cho tương lai.' },
       { type: 'ielts', text: 'Trong Writing Task 1 dạng quy trình (process), dùng once / after / as soon as + hiện tại hoàn thành để nối các bước. Trong Task 2 khi dự đoán tương lai, nhớ: when + hiện tại.', ex: '[[Once the beans have been dried]], they [[are roasted]] at a high temperature.' }
     ],
@@ -228,7 +228,7 @@
       { type: 'sort', caption: 'Bốn nhóm danh từ dễ sai trong bài viết học thuật', groups: [
         { title: 'Số nhiều đặc biệt', emoji: '🔤', items: ['phenomenon → phenomena', 'criterion → criteria', 'analysis → analyses', 'crisis → crises', 'datum → data'] },
         { title: 'Danh từ ghép', emoji: '🧷', items: ['traffic jam', 'city centre', 'air pollution', 'a five-year plan', 'mother-in-law'] },
-        { title: 'Sở hữu cách', emoji: '🔑', items: ['the students\' union', 'children\'s health', 'the role of the media', 'a week\'s holiday'] },
+        { title: 'Sở hữu cách', emoji: '🔑', items: ['the students\' union', 'children\'s health', 'the role of the media', 'a week\'s vacation'] },
         { title: 'Danh từ tập hợp', emoji: '👥', items: ['government', 'staff', 'police', 'audience', 'family'] }
       ] },
       { type: 'formula', rows: [
@@ -255,7 +255,7 @@
       ] },
       { type: 'tip', text: 'Trong danh từ ghép, danh từ đứng trước thường ở dạng SỐ ÍT, kể cả khi nghĩa là số nhiều: a shoe shop, a car park, a three-hour exam (không phải three-hours).' },
       { type: 'mistake', wrong: 'This phenomena is common in big cities.', right: 'This phenomenon is common in big cities. / These phenomena are common…', why: 'Phenomena là số nhiều; số ít là phenomenon.' },
-      { type: 'mistake', wrong: 'He took a two-weeks holiday.', right: 'He took a two-week holiday. / He took two weeks\' holiday.', why: 'Cụm số + danh từ có gạch nối dùng danh từ số ít.' },
+      { type: 'mistake', wrong: 'He took a two-weeks vacation.', right: 'He took a two-week vacation. / He took two weeks\' vacation.', why: 'Cụm số + danh từ có gạch nối dùng danh từ số ít.' },
       { type: 'mistake', wrong: 'The police is looking for the suspect.', right: 'The police are looking for the suspect.', why: 'Police luôn đi với động từ số nhiều.' },
       { type: 'ielts', text: 'Danh từ ghép giúp viết gọn và học thuật hơn: "problems about traffic in cities" → "urban traffic problems". Dùng đúng criteria / phenomena / analyses thể hiện Grammatical Accuracy và Lexical Resource.', ex: '[[Several criteria]] should be considered when allocating the healthcare budget.' }
     ],

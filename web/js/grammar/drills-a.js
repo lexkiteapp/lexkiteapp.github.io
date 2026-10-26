@@ -149,7 +149,7 @@
       { t: 'verb', q: "In 2005, the number of car owners ___ (stand) at 2 million.", a: ["stood"], ex: "Số liệu năm đã qua → quá khứ đơn (stand – stood)." },
       { t: 'verb', q: "First, the raw materials ___ (deliver) to the factory.", a: ["are delivered"], ex: "Mô tả quy trình dùng hiện tại đơn bị động." },
       { t: 'verb', q: "It is predicted that the figure ___ (rise) to 40% in 2030.", a: ["will rise"], ex: "Dự báo tương lai → will + V." },
-      { t: 'rewrite', q: "There was a sharp increase in sales in 2019.", start: "Sales", a: ["Sales increased sharply in 2019.", "Sales rose sharply in 2019."], ex: "Danh từ + tính từ → động từ quá khứ + trạng từ." },
+      { t: 'rewrite', q: "There was a sharp increase in sales in 2019.", start: "Sales", a: ["Sales increased sharply in 2019.", "Sales rose sharply in 2019.", "Sales grew sharply in 2019.", "Sales climbed sharply in 2019.", "Sales went up sharply in 2019.", "Sales jumped in 2019.", "Sales increased significantly in 2019.", "Sales rose significantly in 2019.", "Sales rose dramatically in 2019.", "Sales increased dramatically in 2019."], ex: "Danh từ + tính từ → động từ quá khứ + trạng từ." },
       { t: 'rewrite', q: "There has been a steady decline in coal use since 2000.", start: "Coal use has", a: ["Coal use has declined steadily since 2000.", "Coal use has fallen steadily since 2000.", "Coal use has decreased steadily since 2000.", "Coal use has dropped steadily since 2000."], ex: "Xu hướng từ quá khứ đến nay (since) → hiện tại hoàn thành." },
       { t: 'rewrite', q: "A new hospital has replaced the old park.", start: "The old park has", a: ["The old park has been replaced by a new hospital."], ex: "Bản đồ thay đổi đến hiện tại → hiện tại hoàn thành bị động." },
       { t: 'combine', q: "In 1990, 30% of people used public transport. In 2010, the figure was 45%.", hint: "rose from … to …", start: "The percentage of people using public transport rose", a: ["The percentage of people using public transport rose from 30% in 1990 to 45% in 2010."], ex: "Biến động giữa hai năm đã qua → quá khứ đơn + from … to …." },
@@ -158,7 +158,7 @@
       { t: 'error', parts: ["Next,", "the bottles", "washed", "and refilled."], w: 2, fix: "are washed", ex: "Quy trình dùng bị động hiện tại: are + V3." }
     ],
     'modals-ability-permission': [
-      { t: 'fill', q: "I'm sorry, I ___ come to your party tomorrow; I have an exam.", a: ["cannot"], ex: "Can not/cannot diễn tả không thể làm gì." },
+      { t: 'fill', q: "I'm sorry, I ___ come to your party tomorrow; I have an exam.", a: ["cannot", "can't", "can not", "am not able to"], ex: "Can not/cannot diễn tả không thể làm gì." },
       { t: 'fill', q: "Will you ___ to attend the meeting next week?", a: ["be able"], ex: "Khả năng trong tương lai: will be able to + V." },
       { t: 'fill', q: "When I was five, I ___ read simple books. (quá khứ của can)", a: ["could"], ex: "Khả năng chung trong quá khứ → could." },
       { t: 'rewrite', q: "I am able to speak three languages.", start: "I can", a: ["I can speak three languages."], ex: "Be able to = can (khả năng ở hiện tại)." },
@@ -170,8 +170,8 @@
       { t: 'error', parts: ["I", "will can", "finish the report", "by Friday."], w: 1, fix: "will be able to", ex: "Không dùng hai động từ khuyết thiếu liền nhau; dùng will be able to." }
     ],
     'modals-obligation-advice': [
-      { t: 'fill', q: "You ___ smoke here. It's against the law. (cấm)", a: ["must not"], ex: "Must not diễn tả sự cấm đoán." },
-      { t: 'fill', q: "Tomorrow is a holiday, so we ___ go to school. (không cần)", a: ["do not have to", "do not need to", "need not"], ex: "Không cần thiết → don't have to / don't need to / needn't." },
+      { t: 'fill', q: "You ___ smoke here. It's against the law. (cấm)", a: ["must not", "mustn't", "cannot", "can't"], ex: "Must not diễn tả sự cấm đoán." },
+      { t: 'fill', q: "Tomorrow is a holiday, so we ___ go to school. (không cần)", a: ["do not have to", "do not need to", "need not", "don't have to", "don't need to", "needn't"], ex: "Không cần thiết → don't have to / don't need to / needn't." },
       { t: 'fill', q: "You look tired. You ___ go to bed earlier. (lời khuyên)", a: ["should", "ought to"], ex: "Lời khuyên → should / ought to + V." },
       { t: 'rewrite', q: "It is necessary for all visitors to wear a mask.", start: "All visitors must", a: ["All visitors must wear a mask."], ex: "Bắt buộc → must + V." },
       { t: 'rewrite', q: "It isn't necessary for you to bring food.", start: "You do not have to", a: ["You do not have to bring food."], ex: "Không cần thiết → don't have to + V." },
@@ -183,7 +183,7 @@
     ],
     'modals-deduction': [
       { t: 'fill', q: "She has been working for 12 hours. She ___ be exhausted. (chắc chắn)", a: ["must"], ex: "Suy đoán chắc chắn ở hiện tại → must + V." },
-      { t: 'fill', q: "That ___ be Tom at the door; he's on holiday in Japan. (chắc chắn không)", a: ["cannot"], ex: "Chắc chắn không phải → can't + V." },
+      { t: 'fill', q: "That ___ be Tom at the door; he's on vacation in Japan. (chắc chắn không)", a: ["cannot", "can't", "can not", "couldn't"], ex: "Chắc chắn không phải → can't + V." },
       { t: 'verb', q: "The streets are wet. It must ___ (rain) last night.", a: ["have rained"], ex: "Suy đoán chắc chắn về quá khứ → must have + V3." },
       { t: 'rewrite', q: "I'm sure he forgot about the meeting.", start: "He must", a: ["He must have forgotten about the meeting."], ex: "Chắc chắn đã xảy ra → must have + V3." },
       { t: 'rewrite', q: "It's possible that she is stuck in traffic.", start: "She may", a: ["She may be stuck in traffic."], ex: "Có thể (không chắc) ở hiện tại → may + V." },
@@ -250,18 +250,18 @@
       { t: 'rewrite', q: "It's a pity I don't live near the sea.", start: "If only I", a: ["If only I lived near the sea."], ex: "If only + quá khứ đơn: ước trái với hiện tại." },
       { t: 'rewrite', q: "I didn't eat breakfast, so I am hungry now.", start: "If I had eaten breakfast,", a: ["If I had eaten breakfast, I would not be hungry now.", "If I had eaten breakfast, I would not be hungry."], ex: "Hỗn hợp: If + had V3, would + V (kết quả ở hiện tại)." },
       { t: 'rewrite', q: "He isn't careful, so he made many mistakes in the test.", start: "If he were careful,", a: ["If he were careful, he would not have made so many mistakes in the test.", "If he were careful, he would not have made many mistakes in the test."], ex: "Hỗn hợp: tính cách hiện tại (were) → kết quả quá khứ (would have V3)." },
-      { t: 'error', parts: ["I wish", "my neighbours", "will stop", "making so much noise."], w: 2, fix: "would stop", ex: "Wish + would + V: mong ai đó thay đổi hành vi." },
+      { t: 'error', parts: ["I wish", "my neighbors", "will stop", "making so much noise."], w: 2, fix: "would stop", ex: "Wish + would + V: mong ai đó thay đổi hành vi." },
       { t: 'error', parts: ["Unless", "you do not", "hurry,", "you will be late."], w: 1, fix: "you", ex: "Unless đã mang nghĩa phủ định, không thêm not." }
     ],
     'reported-speech': [
-      { t: 'verb', q: "She said, “I am tired.” → She said that she ___ (be) tired.", a: ["was"], ex: "Lùi thì: am → was." },
+      { t: 'verb', q: "She said, “I am tired.” → She said that she ___ (be) tired. (lùi thì)", a: ["was"], ex: "Lùi thì: am → was." },
       { t: 'verb', q: "He said, “I have finished the report.” → He said he ___ (finish) the report.", a: ["had finished"], ex: "Lùi thì: hiện tại hoàn thành → quá khứ hoàn thành." },
       { t: 'fill', q: "He said, “I will call you tomorrow.” → He said he would call me the ___ day.", a: ["next", "following"], ex: 'Khi tường thuật, tomorrow đổi thành the next day / the following day (ngày hôm sau).' },
       { t: 'rewrite', q: "“I am working on a new project,” said Lan.", start: "Lan said that she", a: ["Lan said that she was working on a new project."], ex: "Hiện tại tiếp diễn lùi thành quá khứ tiếp diễn; I → she." },
       { t: 'rewrite', q: "“Where do you live?” the officer asked me.", start: "The officer asked me where", a: ["The officer asked me where I lived."], ex: "Câu hỏi Wh-: giữ từ để hỏi, đưa về trật tự S + V và lùi thì." },
       { t: 'rewrite', q: "“Don't touch the screen,” the technician told us.", start: "The technician told us", a: ["The technician told us not to touch the screen."], ex: "Mệnh lệnh phủ định → told + O + not to V." },
       { t: 'rewrite', q: "“Are you coming to the seminar?” my tutor asked me.", start: "My tutor asked me", a: ["My tutor asked me if I was coming to the seminar.", "My tutor asked me whether I was coming to the seminar."], ex: "Câu hỏi Yes/No → asked + if/whether + S + V (lùi thì)." },
-      { t: 'rewrite', q: "“We visited the museum yesterday,” they said.", start: "They said that they", a: ["They said that they had visited the museum the day before.", "They said that they had visited the museum the previous day."], ex: "Quá khứ đơn → quá khứ hoàn thành; yesterday → the day before." },
+      { t: 'rewrite', q: "“We visited the museum yesterday,” they said.", start: "They said that they", a: ["They said that they had visited the museum the day before.", "They said that they had visited the museum the previous day.", "They said that they visited the museum the day before.", "They said that they visited the museum the previous day."], ex: "Quá khứ đơn → quá khứ hoàn thành; yesterday → the day before." },
       { t: 'error', parts: ["She asked me", "where", "did I go", "the previous weekend."], w: 2, fix: "I had gone", ex: "Câu hỏi gián tiếp không đảo trợ động từ và phải lùi thì." },
       { t: 'error', parts: ["He", "said me", "that he", "was busy."], w: 1, fix: "told me", ex: "Say không đi trực tiếp với tân ngữ người; dùng told me." }
     ],

@@ -39,7 +39,7 @@
     quiz: [
       { q: 'Last night the internet went down, but luckily I ___ submit my essay before midnight.', options: ['could', 'was able to', 'can', 'am able to'], answer: 1, explain: 'Một thành công cụ thể trong quá khứ → was able to. could chỉ khả năng chung, không dùng cho một thành công cụ thể; can và am able to là hiện tại.' },
       { q: 'When I was five, I ___ read simple stories.', options: ['could', 'can', 'will be able to', 'may'], answer: 0, explain: 'Khả năng chung trong quá khứ → could. can là hiện tại; will be able to là tương lai; may diễn tả sự cho phép/khả năng xảy ra, không phải năng lực.' },
-      { q: 'If you practise every day, you ___ speak more fluently in a few months.', options: ['will can', 'are able', 'will be able to', 'were able to'], answer: 2, explain: 'Khả năng ở tương lai (in a few months) → will be able to. "will can" sai vì hai động từ khuyết thiếu không đứng liền nhau; "are able" thiếu to; were able to là quá khứ.' },
+      { q: 'If you practice every day, you ___ speak more fluently in a few months.', options: ['will can', 'are able', 'will be able to', 'were able to'], answer: 2, explain: 'Khả năng ở tương lai (in a few months) → will be able to. "will can" sai vì hai động từ khuyết thiếu không đứng liền nhau; "are able" thiếu to; were able to là quá khứ.' },
       { q: '___ I leave the room for a moment, please? (rất lịch sự với giám khảo)', options: ['May', 'Must', 'Will', 'Should'], answer: 0, explain: 'May I…? là cách xin phép trang trọng, lịch sự nhất. Must I…? hỏi về nghĩa vụ; Will I…? hỏi về tương lai; Should I…? xin lời khuyên.' },
       { q: 'Since she moved to London, she ___ improve her listening skills a lot.', options: ['can', 'could', 'has been able to', 'is able'], answer: 2, explain: 'Thì hiện tại hoàn thành (since…) → has been able to. can và could không dùng với since; "is able" thiếu to và sai thì.' },
       { q: 'Câu nào ĐÚNG?', options: ['He musts can swim.', 'He might be able to help us.', 'He can to drive.', 'He will can come.'], answer: 1, explain: 'Sau might phải dùng be able to; các câu còn lại sai cấu trúc. "musts can", "can to drive", "will can" đều sai vì hai động từ khuyết thiếu không đứng liền nhau hoặc thừa to/-s.' },
@@ -82,6 +82,7 @@
       ] },
       { type: 'tip', text: 'Must không có dạng quá khứ để chỉ nghĩa vụ. Muốn nói "đã phải" thì dùng had to: Yesterday I had to queue for an hour.' },
       { type: 'tip', text: 'Had better mạnh hơn should và hàm ý hậu quả xấu nếu không làm: You\'d better leave now or you\'ll miss the train.' },
+      { type: 'tip', text: '🇺🇸 Anh-Mỹ: need not / needn\'t và ought to ít dùng trong văn nói Mỹ; người Mỹ thường nói You don\'t have to… / You should… và You\'d better… (hay rút gọn thành You better…). Trong IELTS, dùng đúng cả hai kiểu đều được.' },
       { type: 'mistake', wrong: 'You mustn\'t bring food; the canteen is open. (ý: không cần mang)', right: 'You don\'t have to bring food; the canteen is open.', why: 'Mustn\'t = cấm; "không cần" phải dùng don\'t have to hoặc needn\'t. Người Việt hay dịch "không phải" thành mustn\'t.' },
       { type: 'mistake', wrong: 'Yesterday I must finish my assignment.', right: 'Yesterday I had to finish my assignment.', why: 'Nghĩa vụ trong quá khứ dùng had to.' },
       { type: 'mistake', wrong: 'Students should to wear uniforms.', right: 'Students should wear uniforms.', why: 'Should đi với V nguyên mẫu không to (chỉ ought to và have to mới có to).' },
@@ -91,7 +92,7 @@
       { q: 'In many countries, drivers ___ wear a seatbelt by law.', options: ['have to', 'should', 'needn\'t', 'could'], answer: 0, explain: 'Nghĩa vụ do luật pháp (yếu tố bên ngoài) → have to. should chỉ là lời khuyên; needn\'t = không cần; could chỉ khả năng.' },
       { q: 'You ___ smoke inside the hospital. It\'s strictly forbidden.', options: ['don\'t have to', 'mustn\'t', 'needn\'t', 'ought to'], answer: 1, explain: 'Bị cấm (strictly forbidden) → mustn\'t. don\'t have to và needn\'t nghĩa là không cần thiết (không phải cấm); ought to là lời khuyên nên làm.' },
       { q: 'It\'s a free event, so you ___ buy a ticket.', options: ['mustn\'t', 'have to', 'don\'t have to', 'must'], answer: 2, explain: 'Sự kiện miễn phí nên không cần mua vé → don\'t have to. mustn\'t là cấm (sai nghĩa); have to và must là bắt buộc phải mua.' },
-      { q: 'I failed the test. I ___ more vocabulary.', options: ['should learn', 'should have learnt', 'must learn', 'had to learn'], answer: 1, explain: 'Hối tiếc về việc lẽ ra nên làm trong quá khứ → should have + V3. should learn và must learn nói về hiện tại/tương lai; had to learn là đã bắt buộc phải học, không diễn tả hối tiếc.' },
+      { q: 'I failed the test last week. I ___ more vocabulary beforehand.', options: ['should learn', 'should have learned', 'must learn', 'had to learn'], answer: 1, explain: 'Hối tiếc về việc lẽ ra nên làm trong quá khứ → should have + V3. should learn và must learn nói về hiện tại/tương lai; had to learn là đã bắt buộc phải học, không diễn tả hối tiếc.' },
       { q: 'Last year, all staff ___ attend a safety course.', options: ['must', 'had to', 'have to', 'should'], answer: 1, explain: 'Nghĩa vụ trong quá khứ (Last year) → had to. must và have to là hiện tại; should chỉ lời khuyên, không phải nghĩa vụ.' },
       { q: 'We ___ have taken a taxi – the station was only five minutes away.', options: ['mustn\'t', 'needn\'t', 'shouldn\'t to', 'didn\'t need'], answer: 1, explain: 'needn\'t have + V3: đã làm nhưng hóa ra không cần (ga chỉ cách 5 phút) → needn\'t have taken. mustn\'t là cấm; "shouldn\'t to" sai cấu trúc; "didn\'t need" phải đi với to V (didn\'t need to take).' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['You mustn\'t to pay; the museum is free.', 'You don\'t must pay; the museum is free.', 'You haven\'t to paying; the museum is free.', 'You don\'t have to pay; the museum is free.'], answer: 3, explain: 'Không cần thiết (miễn phí) dùng don\'t have to + V; mustn\'t là cấm. "mustn\'t to" thừa to (và mustn\'t là cấm); "don\'t must" sai cấu trúc; "haven\'t to paying" sai.' },
@@ -141,13 +142,13 @@
       { q: 'I can\'t find my keys. I ___ them at the library.', options: ['might leave', 'might have left', 'must leave', 'can\'t have leave'], answer: 1, explain: 'Phỏng đoán về quá khứ (có thể đã để quên) → might have + V3 → might have left. might leave và must leave nói về hiện tại/tương lai; "can\'t have leave" sai dạng V3 và sai nghĩa.' },
       { q: 'The museum looks completely different now. It ___ have been renovated.', options: ['must', 'can\'t', 'mustn\'t', 'should'], answer: 0, explain: 'Kết luận chắc chắn về quá khứ (bảo tàng trông khác hẳn → chắc đã được sửa) → must have been renovated. can\'t have là chắc chắn không; mustn\'t là cấm; should have là lẽ ra nên.' },
       { q: 'He ___ have written this essay alone – it\'s full of advanced vocabulary he never uses.', options: ['must', 'might', 'can\'t', 'should'], answer: 2, explain: 'Bằng chứng cho thấy gần như chắc chắn không phải tự viết → can\'t have written. must have và might have mâu thuẫn với bằng chứng; should have là lẽ ra nên.' },
-      { q: 'Electric cars ___ become cheaper than petrol cars in the next decade. (không chắc)', options: ['must', 'could', 'can\'t', 'mustn\'t'], answer: 1, explain: 'Khả năng không chắc chắn trong tương lai → could/might/may. must là chắc chắn có; can\'t là chắc chắn không; mustn\'t là cấm – đều mâu thuẫn với "không chắc".' },
+      { q: 'Electric cars ___ become cheaper than gas-powered cars in the next decade. (không chắc)', options: ['must', 'could', 'can\'t', 'mustn\'t'], answer: 1, explain: 'Khả năng không chắc chắn trong tương lai → could/might/may. must là chắc chắn có; can\'t là chắc chắn không; mustn\'t là cấm – đều mâu thuẫn với "không chắc".' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['She must be tired after such a long flight.', 'She must to be tired after such a long flight.', 'She musts be tired after such a long flight.', 'She must being tired after such a long flight.'], answer: 0, explain: 'Suy đoán chắc chắn ở hiện tại: must + be + tính từ → must be tired. "must to be", "musts", "must being" đều sai cấu trúc động từ khuyết thiếu.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['He can\'t have went home already.', 'He can\'t have gone home already.', 'He mustn\'t have gone home already.', 'He can\'t has gone home already.'], answer: 1, explain: 'Suy đoán phủ định về quá khứ: can\'t have + V3 (gone); không dùng mustn\'t để suy đoán. "have went" sai V3; mustn\'t không dùng để suy đoán; "can\'t has" sai dạng sau động từ khuyết thiếu.' },
       { q: 'Phần nào sai? The lights are off, so they (A) mustn\'t (B) be (C) at home (D) right now.', options: ['(A) mustn\'t', '(B) be', '(C) at home', '(D) right now'], answer: 0, explain: 'Suy đoán chắc chắn là không dùng can\'t, không dùng mustn\'t → sửa thành can\'t be. be, at home và right now đều đúng.' },
       { q: 'Phần nào sai? Linh didn\'t answer the phone; she (A) might (B) have (C) fell asleep (D) early.', options: ['(A) might', '(B) have', '(C) fell', '(D) early'], answer: 2, explain: 'might have + V3 → fallen, nên phần sai là (C) fell. might, have và early đều đúng.' },
       { q: 'Task 2: The decline in bee populations ___ be caused by pesticides, although scientists are not yet certain.', options: ['must', 'can\'t', 'may', 'should to'], answer: 2, explain: 'Chưa chắc chắn (not yet certain) → dùng may để diễn tả khả năng. must và can\'t diễn tả sự chắc chắn, mâu thuẫn với "not yet certain"; "should to" thừa to.' },
-      { q: 'Speaking Part 3: "Why do you think the old cinema closed?" – "I\'m not sure. It ___ lost customers to streaming services."', options: ['must', 'can\'t have', 'might has', 'might have'], answer: 3, explain: 'Suy đoán không chắc chắn về quá khứ (I\'m not sure) → might have + V3. must là chắc chắn; "can\'t have" là chắc chắn không; "might has" sai dạng.' }
+      { q: 'Speaking Part 3: "Why do you think the old movie theater closed?" – "I\'m not sure. It ___ lost customers to streaming services."', options: ['must', 'can\'t have', 'might has', 'might have'], answer: 3, explain: 'Suy đoán không chắc chắn về quá khứ (I\'m not sure) → might have + V3. must là chắc chắn; "can\'t have" là chắc chắn không; "might has" sai dạng.' }
     ]
   });
 
@@ -191,7 +192,7 @@
       { type: 'mistake', wrong: 'The accident was happened at night.', right: 'The accident happened at night.', why: 'Happen là nội động từ, không có bị động. Người Việt hay thêm "bị/được" theo thói quen.' },
       { type: 'mistake', wrong: 'The houses are build of wood.', right: 'The houses are built of wood.', why: 'Sau be phải là V3 (built), không phải V nguyên mẫu.' },
       { type: 'mistake', wrong: 'Unemployment was risen sharply in 2010.', right: 'Unemployment rose sharply in 2010.', why: 'Rise là nội động từ; khi mô tả số liệu tăng/giảm dùng chủ động. (Raise mới là ngoại động từ.)' },
-      { type: 'ielts', text: 'Task 1 dạng process / map gần như bắt buộc dùng bị động (is collected, was replaced, has been converted). Task 2 dùng bị động để khách quan hóa lập luận, nhưng đừng lạm dụng – xen kẽ với câu chủ động cho rõ nghĩa.', ex: 'Between 1995 and 2015, the old warehouses [[were demolished]] and a shopping centre [[was constructed]].' }
+      { type: 'ielts', text: 'Task 1 dạng process / map gần như bắt buộc dùng bị động (is collected, was replaced, has been converted). Task 2 dùng bị động để khách quan hóa lập luận, nhưng đừng lạm dụng – xen kẽ với câu chủ động cho rõ nghĩa.', ex: 'Between 1995 and 2015, the old warehouses [[were demolished]] and a shopping center [[was constructed]].' }
     ],
     quiz: [
       { q: 'English ___ in many countries as an official language.', options: ['uses', 'is used', 'is using', 'used'], answer: 1, explain: 'Sự thật chung, chủ ngữ chịu tác động → hiện tại đơn bị động: is used. uses và is using là chủ động (ngôn ngữ không tự dùng); used thiếu is.' },
@@ -232,7 +233,7 @@
       { type: 'uses', items: [
         { title: 'Trình bày quan điểm phổ biến mà không nêu nguồn cụ thể', ex: '[[It is widely accepted that]] exercise reduces stress.', vi: 'Mọi người đều thừa nhận rằng tập thể dục giúp giảm căng thẳng.' },
         { title: 'Tin tức, báo cáo chưa được xác nhận', ex: 'The suspect [[is reported to have fled]] abroad.', vi: 'Nghi phạm được cho là đã trốn ra nước ngoài.' },
-        { title: 'Have something done: thuê/nhờ người khác làm', ex: 'We [[are having our flat redecorated]].', vi: 'Chúng tôi đang thuê người sửa sang lại căn hộ.' },
+        { title: 'Have something done: thuê/nhờ người khác làm', ex: 'We [[are having our apartment redecorated]].', vi: 'Chúng tôi đang thuê người sửa sang lại căn hộ.' },
         { title: 'Get something done: thân mật hơn, đôi khi hàm ý nỗ lực', ex: 'I finally [[got my visa approved]].', vi: 'Cuối cùng tôi cũng được duyệt visa.' },
         { title: 'Have something done: chuyện không may xảy ra với mình', ex: 'She [[had her wallet stolen]] on the bus.', vi: 'Cô ấy bị lấy cắp ví trên xe buýt.' }
       ] },
@@ -380,13 +381,13 @@
     blocks: [
       { type: 'diagram', caption: 'Điều kiện hỗn hợp: nguyên nhân quá khứ → hệ quả hiện tại', steps: [
         { t: 'Thực tế: I didn\'t learn to swim as a child, so I\'m afraid of water now.', c: 'note' },
-        { t: 'If I had learnt to swim as a child,', c: 'if' },
+        { t: 'If I had learned to swim as a child,', c: 'if' },
         { t: '↓ had V3 (quá khứ) → would V (hiện tại)', c: 'arrow' },
         { t: 'I wouldn\'t be afraid of water now.', c: 'result' }
       ] },
       { type: 'formula', rows: [
         { label: 'Hỗn hợp 3 → 2', parts: [ { t: 'If S + had V3', c: 'subj' }, { t: ', S + would', c: 'aux' }, { t: 'V', c: 'verb' }, { t: '(now)', c: 'time' } ], ex: '[[If]] she [[had taken]] that job, she [[would be living]] in Singapore now.' },
-        { label: 'Hỗn hợp 2 → 3', parts: [ { t: 'If S + V2', c: 'subj' }, { t: ', S + would have', c: 'aux' }, { t: 'V3', c: 'verb' } ], ex: '[[If]] he [[were]] more organised, he [[wouldn\'t have lost]] the documents.' },
+        { label: 'Hỗn hợp 2 → 3', parts: [ { t: 'If S + V2', c: 'subj' }, { t: ', S + would have', c: 'aux' }, { t: 'V3', c: 'verb' } ], ex: '[[If]] he [[were]] more organized, he [[wouldn\'t have lost]] the documents.' },
         { label: 'Unless', parts: [ { t: 'Unless', c: 'neg' }, { t: 'S + V (khẳng định)', c: 'subj' }, { t: ', S + will', c: 'aux' }, { t: 'V', c: 'verb' } ], ex: '[[Unless]] we [[act]] now, many species [[will disappear]].' },
         { label: 'Wish (hiện tại)', parts: [ { t: 'S', c: 'subj' }, { t: 'wish / If only', c: 'adv' }, { t: 'S + V2 / were', c: 'verb' } ], ex: 'I [[wish]] I [[spoke]] English more fluently.' },
         { label: 'Wish (quá khứ)', parts: [ { t: 'S', c: 'subj' }, { t: 'wish / If only', c: 'adv' }, { t: 'S + had V3', c: 'verb' } ], ex: '[[If only]] I [[had started]] preparing earlier!' }
@@ -396,7 +397,7 @@
         { title: 'Provided (that) / as long as / on condition that: với điều kiện là', ex: 'You can use the lab [[as long as]] you [[follow]] the safety rules.', vi: 'Bạn có thể dùng phòng thí nghiệm miễn là tuân thủ quy tắc an toàn.' },
         { title: 'Wish + V2: mong điều trái với hiện tại', ex: 'Many workers [[wish]] they [[had]] more flexible hours.', vi: 'Nhiều người lao động ước họ có giờ làm linh hoạt hơn.' },
         { title: 'Wish + had V3: hối tiếc về quá khứ', ex: 'I [[wish]] I [[hadn\'t chosen]] such a difficult topic.', vi: 'Tôi ước mình đã không chọn một đề tài khó như vậy.' },
-        { title: 'Wish + would: phàn nàn về hành vi người khác / mong thay đổi', ex: 'I [[wish]] my neighbours [[would stop]] playing loud music.', vi: 'Tôi ước hàng xóm thôi bật nhạc to.' }
+        { title: 'Wish + would: phàn nàn về hành vi người khác / mong thay đổi', ex: 'I [[wish]] my neighbors [[would stop]] playing loud music.', vi: 'Tôi ước hàng xóm thôi bật nhạc to.' }
       ] },
       { type: 'table', head: ['Cấu trúc', 'Thời điểm', 'Ví dụ'], rows: [
         ['wish + V2 / were', 'Hiện tại', 'I wish I were taller.'],
@@ -421,10 +422,10 @@
       { q: 'If he weren\'t so shy, he ___ to the party last night.', options: ['would go', 'will go', 'would have gone', 'had gone'], answer: 2, explain: 'Hỗn hợp: tính cách hiện tại (V2) → kết quả quá khứ (would have V3). would go là kết quả hiện tại (không hợp với last night); will go là loại 1; had gone sai cấu trúc.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['If I had taken that job, I will be rich now.', 'If I had taken that job, I would be rich now.', 'If I would have taken that job, I would be rich now.', 'If I have taken that job, I would be rich now.'], answer: 1, explain: 'Điều kiện hỗn hợp: If + had V3 (quá khứ), would + V (kết quả hiện tại, now). will be không hợp với điều kiện quá khứ; không dùng would have trong mệnh đề if; "have taken" sai thì.' },
       { q: 'Câu nào đúng ngữ pháp?', options: ['I wish I can speak English fluently.', 'I wish I would can speak English fluently.', 'I wish I spoken English fluently.', 'I wish I could speak English fluently.'], answer: 3, explain: 'Ước điều trái hiện tại: wish + quá khứ đơn / could + V. can không lùi thì sau wish; "would can" sai; "spoken" thiếu had.' },
-      { q: 'Phần nào sai? (A) Unless you (B) don\'t (C) practise regularly, your speaking (D) will not improve.', options: ['(A) Unless', '(B) don\'t', '(C) practise', '(D) will not improve'], answer: 1, explain: 'Unless đã mang nghĩa phủ định (= if not) → bỏ don\'t: Unless you practise… Unless, practise và will not improve đều đúng.' },
+      { q: 'Phần nào sai? (A) Unless you (B) don\'t (C) practice regularly, your speaking (D) will not improve.', options: ['(A) Unless', '(B) don\'t', '(C) practice', '(D) will not improve'], answer: 1, explain: 'Unless đã mang nghĩa phủ định (= if not) → bỏ don\'t: Unless you practise… Unless, practise và will not improve đều đúng.' },
       { q: 'Phần nào sai? I wish I (A) didn\'t spend so (B) much money (C) on clothes (D) last month.', options: ['(A) didn\'t spend', '(B) much', '(C) on', '(D) last month'], answer: 0, explain: 'Ước điều trái quá khứ (last month) → wish + had V3: hadn\'t spent. much, on và last month đều đúng.' },
       { q: 'Task 2: ___ governments take urgent action, climate change will continue to accelerate.', options: ['If not', 'Unless', 'Wish', 'Despite'], answer: 1, explain: 'Unless = if … not: trừ khi chính phủ hành động khẩn cấp. If not thiếu chủ ngữ và sai cấu trúc; Wish và Despite không nối mệnh đề điều kiện.' },
-      { q: 'Speaking Part 2: "Is there anything you regret?" – "Yes, I wish I ___ harder at school."', options: ['studied', 'have studied', 'had studied', 'would study'], answer: 2, explain: 'Tiếc nuối về quá khứ (thời đi học) → wish + had V3: had studied. studied là ước cho hiện tại; have studied không dùng sau wish; would study chỉ mong muốn thay đổi trong tương lai.' }
+      { q: 'Speaking Part 2: "Is there anything you regret?" – "Yes, I wish I ___ harder at school (tiếc điều đã qua)."', options: ['studied', 'have studied', 'had studied', 'would study'], answer: 2, explain: 'Tiếc nuối về quá khứ (thời đi học) → wish + had V3: had studied. studied là ước cho hiện tại; have studied không dùng sau wish; would study chỉ mong muốn thay đổi trong tương lai.' }
     ]
   });
 
@@ -471,7 +472,7 @@
       { type: 'ielts', text: 'Writing Task 2: dùng động từ tường thuật đa dạng (claim, argue, suggest, point out, maintain) thay vì chỉ say để trình bày quan điểm của người khác. Speaking Part 2: kể lại lời khuyên ai đó từng nói với bạn.', ex: 'Some experts [[argue that]] homework should be abolished, while others [[maintain that]] it builds discipline.' }
     ],
     quiz: [
-      { q: '"I am tired," she said. → She said that she ___ tired.', options: ['is', 'was', 'has been', 'will be'], answer: 1, explain: 'Tường thuật lùi thì: am → was. is và will be không lùi thì; has been là hiện tại hoàn thành, sai thì.' },
+      { q: '"I am tired," she said. → She said that she ___ tired (áp dụng quy tắc lùi thì).', options: ['is', 'was', 'has been', 'will be'], answer: 1, explain: 'Tường thuật lùi thì: am → was. is và will be không lùi thì; has been là hiện tại hoàn thành, sai thì.' },
       { q: '"Where do you work?" he asked. → He asked me where I ___.', options: ['do work', 'did work', 'worked', 'work did'], answer: 2, explain: 'Câu hỏi gián tiếp lùi thì và không đảo ngữ: where + S + V2 → where I worked. "do work", "did work" giữ trợ động từ của câu hỏi trực tiếp; "work did" sai trật tự.' },
       { q: '"Don\'t touch the screen," the guide said. → The guide told us ___ the screen.', options: ['don\'t touch', 'not to touch', 'to not touching', 'not touch'], answer: 1, explain: 'Mệnh lệnh phủ định khi tường thuật: tell + sb + not to + V → told us not to touch. "don\'t touch" giữ nguyên câu trực tiếp; "to not touching" và "not touch" sai dạng.' },
       { q: '"I will help you tomorrow," he said. → He said he ___ help me ___.', options: ['will / tomorrow', 'would / the next day', 'would / yesterday', 'will / the next day'], answer: 1, explain: 'Lùi thì và đổi trạng từ khi tường thuật: will → would; tomorrow → the next day/the following day.' },
@@ -515,7 +516,7 @@
       { type: 'table', head: ['+ V-ing', '+ to V', 'Cả hai (đổi nghĩa)'], rows: [
         ['enjoy, avoid, finish, mind, consider', 'decide, hope, plan, agree, refuse', 'stop, remember, forget'],
         ['suggest, recommend, deny, admit, risk', 'manage, afford, offer, promise, fail', 'try, regret'],
-        ['keep, practise, delay, postpone, miss', 'expect, want, would like, tend, seem', 'go on, mean, need'],
+        ['keep, practice, delay, postpone, miss', 'expect, want, would like, tend, seem', 'go on, mean, need'],
         ['can\'t help, can\'t stand, it\'s worth', 'learn, aim, attempt, intend', '—']
       ] },
       { type: 'tip', text: 'Sau giới từ luôn dùng V-ing – kể cả "to" là giới từ trong look forward to, be used to, object to, when it comes to, contribute to: This contributes to reducing pollution.' },
@@ -523,7 +524,7 @@
       { type: 'mistake', wrong: 'I look forward to meet you.', right: 'I look forward to meeting you.', why: 'To trong look forward to là giới từ → V-ing. Lỗi rất phổ biến trong thư IELTS General Task 1.' },
       { type: 'mistake', wrong: 'Students should avoid to use informal language.', right: 'Students should avoid using informal language.', why: 'Avoid luôn đi với V-ing.' },
       { type: 'mistake', wrong: 'I forgot locking the door, so a thief got in.', right: 'I forgot to lock the door, so a thief got in.', why: 'Quên làm việc cần làm → forget + to V.' },
-      { type: 'ielts', text: 'Task 2: dùng V-ing làm chủ ngữ để câu súc tích, học thuật (Investing in education…). Kết hợp các động từ như tend to, fail to, be worth V-ing, contribute to V-ing để tăng độ đa dạng ngữ pháp.', ex: '[[Encouraging]] children to read for pleasure is [[worth prioritising]], as it tends to improve their academic performance.' }
+      { type: 'ielts', text: 'Task 2: dùng V-ing làm chủ ngữ để câu súc tích, học thuật (Investing in education…). Kết hợp các động từ như tend to, fail to, be worth V-ing, contribute to V-ing để tăng độ đa dạng ngữ pháp.', ex: '[[Encouraging]] children to read for pleasure is [[worth prioritizing]], as it tends to improve their academic performance.' }
     ],
     quiz: [
       { q: 'Most candidates want ___ a band 7 or higher.', options: ['achieving', 'to achieve', 'achieve', 'achieved'], answer: 1, explain: 'want + to V (muốn làm gì) → to achieve. Sau want không dùng V-ing (achieving), V nguyên mẫu không to (achieve) hay V3 (achieved).' },

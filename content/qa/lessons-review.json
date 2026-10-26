@@ -64,7 +64,22 @@
         "upgrade AmE/usage notes (10 tip + 1 hàng bảng)"
       ],
       "notes": "Đa đáp án: Q 'It's time we leave' (Mỹ văn nói chấp nhận) → 'It's time for we to leave'; hedging Q13/19/20/21/23-27 thêm gợi ý '(chọn cách nói rào đón)' vì phương án khác (will be argued, definitely seems, all of the cases…) vẫn đúng ngữ pháp. Thiếu đáp án: would rather cycle to work than drive to work; game was canceled/cancelled; aging/ageing; aunt's apartment/flat. Anh-Mỹ: flat→apartment, petrol→gas/gasoline, public transport→public transportation/transit, city centre→downtown, cinema/film→movie theater/movie, football→soccer, holiday→vacation, university→college, primary→elementary school, revise→study, sit an exam→take, timetable/programme→schedule, CV→résumé, 5 September→September 5, 11.30→11:30, car park→parking garage, garden→yard/backyard, reception→front desk, marked→graded, scheme→program, journey→commute, phone→call, shop→store; chính tả travelling→traveling, cancelled→canceled, practise(v)→practice, neighbourhood, defence, urbanisation, ageing, learnt, realised. Nâng cấp tip: You better (Mỹ văn nói), fill out/in + chính tả Mỹ, giới từ Mỹ-Anh (different from/than/to, on the weekend, in the hospital), the former/latter chỉ cho 2 đối tượng, will likely (Mỹ), chính tả danh từ hóa Mỹ, so sánh 'than in Tokyo', dấu phẩy Oxford + dấu câu trong ngoặc kép, in case≈if (Mỹ văn nói), Do you have…? + giờ 7:15; bảng -l: traveling (Mỹ)/travelling (Anh). Không thấy lỗi quy tắc/khóa đáp án sai. ids/cấu trúc giữ nguyên, extension đồng bộ, content-check 0 lỗi."
+    },
+    {
+      "area": "grammar",
+      "date": "2026-10-26",
+      "range": "idx 55-60, 63-65, 68-69, 72-76 (tenses-ielts, modals x3, passive x2, mixed-conditionals-wish, reported-speech, gerund-infinitive, adjectives-adverbs, comparatives, relative/noun/adverbial clauses, complex-sentences, inversion-cleft); rà blocks + quiz + drill",
+      "checked": 16,
+      "fixed": 75,
+      "errorRate": "lỗi chấm/đáp án: 5 / ~330 mục (≈1.5%: 4 câu quiz nhiều đáp án đúng + 1 câu 'What … needs are data' gây tranh cãi; ~12 drill thiếu đáp án chấp nhận); Anh-Anh→Anh-Mỹ ~55 chỗ; không thấy lỗi quy tắc",
+      "fixTypes": [
+        "ambiguous (5)",
+        "missing accepted answer (~12 drill)",
+        "AmE lexis/spelling (~55)",
+        "AmE usage tip (1 tip mới, modals)"
+      ],
+      "notes": "Đa đáp án: 57 Q3 (I failed the test… should learn → thêm last week/beforehand); 64 Q0 (she said she is/was → ghi rõ áp dụng lùi thì); 63 Q11 (wish I studied → ghi tiếc điều đã qua); 76 Q22 (What … needs are data → a clear plan). Thêm đáp án: sales grew/climbed/went up…, cannot/can't, must not/mustn't, don't have to, house prices went up…, Spain slightly lower than Italy, would have good seats, asked how much the course costs, They said … visited…, nevertheless/nonetheless. Anh-Mỹ: housing estate→development, practise→practice, learnt→learned, organised/neighbours/prioritising/realise/defence/levelled/dramatise/cancelled, petrol→gas-powered, cinema→movie theater, flat→apartment, shopping centre/city centres→center, holiday→vacation, football→soccer, match→game, tonnes→tons, cycle lanes→bike lanes. Dọn tồn đọng: chapters the cinema/the film, foundation the match was cancelled, drills-b on holiday. ids/cấu trúc giữ nguyên; extension đồng bộ; content-check 0 lỗi."
     }
   ],
-  "nextGrammar": "idx 55-60, 63-65, 68-69, 72-76 chưa rà đợt này (đã qua audit 10/2026); 32-52 xong 26/10. Chỉ số theo thứ tự nạp foundation, chapters, book2, academic, tenses, verbs, sentences (khác thứ tự app.js). Ưu tiên: 57-58 modals, 59-60 passive, 64 reported-speech, 72-76 clauses/inversion. Rà cả blocks + Anh-Mỹ (còn sót ngoài phạm vi: chapters 'the cinema, the film', foundation 'the match was cancelled', drills-b 'on holiday'; chính tả -our/-ise ở ví dụ chưa đổi hết). Cách làm: nạp web/js/grammar/*.js bằng vm, in blocks+quiz+drills (gồm start/hint); sửa bằng script anchor-duy-nhất; quiz dạng chọn 'rào đón' cần gợi ý ở đề."
+  "nextGrammar": "done: đã rà toàn bộ 77 bài ngữ pháp (idx 61-62, 66-67, 70-71 đã qua audit 10/2026). Còn lại tùy chọn: quét lại chính tả -our/-ise ở các bài rà từ đợt trước."
 }
