@@ -313,7 +313,7 @@
     if (noAuth) return;
     if (!supported) { // add-on/bản xem trước: đăng nhập trên lexkite.com
       if (Store.isExtension) return void window.open('https://lexkite.com/app/#/settings', '_blank', 'noopener');
-      return UI.modal(`<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p>${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`);
+      return UI.modal(`<h2>${UI.icon('cloud')} ${t('Tài khoản & đồng bộ')}</h2><p>${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`);
     }
     try {
       await init();
@@ -333,7 +333,7 @@
     await Store.set('loginNudgeAt', Date.now());
     setTimeout(() => {
       if (Sync.user) return;
-      UI.modal(`<div style="text-align:center"><div style="font-size:2.6rem">☁️</div><h2 style="margin:.3rem 0">${t('Bảo vệ {n} thẻ bạn đã học', { n })}</h2>
+      UI.modal(`<div style="text-align:center"><div style="font-size:2.6rem">${UI.icon('cloud')}</div><h2 style="margin:.3rem 0">${t('Bảo vệ {n} thẻ bạn đã học', { n })}</h2>
         <p class="muted">${t('Dữ liệu đang chỉ nằm trên trình duyệt này. Đăng nhập Google để <b>sao lưu tự động</b> và <b>học tiếp trên máy khác, điện thoại, tiện ích Chrome</b> – cùng một tài khoản, không trùng lặp.')}</p>
         <div class="row center" style="margin-top:1rem">${authBtns('nudgeIn')}<button class="btn ghost" data-close>${t('Để sau')}</button></div>
         <p class="tiny muted" style="margin-top:.6rem">${t('Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào')}</p></div>`);
@@ -413,8 +413,8 @@
     box.classList.add('acct-box'); if (App && App.meCss) App.meCss(); // CSS thẻ tài khoản nằm ở css/me.css (tải lười)
     if (noAuth) { box.innerHTML = ''; box.hidden = true; return; }
     if (!supported) {
-      box.innerHTML = Store.isExtension ? `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>lexkite.com</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.')}</p><a class="btn primary" href="https://lexkite.com/app/#/settings" target="_blank" rel="noopener">☁️ ${t('Mở web app để đăng nhập & đồng bộ')}</a>`
-        : `<h2>☁️ ${t('Tài khoản & đồng bộ')}</h2><p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`;
+      box.innerHTML = Store.isExtension ? `<h2>${UI.icon('cloud')} ${t('Tài khoản & đồng bộ')}</h2><p class="muted small">${t('Tiện ích tự đồng bộ với tài khoản Google qua web app: mở <b>lexkite.com</b> và đăng nhập một lần – từ lưu bằng tiện ích sẽ tự gộp vào tài khoản (và ngược lại) mỗi khi bạn mở web app. Trên máy khác: cài tiện ích + đăng nhập cùng tài khoản trên web app là có đủ dữ liệu.')}</p><a class="btn primary" href="https://lexkite.com/app/#/settings" target="_blank" rel="noopener">${UI.icon('cloud')} ${t('Mở web app để đăng nhập & đồng bộ')}</a>`
+        : `<h2>${UI.icon('cloud')} ${t('Tài khoản & đồng bộ')}</h2><p class="muted">${t('Đăng nhập và đồng bộ có trên bản web {link}.', { link: '<a href="https://lexkite.com/app/" target="_blank" rel="noopener">lexkite.com</a>' })}</p>`;
       return;
     }
     const u = Sync.user, k = Sync.stKind(), st = Sync.stText();
@@ -431,7 +431,7 @@
       if (k === 'ok' && !Sync.msg) agoT = setTimeout(render, 60e3); // "5 phút trước" tự cập nhật khi thẻ còn trên màn hình
     } else {
       box.innerHTML = `<div class="acct-card out" data-st="${k}">
-        <span class="acct-av acct-ic" aria-hidden="true">☁️</span>
+        <span class="acct-av acct-ic" aria-hidden="true">${UI.icon('cloud')}</span>
         <div class="acct-id"><h2 class="acct-t">${t('Đăng nhập để không mất dữ liệu')}</h2><span class="small muted">${t('Sao lưu flashcard, XP, chuỗi ngày học và học tiếp trên mọi thiết bị.')}</span></div>
         ${st ? `<p class="acct-st" role="status">${st}</p>` : ''}
         <div class="acct-act">${authBtns('signIn')}</div>

@@ -106,7 +106,7 @@
         ${card('#/pron', '🔤', t('Phát âm'), t('Âm khó, trọng âm, chấm phát âm từ'), done.pron ? t('{n} bài đã làm', { n: done.pron }) : '')}</div>`
       + (off.length ? `<p class="small muted" style="margin-top:.8rem">${t('{exam} không thi {skills}.', { exam: EXAMS[ex].short, skills: off.map(k => SK[k].name()).join(', ') })} <a href="#/skill/${off[0]}">${t('Vẫn muốn luyện?')}</a></p>` : '')
       + sect(t('Ôn lại'), card('#/mistakes', '📕', t('Sổ lỗi sai'), t('Làm lại các câu đã sai để không sai lần nữa'))
-        + card('#/tests', '🏁', t('Thi thử'), t('Làm đề đầy đủ có tính giờ khi đã sẵn sàng')));
+        + card('#/tests', UI.icon('flag'), t('Thi thử'), t('Làm đề đầy đủ có tính giờ khi đã sẵn sàng')));
   };
 
   routes.skill = function (k) {
@@ -116,7 +116,7 @@
     view.innerHTML = head(SK[k].ic + ' ' + SK[k].name(), mine ? t('Dạng bài {exam}', { exam: EXAMS[ex].name }) : t('{exam} không thi kỹ năng này – bạn vẫn có thể luyện theo kỳ thi khác bên dưới.', { exam: EXAMS[ex].short }), examBtn())
       + (mine ? `<div class="hub-grid">${tiles(mine)}</div>` : '')
       + (others.length ? `<details class="hub-more" ${mine ? '' : 'open'}><summary>${t('Kỳ thi khác')}</summary>${others.map(e => `<h3 class="set-h hub-h">${EXAMS[e].ic} ${esc(EXAMS[e].name)}</h3><div class="hub-grid">${tiles(itemsFor(k, e))}</div>`).join('')}</details>` : '')
-      + `<p class="small muted" style="margin-top:1rem">🏁 ${t('Muốn làm đề đầy đủ có tính giờ?')} <a href="#/tests">${t('Đến Thi thử')} →</a></p>`;
+      + `<p class="small muted" style="margin-top:1rem">${UI.icon('flag')} ${t('Muốn làm đề đầy đủ có tính giờ?')} <a href="#/tests">${t('Đến Thi thử')} →</a></p>`;
   };
 
   // ---------- Thi thử ----------
@@ -126,7 +126,7 @@
     const mocks = await w(Core.Store.get('mocks', []));
     const toeic = (g.toeicTests || []).slice(-5).reverse(), lb = g.listenBest || {};
     const T = {
-      ielts: [card('#/mock', '🏁', t('Thi thử IELTS 4 kỹ năng'), t('Nghe – Đọc – Viết – Nói, có quy đổi band')), card('#/listening', '🎧', t('Đề Listening 40 câu'), t('Chọn đề ở trang Luyện nghe, làm như thi thật')), card('#/cbt', '🖥️', t('Đề Reading trên máy (60 phút)'), t('3 passage, giao diện như thi trên máy'))],
+      ielts: [card('#/mock', UI.icon('flag'), t('Thi thử IELTS 4 kỹ năng'), t('Nghe – Đọc – Viết – Nói, có quy đổi band')), card('#/listening', '🎧', t('Đề Listening 40 câu'), t('Chọn đề ở trang Luyện nghe, làm như thi thật')), card('#/cbt', '🖥️', t('Đề Reading trên máy (60 phút)'), t('3 passage, giao diện như thi trên máy'))],
       toeic: [card('#/toeic', '💼', t('Đề TOEIC đầy đủ'), t('Listening & Reading, quy đổi điểm 10–990'))],
       toefl: [card('#/toefl', '🏛️', t('Luyện theo phần TOEFL iBT'), t('Reading, Listening, Writing, Speaking theo đúng dạng bài 2026'))],
       general: [card('#/grammar/mix?n=40', '📐', t('Kiểm tra ngữ pháp 40 câu'), t('Trộn mọi chủ điểm, chấm ngay'))],
@@ -136,7 +136,7 @@
       ...toeic.map(x => [x.at || x.date, 'TOEIC', t('Đề {n}', { n: x.n }), x.total + '/990']),
       ...Object.entries(lb).map(([n, b]) => ['', 'IELTS', 'Listening Test ' + n, 'Band ' + b])].slice(0, 8);
     const fmt = d => { if (!d) return ''; try { return new Date(d).toLocaleDateString(I18N.lang()); } catch (e) { return ''; } };
-    view.innerHTML = head('🏁 ' + t('Thi thử'), t('Làm đề đầy đủ có tính giờ để biết mình đang ở đâu.'), examBtn())
+    view.innerHTML = head(UI.icon('flag') + ' ' + t('Thi thử'), t('Làm đề đầy đủ có tính giờ để biết mình đang ở đâu.'), examBtn())
       + `<div class="hub-grid">${card('#/placement', '🧭', t('Kiểm tra trình độ (5 phút)'), state.settings.placement ? t('Làm lại để cập nhật trình độ') : t('Biết ngay trình độ để có lộ trình phù hợp'))}${(T[ex] || T.ielts).join('')}</div>`
       + `<h3 class="set-h hub-h" id="history">📈 ${t('Lịch sử điểm')}</h3>`
       + (rows.length ? `<div class="set-list">${rows.map(r => `<div class="set-row"><div class="set-l"><span>${esc(r[2])}</span><small>${esc(r[1])}${fmt(r[0]) ? ' · ' + fmt(r[0]) : ''}</small></div><div class="set-c"><b>${esc(r[3])}</b></div></div>`).join('')}</div>`

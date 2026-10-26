@@ -146,7 +146,7 @@
 .acct-box { container-type: inline-size; }
 .acct-card { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .7rem .85rem; }
 .acct-av { width: 44px; height: 44px; flex: none; }
-.acct-ic { display: grid; place-items: center; font-size: 1.6rem; border-radius: 50%; background: var(--primary-soft); }
+.acct-ic { display: grid; place-items: center; font-size: 1.6rem; color: var(--primary-text); border-radius: 50%; background: var(--primary-soft); }
 .acct-id { min-width: 0; display: grid; gap: .1rem; }
 .acct-name, .acct-mail { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .acct-name { font-size: 1rem; }
