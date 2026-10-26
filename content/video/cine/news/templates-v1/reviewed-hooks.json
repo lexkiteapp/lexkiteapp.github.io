@@ -3,20 +3,21 @@
  "verdicts": {
   "t1_mistake_agree": {
    "template": "mistake",
-   "hook": "✗ STOP saying / “I am agree.”",
+   "hook": "✗ Don't say this / at work: “I am agree.”",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (expert American English teacher review, 25/10/2026; no GrabCast)",
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026 rewrite for engagement; no GrabCast)",
    "script": {
-    "m_h": "Stop saying this.",
+    "m_h": "Don't say this at work.",
     "m_w": "I am agree.",
-    "m_k": "Just say: I agree.",
-    "m_y": "Agree is a verb, so you don't need am.",
-    "m_x": "I agree. I don't agree. Do you agree?",
-    "m_t": "To agree strongly, say: I totally agree.",
-    "m_q": "Quiz! Which one is right, A or B?",
+    "m_s": "It feels like: I am happy. I am tired.",
+    "m_y": "But agree is an action, like want or need.",
+    "m_k": "Drop the am. Just say: I agree.",
+    "m_x": "I don't agree. Do you agree?",
+    "m_t": "Sound like a native: I couldn't agree more!",
+    "m_q": "Quick quiz! Which one is right?",
     "m_a": "B! I agree with you.",
-    "m_c": "Check your grammar free on lexkite.com."
+    "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
     "wrong_line": "m_w",
@@ -29,7 +30,7 @@
     "quiz": true,
     "count": true
    },
-   "note": "“I am agree” is a very common learner error (agree is a verb, not an adjective). “I agree.” / “I don't agree.” / “Do you agree?” are standard US English. Quiz answer B is right. “I totally agree” is a natural US intensifier."
+   "note": "“I am agree” is a very common learner error (agree is a verb; learners copy be + adjective like happy/tired). Fix: I agree / I don't agree / Do you agree? Native upgrade “I couldn't agree more” = strong agreement, natural US/UK. Hook 'at work' is true: it is a frequent meeting phrase and sounds non-native."
   },
   "t2_words5_hotel": {
    "template": "words5",

@@ -141,8 +141,8 @@ for l in LINE_SPEC:
                       whisper=wj.get('whisper'), speed=l.get('speed', SP.get('speed', 1.0)))
 
 # ---------------- timeline: natural pacing, no stretch ----------------
-GAP0, GAPMAX, TAIL = 0.50, 0.70, 1.2   # teaching pace (owner 26/10: v10 'nói hơi nhanh'): a breath between sentences
-GAP_GATE = 0.95   # measured silence between lines (incl. the TTS tail) – a natural sentence pause, never stretched
+GAP0, GAPMAX, TAIL = 0.60, 0.80, 1.2   # teaching pace (owner 26/10: v10 'nói hơi nhanh'): a breath between sentences
+GAP_GATE = 1.05   # measured silence between lines (incl. the TTS tail) – a natural sentence pause, never stretched
 t = 0.12; ATL = {}; BEATS = {}; GAPS = []; prev_end = None
 for l in SP['lines']:
     if l.get('beat'):
@@ -152,7 +152,7 @@ for l in SP['lines']:
     ATL[l['id']] = round(t, 3); L = LINES[l['id']]; prev_end = t + L['words'][-1]['e']
     t += L['words'][-1]['e'] + (L['dur'] - L['words'][-1]['e']) * 0.5
 END = t; TOTAL0 = END + TAIL; NF = int(math.ceil(TOTAL0 * FPS)); TOTAL = NF / FPS
-assert 18.0 <= TOTAL <= 35.0, ('natural length outside 18-35 s', TOTAL)
+assert 18.0 <= TOTAL <= 45.0, ('natural length outside 18-45 s', TOTAL)   # owner 26/10: slower + richer series episodes
 WORDS = {}
 for lid, at in ATL.items():
     for k, w in enumerate(LINES[lid]['words']):

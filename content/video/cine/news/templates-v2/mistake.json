@@ -1,7 +1,7 @@
 {
  "id": "t1_mistake_agree",
  "template": "mistake",
- "title": "Stop saying “I am agree” (classroom board, text on the whiteboard)",
+ "title": "Stop Saying This #1 – “I am agree” (work situation, why, fix, native upgrade, quiz)",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.8,
+ "speed": 0.75,
  "error_lines": [
   "m_w"
  ],
@@ -24,7 +24,7 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying this."
+   "text": "Don't say this at work."
   },
   {
    "id": "m_w",
@@ -37,62 +37,76 @@
    }
   },
   {
-   "id": "m_k",
-   "text": "Just say: I agree.",
-   "key": {
-    "green": [
-     2,
-     3
-    ]
-   },
-   "gap": 0.35
-  },
-  {
-   "id": "m_y",
-   "text": "Agree is a verb, so you don't need am.",
+   "id": "m_s",
+   "text": "It feels like: I am happy. I am tired.",
    "key": {
     "yellow": [
-     0,
-     3
-    ],
-    "red": [
-     8
-    ]
-   },
-   "gap": 0.3
-  },
-  {
-   "id": "m_x",
-   "text": "I agree. I don't agree. Do you agree?",
-   "key": {
-    "green": [
-     1,
      4,
      7
     ]
    },
-   "gap": 0.45
+   "gap": 0.6
   },
   {
-   "id": "m_t",
-   "text": "To agree strongly, say: I totally agree.",
+   "id": "m_y",
+   "text": "But agree is an action, like want or need.",
    "key": {
+    "yellow": [
+     1
+    ],
+    "green": [
+     6,
+     8
+    ]
+   }
+  },
+  {
+   "id": "m_k",
+   "text": "Drop the am. Just say: I agree.",
+   "key": {
+    "red": [
+     2
+    ],
     "green": [
      5,
      6
     ]
    },
-   "gap": 0.45
+   "gap": 0.6
+  },
+  {
+   "id": "m_x",
+   "text": "I don't agree. Do you agree?",
+   "key": {
+    "green": [
+     2,
+     5
+    ]
+   }
+  },
+  {
+   "id": "m_t",
+   "text": "Sound like a native: I couldn't agree more!",
+   "key": {
+    "green": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   "gap": 0.6
   },
   {
    "id": "m_q",
-   "text": "Quiz! Which one is right, A or B?",
+   "text": "Quick quiz! Which one is right?",
    "key": {
     "yellow": [
-     0
+     0,
+     1
     ]
    },
-   "gap": 0.45
+   "gap": 0.6
   },
   {
    "id": "_count",
@@ -111,8 +125,8 @@
   },
   {
    "id": "m_c",
-   "text": "Check your grammar free on lexkite.com.",
-   "gap": 0.3
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.6
   }
  ],
  "pops": [
@@ -138,15 +152,15 @@
       "@x"
      ],
      [
-      " STOP",
-      "red"
-     ],
-     [
-      " saying",
+      " Don't say this",
       "white"
      ]
     ],
     [
+     [
+      "at work: ",
+      "yellow"
+     ],
      [
       "“I ",
       "white"
@@ -163,6 +177,53 @@
    ]
   },
   {
+   "id": "why",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "from": [
+    "m_s",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_k",
+    0,
+    "s",
+    -0.25
+   ],
+   "rows": [
+    [
+     [
+      "I am happy",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ],
+    [
+     [
+      "I am tired",
+      "white"
+     ],
+     [
+      "@ok"
+     ]
+    ],
+    [
+     [
+      "I am agree",
+      "red"
+     ],
+     [
+      "@x"
+     ]
+    ]
+   ]
+  },
+  {
    "id": "fix",
    "kind": "rich",
    "anim": "spring",
@@ -171,7 +232,7 @@
     "m_k",
     0,
     "s",
-    -0.25
+    -0.2
    ],
    "to": [
     "m_x",
@@ -255,15 +316,11 @@
       "@emoji:💯"
      ],
      [
-      " I ",
+      " I couldn't ",
       "white"
      ],
      [
-      "totally",
-      "yellow"
-     ],
-     [
-      " agree",
+      "agree more!",
       "green"
      ]
     ]
@@ -315,5 +372,9 @@
     "end"
    ]
   }
- ]
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 1
+ }
 }
