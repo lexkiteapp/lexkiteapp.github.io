@@ -19,17 +19,25 @@ export function npiOf(model, env = process.env) {
   return v == null ? 1000 : Math.max(1, v);   // mô hình lạ: giả định đắt để không làm cạn tài khoản
 }
 
-/** danh sách tài khoản dùng để vẽ (không trùng, không tài khoản chính) */
+/** đọc CF_POOL → [[account, token]] – chỉ dòng Cloudflare (account = 32 hex), bỏ mọi dòng khác (tiêu đề, khoá Gemini/Groq…).
+ *  Nhận "cf:<acct>:<token>" (tệp xuất kho khoá GrabCast), "<acct>:<token>", "<acct> <token>", hoặc JSON [{account, token}]. */
+export function parsePool(raw) {
+  raw = String(raw || '').trim();
+  if (raw.startsWith('[')) { try { return JSON.parse(raw).map(o => [o.account || o.account_id || o.acct, o.token || o.api_token || o.tok]).filter(([a, t]) => a && t); } catch { return []; } }
+  const out = [];
+  for (const line of raw.split(/[\n,;]+/)) { const m = line.trim().match(/^(?:cf[:=\s])?([0-9a-f]{32})[:=\s|]+(\S+)$/i); if (m) out.push([m[1].toLowerCase(), m[2]]); }
+  return out;
+}
+
+/** danh sách tài khoản dùng để vẽ (gộp token trùng tài khoản – token sau dự phòng khi token trước hỏng; không tài khoản chính) */
 export function poolAccounts(env = process.env) {
-  const raw = String(env.CF_POOL || '').trim(), out = [];
-  let items = [];
-  if (raw.startsWith('[')) { try { items = JSON.parse(raw).map(o => [o.account || o.account_id || o.acct, o.token || o.api_token || o.tok]); } catch { items = []; } }
-  else items = raw.split(/[\n,;]+/).map(s => s.trim()).filter(Boolean).map(s => s.split(/[:=\s|]+/));
-  const skip = Math.max(0, +(env.VIMG_POOL_SKIP ?? 5));
-  items.slice(skip).forEach(([a, t], i) => { if (a && t) out.push({ id: 'pool' + (i + skip), acct: a.trim(), tok: t.trim() }); });
-  if (env.CF_ACCOUNT_2 && env.CF_AI_TOKEN_2 && env.VIMG_CF_USE_CF2 !== '0') out.push({ id: 'cf2', acct: env.CF_ACCOUNT_2, tok: env.CF_AI_TOKEN_2 });
-  const main = env.CF_ACCOUNT_1, seen = new Set();
-  return out.filter(x => x.acct !== main && !seen.has(x.acct) && seen.add(x.acct));
+  const by = new Map();
+  for (const [a, t] of parsePool(env.CF_POOL)) (by.get(a) || by.set(a, []).get(a)).push(t);
+  const skip = Math.max(0, +(env.VIMG_POOL_SKIP ?? 5)), out = [];
+  [...by].slice(skip).forEach(([a, toks], i) => out.push({ id: 'pool' + (i + skip), acct: a, tok: toks[0], toks }));
+  if (env.CF_ACCOUNT_2 && env.CF_AI_TOKEN_2 && env.VIMG_CF_USE_CF2 !== '0') out.push({ id: 'cf2', acct: env.CF_ACCOUNT_2, tok: env.CF_AI_TOKEN_2, toks: [env.CF_AI_TOKEN_2] });
+  const main = String(env.CF_ACCOUNT_1 || '').toLowerCase(), seen = new Set();
+  return out.filter(x => x.acct.toLowerCase() !== main && !seen.has(x.acct) && seen.add(x.acct));
 }
 
 /** thân yêu cầu theo họ mô hình: schnell JSON {prompt, steps} (không cỡ) · FLUX.2 multipart · còn lại JSON có width/height */
@@ -77,7 +85,8 @@ export function cfProvider(model, env = process.env, F = fetch) {
       for (let n = 0; n < accts.length; n++) {
         const a = accts[(i + n) % accts.length]; if (!(left.get(a.id) > 0)) continue;
         try { const b = await cfImage(a, model, prompt, env.VIMG_SIZE, F); left.set(a.id, left.get(a.id) - 1); stats.ok++; stats.by_acct[a.id] = (stats.by_acct[a.id] || 0) + 1; i = (i + n + 1) % accts.length; return b; }
-        catch (e) { if (e instanceof CfQuota) { left.set(a.id, 0); stats.dead.push(a.id + ' ' + e.message.slice(0, 60)); continue; } throw e; }
+        catch (e) { if (e instanceof CfQuota && /^40[13]\b/.test(e.message) && a.toks && a.toks.indexOf(a.tok) < a.toks.length - 1) { a.tok = a.toks[a.toks.indexOf(a.tok) + 1]; n--; continue; }   // token hỏng → token kế của CÙNG tài khoản
+          if (e instanceof CfQuota) { left.set(a.id, 0); stats.dead.push(a.id + ' ' + e.message.slice(0, 60)); continue; } throw e; }
       }
       throw new CfQuota('mọi tài khoản đã hết phần neuron lượt này');
     },

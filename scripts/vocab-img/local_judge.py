@@ -109,10 +109,11 @@ _CFV = {'accts': None, 'i': 0, 'model': '@cf/meta/llama-4-scout-17b-16e-instruct
 def _cf_accts():
     """26/10: thị giác THẲNG trên Workers AI (cùng tài khoản với cf-direct.mjs: CF_POOL bỏ VIMG_POOL_SKIP đầu → tài khoản 2; không bao giờ tài khoản chính)"""
     if _CFV['accts'] is None:
-        raw, out = os.environ.get('CF_POOL', '').strip(), []
-        try: items = [(o.get('account') or o.get('account_id'), o.get('token') or o.get('api_token')) for o in json.loads(raw)] if raw.startswith('[') else [re.split(r'[:=\s|]+', x.strip()) for x in re.split(r'[\n,;]+', raw) if x.strip()]
+        raw, out, seen = os.environ.get('CF_POOL', '').strip(), [], set()
+        try: items = [(o.get('account') or o.get('account_id'), o.get('token') or o.get('api_token')) for o in json.loads(raw)] if raw.startswith('[') else [m.groups() for m in (re.match(r'^(?:cf[:=\s])?([0-9a-f]{32})[:=\s|]+(\S+)$', x.strip(), re.I) for x in re.split(r'[\n,;]+', raw)) if m]
         except Exception: items = []
-        out = [(x[0], x[1]) for x in items[int(os.environ.get('VIMG_POOL_SKIP', '5')):] if len(x) >= 2 and x[0] and x[1]]
+        items = [(a.lower(), t) for a, t in items if a and t and not (a.lower() in seen or seen.add(a.lower()))]   # cùng tài khoản: giữ token đầu (cùng thứ tự với cf-direct.mjs)
+        out = items[int(os.environ.get('VIMG_POOL_SKIP', '5')):]
         if os.environ.get('CF_ACCOUNT_2') and os.environ.get('CF_AI_TOKEN_2') and os.environ.get('VIMG_CF_USE_CF2') != '0': out.append((os.environ['CF_ACCOUNT_2'], os.environ['CF_AI_TOKEN_2']))
         main = os.environ.get('CF_ACCOUNT_1'); _CFV['accts'] = [a for a in dict(out).items() if a[0] != main]
     return _CFV['accts']

@@ -178,8 +178,11 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
 // 6. Workers AI thẳng (26/10, cf-direct.mjs): bỏ 5 tài khoản đầu CF_POOL, không bao giờ tài khoản chính, mọi mô hình A/B có giá neuron
 {
   const cf = await import('../vocab-img/cf-direct.mjs'), g = await import('../vocab-img/gen.mjs');
-  const ids = cf.poolAccounts({ CF_POOL: 'a0:t,a1:t,a2:t,a3:t,a4:t,a5:t,M:t', CF_ACCOUNT_1: 'M', CF_ACCOUNT_2: 'b', CF_AI_TOKEN_2: 'x' }).map(a => a.acct);
-  ok(JSON.stringify(ids) === '["a5","b"]', 'CF_POOL: bỏ 5 đầu, loại tài khoản chính, thêm tài khoản 2 cuối');
+  const H = c => c.repeat(32), ids = cf.poolAccounts({ CF_POOL: ['0', '1', '2', '3', '4', '5', 'f'].map(c => H(c) + ':t').join(','), CF_ACCOUNT_1: H('f'), CF_ACCOUNT_2: H('b'), CF_AI_TOKEN_2: 'x' }).map(a => a.acct);
+  ok(JSON.stringify(ids) === JSON.stringify([H('5'), H('b')]), 'CF_POOL: bỏ 5 đầu, loại tài khoản chính, thêm tài khoản 2 cuối');
+  const fake = '# x\n===== GEMINI =====\nAIzaXXX\ngsk_YYY\n' + Array.from({ length: 7 }, (_, i) => `cf:${String(i).repeat(32)}:tok${i}`).join('\n') + `\ncf:${'6'.repeat(32)}:tok6b\npb:1-2`;
+  const pa = cf.poolAccounts({ CF_POOL: fake });
+  ok(cf.parsePool(fake).length === 8 && pa.length === 2 && pa[0].acct === '5'.repeat(32) && pa[1].toks.length === 2, 'tệp xuất kho khoá: chỉ dòng cf:, bỏ Gemini/Groq/khác, gộp token trùng tài khoản');
   ok(Object.values(g.MODELS).every(m => cf.npiOf(m) < 1000 || /klein-9b/.test(m)), 'mọi mô hình trong MODELS có giá neuron ước tính');
   ok(cf.cfProvider(g.MODEL_DEFAULT, { CF_ACCOUNT_2: 'b', CF_AI_TOKEN_2: 'x' }).max === 0, 'VIMG_MAX_CF mặc định 0 = tắt');
   ok(cf.cfInput('@cf/black-forest-labs/flux-1-schnell', 'p').json.width === undefined && cf.cfInput('@cf/black-forest-labs/flux-2-dev', 'p').form, 'schnell không gửi cỡ; FLUX.2 gửi multipart');
