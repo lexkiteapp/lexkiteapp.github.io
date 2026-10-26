@@ -294,6 +294,36 @@
    ]
   },
   {
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " car is outside?",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "a": "Whose",
@@ -312,14 +342,14 @@
       "yellow"
      ],
      [
-      " car is outside?",
+      " car…",
       "white"
      ]
     ]
    ],
    "from": [
-    "p_q",
-    1,
+    "p_q2",
+    0,
     "s",
     -0.06
    ],

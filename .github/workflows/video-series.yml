@@ -141,11 +141,11 @@ jobs:
           import glob, json, os, sys
           rows = []
           for d in sorted(glob.glob('got/*/')):
-              st = json.load(open(d + 'status.json')) if os.path.exists(d + 'status.json') else {'id': d, 'qc': False}
-              dd = json.load(open(d + 'entry.dedupe.json')) if os.path.exists(d + 'entry.dedupe.json') else {'ok': False, 'why': ['no entry']}
+              st = json.load(open(d + 'status.json')) if os.path.exists(d + 'status.json') else {'id': d.split('-sts_')[-1].split('-sod_')[-1].rstrip('/'), 'qc': False}
+              dd = json.load(open(d + 'entry.dedupe.json')) if os.path.exists(d + 'entry.dedupe.json') else {'ok': None, 'why': ['render failed (no frames)']}
               rows.append((st['id'], st['qc'], dd['ok'], '; '.join(dd['why'])))
           print('| id | qc | unique | note |\n|---|---|---|---|'); [print(f'| {i} | {q} | {u} | {w} |') for i, q, u, w in rows]
-          n = sum(q and u for _, q, u, _ in rows); dup = sum(not u for _, _, u, _ in rows)
+          n = sum(bool(q and u) for _, q, u, _ in rows); dup = sum(u is False for _, _, u, _ in rows)
           print(f'\n**{n} of {len(rows)} videos pass qc + dedupe** (artifact only; owner approval gate before registry add / publish)')
           if dup: print(f'::error::{dup} duplicate render(s)', file=sys.stderr)
           if n == 0: print('::error::0 videos passed', file=sys.stderr)

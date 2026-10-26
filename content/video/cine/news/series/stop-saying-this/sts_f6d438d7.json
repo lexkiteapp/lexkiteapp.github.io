@@ -274,18 +274,11 @@
    ]
   },
   {
-   "id": "quiz",
-   "kind": "quiz",
-   "a": "on",
-   "b": "of",
-   "correct": "a",
-   "reveal": [
-    "m_a",
-    0,
-    "s",
-    -0.04
-   ],
-   "q": [
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
     [
      [
       "It all depends ",
@@ -304,6 +297,47 @@
    "from": [
     "m_q",
     1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "on",
+   "b": "of",
+   "correct": "a",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "…all depends ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " you.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

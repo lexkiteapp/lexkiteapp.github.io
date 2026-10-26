@@ -277,6 +277,40 @@
    ]
   },
   {
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "What ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " a typical day look like?",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "a": "is",
@@ -299,14 +333,14 @@
       "yellow"
      ],
      [
-      " a typical day look like?",
+      " a…",
       "white"
      ]
     ]
    ],
    "from": [
-    "m_q",
-    1,
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

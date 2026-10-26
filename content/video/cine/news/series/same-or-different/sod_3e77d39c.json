@@ -317,6 +317,40 @@
    ]
   },
   {
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "The sun ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " at six.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "a": "raises",
@@ -339,14 +373,14 @@
       "yellow"
      ],
      [
-      " at six.",
+      " at…",
       "white"
      ]
     ]
    ],
    "from": [
-    "p_q",
-    1,
+    "p_q2",
+    0,
     "s",
     -0.06
    ],

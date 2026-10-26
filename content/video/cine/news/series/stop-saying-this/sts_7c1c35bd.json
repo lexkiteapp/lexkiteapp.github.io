@@ -274,18 +274,11 @@
    ]
   },
   {
-   "id": "quiz",
-   "kind": "quiz",
-   "a": "is not work",
-   "b": "isn't working",
-   "correct": "b",
-   "reveal": [
-    "m_a",
-    0,
-    "s",
-    -0.04
-   ],
-   "q": [
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
     [
      [
       "The coffee machine ",
@@ -304,6 +297,43 @@
    "from": [
     "m_q",
     1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "is not work",
+   "b": "isn't working",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "…coffee machine ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

@@ -84,7 +84,13 @@ def quiz_parts(q):
     filled = re.sub(r'\s+', ' ', q['q'].replace('___', '' if o[a].startswith('(') else o[a])).replace(' ,', ',').replace(' .', '.').strip()
     filled = filled[0].upper() + filled[1:]
     return dict(o=o, a=a, say=spoken, q_spoken=q['q'].replace('___', 'blank'), filled=filled,
-                q_rows=[[[p, 'white'] if p != '___' else ['___', 'yellow'] for p in re.split(r'(___)', q['q']) if p]])
+                q_rows=[[[p, 'white'] if p != '___' else ['___', 'yellow'] for p in re.split(r'(___)', q['q']) if p]], q_win=blank_window(q['q']))
+
+def blank_window(q, before=2, after=1):
+    """Short quiz prompt: <= 2 words before the blank, 1 after, '…' where the sentence is cut (all words come from the quiz sentence)."""
+    w = q.split(); i = next(k for k, x in enumerate(w) if '___' in x); lo, hi = max(0, i - before), min(len(w), i + after + 1)
+    pre = ('…' if lo > 0 else '') + ' '.join(w[lo:i]); post = ' '.join(w[i + 1:hi]) + ('…' if hi < len(w) else '')
+    return [[x for x in ([pre + ' ', 'white'] if pre else None, ['___', 'yellow'], [' ' + post, 'white'] if post else None) if x]]
 
 def cap(s): return s[0].upper() + s[1:]
 
@@ -164,7 +170,10 @@ def build(slug, it, ep):
              dict(id='trick', kind='rich', anim='spring', size=84, from_=a('t', 0, -0.1),
                   rows=[[['@emoji:💡']] + [[' ' + s[0], s[1]] if i == 0 and not s[0].startswith('@') else s for i, s in enumerate(board_row(r.strip(), 'yellow'))] for r in it['memory'].split(',') if r.strip()])]
         if not P[2]['focus']: P[2].pop('focus')
-    P.append(dict(id='quiz', kind='quiz', from_=a('q', 1, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04), q=Q['q_rows']))
+    # full blank sentence on the board while it is read, then the A/B quiz with a short window around the blank (the quiz widget must fit
+    # the smallest board zone at the v10 minimum sizes; the desk board is ~384 px tall)
+    P.append(dict(id='qline', kind='rich', anim='spring', size=84, from_=a('q', 1, -0.06), rows=Q['q_rows']))
+    P.append(dict(id='quiz', kind='quiz', from_=a('q2', 0, -0.06), a=Q['o'][0], b=Q['o'][1], correct='ab'[Q['a']], reveal=a('a', 0, -0.04), q=Q['q_win']))
     P.append(dict(id='cta', kind='cta', from_=a('c', 0, -0.05)))
     pops = []
     for i, p in enumerate(P):

@@ -268,18 +268,11 @@
    ]
   },
   {
-   "id": "quiz",
-   "kind": "quiz",
-   "a": "differently",
-   "b": "different",
-   "correct": "a",
-   "reveal": [
-    "m_a",
-    0,
-    "s",
-    -0.04
-   ],
-   "q": [
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
     [
      [
       "I see it a bit ",
@@ -298,6 +291,43 @@
    "from": [
     "m_q",
     1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "differently",
+   "b": "different",
+   "correct": "a",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "…a bit ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

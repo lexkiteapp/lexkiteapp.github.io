@@ -287,18 +287,11 @@
    ]
   },
   {
-   "id": "quiz",
-   "kind": "quiz",
-   "a": "salt",
-   "b": "of salt",
-   "correct": "a",
-   "reveal": [
-    "m_a",
-    0,
-    "s",
-    -0.04
-   ],
-   "q": [
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
     [
      [
       "This soup lacks ",
@@ -317,6 +310,43 @@
    "from": [
     "m_q",
     1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "salt",
+   "b": "of salt",
+   "correct": "a",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "…soup lacks ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

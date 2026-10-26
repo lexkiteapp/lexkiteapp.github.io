@@ -273,6 +273,40 @@
    ]
   },
   {
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "So how ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " know Emma?",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "a": "you",
@@ -295,14 +329,14 @@
       "yellow"
      ],
      [
-      " know Emma?",
+      " know…",
       "white"
      ]
     ]
    ],
    "from": [
-    "m_q",
-    1,
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

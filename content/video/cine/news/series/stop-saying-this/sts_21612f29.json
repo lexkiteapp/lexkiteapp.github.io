@@ -267,18 +267,11 @@
    ]
   },
   {
-   "id": "quiz",
-   "kind": "quiz",
-   "a": "keep",
-   "b": "keeping",
-   "correct": "b",
-   "reveal": [
-    "m_a",
-    0,
-    "s",
-    -0.04
-   ],
-   "q": [
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
     [
      [
       "The company is committed to ",
@@ -297,6 +290,47 @@
    "from": [
     "m_q",
     1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "keep",
+   "b": "keeping",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "…committed to ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " prices…",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

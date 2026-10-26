@@ -300,18 +300,11 @@
    ]
   },
   {
-   "id": "quiz",
-   "kind": "quiz",
-   "a": "few",
-   "b": "a few",
-   "correct": "b",
-   "reveal": [
-    "p_a",
-    0,
-    "s",
-    -0.04
-   ],
-   "q": [
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
     [
      [
       "Good news! We have ",
@@ -330,6 +323,47 @@
    "from": [
     "p_q",
     1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "few",
+   "b": "a few",
+   "correct": "b",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "q": [
+    [
+     [
+      "…We have ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " tickets…",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q2",
+    0,
     "s",
     -0.06
    ],

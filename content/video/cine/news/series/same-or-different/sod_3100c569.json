@@ -314,6 +314,36 @@
    ]
   },
   {
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " of my friends came to the party.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "a": "Every",
@@ -332,14 +362,14 @@
       "yellow"
      ],
      [
-      " of my friends came to the party.",
+      " of…",
       "white"
      ]
     ]
    ],
    "from": [
-    "p_q",
-    1,
+    "p_q2",
+    0,
     "s",
     -0.06
    ],

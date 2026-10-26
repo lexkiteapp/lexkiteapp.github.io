@@ -286,6 +286,36 @@
    ]
   },
   {
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      ", Lee will send the report.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "a": "To wrap up",
@@ -304,14 +334,14 @@
       "yellow"
      ],
      [
-      ", Lee will send the report.",
+      " Lee…",
       "white"
      ]
     ]
    ],
    "from": [
-    "m_q",
-    1,
+    "m_q2",
+    0,
     "s",
     -0.06
    ],

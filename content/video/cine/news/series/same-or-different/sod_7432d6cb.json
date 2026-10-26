@@ -318,6 +318,40 @@
    ]
   },
   {
+   "id": "qline",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "Our team ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " them 3 to 1.",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "p_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
    "id": "quiz",
    "kind": "quiz",
    "a": "beat",
@@ -340,14 +374,14 @@
       "yellow"
      ],
      [
-      " them 3 to 1.",
+      " them…",
       "white"
      ]
     ]
    ],
    "from": [
-    "p_q",
-    1,
+    "p_q2",
+    0,
     "s",
     -0.06
    ],
