@@ -145,10 +145,12 @@ const coverOf = p => { const id = mediaId(p, 'cover'), m = MEDIA[id]; return m ?
 // (tiêu đề đã in ngay dưới thẻ). Chỉ nhận ảnh ngang gần 16:10 (ảnh dọc bị cắt còn mẩu đầu). Không có → ảnh bìa, hiện trọn (fit). og:image vẫn dùng ảnh bìa.
 const IMG_RE = /^!\[([^\]]*)\]\(media:(@?[\w-]+)/gm;
 const imgUse = {}; for (const p of posts) for (const id of new Set([...(p.body || '').matchAll(IMG_RE)].map(m => m[2]))) if (!id.startsWith('@')) imgUse[id] = (imgUse[id] || 0) + 1;
-const thumbOf = p => {
+const thumbOf = (p, used) => { // used: ảnh đã dùng trong cùng lưới → tránh hai thẻ trùng ảnh
   const imgs = [...(p.body || '').matchAll(IMG_RE)].map(m => ({ alt: m[1], id: m[2], real: m[2].startsWith('@') ? mediaId(p, m[2].slice(1)) : m[2] })).filter(x => { const m = MEDIA[x.real]; return m && m.w / m.h >= 1.3 && m.w / m.h <= 2; });
   const own = imgs.find(x => x.id.startsWith('@'));
-  const pick = own || imgs.sort((a, b) => (imgUse[a.id] || 0) - (imgUse[b.id] || 0))[0];
+  const seen = x => (used?.has(x.real) ? 1 : 0);
+  const pick = (own && !seen(own) ? own : null) || imgs.sort((a, b) => seen(a) - seen(b) || (imgUse[a.id] || 0) - (imgUse[b.id] || 0))[0];
+  if (pick) used?.add(pick.real);
   return pick ? { id: pick.real, alt: pick.alt || MEDIA[pick.real].alt || p.title } : { ...coverOf(p), fit: true };
 };
 function picture(id, alt, { eager = false, sizes = '(min-width: 760px) 720px, 100vw' } = {}) {
@@ -318,7 +320,7 @@ const quizBlock = p => {
   const L = QZ_I[p.lang] || QZ_I.en || [];
   return `<section class="blog-quiz" aria-label="${esc(L[0] || 'Quiz')}" data-quiz="${esc(JSON.stringify(cta ? { items, cta } : items))}" data-lang="${p.lang}" data-app="${esc(appHref(p.lang))}"><details class="toc"><summary>🧠 ${esc(L[0] || 'Quiz')} · ${esc(L[11] || '')}</summary><ol>${items.map(q => `<li><p><strong>${esc(q.q)}</strong></p><p>${q.options.map((o, i) => i === q.answer ? `<strong>✓ ${esc(o)}</strong>` : esc(o)).join(' · ')}</p>${q.explain ? `<p>${esc(q.explain)}</p>` : ''}</li>`).join('')}</ol></details></section>\n`;
 };
-const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic${thumbOf(p).fit ? ' fit' : ''}">${picture(thumbOf(p).id, thumbOf(p).alt, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`;
+const card = (p, h = 'h2', eager = false, used) => { const th = thumbOf(p, used); return `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic${th.fit ? ' fit' : ''}">${picture(th.id, th.alt, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`; };
 
 // ---------- Ghi file ----------
 const written = [], sm = []; // sm: { loc, lastmod, alt }
@@ -361,7 +363,7 @@ ${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${blogToolBox(p)}${(p.tags || []).some
 ${extBox(p.lang)}
 ${pwaBox(p.lang)}
 </article>
-${adSlot(p.lang)}${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${related.map(x => card(x, 'h3')).join('')}</div></section>` : ''}`;
+${adSlot(p.lang)}${related.length ? `<section aria-labelledby="rel"><h2 id="rel">${t.related}</h2><div class="grid">${(u => related.map(x => card(x, 'h3', false, u)))(new Set()).join('')}</div></section>` : ''}`;
   write(postUrl(p), layout({ lang: p.lang, title: `${p.title} | Lexkite`, desc: p.description, url: postUrl(p), alt: alts(p), img: imgUrl(cv.id), imgAlt: cv.alt, type: 'article', body, jsonld,
     extraHead: `<meta property="article:published_time" content="${iso(pub)}">\n<meta property="article:modified_time" content="${iso(upd)}">\n<meta property="article:section" content="${esc(cat)}">\n${(p.tags || []).map(g => `<meta property="article:tag" content="${esc(g)}">`).join('\n')}\n`,
     script: (videos.length ? YT_JS : '') + (p.quiz ? QUIZ_JS : '') + copyJs(p.lang) + `<script>${EXT_JS}</script>` + SMART_CTA_JS + AD_JS }));
@@ -388,7 +390,7 @@ for (const lang of langs) {
       const body = `${crumbsHtml(crumbs.length > 1 ? crumbs : [[t.home, landingHref(lang)], [t.blog, b]])}
 <section class="hero"><h1>${esc(g.kind === 'all' ? (C.blogName[lang] || 'Blog') : g.h1)}${n > 1 ? ` – ${t.page} ${n}` : ''}</h1><p>${esc(g.desc)}</p></section>
 <nav class="cats" aria-label="${t.cat}"><a href="${b}"${g.kind === 'all' ? ' aria-current="page"' : ''}>${t.all}</a>${Object.keys(CATEGORIES).filter(k => list.some(p => p.category === k)).map(k => [k, catName(k, lang)]).map(([k, v]) => `<a href="${b}${sg.cat}/${k}/"${g.cat === k ? ' aria-current="page"' : ''}>${esc(v)}</a>`).join('')}</nav>
-${items.length ? `<div class="grid">${items.map((p, i) => card(p, 'h2', n === 1 && i < 2)).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
+${items.length ? `<div class="grid">${(u => items.map((p, i) => card(p, 'h2', n === 1 && i < 2, u)))(new Set()).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
 ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}trang/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
       write(u, layout({ lang, title: `${title} | Lexkite`, desc: n > 1 ? `${g.desc} (${t.page} ${n})` : g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
