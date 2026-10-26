@@ -57,6 +57,31 @@ not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per 
   and the your-turn beat use the teacher's **closed-mouth listen/nod clip**; (3) every bank teacher therefore has ≥ 3 chained talk clips + 1 listen
   clip (2D and 3D). Voice pace itself stays ≤ 130 wpm (qc `pace`).
 
+## Coverage map – one viral format per web area (owner 26/10: "phủ hết hệ thống web")
+Every area of `content/video/ecosystem.json` gets a series; the CTA deep-links to that area. Data = our own (machine-checkable). ✓ = template exists.
+| Area | Series (format) | Data source | Template |
+|---|---|---|---|
+| dictionary | Guess the Word – 3 picture clues, 3 s count, word + IPA + example | img.json (→ 20k words) | ✓ guess |
+| vocab-review | Say It Like a Native – 5 better words | lexicon synonyms | ✓ words5 |
+| grammar | 1-Minute Grammar Rule – ✗ vs ✓, one rule, quiz | grammar lessons (889 points) | ✓ mistake |
+| grammar-check | Stop Saying This – common error, why, fix, native upgrade | usage mistakes (350) + confidence | ✓ mistake |
+| verbs | Verb Forms Challenge – go / went / gone, 3 s each | verb tables | new: verb3 |
+| phrases | Phrasal Verb in 30 s – meaning card + picture + example | idiom-phrasal (685) | ✓ lesson card |
+| word-usage | Same or Different? + US or UK? | x-vs-y (1107) | ✓ pair / lesson |
+| paraphrase | Upgrade Your Sentence – plain → 3 natural versions | collocations (4222) | ✓ words5 |
+| pronunciation | Where's the Stress? – stress dots + IPA | CMU / IPA (2934) | ✓ pron |
+| speaking | Answer Like a Pro – one question, model answer frame | speaking samples | ✓ lesson card |
+| roleplay | What Would You Say? – situation card, 2 replies, quiz (one host) | confidence toolkit (1376) | ✓ mistake/quiz |
+| confidence | Say This, Not That – polite vs rude phrasing | confidence units | ✓ pair |
+| listening | Catch the Word – fast sentence, fill the blank, slow replay | TTS + text | new: listen |
+| reading | Guess the Meaning – word in a real sentence | word-in-use (6433) | ✓ guess |
+| writing-ielts | Band-9 Phrase – one sentence upgrade | writing samples | ✓ lesson card |
+| ielts | IELTS Word – academic word + collocation | academic list | ✓ lesson card |
+| toefl | TOEFL Word in Context | academic list | ✓ lesson card |
+| toeic | Office English – workplace word + picture | img.json + TOEIC list | ✓ lesson card |
+| placement | What's Your Level? – 3 questions A1→C1 | grammar quizzes by level | new: level3 |
+Rotation fills zero-coverage areas first (shorts/index.json per area); each episode = one point, IPA, example, picture when img.json has the exact key.
+
 ## Series rules (every episode)
 - Hook ≤ 1.5 s naming the payoff ("99 % of learners say this wrong"). The hook must be true (hook_truth gate).
 - Fixed series look: title chip "Stop Saying This · Part 7", series colour, same teacher per series (consistency gives follows).

@@ -1480,7 +1480,7 @@
    "usable_segments": [
     [
      0.0,
-     3.6
+     1.85
     ]
    ],
    "tags": [
@@ -1494,7 +1494,7 @@
     "board_blur": false
    },
    "mouths": {},
-   "qa": "PASS: real close-up: Carlos (tan hand, olive sleeve, right) slides ONE white cup left, Ama (brown hand, coral sleeve, left) takes and lifts it; no faces. After ~3.8 s the cup drifts up toward Carlos side - use 0-3.6 s."
+   "qa": "PASS: real close-up: Carlos (tan hand, olive sleeve, right) slides ONE white cup left, Ama (brown hand, coral sleeve, left) takes and lifts it; no faces. After ~3.8 s the cup drifts up toward Carlos side - use 0-3.6 s. | v5 frame audit: frames 0-44 clean (cup slides, open hand reaching); 45-95 hands overlap/merge with the cup (Kling artifact), 100+ deformed fingers -> use ONLY frames 0-44; the take itself happens off-screen."
   }
  ],
  "rejected": [
@@ -1591,7 +1591,7 @@
   {
    "id": "cafe-for-here-or-to-go",
    "cefr": "A2",
-   "goal": "Answering \u201cFor here or to go?\u201d",
+   "goal": "Answering “For here or to go?”",
    "pattern": "For here, please. / To go, please.",
    "area": "roleplay",
    "out": "cine-cafe-forhere.mp4",
@@ -1638,7 +1638,7 @@
    "id": "cafe-can-i-pay-by",
    "cefr": "A2",
    "goal": "Paying",
-   "pattern": "Can I pay by ___? (card / phone) \u00b7 Can I pay in cash?",
+   "pattern": "Can I pay by ___? (card / phone) · Can I pay in cash?",
    "area": "roleplay",
    "out": "cine-cafe-paycard.mp4",
    "link": "https://lexkite.com/app/#/roleplay",
@@ -1725,6 +1725,79 @@
     ]
    ],
    "qa": "qa4.py ALL PASS"
+  },
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal_en": "Ordering politely",
+   "goal": "Gọi món lịch sự",
+   "lang": "vi",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta_en": "Roleplay this free on lexkite.com",
+   "cta": "Đóng vai hội thoại này miễn phí trên lexkite.com",
+   "out": "cine-cafe-v5-latte-vi.mp4",
+   "duration": 30.708,
+   "locale": "content/video/cine/locales/latte.vi.json",
+   "qa": "qa5.py ALL PASS"
+  },
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal_en": "Ordering politely",
+   "goal": "Pedir con cortesía",
+   "lang": "es",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta_en": "Roleplay this free on lexkite.com",
+   "cta": "Practica este juego de roles gratis en lexkite.com",
+   "out": "cine-cafe-v5-latte-es.mp4",
+   "duration": 30.708,
+   "locale": "content/video/cine/locales/latte.es.json",
+   "qa": "qa5.py ALL PASS"
+  },
+  {
+   "id": "cafe-could-i-get",
+   "cefr": "A2",
+   "goal_en": "Ordering politely",
+   "goal": "الطلب بأدب",
+   "lang": "ar",
+   "pattern": "Could I get ___, please?",
+   "area": "roleplay",
+   "link": "https://lexkite.com/app/#/roleplay",
+   "cta_en": "Roleplay this free on lexkite.com",
+   "cta": "تدرّب على هذا الحوار مجانًا على lexkite.com",
+   "out": "cine-cafe-v5-latte-ar.mp4",
+   "duration": 30.708,
+   "locale": "content/video/cine/locales/latte.ar.json",
+   "qa": "qa5.py ALL PASS"
   }
- ]
+ ],
+ "foley": [
+  {
+   "file": "tools/foley_steps.wav",
+   "what": "soft footsteps on wood (entrance)",
+   "source": "synthesized in tools/foley.py (filtered noise + 95 Hz body)",
+   "license": "own work, no third-party rights"
+  },
+  {
+   "file": "tools/foley_clink.wav",
+   "what": "light ceramic cup clink (hand-over)",
+   "source": "synthesized in tools/foley.py (inharmonic partials 2.2/3.5/5.3/7.9 kHz + contact tick)",
+   "license": "own work, no third-party rights"
+  }
+ ],
+ "fonts": {
+  "latin_vi": "BeVietnamPro (OFL, brand)",
+  "latin_cyrillic_greek": "NotoSans-Medium (OFL, brand/social/src/fonts) - needed for ru (BeVietnamPro has no Cyrillic)",
+  "arabic": "NotoSansArabic variable (OFL, google/fonts) - downloaded to scratch for v5; ADD to brand/social/src/fonts",
+  "missing": [
+   "Noto Sans Devanagari (hi)",
+   "Noto Sans Thai (th)",
+   "Noto Sans CJK / Noto Sans JP, KR, SC (ja, ko, zh)"
+  ],
+  "shaping": "Arabic: arabic_reshaper + python-bidi (base_dir R, English isolated with LRI/PDI, guillemets mirrored). hi/th need real OpenType shaping -> Pillow with libraqm (HarfBuzz) on CI; local Pillow here has no raqm."
+ }
 }
