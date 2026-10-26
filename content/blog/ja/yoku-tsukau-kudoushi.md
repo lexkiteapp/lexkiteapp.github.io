@@ -85,7 +85,7 @@ publishAt: 2026-11-13T20:59:00+09:00
 
 ## 仕事・勉強で使う句動詞
 
-会議の表現は [ビジネス英語の会議フレーズ](/ja/blog/business-eigo-meeting-phrases/) で詳しく扱っていますが、次の句動詞は基本として覚えておきましょう。
+会議の表現は [ビジネス英語の会議フレーズ](/ja/blog/business-eigo-meeting-phrases/) で詳しく扱っていますが、次の句動詞は基本として覚えておきましょう。なお、句動詞ではない *make a decision* や *do research* のような組み合わせは[make と do の違い](/ja/blog/make-do-chigai/)にまとめています。
 
 - **set up**：設定する、手配する ― *Let's set up a call for Friday.*
 - **put off**：延期する ― *We had to put off the release.*

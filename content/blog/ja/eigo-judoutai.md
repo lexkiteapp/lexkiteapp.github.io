@@ -60,7 +60,7 @@ publishAt: 2026-11-11T09:52:00+09:00
 
 {{diagram: d2 | 変わるのは be動詞だけで、過去分詞はどの時制でも同じ形}}
 
-助動詞がある場合は**助動詞＋be＋過去分詞**です。*The form must be signed.* / *The results could be delayed.* 助動詞の意味の違いは[英語の助動詞の使い分け](/ja/blog/eigo-jodoushi-can-could-should-must/)で詳しく説明しています。
+助動詞がある場合は**助動詞＋be＋過去分詞**です。*The form must be signed.* / *The results could be delayed.* 助動詞の意味の違いは[英語の助動詞の使い分け](/ja/blog/eigo-jodoushi-can-could-should-must/)で詳しく説明しています。*It is said that…* のように人の言葉を伝える形は、[英語の話法の転換](/ja/blog/eigo-wahou-kansetsu-wahou/)ともつながっています。
 
 ![](media:@s1 "アプリの受動態レッスンでは、上の表と同じように時制ごとの be＋過去分詞を練習できる")
 

@@ -153,7 +153,7 @@ The invoice has been sent. のような受動態を使うと、メールの表�
 日本語の直訳や、日常会話の癖がそのままメールに出てしまうと、意図せず相手にぶっきらぼうな印象を与えたり、失礼になってしまうことがあります。以下の4つの典型的なミスには特に注意しましょう。
 
 1. **`Please` の乱用：** `Please do this immediately.` は丁寧な頼み方ではなく、「これらを直ちにやってください」という強い指示命令になります。業務を依頼する際は `Could you please...` や `Would you be able to...` を優先しましょう。
-2. **スラングや略語の多用：** 社内のチャットツール（SlackやTeams）と異なり、公式なメールでは `ASAP`（As Soon As Possible）や `FYI`（For Your Information）の使い所に配慮が必要です。特に社外や顧客向けには `at your earliest convenience` や `for your reference` とフルスペルで書くのが礼儀です。
+2. **スラングや略語の多用：** 社内のチャットツール（SlackやTeams）と異なり、公式なメールでは `ASAP`（As Soon As Possible）や `FYI`（For Your Information）の使い所に配慮が必要です。特に社外や顧客向けには `at your earliest convenience` や `for your reference` とフルスペルで書くのが礼儀です。チャットでの略語の使い分けは[英語チャットのビジネス表現](/ja/blog/eigo-chat-business-hyougen/)で詳しく紹介しています。
 3. **`I want...` で要望を述べる：** `I want you to send the file.` は子供っぽいワガママな響きを与えます。ビジネスでは `We would like to request...` または `It would be helpful if you could...` に置き換えます。
 4. **感情的な表現をそのまま書く：** 納期遅延などのトラブル時でも、相手を感情的に責める表現は避け、事実関係（*According to our agreement...*）と解決策（*Could you please provide an updated timeline?*）にフォーカスして客観的に記述します。
 

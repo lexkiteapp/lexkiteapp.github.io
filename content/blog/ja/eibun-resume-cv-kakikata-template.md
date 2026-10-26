@@ -112,7 +112,7 @@ SKILLS & CERTIFICATIONS
 | Redesigned the company website. | Redesigned the enterprise landing page utilizing modern UI/UX principles, reducing bounce rate by 32% and generating a 45% uplift in qualified leads within Q3. |
 | Managed the sales team and hit targets. | Guided a 6-person enterprise sales team to surpass annual quotas by 120%, generating $1.8M in net new ARR through strategic outbound initiatives. |
 
-このように、具体的な数値（`%`, `$`, `時間`, `人数`）を盛り込むことで、採用担当者はあなたの貢献度を客観的・具体的にイメージできるようになります。ビジネス文書の洗練された表現法は[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)も参考になります。
+このように、具体的な数値（`%`, `$`, `時間`, `人数`）を盛り込むことで、採用担当者はあなたの貢献度を客観的・具体的にイメージできるようになります。ビジネス文書の洗練された表現法は[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)も参考になります。エンジニアが職務経歴を英語で書くときは、[エンジニアの英語勉強法](/ja/blog/engineer-eigo-benkyouhou/)のcommitやPRの書き方も実績の表現に役立ちます。
 
 ![Lexkiteの語彙ライブラリ画面：6,800語以上の重要単語とビジネス語彙を整理](media:library "外資系転職でアピールできる実績表現を6,800語のライブラリで確認")
 

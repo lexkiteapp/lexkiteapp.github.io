@@ -98,7 +98,7 @@ quiz: [
 ### 話を遮られた側が主導権を取り戻すフレーズ
 - `"Could you let me finish my thought first? Then I'd love to hear your take."`（先に私の考えを最後まで言わせてもらえますか？その後でぜひご意見を伺いたいです）
 
-メールでのフォローアップや事前調整の文面については[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)を参考にしてください。メール・電話・チャットなど場面全体の地図は[ビジネス英語 初心者の勉強法](/ja/blog/business-eigo-benkyouhou/)にまとめています。
+メールでのフォローアップや事前調整の文面については[ビジネス英語メールの書き方](/ja/blog/business-eigo-mail-kakikata/)を参考にしてください。会議後のSlackやTeamsでのやり取りは[英語チャットのビジネス表現](/ja/blog/eigo-chat-business-hyougen/)、メール・電話・チャットなど場面全体の地図は[ビジネス英語 初心者の勉強法](/ja/blog/business-eigo-benkyouhou/)にまとめています。
 
 ## オンライン会議特有のテクニカルトラブル対応フレーズ
 

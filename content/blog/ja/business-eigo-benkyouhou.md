@@ -106,7 +106,7 @@ quiz: [
 - *One of my strengths is…*
 - *I'm interested in this position because…*
 
-面接の定番質問は[英語面接の質問と答え方](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)、英文履歴書は[英文履歴書・CVの書き方](/ja/blog/eibun-resume-cv-kakikata-template/)で扱っています。
+エンジニアの方は、ドキュメントやPR、デイリースクラムの英語を[エンジニアの英語勉強法](/ja/blog/engineer-eigo-benkyouhou/)で場面別にまとめています。面接の定番質問は[英語面接の質問と答え方](/ja/blog/eigo-mensetsu-shitsumon-taisaku/)、英文履歴書は[英文履歴書・CVの書き方](/ja/blog/eibun-resume-cv-kakikata-template/)で扱っています。
 
 ## 敬語と英語の丁寧さはどう違う？
 
