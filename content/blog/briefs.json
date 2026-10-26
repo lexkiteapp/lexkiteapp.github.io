@@ -11769,6 +11769,205 @@
    "lang": "ja",
    "cluster": "cach-phat-am-ed-va-s-es",
    "angle": "SEO program 11/2026 batch 4 – see content/blog/plan/2026-11-seo-program.json"
+  },
+  {
+   "slug": "modalverben-englisch-can-could-should-must",
+   "keyword": "modalverben englisch",
+   "category": "ngu-phap",
+   "tags": [
+    "grammatik",
+    "modalverben",
+    "can-could",
+    "should-must"
+   ],
+   "routes": [
+    "/#/grammar/modals-obligation-advice",
+    "/#/grammar/modals-deduction"
+   ],
+   "intent": "informational",
+   "lang": "de",
+   "cluster": "dong-tu-khuyet-thieu-can-could-should-must",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "modal-verbs-can-could-should-must"
+  },
+  {
+   "slug": "ed-aussprache-englisch",
+   "keyword": "ed aussprache englisch",
+   "category": "phat-am",
+   "tags": [
+    "aussprache",
+    "ed-endungen",
+    "simple-past",
+    "sprechen"
+   ],
+   "routes": [
+    "/#/grammar/ed-s-endings",
+    "/#/pron"
+   ],
+   "intent": "informational",
+   "lang": "de",
+   "cluster": "cach-phat-am-ed-va-s-es",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ed-pronunciation-rules"
+  },
+  {
+   "slug": "relativsaetze-englisch-who-which-that",
+   "keyword": "relativsätze englisch",
+   "category": "ngu-phap",
+   "tags": [
+    "grammatik",
+    "relativsaetze",
+    "schreiben",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "intent": "informational",
+   "lang": "de",
+   "cluster": "relative-clauses",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "relative-clauses-who-which-that"
+  },
+  {
+   "slug": "indirekte-rede-englisch-reported-speech",
+   "keyword": "indirekte rede englisch",
+   "category": "ngu-phap",
+   "tags": [
+    "grammatik",
+    "reported-speech",
+    "zeiten",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "intent": "informational",
+   "lang": "de",
+   "cluster": "reported-speech",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "reported-speech"
+  },
+  {
+   "slug": "englisch-niveau-a1-bis-c2-ger",
+   "keyword": "englisch niveau a1 bis c2",
+   "category": "phuong-phap",
+   "tags": [
+    "ger",
+    "einstufungstest",
+    "englisch-niveau",
+    "lernplan"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "intent": "informational",
+   "lang": "de",
+   "cluster": "kiem-tra-trinh-do-tieng-anh",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "cefr-levels-explained"
+  },
+  {
+   "slug": "make-oder-do-unterschied",
+   "keyword": "make oder do unterschied",
+   "category": "tu-vung",
+   "tags": [
+    "wortschatz",
+    "kollokationen",
+    "make-do",
+    "b1"
+   ],
+   "routes": [
+    "/#/usage/make",
+    "/#/usage/do"
+   ],
+   "intent": "informational",
+   "lang": "de",
+   "cluster": "diferencia-entre-make-y-do-en-ingles",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "make-vs-do"
+  },
+  {
+   "slug": "prononciation-ed-anglais",
+   "keyword": "prononciation ed anglais",
+   "category": "phat-am",
+   "tags": [
+    "prononciation",
+    "terminaison-ed",
+    "preterit",
+    "oral"
+   ],
+   "routes": [
+    "/#/grammar/ed-s-endings",
+    "/#/pron"
+   ],
+   "intent": "informational",
+   "lang": "fr",
+   "cluster": "cach-phat-am-ed-va-s-es",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ed-pronunciation-rules"
+  },
+  {
+   "slug": "discours-indirect-anglais-reported-speech",
+   "keyword": "discours indirect anglais",
+   "category": "ngu-phap",
+   "tags": [
+    "grammaire",
+    "reported-speech",
+    "temps",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "intent": "informational",
+   "lang": "fr",
+   "cluster": "reported-speech",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "reported-speech"
+  },
+  {
+   "slug": "niveaux-anglais-cecrl-a1-c2",
+   "keyword": "niveaux d'anglais cecrl",
+   "category": "phuong-phap",
+   "tags": [
+    "cecrl",
+    "test-de-niveau",
+    "niveau-anglais",
+    "plan-etude"
+   ],
+   "routes": [
+    "/#/placement",
+    "/#/path"
+   ],
+   "intent": "informational",
+   "lang": "fr",
+   "cluster": "kiem-tra-trinh-do-tieng-anh",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "cefr-levels-explained"
+  },
+  {
+   "slug": "make-ou-do-difference",
+   "keyword": "make ou do différence",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulaire",
+    "collocations",
+    "make-do",
+    "b1"
+   ],
+   "routes": [
+    "/#/usage/make",
+    "/#/usage/do"
+   ],
+   "intent": "informational",
+   "lang": "fr",
+   "cluster": "diferencia-entre-make-y-do-en-ingles",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "make-vs-do"
   }
  ]
 }

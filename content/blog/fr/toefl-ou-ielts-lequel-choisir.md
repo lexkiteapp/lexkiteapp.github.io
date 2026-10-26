@@ -76,7 +76,7 @@ Avant d'entrer dans les subtilités pédagogiques, comparons les données fondam
 | **Durée de validité** | 2 ans | 2 ans |
 | **Tarif moyen** | ~270 $ USD selon le pays de passage | ~250 € à 270 € selon le centre d'examen |
 
-Pour évaluer votre niveau global avant d'arrêter votre choix, faites notre [Test de positionnement](/app/#/placement) rapide en 5 minutes.
+Pour évaluer votre niveau global avant d'arrêter votre choix, faites notre [Test de positionnement](/app/#/placement) rapide en 5 minutes. Notre guide des [niveaux d'anglais CECRL](/fr/blog/niveaux-anglais-cecrl-a1-c2/) explique ce que représente chaque niveau au quotidien.
 
 ## TOEFL ou IELTS lequel choisir : Comparatif épreuve par épreuve
 

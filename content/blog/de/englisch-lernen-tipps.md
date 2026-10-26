@@ -25,7 +25,7 @@ Die meisten Erwachsenen im deutschsprachigen Raum fangen nicht bei null an. Sie 
 2. **Satzbau ohne Nachdenken.** Die Regel kennen Sie, aber *Have you ever been…?* kommt nicht flüssig, weil Sie innerlich erst aus dem Deutschen übersetzen.
 3. **Hörgewöhnung an echtes Tempo.** Im Unterricht war das Englisch langsam und deutlich; im Alltag werden Wörter verschluckt und verbunden.
 
-Die gute Nachricht: Alle drei Lücken lassen sich mit Methode schließen. Der erste Schritt ist, ehrlich festzustellen, wo Sie stehen. Ein kurzer Einstufungstest zeigt, ob Sie eher auf A2, B1 oder schon B2 sind – davon hängt ab, in welcher Phase des Plans Sie einsteigen.
+Die gute Nachricht: Alle drei Lücken lassen sich mit Methode schließen. Der erste Schritt ist, ehrlich festzustellen, wo Sie stehen. Ein kurzer Einstufungstest zeigt, ob Sie eher auf A2, B1 oder schon B2 sind – davon hängt ab, in welcher Phase des Plans Sie einsteigen. Was die einzelnen Stufen konkret bedeuten, erklärt der Überblick [Englisch Niveau A1 bis C2](/de/blog/englisch-niveau-a1-bis-c2-ger/).
 
 ## Englisch lernen Tipps: vier Grundsätze vor dem Start
 

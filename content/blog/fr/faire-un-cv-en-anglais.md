@@ -54,7 +54,7 @@ quiz: [
 
 Que vous postuliez pour un stage à Londres, un poste dans une multinationale basée en Suisse ou un emploi tech dans la Silicon Valley, adapter votre candidature aux standards internationaux est une étape capitale. Pourtant, beaucoup de candidats francophones commettent l'erreur fatale de simplement traduire leur CV français mot à mot. Or, **faire un cv en anglais** obéit à des codes culturels, juridiques et techniques totalement différents de ceux en vigueur dans l'Hexagone.
 
-Des éléments considérés comme classiques en France – tels que la photo d'identité, l'âge, la nationalité, le statut marital ou même la mention du permis de conduire – sont formellement proscrits aux États-Unis, au Canada et au Royaume-Uni pour respecter les lois anti-discrimination (*Equal Employment Opportunity*). Ajouter une photo peut même entraîner l'élimination automatique de votre candidature par les services de ressources humaines.
+Des éléments considérés comme classiques en France – tels que la photo d'identité, l'âge, la nationalité, le statut marital ou même la mention du permis de conduire – sont formellement proscrits aux États-Unis, au Canada et au Royaume-Uni pour respecter les lois anti-discrimination (*Equal Employment Opportunity*). Ajouter une photo peut même entraîner l'élimination automatique de votre candidature par les services de ressources humaines. Pour indiquer honnêtement votre niveau de langue, appuyez-vous sur notre guide des [niveaux d'anglais CECRL](/fr/blog/niveaux-anglais-cecrl-a1-c2/).
 
 De plus, l'essor des logiciels de recrutement automatisés (*Applicant Tracking Systems*, ATS) impose une mise en page épurée et l'intégration de verbes d'action percutants.
 

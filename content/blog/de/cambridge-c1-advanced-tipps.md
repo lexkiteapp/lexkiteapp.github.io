@@ -14,9 +14,9 @@ author: Lexkite
 status: ready
 qualityScore: 94
 ---
-Das Cambridge C1 Advanced Zertifikat (früher bekannt als Certificate in Advanced English, kurz CAE) gehört im deutschsprachigen Raum zu den angesehensten Sprachnachweisen überhaupt. Universitäten in Deutschland, Österreich und der Schweiz fordern es für englischsprachige Masterstudiengänge, internationale Konzerne setzen es für Führungspositionen voraus, und im Gegensatz zu IELTS oder TOEFL verfällt das Cambridge-Zertifikat niemals.
+Das Cambridge C1 Advanced Zertifikat (früher bekannt als Certificate in Advanced English, kurz CAE) gehört im deutschsprachigen Raum zu den angesehensten Sprachnachweisen überhaupt. Universitäten in Deutschland, Österreich und der Schweiz fordern es für englischsprachige Masterstudiengänge, internationale Konzerne setzen es für Führungspositionen voraus, und im Gegensatz zu IELTS oder TOEFL verfällt das Cambridge-Zertifikat niemals. Wo C1 im Vergleich zu den anderen Stufen liegt, beschreibt der Überblick [Englisch Niveau A1 bis C2](/de/blog/englisch-niveau-a1-bis-c2-ger/).
 
-Wer das C1-Niveau anstrebt, muss jedoch weit mehr leisten, als nur flüssig Englisch zu sprechen. Die Prüfung fordert ein tiefes Verständnis englischer Grammatikfeinheiten, nuancierte Idiome und rigoroses Zeitmanagement unter Prüfungsdruck. Mit den richtigen **Cambridge C1 Advanced Tipps** bereiten Sie sich gezielt auf die Eigenheiten der Aufgabenformate vor und maximieren Ihre Punktzahl in allen Testbereichen.
+Wer das C1-Niveau anstrebt, muss jedoch weit mehr leisten, als nur flüssig Englisch zu sprechen. Die Prüfung fordert ein tiefes Verständnis englischer Grammatikfeinheiten, nuancierte Idiome und rigoroses Zeitmanagement unter Prüfungsdruck. Mit den richtigen **Cambridge C1 Advanced Tipps** bereiten Sie sich gezielt auf die Eigenheiten der Aufgabenformate vor und maximieren Ihre Punktzahl in allen Testbereichen. Zu diesen Feinheiten gehört die Kommasetzung bei [Relativsätzen im Englischen](/de/blog/relativsaetze-englisch-who-which-that/), die anders funktioniert als im Deutschen.
 
 In diesem Leitfaden erfahren Sie, worauf es in den vier Prüfungsteilen ankommt und mit welchen Taktiken Sie selbst schwierige Aufgaben wie *Key Word Transformation* souverän lösen.
 

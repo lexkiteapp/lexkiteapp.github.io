@@ -28,7 +28,7 @@ Le cerveau humain filtre les sons d'une langue étrangère à travers le prisme 
 - *heart* (cœur) devient *art* (art).
 - *ship* (bateau) est confondu avec *sheep* (mouton).
 
-Ces approximations altèrent le sens de vos phrases et obligent vos auditeurs à fournir un effort cognitif épuisant pour vous décoder. Pour intégrer l'oral dans un parcours global, appuyez-vous sur notre méthodologie dans [Apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/) et découvrez comment mémoriser les sons avec [Apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/).
+Ces approximations altèrent le sens de vos phrases et obligent vos auditeurs à fournir un effort cognitif épuisant pour vous décoder. Pour intégrer l'oral dans un parcours global, appuyez-vous sur notre méthodologie dans [Apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/) et découvrez comment mémoriser les sons avec [Apprendre le vocabulaire anglais](/fr/blog/apprendre-vocabulaire-anglais/). La terminaison -ed du prétérit en est un bon exemple, détaillé dans notre guide de [prononciation de -ed en anglais](/fr/blog/prononciation-ed-anglais/).
 
 ## Prononciation anglaise astuces : les 5 erreurs majeures des francophones
 

@@ -53,7 +53,8 @@
       "batch1": "plan + 10 English originals (priority-1 topics marked status: written)",
       "batch2": "en originals: relative clauses, reported speech, CEFR levels, IELTS GT letter, TOEFL Complete the Words, make vs do",
       "batch3": "localised (18): es voz-pasiva, ielts speaking parte 3; pt pronúncia do ed, verbos modais, ielts speaking part 3 dicas; id conditional sentence, matching headings; th TOEIC Part 5 เทคนิค, matching headings; ja 仮定法・条件文, 受動態, 句動詞; ko ed 발음 규칙, 구동사, 매칭 헤딩; zh 雅思口语Part 3; ar ielts speaking part 3 نصائح; hi ielts speaking part 3 tips",
-      "batch4": "localised (14): es toefl-academic-discussion-ejemplo, oraciones-condicionales-en-ingles, estilo-indirecto-en-ingles, niveles-de-ingles-a1-a2-b1-b2-c1; fr toefl-academic-discussion-conseils; pt voz-passiva-em-ingles, discurso-indireto-em-ingles, niveis-de-ingles-cefr; id passive-voice-bahasa-inggris, perbedaan-make-dan-do, tips-toeic-part-5; ja eigo-kankei-daimeishi, toefl-complete-the-words-taisaku, ed-hatsuon-rule – scheduled 11–17/11/2026, each with >=3 same-language inbound links and a briefs.json entry"
+      "batch4": "localised (14): es toefl-academic-discussion-ejemplo, oraciones-condicionales-en-ingles, estilo-indirecto-en-ingles, niveles-de-ingles-a1-a2-b1-b2-c1; fr toefl-academic-discussion-conseils; pt voz-passiva-em-ingles, discurso-indireto-em-ingles, niveis-de-ingles-cefr; id passive-voice-bahasa-inggris, perbedaan-make-dan-do, tips-toeic-part-5; ja eigo-kankei-daimeishi, toefl-complete-the-words-taisaku, ed-hatsuon-rule – scheduled 11–17/11/2026, each with >=3 same-language inbound links and a briefs.json entry",
+      "batch5-lot1": "localised (10): de modalverben-englisch-can-could-should-must, ed-aussprache-englisch, relativsaetze-englisch-who-which-that, indirekte-rede-englisch-reported-speech, englisch-niveau-a1-bis-c2-ger, make-oder-do-unterschied; fr prononciation-ed-anglais, discours-indirect-anglais-reported-speech, niveaux-anglais-cecrl-a1-c2, make-ou-do-difference – scheduled 17–22/11/2026"
     },
     "postsNext30DaysByLang_2026-10-26": {
       "ar": 24,
@@ -74,7 +75,6 @@
     },
     "remaining": {
       "priority1_localise": [
-        "de/modal-verbs-can-could-should-must – modalverben englisch",
         "pt/conditional-sentences-in-english – condicionais em inglês",
         "hi/conditional-sentences-in-english – conditional sentences in hindi",
         "id/common-phrasal-verbs – phrasal verb yang sering digunakan",
@@ -88,19 +88,12 @@
         "hi/ielts-reading-matching-headings – ielts reading matching headings tips",
         "zh/ielts-reading-matching-headings – 雅思阅读 段落标题配对",
         "ar/ielts-reading-matching-headings – matching headings ielts",
-        "fr/ed-pronunciation-rules – prononciation ed anglais",
-        "de/ed-pronunciation-rules – ed aussprache englisch",
         "vi/relative-clauses-who-which-that – mệnh đề quan hệ",
         "es/relative-clauses-who-which-that – pronombres relativos en inglés",
         "pt/relative-clauses-who-which-that – pronomes relativos em inglês",
         "ko/relative-clauses-who-which-that – 관계대명사 정리",
-        "de/relative-clauses-who-which-that – relativsätze englisch",
         "vi/reported-speech – câu tường thuật",
-        "de/reported-speech – indirekte rede englisch",
-        "fr/reported-speech – discours indirect anglais",
         "id/reported-speech – reported speech bahasa inggris",
-        "de/cefr-levels-explained – englisch niveau a1 bis c2",
-        "fr/cefr-levels-explained – niveaux d'anglais cecrl",
         "hi/ielts-general-training-letter – ielts general letter writing",
         "ar/ielts-general-training-letter – ielts general training letter",
         "pt/ielts-general-training-letter – carta ielts general training",
@@ -108,9 +101,7 @@
         "zh/toefl-complete-the-words – 托福 complete the words",
         "es/toefl-complete-the-words – toefl complete the words",
         "vi/make-vs-do – phân biệt make và do",
-        "pt/make-vs-do – diferença entre make e do",
-        "fr/make-vs-do – make ou do différence",
-        "de/make-vs-do – make oder do unterschied"
+        "pt/make-vs-do – diferença entre make e do"
       ],
       "priority2_3": [
         "vi/ielts-opinion-essay – bài opinion ielts writing task 2 (needs en original first)",

@@ -56,7 +56,7 @@ Que ce soit pour nuancer une opinion lors d'une dissertation, exprimer la polite
 
 Apprendre à manier les **verbes modaux en anglais** ne demande pas d'apprendre des listes de conjugaisons complexes par cœur. Bien au contraire : ces petits mots sont d'une régularité grammaticale absolue. Ils ne s'accordent jamais, ne prennent pas de « s » à la troisième personne et n'utilisent jamais l'auxiliaire *do* pour former leurs négations ou leurs questions. Leur véritable subtilité réside dans les nuances d'attitude qu'ils injectent dans la phrase : obligation, permission, conseil, capacité physique ou degré de probabilité.
 
-Dans ce guide pédagogique complet, nous détaillons les règles d'or partagées par tous les modaux, cartographions l'échelle de certitude de 0 % à 100 % et analysons les pièges classiques de traduction pour vous permettre de vous exprimer avec justesse et naturel.
+Dans ce guide pédagogique complet, nous détaillons les règles d'or partagées par tous les modaux, cartographions l'échelle de certitude de 0 % à 100 % et analysons les pièges classiques de traduction pour vous permettre de vous exprimer avec justesse et naturel. Pour savoir comment *will, can* ou *must* se transforment quand on rapporte des paroles, lisez notre guide du [discours indirect en anglais](/fr/blog/discours-indirect-anglais-reported-speech/).
 
 ![Bibliothèque de vocabulaire et structures grammaticales dans Lexkite](media:library)
 *Organisation thématique du vocabulaire et des structures verbales par niveau CECRL.*

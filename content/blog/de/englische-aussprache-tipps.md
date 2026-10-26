@@ -58,7 +58,7 @@ Wenn ein deutscher Sprecher *village* und *wine* verwechselt, klingt *wine* wie 
 
 ### 3. Auslautverhärtung stoppen: Bad versus Bat
 
-Im Deutschen herrscht das Gesetz der sogenannten Auslautverhärtung: Konsonanten am Wortende werden ausnahmslos stimmlos gesprochen. Das Wort *Hund* klingt wie *Hunt*, *Tag* wie *Tak*.
+Im Deutschen herrscht das Gesetz der sogenannten Auslautverhärtung: Konsonanten am Wortende werden ausnahmslos stimmlos gesprochen. Das Wort *Hund* klingt wie *Hunt*, *Tag* wie *Tak*. Besonders deutlich hört man das bei der Vergangenheitsendung, wie der Beitrag zur [ed Aussprache im Englischen](/de/blog/ed-aussprache-englisch/) zeigt.
 
 Im Englischen ist diese Regel fatal, denn die Stimmhaftigkeit am Wortende unterscheidet Bedeutungen:
 - *bed* (Bett, weiches d) versus *bet* (Wette, hartes t)

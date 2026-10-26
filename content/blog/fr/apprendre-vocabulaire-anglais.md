@@ -29,7 +29,7 @@ Dans ce guide complet, découvrez 7 méthodes fondées sur les sciences cognitiv
 2. **L'illusion de compétence :** Relire une liste donne une fausse impression de maîtrise (reconnaissance passive). Mais reconnaître un mot en le lisant ne signifie absolument pas que vous serez capable de le prononcer spontanément lors d'un échange oral (rappel actif).
 3. **La courbe de l'oubli :** Dès 1885, le psychologue Hermann Ebbinghaus a démontré que sans révision stratégique, nous oublions environ 70 % des informations nouvelles dans les 48 heures suivant leur découverte.
 
-Pour bâtir un socle solide dès le départ, associez votre apprentissage des mots à un plan structuré ; consultez notre guide général [Apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/).
+Pour bâtir un socle solide dès le départ, associez votre apprentissage des mots à un plan structuré ; consultez notre guide général [Apprendre l'anglais seul](/fr/blog/apprendre-anglais-seul/). Les collocations avec *make* et *do* sont un bon point de départ, présentées dans notre article [make ou do : différence](/fr/blog/make-ou-do-difference/).
 
 ## Apprendre le vocabulaire anglais : 7 méthodes scientifiques pour réussir
 

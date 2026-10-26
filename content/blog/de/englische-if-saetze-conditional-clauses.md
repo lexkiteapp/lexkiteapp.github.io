@@ -54,7 +54,7 @@ quiz: [
 
 Konditionalsätze gehören zu den wichtigsten Werkzeugen der englischen Sprache, um Möglichkeiten, logische Konsequenzen, Hoffnungen oder vergangenes Bedauern präzise auszudrücken. Wer eine fundierte **if-sätze englisch übersicht** sucht, stellt schnell fest, dass die englischen Bedingungssätze (*Conditional Clauses*) strengen mathematischen Regeln folgen, die weit weniger Ausnahmen kennen als das deutsche Konjunktivgefüge.
 
-Viele deutsche Muttersprachler stolpern jedoch über eine hartnäckige Gewohnheit: Sie neigen dazu, die deutsche Konstruktion mit „würde“ eins zu eins ins Englische zu übertragen. Daraus entstehen typische Denglisch-Konstruktionen wie *If I would know...*, die im Englischen grammatikalisch falsch sind. Der bekannte Merksatz „If und would machen den Satz kaputt“ fasst diese goldene Grundregel treffend zusammen.
+Viele deutsche Muttersprachler stolpern jedoch über eine hartnäckige Gewohnheit: Sie neigen dazu, die deutsche Konstruktion mit „würde“ eins zu eins ins Englische zu übertragen. Daraus entstehen typische Denglisch-Konstruktionen wie *If I would know...*, die im Englischen grammatikalisch falsch sind. Der bekannte Merksatz „If und would machen den Satz kaputt“ fasst diese goldene Grundregel treffend zusammen. Wie sich *would* von den übrigen Modalverben unterscheidet, zeigt der Leitfaden zu den [Modalverben im Englischen](/de/blog/modalverben-englisch-can-could-should-must/).
 
 In dieser ausführlichen Anleitung führen wir Sie systematisch durch alle vier Grundtypen der If-Sätze (Typ 0, 1, 2 und 3) sowie die im Berufsalltag und bei Prüfungen wie IELTS und Cambridge C1 beliebten gemischten Bedingungen (*Mixed Conditionals*).
 

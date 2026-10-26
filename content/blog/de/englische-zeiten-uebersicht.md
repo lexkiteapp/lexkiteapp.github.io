@@ -17,7 +17,7 @@ publishAt: 2026-10-22T12:25:00+02:00
 ---
 Die englische Grammatik gilt im Allgemeinen als zugänglich und unkompliziert – bis das Thema Zeitformen auf den Tisch kommt. Während das Deutsche mit sechs Zeiten auskommt und diese im alltäglichen Sprachgebrauch oft sehr flexibel handhabt, unterscheidet das Englische exakt zwölf Tenses. Wer flüssig und stilsicher sprechen, internationale Prüfungen bestehen oder im Berufsleben überzeugen möchte, benötigt eine glasklare englische zeiten übersicht, die System in das scheinbare Chaos bringt.
 
-Der wesentliche Unterschied zwischen den beiden Sprachen liegt in der Betrachtungsperspektive: Im Englischen geht es nicht nur darum, *wann* etwas passiert ist (Vergangenheit, Gegenwart, Zukunft), sondern vor allem *wie* der Sprecher die Handlung wahrnimmt. Handelt es sich um eine regelmäßige Gewohnheit, einen momentanen Verlauf, ein abgeschlossenes Faktum oder ein Ereignis mit unmittelbarem Gegenwartsbezug? In diesem Leitfaden führen wir Sie durch das gesamte System aller zwölf Zeitformen, zeigen Ihnen die unfehlbaren Signalwörter und erklären Ihnen die Logik hinter Bildung und Verwendung.
+Der wesentliche Unterschied zwischen den beiden Sprachen liegt in der Betrachtungsperspektive: Im Englischen geht es nicht nur darum, *wann* etwas passiert ist (Vergangenheit, Gegenwart, Zukunft), sondern vor allem *wie* der Sprecher die Handlung wahrnimmt. Handelt es sich um eine regelmäßige Gewohnheit, einen momentanen Verlauf, ein abgeschlossenes Faktum oder ein Ereignis mit unmittelbarem Gegenwartsbezug? In diesem Leitfaden führen wir Sie durch das gesamte System aller zwölf Zeitformen, zeigen Ihnen die unfehlbaren Signalwörter und erklären Ihnen die Logik hinter Bildung und Verwendung. Diese Perspektive wird auch wichtig, wenn Sie wiedergeben, was jemand gesagt hat – siehe den Artikel zur [indirekten Rede im Englischen](/de/blog/indirekte-rede-englisch-reported-speech/).
 
 ## Die 4 Aspekte des englischen Zeitensystems
 
@@ -129,7 +129,7 @@ Die folgende Tabelle dient Ihnen als rasches Nachschlagewerk beim Schreiben und 
 | **Going-to-Future** | *plan, intention, evident sign* | Absichten, sichtbare Tendenzen |
 | **Future Perfect** | *by next year, by then* | Vollendung vor Termin in der Zukunft |
 
-Sie können unregelmäßige Formen und Kollokationen auch jederzeit in unserem integrierten [Online-Wörterbuch](/#/dict/resilient) nachschlagen oder die Grundlagen in unserer [Grammatiksektion](/ngu-phap/) vertiefen.
+Sie können unregelmäßige Formen und Kollokationen auch jederzeit in unserem integrierten [Online-Wörterbuch](/#/dict/resilient) nachschlagen oder die Grundlagen in unserer [Grammatiksektion](/ngu-phap/) vertiefen. Feste Wortverbindungen wie *make a mistake* oder *do homework* erklärt außerdem der Artikel [Make oder do: Unterschied](/de/blog/make-oder-do-unterschied/).
 
 ![Wörterbuch und Kollokationen auf Lexkite](media:dict "Im integrierten Wörterbuch lassen sich unregelmäßige Verben und typische Signalwörter im Satzkontext nachschlagen")
 

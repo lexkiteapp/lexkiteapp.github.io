@@ -46,7 +46,7 @@ Wörter treten in natürlichen Sprachen selten alleine auf. Muttersprachler spre
 - Falsch: *do a mistake*
 - Richtig: *make a mistake*
 
-Lernen Sie jedes neue Wort immer eingebettet in einen kurzen, prägnanten Beispielsatz. Notieren Sie typische Adjektiv-Nomen-Paare (*heavy rain*, nicht *strong rain*) oder Verb-Präposition-Kombinationen (*rely on*, *interested in*).
+Lernen Sie jedes neue Wort immer eingebettet in einen kurzen, prägnanten Beispielsatz. Notieren Sie typische Adjektiv-Nomen-Paare (*heavy rain*, nicht *strong rain*) oder Verb-Präposition-Kombinationen (*rely on*, *interested in*). Ein typisches Beispiel sind die Kollokationen mit *make* und *do*, die der Beitrag [Make oder do: Unterschied](/de/blog/make-oder-do-unterschied/) sortiert.
 
 ![Lexkite Lernkarte zu „come up with“: Bedeutung, englische Definition, Beispiele, Merkhilfe und typische Fehler](media:practice-learn "Lernkarte mit Beispielen und Merkhilfe – englisch vokabeln lernen")
 
