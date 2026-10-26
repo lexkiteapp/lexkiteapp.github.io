@@ -24,7 +24,7 @@ Cột "Free": ✓ = gói miễn phí đã biết (kiểm lại lúc đăng – c
 | 8 | OER Commons (oercommons.org) | học liệu mở | ✓ | EN | O1 |
 | 9 | MERLOT (merlot.org) – Add material | học liệu mở | ✓ (thành viên free) | EN | O1 |
 | 10 | Tes Resources (tes.com) | chợ học liệu giáo viên | ✓ (tài nguyên free) | EN-UK | T1 |
-| 11 | Teachers Pay Teachers – free resource | chợ học liệu | ✓ (Basic seller) | EN-US | T1 |
+| 11 | Teachers Pay Teachers – free resource | chợ học liệu | ✗ từ 10/2026 Basic seller thu $29 một lần → BỎ (pr-free-only) | EN-US | T1 |
 | 12 | ISLCollective | phiếu bài tập ESL | ✓ | EN | T2 |
 | 13 | ESL Printables | phiếu bài tập ESL | ✓ (trao đổi) | EN | T2 |
 | 14 | All Language Resources – Suggest a resource | trang đánh giá công cụ | ? | EN | C1 |

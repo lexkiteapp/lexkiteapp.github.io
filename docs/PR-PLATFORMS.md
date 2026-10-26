@@ -34,6 +34,7 @@ Quy ước cột:
 | 13 | Hugging Face | ✅ Đang hiển thị | 26/10/2026 | https://huggingface.co/datasets/mrquyenbkpro/confused-english-words | listing · @mrquyenbkpro | Dataset card + CSV/JSON, CC BY 4.0, DOI 10.5281/zenodo.23662626. |
 | 14 | Kaggle | ✅ Đang hiển thị | 26/10/2026 | https://www.kaggle.com/datasets/zulilyjewelryvintage/commonly-confused-english-words-lexkite | listing · @zulilyjewelryvintage | Public dataset, CC BY 4.0, description cites DOI + source page. |
 | 15 | Figshare | ✅ Đang hiển thị | 26/10/2026 | https://figshare.com/articles/dataset/Commonly_Confused_English_Words_an_open_dataset_Lexkite_/34789332 | listing · @Quyen Khieu Dinh | Dataset CC BY 4.0, DOI 10.6084/m9.figshare.34789332.v1; description links research page + Zenodo DOI. |
+| 16 | OER Commons | ⏳ Chờ duyệt | 26/10/2026 | https://oercommons.org/courses/commonly-confused-english-words-open-dataset-and-free-classroom-widget | listing · @Quyen Khieu Dinh | Submitted from web (librarian review). CC BY, English Language Arts, HS/CC/Adult, Data Set. |
 <!-- pr-table:end -->
 
 Tiếp theo (miễn phí, chưa làm – chỉ trang ỔN ĐỊNH, mình làm chủ hồ sơ/bài): Peerlist, Indie Hackers (trang Product), Hashnode (blog riêng, canonical về dev.to), Medium (import, canonical), LinkedIn Company Page, Viblo (bài thuần kỹ thuật), Microsoft Edge Add-ons, Firefox Add-ons, Educational App Store, TinyLaunch, HackerNoon, GitHub (repo/README giới thiệu), Wellfound (hồ sơ công ty).
