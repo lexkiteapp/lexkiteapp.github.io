@@ -9,10 +9,12 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { driveSign, driveCliKey } from '../video/library.mjs';
 
-/** Việc nặng/dùng chung (không chỉ phút GitHub) → fail-closed: điều phối hỏng/không phản hồi = KHÔNG chạy. Việc tầm thường (chỉ gh_minutes/grabcast_ai) → chạy tiếp. Khớp functions/api/_jobs.js failClosed. */
+/** tài nguyên dùng chung tự giới hạn (khớp functions/api/_jobs.js SHARED_RES) */
+const SHARED = ['gh_minutes', 'grabcast_ai', 'cf_pool'];
+/** Việc nặng/dùng chung (không chỉ phút GitHub) → fail-closed: điều phối hỏng/không phản hồi = KHÔNG chạy. Việc tầm thường (chỉ gh_minutes/grabcast_ai/cf_pool) → chạy tiếp. Khớp functions/api/_jobs.js failClosed. */
 export function failClosed(jobId, reg) {
   try { reg = reg || JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '../../infra/jobs.json'), 'utf8')); } catch { return true; }
-  const j = reg.jobs.find(x => x.id === jobId); return !j || j.resources.some(r => r !== 'gh_minutes' && r !== 'grabcast_ai');
+  const j = reg.jobs.find(x => x.id === jobId); return !j || j.resources.some(r => !SHARED.includes(r));
 }
 /** Quyết định khi gọi acquire: { skip, reason } từ (status, body). */
 export function decide(status, j, closed) {

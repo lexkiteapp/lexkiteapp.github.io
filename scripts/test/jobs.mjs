@@ -50,6 +50,7 @@ ok((await J.acquire(ENV, DB, { job: 'khong-co', run: 'x' })).status === 400, 'jo
   // fail-closed phía máy khách
   ok(L.failClosed('script-bank') && L.failClosed('footage-archive') && L.failClosed('news-auto') && L.failClosed('khong-co-trong-so'), 'việc dùng Workers AI/Drive/D1 và việc lạ → fail-closed');
   ok(!L.failClosed('storage-watch') && !L.failClosed('blog-publish'), 'việc tầm thường (chỉ phút GitHub) → fail-open');
+  ok(!L.failClosed('lexicon-expand') && L.failClosed('x', { jobs: [{ id: 'x', resources: ['cf_pool', 'gemini'] }] }), 'kho CF_POOL dùng chung tự giới hạn (4006) → fail-open; kèm tài nguyên độc quyền → fail-closed');
   ok(L.decide(503, jb, true).skip === 1 && L.decide(0, { error: 'network' }, true).skip === 1 && L.decide(500, {}, true).skip === 1, 'việc nặng + điều phối 503/mạng/500 → KHÔNG chạy');
   ok(L.decide(503, jb, false).skip === 0 && L.decide(200, { ok: true }, true).skip === 0 && L.decide(200, { skip: true, reason: 'x' }, false).skip === 1 && L.decide(429, {}, false).skip === 1, 'việc tầm thường chạy khi điều phối hỏng; thuê được → chạy; bị từ chối/429 → bỏ qua');
   // đặt chỗ neuron: mặc định 0, cấp riêng theo việc

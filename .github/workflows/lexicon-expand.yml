@@ -13,7 +13,7 @@ on:
     inputs:
       n: { description: 'Số từ MỚI lượt này (+ từ làm lại ở content/lexicon/expand/retry)', default: '2400' }
       pilot: { description: 'Pilot: rải đều dải tần suất (1 = có)', default: '0' }
-      calls: { description: 'Trần số lần gọi /api/lexai', default: '400' }
+      calls: { description: 'Trần số lần gọi /api/lexai (Gemini kho Lexkite – 26/10 rỗng; > 0 chỉ khi kho có khóa VÀ thêm gemini vào resources ở infra/jobs.json)', default: '0' }
       batch: { description: 'Mã lô (trống = ngày)', default: '' }
       neurons: { description: 'Trần neuron kho CF_POOL lượt này (ai-pool cf2; 4006 → tài khoản kế)', default: '450000' }
       retry: { description: 'Làm lại danh sách retry trước (0 = lượt kiểm nhỏ, bỏ qua)', default: '1' }
@@ -60,7 +60,7 @@ jobs:
           VIMG_POOL_SKIP: '0'
           VIMG_CF_USE_CF2: '0'   # tài khoản 2 thuộc script-bank/news-auto (workers_ai_b độc quyền) – lexicon chỉ dùng kho
         # LEASE_AI_B_NEURONS đặt NGAY trong lệnh: bước thuê ghi LEASE_AI_B_NEURONS=0 vào GITHUB_ENV (đè env của bước)
-        run: LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '450000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.retry == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
+        run: LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '450000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "${{ github.event.inputs.n || '2400' }}" --calls "${{ github.event.inputs.calls || '0' }}" ${{ github.event.inputs.pilot == '1' && '--pilot' || '' }} ${{ github.event.inputs.retry == '0' && '--no-retry' || '' }} ${{ github.event.inputs.batch && format('--batch {0}', github.event.inputs.batch) || '' }}
       - name: Lưu kết quả (chờ soát – chưa xuất)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |
