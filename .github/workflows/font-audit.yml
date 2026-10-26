@@ -6,7 +6,7 @@ on:
     inputs:
       part: { description: 'Phần: all | static | landing | legal | app | admin | blog | ext', required: false, default: 'all' }
   pull_request:
-    paths: ['web/css/**', 'web/js/**', 'web/**/*.html', 'extension/**/*.css', 'extension/**/*.html', 'scripts/test/font-audit.mjs', '.github/workflows/font-audit.yml']
+    paths: ['web/css/**', 'web/js/**', 'web/**/*.html', 'extension/**/*.css', 'extension/**/*.html', 'scripts/test/font-audit.mjs', 'scripts/build-blog.mjs', 'scripts/lib/site-layout.mjs', '.github/workflows/font-audit.yml']
   schedule:
     - cron: '20 2 * * 1'   # thứ Hai 09:20 giờ Việt Nam
 permissions:
@@ -29,6 +29,8 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium
           sudo apt-get install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+      - if: matrix.part == 'blog'
+        run: node scripts/build-blog.mjs
       - name: Kiểm ${{ matrix.part }}
         run: node scripts/test/font-audit.mjs ${{ matrix.part }} --strict
       - if: always()

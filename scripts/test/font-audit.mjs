@@ -13,7 +13,7 @@ const STRICT = args.includes('--strict');
 const BASE_ARG = (args[args.indexOf('--base') + 1] || '').replace(/\/$/, '');
 const OUT = 'font-report';
 fs.mkdirSync(OUT, { recursive: true });
-const ROOT = path.resolve('web');
+let ROOT = path.resolve('web');
 
 // ---------- Quét tĩnh (không cần trình duyệt) ----------
 function staticScan() {
@@ -68,7 +68,8 @@ const PARTS = {
   legal: b => ['/privacy.html', '/terms.html', '/credits.html', '/schools.html', '/404.html', '/bye.html', '/en/privacy.html', '/ja/terms.html', '/ar/schools.html'].map(p => b + p),
   app: b => APP_ROUTES.flatMap(r => ['vi', 'en'].map(l => `${b}/app/?sandbox=1&hl=${l}#/${r}`)),
   admin: b => [b + '/admin.html'],
-  blog: () => ['en', 'vi', 'ja', 'ar'].map(l => `https://lexkite.com/${l}/blog/`),
+  // blog: nếu đã build tại chỗ (dist/, CI chạy build-blog trước) thì kiểm bản của PR, không thì bản live
+  blog: b => ['en', 'vi', 'ja', 'ar'].map(l => `${fs.existsSync('dist/vi/blog/index.html') ? b : 'https://lexkite.com'}/${l}/blog/`),
   ext: () => ['popup.html', 'newtab.html'].map(f => 'file://' + path.resolve('extension', f)),
 };
 
@@ -184,7 +185,8 @@ function report(part, results, staticIssues) {
 
 let errors = 0, srv;
 const parts = PART === 'all' ? ['static', ...Object.keys(PARTS)] : [PART];
-const needLocal = parts.some(p => ['landing', 'legal', 'app', 'admin'].includes(p)) && !BASE_ARG;
+const needLocal = parts.some(p => ['landing', 'legal', 'app', 'admin'].includes(p) || (p === 'blog' && fs.existsSync('dist/vi/blog/index.html'))) && !BASE_ARG;
+if (PART === 'blog' && fs.existsSync('dist/vi/blog/index.html')) ROOT = path.resolve('dist');
 let base = BASE_ARG;
 if (needLocal) ({ srv, base } = await serve());
 for (const p of parts) {

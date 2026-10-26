@@ -141,6 +141,16 @@ const rid = id => (id.startsWith('@') && CURP ? mediaId(CURP, id.slice(1)) : id)
 const stem = (id, m) => m.key || `${id}-${m.hash}`;
 // Ảnh bìa: bản riêng của bài (CI đã render) nếu có, không thì ảnh chung `cover:` (alt = coverAlt). Alt bìa riêng = alt tự sinh (đúng ảnh).
 const coverOf = p => { const id = mediaId(p, 'cover'), m = MEDIA[id]; return m ? { id, alt: m.alt } : { id: p.cover, alt: p.coverAlt || p.title }; };
+// Ảnh thẻ ở trang danh sách: ảnh thật trong bài (ưu tiên ảnh riêng @, rồi ảnh ít bài dùng chung nhất) – không lặp mẫu bìa chữ
+// (tiêu đề đã in ngay dưới thẻ). Chỉ nhận ảnh ngang gần 16:10 (ảnh dọc bị cắt còn mẩu đầu). Không có → ảnh bìa, hiện trọn (fit). og:image vẫn dùng ảnh bìa.
+const IMG_RE = /^!\[([^\]]*)\]\(media:(@?[\w-]+)/gm;
+const imgUse = {}; for (const p of posts) for (const id of new Set([...(p.body || '').matchAll(IMG_RE)].map(m => m[2]))) if (!id.startsWith('@')) imgUse[id] = (imgUse[id] || 0) + 1;
+const thumbOf = p => {
+  const imgs = [...(p.body || '').matchAll(IMG_RE)].map(m => ({ alt: m[1], id: m[2], real: m[2].startsWith('@') ? mediaId(p, m[2].slice(1)) : m[2] })).filter(x => { const m = MEDIA[x.real]; return m && m.w / m.h >= 1.3 && m.w / m.h <= 2; });
+  const own = imgs.find(x => x.id.startsWith('@'));
+  const pick = own || imgs.sort((a, b) => (imgUse[a.id] || 0) - (imgUse[b.id] || 0))[0];
+  return pick ? { id: pick.real, alt: pick.alt || MEDIA[pick.real].alt || p.title } : { ...coverOf(p), fit: true };
+};
 function picture(id, alt, { eager = false, sizes = '(min-width: 760px) 720px, 100vw' } = {}) {
   id = rid(id); const m = MEDIA[id];
   if (!m) return `<!-- thiếu ảnh ${esc(id)} -->`;
@@ -308,7 +318,7 @@ const quizBlock = p => {
   const L = QZ_I[p.lang] || QZ_I.en || [];
   return `<section class="blog-quiz" aria-label="${esc(L[0] || 'Quiz')}" data-quiz="${esc(JSON.stringify(cta ? { items, cta } : items))}" data-lang="${p.lang}" data-app="${esc(appHref(p.lang))}"><details class="toc"><summary>🧠 ${esc(L[0] || 'Quiz')} · ${esc(L[11] || '')}</summary><ol>${items.map(q => `<li><p><strong>${esc(q.q)}</strong></p><p>${q.options.map((o, i) => i === q.answer ? `<strong>✓ ${esc(o)}</strong>` : esc(o)).join(' · ')}</p>${q.explain ? `<p>${esc(q.explain)}</p>` : ''}</li>`).join('')}</ol></details></section>\n`;
 };
-const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic">${picture(coverOf(p).id, coverOf(p).alt, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`;
+const card = (p, h = 'h2', eager = false) => `<article class="card"><a class="ti" href="${postUrl(p)}"><div class="pic${thumbOf(p).fit ? ' fit' : ''}">${picture(thumbOf(p).id, thumbOf(p).alt, { eager, sizes: '(min-width: 1080px) 340px, (min-width: 640px) 50vw, 100vw' })}</div><div class="bd"><span class="chip">${esc(catName(p.category, p.lang))}</span><${h}>${esc(p.title)}</${h}><p>${esc(p.description)}</p></div></a></article>`;
 
 // ---------- Ghi file ----------
 const written = [], sm = []; // sm: { loc, lastmod, alt }
