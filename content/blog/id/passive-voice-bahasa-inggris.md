@@ -46,7 +46,7 @@ publishAt: 2026-11-13T19:38:00+07:00
 ---
 **Passive voice bahasa Inggris** (kalimat pasif) dipakai ketika fokusnya adalah apa yang terjadi atau siapa yang dikenai tindakan, bukan siapa pelakunya: *The letter was sent yesterday*, *Rice is grown in many provinces*, *My phone has been stolen*. Pelajar Indonesia sebenarnya sudah akrab dengan kalimat pasif, karena bahasa Indonesia memakainya setiap hari lewat prefiks **di-** (“surat itu dikirim”, “nasi dimasak”). Masalahnya, bahasa Indonesia tidak punya *to be* dan tidak punya tense. Akibatnya, muncul kalimat seperti ~~*The letter sent yesterday*~~ atau ~~*The house is built in 1990*~~.
 
-Di artikel ini kamu akan belajar rumus passive voice di semua tense, kapan kalimat pasif terdengar alami, struktur lanjutan seperti *It is said that…* dan *have something done*, serta kesalahan yang paling sering dibuat pelajar Indonesia, lengkap dengan latihan dan kunci jawaban.
+Di artikel ini kamu akan belajar rumus passive voice di semua tense, kapan kalimat pasif terdengar alami, struktur lanjutan seperti *It is said that…* dan *have something done*, serta kesalahan yang paling sering dibuat pelajar Indonesia, lengkap dengan latihan dan kunci jawaban. Kata kerja pelapor seperti say dan tell dibahas di [reported speech bahasa Inggris](/id/blog/reported-speech-bahasa-inggris/).
 
 ## Rumus passive voice bahasa Inggris
 

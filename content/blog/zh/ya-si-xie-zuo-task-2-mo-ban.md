@@ -26,7 +26,7 @@ qualityScore: 94
 1. **TR (Task Response - 任务回应度):**  
    是否完整回答了题目中的所有问题？是否在整篇文章中保持了清晰连贯的立场？观点是否有充分的解释（Explanation）、举例（Example）和结果（Result）支撑？5.5分的常见病因是论点点到即止，缺少实质性的逻辑展开。
 2. **CC (Coherence & Cohesion - 连贯与衔接):**  
-   全文是否分为逻辑合理的4~5个段落？段落内部句子之间是否有自然的逻辑过渡？切忌为了连接而通篇滥用机械连接词（如每句话开头都加 *Furthermore, Moreover, In addition*）。
+   全文是否分为逻辑合理的4~5个段落？段落内部句子之间是否有自然的逻辑过渡？切忌为了连接而通篇滥用机械连接词（如每句话开头都加 *Furthermore, Moreover, In addition*）。反过来，读文章时找主题句的方法也能帮你做[雅思阅读段落标题配对题](/zh/blog/ya-si-yue-du-duan-luo-biao-ti-pei-dui/)。
 3. **LR (Lexical Resource - 词汇丰富度):**  
    是否运用了地道的学术搭配（Collocation）和话题专有词汇？重点不在于使用晦涩偏怪的冷门词，而在于用词的准确性和恰当性。积累词汇搭配可参阅[背单词的方法](/zh/blog/bei-dan-ci-de-fang-fa/)，并可通过[学术核心词汇库](/tu-vung/)系统扩充高频大作文话题词群。
 4. **GRA (Grammatical Range & Accuracy - 语法多样性与准确性):**  

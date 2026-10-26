@@ -21,7 +21,7 @@ Di bawah ini ada logikanya, kata kerja yang berubah arti (*stop, remember, try*)
 
 ## Apa itu gerund dan to infinitive
 
-**Gerund** adalah kata kerja + *-ing* yang berfungsi seperti kata benda. Ia bisa menjadi subjek, objek, atau muncul setelah preposisi.
+**Gerund** adalah kata kerja + *-ing* yang berfungsi seperti kata benda. Ia bisa menjadi subjek, objek, atau muncul setelah preposisi. Pola ini juga muncul di banyak [phrasal verb yang sering digunakan](/id/blog/phrasal-verb-yang-sering-digunakan/).
 
 - *Cycling to work saves me a lot of money.* (subjek)
 - *My brother hates queuing.* (objek)

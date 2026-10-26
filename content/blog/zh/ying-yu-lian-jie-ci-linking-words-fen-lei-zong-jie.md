@@ -78,7 +78,7 @@ quiz: [
 | **Despite / In spite of** | 介词 (+ 名词短语 / 动名词) | *Despite rigorous logistical challenges, delivery quotas were successfully fulfilled.* |
 | **Whereas / While** | 从属连词 (+ 对比从句) | *Urban demographics expanded, whereas agrarian settlements saw a steady contraction.* |
 
-**学术书面语关键避坑：** 绝不可将 *Although* 与 *but* 同用在一个句子里（中文思维常犯错误），两者只能任选其一。
+**学术书面语关键避坑：** 绝不可将 *Although* 与 *but* 同用在一个句子里（中文思维常犯错误），两者只能任选其一。连词和介词的区分在[托业 Part 5 技巧](/zh/blog/tuo-ye-part-5-ji-qiao/)里有专门的做题方法。
 
 这类对比表达在 [雅思小作文 Task 1 图表分析技巧](/zh/blog/ya-si-xiao-zuo-wen-task-1-tu-biao-fen-xi-ji-qiao/) 中用于呈现两条走向相反的数据曲线时堪称提分神器。
 

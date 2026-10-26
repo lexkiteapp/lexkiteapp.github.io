@@ -27,7 +27,7 @@ Dalam kajian pemerolehan bahasa kedua, kemampuan berbicara biasanya dilihat dari
 | Ketepatan | Apakah tata bahasa dan kata tepat? | Sedikit kesalahan | Tenses keliru, jamak hilang |
 | Kompleksitas | Apakah struktur dan kosakatanya beragam? | Kalimat majemuk, kata spesifik | Pola kalimat itu-itu saja |
 
-Banyak pelajar Indonesia yang terbiasa belajar demi ujian tertulis **kuat di ketepatan tetapi lemah di kelancaran**: hafal rumus tenses, tetapi saat bicara berhenti untuk memeriksa setiap kata. Ada juga yang sebaliknya, bicara cepat tetapi penuh kesalahan. Langkah pertama adalah tahu kamu condong ke sisi mana.
+Banyak pelajar Indonesia yang terbiasa belajar demi ujian tertulis **kuat di ketepatan tetapi lemah di kelancaran**: hafal rumus tenses, tetapi saat bicara berhenti untuk memeriksa setiap kata. Ada juga yang sebaliknya, bicara cepat tetapi penuh kesalahan. Langkah pertama adalah tahu kamu condong ke sisi mana. Kalau kamu sedang menyiapkan IELTS, latih juga [tips IELTS Speaking Part 3](/id/blog/tips-ielts-speaking-part-3/) untuk menjawab pertanyaan abstrak.
 
 Yang lebih penting: kalau kamu mengejar ketiganya sekaligus, otak kewalahan. Karena itu, **pisahkan sesi latihan**. Ada sesi yang hanya fokus bicara mengalir, kesalahan dibiarkan; ada sesi yang khusus memperbaiki kesalahan.
 

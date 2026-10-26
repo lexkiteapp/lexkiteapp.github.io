@@ -46,7 +46,7 @@ publishAt: 2026-11-14T21:38:00+07:00
 ---
 **Perbedaan make dan do** adalah salah satu topik kosakata yang paling sering membingungkan pelajar Indonesia. Alasannya sederhana: dalam bahasa Indonesia, keduanya sering diterjemahkan sebagai “membuat” atau “melakukan”, dan pilihan kita tidak selalu sama dengan bahasa Inggris. Kita bilang “melakukan kesalahan”, jadi banyak yang menulis ~~*do a mistake*~~. Padahal penutur asli selalu bilang *make a mistake*.
 
-Di artikel ini kamu akan belajar aturan dasar make dan do, daftar collocation terpenting yang dikelompokkan per tema, kesalahan khas pelajar Indonesia, serta latihan dengan kunci jawaban.
+Di artikel ini kamu akan belajar aturan dasar make dan do, daftar collocation terpenting yang dikelompokkan per tema, kesalahan khas pelajar Indonesia, serta latihan dengan kunci jawaban. Daftar lengkap kata kerja dua kata ada di [phrasal verb yang sering digunakan](/id/blog/phrasal-verb-yang-sering-digunakan/).
 
 ## Perbedaan make dan do: aturan dasar
 

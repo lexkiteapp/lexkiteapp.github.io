@@ -25,7 +25,7 @@ Sebelum masuk ke langkah-langkahnya, lihat dulu tiga penyebab paling umum kenapa
 - **Menghafal kata tanpa pasangannya.** Kamu tahu *impact* artinya "dampak", tapi tidak tahu bentuk *have an impact on*, sehingga saat menulis muncul *give impact to* atau *make impact*.
 - **Tidak ada jadwal mengulang.** Otak kita melupakan informasi baru paling cepat dalam beberapa hari pertama. Kalau tidak diulang pada waktunya, usaha menghafal tadi banyak yang terbuang.
 
-Tiga masalah ini sekaligus menunjukkan solusinya: pilih kata yang sesuai level, pelajari dalam frasa dan konteks, lalu ulangi secara terjadwal. Tujuh langkah di bawah hanyalah cara mengubah tiga prinsip itu menjadi kebiasaan harian.
+Tiga masalah ini sekaligus menunjukkan solusinya: pilih kata yang sesuai level, pelajari dalam frasa dan konteks, lalu ulangi secara terjadwal. Tujuh langkah di bawah hanyalah cara mengubah tiga prinsip itu menjadi kebiasaan harian. Untuk Speaking, mulailah dari [phrasal verb yang sering digunakan](/id/blog/phrasal-verb-yang-sering-digunakan/) agar jawabanmu terdengar alami.
 
 ## Apa yang dinilai dari kosakata di IELTS
 

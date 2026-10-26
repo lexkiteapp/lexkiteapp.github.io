@@ -134,7 +134,7 @@ Kalau masih bingung, jawab pertanyaan berikut secara berurutan:
 4. Apakah kamu membicarakan pengalaman "sampai sekarang", jumlah kali sampai saat ini, atau hasil yang masih terlihat? → **Present perfect.**
 5. Apakah kamu sedang bercerita secara berurutan (lalu… kemudian…)? → **Simple past** untuk rangkaian kejadiannya.
 
-Langkah 5 lebih penting dari yang dikira. Bercerita adalah wilayah simple past; rangkaian *I've woken up, I've had breakfast, I've gone to work* terdengar sangat aneh.
+Langkah 5 lebih penting dari yang dikira. Bercerita adalah wilayah simple past; rangkaian *I've woken up, I've had breakfast, I've gone to work* terdengar sangat aneh. Kalau kamu menceritakan ulang ucapan orang lain, kedua tense ini biasanya bergeser menjadi past perfect, seperti dijelaskan di [reported speech bahasa Inggris](/id/blog/reported-speech-bahasa-inggris/).
 
 ## Penerapan di IELTS dan TOEIC
 

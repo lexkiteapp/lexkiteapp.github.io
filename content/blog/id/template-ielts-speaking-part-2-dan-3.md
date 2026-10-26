@@ -58,7 +58,7 @@ Banyak peserta mengalami situasi di mana kata-kata mereka habis pada detik ke-50
 
 Kunci rahasia dari mereka yang berhasil mengamankan Band 7.5 hingga 8.5 bukanlah bakat pidato alami, melainkan penggunaan kerangka berpikir yang matang. Dengan menguasai template ini, Anda tidak akan pernah kehabisan ide, apa pun topik kartu yang Anda terima—mulai dari mendeskripsikan orang, tempat, benda, hingga pengalaman hidup.
 
-Artikel ini akan memandu Anda menguasai manajemen catatan 1 menit, rumus PPF (*Past, Present, Future*) untuk berbicara mengalir selama 2 menit, serta transisi mulus ke metode PEEL di Part 3. Untuk melatih respons spontan secara interaktif, cobalah fitur [latihan speaking IELTS](/app/#/speaking) setiap hari.
+Artikel ini akan memandu Anda menguasai manajemen catatan 1 menit, rumus PPF (*Past, Present, Future*) untuk berbicara mengalir selama 2 menit, serta transisi mulus ke metode PEEL di Part 3. Untuk melatih respons spontan secara interaktif, cobalah fitur [latihan speaking IELTS](/app/#/speaking) setiap hari. Rumus jawaban dan frasa lengkap untuk bagian diskusi ada di [tips IELTS Speaking Part 3](/id/blog/tips-ielts-speaking-part-3/).
 
 ![Latihan pelafalan Lexkite dengan frasa 'cut down on' dan penilaian ucapan](media:practice-speak "Melatih pelafalan dan ritme bicara yang alami untuk modul Speaking")
 

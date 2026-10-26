@@ -12310,6 +12310,207 @@
    "cluster": "relative-clauses",
    "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
    "source": "relative-clauses-who-which-that"
+  },
+  {
+   "slug": "tuo-ye-part-5-ji-qiao",
+   "keyword": "托业 part 5 技巧",
+   "category": "toeic",
+   "tags": [
+    "toeic",
+    "toeic-reading",
+    "part-5",
+    "grammar"
+   ],
+   "routes": [
+    "/#/toeic-r/tr1?part=5",
+    "/#/toeic"
+   ],
+   "intent": "exam-prep",
+   "lang": "zh",
+   "cluster": "toeic-part-5-meo-lam-bai",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "toeic-part-5-tips"
+  },
+  {
+   "slug": "ya-si-yue-du-duan-luo-biao-ti-pei-dui",
+   "keyword": "雅思阅读 段落标题配对",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-reading",
+    "matching-headings",
+    "exam-tips"
+   ],
+   "routes": [
+    "/#/reading",
+    "/#/read/space-debris"
+   ],
+   "intent": "exam-prep",
+   "lang": "zh",
+   "cluster": "ielts-reading-matching-headings",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-reading-matching-headings"
+  },
+  {
+   "slug": "tuo-fu-complete-the-words",
+   "keyword": "托福 complete the words",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-reading",
+    "complete-the-words",
+    "spelling"
+   ],
+   "routes": [
+    "/#/toefl-p/cw",
+    "/#/toefl"
+   ],
+   "intent": "exam-prep",
+   "lang": "zh",
+   "cluster": "toefl-complete-the-words",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "toefl-complete-the-words"
+  },
+  {
+   "slug": "phrasal-verb-yang-sering-digunakan",
+   "keyword": "phrasal verb yang sering digunakan",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulary",
+    "phrasal-verbs",
+    "grammar",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/phrasal-verbs-grammar",
+    "/#/practice/learn"
+   ],
+   "intent": "informational",
+   "lang": "id",
+   "cluster": "phrasal-verb-thong-dung",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "common-phrasal-verbs"
+  },
+  {
+   "slug": "tips-ielts-speaking-part-3",
+   "keyword": "tips ielts speaking part 3",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-speaking",
+    "speaking-part-3",
+    "band-7"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "intent": "exam-prep",
+   "lang": "id",
+   "cluster": "ielts-speaking-part-3",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-speaking-part-3-tips"
+  },
+  {
+   "slug": "reported-speech-bahasa-inggris",
+   "keyword": "reported speech bahasa inggris",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "reported-speech",
+    "tenses",
+    "utbk",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/reported-speech",
+    "/#/grammar/reported-advanced"
+   ],
+   "intent": "informational",
+   "lang": "id",
+   "cluster": "reported-speech",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "reported-speech"
+  },
+  {
+   "slug": "phrasal-verb-thi-chai-boi",
+   "keyword": "phrasal verb ที่ใช้บ่อย",
+   "category": "tu-vung",
+   "tags": [
+    "vocabulary",
+    "phrasal-verbs",
+    "grammar",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/phrasal-verbs-grammar",
+    "/#/practice/learn"
+   ],
+   "intent": "informational",
+   "lang": "th",
+   "cluster": "phrasal-verb-thong-dung",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "common-phrasal-verbs"
+  },
+  {
+   "slug": "ielts-speaking-part-3-theknik",
+   "keyword": "ielts speaking part 3 เทคนิค",
+   "category": "ielts",
+   "tags": [
+    "ielts",
+    "ielts-speaking",
+    "speaking-part-3",
+    "band-7"
+   ],
+   "routes": [
+    "/#/speaking/p3",
+    "/#/speaking/p2"
+   ],
+   "intent": "exam-prep",
+   "lang": "th",
+   "cluster": "ielts-speaking-part-3",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "ielts-speaking-part-3-tips"
+  },
+  {
+   "slug": "gwangye-daemyeongsa-jeongri",
+   "keyword": "관계대명사 정리",
+   "category": "ngu-phap",
+   "tags": [
+    "grammar",
+    "relative-clauses",
+    "toeic",
+    "writing",
+    "b1"
+   ],
+   "routes": [
+    "/#/grammar/relative-clauses"
+   ],
+   "intent": "informational",
+   "lang": "ko",
+   "cluster": "relative-clauses",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "relative-clauses-who-which-that"
+  },
+  {
+   "slug": "toefl-complete-the-words-gongryak",
+   "keyword": "토플 complete the words",
+   "category": "toefl",
+   "tags": [
+    "toefl",
+    "toefl-reading",
+    "complete-the-words",
+    "spelling"
+   ],
+   "routes": [
+    "/#/toefl-p/cw",
+    "/#/toefl"
+   ],
+   "intent": "exam-prep",
+   "lang": "ko",
+   "cluster": "toefl-complete-the-words",
+   "angle": "SEO program 11/2026 batch 5 – see content/blog/plan/2026-11-seo-program.json",
+   "source": "toefl-complete-the-words"
   }
  ]
 }
