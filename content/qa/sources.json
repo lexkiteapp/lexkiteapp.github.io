@@ -308,6 +308,7 @@
   }
  ],
  "skip": {
+  "content/dict": "trạng thái mở index trang từ điển (stage.json) do dict-stage.yml ghi – không phải nội dung học; kiểm bằng scripts/test/dict-stage.mjs",
   "content/brand": "tài sản thương hiệu, không phải nội dung học",
   "content/landing": "trang giới thiệu – build-landing.mjs --check",
   "content/legal": "văn bản pháp lý soạn tay",
