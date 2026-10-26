@@ -154,7 +154,7 @@ for f in fr:
 nomouth = [lid for lid in T['lines'] if len(spoke.get(lid, set()) - {'X'}) < 2]
 R['lipsync_rhubarb'] = dict(ok=all(str(l.get('gen') or '').startswith('rhubarb') and l['cues'] > 0 for l in T['lines'].values()) and not nomouth, lines_without_mouth_motion=nomouth)
 # ---- no padding: natural gaps, only declared beats are silent, TTS speed as written
-GAP_GATE = 0.80   # natural sentence pause (silence incl. TTS tail); v8 stretched these to hit 25 s
+GAP_GATE = 0.95   # natural sentence pause (silence incl. TTS tail); v8 stretched these to hit 25 s
 gp = [g for g in T['gaps'] if g['gap'] > GAP_GATE + 0.011]; bt = [b for b in T['beats'].values() if b['kind'] not in ('count', 'turn') or b['e'] - b['s'] > 3.2]
 want_speed = {l['id']: l.get('speed', SP.get('speed', 1.0)) for l in SP['lines'] if l.get('text')}
 spd = [lid for lid, L in T['lines'].items() if abs(L['speed'] - want_speed[lid]) > 1e-6 or (L['speed'] < 0.75 and lid not in [x['id'] for x in SP['lines'] if x.get('speed')])]   # spec-level teaching pace 0.8 is declared, not padding

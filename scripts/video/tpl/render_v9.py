@@ -141,13 +141,13 @@ for l in LINE_SPEC:
                       whisper=wj.get('whisper'), speed=l.get('speed', SP.get('speed', 1.0)))
 
 # ---------------- timeline: natural pacing, no stretch ----------------
-GAP0, GAPMAX, TAIL = 0.35, 0.60, 1.2   # teaching pace (owner 26/10: v10 'nói hơi nhanh'): a breath between sentences
-GAP_GATE = 0.80   # measured silence between lines (incl. the TTS tail) – a natural sentence pause, never stretched
+GAP0, GAPMAX, TAIL = 0.50, 0.70, 1.2   # teaching pace (owner 26/10: v10 'nói hơi nhanh'): a breath between sentences
+GAP_GATE = 0.95   # measured silence between lines (incl. the TTS tail) – a natural sentence pause, never stretched
 t = 0.12; ATL = {}; BEATS = {}; GAPS = []; prev_end = None
 for l in SP['lines']:
     if l.get('beat'):
         t += 0.12; BEATS[l['id']] = dict(kind=l['beat'], s=round(t, 3), e=round(t + l['dur'], 3)); t += l['dur'] + 0.1; prev_end = None; continue
-    g = min(GAPMAX, l.get('gap', GAP0)) if ATL else 0.0; t += g
+    g = min(GAPMAX, max(GAP0, l.get('gap', GAP0))) if ATL else 0.0; t += g   # a spec gap never goes below GAP0 (teaching breath)
     if prev_end is not None: GAPS.append(dict(before=l['id'], gap=round(t - prev_end, 3)))
     ATL[l['id']] = round(t, 3); L = LINES[l['id']]; prev_end = t + L['words'][-1]['e']
     t += L['words'][-1]['e'] + (L['dur'] - L['words'][-1]['e']) * 0.5
