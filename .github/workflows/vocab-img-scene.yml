@@ -9,7 +9,7 @@
 name: Ảnh mọi nghĩa (cảnh + khái niệm)
 on:
   schedule:
-    - cron: '40 1,4,7,10,13,16,19,22 * * *'   # fill 8 lượt/ngày (chủ 26/10: vắt hết kho CF; lượt tự dừng khi mọi tài khoản báo 4006) – infra/jobs.json vocab-img-scene
+    - cron: '40 2,4,7,10,13,16,19,22 * * *'   # fill 8 lượt/ngày (chủ 26/10: vắt hết kho CF; lượt tự dừng khi mọi tài khoản báo 4006) – infra/jobs.json vocab-img-scene
   workflow_dispatch:
     inputs:
       mode: { description: 'pilot | calibrate | fill | rejudge (chấm lại lượt lab_run bằng giám khảo kép, xuất tờ soát)', default: 'pilot' }
@@ -61,7 +61,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -139,7 +139,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -236,7 +236,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -394,7 +394,8 @@ jobs:
       - name: Tự nối lượt (vắt hết kho CF trong ngày – cron GitHub hay trễ/bỏ lượt)
         env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.VIMG_CHAIN }}' }
         run: |
-          [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (VIMG_CHAIN=0)"; exit 0; }   # so trong bash: biểu thức GitHub coi '' == '0' → bước bị bỏ (26/10)
+          [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (VIMG_CHAIN=0)"; exit 0; }
+          H=$(date -u +%H); [ "$H" -lt 2 ] && { echo "00–02 UTC: nhường kho từ (lexicon-expand 00:12) – cron 02:40 nối tiếp"; exit 0; }   # so trong bash: biểu thức GitHub coi '' == '0' → bước bị bỏ (26/10)
           if ls parts/*/out/vimg-fill/EXHAUSTED >/dev/null 2>&1; then echo "⏹ kho CF hết neuron ngày – chờ cron sau 00:00 UTC"; exit 0; fi
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           G=$(node scripts/vocab-img/scene.mjs --gaps 1 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
@@ -416,7 +417,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.6'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
