@@ -305,6 +305,21 @@
    "delegate": [
     "build-landing.mjs --check"
    ]
+  },
+  {
+   "id": "free-tools",
+   "paths": [
+    "content/tools"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "test/tools-pages.mjs"
+   ]
   }
  ],
  "skip": {
@@ -319,6 +334,7 @@
   "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
   "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
   "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học",
-  "content/dict": "Chỉ chứa stage.json – trạng thái mở index trang từ điển do workflow dict-stage.yml ghi (không phải nội dung học); nội dung trang lấy từ kho từ vựng đã qua cổng vocab/lexicon"
+  "content/dict": "Chỉ chứa stage.json – trạng thái mở index trang từ điển do workflow dict-stage.yml ghi (không phải nội dung học); nội dung trang lấy từ kho từ vựng đã qua cổng vocab/lexicon",
+  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs"
  }
 }
