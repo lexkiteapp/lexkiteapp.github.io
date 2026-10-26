@@ -16,7 +16,7 @@
   "link": "https://lexkite.com/app/#/usage?c=pair",
   "say": "Compare tricky words"
  },
- "speed": 0.7,
+ "speed": 0.68,
  "display": {
   "blank": "___"
  },
@@ -28,7 +28,7 @@
   {
    "id": "p_s",
    "text": "You need a pen. Your friend has one.",
-   "gap": 0.7
+   "gap": 0.68
   },
   {
    "id": "p_b",
@@ -56,7 +56,7 @@
      0
     ]
    },
-   "gap": 0.7
+   "gap": 0.68
   },
   {
    "id": "p_l2",
@@ -80,17 +80,18 @@
      8
     ]
    },
-   "gap": 0.7
+   "gap": 0.68
   },
   {
    "id": "p_q",
-   "text": "Quiz! My brother blank me ten dollars.",
+   "text": "Quick quiz! My brother blank me ten dollars.",
    "key": {
     "yellow": [
-     0
+     0,
+     1
     ]
    },
-   "gap": 0.7
+   "gap": 0.68
   },
   {
    "id": "p_q2",
@@ -114,7 +115,7 @@
   {
    "id": "p_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.7
+   "gap": 0.68
   }
  ],
  "pops": [
@@ -248,7 +249,7 @@
    ],
    "to": [
     "p_q",
-    1,
+    2,
     "s",
     -0.08
    ],
@@ -282,7 +283,7 @@
    "size": 84,
    "from": [
     "p_q",
-    0,
+    2,
     "s",
     -0.06
    ],
