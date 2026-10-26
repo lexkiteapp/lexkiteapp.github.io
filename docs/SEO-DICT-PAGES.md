@@ -45,7 +45,7 @@ Nguồn duy nhất: `DICT_PATH`/`ENABLED` trong `render.mjs`. Mở một ngôn n
 
 ## 3. Nội dung độc nhất mỗi trang (chống thin content)
 Mỗi phần chỉ hiện khi có dữ liệu thật; không phần nào là chữ lấp chỗ.
-**Giao diện = thẻ tra từ của app/add-on** (chủ yêu cầu 26/10): cùng markup (`entry-head`, `pron`, `example-box`, `wc-chips`, khối 🧠 Hiểu sâu sinh bằng chính `web/js/wordcard.js`) và chính CSS của app (`appCss()` trích `web/css/style.css` + `wordcard.css`, đóng khung trong `.wd`, sáng/tối) → app đổi giao diện thì trang tự đổi theo ở lần dựng sau. CSS không dùng bị lọc tự động (`purgeCss`, giữ mọi class có trong mã dựng) → ≈ 12–13 KB gzip/trang.
+**Đầu trang = cửa sổ tra từ của ADD-ON** (chủ yêu cầu 26/10): ô emoji, từ, 🔊 UK/🔊 US/🐢, nghĩa, nhóm từ loại, 💡/⚠️, thanh nút – CSS trích thẳng từ `extension/content.js` (`addonCss()`, sáng/tối) → add-on đổi kiểu thì trang đổi theo. **Phần chi tiết bên dưới = thẻ tra từ của app**: cùng markup (`entry-head`, `pron`, `example-box`, `wc-chips`, khối 🧠 Hiểu sâu sinh bằng chính `web/js/wordcard.js`) và chính CSS của app (`appCss()` trích `web/css/style.css` + `wordcard.css`, đóng khung trong `.wd`, sáng/tối) → app đổi giao diện thì trang tự đổi theo ở lần dựng sau. CSS không dùng bị lọc tự động (`purgeCss`, giữ mọi class có trong mã dựng) → ≈ 12–13 KB gzip/trang.
 
 | Phần | Nguồn (chỉ đọc) | Ghi chú |
 |---|---|---|

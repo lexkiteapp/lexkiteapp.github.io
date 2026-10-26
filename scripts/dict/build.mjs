@@ -87,7 +87,7 @@ function entryJson(src, e, l, ctx) {
   const note = l === 'vi' && notes[k] ? Object.fromEntries(['m', 'e', 'u', 'f'].filter(q => notes[k][q]).map(q => [q, notes[k][q]])) : null;
   // trang web mở sẵn mọi mục (đọc đủ + máy tìm kiếm thấy hết); app mặc định chỉ mở "Mẹo nhớ"
   const noteHtml = note ? wordCard().notes(notes[k], w).replace(/<details class="(wc-sec[^"]*)" data-wc="(\w)">/g, '<details class="$1" data-wc="$2" open>') : '';
-  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, ipa: e.ipa, ipaUS: e.ipaUS || '', audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, confus: confus.slice(0, 2), mistakes, note, noteHtml, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
+  const d = { v: 1, lang: l, slug: slugOf(w), word: w, pos, level: e.level, emoji: e.emoji || '', usage: usage.has(k), ipa: e.ipa, ipaUS: e.ipaUS || '', audio: audioKey(w), meaning, def: e.def, examples, col: col.slice(0, 10), patterns: patterns.slice(0, 6), syn, confus: confus.slice(0, 2), mistakes, note, noteHtml, quiz, blog: blogs, related: related.map(x => ({ w: x.word, href: wordPath(l, slugOf(x.word)) })), app: `${appHref(l)}#/dict/${encodeURIComponent(w)}`, lastmod: ctx.lastmod };
   d.quality = quality(d);
   return d;
 }
@@ -129,6 +129,30 @@ export function appCss() {
   return (out.join('\n') + '\n' + wc).replace(/\n\s*/g, '\n').replace(/\s*([{};:,])\s*/g, '$1').replace(/;}/g, '}');
 }
 
+// ---------- Khung tra từ của ADD-ON (một nguồn: CSS trong extension/content.js) – đầu trang từ điển giống hệt cửa sổ tra từ của add-on ----------
+const ADDON_SEL = /^\.(box|head|pic|w|chip|lv|ipa|spks|spk|vi|body|def|ex|pg|pvi|pdef|wn-x|pex|foot|btn)(?![\w-])|^mark(?![\w-])/;
+export function addonCss() {
+  const src = fs.readFileSync('extension/content.js', 'utf8'), css = (src.match(/const CSS = `([\s\S]*?)`;/) || [])[1] || '';
+  if (!css) throw new Error('addonCss: không thấy CSS trong extension/content.js');
+  const light = [], dark = [], D = ':root:not([data-theme="light"]) .lkb';
+  const map = (x, pre) => (pre + ' ' + x.replace(/^\.box(\.dark)?/, '')).trim();
+  for (const r of topRules(css)) {
+    const sel = r.slice(0, r.indexOf('{')).trim(), body = r.slice(r.indexOf('{'));
+    if (sel.startsWith('@')) continue;
+    const L = [], Dk = [];
+    for (const x of sel.split(',').map(y => y.trim())) {
+      if (/^\.box\.dark$/.test(x)) Dk.push(D);
+      else if (/^\.dark\s+/.test(x)) { const y = x.replace(/^\.dark\s+/, ''); if (ADDON_SEL.test(y) && !/[\w-]\s*\.(lw|chipw|back|st|ctx|src|x|muted|inDeck)/.test(y)) Dk.push(map(y, D)); }
+      else if (ADDON_SEL.test(x) && !/:host|\[hidden\]|noimg|pcredit|canvas|\.box:focus/.test(x)) L.push(map(x, '.lkb'));
+    }
+    if (L.length) light.push(L.join(',') + body);
+    if (Dk.length) dark.push(Dk.join(',') + body);
+  }
+  const fix = '.lkb{position:static;width:auto;max-width:none;max-height:none;z-index:auto;margin:0 0 1rem}.lkb .body{max-height:none;overflow:visible}.lkb .head{padding:18px 18px 10px}.lkb .body{padding:0 18px 14px}.lkb .foot{padding:12px 18px}.lkb .w{font-size:26px;margin:0;display:inline}.lkb .vi{font-size:17px}.lkb .spk{height:32px;line-height:32px;padding:0 12px}.lkb .btn{min-height:40px;padding:0 12px;display:inline-flex;align-items:center;text-decoration:none;font-size:13px;color:#1c1d2b!important}.lkb .btn.p{color:#fff!important}.lkb .foot{flex-wrap:wrap}.lkb .pic{width:72px;height:72px}';
+  const fixDark = `${D} .btn{color:#ecedf5!important}${D} .btn.p{color:#fff!important}`;
+  return [light.join(''), fix, `@media (prefers-color-scheme:dark){${dark.join('')}${fixDark}}`].join('\n').replace(/\s*\n\s*/g, ' ').replace(/\s*([{};,])\s*/g, '$1');
+}
+
 // ---------- Khối "Hiểu sâu" của app (web/js/wordcard.js chạy trong vm) – trang vi dùng đúng markup thẻ từ của app ----------
 let WC = null;
 function wordCard() {
@@ -155,13 +179,14 @@ export const usedClasses = (htmls, js) => { const u = new Set(); for (const h of
 export function buildShell() {
   const CSS2 = `.wd .pron .au{margin:0}.wd .acts .btn{text-decoration:none}.wd .acts .btn:not(.primary){color:var(--text)!important;background:var(--surface)}.wd .entry-head{grid-template-columns:minmax(0,1fr)}.wd h1.entry-word{margin:0}.wd .def{margin-top:.4rem}.wd .acts{margin-top:.9rem}.wd .example-box{margin-top:1rem}.wd .example-box p{margin:.3rem 0}.wd .wc-chips{margin-top:.9rem}.wd .wn.wc{margin-top:1rem}.wd .blk{margin-top:1rem}.wd .card h2{font-size:1.1rem;margin:0 0 .6rem}.wd .card h3{font-size:1rem;margin:.9rem 0 .2rem}.wd .pair+.pair{border-top:1px dashed var(--line);margin-top:.6rem;padding-top:.4rem}.wd .tip{margin:.6rem 0 0;padding:.6rem .8rem;border-radius:12px;background:var(--gold-soft)}.wd .note{margin:.3rem 0}.wd .notes{margin-top:1rem}.quiz{padding-inline-start:1.2rem;margin:0}.quiz>li{margin:.8rem 0}.quiz .opts{list-style:none;padding:0;margin:.3rem 0;display:flex;flex-wrap:wrap;gap:.4rem}.quiz .opts .chip{font-size:.9rem;white-space:normal}.quiz details{margin:.3rem 0}.quiz summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--link)}.wd .ok{color:var(--good-text)}.wd .wc-chip{min-height:44px;box-sizing:border-box;text-decoration:none}.wd .cta{margin-top:1rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.az{columns:3 12rem;column-gap:1.5rem}.az li{break-inside:avoid;margin:.15rem 0}.az small{color:var(--muted)}.letters{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}.letters a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;box-sizing:border-box;padding:.2rem .5rem;border:1px solid var(--line);border-radius:6px;text-decoration:none}`;
   const header = {}, footer = {};
-  const APP_CSS = appCss(); // thẻ tra từ giống hệt app/add-on: lấy CHÍNH CSS của app (web/css/style.css + wordcard.css), đóng khung trong .wd
+  const APP_CSS = appCss() + '\n' + addonCss(); // thẻ tra từ giống hệt app/add-on: lấy CHÍNH CSS của app (web/css/style.css + wordcard.css), đóng khung trong .wd
   for (const l of ENABLED) {
     const lh = x => `__LH_${x}__`;
     header[l] = siteHeader({ nav: [[`/${l}/blog/`, 'Blog'], [hubPath(l), T[l].hub]], open: [appHref(l) + '#/dict', T[l].open], home: landingHref(l), lang: l, langHref: lh });
     footer[l] = siteFooter({ lang: l, text: T[l].foot, langHref: lh });
   }
-  return { v: 1, css: `${CSS}\n${SEO_CSS}\n${APP_CSS}\n${CSS2}`, header, footer, js: UI_JS };
+  const SPK_JS = `(function(d){var L=['https://audio.lexkite.com/audio/l/','https://lexkiteapp.github.io/lexkite-media-2/audio/l/'],cur;function tts(w,acc,r){try{var u=new SpeechSynthesisUtterance(w);u.lang=acc;u.rate=r||.95;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}d.addEventListener('click',function(e){var b=e.target.closest('.spk');if(!b)return;var w=b.getAttribute('data-w'),k=b.getAttribute('data-a'),acc=b.getAttribute('data-acc');if(b.hasAttribute('data-slow'))return tts(w,acc,.55);if(!k)return tts(w,acc);if(cur)cur.pause();var i=0,a=new Audio(L[0]+k+'.mp3');cur=a;a.onerror=function(){if(++i<L.length){a.src=L[i]+k+'.mp3';a.play().catch(function(){})}else tts(w,acc)};a.play().catch(function(){tts(w,acc)})})})(document);`; // nút 🔊 UK (file giọng đọc của app, lỗi → giọng máy) · 🔊 US · 🐢 (giọng máy) như add-on
+  return { v: 1, css: `${CSS}\n${SEO_CSS}\n${APP_CSS}\n${CSS2}`, header, footer, js: UI_JS + '\n' + SPK_JS };
 }
 
 export function build({ out = 'dist-dict', n = 200, staticN = Infinity, index = '', write = true } = {}) {

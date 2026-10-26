@@ -23,7 +23,7 @@ export const T = {
     fMean: '{W} là gì?', aMean: '“{w}” nghĩa là {m}. Định nghĩa tiếng Anh: {d}.', fPron: 'Phát âm “{w}” thế nào?', fDiff: '“{a}” và “{b}” khác nhau thế nào?',
     aPron: 'Anh–Anh {uk}{us}. Bấm nút loa trên trang để nghe.', aPronUS: ', Anh–Mỹ {us}',
     cta: 'Học “{w}” bằng flashcard và ôn lặp lại ngắt quãng', ctaN: 'Miễn phí, có phát âm và nhắc ôn đúng lúc.', ctaB: 'Mở “{w}” trong app',
-    goes: 'Hay đi với', synL: 'Đồng nghĩa', save: 'Lưu flashcard', speak: 'Luyện phát âm',
+    goes: 'Hay đi với', synL: 'Đồng nghĩa', save: 'Lưu flashcard', speak: 'Luyện phát âm', more: 'Chi tiết', usage: 'Cách dùng', slow: 'Nghe chậm',
     lv: 'Cấp độ', pos: { n: 'danh từ', v: 'động từ', adj: 'tính từ', adv: 'trạng từ', prep: 'giới từ', conj: 'liên từ', pron: 'đại từ', det: 'hạn định từ', phr: 'cụm từ', phrv: 'cụm động từ', idiom: 'thành ngữ', int: 'thán từ', num: 'số từ' },
     hubTitle: 'Từ điển Anh–Việt: {n} từ thông dụng có phát âm và ví dụ', hubDesc: 'Tra nghĩa {n} từ tiếng Anh thông dụng: phát âm Anh–Anh/Anh–Mỹ có audio, ví dụ, collocation, từ dễ nhầm và bài tập nhỏ.',
     hubLead: 'Mỗi trang giải thích một từ: nghĩa, phát âm, ví dụ, cách dùng, lỗi người Việt hay mắc và câu hỏi tự kiểm tra.',
@@ -41,7 +41,7 @@ export const T = {
     fMean: 'What does {w} mean?', aMean: '“{w}” ({p}) means {d}.', fPron: 'How do you pronounce “{w}”?', fDiff: 'What is the difference between “{a}” and “{b}”?',
     aPron: 'UK {uk}{us}. Use the speaker button on this page to listen.', aPronUS: ', US {us}',
     cta: 'Learn “{w}” with flashcards and spaced review', ctaN: 'Free, with audio and reminders at the right time.', ctaB: 'Open “{w}” in the app',
-    goes: 'Goes with', synL: 'Synonyms', save: 'Save to flashcards', speak: 'Practise pronunciation',
+    goes: 'Goes with', synL: 'Synonyms', save: 'Save to flashcards', speak: 'Practise pronunciation', more: 'Details', usage: 'Usage', slow: 'Listen slowly',
     lv: 'Level', pos: { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb', prep: 'preposition', conj: 'conjunction', pron: 'pronoun', det: 'determiner', phr: 'phrase', phrv: 'phrasal verb', idiom: 'idiom', int: 'interjection', num: 'number' },
     hubTitle: 'English dictionary: {n} common words with audio and examples', hubDesc: 'Meanings of {n} common English words with UK/US pronunciation audio, example sentences, collocations, confusing pairs and quick quizzes.',
     hubLead: 'Each page explains one word: meaning, pronunciation, examples, usage, common mistakes and a self-check.',
@@ -81,16 +81,21 @@ export function renderWord(d, shell, { open = {} } = {}) {
   const chips = (ic, lb, list) => (list.length ? `<div class="wc-chips"><span class="wc-clb">${ic} ${esc(lb)}</span>${list.join('')}</div>` : '');
   const pairs = list => `<ul class="wc-pairs">${list.map(x => `<li class="wc-pair"><div class="wc-wrong"><span class="wc-mk" aria-hidden="true">✕</span><span class="sr-only">${esc(t.wrong)}: </span><span><s lang="en">${esc(x.w)}</s></span></div><div class="wc-right"><span class="wc-mk" aria-hidden="true">✓</span><span class="sr-only">${esc(t.right)}: </span><span><b lang="en">${esc(x.r)}</b>${x.why ? ` <span class="wc-why">${md(x.why)}</span>` : ''}</span></div></li>`).join('')}</ul>`;
   const body = [
-    `<div class="card entry"><div class="entry-head"><div>
-<div class="row"><h1 class="entry-word" lang="en" dir="ltr">${esc(w)}</h1>${posL ? `<span class="chip pos">${esc(posL)}</span>` : ''}${d.level ? `<span class="chip lv ${esc(d.level)}">${esc(d.level)}</span>` : ''}</div>
-<div class="pron"><span><b class="small">🇬🇧 UK</b> <span class="ipa" dir="ltr">${esc(d.ipa)}</span>${d.audio ? `<button type="button" class="au" data-a="${esc(d.audio)}" aria-label="${esc(t.play)}: ${esc(w)}" aria-pressed="false"></button>` : ''}</span>${d.ipaUS ? `<span><b class="small">🇺🇸 US</b> <span class="ipa" dir="ltr">${esc(d.ipaUS)}</span></span>` : ''}</div>
-<h2 class="sr-only" id="h-m">${esc(fill(t.mean, { w }))}</h2>${l === 'en' ? `<div class="vi" lang="en">${esc(d.def)}</div>` : `<div class="vi">${esc(d.meaning)}</div><div class="def" lang="en" dir="ltr">${esc(d.def)}</div>`}
-<div class="row acts"><a class="btn primary" href="${esc(d.app)}">+ ${esc(t.save)}</a><a class="btn" href="${esc(d.app.replace(/#\/dict\/.*/, '#/practice/speak?w=' + encodeURIComponent(w)))}">🎙️ ${esc(t.speak)}</a></div>
+    // ① Khung tra từ y hệt cửa sổ add-on (CSS lấy từ extension/content.js – build.mjs addonCss())
+    `<div class="lkb"><div class="head"><div class="pic${d.emoji ? '' : ' ltr'}" aria-hidden="true">${esc(d.emoji || w.charAt(0))}</div><div class="mw0">
+<div><h1 class="w" lang="en" dir="ltr">${esc(w)}</h1>${posL ? `<span class="chip">${esc(posL)}</span>` : ''}${d.level ? `<span class="chip lv" title="CEFR">${esc(d.level)}</span>` : ''}</div>
+<div class="ipa" dir="ltr">${esc(d.ipa)}${d.ipaUS && d.ipaUS !== d.ipa ? ` · <span title="${esc(t.us)}">${esc(d.ipaUS)}</span>` : ''}</div>
+<div class="spks"><button type="button" class="spk" data-acc="en-GB" data-w="${esc(w)}"${d.audio ? ` data-a="${esc(d.audio)}"` : ''} aria-label="${esc(t.play)} (${esc(t.uk)})">🔊 UK</button><button type="button" class="spk" data-acc="en-US" data-w="${esc(w)}" aria-label="${esc(t.play)} (${esc(t.us)})">🔊 US</button><button type="button" class="spk" data-acc="en-GB" data-w="${esc(w)}" data-slow aria-label="${esc(t.slow)}">🐢</button></div>
+<h2 class="sr-only" id="h-m">${esc(fill(t.mean, { w }))}</h2><div class="vi"${l === 'en' ? ' lang="en"' : ''}>${esc(l === 'en' ? d.def : d.meaning)}</div>
 </div></div>
-<div class="example-box"><div class="small muted">${esc(t.ex)}</div>${d.examples.map(x => `<p lang="en" dir="ltr">${hl(x)}</p>`).join('')}</div>
+<div class="body"><div class="pg">${posL ? `<span class="chip">${esc(posL)}</span>` : ''}${l === 'en' ? '' : `<span class="pvi">${esc(d.meaning)}</span>`}<div class="pdef" lang="en" dir="ltr">${esc(d.def)}<span class="pex">“${hl(d.examples[0])}”</span></div></div>
+${d.note && (d.note.m || d.note.e) ? `<div class="wn-x">${d.note.m ? `<div>💡 ${esc(d.note.m)}</div>` : ''}${d.note.e ? `<div>⚠️ ${esc(d.note.e)}</div>` : ''}</div>` : ''}</div>
+<div class="foot"><a class="btn p" href="${esc(d.app)}">+ ${esc(t.save)}</a><a class="btn" href="${esc(d.app)}">${esc(t.more)}</a>${d.usage ? `<a class="btn" href="${esc(d.app.replace(/#\/dict\/.*/, '#/usage/' + encodeURIComponent(w.toLowerCase())))}">📘 ${esc(t.usage)}</a>` : ''}</div></div>`,
+    // ② Phần "Chi tiết" như màn tra từ của app: ví dụ, hay đi với, đồng nghĩa, 🧠 Hiểu sâu
+    `<section class="card" aria-labelledby="h-e"><h2 id="h-e"><span aria-hidden="true">💬</span> ${esc(t.ex)}</h2><div class="example-box">${d.examples.map(x => `<p lang="en" dir="ltr">${hl(x)}</p>`).join('')}</div>
 ${chips('🔗', t.goes, d.col.map(x => `<span class="chip wc-chip" lang="en" dir="ltr">${esc(x)}</span>`))}${chips('≈', t.synL, d.syn.map(link))}
 ${d.noteHtml || (d.note ? `<div class="notes">${[['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => d.note[q]).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(d.note[q])}</p>`).join('')}</div>` : '')}
-</div>`,
+</section>`,
     d.patterns.length ? sec('t', t.pat, `<ul class="wc-use">${d.patterns.map(x => `<li><span class="wc-tag" lang="en">${esc(x.h)}</span><span>${esc(x.m)}${x.ex ? `<br><i lang="en" dir="ltr">${hl(x.ex)}</i>` : ''}</span></li>`).join('')}</ul>`, '📐') : '',
     d.confus.length ? sec('k', fill(t.conf, { w }), d.confus.map(c => `<div class="pair">${c.items.map(x => `<div class="pos-block"><div class="pos-head"><b lang="en" dir="ltr">${esc(x.h)}</b><span class="vi">${esc(x.m)}</span></div>${x.ex ? `<div class="ex" lang="en" dir="ltr">“${hl(x.ex)}”</div>` : ''}</div>`).join('')}${c.tip ? `<p class="tip">💡 ${md(c.tip)}</p>` : ''}</div>`).join(''), '⚖️') : '',
     d.mistakes.length ? sec('x', t.mis, pairs(d.mistakes), '⚠️') : '',
