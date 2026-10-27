@@ -1,4 +1,19 @@
 {
+  "+{xp} XP thưởng": {
+    "es": "+{xp} XP extra",
+    "pt": "+{xp} XP de bônus",
+    "fr": "+{xp} XP bonus",
+    "de": "+{xp} Bonus-XP",
+    "id": "+{xp} XP bonus",
+    "th": "+{xp} XP โบนัส",
+    "zh": "+{xp} 奖励 XP",
+    "ja": "+{xp} ボーナスXP",
+    "ko": "+{xp} 보너스 XP",
+    "hi": "+{xp} बोनस XP",
+    "ar": "+{xp} XP إضافية",
+    "ru": "+{xp} бонусных XP",
+    "tr": "+{xp} bonus XP"
+  },
   "Tỉ lệ đúng": {
     "es": "Precisión",
     "pt": "Precisão",
