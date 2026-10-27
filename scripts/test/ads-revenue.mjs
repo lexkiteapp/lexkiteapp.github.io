@@ -1,10 +1,13 @@
 // 💰 Doanh thu THẬT (docs/ADS.md §5): parse báo cáo mẫu AdSense v2 + AdMob v1 (fixture), vị trí theo mã/tên ô, top 10 quốc gia + khác,
 // kiểm gói (cleanRev), ghi đè 7 ngày theo diff vào D1 (node:sqlite), EXPLAIN dùng SEARCH (không SCAN), endpoint /api/ads-report (403/400/200),
-// realOf (hôm qua/7 ngày/tháng, ước tính vs thật), Quản trị render có/không dữ liệu (jsdom, EN không lộ chữ Việt, axe). --no-dom: bỏ phần jsdom (CI ads-revenue.yml).
+// revPack + agg (bộ lọc khoảng/nền tảng/nước, kỳ trước, ước tính vs thật, CSV), RIÊNG TƯ (log không số tiền, không artifact, chỉ scope/API đọc, không token vào D1/trang công khai),
+// Quản trị render có/không dữ liệu (jsdom: lọc → hash, sắp xếp, dòng tổng, hover, EN không lộ chữ Việt, axe). --no-dom: bỏ phần jsdom (CI ads-revenue.yml).
 import fs from 'node:fs';
 import { createRequire } from 'node:module';
-import { buildRows, readFixture, placeOf, rangeOf, adsenseUrl, admobBody, adsenseTable, admobTable, unitMap } from '../ads/report.mjs';
-import { cleanRev, diffRev, realOf, reporting, stats, guardOf } from '../../functions/api/_ads.js';
+import { buildRows, readFixture, placeOf, rangeOf, adsenseUrl, admobBody, adsenseTable, admobTable, unitMap, payOf, repDay } from '../ads/report.mjs';
+import { cleanRev, diffRev, revPack, reporting, stats, guardOf } from '../../functions/api/_ads.js';
+import vm from 'node:vm';
+import { spawnSync } from 'node:child_process';
 import { authUrl, SCOPES, readClient } from '../ads-oauth.mjs';
 
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.error('✗ ' + m); } };
@@ -69,21 +72,31 @@ try {
   ok(p4.deleted === 0 && sql.prepare("SELECT COUNT(*) c FROM ads_rev WHERE src = 'adsense'").get().c === fix.filter(r => r.src === 'adsense').length, 'nguồn lỗi (AdSense) không bị xóa khi chỉ AdMob về');
   const meta = JSON.parse(sql.prepare("SELECT v FROM config WHERE k = 'ads_report'").get().v);
   ok(meta.at > 0 && meta.srcs.join() === 'admob', 'config ads_report ghi thời điểm + nguồn');
-  // ---- 4) realOf ----
-  const rev = sql.prepare(SEL).all('2026-09-01', '2026-10-27');
-  const ev = [{ day: '2026-10-25', kind: 'ad:imp:web:home', n: 1000 }, { day: '2026-10-25', kind: 'ad:show:android:inter', n: 100 }];
-  const R = realOf(rev, '2026-10-27', { at: 1, srcs: ['adsense', 'admob'], from: '2026-10-20', to: '2026-10-26' }, ev, { web: 2, android: 10 });
-  const tot26 = rev.filter(r => r.day === '2026-10-26' && r.dim === 'total').reduce((s, r) => s + r.earn, 0) / 1e6;
-  ok(R.connected && Math.abs(R.yday.usd - tot26) < 1e-9, 'hôm qua = tổng AdSense + AdMob ngày 26');
-  ok(Math.abs(R.d7.usd - rev.filter(r => r.dim === 'total' && r.day >= '2026-10-20').reduce((s, r) => s + r.earn, 0) / 1e6) < 1e-9 && R.mtd.usd >= R.d7.usd, '7 ngày + tháng này');
-  ok(R.d7.ecpm > 0 && R.d7.fill > 0 && R.d7.fill <= 1 && R.d7.ctr > 0, 'eCPM / lấp đầy / CTR');
-  ok(R.places.some(p => p.plat === 'web' && p.place === 'home') && R.places.some(p => p.plat === 'android' && p.place === 'inter'), 'theo nền tảng × vị trí');
-  ok(R.countries[R.countries.length - 1].cc === '_o' && R.countries[0].cc === 'US', 'quốc gia: US đầu, "khác" cuối');
-  const vw = R.vs.find(v => v.plat === 'web'), real7w = rev.filter(r => r.src === 'adsense' && r.dim === 'total' && r.day >= '2026-10-20').reduce((s, r) => s + r.earn, 0) / 1e6;
-  ok(Math.abs(vw.est - 2) < 1e-9 && Math.abs(vw.real - real7w) < 1e-9 && Math.abs(vw.dev - (2 - real7w) / real7w) < 1e-9, 'ước tính vs thật: lệch % web');
-  ok(R.vs.find(v => v.plat === 'ios').est === 0 && R.series.length === 30, 'iOS không ước tính → 0; chuỗi 30 ngày');
-  const E = realOf([], '2026-10-27', null);
-  ok(!E.connected && E.yday.usd === 0 && E.d7.ecpm === null && E.places.length === 0 && reporting({}).connected === false, 'rỗng: chưa nối, số 0, không vỡ');
+  // ---- 4) revPack + agg (web/js/admin-ads.js, thuần) ----
+  const rev = sql.prepare(SEL).all('2026-07-01', '2026-10-27');
+  const ev = [{ day: '2026-10-25', kind: 'ad:imp:web:home', n: 1000 }, { day: '2026-10-25', kind: 'ad:show:android:inter', n: 100 }, { day: '2026-10-27', kind: 'ad:imp:web:home', n: 40 }, { day: '2026-10-27', kind: 'ad:click:web:home', n: 2 }, { day: '2026-10-25', kind: 'adc:a:ses', n: 400 }];
+  const R = { ...revPack(rev, { at: 1, srcs: ['adsense', 'admob'] }, { balance: '$42.17', last: { amount: '$118.40', date: '2026-09-21' } }, ev, { web: 2, android: 10 }, '2026-10-27'), rt: '2026-10-27' };
+  ok(R.connected && R.rows.length === rev.length && R.rows[0].length === 10 && R.live.imp === 40 && R.live.click === 2 && Math.abs(R.est['2026-10-25'].web - 2) < 1e-9 && R.ses['2026-10-25'] === 400, 'revPack: dòng gọn, bộ đếm hôm nay, ước tính/ngày, phiên');
+  const AA = (() => { const w = {}; vm.runInNewContext(fs.readFileSync('web/js/admin-ads.js', 'utf8'), { window: w, URLSearchParams, Intl, Date, Math, Object, Array, String, Number, Set, JSON }); return w.AdminAds; })();
+  const g = AA.agg(R, { r: '7d', p: 'all', c: '' }), tot = d => rev.filter(r => r.dim === 'total' && r.day >= d[0] && r.day <= d[1]).reduce((s, r) => s + r.earn, 0) / 1e6;
+  ok(g.from === '2026-10-20' && g.to === '2026-10-26' && Math.abs(g.cur.usd - tot(['2026-10-20', '2026-10-26'])) < 1e-9 && g.prevFrom === '2026-10-13' && g.series.length === 7, '7 ngày = 20→26, tổng AdSense + AdMob, kỳ trước 13→19');
+  ok(g.cur.ecpm > 0 && g.cur.fill > 0 && g.cur.fill <= 1 && g.cur.ctr > 0 && g.cur.rpm > 0 && !g.final, 'eCPM / lấp đầy / CTR / RPM; tháng này = ước tính');
+  ok(AA.agg(R, { r: 'lm' }).final && AA.agg(R, { r: 'lm' }).from === '2026-09-01' && AA.agg(R, { r: 'lm' }).to === '2026-09-30' && !AA.agg(R, { r: 'lm' }).has, 'tháng trước = đã chốt; không có dòng → has=false (không số 0 vô nghĩa)');
+  ok(AA.rangeOf('custom', '2026-10-27', '2026-10-21', '2026-12-01').join() === '2026-10-21,2026-10-27' && AA.rangeOf('custom', '2026-10-27', 'x', 'y')[0] === '2026-10-20' && AA.rangeOf('today', '2026-10-27').join() === '2026-10-27,2026-10-27', 'khoảng tùy chọn kẹp tới hôm nay; sai → 7 ngày');
+  const gw = AA.agg(R, { r: '7d', p: 'web' }), gi = AA.agg(R, { r: '7d', p: 'ios' });
+  ok(Math.abs(gw.cur.usd - rev.filter(r => r.src === 'adsense' && r.dim === 'total' && r.day >= '2026-10-20').reduce((s, r) => s + r.earn, 0) / 1e6) < 1e-9 && gw.places.every(x => x.plat === 'web') && gw.vs.length === 1, 'lọc web: AdSense, vị trí chỉ web');
+  ok(gi.cur.imp > 0 && gi.places.every(x => x.plat === 'ios') && gi.cur.pv === 0 && gi.cur.rpm === null, 'lọc iOS: ô AdMob iOS, không RPM trang');
+  const gc = AA.agg(R, { r: '7d', c: 'US' });
+  ok(gc.cur.imp === rev.filter(r => r.dim === 'country' && r.key === 'US' && r.day >= '2026-10-20').reduce((s, r) => s + r.imp, 0) && gc.per1k === null, 'lọc nước US: dòng country cả 2 nguồn; /1.000 phiên tắt khi lọc');
+  ok(Math.abs(g.per1k - g.cur.usd / 400 * 1000) < 1e-9, 'doanh thu / 1.000 phiên có QC');
+  const vw = g.vs.find(v => v.plat === 'web');
+  ok(Math.abs(vw.est - 2) < 1e-9 && Math.abs(vw.dev - (2 - vw.real) / vw.real) < 1e-9 && g.vs.find(v => v.plat === 'ios').dev === -1, 'ước tính vs thật: lệch %');
+  ok(g.countries.some(c => c.cc === '_o') && g.ccs.includes('US') && g.places.some(p => p.place === 'rew:ai' || p.place === 'rew'), 'bảng nước có "khác", danh sách lọc nước');
+  ok(AA.csvOf(['a', 'b'], [['x,y', 'q"z']]) === 'a,b\n"x,y","q""z"', 'CSV thoát dấu phẩy/ngoặc kép');
+  const E = AA.agg({ ...revPack([], null, null, [], {}, '2026-10-27'), rt: '2026-10-27' }, { r: '7d' });
+  ok(!E.has && E.cur.ecpm === null && E.places.length === 0 && E.today.imp === 0 && reporting({}).connected === false, 'rỗng: chưa nối, không vỡ');
+  ok(payOf(raw.adsense ? JSON.parse(fs.readFileSync(FX + '/adsense-payments.json', 'utf8')) : {}).last.date === '2026-09-21' && payOf({}).balance === null, 'thanh toán: số dư + lần trả gần nhất');
+  ok(/^\d{4}-\d{2}-\d{2}$/.test(repDay()) && repDay(Date.parse('2026-10-27T05:00:00Z')) === '2026-10-26', 'ngày báo cáo theo giờ Thái Bình Dương');
   // ---- 5) endpoint ----
   const env = { STUDIO_CALLBACK_SECRET: 'sec_ads_1', DB: db, SCHEMA_GATE: '0' };
   const post = (body, sec) => onRequestPost({ request: new Request('https://lexkite.com/api/ads-report', { method: 'POST', headers: { 'Content-Type': 'application/json', ...(sec ? { 'X-Studio-Secret': sec } : {}) }, body: JSON.stringify(body) }), env });
@@ -92,18 +105,38 @@ try {
   const okr = await post(pkt, 'sec_ads_1'), oj = await okr.json();
   ok(okr.status === 200 && oj.ok && oj.rows === rows.length && !JSON.stringify(oj).includes('sec_ads_1'), 'endpoint: 200, không lộ secret');
   ok((await onRequestPost({ request: new Request('https://x/api/ads-report', { method: 'POST', body: '{}' }), env: { DB: db } })).status === 503, 'endpoint: chưa cấu hình secret → 503');
-  globalThis.__REV = rev;
+  // không token/secret vào D1: trường lạ bị bỏ
+  const leak = cleanRev({ ...pkt, refresh_token: 'rt_SECRET', rows: [{ ...rows[0], token: 'x' }] });
+  ok(!JSON.stringify(leak).includes('SECRET') && !('token' in leak.rows[0]), 'gói bỏ trường lạ (token không bao giờ vào D1)');
+  globalThis.__R = R;
 } catch (e) { if (/node:sqlite/.test(String(e.message))) { sqliteOk = false; console.log('· node:sqlite không có – bỏ qua phần D1 (' + e.message + ')'); } else throw e; }
 
-// ---- 6) Quản trị render có/không dữ liệu ----
+// ---- 6) Riêng tư: log CI không số tiền, workflow không artifact, chỉ API/scope đọc, trang công khai không chạm số doanh thu ----
+{
+  const sumF = 'scripts/test/fixtures/ads-report/.summary.tmp'; try { fs.unlinkSync(sumF); } catch (e) { /* chưa có */ }
+  const out = spawnSync(process.execPath, ['scripts/ads/report.mjs', '--fixture', FX, '--dry'], { encoding: 'utf8', env: { ...process.env, GITHUB_STEP_SUMMARY: sumF } });
+  const logs = out.stdout + out.stderr + (fs.existsSync(sumF) ? fs.readFileSync(sumF, 'utf8') : ''); try { fs.unlinkSync(sumF); } catch (e) { /* bỏ qua */ }
+  const amounts = ['42.17', '118.40', ...rows.filter(r => r.dim === 'total').slice(0, 5).map(r => (r.earn / 1e6).toFixed(2))];
+  ok(out.status === 0 && /dòng/.test(logs) && !/\$\s?\d/.test(logs) && !amounts.some(x => logs.includes(x)), 'log + step summary CI không có số tiền');
+  for (const f of ['.github/workflows/ads-revenue.yml', '.github/workflows/ads-revenue-hourly.yml']) { const y = fs.readFileSync(f, 'utf8'); ok(!/upload-artifact|actions\/cache|git push|set -x/.test(y) && /permissions:\s*\n\s*contents: read/.test(y), f + ': không artifact/commit, quyền chỉ đọc'); }
+  ok(/'41 \* \* \* \*'/.test(fs.readFileSync('.github/workflows/ads-revenue-hourly.yml', 'utf8')) && /--mode today/.test(fs.readFileSync('.github/workflows/ads-revenue-hourly.yml', 'utf8')), 'hằng giờ: 1 lần/giờ, chỉ hôm nay');
+  const src = fs.readFileSync('scripts/ads/report.mjs', 'utf8'), gurls = [...src.matchAll(/https:\/\/[a-z0-9.]*googleapis\.com[^`'"]*/g)].map(m => m[0]);
+  ok(gurls.length >= 4 && gurls.every(u => /oauth2\.googleapis\.com\/token|reports:generate|networkReport:generate|\/payments$/.test(u)), 'chỉ gọi API đọc báo cáo/thanh toán: ' + gurls.join(' '));
+  ok(SCOPES.every(x => /\.readonly$/.test(x)) && SCOPES.length === 2, 'chỉ scope adsense.readonly + admob.readonly');
+  const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => (e.isDirectory() ? (/^(i18n|vendor)$/.test(e.name) ? [] : walk(d + '/' + e.name)) : [d + '/' + e.name]));
+  const pub = walk('web').filter(f => /\.(m?js|html)$/.test(f) && !/\/admin[^/]*\.(js|html)$/.test(f)).filter(f => /adsStats|ads_rev|ads-report|ads_pay/.test(fs.readFileSync(f, 'utf8')));
+  ok(!pub.length, 'trang công khai không chạm số doanh thu: ' + pub.join(', '));
+}
+
+// ---- 7) Quản trị render có/không dữ liệu ----
 if (!process.argv.includes('--no-dom')) {
   const { JSDOM } = await import('jsdom');
   const tick = (ms = 30) => new Promise(r => setTimeout(r, ms));
   const VI = /[ăâđêôơưàáạảãằắặẳẵầấậẩẫèéẹẻẽềếệểễìíịỉĩòóọỏõồốộổỗờớợởỡùúụủũừứựửữỳýỵỷỹ]/i;
   const today = '2026-10-27', ev = [{ day: '2026-10-25', kind: 'ad:imp:web:home', n: 1000 }, { day: '2026-10-25', kind: 'ad:req:web:home', n: 1100 }];
   const base = { at: Date.now(), today, ...stats(ev, today, { web: 2 }), guard: guardOf(ev, today, { prev: 1 }), ecpm: { web: 2, android: 1, ios: 1 } };
-  const real = realOf(globalThis.__REV || [], today, { at: Date.parse('2026-10-27T06:04:00Z'), srcs: ['adsense', 'admob'] }, ev, { web: 2 });
-  for (const [label, S] of [['có số thật', { ...base, real, reporting: { connected: true } }], ['chưa nối', { ...base, real: realOf([], today, null), reporting: { connected: false } }]]) {
+  const real = globalThis.__R;
+  for (const [label, S] of [['có số thật', { ...base, real, reporting: { connected: true } }], ['chưa nối', { ...base, real: revPack([], null, null, [], {}, today), reporting: { connected: false } }]]) {
     if (label === 'có số thật' && !sqliteOk) continue;
     for (const lang of ['vi', 'en']) {
       const dom = new JSDOM(`<!doctype html><html lang="${lang}"><body><main id="main"></main></body></html>`, { url: 'https://lexkite.com/admin.html#ads/overview', runScripts: 'outside-only', pretendToBeVisual: true });
@@ -116,9 +149,19 @@ if (!process.argv.includes('--no-dom')) {
       await tick(50);
       const body = doc.getElementById('ax-body'), t = body.textContent;
       if (label === 'có số thật') {
-        ok(body.querySelectorAll('.kpis .kpi').length === 7 && body.querySelectorAll('table').length === 3 && !body.querySelector('[data-howto]'), `${lang}/${label}: 7 KPI + 3 bảng (ước tính vs thật, vị trí, quốc gia), không nút nối`);
-        ok(lang === 'vi' ? /cập nhật lúc/.test(t) && /Ước tính vs thật/.test(t) && /Thẻ kết quả cuối lượt/.test(t) && /Khác/.test(t) : /updated/.test(t) && /Estimate vs actual/.test(t) && /United States/.test(t), `${lang}/${label}: nhãn cập nhật + vị trí + quốc gia`);
-        ok(/\$\d/.test(body.querySelector('.kpis').textContent) && body.querySelector('.ax-chart svg rect'), `${lang}/${label}: số $ + biểu đồ`);
+        ok(body.querySelectorAll('.ax-kpis .kpi').length === 6 && body.querySelectorAll('.ax-kpis .ax-sp').length === 6 && body.querySelectorAll('.ax-kpis .ax-d').length === 6 && body.querySelectorAll('.ax-i').length === 6 && !body.querySelector('[data-howto]'), `${lang}/${label}: 6 KPI có ▲▼, sparkline, (i)`);
+        ok(body.querySelectorAll('.ax-lc').length === 2 && body.querySelector('tfoot') && body.querySelector('[data-csv]') && body.querySelector('.ax-dl') && /42\.17/.test(t), `${lang}/${label}: 2 biểu đồ, bảng có dòng tổng, CSV, thanh toán`);
+        ok(lang === 'vi' ? /cập nhật lúc/.test(t) && /Ước tính nội bộ vs số thật/.test(t) && /Thái Bình Dương/.test(t) && /Đang diễn ra/.test(t) && /trễ vài giờ/.test(t) : /updated/.test(t) && /Internal estimate vs actual/.test(t) && /Pacific/.test(t), `${lang}/${label}: minh bạch – cập nhật lúc, múi giờ, trễ, đang diễn ra`);
+        const lc = body.querySelector('.ax-lc'); lc.dispatchEvent(new w.Event('focus')); ok(!lc.querySelector('.ax-tip').hidden && /2026-10-26/.test(lc.querySelector('.ax-tip').textContent), `${lang}/${label}: focus biểu đồ → chú giải số`);
+        lc.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowLeft' })); ok(/2026-10-25/.test(lc.querySelector('.ax-tip').textContent), `${lang}/${label}: ← lùi 1 ngày`);
+        const sel = body.querySelector('#ax-filt select[name="p"]'); sel.value = 'web'; sel.dispatchEvent(new w.Event('change', { bubbles: true })); await tick(10);
+        ok(/p=web/.test(w.location.hash) && doc.querySelector('#ax-filt select[name="p"]').value === 'web' && [...doc.querySelectorAll('.ax-tbl tbody tr td:first-child')].every(td => /Web/.test(td.textContent)), `${lang}/${label}: lọc nền tảng → hash + bảng`);
+        const rs = doc.querySelector('#ax-filt select[name="r"]'); rs.value = 'custom'; rs.dispatchEvent(new w.Event('change', { bubbles: true })); await tick(10);
+        ok(!doc.querySelector('.ax-cust').hidden && /r=custom/.test(w.location.hash), `${lang}/${label}: tùy chọn → hiện 2 ô ngày`);
+        doc.querySelector('[data-tab="country"]').click(); await tick(10); doc.querySelector('[data-sort="imp"]').click(); await tick(10);
+        const th = doc.querySelector('[data-sort="imp"]').closest('th'), vals = [...doc.querySelectorAll('.ax-tbl tbody tr')].map(tr => +tr.children[2].textContent.replace(/\D/g, ''));
+        ok(th.getAttribute('aria-sort') === 'descending' && vals.every((v, i) => !i || vals[i - 1] >= v) && doc.activeElement === doc.querySelector('[data-sort="imp"]'), `${lang}/${label}: sắp xếp cột (aria-sort, giữ focus)`);
+        doc.querySelector('[data-sec="overview"]').click(); await tick(30); ok(/p=web/.test(w.location.hash), `${lang}/${label}: về Tổng quan giữ bộ lọc trong hash`);
       } else {
         const hb = body.querySelector('[data-howto]'), panel = body.querySelector('#ax-howto');
         ok(hb && panel && panel.hidden && /\$/.test(body.querySelector('.kpis').textContent), `${lang}/${label}: giữ proxy + nút Nối Google, hướng dẫn ẩn`);

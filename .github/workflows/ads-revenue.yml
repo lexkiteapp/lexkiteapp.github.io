@@ -1,9 +1,10 @@
-# 💰 Doanh thu THẬT từ Google (docs/ADS.md §5) – 06:03 UTC hằng ngày + chạy tay.
+# 💰 Doanh thu THẬT từ Google (docs/ADS.md §5) – lượt ĐÊM 06:03 UTC (= 23:03 giờ Thái Bình Dương) + chạy tay; lượt hằng giờ (chỉ hôm nay): ads-revenue-hourly.yml.
 # scripts/ads/report.mjs: AdSense Management API v2 (accounts.reports.generate) + AdMob API v1 (networkReport.generate), pub-2290668854727752,
 # khoảng = 7 ngày gần nhất ∪ tháng này (ghi đè – Google sửa số trễ) → POST https://lexkite.com/api/ads-report → D1 ads_rev (ghi theo diff).
 # Secret: ADS_OAUTH_CLIENT_ID / ADS_OAUTH_CLIENT_SECRET / ADS_OAUTH_REFRESH (OAuth người dùng, lấy 1 lần: node scripts/ads-oauth.mjs),
 # STUDIO_CALLBACK_SECRET (xác thực ghi), LEXKITE_CI_HEADER (qua WAF). Thiếu OAuth → dry-run fixture + cảnh báo, xanh.
-# Hạn mức: 5 lượt Google API/ngày · 1 POST · ~1 phút GitHub.
+# Hạn mức: 6 lượt Google API/lượt (5 báo cáo + thanh toán) · 1 POST · ~1 phút GitHub. 429 → bỏ lượt, không thử lại.
+# Riêng tư (repo công khai): log/summary chỉ in số dòng, KHÔNG số tiền; KHÔNG upload artifact (test ads-revenue chặn).
 name: Ads revenue
 on:
   schedule:

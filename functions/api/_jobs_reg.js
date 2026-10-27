@@ -440,6 +440,24 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "ads-revenue-hourly",
+   "workflow": "ads-revenue-hourly.yml",
+   "cron": [
+    "41 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes",
+    "d1_main"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 1100,
+    "d1_main_writes": 500
+   },
+   "lease": false
+  },
+  {
    "id": "nav-render",
    "workflow": "nav-render.yml",
    "cron": [

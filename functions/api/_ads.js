@@ -99,7 +99,9 @@ export function cleanRev(b) {
     for (const m of REV_M) { const v = r[m] == null ? 0 : r[m]; if (!intOk(v)) throw new Error('bad:' + m); o[m] = v; }
     const pk = revPk(o); if (seen.has(pk)) throw new Error('bad:dup'); seen.add(pk); rows.push(o);
   }
-  return { from, to, srcs, rows };
+  const money = v => (v == null ? null : typeof v === 'string' && /^[^<>&"]{1,32}$/.test(v) ? v : (() => { throw new Error('bad:pay'); })());
+  const pay = b.pay && typeof b.pay === 'object' ? { balance: money(b.pay.balance), last: b.pay.last ? { amount: money(b.pay.last.amount), date: DAY_RE.test(b.pay.last.date) ? b.pay.last.date : '' } : null } : null;
+  return { from, to, srcs, rows, pay, mode: b.mode === 'today' ? 'today' : 'full' };
 }
 const revPk = r => `${r.day}|${r.src}|${r.dim}|${r.key}`;
 /** Ghi đè khoảng đã lấy: so với dòng cũ (cùng khoảng ngày, nguồn đã lấy) → chỉ ghi dòng đổi/mới, xóa khóa không còn. Không đổi = 0 ghi. */
@@ -108,29 +110,20 @@ export function diffRev(old, fresh, srcs) {
   for (const r of fresh) { const o = prev.get(revPk(r)); prev.delete(revPk(r)); if (!o || REV_M.some(m => +o[m] !== r[m])) up.push(r); }
   return { up, del: [...prev.values()], same: fresh.length - up.length };
 }
-const usdOf = micros => (+micros || 0) / 1e6;
-const zero = () => ({ earn: 0, imp: 0, click: 0, req: 0, mreq: 0, pv: 0 });
-const addM = (a, r) => { for (const m of REV_M) a[m] += +r[m] || 0; return a; };
-const ratios = a => ({ ...a, usd: usdOf(a.earn), ecpm: a.imp ? usdOf(a.earn) / a.imp * 1000 : null, fill: a.req ? a.mreq / a.req : null, ctr: a.imp ? a.click / a.imp : null, rpm: a.pv ? usdOf(a.earn) / a.pv * 1000 : null });
-const platOfKey = (src, key) => (src === 'adsense' ? 'web' : String(key).split(':')[0]);
-/** Số liệu doanh thu thật cho Quản trị › Quảng cáo › Tổng quan.
- *  rev: dòng ads_rev (≥ 35 ngày), adEv: ext_events 'ad:*' (proxy), ecpm: eCPM đặt tay → "ước tính vs thật" 7 ngày theo nền tảng. meta: config ads_report. */
-export function realOf(rev, today, meta, adEv = [], ecpm = {}) {
-  const y = dayAdd(today, -1), w0 = dayAdd(today, -7), m0 = today.slice(0, 8) + '01', s0 = dayAdd(today, -30);
-  const tot = rev.filter(r => r.dim === 'total');
-  const per = (from, to) => ratios(tot.filter(r => r.day >= from && r.day <= to).reduce(addM, zero()));
-  const byDay = {}; for (const r of tot) if (r.day >= s0) byDay[r.day] = (byDay[r.day] || 0) + usdOf(r.earn);
-  const series = Array.from({ length: 30 }, (_, i) => { const d = dayAdd(s0, i + 1); return { day: d, rev: byDay[d] || 0 }; });
-  const group = (dim, key) => { const g = {}; for (const r of rev) if (r.dim === dim && r.day >= w0 && r.day <= y) addM(g[key(r)] = g[key(r)] || zero(), r); return g; };
-  const places = Object.entries(group('unit', r => platOfKey(r.src, r.key) + '|' + (r.src === 'adsense' ? String(r.key).replace(/^web:/, '') : String(r.key).split(':').slice(1).join(':'))))
-    .map(([k, a]) => { const [plat, place] = k.split('|'); return { plat, place, ...ratios(a) }; }).sort((a, b) => b.earn - a.earn || b.imp - a.imp);
-  const countries = Object.entries(group('country', r => r.key)).map(([cc, a]) => ({ cc, ...ratios(a) })).sort((a, b) => (a.cc === '_o') - (b.cc === '_o') || b.earn - a.earn || b.imp - a.imp);
-  // Ước tính (lượt hiển thị × eCPM đặt tay) vs thật, 7 ngày đã xong theo nền tảng; lệch = (ước tính − thật) / thật
-  const real7 = { web: 0, android: 0, ios: 0 }, est7 = { web: 0, android: 0, ios: 0 };
-  for (const r of rev) if (r.day >= w0 && r.day <= y && (r.src === 'adsense' ? r.dim === 'total' : r.dim === 'unit')) { const p = platOfKey(r.src, r.key); if (p in real7) real7[p] += usdOf(r.earn); }
-  for (const r of adEv) { const k = String(r.kind).split(':'); if (k[0] === 'ad' && (k[1] === 'imp' || k[1] === 'show') && k[2] in est7 && r.day >= w0 && r.day <= y) est7[k[2]] += (+r.n || 0) / 1000 * Math.max(0, +(ecpm[k[2]] ?? 1) || 0); }
-  const vs = PLATS.map(p => ({ plat: p, est: est7[p], real: real7[p], dev: real7[p] > 0 ? (est7[p] - real7[p]) / real7[p] : null }));
-  return { yday: per(y, y), d7: per(w0, y), mtd: per(m0, today), series, places, countries, vs, ...reporting(meta) };
+/** Gói doanh thu thật cho Quản trị (lọc khoảng ngày / nền tảng / quốc gia làm ở trình duyệt – web/js/admin-ads.js agg()).
+ *  rev: ads_rev ~100 ngày → mảng gọn [day, src, dim, key, earn, imp, click, req, mreq, pv]; adEv: ext_events 'ad*' (35 ngày) →
+ *  est (ước tính nội bộ USD theo ngày × nền tảng), ses (phiên nhóm có QC theo ngày), live (bộ đếm hôm nay). Chỉ trả cho quản trị (admin.js). */
+export function revPack(rev, meta, pay, adEv = [], ecpm = {}, today = '', rt = '') {
+  const est = {}, ses = {}, live = { imp: 0, click: 0, rew: 0 };
+  for (const r of adEv) {
+    const k = String(r.kind).split(':'), n = +r.n || 0;
+    if (k[0] === 'ad' && k.length === 4) {
+      if ((k[1] === 'imp' || k[1] === 'show') && PLATS.includes(k[2])) { const e = (est[r.day] = est[r.day] || { web: 0, android: 0, ios: 0 }); e[k[2]] += n / 1000 * Math.max(0, +(ecpm[k[2]] ?? 1) || 0); }
+      if (r.day === today) { if (k[1] === 'imp' || k[1] === 'show') live.imp += n; else if (k[1] === 'click') live.click += n; else if (k[1] === 'rewok') live.rew += n; }
+    } else if (r.kind === 'adc:a:ses') ses[r.day] = (ses[r.day] || 0) + n;
+  }
+  const rows = rev.map(r => [r.day, r.src, r.dim, r.key, +r.earn || 0, +r.imp || 0, +r.click || 0, +r.req || 0, +r.mreq || 0, +r.pv || 0]);
+  return { ...reporting(meta), rows, pay: pay && typeof pay === 'object' ? pay : null, est, ses, live, today, rt: rt || today }; // rt = hôm nay theo giờ báo cáo Google (Thái Bình Dương)
 }
 /** Trạng thái nối báo cáo: có lượt ghi thành công từ Action (config ads_report) → connected. Không còn cần biến môi trường ở Pages. */
 export function reporting(meta) {

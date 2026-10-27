@@ -2,7 +2,8 @@
  * Xác thực: header X-Studio-Secret = STUDIO_CALLBACK_SECRET (secret CI sẵn có, so sánh băm thời gian không đổi). Không có đường người dùng.
  * D1 (docs/ADS.md §5, memory d1-quota-isolation): bảng nhỏ ads_rev PK (day, src, dim, key) WITHOUT ROWID – đọc khoảng ngày (SEARCH),
  * ghi đè khoảng đã lấy theo DIFF (chỉ dòng đổi/mới + xóa khóa mất) → ngày không đổi = 0 dòng ghi. Cầu dao _d1guard: việc nền dừng khi ≥ 50 % hạn mức.
- * Body: { from, to, srcs: ['adsense'|'admob'], rows: [{ day, src, dim: total|unit|country, key, earn(micro-USD), imp, click, req, mreq, pv }], dry? } */
+ * Body: { from, to, mode: full|today, srcs: ['adsense'|'admob'], rows: [{ day, src, dim: total|unit|country, key, earn(micro-USD), imp, click, req, mreq, pv }], pay?: { balance, last: { amount, date } } }
+ * Chỉ lưu số liệu báo cáo – KHÔNG bao giờ lưu token/secret (token chỉ ở secret GitHub). Lượt hằng giờ: 1 ngày → diff ~vài chục dòng. */
 import { cleanRev, diffRev } from './_ads.js';
 import { once } from './_schema.js';
 import { guardBg } from './_d1guard.js';
@@ -27,7 +28,8 @@ export async function store(db, pkt, now = Date.now()) {
   const { up, del, same } = diffRev(old, pkt.rows, pkt.srcs);
   const st = [...up.map(r => db.prepare(UPSERT).bind(r.day, r.src, r.dim, r.key, r.earn, r.imp, r.click, r.req, r.mreq, r.pv)), ...del.map(r => db.prepare(DEL).bind(r.day, r.src, r.dim, r.key))];
   st.push(db.prepare("INSERT INTO config (k, v, at, by) VALUES ('ads_report', ?1, ?2, 'ci') ON CONFLICT (k) DO UPDATE SET v = ?1, at = ?2, by = 'ci'")
-    .bind(JSON.stringify({ at: now, from: pkt.from, to: pkt.to, srcs: pkt.srcs, n: pkt.rows.length }), now));
+    .bind(JSON.stringify({ at: now, mode: pkt.mode, from: pkt.from, to: pkt.to, srcs: pkt.srcs, n: pkt.rows.length }), now));
+  if (pkt.pay) st.push(db.prepare("INSERT INTO config (k, v, at, by) VALUES ('ads_pay', ?1, ?2, 'ci') ON CONFLICT (k) DO UPDATE SET v = ?1, at = ?2, by = 'ci'").bind(JSON.stringify({ ...pkt.pay, at: now }), now));
   for (let i = 0; i < st.length; i += 100) await db.batch(st.slice(i, i + 100));
   return { written: up.length, deleted: del.length, same };
 }
