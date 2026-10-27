@@ -64,7 +64,7 @@ export function gateEntry(e, { keep } = {}) {
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
-  if (e.trBad) for (const [l, w] of Object.entries(e.trBad)) why.push(`dịch ${l}: từ không có thật trong ngôn ngữ (wordfreq: ${[].concat(w).join(', ')})`);
+  if (e.trBad && !e.perLang) for (const [l, w] of Object.entries(e.trBad)) why.push(`dịch ${l}: từ không có thật trong ngôn ngữ (wordfreq: ${[].concat(w).join(', ')})`);
   if (e.defChanged) why.push('def: viết lại khác nghĩa gloss WordNet (' + String(e.defChanged).slice(0, 80) + ')');
   if (!CE.includes(e.level)) why.push('cefr: cấp');
   else if ((e.cefrSrc || 'freq') === 'freq' && Math.abs(CE.indexOf(e.level) - CE.indexOf(e.cefrF || e.level)) > 2) why.push('cefr: lệch tần suất > 2 bậc');
@@ -84,15 +84,26 @@ export function gateEntry(e, { keep } = {}) {
   if (CE.includes(e.level) && (e.cefrSrc || 'freq') === 'freq' && Array.isArray(e.qa.cefrJ)) { const off = e.qa.cefrJ.filter(x => CE.includes(x)).map(x => Math.abs(CE.indexOf(x) - CE.indexOf(e.level))); if (off.some(d => d >= 2)) why.push('cefr: giám khảo lệch ≥ 2 bậc (' + e.qa.cefrJ.join('/') + ' ≠ ' + e.level + ')'); }
   // vi khác Wiktionary → giám khảo phân xử: cả 2 "ok" (giữ) hoặc đã sửa theo Wiktionary; còn lại → hàng duyệt
   if (Array.isArray(e.qa.vi) && !(e.qa.vi.every(x => x === 'ok') || e.qa.vi.every(x => x === 'fixed'))) why.push('dịch vi: khác Wiktionary, giám khảo chưa chắc (' + e.qa.vi.join('/') + ')');
-  let bt = 0;
+  let bt = 0; const drop = {};
   for (const l of LANGS) {
     const t = (e.m || {})[l], sc = (e.qa.tr || {})[l] || [];
     const is = trIssues(e.w, t, l); if (t && SCRIPT[l] && !SCRIPT[l].test(t)) is.push('không có chữ bản địa'); if (t && String(t).toLowerCase().trim() === e.w && !['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l)) is.push('chép nguyên từ tiếng Anh');
     if (e.qa.bad && e.qa.bad[l]) is.push(/translit/.test(e.qa.bad[l]) ? 'phiên âm tiếng Anh' : 'khác từ loại/khác từ');
+    if (e.perLang) {
+      // CỔNG THEO TRƯỜNG (chủ 27/10): ngôn ngữ chỉ HIỆN khi bản dịch đó đạt – nguồn người viết (bảng Wiktionary khớp nghĩa chắc chắn), đủ 3 giám khảo ≥ 4,
+      // từ có thật (trcheck), dịch ngược khớp; trượt → bỏ ngôn ngữ đó khỏi mục (app dùng đường dịch hiện có của kho), KHÔNG làm trượt cả mục.
+      if (t && ((e.src && e.src.tr) || {})[l] !== 'wiktionary') is.push('không phải nguồn người viết (Wiktionary)');
+      if (t && e.trBad && e.trBad[l]) is.push('từ không có thật (wordfreq: ' + [].concat(e.trBad[l]).join(', ') + ')');
+      if (t && !is.length && (sc.length < 3 || Math.min(...sc) < 4)) is.push('giám khảo < 4 (' + sc.join('/') + ')');
+      if (t && !is.length && !btOk(e, l)) is.push('dịch ngược không khớp');
+      if (is.length) drop[l] = is.join(', '); else bt++;
+      continue;
+    }
     if (is.length) { why.push(`dịch ${l}: ${is.join(', ')}`); continue; }
     if (sc.length < (e.qa.n || 2) || Math.min(...sc) < 4) why.push(`dịch ${l}: giám khảo < 4 (${sc.join('/')})`);
     if (btOk(e, l)) bt++;
   }
+  if (e.perLang) return why.length ? { ok: false, why } : { ok: true, bt: +(bt / LANGS.length).toFixed(2), keep: LANGS.filter(l => !(l in drop)), drop };
   const btr = e.qa.btw ? bt / LANGS.length : e.qa.bt;
   if (!(btr >= 0.8)) why.push(`dịch ngược ${btr && btr.toFixed(2)} < 0.8`);
   return why.length ? { ok: false, why } : { ok: true, bt: +btr.toFixed(2) };

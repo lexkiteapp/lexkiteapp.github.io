@@ -16,6 +16,15 @@ const good = () => ({ w: 'forsake', pos: 'v', ipa: '/fəˈseɪk/', ipaUS: '/fər
 ok(gateEntry({ ...good(), trBad: { pt: ['inyectar'] } }).why.some(x => /dịch pt: từ không có thật/.test(x)), 'cổng: trBad (wordfreq) → trượt');
 // đồng thuận 3 giám khảo (chủ 27/10): qa.n = 3 mà chỉ 2 họ → trượt; bản dịch thiếu điểm giám khảo thứ 3 → trượt
 { const g3 = good(); g3.qa = { ...g3.qa, n: 3 }; ok(gateEntry(g3).why.some(x => /cần 3 giám khảo/.test(x)) && gateEntry(g3).why.some(x => /dịch es: giám khảo < 4/.test(x)), 'cổng: đồng thuận 3 giám khảo'); }
+// CỔNG THEO TRƯỜNG (chủ 27/10): lõi Anh + vi quyết định mục; mỗi ngôn ngữ chỉ giữ khi nguồn Wiktionary + đủ 3 giám khảo ≥ 4 + dịch ngược khớp
+{ const g = good(), J3 = { 'gpt-oss:gpt-oss-120b': 5, 'llama:llama-3.3-70b': 4, 'mistral:mistral-small-3.1-24b-instruct': 5 };
+  g.perLang = true; g.qa = { ...g.qa, n: 3, j: J3, tr: Object.fromEntries(LANGS.map(l => [l, [5, 4, 5]])) };
+  g.src = { ...(g.src || {}), tr: Object.fromEntries(LANGS.map(l => [l, l === 'es' ? 'ai' : 'wiktionary'])) };
+  g.trBad = { pt: ['inyectar'] };
+  const r = gateEntry(g);
+  ok(r.ok && !r.keep.includes('es') && !r.keep.includes('pt') && r.keep.includes('fr') && /người viết/.test(r.drop.es) && /không có thật/.test(r.drop.pt), 'theo trường: bỏ ngôn ngữ AI lấp / từ lạ, mục vẫn đạt');
+  const g2 = { ...g, m: {} }; ok(gateEntry(g2).ok && gateEntry(g2).keep.every(l => !g2.m[l]), 'theo trường: không ngôn ngữ nào (chỉ lõi Anh + vi) vẫn đạt');
+  const g3 = { ...g, vi: '' }; ok(!gateEntry(g3).ok, 'theo trường: thiếu vi (lõi) → trượt'); }
 // định nghĩa đúng hình từ loại (pilot 11: purple#adj "a colour…")
 ok(defPosOk('to take revenge', 'v') && !defPosOk('take revenge', 'v') && !defPosOk('a colour between red and blue', 'adj') && defPosOk('of a colour between red and blue', 'adj') && !defPosOk('to run', 'n') && defPosOk('very quickly', 'adv'), 'defPosOk theo quy ước kho');
 ok(gateEntry({ ...good(), def: 'leave someone or something completely' }).why.some(x => /hình từ loại/.test(x)), 'cổng: định nghĩa động từ thiếu "to …" → trượt');

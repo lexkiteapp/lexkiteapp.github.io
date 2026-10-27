@@ -143,9 +143,12 @@ await pmap(chunks(needEx, 10), 8, async ch => { const r = await call('lxex', ch.
 const ALL = ['vi', ...LANGS], trOf = x => Object.fromEntries(Object.entries(X[x.k].tr).filter(([l, v]) => ALL.includes(l) && v.length).map(([l, v]) => [l, v.slice(0, 3).join('; ')]));
 const ready = live.filter(x => X[x.k] && X[x.k].defOk && X[x.k].ex.length === 2);
 for (const x of ready) { X[x.k].m = trOf(x); X[x.k].trSrc = Object.fromEntries(Object.keys(X[x.k].m).map(l => [l, 'wiktionary'])); }
-const gapTr = ready.filter(x => ALL.some(l => !X[x.k].m[l]));
-await pmap(chunks(gapTr, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), need: ALL.filter(l => !X[x.k].m[l]) })));
-  if (r) for (const x of ch) { const o = r.out[x.k] || {}; for (const l of ALL) if (!X[x.k].m[l] && typeof o[l] === 'string' && o[l].trim()) { X[x.k].m[l] = o[l].trim(); X[x.k].trSrc[l] = 'ai'; } } });
+// CỔNG THEO TRƯỜNG (chủ 27/10): 12 ngôn ngữ CHỈ từ bảng Wiktionary khớp nghĩa chắc chắn – AI KHÔNG lấp (soát pilot 2/3: lỗi dịch AI qua cả 3 giám khảo);
+// AI chỉ lấp vi (lõi, chấm nghiêm + Viet74K). Ngôn ngữ thiếu → app dùng đường dịch hiện có (mảnh thiếu → gói → dịch máy).
+const AI_FILL = ['vi'];
+const gapTr = ready.filter(x => AI_FILL.some(l => !X[x.k].m[l]));
+await pmap(chunks(gapTr, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), need: AI_FILL.filter(l => !X[x.k].m[l]) })));
+  if (r) for (const x of ch) { const o = r.out[x.k] || {}; for (const l of AI_FILL) if (!X[x.k].m[l] && typeof o[l] === 'string' && o[l].trim()) { X[x.k].m[l] = o[l].trim(); X[x.k].trSrc[l] = 'ai'; } } });
 // vi do AI lấp: chỉ giữ phương án CÓ trong từ điển tiếng Việt (Viet74K – GPL-2.0, chỉ dùng để KIỂM trong CI, không phân phối – ∪ nghĩa vi của kho hiện có);
 // không còn phương án nào → để trống = trượt cổng (pilot 9: "mong man", "dư thảo", "đrăm" qua cả 2 giám khảo)
 for (const x of ready) if (X[x.k].trSrc.vi === 'ai' && VIOK.size) { const keep = String(X[x.k].m.vi).split(/\s*;\s*/).filter(v => VIOK.has(v.toLowerCase().trim()));
@@ -159,13 +162,13 @@ function trCheck(list) { const tmp = (process.env.RUNNER_TEMP || process.env.TMP
 { let bad = trCheck(ready);
   if (!bad) { stat.trCheck = 'unavailable'; for (const x of ready) X[x.k].trBad = { all: ['trcheck.py lỗi'] }; } // không kiểm được = KHÔNG nhận (an toàn)
   else { stat.trBad = Object.values(bad).reduce((n, o) => n + Object.keys(o).length, 0);
-    const redo = ready.filter(x => bad[x.k]); for (const x of redo) for (const l of Object.keys(bad[x.k])) { X[x.k].trWhy = { ...(X[x.k].trWhy || {}), [l]: bad[x.k][l] }; delete X[x.k].m[l]; }
+    const redo = []; for (const x of ready) if (bad[x.k]) X[x.k].trBad = bad[x.k]; // theo trường: ngôn ngữ có từ lạ chỉ bị BỎ ở cổng (không hỏi AI lấp) for (const x of redo) for (const l of Object.keys(bad[x.k])) { X[x.k].trWhy = { ...(X[x.k].trWhy || {}), [l]: bad[x.k][l] }; delete X[x.k].m[l]; }
     await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), need: Object.keys(X[x.k].trWhy),
       fix: 'previous answer used words that do not exist in that language: ' + Object.entries(X[x.k].trWhy).map(([l, w]) => l + ': ' + w.join(', ')).join('; ') })));
       if (r) for (const x of ch) { const o = r.out[x.k] || {}; for (const l of Object.keys(X[x.k].trWhy)) if (typeof o[l] === 'string' && o[l].trim()) { X[x.k].m[l] = o[l].trim(); X[x.k].trSrc[l] = 'ai'; } } });
     const bad2 = trCheck(redo) || Object.fromEntries(redo.map(x => [x.k, { all: ['trcheck.py lỗi'] }]));
     for (const x of redo) if (bad2[x.k]) X[x.k].trBad = bad2[x.k]; stat.trBadFinal = Object.keys(bad2).length; } }
-for (const x of ready) if (ALL.every(l => X[x.k].m[l])) T[x.k] = Object.fromEntries(LANGS.map(l => [l, X[x.k].m[l]]));
+for (const x of ready) if (X[x.k].m.vi) T[x.k] = Object.fromEntries(LANGS.filter(l => X[x.k].m[l]).map(l => [l, X[x.k].m[l]])); // vi bắt buộc (lõi); 12 ngôn ngữ: có thì chấm, thiếu thì thôi
 const G = Object.fromEntries(live.filter(x => X[x.k]).map(x => [x.k, { keep: true, pos: x.pos, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), col: X[x.k].col, syn: x._c.syns || [], vi: (X[x.k].m || {}).vi || '', note_vi: '', emoji: '', topic: D[x.k].topic || '' }]));
 for (const x of items) if (D[x.k] && (D[x.k].keep === false || !D[x.k].def)) G[x.k] = { keep: false, why: D[x.k].why, def: '' };
 const kept = items.filter(x => G[x.k] && G[x.k].keep !== false && G[x.k].def);
@@ -188,7 +191,7 @@ const why = {}, gaps = new Set();
 for (const x of items) {
   const g = G[x.k], c = x._c;
   const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk, ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: c.cefr, // CEFR: CEFR-J/Octanove → dải tần suất; AI KHÔNG đặt cấp (chỉ cờ lệch ở cổng)
-     cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
+     cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
       lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
@@ -212,7 +215,7 @@ for (const x of items) {
     why.infra = (why.infra || 0) + 1; continue; }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
   if (hasGap(r)) { why.gap = (why.gap || 0) + 1; gaps.add(x.k); continue; } // có lỗ dữ liệu nguồn (thiếu IPA…, kể cả kèm lỗi nội dung – vd. 20261027-pilot) → không vào hàng duyệt, lượt sau sinh lại
-  if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; pend.items[x.k] = ent; }
+  if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; if (r.drop) { for (const l of Object.keys(r.drop)) delete ent.m[l]; ent.qa.trDrop = r.drop; ent.qa.trKeep = r.keep.filter(l => ent.m[l]); delete ent.perLang; } pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }
   else { why[r.why[0].split(':')[0]] = (why[r.why[0].split(':')[0]] || 0) + 1; queue.items = queue.items.filter(q => !(q.src === 'lexicon-expand' && q.id === x.k)); queue.items.push({ src: 'lexicon-expand', id: x.k, batch: BATCH, why: r.why.slice(0, 4), at: new Date().toISOString().slice(0, 10), ...(ent ? { data: ent } : {}) }); }
 }
