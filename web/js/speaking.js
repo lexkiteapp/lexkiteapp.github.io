@@ -97,7 +97,7 @@
     const words = topic ? topic.words.slice(0, 8) : [];
     const extra = [...(App.topicOf('linking') || { words: [] }).words.slice(0, 2), ...(App.topicOf('idioms') || { words: [] }).words.slice(0, 2)];
     $('#sugg').innerHTML = [...words, ...extra].map(w => `<div class="row between nowrap" style="padding:.3rem 0;border-bottom:1px dashed var(--line)">
-      <div style="min-width:0"><b>${esc(w.word)}</b> <span class="tiny muted">${esc(w.vi)}</span></div>
+      <div style="min-width:0"><b>${esc(w.word)}</b> <span class="tiny muted">${esc(App.meanOf(w))}</span></div>
       <div class="row nowrap" style="gap:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${App.inDeck(w.word) ? '' : `<button class="icon-btn sm" data-add-seed="${esc(w.word)}" title="${t('Thêm vào flashcard')}">＋</button>`}</div></div>`).join('');
     App.bindCommon();
 
@@ -117,9 +117,9 @@
       const sents = UI.splitSentences(smp.a);
       el.innerHTML = `<details class="sample-box"><summary><b>📝 ${t('Câu trả lời mẫu (band 7.5–8)')}</b> <span class="tiny muted">– ${t('xem sau khi đã tự trả lời')}</span></summary>
         <div class="sample-txt">${sents.map((x, i) => `<span class="sm-s" data-i="${i}">${esc(x)}</span>`).join(' ')}</div>
-        ${(smp.vocab || []).length ? `<div class="row" style="gap:.3rem;margin:.5rem 0">${smp.vocab.map(([en, vi]) => `<button class="chip sm-v" data-en="${esc(en)}" data-vi="${esc(vi)}" title="${esc(vi)} – ${t('bấm để lưu')}">+ ${esc(en)}</button>`).join('')}</div>` : ''}
+        ${(smp.vocab || []).length ? `<div class="row" style="gap:.3rem;margin:.5rem 0">${smp.vocab.map(([en, vi]) => `<button class="chip sm-v" data-en="${esc(en)}" data-vi="${esc(vi)}" title="${I18N.learnLang() === 'vi' ? esc(vi) + ' – ' : ''}${t('bấm để lưu')}">+ ${esc(en)}</button>`).join('')}</div>` : ''}
         <div class="row"><button class="btn sm" id="smPlay">🔊 ${t('Nghe cả bài')}</button><button class="btn sm primary" id="smShadow">🔁 ${t('Luyện shadowing')}</button></div><div id="smShadowBox"></div></details>`;
-      $$('.sm-v', el).forEach(b => b.onclick = () => App.savePhraseDialog && App.savePhraseDialog({ phrase: b.dataset.en, vi: b.dataset.vi, sentence: sents.find(x => x.toLowerCase().includes(b.dataset.en.toLowerCase().split(' ')[0])) || '', title: t('Speaking mẫu') }));
+      $$('.sm-v', el).forEach(b => b.onclick = () => App.savePhraseDialog && App.savePhraseDialog({ phrase: b.dataset.en, vi: I18N.learnLang() === 'vi' ? b.dataset.vi : '', sentence: sents.find(x => x.toLowerCase().includes(b.dataset.en.toLowerCase().split(' ')[0])) || '', title: t('Speaking mẫu') }));
       $('#smPlay', el).onclick = () => UI.tts(smp.a, state.settings.accent, 0.95, { onSentence: i => { $$('.sm-s', el).forEach((x, j) => x.classList.toggle('on', j === i)); } });
       $('#smShadow', el).onclick = () => shadow(sents, $('#smShadowBox', el));
     };

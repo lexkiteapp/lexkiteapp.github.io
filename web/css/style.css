@@ -797,11 +797,11 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .annot.an-ch .an-ch { background: rgba(229, 80, 47, .09); box-shadow: inset 0 -2px 0 rgba(229, 80, 47, .45); cursor: pointer; padding: 0 .1rem; transition: background .15s; }
 .annot.an-ch .an-ch:hover, .annot.an-ch .an-ch:focus { background: rgba(229, 80, 47, .18); outline: none; }
 /* Nghĩa: tooltip khi rê chuột / chạm */
-.annot .an-ch:hover::after, .annot .an-ch:focus::after { content: attr(data-vi); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); white-space: nowrap; max-width: 280px; overflow: hidden; text-overflow: ellipsis; background: #0F3D3E; color: #fff; font-size: .8rem; font-weight: 600; line-height: 1.4; padding: .3rem .6rem; border-radius: 8px; z-index: 5; pointer-events: none; box-shadow: 0 6px 18px rgba(10, 40, 40, .25); }
+.annot .an-ch:hover::after, .annot .an-ch:focus::after { content: attr(data-gl); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); white-space: nowrap; max-width: 280px; overflow: hidden; text-overflow: ellipsis; background: #0F3D3E; color: #fff; font-size: .8rem; font-weight: 600; line-height: 1.4; padding: .3rem .6rem; border-radius: 8px; z-index: 5; pointer-events: none; box-shadow: 0 6px 18px rgba(10, 40, 40, .25); }
 /* Bật "Nghĩa dưới cụm": hiện nghĩa nhỏ ngay dưới cụm (kiểu ruby), không làm đứt dòng */
 .annot.an-gl .an-ch { display: inline-flex; flex-direction: column; align-items: center; vertical-align: top; line-height: 1.45; margin: 0 .05rem .2rem; }
 .annot.an-gl .an-ch .an-gl { display: block; font-size: .7rem; font-weight: 600; color: #be123c; line-height: 1.2; text-align: center; max-width: 100%; }
-.annot.an-gl .an-ch:hover::after, .annot.an-gl .an-ch:focus::after { display: none; }
+.annot.an-gl .an-ch:hover::after, .annot.an-gl .an-ch:focus::after, .annot .an-ch:not([data-gl])::after { display: none; }
 .annot.an-lk .an-lk { box-shadow: inset 0 -2px 0 #f59e0b; font-weight: 600; }
 :root[data-theme="dark"] .annot.an-ch .an-ch { background: rgba(143, 132, 255, .16); }
 :root[data-theme="dark"] .annot.an-gl .an-ch .an-gl { color: #fda4af; }

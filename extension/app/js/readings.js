@@ -8,6 +8,7 @@
       level: 'B1',
       emoji: '🌱',
       summaryVi: 'Nông nghiệp đô thị đang phát triển ở nhiều thành phố, mang lại thực phẩm tươi và lợi ích xã hội nhưng vẫn gặp khó khăn về chi phí và đất đai.',
+      summaryEn: 'Urban farming is growing in many cities, bringing fresh food and social benefits, but it still struggles with costs and a lack of land.',
       text: `For most of history, food was grown in the countryside and carried into towns. Today, however, a growing number of people are producing fruit and vegetables inside cities. This practice, known as urban farming, can take many forms, from small gardens on rooftops to large indoor farms in old warehouses.
 
 One reason for its popularity is the wish to eat fresh, local food. When vegetables are grown close to where people live, they do not need to travel long distances by lorry or plane. Supporters argue that this can reduce pollution and help cities become more sustainable. In addition, food that is picked on the same day it is sold often tastes better and keeps more of its nutrients.
@@ -33,6 +34,7 @@ Despite these problems, many experts believe that urban farming will continue to
       level: 'B2',
       emoji: '📅',
       summaryVi: 'Tuần làm việc bốn ngày được thử nghiệm ở nhiều nơi; kết quả ban đầu khả quan về năng suất và sức khỏe, nhưng không phù hợp với mọi ngành.',
+      summaryEn: 'The four-day working week has been tested in many places; early results for productivity and well-being are promising, but it does not suit every industry.',
       text: `The idea that people should work five days a week is so familiar that it is easy to forget it is a relatively recent invention. In the early twentieth century, many factory workers laboured for six days, and the two-day weekend was only gradually adopted. Today, a new proposal is attracting attention: reducing the standard week to four days without cutting pay.
 
 Advocates of the four-day week claim that it can boost productivity rather than reduce it. Their reasoning is that employees who are well rested tend to concentrate better and waste less time. Trials carried out by companies and researchers in several countries have reported encouraging results, with many participating firms stating that output remained stable while staff reported lower levels of stress and burnout. Some organisations also found it easier to recruit and retain skilled workers, as the shorter week was seen as an attractive benefit.
@@ -58,6 +60,7 @@ For these reasons, many analysts expect a gradual and uneven shift rather than a
       level: 'B2',
       emoji: '🌊',
       summaryVi: 'Vi nhựa xuất hiện khắp đại dương từ nhiều nguồn khác nhau; tác động lâu dài còn chưa rõ và cần giải pháp từ gốc.',
+      summaryEn: 'Microplastics now appear throughout the oceans from many different sources; their long-term effects are still unclear, and solutions must tackle the problem at its source.',
       text: `Plastic has transformed modern life, but its durability has created a serious environmental problem. Once plastic reaches the sea, it does not simply disappear. Instead, sunlight, waves and changes in temperature gradually break it into smaller and smaller fragments. Pieces less than five millimetres across are known as microplastics, and scientists now detect them in almost every marine environment they examine, from coastal waters to the deep ocean floor.
 
 Microplastics come from a variety of sources. Some are the result of larger items, such as bottles and fishing nets, breaking down over time. Others are released directly in tiny form. Synthetic clothing, for instance, can shed fibres when it is washed, and these may pass through water treatment systems and eventually flow into rivers and seas. Vehicle tyres also wear away on roads, producing particles that are carried by rainwater into drainage systems.
@@ -83,6 +86,7 @@ Ultimately, the issue highlights the hidden costs of convenience. Reducing micro
       level: 'B1',
       emoji: '😴',
       summaryVi: 'Giấc ngủ giúp não củng cố trí nhớ; thiếu ngủ làm giảm khả năng học tập, nên học sinh không nên thức khuya ôn bài.',
+      summaryEn: 'Sleep helps the brain consolidate memories; lack of sleep reduces the ability to learn, so students should not stay up late to revise.',
       text: `Many students believe that staying up late to study is the best way to prepare for an exam. However, scientists who study the brain increasingly suggest that this habit may do more harm than good. Sleep, it seems, plays an essential role in helping us remember what we have learned.
 
 When we learn something new, the information is first stored in a temporary form. During sleep, the brain appears to replay and organise these new memories, moving them into longer-term storage. This process is often called consolidation. Researchers believe that different stages of sleep may support different types of memory. For example, deep sleep may help us remember facts, while the dreaming stage may be linked to skills and creative thinking.
@@ -108,6 +112,7 @@ So what can learners do? Experts generally recommend keeping a regular routine, 
       level: 'C1',
       emoji: '🗣️',
       summaryVi: 'Nhiều ngôn ngữ đang biến mất do áp lực kinh tế và xã hội; mất ngôn ngữ là mất tri thức văn hóa, và nỗ lực phục hồi cần cộng đồng chủ động tham gia.',
+      summaryEn: 'Many languages are disappearing under economic and social pressure; losing a language means losing cultural knowledge, and revival efforts need communities to take an active part.',
       text: `Linguists broadly agree that a substantial proportion of the world's languages are at risk of disappearing within the coming generations. Unlike the extinction of a plant or animal species, however, the loss of a language rarely attracts headlines. It tends to occur quietly, as each successive generation uses the ancestral tongue a little less until, eventually, no fluent speakers remain.
 
 The forces driving this decline are rarely a matter of deliberate prohibition alone, although historical policies of forced assimilation have certainly played a part in many regions. More commonly, the shift is propelled by economic and social pressures. Parents who perceive a dominant language as the key to education and employment may choose not to pass on their own, believing they are acting in their children's best interests. Urban migration, mass media and the internet can accelerate this process by exposing young people predominantly to a handful of global languages.
@@ -133,6 +138,7 @@ The prevailing view among specialists is that external intervention can support,
       level: 'C1',
       emoji: '🛰️',
       summaryVi: 'Rác vũ trụ quanh Trái Đất ngày càng nhiều, đe dọa vệ tinh và đòi hỏi cả giải pháp kỹ thuật lẫn hợp tác quốc tế.',
+      summaryEn: 'Space debris around the Earth keeps increasing, threatening satellites and calling for both technical solutions and international cooperation.',
       text: `Since the first artificial satellite was launched in the late 1950s, the region of space surrounding the Earth has become increasingly congested. Alongside functioning spacecraft, it now contains a vast quantity of debris: defunct satellites, discarded rocket stages, and countless fragments produced by collisions and explosions. Because these objects travel at extremely high velocities, even a fragment no larger than a fingernail can inflict serious damage on an operational satellite.
 
 Of particular concern is a scenario sometimes referred to as cascading collisions. The theory proposes that, once the density of debris in a given orbit exceeds a critical threshold, each collision would generate further fragments, which would in turn trigger additional collisions. In its most extreme form, this chain reaction could render certain orbits unusable for decades, jeopardising services on which modern societies have come to depend, including weather forecasting, navigation and global communications.
@@ -158,6 +164,7 @@ Perhaps the most formidable obstacle is not technical but political. Space is a 
       level: 'B2',
       emoji: '📺',
       summaryVi: 'Trẻ em dễ bị quảng cáo tác động vì chưa hiểu hết mục đích thuyết phục; quảng cáo trực tuyến khiến việc quản lý khó hơn, cần cả luật lệ và giáo dục.',
+      summaryEn: 'Children are easily influenced by advertising because they do not fully understand its persuasive purpose; online advertising makes regulation harder, so both rules and education are needed.',
       text: `Children have long been an important audience for advertisers. They not only spend their own pocket money but also influence many of the purchases made by their parents, from breakfast cereals to family holidays. This has led psychologists and policymakers to ask whether young people are able to understand advertising in the same way as adults.
 
 Research into child development suggests that the answer depends largely on age. Very young children often struggle to distinguish between an advertisement and an ordinary programme. Even when they can tell the difference, they may not grasp that the purpose of an advert is to persuade them to buy something. This ability to recognise persuasive intent appears to develop gradually, and some researchers argue that it is not fully established until children are well into their school years.
@@ -183,6 +190,7 @@ Governments have responded in different ways. Some have introduced restrictions 
       level: 'B2',
       emoji: '🔌',
       summaryVi: 'Xe điện tăng nhanh tạo áp lực lên lưới điện, nhưng sạc thông minh và công nghệ xe-về-lưới có thể biến xe điện thành nguồn hỗ trợ cho hệ thống.',
+      summaryEn: 'The rapid growth of electric cars puts pressure on the power grid, but smart charging and vehicle-to-grid technology could turn them into a support for the system.',
       text: `As governments seek to cut carbon emissions from transport, electric vehicles are becoming an increasingly common sight on the roads. This transition, however, raises an important question: can existing electricity networks cope with millions of cars that need to be charged every day?
 
 The challenge is not simply the total amount of electricity required. In many places, energy analysts suggest that overall generation capacity could expand to meet the additional demand over time. The more pressing issue is timing. If large numbers of drivers return home in the early evening and plug in their cars at the same moment, they could create a sharp peak in demand, coinciding with the period when households are already cooking, heating and using appliances. Local distribution networks, particularly in older residential areas, may not have been designed to handle such loads.
@@ -208,6 +216,7 @@ In summary, electric vehicles present both a challenge and an opportunity for po
       level: 'B1',
       emoji: '🏛️',
       summaryVi: 'Bảo tàng dùng công nghệ số để mở rộng tiếp cận, nhưng trải nghiệm xem hiện vật thật vẫn có giá trị riêng.',
+      summaryEn: 'Museums use digital technology to reach more people, but seeing real objects in person still has a value of its own.',
       text: `Museums have traditionally been quiet places where visitors walk slowly past glass cases and read small labels. In recent years, however, technology has started to change the way people experience art, history and science. Many museums now offer a wide range of digital services, both inside their buildings and online.
 
 One major development is the online collection. By photographing objects and putting the images on their websites, museums allow people to explore their collections from anywhere in the world. This is especially useful for students, researchers and people who live far away or cannot travel. Some institutions also create virtual tours, which let users move through the galleries on a computer or phone as if they were really there.
@@ -233,6 +242,7 @@ Most experts agree that technology should support, not replace, the traditional 
       level: 'C1',
       emoji: '👵',
       summaryVi: 'Dân số già hóa gây áp lực lên hệ thống y tế; các giải pháp gồm phòng bệnh, chăm sóc tại cộng đồng và công nghệ, nhưng đều có hạn chế.',
+      summaryEn: 'An ageing population puts pressure on health systems; solutions include prevention, community care and technology, but each has its limits.',
       text: `Across much of the world, populations are growing older. Rising life expectancy, combined with declining birth rates, means that the proportion of people over the age of sixty-five is increasing steadily in many countries. While this demographic shift is in many respects a testament to advances in medicine and living standards, it also poses profound challenges for healthcare systems that were largely designed around the treatment of acute, short-term illness.
 
 Older adults are more likely to live with chronic conditions, such as heart disease, diabetes and arthritis, and many experience several of these simultaneously. Managing multiple long-term conditions tends to be both complex and costly, requiring ongoing monitoring, numerous medications and coordination between different specialists. Consequently, health economists frequently warn that expenditure may rise faster than the revenue available to fund it, particularly where a shrinking working-age population contributes a smaller share of taxes.
