@@ -418,6 +418,7 @@
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button></div></div>`;
       // chừa đáy đúng chiều cao bảng phản hồi
       const fit = () => { const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px'); }; fit();
+      requestAnimationFrame(() => { const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
       if (FX && (!ok || (ty && ty.typo))) FX.explain(fb, w.word, fit); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), w.audio);
