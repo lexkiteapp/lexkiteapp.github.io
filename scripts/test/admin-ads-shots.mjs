@@ -23,8 +23,8 @@ const STATES = {
   data: { ...base, real: revPack(rev, { at: Date.parse('2026-10-27T13:41:00Z'), srcs: ['adsense', 'admob'] }, { balance: '$42.17', last: { amount: '$118.40', date: '2026-09-21' } }, ev, ecpm, today, today), reporting: { connected: true } },
   empty: { ...base, real: revPack([], null, null, [], ecpm, today, today), reporting: { connected: false } },
 };
-const page0 = `<!doctype html><html lang="vi" style="--a-top:0px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/admin.css"></head>
-<body class="adm"><main class="adm-main" id="main" style="padding:16px"></main><script src="/js/admin-ads.js"></script></body></html>`;
+const page0 = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/admin.css"></head>
+<body class="adm" style="--a-top:0px"><main class="adm-main" id="main" style="padding:16px"></main><script src="/js/admin-ads.js"></script></body></html>`;
 const report = [], fails = [];
 for (const [state, S] of Object.entries(STATES)) for (const theme of ['light', 'dark']) for (const [vp, size] of [['desktop', { width: 1280, height: 900 }], ['mobile', { width: 360, height: 780 }]]) {
   const ctx = await browser.newContext({ viewport: size, colorScheme: theme, deviceScaleFactor: 1 }), page = await ctx.newPage(), errs = [];
