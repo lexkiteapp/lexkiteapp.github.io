@@ -201,6 +201,20 @@
     box.querySelector('[data-rw]').onclick = async () => { const ok = await rewarded(feat); g.UI.closeModal(); if (ok) g.UI.toast(t('Đã cộng thêm lượt – thử lại sau vài giây.'), 4000); };
   }
 
+  // ---------- Đổi/rút lại đồng ý (Cài đặt › Quyền riêng tư & quảng cáo) ----------
+  // Web: thông điệp thu hồi của CMP Google (Privacy & messaging) · App: biểu mẫu tùy chọn quyền riêng tư của UMP
+  async function privacy() {
+    if (native) {
+      const A = AM(); if (!A || !A.showPrivacyOptionsForm) return false;
+      try { await A.showPrivacyOptionsForm(); initP = null; return true; } catch (e) { return false; }
+    }
+    if (!C.web || !C.web.client) return false;
+    await loadAdSense();
+    const fc = g.googlefc; if (!fc) return false;
+    (fc.callbackQueue = fc.callbackQueue || []).push(() => fc.showRevocationMessage());
+    return true;
+  }
+
   // ---------- khởi động ----------
   function start() {
     if (native) { syncBanner(); g.addEventListener('hashchange', () => setTimeout(() => { syncBanner(); maybeInter(); }, 60)); return; }
@@ -208,5 +222,5 @@
     fillWeb();
     if (v) new MutationObserver(fillWeb).observe(v, { childList: true, subtree: true });
   }
-  g.AdsRun = { start, rewarded, canReward, quota, inter: maybeInter, _st: () => st, _ev: () => ev, _consent: () => consentK };
+  g.AdsRun = { start, rewarded, canReward, quota, privacy, inter: maybeInter, _st: () => st, _ev: () => ev, _consent: () => consentK };
 })(typeof self !== 'undefined' ? self : this);

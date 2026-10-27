@@ -11,6 +11,10 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+# PR: 1 lượt/nhánh, lượt cũ bị hủy khi đẩy tiếp; push main: xếp hàng, không hủy (docs/METHODS.md §CI)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
         with: { fetch-depth: 50 }
       - uses: actions/setup-node@v4
-        with: { node-version: 22 }
+        with: { node-version: 22, cache: npm }
       - run: npm ci --no-audit --no-fund --ignore-scripts
       - name: Cổng authority-pages (i18n 15 ngôn ngữ, sameAs kênh thật, dữ liệu không PII, hreflang, JSON-LD, widget không theo dõi)
         run: node scripts/test/authority-pages.mjs

@@ -8,7 +8,7 @@
     // ---- Web: Google AdSense (Ads → By ad unit → Display, kích thước cố định 300×250 / responsive trong ô cố định) ----
     web: {
       client: 'ca-pub-2290668854727752', // tài khoản AdSense của LLC (27/10/2026) – cùng số với web/ads.txt; enabled vẫn false
-      slots: { home: '', blog: '', done: '' }, // done = thẻ kết quả cuối lượt luyện (điểm nghỉ, ô cố định 0 CLS)
+      slots: { home: '', blog: '', blog_mid: '', dict: '', done: '' }, // done = thẻ kết quả cuối lượt luyện (điểm nghỉ, ô cố định 0 CLS) · blog_mid = giữa bài blog ≥ 1200 từ · dict = trang từ điển tĩnh (docs/ADS.md §1)
       // Video có thưởng web = Google Publisher Tag (Ad Manager) – đường dẫn ô '/<mã mạng>/<ô>'; rỗng = TẮT.
       // testing: true → ô demo công khai của Google (DEMO) thay cho ô thật – chỉ dùng trong test (scripts/test/ads-demo.mjs)
       rewarded: '',

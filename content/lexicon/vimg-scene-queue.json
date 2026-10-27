@@ -67,12 +67,6 @@
    "why": "vision: text",
    "b": "40088424311"
   },
-  "changing rooms#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.217; vision description-sentence sim 0.1544",
-   "b": "40088424311"
-  },
   "check-in#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -145,12 +139,6 @@
    "why": "clip-sentence sim 0.1856",
    "b": "40276144478"
   },
-  "downside#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.1062",
-   "b": "40088424311"
-  },
   "downstairs#adv": {
    "at": "2026-10-26",
    "tries": 4,
@@ -211,12 +199,6 @@
    "why": "vision description-sentence sim 0.2044",
    "b": "40088424311"
   },
-  "generation#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.1726",
-   "b": "40088424311"
-  },
   "globally#adv": {
    "at": "2026-10-24",
    "tries": 4,
@@ -245,18 +227,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "text: Wa; clip-sentence sim 0.189; vision description-sentence sim 0.0822",
-   "b": "40088424311"
-  },
-  "home address#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1954; vision description-sentence sim 0.1418",
-   "b": "40088424311"
-  },
-  "illness#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1805; vision description-sentence sim 0.1257",
    "b": "40088424311"
   },
   "immediately#adv": {
@@ -319,12 +289,6 @@
    "why": "vision: no (no clear resource shown); vision description-sentence sim 0.0994",
    "b": "40276144478"
   },
-  "normally#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.2378",
-   "b": "40088424311"
-  },
   "noticeboard#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -353,12 +317,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (name and day of party); vision description-sentence sim 0.2766",
-   "b": "40088424311"
-  },
-  "perhaps#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.0573",
    "b": "40088424311"
   },
   "polite#adj": {
@@ -395,18 +353,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (coffee plant and Brazil); vision description-sentence sim 0.0601",
-   "b": "40088424311"
-  },
-  "quantity#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (machinery producing paper)",
-   "b": "40088424311"
-  },
-  "quick#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.2154; vision description-sentence sim 0.1065",
    "b": "40088424311"
   },
   "reader#n": {
@@ -469,18 +415,6 @@
    "why": "clip-sentence sim 0.1965",
    "b": "40088424311"
   },
-  "slow#adj": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1861; vision description-sentence sim 0.0419",
-   "b": "40088424311"
-  },
-  "smell#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.0921",
-   "b": "40088424311"
-  },
   "smuggle#v": {
    "at": "2026-10-24",
    "tries": 4,
@@ -539,12 +473,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision: no (long illness context); clip-sentence sim 0.1737; vision description-sentence sim -0.0184",
-   "b": "40088424311"
-  },
-  "worry#v": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1895; vision description-sentence sim 0.028",
    "b": "40088424311"
   }
  }

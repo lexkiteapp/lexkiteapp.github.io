@@ -39,6 +39,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Workflow "success" chưa đủ – đọc số liệu (từng báo xanh khi nhập 0 · lỗi 20). Workflow mới phải tự đỏ khi kết quả = 0.
 - Workflow nối nhau dùng `workflow_run`/dispatch (commit bằng `GITHUB_TOKEN` không kích hoạt `on: push`).
 - Thử 1 trước rồi mới chạy lô (áp dụng cả script/workflow).
+- **Runner GitHub (27/10):** việc nền ≤ ~10/20 runner (`max-parallel`), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.
 
 ## 5. i18n (15 ngôn ngữ) – pipeline G0
 - `docs/I18N-PIPELINE.md`. Bố cục G0: chuỗi mới vào nguồn en (`web/js/i18n/en/*.js`, nhóm tải lười = danh sách LAZY trong `scripts/build-i18n.sh` → `web/js/i18n/<lang>/<nhóm>.js`) → `bash scripts/build-i18n.sh` → dịch thật 15 ngôn ngữ (`i18n-fix.mjs` / `scripts/i18n-fixed.json`) → `node scripts/i18n-missing.mjs --strict` + `node scripts/i18n-qa.mjs --strict`. Không để chữ en lọt ở 13 ngôn ngữ.
@@ -71,7 +72,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
 - Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
 
-- Video dạy học (27/10, `VIDEO-SERIES.md`): chỉ 2 người dẫn 3D (Carlos, Ama), đứng 1/3 phải; clip để nguyên, nói khi có giọng/ngậm khi nghỉ, ≤130 từ/phút; bố cục v14: 1 thẻ cố định trên + phụ đề dải dưới + thẻ kết FREE/QR, trong SAFE.
+- Video dạy học (27/10, chuẩn ở `VIDEO-SERIES.md` §Production standard): chỉ 2 người dẫn 3D (Carlos, Ama); bố cục v14 = viết thẳng lên bảng, mực theo ánh sáng bảng; clip theo tâm trạng câu, biểu cảm có trần.
 
 - Kho 3D (`scripts/video/bank3d/`): ảnh khung đầu qua `check_first.py` TRƯỚC khi tạo clip; mọi clip có câu khoá vị trí (`send2.sh`), neo ảnh chuẩn; sau: `qc2.py`, tờ ảnh, gate CI.
 - App: ưu tiên chạy trên máy; tải theo bài; YouTube nhúng ảnh xem trước; ảnh AVIF/WebP.
@@ -130,4 +131,4 @@ Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) �
 - Lỗi cũ nằm ở `content/qa/baseline.json`, **chỉ được giảm** (`--lower-baseline`). Sửa theo LOẠI lỗi, không theo từng mục.
 - Sinh nội dung/dịch: chỉ dùng kho Gemini hoặc Workers AI tài khoản 2, đăng ký `infra/jobs.json`; **không** dùng AI tài khoản chính. Lộ trình mảng: `docs/CONTENT-ROADMAP.md`.
 - **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.
-- **Dung lượng repo (24/10, docs/STORAGE.md):** media nặng (mp3, ảnh theo từ, video) KHÔNG vào repo chính – sinh vào `.media-out/` rồi `scripts/media/push.mjs` đẩy kho media (`infra/media-repos.json`, round-robin hash trên kho open, tệp không bao giờ dời; đẩy xong mới commit chỉ mục). Cổng `size-guard` (cây ≤ 600 MB, ≤ 20 MB nhị phân/commit, ngoại lệ `Size-Guard: allow`). KHÔNG viết lại lịch sử git main. Kho ≥ 70 % → full + mở kho kế (STORAGE §2). Agent: clone tạm đặt tên RIÊNG (vd. `$TMPDIR/<việc>-<id>`) – thư mục `$TMPDIR/lk` từng bị phiên khác xoá giữa chừng.
+- **Dung lượng repo (24/10):** `docs/STORAGE.md` (toàn văn luật: `archive/METHODS-HISTORY.md` § "Chuyển từ METHODS 27/10").

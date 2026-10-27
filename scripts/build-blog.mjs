@@ -9,15 +9,16 @@ import { embedWatermark } from '../content/protection/watermark.mjs';
 import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as crumbsLdAt, appHref, landingHref, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
-import vm from 'node:vm';
+import { loadAds, adsOn } from './lib/ads-static.mjs';
+import { adEnd, adHold, withMid, AD_JS as AD_STATIC_JS } from '../workers/lib/ad-slot.mjs';
 import { blogToolBox, TOOL_BOX_CSS } from './lib/tools-links.mjs';
 import { blogDictBox } from './dict/links.mjs'; // blog → trang từ điển (docs/SEO-DICT-PAGES.md §3b)
 import { editorialNode, blogByline } from './lib/authority-links.mjs'; // tác giả = Lexkite Editorial Team + trang hồ sơ đội (docs/SEO-AUTHORITY.md) // hộp liên kết công cụ miễn phí cùng chủ đề (docs/SEO-TOOLS.md)
-// 💰 Ô quảng cáo cuối bài (docs/ADS.md) – CHỈ khi web/js/ads/config.js bật + có mã ô 'blog'; mặc định tắt → 0 byte thêm vào trang
-const ADS = (() => { try { const c = { self: {} }; c.self = c; vm.runInNewContext(fs.readFileSync(new URL('../web/js/ads/config.js', import.meta.url), 'utf8'), c); const a = c.ADS_CONFIG || {}; return a.enabled && a.web && a.web.client && a.web.slots && a.web.slots.blog ? a : null; } catch (e) { return null; } })();
-const ADV = { en: 'Advertisement', vi: 'Quảng cáo', es: 'Publicidad', pt: 'Publicidade', fr: 'Publicité', de: 'Anzeige', id: 'Iklan', th: 'โฆษณา', zh: '广告', ja: '広告', ko: '광고', hi: 'विज्ञापन', ar: 'إعلان', ru: 'Реклама', tr: 'Reklam' };
-const adSlot = lang => (ADS ? `<aside class="ad-slot" data-ad="blog" aria-label="${ADV[lang] || ADV.en}" style="box-sizing:border-box;height:290px;max-width:340px;margin:1.5rem auto;padding:.4rem;border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:center;contain:strict"><div class="ad-label" aria-hidden="true" style="height:1rem;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;opacity:.7;text-align:start">${ADV[lang] || ADV.en}</div></aside>` : '');
-const AD_JS = ADS ? '<script defer src="/js/ads/static.js"></script>' : '';
+// 💰 Ô quảng cáo (docs/ADS.md §1) – CHỈ khi web/js/ads/config.js bật + có mã ô; mặc định tắt → 0 byte thêm vào trang.
+// 'blog' = cuối bài · 'blog_mid' = 1 ô giữa bài (bài ≥ 1200 từ, sau đoạn văn ở 40–50 %) → tối đa 2 ô / bài
+const ADS_CFG = loadAds(), AD_END = adsOn('blog', ADS_CFG), AD_MID = adsOn('blog_mid', ADS_CFG);
+const adSlot = lang => (AD_END ? adEnd(lang) : '');
+const AD_JS = AD_END || AD_MID ? AD_STATIC_JS : '';
 const VIDEOS = (readVid(VID_MANIFEST, { items: [] }).items || []).filter(x => !x.test); // 🎬 video bài học khớp chủ đề bài (docs/VIDEO-SCALE-PLAN.md §10) – chỉ clip đã duyệt
 // Lời mời cài add-on cuối bài: chữ dùng chung với landing (content/landing/<lang>.json → ext), hiện/ẩn bởi EXT_JS (web/js/ext-cta.js)
 const EXT_EN = JSON.parse(fs.readFileSync('content/landing/en.json', 'utf8')).ext;
@@ -259,7 +260,7 @@ function render(md, lang, cover) {
     para.push(ln.trim()); i++;
   }
   flush();
-  return { html: out.join('\n'), toc, faq: faq.filter(f => f.a), videos };
+  return { html: out.join('\n'), blocks: out, toc, faq: faq.filter(f => f.a), videos };
 }
 
 // ---------- Khung trang ----------
@@ -336,7 +337,8 @@ const alts = p => { const g = byKey.get(p.translationKey || p.slug) || [p]; if (
 // Bài viết
 for (const p of posts) {
   CURP = p; const cv = coverOf(p);
-  const t = T(p.lang), { html: rawHtml, toc, faq, videos } = render(p.body, p.lang, cv.id), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
+  const t = T(p.lang), { blocks, toc, faq, videos } = render(p.body, p.lang, cv.id), words = wordCount(p.body), mins = Math.max(1, Math.round(words / 220));
+  const rawHtml = withMid(blocks, words, AD_MID ? adHold('blog_mid', p.lang) : ''); // ô giữa bài: chỉ bài ≥ 1200 từ, sau 1 đoạn văn cấp cao nhất
   const pub = when(p), upd = p.updated ? Date.parse(p.updated) : pub;
   const html = embedWatermark(rawHtml, `LK:${p.lang}/${p.slug}:${iso(pub).slice(0, 10).replace(/-/g, '')}`);
   const same = posts.filter(x => x !== p && x.lang === p.lang);

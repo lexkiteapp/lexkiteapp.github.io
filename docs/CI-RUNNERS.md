@@ -1,0 +1,7 @@
+# Runner GitHub Actions – ngân sách nền vs PR
+
+> TL;DR: gói free có 20 runner chung cả repo. Việc nền dùng ≤ ~10, chừa ≥ 10 cho check PR + prod-release. Chỉ giãn việc ra theo thời gian, không cắt bớt.
+
+- **Ngân sách runner (27/10, gói free = 20 runner chung cả repo):** việc nền (ảnh `vocab-img*`, `video*`, `cine-render`, `pron-*`, `lexicon-expand`, footage, `bg-*`, `chroma-batch`, `library-build`…) tổng ≤ ~10 runner, luôn chừa ≥ 10 cho check PR + `prod-release`. Ma trận nền BẮT BUỘC `max-parallel` (ảnh `vocab-img-scene` 5 theo chủ, ≤ 4 cho lô lớn khác, ≤ 3 còn lại) – chỉ giãn thời gian, KHÔNG bớt shard/khối lượng (no-cuts). Đo 27/10: `vocab-img-scene` 10 runner + trùng lượt PR → check PR chờ hàng.
+- Workflow chạy `pull_request`: `concurrency` group `${{ github.workflow }}-${{ github.head_ref || github.ref }}`, `cancel-in-progress: ${{ github.event_name == 'pull_request' }}` (push main không hủy). `prod-release`/deploy: nhóm chung, không hủy → 1 lượt chạy + 1 lượt mới nhất chờ. `setup-node` thêm `cache: npm`. Không dùng concurrency nhóm chung để xếp hàng việc nền (GitHub chỉ giữ 1 lượt chờ, lượt chờ cũ bị HỦY = mất việc).
+- Lượt `queued` 0 job nhiều giờ trong khi nhóm đã chạy lượt mới hơn = lượt ma của GitHub (27/10: lexicon-expand 40276952319, vocab-img-scene 40268807501 từ 26/10). Không chiếm runner, không chặn nhóm; `cancel`/`force-cancel` trả 409 → bỏ qua (chỉ chủ xoá trên UI nếu muốn), đừng tốn token gọi lại.

@@ -27539,5 +27539,35 @@
     "ar": "يُحفظ في مجلد مخفي خاص بالتطبيق في Google Drive الخاص بك – مجانًا وتلقائيًا.",
     "ru": "Хранится в скрытой папке приложения в вашем собственном Google Диске – бесплатно и автоматически.",
     "tr": "Kendi Google Drive'ındaki gizli bir uygulama klasöründe saklanır – ücretsiz ve otomatik."
+  },
+  "Quyền riêng tư & quảng cáo": {
+    "es": "Privacidad y anuncios",
+    "pt": "Privacidade e anúncios",
+    "fr": "Confidentialité et annonces",
+    "de": "Datenschutz & Werbung",
+    "id": "Privasi & iklan",
+    "th": "ความเป็นส่วนตัวและโฆษณา",
+    "zh": "隐私与广告",
+    "ja": "プライバシーと広告",
+    "ko": "개인정보 및 광고",
+    "hi": "गोपनीयता और विज्ञापन",
+    "ar": "الخصوصية والإعلانات",
+    "ru": "Конфиденциальность и реклама",
+    "tr": "Gizlilik ve reklamlar"
+  },
+  "Đổi lựa chọn đồng ý": {
+    "es": "Cambiar consentimiento",
+    "pt": "Alterar consentimento",
+    "fr": "Modifier le consentement",
+    "de": "Einwilligung ändern",
+    "id": "Ubah persetujuan",
+    "th": "เปลี่ยนการยินยอม",
+    "zh": "更改同意选择",
+    "ja": "同意の設定を変更",
+    "ko": "동의 설정 변경",
+    "hi": "सहमति बदलें",
+    "ar": "تغيير الموافقة",
+    "ru": "Изменить согласие",
+    "tr": "Onayı değiştir"
   }
 }

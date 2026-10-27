@@ -2,7 +2,11 @@
  * Mặc định CHẶN: chỉ những vị trí trong danh sách cho phép mới được hiện. Không bao giờ: trong bài học/quiz/thi/nói/roleplay,
  * lớp học (giáo viên/học sinh), người dùng < 13 tuổi, add-on Chrome, trang quản trị, ?sandbox/?demo, trình duyệt tự động, nhóm đối chứng. */
 (function (g) {
-  const SLOTS = { home: 'home', blog: 'blog', done: 'done' };         // ô hiển thị: trang Hôm nay của app + bài blog/trang SEO tĩnh + thẻ KẾT QUẢ cuối lượt (web, điểm nghỉ)
+  const SLOTS = { home: 'home', blog: 'blog', blog_mid: 'blog_mid', dict: 'dict', done: 'done' }; // ô hiển thị: trang Hôm nay của app + cuối bài blog + giữa bài blog dài + trang từ điển tĩnh + thẻ KẾT QUẢ cuối lượt (web, điểm nghỉ)
+  const PER_PAGE = { blog: 2, dict: 1 };                               // trần ô / trang nội dung tĩnh (blog: cuối bài + 1 ô giữa bài ≥ 1200 từ; từ điển: 1 ô dưới phần nghĩa/ví dụ)
+  // Trang tĩnh (khách từ Google): nhận theo ĐƯỜNG DẪN (run.js không đổi route cho blog_mid/dict) – không bao giờ là khung app /app/ (tra từ trong app = đang học)
+  const BLOG_PATH = /^\/(?:[a-z]{2}\/)?blog\/[^/]+\/$/;                // /<lang>/blog/<slug>/ hoặc /blog/<slug>/ (bài viết, không phải trang danh sách)
+  const DICT_PATH = /^\/[a-z]{2}\/(?:tu-dien|dictionary|diccionario|dicionario|dictionnaire|woerterbuch|kamus|sozluk|slovar|jisho|sajeon|cidian|photchananukrom|shabdkosh|qamus)\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/; // trang 1 từ (workers/dict/render.mjs DICT_PATH), không phải hub/A–Z
   const BREAK = ['home', 'vocab', 'skills', 'tests', 'me'];             // điểm nghỉ tự nhiên (tab chính) – quảng cáo cuối phiên chỉ hiện khi VỀ tới đây
   const REWARDS = { streak: 1, ai: 3, chat: 10, retry: 1, xp2: 1 };   // có thưởng (tự chọn): cứu chuỗi · +3 lượt AI · +10 lượt Roleplay (khớp functions/api/ads-reward.js) · cơ hội 2 (làm lại câu sai) · nhân đôi XP
   const PER_DAY = { streak: 1, ai: 3, chat: 3, retry: 3, xp2: 2 };    // trần lượt xem có thưởng / lý do / máy / ngày – thưởng có giá trị vì hiếm, không thành "cày quảng cáo"
@@ -45,6 +49,7 @@
     if (!SLOTS[place] || blocked(ctx) || !platOn(f, ctx.plat)) return false;
     // Ô kết quả: chỉ web, chỉ khi thẻ kết quả đã vẽ xong (ctx.done), không trong 24 giờ đầu, không khi vừa làm kém
     if (place === 'done') return ctx.plat !== 'android' && ctx.plat !== 'ios' && !!ctx.done && (ctx.ageH || 0) >= CAP.firstDayH && (ctx.pct ?? 100) >= FAIL_PCT;
+    if (place === 'blog_mid' || place === 'dict') return ctx.plat !== 'android' && ctx.plat !== 'ios' && !/^\/app\//.test(ctx.path || '') && (place === 'dict' ? DICT_PATH : BLOG_PATH).test(ctx.path || '');
     return place === 'blog' ? ctx.route === 'blog' : ctx.route === 'home';
   }
 
@@ -75,5 +80,5 @@
   /** Quảng cáo không cá nhân hóa: Do Not Track / Global Privacy Control / chưa đồng ý (CMP trả về). */
   const npa = sig => !!(sig && (sig.dnt === '1' || sig.dnt === 'yes' || sig.gpc === true || sig.consent === false));
 
-  g.AdsPolicy = { SLOTS, WEB_REW, BREAK, REWARDS, PER_DAY, CALM_MIN, FAIL_PCT, rewLeft, CAP, BOUNDS, cohort, flags, blocked, slot, interstitial, rewarded, npa };
+  g.AdsPolicy = { SLOTS, WEB_REW, PER_PAGE, BLOG_PATH, DICT_PATH, BREAK, REWARDS, PER_DAY, CALM_MIN, FAIL_PCT, rewLeft, CAP, BOUNDS, cohort, flags, blocked, slot, interstitial, rewarded, npa };
 })(typeof self !== 'undefined' ? self : this);

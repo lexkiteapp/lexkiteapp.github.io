@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
+      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
       fail-fast: false
       matrix:
         lang: ${{ fromJSON(inputs.langs || '["en","vi","es","pt","ja","ko","zh","id","de","fr","ar","hi","ru","th","tr"]') }}

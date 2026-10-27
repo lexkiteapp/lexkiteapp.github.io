@@ -68,9 +68,11 @@
         + row('🃏 Anki', `<span class="set-btns"><button type="button" class="btn sm" id="sAnkiOut">${t('Xuất sang Anki')}</button><button type="button" class="btn sm" id="sAnkiIn">${t('Nhập từ Anki')}</button></span>`)
         + row(t('Nhập sao lưu'), `<label class="btn sm">⬆️ ${t('Nhập sao lưu')}<input type="file" id="sImport" accept="application/json" hidden></label>`)
         + row(`<span class="danger-t">${t('Xóa toàn bộ dữ liệu học')}</span>`, `<button type="button" class="btn sm danger" id="sReset">${t('Xóa')}</button>`)
+        + (window.Ads && Ads.on() ? row(t('Quyền riêng tư & quảng cáo'), `<button type="button" class="btn sm" id="sAdPriv">${t('Đổi lựa chọn đồng ý')}</button>`, t('Quảng cáo cá nhân hóa, cookie quảng cáo và quyền “không bán/chia sẻ dữ liệu” – đổi hoặc rút lại bất cứ lúc nào.')) : '') // GDPR/CCPA: rút lại đồng ý dễ như khi đồng ý (docs/ADS.md §3)
         + row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a><a class="btn sm" id="sBlog" href="${App.blogHref(0)}"${xt}>📰 ${t('Blog')}</a><a class="btn sm" href="${App.aboutUrl()}"${xt}>${t('Trang giới thiệu')}</a></span>`))}
       </div>`;
     extCta();
+    const ap = $('#sAdPriv'); if (ap) ap.onclick = () => (window.AdsRun && AdsRun.privacy ? AdsRun.privacy() : Promise.resolve(false)).then(ok => { if (!ok) toast(t('Phần quảng cáo chưa tải xong – thử lại sau vài giây.')); });
     App.blogLive().then(on => { const a = $('#sBlog'); if (a) a.href = App.blogHref(on); });
     // Mục quản trị: chỉ hiện sau khi máy chủ xác nhận quyền (thêm nút nhảy nhanh vào thanh mục lục)
     App.isAdmin().then(ok => { const sec = $('#set-admin'); if (!ok || !sec) return; sec.hidden = false; const nav = $('.set-nav'); if (nav && !nav.querySelector('[data-jump="admin"]')) { nav.insertAdjacentHTML('afterbegin', `<button type="button" data-jump="admin"><span aria-hidden="true">${UI.icon('shield')}</span> ${t('Quản trị')}</button>`); nav.querySelector('[data-jump="admin"]').onclick = () => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); } });
