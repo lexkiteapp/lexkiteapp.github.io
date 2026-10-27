@@ -17,7 +17,7 @@
 | i18n 15 ngôn ngữ | `I18N-PIPELINE.md` |
 | Nội dung học: quy trình · chuẩn · cổng QA · lộ trình | `CONTENT-PIPELINE.md` · `CONTENT-RULES.md` · `CONTENT-QA.md` · `CONTENT-ROADMAP.md` |
 | Lời giải đáp án · kho từ vựng · ảnh từ vựng · giọng từ | `EXPLAIN.md` · `LEXICON.md` · `VOCAB-IMG-STYLE.md` · `WORD-AUDIO.md` |
-| Giao tiếp tự tin · nhắc học · lớp học · giáo viên trong app | `CONFIDENCE.md` · `REMINDERS.md` · `CLASSROOM.md` · `VIDEO-TEACHERS.md` |
+| Giao tiếp tự tin · nhắc học · lớp học · giáo viên trong app | `CONFIDENCE.md` · `REMINDERS.md` · `RETENTION.md` · `CLASSROOM.md` · `VIDEO-TEACHERS.md` |
 | Thương hiệu (brand-check đọc – giữ mã màu) · hệ thiết kế · UX | `BRAND-RULES.md` · `DESIGN-SYSTEM.md` · `UX-PUBLIC.md` · `UX-BENCHMARK.md` |
 | Báo lỗi người dùng LX-xxxx · hạn mức & chống lạm dụng | `REPORTS.md` · `QUOTAS.md` |
 | Chi phí/trần DAU · free-tier guard · mở rộng · dung lượng repo | `CAPACITY.md` · `FREE-TIER.md` · `SCALING-PLAN.md` · `STORAGE.md` |
