@@ -1,16 +1,18 @@
 {
  "id": "sts_91e27418",
  "template": "mistake",
- "title": "Stop Saying This #16 – Stop saying \"I don't rarely go out.\" – say \"I rarely go out.\"",
- "teacher": "daniel",
+ "title": "Stop Saying This #10 – Stop saying \"I don't rarely go out.\" – say \"I rarely go out.\"",
+ "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk",
-  "d03t2_daniel_talk2",
-  "d03t3_daniel_talk3"
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
  ],
  "listen": [
-  "d03l_daniel_listen"
+  "a05l2_ama2_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -21,7 +23,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.72,
+ "speed": 0.75,
  "display": {
   "blank": "___"
  },
@@ -182,7 +184,7 @@
      ]
     },
     {
-     "st": "text",
+     "st": "big",
      "segs": [
       [
        "I rarely ",
@@ -369,15 +371,7 @@
        "hl"
       ],
       [
-       "="
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "almost never"
+       "= almost never"
       ]
      ]
     }
@@ -544,7 +538,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 16
+  "ep": 10
  },
  "source": {
   "bank": "sb_91e27418",

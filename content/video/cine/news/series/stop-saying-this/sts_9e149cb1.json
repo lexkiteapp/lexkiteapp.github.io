@@ -1,16 +1,18 @@
 {
- "id": "sts_42fa0282",
+ "id": "sts_9e149cb1",
  "template": "mistake",
- "title": "Stop Saying This #15 – Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
- "teacher": "daniel",
+ "title": "Stop Saying This #11 – Stop saying \"He resembles to his father.\" – say \"He resembles his father.\"",
+ "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk",
-  "d03t2_daniel_talk2",
-  "d03t3_daniel_talk3"
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
  ],
  "listen": [
-  "d03l_daniel_listen"
+  "a05l2_ama2_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -21,7 +23,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.72,
+ "speed": 0.75,
  "display": {
   "blank": "___"
  },
@@ -29,7 +31,7 @@
  "error_lines": [
   "m_w"
  ],
- "error_re": "\\byou\\W+to\\W+go\\b",
+ "error_re": "\\bresembles\\W+to\\W+his\\b",
  "lines": [
   {
    "id": "m_h",
@@ -38,42 +40,41 @@
   },
   {
    "id": "m_w",
-   "text": "I suggest you to go.",
+   "text": "He resembles to his father.",
    "key": {
     "red": [
-     3
+     2
     ]
    },
    "gap": 0.65
   },
   {
    "id": "m_k",
-   "text": "Just say: I suggest you go.",
+   "text": "Just say: He resembles his father.",
    "key": {
     "green": [
-     4,
-     5
+     3,
+     4
     ]
    },
    "gap": 0.65
   },
   {
    "id": "m_y",
-   "text": "There is no suggest someone to.",
+   "text": "Resemble needs no word after it.",
    "key": {
     "yellow": [
-     3
+     0
     ]
    },
    "gap": 0.65
   },
   {
    "id": "m_x",
-   "text": "I suggest you call him. She suggested taking a taxi.",
+   "text": "She resembles her mom. This city resembles Paris.",
    "key": {
     "green": [
      1,
-     2,
      6
     ]
    },
@@ -81,17 +82,12 @@
   },
   {
    "id": "m_t",
-   "text": "I suggest going is also correct!",
-   "key": {
-    "yellow": [
-     1
-    ]
-   },
+   "text": "Also never say is resembling!",
    "gap": 0.65
   },
   {
    "id": "m_q",
-   "text": "Quick quiz! I suggest you blank early.",
+   "text": "Quick quiz! She blank her sister.",
    "key": {
     "yellow": [
      0,
@@ -102,7 +98,7 @@
   },
   {
    "id": "m_q2",
-   "text": "To leave, or leave?"
+   "text": "Resembles, or resembles to?"
   },
   {
    "id": "_count",
@@ -111,11 +107,11 @@
   },
   {
    "id": "m_a",
-   "text": "Leave! I suggest you leave early.",
+   "text": "Resembles! She resembles her sister.",
    "key": {
     "green": [
      0,
-     4
+     2
     ]
    },
    "gap": 0.65
@@ -150,7 +146,7 @@
     ],
     [
      [
-      "“I suggest you ",
+      "“He resembles ",
       "white"
      ],
      [
@@ -158,7 +154,7 @@
       "red"
      ],
      [
-      "go.”",
+      "his father.”",
       "white"
      ]
     ]
@@ -191,11 +187,14 @@
      "st": "text",
      "segs": [
       [
-       "I suggest "
+       "He "
       ],
       [
-       "you go.",
+       "resembles his ",
        "green"
+      ],
+      [
+       "father."
       ]
      ]
     },
@@ -203,14 +202,14 @@
      "st": "text",
      "segs": [
       [
-       "suggest",
+       "resembles",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/səˈdʒest/"
+       "@ipa:/rɪˈzembl/"
       ]
      ]
     },
@@ -275,7 +274,7 @@
        "@emoji:✅"
       ],
       [
-       " you go",
+       " resembles his",
        "green"
       ]
      ]
@@ -311,26 +310,14 @@
      "st": "text",
      "segs": [
       [
-       "I "
-      ],
-      [
-       "suggest you ",
-       "green"
-      ],
-      [
-       "call him."
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
        "She "
       ],
       [
-       "suggested",
+       "resembles ",
        "green"
+      ],
+      [
+       "her mom."
       ]
      ]
     },
@@ -338,7 +325,14 @@
      "st": "text",
      "segs": [
       [
-       "taking a taxi."
+       "This city "
+      ],
+      [
+       "resembles ",
+       "green"
+      ],
+      [
+       "Paris."
       ]
      ]
     }
@@ -376,7 +370,11 @@
        "@emoji:💡"
       ],
       [
-       " suggest"
+       " RESEMBLE ",
+       "hl"
+      ],
+      [
+       "+"
       ]
      ]
     },
@@ -384,14 +382,10 @@
      "st": "text",
      "segs": [
       [
-       "(THAT) ",
-       "hl"
+       "person (no "
       ],
       [
-       "you "
-      ],
-      [
-       "GO",
+       "TO)",
        "hl"
       ]
      ]
@@ -427,19 +421,14 @@
      "st": "text",
      "segs": [
       [
-       "I suggest you"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
+       "She "
+      ],
       [
        "___ ",
        "green"
       ],
       [
-       "early."
+       "her sister."
       ]
      ]
     }
@@ -460,9 +449,9 @@
   {
    "id": "quiz",
    "kind": "quiz",
-   "a": "to leave",
-   "b": "leave",
-   "correct": "b",
+   "a": "resembles",
+   "b": "resembles to",
+   "correct": "a",
    "reveal": [
     "m_a",
     0,
@@ -514,7 +503,7 @@
        "@emoji:✅"
       ],
       [
-       " you go",
+       " resembles his",
        "green"
       ]
      ]
@@ -523,14 +512,14 @@
      "st": "text",
      "segs": [
       [
-       "suggest",
+       "resembles",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/səˈdʒest/"
+       "@ipa:/rɪˈzembl/"
       ]
      ]
     }
@@ -564,13 +553,13 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 15
+  "ep": 11
  },
  "source": {
-  "bank": "sb_42fa0282",
-  "pid": "u:v:suggest:m0",
+  "bank": "sb_9e149cb1",
+  "pid": "u:v:resemble:m0",
   "cefr": "C1",
   "diff": "hard",
-  "ipa": "/səˈdʒest/"
+  "ipa": "/rɪˈzembl/"
  }
 }

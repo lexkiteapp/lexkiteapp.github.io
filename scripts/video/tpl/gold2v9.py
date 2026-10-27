@@ -17,15 +17,15 @@ import difflib, glob, hashlib, json, os, re, subprocess, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 OUT = f'{ROOT}/content/video/cine/news/series'
 GOLD_EP1 = {'stop-saying-this': ['i am agree'], 'same-or-different': ['borrow', 'lend']}   # templates-v2 episode 1 (hand-written)
-BOARDW = {'d03_daniel_desk': 532, 'k03_kai_desk': 548, 'm03_mei_desk': 532, 'c01_carlos_board': 852, 'a02_ama_board': 856}   # measured board text width (render logs)
-ALT = {'stop-saying-this': dict(teacher='carlos', clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.65)}   # wide-board presenter when a hook word does not fit the series desk board
+BOARDW = {'c05_carlos2': 759, 'a05b_ama2': 759, 'd03_daniel_desk': 532, 'k03_kai_desk': 548, 'm03_mei_desk': 532, 'c01_carlos_board': 852, 'a02_ama_board': 856}   # measured board text width (render logs)
+ALT = {}   # 27/10: 3D hosts only (Carlos c05 / Ama a05, v14 board 759 px wide) – no desk-board fallback needed
 SERIES = {
-    'stop-saying-this': dict(name='Stop Saying This', template='mistake', type='stop-saying', pre='sts', L='m', teacher='daniel', set='classroom_board',
-                             clips=['d03_daniel_desk', 'd03t2_daniel_talk2', 'd03t3_daniel_talk3'], listen=['d03l_daniel_listen'], speed=0.72, accent='red', active='cream', hook_style='stop: red X badge + quoted error, stamp-in',
+    'stop-saying-this': dict(name='Stop Saying This', template='mistake', type='stop-saying', pre='sts', L='m', teacher='ama', set='classroom_board',
+                             clips=['a05b_ama2', 'a05t2_ama2_present', 'a05e1_ama2_excited', 'a05e2_ama2_question', 'a05e3_ama2_wow'], listen=['a05l2_ama2_listen'], speed=0.75, accent='red', active='cream', hook_style='stop: red X badge + quoted error, stamp-in',
                              motif='red badges + quoted lines, green check on the fix',
                              cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
     'same-or-different': dict(name='Same or Different?', template='pair', type='x-vs-y', pre='sod', L='p', teacher='carlos', set='classroom_board',
-                              clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.65, accent='green', active='green', hook_style='versus: two tiles slide in from both sides with a VS disc',
+                              clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='green', active='green', hook_style='versus: two tiles slide in from both sides with a VS disc',
                               motif='side-by-side twin tiles, the active one lit',
                               cta={'area': 'word-usage', 'link': 'https://lexkite.com/app/#/usage?c=pair', 'say': 'Compare tricky words'}),
 }
@@ -178,7 +178,7 @@ def seg_w(st, sg):
         return ImageFont.truetype(os.path.join(os.path.dirname(__file__), '../../../brand/social/src/fonts/NotoSans-Medium.ttf'), NOTE_SZ[st][0]).getlength(t[5:])
     return tw(st, t) + (12 if len(sg) > 1 and sg[1] == 'hl' else 0)
 def row_w(st, segs): return 4 + sum(seg_w(st, sg) for sg in segs)
-PXW = {'d03': 540, 'c01': 780}   # usable note width (px at the mock size): board zone / 0.89 minus margin (render_v9 build_note)
+PXW = {'d03': 540, 'c01': 780, 'c05': 695, 'a05': 695}   # usable note width (px at the mock size): board zone / 0.89 minus margin (render_v9 build_note)
 def wrap_s(sentence, idx=(), colour='green', base=None, maxc=26, st=None, lead=0):
     if st: return wrap([(w, colour if i in idx else base) for i, w in enumerate(toks(sentence))], maxc - lead - 8, lambda t: tw(st, t))
     return wrap([(w, colour if i in idx else base) for i, w in enumerate(toks(sentence))], maxc)

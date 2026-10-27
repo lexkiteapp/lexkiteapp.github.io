@@ -47,6 +47,7 @@ export const GA_JS = `try{var v=navigator.userAgent;(/Android|iPhone|iPad|iPod/.
 // Nút "Tải app" (header + chân trang) – đích theo nền tảng do js/get-app.js chọn; chữ lấy từ bản dịch app (cùng chữ với menu trong app)
 const PHONE = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 6.5v7m-3-3 3 3 3-3M10.5 18h3"/></svg>';
 const gaText = l => ({ iph: ['Cài Lexkite lên iPhone', 'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari', 'Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)', 'Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app'].map(k => ui(l, k)),
+  crios: ['Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh địa chỉ của Chrome'].map(k => ui(l, k)),
   ipad: ['Cài Lexkite lên iPad', 'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari'].map(k => ui(l, k)),
   mac: ['Cài Lexkite lên Mac', 'Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>', 'Bấm <b>Thêm</b> – Lexkite sẽ mở như một app'].map(k => ui(l, k)), ok: ui(l, 'Đã hiểu') });
 // Chữ hướng dẫn cài (iPhone/iPad/Mac) → web/js/get-app/<lang>.json, js/get-app.js chỉ nạp khi mở hướng dẫn (giữ landing ≤ 16 KB gzip)

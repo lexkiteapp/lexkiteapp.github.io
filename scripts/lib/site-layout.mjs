@@ -74,7 +74,7 @@ export const TAP_CSS = `.btn{display:inline-flex;align-items:center;justify-cont
 nav.main a:not(.btn){display:inline-flex;align-items:center;min-height:44px;padding:0 4px}.lsw .lsw-b{min-height:44px;padding:0 14px}
 .crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 6px;margin:0 0 8px}.crumbs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.crumbs [aria-current]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
 .cats a,.tf a,.jump a{display:inline-flex;align-items:center;min-height:44px;padding-top:0;padding-bottom:0}
-.site-foot li a,.flangs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.pager a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}
+.site-foot li a,.flangs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.site-foot li a{justify-content:flex-start}.pager a{display:inline-flex;align-items:center;min-height:44px}.site-foot li{margin:0}
 @media (max-width:640px){header.top .bar{flex-wrap:nowrap;gap:8px;padding:6px 16px}nav.main{flex-wrap:nowrap;gap:8px}nav.main>a:not(.btn){display:none}.logo span{font-size:19px}main{padding-top:4px}}`;
 export const SEO_CSS = `@media (prefers-color-scheme:light){:root{--primary:#CC3F1C}}
 :root{--srch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z'/%3E%3C/svg%3E")}
