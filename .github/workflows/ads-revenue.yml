@@ -1,0 +1,43 @@
+# 💰 Doanh thu THẬT từ Google (docs/ADS.md §5) – 06:03 UTC hằng ngày + chạy tay.
+# scripts/ads/report.mjs: AdSense Management API v2 (accounts.reports.generate) + AdMob API v1 (networkReport.generate), pub-2290668854727752,
+# khoảng = 7 ngày gần nhất ∪ tháng này (ghi đè – Google sửa số trễ) → POST https://lexkite.com/api/ads-report → D1 ads_rev (ghi theo diff).
+# Secret: ADS_OAUTH_CLIENT_ID / ADS_OAUTH_CLIENT_SECRET / ADS_OAUTH_REFRESH (OAuth người dùng, lấy 1 lần: node scripts/ads-oauth.mjs),
+# STUDIO_CALLBACK_SECRET (xác thực ghi), LEXKITE_CI_HEADER (qua WAF). Thiếu OAuth → dry-run fixture + cảnh báo, xanh.
+# Hạn mức: 5 lượt Google API/ngày · 1 POST · ~1 phút GitHub.
+name: Ads revenue
+on:
+  schedule:
+    - cron: '3 6 * * *'
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: 'Chỉ chạy fixture, không ghi D1'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: ads-revenue
+  cancel-in-progress: false
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Test (fixture)
+        run: node scripts/test/ads-revenue.mjs --no-dom
+      - name: Dry-run fixture
+        if: inputs.dry
+        run: node scripts/ads/report.mjs --fixture scripts/test/fixtures/ads-report --dry
+      - name: Lấy báo cáo Google → D1
+        if: ${{ !inputs.dry }}
+        env:
+          ADS_OAUTH_CLIENT_ID: ${{ secrets.ADS_OAUTH_CLIENT_ID }}
+          ADS_OAUTH_CLIENT_SECRET: ${{ secrets.ADS_OAUTH_CLIENT_SECRET }}
+          ADS_OAUTH_REFRESH: ${{ secrets.ADS_OAUTH_REFRESH }}
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+        run: node scripts/ads/report.mjs

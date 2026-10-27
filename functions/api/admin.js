@@ -8,7 +8,8 @@ import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.j
 import { growthData } from './growth.js';
 import { purgeNotices } from './notices.js';
 import { purgeConfig, ADS_PUBLIC } from './config.js';
-import { stats as adsStatsOf, guardOf, reporting as adsReporting } from './_ads.js';
+import { stats as adsStatsOf, guardOf, realOf as adsRealOf } from './_ads.js';
+import { SEL as ADS_REV_SEL } from './ads-report.js';
 
 const ORIGINS = /^https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)$/;
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
@@ -414,19 +415,22 @@ const OPS = {
   async ping() { return { ok: true }; },
   async auditLog(db) { return { rows: await all(db, 'SELECT at, email, op, ok, ip, country FROM admin_log ORDER BY id DESC LIMIT 100') }; },
   // ---- Nhiều khóa Gemini xoay vòng (D1 config 'gemini_keys' = [{k, at, by}]) – không bao giờ trả nguyên khóa ----
-  // 💰 Quản trị › Quảng cáo (js/admin-ads.js): ext_events 'ad*' 35 ngày – PK (day, kind) → SEARCH theo khoảng ngày, đệm 10 phút; báo cáo AdSense/AdMob: stub
+  // 💰 Quản trị › Quảng cáo (js/admin-ads.js): ext_events 'ad*' 35 ngày – PK (day, kind) → SEARCH theo khoảng ngày, đệm 10 phút;
+  // doanh thu THẬT: ads_rev (PK day,src,dim,key – SEARCH khoảng ngày, ≤ ~1.500 dòng) do Action ads-revenue.yml ghi qua /api/ads-report; chưa có bảng → real.connected = false
   async adsStats(db, b, who, env) {
-    const data = await cached('ads-v1', 600, async () => {
+    return cached('ads-v2', 600, async () => {
       const now = Date.now(), today = vday(now);
-      const [rows, cfg] = await Promise.all([
+      const [rows, cfg, rev] = await Promise.all([
         all(db, "SELECT day, kind, n FROM ext_events WHERE day >= ? AND kind >= 'ad' AND kind < 'ae'", vday(now - 35 * DAY)),
-        all(db, `SELECT k, v, at, by FROM config WHERE k IN (${ADS_KEYS.map(() => '?').join(',')})`, ...ADS_KEYS),
+        all(db, `SELECT k, v, at, by FROM config WHERE k IN (${[...ADS_KEYS, 'ads_report'].map(() => '?').join(',')})`, ...ADS_KEYS, 'ads_report'),
+        all(db, ADS_REV_SEL, vday(now - 35 * DAY), today).catch(() => []),
       ]);
       const c = Object.fromEntries(cfg.map(r => [r.k, r.v]));
       const ecpm = { web: c.ads_ecpm_web ?? 1, android: c.ads_ecpm_android ?? 1, ios: c.ads_ecpm_ios ?? 1 };
-      return { at: now, today, ...adsStatsOf(rows, today, ecpm, 30), guard: guardOf(rows, today, { pct: c.ads_guard_pct, min: c.ads_guard_min, prev: c.ads_guard || 1 }), ecpm };
+      let meta = null; try { meta = c.ads_report ? JSON.parse(c.ads_report) : null; } catch (e) { meta = null; }
+      const real = adsRealOf(rev, today, meta, rows, ecpm);
+      return { at: now, today, ...adsStatsOf(rows, today, ecpm, 30), guard: guardOf(rows, today, { pct: c.ads_guard_pct, min: c.ads_guard_min, prev: c.ads_guard || 1 }), ecpm, real, reporting: { connected: real.connected, at: real.at || null } };
     });
-    return { ...data, reporting: await adsReporting(env) };
   },
   async geminiStatus(db, b, who, env) {
     const list = await gkList(db), keys = [];

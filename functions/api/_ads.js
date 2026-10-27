@@ -80,10 +80,62 @@ export function stats(rows, today, ecpm = {}, days = 30) {
   return { from, days, series, places, plat, consent, guardLog: guardLog.sort((a, b) => (a.day < b.day ? -1 : 1)), trend, cohorts: cohorts(rows, today) };
 }
 
-/** Báo cáo chính chủ AdSense Management API / AdMob API – CHƯA nối (cần tài khoản + OAuth của chủ). Trả null → Quản trị hiện "chưa kết nối". */
-export async function reporting(env) {
-  if (!env || !env.ADSENSE_REPORT_TOKEN || !env.ADMOB_REPORT_TOKEN) return { adsense: null, admob: null, connected: false };
-  return { adsense: null, admob: null, connected: false, note: 'stub' }; // TODO(docs/ADS.md §7): accounts.reports.generate / networkReport:generate
+// ---------- Doanh thu THẬT (AdSense Management API v2 + AdMob API v1) ----------
+// scripts/ads/report.mjs (Action ads-revenue.yml, 06:00 UTC) → POST /api/ads-report (ads-report.js) → bảng ads_rev, PK (day, src, dim, key):
+// mọi truy vấn = khoảng ngày (SEARCH). 1 dòng = mọi chỉ số của 1 khóa (ít dòng hơn ext_events × chỉ số). Tiền = micro-USD (số nguyên).
+export const REV_SRC = ['adsense', 'admob'], REV_DIM = ['total', 'unit', 'country'], REV_M = ['earn', 'imp', 'click', 'req', 'mreq', 'pv'];
+const DAY_RE = /^\d{4}-\d{2}-\d{2}$/, KEY_RE = /^[A-Za-z0-9_:.-]{1,48}$/;
+const intOk = v => Number.isSafeInteger(v) && v >= 0 && v <= 1e13;
+/** Gói từ CI → { from, to, srcs, rows } hợp lệ, hoặc ném Error('bad:<lý do>'). Khoảng ≤ 40 ngày, ≤ 4000 dòng. */
+export function cleanRev(b) {
+  const from = String((b && b.from) || ''), to = String((b && b.to) || ''), srcs = [...new Set([].concat((b && b.srcs) || []))];
+  if (!DAY_RE.test(from) || !DAY_RE.test(to) || from > to || (Date.parse(to) - Date.parse(from)) / 864e5 > 40) throw new Error('bad:range');
+  if (!srcs.length || srcs.some(x => !REV_SRC.includes(x))) throw new Error('bad:srcs');
+  const raw = Array.isArray(b.rows) ? b.rows : null; if (!raw || raw.length > 4000) throw new Error('bad:rows');
+  const seen = new Set(), rows = [];
+  for (const r of raw) {
+    if (!r || !DAY_RE.test(r.day) || r.day < from || r.day > to || !srcs.includes(r.src) || !REV_DIM.includes(r.dim) || !KEY_RE.test(String(r.key))) throw new Error('bad:row');
+    const o = { day: r.day, src: r.src, dim: r.dim, key: String(r.key) };
+    for (const m of REV_M) { const v = r[m] == null ? 0 : r[m]; if (!intOk(v)) throw new Error('bad:' + m); o[m] = v; }
+    const pk = revPk(o); if (seen.has(pk)) throw new Error('bad:dup'); seen.add(pk); rows.push(o);
+  }
+  return { from, to, srcs, rows };
+}
+const revPk = r => `${r.day}|${r.src}|${r.dim}|${r.key}`;
+/** Ghi đè khoảng đã lấy: so với dòng cũ (cùng khoảng ngày, nguồn đã lấy) → chỉ ghi dòng đổi/mới, xóa khóa không còn. Không đổi = 0 ghi. */
+export function diffRev(old, fresh, srcs) {
+  const prev = new Map(old.filter(r => srcs.includes(r.src)).map(r => [revPk(r), r])), up = [];
+  for (const r of fresh) { const o = prev.get(revPk(r)); prev.delete(revPk(r)); if (!o || REV_M.some(m => +o[m] !== r[m])) up.push(r); }
+  return { up, del: [...prev.values()], same: fresh.length - up.length };
+}
+const usdOf = micros => (+micros || 0) / 1e6;
+const zero = () => ({ earn: 0, imp: 0, click: 0, req: 0, mreq: 0, pv: 0 });
+const addM = (a, r) => { for (const m of REV_M) a[m] += +r[m] || 0; return a; };
+const ratios = a => ({ ...a, usd: usdOf(a.earn), ecpm: a.imp ? usdOf(a.earn) / a.imp * 1000 : null, fill: a.req ? a.mreq / a.req : null, ctr: a.imp ? a.click / a.imp : null, rpm: a.pv ? usdOf(a.earn) / a.pv * 1000 : null });
+const platOfKey = (src, key) => (src === 'adsense' ? 'web' : String(key).split(':')[0]);
+/** Số liệu doanh thu thật cho Quản trị › Quảng cáo › Tổng quan.
+ *  rev: dòng ads_rev (≥ 35 ngày), adEv: ext_events 'ad:*' (proxy), ecpm: eCPM đặt tay → "ước tính vs thật" 7 ngày theo nền tảng. meta: config ads_report. */
+export function realOf(rev, today, meta, adEv = [], ecpm = {}) {
+  const y = dayAdd(today, -1), w0 = dayAdd(today, -7), m0 = today.slice(0, 8) + '01', s0 = dayAdd(today, -30);
+  const tot = rev.filter(r => r.dim === 'total');
+  const per = (from, to) => ratios(tot.filter(r => r.day >= from && r.day <= to).reduce(addM, zero()));
+  const byDay = {}; for (const r of tot) if (r.day >= s0) byDay[r.day] = (byDay[r.day] || 0) + usdOf(r.earn);
+  const series = Array.from({ length: 30 }, (_, i) => { const d = dayAdd(s0, i + 1); return { day: d, rev: byDay[d] || 0 }; });
+  const group = (dim, key) => { const g = {}; for (const r of rev) if (r.dim === dim && r.day >= w0 && r.day <= y) addM(g[key(r)] = g[key(r)] || zero(), r); return g; };
+  const places = Object.entries(group('unit', r => platOfKey(r.src, r.key) + '|' + (r.src === 'adsense' ? String(r.key).replace(/^web:/, '') : String(r.key).split(':').slice(1).join(':'))))
+    .map(([k, a]) => { const [plat, place] = k.split('|'); return { plat, place, ...ratios(a) }; }).sort((a, b) => b.earn - a.earn || b.imp - a.imp);
+  const countries = Object.entries(group('country', r => r.key)).map(([cc, a]) => ({ cc, ...ratios(a) })).sort((a, b) => (a.cc === '_o') - (b.cc === '_o') || b.earn - a.earn || b.imp - a.imp);
+  // Ước tính (lượt hiển thị × eCPM đặt tay) vs thật, 7 ngày đã xong theo nền tảng; lệch = (ước tính − thật) / thật
+  const real7 = { web: 0, android: 0, ios: 0 }, est7 = { web: 0, android: 0, ios: 0 };
+  for (const r of rev) if (r.day >= w0 && r.day <= y && (r.src === 'adsense' ? r.dim === 'total' : r.dim === 'unit')) { const p = platOfKey(r.src, r.key); if (p in real7) real7[p] += usdOf(r.earn); }
+  for (const r of adEv) { const k = String(r.kind).split(':'); if (k[0] === 'ad' && (k[1] === 'imp' || k[1] === 'show') && k[2] in est7 && r.day >= w0 && r.day <= y) est7[k[2]] += (+r.n || 0) / 1000 * Math.max(0, +(ecpm[k[2]] ?? 1) || 0); }
+  const vs = PLATS.map(p => ({ plat: p, est: est7[p], real: real7[p], dev: real7[p] > 0 ? (est7[p] - real7[p]) / real7[p] : null }));
+  return { yday: per(y, y), d7: per(w0, y), mtd: per(m0, today), series, places, countries, vs, ...reporting(meta) };
+}
+/** Trạng thái nối báo cáo: có lượt ghi thành công từ Action (config ads_report) → connected. Không còn cần biến môi trường ở Pages. */
+export function reporting(meta) {
+  const m = meta && typeof meta === 'object' ? meta : null;
+  return m && m.at ? { connected: true, at: +m.at, srcs: m.srcs || [], range: [m.from, m.to] } : { connected: false };
 }
 
 // ---------- AdMob Server-Side Verification (thưởng AI) ----------
