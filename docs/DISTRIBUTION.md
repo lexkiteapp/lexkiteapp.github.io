@@ -38,3 +38,13 @@ Kiểm: `scripts/test/facade-perf.mjs` + `scripts/test/admin-dist-shots.mjs` (`.
 ## 5. Thư viện
 Loại Shorts / Video dài / Podcast ở đầu lưới; lọc chủ đề › chủ đề con, kỹ năng, CEFR, kỳ thi. "Kênh mặc định" (Chọn kênh YouTube) lọc gói đăng + đồng bộ chỉ kênh đó. Thao tác "Đổi kênh" ghi `yt_plan` (tay).
 **Xóa hẳn** = DANGER (đăng nhập ≤ 15 phút) + gõ `DELETE <n>` → `clip_review.deleted = 2`, bỏ khỏi hàng đợi/kế hoạch → `drive-shorts.yml` (`shorts-archive.mjs`) cho master + bìa vào thùng rác Drive, bỏ công thức khỏi `lexkite-shorts` → `youtube` op `purged` (`deleted = 3`).
+
+## 6. Autopilot social (chạy nền, 27/10/2026)
+Cron `.github/workflows/social-auto.yml` (mỗi 2 giờ, `52 */2 * * *`, `infra/jobs.json` id `social-auto`) → `scripts/social/auto.mjs` ký HMAC (`LEXKITE_DRIVE_CLI_KEY`) → `POST /api/social-auto {op: run|status}` (`functions/api/social-auto.js`). Logic: `functions/api/_social_auto.js`. Khóa GrabCast chỉ ở Pages (`GRABCAST_API_KEY`), Actions không có.
+1. ≥ `sync_h` (6) giờ/lần: `GET accounts` → `ext_sync`, `GET posts` → `boardSync` → bài autopilot đã đăng ⇒ `dist_social.state = published`. Webhook ký HMAC `/api/social/webhook` (`GRABCAST_WEBHOOK_SECRET`) làm việc này ngay khi GrabCast mở.
+2. `social_due` cửa sổ [now + 20 phút, now + 30 giờ], chỉ nền tảng bật (mặc định **FB + IG**; TikTok/YouTube tắt tới khi GrabCast được TikTok/Google duyệt app), ≤ 3 bài/lượt.
+3. Mỗi bài: `pushClip` (cache `media:<clip>`) → `POST posts` NHÁP (Idempotency-Key `lkap-c-<sha(clip|kênh)>`) → `soc_board` id cố định `b_ap…`, cột **Chờ duyệt**, `want_at = slot` → `social_ack pushed`. Bài tay đã có cho clip × tài khoản → không tạo trùng.
+4. **Luật duyệt**: công tắc **Tự động duyệt** (mặc định TẮT) + đủ `manual_first` (5) bài duyệt TAY trên nền tảng đó ⇒ `GET` bài → dấu băm → `schedule(scheduled_at = slot)` (`lkap-s-…`), `approved_by = autopilot`; GrabCast tự đăng lúc tới giờ. Không đủ ⇒ owner duyệt ở kanban (board/approve lên lịch đúng slot).
+5. **An toàn tải**: ≤ `daily_calls` (60) lượt GrabCast/ngày (đếm ở `soc_meta auto_state`), < 3 lượt còn lại → không chạy; 401/403 (12 giờ) · 409/422 (3 giờ) · 429/503 (2 giờ) · 5xx/timeout (1 giờ) = dừng CẢ lượt + cầu dao ở D1, không thử lại; 1 bài lỗi thường 2 lượt → bỏ qua tới khi bấm **Mở lại**. Cầu dao D1 `_d1guard` (≥ 50 %) → bỏ lượt. Truy vấn theo chỉ mục `dist_social_slot`, `soc_board_clip`, `soc_board_state` (EXPLAIN trong test).
+6. Quản trị › Video & Social › **Hàng đợi** › thẻ 🛰️ Autopilot: lần chạy cuối, lỗi/cầu dao, ngân sách còn, bài sắp đăng 72 giờ, công tắc (kill switch, tự duyệt, N, nền tảng), Chạy ngay (`lk/auto`, `lk/auto/save|run|reset`). `plan_daily` (mặc định tắt) = tự chạy `plan_run` 1 lần/ngày.
+Test: `scripts/test/social-auto.mjs`.
