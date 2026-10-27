@@ -89,7 +89,7 @@
         </div>
         <div class="stack" style="position:sticky;top:80px">
           <div class="card"><h3>💡 ${t('Từ vựng gợi ý')} · ${topic ? esc(topic.name) : ''}</h3>
-            <div class="row" style="margin-top:.4rem">${(topic ? topic.words.slice(0, 14) : []).map(w => `<button class="chip" data-ins="${esc(w.word)}" title="${esc(w.vi)}" style="border:0;cursor:pointer">${esc(w.word)}</button>`).join('')}</div>
+            <div class="row" style="margin-top:.4rem">${(topic ? topic.words.slice(0, 14) : []).map(w => `<button class="chip" data-ins="${esc(w.word)}" title="${esc(App.meanOf(w))}" style="border:0;cursor:pointer">${esc(w.word)}</button>`).join('')}</div>
             <div class="tiny muted" style="margin-top:.5rem">${t('Bấm để chèn vào bài')}</div></div>
           <div class="card"><h3>📊 ${t('Xu hướng đề Task 2 (2026)')}</h3>
             ${TRENDS.types.map(([ty, v]) => `<div class="srow" style="grid-template-columns:120px minmax(0,1fr) 34px"><span class="tiny"><b>${esc(t(ty))}</b></span><div class="sbar"><i style="width:${v * 2}%;background:var(--primary)"></i></div><span class="tiny muted">${v}%</span></div>`).join('')}

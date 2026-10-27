@@ -47,7 +47,11 @@ const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếề�
 // Hết lượt quét (MAX) mà hàng đợi còn trang → KHÔNG được xóa câu cũ (trang chưa tới vẫn còn trong app): gộp với danh sách trước
 const truncated = queue.length > 0;
 if (truncated) { try { for (const x of JSON.parse(fs.readFileSync('content/i18n/strings.json', 'utf8'))) strings.add(x); } catch (e) { /* chưa có danh sách cũ */ } process.stderr.write(`⚠ dừng ở ${n} trang (còn ${queue.length} trong hàng đợi) – giữ câu cũ\n`); }
-const list = [...strings].filter(s => VI.test(s)).sort();
+let list = [...strings].filter(s => VI.test(s)).sort();
+// Chặn co rút: lần quét lỗi (app không vẽ được nhiều trang) mà ghi đè sẽ xóa hết bản dịch sẵn → giao diện ≠ vi lộ tiếng Việt khi dịch máy lỗi
+// (27/10/2026: 3669 → 536 câu). Ít hơn 60% danh sách cũ → giữ cả câu cũ.
+let prev = []; try { prev = JSON.parse(fs.readFileSync('content/i18n/strings.json', 'utf8')); } catch (e) { /* chưa có */ }
+if (!truncated && prev.length && list.length < prev.length * 0.6) { process.stderr.write(`⚠ chỉ thu ${list.length}/${prev.length} câu – nghi quét lỗi, giữ cả danh sách cũ\n`); list = [...new Set([...list, ...prev])].sort(); }
 fs.mkdirSync('content/i18n', { recursive: true });
 fs.writeFileSync('content/i18n/strings.json', JSON.stringify(list, null, 0).replace(/","/g, '",\n"') + '\n');
 console.log(`✓ harvest: ${n} trang, ${list.length} câu cần dịch sẵn (${(list.join('').length / 1024).toFixed(0)} KB)${errors.length ? ` · ${errors.length} lỗi nạp` : ''}`);

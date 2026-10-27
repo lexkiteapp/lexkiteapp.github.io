@@ -10,13 +10,14 @@
   // [[cụm|nghĩa]]  {{từ nối}}  <<Nhãn vai trò>>
   const roleT = r => t(String(r).trim()); // Mở bài, Thân bài 1… → bản dịch tay (scripts/i18n-fixed.json)
   function renderAnnotated(text) {
+    const vw = I18N.learnLang() === 'vi'; // nghĩa dưới cụm soạn tiếng Việt: ngôn ngữ khác → ẩn chờ dịch (App.viHtml), không lộ tiếng Việt
     return text.split(/\n\s*\n/).map(p => {
       let h = esc(p.trim());
       // Vai trò ở đầu đoạn → nhãn phía trên đoạn; giữa đoạn → nhãn nhỏ trong dòng
       let head = '';
       h = h.replace(/^&lt;&lt;([^&]+?)&gt;&gt;\s*/, (m, r) => { head = `<div class="an-ptag"><span class="an-role" translate="no">${esc(roleT(r))}</span></div>`; return ''; });
       h = h.replace(/&lt;&lt;([^&]+?)&gt;&gt;\s*/g, (m, r) => `<span class="an-role an-inl" translate="no">${esc(roleT(r))}</span> `)
-        .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (m, en, vi) => `<span class="an-ch" data-ph="${en}" data-vi="${vi}" tabindex="0"><span class="an-en">${en}</span><span class="an-gl">${vi}</span></span>`)
+        .replace(/\[\[([^|\]]+)\|([^\]]+)\]\]/g, (m, en, vi) => `<span class="an-ch" data-ph="${en}" data-vi="${vi}"${vw ? ` data-gl="${vi}"` : ''} tabindex="0"><span class="an-en">${en}</span><span class="an-gl${vw ? '' : ' tr-wait'}">${vi}</span></span>`)
         .replace(/\{\{([^}]+)\}\}/g, '<span class="an-lk">$1</span>');
       return head + '<p>' + h + '</p>';
     }).join('');
@@ -74,7 +75,7 @@
         <aside class="md-side">
           <div class="card">
             <div class="row between"><h3 style="margin:0">${UI.icon('puzzle')} ${t('Cụm từ hay')} <span class="muted small">(${chunks.length})</span></h3><button class="btn sm primary" id="saveAll">${t('Lưu tất cả')}</button></div>
-            <div class="md-list">${chunks.map((c, i) => `<div class="md-item"><div><b>${esc(c.en)}</b><div class="small muted">${esc(c.vi)}</div></div><button class="icon-btn sm" data-sv="${i}" title="${t('Lưu vào Sổ cụm từ')}">${App.inDeck(c.en) ? '✓' : '+'}</button></div>`).join('')}</div>
+            <div class="md-list">${chunks.map((c, i) => `<div class="md-item"><div><b>${esc(c.en)}</b><div class="small muted">${App.viHtml(c.vi)}</div></div><button class="icon-btn sm" data-sv="${i}" title="${t('Lưu vào Sổ cụm từ')}">${App.inDeck(c.en) ? '✓' : '+'}</button></div>`).join('')}</div>
           </div>
           ${links.length ? `<div class="card" style="margin-top:1rem"><h3 style="margin:0 0 .5rem">🔗 ${t('Từ nối & liên kết')}</h3><div class="row">${links.map(l => `<span class="md-lchip">${esc(l)}</span>`).join('')}</div></div>` : ''}
         </aside>

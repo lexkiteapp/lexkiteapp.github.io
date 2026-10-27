@@ -24,7 +24,7 @@
         <a class="card hover topic-card" href="#/read/${r.id}" style="color:var(--text)">
           <div class="row between"><span class="em">${r.emoji}</span>${levelChip(r.level)}</div>
           <h3>${esc(r.title)}</h3>
-          <div class="muted small">${esc(r.summaryVi)}</div>
+          <div class="muted small">${App.viHtml(r.summaryVi, r.summaryEn)}</div>
           <div class="row"><span class="chip">${UI.icon('timer')} ${t('{n} phút', { n: Math.max(2, Math.round(r.text.split(/\s+/).length / 140)) })}</span><span class="chip">${t('{n} câu hỏi', { n: r.questions.length })}</span>${done[r.id] ? `<span class="chip ok">✓ ${done[r.id]}</span>` : ''}</div>
         </a>`).join('')}</div>`;
   };
@@ -44,7 +44,7 @@
           <div class="row between"><div class="row">${levelChip(r.level)}<span class="chip">${r.emoji} ${esc(r.topic)}</span></div>
             <button class="btn sm" id="readAloud">🔊 ${t('Nghe cả bài')}</button></div>
           <h1 style="margin:.8rem 0 .3rem">${esc(r.title)}</h1>
-          <p class="muted" style="margin-bottom:.8rem">${esc(r.summaryVi)}</p>
+          <p class="muted" style="margin-bottom:.8rem">${App.viHtml(r.summaryVi, r.summaryEn)}</p>
           <div class="hl-bar" id="hlBar">
             <span class="tiny muted" style="font-weight:700">${t('TÔ SÁNG:')}</span>
             ${[['kw', '🔑 ' + t('Từ khóa')], ['awl', UI.icon('graduation-cap') + ' ' + t('Học thuật AWL')], ['link', '🧷 ' + t('Từ nối & cụm')], ['mine', UI.icon('notebook') + ' ' + t('Từ của tôi')]].map(([k, l]) => `<button class="hl-chip ${k} ${hl.includes(k) ? 'on' : ''}" data-hl="${k}">${l} <b data-count="${k}"></b></button>`).join('')}

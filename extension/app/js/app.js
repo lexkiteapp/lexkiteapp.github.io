@@ -224,10 +224,10 @@
     courses: ['js/courses.js'], goal: ['js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
-    writing: ['js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
+    writing: ['js/i18n/en/ideast.js', 'js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
     mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'js/readtest/gt3.js', 'js/mock.js', 'js/rtype.js'],
     tsl: ['js/lib/tsl-a.js', 'js/lib/tsl-b.js', 'js/lib/domain-a.js', 'js/lib/domain-b.js', 'js/lib/exam-vocab.js', 'js/lib/exam-vocab2.js', 'js/lib/exam-vocab3.js', 'js/lib/nawl.js', 'js/lib/bsl.js'],
-    speak: ['js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
+    speak: ['js/i18n/en/speakt.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/speak/samples.js', 'js/speak/more2.js', 'js/speak/more3.js', 'js/speak/more.js', 'js/speaking.js'], // Phòng Speaking: chỉ tải khi mở
     qstats: ['js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js'],
     toefl: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toefl/data1.js', 'js/toefl/data2.js', 'js/toefl/data3.js', 'js/toefl/data4.js', 'js/toefl.js'],
     toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'js/toeic.js'],
@@ -494,6 +494,8 @@
   // Nghĩa hiển thị DUY NHẤT cho mọi danh sách/thẻ: tiếng Việt chỉ khi người học chọn nghĩa tiếng Việt;
   // ngôn ngữ khác → nghĩa tiếng mẹ đẻ dịch sẵn (gói) → định nghĩa tiếng Anh. Không bao giờ rơi về tiếng Việt.
   App.meanOf = x => { if (!x) return ''; if (I18N.meanLang() === 'vi') return x.vi || x.def || ''; return (I18N.lang() !== 'en' && App.nativeGloss && App.nativeGloss(x.word, x.pos)) || x.def || ''; };
+  // Nội dung soạn tiếng Việt ở giao diện ≠ vi – không bao giờ hiện tiếng Việt (docs/I18N-PIPELINE.md §2.6)
+  App.viHtml = (vi, en) => { const L = I18N.learnLang(); if (!vi || L === 'vi') return esc(vi || en || ''); if (L === 'en' && en) return `<span lang="en">${esc(en)}</span>`; return `<span class="tr-wait"${en ? ` data-en="${esc(en)}"` : ''}>${esc(vi)}</span>`; };
   // Dọn dẹp khi rời trang: nhiều module có thể đăng ký (App.onCleanup(fn)); App.cleanup (1 hàm) vẫn được hỗ trợ
   App.cleanups = []; App.onCleanup = fn => { if (typeof fn === 'function') App.cleanups.push(fn); };
   App.packs = {};
@@ -531,7 +533,7 @@
         if (!pre) await Promise.race([preP, new Promise(r => setTimeout(r, 1500))]);
         const nodes = [], tw = document.createTreeWalker(view, NodeFilter.SHOW_TEXT); let n;
         while ((n = tw.nextNode())) { const s = n.nodeValue.trim().replace(/\s+/g, ' '); if (s.length > 1 && VI.test(s) && (!n.parentElement.closest(SKIP) || n.parentElement.closest('.wn, [translate="yes"]'))) nodes.push(n); /* ghi chú từ (.wn) luôn được dịch cho người học quốc tế */ }
-        const need = [];
+        const need = []; let failed = false;
         // Thuộc tính hiển thị (tooltip, nhãn trợ năng, gợi ý ô nhập) cũng phải theo ngôn ngữ người dùng
         const attrs = []; view.querySelectorAll('[title],[aria-label],[placeholder]').forEach(el => { if (el.closest(SKIP) && !el.matches('input,textarea')) return; ['title', 'aria-label', 'placeholder'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v)) attrs.push([el, a, v.trim()]); }); });
         attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); else if (!need.includes(v)) need.push(v); });
@@ -540,13 +542,16 @@
         for (let i = 0; i < need.length;) { // lô ≤ 1800 ký tự
           const batch = []; let len = 0; while (i < need.length && len + need[i].length < 1800) { batch.push(need[i]); len += need[i].length + 1; i++; } if (!batch.length) batch.push(need[i++]);
           const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=vi&tl=${to}&dt=t&q=${encodeURIComponent(batch.join('\n'))}`).then(x => x.json()).catch(() => null);
-          if (!r || !r[0]) break;
+          if (!r || !r[0]) { failed = true; break; }
           const out = r[0].map(x => x[0]).join('').split('\n');
           batch.forEach((s, k) => { if (out[k] && out[k].trim()) mem[s] = out[k].trim(); });
         }
         if (need.length) { save(); nodes.forEach(put); attrs.forEach(([el, a, v]) => { if (got(v)) el.setAttribute(a, got(v)); }); }
         // Ghi chú học từ (soạn tiếng Việt): chỉ hiện khi đã dịch hết sang ngôn ngữ người học – không lộ tiếng Việt khi dịch chậm/lỗi
         view.querySelectorAll('.wn.wn-tr, .tr-wait').forEach(el => { if (!VI.test(el.textContent)) el.classList.remove('wn-tr', 'tr-wait'); });
+        // dịch hỏng → tiếng Anh viết tay (data-en)
+        if (failed) view.querySelectorAll('.tr-wait[data-en]').forEach(el => { el.textContent = el.dataset.en; el.lang = 'en'; el.classList.remove('tr-wait'); });
+        view.querySelectorAll('.an-ch:not([data-gl])').forEach(ch => { const g = ch.querySelector('.an-gl'); if (g && !g.classList.contains('tr-wait')) ch.dataset.gl = g.textContent; });
       } finally { busy = false; }
     }
     new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
@@ -605,7 +610,7 @@
   const readHtml = r => r ? `<div class="section-title"><h2>${t('Bài đọc hôm nay')}</h2><a href="#/reading">${t('Tất cả bài đọc →')}</a></div>
       <a class="card hover row nowrap" href="#/read/${r.id}" style="color:var(--text)">
         <div style="font-size:2.4rem">${r.emoji}</div>
-        <div class="grow"><div class="row"><h3 style="margin:0">${esc(r.title)}</h3>${levelChip(r.level)}</div><div class="muted small">${esc(r.summaryVi)}</div></div>
+        <div class="grow"><div class="row"><h3 style="margin:0">${esc(r.title)}</h3>${levelChip(r.level)}</div><div class="muted small">${App.viHtml(r.summaryVi, r.summaryEn)}</div></div>
         <span class="btn sm">${t('Đọc →')}</span></a>` : '';
   // ================= HÔM NAY: 4 khối – chào + mục tiêu · kế hoạch hôm nay (1 nút chính) · từ của ngày · quảng cáo =================
   // ⭕ 3 vòng mục tiêu ngày (kiểu Activity Rings): ôn FSRS · từ mới · luyện nói. Đủ 3 vòng → pháo hoa + 50 XP (1 lần/ngày)
