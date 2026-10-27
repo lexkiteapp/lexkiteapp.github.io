@@ -49,5 +49,7 @@
     'Miễn phí, không giới hạn': "Free, no limits",
     'Ôn lỗi': "Fix mistakes",
     'Bài học': "Lesson",
+    'Truyện': 'Story',
+    'Trả lời câu hỏi': 'Answer the question',
   });
 })(typeof self !== 'undefined' ? self : this);

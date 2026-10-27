@@ -28844,5 +28844,35 @@
     "ar": "خريطة الدروس",
     "ru": "Карта уроков",
     "tr": "Ders haritası"
+  },
+  "Truyện": {
+    "es": "Historia",
+    "pt": "História",
+    "fr": "Histoire",
+    "de": "Geschichte",
+    "id": "Cerita",
+    "th": "เรื่องสั้น",
+    "zh": "故事",
+    "ja": "ストーリー",
+    "ko": "이야기",
+    "hi": "कहानी",
+    "ar": "قصة",
+    "ru": "История",
+    "tr": "Hikâye"
+  },
+  "Trả lời câu hỏi": {
+    "es": "Responde la pregunta",
+    "pt": "Responda à pergunta",
+    "fr": "Répondez à la question",
+    "de": "Beantworte die Frage",
+    "id": "Jawab pertanyaannya",
+    "th": "ตอบคำถาม",
+    "zh": "回答问题",
+    "ja": "質問に答えよう",
+    "ko": "질문에 답하세요",
+    "hi": "सवाल का जवाब दें",
+    "ar": "أجب عن السؤال",
+    "ru": "Ответьте на вопрос",
+    "tr": "Soruyu cevapla"
   }
 }
