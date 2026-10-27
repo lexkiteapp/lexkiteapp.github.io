@@ -2,15 +2,16 @@
    Chữ: self.LK_GETAPP_T = đối tượng | hàm trả đối tượng (web app, t()) | URL JSON /js/get-app/<lang>.json (landing, scripts/build-landing.mjs)
    { iph:[tiêu đề, b1, b2, b3], ipad:[tiêu đề, b1], mac:[tiêu đề, b1, b2], ok }. Màu chỉ từ bảng màu thương hiệu (docs/BRAND-RULES.md). */
 (function (W, D) {
-  var css = 0;
+  var css = 0, SHARE = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-4px"><path d="M12 3v12"/><path d="m8 7 4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>';
   function guide(k) {
-    var T = W.LK_GETAPP_T, u = navigator.userAgent, ipad = /iPad/.test(u) || /Mac/.test(u) && navigator.maxTouchPoints > 1 && k !== 'dock', s, d, b;
+    var T = W.LK_GETAPP_T, u = navigator.userAgent, ipad = /iPad/.test(u) || /Macintosh/.test(u) && navigator.maxTouchPoints > 1 && k !== 'dock', s, d, b; // iPhone cũng có "like Mac OS X" → chỉ Macintosh mới là iPad giả Mac
     if (typeof T === 'string') { // landing: nạp chữ khi cần; lỗi mạng → mở web app (app có hướng dẫn riêng)
       fetch(T).then(function (r) { return r.json(); }).then(function (o) { W.LK_GETAPP_T = o; guide(k); }).catch(function () { location.href = '/app/'; });
       return;
     }
     T = (typeof T === 'function' ? T() : T) || {};
     s = k === 'dock' ? T.mac : ipad && T.ipad ? T.ipad.concat(T.iph.slice(2)) : T.iph;
+    if (s && k !== 'dock' && /CriOS/.test(u) && T.crios && T.crios[0]) s = [s[0], T.crios[0]].concat(s.slice(2)); // Chrome iOS: nút Chia sẻ ở thanh địa chỉ, không phải Safari
     if (!s || !s[0]) return;
     if (!css) {
       css = D.createElement('style');
@@ -26,7 +27,7 @@
     d.id = 'lk-ga'; d.setAttribute('aria-labelledby', 'lk-ga-h');
     d.innerHTML = '<h2 id="lk-ga-h"></h2><ol></ol><button type="button"></button>';
     d.querySelector('h2').textContent = '📲 ' + s[0];
-    d.querySelector('ol').innerHTML = s.slice(1).map(function (x) { return '<li>' + x + '</li>'; }).join(''); // chuỗi giao diện tin cậy (có <b>)
+    d.querySelector('ol').innerHTML = s.slice(1).map(function (x) { return '<li>' + String(x).replace(/<span[^>]*>⎋<\/span>|⎋/g, SHARE) + '</li>'; }).join(''); // ⎋ hiện sai thành vòng tròn mũi tên → icon Chia sẻ chuẩn iOS // chuỗi giao diện tin cậy (có <b>)
     b = d.querySelector('button'); b.textContent = T.ok || 'OK';
     b.onclick = function () { if (d.close) d.close(); d.remove(); };
     d.addEventListener('close', function () { d.remove(); });

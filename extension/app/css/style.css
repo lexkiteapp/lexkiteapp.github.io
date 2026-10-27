@@ -190,6 +190,12 @@ a.chip:hover { background: var(--primary-soft); color: var(--primary-text); }
 .chip.lv.C1, .chip.lv.C2 { background: var(--gold-soft); color: var(--gold-text); }
 .chip.pos { font-style: italic; }
 .chip.ok { background: var(--good-soft); color: var(--good-text); }
+/* Thanh cuộn ngang (tab, bước, thanh tab Cài đặt): mờ dần ở mép còn nội dung bị khuất – báo còn mục để vuốt (app.js edgeFade) */
+.fade-end { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.75rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 1.75rem), transparent); }
+.fade-start { -webkit-mask-image: linear-gradient(to right, transparent, #000 1.75rem); mask-image: linear-gradient(to right, transparent, #000 1.75rem); }
+.fade-start.fade-end { -webkit-mask-image: linear-gradient(to right, transparent, #000 1.75rem, #000 calc(100% - 1.75rem), transparent); mask-image: linear-gradient(to right, transparent, #000 1.75rem, #000 calc(100% - 1.75rem), transparent); }
+[dir="rtl"] .fade-end:not(.fade-start) { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 1.75rem), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 1.75rem), transparent); }
+[dir="rtl"] .fade-start:not(.fade-end) { -webkit-mask-image: linear-gradient(to left, transparent, #000 1.75rem); mask-image: linear-gradient(to left, transparent, #000 1.75rem); }
 .tabs { display: flex; gap: .35rem; padding: .3rem; background: var(--surface-2); border-radius: 14px; overflow-x: auto; scrollbar-width: none; max-width: 100%; } /* không tràn màn hình hẹp */
 .tabs button { border: 0; background: transparent; padding: .5rem .95rem; border-radius: 10px; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; }
 .tabs button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow-sm); }
@@ -1191,7 +1197,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 
 /* ---------- Cài đặt: danh sách nhóm (kiểu iOS / Google) ---------- */
 .set-wrap { max-width: 760px; margin: 0 auto; width: 100%; box-sizing: border-box; }
-.set-nav { position: sticky; top: 64px; z-index: 6; display: flex; flex-wrap: wrap; gap: .4rem; margin: -.25rem -.25rem 1rem; padding: .45rem .25rem; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); max-width: 100%; }
+.set-nav { position: sticky; top: 64px; z-index: 6; display: flex; flex-wrap: wrap; gap: .4rem; margin: -.25rem -.25rem 1rem; padding: .45rem .25rem; background: var(--bg); box-shadow: 0 1px 0 var(--line); max-width: 100%; } /* nền đặc: nội dung cuộn bên dưới không lộ qua thanh tab */
 .set-nav::-webkit-scrollbar { display: none; }
 .set-nav button { flex: none; display: inline-flex; align-items: center; gap: .35em; border: 1px solid var(--line); background: var(--surface); color: var(--text); font: inherit; font-size: .88rem; font-weight: 600; padding: .42rem .85rem; border-radius: 999px; cursor: pointer; transition: background .15s, border-color .15s, transform .1s; }
 .set-nav button:hover { border-color: var(--primary); }
@@ -1222,7 +1228,7 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 .danger-t { color: var(--again-text); }
 @media (max-width: 640px) {
   .section-title { flex-direction: column; align-items: flex-start; gap: .25rem; margin: 1.5rem 0 .75rem; }
-  .set-nav { top: 56px; flex-wrap: nowrap; overflow-x: auto; padding: .45rem 1rem .45rem .35rem; scroll-padding-inline: .5rem; -webkit-overflow-scrolling: touch; }
+  .set-nav { top: 56px; flex-wrap: nowrap; overflow-x: auto; margin-inline: -1rem; padding: .45rem 2rem .45rem 1rem; scroll-padding-inline: 1rem; -webkit-overflow-scrolling: touch; } /* tràn mép như thanh tab app lớn; mờ mép khi còn tab: .fade-* (app.js edgeFade) */
   .set-row { padding: .8rem .95rem; }
   .set-c { margin-left: 0; width: 100%; max-width: 100%; min-width: 0; justify-content: stretch; }
   .set-c .input, .set-c select { width: 100%; min-width: 0; max-width: 100%; }
