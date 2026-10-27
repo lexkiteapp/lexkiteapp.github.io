@@ -9,11 +9,12 @@ import jsdom from 'jsdom';
 const require = createRequire(import.meta.url);
 const { JSDOM } = jsdom;
 const WEB = 'web';
+// Giao diện tiếng Việt (chuỗi gốc): test so chữ tiếng Việt; jsdom không nạp en.js nhưng lazyfix nạp các nhóm en/<nhóm>.js lười (i18nl) → ghim ?hl=vi
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const vc = new jsdom.VirtualConsole(); vc.on('jsdomError', e => { if (!/Not implemented/.test(e.message)) console.error(e.message); });
-const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
+const dom = new JSDOM(html.replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '').replace(/<script(?: defer)? src="[^"]+"><\/script>/g, '').replace(/<link[^>]+>/g, ''), { url: 'http://localhost/app/?hl=vi#/home', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole: vc });
 const w = dom.window, errors = [], net = [];
 w.addEventListener('error', e => errors.push(e.message));
 w.console.error = (...a) => errors.push(a.join(' '));
