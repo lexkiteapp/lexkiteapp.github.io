@@ -5,8 +5,8 @@
  "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "a02_ama_board",
-  "a02t2_ama_talk2"
+  "a04_ama_3d",
+  "a04t2_ama_3d_talk2"
  ],
  "accent": "yellow",
  "active": "yellow",
@@ -428,6 +428,6 @@
  },
  "caption_cap": 42,
  "listen": [
-  "a02l_ama_listen"
+  "a04l_ama_3d_listen"
  ]
 }
