@@ -556,21 +556,22 @@
     const qs = items.map((w, i) => ({ type: mode === 'test' ? types[i % types.length] : types[0], w, list }));
     if (mode === 'test') qs.sort(() => Math.random() - .5);
     const title = `${MODES[mode].em} ${MODES[mode].name} · ${esc(srcName(src))}`;
-    const run = { i: 0, score: 0, wrong: [], xp: 0, c: FX ? FX.combo() : null };
+    const run = { i: 0, score: 0, wrong: [], wq: [], xp: 0, c: FX ? FX.combo() : null };
+    let seq = qs; // 🎯 Cơ hội thứ 2 (js/ad-offers.js): seq = các câu sai làm lại, điểm cộng dồn trên tổng qs
     const again = () => runQuiz(src, mode, as);
     const notice = FX ? (as === 'speak' ? 'mic' : mode === 'listen' && FX.audioOff() ? 'audio' : '') : '';
     const next = () => {
-      if (run.i >= qs.length) return finish();
-      const q = qs[run.i];
+      if (run.i >= seq.length) return finish();
+      const q = seq[run.i];
       if (FX && FX.audioOff() && q.type === 'type-listen') q.type = 'type-vi'; // 🔇 đang tạm tắt bài nghe
-      view.innerHTML = `<div class="study-wrap">${head(title, run.i, qs.length, `✅ ${run.score}`)}<div id="qbox"></div></div>`;
+      view.innerHTML = `<div class="study-wrap">${head(run.second ? '🎯 ' + t('Cơ hội thứ 2') + ' · ' + title : title, run.i, seq.length, `✅ ${run.score}`)}<div id="qbox"></div></div>`;
       guardExit(() => run.i > 0);
       // 💪 8 câu đúng liền → mời chế độ khó (1 lần/lượt; câu còn lại: gõ thay vì chọn, ít gợi ý, +6 XP)
-      if (FX && FX.wantsHard(run.c, qs.length - run.i, mode)) { document.onkeydown = null; return FX.offerHard($('#qbox'), run.c, yes => { if (yes) FX.harden(qs.slice(run.i)); next(); }); }
+      if (FX && !run.second && FX.wantsHard(run.c, qs.length - run.i, mode)) { document.onkeydown = null; return FX.offerHard($('#qbox'), run.c, yes => { if (yes) FX.harden(qs.slice(run.i)); next(); }); }
       if (notice && run.i === 0) $('.study-top').before(FX.note(notice, again));
       renderQuestion($('#qbox'), q, (ok, el) => {
         const xp = q.hard ? 6 : 3;
-        if (ok) { run.score++; run.xp += xp; App.reward({ xp }, el); } else run.wrong.push(q.w);
+        if (ok) { run.score++; run.xp += xp; App.reward({ xp }, el); } else { run.wrong.push(q.w); run.wq.push(q); }
         if (FX) FX.hit(run.c, ok);
         run.i++; next();
       });
@@ -580,7 +581,7 @@
       document.onkeydown = null;
       const pct = Math.round(run.score / qs.length * 100);
       const perfect = pct === 100;
-      App.reward({ quizzes: 1, perfect: perfect ? 1 : 0, xp: perfect ? 15 : 5 });
+      if (!run.second) { run.base = perfect ? 15 : 5; App.reward({ quizzes: 1, perfect: perfect ? 1 : 0, xp: run.base }); } // cơ hội 2: không tính thêm lượt quiz/thưởng gốc
       const unit = new URLSearchParams(location.hash.split('?')[1] || '').get('unit');
       const unitPassed = unit && App.completeUnit ? App.completeUnit(unit, pct) : null;
       const band = mode === 'test' ? (pct >= 95 ? '8.5+' : pct >= 85 ? '7.5–8.0' : pct >= 70 ? '6.5–7.0' : pct >= 50 ? '5.5–6.0' : '< 5.5') : '';
@@ -589,16 +590,23 @@
         <div class="score-ring" style="--p:${pct};--c:${pct >= 80 ? 'var(--good)' : pct >= 50 ? 'var(--hard)' : 'var(--again)'}"><b>${pct}%</b></div>
         <h2 style="margin-top:1rem">${t('{score}/{total} câu đúng', { score: run.score, total: qs.length })}</h2>
         ${band ? `<p>${t('Mức từ vựng ước tính: <b>Band {band}</b>', { band })} <span class="muted small">${t('(tham khảo)')}</span></p>` : ''}
-        ${FX ? FX.summary(run.c, run.xp + (perfect ? 15 : 5), pct) : `<p class="muted">+${run.xp + (perfect ? 15 : 5)} XP</p>`}
+        ${FX ? FX.summary(run.c, run.xp + run.base, pct) : `<p class="muted">+${run.xp + run.base} XP</p>`}
         ${run.wrong.length ? `<p>${t('Cần ôn lại:')}</p><div class="row center">${run.wrong.map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.word)}</a>`).join('')}</div>
           ${run.wrong.some(w => !App.inDeck(w.word)) ? `<p><button class="btn sm" id="addWrong">+ ${t('Đưa các từ sai vào flashcard')}</button></p>` : ''}` : `<p>${t('Không sai câu nào – xuất sắc!')} 🎉</p>`}
         ${unit ? `<div class="feedback ${pct >= 80 ? 'ok' : 'no'}" style="position:static;margin:1rem 0">${pct >= 80 ? '🏁 ' + t('<b>Hoàn thành bài!</b> Các từ đã được thêm vào flashcard để ôn đúng thời điểm vàng.') : '🔁 ' + t('Cần đạt <b>80%</b> để hoàn thành bài – ôn lại các từ sai rồi thử lại nhé.')}</div>` : ''}
         <div class="row center" style="margin-top:1rem">${unit ? `<a class="btn primary" href="#/path">🗺️ ${t('Về lộ trình')}</a><button class="btn" id="again">${t('Làm lại')}</button>` : `<button class="btn primary" id="again">${t('Làm lượt mới')}</button><a class="btn" href="#/practice?src=${encodeURIComponent(src)}">${t('Đổi chế độ')}</a>`}${FX ? FX.shareBtn(pct) : ''}</div>
-      </div></div>`;
+        <div id="aoHost"></div>
+      </div><div id="adDone"></div></div>`;
       Sfx.finish({ pct }); // âm thắng + pháo giấy ≥ 80% (thẻ số liệu đã có trong FX.summary)
       if (unitPassed) unitPassed.then(first => { if (first) { confetti(160); Sfx.win(); } });
-      practiceDone({ mode: as || mode, src, pct, wait: unitPassed });
+      practiceDone({ mode: as || mode, src, pct, wait: unitPassed, second: !!run.second });
       $('#again').onclick = again;
+      // 🎁 Lời mời có thưởng (tự chọn): cơ hội 2 cho câu sai lẻ tẻ · nhân đôi XP – không bao giờ cho máy Lớp học (điểm bài giao phải thật)
+      const edu = (() => { try { return localStorage.getItem('lk.edu') === '1'; } catch (e) { return false; } })();
+      if (!run.second && !edu && (run.wrong.length || (window.Ads && Ads.on()))) App.need('adoffer').then(() => window.AdOffers && AdOffers.attach($('#aoHost'), {
+        done: $('#adDone'), wrong: run.wrong.length, total: qs.length, score: run.score, pct, unit: !!unit, xp: run.xp + run.base,
+        retry: () => { run.second = true; seq = run.wq.splice(0).map(q => ({ ...q, hard: false })); run.wrong = []; run.i = 0; next(); },
+      })).catch(() => {});
       const aw = $('#addWrong');
       if (aw) aw.onclick = async () => { for (const w of run.wrong) if (!App.inDeck(w.word)) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); toast(t('Đã thêm vào flashcard')); aw.disabled = true; };
     };

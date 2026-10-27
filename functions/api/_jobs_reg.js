@@ -58,6 +58,10 @@ export const REG = {
   "web_push": {
    "label": "Nhắc học: Web Push + FCM (cron Worker lexkite-push, D1 nội bộ tra theo khóa, ≤ 40 thiết bị/lượt)",
    "exclusive": false
+  },
+  "grabcast_social": {
+   "label": "GrabCast social API (đăng FB/IG qua autopilot – Neon free của GrabCast: ≤ 60 lượt/ngày, dừng khi 401/403/409/422/429/503)",
+   "exclusive": false
   }
  },
  "budget_caps": {
@@ -907,6 +911,25 @@ export const REG = {
    ],
    "minutes": 10,
    "est": {},
+   "lease": false
+  },
+  {
+   "id": "social-auto",
+   "workflow": "social-auto.yml",
+   "cron": [
+    "52 */2 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "grabcast_social",
+    "d1_main"
+   ],
+   "minutes": 3,
+   "est": {
+    "grabcast_social_calls": 60,
+    "d1_main_reads": 600,
+    "d1_main_writes": 120
+   },
    "lease": false
   }
  ]

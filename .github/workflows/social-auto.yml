@@ -1,0 +1,22 @@
+# Autopilot social (docs/DISTRIBUTION.md §6): mỗi 2 giờ 1 lượt → POST /api/social-auto (ký HMAC). Máy chủ: social_due → bài GrabCast (nháp/lên lịch) → social_ack,
+# đồng bộ trạng thái ≥ 6 giờ/lần. Ngân sách GrabCast ≤ 60 lượt/ngày (Quản trị › Video & Social › Hàng đợi › Autopilot), dừng cả lượt khi 401/403/409/422/429/503.
+# GrabCast lỗi → FB/IG tự chuyển sang Meta Graph API (§6b, secret META_* chỉ ở Pages). Không có khóa GrabCast trong Actions – chỉ ở Pages (GRABCAST_API_KEY). Đăng ký: infra/jobs.json id "social-auto".
+name: social-auto
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '52 */2 * * *'
+concurrency: { group: social-auto, cancel-in-progress: false }
+permissions: { contents: read, issues: write } # issues: cảnh báo failover/token Meta (1 issue nhãn social-alert → email)
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}', GITHUB_TOKEN: '${{ github.token }}' }
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts, sparse-checkout-cone-mode: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Một lượt autopilot
+        run: node scripts/social/auto.mjs run

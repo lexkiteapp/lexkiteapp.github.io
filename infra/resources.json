@@ -559,7 +559,7 @@
       "key": "grabcast",
       "name": "GrabCast (lưu video & đăng social)",
       "kind": "social",
-      "purpose": "Lưu video trên Drive (storage pool) và lên lịch/đăng video lên các kênh social – Quản trị → Video & Social qua proxy /api/social (functions/api/social.js), CI qua scripts/video/publish-grabcast.mjs. Nguồn sao lưu phụ của kho dựng video (scripts/video/library.mjs sync: bản gốc đủ phân giải, cả reserve/reject, storage_class bulk; khóa ~/.config/lexkite/grabcast-key – chỉ trên máy chủ dự án). Kết nối/ngắt kênh & Drive chỉ làm trên grabcast.click (workspace Lexkite = 4). Env: secret GRABCAST_API_KEY (Pages + GitHub Actions), GRABCAST_WORKSPACE=4, GRABCAST_API_BASE tùy chọn",
+      "purpose": "Lưu video trên Drive (storage pool) và lên lịch/đăng video lên các kênh social – Quản trị → Video & Social qua proxy /api/social (functions/api/social.js), CI qua scripts/video/publish-grabcast.mjs. Nguồn sao lưu phụ của kho dựng video (scripts/video/library.mjs sync: bản gốc đủ phân giải, cả reserve/reject, storage_class bulk; khóa ~/.config/lexkite/grabcast-key – chỉ trên máy chủ dự án). Kết nối/ngắt kênh & Drive chỉ làm trên grabcast.click (workspace Lexkite = 4). Env: secret GRABCAST_API_KEY (Pages + GitHub Actions), GRABCAST_WORKSPACE=4, GRABCAST_API_BASE tùy chọn Autopilot đăng FB/IG chạy nền: cron social-auto.yml → /api/social-auto (≤ 60 lượt/ngày, cầu dao D1), webhook /api/social/webhook (secret GRABCAST_WEBHOOK_SECRET).",
       "console": "https://grabcast.click/scheduler.html",
       "free": "Giới hạn khóa API: 60 lượt/phút · 3.000 lượt/ngày",
       "upgrade": "Backend của chính chủ dự án – nâng hạn mức trên GrabCast",
@@ -567,6 +567,23 @@
       "match": [
         "grabcast.click",
         "grabcast-api-342720596878.us-central1.run.app"
+      ]
+    },
+    {
+      "key": "meta-graph",
+      "name": "Meta API (dự phòng đăng FB/IG)",
+      "kind": "social",
+      "purpose": "Đường dự phòng của autopilot social khi GrabCast lỗi (docs/DISTRIBUTION.md §6b): FB Page qua Graph API (Reels API + rupload, Page token không hết hạn của tài khoản giữ Page – Tester của app Lexkite), IG qua Instagram API with Instagram Login (graph.instagram.com, token 60 ngày tự refresh). App Meta riêng, chế độ Development, KHÔNG gắn Business Portfolio. Token theo kênh, mã hóa trong D1 soc_tokens (KEYS_ENC_KEY), đổi ở Quản trị; khóa chống trùng D1 soc_lock. Logic functions/api/_meta.js, _meta_tokens.js, _social_auto.js. Env tùy chọn: META_PAGE_TOKEN/META_PAGE_ID, META_IG_TOKEN/META_IG_ID, META_GRAPH_VERSION.",
+      "console": "https://developers.facebook.com/apps/",
+      "free": "Miễn phí · giới hạn gọi theo app/Page (BUC) · IG 100 bài API/24 giờ (Lexkite tự giới hạn 25) · autopilot ≤ 80 lượt Graph/ngày",
+      "upgrade": "Không có gói trả phí – tăng hạn mức theo người dùng app",
+      "status": "Chờ owner tạo app + token kênh (chỉ chạy khi GrabCast lỗi)",
+      "match": [
+        "graph.facebook.com",
+        "rupload.facebook.com",
+        "graph.instagram.com",
+        "www.instagram.com",
+        "developers.facebook.com"
       ]
     },
     {

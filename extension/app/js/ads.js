@@ -8,8 +8,8 @@
   const load = () => p || (p = ['config', 'policy', 'run'].reduce((q, f) => q.then(() => new Promise((y, n) => { const s = document.createElement('script'); s.src = 'js/ads/' + f + '.js'; s.onload = y; s.onerror = n; document.head.appendChild(s); })), Promise.resolve()).then(() => g.AdsRun));
   g.Ads = {
     on,
-    slot: k => (k === 'home' && plat === 'web' && on() ? ((l) => `<aside class="ad-slot" data-ad="home" aria-label="${l}"><div class="ad-label" aria-hidden="true">${l}</div></aside>`)(g.t ? g.t('Quảng cáo') : 'Advertisement') : ''),
-    rewarded: r => (on() ? load().then(a => a.rewarded(r), () => r === 'streak') : Promise.resolve(r === 'streak')),
+    slot: (k, x) => ((k === 'home' || x) && plat === 'web' && on() ? ((l) => `<aside class="ad-slot" data-ad="${k}" aria-label="${l}"><div class="ad-label" aria-hidden="true">${l}</div></aside>`)(g.t ? g.t('Quảng cáo') : 'Advertisement') : ''),
+    rewarded: (r, q) => (on() ? load().then(a => (q ? a.canReward(r) : a.rewarded(r)), () => !q && r === 'streak') : Promise.resolve(!q && r === 'streak')),
     quota: j => { if (on()) load().then(a => a.quota(j)).catch(() => {}); },
   };
   if (on()) g.addEventListener('load', () => (g.requestIdleCallback || setTimeout)(() => load().then(a => a.start()).catch(() => {}), 3000));

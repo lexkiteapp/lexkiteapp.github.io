@@ -24,6 +24,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 - `cf_pool` — Kho tài khoản Workers AI miễn phí (secret CF_POOL, 116 × 10.000 neuron/ngày, scripts/lib/cf-pool.mjs) – dùng chung ảnh vocab-img-scene + văn bản ai-pool cf2; 4006 → tài khoản kế
 - `grabcast_ai` — GrabCast AI pool (ảnh + chữ – tuyến dự phòng của scripts/lib/ai-pool.mjs)
 - `web_push` — Nhắc học: Web Push + FCM (cron Worker lexkite-push, D1 nội bộ tra theo khóa, ≤ 40 thiết bị/lượt)
+- `grabcast_social` — GrabCast social API (đăng FB/IG qua autopilot – Neon free của GrabCast: ≤ 60 lượt/ngày, dừng khi 401/403/409/422/429/503)
 
 ## Lịch (UTC, theo giờ trong ngày)
 | Giờ UTC | Việc | Lịch cron | Ưu tiên | Tài nguyên | Phút | Ước lượng | Thuê |
@@ -40,6 +41,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:23 | `pages-deploy` | `23 */3 * * *` | publishing | gh_minutes | 2 | — | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
+| 00:52 | `social-auto` | `52 */2 * * *` | publishing | grabcast_social, d1_main | 3 | grabcast_social_calls≈60, d1_main_reads≈600, d1_main_writes≈120 | — |
 | 01:00 | `lighthouse` | `0 1 * * 1` | reports | gh_minutes | 15 | — | — |
 | 01:00 | `mail-digest` | `0 1 * * *` | reports | d1_main_read | 2 | d1_main_reads≈3000 | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |

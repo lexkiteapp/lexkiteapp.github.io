@@ -5,9 +5,12 @@
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c04_carlos_3d",
-  "c04t2_carlos_3d_talk2",
-  "c04t3_carlos_3d_talk3"
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
  ],
  "accent": "navy2",
  "active": "mint",
@@ -497,6 +500,6 @@
  ],
  "caption_cap": 42,
  "listen": [
-  "c04l_carlos_3d_listen"
+  "c05l_carlos2_listen"
  ]
 }

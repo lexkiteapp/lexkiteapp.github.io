@@ -282,8 +282,26 @@ def _hs(f_):
 def off_model(c):   # source frames whose head box does not match the family master face (hand over the face, drift): the gated plan never shows them
     if c in OFFM: return OFFM[c]
     par = TR['clips'][c].get('parent') or c; hb = TR['clips'][par]['head']; src_ = RAW[par][CL[par]['usable'][0]] if par in RAW else RAW[c][0]; ref = _hs(src_[hb[1]:hb[3], hb[0]:hb[2]])
-    OFFM[c] = {k for k in range(len(RAW[c])) if cv2.compareHist(ref, _hs(RAW[c][k][hb[1]:hb[3], hb[0]:hb[2]]), cv2.HISTCMP_CORREL) < 0.75}; return OFFM[c]
+    OFFM[c] = {k for k in range(len(RAW[c])) if cv2.compareHist(ref, _hs(RAW[c][k][hb[1]:hb[3], hb[0]:hb[2]]), cv2.HISTCMP_CORREL) < 0.75}
+    OFFM[c] |= {k for a_, b_ in TR['clips'][c].get('avoid', []) for k in range(a_, b_ + 1)}   # bank QC: frame ranges marked 'avoid' (profile glance, fast sway, 'o' lips in a listen clip)
+    return OFFM[c]
 OFFM = {}
+MOOD_RX = [('question', r'\?'), ('wow', r"\b(careful|actually|fun fact|surprise|wait|in america|in britain|in the us|in the uk|most americans|really)\b"),
+           ('excited', r"!|\b(great|amazing|awesome|excellent|perfect|well done|love|nice)\b")]
+def line_mood(lid):   # owner 27/10 "tự nhiên": the teacher's clip follows the line – spec 'mood' wins, else question / reveal / excited from the text, else 'present' when a board card appears during the line
+    l = next(x for x in SP['lines'] if x['id'] == lid)
+    if l.get('mood'): return l['mood']
+    for m, rx in MOOD_RX:
+        if re.search(rx, l.get('text', '').lower()): return m
+    a_, b_ = ATL[lid], ATL[lid] + LINES[lid]['words'][-1]['e']
+    if any(p.get('kind') in ('lesson', 'note', 'card', 'pair') and a_ - 0.3 <= tm_of(p['from']) <= b_ for p in SP['pops'] if p.get('from')): return 'present'
+    return 'talk'
+def line_at(fr):   # the spoken line around frame fr (gated runs start on a line's first word)
+    t_ = fr / FPS; best = None
+    for lid, at in ATL.items():
+        if at - 0.3 <= t_ <= at + LINES[lid]['words'][-1]['e'] + 0.2: best = lid
+    return best
+MOODS = []; MOOD_CAP = dict(excited=1, wow=1, question=2)   # owner 27/10 "ko lố": strong expressions only for the best line(s); the rest stays calm
 def plan_gated(nf):
     talk = SP['clips']; lis = SP['listen']; sp = np.zeros(nf, bool)
     for lid, at in ATL.items():
@@ -295,13 +313,22 @@ def plan_gated(nf):
         runs.append([bool(sp[i]), i, j]); i = j
     for r in runs:   # short breaths stay on the talk clip (no flicker cuts)
         if not r[0] and r[2] - r[1] < int(0.5 * FPS) and r[1] > 0: r[0] = True
-    cur = {c: CL[c]['usable'][0] for c in talk + lis}; ti = 0; seq = []; joins = []; prev = None
+    cur = {c: CL[c]['usable'][0] for c in talk + lis}; ti = 0; seq = []; joins = []; prev = None; used = {}
+    mood_of = lambda c: TR['clips'][c].get('mood', 'talk')
+    def pick(want, last):   # mood-matched clip, never the clip just shown, least used first; fall back to plain talk / presenting clips
+        for pool in ([c for c in talk if mood_of(c) == want], [c for c in talk if mood_of(c) in ('talk', 'present')], talk):
+            cs = [c for c in pool if c != last] or pool
+            if cs: return min(cs, key=lambda c: (used.get(c, 0), talk.index(c)))
     for talking, a_, b_ in runs:
         n_ = b_ - a_
+        if talking:
+            lid_ = line_at(a_); want = line_mood(lid_) if lid_ else 'talk'
+            if want in MOOD_CAP and sum(1 for _, w_, c_ in MOODS if w_ == want and mood_of(c_) == want) >= MOOD_CAP[want]: want = 'talk'
+            c_run = pick(want, prev[0] if prev else None); used[c_run] = used.get(c_run, 0) + 1; MOODS.append((lid_, want, c_run))
         while n_ > 0:
-            c = talk[ti % len(talk)] if talking else lis[0]; hi = CL[c]['usable'][1]
+            c = c_run if talking else lis[0]; hi = CL[c]['usable'][1]
             if cur[c] > hi - 6: cur[c] = CL[c]['usable'][0]
-            if talking and prev is not None and prev[0] == c and cur[c] == CL[c]['usable'][0]: ti += 1; c = talk[ti % len(talk)]; hi = CL[c]['usable'][1]
+            if talking and prev is not None and prev[0] == c and cur[c] == CL[c]['usable'][0]: c_run = c = pick(want, c); used[c] = used.get(c, 0) + 1; hi = CL[c]['usable'][1]
             bad_ = off_model(c); g_ = 0
             while cur[c] in bad_ and g_ < 2 * (hi + 1):   # jump over off-model frames (a declared hard cut)
                 cur[c] += 1; g_ += 1
@@ -311,7 +338,6 @@ def plan_gated(nf):
             m_ = min(n_, hi - cur[c] + 1, nb_ - cur[c])
             if prev is not None and (prev[0] != c or prev[1] != cur[c]): joins.append(dict(at_frame=len(seq), to_clip=c, entry=cur[c], cut='hard', talking=talking))
             seq += [[(c, k, 1.0)] for k in range(cur[c], cur[c] + m_)]; cur[c] += m_; n_ -= m_; prev = (c, cur[c])
-            if talking and cur[c] > hi - 6: ti += 1
     seq = seq[:nf]; c0, k0 = seq[0][0][0], seq[0][0][1]
     for q in range(XFE):   # loop: the last frames dissolve into frame 0 (an edit transition, the host pixels are untouched)
         w = ease((q + 1) / XFE, EASE['inout']); fi = nf - XFE + q
@@ -327,7 +353,7 @@ if SP.get('listen'):
     SEQ, JOINS = plan_gated(NF); print('gated plan: talk while the voice speaks, listen clip in silences', flush=True)
 else: SEQ, JOINS = plan(NF, A0)
 print(f'loop frame {_c0}:{A0} end diff {end_score(A0):.2f}', flush=True)
-print('joins', JOINS, flush=True)
+print('joins', JOINS, flush=True); print('moods', MOODS, flush=True)
 MO = {c: LS.Mouth(f"{LIB}/{SET['meta']}/{c}/{WHO}") for c in CL} if HOSTFX != 'raw' else {}   # raw host needs no mouth track
 for c, runs in (HOLDS.items() if MO else []):   # v11: the mouth track moves with the smoothed in-betweens
     MS_ = MO[c].MS
@@ -1372,7 +1398,7 @@ subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.out + '.video
                 '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000', '-ac', '2', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', o.out], check=True)
 os.remove(o.out + '.video.mp4')
 json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_ratio=CAPR, spec=SP, fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, cx=CX, capw=CAPW, band=BAND, smax=SMAX, anchor=[AX, AY], head=HEAD, joins=JOINS, xf=XF, xfe=XFE,
-               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, v14=dict(on=V14, crop=CROP, zone=ZONE, head=HEAD.get(SP['clips'][0])) if V14 else None, read_pad=READ_PAD,
+               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, moods=[[l, w, c, TR['clips'][c].get('mood', 'talk')] for l, w, c in MOODS], v14=dict(on=V14, crop=CROP, zone=ZONE, head=HEAD.get(SP['clips'][0])) if V14 else None, read_pad=READ_PAD,
                board=dict(zone=ZONE, popz=POPZ, quad=BRD['quad'], perspective=GB.tolist(), cap_box=STRIP1, body=BRD['body'], where={p.id: p.where for p in POPS}) if BRD else None, hook=dict(text=HOOK_TEXT, t0=HOOK.t0, t1=max(p.t1 for p in POPS if p.P.get('role') == 'hook'), kind=HOOK.kind),
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,

@@ -5,7 +5,7 @@ on:
     - cron: '3 0 * * *'
     - cron: '33 */3 * * *'   # mỗi 3 giờ: đo đường nạp lại (00:00 UTC hay cửa sổ 24 h trượt?)
   workflow_dispatch:
-permissions: { contents: read }
+permissions: { contents: read, actions: write }   # actions: write = khởi động lại lượt ảnh khi kho mở
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -14,5 +14,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node scripts/lib/cf-pool-probe.mjs
+      - run: node scripts/lib/cf-pool-probe.mjs | tee probe.txt
         env: { CF_POOL: '${{ secrets.CF_POOL }}' }
+      - name: Kho mở mà ảnh không chạy → khởi động lại chuỗi fill (cron GitHub hay trễ hàng giờ)
+        env: { GH_TOKEN: '${{ github.token }}', SCHED: '${{ vars.VIMG_SCHEDULE }}' }
+        run: |
+          [ "$SCHED" = 1 ] || exit 0
+          OK=$(sed -n 's/.*còn neuron \([0-9]*\).*/\1/p' probe.txt); [ "${OK:-0}" -ge 30 ] || { echo "kho còn ${OK:-0} tài khoản – chưa khởi động"; exit 0; }
+          RUN=$(gh run list -R ${{ github.repository }} -w vocab-img-scene.yml --json status,createdAt -q '[.[]|select(.status!="completed" and (.createdAt|fromdateiso8601) > (now-21600))]|length' -L 20)   # bỏ lượt ma kẹt hàng đợi (40268807501)
+          [ "${RUN:-0}" -eq 0 ] || { echo "đang có lượt ảnh chạy/xếp hàng – bỏ qua"; exit 0; }
+          gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
+          echo "↻ kho mở ($OK tài khoản) – đã khởi động lượt ảnh"

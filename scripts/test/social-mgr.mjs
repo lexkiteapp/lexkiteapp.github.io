@@ -115,12 +115,12 @@ const call = async (tk, body, { origin = 'https://lexkite.com', env = ENV } = {}
 };
 const ADM = await tok('boss@lexkite.com'), USER = await tok('someone@gmail.com');
 // bảo mật
-for (const [m, p] of [['GET', 'lk/board'], ['POST', 'lk/board/approve'], ['GET', 'lk/health'], ['POST', 'lk/queue/apply'], ['POST', 'lk/metrics/import'], ['POST', 'lk/ai/caption'], ['POST', 'lk/sets/save'], ['POST', 'lk/lib/save']]) {
+for (const [m, p] of [['GET', 'lk/board'], ['POST', 'lk/board/approve'], ['GET', 'lk/health'], ['POST', 'lk/queue/apply'], ['POST', 'lk/metrics/import'], ['POST', 'lk/ai/caption'], ['POST', 'lk/sets/save'], ['POST', 'lk/lib/save'], ['GET', 'lk/auto'], ['POST', 'lk/auto/save'], ['POST', 'lk/auto/run'], ['POST', 'lk/auto/reset']]) {
   ok((await call(USER, { method: m, path: p, body: {} })).s === 403, `${m} ${p}: tài khoản thường → 403`);
   ok((await call('x.y.z', { method: m, path: p, body: {} })).s === 403, `${m} ${p}: token giả → 403`);
   ok((await call(ADM, { method: m, path: p, body: {} }, { origin: 'https://evil.example' })).s === 403, `${m} ${p}: Origin lạ → 403 (CSRF)`);
 }
-for (const [m, p] of [['GET', 'lk/board/approve'], ['POST', 'lk/board'], ['GET', 'lk/constructor'], ['POST', 'lk/__proto__'], ['DELETE', 'lk/board'], ['GET', 'lk/../accounts'], ['POST', 'lk/sets/save/x']]) {
+for (const [m, p] of [['GET', 'lk/board/approve'], ['POST', 'lk/board'], ['GET', 'lk/constructor'], ['POST', 'lk/__proto__'], ['DELETE', 'lk/board'], ['GET', 'lk/../accounts'], ['POST', 'lk/sets/save/x'], ['GET', 'lk/auto/save'], ['POST', 'lk/auto/x']]) {
   const r = await call(ADM, { method: m, path: p }); ok(r.s === 400 && r.j.error === 'route', `route lạ ${m} ${p} → 400 (nhận ${r.s})`);
 }
 ok((await call(ADM, { method: 'GET', path: 'lk/board' }, { env: { ...ENV, DB: undefined } })).s === 412, 'không có D1 → 412');
