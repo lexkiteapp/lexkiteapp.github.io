@@ -1,0 +1,504 @@
+{
+ "id": "t7_usuk_trash_3d",
+ "template": "pair",
+ "title": "US or UK? #2 – trash vs rubbish (cleanup situation, surprise UK rubbish = nonsense, London quiz) [3D teacher]",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "accent": "navy2",
+ "active": "mint",
+ "hook_style": "versus: US vs UK tiles slide in with flags",
+ "motif": "twin tiles with flags, surprise fact card",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.68,
+ "display": {
+  "blank": "___"
+ },
+ "series": {
+  "name": "US or UK?",
+  "ep": 2
+ },
+ "lines": [
+  {
+   "id": "u_h",
+   "text": "US or UK? Which word do you use?"
+  },
+  {
+   "id": "u_s",
+   "text": "You're cleaning up. What do you call this stuff?",
+   "gap": 0.7
+  },
+  {
+   "id": "u_us",
+   "text": "In America, it's trash.",
+   "key": {
+    "green": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "u_uk",
+   "text": "In Britain, it's rubbish. Same stuff!",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "u_tw",
+   "text": "Careful! In Britain, rubbish also means nonsense.",
+   "key": {
+    "yellow": [
+     3
+    ],
+    "red": [
+     6
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "u_x",
+   "text": "A British friend says: That film was rubbish!",
+   "key": {
+    "yellow": [
+     7
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "u_q",
+   "text": "Quick quiz! You're in London. What do you call it?",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "u_a",
+   "text": "Rubbish! Just like a real Londoner.",
+   "key": {
+    "green": [
+     0
+    ]
+   }
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend who loves London!",
+   "gap": 0.7
+  },
+  {
+   "id": "u_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "u_h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🇺🇸"
+     ],
+     [
+      " or ",
+      "white"
+     ],
+     [
+      "@emoji:🇬🇧"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ],
+    [
+     [
+      "trash",
+      "green"
+     ],
+     [
+      " · ",
+      "white"
+     ],
+     [
+      "rubbish",
+      "navy2"
+     ]
+    ]
+   ],
+   "align": "c"
+  },
+  {
+   "id": "sit",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_h",
+    -1,
+    "e",
+    0.3
+   ],
+   "to": [
+    "u_us",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "CLEAN UP"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🗑️"
+      ],
+      [
+       "@emoji:📦"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What do you call it?"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lesson",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "u_us",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_tw",
+    0,
+    "s",
+    -0.08
+   ],
+   "title": "US vs UK",
+   "items": [
+    {
+     "icon": "🇺🇸",
+     "color": "green",
+     "word": "trash",
+     "ipa": "/træʃ/",
+     "mean": "= waste (US)",
+     "ex": [
+      "“Take out the ",
+      "trash",
+      "!”"
+     ]
+    },
+    {
+     "icon": "🇬🇧",
+     "color": "blue",
+     "word": "rubbish",
+     "ipa": "/ˈrʌbɪʃ/",
+     "mean": "= same stuff (UK)",
+     "ex": [
+      "“Take out the ",
+      "rubbish",
+      "!”"
+     ],
+     "at": [
+      "u_uk",
+      0,
+      "s",
+      -0.06
+     ]
+    }
+   ]
+  },
+  {
+   "id": "twist",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_tw",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_tw",
+    -1,
+    "e",
+    0.25
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "CAREFUL!"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🇬🇧"
+      ],
+      [
+       "rubbish",
+       "blue"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "= nonsense, very bad"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "“That film was "
+      ],
+      [
+       "rubbish",
+       "hl"
+      ],
+      [
+       "!”"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "try",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_tw",
+    -1,
+    "e",
+    0.25
+   ],
+   "to": [
+    "u_q",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "TRY IT"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "“That film was"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "rubbish",
+       "hl"
+      ],
+      [
+       "!”"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_q",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q",
+    5,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🇬🇧"
+      ],
+      [
+       "In London…",
+       "navy"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "from": [
+    "u_q",
+    5,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_a",
+    -1,
+    "e",
+    0.3
+   ],
+   "a": "trash",
+   "b": "rubbish",
+   "correct": "b",
+   "reveal": [
+    "u_a",
+    0,
+    "s",
+    -0.04
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "u_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "🇺🇸",
+     "color": "green",
+     "word": "trash",
+     "ipa": "/træʃ/",
+     "mean": "= rubbish (UK)",
+     "ex": [
+      "“Take out the ",
+      "trash",
+      "!”"
+     ]
+    },
+    {
+     "icon": "🇬🇧",
+     "color": "blue",
+     "word": "rubbish",
+     "ipa": "/ˈrʌbɪʃ/",
+     "mean": "= trash; also nonsense",
+     "ex": [
+      "“That’s ",
+      "rubbish",
+      "!”"
+     ]
+    }
+   ],
+   "footer": "lexkite.com"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "caption_cap": 42,
+ "listen": [
+  "c05l_carlos2_listen"
+ ]
+}

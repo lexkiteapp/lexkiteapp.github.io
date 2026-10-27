@@ -384,6 +384,7 @@
   'Đã hiểu': 'Got it',
   // Nút "Tải app" (js/get-app.js – landing + menu app)
   'Tải app': "Get the app",
+  'Bấm nút <b>Chia sẻ</b> <span style=\"font-size:1.2rem\">⎋</span> ở thanh địa chỉ của Chrome': "Tap the <b>Share</b> button <span style=\"font-size:1.2rem\">⎋</span> in Chrome’s address bar",
   'Cài Lexkite lên iPad': "Install Lexkite on iPad",
   'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari': "Tap the <b>Share</b> button <span style=\"font-size:1.2rem\">⎋</span> in Safari’s top bar",
   'Cài Lexkite lên Mac': "Install Lexkite on your Mac",

@@ -1,16 +1,19 @@
 {
- "id": "sod_47b3e9e9",
+ "id": "sod_7432d6cb",
  "template": "pair",
- "title": "Same or Different? #3 – rob (v) vs steal (v)",
+ "title": "Same or Different? #2 – win (v) vs beat (v)",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board",
-  "c01t2_carlos_talk2",
-  "c01t3_carlos_talk3"
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
  ],
  "listen": [
-  "c01l_carlos_listen"
+  "c05l_carlos2_listen"
  ],
  "accent": "green",
  "active": "green",
@@ -29,7 +32,7 @@
  "lines": [
   {
    "id": "p_h",
-   "text": "Rob or steal? Quick lesson.",
+   "text": "Win or beat? Quick lesson.",
    "key": {
     "yellow": [
      0
@@ -42,7 +45,7 @@
   },
   {
    "id": "p_y",
-   "text": "You steal things. You rob people or places.",
+   "text": "You beat people. You win games.",
    "key": {
     "yellow": [
      4
@@ -55,7 +58,7 @@
   },
   {
    "id": "p_w",
-   "text": "Not: Someone robbed my phone.",
+   "text": "Not: We won the other team.",
    "key": {
     "red": [
      2
@@ -65,7 +68,7 @@
   },
   {
    "id": "p_k",
-   "text": "Say: Someone stole my phone.",
+   "text": "Say: We beat the other team.",
    "key": {
     "green": [
      2
@@ -75,7 +78,7 @@
   },
   {
    "id": "p_t",
-   "text": "Thieves rob a bank and steal the money!",
+   "text": "You win a prize, but beat a player!",
    "key": {
     "yellow": [
      1,
@@ -86,7 +89,7 @@
   },
   {
    "id": "p_q",
-   "text": "Quiz! Someone blank my wallet!",
+   "text": "Quiz! Our team blank them 3 to 1.",
    "key": {
     "yellow": [
      0
@@ -96,7 +99,7 @@
   },
   {
    "id": "p_q2",
-   "text": "Stole, or robbed?"
+   "text": "Beat, or won?"
   },
   {
    "id": "_count",
@@ -105,11 +108,11 @@
   },
   {
    "id": "p_a",
-   "text": "Stole! Someone stole my wallet!",
+   "text": "Beat! Our team beat them 3 to 1.",
    "key": {
     "green": [
      0,
-     2
+     3
     ]
    },
    "gap": 0.7
@@ -135,7 +138,7 @@
    "rows": [
     [
      [
-      "rob",
+      "win",
       "yellow"
      ],
      [
@@ -145,7 +148,7 @@
     ],
     [
      [
-      "steal",
+      "beat",
       "green"
      ],
      [
@@ -170,29 +173,30 @@
    "id": "lesson",
    "kind": "lesson",
    "anim": "spring",
-   "title": "ROB vs STEAL",
+   "title": "WIN vs BEAT",
    "items": [
     {
-     "icon": "💬",
+     "icon": "🏆",
      "color": "green",
-     "word": "rob",
-     "mean": "= take from a person or place",
+     "word": "win",
+     "ipa": "/wɪn/",
+     "mean": "= come first in a game",
      "ex": [
-      "“They ",
-      "robbed",
-      " a store.”"
+      "“We ",
+      "won",
+      " the game.”"
      ]
     },
     {
-     "icon": "🦹",
+     "icon": "🥁",
      "color": "blue",
-     "word": "steal",
-     "ipa": "/stiːl/",
-     "mean": "= take a thing",
+     "word": "beat",
+     "ipa": "/biːt/",
+     "mean": "= defeat a person or team",
      "ex": [
-      "“My bike was ",
-      "stolen",
-      ".”"
+      "“She ",
+      "beat",
+      " me at chess.”"
      ],
      "at": [
       "p_y",
@@ -235,14 +239,14 @@
        "@emoji:❌"
       ],
       [
-       " Someone "
+       " We "
       ],
       [
-       "robbed ",
+       "won ",
        "red"
       ],
       [
-       "my phone."
+       "the other team."
       ]
      ]
     },
@@ -253,14 +257,14 @@
        "@emoji:✅"
       ],
       [
-       " Someone "
+       " We "
       ],
       [
-       "stole ",
+       "beat ",
        "green"
       ],
       [
-       "my phone."
+       "the other team."
       ]
      ]
     }
@@ -298,11 +302,11 @@
        "@emoji:💡"
       ],
       [
-       " STEAL ",
+       " WIN ",
        "hl"
       ],
       [
-       "a thing"
+       "the game"
       ]
      ]
     },
@@ -310,11 +314,11 @@
      "st": "text",
      "segs": [
       [
-       "ROB ",
+       "BEAT ",
        "hl"
       ],
       [
-       "a person/place"
+       "the team"
       ]
      ]
     }
@@ -349,14 +353,14 @@
      "st": "text",
      "segs": [
       [
-       "Someone "
+       "Our team "
       ],
       [
        "___ ",
        "green"
       ],
       [
-       "my wallet!"
+       "them 3 to 1."
       ]
      ]
     }
@@ -377,8 +381,8 @@
   {
    "id": "quiz",
    "kind": "quiz",
-   "a": "stole",
-   "b": "robbed",
+   "a": "beat",
+   "b": "won",
    "correct": "a",
    "reveal": [
     "p_a",
@@ -407,26 +411,27 @@
    "save": true,
    "items": [
     {
-     "icon": "💬",
+     "icon": "🏆",
      "color": "green",
-     "word": "rob",
-     "mean": "= a person · a place",
+     "word": "win",
+     "ipa": "/wɪn/",
+     "mean": "= a game · a prize",
      "ex": [
-      "“They ",
-      "robbed",
-      " a store.”"
+      "“We ",
+      "won",
+      " the game.”"
      ]
     },
     {
-     "icon": "🦹",
+     "icon": "🥁",
      "color": "blue",
-     "word": "steal",
-     "ipa": "/stiːl/",
-     "mean": "= a thing",
+     "word": "beat",
+     "ipa": "/biːt/",
+     "mean": "= a person · a team",
      "ex": [
-      "“My bike was ",
-      "stolen",
-      ".”"
+      "“She ",
+      "beat",
+      " me at chess.”"
      ]
     }
    ],
@@ -460,13 +465,13 @@
  ],
  "series": {
   "name": "Same or Different?",
-  "ep": 3
+  "ep": 2
  },
  "source": {
-  "bank": "sb_47b3e9e9",
-  "pid": "u:c:rob-steal",
-  "cefr": "B1",
-  "diff": "medium",
-  "ipa": null
+  "bank": "sb_7432d6cb",
+  "pid": "u:c:win-beat",
+  "cefr": "A1",
+  "diff": "easy",
+  "ipa": "/biːt/"
  }
 }

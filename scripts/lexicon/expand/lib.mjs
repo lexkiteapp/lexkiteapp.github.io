@@ -62,11 +62,14 @@ export function gateEntry(e, { keep } = {}) {
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
+  if (e.trBad) for (const [l, w] of Object.entries(e.trBad)) why.push(`dịch ${l}: từ không có thật trong ngôn ngữ (wordfreq: ${[].concat(w).join(', ')})`);
   if (e.defChanged) why.push('def: viết lại khác nghĩa gloss WordNet (' + String(e.defChanged).slice(0, 80) + ')');
   if (!CE.includes(e.level)) why.push('cefr: cấp');
   else if ((e.cefrSrc || 'freq') === 'freq' && Math.abs(CE.indexOf(e.level) - CE.indexOf(e.cefrF || e.level)) > 2) why.push('cefr: lệch tần suất > 2 bậc');
   if (!e.vi || !VI.test(e.vi) && !/[àáâãèéêìíòóôõùúýđ]/i.test(e.vi)) why.push('dịch vi: không phải tiếng Việt');
   const a = agree(e.qa); if (!a.ok) why.push('giám khảo: ' + a.why);
+  // đồng thuận 3 giám khảo khác họ (chủ 27/10): mục ghi qa.n = 3 phải đủ 3 điểm, mỗi bản dịch đủ 3 điểm
+  if (e.qa.n === 3 && new Set(Object.keys(e.qa.j || {}).map(k => k.split(':')[0])).size < 3) why.push('giám khảo: cần 3 giám khảo khác họ đồng thuận');
   // pilot 20261027 (soát tay 7/50 sai): giám khảo đã NÊU lỗi cụ thể ("Vietnamese translation incorrect", "synonym … unrelated") mà điểm vẫn 4 → mục lọt. Có lý do = có lỗi → hàng duyệt.
   const fl = (Array.isArray(e.qa.f) ? e.qa.f : [e.qa.f]).filter(x => x && String(x).trim()); if (fl.length) why.push('giám khảo nêu lỗi: ' + fl.join(' · ').slice(0, 120));
   // ví dụ cho người học tuổi teen: không nhắc nhóm tôn giáo/sắc tộc/xu hướng (pilot 20261027: categorize "…all Muslims as murderers")
@@ -85,7 +88,7 @@ export function gateEntry(e, { keep } = {}) {
     const is = trIssues(e.w, t, l); if (t && SCRIPT[l] && !SCRIPT[l].test(t)) is.push('không có chữ bản địa'); if (t && String(t).toLowerCase().trim() === e.w && !['es', 'pt', 'fr', 'de', 'id', 'tr'].includes(l)) is.push('chép nguyên từ tiếng Anh');
     if (e.qa.bad && e.qa.bad[l]) is.push(/translit/.test(e.qa.bad[l]) ? 'phiên âm tiếng Anh' : 'khác từ loại/khác từ');
     if (is.length) { why.push(`dịch ${l}: ${is.join(', ')}`); continue; }
-    if (sc.length < 2 || Math.min(...sc) < 4) why.push(`dịch ${l}: giám khảo < 4 (${sc.join('/')})`);
+    if (sc.length < (e.qa.n || 2) || Math.min(...sc) < 4) why.push(`dịch ${l}: giám khảo < 4 (${sc.join('/')})`);
     if (btOk(e, l)) bt++;
   }
   const btr = e.qa.btw ? bt / LANGS.length : e.qa.bt;
