@@ -1364,7 +1364,7 @@ for fi in range(NF):
             sx_ = max(0.0, ((rg[2] - rg[0]) - im.width * sc) / 2 - 2); sy_ = max(0.0, ((rg[3] - rg[1]) - im.height * sc) / 2 - 2)
             dx = max(-sx_, min(sx_, dx)); dy = max(0.0, min(2 * sy_, dy)) if V14 else max(-sy_, min(sy_, dy))   # slide / drop only inside the board region (no slack = a fade); v14 = top-aligned, so the slack is all below
             ink_ = V14 and p.kind != 'cta'
-            r = paste_board(out, im, rg, sc, al, dx, dy, wp, s, lit=ink_); cr_ = board_contrast(out, im, r) if (ink_ and p.kind in ('lesson', 'note', 'rich') and r and al >= 0.999 and fi % 12 == 0) else None   # ink text only: quiz pills / picture tiles / stress chips carry their own dark plates (white on navy); pxs = round(p.px * sc * s, 1); ms = [[a_, round(v_ * sc * s * PSC, 1)] for a_, v_ in getattr(p, 'mcur', [])]
+            r = paste_board(out, im, rg, sc, al, dx, dy, wp, s, lit=ink_); cr_ = board_contrast(out, im, r) if (ink_ and p.kind in ('lesson', 'note', 'rich') and r and al >= 0.999 and fi % 12 == 0) else None; pxs = round(p.px * sc * s, 1); ms = [[a_, round(v_ * sc * s * PSC, 1)] for a_, v_ in getattr(p, 'mcur', [])]   # contrast: ink text only (quiz pills / picture tiles / stress chips carry their own dark plates)
         else:
             sc = min(sc, (CAPW - 2) / im.width if p.cx == CX else 9, (BAND_H - 2) / im.height); r = paste_scaled(out, im, p.cx + dx, BAND_CY + dy, sc, al, wp); pxs = round(p.px * sc, 1); ms = [['body', round(CAPR * p.px * sc, 1)]]
         if r and p.where == 'board' and cr_ is not None: CONTRAST.append(dict(t=round(T, 3), pop=p.id, cr=cr_))
