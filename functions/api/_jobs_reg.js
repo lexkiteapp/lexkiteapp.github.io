@@ -546,6 +546,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "mobile-qa",
+   "workflow": "mobile-qa.yml",
+   "cron": [
+    "40 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "word-audio",
    "workflow": "word-audio.yml",
    "cron": [
