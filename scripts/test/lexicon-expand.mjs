@@ -12,6 +12,8 @@ let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m)
 const TR = { es: 'abandonar', pt: 'abandonar', fr: 'abandonner', de: 'verlassen', id: 'meninggalkan', th: 'ละทิ้ง', zh: '放弃', ja: '見捨てる', ko: '버리다', hi: 'छोड़ देना', ar: 'يتخلى عن', ru: 'покидать', tr: 'terk etmek' };
 const good = () => ({ w: 'forsake', pos: 'v', ipa: '/fəˈseɪk/', ipaUS: '/fərˈseɪk/', def: 'to leave someone or something completely', ex: ['He would never forsake his friends.', 'She forsook her career for her family.'], col: ['forsake a friend'], syn: ['abandon', 'desert'], level: 'C1', cefrF: 'C2', emoji: '', topic: 'xw-actions', vi: 'bỏ rơi; từ bỏ', note_vi: '', m: { ...TR },
   qa: { j: { 'gemini:gemini-3.5-flash': 5, 'gemma:gemma-3-27b-it': 4 }, tr: Object.fromEntries(LANGS.map(l => [l, [5, 4]])), btw: Object.fromEntries(LANGS.map(l => [l, ['abandon']])) } });
+// từ không có thật trong ngôn ngữ đích (trcheck.py wordfreq – pilot 11 mainline pt "inyectar") → trượt
+ok(gateEntry({ ...good(), trBad: { pt: ['inyectar'] } }).why.some(x => /dịch pt: từ không có thật/.test(x)), 'cổng: trBad (wordfreq) → trượt');
 // định nghĩa đúng hình từ loại (pilot 11: purple#adj "a colour…")
 ok(defPosOk('to take revenge', 'v') && !defPosOk('take revenge', 'v') && !defPosOk('a colour between red and blue', 'adj') && defPosOk('of a colour between red and blue', 'adj') && !defPosOk('to run', 'n') && defPosOk('very quickly', 'adv'), 'defPosOk theo quy ước kho');
 ok(gateEntry({ ...good(), def: 'leave someone or something completely' }).why.some(x => /hình từ loại/.test(x)), 'cổng: định nghĩa động từ thiếu "to …" → trượt');

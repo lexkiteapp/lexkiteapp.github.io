@@ -62,6 +62,7 @@ export function gateEntry(e, { keep } = {}) {
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
+  if (e.trBad) for (const [l, w] of Object.entries(e.trBad)) why.push(`dịch ${l}: từ không có thật trong ngôn ngữ (wordfreq: ${[].concat(w).join(', ')})`);
   if (e.defChanged) why.push('def: viết lại khác nghĩa gloss WordNet (' + String(e.defChanged).slice(0, 80) + ')');
   if (!CE.includes(e.level)) why.push('cefr: cấp');
   else if ((e.cefrSrc || 'freq') === 'freq' && Math.abs(CE.indexOf(e.level) - CE.indexOf(e.cefrF || e.level)) > 2) why.push('cefr: lệch tần suất > 2 bậc');

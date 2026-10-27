@@ -143,6 +143,21 @@ await pmap(chunks(gapTr, 10), 8, async ch => { const r = await call('lxtr', ch.m
 // không còn phương án nào → để trống = trượt cổng (pilot 9: "mong man", "dư thảo", "đrăm" qua cả 2 giám khảo)
 for (const x of ready) if (X[x.k].trSrc.vi === 'ai' && VIOK.size) { const keep = String(X[x.k].m.vi).split(/\s*;\s*/).filter(v => VIOK.has(v.toLowerCase().trim()));
   X[x.k].m.vi = keep.join('; '); if (!keep.length) stat.viReject = (stat.viReject || 0) + 1; }
+// CỔNG TỪ CÓ THẬT (27/10, pilot 11: mainline pt "inyectar" = tiếng Tây Ban Nha qua cả 2 giám khảo): trcheck.py (wordfreq) – bản dịch có từ không tồn tại
+// trong ngôn ngữ đích → bỏ, hỏi lxtr lại 1 lần (kèm lý do); vẫn lạ → giữ cờ trBad = trượt cổng (lib.mjs gateEntry), không bao giờ nhận.
+function trCheck(list) { const tmp = (process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp') + '/lx-tr-' + process.pid, inp = {};
+  for (const x of list) inp[x.k] = X[x.k].m; fs.writeFileSync(tmp + '.in.json', JSON.stringify(inp));
+  try { console.log(execFileSync('python3', [fileURLToPath(new URL('trcheck.py', import.meta.url)), '--in', tmp + '.in.json', '--out', tmp + '.out.json'], { encoding: 'utf8' }).trim()); return JSON.parse(fs.readFileSync(tmp + '.out.json', 'utf8')); }
+  catch (e) { console.error('✗ trcheck.py', String(e.stderr || e.message).slice(-300)); return null; } }
+{ let bad = trCheck(ready);
+  if (!bad) { stat.trCheck = 'unavailable'; for (const x of ready) X[x.k].trBad = { all: ['trcheck.py lỗi'] }; } // không kiểm được = KHÔNG nhận (an toàn)
+  else { stat.trBad = Object.values(bad).reduce((n, o) => n + Object.keys(o).length, 0);
+    const redo = ready.filter(x => bad[x.k]); for (const x of redo) for (const l of Object.keys(bad[x.k])) { X[x.k].trWhy = { ...(X[x.k].trWhy || {}), [l]: bad[x.k][l] }; delete X[x.k].m[l]; }
+    await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), need: Object.keys(X[x.k].trWhy),
+      fix: 'previous answer used words that do not exist in that language: ' + Object.entries(X[x.k].trWhy).map(([l, w]) => l + ': ' + w.join(', ')).join('; ') })));
+      if (r) for (const x of ch) { const o = r.out[x.k] || {}; for (const l of Object.keys(X[x.k].trWhy)) if (typeof o[l] === 'string' && o[l].trim()) { X[x.k].m[l] = o[l].trim(); X[x.k].trSrc[l] = 'ai'; } } });
+    const bad2 = trCheck(redo) || Object.fromEntries(redo.map(x => [x.k, { all: ['trcheck.py lỗi'] }]));
+    for (const x of redo) if (bad2[x.k]) X[x.k].trBad = bad2[x.k]; stat.trBadFinal = Object.keys(bad2).length; } }
 for (const x of ready) if (ALL.every(l => X[x.k].m[l])) T[x.k] = Object.fromEntries(LANGS.map(l => [l, X[x.k].m[l]]));
 const G = Object.fromEntries(live.filter(x => X[x.k]).map(x => [x.k, { keep: true, pos: x.pos, def: D[x.k].def, ex: X[x.k].ex.map(e => e.t), col: X[x.k].col, syn: x._c.syns || [], vi: (X[x.k].m || {}).vi || '', note_vi: '', emoji: '', topic: D[x.k].topic || '' }]));
 for (const x of items) if (D[x.k] && (D[x.k].keep === false || !D[x.k].def)) G[x.k] = { keep: false, why: D[x.k].why, def: '' };
@@ -166,7 +181,7 @@ const why = {}, gaps = new Set();
 for (const x of items) {
   const g = G[x.k], c = x._c;
   const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk, ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: c.cefr, // CEFR: CEFR-J/Octanove → dải tần suất; AI KHÔNG đặt cấp (chỉ cờ lệch ở cổng)
-     cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
+     cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
       lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;

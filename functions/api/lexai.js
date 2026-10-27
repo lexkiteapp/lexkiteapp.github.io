@@ -124,7 +124,8 @@ Rules:
 - Same part of speech in dictionary form: verbs as infinitive/dictionary form (ko/ja verbs end in -다 / -る/-う form), adjectives as adjectives (never "X rate" nouns for an adjective), adverbs as adverbs, nouns as nouns.
 - Native script only; never transliterate the English word when a native word exists; a standard loanword only if it is what dictionaries give (then still put a native word first when one exists).
 - No explanations, brackets, notes, romanization or English.
-Return ONE JSON object mapping each "k" to {"<lang>": "…"} with exactly the requested languages.`;
+Return ONE JSON object mapping each "k" to {"<lang>": "…"} with exactly the requested languages.
+If the item has "fix", a checker rejected your previous answer for that reason (e.g. a word that does not exist in that language, or a word from another language): give a common, real dictionary word of THAT language.`;
 // SOURCE-FIRST v4 (24/10, pilot 8 soát 50 → ~10 sai): nghĩa + định nghĩa = WordNet (AI CHỈ viết lại gloss cho dễ, cấm đổi nghĩa) · ví dụ = câu NGƯỜI VIẾT
 // (Tatoeba / Wiktionary, giám khảo chọn câu đúng nghĩa) · dịch = bảng dịch Wiktionary theo nghĩa (giám khảo khớp gloss) · AI chỉ lấp chỗ trống, chấm 2 họ + dịch ngược.
 const LXDEF = `You simplify WordNet glosses for a learner's dictionary (Oxford Learner's style). Each item: "k", headword "w", "pos" (n|v|adj|adv), "gloss" (the LOCKED WordNet sense), "lemmas" (other words with this exact sense), "wnex" (WordNet examples), "topics" (allowed topic ids).
@@ -192,7 +193,7 @@ export function build(b) {
     if (b.mode === 'lxdef') return { sys: LXDEF, user: JSON.stringify(items.map(({ k, w, pos, gloss, lemmas, wnex, topics, fix }) => ({ k, w, pos, gloss, lemmas, wnex, topics, ...(fix ? { fix } : {}) }))), temp: 0.1, models: LX_GEN };
     if (b.mode === 'lxsrc') return { sys: LXSRC, user: JSON.stringify(items.map(({ k, w, pos, gloss, lemmas, def, cand, cols, ts }) => ({ k, w, pos, gloss, lemmas, def, ex: cand, cols, ts }))), temp: 0.1, models: LX_JUDGE };
     if (b.mode === 'lxex') return { sys: LXEX, user: JSON.stringify(items.map(({ k, w, pos, gloss, def, lemmas, wnex, n, avoid }) => ({ k, w, pos, gloss, def, lemmas, wnex, n, avoid }))), temp: 0.3, models: LX_GEN };
-    if (b.mode === 'lxtr') return { sys: LXTR, user: JSON.stringify(items.map(({ k, w, pos, gloss, lemmas, def, ex, need }) => ({ k, w, pos, gloss, lemmas, def, ex, ...(need.length ? { need } : {}) }))), temp: 0.2, models: LX_GEN };
+    if (b.mode === 'lxtr') return { sys: LXTR, user: JSON.stringify(items.map(({ k, w, pos, gloss, lemmas, def, ex, need, fix }) => ({ k, w, pos, gloss, lemmas, def, ex, ...(need && need.length ? { need } : {}), ...(fix ? { fix } : {}) }))), temp: 0.2, models: LX_GEN };
     return { sys: b.mode === 'lxgen' ? LXGEN : b.mode === 'lxtr' ? LXTR : LXJUDGE, user: JSON.stringify(strip), temp: b.mode === 'lxjudge' ? 0.1 : 0.3, models: b.mode === 'lxjudge' ? LX_JUDGE : LX_GEN };
   }
   if (['xgen', 'xtr', 'xjudge'].includes(b.mode)) {
