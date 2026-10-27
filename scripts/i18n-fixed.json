@@ -27588,17 +27588,17 @@
   "Bấm nút <b>Chia sẻ</b> <span style=\"font-size:1.2rem\">⎋</span> ở thanh địa chỉ của Chrome": {
     "es": "Toca el botón <b>Compartir</b> <span style=\"font-size:1.2rem\">⎋</span> en la barra de direcciones de Chrome",
     "pt": "Toque no botão <b>Compartilhar</b> <span style=\"font-size:1.2rem\">⎋</span> na barra de endereço do Chrome",
-    "fr": "Appuyez sur le bouton <b>Partager</b> <span style=\"font-size:1.2rem\">⎋</span> dans la barre d’adresse de Chrome",
-    "de": "Tippen Sie in der Adressleiste von Chrome auf die Schaltfläche <b>Teilen</b> <span style=\"font-size:1.2rem\">⎋</span>",
+    "fr": "Touchez le bouton <b>Partager</b> <span style=\"font-size:1.2rem\">⎋</span> dans la barre d’adresse de Chrome",
+    "de": "Tippe auf die Schaltfläche <b>Teilen</b> <span style=\"font-size:1.2rem\">⎋</span> in der Adressleiste von Chrome",
     "id": "Ketuk tombol <b>Bagikan</b> <span style=\"font-size:1.2rem\">⎋</span> di bilah alamat Chrome",
     "th": "แตะปุ่ม <b>แชร์</b> <span style=\"font-size:1.2rem\">⎋</span> ในแถบที่อยู่ของ Chrome",
-    "zh": "点击 Chrome 地址栏中的<b>分享</b>按钮<span style=\"font-size:1.2rem\">⎋</span>",
-    "ja": "Chrome のアドレスバーにある <b>共有</b> ボタン <span style=\"font-size:1.2rem\">⎋</span> をタップします",
-    "ko": "Chrome 주소 표시줄에서 <b>공유</b> 버튼 <span style=\"font-size:1.2rem\">⎋</span>을 탭하세요.",
-    "hi": "Chrome के एड्रेस बार में <b>शेयर</b> बटन <span style=\"font-size:1.2rem\">⎋</span> पर टैप करें",
-    "ar": "اضغط على زر <b>مشاركة</b> <span style=\"font-size:1.2rem\">⎋</span> في شريط العنوان في Chrome",
+    "zh": "点按 Chrome 地址栏中的<b>分享</b>按钮 <span style=\"font-size:1.2rem\">⎋</span>",
+    "ja": "Chrome のアドレスバーにある<b>共有</b>ボタン <span style=\"font-size:1.2rem\">⎋</span> をタップ",
+    "ko": "Chrome 주소 표시줄의 <b>공유</b> 버튼 <span style=\"font-size:1.2rem\">⎋</span>을 탭하세요",
+    "hi": "Chrome के एड्रेस बार में <b>शेयर करें</b> बटन <span style=\"font-size:1.2rem\">⎋</span> पर टैप करें",
+    "ar": "اضغط على زر <b>مشاركة</b> <span style=\"font-size:1.2rem\">⎋</span> في شريط العناوين في Chrome",
     "ru": "Нажмите кнопку <b>Поделиться</b> <span style=\"font-size:1.2rem\">⎋</span> в адресной строке Chrome",
-    "tr": "Chrome'un adres çubuğundaki <b>Paylaş</b> düğmesine <span style=\"font-size:1.2rem\">⎋</span> dokunun"
+    "tr": "Chrome adres çubuğundaki <b>Paylaş</b> düğmesine <span style=\"font-size:1.2rem\">⎋</span> dokun"
   },
   "Khung {name}": {
     "es": "Marco {name}",
