@@ -81,6 +81,8 @@
   'Lỗi đồng bộ: {msg}': 'Sync error: {msg}',
   'Bạn': 'You',
   'Đồng bộ ngay': 'Sync now',
+  'Sao lưu vào Google Drive của bạn': 'Back up to your Google Drive',
+  'Lưu trong thư mục ẩn của ứng dụng trên Google Drive của chính bạn – miễn phí, tự động.': 'Saved in a hidden app folder in your own Google Drive – free and automatic.',
   'Đăng xuất': 'Sign out',
   'Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.': 'Your study data is automatically backed up and synced across devices.',
   'Đăng nhập để không mất dữ liệu': 'Sign in so you never lose your progress',

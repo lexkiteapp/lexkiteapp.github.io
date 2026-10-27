@@ -308,6 +308,24 @@
       ]
     },
     {
+      "key": "gdrive-appdata",
+      "name": "Google Drive API – appDataFolder (đồng bộ học tập local-first)",
+      "kind": "db",
+      "purpose": "Đồng bộ dữ liệu học thẳng từ máy người học vào thư mục ẩn của ứng dụng trong Google Drive CỦA CHÍNH HỌ (scope drive.appdata, không sensitive) – web/js/sync-drive.js, bật bằng LK_SYNC trong web/js/firebase-config.js; 0 lượt gọi máy chủ Lexkite. Dự án GCP lexkite-app (bật Drive API) – docs/SYNC-DRIVE.md",
+      "console": "https://console.cloud.google.com/apis/api/drive.googleapis.com/quotas?project=lexkite-app",
+      "free": "Miễn phí dưới 400 triệu đơn vị/ngày/dự án (get 5 · update 50 · list 100 · download 200), 1 triệu đơn vị/phút/dự án, 325.000/phút/người; dung lượng tính vào Drive của người học",
+      "upgrade": "Tăng LK_SYNC.every (gom lượt ghi) hoặc xin tăng hạn mức phút (miễn phí); vượt 400 triệu/ngày: Google sẽ tính phí (thông báo trước ≥ 90 ngày)",
+      "status": "Miễn phí",
+      "match": [
+        "googleapis.com/drive/v3",
+        "googleapis.com/upload/drive/v3"
+      ],
+      "cap": {
+        "day": 400000000,
+        "unit": "drive-unit"
+      }
+    },
+    {
       "key": "firebase-old",
       "name": "Firebase cũ (ielts-lexi-2026)",
       "kind": "hosting",
