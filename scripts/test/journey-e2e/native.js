@@ -48,7 +48,7 @@
       if (pr) { await click('ol.day-steps a[data-step="pr"]', 1200); await wait('#view .q-item, #startPairs', 8000);
         if (!D.querySelector('#view .q-item') && vis('#startPairs')) { await click('#startPairs', 900); for (let r = 0; r < 10 && !vis('#startPairs2'); r++) { const o = D.querySelector('#pairGame .option'); o && o.click(); await sleep(1100); } }
         for (const it of D.querySelectorAll('.q-item')) { const b = it.querySelector('.opts button'); b && b.click(); await sleep(250); } await go('#/day/1'); t.ok(D.querySelector('ol.day-steps a[data-step="pr"].ok'), 'phát âm xong'); }
-      await click('ol.day-steps a[data-step="learn"]', 1000); t.ok(await learn(), 'xong Học từ mới'); t.ok(await wait('.celebrate .path-reward', 6000), 'màn Tiếp theo'); await sleep(2500); t.audit('whats-next');
+      await click('ol.day-steps a[data-step="learn"]', 1000); t.ok(await learn(), 'xong Học từ mới'); t.ok(await wait('.celebrate .path-reward', 15000), 'màn Tiếp theo'); await sleep(2500); t.audit('whats-next');
       await go('#/confidence/salary'); await click('#cfGo', 700); for (let i = 0; i < 8 && !vis('#cfRp'); i++) { if (vis('#cfSkip')) await click('#cfSkip', 500); else if (vis('#cfNext')) await click('#cfNext', 500); else await sleep(500); }
       if (t.ok(vis('#cfRp'), 'tới bước nhập vai')) { await click('#cfRp', 1500); t.ok(/\bB2\b/.test(D.getElementById('view').innerText), 'nhập vai B2'); }
       await go('#/roleplay/salary'); const lv = D.querySelector('.rp-seg button[aria-pressed="true"]'); t.ok(lv && /B2/.test(lv.innerText), 'mức B2 chọn sẵn'); t.audit('roleplay'); return t.bad; },

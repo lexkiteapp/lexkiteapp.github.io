@@ -1,6 +1,6 @@
 // journey-e2e trên Android emulator: hành trình 1–3 (native.js) chạy trong WebView của app debug qua Chrome DevTools – vi/en/ar.
 // Dùng: node scripts/test/journey-e2e/android.mjs <out-dir>   (cần adb + app com.lexkite.app đã cài; workflow journey-e2e.yml native=1)
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 const OUT = path.resolve(process.argv[2] || 'je-android'); fs.mkdirSync(OUT, { recursive: true });
@@ -9,6 +9,7 @@ const adb = (...a) => { try { return execFileSync('adb', a, { encoding: 'utf8', 
 const SRC = ['checks.js', 'native.js'].map(f => fs.readFileSync(new URL('./' + f, import.meta.url), 'utf8')).join('\n;\n');
 const bad = [], errs = []; let nShot = 0, ran = 0;
 // Canh chừng (CI 26/10: emulator chết giữa chừng → "device not found", harness lặp kết nối lại ~40' tới khi bị huỷ): thoát đỏ ngay khi máy ảo mất hoặc quá hạn tổng.
+try { const lg = fs.openSync(path.join(OUT, 'logcat.txt'), 'w'); spawn('adb', ['logcat', '-v', 'time'], { stdio: ['ignore', lg, 'ignore'], detached: false }).unref(); } catch (e) { /* */ } // logcat tới lúc máy ảo chết
 const DEADLINE = Date.now() + (+process.env.JE_ANDROID_MAX_MIN || 25) * 60000; let offline = 0;
 const abort = why => { bad.push(why); try { fs.writeFileSync(path.join(OUT, 'host-diag.txt'), execFileSync('sh', ['-c', 'free -m; dmesg 2>/dev/null | tail -30; ps aux --sort=-rss | head -8'], { encoding: 'utf8', timeout: 10000 })); } catch (e) { /* */ } console.log('✗ ' + why); try { fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1)); } catch (e) { /* */ } process.exit(3); };
 setInterval(() => { let st = ''; try { st = execFileSync('adb', ['get-state'], { encoding: 'utf8', timeout: 15000 }).trim(); } catch (e) { st = 'ERR'; } offline = st === 'device' ? 0 : offline + 1; if (offline >= 3) abort('emulator mất kết nối (adb get-state=' + st + ') – máy ảo chết giữa chừng'); if (Date.now() > DEADLINE) abort('quá hạn tổng ' + (+process.env.JE_ANDROID_MAX_MIN || 25) + ' phút'); }, 20000).unref?.();
