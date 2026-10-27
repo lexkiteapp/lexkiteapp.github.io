@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, doneWords, defPosOk } from '../lexicon/expand/lib.mjs';
+import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk } from '../lexicon/expand/lib.mjs';
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
 import { parseCmu, pickPron, ipaAgrees } from '../lexicon/expand/cmu.mjs';
@@ -43,7 +43,7 @@ ok(!queueable(gateEntry(null), false) && queueable(gateEntry(null), true) && que
 { const b = breaker(3); b.hit(true); b.hit(true); b.hit(false); b.hit(true); b.hit(true); ok(!b.open, 'cầu dao reset khi gọi được'); b.hit(true); ok(b.open, 'cầu dao mở sau 3 lần kho rỗng liên tiếp'); }
 // lỗ dữ liệu nguồn (pilot 40077853589: 267 mục thiếu IPA Anh bị đẩy vào hàng duyệt, không bao giờ làm lại) → KHÔNG vào hàng duyệt
 { const g = good(); g.ipa = ''; ok(sourceGap(gateEntry(g)), 'thiếu IPA Anh = lỗ dữ liệu nguồn'); g.ipaUS = ''; ok(sourceGap(gateEntry(g)), 'thiếu cả IPA Mỹ = lỗ nguồn');
-  const h = good(); h.ipa = ''; h.vi = 'abandon'; ok(!sourceGap(gateEntry(h)), 'thiếu IPA + lỗi nội dung → không phải chỉ lỗ nguồn'); ok(!sourceGap(gateEntry(good())) && !sourceGap(gateEntry(null)), 'sourceGap: mục đạt / gen hỏng'); }
+  const h = good(); h.ipa = ''; h.vi = 'abandon'; ok(!sourceGap(gateEntry(h)), 'thiếu IPA + lỗi nội dung → không phải chỉ lỗ nguồn'); ok(hasGap(gateEntry(h)) && !hasGap(gateEntry(good())) && !hasGap(null), 'thiếu IPA + lỗi nội dung → vẫn có lỗ nguồn → làm lại, không vào hàng duyệt (job.mjs)'); ok(!sourceGap(gateEntry(good())) && !sourceGap(gateEntry(null)), 'sourceGap: mục đạt / gen hỏng'); }
 // IPA Anh: Wiktionary giữ ɡ (bản cũ đổi thành g ngoài bảng), bỏ dấu nối/âm tiết; espeak en-gb → ˈ đầu âm tiết, r, æ, không ˈ từ 1 âm tiết
 ok(clean('/ɡəʊt/') === '/ɡəʊt/' && clean('/ˈt͡ʃɪp/') === '/ˈtʃɪp/' && clean('/ˈbʌtn̩/') === '/ˈbʌtn/' && clean('/ˈaʊ̯ə/') === '/ˈaʊə/', 'clean IPA Wiktionary');
 ok(normEspeak('fɔːsˈeɪk') === '/fɔːˈseɪk/' && normEspeak('həlˈəʊ') === '/həˈləʊ/' && normEspeak('ʃˈʊə') === '/ʃʊə/' && normEspeak('kˌɒmbɪnˈeɪʃən') === '/ˌkɒmbɪˈneɪʃən/' && normEspeak('ˈeəɹɪə') === '/ˈeəriə/' && normEspeak('hˈapi') === '/ˈhæpi/', 'normEspeak');

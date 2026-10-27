@@ -140141,66 +140141,6 @@
   },
   {
    "src": "lexicon-expand",
-   "id": "involuntarily#adv",
-   "batch": "20261027-pilot",
-   "why": [
-    "ipa: thiếu IPA Anh (Wiktionary + espeak)",
-    "def: viết lại khác nghĩa gloss WordNet (The gloss means 'without conscious control', not 'against your will'.)",
-    "dịch vi: không phải tiếng Việt",
-    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
-   ],
-   "at": "2026-10-27",
-   "data": {
-    "w": "involuntarily",
-    "pos": "adv",
-    "ipa": "",
-    "ipaUS": "/ˌɪnvoʊˈlʌntərɪli/",
-    "def": "against your will",
-    "ex": [
-     "The man at her side began to smile involuntarily.",
-     "My hands start moving involuntarily, and I don’t understand why this happens."
-    ],
-    "col": [
-     "smile involuntarily"
-    ],
-    "syn": [],
-    "level": "B1",
-    "cefrF": "C2",
-    "cefrSrc": "cefrj",
-    "z": 2.91,
-    "emoji": "",
-    "topic": "health",
-    "vi": "",
-    "note_vi": "",
-    "m": {},
-    "src": {
-     "freq": "wordfreq-3.1",
-     "sense": "wordnet-3.0:involuntarily.r.01",
-     "def": "wordnet-gloss+ai-simplify",
-     "defGen": "@cf/openai/gpt-oss-120b",
-     "ipaUS": "cmudict",
-     "ipaUK": "",
-     "cefr": "cefrj",
-     "ex": [
-      "tatoeba:9925843",
-      "tatoeba:13651644"
-     ],
-     "tr": {},
-     "trSense": "",
-     "col": "wordnet/tatoeba",
-     "syn": "",
-     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
-    },
-    "qa": {},
-    "defChanged": "The gloss means 'without conscious control', not 'against your will'.",
-    "ipaPos": false,
-    "tp": [
-     "health.d"
-    ]
-   }
-  },
-  {
-   "src": "lexicon-expand",
    "id": "abundance#n",
    "batch": "20261027-pilot",
    "why": [
