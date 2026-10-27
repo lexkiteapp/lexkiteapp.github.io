@@ -116,4 +116,24 @@ const app = fs.readFileSync('web/js/app.js', 'utf8');
 ok(/ret: \['js\/i18n\/en\/ret\.js', 'js\/streak-ui\.js', 'js\/retention\.js'\]/.test(app) && /streak: 'ret'/.test(app), 'gói lười ret + route');
 ok(/App\.retOn\(\)\) App\.lazy\('ret'\)/.test(app), 'trang chủ chỉ tải khi cờ bật');
 ok(!/retention\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')), 'không nằm trong khung app');
+// Cổng bật dần + đo D7 (app.js retOn/retArm/retTrack) – chạy đúng mã thật trong môi trường giả
+{
+  const lines = app.split('\n'), from = lines.findIndex(l => l.includes('const retCfg = ')), to = lines.findIndex(l => l.includes('App.retTrack = '));
+  const code = lines.slice(from, to + 1).join('\n');
+  const run = (cfg, rb, q = '', marks = {}) => {
+    const store = { 'lk.cfg': JSON.stringify({ v: cfg }), ...(rb == null ? {} : { 'lk.rb': String(rb) }), ...marks }, sent = [];
+    const env = { App: {}, location: { search: q, hostname: 'lexkite.com' }, localStorage: { getItem: k => (k in store ? store[k] : null), setItem: (k, v) => { store[k] = String(v); } }, navigator: { sendBeacon: (u, d) => sent.push(JSON.parse(d).ev) }, JSON, Math, isNaN, String };
+    vm.runInNewContext(code, env); return { A: env.App, store, sent };
+  };
+  ok(run({}, 3).A.retOn() === false, 'chưa đặt cờ → tắt');
+  ok(run({ ret_pct: '10' }, 3).A.retOn() === true && run({ ret_pct: '10' }, 10).A.retOn() === false, 'ret_pct 10: nhóm 0–9 bật');
+  ok(run({ ret_pct: '10', ret: '0' }, 3).A.retOn() === false && run({ ret: '1' }, 99).A.retOn() === true, 'ret 0 tắt khẩn / 1 bật hết');
+  ok(run({ ret_pct: '10' }, 99, '?ret=1').A.retOn() === true, '?ret=1 thử trên máy');
+  ok(run({ ret_pct: '10' }, 3).A.retArm() === 'on' && run({ ret_pct: '10' }, 55).A.retArm() === 'off' && run({ ret_pct: '10' }, 30).A.retArm() === '', 'nhóm bật / đối chứng cùng cỡ / ngoài thử nghiệm');
+  ok(run({ ret: '1', ret_pct: '10' }, 3).A.retArm() === '', 'bật hết → hết thử nghiệm, không gửi');
+  const r1 = run({ ret_pct: '10' }, 55); r1.A.retTrack(3); r1.A.retTrack(8); r1.A.retTrack(9);
+  ok(r1.sent.join() === 'ret_off_seen,ret_off_d7', 'mỗi sự kiện 1 lần/máy');
+  const r2 = run({ ret_pct: '10' }, 3, '', { 'lk.noTrack': '1' }); r2.A.retTrack(9); ok(!r2.sent.length, 'máy quản trị không gửi');
+  const r3 = run({ ret_pct: '10' }, null); r3.A.retOn(); ok(/^\d+$/.test(r3.store['lk.rb']), 'tự tạo nhóm lk.rb cố định');
+}
 console.log(`✓ retention: ${pass} kiểm tra đạt`);

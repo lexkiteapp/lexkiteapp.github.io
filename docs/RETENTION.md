@@ -41,9 +41,12 @@
 `game.ret = { ms:{mốc:ts}, opened, own:{'f:ice':ts}, frame, frameAt, ev:{id:[ngày]}, evDone:{id:ts} }` – nằm trong `game` nên đi cùng Drive appData + D1 dự phòng.
 Gộp: `sync.js mergeRet` (hợp mốc/đồ/sự kiện, `opened` = max, khung = bản chọn sau cùng) → không mất dữ liệu, giao hoán qua `ord()`. Không thêm dòng/bảng D1.
 
-## 5. Cờ & cách bật
-`App.retOn()`: `?ret=1` / `?ret=0` (ghi `lk.ret`, chỉ máy này) → ưu tiên; không có thì `/api/config` `ret = '1'` (bật cho mọi người qua admin cấu hình).
-Cờ tắt: không tải `retention.js`, giao diện như cũ. Thử: `https://lexkite.com/app/?ret=1#/streak`.
+## 5. Cờ, bật dần & đo D7 (chủ duyệt 27/10: 10 % trước)
+`App.retOn()`: `?ret=1/0` (máy này, `lk.ret`) > config `ret` (`'0'` tắt khẩn, `'1'` bật hết) > `ret_pct` (nhóm `lk.rb` 0–99 ngẫu nhiên, cố định theo máy, `< ret_pct` thì bật).
+Đặt: bảng `config` D1 (khóa `ret`, `ret_pct`; Quản trị CONFIG_KEYS) – hiệu lực ≤ 5 phút biên + ≤ 1 giờ đệm máy khách.
+Đo: nhóm bật `lk.rb < pct`, đối chứng cùng cỡ `50 ≤ lk.rb < 50+pct` → `App.retTrack` gửi 1 lần/máy `ret_<on|off>_seen` và `ret_<on|off>_d7` (chuỗi chạm 7)
+→ `ext_events` kind `ret:…`. **D7 = d7 / seen** từng nhóm; so sau ≥ 14 ngày rồi mới tăng `ret_pct` (≤ 50 còn đối chứng; `ret='1'` = bật hết, hết đo).
+Thử: `https://lexkite.com/app/?ret=1#/streak`.
 
 ## 6. Quảng cáo (AdMob, `docs/ADS.md`)
 Lý do có thưởng mới `cosmetic` (1 lần/ngày/máy, `ads/policy.js`), chỉ app gốc, chỉ khi người học tự bấm sau khi mở rương. Web/add-on: không có.
@@ -56,5 +59,5 @@ Khung app +~0,4 KB (cờ + 3 dòng). Gói lười: `retention.js` ~19 KB thô, �
 Widget riêng 2×2 "chuỗi + giáo viên" với 3 biểu cảm (vui/lo/ngủ) · ảnh 3D Ama/Carlos cho màn mốc · thẻ chia sẻ mốc (`share-card.js`) · nhiệm vụ bạn bè (league) · admin sửa `EVENTS` qua `/api/config` · lịch tháng.
 
 ## 9. Việc chờ anh quyết
-1. Bật cờ `ret` cho bao nhiêu % người dùng (đề xuất: 10 % → đo chuỗi D7/D30 → 100 %).
+1. ~~% bật cờ~~ – chủ duyệt 27/10: `ret_pct = 10`, đo D7 rồi mới tăng.
 2. Cứu chuỗi bằng video quảng cáo (có sẵn) có trái luật "quảng cáo chỉ cho mỹ phẩm" không? Đề xuất: giữ khiên miễn phí, bỏ đường quảng cáo khi bật `ret` (cần anh OK vì là đổi tính năng cũ).
