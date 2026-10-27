@@ -7,6 +7,7 @@ export const DICT_PATH = { vi: 'tu-dien', en: 'dictionary', es: 'diccionario', p
 export const ENABLED = ['vi', 'en'];
 export const hubPath = l => `/${l}/${DICT_PATH[l]}/`;
 export const wordPath = (l, slug) => `${hubPath(l)}${slug}/`;
+export const letterPath = (l, c) => `${hubPath(l)}${c.toLowerCase()}/`; // trang A–Z (slug 1 chữ – từ trong tập luôn ≥ 3 chữ, không trùng)
 export const slugOf = w => String(w).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 export const landing = l => (l === 'vi' ? '/' : `/${l}/`);
 
@@ -28,6 +29,8 @@ export const T = {
     hubTitle: 'Từ điển Anh–Việt: {n} từ thông dụng có phát âm và ví dụ', hubDesc: 'Tra nghĩa {n} từ tiếng Anh thông dụng: phát âm Anh–Anh/Anh–Mỹ có audio, ví dụ, collocation, từ dễ nhầm và bài tập nhỏ.',
     hubLead: 'Mỗi trang giải thích một từ: nghĩa, phát âm, ví dụ, cách dùng, lỗi người Việt hay mắc và câu hỏi tự kiểm tra.',
     foot: 'Lexkite – Từ điển Anh–Việt cho người học tiếng Anh',
+    ant: 'Trái nghĩa', fam: 'Họ từ', wnH: 'Nghĩa khác của “{w}” (tiếng Anh)', wnSrc: 'Nguồn: Open English WordNet 2025 (CC BY 4.0)', toolsH: 'Luyện tiếp miễn phí',
+    letter: 'Từ tiếng Anh bắt đầu bằng chữ {c} – Từ điển Anh–Việt', letterLead: '{n} từ bắt đầu bằng chữ {c}, mỗi từ có nghĩa tiếng Việt, phát âm và ví dụ.', top: 'Từ thông dụng nhất', azH: 'Tra theo chữ cái',
   },
   en: {
     hub: 'English dictionary', home: 'Home', open: 'Open app', skip: 'Skip to content',
@@ -46,6 +49,8 @@ export const T = {
     hubTitle: 'English dictionary: {n} common words with audio and examples', hubDesc: 'Meanings of {n} common English words with UK/US pronunciation audio, example sentences, collocations, confusing pairs and quick quizzes.',
     hubLead: 'Each page explains one word: meaning, pronunciation, examples, usage, common mistakes and a self-check.',
     foot: 'Lexkite – English dictionary for learners',
+    ant: 'Opposites', fam: 'Word family', wnH: 'Other meanings of “{w}”', wnSrc: 'Source: Open English WordNet 2025 (CC BY 4.0)', toolsH: 'Keep practising for free',
+    letter: 'English words starting with {c} – English dictionary', letterLead: '{n} words starting with {c}, each with a definition, pronunciation and examples.', top: 'Most common words', azH: 'Browse A–Z',
   },
 };
 
@@ -93,16 +98,18 @@ ${d.note && (d.note.m || d.note.e) ? `<div class="wn-x">${d.note.m ? `<div>💡 
 <div class="foot"><a class="btn p" href="${esc(d.app)}">+ ${esc(t.save)}</a><a class="btn" href="${esc(d.app)}">${esc(t.more)}</a>${d.usage ? `<a class="btn" href="${esc(d.app.replace(/#\/dict\/.*/, '#/usage/' + encodeURIComponent(w.toLowerCase())))}">📘 ${esc(t.usage)}</a>` : ''}</div></div>`,
     // ② Phần "Chi tiết" như màn tra từ của app: ví dụ, hay đi với, đồng nghĩa, 🧠 Hiểu sâu
     `<section class="card" aria-labelledby="h-e"><h2 id="h-e"><span aria-hidden="true">💬</span> ${esc(t.ex)}</h2><div class="example-box">${d.examples.map(x => `<p lang="en" dir="ltr">${hl(x)}</p>`).join('')}</div>
-${chips('🔗', t.goes, d.col.map(x => `<span class="chip wc-chip" lang="en" dir="ltr">${esc(x)}</span>`))}${chips('≈', t.synL, d.syn.map(link))}
+${chips('🔗', t.goes, d.col.map(x => `<span class="chip wc-chip" lang="en" dir="ltr">${esc(x)}</span>`))}${chips('≈', t.synL, d.syn.map(link))}${chips('↔', t.ant, (d.ant || []).map(link))}${chips('🌱', t.fam, (d.fam || []).map(link))}
 ${d.noteHtml || (d.note ? `<div class="notes">${[['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => d.note[q]).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(d.note[q])}</p>`).join('')}</div>` : '')}
 </section>`,
     d.patterns.length ? sec('t', t.pat, `<ul class="wc-use">${d.patterns.map(x => `<li><span class="wc-tag" lang="en">${esc(x.h)}</span><span>${esc(x.m)}${x.ex ? `<br><i lang="en" dir="ltr">${hl(x.ex)}</i>` : ''}</span></li>`).join('')}</ul>`, '📐') : '',
-    d.confus.length ? sec('k', fill(t.conf, { w }), d.confus.map(c => `<div class="pair">${c.items.map(x => `<div class="pos-block"><div class="pos-head"><b lang="en" dir="ltr">${esc(x.h)}</b><span class="vi">${esc(x.m)}</span></div>${x.ex ? `<div class="ex" lang="en" dir="ltr">“${hl(x.ex)}”</div>` : ''}</div>`).join('')}${c.tip ? `<p class="tip">💡 ${md(c.tip)}</p>` : ''}</div>`).join(''), '⚖️') : '',
+    d.confus.length ? sec('k', fill(t.conf, { w }), d.confus.map(c => `<div class="pair">${c.items.map(x => `<div class="pos-block"><div class="pos-head">${x.href ? `<a href="${x.href}" lang="en" dir="ltr"><b>${esc(x.h)}</b></a>` : `<b lang="en" dir="ltr">${esc(x.h)}</b>`}<span class="vi">${esc(x.m)}</span></div>${x.ex ? `<div class="ex" lang="en" dir="ltr">“${hl(x.ex)}”</div>` : ''}</div>`).join('')}${c.tip ? `<p class="tip">💡 ${md(c.tip)}</p>` : ''}</div>`).join(''), '⚖️') : '',
     d.mistakes.length ? sec('x', t.mis, pairs(d.mistakes), '⚠️') : '',
+    (d.wn || []).length ? sec('w', fill(t.wnH, { w }), `<ol lang="en" dir="ltr">${d.wn.map(x => `<li>${esc(x.g)}${x.x ? `<br><i>“${hl(x.x)}”</i>` : ''}</li>`).join('')}</ol><p class="muted small"><a href="https://github.com/globalwordnet/english-wordnet" rel="noopener">${esc(t.wnSrc)}</a></p>`, '📗') : '',
     d.quiz.length ? sec('q', t.quiz, `<ol class="quiz">${d.quiz.map(q => `<li><p><b>${esc(q.q)}</b></p>${q.s ? `<p class="ex">${en(q.s)}</p>` : ''}<ul class="opts">${q.o.map(o => `<li><span class="chip">${q.oEn ? en(o) : esc(o)}</span></li>`).join('')}</ul><details><summary>${esc(t.ans)}</summary><p class="ok">✓ ${q.oEn ? en(q.o[q.a], 'b') : `<b>${esc(q.o[q.a])}</b>`}</p></details></li>`).join('')}</ol>`, '✍️') : '',
     `<div class="cta"><p><strong>${esc(fill(t.cta, { w }))}</strong><small>${esc(t.ctaN)}</small></p><a class="btn" href="${esc(d.app)}">${esc(fill(t.ctaB, { w }))} →</a></div>`,
     sec('f', t.faq, faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join(''), '❓'),
     d.blog.length ? sec('b', t.blog, `<ul>${d.blog.map(b => `<li><a href="${b.href}">${esc(b.t)}</a></li>`).join('')}</ul>`, '📚') : '',
+    (d.tools || []).length ? sec('o', t.toolsH, `<ul>${d.tools.map(x => `<li><a href="${x.href}">${esc(x.t)}</a></li>`).join('')}</ul>`, '🎯') : '',
     d.related.length ? sec('r', t.rel, `<div class="wc-chips">${d.related.map(link).join('')}</div>`, '🔎') : '',
   ].filter(Boolean).join('\n');
   const jl = [
@@ -114,20 +121,33 @@ ${d.noteHtml || (d.note ? `<div class="notes">${[['m', t.nm], ['e', t.ne], ['u',
   return page({ l, title, desc, u, robots: idx ? '' : 'noindex,follow', hreflang, jl, crumbs, body, shell, lh });
 }
 
-export function renderHub(l, items, shell, { open = {} } = {}) {
-  const t = T[l], p = hubPath(l), n = items.length;
+export function renderHub(l, all, shell, { open = {}, letter = '' } = {}) {
+  if (letter) return renderLetter(l, all, shell, { open, letter });
+  const items = all.filter(d => !(d.quality && d.quality.pool)); // trang chính: N từ của bậc hiện tại; cả pool qua trang A–Z
+  const t = T[l], p = hubPath(l), n = all.length;
   const title = fill(t.hubTitle, { n }), desc = clip(fill(t.hubDesc, { n }));
   const anyIdx = items.some(d => isIndexable(d, open));
   const crumbs = [[t.home, landing(l)], [t.hub, p]];
   const letters = [...new Set(items.map(d => d.word[0].toUpperCase()))].sort();
   const body = `<article class="page wd"><header class="hero"><h1>${esc(title)}</h1><p>${esc(t.hubLead)}</p></header>
-<nav class="letters" aria-label="A–Z">${letters.map(c => `<a href="#l-${c}">${c}</a>`).join('')}</nav>
-${letters.map(c => `<section aria-labelledby="l-${c}"><h2 id="l-${c}">${c}</h2><ul class="az">${items.filter(d => d.word[0].toUpperCase() === c).map(d => `<li><a href="${wordPath(l, d.slug)}" lang="en" dir="ltr">${esc(d.word)}</a> <small>${esc(d.meaning.split(/[;,]/)[0])}</small></li>`).join('')}</ul></section>`).join('\n')}</article>`;
+<h2>${esc(t.azH)}</h2><nav class="letters" aria-label="A–Z">${[...new Set(all.map(d => d.word[0].toUpperCase()))].sort().map(c => `<a href="${letterPath(l, c)}">${c}</a>`).join('')}</nav>
+<h2>${esc(t.top)}</h2>${letters.map(c => `<section aria-labelledby="l-${c}"><h2 id="l-${c}">${c}</h2><ul class="az">${items.filter(d => d.word[0].toUpperCase() === c).map(d => `<li><a href="${wordPath(l, d.slug)}" lang="en" dir="ltr">${esc(d.word)}</a> <small>${esc(d.meaning.split(/[;,]/)[0])}</small></li>`).join('')}</ul></section>`).join('\n')}</article>`;
   const alts = anyIdx ? [...ENABLED.map(x => [x, hubPath(x)]), ['x-default', hubPath('en')]] : [];
   const hreflang = alts.map(([x, q]) => `<link rel="alternate" hreflang="${x}" href="${SITE + q}">`).join('');
   const jl = [{ '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: `Lexkite – ${t.hub}`, description: desc, inLanguage: l, url: SITE + p }, crumbsLd(crumbs)];
   const lh = x => (ENABLED.includes(x) ? hubPath(x) : landing(x));
   return page({ l, title: title + ' | Lexkite', desc, u: SITE + p, robots: anyIdx ? '' : 'noindex,follow', hreflang, jl, crumbs, body, shell, lh });
+}
+
+// Trang A–Z: mọi từ trong pool bắt đầu bằng 1 chữ (noindex,follow – chỉ để điều hướng, không cạnh tranh với trang từ)
+function renderLetter(l, all, shell, { letter }) {
+  const t = T[l], C = letter.toUpperCase(), p = letterPath(l, letter), items = all.filter(d => d.word[0].toUpperCase() === C), title = fill(t.letter, { c: C });
+  const crumbs = [[t.home, landing(l)], [t.hub, hubPath(l)], [C, p]];
+  const body = `<article class="page wd"><header class="hero"><h1>${esc(title)}</h1><p>${esc(fill(t.letterLead, { n: items.length, c: C }))}</p></header>
+<nav class="letters" aria-label="A–Z">${[...new Set(all.map(d => d.word[0].toUpperCase()))].sort().map(c => (c === C ? `<span aria-current="page">${c}</span>` : `<a href="${letterPath(l, c)}">${c}</a>`)).join('')}</nav>
+<ul class="az">${items.map(d => `<li><a href="${wordPath(l, d.slug)}" lang="en" dir="ltr">${esc(d.word)}</a> <small>${esc(d.meaning.split(/[;,]/)[0])}</small></li>`).join('')}</ul></article>`;
+  const lh = x => (ENABLED.includes(x) ? letterPath(x, letter) : landing(x));
+  return page({ l, title: title + ' | Lexkite', desc: clip(fill(t.letterLead, { n: items.length, c: C })), u: SITE + p, robots: 'noindex,follow', hreflang: '', jl: [crumbsLd(crumbs)], crumbs, body, shell, lh });
 }
 
 // Sitemap shard (≤ 10.000 URL/file – nhỏ để GSC báo tỷ lệ index theo lô): chỉ trang index được, kèm hreflang như <head>.

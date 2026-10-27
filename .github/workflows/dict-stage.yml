@@ -49,6 +49,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7
         run: |
           node scripts/dict/build.mjs && node scripts/test/dict-pages.mjs
+          if [ "${{ steps.env.outputs.r2 }}" = "1" ]; then node scripts/dict/r2-sync.mjs && sed -i 's/^# \(\[\[r2_buckets\]\]\|binding = "DICT"\|bucket_name = "lexkite-dict-data"\)/\1/' workers/dict/wrangler.toml; fi # tầng 2 khi chủ đã bật R2 (docs §8 bước 4)
           cd workers/dict && npx -y wrangler@3.114.0 deploy --var "DICT_INDEX:${{ steps.st.outputs.index }}"
       - name: Ghi issue dict-stage
         if: always()

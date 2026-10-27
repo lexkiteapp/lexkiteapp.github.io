@@ -11,6 +11,7 @@ import { CSS, TAP_CSS, esc, ld, siteHeader, siteFooter, crumbsHtml, crumbsLd as 
 import { blogVideoBox, BLOG_VIDEO_CSS, readJSON as readVid, MANIFEST as VID_MANIFEST } from './lib/video-web.mjs';
 import vm from 'node:vm';
 import { blogToolBox, TOOL_BOX_CSS } from './lib/tools-links.mjs';
+import { blogDictBox } from './dict/links.mjs'; // blog → trang từ điển (docs/SEO-DICT-PAGES.md §3b)
 import { editorialNode, blogByline } from './lib/authority-links.mjs'; // tác giả = Lexkite Editorial Team + trang hồ sơ đội (docs/SEO-AUTHORITY.md) // hộp liên kết công cụ miễn phí cùng chủ đề (docs/SEO-TOOLS.md)
 // 💰 Ô quảng cáo cuối bài (docs/ADS.md) – CHỈ khi web/js/ads/config.js bật + có mã ô 'blog'; mặc định tắt → 0 byte thêm vào trang
 const ADS = (() => { try { const c = { self: {} }; c.self = c; vm.runInNewContext(fs.readFileSync(new URL('../web/js/ads/config.js', import.meta.url), 'utf8'), c); const a = c.ADS_CONFIG || {}; return a.enabled && a.web && a.web.client && a.web.slots && a.web.slots.blog ? a : null; } catch (e) { return null; } })();
@@ -358,7 +359,7 @@ for (const p of posts) {
 <figure class="cover">${picture(cv.id, cv.alt, { eager: true })}</figure>
 ${toc.length >= 3 ? `<details class="toc" open><summary>${t.toc}</summary><ol>${toc.map(h => `<li><a href="#${h.id}">${inline(h.txt)}</a></li>`).join('')}</ol></details>` : ''}
 ${html}
-${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${blogToolBox(p)}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
+${blogVideoBox(p, VIDEOS, esc)}${quizHtml}${blogToolBox(p)}${blogDictBox(p)}${(p.tags || []).some(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2) ? `<div class="tags" aria-label="${t.tags}">${p.tags.filter(g => (TAGN.get(`${p.lang}/${g}`) || 0) >= 2).map(g => `<a href="${b}${sg.tag}/${g}/">#${esc(g)}</a>`).join('')}</div>` : ''}
 <p class="copy">© ${new Date(pub).getFullYear()} Lexkite · ${COPY[p.lang] || COPY.en}</p>
 <section class="trybox"><h2>${t.try}</h2><p>${t.tryD}</p><div class="cta-actions"><a class="btn" href="${appHref(p.lang)}">${t.open} ${t.dir === 'rtl' ? '←' : '→'}</a>${topicAction}</div></section>
 ${extBox(p.lang)}

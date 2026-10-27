@@ -3,10 +3,10 @@
 name: Trang từ điển (dict pages)
 on:
   pull_request:
-    paths: ['scripts/dict/**', 'workers/dict/**', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml', 'web/js/data.js', 'web/js/lib/**', 'web/js/usage/**', 'web/js/notes/**', 'scripts/lib/site-layout.mjs']
+    paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/build-blog.mjs', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml', 'web/js/data.js', 'web/js/lib/**', 'web/js/usage/**', 'web/js/notes/**', 'scripts/lib/site-layout.mjs']
   push:
     branches: [main]
-    paths: ['scripts/dict/**', 'workers/dict/**', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml']
+    paths: ['scripts/dict/**', 'workers/dict/**', 'content/dict/**', 'scripts/test/dict-pages.mjs', '.github/workflows/dict-pages.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,7 +22,7 @@ jobs:
       - name: Dựng dữ liệu + tầng tĩnh (mặc định noindex)
         run: node scripts/dict/build.mjs && cat dist-dict/report.json | head -40
       - name: Cổng dict-pages (2 chế độ, structured data, hreflang, sitemap, Worker)
-        run: node scripts/test/dict-pages.mjs
+        run: node scripts/test/dict-pages.mjs && node scripts/dict/r2-sync.mjs --plan
       - name: Bản xem thử chế độ mở (chỉ để đo Lighthouse SEO – không deploy)
         run: |
           DICT_OUT=dist-dict-open DICT_INDEX=all node scripts/dict/build.mjs
