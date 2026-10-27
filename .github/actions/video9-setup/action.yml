@@ -8,15 +8,21 @@ runs:
     - name: Reviewed script + hook verdict present
       shell: bash
       run: python3 -c "import json,sys;s=json.load(open('$SPEC'));v=json.load(open('$HOOKS'))['verdicts'].get(s['id']) or {};sys.exit(0 if v.get('hook_true') and v.get('script')=={l['id']:l['text'] for l in s['lines'] if l.get('text')} else 1)" || { echo "::error::script/hook not reviewed"; exit 1; }
+    - uses: actions/cache@v4   # static ffmpeg: apt-get of the distro ffmpeg took 3-10 min on some runners
+      with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
+    - name: ffmpeg (static build, cached)
+      shell: bash
+      run: |
+        [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && curl -fsSL --retry 3 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg' '*/bin/ffprobe'; }
+        sudo ln -sf ~/ffbin/ffmpeg /usr/local/bin/ffmpeg; sudo ln -sf ~/ffbin/ffprobe /usr/local/bin/ffprobe
     - uses: actions/cache@v4
       with: { path: ~/.cache/pip, key: 'pip-video9-render-${{ hashFiles(''scripts/cine/requirements.txt'') }}-fw1.0.3' }
-    - name: Libraries + colour emoji font + ffmpeg
+    - name: Libraries + colour emoji font
       shell: bash
       run: |
         timeout 480 pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3 qrcode==7.4.2 pyflakes==3.2.0
-        # the runner image has no ffmpeg; try the image's package index first (no slow update), fall back to update
-        sudo apt-get -o Acquire::Retries=3 install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null; }
-        ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf; ffmpeg -version | head -1
+        [ -f /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf ] || { sudo apt-get -o Acquire::Retries=3 install -y -qq fonts-noto-color-emoji >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-color-emoji >/dev/null; }; }
+        ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf
     - name: Footage (only the talk clips of this spec, sparse)
       shell: bash
       env: { KEY: '${{ inputs.key }}' }
