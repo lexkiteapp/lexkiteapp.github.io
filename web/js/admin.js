@@ -406,8 +406,12 @@
     return j;
   }
   // Kho Drive riêng qua /api/drive – tab Kho Drive. Lỗi → err.code + err.data
+  // 27/10: không hạn chờ → máy chủ chậm/treo = tab Kho Drive "Đang tải…" mãi. Đọc nhanh ≤ 45 s; op dài (kiểm sức khỏe, sửa bản sao, chép lại) ≤ 120 s → lỗi 'timeout' + nút Thử lại
+  const DAPI_LONG = new Set(['health', 'repair', 'rebalance', 'refresh_quota', 'verify_files', 'backup_export', 'refs_sync']);
   async function dapi(op, body = {}) {
-    const r = await fetch('/api/drive', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const ms = DAPI_LONG.has(op) ? 120e3 : 45e3, ctl = typeof AbortController === 'function' ? new AbortController() : null, tm = ctl && setTimeout(() => ctl.abort(), ms);
+    let r; try { r = await fetch('/api/drive', { method: 'POST', credentials: 'same-origin', signal: ctl ? ctl.signal : undefined, headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) }); }
+    catch (x) { const e = new Error(x && x.name === 'AbortError' ? 'timeout' : 'network'); e.code = e.message; throw e; } finally { clearTimeout(tm); }
     const j = await r.json().catch(() => ({}));
     if (r.status === 401 && j.error === 'reauth') return reauth();
     if (!r.ok) { const e = new Error(j.message || j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }

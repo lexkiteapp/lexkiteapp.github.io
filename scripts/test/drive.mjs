@@ -586,5 +586,39 @@ ok(!mod.isShortsRow({ cls: 'original', folder: 'footage/cafe' }), 'footage khôn
   globalThis.fetch = baseFetch;
 }
 
+// ---------- 27/10: Kho Drive chậm 7–15 s / treo "Đang tải…" – D1 'dual' chép nền, REST + GraphQL có hạn chờ ----------
+{
+  const { dualDb, restDb, DUAL } = await import('../../functions/api/_d1b.js');
+  const { d1Usage, resetD1Cache } = await import('../../functions/api/_d1guard.js');
+  const log = [], mainDb = { prepare: q => ({ bind: (...a) => ({ run: async () => { log.push('main:' + a[0]); return {}; }, all: async () => ({ results: [] }), first: async () => null }) }), batch: async x => x.map(() => ({})) };
+  let release; const gate = new Promise(r => { release = r; });
+  const slowB = { prepare: q => ({ bind: (...a) => ({ run: async () => { await gate; log.push('b:' + a[0]); return {}; } }) }), batch: async () => [] };
+  const deferred = [], db = dualDb(mainDb, slowB).withDefer(p => deferred.push(p));
+  const t0 = Date.now();
+  await db.prepare('INSERT INTO x VALUES (?)').bind(1).run(); await db.prepare('UPDATE x SET v = ?').bind(2).run();
+  await db.prepare('SELECT * FROM x').bind(0).all();
+  ok(Date.now() - t0 < 50 && log.join() === 'main:1,main:2', 'dual + waitUntil: trả lời KHÔNG chờ bản chép D1 nội bộ (đọc/ghi D1 chính xong là xong)');
+  ok(deferred.length === 2, 'dual: mỗi lệnh ghi giao cho waitUntil của yêu cầu (đọc không chép)');
+  release(); await Promise.all(deferred);
+  ok(log.join() === 'main:1,main:2,b:1,b:2', 'dual: bản chép chạy nền vẫn ĐÚNG THỨ TỰ ghi');
+  const f0 = DUAL.fail, badB = { prepare: () => ({ bind: () => ({ run: async () => { throw new Error('x'); } }) }) }, d2 = [];
+  await dualDb(mainDb, badB).withDefer(p => d2.push(p)).prepare('INSERT INTO y VALUES (?)').bind(9).run(); await Promise.all(d2);
+  ok(DUAL.fail === f0 + 1, 'dual: chép lỗi → đếm DUAL.fail, không làm hỏng yêu cầu');
+  const log2 = []; const plain = dualDb(mainDb, { prepare: q => ({ bind: (...a) => ({ run: async () => { log2.push(a[0]); return {}; } }) }) });
+  await plain.prepare('INSERT INTO z VALUES (?)').bind(7).run();
+  ok(log2.join() === '7', 'dual không có waitUntil (CLI/test cũ) → vẫn chờ chép như trước');
+  // REST tài khoản 2 treo → mỗi lượt bị cắt theo hạn chờ rồi thử lại, cuối cùng ném lỗi thay vì treo mãi
+  const keep = setInterval(() => {}, 20); // AbortSignal.timeout dùng timer unref trong Node – giữ tiến trình sống cho tới khi hết hạn chờ
+  const hang = (u, o) => new Promise((_, rej) => { o.signal && o.signal.addEventListener('abort', () => rej(new Error('aborted'))); });
+  const r = restDb({ D1B_ACCOUNT_ID: 'a', D1B_TOKEN: 't', D1B_TIMEOUT_MS: 30 }, hang); const t1 = Date.now(); let err = '';
+  try { await r.prepare('SELECT 1').all(); } catch (e) { err = e.message; }
+  ok(err === 'd1b-network' && Date.now() - t1 < 3000, 'REST D1 nội bộ treo → hết hạn chờ, thử lại 3 lần rồi báo d1b-network (không treo): ' + err + ' ' + (Date.now() - t1) + 'ms');
+  // GraphQL Analytics treo → quá hạn → dùng số tự đếm (đường dự phòng), cầu dao không treo cả yêu cầu
+  resetD1Cache(); const t2 = Date.now();
+  const u = await d1Usage({ CF_ANALYTICS_TOKEN: 't', CF_ACCOUNT_ID: 'abc', GQL_TIMEOUT_MS: 30 }, { prepare: () => ({ bind: () => ({ first: async () => ({ v: 12 }) }) }) }, Date.now(), hang);
+  ok(u.source === 'own' && u.reads === 12 && Date.now() - t2 < 2000, 'GraphQL treo → số tự đếm sau hạn chờ (' + u.source + ', ' + (Date.now() - t2) + 'ms)');
+  resetD1Cache(); clearInterval(keep);
+}
+
 if (fails) { console.log(`✗ drive: ${fails}/${n} kiểm thất bại`); process.exit(1); }
 console.log(`✓ drive: ${n} kiểm (state/CSRF, AES-GCM, không lộ token, chọn Drive theo tỉ lệ, bản sao, cổng admin, CLI HMAC, link tải, trình duyệt file, dọn dẹp, sổ kho, cảnh báo)`);

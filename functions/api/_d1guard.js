@@ -8,6 +8,8 @@ import { REG } from './_jobs_reg.js';
 export const D1_LIMITS = { reads: 5e6, writes: 1e5 };
 export const GUARD_PCT = 0.5, ALERT_PCT = 0.6, OWN_BUDGET = 1.5e6;
 const CACHE = {}; // theo tài khoản: 'main' | 'b'
+// 27/10: GraphQL Analytics không có hạn chờ → chậm/treo kéo cả yêu cầu Quản trị theo. ≤ 4 s, quá hạn → số tự đếm (đường dự phòng sẵn có, như khi thiếu token).
+export const GQL_TIMEOUT_MS = 4000;
 export const day = (t = Date.now()) => new Date(t).toISOString().slice(0, 10);
 /** → { reads, writes|null, source: 'cloudflare'|'own', pct, at } */
 export async function d1Usage(env, db, now = Date.now(), fetcher = fetch, which = 'main') {
@@ -17,7 +19,7 @@ export async function d1Usage(env, db, now = Date.now(), fetcher = fetch, which 
   const tok = env && (which === 'b' ? env.D1B_TOKEN : (env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN)), acct = env && (which === 'b' ? env.D1B_ACCOUNT_ID : env.CF_ACCOUNT_ID);
   if (tok && acct) {
     try {
-      const d = day(now), r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' },
+      const d = day(now), r = await fetcher('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', signal: typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? AbortSignal.timeout(+env.GQL_TIMEOUT_MS || GQL_TIMEOUT_MS) : undefined, headers: { Authorization: 'Bearer ' + tok, 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: `query { viewer { accounts(filter:{accountTag:"${String(acct).replace(/[^a-f0-9]/gi, '')}"}) { d1AnalyticsAdaptiveGroups(limit:1, filter:{date_geq:"${d}", date_leq:"${d}"}) { sum { rowsRead rowsWritten } } } } }` }) });
       const j = await r.json(), s = (((j.data || {}).viewer || {}).accounts || [])[0], g = s && s.d1AnalyticsAdaptiveGroups && s.d1AnalyticsAdaptiveGroups[0];
       v = g ? { reads: +g.sum.rowsRead || 0, writes: +g.sum.rowsWritten || 0, source: 'cloudflare' } : { reads: 0, writes: 0, source: 'cloudflare' };

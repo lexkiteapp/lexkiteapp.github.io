@@ -843,7 +843,9 @@ const cliOnly = b => b && b._cli === true;
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost({ request, env, waitUntil }) {
+  // D1 chế độ 'dual': bản chép sang D1 nội bộ chạy nền qua waitUntil (giữ thứ tự) – không bắt Quản trị chờ REST tài khoản 2 (27/10: 7–15 s, có lúc treo)
+  const D = (x => (x && x.withDefer && typeof waitUntil === 'function' ? x.withDefer(p => waitUntil(p)) : x))(ddb(env));
   const text = await request.text().catch(() => '');
   if (text.length > 524288) return json(request, 413, { error: 'too-large' });
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { return json(request, 400, { error: 'json' }); }
@@ -863,22 +865,22 @@ export async function onRequestPost({ request, env }) {
   }
   const fn = Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   if (!['ext_alert', 'footage_alert', 'alerts'].includes(b.op)) { // cầu dao D1: việc nền/quản trị Kho Drive dừng khi tài khoản đã dùng ≥ 50 % hạn mức đọc (CI: dừng, mai chạy tiếp)
-    const blocked = await guardBackground(env, ddb(env), (st, o) => json(request, st, o), guardAccounts(env)).catch(() => null);
-    if (blocked) { await d1Alert(env, ddb(env)).catch(() => {}); return blocked; }
+    const blocked = await guardBackground(env, D, (st, o) => json(request, st, o), guardAccounts(env)).catch(() => null);
+    if (blocked) { await d1Alert(env, D).catch(() => {}); return blocked; }
   }
-  if (cli && !['ext_alert', 'footage_alert', 'alerts'].includes(b.op) && (await ownReads(ddb(env))) >= D1_BUDGET) return json(request, 429, { error: 'd1-budget' }); // trần riêng của đường CLI: 1,5 M dòng/ngày
+  if (cli && !['ext_alert', 'footage_alert', 'alerts'].includes(b.op) && (await ownReads(D)) >= D1_BUDGET) return json(request, 429, { error: 'd1-budget' }); // trần riêng của đường CLI: 1,5 M dòng/ngày
   if (!cli && DANGER.has(b.op) && Date.now() / 1000 - (+who.auth_time || 0) > 900) return json(request, 401, { error: 'reauth', message: 'Sensitive action: sign out and sign back in, then try again.' });
-  const db = metered(ddb(env)); QN = 0; FN = 0;
+  const db = metered(D); QN = 0; FN = 0;
   try {
-    await setup(ddb(env), env);
+    await setup(D, env);
     const out = await fn(db, b, who, env, request);
     if (DROP_ROLLUP.has(b.op) && !out.status) await dropRollups(db); // thao tác hiếm đổi tập file (không tính tải lên: CI tải hàng trăm file/đêm) → bản tổng hợp tính lại ở lượt xem sau
     const status = out.status || 200, cookie = out._cookie; delete out.status; delete out._cookie;
     if (WRITE.has(b.op)) await adminAudit(env, request, who.email, 'drive.' + b.op, status < 400);
-    await flushReads(ddb(env));
+    await flushReads(D);
     return json(request, status, out, cookie ? { 'Set-Cookie': cookie } : {});
   } catch (e) {
-    await flushReads(ddb(env));
+    await flushReads(D);
     if (WRITE.has(b.op)) await adminAudit(env, request, who.email, 'drive.' + b.op, false);
     if (isD1Limit(e)) return json(request, 429, D1_LIMIT_BODY); // D1 hết hạn mức ngày → 429 quota-guard (CI dừng-mai-chạy, không báo đỏ)
     return json(request, e.status || 500, { error: e instanceof DriveErr ? e.code : 'error' }); // không đưa thông điệp lỗi thô (có thể chứa dữ liệu Google) ra ngoài

@@ -8,12 +8,15 @@ export const D1B_DEFAULT_DB = '2cd585e3-f322-46d6-913e-9dd7139d583f';
 export const d1bMode = env => { const v = String((env && env.D1B) || '').toLowerCase(); return v === '1' || v === 'on' ? '1' : v === 'dual' ? 'dual' : '0'; };
 export const d1bReady = env => !!(env && env.D1B_ACCOUNT_ID && env.D1B_TOKEN);
 
+// 27/10: không có hạn chờ → 1 lượt REST treo làm cả yêu cầu Quản trị treo ("Đang tải…" mãi). Mỗi lượt ≤ 8 s, rồi thử lại như lỗi mạng.
+export const REST_TIMEOUT_MS = 8000;
+const timeoutSignal = ms => (typeof AbortSignal !== 'undefined' && AbortSignal.timeout ? AbortSignal.timeout(ms) : undefined);
 export function restDb(env, fetcher = (...a) => fetch(...a)) {
   const url = `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(env.D1B_ACCOUNT_ID)}/d1/database/${encodeURIComponent(env.D1B_DATABASE_ID || D1B_DEFAULT_DB)}/query`;
   const call = async body => {
     let last;
     for (let i = 0; i < 3; i++) {
-      let r; try { r = await fetcher(url, { method: 'POST', headers: { Authorization: 'Bearer ' + env.D1B_TOKEN, 'Content-Type': 'application/json' }, body: JSON.stringify(body) }); } catch (e) { last = new Error('d1b-network'); await new Promise(y => setTimeout(y, 250 * (i + 1))); continue; }
+      let r; try { r = await fetcher(url, { method: 'POST', headers: { Authorization: 'Bearer ' + env.D1B_TOKEN, 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: timeoutSignal(+env.D1B_TIMEOUT_MS || REST_TIMEOUT_MS) }); } catch (e) { last = new Error('d1b-network'); await new Promise(y => setTimeout(y, 250 * (i + 1))); continue; }
       if (r.status === 429 || r.status >= 500) { last = new Error('d1b-' + r.status); await new Promise(y => setTimeout(y, 400 * (i + 1))); continue; }
       const j = await r.json().catch(() => ({}));
       if (!r.ok || j.success === false) { const e = new Error('d1b-' + ((j.errors && j.errors[0] && j.errors[0].message) || r.status)); e.status = r.status; throw e; }
@@ -34,25 +37,39 @@ export function restDb(env, fetcher = (...a) => fetch(...a)) {
 
 const isRead = q => /^\s*(select|with|pragma|explain)\b/i.test(q);
 /** Ghi cả hai, đọc từ D1 chính (chế độ 'dual'). Ghi vào D1 nội bộ lỗi → đếm (DUAL.fail) rồi bỏ qua, KHÔNG làm hỏng yêu cầu. */
-export const DUAL = { fail: 0, ok: 0 };
-export function dualDb(main, b) {
-  const mk = (q, a) => ({
-    _q: q, _a: a,
-    bind: (...x) => mk(q, x),
-    all: async () => { const r = await main.prepare(q).bind(...a).all(); if (!isRead(q)) await mirror(q, a); return r; },
-    first: async () => { const r = await main.prepare(q).bind(...a).first(); if (!isRead(q)) await mirror(q, a); return r; },
-    run: async () => { const r = await main.prepare(q).bind(...a).run(); if (!isRead(q)) await mirror(q, a); return r; },
-  });
-  const mirror = async (q, a) => { try { await b.prepare(q).bind(...a).run(); DUAL.ok++; } catch (e) { DUAL.fail++; } };
-  return {
-    prepare: q => mk(q, []),
-    batch: async sts => {
-      const r = await main.batch(sts.map(s => main.prepare(s._q).bind(...s._a)));
-      const w = sts.filter(s => !isRead(s._q));
-      if (w.length) try { await b.batch(w.map(s => b.prepare(s._q).bind(...s._a))); DUAL.ok += w.length; } catch (e) { DUAL.fail += w.length; }
-      return r;
-    },
+export const DUAL = { fail: 0, ok: 0, queued: 0 };
+/** 27/10: chép sang D1 nội bộ từng lệnh ghi một (REST 0,2–2 s/lượt, có thử lại) TRƯỚC khi trả lời → Kho Drive 7–15 s/yêu cầu, đôi khi treo.
+ * Đọc luôn từ D1 chính, nên bản chép không cần xong trước khi trả lời: có hook defer (waitUntil của yêu cầu) → xếp hàng nền, GIỮ THỨ TỰ
+ * (một chuỗi chung cho cả isolate), yêu cầu trả lời ngay; không có hook (test/CLI cũ) → chờ như trước. Lỗi chép vẫn đếm DUAL.fail, không làm hỏng yêu cầu. */
+export function dualDb(main, b, defer = null) {
+  const st = { tail: Promise.resolve() };
+  const make = dfr => {
+    const mirrorNow = async (q, a) => { try { await b.prepare(q).bind(...a).run(); DUAL.ok++; } catch (e) { DUAL.fail++; } };
+    const mirrorBatch = async w => { try { await b.batch(w.map(s => b.prepare(s._q).bind(...s._a))); DUAL.ok += w.length; } catch (e) { DUAL.fail += w.length; } };
+    const enqueue = job => { DUAL.queued++; const p = st.tail.then(job, job); st.tail = p; dfr(p); return p; };
+    const mirror = (q, a) => (dfr ? (enqueue(() => mirrorNow(q, a)), undefined) : mirrorNow(q, a));
+    const mk = (q, a) => ({
+      _q: q, _a: a,
+      bind: (...x) => mk(q, x),
+      all: async () => { const r = await main.prepare(q).bind(...a).all(); if (!isRead(q)) await mirror(q, a); return r; },
+      first: async () => { const r = await main.prepare(q).bind(...a).first(); if (!isRead(q)) await mirror(q, a); return r; },
+      run: async () => { const r = await main.prepare(q).bind(...a).run(); if (!isRead(q)) await mirror(q, a); return r; },
+    });
+    return {
+      prepare: q => mk(q, []),
+      batch: async sts => {
+        const r = await main.batch(sts.map(s => main.prepare(s._q).bind(...s._a)));
+        const w = sts.filter(s => !isRead(s._q));
+        if (w.length) { if (dfr) enqueue(() => mirrorBatch(w)); else await mirrorBatch(w); }
+        return r;
+      },
+      /** Cùng DB, nhưng chép nền qua waitUntil của yêu cầu này (mỗi yêu cầu một hook, chung một hàng đợi có thứ tự). */
+      withDefer: wu => (typeof wu === 'function' ? make(wu) : make(dfr)),
+      mirrored: () => st.tail,
+      _dual: true,
+    };
   };
+  return make(defer);
 }
 const CACHE = new WeakMap();
 /** DB cho các bảng nội bộ (drive*, job_*): theo cờ D1B. Chưa cấu hình đủ bí mật → D1 chính (an toàn). */
