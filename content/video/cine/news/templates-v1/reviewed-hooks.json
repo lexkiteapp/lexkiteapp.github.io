@@ -466,6 +466,161 @@
     "reveal": "pilot"
    },
    "note": "Three picture clues from content/lexicon/img.json (ticket#n, airplane#n, pilot#n – all judged icon entries). US airplane = UK aeroplane – true."
+  },
+  "wlw_022772ea": {
+   "template": "mistake",
+   "hook": "✗ / “What's the reason of the delay?”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "n_h": "Small word, big mistake.",
+    "n_w": "What's the reason of the delay?",
+    "n_k": "Say: What's the reason for the delay?",
+    "n_y": "We say reason for something.",
+    "n_x": "There's a good reason for this rule.",
+    "n_t": "But: the reason why it happened is also fine!",
+    "n_q": "Quick quiz! What's the reason blank the change?",
+    "n_q2": "For, or of?",
+    "n_a": "For! What's the reason for the change?",
+    "n_sh": "Send this to a friend who mixes these up!",
+    "n_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "What's the reason for the delay?",
+    "right_lines": [
+     "n_k"
+    ],
+    "wrong_line": "n_w",
+    "wrong": "What's the reason of the delay?"
+   },
+   "source": "sb_022772ea",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+  },
+  "cmu_0d6dc593": {
+   "template": "mistake",
+   "hook": "✗ / “Let's buy medicine at the spa.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "Let's buy medicine at the spa.",
+    "u_k": "Natives say: Let's relax at the spa.",
+    "u_y": "A spa is a place for massages and relaxing.",
+    "u_x": "The hotel has a spa.",
+    "u_t": "A hot tub is sometimes called a spa too!",
+    "u_q": "Quick quiz! The hotel blank offers massages.",
+    "u_q2": "Spa, or pool?",
+    "u_a": "Spa! The hotel spa offers massages.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Let's relax at the spa.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "Let's buy medicine at the spa."
+   },
+   "source": "sb_0d6dc593",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+  },
+  "sin_02938065": {
+   "template": "mistake",
+   "hook": "✗ Not / “Sorry for my answering late.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "i_h": "Here's how natives say it.",
+    "i_w": "Sorry for my answering late.",
+    "i_k": "Natives say: Sorry for the late reply.",
+    "i_y": "This is the fixed phrase for slow emails.",
+    "i_x": "Sorry for the late reply. I was traveling.",
+    "i_t": "Short and polite. Nobody needs a long excuse!",
+    "i_q": "Quick quiz! Sorry for the late blank.",
+    "i_q2": "Reply, or answering?",
+    "i_a": "Reply! Sorry for the late reply.",
+    "i_sh": "Send this to a friend!",
+    "i_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Sorry for the late reply.",
+    "right_lines": [
+     "i_k"
+    ],
+    "wrong_line": "i_w",
+    "wrong": "Sorry for my answering late."
+   },
+   "source": "sb_02938065",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+  },
+  "vbp_116f3374": {
+   "template": "mistake",
+   "hook": "✗ Not / “I hate wait.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "v_h": "Which pattern is right?",
+    "v_w": "I hate wait.",
+    "v_k": "Say: I hate waiting.",
+    "v_y": "After hate, use -ing or to plus verb.",
+    "v_x": "I hate getting up early.",
+    "v_t": "Love and like work the same way!",
+    "v_q": "Quick quiz! I hate blank in traffic.",
+    "v_q2": "Sit, or sitting?",
+    "v_a": "Sitting! I hate sitting in traffic.",
+    "v_sh": "Send this to a friend!",
+    "v_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I hate waiting.",
+    "right_lines": [
+     "v_k"
+    ],
+    "wrong_line": "v_w",
+    "wrong": "I hate wait."
+   },
+   "source": "sb_116f3374",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+  },
+  "rle_1dc7abe0": {
+   "template": "mistake",
+   "hook": "✗ Not / “My room card doesn't work.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "r_h": "Real life, real English.",
+    "r_w": "My room card doesn't work.",
+    "r_k": "Say: My key card doesn't work.",
+    "r_y": "Hotel cards that open doors are key cards.",
+    "r_x": "Here is your key card.",
+    "r_t": "Phones near key cards can stop them working!",
+    "r_q": "Quick quiz! Tap your blank card to open the door.",
+    "r_q2": "Key, or room?",
+    "r_a": "Key! Tap your key card to open the door.",
+    "r_sh": "Send this to a friend!",
+    "r_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "My key card doesn't work.",
+    "right_lines": [
+     "r_k"
+    ],
+    "wrong_line": "r_w",
+    "wrong": "My room card doesn't work."
+   },
+   "source": "sb_1dc7abe0",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
   }
  }
 }

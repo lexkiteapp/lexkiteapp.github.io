@@ -1,0 +1,541 @@
+{
+ "id": "cmu_0d6dc593",
+ "template": "mistake",
+ "title": "Common Mix-ups #1 – A common mix-up with \"spa\" (n): a place for health and beauty treatments",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "yellow",
+ "active": "cream",
+ "hook_style": "mix-up: X badge + quoted error",
+ "motif": "meaning first, then the right sentence",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/",
+  "say": "Look up any word"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "u_w"
+ ],
+ "error_re": "\\blet's\\W+buy\\W+medicine\\W+at\\b",
+ "lines": [
+  {
+   "id": "u_h",
+   "text": "Most learners mix this up.",
+   "gap": 0.5
+  },
+  {
+   "id": "u_w",
+   "text": "Let's buy medicine at the spa.",
+   "key": {
+    "red": [
+     1,
+     2
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_k",
+   "text": "Natives say: Let's relax at the spa.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_y",
+   "text": "A spa is a place for massages and relaxing.",
+   "key": {
+    "yellow": [
+     1,
+     8
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_x",
+   "text": "The hotel has a spa.",
+   "gap": 0.65,
+   "key": {
+    "green": [
+     4
+    ]
+   }
+  },
+  {
+   "id": "u_t",
+   "text": "A hot tub is sometimes called a spa too!",
+   "key": {
+    "yellow": [
+     7
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q",
+   "text": "Quick quiz! The hotel blank offers massages.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q2",
+   "text": "Spa, or pool?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "u_a",
+   "text": "Spa! The hotel spa offers massages.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.65
+  },
+  {
+   "id": "u_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“Let's ",
+      "white"
+     ],
+     [
+      "buy medicine ",
+      "red"
+     ],
+     [
+      "at the spa.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Let's "
+      ],
+      [
+       "relax ",
+       "green"
+      ],
+      [
+       "at the spa."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "relax",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/rɪˈlæks/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "buy medicine",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " buy medicine",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " relax",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "The hotel has a "
+      ],
+      [
+       "spa.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " SPA ",
+       "hl"
+      ],
+      [
+       "= relax and care"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "The hotel "
+      ],
+      [
+       "___",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "offers massages."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "spa",
+   "b": "pool",
+   "correct": "a",
+   "reveal": [
+    "u_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " buy medicine",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " relax",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "relax",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/rɪˈlæks/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Common Mix-ups",
+  "ep": 1
+ },
+ "source": {
+  "bank": "sb_0d6dc593",
+  "pid": "m:spa#n",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/rɪˈlæks/"
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "_note": "Say It Naturally: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "sin_02938065": {
+   "template": "mistake",
+   "hook": "✗ Not / “Sorry for my answering late.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "i_h": "Here's how natives say it.",
+    "i_w": "Sorry for my answering late.",
+    "i_k": "Natives say: Sorry for the late reply.",
+    "i_y": "This is the fixed phrase for slow emails.",
+    "i_x": "Sorry for the late reply. I was traveling.",
+    "i_t": "Short and polite. Nobody needs a long excuse!",
+    "i_q": "Quick quiz! Sorry for the late blank.",
+    "i_q2": "Reply, or answering?",
+    "i_a": "Reply! Sorry for the late reply.",
+    "i_sh": "Send this to a friend!",
+    "i_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Sorry for the late reply.",
+    "right_lines": [
+     "i_k"
+    ],
+    "wrong_line": "i_w",
+    "wrong": "Sorry for my answering late."
+   },
+   "source": "sb_02938065"
+  },
+  "sin_08f69142": {
+   "template": "mistake",
+   "hook": "✗ Not / “It's depend.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "i_h": "Here's how natives say it.",
+    "i_w": "It's depend.",
+    "i_k": "Natives say: It depends.",
+    "i_y": "It needs -s: it depends.",
+    "i_x": "Will I go? It depends on my boss.",
+    "i_t": "You can add on: it depends on the weather!",
+    "i_q": "Quick quiz! How much is it? It blank.",
+    "i_q2": "Depends, or depend?",
+    "i_a": "Depends! How much is it? It depends.",
+    "i_sh": "Send this to a friend!",
+    "i_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "It depends.",
+    "right_lines": [
+     "i_k"
+    ],
+    "wrong_line": "i_w",
+    "wrong": "It's depend."
+   },
+   "source": "sb_08f69142"
+  },
+  "sin_0a35f2ef": {
+   "template": "mistake",
+   "hook": "✗ Not / “Let's divide the bill.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "i_h": "Here's how natives say it.",
+    "i_w": "Let's divide the bill.",
+    "i_k": "Natives say: Let's split the bill.",
+    "i_y": "For sharing a cost, we say split the bill.",
+    "i_x": "We always split the bill with friends.",
+    "i_t": "You can split a taxi too!",
+    "i_q": "Quick quiz! Dinner was great. Let's blank the bill.",
+    "i_q2": "Divide, or split?",
+    "i_a": "Split! Dinner was great. Let's split the bill.",
+    "i_sh": "Send this to a friend!",
+    "i_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Let's split the bill.",
+    "right_lines": [
+     "i_k"
+    ],
+    "wrong_line": "i_w",
+    "wrong": "Let's divide the bill."
+   },
+   "source": "sb_0a35f2ef"
+  }
+ }
+}

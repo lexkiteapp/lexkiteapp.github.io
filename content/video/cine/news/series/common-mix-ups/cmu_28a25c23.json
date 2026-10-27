@@ -1,0 +1,550 @@
+{
+ "id": "cmu_28a25c23",
+ "template": "mistake",
+ "title": "Common Mix-ups #2 – A common mix-up with \"cashback\" (n): money returned to you as a reward for buying something",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "yellow",
+ "active": "cream",
+ "hook_style": "mix-up: X badge + quoted error",
+ "motif": "meaning first, then the right sentence",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/",
+  "say": "Look up any word"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "u_w"
+ ],
+ "error_re": "\\bi\\W+pay\\W+more\\b",
+ "lines": [
+  {
+   "id": "u_h",
+   "text": "Most learners mix this up.",
+   "gap": 0.5
+  },
+  {
+   "id": "u_w",
+   "text": "Cashback means I pay more.",
+   "key": {
+    "red": [
+     3,
+     4
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_k",
+   "text": "Natives say: Cashback means I get some money back.",
+   "key": {
+    "green": [
+     5,
+     6,
+     7,
+     8
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_y",
+   "text": "Cashback returns money after you buy.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_x",
+   "text": "This card gives two percent cashback.",
+   "gap": 0.65,
+   "key": {
+    "green": [
+     5
+    ]
+   }
+  },
+  {
+   "id": "u_t",
+   "text": "In some stores, cashback also means taking cash at the till!",
+   "key": {
+    "yellow": [
+     3,
+     7
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q",
+   "text": "Quick quiz! With blank, you get money back.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q2",
+   "text": "Cashback, or cash out?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "u_a",
+   "text": "Cashback! With cashback, you get money back.",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.65
+  },
+  {
+   "id": "u_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“Cashback means I ",
+      "white"
+     ],
+     [
+      "pay more.”",
+      "red"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Cashback means I "
+      ],
+      [
+       "get",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "some money back.",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "cashback",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/ˈkæʃbæk/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " pay more",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " get some money back",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "This card gives two"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "percent "
+      ],
+      [
+       "cashback.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " CASH ",
+       "hl"
+      ],
+      [
+       "comes "
+      ],
+      [
+       "BACK",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "With "
+      ],
+      [
+       "___, ",
+       "green"
+      ],
+      [
+       "you"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "get money back."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "cashback",
+   "b": "cash out",
+   "correct": "a",
+   "reveal": [
+    "u_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " pay more",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " get some money back",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "cashback",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/ˈkæʃbæk/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Common Mix-ups",
+  "ep": 2
+ },
+ "source": {
+  "bank": "sb_28a25c23",
+  "pid": "m:cashback#n",
+  "cefr": "B1",
+  "diff": "medium",
+  "ipa": "/ˈkæʃbæk/"
+ }
+}

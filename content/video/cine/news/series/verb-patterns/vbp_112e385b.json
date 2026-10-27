@@ -1,0 +1,552 @@
+{
+ "id": "vbp_112e385b",
+ "template": "mistake",
+ "title": "Verb Patterns #5 – make + pass: be forced",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "accent": "blue",
+ "active": "cream",
+ "hook_style": "pattern: X badge + quoted error",
+ "motif": "verb + pattern lit together",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.65,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "v_w"
+ ],
+ "error_re": "\\bwere\\W+made\\W+wait\\W+for\\b",
+ "lines": [
+  {
+   "id": "v_h",
+   "text": "Which pattern is right?",
+   "gap": 0.5
+  },
+  {
+   "id": "v_w",
+   "text": "We were made wait for hours.",
+   "key": {
+    "red": [
+     2,
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_k",
+   "text": "Say: We were made to wait for hours.",
+   "key": {
+    "green": [
+     4
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_y",
+   "text": "Make someone wait, but be made to wait.",
+   "key": {
+    "yellow": [
+     2,
+     5,
+     7
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_x",
+   "text": "They made us wait.",
+   "gap": 0.7,
+   "key": {
+    "green": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "v_t",
+   "text": "The to comes back only in the passive!",
+   "gap": 0.7
+  },
+  {
+   "id": "v_q",
+   "text": "Quick quiz! She was made blank the form again.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_q2",
+   "text": "To fill, or fill?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "v_a",
+   "text": "To fill! She was made to fill the form again.",
+   "key": {
+    "green": [
+     0,
+     4,
+     5
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.7
+  },
+  {
+   "id": "v_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.7
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“We were ",
+      "white"
+     ],
+     [
+      "made wait ",
+      "red"
+     ],
+     [
+      "for hours.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "v_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "We were made"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "to ",
+       "green"
+      ],
+      [
+       "wait for hours."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "wait",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/weɪt/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "v_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " made wait",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " to",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "They "
+      ],
+      [
+       "made ",
+       "green"
+      ],
+      [
+       "us "
+      ],
+      [
+       "wait.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " made us "
+      ],
+      [
+       "WAIT",
+       "hl"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "were made "
+      ],
+      [
+       "TO ",
+       "hl"
+      ],
+      [
+       "wait"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She was made "
+      ],
+      [
+       "___",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "the form again."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "to fill",
+   "b": "fill",
+   "correct": "a",
+   "reveal": [
+    "v_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "v_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " made wait",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " to",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "wait",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/weɪt/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "v_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "v_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Verb Patterns",
+  "ep": 5
+ },
+ "source": {
+  "bank": "sb_112e385b",
+  "pid": "u:v:make:pass",
+  "cefr": "C1",
+  "diff": "hard",
+  "ipa": "/weɪt/"
+ }
+}

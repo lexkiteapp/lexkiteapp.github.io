@@ -1,0 +1,155 @@
+{
+ "_note": "Verb Patterns: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "vbp_116f3374": {
+   "template": "mistake",
+   "hook": "✗ Not / “I hate wait.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "v_h": "Which pattern is right?",
+    "v_w": "I hate wait.",
+    "v_k": "Say: I hate waiting.",
+    "v_y": "After hate, use -ing or to plus verb.",
+    "v_x": "I hate getting up early.",
+    "v_t": "Love and like work the same way!",
+    "v_q": "Quick quiz! I hate blank in traffic.",
+    "v_q2": "Sit, or sitting?",
+    "v_a": "Sitting! I hate sitting in traffic.",
+    "v_sh": "Send this to a friend!",
+    "v_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I hate waiting.",
+    "right_lines": [
+     "v_k"
+    ],
+    "wrong_line": "v_w",
+    "wrong": "I hate wait."
+   },
+   "source": "sb_116f3374"
+  },
+  "vbp_24ac31f5": {
+   "template": "mistake",
+   "hook": "✗ Not / “She taught me swimming how.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "v_h": "Which pattern is right?",
+    "v_w": "She taught me swimming how.",
+    "v_k": "Say: She taught me how to swim.",
+    "v_y": "Teach someone how to do something.",
+    "v_x": "He taught me how to cook.",
+    "v_t": "Teach me to swim is also correct!",
+    "v_q": "Quick quiz! My dad taught me blank ride a bike.",
+    "v_q2": "How, or how to?",
+    "v_a": "How to! My dad taught me how to ride a bike.",
+    "v_sh": "Send this to a friend!",
+    "v_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "She taught me how to swim.",
+    "right_lines": [
+     "v_k"
+    ],
+    "wrong_line": "v_w",
+    "wrong": "She taught me swimming how."
+   },
+   "source": "sb_24ac31f5"
+  },
+  "vbp_097145e5": {
+   "template": "mistake",
+   "hook": "✗ / “He admitted to break the vase.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "v_h": "Which pattern is right?",
+    "v_w": "He admitted to break the vase.",
+    "v_k": "Say: He admitted breaking the vase.",
+    "v_y": "Admit plus -ing means say you did it.",
+    "v_x": "She admitted making a mistake.",
+    "v_t": "Admit to breaking it is also correct!",
+    "v_q": "Quick quiz! He admitted blank the last cookie.",
+    "v_q2": "Eating, or to eat?",
+    "v_a": "Eating! He admitted eating the last cookie.",
+    "v_sh": "Send this to a friend!",
+    "v_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "He admitted breaking the vase.",
+    "right_lines": [
+     "v_k"
+    ],
+    "wrong_line": "v_w",
+    "wrong": "He admitted to break the vase."
+   },
+   "source": "sb_097145e5"
+  },
+  "vbp_07346006": {
+   "template": "mistake",
+   "hook": "✗ Not / “I propose leave early.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "v_h": "Which pattern is right?",
+    "v_w": "I propose leave early.",
+    "v_k": "Say: I propose to leave early.",
+    "v_y": "Propose to plus verb means intend to do it.",
+    "v_x": "We propose to open a new office.",
+    "v_t": "Propose also means ask someone to marry you!",
+    "v_q": "Quick quiz! The city proposes blank a new bridge.",
+    "v_q2": "Build, or to build?",
+    "v_a": "To build! The city proposes to build a new bridge.",
+    "v_sh": "Send this to a friend!",
+    "v_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I propose to leave early.",
+    "right_lines": [
+     "v_k"
+    ],
+    "wrong_line": "v_w",
+    "wrong": "I propose leave early."
+   },
+   "source": "sb_07346006"
+  },
+  "vbp_112e385b": {
+   "template": "mistake",
+   "hook": "✗ / “We were made wait for hours.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "v_h": "Which pattern is right?",
+    "v_w": "We were made wait for hours.",
+    "v_k": "Say: We were made to wait for hours.",
+    "v_y": "Make someone wait, but be made to wait.",
+    "v_x": "They made us wait.",
+    "v_t": "The to comes back only in the passive!",
+    "v_q": "Quick quiz! She was made blank the form again.",
+    "v_q2": "To fill, or fill?",
+    "v_a": "To fill! She was made to fill the form again.",
+    "v_sh": "Send this to a friend!",
+    "v_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "We were made to wait for hours.",
+    "right_lines": [
+     "v_k"
+    ],
+    "wrong_line": "v_w",
+    "wrong": "We were made wait for hours."
+   },
+   "source": "sb_112e385b"
+  }
+ }
+}

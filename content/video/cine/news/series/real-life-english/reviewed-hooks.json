@@ -1,0 +1,155 @@
+{
+ "_note": "Real-Life English: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
+ "verdicts": {
+  "rle_1dc7abe0": {
+   "template": "mistake",
+   "hook": "✗ Not / “My room card doesn't work.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "r_h": "Real life, real English.",
+    "r_w": "My room card doesn't work.",
+    "r_k": "Say: My key card doesn't work.",
+    "r_y": "Hotel cards that open doors are key cards.",
+    "r_x": "Here is your key card.",
+    "r_t": "Phones near key cards can stop them working!",
+    "r_q": "Quick quiz! Tap your blank card to open the door.",
+    "r_q2": "Key, or room?",
+    "r_a": "Key! Tap your key card to open the door.",
+    "r_sh": "Send this to a friend!",
+    "r_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "My key card doesn't work.",
+    "right_lines": [
+     "r_k"
+    ],
+    "wrong_line": "r_w",
+    "wrong": "My room card doesn't work."
+   },
+   "source": "sb_1dc7abe0"
+  },
+  "rle_0e2c3ad9": {
+   "template": "mistake",
+   "hook": "✗ Not / “Can I pay by touching?”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "r_h": "Real life, real English.",
+    "r_w": "Can I pay by touching?",
+    "r_k": "Say: Can I use contactless payment?",
+    "r_y": "Contactless means you tap your card or phone.",
+    "r_x": "The shop accepts contactless payment.",
+    "r_t": "Most people just say: can I tap?",
+    "r_q": "Quick quiz! Just tap your card. It's blank payment.",
+    "r_q2": "Touchless, or contactless?",
+    "r_a": "Contactless! Just tap your card. It's contactless payment.",
+    "r_sh": "Send this to a friend!",
+    "r_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Can I use contactless payment?",
+    "right_lines": [
+     "r_k"
+    ],
+    "wrong_line": "r_w",
+    "wrong": "Can I pay by touching?"
+   },
+   "source": "sb_0e2c3ad9"
+  },
+  "rle_8401e4b0": {
+   "template": "mistake",
+   "hook": "✗ Not / “Great talk this morning, isn't?”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "r_h": "Real life, real English.",
+    "r_w": "Great talk this morning, isn't?",
+    "r_k": "Say: Great talk this morning, wasn't it?",
+    "r_y": "Short questions need it: wasn't it? Was, because it's past.",
+    "r_x": "Nice day, isn't it?",
+    "r_t": "Was it good? Wasn't it! Match the verb.",
+    "r_q": "Quick quiz! Great talk yesterday, blank?",
+    "r_q2": "Isn't, or wasn't it?",
+    "r_a": "Wasn't it! Great talk yesterday, wasn't it?",
+    "r_sh": "Send this to a friend!",
+    "r_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Great talk this morning, wasn't it?",
+    "right_lines": [
+     "r_k"
+    ],
+    "wrong_line": "r_w",
+    "wrong": "Great talk this morning, isn't?"
+   },
+   "source": "sb_8401e4b0"
+  },
+  "rle_01d0269f": {
+   "template": "mistake",
+   "hook": "✗ / “Don't go at the full hours.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "r_h": "Real life, real English.",
+    "r_w": "Don't go at the full hours.",
+    "r_k": "Say: Don't go at peak times.",
+    "r_y": "Peak times are when the most people come.",
+    "r_x": "Trains are crowded at peak times.",
+    "r_t": "Off-peak times are cheaper!",
+    "r_q": "Quick quiz! The gym is very busy at blank times.",
+    "r_q2": "Peak, or full?",
+    "r_a": "Peak! The gym is very busy at peak times.",
+    "r_sh": "Send this to a friend!",
+    "r_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Don't go at peak times.",
+    "right_lines": [
+     "r_k"
+    ],
+    "wrong_line": "r_w",
+    "wrong": "Don't go at the full hours."
+   },
+   "source": "sb_01d0269f"
+  },
+  "rle_06bb70ea": {
+   "template": "mistake",
+   "hook": "✗ Not / “Tell me your sick past.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "r_h": "Real life, real English.",
+    "r_w": "Tell me your sick past.",
+    "r_k": "Say: Can you tell me your medical history?",
+    "r_y": "Medical history means your past health problems.",
+    "r_x": "The doctor asked about my medical history.",
+    "r_t": "Doctors ask about family history too!",
+    "r_q": "Quick quiz! New patients share their medical blank.",
+    "r_q2": "History, or story?",
+    "r_a": "History! New patients share their medical history.",
+    "r_sh": "Send this to a friend!",
+    "r_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Can you tell me your medical history?",
+    "right_lines": [
+     "r_k"
+    ],
+    "wrong_line": "r_w",
+    "wrong": "Tell me your sick past."
+   },
+   "source": "sb_06bb70ea"
+  }
+ }
+}

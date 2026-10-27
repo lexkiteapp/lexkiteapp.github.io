@@ -1,0 +1,157 @@
+{
+ "series": "Say It Naturally",
+ "template": "mistake",
+ "generator": "scripts/video/tpl/gold2v9.py",
+ "order": [
+  {
+   "ep": 1,
+   "id": "sin_02938065",
+   "point": "sorry for the late reply (phrase): an apology for responding slowly",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 71,
+   "est_s": 35.2,
+   "ipa": "/rɪˈplaɪ/",
+   "content_hash": "78123aa58cb92e2d"
+  },
+  {
+   "ep": 2,
+   "id": "sin_08f69142",
+   "point": "it depends (phrase): used when the answer changes according to the situation",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 65,
+   "est_s": 33.1,
+   "ipa": "/dɪˈpend/",
+   "content_hash": "8aa94a110cc20b99"
+  },
+  {
+   "ep": 3,
+   "id": "sin_0a35f2ef",
+   "point": "split the bill (phrase): to share the cost of a meal or service between people",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 71,
+   "est_s": 35.2,
+   "ipa": "/splɪt/",
+   "content_hash": "2c4731b38d4ef873"
+  }
+ ],
+ "skipped": [
+  {
+   "bank": "sb_0139ba3b",
+   "point": "do not disturb (phrase): a sign asking hotel staff not to enter the room",
+   "reason": "self-check: 82 words (need 50-75); est pace 137 wpm; note fix line > 26 chars: [['not “'], ['Please, no disturbing me', 'red'], ['”']]"
+  },
+  {
+   "bank": "sb_0c7fd825",
+   "point": "I would like to invite you to (phrase): (formal or semi-formal) used to invite someone to an event",
+   "reason": "self-check: 83 words (need 50-75); est pace 137 wpm; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_0d57e20a",
+   "point": "I'm afraid (phrase): a polite phrase used before giving bad news",
+   "reason": "self-check: note fix line > 26 chars: [[\"I'm afraid \", 'green'], ['the room is full.']]"
+  },
+  {
+   "bank": "sb_151205ee",
+   "point": "tidy up (phr v): to make a place neat by putting things where they belong",
+   "reason": "self-check: 80 words (need 50-75); est pace 136 wpm"
+  },
+  {
+   "bank": "sb_3311f3c9",
+   "point": "check out (phr v): to pay your bill and leave a hotel",
+   "reason": "self-check: hook 7 words on screen"
+  },
+  {
+   "bank": "sb_403980fc",
+   "point": "point at (phr v): to show something by holding out your finger towards it",
+   "reason": "self-check: hook 7 words on screen"
+  },
+  {
+   "bank": "sb_44c4f197",
+   "point": "go back to (phr v): to return to a place or activity",
+   "reason": "quiz option longer than 12 characters"
+  },
+  {
+   "bank": "sb_8580f675",
+   "point": "fill out (phr v): to complete a form by writing the required information",
+   "reason": "self-check: note ex line > 26 chars: [['I '], ['filled out ', 'green'], ['the '], ['form ', 'green'], ['online.']]"
+  },
+  {
+   "bank": "sb_a80a371d",
+   "point": "check in (phr v): to go to a desk at an airport or hotel to say you have arrived",
+   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [['not “'], ['register at the hotel', 'red'], ['”']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_23878717",
+   "point": "save up (phr v): to keep money over time so you can buy something",
+   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [[\"I'm \"], ['saving up ', 'green'], ['for a new laptop.']]; note trick line 709 px > 695; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_2408f7fd",
+   "point": "hang out (phr v): informal; to spend relaxed time somewhere or with someone",
+   "reason": "quiz option longer than 12 characters"
+  },
+  {
+   "bank": "sb_002c30ac",
+   "point": "be credited with (phrase): to be recognised as having done or achieved something",
+   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [['She is credited '], ['with ', 'green'], ['the idea.']]"
+  },
+  {
+   "bank": "sb_024874ec",
+   "point": "I took the initiative to (phrase): showing that you acted without being told",
+   "reason": "self-check: 79 words (need 50-75); est pace 136 wpm; note fix line > 26 chars: [['I took the initiative to fix ', 'green'], ['it.']]; note fix line > 26 chars: [['not “'], ['Nobody told me, but did', 'red'], ['”']]; note why line > 26 chars: [['@emoji:✅'], [' I took the initiative to fix', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' I took the initiative to fix', 'green']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_02626364",
+   "point": "push back (phr v): to change an event to a later time",
+   "reason": "self-check: 77 words (need 50-75); est pace 135 wpm"
+  },
+  {
+   "bank": "sb_0994b0f5",
+   "point": "contribute to (phr v): to be one of the causes of something",
+   "reason": "self-check: note fix line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]; note save line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]"
+  },
+  {
+   "bank": "sb_14b91513",
+   "point": "head off (phr v): informal; to leave to go somewhere",
+   "reason": "self-check: note qs line > 26 chars: [[\"It's late. I need to head \"], ['___.', 'green']]"
+  },
+  {
+   "bank": "sb_17a4e51a",
+   "point": "make up for (phr v): to do something good to correct a bad situation or a loss",
+   "reason": "self-check: 84 words (need 50-75); est pace 137 wpm; note fix line > 26 chars: [[\"I'll \"], ['make up for being late.', 'green']]"
+  },
+  {
+   "bank": "sb_1f332c48",
+   "point": "cover for (phr v): to do another person's work while they are absent",
+   "reason": "self-check: 77 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['I '], ['covered for ', 'green'], ['Maria last week.']]; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_1fe4b634",
+   "point": "account for (phr v): to form a particular amount of something, or to explain it",
+   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['Rent '], ['accounts for ', 'green'], ['half my pay.']]"
+  },
+  {
+   "bank": "sb_05870e28",
+   "point": "in compliance with (phrase): obeying a rule or law",
+   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['compliance with ', 'green'], ['safety laws.']]"
+  },
+  {
+   "bank": "sb_08e239a0",
+   "point": "Your help was invaluable (phrase): (formal or semi-formal) used to say that someone's help was extremely useful",
+   "reason": "self-check: note why line > 26 chars: [['@emoji:❌'], [' not valuable at all. Thanks', 'red']]; note ex line > 26 chars: [['Your ', 'green'], ['advice was '], ['invaluable.', 'green']]; note save line > 26 chars: [['@emoji:❌'], [' not valuable at all. Thanks', 'red']]; hook 8 words on screen"
+  },
+  {
+   "bank": "sb_15dca7cf",
+   "point": "through thick and thin (idiom): in good times and difficult times",
+   "reason": "self-check: note fix line > 26 chars: [['Friends '], ['through thick and thin.', 'green']]"
+  },
+  {
+   "bank": "sb_22459a38",
+   "point": "stem from (phr v): to be caused by something",
+   "reason": "self-check: hook 7 words on screen"
+  }
+ ]
+}

@@ -1,0 +1,551 @@
+{
+ "id": "wlw_03f6978d",
+ "template": "mistake",
+ "title": "Which Little Word? #2 – lead + to: cause",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "accent": "blue",
+ "active": "cream",
+ "hook_style": "tiny word: X badge + quoted error",
+ "motif": "the small word lit in the sentence",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.65,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "n_w"
+ ],
+ "error_re": "\\blead\\W+for\\W+health\\b",
+ "lines": [
+  {
+   "id": "n_h",
+   "text": "Small word, big mistake.",
+   "gap": 0.5
+  },
+  {
+   "id": "n_w",
+   "text": "Stress can lead for health problems.",
+   "key": {
+    "red": [
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_k",
+   "text": "Say: Stress can lead to health problems.",
+   "key": {
+    "green": [
+     4
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_y",
+   "text": "Lead to means cause.",
+   "key": {
+    "yellow": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_x",
+   "text": "Too much sugar can lead to problems.",
+   "gap": 0.7,
+   "key": {
+    "green": [
+     0,
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "id": "n_t",
+   "text": "Like a road, it leads to the result!",
+   "key": {
+    "yellow": [
+     4
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_q",
+   "text": "Quick quiz! Bad sleep can lead blank stress.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_q2",
+   "text": "For, or to?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "n_a",
+   "text": "To! Bad sleep can lead to stress.",
+   "key": {
+    "green": [
+     0,
+     5
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_sh",
+   "text": "Send this to a friend who mixes these up!",
+   "gap": 0.7
+  },
+  {
+   "id": "n_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.7
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“Stress can lead ",
+      "white"
+     ],
+     [
+      "for ",
+      "red"
+     ],
+     [
+      "health problems.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "n_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Stress can lead "
+      ],
+      [
+       "to",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "health problems."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "lead",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/liːd/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "n_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " for",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " to",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Too ",
+       "green"
+      ],
+      [
+       "much sugar can"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "lead to ",
+       "green"
+      ],
+      [
+       "problems."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " lead "
+      ],
+      [
+       "TO ",
+       "hl"
+      ],
+      [
+       "= cause"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Bad sleep can"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "lead "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "stress."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "for",
+   "b": "to",
+   "correct": "b",
+   "reveal": [
+    "n_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "n_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " for",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " to",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "lead",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/liːd/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "n_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "n_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Which Little Word?",
+  "ep": 2
+ },
+ "source": {
+  "bank": "sb_03f6978d",
+  "pid": "u:p:lead:to",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/liːd/"
+ }
+}

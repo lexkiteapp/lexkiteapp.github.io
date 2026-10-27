@@ -1,0 +1,540 @@
+{
+ "id": "vbp_097145e5",
+ "template": "mistake",
+ "title": "Verb Patterns #3 – admit + ing: confess",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "accent": "blue",
+ "active": "cream",
+ "hook_style": "pattern: X badge + quoted error",
+ "motif": "verb + pattern lit together",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.65,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "v_w"
+ ],
+ "error_re": "\\badmitted\\W+to\\W+break\\W+the\\b",
+ "lines": [
+  {
+   "id": "v_h",
+   "text": "Which pattern is right?",
+   "gap": 0.5
+  },
+  {
+   "id": "v_w",
+   "text": "He admitted to break the vase.",
+   "key": {
+    "red": [
+     2,
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_k",
+   "text": "Say: He admitted breaking the vase.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_y",
+   "text": "Admit plus -ing means say you did it.",
+   "key": {
+    "yellow": [
+     0,
+     2
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_x",
+   "text": "She admitted making a mistake.",
+   "gap": 0.7,
+   "key": {
+    "green": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "v_t",
+   "text": "Admit to breaking it is also correct!",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_q",
+   "text": "Quick quiz! He admitted blank the last cookie.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_q2",
+   "text": "Eating, or to eat?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "v_a",
+   "text": "Eating! He admitted eating the last cookie.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "v_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.7
+  },
+  {
+   "id": "v_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.7
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“He admitted ",
+      "white"
+     ],
+     [
+      "to break ",
+      "red"
+     ],
+     [
+      "the vase.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "v_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "He admitted"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "breaking ",
+       "green"
+      ],
+      [
+       "the vase."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "breaking",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/breɪk/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "v_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " to break",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " breaking",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She "
+      ],
+      [
+       "admitted",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "making a mistake."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " admit + "
+      ],
+      [
+       "-ING",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "He admitted "
+      ],
+      [
+       "___",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "the last cookie."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "eating",
+   "b": "to eat",
+   "correct": "a",
+   "reveal": [
+    "v_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "v_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "v_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " to break",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " breaking",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "breaking",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/breɪk/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "v_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "v_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "v_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Verb Patterns",
+  "ep": 3
+ },
+ "source": {
+  "bank": "sb_097145e5",
+  "pid": "u:v:admit:ing",
+  "cefr": "B1",
+  "diff": "medium",
+  "ipa": "/breɪk/"
+ }
+}

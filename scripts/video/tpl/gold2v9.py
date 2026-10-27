@@ -28,6 +28,22 @@ SERIES = {
                               clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='green', active='green', hook_style='versus: two tiles slide in from both sides with a VS disc',
                               motif='side-by-side twin tiles, the active one lit',
                               cta={'area': 'word-usage', 'link': 'https://lexkite.com/app/#/usage?c=pair', 'say': 'Compare tricky words'}),
+    # 28/10 owner: "làm tiếp các series mới" – the other gold-bank types, same mistake template (wrong -> right -> why -> example -> quiz), own name/host/colour/opening line
+    'which-little-word': dict(name='Which Little Word?', template='mistake', type='preposition', pre='wlw', L='n', teacher='carlos', set='classroom_board',
+                              clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='blue', active='cream', hook_style='tiny word: X badge + quoted error', motif='the small word lit in the sentence',
+                              open='Small word, big mistake.', lead='Not', just='Say:', share='Send this to a friend who mixes these up!', cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
+    'common-mix-ups': dict(name='Common Mix-ups', template='mistake', type='misunderstanding', pre='cmu', L='u', teacher='ama', set='classroom_board',
+                           clips=['a05b_ama2', 'a05t2_ama2_present', 'a05e1_ama2_excited', 'a05e2_ama2_question', 'a05e3_ama2_wow'], listen=['a05l2_ama2_listen'], speed=0.75, accent='yellow', active='cream', hook_style='mix-up: X badge + quoted error', motif='meaning first, then the right sentence',
+                           open='Most learners mix this up.', lead='Not', just='Natives say:', share='Send this to a friend!', cta={'area': 'dictionary', 'link': 'https://lexkite.com/app/', 'say': 'Look up any word'}),
+    'say-it-naturally': dict(name='Say It Naturally', template='mistake', type='idiom-phrasal', pre='sin', L='i', teacher='carlos', set='classroom_board',
+                             clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='green', active='cream', hook_style='fixed phrase: X badge + quoted error', motif='the fixed phrase lit as one chunk',
+                             open="Here's how natives say it.", lead='Not', just='Natives say:', share='Send this to a friend!', cta={'area': 'dictionary', 'link': 'https://lexkite.com/app/', 'say': 'Look up any word'}),
+    'real-life-english': dict(name='Real-Life English', template='mistake', type='situational', pre='rle', L='r', teacher='ama', set='classroom_board',
+                              clips=['a05b_ama2', 'a05t2_ama2_present', 'a05e1_ama2_excited', 'a05e2_ama2_question', 'a05e3_ama2_wow'], listen=['a05l2_ama2_listen'], speed=0.75, accent='green', active='cream', hook_style='real life: X badge + quoted error', motif='a real situation, the right words lit',
+                              open='Real life, real English.', lead='Not', just='Say:', share='Send this to a friend!', cta={'area': 'dictionary', 'link': 'https://lexkite.com/app/', 'say': 'Look up any word'}),
+    'verb-patterns': dict(name='Verb Patterns', template='mistake', type='verb-pattern', pre='vbp', L='v', teacher='carlos', set='classroom_board',
+                          clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='blue', active='cream', hook_style='pattern: X badge + quoted error', motif='verb + pattern lit together',
+                          open='Which pattern is right?', lead='Not', just='Say:', share='Send this to a friend!', cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
 }
 WMIN, WMAX, WSOFT, EST_MAX, HOOK_MAX = 50, 75, 71, 50.0, 6   # production standard: 50-75 words at speed 0.68-0.75 with 0.6-0.7 s gaps (<= 130 wpm)
 LINE_MAX, QOPT_MAX = 26, 12   # note line (desk board 502 px) and quiz option character limits
@@ -212,15 +228,15 @@ def build(slug, it, ep):
     if not wi or not ri: return None, 'wrong/right identical'
     mw = mem_words(it['memory'])
     cards = None
-    if slug == 'same-or-different':
+    if C['template'] == 'pair':
         m = re.match(r'^(.+?) \([^)]*\) vs (.+?) \([^)]*\)$', it['point'])
         if not m: return None, f'not a two-way pair: {it["point"]!r}'
         X, Y = m.group(1).strip(), m.group(2).strip()
         if len(X.split()) > 2 or len(Y.split()) > 2: return None, 'pair word too long for twin tiles'
-        if sorted([X.lower(), Y.lower()]) == sorted(GOLD_EP1[slug]): return None, 'already episode 1 (templates-v2 gold)'
+        if sorted([X.lower(), Y.lower()]) == sorted(GOLD_EP1.get(slug, [])): return None, 'already episode 1 (templates-v2 gold)'
         cards = json.load(open(f'{ROOT}/content/video/scripts/bank/pair-cards.json')).get(it['id'])
         if not cards: return None, 'no hand-checked lesson cards (meaning + example) in bank/pair-cards.json'
-    elif any(g in wrong.lower() for g in GOLD_EP1[slug]): return None, 'already episode 1 (templates-v2 gold)'
+    elif any(g in wrong.lower() for g in GOLD_EP1.get(slug, [])): return None, 'already episode 1 (templates-v2 gold)'
     lines = []
     def add(i, text, gap=None, **key):
         d = {'id': f'{L}_{i}', 'text': text}
@@ -231,34 +247,34 @@ def build(slug, it, ep):
     PX = PXW[C['clips'][0][:3]]
     span_w = {norm(toks(wrong)[i]) for i in wi} | {norm(toks(right)[i]) for i in ri}
     G = 0.7 if C['teacher'] == 'carlos' else 0.65   # carlos (fast voice): longer breaths keep the overall pace <= 130 wpm
-    if slug == 'stop-saying-this':
-        add('h', 'Stop saying this.', 0.5)
+    if C['template'] == 'mistake':
+        add('h', C.get('open', 'Stop saying this.'), 0.5)
         add('w', wrong, G, red=wi)
-        k = add('k', 'Just say: ' + right, G, green=[i + 2 for i in ri])
+        k = add('k', C.get('just', 'Just say:') + ' ' + right, G, green=[i + len(toks(C.get('just', 'Just say:'))) for i in ri])
         add('y', why, G, yellow=key_idx(why, mw, 3))
     else:
         add('h', f'{cap(X)} or {Y}? Quick lesson.', G, yellow=[0], green=[2])
         add('y', why, G, yellow=key_idx(why, [norm(w) for w in X.split()], 2), green=[i for i in key_idx(why, [norm(w) for w in Y.split()], 2) if i not in key_idx(why, [norm(w) for w in X.split()], 2)])
     exl = ' '.join(ex)
     xl = add('x', exl, G, green=key_idx(exl, sorted(span_w | set(mw)), 4))
-    if slug == 'same-or-different':
+    if C['template'] == 'pair':
         add('w', 'Not: ' + wrong, G, red=[i + 1 for i in wi])
         k = add('k', 'Say: ' + right, G, green=[i + 1 for i in ri])
     add('t', aha, G, yellow=key_idx(aha, mw, 3))
-    add('q', ('Quick quiz! ' if slug == 'stop-saying-this' else 'Quiz! ') + Q['q_spoken'], G, yellow=[0, 1] if slug == 'stop-saying-this' else [0])
+    add('q', ('Quick quiz! ' if C['template'] == 'mistake' else 'Quiz! ') + Q['q_spoken'], G, yellow=[0, 1] if C['template'] == 'mistake' else [0])
     add('q2', f"{cap(Q['say'][0])}, or {Q['say'][1]}?")
     lines.append({'id': '_count', 'beat': 'count', 'dur': 3.0})
     ans = Q['say'][Q['a']]; aline = f"{cap(ans)}! {Q['filled']}"
     fi = key_idx(Q['filled'], [norm(w) for w in ans.split()], 3) if not Q['o'][Q['a']].startswith('(') else []
     add('a', aline, G, green=[0] + [i + 1 for i in fi])
-    add('sh', 'Send this to a friend who says it!' if slug == 'stop-saying-this' else 'Send this to a friend!', G)   # the SAVE THIS card needs >= 0.8 s on screen (readability)
+    add('sh', C.get('share', 'Send this to a friend who says it!' if C['template'] == 'mistake' else 'Send this to a friend!'), G)   # the SAVE THIS card needs >= 0.8 s on screen (readability)
     add('c', f"Save this, and {C['cta']['say'][0].lower() + C['cta']['say'][1:]} on lexkite.com.", G)
     nw = lambda: sum(len(toks(l['text'])) for l in lines if l.get('text'))
     if (nw() > WSOFT or est_seconds(lines, C['speed']) > EST_MAX - 1 or wpm_est(lines, C['speed']) > WPM_EST) and len(ex) > 1:   # one example when two do not fit (never pad)
         xl['text'] = ex[0]; kk = key_idx(ex[0], sorted(span_w | set(mw)), 4); xl.pop('key', None)
         if kk: xl['key'] = {'green': kk}
         ex = ex[:1]
-    if slug == 'same-or-different' and (nw() > WSOFT or wpm_est(lines, C['speed']) > WPM_EST):   # the lesson card already shows an example for each word
+    if C['template'] == 'pair' and (nw() > WSOFT or wpm_est(lines, C['speed']) > WPM_EST):   # the lesson card already shows an example for each word
         lines.remove(xl)
     a = lambda lid, k=0, off=-0.1: [f'{L}_{lid}', k, 's', off]
     wrong_sp = ' '.join(toks(wrong)[i] for i in wi).strip('.,!?'); right_sp = ' '.join(toks(right)[i] for i in ri).strip('.,!?')
@@ -267,10 +283,10 @@ def build(slug, it, ep):
         if len(norm(w_)) >= 4 and ipa_of(w_)[0]: ip, ipw = ipa_of(w_)[0], norm(w_); break
     ipa_seg = [['  '], ['@ipa:' + ip]] if ip else []
     qs_rows = wrap_s(Q['q'], {i for i, w in enumerate(toks(Q['q'])) if '___' in w}, 'green', None, PX, 'text')
-    qs = note('qs', a('q', 1 if slug == 'stop-saying-this' else 0, -0.06), None, 'QUICK QUIZ', [('text', r) for r in qs_rows])
-    if slug == 'stop-saying-this':
+    qs = note('qs', a('q', 1 if C['template'] == 'mistake' else 0, -0.06), None, 'QUICK QUIZ', [('text', r) for r in qs_rows])
+    if C['template'] == 'mistake':
         n_hook = 2 + len(toks(wrong))
-        lead = [[' Stop saying', 'white']] if n_hook <= HOOK_MAX else [[' Stop', 'white']] if n_hook - 1 <= HOOK_MAX else []
+        lead = [[' ' + C.get('lead', 'Stop saying'), 'white']] if n_hook <= HOOK_MAX else [[' ' + C.get('lead', 'Stop saying').split()[0], 'white']] if n_hook - 1 <= HOOK_MAX else []
         hook_rows = [[['@x']] + lead, segs(wrong, set(wi), 'red', quote=True)]
         ipl = [('text', [[ipw, 'green']] + ipa_seg)] if ipa_seg else []
         for st_ in ('big', 'text'):   # the hero sentence in big type when title + rows + IPA fit the board, else normal text
@@ -314,7 +330,7 @@ def build(slug, it, ep):
     spec = {'id': f"{C['pre']}_{it['id'].split('_', 1)[1]}", 'template': C['template'],
             'title': f"{C['name']} #{ep} – {it['point']}", 'teacher': C['teacher'], 'set': C['set'], 'clips': C['clips'], 'listen': C['listen'], 'accent': C['accent'],
             'active': C['active'], 'hook_style': C['hook_style'], 'motif': C['motif'], 'cta': C['cta'], 'speed': C['speed'], 'display': {'blank': '___'}, 'caption_cap': 42}
-    if slug == 'stop-saying-this':
+    if C['template'] == 'mistake':
         tw = [norm(x) for x in toks(wrong)]; span = tw[max(0, wi[0] - 1): min(len(tw), wi[-1] + 2)]
         spec['error_lines'] = [f'{L}_w']; spec['error_re'] = r'\b' + r'\W+'.join(re.escape(w) for w in span if w) + r'\b'
     spec.update(lines=lines, pops=pops, series={'name': C['name'], 'ep': ep}, source={'bank': it['id'], 'pid': it.get('pid'), 'cefr': it.get('cefr'), 'diff': it.get('diff'), 'ipa': ip})
@@ -383,7 +399,7 @@ def main():
         items = sorted([b for b in bank if b.get('type') == C['type']], key=lambda b: (order.get(b.get('diff'), 1), lv.get(b.get('cefr'), 2), b['id']))
         d = f'{OUT}/{slug}'; vf = f'{d}/reviewed-hooks.json'
         old = json.load(open(vf))['verdicts'] if os.path.exists(vf) else {}
-        plan, skipped, verdicts, seen = [], [], {}, set(); ep = 2   # episode 1 = hand-written templates-v2 gold spec
+        plan, skipped, verdicts, seen = [], [], {}, set(); ep = 2 if slug in GOLD_EP1 else 1   # episode 1 = hand-written templates-v2 gold spec (old series); new series start at #1
         for it in items:
             spec, why = build(slug, it, ep)
             if not spec and 'too wide' in (why or '') and slug in ALT:   # same lesson on the wide board instead of skipping it
@@ -394,7 +410,7 @@ def main():
             if not spec: skipped.append({'bank': it['id'], 'point': it['point'], 'reason': why}); continue
             seen.add(content_hash(spec)); S = {l['id']: l['text'] for l in spec['lines'] if l.get('text')}; L = C['L']
             pr = {'quiz': True, 'count': True, 'right': it['right'], 'right_lines': [f'{L}_k']}
-            if slug == 'stop-saying-this': pr.update(wrong_line=f'{L}_w', wrong=it['wrong'])
+            if C['template'] == 'mistake': pr.update(wrong_line=f'{L}_w', wrong=it['wrong'])
             v = dict(template=C['template'], hook=hook_text(spec), hook_true=None, script_reviewed=False, script=S, promise=pr, source=it['id'])
             o = old.get(spec['id'])
             if o and o.get('script') == S and o.get('hook') == v['hook']: v = dict(o, promise=pr)   # keep a review only while it still matches word for word

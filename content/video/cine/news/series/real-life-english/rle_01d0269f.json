@@ -1,0 +1,544 @@
+{
+ "id": "rle_01d0269f",
+ "template": "mistake",
+ "title": "Real-Life English #4 – peak times (n): the times of day when the most people use a service",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "green",
+ "active": "cream",
+ "hook_style": "real life: X badge + quoted error",
+ "motif": "a real situation, the right words lit",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/",
+  "say": "Look up any word"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "r_w"
+ ],
+ "error_re": "\\bat\\W+the\\W+full\\W+hours\\b",
+ "lines": [
+  {
+   "id": "r_h",
+   "text": "Real life, real English.",
+   "gap": 0.5
+  },
+  {
+   "id": "r_w",
+   "text": "Don't go at the full hours.",
+   "key": {
+    "red": [
+     3,
+     4,
+     5
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_k",
+   "text": "Say: Don't go at peak times.",
+   "key": {
+    "green": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_y",
+   "text": "Peak times are when the most people come.",
+   "key": {
+    "yellow": [
+     0,
+     5,
+     6
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_x",
+   "text": "Trains are crowded at peak times.",
+   "gap": 0.65,
+   "key": {
+    "green": [
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "id": "r_t",
+   "text": "Off-peak times are cheaper!",
+   "gap": 0.65
+  },
+  {
+   "id": "r_q",
+   "text": "Quick quiz! The gym is very busy at blank times.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_q2",
+   "text": "Peak, or full?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "r_a",
+   "text": "Peak! The gym is very busy at peak times.",
+   "key": {
+    "green": [
+     0,
+     7
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.65
+  },
+  {
+   "id": "r_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ]
+    ],
+    [
+     [
+      "“Don't go at ",
+      "white"
+     ],
+     [
+      "the full hours.”",
+      "red"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "r_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Don't go at "
+      ],
+      [
+       "peak times.",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "peak",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/piːk/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "the full hours",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "r_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " the full hours",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " peak times",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Trains are crowded"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "at "
+      ],
+      [
+       "peak times.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " PEAK ",
+       "hl"
+      ],
+      [
+       "= top = most people"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "The gym is very"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "busy at "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "times."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "peak",
+   "b": "full",
+   "correct": "a",
+   "reveal": [
+    "r_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "r_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " the full hours",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " peak times",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "peak",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/piːk/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "r_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "r_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Real-Life English",
+  "ep": 4
+ },
+ "source": {
+  "bank": "sb_01d0269f",
+  "pid": "w:peak times#n",
+  "cefr": "B2",
+  "diff": "medium",
+  "ipa": "/piːk/"
+ }
+}

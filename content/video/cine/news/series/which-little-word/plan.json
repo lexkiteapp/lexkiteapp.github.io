@@ -1,0 +1,139 @@
+{
+ "series": "Which Little Word?",
+ "template": "mistake",
+ "generator": "scripts/video/tpl/gold2v9.py",
+ "order": [
+  {
+   "ep": 1,
+   "id": "wlw_022772ea",
+   "point": "reason + for: why something happens",
+   "cefr": "A1",
+   "diff": "easy",
+   "words": 73,
+   "est_s": 35.9,
+   "ipa": "/ˈriːzn/",
+   "content_hash": "0fab52679a429a53"
+  },
+  {
+   "ep": 2,
+   "id": "wlw_03f6978d",
+   "point": "lead + to: cause",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 71,
+   "est_s": 35.2,
+   "ipa": "/liːd/",
+   "content_hash": "fa28e26e738d19df"
+  },
+  {
+   "ep": 3,
+   "id": "wlw_24aedfd4",
+   "point": "protect + from: keep safe from",
+   "cefr": "A2",
+   "diff": "easy",
+   "words": 72,
+   "est_s": 35.5,
+   "ipa": "/frʌm/",
+   "content_hash": "28fc7bdc15963aaf"
+  },
+  {
+   "ep": 4,
+   "id": "wlw_03115b51",
+   "point": "skilled + in: trained in",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 65,
+   "est_s": 33.1,
+   "ipa": "/skɪl/",
+   "content_hash": "3bcd8dbe5b99feaf"
+  },
+  {
+   "ep": 5,
+   "id": "wlw_0c46f8a4",
+   "point": "fond + of: liking someone or something",
+   "cefr": "B1",
+   "diff": "medium",
+   "words": 64,
+   "est_s": 32.7,
+   "ipa": null,
+   "content_hash": "6467532c16ec87c8"
+  }
+ ],
+ "skipped": [
+  {
+   "bank": "sb_0af13b00",
+   "point": "useful + for: helpful for",
+   "reason": "self-check: note fix line > 26 chars: [['This app is useful '], ['for ', 'green'], ['learning.']]; note ex line > 26 chars: [['This '], ['tool ', 'green'], ['is '], ['useful for ', 'green'], ['work.']]; note qs line > 26 chars: [['This bag is useful '], ['___ ', 'green'], ['travel.']]"
+  },
+  {
+   "bank": "sb_011d162f",
+   "point": "smile + at: look at with a smile",
+   "reason": "self-check: note ex line > 26 chars: [['The baby '], ['smiled at ', 'green'], ['her mom.']]"
+  },
+  {
+   "bank": "sb_04ad5a09",
+   "point": "available + to: able to be used by",
+   "reason": "self-check: 79 words (need 50-75); est pace 136 wpm; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_05671f6f",
+   "point": "fit + for: suitable or healthy enough for",
+   "reason": "self-check: 80 words (need 50-75); est pace 136 wpm; hook 8 words on screen"
+  },
+  {
+   "bank": "sb_0e092805",
+   "point": "dream + of: hope for",
+   "reason": "self-check: note ex line > 26 chars: [['She '], ['dreams of ', 'green'], ['living in Spain.']]"
+  },
+  {
+   "bank": "sb_014af894",
+   "point": "risk + of: the possibility of something bad",
+   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [[\"There's a risk \"], ['of getting ', 'green'], ['sick.']]"
+  },
+  {
+   "bank": "sb_017d1a81",
+   "point": "collide + with: crash into",
+   "reason": "self-check: note fix line > 26 chars: [['The car collided '], ['with ', 'green'], ['a bus.']]; note qs line > 26 chars: [['The truck collided '], ['___ ', 'green'], ['a tree.']]"
+  },
+  {
+   "bank": "sb_05c6285e",
+   "point": "long + for: want very much",
+   "reason": "self-check: note ex line > 26 chars: [['She '], ['longs for ', 'green'], ['a quiet weekend.']]"
+  },
+  {
+   "bank": "sb_07301877",
+   "point": "concentrate + on: give all attention to",
+   "reason": "self-check: note fix line > 26 chars: [['concentrate', 'green'], ['  '], ['@ipa:/ˈkɑːnsəntreɪt/']]; note save line > 26 chars: [['concentrate', 'green'], ['  '], ['@ipa:/ˈkɑːnsəntreɪt/']]"
+  },
+  {
+   "bank": "sb_00b3d3f4",
+   "point": "cope + with: deal successfully with",
+   "reason": "self-check: note qs line > 26 chars: [[\"He can't cope \"], ['___ ', 'green'], ['the noise.']]"
+  },
+  {
+   "bank": "sb_01e335e7",
+   "point": "identical + to: exactly the same as",
+   "reason": "self-check: note fix line > 26 chars: [['My bag is identical '], ['to ', 'green'], ['yours.']]; note ex line > 26 chars: [['Her dress is '], ['identical to ', 'green'], ['mine.']]"
+  },
+  {
+   "bank": "sb_05db3dfa",
+   "point": "compatible + with: able to work with",
+   "reason": "self-check: hook 7 words on screen"
+  },
+  {
+   "bank": "sb_07d8ef9d",
+   "point": "inferior + to: worse than",
+   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; hook 7 words on screen"
+  },
+  {
+   "bank": "sb_0968a1c3",
+   "point": "suspicious + of: not trusting",
+   "reason": "self-check: note ex line > 26 chars: [['Be '], ['suspicious of ', 'green'], ['free '], ['offers.', 'green']]"
+  },
+  {
+   "bank": "sb_14617767",
+   "point": "congratulate + on: praise someone for a success",
+   "reason": "self-check: note fix line > 26 chars: [['congratulate', 'green'], ['  '], ['@ipa:/kənˈɡrætʃəleɪt/']]; note save line > 26 chars: [['congratulate', 'green'], ['  '], ['@ipa:/kənˈɡrætʃəleɪt/']]; hook 7 words on screen"
+  }
+ ]
+}

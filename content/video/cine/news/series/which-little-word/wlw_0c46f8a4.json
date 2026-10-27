@@ -1,0 +1,498 @@
+{
+ "id": "wlw_0c46f8a4",
+ "template": "mistake",
+ "title": "Which Little Word? #5 – fond + of: liking someone or something",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "accent": "blue",
+ "active": "cream",
+ "hook_style": "tiny word: X badge + quoted error",
+ "motif": "the small word lit in the sentence",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.65,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "n_w"
+ ],
+ "error_re": "\\bfond\\W+with\\W+my\\b",
+ "lines": [
+  {
+   "id": "n_h",
+   "text": "Small word, big mistake.",
+   "gap": 0.5
+  },
+  {
+   "id": "n_w",
+   "text": "I'm fond with my grandma.",
+   "key": {
+    "red": [
+     2
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_k",
+   "text": "Say: I'm fond of my grandma.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_y",
+   "text": "Fond of means you like someone warmly.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_x",
+   "text": "She's fond of old movies.",
+   "gap": 0.7,
+   "key": {
+    "green": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "n_t",
+   "text": "It's softer than love!",
+   "gap": 0.7
+  },
+  {
+   "id": "n_q",
+   "text": "Quick quiz! He's fond blank spicy food.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_q2",
+   "text": "Of, or with?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "n_a",
+   "text": "Of! He's fond of spicy food.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "n_sh",
+   "text": "Send this to a friend who mixes these up!",
+   "gap": 0.7
+  },
+  {
+   "id": "n_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.7
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“I'm fond ",
+      "white"
+     ],
+     [
+      "with ",
+      "red"
+     ],
+     [
+      "my grandma.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "n_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "I'm fond "
+      ],
+      [
+       "of",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "my grandma."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "n_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " with",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " of",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She's "
+      ],
+      [
+       "fond of ",
+       "green"
+      ],
+      [
+       "old movies."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " fond "
+      ],
+      [
+       "OF",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "He's fond "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "spicy food."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "of",
+   "b": "with",
+   "correct": "a",
+   "reveal": [
+    "n_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "n_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "n_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " with",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " of",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "n_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "n_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "n_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Which Little Word?",
+  "ep": 5
+ },
+ "source": {
+  "bank": "sb_0c46f8a4",
+  "pid": "u:p:fond:of",
+  "cefr": "B1",
+  "diff": "medium",
+  "ipa": null
+ }
+}

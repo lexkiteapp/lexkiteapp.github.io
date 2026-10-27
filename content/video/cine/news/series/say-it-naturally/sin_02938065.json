@@ -1,0 +1,555 @@
+{
+ "id": "sin_02938065",
+ "template": "mistake",
+ "title": "Say It Naturally #1 – sorry for the late reply (phrase): an apology for responding slowly",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "accent": "green",
+ "active": "cream",
+ "hook_style": "fixed phrase: X badge + quoted error",
+ "motif": "the fixed phrase lit as one chunk",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/",
+  "say": "Look up any word"
+ },
+ "speed": 0.65,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "i_w"
+ ],
+ "error_re": "\\bfor\\W+my\\W+answering\\W+late\\b",
+ "lines": [
+  {
+   "id": "i_h",
+   "text": "Here's how natives say it.",
+   "gap": 0.5
+  },
+  {
+   "id": "i_w",
+   "text": "Sorry for my answering late.",
+   "key": {
+    "red": [
+     2,
+     3,
+     4
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_k",
+   "text": "Natives say: Sorry for the late reply.",
+   "key": {
+    "green": [
+     4,
+     6
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_y",
+   "text": "This is the fixed phrase for slow emails.",
+   "key": {
+    "yellow": [
+     5,
+     7
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_x",
+   "text": "Sorry for the late reply. I was traveling.",
+   "gap": 0.7,
+   "key": {
+    "green": [
+     0,
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "i_t",
+   "text": "Short and polite. Nobody needs a long excuse!",
+   "gap": 0.7
+  },
+  {
+   "id": "i_q",
+   "text": "Quick quiz! Sorry for the late blank.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_q2",
+   "text": "Reply, or answering?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "i_a",
+   "text": "Reply! Sorry for the late reply.",
+   "key": {
+    "green": [
+     0,
+     5
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.7
+  },
+  {
+   "id": "i_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.7
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“Sorry for ",
+      "white"
+     ],
+     [
+      "my answering late.”",
+      "red"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "i_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Sorry for "
+      ],
+      [
+       "the ",
+       "green"
+      ],
+      [
+       "late "
+      ],
+      [
+       "reply.",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "reply",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/rɪˈplaɪ/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "my answering late",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "i_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " my answering late",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " the reply",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Sorry for the late",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "reply. I was traveling."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " late email? "
+      ],
+      [
+       "SORRY",
+       "hl"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "FOR THE LATE REPLY",
+       "hl"
+      ],
+      [
+       "→"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Sorry for the late "
+      ],
+      [
+       "___.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "reply",
+   "b": "answering",
+   "correct": "a",
+   "reveal": [
+    "i_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "i_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " my answering late",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " the reply",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "reply",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/rɪˈplaɪ/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "i_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "i_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Say It Naturally",
+  "ep": 1
+ },
+ "source": {
+  "bank": "sb_02938065",
+  "pid": "w:sorry for the late reply#phrase",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/rɪˈplaɪ/"
+ }
+}

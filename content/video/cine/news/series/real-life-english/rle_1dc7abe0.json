@@ -1,0 +1,558 @@
+{
+ "id": "rle_1dc7abe0",
+ "template": "mistake",
+ "title": "Real-Life English #1 – key card (n): a plastic card used to open a hotel room door",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "green",
+ "active": "cream",
+ "hook_style": "real life: X badge + quoted error",
+ "motif": "a real situation, the right words lit",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/",
+  "say": "Look up any word"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "r_w"
+ ],
+ "error_re": "\\bmy\\W+room\\W+card\\b",
+ "lines": [
+  {
+   "id": "r_h",
+   "text": "Real life, real English.",
+   "gap": 0.5
+  },
+  {
+   "id": "r_w",
+   "text": "My room card doesn't work.",
+   "key": {
+    "red": [
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_k",
+   "text": "Say: My key card doesn't work.",
+   "key": {
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_y",
+   "text": "Hotel cards that open doors are key cards.",
+   "key": {
+    "yellow": [
+     1,
+     2,
+     4
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_x",
+   "text": "Here is your key card.",
+   "gap": 0.65,
+   "key": {
+    "green": [
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "id": "r_t",
+   "text": "Phones near key cards can stop them working!",
+   "key": {
+    "yellow": [
+     2,
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_q",
+   "text": "Quick quiz! Tap your blank card to open the door.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_q2",
+   "text": "Key, or room?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "r_a",
+   "text": "Key! Tap your key card to open the door.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "r_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.65
+  },
+  {
+   "id": "r_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“My ",
+      "white"
+     ],
+     [
+      "room ",
+      "red"
+     ],
+     [
+      "card doesn't work.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "r_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "My "
+      ],
+      [
+       "key ",
+       "green"
+      ],
+      [
+       "card doesn't work."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "card",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/kɑːrd/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "room",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "r_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " room",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " key",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Here is your "
+      ],
+      [
+       "key card.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " card that opens the"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "door = "
+      ],
+      [
+       "KEY CARD",
+       "hl"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Tap your "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "card"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "to open the door."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "key",
+   "b": "room",
+   "correct": "a",
+   "reveal": [
+    "r_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "r_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "r_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " room",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " key",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "card",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/kɑːrd/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "r_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "r_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "r_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Real-Life English",
+  "ep": 1
+ },
+ "source": {
+  "bank": "sb_1dc7abe0",
+  "pid": "w:key card#n",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/kɑːrd/"
+ }
+}

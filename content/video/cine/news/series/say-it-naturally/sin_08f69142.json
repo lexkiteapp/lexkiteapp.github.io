@@ -1,0 +1,523 @@
+{
+ "id": "sin_08f69142",
+ "template": "mistake",
+ "title": "Say It Naturally #2 – it depends (phrase): used when the answer changes according to the situation",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "accent": "green",
+ "active": "cream",
+ "hook_style": "fixed phrase: X badge + quoted error",
+ "motif": "the fixed phrase lit as one chunk",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/",
+  "say": "Look up any word"
+ },
+ "speed": 0.65,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "i_w"
+ ],
+ "error_re": "\\bit's\\W+depend\\b",
+ "lines": [
+  {
+   "id": "i_h",
+   "text": "Here's how natives say it.",
+   "gap": 0.5
+  },
+  {
+   "id": "i_w",
+   "text": "It's depend.",
+   "key": {
+    "red": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_k",
+   "text": "Natives say: It depends.",
+   "key": {
+    "green": [
+     2,
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_y",
+   "text": "It needs -s: it depends.",
+   "gap": 0.7
+  },
+  {
+   "id": "i_x",
+   "text": "Will I go? It depends on my boss.",
+   "gap": 0.7,
+   "key": {
+    "green": [
+     3,
+     4
+    ]
+   }
+  },
+  {
+   "id": "i_t",
+   "text": "You can add on: it depends on the weather!",
+   "gap": 0.7
+  },
+  {
+   "id": "i_q",
+   "text": "Quick quiz! How much is it? It blank.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_q2",
+   "text": "Depends, or depend?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "i_a",
+   "text": "Depends! How much is it? It depends.",
+   "key": {
+    "green": [
+     0,
+     6
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "i_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.7
+  },
+  {
+   "id": "i_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.7
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“It's depend.”",
+      "red"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "i_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "It depends.",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "depends",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/dɪˈpend/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "It's depend",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "i_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " It's depend",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " It depends",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Will I go? "
+      ],
+      [
+       "It depends",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "on my boss."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " IT ",
+       "hl"
+      ],
+      [
+       "depend-S"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "How much is it? It "
+      ],
+      [
+       "___.",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "depends",
+   "b": "depend",
+   "correct": "a",
+   "reveal": [
+    "i_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "i_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "i_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " It's depend",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " It depends",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "depends",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/dɪˈpend/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "i_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "i_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "i_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Say It Naturally",
+  "ep": 2
+ },
+ "source": {
+  "bank": "sb_08f69142",
+  "pid": "w:it depends#phrase",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/dɪˈpend/"
+ }
+}
