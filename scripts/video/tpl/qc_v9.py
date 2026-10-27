@@ -272,7 +272,7 @@ for x, ge in zip(Sh, gs):
 if T.get('v14'):   # layout v14 (owner 27/10): one card above a medium shot; card and face inside the platform-safe area, the face never under the card
     _v = T['v14']; _hd = _v['head']; _z = _v['zone']
     R['layout_v14'] = dict(ok=_z[0] >= SAFE['x0'] and _z[2] <= SAFE['x1'] and _z[1] >= SAFE['y0'] and _z[3] + 26 <= _hd[1] - 20 and (_hd[0] + _hd[2]) / 2 <= SAFE['x1'] - 60
-                           and (_hd[3] - _hd[1] >= 380 or _v['crop']['k'] >= 1.29 or _hd[3] - _hd[1] >= 560), zone=_z, head=_hd, crop=_v['crop'])
+                           and (_hd[3] - _hd[1] >= 380 or _v['crop']['k'] >= 1.19 or _hd[3] - _hd[1] >= 560), zone=_z, head=_hd, crop=_v['crop'])
 R['host_sharp'] = dict(ok=bool(Sh) and len(enc) == len(Sh) and med(up) >= 0.80 and min(up) >= 0.65 and med(enc) >= 0.80,
                        push_vs_native_median=round(med(up), 3), push_vs_native_min=round(min(up, default=0), 3), encoded_vs_rendered_median=round(med(enc), 3), samples=len(Sh))
 prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)

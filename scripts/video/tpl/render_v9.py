@@ -76,12 +76,12 @@ def _maxrect(free, hcap=None):   # largest axis-aligned rectangle of True cells 
     return (r_[0], r_[1], r_[2], min(r_[3], r_[1] + hcap)) if hcap else r_
 V14 = bool(BRD) and SP.get('layout', 'v14') == 'v14'   # owner 27/10 layout v14: medium shot (same head size for every teacher) under ONE fixed lesson card on top, inside the platform-safe area
 if V14:
-    _h = TR['clips'][SP['clips'][0]]['head']; _k = max(1.0, min(1.3, 420 / (_h[3] - _h[1])))   # head box (hair included) -> 420 px, never a downscale, at most 1.3x (Kling 1080p stays sharp)
+    _h = TR['clips'][SP['clips'][0]]['head']; _k = max(1.0, min(1.2, 420 / (_h[3] - _h[1])))   # head box (hair included) -> 420 px, never a downscale, at most 1.2x (the v10 crops: host_sharp passes up to 1.2 with the 0.6 unsharp)
     _ox = min(max(0.0, (_h[0] + _h[2]) / 2 - 560 / _k), W - W / _k)   # face towards x 560 (the right 14 % is platform UI); no horizontal fill
     _oy = min(max(-116 / _k, (_h[1] + _h[3]) / 2 - 1080 / _k), H - H / _k)   # head centre towards y 1080; at most 116 px of replicated wall on top (under the platform's top UI)
     _ht = (_h[1] - _oy) * _k; _zf = [SAFE['x0'] + 34, SAFE['y0'] + 30, SAFE['x1'] - 34, int(_ht) - 64]   # card zone: safe area above the head (panel pad 26 + 38 px air)
     assert _zf[3] - _zf[1] >= 240, ('v14: no room for the lesson card above the head', _zf)
-    _bk[SP['clips'][0]] = dict(_bk[SP['clips'][0]], crop=dict(k=round(_k, 4), ox=round(_ox, 1), oy=round(_oy, 1), sharp=0.4, sigma=1.0, zone_force=_zf))
+    _bk[SP['clips'][0]] = dict(_bk[SP['clips'][0]], crop=dict(k=round(_k, 4), ox=round(_ox, 1), oy=round(_oy, 1), zone_force=_zf))
     BRD = {k_: v_ for k_, v_ in BRD.items() if k_ != 'zone_free'}
 if BRD and _bk[SP['clips'][0]].get('crop'):   # v10 punch-in: a fixed uniform crop (k, ox, oy) of the native frame, Lanczos + mild unsharp
     CROP = _bk[SP['clips'][0]]['crop']; _k, _ox, _oy = CROP['k'], CROP['ox'], CROP['oy']
@@ -99,7 +99,8 @@ if BRD and _bk[SP['clips'][0]].get('crop'):   # v10 punch-in: a fixed uniform cr
         hb = _tb(TR['clips'][c]['head']); _P[max(0, hb[1] - 6):hb[3] + 6, max(0, hb[0] - 6):hb[2] + 6] = True
     _q = _B['quad']; _qx1 = min(_q[1][0], _q[2][0]); _qy1 = min(_q[2][1], _q[3][1])
     _fr = np.zeros((H, W), bool); _fr[SAFE['y0'] + 6:int(min(SAFE['y1'], _qy1)) - 6, SAFE['x0'] + 4:int(min(SAFE['x1'], _qx1)) - 6] = True; _fr &= ~_P
-    _r = _maxrect(_fr.reshape(H // 4, 4, W // 4, 4).all((1, 3)), CROP.get('zone_hcap', 0) // 4 or None)   # bank crop.zone_hcap: prefer the wide strip over a tall narrow one (3D clip c04); _B['zone'] = list(CROP['zone_force']) if CROP.get('zone_force') else [v * 4 for v in _r]; _B['zone_wh'] = [_B['zone'][2] - _B['zone'][0], _B['zone'][3] - _B['zone'][1]]; _B.pop('zone_free', None)   # zone_force: bank-declared board column (crop coords), still checked by qc text_on_board / head_clear
+    _r = _maxrect(_fr.reshape(H // 4, 4, W // 4, 4).all((1, 3)), CROP.get('zone_hcap', 0) // 4 or None)   # bank crop.zone_hcap: prefer the wide strip over a tall narrow one (3D clip c04)
+    _B['zone'] = list(CROP['zone_force']) if CROP.get('zone_force') else [v * 4 for v in _r]; _B['zone_wh'] = [_B['zone'][2] - _B['zone'][0], _B['zone'][3] - _B['zone'][1]]; _B.pop('zone_free', None)   # zone_force: bank-declared board column (crop coords), still checked by qc text_on_board / head_clear
     _rows = [y for y in range(SAFE['y0'], SAFE['y1']) if _P[y, SAFE['x0']:SAFE['x1']].any()]; _bt, _bb = max(_rows) + 8, SAFE['y1'] - 3
     if _bb - _bt >= 150:   # seated: the desk top below the hands is the caption band (screen space, full safe width)
         _B['cap'] = dict(cx=(SAFE['x0'] + SAFE['x1']) / 2, cy=(_bt + _bb) / 2, w=SAFE['x1'] - SAFE['x0'], lines=1, box=[SAFE['x0'], _bt, SAFE['x1'], _bb], body_overlap_rows=0, body_overlap_px=0)
