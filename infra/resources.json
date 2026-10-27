@@ -179,6 +179,20 @@
       ]
     },
     {
+      "key": "ads-reporting",
+      "name": "AdSense Management API v2 + AdMob API v1 (báo cáo doanh thu thật)",
+      "kind": "ads",
+      "purpose": "Action ads-revenue.yml (06:03 UTC) → scripts/ads/report.mjs lấy 7 ngày ∪ tháng này (ngày × ô/nền tảng/quốc gia top 10) của pub-2290668854727752 → POST /api/ads-report (X-Studio-Secret) → D1 lexkite-sync bảng ads_rev (PK day,src,dim,key; ghi theo diff) → Quản trị › Quảng cáo › Tổng quan. OAuth NGƯỜI DÙNG (2 API không nhận service account): client 'Desktop app' ở GCP lexkite-app, scope adsense.readonly + admob.readonly, consent screen In production; secret GitHub ADS_OAUTH_CLIENT_ID / ADS_OAUTH_CLIENT_SECRET / ADS_OAUTH_REFRESH (lấy bằng scripts/ads-oauth.mjs)",
+      "console": "https://console.cloud.google.com/apis/credentials?project=lexkite-app",
+      "free": "Miễn phí · AdSense 10.000 lượt/ngày · AdMob 10.000/ngày (dùng 5/ngày)",
+      "upgrade": "Không cần",
+      "status": "Chờ chủ: OAuth client + refresh token (memory owner-pending)",
+      "match": [
+        "adsense.googleapis.com",
+        "admob.googleapis.com"
+      ]
+    },
+    {
       "key": "gemini",
       "name": "Gemini API",
       "kind": "ai",
@@ -696,6 +710,19 @@
       "status": "Chưa dùng – chờ chủ tạo tài khoản",
       "match": [
         "pagead2.googlesyndication.com"
+      ]
+    },
+    {
+      "key": "gam",
+      "name": "Google Ad Manager – Google Publisher Tag (video có thưởng web)",
+      "kind": "ads",
+      "purpose": "Video có thưởng trên web: GPT defineOutOfPageSlot(REWARDED), tải lười sau CMP – web/js/ads/run.js (webRewarded). Ô ở web.rewarded trong web/js/ads/config.js (rỗng = TẮT); test dùng ô demo công khai /22639388115/rewarded_web_example (ads-demo.yml)",
+      "console": "https://admanager.google.com/",
+      "free": "Miễn phí (Ad Manager cho nhà xuất bản nhỏ, Google chia doanh thu)",
+      "upgrade": "—",
+      "status": "Chưa dùng – chờ chủ tạo ô có thưởng trong Ad Manager",
+      "match": [
+        "securepubads.g.doubleclick.net"
       ]
     },
     {

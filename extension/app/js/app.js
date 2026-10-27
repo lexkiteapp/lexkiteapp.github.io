@@ -973,6 +973,7 @@
   // Nút "Tải app" (menu bên + trang Tôi + nút cài trên Android): js/get-app.js chọn CWS / Google Play / hướng dẫn cài theo nền tảng, nạp lười sau add-on
   let gaP = null;
   window.LK_GETAPP_T = () => ({ iph: [t('Cài Lexkite lên iPhone'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari'), t('Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)'), t('Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app')],
+    crios: [t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh địa chỉ của Chrome')],
     ipad: [t('Cài Lexkite lên iPad'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari')],
     mac: [t('Cài Lexkite lên Mac'), t('Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>'), t('Bấm <b>Thêm</b> – Lexkite sẽ mở như một app')], ok: t('Đã hiểu') });
   App.getApp = root => Store.isExtension ? Promise.resolve(null) : (gaP || (gaP = extCta().then(() => loadScript('js/get-app.js')).catch(() => {}))).then(() => { if (window.LKGetApp) LKGetApp.scan(root || document); return window.LKGetApp || null; });
@@ -1617,6 +1618,12 @@
   window.addEventListener('online', () => { netState(); toast('✅ ' + t('Đã có mạng trở lại')); });
 
   // ---------- Khởi động ----------
+  // Thanh cuộn ngang còn mục bị khuất → mờ mép tương ứng (.fade-start/.fade-end); theo dõi #view vì nội dung vẽ lười/đổi theo bước
+  const edgeFade = () => $$('#view .tabs, #view .steps, #view .set-nav').forEach(s => {
+    const f = () => { const o = s.scrollWidth - s.clientWidth, x = Math.abs(s.scrollLeft); s.classList.toggle('fade-end', o > 2 && x < o - 2); s.classList.toggle('fade-start', o > 2 && x > 2); };
+    f(); if (!s.efOn) { s.efOn = 1; s.addEventListener('scroll', f, { passive: true }); }
+  });
+  { let q = 0; const kick = () => { if (q) return; q = 1; requestAnimationFrame(() => { q = 0; edgeFade(); }); }; const v = document.getElementById('view'); if (v && window.MutationObserver) new MutationObserver(kick).observe(v, { childList: true, subtree: true }); addEventListener('resize', kick, { passive: true }); }
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) await seedDemo();
     if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);

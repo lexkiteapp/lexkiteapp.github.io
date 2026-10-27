@@ -1,0 +1,244 @@
+{
+"headers": [
+{
+"name": "DATE",
+"type": "DIMENSION"
+},
+{
+"name": "ESTIMATED_EARNINGS",
+"type": "METRIC_CURRENCY"
+},
+{
+"name": "IMPRESSIONS",
+"type": "METRIC_TALLY"
+},
+{
+"name": "CLICKS",
+"type": "METRIC_TALLY"
+},
+{
+"name": "AD_REQUESTS",
+"type": "METRIC_TALLY"
+},
+{
+"name": "MATCHED_AD_REQUESTS",
+"type": "METRIC_TALLY"
+},
+{
+"name": "IMPRESSIONS_RPM",
+"type": "METRIC_TALLY"
+},
+{
+"name": "PAGE_VIEWS",
+"type": "METRIC_TALLY"
+}
+],
+"rows": [
+{
+"cells": [
+{
+"value": "2026-10-20"
+},
+{
+"value": "2.00"
+},
+{
+"value": "1000"
+},
+{
+"value": "6"
+},
+{
+"value": "1250"
+},
+{
+"value": "1100"
+},
+{
+"value": "2.00"
+},
+{
+"value": "2000"
+}
+]
+},
+{
+"cells": [
+{
+"value": "2026-10-21"
+},
+{
+"value": "2.20"
+},
+{
+"value": "1100"
+},
+{
+"value": "7"
+},
+{
+"value": "1375"
+},
+{
+"value": "1210"
+},
+{
+"value": "2.00"
+},
+{
+"value": "2200"
+}
+]
+},
+{
+"cells": [
+{
+"value": "2026-10-22"
+},
+{
+"value": "2.40"
+},
+{
+"value": "1200"
+},
+{
+"value": "8"
+},
+{
+"value": "1500"
+},
+{
+"value": "1320"
+},
+{
+"value": "2.00"
+},
+{
+"value": "2400"
+}
+]
+},
+{
+"cells": [
+{
+"value": "2026-10-23"
+},
+{
+"value": "2.60"
+},
+{
+"value": "1300"
+},
+{
+"value": "8"
+},
+{
+"value": "1625"
+},
+{
+"value": "1430"
+},
+{
+"value": "2.00"
+},
+{
+"value": "2600"
+}
+]
+},
+{
+"cells": [
+{
+"value": "2026-10-24"
+},
+{
+"value": "2.80"
+},
+{
+"value": "1400"
+},
+{
+"value": "9"
+},
+{
+"value": "1750"
+},
+{
+"value": "1540"
+},
+{
+"value": "2.00"
+},
+{
+"value": "2800"
+}
+]
+},
+{
+"cells": [
+{
+"value": "2026-10-25"
+},
+{
+"value": "3.00"
+},
+{
+"value": "1500"
+},
+{
+"value": "10"
+},
+{
+"value": "1875"
+},
+{
+"value": "1650"
+},
+{
+"value": "2.00"
+},
+{
+"value": "3000"
+}
+]
+},
+{
+"cells": [
+{
+"value": "2026-10-26"
+},
+{
+"value": "3.20"
+},
+{
+"value": "1600"
+},
+{
+"value": "10"
+},
+{
+"value": "2000"
+},
+{
+"value": "1760"
+},
+{
+"value": "2.00"
+},
+{
+"value": "3200"
+}
+]
+}
+],
+"startDate": {
+"year": 2026,
+"month": 10,
+"day": 20
+},
+"endDate": {
+"year": 2026,
+"month": 10,
+"day": 26
+}
+}

@@ -134,6 +134,15 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
   const r = await P.gen({ mode: 'lxdef', items: I2 });
   ok(r && r.out['apple#n'] && r.out['pear#n'] && P.stats().used.cf2Split === 1, 'kho CF: JSON bị cắt → chia đôi lô, gộp đủ mục');
 }
+// 7d) giám khảo C (27/10, đồng thuận 3): kho CF chọn họ THỨ BA (mistral) khi loại gpt-oss + llama, lời nhắn soát đối nghịch
+{
+  const A = 'a'.repeat(32), seenM = [], sys = [];
+  const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), cf2: (url, body) => { const model = url.split('/ai/run/')[1]; seenM.push(model); sys.push(body.messages[0].content);
+    return J({ success: true, result: { response: JSON.stringify({ 'apple#n': { s: 5 } }), usage: { prompt_tokens: 100, completion_tokens: 50 } } }); } });
+  const P = createPool({ fetch: m.f, env: { CF_POOL: `${A}:t`, VIMG_POOL_SKIP: '0' }, lexaiUrl: LX, gcBase: GC, oidc: async () => 't', log: () => {}, sleep: async () => {}, budget: { cf2: 1e6 }, prompt: async r => ({ sys: 'S', user: JSON.stringify(r.items) }) });
+  const c = await P.judge({ mode: 'lxjudge', items: ITEMS }, { chain: ['cf2'], slot: 'C', exclude: ['gpt-oss', 'llama'] });
+  ok(c && c.fam === 'mistral' && /mistral-small-3\.1/.test(seenM.at(-1)) && sys.at(-1).startsWith(JUDGE_B_SYS.slice(0, 30)), 'giám khảo C: họ mistral trên kho CF, lời nhắn soát đối nghịch');
+}
 // 8) ngân sách GrabCast
 {
   const m = mock({ lexai: () => J({ error: 'no-model', diag: 'keys=0' }, 503), gc: gcEcho }); const P = mk(m, { budget: { gc: 1 } });

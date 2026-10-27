@@ -1,16 +1,18 @@
 {
  "id": "sts_04105eed",
  "template": "mistake",
- "title": "Stop Saying This #13 – Stop saying \"We rely in technology.\" – say \"We rely on technology.\"",
- "teacher": "carlos",
+ "title": "Stop Saying This #8 – Stop saying \"We rely in technology.\" – say \"We rely on technology.\"",
+ "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board",
-  "c01t2_carlos_talk2",
-  "c01t3_carlos_talk3"
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
  ],
  "listen": [
-  "c01l_carlos_listen"
+  "a05l2_ama2_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -21,7 +23,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.65,
+ "speed": 0.75,
  "display": {
   "blank": "___"
  },
@@ -44,7 +46,7 @@
      2
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -54,7 +56,7 @@
      4
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_y",
@@ -64,18 +66,20 @@
      0
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_x",
-   "text": "You can rely on me.",
-   "gap": 0.7,
+   "text": "You can rely on me. Many people rely on their phones.",
    "key": {
     "green": [
      2,
-     3
+     3,
+     7,
+     8
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -86,7 +90,7 @@
      4
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -97,7 +101,7 @@
      1
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -117,17 +121,17 @@
      4
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_sh",
    "text": "Send this to a friend who says it!",
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.7
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -321,6 +325,30 @@
       ],
       [
        "me."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Many people "
+      ],
+      [
+       "rely",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "on ",
+       "green"
+      ],
+      [
+       "their phones."
       ]
      ]
     }
@@ -534,7 +562,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 13
+  "ep": 8
  },
  "source": {
   "bank": "sb_04105eed",

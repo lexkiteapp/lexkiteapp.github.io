@@ -1,0 +1,362 @@
+{
+ "id": "t3_guess_airport",
+ "template": "guess",
+ "title": "Guess the Word #2 – 3 airport words (picture clue, 3 s count, IPA + example each)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "accent": "mint",
+ "active": "mint",
+ "hook_style": "question: picture clue card + mint ? badge, spring",
+ "motif": "picture card with a countdown ring, US/UK twin tiles",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Look up any word"
+ },
+ "speed": 0.65,
+ "lines": [
+  {
+   "id": "g_h",
+   "text": "Guess these three airport words!"
+  },
+  {
+   "id": "g_1",
+   "text": "Number one. You buy it, then you can travel.",
+   "gap": 0.6
+  },
+  {
+   "id": "_c1",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_1a",
+   "text": "Ticket! Where is my ticket?",
+   "key": {
+    "green": [
+     0,
+     4
+    ]
+   }
+  },
+  {
+   "id": "g_2",
+   "text": "Number two. It flies you across the ocean.",
+   "gap": 0.68
+  },
+  {
+   "id": "_c2",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_2a",
+   "text": "Airplane! In the UK, they say aeroplane.",
+   "key": {
+    "green": [
+     0
+    ],
+    "yellow": [
+     6
+    ]
+   }
+  },
+  {
+   "id": "g_3",
+   "text": "Number three. This person flies the airplane.",
+   "gap": 0.68
+  },
+  {
+   "id": "_c3",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_3a",
+   "text": "Pilot! The pilot says hello.",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "id": "g_r",
+   "text": "How many did you get? Tell me in the comments!",
+   "gap": 0.68
+  },
+  {
+   "id": "g_s",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "g_1",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@q"
+     ],
+     [
+      " Guess 3",
+      "mint"
+     ]
+    ],
+    [
+     [
+      "airport words",
+      "white"
+     ],
+     [
+      "@emoji:✈️"
+     ]
+    ]
+   ],
+   "role": "hook"
+  },
+  {
+   "id": "clue1",
+   "kind": "card",
+   "anim": "spring",
+   "img": "ticket#n",
+   "count": "_c1",
+   "from": [
+    "g_1",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_c1",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "rev1",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "g_1a",
+    0,
+    "s",
+    -0.04
+   ],
+   "to": [
+    "g_2",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "🎫",
+     "color": "green",
+     "word": "ticket",
+     "ipa": "/ˈtɪkɪt/",
+     "mean": "= pass to travel",
+     "ex": [
+      "“Where is my ",
+      "ticket",
+      "?”"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clue2",
+   "kind": "card",
+   "anim": "spring",
+   "img": "airplane#n",
+   "count": "_c2",
+   "from": [
+    "g_2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_c2",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "rev2",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "g_2a",
+    0,
+    "s",
+    -0.04
+   ],
+   "to": [
+    "g_3",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "✈️",
+     "color": "green",
+     "word": "airplane",
+     "ipa": "/ˈerpleɪn/",
+     "mean": "= aeroplane (UK)",
+     "ex": [
+      "“A big ",
+      "airplane",
+      ".”"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clue3",
+   "kind": "card",
+   "anim": "spring",
+   "img": "pilot#n",
+   "count": "_c3",
+   "from": [
+    "g_3",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_c3",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "reveal",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "g_3a",
+    0,
+    "s",
+    -0.04
+   ],
+   "to": [
+    "g_r",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "🧑‍✈️",
+     "color": "green",
+     "word": "pilot",
+     "ipa": "/ˈpaɪlət/",
+     "mean": "= flies the plane",
+     "ex": [
+      "“The ",
+      "pilot",
+      " says hello.”"
+     ]
+    }
+   ],
+   "role": "headline"
+  },
+  {
+   "id": "comment",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "g_r",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "g_s",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "YOUR SCORE?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💬"
+      ],
+      [
+       "Tell me in",
+       "navy"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "the comments!",
+       "green"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "g_s",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Guess the Word",
+  "ep": 2
+ },
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "caption_cap": 42
+}

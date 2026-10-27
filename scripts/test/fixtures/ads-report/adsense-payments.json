@@ -1,0 +1,26 @@
+{
+ "payments": [
+  {
+   "name": "accounts/pub-2290668854727752/payments/unpaid",
+   "amount": "$42.17"
+  },
+  {
+   "name": "accounts/pub-2290668854727752/payments/2026-09-21",
+   "amount": "$118.40",
+   "date": {
+    "year": 2026,
+    "month": 9,
+    "day": 21
+   }
+  },
+  {
+   "name": "accounts/pub-2290668854727752/payments/2026-08-21",
+   "amount": "$104.02",
+   "date": {
+    "year": 2026,
+    "month": 8,
+    "day": 21
+   }
+  }
+ ]
+}
