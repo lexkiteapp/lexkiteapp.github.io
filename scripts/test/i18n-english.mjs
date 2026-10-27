@@ -50,11 +50,14 @@ ok(missingSegments('It is clear/evident that …', 'It is clear/evident that …
 // 7. Kho hiện tại: mọi bản dịch giữ đủ tiếng Anh mẫu (giống i18n-qa.mjs nhưng chạy riêng được)
 {
   const load = f => { const g = {}; new Function('self', fs.readFileSync(new URL(f, import.meta.url), 'utf8'))(g); return g.I18N_DICT; };
-  const EN = load('../../web/js/i18n/en.js').en;
+  // en.js (khung) + mọi nhóm tải lười (LAZY trong build-i18n.sh) – khóa ra khỏi khung vẫn được kiểm
+  const LAZY = ((fs.readFileSync(new URL('../build-i18n.sh', import.meta.url), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
+  const loadAll = l => Object.assign({}, load(`../../web/js/i18n/${l}.js`)[l], ...LAZY.map(g => { const f = new URL(`../../web/js/i18n/${l}/${g}.js`, import.meta.url); return fs.existsSync(f) ? load(f.href)[l] : {}; }));
+  const EN = loadAll('en');
   const langs = fs.readFileSync(new URL('../i18n-langs.txt', import.meta.url), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
   let bad = 0, keys = 0;
   for (const k of Object.keys(EN)) if (englishSegments(k, EN[k]).length) keys++;
-  for (const l of langs) { const D = load(`../../web/js/i18n/${l}.js`)[l]; for (const k of Object.keys(EN)) if (missingSegments(k, EN[k], D[k]).length) bad++; }
+  for (const l of langs) { const D = loadAll(l); for (const k of Object.keys(EN)) if (missingSegments(k, EN[k], D[k]).length) bad++; }
   ok(keys > 100, `kho có > 100 khóa chứa tiếng Anh mẫu (hiện ${keys})`);
   ok(bad === 0, `mọi bản dịch giữ nguyên tiếng Anh mẫu (đang lỗi ${bad})`);
 }
