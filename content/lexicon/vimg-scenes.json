@@ -1097,6 +1097,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "assembly line#n": {
+   "ex": "The new assembly line can produce 400 cars a day.",
+   "sc": "two workers stand beside a moving conveyor, each adding parts to a car chassis as robotic arms weld nearby",
+   "cap": "workers and machines adding parts to a moving car",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "assembly point#n": {
    "ex": "In the event of a fire, go directly to the assembly point in the car park.",
    "sc": "person A exiting a building door, running toward an open parking area where several people are already gathered, faint smoke rising behind the building",
@@ -1431,6 +1438,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "badge#n": {
+   "ex": "Wear your name badge at all times in the building.",
+   "sc": "person A in a work uniform stands in a hallway, a small rectangular badge pinned to their chest, visible, while holding a clipboard.",
+   "cap": "A worker wears a visible identification tag.",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "badly#adv": {
    "ex": "The house was badly damaged in the storm.",
    "sc": "a house with a collapsed roof, broken windows and scattered debris, a fallen tree branch nearby, dark clouds overhead; no people visible",
@@ -1632,6 +1646,13 @@
    "cap": "teacher encouraging a mixed group at a pool",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "bellboy#n": {
+   "ex": "The bellboy carried our suitcases up to the fifth floor.",
+   "sc": "person A in a hotel bellhop uniform carries two suitcases while climbing a staircase with a railing, heading upward.",
+   "cap": "A bellhop lifts suitcases up stairs.",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "belong#v": {
    "ex": "Who does this umbrella belong to?",
@@ -2315,6 +2336,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "capable#adj": {
+   "ex": "She is capable of running the company.",
+   "sc": "woman A stands confidently at a conference table, pointing at a laptop screen while a colleague watches, indicating she can lead the company.",
+   "cap": "a confident woman directing a meeting",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "capital#n": {
    "ex": "Hanoi is the capital of Vietnam.",
    "sc": "person A stands between two miniature city models; the left model shows Hanoi with a grand domed government building, the right model a typical town without it",
@@ -2489,6 +2517,13 @@
    "ex": "Which category does this book belong to?",
    "sc": "person A holds a single book and stands before three distinct piles of books—one red, one blue, one green—considering where to place the held book.",
    "cap": "a reader deciding which colored pile a book fits into",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "caterer#n": {
+   "ex": "The caterer will arrive at five to set up.",
+   "sc": "person A in a uniform carries a large tray of food containers and approaches a banquet table set with plates and decorations",
+   "cap": "A food provider sets up trays on a banquet table",
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
@@ -4050,6 +4085,13 @@
    "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "crack#n": {
+   "ex": "There is a crack in the window.",
+   "sc": "a window frame with a thin, jagged line across the glass, showing a small break",
+   "cap": "a window with a thin broken line",
+   "who": 0,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "craft#n": {
    "ex": "The village is famous for its traditional crafts.",
    "sc": "a woman in folk dress sits at a wooden loom weaving a bright basket while a man nearby carves a wooden figurine, stalls of handmade items line the village square",
@@ -4351,6 +4393,13 @@
   },
   "data analysis#n": {
    "skip": "requires abstract charts or screens, not drawable without symbols",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "data collection#n": {
+   "ex": "Data collection took place over three months in five provinces.",
+   "sc": "person A stands in a field holding a clipboard, interviewing a farmer while another person nearby records notes, illustrating gathering information from locals.",
+   "cap": "researcher interviewing a farmer with a clipboard",
+   "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
   "data#n": {
@@ -5103,6 +5152,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "disinfect#v": {
+   "ex": "Staff disinfect the beds after each patient leaves.",
+   "sc": "person A in a hospital gown uses a spray bottle to mist a hospital bed, wiping with a cloth, while an empty sheet lies on the mattress.",
+   "cap": "A staff member cleans a hospital bed.",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "disk#n": {
    "ex": "Please save the files to an external disk.",
    "sc": "person A at a desk plugs a flat round external disk into a laptop’s drive slot, while a stack of paper documents is placed onto the disk.",
@@ -5552,6 +5608,13 @@
    "sc": "in a clear pond, a dull-colored native fish swims calmly while a bright, unfamiliar fish darts in, the native fish looks alarmed",
    "cap": "native fish startled by an invasive newcomer",
    "who": 0,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "edge#n": {
+   "ex": "Don't stand too close to the edge of the cliff.",
+   "sc": "person A stands on a rocky ledge, one foot near the drop, arms outstretched as if warning, a sheer cliff wall drops away behind them.",
+   "cap": "A person near a sheer cliff drop.",
+   "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
   "edit access#n": {
@@ -6644,6 +6707,13 @@
   "fairly#adv": {
    "skip": "abstract degree adverb difficult to depict without symbols",
    "by": "openai/gpt-oss-120b"
+  },
+  "faith#n": {
+   "ex": "I have faith in your ability to succeed.",
+   "sc": "person A, a supportive adult, places a hand on the shoulder of person B, who holds a portfolio and looks determined, both standing in a small office setting",
+   "cap": "a supporter encouraging someone before a presentation",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "faithfully#adv": {
    "skip": "the example is a written closing that relies on text",
@@ -10047,6 +10117,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "lead#n": {
+   "ex": "The trade fair produced over two hundred qualified leads.",
+   "sc": "a salesperson at a trade fair booth gathers a pile of business cards from passing visitors, holding them in one hand",
+   "cap": "salesperson collecting contact cards at booth",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "lead#v": {
    "ex": "This path leads to the lake.",
    "sc": "person A stands at a fork, pointing toward a winding trail that stretches forward and disappears at a visible lake in the distance, under a sunny sky",
@@ -11016,6 +11093,13 @@
    "skip": "the concept is abstract and involves numerical comparison, difficult to depict w",
    "by": "openai/gpt-oss-120b"
   },
+  "medical record#n": {
+   "ex": "Electronic medical records can be shared between hospitals.",
+   "sc": "a doctor in a white coat holds a tablet, while another doctor in a different room holds an identical tablet, both looking at the screens",
+   "cap": "two doctors viewing patient files on tablets",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "medical records#n": {
    "ex": "When you change doctors, ask your old clinic to send your medical records.",
    "sc": "a patient in a coat hands a thick folder of papers to a doctor wearing a white coat in a clinic hallway",
@@ -11043,6 +11127,13 @@
    "cap": "barista offering a coffee cup larger than a tiny one but smaller than a big one",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "medium#n": {
+   "ex": "English is the medium of instruction in many universities.",
+   "sc": "a professor stands at a podium speaking animatedly while a student sits at a desk taking notes in a notebook, highlighting the method of instruction.",
+   "cap": "a teacher speaking while a student writes notes in a lecture hall",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "meet#v": {
    "ex": "Nice to meet you, I'm Lan.",
@@ -12590,6 +12681,13 @@
    "sc": "a straight paved road runs alongside a flowing river, both stretching into the distance under a clear sky",
    "cap": "a road and a river run side by side",
    "who": 0,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "paraphrase#v": {
+   "ex": "Please paraphrase the main points of the article.",
+   "sc": "person A reads a printed article; person B listens, then writes the same ideas on a whiteboard using different wording, gesturing with both hands.",
+   "cap": "one person restates an article’s ideas on a whiteboard",
+   "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
   "parent#n": {
@@ -14527,6 +14625,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "realtor#n": {
+   "ex": "A realtor showed us three office spaces in the business district.",
+   "sc": "person A (realtor) stands beside a client, pointing at three miniature office building models laid out on a table, with a clipboard in hand.",
+   "cap": "a property agent showing office models to a client",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "reap#v": {
    "ex": "Firms that invest in training reap the benefits.",
    "sc": "an employee in a training room receives a certificate from a trainer and a briefcase full of money, smiling.",
@@ -14561,6 +14666,10 @@
    "cap": "shop owner watching new stock arrive after low sales",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "rebranding#n": {
+   "skip": "concept too abstract to depict without symbols",
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "receive#v": {
    "ex": "Did you receive my message?",
@@ -15142,6 +15251,13 @@
    "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "resident advisor#n": {
+   "ex": "Talk to your resident advisor if your roommate is too noisy.",
+   "sc": "person A, a senior student, talks with a roommate in a dorm hallway while holding a clipboard",
+   "cap": "a senior student listening to a roommate's noise complaint",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "resident#n": {
    "ex": "Local residents complained about the noise.",
    "sc": "two neighbors, a woman and a man, stand at their apartment windows, covering ears and frowning as a noisy construction site with a jackhammer operates below.",
@@ -15581,6 +15697,13 @@
    "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "rubber#n": {
+   "ex": "The protective gloves used in the lab are made of rubber.",
+   "sc": "person A wearing thick rubber gloves holds a glass beaker over a lab bench, with other lab equipment visible behind",
+   "cap": "A lab technician wears thick protective gloves while handling a beaker",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "rule#n": {
    "ex": "The first rule of the library is to keep quiet.",
    "sc": "a librarian standing near bookshelves holds up one finger and places a finger to lips in a shh gesture, while a patron sits quietly reading at a table",
@@ -15790,6 +15913,13 @@
    "ex": "I have a scheduling conflict: two of my required classes meet on Tuesday mornings.",
    "sc": "person A stands in a hallway holding two class timetables, both pointing to a wall clock showing the same 9 AM time, looking worried",
    "cap": "a student juggling two class schedules at the same time",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "scholar#n": {
+   "ex": "She is a scholar of ancient history.",
+   "sc": "a woman sits at a wooden desk surrounded by ancient pottery shards and scrolls, carefully examining a cracked clay tablet with a magnifying glass.",
+   "cap": "woman studying an ancient clay tablet",
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
@@ -16758,6 +16888,13 @@
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "solar#adj": {
+   "ex": "They put solar panels on the roof.",
+   "sc": "a worker on a ladder climbs onto a house roof, attaching a rectangular solar panel to the shingles",
+   "cap": "worker installing panels on a roof",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "sold out#adj": {
    "ex": "The concert was sold out within an hour.",
    "sc": "person A behind a ticket window holds an empty ticket tray, shaking his head, while person B stands nearby looking disappointed; a concert stage looms in the background",
@@ -17665,6 +17802,13 @@
    "sc": "a sturdy cactus with green spines stands on dry, cracked soil under a hot sun, its leaves still vibrant despite the lack of water.",
    "cap": "cactus thriving in dry desert soil",
    "who": 0,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "suspect#n": {
+   "ex": "The suspect was released due to lack of evidence.",
+   "sc": "a police officer opens a cell door, letting a handcuffed suspect step out, both looking relieved as the suspect walks away.",
+   "cap": "officer releases a detainee from custody",
+   "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
   "suspend#v": {
@@ -18956,6 +19100,10 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "unit test#n": {
+   "skip": "concept too abstract to depict without symbols or text",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "unit#n": {
    "ex": "We are studying unit five in our textbook.",
    "sc": "person A and person B sit at a table, each opening a large textbook; a single opened page is held up in the foreground, clearly separate from the rest of the book.",
@@ -19724,6 +19872,13 @@
    "cap": "shoes soaked after walking in the rain",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "wheelbarrow#n": {
+   "ex": "A worker is pushing a wheelbarrow full of bricks.",
+   "sc": "person A in work clothes pushes a wheelbarrow loaded with red bricks across a construction site, with a pile of bricks nearby and a building frame in the background",
+   "cap": "A worker pushes a brick‑filled cart on a site",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "where#adv": {
    "ex": "Where did you buy that jacket?",
