@@ -22,7 +22,6 @@
   'Âm nhạc': 'Music',
   'Thể thao': 'Sport',
   'Ẩm thực & Nấu ăn': 'Food & cooking',
-  'Mua sắm': 'Shopping',
   'Thời tiết & Các mùa': 'Weather & seasons',
   'Giao thông & Đi lại': 'Transport & travel',
   'Bạn bè & Các mối quan hệ': 'Friends & relationships',

@@ -225,6 +225,7 @@
   'Năng lượng': 'Energy', 'Energy – nhiên liệu hóa thạch, năng lượng sạch, tiết kiệm điện': 'Fossil fuels, clean energy and saving power',
   'Động vật & Thiên nhiên': 'Animals & Nature', 'Animals & Nature – loài, hệ sinh thái, sở thú, săn bắt': 'Species, ecosystems, zoos and hunting',
   'Nhà ở & Kiến trúc': 'Housing & Architecture', 'Housing & Architecture – nhà cửa, xây dựng, thuê nhà': 'Homes, construction and renting',
+  'Mua sắm': 'Shopping', // dùng chung: tên chủ đề Speaking (speaking.js) + bài Giao tiếp tự tin (content/confidence/i18n-extra.json) → ở nhóm lõi, 1 bản tiếng Anh
   'Mua sắm & Tiêu dùng': 'Shopping & Consumerism', 'Shopping & Consumerism – thói quen mua sắm, thương mại điện tử': 'Shopping habits and e-commerce',
   'Khám phá vũ trụ': 'Space Exploration', 'Space Exploration – du hành vũ trụ, vệ tinh, chi phí khám phá': 'Space travel, satellites and the cost of exploration',
   'Ngôn ngữ & Giao tiếp': 'Language & Communication', 'Language & Communication – học ngoại ngữ, giao tiếp, phương ngữ': 'Learning languages, communication and dialects',

@@ -110,7 +110,6 @@
    "\"A bit too…\" là cách mềm mỏng để nói có vấn đề.": "\"A bit too…\" is a soft, polite way to say there is a problem.",
    "Hỏi trả lại hàng đã mua": "Ask to bring something back to the shop",
    "Dùng động từ \"return\" khi mang hàng trả lại cửa hàng.": "Use the verb \"return\" when you take something back to a shop.",
-   "Mua sắm": "Shopping",
    "Hỏi cỡ, thử đồ, hỏi giá và quyết định mua.": "Ask for a size, try something on, ask the price and decide to buy.",
    "Bắt chuyện lịch sự với người lạ": "Start talking to a stranger politely",
    "\"Hey you!\" nghe thô lỗ với người lạ; \"Excuse me\" là cách mở lời lịch sự.": "\"Hey you!\" sounds rude to a stranger; \"Excuse me\" is the polite way to start.",
