@@ -16,6 +16,7 @@ Cập nhật: 27/10/2026.
 - Hạn mức CF = 10k neuron / 24 giờ TRƯỢT mỗi tài khoản (đã xác nhận 27/10). Lịch lexicon-expand mỗi 3 giờ (:17), kho cạn = dừng ~40 s, cảnh báo không đỏ (2b4cb5c).
 - Pilot theo lịch → lô pending/<ngày>-pilot.json (bỏ qua nếu lô hôm nay đã có). Tác vụ hẹn giờ máy chủ "lexicon-pilot-28-10" (mỗi 6 giờ, 01:40/07:40/13:40/19:40 giờ VN) soát 50 mẫu → sai ≤ 1/50 thì LX_PILOT=0, LX_N=2400, promote, dispatch hàng loạt.
 - Lô đã soát: **20261027-pilot** (27/10) – 7/50 sai (dịch lệch nghĩa khoá: biscuit/aristocracy/crease; từ không có thật th ภมุ, ja 忙しむ; vi calmness; ví dụ nhạy cảm categorize) → KHÔNG bật hàng loạt. Sửa: cổng chặn mọi lý do `qa.f` của giám khảo + ví dụ nhắc nhóm tôn giáo/sắc tộc; prompt lxjudge/lxsrc chấm theo nghĩa khoá + từ sai chính tả = 1. Lô đã requeue (101 → retry), LX_PILOT giữ 1.
+- Lô **20261027-pilot lần 2** (run 40508799077, sau 95a680d, 74 mục): ~9/50 sai – dịch ghép nhầm nghĩa từ bảng Wiktionary (idol vi "thần tượng", repress th, cassette zh 卡式, conservatory ja) + AI lấp (daze vi "chạng vạng", carelessly es tính từ, dizzy tr danh từ, acknowledgement th/zh) + ví dụ lệch nghĩa def (railroad). Requeue; cổng trcheck.py (lẫn ngôn ngữ, 75437ec). CHỜ CHỦ chọn hướng dịch 12 ngôn ngữ.
 
 ## Chờ chủ
 - Xoá `~/Downloads/keys_export.txt` (khoá thật dạng chữ thường); cân nhắc đổi khoá quan trọng.
