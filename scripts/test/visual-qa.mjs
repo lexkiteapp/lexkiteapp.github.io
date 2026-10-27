@@ -55,6 +55,12 @@ function detect(opt) {
     }
   }
   const clickables = [...root.querySelectorAll('button,a[href],.btn,[role=button],input[type=checkbox],input[type=radio],select')].filter(e => vis(e) && !e.closest('[aria-hidden="true"]'));
+  for (const b of clickables) { // nút/link bị cắt ngang ở mép khung cuộn/ẩn (không có mờ dần báo còn nội dung)
+    let p = b.parentElement; while (p && p !== root && getComputedStyle(p).overflowX === 'visible') p = p.parentElement; if (!p || p === root) continue;
+    const ps = getComputedStyle(p); if ((ps.maskImage || 'none') !== 'none' || (ps.webkitMaskImage || 'none') !== 'none') continue;
+    const pr = p.getBoundingClientRect(), br = b.getBoundingClientRect();
+    if ((br.right > pr.right + 4 && br.left < pr.right - 4) || (br.left < pr.left - 4 && br.right > pr.left + 4)) add('clipped', b, br);
+  }
   for (const b of clickables) { // nút/link đè lên chữ của phần tử anh em
     const br = b.getBoundingClientRect(), gp = (b.parentElement && b.parentElement.parentElement) || root;
     let fx = false; for (let p = b; p && p !== root; p = p.parentElement) { const ps = getComputedStyle(p).position; if (ps === 'fixed' || ps === 'sticky') { fx = true; break; } } if (!fx && gp !== root) for (const t of gp.querySelectorAll('*')) {
@@ -92,7 +98,7 @@ function icons() {
 
 // ---- Trạng thái tương tác (sheet đáp án, modal, toast, xp, nhắc cài đặt, tra từ khi bôi đen) × chế độ thường / body.focus / RTL
 const STATES = [
-  ['practice/learn', 'answer'], ['review', 'answer'], ['practice/test?src=topic:education', 'answer'], ['practice/test?src=topic:education', 'answer-wrong'], ['practice/mcq?src=topic:education', 'answer'], ['practice/mcq?src=topic:education', 'answer-wrong'], ['home', 'modal'], ['home', 'acct'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
+  ['practice/learn', 'answer'], ['review', 'answer'], ['practice/test?src=topic:education', 'answer'], ['practice/test?src=topic:education', 'answer-wrong'], ['practice/mcq?src=topic:education', 'answer'], ['practice/mcq?src=topic:education', 'answer-wrong'], ['home', 'modal'], ['home', 'acct'], ['settings', 'signed'], ['me', 'signed'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
   ['home', 'focus-modal'], ['home', 'focus-toast'],
 ];
 async function act(page, kind) {
@@ -101,6 +107,7 @@ async function act(page, kind) {
     if (kind.startsWith('focus-')) { document.body.classList.add('focus'); kind = kind.slice(6); }
     if (kind === 'answer-wrong') { const inp = [...document.querySelectorAll('#view input[type=text], #view input:not([type])')].find(vis); if (inp) { inp.value = 'zzqx'; inp.dispatchEvent(new Event('input', { bubbles: true })); const ck = [...document.querySelectorAll('#view .btn.primary, #view button[type=submit]')].find(vis); if (ck) ck.click(); } else { const o = [...document.querySelectorAll('#view .option, #view .choice, #view [data-opt]')].filter(vis); if (o.length) o[o.length - 1].click(); } await wait(600); kind = 'answer'; }
     if (kind === 'answer') for (let i = 0; i < 3 && !document.querySelector('.sheet'); i++) { const b = [...document.querySelectorAll('#view .option, #view .choice, #view [data-opt], #view .btn.primary')].find(vis); if (!b) break; b.click(); await wait(500); }
+    if (kind === 'signed' && W.Sync) { W.Sync.user = W.Sync.user || { uid: 'vqa', displayName: 'Visual QA Learner', email: 'visual.qa.learner@example.com' }; W.Sync.driveOffer = true; const h = location.hash; location.hash = '#/home'; await wait(400); location.hash = h; await wait(1200); } // trạng thái đã đăng nhập (nút Drive, Đăng xuất…)
     if (kind === 'acct' && W.Sync && W.Account) { W.Sync.user = W.Sync.user || { uid: 'vqa', displayName: 'Visual QA', email: 'vqa@example.com' }; const b = document.getElementById('avatarBtn') || document.querySelector('.top-stats .avatar, .top-stats .gsi'); try { W.Account.toggle(b); } catch (e) {} await wait(400); }
     if (kind === 'modal' && U.modal) U.modal('<h3>Ngày bị khoá · Locked day</h3><p>Hoàn thành ngày trước để mở khoá ngày này. Complete the previous day first to unlock.</p><button class="btn primary">OK</button>');
     if (kind === 'toast' && U.toast) U.toast('Đã lưu vào bộ thẻ của bạn · Saved to your deck — a longer notification text to check wrapping', 15000);
@@ -134,7 +141,7 @@ function overlays() {
 async function runStates(browser, c) {
   const { ctx, page } = await openCombo(browser, c);
   for (const [route, kind] of STATES) {
-    try { await visit(page, c, route); await act(page, kind); pages++; rec(c, route + ' [' + kind + ']', [...await page.evaluate(overlays), ...await page.evaluate(icons), ...await page.evaluate(detect, { only: 'align' })]); }
+    try { await visit(page, c, route); await act(page, kind); pages++; rec(c, route + ' [' + kind + ']', [...await page.evaluate(overlays), ...await page.evaluate(icons), ...await page.evaluate(detect, kind === 'signed' ? { mobile: c.v === 'm', rtl: c.l === 'ar' } : { only: 'align' })]); }
     catch (e) { errs.push(`${tagOf(c)} ${route}[${kind}]: ${String(e.message).split('\n')[0].slice(0, 100)}`); }
   }
   await ctx.close();
@@ -182,7 +189,7 @@ const stateCombos = []; for (const v of QUICK ? ['m', 'd'] : ['m', 't', 'd']) fo
 const queue = [...combos, ...stateCombos.map(c => ({ ...c, states: 1 }))]; await Promise.all([0, 1, 2].map(async () => { while (queue.length) { const c = queue.shift(); await (c.states ? runStates : runCombo)(browser, c); } }));
 
 // ---- Báo cáo + ảnh cắt cho nhóm lỗi đầu bảng
-const order = ['icon-invisible', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
+const order = ['icon-invisible', 'clipped', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
 const list = [...groups.values()].sort((a, b) => order.indexOf(a.t) - order.indexOf(b.t) || b.where.size - a.where.size);
 const byType = {}; for (const g of list) byType[g.t] = (byType[g.t] || 0) + 1;
 const SHOTS = +(process.env.VQA_SHOTS || 12); let si = 0;

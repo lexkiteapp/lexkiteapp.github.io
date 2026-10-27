@@ -158,7 +158,7 @@
 .acct-card[data-st="error"] .acct-st { color: var(--again-text); background: var(--again-soft); padding: .45rem .65rem; border-radius: 10px; }
 .acct-card[data-st="offline"] .acct-st { color: var(--text); background: var(--surface-2); padding: .45rem .65rem; border-radius: 10px; }
 .acct-act { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .5rem; }
-.acct-act .btn { flex: 1 1 9rem; justify-content: center; min-height: 44px; white-space: nowrap; }
+.acct-act .btn { flex: 1 1 9rem; justify-content: center; min-height: 44px; min-width: 0; white-space: normal; text-align: center; line-height: 1.25; padding-block: .45rem; } /* nhãn dài (Sao lưu vào Google Drive…) xuống dòng thay vì tràn khỏi nút */
 .acct-act .btn.danger { border-color: color-mix(in srgb, var(--again-text) 35%, var(--line)); }
 .acct-act .btn.danger:hover { background: var(--again-soft); }
 .acct-act .gsi { flex: 1 1 auto; min-height: 44px; }
