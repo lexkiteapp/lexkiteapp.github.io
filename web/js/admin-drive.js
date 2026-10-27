@@ -11,6 +11,8 @@
  * Không bao giờ nhận/hiện token: máy chủ chỉ trả email + số liệu + link ký nội bộ. Chữ tiếng Anh ở bảng EN. */
 (function () {
   const EN = {
+    'Thử lại': 'Retry',
+    'Máy chủ phản hồi quá lâu – thử lại sau ít phút': 'The server took too long to respond – try again in a few minutes', 'Mất kết nối mạng – kiểm tra mạng rồi thử lại': 'Network connection lost – check your connection and try again',
     'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md',
     'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)',
     'Dự báo: +{g} GB/tháng (từ {s}) · {d}': 'Forecast: +{g} GB/month (since {s}) · {d}', 'còn ≈ {n} ngày tới khi đầy': '≈ {n} days until full', 'không tăng': 'not growing', 'Dự báo: cần ≥ 2 ngày số liệu (health hằng ngày)': 'Forecast: needs ≥ 2 days of data (daily health)',
@@ -131,7 +133,7 @@
     let note = '';
     try { const q = new URLSearchParams(location.search).get('drive'); if (q) { note = S(BACK[q] || 'Kết nối lỗi – thử lại'); history.replaceState(null, '', location.pathname + '#drive'); } } catch (e) { /* bỏ qua */ }
     box.innerHTML = `<div class="card"><p class="small muted">${S('Đang tải…')}</p></div>`;
-    const errTxt = e => S('Lỗi: {e}', { e: e.code || e.message });
+    const errTxt = e => (e && e.code === 'timeout' ? S('Máy chủ phản hồi quá lâu – thử lại sau ít phút') : S('Lỗi: {e}', { e: e.code || e.message }));
     let toastT = 0;
     const toast = (msg, undo) => {
       document.querySelectorAll('.drv-toast').forEach(x => x.remove()); clearTimeout(toastT);
@@ -151,7 +153,7 @@
       addEventListener('keydown', key); document.body.appendChild(m); m.close = close; return m;
     };
     let D = null;
-    dapi('list').then(d => { if (my !== gen) return; D = d; draw(); }).catch(e => { box.innerHTML = `<div class="card"><p class="small">${esc(errTxt(e))}</p></div>`; });
+    dapi('list').then(d => { if (my !== gen) return; D = d; draw(); }).catch(e => { if (my !== gen) return; box.innerHTML = `<div class="card"><p class="small">${esc(e.code === 'timeout' ? S('Máy chủ phản hồi quá lâu – thử lại sau ít phút') : e.code === 'network' ? S('Mất kết nối mạng – kiểm tra mạng rồi thử lại') : errTxt(e))}</p><button type="button" class="btn sm" data-retry>${S('Thử lại')}</button></div>`; box.querySelector('[data-retry]').onclick = reload; });
 
     function draw() {
       const d = D, c = d.configured || {}, ready = c.client && c.secret && c.key;
