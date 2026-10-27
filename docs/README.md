@@ -4,7 +4,7 @@
 > Đọc khi: đầu phiên.
 
 **Luật:** một chủ đề = một file sở hữu; nơi khác chỉ link `docs/X.md §n`, không chép lại. Cũ/lịch sử → `archive/`. Thêm doc mới = 1 dòng ở INDEX + khối `> TL;DR:` (test `docs-budget`: ≤ 45 KB/file, METHODS ≤ 20 KB).
-**Có sự cố → `ROLLBACK.md` mục 0** (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá Kho Drive; KHÔNG tự rollback, cần chủ OK).
+**Sổ tay khôi phục – có sự cố → `ROLLBACK.md` mục 0** (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá Kho Drive; KHÔNG tự rollback, cần chủ OK).
 
 ## Chủ đề → file sở hữu
 | Chủ đề | File (đọc khi đụng tới) |
