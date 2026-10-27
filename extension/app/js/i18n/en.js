@@ -899,6 +899,7 @@
   'Đã đánh dấu “{word}” là từ đã biết – sẽ ôn lại sau ~1 tháng': 'Marked “{word}” as known – you’ll review it again in about a month',
   'Bạn đã học xong {n} từ!': 'You’ve learned {n} words!',
   '{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng': '{answered} answers · {mistakes} mistakes · +20 bonus XP',
+  '+{xp} XP thưởng': '+{xp} bonus XP',
   'Đưa {n} từ vào flashcard để ôn định kỳ': 'Add {n} words to flashcards for regular review',
   'Các từ này đã có trong flashcard – hệ thống sẽ nhắc bạn ôn đúng lúc.': 'These words are already in your flashcards – we’ll remind you to review them at the right time.',
   'Học 8 từ tiếp theo': 'Learn the next 8 words',

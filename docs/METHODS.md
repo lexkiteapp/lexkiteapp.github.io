@@ -41,6 +41,8 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Workflow nối nhau dùng `workflow_run`/dispatch (commit bằng `GITHUB_TOKEN` không kích hoạt `on: push`).
 - Thử 1 trước rồi mới chạy lô (áp dụng cả script/workflow).
 - **Runner GitHub (27/10):** việc nền ≤ ~10/20 runner (`max-parallel`), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.
+- **Kiểm hình (27/10):** mọi màn mới qua `LKJC.visual` (journey-e2e/checks.js) 360/390 px: FAIL lớp nổi đè nút · tràn ngang · số liệu toàn 0; cảnh báo chữ cắt · ảnh đơn sắc · nút chính < 44 px.
+- Màn mới chưa có trong journey-e2e → thêm `h.shot()` (chụp = tự kiểm hình); toast chỉ qua `UI.toast` (tự xếp hàng sau modal).
 
 ## 5. i18n (15 ngôn ngữ) – pipeline G0
 - `docs/I18N-PIPELINE.md`. Bố cục G0: chuỗi mới vào nguồn en (`web/js/i18n/en/*.js`, nhóm tải lười = danh sách LAZY trong `scripts/build-i18n.sh` → `web/js/i18n/<lang>/<nhóm>.js`) → `bash scripts/build-i18n.sh` → dịch thật 15 ngôn ngữ (`i18n-fix.mjs` / `scripts/i18n-fixed.json`) → `node scripts/i18n-missing.mjs --strict` + `node scripts/i18n-qa.mjs --strict`. Không để chữ en lọt ở 13 ngôn ngữ.
