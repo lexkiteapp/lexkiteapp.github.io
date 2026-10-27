@@ -105,6 +105,7 @@ for f in fr:
             a_, b_ = E[i_], E[j_]
             if inter([a_['x0'], a_['y0'], a_['x1'], a_['y1']], [b_['x0'], b_['y0'], b_['x1'], b_['y1']]): ov.append((f['t'], a_['name'], b_['name']))
 R['no_overlap'] = dict(ok=not ov, n=len(ov), hits=ov[:6], note='pops / captions never cover each other (alpha > 0.3)')
+R['identity'] = dict(ok=T.get('n_identity_hits', 0) == 0, n=T.get('n_identity_hits', 0), hits=(T.get('identity_hits') or [])[:6], note='every source frame used shows the same face (head-box colour signature >= 0.75 vs the family master frame) – owner 27/10 character consistency')
 R['body_clear'] = dict(ok=T.get('n_body_hits', 0) == 0, n=T.get('n_body_hits', 0), hits=(T.get('body_hits') or [])[:6], note='settled board text never covers the moving teacher (hands/arms) of the clip shown in that frame – measured per clip, chained and listen clips included')
 R['head_clear'] = dict(ok=not hits and nchk > 0, checks=nchk, hits=hits[:6], n_hits=len(hits), band=T['band'])
 if BD:   # ---- board mode: text on the whiteboard, captions clear of face AND body

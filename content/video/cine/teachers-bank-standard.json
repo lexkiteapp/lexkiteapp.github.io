@@ -471,9 +471,9 @@
    ],
    "generationId": "AY9XE93ephIYqA7Ougm4dA0TZms0Bk7ztUvvRHNjFzCfLXRm80Y_9rPxnII5b7IDQPS55n93",
    "credits": 50,
-   "status": "accepted",
+   "status": "excluded",
    "source": "generated 2026-10-26",
-   "note": "accepted on body quality by coordinator; mouth_tempo indicative, eye-checked",
+   "note": "accepted on body quality by coordinator; mouth_tempo indicative, eye-checked · 27/10 identity check: colour/face drift vs parent (0.69 / 0.55) – not used",
    "mouth_tempo": 1.39,
    "mouth_tempo_note": "indicative, eye-checked"
   },
@@ -536,9 +536,9 @@
    ],
    "generationId": "AS8sdgsrXYBu45NfzyPfTwY3vLKQ4NRfO408mlyi12QsMFCvLFN44yPvGVs9nCu7ePI-QuTq",
    "credits": 50,
-   "status": "accepted",
+   "status": "excluded",
    "source": "generated 2026-10-26",
-   "note": "accepted on body quality by coordinator; mouth_tempo indicative, eye-checked",
+   "note": "accepted on body quality by coordinator; mouth_tempo indicative, eye-checked · 27/10 identity check: colour/face drift vs parent (0.69 / 0.55) – not used",
    "mouth_tempo": 1.49,
    "mouth_tempo_note": "indicative, eye-checked"
   },

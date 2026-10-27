@@ -1136,6 +1136,19 @@ MOTION['mouth_changes'] = sum(1 for fi in range(1, NF) if VSEQ[fi] != VSEQ[fi - 
 def mouth_spr(c, fi):   # the frame where the shape changes shows the halfway mouth (previous + new), so the lips move instead of popping
     v = VSEQ[fi]; sp = MO[c].spr[v]
     return sp if fi == 0 or VSEQ[fi - 1] == v else 0.5 * sp + 0.5 * MO[c].spr[VSEQ[fi - 1]]
+def _hs(f_):
+    h_ = cv2.calcHist([cv2.cvtColor(f_, cv2.COLOR_BGR2HSV)], [0, 1], None, [30, 32], [0, 180, 0, 256]); cv2.normalize(h_, h_); return h_
+def identity_check():   # owner 27/10 "đồng nhất nhân vật": every source frame used must show the SAME face, inside the head box, as the family's master frame
+    hits = []; used = {}
+    for f_ in SEQ:
+        for c, k, w in f_: used.setdefault(c, set()).add(k)
+    for c, ks in used.items():
+        par = TR['clips'][c].get('parent') or c; hb = TR['clips'][par]['head']; ref = _hs(RAW[par][CL[par]['usable'][0]][hb[1]:hb[3], hb[0]:hb[2]] if par in RAW else RAW[c][0][hb[1]:hb[3], hb[0]:hb[2]])
+        for k in sorted(ks)[::12]:
+            fc = RAW[c][k][hb[1]:hb[3], hb[0]:hb[2]]; sc = float(cv2.compareHist(ref, _hs(fc), cv2.HISTCMP_CORREL))
+            if sc < 0.75: hits.append((c, k, round(sc, 3)))
+    return hits
+ID_HITS = identity_check(); print('identity check:', len(ID_HITS), 'frames off-model', ID_HITS[:5], flush=True)
 FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {}; POPID = {f'pop.{p.id}': p for p in POPS}
 for fi in range(NF):
     T = fi / FPS; tm = T + 0.5 / FPS
@@ -1234,5 +1247,5 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
-               words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+               words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), identity_hits=ID_HITS[:20], n_identity_hits=len(ID_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')
