@@ -87,6 +87,20 @@
     for (const c of cand) { if (out.length >= n) break; if (!out.includes(c.x)) out.push(c.x); }
     return out;
   }
+  // Làm đầy sẵn bộ nhớ fold/glosses/toks cho cả kho theo LÁT ≤ 8 ms (study.js gọi trước câu đầu) → pick() đầu tiên không còn là tác vụ dài.
+  // Chỉ nạp bộ nhớ của hàm thuần – kết quả pick() không đổi. o.mean = hàm nghĩa như pick; o.yieldMain = hàm nhường luồng (Promise).
+  async function warm(pool, o = {}) {
+    const mean = o.mean || DEF_MEAN, give = o.yieldMain || (() => new Promise(r => setTimeout(r, 0)));
+    for (let i = 0; i < (pool || []).length;) {
+      const t0 = Date.now();
+      for (; i < pool.length && Date.now() - t0 < 8; i++) {
+        const x = pool[i]; if (!x || !x.word) continue;
+        fold(x.word); const m = mean(x); if (m) { fold(m); glosses(m); toks(m); }
+        if (x.def && x.def !== m) { glosses(x.def); toks(x.def); }
+      }
+      if (i < pool.length) await give();
+    }
+  }
   // Trộn tất định theo seed (Fisher–Yates)
   function shuffle(arr, seed) { const a = arr.slice(), r = rng(hash(String(seed))); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
@@ -94,5 +108,5 @@
   // (🏃 run, 👂 hear, 🤔 think). Emoji đồ vật/nơi chốn cho từ trừu tượng (live 🏠, keep 🔒, provide 📦) dễ hiểu sai → ẩn.
   const HUMAN = /^(?:[\u{1F600}-\u{1F64F}\u{1F440}-\u{1F450}\u{1F466}-\u{1F487}\u{1F4AA}\u{1F590}-\u{1F596}\u{1F90C}-\u{1F93E}\u{1F970}-\u{1F97A}\u{1F9D0}-\u{1F9E0}\u{1F3C3}-\u{1F3CC}\u{1F6B4}-\u{1F6B6}\u{261D}\u{263A}\u{2639}\u{270A}-\u{270D}\u{1F483}\u{1F57A}\u{1FAE0}-\u{1FAF8}])/u;
   const picOk = w => !!w && (!!w.image || (!!w.emoji && w.emoji !== '📘' && (!w.pos || posOf(w.pos) === 'n' || HUMAN.test(w.emoji))));
-  g.Distract = { pick, picOk, shuffle, nearSynonym, sameFamily, overlap, posOf, rng, hash };
+  g.Distract = { pick, warm, picOk, shuffle, nearSynonym, sameFamily, overlap, posOf, rng, hash };
 })(typeof window !== 'undefined' ? window : globalThis);
