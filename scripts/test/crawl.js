@@ -41,6 +41,9 @@ const go = async (h, ms = 60) => { w.location.hash = h; await tick(ms); };
   // Trang công cụ (build-tools.mjs): CHỈ đúng các URL mà generator sinh – toolPath là một nguồn với generator, nên slug sai/ngôn ngữ lạ vẫn báo hỏng
   const { TOOL_LANGS, toolPath } = await import('../lib/tools-links.mjs');
   const TOOLS = new Set(TOOL_LANGS.flatMap(l => ['test', 'toeic'].flatMap(k => [toolPath(l, k), ...(k === 'test' ? ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'].map(v => toolPath(l, k, v)) : [])])));
+  // Trang uy tín (build-authority.mjs): CHỈ đúng URL generator sinh (AUTH_LANGS × AUTH_SLUGS + file dữ liệu), cùng một nguồn với generator
+  const { AUTH_LANGS, AUTH_SLUGS, authPath, DATASET } = await import('../lib/authority-links.mjs');
+  const AUTH = new Set([...AUTH_LANGS.flatMap(l => Object.keys(AUTH_SLUGS).map(k => authPath(l, k))), DATASET.csv, DATASET.json]);
   const LANDS = ['index.html', ...fs.readdirSync(WEB).filter(d => /^[a-z]{2}$/.test(d) && fs.existsSync(path.join(WEB, d, 'index.html'))).map(d => d + '/index.html')];
   for (const f of LANDS) {
     const hrefs = [...fs.readFileSync(path.join(WEB, f), 'utf8').matchAll(/href="(\/[^"]*)"/g)].map(m => m[1].replace(/&amp;/g, '&'));
@@ -49,7 +52,7 @@ const go = async (h, ms = 60) => { w.location.hash = h; await tick(ms); };
       const u = new URL(h, 'http://localhost'), p = u.pathname;
       if (p === '/app/') { const r = (u.hash.match(/^#\/([a-z0-9-]+)/) || [])[1]; if (u.hash && (!r || !w.App.routes[r])) bad.push(`/${f}: liên kết app tới route không có ${h}`); continue; }
       { const why = badPath(p); if (why) { bad.push(`/${f}: liên kết ghép hỏng ${h} (${why})`); continue; } }
-      if (BUILT.test(p) || TOOLS.has(p)) continue;
+      if (BUILT.test(p) || TOOLS.has(p) || AUTH.has(p)) continue;
       const file = path.join(WEB, p.endsWith('/') ? p + 'index.html' : (fs.existsSync(path.join(WEB, p)) ? p : p + '.html'));
       if (!fs.existsSync(file)) bad.push(`/${f}: liên kết hỏng ${h}`);
     }
