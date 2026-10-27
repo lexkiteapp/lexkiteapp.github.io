@@ -66,6 +66,7 @@ Mã thật trong jsdom ↔ Drive giả đếm đơn vị (list/get/media/PATCH/m
 | Fuzz gộp | §1 (300 ca tính chất), §18 (200 chuỗi × 3 máy × 40 thao tác), §19 (3 máy jsdom, 45 thao tác) | hội tụ 100 % |
 
 ## 8. Việc chủ duyệt trước khi bật `drive: true`
+**27/10 – ĐÃ BẬT** (`drive: true`): Drive API đã bật, `drive.appdata` đã thêm ở Data Access (Google: "không cần xác minh" vì không có scope sensitive), privacy en/vi đã sửa (Action dịch 13 ngôn ngữ). Còn: gửi **Verify branding** sau khi privacy mới lên live; Identity Platform đã xác nhận ĐANG BẬT trên Spark (trần 3.000 DAU – mục 3).
 1. Google Cloud `lexkite-app` › APIs: bật **Google Drive API**; OAuth consent screen › Data access: thêm `.../auth/drive.appdata`; Branding: logo, trang chủ, privacy → gửi **xác minh thương hiệu** (non-sensitive: không cần đánh giá bảo mật CASA).
 2. Chính sách quyền riêng tư (`content/legal/en,vi/privacy.html` → Action dịch 13 ngôn ngữ): "dữ liệu học lưu trong thư mục ẩn của ứng dụng trên Google Drive của bạn; Lexkite không đọc được từ máy chủ" + câu Limited Use (Google API Services User Data Policy).
 3. Firebase Auth: kiểm dự án có nâng **Identity Platform** chưa – Spark + Identity Platform chỉ 3.000 DAU ([limits](https://firebase.google.com/docs/auth/limits)); Blaze: 50k MAU miễn phí rồi tính tiền. Ở hàng triệu DAU đăng nhập cũng phải 0 USD → bước sau: Google Identity Services (FedCM/One Tap) trực tiếp cho người dùng Drive.

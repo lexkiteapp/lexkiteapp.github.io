@@ -40,12 +40,47 @@
     return 1 - m[a.length][b.length] / Math.max(a.length, b.length);
   }
 
-  function toast(msg, ms = 2400) {
-    const t = $('#toast');
-    t.textContent = msg; t.classList.add('show');
-    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
-    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), ms);
+  // Toast dùng chung mọi màn: (1) hộp thoại #modal đang mở → xếp hàng, hiện lần lượt sau khi đóng (không chồng lên modal, không che nút);
+  // (2) né vùng nút/thanh cố định ở đáy (thanh điều hướng, "Tiếp tục", nút chính sát đáy) → đặt ngay phía trên; vị trí CSS gốc đã tính safe-area.
+  const toastQ = [];
+  const modalOpen = () => { const m = document.getElementById('modal'); return !!(m && !m.hidden); };
+  const AVOID = '.bottom-nav, .learn-bar, .sheet, .install-nudge, [data-toast-avoid], header button, header a, .topbar button, .topbar a, #view button, #view a.btn, #view a.chip, #view [role="button"], #view .option';
+  // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
+  function toastLift(t) {
+    t.style.bottom = ''; t.style.top = ''; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
+    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw; // không getComputedStyle (chậm)
+    const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
+    const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
+    const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
+    if (free(H - base - h, H - base)) return;
+    const cands = obs.filter(r => r.top > H * .45).map(r => H - r.top + 10).filter(b => b > base && b <= H * .55).sort((a, b) => a - b);
+    for (const b of cands) if (free(H - b - h, H - b)) { t.style.bottom = b + 'px'; return; }
+    const top = 12;
+    if (free(top, top + h)) { t.style.top = 'calc(' + top + 'px + env(safe-area-inset-top, 0px))'; t.style.bottom = 'auto'; return; }
+    if (cands.length) t.style.bottom = cands[cands.length - 1] + 'px';
   }
+  function toastShow(msg, ms) {
+    const t = $('#toast'); if (!t) return;
+    t.textContent = msg; toastLift(t); t.classList.add('show'); t._msg = [msg, ms];
+    // Màn vẽ lại khi toast đang hiện (vd. hết bài → màn "Bạn đã học xong") → đặt lại chỗ để không đè nút mới
+    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
+    clearTimeout(toast._t); toast._t = setTimeout(() => { t.classList.remove('show'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift()); }, ms);
+  }
+  function toast(msg, ms = 2400) {
+    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
+    if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms]); return; }
+    toastShow(msg, ms);
+  }
+  // Theo dõi #modal: mở ra khi toast đang hiện → cất toast vào hàng; đóng lại → hiện hàng chờ (mọi cách đóng: closeModal, gán hidden trực tiếp…)
+  function watchModal() {
+    const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
+    new MutationObserver(() => {
+      const t = $('#toast'); if (!t) return;
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
+      else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
+    }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
+  }
+  if (document.getElementById('modal')) watchModal(); else document.addEventListener('DOMContentLoaded', watchModal);
 
   let lastFocus = null;
   function modal(html) {

@@ -88,3 +88,6 @@ Kết quả /app/?hl=en: perf 71 → 99, LCP 7,0 → 2,0 s, FCP 2,9 → 1,5 s, C
 Playwright 4G/CPU×4: FCP 3,0 → 1,1 s, LCP 3,6 → 1,15 s. Cổng: `app-loader.mjs --check` + `app-lcp-probe.mjs` (khởi động, khách cũ, SW, offline).
 
 Ảnh so sánh: `out/ux-public/compare-*.png` (máy chủ sở hữu, không commit).
+
+## Luật LCP (chuyển từ METHODS 27/10)
+- **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.

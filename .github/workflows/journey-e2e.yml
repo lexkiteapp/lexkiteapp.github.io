@@ -47,11 +47,14 @@ jobs:
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Hành trình ${{ matrix.lang }} (máy tính + điện thoại + add-on)
         run: node scripts/test/journey-e2e.mjs --root dist --lang ${{ matrix.lang }} --out je-out/${{ matrix.lang }} --ext
+      - name: Hành trình 1–2 trên điện thoại 360/390 px (vi) + kiểm hình tự động
+        if: always() && matrix.lang == 'vi'
+        run: node scripts/test/journey-e2e.mjs --root dist --lang vi --device m360,m390 --only 1,2 --out je-out/vi-360
       - if: always()
-        run: cat je-out/${{ matrix.lang }}/summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+        run: cat je-out/${{ matrix.lang }}*/summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: 'journey-${{ matrix.lang }}', path: 'je-out/${{ matrix.lang }}', retention-days: 7, if-no-files-found: ignore }
+        with: { name: 'journey-${{ matrix.lang }}', path: 'je-out/${{ matrix.lang }}*', retention-days: 7, if-no-files-found: ignore }
 
   android:
     if: inputs.native == '1'

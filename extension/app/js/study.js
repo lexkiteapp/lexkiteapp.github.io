@@ -729,7 +729,7 @@
       Sfx.win(); confetti();
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
         <div class="em">🧠</div><h2>${t('Bạn đã học xong {n} từ!', { n: items.length })}</h2>
-        <p class="muted">${t('{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng', { answered, mistakes })}</p>
+        <p class="muted" id="learnStats">${answered ? t('{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng', { answered, mistakes }) : t('+{xp} XP thưởng', { xp: 20 })}</p>
         <div class="row center" style="margin:1rem 0">${items.map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.emoji)} ${esc(w.word)}</a>`).join('')}</div>
         ${notIn.length ? `<p><button class="btn primary" id="addLearned">+ ${t('Đưa {n} từ vào flashcard để ôn định kỳ', { n: notIn.length })}</button></p>` : `<p class="small muted">${t('Các từ này đã có trong flashcard – hệ thống sẽ nhắc bạn ôn đúng lúc.')}</p>`}
         <div class="row center" style="margin-top:.6rem"><button class="btn" id="again">${t('Học 8 từ tiếp theo')}</button><a class="btn" href="#/practice/match?src=${encodeURIComponent(src)}">⚡ ${t('Ghép thẻ')}</a></div>
