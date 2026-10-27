@@ -52,6 +52,19 @@ const PL = { id: 'x', platform: 'dev.to', url: 'https://dev.to/u/post-1', status
   ok(P.evaluatePr(p, { status: 200, json: { merged: true } }, res(200, '# list')).state === 'link-missing', 'merged nhưng README mất link');
   ok(P.evaluatePr(p, { status: 0, json: null }).state === 'error' && P.evaluatePr(p, { status: 403 }).state === 'blocked', 'API GitHub lỗi/hạn mức → không kết luận');
 }
+// ---------- 3b) Figshare qua API công khai (trang HTML dựng bằng JS → 27/10 báo nhầm link-gone) ----------
+{
+  const u = 'https://figshare.com/articles/dataset/Commonly_Confused_English_Words_an_open_dataset_Lexkite_/34789332', p = { ...PL, url: u, platform: 'Figshare', type: 'listing' };
+  ok(P.figshareId(u) === 34789332 && P.figshareId(u + '/2') === 34789332 && P.figshareId('https://figshare.com/s/abc') === null && P.figshareId('https://example.com/articles/x/34789332') === null, 'nhận id bài Figshare (kể cả /phiên bản)');
+  const api = j => res(200, JSON.stringify({ id: 34789332, title: 'Commonly Confused English Words', url_public_html: u, ...j }));
+  let r = P.evaluateFigshare(p, api({ description: '<p>See <a href="https://lexkite.com/en/research/confused-words/">research</a></p>' }));
+  ok(r.state === 'ok' && r.link && r.links[0] === 'https://lexkite.com/en/research/confused-words/' && r.via === 'api', 'Figshare: link trong mô tả → ok');
+  ok(P.evaluateFigshare(p, api({ description: '<p>x</p>', references: ['https://lexkite.com/en/research/'] })).state === 'ok', 'Figshare: link trong references → ok');
+  ok(P.evaluateFigshare(p, api({ description: '<p>no link</p>' })).state === 'link-missing', 'Figshare: mô tả mất link → link-missing (vẫn bắt được link-gone thật)');
+  ok(P.evaluateFigshare(p, res(404, '{}')).state === 'removed' && P.evaluateFigshare(p, res(429, '')).state === 'blocked' && P.evaluateFigshare(p, res(0, '', { error: 'timeout' })).state === 'error' && P.evaluateFigshare(p, res(200, 'not json')).state === 'error', 'Figshare: 404 → gỡ · 429 → chặn · lỗi mạng/JSON → không kết luận');
+  const seen = []; r = await P.checkPlacement(p, async (url, o) => { seen.push([url, o && o.accept]); return api({ description: '<a href="https://lexkite.com/">x</a>' }); });
+  ok(r.state === 'ok' && seen.length === 1 && seen[0][0] === 'https://api.figshare.com/v2/articles/34789332' && seen[0][1] === 'application/json', 'checkPlacement: Figshare đi API, không cào HTML');
+}
 // ---------- 4) Phân loại ----------
 {
   const live = { ...PL }, okR = { state: 'ok', link: true, rel: 'follow', noindex: false };
