@@ -19,7 +19,7 @@ const MQA = rd('.github/workflows/mobile-qa.yml');
 ok(/serve-web\.mjs out\/site 8080/.test(MQA), 'mobile-qa đo qua máy chủ có nén (như Cloudflare), không dùng python http.server');
 ok(/app-loader\.mjs out\/site\/app\/index\.html/.test(MQA) && /esbuild@[\d.]+ .*--minify .*--outdir=\.\.\/out\/site/.test(MQA), 'mobile-qa đo bản phát hành như build-web.sh (JS khung app nạp sau lần vẽ đầu + rút gọn), không đo web/ thô');
 { const st = rd('web/js/study.js'), ds = rd('web/js/distract.js');
-  ok((st.match(/warmLib\(\)\.then\(\(\) => \{ if \(location\.hash === h0\) next\(\); \}\)/g) || []).length >= 2 && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
-    'trắc nghiệm/học thông minh: kho từ + bộ nhớ Distract làm nóng theo lát ≤ 8 ms trước câu đầu (TBT #/practice từng 205–418 ms)'); }
+  ok(/startWhen\(warmLib\(\), next\)/.test(st) && /startWhen\(warmLib\(\)\.then\(\(\) => preDis\(seq\[0\]\)\), next\)/.test(st) && /view\.prepend\(bar\)/.test(st) && /setTimeout\(\(\) => preDis\(nq\), 0\)/.test(st) && /async function pickAsync\(/.test(ds) && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
+    'trắc nghiệm/học thông minh: kho từ + bộ nhớ Distract làm nóng theo lát ≤ 8 ms trước câu đầu; phương án nhiễu tính theo lát (pickAsync) trước câu đầu và lúc rảnh cho câu sau (TBT #/practice từng 205–418 ms)'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');

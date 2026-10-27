@@ -53,15 +53,20 @@
   // mean(x) (App.meanOf → bản dịch theo ngôn ngữ) được gọi nhiều lần cho mỗi từ của kho trong một lượt pick: nhớ trong lượt (ngôn ngữ đổi giữa hai lượt vẫn đúng)
   const DEF_MEAN = x => x.vi || x.def || '';
   const memoMean = f => { const m = new WeakMap(); return x => { if (!x || typeof x !== 'object') return f(x); let v = m.get(x); if (v === undefined) { v = f(x); m.set(x, v); } return v; }; };
-  function pick(w, pool, opt = {}) {
+  // picker(): cùng thuật toán pick() nhưng quét kho theo bước (step(ms) → true khi xong) để chạy được theo lát (pickAsync)
+  function picker(w, pool, opt = {}) {
     const n = opt.n == null ? 3 : opt.n, key = opt.key || 'vi';
     const mean = memoMean(opt.mean || DEF_MEAN);
     const show = x => key === 'word' ? x.word : mean(x);
     const ans = fold(show(w)), wp = posOf(w.pos), wl = LV[String(w.level || '').toUpperCase()];
     const wLen = String(show(w)).length || 1, wParts = glosses(show(w)).length;
     const r = rng(hash(fold(w.word) + '|' + (opt.seed == null ? '' : opt.seed)));
-    const seen = new Set([ans]), cand = [];
-    for (const x of pool || []) {
+    const seen = new Set([ans]), cand = [], P = pool || [];
+    let i = 0;
+    const step = ms => { const t0 = Date.now();
+    for (; i < P.length; i++) {
+      if (ms !== Infinity && (i & 63) === 0 && i && Date.now() - t0 >= ms) return false;
+      const x = P[i];
       if (!x || !x.word || x === w) continue;
       const s = fold(show(x));
       if (!s || seen.has(s)) continue;
@@ -80,13 +85,19 @@
       if (key === 'word' && /\s/.test(x.word) !== /\s/.test(w.word)) sc -= 1.5; // cụm từ vs từ đơn
       cand.push({ x, sc: sc + r() * 0.9 });
     }
+    return true; };
+    const result = () => {
     cand.sort((a, b) => b.sc - a.sc);
     // Đa dạng: không lấy 2 phương án nhiễu là đồng nghĩa của nhau
     const out = [];
     for (const c of cand) { if (out.length >= n) break; if (!out.some(o => nearSynonym(o, c.x, mean))) out.push(c.x); }
     for (const c of cand) { if (out.length >= n) break; if (!out.includes(c.x)) out.push(c.x); }
-    return out;
+    return out; };
+    return { step, result };
   }
+  function pick(w, pool, opt) { const p = picker(w, pool, opt); p.step(Infinity); return p.result(); }
+  // Như pick() nhưng quét theo lát ≤ 8 ms, nhường luồng giữa các lát (give() → Promise) – kết quả y hệt pick() cùng seed
+  async function pickAsync(w, pool, opt, give) { const p = picker(w, pool, opt), y = give || (() => new Promise(r => setTimeout(r, 0))); while (!p.step(8)) await y(); return p.result(); }
   // Làm đầy sẵn bộ nhớ fold/glosses/toks cho cả kho theo LÁT ≤ 8 ms (study.js gọi trước câu đầu) → pick() đầu tiên không còn là tác vụ dài.
   // Chỉ nạp bộ nhớ của hàm thuần – kết quả pick() không đổi. o.mean = hàm nghĩa như pick; o.yieldMain = hàm nhường luồng (Promise).
   async function warm(pool, o = {}) {
@@ -108,5 +119,5 @@
   // (🏃 run, 👂 hear, 🤔 think). Emoji đồ vật/nơi chốn cho từ trừu tượng (live 🏠, keep 🔒, provide 📦) dễ hiểu sai → ẩn.
   const HUMAN = /^(?:[\u{1F600}-\u{1F64F}\u{1F440}-\u{1F450}\u{1F466}-\u{1F487}\u{1F4AA}\u{1F590}-\u{1F596}\u{1F90C}-\u{1F93E}\u{1F970}-\u{1F97A}\u{1F9D0}-\u{1F9E0}\u{1F3C3}-\u{1F3CC}\u{1F6B4}-\u{1F6B6}\u{261D}\u{263A}\u{2639}\u{270A}-\u{270D}\u{1F483}\u{1F57A}\u{1FAE0}-\u{1FAF8}])/u;
   const picOk = w => !!w && (!!w.image || (!!w.emoji && w.emoji !== '📘' && (!w.pos || posOf(w.pos) === 'n' || HUMAN.test(w.emoji))));
-  g.Distract = { pick, warm, picOk, shuffle, nearSynonym, sameFamily, overlap, posOf, rng, hash };
+  g.Distract = { pick, pickAsync, warm, picOk, shuffle, nearSynonym, sameFamily, overlap, posOf, rng, hash };
 })(typeof window !== 'undefined' ? window : globalThis);
