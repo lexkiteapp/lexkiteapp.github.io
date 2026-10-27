@@ -35,7 +35,7 @@ async function run({ cmp = 'none', fill = true, dnt = false } = {}) {
 }
 { const r = await run({ cmp: 'none' }); ok(r.cls === 0 && r.below === r.y0, `ngoài EEA, có quảng cáo: CLS = ${r.cls}, nội dung dưới ô không xê dịch`); ok(r.label === 'Advertisement' && Math.round(r.h) === 290, 'ô có nhãn Advertisement, cao cố định 290px');
   ok(r.pushes.some(x => !x.o.params && x.paused === 0), 'yêu cầu quảng cáo chỉ sau khi hết tạm dừng (pauseAdRequests = 0)'); }
-{ const r = await run({ cmp: 'none', fill: false }); ok(r.cls === 0 && r.below === r.y0, `không có quảng cáo (unfilled): CLS = ${r.cls}`); }
+{ const r = await run({ cmp: 'none', fill: false }); ok(r.cls === 0 && r.below === r.y0, `không có quảng cáo (unfilled): CLS = ${r.cls} ${JSON.stringify(r)}`); }
 { const r = await run({ cmp: 'gdpr-deny' }); ok(!r.pushes.some(x => !x.o.params), 'EEA từ chối: không gửi yêu cầu quảng cáo'); ok(r.cls === 0, 'EEA từ chối: CLS = 0'); }
 { const r = await run({ cmp: 'gdpr-ok' }); ok(r.pushes.some(x => !x.o.params && !x.npa), 'EEA đồng ý: quảng cáo cá nhân hóa được phép'); }
 { const r = await run({ cmp: 'none', dnt: true }); ok(r.pushes.some(x => !x.o.params && x.npa === 1) && r.pushes.some(x => x.o.params && x.o.params.google_restrict_data_processing === 1), 'Do Not Track: không cá nhân hóa + hạn chế xử lý dữ liệu'); }
@@ -67,15 +67,15 @@ async function run({ cmp = 'none', fill = true, dnt = false } = {}) {
     // cuộn để ô (đầu tiên) nằm giữa màn hình TRƯỚC khi quảng cáo về → mọi xê dịch đều bị tính
     await p.evaluate(() => { const h = document.querySelector('.ad-hold'); window.scrollTo(0, h.getBoundingClientRect().top + scrollY - 300); });
     const y0 = await p.evaluate(() => { const h = document.querySelector('.ad-hold'); return Math.round(h.nextElementSibling.getBoundingClientRect().top); });
-    await p.waitForTimeout(6500); // load → rảnh 3 s → static.js → policy/run → AdSense giả (600 ms)
+    await p.waitForTimeout(7500); // load → rảnh 3 s → static.js → policy/run → AdSense giả (600 ms)
     const out = await p.evaluate(() => { const h = document.querySelector('.ad-hold'), a = h.querySelector('.ad-slot'); return { cls: window.__cls, y: Math.round(h.nextElementSibling.getBoundingClientRect().top), hh: Math.round(h.getBoundingClientRect().height), filled: !!a.querySelector('ins[data-ad-status="filled"]'), hidden: a.hidden, n: document.querySelectorAll('.ad-slot').length }; });
     await ctx.close(); return { ...out, y0 };
   }
   const bp = '/' + path.relative(path.join(T, 'b'), path.dirname(blogF)).split(path.sep).join('/') + '/', dp = '/' + path.relative(path.join(T, 'd', 'assets'), path.dirname(dictF)).split(path.sep).join('/') + '/';
   { const r = await stat(blogF, bp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 2, `blog dài ${bp} (390px): ô giữa bài có quảng cáo, CLS = ${r.cls}, khung 290px, nội dung dưới ô không xê dịch, ${r.n} ô/bài`); }
-  { const r = await stat(blogF, bp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0 && r.hh === 290, `blog dài, nhóm đối chứng (ô bị ẩn): khung vẫn giữ 290px, CLS = ${r.cls}`); }
-  { const r = await stat(dictF, dp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 1, `trang từ điển ${dp} (390px): 1 ô có quảng cáo, CLS = ${r.cls}, nội dung dưới ô không xê dịch`); }
-  { const r = await stat(dictF, dp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0, `trang từ điển, nhóm đối chứng: CLS = ${r.cls}`); }
+  { const r = await stat(blogF, bp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0 && r.hh === 290, `blog dài, nhóm đối chứng (ô bị ẩn): khung vẫn giữ 290px, CLS = ${r.cls} ${JSON.stringify(r)}`); }
+  { const r = await stat(dictF, dp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 1, `trang từ điển ${dp} (390px): 1 ô có quảng cáo, CLS = ${r.cls}, nội dung dưới ô không xê dịch ${JSON.stringify(r)}`); }
+  { const r = await stat(dictF, dp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0, `trang từ điển, nhóm đối chứng: CLS = ${r.cls} ${JSON.stringify(r)}`); }
   fs.rmSync(T, { recursive: true, force: true }); }
 await browser.close();
 console.log(fails ? `✗ ads-cls: ${fails} lỗi / ${n}` : `✓ ads-cls: ${n} kiểm tra đạt`);

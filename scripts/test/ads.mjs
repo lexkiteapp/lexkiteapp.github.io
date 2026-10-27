@@ -57,6 +57,7 @@ ok(JSON.stringify(P.PER_PAGE) === JSON.stringify(MAX_PER_PAGE) && P.PER_PAGE.blo
     ok(!P.slot(c, f0, pl) && !P.slot(c, P.flags(ON, CFG), pl) && !P.slot(c, P.flags({ ...ON, ads_kill: '1' }, LOCAL), pl), `${pl}: cờ tắt / config tắt / công tắc khẩn cấp → không`);
     ok(!P.slot({ ...c, plat: 'android' }, fOn, pl) && !P.slot({ ...c, plat: 'ios' }, fOn, pl), `${pl}: không bao giờ trong app gốc`);
     ok(!P.slot({ ...c, vid: hvid }, fOn, pl) && !P.slot({ ...c, bot: true }, fOn, pl) && !P.slot({ ...c, edu: true }, fOn, pl) && !P.slot({ ...c, u13: true }, fOn, pl), `${pl}: đối chứng / bot / lớp học / < 13 tuổi → không`); } }
+ok(!/requestIdleCallback\)\(go, \d/.test(rd('web/js/ads/static.js')) && /requestIdleCallback\(go, \{ timeout/.test(rd('web/js/ads/static.js')), 'static.js: requestIdleCallback nhận { timeout } (số → TypeError, quảng cáo trang tĩnh không bao giờ chạy)');
 // midIndex (thuần): chỉ bài ≥ 1200 từ, sau <p> cấp cao nhất ở 40–50 %, khối sau không phải ảnh
 { const P_ = n => `<p>${'word '.repeat(n)}</p>`, B = [P_(100), P_(100), '<ul><li>' + 'item '.repeat(100) + '</li></ul>', P_(100), P_(100), '<div class="tbl" tabindex="0"><table><tr><td>' + 'cell '.repeat(100) + '</td></tr></table></div>', P_(100), P_(100), P_(100), P_(100)];
   ok(midIndex(B, MID_MIN_WORDS - 1) === -1 && midIndex(B, 400) === -1, 'bài < 1200 từ → không có ô giữa');

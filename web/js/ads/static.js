@@ -9,5 +9,6 @@
     if (!v || v.ads_kill === '1' || v.ads_web !== '1' || ls('lk.edu') === '1' || ls('lk.u13') === '1') return;
     return one('/js/ads/config.js').then(() => one('/js/ads/policy.js')).then(() => one('/js/ads/run.js')).then(() => g.AdsRun && g.AdsRun.start());
   }).catch(() => {});
-  g.addEventListener('load', () => (g.requestIdleCallback || setTimeout)(go, 3000));
+  // 3 s sau load rồi chờ lúc rảnh (requestIdleCallback nhận { timeout }, KHÔNG nhận số – truyền số = TypeError, quảng cáo không bao giờ chạy)
+  g.addEventListener('load', () => setTimeout(() => (g.requestIdleCallback ? g.requestIdleCallback(go, { timeout: 2000 }) : go()), 3000));
 })(self);
