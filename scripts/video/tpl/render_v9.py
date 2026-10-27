@@ -338,6 +338,7 @@ def norm_frame(F, crop=True):
     if F.shape[0] != H:
         r = cv2.resize(F, (round(W * H / F.shape[0]), H), interpolation=cv2.INTER_LANCZOS4); x0 = (r.shape[1] - W) // 2; F = r[:, x0:x0 + W].copy()   # uniform 1916 -> 1920
     if CROP and crop:   # punch-in: Lanczos resample + mild unsharp (host_sharp measures it against the native pixels)
+        if CROP.get('oy', 0) < 0: F = F.copy(); F[:6] = F[6]   # v14 wall fill on top: replicate a clean row (row 0 of a Kling frame can be a dark edge line)
         F = cv2.warpAffine(F, CA, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
         a_ = CROP.get('sharp', 0.6); F = cv2.addWeighted(F, 1 + a_, cv2.GaussianBlur(F, (0, 0), CROP.get('sigma', 1.1)), -a_, 0)
     return F
@@ -1084,9 +1085,25 @@ def paste_scaled(F, im, cx, cy, sc, al, wipe=1.0):
     x, y = round(cx - w / 2), round(cy - h / 2); rgb, a = rgba_np(r)
     if wipe < 1.0: a = a.copy(); a[:, int(w * wipe):] = 0
     over(F, rgb, a, x, y, al); return [x, y, x + w, y + h]
-def card_panel(F, vis):   # v14: ONE cream card (rounded, soft shadow, teal edge) hugging the visible board content, faded with it; stays inside SAFE
+def _cbox(p, im, sc):   # screen box of a pop's visible content (alpha bbox) when centred in its region
+    cb = im.getchannel('A').getbbox()
+    if not cb: return None
+    rg = p.region; sc_ = min(sc, (rg[2] - rg[0]) / im.width, (rg[3] - rg[1]) / im.height); w, h = im.width * sc_, im.height * sc_
+    x0, y0 = (rg[0] + rg[2]) / 2 - w / 2, (rg[1] + rg[3]) / 2 - h / 2
+    return [x0 + cb[0] * sc_, y0 + cb[1] * sc_, x0 + cb[2] * sc_, y0 + cb[3] * sc_]
+_PFIX = []
+def panel_fixed():   # v14 (owner 27/10 "thẻ cố định"): ONE card rectangle for the whole video = union of every board pop's content (sampled), never resizing between pops
+    if _PFIX: return _PFIX[0]
+    bx = [1e9, 1e9, -1e9, -1e9]
+    for p in POPS:
+        if p.where != 'board' or p.kind == 'cta': continue
+        for T_ in (p.t0 + 0.35, (p.t0 + p.t1) / 2, p.t1 - 0.06):
+            b = _cbox(p, p.frame_im(T_), 1.0)
+            if b: bx = [min(bx[0], b[0]), min(bx[1], b[1]), max(bx[2], b[2]), max(bx[3], b[3])]
+    _PFIX.append(None if bx[0] > 1e8 else bx); return _PFIX[0]
+def card_panel(F, vis):   # v14: ONE cream card (rounded, soft shadow, teal edge), fixed size for the whole video, faded with the board content; stays inside SAFE
     if not vis: return
-    bx = [1e9, 1e9, -1e9, -1e9]; amax = 0.0
+    bx = list(panel_fixed() or [1e9, 1e9, -1e9, -1e9]); amax = 0.0
     for p, sc, al, dx, dy, im in vis:
         cb = im.getchannel('A').getbbox()
         if not cb: continue
