@@ -12,6 +12,7 @@ import { loadBrowserIndex } from '../lexicon/shards.mjs';
 import { loadVocab } from '../lib/seo-data.mjs';
 import { CSS, SEO_CSS, UI_JS, siteHeader, siteFooter, appHref, landingHref } from '../lib/site-layout.mjs';
 import { toolPath, toolStrings } from '../lib/tools-links.mjs';
+import { adsOn } from '../lib/ads-static.mjs'; // 💰 ô quảng cáo trang từ, chỉ khi config bật + có mã ô 'dict' (docs/ADS.md §1)
 import { DICT_PATH as T_ALL, ENABLED, T, SITE, hubPath, wordPath, letterPath, slugOf, renderWord, renderHub, renderSitemap, parseOpen, isIndexable } from '../../workers/dict/render.mjs';
 
 const VI_RE = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // nhãn soạn tiếng Việt trong "Cách dùng từ" → không lọt sang trang en
@@ -213,7 +214,7 @@ export function buildShell() {
     footer[l] = siteFooter({ lang: l, text: T[l].foot, langHref: lh });
   }
   const SPK_JS = `(function(d){var L=['https://audio.lexkite.com/audio/l/','https://lexkiteapp.github.io/lexkite-media-2/audio/l/'],cur;function tts(w,acc,r){try{var u=new SpeechSynthesisUtterance(w);u.lang=acc;u.rate=r||.95;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}d.addEventListener('click',function(e){var b=e.target.closest('.spk');if(!b)return;var w=b.getAttribute('data-w')||b.getAttribute('data-text'),k=b.getAttribute('data-a'),acc=b.getAttribute('data-acc')||'en-GB';if(b.hasAttribute('data-slow'))return tts(w,acc,.55);if(!k)return tts(w,acc);if(cur)cur.pause();var i=0,a=new Audio(L[0]+k+'.mp3');cur=a;a.onerror=function(){if(++i<L.length){a.src=L[i]+k+'.mp3';a.play().catch(function(){})}else tts(w,acc)};a.play().catch(function(){tts(w,acc)})})})(document);`; // nút 🔊 UK (file giọng đọc của app, lỗi → giọng máy) · 🔊 US · 🐢 (giọng máy) như add-on
-  return { v: 1, css: `${CSS}\n${SEO_CSS}\n${APP_CSS}\n${CSS2}`, header, footer, js: UI_JS + '\n' + SPK_JS };
+  return { v: 1, css: `${CSS}\n${SEO_CSS}\n${APP_CSS}\n${CSS2}`, header, footer, js: UI_JS + '\n' + SPK_JS, ad: adsOn('dict') ? 1 : 0 }; // ad: 1 = chèn ô 'dict' (Worker đọc cùng shell.json → tầng tĩnh + đuôi dài như nhau)
 }
 
 export function build({ out = 'dist-dict', n = 200, pool = n, staticN = Infinity, index = '', write = true } = {}) {
