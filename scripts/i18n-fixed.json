@@ -27569,5 +27569,20 @@
     "ar": "تغيير الموافقة",
     "ru": "Изменить согласие",
     "tr": "Onayı değiştir"
+  },
+  "+{xp} XP thưởng": {
+    "es": "+{xp} XP extra",
+    "pt": "+{xp} XP de bônus",
+    "fr": "+{xp} XP bonus",
+    "de": "+{xp} Bonus-XP",
+    "id": "+{xp} XP bonus",
+    "th": "โบนัส +{xp} XP",
+    "zh": "奖励 +{xp} XP",
+    "ja": "ボーナス +{xp} XP",
+    "ko": "보너스 +{xp} XP",
+    "hi": "+{xp} बोनस XP",
+    "ar": "+{xp} XP مكافأة",
+    "ru": "+{xp} бонусных XP",
+    "tr": "+{xp} bonus XP"
   }
 }

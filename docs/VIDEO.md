@@ -90,3 +90,23 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - Trạng thái duyệt/loại/tạm dừng/lịch/kênh/web nằm ở D1 `clip_review` (lớp phủ trên manifest). Mục: Chờ duyệt · Đã duyệt · Đã đăng · Lỗi QA · Lưu trữ (loại/tạm dừng – mặc định ẩn khỏi các mục khác).
 - Giao diện `web/js/admin-clips.js`: lưới ảo hóa (thẻ cao cố định, < 300 nút DOM), chọn nhiều O(1), thanh thao tác sticky, tác vụ dang dở tiếp tục được (localStorage). Ngân sách hiệu năng: `scripts/test/clips-perf.mjs` (CI `clips-perf.yml`); logic: `scripts/test/clip-bulk.mjs`.
 - Phân phối nhiều kênh (22/10/2026): `/api/distribution` + `_distribution.js` (định tuyến luật đầu tiên thắng + dự phòng, hạn mức/ngày, giãn cách, khung giờ theo múi giờ kênh, jitter ±20 phút, chống trùng tiêu đề/bìa, không lặp mẫu liền kề), D1 `yt_chan_cfg` / `yt_rules` / `yt_plan`; gói đăng hiện kênh + giờ; sync báo `wrong-channel`; kênh tự tạm dừng khi sync gặp forbidden/revoked hoặc ≥ 5 lần tải lỗi (cảnh báo ở status.alerts). Phân loại: `_taxonomy.js` (một nguồn), loại nội dung short/long/podcast ở `_clip_logic.js`. Chưa làm: giao diện tab "Kênh & phân phối", vai trò embed/social + metadata viral, facade nhúng nhẹ.
+
+## 9. Luật dựng, QA, tách nền, Kling, kho 3D (chuyển nguyên văn từ METHODS 27/10)
+- Mọi lớp chữ phải có hộp bố cục & bị QA kiểm; điểm tự chấm cao ≠ khung đúng → luôn soi khung/tờ ảnh ghép.
+- ffmpeg: luôn `-nostdin`; `alimiter level=0`; tone −60 dB ở 0 s.
+- Người dẫn = giáo viên Mỹ (KHÔNG lower-third tên – chủ bỏ 22/10; giữ "Teacher's tip", "Repeat after me", giọng giáo viên); chỉ cử chỉ trung tính, đứng; không cử chỉ ký hiệu (đếm ngón/lắc ngón Kling hỏng).
+- Hình: không làm mờ nền/hạt phim; không phóng người > 1.0×; push-in từ nền 1,25×; master CRF 17 ≥ 8 Mbps; QA độ nét (Laplacian), SSIM ≥ 0,97.
+- Tách nền: trimap + AI matting (ViTMatte) + khử màu viền (pymatting) + chống ám xanh vùng viền + ổn định theo thời gian; QA viền (`scripts/video/matte_qa.py`).
+- Liền mạch trong 1 video (chủ 22/10): mỗi người dẫn giữ 1 bộ trang phục suốt clip; 1 nền/1 địa điểm/1 ánh sáng cho cả clip; đổi cảnh bằng khung cắt khác của CÙNG nền (Ama nửa trái, Carlos nửa phải, giữ cố định khung mỗi người); đúng 180° (Ama trái nhìn phải, Carlos phải nhìn trái); QA 1 bg_id/clip.
+- Khớp bối cảnh: `bg/<id>.zones.json` (độ sâu + phân vùng) → chỉ đặt người ở vùng sàn, tầm mắt ≈ chân trời; cổng AI nhìn khung ghép (đứng trên bàn/ghế/nước = trượt).
+- Cách giảng (bắt buộc mọi kịch bản): 1 ý · sai→đúng + vì sao ngắn · ví dụ tình huống · mẹo nhớ hình ảnh · đoán trước đáp án · nói theo · nhắc lại giãn cách · lỗi theo tiếng mẹ đẻ (`VIDEO-SCALE-PLAN.md` §12).
+- **Ngữ pháp dựng (chủ 24/10 – "chuyển cảnh nghiệp dư" dù QC 100):** `scripts/cine/news_edit.py` (`NEWS_EDIT=A|B|C`): cắt đúng chỗ ngắt câu, không cắt giữa câu, đổi người = J-cut/cắt cứng/whip 6-8 khung (không pan 0,7 s), nhấn = punch 1.0↔1.12, chữ động vào/ra mượt, duck nền −40 dB. Cổng `scripts/cine/qa_edit.py` (cắt giữa câu = 0, cắt-đúng-ngắt ≥ 0,9, pan chậm = 0, pop-in = 0). Chi tiết: `archive/METHODS-HISTORY.md` § "Ngữ pháp dựng".
+- QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
+- Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
+- Video dạy học (27/10, chuẩn ở `VIDEO-SERIES.md` §Production standard): chỉ 2 người dẫn 3D (Carlos, Ama); bố cục v14 = viết thẳng lên bảng, mực theo ánh sáng bảng; clip theo tâm trạng câu, biểu cảm có trần.
+- Kho 3D (`scripts/video/bank3d/`): ảnh khung đầu qua `check_first.py` TRƯỚC khi tạo clip; mọi clip có câu khoá vị trí (`send2.sh`), neo ảnh chuẩn; sau: `qc2.py`, tờ ảnh, gate CI.
+- Tách nền: không ghi màu đen dưới alpha 0, không ngưỡng alpha sau co giãn; dùng `matte_refine.py`, `place()`/`over()` premultiplied, QA `edge_qa()` + zoom 400 %.
+- Người dẫn luôn ĐỨNG, cử chỉ trung tính, không cử chỉ ký hiệu; khung đầu = khung cuối tư thế để nối.
+- Nền: OCR (`bgqc.py`) + nhìn tay; không ghi "clock" trong prompt; mỗi nền phải có sàn đứng được; nhân vật mới = i2i TỪ ref cũ + cổng tay `ref_qc.py`.
+- Kling: 2 nhịp mặt phải ghi khe thời gian; khóa miệng khi im; dry-run phải chứa đoạn prompt vừa sửa; KHÔNG cộng nhẩm credit (dùng `CAP`/`CAPRE` từ ledger); "too many requests" (0 cr) = chờ gửi lại, không tính hỏng.
+- Kho nền rộng: cổng `bg_gates.py`; chi cho ĐỊA ĐIỂM MỚI, không biến thể thứ 4-5 của cùng địa điểm.
