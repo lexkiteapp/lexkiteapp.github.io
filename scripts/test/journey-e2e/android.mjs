@@ -1,13 +1,18 @@
 // journey-e2e trên Android emulator: hành trình 1–3 (native.js) chạy trong WebView của app debug qua Chrome DevTools – vi/en/ar.
 // Dùng: node scripts/test/journey-e2e/android.mjs <out-dir>   (cần adb + app com.lexkite.app đã cài; workflow journey-e2e.yml native=1)
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 const OUT = path.resolve(process.argv[2] || 'je-android'); fs.mkdirSync(OUT, { recursive: true });
 const PKG = 'com.lexkite.app', sleep = ms => new Promise(r => setTimeout(r, ms));
 const adb = (...a) => { try { return execFileSync('adb', a, { encoding: 'utf8', timeout: 60000, maxBuffer: 64 << 20 }); } catch (e) { return 'ERR ' + String(e.stderr || e.message).slice(0, 300); } };
 const SRC = ['checks.js', 'native.js'].map(f => fs.readFileSync(new URL('./' + f, import.meta.url), 'utf8')).join('\n;\n');
-const bad = [], errs = []; let nShot = 0;
+const bad = [], errs = []; let nShot = 0, ran = 0;
+// Canh chừng (CI 26/10: emulator chết giữa chừng → "device not found", harness lặp kết nối lại ~40' tới khi bị huỷ): thoát đỏ ngay khi máy ảo mất hoặc quá hạn tổng.
+try { const lg = fs.openSync(path.join(OUT, 'logcat.txt'), 'w'); spawn('adb', ['logcat', '-v', 'time'], { stdio: ['ignore', lg, 'ignore'], detached: false }).unref(); } catch (e) { /* */ } // logcat tới lúc máy ảo chết
+const DEADLINE = Date.now() + (+process.env.JE_ANDROID_MAX_MIN || 25) * 60000; let offline = 0;
+const abort = why => { bad.push(why); try { fs.writeFileSync(path.join(OUT, 'host-diag.txt'), execFileSync('sh', ['-c', 'free -m; dmesg 2>/dev/null | tail -30; ps aux --sort=-rss | head -8'], { encoding: 'utf8', timeout: 10000 })); } catch (e) { /* */ } console.log('✗ ' + why); try { fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1)); } catch (e) { /* */ } process.exit(3); };
+setInterval(() => { let st = ''; try { st = execFileSync('adb', ['get-state'], { encoding: 'utf8', timeout: 15000 }).trim(); } catch (e) { st = 'ERR'; } offline = st === 'device' ? 0 : offline + 1; if (offline >= 3) abort('emulator mất kết nối (adb get-state=' + st + ') – máy ảo chết giữa chừng'); if (Date.now() > DEADLINE) abort('quá hạn tổng ' + (+process.env.JE_ANDROID_MAX_MIN || 25) + ' phút'); }, 20000).unref?.();
 const shot = n => { try { fs.writeFileSync(path.join(OUT, `${String(++nShot).padStart(2, '0')}-${n}.png`), execFileSync('adb', ['exec-out', 'screencap', '-p'], { maxBuffer: 64 << 20, timeout: 30000 })); } catch (e) { /* bỏ qua */ } };
 adb('logcat', '-c');
 adb('shell', 'monkey', '-p', PKG, '-c', 'android.intent.category.LAUNCHER', '1');
@@ -51,7 +56,8 @@ const BOOTED = 'window.App && App.routeToken && App.routeToken() > 0 && document
 const booted = async () => { const t0 = Date.now(); const r = await ev(`for (let i = 0; i < 120 && !(${BOOTED}); i++) await new Promise(r => setTimeout(r, 500)); return !!(${BOOTED})`); const ms = Date.now() - t0; if (r !== true) { bad.push(`app không khởi động xong sau ${Math.round(ms / 1000)} s (App.routeToken = 0)`); console.log('✗ app chưa khởi động'); } else if (ms > 15000) console.log(`… app khởi động chậm: ${Math.round(ms / 1000)} s`); return r === true; };
 const reload = async () => { await clearAnr(); await cdp('Page.reload', {}); await sleep(3000); await booted(); };
 await clearAnr(); await booted();
-for (const l of ['en', 'vi', 'ar']) {
+const LANGS = (process.env.JE_LANGS || 'en,vi,ar').split(',');
+for (const l of LANGS) {
   await ev(`localStorage.setItem('vb.uiLang', ${JSON.stringify(l)}); return 1`);
   await ev('await LKJN.reset(); return 1'); await reload();
   for (const f of ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b']) {
@@ -61,12 +67,13 @@ for (const l of ['en', 'vi', 'ar']) {
     if (!Array.isArray(r) && !(r && r.__err)) { bad.push(`[${l}] ${f}: kịch bản không trả kết quả (trang tải lại/rời app giữa chừng?)`); console.log(`${l} ${f}: ✗ không có kết quả`); await reload(); continue; }
     if (r && r.__err) bad.push(`[${l}] ${f}: kịch bản dừng ${r.__err}`); else for (const m of r || []) bad.push(`[${l}] ${m}`);
     for (const e of errs.slice(e0)) if (!/ResizeObserver|net::ERR|Failed to load resource/.test(e)) bad.push(`[${l}] ${f} ${e}`);
-    shot(`${l}-${f}`); console.log(`${l} ${f}: ${r && !r.__err && !r.length ? '✓' : '✗ ' + JSON.stringify(r).slice(0, 300)}`);
+    ran++; shot(`${l}-${f}`); console.log(`${l} ${f}: ${r && !r.__err && !r.length ? '✓' : '✗ ' + JSON.stringify(r).slice(0, 300)}`);
   }
 }
+if (ran < 6 * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${6 * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
 const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x));
 if (fatal.length) bad.push('Crash: ' + fatal.slice(0, 2).join(' / '));
-fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs }, null, 1));
-console.log(bad.length ? '✗ FAIL Android journey: ' + bad.length + '\n' + bad.join('\n') : '✓ PASS Android journey 1–3 × vi/en/ar');
+fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1));
+console.log(bad.length ? '✗ FAIL Android journey: ' + bad.length + '\n' + bad.join('\n') : '✓ PASS Android journey 1–3 × ' + LANGS.join('/'));
 try { ws.close(); } catch (e) { /* */ }
 process.exit(bad.length ? 1 : 0);
