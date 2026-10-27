@@ -11,7 +11,7 @@ wow) PRE="The teacher reveals a fun fact: first a short closed-mouth smile, then
 listen2) PRE="The teacher listens warmly with the mouth CLOSED the whole time (lips together, no talking): a gentle smile, the head tilts slightly to one side as if interested, slow small nods, natural blinks, eyes open, hands stay loosely clasped at the waist.";;
 *) PRE="The teacher explains calmly to the camera at a relaxed teaching pace (about two words per second) with short pauses where the mouth closes briefly; eyes open, natural blinks, an occasional small nod; slow relaxed open-palm explaining gestures at chest height.";;
 esac
-LOCK="The teacher stays on the RIGHT side of the frame for the entire clip, exactly where she or he stands in the first frame; she or he never moves, drifts or slides toward the centre of the frame; the left part of the frame shows only the empty whiteboard the whole time."
+LOCK="The teacher stays on the RIGHT side of the frame for the entire clip, exactly where she or he stands in the first frame; she or he never moves, drifts or slides toward the centre of the frame; the left part of the frame shows only the empty whiteboard the whole time. The torso and hips stay still and upright: no swaying, no rocking, no leaning side to side, feet planted; the teacher stands as still as a TV news presenter; only the arms, hands, head and face move."
 PROMPT="$PRE $LOCK $COMMON"
 printf '%s\n' kling image_to_video --model kling-video-v2_5 --image "$3" --duration 10 --resolution 1080p --enable_audio false --prompt "$PROMPT" --poll=1200 > dry_$1.txt
 [ "$4" = go ] || { cat dry_$1.txt; exit 0; }

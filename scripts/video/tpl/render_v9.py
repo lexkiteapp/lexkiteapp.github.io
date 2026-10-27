@@ -282,7 +282,9 @@ def _hs(f_):
 def off_model(c):   # source frames whose head box does not match the family master face (hand over the face, drift): the gated plan never shows them
     if c in OFFM: return OFFM[c]
     par = TR['clips'][c].get('parent') or c; hb = TR['clips'][par]['head']; src_ = RAW[par][CL[par]['usable'][0]] if par in RAW else RAW[c][0]; ref = _hs(src_[hb[1]:hb[3], hb[0]:hb[2]])
-    OFFM[c] = {k for k in range(len(RAW[c])) if cv2.compareHist(ref, _hs(RAW[c][k][hb[1]:hb[3], hb[0]:hb[2]]), cv2.HISTCMP_CORREL) < 0.75}; return OFFM[c]
+    OFFM[c] = {k for k in range(len(RAW[c])) if cv2.compareHist(ref, _hs(RAW[c][k][hb[1]:hb[3], hb[0]:hb[2]]), cv2.HISTCMP_CORREL) < 0.75}
+    OFFM[c] |= {k for a_, b_ in TR['clips'][c].get('avoid', []) for k in range(a_, b_ + 1)}   # bank QC: frame ranges marked 'avoid' (profile glance, fast sway, 'o' lips in a listen clip)
+    return OFFM[c]
 OFFM = {}
 def plan_gated(nf):
     talk = SP['clips']; lis = SP['listen']; sp = np.zeros(nf, bool)
