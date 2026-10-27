@@ -1,7 +1,7 @@
 {
  "id": "sts_43b7bd40",
  "template": "mistake",
- "title": "Stop Saying This #6 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
+ "title": "Stop Saying This #8 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
  "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
@@ -21,7 +21,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.64,
+ "speed": 0.65,
  "display": {
   "blank": "___"
  },
@@ -44,7 +44,7 @@
      2
     ]
    },
-   "gap": 0.85
+   "gap": 0.8
   },
   {
    "id": "m_k",
@@ -55,7 +55,7 @@
      4
     ]
    },
-   "gap": 0.85
+   "gap": 0.8
   },
   {
    "id": "m_y",
@@ -65,19 +65,17 @@
      2
     ]
    },
-   "gap": 0.85
+   "gap": 0.8
   },
   {
    "id": "m_x",
-   "text": "The team lacks money. There's a lack of time.",
+   "text": "The team lacks money.",
+   "gap": 0.8,
    "key": {
     "green": [
-     2,
-     6,
-     7
+     2
     ]
-   },
-   "gap": 0.85
+   }
   },
   {
    "id": "m_t",
@@ -87,7 +85,7 @@
      5
     ]
    },
-   "gap": 0.85
+   "gap": 0.8
   },
   {
    "id": "m_q",
@@ -98,7 +96,7 @@
      1
     ]
    },
-   "gap": 0.85
+   "gap": 0.8
   },
   {
    "id": "m_q2",
@@ -118,12 +116,17 @@
      4
     ]
    },
-   "gap": 1.4
+   "gap": 0.8
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.8
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.85
+   "gap": 0.8
   }
  ],
  "pops": [
@@ -314,21 +317,6 @@
       ],
       [
        "money."
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "There's a "
-      ],
-      [
-       "lack of ",
-       "green"
-      ],
-      [
-       "time."
       ]
      ]
     }
@@ -552,7 +540,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 6
+  "ep": 8
  },
  "source": {
   "bank": "sb_43b7bd40",

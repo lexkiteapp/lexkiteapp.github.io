@@ -69,16 +69,14 @@
   },
   {
    "id": "m_x",
-   "text": "We listen to the radio in the car. Listen to me, please.",
+   "text": "We listen to the radio in the car.",
+   "gap": 0.65,
    "key": {
     "green": [
      1,
-     2,
-     8,
-     9
+     2
     ]
-   },
-   "gap": 0.65
+   }
   },
   {
    "id": "m_t",
@@ -119,7 +117,12 @@
      3
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",
@@ -322,18 +325,6 @@
      "segs": [
       [
        "radio in the car."
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "Listen to ",
-       "green"
-      ],
-      [
-       "me, please."
       ]
      ]
     }

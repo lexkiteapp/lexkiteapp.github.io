@@ -1,7 +1,7 @@
 {
  "id": "sts_91e27418",
  "template": "mistake",
- "title": "Stop Saying This #11 – Stop saying \"I don't rarely go out.\" – say \"I rarely go out.\"",
+ "title": "Stop Saying This #16 – Stop saying \"I don't rarely go out.\" – say \"I rarely go out.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -112,7 +112,12 @@
      2
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",
@@ -539,7 +544,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 11
+  "ep": 16
  },
  "source": {
   "bank": "sb_91e27418",

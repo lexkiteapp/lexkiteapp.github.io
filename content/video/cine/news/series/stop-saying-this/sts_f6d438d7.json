@@ -1,7 +1,7 @@
 {
  "id": "sts_f6d438d7",
  "template": "mistake",
- "title": "Stop Saying This #9 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
+ "title": "Stop Saying This #12 – Say \"It depends on the situation.\" instead of \"It depends of the situation.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -68,16 +68,14 @@
   },
   {
    "id": "m_x",
-   "text": "It depends on the price. Our plan depends on the weather.",
+   "text": "It depends on the price.",
+   "gap": 0.65,
    "key": {
     "green": [
      1,
-     2,
-     7,
-     8
+     2
     ]
-   },
-   "gap": 0.65
+   }
   },
   {
    "id": "m_t",
@@ -118,7 +116,12 @@
      4
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",
@@ -307,30 +310,6 @@
       ],
       [
        "the price."
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "Our plan "
-      ],
-      [
-       "depends",
-       "green"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "on ",
-       "green"
-      ],
-      [
-       "the weather."
       ]
      ]
     }
@@ -548,7 +527,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 9
+  "ep": 12
  },
  "source": {
   "bank": "sb_f6d438d7",

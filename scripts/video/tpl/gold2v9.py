@@ -18,14 +18,14 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')
 OUT = f'{ROOT}/content/video/cine/news/series'
 GOLD_EP1 = {'stop-saying-this': ['i am agree'], 'same-or-different': ['borrow', 'lend']}   # templates-v2 episode 1 (hand-written)
 BOARDW = {'d03_daniel_desk': 532, 'k03_kai_desk': 548, 'm03_mei_desk': 532, 'c01_carlos_board': 852, 'a02_ama_board': 856}   # measured board text width (render logs)
-ALT = {'stop-saying-this': dict(teacher='carlos', clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.64)}   # wide-board presenter when a hook word does not fit the series desk board
+ALT = {'stop-saying-this': dict(teacher='carlos', clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.65)}   # wide-board presenter when a hook word does not fit the series desk board
 SERIES = {
     'stop-saying-this': dict(name='Stop Saying This', template='mistake', type='stop-saying', pre='sts', L='m', teacher='daniel', set='classroom_board',
                              clips=['d03_daniel_desk', 'd03t2_daniel_talk2', 'd03t3_daniel_talk3'], listen=['d03l_daniel_listen'], speed=0.72, accent='red', active='cream', hook_style='stop: red X badge + quoted error, stamp-in',
                              motif='red badges + quoted lines, green check on the fix',
                              cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
     'same-or-different': dict(name='Same or Different?', template='pair', type='x-vs-y', pre='sod', L='p', teacher='carlos', set='classroom_board',
-                              clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.64, accent='green', active='green', hook_style='versus: two tiles slide in from both sides with a VS disc',
+                              clips=['c01_carlos_board', 'c01t2_carlos_talk2', 'c01t3_carlos_talk3'], listen=['c01l_carlos_listen'], speed=0.65, accent='green', active='green', hook_style='versus: two tiles slide in from both sides with a VS disc',
                               motif='side-by-side twin tiles, the active one lit',
                               cta={'area': 'word-usage', 'link': 'https://lexkite.com/app/#/usage?c=pair', 'say': 'Compare tricky words'}),
 }
@@ -39,7 +39,7 @@ def est_seconds(lines, speed=0.72):   # Kokoro 0.75 ~ 2.1 words/s (scaled by spe
     w = sum(len(toks(l['text'])) for l in lines if l.get('text'))
     return w / RATE_AT.get(speed, 2.1 * speed / 0.75) + sum(l.get('gap', 0.22) for l in lines if l.get('text')) + sum(l.get('dur', 0) for l in lines if l.get('beat')) + 0.4
 
-RATE_AT = {0.72: 2.25, 0.68: 3.0, 0.64: 2.82}   # measured Kokoro words/s per (speed): daniel am_michael 0.72, carlos am_fenrir 0.68 (render logs 27/10)
+RATE_AT = {0.72: 2.25, 0.68: 3.0, 0.65: 2.87}   # measured Kokoro words/s per (speed): daniel am_michael 0.72, carlos am_fenrir 0.68 (render logs 27/10)
 WPM_EST = 122   # generator-side estimate of qc overall wpm (qc gate is 130)
 def wpm_est(lines, speed):
     w = sum(len(toks(l['text'])) for l in lines if l.get('text')); return w * 60 / max(1.0, est_seconds(lines, speed) - 3.0)
@@ -230,19 +230,19 @@ def build(slug, it, ep):
         lines.append(d); return d
     PX = PXW[C['clips'][0][:3]]
     span_w = {norm(toks(wrong)[i]) for i in wi} | {norm(toks(right)[i]) for i in ri}
-    G = 0.85 if C['teacher'] == 'carlos' else 0.65   # carlos (fast voice): longer breaths keep the overall pace <= 130 wpm
+    G = 0.8 if C['teacher'] == 'carlos' else 0.65   # carlos (fast voice): longer breaths keep the overall pace <= 130 wpm
     if slug == 'stop-saying-this':
         add('h', 'Stop saying this.', 0.5)
         add('w', wrong, G, red=wi)
         k = add('k', 'Just say: ' + right, G, green=[i + 2 for i in ri])
         add('y', why, G, yellow=key_idx(why, mw, 3))
     else:
-        add('h', f'{cap(X)} or {Y}? Don\'t mix them up.', G, yellow=[0], green=[2])
+        add('h', f'{cap(X)} or {Y}? Quick lesson.', G, yellow=[0], green=[2])
         add('y', why, G, yellow=key_idx(why, [norm(w) for w in X.split()], 2), green=[i for i in key_idx(why, [norm(w) for w in Y.split()], 2) if i not in key_idx(why, [norm(w) for w in X.split()], 2)])
     exl = ' '.join(ex)
     xl = add('x', exl, G, green=key_idx(exl, sorted(span_w | set(mw)), 4))
     if slug == 'same-or-different':
-        add('w', 'Not: ' + wrong, 0.5, red=[i + 1 for i in wi])
+        add('w', 'Not: ' + wrong, G, red=[i + 1 for i in wi])
         k = add('k', 'Say: ' + right, G, green=[i + 1 for i in ri])
     add('t', aha, G, yellow=key_idx(aha, mw, 3))
     add('q', ('Quick quiz! ' if slug == 'stop-saying-this' else 'Quiz! ') + Q['q_spoken'], G, yellow=[0, 1] if slug == 'stop-saying-this' else [0])
@@ -250,13 +250,16 @@ def build(slug, it, ep):
     lines.append({'id': '_count', 'beat': 'count', 'dur': 3.0})
     ans = Q['say'][Q['a']]; aline = f"{cap(ans)}! {Q['filled']}"
     fi = key_idx(Q['filled'], [norm(w) for w in ans.split()], 3) if not Q['o'][Q['a']].startswith('(') else []
-    add('a', aline, 1.4, green=[0] + [i + 1 for i in fi])
+    add('a', aline, G, green=[0] + [i + 1 for i in fi])
+    add('sh', 'Send this to a friend who says it!' if slug == 'stop-saying-this' else 'Send this to a friend!', G)   # the SAVE THIS card needs >= 0.8 s on screen (readability)
     add('c', f"Save this, and {C['cta']['say'][0].lower() + C['cta']['say'][1:]} on lexkite.com.", G)
     nw = lambda: sum(len(toks(l['text'])) for l in lines if l.get('text'))
     if (nw() > WSOFT or est_seconds(lines, C['speed']) > EST_MAX - 1 or wpm_est(lines, C['speed']) > WPM_EST) and len(ex) > 1:   # one example when two do not fit (never pad)
         xl['text'] = ex[0]; kk = key_idx(ex[0], sorted(span_w | set(mw)), 4); xl.pop('key', None)
         if kk: xl['key'] = {'green': kk}
         ex = ex[:1]
+    if slug == 'same-or-different' and (nw() > WSOFT or wpm_est(lines, C['speed']) > WPM_EST):   # the lesson card already shows an example for each word
+        lines.remove(xl)
     a = lambda lid, k=0, off=-0.1: [f'{L}_{lid}', k, 's', off]
     wrong_sp = ' '.join(toks(wrong)[i] for i in wi).strip('.,!?'); right_sp = ' '.join(toks(right)[i] for i in ri).strip('.,!?')
     ip, ipw = (None, None)   # IPA word: a changed word (>= 4 letters), else a memory-trick word that is in the right sentence (US IPA, app dictionary)
@@ -330,7 +333,7 @@ def selfcheck(s):
     if not WMIN <= w <= WMAX: e.append(f'{w} words (need {WMIN}-{WMAX})')
     if wpm_est(s['lines'], s['speed']) > WPM_EST + 6: e.append(f'est pace {wpm_est(s["lines"], s["speed"]):.0f} wpm')
     if est_seconds(s['lines'], s['speed']) > EST_MAX: e.append(f'est {est_seconds(s["lines"], s["speed"]):.1f} s > {EST_MAX}')
-    if not s.get('listen') or not 0.64 <= s['speed'] <= 0.75 or s.get('caption_cap') != 42: e.append('production-standard fields (listen, speed 0.65-0.75, caption_cap 42)')
+    if not s.get('listen') or not 0.65 <= s['speed'] <= 0.75 or s.get('caption_cap') != 42: e.append('production-standard fields (listen, speed 0.65-0.75, caption_cap 42)')
     if any(l.get('gap', 0.22) < 0.4 and l['id'] not in (s['lines'][0]['id'], s['lines'][0]['id'][0] + '_q2', s['lines'][0]['id'][0] + '_a', s['lines'][0]['id'][0] + '_w') for l in T): e.append('gap < 0.4 s')
     for p in s['pops']:
         if p['kind'] == 'note':

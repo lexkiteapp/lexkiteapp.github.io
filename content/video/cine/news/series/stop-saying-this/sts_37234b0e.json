@@ -120,7 +120,12 @@
      2
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",

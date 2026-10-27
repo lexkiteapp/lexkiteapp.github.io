@@ -68,16 +68,14 @@
   },
   {
    "id": "m_x",
-   "text": "She's afraid of the dark. Are you afraid of flying?",
+   "text": "She's afraid of the dark.",
+   "gap": 0.65,
    "key": {
     "green": [
      1,
-     2,
-     7,
-     8
+     2
     ]
-   },
-   "gap": 0.65
+   }
   },
   {
    "id": "m_t",
@@ -118,7 +116,12 @@
      5
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",
@@ -317,30 +320,6 @@
       ],
       [
        "the dark."
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "Are you "
-      ],
-      [
-       "afraid",
-       "green"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "of ",
-       "green"
-      ],
-      [
-       "flying?"
       ]
      ]
     }

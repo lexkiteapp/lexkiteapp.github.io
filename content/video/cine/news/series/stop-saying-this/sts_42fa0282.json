@@ -1,7 +1,7 @@
 {
  "id": "sts_42fa0282",
  "template": "mistake",
- "title": "Stop Saying This #10 – Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
+ "title": "Stop Saying This #15 – Stop saying \"I suggest you to go.\" – say \"I suggest (that) you go. / I suggest going.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -118,7 +118,12 @@
      4
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",
@@ -559,7 +564,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 10
+  "ep": 15
  },
  "source": {
   "bank": "sb_42fa0282",

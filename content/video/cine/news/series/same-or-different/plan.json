@@ -9,8 +9,8 @@
    "point": "win (v) vs beat (v)",
    "cefr": "A1",
    "diff": "easy",
-   "words": 64,
-   "est_s": 34.2,
+   "words": 63,
+   "est_s": 32.8,
    "ipa": "/biːt/",
    "content_hash": "40adafa2cee70cd0"
   },
@@ -20,8 +20,8 @@
    "point": "rob (v) vs steal (v)",
    "cefr": "B1",
    "diff": "medium",
-   "words": 58,
-   "est_s": 32.0,
+   "words": 57,
+   "est_s": 30.7,
    "ipa": null,
    "content_hash": "3bc746c83b8fb10d"
   }
@@ -150,7 +150,7 @@
   {
    "bank": "sb_6e178745",
    "point": "hope (v) vs wish (v)",
-   "reason": "self-check: note fix line > 26 chars: [['@emoji:❌'], [' I '], ['wish ', 'red'], ['you '], ['will ', 'red'], ['pass the test.']]; note qs line > 26 chars: [['I '], ['___ ', 'green'], ['you have a great trip!']]"
+   "reason": "self-check: est pace 130 wpm; note fix line > 26 chars: [['@emoji:❌'], [' I '], ['wish ', 'red'], ['you '], ['will ', 'red'], ['pass the test.']]; note qs line > 26 chars: [['I '], ['___ ', 'green'], ['you have a great trip!']]"
   }
  ]
 }

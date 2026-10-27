@@ -4,18 +4,19 @@
   "sts_0f8cdbf0": {
    "template": "mistake",
    "hook": "✗ Stop saying / “I like listening music.”",
-   "hook_true": true,
-   "script_reviewed": true,
+   "hook_true": null,
+   "script_reviewed": false,
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "I like listening music.",
-    "m_y": "Listen needs the word to before the thing you hear.",
     "m_k": "Just say: I like listening to music.",
-    "m_x": "We listen to the radio in the car. Listen to me, please.",
+    "m_y": "Listen needs the word to before the thing you hear.",
+    "m_x": "We listen to the radio in the car.",
     "m_t": "But you can just say: listen! with no object.",
     "m_q": "Quick quiz! I'm listening blank a podcast.",
     "m_q2": "Nothing, or to?",
     "m_a": "To! I'm listening to a podcast.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -28,9 +29,7 @@
     "wrong_line": "m_w",
     "wrong": "I like listening music."
    },
-   "source": "sb_0f8cdbf0",
-   "reviewer": "Claude (expert American English teacher review)",
-   "note": "“listening music” is a very common L1-transfer error (listen is intransitive; it needs to before the thing heard). Fix + examples + bare “Listen!” note are correct US English. why line reworded in the bank for clarity (“needs the word to”). Quiz: listening to a podcast. Hook true: the error is wrong in any register."
+   "source": "sb_0f8cdbf0"
   },
   "sts_2bcb2bbd": {
    "template": "mistake",
@@ -40,13 +39,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "I'm afraid with dogs.",
-    "m_y": "With afraid, use of for the thing you fear.",
     "m_k": "Just say: I'm afraid of dogs.",
-    "m_x": "She's afraid of the dark. Are you afraid of flying?",
+    "m_y": "With afraid, use of for the thing you fear.",
+    "m_x": "She's afraid of the dark.",
     "m_t": "Scared of and frightened of work the same!",
     "m_q": "Quick quiz! My son is afraid blank spiders.",
     "m_q2": "With, or of?",
     "m_a": "Of! My son is afraid of spiders.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -61,7 +61,7 @@
    },
    "source": "sb_2bcb2bbd",
    "reviewer": "Claude (expert American English teacher review, 27/10/2026: facts true, natural US English, hook true; US IPA from the app dictionary; no GrabCast)",
-   "note": "'afraid with' is a common learner error; correct is 'afraid of' (scared of / frightened of work the same). No overclaim: the hook only says stop saying the quoted phrase."
+   "note": "'afraid with' is a common learner error; correct is 'afraid of' (scared of / frightened of work the same). Hook only says stop saying the quoted phrase: no overclaim."
   },
   "sts_37234b0e": {
    "template": "mistake",
@@ -78,6 +78,7 @@
     "m_q": "Quick quiz! I blank a mistake on the test.",
     "m_q2": "Made, or did?",
     "m_a": "Made! I made a mistake on the test.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -92,7 +93,37 @@
    },
    "source": "sb_37234b0e",
    "reviewer": "Claude (expert American English teacher review, 27/10/2026: facts true, natural US English, hook true; US IPA from the app dictionary; no GrabCast)",
-   "note": "'do a mistake' is a very common learner error (many languages say 'do'); standard English collocation is 'make a mistake' (also make a plan, make a choice). Quiz 'I made a mistake on the test' is natural US English."
+   "note": "'do a mistake' is a very common learner error; standard collocation is 'make a mistake' (also make a plan, make a choice). Quiz sentence natural US English."
+  },
+  "sts_466c0a2d": {
+   "template": "mistake",
+   "hook": "✗ / “They don't allow to smoke here.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "They don't allow to smoke here.",
+    "m_k": "Just say: They don't allow smoking here.",
+    "m_y": "No person? Allow plus -ing.",
+    "m_x": "They don't allow dogs here.",
+    "m_t": "With a person: allow people to smoke!",
+    "m_q": "Quick quiz! The hotel doesn't allow blank.",
+    "m_q2": "To smoke, or smoking?",
+    "m_a": "Smoking! The hotel doesn't allow smoking.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "They don't allow smoking here.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "They don't allow to smoke here."
+   },
+   "source": "sb_466c0a2d"
   },
   "sts_25206a92": {
    "template": "mistake",
@@ -102,13 +133,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "Let's keep contact!",
-    "m_y": "The fixed phrase is keep in touch.",
     "m_k": "Just say: Let's keep in touch!",
+    "m_y": "The fixed phrase is keep in touch.",
     "m_x": "Let's stay in touch. We kept in touch after school.",
     "m_t": "You can also say stay in touch!",
     "m_q": "Quick quiz! Let's keep in blank!",
     "m_q2": "Touch, or contact?",
     "m_a": "Touch! Let's keep in touch!",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -123,6 +155,36 @@
    },
    "source": "sb_25206a92"
   },
+  "sts_3237e46f": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “What I do?”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "What I do?",
+    "m_k": "Just say: What are my options?",
+    "m_y": "Ask for options. The agent will offer solutions.",
+    "m_x": "I missed my flight. What are my options?",
+    "m_t": "One question opens many doors!",
+    "m_q": "Quick quiz! I missed my flight. What blank my options?",
+    "m_q2": "Is, or are?",
+    "m_a": "Are! I missed my flight. What are my options?",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "What are my options?",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "What I do?"
+   },
+   "source": "sb_3237e46f"
+  },
   "sts_43b7bd40": {
    "template": "mistake",
    "hook": "✗ Stop saying / “They lack of experience.”",
@@ -131,13 +193,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "They lack of experience.",
-    "m_y": "The verb lack takes no of.",
     "m_k": "Just say: They lack experience.",
-    "m_x": "The team lacks money. There's a lack of time.",
+    "m_y": "The verb lack takes no of.",
+    "m_x": "The team lacks money.",
     "m_t": "The noun uses of: a lack of sleep!",
     "m_q": "Quick quiz! This soup lacks blank.",
     "m_q2": "Salt, or of salt?",
     "m_a": "Salt! This soup lacks salt.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -160,13 +223,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "I feel like to sleep.",
-    "m_y": "Feel like plus -ing.",
     "m_k": "Just say: I feel like sleeping.",
+    "m_y": "Feel like plus -ing.",
     "m_x": "I feel like eating pizza. Do you feel like going out?",
     "m_t": "Here like works like a preposition!",
     "m_q": "Quick quiz! I don't feel like blank today.",
     "m_q2": "To cook, or cooking?",
     "m_a": "Cooking! I don't feel like cooking today.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -189,13 +253,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "From where you know Emma?",
-    "m_y": "Ask with do: how do you know her?",
     "m_k": "Just say: So how do you know Emma?",
-    "m_x": "How do you know Sam? We know each other from school.",
+    "m_y": "Ask with do: how do you know her?",
+    "m_x": "How do you know Sam?",
     "m_t": "This means how did you meet her!",
     "m_q": "Quick quiz! So how blank know Emma?",
     "m_q2": "You, or do you?",
     "m_a": "Do you! So how do you know Emma?",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -210,6 +275,36 @@
    },
    "source": "sb_7281e267"
   },
+  "sts_9172f8df": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “I lost my luggages.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I lost my luggages.",
+    "m_k": "Just say: My bag didn't arrive.",
+    "m_y": "Luggage has no plural. Say bags or my luggage.",
+    "m_x": "My bags didn't arrive.",
+    "m_t": "One bag, two bags, some luggage!",
+    "m_q": "Quick quiz! My blank didn't arrive.",
+    "m_q2": "Luggages, or luggage?",
+    "m_a": "Luggage! My luggage didn't arrive.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "My bag didn't arrive.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "I lost my luggages."
+   },
+   "source": "sb_9172f8df"
+  },
   "sts_f6d438d7": {
    "template": "mistake",
    "hook": "✗ Stop / “It depends of the weather.”",
@@ -218,13 +313,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "It depends of the weather.",
-    "m_y": "The word after depends is always on.",
     "m_k": "Just say: It depends on the weather.",
-    "m_x": "It depends on the price. Our plan depends on the weather.",
+    "m_y": "The word after depends is always on.",
+    "m_x": "It depends on the price.",
     "m_t": "Rely on, count on, depend on. All on!",
     "m_q": "Quick quiz! It all depends blank you.",
     "m_q2": "On, or of?",
     "m_a": "On! It all depends on you.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -239,6 +335,66 @@
    },
    "source": "sb_f6d438d7"
   },
+  "sts_04105eed": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “We rely in technology.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "We rely in technology.",
+    "m_k": "Just say: We rely on technology.",
+    "m_y": "Rely always takes on.",
+    "m_x": "You can rely on me.",
+    "m_t": "Depend works the same: depend on!",
+    "m_q": "Quick quiz! Small shops rely blank local customers.",
+    "m_q2": "In, or on?",
+    "m_a": "On! Small shops rely on local customers.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "We rely on technology.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "We rely in technology."
+   },
+   "source": "sb_04105eed"
+  },
+  "sts_1ec77f5c": {
+   "template": "mistake",
+   "hook": "✗ Stop saying / “Please fix until Friday.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "Please fix until Friday.",
+    "m_k": "Just say: I'd like this fixed by Friday.",
+    "m_y": "Use by for the last day. Until means all the time before.",
+    "m_x": "Please reply by Monday.",
+    "m_t": "Until Friday means keep fixing all week!",
+    "m_q": "Quick quiz! Please send it blank Friday.",
+    "m_q2": "Until, or by?",
+    "m_a": "By! Please send it by Friday.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I'd like this fixed by Friday.",
+    "right_lines": [
+     "m_k"
+    ],
+    "wrong_line": "m_w",
+    "wrong": "Please fix until Friday."
+   },
+   "source": "sb_1ec77f5c"
+  },
   "sts_42fa0282": {
    "template": "mistake",
    "hook": "✗ Stop / “I suggest you to go.”",
@@ -247,13 +403,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "I suggest you to go.",
-    "m_y": "There is no suggest someone to.",
     "m_k": "Just say: I suggest you go.",
+    "m_y": "There is no suggest someone to.",
     "m_x": "I suggest you call him. She suggested taking a taxi.",
     "m_t": "I suggest going is also correct!",
     "m_q": "Quick quiz! I suggest you blank early.",
     "m_q2": "To leave, or leave?",
     "m_a": "Leave! I suggest you leave early.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {
@@ -276,13 +433,14 @@
    "script": {
     "m_h": "Stop saying this.",
     "m_w": "I don't rarely go out.",
-    "m_y": "Rarely is already negative. No don't.",
     "m_k": "Just say: I rarely go out.",
+    "m_y": "Rarely is already negative. No don't.",
     "m_x": "She rarely eats meat. We rarely watch TV.",
     "m_t": "Hardly and seldom work the same way!",
     "m_q": "Quick quiz! I blank drink coffee.",
     "m_q2": "Don't rarely, or rarely?",
     "m_a": "Rarely! I rarely drink coffee.",
+    "m_sh": "Send this to a friend who says it!",
     "m_c": "Save this, and check your grammar on lexkite.com."
    },
    "promise": {

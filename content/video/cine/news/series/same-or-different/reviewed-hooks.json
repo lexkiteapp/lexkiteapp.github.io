@@ -7,15 +7,15 @@
    "hook_true": true,
    "script_reviewed": true,
    "script": {
-    "p_h": "Win or beat? Don't mix them up.",
+    "p_h": "Win or beat? Quick lesson.",
     "p_y": "You beat people. You win games.",
-    "p_x": "We won the game.",
     "p_w": "Not: We won the other team.",
     "p_k": "Say: We beat the other team.",
     "p_t": "You win a prize, but beat a player!",
     "p_q": "Quiz! Our team blank them 3 to 1.",
     "p_q2": "Beat, or won?",
     "p_a": "Beat! Our team beat them 3 to 1.",
+    "p_sh": "Send this to a friend!",
     "p_c": "Save this, and compare tricky words on lexkite.com."
    },
    "promise": {
@@ -28,7 +28,7 @@
    },
    "source": "sb_7432d6cb",
    "reviewer": "Claude (expert American English teacher review, 27/10/2026: facts true, natural US English, hook true; US IPA from the app dictionary; no GrabCast)",
-   "note": "Win takes games, prizes and contests; beat takes the opponent ('We beat the other team'). 'We won the other team' is wrong. Examples and quiz are natural US English."
+   "note": "Win takes games, prizes and contests; beat takes the opponent ('We beat the other team'). 'We won the other team' is wrong. Quiz and examples natural US English."
   },
   "sod_47b3e9e9": {
    "template": "pair",
@@ -36,15 +36,15 @@
    "hook_true": null,
    "script_reviewed": false,
    "script": {
-    "p_h": "Rob or steal? Don't mix them up.",
+    "p_h": "Rob or steal? Quick lesson.",
     "p_y": "You steal things. You rob people or places.",
-    "p_x": "They robbed a store.",
     "p_w": "Not: Someone robbed my phone.",
     "p_k": "Say: Someone stole my phone.",
     "p_t": "Thieves rob a bank and steal the money!",
     "p_q": "Quiz! Someone blank my wallet!",
     "p_q2": "Stole, or robbed?",
     "p_a": "Stole! Someone stole my wallet!",
+    "p_sh": "Send this to a friend!",
     "p_c": "Save this, and compare tricky words on lexkite.com."
    },
    "promise": {

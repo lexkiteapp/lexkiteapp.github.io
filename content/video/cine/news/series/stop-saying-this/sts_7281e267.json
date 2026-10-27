@@ -1,7 +1,7 @@
 {
  "id": "sts_7281e267",
  "template": "mistake",
- "title": "Stop Saying This #8 – Say \"So how do you know Emma?\" instead of \"From where you know Emma?\"",
+ "title": "Stop Saying This #10 – Say \"So how do you know Emma?\" instead of \"From where you know Emma?\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -73,7 +73,8 @@
   },
   {
    "id": "m_x",
-   "text": "How do you know Sam? We know each other from school.",
+   "text": "How do you know Sam?",
+   "gap": 0.65,
    "key": {
     "green": [
      0,
@@ -81,8 +82,7 @@
      2,
      3
     ]
-   },
-   "gap": 0.65
+   }
   },
   {
    "id": "m_t",
@@ -125,7 +125,12 @@
      4
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",
@@ -307,36 +312,6 @@
       ],
       [
        "Sam?"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "We "
-      ],
-      [
-       "know ",
-       "green"
-      ],
-      [
-       "each"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "other "
-      ],
-      [
-       "from ",
-       "green"
-      ],
-      [
-       "school."
       ]
      ]
     }
@@ -559,7 +534,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 8
+  "ep": 10
  },
  "source": {
   "bank": "sb_7281e267",

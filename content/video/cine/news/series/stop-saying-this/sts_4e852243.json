@@ -1,7 +1,7 @@
 {
  "id": "sts_4e852243",
  "template": "mistake",
- "title": "Stop Saying This #7 – Stop saying \"I feel like to sleep.\" – say \"I feel like sleeping.\"",
+ "title": "Stop Saying This #9 – Stop saying \"I feel like to sleep.\" – say \"I feel like sleeping.\"",
  "teacher": "daniel",
  "set": "classroom_board",
  "clips": [
@@ -122,7 +122,12 @@
      5
     ]
    },
-   "gap": 1.4
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
   },
   {
    "id": "m_c",
@@ -551,7 +556,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 7
+  "ep": 9
  },
  "source": {
   "bank": "sb_4e852243",
