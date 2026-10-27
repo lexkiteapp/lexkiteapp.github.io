@@ -439,8 +439,8 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
 .empty .em { font-size: 3.2rem; margin-bottom: .5rem; }
 
 /* ---------- Toast, modal, celebrate ---------- */
-.toast { position: fixed; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(20px); background: var(--text); color: var(--bg); padding: .75rem 1.15rem; border-radius: 14px; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 70; width: max-content; max-width: calc(100vw - 32px); font-weight: 600; box-shadow: var(--shadow-lg); text-align: center; } /* max-content: không bị bóp hẹp */
-.toast.show { opacity: 1; transform: translateX(-50%); }
+.toast { position: fixed; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%) translateY(calc(20px + var(--ty, 0px))); background: var(--text); color: var(--bg); padding: .75rem 1.15rem; border-radius: 14px; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .2s ease; z-index: 70; width: max-content; max-width: calc(100vw - 32px); font-weight: 600; box-shadow: var(--shadow-lg); text-align: center; } /* max-content: không bị bóp hẹp */
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(var(--ty, 0px)); } /* --ty: ui.js toastLift né nút bằng transform → 0 CLS */
 .modal { position: fixed; inset: 0; background: rgba(10,10,30,.5); backdrop-filter: blur(3px); display: grid; place-items: center; z-index: 50; padding: 16px; animation: fade .15s; }
 .modal-box { background: var(--surface); border-radius: 22px; padding: 1.6rem; width: min(540px, 100%); max-height: 90vh; overflow: auto; box-shadow: var(--shadow-lg); }
 .celebrate { text-align: center; }
@@ -1384,9 +1384,10 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 /* Phản hồi chạm: nút & thẻ nảy nhẹ khi bấm */
 .btn:active, .card.hover:active, .hub-card:active, .plan-item:active, .option:active { transform: scale(.97); transition: transform 80ms; }
 /* Chế độ tập trung khi ôn thẻ/luyện: ẩn menu bên, thanh trên và thanh dưới */
-body.focus .sidebar, body.focus .topbar, body.focus .bottom-nav { display: none; }
+body.focus .sidebar, body.focus .bottom-nav { display: none; }
 body.focus .shell { grid-template-columns: 1fr; }
-body.focus .view { padding-top: calc(1rem + env(safe-area-inset-top)); } /* chừa tai thỏ/thanh trạng thái (thanh trên ẩn) */
+/* Thanh trên GIỮ chỗ (không display:none, không đổi padding .view) → vào/thoát màn học không đẩy nội dung (CLS ≈ 0, mqa); chỉ ẩn bằng transform/visibility */
+body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-events: none; }
 
 .contact-form { display: flex; flex-direction: column; gap: 1rem; position: relative; }
 .contact-form label { display: flex; flex-direction: column; gap: .35rem; font-weight: 600; font-size: .92rem; }
@@ -1584,3 +1585,5 @@ a > .i-dir:first-child, button > .i-dir:first-child { margin-inline-end: .2em; }
 
 /* Trang pháp lý: dùng font hệ thống (văn bản dài, không cần webfont → nhẹ hơn, không đợi tải font) */
 body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
+/* 📱 Nút cài app trên thanh trên: vùng chạm ≥ 44×44 ở 360 px (mobile-qa: 38×35) */
+.top-stats #installBtn { min-width: 44px; min-height: 44px; justify-content: center; }

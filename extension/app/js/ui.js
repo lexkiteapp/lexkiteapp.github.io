@@ -47,17 +47,19 @@
   const AVOID = '.bottom-nav, .learn-bar, .sheet, .install-nudge, [data-toast-avoid], header button, header a, .topbar button, .topbar a, #view button, #view a.btn, #view a.chip, #view [role="button"], #view .option';
   // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
   function toastLift(t) {
-    t.style.bottom = ''; t.style.top = ''; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
+    t.style.removeProperty('--ty'); delete t.dataset.at; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
     const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw; // không getComputedStyle (chậm)
     const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
     const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
     const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
     if (free(H - base - h, H - base)) return;
     const cands = obs.filter(r => r.top > H * .45).map(r => H - r.top + 10).filter(b => b > base && b <= H * .55).sort((a, b) => a - b);
-    for (const b of cands) if (free(H - b - h, H - b)) { t.style.bottom = b + 'px'; return; }
+    // Dời bằng transform (--ty, style.css .toast): đổi chỗ khi toast ĐANG HIỆN (màn vẽ lại) không tính là layout shift (CLS 0,26 @360)
+    const at = b => { t.dataset.at = b; t.style.setProperty('--ty', (base - b) + 'px'); };
+    for (const b of cands) if (free(H - b - h, H - b)) { at(b); return; }
     const top = 12;
-    if (free(top, top + h)) { t.style.top = 'calc(' + top + 'px + env(safe-area-inset-top, 0px))'; t.style.bottom = 'auto'; return; }
-    if (cands.length) t.style.bottom = cands[cands.length - 1] + 'px';
+    if (free(top, top + h)) { t.dataset.at = 'top'; t.style.setProperty('--ty', 'calc(' + top + 'px + env(safe-area-inset-top, 0px) - ' + (H - base - h) + 'px)'); return; }
+    if (cands.length) at(cands[cands.length - 1]);
   }
   function toastShow(msg, ms) {
     const t = $('#toast'); if (!t) return;

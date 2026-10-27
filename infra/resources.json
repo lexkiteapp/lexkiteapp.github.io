@@ -713,6 +713,19 @@
       ]
     },
     {
+      "key": "gam",
+      "name": "Google Ad Manager – Google Publisher Tag (video có thưởng web)",
+      "kind": "ads",
+      "purpose": "Video có thưởng trên web: GPT defineOutOfPageSlot(REWARDED), tải lười sau CMP – web/js/ads/run.js (webRewarded). Ô ở web.rewarded trong web/js/ads/config.js (rỗng = TẮT); test dùng ô demo công khai /22639388115/rewarded_web_example (ads-demo.yml)",
+      "console": "https://admanager.google.com/",
+      "free": "Miễn phí (Ad Manager cho nhà xuất bản nhỏ, Google chia doanh thu)",
+      "upgrade": "—",
+      "status": "Chưa dùng – chờ chủ tạo ô có thưởng trong Ad Manager",
+      "match": [
+        "securepubads.g.doubleclick.net"
+      ]
+    },
+    {
       "key": "apple",
       "name": "Apple Developer",
       "kind": "store",

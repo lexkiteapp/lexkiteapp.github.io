@@ -120,8 +120,10 @@ on:
       - 'npm test'
       - 'CWS media'
       - 'social-auto'
+      - 'Ads demo (real Google test ads)'
       - 'Ads revenue hourly'
       - 'Ads revenue'
+      - 'Mobile QA'
       - 'video-shard-equiv'
   schedule:
     - cron: '12 * * * *'   # mỗi giờ: đóng issue khi xanh lại; lượt 00:12 UTC (sau khi hạn mức D1 đặt lại 00:00): chạy lại lượt hoãn + bản tin ngày
