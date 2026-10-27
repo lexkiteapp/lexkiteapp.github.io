@@ -171,3 +171,7 @@ Lịch sử đầy đủ (bài học 17–22/10, Kling, chroma key, kho, video):
 ### Ngữ pháp dựng (nguyên văn METHODS §7, chuyển 26/10)
 
 - **Ngữ pháp dựng (chủ 24/10 – "chuyển cảnh nghiệp dư" dù QC 100):** lớp `scripts/cine/news_edit.py` (`NEWS_EDIT=A|B|C`): cắt đúng chỗ ngắt câu, đổi người = J-cut tiếng đi trước 4–8 khung (người sắp nói còn trong khung thì KHÔNG đi trước), không cắt giữa câu, nhấn = punch-in/out 1.0↔1.12 trong shot (6–10 khung) thay vì cắt, trôi máy 0,5–1 %/s, đổi người = cắt cứng hoặc whip 6–8 khung (không pan 0,7 s), đổi phần = 1 wipe thương hiệu 9 khung, two-shot cho mở/tạm dừng/recap, chữ động có vào/ra mượt (không pop), whoosh/tick + duck nền −40 dB. Cổng `scripts/cine/qa_edit.py` (cắt giữa câu = 0, cắt-đúng-ngắt ≥ 0,9, pan chậm = 0, pop-in = 0); bản cũ #91 = 0,46 / 2 pan / 17 pop → TRƯỢT. Thử: `cine-render` input `edit_pilot=A,B,C` (đoạn hook→reveal, không lưu/đăng).
+
+
+## Chuyển từ METHODS 27/10 (nguyên văn, ngân sách docs-budget)
+- **Dung lượng repo (24/10, docs/STORAGE.md):** media nặng (mp3, ảnh theo từ, video) KHÔNG vào repo chính – sinh vào `.media-out/` rồi `scripts/media/push.mjs` đẩy kho media (`infra/media-repos.json`, round-robin hash trên kho open, tệp không bao giờ dời; đẩy xong mới commit chỉ mục). Cổng `size-guard` (cây ≤ 600 MB, ≤ 20 MB nhị phân/commit, ngoại lệ `Size-Guard: allow`). KHÔNG viết lại lịch sử git main. Kho ≥ 70 % → full + mở kho kế (STORAGE §2). Agent: clone tạm đặt tên RIÊNG (vd. `$TMPDIR/<việc>-<id>`) – thư mục `$TMPDIR/lk` từng bị phiên khác xoá giữa chừng.

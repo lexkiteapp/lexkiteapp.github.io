@@ -47,8 +47,9 @@ not re-skinning the same points. Platform caps: ≤ 2–3 posts per channel per 
 
 ## Production standard (owner-approved 26/10/2026, `content/video/cine/news/approved.json`)
 - Host clip plays **as generated** (`host_fx: raw`): no mouth swap, no hold smoothing – processing the teacher caused the visible glitches. The mouth talks but is not word-synced.
-- Footage bank, not per-video generation: chained Kling clips per teacher (2D and 3D alternate for variety); videos reuse the bank at 0 credits.
-- Layout v12: one left board column – lesson cards (word / IPA / meaning / example), left-aligned quiz with equal pills, 'SAVE THIS' card, one-line captions; qc text_on_board / head_clear / caption_clear catch any overflow.
+- Footage bank, not per-video generation; videos reuse the bank at 0 credits. **27/10: 3D only, 2 hosts** – Carlos 3D (c05 family) and Ama 3D (a05 family), right-third medium shot; clips tagged `mood` (talk/present/excited/question/wow), bad frames listed as `avoid` in teachers.json; tools `scripts/video/bank3d/`.
+- **Layout v14 (27/10, supersedes v12/v13):** the lesson is written ON the whiteboard above the head (no card box), top-left anchored, type up to 1.7× the v12 mock; marker ink takes the board's real light (shadow darkens it), soft ink edge, no halo; fixed plate captions at y 1430; end card = icon + 100% FREE + lexkite.com + QR 300 px (`qrow` keeps the QR on low boards); everything inside SAFE; wall fill above the board when the frame is lowered.
+- Clip choice follows the line's mood (spec `mood` or auto from ?/!/reveal words/cards), capped per video: excited 1, wow 1, question 2 (owner: "ko lố"). Gates: `layout_v14`, `board_contrast` (≥ 3:1), `mood_restraint`, `cut_jump`, `identity` on every used frame.
 - Pace ≤ 130 wpm (qc `pace`), 0.6–0.8 s breaths; IPA from the app dictionary (Noto Sans glyphs).
 - **Mouth tempo = voice tempo (owner 26/10).** The host mouth is never edited, so the FOOTAGE must match the voice: (1) bank talk clips are
   generated with a slow teaching cadence ("speaks slowly and calmly, gentle mouth movement"); each clip's mouth cadence (open/close cycles per

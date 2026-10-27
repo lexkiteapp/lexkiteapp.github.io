@@ -189,6 +189,15 @@ ok(!/@capacitor-community\/admob/.test(rd('mobile/package.json')), 'app phát h�
   { const w = mk(true), h = w.document.getElementById('h'); await w.AdOffers.attach(h, c({ second: true })); ok(!h.innerHTML, 'lượt cơ hội 2 → không mời thêm'); } }
 ok(/lk\.edu/.test(rd('web/js/study.js')) && /AdOffers\.attach/.test(rd('web/js/study.js')), 'study.js: lời mời có thưởng không bao giờ cho máy Lớp học');
 
+// Rút lại/đổi đồng ý (GDPR Điều 7(3), CCPA) + công bố bắt buộc của Google trong chính sách
+{ const run = rd('web/js/ads/run.js'), st = rd('web/js/settings.js');
+  ok(/showRevocationMessage/.test(run) && /showPrivacyOptionsForm/.test(run) && /AdsRun = \{[^}]*privacy/.test(run), 'run.js: privacy() mở lại CMP web (googlefc) và UMP app');
+  ok(/id="sAdPriv"/.test(st) && /Ads\.on\(\)/.test(st) && /AdsRun\.privacy/.test(st), 'Cài đặt: nút "Quyền riêng tư & quảng cáo" (chỉ khi quảng cáo bật)');
+  for (const l of ['en', 'vi']) { const pv = rd(`content/legal/${l}/privacy.html`), tm = rd(`content/legal/${l}/terms.html`);
+    ok(/myadcenter\.google\.com/.test(pv) && /adssettings\.google\.com/.test(pv) && /aboutads\.info/.test(pv), `privacy ${l}: link tắt quảng cáo cá nhân hóa (My Ad Center/Ads Settings/aboutads)`);
+    ok(l === 'en' ? /third-party vendors, including Google, use cookies/.test(pv) : /bao gồm Google, dùng cookie/.test(pv), `privacy ${l}: câu bắt buộc "bên thứ ba, gồm Google, dùng cookie"`);
+    ok(l === 'en' ? /no monetary value/.test(tm) && /bots, scripts/.test(tm) : /không có giá trị tiền tệ/.test(tm) && /bot, script/.test(tm), `terms ${l}: phần thưởng không có giá trị tiền + cấm gian lận quảng cáo`); } }
+
 await new Promise(r => setTimeout(r, 30));
 console.log(fails ? `✗ ads: ${fails} lỗi / ${n}` : `✓ ads: ${n} kiểm tra đạt (luật đặt chỗ, tần suất, khung +0, a11y, cổng giữ chân, SSV, D1 không quét)`);
 process.exit(fails ? 1 : 0);

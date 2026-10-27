@@ -24,7 +24,7 @@ jobs:
     if: inputs.from_run == ''
     runs-on: ubuntu-latest
     timeout-minutes: 120
-    strategy: { fail-fast: false, matrix: { clip: '${{ fromJSON(needs.plan.outputs.clips) }}' } }
+    strategy: { max-parallel: 3, fail-fast: false, matrix: { clip: '${{ fromJSON(needs.plan.outputs.clips) }}' } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

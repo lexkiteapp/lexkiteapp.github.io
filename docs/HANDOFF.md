@@ -3,27 +3,21 @@
 > TL;DR: Một trang ngắn: việc nền đang chạy, số liệu mới nhất, việc tiếp theo, việc chờ chủ. Cập nhật mỗi mốc (≤ 6 dòng mỗi mục), không chép lại tài liệu khác.
 > Đọc khi: đầu phiên, trước khi nhận việc ảnh từ vựng / kho từ 20k.
 
-Cập nhật: 26/10/2026.
+Cập nhật: 27/10/2026.
 
-## Ảnh từ vựng (`vocab-img-scene`) – ĐANG CHẠY hàng loạt
-- Vẽ `flux-2-klein-4b` (thắng A/B 40 nghĩa khó) thẳng trên Workers AI qua kho tài khoản secret `CF_POOL` (`scripts/lib/cf-pool.mjs`, `scripts/vocab-img/cf-direct.mjs`). GrabCast KHÔNG dùng nữa (500 từ 24/10).
-- Tự nối lượt: fill xong còn neuron + còn nghĩa thiếu → tự gọi lượt kế (tắt: biến `VIMG_CHAIN=0`); cron 8 lượt/ngày (`40 1,4,…,22 * * *`) chỉ là dự phòng/khởi động lại sau 00:00 UTC.
-- Mỗi lượt: 10 shard × 600 ảnh, 6 biến thể/nghĩa; vắt hết kho (`VIMG_POOL_SKIP=0`, `VIMG_CF_UNCAPPED=1`), lượt dừng sạch khi mọi tài khoản báo 4006. Tắt lịch: biến repo `VIMG_SCHEDULE` ≠ 1.
-- Cổng tự động trên CI, ngưỡng giữ nguyên: OCR · NSFW · phong cách · pHash · CLIP câu ví dụ · Llama 4 Scout (mô tả mù + có/không) · ≤ 6 KB. Trượt đủ biến thể → `vimg-scene-queue.json`, thử lại sau 2 ngày.
-- Lượt đầu 40277982540: 6.000 ảnh → 264 đạt (~4,4 %). Ước 900–2.000 ảnh đạt/ngày; 6.425 nghĩa thiếu ≈ 4–7 ngày. Neuron/ảnh thật chưa đo (đang ước 26–60).
-- Ảnh gốc cho video: Release `vimg-masters` (zip mỗi lượt, ≤ 768 px WebP + manifest.json). Ảnh app: `media.lexkite.com/vimg/` (kho m4).
-- Chia kho (26/10): vẽ 50 % đầu (`VIMG_DRAW_SHARE`), giám khảo thị giác từ đuôi, văn bản/kho từ từ mốc 50 % (~600k neuron); ảnh không bắt đầu 00–02 UTC (kho từ chạy 00:12) (`AI_POOL_CF_START`) – lượt 26/10 vẽ cạn kho làm 0 ảnh được chấm. Giám khảo hết neuron → vòng vẽ dừng.
-- Giám khảo KÉP (`VIMG_CONSENSUS=1`): ảnh qua cổng cứng nhưng trượt cổng mềm được llama-4-scout + mistral-small-3.1 chấm (yes câu ví dụ + no câu anh em). Soát: `mode=rejudge lab_run=<run>` → tờ `cons-*.jpg`. CHƯA soát được (kho cạn 26/10) – soát sau 00:00 UTC 27/10.
-- Tiếp: đo neuron/ảnh sau 1 ngày; nâng sản lượng 3–5× bằng hiệu chỉnh giám khảo theo phong cách klein (`calibrate_scene.py`) – cần chủ gán nhãn 1 tờ ảnh (~5 phút).
+## Ảnh từ vựng (`vocab-img-scene`) – ĐANG CHẠY tự động
+- Vẽ `flux-2-klein-4b` qua kho CF_POOL (121 tài khoản, chỉ Lexkite dùng). Cơ chế, cổng chất lượng, bài học: `docs/VOCAB-IMG-STYLE.md` §11 – không chép lại ở đây.
+- Chạy: tự nối lượt → kho nửa đầu cạn (4006) thì dừng → `cf-pool-probe` (mỗi 3 giờ) thấy ≥ 30 tài khoản mở thì tự khởi động lại. Fill ≤ 5 máy GitHub cùng lúc. Tắt: biến `VIMG_SCHEDULE`≠1 / `VIMG_CHAIN=0`.
+- Số liệu: 639 ảnh (27/10 10:15 UTC); lượt đầu 6.000 ảnh → 264 đạt; ảnh chỉ tăng khi cả lượt xong (bước fillpub).
+- Chưa xong: soát giám khảo kép (`mode=rejudge lab_run=40271446755,40271452785` → tờ `cons-*.jpg`, sai > 1/20 thì đặt `VIMG_CONSENSUS: '0'`); neuron/ảnh thật chưa đo (token kho không có quyền analytics).
 
 ## Kho từ 20k (`lexicon-expand`) – CHỜ kho CF có neuron
 - Kho vẫn 8.230 nghĩa. Đường chạy sẵn sàng: AI qua kho CF_POOL (ai-pool cf2), tự nối lượt khi hàng loạt (8fa4687), biến LX_PILOT=1/LX_N=300.
-- 27/10: 121/121 tài khoản 4006 thật sau 00:00 UTC (GrabCast xác nhận không dùng) → nghi cửa sổ 24 giờ trượt. Lịch lexicon-expand mỗi 3 giờ (:17), kho cạn = dừng ~40 s, cảnh báo không đỏ (2b4cb5c).
+- Hạn mức CF = 10k neuron / 24 giờ TRƯỢT mỗi tài khoản (đã xác nhận 27/10). Lịch lexicon-expand mỗi 3 giờ (:17), kho cạn = dừng ~40 s, cảnh báo không đỏ (2b4cb5c).
 - Pilot theo lịch → lô pending/<ngày>-pilot.json (bỏ qua nếu lô hôm nay đã có). Tác vụ hẹn giờ máy chủ "lexicon-pilot-28-10" (mỗi 6 giờ, 01:40/07:40/13:40/19:40 giờ VN) soát 50 mẫu → sai ≤ 1/50 thì LX_PILOT=0, LX_N=2400, promote, dispatch hàng loạt.
 - Lô đã soát: (chưa có).
 
 ## Chờ chủ
-- Gán nhãn đúng/sai 1 tờ ảnh để hiệu chỉnh giám khảo (tuỳ chọn, tăng sản lượng).
 - Xoá `~/Downloads/keys_export.txt` (khoá thật dạng chữ thường); cân nhắc đổi khoá quan trọng.
 
 ## Luật khi tiếp việc
