@@ -11,12 +11,11 @@ Cập nhật: 27/10/2026.
 - Số liệu: 639 ảnh (27/10 10:15 UTC); lượt đầu 6.000 ảnh → 264 đạt; ảnh chỉ tăng khi cả lượt xong (bước fillpub).
 - Chưa xong: soát giám khảo kép (`mode=rejudge lab_run=40271446755,40271452785` → tờ `cons-*.jpg`, sai > 1/20 thì đặt `VIMG_CONSENSUS: '0'`); neuron/ảnh thật chưa đo (token kho không có quyền analytics).
 
-## Kho từ 20k (`lexicon-expand`) – CHỜ kho CF có neuron
-- Kho vẫn 8.230 nghĩa. Đường chạy sẵn sàng: AI qua kho CF_POOL (ai-pool cf2), tự nối lượt khi hàng loạt (8fa4687), biến LX_PILOT=1/LX_N=300.
-- Hạn mức CF = 10k neuron / 24 giờ TRƯỢT mỗi tài khoản (đã xác nhận 27/10). Lịch lexicon-expand mỗi 3 giờ (:17), kho cạn = dừng ~40 s, cảnh báo không đỏ (2b4cb5c).
-- Pilot theo lịch → lô pending/<ngày>-pilot.json (bỏ qua nếu lô hôm nay đã có). Tác vụ hẹn giờ máy chủ "lexicon-pilot-28-10" (mỗi 6 giờ, 01:40/07:40/13:40/19:40 giờ VN) soát 50 mẫu → sai ≤ 1/50 thì LX_PILOT=0, LX_N=2400, promote, dispatch hàng loạt.
-- Lô đã soát: **20261027-pilot** (27/10) – 7/50 sai (dịch lệch nghĩa khoá: biscuit/aristocracy/crease; từ không có thật th ภมุ, ja 忙しむ; vi calmness; ví dụ nhạy cảm categorize) → KHÔNG bật hàng loạt. Sửa: cổng chặn mọi lý do `qa.f` của giám khảo + ví dụ nhắc nhóm tôn giáo/sắc tộc; prompt lxjudge/lxsrc chấm theo nghĩa khoá + từ sai chính tả = 1. Lô đã requeue (101 → retry), LX_PILOT giữ 1.
-- Lô **20261027-pilot lần 2** (run 40508799077, sau 95a680d, 74 mục): ~9/50 sai – dịch ghép nhầm nghĩa từ bảng Wiktionary (idol vi "thần tượng", repress th, cassette zh 卡式, conservatory ja) + AI lấp (daze vi "chạng vạng", carelessly es tính từ, dizzy tr danh từ, acknowledgement th/zh) + ví dụ lệch nghĩa def (railroad). Requeue; cổng trcheck.py (lẫn ngôn ngữ, 75437ec). CHỜ CHỦ chọn hướng dịch 12 ngôn ngữ.
+## Kho từ 20k (`lexicon-expand`) – TẠM DỪNG, chờ chủ chọn hướng dịch
+- Kho vẫn 8.230 nghĩa. Workflow lexicon-expand TẮT + tác vụ hẹn giờ "lexicon-pilot-28-10" TẮT (27/10 ~17:30 UTC) để không phí neuron/token.
+- Pilot 2 giám khảo (74 đạt) ~9/50 sai; pilot 3 giám khảo đồng thuận (6da278b, run 40535213005: 34/300 đạt) ~6–9/34 sai – lỗi gần hết ở BẢN DỊCH 12 ngôn ngữ (puff vi "hú", overshadow id/ja/ko, fissure ko, disincentive hi ngược nghĩa, mistreat id) + 1 ví dụ lệch nghĩa (palate). Giám khảo LLM miễn phí không bắt được lỗi dịch ngôn ngữ ít tài nguyên.
+- Phần tiếng Anh (def WordNet, ví dụ Tatoeba, IPA, CEFR-J) gần như sạch. Lô đã requeue.
+- Hướng khả thi: cổng THEO TRƯỜNG – mục mới xuất khi lõi Anh + vi đạt; mỗi ngôn ngữ chỉ hiện khi bản dịch đó đạt (Wiktionary khớp nghĩa chắc chắn), thiếu thì dùng đường dịch hiện có của kho.
 
 ## Chờ chủ
 - Xoá `~/Downloads/keys_export.txt` (khoá thật dạng chữ thường); cân nhắc đổi khoá quan trọng.
