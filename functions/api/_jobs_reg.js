@@ -701,6 +701,25 @@ export const REG = {
    "_note": "Ảnh từ vựng tầng miễn phí, tất định: icon Noto/OpenMoji + ảnh Wikimedia (ánh xạ đã commit + soát tay) → lexkite-media; không AI, không neuron. Thứ Hai: đăng nghĩa mới nếu ánh xạ đổi."
   },
   {
+   "id": "cf-pool-probe",
+   "workflow": "cf-pool-probe.yml",
+   "cron": [
+    "3 0 * * *",
+    "33 */3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "neurons": 121
+   },
+   "lease": false,
+   "paused": false,
+   "_note": "27/10: dò kho CF_POOL ngay sau giờ nạp neuron (mỗi tài khoản 1 câu ~1 neuron) – kho có thật sự nạp lại lúc 00:00 UTC không, có ai khác dùng không. Kết quả ở tóm tắt run."
+  },
+  {
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [
@@ -826,7 +845,7 @@ export const REG = {
    "id": "lexicon-expand",
    "workflow": "lexicon-expand.yml",
    "cron": [
-    "12 0 * * *"
+    "17 */3 * * *"
    ],
    "priority": "render",
    "resources": [
@@ -838,7 +857,7 @@ export const REG = {
     "cf_pool_neurons": 600000
    },
    "lease": true,
-   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay ~120 tài khoản, 4006/429 → tài khoản kế; JSON bị cắt → chia đôi lô). Trần 600k neuron/lượt ≈ 50 % kho, chạy 00:12 UTC ngay sau giờ đặt lại neuron, trước lượt ảnh 01:40 (ảnh 8 lượt/ngày vắt kho). Kho Gemini rỗng → bỏ Gemini (calls 0) → chỉ cf_pool + gh_minutes, chạy được cả khi điều phối sập (d1-quota)."
+   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay ~120 tài khoản, 4006/429 → tài khoản kế; JSON bị cắt → chia đôi lô). Trần 600k neuron/lượt ≈ 50 % kho, chạy 00:12 UTC ngay sau giờ đặt lại neuron, trước lượt ảnh 01:40 (ảnh 8 lượt/ngày vắt kho). Kho Gemini rỗng → bỏ Gemini (calls 0) → chỉ cf_pool + gh_minutes, chạy được cả khi điều phối sập (d1-quota). 27/10: kho CF có vẻ tính theo cửa sổ 24 giờ trượt → lịch mỗi 3 giờ (kho cạn → dừng ~40 s); pilot theo lịch bỏ qua khi lô pilot hôm nay đã có."
   },
   {
    "id": "video-tpl1b",
