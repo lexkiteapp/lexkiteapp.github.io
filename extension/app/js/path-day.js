@@ -128,9 +128,13 @@
   }
 
   // ---------- Bản đồ: chặng (gập/mở) → bài (tiến độ x/y ngày) → nút Ngày ----------
+  // Nhường luồng chính giữa các bước dựng bản đồ (tính ngày ↔ vẽ; vẽ khung + điền chặng đang mở giữ CÙNG tác vụ để không CLS) → không có tác vụ dài (TBT mobile #/path 197–220 ms)
+  const yieldMain = () => new Promise(r => (g.scheduler && g.scheduler.yield ? g.scheduler.yield().then(r) : setTimeout(r, 0)));
   async function map() {
+    const h0 = location.hash;
     await load(); const tr = curTr(); await TK().ready(tr); settleExt(); css();
     const view = App.view, ds = days();
+    await yieldMain(); if (location.hash !== h0) return;
     if (!ds.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(map).catch(() => {}); return; }
     const ielts = tr.id === 'ielts', cur = ds.find(d => d.status === 'current'), nDone = ds.filter(d => d.done).length;
     const curSt = cur ? cur.unit.stage.id : 's0';
@@ -143,12 +147,12 @@
           <div><div class="tiny stage-lv">${ielts ? `${st.cefr} · ${st.band}` : `CEFR ${st.cefr}`}</div><h2 style="margin:.1rem 0;color:#fff">${st.name}</h2><div class="small" style="opacity:.92">${st.desc}</div><div class="small stage-cando">🎯 ${st.cando}</div></div>
           <div class="stage-count">${k}/${sd.length}</div></summary>${st.id === 's0' || st.id === 'comm1' ? `<a class="chip stage-rp" href="#/roleplay">🎭 ${t('Luyện nói: tình huống hằng ngày')}</a>` : ''}<div class="dp-body"></div></details>`;
       }).join('')}</div>`;
-    const fill = el => {
-      const body = el.querySelector('.dp-body'); if (body.childElementCount) return;
+    const fill = async el => {
+      const body = el.querySelector('.dp-body'); if (body.childElementCount || body._busy) return; body._busy = 1;
       const st = stagesOf(tr).find(s => s.id === el.dataset.st), sd = ds.filter(d => d.unit.stage.id === st.id);
       const units = [...new Set(sd.map(d => d.unit))];
       let idx = 0;
-      body.innerHTML = units.map(u => {
+      const unitHtml = u => {
         const ud = sd.filter(d => d.unit === u), k = ud.filter(d => d.done).length;
         const testOut = u.status !== 'done' && ud.some(d => d.status === 'locked');
         return `<div class="dp-unit"><span aria-hidden="true">${u.topic.emoji}</span><h3>${esc(u.topic.name)} <span class="small muted">· ${t('{a}/{b} ngày', { a: k, b: ud.length })}</span></h3>
@@ -161,8 +165,19 @@
               <span aria-hidden="true">${d.status === 'locked' ? '🔒' : d.done ? '⭐' : `<b class="dn">${d.n}</b>`}</span></button>
               <div class="node-label" aria-hidden="true">${t('Ngày {n}', { n: d.n })}</div></div>`;
           }).join('')}</div>`;
-      }).join('');
-      $$('[data-day]', body).forEach(b => b.onclick = () => open(+b.dataset.day));
+      };
+      const bind = root => $$('[data-day]', root).forEach(b => b.onclick = () => open(+b.dataset.day));
+      // Lô đầu: tới hết bài chứa ngày hiện tại và ≥ 24 ngày (cao hơn màn hình) vẽ ngay; các bài sau nối dần ở tác vụ sau –
+      // nằm dưới màn nên không gây CLS, không còn 1 tác vụ dài dựng cả chặng (TBT mobile #/path 197–228 ms)
+      const ci = Math.max(0, units.findIndex(u => sd.some(d => d.unit === u && d.status === 'current')));
+      let cut = units.length;
+      for (let i = 0, n = 0; i < units.length; i++) { n += sd.filter(d => d.unit === units[i]).length; if (i >= ci && n >= 24) { cut = i + 1; break; } }
+      body.innerHTML = units.slice(0, cut).map(unitHtml).join(''); bind(body);
+      for (let i = cut; i < units.length; i += 3) {
+        await yieldMain(); if (!body.isConnected) return;
+        const tmp = document.createElement('div'); tmp.innerHTML = units.slice(i, i + 3).map(unitHtml).join(''); bind(tmp);
+        body.append(...tmp.childNodes);
+      }
     };
     $$('.dp-stage').forEach(el => { if (el.open) fill(el); el.addEventListener('toggle', () => el.open && fill(el)); });
     $$('.stage-rp').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
