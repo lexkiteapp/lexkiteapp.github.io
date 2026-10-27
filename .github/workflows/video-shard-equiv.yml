@@ -1,6 +1,9 @@
 # Equivalence proof of the sharded render: compares two video-templates9 runs of the SAME commit/template (A = shards=1, B = shards=N). Download only; 0 credits.
 name: video-shard-equiv
 on:
+  push:
+    branches: [shard-render]
+    paths: ['.github/workflows/video-shard-equiv.yml']   # a push of this file runs the comparison with the defaults below (a new workflow cannot be dispatched before it is on main)
   workflow_dispatch:
     inputs:
       t: { description: 'template', default: 'mistake' }
@@ -10,6 +13,13 @@ on:
       run_b: { description: 'run id of the sharded run', required: true }
       num_b: { description: 'run_number of B', required: true }
 permissions: { contents: read, actions: read }
+env:
+  T: ${{ github.event.inputs.t || 'words5' }}
+  DIR: ${{ github.event.inputs.dir || 'templates-v2' }}
+  RUN_A: ${{ github.event.inputs.run_a || '40564033235' }}
+  NUM_A: ${{ github.event.inputs.num_a || '101' }}
+  RUN_B: ${{ github.event.inputs.run_b || '40564021337' }}
+  NUM_B: ${{ github.event.inputs.num_b || '100' }}
 jobs:
   equiv:
     runs-on: ubuntu-latest
@@ -18,17 +28,17 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
       - uses: actions/download-artifact@v4
         with:
-          name: tpl9-${{ github.event.inputs.dir }}-${{ github.event.inputs.t }}-${{ github.event.inputs.num_a }}
+          name: tpl9-${{ env.DIR }}-${{ env.T }}-${{ env.NUM_A }}
           path: A
-          run-id: ${{ github.event.inputs.run_a }}
+          run-id: ${{ env.RUN_A }}
           github-token: ${{ github.token }}
       - uses: actions/download-artifact@v4
         with:
-          name: tpl9-${{ github.event.inputs.dir }}-${{ github.event.inputs.t }}-${{ github.event.inputs.num_b }}
+          name: tpl9-${{ env.DIR }}-${{ env.T }}-${{ env.NUM_B }}
           path: B
-          run-id: ${{ github.event.inputs.run_b }}
+          run-id: ${{ env.RUN_B }}
           github-token: ${{ github.token }}
-      - run: python3 scripts/video/tpl/shard_equiv.py A B ${{ github.event.inputs.t }} | tee equiv.txt
+      - run: python3 scripts/video/tpl/shard_equiv.py A B ${{ env.T }} | tee equiv.txt
       - if: always()
         run: |
           { echo '```'; cat equiv.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
