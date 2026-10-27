@@ -155,7 +155,7 @@ await ctx.close(); srv.close();
 
 // ---- Thẻ chữ (PNG trong suốt hoặc nền thương hiệu) bằng Chromium thường
 const br = await chromium.launch(); const cp = await br.newPage({ viewport: { width: CW, height: CH }, deviceScaleFactor: 1 });
-const BG = `background:radial-gradient(1300px 700px at 92% -10%,rgba(255,176,84,.32),transparent 60%),radial-gradient(1000px 700px at -10% 110%,rgba(31,122,114,.6),transparent 60%),linear-gradient(160deg,#0B3233,#0F3D3E 45%,#123f40)`;
+const BG = `radial-gradient(1300px 700px at 92% -10%,rgba(255,176,84,.32),transparent 60%),radial-gradient(1000px 700px at -10% 110%,rgba(31,122,114,.6),transparent 60%),linear-gradient(160deg,#0B3233,#0F3D3E 45%,#123f40)`;
 const CSS = `*{box-sizing:border-box;margin:0}body{width:${CW}px;height:${CH}px;overflow:hidden;font-family:${FF};color:#fff;position:relative}em{font-style:normal;background:linear-gradient(90deg,#FFB054,#F2553B);-webkit-background-clip:text;background-clip:text;color:transparent}
 .brand{position:absolute;left:56px;top:40px;display:flex;align-items:center;gap:14px;font-weight:800;font-size:34px;letter-spacing:-.02em;background:rgba(11,50,51,.78);padding:10px 22px 10px 12px;border-radius:99px}.brand img{width:46px;height:46px;border-radius:12px}.brand b{color:#FFB054}
 .cap{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);white-space:nowrap;font-weight:800;font-size:64px;letter-spacing:-.02em;padding:18px 44px;border-radius:26px;background:rgba(11,50,51,.88);box-shadow:0 14px 40px rgba(0,0,0,.35);border:2px solid rgba(255,176,84,.45)}
