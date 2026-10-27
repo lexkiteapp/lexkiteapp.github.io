@@ -281,7 +281,7 @@
     try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
     const el = $('#lsnTch'), pop = $('#lsnEmo');
     if (el) { el.classList.remove('nod', 'shake'); void el.offsetWidth; el.classList.add(ok ? 'nod' : 'shake'); }
-    if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '😊') : '💪'; pop.classList.remove('on'); void pop.offsetWidth; pop.classList.add('on'); }
+    if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '✓') : '↺'; pop.classList.remove('on'); void pop.offsetWidth; pop.classList.add('on'); } // ký hiệu, KHÔNG emoji nhân vật (luật: chỉ Ama/Carlos bank v2)
     const lines = ok ? OK_LINES : NO_LINES;
     if (L.teacher) L.teacher.say(lines[(L.sess.n + (combo || 0)) % lines.length], { rate: 1 });
     const b = $('.lsn-bar'); if (b && ok) { b.classList.remove('glow'); void b.offsetWidth; b.classList.add('glow'); }

@@ -13,7 +13,7 @@ for (const f of fs.readdirSync(SRC).filter(f => f.endsWith('.jsonl')).sort()) {
     if (!line.trim()) continue; const d = JSON.parse(line);
     if (!d.why || !d.right) continue;
     for (const k of keyOf(d.pid).map(x => String(x || '').trim().toLowerCase()).filter(x => x.length > 1)) {
-      const e = { why: d.why, w: d.wrong || '', r: d.right, ex: (d.ex || []).slice(0, 2), mem: d.memory || '' };
+      const e = { why: d.why, w: d.wrong || '', r: d.right, ex: (d.ex || []).slice(0, 2), mem: (d.memory || '').replace(/🙂/g, '(+)').replace(/🙁/g, '(−)') }; // không emoji mặt (luật nhân vật: chỉ Ama/Carlos bank v2)
       (m[k] = m[k] || []).length < 2 && m[k].push(e);
     }
   }
