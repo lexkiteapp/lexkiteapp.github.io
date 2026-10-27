@@ -73,6 +73,8 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 - Video dạy học (chủ 26/10): nhân vật để NGUYÊN clip (không ghép miệng/tay); kho footage nối tiếp mỗi giáo viên (≥3 clip nói + 1 clip ngậm miệng nghe, 2D/3D); nhịp miệng clip khớp nhịp giọng ±20 % (`mouth_tempo.py`), giọng ≤130 từ/phút; đoạn nói chỉ chạy khi có giọng, lúc nghỉ dùng clip ngậm miệng; bố cục cột trái v12. Chi tiết `docs/VIDEO-SERIES.md` §Production standard.
 
+- Đồng nhất nhân vật (chủ 27/10): mỗi nhân vật có MỘT ảnh gốc (master) + Kling Element (ảnh gốc + 1–3 khung phụ cắt từ clip đầu); mọi ảnh/clip mới phải dùng ảnh tham chiếu/Element đó (clip nối tiếp bắt đầu từ khung của clip trước); 4 ảnh Kling sinh ra cùng lúc là 4 người khác nhau → chỉ chọn 1, không trộn; soát mặt/tóc/màu da so với ảnh gốc, lệch = loại.
+
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
 - Mảng zsh 1-based → gửi Kling prompt rỗng (−50 cr): dùng `bash -c`, dry-run in lệnh.
