@@ -1,4 +1,4 @@
-# Equivalence proof of the sharded render: compares two video-templates9 runs of the SAME commit/template (A = shards=1, B = shards=N). Download only; 0 credits.
+# Equivalence proof of the sharded render: compares two video-templates9 runs of the SAME commit/template (A = shards=1, B = shards=N). Download only; 0 credits. (qc numbers: 1 % tolerance.)
 name: video-shard-equiv
 on:
   push:

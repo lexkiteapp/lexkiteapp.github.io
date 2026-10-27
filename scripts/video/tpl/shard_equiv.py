@@ -13,7 +13,7 @@ def diff(a, b, path='', out=None, tol=0.0):
         else:
             for i, (x, y) in enumerate(zip(a, b)): diff(x, y, f'{path}[{i}]', out, tol)
     elif isinstance(a, (int, float)) and isinstance(b, (int, float)) and not isinstance(a, bool):
-        if abs(a - b) > tol: out.append(f'{path}: {a} != {b}')
+        if abs(a - b) > tol * max(abs(a), abs(b)): out.append(f'{path}: {a} != {b}')
     elif a != b: out.append(f'{path}: {str(a)[:60]} != {str(b)[:60]}')
     return out
 # 1. PSNR per frame
@@ -25,7 +25,7 @@ print(f'frames: A={na} compared={len(ps)}  PSNR min={min(ps):.2f} mean={sum(ps)/
 if len(ps) != na or min(ps) < 45: bad.append('psnr')
 # 2. QC
 qa = json.load(open(glob.glob(f'{A}/*.qc.json')[0])); qb = json.load(open(glob.glob(f'{B}/*.qc.json')[0]))
-d = diff(qa, qb); print(f'qc.json differences: {len(d)}'); [print('  ', x) for x in d[:30]]
+d = diff(qa, qb, tol=0.01); print(f'qc.json differences (numbers within 1 % allowed: file size / bitrate / sharpness follow the lossy encode; every pass/fail flag and string must match exactly): {len(d)}'); [print('  ', x) for x in d[:30]]
 if d: bad.append('qc')
 print('qc.log identical:', open(f'{A}/qc.log').read() == open(f'{B}/qc.log').read())
 # 3. timeline
