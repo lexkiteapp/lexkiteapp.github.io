@@ -49,7 +49,7 @@ function detect(opt) {
     }
   }
   for (const ul of root.querySelectorAll('ul,ol')) { // link trong cùng 1 cột danh sách phải thẳng mép chữ (vd. chữ ngắn bị căn giữa trong vùng chạm 44px)
-    const xs = []; for (const li of ul.children) { const a = li.tagName === 'LI' && li.firstElementChild; if (!a || a.tagName !== 'A' || !vis(a) || !a.firstChild || a.firstChild.nodeType !== 3) continue; const rg = document.createRange(); rg.selectNodeContents(a.firstChild); const rr = rg.getClientRects()[0]; if (rr) xs.push([getComputedStyle(a).direction === 'rtl' ? rr.right : rr.left, a]); }
+    const xs = []; for (const li of ul.children) { const a = li.tagName === 'LI' && li.firstElementChild; if (!a || a.tagName !== 'A' || !vis(a) || !a.firstChild || a.firstChild.nodeType !== 3) continue; const rg = document.createRange(); rg.selectNodeContents(a); const rs = [...rg.getClientRects()].filter(q => q.width > 0); if (!rs.length) continue; const l1 = rs.filter(q => Math.abs(q.top - rs[0].top) < 2); xs.push([getComputedStyle(a).direction === 'rtl' ? Math.max(...l1.map(q => q.right)) : Math.min(...l1.map(q => q.left)), a]); } // dòng đầu, gộp mọi đoạn (chữ Ả Rập + Latin xen kẽ)
     if (xs.length < 3) continue; const m = xs.map(x => x[0]).sort((a, b) => a - b)[xs.length >> 1];
     for (const [x, a] of xs) if (Math.abs(x - m) > 3) { add('list-misaligned', a, a.getBoundingClientRect()); break; }
   }
