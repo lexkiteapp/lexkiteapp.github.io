@@ -51,7 +51,7 @@ win.UI = { modal: h => { modalEl = win.document.getElementById('modal'); modalEl
 const today = key(new Date());
 const state = { user: { displayName: 'Lan' }, stats: { days: {} }, game: { xp: 100, days: Object.fromEntries([...days].map(k => [k, { xp: 10 }])), frozen: {}, freezes: 1, freezeAt: 7 } };
 win.Game = { mutate: async f => { const s = JSON.parse(JSON.stringify(state.game)); await f(s); return s; } };
-win.App = { state, routes: {}, activeDays: () => C.activeDays(state), streak: () => C.streak(C.activeDays(state)) };
+win.App = { retOn: () => true, state, routes: {}, activeDays: () => C.activeDays(state), streak: () => C.streak(C.activeDays(state)) };
 let adAsked = 0; win.Ads = { rewarded: async (r, q) => { if (r !== 'cosmetic') throw new Error('sai lý do quảng cáo: ' + r); adAsked++; return q ? true : true; } };
 win.matchMedia = () => ({ matches: true });
 win.eval(SRC);
@@ -108,13 +108,16 @@ ice.click(); ok(!box.querySelector('#retThawDone').hidden && ice.textContent ===
 const wd = R.widget(state);
 ok(['ama', 'carlos'].includes(wd.who) && wd.sd === today && wd.ok && wd.risk, 'snapshot widget tch');
 
+// Cờ tắt mà gói bị nạp kèm: không ghi gì, không đổi đối tượng state.game
+{ const before = state.game, snap = JSON.stringify(state.game.ret); win.App.retOn = () => false; await R.check(); await tick(1100);
+  ok(state.game === before && JSON.stringify(state.game.ret) === snap, 'cờ tắt → check() không làm gì'); win.App.retOn = () => true; }
 // Không có Ads (web/add-on) → không lời mời
 ok(/cosmetic: 1/.test(fs.readFileSync('web/js/ads/policy.js', 'utf8')), 'policy có lý do cosmetic (1/ngày)');
 
 // Gắn đúng: gói lười + cờ, không vào khung app
 const app = fs.readFileSync('web/js/app.js', 'utf8');
-ok(/ret: \['js\/i18n\/en\/ret\.js', 'js\/streak-ui\.js', 'js\/retention\.js'\]/.test(app) && /streak: 'ret'/.test(app), 'gói lười ret + route');
-ok(/App\.retOn\(\)\) App\.lazy\('ret'\)/.test(app), 'trang chủ chỉ tải khi cờ bật');
+ok(/ret: \['js\/i18n\/en\/ret\.js', 'js\/retention\.js'\]/.test(app) && /streak: \['streak', 'ret'\]/.test(app), 'gói lười ret + route (streak-ui chỉ ở gói streak)');
+ok(/App\.retOn\(\)\) App\.lazy\('streak', 'ret'\)/.test(app), 'trang chủ chỉ tải khi cờ bật');
 ok(!/retention\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')), 'không nằm trong khung app');
 // Cổng bật dần + đo D7 (app.js retOn/retArm/retTrack) – chạy đúng mã thật trong môi trường giả
 {

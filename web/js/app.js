@@ -250,7 +250,7 @@
     notices: ['js/i18n/en/notices.js', 'js/notices.js'], // 🔔 Chuông thông báo người học (tải lười sau khi vẽ trang) // 📋 Tiêu chí chấm IELTS Writing & Speaking
     ota: ['js/i18n/en/ota.js', 'js/ota-key.js', 'js/ota.js'], // 🔄 cập nhật OTA + nhắc cập nhật app (chỉ app gốc, docs/OTA.md)
     remind: ['js/i18n/en/remind.js', 'js/remind.js'], settings: ['js/settings.js'], // ⚙️ Cài đặt (tách khỏi khung 23/10)
-    streak: ['js/streak-ui.js'], ret: ['js/i18n/en/ret.js', 'js/streak-ui.js', 'js/retention.js'], struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
+    streak: ['js/streak-ui.js'], ret: ['js/i18n/en/ret.js', 'js/retention.js'], // 🔥 lớp giữ thói quen – luôn nạp cùng gói 'streak' (mỗi file chỉ thuộc 1 gói) struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     vcore: ['js/verbs-core.js'], verbs: ['js/verbs.js'], fixer: ['js/writecheck-rules.js', 'js/fixer.js'], // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     uidx: ['js/usage-index.js'], usage: ['js/i18n/en/usage.js', 'js/choice-kit.js', 'js/usage-core.js', 'js/usage.js'], uP: ['js/usage/prep-adj.js', 'js/usage/prep-verb.js', 'js/usage/prep-noun.js'], uV: ['js/usage/verb.js'], uA: ['js/usage/adv.js'], uS: ['js/usage/struct.js'], uC: ['js/usage/pair.js'], // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
     placement: ['js/placement.js'], // 🧭 Kiểm tra đầu vào thích ứng (ước tính band + khoảng tin cậy)
@@ -271,7 +271,7 @@
     i18nl: ['verbs', 'exams', 'skills'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
-  const ROUTE_BUNDLE = { streak: 'ret', confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
@@ -701,7 +701,7 @@
     if (window.League) drawLeague();
     else if (App.need) App.lazy('league').then(drawLeague).catch(() => {});
     if (window.StreakUI) StreakUI.checkSavedNotice(state.game);
-    if (App.retOn()) App.lazy('ret').then(() => window.Ret && Ret.home()).catch(() => {}); // 🔥 lớp giữ thói quen (docs/RETENTION.md) – sau cờ
+    if (App.retOn()) App.lazy('streak', 'ret').then(() => window.Ret && Ret.home()).catch(() => {}); // 🔥 lớp giữ thói quen (docs/RETENTION.md) – sau cờ
     if (App.todayPlan) App.todayPlan().then(tasks => {
       const el = $('#todayPlan'); if (!el) return;
       el.removeAttribute('aria-busy');

@@ -65,7 +65,9 @@
   const App = g.App, UI = g.UI, state = App.state;
   const view = () => document.getElementById('view');
   const ret = () => (state.game && state.game.ret) || {};
-  const mutate = async fn => { state.game = await g.Game.mutate(gs => { gs.ret = gs.ret || {}; fn(gs.ret, gs); }); return state.game.ret; };
+  // Ghi game.ret rồi gắn vào CHÍNH đối tượng state.game đang dùng (không thay đối tượng – module khác/kiểm thử giữ tham chiếu)
+  const mutate = async fn => { const s = await g.Game.mutate(gs => { gs.ret = gs.ret || {}; fn(gs.ret, gs); }); state.game.ret = s.ret; return state.game.ret; };
+  const on = () => !App.retOn || App.retOn(); // gói có thể bị nạp kèm (courses.js nạp mọi gói) → cờ tắt = không làm gì ngầm
   const days = () => (App.activeDays ? App.activeDays() : Core.activeDays(state));
   const streakN = () => (App.streak ? App.streak() : Core.streak(days()));
   const today = () => keyOf(new Date());
@@ -190,7 +192,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   // ---------- Kiểm tra sau mỗi buổi học / mở trang chủ ----------
   let busy = false;
   async function check() {
-    if (busy || !state.game) return; busy = true;
+    if (busy || !state.game || !on()) return; busy = true;
     try {
       const d = days(), k = today(), ev = Core.event(k);
       if (ev && d.has(k) && !(state.game.frozen || {})[k]) {
@@ -234,10 +236,10 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   App.routes.streak = page;
 
   // ---------- Khởi động ----------
-  css(); applyFrame();
-  if (g.StreakUI && !g.StreakUI._retWrapped) { g.StreakUI.showSavedModal = () => Ret.thaw(); g.StreakUI._retWrapped = 1; } // màn "đã cứu chuỗi" → nghi thức rã băng (cùng cờ đã xem streak_saved_seen)
+  if (on()) { css(); applyFrame(); }
+  if (on() && g.StreakUI && !g.StreakUI._retWrapped) { g.StreakUI.showSavedModal = () => Ret.thaw(); g.StreakUI._retWrapped = 1; } // màn "đã cứu chuỗi" → nghi thức rã băng (cùng cờ đã xem streak_saved_seen)
   g.addEventListener('lexkite:practice-done', () => setTimeout(check, 1200));
-  const toPage = e => { if (e.target && e.target.closest && e.target.closest('#streakPill') && (e.type === 'click' || e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.hash = '#/streak'; } };
+  const toPage = e => { if (on() && e.target && e.target.closest && e.target.closest('#streakPill') && (e.type === 'click' || e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); location.hash = '#/streak'; } };
   document.addEventListener('click', toPage); document.addEventListener('keydown', toPage);
-  const pill = document.getElementById('streakPill'); if (pill) { pill.style.cursor = 'pointer'; pill.setAttribute('role', 'link'); pill.tabIndex = 0; }
+  const pill = document.getElementById('streakPill'); if (pill && on()) { pill.style.cursor = 'pointer'; pill.setAttribute('role', 'link'); pill.tabIndex = 0; }
 })(typeof self !== 'undefined' ? self : this);
