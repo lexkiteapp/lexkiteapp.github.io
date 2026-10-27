@@ -8,6 +8,10 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+# 1 lượt/ref; nhánh ≠ main (dispatch thử PR) hủy lượt cũ, main xếp hàng (docs/METHODS.md §CI)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 jobs:
   ui:
     runs-on: ubuntu-latest
@@ -15,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 22 }
+        with: { node-version: 22, cache: npm }
       - name: Playwright
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2

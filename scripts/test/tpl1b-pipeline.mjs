@@ -62,7 +62,7 @@ ok(/scrim_last/.test(qc) && /hook_full/.test(qc), 'qc: loop end back to the clea
 ok(/lip-sync: Rhubarb cues missing/.test(fs.readFileSync('scripts/video/tpl/render_tpl.py', 'utf8')), 'render refuses estimated visemes');
 // workflow
 const wf = fs.readFileSync('.github/workflows/video-tpl1b.yml', 'utf8');
-ok(/max-parallel: 10/.test(wf) && /min\(10, len\(ok\)\)/.test(wf), 'matrix ≤ 10 jobs');
+ok(/max-parallel: ([1-9]|10)\b/.test(wf) && /min\(10, len\(ok\)\)/.test(wf), 'matrix ≤ 10 jobs');
 ok(/lease\.mjs acquire video-tpl1b/.test(wf) && /lease\.mjs release video-tpl1b/.test(wf), 'lease acquire + release');
 ok(/--version \| grep -q 1\.13/.test(wf), 'Rhubarb must run on CI (no silent estimate)');
 ok(!/formula→|rsplit\(|\[:18\]/.test(fs.readFileSync('scripts/video/tpl/fix_tpl.py', 'utf8')), 'automatic fix never shortens/cuts content (owner rule: quality only goes up)');

@@ -54,7 +54,7 @@ jobs:
     needs: [plan, data]
     runs-on: ubuntu-latest
     timeout-minutes: 180
-    strategy: { fail-fast: false, matrix: { cand: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
+    strategy: { max-parallel: 3, fail-fast: false, matrix: { cand: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4

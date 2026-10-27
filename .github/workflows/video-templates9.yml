@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
+      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
       fail-fast: false
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
     env:

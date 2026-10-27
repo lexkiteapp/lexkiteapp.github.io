@@ -283,7 +283,7 @@ jobs:
     if: inputs.scene == 'news'
     runs-on: ubuntu-latest
     timeout-minutes: 240
-    strategy: { fail-fast: false, matrix: { clip: [ga4_talk_natural, gc4_talk_natural, gc4_listen] } }
+    strategy: { max-parallel: 3, fail-fast: false, matrix: { clip: [ga4_talk_natural, gc4_talk_natural, gc4_listen] } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4   # lessons materialized by news-plan (bank:<id> items)
@@ -322,6 +322,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     strategy:
+      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
       fail-fast: false
       matrix:
         shard: ${{ fromJSON(needs.news-plan.outputs.shards) }}

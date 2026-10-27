@@ -17,7 +17,7 @@ on:
       force: { description: 'rebuild shards that already exist', default: 'false' }
       eval_small: { description: 'smoke: pron-eval with tiny samples', default: 'false' }
 permissions: { contents: write, actions: write }
-concurrency: { group: pron-distill, cancel-in-progress: false }   # free plan = 20 shared runners: never starve deploys/tests (teacher matrix max-parallel 6)
+concurrency: { group: pron-distill, cancel-in-progress: false }   # free plan = 20 shared runners: never starve deploys/tests (teacher matrix max-parallel 3, docs/METHODS.md §CI)
 env: { GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}', TORCH_CPU: 'https://download.pytorch.org/whl/cpu' }
 jobs:
   plan:
@@ -41,7 +41,7 @@ jobs:
     if: needs.plan.outputs.n != '' && needs.plan.outputs.n != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 150
-    strategy: { fail-fast: false, max-parallel: 6, matrix: { sh: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
+    strategy: { max-parallel: 3, fail-fast: false, matrix: { sh: '${{ fromJSON(needs.plan.outputs.matrix) }}' } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -35,7 +35,7 @@ jobs:
     if: needs.plan.outputs.left != '0'
     runs-on: ubuntu-latest
     timeout-minutes: 170
-    strategy: { fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
+    strategy: { max-parallel: 3, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
