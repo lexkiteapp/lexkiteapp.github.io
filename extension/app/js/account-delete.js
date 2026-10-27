@@ -49,6 +49,8 @@
       if (res.error === 'reauth') { setMsg(t('Để bảo mật, hãy đăng nhập lại một lần nữa để xác nhận.')); res = await call(await reauth()); }
       if (!res.ok) throw new Error(res.error || 'server');
       if (res.firebase !== 'deleted') { try { await u.delete(); } catch (e) { if (e && e.code === 'auth/requires-recent-login') { await reauth(); await u.delete(); } else throw e; } }
+      // Bản sao trong Google Drive appDataFolder của người học (docs/SYNC-DRIVE.md): xóa tệp khi còn token; không chặn việc xóa tài khoản
+      if (w.SyncDrive) await SyncDrive.wipe(u.uid).catch(() => {});
       await Sync.afterDelete();
       if (wipeLocal) {
         const S = Core.Store;
