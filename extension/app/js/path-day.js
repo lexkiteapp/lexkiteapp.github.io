@@ -128,9 +128,13 @@
   }
 
   // ---------- Bản đồ: chặng (gập/mở) → bài (tiến độ x/y ngày) → nút Ngày ----------
+  // Nhường luồng chính giữa các bước dựng bản đồ (tính ngày ↔ vẽ; vẽ khung + điền chặng đang mở giữ CÙNG tác vụ để không CLS) → không có tác vụ dài (TBT mobile #/path 197–220 ms)
+  const yieldMain = () => new Promise(r => (g.scheduler && g.scheduler.yield ? g.scheduler.yield().then(r) : setTimeout(r, 0)));
   async function map() {
+    const h0 = location.hash;
     await load(); const tr = curTr(); await TK().ready(tr); settleExt(); css();
     const view = App.view, ds = days();
+    await yieldMain(); if (location.hash !== h0) return;
     if (!ds.length) { view.innerHTML = `<div class="card empty"><div class="em" aria-hidden="true">🗺️</div><h2>${t('Không tải được – thử lại sau')}</h2><button class="btn primary" id="pathRetry">${t('Thử lại')}</button></div>`; $('#pathRetry').onclick = () => App.need('words').then(map).catch(() => {}); return; }
     const ielts = tr.id === 'ielts', cur = ds.find(d => d.status === 'current'), nDone = ds.filter(d => d.done).length;
     const curSt = cur ? cur.unit.stage.id : 's0';

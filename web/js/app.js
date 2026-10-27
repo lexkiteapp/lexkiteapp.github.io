@@ -7,7 +7,9 @@
 
   const state = { cards: {}, settings: { ...DEFAULT_SETTINGS }, stats: { days: {}, newToday: { day: '', n: 0 } }, game: null, user: null };
   const allWords = () => TOPICS.flatMap(t => t.words);
-  const topicOf = id => TOPICS.find(t => t.id === id) || (App.subTopic && App.subTopic(id)); // + bài con lộ trình (path.js)
+  // Tra bộ từ theo id bằng Map (bản đồ lộ trình gọi hàng nghìn lần/lần vẽ – TOPICS.find tuyến tính từng là tác vụ dài #/path); TOPICS chỉ được push thêm → dựng lại khi đổi độ dài, bản đầu tiên thắng như find()
+  let topIx = null;
+  const topicOf = id => { if (!topIx || topIx.n !== TOPICS.length) { const m = new Map(); for (const t of TOPICS) if (!m.has(t.id)) m.set(t.id, t); topIx = { n: TOPICS.length, m }; } return topIx.m.get(id) || (App.subTopic && App.subTopic(id)); }; // + bài con lộ trình (path.js)
   const inDeck = w => !!state.cards[String(w).toLowerCase()];
   const masteryDots = s => UI.masteryDots(s, SRS);
   // Nguồn gốc của từ → các bộ từ cá nhân tự động
@@ -1042,8 +1044,6 @@
         </div>
         ${e.ex ? `<div class="example-box" style="margin-top:1rem"><div class="small muted">${t('Ví dụ')}</div>${highlight(e.ex, e.word)} <button class="icon-btn sm" data-speak-text="${esc(e.ex)}" aria-label="${t('Nghe cả câu')}">🔊</button></div>` : ''}
         ${App.chipsHtml(e.col, '🔗', t('Hay đi với'))}${App.chipsHtml(e.syn, '≈', t('Đồng nghĩa'))}
-        <div id="related"></div>
-        <div id="phraseBox"></div>
         ${App.notesHtml(e.word)}
         ${(() => { // Gom theo từ loại như Oxford/Cambridge: mỗi từ loại = nghĩa Việt + định nghĩa Anh + ví dụ của chính nghĩa đó
           const VIP = { 'danh từ': 'noun', 'động từ': 'verb', 'tính từ': 'adjective', 'trạng từ': 'adverb', 'giới từ': 'preposition', 'liên từ': 'conjunction', 'đại từ': 'pronoun', 'thán từ': 'interjection', 'từ hạn định': 'determiner', 'viết tắt': 'abbreviation', 'cụm từ': 'phrase' };
@@ -1078,7 +1078,8 @@
           <button class="btn primary" id="saveWord">${card ? t('Thêm ngữ cảnh') : t('Lưu vào flashcard')}</button>
           ${card ? `<span class="muted small">${t('{n} ngữ cảnh', { n: card.contexts.length })} · ${masteryDots(card.srs)}</span>` : ''}
         </div>
-      </div>`;
+      </div>
+      ${final ? `<div class="card" style="margin-top:1rem"><div id="phraseBox"></div><div id="related"></div></div>` : ''}`; /* 2 khối điền muộn (Lex.phrases, Datamuse) ở CUỐI trang: về muộn không đẩy ô lưu/ô ngữ cảnh (CLS 0,66 mobile-qa 360) */
     bindCommon();
     App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
     if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, state.settings.accent === 'en-US' ? e.audioUS : e.audio); }

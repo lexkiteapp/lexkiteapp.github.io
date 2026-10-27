@@ -18,6 +18,10 @@ ok(b['tap<44'] === 0 && b.hscroll === 0 && b['kbd-cover'] === 0 && b.cls <= 0.1 
 const MQA = rd('.github/workflows/mobile-qa.yml');
 ok(/serve-web\.mjs out\/site 8080/.test(MQA), 'mobile-qa đo qua máy chủ có nén (như Cloudflare), không dùng python http.server');
 ok(/app-loader\.mjs out\/site\/app\/index\.html/.test(MQA) && /esbuild@[\d.]+ .*--minify .*--outdir=\.\.\/out\/site/.test(MQA), 'mobile-qa đo bản phát hành như build-web.sh (JS khung app nạp sau lần vẽ đầu + rút gọn), không đo web/ thô');
+{ const pd = rd('web/js/path-day.js');
+  ok(/topIx\.m\.get\(id\)/.test(app) && /ds = days\(\);\n\s*await yieldMain\(\); if \(location\.hash !== h0\) return;/.test(pd), 'lộ trình: topicOf tra Map + nhường luồng giữa tính ngày và vẽ bản đồ (TBT #/path 197–220 ms)'); }
+{ const sv = app.indexOf('id="saveCard"'), ph = app.indexOf('<div id="phraseBox"></div>'), rl = app.indexOf('<div id="related"></div>');
+  ok(sv > 0 && ph > sv && rl > ph, 'từ điển: khối cụm từ (Lex.phrases) + từ liên quan (Datamuse, mạng ngoài) nằm SAU ô lưu → về muộn không gây CLS (0,66 @360)'); }
 { const st = rd('web/js/study.js'), ds = rd('web/js/distract.js');
   ok(/startWhen\(warmLib\(\), next\)/.test(st) && /startWhen\(warmLib\(\)\.then\(\(\) => preDis\(seq\[0\]\)\), next\)/.test(st) && /view\.prepend\(bar\)/.test(st) && /setTimeout\(\(\) => preDis\(nq\), 0\)/.test(st) && /async function pickAsync\(/.test(ds) && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
     'trắc nghiệm/học thông minh: kho từ + bộ nhớ Distract làm nóng theo lát ≤ 8 ms trước câu đầu; phương án nhiễu tính theo lát (pickAsync) trước câu đầu và lúc rảnh cho câu sau (TBT #/practice từng 205–418 ms)'); }
