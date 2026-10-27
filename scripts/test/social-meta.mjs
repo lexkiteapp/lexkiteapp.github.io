@@ -20,7 +20,7 @@ const A = await import(new URL('../../functions/api/_social_auto.js', import.met
 const MT = await import(new URL('../../functions/api/_meta.js', import.meta.url));
 const MGR = await import(new URL('../../functions/api/_social_mgr.js', import.meta.url));
 const DATA = (await import(new URL('../../functions/api/_shorts_data.js', import.meta.url))).default;
-const [CA, CB, CC, CD] = DATA.index.items.filter(x => !x.rejected && x.video).map(x => x.id);
+const [CA, CB, CC, CD, CE] = DATA.index.items.filter(x => !x.rejected && x.video).map(x => x.id);
 const H = 36e5, M60 = 60e3, now = Date.now();
 
 // ---------- 1) Hàm thuần ----------
@@ -46,14 +46,16 @@ const H = 36e5, M60 = 60e3, now = Date.now();
 }
 
 // ---------- 2) Đầu-cuối ----------
-const KEY = 'gk_live_SECRET_meta_123456', TOK = 'EAAG' + 'x'.repeat(60) + 'PAGETOKEN';
-const GC = { posts: {}, fail: null, down: false }, MG = { calls: [], ig: {}, igStatus: {}, quota: 0, revoked: false, n: 0 }; let gcCalls = [];
+const KEY = 'gk_live_SECRET_meta_123456', TOK = 'EAAG' + 'x'.repeat(60) + 'PAGETOKEN', TOKI = 'IGAA' + 'y'.repeat(60) + 'IGTOKEN1', TOKI2 = 'IGAA' + 'z'.repeat(60) + 'IGTOKEN2';
+const GC = { posts: {}, fail: null, down: false }, MG = { calls: [], ig: {}, igStatus: {}, quota: 0, revoked: false, refreshFail: false, n: 0 }; let gcCalls = [];
 globalThis.fetch = async (url, init = {}) => {
   const u = new URL(url), J = (b, s = 200) => new Response(JSON.stringify(b), { status: s }), body = init.body;
-  if (u.hostname === 'graph.facebook.com' || u.hostname === 'rupload.facebook.com') {
+  if (u.hostname === 'graph.facebook.com' || u.hostname === 'rupload.facebook.com' || u.hostname === 'graph.instagram.com') {
     const p = u.pathname.replace(/^\/(video-upload\/)?v\d+\.\d\/?/, ''), f = init.method === 'GET' ? Object.fromEntries(u.searchParams) : Object.fromEntries(new URLSearchParams(body || ''));
     MG.calls.push({ host: u.hostname, m: init.method, p, f, h: init.headers || {}, url: String(url) });
-    if (MG.revoked) return J({ error: { code: 190, message: 'Error validating access token: ' + TOK } }, 400);
+    if (MG.revoked && u.hostname !== 'graph.instagram.com') return J({ error: { code: 190, message: 'Error validating access token: ' + TOK } }, 400);
+    if (u.hostname === 'graph.instagram.com' && p === '/refresh_access_token') return MG.refreshFail ? J({ error: { code: 190, message: 'expired ' + u.searchParams.get('access_token') } }, 400) : J({ access_token: TOKI2, token_type: 'bearer', expires_in: 5184000 });
+    if (u.hostname === 'graph.instagram.com' && p === 'me') return (init.headers || {}).Authorization === 'Bearer ' + TOKI ? J({ user_id: '178000000001', username: 'lexkite.app' }) : J({ error: { code: 190, message: 'bad' } }, 400);
     if (p === 'debug_token') return J({ data: { is_valid: true, expires_at: 0, data_access_expires_at: Math.floor((now + 80 * 864e5) / 1000), scopes: ['pages_manage_posts', 'pages_read_engagement', 'instagram_content_publish', 'instagram_basic'] } });
     if (u.hostname === 'rupload.facebook.com') return J({ success: true });
     if (p === '123456789/video_reels' && f.upload_phase === 'start') return J({ video_id: String(900000 + (++MG.n)), upload_url: 'https://rupload.facebook.com/x' });
@@ -76,13 +78,25 @@ globalThis.fetch = async (url, init = {}) => {
   m = /^posts\/([^/]+)\/(unschedule|cancel)$/.exec(p); if (m) { GC.posts[m[1]].status = m[2] === 'cancel' ? 'cancelled' : 'draft'; return J({ post: GC.posts[m[1]] }); }
   return J({});
 };
-const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', META_PAGE_TOKEN: TOK, META_PAGE_ID: '123456789', META_IG_ID: '178000000001' };
+const ENCK = Buffer.alloc(32, 5).toString('base64');
+const ENV = { DB, GRABCAST_API_KEY: KEY, SHORTS_READ_TOKEN: 'ro', KEYS_ENC_KEY: ENCK, META_PAGE_TOKEN: TOK, META_PAGE_ID: '123456789' }; // FB qua secret khởi tạo, IG qua Quản trị (token kênh)
 await MGR.setupMgr(DB);
 sql.exec('CREATE TABLE yt_queue (clip TEXT PRIMARY KEY, status TEXT, title TEXT, approved_at INTEGER); CREATE TABLE clip_review (clip TEXT PRIMARY KEY, state TEXT, deleted INTEGER, web INTEGER)');
-for (const c of [CA, CB, CC, CD]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);
+for (const c of [CA, CB, CC, CD, CE]) sql.prepare("INSERT INTO yt_queue (clip, status) VALUES (?, 'manual')").run(c);
 await A.autoStatus({ ...ENV }); // tạo bảng
 const ext = sql.prepare('INSERT INTO dist_ext (channel_id, platform, account_id, title, status, updated) VALUES (?, ?, ?, ?, ?, ?)');
 ext.run('gc-facebook_page-2', 'facebook_page', '2', 'Lexkite', 'ok', now); ext.run('gc-instagram-3', 'instagram', '3', 'lexkite.app', 'ok', now);
+// token kênh IG qua Quản trị: kiểm bằng GET me (graph.instagram.com), lưu mã hóa
+{
+  const op = A.autoOpFor('POST', 'lk/auto/token'); let e1 = 0, e2 = 0, e3 = 0;
+  try { await op({ env: ENV, db: DB, b: { channel_id: 'gc-instagram-3', token: 'IGAA' + 'q'.repeat(40) } }); } catch (e) { e1 = e.status; }
+  try { await op({ env: { ...ENV, KEYS_ENC_KEY: '' }, db: DB, b: { channel_id: 'gc-instagram-3', token: TOKI } }); } catch (e) { e2 = e.status; }
+  try { await op({ env: ENV, db: DB, b: { channel_id: 'gc-instagram-9', token: TOKI } }); } catch (e) { e3 = e.status; }
+  ok(e1 === 422 && e2 === 412 && e3 === 404, `lưu token: token sai → 422, thiếu KEYS_ENC_KEY → 412, kênh lạ → 404 (${e1}/${e2}/${e3})`);
+  const o = await op({ env: ENV, db: DB, b: { channel_id: 'gc-instagram-3', token: TOKI } });
+  const row = sql.prepare('SELECT * FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3');
+  ok(o.target_id === '178000000001' && o.last4 === TOKI.slice(-4) && !JSON.stringify(o).includes(TOKI) && row && row.kind === 'ig' && !row.enc.includes(TOKI) && /^v1\./.test(row.enc) && row.expires_at > now, 'token IG lưu mã hóa (AES-GCM), trả về chỉ last4 + IG user id');
+}
 const due = (clip, ch, t, state = 'planned', pid = null) => sql.prepare("INSERT INTO dist_social (clip, channel_id, platform, slot_ms, source, rule, state, post_id, updated) VALUES (?, ?, ?, ?, 'auto', 0, ?, ?, ?) ON CONFLICT(clip, channel_id) DO UPDATE SET slot_ms = excluded.slot_ms, state = excluded.state, post_id = excluded.post_id").run(clip, ch, ch.split('-')[1], Math.round(t), state, pid, now);
 const board = async (clip, ch, st, pid, by = 'boss@lexkite.com') => { const id = await A.boardId(clip, ch); sql.prepare("INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, state, mode, want_at, hash, approved_by, approved_at, note, created, updated, by_who) VALUES (?, ?, ?, 'T ' || ?, 'Cap ' || ?, ?, ?, ?, 'sched', 0, ?, ?, ?, 'autopilot', ?, ?, 'autopilot')")
   .run(id, pid, clip, clip, clip, JSON.stringify([ch.split('-').pop()]), JSON.stringify([ch.split('-')[1]]), st, st === 'review' ? null : 'h', st === 'review' ? null : by, st === 'review' ? null : now, now, now); return id; };
@@ -109,8 +123,9 @@ ok(!reels(CA).length && lk(CA, 'gc-facebook_page-2').gc_cancel === 'pending' && 
 ok(MG.calls.some(c => c.p === '178000000001/media' && c.f.media_type === 'REELS' && /^https:\/\/lexkite\.com\/api\/admin-shorts\?/.test(c.f.video_url) && c.f.caption === 'Cap ' + CA) && lk(CA, 'gc-instagram-3').container, 'IG: container REELS (video_url ký từ lexkite.com, caption đã duyệt) ≤ 3 giờ trước slot');
 ok(!MG.calls.some(c => c.p === '178000000001/media_publish'), 'IG chưa tới giờ → chưa media_publish');
 ok(!reels(CB).length && bd(bB).state === 'review' && r.skipped.some(s => s.clip === CB && s.why === 'waiting-approval'), 'bài CHƯA DUYỆT không công khai qua Meta');
-ok(MG.calls.every(c => c.h.Authorization === 'Bearer ' + TOK && (c.p === 'debug_token' || !c.url.includes(TOK))), 'token ở header Authorization, không vào URL (trừ input_token của debug_token – chỉ gửi Meta qua TLS)');
-ok(MG.calls.some(c => c.p === 'debug_token') && stt().meta.token.ok && stt().meta.token.expires_at === 0, 'kiểm sức khỏe token (debug_token) – không hết hạn');
+ok(MG.calls.every(c => c.h.Authorization === 'Bearer ' + (c.host === 'graph.instagram.com' ? TOKI : TOK) && (c.p === 'debug_token' || !c.url.includes(TOK))), 'mỗi kênh token riêng ở header (FB → graph.facebook.com, IG → graph.instagram.com), không vào URL (trừ debug_token)');
+ok(MG.calls.some(c => c.host === 'graph.instagram.com' && c.p === '178000000001/media') && !MG.calls.some(c => c.host === 'graph.facebook.com' && /^178/.test(c.p)), 'IG đi Instagram Login (graph.instagram.com), không qua Page FB');
+ok(MG.calls.some(c => c.p === 'debug_token') && stt().meta.th['gc-facebook_page-2'].ok && stt().meta.th['gc-facebook_page-2'].expires_at === 0, 'kiểm sức khỏe Page token (debug_token) – không hết hạn');
 
 // tới giờ IG + quá slot FB + 30 phút: FB đăng ngay, IG media_publish
 MG.calls = []; r = await A.runAuto(ENV, { now: now + 1.6 * H, sleep });
@@ -144,15 +159,29 @@ MG.calls = []; r = await A.runAuto(ENV, { now: now + 2.9 * H, sleep });
 ok(r.skipped.some(s => s.clip === CC && s.why === 'meta-gave-up') && !MG.calls.some(c => c.p === '178000000001/media'), 'lỗi lặp 2 lần → bỏ qua tới khi owner xem (không đốt lượt Graph)');
 MG.quota = 0;
 
-// token bị thu hồi → dừng Meta 12 giờ + cảnh báo
-{ const s = stt(); s.meta.token.at = 0; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(s)); }
+// Page token bị thu hồi → CHỈ kênh FB dừng 12 giờ + cảnh báo; kênh IG vẫn đăng
+{ const s = stt(); delete s.meta.th['gc-facebook_page-2']; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(s)); }
+due(CE, 'gc-instagram-3', now + 3.2 * H); await board(CE, 'gc-instagram-3', 'approved', null);
 MG.revoked = true; MG.calls = []; r = await A.runAuto(ENV, { now: now + 3 * H, sleep });
-ok(/^token:/.test(r.meta.stop) && stt().meta.breaker.until === now + 15 * H && r.alerts.some(a => /^meta-token/.test(a.k)) && MG.calls.length <= 2, `token bị thu hồi (190) → Meta dừng 12 giờ + cảnh báo (dừng ${r.meta.stop})`);
-ok(!JSON.stringify(r).includes(TOK) && !sql.prepare("SELECT group_concat(v) AS v FROM soc_meta").get().v.includes(TOK) && !JSON.stringify(sql.prepare('SELECT * FROM soc_lock').all()).includes(TOK), 'token không lọt vào kết quả lượt / D1 (scrub cả thông báo lỗi Meta)');
+ok(/gc-facebook_page-2 token:/.test(r.meta.stop) && stt().meta.br['gc-facebook_page-2'].until === now + 15 * H && r.alerts.some(a => a.k === 'meta-token:gc-facebook_page-2'), `Page token bị thu hồi (190) → kênh FB dừng 12 giờ + cảnh báo (${r.meta.stop})`);
+ok(lk(CE, 'gc-instagram-3') && lk(CE, 'gc-instagram-3').state === 'posted' && !stt().meta.br['gc-instagram-3'], 'kênh IG không bị ảnh hưởng: vẫn đăng trong cùng lượt');
+ok(sql.prepare('SELECT status FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3').status === 'ok', 'trạng thái token IG giữ ok');
+ok(!JSON.stringify(r).includes(TOK) && !JSON.stringify(r).includes(TOKI) && !sql.prepare("SELECT group_concat(v) AS v FROM soc_meta").get().v.includes(TOK) && !JSON.stringify(sql.prepare('SELECT * FROM soc_lock').all()).includes(TOK) && !JSON.stringify(sql.prepare('SELECT * FROM soc_tokens').all()).includes(TOKI), 'token không lọt vào kết quả lượt / D1 bản rõ (scrub cả thông báo lỗi Meta)');
 MG.revoked = false;
 await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB });
+// IG token còn ≤ 10 ngày → refresh (graph.instagram.com/refresh_access_token) → token mới mã hóa vào D1; lỗi refresh → cảnh báo
+sql.prepare('UPDATE soc_tokens SET expires_at = ?, refreshed_at = ? WHERE channel_id = ?').run(now + 5 * 864e5, now - 2 * 864e5, 'gc-instagram-3');
+MG.refreshFail = true; MG.calls = []; r = await A.runAuto(ENV, { now: now + 3.3 * H, sleep });
+ok(MG.calls.some(c => c.p === '/refresh_access_token') && r.alerts.some(a => a.k === 'meta-token:gc-instagram-3:refresh') && sql.prepare('SELECT status FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3').status === 'refresh-failed', 'refresh IG lỗi → cảnh báo + đánh dấu token, kênh bị dừng');
+await A.autoOpFor('POST', 'lk/auto/reset')({ db: DB }); MG.refreshFail = false; sql.prepare("UPDATE soc_tokens SET status = 'ok' WHERE channel_id = ?").run('gc-instagram-3');
+MG.calls = []; r = await A.runAuto(ENV, { now: now + 3.4 * H, sleep });
+const tr = sql.prepare('SELECT * FROM soc_tokens WHERE channel_id = ?').get('gc-instagram-3');
+ok(MG.calls.some(c => c.p === '/refresh_access_token') && tr.last4 === TOKI2.slice(-4) && tr.refreshed_at === now + 3.4 * H && Math.abs(tr.expires_at - (now + 3.4 * H + 60 * 864e5)) < 1000 && !tr.enc.includes(TOKI2), 'refresh IG (~ngày 50) → token mới (60 ngày) lưu mã hóa');
+{ const M2 = await import(new URL('../../functions/api/_meta_tokens.js', import.meta.url)); ok(await M2.tokenOf(ENV, DB, { channel_id: 'gc-instagram-3', src: 'd1' }) === TOKI2, 'giải mã đúng token mới'); }
+
 
 // GrabCast hồi phục → lượt GrabCast hủy bài treo p_1 (unschedule + cancel), quay về grabcast + báo hồi phục
+{ const s = stt(); delete s.breaker; sql.prepare("UPDATE soc_meta SET v = ? WHERE k = 'auto_state'").run(JSON.stringify(s)); } // cầu dao GrabCast hết hạn
 GC.down = false; gcCalls = []; MG.calls = [];
 r = await A.runAuto(ENV, { now: now + 4 * H, sleep });
 ok(r.provider.cur === 'grabcast' && stt().provider.prev === 'meta' && r.alerts.some(a => /^recovered/.test(a.k)), 'GrabCast hồi phục → provider grabcast + báo hồi phục');
@@ -177,7 +206,7 @@ MG.calls = []; await A.runAuto(ENV, { now: now + 5 * H, sleep }); r = await A.ru
 ok(r.provider.cur === 'grabcast' && !MG.calls.length, 'chế độ "Luôn GrabCast" → không bao giờ gọi Meta');
 bad = 0; try { await A.autoOpFor('POST', 'lk/auto/provider')({ db: DB, b: { mode: 'x' } }); } catch (e) { bad = e.status; } ok(bad === 400, 'provider lạ → 400');
 const S = await A.autoStatus(ENV, now + 5.1 * H);
-ok(S.provider.mode === 'grabcast' && S.meta.configured && S.meta.ig && S.meta.fb_channel === 'gc-facebook_page-2' && S.upcoming.some(u => u.provider === 'meta' && /facebook\.com\/reel/.test(u.permalink || '')) && !JSON.stringify(S).includes(TOK), 'trạng thái Quản trị: provider, Meta, kênh, permalink từng bài – không lộ token');
+ok(S.provider.mode === 'grabcast' && S.meta.configured && S.meta.tokens.some(t => t.src === 'env' && t.channel_id === 'gc-facebook_page-2') && S.meta.tokens.some(t => t.src === 'd1' && t.kind === 'ig' && t.last4 === TOKI2.slice(-4)) && !JSON.stringify(S).includes(TOKI2) && S.upcoming.some(u => u.provider === 'meta' && /facebook\.com\/reel/.test(u.permalink || '')) && !JSON.stringify(S).includes(TOK), 'trạng thái Quản trị: provider, Meta, kênh, permalink từng bài – không lộ token');
 
 // ---------- 3) D1 theo chỉ mục ----------
 {
@@ -187,6 +216,7 @@ ok(S.provider.mode === 'grabcast' && S.meta.configured && S.meta.ig && S.meta.fb
     meta_rows: 'SELECT clip, channel_id, platform, slot_ms, state, post_id FROM dist_social WHERE slot_ms BETWEEN 1 AND 2 ORDER BY slot_ms LIMIT 60',
     cancel: "SELECT clip, channel_id, gc_post FROM soc_lock WHERE gc_cancel = 'pending' LIMIT 3",
     lock: "SELECT * FROM soc_lock WHERE clip = 'x' AND channel_id = 'y'",
+    token: "SELECT enc FROM soc_tokens WHERE channel_id = 'x'",
   };
   for (const [k, q] of Object.entries(qs)) { const p = plan(q); ok(!/\bSCAN (dist_social|soc_lock)\b(?! USING)/.test(p), `${k}: dùng chỉ mục – ${p}`); }
 }
@@ -200,20 +230,21 @@ ok(S.provider.mode === 'grabcast' && S.meta.configured && S.meta.ig && S.meta.fb
   const maps = [...card.matchAll(/(?:PW|MODES|TW) = \{([^}]+)\}/g)].flatMap(m => [...m[1].matchAll(/: '([^']+)'/g)].map(x => x[1]));
   ok(maps.length >= 10 && maps.every(k => k in EN), 'lý do failover + chế độ: đủ tiếng Anh – thiếu: ' + maps.filter(k => !(k in EN)).join(' | '));
   let confAns = () => true, calls = []; w.confirm = m => confAns(m);
-  const AS = JSON.parse(JSON.stringify(S)); AS.provider = { cur: 'meta', why: 'db_budget_guard', since: now, mode: 'auto' }; AS.cfg.provider = 'auto'; AS.meta.token = { ok: true, expires_at: 0 };
+  const AS = JSON.parse(JSON.stringify(S)); AS.provider = { cur: 'meta', why: 'db_budget_guard', since: now, mode: 'auto' }; AS.cfg.provider = 'auto';
   AS.upcoming = [{ clip: CB, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now + H, state: 'planned', board: 'review', board_id: 'b_apX1', provider: null }, { clip: CA, channel_id: 'gc-facebook_page-2', platform: 'facebook_page', slot_ms: now, state: 'published', board: 'published', board_id: 'b_apX2', provider: 'meta', permalink: 'https://www.facebook.com/reel/900001' }];
   const sapi = async (m, p, b) => { calls.push([p, b]); if (p === 'lk/auto') return JSON.parse(JSON.stringify(AS)); if (p === 'lk/auto/provider') return { cfg: A.cleanAuto({ ...AS.cfg, provider: b.mode }) }; if (p === 'lk/auto/save') return { cfg: A.cleanAuto(b.cfg) }; if (p === 'lk/rules') return { rules: MGR.cleanRules({}) }; return { ok: true, state: 'approved' }; };
   const lang = { v: 'vi' }, ctx = { sapi, L: (s, v) => (v ? s.replace(/\{(\w+)\}/g, (x, k) => (v[k] != null ? v[k] : x)) : s), esc: s => String(s ?? '').replace(/[&<>"']/g, c => '&#' + c.charCodeAt(0) + ';'), lang: () => lang.v, D: { accounts: [] }, errText: e => String(e && e.message || e), accById: () => null, modal: () => {}, both: x => x, alive: () => true, LS: { get: (k, d) => d, set: () => {} } };
   const flush = async (k = 15) => { for (let i = 0; i < k; i++) await new Promise(res => setTimeout(res, 0)); };
   const main = doc.getElementById('m'); w.AdminSocialMgr.paint('queue', main, ctx); await flush();
-  const ap = main.querySelector('#smgAP'), t = ap ? ap.textContent : '';  ok(/Đường đăng FB\/IG/.test(t) && /Meta Graph API/.test(t) && /GrabCast quá tải/.test(t) && /không hết hạn/.test(t), 'thẻ: provider đang dùng + lý do failover + token');
+  const ap = main.querySelector('#smgAP'), t = ap ? ap.textContent : '';  ok(/Đường đăng FB\/IG/.test(t) && /Meta API/.test(t) && /GrabCast quá tải/.test(t) && /không hết hạn/.test(t), 'thẻ: provider đang dùng + lý do failover + token');
   ok(ap.querySelector('a[href="https://www.facebook.com/reel/900001"]') && ap.querySelector('[data-apv="b_apX1"]'), 'bảng sắp đăng: permalink Meta + nút Duyệt (Meta) cho bài chờ duyệt');
   ap.querySelector('[data-apv="b_apX1"]').click(); await flush();
   ok(calls.some(([p, b]) => p === 'lk/auto/approve' && b.id === 'b_apX1'), 'Duyệt (Meta) → lk/auto/approve');
   const ap2 = main.querySelector('#smgAP'); ap2.querySelector('#apMode').value = 'meta'; ap2.querySelector('#apProv').click(); await flush();
   ok(calls.some(([p, b]) => p === 'lk/auto/provider' && b.mode === 'meta'), 'nút chuyển tay provider → lk/auto/provider');
-  const ap3 = main.querySelector('#smgAP'); ap3.querySelector('#apMapFb').value = 'gc-facebook_page-2'; ap3.querySelector('#apSave').click(); await flush();
-  ok(calls.some(([p, b]) => p === 'lk/auto/save' && b.cfg.meta_map && b.cfg.meta_map.facebook_page === 'gc-facebook_page-2'), 'lưu ánh xạ kênh Meta');
+  const ap3 = main.querySelector('#smgAP'); ap3.querySelector('#apTkCh').value = 'gc-instagram-3'; ap3.querySelector('#apTkV').value = TOKI; ap3.querySelector('#apTkSave').click(); await flush();
+  ok(calls.some(([p, b]) => p === 'lk/auto/token' && b.channel_id === 'gc-instagram-3' && b.token === TOKI) && !main.innerHTML.includes(TOKI), 'lưu token kênh → lk/auto/token, ô token xóa sau khi gửi, không hiện lại token');
+  ok(/…IGT2|…KEN2/.test(main.querySelector('#smgAP').textContent) && main.querySelector('[data-tdel="gc-instagram-3"]') && !main.querySelector('[data-tdel="gc-facebook_page-2"]'), 'bảng token theo kênh: chỉ last4; token secret (env) không có nút Xóa');
   lang.v = 'en'; main.innerHTML = ''; w.AdminSocialMgr.paint('queue', main, ctx); await flush();
   const te = main.querySelector('#smgAP').textContent;
   ok(/FB\/IG route/.test(te) && /GrabCast overloaded/.test(te) && /Approve \(Meta\)/.test(te) && !/[ăđơư]|[ạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i.test(te), 'tiếng Anh: khối Meta không sót tiếng Việt');

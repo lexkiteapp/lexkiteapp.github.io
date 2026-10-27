@@ -571,16 +571,17 @@
     },
     {
       "key": "meta-graph",
-      "name": "Meta Graph API (dự phòng đăng FB/IG)",
+      "name": "Meta API (dự phòng đăng FB/IG)",
       "kind": "social",
-      "purpose": "Đường dự phòng của autopilot social khi GrabCast lỗi (docs/DISTRIBUTION.md §6b): đăng Reel lên Page Lexkite (Reels API + rupload) và IG Business đã liên kết (container REELS → media_publish) bằng Page token dài hạn của chính owner. App Meta ở chế độ Development, owner là admin → Standard Access, không cần App Review. Logic functions/api/_meta.js + _social_auto.js, khóa chống trùng D1 soc_lock. Env: secret Pages META_PAGE_TOKEN, META_PAGE_ID, META_IG_ID (tùy chọn META_GRAPH_VERSION). Token không log, không vào D1.",
+      "purpose": "Đường dự phòng của autopilot social khi GrabCast lỗi (docs/DISTRIBUTION.md §6b): FB Page qua Graph API (Reels API + rupload, Page token không hết hạn của tài khoản giữ Page – Tester của app Lexkite), IG qua Instagram API with Instagram Login (graph.instagram.com, token 60 ngày tự refresh). App Meta riêng, chế độ Development, KHÔNG gắn Business Portfolio. Token theo kênh, mã hóa trong D1 soc_tokens (KEYS_ENC_KEY), đổi ở Quản trị; khóa chống trùng D1 soc_lock. Logic functions/api/_meta.js, _meta_tokens.js, _social_auto.js. Env tùy chọn: META_PAGE_TOKEN/META_PAGE_ID, META_IG_TOKEN/META_IG_ID, META_GRAPH_VERSION.",
       "console": "https://developers.facebook.com/apps/",
       "free": "Miễn phí · giới hạn gọi theo app/Page (BUC) · IG 100 bài API/24 giờ (Lexkite tự giới hạn 25) · autopilot ≤ 80 lượt Graph/ngày",
       "upgrade": "Không có gói trả phí – tăng hạn mức theo người dùng app",
-      "status": "Chờ owner tạo app + secret (chỉ chạy khi GrabCast lỗi)",
+      "status": "Chờ owner tạo app + token kênh (chỉ chạy khi GrabCast lỗi)",
       "match": [
         "graph.facebook.com",
         "rupload.facebook.com",
+        "graph.instagram.com",
         "www.instagram.com",
         "developers.facebook.com"
       ]
