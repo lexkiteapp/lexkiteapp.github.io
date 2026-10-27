@@ -2,7 +2,7 @@
 // Mỗi hành trình × ngôn ngữ (vi/en/ar) × thiết bị (máy tính/điện thoại) kiểm thêm: 0 lỗi console/promise, không lớp nổi chồng nhau
 // (hỏi nhắc học × màn "Tiếp theo" × toast × popover "Xem thêm"), không hỏi 2 lần, focus đúng, trạng thái còn sau tải lại, chạy tiếp khi mất mạng.
 // Hermetic: mọi /api/* = giả lập trong tiến trình (đồng bộ, lớp học, cấu hình cờ TẮT), mọi host ngoài = rỗng → 0 lượt chạm prod, 0 tài khoản thật.
-// Dùng: node scripts/test/journey-e2e.mjs --root dist [--lang vi,en,ar] [--device desktop,mobile] [--only 1,2,3] [--out je-out] [--ext]
+// Dùng: node scripts/test/journey-e2e.mjs --root dist [--lang vi,en,ar] [--device desktop,mobile,m360] [--only 1,2,3] [--out je-out] [--ext]
 //   --ext: chạy thêm hành trình 7 (add-on, cần bash scripts/build-extension.sh trước).
 import { chromium, devices } from 'playwright';
 import fs from 'fs';
@@ -17,7 +17,7 @@ const ONLY = arg('only', '1,2,3,4,5,6,8').split(',').map(Number), EXT = process.
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT + '/shots', { recursive: true });
 const CHECKS = fs.readFileSync(new URL('./journey-e2e/checks.js', import.meta.url), 'utf8');
-const VP = { desktop: { viewport: { width: 1280, height: 820 } }, mobile: { ...devices['Pixel 7'] } };
+const VP = { desktop: { viewport: { width: 1280, height: 820 } }, mobile: { ...devices['Pixel 7'] }, m360: { ...devices['Pixel 7'], viewport: { width: 360, height: 740 }, screen: { width: 360, height: 740 } } }; // m360: máy Android nhỏ phổ biến (bằng chứng mobile-polish)
 const LOCALE = { vi: 'vi-VN', en: 'en-US', ar: 'ar-SA' };
 const results = [];
 const srv = await serve(ROOT, 0), O = srv.origin;
@@ -92,7 +92,7 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
   };
   watch(page); ctx.on('page', watch);
   const h = {
-    lang, dev, page, ctx, st, fail, ok, notes, reqs, mobile: dev === 'mobile', q: opts.q ?? 'sandbox=1',
+    lang, dev, page, ctx, st, fail, ok, notes, reqs, mobile: dev !== 'desktop', q: opts.q ?? 'sandbox=1',
     url: (hash, q = 'sandbox=1') => `${O}/app/?${q ? q + '&' : ''}hl=${lang}#${hash}`,
     async boot(hash, q = h.q) { await page.goto(h.url(hash, q), { waitUntil: 'load', timeout: 45000 }); await h.ready(); },
     async ready() { await page.waitForFunction(() => window.App && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 30000 }); await sleep(700); },
@@ -181,13 +181,20 @@ async function j1(h) {
   await h.click('a.path-cta', { wait: 1200 });
   await h.click('ol.day-steps a[data-step="learn"]', { wait: 1200 });
   h.ok(await learnLesson(h), 'xong bài học đầu tiên (Học từ mới)');
+  const stat = await page.locator('#learnStats').textContent().catch(() => '');
+  h.ok(!/^\s*0\D/.test(stat || ''), 'học xong mà 0 câu trả lời → không hiện "0 câu trả lời · 0 lần sai": ' + stat);
+  await h.shot('learn-done');
   if (!h.mobile && await h.has('details.sf-more > summary')) await page.locator('details.sf-more > summary').click().catch(() => {}); // người dùng đang mở "⋯ Xem thêm" đúng lúc hỏi
   const asked = await h.wait('#modal:not([hidden]) #raY', 6000);
   h.ok(asked, 'hỏi nhắc học (soft-ask) xuất hiện sau bài học đầu tiên');
   await h.audit('soft-ask'); await h.shot('soft-ask');
+  if (asked) h.ok(!(await page.locator('#toast.show').count()), 'toast không hiện cùng lúc với hộp thoại (xếp hàng sau khi đóng)');
   if (asked) {
     await h.click('#raN', { wait: 500 });
     h.ok(await page.locator('#modal').isHidden(), '"Để sau" đóng hộp');
+    await sleep(400); await h.shot('after-ask'); // toast xếp hàng hiện lúc này – phía trên nút đáy
+    const tb = await page.evaluate(() => { const t = document.querySelector('#toast.show'); if (!t) return null; const r = t.getBoundingClientRect(); return [...document.querySelectorAll('#view .btn.primary, .learn-bar, .bottom-nav')].filter(b => { const q = b.getBoundingClientRect(); return q.height && q.top > innerHeight * .45 && q.top < innerHeight && r.bottom > q.top + 2 && r.top < q.bottom && r.left < q.right && r.right > q.left; }).map(b => b.textContent.trim().slice(0, 30)); });
+    h.ok(!tb || !tb.length, 'toast không che nút/thanh ở đáy: ' + (tb || []).join(' | '));
     h.ok(await page.evaluate(() => document.activeElement && document.activeElement !== document.body), 'focus được trả về (không rơi về <body>) sau khi đóng hộp');
     h.ok(+(await h.ls('lk.reask')) > 0, 'đã ghi lk.reask (không hỏi lại)');
     h.ok(!(await page.evaluate(() => window.__perm || 0)), 'từ chối → KHÔNG gọi hộp quyền của trình duyệt');

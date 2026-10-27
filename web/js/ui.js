@@ -40,12 +40,38 @@
     return 1 - m[a.length][b.length] / Math.max(a.length, b.length);
   }
 
-  function toast(msg, ms = 2400) {
-    const t = $('#toast');
-    t.textContent = msg; t.classList.add('show');
-    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
-    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove('show'), ms);
+  // Toast dùng chung mọi màn: (1) hộp thoại #modal đang mở → xếp hàng, hiện lần lượt sau khi đóng (không chồng lên modal, không che nút);
+  // (2) né vùng nút/thanh cố định ở đáy (thanh điều hướng, "Tiếp tục", nút chính sát đáy) → đặt ngay phía trên; vị trí CSS gốc đã tính safe-area.
+  const toastQ = [];
+  const modalOpen = () => { const m = document.getElementById('modal'); return !!(m && !m.hidden); };
+  const AVOID = '.bottom-nav, .learn-bar, .sheet, .install-nudge, #view .btn.primary, #view .btn.lg, [data-toast-avoid]';
+  function toastLift(t) {
+    t.style.bottom = ''; const H = g.innerHeight || document.documentElement.clientHeight || 0; if (!H) return;
+    const base = parseFloat(g.getComputedStyle(t).bottom) || 28, h = t.offsetHeight || 48; let b = base;
+    const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && r.top > H * .45).sort((x, y) => y.top - x.top);
+    for (const r of obs) if (r.bottom > H - b - h - 8) b = Math.max(b, H - r.top + 10); // vùng toast [H-b-h, H-b] chạm vật cản → nâng lên trên nó
+    if (b > base) t.style.bottom = Math.min(b, H * .55) + 'px';
   }
+  function toastShow(msg, ms) {
+    const t = $('#toast'); if (!t) return;
+    t.textContent = msg; toastLift(t); t.classList.add('show'); t._msg = [msg, ms];
+    clearTimeout(toast._t); toast._t = setTimeout(() => { t.classList.remove('show'); t._msg = null; if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift()); }, ms);
+  }
+  function toast(msg, ms = 2400) {
+    ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
+    if (modalOpen()) { if (!toastQ.some(q => q[0] === msg)) toastQ.push([msg, ms]); return; }
+    toastShow(msg, ms);
+  }
+  // Theo dõi #modal: mở ra khi toast đang hiện → cất toast vào hàng; đóng lại → hiện hàng chờ (mọi cách đóng: closeModal, gán hidden trực tiếp…)
+  function watchModal() {
+    const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
+    new MutationObserver(() => {
+      const t = $('#toast'); if (!t) return;
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show'); } }
+      else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
+    }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
+  }
+  if (document.getElementById('modal')) watchModal(); else document.addEventListener('DOMContentLoaded', watchModal);
 
   let lastFocus = null;
   function modal(html) {
