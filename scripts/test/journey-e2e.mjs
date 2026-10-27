@@ -2,7 +2,7 @@
 // Mỗi hành trình × ngôn ngữ (vi/en/ar) × thiết bị (máy tính/điện thoại) kiểm thêm: 0 lỗi console/promise, không lớp nổi chồng nhau
 // (hỏi nhắc học × màn "Tiếp theo" × toast × popover "Xem thêm"), không hỏi 2 lần, focus đúng, trạng thái còn sau tải lại, chạy tiếp khi mất mạng.
 // Hermetic: mọi /api/* = giả lập trong tiến trình (đồng bộ, lớp học, cấu hình cờ TẮT), mọi host ngoài = rỗng → 0 lượt chạm prod, 0 tài khoản thật.
-// Dùng: node scripts/test/journey-e2e.mjs --root dist [--lang vi,en,ar] [--device desktop,mobile,m360] [--only 1,2,3] [--out je-out] [--ext]
+// Dùng: node scripts/test/journey-e2e.mjs --root dist [--lang vi,en,ar] [--device desktop,mobile,m360,m390] [--only 1,2,3] [--out je-out] [--ext]
 //   --ext: chạy thêm hành trình 7 (add-on, cần bash scripts/build-extension.sh trước).
 import { chromium, devices } from 'playwright';
 import fs from 'fs';
@@ -13,11 +13,12 @@ import { serve } from '../quality/serve.mjs';
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'je-out'));
 const LANGS = arg('lang', 'vi,en,ar').split(','), DEVS = arg('device', 'desktop,mobile').split(',');
+const VISUAL_DEVS = ['m360', 'm390'], VWARN = []; // kiểm hình tự động chạy trên điện thoại nhỏ (docs/METHODS.md)
 const ONLY = arg('only', '1,2,3,4,5,6,8').split(',').map(Number), EXT = process.argv.includes('--ext');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 fs.mkdirSync(OUT + '/shots', { recursive: true });
 const CHECKS = fs.readFileSync(new URL('./journey-e2e/checks.js', import.meta.url), 'utf8');
-const VP = { desktop: { viewport: { width: 1280, height: 820 } }, mobile: { ...devices['Pixel 7'] }, m360: { ...devices['Pixel 7'], viewport: { width: 360, height: 740 }, screen: { width: 360, height: 740 } } }; // m360: máy Android nhỏ phổ biến (bằng chứng mobile-polish)
+const VP = { desktop: { viewport: { width: 1280, height: 820 } }, mobile: { ...devices['Pixel 7'] }, m360: { ...devices['Pixel 7'], viewport: { width: 360, height: 740 }, screen: { width: 360, height: 740 } }, m390: { ...devices['Pixel 7'], viewport: { width: 390, height: 844 }, screen: { width: 390, height: 844 } } }; // m360: máy Android nhỏ phổ biến (bằng chứng mobile-polish)
 const LOCALE = { vi: 'vi-VN', en: 'en-US', ar: 'ar-SA' };
 const results = [];
 const srv = await serve(ROOT, 0), O = srv.origin;
@@ -111,7 +112,16 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
     has: (sel) => page.locator(sel).first().isVisible().catch(() => false),
     async wait(sel, ms = 10000) { return page.locator(sel).first().waitFor({ state: 'visible', timeout: ms }).then(() => true, () => false); },
     async audit(step) { const bad = await page.evaluate(s => window.LKJC ? LKJC.audit(s) : [{ t: 'probe', msg: 'không nạp được đầu dò' }], step).catch(e => [{ t: 'probe', msg: e.message }]); for (const b of bad) fail(b.t + ': ' + b.msg); return bad; },
-    async shot(n) { await page.screenshot({ path: `${OUT}/shots/${tag}-${n}.png` }).catch(() => {}); },
+    async shot(n) {
+      const buf = await page.screenshot({ path: `${OUT}/shots/${tag}-${n}.png` }).catch(() => null);
+      if (!VISUAL_DEVS.includes(dev)) return;
+      // Kiểm hình tự động (checks.js LKJC.visual): (a)(b)(d) FAIL · (c)(f) cảnh báo · (e) ảnh gần như đơn sắc → cảnh báo
+      const v = await page.evaluate(s => window.LKJC && LKJC.visual ? LKJC.visual(s) : { fail: [], warn: ['đầu dò kiểm hình không nạp được'] }, `J${id} ${n}`).catch(e => ({ fail: [], warn: ['kiểm hình lỗi: ' + e.message.slice(0, 120)] }));
+      if (buf) { const mono = await page.evaluate(async b64 => { const im = new Image(); im.src = 'data:image/png;base64,' + b64; await im.decode(); const c = document.createElement('canvas'); c.width = 72; c.height = Math.max(1, Math.round(72 * im.height / im.width)); const x = c.getContext('2d'); x.drawImage(im, 0, 0, c.width, c.height); const d = x.getImageData(0, 0, c.width, c.height).data, m = new Map(); for (let i = 0; i < d.length; i += 4) { const k = (d[i] >> 3) + ',' + (d[i + 1] >> 3) + ',' + (d[i + 2] >> 3); m.set(k, (m.get(k) || 0) + 1); } return Math.max(...m.values()) / (d.length / 4); }, buf.toString('base64')).catch(() => 0);
+        if (mono > 0.95) v.warn.push(`(e) [J${id} ${n}] ảnh gần như đơn sắc ${Math.round(mono * 100)} % điểm ảnh cùng màu`); }
+      for (const f of v.fail) fail('visual ' + f);
+      for (const w of v.warn) VWARN.push(`${lang}/${dev} ${w}`);
+    },
     async reload() { await page.reload({ waitUntil: 'load' }); await h.ready(); },
     async swReady() { return page.evaluate(async () => { if (!navigator.serviceWorker) return false; const r = await Promise.race([navigator.serviceWorker.ready, new Promise(y => setTimeout(() => y(null), 20000))]); return !!r; }); },
     /** Mất mạng giữa chừng → tải lại → app vẫn mở được + trạng thái cũ còn (check(page) → bool) */
@@ -508,6 +518,8 @@ const bad = results.filter(r => !r.ok);
 fs.writeFileSync(OUT + '/results.json', JSON.stringify(results, null, 1));
 const md = [`## 🧭 journey-e2e: ${results.length - bad.length}/${results.length} lượt đạt`, '', '| # | Hành trình | Ngôn ngữ | Thiết bị | Kết quả |', '|---|---|---|---|---|',
   ...results.map(r => `| ${r.id} | ${r.name} | ${r.lang} | ${r.dev} | ${r.ok ? '✅' : '❌ ' + r.fails.slice(0, 4).join(' · ').replace(/\|/g, '/')} |`)].join('\n');
-fs.writeFileSync(OUT + '/summary.md', md + '\n');
+const vw = [...new Set(VWARN)], vmd = vw.length ? `\n\n### 👁️ Kiểm hình – cảnh báo (${vw.length})\n` + vw.slice(0, 40).map(x => '- ' + x.replace(/\|/g, '/')).join('\n') : '';
+fs.writeFileSync(OUT + '/visual-warn.json', JSON.stringify(vw, null, 1));
+fs.writeFileSync(OUT + '/summary.md', md + vmd + '\n');
 console.log('\n' + md);
 process.exit(bad.length ? 1 : 0);
