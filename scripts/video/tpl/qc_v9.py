@@ -277,6 +277,9 @@ if T.get('moods') is not None:   # owner 27/10 "ko lố": strong-expression clip
     _mc = {}
     for _l, _w, _c, _m in T['moods']: _mc[_m] = _mc.get(_m, 0) + 1
     R['mood_restraint'] = dict(ok=_mc.get('excited', 0) <= 1 and _mc.get('wow', 0) <= 1 and _mc.get('question', 0) <= 2, uses=_mc, lines=T['moods'][:12])
+if T.get('board_contrast') is not None and T.get('v14'):   # v14 board writing must stay legible: WCAG large-text contrast >= 3:1 for the lightest ink against the darkest ring around the glyphs
+    _bc = T['board_contrast']; _bad = [x for x in _bc if x['cr'] < 3.0]
+    R['board_contrast'] = dict(ok=bool(_bc) and not _bad, min=min((x['cr'] for x in _bc), default=None), n=len(_bc), low=_bad[:6])
 R['host_sharp'] = dict(ok=bool(Sh) and len(enc) == len(Sh) and med(up) >= 0.80 and min(up) >= 0.65 and med(enc) >= 0.80,
                        push_vs_native_median=round(med(up), 3), push_vs_native_min=round(min(up, default=0), 3), encoded_vs_rendered_median=round(med(enc), 3), samples=len(Sh))
 prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)
