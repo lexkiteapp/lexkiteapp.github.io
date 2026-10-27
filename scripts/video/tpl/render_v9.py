@@ -111,7 +111,7 @@ def font(sz, f=None):
     return _fc[k]
 ease = lambda x, p=EASE['out']: bezier(p, max(0.0, min(1.0, x)))
 CAPR = -ImageFont.truetype(FH, 1000).getbbox('H', anchor='ls')[1] / 1000   # rendered cap height / font size (BeVietnamPro ExtraBold H = 0.74)
-MIN_CAP = dict(caption=int(SP.get('caption_cap', 80)), hook=72, body=56, card=25); MIN_IMG = 300   # card = owner-approved layout-v12 mock (26/10): example lines 38 px font   # layout v12: spec caption_cap (teaching series 62: the board holds the lesson)   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
+MIN_CAP = dict(caption=int(SP.get('caption_cap', 80 if SP.get('caption_style') == 'legacy' else 42)), hook=72, body=56, card=25); MIN_IMG = 300   # card = owner-approved layout-v12 mock (26/10): example lines 38 px font   # layout v12: spec caption_cap (teaching series 62: the board holds the lesson)   # v10 phone sizes (cap height px on screen; card picture side px) -> qc_v9 min_text_px
 CAPF = math.ceil(MIN_CAP['caption'] / CAPR) + 1
 COL = dict(white=(255, 255, 255), red=C['red'], green=C['green'], yellow=C['yellow'], cream=C['cream'], mint=C['mint'], navy=C['navy'], navy2=C['navy2'], ink=C['navy'])
 STROKE = (10, 22, 26); ACT = COL[SP.get('active', 'yellow')]; ACC = COL[SP['accent']]
@@ -511,6 +511,55 @@ def note_im(lines, k=1.0, rw=None):   # layout-v12 note: mock typography for eve
             d.text((x, y + S_(lh) / 2), t_, font=f_, fill=LCOL[c_] + (255,), anchor='lm'); x += w_
         wmax = max(wmax, x); y += S_(lh)
     return im, wmax
+def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded app icon, call to action, 100% FREE, lexkite.com, platforms, QR for desktop/TV viewers
+    RI = Image.open(f"{ROOT}/brand/social/logo/lexkite-app-icon-rounded.png").convert('RGBA')
+    try:
+        import qrcode; QR = qrcode.make('https://lexkite.com/?src=short').convert('RGB')
+    except Exception: QR = None
+    def draw(k, mode):
+        S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd)
+        pad = S_(36); qr = S_(210) if (QR is not None and mode != 'compact') else 0
+        tw = max(XB_(44).getlength('Learn English'), BD_(36).getlength('with Lexkite')); colw = S_(120) + S_(20) + tw
+        sayw = BD_(34).getlength(say + ' →')
+        if mode == 'wide': W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw) + (S_(40) + qr if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + S_(48)
+        else: W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw, BD_(32).getlength('App · Chrome add-on · Web')); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + S_(48) + S_(50) + ((S_(30) + qr) if qr else 0)
+        im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+        d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(36), fill=(255, 253, 246, 252), outline=LCOL['navy'] + (255,), width=max(3, S_(5)))
+        ic = RI.resize((S_(120), S_(120)), Image.LANCZOS); im.alpha_composite(ic, (pad, pad)); x = pad + S_(140)
+        d.text((x, pad + S_(8)), 'Learn English', font=XB_(44), fill=LCOL['navy'] + (255,)); d.text((x, pad + S_(66)), 'with Lexkite', font=BD_(36), fill=LCOL['grey'] + (255,))
+        y = pad + S_(144); pw = XB_(50).getlength('100% FREE') + S_(60)
+        d.rounded_rectangle([pad, y, pad + pw, y + S_(82)], S_(41), fill=LCOL['green'] + (255,)); d.text((pad + pw / 2, y + S_(41)), '100% FREE', font=XB_(50), fill=(255, 255, 255, 255), anchor='mm')
+        y += S_(102); d.text((pad, y), 'lexkite.com', font=XB_(66), fill=(14, 124, 123, 255)); y += S_(80)
+        d.text((pad, y), say + ' →', font=BD_(34), fill=LCOL['navy'] + (255,)); y += S_(48)
+        if mode != 'wide': d.text((pad, y), 'App · Chrome add-on · Web', font=BD_(32), fill=LCOL['grey'] + (255,)); y += S_(50)
+        if qr:
+            q = QR.resize((qr, qr), Image.NEAREST).convert('RGBA')
+            if mode == 'wide': qx, qy = im.width - pad - qr, (im.height - qr) // 2; im.alpha_composite(q, (int(qx), int(qy)))
+            else:
+                y += S_(30); im.alpha_composite(q, (pad, int(y))); d.text((pad + qr + S_(24), y + qr * 0.38), 'Scan on', font=BD_(34), fill=LCOL['navy'] + (255,)); d.text((pad + qr + S_(24), y + qr * 0.38 + S_(44)), 'desktop / TV', font=BD_(34), fill=LCOL['navy'] + (255,))
+        return im
+    def draw_low(k, mode):   # low / narrow boards: same parts, fewer rows (strip: one row + call; mini: icon+site / FREE / call)
+        S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd); pad = S_(28); ic_ = S_(96)
+        sitew = XB_(60).getlength('lexkite.com'); pw = XB_(46).getlength('100% FREE') + S_(52); sayw = BD_(34).getlength(say + ' →')
+        if mode == 'strip': W_ = pad * 2 + ic_ + S_(20) + sitew + S_(24) + pw; H_ = pad * 2 + ic_ + S_(14) + S_(46)
+        else: W_ = pad * 2 + max(ic_ + S_(20) + pw, sitew, sayw); H_ = pad * 2 + ic_ + S_(14) + S_(70) + S_(14) + S_(46)
+        im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+        d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(30), fill=(255, 253, 246, 252), outline=LCOL['navy'] + (255,), width=max(3, S_(5)))
+        im.alpha_composite(RI.resize((ic_, ic_), Image.LANCZOS), (pad, pad))
+        if mode == 'strip': d.text((pad + ic_ + S_(20), pad + ic_ / 2), 'lexkite.com', font=XB_(60), fill=(14, 124, 123, 255), anchor='lm'); px_, py_ = pad + ic_ + S_(20) + sitew + S_(24), pad + (ic_ - S_(76)) / 2; y = pad + ic_ + S_(14)
+        else: px_, py_ = pad + ic_ + S_(20), pad + (ic_ - S_(76)) / 2; d.text((pad, pad + ic_ + S_(14) + S_(35)), 'lexkite.com', font=XB_(60), fill=(14, 124, 123, 255), anchor='lm'); y = pad + ic_ + S_(14) + S_(70) + S_(14)
+        d.rounded_rectangle([px_, py_, px_ + pw, py_ + S_(76)], S_(38), fill=LCOL['green'] + (255,)); d.text((px_ + pw / 2, py_ + S_(38)), '100% FREE', font=XB_(46), fill=(255, 255, 255, 255), anchor='mm')
+        d.text((pad, y), say + ' →', font=BD_(34), fill=LCOL['navy'] + (255,)); return im
+    for mode in ('tall', 'wide', 'compact', 'strip', 'mini'):
+        if mode in ('strip', 'mini'):
+            for k in [x / 100 for x in range(100, 84, -1)]:
+                im = draw_low(k, mode)
+                if im.width <= rw - 4 and im.height <= rh - 4: return im, k, mode
+            continue
+        for k in [x / 100 for x in range(100, 84, -1)]:
+            im = draw(k, mode)
+            if im.width <= rw - 4 and im.height <= rh - 4: return im, k, mode
+    raise AssertionError(('end card does not fit the board region', rw, rh))
 def plate_wrap(im, colname, pad=(34, 22)):
     w, h = im.width + 2 * pad[0], im.height + 2 * pad[1]; P = Image.new('RGBA', (w * 2, h * 2), (0, 0, 0, 0)); d = ImageDraw.Draw(P)
     d.rounded_rectangle([0, 0, w * 2 - 1, h * 2 - 1], min(h, 64) * 2 // 2, fill=COL[colname] + (246,), outline=(255, 255, 255, 235), width=8)
@@ -751,6 +800,9 @@ class Pop:
         assert s.fits(s.im, rw, rh), ('your-turn pop does not fit the board at the minimum size', s.id, s.im.size, rw, rh)
         s.meas = [('body', CAPR * z)]
     def build_cta_ink(s, rw, rh):
+        if PLATE:   # v13 end card, the same on every video
+            seg = SP['cta']['say']; s.im, k_, mode_ = endcard_im(seg, rw, rh); s.etype = 'card'; s.px = 32 * k_; s.cta_pages = None
+            s.text = f'{seg} / 100% FREE / lexkite.com'; s.meas = [('card', CAPR * 32 * k_)]; print(f'end card {mode_} x{k_}', flush=True); return
         z = MINF_BODY; s.etype = 'body'; s.px = z; seg = SP['cta']['say']; s.text = f'{seg} / lexkite.com'
         ic = ICON.resize((96, 96), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 95, 95], 24, fill=255)
         ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
@@ -922,9 +974,11 @@ def keycol(lid, k):
     for name in ('red', 'green', 'yellow', 'mint'):
         if k in KEY[lid].get(name, []): return COL[name]
     return None
-DESK = bool(BRD) and BRD['cap'].get('body_overlap_rows', 1) == 0 and BRD['cap']['w'] >= 700   # a clean desk-front / floor band below the teacher
-CAPINK = bool(BRD) and not DESK   # board mode: captions are WRITTEN ON THE BOARD in ink (navy, white edge, highlighter on the active word), moved with the camera
+PLATE = bool(BRD) and SP.get('caption_style', 'plate') == 'plate'   # v13 (owner 27/10): ONE caption style everywhere – fixed lower band, dark rounded plate, white text, active word yellow, no bounce
+DESK = bool(BRD) and not PLATE and BRD['cap'].get('body_overlap_rows', 1) == 0 and BRD['cap']['w'] >= 700   # a clean desk-front / floor band below the teacher
+CAPINK = bool(BRD) and not DESK and not PLATE   # board mode: captions are WRITTEN ON THE BOARD in ink (navy, white edge, highlighter on the active word), moved with the camera
 CAP = dict(size=max(96, CAPF), min=CAPF, stroke=14, gapx=22, bounce=1.16, settle=1.08) if not BRD else dict(size=CAPF, min=CAPF, stroke=12 if CAPINK else 14, gapx=20, bounce=1.12, settle=1.06)
+if PLATE: CAP.update(stroke=0, bounce=1.0, settle=1.0, gapx=14)
 if CAPINK: CAP.update(bounce=1.08, settle=1.04)   # v10: caption cap height >= 80 px (CAPF), heavy weight, thick stroke   # ink on a board: a small lift on the active word (page centre stays within 12 px)
 ST, SS = CAP['stroke'], 2; HL_PAD = 4 if CAPINK else 0
 _wc = {}
@@ -945,7 +999,12 @@ def _wpx(seg, sz, bounce=None):   # page row width incl. the active word's bounc
     fo = font(sz); ww = [fo.getlength(disp(x)) for x in seg]; bounce = CAP['bounce'] if bounce is None else bounce
     return sum(ww) + (CAP['gapx'] + fo.getlength(' ')) * (len(seg) - 1) + max(ww) * (bounce - 1) + 2 * ST + 24 + 2 * HL_PAD
 ROW2 = False; PITCH = 0; STRIP1 = STRIP2 = None; POPZ = POPZ_TALL = ZONE
-if DESK:   # captions on the measured clean desk front / floor band (CapCut white + stroke, screen space, camera anchored on them)
+PLATE_Y = 1430
+if PLATE:   # the whole board is for the lesson cards; captions sit on a fixed plate in the lower safe area (over desk or body, like the approved mock)
+    CCX = W / 2; CAPWC = 860; _im, _ib = word_im('Hgjy', CAP['size'], (255, 255, 255), 1.0); PITCH = int(_ib[3] - _ib[1]) + 2
+    CAP_CY = PLATE_Y - int((_ib[1] + _ib[3]) / 2 - _im.height / 2); STRIP1 = [int(CCX - CAPWC / 2 - 28), PLATE_Y - 48, int(CCX + CAPWC / 2 + 28), PLATE_Y + 48]; STRIP2 = STRIP1
+    print(f'plate captions: band {STRIP1}, pops on the full board zone {POPZ}', flush=True)
+elif DESK:   # captions on the measured clean desk front / floor band (CapCut white + stroke, screen space, camera anchored on them)
     BM = np.zeros((H, W), bool); _st = BRD['body']['step']
     for _row in filter(None, BRD['body']['rows'].split(';')):
         _y, _iv = _row.split(':'); _y = int(_y)
@@ -1034,12 +1093,15 @@ class Page:
             act = Wd['s'] <= tm < Wd['e']; kc = keycol(s.lid, k)
             if act:
                 u = tm - Wd['s']; sc = 1 + (s.bounce - 1) * ease(u / 0.07) if u < 0.07 else s.bounce - (s.bounce - s.settle) * ease((u - 0.07) / 0.12)
-                col = (INKCOL['red'] if kc == COL['red'] else INKCOL['green'] if kc == COL['green'] else COL['navy']) if CAPINK else (kc if kc in (COL['red'], COL['green']) else ACT)
+                col = (INKCOL['red'] if kc == COL['red'] else INKCOL['green'] if kc == COL['green'] else COL['navy']) if CAPINK else ((255, 214, 90) if PLATE else (kc if kc in (COL['red'], COL['green']) else ACT))
             else:
                 u = tm - Wd['e']; sc = s.settle - (s.settle - 1) * ease(u / 0.10) if 0 <= u < 0.10 else 1.0
                 if CAPINK: col = INKCOL['red'] if (kc == COL['red'] and tm >= Wd['s']) else INKCOL['green'] if (kc == COL['green'] and tm >= Wd['s']) else COL['navy']
-                else: col = kc if (kc and tm >= Wd['s']) else (255, 255, 255)
+                else: col = (255, 255, 255) if PLATE else (kc if (kc and tm >= Wd['s']) else (255, 255, 255))
             items.append((act, w, tx, col, sc * sc_in))
+        if PLATE and a_in > 0:   # dark rounded plate behind the page (fixed band, width follows the words)
+            x0_, x1_ = CCX - (s.ink[1] - s.ink[0]) / 2 - 28, CCX + (s.ink[1] - s.ink[0]) / 2 + 28; pl = Image.new('RGBA', (int(x1_ - x0_), 96), (0, 0, 0, 0))
+            ImageDraw.Draw(pl).rounded_rectangle([0, 0, pl.width - 1, 95], 28, fill=(15, 24, 28, int(200 * a_in))); paste_scaled(F, pl, (x0_ + x1_) / 2, PLATE_Y, 1.0, 1.0)
         for act, w, tx, col, sc in sorted(items, key=lambda x: x[0]):
             im, ib = word_im(tx, s.sz, col, sc * k_, act and CAPINK); cx = CCX + (s.cx[w] - CCX) * sc_in; cy = s.cy[w]
             if CAPINK: cx, cy = AX + (cx - AX) * k_, AY + (cy - AY) * k_   # written on the board: moves with the camera like the board text
@@ -1242,7 +1304,7 @@ subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.out + '.video
                 '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000', '-ac', '2', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', o.out], check=True)
 os.remove(o.out + '.video.mp4')
 json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_ratio=CAPR, spec=SP, fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, cx=CX, capw=CAPW, band=BAND, smax=SMAX, anchor=[AX, AY], head=HEAD, joins=JOINS, xf=XF, xfe=XFE,
-               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_strip=STRIP1, read_pad=READ_PAD,
+               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, read_pad=READ_PAD,
                board=dict(zone=ZONE, popz=POPZ, quad=BRD['quad'], perspective=GB.tolist(), cap_box=STRIP1, body=BRD['body'], where={p.id: p.where for p in POPS}) if BRD else None, hook=dict(text=HOOK_TEXT, t0=HOOK.t0, t1=max(p.t1 for p in POPS if p.P.get('role') == 'hook'), kind=HOOK.kind),
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,

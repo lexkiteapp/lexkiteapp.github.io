@@ -134,7 +134,7 @@ if BD:   # ---- board mode: text on the whiteboard, captions clear of face AND b
             bx = [e['x0'], e['y0'], e['x1'], e['y1']]; hh = any(inter(bx, z) for z in zr)
             sx0, sy0, sx1, sy1 = [int(round((bx[0] - tx) / s_)), int(round((bx[1] - ty) / s_)), int(round((bx[2] - tx) / s_)), int(round((bx[3] - ty) / s_))]
             sub = bm[max(0, sy0):max(0, sy1), max(0, sx0):max(0, sx1)]; rows_ = int(sub.any(1).sum()) if sub.size else 0; worst = max(worst, rows_)
-            if hh or rows_: ch.append((f['t'], e['name'], e['text'], 'head' if hh else f'body {rows_} rows'))
+            if hh or (rows_ and not T.get('cap_plate')): ch.append((f['t'], e['name'], e['text'], 'head' if hh else f'body {rows_} rows'))   # v13 plate: the caption plate may sit over the body (approved mock), never over the head
     R['caption_clear'] = dict(ok=not ch, n_frames=len(ch), worst_body_rows=worst, hits=ch[:5], cap_box=BD['cap_box'],
                               note='caption ink box vs head mask + measured moving-body envelope (any frame, bank.json board.body), in source px')
 first, done = {}, {}
