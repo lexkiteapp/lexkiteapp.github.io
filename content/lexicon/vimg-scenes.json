@@ -7104,6 +7104,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "flash#n": {
+   "ex": "Please don't use a flash when taking photos in the museum.",
+   "sc": "person A holds a camera inside a museum gallery, pressing the shutter; a sudden burst of bright light shines onto a painting, causing glare and startling a nearby visitor",
+   "cap": "a photographer's burst of light blinds a museum visitor",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "flat#adj": {
    "ex": "They rent a small flat in the city centre.",
    "sc": "person A of mixed gender holds apartment keys while stepping into a compact living space showing a couch, a small kitchen counter, and a window that reveals city buildings",
@@ -10123,6 +10130,13 @@
    "cap": "staff delivering freshly pressed laundry to a guest",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "lava#n": {
+   "ex": "When lava cools quickly, it forms a smooth black rock.",
+   "sc": "a flowing stream of bright orange lava emerges from a volcano crater, then a section of it solidifies into a glossy black stone that a person picks up with tongs",
+   "cap": "the molten flow hardens into a glossy black stone",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "law#n": {
    "ex": "In many countries, the law requires drivers to wear seat belts.",
