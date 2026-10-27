@@ -51,6 +51,12 @@ const C = {
   ok(adj === 0, 'build: không 2 bài liền cùng một từ');
   const gap = items.find(i => i.type === 'gap');
   ok(!gap || (gap.options.length === 4 && gap.options.includes(gap.answer)), 'build: điền từ có 4 lựa chọn, có đáp án');
+  const m = items.find(i => i.type === 'match');
+  ok(m && m.card === null && m.pairs.length === 4 && E.check(m, true) && !E.check(m, false), 'build: 1 bài ghép cặp (4 cặp) khi ≥ 4 từ, không gắn 1 từ');
+  ok(items.filter(i => i.type === 'match').length === 1, 'build: chỉ 1 bài ghép cặp/bài');
+  const ty = items.find(i => i.type === 'type');
+  ok(!items.some(i => i.type === 'type' && /\s/.test(i.word)), 'build: nghe gõ lại chỉ cho từ đơn');
+  ok(!ty || (E.check(ty, ' ' + ty.answer.toUpperCase() + ' ') && !E.check(ty, ty.answer + 'x')), 'check: gõ lại không phân biệt hoa/thường, khoảng trắng');
   const ext = items.find(i => i.word === 'decide' && (i.type === 'gap' || i.type === 'build'));
   ok(!ext || ext.own === true, 'build: từ tra bằng add-on dùng chính câu người học gặp');
   const b = items.find(i => i.type === 'build');
@@ -138,6 +144,13 @@ ok(!$('#lsn') && App.view.querySelector('a[href="#/home"]'), 'cờ tắt: #/less
 // Trả lời đúng mục hiện tại qua DOM (đáp án đọc từ trạng thái – chỉ test)
 async function solve(right) {
   const it = st().sess.cur;
+  if (it.type === 'match') {
+    const B = s2 => [...w.document.querySelectorAll(`.lsn-match .lsn-opt[data-s="${s2}"]`)];
+    if (!right) { const a = B('w')[0], b = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); b.click(); }
+    for (const a of B('w')) { if (a.disabled) continue; a.click(); B('m').find(x => x.dataset.m === a.dataset.m).click(); }
+    await tick(300); return;
+  }
+  if (it.type === 'type') { const inp = $('#lsnIn'); inp.value = right ? it.answer : 'nope'; inp.dispatchEvent(new w.Event('input')); $('#lsnCheck').click(); await tick(); return; }
   if (it.type === 'build' || it.type === 'tr') {
     const want = right ? it.answer.split(' ') : it.answer.split(' ').reverse();
     for (const word of want) { const b = [...w.document.querySelectorAll('#lsnBank .lsn-tile:not(.used)')].find(x => x.textContent === word); if (b) b.click(); }
@@ -160,7 +173,7 @@ ok($('#lsn') && $('.lsn-bar') && $('#lsnBub').textContent.length > 3, 'demo: d�
 const L0 = st();
 ok(L0.demo && L0.items.length >= 10, `demo: ${L0.items.length} bài`);
 const types = new Set(L0.items.map(i => i.type));
-ok(['gap', 'build', 'say', 'pic'].every(x => types.has(x)) && (types.has('tr') || w.I18N.learnLang() !== 'vi'), 'demo: đủ dạng (' + [...types].join(',') + ', ngôn ngữ học ' + w.I18N.learnLang() + ')');
+ok(['gap', 'build', 'say', 'pic', 'match', 'type'].every(x => types.has(x)) && (types.has('tr') || w.I18N.learnLang() !== 'vi'), 'demo: đủ dạng (' + [...types].join(',') + ', ngôn ngữ học ' + w.I18N.learnLang() + ')');
 ok(spoken.length > 0 || !['gap', 'build', 'say'].includes(L0.sess.cur.type), 'giáo viên đọc lời nhắc');
 const firstWord = L0.sess.cur.word;
 await solve(false);
@@ -173,12 +186,12 @@ while (st() && st().sess && !st().sess.done && guard++ < 60) {
   if (st().sess.cur.retry) { sawRetry = sawRetry || /Lỗi cũ|Past mistake/.test($('#lsnBub').textContent); }
   await solve(true);
   if ($('#lsnCombo.on')) sawCombo = true;
-  ok($('#lsnFoot.ok'), `đúng → sheet xanh (${guard})`);
+  ok($("#lsnFoot.ok"), `đúng → sheet xanh (${guard} · ${(st().sess.log.slice(-1)[0] || {}).type})`);
   $('#lsnNext').click(); await tick();
 }
 ok(sawRetry, `câu sai (${firstWord}) quay lại với nhãn "Lỗi cũ"`);
 ok(sawCombo, 'COMBO hiện khi đúng ≥ 3 liên tiếp');
-ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent), 'màn kết thúc');
+ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent) && /\+\d+\s*XP/.test(App.view.querySelector('.lsn-stats').textContent), 'màn kết thúc có XP, tỉ lệ đúng, COMBO, thời gian');
 ok(updates.length === 0 && added.length === 0 && rewards.length === 0, 'demo: không ghi FSRS / thẻ / XP');
 
 // Thật (cờ bật): từ sai → FSRS Quên, XP ghi

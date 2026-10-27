@@ -47,5 +47,9 @@
     'Không sai câu nào!': 'No mistakes at all!',
     'Không giới hạn – học bao nhiêu bài cũng được, miễn phí.': 'No limits – take as many lessons as you like, for free.',
     'Bài khác': 'Next lesson',
+    'Gõ từ tiếng Anh có nghĩa này': 'Type the English word with this meaning',
+    'Nghe và gõ lại từ bạn nghe': 'Type what you hear',
+    'Ghép từ với nghĩa của nó': 'Match each word with its meaning',
+    'Có cặp ghép nhầm': 'Some pairs were wrong',
   });
 })(typeof self !== 'undefined' ? self : this);

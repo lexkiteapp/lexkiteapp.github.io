@@ -58,7 +58,9 @@
 .lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
 .lsn-fb p{margin:.15rem 0}.lsn-xp{background:var(--surface);border-radius:12px;padding:.6rem .8rem;margin-top:.4rem;max-height:40vh;overflow:auto}
 .lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem}
-.lsn-end{text-align:center}.lsn-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
+.lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
+.lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
+.lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
 @media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on{transition:none;animation:none}}`;
     document.head.appendChild(st);
   }
@@ -99,8 +101,10 @@
     pic: it.choice ? t('Nhìn ảnh và chọn từ đúng') : t('Nhìn ảnh và nói từ này'),
     tr: t('Dịch câu này'),
     mean: t('Chọn từ có nghĩa này'),
+    type: it.noAudio ? t('Gõ từ tiếng Anh có nghĩa này') : t('Nghe và gõ lại từ bạn nghe'),
+    match: t('Ghép từ với nghĩa của nó'),
   }[it.type]);
-  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say');
+  const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type');
   const SPEAKS = it => it.type === 'say' || (it.type === 'pic' && !it.choice);
 
   function bar() {
@@ -120,6 +124,7 @@
     let sub = '';
     if (it.type === 'tr') sub = esc(it.prompt);
     else if (it.type === 'mean') sub = esc(meanOf(it.card));
+    else if (it.type === 'type' && it.noAudio) sub = esc(meanOf(it.card));
     else if (it.type === 'build' && it.noAudio) sub = esc(it.prompt || meanOf(it.card));
     bub.innerHTML = tag + esc(TITLE(it)) + (sub ? `<small lang="${it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en'}">${sub}</small>` : '');
     const snd = LISTENS(it) ? `<div class="lsn-snd"><button class="btn" id="lsnPlay">🔊 ${t('Nghe lại')}</button><button class="btn" id="lsnSlow" aria-label="${t('Nghe chậm hơn')}">🐢 ${t('Nghe chậm hơn')}</button></div>` : '';
@@ -127,6 +132,11 @@
     if (it.type === 'gap') {
       const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? `<span class="lsn-gap" id="lsnGap">&nbsp;</span>` : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
       body.innerHTML = `${snd}<p class="lsn-sent" lang="en">${sent}</p><div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+    } else if (it.type === 'type') {
+      body.innerHTML = `${snd}<input class="lsn-in" id="lsnIn" lang="en" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="${t('Câu trả lời của bạn')}">`;
+    } else if (it.type === 'match') {
+      const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
+      body.innerHTML = `<div class="lsn-match"><div>${L1.map(i => `<button class="lsn-opt" lang="en" data-m="${i}" data-s="w">${esc(it.pairs[i].word)}</button>`).join('')}</div><div>${L2.map(i => `<button class="lsn-opt" data-m="${i}" data-s="m">${esc(meanOf(it.pairs[i]))}</button>`).join('')}</div></div>`;
     } else if (it.type === 'mean' || (it.type === 'pic' && it.choice)) {
       body.innerHTML = `${it.type === 'pic' ? `<img class="lsn-pic" src="${esc(imgUrl(it.word, it.card.pos))}" alt="${esc(t('Ảnh minh họa'))}" width="220" height="220">` : ''}<div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
     } else if (it.type === 'build' || it.type === 'tr') {
@@ -149,8 +159,23 @@
     on('lsnPlay', () => say(audioText)); on('lsnSlow', () => say(audioText, true));
     on('lsnNoL', () => { setOff('listen'); L.sess.replace(x => E.adapt(x, offNow())); next(); });
     on('lsnNoS', () => { setOff('speak'); L.sess.replace(x => E.adapt(x, offNow())); next(); });
-    if (chk) chk.onclick = () => submit(it.type === 'build' || it.type === 'tr' ? L.tiles.map(i => it.tiles[i]) : L.pick);
-    document.querySelectorAll('.lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
+    if (chk) chk.onclick = () => submit(it.type === 'build' || it.type === 'tr' ? L.tiles.map(i => it.tiles[i]) : it.type === 'type' ? ($('#lsnIn') || {}).value : L.pick);
+    const inp = $('#lsnIn');
+    if (inp) { inp.oninput = () => { chk.disabled = !inp.value.trim(); }; inp.onkeydown = e => { if (e.key === 'Enter' && inp.value.trim()) chk.click(); }; setTimeout(() => inp.focus(), 50); }
+    if (it.type === 'match') {
+      // chạm 1 ô trái + 1 ô phải; đúng → cả 2 mờ đi, sai → rung và tính 1 lỗi; ghép xong cả 4 → chấm (0 lỗi = đúng)
+      let sel = null, miss = 0, done = 0;
+      if (chk) chk.hidden = true;
+      document.querySelectorAll('.lsn-match .lsn-opt').forEach(b => { b.onclick = () => {
+        if (L.checked || b.disabled) return;
+        if (!sel || sel.dataset.s === b.dataset.s) { if (sel) sel.setAttribute('aria-pressed', 'false'); sel = b; b.setAttribute('aria-pressed', 'true'); if (b.dataset.s === 'w') say(b.textContent); return; }
+        if (sel.dataset.m === b.dataset.m) { [sel, b].forEach(x => { x.disabled = true; x.setAttribute('aria-pressed', 'false'); x.classList.add('done'); }); done++; }
+        else { miss++; [sel, b].forEach(x => { x.classList.add('miss'); setTimeout(() => x.classList.remove('miss'), 400); }); sel.setAttribute('aria-pressed', 'false'); }
+        sel = null;
+        if (done === it.pairs.length) setTimeout(() => submit(miss === 0), 250);
+      }; });
+    }
+    document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
     if (bank) {
       const draw = () => { ans.innerHTML = L.tiles.map(i => `<button class="lsn-tile" data-a="${i}">${esc(it.tiles[i])}</button>`).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
@@ -177,8 +202,13 @@
   }
 
   function feedback(it, ok, heard) {
-    const c = it.card, st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c), foot = $('#lsnFoot');
+    const foot = $('#lsnFoot');
     foot.className = 'lsn-foot ' + (ok ? 'ok' : 'bad');
+    if (!it.card) { // ghép cặp: không gắn một từ
+      foot.innerHTML = `<div><div class="lsn-fb" role="status"><h3>${ok ? '✓ ' + t('Chính xác!') : '✗ ' + t('Có cặp ghép nhầm')}</h3>${ok ? '' : `<p class="tiny muted">${t('Câu này sẽ quay lại cuối bài để bạn làm lại.')}</p>`}</div><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
+      $('#lsnNext').onclick = () => next(); $('#lsnNext').focus(); return;
+    }
+    const c = it.card, st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
     foot.innerHTML = `<div><div class="lsn-fb" role="status">
         <h3>${ok ? '✓ ' + t('Chính xác!') : '✗ ' + t('Chưa đúng')}</h3>
         ${ok ? '' : `<p>${t('Đáp án đúng:')} <b lang="en">${esc(it.answer)}</b></p>`}
@@ -219,7 +249,7 @@
     const s = L.sess, res = E.results(s, L.items, L.demo ? {} : state.cards), foot = $('#lsnFoot');
     if (foot) foot.remove();
     if (L.teacher) L.teacher.say(s.accuracy >= 80 ? 'Great job!' : 'Good work. Keep going!', { rate: 1 });
-    let added = 0;
+    let added = 0; const xp = 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
         try {
@@ -228,13 +258,13 @@
           if (c) { c.srs = Core.SRS.review(c.srs, r.grade); await Core.Cards.update(c); state.cards[k] = c; }
         } catch (e) { /* một thẻ lỗi không làm hỏng màn kết */ }
       }
-      try { await App.reward({ quizzes: 1, spoken: L.spoken, perfect: s.wrong.size ? 0 : 1, xp: 10 + s.ok1 * 2 }); } catch (e) { /* bỏ qua */ }
+      try { await App.reward({ quizzes: 1, spoken: L.spoken, perfect: s.wrong.size ? 0 : 1, xp }); } catch (e) { /* bỏ qua */ }
     }
     const weak = [...s.wrong.keys()];
     view.querySelector('#lsnBody').innerHTML = '';
     $('#lsnBub').textContent = s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!');
     view.querySelector('#lsnBody').innerHTML = `<div class="card lsn-end"><h2>🎉 ${t('Hoàn thành bài học!')}</h2>
-      <div class="lsn-stats"><div><b>${s.accuracy}%</b><span class="tiny muted">${t('Tỉ lệ trả lời đúng')}</span></div><div><b>🔥 ${s.best}</b><span class="tiny muted">${t('COMBO cao nhất')}</span></div><div><b>${Math.max(1, Math.round((Date.now() - L.t0) / 60000))}′</b><span class="tiny muted">${t('Thời gian')}</span></div></div>
+      <div class="lsn-stats"><div><b>+${xp}</b><span class="tiny muted">XP</span></div><div><b>${s.accuracy}%</b><span class="tiny muted">${t('Tỉ lệ trả lời đúng')}</span></div><div><b>🔥 ${s.best}</b><span class="tiny muted">${t('COMBO cao nhất')}</span></div><div><b>${Math.max(1, Math.round((Date.now() - L.t0) / 60000))}′</b><span class="tiny muted">${t('Thời gian')}</span></div></div>
       ${weak.length ? `<p>${t('Từ cần ôn thêm')}: <b lang="en">${weak.map(esc).join(', ')}</b></p><p class="tiny muted">${L.demo ? t('Bài thử (không lưu tiến độ)') : t('Đã đưa {n} từ vào hàng ôn tập', { n: res.filter(r => r.grade === 0).length })}${added ? ' · ' + t('{n} thẻ mới', { n: added }) : ''}</p>` : `<p>${t('Không sai câu nào!')}</p>`}
       <p class="tiny muted">${t('Không giới hạn – học bao nhiêu bài cũng được, miễn phí.')}</p>
       <div class="row center" style="gap:.6rem;flex-wrap:wrap"><button class="btn primary lg" id="lsnAgain">${t('Bài khác')}</button><a class="btn" href="#/home">${t('Quay về trang chủ')}</a></div></div>`;

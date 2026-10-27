@@ -1,6 +1,6 @@
 # Bài học trộn bài tập nhỏ (#/lesson) – thiết kế + MVP
 
-> TL;DR: Một bài 3–5 phút gồm 10–14 bài tập nhỏ trộn 5 dạng (nghe chọn từ thiếu · nghe xếp câu · nói theo · nhìn ảnh nói từ · dịch bằng ô chữ),
+> TL;DR: Một bài 3–5 phút gồm 10–14 bài tập nhỏ trộn 7 dạng (nghe chọn từ thiếu · nghe xếp câu · nghe gõ lại · nói theo · nhìn ảnh nói từ · dịch bằng ô chữ · ghép cặp),
 > **cá nhân hóa** từ thẻ đến hạn FSRS + từ đã tra bằng add-on, **0 tim/năng lượng**, sai thì gặp lại trong bài ("Lỗi cũ") và vào hàng ôn FSRS,
 > phản hồi tức thì + "Giải thích đáp án" từ dữ liệu sẵn có (gold bank `why`, từ điển, IPA, trọng âm, US/UK – 0 lượt AI), thanh tiến độ + COMBO,
 > Ama/Carlos đọc lời nhắc bằng sprite khớp miệng (pilot B, PR #151). Mọi thứ trên máy, tải lười (khung app +~0,4 KB). MVP sau cờ `lesson_mix`.
@@ -23,13 +23,13 @@
 1. **Chọn 5–7 từ** (`LessonEngine.pickWords`): đến hạn FSRS (quá hạn lâu trước) → từ tra bằng add-on gần nhất (`c.src`/`c.contexts`) → thẻ mới → bộ khởi đầu A1 (người mới, 0 thẻ).
 2. **Dựng 10–14 bài** (`build`): mỗi từ 2 dạng khác nhau theo dữ liệu có thật (không có câu → không có dạng câu; không có ảnh đúng `từ#loại` → không có dạng ảnh); xen kẽ, không 2 bài liền cùng từ.
 3. **Hàng đợi**: sai → bản sao vào cuối hàng, gắn nhãn **"Lỗi cũ"** (tối đa 2 lần/bài); thanh tiến độ chỉ tăng khi đúng.
-4. **COMBO**: đúng liên tiếp ≥ 3 → hiện "🔥 COMBO ×n", sai → về 0; kỷ lục COMBO ở màn kết.
+4. **COMBO**: đúng liên tiếp ≥ 3 → hiện "🔥 COMBO ×n", sai → về 0. **Màn kết**: +XP · tỉ lệ đúng · COMBO cao nhất · thời gian · từ cần ôn.
 5. **Phản hồi tức thì** (sheet dưới): đúng/sai, đáp án, nghĩa, IPA + trọng âm, ghi chú US/UK (khi `ipa ≠ ipaUS`), nút **Giải thích** (gold `why` + sai→đúng, hoặc định nghĩa + ví dụ) – 0 AI.
 6. **"Không nghe được lúc này" / "Không nói được lúc này"**: tắt dạng đó 60 phút (`lk.lsn.off`), các bài còn lại tự đổi sang bản đọc/bản chọn; không trừ điểm.
 7. **Cuối bài → FSRS**: từ sai ≥ 1 lần → `grade 0` (Quên) – chưa có thẻ thì `App.addWord` để vào hàng ôn; từ đến hạn đúng ngay lần đầu → `grade 2`; từ chưa đến hạn đúng → không đổi lịch. XP qua `App.reward`. Demo (`?demo=1`) không ghi gì.
 8. **0 tim, 0 năng lượng, 0 khóa**: không có giới hạn số bài/ngày.
 
-## 3. Năm dạng bài (MVP)
+## 3. Bảy dạng bài (MVP)
 | Dạng | Cần dữ liệu | Chấm | Khi tắt nghe / nói |
 |---|---|---|---|
 | `gap` nghe chọn từ thiếu (+ nút 🐢 0,7×) | câu chứa từ | chọn 1/4 (nhiễu cùng loại từ) | hiện câu chữ |
@@ -37,6 +37,8 @@
 | `say` nói theo | câu hoặc từ | `UI.recognize` ≥ 0,7 (máy) | đổi sang `gap` |
 | `pic` nhìn ảnh nói từ | `VImg` có đúng `từ#loại` | nói ≥ 0,7, hoặc chọn 1/4 khi tắt nói | chọn 1/4 |
 | `tr` dịch bằng ô chữ | `c.sentences[0]` {en, vi} | thứ tự ô = câu en | giữ (không cần nghe) |
+| `type` nghe gõ lại | từ đơn | gõ = từ (bỏ hoa/thường, khoảng trắng) | gõ từ theo nghĩa |
+| `match` ghép cặp (1/bài) | ≥ 4 từ có nghĩa | 4 cặp từ ↔ nghĩa, 0 lần nhầm = đúng | giữ |
 
 ## 4. Giáo viên Ama/Carlos
 - `web/js/lesson/teacher.js`: port tối giản của pilot B (`docs/mocks/teacher-pilot/b-sprite.html`, PR #151): vòng lặp 3 s + 10 hình miệng Rhubarb (X A B C1 C D E F G H) + bám mặt theo khung.
@@ -61,6 +63,15 @@
 ## 7. Kiểm thử (CI, không tài khoản thật)
 `scripts/test/lesson.mjs` (trong `npm test`): engine thuần (chọn từ theo ưu tiên, dạng theo dữ liệu, hàng đợi lỗi cũ, combo, tắt nghe/nói, FSRS cuối bài) + jsdom chạy hết 1 bài demo (đúng/sai/giải thích/kết quả, 0 lỗi console).
 
-## 8. Sau MVP (chờ anh duyệt)
-1. Bước "Bài học trộn" trong `path-day.js` thay cho "Ôn nhanh" khi cờ bật. 2. CI sinh Kokoro + Rhubarb cho ~30 câu nhắc cố định × 2 giáo viên.
-3. Thêm dạng: ghép cặp nghĩa, nghe chọn ảnh, sửa câu sai (gold `wrong`). 4. Thống kê ẩn danh tỷ lệ bỏ bài theo dạng (gộp trong gói sync, 0 dòng D1 mới).
+## 8. Lộ trình sau MVP (từ ảnh Duolingo anh gửi 27/10 + nghiên cứu; mỗi mục 1 phiên, chờ anh duyệt)
+| # | Hạng mục | Cách làm $0 | Tái dùng |
+|---|---|---|---|
+| 1 | **Bản đồ lộ trình**: mỗi unit trộn nút bài học · video · truyện · Radio · ôn tập (+XP) | nút = route lười; tiến độ IndexedDB | `path-day.js`, `lesson-video.js` |
+| 2 | **Truyện (Stories)**: hội thoại minh họa Ama ↔ Carlos, giữa truyện có "chạm từ bạn nghe" + ghép cặp cụm VN↔EN, câu hỏi hiểu | kịch bản JSON + Kokoro + cue Rhubarb **sinh sẵn trên CI** (tĩnh) | engine (`build`/`match`), `teacher.js` |
+| 3 | **Radio**: nghe 1–2 phút (2 giọng) + 3 câu hỏi | Kokoro sinh sẵn trên CI | `listening.js` qengine |
+| 4 | **Practice Hub** hằng ngày: từ yếu · đến hạn · lỗi cũ | chỉ đọc FSRS + nhật ký Lỗi cũ trên máy | `dueList`, `LessonEngine.results` |
+| 5 | **Cuộc gọi Ama/Carlos**: kịch bản rẽ nhánh + **tổng kết** ("bạn đã dùng 11 từ") + **xem lại lời thoại** có ghi chú sửa (bread ≠ breast, "trả lời đầy đủ hơn") | khớp từ tại máy; cặp âm dễ nhầm từ `pron/pairs.js` | `call.js`, `pron` |
+| 6 | **Giải thích theo lớp lỗi** (giới từ, thì, mạo từ…) trước, Gemini Nano khi có (desktop) | luật trên máy, Nano trên máy | `writecheck-rules.js`, `ai-local.js` |
+| 7 | Nhận giọng trên máy mặc định khi tải được: Whisper tiny.en (đã có) / Moonshine tiny; Web Speech chỉ dự phòng (gửi âm thanh tới Google, WebView Android chập chờn) | tải lười khi vào bài nói, theo ngân sách §5 | `UI.recognize` |
+| 8 | Chấm âm vị "beta" (wav2vec2 CTC + GOP, chỉnh theo speechocean762 CC BY 4.0) – desktop/WebGPU trước (~300M tham số) | trên máy | `pron` GOP hiện có |
+FSRS giữ bản trong `core.js` (đã chạy, có test) – không đổi sang ts-fsrs. Rive chỉ cân nhắc cho hoạt cảnh phản ứng nếu sprite chưa đủ.

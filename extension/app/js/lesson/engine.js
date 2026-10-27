@@ -1,6 +1,6 @@
 /* 🧩 Bài học trộn bài tập nhỏ – lõi THUẦN (không DOM, không t()): chọn từ, dựng bài, hàng đợi "Lỗi cũ", COMBO, kết quả → FSRS, chữ → viseme.
  * Thiết kế: docs/LESSON-ENGINE.md. Giao diện: js/lesson/ui.js. Test: scripts/test/lesson.mjs (chạy được trong Node).
- * Dạng bài: gap (nghe chọn từ thiếu) · build (nghe xếp câu) · say (nói theo) · pic (nhìn ảnh nói từ) · tr (dịch bằng ô chữ) · mean (chọn từ theo nghĩa – chỉ là bản thay của say khi tắt nói). */
+ * Dạng bài: match (ghép cặp từ ↔ nghĩa) · type (nghe gõ lại) · gap (nghe chọn từ thiếu) · build (nghe xếp câu) · say (nói theo) · pic (nhìn ảnh nói từ) · tr (dịch bằng ô chữ) · mean (chọn từ theo nghĩa – chỉ là bản thay của say khi tắt nói). */
 (function (g) {
   const DAY = 864e5;
   const norm = s => String(s || '').toLowerCase().replace(/[’‘]/g, "'").replace(/[^a-z0-9' -]+/g, ' ').replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
@@ -70,11 +70,12 @@
       if (s && s.at && s.at.toks.length <= 10) types.push('build');
       if (opts.hasImg && opts.hasImg(c.word, c.pos)) types.push('pic');
       if (pair) types.push('tr');
+      if (!/\s/.test(c.word.trim()) && c.word.length >= 3) types.push('type'); // nghe gõ lại (từ đơn)
       types.push('say');
       return { p, c, s, pair, types };
     });
     // cân bằng cả bài: mỗi vòng, mỗi từ lấy dạng còn ít nhất trong bài (hòa → ngẫu nhiên), dạng hiếm (pic, tr) được ưu tiên khi hòa
-    const cnt = { gap: 0, build: 0, pic: 0, tr: 0, say: 0 }, RARE = { pic: 0, tr: 0.1, build: 0.2, gap: 0.3, say: 0.4 };
+    const cnt = { gap: 0, build: 0, pic: 0, tr: 0, type: 0, say: 0 }, RARE = { pic: 0, tr: 0.1, build: 0.2, type: 0.25, gap: 0.3, say: 0.4 };
     byWord.forEach(w => { w.order = []; });
     for (let round = 0; round < per; round++) byWord.forEach(w => {
       const left = w.types.filter(x => !w.order.includes(x)); if (!left.length) return;
@@ -89,6 +90,7 @@
         const s = type === 'tr' ? w.pair : w.s, words = toks(s.text), extra = distract(c.word, c.pos, pool, 2, r).filter(x => !words.some(y => same(y, x)));
         return Object.assign(base, { sent: s.text, own: s.own, prompt: type === 'tr' ? s.tr : '', answer: words.join(' '), tiles: shuffle(words.concat(extra), r) });
       }
+      if (type === 'type') return Object.assign(base, { answer: c.word });
       if (type === 'pic') return Object.assign(base, { answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r)), r) });
       const short = s && toks(s.text).length <= 8, alt = s ? { type: 'gap', sent: s.text, own: s.own, blank: s.at, answer: s.at.form, options: shuffle([s.at.form].concat(distract(c.word, c.pos, pool, 3, r)), r) }
         : { type: 'mean', answer: c.word, options: shuffle([c.word].concat(distract(c.word, c.pos, pool, 3, r)), r) }; // bản thay khi tắt nói
@@ -97,6 +99,9 @@
     for (let round = 0; round < per; round++) byWord.forEach(w => { if (w.order[round]) items.push(make(w, w.order[round])); });
     // xen kẽ: không 2 bài liền cùng từ
     for (let i = 1; i < items.length; i++) if (same(items[i].word, items[i - 1].word)) { const j = items.findIndex((x, k) => k > i && !same(x.word, items[i - 1].word)); if (j > 0) [items[i], items[j]] = [items[j], items[i]]; }
+    // Ghép cặp (từ ↔ nghĩa) giữa bài khi có ≥ 4 từ: 1 bài, không gắn từ riêng (card null → không ghi FSRS theo từ)
+    const mp = picks.filter(p => p.card.vi || p.card.def).slice(0, 5);
+    if (opts.match !== false && mp.length >= 4) items.splice(Math.ceil(items.length / 2), 0, { id: ++id, type: 'match', word: '#match', card: null, retry: 0, answer: '', pairs: shuffle(mp, r).slice(0, 4).map(p => p.card) });
     return items.map(it => adapt(it, off));
   }
 
@@ -115,6 +120,7 @@
   function check(it, ans) {
     if (it.type === 'say' || (it.type === 'pic' && !it.choice)) return typeof ans === 'number' ? ans >= 0.7 : same(ans, it.answer);
     if (it.type === 'build' || it.type === 'tr') return same(Array.isArray(ans) ? ans.join(' ') : ans, it.answer);
+    if (it.type === 'match') return ans === true;
     return same(ans, it.answer);
   }
 
@@ -144,7 +150,7 @@
    *  → [{ word, grade, card|null, add: bool (chưa có thẻ → App.addWord) }] */
   function results(sess, items, cards, now = Date.now()) {
     const map = {}; Object.values(cards || {}).forEach(c => { if (c && c.word) map[norm(c.word)] = c; });
-    const words = new Map(); items.forEach(it => words.set(norm(it.word), it.card));
+    const words = new Map(); items.forEach(it => { if (it.card) words.set(norm(it.word), it.card); });
     const out = [];
     words.forEach((card, k) => {
       const c = map[k] || null;
