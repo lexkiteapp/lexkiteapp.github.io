@@ -5,20 +5,22 @@
 // quiz đúng 1 đáp án, trang en không lọt chữ Việt, ≤ 16 KB gzip. (4) Worker: trang đuôi dài từ R2 giả, 301 chuẩn hoá, 404, noindex header.
 import fs from 'node:fs'; import zlib from 'node:zlib';
 import { build, QUALITY_MIN, WORDS_MIN } from '../dict/build.mjs';
-import { ENABLED, SITE, hubPath } from '../../workers/dict/render.mjs';
+import { ENABLED, SITE, hubPath, isIndexable, parseOpen } from '../../workers/dict/render.mjs';
 import worker, { parse } from '../../workers/dict/index.mjs';
 
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; if (fails < 400) console.log('✗', m); } };
-const N = 200, VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+const N = 200, P = 600, VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const ldOf = h => [...h.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)].map(m => JSON.parse(m[1]));
 const text = h => h.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/\s+/g, ' ');
 const pathOf = f => f.replace(/^assets/, '').replace(/index\.html$/, '');
 
 for (const mode of ['', 'all']) {
-  const { files, pages, report } = build({ n: N, index: mode, write: false });
+  const { files, pages, report } = build({ n: N, pool: P, index: mode, write: false }); // pool > N: trang ngoài N luôn noindex (bậc stage.json quyết N)
   const html = Object.entries(files).filter(([f]) => f.startsWith('assets/') && f.endsWith('.html'));
   const known = new Set(html.map(([f]) => pathOf(f)));
-  for (const l of ENABLED) ok(pages[l].length === N, `${mode || 'mặc định'} ${l}: ${pages[l].length}/${N} trang`);
+  for (const l of ENABLED) { ok(pages[l].length === P, `${mode || 'mặc định'} ${l}: ${pages[l].length}/${P} trang`); ok(pages[l].filter(d => !d.quality.pool).length === N, `${l}: tập index phải đúng N=${N}`); ok(!pages[l].some(d => d.quality.pool && isIndexable(d, parseOpen(mode))), `${l}: trang ngoài N không được index`); }
+  const LETTER = /^\/(vi|en)\/[a-z-]+\/[a-z]\/$/;
+  for (const l of ENABLED) for (const c of new Set(pages[l].map(d => d.word[0]))) { const h = files[`assets/${l}/${hubPath(l).split('/')[2]}/${c}/index.html`]; ok(h && /content="noindex,follow"/.test(h) && pages[l].filter(d => d.word[0] === c).every(d => h.includes(`href="${hubPath(l)}${d.slug}/"`)), `${l}: trang chữ ${c} thiếu/không noindex/thiếu từ`); }
   const titles = new Set(), descs = new Set();
   for (const [f, h] of html) {
     const p = pathOf(f), lang = (h.match(/<html lang="(\w+)"/) || [])[1], noidx = /<meta name="robots" content="noindex/.test(h);
@@ -31,7 +33,7 @@ for (const mode of ['', 'all']) {
     const lds = ldOf(h), types = lds.map(x => x['@type']);
     ok(types.includes('BreadcrumbList'), `${p}: thiếu BreadcrumbList`);
     for (const x of lds) ok(x['@context'] === 'https://schema.org', `${p}: @context`);
-    const isWord = p !== hubPath(lang);
+    const isWord = p !== hubPath(lang) && !LETTER.test(p);
     if (isWord) {
       const dt = lds.find(x => x['@type'] === 'DefinedTerm'), fq = lds.find(x => x['@type'] === 'FAQPage'), vis = text(h);
       ok(dt && dt.name && dt.description && dt.url === SITE + p && dt.inDefinedTermSet && dt.inDefinedTermSet.url === SITE + hubPath(lang), `${p}: DefinedTerm thiếu trường`);

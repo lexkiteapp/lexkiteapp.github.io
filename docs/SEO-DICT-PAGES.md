@@ -1,6 +1,6 @@
 # SEO-DICT-PAGES – trang từ điển tự sinh (programmatic SEO) + vòng dữ liệu Search Console (26/10/2026)
 
-> TL;DR: Trang từ điển theo truy vấn bản địa (/vi/tu-dien/<từ>/ "X là gì", /en/dictionary/<từ>/ "X meaning"), nội dung độc nhất từ dữ liệu tự soạn của app, phục vụ bằng Worker lexkite-dict (asset tĩnh miễn phí + JSON trên R2), noindex mặc định, mở index dần TỰ ĐỘNG hằng tuần theo cổng chất lượng và số đo GSC (§5b, dict-stage.yml). Thí điểm 200 từ vi/en; bản xem thử lexkite-dict.vintagezulilyjewelry.workers.dev. §9 vòng GSC (PR #60).
+> TL;DR: Trang từ điển theo truy vấn bản địa (/vi/tu-dien/<từ>/ "X là gì", /en/dictionary/<từ>/ "X meaning"), nội dung độc nhất từ dữ liệu tự soạn của app, phục vụ bằng Worker lexkite-dict (asset tĩnh miễn phí + JSON trên R2), noindex mặc định, mở index dần TỰ ĐỘNG hằng tuần theo cổng chất lượng và số đo GSC (§5b, dict-stage.yml). Thí điểm 200 từ vi/en; bản xem thử lexkite-dict.vintagezulilyjewelry.workers.dev. §9 vòng GSC (PR #60). **Giai đoạn 2 (27/10): pool ~4.400 trang/ngôn ngữ (noindex ngoài N của bậc), WordNet, liên kết blog↔từ điển↔công cụ, R2 sẵn sàng – §10.**
 > Đọc khi: sửa trang từ điển, mở index, mở thêm ngôn ngữ, làm vòng dữ liệu GSC.
 
 Nguồn: `workers/dict/render.mjs` (dựng HTML, thuần – chạy cả trong Worker lẫn CI) · `workers/dict/index.mjs` (Worker) · `scripts/dict/build.mjs` (dữ liệu + tầng tĩnh) · `scripts/test/dict-pages.mjs` (cổng, trong `npm test`) · `.github/workflows/dict-pages.yml` (CI: cổng + Lighthouse + ảnh chụp).
@@ -58,6 +58,9 @@ Mỗi phần chỉ hiện khi có dữ liệu thật; không phần nào là ch�
 | Kiểm tra nhanh (3 câu) | sinh tất định: nghĩa (4 lựa chọn) · điền chỗ trống · câu đúng | 0 JS: đáp án trong `<details>` |
 | CTA deep-link | `/app/#/dict/<từ>` (vi) · `/app/?hl=en#/dict/<từ>` | đúng màn hình tra từ trong app |
 | Bài blog liên quan (≤ 3) | `content/blog/<lang>/*.md` đã đăng (`status: ready`, `publishAt` ≤ lúc dựng) | khớp tiêu đề/từ khoá/thẻ/nhấn `*từ*`; không bao giờ link bài chưa đăng |
+| Nghĩa khác, đồng nghĩa, trái nghĩa, họ từ, IPA Mỹ bù | `content/dict/wordnet.json` (Open English WordNet 2025, CC BY 4.0 – `scripts/dict/wordnet.mjs`) | khối riêng ghi công + link; chữ WordNet KHÔNG tính vào `words` của ngưỡng (§10) |
+| Ví dụ thêm (tới 6) | kho câu tự soạn của app: ví dụ mọi mục kho từ + "Cách dùng từ" có chứa từ | câu Lexkite, 25–130 ký tự, ngắn nhất trước |
+| Luyện tiếp (công cụ) | `scripts/lib/tools-links.mjs`: trang cấp CEFR của từ + bài test trình độ + TOEIC Part 5 | liên kết từ điển → công cụ |
 | Từ liên quan (≤ 8) | cùng chủ đề trong tập, rồi lân cận | liên kết nội bộ, không trang mồ côi |
 | FAQ | nghĩa · phát âm · khác nhau giữa cặp dễ nhầm | chữ FAQ = đúng chữ trên trang |
 
@@ -116,7 +119,7 @@ trình duyệt / Googlebot ──► lexkite.com/vi/tu-dien/<từ>/   (route Wor
 | NGSL / NAWL / BSL (danh sách từ) | CC BY-SA 4.0 | chỉ danh sách + thứ tự tần suất (chọn từ), ghi công ở `/credits`; không chép định nghĩa |
 | CMUdict | BSD-2-Clause | IPA Mỹ (qua build-lexicon) |
 | Wiktionary | CC BY-SA 4.0 (+ GFDL) | chỉ dữ kiện (IPA, từ loại, dạng biến đổi). **Không** chép định nghĩa/ví dụ: share-alike sẽ buộc cả trang theo CC BY-SA. Nếu buộc phải dùng: khối riêng có ghi công + link bản gốc |
-| Open English WordNet (2024) / Princeton WordNet 3.0 | CC BY 4.0 / giấy phép WordNet (cho phép, cần ghi công) | đồng nghĩa, trái nghĩa, quan hệ nghĩa, thứ tự nghĩa – làm giàu trang en (§5); ghi công ở `/credits` |
+| **Open English WordNet 2025** (đang dùng, `content/dict/wordnet.json`) | CC BY 4.0 | IPA Mỹ (bù khi kho trống), đồng nghĩa, trái nghĩa, họ từ, ≤ 3 nghĩa + 1 ví dụ – chỉ đúng từ loại của mục kho; khối "Nghĩa khác" ghi nguồn + link trên từng trang; không tính vào số chữ nội dung riêng |
 | Tatoeba (tuỳ chọn) | CC BY 2.0 FR | ví dụ bổ sung, ghi tác giả từng câu; ưu tiên câu tự viết |
 | Âm thanh `audio.lexkite.com` | giọng TTS tự dựng (WORD-AUDIO, giấy phép thương mại đã kiểm) | chỉ từ đã qua ASR |
 | **Cấm** | – | Oxford/Cambridge/Longman/Collins, kết quả Google Dịch, nội dung AI chưa duyệt |
@@ -149,3 +152,25 @@ trình duyệt / Googlebot ──► lexkite.com/vi/tu-dien/<từ>/   (route Wor
 6. **Đầu ra:** `content/blog/gsc-priority.json` (danh sách brief đã xếp + lý do + số liệu) – lịch viết bài hằng tuần đọc file này trước `briefs.json`; issue `gsc-weekly` tóm tắt 10 cơ hội đầu + 10 trang striking distance. **Không tự sửa lịch đăng** – `blog-schedule.mjs --reflow` vẫn do người chạy, giữ luật ≤ 1 bài/ngôn ngữ/ngày và cách cụm ≥ 7 ngày.
 7. **Tự đỏ:** 0 dòng trả về, token lỗi, hay thiếu secret → workflow đỏ kèm hướng dẫn (không im lặng xanh).
 8. **Test:** `scripts/test/gsc-pull.mjs` với dữ liệu giả (fixture) – kiểm gom cụm, chấm điểm, khớp brief, không ghi khoá ra file.
+
+## 10. Giai đoạn 2 (27/10/2026) – làm giàu + pool + liên kết + quy mô miễn phí
+**Pool ≠ N.** `build({ n, pool })`: `n` = tập được phép index (bậc `stage.json`, không đổi nghĩa); `pool` = `POOL` 5.000 (biến `DICT_POOL`) = mọi từ đơn A1–B2 có nghĩa+ví dụ+IPA+audio, xếp theo NGSL/dữ liệu tự soạn (hiện 4.362 từ đủ điều kiện). Trang ngoài N: `quality.pool = true`, rank 1e9 → **luôn noindex,follow**, không vào sitemap/hreflang dù đạt ngưỡng (cổng kiểm). Bot `stage.mjs` nhân N theo GSC như cũ; ngưỡng 70/150 giữ nguyên.
+**Không rơi trang đang index:** `content/dict/open-pin.json` (80 slug S1) xếp trước khi chọn top-N theo điểm → làm giàu đổi điểm không đẩy trang đã index ra (đã kiểm 50/50 vi, 30/30 en). Chỉ thêm, không bớt.
+**Kết quả (N=200, cùng ngưỡng):** ứng viên vi 116 → 172, en 61 → 101; trong pool thêm 1.096 vi / 157 en đạt ngưỡng chờ bậc. Trang lớn nhất 15,0 KB gzip (≤ 16).
+**Không tính WordNet vào `words`:** WordNet được hàng nghìn site chép lại → không phải "nội dung riêng"; chỉ đếm đồng nghĩa/trái nghĩa ở phần điểm `syn` (hiển thị thật). en còn thiếu chủ yếu "lỗi hay gặp" (10 điểm) – cần ghi chú tiếng Anh theo L1 do người soạn, KHÔNG sinh tự động.
+**Trang A–Z:** `/<lang>/<path>/<chữ>/` (noindex,follow) liệt kê toàn pool; hub chính = N từ + nav A–Z. Slug 1 chữ không trùng từ (từ ≥ 3 chữ).
+**Liên kết nội bộ:** từ điển → công cụ (trang cấp CEFR + test + TOEIC), → blog (≤ 3), cặp dễ nhầm/đồng nghĩa/trái nghĩa/họ từ → trang từ nếu có; blog → từ điển: `scripts/dict/links.mjs` `blogDictBox(p)` trong `build-blog.mjs` (từ nhấn `*từ*` + thẻ/từ khoá một chữ, ≤ 8, chỉ từ có trang) – 131/154 bài vi/en có hộp. Công cụ → từ điển: chưa (file của phiên tools – việc sau).
+**13 ngôn ngữ còn lại:** `report.json → prep`: mọi ngôn ngữ có nghĩa bản địa cho 4.362/4.362 từ pool, 3.884–4.131 cờ ≥ 1 (đã duyệt). Còn thiếu đúng 2 việc người (§2): nhãn `T[lang]` dịch thật + mẫu tiêu đề kiểm GSC. Bot dừng ở S4.
+
+**Lượt Worker / ngày (Free: 100.000/ngày cả tài khoản; trần asset 20.000 file/Worker; Static Assets KHÔNG gọi script, không tính lượt – tài liệu Cloudflare "Workers Static Assets – Billing").**
+Script chỉ chạy khi: không có asset (đuôi dài R2), 301 chuẩn hoá (chữ hoa/thiếu `/`), 404, route `/words/*` (nếu gắn – MỌI lượt `/words/` qua script). Zipf s≈1, K = 9.500 trang tĩnh/ngôn ngữ (`DICT_STATIC_N`), phần lượt vào đuôi = (ln P − ln K)/(ln P + 0,58) với P trang/ngôn ngữ:
+
+| Trang (2 ngôn ngữ) | Asset | Đuôi R2 | 100k lượt xem/ngày | 1 triệu/ngày |
+|---|---|---|---|---|
+| 5.000 × 2 (nay, 8.776 file) | ✓ hết | 0 % | ~0 lượt script (chỉ 301/404) | ~0 |
+| 10.000 × 2 | 19.000 | 0,5 % | ~500 | ~5.000 |
+| 25.000 × 2 (≈ 50k trang) | 19.000 | 9 % | ~9.000 | ~90.000 ⚠️ |
+| 25.000 × 2, tách Worker/ngôn ngữ (`lexkite-dict-vi`, `-en`, 19.000 asset mỗi cái) | 38.000 | 2,6 % | ~2.600 | ~26.000 |
+
+→ Tới ~20k trang: 1 Worker đủ. ≥ 50k trang hoặc ≥ 500k lượt xem/ngày: tách Worker theo ngôn ngữ (mỗi Worker trần asset riêng) trước khi nghĩ tới gói trả phí. Hạn mức dict ≤ 40.000 lượt script/ngày (§6); guard `free-tier-guard.yml` báo ≥ 60 %.
+**R2 (owner bật khi bot báo, §8 bước 4):** bật R2 + tạo bucket `lexkite-dict-data` + thêm quyền *R2 Edit* vào `CLOUDFLARE_API_TOKEN` + biến repo `DICT_R2=1`. Từ đó `dict-stage.yml` chạy `scripts/dict/r2-sync.mjs` (REST API, chỉ PUT file đổi theo băm manifest, manifest ghi cuối, 12 luồng) rồi bỏ `#` khối `[[r2_buckets]]` trước `wrangler deploy`. Lần đầu ~8.700 PUT (< 1 % trần 1 triệu ghi/tháng); 50k trang × 1,9 KB ≈ 95 MB (< 1 % 10 GB). `dict-pages.yml` chạy `r2-sync --plan` mỗi PR.
