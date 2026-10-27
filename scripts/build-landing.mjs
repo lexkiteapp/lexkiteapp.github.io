@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { minify } from 'terser';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
 import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 
@@ -101,9 +102,16 @@ export function purgeCss(css, page) {
     if (sel.startsWith('@')) return b;
     const keep = sel.split(',').filter(used); return keep.length ? keep.join(',') + b.slice(j) : ''; }).join('');
 }
-export function render(lang) {
+function renderPurged(lang) {
   const html = renderFull(lang), m = html.match(/<style>([\s\S]*?)<\/style>/);
   return html.replace(m[0], () => `<style>${purgeCss(m[1], html.replace(m[0], ''))}</style>`);
+}
+// ----- Thu gọn JS nội tuyến (terser: bỏ khoảng trắng/chú thích, đổi tên biến cục bộ – không đổi hành vi) sau khi đã lọc CSS (lọc CSS đọc tên lớp trong script
+// từ bản gốc). 27/10: ru 16489 B gzip trên Node 22 > 16384 → còn ≈ 16 000 B, không cắt nội dung/tính năng, không nâng ngân sách.
+// render() giữ đồng bộ: mọi đoạn script của 15 trang được thu gọn sẵn một lần lúc nạp module (await cấp cao nhất, xem MINI bên dưới).
+const SCRIPT = /(<script(?: id="[\w-]+")?>)([\s\S]*?)(<\/script>)/g, MINI = new Map();
+export function render(lang) {
+  return renderPurged(lang).replace(SCRIPT, (all, a, code, b) => MINI.has(code) ? a + MINI.get(code) + b : all);
 }
 function renderFull(lang) {
   const c = copyOf(lang), rtl = lang === 'ar', url = pageUrl(lang), app = appHref(lang);
@@ -190,6 +198,12 @@ export const fileOf = l => l === 'vi' ? 'web/index.html' : `web/${l}/index.html`
 // Trang dùng token màu riêng (--card/--fg/--coral) → ánh xạ sang token của khối lsw dùng chung.
 export const render404 = html => html.replace(/<!--lsw-->[\s\S]*?<!--\/lsw-->/, () => `<!--lsw--><style>.top{position:absolute;top:12px;inset-inline-end:16px;--surface:var(--card);--text:var(--fg);--primary:var(--coral);--accent-soft:var(--line)}.top .lsw-m{display:block}${LSW_CSS}</style>
   <div class="top">${langSwitch({ lang: 'vi', label: 'Ngôn ngữ · Language' })}</div><script>${LSW_JS}</script><!--/lsw-->`);
+for (const l of LANGS) for (const [, , code] of renderPurged(l).matchAll(SCRIPT)) {
+  if (MINI.has(code) || !code.trim()) continue;
+  const r = await minify(code, { compress: { passes: 2 }, mangle: true, format: { comments: false } }); // không ép ascii: giữ chữ UTF-8 (gợi ý 15 ngôn ngữ)
+  MINI.set(code, r.code.replace(/<\/(script)/gi, '<\\/$1')); // không để chuỗi "</script" kết thúc thẻ sớm
+}
+
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').href) {
   const check = process.argv.includes('--check'), stale = [];
   for (const l of LANGS) {

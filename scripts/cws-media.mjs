@@ -155,7 +155,7 @@ await ctx.close(); srv.close();
 
 // ---- Thẻ chữ (PNG trong suốt hoặc nền thương hiệu) bằng Chromium thường
 const br = await chromium.launch(); const cp = await br.newPage({ viewport: { width: CW, height: CH }, deviceScaleFactor: 1 });
-const BG = `background:radial-gradient(1300px 700px at 92% -10%,rgba(255,176,84,.32),transparent 60%),radial-gradient(1000px 700px at -10% 110%,rgba(31,122,114,.6),transparent 60%),linear-gradient(160deg,#0B3233,#0F3D3E 45%,#123f40)`;
+const BG = `radial-gradient(1300px 700px at 92% -10%,rgba(255,176,84,.32),transparent 60%),radial-gradient(1000px 700px at -10% 110%,rgba(31,122,114,.6),transparent 60%),linear-gradient(160deg,#0B3233,#0F3D3E 45%,#123f40)`;
 const CSS = `*{box-sizing:border-box;margin:0}body{width:${CW}px;height:${CH}px;overflow:hidden;font-family:${FF};color:#fff;position:relative}em{font-style:normal;background:linear-gradient(90deg,#FFB054,#F2553B);-webkit-background-clip:text;background-clip:text;color:transparent}
 .brand{position:absolute;left:56px;top:40px;display:flex;align-items:center;gap:14px;font-weight:800;font-size:34px;letter-spacing:-.02em;background:rgba(11,50,51,.78);padding:10px 22px 10px 12px;border-radius:99px}.brand img{width:46px;height:46px;border-radius:12px}.brand b{color:#FFB054}
 .cap{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);white-space:nowrap;font-weight:800;font-size:64px;letter-spacing:-.02em;padding:18px 44px;border-radius:26px;background:rgba(11,50,51,.88);box-shadow:0 14px 40px rgba(0,0,0,.35);border:2px solid rgba(255,176,84,.45)}
@@ -200,10 +200,11 @@ fs.writeFileSync(path.join(TMP, 'list.txt'), parts.map(p => `file '${path.join(T
 const silent = path.join(TMP, 'silent.mp4');
 ff(['-f', 'concat', '-safe', '0', '-i', path.join(TMP, 'list.txt'), '-c', 'copy', silent]);
 const total = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', silent], { encoding: 'utf8' });
-// Nhạc nền tự tạo (hợp âm sin mềm, bản quyền của dự án) ở −20 dB
-const f = (hz, v) => `sin(2*PI*${hz}*t)*${v}`;
-ff(['-f', 'lavfi', '-i', `aevalsrc='(${f(220, .5)}+${f(277.18, .35)}+${f(329.63, .35)}+${f(440, .15)})*(0.75+0.25*sin(2*PI*0.2*t))':s=44100:d=${total.toFixed(2)}`,
-  '-i', silent, '-filter_complex', `[0:a]lowpass=f=900,volume=-20dB,afade=t=in:d=2,afade=t=out:st=${(total - 3).toFixed(2)}:d=3[a]`, '-map', '1:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', '-shortest', path.join(OUT, 'promo.mp4')]);
+// Nhạc nền: chỉ dùng bản có giấy phép rõ (brand/audio/promo-music.mp3, ghi nguồn trong docs/CWS-RULES.md §6); không có → tiếng lặng
+// (anh chủ thêm nhạc YouTube Audio Library trong YouTube Studio → Trình chỉnh sửa). Bỏ hợp âm sin tự tạo (khó chịu, 27/10).
+const MUSIC = 'brand/audio/promo-music.mp3', hasMusic = fs.existsSync(MUSIC);
+ff([...(hasMusic ? ['-stream_loop', '-1', '-i', MUSIC] : ['-f', 'lavfi', '-i', `anullsrc=r=44100:cl=stereo`]),
+  '-i', silent, '-filter_complex', `[0:a]volume=${hasMusic ? '-18dB' : '0dB'},afade=t=in:d=2,afade=t=out:st=${(total - 3).toFixed(2)}:d=3[a]`, '-map', '1:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k', '-shortest', '-movflags', '+faststart', '-shortest', path.join(OUT, 'promo.mp4')]);
 // Bản dọc/điện thoại < 30 MB: 1280×720 CRF cao hơn
 ff(['-i', path.join(OUT, 'promo.mp4'), '-vf', 'scale=1280:720:flags=lanczos', '-c:v', 'libx264', '-preset', 'slow', '-crf', '24', '-maxrate', '5M', '-bufsize', '10M', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', path.join(OUT, 'promo-phone.mp4')]);
 console.log('✓ promo', total.toFixed(1) + 's', (fs.statSync(path.join(OUT, 'promo.mp4')).size / 1048576).toFixed(1) + ' MB');
@@ -216,7 +217,7 @@ const SCSS = `*{box-sizing:border-box;margin:0}body{width:${SW}px;height:${SH}px
 h1{font-size:50px;line-height:1.07;font-weight:800;letter-spacing:-.03em;margin-top:22px}p{font-size:21px;line-height:1.5;color:rgba(255,255,255,.82);margin-top:20px}
 .win{position:absolute;right:44px;top:96px;width:720px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}.win img{display:block;width:100%}
 .bar{height:34px;background:#eef1f0;display:flex;align-items:center;gap:7px;padding:0 12px}.bar span{width:10px;height:10px;border-radius:50%;background:#ff5f57}.bar span:nth-child(2){background:#febc2e}.bar span:nth-child(3){background:#28c840}
-.pop{position:absolute;right:70px;top:80px;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.1)}.pop img{display:block;height:640px}`;
+.pop{position:absolute;right:44px;top:80px;max-width:720px;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.1)}.pop img{display:block;max-width:720px;max-height:640px;width:auto;height:auto}`;
 const b64 = f => 'data:image/png;base64,' + fs.readFileSync(path.join(TMP, f)).toString('base64');
 const win = f => `<div class="win"><div class="bar"><span></span><span></span><span></span></div><img src="${b64(f)}"></div>`;
 const SHOTS = [
@@ -237,6 +238,6 @@ await br.close();
 // contact sheet
 ff(['-i', path.join(OUT, 'promo.mp4'), '-vf', 'fps=1/4.5,scale=480:-1,tile=4x3:padding=6:color=black', '-frames:v', '1', '-update', '1', path.join(TMP, 'cs1.jpg')]);
 ff(['-i', path.join(OUT, 'shots', '%d.png'), '-vf', 'scale=480:-1,tile=3x2:padding=6:color=black', '-frames:v', '1', '-update', '1', path.join(TMP, 'cs2.jpg')]);
-ff(['-i', path.join(TMP, 'cs1.jpg'), '-i', path.join(TMP, 'cs2.jpg'), '-filter_complex', '[1:v]scale=iw:-1[b];[0:v][b]vstack=inputs=2:shortest=0', '-q:v', '3', path.join(OUT, 'contact-sheet.jpg')]);
+ff(['-i', path.join(TMP, 'cs1.jpg'), '-i', path.join(TMP, 'cs2.jpg'), '-filter_complex', '[0:v]scale=1920:-2[a];[1:v]scale=1920:-2[b];[a][b]vstack=inputs=2', '-q:v', '3', path.join(OUT, 'contact-sheet.jpg')]);
 for (const f of fs.readdirSync(path.join(OUT, 'shots'))) console.log(f, (fs.statSync(path.join(OUT, 'shots', f)).size / 1024).toFixed(0) + ' KB');
 console.log('✓ xong', OUT);
