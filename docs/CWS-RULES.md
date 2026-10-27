@@ -52,3 +52,10 @@ Lỗi thường gặp: `invalid_grant` ⇒ refresh token hết hạn/bị thu h�
 - Không mở trang cần đăng nhập (Apple App Store Connect, Google, ngân hàng, email…) bằng trình duyệt/tài khoản thật của anh Quyền để kiểm thử hay chụp ảnh: tự điều hướng có thể làm phiên đăng nhập bị đăng xuất/khóa (đã xảy ra với App Store Connect 16/10/2026).
 - Cần bố cục giống trang thật → dựng **trang mẫu tĩnh** trong `scripts/test/fixtures/` (chữ tự viết, không chép nội dung/logo/CSS của bên khác) và kiểm bằng `scripts/test/ext-e2e.mjs` trên CI (vd. `fixtures/notice-card.html`: thẻ thông báo sáng/tối, CSS reset mạnh).
 - Trang công khai không đăng nhập (Wikipedia, BBC, GitHub…) thì được dùng trong ext-e2e.
+
+## 6. Video giới thiệu & ảnh cửa hàng (media) – bước chủ sở hữu làm
+> TL;DR: Actions → "CWS media" tạo `promo.mp4` (1080p), `promo-phone.mp4`, `shots/1-5.png` (1280×800), `tile.png` (440×280) từ add-on thật (`scripts/cws-media.mjs`); anh Quyền tự đăng YouTube + thay trên dashboard, Claude không đăng hộ.
+1. Actions → **CWS media** → Run workflow → tải artifact `cws-media` (hoặc xem bản đã chép vào `out/cws-media/`).
+2. **YouTube** (kênh Lexkite) → Create → Upload `promo.mp4`; Visibility **Unlisted** hoặc Public; không đánh dấu "made for kids"; tiêu đề "Lexkite – Free English dictionary & flashcards for Chrome"; thumbnail = `shots/1.png` cắt 16:9; Category Education. Chép URL video.
+3. **CWS dashboard** → item Lexkite → **Store listing** → mục *Global promo video* dán URL YouTube; *Screenshots* xoá ảnh cũ rồi tải `shots/1.png`…`5.png` (tối đa 5, 1280×800, PNG/JPEG ≤ 5 MB mỗi ảnh); *Small promo tile* tải `tile.png` (440×280). Bấm **Save draft** rồi **Submit for review** (mô tả/ảnh/video không đổi qua API).
+4. `promo-phone.mp4` (<30 MB) dùng để đăng mạng xã hội/Shorts, không cần cho cửa hàng.
