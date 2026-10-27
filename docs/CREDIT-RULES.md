@@ -20,4 +20,9 @@
 8. Ghi ledger: credit, kết quả đạt/hỏng, lý do hỏng, bài học → nếu là bài học chung thì thêm 1 dòng vào `docs/METHODS.md`.
 9. Soát bằng mắt người (tờ ảnh ghép) mọi kết quả trước khi đưa vào bài hoặc gửi chủ.
 
+## 4. Cách gọi Kling (một chỗ duy nhất)
+- Công cụ `kling` = gói chính thức `@klingai/cli-global` (client MCP mỏng), đăng nhập tài khoản Kling của chủ → trừ **credit tài khoản**, KHÔNG phải API trả phí riêng (api.klingai.com). Số dư: `kling account` → `availableRemainCredits`.
+- Env `KLING_HOME=~/.config/kling NODE_USE_ENV_PROXY=1`; ảnh tham chiếu đưa lên lexkite-media rồi dùng URL raw (tải file thẳng bị chặn).
+- Luôn qua bộ bọc `scripts/video/bank3d/`: `check_first.py` (ảnh khung đầu) → `send2.sh` (dry-run, sàn `CAPMIN`, ledger, câu khoá vị trí) → `qc2.py` + tờ ảnh.
+
 Liên quan: `docs/VIDEO.md` (hiện hành), `docs/archive/CINE-SCENE-STANDARD.md` (khuôn cảnh 1 lượt, soát tư thế §3), `docs/MEDIA-QA-RUBRIC.md` (chỉ dùng ≥ 90).
