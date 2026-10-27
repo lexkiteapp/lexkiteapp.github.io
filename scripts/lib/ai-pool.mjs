@@ -104,6 +104,8 @@ const LEXAI_MODELS = {
   judge: ['gemini-3.5-flash', 'gemini-3.6-flash', 'gemini-3-flash-preview', 'gemma-3-27b-it'],
 };
 const CF2_MODELS = ['@cf/openai/gpt-oss-120b', '@cf/meta/llama-3.3-70b-instruct-fp8-fast'];
+// giám khảo C (27/10, chủ chọn đồng thuận 3 giám khảo cho kho từ): họ THỨ BA trên kho CF – khác gpt-oss và llama
+export const CF2_JUDGE_C = ['@cf/mistralai/mistral-small-3.1-24b-instruct', '@cf/qwen/qwq-32b'];
 const CF2_VISION = '@cf/meta/llama-4-scout-17b-16e-instruct';
 // neuron/token ước lượng (bảng giá Workers AI) – để trừ ngân sách tài khoản 2
 const NEURON = { 'gpt-oss-120b': { in: 31818 / 1e6, out: 68182 / 1e6 }, 'llama-3.3-70b': { in: 26668 / 1e6, out: 204805 / 1e6 }, 'llama-4-scout': { in: 24545 / 1e6, out: 77273 / 1e6 } };
@@ -196,7 +198,7 @@ export function createPool(opts = {}) {
   }
 
   /** sys theo vai: giám khảo B nhận thêm JUDGE_B_SYS (lời nhắn khác A) */
-  const sysFor = (p, req) => (req && req._slot === 'B' && TASKS[req.mode] && TASKS[req.mode].kind === 'judge' ? JUDGE_B_SYS : '') + p.sys;
+  const sysFor = (p, req) => (req && (req._slot === 'B' || req._slot === 'C') && TASKS[req.mode] && TASKS[req.mode].kind === 'judge' ? JUDGE_B_SYS : '') + p.sys;
   const CF_TEXT = cfTextOn(env);
   // ---------- tuyến ----------
   const R = {};
@@ -295,7 +297,7 @@ export function createPool(opts = {}) {
     throw new PoolErr('route', CF2.length ? `mọi tài khoản kho CF bị từ chối (${CF2.length})` : 'chưa có CF_POOL/CF_AI_TOKEN_2', untilUtcMidnight(now()));
   }
   R.cf2 = {
-    ok: () => CF2.length > 0 && budget.cf2 > 0, models: () => CF2_MODELS,
+    ok: () => CF2.length > 0 && budget.cf2 > 0, models: (role, slot) => (slot === 'C' ? CF2_JUDGE_C : CF2_MODELS),
     async call(model, req) {
       if (used.cf2 >= budget.cf2) throw new PoolErr('budget', 'neuron tài khoản 2 (phần cấp điều phối) đã hết');
       // pilot 11 (26/10): gpt-oss-120b tính cả suy luận vào max_tokens → lxjudge 10 mục × 14 ngôn ngữ bị cắt ở 4096 = JSON hỏng (120/120 lượt giám khảo B).

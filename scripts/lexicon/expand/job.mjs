@@ -98,8 +98,11 @@ if (DRY) { console.log(JSON.stringify(items.slice(0, 3).map(x => ({ ...strip(x),
 // pilot 9: giám khảo B (họ khác – Llama CF) hay nghỉ 1 phút → 35/36 lô lxsrc bỏ qua. Chờ và hỏi lại CHỈ giám khảo B (vẫn bắt buộc khác họ A), tối đa 5 lần.
 async function pairWait(req) { let { a, b } = await AI.judgePair(req);
   for (let i = 0; a && !b && i < 5; i++) { await new Promise(r => setTimeout(r, 70e3)); b = await AI.judge(req, { exclude: [a.fam] }); stat.pairWait = (stat.pairWait || 0) + 1; }
-  return { a, b }; }
-const D = {}, S = {}, X = {}, T = {}, JA = {}, JB = {}; let mGen = '', mA = '', mB = ''; const GM = {};
+  // ĐỒNG THUẬN 3 GIÁM KHẢO (chủ 27/10, soát pilot 2: ~9/50 sai qua 2 giám khảo): C = họ thứ ba (mistral/qwen trên kho CF), lời nhắn soát đối nghịch như B.
+  // Thiếu C = bỏ qua trung tính (hạ tầng, lượt sau làm lại) – không bao giờ nhận với 2 giám khảo.
+  let c = null; if (a && b) { c = await AI.judge(req, { chain: ['cf2'], slot: 'C', exclude: [a.fam, b.fam], excludeModels: [a.model, b.model] }); if (!c) stat.judgeCMiss = (stat.judgeCMiss || 0) + 1; }
+  return { a, b, c }; }
+const D = {}, S = {}, X = {}, T = {}, JA = {}, JB = {}, JC = {}; let mGen = '', mA = '', mB = ''; const GM = {};
 // 1. định nghĩa: viết lại gloss
 await pmap(chunks(items, 10), 8, async ch => { const r = await call('lxdef', ch.map(strip)); for (const x of ch) callOk.set(x.k, !!r); if (r) { mGen = r.model; for (const x of ch) if (r.out[x.k]) { D[x.k] = r.out[x.k]; GM[x.k] = r.model; } } });
 // 2. ứng viên người viết + giám khảo nguồn (2 họ)
@@ -110,14 +113,18 @@ const live = items.filter(x => D[x.k] && D[x.k].keep !== false && D[x.k].def);
 async function srcPass(list) {
 await pmap(chunks(list, 10), 6, async ch => {
   const req = { mode: 'lxsrc', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, cand: x._cand.map(c => c.t), cols: x._cols, ts: x._trg.map(g => g.g) })) };
-  const { a, b } = await pairWait(req);
-  if (!a || !b) return; for (const x of ch) if (a.out[x.k] && b.out[x.k]) S[x.k] = { a: a.out[x.k], b: b.out[x.k] }; });
+  const { a, b, c } = await pairWait(req);
+  if (!a || !b || !c) return; for (const x of ch) if (a.out[x.k] && b.out[x.k] && c.out[x.k]) S[x.k] = { a: a.out[x.k], b: b.out[x.k], c: c.out[x.k] }; });
 for (const x of list) { const s = S[x.k]; if (!s) continue;
   const A = new Set(idx(s.a.ex)), bagOf = t => new Set(t.toLowerCase().match(/[a-z']+/g) || []), pick = [];
-  for (const c of x._cand.filter((c, i) => A.has(i) && idx(s.b.ex).includes(i)).sort((p, q) => p.t.split(' ').length - q.t.split(' ').length)) { const b = bagOf(c.t); if (pick.length < 2 && !pick.some(p => { const q = bagOf(p.t); return [...b].filter(y => q.has(y)).length / new Set([...b, ...q]).size >= 0.5; })) pick.push(c); }
-  const col = (Array.isArray(s.a.col) ? s.a.col : []).filter(c => x._cols.includes(c) && (s.b.col || []).includes(c)).slice(0, 3);
-  const ti = Number(s.a.ts), grp = Number.isInteger(ti) && ti >= 0 && ti === Number(s.b.ts) ? x._trg[ti] : null;
-  X[x.k] = { defOk: s.a.def === 'same' && s.b.def === 'same', defWhy: [s.a, s.b].filter(j => j.def !== 'same').map(j => j.f || 'changed').join(' / '), ex: pick, col, tr: grp ? grp.tr : {}, tg: grp ? grp.g : '' }; }
+  for (const c of x._cand.filter((c, i) => A.has(i) && idx(s.b.ex).includes(i) && idx(s.c.ex).includes(i)).sort((p, q) => p.t.split(' ').length - q.t.split(' ').length)) { const b = bagOf(c.t); if (pick.length < 2 && !pick.some(p => { const q = bagOf(p.t); return [...b].filter(y => q.has(y)).length / new Set([...b, ...q]).size >= 0.5; })) pick.push(c); }
+  const col = (Array.isArray(s.a.col) ? s.a.col : []).filter(c => x._cols.includes(c) && (s.b.col || []).includes(c) && (s.c.col || []).includes(c)).slice(0, 3);
+  // bảng dịch Wiktionary CHỈ khi khớp nghĩa CHẮC CHẮN (chủ 27/10): cả 3 giám khảo cùng chỉ số + nhãn bảng chung ≥ 1 từ nội dung với gloss/def/lemma
+  // (soát pilot 2: idol "representation of anything revered" → vi "thần tượng" cho nghĩa TƯỢNG thờ). Không chắc → không dùng bảng, ngôn ngữ đó do lxtr + 3 giám khảo.
+  const ti = Number(s.a.ts), same3 = Number.isInteger(ti) && ti >= 0 && ti === Number(s.b.ts) && ti === Number(s.c.ts);
+  const lab = same3 && x._trg[ti] ? x._trg[ti].g : '', labOk = lab && ov(CW(lab), CW(x.gloss + ' ' + D[x.k].def + ' ' + x.lemmas.join(' '))) >= 1;
+  const grp = same3 && labOk ? x._trg[ti] : null; if (same3 && !labOk) stat.tsLabelReject = (stat.tsLabelReject || 0) + 1;
+  X[x.k] = { defOk: s.a.def === 'same' && s.b.def === 'same' && s.c.def === 'same', defWhy: [s.a, s.b, s.c].filter(j => j.def !== 'same').map(j => j.f || 'changed').join(' / '), ex: pick, col, tr: grp ? grp.tr : {}, tg: grp ? grp.g : '' }; }
 }
 const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger);
 const cov = { def: { wordnet: 0 }, ex: { tatoeba: 0, wiktionary: 0, ai: 0 }, tr: { wiktionary: 0, ai: 0 }, vi: { wiktionary: 0, ai: 0 }, col: { src: 0, none: 0 }, syn: { wordnet: 0, none: 0 }, cefr: {} };
@@ -167,9 +174,9 @@ const forJudge = x => ({ k: x.k, w: x.w, pos: G[x.k].pos || x.pos, gloss: x.glos
 const judged = kept.filter(x => T[x.k] && X[x.k] && X[x.k].defOk);
 const JK = {}; // k → { a: '<họ>:<mô hình>', b }
 await pmap(chunks(judged, 10), 6, async ch => {
-  const { a, b } = await pairWait({ mode: 'lxjudge', items: ch.map(forJudge) });
-  if (!a || !b) return; // thiếu giám khảo thứ 2 khác họ → KHÔNG ghi điểm nào (bỏ qua trung tính)
-  for (const x of ch) if (a.out[x.k] && b.out[x.k]) { JA[x.k] = a.out[x.k]; JB[x.k] = b.out[x.k]; JK[x.k] = { a: judgeKey(a.model), b: judgeKey(b.model) }; }
+  const { a, b, c } = await pairWait({ mode: 'lxjudge', items: ch.map(forJudge) });
+  if (!a || !b || !c) return; // thiếu giám khảo khác họ (A, B hoặc C) → KHÔNG ghi điểm nào (bỏ qua trung tính)
+  for (const x of ch) if (a.out[x.k] && b.out[x.k] && c.out[x.k]) { JA[x.k] = a.out[x.k]; JB[x.k] = b.out[x.k]; JC[x.k] = c.out[x.k]; JK[x.k] = { a: judgeKey(a.model), b: judgeKey(b.model), c: judgeKey(c.model) }; }
   mA = a.model; mB = b.model;
 });
 
@@ -188,16 +195,17 @@ for (const x of items) {
   if (ent && X[x.k] && !X[x.k].defOk) ent.defChanged = X[x.k].defWhy || 'changed';
   if (ent && g.pos && g.pos !== x.pos) ent.posDrift = g.pos; // khóa nghĩa: từ loại cố định theo nghĩa WordNet đã chọn
   if (ent && x._ipa.posBad) ent.ipaPos = false; // heteronym: không có IPA Anh khớp từ loại
-  if (ent && JK[x.k]) { const a = JA[x.k], b = JB[x.k]; ent.qa = { j: { ...(a ? { [JK[x.k].a]: +a.s } : {}), ...(b ? { [JK[x.k].b]: +b.s } : {}) }, f: [a && a.f, b && b.f].filter(Boolean), tr: {}, bt: null };
-    for (const l of LANGS) ent.qa.tr[l] = [a && a.tr && +a.tr[l], b && b.tr && +b.tr[l]].filter(Number.isFinite);
-    ent.qa.btw = Object.fromEntries(LANGS.map(l => [l, [a && a.bt && a.bt[l], b && b.bt && b.bt[l]].filter(Boolean)]));
+  if (ent && JK[x.k]) { const a = JA[x.k], b = JB[x.k], c = JC[x.k], J3 = [a, b, c];
+    ent.qa = { n: 3, j: { ...(a ? { [JK[x.k].a]: +a.s } : {}), ...(b ? { [JK[x.k].b]: +b.s } : {}), ...(c ? { [JK[x.k].c]: +c.s } : {}) }, f: J3.map(j => j && j.f).filter(Boolean), tr: {}, bt: null };
+    for (const l of LANGS) ent.qa.tr[l] = J3.map(j => j && j.tr && +j.tr[l]).filter(Number.isFinite);
+    ent.qa.btw = Object.fromEntries(LANGS.map(l => [l, J3.map(j => j && j.bt && j.bt[l]).filter(Boolean)]));
     // khóa nghĩa · CEFR độc lập · cờ phiên âm/khác từ loại · vi đối chiếu Wiktionary (lib.mjs gateEntry)
-    ent.qa.sense = [a, b].map(j => j && (j.sense === true || /^\s*yes/i.test(String(j.sense))) ? 'yes' : String((j && j.sense) ?? 'missing').toLowerCase());
-    ent.qa.cefrJ = [a, b].map(j => String((j && j.cefr) || '').toUpperCase());
-    ent.qa.bad = {}; for (const j of [a, b]) for (const [l, v] of Object.entries((j && j.bad) || {})) if (LANGS.includes(l) && /translit|pos/.test(v)) ent.qa.bad[l] = String(v);
-    if (viAlt(x)) { const vv = [a, b].map(j => String((j && j.vi) || 'unsure').toLowerCase()), fx = [a, b].map(j => String((j && j.vi_fix) || '').trim()), wk = (VIW[x.k] || []).map(v => v.w);
+    ent.qa.sense = J3.map(j => j && (j.sense === true || /^\s*yes/i.test(String(j.sense))) ? 'yes' : String((j && j.sense) ?? 'missing').toLowerCase());
+    ent.qa.cefrJ = J3.map(j => String((j && j.cefr) || '').toUpperCase());
+    ent.qa.bad = {}; for (const j of J3) for (const [l, v] of Object.entries((j && j.bad) || {})) if (LANGS.includes(l) && /translit|pos/.test(v)) ent.qa.bad[l] = String(v);
+    if (viAlt(x)) { const vv = J3.map(j => String((j && j.vi) || 'unsure').toLowerCase()), fx = J3.map(j => String((j && j.vi_fix) || '').trim()), wk = (VIW[x.k] || []).map(v => v.w);
       ent.qa.vi = vv; ent.qa.viWikt = wk;
-      if (vv.every(v => v === 'alt') && fx[0] && wk.includes(fx[0]) && (fx[1] === fx[0] || wk.includes(fx[1]))) { ent.qa.viGen = ent.vi; ent.vi = [...new Set(fx.filter(f => wk.includes(f)))].join('; '); ent.qa.vi = ['fixed', 'fixed']; } } }
+      if (vv.every(v => v === 'alt') && fx[0] && wk.includes(fx[0]) && fx.every(f => f === fx[0] || wk.includes(f))) { ent.qa.viGen = ent.vi; ent.vi = [...new Set(fx.filter(f => wk.includes(f)))].join('; '); ent.qa.vi = vv.map(() => 'fixed'); } } }
   if (ent) ent.tp = assignTopics(ent); // chủ đề: miền → chủ đề → tiểu chủ đề (content/lexicon/topics.json)
   // hạ tầng (không sinh được / không dịch được / thiếu 2 giám khảo) ≠ lỗi nội dung → bỏ qua, lượt sau làm lại
   if (ent && ent.defChanged) { /* nội dung: viết lại đổi nghĩa → cổng */ } else if ((ent && g.keep !== false && g.def && (!T[x.k] || !JK[x.k] || ent.ex.length !== 2)) || !g) { // !g: gọi lỗi HOẶC mô hình bỏ sót mục → lượt sau làm lại (không đốt từ vào hàng duyệt)
