@@ -329,6 +329,143 @@
     "slow_line": "f_s2"
    },
    "note": "Natural US speech: /ˈkʌmftərbəl/ (COMF-ter-ble, 3 beats, most common); the careful 4-syllable /ˈkʌmfərtəbl/ (app dictionary) also exists, so the script says 'most Americans'. 'com-for-TA-ble' is a learner error. 'vegetable' /ˈvedʒtəbl/ = 3 beats."
+  },
+  "sts_040ec72a": {
+   "template": "mistake",
+   "hook": "✗ “I apologize you for the delay.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch, generated from the gold bank by gold2v9)",
+   "script": {
+    "m_h": "Stop saying this.",
+    "m_w": "I apologize you for the delay.",
+    "m_k": "Just say: I apologize to you for the delay.",
+    "m_y": "Apologize to a person, for a reason.",
+    "m_x": "He apologized to his boss.",
+    "m_t": "Most people just say: sorry for the delay!",
+    "m_q": "Quick quiz! She apologized blank her friend.",
+    "m_q2": "To, or nothing?",
+    "m_a": "To! She apologized to her friend.",
+    "m_sh": "Send this to a friend who says it!",
+    "m_c": "Save this, and check your grammar on lexkite.com."
+   }
+  },
+  "sod_7432d6cb": {
+   "template": "pair",
+   "hook": "win or beat?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch, generated from the gold bank by gold2v9)",
+   "script": {
+    "p_h": "Win or beat? Quick lesson.",
+    "p_y": "You beat people. You win games.",
+    "p_w": "Not: We won the other team.",
+    "p_k": "Say: We beat the other team.",
+    "p_t": "You win a prize, but beat a player!",
+    "p_q": "Quiz! Our team blank them 3 to 1.",
+    "p_q2": "Beat, or won?",
+    "p_a": "Beat! Our team beat them 3 to 1.",
+    "p_sh": "Send this to a friend!",
+    "p_c": "Save this, and compare tricky words on lexkite.com."
+   }
+  },
+  "t7_usuk_trash_3d": {
+   "template": "pair",
+   "hook": "🇺🇸 or 🇬🇧? / trash · rubbish",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "u_h": "US or UK? Which word do you use?",
+    "u_s": "You're cleaning up. What do you call this stuff?",
+    "u_us": "In America, it's trash.",
+    "u_uk": "In Britain, it's rubbish. Same stuff!",
+    "u_tw": "Careful! In Britain, rubbish also means nonsense.",
+    "u_x": "A British friend says: That film was rubbish!",
+    "u_q": "Quick quiz! You're in London. What do you call it?",
+    "u_a": "Rubbish! Just like a real Londoner.",
+    "u_sh": "Send this to a friend who loves London!",
+    "u_c": "Save this, and compare tricky words on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true
+   },
+   "note": "US trash = UK rubbish (waste), /træʃ/ vs /ˈrʌbɪʃ/. In Britain, 'rubbish' is also informal for nonsense / very bad ('That film was rubbish!') – true. Quiz: in London say rubbish."
+  },
+  "t6_pron_competition_3d": {
+   "template": "pron",
+   "hook": "🔊 competition / COM·pe·ti·tion✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "f_h": "You're probably saying this word wrong.",
+    "f_w": "Not com, pe, tish, un.",
+    "f_m": "Many learners stress the first.",
+    "f_s": "Slowly:",
+    "f_s2": "competition.",
+    "f_r": "Say four beats. Stress the third one.",
+    "f_n": "Normal speed: competition.",
+    "f_y": "Your turn. Repeat after me: competition.",
+    "f_e": "She won the dance competition.",
+    "f_why": "Rule: stress the beat right before the shun sound.",
+    "f_b": "Same with information and education!",
+    "f_sh": "Send this to a friend who says it wrong!",
+    "f_c": "Save this, and practice pronunciation on lexkite.com."
+   },
+   "promise": {
+    "stress": "TI",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "Gold bank item sb_014482e2. competition /ˌkɑːmpəˈtɪʃən/ = 4 syllables, stress on the 3rd (com-pe-TI-tion); '-tion' words stress the syllable before -tion; same for information, education. Example sentence from the bank."
+  },
+  "t2_words5_verybad": {
+   "template": "words5",
+   "hook": "“very bad”😖 / Try these 5",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "w_h": "Stop saying very bad all the time. Try these!",
+    "w_s": "Your food arrives cold. Very bad? Too boring!",
+    "w_1": "One: terrible. This is terrible!",
+    "w_2": "Two: awful. What an awful day!",
+    "w_3": "Three: horrible. What a horrible smell!",
+    "w_4": "Four: dreadful. A dreadful movie!",
+    "w_5": "Five: disgusting. For taste or smell.",
+    "w_r": "Which one will you use today? Tell me in the comments!",
+    "w_sh": "Send this to a friend who says very bad!",
+    "w_c": "Save this, and review your words on lexkite.com."
+   },
+   "promise": {
+    "tags": 5
+   },
+   "note": "'Very bad' is correct but plain; terrible, awful, horrible, dreadful (US/UK standard) and disgusting (taste/smell) are natural alternatives. Hook says 'don't just say' – not a false error claim."
+  },
+  "t3_guess_airport": {
+   "template": "guess",
+   "hook": "? Guess 3 / airport words✈️",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 27/10/2026: ep2 v14 batch; quiz/save/rule fixed before render)",
+   "script": {
+    "g_h": "Guess these three airport words. Three seconds each!",
+    "g_1": "Number one. You buy it, then you can travel.",
+    "g_1a": "Ticket! Where is my ticket?",
+    "g_2": "Number two. It flies you across the ocean.",
+    "g_2a": "Airplane! In the UK, they say aeroplane.",
+    "g_3": "Number three. This person flies the airplane.",
+    "g_3a": "Pilot! The pilot says hello.",
+    "g_r": "How many did you get? Tell me in the comments!",
+    "g_s": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "count": true,
+    "reveal": "pilot"
+   },
+   "note": "Three picture clues from content/lexicon/img.json (ticket#n, airplane#n, pilot#n – all judged icon entries). US airplane = UK aeroplane – true."
   }
  }
 }

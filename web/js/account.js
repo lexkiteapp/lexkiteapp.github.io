@@ -11,10 +11,10 @@
 .acct-back{position:fixed;inset:0;z-index:69;background:rgba(10,10,30,.45)}
 .acct-head{display:flex;gap:.7rem;align-items:center;padding:.4rem .5rem .6rem}.acct-head b,.acct-head .small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:210px}
 .acct-st{padding:.5rem .6rem;border-radius:10px;background:var(--surface-2);margin:0 .2rem .4rem}
-.acct-pop [role=menuitem]{display:flex;gap:.6rem;align-items:center;width:100%;min-height:44px;padding:.55rem .7rem;border:0;border-radius:10px;background:none;color:var(--text);font:inherit;font-weight:600;text-align:start;cursor:pointer;text-decoration:none}
+.acct-pop [role=menuitem]{display:flex;gap:.6rem;align-items:center;justify-content:flex-start;width:100%;min-height:44px;padding:.55rem .7rem;border:0;border-radius:10px;background:none;color:var(--text);font:inherit;font-weight:600;text-align:start;cursor:pointer;text-decoration:none}
 .acct-pop [role=menuitem]:hover,.acct-pop [role=menuitem]:focus-visible{background:var(--primary-soft);outline:2px solid var(--primary);outline-offset:-2px}
 .acct-pop [role=separator]{height:1px;background:var(--line);margin:.35rem .2rem}
-.acct-pop .acct-out{color:var(--primary)}
+.acct-pop .acct-out{color:var(--primary)}.acct-pop [role=menuitem] .i{flex:none;width:1.2em;height:1.2em;color:var(--muted)}.acct-pop .acct-out .i{color:inherit}
 .acct-ok{display:flex;gap:.5rem;justify-content:flex-end;flex-wrap:wrap;margin-top:1rem}`;
   const st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
 
@@ -24,11 +24,11 @@
     return `<div class="acct-head"><span class="avatar">${Sync.av(u)}</span><div class="grow"><b title="${esc(u.displayName || '')}">${esc(Sync.nice ? Sync.nice(u.displayName || t('Bạn')) : u.displayName || t('Bạn'))}</b><span class="small muted" dir="ltr" title="${esc(u.email || '')}">${esc(u.email || '')}</span></div></div>
       <div class="acct-st small" role="status">${Sync.stText() || t('Dữ liệu học được tự động sao lưu và đồng bộ giữa các thiết bị.')}</div>
       <div role="menu" id="acctMenu" aria-label="${esc(t('Tài khoản'))}">
-        <button type="button" role="menuitem" data-a="sync"><span aria-hidden="true">🔄</span>${err ? t('Thử lại') : t('Đồng bộ ngay')}</button>
-        <a role="menuitem" href="#/me"><span aria-hidden="true">👤</span>${t('Hồ sơ')}</a>
-        <a role="menuitem" href="#/settings"><span aria-hidden="true">⚙️</span>${t('Cài đặt')}</a>
+        <button type="button" role="menuitem" data-a="sync">${UI.icon('refresh-cw')}${err ? t('Thử lại') : t('Đồng bộ ngay')}</button>
+        <a role="menuitem" href="#/me">${UI.icon('user')}${t('Hồ sơ')}</a>
+        <a role="menuitem" href="#/settings">${UI.icon('settings')}${t('Cài đặt')}</a>
         <div role="separator"></div>
-        <button type="button" role="menuitem" data-a="out" class="acct-out"><span aria-hidden="true">↪</span>${t('Đăng xuất')}</button>
+        <button type="button" role="menuitem" data-a="out" class="acct-out">${UI.icon('log-out')}${t('Đăng xuất')}</button>
       </div>`;
   }
   function place() {
