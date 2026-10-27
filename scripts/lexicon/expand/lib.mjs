@@ -50,6 +50,7 @@ export function defPosOk(def, pos) {
   if (pos === 'n') return !/^to /.test(d);
   return true;
 }
+export const SENSITIVE = /\b(muslims?|islam(ic|ists?)?|jews?|jewish|christians?|christianity|hindus?|buddhists?|catholics?|protestants?|atheists?|gays?|lesbians?|homosexuals?|transgender|blacks|whites|negro(es)?|arabs?|immigrants?|refugees?|terrorists?)\b/i;
 export function gateEntry(e, { keep } = {}) {
   const why = [];
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
@@ -66,6 +67,10 @@ export function gateEntry(e, { keep } = {}) {
   else if ((e.cefrSrc || 'freq') === 'freq' && Math.abs(CE.indexOf(e.level) - CE.indexOf(e.cefrF || e.level)) > 2) why.push('cefr: lệch tần suất > 2 bậc');
   if (!e.vi || !VI.test(e.vi) && !/[àáâãèéêìíòóôõùúýđ]/i.test(e.vi)) why.push('dịch vi: không phải tiếng Việt');
   const a = agree(e.qa); if (!a.ok) why.push('giám khảo: ' + a.why);
+  // pilot 20261027 (soát tay 7/50 sai): giám khảo đã NÊU lỗi cụ thể ("Vietnamese translation incorrect", "synonym … unrelated") mà điểm vẫn 4 → mục lọt. Có lý do = có lỗi → hàng duyệt.
+  const fl = (Array.isArray(e.qa.f) ? e.qa.f : [e.qa.f]).filter(x => x && String(x).trim()); if (fl.length) why.push('giám khảo nêu lỗi: ' + fl.join(' · ').slice(0, 120));
+  // ví dụ cho người học tuổi teen: không nhắc nhóm tôn giáo/sắc tộc/xu hướng (pilot 20261027: categorize "…all Muslims as murderers")
+  if (Array.isArray(e.ex) && e.ex.some(x => SENSITIVE.test(x))) why.push('ví dụ: nhắc nhóm tôn giáo/sắc tộc – không hợp người học teen');
   // KHÓA NGHĨA (pilot 7: prop/tweet lệch nghĩa): cả 2 giám khảo phải trả lời "yes" – thiếu = trượt
   if (Array.isArray(e.qa.sense) && !(e.qa.sense.length >= 2 && e.qa.sense.every(x => x === 'yes'))) why.push('nghĩa: ví dụ/dịch không đúng nghĩa khóa (' + e.qa.sense.join('/') + ')');
   if (e.posDrift) why.push('nghĩa: đổi từ loại ' + e.pos + '→' + e.posDrift);

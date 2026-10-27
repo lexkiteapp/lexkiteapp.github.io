@@ -1,6 +1,173 @@
 {
- "_note": "Owner-approved episodes = production standard (27/10/2026: 6 series ep1, raw host, speech-gated talk/listen cuts, layout v12 lesson/note cards, IPA, qc incl. body_clear). Recipe-first: spec + reviewed verdict + engine commit re-render the same video; mp4 sha256 for identity.",
+ "_note": "Owner-approved episodes = production standard (27/10/2026 v14-board: 3D hosts Carlos/Ama only, right-third medium shot, lesson written on the whiteboard with lit marker ink, plate captions, end card FREE + QR, mood-matched clips with caps, 33 qc gates). Recipe-first: spec + engine commit re-render the same video; phone mp4 sha256 for identity. Earlier standards kept under \"superseded\".",
  "approved": [
+  {
+   "id": "t7_usuk_cookie_3d",
+   "series": "US or UK?",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/usuk3d.json",
+   "teacher": "carlos",
+   "clips": [
+    "c05_carlos2",
+    "c05t2_carlos2_present",
+    "c05e1_carlos2_excited",
+    "c05t3_carlos2_talk3",
+    "c05e2_carlos2_question",
+    "c05e3_carlos2_wow"
+   ],
+   "listen": [
+    "c05l_carlos2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board (lesson written on the whiteboard, lit marker ink, plate captions, end card FREE + QR 300)",
+   "plan": "speech-gated + mood-matched clips (excited 1 / wow 1 / question 2 cap)",
+   "engine_commit": "27b8d6299",
+   "ci_run": 40497427882,
+   "qc": "33/33 gates",
+   "approved": "2026-10-27",
+   "phone_mp4_sha256": "0ea282bba9f291a1d338453101d525560a105464d42d8256428d596c97e70b6d",
+   "phone_mp4": "out/news/v14-board/usuk3d.mp4",
+   "owner_note": "Duyệt 6 tập 3D v14 viết lên bảng. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t4_pair_borrow_lend_3d",
+   "series": "Same or Different?",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/pair3d.json",
+   "teacher": "carlos",
+   "clips": [
+    "c05_carlos2",
+    "c05t2_carlos2_present",
+    "c05e1_carlos2_excited",
+    "c05t3_carlos2_talk3",
+    "c05e2_carlos2_question",
+    "c05e3_carlos2_wow"
+   ],
+   "listen": [
+    "c05l_carlos2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board (lesson written on the whiteboard, lit marker ink, plate captions, end card FREE + QR 300)",
+   "plan": "speech-gated + mood-matched clips (excited 1 / wow 1 / question 2 cap)",
+   "engine_commit": "27b8d6299",
+   "ci_run": 40497427882,
+   "qc": "33/33 gates",
+   "approved": "2026-10-27",
+   "phone_mp4_sha256": "f86dff1a69395519605d7100c758b776a132cb64613d7f017bf0ffea80454bef",
+   "phone_mp4": "out/news/v14-board/pair3d.mp4",
+   "owner_note": "Duyệt 6 tập 3D v14 viết lên bảng. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t3_guess_elevator",
+   "series": "Guess the Word",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/guess.json",
+   "teacher": "carlos",
+   "clips": [
+    "c05_carlos2",
+    "c05t2_carlos2_present",
+    "c05e1_carlos2_excited",
+    "c05t3_carlos2_talk3",
+    "c05e2_carlos2_question",
+    "c05e3_carlos2_wow"
+   ],
+   "listen": [
+    "c05l_carlos2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board (lesson written on the whiteboard, lit marker ink, plate captions, end card FREE + QR 300)",
+   "plan": "speech-gated + mood-matched clips (excited 1 / wow 1 / question 2 cap)",
+   "engine_commit": "27b8d6299",
+   "ci_run": 40497427882,
+   "qc": "33/33 gates",
+   "approved": "2026-10-27",
+   "phone_mp4_sha256": "e3c79ef52bf31dec14f226242288a87ee52e71dd45cdc42c5c38c7776a00a56f",
+   "phone_mp4": "out/news/v14-board/guess.mp4",
+   "owner_note": "Duyệt 6 tập 3D v14 viết lên bảng. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t6_pron_comfortable_3d",
+   "series": "Where's the Stress?",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/pron3d.json",
+   "teacher": "ama",
+   "clips": [
+    "a05b_ama2",
+    "a05t2_ama2_present",
+    "a05e1_ama2_excited",
+    "a05e2_ama2_question",
+    "a05e3_ama2_wow"
+   ],
+   "listen": [
+    "a05l2_ama2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board (lesson written on the whiteboard, lit marker ink, plate captions, end card FREE + QR 300)",
+   "plan": "speech-gated + mood-matched clips (excited 1 / wow 1 / question 2 cap)",
+   "engine_commit": "27b8d6299",
+   "ci_run": 40497427882,
+   "qc": "33/33 gates",
+   "approved": "2026-10-27",
+   "phone_mp4_sha256": "75824ec5c934065036ff8f05c766abcf0fbb39ddda1f4288c027949d24091863",
+   "phone_mp4": "out/news/v14-board/pron3d.mp4",
+   "owner_note": "Duyệt 6 tập 3D v14 viết lên bảng. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t1_mistake_agree",
+   "series": "Stop Saying This",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/mistake.json",
+   "teacher": "ama",
+   "clips": [
+    "a05b_ama2",
+    "a05t2_ama2_present",
+    "a05e1_ama2_excited",
+    "a05e2_ama2_question",
+    "a05e3_ama2_wow"
+   ],
+   "listen": [
+    "a05l2_ama2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board (lesson written on the whiteboard, lit marker ink, plate captions, end card FREE + QR 300)",
+   "plan": "speech-gated + mood-matched clips (excited 1 / wow 1 / question 2 cap)",
+   "engine_commit": "27b8d6299",
+   "ci_run": 40497427882,
+   "qc": "33/33 gates",
+   "approved": "2026-10-27",
+   "phone_mp4_sha256": "eee97276f488ac6b69b8fc06b49b3913e7e2e398161bd013a8487d038f4cdcf7",
+   "phone_mp4": "out/news/v14-board/mistake.mp4",
+   "owner_note": "Duyệt 6 tập 3D v14 viết lên bảng. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "t2_words5_verygood",
+   "series": "Say It Like a Native",
+   "ep": 1,
+   "spec": "content/video/cine/news/templates-v2/words5.json",
+   "teacher": "ama",
+   "clips": [
+    "a05b_ama2",
+    "a05t2_ama2_present",
+    "a05e1_ama2_excited",
+    "a05e2_ama2_question",
+    "a05e3_ama2_wow"
+   ],
+   "listen": [
+    "a05l2_ama2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board (lesson written on the whiteboard, lit marker ink, plate captions, end card FREE + QR 300)",
+   "plan": "speech-gated + mood-matched clips (excited 1 / wow 1 / question 2 cap)",
+   "engine_commit": "27b8d6299",
+   "ci_run": 40497427882,
+   "qc": "33/33 gates",
+   "approved": "2026-10-27",
+   "phone_mp4_sha256": "f8a71fa99fefcc9f0a716c6970b72970cf79bec0884af39a552f6bf58b5c1d66",
+   "phone_mp4": "out/news/v14-board/words5.mp4",
+   "owner_note": "Duyệt 6 tập 3D v14 viết lên bảng. Lưu vào approved.json làm chuẩn sản xuất."
+  }
+ ],
+ "superseded": [
   {
    "id": "t7_usuk_cookie",
    "series": "US or UK?",
@@ -20,7 +187,8 @@
    "plan": "speech-gated (talk while voice, listen in silences)",
    "approved": "2026-10-27",
    "mp4_sha256": "86548f0a32711669eabddc66887952ef2cb221b1b4a7183b372716519e274f9a",
-   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất.",
+   "superseded_by": "v14-board 27/10/2026"
   },
   {
    "id": "t6_pron_comfortable",
@@ -41,7 +209,8 @@
    "plan": "speech-gated (talk while voice, listen in silences)",
    "approved": "2026-10-27",
    "mp4_sha256": "338a9cdfd6f1a306ff40dd8491fb267751c36ce89ec55b2a4f9437e3c88ecfb9",
-   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất.",
+   "superseded_by": "v14-board 27/10/2026"
   },
   {
    "id": "t4_pair_borrow_lend",
@@ -62,7 +231,8 @@
    "plan": "speech-gated (talk while voice, listen in silences)",
    "approved": "2026-10-27",
    "mp4_sha256": "8596189aa68b070ca56363326fcc85039ae17e8273f7a54ea656a016d74fd29f",
-   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất.",
+   "superseded_by": "v14-board 27/10/2026"
   },
   {
    "id": "t1_mistake_agree",
@@ -83,7 +253,8 @@
    "plan": "speech-gated (talk while voice, listen in silences)",
    "approved": "2026-10-27",
    "mp4_sha256": "1362d388631cf130b41ca2b85e0d41985b78a5346429522cbf635e4fda99b5c8",
-   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất.",
+   "superseded_by": "v14-board 27/10/2026"
   },
   {
    "id": "t3_guess_elevator",
@@ -103,7 +274,8 @@
    "plan": "speech-gated (talk while voice, listen in silences)",
    "approved": "2026-10-27",
    "mp4_sha256": "b0b6e8cfd9caa2a347da41e8e4d91574a80435f2e3c55f8dd4b30efe00db8cc6",
-   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất.",
+   "superseded_by": "v14-board 27/10/2026"
   },
   {
    "id": "t2_words5_verygood",
@@ -123,7 +295,8 @@
    "plan": "speech-gated (talk while voice, listen in silences)",
    "approved": "2026-10-27",
    "mp4_sha256": "ab38bc124b324f0a3133f1047aea0b605c1012b04aacd58b3ff8036394c62f4b",
-   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất."
+   "owner_note": "Duyệt 6 tập. Lưu vào approved.json làm chuẩn sản xuất.",
+   "superseded_by": "v14-board 27/10/2026"
   }
  ]
 }
