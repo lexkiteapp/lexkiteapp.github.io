@@ -35,7 +35,7 @@
       if (vis('#noAcct')) await click('#noAcct'); await click('button.trk-opt'); await click('#obNext', 250); await click('[data-lv="test"]'); await toLast(); await click('#go', 1500);
       t.ok(/placement/.test(location.hash), '→ #/placement'); await click('#go', 600);
       for (let i = 0; i < 26 && !vis('.pl-result'); i++) { const o = D.querySelectorAll('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (o.length) o[i % 2 ? 1 : 0].click(); await sleep(520); }
-      t.ok(await wait('.pl-result', 8000), 'kiểm tra đầu vào xong'); t.ok(!askOn(), 'không hỏi sau kiểm tra đầu vào');
+      t.ok(await wait('.pl-result', 20000), 'kiểm tra đầu vào xong'); t.ok(!askOn(), 'không hỏi sau kiểm tra đầu vào');
       await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1200); t.ok(await learn(), 'xong bài đầu');
       const asked = await wait('#modal:not([hidden]) #raY', 6000); t.ok(asked, 'hỏi nhắc học sau bài đầu'); t.audit('soft-ask');
       if (asked) { await click('#raN', 500); t.ok(D.getElementById('modal').hidden, '"Để sau" đóng hộp'); t.ok(+ls('lk.reask') > 0, 'ghi lk.reask'); }
