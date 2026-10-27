@@ -91,6 +91,8 @@ git(tmp, 'clone', '-q', origin, work);
 for (const [p, c] of [['web/js/i18n/vi.js', 'core 1\n'], ['web/js/i18n/vi/tools.js', 'tools 1\n'], ['web/app/index.html', 'x\n'], ['README', 'r\n']]) { fs.mkdirSync(path.dirname(path.join(work, p)), { recursive: true }); fs.writeFileSync(path.join(work, p), c); }
 const addLine = script.find(l => /^git add /.test(l)) || ''; // mọi đường dẫn bước lưu tồn tại như trên runner thật
 for (const t of addLine.split(/\s+/).slice(2)) { const p = t.replace(/\*/g, 'xx'), f = path.join(work, /\.[a-z]+$/.test(p) ? p : p + '/keep.txt'); if (!fs.existsSync(f)) { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, 'seed\n'); } }
+// build-extension.sh giả (bản thật cần rsync/perl + cả web/): chép web/js/i18n → extension/app/js/i18n như bản thật
+fs.mkdirSync(path.join(work, 'scripts'), { recursive: true }); fs.writeFileSync(path.join(work, 'scripts/build-extension.sh'), 'mkdir -p extension/app/js && rm -rf extension/app/js/i18n && cp -R web/js/i18n extension/app/js/i18n\n');
 git(work, 'add', '-A'); git(work, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qm', 'init'); git(work, 'push', '-q', 'origin', 'HEAD:main');
 git(tmp, 'clone', '-q', origin, other); fs.writeFileSync(path.join(other, 'README'), 'r2\n'); git(other, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'race'); git(other, 'push', '-q', 'origin', 'HEAD:main'); // lượt đẩy khác chen vào
 fs.writeFileSync(path.join(work, 'web/js/i18n/vi.js'), 'core 2\n'); fs.writeFileSync(path.join(work, 'web/js/i18n/vi/tools.js'), 'tools 2\n'); fs.writeFileSync(path.join(work, 'web/app/index.html'), 'junk\n');
@@ -100,6 +102,7 @@ const sh = spawnSync('bash', ['-e', '-c', script.join('\n').replace(/sleep \$\(\
 ok(sh.status === 0, `i18n: bước lưu phải đẩy được (rc ${sh.status}) ${sh.stderr.slice(-300)}`);
 const pushed = (p) => execFileSync('git', ['--git-dir', origin, 'show', 'main:' + p]).toString();
 ok(sh.status === 0 && pushed('web/js/i18n/vi/tools.js') === 'tools 2\n' && pushed('web/js/i18n/vi.js') === 'core 2\n' && pushed('README') === 'r2\n', 'i18n: nhóm tải lười được commit + giữ lượt đẩy khác');
+ok(sh.status === 0 && pushed('extension/app/js/i18n/vi/tools.js') === 'tools 2\n', 'i18n: bản dịch mới được chép sang add-on trong cùng commit (ext-sync)');
 try { fs.rmSync(tmp, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 }); } catch { /* dọn dẹp tạm: bỏ qua */ }
 
 // --- không chạy lại lượt đã bị thay thế (25/10: 2 lượt word-audio cũ bị "Re-run" với code cũ)
