@@ -231,7 +231,7 @@ for f in fr:
         if e['digit'] and e['alpha'] >= 0.999: digits[e['digit']] = digits.get(e['digit'], 0) + 1 / fps
 has_count = any(b['kind'] == 'count' for b in T['beats'].values())
 R['countdown'] = dict(ok=(not has_count) or all(digits.get(k, 0) >= 0.8 for k in '321'), digits={k: round(v, 2) for k, v in digits.items()}, applies=has_count)
-LESSON = {'pop.' + p['id'] for p in SP['pops'] if p.get('kind') in ('lesson', 'note')}
+LESSON = {'pop.' + p['id'] for p in SP['pops'] if p.get('kind') in ('lesson', 'note')} | ({'pop.cta'} if T.get('cap_plate') else set())   # v13 end card is a card (owner-approved mock C): same card floor, its smallest line is 40 px x >= 0.85
 out, full, small = [], {}, []
 for f in fr:
     for e in els(f):

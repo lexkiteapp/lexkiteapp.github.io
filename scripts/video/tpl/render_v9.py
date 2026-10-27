@@ -810,7 +810,7 @@ class Pop:
     def build_cta_ink(s, rw, rh):
         if PLATE:   # v13 end card, the same on every video
             seg = SP['cta']['say']; s.im, k_, mode_ = endcard_im(seg, rw, rh); s.etype = 'card'; s.px = 40 * k_; s.cta_pages = None
-            s.text = f'{seg} / 100% FREE / lexkite.com'; s.meas = [('card', CAPR * 32 * k_)]; print(f'end card {mode_} x{k_}', flush=True); return
+            s.text = f'{seg} / 100% FREE / lexkite.com'; s.meas = [('card', CAPR * 40 * k_)]; print(f'end card {mode_} x{k_}', flush=True); return
         z = MINF_BODY; s.etype = 'body'; s.px = z; seg = SP['cta']['say']; s.text = f'{seg} / lexkite.com'
         ic = ICON.resize((96, 96), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 95, 95], 24, fill=255)
         ic.putalpha(Image.fromarray((np.asarray(ic)[..., 3].astype(np.float32) * np.asarray(m) / 255).astype(np.uint8)))
