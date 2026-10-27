@@ -7646,6 +7646,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "furnace#n": {
+   "ex": "Steel scrap is melted in an electric furnace.",
+   "sc": "a worker in protective gear watches a large electric furnace glowing orange as molten steel swirls inside, sparks flying around the open door.",
+   "cap": "metal being melted inside a glowing chamber",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "furnished#adj": {
    "ex": "The flat comes fully furnished, so you only need to bring bedding.",
    "sc": "a furnished living room with sofa, coffee table, lamp, and bookshelf; a person enters carrying a suitcase opened to reveal bedding items",
@@ -7992,6 +7999,13 @@
    "sc": "on the left, a quiet street with two parked cars; on the right, the same street later with many more cars lined up, showing a slow increase.",
    "cap": "A street slowly filling with more cars over time",
    "who": 0,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "graduate student#n": {
+   "ex": "A graduate student teaches the Friday discussion section.",
+   "sc": "person A (graduate student) stands at the front of a small classroom, pointing at a whiteboard while person B (undergraduate) listens attentively, notes open on the desk.",
+   "cap": "a student leading a small class discussion",
+   "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
   "graduate#v": {
@@ -18126,6 +18140,13 @@
    "cap": "a small group planning together around a table",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "tear#n": {
+   "ex": "A tear ran down her face.",
+   "sc": "a woman with shoulder-length hair looks down, a single clear tear rolls down her cheek, her eyes slightly wet.",
+   "cap": "a woman with a single drop sliding down her cheek",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "tech#n": {
    "ex": "He works for a tech startup in the city.",
