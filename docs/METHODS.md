@@ -73,7 +73,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 - Video dạy học (27/10, `VIDEO-SERIES.md`): chỉ 2 người dẫn 3D (Carlos, Ama), đứng 1/3 phải; clip để nguyên, nói khi có giọng/ngậm khi nghỉ, ≤130 từ/phút; bố cục v14: 1 thẻ cố định trên + phụ đề dải dưới + thẻ kết FREE/QR, trong SAFE.
 
-- Kho 3D: mọi clip neo ảnh chuẩn (`lexkite-media/cine/teachers/{carlos2,ama2}_first.png`) hoặc khung cuối clip trước; QC trước (phiếu, dry-run) + sau (`qc2.py`, tờ ảnh, render qua gate CI).
+- Kho 3D (`scripts/video/bank3d/`): ảnh khung đầu qua `check_first.py` TRƯỚC khi tạo clip; mọi clip có câu khoá vị trí (`send2.sh`), neo ảnh chuẩn; sau: `qc2.py`, tờ ảnh, gate CI.
 - App: ưu tiên chạy trên máy; tải theo bài; YouTube nhúng ảnh xem trước; ảnh AVIF/WebP.
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
