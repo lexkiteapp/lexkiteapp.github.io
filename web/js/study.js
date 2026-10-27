@@ -232,7 +232,7 @@
 
     view.innerHTML = `<div class="study-wrap">
       <div class="study-top">
-        <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thóat')}" aria-label="${t('Thóat')}">✕</a>
+        <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}" aria-label="${t('Thoát')}">✕</a>
         ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-label="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-keyshortcuts="Z">↶</button>` : ''}
         <a class="icon-btn" href="#/handsfree/session" title="${t('Chế độ Rảnh tay')}" aria-label="${t('Chế độ Rảnh tay')}">🎧</a>
         <div class="progress" role="progressbar" aria-label="${t('Tiến độ')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(pct)}"><i style="width:${pct}%"></i></div>
@@ -420,9 +420,9 @@
   };
 
   // ✕ giữa lượt: hỏi lại trước khi bỏ dở (tiến độ lượt này chưa lưu)
-  const guardExit = busy => { const x = $('.study-top a.icon-btn'); if (x) x.onclick = e => { if (!busy()) return; e.preventDefault(); UI.modal(`<div class="celebrate"><h2>${t('Thóat giữa chừng?')}</h2><p class="muted">${t('Kết quả của lượt này sẽ không được lưu.')}</p><div class="row center"><button class="btn primary" data-close>${t('Làm tiếp')}</button><a class="btn" href="${esc(x.getAttribute('href'))}" data-close>${t('Thóat')}</a></div></div>`); }; };
+  const guardExit = busy => { const x = $('.study-top a.icon-btn'); if (x) x.onclick = e => { if (!busy()) return; e.preventDefault(); UI.modal(`<div class="celebrate"><h2>${t('Thoát giữa chừng?')}</h2><p class="muted">${t('Kết quả của lượt này sẽ không được lưu.')}</p><div class="row center"><button class="btn primary" data-close>${t('Làm tiếp')}</button><a class="btn" href="${esc(x.getAttribute('href'))}" data-close>${t('Thoát')}</a></div></div>`); }; };
   function head(title, i, n, extra = '') {
-    return `<div class="study-top"><a class="icon-btn" href="${App.backHref()}" title="${t('Thóat')}">✕</a><div class="progress"><i style="width:${i / Math.max(1, n) * 100}%"></i></div><span class="small muted" style="white-space:nowrap">${extra || `${Math.min(i + 1, n)}/${n}`}</span></div>
+    return `<div class="study-top"><a class="icon-btn" href="${App.backHref()}" title="${t('Thoát')}">✕</a><div class="progress"><i style="width:${i / Math.max(1, n) * 100}%"></i></div><span class="small muted" style="white-space:nowrap">${extra || `${Math.min(i + 1, n)}/${n}`}</span></div>
       <div class="small muted" style="margin:-.4rem 0 .8rem">${title}</div>`;
   }
 
