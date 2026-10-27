@@ -493,7 +493,7 @@ def ipa_im(txt, sz, ink):   # US IPA (owner 26/10: "ghi phiên âm luôn"): Noto
 LCOL = dict(green=(20, 138, 74), blue=(40, 90, 160), red=(214, 64, 34), navy=(22, 52, 64), grey=(92, 110, 120), yellow=(255, 214, 90), white=(255, 255, 255))
 def lesson_im(P, n_items, k=1.0, rw=None):   # layout-v12 lesson card (owner-approved mock, out/news/layout-v12): one left edge, word/IPA/meaning/example
     XB_ = lambda z: font(round(z * k)); BD_ = lambda z: font(round(z * k), FBd); NO_ = lambda z: ImageFont.truetype(f"{o.fonts}/NotoSans-Medium.ttf", round(z * k))
-    S_ = lambda v: round(v * k); items = P['items'][:n_items]; save = P.get('save'); pad = S_(30) if save else 0
+    S_ = lambda v: round(v * k); items = P['items'][:n_items]; save = P.get('save') and not V14; pad = S_(30) if save else 0
     H_ = pad + (S_(90) if P.get('title') else 0) + len(items) * S_(290) + (S_(70) if P.get('footer') else 0) + pad
     W_ = rw or 2000; im = Image.new('RGBA', (W_, H_), (0, 0, 0, 0)); d = ImageDraw.Draw(im); y = pad; x0 = pad + S_(4); wmax = 0
     if save: d.rounded_rectangle([0, 0, W_ - 1, H_ - 1], S_(36), fill=(255, 253, 246, 255), outline=LCOL['navy'] + (255,), width=max(3, S_(6)))
