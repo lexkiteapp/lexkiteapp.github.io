@@ -308,7 +308,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   const more = $('.home-more');
   ok(more && ['.rings-card', '.quest-line', '#leagueHomeCard', 'a[href="#/quick"]', 'a[href="#/confidence"]', '.wotd'].every(s => more.querySelector(s)) && $('.home-more-h'), 'trang chủ: khối phụ đủ (3 vòng, nhiệm vụ, giải đấu, chơi nhanh, giao tiếp, từ của ngày) dưới "Thêm cho hôm nay"');
   ok(!w.document.querySelector('.topbar [data-lsw]') && /lang-select|data-lang-pick/.test(w.App.langPicker()), 'thanh trên không còn nút ngôn ngữ (đổi ở Cài đặt)');
-  ok(/\.bottom-nav \.badge \{[^}]*width: 9px[^}]*font-size: 0/.test(css), 'tab Từ vựng: chấm nhỏ thay số đỏ');
+  ok(/\.bottom-nav \.badge \{[^}]*width: 9px[^}]*(font-size: 0|font-size: \d+px;[^}]*color: transparent)/.test(css), 'tab Từ vựng: chấm nhỏ thay số đỏ'); // số ẩn bằng font-size 0 hoặc chữ trong suốt (font audit #98)
   // chuyển dữ liệu người dùng cũ: kỳ thi → gói; giữ XP/chuỗi/bản ghi ngày cũ
   const xp0 = S.game.xp, rec0 = await w.Core.Store.get('pathDays', {});
   for (const [ex, id] of [['general', 'comm'], ['ieltsgt', 'ielts'], ['toeic', 'toeic'], ['toefl', 'toefl'], ['ielts', 'ielts']]) {
