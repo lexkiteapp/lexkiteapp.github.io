@@ -280,6 +280,8 @@ export function createPool(opts = {}) {
       const r = await F(`https://api.cloudflare.com/client/v4/accounts/${a.acct}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + a.tok, 'Content-Type': 'application/json' }, body: JSON.stringify(input) }).catch(() => null);
       if (!r) throw new PoolErr('net', 'cf2 net');
       const j = await r.json().catch(() => ({})), code = ((j.errors || [])[0] || {}).code;
+      // nhật ký lỗi gốc (≤ 3 mẫu mỗi mã) – 27/10: 121/121 tài khoản "4006" ngay sau 00:00 UTC, cần xem Cloudflare thật sự trả gì
+      if (!r.ok || j.success === false) { const ek = r.status + ':' + (code ?? '-'), E = used.cf2Err = used.cf2Err || {}; E[ek] = E[ek] || []; if (E[ek].length < 3) E[ek].push(a.id + ' ' + model.replace(/^@cf\//, '') + ' ' + JSON.stringify(j.errors || j).slice(0, 220)); }
       if (code === 10000 || r.status === 401 || r.status === 403) { a.dead = now() + 6 * 3600e3; used.cf2Dead.push(a.id + ' auth'); continue; }
       if (code === 4006 || /neuron/i.test(JSON.stringify(j.errors || ''))) { a.dead = now() + untilUtcMidnight(now()); used.cf2Dead.push(a.id + ' 4006'); continue; }
       if (r.status === 429) { a.dead = now() + 65e3; continue; } // trần nhịp của MỘT tài khoản → tài khoản kế
@@ -436,7 +438,7 @@ export function createPool(opts = {}) {
         const ok = !!(r && r.ok && j.provider === p); h['gc-' + (p === 'cloudflare' ? 'cf' : p)] = { ok, model: j.model || '', fellBack: (j.fallback_from || []).map(f => f.code).slice(0, 3) };
         if (!ok) rest('gc-' + (p === 'cloudflare' ? 'cf' : p), null, 30 * 60e3, `health: ${p} trả lời qua ${j.provider || r && r.status || 'net'}`);
       }
-      if (CF2.length) { try { await cf2Run('@cf/meta/llama-3.1-8b-instruct-fast', { messages: [{ role: 'user', content: 'ok' }], max_tokens: 2 }); h.cf2 = { ok: true, accounts: CF2.length }; } catch (e) { h.cf2 = { ok: false, err: e.message }; if (e.kind === 'route') rest('cf2', null, e.ms, e.message); } }
+      if (CF2.length) { try { await cf2Run('@cf/meta/llama-3.1-8b-instruct-fast', { messages: [{ role: 'user', content: 'ok' }], max_tokens: 2 }); h.cf2 = { ok: true, accounts: CF2.length }; } catch (e) { h.cf2 = { ok: false, err: e.message, sample: used.cf2Err }; if (e.kind === 'route') rest('cf2', null, e.ms, e.message); } }
       else h.cf2 = { ok: false, err: 'chưa có CF_POOL/CF_AI_TOKEN_2' };
       log('[ai-pool] sức khỏe ' + JSON.stringify(h)); return h;
     },
