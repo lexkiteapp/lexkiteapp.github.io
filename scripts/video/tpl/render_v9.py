@@ -365,8 +365,12 @@ def norm_frame(F, crop=True):
     if F.shape[0] != H:
         r = cv2.resize(F, (round(W * H / F.shape[0]), H), interpolation=cv2.INTER_LANCZOS4); x0 = (r.shape[1] - W) // 2; F = r[:, x0:x0 + W].copy()   # uniform 1916 -> 1920
     if CROP and crop:   # punch-in: Lanczos resample + mild unsharp (host_sharp measures it against the native pixels)
-        if CROP.get('oy', 0) < 0: F = F.copy(); F[:6] = F[6]   # v14 wall fill on top: replicate a clean row (row 0 of a Kling frame can be a dark edge line)
-        F = cv2.warpAffine(F, CA, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
+        if CROP.get('oy', 0) < 0:   # v14: the space opened above the frame is WALL (the set continues above the board), not a stretched board-frame row
+            wall = [float(v) for v in np.median(F[4:60, W - 90:W - 10].reshape(-1, 3), 0)]
+            F = cv2.warpAffine(F, CA, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_CONSTANT, borderValue=wall)
+            top_ = int(math.ceil(-CROP['oy'] * CROP['k'])) + 2   # soften the seam: 10 px blend from the wall into the first real row
+            if 10 < top_ < H: F[top_ - 10:top_] = (F[top_ - 10:top_].astype(np.float32) * np.linspace(0, 1, 10)[:, None, None] + np.array(wall, np.float32) * (1 - np.linspace(0, 1, 10)[:, None, None])).astype(np.uint8)
+        else: F = cv2.warpAffine(F, CA, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
         a_ = CROP.get('sharp', 0.6); F = cv2.addWeighted(F, 1 + a_, cv2.GaussianBlur(F, (0, 0), CROP.get('sigma', 1.1)), -a_, 0)
     return F
 
