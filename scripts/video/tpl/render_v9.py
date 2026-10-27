@@ -78,7 +78,7 @@ V14 = bool(BRD) and SP.get('layout', 'v14') == 'v14'   # owner 27/10 layout v14:
 if V14:
     _h = TR['clips'][SP['clips'][0]]['head']; _k = max(1.0, min(1.2, 420 / (_h[3] - _h[1])))   # head box (hair included) -> 420 px, never a downscale, at most 1.2x (the v10 crops: host_sharp passes up to 1.2 with the 0.6 unsharp)
     _ox = min(max(0.0, (_h[0] + _h[2]) / 2 - 560 / _k), W - W / _k)   # face towards x 560 (the right 14 % is platform UI); no horizontal fill
-    _oy = min(max(-116 / _k, (_h[1] + _h[3]) / 2 - 1080 / _k), H - H / _k)   # head centre towards y 1080; at most 116 px of replicated wall on top (under the platform's top UI)
+    _oy = min(max(-180 / _k, (_h[1] + _h[3]) / 2 - 1080 / _k), H - H / _k)   # head centre towards y 1080; at most 180 px of replicated wall on top (inside the platform's top UI band, y < 232)
     _ht = (_h[1] - _oy) * _k; _zf = [SAFE['x0'] + 34, SAFE['y0'] + 30, SAFE['x1'] - 34, int(_ht) - 64]   # card zone: safe area above the head (panel pad 26 + 38 px air)
     assert _zf[3] - _zf[1] >= 240, ('v14: no room for the lesson card above the head', _zf)
     _bk[SP['clips'][0]] = dict(_bk[SP['clips'][0]], crop=dict(k=round(_k, 4), ox=round(_ox, 1), oy=round(_oy, 1), zone_force=_zf))

@@ -2,11 +2,12 @@
  "id": "t3_guess_elevator",
  "template": "guess",
  "title": "Guess the Word #1 – 3 hotel words (picture clue, 3 s count, IPA + example each)",
- "teacher": "kai",
+ "teacher": "carlos",
  "set": "classroom_board",
  "clips": [
-  "k03_kai_desk",
-  "k03t3_kai_talk3"
+  "c04_carlos_3d",
+  "c04t2_carlos_3d_talk2",
+  "c04t3_carlos_3d_talk3"
  ],
  "accent": "mint",
  "active": "mint",
@@ -354,6 +355,7 @@
   "ep": 1
  },
  "listen": [
-  "k03l2_kai_listen"
- ]
+  "c04l_carlos_3d_listen"
+ ],
+ "caption_cap": 42
 }

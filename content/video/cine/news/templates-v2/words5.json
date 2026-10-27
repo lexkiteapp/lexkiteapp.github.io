@@ -2,11 +2,11 @@
  "id": "t2_words5_verygood",
  "template": "words5",
  "title": "Say It Like a Native #1 – 5 words instead of “very good”",
- "teacher": "mei",
+ "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "m03_mei_desk",
-  "m03t3_mei_talk3"
+  "a02_ama_board",
+  "a02t2_ama_talk2"
  ],
  "accent": "yellow",
  "active": "yellow",
@@ -428,6 +428,6 @@
  },
  "caption_cap": 42,
  "listen": [
-  "m03l2_mei_listen"
+  "a02l_ama_listen"
  ]
 }

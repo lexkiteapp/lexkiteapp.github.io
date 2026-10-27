@@ -2,11 +2,11 @@
  "id": "t1_mistake_agree",
  "template": "mistake",
  "title": "Stop Saying This #1 – “I am agree” (work situation, why, fix, native upgrade, quiz)",
- "teacher": "daniel",
+ "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "d03_daniel_desk",
-  "d03t2_daniel_talk2"
+  "a04_ama_3d",
+  "a04t2_ama_3d_talk2"
  ],
  "accent": "red",
  "active": "cream",
@@ -487,6 +487,6 @@
  },
  "caption_cap": 42,
  "listen": [
-  "d03l_daniel_listen"
+  "a04l_ama_3d_listen"
  ]
 }
