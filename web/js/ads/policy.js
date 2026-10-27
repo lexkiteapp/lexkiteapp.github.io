@@ -17,6 +17,7 @@
   const BOUNDS = { everySessions: [3, 20], gapMin: [10, 240], firstDayH: [24, 336] };
   const clamp = (v, [lo, hi], d) => { const x = Math.round(+v); return v === undefined || v === '' || !isFinite(x) ? d : Math.min(hi, Math.max(lo, x)); };
   const NATIVE = ['android', 'ios'];
+  const WEB_REW = ['streak', 'retry', 'xp2'];                          // web (GPT) không có SSV → chỉ thưởng tính trên máy; +lượt AI/Roleplay chỉ app (SSV)
   const hash = s => { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0) / 4294967296; };
   const cohort = vid => (vid && hash('ads|' + vid) < CAP.holdout ? 'h' : 'a'); // 10 % máy giữ làm nhóm đối chứng (không quảng cáo) – đo giữ chân
 
@@ -68,9 +69,10 @@
     return true;
   }
 
-  /** Quảng cáo có thưởng – chỉ khi người dùng bấm chọn (lý do trong REWARDS), chỉ app gốc. */
+  /** Quảng cáo có thưởng – chỉ khi người dùng bấm chọn (lý do trong REWARDS). App gốc; web chỉ khi có ô GPT (ctx.rwUnit) và lý do không cần SSV. */
   function rewarded(ctx, f, reason) {
-    return !!REWARDS[reason] && NATIVE.includes(ctx.plat) && !blocked(ctx) && platOn(f, ctx.plat) && !!f.rew;
+    const web = (ctx.plat === 'web' || ctx.plat === 'pwa') && !!ctx.rwUnit && WEB_REW.includes(reason);
+    return !!REWARDS[reason] && (NATIVE.includes(ctx.plat) || web) && !blocked(ctx) && platOn(f, ctx.plat) && !!f.rew;
   }
   /** Còn lượt có thưởng hôm nay? st.rw = { d: 'YYYY-MM-DD', n: { lý do: số lần } } */
   const rewLeft = (st, reason, day) => { const r = (st && st.rw) || {}; return (PER_DAY[reason] || 0) - (r.d === day ? (r.n || {})[reason] || 0 : 0); };
@@ -78,5 +80,5 @@
   /** Quảng cáo không cá nhân hóa: Do Not Track / Global Privacy Control / chưa đồng ý (CMP trả về). */
   const npa = sig => !!(sig && (sig.dnt === '1' || sig.dnt === 'yes' || sig.gpc === true || sig.consent === false));
 
-  g.AdsPolicy = { SLOTS, PER_PAGE, BLOG_PATH, DICT_PATH, BREAK, REWARDS, PER_DAY, CALM_MIN, FAIL_PCT, rewLeft, CAP, BOUNDS, cohort, flags, blocked, slot, interstitial, rewarded, npa };
+  g.AdsPolicy = { SLOTS, WEB_REW, PER_PAGE, BLOG_PATH, DICT_PATH, BREAK, REWARDS, PER_DAY, CALM_MIN, FAIL_PCT, rewLeft, CAP, BOUNDS, cohort, flags, blocked, slot, interstitial, rewarded, npa };
 })(typeof self !== 'undefined' ? self : this);

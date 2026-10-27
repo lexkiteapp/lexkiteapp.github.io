@@ -422,6 +422,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "ads-demo",
+   "workflow": "ads-demo.yml",
+   "cron": [
+    "17 4 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "ads-revenue",
    "workflow": "ads-revenue.yml",
    "cron": [

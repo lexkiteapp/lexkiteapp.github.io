@@ -21,6 +21,7 @@ ok(CFG.enabled === false && /^ca-pub-\d{16}$/.test(CFG.web.client) && CFG.native
 { const { live, ...act } = CFG.native, pub = CFG.web.client.replace(/^ca-pub-/, '');
   ok(/3940256099942544/.test(JSON.stringify(act)) && !/ca-app-pub-(?!3940256099942544)\d{16}/.test(JSON.stringify(act)), 'AdMob: mã đang dùng (testing) CHỈ là mã thử của Google');
   ok(['android', 'ios'].every(p => ['appId', 'banner', 'interstitial', 'rewarded'].every(k => new RegExp('^ca-app-pub-' + pub + '[~/]\\d{10}$').test((live[p] || {})[k] || ''))), 'AdMob: mã thật (live) đủ 2 nền tảng × 4 mã, cùng pub id với AdSense/app-ads.txt');
+ok(CFG.web.rewarded === '' && CFG.web.testing === false && CFG.web.DEMO === '/22639388115/rewarded_web_example', 'web có thưởng (GPT): mặc định TẮT (ô rỗng, testing false); ô demo = ô công khai của Google');
   ok(/testing \? C\.native : \(C\.native \|\| \{\}\)\.live/.test(rd('web/js/ads/run.js')), 'run.js: testing → mã thử, chỉ bản phát hành mới dùng mã thật'); }
 const ON = { ads_web: '1', ads_android: '1', ios: '1', ads_ios: '1' }, LOCAL = { enabled: true };
 const f0 = P.flags({}, CFG), fOn = P.flags(ON, LOCAL);
@@ -115,6 +116,7 @@ ok(P.rewarded({ ...aCtx, plat: 'ios' }, fOn, 'streak') && P.rewarded(aCtx, fOn, 
 
 // ---------- 2b) có thưởng mở rộng (cơ hội 2 · x2 XP), trần/ngày, được yên sau thưởng, không "xát muối" lúc làm kém ----------
 ok(P.rewarded(aCtx, fOn, 'retry') && P.rewarded(aCtx, fOn, 'xp2') && !P.rewarded({ ...aCtx, plat: 'web' }, fOn, 'retry') && !P.rewarded({ ...aCtx, edu: true }, fOn, 'retry'), 'cơ hội 2 / x2 XP: chỉ app gốc, không lớp học');
+{ const wc = { ...aCtx, plat: 'web', rwUnit: '/22639388115/rewarded_web_example' }; ok(P.rewarded(wc, fOn, 'retry') && P.rewarded(wc, fOn, 'xp2') && P.rewarded(wc, fOn, 'streak') && !P.rewarded(wc, fOn, 'ai') && !P.rewarded(wc, fOn, 'chat') && !P.rewarded({ ...wc, rwUnit: '' }, fOn, 'retry') && !P.rewarded({ ...wc, edu: true }, fOn, 'retry') && !P.rewarded(wc, { ...fOn, web: false }, 'retry'), 'web có thưởng (GPT): chỉ khi có ô, chỉ thưởng trên máy (không AI/Roleplay – không có SSV), không lớp học, cần cờ web'); }
 { const d0 = '2026-10-27';
   ok(P.rewLeft({}, 'retry', d0) === 3 && P.rewLeft({ rw: { d: d0, n: { retry: 3 } } }, 'retry', d0) === 0 && P.rewLeft({ rw: { d: '2026-10-26', n: { retry: 3 } } }, 'retry', d0) === 3, 'trần có thưởng: 3 cơ hội 2 / ngày, sang ngày mới đặt lại');
   ok(P.rewLeft({ rw: { d: d0, n: { xp2: 2 } } }, 'xp2', d0) === 0 && P.rewLeft({ rw: { d: d0, n: { streak: 1 } } }, 'streak', d0) === 0 && P.rewLeft({}, 'lesson', d0) <= 0, 'trần: x2 XP 2/ngày, cứu chuỗi 1/ngày, lý do lạ = 0'); }

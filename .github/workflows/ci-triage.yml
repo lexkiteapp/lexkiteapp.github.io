@@ -120,6 +120,7 @@ on:
       - 'npm test'
       - 'CWS media'
       - 'social-auto'
+      - 'Ads demo (real Google test ads)'
       - 'Ads revenue hourly'
       - 'Ads revenue'
   schedule:
