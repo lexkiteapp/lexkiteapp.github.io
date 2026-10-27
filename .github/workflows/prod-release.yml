@@ -33,16 +33,9 @@ jobs:
           echo "### 🏷️ $TAG" >> "$GITHUB_STEP_SUMMARY"
           echo "Rollback về bản trước: \`bash scripts/ops/rollback-pages.sh previous\` · về bản này sau này: \`bash scripts/ops/rollback-pages.sh $TAG\`" >> "$GITHUB_STEP_SUMMARY"
   gate:
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    steps:
-      - uses: actions/checkout@v4
-        with: { ref: '${{ github.event.inputs.sha || github.sha }}' }
-      - uses: actions/setup-node@v4
-        with: { node-version: 22 }
-      - run: npm ci --no-audit --no-fund
-      - name: npm test (cổng trước deploy – cùng bộ kiểm với mergecheck/health)
-        run: npm test
+    # npm test: một định nghĩa dùng chung với cổng PR (.github/workflows/npm-test.yml)
+    uses: ./.github/workflows/npm-test.yml
+    with: { sha: '${{ github.event.inputs.sha || github.sha }}' }
   smoke:
     needs: tag
     runs-on: ubuntu-latest
