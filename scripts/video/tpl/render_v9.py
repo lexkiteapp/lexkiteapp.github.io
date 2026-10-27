@@ -267,6 +267,13 @@ def end_score(a0):   # ghosting of the final loop dissolve: mean + worst distanc
     return float(np.mean(ds) + 0.5 * max(ds))
 _c0 = SP['clips'][0]; _lo = CL[_c0]['usable'][0]
 A0 = min(range(max(_lo, XFE), len(RAW[_c0]) - 64, 3), key=end_score)   # start frame chosen so the loop dissolve joins similar poses
+def _hs(f_):
+    h_ = cv2.calcHist([cv2.cvtColor(f_, cv2.COLOR_BGR2HSV)], [0, 1], None, [30, 32], [0, 180, 0, 256]); cv2.normalize(h_, h_); return h_
+def off_model(c):   # source frames whose head box does not match the family master face (hand over the face, drift): the gated plan never shows them
+    if c in OFFM: return OFFM[c]
+    par = TR['clips'][c].get('parent') or c; hb = TR['clips'][par]['head']; src_ = RAW[par][CL[par]['usable'][0]] if par in RAW else RAW[c][0]; ref = _hs(src_[hb[1]:hb[3], hb[0]:hb[2]])
+    OFFM[c] = {k for k in range(len(RAW[c])) if cv2.compareHist(ref, _hs(RAW[c][k][hb[1]:hb[3], hb[0]:hb[2]]), cv2.HISTCMP_CORREL) < 0.75}; return OFFM[c]
+OFFM = {}
 def plan_gated(nf):
     talk = SP['clips']; lis = SP['listen']; sp = np.zeros(nf, bool)
     for lid, at in ATL.items():
@@ -284,8 +291,14 @@ def plan_gated(nf):
         while n_ > 0:
             c = talk[ti % len(talk)] if talking else lis[0]; hi = CL[c]['usable'][1]
             if cur[c] > hi - 6: cur[c] = CL[c]['usable'][0]
-            if talking and prev is not None and prev[0] == c and cur[c] == CL[c]['usable'][0]: ti += 1; c = talk[ti % len(talk)]
-            m_ = min(n_, hi - cur[c] + 1)
+            if talking and prev is not None and prev[0] == c and cur[c] == CL[c]['usable'][0]: ti += 1; c = talk[ti % len(talk)]; hi = CL[c]['usable'][1]
+            bad_ = off_model(c); g_ = 0
+            while cur[c] in bad_ and g_ < 2 * (hi + 1):   # jump over off-model frames (a declared hard cut)
+                cur[c] += 1; g_ += 1
+                if cur[c] > hi - 6: cur[c] = CL[c]['usable'][0]
+            assert cur[c] not in bad_, ('no on-model frames left in', c)
+            nb_ = min([k for k in bad_ if k > cur[c]] + [hi + 1])
+            m_ = min(n_, hi - cur[c] + 1, nb_ - cur[c])
             if prev is not None and (prev[0] != c or prev[1] != cur[c]): joins.append(dict(at_frame=len(seq), to_clip=c, entry=cur[c], cut='hard', talking=talking))
             seq += [[(c, k, 1.0)] for k in range(cur[c], cur[c] + m_)]; cur[c] += m_; n_ -= m_; prev = (c, cur[c])
             if talking and cur[c] > hi - 6: ti += 1
@@ -1206,15 +1219,13 @@ MOTION['mouth_changes'] = sum(1 for fi in range(1, NF) if VSEQ[fi] != VSEQ[fi - 
 def mouth_spr(c, fi):   # the frame where the shape changes shows the halfway mouth (previous + new), so the lips move instead of popping
     v = VSEQ[fi]; sp = MO[c].spr[v]
     return sp if fi == 0 or VSEQ[fi - 1] == v else 0.5 * sp + 0.5 * MO[c].spr[VSEQ[fi - 1]]
-def _hs(f_):
-    h_ = cv2.calcHist([cv2.cvtColor(f_, cv2.COLOR_BGR2HSV)], [0, 1], None, [30, 32], [0, 180, 0, 256]); cv2.normalize(h_, h_); return h_
 def identity_check():   # owner 27/10 "đồng nhất nhân vật": every source frame used must show the SAME face, inside the head box, as the family's master frame
     hits = []; used = {}
     for f_ in SEQ:
         for c, k, w in f_: used.setdefault(c, set()).add(k)
     for c, ks in used.items():
         par = TR['clips'][c].get('parent') or c; hb = TR['clips'][par]['head']; ref = _hs(RAW[par][CL[par]['usable'][0]][hb[1]:hb[3], hb[0]:hb[2]] if par in RAW else RAW[c][0][hb[1]:hb[3], hb[0]:hb[2]])
-        for k in sorted(ks)[::12]:
+        for k in sorted(ks):   # every used frame (was every 12th: a hand over the face slipped through)
             fc = RAW[c][k][hb[1]:hb[3], hb[0]:hb[2]]; sc = float(cv2.compareHist(ref, _hs(fc), cv2.HISTCMP_CORREL))
             if sc < 0.75: hits.append((c, k, round(sc, 3)))
     return hits
