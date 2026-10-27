@@ -26,6 +26,12 @@ function detect(opt) {
   const own = e => [...e.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join(' ').replace(/\s+/g, ' ').trim();
   const add = (t, e, r) => { const k = t + '|' + sel(e); if (seen.has(k)) return; seen.add(k); out.push({ t, k: sel(e), x: (e.innerText || e.value || '').replace(/\s+/g, ' ').trim().slice(0, 50), r: [r.left + scrollX, r.top + scrollY, r.width, r.height].map(Math.round) }); };
   const root = document.body;
+  for (const ul of root.querySelectorAll('ul,ol,[role=menu]')) { // link/mục menu trong cùng 1 cột phải thẳng mép chữ (vd. chữ ngắn bị căn giữa trong vùng chạm 44px)
+    const xs = []; for (const li of ul.children) { const a = li.tagName === 'LI' ? li.firstElementChild : li.getAttribute('role') === 'menuitem' ? li : null; if (!a || !/^(A|BUTTON)$/.test(a.tagName) || !vis(a) || !(a.textContent || '').trim()) continue; const rg = document.createRange(); rg.selectNodeContents(a); const rs = [...rg.getClientRects()].filter(q => q.width > 0); if (!rs.length) continue; const l1 = rs.filter(q => Math.abs(q.top - rs[0].top) < 2); xs.push([getComputedStyle(a).direction === 'rtl' ? Math.max(...l1.map(q => q.right)) : Math.min(...l1.map(q => q.left)), a]); } // dòng đầu, gộp mọi đoạn (chữ Ả Rập + Latin xen kẽ)
+    if (xs.length < 3) continue; const m = xs.map(x => x[0]).sort((a, b) => a - b)[xs.length >> 1];
+    for (const [x, a] of xs) if (Math.abs(x - m) > 3) { add('list-misaligned', a, a.getBoundingClientRect()); break; }
+  }
+  if (opt.only === 'align') return out;
   if (document.scrollingElement.scrollWidth > W + 1) { // trang cuộn ngang: tìm phần tử thò ra ngoài màn hình
     let worst = null; for (const e of root.querySelectorAll('*')) { const r = vis(e); if (!r || e.closest('[style*="overflow"],.hscroll,.scroller')) continue; if (r.right > W + 1 || r.left < -1) { const cs = getComputedStyle(e); if (cs.position === 'fixed' && +cs.opacity < 1) continue; worst = e; } }
     add('hscroll', worst || root, (worst || root).getBoundingClientRect());
@@ -47,11 +53,6 @@ function detect(opt) {
       if (cs.textAlign === 'left' && cs.direction === 'rtl' && r.width > 120) add('rtl-text-left', e, r);
       if ((/[\u0600-\u06FF][^\u0600-\u06FF]*[→➜➔]\s*$/.test(tx) || /^\s*[←⬅][^]*[\u0600-\u06FF]/.test(tx)) && cs.direction === 'rtl') add('rtl-arrow', e, r);
     }
-  }
-  for (const ul of root.querySelectorAll('ul,ol')) { // link trong cùng 1 cột danh sách phải thẳng mép chữ (vd. chữ ngắn bị căn giữa trong vùng chạm 44px)
-    const xs = []; for (const li of ul.children) { const a = li.tagName === 'LI' && li.firstElementChild; if (!a || a.tagName !== 'A' || !vis(a) || !a.firstChild || a.firstChild.nodeType !== 3) continue; const rg = document.createRange(); rg.selectNodeContents(a); const rs = [...rg.getClientRects()].filter(q => q.width > 0); if (!rs.length) continue; const l1 = rs.filter(q => Math.abs(q.top - rs[0].top) < 2); xs.push([getComputedStyle(a).direction === 'rtl' ? Math.max(...l1.map(q => q.right)) : Math.min(...l1.map(q => q.left)), a]); } // dòng đầu, gộp mọi đoạn (chữ Ả Rập + Latin xen kẽ)
-    if (xs.length < 3) continue; const m = xs.map(x => x[0]).sort((a, b) => a - b)[xs.length >> 1];
-    for (const [x, a] of xs) if (Math.abs(x - m) > 3) { add('list-misaligned', a, a.getBoundingClientRect()); break; }
   }
   const clickables = [...root.querySelectorAll('button,a[href],.btn,[role=button],input[type=checkbox],input[type=radio],select')].filter(e => vis(e) && !e.closest('[aria-hidden="true"]'));
   for (const b of clickables) { // nút/link đè lên chữ của phần tử anh em
@@ -91,7 +92,7 @@ function icons() {
 
 // ---- Trạng thái tương tác (sheet đáp án, modal, toast, xp, nhắc cài đặt, tra từ khi bôi đen) × chế độ thường / body.focus / RTL
 const STATES = [
-  ['practice/learn', 'answer'], ['review', 'answer'], ['practice/test?src=topic:education', 'answer'], ['practice/test?src=topic:education', 'answer-wrong'], ['practice/mcq?src=topic:education', 'answer'], ['practice/mcq?src=topic:education', 'answer-wrong'], ['home', 'modal'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
+  ['practice/learn', 'answer'], ['review', 'answer'], ['practice/test?src=topic:education', 'answer'], ['practice/test?src=topic:education', 'answer-wrong'], ['practice/mcq?src=topic:education', 'answer'], ['practice/mcq?src=topic:education', 'answer-wrong'], ['home', 'modal'], ['home', 'acct'], ['home', 'toast'], ['home', 'xp'], ['home', 'nudge'], ['dict/hello', 'select'],
   ['home', 'focus-modal'], ['home', 'focus-toast'],
 ];
 async function act(page, kind) {
@@ -100,6 +101,7 @@ async function act(page, kind) {
     if (kind.startsWith('focus-')) { document.body.classList.add('focus'); kind = kind.slice(6); }
     if (kind === 'answer-wrong') { const inp = [...document.querySelectorAll('#view input[type=text], #view input:not([type])')].find(vis); if (inp) { inp.value = 'zzqx'; inp.dispatchEvent(new Event('input', { bubbles: true })); const ck = [...document.querySelectorAll('#view .btn.primary, #view button[type=submit]')].find(vis); if (ck) ck.click(); } else { const o = [...document.querySelectorAll('#view .option, #view .choice, #view [data-opt]')].filter(vis); if (o.length) o[o.length - 1].click(); } await wait(600); kind = 'answer'; }
     if (kind === 'answer') for (let i = 0; i < 3 && !document.querySelector('.sheet'); i++) { const b = [...document.querySelectorAll('#view .option, #view .choice, #view [data-opt], #view .btn.primary')].find(vis); if (!b) break; b.click(); await wait(500); }
+    if (kind === 'acct' && W.Sync && W.Account) { W.Sync.user = W.Sync.user || { uid: 'vqa', displayName: 'Visual QA', email: 'vqa@example.com' }; const b = document.getElementById('avatarBtn') || document.querySelector('.top-stats .avatar, .top-stats .gsi'); try { W.Account.toggle(b); } catch (e) {} await wait(400); }
     if (kind === 'modal' && U.modal) U.modal('<h3>Ngày bị khoá · Locked day</h3><p>Hoàn thành ngày trước để mở khoá ngày này. Complete the previous day first to unlock.</p><button class="btn primary">OK</button>');
     if (kind === 'toast' && U.toast) U.toast('Đã lưu vào bộ thẻ của bạn · Saved to your deck — a longer notification text to check wrapping', 15000);
     if (kind === 'xp' && U.xpFloat) U.xpFloat(10, [...document.querySelectorAll('#view .btn')].find(vis));
@@ -132,7 +134,7 @@ function overlays() {
 async function runStates(browser, c) {
   const { ctx, page } = await openCombo(browser, c);
   for (const [route, kind] of STATES) {
-    try { await visit(page, c, route); await act(page, kind); pages++; rec(c, route + ' [' + kind + ']', [...await page.evaluate(overlays), ...await page.evaluate(icons)]); }
+    try { await visit(page, c, route); await act(page, kind); pages++; rec(c, route + ' [' + kind + ']', [...await page.evaluate(overlays), ...await page.evaluate(icons), ...await page.evaluate(detect, { only: 'align' })]); }
     catch (e) { errs.push(`${tagOf(c)} ${route}[${kind}]: ${String(e.message).split('\n')[0].slice(0, 100)}`); }
   }
   await ctx.close();
