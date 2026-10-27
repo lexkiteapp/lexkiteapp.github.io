@@ -1612,6 +1612,12 @@
   window.addEventListener('online', () => { netState(); toast('✅ ' + t('Đã có mạng trở lại')); });
 
   // ---------- Khởi động ----------
+  // Thanh cuộn ngang còn mục bị khuất → mờ mép tương ứng (.fade-start/.fade-end); theo dõi #view vì nội dung vẽ lười/đổi theo bước
+  const edgeFade = () => $$('#view .tabs, #view .steps, #view .set-nav').forEach(s => {
+    const f = () => { const o = s.scrollWidth - s.clientWidth, x = Math.abs(s.scrollLeft); s.classList.toggle('fade-end', o > 2 && x < o - 2); s.classList.toggle('fade-start', o > 2 && x > 2); };
+    f(); if (!s.efOn) { s.efOn = 1; s.addEventListener('scroll', f, { passive: true }); }
+  });
+  { let q = 0; const kick = () => { if (q) return; q = 1; requestAnimationFrame(() => { q = 0; edgeFade(); }); }; const v = document.getElementById('view'); if (v && window.MutationObserver) new MutationObserver(kick).observe(v, { childList: true, subtree: true }); addEventListener('resize', kick, { passive: true }); }
   App.ready = (async function init() {
     if (/[?&]demo=1/.test(location.search)) await seedDemo();
     if (Store.sandbox) setTimeout(() => toast('🧪 ' + t('Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ')), 800);

@@ -28,8 +28,8 @@ function detect(opt) {
   const root = document.body;
   for (const ul of root.querySelectorAll('ul,ol,[role=menu]')) { // link/mục menu trong cùng 1 cột phải thẳng mép chữ (vd. chữ ngắn bị căn giữa trong vùng chạm 44px)
     const xs = []; for (const li of ul.children) { const a = li.tagName === 'LI' ? li.firstElementChild : li.getAttribute('role') === 'menuitem' ? li : null; if (!a || !/^(A|BUTTON)$/.test(a.tagName) || !vis(a) || !(a.textContent || '').trim()) continue; const rg = document.createRange(); rg.selectNodeContents(a); const rs = [...rg.getClientRects()].filter(q => q.width > 0); if (!rs.length) continue; const l1 = rs.filter(q => Math.abs(q.top - rs[0].top) < 2); xs.push([getComputedStyle(a).direction === 'rtl' ? Math.max(...l1.map(q => q.right)) : Math.min(...l1.map(q => q.left)), a]); } // dòng đầu, gộp mọi đoạn (chữ Ả Rập + Latin xen kẽ)
-    if (xs.length < 3) continue; const m = xs.map(x => x[0]).sort((a, b) => a - b)[xs.length >> 1];
-    for (const [x, a] of xs) if (Math.abs(x - m) > 3) { add('list-misaligned', a, a.getBoundingClientRect()); break; }
+    const cols = new Map(); for (const it of xs) { const bx = Math.round(it[1].getBoundingClientRect()[getComputedStyle(it[1]).direction === 'rtl' ? 'right' : 'left'] / 8); (cols.get(bx) || cols.set(bx, []).get(bx)).push(it); } // chỉ so mục cùng cột (lưới 2 cột không phải lệch)
+    for (const col of cols.values()) { if (col.length < 3) continue; const m = col.map(x => x[0]).sort((a, b) => a - b)[col.length >> 1]; const bad = col.find(([x]) => Math.abs(x - m) > 3); if (bad) { add('list-misaligned', bad[1], bad[1].getBoundingClientRect()); break; } }
   }
   if (opt.only === 'align') return out;
   if (document.scrollingElement.scrollWidth > W + 1) { // trang cuộn ngang: tìm phần tử thò ra ngoài màn hình
@@ -56,6 +56,7 @@ function detect(opt) {
   }
   const clickables = [...root.querySelectorAll('button,a[href],.btn,[role=button],input[type=checkbox],input[type=radio],select')].filter(e => vis(e) && !e.closest('[aria-hidden="true"]'));
   for (const b of clickables) { // nút/link bị cắt ngang ở mép khung cuộn/ẩn (không có mờ dần báo còn nội dung)
+    if (b.checkVisibility && !b.checkVisibility({ opacityProperty: true, visibilityProperty: true })) continue; // menu đang ẩn
     let p = b.parentElement; while (p && p !== root && getComputedStyle(p).overflowX === 'visible') p = p.parentElement; if (!p || p === root) continue;
     const ps = getComputedStyle(p); if ((ps.maskImage || 'none') !== 'none' || (ps.webkitMaskImage || 'none') !== 'none') continue;
     const pr = p.getBoundingClientRect(), br = b.getBoundingClientRect();
