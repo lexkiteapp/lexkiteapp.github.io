@@ -200,10 +200,11 @@ fs.writeFileSync(path.join(TMP, 'list.txt'), parts.map(p => `file '${path.join(T
 const silent = path.join(TMP, 'silent.mp4');
 ff(['-f', 'concat', '-safe', '0', '-i', path.join(TMP, 'list.txt'), '-c', 'copy', silent]);
 const total = +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', silent], { encoding: 'utf8' });
-// Nhạc nền tự tạo (hợp âm sin mềm, bản quyền của dự án) ở −20 dB
-const f = (hz, v) => `sin(2*PI*${hz}*t)*${v}`;
-ff(['-f', 'lavfi', '-i', `aevalsrc='(${f(220, .5)}+${f(277.18, .35)}+${f(329.63, .35)}+${f(440, .15)})*(0.75+0.25*sin(2*PI*0.2*t))':s=44100:d=${total.toFixed(2)}`,
-  '-i', silent, '-filter_complex', `[0:a]lowpass=f=900,volume=-20dB,afade=t=in:d=2,afade=t=out:st=${(total - 3).toFixed(2)}:d=3[a]`, '-map', '1:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart', '-shortest', path.join(OUT, 'promo.mp4')]);
+// Nhạc nền: chỉ dùng bản có giấy phép rõ (brand/audio/promo-music.mp3, ghi nguồn trong docs/CWS-RULES.md §6); không có → tiếng lặng
+// (anh chủ thêm nhạc YouTube Audio Library trong YouTube Studio → Trình chỉnh sửa). Bỏ hợp âm sin tự tạo (khó chịu, 27/10).
+const MUSIC = 'brand/audio/promo-music.mp3', hasMusic = fs.existsSync(MUSIC);
+ff([...(hasMusic ? ['-stream_loop', '-1', '-i', MUSIC] : ['-f', 'lavfi', '-i', `anullsrc=r=44100:cl=stereo`]),
+  '-i', silent, '-filter_complex', `[0:a]volume=${hasMusic ? '-18dB' : '0dB'},afade=t=in:d=2,afade=t=out:st=${(total - 3).toFixed(2)}:d=3[a]`, '-map', '1:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '128k', '-shortest', '-movflags', '+faststart', '-shortest', path.join(OUT, 'promo.mp4')]);
 // Bản dọc/điện thoại < 30 MB: 1280×720 CRF cao hơn
 ff(['-i', path.join(OUT, 'promo.mp4'), '-vf', 'scale=1280:720:flags=lanczos', '-c:v', 'libx264', '-preset', 'slow', '-crf', '24', '-maxrate', '5M', '-bufsize', '10M', '-c:a', 'aac', '-b:a', '96k', '-movflags', '+faststart', path.join(OUT, 'promo-phone.mp4')]);
 console.log('✓ promo', total.toFixed(1) + 's', (fs.statSync(path.join(OUT, 'promo.mp4')).size / 1048576).toFixed(1) + ' MB');
