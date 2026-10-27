@@ -12,7 +12,7 @@ on:
       plan: { description: 'true = dry run: voices + layout/timing plan JSON only (no frames, no render)', default: 'false' }
       shards: { description: 'frame shards per template (1 = single-process render)', default: '4' }
 permissions: { contents: read }
-concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}', cancel-in-progress: false }
+concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}-${{ github.event.inputs.shards }}', cancel-in-progress: false }
 env:
   DIR: ${{ github.event.inputs.dir || 'templates-v1' }}
   HOOKS: content/video/cine/news/templates-v1/reviewed-hooks.json
@@ -38,10 +38,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Reviewed script + hook verdict present
         run: python3 -c "import json,sys;s=json.load(open('$SPEC'));v=json.load(open('$HOOKS'))['verdicts'].get(s['id']) or {};sys.exit(0 if v.get('hook_true') and v.get('script')=={l['id']:l['text'] for l in s['lines'] if l.get('text')} else 1)" || { echo "::error::script/hook not reviewed"; exit 1; }
-      - name: Libraries + ffmpeg
+      - uses: actions/cache@v4   # pip wheels (a cold install once hung 30 min); ffmpeg ships with ubuntu-latest, no apt
+        with: { path: ~/.cache/pip, key: 'pip-video9-voice-${{ hashFiles(''scripts/cine/requirements.txt'') }}-fw1.0.3' }
+      - name: Libraries
+        timeout-minutes: 8
         run: |
           pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          ffmpeg -version | head -1
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Kokoro model cache
@@ -130,18 +133,23 @@ jobs:
           set -o pipefail
           mkdir -p $O/phone $O/frames
           V=$O/${{ matrix.t }}.mp4
+          echo "merge start $(date +%T)"
           if [ "$N" -gt 1 ]; then
             python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $V --merge > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
             grep -v '^frame ' $O/render.log | tail -8
           fi
-          rc=0; python3 scripts/video/tpl/qc_v9.py $V "$HOOKS" | tee $O/qc.log || rc=1
-          ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.t }}.mp4
-          S=$(stat -c %s $O/phone/${{ matrix.t }}.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+          rc=0
+          python3 scripts/video/tpl/qc_v9.py $V "$HOOKS" > $O/qc.log 2>&1 & QC=$!   # qc, phone copy and sheet run side by side (3 cores)
+          ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.t }}.mp4 & PH=$!
           D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 $V)
           for k in 0 1 2 3 4 5 6 7; do t=$(python3 -c "print(round(0.6 + $k * ($D - 1.4) / 7, 2))")
             ffmpeg -nostdin -v error -y -ss $t -i $V -frames:v 1 -q:v 2 $O/frames/t$(printf %05.2f $t).jpg
             ffmpeg -nostdin -v error -y -ss $t -i $V -frames:v 1 -vf scale=360:640 $O/s_$k.png; done
           ffmpeg -nostdin -v error -y $(for i in 0 1 2 3 4 5 6 7; do echo -i $O/s_$i.png; done) -filter_complex "[0][1][2][3]hstack=4[a];[4][5][6][7]hstack=4[b];[a][b]vstack" -q:v 3 $O/sheet.jpg && rm -f $O/s_*.png
+          wait $QC || rc=1; cat $O/qc.log
+          wait $PH || rc=1
+          S=$(stat -c %s $O/phone/${{ matrix.t }}.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+          echo "merge step done at $(date +%T)"
           rm -f $V.mix.wav; cp vo/vis3/*.words.json $O/ 2>/dev/null || true
           ls -la $O $O/phone
           { echo "## ${{ matrix.t }}"; echo '```'; cat $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

@@ -18,7 +18,8 @@ Board mode (teachers.json set with "bank", clip has bank.json "board" from board
 - captions: CapCut style in the calm lower area measured per clip (desk lip / floor beside the teacher), 2-3 words per page.
 - camera: set smax (classroom MCU = 1.0, locked), anchor = caption centre so a push never moves the body into the captions.
 Captions = script tokens + TTS word times (never the whisper text). Writes <out>, <out>.timeline.json (qc_v9.py), <out>.samples/, <out>.src0.png."""
-import os, sys, json, math, argparse, subprocess, wave, re
+import os, sys, json, math, argparse, subprocess, wave, re, time
+T_START = time.time()
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
@@ -1307,6 +1308,7 @@ if o.plan:   # dry run: layout + timing only (no frames, no encode)
                               short=bool(p.need and p.t1 - p.t0 < p.need - 1e-6), text=p.text) for p in POPS]), open(o.plan, 'w'), indent=1, default=str)
     print('plan written', o.plan); sys.exit(0)
 # ---------------- frame loop ----------------
+print(f'[timing] prep done {time.time() - T_START:.0f} s', flush=True)
 GX, GY = np.meshgrid(np.arange(W, dtype=np.float32), np.arange(H, dtype=np.float32))
 def morph(Fa, Fb, w):   # flow-based in-between of two frames at time w (0 = Fa, 1 = Fb): I(x) = (1-w) Fa(x - w f_ab) + w Fb(x - (1-w) f_ba)
     ga = cv2.cvtColor(cv2.resize(Fa, (W // 2, H // 2), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY); gb = cv2.cvtColor(cv2.resize(Fb, (W // 2, H // 2), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
@@ -1471,4 +1473,5 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
                words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), identity_hits=ID_HITS[:20], n_identity_hits=len(ID_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+print(f'[timing] finished {time.time() - T_START:.0f} s')
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')
