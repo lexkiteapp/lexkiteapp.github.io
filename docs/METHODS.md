@@ -71,9 +71,10 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
 - Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
 
-- Video dạy học (26/10): clip nhân vật để nguyên; kho clip nối tiếp + clip ngậm miệng mỗi giáo viên; nói khi có giọng, ngậm khi nghỉ; ≤130 từ/phút; bố cục v12 – chi tiết `VIDEO-SERIES.md`.
+- Video dạy học (27/10, `VIDEO-SERIES.md`): CHỈ 2 người dẫn 3D (thầy Carlos, cô Ama), đứng 1/3 phải, trung cảnh; clip để nguyên, nói khi có giọng/ngậm khi nghỉ, ≤130 từ/phút; bố cục v14: 1 thẻ cố định trên + phụ đề dải dưới + thẻ kết FREE/QR, trong SAFE.
 
-- Đồng nhất nhân vật (27/10): 1 ảnh gốc + Kling Element mỗi nhân vật, mọi lần tạo dùng ảnh tham chiếu đó; 4 ảnh Kling = 4 người khác → chỉ chọn 1; lệch mặt = loại.
+- Kho 3D: mọi clip neo ảnh chuẩn (`lexkite-media/cine/teachers/{carlos2,ama2}_first.png`) hoặc khung cuối clip trước; QC trước (phiếu, dry-run) + sau (`qc2.py`, tờ ảnh, render qua gate CI).
+- App: chạy trên máy người dùng trước; tải theo bài; video YouTube nhúng dạng ảnh xem trước; ảnh AVIF/WebP.
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
