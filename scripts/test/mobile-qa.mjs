@@ -15,6 +15,7 @@ const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const BUDGET = JSON.parse(fs.readFileSync(new URL('./mobile-qa.budget.json', import.meta.url), 'utf8'));
 const LH = process.env.MQA_LH === '1', WEB = process.env.MQA_WEB || ROOT + 'web';
 fs.mkdirSync(OUT, { recursive: true });
+const UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36'; // điện thoại thật (UA máy tính làm hiện lời mời add-on chỉ dành cho máy tính)
 const VPS = [{ w: 360, h: 740 }, { w: 390, h: 844 }, { w: 412, h: 915 }];
 const ROUTES = ['home', 'path', 'review', 'dict/hello', 'me', 'practice/mcq?src=topic:education', 'practice/test?src=topic:education'];
 const issues = [], perf = [], errs = [], seen = new Set();
@@ -87,13 +88,13 @@ async function keyboard(page, vp) {
 }
 
 async function open(browser, vp) {
-  const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, locale: 'en', reducedMotion: 'reduce' });
+  const ctx = await browser.newContext({ viewport: { width: vp.w, height: vp.h }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA, locale: 'en', reducedMotion: 'reduce' });
   const page = await ctx.newPage();
   page.on('pageerror', e => errs.push(`${vp.w} pageerror: ${String(e.message).slice(0, 120)}`));
   await page.addInitScript(() => {
     window.__cls = 0; window.__ev = []; window.__sh = [];
     const sel = n => n && n.tagName ? n.tagName.toLowerCase() + [...n.classList].slice(0, 2).map(c => '.' + c).join('') + (n.id ? '#' + n.id : '') : '?';
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node)).join(' ')]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node) + '@' + [s.previousRect.y, s.previousRect.height, s.currentRect.y, s.currentRect.height].map(Math.round).join(',')).join(' ') + ' ' + location.hash.slice(0, 30)]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__ev.push([e.interactionId, e.duration, e.name, e.target && e.target.className || '']); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); } catch (e) {}
   });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
@@ -111,7 +112,7 @@ async function playQuiz(page, onSheet) {
       const vis = e => e && e.getBoundingClientRect().width > 0 && !e.disabled;
       const nq = document.getElementById('nextQ'); if (vis(nq)) { nq.click(); return 'next'; }
       const inp = [...document.querySelectorAll('#view input[type=text],#view input:not([type])')].find(vis);
-      if (inp) { inp.value = i === 0 ? 'zzqx' : (inp.dataset.a || 'zzqx'); inp.dispatchEvent(new Event('input', { bubbles: true })); const ck = [...document.querySelectorAll('#view .btn.primary,#view button[type=submit]')].find(vis); if (ck) ck.click(); else inp.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); return 'typed'; }
+      if (inp) { inp.value = i === 0 ? 'zzqx' : (inp.dataset.a || 'zzqx'); inp.dispatchEvent(new Event('input', { bubbles: true })); if (inp.form) inp.form.requestSubmit(); else inp.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); return 'typed'; }
       const opts = [...document.querySelectorAll('#view .option')].filter(vis);
       if (opts.length) return 'opt' + (i === 0 ? opts.length - 1 : 0);
       const nx = [...document.querySelectorAll('#view .btn.primary,#view .btn')].find(e => vis(e) && !/^#\//.test(e.getAttribute('href') || ''));
@@ -189,7 +190,8 @@ if (LH) for (const route of ['home', 'path', 'review', 'dict/hello', 'me', 'prac
     runs.push({ route, perf: Math.round(d.categories.performance.score * 100), a11y: Math.round(d.categories.accessibility.score * 100), lcp: Math.round(a['largest-contentful-paint'].numericValue), cls: +a['cumulative-layout-shift'].numericValue.toFixed(4), tbt: Math.round(a['total-blocking-time'].numericValue), fcp: Math.round(a['first-contentful-paint'].numericValue), tap: a['target-size'] ? a['target-size'].score : null });
   }
   if (!runs.length) { errs.push('lighthouse lỗi: ' + route); continue; }
-  runs.sort((x, y) => x.lcp - y.lcp); lh.push(runs[Math.floor((runs.length - 1) / 2)]); // trung vị
+  const med = k => runs.map(r => r[k]).sort((x, y) => x - y)[Math.floor((runs.length - 1) / 2)]; // trung vị TỪNG chỉ số (máy CI dao động)
+  lh.push({ route, ...Object.fromEntries(['perf', 'a11y', 'lcp', 'cls', 'tbt', 'fcp'].map(k => [k, med(k)])), runs: runs.length });
 }
 
 // ---- Tổng hợp + cổng ngân sách
