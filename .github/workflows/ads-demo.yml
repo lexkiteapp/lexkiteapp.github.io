@@ -25,7 +25,7 @@ jobs:
       - name: Playwright
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          google-chrome --version || npx playwright install --with-deps chrome
       - name: GPT rewarded (quảng cáo demo thật)
         run: node scripts/test/ads-demo.mjs
         env: { ADS_DEMO_OUT: ads-web }

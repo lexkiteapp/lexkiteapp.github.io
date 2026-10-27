@@ -5,7 +5,8 @@ import fs from 'node:fs';
 const OUT = process.env.ADS_DEMO_OUT || 'ads-demo-out';
 fs.mkdirSync(OUT, { recursive: true });
 const pw = await import('playwright');
-const browser = await pw.chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required'] });
+// Google Chrome thật (channel 'chrome'): Chromium của Playwright thiếu codec H.264 → video demo không chạy, không bao giờ tới rewardedSlotGranted
+const browser = await pw.chromium.launch({ channel: 'chrome', args: ['--autoplay-policy=no-user-gesture-required'] });
 let fails = 0, n = 0; const ok = (c, m) => { n++; console.log((c ? '✓ ' : '✗ ') + m); if (!c) fails++; };
 const page = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/css/style.css"></head>
 <body><main id="view"><h1>Result</h1><p>${'You got 7 of 10 right. '.repeat(30)}</p><button id="go" class="btn primary">Watch video to retry</button><p id="below">${'Keep going with your review queue. '.repeat(30)}</p></main>
@@ -50,6 +51,7 @@ await p.screenshot({ path: OUT + '/web-rewarded.png' });
 const granted = filled && await p.waitForFunction(() => window.__gpt.some(e => e.n === 'rewardedSlotGranted'), null, { timeout: 45e3 }).then(() => true, () => false);
 await p.screenshot({ path: OUT + '/web-rewarded-after.png' });
 const out = await p.evaluate(() => ({ cls: window.__cls, below: document.getElementById('below').getBoundingClientRect().top, gpt: window.__gpt, res: window.__res, ev: window.AdsRun ? AdsRun._ev() : null, consent: window.AdsRun ? AdsRun._consent() : null }));
+if (filled && !granted) console.log('::warning::GPT demo: chưa có rewardedSlotGranted sau 45 s (Google không trả thưởng lần này) – chỉ cảnh báo');
 console.log(`  granted: ${granted ? 'CÓ' : 'chưa (demo cần xem hết / bấm)'} · kết quả Ads.rewarded: ${out.res} · đồng ý: ${out.consent} · sự kiện run.js: ${JSON.stringify(out.ev)}`);
 ok(out.ev && out.ev['req:rew'] === 1 && (!filled || out.ev['show:rew'] === 1), 'run.js đếm req:rew/show:rew đúng 1 lần');
 ok(out.cls === 0 && out.below === y0, `CLS = ${out.cls}, nội dung trang không xê dịch khi lớp phủ hiện`);
