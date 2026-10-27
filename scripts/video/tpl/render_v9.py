@@ -18,7 +18,8 @@ Board mode (teachers.json set with "bank", clip has bank.json "board" from board
 - captions: CapCut style in the calm lower area measured per clip (desk lip / floor beside the teacher), 2-3 words per page.
 - camera: set smax (classroom MCU = 1.0, locked), anchor = caption centre so a push never moves the body into the captions.
 Captions = script tokens + TTS word times (never the whisper text). Writes <out>, <out>.timeline.json (qc_v9.py), <out>.samples/, <out>.src0.png."""
-import os, sys, json, math, argparse, subprocess, wave, re
+import os, sys, json, math, argparse, subprocess, wave, re, time
+T_START = time.time()
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
@@ -34,6 +35,9 @@ ap.add_argument('--icon', default=f'{ROOT}/brand/social/logo/lexkite-app-icon.pn
 ap.add_argument('--emoji', default='/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf')
 ap.add_argument('--kbps', type=int, default=8800)
 ap.add_argument('--preview', default='')
+ap.add_argument('--frames', default='', help='shard: render only frames a:b or shard i/N (cuts on multiples of 48) -> <out>.seg<a>.mp4 + <out>.shard<a>.json, then stop (no audio, no timeline)')
+ap.add_argument('--cache', default='', help='folder for the ghost-distance matrices (pure function of the clip frames; shared by reruns and shards)')
+ap.add_argument('--merge', action='store_true', help='merge the shards found next to <out> (segments + json), then the usual audio mux + timeline')
 ap.add_argument('--plan', default='', help='write the layout plan (pages, pops, joins, read times) to this JSON and stop (no frames)')
 o = ap.parse_args()
 W, H, FPS = 1080, 1920, 24
@@ -227,16 +231,29 @@ def _face(c, f):
 FACE_S = {c: [_face(c, f) for f in fr] for c, fr in RAW.items()}
 GHOST_T = 28   # grey-level step that reads as a double image when two frames are blended (an arm / hand / blink in two places)
 def _ghost(A, B):   # D[i, j] = share of pixels that differ by > GHOST_T (ghost area): whole frame (arms, hands, head outline) + 0.25 x the face crop
-    A = A.reshape(len(A), -1); B = B.reshape(len(B), -1); return np.stack([(np.abs(B - A[i][None]) > GHOST_T).mean(1) for i in range(len(A))])
+    A = A.reshape(len(A), -1).astype(np.uint8); B = B.reshape(len(B), -1).astype(np.uint8)   # grey levels are integers: uint8 |a-b| is exactly the float32 one, at a quarter of the memory traffic
+    return np.stack([((np.maximum(B, A[i][None]) - np.minimum(B, A[i][None])) > GHOST_T).mean(1) for i in range(len(A))])
 DM = {}
-for c1 in RAW:
-    for c2 in RAW:
+def _dm_pair(c1, c2):
+    if True:
         a1, a2 = np.stack(SMALL[c1]), np.stack(SMALL[c2]); D = _ghost(a1, a2)
         if FACE_S[c1][0].shape == FACE_S[c2][0].shape: D = D + 0.25 * _ghost(np.stack(FACE_S[c1]), np.stack(FACE_S[c2]))
         if BRD:   # v10: the moving body (arms, hands) weighs in on its own: a seam joins matching arm poses, never a raised arm into a lowered one
             ys_, xs_ = np.nonzero(_bmask(_bk[c1]['board']['body'])); y0_, y1_, x0_, x1_ = ys_.min() // 8, ys_.max() // 8 + 1, xs_.min() // 8, xs_.max() // 8 + 1
             D = D + 1.5 * _ghost(a1[:, y0_:y1_, x0_:x1_], a2[:, y0_:y1_, x0_:x1_])
-        DM[(c1, c2)] = D * 100   # percent of the frame
+        return D * 100   # percent of the frame
+import hashlib, pickle
+from concurrent.futures import ThreadPoolExecutor
+_h = hashlib.md5(); _h.update(repr((GHOST_T, BRD is not None)).encode())
+for c_ in sorted(RAW): _h.update(c_.encode()); _h.update(np.stack(SMALL[c_]).tobytes()); _h.update(np.stack(FACE_S[c_]).tobytes()); _h.update(json.dumps(_bk[c_]['board']['body'], default=str).encode() if BRD else b'')
+DMF = f'{o.cache}/dm-{_h.hexdigest()}.pkl' if o.cache else ''
+print(f'[timing] clips loaded {time.time() - T_START:.0f} s', flush=True)
+if DMF and os.path.exists(DMF): DM = pickle.load(open(DMF, 'rb')); print('ghost matrices: cache hit', flush=True)
+else:
+    _pairs = [(c1, c2) for c1 in RAW for c2 in RAW]
+    with ThreadPoolExecutor(os.cpu_count() or 2) as ex: DM = dict(zip(_pairs, ex.map(lambda q: _dm_pair(*q), _pairs)))   # numpy drops the GIL: the clip pairs run side by side
+    if DMF: os.makedirs(o.cache, exist_ok=True); pickle.dump(DM, open(DMF, 'wb'))
+print(f'[timing] ghost matrices {time.time() - T_START:.0f} s', flush=True)
 def dif(c1, i1, c2, i2): return float(DM[(c1, c2)][i1, i2])
 SEAM = {}   # SEAM[(c, n)][b, e] = mean distance over the whole dissolve (c: b-XF+1 .. b  ->  n: e .. e+XF-1), worst frame weighted in
 for (c1, c2), D in DM.items():
@@ -1305,6 +1322,7 @@ if o.plan:   # dry run: layout + timing only (no frames, no encode)
                               short=bool(p.need and p.t1 - p.t0 < p.need - 1e-6), text=p.text) for p in POPS]), open(o.plan, 'w'), indent=1, default=str)
     print('plan written', o.plan); sys.exit(0)
 # ---------------- frame loop ----------------
+print(f'[timing] prep done {time.time() - T_START:.0f} s', flush=True)
 GX, GY = np.meshgrid(np.arange(W, dtype=np.float32), np.arange(H, dtype=np.float32))
 def morph(Fa, Fb, w):   # flow-based in-between of two frames at time w (0 = Fa, 1 = Fb): I(x) = (1-w) Fa(x - w f_ab) + w Fb(x - (1-w) f_ba)
     ga = cv2.cvtColor(cv2.resize(Fa, (W // 2, H // 2), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY); gb = cv2.cvtColor(cv2.resize(Fb, (W // 2, H // 2), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
@@ -1317,10 +1335,17 @@ os.makedirs(o.out + '.samples', exist_ok=True)
 PREV = {min(NF - 1, int(round(float(x) * FPS))) for x in o.preview.split(',')} if o.preview else None
 if PREV is not None:
     os.makedirs(o.out + '.preview', exist_ok=True); enc = None
+elif o.merge: enc = None
 else:
+    SEG0, SEG1 = 0, NF
+    if '/' in o.frames:   # 'i/N': shard i of N, cuts on multiples of the 48-frame GOP so every shard keeps the unsharded keyframe grid
+        i_, n_ = (int(x) for x in o.frames.split('/')); cut = lambda j: NF if j >= n_ else int(round(NF * j / n_ / 48)) * 48
+        SEG0, SEG1 = cut(i_), cut(i_ + 1)
+    elif o.frames: SEG0, SEG1 = (int(x) for x in o.frames.split(':'))
+    SEG1 = min(SEG1, NF)
     enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation', '-b:v', f'{o.kbps}k', '-maxrate', f'{int(o.kbps * 1.35)}k', '-bufsize', f'{o.kbps * 2}k',
-                            '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-g', '48', '-movflags', '+faststart', o.out + '.video.mp4'], stdin=subprocess.PIPE)
+                            '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-g', '48', '-movflags', '+faststart', (f'{o.out}.seg{SEG0:05d}.mp4' if o.frames else o.out + '.video.mp4')], stdin=subprocess.PIPE)
 SPK = [dict(cues=LINES[l]['cues'], at=at) for l, at in ATL.items()]
 VSEQ = [LS.viseme_at(SPK, fi / FPS) for fi in range(NF)]   # v11 mouth smoothing (owner 26/10: "mắt miệng ko tự nhiên"): no 1-frame shapes
 for fi in range(1, NF - 1):
@@ -1341,7 +1366,11 @@ def identity_check():   # owner 27/10 "đồng nhất nhân vật": every source
     return hits
 ID_HITS = identity_check(); print('identity check:', len(ID_HITS), 'frames off-model', ID_HITS[:5], flush=True)
 FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {}; POPID = {f'pop.{p.id}': p for p in POPS}
-for fi in range(NF):
+if o.frames:   # sharded run: the sharpness-sample latch is state that crosses frames; replay it for the frames before this shard (SEQ is known without rendering)
+    for fi in range(SEG0):
+        if fi % 24 == 12: SHARP_DUE = True
+        if SHARP_DUE and len(SEQ[fi]) == 1: SHARP_DUE = False
+for fi in (range(0) if o.merge else range(SEG0, SEG1) if o.frames else range(NF)):
     T = fi / FPS; tm = T + 0.5 / FPS
     if PREV is not None and fi not in PREV: continue
     v = VSEQ[fi]; acc = None; srcs = SEQ[fi]; ims = []
@@ -1404,7 +1433,22 @@ for fi in range(NF):
         cv2.imwrite(f'{o.out}.samples/f{fi:04d}.png', out)
     if fi % 48 == 0: print(f'frame {fi}/{NF} s={s:.3f}', flush=True)
 if PREV is not None: print('preview written', o.out + '.preview'); sys.exit(0)
-enc.stdin.close(); assert enc.wait() == 0, 'ffmpeg encode failed'
+if o.frames:
+    enc.stdin.close(); assert enc.wait() == 0, 'ffmpeg encode failed'
+    json.dump(dict(a=SEG0, b=SEG1, frames=FRAMES, sharp=SHARP, body_hits=BODY_HITS, contrast=CONTRAST, emoji=EMO_USED), open(f'{o.out}.shard{SEG0:05d}.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+    print(f'shard {SEG0}:{SEG1} done'); sys.exit(0)
+if o.merge:
+    import glob
+    sh = sorted((json.load(open(f)) for f in glob.glob(o.out + '.shard*.json')), key=lambda d: d['a'])
+    assert sh and sh[0]['a'] == 0 and sh[-1]['b'] == NF and all(x['b'] == y['a'] for x, y in zip(sh, sh[1:])), 'shards do not tile 0..NF'
+    for d in sh: FRAMES += d['frames']; SHARP += d['sharp']; BODY_HITS += d['body_hits']; CONTRAST += d['contrast']; EMO_USED.update(d['emoji'])
+    assert len(FRAMES) == NF, (len(FRAMES), NF)
+    with open(o.out + '.concat.txt', 'w') as lf:
+        for d in sh: lf.write(f"file '{os.path.abspath(o.out)}.seg{d['a']:05d}.mp4'\n")
+    subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', o.out + '.concat.txt', '-c', 'copy', '-movflags', '+faststart', o.out + '.video.mp4'], check=True)
+    for f in glob.glob(o.out + '.seg*.mp4') + glob.glob(o.out + '.shard*.json') + [o.out + '.concat.txt']: os.remove(f)
+else:
+    enc.stdin.close(); assert enc.wait() == 0, 'ffmpeg encode failed'
 cv2.imwrite(o.out + '.src0.png', norm_frame(RAW[SEQ[0][0][0]][SEQ[0][0][1]]))   # the source frame actually shown at t = 0 (gated plan starts at the talk clip's first usable frame)
 
 # ---------------- audio: voices + set ambience (-40 dB) + ticks + ding + soft pops ----------------
@@ -1443,4 +1487,5 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
                words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), identity_hits=ID_HITS[:20], n_identity_hits=len(ID_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+print(f'[timing] finished {time.time() - T_START:.0f} s')
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')
