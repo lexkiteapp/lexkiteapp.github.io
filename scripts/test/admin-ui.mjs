@@ -10,6 +10,7 @@ import { JSDOM, VirtualConsole } from 'jsdom';
 const require = createRequire(import.meta.url);
 const rd = f => fs.readFileSync(new URL('../../' + f, import.meta.url), 'utf8');
 let fails = 0, passes = 0;
+let DRV_ALERTS = [{ level: 'warn', t: 'replica', p: { n: 17 } }]; // /api/drive alerts (đổi giữa chừng để kiểm nhãn theo loại)
 const ok = (c, m) => { if (c) passes++; else { fails++; console.error('  ✗ ' + m); } };
 const tick = (ms = 15) => new Promise(r => setTimeout(r, ms));
 const VI = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
@@ -91,7 +92,7 @@ w.fetch = async (url, o = {}) => {
     return res({ error: 'op' }, 400);
   }
   if (/\/api\/admin/.test(url)) return FX[b.op] ? res(JSON.parse(JSON.stringify(FX[b.op]))) : res({ error: 'op' }, 400);
-  if (/\/api\/drive/.test(url)) return res({ alerts: [{ level: 'warn', t: 'replica', p: { n: 17 } }] });
+  if (/\/api\/drive/.test(url)) return res({ alerts: JSON.parse(JSON.stringify(DRV_ALERTS)) });
   if (/\/api\/backlinks/.test(url)) return BFX[b.op] ? res(JSON.parse(JSON.stringify(BFX[b.op]))) : res({ error: 'op' }, 400);
   return res({}, 404);
 };
@@ -125,6 +126,16 @@ ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Set
 await tick(30);
 ok($('#inboxN').textContent === '2' && $('#alertN').textContent === '1', 'huy hiệu hộp thư/cảnh báo: ' + $('#inboxN').textContent + '/' + $('#alertN').textContent);
 ok($('#drvN').textContent === '⚠1' && /17 file\(s\) have only 1 copy/.test($('#drvBanner').textContent), 'banner + huy hiệu Kho Drive');
+{ // 27/10: cảnh báo không phải Drive (CI…) → nhãn "System" + mở tab Cảnh báo; huy hiệu Kho Drive chỉ đếm cảnh báo Drive. Quay lại tab → tải lại cảnh báo.
+  DRV_ALERTS = [{ kind: 'ci', level: 'crit', t: 'ci', p: { n: 5 } }, { level: 'warn', t: 'replica', p: { n: 17 } }];
+  Object.defineProperty(d, 'hidden', { configurable: true, get: () => false }); d.dispatchEvent(new w.Event('visibilitychange')); await tick(40);
+  const bn = $('#drvBanner'), a = bn && bn.querySelector('a');
+  ok(bn && /^⛔ System:/.test(bn.querySelector('b').textContent.trim()) && /CI: 5 workflows failed/.test(bn.textContent) && !/disconnected/i.test(bn.textContent), 'banner: cảnh báo CI → nhãn System, chữ CI (không "Drive disconnected"): ' + (bn && bn.textContent.trim().slice(0, 120)));
+  ok(a && a.getAttribute('href') === '#alerts' && /Open alerts/.test(a.textContent), 'banner CI → liên kết tab Cảnh báo');
+  ok($('#drvN').textContent === '⚠1', 'huy hiệu Kho Drive chỉ đếm cảnh báo Drive (⚠1, không ⛔2): ' + $('#drvN').textContent);
+  d.dispatchEvent(new w.Event('visibilitychange')); await tick(40); // < 60 s → không gọi lại API
+  DRV_ALERTS = [{ level: 'warn', t: 'replica', p: { n: 17 } }];
+}
 { // banner toàn cục phải có chữ cho MỌI loại cảnh báo mà tab Kho Drive biết (27/10: 'ci' rơi về mặc định → hiện nhầm "Drive disconnected")
   const src = f => rd('web/js/' + f), keys = s => [...s.matchAll(/(?:^|[{,]\s*)([a-z_0-9]+): '/g)].map(m => m[1]);
   const tab = keys(src('admin-drive.js').match(/const alertTxt = a => \{[^]*?\}\[a\.t\]/)[0]), ban = keys(src('admin.js').match(/const DRV_T = \{[^\n]*\};/)[0]);

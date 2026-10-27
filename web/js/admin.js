@@ -45,6 +45,7 @@
     'Không tải được dữ liệu': 'Could not load data', 'Thử lại': 'Retry', 'Tìm trong bảng': 'Search this table', '🔎 Lọc…': '🔎 Filter…', 'Sắp xếp theo {c}': 'Sort by {c}', '{a}–{b} / {n}': '{a}–{b} of {n}',
     'Bỏ thay đổi chưa lưu?': 'Discard unsaved changes?', 'Bạn có thay đổi chưa lưu. Rời trang sẽ mất các thay đổi này.': 'You have unsaved changes. Leaving this page will lose them.', 'Bỏ thay đổi': 'Discard changes', 'Ở lại': 'Stay',
     // Drive (banner toàn cục)
+    'Xem Cảnh báo': 'Open alerts', 'Xem Lưu trữ': 'Open storage',
     'Toàn Kho Drive đã dùng {p}% – nối thêm Drive': 'Whole Drive pool is {p}% used – connect another Drive', 'Repo git {r} đã {g} GB (> 2 GB)': 'Git repo {r} is {g} GB (> 2 GB)', 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng': 'D1 has read {n} M rows today ({p}%) – background jobs paused', 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)': 'Footage bank: {n} file(s) broken or under-replicated (footage-verify)', 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)': 'CI: {n} workflows failed in 24 h – see issues labelled ci-failure (ci-triage digest)', 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md': 'Production deploy FAILED smoke – see ci-failure issue, rollback: docs/ROLLBACK.md', 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md': 'D1 backup or restore drill failed – see docs/ROLLBACK.md', 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md': 'Source backup (git bundle) failed – see docs/ROLLBACK.md', 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md': 'Release archive (AAB/IPA/add-on zip) failed – see docs/ROLLBACK.md', 'Cảnh báo hệ thống: {k}': 'System alert: {k}',
     'Drive {e} mất kết nối – bấm Kết nối lại': 'Drive {e} disconnected – click Reconnect', 'Drive {e}: Google không phản hồi {n} lần liên tiếp': 'Drive {e}: Google failed {n} times in a row', 'Drive {e}: tải lên lỗi {n} lần liên tiếp': 'Drive {e}: {n} uploads failed in a row',
     'Drive {e} đã dùng {p}%': 'Drive {e} is {p}% full', 'Toàn kho chỉ còn {g} GB trống': 'Whole pool has only {g} GB free', 'Nâng gói Cloudflare 5 USD trước ngày {d}': 'Upgrade Cloudflare to the $5 plan before {d}', 'Xem Hạn mức': 'View quotas', '{n} file chỉ còn 1 bản sao': '{n} file(s) have only 1 copy', '(+{n} cảnh báo khác)': '(+{n} more)', 'Xem Kho Drive': 'Open Drive storage',
@@ -561,19 +562,26 @@
   // Cảnh báo chủ động Kho Drive (functions/api/drive.js op alerts): banner đỏ/vàng trên mọi tab + huy hiệu Kho Drive
   const DRV_T = { capacity: 'Nâng gói Cloudflare 5 USD trước ngày {d}', conn: 'Drive {e} mất kết nối – bấm Kết nối lại', net: 'Drive {e}: Google không phản hồi {n} lần liên tiếp', upload: 'Drive {e}: tải lên lỗi {n} lần liên tiếp', quota: 'Drive {e} đã dùng {p}%', pool: 'Toàn kho chỉ còn {g} GB trống', replica: '{n} file chỉ còn 1 bản sao', poolpct: 'Toàn Kho Drive đã dùng {p}% – nối thêm Drive', gitsize: 'Repo git {r} đã {g} GB (> 2 GB)', d1: 'D1 đã đọc {n} M dòng hôm nay ({p}%) – việc nền tạm dừng', footage: 'Kho footage: {n} file lỗi/thiếu bản sao (footage-verify)', ci: 'CI: {n} workflow đỏ trong 24 h – xem issue nhãn ci-failure (bản tin ci-triage)', deploy: 'Bản deploy production KHÔNG qua smoke – xem issue ci-failure, khôi phục: docs/ROLLBACK.md', backup_d1: 'Sao lưu D1 lỗi hoặc diễn tập khôi phục thất bại – xem docs/ROLLBACK.md', backup_code: 'Sao lưu mã nguồn (git bundle) lỗi – xem docs/ROLLBACK.md', backup_rel: 'Lưu bản phát hành (AAB/IPA/zip add-on) lỗi – xem docs/ROLLBACK.md' }; // giữ khớp alertTxt trong admin-drive.js
   let drvAl = null;
+  // Cảnh báo chung một nguồn (drive_alerts) nhưng không phải loại nào cũng thuộc Kho Drive → nhãn + trang đích theo loại; huy hiệu Kho Drive chỉ đếm cảnh báo Drive
+  // (27/10: cảnh báo CI hiện dưới nhãn "Kho Drive" + ⛔ ở mục Kho Drive → tưởng Drive hỏng).
+  const ALERT_DST = { capacity: ['Hạn mức', 'quota', 'Xem Hạn mức'], d1: ['Hạn mức', 'quota', 'Xem Hạn mức'], gitsize: ['Lưu trữ', 'storage', 'Xem Lưu trữ'],
+    ci: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], deploy: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_d1: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_code: ['Hệ thống', 'alerts', 'Xem Cảnh báo'], backup_rel: ['Hệ thống', 'alerts', 'Xem Cảnh báo'] };
+  const DRV_DST = ['Kho Drive', 'drive', 'Xem Kho Drive'], dstOf = a => ALERT_DST[a.t] || DRV_DST;
   const paintDrv = () => {
-    const al = drvAl || [], crit = al.filter(a => a.level === 'crit');
-    setBadge('drvN', al.length ? (crit.length ? '⛔' : '⚠') + al.length : '', crit.length ? 'drv-crit' : '');
+    const al = drvAl || [], crit = al.filter(a => a.level === 'crit'), dal = al.filter(a => dstOf(a) === DRV_DST), dcrit = dal.some(a => a.level === 'crit');
+    setBadge('drvN', dal.length ? (dcrit ? '⛔' : '⚠') + dal.length : '', dcrit ? 'drv-crit' : '');
     let el = $('#drvBanner');
     if (!al.length) { if (el) el.remove(); return; }
     if (!el) { el = document.createElement('div'); el.id = 'drvBanner'; el.setAttribute('role', 'alert'); $('#pgHead').parentNode.insertBefore(el, $('#pgHead')); }
-    const top = crit[0] || al[0], p = top.p || {};
+    const top = crit[0] || al[0], p = top.p || {}, dst = dstOf(top);
     el.className = 'drv-banner ' + (crit.length ? 'crit' : 'warn');
-    const cap = top.t === 'capacity'; // functions/api/capacity.js – nâng gói Cloudflare → tab Hạn mức
-    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L(cap ? 'Hạn mức' : 'Kho Drive'))}:</b> <span>${esc(DRV_T[top.t] ? L(DRV_T[top.t], { e: p.email || '', n: p.n ?? '', p: p.pct ?? '', g: p.gb ?? '', d: p.by || '', r: p.repo || '' }) : L('Cảnh báo hệ thống: {k}', { k: top.kind || top.t || '?' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#${cap ? 'quota' : 'drive'}" data-go="${cap ? 'quota' : 'drive'}">${esc(L(cap ? 'Xem Hạn mức' : 'Xem Kho Drive'))} →</a>`;
-    el.querySelector('a').onclick = e => { e.preventDefault(); go(cap ? 'quota' : 'drive'); };
+    el.innerHTML = `<b>${crit.length ? '⛔' : '⚠️'} ${esc(L(dst[0]))}:</b> <span>${esc(DRV_T[top.t] ? L(DRV_T[top.t], { e: p.email || '', n: p.n ?? '', p: p.pct ?? '', g: p.gb ?? '', d: p.by || '', r: p.repo || '' }) : L('Cảnh báo hệ thống: {k}', { k: top.kind || top.t || '?' }))}${al.length > 1 ? ' ' + esc(L('(+{n} cảnh báo khác)', { n: al.length - 1 })) : ''}</span> <a href="#${dst[1]}" data-go="${dst[1]}">${esc(L(dst[2]))} →</a>`;
+    el.querySelector('a').onclick = e => { e.preventDefault(); go(dst[1]); };
   };
   async function driveAlerts() { try { const r = await dapi('alerts'); drvAl = r.alerts || []; } catch (e) { return; } paintDrv(); }
+  // Tab quản trị để mở lâu (vd cả buổi sáng): quay lại tab → tải lại cảnh báo, không giữ cảnh báo cũ đã hết (≥ 60 s giữa 2 lần, tiết kiệm lượt đọc D1)
+  let drvAt = 0;
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && document.body.classList.contains('adm-in') && Date.now() - drvAt > 60e3) { drvAt = Date.now(); driveAlerts(); } });
 
   // ---------- Bảng lệnh Ctrl/⌘+K: nhảy tới mọi mục + vài lệnh nhanh ----------
   const fold = s => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
