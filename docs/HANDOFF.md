@@ -16,11 +16,11 @@ Cập nhật: 26/10/2026.
 - Giám khảo KÉP (`VIMG_CONSENSUS=1`): ảnh qua cổng cứng nhưng trượt cổng mềm được llama-4-scout + mistral-small-3.1 chấm (yes câu ví dụ + no câu anh em). Soát: `mode=rejudge lab_run=<run>` → tờ `cons-*.jpg`. CHƯA soát được (kho cạn 26/10) – soát sau 00:00 UTC 27/10.
 - Tiếp: đo neuron/ảnh sau 1 ngày; nâng sản lượng 3–5× bằng hiệu chỉnh giám khảo theo phong cách klein (`calibrate_scene.py`) – cần chủ gán nhãn 1 tờ ảnh (~5 phút).
 
-## Kho từ 20k (`lexicon-expand`) – CHẶN: kho CF hết neuron do bên ngoài
-- Kho vẫn 8.230 nghĩa. Đường chạy sẵn sàng: AI qua kho CF_POOL (ai-pool cf2), tự nối lượt (8fa4687), lịch 00:12 UTC, biến LX_PILOT=1/LX_N=300.
-- 27/10 00:25–00:40 UTC (run 40426315286, thử 40426701526): 121/121 tài khoản trả 4006 THẬT ("used up your daily free allocation of 10,000 neurons") dù không lượt Lexkite nào chạy từ 23:17 → có bên ngoài (nghi GrabCast – CF_POOL là tệp xuất kho khoá GrabCast) vắt kho ngay sau 00:00 UTC.
-- Cần chủ: tài khoản CF miễn phí RIÊNG cho Lexkite (không chung GrabCast), hoặc khoá Gemini/Groq miễn phí; hoặc tắt việc GrabCast dùng các tài khoản này.
-- Khi có neuron: dispatch pilot (n 300, pilot 1, batch 20261027-pilot) → phiên soát (local_3a958a4a) soát 50 mẫu → LX_PILOT=0, LX_N=2400.
+## Kho từ 20k (`lexicon-expand`) – CHỜ kho CF có neuron
+- Kho vẫn 8.230 nghĩa. Đường chạy sẵn sàng: AI qua kho CF_POOL (ai-pool cf2), tự nối lượt khi hàng loạt (8fa4687), biến LX_PILOT=1/LX_N=300.
+- 27/10: 121/121 tài khoản 4006 thật sau 00:00 UTC (GrabCast xác nhận không dùng) → nghi cửa sổ 24 giờ trượt. Lịch lexicon-expand mỗi 3 giờ (:17), kho cạn = dừng ~40 s, cảnh báo không đỏ (2b4cb5c).
+- Pilot theo lịch → lô pending/<ngày>-pilot.json (bỏ qua nếu lô hôm nay đã có). Tác vụ hẹn giờ máy chủ "lexicon-pilot-28-10" (mỗi 6 giờ, 01:40/07:40/13:40/19:40 giờ VN) soát 50 mẫu → sai ≤ 1/50 thì LX_PILOT=0, LX_N=2400, promote, dispatch hàng loạt.
+- Lô đã soát: (chưa có).
 
 ## Chờ chủ
 - Gán nhãn đúng/sai 1 tờ ảnh để hiệu chỉnh giám khảo (tuỳ chọn, tăng sản lượng).
