@@ -9,7 +9,9 @@ on:
     inputs:
       sha: { type: string, required: false, default: '' }
 permissions: { contents: read }
-concurrency: { group: 'npm-test-${{ github.event.pull_request.number || inputs.sha || github.sha }}', cancel-in-progress: ${{ github.event_name == 'pull_request' }} }
+concurrency:
+  group: npm-test-${{ github.event.pull_request.number || inputs.sha || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   test:
     name: npm test
