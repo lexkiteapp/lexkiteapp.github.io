@@ -1,7 +1,8 @@
 # video-templates9: ONE sample per v9 template (docs/VIDEO-TEMPLATES.md §14, teachers docs/VIDEO-TEACHERS.md) on the approved v8 one-shot engine.
 # Matrix over content/video/cine/news/templates-v1/<template>.json. 0 credits: Kokoro + Rhubarb + faster-whisper (word clock only) on the runner.
 # NO GrabCast / Groq / Kling (scripts + hooks reviewed in templates-v1/reviewed-hooks.json). No store, no Drive, no publish (approval gate).
-# Artifact per template: <t>.mp4 + phone/<t>.mp4 (< 30 MB) + timeline/qc/samples/src0 + frames/ + sheet.jpg.
+# SHARDED: voice (1 job / template, identical audio for every shard) -> shard (N jobs / template, render_v9.py --frames i/N) -> merge (concat + audio mux + qc + phone copy + sheet).
+# shards=1 keeps the single-process render (the shard job renders everything, merge only runs qc etc.). Artifact per template: <t>.mp4 + phone/<t>.mp4 (< 30 MB) + timeline/qc/samples/src0 + frames/ + sheet.jpg.
 name: video-templates9
 on:
   workflow_dispatch:
@@ -9,64 +10,38 @@ on:
       templates: { description: 'comma list', default: 'mistake,words5,guess,pair,roleplay,pron' }
       dir: { description: 'spec folder under content/video/cine/news/ (templates-v2 = classroom, text on the whiteboard)', default: 'templates-v1' }
       plan: { description: 'true = dry run: voices + layout/timing plan JSON only (no frames, no render)', default: 'false' }
+      shards: { description: 'frame shards per template (1 = single-process render)', default: '4' }
 permissions: { contents: read }
 concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}', cancel-in-progress: false }
+env:
+  DIR: ${{ github.event.inputs.dir || 'templates-v1' }}
+  HOOKS: content/video/cine/news/templates-v1/reviewed-hooks.json
 jobs:
   setup:
     runs-on: ubuntu-latest
-    outputs: { list: '${{ steps.m.outputs.list }}' }
+    outputs: { list: '${{ steps.m.outputs.list }}', shards: '${{ steps.m.outputs.shards }}' }
     steps:
       - id: m
-        run: echo "list=$(python3 -c "import json,sys;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
-  render:
+        run: |
+          echo "list=$(python3 -c "import json,sys;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
+          N=${{ github.event.inputs.shards || 4 }}; [ "$N" -ge 1 ] || N=1
+          echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> "$GITHUB_OUTPUT"
+  voice:
     needs: setup
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
     strategy:
-      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
       fail-fast: false
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
-    env:
-      SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
-      HOOKS: content/video/cine/news/templates-v1/reviewed-hooks.json
-      O: out/tpl9/${{ matrix.t }}
+    env: { SPEC: 'content/video/cine/news/${{ github.event.inputs.dir || ''templates-v1'' }}/${{ matrix.t }}.json' }
     steps:
       - uses: actions/checkout@v4
       - name: Reviewed script + hook verdict present
         run: python3 -c "import json,sys;s=json.load(open('$SPEC'));v=json.load(open('$HOOKS'))['verdicts'].get(s['id']) or {};sys.exit(0 if v.get('hook_true') and v.get('script')=={l['id']:l['text'] for l in s['lines'] if l.get('text')} else 1)" || { echo "::error::script/hook not reviewed"; exit 1; }
-      - name: Libraries + ffmpeg + colour emoji font
+      - name: Libraries + ffmpeg
         run: |
-          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3 qrcode==7.4.2
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null
-          ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf
-      - name: Footage (only the talk clips of this spec, sparse)
-        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
-        run: |
-          [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
-          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
-          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
-          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
-          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          P=$(python3 - <<'PY'
-          import json, os
-          s = json.load(open(os.environ['SPEC'])); tr = json.load(open('content/video/cine/teachers.json')); st = tr['sets'][s['set']]; L = st['lib']
-          p = ['/anchor/tools/foley/ding.wav'] + [f"/{L}/{st[k]}" for k in ('amb', 'ding') if st.get(k)]
-          for c in s['clips']: p += [f"/{L}/{st['path']}/{c}.mp4", f"/{L}/{st['path']}/{c}.json", f"/{L}/{st['meta']}/{c}/{s['teacher']}/"]
-          for c in s['clips'] + s.get('listen', []): p += [f"/{L}/clips/{c}.mp4"]   # raw host: the original clips (owner 26/10)
-          print(' '.join(p))
-          PY
-          )
-          echo "$P"; git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage
-          du -sh footage/*
-      - name: Vocab images (live CDN, content/lexicon/img.json)
-        run: |
-          mkdir -p img
-          python3 - <<'PY'
-          import json, os, subprocess
-          s = json.load(open(os.environ['SPEC'])); I = json.load(open('content/lexicon/img.json'))['items']
-          for k in sorted({p['img'] for p in s['pops'] if p.get('img')}):   # curl (the CDN refuses python-urllib's user agent)
-              it = I[k]; subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', f"img/{it['h']}.webp", it['url']], check=True); print(k, it['url'])
-          PY
+          pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Kokoro model cache
@@ -80,21 +55,85 @@ jobs:
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"
           "$R" --version | grep -q 1.13 || { echo "::error::Rhubarb not runnable"; exit 1; }
           echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
-      - name: Voice → render → qc → phone copy → frames + sheet
+      - name: Voice (once per template; every shard reuses this exact audio + timing)
+        run: |
+          python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
+          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          ls -la vo/vis3 | head -30
+      - uses: actions/upload-artifact@v4
+        with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo/, retention-days: 3 }
+  shard:
+    needs: [setup, voice]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}', i: '${{ fromJSON(needs.setup.outputs.shards) }}' }
+    env:
+      SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
+      O: out/tpl9/${{ matrix.t }}
+      N: ${{ github.event.inputs.shards || 4 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/video9-setup
+        with: { key: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo }
+      - name: Render (shard ${{ matrix.i }} of ${{ github.event.inputs.shards || 4 }})
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p $O
+          python3 -m pyflakes scripts/video/tpl/render_v9.py scripts/video/tpl/qc_v9.py | grep -E 'undefined name|syntax error' && { echo '::error::render/qc code has undefined names'; exit 1; } || true   # fail fast (a commented-out assignment cost a full render)
+          ARGS="--spec $SPEC --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4"
+          if [ "${{ github.event.inputs.plan }}" = "true" ]; then
+            [ "${{ matrix.i }}" = "0" ] || exit 0
+            python3 scripts/video/tpl/render_v9.py $ARGS --plan $O/plan.json 2>&1 | grep -v '^frame ' | tee $O/plan.log
+            cp vo/vis3/*.words.json $O/ 2>/dev/null || true; mkdir -p $O/vo && cp vo/vis3/* $O/vo/ 2>/dev/null || true; exit 0
+          fi
+          F=""; [ "$N" -gt 1 ] && F="--frames ${{ matrix.i }}/$N"
+          python3 scripts/video/tpl/render_v9.py $ARGS $F > $O/render.${{ matrix.i }}.log 2>&1 || { tail -40 $O/render.${{ matrix.i }}.log; exit 1; }
+          grep -v '^frame ' $O/render.${{ matrix.i }}.log | tail -8
+          ls -la $O
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shard-${{ matrix.t }}-${{ matrix.i }}-${{ github.run_number }}
+          path: out/tpl9/${{ matrix.t }}/
+          retention-days: 2
+  merge:
+    needs: [setup, shard]
+    if: ${{ always() && needs.shard.result == 'success' && github.event.inputs.plan != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
+    env:
+      SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
+      O: out/tpl9/${{ matrix.t }}
+      N: ${{ github.event.inputs.shards || 4 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/video9-setup
+        with: { key: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo }
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-${{ matrix.t }}-*-${{ github.run_number }}
+          path: out/tpl9/${{ matrix.t }}
+          merge-multiple: true
+      - name: Merge → mux → qc → phone copy → frames + sheet
         shell: bash
         run: |
           set -o pipefail
           mkdir -p $O/phone $O/frames
-          python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
-          pip install -q pyflakes==3.2.0 && { python3 -m pyflakes scripts/video/tpl/render_v9.py scripts/video/tpl/qc_v9.py | grep -E 'undefined name|syntax error' && { echo '::error::render/qc code has undefined names'; exit 1; } || true; }   # fail fast (a commented-out assignment cost a full render)
-          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
-          if [ "${{ github.event.inputs.plan }}" = "true" ]; then
-            python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4 --plan $O/plan.json 2>&1 | grep -v '^frame ' | tee $O/plan.log
-            cp vo/vis3/*.words.json $O/ 2>/dev/null || true; mkdir -p $O/vo && cp vo/vis3/* $O/vo/ 2>/dev/null || true; exit 0
-          fi
-          python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4 > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
-          grep -v '^frame ' $O/render.log | tail -8
           V=$O/${{ matrix.t }}.mp4
+          if [ "$N" -gt 1 ]; then
+            python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $V --merge > $O/render.log 2>&1 || { tail -40 $O/render.log; exit 1; }
+            grep -v '^frame ' $O/render.log | tail -8
+          fi
           rc=0; python3 scripts/video/tpl/qc_v9.py $V "$HOOKS" | tee $O/qc.log || rc=1
           ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 19 -maxrate 6000k -bufsize 12000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.t }}.mp4
           S=$(stat -c %s $O/phone/${{ matrix.t }}.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
@@ -115,7 +154,7 @@ jobs:
             out/tpl9/${{ matrix.t }}/sheet.jpg
             out/tpl9/${{ matrix.t }}/*.qc.json
             out/tpl9/${{ matrix.t }}/qc.log
-            out/tpl9/${{ matrix.t }}/render.log
+            out/tpl9/${{ matrix.t }}/render*.log
             out/tpl9/${{ matrix.t }}/phone/*.mp4
       - uses: actions/upload-artifact@v4
         if: always()

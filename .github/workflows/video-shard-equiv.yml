@@ -1,0 +1,34 @@
+# Equivalence proof of the sharded render: compares two video-templates9 runs of the SAME commit/template (A = shards=1, B = shards=N). Download only; 0 credits.
+name: video-shard-equiv
+on:
+  workflow_dispatch:
+    inputs:
+      t: { description: 'template', default: 'mistake' }
+      dir: { description: 'spec folder', default: 'templates-v1' }
+      run_a: { description: 'run id of the shards=1 run', required: true }
+      num_a: { description: 'run_number of A', required: true }
+      run_b: { description: 'run id of the sharded run', required: true }
+      num_b: { description: 'run_number of B', required: true }
+permissions: { contents: read, actions: read }
+jobs:
+  equiv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+      - uses: actions/download-artifact@v4
+        with:
+          name: tpl9-${{ github.event.inputs.dir }}-${{ github.event.inputs.t }}-${{ github.event.inputs.num_a }}
+          path: A
+          run-id: ${{ github.event.inputs.run_a }}
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: tpl9-${{ github.event.inputs.dir }}-${{ github.event.inputs.t }}-${{ github.event.inputs.num_b }}
+          path: B
+          run-id: ${{ github.event.inputs.run_b }}
+          github-token: ${{ github.token }}
+      - run: python3 scripts/video/tpl/shard_equiv.py A B ${{ github.event.inputs.t }} | tee equiv.txt
+      - if: always()
+        run: |
+          { echo '```'; cat equiv.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

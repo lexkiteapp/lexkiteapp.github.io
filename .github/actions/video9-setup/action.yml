@@ -1,0 +1,46 @@
+# Shared setup of the video-templates9 shard + merge jobs: reviewed-script check, libraries, sparse footage clone, vocab images (env SPEC, HOOKS from the job).
+name: video9-setup
+inputs:
+  key: { description: 'footage deploy key', required: true }
+runs:
+  using: composite
+  steps:
+    - name: Reviewed script + hook verdict present
+      shell: bash
+      run: python3 -c "import json,sys;s=json.load(open('$SPEC'));v=json.load(open('$HOOKS'))['verdicts'].get(s['id']) or {};sys.exit(0 if v.get('hook_true') and v.get('script')=={l['id']:l['text'] for l in s['lines'] if l.get('text')} else 1)" || { echo "::error::script/hook not reviewed"; exit 1; }
+    - name: Libraries + ffmpeg + colour emoji font
+      shell: bash
+      run: |
+        pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3 qrcode==7.4.2 pyflakes==3.2.0
+        sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null
+        ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf
+    - name: Footage (only the talk clips of this spec, sparse)
+      shell: bash
+      env: { KEY: '${{ inputs.key }}' }
+      run: |
+        [ -n "$KEY" ] || { echo "::error::missing secret FOOTAGE_DEPLOY_KEY"; exit 1; }
+        mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+        ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+        export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+        git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+        P=$(python3 - <<'PY'
+        import json, os
+        s = json.load(open(os.environ['SPEC'])); tr = json.load(open('content/video/cine/teachers.json')); st = tr['sets'][s['set']]; L = st['lib']
+        p = ['/anchor/tools/foley/ding.wav'] + [f"/{L}/{st[k]}" for k in ('amb', 'ding') if st.get(k)]
+        for c in s['clips']: p += [f"/{L}/{st['path']}/{c}.mp4", f"/{L}/{st['path']}/{c}.json", f"/{L}/{st['meta']}/{c}/{s['teacher']}/"]
+        for c in s['clips'] + s.get('listen', []): p += [f"/{L}/clips/{c}.mp4"]   # raw host: the original clips (owner 26/10)
+        print(' '.join(p))
+        PY
+        )
+        echo "$P"; git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage
+        du -sh footage/*
+    - name: Vocab images (live CDN, content/lexicon/img.json)
+      shell: bash
+      run: |
+        mkdir -p img
+        python3 - <<'PY'
+        import json, os, subprocess
+        s = json.load(open(os.environ['SPEC'])); I = json.load(open('content/lexicon/img.json'))['items']
+        for k in sorted({p['img'] for p in s['pops'] if p.get('img')}):   # curl (the CDN refuses python-urllib's user agent)
+            it = I[k]; subprocess.run(['curl', '-fsSL', '--retry', '3', '-o', f"img/{it['h']}.webp", it['url']], check=True); print(k, it['url'])
+        PY
