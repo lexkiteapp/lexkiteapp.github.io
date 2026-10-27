@@ -14,8 +14,11 @@ const rd = f => fs.readFileSync(f, 'utf8');
 // ---------- 1) luật đặt chỗ ----------
 const ctxP = {}; ctxP.self = ctxP; vm.createContext(ctxP); vm.runInContext(rd('web/js/ads/policy.js'), ctxP); vm.runInContext(rd('web/js/ads/config.js'), ctxP);
 const P = ctxP.AdsPolicy, CFG = ctxP.ADS_CONFIG;
-ok(CFG.enabled === false && CFG.web.client === '' && CFG.native.testing === true, 'ads/config.js: enabled=false, chưa có mã nhà xuất bản, app dùng mã THỬ');
-ok(/3940256099942544/.test(JSON.stringify(CFG.native)) && !/ca-app-pub-(?!3940256099942544)\d{16}/.test(JSON.stringify(CFG.native)), 'AdMob: CHỈ mã thử của Google');
+ok(CFG.enabled === false && /^ca-pub-\d{16}$/.test(CFG.web.client) && CFG.native.testing === true, 'ads/config.js: enabled=false (mã nhà xuất bản đã có, chưa bật), app dùng mã THỬ');
+{ const { live, ...act } = CFG.native, pub = CFG.web.client.replace(/^ca-pub-/, '');
+  ok(/3940256099942544/.test(JSON.stringify(act)) && !/ca-app-pub-(?!3940256099942544)\d{16}/.test(JSON.stringify(act)), 'AdMob: mã đang dùng (testing) CHỈ là mã thử của Google');
+  ok(['android', 'ios'].every(p => ['appId', 'banner', 'interstitial', 'rewarded'].every(k => new RegExp('^ca-app-pub-' + pub + '[~/]\\d{10}$').test((live[p] || {})[k] || ''))), 'AdMob: mã thật (live) đủ 2 nền tảng × 4 mã, cùng pub id với AdSense/app-ads.txt');
+  ok(/testing \? C\.native : \(C\.native \|\| \{\}\)\.live/.test(rd('web/js/ads/run.js')), 'run.js: testing → mã thử, chỉ bản phát hành mới dùng mã thật'); }
 const ON = { ads_web: '1', ads_android: '1', ios: '1', ads_ios: '1' }, LOCAL = { enabled: true };
 const f0 = P.flags({}, CFG), fOn = P.flags(ON, LOCAL);
 ok(!f0.web && !f0.android && !f0.ios, 'mặc định: mọi nền tảng TẮT');
@@ -55,6 +58,18 @@ const fHalf = P.flags({ ...ON, ads_guard: '0.5' }, LOCAL), fQ = P.flags({ ...ON,
 ok(!P.interstitial(aCtx, fHalf, st({ sessions: 5 }), now) && P.interstitial(aCtx, fHalf, st({ sessions: 6 }), now), 'cổng giữ chân ×0,5 → 1 lần / 6 phiên');
 ok(!P.interstitial(aCtx, fQ, st({ sessions: 99 }), now), 'cổng giữ chân ×0,25 → tắt toàn màn hình');
 ok(P.rewarded({ ...aCtx, plat: 'ios' }, fOn, 'streak') && P.rewarded(aCtx, fOn, 'ai') && P.rewarded(aCtx, fOn, 'chat') && !P.rewarded(aCtx, fOn, 'lesson') && !P.rewarded({ ...aCtx, plat: 'web' }, fOn, 'ai'), 'có thưởng: chỉ lý do tự chọn, chỉ app gốc');
+
+// ---------- 2b) có thưởng mở rộng (cơ hội 2 · x2 XP), trần/ngày, được yên sau thưởng, không "xát muối" lúc làm kém ----------
+ok(P.rewarded(aCtx, fOn, 'retry') && P.rewarded(aCtx, fOn, 'xp2') && !P.rewarded({ ...aCtx, plat: 'web' }, fOn, 'retry') && !P.rewarded({ ...aCtx, edu: true }, fOn, 'retry'), 'cơ hội 2 / x2 XP: chỉ app gốc, không lớp học');
+{ const d0 = '2026-10-27';
+  ok(P.rewLeft({}, 'retry', d0) === 3 && P.rewLeft({ rw: { d: d0, n: { retry: 3 } } }, 'retry', d0) === 0 && P.rewLeft({ rw: { d: '2026-10-26', n: { retry: 3 } } }, 'retry', d0) === 3, 'trần có thưởng: 3 cơ hội 2 / ngày, sang ngày mới đặt lại');
+  ok(P.rewLeft({ rw: { d: d0, n: { xp2: 2 } } }, 'xp2', d0) === 0 && P.rewLeft({ rw: { d: d0, n: { streak: 1 } } }, 'streak', d0) === 0 && P.rewLeft({}, 'lesson', d0) <= 0, 'trần: x2 XP 2/ngày, cứu chuỗi 1/ngày, lý do lạ = 0'); }
+ok(!P.interstitial(aCtx, fOn, st({ rewAt: now - 20 * 60e3 }), now) && P.interstitial(aCtx, fOn, st({ rewAt: now - 31 * 60e3 }), now), 'vừa xem video có thưởng → 30 phút không toàn màn hình');
+ok(!P.interstitial(aCtx, fOn, st({ lastPct: 40 }), now) && P.interstitial(aCtx, fOn, st({ lastPct: 50 }), now), 'phiên vừa rồi < 50 % → không toàn màn hình');
+{ const dn = { ...base, route: 'practice', done: true, ageH: 30, pct: 80 };
+  ok(P.slot(dn, fOn, 'done'), 'ô kết quả (web): thẻ kết quả đã vẽ, ≥ 24 giờ, điểm ≥ 50 % → hiện');
+  ok(!P.slot({ ...dn, done: false }, fOn, 'done') && !P.slot({ ...dn, ageH: 5 }, fOn, 'done') && !P.slot({ ...dn, pct: 30 }, fOn, 'done'), 'ô kết quả: không giữa bài, không ngày đầu, không khi làm kém');
+  ok(!P.slot({ ...dn, plat: 'android' }, fOn, 'done') && !P.slot({ ...dn, edu: true }, fOn, 'done') && !P.slot({ ...dn, vid: hvid }, fOn, 'done'), 'ô kết quả: không app gốc (đã có toàn màn hình), không lớp học, không nhóm đối chứng'); }
 
 // ---------- 3) khung app +0 ----------
 const sw = rd('web/sw.js'), shell = (sw.match(/const SHELL = \[([\s\S]*?)\];/) || [, ''])[1], idx = rd('web/app/index.html');
@@ -127,7 +142,7 @@ ok(S.places[0].fill === 0.8 && Math.abs(S.plat.web.rev - 0.16) < 1e-9 && S.conse
   ok(!(await verifySsv(`https://lexkite.com/api/ads-reward?${msg.replace('reward_amount=3', 'reward_amount=99')}&signature=${sig}&key_id=42`, keys)), 'SSV: sửa tham số → từ chối');
   const { onRequestGet } = await import('../../functions/api/ads-reward.js');
   ok((await onRequestGet({ request: new Request('https://lexkite.com/api/ads-reward?x=1'), env: {} })).status === 404, 'SSV: mặc định TẮT (ADS_SSV≠1 → 404)'); }
-ok(/pub-0000000000000000/.test(rd('web/ads.txt')) && /pub-0000000000000000/.test(rd('web/app-ads.txt')) && /f08c47fec0942fa0/.test(rd('web/ads.txt')), 'ads.txt + app-ads.txt giữ chỗ ở gốc');
+{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && rd('web/index.html').includes(`google-adsense-account" content="${CFG.web.client}`), 'ads.txt + app-ads.txt + thẻ xác minh trang chủ khớp mã trong config.js'); }
 // D1: truy vấn ext_events theo khoảng ngày dùng PK, không SCAN
 try {
   const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync(':memory:');
@@ -144,6 +159,35 @@ ok(/APPLICATION_ID/.test(on1) && patchManifest(on1, '', false) === man && patchM
 const pl = '<?xml version="1.0"?>\n<plist version="1.0">\n<dict>\n\t<key>A</key>\n</dict>\n</plist>', pOn = patchPlist(pl, 'ca-app-pub-3940256099942544~1458002511', true);
 ok(/GADApplicationIdentifier/.test(pOn) && /NSUserTrackingUsageDescription/.test(pOn) && patchPlist(pOn, '', false) === pl, 'mobile-ads: Info.plist bật/tắt sạch');
 ok(!/@capacitor-community\/admob/.test(rd('mobile/package.json')), 'app phát hành hiện KHÔNG chứa SDK AdMob (cờ tắt)');
+
+// vỏ: ô kết quả chỉ vẽ khi chắc chắn được hiện (0 ô trống rồi biến mất)
+{ const w = boot({ ads_web: '1' }); ok(w.Ads.slot('done') === '' && /data-ad="done"/.test(w.Ads.slot('done', 1)), 'vỏ: ô kết quả chỉ khi người gọi đã xét điều kiện');
+  w.eval(rd('web/js/ad-offers.js')); const el = w.document.createElement('div');
+  w.AdOffers.doneSlot(el, 90); ok(!el.innerHTML, 'máy mới (chưa qua 24 giờ) → không ô kết quả');
+  w.localStorage.setItem('lk.ads', JSON.stringify({ firstAt: Date.now() - 2 * 864e5 }));
+  w.AdOffers.doneSlot(el, 40); ok(!el.innerHTML, 'điểm < 50 % → không ô kết quả');
+  w.AdOffers.doneSlot(el, 90); ok(el.querySelector('.ad-slot[data-ad="done"][data-pct="90"][aria-label]'), 'ô kết quả khi ≥ 24 giờ và điểm ≥ 50 % (có nhãn, mang điểm cho luật)'); }
+{ const w = boot(null); ok(w.Ads.slot('done', 1) === '', 'cờ tắt: không ô kết quả'); w.Ads.rewarded('streak', 1).then(v => ok(v === false, 'cờ tắt: hỏi có video → false')); }
+
+// 🎁 lời mời ở thẻ kết quả (js/ad-offers.js): cơ hội 2 miễn phí 1 lần/ngày khi không có video; x2 XP chỉ khi có video; sai quá nhiều → không cứu
+{ const mk = (canAd, rew = true) => { const w = boot(null); w.t = (k, p) => { let x = String(k); for (const [a, b] of Object.entries(p || {})) x = x.replaceAll('{' + a + '}', b); return x; };
+    w.Ads.rewarded = (r, q) => Promise.resolve(q ? canAd : rew); w.UI = { toast: m => (w._toast = m) }; w.App = { reward: o => (w._xp = (w._xp || 0) + (o.xp || 0)) };
+    w.eval(rd('web/js/ad-offers.js')); w.document.getElementById('view').innerHTML = '<div id="h"></div>'; return w; };
+  const c = (o = {}) => ({ wrong: 2, total: 10, score: 7, pct: 70, unit: true, xp: 26, retry() { this.ran = (this.ran || 0) + 1; }, ...o });
+  { const w = mk(false), h = w.document.getElementById('h'), cx = c(); await w.AdOffers.attach(h, cx);
+    const b = h.querySelector('[data-ao="retry"]'); ok(b && /miễn phí/.test(b.textContent) && !h.querySelector('[data-ao="xp2"]'), 'không video: cơ hội 2 miễn phí, không có x2 XP');
+    ok(/qua bài/.test(h.textContent), 'cơ hội 2: nói rõ đúng hết là qua bài (70 % + 2 câu ≥ 80 %)');
+    b.click(); await new Promise(r => setTimeout(r, 5)); ok(cx.ran === 1, 'bấm → chạy lại các câu sai');
+    const h2 = w.document.createElement('div'); w.document.body.appendChild(h2); await w.AdOffers.attach(h2, c()); ok(!h2.querySelector('[data-ao="retry"]'), 'miễn phí chỉ 1 lần / ngày'); }
+  { const w = mk(true), h = w.document.getElementById('h'), cx = c(); await w.AdOffers.attach(h, cx);
+    ok(/Xem video/.test(h.querySelector('[data-ao="retry"]').textContent) && h.querySelector('[data-ao="xp2"]'), 'có video: "▶ Xem video để làm lại" + x2 XP');
+    h.querySelector('[data-ao="xp2"]').click(); await new Promise(r => setTimeout(r, 5)); ok(w._xp === 26 && !h.querySelector('[data-ao="xp2"]'), 'x2 XP: xem xong → cộng đúng số XP, ẩn lời mời'); }
+  { const w = mk(true, false), h = w.document.getElementById('h'), cx = c(); await w.AdOffers.attach(h, cx);
+    h.querySelector('[data-ao="retry"]').click(); await new Promise(r => setTimeout(r, 5)); ok(!cx.ran && /thử lại/.test(w._toast || ''), 'bỏ video giữa chừng → không thưởng, báo nhẹ nhàng'); }
+  { const w = mk(true), h = w.document.getElementById('h'); await w.AdOffers.attach(h, c({ wrong: 6, score: 4, pct: 40 }));
+    ok(!h.querySelector('[data-ao]'), 'sai 6/10 → không "cứu" (học lại mới đúng), < 60 % không mời x2 XP'); }
+  { const w = mk(true), h = w.document.getElementById('h'); await w.AdOffers.attach(h, c({ second: true })); ok(!h.innerHTML, 'lượt cơ hội 2 → không mời thêm'); } }
+ok(/lk\.edu/.test(rd('web/js/study.js')) && /AdOffers\.attach/.test(rd('web/js/study.js')), 'study.js: lời mời có thưởng không bao giờ cho máy Lớp học');
 
 await new Promise(r => setTimeout(r, 30));
 console.log(fails ? `✗ ads: ${fails} lỗi / ${n}` : `✓ ads: ${n} kiểm tra đạt (luật đặt chỗ, tần suất, khung +0, a11y, cổng giữ chân, SSV, D1 không quét)`);

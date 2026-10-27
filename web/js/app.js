@@ -77,16 +77,18 @@
     state.game = await Game.mutate(gs => { gs.rescueAsked = today; });
     const month = today.slice(0, 7), native = !!(window.Capacitor && Capacitor.isNativePlatform && Capacitor.isNativePlatform());
     const freeLeft = state.game.rescueMonth !== month;
-    if (!native && !freeLeft) return;
+    // Có video có thưởng (cờ quảng cáo bật, còn lượt hôm nay) → mời xem video; không → khiên miễn phí như trước (web 1 lần/tháng, app không giới hạn)
+    const viaAd = window.Ads ? await Ads.rewarded('streak', 1).catch(() => false) : false;
+    if (!viaAd && !native && !freeLeft) return;
     const box = modal(`<div class="center">${window.Kit ? Kit.svg('sad', 84, true) : '🥺'}
       <h2 style="margin:.4rem 0">${t('Bạn lỡ quên 1 ngày?')}</h2>
-      <p class="muted">${native ? t('Xem 1 video ngắn để khôi phục chuỗi 🔥 {n} ngày!', { n: prev }) : t('Dùng khiên miễn phí (1 lần mỗi tháng) để khôi phục chuỗi 🔥 {n} ngày!', { n: prev })}</p>
-      <div class="row center" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap"><button class="btn primary" id="rsYes">${native ? '▶ ' + t('Xem video để cứu chuỗi') : '🛟 ' + t('Dùng khiên cứu chuỗi')}</button><button class="btn ghost" id="rsNo">${t('Chấp nhận bắt đầu lại')}</button></div></div>`);
+      <p class="muted">${viaAd ? t('Xem 1 video ngắn để khôi phục chuỗi 🔥 {n} ngày!', { n: prev }) : t('Dùng khiên miễn phí (1 lần mỗi tháng) để khôi phục chuỗi 🔥 {n} ngày!', { n: prev })}</p>
+      <div class="row center" style="gap:.6rem;margin-top:1rem;flex-wrap:wrap"><button class="btn primary" id="rsYes">${viaAd ? '▶ ' + t('Xem video để cứu chuỗi') : '🛟 ' + t('Dùng khiên cứu chuỗi')}</button><button class="btn ghost" id="rsNo">${t('Chấp nhận bắt đầu lại')}</button></div></div>`);
     $('#rsNo', box).onclick = () => closeModal();
     $('#rsYes', box).onclick = async () => {
-      const ok = native ? await Ads.rewarded('streak').catch(() => false) : true;
+      const ok = viaAd ? await Ads.rewarded('streak').catch(() => false) : true;
       if (!ok) { toast(t('Chưa xem hết video – chuỗi chưa được khôi phục')); return; }
-      state.game = await Game.mutate(gs => { gs.frozen = { ...(gs.frozen || {}), [y]: 1 }; if (!native) gs.rescueMonth = month; });
+      state.game = await Game.mutate(gs => { gs.frozen = { ...(gs.frozen || {}), [y]: 1 }; if (!viaAd && !native) gs.rescueMonth = month; });
       closeModal(); Sfx.win(); confetti(140); App.updateChrome && App.updateChrome();
       toast(`🎉 ${t('Chuỗi ngày học đã được giải cứu thành công!')}`, 4000);
     };
@@ -254,6 +256,7 @@
     swipe: ['js/study-swipe.js'], // ⚡ Ghép thẻ + 🎙️ Phát âm · 👆 vuốt thẻ + 🐦 Kit mini (G2)
     wfeed: ['js/i18n/en/wfeed.js', 'js/widget-feed.js'], // 📱 widget "Từ mỗi giờ" (chỉ app gốc – native.js nạp)
     lfx: ['js/i18n/en/lfx.js', 'js/lesson-fx.js'],
+    adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
     i18nl: ['verbs', 'exams', 'skills'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó

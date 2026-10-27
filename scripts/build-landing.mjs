@@ -135,6 +135,7 @@ function renderFull(lang) {
 <script id="lk-route">${ROUTE_JS}</script>
 <script id="lk-dc">${DC_JS}${GA_JS}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google-adsense-account" content="ca-pub-2290668854727752">
 <title>${esc(c.title)}</title>
 <meta name="description" content="${esc(c.description)}">
 <link rel="canonical" href="${url}">
