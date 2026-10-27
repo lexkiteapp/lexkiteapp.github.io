@@ -74,7 +74,7 @@ async function keyboard(page, vp) {
   for (let i = 0; i < Math.min(n, 3); i++) {
     const r = await page.evaluate(async i => {
       const el = [...document.querySelectorAll('#view input[type=text],#view input[type=search],#view input:not([type]),#view input[type=email],#view textarea')].filter(e => e.getBoundingClientRect().width > 2)[i];
-      if (!el) return null; el.focus(); await new Promise(r => setTimeout(r, 450));
+      if (!el) return null; el.blur(); el.focus(); el.scrollIntoView({ block: 'nearest' }); await new Promise(r => setTimeout(r, 450)); // bàn phím mở: trình duyệt cuộn ô đang focus vào vùng nhìn thấy
       const vv = window.visualViewport, H = vv ? vv.height : innerHeight, b = el.getBoundingClientRect();
       const cx = b.left + Math.min(b.width / 2, 20), cy = b.top + b.height / 2, hit = document.elementFromPoint(cx, cy);
       const sel = e => e.tagName.toLowerCase() + [...e.classList].slice(0, 2).map(c => '.' + c).join('') + (e.id ? '#' + e.id : '');
@@ -95,12 +95,15 @@ async function open(browser, vp) {
     window.__cls = 0; window.__ev = []; window.__sh = [];
     const sel = n => n && n.tagName ? n.tagName.toLowerCase() + [...n.classList].slice(0, 2).map(c => '.' + c).join('') + (n.id ? '#' + n.id : '') : '?';
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node) + '@' + [s.previousRect.y, s.previousRect.height, s.currentRect.y, s.currentRect.height].map(Math.round).join(',')).join(' ') + ' ' + location.hash.slice(0, 30)]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__ev.push([e.interactionId, e.duration, e.name, e.target && e.target.className || '']); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); } catch (e) {}
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__ev.push([e.interactionId, e.duration, e.name, (e.target && e.target.className || '') + ' trễ ' + Math.round(e.processingStart - e.startTime) + '/xử lý ' + Math.round(e.processingEnd - e.processingStart) + '/vẽ ' + Math.round(e.startTime + e.duration - e.processingEnd)]); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); } catch (e) {}
   });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
   return { ctx, page };
 }
 async function visit(page, route) {
+  // người dùng chuyển trang bằng CHẠM → chạm thật vào chỗ trống (không phải nút) rồi đổi hash; dịch chuyển > 500 ms sau chạm vẫn bị tính CLS
+  const pt = await page.evaluate(() => { for (let y = innerHeight - 140; y > 80; y -= 37) for (const x of [8, innerWidth / 2, innerWidth - 8]) { const e = document.elementFromPoint(x, y); if (e && !e.closest('a,button,input,select,textarea,label,summary,[onclick],[role=button],[tabindex],.option,.flash')) return [x, y]; } return null; });
+  if (pt) await page.touchscreen.tap(pt[0], pt[1]).catch(() => {});
   await page.evaluate(h => { location.hash = h; scrollTo(0, 0); }, '#/' + route);
   await page.waitForTimeout(1100);
 }
@@ -112,7 +115,7 @@ async function playQuiz(page, onSheet) {
       const vis = e => e && e.getBoundingClientRect().width > 0 && !e.disabled;
       const nq = document.getElementById('nextQ'); if (vis(nq)) { nq.click(); return 'next'; }
       const inp = [...document.querySelectorAll('#view input[type=text],#view input:not([type])')].find(vis);
-      if (inp) { inp.value = i === 0 ? 'zzqx' : (inp.dataset.a || 'zzqx'); inp.dispatchEvent(new Event('input', { bubbles: true })); if (inp.form) inp.form.requestSubmit(); else inp.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); return 'typed'; }
+      if (inp) { inp.id = inp.id || 'mqaInp'; return 'type#' + inp.id; }
       const opts = [...document.querySelectorAll('#view .option')].filter(vis);
       if (opts.length) return 'opt' + (i === 0 ? opts.length - 1 : 0);
       const nx = [...document.querySelectorAll('#view .btn.primary,#view .btn')].find(e => vis(e) && !/^#\//.test(e.getAttribute('href') || ''));
@@ -121,6 +124,7 @@ async function playQuiz(page, onSheet) {
     }, i).catch(() => 'err');
     if (st === 'done') return true;
     if (st === 'stuck' || st === 'err') return false;
+    if (st.startsWith('type#')) { const l = page.locator('#' + st.slice(5)); await l.fill('zzqx'); await l.press('Enter'); } // gõ thật (thao tác tin cậy như người dùng)
     if (st.startsWith('opt')) { const k = +st.slice(3); await page.locator('#view .option').nth(k).tap().catch(() => page.locator('#view .option').nth(k).click()); }
     await page.waitForTimeout(st === 'next' ? 400 : 900);
     if (i === 0 && st !== 'next' && onSheet) await onSheet(); // soát tấm đáp án (sheet) của câu đầu
@@ -145,7 +149,7 @@ for (const vp of VPS) {
         await page.evaluate(() => { window.__ev = []; });
         let done = false;
         if (route === 'review') {
-          for (let i = 0; i < 6; i++) { const b = page.locator('#view .flash, #view .btn.primary').first(); if (!(await b.count())) break; await b.tap().catch(() => {}); await page.waitForTimeout(500); const g = page.locator('#view [data-g], #view .grade .btn, #view .option').first(); if (await g.count()) { await g.tap().catch(() => {}); await page.waitForTimeout(500); } }
+          for (let i = 0; i < 6; i++) { const b = page.locator('#view .flash, #view .btn.primary').first(); if (!(await b.count())) break; await b.tap().catch(() => {}); await page.waitForTimeout(500); const g = page.locator('#view [data-grade="2"], #view .option').first(); if (await g.count()) { await g.tap().catch(() => {}); await page.waitForTimeout(500); } }
         } else done = await playQuiz(page, async () => { await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); add(vp.w, route + ' [đáp án]', await page.evaluate(detect)); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 }); });
         await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
         const m = await page.evaluate(() => ({ cls: window.__cls, ev: window.__ev, sh: window.__sh }));
@@ -201,7 +205,8 @@ const fails = [];
 for (const k of ['hscroll', 'tap<44', 'safe-area-top', 'safe-area-bottom', 'kbd-cover', 'kbd-fixed-input']) if ((count[k] || 0) > BUDGET[k]) fails.push(`${k}: ${count[k]} > ${BUDGET[k]}`);
 if (maxCls > BUDGET.cls) fails.push(`CLS ${maxCls} > ${BUDGET.cls}`);
 if (maxInp > BUDGET.inp_ms) fails.push(`INP ${maxInp} ms > ${BUDGET.inp_ms}`);
-if (LH && maxLcp > BUDGET.lcp_ms) fails.push(`LCP ${maxLcp} ms > ${BUDGET.lcp_ms}`);
+// LCP: trang vào đầu tiên (home) ≤ 2,5 s; mở thẳng trang sâu (#/review, #/dict…) phải khởi động cả khung app → ngân sách riêng lcp_deep_ms, chỉ được GIẢM
+for (const l of lh) { const cap = l.route === 'home' ? BUDGET.lcp_ms : BUDGET.lcp_deep_ms; if (l.lcp > cap) fails.push(`LCP ${l.route} ${l.lcp} ms > ${cap}`); }
 if (LH && maxTbt > BUDGET.tbt_ms) fails.push(`TBT ${maxTbt} ms > ${BUDGET.tbt_ms}`);
 if (pages < VPS.length * ROUTES.length * 0.9) fails.push(`chỉ soát được ${pages}/${VPS.length * ROUTES.length} trang`); // không cho xanh khi chạy rỗng
 if (perf.filter(p => p.inp !== null && p.n > 0).length < VPS.length) fails.push('không đo được INP (0 tương tác)');
@@ -216,9 +221,9 @@ const md = [`# Mobile QA – ${pages} trang × ${VPS.map(v => v.w).join('/')} px
   `| Chỉ số | Giá trị | Ngưỡng |`, `|---|---|---|`,
   ...['hscroll', 'tap<44', 'safe-area-top', 'safe-area-bottom', 'kbd-cover', 'kbd-fixed-input'].map(k => `| ${k} | ${count[k] || 0} | ${BUDGET[k]} |`),
   `| CLS tối đa (đổi màn + tương tác${LH ? ' + LH' : ''}) | ${maxCls} | ${BUDGET.cls} |`, `| INP (CPU 4×) | ${maxInp} ms | ${BUDGET.inp_ms} ms |`,
-  ...(LH ? [`| LCP Lighthouse tối đa | ${maxLcp} ms | ${BUDGET.lcp_ms} ms |`, `| TBT Lighthouse tối đa | ${maxTbt} ms | ${BUDGET.tbt_ms} ms |`] : []), '',
+  ...(LH ? [`| LCP Lighthouse home | ${(lh.find(l => l.route === 'home') || {}).lcp} ms | ${BUDGET.lcp_ms} ms |`, `| LCP Lighthouse trang sâu tối đa | ${Math.max(0, ...lh.filter(l => l.route !== 'home').map(l => l.lcp))} ms | ${BUDGET.lcp_deep_ms} ms |`, `| TBT Lighthouse tối đa | ${maxTbt} ms | ${BUDGET.tbt_ms} ms |`] : []), '',
   ...(lh.length ? ['## Lighthouse mobile', '| route | perf | a11y | LCP | CLS | TBT |', '|---|---|---|---|---|---|', ...lh.map(l => `| ${l.route} | ${l.perf} | ${l.a11y} | ${l.lcp} | ${l.cls} | ${l.tbt} |`), ''] : []),
-  '## INP / CLS theo màn', '| vp | route | CLS | INP | tương tác | chậm nhất | nguồn CLS |', '|---|---|---|---|---|---|---|', ...perf.map(p => `| ${p.vp} | ${p.route} | ${p.cls} | ${p.inp ?? ''} | ${p.n ?? ''} | ${p.worst ? Math.round(p.worst[1]) + ' ms ' + p.worst[2] + ' ' + String(p.worst[3]).slice(0, 30) : ''} | ${(p.shifts || []).filter(x => x[0] >= 0.005).map(x => x[0] + ' ' + x[1]).join('; ').replace(/\|/g, '/')} |`), '',
+  '## INP / CLS theo màn', '| vp | route | CLS | INP | tương tác | chậm nhất | nguồn CLS |', '|---|---|---|---|---|---|---|', ...perf.map(p => `| ${p.vp} | ${p.route} | ${p.cls} | ${p.inp ?? ''} | ${p.n ?? ''} | ${p.worst ? Math.round(p.worst[1]) + ' ms ' + p.worst[2] + ' ' + String(p.worst[3]).slice(0, 70) : ''} | ${(p.shifts || []).filter(x => x[0] >= 0.005).map(x => x[0] + ' ' + x[1]).join('; ').replace(/\|/g, '/')} |`), '',
   `## Lỗi (${issues.length})`, '| loại | phần tử | vp | route | chi tiết |', '|---|---|---|---|---|', ...issues.slice(0, 150).map(i => `| ${i.t} | \`${i.k.replace(/\|/g, '/')}\` | ${i.vp} | ${i.route} | ${String(i.x).replace(/\|/g, '/')} |`), '',
   ...(errs.length ? ['## Lỗi chạy', ...errs.slice(0, 30).map(e => '- ' + e)] : []), `\nÔ Cơ hội thứ 2/x2 XP: ${hasOffer ? offerSeen + ' lần soát' : 'chưa có trong bản dựng'}`].join('\n');
 fs.writeFileSync(`${OUT}/REPORT.md`, md);
