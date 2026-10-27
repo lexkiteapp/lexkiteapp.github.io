@@ -3,7 +3,7 @@ name: cf-pool-probe
 on:
   schedule:
     - cron: '3 0 * * *'
-    - cron: '30 0 * * *'
+    - cron: '33 */3 * * *'   # mỗi 3 giờ: đo đường nạp lại (00:00 UTC hay cửa sổ 24 h trượt?)
   workflow_dispatch:
 permissions: { contents: read }
 jobs:

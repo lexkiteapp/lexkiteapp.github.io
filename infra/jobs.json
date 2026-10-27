@@ -685,7 +685,7 @@
     "workflow": "cf-pool-probe.yml",
     "cron": [
       "3 0 * * *",
-      "30 0 * * *"
+      "33 */3 * * *"
     ],
     "priority": "reports",
     "resources": [
