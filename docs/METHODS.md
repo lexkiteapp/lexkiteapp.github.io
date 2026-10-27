@@ -39,6 +39,9 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Workflow "success" chưa đủ – đọc số liệu (từng báo xanh khi nhập 0 · lỗi 20). Workflow mới phải tự đỏ khi kết quả = 0.
 - Workflow nối nhau dùng `workflow_run`/dispatch (commit bằng `GITHUB_TOKEN` không kích hoạt `on: push`).
 - Thử 1 trước rồi mới chạy lô (áp dụng cả script/workflow).
+- **Ngân sách runner (27/10, gói free = 20 runner chung cả repo):** việc nền (ảnh `vocab-img*`, `video*`, `cine-render`, `pron-*`, `lexicon-expand`, footage, `bg-*`, `chroma-batch`, `library-build`…) tổng ≤ ~10 runner, luôn chừa ≥ 10 cho check PR + `prod-release`. Ma trận nền BẮT BUỘC `max-parallel` (≤ 4 cho lô lớn, ≤ 3 còn lại) – chỉ giãn thời gian, KHÔNG bớt shard/khối lượng (no-cuts). Đo 27/10: `vocab-img-scene` 10 runner + trùng lượt PR → check PR chờ hàng.
+- Workflow chạy `pull_request`: `concurrency` group `${{ github.workflow }}-${{ github.head_ref || github.ref }}`, `cancel-in-progress: ${{ github.event_name == 'pull_request' }}` (push main không hủy). `prod-release`/deploy: nhóm chung, không hủy → 1 lượt chạy + 1 lượt mới nhất chờ. `setup-node` thêm `cache: npm`. Không dùng concurrency nhóm chung để xếp hàng việc nền (GitHub chỉ giữ 1 lượt chờ, lượt chờ cũ bị HỦY = mất việc).
+- Lượt `queued` 0 job nhiều giờ trong khi nhóm đã chạy lượt mới hơn = lượt ma của GitHub → hủy (`POST runs/<id>/cancel`, kẹt thì `force-cancel`).
 
 ## 5. i18n (15 ngôn ngữ) – pipeline G0
 - `docs/I18N-PIPELINE.md`. Bố cục G0: chuỗi mới vào nguồn en (`web/js/i18n/en/*.js`, nhóm tải lười = danh sách LAZY trong `scripts/build-i18n.sh` → `web/js/i18n/<lang>/<nhóm>.js`) → `bash scripts/build-i18n.sh` → dịch thật 15 ngôn ngữ (`i18n-fix.mjs` / `scripts/i18n-fixed.json`) → `node scripts/i18n-missing.mjs --strict` + `node scripts/i18n-qa.mjs --strict`. Không để chữ en lọt ở 13 ngôn ngữ.

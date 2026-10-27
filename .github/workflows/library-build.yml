@@ -35,7 +35,7 @@ jobs:
     timeout-minutes: 45
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 3   # ngân sách runner nền (docs/METHODS.md §CI)
       matrix: { id: '${{ fromJSON(needs.plan.outputs.ids) }}' }
     env:
       U2NET_HOME: /home/runner/.u2net

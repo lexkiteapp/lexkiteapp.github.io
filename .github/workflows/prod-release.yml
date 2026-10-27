@@ -12,7 +12,8 @@ on:
     inputs:
       sha: { description: 'Commit cần gắn tag/smoke (mặc định: đầu main)', required: false }
 permissions: { contents: write, checks: read, statuses: read }
-concurrency: { group: 'prod-release-${{ github.event.inputs.sha || github.sha }}', cancel-in-progress: false }
+# push: 1 nhóm chung – 1 lượt chạy + 1 lượt MỚI NHẤT chờ (lượt chờ cũ hơn bị thay; Pages cũng chỉ dựng bản mới nhất); dispatch sha cụ thể: nhóm riêng (docs/METHODS.md §CI)
+concurrency: { group: "prod-release-${{ github.event.inputs.sha || 'main' }}", cancel-in-progress: false }
 env: { SHA: '${{ github.event.inputs.sha || github.sha }}' }
 jobs:
   tag:

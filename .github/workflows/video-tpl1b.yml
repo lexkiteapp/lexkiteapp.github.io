@@ -62,7 +62,7 @@ jobs:
     timeout-minutes: 120
     strategy:
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 4   # ngân sách runner nền (docs/METHODS.md §CI)
       matrix: { chunk: '${{ fromJSON(needs.plan.outputs.matrix) }}' }
     env:
       IDS: ${{ matrix.chunk.ids }}
