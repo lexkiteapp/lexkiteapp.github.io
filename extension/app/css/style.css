@@ -1578,3 +1578,5 @@ a > .i-dir:first-child, button > .i-dir:first-child { margin-inline-end: .2em; }
 
 /* Trang pháp lý: dùng font hệ thống (văn bản dài, không cần webfont → nhẹ hơn, không đợi tải font) */
 body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
+/* 📱 Nút cài app trên thanh trên: vùng chạm ≥ 44×44 ở 360 px (mobile-qa: 38×35) */
+.top-stats #installBtn { min-width: 44px; min-height: 44px; justify-content: center; }

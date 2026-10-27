@@ -282,7 +282,8 @@
   // Tải song song nhưng chạy đúng thứ tự (async=false); file thiếu được bỏ qua
   // i18nx: chuỗi giao diện của các trang tải lười (TOEFL, Giải đấu, Call Mia, Chuyển dữ liệu, Cấu trúc câu) – ra khỏi en.js (khung app),
   // nạp kèm (song song) gói đầu tiên được mở → module luôn vẽ khi đã có bản dịch; tiếng Việt (ngôn ngữ gốc) không cần
-  const need1 = n => bundleP[n] || (bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)));
+  let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
+  const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
@@ -297,7 +298,8 @@
   const lean = () => { const c = navigator.connection || {}; return !!c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '') || (navigator.deviceMemory && navigator.deviceMemory <= 2); };
   // Tải sẵn mọi gói vào bộ đệm trình duyệt KHÔNG thực thi (<link rel=prefetch>, ưu tiên thấp) → trang đầu không bị khựng,
   // vào trang khác thì gói đã có sẵn, chỉ còn bước thực thi.
-  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)).forEach(f => { const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; document.head.appendChild(l); }); }); };
+  // Chỉ bắt đầu khi trang đã tải xong (load) và không còn gói nào đang tải; xếp hàng 3 file một lúc (200+ file cùng lúc làm 4G chậm nghẽn gói của trang kế tiếp – mobile-qa LCP)
+  App.prefetchAll = () => { if (!Store.isExtension && lean()) return; const go = () => (inflight || document.readyState !== 'complete' ? setTimeout(go, 700) : idle(() => { const have = new Set([...document.querySelectorAll('script[src],link[rel=prefetch]')].map(x => x.getAttribute('src') || x.getAttribute('href'))); const q = [...new Set(Object.values(BUNDLES).flat())].filter(f => typeof f === 'string' && /\.js$/.test(f) && !have.has(f)); const next = () => { if (inflight) return setTimeout(next, 700); const f = q.shift(); if (!f) return; const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'script'; l.href = f; l.onload = l.onerror = next; document.head.appendChild(l); }; for (let i = 0; i < 3; i++) next(); })); go(); };
 
 
   // Làm mới phiên âm của thẻ lưu từ bản cũ (trước khi chọn IPA theo từ loại): chạy ngầm lúc rảnh, chậm rãi, mỗi thẻ 1 lần
@@ -365,6 +367,8 @@
     else if (!STUDY.test(location.hash)) backHash = '';
     curHash = location.hash;
     const b = [].concat(ROUTE_BUNDLE[name] || []);
+    // đang ôn/luyện → tập trung 100% vào thẻ. Đổi bố cục (ẩn thanh trên) NGAY lúc chạm – không đợi tải gói: thay đổi trong 500 ms sau thao tác không tính CLS (mobile-qa)
+    document.body.classList.toggle('focus', name === 'review' || (name === 'practice' && !!arg));
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => {
@@ -379,7 +383,6 @@
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
     const [tab, item] = App.navOf ? App.navOf(name, arg) : [name, name];
     $$('#bnav a').forEach(a => { const on = a.dataset.tab === tab; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
-    document.body.classList.toggle('focus', name === 'review' || (name === 'practice' && !!arg)); // đang ôn/luyện → tập trung 100% vào thẻ
     $$('#nav a[data-route]').forEach(a => { const on = a.dataset.route === item; a.classList.toggle('active', on); on ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'); });
     $$('#nav .nav-group').forEach(gp => { const on = gp.dataset.tab === tab; gp.classList.toggle('current', on); if (on) gp.open = true; });
     UI.stopSpeak(); UI.clearRecs();
@@ -389,10 +392,12 @@
     // Chuyển trang mượt (View Transitions – Chrome/Edge/Safari mới); máy cũ: hiệu ứng mờ dần sẵn có
     const render = async () => {
       window.scrollTo(0, 0); const preTitle = document.title;
-      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } // lượt cũ lỗi vì bị hủy → im lặng
-      // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm
-      const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head');
-      if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c);
+      // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm.
+      // Chèn NGAY khi trang vẽ .page-head (MutationObserver chạy trước khi trình duyệt vẽ khung) – chèn sau khi trang tải xong dữ liệu đẩy cả trang xuống ~40 px (CLS từ điển, mobile-qa)
+      const crumb = () => { const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head'); if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c); };
+      const mo = new MutationObserver(crumb); mo.observe(view, { childList: true });
+      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } finally { mo.disconnect(); } // lượt cũ lỗi vì bị hủy → im lặng
+      crumb(); // trang vẽ .page-head sau bước bất đồng bộ
       if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); }
     };
     // Không dùng View Transitions (Chrome vẽ lệch ảnh trang cũ khi Quay lại).
