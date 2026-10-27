@@ -13368,6 +13368,13 @@
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "poet#n": {
+   "ex": "Nguyen Du is a famous Vietnamese poet.",
+   "sc": "person A a Vietnamese writer sits at a wooden desk, holding an open scroll and reading aloud, eyes focused.",
+   "cap": "A Vietnamese writer reads a poem from a scroll",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "poetry#n": {
    "ex": "She enjoys reading poetry in the evening.",
    "sc": "person A, a woman, sitting in a comfy armchair by a lamp, reading a book with pages visible, a window showing dusk sky",
