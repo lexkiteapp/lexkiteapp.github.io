@@ -28,7 +28,7 @@ Chuẩn tham chiếu: Duolingo / Quizlet – quảng cáo chỉ ở điểm ngh�
 
 ## 2. Cờ & cấu hình (1 chỗ)
 - **Từ xa** (`/api/config`, đệm biên 5 phút + máy 1 giờ; sửa ở **Quản trị › 💰 Quảng cáo**): `ads_kill`, `ads_web`, `ads_android`, `ads_ios`, `ads_inter`, `ads_rew`, `ads_cap_sessions|gap|firstday`, `ads_guard` (do cổng giữ chân tự ghi). Chỉ quản trị: `ads_ecpm_<plat>` (USD/1000, proxy doanh thu), `ads_guard_pct` (X, mặc định 5), `ads_guard_min` (cỡ mẫu/nhóm, mặc định 200).
-- **Trong code** `web/js/ads/config.js`: `enabled`, mã nhà xuất bản AdSense + ô (`home`, `blog`), mã AdMob (hiện = **mã THỬ của Google**, `testing: true`).
+- **Trong code** `web/js/ads/config.js`: `enabled`, mã nhà xuất bản AdSense + ô (`home`, `blog`), mã AdMob (hiện = **mã THỬ của Google**, `testing: true`); `web.rewarded` = đường dẫn ô GPT có thưởng (rỗng = TẮT), `web.testing` (chỉ test → ô demo `web.DEMO`).
 - Hiệu lực = cờ từ xa **VÀ** `enabled` **VÀ** ngữ cảnh cho phép. Tất cả mặc định tắt → vỏ không tải gì.
 
 ## 3. Đồng ý & quyền riêng tư
@@ -38,6 +38,7 @@ Chuẩn tham chiếu: Duolingo / Quizlet – quảng cáo chỉ ở điểm ngh�
 
 ## 4. Kỹ thuật
 - **Vỏ** `web/js/ads.js` (trong SHELL, ≤ 1 KB gz): `Ads.on/slot/rewarded/quota`; cờ tắt → `slot()` = '' và không tải. Cờ bật → sau `load` + rảnh 3 s tải `js/ads/config.js → policy.js → run.js`.
+- **Web có thưởng** `run.js` (`webRewarded`): Google Publisher Tag `defineOutOfPageSlot(path, OutOfPageFormat.REWARDED)` sau cùng cổng CMP (từ chối → không tải; NPA/RDP qua `setPrivacySettings`); `rewardedSlotReady` → `makeRewardedVisible`, `rewardedSlotGranted` = được thưởng, `rewardedSlotClosed` → `destroySlots`, 10 s không sẵn sàng / `isEmpty` = không có quảng cáo. Luật: web chỉ khi có ô và lý do không cần SSV (`WEB_REW`: streak/retry/xp2 – +lượt AI/Roleplay chỉ app).
 - **Web** `run.js`: lấp `.ad-slot[data-ad]` (MutationObserver trên `#view`), `<ins>` 300×250 cố định; `data-ad-status=unfilled` → ô giữ chỗ, ẩn `ins` (0 CLS). Trang tĩnh: `scripts/build-blog.mjs` chèn ô + `/js/ads/static.js` **chỉ khi** `enabled` + có ô `blog` (hiện 0 byte).
 - **App** `@capacitor-community/admob` (cài bằng `ADS_NATIVE=1 bash scripts/build-mobile.sh` → `scripts/mobile-ads.mjs`: dependency + `APPLICATION_ID` Android + `GADApplicationIdentifier`/ATT/SKAdNetwork iOS; `--disable` gỡ sạch). Mặc định build KHÔNG có SDK → khai báo store "No ads" vẫn đúng.
 - **SSV** `GET /api/ads-reward` (bật bằng biến Pages `ADS_SSV=1`; URL này dán vào AdMob › ad unit có thưởng › Server-side verification): xác minh ECDSA P-256 bằng `gstatic.com/admob/reward/verifier-keys.json`, chống trùng `transaction_id`, trừ `quota_count` của `ai|d:<máy>` (+ `u:<uid>`).
@@ -52,6 +53,9 @@ Chuẩn tham chiếu: Duolingo / Quizlet – quảng cáo chỉ ở điểm ngh�
 
 ## 6. Test (npm test + CI)
 `scripts/test/ads.mjs` (103: luật đặt chỗ 30 route + ngữ cảnh cấm, tần suất, kẹp quản trị, cổng giữ chân, khung +0 ≤ 1 KB, add-on, a11y nhãn/focus/bẫy focus hộp thoại, SSV chữ ký thật, ads.txt, EXPLAIN không SCAN, mobile-ads bật/tắt sạch) · `scripts/test/ads-admin.mjs` (5 mục, công tắc khẩn cấp có xác nhận, tần suất ngoài khoảng bị chặn, EN không lộ chữ Việt, axe) · `scripts/test/ads-cls.mjs` (Chromium, `dist-ui.yml`: CLS = 0 có/không quảng cáo, không yêu cầu trước CMP, EEA từ chối → 0 yêu cầu, DNT → NPA + RDP) · `size-budget` (khung 375/377 KB).
+- **Quảng cáo demo THẬT của Google (mạng thật, KHÔNG trong npm test)** – `.github/workflows/ads-demo.yml` (workflow_dispatch + thứ Hai hằng tuần + PR sửa chính các file test):
+  - Web `scripts/test/ads-demo.mjs` (Chromium, Pixel 7): vỏ `Ads.rewarded('retry')` → GPT ô công khai `/22639388115/rewarded_web_example` (`web.testing` chỉ bật trong test): GPT tải sau CMP, `rewardedSlotReady` có fill, lớp phủ hiện, ghi `granted`, đếm `req/show:rew`, **CLS = 0**. Ảnh + JSON ở artifact `ads-web`.
+  - Android `scripts/test/ads-demo-android.mjs` (giả lập API 34, `ADS_NATIVE=1`, `testing: true` → chỉ mã thử `3940256099942544`; bước đầu chặn nếu không phải mã thử, log có mã thật = đỏ): `lk.cfg` `ads_android=1` qua DevTools WebView, `AdsRun.rewarded('ai')` → `onRewardedVideoAdLoaded` + `onRewardedVideoAdReward`, `AdsRun.inter()` → `interstitialAdLoaded` + `interstitialAdShowed`; ảnh ở artifact `ads-android`.
 
 ## 7. Bật dần (khi chủ đã có tài khoản)
 1. Dán `ca-pub-…` + mã ô `home`/`blog` vào `web/js/ads/config.js`, `enabled: true` → ship (ads.txt tự đúng số). AdSense › Sites: thêm lexkite.com, chờ "Ready"; Privacy & messaging: GDPR + US states → Publish.

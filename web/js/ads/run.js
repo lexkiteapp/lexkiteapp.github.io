@@ -130,10 +130,52 @@
 
   // ---------- Có thưởng (người dùng tự chọn) ----------
   // Có video để mời không (chưa tải gì) – dùng để chọn nút "▶ Xem video" hay phương án miễn phí (js/ad-offers.js)
-  const canReward = reason => P.rewarded(ctx(), F(), reason) && !!unit('rewarded') && !!AM() && P.rewLeft(st, reason, iso()) > 0;
+  // Web: Google Publisher Tag, ô OutOfPage REWARDED (Ad Manager). testing → ô demo công khai của Google
+  const W = C.web || {}, rwUnit = !native && (W.testing ? W.DEMO : W.rewarded) || '';
+  const rctx = () => ({ ...ctx(), rwUnit });
+  let gptP = null;
+  const loadGpt = () => gptP || (gptP = consent().then(k => { // cùng cổng CMP như AdSense: từ chối → không tải, không yêu cầu
+    consentK = consentK || k;
+    if (k === 'deny') return false;
+    return new Promise(res => {
+      const gt = g.googletag = g.googletag || { cmd: [] };
+      gt.cmd.push(() => {
+        const pa = gt.pubads();
+        if (k !== 'pa') pa.setPrivacySettings({ nonPersonalizedAds: true, restrictDataProcessing: !!(sig.gpc || sig.dnt === '1') });
+        gt.enableServices(); res(true);
+      });
+      const s = d.createElement('script'); s.async = true; s.crossOrigin = 'anonymous';
+      s.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js'; s.onerror = () => res(false);
+      d.head.appendChild(s);
+    });
+  }));
+  // → true = được thưởng; false = không có quảng cáo (10 s), bị chặn, hoặc đóng trước khi đủ
+  const webRewarded = () => loadGpt().then(ok => !ok ? false : new Promise(res => {
+    const gt = g.googletag;
+    gt.cmd.push(() => {
+      const slot = gt.defineOutOfPageSlot(rwUnit, gt.enums.OutOfPageFormat.REWARDED);
+      if (!slot) return res(false); // trang/trình duyệt không hỗ trợ định dạng có thưởng
+      const pa = gt.pubads(); let got = false, live = true;
+      const end = v => { if (!live) return; live = false; clearTimeout(to); try { gt.destroySlots([slot]); } catch (e) { /* bỏ qua */ } res(v); };
+      const to = setTimeout(() => { bump('nofill:rew'); end(false); }, 10e3);
+      const on = (n, f) => pa.addEventListener(n, e => { if (live && e.slot === slot) f(e); });
+      on('rewardedSlotReady', e => { clearTimeout(to); bump('show:rew'); e.makeRewardedVisible(); });
+      on('rewardedSlotGranted', () => { got = true; });
+      on('rewardedSlotClosed', () => end(got));
+      on('slotRenderEnded', e => { if (e.isEmpty) { bump('nofill:rew'); end(false); } });
+      slot.addService(pa); gt.display(slot);
+    });
+  }));
+  const canReward = reason => P.rewarded(rctx(), F(), reason) && (native ? !!unit('rewarded') && !!AM() : true) && P.rewLeft(st, reason, iso()) > 0;
   const counted = reason => { const day = iso(); if (!st.rw || st.rw.d !== day) st.rw = { d: day, n: {} }; st.rw.n[reason] = (st.rw.n[reason] || 0) + 1; st.rewAt = Date.now(); save(); };
   async function rewarded(reason) {
-    const c = ctx(), f = F();
+    const c = rctx(), f = F();
+    if (!native) {
+      if (!P.rewarded(c, f, reason) || P.rewLeft(st, reason, iso()) <= 0) return reason === 'streak';
+      bump('req:rew'); const r = await webRewarded().catch(() => false);
+      if (r) { bump('rewok:rew'); bump('rewok:' + reason); counted(reason); }
+      return r || reason === 'streak'; // không có quảng cáo web: cứu chuỗi vẫn được như trước
+    }
     if (!P.rewarded(c, f, reason) || !unit('rewarded') || P.rewLeft(st, reason, iso()) <= 0 || !(await init())) return reason === 'streak'; // không có quảng cáo: cứu chuỗi vẫn được như trước, lượt AI/cơ hội 2/x2 XP thì không
     const A = AM(), uid = g.Sync && g.Sync.user && g.Sync.user.uid;
     bump('req:rew');
@@ -166,5 +208,5 @@
     fillWeb();
     if (v) new MutationObserver(fillWeb).observe(v, { childList: true, subtree: true });
   }
-  g.AdsRun = { start, rewarded, canReward, quota, _st: () => st, _ev: () => ev };
+  g.AdsRun = { start, rewarded, canReward, quota, inter: maybeInter, _st: () => st, _ev: () => ev, _consent: () => consentK };
 })(typeof self !== 'undefined' ? self : this);

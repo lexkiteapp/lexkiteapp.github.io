@@ -1,0 +1,76 @@
+# Quảng cáo DEMO/THỬ chính thức của Google, gọi MẠNG THẬT (docs/ADS.md §6) – KHÔNG nằm trong npm test.
+# Web: GPT rewarded, ô công khai /22639388115/rewarded_web_example (scripts/test/ads-demo.mjs, Chromium).
+# Android: AdMob mã thử ca-app-pub-3940256099942544 (testing: true), bản ADS_NATIVE=1 trên giả lập (scripts/test/ads-demo-android.mjs).
+# Không bao giờ dùng mã thật ở đây (bấm quảng cáo thật của chính mình = khóa tài khoản).
+name: Ads demo (real Google test ads)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/test/ads-demo.mjs', 'scripts/test/ads-demo-android.mjs', '.github/workflows/ads-demo.yml']
+  schedule:
+    - cron: '17 4 * * 1' # thứ Hai hằng tuần
+permissions:
+  contents: read
+concurrency:
+  group: ads-demo
+  cancel-in-progress: true
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: GPT rewarded (quảng cáo demo thật)
+        run: node scripts/test/ads-demo.mjs
+        env: { ADS_DEMO_OUT: ads-web }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: ads-web, path: ads-web/, retention-days: 14 }
+
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - name: Chặn mã thật (testing phải = true)
+        run: node -e "global.self=global;require('./web/js/ads/config.js');const n=ADS_CONFIG.native;if(n.testing!==true||!/3940256099942544/.test(JSON.stringify(n.android))){console.error('✗ testing≠true hoặc không phải mã thử');process.exit(1)}console.log('✓ testing = true, mã thử Google')"
+      - name: Build APK debug (ADS_NATIVE=1)
+        run: |
+          npm ci --prefix mobile --no-audit --no-fund
+          ADS_NATIVE=1 node scripts/mobile-ads.mjs --enable
+          npm install --prefix mobile --no-audit --no-fund
+          ADS_NATIVE=1 bash scripts/build-mobile.sh
+          grep -q 'com.google.android.gms.ads.APPLICATION_ID' mobile/android/app/src/main/AndroidManifest.xml
+          grep -o 'ca-app-pub-[0-9~/]*' mobile/android/app/src/main/AndroidManifest.xml
+          ls mobile/node_modules/@capacitor-community/admob/dist/esm/ | head; grep -rhoE "'(onRewardedVideoAd|interstitialAd)[A-Za-z]+'" mobile/node_modules/@capacitor-community/admob/dist/esm/ | sort -u
+          cd mobile/android && chmod +x gradlew && ./gradlew --no-daemon assembleDebug | tail -5
+          cp app/build/outputs/apk/debug/app-debug.apk ../../lexkite-ads.apk
+      - name: Bật KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_7
+          disable-animations: true
+          script: |
+            adb install -r lexkite-ads.apk
+            node scripts/test/ads-demo-android.mjs ads-android; echo $? > android-rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: ads-android, path: ads-android/, retention-days: 14 }
+      - name: Kết luận
+        run: test "$(cat android-rc)" = 0
