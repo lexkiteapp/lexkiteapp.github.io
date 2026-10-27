@@ -516,40 +516,48 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
     try:
         import qrcode; QR = qrcode.make('https://lexkite.com/?src=short').convert('RGB')
     except Exception: QR = None
+    def wrap2(t, fo, mw):   # the call line breaks into two balanced lines when it is wider than the card column
+        if fo.getlength(t) <= mw: return [t]
+        ws = t.split(); best = None
+        for i in range(1, len(ws)):
+            a_, b_ = ' '.join(ws[:i]), ' '.join(ws[i:]); w_ = max(fo.getlength(a_), fo.getlength(b_))
+            if best is None or w_ < best[0]: best = (w_, [a_, b_])
+        return best[1]
     def draw(k, mode):
         S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd)
         pad = S_(36); qr = S_(210) if (QR is not None and mode != 'compact') else 0
-        tw = max(XB_(44).getlength('Learn English'), BD_(36).getlength('with Lexkite')); colw = S_(120) + S_(20) + tw
-        sayw = BD_(34).getlength(say + ' →')
-        if mode == 'wide': W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw) + (S_(40) + qr if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + S_(48)
-        else: W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw, BD_(32).getlength('App · Chrome add-on · Web')); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + S_(48) + S_(50) + ((S_(30) + qr) if qr else 0)
+        tw = max(XB_(44).getlength('Learn English'), BD_(40).getlength('with Lexkite')); colw = S_(120) + S_(20) + tw
+        SL = wrap2(say + ' →', BD_(40), max(colw, XB_(66).getlength('lexkite.com'))); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
+        if mode == 'wide': W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw) + (S_(40) + qr if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh
+        else: W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw, BD_(40).getlength('App · Add-on · Web'), (qr + S_(24) + BD_(40).getlength('desktop / TV')) if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh + S_(56) + ((S_(30) + qr) if qr else 0)
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
         d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(36), fill=(255, 253, 246, 252), outline=LCOL['navy'] + (255,), width=max(3, S_(5)))
         ic = RI.resize((S_(120), S_(120)), Image.LANCZOS); im.alpha_composite(ic, (pad, pad)); x = pad + S_(140)
-        d.text((x, pad + S_(8)), 'Learn English', font=XB_(44), fill=LCOL['navy'] + (255,)); d.text((x, pad + S_(66)), 'with Lexkite', font=BD_(36), fill=LCOL['grey'] + (255,))
+        d.text((x, pad + S_(8)), 'Learn English', font=XB_(44), fill=LCOL['navy'] + (255,)); d.text((x, pad + S_(66)), 'with Lexkite', font=BD_(40), fill=LCOL['grey'] + (255,))
         y = pad + S_(144); pw = XB_(50).getlength('100% FREE') + S_(60)
         d.rounded_rectangle([pad, y, pad + pw, y + S_(82)], S_(41), fill=LCOL['green'] + (255,)); d.text((pad + pw / 2, y + S_(41)), '100% FREE', font=XB_(50), fill=(255, 255, 255, 255), anchor='mm')
         y += S_(102); d.text((pad, y), 'lexkite.com', font=XB_(66), fill=(14, 124, 123, 255)); y += S_(80)
-        d.text((pad, y), say + ' →', font=BD_(34), fill=LCOL['navy'] + (255,)); y += S_(48)
-        if mode != 'wide': d.text((pad, y), 'App · Chrome add-on · Web', font=BD_(32), fill=LCOL['grey'] + (255,)); y += S_(50)
+        for l in SL: d.text((pad, y), l, font=BD_(40), fill=LCOL['navy'] + (255,)); y += S_(54)
+        if mode != 'wide': d.text((pad, y), 'App · Add-on · Web', font=BD_(40), fill=LCOL['grey'] + (255,)); y += S_(56)
         if qr:
             q = QR.resize((qr, qr), Image.NEAREST).convert('RGBA')
             if mode == 'wide': qx, qy = im.width - pad - qr, (im.height - qr) // 2; im.alpha_composite(q, (int(qx), int(qy)))
             else:
-                y += S_(30); im.alpha_composite(q, (pad, int(y))); d.text((pad + qr + S_(24), y + qr * 0.38), 'Scan on', font=BD_(34), fill=LCOL['navy'] + (255,)); d.text((pad + qr + S_(24), y + qr * 0.38 + S_(44)), 'desktop / TV', font=BD_(34), fill=LCOL['navy'] + (255,))
+                y += S_(30); im.alpha_composite(q, (pad, int(y))); d.text((pad + qr + S_(24), y + qr * 0.38), 'Scan on', font=BD_(40), fill=LCOL['navy'] + (255,)); d.text((pad + qr + S_(24), y + qr * 0.38 + S_(50)), 'desktop / TV', font=BD_(40), fill=LCOL['navy'] + (255,))
         return im
     def draw_low(k, mode):   # low / narrow boards: same parts, fewer rows (strip: one row + call; mini: icon+site / FREE / call)
         S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd); pad = S_(28); ic_ = S_(96)
-        sitew = XB_(60).getlength('lexkite.com'); pw = XB_(46).getlength('100% FREE') + S_(52); sayw = BD_(34).getlength(say + ' →')
-        if mode == 'strip': W_ = pad * 2 + ic_ + S_(20) + sitew + S_(24) + pw; H_ = pad * 2 + ic_ + S_(14) + S_(46)
-        else: W_ = pad * 2 + max(ic_ + S_(20) + pw, sitew, sayw); H_ = pad * 2 + ic_ + S_(14) + S_(70) + S_(14) + S_(46)
+        sitew = XB_(60).getlength('lexkite.com'); pw = XB_(46).getlength('100% FREE') + S_(52); SL = [say + ' →'] if mode == 'strip' else wrap2(say + ' →', BD_(40), max(ic_ + S_(20) + pw, sitew)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
+        if mode == 'strip': W_ = pad * 2 + ic_ + S_(20) + sitew + S_(24) + pw; H_ = pad * 2 + ic_ + S_(14) + sh
+        else: W_ = pad * 2 + max(ic_ + S_(20) + pw, sitew, sayw); H_ = pad * 2 + ic_ + S_(14) + S_(70) + S_(14) + sh
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
         d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(30), fill=(255, 253, 246, 252), outline=LCOL['navy'] + (255,), width=max(3, S_(5)))
         im.alpha_composite(RI.resize((ic_, ic_), Image.LANCZOS), (pad, pad))
         if mode == 'strip': d.text((pad + ic_ + S_(20), pad + ic_ / 2), 'lexkite.com', font=XB_(60), fill=(14, 124, 123, 255), anchor='lm'); px_, py_ = pad + ic_ + S_(20) + sitew + S_(24), pad + (ic_ - S_(76)) / 2; y = pad + ic_ + S_(14)
         else: px_, py_ = pad + ic_ + S_(20), pad + (ic_ - S_(76)) / 2; d.text((pad, pad + ic_ + S_(14) + S_(35)), 'lexkite.com', font=XB_(60), fill=(14, 124, 123, 255), anchor='lm'); y = pad + ic_ + S_(14) + S_(70) + S_(14)
         d.rounded_rectangle([px_, py_, px_ + pw, py_ + S_(76)], S_(38), fill=LCOL['green'] + (255,)); d.text((px_ + pw / 2, py_ + S_(38)), '100% FREE', font=XB_(46), fill=(255, 255, 255, 255), anchor='mm')
-        d.text((pad, y), say + ' →', font=BD_(34), fill=LCOL['navy'] + (255,)); return im
+        for l in SL: d.text((pad, y), l, font=BD_(40), fill=LCOL['navy'] + (255,)); y += S_(54)
+        return im
     for mode in ('tall', 'wide', 'compact', 'strip', 'mini'):
         if mode in ('strip', 'mini'):
             for k in [x / 100 for x in range(100, 84, -1)]:
@@ -801,7 +809,7 @@ class Pop:
         s.meas = [('body', CAPR * z)]
     def build_cta_ink(s, rw, rh):
         if PLATE:   # v13 end card, the same on every video
-            seg = SP['cta']['say']; s.im, k_, mode_ = endcard_im(seg, rw, rh); s.etype = 'card'; s.px = 32 * k_; s.cta_pages = None
+            seg = SP['cta']['say']; s.im, k_, mode_ = endcard_im(seg, rw, rh); s.etype = 'card'; s.px = 40 * k_; s.cta_pages = None
             s.text = f'{seg} / 100% FREE / lexkite.com'; s.meas = [('card', CAPR * 32 * k_)]; print(f'end card {mode_} x{k_}', flush=True); return
         z = MINF_BODY; s.etype = 'body'; s.px = z; seg = SP['cta']['say']; s.text = f'{seg} / lexkite.com'
         ic = ICON.resize((96, 96), Image.LANCZOS); m = Image.new('L', ic.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, 95, 95], 24, fill=255)

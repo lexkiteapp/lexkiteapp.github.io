@@ -64,7 +64,7 @@ erx = SP.get('error_re'); err_lines = sorted({c['line'] for c in CP.values() if 
 R['caption_script'] = dict(ok=bool(CP) and not bad and max(sizes) <= 3 and not single_bad and set(err_lines) <= set(SP.get('error_lines', [])),
                            pages=len(CP), words_per_page=sorted(set(sizes)), mismatch=bad[:3], single_word_pages=single_bad, error_only_in=err_lines)
 CAPR = T.get('cap_ratio', 0.74)
-R['caption_style'] = dict(ok=min(c['size'] for c in CP.values()) * CAPR >= ((T.get('min_cap') or {}).get('caption', 80) if T.get('style') == 'v10' else 53) and min(c['stroke'] for c in CP.values()) >= 12, sizes=sorted({c['size'] for c in CP.values()}),
+R['caption_style'] = dict(ok=min(c['size'] for c in CP.values()) * CAPR >= ((T.get('min_cap') or {}).get('caption', 80) if T.get('style') == 'v10' else 53) and (T.get('cap_plate') or min(c['stroke'] for c in CP.values()) >= 12), plate=bool(T.get('cap_plate')), sizes=sorted({c['size'] for c in CP.values()}),
                           cap_px=round(min(c['size'] for c in CP.values()) * CAPR, 1), strokes=sorted({c['stroke'] for c in CP.values()}))
 # ---- v10 min_text_px: rendered glyph cap height per element type (caption / board hook+headline / board body) + card picture side, every fully visible frame
 MC = dict(T.get('min_cap') or dict(caption=80, hook=72, body=56)); MC['image'] = T.get('min_img', 300); mins = {}; low = []; unmeasured = set()
@@ -203,6 +203,13 @@ sets = {T['spec']['set']}
 R['continuity'] = dict(ok=not rev and not holds and all(r >= 8 for r in xf_runs) and max(dd, default=99) < 0.10 and len(sets) == 1, reverse_steps=rev[:4], holds=holds[:4],
                        dissolves=xf_runs, joins=[(j.get('from_clip'), j.get('exit'), j['to_clip'], j['entry'], j.get('diff', j.get('cut'))) for j in T['joins']], max_hist_change_6f=round(max(dd, default=0), 4),
                        note='forward playback only; talk clips cross-dissolve (10 f) at their best-matching frames; last 10 f dissolve to frame 0 (loop)')
+# cut_jump: a hard cut between two clips of the same teacher must keep the framing (same camera, same spot); a clip whose usable range still holds a walk-in or camera move shows up here as a jump (Ama 3D a04 frames 0-60: 0.23 vs <= 0.115 for clean cuts)
+_cj = sorted(c_ for c_ in CUTS if 1 <= c_ < T['n']); _pairs = sorted({i for c_ in _cj for i in (c_ - 1, c_)}); _cjf = [x for k in range(0, len(_pairs), 20) for x in frames_px(vid, _pairs[k:k + 20])]
+_cjm = {}; _fx = dict(zip(_pairs, _cjf)) if len(_cjf) == len(_pairs) else {}
+_hs = lambda x: cv2.resize(_host(x)[:BY], (135, BY // 8)).astype(np.int16)
+for c_ in _cj:
+    if c_ - 1 in _fx and c_ in _fx: _cjm[c_] = round(float(np.abs(_hs(_fx[c_ - 1]) - _hs(_fx[c_])).mean()) / 200, 3)
+R['cut_jump'] = dict(ok=len(_cjm) == len(_cj) and max(_cjm.values(), default=0) < 0.16, max=max(_cjm.values(), default=0), worst=sorted(_cjm.items(), key=lambda x: -x[1])[:4], n_cuts=len(_cj))
 badT = []
 for f in fr:
     M = f['M']; w = f['win']
