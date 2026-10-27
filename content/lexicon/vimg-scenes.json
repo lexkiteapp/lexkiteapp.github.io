@@ -914,6 +914,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "attachment#n": {
+   "ex": "I sent the report as an email attachment.",
+   "sc": "person A sits at a computer, dragging a printed report toward the screen; the report rests on the desk as the person clicks a send button, implying the file is attached.",
+   "cap": "person sending a report from a computer",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "attack#v": {
    "ex": "The dog attacked the postman, but nobody was badly hurt.",
    "sc": "a large dog lunges toward a postman in a raincoat, who raises his arms in surprise; the scene is on a street with a mailbox and wet pavement, dog in foreground",
@@ -1977,6 +1984,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "case study#n": {
+   "ex": "The case study explains how our software saved a hotel thousands.",
+   "sc": "person A, a hotel manager in a front desk uniform, sits at a desk with a laptop open; a nearby pile of cash is noticeably smaller, indicating savings from the software.",
+   "cap": "hotel manager reviewing savings on a laptop",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "case#n": {
    "ex": "In this case, it is better to call the police.",
    "sc": "person A standing near a shattered window, holding a phone to ear, while a police officer in uniform approaches",
@@ -2303,6 +2317,13 @@
    "cap": "team members collaborate enthusiastically and coordinate smoothly",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "cheque#n": {
+   "ex": "We no longer accept payment by cheque, only card or cash.",
+   "sc": "person A hands a handwritten paper to a cashier; the cashier shakes their head and gestures toward a credit card on the counter.",
+   "cap": "a customer offering a paper check while cashier points to a card",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "childcare#n": {
    "ex": "The sports centre offers childcare during the morning fitness classes.",
@@ -3666,6 +3687,13 @@
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "defeat#v": {
+   "ex": "Vietnam defeated Thailand 2–1 in the final.",
+   "sc": "person A wearing a Vietnam jersey celebrates with arms raised, holding a trophy; person B in a Thailand jersey looks down, shoulders slumped, showing they have lost.",
+   "cap": "Vietnam player celebrating while Thai opponent looks dejected",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "define#v": {
    "skip": "cannot depict abstract definition without text",
    "by": "openai/gpt-oss-120b"
@@ -4882,6 +4910,13 @@
    "cap": "a singer performing for a guest in a hotel lounge",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "entrance exam#n": {
+   "ex": "Thousands of students sat the entrance exam for the gifted school.",
+   "sc": "person A and person B sit at separate desks in a large exam hall, each with a test booklet and a pencil, while a proctor walks between rows.",
+   "cap": "two students taking a test in an exam hall",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "entrance#n": {
    "ex": "Meet me at the main entrance of the museum.",
@@ -6600,6 +6635,13 @@
    "cap": "a hooded person covertly taking a file folder from a desk",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "half board#n": {
+   "ex": "Half board includes breakfast and dinner at the hotel restaurant.",
+   "sc": "person A sits at a restaurant table with two plates: one holds a sunny breakfast spread of toast and coffee, the other a dinner plate with steak and vegetables, indicating two meals.",
+   "cap": "dining table set with breakfast and dinner plates",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "half#n": {
    "ex": "Half of the class went on the trip.",
@@ -9218,6 +9260,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "mock exam#n": {
+   "ex": "Students sit a mock exam in March to prepare for finals.",
+   "sc": "person A and person B sit at desks with practice test papers, a teacher at the front smiles and holds a clipboard, indicating a rehearsal exam.",
+   "cap": "students taking a practice test with a teacher nearby",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "model#n": {
    "ex": "The architect showed us a model of the new building.",
    "sc": "person A (architect) holds a detailed miniature building on a table while person B (client) leans in, examining the scale model with interest",
@@ -10176,6 +10225,13 @@
    "cap": "two community members mourn a shut factory",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "painkiller#n": {
+   "ex": "He was given a painkiller after the operation.",
+   "sc": "a patient lies on a hospital bed; a nurse stands beside, offering a small bottle of pills with a gentle smile.",
+   "cap": "nurse giving pills to a patient after surgery",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "pair#n": {
    "ex": "I bought a new pair of running shoes.",
@@ -12836,6 +12892,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "saver#n": {
+   "ex": "Higher interest rates are good news for savers.",
+   "sc": "person A, a middle‑aged man, drops coins into a clear piggy bank on a table, smiling as the bank fills.",
+   "cap": "a man adding coins to a piggy bank",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "savings account#n": {
    "ex": "I move a hundred dollars into my savings account every month.",
    "sc": "person A puts money into a counter with a cashier",
@@ -13703,6 +13766,13 @@
    "who": 1,
    "by": "openai/gpt-oss-120b"
   },
+  "software#n": {
+   "ex": "You need to update the software on your laptop.",
+   "sc": "person A sits at a table looking at a laptop whose screen shows a moving progress bar of colored rectangles, indicating an update in progress",
+   "cap": "a person watching a laptop update progress",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "solar panel#n": {
    "ex": "Solar panels were installed on the warehouse roof.",
    "sc": "person A in safety gear stands on a ladder on a flat warehouse roof, holding a large solar panel and fastening it to the roof surface",
@@ -14030,6 +14100,13 @@
    "cap": "a person holding an envelope and a tiny piece of paper",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "star rating#n": {
+   "ex": "The hotel achieved a five-star rating after its renovation.",
+   "sc": "a woman and a man stand inside a hotel lobby; the woman looks at an opulent suite with plush bedding and a minibar, while the man points to a modest room, highlighting contrast in quality.",
+   "cap": "a couple comparing a luxurious and a simple hotel room",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "start#v": {
    "ex": "The concert will start in ten minutes.",

@@ -1484,6 +1484,32 @@
    "b": "40088424311",
    "repo": "m4"
   },
+  "benefit#n": {
+   "h": "07af66742c2402a8",
+   "url": "https://media.lexkite.com/vimg/07af66742c2402a8.webp",
+   "alt": "benefit",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.28,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "d0c6feb83c2da107",
+   "at": "2026-10-27",
+   "b": "40454202563",
+   "repo": "m4"
+  },
   "beverage#n": {
    "h": "8fd4f70a4f65f193",
    "url": "https://media.lexkite.com/vimg/8fd4f70a4f65f193.webp",
@@ -7813,6 +7839,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "idea#n": {
+   "h": "966e8bfed303937e",
+   "url": "https://media.lexkite.com/vimg/966e8bfed303937e.webp",
+   "alt": "idea",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.195,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "cfb0e8c491b71e4a",
+   "at": "2026-10-27",
+   "b": "40454202563",
+   "repo": "m4"
+  },
   "ideal#adj": {
    "h": "4b7e8df5d45e1f84",
    "url": "https://media.lexkite.com/vimg/4b7e8df5d45e1f84.webp",
@@ -11533,6 +11585,33 @@
    "ph": "98d0a7b7ea4b491c",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "please#adv": {
+   "h": "88c7f282322fd229",
+   "url": "https://media.lexkite.com/vimg/88c7f282322fd229.webp",
+   "alt": "please",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.24,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "eacca1c0913e9f96",
+   "at": "2026-10-27",
+   "b": "40454202563",
    "repo": "m4"
   },
   "poetry#n": {
