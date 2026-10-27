@@ -76,7 +76,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 61,
-   "est_s": 32.6,
+   "est_s": 31.7,
    "ipa": "/læk/",
    "content_hash": "8b093b9e0dd5d18d"
   },
@@ -109,7 +109,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 62,
-   "est_s": 32.9,
+   "est_s": 32.0,
    "ipa": null,
    "content_hash": "cce04760444b5acf"
   },
@@ -131,7 +131,7 @@
    "cefr": "B2",
    "diff": "medium",
    "words": 62,
-   "est_s": 32.9,
+   "est_s": 32.0,
    "ipa": "/rɪˈlaɪ/",
    "content_hash": "b8ab4adc34f04adb"
   },
@@ -198,12 +198,12 @@
   {
    "bank": "sb_068cf065",
    "point": "Stop saying \"I'm considering to buy a car.\" – say \"I'm considering buying a car.\"",
-   "reason": "self-check: est pace 129 wpm; note fix line > 26 chars: [[\"I'm considering \"], ['buying ', 'green'], ['a car.']]; note qs line > 26 chars: [[\"I'm considering \"], ['___ ', 'green'], ['a new phone.']]"
+   "reason": "self-check: note fix line > 26 chars: [[\"I'm considering \"], ['buying ', 'green'], ['a car.']]; note qs line > 26 chars: [[\"I'm considering \"], ['___ ', 'green'], ['a new phone.']]"
   },
   {
    "bank": "sb_14363e18",
    "point": "Stop saying \"It has a big effect to the economy.\" – say \"It has a big effect on the economy.\"",
-   "reason": "self-check: 81 words (need 50-75); est pace 133 wpm; note fix line > 26 chars: [['It has a big effect '], ['on ', 'green'], ['the economy.']]; note ex line > 26 chars: [['Music has a calming '], ['effect on ', 'green'], ['me.']]; note trick line > 26 chars: [['@emoji:💡'], [' effect / impact / influence + '], ['ON', 'hl']]; note trick line 796 px > 780; hook 8 words on screen"
+   "reason": "self-check: 81 words (need 50-75); est pace 136 wpm; note fix line > 26 chars: [['It has a big effect '], ['on ', 'green'], ['the economy.']]; note ex line > 26 chars: [['Music has a calming '], ['effect on ', 'green'], ['me.']]; note trick line > 26 chars: [['@emoji:💡'], [' effect / impact / influence + '], ['ON', 'hl']]; note trick line 796 px > 780; hook 8 words on screen"
   },
   {
    "bank": "sb_1445ca42",
@@ -248,7 +248,7 @@
   {
    "bank": "sb_21612f29",
    "point": "Stop saying \"We are committed to reduce waste.\" – say \"We are committed to reducing waste.\"",
-   "reason": "self-check: 76 words (need 50-75); est pace 131 wpm; note ex line > 26 chars: [['She is '], ['committed ', 'green'], ['to helping kids.']]"
+   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['She is '], ['committed ', 'green'], ['to helping kids.']]"
   },
   {
    "bank": "sb_24f9ee05",
@@ -258,7 +258,7 @@
   {
    "bank": "sb_52fcf41b",
    "point": "Stop saying \"The flood caused many damages.\" – say \"The flood caused a lot of damage.\"",
-   "reason": "self-check: est pace 129 wpm; note fix line > 26 chars: [['The flood caused '], ['a lot of damage.', 'green']]; note ex line > 26 chars: [['The storm caused little '], ['damage.', 'green']]; note qs line > 26 chars: [['The fire caused a lot of '], ['___.', 'green']]"
+   "reason": "self-check: note fix line > 26 chars: [['The flood caused '], ['a lot of damage.', 'green']]; note ex line > 26 chars: [['The storm caused little '], ['damage.', 'green']]; note qs line > 26 chars: [['The fire caused a lot of '], ['___.', 'green']]"
   },
   {
    "bank": "sb_55270c0b",
@@ -318,7 +318,7 @@
   {
    "bank": "sb_9f45e757",
    "point": "Say \"I'm interested in this role because I like helping people.\" instead of \"I am interesting in this job.\"",
-   "reason": "self-check: est pace 128 wpm; note fix line > 26 chars: [[\"I'm interested \", 'green'], ['in this job.']]; note qs line > 26 chars: [[\"I'm really \"], ['___ ', 'green'], ['in this role.']]"
+   "reason": "self-check: note fix line > 26 chars: [[\"I'm interested \", 'green'], ['in this job.']]; note qs line > 26 chars: [[\"I'm really \"], ['___ ', 'green'], ['in this role.']]"
   },
   {
    "bank": "sb_b56e5263",
@@ -343,7 +343,7 @@
   {
    "bank": "sb_d11da4f4",
    "point": "Say \"How do I transfer money to another account?\" instead of \"How I can send money other account?\"",
-   "reason": "self-check: est pace 128 wpm; hook 7 words on screen"
+   "reason": "self-check: hook 7 words on screen"
   },
   {
    "bank": "sb_d7a49df5",
@@ -433,7 +433,7 @@
   {
    "bank": "sb_e42d6eb4",
    "point": "Say \"Are we all on the same page?\" instead of \"Everybody understand?\"",
-   "reason": "self-check: est pace 131 wpm; note fix line > 26 chars: [['Are we all on the same page?', 'green']]; note why line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; note qs line > 26 chars: [['Are we all on the same '], ['___?', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]"
+   "reason": "self-check: est pace 134 wpm; note fix line > 26 chars: [['Are we all on the same page?', 'green']]; note why line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; note qs line > 26 chars: [['Are we all on the same '], ['___?', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]"
   },
   {
    "bank": "sb_f940bc04",
@@ -443,7 +443,7 @@
   {
    "bank": "sb_18d9514a",
    "point": "Stop saying \"The number of student are increasing.\" – say \"The number of students is increasing.\"",
-   "reason": "self-check: est pace 130 wpm; note ex line > 26 chars: [['The '], ['number ', 'green'], ['of cars '], ['is ', 'green'], ['growing.']]; note qs line > 26 chars: [['The number of tourists '], ['___ ', 'green'], ['rising.']]"
+   "reason": "self-check: note ex line > 26 chars: [['The '], ['number ', 'green'], ['of cars '], ['is ', 'green'], ['growing.']]; note qs line > 26 chars: [['The number of tourists '], ['___ ', 'green'], ['rising.']]"
   },
   {
    "bank": "sb_90abd680",

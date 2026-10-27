@@ -10,7 +10,7 @@
    "cefr": "A1",
    "diff": "easy",
    "words": 63,
-   "est_s": 32.8,
+   "est_s": 31.9,
    "ipa": "/biːt/",
    "content_hash": "40adafa2cee70cd0"
   },
@@ -21,7 +21,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 57,
-   "est_s": 30.7,
+   "est_s": 29.8,
    "ipa": null,
    "content_hash": "3bc746c83b8fb10d"
   }
@@ -150,7 +150,7 @@
   {
    "bank": "sb_6e178745",
    "point": "hope (v) vs wish (v)",
-   "reason": "self-check: est pace 130 wpm; note fix line > 26 chars: [['@emoji:❌'], [' I '], ['wish ', 'red'], ['you '], ['will ', 'red'], ['pass the test.']]; note qs line > 26 chars: [['I '], ['___ ', 'green'], ['you have a great trip!']]"
+   "reason": "self-check: note fix line > 26 chars: [['@emoji:❌'], [' I '], ['wish ', 'red'], ['you '], ['will ', 'red'], ['pass the test.']]; note qs line > 26 chars: [['I '], ['___ ', 'green'], ['you have a great trip!']]"
   }
  ]
 }

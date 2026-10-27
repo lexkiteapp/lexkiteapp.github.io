@@ -44,7 +44,7 @@
      2
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_k",
@@ -54,7 +54,7 @@
      4
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_y",
@@ -64,12 +64,12 @@
      0
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_x",
    "text": "You can rely on me.",
-   "gap": 0.8,
+   "gap": 0.7,
    "key": {
     "green": [
      2,
@@ -86,7 +86,7 @@
      4
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_q",
@@ -97,7 +97,7 @@
      1
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_q2",
@@ -117,17 +117,17 @@
      4
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_sh",
    "text": "Send this to a friend who says it!",
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.8
+   "gap": 0.7
   }
  ],
  "pops": [

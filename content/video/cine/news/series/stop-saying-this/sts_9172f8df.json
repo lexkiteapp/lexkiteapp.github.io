@@ -46,7 +46,7 @@
      3
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_k",
@@ -59,7 +59,7 @@
      5
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_y",
@@ -71,12 +71,12 @@
      5
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_x",
    "text": "My bags didn't arrive.",
-   "gap": 0.8,
+   "gap": 0.7,
    "key": {
     "green": [
      0,
@@ -95,7 +95,7 @@
      5
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_q",
@@ -106,7 +106,7 @@
      1
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_q2",
@@ -126,17 +126,17 @@
      2
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_sh",
    "text": "Send this to a friend who says it!",
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.8
+   "gap": 0.7
   }
  ],
  "pops": [

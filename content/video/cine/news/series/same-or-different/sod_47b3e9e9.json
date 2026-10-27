@@ -38,7 +38,7 @@
      2
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_y",
@@ -51,7 +51,7 @@
      1
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_w",
@@ -61,7 +61,7 @@
      2
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_k",
@@ -71,7 +71,7 @@
      2
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_t",
@@ -82,7 +82,7 @@
      5
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_q",
@@ -92,7 +92,7 @@
      0
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_q2",
@@ -112,17 +112,17 @@
      2
     ]
    },
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_sh",
    "text": "Send this to a friend!",
-   "gap": 0.8
+   "gap": 0.7
   },
   {
    "id": "p_c",
    "text": "Save this, and compare tricky words on lexkite.com.",
-   "gap": 0.8
+   "gap": 0.7
   }
  ],
  "pops": [
