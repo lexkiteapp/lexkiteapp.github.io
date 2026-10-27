@@ -16,6 +16,7 @@ import { manifest, signed } from './admin-shorts.js';
 import { once } from './_schema.js';
 import { encReady } from './_keys.js';
 import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish } from './_meta.js';
+import { setupOAuth, appStatus, setAppSecret, startOAuth, pendingPages, pickPage, reconnectUrl } from './_meta_oauth.js';
 import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, delToken, KIND } from './_meta_tokens.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
@@ -157,10 +158,10 @@ export async function autoStatus(env, now = Date.now()) {
   const ids = await Promise.all(up.map(r => boardId(r.clip, r.channel_id)));
   const qs = ids.map(() => '?').join(','), bs = ids.length ? new Map((await all(db, `SELECT id, state, note, err FROM soc_board WHERE id IN (${qs})`, ...ids)).map(r => [r.id, r])) : new Map();
   const ls = new Map(); for (const r of up) { const l = await lockOf(db, r.clip, r.channel_id); if (l) ls.set(r.clip + '|' + r.channel_id, l); } // ≤ 40 lượt đọc theo PK
-  const { list: mlist, chans } = await metaChannels(env, db, cfg), ms = st.meta || {};
+  const { list: mlist, chans } = await metaChannels(env, db, cfg), ms = st.meta || {}; await setupOAuth(db, env);
   return { cfg, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
     provider: { ...(st.provider || { cur: 'grabcast', why: '' }), mode: cfg.provider, gc_down: gcDownWhy(env, st, now) || null },
-    meta: { configured: mlist.length > 0, enc: encReady(env), budget_left: metaLeft(st, cfg, now), channels: chans,
+    meta: { configured: mlist.length > 0, enc: encReady(env), apps: await appStatus(env, db), budget_left: metaLeft(st, cfg, now), channels: chans,
       tokens: mlist.map(m => ({ ...m, health: (ms.th || {})[m.channel_id] || null, breaker: (ms.br || {})[m.channel_id] && ms.br[m.channel_id].until > now ? ms.br[m.channel_id] : null })) },
     upcoming: up.map((r, i) => { const b = bs.get(ids[i]) || {}, l = ls.get(r.clip + '|' + r.channel_id) || {}; return { ...r, board_id: ids[i], board: b.state || null, note: b.note || null, provider: l.provider || null, permalink: l.permalink || null, lock: l.state || null }; }), now };
 }
@@ -348,7 +349,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     const chStop = async (ch, kind, code, status = 'revoked') => {
       const ttl = kind === 'token' || kind === 'perm' ? 12 * 36e5 : kind === 'rate' ? 2 * 36e5 : 36e5;
       br[ch] = { until: now + ttl, kind, code, at: now }; M.stop = ch + ' ' + kind + ':' + code;
-      if (kind === 'token' || kind === 'perm') { pushAlert(st, 'meta-token:' + ch, `Lexkite autopilot: token Meta của kênh ${ch} bị thu hồi/thiếu quyền (${code}) – lấy token mới và lưu lại ở Quản trị › Hàng đợi › Autopilot (docs/DISTRIBUTION.md §6b).`, now); await markToken(db, ch, status, code); }
+      if (kind === 'token' || kind === 'perm') { pushAlert(st, 'meta-token:' + ch, `Lexkite autopilot: token Meta của kênh ${ch} bị thu hồi/thiếu quyền (${code}) – bấm Kết nối lại: ${reconnectUrl(ch)}`, now); await markToken(db, ch, status, code); }
       else pushAlert(st, 'meta-down:' + kind, `Lexkite autopilot: Meta API lỗi ở kênh ${ch} (${kind} ${code}) – kênh này dừng ${Math.round(ttl / 36e5)} giờ.`, now);
       throw Object.assign(new Error('meta-stop'), { metaStop: true, ch });
     };
@@ -366,7 +367,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
             if (m.platform === 'facebook_page') {
               const t = await tokenHealth(metaClient(env, { token: tok, host: 'fb', fetcher, onCall }), m.target_id, now); th[ch] = t;
               if (!t.ok && t.why === 'revoked') { cache.set(ch, null); dead.add(ch); await chStop(ch, 'token', t.code || 'revoked').catch(() => {}); return null; }
-              if (!t.ok) pushAlert(st, 'meta-token:' + ch + ':' + t.why, `Lexkite autopilot: token Page ${ch} ${t.why}${t.expires_at ? ' – hết hạn ' + new Date(t.expires_at).toISOString().slice(0, 10) : ''}${t.data_access_expires_at ? ' – quyền dữ liệu hết hạn ' + new Date(t.data_access_expires_at).toISOString().slice(0, 10) : ''}${(t.missing || []).length ? ' – thiếu ' + t.missing.join(',') : ''}. Làm lại token (docs/DISTRIBUTION.md §6b).`, now);
+              if (!t.ok) pushAlert(st, 'meta-token:' + ch + ':' + t.why, `Lexkite autopilot: token Page ${ch} ${t.why}${t.expires_at ? ' – hết hạn ' + new Date(t.expires_at).toISOString().slice(0, 10) : ''}${t.data_access_expires_at ? ' – quyền dữ liệu hết hạn ' + new Date(t.data_access_expires_at).toISOString().slice(0, 10) : ''}${(t.missing || []).length ? ' – thiếu ' + t.missing.join(',') : ''}. Kết nối lại: ${reconnectUrl(ch)}`, now);
             } else {
               th[ch] = { ok: true, at: now, expires_at: +m.expires_at || 0 };
               if (igNeedsRefresh(m, env, now)) {
@@ -374,10 +375,10 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
                 if (rf.ok) { th[ch] = { ok: true, at: now, expires_at: rf.expires_at, refreshed: now }; tok = await tokenOf(env, db, { ...m, src: 'd1' }) || tok; }
                 else {
                   th[ch] = { ok: false, at: now, why: 'refresh-failed', code: rf.code, expires_at: +m.expires_at || 0 };
-                  pushAlert(st, 'meta-token:' + ch + ':refresh', `Lexkite autopilot: refresh token Instagram ${ch} lỗi (${rf.code})${m.expires_at ? ' – token hết hạn ' + new Date(+m.expires_at).toISOString().slice(0, 10) : ''}. Lấy token mới ở Quản trị (docs/DISTRIBUTION.md §6b).`, now);
+                  pushAlert(st, 'meta-token:' + ch + ':refresh', `Lexkite autopilot: refresh token Instagram ${ch} lỗi (${rf.code})${m.expires_at ? ' – token hết hạn ' + new Date(+m.expires_at).toISOString().slice(0, 10) : ''}. Kết nối lại: ${reconnectUrl(ch)}`, now);
                   if (rf.kind === 'token') { cache.set(ch, null); dead.add(ch); await chStop(ch, 'token', rf.code, 'refresh-failed').catch(() => {}); return null; }
                 }
-              } else if (m.expires_at && +m.expires_at - now < 3 * 864e5) pushAlert(st, 'meta-token:' + ch + ':expiring', `Lexkite autopilot: token Instagram ${ch} hết hạn ${new Date(+m.expires_at).toISOString().slice(0, 10)} mà chưa refresh được.`, now);
+              } else if (m.expires_at && +m.expires_at - now < 3 * 864e5) pushAlert(st, 'meta-token:' + ch + ':expiring', `Lexkite autopilot: token Instagram ${ch} hết hạn ${new Date(+m.expires_at).toISOString().slice(0, 10)} mà chưa refresh được – Kết nối lại: ${reconnectUrl(ch)}`, now);
             }
           }
           const raw = metaClient(env, { token: tok, host: KIND[m.platform], fetcher, onCall });
@@ -534,7 +535,7 @@ export async function onWebhook(env, ev) {
 
 
 // ---------------- Thao tác Quản trị (/api/social path "lk/auto…") ----------------
-const clearCh = async (db, ch) => { const st = await getMeta(db, 'auto_state', {}); if (st.meta) { if (st.meta.br) delete st.meta.br[ch]; if (st.meta.th) delete st.meta.th[ch]; } for (const k of Object.keys(st.fails || {})) if (k.startsWith('m|') && k.endsWith('|' + ch)) delete st.fails[k]; await setMeta(db, 'auto_state', st); };
+export const clearCh = async (db, ch) => { const st = await getMeta(db, 'auto_state', {}); if (st.meta) { if (st.meta.br) delete st.meta.br[ch]; if (st.meta.th) delete st.meta.th[ch]; } for (const k of Object.keys(st.fails || {})) if (k.startsWith('m|') && k.endsWith('|' + ch)) delete st.fails[k]; await setMeta(db, 'auto_state', st); };
 const AUTO_OPS = {
   'GET auto': async ({ env }) => autoStatus(env),
   'POST auto/save': async ({ db, b }) => { const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), ...(b.cfg && typeof b.cfg === 'object' ? b.cfg : {}) }); await setMeta(db, 'auto', c); return { cfg: c }; },
@@ -544,6 +545,11 @@ const AUTO_OPS = {
   'POST auto/provider': async ({ db, b }) => { if (!PROVIDERS.includes(b.mode)) throw Object.assign(new Error('bad-input'), { status: 400, code: 'bad-input' }); const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), provider: b.mode }); await setMeta(db, 'auto', c); return { cfg: c }; },
   /** Token Meta theo kênh (đổi Page/IG ở Quản trị): kiểm bằng 1 lượt Graph rồi lưu mã hóa; xóa cầu dao + sức khỏe của kênh đó. */
   'POST auto/token': async ({ env, db, b }) => { await setupLock(db, env); const out = await setToken(env, db, b); await clearCh(db, out.channel_id); return out; },
+  /** Kết nối một chạm (functions/api/_meta_oauth.js): start → { url } + cookie lk_meta; Page chờ chọn; App Secret dán 1 lần (mã hóa). */
+  'POST auto/oauth/start': async ({ env, db, b, who }) => { await setupLock(db, env); await setupOAuth(db, env); return startOAuth(env, db, b, who); },
+  'POST auto/oauth/pages': async ({ env, db, b, who }) => { await setupOAuth(db, env); return pendingPages(env, db, b, who); },
+  'POST auto/oauth/pick': async ({ env, db, b, who }) => { await setupLock(db, env); await setupOAuth(db, env); const out = await pickPage(env, db, b, who); await clearCh(db, out.channel_id); return out; },
+  'POST auto/app': async ({ env, db, b, who }) => { await setupOAuth(db, env); return setAppSecret(env, db, b, who); },
   'POST auto/token/del': async ({ env, db, b }) => { await setupLock(db, env); const out = await delToken(db, b); await clearCh(db, String(b.channel_id)); return out; },
   /** Duyệt tay 1 bài autopilot khi đang đi qua Meta (GrabCast lỗi nên board/approve không gọi được): chỉ đánh dấu duyệt, lượt Meta đăng đúng slot. */
   'POST auto/approve': async ({ db, b, who }) => {

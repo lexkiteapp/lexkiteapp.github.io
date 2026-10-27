@@ -6,7 +6,7 @@
 import { encryptKey, decryptKey, encReady } from './_keys.js';
 import { metaClient, okId, igMe, fbPage, igRefresh } from './_meta.js';
 
-const CH = /^gc-(facebook_page|instagram)-[A-Za-z0-9_-]{1,40}$/;
+export const CH = /^gc-(facebook_page|instagram)-[A-Za-z0-9_-]{1,40}$/;
 export const KIND = { facebook_page: 'fb', instagram: 'ig' };
 export const IG_REFRESH_BEFORE = 10 * 864e5; // refresh khi còn ≤ 10 ngày (≈ ngày 50 của 60)
 const one = (db, q, ...a) => db.prepare(q).bind(...a).first();
@@ -15,7 +15,7 @@ const run = (db, q, ...a) => db.prepare(q).bind(...a).run();
 const fail = (status, code) => Object.assign(new Error(code), { status, code });
 const kid = ch => 'soctok:' + ch;
 const last4 = t => String(t).slice(-4);
-const platOfCh = ch => (CH.exec(ch) || [])[1] || '';
+export const platOfCh = ch => (CH.exec(ch) || [])[1] || '';
 
 /** Kênh dùng env khởi tạo: kênh duy nhất của nền tảng, hoặc cfg.meta_map. */
 export function envChannel(p, chans, map = {}) {
@@ -41,7 +41,7 @@ export async function tokenOf(env, db, m) {
   const r = await one(db, 'SELECT enc FROM soc_tokens WHERE channel_id = ?', m.channel_id); if (!r) return '';
   try { return await decryptKey(env, kid(m.channel_id), r.enc); } catch (e) { return ''; }
 }
-async function store(env, db, ch, kind, target, name, tok, exp, now) {
+export async function store(env, db, ch, kind, target, name, tok, exp, now) {
   const enc = await encryptKey(env, kid(ch), tok);
   await run(db, `INSERT INTO soc_tokens (channel_id, kind, target_id, name, enc, last4, expires_at, refreshed_at, status, err, updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'ok', NULL, ?)
     ON CONFLICT(channel_id) DO UPDATE SET kind = excluded.kind, target_id = excluded.target_id, name = COALESCE(excluded.name, soc_tokens.name), enc = excluded.enc, last4 = excluded.last4, expires_at = excluded.expires_at, refreshed_at = excluded.refreshed_at, status = 'ok', err = NULL, updated = excluded.updated`,

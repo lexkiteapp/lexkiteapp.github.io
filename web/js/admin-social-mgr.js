@@ -24,6 +24,15 @@
     'Lượt Meta API còn hôm nay {n}': 'Meta API calls left today {n}', 'Loại': 'Type', 'Meta (dự phòng): chưa có token kênh nào – thêm token cho từng kênh FB/IG ở dưới (docs/DISTRIBUTION.md §6b).': 'Meta (fallback): no channel token yet – add a token per FB/IG channel below (docs/DISTRIBUTION.md §6b).',
     '＋ Thêm / đổi token kênh': '＋ Add / change channel token', 'Máy chủ thiếu KEYS_ENC_KEY – không lưu token được.': 'The server has no KEYS_ENC_KEY – tokens cannot be saved.',
     'FB: Page token không hết hạn (tài khoản giữ Page là Tester của app Lexkite) + Page ID. IG: token Instagram Login (tự refresh trước khi hết 60 ngày). Token được kiểm bằng 1 lượt gọi Meta rồi lưu mã hóa, không hiện lại.': 'FB: a never-expiring Page token (the account holding the Page is a Tester of the Lexkite app) + Page ID. IG: an Instagram Login token (refreshed automatically before its 60 days run out). The token is checked with one Meta call, then stored encrypted and never shown again.',
+    '🔗 Kết nối Facebook': '🔗 Connect Facebook', '🔗 Kết nối Instagram': '🔗 Connect Instagram', '🔗 Kết nối lại': '🔗 Reconnect',
+    'Kết nối một chạm: bấm nút, đăng nhập đúng tài khoản giữ Page/IG (Tester của app Lexkite) rồi cho phép – token được lưu mã hóa, không phải chép gì.': 'One-tap connect: press the button, log in with the account that holds the Page/IG (a Tester of the Lexkite app) and allow – the token is stored encrypted, nothing to copy.',
+    'Dán token tay (dự phòng)': 'Paste a token by hand (fallback)', '⚙️ App Meta (App Secret)': '⚙️ Meta app (App Secret)', 'App Secret đã có ({s})': 'App Secret set ({s})', 'Chưa có App Secret': 'No App Secret yet',
+    'Dán App Secret 1 lần (Meta: Cài đặt ứng dụng › Thông tin cơ bản; Instagram: Instagram › Thiết lập API với đăng nhập Instagram). Lưu mã hóa, không hiện lại.': 'Paste the App Secret once (Meta: App settings › Basic; Instagram: Instagram › API setup with Instagram login). Stored encrypted, never shown again.',
+    '💾 Lưu App Secret': '💾 Save App Secret', '✓ Đã lưu App Secret {k} (…{l})': '✓ App Secret saved for {k} (…{l})', 'Cần App Secret trước khi kết nối.': 'An App Secret is needed before connecting.',
+    'Đang mở trang đăng nhập Meta…': 'Opening the Meta login page…', '✓ Đã kết nối {c}': '✓ Connected {c}', 'Chọn Page cho kênh {c}': 'Pick the Page for channel {c}', '✓ Chọn Page này': '✓ Use this Page',
+    'Kết nối lỗi: {e}': 'Connection failed: {e}', 'Token kênh {c} cần kết nối lại – bấm 🔗 Kết nối lại.': 'Channel {c} token needs reconnecting – press 🔗 Reconnect.',
+    'Phiên kết nối không hợp lệ hoặc đã hết hạn (10 phút) – bấm lại nút.': 'The connect session is invalid or expired (10 min) – press the button again.', 'Anh đã từ chối hoặc hủy đăng nhập.': 'Login was declined or cancelled.',
+    'Thiếu quyền – cho phép đủ các quyền được hỏi rồi thử lại.': 'Permissions missing – allow every requested permission and try again.', 'Tài khoản này không quản lý Page nào có quyền đăng.': 'This account manages no Page it can post to.',
     'Page ID (chỉ FB)': 'Page ID (FB only)', '💾 Lưu token': '💾 Save token', '✓ Đã lưu token {n} (…{l})': '✓ Token saved for {n} (…{l})', 'Xóa token Meta của kênh {c}?': 'Delete the Meta token of channel {c}?', 'refresh lỗi': 'refresh failed',
     'Đường đăng FB/IG': 'FB/IG route', 'Đang dùng: {p}': 'In use: {p}', 'Lý do: {w}': 'Reason: {w}', 'từ {d}': 'since {d}', 'Chế độ': 'Mode',
     'Tự động (GrabCast lỗi → Meta)': 'Automatic (GrabCast down → Meta)', 'Luôn GrabCast': 'Always GrabCast', 'Luôn Meta (đăng thẳng)': 'Always Meta (direct)', '🔀 Chuyển': '🔀 Switch',
@@ -188,14 +197,20 @@
     function provBlock() {
       const P = A.provider || { cur: 'grabcast' }, me = A.meta || {}, c = A.cfg, tks = me.tokens || [];
       const tokTxt = t => { const h = t.health, exp = (h && h.expires_at) || t.expires_at; if (t.breaker) return M('⛔ Meta tạm dừng tới {d} ({c}).', { d: when(t.breaker.until), c: t.breaker.kind + ':' + t.breaker.code }); if (h && !h.ok) return '⚠️ ' + (TW[h.why] ? M(TW[h.why]) : h.why || '✗'); if (t.status && t.status !== 'ok') return '⚠️ ' + (TW[t.status] ? M(TW[t.status]) : t.status); return t.platform === 'facebook_page' && !exp ? M('không hết hạn') : exp ? M('hết hạn {d}', { d: when(exp) }) : M('chưa kiểm'); };
-      const rows = tks.map(t => `<tr><td>${PI[t.platform] || ''} ${esc(t.title || t.channel_id)}</td><td>${t.kind === 'ig' ? 'Instagram Login' : 'FB Page'} · ${esc(t.name || t.target_id)}</td><td>…${esc(t.last4 || '')}${t.src === 'env' ? ' <span class="tiny muted">(secret)</span>' : ''}</td><td>${esc(tokTxt(t))}</td><td>${t.src === 'd1' ? `<button type="button" class="btn sm ghost" data-tdel="${esc(t.channel_id)}">${M('Xóa')}</button>` : ''}</td></tr>`).join('');
+      const rows = tks.map(t => `<tr><td>${PI[t.platform] || ''} ${esc(t.title || t.channel_id)}</td><td>${t.kind === 'ig' ? 'Instagram Login' : 'FB Page'} · ${esc(t.name || t.target_id)}</td><td>…${esc(t.last4 || '')}${t.src === 'env' ? ' <span class="tiny muted">(secret)</span>' : ''}</td><td>${esc(tokTxt(t))}</td><td><button type="button" class="btn sm ghost" data-oa="${esc(t.channel_id)}" data-k="${t.kind === 'ig' ? 'ig' : 'fb'}">${M('🔗 Kết nối lại')}</button>${t.src === 'd1' ? ` <button type="button" class="btn sm ghost" data-tdel="${esc(t.channel_id)}">${M('Xóa')}</button>` : ''}</td></tr>`).join('');
+      const apps = me.apps || {}, hasTok = new Set(tks.map(t => t.channel_id));
+      const conn = (me.channels || []).filter(x => !hasTok.has(x.channel_id)).map(x => { const k = x.platform === 'instagram' ? 'ig' : 'fb'; return `<button type="button" class="btn sm" data-oa="${esc(x.channel_id)}" data-k="${k}">${M(k === 'ig' ? '🔗 Kết nối Instagram' : '🔗 Kết nối Facebook')} · ${esc(x.title || x.channel_id)}</button>`; }).join(' ');
+      const appRow = k => { const a = apps[k] || {}; return `<div class="soc-form"><span class="small">${k === 'ig' ? 'Instagram' : 'Facebook'} · App ID ${esc(a.app_id || '')} · ${a.secret ? esc(M('App Secret đã có ({s})', { s: a.src === 'env' ? 'secret' : '…' + (a.last4 || '') })) : `<span class="bad-t">${M('Chưa có App Secret')}</span>`}</span><input id="apSec-${k}" type="password" autocomplete="off" spellcheck="false" aria-label="App Secret ${k === 'ig' ? 'Instagram' : 'Facebook'}" placeholder="App Secret"><button type="button" class="btn sm ghost" data-sec="${k}">${M('💾 Lưu App Secret')}</button></div>`; };
       const opts = (me.channels || []).map(x => `<option value="${esc(x.channel_id)}" data-p="${esc(x.platform)}">${PI[x.platform] || ''} ${esc(x.title || x.channel_id)}</option>`).join('');
       return `<div class="smg-prov" style="border:1px solid var(--line);border-radius:8px;padding:.45rem .6rem;margin:.4rem 0">
         <p class="small" style="margin:0"><b>${M('Đường đăng FB/IG')}:</b> ${P.cur === 'meta' ? '🟦 Meta API' : '🟩 GrabCast'} ${P.why ? '· ' + esc(M('Lý do: {w}', { w: why(P.why) })) : ''} ${P.since ? '· ' + esc(M('từ {d}', { d: when(P.since) })) : ''}</p>
         <div class="soc-form"><label>${M('Chế độ')}<select id="apMode">${Object.keys(MODES).map(k => `<option value="${k}" ${c.provider === k ? 'selected' : ''}>${M(MODES[k])}</option>`).join('')}</select></label><button type="button" class="btn sm ghost" id="apProv">${M('🔀 Chuyển')}</button></div>
         ${me.configured ? `<p class="tiny muted" style="margin:.2rem 0">${esc(M('Lượt Meta API còn hôm nay {n}', { n: me.budget_left + '/' + c.meta_daily }))}</p><div class="smg-scroll"><table class="soc-tbl"><thead><tr><th>${M('Kênh')}</th><th>${M('Loại')}</th><th>Token</th><th>${M('Trạng thái')}</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`
           : `<p class="tiny bad-t" style="margin:.2rem 0">${M('Meta (dự phòng): chưa có token kênh nào – thêm token cho từng kênh FB/IG ở dưới (docs/DISTRIBUTION.md §6b).')}</p>`}
-        <details><summary class="small">${M('＋ Thêm / đổi token kênh')}</summary>
+        <p class="tiny muted" style="margin:.3rem 0 .2rem">${M('Kết nối một chạm: bấm nút, đăng nhập đúng tài khoản giữ Page/IG (Tester của app Lexkite) rồi cho phép – token được lưu mã hóa, không phải chép gì.')}</p>
+        ${conn ? `<div class="row" style="gap:.4rem;flex-wrap:wrap">${conn}</div>` : ''}<div id="apPick"></div>
+        <details${apps.fb && apps.ig && (!apps.fb.secret || !apps.ig.secret) ? ' open' : ''}><summary class="small">${M('⚙️ App Meta (App Secret)')}</summary><p class="tiny muted">${M('Dán App Secret 1 lần (Meta: Cài đặt ứng dụng › Thông tin cơ bản; Instagram: Instagram › Thiết lập API với đăng nhập Instagram). Lưu mã hóa, không hiện lại.')}</p>${appRow('fb')}${appRow('ig')}</details>
+        <details><summary class="small">${M('＋ Thêm / đổi token kênh')} · ${M('Dán token tay (dự phòng)')}</summary>
           ${me.enc === false ? `<p class="tiny bad-t">${M('Máy chủ thiếu KEYS_ENC_KEY – không lưu token được.')}</p>` : ''}
           <p class="tiny muted">${M('FB: Page token không hết hạn (tài khoản giữ Page là Tester của app Lexkite) + Page ID. IG: token Instagram Login (tự refresh trước khi hết 60 ngày). Token được kiểm bằng 1 lượt gọi Meta rồi lưu mã hóa, không hiện lại.')}</p>
           <div class="soc-form"><label>${M('Kênh')}<select id="apTkCh">${opts}</select></label><label>${M('Page ID (chỉ FB)')}<input id="apTkId" inputmode="numeric" autocomplete="off"></label><label>Token<input id="apTkV" type="password" autocomplete="off" spellcheck="false"></label><button type="button" class="btn sm" id="apTkSave">${M('💾 Lưu token')}</button></div>
@@ -237,11 +252,32 @@
         const ch = $('#apTkCh').value, tok = $('#apTkV').value.trim(); if (!ch || !tok) return;
         try { const o = await ctx.sapi('POST', 'lk/auto/token', { channel_id: ch, target_id: $('#apTkId').value.trim() || undefined, token: tok }); $('#apTkV').value = ''; await load(); msg(M('✓ Đã lưu token {n} (…{l})', { n: o.name || o.target_id || ch, l: o.last4 }), true); } catch (e) { $('#apTkV').value = ''; msg(err(e), false); }
       };
+      box.querySelectorAll('[data-oa]').forEach(bt => { bt.onclick = async () => {
+        const k = bt.dataset.k; if (!((A.meta || {}).apps || {})[k] || !A.meta.apps[k].secret) { msg(M('Cần App Secret trước khi kết nối.'), false); const d = box.querySelector('#apSec-' + k); if (d) { d.closest('details').open = true; d.focus(); } return; }
+        try { msg(M('Đang mở trang đăng nhập Meta…')); const o = await ctx.sapi('POST', 'lk/auto/oauth/start', { kind: k, channel_id: bt.dataset.oa }); if (/^https:\/\/www\.(facebook|instagram)\.com\//.test(o.url || '')) location.assign(o.url); } catch (e) { msg(err(e), false); }
+      }; });
+      box.querySelectorAll('[data-sec]').forEach(bt => { bt.onclick = async () => {
+        const k = bt.dataset.sec, inp = box.querySelector('#apSec-' + k), v = inp.value.trim(); if (!v) return;
+        try { const o = await ctx.sapi('POST', 'lk/auto/app', { kind: k, secret: v }); inp.value = ''; await load(); msg(M('✓ Đã lưu App Secret {k} (…{l})', { k: k === 'ig' ? 'Instagram' : 'Facebook', l: o.last4 }), true); } catch (e) { inp.value = ''; msg(err(e), false); }
+      }; });
       box.querySelectorAll('[data-tdel]').forEach(bt => { bt.onclick = async () => { if (!confirm(M('Xóa token Meta của kênh {c}?', { c: bt.dataset.tdel }))) return; try { await ctx.sapi('POST', 'lk/auto/token/del', { channel_id: bt.dataset.tdel }); await load(); } catch (e) { msg(err(e), false); } }; });
       box.querySelectorAll('[data-apv]').forEach(bt => { bt.onclick = async () => { if (!confirm(M('Duyệt bài này để đăng qua Meta đúng giờ đã xếp?'))) return; try { await ctx.sapi('POST', 'lk/auto/approve', { id: bt.dataset.apv }); await load(); msg(M('✓ Xong'), true); } catch (e) { msg(err(e), false); } }; });
       const rs = $('#apReset'); if (rs) rs.onclick = async () => { try { await ctx.sapi('POST', 'lk/auto/reset', {}); await load(); } catch (e) { msg(err(e), false); } };
     }
-    await load();
+    await load(); await oauthReturn();
+    /** Quay về từ /api/social/meta/callback (?meta=ok|pick|lỗi) hoặc link cảnh báo (?meta_reconnect=<kênh>) – xử lý 1 lần rồi xóa khỏi URL. */
+    async function oauthReturn() {
+      const q = new URLSearchParams(location.search), r = q.get('meta'), rc = q.get('meta_reconnect'); if (!r && !rc) return;
+      try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) { /* bỏ qua */ }
+      const ERR = { 'bad-state': 'Phiên kết nối không hợp lệ hoặc đã hết hạn (10 phút) – bấm lại nút.', replay: 'Phiên kết nối không hợp lệ hoặc đã hết hạn (10 phút) – bấm lại nút.', denied: 'Anh đã từ chối hoặc hủy đăng nhập.', scope: 'Thiếu quyền – cho phép đủ các quyền được hỏi rồi thử lại.', 'no-page': 'Tài khoản này không quản lý Page nào có quyền đăng.', 'no-app-secret': 'Cần App Secret trước khi kết nối.' };
+      if (rc) { const b = [...box.querySelectorAll('[data-oa]')].find(x => x.dataset.oa === rc); msg(M('Token kênh {c} cần kết nối lại – bấm 🔗 Kết nối lại.', { c: rc }), false); if (b) { b.scrollIntoView({ block: 'center' }); b.focus(); } return; }
+      if (r === 'ok') { msg(M('✓ Đã kết nối {c}', { c: q.get('ch') || '' }), true); return; }
+      if (r !== 'pick') { msg(M('Kết nối lỗi: {e}', { e: ERR[r] ? M(ERR[r]) : r }), false); return; }
+      const id = q.get('id') || ''; let P; try { P = await ctx.sapi('POST', 'lk/auto/oauth/pages', { id }); } catch (e) { msg(err(e), false); return; }
+      const el = box.querySelector('#apPick'); if (!el) return;
+      el.innerHTML = `<div class="soc-form"><label>${esc(M('Chọn Page cho kênh {c}', { c: P.channel_id }))}<select id="apPickSel">${(P.pages || []).map(p => `<option value="${esc(p.id)}">${esc(p.name || p.id)} (${esc(p.id)})</option>`).join('')}</select></label><button type="button" class="btn sm" id="apPickGo">${M('✓ Chọn Page này')}</button></div>`;
+      el.querySelector('#apPickGo').onclick = async () => { try { const o = await ctx.sapi('POST', 'lk/auto/oauth/pick', { id, page_id: el.querySelector('#apPickSel').value }); el.innerHTML = ''; await load(); msg(M('✓ Đã kết nối {c}', { c: o.name || o.target_id }), true); } catch (e) { msg(err(e), false); } };
+    }
   }
   async function queue(el, ctx) {
     const { M, esc, err, accN } = mk(ctx); let R = null, plan = null, sel = ctx.LS.get('qacc', null);

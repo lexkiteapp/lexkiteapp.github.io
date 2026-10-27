@@ -573,7 +573,7 @@
       "key": "meta-graph",
       "name": "Meta API (dự phòng đăng FB/IG)",
       "kind": "social",
-      "purpose": "Đường dự phòng của autopilot social khi GrabCast lỗi (docs/DISTRIBUTION.md §6b): FB Page qua Graph API (Reels API + rupload, Page token không hết hạn của tài khoản giữ Page – Tester của app Lexkite), IG qua Instagram API with Instagram Login (graph.instagram.com, token 60 ngày tự refresh). App Meta riêng, chế độ Development, KHÔNG gắn Business Portfolio. Token theo kênh, mã hóa trong D1 soc_tokens (KEYS_ENC_KEY), đổi ở Quản trị; khóa chống trùng D1 soc_lock. Logic functions/api/_meta.js, _meta_tokens.js, _social_auto.js. Env tùy chọn: META_PAGE_TOKEN/META_PAGE_ID, META_IG_TOKEN/META_IG_ID, META_GRAPH_VERSION.",
+      "purpose": "Đường dự phòng của autopilot social khi GrabCast lỗi (docs/DISTRIBUTION.md §6b): FB Page qua Graph API (Reels API + rupload, Page token không hết hạn của tài khoản giữ Page – Tester của app Lexkite), IG qua Instagram API with Instagram Login (graph.instagram.com, token 60 ngày tự refresh). App Meta riêng, chế độ Development, KHÔNG gắn Business Portfolio. Token theo kênh, mã hóa trong D1 soc_tokens (KEYS_ENC_KEY), đổi ở Quản trị; khóa chống trùng D1 soc_lock. Logic functions/api/_meta.js, _meta_tokens.js, _social_auto.js. Kết nối một chạm (Facebook Login / Business Login for Instagram, api.instagram.com đổi code): _meta_oauth.js + /api/social/meta/callback; App Secret ở env META_APP_SECRET/IG_APP_SECRET hoặc D1 soc_app (mã hóa). Env tùy chọn: META_PAGE_TOKEN/META_PAGE_ID, META_IG_TOKEN/META_IG_ID, META_GRAPH_VERSION.",
       "console": "https://developers.facebook.com/apps/",
       "free": "Miễn phí · giới hạn gọi theo app/Page (BUC) · IG 100 bài API/24 giờ (Lexkite tự giới hạn 25) · autopilot ≤ 80 lượt Graph/ngày",
       "upgrade": "Không có gói trả phí – tăng hạn mức theo người dùng app",
@@ -582,6 +582,7 @@
         "graph.facebook.com",
         "rupload.facebook.com",
         "graph.instagram.com",
+        "api.instagram.com",
         "www.instagram.com",
         "developers.facebook.com"
       ]
