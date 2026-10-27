@@ -65,8 +65,24 @@
   const srcName = src => { const o = sourceList().find(o => o[0] === src), tp = !o && /^topic:/.test(src || '') && App.topicOf(src.slice(6)); return o ? o[1] : tp ? `${tp.emoji} ${tp.name}` : '📒 ' + t('Sổ từ của tôi'); };
   // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
   const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
-  let libN = null;
+  let libN = null, libW = null;
   const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
+  // Lượt trắc nghiệm đầu: chuẩn hoá kho (~20k từ) + làm đầy bộ nhớ của Distract theo LÁT ≤ 8 ms, nhường luồng chính giữa các lát
+  // (trước đây 1 tác vụ ~100 ms ngay câu đầu → CPU chậm 4× ≈ 400 ms, TBT mobile #/practice > 200 ms). Kết quả y hệt libNorm().
+  const yieldMain = () => new Promise(r => (window.scheduler && scheduler.yield ? scheduler.yield().then(r) : setTimeout(r, 0)));
+  const warmLib = () => {
+    if (libN && libN.length === TOPICS.length) return libW || Promise.resolve();
+    return libW = (async () => {
+      const len = TOPICS.length, all = TOPICS.flatMap(t => t.words), list = [];
+      for (let i = 0; i < all.length;) {
+        const t0 = performance.now();
+        for (; i < all.length && performance.now() - t0 < 8; i++) { const x = all[i]; if (x.vi || x.def) list.push(norm(x)); }
+        if (i < all.length) await yieldMain();
+      }
+      if (TOPICS.length === len) libN = { length: len, list };
+      if (window.Distract && Distract.warm) await Distract.warm(list, { mean, yieldMain });
+    })().catch(() => {}).then(() => { libW = null; });
+  };
   const distractors = (w, list, n, key) => {
     const base = list.length >= n + 1 ? list : TOPICS.flatMap(t => t.words).map(norm);
     // js/distract.js: cùng từ loại/trình độ/độ dài, không đồng nghĩa/cùng họ; sổ từ + thư viện
@@ -610,7 +626,7 @@
       const aw = $('#addWrong');
       if (aw) aw.onclick = async () => { for (const w of run.wrong) if (!App.inDeck(w.word)) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); toast(t('Đã thêm vào flashcard')); aw.disabled = true; };
     };
-    next();
+    const h0 = location.hash; warmLib().then(() => { if (location.hash === h0) next(); }); // phương án nhiễu cần kho đã chuẩn hoá
   }
 
   function emptySource(src) {
@@ -712,7 +728,7 @@
       const al = $('#addLearned');
       if (al) al.onclick = async () => { for (const w of notIn) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); al.disabled = true; al.textContent = '✓ ' + t('Đã thêm'); Sfx.win(); };
     };
-    next();
+    const h0 = location.hash; warmLib().then(() => { if (location.hash === h0) next(); }); // như runQuiz: kho chuẩn hoá theo lát trước câu đầu
   }
 
 })();
