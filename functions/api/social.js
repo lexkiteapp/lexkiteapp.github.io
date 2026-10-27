@@ -9,10 +9,10 @@
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { opFor, approvalFor, setupMgr } from './_social_mgr.js';
+import { gcClient, WS_DEFAULT } from './_grabcast.js';
+import { autoOpFor } from './_social_auto.js';
 
-const BASE = 'https://grabcast-api-342720596878.us-central1.run.app'; // ghi đè bằng env GRABCAST_API_BASE
-const WS_DEFAULT = '4'; // workspace Lexkite trên GrabCast (không phải bí mật) – ghi đè bằng env GRABCAST_WORKSPACE
-const TIMEOUT = 15000, MAX_BODY = 64 * 1024;
+const MAX_BODY = 64 * 1024;
 const ID = '[A-Za-z0-9_-]{1,100}'; // không cho '.' → chặn posts/.. (đi ngược thư mục)
 // [method, mẫu path, tên ngắn ghi nhật ký]
 const ROUTES = [
@@ -28,8 +28,6 @@ const ROUTES = [
 export const allowed = (method, path) => ROUTES.some(([m, re]) => m === method && re.test(path));
 
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
-// Xóa mọi lần xuất hiện của khóa (phòng máy chủ GrabCast lỡ trả lại khóa trong nội dung/lỗi)
-const scrub = (text, key) => (key && key.length >= 6 ? String(text).split(key).join('***') : String(text));
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
@@ -40,36 +38,20 @@ export async function onRequestPost({ request, env }) {
   const method = String((b && b.method) || 'GET').toUpperCase(), path = String((b && b.path) || '').replace(/^\/+|\/+$/g, '').replace(/^api\/social\//, '');
   if (!path.startsWith('lk/') && !allowed(method, path)) return json(request, 400, { error: 'route', message: `${method} ${path.slice(0, 80)} không nằm trong danh sách cho phép` });
   const key = env.GRABCAST_API_KEY, ws = String(env.GRABCAST_WORKSPACE || WS_DEFAULT).trim();
-  if (!key || !ws) return json(request, 503, { error: 'not-configured' });
+  if ((!key || !ws) && !/^lk\/auto(\/|$)/.test(path)) return json(request, 503, { error: 'not-configured' }); // thẻ autopilot vẫn mở được khi thiếu khóa (báo 'no-key')
   // Hạn mức GrabCast: 60 lượt/phút, 3.000/ngày – chặn sớm ở đây (đếm theo trung tâm dữ liệu, chừa biên an toàn)
   if (await limit('gc:min', 55, 60) || await limit('gc:day', 2900, 86400)) return json(request, 429, { error: 'grabcast-rate' });
 
-  const base = String(env.GRABCAST_API_BASE || BASE).replace(/\/+$/, '');
-  // Gọi GrabCast (máy chủ) → { status, data } – khóa đã được xóa khỏi nội dung trả về
-  const gc = async (m, p, body, query, idem) => {
-    const url = new URL(base + '/api/social/' + p);
-    if (query && typeof query === 'object') for (const [k, v] of Object.entries(query)) if (/^[a-z_]{1,24}$/.test(k) && v != null && v !== '') url.searchParams.set(k, String(v).slice(0, 200));
-    const headers = { 'X-API-Key': key, 'X-Workspace': String(ws), Accept: 'application/json' };
-    if (m !== 'GET') headers['Content-Type'] = 'application/json';
-    if (idem && /^[A-Za-z0-9_-]{8,80}$/.test(String(idem))) headers['Idempotency-Key'] = String(idem);
-    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), TIMEOUT);
-    let st = 502, text = '';
-    try { const r = await fetch(url.toString(), { method: m, headers, body: m === 'GET' ? undefined : JSON.stringify(body || {}), signal: ctl.signal }); st = r.status; text = await r.text(); }
-    catch (e) { clearTimeout(timer); return { status: 504, data: { error: ctl.signal.aborted ? 'timeout' : 'upstream' } }; } // không đưa e.message (có thể chứa URL/headers)
-    clearTimeout(timer);
-    let data; try { data = JSON.parse(scrub(text, key)); } catch (e) { data = { error: 'upstream', message: scrub(text, key).slice(0, 300) }; }
-    if (st >= 400 && data && typeof data === 'object' && !Array.isArray(data) && !data.error) data.error = 'upstream';
-    const code = st >= 400 ? String((data && data.error && typeof data.error === 'object' ? data.error.code : data && data.error) || 'upstream').slice(0, 60) : '';
-    return { status: st >= 200 && st < 600 ? st : 502, data, code };
-  };
+  // Gọi GrabCast (máy chủ) → { status, data } – khóa đã được xóa khỏi nội dung trả về (functions/api/_grabcast.js)
+  const gc = gcClient(env);
   const short = path.replace(new RegExp(ID.replace('{1,100}', '{16,}'), 'g'), ':id');
 
   // ---- Lexkite: lk/… ----
   if (path.startsWith('lk/')) {
-    const op = opFor(method, path); if (!op) return json(request, 400, { error: 'route' });
+    const op = opFor(method, path) || autoOpFor(method, path); if (!op) return json(request, 400, { error: 'route' });
     if (!env.DB) return json(request, 412, { error: 'not-configured' });
     const who = g.who.email;
-    if (await limit('lk:' + who, 120, 60) || (path === 'lk/ai/caption' && await limit('lkai:' + who, 10, 60)) || (/^lk\/(clips\/push|queue\/apply)$/.test(path) && await limit('lkpush:' + who, 12, 60))) return json(request, 429, { error: 'too-fast' });
+    if (await limit('lk:' + who, 120, 60) || (path === 'lk/ai/caption' && await limit('lkai:' + who, 10, 60)) || (/^lk\/(clips\/push|queue\/apply|auto\/run)$/.test(path) && await limit('lkpush:' + who, 12, 60))) return json(request, 429, { error: 'too-fast' });
     const bb = b.body && typeof b.body === 'object' && !Array.isArray(b.body) ? b.body : {};
     try {
       await setupMgr(env.DB);

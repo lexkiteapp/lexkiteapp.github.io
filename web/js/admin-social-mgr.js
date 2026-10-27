@@ -20,6 +20,20 @@
     'Nhân bản / đăng lại': 'Duplicate / repost', 'Đặt giờ': 'Set time', 'Chép link duyệt': 'Copy review link', 'Nhân bản “{t}” thành bài nháp mới (phải duyệt lại)?': 'Duplicate “{t}” as a new draft (needs approval again)?',
     'Giờ đăng (giờ máy bạn), dạng 2026-10-30 19:00': 'Publish time (your local time), e.g. 2026-10-30 19:00', 'Giờ không hợp lệ.': 'Invalid time.', '✓ Đã chép link duyệt (chỉ quản trị viên mở được): {u}': '✓ Review link copied (admins only): {u}',
     'Mỗi dòng: clip_id,kênh1;kênh2,2026-10-30T19:00 (giờ máy bạn). Dán được từ Google Sheets.': 'One per line: clip_id,channel1;channel2,2026-10-30T19:00 (your local time). Pasting from Google Sheets works.', '⬇️ Xuất báo cáo CSV': '⬇️ Export report CSV',
+    // Autopilot
+    '🛰️ Autopilot đăng social': '🛰️ Social autopilot', 'Chạy nền trên máy chủ mỗi 2 giờ (máy anh tắt vẫn chạy): lấy bài đến hạn trong lịch Kênh & phân phối, tạo bài trên GrabCast và lên lịch đúng giờ – GrabCast tự đăng khi tới giờ.': 'Runs in the background on the server every 2 hours (even when your computer is off): takes due posts from the Channels & distribution plan, creates them on GrabCast and schedules them – GrabCast publishes at that time.',
+    'Bật autopilot (công tắc khẩn: tắt = dừng mọi lượt gọi GrabCast)': 'Autopilot on (kill switch: off = no GrabCast calls at all)', 'Tự động duyệt': 'Auto-approve', 'Duyệt tay trước (bài/nền tảng)': 'Manual approvals first (posts/platform)',
+    'Tắt: mọi bài autopilot vào cột Chờ duyệt, anh duyệt tay (giữ đúng giờ đã xếp). Bật: chỉ nền tảng đã có đủ số bài duyệt tay mới tự lên lịch.': 'Off: every autopilot post goes to In review and you approve it (the planned time is kept). On: only platforms with enough manual approvals are scheduled automatically.',
+    'Đã duyệt tay {m}/{n}': 'Manually approved {m}/{n}', 'chỉ bật khi app GrabCast được duyệt': 'turn on only once the GrabCast app is approved', 'Nền tảng tự đăng': 'Platforms',
+    'Lần chạy cuối': 'Last run', 'Chưa chạy lần nào.': 'Has not run yet.', 'Đến hạn': 'Due', 'Đã tạo': 'Created', 'Đã lên lịch': 'Scheduled', 'Chờ duyệt': 'In review', 'Lượt GrabCast còn hôm nay': 'GrabCast calls left today',
+    'Đang tắt': 'Off', 'Cầu dao đang mở': 'Breaker open', 'Thiếu khóa GrabCast': 'GrabCast key missing', 'Hết ngân sách hôm nay': 'Daily budget used up', 'Dừng: {c}': 'Stopped: {c}', 'Bình thường': 'OK',
+    '⛔ Cầu dao mở tới {d} (mã {c}) – GrabCast trả lỗi nên autopilot đã dừng cả lượt, không thử lại.': '⛔ Breaker open until {d} (code {c}) – GrabCast returned an error, so the autopilot stopped the whole run and will not retry.',
+    'Mở lại': 'Reset', 'Máy chủ chưa có khóa GrabCast (secret GRABCAST_API_KEY).': 'The server has no GrabCast key yet (secret GRABCAST_API_KEY).', 'Đồng bộ trạng thái': 'Status sync',
+    '💾 Lưu cài đặt': '💾 Save settings', '▶️ Chạy ngay': '▶️ Run now', '✓ Đã lưu cài đặt': '✓ Settings saved', 'Chạy 1 lượt autopilot ngay (tính vào ngân sách GrabCast hôm nay)?': 'Run one autopilot pass now (counts towards today’s GrabCast budget)?',
+    'Bật tự động duyệt? Bài autopilot sẽ được lên lịch công khai không cần anh duyệt – chỉ cho nền tảng đã có đủ bài duyệt tay.': 'Turn on auto-approve? Autopilot posts will be scheduled publicly without your approval – only on platforms that already have enough manual approvals.',
+    'Sắp đăng (72 giờ)': 'Coming up (72 h)', 'Chưa có bài nào trong lịch – chạy “Lập lịch” ở Kênh & phân phối.': 'Nothing planned – run “Plan” in Channels & distribution.',
+    'Đã xếp lịch': 'Planned', 'Đã đẩy lên GrabCast': 'Pushed to GrabCast', 'Đã đăng': 'Published', 'Lỗi': 'Failed', 'Đã hủy': 'Cancelled', 'Webhook GrabCast': 'GrabCast webhook', 'sẵn sàng': 'ready', 'chưa cấu hình': 'not configured',
+    'Xong: tạo {c} · lên lịch {s} · chờ duyệt {r} · {n} lượt GrabCast': 'Done: {c} created · {s} scheduled · {r} in review · {n} GrabCast calls',
     // Hàng đợi
     '🤖 Hàng đợi tự động': '🤖 Auto queue', 'Rải clip ĐÃ DUYỆT trong kho Lexkite vào khung giờ vàng từng kênh, theo trần/ngày, giãn cách và chống trùng. Kết quả là bài NHÁP chờ duyệt – không tự đăng.': 'Spread APPROVED Lexkite clips across each channel’s prime slots, respecting daily caps, spacing and duplicate rules. Results are DRAFTS awaiting approval – nothing auto-publishes.',
     'Luật chống spam': 'Anti-spam rules', 'Tối đa/ngày': 'Max/day', 'Giãn cách tối thiểu (giờ)': 'Minimum gap (hours)', 'Khung giờ (giờ địa phương của kênh)': 'Slots (channel local time)', 'Múi giờ mặc định': 'Default time zone',
@@ -148,13 +162,53 @@
   }
 
   // ======================= HÀNG ĐỢI TỰ ĐỘNG =======================
+  // ---- Autopilot (máy chủ: functions/api/_social_auto.js, cron .github/workflows/social-auto.yml) ----
+  async function autoCard(box, ctx) {
+    const { M, esc, err } = mk(ctx); let A = null;
+    const when = ms => (ms ? new Date(ms).toLocaleString(ctx.lang() === 'en' ? 'en-US' : 'vi-VN', { dateStyle: 'short', timeStyle: 'short' }) : '—');
+    const STOP = { off: 'Đang tắt', breaker: 'Cầu dao đang mở', 'no-key': 'Thiếu khóa GrabCast', budget: 'Hết ngân sách hôm nay' };
+    const DS = { planned: 'Đã xếp lịch', pushed: 'Đã đẩy lên GrabCast', published: 'Đã đăng', failed: 'Lỗi', cancelled: 'Đã hủy' }, BS = Object.fromEntries(COLS);
+    const msg = (t, c) => { const m = box.querySelector('#apM'); if (m) { m.textContent = t; m.className = 'small ' + (c === true ? 'ok-t' : c === false ? 'bad-t' : 'muted'); } };
+    const load = async () => { try { A = await ctx.sapi('GET', 'lk/auto'); paint(); } catch (e) { box.innerHTML = `<p class="small bad-t">${esc(err(e))}</p>`; } };
+    function paint() {
+      const c = A.cfg, st = A.state || {}, lr = st.last_run, br = st.breaker && st.breaker.until > A.now ? st.breaker : null;
+      const stopTxt = lr ? (lr.stop ? (STOP[lr.stop] ? M(STOP[lr.stop]) : M('Dừng: {c}', { c: lr.stop })) : M('Bình thường')) : '';
+      box.innerHTML = `<h3 style="margin-top:0">${M('🛰️ Autopilot đăng social')}</h3><p class="small muted">${M('Chạy nền trên máy chủ mỗi 2 giờ (máy anh tắt vẫn chạy): lấy bài đến hạn trong lịch Kênh & phân phối, tạo bài trên GrabCast và lên lịch đúng giờ – GrabCast tự đăng khi tới giờ.')}</p>
+        ${A.key ? '' : `<p class="small bad-t">${M('Máy chủ chưa có khóa GrabCast (secret GRABCAST_API_KEY).')}</p>`}
+        ${br ? `<p class="small bad-t">${M('⛔ Cầu dao mở tới {d} (mã {c}) – GrabCast trả lỗi nên autopilot đã dừng cả lượt, không thử lại.', { d: esc(when(br.until)), c: esc(br.code) })} <button type="button" class="btn sm ghost" id="apReset">${M('Mở lại')}</button></p>` : ''}
+        <p class="small"><b>${M('Lần chạy cuối')}:</b> ${lr ? `${esc(when(lr.at))} · ${esc(stopTxt)}` : M('Chưa chạy lần nào.')} · <b>${M('Đồng bộ trạng thái')}:</b> ${esc(when(st.last_sync && st.last_sync.at))} · <b>${M('Webhook GrabCast')}:</b> ${A.webhook ? M('sẵn sàng') : M('chưa cấu hình')}</p>
+        <div class="smg-kpi">${[['Đến hạn', lr ? lr.due : 0], ['Đã tạo', lr ? lr.created : 0], ['Đã lên lịch', lr ? lr.scheduled : 0], ['Chờ duyệt', lr ? lr.review : 0], ['Lượt GrabCast còn hôm nay', A.budget_left + '/' + c.daily_calls]].map(([k, v]) => `<div><b>${esc(String(v))}</b><span class="tiny muted">${M(k)}</span></div>`).join('')}</div>
+        <div class="soc-form" style="margin-top:.6rem"><label class="row" style="gap:.3rem"><input type="checkbox" id="apOn" ${c.on ? 'checked' : ''}>${M('Bật autopilot (công tắc khẩn: tắt = dừng mọi lượt gọi GrabCast)')}</label>
+          <label class="row" style="gap:.3rem"><input type="checkbox" id="apAA" ${c.auto_approve ? 'checked' : ''}>${M('Tự động duyệt')}</label>
+          <label>${M('Duyệt tay trước (bài/nền tảng)')}<input type="number" min="1" max="50" id="apN" value="${c.manual_first}"></label></div>
+        <p class="tiny muted">${M('Tắt: mọi bài autopilot vào cột Chờ duyệt, anh duyệt tay (giữ đúng giờ đã xếp). Bật: chỉ nền tảng đã có đủ số bài duyệt tay mới tự lên lịch.')}</p>
+        <div class="small" style="font-weight:600;margin:.4rem 0 .2rem">${M('Nền tảng tự đăng')}</div><div class="soc-targets">${Object.keys(PN).map(p => `<label><input type="checkbox" data-ap="${p}" ${c.plats[p] ? 'checked' : ''}> ${PI[p]} ${PN[p]} <span class="tiny muted">${M('Đã duyệt tay {m}/{n}', { m: (A.manual || {})[p] || 0, n: c.manual_first })}${p === 'tiktok' || p === 'youtube' ? ' · ' + M('chỉ bật khi app GrabCast được duyệt') : ''}</span></label>`).join('')}</div>
+        <div class="row" style="gap:.4rem;margin-top:.5rem"><button type="button" class="btn sm" id="apSave">${M('💾 Lưu cài đặt')}</button><button type="button" class="btn sm ghost" id="apRun" ${A.key && c.on ? '' : 'disabled'}>${M('▶️ Chạy ngay')}</button></div>
+        <p class="small" id="apM" role="status" aria-live="polite"></p>
+        <details${(A.upcoming || []).length ? ' open' : ''}><summary class="small" style="font-weight:600">${M('Sắp đăng (72 giờ)')}</summary>${(A.upcoming || []).length ? `<div class="smg-scroll"><table class="soc-tbl"><thead><tr><th>${M('Giờ')}</th><th>${M('Clip')}</th><th>${M('Kênh')}</th><th>${M('Trạng thái')}</th></tr></thead><tbody>${A.upcoming.map(r => `<tr><td>${esc(when(r.slot_ms))}</td><td>${esc(r.clip)}</td><td>${PI[r.platform] || ''} ${esc(r.channel || r.channel_id)}</td><td>${esc(r.board && BS[r.board] ? M(BS[r.board]) : DS[r.state] ? M(DS[r.state]) : r.state || '')}${r.err ? ` <span class="tiny bad-t">${esc(r.err)}</span>` : ''}</td></tr>`).join('')}</tbody></table></div>` : `<p class="small muted">${M('Chưa có bài nào trong lịch – chạy “Lập lịch” ở Kênh & phân phối.')}</p>`}</details>`;
+      const $ = s => box.querySelector(s);
+      $('#apSave').onclick = async () => {
+        const cfg = { on: $('#apOn').checked, auto_approve: $('#apAA').checked, manual_first: +$('#apN').value || 1, plats: Object.fromEntries([...box.querySelectorAll('[data-ap]')].map(i => [i.dataset.ap, i.checked])) };
+        if (cfg.auto_approve && !A.cfg.auto_approve && !confirm(M('Bật tự động duyệt? Bài autopilot sẽ được lên lịch công khai không cần anh duyệt – chỉ cho nền tảng đã có đủ bài duyệt tay.'))) return;
+        try { A.cfg = (await ctx.sapi('POST', 'lk/auto/save', { cfg })).cfg; paint(); msg(M('✓ Đã lưu cài đặt'), true); } catch (e) { msg(err(e), false); }
+      };
+      $('#apRun').onclick = async () => {
+        if (!confirm(M('Chạy 1 lượt autopilot ngay (tính vào ngân sách GrabCast hôm nay)?'))) return;
+        $('#apRun').disabled = true; msg(M('Đang tải…'));
+        try { const r = (await ctx.sapi('POST', 'lk/auto/run', {})).run || {}; await load(); msg(M('Xong: tạo {c} · lên lịch {s} · chờ duyệt {r} · {n} lượt GrabCast', { c: r.created || 0, s: r.scheduled || 0, r: r.review || 0, n: r.calls || 0 }), !r.stop); } catch (e) { msg(err(e), false); const b = $('#apRun'); if (b) b.disabled = false; }
+      };
+      const rs = $('#apReset'); if (rs) rs.onclick = async () => { try { await ctx.sapi('POST', 'lk/auto/reset', {}); await load(); } catch (e) { msg(err(e), false); } };
+    }
+    await load();
+  }
   async function queue(el, ctx) {
     const { M, esc, err, accN } = mk(ctx); let R = null, plan = null, sel = ctx.LS.get('qacc', null);
-    el.innerHTML = `<section class="card"><h3 style="margin-top:0">${M('🤖 Hàng đợi tự động')}</h3><p class="small muted">${M('Rải clip ĐÃ DUYỆT trong kho Lexkite vào khung giờ vàng từng kênh, theo trần/ngày, giãn cách và chống trùng. Kết quả là bài NHÁP chờ duyệt – không tự đăng.')}</p>
+    el.innerHTML = `<section class="card" id="smgAP"><p class="small muted">${M('Đang tải…')}</p></section><section class="card"><h3 style="margin-top:0">${M('🤖 Hàng đợi tự động')}</h3><p class="small muted">${M('Rải clip ĐÃ DUYỆT trong kho Lexkite vào khung giờ vàng từng kênh, theo trần/ngày, giãn cách và chống trùng. Kết quả là bài NHÁP chờ duyệt – không tự đăng.')}</p>
       <div id="smgR"><p class="small muted">${M('Đang tải…')}</p></div><div class="row" style="gap:.4rem;margin-top:.6rem"><button type="button" class="btn sm" id="smgPlan">${M('📋 Lập kế hoạch')}</button><button type="button" class="btn sm ghost" id="smgCsv">${M('⬆️ Nhập CSV')}</button><button type="button" class="btn sm primary" id="smgGo" disabled>${M('Tạo {n} bài nháp & gửi duyệt', { n: 0 })}</button></div>
       <p class="small" id="smgQm" role="status" aria-live="polite"></p><div id="smgOut" class="smg-scroll"></div></section>`;
     const $ = s => el.querySelector(s), msg = (t, c) => { const m = $('#smgQm'); if (m) { m.textContent = t; m.className = 'small ' + (c === true ? 'ok-t' : c === false ? 'bad-t' : 'muted'); } };
     const accs = () => (ctx.D.accounts || []).filter(a => PN[String(a.platform)]);
+    autoCard($('#smgAP'), ctx);
     try { R = (await ctx.sapi('GET', 'lk/rules')).rules; } catch (e) { return msg(err(e), false); }
     if (!sel) sel = accs().map(a => String(a.id));
     const paintR = () => {
