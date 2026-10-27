@@ -27,8 +27,9 @@ d = np.array([np.abs(g(fr[i + 1]) - g(fr[i])).mean() for i in range(n - 1)]); me
 end_d = float(np.abs(g(fr[-1]) - g(F0)).mean()); best_end = min(range(max(0, n - 72), n), key=lambda i: np.abs(g(fr[i]) - g(F0)).mean())
 dx = max(abs(v - x0) for v in xs if v is not None); dy = max(abs(v - y0) for v in tops if v is not None)
 hv = [v for v in hxs if v is not None]; hrange = max(hv) - min(hv); hend = abs(hv[-1] - hx0)
-ok = hrange <= 160 and hend <= 100 and d.max() <= 6.0 and int((d < 0.05).sum()) == 0   # head stays put: calibrated 27/10 on known clips – drift fails 263 (a05) / 310 (c04l), good clips 61-133 (dark navy blazer adds to Carlos), no hard jump (max frame diff), no frozen frames; identity: renderer gate with the bank head box
-print(f"{src}: head_x_range {hrange:.0f} head_end_shift {hend:.0f} max_frame_diff {d.max():.2f} frozen {int((d < 0.05).sum())} | frames {n} drift_x {dx:.0f} drift_top {dy:.0f} id_min {min(ids):.3f} jumps {int((d > max(4 * med, 1.5)).sum())} end_diff {end_d:.1f} best_end f{best_end} -> {'PASS' if ok else 'FAIL'}")
+spikes = [i for i in range(2, len(d) - 2) if d[i] > 4 and d[i] > 2.0 * max(d[i - 2], d[i - 1], d[i + 1], d[i + 2])]   # a glitch / cut = ONE frame pair far above BOTH sides; a fast but continuous gesture ramps up and down
+ok = hrange <= 160 and hend <= 100 and not spikes and int((d < 0.05).sum()) == 0   # head stays put: calibrated 27/10 on known clips – drift fails 263 (a05) / 310 (c04l), good clips 61-133 (dark navy blazer adds to Carlos), no hard jump (max frame diff), no frozen frames; identity: renderer gate with the bank head box
+print(f"{src}: head_x_range {hrange:.0f} head_end_shift {hend:.0f} max_frame_diff {d.max():.2f} spikes {spikes[:5]} frozen {int((d < 0.05).sum())} | frames {n} drift_x {dx:.0f} drift_top {dy:.0f} id_min {min(ids):.3f} jumps {int((d > max(4 * med, 1.5)).sum())} end_diff {end_d:.1f} best_end f{best_end} -> {'PASS' if ok else 'FAIL'}")
 idx = np.linspace(0, n - 1, 12).astype(int)
 t = [cv2.putText(cv2.resize(fr[i], (180, 320)), str(i), (5, 20), 0, 0.6, (0, 0, 255), 2) for i in idx]
 cv2.imwrite(sheet, np.vstack([np.hstack(t[:6]), np.hstack(t[6:])]))
