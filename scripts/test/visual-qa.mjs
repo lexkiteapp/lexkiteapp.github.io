@@ -1,5 +1,5 @@
 // 👁 Soát giao diện tự động (máy dò lỗi hiển thị, không cần nhìn ảnh): tràn ngang, nút đè chữ, chữ bị ép cột 1–2 từ,
-// chữ cắt "…" không có title, trang cuộn ngang, vùng chạm < 40px (điện thoại), tương phản màu (axe), lỗi RTL (ar), icon tàng hình (icon trùng màu nền nút).
+// chữ cắt "…" không có title, trang cuộn ngang, vùng chạm < 40px (điện thoại), tương phản màu (axe), lỗi RTL (ar), link danh sách lệch hàng, icon tàng hình (icon trùng màu nền nút).
 // Ma trận: màn hình chính × 375/820/1440 × sáng/tối × en/vi/es/ar (+ de/ru chỉ 375). Chạy trên GitHub Actions (visual-qa.yml).
 // Dùng: node scripts/test/visual-qa.mjs <base> <thư-mục-ra>  → report.md + report.json + shots/ (ảnh cắt cho nhóm lỗi đầu bảng)
 // Ngưỡng chống lùi: scripts/test/visual-qa.budget.json (số nhóm lỗi tối đa theo loại; vượt → exit 1).
@@ -47,6 +47,11 @@ function detect(opt) {
       if (cs.textAlign === 'left' && cs.direction === 'rtl' && r.width > 120) add('rtl-text-left', e, r);
       if ((/[\u0600-\u06FF][^\u0600-\u06FF]*[→➜➔]\s*$/.test(tx) || /^\s*[←⬅][^]*[\u0600-\u06FF]/.test(tx)) && cs.direction === 'rtl') add('rtl-arrow', e, r);
     }
+  }
+  for (const ul of root.querySelectorAll('ul,ol')) { // link trong cùng 1 cột danh sách phải thẳng mép chữ (vd. chữ ngắn bị căn giữa trong vùng chạm 44px)
+    const xs = []; for (const li of ul.children) { const a = li.tagName === 'LI' && li.firstElementChild; if (!a || a.tagName !== 'A' || !vis(a) || !a.firstChild || a.firstChild.nodeType !== 3) continue; const rg = document.createRange(); rg.selectNodeContents(a.firstChild); const rr = rg.getClientRects()[0]; if (rr) xs.push([getComputedStyle(a).direction === 'rtl' ? rr.right : rr.left, a]); }
+    if (xs.length < 3) continue; const m = xs.map(x => x[0]).sort((a, b) => a - b)[xs.length >> 1];
+    for (const [x, a] of xs) if (Math.abs(x - m) > 3) { add('list-misaligned', a, a.getBoundingClientRect()); break; }
   }
   const clickables = [...root.querySelectorAll('button,a[href],.btn,[role=button],input[type=checkbox],input[type=radio],select')].filter(e => vis(e) && !e.closest('[aria-hidden="true"]'));
   for (const b of clickables) { // nút/link đè lên chữ của phần tử anh em
@@ -175,7 +180,7 @@ const stateCombos = []; for (const v of QUICK ? ['m', 'd'] : ['m', 't', 'd']) fo
 const queue = [...combos, ...stateCombos.map(c => ({ ...c, states: 1 }))]; await Promise.all([0, 1, 2].map(async () => { while (queue.length) { const c = queue.shift(); await (c.states ? runStates : runCombo)(browser, c); } }));
 
 // ---- Báo cáo + ảnh cắt cho nhóm lỗi đầu bảng
-const order = ['icon-invisible', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
+const order = ['icon-invisible', 'list-misaligned', 'ovl-offcentre', 'ovl-offscreen', 'ovl-covers', 'ovl-on-nav', 'hscroll', 'squeezed', 'btn-overlap', 'overflow-x', 'ellipsis-no-title', 'rtl-text-left', 'rtl-arrow', 'contrast-dark', 'contrast-light', 'tap<32', 'tap<40'];
 const list = [...groups.values()].sort((a, b) => order.indexOf(a.t) - order.indexOf(b.t) || b.where.size - a.where.size);
 const byType = {}; for (const g of list) byType[g.t] = (byType[g.t] || 0) + 1;
 const SHOTS = +(process.env.VQA_SHOTS || 12); let si = 0;
