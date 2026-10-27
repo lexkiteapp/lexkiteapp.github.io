@@ -72,7 +72,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
 - Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
 
-- Video dạy học (27/10, `VIDEO-SERIES.md`): chỉ 2 người dẫn 3D (Carlos, Ama), đứng 1/3 phải; clip để nguyên, nói khi có giọng/ngậm khi nghỉ, ≤130 từ/phút; bố cục v14: 1 thẻ cố định trên + phụ đề dải dưới + thẻ kết FREE/QR, trong SAFE.
+- Video dạy học (27/10, chuẩn ở `VIDEO-SERIES.md` §Production standard): chỉ 2 người dẫn 3D (Carlos, Ama); bố cục v14 = viết thẳng lên bảng, mực theo ánh sáng bảng; clip theo tâm trạng câu, biểu cảm có trần.
 
 - Kho 3D (`scripts/video/bank3d/`): ảnh khung đầu qua `check_first.py` TRƯỚC khi tạo clip; mọi clip có câu khoá vị trí (`send2.sh`), neo ảnh chuẩn; sau: `qc2.py`, tờ ảnh, gate CI.
 - App: ưu tiên chạy trên máy; tải theo bài; YouTube nhúng ảnh xem trước; ảnh AVIF/WebP.
