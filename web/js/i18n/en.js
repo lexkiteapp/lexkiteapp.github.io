@@ -225,7 +225,7 @@
   'Năng lượng': 'Energy', 'Energy – nhiên liệu hóa thạch, năng lượng sạch, tiết kiệm điện': 'Fossil fuels, clean energy and saving power',
   'Động vật & Thiên nhiên': 'Animals & Nature', 'Animals & Nature – loài, hệ sinh thái, sở thú, săn bắt': 'Species, ecosystems, zoos and hunting',
   'Nhà ở & Kiến trúc': 'Housing & Architecture', 'Housing & Architecture – nhà cửa, xây dựng, thuê nhà': 'Homes, construction and renting',
-  'Mua sắm': 'Shopping', // dùng chung: tên chủ đề Speaking (speaking.js) + bài Giao tiếp tự tin (content/confidence/i18n-extra.json) → ở nhóm lõi, 1 bản tiếng Anh
+  'Mua sắm': 'Shopping', // Speaking + confidence (i18n-extra)
   'Mua sắm & Tiêu dùng': 'Shopping & Consumerism', 'Shopping & Consumerism – thói quen mua sắm, thương mại điện tử': 'Shopping habits and e-commerce',
   'Khám phá vũ trụ': 'Space Exploration', 'Space Exploration – du hành vũ trụ, vệ tinh, chi phí khám phá': 'Space travel, satellites and the cost of exploration',
   'Ngôn ngữ & Giao tiếp': 'Language & Communication', 'Language & Communication – học ngoại ngữ, giao tiếp, phương ngữ': 'Learning languages, communication and dialects',
@@ -566,8 +566,6 @@
   // ---- ideas.js: Task 2 idea bank ----
   'Đang cập nhật ngân hàng ý tưởng.': 'The idea bank is being updated.',
   'Ngân hàng ý tưởng Task 2': 'Task 2 Idea Bank',
-  // tên chủ đề ngân hàng ý tưởng (js/write/ideas.js) – hiện qua t(), không lộ tiếng Việt khi dịch máy lúc chạy lỗi
-  'Đô thị': 'Cities', 'Xã hội': 'Society', 'Tội phạm': 'Crime', 'Văn hóa': 'Culture', 'Kinh tế': 'Economy', 'Gia đình & Trẻ em': 'Family & children',
   'Bí ý là lỗi phổ biến nhất khi viết Task 2. Chọn chủ đề → vấn đề → lấy luận điểm ủng hộ/phản đối kèm câu mẫu band 8 và cụm từ hay để lưu vào Sổ cụm từ.': 'Running out of ideas is the most common Task 2 problem. Pick a topic → an issue → grab arguments for and against, with Band 8 sample sentences and useful phrases to save to your Phrasebook.',
   'Ủng hộ': 'For',
   'Phản đối': 'Against',
