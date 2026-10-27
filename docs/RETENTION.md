@@ -30,6 +30,10 @@
 - **Widget**: snapshot thêm `tch {who, sd, ok, risk}`; widget vừa hiện mặt Ama/Carlos cạnh 🔥, thêm ✓ (đã học hôm nay) hoặc ⏳ (từ 18 h chưa học); tự đổi khi qua ngày, không cần mở app.
 - **Nhắc học**: dùng `remind.js` sẵn có (loại `streak`, Web Push/PWA) – không thêm kênh mới.
 
+**Kiểu trò chơi (chủ 27/10)**: ít chữ (lời giáo viên 3–5 chữ), hình to, Ama/Carlos phản ứng, âm thanh + rung (`navigator.vibrate`, tắt khi giảm chuyển động);
+rương mở ngay trong màn (chạm ô 🎁, khung mới tự đeo); **mỗi màn đúng 1 nút lớn "Bài tiếp theo"** → `App.nextNode()` của lộ trình/bài học (#155) nếu có,
+không thì bước chưa xong đầu tiên của `App.todayPlan()`, cuối cùng `#/review`. Quảng cáo có thưởng chỉ là nút phụ.
+
 ## 3. Luật chống dark pattern (bắt buộc)
 - Không bán đóng băng, không bán rương, không tiền ảo, không đếm ngược gây áp lực, không phạt khi mất chuỗi (không "mất hết").
 - Không quảng cáo để học tiếp; không khóa bài học sau mỹ phẩm. Màn chúc mừng luôn có nút "Tiếp tục".

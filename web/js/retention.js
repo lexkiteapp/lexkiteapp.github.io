@@ -98,9 +98,15 @@
 .ret-ice{position:relative;display:inline-grid;place-items:center;width:132px;height:132px;border:0;border-radius:28px;background:linear-gradient(160deg,#e0f2fe,#7dd3fc);font-size:3.2rem;cursor:pointer;box-shadow:inset 0 0 18px #fff;transition:transform .12s}
 .ret-ice:active{transform:scale(.94)}.ret-ice.c1{filter:saturate(.8)}.ret-ice.c2{filter:saturate(.55) brightness(1.05)}.ret-ice.c3{background:linear-gradient(160deg,#fed7aa,#fb923c);box-shadow:none}
 .ret-chest{font-size:3.6rem;display:inline-block}.ret-chest.open{animation:retPop .45s ease-out}
+.ret-h{margin:.6rem 0 .1rem;font-size:1.9rem;font-weight:800}.ret-say{margin:.2rem auto .8rem;font-size:1.05rem;font-weight:600;max-width:320px}
+.ret-row{display:flex;gap:.7rem;justify-content:center;align-items:center;flex-wrap:wrap;margin:.4rem 0 1rem}
+.ret-chip{display:inline-flex;align-items:center;padding:.5rem .8rem;border-radius:16px;background:rgba(56,189,248,.18);font-size:1.3rem;font-weight:800}
+.ret-tile{display:flex;flex-direction:column;align-items:center;gap:.2rem;min-width:132px;padding:.7rem 1rem;border:2px dashed var(--line);border-radius:20px;background:var(--surface-2);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
+.ret-tile.open{border-style:solid;border-color:var(--primary);animation:retPop .45s ease-out;cursor:default}
+.ret-next{min-height:52px;font-size:1.1rem;max-width:360px;margin:0 auto}
 body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
 @keyframes retPop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
-@media (prefers-reduced-motion: reduce){.ret-cel .ret-teach,.ret-chest.open{animation:none}.ret-ice{transition:none}}`;
+@media (prefers-reduced-motion: reduce){.ret-cel .ret-teach,.ret-chest.open,.ret-tile.open{animation:none}.ret-ice{transition:none}}`;
   function css() { if (document.getElementById('retCss')) return; const s = document.createElement('style'); s.id = 'retCss'; s.textContent = CSS; document.head.appendChild(s); }
   function applyFrame() {
     const f = ret().frame, b = document.body; if (!b) return;
@@ -125,44 +131,57 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     check();
   };
 
-  // ---------- Mốc chuỗi: màn chúc mừng có Ama/Carlos ----------
-  async function celebrate(m) {
-    await mutate(r => { r.ms = r.ms || {}; Core.MILESTONES.filter(x => x <= m).forEach(x => { if (!r.ms[x]) r.ms[x] = Date.now(); }); });
-    const who = teacherFor(m), fz = (state.game.freezeAt === m) ? `<p class="chip" style="background:rgba(56,189,248,.18);color:#0284c7;font-weight:700">🧊 ${t('+1 lượt đóng băng')}</p>` : '';
-    const box = UI.modal(`<div class="ret-cel">${teachImg(who, 112)}
-      <h2 style="margin:.7rem 0 .2rem">${t('Chuỗi {n} ngày! 🔥', { n: m })}</h2>
-      <p class="muted" style="margin:0 auto .8rem;max-width:340px">${esc(who === 'ama' ? t('Ama: Bạn học đều thật tuyệt! Mỗi ngày một chút là cách nhớ lâu nhất.') : t('Carlos: Bền bỉ quá! Thói quen này sẽ đưa bạn rất xa.'))}</p>
-      ${fz}<p style="font-weight:700">🎁 ${t('Bạn nhận 1 rương quà')}</p>
-      <div class="row center" style="gap:.6rem;flex-wrap:wrap"><button class="btn primary lg" id="retOpen" style="min-height:44px">${t('Mở rương')}</button><button class="btn ghost" data-close style="min-height:44px">${t('Tiếp tục')}</button></div></div>`);
-    if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); else if (g.Sfx && g.Sfx.win) g.Sfx.win();
-    if (!reduce() && typeof g.confetti === 'function') g.confetti(120);
-    const b = box && box.querySelector ? box.querySelector('#retOpen') : null; if (b) b.onclick = () => { UI.closeModal(); openChest(); };
-  }
-
-  // ---------- Rương mỹ phẩm (không bán, không may rủi) ----------
-  async function openChest() {
-    if (Core.chests(ret()) <= 0) return;
+  // ---------- Kiểu trò chơi (chủ 27/10): ít chữ, hình to, giáo viên phản ứng, âm thanh + rung, mỗi màn đúng 1 nút lớn "Bài tiếp theo" ----------
+  // Đích = cùng "bước kế tiếp" với lộ trình: App.nextNode() (bài học trộn #155, nếu có) → bước chưa xong đầu tiên của kế hoạch hôm nay → ôn tập
+  const nextHref = async () => {
+    try { const n = App.nextNode && await App.nextNode(); if (n && n.href) return n.href; } catch (e) { /* bỏ qua */ }
+    try { const ts = App.todayPlan ? await App.todayPlan() : []; const n = (ts || []).find(x => !x.done); if (n && n.href) return n.href; } catch (e) { /* bỏ qua */ }
+    return '#/review';
+  };
+  const buzz = p => { try { if (navigator.vibrate && !reduce()) navigator.vibrate(p); } catch (e) { /* bỏ qua */ } };
+  const nextBtn = () => `<button class="btn primary lg block ret-next" id="retNext">${t('Bài tiếp theo')} →</button>`;
+  const bindNext = box => { const b = box && box.querySelector && box.querySelector('#retNext'); if (b) b.onclick = async () => { const h = await nextHref(); UI.closeModal(); location.hash = h; }; };
+  // Ô rương to, chạm để mở ngay trong màn (không màn phụ); khung mới tự đeo (đổi lại ở Bộ sưu tập)
+  const chestTile = () => (Core.chests(ret()) > 0 ? `<button type="button" class="ret-tile" id="retChestTile" data-noicon aria-label="${esc(t('Mở rương'))}"><span class="ret-chest" aria-hidden="true">🎁</span><span>${t('Chạm để mở')}</span></button>` : '');
+  async function reveal(box) {
+    const tile = box.querySelector('#retChestTile'); if (!tile || Core.chests(ret()) <= 0) return;
     const p = Core.nextPrize(ret());
-    await mutate(r => { r.opened = (+r.opened || 0) + 1; if (p) { r.own = r.own || {}; r.own[p] = Date.now(); } });
-    const box = UI.modal(`<div class="ret-cel"><div class="ret-chest open" aria-hidden="true" data-noicon>🎁</div>
-      <h2 style="margin:.4rem 0">${p ? t('Bạn nhận được: {x}', { x: esc(prizeName(p)) }) : t('Bạn đã sưu tầm đủ mọi món!')}</h2>
-      ${p ? `<div style="margin:.5rem 0 1rem">${prizeArt(p)}</div>` : ''}
-      <div class="row center" style="gap:.6rem;flex-wrap:wrap">${p && p[0] === 'f' ? `<button class="btn primary" id="retWear" style="min-height:44px">${t('Dùng khung này')}</button>` : ''}<button class="btn ghost" data-close style="min-height:44px">${t('Đóng')}</button></div>
-      <div id="retAd"></div></div>`);
-    if (g.Sfx && g.Sfx.win) g.Sfx.win();
-    const w = box && box.querySelector && box.querySelector('#retWear'); if (w) w.onclick = () => { wear(p.slice(2)); UI.closeModal(); };
+    await mutate(r => { r.opened = (+r.opened || 0) + 1; if (p) { r.own = r.own || {}; r.own[p] = Date.now(); if (p[0] === 'f') { r.frame = p.slice(2); r.frameAt = Date.now(); } } });
+    applyFrame(); buzz([20, 30, 50]); if (g.Sfx && g.Sfx.shimmer) g.Sfx.shimmer(); else if (g.Sfx && g.Sfx.win) g.Sfx.win();
+    tile.outerHTML = `<div class="ret-tile open" role="status" data-noicon>${p ? prizeArt(p) : '<span class="ret-stk">🏆</span>'}<span>${esc(p ? prizeName(p) : t('Bạn đã sưu tầm đủ mọi món!'))}</span></div>`;
     adOffer(box);
   }
-  // Quảng cáo có thưởng – CHỈ thêm mỹ phẩm, chỉ khi người học tự bấm, không bao giờ chặn/che việc học (ads/policy REWARDS.cosmetic, 1 lần/ngày)
+  const bindChest = box => { const c = box && box.querySelector && box.querySelector('#retChestTile'); if (c) c.onclick = () => reveal(box); };
+
+  // ---------- Mốc chuỗi: màn chúc mừng ----------
+  async function celebrate(m) {
+    await mutate(r => { r.ms = r.ms || {}; Core.MILESTONES.filter(x => x <= m).forEach(x => { if (!r.ms[x]) r.ms[x] = Date.now(); }); });
+    const who = teacherFor(m), fz = state.game.freezeAt === m ? `<span class="ret-chip" data-noicon>🧊 +1</span>` : '';
+    const box = UI.modal(`<div class="ret-cel">${teachImg(who, 128)}
+      <h2 class="ret-h">${t('{n} ngày! 🔥', { n: m })}</h2>
+      <p class="ret-say">${esc(who === 'ama' ? t('Ama: Mỗi ngày một chút!') : t('Carlos: Thói quen tuyệt vời!'))}</p>
+      <div class="ret-row">${fz}${chestTile()}</div>${nextBtn()}<div id="retAd"></div></div>`);
+    if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); else if (g.Sfx && g.Sfx.win) g.Sfx.win();
+    buzz([30, 40, 70]); if (!reduce() && typeof g.confetti === 'function') g.confetti(120);
+    bindChest(box); bindNext(box);
+  }
+
+  // ---------- Rương (từ trang #/streak) ----------
+  async function openChest() {
+    if (Core.chests(ret()) <= 0) return;
+    const box = UI.modal(`<div class="ret-cel"><h2 class="ret-h">${t('Bạn nhận 1 rương quà')}</h2><div class="ret-row">${chestTile()}</div>${nextBtn()}<div id="retAd"></div></div>`);
+    bindChest(box); bindNext(box); reveal(box);
+  }
+  // Quảng cáo có thưởng – CHỈ thêm mỹ phẩm, chỉ khi người học tự bấm (liên kết nhỏ, không phải nút chính), không bao giờ chặn/che việc học (ads/policy REWARDS.cosmetic, 1 lần/ngày)
   async function adOffer(box) {
     const slot = box && box.querySelector && box.querySelector('#retAd'); if (!slot || !g.Ads || !Core.nextPrize(ret())) return;
     const can = await g.Ads.rewarded('cosmetic', 1).catch(() => false); if (!can) return;
-    slot.innerHTML = `<p class="tiny muted" style="margin:1rem 0 .3rem">${t('Tùy chọn: xem 1 video ngắn để nhận thêm 1 món trang trí. Không ảnh hưởng việc học.')}</p><button class="btn sm" id="retAdGo" style="min-height:44px">▶ ${t('Xem video nhận thêm quà')}</button>`;
+    slot.innerHTML = `<button class="btn ghost sm" id="retAdGo" style="min-height:44px;margin-top:.4rem" title="${esc(t('Tùy chọn: xem 1 video ngắn để nhận thêm 1 món trang trí. Không ảnh hưởng việc học.'))}">▶ ${t('Xem video nhận thêm quà')}</button>`;
     slot.querySelector('#retAdGo').onclick = async () => {
       const ok = await g.Ads.rewarded('cosmetic').catch(() => false); if (!ok) return;
       const p = Core.nextPrize(ret()); if (!p) return;
       await mutate(r => { r.own = r.own || {}; r.own[p] = Date.now(); });
-      UI.closeModal(); UI.toast(`🎁 ${t('Bạn nhận được: {x}', { x: prizeName(p) })}`, 3500);
+      slot.innerHTML = `<p class="ret-say" data-noicon>🎁 ${esc(prizeName(p))}</p>`;
     };
   }
   async function wear(id) { await mutate(r => { r.frame = id; r.frameAt = Date.now(); }); applyFrame(); if (location.hash.startsWith('#/streak')) page(); }
@@ -171,20 +190,19 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   Ret.thaw = () => {
     css();
     const n = streakN(), who = new Date().getDate() % 2 ? 'ama' : 'carlos';
-    const box = UI.modal(`<div class="ret-cel"><p class="muted small" style="margin:0 0 .6rem">${t('Hôm qua bạn lỡ học – lượt đóng băng đã giữ chuỗi cho bạn.')}</p>
+    const box = UI.modal(`<div class="ret-cel"><p class="ret-say" data-noicon>${t('Đã giữ chuỗi cho bạn 🧊')}</p>
       <button type="button" class="ret-ice" id="retIce" data-noicon aria-label="${esc(t('Chạm 3 lần để rã băng'))}">🧊</button>
-      <h2 style="margin:.8rem 0 .3rem" id="retThawH">${t('Chạm 3 lần để rã băng')}</h2>
-      <div id="retThawDone" hidden><div class="row center" style="gap:.6rem;margin:.4rem 0">${teachImg(who, 56)}<p style="margin:0;text-align:left;max-width:240px">${esc(t('Chuỗi {n} ngày vẫn cháy! Học vài phút hôm nay nhé.', { n }))}</p></div>
-      <button class="btn primary lg" id="retThawGo" style="min-height:44px;margin-top:.6rem">${t('Học ngay hôm nay')} →</button></div></div>`);
+      <h2 class="ret-h" id="retThawH">${t('Chạm 3 lần!')}</h2>
+      <div id="retThawDone" hidden><div class="ret-row">${teachImg(who, 64)}<p class="ret-say" style="margin:0">${esc(t('Chuỗi {n} ngày vẫn cháy!', { n }))}</p></div>${nextBtn()}</div></div>`);
     let taps = 0; const ice = box.querySelector('#retIce');
     ice.onclick = () => {
       taps = Math.min(3, taps + 1); ice.className = 'ret-ice c' + taps;
-      if (g.Sfx && g.Sfx.tap) g.Sfx.tap(); if (navigator.vibrate) try { navigator.vibrate(12); } catch (e) { /* bỏ qua */ }
+      if (g.Sfx && g.Sfx.tap) g.Sfx.tap(); buzz(12 + taps * 8);
       if (taps < 3) return;
       ice.textContent = '🔥'; ice.setAttribute('aria-label', t('Chuỗi {n} ngày', { n }));
       box.querySelector('#retThawH').textContent = t('Đã rã băng!'); box.querySelector('#retThawDone').hidden = false;
-      if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); if (!reduce() && typeof g.confetti === 'function') g.confetti(80);
-      box.querySelector('#retThawGo').onclick = () => { UI.closeModal(); location.hash = '#/review'; };
+      if (g.Sfx && g.Sfx.streak) g.Sfx.streak(); buzz([30, 40, 70]); if (!reduce() && typeof g.confetti === 'function') g.confetti(80);
+      bindNext(box);
     };
     return box;
   };
@@ -222,10 +240,10 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
       <section class="card" style="display:flex;gap:1rem;align-items:center">${teachImg(n % 2 ? 'carlos' : 'ama', 72)}<div class="grow"><div class="ret-big">🔥 ${n}</div><div class="muted">${t('ngày liên tiếp')}</div></div>${g.StreakUI ? g.StreakUI.badgeHtml(state.game) : `<span>🧊×${fi.left}</span>`}</section>
       <section class="card" style="margin-top:.8rem"><h2 class="small" style="margin:0 0 .6rem">${t('Tuần này')}</h2>${weekHtml()}
         <div style="margin-top:1rem" class="small"><div class="row between"><span>${t('Mốc tiếp theo: {n} ngày', { n: nx })}</span><span class="muted">${n}/${nx}</span></div><div class="ret-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${nx}" aria-valuenow="${n}"><i style="width:${Math.min(100, Math.round(n / nx * 100))}%"></i></div>
-        <p class="tiny muted" style="margin:.5rem 0 0">${t('Mỗi mốc: 1 rương quà. Cứ 7 ngày: +1 lượt đóng băng (tối đa {max}). Không bao giờ phải trả tiền.', { max: fi.max || 2 })}</p></div></section>
-      ${ev ? `<section class="card" style="margin-top:.8rem"><h2 class="small" style="margin:0 0 .4rem">${ev.icon} ${t('Sự kiện mùa: gom {n} mảnh', { n: ev.need })}</h2><p class="tiny muted" style="margin:0 0 .5rem">${t('Mỗi ngày có học nhận 1 mảnh (không cần liên tiếp). Đủ mảnh: khung riêng của sự kiện + 1 rương.')}</p>
+        <p class="small" style="margin:.5rem 0 0;font-weight:600" data-noicon>${t('Mỗi mốc 🎁 · 7 ngày 🧊 · miễn phí')}</p></div></section>
+      ${ev ? `<section class="card" style="margin-top:.8rem"><h2 class="small" style="margin:0 0 .4rem">${ev.icon} ${t('Gom {n} mảnh', { n: ev.need })}</h2><p class="small" style="margin:0 0 .5rem;font-weight:600">${t('Học 1 ngày = 1 mảnh')}</p>
         <div class="ret-pieces" data-noicon aria-label="${esc(t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need }))}">${Array.from({ length: ev.need }, (_, i) => `<span class="${i < got ? '' : 'off'}" aria-hidden="true">${ev.icon}</span>`).join('')}</div></section>` : ''}
-      <section class="card" style="margin-top:.8rem;text-align:center"><div class="ret-chest" aria-hidden="true" data-noicon>🎁</div><p style="margin:.3rem 0 .6rem">${ch ? t('Bạn có {n} rương chưa mở', { n: ch }) : t('Đạt mốc chuỗi tiếp theo để nhận rương')}</p>${ch ? `<button class="btn primary" id="retChest" style="min-height:44px">${t('Mở rương')}</button>` : ''}</section>
+      <section class="card" style="margin-top:.8rem;text-align:center"><div class="ret-chest" aria-hidden="true" data-noicon>🎁</div><p style="margin:.3rem 0 .6rem">${ch ? t('Bạn có {n} rương chưa mở', { n: ch }) : t('Mốc tiếp theo: {n} ngày', { n: nx })}</p>${ch ? `<button class="btn primary" id="retChest" style="min-height:44px">${t('Mở rương')}</button>` : ''}</section>
       <section class="card" style="margin-top:.8rem"><h2 class="small" style="margin:0 0 .6rem">${t('Bộ sưu tập')}</h2><div class="ret-grid">${items.map(p => { const has = p === 'f:teal' || own[p], on = p[0] === 'f' && (r.frame || 'teal') === p.slice(2);
         return `<button type="button" data-noicon class="ret-item${on ? ' on' : ''}" data-ret-item="${esc(p)}" ${has && p[0] === 'f' ? '' : 'disabled'} aria-pressed="${on}">${prizeArt(p)}<span>${has ? esc(prizeName(p)) : '🔒'}</span></button>`; }).join('')}</div></section>
     </div>`;

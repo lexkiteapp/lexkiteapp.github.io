@@ -72,29 +72,33 @@ if (evNow) {
   ok(state.game.ret.ev[evNow.id].length === n1, 'không nhận 2 mảnh cùng ngày');
 }
 
-// Mốc 7 ngày → màn chúc mừng có giáo viên, +1 đóng băng (freezeAt === 7), 1 rương
+// Mốc 7 ngày → màn chúc mừng kiểu trò chơi: giáo viên, chữ ngắn, +1 🧊, ô rương chạm-để-mở, ĐÚNG 1 nút lớn "Bài tiếp theo"
 state.game.ret = { ...(state.game.ret || {}), ms: { 3: 1 } };
-win.App.state.game = state.game;
+win.App.todayPlan = async () => [{ href: '#/review', done: true }, { href: '#/lesson/1', done: false }];
 await R.check(); await tick(1000);
-ok(modalEl && /Chuỗi 7 ngày!/.test(modalEl.innerHTML), 'màn chúc mừng mốc 7');
+ok(modalEl && /7 ngày! 🔥/.test(modalEl.innerHTML), 'màn chúc mừng mốc 7');
 ok(/img\/teach\/(ama|carlos)\.webp/.test(modalEl.innerHTML), 'màn chúc mừng có Ama/Carlos');
-ok(/\+1 lượt đóng băng/.test(modalEl.innerHTML), 'báo +1 lượt đóng băng kiếm được');
+ok(/🧊 \+1/.test(modalEl.innerHTML), 'báo +1 lượt đóng băng kiếm được');
+ok(modalEl.querySelectorAll('.btn.primary').length === 1 && modalEl.querySelector('#retNext'), 'đúng 1 nút chính: Bài tiếp theo');
+ok(modalEl.querySelector('.ret-say').textContent.split(/\s+/).length <= 7, 'lời giáo viên ngắn (≤ 7 chữ)');
 ok(state.game.ret.ms[7], 'đánh dấu đã chúc mừng mốc 7');
 ok(C.chests(state.game.ret) >= 2, 'có rương chưa mở');
 
-// Mở rương → món đầu tiên chưa có, có lời mời quảng cáo CHỈ cho mỹ phẩm, tự chọn
-modalEl.querySelector('#retOpen').click(); await tick(20);
+// Chạm ô rương → mở ngay trong màn: món đầu tiên chưa có, khung tự đeo; quảng cáo chỉ là liên kết phụ cho mỹ phẩm
+modalEl.querySelector('#retChestTile').click(); await tick(30);
 ok(state.game.ret.own['f:ice'] && state.game.ret.opened === 1, 'mở rương → khung Băng');
-ok(/Bạn nhận được/.test(modalEl.innerHTML) && modalEl.querySelector('#retWear'), 'màn rương + nút dùng khung');
-ok(adAsked >= 1 && modalEl.querySelector('#retAdGo'), 'quảng cáo có thưởng chỉ hỏi lý do cosmetic, chỉ là nút tùy chọn');
-modalEl.querySelector('#retWear').click(); await tick(20);
-ok(state.game.ret.frame === 'ice' && win.document.body.getAttribute('data-ret-frame') === 'ice', 'đeo khung ảnh đại diện');
-
+ok(state.game.ret.frame === 'ice' && win.document.body.getAttribute('data-ret-frame') === 'ice', 'khung mới tự đeo');
+ok(modalEl.querySelector('.ret-tile.open') && !modalEl.querySelector('#retChestTile'), 'quà hiện ngay tại chỗ');
+ok(adAsked >= 1 && modalEl.querySelector('#retAdGo') && !modalEl.querySelector('#retAdGo').classList.contains('primary'), 'quảng cáo có thưởng: lý do cosmetic, nút phụ tùy chọn');
+modalEl.querySelector('#retNext').click(); await tick(30);
+ok(win.location.hash === '#/lesson/1', 'Bài tiếp theo → bước chưa xong đầu tiên của kế hoạch');
+win.App.nextNode = async () => ({ href: '#/lesson/7' });
+await win.App.routes.streak(); await tick(10);
 // Trang #/streak
 win.App.routes.streak(); await tick(10);
 const v = $('#view').innerHTML;
 ok(/🔥 7/.test(v) && /Mốc tiếp theo: 14 ngày/.test(v), 'trang chuỗi: số ngày + mốc tiếp');
-ok(/Không bao giờ phải trả tiền/.test(v), 'trang chuỗi: nói rõ miễn phí');
+ok(/miễn phí/.test(v), 'trang chuỗi: nói rõ miễn phí');
 ok(win.document.querySelectorAll('[data-ret-item]').length >= 15, 'bộ sưu tập');
 ok(win.document.querySelector('[data-ret-item="s:star"]').disabled, 'món chưa có bị khóa');
 
@@ -103,6 +107,7 @@ const box = R.thaw(); const ice = box.querySelector('#retIce');
 ok(box.querySelector('#retThawDone').hidden, 'chưa rã băng');
 ice.click(); ice.click(); ok(box.querySelector('#retThawDone').hidden, '2 lần chạm chưa đủ');
 ice.click(); ok(!box.querySelector('#retThawDone').hidden && ice.textContent === '🔥', 'chạm 3 lần → rã băng, lửa cháy lại');
+box.querySelector('#retNext').click(); await tick(30); ok(win.location.hash === '#/lesson/7', 'sau rã băng: Bài tiếp theo → App.nextNode (lộ trình #155)');
 
 // Widget: dữ liệu giáo viên + ngày học gần nhất (đổi biểu cảm khi qua ngày)
 const wd = R.widget(state);
