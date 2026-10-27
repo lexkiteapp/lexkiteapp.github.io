@@ -4,6 +4,7 @@ bash "$(dirname "$0")/build-i18n.sh"
 set -euo pipefail
 cd "$(dirname "$0")/.."
 node scripts/build-notes.mjs
+[ -d node_modules/terser ] || npm ci --no-audit --no-fund --ignore-scripts >/dev/null  # build-landing cần terser (devDep gốc, bản khóa 938821c2e) – workflow mobile/iOS chỉ cài mobile/ → android.yml đỏ từ 27/10
 node scripts/build-landing.mjs  # trang giới thiệu tĩnh / + /<lang>/ (app học ở /app/)
 rm -rf dist && cp -R web dist
 node scripts/app-loader.mjs dist/app/index.html  # bản web: JS khung app nạp SAU lần vẽ đầu (LCP mobile) – web/app/index.html giữ <script defer> cho add-on/app di động/test
