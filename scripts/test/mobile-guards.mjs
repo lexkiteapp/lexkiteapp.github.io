@@ -19,7 +19,7 @@ const MQA = rd('.github/workflows/mobile-qa.yml');
 ok(/serve-web\.mjs out\/site 8080/.test(MQA), 'mobile-qa đo qua máy chủ có nén (như Cloudflare), không dùng python http.server');
 ok(/app-loader\.mjs out\/site\/app\/index\.html/.test(MQA) && /esbuild@[\d.]+ .*--minify .*--outdir=\.\.\/out\/site/.test(MQA), 'mobile-qa đo bản phát hành như build-web.sh (JS khung app nạp sau lần vẽ đầu + rút gọn), không đo web/ thô');
 { const pd = rd('web/js/path-day.js');
-  ok(/topIx\.m\.get\(id\)/.test(app) && /ds = days\(\);\n\s*await yieldMain\(\); if \(location\.hash !== h0\) return;/.test(pd), 'lộ trình: topicOf tra Map + nhường luồng giữa tính ngày và vẽ bản đồ (TBT #/path 197–220 ms)'); }
+  ok(/topIx\.m\.get\(id\)/.test(app) && /ds = days\(\);\n\s*await yieldMain\(\); if \(location\.hash !== h0\) return;/.test(pd) && /i >= ci && n >= 24/.test(pd) && /await yieldMain\(\); if \(!body\.isConnected\) return;/.test(pd), 'lộ trình: topicOf tra Map + nhường luồng trước khi vẽ + chặng đang mở vẽ theo lô (lô đầu chứa ngày hiện tại, ≥ 24 ngày) (TBT #/path 197–228 ms)'); }
 { const sv = app.indexOf('id="saveCard"'), ph = app.indexOf('<div id="phraseBox"></div>'), rl = app.indexOf('<div id="related"></div>');
   ok(sv > 0 && ph > sv && rl > ph, 'từ điển: khối cụm từ (Lex.phrases) + từ liên quan (Datamuse, mạng ngoài) nằm SAU ô lưu → về muộn không gây CLS (0,66 @360)'); }
 { const st = rd('web/js/study.js'), ds = rd('web/js/distract.js');

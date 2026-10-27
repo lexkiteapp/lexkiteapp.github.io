@@ -70,20 +70,21 @@ Object.defineProperty(w, 'innerHeight', { value: 740, configurable: true });
 const bar = w.document.createElement('div'); bar.className = 'learn-bar'; $('#view').appendChild(bar);
 bar.getBoundingClientRect = () => ({ top: 600, bottom: 740, left: 0, right: 360, width: 360, height: 140 });
 w.UI.toast('Toast trên thanh nút');
-const bt = parseFloat(T.style.bottom) || 0;
-ok(bt >= 740 - 600 + 8, 'toast đặt phía trên thanh nút đáy (bottom=' + T.style.bottom + ')');
+const bt = parseFloat(T.dataset.at) || 0; // vị trí đáy đã chọn (px); dời bằng transform --ty để không gây CLS
+ok(bt >= 740 - 600 + 8 && /px$/.test(T.style.getPropertyValue('--ty')), 'toast đặt phía trên thanh nút đáy (bottom=' + T.dataset.at + ', --ty=' + T.style.getPropertyValue('--ty') + ')');
 ok(bt <= 740 * .55, 'toast không bị đẩy quá nửa màn');
 const chips = [300, 380, 460, 540].map(y => { const c = w.document.createElement('a'); c.className = 'chip'; c.href = '#'; $('#view').appendChild(c); c.getBoundingClientRect = () => ({ top: y, bottom: y + 70, left: 0, right: 360, width: 360, height: 70 }); return c; });
 w.UI.toast('Toast màn dày nút');
-ok(T.style.top && T.style.bottom === 'auto', 'nửa dưới kín nút bấm → toast lên mép trên (tính safe-area): top=' + T.style.top);
+ok(T.dataset.at === 'top' && /env\(safe-area-inset-top/.test(T.style.getPropertyValue('--ty')), 'nửa dưới kín nút bấm → toast lên mép trên (tính safe-area): --ty=' + T.style.getPropertyValue('--ty'));
 chips.forEach(c => c.remove());
-bar.remove(); w.UI.toast('Toast trước khi vẽ lại'); T.style.bottom = '';
+bar.remove(); w.UI.toast('Toast trước khi vẽ lại'); delete T.dataset.at;
 const bar2 = w.document.createElement('div'); bar2.className = 'learn-bar'; bar2.getBoundingClientRect = () => ({ top: 600, bottom: 740, left: 0, right: 360, width: 360, height: 140 }); $('#view').appendChild(bar2); await tick(60);
-ok((parseFloat(T.style.bottom) || 0) >= 148, 'màn vẽ lại khi toast đang hiện → toast đặt lại phía trên nút mới (bottom=' + T.style.bottom + ')');
+ok((parseFloat(T.dataset.at) || 0) >= 148, 'màn vẽ lại khi toast đang hiện → toast đặt lại phía trên nút mới (bottom=' + T.dataset.at + ')');
 bar2.remove(); await tick(60);
 bar.remove(); w.UI.toast('Toast thường');
-ok(!T.style.bottom, 'không vật cản → giữ vị trí CSS (đã gồm safe-area)');
+ok(!T.dataset.at && !T.style.getPropertyValue('--ty') && !T.style.bottom && !T.style.top, 'không vật cản → giữ vị trí CSS (đã gồm safe-area)');
 ok(/\.toast \{[^}]*bottom: calc\(28px \+ env\(safe-area-inset-bottom/.test(css), 'CSS toast tính safe-area');
+ok(/\.toast\.show \{[^}]*translateY\(var\(--ty/.test(css) && !/toastLift[\s\S]{0,1500}style\.(bottom|top) = [^'"]*\d/.test(fs.readFileSync(path.join(WEB, 'js/ui.js'), 'utf8')), 'toast né nút bằng transform (--ty), không đổi top/bottom lúc đang hiện → 0 CLS');
 
 const real = errors.filter(e => !/Not implemented|navigation|Could not parse CSS/.test(e));
 ok(!real.length, 'không lỗi JS: ' + real.slice(0, 3).join(' | '));
