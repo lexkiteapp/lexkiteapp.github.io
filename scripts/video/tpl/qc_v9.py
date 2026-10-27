@@ -40,7 +40,7 @@ if 'pair' in pr: chk['pair'] = any(p['kind'] == 'pair' and all(w.lower() in p['t
 if pr.get('quiz'): chk['quiz'] = any(p['kind'] == 'quiz' for p in T['pops'])
 if pr.get('turn'): chk['turn'] = any(b['kind'] == 'turn' for b in T['beats'].values()) and any(p['kind'] == 'turn' for p in T['pops'])
 if 'tags' in pr: chk['tags'] = sum(1 for p in T['pops'] if p['id'].startswith('t') and p['id'][1:].isdigit()) == pr['tags']
-if 'stress' in pr: chk['stress'] = any(p['kind'] == 'stress' and p['text'].split('·')[0] == pr['stress'] for p in T['pops'])
+if 'stress' in pr: chk['stress'] = any(p['kind'] == 'stress' and [x for x in p['text'].split('·') if x.isupper()] == [pr['stress']] for p in T['pops'])   # exactly ONE stressed (upper-case) syllable and it is the promised one (any position: COMF·ter·ble, com·pe·TI·tion)
 if 'slow_line' in pr: chk['slow_line'] = T['lines'][pr['slow_line']]['speed'] <= 0.8
 R['hook_truth'] = dict(ok=all(chk.values()), checks=chk, hook=T['hook']['text'], note=HV.get('note'))
 f_on = [f['t'] for f in fr if any(e['group'] == 'hook' and e['alpha'] >= 0.999 for e in els(f))]
