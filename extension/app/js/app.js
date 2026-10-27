@@ -966,6 +966,7 @@
   // Nút "Tải app" (menu bên + trang Tôi + nút cài trên Android): js/get-app.js chọn CWS / Google Play / hướng dẫn cài theo nền tảng, nạp lười sau add-on
   let gaP = null;
   window.LK_GETAPP_T = () => ({ iph: [t('Cài Lexkite lên iPhone'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari'), t('Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)'), t('Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app')],
+    crios: [t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh địa chỉ của Chrome')],
     ipad: [t('Cài Lexkite lên iPad'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari')],
     mac: [t('Cài Lexkite lên Mac'), t('Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>'), t('Bấm <b>Thêm</b> – Lexkite sẽ mở như một app')], ok: t('Đã hiểu') });
   App.getApp = root => Store.isExtension ? Promise.resolve(null) : (gaP || (gaP = extCta().then(() => loadScript('js/get-app.js')).catch(() => {}))).then(() => { if (window.LKGetApp) LKGetApp.scan(root || document); return window.LKGetApp || null; });
