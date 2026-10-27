@@ -207,10 +207,10 @@
       "url": "https://oercommons.org/courseware/lesson/148864/overview",
       "account": "Quyen Khieu Dinh",
       "submittedAt": "2026-10-26",
-      "status": "pending",
+      "status": "live",
       "expectLink": "doi.org",
       "expectedRel": "unknown",
-      "notes": "CC BY worksheet (10 pairs + answer key) adapted from the dataset; source line links the Zenodo DOI. Published by owner after the form bug; anonymous curl gets 403 (bot protection or under review)."
+      "notes": "CC BY worksheet (10 pairs + answer key) adapted from the dataset; source line links the Zenodo DOI. Published by owner after the form bug; anonymous curl gets 403 (bot protection or under review). APPROVED by OER Commons 27/10 (catalogued, shared site-wide)."
     }
   ]
 }
