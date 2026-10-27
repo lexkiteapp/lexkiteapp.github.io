@@ -27,6 +27,10 @@ bad(e => e.qa.tr.ko = [5, 3], 'dịch ko giám khảo 3');
 bad(e => e.qa.btw = Object.fromEntries(LANGS.map(l => [l, ['leave']])), 'dịch ngược < 0.8');
 bad(e => e.ex = ['He left.', 'She went.'], 'ví dụ không chứa từ');
 bad(e => e.vi = 'abandon', 'vi không phải tiếng Việt');
+// pilot 20261027: lý do của giám khảo = lỗi (calmness vi "sự yên lặng" lọt với điểm 4); ví dụ nhắc nhóm tôn giáo/sắc tộc → trượt
+bad(e => e.qa.f = ['Vietnamese translation incorrect'], 'giám khảo nêu lỗi trong f');
+ok(gateEntry({ ...good(), qa: { ...good().qa, f: [] } }).ok && gateEntry({ ...good(), qa: { ...good().qa, f: '' } }).ok, 'f rỗng vẫn đạt');
+bad(e => e.ex = ['You should never forsake your friends.', 'You shouldn\'t forsake all Muslims.'], 'ví dụ nhắc nhóm tôn giáo');
 ok(gateEntry(null).ok === false && gateEntry(good(), { keep: false }).ok === false, 'không sinh được / keep=false → hàng duyệt');
 ok(btMatch('to abandon', 'forsake', ['abandon']) && !btMatch('to eat', 'forsake', ['abandon']), 'btMatch');
 // lỗi hạ tầng (pilot 40070729116: kho 1 khóa hết hạn mức → 503 keys=0) không được vào hàng duyệt, cầu dao ngắt sau 3 lần
