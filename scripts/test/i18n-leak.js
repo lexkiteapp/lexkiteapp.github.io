@@ -9,6 +9,8 @@ const LANGS = (process.argv[3] || 'en,zh,ar').split(',');
 // --gtx-down: mô phỏng dịch máy lúc chạy KHÔNG dùng được (Google 429/CORS, mất mạng) – chỉ còn bản dịch sẵn
 //   (bản dịch sẵn web/i18n/content/<lang>.json vẫn dùng như trên mạng thật) – nội dung học vẫn KHÔNG được hiện tiếng Việt (docs/I18N-PIPELINE.md §2 quy tắc 6): chờ dịch thì ẩn (.tr-wait), lỗi thì về tiếng Anh.
 const DOWN = process.argv.includes('--gtx-down');
+// --slow-pre (cùng --gtx-down): bản dịch sẵn về MUỘN (8 s, mạng điện thoại chậm) sau khi trang đã vẽ và lượt dịch máy đã hỏng → khi bản dịch sẵn về phải tự dịch lại (27/10: #/letters, #/pron lộ tiếng Việt trên mobile ở e2e)
+const SLOW = process.argv.includes('--slow-pre'), PRE_MS = 8000; let preT0 = 0;
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const ROUTES = ['#/confidence', '#/confidence/cafe', '#/confidence/toolkit', '#/confidence/daily', '#/home', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/stats', '#/settings', '#/me', '#/skills', '#/tests', '#/phrases', '#/models', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/toeic', '#/toefl', '#/contact', '#/placement', '#/dict/sustainable', '#/topic/ngsl1', '#/topic/office-email', '#/model/t1-travel', '#/handsfree', '#/reflex', '#/courses', '#/course/ielts-writing', '#/paraphrase', '#/verb', '#/verb/went', '#/verb/can', '#/fix', '#/usage', '#/usage/interested', '#/usage/stop', '#/usage?c=verb', '#/usage/hardly', '#/usage/affect-effect', '#/home'];
 const INDEX = fs.existsSync(path.join(WEB, 'app', 'index.html')) ? path.join(WEB, 'app', 'index.html') : path.join(WEB, 'index.html'); // WEB=extension/app → index.html nằm ngay trong đó
@@ -27,7 +29,7 @@ async function run(lang) {
     const u = String(url);
     if (DOWN && /translate\.googleapis/.test(u)) return { ok: false, status: 429, json: async () => { throw new Error('429'); }, text: async () => '' };
     const cx = DOWN && u.match(/\/i18n\/content\/([a-z]{2})\.json$/), cf = cx && path.join(WEB, 'i18n', 'content', cx[1] + '.json');
-    if (cf && fs.existsSync(cf)) { const j = JSON.parse(fs.readFileSync(cf, 'utf8')); return { ok: true, json: async () => j }; }
+    if (cf && fs.existsSync(cf)) { const j = JSON.parse(fs.readFileSync(cf, 'utf8')); if (SLOW) { preT0 = Date.now(); await new Promise(r => setTimeout(r, PRE_MS)); } return { ok: true, json: async () => j }; }
     if (/translate\.googleapis/.test(u)) { const q = decodeURIComponent((u.match(/[?&]q=([^&]*)/) || [])[1] || ''); const out = q.split('\n').map(() => 'T').join('\n'); return { ok: true, json: async () => (/dj=1/.test(u) ? { sentences: [{ trans: out }] } : [[[out]]]) }; }
     return { ok: false, json: async () => ({}), text: async () => '' };
   };
@@ -49,6 +51,12 @@ async function run(lang) {
     }
     w.document.querySelectorAll('[placeholder],[title],[aria-label]').forEach(el => ['placeholder', 'title', 'aria-label'].forEach(a => { const v = el.getAttribute(a); if (v && VI.test(v) && !el.closest('[translate="no"],[data-keep-vi]')) { const k = a + ':' + v.slice(0, 60); if (!leaks.has(k)) leaks.set(k, `${route} · [${a}] · “${v.slice(0, 60)}”`); } }));
   };
+  if (SLOW) { // vẽ trang TRƯỚC khi bản dịch sẵn về, đợi lượt dịch máy hỏng, rồi đợi bản dịch sẵn về → quét
+    w.location.hash = '#/letters'; await tick(2200);
+    const left = PRE_MS - (Date.now() - preT0); if (left > 0) await tick(left + 700); scan('#/letters (bản dịch sẵn về muộn)');
+    w.location.hash = '#/pron'; await tick(700); scan('#/pron');
+    return { leaks: [...leaks.values()], errors };
+  }
   for (const r of (process.env.ROUTES ? process.env.ROUTES.split(',') : ROUTES)) { w.location.hash = r; await tick(DOWN ? 450 : 250); scan(r); w.document.body.classList.remove('bare'); }
   return { leaks: [...leaks.values()], errors };
 }

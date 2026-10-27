@@ -523,13 +523,13 @@
     const SKIP = '.vi, .svi, .ctxvi, .gap-vi, [data-keep-vi], input, textarea, script, style, code, .entry-word, .study-wrap, .options, .option, .flash, .lq-group, .toeic-u, .mk-qs, .sheet, [translate="no"]';
     const KEY = 'vb.cx.' + to; let mem = {}; try { mem = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { mem = {}; }
     const save = () => { try { const ks = Object.keys(mem); if (ks.length > 4000) ks.slice(0, ks.length - 4000).forEach(k => delete mem[k]); localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) { /* đầy bộ nhớ */ } };
-    let timer = 0, busy = false;
+    let timer = 0, busy = false, again = false;
     // Bản dịch SẴN do CI tạo (scripts/gen-content-i18n.mjs, CDN) → hiện ngay đúng ngôn ngữ; chỉ câu chưa có mới dịch máy lúc chạy
     let pre = null; const preP = fetch((/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) || (window.VBNative && VBNative.is) ? '' : 'https://lexkite.com') + '/i18n/content/' + to + '.json') // app gốc: file nằm sẵn trong gói (www/i18n/content) → dùng được khi offline
-      .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => (pre = j || {}));
+      .then(r => (r.ok ? r.json() : {})).catch(() => ({})).then(j => { pre = j || {}; clearTimeout(timer); timer = setTimeout(pass, 0); }); // về muộn (> 1,5 s, mạng chậm) → dịch lại trang đang mở
     const got = k => mem[k] || (pre && pre[k]) || ''; // bản dịch sẵn không ghi vào localStorage (giữ bộ nhớ máy nhẹ)
     async function pass() {
-      if (busy) return; busy = true;
+      if (busy) { again = true; return; } busy = true;
       try {
         if (!pre) await Promise.race([preP, new Promise(r => setTimeout(r, 1500))]);
         const nodes = [], tw = document.createTreeWalker(view, NodeFilter.SHOW_TEXT); let n;
@@ -553,7 +553,7 @@
         // dịch hỏng → tiếng Anh viết tay (data-en)
         if (failed) view.querySelectorAll('.tr-wait[data-en]').forEach(el => { el.textContent = el.dataset.en; el.lang = 'en'; el.classList.remove('tr-wait'); });
         view.querySelectorAll('.an-ch:not([data-gl])').forEach(ch => { const g = ch.querySelector('.an-gl'); if (g && !g.classList.contains('tr-wait')) ch.dataset.gl = g.textContent; });
-      } finally { busy = false; }
+      } finally { busy = false; if (again) { again = false; clearTimeout(timer); timer = setTimeout(pass, 0); } }
     }
     new MutationObserver(() => { clearTimeout(timer); timer = setTimeout(pass, 120); }).observe(view, { childList: true, subtree: true, characterData: false });
   })();
