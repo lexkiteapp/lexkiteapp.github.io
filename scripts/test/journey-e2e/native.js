@@ -14,13 +14,13 @@
   // Hộp chúc mừng (lên cấp…) mở giữa chừng → đóng như người dùng (không đụng hộp hỏi nhắc học #raY – hành trình 1 kiểm riêng)
   const dismiss = async () => { const m = D.getElementById('modal'); if (m && !m.hidden && !askOn()) { const b = m.querySelector('[data-close]'); if (b) { b.click(); await sleep(300); } } };
   async function learn() { // "Học thông minh" có thể chen câu trắc nghiệm (.option) giữa các thẻ → chọn đáp án đúng (data-o = từ đang hỏi) rồi "Tiếp"
-    for (let i = 0; i < 40 && !vis('.study-wrap .celebrate'); i++) { await dismiss();
+    for (let i = 0, end = Date.now() + 90000; Date.now() < end && !vis('.study-wrap .celebrate'); i++) { await dismiss();
       if (vis('#nextQ')) await click('#nextQ', 450);
       else if (vis('#known')) await click('#known', 450); else if (vis('#gotIt')) await click('#gotIt', 450);
       else if (vis('.study-wrap #skip')) await click('.study-wrap #skip', 500); // câu gõ/nghe-gõ: "Không biết – xem đáp án"
       else if (vis('.study-wrap .option')) { const w = ((D.querySelector('.study-wrap .q-card .entry-word') || {}).textContent || '').trim(), os = [...D.querySelectorAll('.study-wrap .option')]; await sleep(300); (os.find(o => o.dataset.o === w) || os[0]).click(); await sleep(500); }
       else await sleep(600); }
-    return wait('.study-wrap .celebrate', 6000); }
+    return wait('.study-wrap .celebrate', 15000); }
   function mk(tag) { const bad = []; return { bad, ok: (c, m) => { if (!c) bad.push('[' + tag + '] ' + m); return !!c; }, audit: s => { for (const b of LKJC.audit(s)) bad.push('[' + tag + '] ' + b.t + ': ' + b.msg); } }; }
   async function reset() { // hồ sơ mới cho hành trình 1 (giữ trạng thái bộ chạy __e2e + ngôn ngữ)
     const keep = {}; for (const k of ['__e2e', 'vb.uiLang', '__lkj']) if (ls(k) != null) keep[k] = ls(k);

@@ -55,8 +55,15 @@ jobs:
 
   android:
     if: inputs.native == '1'
+    name: android (${{ matrix.lang }})
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    # mỗi ngôn ngữ một emulator mới: 26/10–27/10 emulator chết ngẫu nhiên sau ~10–14' chạy liên tục (qemu biến mất, host còn 10 GB trống) → ngắn hơn + độc lập
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [en, vi, ar]
+    env: { JE_LANGS: '${{ matrix.lang }}' }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -93,7 +100,7 @@ jobs:
             echo 2 > android-rc; timeout 26m node scripts/test/journey-e2e/android.mjs je-android; echo $? > android-rc
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: journey-android, path: je-android/, retention-days: 7 }
+        with: { name: 'journey-android-${{ matrix.lang }}', path: je-android/, retention-days: 7 }
       - name: Kết luận
         if: always()
         run: |
@@ -101,7 +108,7 @@ jobs:
           echo "android rc=$rc"
           test "$rc" = 0
           test -s je-android/results.json
-          node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit(r.ran>=18&&!r.bad.length?0:1)"
+          node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit(r.ran>=6&&!r.bad.length?0:1)"
 
   ios:
     if: inputs.native == '1'

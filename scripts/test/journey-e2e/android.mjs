@@ -55,7 +55,8 @@ const BOOTED = 'window.App && App.routeToken && App.routeToken() > 0 && document
 const booted = async () => { const t0 = Date.now(); const r = await ev(`for (let i = 0; i < 120 && !(${BOOTED}); i++) await new Promise(r => setTimeout(r, 500)); return !!(${BOOTED})`); const ms = Date.now() - t0; if (r !== true) { bad.push(`app không khởi động xong sau ${Math.round(ms / 1000)} s (App.routeToken = 0)`); console.log('✗ app chưa khởi động'); } else if (ms > 15000) console.log(`… app khởi động chậm: ${Math.round(ms / 1000)} s`); return r === true; };
 const reload = async () => { await clearAnr(); await cdp('Page.reload', {}); await sleep(3000); await booted(); };
 await clearAnr(); await booted();
-for (const l of ['en', 'vi', 'ar']) {
+const LANGS = (process.env.JE_LANGS || 'en,vi,ar').split(',');
+for (const l of LANGS) {
   await ev(`localStorage.setItem('vb.uiLang', ${JSON.stringify(l)}); return 1`);
   await ev('await LKJN.reset(); return 1'); await reload();
   for (const f of ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b']) {
@@ -68,10 +69,10 @@ for (const l of ['en', 'vi', 'ar']) {
     ran++; shot(`${l}-${f}`); console.log(`${l} ${f}: ${r && !r.__err && !r.length ? '✓' : '✗ ' + JSON.stringify(r).slice(0, 300)}`);
   }
 }
-if (ran < 18) bad.push(`chỉ chạy ${ran} bước (cần ≥ 18 = 3 ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
+if (ran < 6 * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${6 * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
 const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x));
 if (fatal.length) bad.push('Crash: ' + fatal.slice(0, 2).join(' / '));
 fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1));
-console.log(bad.length ? '✗ FAIL Android journey: ' + bad.length + '\n' + bad.join('\n') : '✓ PASS Android journey 1–3 × vi/en/ar');
+console.log(bad.length ? '✗ FAIL Android journey: ' + bad.length + '\n' + bad.join('\n') : '✓ PASS Android journey 1–3 × ' + LANGS.join('/'));
 try { ws.close(); } catch (e) { /* */ }
 process.exit(bad.length ? 1 : 0);
