@@ -1785,6 +1785,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "blind#adj": {
+   "ex": "The school teaches blind children to read using their fingers.",
+   "sc": "a teacher sits beside a blind child at a desk, the child runs fingertips over a raised‑dot page while the teacher points encouragingly.",
+   "cap": "a teacher guiding a child through tactile reading",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "blocked#adj": {
    "ex": "Tenants must not pour fat down the sink, as this causes blocked drains.",
    "sc": "person A, a tenant in a kitchen, holds a pot of melted fat and pours it into a sink while water backs up and a visible gunk‑filled drain blocks the flow",
@@ -3320,6 +3327,13 @@
    "cap": "A person holds a new phone and an old phone side by side",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "compartment#n": {
+   "ex": "Please place your carry-on bags in the overhead compartment.",
+   "sc": "a passenger seated in an airplane reaches up to put a small suitcase into the overhead bin above the seat",
+   "cap": "a traveler storing luggage in the bin above the seat",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "compete#v": {
    "ex": "Twenty teams will compete in the tournament.",
@@ -11043,6 +11057,13 @@
    "skip": "abstract uncertainty cannot be shown without symbols or text",
    "by": "openai/gpt-oss-120b"
   },
+  "mayor#n": {
+   "ex": "The mayor opened the new library.",
+   "sc": "a mayor in a suit stands at the entrance of a modern building, pulling open large doors while holding ceremonial scissors and a ribbon.",
+   "cap": "a city official unveiling a new public building",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "meal plan#n": {
    "ex": "Her meal plan includes fifteen meals a week in the dining hall.",
    "sc": "a woman in casual university attire stands at a dining hall serving line while a server hands her a loaded tray of food; the scene focuses on the tray in the foreground",
@@ -11235,6 +11256,13 @@
   },
   "metaphor#n": {
    "skip": "abstract concept about comparison cannot be shown without symbols or text",
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "meter reading#n": {
+   "ex": "Submit a meter reading online to avoid an estimated bill.",
+   "sc": "person A stands beside a wall‑mounted utility meter, pointing at its dial while a laptop on a nearby table shows a generic online form being filled out",
+   "cap": "a person entering a utility meter value on a computer",
+   "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
   "meter#n": {
@@ -12013,6 +12041,13 @@
   "number#n": {
    "skip": "abstract numeric concept cannot be depicted without symbols",
    "by": "openai/gpt-oss-120b"
+  },
+  "nutrition#n": {
+   "ex": "Good nutrition in early childhood is essential for brain development.",
+   "sc": "a parent sits at a kitchen table serving a toddler a colorful plate of fruits, vegetables, and whole‑grain cereal, while the child smiles and eats eagerly.",
+   "cap": "a family sharing a balanced meal",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "o'clock#adv": {
    "skip": "time word requires clock symbol",
@@ -14259,6 +14294,13 @@
    "who": 2,
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "pupil#n": {
+   "ex": "There are thirty pupils in each class.",
+   "sc": "person A, a teacher, stands at the front of a classroom while person B, a student, raises a hand among many seated classmates.",
+   "cap": "Teacher watches a student raise a hand",
+   "who": 2,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "purchase order#n": {
    "ex": "The supplier cannot ship the items until it receives a signed purchase order.",
    "sc": "person A, a buyer in a blazer, hands a signed blank sheet to person B, a warehouse worker holding a boxed item, both standing near a loading dock.",
@@ -14531,6 +14573,13 @@
    "ex": "Rising prices of raw materials have pushed up production costs.",
    "sc": "person A, a factory worker, lifts a wooden plank onto a pallet stacked with cotton bales; the worker frowns, showing concern about the cost of the materials.",
    "cap": "worker loading wood and cotton in factory",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "raw#adj": {
+   "ex": "Some vegetables can be eaten raw.",
+   "sc": "person A holds a crisp carrot in one hand and takes a bite, with fresh lettuce leaves on a plate nearby, no cooking utensils in view",
+   "cap": "a person biting into a fresh carrot",
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
@@ -17438,6 +17487,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "stream#n": {
+   "ex": "We crossed a small stream on our walk.",
+   "sc": "a person in casual clothes steps across a shallow stream using stepping stones, water flowing between rocks and trees lining the banks",
+   "cap": "a walker crossing a shallow watercourse on stones",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "street food#n": {
    "ex": "Vietnamese street food like banh mi is cheap and delicious.",
    "sc": "a Vietnamese woman vendor behind a small street stall hands a baguette sandwich to a smiling man; a few coins rest on the counter beside the food",
@@ -19173,6 +19229,13 @@
    "cap": "a person clicks a button as an email disappears",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "unsure#adj": {
+   "ex": "I'm unsure whether the meeting is today or tomorrow.",
+   "sc": "person A stands with a furrowed brow, hand on chin, shoulders slightly hunched, looking at empty space as if pondering",
+   "cap": "a person looking puzzled and indecisive",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "unused#adj": {
    "skip": "the sentence refers to abstract vacation days, which cannot be depicted without ",
