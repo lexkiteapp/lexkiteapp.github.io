@@ -19,7 +19,8 @@ permissions:
 concurrency:
   # github.workflow = tên workflow GỌI khi chạy qua workflow_call (Quality sweep) → nhóm riêng, không huỷ lượt chạy tay/PR cùng ref
   group: journey-e2e-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
-  cancel-in-progress: true
+  # lượt chạy tay native=1 dài ~30' → không để lượt dispatch/PR khác cùng ref huỷ giữa chừng (26/10: ios bị huỷ 2 lần, android bị huỷ sau 41')
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   web:
     runs-on: ubuntu-latest
@@ -55,7 +56,7 @@ jobs:
   android:
     if: inputs.native == '1'
     runs-on: ubuntu-latest
-    timeout-minutes: 80
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -72,31 +73,46 @@ jobs:
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
-      - uses: reactivecircus/android-emulator-runner@v2
+      - name: Emulator + hành trình Android (tối đa 28')
+        timeout-minutes: 28
+        uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 34
           arch: x86_64
           target: google_apis
           profile: pixel_7
+          ram-size: 4096M
+          heap-size: 576M
+          cores: 2
           disable-animations: true
+          emulator-boot-timeout: 420
           script: |
-            adb install -r lexkite.apk
-            node scripts/test/journey-e2e/android.mjs je-android; echo $? > android-rc
+            adb wait-for-device
+            for i in 1 2 3; do adb install -r lexkite.apk && break; echo "install lần $i lỗi"; sleep 15; done
+            adb shell pm list packages | grep -q com.lexkite.app
+            echo 2 > android-rc; timeout 26m node scripts/test/journey-e2e/android.mjs je-android; echo $? > android-rc
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: journey-android, path: je-android/, retention-days: 7 }
       - name: Kết luận
-        run: test "$(cat android-rc)" = 0
+        if: always()
+        run: |
+          rc=$(cat android-rc 2>/dev/null || echo 'chưa chạy (emulator không lên / bước bị treo)')
+          echo "android rc=$rc"
+          test "$rc" = 0
+          test -s je-android/results.json
+          node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit(r.ran>=18&&!r.bad.length?0:1)"
 
   ios:
     if: inputs.native == '1'
     runs-on: macos-15
-    timeout-minutes: 75
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chọn Xcode 26
+        timeout-minutes: 5
         run: |
           X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
           [ -n "$X" ] && sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
@@ -107,11 +123,13 @@ jobs:
           ./scripts/build-mobile.sh
           bash scripts/test/ios-e2e/inject.sh
       - name: xcodebuild (iphonesimulator, không ký)
+        timeout-minutes: 25
         working-directory: mobile/ios/App
         run: |
           set -o pipefail
           xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath build CODE_SIGNING_ALLOWED=NO build | tail -20
       - name: Hành trình 1–3 trên iPhone (vi/en/ar)
+        timeout-minutes: 45
         run: node scripts/test/ios-e2e/driver.mjs --app mobile/ios/App/build/Build/Products/Debug-iphonesimulator/App.app --device 'iPhone 1' --tag journey --out je-ios --minutes 40 --minsteps 20
       - name: Báo cáo
         if: always()
