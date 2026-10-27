@@ -11,11 +11,11 @@ Cập nhật: 27/10/2026.
 - Số liệu: 639 ảnh (27/10 10:15 UTC); lượt đầu 6.000 ảnh → 264 đạt; ảnh chỉ tăng khi cả lượt xong (bước fillpub).
 - Chưa xong: soát giám khảo kép (`mode=rejudge lab_run=40271446755,40271452785` → tờ `cons-*.jpg`, sai > 1/20 thì đặt `VIMG_CONSENSUS: '0'`); neuron/ảnh thật chưa đo (token kho không có quyền analytics).
 
-## Kho từ 20k (`lexicon-expand`) – TẠM DỪNG, chờ chủ chọn hướng dịch
-- Kho vẫn 8.230 nghĩa. Workflow lexicon-expand TẮT + tác vụ hẹn giờ "lexicon-pilot-28-10" TẮT (27/10 ~17:30 UTC) để không phí neuron/token.
-- Pilot 2 giám khảo (74 đạt) ~9/50 sai; pilot 3 giám khảo đồng thuận (6da278b, run 40535213005: 34/300 đạt) ~6–9/34 sai – lỗi gần hết ở BẢN DỊCH 12 ngôn ngữ (puff vi "hú", overshadow id/ja/ko, fissure ko, disincentive hi ngược nghĩa, mistreat id) + 1 ví dụ lệch nghĩa (palate). Giám khảo LLM miễn phí không bắt được lỗi dịch ngôn ngữ ít tài nguyên.
-- Phần tiếng Anh (def WordNet, ví dụ Tatoeba, IPA, CEFR-J) gần như sạch. Lô đã requeue.
-- Hướng khả thi: cổng THEO TRƯỜNG – mục mới xuất khi lõi Anh + vi đạt; mỗi ngôn ngữ chỉ hiện khi bản dịch đó đạt (Wiktionary khớp nghĩa chắc chắn), thiếu thì dùng đường dịch hiện có của kho.
+## Kho từ 20k (`lexicon-expand`) – cổng THEO TRƯỜNG, đang pilot
+- Kho vẫn 8.230 nghĩa. Chủ chọn (27/10): mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi) đạt sai ≤ 1/50; mỗi ngôn ngữ khác chỉ giữ khi bản dịch Wiktionary khớp nghĩa chắc chắn + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd); thiếu → app dùng đường dịch hiện có. AI chỉ lấp vi.
+- Lịch sử: pilot 2 giám khảo ~9/50 sai, 3 giám khảo ~6–9/34 – lỗi gần hết ở dịch 12 ngôn ngữ do AI/bảng ghép nhầm.
+- Pilot `20261028-pilot` dispatch 27/10 23:17 UTC (n 400). Tác vụ hẹn giờ "lexicon-pilot-28-10" (mỗi 6 giờ) soát RIÊNG lõi (50 mục) + dịch (50 cặp) → cả 2 ≤ 1/50 thì LX_PILOT=0, LX_N=2400, promote, hàng loạt tự nối.
+- Đã soát: 20261027-pilot (lần 1–3).
 
 ## Chờ chủ
 - Xoá `~/Downloads/keys_export.txt` (khoá thật dạng chữ thường); cân nhắc đổi khoá quan trọng.
