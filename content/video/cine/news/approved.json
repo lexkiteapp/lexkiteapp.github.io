@@ -165,6 +165,165 @@
    "phone_mp4_sha256": "f8a71fa99fefcc9f0a716c6970b72970cf79bec0884af39a552f6bf58b5c1d66",
    "phone_mp4": "out/news/v14-board/words5.mp4",
    "owner_note": "Duyệt 6 tập 3D v14 viết lên bảng. Lưu vào approved.json làm chuẩn sản xuất."
+  },
+  {
+   "id": "sts_040ec72a",
+   "series": "Stop Saying This",
+   "ep": 2,
+   "spec": "content/video/cine/news/series-ep2/sts2.json",
+   "teacher": "ama",
+   "clips": [
+    "a05b_ama2",
+    "a05t2_ama2_present",
+    "a05e1_ama2_excited",
+    "a05e2_ama2_question",
+    "a05e3_ama2_wow"
+   ],
+   "listen": [
+    "a05l2_ama2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board",
+   "plan": "speech-gated + mood-matched clips (capped)",
+   "ci_run": 40523110872,
+   "qc": "33/33 gates",
+   "approved": "2026-10-28",
+   "phone_mp4_sha256": "8f6122bfdfc8aa4c00e65733f460617a0d7746529b22b86639600a74af62808c",
+   "phone_mp4": "out/news/v14-ep2/sts2.mp4",
+   "owner_note": "Duyệt 6 tập 2. Lưu vào approved.json và làm tiếp các series mới."
+  },
+  {
+   "id": "sod_7432d6cb",
+   "series": "Same or Different?",
+   "ep": 2,
+   "spec": "content/video/cine/news/series-ep2/sod2.json",
+   "teacher": "carlos",
+   "clips": [
+    "c05_carlos2",
+    "c05t2_carlos2_present",
+    "c05e1_carlos2_excited",
+    "c05t3_carlos2_talk3",
+    "c05e2_carlos2_question",
+    "c05e3_carlos2_wow"
+   ],
+   "listen": [
+    "c05l_carlos2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board",
+   "plan": "speech-gated + mood-matched clips (capped)",
+   "ci_run": 40523110872,
+   "qc": "33/33 gates",
+   "approved": "2026-10-28",
+   "phone_mp4_sha256": "5a720731cd18139fbdadd0e20487cba751ca52080bc03dc36cd661fa38bc3ae9",
+   "phone_mp4": "out/news/v14-ep2/sod2.mp4",
+   "owner_note": "Duyệt 6 tập 2. Lưu vào approved.json và làm tiếp các series mới."
+  },
+  {
+   "id": "t6_pron_competition_3d",
+   "series": "Where's the Stress?",
+   "ep": 2,
+   "spec": "content/video/cine/news/series-ep2/pron2.json",
+   "teacher": "ama",
+   "clips": [
+    "a05b_ama2",
+    "a05t2_ama2_present",
+    "a05e1_ama2_excited",
+    "a05e2_ama2_question",
+    "a05e3_ama2_wow"
+   ],
+   "listen": [
+    "a05l2_ama2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board",
+   "plan": "speech-gated + mood-matched clips (capped)",
+   "ci_run": 40523110872,
+   "qc": "33/33 gates",
+   "approved": "2026-10-28",
+   "phone_mp4_sha256": "a1d955e0d879980cf30422c11139c222b2838976a2de32d667775a87e1e48269",
+   "phone_mp4": "out/news/v14-ep2/pron2.mp4",
+   "owner_note": "Duyệt 6 tập 2. Lưu vào approved.json và làm tiếp các series mới."
+  },
+  {
+   "id": "t3_guess_airport",
+   "series": "Guess the Word",
+   "ep": 2,
+   "spec": "content/video/cine/news/series-ep2/guess2.json",
+   "teacher": "carlos",
+   "clips": [
+    "c05_carlos2",
+    "c05t2_carlos2_present",
+    "c05e1_carlos2_excited",
+    "c05t3_carlos2_talk3",
+    "c05e2_carlos2_question",
+    "c05e3_carlos2_wow"
+   ],
+   "listen": [
+    "c05l_carlos2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board",
+   "plan": "speech-gated + mood-matched clips (capped)",
+   "ci_run": 40523110872,
+   "qc": "33/33 gates",
+   "approved": "2026-10-28",
+   "phone_mp4_sha256": "b587bdd87ab71990d93c95a39eb613d2d0e829113503853e929205d10bb906fb",
+   "phone_mp4": "out/news/v14-ep2/guess2.mp4",
+   "owner_note": "Duyệt 6 tập 2. Lưu vào approved.json và làm tiếp các series mới."
+  },
+  {
+   "id": "t7_usuk_trash_3d",
+   "series": "US or UK?",
+   "ep": 2,
+   "spec": "content/video/cine/news/series-ep2/usuk2.json",
+   "teacher": "carlos",
+   "clips": [
+    "c05_carlos2",
+    "c05t2_carlos2_present",
+    "c05e1_carlos2_excited",
+    "c05t3_carlos2_talk3",
+    "c05e2_carlos2_question",
+    "c05e3_carlos2_wow"
+   ],
+   "listen": [
+    "c05l_carlos2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board",
+   "plan": "speech-gated + mood-matched clips (capped)",
+   "ci_run": 40515001478,
+   "qc": "33/33 gates",
+   "approved": "2026-10-28",
+   "phone_mp4_sha256": "b05841a9dd606838b560b093814bbd78ec0ee2c18b296798a8a3d9e09ee406c4",
+   "phone_mp4": "out/news/v14-ep2/usuk2.mp4",
+   "owner_note": "Duyệt 6 tập 2. Lưu vào approved.json và làm tiếp các series mới."
+  },
+  {
+   "id": "t2_words5_verybad",
+   "series": "Say It Like a Native",
+   "ep": 2,
+   "spec": "content/video/cine/news/series-ep2/words5_2.json",
+   "teacher": "ama",
+   "clips": [
+    "a05b_ama2",
+    "a05t2_ama2_present",
+    "a05e1_ama2_excited",
+    "a05e2_ama2_question",
+    "a05e3_ama2_wow"
+   ],
+   "listen": [
+    "a05l2_ama2_listen"
+   ],
+   "host_fx": "raw",
+   "layout": "v14-board",
+   "plan": "speech-gated + mood-matched clips (capped)",
+   "ci_run": 40515001478,
+   "qc": "33/33 gates",
+   "approved": "2026-10-28",
+   "phone_mp4_sha256": "ac8e92486cd1d4b908b6b50f2643e597dcc68023d34a24265dbb2e1193f22d71",
+   "phone_mp4": "out/news/v14-ep2/words5_2.mp4",
+   "owner_note": "Duyệt 6 tập 2. Lưu vào approved.json và làm tiếp các series mới."
   }
  ],
  "superseded": [
