@@ -7,7 +7,7 @@
 > Rủi ro lớn nhất: (1) chưa có đường **miễn phí** ra mô hình 3D có 52 blendshape giống hệt nét Kling; (2) điều khoản CDN Cloudflare hạn chế phục vụ
 > **video** ở gói Free → cuộc gọi không được phụ thuộc video; (3) đồng bộ D1 cho hàng triệu người KHÔNG miễn phí (`CAPACITY.md`: 1M DAU ≈ 1.550 USD/tháng).
 > Chủ duyệt 27/10: local-first + kịch bản = xương sống ✔ · chạy 2 pilot 0 credit ✔ · đổi Call Mia → Call with Ama/Carlos ✔ · credit: CHỜ sau pilot · đồng bộ Drive: xong (PR #146).
-> Pilot (§5.4): `docs/mocks/teacher-pilot/` – B sprite Ama thật 83 KB, lệch môi p95 16 ms; A 3D (mặt thay thế CC0) 2,9 MB + JS 0,5 MB, fps cần đo trên điện thoại của anh. Mock gọi: `docs/mocks/teacher-call/`.
+> Chủ chọn **B (sprite)**. B v2 (§5.4): đầu/vai/chớp mắt từ footage thật + 10 hình miệng bám đầu, Ama ≈ 190 KB, Carlos ≈ 175 KB, lệch môi p95 16,6 ms @60 Hz. Pilot: `docs/mocks/teacher-pilot/`; mock gọi: `docs/mocks/teacher-call/`.
 
 ## 1. Mục tiêu (chủ 27/10)
 Nhúng được web + add-on Chrome + Android (WebView Capacitor); nhẹ nhất; công nghệ MIỄN PHÍ tiên tiến nhất; ít lỗi ngầm; ngang Duolingo Video Call / Praktika / Speak;
@@ -109,15 +109,15 @@ khóa 30 fps, không bóng/HDR, `powerPreference` mặc định, bắt `webglcon
 2. **A-pilot (0 credit):** đo three.js + TalkingHead với 1 avatar mẫu (chỉ thử nội bộ, KHÔNG phát hành – avatar mẫu có điều khoản phi thương mại) trên máy Android yếu của anh: fps, nhiệt, thời gian tải.
 3. Đạt cả hai → anh chọn: A (cần mô hình riêng: Meshy free + Blender, hoặc thuê 1 lần) hay B. Đề xuất của em: **B làm mặc định trên mobile, A cho desktop nếu pilot đẹp.**
 
-### 5.4 Kết quả pilot (27/10, 0 credit; số trên Mac M5 – điện thoại: anh mở link và đọc ô "Measured")
-| | B · viseme sprite (Ama thật) | A · 3D realtime (mặt thay thế CC0) |
-|---|---|---|
-| Nguồn | `ama_base` + 7 miệng Rhubarb (X A B C D E F) + chớp mắt, cắt từ a05/a05b/a05t2/a05t3/a05l bằng `scripts/teacher/sprite_build.py` (ORB + affine, khớp màu LAB) | three.js r186 + TalkingHead 1.8.2 (MIT), `mpfb.glb` CC0 nén 36,8 → **2,9 MB** (WebP 1024 + meshopt) |
-| Tải lần đầu | **83 KB** (ảnh 33 KB + 4 câu mp3 48 KB + JSON) | glb 2.909 KB + JS 502 KB + audio 48 KB ≈ **3,5 MB** |
-| Khớp môi | Rhubarb (CI, từ WAV Kokoro) **gác theo VAD** (`sprite_cues.py`): biên tiếng/lặng so audio – Rhubarb thô trung bình 72 ms, trung vị 30, p90 165, max 540 ms (câu "Your turn." Rhubarb mở miệng trong khoảng lặng) → sau gác ≤ 10–20 ms; lệch hiển thị trên máy p50 **8 ms**, p95 **16 ms** | cùng dữ liệu cue → viseme Oculus (`speakAudio`) |
-| fps | 60 (canvas/CSS, không WebGL) | Mac: tải 0,7 s; fps phải đo trên điện thoại (khung trình duyệt ẩn bị bóp rAF ~4 Hz – số Mac không dùng được). Lưới 84k tam giác, 71 morph – NẶNG hơn ngân sách 30k → phép thử xấu nhất |
-| Nhược | chỉ 7 hình miệng, đầu đứng yên (thở + chớp); vết mí nhẹ khi chớp | chưa có mô hình Ama/Carlos (§5.1) |
-Carlos: cùng quy trình với c05* (`carlos2_first.png`) – làm sau khi anh chọn hướng.
+### 5.4 Kết quả pilot (27/10, 0 credit) – chủ CHỌN B
+**B v2 (sprite, Ama + Carlos)** – `docs/mocks/teacher-pilot/b-sprite.html`, dựng bằng `scripts/teacher/sprite_build.py` (+ `sprites.json`), `sprite_cues.py`, kiểm `lag_sim.mjs`:
+- Nền = vòng 3 s cắt từ clip listen thật (Ama `a05l2` 80–152, Carlos `c05l` 134–206), phát xuôi + ngược (ping-pong) → đầu/vai chuyển động thật, chớp mắt thật, không nhảy, không trôi. Chớp mắt dán ghép đã bỏ → hết vệt mí.
+- Miệng = 10 hình (X nghỉ, A M/B/P, B răng, C1 hé, C vừa, D rộng, E tròn O, F chu U, G F/V, H L/TH) cắt từ clip talk/present/listen, căn ORB + affine, khớp màu LAB; bám đầu từng khung qua `requestVideoFrameCallback` (track làm mượt, lệch ≤ 6,6 px Ama / 11,6 px Carlos so với track thô); chuyển hình bằng hoà trộn 60 ms bắt đầu sớm 30 ms; độ to âm thanh chọn C1/C/D cho mỗi âm; im lặng > 250 ms → miệng thật trong video.
+- Tải lần đầu/giáo viên: Ama loop 133 + miệng 21 + poster 17 + dữ liệu 9 + 1 câu ~13 ≈ **190 KB** (4 câu: 228 KB); Carlos ≈ **175 KB** (≤ 300 KB ✔).
+- Lệch môi (giữa pha hoà trộn − đầu âm, `lag_sim.mjs`, 50 pha ngẫu nhiên): 60 Hz p50 8–9 ms, **p95 16,6 ms** (≤ 40 ✔); 30 Hz p95 32 ms. Rhubarb thô so audio: Ama trung bình 72 ms (p90 165), Carlos 39 ms (p90 70) → gác VAD.
+- fps: 60 trên Mac khi khung hiển thị (khung trình duyệt ẩn bị bóp rAF → số trên điện thoại do trang tự đo). Hạn chế còn lại: 10 hình miệng (không phải 15 viseme), đầu nghiêng mạnh thì miệng phẳng hơn mặt.
+
+**A (3D realtime, mặt thay thế CC0)** – three.js r186 + TalkingHead 1.8.2, `mpfb.glb` 36,8 → 2,9 MB, JS 502 KB, lưới 84k tam giác/71 morph; không được chọn (chưa có mô hình Ama/Carlos, §5.1).
 
 ## 6. So với ông lớn (trung thực)
 Duolingo Video Call (gói Max), Praktika, Speak: nhân vật có khớp môi thật + LLM/TTS server trả phí. Ta: kịch bản + Nano trên máy + viseme sinh sẵn → khớp môi tương đương
@@ -136,4 +136,4 @@ Clip phản ứng cần thêm (Kling v2.5, 5 s, nối từ khung cuối listen, 
 
 ## 9. Quyết định
 Đã duyệt 27/10: (1) local-first ✔ (2) 2 pilot ✔ – kết quả §5.4 (3) Call with Ama/Carlos ✔ (5) đồng bộ Drive ✔ (PR #146).
-Còn chờ: anh mở pilot trên điện thoại → chọn A (cần mô hình riêng, §5.1) hay B (đề xuất cho mobile); (4) credit ~15 ảnh miệng / ~200 clip phản ứng – chỉ khi cần sau pilot.
+Chủ chọn B (27/10) → B v2 xong; tiếp: gắn vào `call.js` + đổi tên Call Mia → Call with Ama/Carlos (15 ngôn ngữ) ở PR riêng; (4) credit ~15 ảnh miệng / ~200 clip phản ứng – chỉ khi cần sau pilot.
