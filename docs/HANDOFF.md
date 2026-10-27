@@ -16,12 +16,11 @@ Cập nhật: 26/10/2026.
 - Giám khảo KÉP (`VIMG_CONSENSUS=1`): ảnh qua cổng cứng nhưng trượt cổng mềm được llama-4-scout + mistral-small-3.1 chấm (yes câu ví dụ + no câu anh em). Soát: `mode=rejudge lab_run=<run>` → tờ `cons-*.jpg`. CHƯA soát được (kho cạn 26/10) – soát sau 00:00 UTC 27/10.
 - Tiếp: đo neuron/ảnh sau 1 ngày; nâng sản lượng 3–5× bằng hiệu chỉnh giám khảo theo phong cách klein (`calibrate_scene.py`) – cần chủ gán nhãn 1 tờ ảnh (~5 phút).
 
-## Kho từ 20k (`lexicon-expand`) – ĐANG LÀM (phiên riêng)
-- Kho 9.010 từ đầu mục (8.230 nghĩa). AI = kho CF_POOL xoay vòng (ai-pool cf2: gpt-oss-120b soạn + giám khảo A, llama-3.3-70b giám khảo B); Gemini bỏ (kho rỗng), không cần điều phối.
-- Pilot 11 (run 40289481506): 3/300 đạt, 2/3 sai → KHÔNG xuất. Đã sửa: JSON giám khảo bị cắt (16k + chia đôi lô), cổng định nghĩa đúng hình từ loại. Pilot 12 (26/10 ~09 UTC): kho đã 4006 hết (ảnh vắt) → 0 chạy.
-- Lịch: 00:12 UTC (ngay sau neuron đặt lại, trước ảnh 01:40), trần 600k neuron. Biến repo LX_PILOT=1, LX_N=300 → lượt 27/10 là pilot.
-- Tiếp: soát 50 mẫu lô `20261027-pilot` (sai ≤ 1/50) → LX_PILOT=0, LX_N=2400 (hàng loạt) → `promote.mjs <lô> --checked` sau soát 5 %/lô.
-- Thứ tự từ: tầng 0 hồ sơ người học CEFR-J/Octanove/NGSL/NAWL/BSL (2.546 từ, A1→C2) rồi tầng 1 tần suất. Ước ~2–3k từ/ngày → ~5 ngày tới 20k.
+## Kho từ 20k (`lexicon-expand`) – CHẶN: kho CF hết neuron do bên ngoài
+- Kho vẫn 8.230 nghĩa. Đường chạy sẵn sàng: AI qua kho CF_POOL (ai-pool cf2), tự nối lượt (8fa4687), lịch 00:12 UTC, biến LX_PILOT=1/LX_N=300.
+- 27/10 00:25–00:40 UTC (run 40426315286, thử 40426701526): 121/121 tài khoản trả 4006 THẬT ("used up your daily free allocation of 10,000 neurons") dù không lượt Lexkite nào chạy từ 23:17 → có bên ngoài (nghi GrabCast – CF_POOL là tệp xuất kho khoá GrabCast) vắt kho ngay sau 00:00 UTC.
+- Cần chủ: tài khoản CF miễn phí RIÊNG cho Lexkite (không chung GrabCast), hoặc khoá Gemini/Groq miễn phí; hoặc tắt việc GrabCast dùng các tài khoản này.
+- Khi có neuron: dispatch pilot (n 300, pilot 1, batch 20261027-pilot) → phiên soát (local_3a958a4a) soát 50 mẫu → LX_PILOT=0, LX_N=2400.
 
 ## Chờ chủ
 - Gán nhãn đúng/sai 1 tờ ảnh để hiệu chỉnh giám khảo (tuỳ chọn, tăng sản lượng).
