@@ -10,11 +10,11 @@ runs:
       run: python3 -c "import json,sys;s=json.load(open('$SPEC'));v=json.load(open('$HOOKS'))['verdicts'].get(s['id']) or {};sys.exit(0 if v.get('hook_true') and v.get('script')=={l['id']:l['text'] for l in s['lines'] if l.get('text')} else 1)" || { echo "::error::script/hook not reviewed"; exit 1; }
     - uses: actions/cache@v4
       with: { path: ~/.cache/pip, key: 'pip-video9-render-${{ hashFiles(''scripts/cine/requirements.txt'') }}-fw1.0.3' }
-    - name: Libraries + colour emoji font (ffmpeg ships with ubuntu-latest)
+    - name: Libraries + colour emoji font + ffmpeg
       shell: bash
       run: |
         timeout 480 pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3 qrcode==7.4.2 pyflakes==3.2.0
-        [ -f /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf ] || { sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-color-emoji >/dev/null; }
+        sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null   # the runner image has no ffmpeg
         ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf; ffmpeg -version | head -1
     - name: Footage (only the talk clips of this spec, sparse)
       shell: bash
