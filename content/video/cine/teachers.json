@@ -859,7 +859,8 @@
     717,
     870
    ],
-   "note": "3D bank v2 27/10: right-third medium shot, light-blue shirt + navy blazer; first frame lexkite-media cine/teachers/carlos2_first.png"
+   "note": "3D bank v2 27/10: right-third medium shot, light-blue shirt + navy blazer; first frame lexkite-media cine/teachers/carlos2_first.png",
+   "mood": "talk"
   },
   "c05l_carlos2_listen": {
    "set": "classroom_board",
@@ -900,7 +901,8 @@
    ],
    "parent": "c05_carlos2",
    "raw": true,
-   "note": "presenting gesture to the card"
+   "note": "presenting gesture to the card",
+   "mood": "present"
   },
   "c05t3_carlos2_talk3": {
    "set": "classroom_board",
@@ -927,7 +929,8 @@
      126
     ]
    ],
-   "note": "presenting; avoid = profile glance"
+   "note": "presenting; avoid = profile glance",
+   "mood": "present"
   },
   "c05e1_carlos2_excited": {
    "set": "classroom_board",
@@ -948,7 +951,8 @@
    ],
    "parent": "c05_carlos2",
    "raw": true,
-   "note": "mood excited"
+   "note": "mood excited",
+   "mood": "excited"
   },
   "c05e2_carlos2_question": {
    "set": "classroom_board",
@@ -969,7 +973,8 @@
    ],
    "parent": "c05_carlos2",
    "raw": true,
-   "note": "mood question"
+   "note": "mood question",
+   "mood": "question"
   },
   "c05e3_carlos2_wow": {
    "set": "classroom_board",
@@ -990,7 +995,8 @@
    ],
    "parent": "c05_carlos2",
    "raw": true,
-   "note": "mood wow / reveal"
+   "note": "mood wow / reveal",
+   "mood": "wow"
   },
   "a05b_ama2": {
    "set": "classroom_board",
@@ -1009,7 +1015,8 @@
     750,
     778
    ],
-   "note": "3D bank v2 27/10: right-third medium shot (same layout/scale as Carlos); first frame lexkite-media cine/teachers/ama2_first.png"
+   "note": "3D bank v2 27/10: right-third medium shot (same layout/scale as Carlos); first frame lexkite-media cine/teachers/ama2_first.png",
+   "mood": "talk"
   },
   "a05l2_ama2_listen": {
    "set": "classroom_board",
@@ -1063,7 +1070,8 @@
      200
     ]
    ],
-   "note": "presenting; avoid = fast sway"
+   "note": "presenting; avoid = fast sway",
+   "mood": "present"
   },
   "a05t3_ama2_present": {
    "set": "classroom_board",
@@ -1084,7 +1092,8 @@
    ],
    "parent": "a05b_ama2",
    "raw": true,
-   "note": "RESERVE only (body sway 175 px) – not in default spec lists"
+   "note": "RESERVE only (body sway 175 px) – not in default spec lists",
+   "mood": "present"
   },
   "a05e1_ama2_excited": {
    "set": "classroom_board",
@@ -1105,7 +1114,8 @@
    ],
    "parent": "a05b_ama2",
    "raw": true,
-   "note": "mood excited; tail sways/drifts"
+   "note": "mood excited; tail sways/drifts",
+   "mood": "excited"
   },
   "a05e2_ama2_question": {
    "set": "classroom_board",
@@ -1126,7 +1136,8 @@
    ],
    "parent": "a05b_ama2",
    "raw": true,
-   "note": "mood question"
+   "note": "mood question",
+   "mood": "question"
   },
   "a05e3_ama2_wow": {
    "set": "classroom_board",
@@ -1147,7 +1158,8 @@
    ],
    "parent": "a05b_ama2",
    "raw": true,
-   "note": "mood wow / reveal"
+   "note": "mood wow / reveal",
+   "mood": "wow"
   }
  }
 }

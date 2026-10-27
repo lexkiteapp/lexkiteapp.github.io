@@ -273,6 +273,10 @@ if T.get('v14'):   # layout v14 (owner 27/10): one card above a medium shot; car
     _v = T['v14']; _hd = _v['head']; _z = _v['zone']
     R['layout_v14'] = dict(ok=_z[0] >= SAFE['x0'] and _z[2] <= SAFE['x1'] and _z[1] >= SAFE['y0'] and _z[3] + 26 <= _hd[1] - 20 and (_hd[0] + _hd[2]) / 2 <= SAFE['x1'] - 60
                            and (_hd[3] - _hd[1] >= 380 or _v['crop']['k'] >= 1.19 or _hd[3] - _hd[1] >= 560), zone=_z, head=_hd, crop=_v['crop'])
+if T.get('moods') is not None:   # owner 27/10 "ko lố": strong-expression clips used at most excited 1 / wow 1 / question 2 times per video
+    _mc = {}
+    for _l, _w, _c, _m in T['moods']: _mc[_m] = _mc.get(_m, 0) + 1
+    R['mood_restraint'] = dict(ok=_mc.get('excited', 0) <= 1 and _mc.get('wow', 0) <= 1 and _mc.get('question', 0) <= 2, uses=_mc, lines=T['moods'][:12])
 R['host_sharp'] = dict(ok=bool(Sh) and len(enc) == len(Sh) and med(up) >= 0.80 and min(up) >= 0.65 and med(enc) >= 0.80,
                        push_vs_native_median=round(med(up), 3), push_vs_native_min=round(min(up, default=0), 3), encoded_vs_rendered_median=round(med(enc), 3), samples=len(Sh))
 prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)
