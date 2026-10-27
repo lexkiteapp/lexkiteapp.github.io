@@ -11,6 +11,12 @@
   },
   "ddl": "22c615637981bc55"
  },
+ "_social_auto.js": {
+  "vers": {
+   "soc-lock": 1
+  },
+  "ddl": "c515223dba95541c"
+ },
  "ai.js": {
   "vers": {
    "ai": 1
