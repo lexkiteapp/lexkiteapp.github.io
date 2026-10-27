@@ -86,6 +86,7 @@ jobs:
           set -o pipefail
           mkdir -p $O/phone $O/frames
           python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
+          pip install -q pyflakes==3.2.0 && { python3 -m pyflakes scripts/video/tpl/render_v9.py scripts/video/tpl/qc_v9.py | grep -E 'undefined name|syntax error' && { echo '::error::render/qc code has undefined names'; exit 1; } || true; }   # fail fast (a commented-out assignment cost a full render)
           NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
           if [ "${{ github.event.inputs.plan }}" = "true" ]; then
             python3 scripts/video/tpl/render_v9.py --spec "$SPEC" --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --out $O/${{ matrix.t }}.mp4 --plan $O/plan.json 2>&1 | grep -v '^frame ' | tee $O/plan.log
