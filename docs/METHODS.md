@@ -4,6 +4,7 @@
 > Đọc khi: ĐẦU MỖI PHIÊN.
 
 Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `docs/archive/METHODS-HISTORY.md`.
+**Luật tài liệu: một chủ đề = một file sở hữu, link thay vì chép lại (bảng chủ đề → file: `docs/README.md`).**
 **Tiêu credit (Kling/mọi dịch vụ trả phí) → BẮT BUỘC `docs/CREDIT-RULES.md` trước.**
 
 ## 1. Điều phối
@@ -19,7 +20,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Ship: `~/.config/lexkite/ship.sh "<mô tả>"` (smoke → tsc → YAML → vi-lint → i18n → bump SW + add-on → commit → push → chờ live).
 - Smoke: `node scripts/test/smoke.js "$PWD/web"` (phải ra `ERRORS none`).
 - tsc: `npx -y -p typescript@5.6.3 tsc -p tsconfig.check.json`.
-- Mergecheck: `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp). Remote thật: github.com/lexkiteapp/lexkiteapp.github.io (origin cục bộ là repo CŨ).
+- Mergecheck: `bash scripts/mergecheck.sh <branch> "<msg>"` (gộp + dedupe i18n + smoke/tsc/vi-lint/i18n/size/unit/learn-flow + bump sw CACHE + push lên lexkiteapp).
 - Trước ship: `npm test` (hoặc các test liên quan khi có file dở của luồng khác) + `node scripts/test/infra-check.mjs` (mọi dịch vụ/host/Worker/kho mới phải ở `infra/resources.json`).
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
 - **Trước MỖI lần push: `npm run prepush`** (tự dựng lại ci-triage, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
@@ -59,22 +60,10 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Định dạng chính = NEWS-ANCHOR (Ama trái, Carlos phải, phông xanh), chỉ tiếng Anh, 1 ý/clip; diễn cảnh tạm dừng; nhà hàng/Priya loại.
 - Kho footage (`brand/library/cine`, gitignore) → sao lưu `bash scripts/footage-backup.sh` (repo riêng `lexkite-footage`) sau mỗi lần thêm; không để footage chỉ ở scratchpad.
 - Short ĐẠT lưu bền ở repo riêng `lexkite-shorts` (artifact CI hết hạn 14 ngày) + Drive (`drive-shorts.yml`).
-- Mọi lớp chữ phải có hộp bố cục & bị QA kiểm; điểm tự chấm cao ≠ khung đúng → luôn soi khung/tờ ảnh ghép.
-- ffmpeg: luôn `-nostdin`; `alimiter level=0`; tone −60 dB ở 0 s.
 - **Cổng duyệt (chủ 22/10)**: mẫu mới/lô mới → tự QA → gửi anh mẫu + báo cáo số đo → CHỜ anh OK mới bật auto/dựng hàng loạt/xếp lịch.
-- Người dẫn = giáo viên Mỹ (KHÔNG lower-third tên – chủ bỏ 22/10; giữ "Teacher's tip", "Repeat after me", giọng giáo viên); chỉ cử chỉ trung tính, đứng; không cử chỉ ký hiệu (đếm ngón/lắc ngón Kling hỏng).
-- Hình: không làm mờ nền/hạt phim; không phóng người > 1.0×; push-in từ nền 1,25×; master CRF 17 ≥ 8 Mbps; QA độ nét (Laplacian), SSIM ≥ 0,97.
-- Tách nền: trimap + AI matting (ViTMatte) + khử màu viền (pymatting) + chống ám xanh vùng viền + ổn định theo thời gian; QA viền (`scripts/video/matte_qa.py`).
-- Liền mạch trong 1 video (chủ 22/10): mỗi người dẫn giữ 1 bộ trang phục suốt clip; 1 nền/1 địa điểm/1 ánh sáng cho cả clip; đổi cảnh bằng khung cắt khác của CÙNG nền (Ama nửa trái, Carlos nửa phải, giữ cố định khung mỗi người); đúng 180° (Ama trái nhìn phải, Carlos phải nhìn trái); QA 1 bg_id/clip.
-- Khớp bối cảnh: `bg/<id>.zones.json` (độ sâu + phân vùng) → chỉ đặt người ở vùng sàn, tầm mắt ≈ chân trời; cổng AI nhìn khung ghép (đứng trên bàn/ghế/nước = trượt).
-- Cách giảng (bắt buộc mọi kịch bản): 1 ý · sai→đúng + vì sao ngắn · ví dụ tình huống · mẹo nhớ hình ảnh · đoán trước đáp án · nói theo · nhắc lại giãn cách · lỗi theo tiếng mẹ đẻ (`VIDEO-SCALE-PLAN.md` §12).
-- **Ngữ pháp dựng (chủ 24/10 – "chuyển cảnh nghiệp dư" dù QC 100):** `scripts/cine/news_edit.py` (`NEWS_EDIT=A|B|C`): cắt đúng chỗ ngắt câu, không cắt giữa câu, đổi người = J-cut/cắt cứng/whip 6-8 khung (không pan 0,7 s), nhấn = punch 1.0↔1.12, chữ động vào/ra mượt, duck nền −40 dB. Cổng `scripts/cine/qa_edit.py` (cắt giữa câu = 0, cắt-đúng-ngắt ≥ 0,9, pan chậm = 0, pop-in = 0). Chi tiết: `archive/METHODS-HISTORY.md` § "Ngữ pháp dựng".
-- QC bắt buộc mọi khâu: `docs/VIDEO-QC.md` (trước & sau cho nhân vật, nền, kịch bản, giọng, phụ đề, video); trượt 1 cổng = không dùng/không đăng.
-- Chống trùng & 100 điểm: `docs/VIDEO-SCALE-PLAN.md` (7 trục đa dạng, pHash/chromaprint, kiểm khớp chữ↔giọng↔khẩu hình, ≥ 90 mới đăng).
+- Luật dựng/QA/tách nền/Kling/kho 3D/cách giảng/ngữ pháp dựng: `docs/VIDEO.md` §9 (chuyển nguyên văn từ METHODS 27/10). QC mọi khâu: `VIDEO-QC.md`; chống trùng: `VIDEO-SCALE-PLAN.md`.
 
-- Video dạy học (27/10, chuẩn ở `VIDEO-SERIES.md` §Production standard): chỉ 2 người dẫn 3D (Carlos, Ama); bố cục v14 = viết thẳng lên bảng, mực theo ánh sáng bảng; clip theo tâm trạng câu, biểu cảm có trần.
 
-- Kho 3D (`scripts/video/bank3d/`): ảnh khung đầu qua `check_first.py` TRƯỚC khi tạo clip; mọi clip có câu khoá vị trí (`send2.sh`), neo ảnh chuẩn; sau: `qc2.py`, tờ ảnh, gate CI.
 - App: ưu tiên chạy trên máy; tải theo bài; YouTube nhúng ảnh xem trước; ảnh AVIF/WebP.
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
@@ -101,13 +90,8 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 ---
 Lịch sử đầy đủ (bài học 17–26/10, Kling, chroma key, kho, video, D1, điều phối): `docs/archive/METHODS-HISTORY.md`.
 
-## Bài học footage/hạ tầng – luật cô đọng (toàn văn: `docs/archive/METHODS-HISTORY.md` § "Chuyển từ METHODS 26/10")
-- Tách nền: không ghi màu đen dưới alpha 0, không ngưỡng alpha sau co giãn; dùng `matte_refine.py`, `place()`/`over()` premultiplied, QA `edge_qa()` + zoom 400 %.
+## Bài học hạ tầng – luật cô đọng (video/footage: `docs/VIDEO.md` §9; toàn văn: `docs/archive/METHODS-HISTORY.md` § "Chuyển từ METHODS 26/10")
 - CI giọng: runner mới không có ffmpeg → `apt-get install ffmpeg`; ghim faster-whisper 1.0.3.
-- Người dẫn luôn ĐỨNG, cử chỉ trung tính, không cử chỉ ký hiệu; khung đầu = khung cuối tư thế để nối.
-- Nền: OCR (`bgqc.py`) + nhìn tay; không ghi "clock" trong prompt; mỗi nền phải có sàn đứng được; nhân vật mới = i2i TỪ ref cũ + cổng tay `ref_qc.py`.
-- Kling: 2 nhịp mặt phải ghi khe thời gian; khóa miệng khi im; dry-run phải chứa đoạn prompt vừa sửa; KHÔNG cộng nhẩm credit (dùng `CAP`/`CAPRE` từ ledger); "too many requests" (0 cr) = chờ gửi lại, không tính hỏng.
-- Kho nền rộng: cổng `bg_gates.py`; chi cho ĐỊA ĐIỂM MỚI, không biến thể thứ 4-5 của cùng địa điểm.
 - D1: việc nền qua `_d1guard.js` (429 `quota-guard` ≥ 50 %), truy vấn theo khoá (EXPLAIN chặn quét bảng), không thăm dò API bằng vòng lặp; dữ liệu nội bộ ở D1 `lexkite-internal` (tài khoản CF thứ 2).
 - Mọi việc nền khai báo `infra/jobs.json` + lease (fail-closed); neuron Workers AI tài khoản chính dành cho người dùng, nền dùng tài khoản 2.
 - CI đỏ: `ci-triage.yml` phân loại; workflow mới phải thêm vào danh sách `workflow_run`; job gọi API bọc `scripts/ci/quota-skip.mjs`.
@@ -120,15 +104,12 @@ Mọi việc mới (tính năng, pipeline, job nền, nội dung hàng loạt) �
 4. **Sửa theo LOẠI lỗi, không theo lần:** mỗi lỗi tìm gốc (5 lần "vì sao"), thêm 1 test/cổng chặn cả loại đó (vd. EXPLAIN chặn quét bảng, overflow gate chặn tràn chữ, lease fail-closed).
 5. **Một chủ mỗi mảng + agent ngắn** (TOKEN-RULES §9) – không 2 bên cùng sửa 1 file, không agent chạy dài.
 
-- **Quét lỗi tiềm ẩn hằng đêm (24/10):** `quality-sweep.yml` (docs/QUALITY-SWEEP.md) – 0 token, hermetic (/api = {}), 1 issue "quality-sweep" + 1 dòng bản tin. Lỗi nó tìm ra → sửa theo LOẠI + thêm cổng vào npm test, đừng chỉ vá từng trang.
-- **Liên kết nội bộ (24/10, /vi/blog/-lang 404):** gốc lỗi = `web/blog-lang.html` cắt `^/blog/?` làm "/blog-lang" thành đuôi "-lang". Cổng: `scripts/lib/url-guard.mjs` (badPath/joinPath – URL bài dựng qua joinPath), `scripts/test/links-js.mjs` (jsdom chạy script thật, quét liên kết DOM + tĩnh của mọi trang blog, ma trận chuyển hướng /blog*, gợi ý 404), `crawl.js` quét href do JS sinh. Mọi URL ghép từ biến → dùng joinPath, không nối chuỗi trần.
 
-- **Quảng cáo (24/10, `docs/ADS.md`):** AdSense web / AdMob app / add-on KHÔNG BAO GIỜ; danh sách vị trí CHO PHÉP (Hôm nay, cuối blog, toàn màn hình sau phiên, có thưởng tự chọn) – mọi chỗ khác chặn (`web/js/ads/policy.js`, test `ads.mjs`). Mọi mã quảng cáo tải lười, khung app chỉ có vỏ ≤ 1 KB; cờ ở Quản trị › Quảng cáo (công tắc khẩn cấp `ads_kill`); cổng giữ chân tự giảm tần suất. Bật nền tảng mới = làm `STORE-READINESS.md` §E cùng lúc.
+- **Quảng cáo:** AdSense web / AdMob app / add-on KHÔNG BAO GIỜ; chỉ ở vị trí CHO PHÉP (deny-by-default), tải lười, cờ ở Quản trị – toàn văn `docs/ADS.md`. Bật nền tảng mới = làm `STORE-READINESS.md` §E cùng lúc.
 
 ## Cổng QA nội dung – BẮT BUỘC (24/10, `docs/CONTENT-QA.md`)
-- MỌI nguồn nội dung (Claude, Antigravity, bot CI, người) qua `scripts/content-qa/gate.mjs` trong `npm test` + `ci.yml` + trước commit của job sinh (`explain.yml`). Thư mục nội dung mới phải đăng ký `content/qa/sources.json`, nếu không CI đỏ.
-- 7 lớp: lược đồ + đối chiếu kho từ · ✗/✓ hợp lệ · **2 giám khảo khác họ mô hình cùng ≥ 4, lệch ≤ 1** (không đạt → hàng duyệt, KHÔNG xuất) · CEFR khớp cấp bài · dịch (dịch ngược ≥ 0.8, không lẫn tiếng, đúng chữ viết, giữ `{biến}`/`[ô]`/số) · kiểm mẫu ≥ 5%/lô, sai > 2% → loại cả lô · báo lỗi "nội dung sai" từ 3 thiết bị → tự ẩn (`content_hidden`), sửa xong thì `unhide`.
-- Lỗi cũ nằm ở `content/qa/baseline.json`, **chỉ được giảm** (`--lower-baseline`). Sửa theo LOẠI lỗi, không theo từng mục.
-- Sinh nội dung/dịch: chỉ dùng kho Gemini hoặc Workers AI tài khoản 2, đăng ký `infra/jobs.json`; **không** dùng AI tài khoản chính. Lộ trình mảng: `docs/CONTENT-ROADMAP.md`.
-- **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.
+- MỌI nguồn nội dung qua `scripts/content-qa/gate.mjs` (npm test + ci.yml + trước commit job sinh); thư mục mới phải đăng ký `content/qa/sources.json` nếu không CI đỏ. 7 lớp, baseline `content/qa/baseline.json` **chỉ được giảm**, sửa theo LOẠI lỗi, 2 giám khảo khác họ lệch ≤ 1 – toàn văn `docs/CONTENT-QA.md`.
+- Sinh nội dung/dịch: chỉ kho Gemini hoặc Workers AI tài khoản 2, đăng ký `infra/jobs.json`; **không** AI tài khoản chính. Lộ trình: `docs/CONTENT-ROADMAP.md`.
+- Quét lỗi nền hằng đêm + liên kết nội bộ (joinPath/url-guard): `docs/QUALITY-SWEEP.md`.
+- LCP app (24/10): màn đầu chỉ HTML + style.css, JS khung nạp sau khung hình đầu; không thêm `<script>`/preload/fade – `docs/UX-PUBLIC.md` §LCP.
 - **Dung lượng repo (24/10):** `docs/STORAGE.md` (toàn văn luật: `archive/METHODS-HISTORY.md` § "Chuyển từ METHODS 27/10").
