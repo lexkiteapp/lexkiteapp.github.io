@@ -61,7 +61,27 @@
 .lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
 .lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
-@media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on{transition:none;animation:none}}`;
+/* bản đồ */
+.lsn-path{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+.lsn-node{position:relative;transform:translateX(var(--x));display:flex;flex-direction:column;align-items:center}
+.lsn-dot{width:76px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);box-shadow:0 6px 0 var(--line);text-decoration:none}
+.lsn-dot svg{width:32px;height:32px}.lsn-node.done .lsn-dot{background:var(--good);color:#fff;box-shadow:0 6px 0 var(--good-text)}
+.lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:#fff;box-shadow:0 7px 0 var(--primary-ink);animation:lsnGlow 1.6s ease-in-out infinite}
+.lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
+@keyframes lsnGlow{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 14px var(--primary))}}
+@keyframes lsnBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* game feel */
+.lsn-big{width:84px;height:84px;border-radius:22px;border:0;background:var(--primary);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 0 var(--primary-ink);font-size:1.6rem}
+.lsn-big.sm{width:60px;height:60px;background:var(--surface-2);color:var(--text);box-shadow:0 4px 0 var(--line)}.lsn-big svg{width:36px;height:36px}.lsn-big:active{transform:translateY(3px);box-shadow:none}
+.lsn-snd{justify-content:center}.lsn-tile.pop{animation:lsnPop .2s ease}
+.lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.6rem;opacity:0;transform:scale(.4)}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
+@keyframes lsnEmo{0%{opacity:0;transform:scale(.4)}25%{opacity:1;transform:scale(1.2)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1) translateY(-10px)}}
+.tch.nod{animation:lsnNod .5s ease}.tch.shake{animation:lsnShake .4s ease}
+@keyframes lsnNod{0%,100%{transform:translateY(0)}40%{transform:translateY(5px)}}@keyframes lsnShake{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg)}70%{transform:rotate(3deg)}}
+.lsn-bar.glow i{animation:lsnBar .6s ease}@keyframes lsnBar{50%{box-shadow:0 0 12px var(--good);filter:brightness(1.2)}}
+.lsn-foot.ok,.lsn-foot.bad{animation:lsnUp .22s ease-out}@keyframes lsnUp{from{transform:translateY(40%);opacity:.4}to{transform:none;opacity:1}}
+.lsn-go{min-width:220px;margin:.4rem 0}
+@media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on,.lsn-node.next .lsn-dot,.lsn-start,.lsn-tile.pop,.lsn-emo.on,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-foot.ok,.lsn-foot.bad{transition:none;animation:none}.lsn-emo.on{opacity:1;transform:none}}`;
     document.head.appendChild(st);
   }
 
@@ -69,40 +89,61 @@
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
   const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; const f = $('#lsnFoot'); if (f) f.remove(); };
 
-  routes.lesson = async function () {
+  // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
+  const PKEY = demo => (demo ? 'lk.lsn.path.demo' : 'lk.lsn.path');
+  const pathN = demo => Math.max(0, parseInt(ls.get(PKEY(demo)) || '0', 10) || 0);
+  const Q = demo => (demo ? '?demo=1' : '');
+  const KICON = { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'repeat' };
+  const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: t('Ôn lỗi') }[k]);
+
+  routes.lesson = async function (arg) {
     css(); cleanup();
     const demo = /[?&]demo=1\b/.test(location.hash);
     if (!demo && !(App.lessonOn && App.lessonOn())) { view.innerHTML = `<div class="card center"><p>${t('Bài học trộn đang thử nghiệm, sắp ra mắt.')}</p><a class="btn primary" href="#/home">${t('Quay về trang chủ')}</a></div>`; return; }
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
-    await imgP();
     const cards = demo ? DEMO() : Object.values(state.cards || {});
-    const picks = E.pickWords(cards, { n: 6, starter: STARTER() });
-    const items = E.build(picks, { seed: demo ? 7 : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow() });
+    const plan = E.pathPlan(cards), n = pathN(demo), node = plan[n % plan.length];
+    if (arg !== 'go') return map(demo, plan, n);
+    await imgP();
+    const picks = E.pickWords(cards, { n: 4, starter: STARTER(), mode: node.kind }); // 4 từ ≈ 9 bài ≈ 2–3 phút
+    const items = E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind] });
     const prev = ls.get('lk.lsn.who'), who = prev === 'ama' ? 'carlos' : 'ama'; ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
-    L = { demo, items, sess: new E.Session(items), picks, who, t0: Date.now(), spoken: 0 };
+    L = { demo, items, sess: new E.Session(items), picks, who, t0: Date.now(), spoken: 0, kind: node.kind };
     App.onCleanup(cleanup);
     view.innerHTML = `<div class="lsn" id="lsn">
-      <div class="lsn-top"><a class="icon-btn lsn-x" href="#/home" aria-label="${t('Thoát bài học')}">✕</a>
+      <div class="lsn-top"><a class="icon-btn lsn-x" href="#/lesson${Q(demo)}" aria-label="${t('Thoát bài học')}">✕</a>
         <div class="lsn-bar" role="progressbar" aria-label="${t('Tiến độ bài học')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
         <span class="lsn-combo" id="lsnCombo" aria-live="polite"></span></div>
-      ${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}
-      <div class="lsn-ask"><div id="lsnTch"></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>
+      <div class="lsn-ask"><div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>
       <div id="lsnBody"></div></div>`;
     const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), who) : null; } catch (e) { L.teacher = null; }
     next();
   };
 
+  // 🗺️ Bản đồ chặng: MỘT nút "tiếp theo" phát sáng + nút BẮT ĐẦU to; nút đã xong ✓, nút sau mờ. Không menu, không phải chọn.
+  function map(demo, plan, n) {
+    const unit = Math.floor(n / plan.length) + 1, at = n % plan.length;
+    const nodes = plan.map((p, i) => {
+      const st = i < at ? 'done' : i === at ? 'next' : 'lock', x = [0, 34, 0, -34, 0, 34][i % 6];
+      return `<li class="lsn-node ${st}" style="--x:${x}px">${st === 'next' ? `<a class="btn primary lg lsn-start" href="#/lesson/go${Q(demo)}">${t('Bắt đầu')}</a>` : ''}
+        ${st === 'next' ? `<a class="lsn-dot" href="#/lesson/go${Q(demo)}" aria-label="${esc(KNAME(p.kind))}">` : `<span class="lsn-dot" role="img" aria-label="${esc(KNAME(p.kind))}${st === 'done' ? ' ✓' : ''}">`}${st === 'done' ? UI.icon('circle-check') : UI.icon(KICON[p.kind])}${st === 'next' ? '</a>' : '</span>'}</li>`;
+    }).join('');
+    view.innerHTML = `<div class="lsn lsn-map"><div class="lsn-top"><a class="icon-btn lsn-x" href="#/home" aria-label="${t('Quay về trang chủ')}">✕</a><b class="grow center">${t('Chặng học {n}', { n: unit })}</b><span class="chip">${at}/${plan.length}</span></div>
+      ${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}
+      <ol class="lsn-path">${nodes}</ol><p class="tiny muted center">${t('Miễn phí, không giới hạn')}</p></div>`;
+  }
+
   const say = (text, slow) => { if (!L) return; if (L.teacher) L.teacher.say(text, { rate: slow ? 0.7 : 0.95 }); else UI.tts(text, 'en-US', slow ? 0.7 : 0.95); };
   const TITLE = it => ({
-    gap: it.noAudio ? t('Đọc và chọn từ còn thiếu') : t('Nghe và chọn từ còn thiếu'),
-    build: it.noAudio ? t('Xếp thành câu đúng') : t('Nghe và xếp thành câu'),
-    say: t('Nói theo câu này'),
-    pic: it.choice ? t('Nhìn ảnh và chọn từ đúng') : t('Nhìn ảnh và nói từ này'),
+    gap: t('Chọn từ còn thiếu'),
+    build: t('Xếp thành câu'),
+    say: t('Nói câu này'),
+    pic: it.choice ? t('Đây là gì?') : t('Nói tên hình'),
     tr: t('Dịch câu này'),
-    mean: t('Chọn từ có nghĩa này'),
-    type: it.noAudio ? t('Gõ từ tiếng Anh có nghĩa này') : t('Nghe và gõ lại từ bạn nghe'),
-    match: t('Ghép từ với nghĩa của nó'),
+    mean: t('Chọn từ đúng'),
+    type: it.noAudio ? t('Gõ từ tiếng Anh') : t('Gõ từ bạn nghe'),
+    match: t('Ghép cặp'),
   }[it.type]);
   const LISTENS = it => !it.noAudio && (it.type === 'gap' || it.type === 'build' || it.type === 'say' || it.type === 'type');
   const SPEAKS = it => it.type === 'say' || (it.type === 'pic' && !it.choice);
@@ -120,14 +161,14 @@
     if (!it) return finish();
     L.pick = null; L.tiles = []; L.checked = false;
     const bub = $('#lsnBub'), body = $('#lsnBody');
-    const tag = it.retry ? `<span class="lsn-tag">↺ ${t('Lỗi cũ')}</span><br>` : (it.own && (it.type === 'gap' || it.type === 'build') ? `<span class="lsn-tag own">${t('Câu bạn đã gặp khi tra từ')}</span><br>` : '');
+    const tag = it.retry ? `<span class="lsn-tag">↺ ${t('Lỗi cũ')}</span><br>` : (it.own && (it.type === 'gap' || it.type === 'build') ? `<span class="lsn-tag own">🔎 ${t('Từ bạn đã tra')}</span><br>` : '');
     let sub = '';
     if (it.type === 'tr') sub = esc(it.prompt);
     else if (it.type === 'mean') sub = esc(meanOf(it.card));
     else if (it.type === 'type' && it.noAudio) sub = esc(meanOf(it.card));
     else if (it.type === 'build' && it.noAudio) sub = esc(it.prompt || meanOf(it.card));
     bub.innerHTML = tag + esc(TITLE(it)) + (sub ? `<small lang="${it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en'}">${sub}</small>` : '');
-    const snd = LISTENS(it) ? `<div class="lsn-snd"><button class="btn" id="lsnPlay">🔊 ${t('Nghe lại')}</button><button class="btn" id="lsnSlow" aria-label="${t('Nghe chậm hơn')}">🐢 ${t('Nghe chậm hơn')}</button></div>` : '';
+    const snd = LISTENS(it) ? `<div class="lsn-snd"><button class="lsn-big" id="lsnPlay" aria-label="${t('Nghe lại')}">${UI.icon('audio-lines')}</button><button class="lsn-big sm" id="lsnSlow" aria-label="${t('Nghe chậm hơn')}">🐢</button></div>` : '';
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
     if (it.type === 'gap') {
       const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? `<span class="lsn-gap" id="lsnGap">&nbsp;</span>` : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
@@ -178,8 +219,8 @@
     document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
     if (bank) {
-      const draw = () => { ans.innerHTML = L.tiles.map(i => `<button class="lsn-tile" data-a="${i}">${esc(it.tiles[i])}</button>`).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
-      bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked || L.tiles.includes(+b.dataset.i)) return; L.tiles.push(+b.dataset.i); draw(); };
+      const draw = () => { ans.innerHTML = L.tiles.map((i, k) => `<button class="lsn-tile${k === L.tiles.length - 1 && L.popLast ? ' pop' : ''}" data-a="${i}">${esc(it.tiles[i])}</button>`).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
+      bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked || L.tiles.includes(+b.dataset.i)) return; L.tiles.push(+b.dataset.i); L.popLast = true; if (window.Sfx) Sfx.pop(); draw(); L.popLast = false; };
       ans.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked) return; L.tiles = L.tiles.filter(i => i !== +b.dataset.a); draw(); };
     }
     on('lsnMic', () => {
@@ -197,27 +238,36 @@
     if (!L || L.checked) return; L.checked = true;
     const it = L.sess.cur, ok = E.check(it, ans), r = L.sess.answer(ok);
     bar();
-    if (L.teacher && ok && r.combo >= 3 && r.combo % 3 === 0) L.teacher.say('Nice!', { rate: 1 });
+    react(ok, r.combo);
     feedback(it, ok, heard);
+  }
+
+  // 🎮 Phản hồi kiểu game: âm + rung (Sfx dùng chung, tắt theo Cài đặt › Hiệu ứng âm thanh / giảm chuyển động) + giáo viên phản ứng mỗi câu
+  const OK_LINES = ['Nice!', 'Great!', 'Yes!', 'Perfect!', 'Well done!'], NO_LINES = ['Almost!', 'Not quite.', "Let's try again."];
+  function react(ok, combo) {
+    try { if (window.Sfx) { if (ok && combo >= 3 && combo % 3 === 0 && Sfx.combo) Sfx.combo(combo); else (ok ? Sfx.correct : Sfx.wrong)(); } } catch (e) { /* bỏ qua */ }
+    const el = $('#lsnTch'), pop = $('#lsnEmo');
+    if (el) { el.classList.remove('nod', 'shake'); void el.offsetWidth; el.classList.add(ok ? 'nod' : 'shake'); }
+    if (pop) { pop.textContent = ok ? (combo >= 3 ? '🔥' : '😊') : '💪'; pop.classList.remove('on'); void pop.offsetWidth; pop.classList.add('on'); }
+    const lines = ok ? OK_LINES : NO_LINES;
+    if (L.teacher) L.teacher.say(lines[(L.sess.n + (combo || 0)) % lines.length], { rate: 1 });
+    const b = $('.lsn-bar'); if (b && ok) { b.classList.remove('glow'); void b.offsetWidth; b.classList.add('glow'); }
   }
 
   function feedback(it, ok, heard) {
     const foot = $('#lsnFoot');
     foot.className = 'lsn-foot ' + (ok ? 'ok' : 'bad');
     if (!it.card) { // ghép cặp: không gắn một từ
-      foot.innerHTML = `<div><div class="lsn-fb" role="status"><h3>${ok ? '✓ ' + t('Chính xác!') : '✗ ' + t('Có cặp ghép nhầm')}</h3>${ok ? '' : `<p class="tiny muted">${t('Câu này sẽ quay lại cuối bài để bạn làm lại.')}</p>`}</div><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
+      foot.innerHTML = `<div><div class="lsn-fb" role="status"><h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + t('Có cặp ghép nhầm')}</h3></div><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
       $('#lsnNext').onclick = () => next(); $('#lsnNext').focus(); return;
     }
-    const c = it.card, st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
+    const c = it.card;
     foot.innerHTML = `<div><div class="lsn-fb" role="status">
-        <h3>${ok ? '✓ ' + t('Chính xác!') : '✗ ' + t('Chưa đúng')}</h3>
-        ${ok ? '' : `<p>${t('Đáp án đúng:')} <b lang="en">${esc(it.answer)}</b></p>`}
-        <p><b lang="en">${esc(c.word)}</b> <span class="ipa small">${esc(c.ipaUS || c.ipa || '')}</span> <button class="icon-btn sm" id="lsnW" aria-label="${t('Nghe')}">🔊</button> – ${esc(meanOf(c))}</p>
-        ${st ? `<p class="small">${t('Trọng âm rơi vào âm tiết {n}/{m}', { n: st.syl, m: st.of })}</p>` : ''}
-        ${uu ? `<p class="small">${t('Anh – Mỹ đọc khác:')} UK <span class="ipa">${esc(uu.uk)}</span> · US <span class="ipa">${esc(uu.us)}</span></p>` : ''}
-        ${!ok && it.retry < 2 ? `<p class="tiny muted">${t('Câu này sẽ quay lại cuối bài để bạn làm lại.')}</p>` : ''}
+        <h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + t('Chưa đúng')}</h3>
+        ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
+        <p><b lang="en">${esc(c.word)}</b> <span class="ipa small">${esc(c.ipaUS || c.ipa || '')}</span> <button class="icon-btn sm" id="lsnW" aria-label="${t('Nghe')}">🔊</button> · ${esc(meanOf(c))}</p>
         <div class="lsn-xp" id="lsnXp" hidden></div></div>
-      <button class="btn" id="lsnWhy">💡 ${t('Giải thích')}</button><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
+      <button class="btn" id="lsnWhy">💡 ${t('Vì sao?')}</button><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
     $('#lsnW').onclick = () => say(c.word);
     $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
@@ -233,6 +283,9 @@
     const c = it.card, G = (window.LESSON_GOLD || {})[E.norm(c.word)] || [];
     const own = c.ctx ? c.ctx : ((c.contexts || [])[0] || {}).text;
     let h = '';
+    const st = E.stress(c.ipaUS || c.ipa), uu = E.usuk(c);
+    if (st) h += `<p class="small">${t('Trọng âm rơi vào âm tiết {n}/{m}', { n: st.syl, m: st.of })}</p>`;
+    if (uu) h += `<p class="small">${t('Anh – Mỹ đọc khác:')} UK <span class="ipa">${esc(uu.uk)}</span> · US <span class="ipa">${esc(uu.us)}</span></p>`;
     G.forEach(x => {
       h += `<p lang="en"><b>${esc(x.why)}</b></p>`;
       if (x.w) h += `<p class="small">✗ <s lang="en">${esc(x.w)}</s><br>✓ <span lang="en">${esc(x.r)}</span></p>`;
@@ -241,7 +294,7 @@
     if (!G.length && c.def) h += `<p><span class="tiny muted">${t('Định nghĩa:')}</span> <span lang="en">${esc(c.def)}</span></p>`;
     const ex = (G[0] && G[0].ex || []).concat(c.ex ? [c.ex] : []).filter((x, i, a) => x && a.indexOf(x) === i).slice(0, 2);
     if (ex.length) h += `<p class="small"><span class="tiny muted">${t('Ví dụ:')}</span> ${ex.map(x => `<span lang="en">${esc(x)}</span>`).join(' · ')}</p>`;
-    if (own) h += `<p class="small"><span class="tiny muted">${t('Câu bạn đã gặp khi tra từ')}:</span> <span lang="en">${esc(own)}</span></p>`;
+    if (own) h += `<p class="small"><span class="tiny muted">🔎 ${t('Từ bạn đã tra')}:</span> <span lang="en">${esc(own)}</span></p>`;
     box.innerHTML = h || `<p class="small">${t('Chưa có giải thích riêng cho từ này.')}</p>`;
   }
 
@@ -249,6 +302,8 @@
     const s = L.sess, res = E.results(s, L.items, L.demo ? {} : state.cards), foot = $('#lsnFoot');
     if (foot) foot.remove();
     if (L.teacher) L.teacher.say(s.accuracy >= 80 ? 'Great job!' : 'Good work. Keep going!', { rate: 1 });
+    ls.set(PKEY(L.demo), String(pathN(L.demo) + 1)); // nút bản đồ xong (demo: khóa riêng)
+    try { if (window.Sfx) Sfx.win(); if (window.confetti && !matchMedia('(prefers-reduced-motion: reduce)').matches) confetti(90); } catch (e) { /* bỏ qua */ }
     let added = 0; const xp = 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
@@ -265,10 +320,10 @@
     $('#lsnBub').textContent = s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!');
     view.querySelector('#lsnBody').innerHTML = `<div class="card lsn-end"><h2>🎉 ${t('Hoàn thành bài học!')}</h2>
       <div class="lsn-stats"><div><b>+${xp}</b><span class="tiny muted">XP</span></div><div><b>${s.accuracy}%</b><span class="tiny muted">${t('Tỉ lệ trả lời đúng')}</span></div><div><b>🔥 ${s.best}</b><span class="tiny muted">${t('COMBO cao nhất')}</span></div><div><b>${Math.max(1, Math.round((Date.now() - L.t0) / 60000))}′</b><span class="tiny muted">${t('Thời gian')}</span></div></div>
-      ${weak.length ? `<p>${t('Từ cần ôn thêm')}: <b lang="en">${weak.map(esc).join(', ')}</b></p><p class="tiny muted">${L.demo ? t('Bài thử (không lưu tiến độ)') : t('Đã đưa {n} từ vào hàng ôn tập', { n: res.filter(r => r.grade === 0).length })}${added ? ' · ' + t('{n} thẻ mới', { n: added }) : ''}</p>` : `<p>${t('Không sai câu nào!')}</p>`}
-      <p class="tiny muted">${t('Không giới hạn – học bao nhiêu bài cũng được, miễn phí.')}</p>
-      <div class="row center" style="gap:.6rem;flex-wrap:wrap"><button class="btn primary lg" id="lsnAgain">${t('Bài khác')}</button><a class="btn" href="#/home">${t('Quay về trang chủ')}</a></div></div>`;
+      ${weak.length ? `<p class="small">🔁 <b lang="en">${weak.map(esc).join(', ')}</b></p>` : `<p>⭐ ${t('Không sai câu nào!')}</p>`}
+      <button class="btn primary lg lsn-go" id="lsnAgain">${t('Bài khác')} →</button><p><a class="small" href="#/lesson${Q(L.demo)}">${UI.icon('map')} ${t('Bản đồ bài học')}</a></p></div>`;
     bar(); $('.lsn-bar').firstChild.style.width = '100%';
-    $('#lsnAgain').onclick = () => routes.lesson();
+    $('#lsnAgain').onclick = () => routes.lesson('go');
+    $('#lsnAgain').focus();
   }
 })();

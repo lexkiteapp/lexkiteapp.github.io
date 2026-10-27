@@ -29,6 +29,11 @@
 7. **Cuối bài → FSRS**: từ sai ≥ 1 lần → `grade 0` (Quên) – chưa có thẻ thì `App.addWord` để vào hàng ôn; từ đến hạn đúng ngay lần đầu → `grade 2`; từ chưa đến hạn đúng → không đổi lịch. XP qua `App.reward`. Demo (`?demo=1`) không ghi gì.
 8. **0 tim, 0 năng lượng, 0 khóa**: không có giới hạn số bài/ngày.
 
+## 2b. Cảm giác game (chủ 27/10: "như Duolingo – ít chữ, không phải nghĩ học gì")
+- `#/lesson` = **bản đồ chặng** 6 nút tự trộn (`pathPlan`: Bài học · Nghe · Nói · Ôn lỗi; nhiều từ đến hạn/hay quên → mở bằng Ôn lỗi), **một** nút phát sáng + BẮT ĐẦU; `#/lesson/go` = chơi nút đó. Truyện/Radio thành nút khi có (§8).
+- Bài 2–3 phút (4 từ ≈ 9 bài). Chữ hướng dẫn ≤ 5 từ; giải thích chỉ khi bấm **Vì sao?** (trọng âm, US/UK, gold `why`).
+- Mỗi câu: âm + rung (`Sfx`, theo Cài đặt › Hiệu ứng âm thanh), giáo viên gật/lắc + nói ("Nice!"/"Almost!") + emoji; ô chữ nảy, thanh tiến độ sáng, COMBO 🔥; màn kết pháo giấy + XP · % · thời gian, **1 chạm** sang bài tiếp. Chỉ transform/opacity (60 fps), tắt khi giảm chuyển động.
+
 ## 3. Bảy dạng bài (MVP)
 | Dạng | Cần dữ liệu | Chấm | Khi tắt nghe / nói |
 |---|---|---|---|

@@ -43,6 +43,7 @@
   function pickWords(cards, opts = {}) {
     const now = opts.now || Date.now(), n = opts.n || 6, list = (Array.isArray(cards) ? cards : Object.values(cards || {})).filter(c => c && c.word && (c.vi || c.def));
     const out = [], seen = new Set(), add = (c, why) => { const k = norm(c.word); if (out.length < n && !seen.has(k)) { seen.add(k); out.push({ card: c, why }); } };
+    if (opts.mode === 'review') list.filter(c => c.srs && c.srs.lapses > 0 && (c.srs.reps === 0 || isDue(c, now))).sort((a, b) => b.srs.lapses - a.srs.lapses).forEach(c => add(c, 'due')); // nút Ôn lỗi: từ hay quên trước
     list.filter(c => isDue(c, now)).sort((a, b) => a.srs.due - b.srs.due).forEach(c => add(c, 'due'));
     list.filter(c => !isDue(c, now) && fromExt(c)).sort((a, b) => (b.mod || 0) - (a.mod || 0)).forEach(c => add(c, 'ext'));
     list.filter(c => isNew(c)).sort((a, b) => (b.mod || 0) - (a.mod || 0)).forEach(c => add(c, 'new'));
@@ -72,7 +73,8 @@
       if (pair) types.push('tr');
       if (!/\s/.test(c.word.trim()) && c.word.length >= 3) types.push('type'); // nghe gõ lại (từ đơn)
       types.push('say');
-      return { p, c, s, pair, types };
+      const only = opts.only && types.filter(x => opts.only.includes(x));
+      return { p, c, s, pair, types: only && only.length ? only : types };
     });
     // cân bằng cả bài: mỗi vòng, mỗi từ lấy dạng còn ít nhất trong bài (hòa → ngẫu nhiên), dạng hiếm (pic, tr) được ưu tiên khi hòa
     const cnt = { gap: 0, build: 0, pic: 0, tr: 0, type: 0, say: 0 }, RARE = { pic: 0, tr: 0.1, build: 0.2, type: 0.25, gap: 0.3, say: 0.4 };
@@ -101,7 +103,7 @@
     for (let i = 1; i < items.length; i++) if (same(items[i].word, items[i - 1].word)) { const j = items.findIndex((x, k) => k > i && !same(x.word, items[i - 1].word)); if (j > 0) [items[i], items[j]] = [items[j], items[i]]; }
     // Ghép cặp (từ ↔ nghĩa) giữa bài khi có ≥ 4 từ: 1 bài, không gắn từ riêng (card null → không ghi FSRS theo từ)
     const mp = picks.filter(p => p.card.vi || p.card.def).slice(0, 5);
-    if (opts.match !== false && mp.length >= 4) items.splice(Math.ceil(items.length / 2), 0, { id: ++id, type: 'match', word: '#match', card: null, retry: 0, answer: '', pairs: shuffle(mp, r).slice(0, 4).map(p => p.card) });
+    if (opts.match !== false && (!opts.only || opts.only.includes('match')) && mp.length >= 4) items.splice(Math.ceil(items.length / 2), 0, { id: ++id, type: 'match', word: '#match', card: null, retry: 0, answer: '', pairs: shuffle(mp, r).slice(0, 4).map(p => p.card) });
     return items.map(it => adapt(it, off));
   }
 
@@ -180,5 +182,14 @@
     return cues;
   }
 
-  g.LessonEngine = { norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
+  /** Bản đồ chặng: 6 nút/chặng, tự trộn theo dữ liệu (người học không phải chọn). Nhiều thẻ đến hạn/hay quên → mở chặng bằng Ôn lỗi.
+   *  → [{ kind: 'review'|'lesson'|'listen'|'speak' }] */
+  function pathPlan(cards, now = Date.now()) {
+    const list = Object.values(cards || {}).filter(c => c && c.srs), due = list.filter(c => isDue(c, now)).length, weak = list.filter(c => c.srs.lapses > 0).length;
+    return [due + weak >= 3 ? 'review' : 'lesson', 'listen', 'lesson', 'speak', 'lesson', 'review'].map(kind => ({ kind }));
+  }
+  // Dạng bài theo loại nút
+  const KIND = { lesson: null, review: null, listen: ['gap', 'build', 'type', 'match'], speak: ['say', 'pic', 'gap'] };
+
+  g.LessonEngine = { pathPlan, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
 })(typeof self !== 'undefined' ? self : globalThis);

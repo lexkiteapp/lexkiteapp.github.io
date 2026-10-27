@@ -104,6 +104,16 @@ const C = {
   const v = E.visemes('Hello, Ama!', 1);
   ok(v.length > 3 && v[v.length - 1][1] === 'X' && v.every((c, i) => !i || c[0] >= v[i - 1][0]), 'visemes: dòng thời gian tăng dần, kết thúc miệng nghỉ');
 }
+{
+  const P = E.pathPlan({}, NOW).map(x => x.kind);
+  ok(P.length === 6 && P[0] === 'lesson' && P.includes('listen') && P.includes('speak') && P[5] === 'review', 'pathPlan: chặng 6 nút tự trộn bài học/nghe/nói/ôn');
+  const weak = Object.assign({}, C, { w1: { word: 'w1', vi: 'x', srs: Object.assign(srs(NOW - DAY, 2), { lapses: 2 }) } });
+  ok(E.pathPlan(weak, NOW)[0].kind === 'review', 'pathPlan: nhiều từ đến hạn/hay quên → mở chặng bằng Ôn lỗi');
+  const li = E.build(E.pickWords(C, { now: NOW, n: 4 }), { seed: 5, only: E.KIND.listen });
+  ok(li.every(i => E.KIND.listen.includes(i.type)), 'nút Nghe: chỉ dạng nghe');
+  const rv = E.pickWords(weak, { now: NOW, n: 4, mode: 'review' });
+  ok(rv[0].card.word === 'w1', 'nút Ôn lỗi: từ hay quên lên đầu');
+}
 try { execFileSync('node', ['scripts/lesson/build-gold.mjs', '--check'], { stdio: 'pipe' }); ok(true, 'gold.js khớp gold bank'); } catch (e) { ok(false, 'gold.js cũ – chạy node scripts/lesson/build-gold.mjs'); }
 
 // ---------- B. jsdom: chạy trọn 1 bài ----------
@@ -167,17 +177,23 @@ async function solve(right) {
 }
 
 // Demo: chạy trọn bài, sai câu đầu, mở Giải thích, kiểm Lỗi cũ + COMBO, không ghi FSRS
+w.localStorage.removeItem('lk.lsn.path.demo');
 w.location.hash = '#/lesson?demo=1';
-await App.routes.lesson(); await tick(320);
+await App.routes.lesson(); await tick(60);
+ok(w.document.querySelectorAll('.lsn-node').length === 6 && w.document.querySelectorAll('.lsn-node.next').length === 1 && $('.lsn-node.next .lsn-start'), 'bản đồ: 6 nút, đúng MỘT nút "tiếp theo" có nút Bắt đầu');
+ok($('.lsn-start').getAttribute('href') === '#/lesson/go?demo=1' && !w.document.querySelector('.lsn-node.done'), 'bản đồ: Bắt đầu → #/lesson/go, chưa nút nào xong');
+w.location.hash = '#/lesson/go?demo=1';
+await App.routes.lesson('go'); await tick(320);
 ok($('#lsn') && $('.lsn-bar') && $('#lsnBub').textContent.length > 3, 'demo: dựng màn bài học (thanh tiến độ + lời nhắc)');
 const L0 = st();
-ok(L0.demo && L0.items.length >= 10, `demo: ${L0.items.length} bài`);
+ok(L0.demo && L0.items.length >= 7 && L0.items.length <= 11, `demo: ${L0.items.length} bài (2–3 phút)`);
 const types = new Set(L0.items.map(i => i.type));
-ok(['gap', 'build', 'say', 'pic', 'match', 'type'].every(x => types.has(x)) && (types.has('tr') || w.I18N.learnLang() !== 'vi'), 'demo: đủ dạng (' + [...types].join(',') + ', ngôn ngữ học ' + w.I18N.learnLang() + ')');
+ok(types.size >= 5 && types.has('match') && (types.has('tr') || w.I18N.learnLang() !== 'vi'), 'demo: đủ dạng (' + [...types].join(',') + ', ngôn ngữ học ' + w.I18N.learnLang() + ')');
 ok(spoken.length > 0 || !['gap', 'build', 'say'].includes(L0.sess.cur.type), 'giáo viên đọc lời nhắc');
 const firstWord = L0.sess.cur.word;
 await solve(false);
-ok($('#lsnFoot.bad') && /Đáp án đúng|Correct answer/.test($('#lsnFoot').textContent), 'sai → sheet đỏ có đáp án đúng');
+ok($('#lsnFoot.bad') && (!L0.items[0].card || $('#lsnFoot').textContent.includes(L0.items[0].answer.split(' ')[0])), 'sai → sheet đỏ có đáp án đúng');
+ok($('#lsnTch').classList.contains('shake') || !$('#lsnTch .tch-rig') , 'giáo viên phản ứng khi sai');
 $('#lsnWhy').click(); await tick(40);
 ok($('#lsnXp') && !$('#lsnXp').hidden && $('#lsnXp').textContent.length > 10, 'Giải thích hiện ngay (0 AI)');
 $('#lsnNext').click(); await tick();
@@ -193,6 +209,10 @@ ok(sawRetry, `câu sai (${firstWord}) quay lại với nhãn "Lỗi cũ"`);
 ok(sawCombo, 'COMBO hiện khi đúng ≥ 3 liên tiếp');
 ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent) && /\+\d+\s*XP/.test(App.view.querySelector('.lsn-stats').textContent), 'màn kết thúc có XP, tỉ lệ đúng, COMBO, thời gian');
 ok(updates.length === 0 && added.length === 0 && rewards.length === 0, 'demo: không ghi FSRS / thẻ / XP');
+ok(w.localStorage.getItem('lk.lsn.path.demo') === '1' && !w.localStorage.getItem('lk.lsn.path'), 'xong bài → bản đồ demo tiến 1 nút (khóa riêng)');
+ok($('#lsnAgain') && /Bài khác|Next lesson/.test($('#lsnAgain').textContent), 'màn kết: 1 chạm sang bài tiếp');
+w.location.hash = '#/lesson?demo=1'; await App.routes.lesson(); await tick(40);
+ok(w.document.querySelectorAll('.lsn-node.done').length === 1 && w.document.querySelectorAll('.lsn-node')[1].classList.contains('next'), 'bản đồ: nút 1 ✓, nút 2 phát sáng');
 
 // Thật (cờ bật): từ sai → FSRS Quên, XP ghi
 w.localStorage.setItem('lk.lesson', '1');
@@ -204,8 +224,8 @@ App.state.cards = {
   consider: { word: 'consider', pos: 'verb', vi: 'cân nhắc', ex: "We're considering moving to a new city.", contexts: [], srs: { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: now - 864e5, last: now - 4 * 864e5, step: 0, S: 3, D: 5 } },
   afraid: { word: 'afraid', pos: 'adjective', vi: 'sợ', ex: "She's afraid of the dark.", contexts: [], srs: { ef: 2.5, interval: 3, reps: 2, lapses: 0, due: now - 864e5, last: now - 4 * 864e5, step: 0, S: 3, D: 5 } },
 };
-w.location.hash = '#/lesson';
-await App.routes.lesson(); await tick(60);
+w.location.hash = '#/lesson/go';
+await App.routes.lesson('go'); await tick(60);
 const target = st().sess.cur.word;
 await solve(false); $('#lsnNext').click(); await tick();
 // tắt nói giữa bài → bài nói còn lại đổi dạng
