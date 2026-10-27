@@ -79,7 +79,8 @@ if V14:
     _h = TR['clips'][SP['clips'][0]]['head']; _k = max(1.0, min(1.2, 420 / (_h[3] - _h[1])))   # head box (hair included) -> 420 px, never a downscale, at most 1.2x (the v10 crops: host_sharp passes up to 1.2 with the 0.6 unsharp)
     _ox = min(max(0.0, (_h[0] + _h[2]) / 2 - 560 / _k), W - W / _k)   # face towards x 560 (the right 14 % is platform UI); no horizontal fill
     _oy = min(max(-180 / _k, (_h[1] + _h[3]) / 2 - 1080 / _k), H - H / _k)   # head centre towards y 1080; at most 180 px of replicated wall on top (inside the platform's top UI band, y < 232)
-    _ht = (_h[1] - _oy) * _k; _zf = [SAFE['x0'] + 34, SAFE['y0'] + 30, SAFE['x1'] - 34, int(_ht) - 64]   # card zone: safe area above the head (panel pad 26 + 38 px air)
+    _ht = (_h[1] - _oy) * _k; _q = BRD['quad']; _bx1 = (min(_q[1][0], _q[2][0]) - _ox) * _k   # board right edge on screen
+    _zf = [SAFE['x0'] + 34, SAFE['y0'] + 30, int(min(SAFE['x1'] - 34, _bx1 - 30)), int(_ht) - 64]   # owner 27/10: lesson written ON the whiteboard above the head – safe area, inside the board's right edge, 64 px air over the hair
     assert _zf[3] - _zf[1] >= 240, ('v14: no room for the lesson card above the head', _zf)
     _bk[SP['clips'][0]] = dict(_bk[SP['clips'][0]], crop=dict(k=round(_k, 4), ox=round(_ox, 1), oy=round(_oy, 1), zone_force=_zf))
     BRD = {k_: v_ for k_, v_ in BRD.items() if k_ != 'zone_free'}
@@ -364,8 +365,12 @@ def norm_frame(F, crop=True):
     if F.shape[0] != H:
         r = cv2.resize(F, (round(W * H / F.shape[0]), H), interpolation=cv2.INTER_LANCZOS4); x0 = (r.shape[1] - W) // 2; F = r[:, x0:x0 + W].copy()   # uniform 1916 -> 1920
     if CROP and crop:   # punch-in: Lanczos resample + mild unsharp (host_sharp measures it against the native pixels)
-        if CROP.get('oy', 0) < 0: F = F.copy(); F[:6] = F[6]   # v14 wall fill on top: replicate a clean row (row 0 of a Kling frame can be a dark edge line)
-        F = cv2.warpAffine(F, CA, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
+        if CROP.get('oy', 0) < 0:   # v14: the space opened above the frame is WALL (the set continues above the board), not a stretched board-frame row
+            wall = [float(v) for v in np.median(F[4:60, W - 90:W - 10].reshape(-1, 3), 0)]
+            F = cv2.warpAffine(F, CA, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_CONSTANT, borderValue=wall)
+            top_ = int(math.ceil(-CROP['oy'] * CROP['k'])) + 2   # soften the seam: 10 px blend from the wall into the first real row
+            if 10 < top_ < H: F[top_ - 10:top_] = (F[top_ - 10:top_].astype(np.float32) * np.linspace(0, 1, 10)[:, None, None] + np.array(wall, np.float32) * (1 - np.linspace(0, 1, 10)[:, None, None])).astype(np.uint8)
+        else: F = cv2.warpAffine(F, CA, (W, H), flags=cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE)
         a_ = CROP.get('sharp', 0.6); F = cv2.addWeighted(F, 1 + a_, cv2.GaussianBlur(F, (0, 0), CROP.get('sigma', 1.1)), -a_, 0)
     return F
 
@@ -432,7 +437,7 @@ if BRD:   # smallest vertical scale of the board perspective inside the zone: bo
     PSC = min(_vs(x, y) for x in np.linspace(ZONE[0], ZONE[2], 5) for y in np.linspace(ZONE[1], ZONE[3], 5))
 MINF_HOOK = math.ceil(MIN_CAP['hook'] / CAPR / PSC) + 1; MINF_BODY = math.ceil(MIN_CAP['body'] / CAPR / PSC) + 1
 print(f'min sizes: caption {CAPF}px, hook {MINF_HOOK}px, body {MINF_BODY}px font (cap ratio {CAPR:.3f}, board perspective {PSC:.3f}), card picture {MIN_IMG}px', flush=True)
-KMAX = 133 if V14 else 100   # v14 mock: card type up to 1.33x the v12 mock (word 104, IPA 58, meaning 53, example 50)
+KMAX = 170 if V14 else 100   # v14: board text as large as the board allows (owner 27/10 'nội dung hơi nhỏ'), up to 1.7x the v12 mock; the fit loop takes the largest scale that fits
 INK = False   # True while a pop is being built for the whiteboard (dark ink, no stroke, highlighter)
 INKCOL = dict(white=C['navy'], cream=C['navy'], navy=C['navy'], navy2=C['navy2'], ink=C['navy'], red=(214, 64, 34), green=(20, 138, 74), yellow=C['navy'], mint=C['navy'])
 HILITE = dict(yellow=(255, 201, 74), mint=(160, 222, 200))
@@ -576,9 +581,9 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
         return best[1]
     def draw(k, mode):
         S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd)
-        pad = S_(36); qr = S_(210) if (QR is not None and mode != 'compact') else 0
+        pad = S_(36); qr = S_(300) if (QR is not None and mode != 'compact') else 0   # owner 27/10: bigger QR (≈10 px per module at 1080 wide)
         tw = max(XB_(44).getlength('Learn English'), BD_(40).getlength('with Lexkite')); colw = S_(120) + S_(20) + tw
-        SL = wrap2(say + ' →', BD_(40), max(colw, XB_(66).getlength('lexkite.com'), (rw - 4 - pad * 2) if mode == 'wide' else 0)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
+        SL = wrap2(say + ' →', BD_(40), max(colw, XB_(66).getlength('lexkite.com'), (rw - 4 - pad * 2 - ((S_(40) + qr) if qr else 0)) if mode == 'wide' else 0)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
         if mode == 'wide': W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw) + (S_(40) + qr if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh
         else: W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw, BD_(40).getlength('App · Add-on · Web'), (qr + S_(24) + BD_(40).getlength('desktop / TV')) if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh + S_(56) + ((S_(30) + qr) if qr else 0)
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
@@ -599,7 +604,11 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
     def draw_low(k, mode):   # low / narrow boards: same parts, fewer rows (strip: one row + call; mini: icon+site / FREE / call)
         S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd); pad = S_(28); ic_ = S_(96)
         sitew = XB_(60).getlength('lexkite.com'); pw = XB_(46).getlength('100% FREE') + S_(52); SL = [say + ' →'] if mode == 'strip' else wrap2(say + ' →', BD_(40), max(ic_ + S_(20) + pw, sitew, rw - 4 - pad * 2)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
-        if mode == 'strip': W_ = pad * 2 + ic_ + S_(20) + sitew + S_(24) + pw; H_ = pad * 2 + ic_ + S_(14) + sh
+        qrs = 0
+        if mode == 'qrow':   # low board with QR (owner 27/10: keep the QR): icon + FREE / site / call on the left, QR on the right
+            SL = wrap2(say + ' →', BD_(40), max(ic_ + S_(20) + pw, sitew)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
+            H_ = pad * 2 + ic_ + S_(14) + S_(70) + S_(14) + sh; qrs = min(S_(300), int(H_ - 2 * pad)) if QR is not None else 0; W_ = pad * 2 + max(ic_ + S_(20) + pw, sitew, sayw) + S_(32) + qrs
+        elif mode == 'strip': W_ = pad * 2 + ic_ + S_(20) + sitew + S_(24) + pw; H_ = pad * 2 + ic_ + S_(14) + sh
         else: W_ = pad * 2 + max(ic_ + S_(20) + pw, sitew, sayw); H_ = pad * 2 + ic_ + S_(14) + S_(70) + S_(14) + sh
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
         d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(30), fill=(255, 253, 246, 252), outline=LCOL['navy'] + (255,), width=max(3, S_(5)))
@@ -608,9 +617,11 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
         else: px_, py_ = pad + ic_ + S_(20), pad + (ic_ - S_(76)) / 2; d.text((pad, pad + ic_ + S_(14) + S_(35)), 'lexkite.com', font=XB_(60), fill=(14, 124, 123, 255), anchor='lm'); y = pad + ic_ + S_(14) + S_(70) + S_(14)
         d.rounded_rectangle([px_, py_, px_ + pw, py_ + S_(76)], S_(38), fill=LCOL['green'] + (255,)); d.text((px_ + pw / 2, py_ + S_(38)), '100% FREE', font=XB_(46), fill=(255, 255, 255, 255), anchor='mm')
         for l in SL: d.text((pad, y), l, font=BD_(40), fill=LCOL['navy'] + (255,)); y += S_(54)
+        if qrs: im.alpha_composite(QR.resize((qrs, qrs), Image.NEAREST).convert('RGBA'), (int(im.width - pad - qrs), int((im.height - qrs) // 2)))
         return im
-    for mode in ('tall', 'wide', 'compact', 'strip', 'mini'):
-        if mode in ('strip', 'mini'):
+    for mode in ('tall', 'wide', 'qrow', 'compact', 'strip', 'mini'):   # every mode with a QR comes before the QR-less ones
+        if mode in ('qrow', 'strip', 'mini'):
+            if mode == 'qrow' and QR is None: continue
             for k in [x / 100 for x in range(100, 84, -1)]:
                 im = draw_low(k, mode)
                 if im.width <= rw - 4 and im.height <= rh - 4: return im, k, mode
@@ -1147,12 +1158,29 @@ def card_panel(F, vis):   # v14: ONE cream card (rounded, soft shadow, teal edge
         A = np.asarray(P).astype(np.float32); _PANEL[key] = (A[..., :3][..., ::-1].copy(), A[..., 3] / 255)
     rgb, a = _PANEL[key]; over(F, rgb, a, x0 - 40, y0 - 40, amax)
 _PANEL = {}
+_HALO = {}
+def board_halo(im):   # soft light glow around the glyphs: dilate the alpha 7 px, blur 6 px, warm white at 0.85 – reads as marker on a bright board, never as a box
+    k_ = (id(im), im.size)
+    if k_ in _HALO: return _HALO[k_]
+    if len(_HALO) > 64: _HALO.clear()
+    A = np.asarray(im)[..., 3]; g = cv2.GaussianBlur(cv2.dilate(A, np.ones((15, 15), np.uint8)), (0, 0), 6).astype(np.float32) / 255
+    out_ = np.zeros((*A.shape, 4), np.uint8); out_[..., :3] = (250, 251, 247); out_[..., 3] = np.clip(g * 0.85 * 255, 0, 255).astype(np.uint8)
+    H_ = Image.fromarray(out_, 'RGBA'); H_.alpha_composite(im); _HALO[k_] = H_; return H_
+def board_contrast(F, im, r):   # WCAG contrast of the lightest marker ink (green, L=0.19) against the darkest background ring right around the glyphs, measured on the composited frame
+    x0, y0, x1, y1 = [int(v) for v in r]; x0, y0 = max(0, x0), max(0, y0); x1, y1 = min(W, x1), min(H, y1)
+    if x1 - x0 < 8 or y1 - y0 < 8: return None
+    A = cv2.resize(np.asarray(im)[..., 3], (x1 - x0, y1 - y0), interpolation=cv2.INTER_AREA) > 200
+    ring = cv2.dilate(A.astype(np.uint8), np.ones((9, 9), np.uint8)).astype(bool) & ~cv2.dilate(A.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
+    if ring.sum() < 50: return None
+    px = F[y0:y1, x0:x1][ring].astype(np.float32) / 255; lin = np.where(px <= 0.04045, px / 12.92, ((px + 0.055) / 1.055) ** 2.4)
+    Lb = float(np.percentile(lin[:, 2] * 0.2126 + lin[:, 1] * 0.7152 + lin[:, 0] * 0.0722, 5)); return round((Lb + 0.05) / (0.19 + 0.05), 2)
+CONTRAST = []
 def paste_board(F, im, reg, sc, al, dx, dy, wipe, s_cam):
     """Write a pop on the whiteboard: centred in its zone region, board perspective (GB), then the camera; returns the screen bbox."""
     if al <= 0.003 or sc <= 0.05: return None
     if sc < 0.8: im = im.resize((max(1, round(im.width * sc)), max(1, round(im.height * sc))), Image.LANCZOS); k = 1.0
     else: k = sc
-    w, h = im.width * k, im.height * k; cx_, cy_ = (reg[0] + reg[2]) / 2 + dx, (reg[1] + reg[3]) / 2 + dy
+    w, h = im.width * k, im.height * k; cx_, cy_ = (reg[0] + reg[2]) / 2 + dx, ((reg[1] + h / 2) if V14 else (reg[1] + reg[3]) / 2) + dy   # v14: board writing starts at the top of the board zone
     flat = np.float32([[cx_ - w / 2, cy_ - h / 2], [cx_ + w / 2, cy_ - h / 2], [cx_ + w / 2, cy_ + h / 2], [cx_ - w / 2, cy_ + h / 2]])
     q = cv2.perspectiveTransform(flat[None], GB)[0]; q = np.float32([[AX + (x - AX) * s_cam, AY + (y - AY) * s_cam] for x, y in q])
     x0, y0 = int(np.floor(q[:, 0].min())), int(np.floor(q[:, 1].min())); x1, y1 = int(np.ceil(q[:, 0].max())) + 1, int(np.ceil(q[:, 1].max())) + 1
@@ -1320,15 +1348,19 @@ for fi in range(NF):
     for p in POPS:
         sc, al, dx, dy, wp = p.anim(T)
         if al > 0.003: PRE.append((p, sc, al, dx, dy, wp, p.frame_im(T)))
-    if V14: card_panel(out, [(p, sc, al, dx, dy, im) for p, sc, al, dx, dy, wp, im in PRE if p.where == 'board' and p.kind != 'cta'])
+    # v14 (owner 27/10): no cream panel – the lesson is written straight on the whiteboard in marker ink (a box on a board looked illogical); card_panel kept for reference
     for p, sc, al, dx, dy, wp, im in PRE:
+        cr_ = None
         if p.where == 'board':
             rg = p.region; sc = min(sc, (rg[2] - rg[0]) / im.width, (rg[3] - rg[1]) / im.height)   # pre-fit: no entrance (stamp / spring) grows past the region
             sx_ = max(0.0, ((rg[2] - rg[0]) - im.width * sc) / 2 - 2); sy_ = max(0.0, ((rg[3] - rg[1]) - im.height * sc) / 2 - 2)
-            dx = max(-sx_, min(sx_, dx)); dy = max(-sy_, min(sy_, dy))   # slide / drop only inside the board region (no slack = a fade)
-            r = paste_board(out, im, rg, sc, al, dx, dy, wp, s); pxs = round(p.px * sc * s, 1); ms = [[a_, round(v_ * sc * s * PSC, 1)] for a_, v_ in getattr(p, 'mcur', [])]
+            dx = max(-sx_, min(sx_, dx)); dy = max(0.0, min(2 * sy_, dy)) if V14 else max(-sy_, min(sy_, dy))   # slide / drop only inside the board region (no slack = a fade); v14 = top-aligned, so the slack is all below
+            ink_ = V14 and p.kind != 'cta'
+            if ink_: im = board_halo(im)   # v14: marker ink on the board with a soft light halo (legible over the window shadow, still 'written on the board')
+            r = paste_board(out, im, rg, sc, al, dx, dy, wp, s); cr_ = board_contrast(out, im, r) if (ink_ and p.kind in ('lesson', 'note', 'rich') and r and al >= 0.999 and fi % 12 == 0) else None   # ink text only: quiz pills / picture tiles / stress chips carry their own dark plates (white on navy); pxs = round(p.px * sc * s, 1); ms = [[a_, round(v_ * sc * s * PSC, 1)] for a_, v_ in getattr(p, 'mcur', [])]
         else:
             sc = min(sc, (CAPW - 2) / im.width if p.cx == CX else 9, (BAND_H - 2) / im.height); r = paste_scaled(out, im, p.cx + dx, BAND_CY + dy, sc, al, wp); pxs = round(p.px * sc, 1); ms = [['body', round(CAPR * p.px * sc, 1)]]
+        if r and p.where == 'board' and cr_ is not None: CONTRAST.append(dict(t=round(T, 3), pop=p.id, cr=cr_))
         if r: els.append(dict(name=f'pop.{p.id}', text=p.text, bbox=r, px=pxs, alpha=round(al, 3), group='hook' if p.P.get('role') == 'hook' else ('cta' if p.kind == 'cta' else 'pop'),
                               digit=getattr(p, 'digit', None) if p.kind in ('quiz', 'card') else None, where=p.where, m=ms))
     wipe = {}
@@ -1398,7 +1430,7 @@ subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.out + '.video
                 '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000', '-ac', '2', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', o.out], check=True)
 os.remove(o.out + '.video.mp4')
 json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_ratio=CAPR, spec=SP, fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, cx=CX, capw=CAPW, band=BAND, smax=SMAX, anchor=[AX, AY], head=HEAD, joins=JOINS, xf=XF, xfe=XFE,
-               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, moods=[[l, w, c, TR['clips'][c].get('mood', 'talk')] for l, w, c in MOODS], v14=dict(on=V14, crop=CROP, zone=ZONE, head=HEAD.get(SP['clips'][0])) if V14 else None, read_pad=READ_PAD,
+               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, board_contrast=CONTRAST, moods=[[l, w, c, TR['clips'][c].get('mood', 'talk')] for l, w, c in MOODS], v14=dict(on=V14, crop=CROP, zone=ZONE, head=HEAD.get(SP['clips'][0])) if V14 else None, read_pad=READ_PAD,
                board=dict(zone=ZONE, popz=POPZ, quad=BRD['quad'], perspective=GB.tolist(), cap_box=STRIP1, body=BRD['body'], where={p.id: p.where for p in POPS}) if BRD else None, hook=dict(text=HOOK_TEXT, t0=HOOK.t0, t1=max(p.t1 for p in POPS if p.P.get('role') == 'hook'), kind=HOOK.kind),
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,

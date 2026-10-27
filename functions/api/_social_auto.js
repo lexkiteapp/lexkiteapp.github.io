@@ -10,21 +10,29 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose } from './_social_mgr.js';
 import { setupDist, DIST } from './distribution.js';
 import { setup as ytSetup } from './youtube.js';
-import { manifest } from './admin-shorts.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
+import { manifest, signed } from './admin-shorts.js';
+import { once } from './_schema.js';
+import { encReady } from './_keys.js';
+import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish } from './_meta.js';
+import { setupOAuth, appStatus, setAppSecret, startOAuth, pendingPages, pickPage, reconnectUrl } from './_meta_oauth.js';
+import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, delToken, KIND } from './_meta_tokens.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
 /** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok/YouTube TẮT tới khi GrabCast được TikTok/Google duyệt app. */
-export const AUTO_DEFAULT = { on: true, auto_approve: false, manual_first: 5, plats: { facebook_page: true, instagram: true, tiktok: false, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 6, daily_calls: 60, plan_daily: false };
+export const AUTO_DEFAULT = { on: true, auto_approve: false, manual_first: 5, plats: { facebook_page: true, instagram: true, tiktok: false, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 6, daily_calls: 60, plan_daily: false, provider: 'auto', meta_daily: 80, meta_map: {} };
+export const PROVIDERS = ['auto', 'grabcast', 'meta'];
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
   a = a && typeof a === 'object' ? a : {}; const d = AUTO_DEFAULT, pl = a.plats && typeof a.plats === 'object' ? a.plats : {};
   return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, manual_first: clamp(a.manual_first, 1, 50, d.manual_first),
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
     max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
-    sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: !!a.plan_daily };
+    sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: !!a.plan_daily,
+    provider: PROVIDERS.includes(a.provider) ? a.provider : d.provider, meta_daily: clamp(a.meta_daily, 20, 200, d.meta_daily),
+    meta_map: Object.fromEntries(['facebook_page', 'instagram'].filter(p => a.meta_map && /^gc-[a-z_]+-[A-Za-z0-9_-]{1,40}$/.test(String(a.meta_map[p] || ''))).map(p => [p, String(a.meta_map[p])])) };
 }
 /** Mã GrabCast buộc dừng cả lượt (không thử lại) → thời gian mở cầu dao (ms); 0 = không dừng. */
 export function breakerMs(status) {
@@ -84,15 +92,78 @@ async function clipsFor(env, ids) {
   return out;
 }
 
+// ---------------- Provider (§6b): grabcast mặc định · meta dự phòng cho FB/IG ----------------
+export const META_PLATS = ['facebook_page', 'instagram'];
+export const LATE_MS = 30 * 60e3;      // GrabCast chưa đăng sau giờ hẹn + 30 phút → coi như trễ
+export const MAX_LATE_MS = 12 * 36e5;  // quá 12 giờ sau slot → không cứu nữa (bài cũ)
+export const IG_PREP_MS = 3 * 36e5;    // tạo container IG ≤ 3 giờ trước slot (container sống 24 giờ)
+export const IG_EARLY_MS = 60 * 60e3;  // đăng IG khi now ≥ slot − 60 phút (cron 2 giờ ⇒ lệch ≤ ±1 giờ)
+export const META_AHEAD_H = 6;         // Meta chỉ nhận bài có slot ≤ 6 giờ tới – GrabCast hồi phục kịp thì giữ các bài xa hơn
+/** Mã cầu dao GrabCast có làm failover không: 401/403/429/503 ngay; 5xx/504 khi lặp ≥ 2 lượt liên tiếp; 409/422 (lỗi nội dung) thì không. */
+export function gcDownWhy(env, st, now) {
+  if (!gcConfigured(env)) return 'no-key';
+  const b = st.breaker; if (!b || !(b.until > now)) return '';
+  const s = +b.status || 0;
+  if (s === 401 || s === 403) return 'auth-' + s;
+  if (s === 429 || s === 503) return String(b.code || s).includes('db_budget') ? 'db_budget_guard' : 'overload-' + s;
+  if ((s >= 500 || s === 504 || s === 0) && (+st.gc_err_runs || 0) >= 2) return 'down-' + (s || 'timeout');
+  return '';
+}
+/** Chọn provider cho lượt này. mode: auto | grabcast | meta (nút chuyển tay ở Quản trị). */
+export function decideProvider({ mode = 'auto', gcWhy = '', metaOk = false }) {
+  if (mode === 'meta') return metaOk ? { cur: 'meta', why: 'manual' } : { cur: 'grabcast', why: 'meta-not-configured' };
+  if (mode === 'grabcast') return { cur: 'grabcast', why: gcWhy ? 'manual:' + gcWhy : 'manual' };
+  if (!gcWhy) return { cur: 'grabcast', why: '' };
+  return metaOk ? { cur: 'meta', why: gcWhy } : { cur: 'grabcast', why: gcWhy + ':no-meta' };
+}
+/** Bước tiếp theo cho 1 bài qua Meta (thuần – test): wait | fb | ig-container | ig-check | done | too-late. */
+export function metaStep({ platform, slot_ms, lock, gcScheduledUnreachable = false }, now) {
+  if (lock && ['posted', 'scheduled'].includes(lock.state)) return lock.state === 'scheduled' && slot_ms + LATE_MS < now ? 'fb-check' : 'done';
+  if (slot_ms < now - MAX_LATE_MS) return 'too-late';
+  if (gcScheduledUnreachable && now < slot_ms + LATE_MS) return 'wait'; // GrabCast còn giữ lịch mà không gọi hủy được → chỉ cứu khi nó đã trễ
+  if (platform === 'facebook_page') return 'fb';
+  if (lock && lock.container) return now >= slot_ms - IG_EARLY_MS ? 'ig-check' : 'wait';
+  return now >= slot_ms - IG_PREP_MS ? 'ig-container' : 'wait';
+}
+/** Kênh dist_ext ↔ Page/IG của token Meta: cfg.meta_map[p] (id kênh) hoặc kênh DUY NHẤT của nền tảng đó. */
+export function metaChannelFor(p, chans, map = {}) {
+  if (map[p]) return chans.some(c => c.channel_id === map[p]) ? map[p] : null;
+  const xs = chans.filter(c => c.platform === p); return xs.length === 1 ? xs[0].channel_id : null;
+}
+const ALERT_EVERY = { failover: 0, 'meta-token': 3 * 864e5, 'meta-down': 864e5, 'dup-published': 0, recovered: 0 };
+/** Đưa 1 cảnh báo vào hàng (CI mở 1 issue/email cho mỗi cảnh báo). failover chỉ 1 lần mỗi đợt (xóa khi hồi phục). */
+export function pushAlert(st, k, text, now) {
+  const base = k.split(':')[0], last = (st.alerted || {})[k];
+  if (last && (ALERT_EVERY[base] === 0 || now - last < (ALERT_EVERY[base] || 864e5))) return false;
+  st.alerted = { ...(st.alerted || {}), [k]: now }; st.alerts = [...(st.alerts || []), { k, text: String(text).slice(0, 400), at: now }].slice(-10); return true;
+}
+
+// ---------------- D1 ----------------
+/** Khóa chống trùng theo clip + kênh (PK) – ai (grabcast|meta) đã/đang đăng bài này, id bên Meta, container IG, permalink, việc hủy GrabCast còn treo. */
+export async function setupLock(db, env) {
+  await once(db, 'soc-lock', 2, () => db.batch([
+    db.prepare('CREATE TABLE IF NOT EXISTS soc_lock (clip TEXT NOT NULL, channel_id TEXT NOT NULL, platform TEXT, provider TEXT NOT NULL, state TEXT NOT NULL, slot_ms INTEGER, gc_post TEXT, gc_cancel TEXT, meta_id TEXT, container TEXT, permalink TEXT, err TEXT, created INTEGER, updated INTEGER, PRIMARY KEY (clip, channel_id))'),
+    db.prepare('CREATE INDEX IF NOT EXISTS soc_lock_cancel ON soc_lock (gc_cancel)'), // hồi phục GrabCast: chỉ đọc các bài còn treo hủy
+    db.prepare('CREATE TABLE IF NOT EXISTS soc_tokens (channel_id TEXT PRIMARY KEY, kind TEXT NOT NULL, target_id TEXT NOT NULL, name TEXT, enc TEXT NOT NULL, last4 TEXT, expires_at INTEGER, refreshed_at INTEGER, status TEXT, err TEXT, updated INTEGER)'), // token Meta theo kênh (mã hóa) – functions/api/_meta_tokens.js
+  ]), { env });
+}
+const lockOf = (db, clip, ch) => one(db, 'SELECT * FROM soc_lock WHERE clip = ? AND channel_id = ?', clip, ch);
+const setLock = (db, clip, ch, f) => { const k = Object.keys(f); return run(db, `UPDATE soc_lock SET ${k.map(x => x + ' = ?').join(', ')}, updated = ? WHERE clip = ? AND channel_id = ?`, ...k.map(x => f[x]), Date.now(), clip, ch); };
+
 /** Trạng thái cho thẻ Quản trị. */
 export async function autoStatus(env, now = Date.now()) {
-  const db = env.DB; await setupMgr(db); await setupDist(db);
+  const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
   const cfg = cleanAuto(await getMeta(db, 'auto', AUTO_DEFAULT)), st = await getMeta(db, 'auto_state', {});
   const up = await all(db, 'SELECT s.clip, s.channel_id, s.platform, s.slot_ms, s.state, s.post_id, s.err, e.title AS channel FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms BETWEEN ? AND ? ORDER BY s.slot_ms LIMIT 40', now - 6 * 36e5, now + 72 * 36e5);
   const ids = await Promise.all(up.map(r => boardId(r.clip, r.channel_id)));
   const qs = ids.map(() => '?').join(','), bs = ids.length ? new Map((await all(db, `SELECT id, state, note, err FROM soc_board WHERE id IN (${qs})`, ...ids)).map(r => [r.id, r])) : new Map();
+  const ls = new Map(); for (const r of up) { const l = await lockOf(db, r.clip, r.channel_id); if (l) ls.set(r.clip + '|' + r.channel_id, l); } // ≤ 40 lượt đọc theo PK
+  const { list: mlist, chans } = await metaChannels(env, db, cfg), ms = st.meta || {}; await setupOAuth(db, env);
   return { cfg, state: st, key: gcConfigured(env), webhook: String(env.GRABCAST_WEBHOOK_SECRET || '').length >= 24, manual: await manualCounts(db), budget_left: budgetLeft(st, cfg, now),
-    upcoming: up.map((r, i) => ({ ...r, board: (bs.get(ids[i]) || {}).state || null, note: (bs.get(ids[i]) || {}).note || null })), now };
+    provider: { ...(st.provider || { cur: 'grabcast', why: '' }), mode: cfg.provider, gc_down: gcDownWhy(env, st, now) || null },
+    meta: { configured: mlist.length > 0, enc: encReady(env), apps: await appStatus(env, db), budget_left: metaLeft(st, cfg, now), channels: chans,
+      tokens: mlist.map(m => ({ ...m, health: (ms.th || {})[m.channel_id] || null, breaker: (ms.br || {})[m.channel_id] && ms.br[m.channel_id].until > now ? ms.br[m.channel_id] : null })) },
+    upcoming: up.map((r, i) => { const b = bs.get(ids[i]) || {}, l = ls.get(r.clip + '|' + r.channel_id) || {}; return { ...r, board_id: ids[i], board: b.state || null, note: b.note || null, provider: l.provider || null, permalink: l.permalink || null, lock: l.state || null }; }), now };
 }
 
 /** Phản chiếu bài đã đăng (của autopilot) về dist_social – theo khóa chính (clip, channel_id). */
@@ -106,26 +177,27 @@ async function mirrorPublished(db, since) {
   }
   return n;
 }
+export const metaLeft = (st, cfg, now) => Math.max(0, cfg.meta_daily - (((st.meta || {}).calls || {}).day === dayOf(now) ? +st.meta.calls.n || 0 : 0));
 
 /** Một lượt autopilot. → bản ghi lượt (cũng lưu ở soc_meta 'auto_state'.last_run). */
-export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false } = {}) {
-  const db = env.DB; await setupMgr(db); await setupDist(db);
+export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
+  const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
   const cfg = cleanAuto(await getMeta(db, 'auto', AUTO_DEFAULT)), st = await getMeta(db, 'auto_state', {});
-  const failed = (r, why) => { const k = r.clip + '|' + r.channel_id, f = (st.fails = st.fails || {})[k] || { n: 0 }; st.fails[k] = { n: f.n + 1, at: now, why }; };
-  const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null };
+  const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [] };
   const save = async () => {
     const today = dayOf(now), calls = st.calls && st.calls.day === today ? +st.calls.n || 0 : 0;
-    st.calls = { day: today, n: calls + rec.calls }; st.last_run = rec;
+    st.calls = { day: today, n: calls + rec.calls }; st.last_run = { ...rec, alerts: undefined };
+    if (rec.meta.calls) { const m = st.meta = st.meta || {}, mc = m.calls && m.calls.day === today ? +m.calls.n || 0 : 0; m.calls = { day: today, n: mc + rec.meta.calls }; }
     st.fails = Object.fromEntries(Object.entries(st.fails || {}).filter(([, v]) => v && now - v.at < 7 * 864e5).slice(-100));
+    rec.alerts = st.alerts || []; delete st.alerts; // CI (scripts/social/auto.mjs) mở issue cho từng cảnh báo – giao 1 lần
+    st.alerted = Object.fromEntries(Object.entries(st.alerted || {}).filter(([, t]) => now - t < 30 * 864e5));
     await setMeta(db, 'auto_state', st); return rec;
   };
   if (!cfg.on) { rec.stop = 'off'; return save(); }
-  if (st.breaker && st.breaker.until > now) { rec.stop = 'breaker'; return save(); }
-  if (!gcConfigured(env)) { rec.stop = 'no-key'; return save(); }
-  let left = budgetLeft(st, cfg, now);
-  if (left < 3) { rec.stop = 'budget'; return save(); }
   if (cfg.plan_daily && now - (+st.last_plan || 0) > 20 * 36e5) { try { await ytSetup(db); await DIST.plan_run(db, {}, env); st.last_plan = now; } catch (e) { rec.skipped.push({ why: 'plan-error' }); } } // chỉ D1, 0 lượt GrabCast
 
+  // ---- GrabCast client (ngân sách + cầu dao) ----
+  let left = budgetLeft(st, cfg, now);
   const gc = gcClient(env, { fetcher, onCall: () => { rec.calls++; left--; } });
   const call = async (m, p, body, query, idem) => {
     if (left <= 0) throw stopErr(0, 'budget');
@@ -133,13 +205,80 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     if (breakerMs(r.status) || r.status === 504) throw stopErr(r.status, r.code || r.status);
     return r;
   };
-  let accounts = null;
-  const getAccounts = async () => {
-    if (accounts) return accounts;
-    const ar = await call('GET', 'accounts'); if (ar.status >= 400) throw stopErr(ar.status, ar.code);
-    accounts = (ar.data && ar.data.accounts) || []; return accounts;
+  const gcStop = e => { // lỗi dừng của GrabCast → cầu dao + đếm lượt lỗi liên tiếp (failover 5xx khi lặp)
+    rec.stop = e.code; const ms = breakerMs(e.status) || (e.status === 504 ? 36e5 : 0);
+    if (ms) st.breaker = { until: now + ms, code: e.code, status: e.status, at: now };
+    if (e.status >= 500 || e.status === 504) st.gc_err_runs = (+st.gc_err_runs || 0) + 1;
   };
-  try {
+  const gcUsable = () => gcConfigured(env) && !(st.breaker && st.breaker.until > now) && left >= 3;
+
+  const brOpen = ch => { const b = ((st.meta || {}).br || {})[ch]; return !!(b && b.until > now); };
+  const mch = (await metaChannels(env, db, cfg)).list, metaUp = mch.some(m => !brOpen(m.channel_id));
+  // ---- 0) Phát hiện GrabCast TRỄ: bài đã lên lịch trên GrabCast, quá slot + 30 phút mà chưa đăng (xác nhận bằng GET posts/{id}, ≤ 3 lượt) ----
+  let late = 0;
+  if (cfg.provider === 'auto' && metaUp && gcUsable()) {
+    try {
+      const cand = (await all(db, "SELECT clip, channel_id, platform, slot_ms, post_id FROM dist_social WHERE slot_ms BETWEEN ? AND ? AND state = 'pushed' LIMIT 20", now - MAX_LATE_MS, now - LATE_MS))
+        .filter(r => META_PLATS.includes(r.platform) && cfg.plats[r.platform] && r.post_id && !/^meta_/.test(r.post_id) && mch.some(m => m.channel_id === r.channel_id && !brOpen(m.channel_id))).slice(0, 3);
+      for (const r of cand) {
+        const b = await one(db, 'SELECT id, state FROM soc_board WHERE id = ?', await boardId(r.clip, r.channel_id)); if (!b || b.state !== 'scheduled') continue; // nháp chờ duyệt không phải "trễ"
+        const g = await call('GET', 'posts/' + r.post_id); const s = String(((g.data && (g.data.post || g.data)) || {}).status || '');
+        if (s === 'published') { await boardSync(db, [(g.data.post || g.data)]); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'published', post_id: r.post_id }); continue; }
+        late++;
+      }
+    } catch (e) { if (!e.stop) throw e; gcStop(e); }
+  }
+  // ---- 1) Chọn provider: thử GrabCast trước khi nó có vẻ dùng được; lỗi dừng ngay lượt này → chuyển Meta trong CÙNG lượt ----
+  const metaOk = metaUp;
+  let prov = decideProvider({ mode: cfg.provider, gcWhy: gcDownWhy(env, st, now) || (late ? 'late' : ''), metaOk }), gcRan = false;
+  if (prov.cur === 'grabcast') {
+    if (!gcConfigured(env)) rec.stop = 'no-key';
+    else if (st.breaker && st.breaker.until > now) rec.stop = 'breaker';
+    else if (left < 3) rec.stop = 'budget';
+    else {
+      try { await gcPass(); gcRan = true; st.gc_err_runs = 0; }
+      catch (e) { if (!e.stop) throw e; gcStop(e); const w = gcDownWhy(env, st, now); if (w) prov = decideProvider({ mode: cfg.provider, gcWhy: w, metaOk }); }
+    }
+  } else if (cfg.provider !== 'meta' && gcUsable()) {
+    // FB/IG đi qua Meta (GrabCast trễ) – GrabCast vẫn lo nền tảng khác + hủy bài treo
+    try { await gcPass(META_PLATS); } catch (e) { if (!e.stop) throw e; gcStop(e); }
+  }
+  const prev = st.provider || { cur: 'grabcast' };
+  if (prov.cur === 'meta' && prev.cur !== 'meta') {
+    st.provider = { ...prov, since: now, prev: prev.cur };
+    if (cfg.provider === 'auto') pushAlert(st, 'failover', `Lexkite social autopilot: GrabCast lỗi (${prov.why}) → FB/IG chuyển sang đăng thẳng qua Meta Graph API.`, now);
+  } else if (prov.cur === 'grabcast' && prev.cur === 'meta') {
+    if (gcRan || cfg.provider === 'grabcast' || !metaOk) { // chỉ coi là hồi phục khi lượt GrabCast thật sự chạy được (hoặc chuyển tay)
+      st.provider = { ...prov, since: now, prev: 'meta' }; delete (st.alerted || {}).failover;
+      if (gcRan && cfg.provider === 'auto') pushAlert(st, 'recovered:' + dayOf(now), 'Lexkite social autopilot: GrabCast đã hồi phục → quay về GrabCast.', now);
+    } else prov = { ...prev, cur: 'meta' }; // GrabCast chưa chạy được (cầu dao 409/422, ngân sách…) → giữ Meta
+  } else st.provider = { ...prev, ...prov, since: prev.since || now };
+  rec.provider = { cur: prov.cur, why: prov.why };
+  // ---- 2) Lượt Meta (FB/IG) ----
+  if (prov.cur === 'meta') {
+    if (rec.stop === 'no-key' || rec.stop === 'breaker' || rec.stop === 'budget') rec.stop = null;
+    try { await metaPass(); } catch (e) { if (!e.metaStop) throw e; }
+  }
+  return save();
+
+  // ================= Lượt GrabCast (giữ nguyên logic PR #129) =================
+  async function gcPass(skipPlats = []) {
+    const failed = (r, why) => { const k = r.clip + '|' + r.channel_id, f = (st.fails = st.fails || {})[k] || { n: 0 }; st.fails[k] = { n: f.n + 1, at: now, why }; };
+    let accounts = null;
+    const getAccounts = async () => {
+      if (accounts) return accounts;
+      const ar = await call('GET', 'accounts'); if (ar.status >= 400) throw stopErr(ar.status, ar.code);
+      accounts = (ar.data && ar.data.accounts) || []; return accounts;
+    };
+    // Hồi phục: hủy bài GrabCast còn treo của các bài Meta đã đăng thay (≤ 3 bài/lượt, theo chỉ mục soc_lock_cancel)
+    for (const l of await all(db, "SELECT clip, channel_id, gc_post FROM soc_lock WHERE gc_cancel = 'pending' LIMIT 3")) {
+      const g = await call('GET', 'posts/' + l.gc_post), s = String(((g.data && (g.data.post || g.data)) || {}).status || '');
+      if (g.status === 404 || /cancel|deleted|draft|fail/.test(s)) { await setLock(db, l.clip, l.channel_id, { gc_cancel: 'done' }); continue; }
+      if (s === 'published') { await setLock(db, l.clip, l.channel_id, { gc_cancel: 'dup' }); pushAlert(st, 'dup-published:' + l.clip + '|' + l.channel_id, `Lexkite autopilot: GrabCast đã đăng bài ${l.clip} (${l.channel_id}) dù Meta đã đăng thay – kiểm và xóa 1 bản.`, now); continue; }
+      if (/schedul/.test(s)) await call('POST', `posts/${l.gc_post}/unschedule`, {});
+      const c = await call('POST', `posts/${l.gc_post}/cancel`, {});
+      await setLock(db, l.clip, l.channel_id, { gc_cancel: c.status < 400 ? 'done' : 'pending' });
+    }
     // 1) Đồng bộ trạng thái nền (thưa: ≥ sync_h giờ)
     if (force_sync || now - (+(st.last_sync && st.last_sync.at) || 0) >= cfg.sync_h * 36e5) {
       const accs = await getAccounts();
@@ -150,7 +289,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
       st.last_sync = { at: now, posts: ((pr.data && pr.data.posts) || []).length, published: pub }; rec.synced = st.last_sync;
     }
     // 2) Bài đến hạn
-    const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now);
+    const due = pickDue((await DIST.social_due(db, { from: now + cfg.lead_min * 60e3, to: now + cfg.lookahead_h * 36e5 }, env)).rows, cfg, now).filter(r => !skipPlats.includes(r.platform));
     rec.due = due.length;
     const manual = cfg.auto_approve ? await manualCounts(db) : {};
     let done = 0;
@@ -158,6 +297,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     for (const r of due) {
       if (done >= cfg.max_per_run) break;
       if (((st.fails || {})[r.clip + '|' + r.channel_id] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'gave-up' }); continue; } // lỗi lặp lại → chờ người xem (không đốt lượt GrabCast)
+      const lk = await lockOf(db, r.clip, r.channel_id); if (lk && lk.provider === 'meta') { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta' }); continue; } // Meta đã nhận bài này
       const bid = await boardId(r.clip, r.channel_id), ex = await one(db, 'SELECT id, post_id, state FROM soc_board WHERE id = ?', bid);
       const auto = canAutoApprove(cfg, r.platform, manual);
       if (ex && ex.post_id) { // đã tạo bài ở lượt trước
@@ -197,14 +337,177 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
         rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: String(e.code || 'error') });
       }
     }
-  } catch (e) {
-    if (!e.stop) throw e;
-    rec.stop = e.code; const ms = breakerMs(e.status) || (e.status === 504 ? 36e5 : 0);
-    if (ms) st.breaker = { until: now + ms, code: e.code, status: e.status, at: now };
   }
-  return save();
+
+  // ================= Lượt Meta (dự phòng FB/IG) =================
+  async function metaPass() {
+    const M = rec.meta, ms = st.meta = st.meta || {}, br = ms.br = ms.br || {}, th = ms.th = ms.th || {};
+    let mleft = metaLeft(st, cfg, now);
+    const onCall = () => { M.calls++; mleft--; };
+    const stopAll = () => { M.stop = 'budget'; throw Object.assign(new Error('meta-stop'), { metaStop: true }); };
+    /** Dừng RIÊNG 1 kênh (token/quyền 12 giờ · giới hạn 2 giờ · sập 1 giờ) – kênh khác vẫn chạy. */
+    const chStop = async (ch, kind, code, status = 'revoked') => {
+      const ttl = kind === 'token' || kind === 'perm' ? 12 * 36e5 : kind === 'rate' ? 2 * 36e5 : 36e5;
+      br[ch] = { until: now + ttl, kind, code, at: now }; M.stop = ch + ' ' + kind + ':' + code;
+      if (kind === 'token' || kind === 'perm') { pushAlert(st, 'meta-token:' + ch, `Lexkite autopilot: token Meta của kênh ${ch} bị thu hồi/thiếu quyền (${code}) – bấm Kết nối lại: ${reconnectUrl(ch)}`, now); await markToken(db, ch, status, code); }
+      else pushAlert(st, 'meta-down:' + kind, `Lexkite autopilot: Meta API lỗi ở kênh ${ch} (${kind} ${code}) – kênh này dừng ${Math.round(ttl / 36e5)} giờ.`, now);
+      throw Object.assign(new Error('meta-stop'), { metaStop: true, ch });
+    };
+    const { list: mlist } = await metaChannels(env, db, cfg), cache = new Map(), dead = new Set();
+    /** Client + sức khỏe token (≤ 1 lần/ngày/kênh: FB debug_token · IG refresh khi còn ≤ 10 ngày) cho 1 kênh. null = kênh không dùng được lượt này. */
+    const chan = async ch => {
+      if (cache.has(ch)) return cache.get(ch);
+      const m = mlist.find(x => x.channel_id === ch); let C = null;
+      if (m && !(br[ch] && br[ch].until > now)) {
+        let tok = await tokenOf(env, db, m);
+        if (tok) {
+          const h = th[ch] || {};
+          if (now - (+h.at || 0) > 864e5) {
+            if (mleft <= 2) stopAll();
+            if (m.platform === 'facebook_page') {
+              const t = await tokenHealth(metaClient(env, { token: tok, host: 'fb', fetcher, onCall }), m.target_id, now); th[ch] = t;
+              if (!t.ok && t.why === 'revoked') { cache.set(ch, null); dead.add(ch); await chStop(ch, 'token', t.code || 'revoked').catch(() => {}); return null; }
+              if (!t.ok) pushAlert(st, 'meta-token:' + ch + ':' + t.why, `Lexkite autopilot: token Page ${ch} ${t.why}${t.expires_at ? ' – hết hạn ' + new Date(t.expires_at).toISOString().slice(0, 10) : ''}${t.data_access_expires_at ? ' – quyền dữ liệu hết hạn ' + new Date(t.data_access_expires_at).toISOString().slice(0, 10) : ''}${(t.missing || []).length ? ' – thiếu ' + t.missing.join(',') : ''}. Kết nối lại: ${reconnectUrl(ch)}`, now);
+            } else {
+              th[ch] = { ok: true, at: now, expires_at: +m.expires_at || 0 };
+              if (igNeedsRefresh(m, env, now)) {
+                const rf = await refreshIg(env, db, m, tok, { fetcher, now, onCall });
+                if (rf.ok) { th[ch] = { ok: true, at: now, expires_at: rf.expires_at, refreshed: now }; tok = await tokenOf(env, db, { ...m, src: 'd1' }) || tok; }
+                else {
+                  th[ch] = { ok: false, at: now, why: 'refresh-failed', code: rf.code, expires_at: +m.expires_at || 0 };
+                  pushAlert(st, 'meta-token:' + ch + ':refresh', `Lexkite autopilot: refresh token Instagram ${ch} lỗi (${rf.code})${m.expires_at ? ' – token hết hạn ' + new Date(+m.expires_at).toISOString().slice(0, 10) : ''}. Kết nối lại: ${reconnectUrl(ch)}`, now);
+                  if (rf.kind === 'token') { cache.set(ch, null); dead.add(ch); await chStop(ch, 'token', rf.code, 'refresh-failed').catch(() => {}); return null; }
+                }
+              } else if (m.expires_at && +m.expires_at - now < 3 * 864e5) pushAlert(st, 'meta-token:' + ch + ':expiring', `Lexkite autopilot: token Instagram ${ch} hết hạn ${new Date(+m.expires_at).toISOString().slice(0, 10)} mà chưa refresh được – Kết nối lại: ${reconnectUrl(ch)}`, now);
+            }
+          }
+          const raw = metaClient(env, { token: tok, host: KIND[m.platform], fetcher, onCall });
+          const mc = async (...a) => { if (mleft <= 0) stopAll(); const r = await raw(...a); if (r.kind) await chStop(ch, r.kind, r.code); return r; };
+          mc.ver = raw.ver; mc.tok = raw.tok;
+          C = { m, mc, quota: null, err: async e => { if (e && e.meta && e.kind) await chStop(ch, e.kind, e.code); return e; } };
+        }
+      }
+      cache.set(ch, C); return C;
+    };
+    for (const m of mlist) await chan(m.channel_id).catch(e => { if (e.metaStop && e.ch) dead.add(e.ch); else throw e; }); // sức khỏe/refresh token mỗi kênh (≤ 1 lần/ngày) – kể cả khi chưa có bài
+    const served = new Set(mlist.map(m => m.channel_id));
+    const rows = (await all(db, 'SELECT clip, channel_id, platform, slot_ms, state, post_id FROM dist_social WHERE slot_ms BETWEEN ? AND ? ORDER BY slot_ms LIMIT 60', now - MAX_LATE_MS, now + Math.min(cfg.lookahead_h, META_AHEAD_H) * 36e5))
+      .filter(r => META_PLATS.includes(r.platform) && cfg.plats[r.platform] && ['planned', 'failed', 'pushed'].includes(r.state));
+    for (const r of rows) if (!served.has(r.channel_id)) rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-no-token' });
+    const mine = rows.filter(r => served.has(r.channel_id));
+    const manual = cfg.auto_approve ? await manualCounts(db) : {};
+    const clips = mine.length ? await clipsFor(env, mine.slice(0, 20).map(r => r.clip)) : new Map();
+    let acts = 0;
+    for (const r of mine) {
+      if (acts >= cfg.max_per_run) break;
+      if (dead.has(r.channel_id) || (br[r.channel_id] && br[r.channel_id].until > now)) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
+      const fk = 'm|' + r.clip + '|' + r.channel_id; if (((st.fails || {})[fk] || {}).n >= MAX_TRIES) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-gave-up' }); continue; }
+      const mfail = async (why, code) => { const f = (st.fails = st.fails || {})[fk] || { n: 0 }; st.fails[fk] = { n: f.n + 1, at: now, why: why + ':' + code }; await setLock(db, r.clip, r.channel_id, { err: (why + ':' + code).slice(0, 120) }); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'failed', err: ('meta-' + why + ':' + code).slice(0, 120) }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-' + why }); };
+      let lock = await lockOf(db, r.clip, r.channel_id);
+      if (lock && lock.provider !== 'meta') continue;
+      // --- duyệt: chỉ bài ĐÃ DUYỆT (tay hoặc tự duyệt đủ điều kiện) mới công khai ---
+      const bid = await boardId(r.clip, r.channel_id); let b = await one(db, 'SELECT * FROM soc_board WHERE id = ?', bid);
+      const c = clips.get(r.clip);
+      if (!b) {
+        if (!c) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'clip-not-approved' }); continue; }
+        const due = (await DIST.social_due(db, { from: r.slot_ms, to: r.slot_ms, channel_id: r.channel_id }, env)).rows.find(x => x.clip === r.clip) || {}, meta = due.meta || {};
+        const body = bodyFor({ ...c, title: meta.title || c.title, description: meta.description || c.description, hashtags: meta.description ? [] : c.hashtags }, 'meta', [{ id: 0, p: r.platform }]);
+        const ok = canAutoApprove(cfg, r.platform, manual), t = Date.now();
+        await run(db, `INSERT INTO soc_board (id, post_id, clip, title, caption, accounts, plats, template, hook, cefr, state, mode, want_at, hash, approved_by, approved_at, note, created, updated, by_who) VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'sched', ?, NULL, ?, ?, 'meta', ?, ?, ?) ON CONFLICT(id) DO NOTHING`,
+          bid, c.id, String(body.title || '').slice(0, 200), String(body.caption || '').slice(0, 2200), JSON.stringify([r.channel_id.split('-').pop()]), JSON.stringify([r.platform]), c.template || null, c.hook || null, c.cefr || null, ok ? 'approved' : 'review', r.slot_ms, ok ? AUTO_WHO : null, ok ? t : null, t, t, AUTO_WHO);
+        b = await one(db, 'SELECT * FROM soc_board WHERE id = ?', bid);
+        if (!ok) { rec.review++; rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'waiting-approval' }); continue; }
+      }
+      if (b.state === 'published') { await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'published', post_id: r.post_id || b.post_id }); continue; }
+      if (!['approved', 'scheduled'].includes(b.state) || !b.approved_by) {
+        if (b.state === 'review' && canAutoApprove(cfg, r.platform, manual)) { await run(db, "UPDATE soc_board SET state = 'approved', approved_by = ?, approved_at = ?, updated = ? WHERE id = ?", AUTO_WHO, now, now, bid); b.state = 'approved'; }
+        else { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'waiting-approval' }); continue; }
+      }
+      if (!c) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'clip-not-approved' }); continue; }
+      // --- khóa chống trùng (PK clip + kênh): chỉ 1 lượt/1 provider nhận bài ---
+      const gcPid = (b.post_id && !/^meta_/.test(b.post_id)) ? b.post_id : (r.post_id && !/^meta_/.test(r.post_id) ? r.post_id : null);
+      if (!lock) {
+        const ins = await run(db, "INSERT INTO soc_lock (clip, channel_id, platform, provider, state, slot_ms, gc_post, created, updated) VALUES (?, ?, ?, 'meta', 'claimed', ?, ?, ?, ?) ON CONFLICT(clip, channel_id) DO NOTHING", r.clip, r.channel_id, r.platform, r.slot_ms, gcPid, now, now);
+        if (!ins || !ins.meta || ins.meta.changes !== 1) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'locked' }); continue; }
+        lock = await lockOf(db, r.clip, r.channel_id);
+      }
+      // --- bài GrabCast tương ứng: GET (chưa published?) + hủy lịch nếu gọi được ---
+      let gcSchedUnreach = false;
+      if (gcPid && !lock.gc_cancel) {
+        let handled = false;
+        if (gcConfigured(env) && left >= 2 && !(st.breaker && st.breaker.until > now && [401, 403].includes(+st.breaker.status))) {
+          try {
+            const g = await gc('GET', 'posts/' + gcPid); const s = String(((g.data && (g.data.post || g.data)) || {}).status || '');
+            if (g.status < 400) {
+              if (s === 'published') { await boardSync(db, [(g.data.post || g.data)]); await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: 'published', post_id: gcPid }); await setLock(db, r.clip, r.channel_id, { provider: 'grabcast', state: 'posted', gc_cancel: 'n/a' }); continue; }
+              if (/schedul|publishing|processing/.test(s)) { const u = await gc('POST', `posts/${gcPid}/unschedule`, {}); if (u.status >= 400) throw Object.assign(new Error('x'), { unsched: true }); }
+              await gc('POST', `posts/${gcPid}/cancel`, {});
+              await setLock(db, r.clip, r.channel_id, { gc_cancel: 'done' }); handled = true;
+            } else if (g.status === 404) { await setLock(db, r.clip, r.channel_id, { gc_cancel: 'done' }); handled = true; }
+          } catch (e) { /* GrabCast không trả lời – xử lý như không gọi được */ }
+        }
+        if (!handled) { await setLock(db, r.clip, r.channel_id, { gc_cancel: 'pending' }); gcSchedUnreach = b.state === 'scheduled'; }
+        lock = await lockOf(db, r.clip, r.channel_id);
+      } else if (lock.gc_cancel === 'pending') gcSchedUnreach = b.state === 'scheduled';
+      const step = metaStep({ platform: r.platform, slot_ms: r.slot_ms, lock, gcScheduledUnreachable: gcSchedUnreach }, now);
+      if (step === 'done' || step === 'wait') { if (step === 'wait') rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-wait' }); continue; }
+      if (step === 'too-late') { await setLock(db, r.clip, r.channel_id, { state: 'skipped', err: 'too-late' }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'too-late' }); continue; }
+      const C = await chan(r.channel_id).catch(e => { if (e.metaStop && e.ch) { dead.add(e.ch); return null; } throw e; });
+      if (!C) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'meta-channel-paused' }); continue; }
+      const mc = C.mc, mErr = C.err, tgt = C.m.target_id;
+      acts++;
+      const url = await signed(env, c._it, 'video', 6 * 3600); if (!url) { await mfail('clip', 'not-on-drive'); continue; }
+      const file_url = new URL(url, 'https://lexkite.com').toString();
+      try {
+        if (step === 'fb-check') {
+          const s = await fbStatus(mc, lock.meta_id);
+          if (s.ok && s.published) { await setLock(db, r.clip, r.channel_id, { state: 'posted', permalink: s.permalink || lock.permalink }); await done(r, bid, lock.meta_id, 'fb', s.permalink || lock.permalink, true); }
+          continue;
+        }
+        if (step === 'fb') {
+          if (lock.meta_id && lock.state === 'claimed') { // lượt trước chết sau bước start → xem video đó đã lên chưa (không đăng lần 2)
+            const s = await fbStatus(mc, lock.meta_id);
+            if (s.ok && s.published) { await setLock(db, r.clip, r.channel_id, { state: 'posted', permalink: s.permalink }); await done(r, bid, lock.meta_id, 'fb', s.permalink, true); continue; }
+          }
+          const out = await fbReel(mc, tgt, { file_url, description: b.caption, title: b.title, at: r.slot_ms, now, video_id: lock.meta_id && lock.state === 'claimed' ? lock.meta_id : '', onStart: vid => setLock(db, r.clip, r.channel_id, { meta_id: vid }) }).catch(async e => { throw await mErr(e); });
+          await setLock(db, r.clip, r.channel_id, { state: out.scheduled ? 'scheduled' : 'posted', meta_id: out.video_id, permalink: out.permalink, err: null });
+          await done(r, bid, out.video_id, 'fb', out.permalink, !out.scheduled);
+          if (out.scheduled) M.scheduled++; else M.posted++;
+          continue;
+        }
+        if (step === 'ig-container') {
+          const cid = await igContainer(mc, tgt, { video_url: file_url, caption: b.caption }).catch(async e => { throw await mErr(e); });
+          await setLock(db, r.clip, r.channel_id, { container: cid, err: null }); M.containers++;
+          if (now < r.slot_ms - IG_EARLY_MS) continue;
+          lock = await lockOf(db, r.clip, r.channel_id);
+          for (let i = 0; i < 2; i++) { await sleep(20e3); const s = await igStatus(mc, cid); if (s.code !== 'IN_PROGRESS') break; } // tới giờ ngay: chờ ngắn (≤ 2 lần × 20 s), còn lại để lượt sau
+        }
+        // ig-check
+        const s = await igStatus(mc, lock.container);
+        if (s.code === 'IN_PROGRESS' || s.code === '') { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ig-processing' }); continue; }
+        if (s.code === 'EXPIRED') { await setLock(db, r.clip, r.channel_id, { container: null }); rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ig-expired' }); continue; }
+        if (s.code === 'ERROR') { await setLock(db, r.clip, r.channel_id, { container: null }); await mfail('ig-container', s.detail || 'ERROR'); continue; }
+        if (s.code === 'PUBLISHED') { await setLock(db, r.clip, r.channel_id, { state: 'posted' }); await done(r, bid, lock.meta_id || lock.container, 'ig', lock.permalink || '', true); continue; }
+        if (!C.quota) C.quota = await igQuota(mc, tgt);
+        const quota = C.quota;
+        if (quota.ok && quota.used >= quota.cap) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'ig-limit' }); continue; }
+        const pub = await igPublish(mc, tgt, lock.container).catch(async e => { throw await mErr(e); });
+        if (quota.ok) quota.used++;
+        await setLock(db, r.clip, r.channel_id, { state: 'posted', meta_id: pub.media_id, permalink: pub.permalink, err: null });
+        await done(r, bid, pub.media_id, 'ig', pub.permalink, true); M.posted++;
+      } catch (e) {
+        if (e.metaStop) { if (e.ch) { dead.add(e.ch); continue; } throw e; }
+        await mfail(e.step || 'error', e.code || 'error');
+      }
+    }
+  }
+  /** Ghi kết quả Meta: dist_social (post_id meta_…, published/pushed) + soc_board (state, links có permalink + provider 'meta', bỏ post_id GrabCast để boardSync không ghi đè). */
+  async function done(r, bid, id, k, permalink, published) {
+    await DIST.social_ack(db, { clip: r.clip, channel_id: r.channel_id, state: published ? 'published' : 'pushed', post_id: `meta_${k}_${id}` });
+    await run(db, "UPDATE soc_board SET state = ?, post_id = NULL, note = 'meta', links = ?, err = NULL, updated = ? WHERE id = ?", published ? 'published' : 'scheduled',
+      JSON.stringify([{ a: r.channel_id.split('-').pop(), p: r.platform, s: published ? 'published' : 'scheduled', u: /^https:\/\//.test(permalink || '') ? permalink : '', e: '', v: 'meta' }]), Date.now(), bid);
+  }
 }
-/** GET bài (nội dung GrabCast thật) → dấu băm duyệt → schedule(slot). Ghi soc_board 'scheduled' (duyệt bởi autopilot). */
 async function approveAndSchedule(db, call, bid, pid, r, rec) {
   const g = await call('GET', 'posts/' + pid); if (g.status >= 400) { rec.skipped.push({ clip: r.clip, ch: r.channel_id, why: 'get-' + (g.code || g.status) }); return; }
   const hash = await contentHash(g.data), t = Date.now();
@@ -230,11 +533,31 @@ export async function onWebhook(env, ev) {
   return { ok: true, published: n };
 }
 
+
 // ---------------- Thao tác Quản trị (/api/social path "lk/auto…") ----------------
+export const clearCh = async (db, ch) => { const st = await getMeta(db, 'auto_state', {}); if (st.meta) { if (st.meta.br) delete st.meta.br[ch]; if (st.meta.th) delete st.meta.th[ch]; } for (const k of Object.keys(st.fails || {})) if (k.startsWith('m|') && k.endsWith('|' + ch)) delete st.fails[k]; await setMeta(db, 'auto_state', st); };
 const AUTO_OPS = {
   'GET auto': async ({ env }) => autoStatus(env),
   'POST auto/save': async ({ db, b }) => { const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), ...(b.cfg && typeof b.cfg === 'object' ? b.cfg : {}) }); await setMeta(db, 'auto', c); return { cfg: c }; },
-  'POST auto/reset': async ({ db }) => { const st = await getMeta(db, 'auto_state', {}); delete st.breaker; delete st.fails; await setMeta(db, 'auto_state', st); return { ok: true }; },
+  'POST auto/reset': async ({ db }) => { const st = await getMeta(db, 'auto_state', {}); delete st.breaker; delete st.fails; delete st.gc_err_runs; if (st.meta) { delete st.meta.br; delete st.meta.th; /* Mở lại sau khi thay token → kiểm token ngay lượt sau */ } await setMeta(db, 'auto_state', st); return { ok: true }; },
   'POST auto/run': async ({ env, request, b }) => ({ run: await runAuto(env, { src: 'admin', origin: request.url, force_sync: !!b.sync }) }),
+  /** Nút chuyển tay provider: auto (failover tự động) | grabcast | meta. */
+  'POST auto/provider': async ({ db, b }) => { if (!PROVIDERS.includes(b.mode)) throw Object.assign(new Error('bad-input'), { status: 400, code: 'bad-input' }); const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), provider: b.mode }); await setMeta(db, 'auto', c); return { cfg: c }; },
+  /** Token Meta theo kênh (đổi Page/IG ở Quản trị): kiểm bằng 1 lượt Graph rồi lưu mã hóa; xóa cầu dao + sức khỏe của kênh đó. */
+  'POST auto/token': async ({ env, db, b }) => { await setupLock(db, env); const out = await setToken(env, db, b); await clearCh(db, out.channel_id); return out; },
+  /** Kết nối một chạm (functions/api/_meta_oauth.js): start → { url } + cookie lk_meta; Page chờ chọn; App Secret dán 1 lần (mã hóa). */
+  'POST auto/oauth/start': async ({ env, db, b, who }) => { await setupLock(db, env); await setupOAuth(db, env); return startOAuth(env, db, b, who); },
+  'POST auto/oauth/pages': async ({ env, db, b, who }) => { await setupOAuth(db, env); return pendingPages(env, db, b, who); },
+  'POST auto/oauth/pick': async ({ env, db, b, who }) => { await setupLock(db, env); await setupOAuth(db, env); const out = await pickPage(env, db, b, who); await clearCh(db, out.channel_id); return out; },
+  'POST auto/app': async ({ env, db, b, who }) => { await setupOAuth(db, env); return setAppSecret(env, db, b, who); },
+  'POST auto/token/del': async ({ env, db, b }) => { await setupLock(db, env); const out = await delToken(db, b); await clearCh(db, String(b.channel_id)); return out; },
+  /** Duyệt tay 1 bài autopilot khi đang đi qua Meta (GrabCast lỗi nên board/approve không gọi được): chỉ đánh dấu duyệt, lượt Meta đăng đúng slot. */
+  'POST auto/approve': async ({ db, b, who }) => {
+    const r = await one(db, 'SELECT id, state, by_who FROM soc_board WHERE id = ?', String(b.id || ''));
+    if (!r || r.by_who !== AUTO_WHO) throw Object.assign(new Error('not-found'), { status: 404, code: 'not-found' });
+    if (r.state !== 'review') throw Object.assign(new Error('not-in-review'), { status: 409, code: 'not-in-review' });
+    const t = Date.now(); await run(db, "UPDATE soc_board SET state = 'approved', approved_by = ?, approved_at = ?, updated = ? WHERE id = ? AND state = 'review'", String(who || 'admin').slice(0, 120), t, t, r.id);
+    return { id: r.id, state: 'approved' };
+  },
 };
 export function autoOpFor(method, path) { const k = method + ' ' + String(path).replace(/^lk\//, ''); return Object.hasOwn(AUTO_OPS, k) ? AUTO_OPS[k] : null; }

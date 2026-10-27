@@ -27,7 +27,7 @@ const ROUTES = [
 ].map(([m, p]) => [m, new RegExp('^' + p + '$')]);
 export const allowed = (method, path) => ROUTES.some(([m, re]) => m === method && re.test(path));
 
-const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
+const json = (req, status, data, extra = {}) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req), ...extra } });
 
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
@@ -56,9 +56,9 @@ export async function onRequestPost({ request, env }) {
     try {
       await setupMgr(env.DB);
       const out = await op({ db: env.DB, env, b: bb, who, gc, idem: b.idem && /^[A-Za-z0-9_-]{8,80}$/.test(String(b.idem)) ? String(b.idem) : null, request });
-      const st = out.status || 200; delete out.status;
+      const st = out.status || 200, cookie = out._cookie; delete out.status; delete out._cookie; // _cookie: phiên OAuth Meta (lk_meta, HttpOnly) – không vào JSON
       if (method !== 'GET') await adminAudit(env, request, who, 'soc:' + path, st < 400);
-      return json(request, st, out);
+      return json(request, st, out, cookie ? { 'Set-Cookie': cookie } : {});
     } catch (e) {
       if (method !== 'GET') await adminAudit(env, request, who, 'soc:' + path, false);
       return json(request, e.status && e.status < 600 ? e.status : 500, { error: e.code || 'error', ...(e.extra ? { detail: e.extra } : {}) });

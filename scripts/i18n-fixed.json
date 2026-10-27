@@ -27510,6 +27510,36 @@
     "ru": "Посмотреть видео и повторить",
     "tr": "Video izle, tekrar dene"
   },
+  "Sao lưu vào Google Drive của bạn": {
+    "es": "Copia en tu Google Drive",
+    "pt": "Backup no seu Google Drive",
+    "fr": "Sauvegarder dans votre Google Drive",
+    "de": "In deinem Google Drive sichern",
+    "id": "Cadangkan ke Google Drive Anda",
+    "th": "สำรองไปยัง Google Drive ของคุณ",
+    "zh": "备份到你的 Google 云端硬盘",
+    "ja": "Google ドライブにバックアップ",
+    "ko": "내 Google 드라이브에 백업",
+    "hi": "अपने Google Drive में बैकअप लें",
+    "ar": "النسخ الاحتياطي إلى Google Drive",
+    "ru": "Резервная копия в Google Диске",
+    "tr": "Google Drive'ına yedekle"
+  },
+  "Lưu trong thư mục ẩn của ứng dụng trên Google Drive của chính bạn – miễn phí, tự động.": {
+    "es": "Se guarda en una carpeta oculta de la app en tu propio Google Drive: gratis y automático.",
+    "pt": "Salvo em uma pasta oculta do app no seu próprio Google Drive – grátis e automático.",
+    "fr": "Enregistré dans un dossier masqué de l'application, dans votre propre Google Drive – gratuit et automatique.",
+    "de": "Gespeichert in einem versteckten App-Ordner in deinem eigenen Google Drive – kostenlos und automatisch.",
+    "id": "Disimpan di folder aplikasi tersembunyi di Google Drive milik Anda sendiri – gratis dan otomatis.",
+    "th": "บันทึกไว้ในโฟลเดอร์แอปที่ซ่อนอยู่ใน Google Drive ของคุณเอง – ฟรีและอัตโนมัติ",
+    "zh": "保存在你自己 Google 云端硬盘中的隐藏应用文件夹里——免费、自动。",
+    "ja": "あなた自身の Google ドライブ内の非表示のアプリ用フォルダに保存されます（無料・自動）。",
+    "ko": "내 Google 드라이브의 숨겨진 앱 폴더에 저장됩니다. 무료이며 자동입니다.",
+    "hi": "आपके अपने Google Drive के एक छिपे हुए ऐप फ़ोल्डर में सहेजा जाता है – मुफ़्त और अपने-आप।",
+    "ar": "يُحفظ في مجلد مخفي خاص بالتطبيق في Google Drive الخاص بك – مجانًا وتلقائيًا.",
+    "ru": "Хранится в скрытой папке приложения в вашем собственном Google Диске – бесплатно и автоматически.",
+    "tr": "Kendi Google Drive'ındaki gizli bir uygulama klasöründe saklanır – ücretsiz ve otomatik."
+  },
   "Quyền riêng tư & quảng cáo": {
     "es": "Privacidad y anuncios",
     "pt": "Privacidade e anúncios",
