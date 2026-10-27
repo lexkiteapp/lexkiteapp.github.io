@@ -46,6 +46,7 @@ jobs:
         run: node -e "global.self=global;require('./web/js/ads/config.js');const n=ADS_CONFIG.native;if(n.testing!==true||!/3940256099942544/.test(JSON.stringify(n.android))){console.error('✗ testing≠true hoặc không phải mã thử');process.exit(1)}console.log('✓ testing = true, mã thử Google')"
       - name: Build APK debug (ADS_NATIVE=1)
         run: |
+          npm ci --no-audit --no-fund
           npm ci --prefix mobile --no-audit --no-fund
           ADS_NATIVE=1 node scripts/mobile-ads.mjs --enable
           npm install --prefix mobile --no-audit --no-fund
