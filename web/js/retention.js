@@ -18,8 +18,8 @@
   ];
   // Mỹ phẩm: f: = khung ảnh đại diện, s: = nhãn dán. Thứ tự rương cố định (minh bạch, không may rủi): luôn ra món đầu tiên chưa có.
   const FRAMES = { teal: 'linear-gradient(135deg,#14b8a6,#0e7490)', ice: 'linear-gradient(135deg,#bae6fd,#38bdf8)', fire: 'linear-gradient(135deg,#fb923c,#dc2626)', gold: 'linear-gradient(135deg,#fde68a,#d97706)', night: 'linear-gradient(135deg,#6366f1,#1e1b4b)', rainbow: 'conic-gradient(#f43f5e,#f59e0b,#22c55e,#0ea5e9,#8b5cf6,#f43f5e)', leaf: 'linear-gradient(135deg,#f59e0b,#b45309)', snow: 'linear-gradient(135deg,#e0f2fe,#7dd3fc)', bloom: 'linear-gradient(135deg,#fbcfe8,#ec4899)' };
-  const STICKERS = { star: '⭐', kite: '🪁', book: '📘', rocket: '🚀', crown: '👑', owl: '🦉', sun: '🌞', gem: '💎' };
-  const POOL = ['f:ice', 's:star', 'f:fire', 's:kite', 's:book', 'f:gold', 's:rocket', 'f:night', 's:owl', 's:sun', 'f:rainbow', 's:gem', 's:crown'];
+  const STICKERS = { star: '⭐', kite: '🪁', book: '📘', rocket: '🚀', crown: '👑', goal: '🎯', sun: '🌞', gem: '💎' };
+  const POOL = ['f:ice', 's:star', 'f:fire', 's:kite', 's:book', 'f:gold', 's:rocket', 'f:night', 's:goal', 's:sun', 'f:rainbow', 's:gem', 's:crown'];
   const TEACH = { ama: 'img/teach/ama.webp', carlos: 'img/teach/carlos.webp' };
 
   // ---------- Lõi thuần (kiểm thử: scripts/test/retention.mjs) ----------

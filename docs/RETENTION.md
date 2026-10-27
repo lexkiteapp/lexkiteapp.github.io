@@ -34,6 +34,9 @@
 rương mở ngay trong màn (chạm ô 🎁, khung mới tự đeo); **mỗi màn đúng 1 nút lớn "Bài tiếp theo"** → `App.nextNode()` của lộ trình/bài học (#155) nếu có,
 không thì bước chưa xong đầu tiên của `App.todayPlan()`, cuối cùng `#/review`. Quảng cáo có thưởng chỉ là nút phụ.
 
+**Hình giáo viên (luật chủ 27/10)**: chỉ dùng kho giáo viên 3D thống nhất – `web/img/teach/*.webp` + drawable widget cắt từ khung bank v2 react
+`lexkite-media/cine/teachers/ama2_a05t2_end.png` · `carlos2_c05_end.png` (vuông 640 px quanh mặt). Không mascot khác, không 2D/emoji nhân vật.
+
 ## 3. Luật chống dark pattern (bắt buộc)
 - Không bán đóng băng, không bán rương, không tiền ảo, không đếm ngược gây áp lực, không phạt khi mất chuỗi (không "mất hết").
 - Không quảng cáo để học tiếp; không khóa bài học sau mỹ phẩm. Màn chúc mừng luôn có nút "Tiếp tục".
