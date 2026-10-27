@@ -65,8 +65,34 @@
   const srcName = src => { const o = sourceList().find(o => o[0] === src), tp = !o && /^topic:/.test(src || '') && App.topicOf(src.slice(6)); return o ? o[1] : tp ? `${tp.emoji} ${tp.name}` : '📒 ' + t('Sổ từ của tôi'); };
   // Báo hoàn thành lượt (lộ trình ghi bước đã xong + màn thưởng cuối bài – path.js)
   const practiceDone = detail => window.dispatchEvent(new CustomEvent('lexkite:practice-done', { detail }));
-  let libN = null;
+  let libN = null, libW = null;
   const libNorm = () => libN && libN.length === TOPICS.length ? libN.list : (libN = { length: TOPICS.length, list: TOPICS.flatMap(t => t.words).filter(x => x.vi || x.def).map(norm) }).list;
+  // Lượt trắc nghiệm đầu: chuẩn hóa kho (~20k từ) + làm đầy bộ nhớ của Distract theo LÁT ≤ 8 ms, nhường luồng chính giữa các lát
+  // (trước đây 1 tác vụ ~100 ms ngay câu đầu → CPU chậm 4× ≈ 400 ms, TBT mobile #/practice > 200 ms). Kết quả y hệt libNorm().
+  const yieldMain = () => new Promise(r => (window.scheduler && scheduler.yield ? scheduler.yield().then(r) : setTimeout(r, 0)));
+  const warmLib = () => {
+    if (libN && libN.length === TOPICS.length) return libW || Promise.resolve();
+    return libW = (async () => {
+      const len = TOPICS.length, all = TOPICS.flatMap(t => t.words), list = [];
+      for (let i = 0; i < all.length;) {
+        const t0 = performance.now();
+        for (; i < all.length && performance.now() - t0 < 8; i++) { const x = all[i]; if (x.vi || x.def) list.push(norm(x)); }
+        if (i < all.length) await yieldMain();
+      }
+      if (TOPICS.length === len) libN = { length: len, list };
+      if (window.Distract && Distract.warm) await Distract.warm(list, { mean, yieldMain });
+    })().catch(() => {}).then(() => { libW = null; });
+  };
+  // Câu đầu vẽ khi p xong (kho đã làm nóng); giữ thanh "Ngày n" mà path-day.js chèn vào view trong lúc chờ
+  const startWhen = (p, next) => { const h0 = location.hash; p.then(() => { if (location.hash !== h0) return; const bar = view.querySelector('.day-bar'); next(); if (bar && !view.querySelector('.day-bar')) view.prepend(bar); }); };
+  // Phương án nhiễu tính trước theo lát (Distract.pickAsync – cùng thuật toán pick): câu đầu trước khi vẽ, câu sau lúc rảnh sau khi vẽ câu trước.
+  // Chưa xong / không đủ 3 → renderQuestion tự tính đồng bộ như cũ.
+  const disKey = q => (q.type === 'mcq-vi' ? 'vi' : q.type === 'mcq-en' ? 'word' : null);
+  const preDis = q => {
+    const key = q && disKey(q); if (!key || q.dis || !window.Distract || !Distract.pickAsync) return Promise.resolve();
+    return q.dis = Distract.pickAsync(q.w, q.list.concat(libNorm()), { n: 3, key, mean, seed: Math.random() }, yieldMain)
+      .then(out => { q.dis = out.length >= 3 ? { key, out } : null; }, () => { q.dis = null; });
+  };
   const distractors = (w, list, n, key) => {
     const base = list.length >= n + 1 ? list : TOPICS.flatMap(t => t.words).map(norm);
     // js/distract.js: cùng từ loại/trình độ/độ dài, không đồng nghĩa/cùng họ; sổ từ + thư viện
@@ -430,7 +456,7 @@
 
     if (q.type === 'mcq-vi' || q.type === 'mcq-en') {
       const key = q.type === 'mcq-vi' ? 'vi' : 'word';
-      const opts = shuffle([w, ...distractors(w, q.list, 3, key)]);
+      const opts = shuffle([w, ...(q.dis && q.dis.out && q.dis.key === key ? q.dis.out : distractors(w, q.list, 3, key))]);
       const prompt = q.type === 'mcq-vi'
         ? `${picOk(w) ? pic(w) : ''}<div class="entry-word" style="margin-top:.6rem">${esc(w.word)}</div><div class="row center"><span class="ipa">${esc(w.ipa)}</span>${posChip(w.pos)}<button class="icon-btn sm" data-sayw aria-label="${t('Nghe')}">🔊</button></div><div class="muted small" style="margin-top:.6rem">${t('Chọn nghĩa đúng')}</div>`
         : `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}${w.ex ? `<div class="ctx" style="margin:1rem auto 0">“${cloze(w.ex, w.word)}”</div>` : ''}<div class="muted small" style="margin-top:.6rem">${t('Chọn từ tiếng Anh đúng')}</div>`;
@@ -569,6 +595,7 @@
       // 💪 8 câu đúng liền → mời chế độ khó (1 lần/lượt; câu còn lại: gõ thay vì chọn, ít gợi ý, +6 XP)
       if (FX && !run.second && FX.wantsHard(run.c, qs.length - run.i, mode)) { document.onkeydown = null; return FX.offerHard($('#qbox'), run.c, yes => { if (yes) FX.harden(qs.slice(run.i)); next(); }); }
       if (notice && run.i === 0) $('.study-top').before(FX.note(notice, again));
+      { const nq = seq[run.i + 1]; if (nq) setTimeout(() => preDis(nq), 0); }
       renderQuestion($('#qbox'), q, (ok, el) => {
         const xp = q.hard ? 6 : 3;
         if (ok) { run.score++; run.xp += xp; App.reward({ xp }, el); } else { run.wrong.push(q.w); run.wq.push(q); }
@@ -610,7 +637,7 @@
       const aw = $('#addWrong');
       if (aw) aw.onclick = async () => { for (const w of run.wrong) if (!App.inDeck(w.word)) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); toast(t('Đã thêm vào flashcard')); aw.disabled = true; };
     };
-    next();
+    startWhen(warmLib().then(() => preDis(seq[0])), next); // phương án nhiễu cần kho đã chuẩn hóa
   }
 
   function emptySource(src) {
@@ -712,7 +739,7 @@
       const al = $('#addLearned');
       if (al) al.onclick = async () => { for (const w of notIn) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); al.disabled = true; al.textContent = '✓ ' + t('Đã thêm'); Sfx.win(); };
     };
-    next();
+    startWhen(warmLib(), next); // như runQuiz: kho chuẩn hóa theo lát trước câu đầu
   }
 
 })();

@@ -1,0 +1,43 @@
+# 📱 Soát web mobile (360/390/412 px): tràn ngang, vùng chạm ≥ 44 px, safe-area, bàn phím ảo che ô nhập, CLS/INP (CPU 4×), Lighthouse mobile LCP/CLS/TBT,
+# thẻ kết quả + ô Cơ hội thứ 2/Nhân đôi XP. Đo BẢN PHÁT HÀNH dựng từ web/ của chính commit (như scripts/build-web.sh: app-loader nạp JS sau lần vẽ đầu + esbuild rút gọn; không cần deploy). Ngưỡng: scripts/test/mobile-qa.budget.json (chỉ được GIẢM).
+name: Mobile QA
+on:
+  pull_request:
+    branches: [main]
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', '.github/workflows/mobile-qa.yml']
+  push:
+    branches: [main]
+    paths: ['web/app/**', 'web/js/**', 'web/css/**', 'scripts/test/mobile-qa*', 'scripts/app-loader.mjs', '.github/workflows/mobile-qa.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '40 3 * * 1'   # thứ Hai 10:40 giờ Việt Nam
+permissions:
+  contents: read
+concurrency:
+  group: mobile-qa-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  mqa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Playwright
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium
+      - name: Soát mobile + Lighthouse
+        env: { MQA_LH: '1' }
+        run: |
+          # Bản giống dist/ mà người dùng tải (scripts/build-web.sh): web/app/index.html giữ <script defer> cho add-on/app di động,
+          # bản web nạp JS khung app SAU lần vẽ đầu (app-loader) và rút gọn JS/CSS – đo web/ thô sẽ tính cả 25 file JS vào LCP.
+          rm -rf out/site && mkdir -p out && cp -R web out/site && rm -rf out/site/audio
+          node scripts/app-loader.mjs out/site/app/index.html && node scripts/app-loader.mjs --check out/site/app/index.html
+          (cd web && npx -y esbuild@0.24.0 $(find js css sw.js -type f \( -name '*.js' -o -name '*.css' \) | sort) --minify --charset=utf8 --log-level=warning --outdir=../out/site --outbase=. --allow-overwrite)
+          (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/mobile-qa.mjs http://localhost:8080 out/mobile-qa
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with: { name: mobile-qa, path: out/mobile-qa, retention-days: 7 }

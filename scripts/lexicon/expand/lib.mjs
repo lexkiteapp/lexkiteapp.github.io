@@ -39,6 +39,8 @@ export function btOk(e, l) {
 // Lỗ dữ liệu NGUỒN (IPA từ Wiktionary/CMUdict/espeak – không do AI soạn) ≠ lỗi nội dung → không bao giờ vào hàng duyệt; lượt sau làm lại.
 const GAP = /^ipa[ :]/;
 export const sourceGap = r => !!(r && !r.ok && r.why.length && r.why.every(x => GAP.test(x)));
+// Có ÍT NHẤT 1 lỗ nguồn (kể cả kèm lỗi nội dung) → không vào hàng duyệt (người soát không sửa được IPA nguồn); lượt sau sinh lại cả mục – cùng luật requeue.mjs --gaps
+export const hasGap = r => !!(r && !r.ok && (r.why || []).some(x => GAP.test(x)));
 const formOf = (w, s) => { const t = words(s), st = w.split('-')[0].slice(0, Math.min(w.length, 4)); return t.some(x => x === w || x.startsWith(st)); }; // biến tố/bất quy tắc (forsook) vẫn khớp 4 chữ đầu
 // Cổng 1 mục (CỨNG): lược đồ · IPA hợp lệ (Anh từ Wiktionary, Mỹ từ CMUdict) · 2 giám khảo khác họ ≥ 4 lệch ≤ 1 · CEFR · dịch (≥ 4 cả 2 giám khảo, đúng chữ viết, không lẫn tiếng Việt, dịch ngược ≥ 0.8)
 // định nghĩa đúng HÌNH từ loại (quy ước kho, đo 26/10: v 1348/1348 "to …", adj/adv 0 mạo từ/"to", n 0 "to") – pilot 11: purple#adj "a colour that…"

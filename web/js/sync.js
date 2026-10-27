@@ -116,6 +116,13 @@
   // Gộp bảng điểm 2 thiết bị: giữ điểm cao nhất của mỗi bài
   const maxMerge = (x = {}, y = {}) => { const o = { ...(x || {}) }; for (const [k, v] of Object.entries(y || {})) o[k] = typeof v === 'number' && typeof o[k] === 'number' ? Math.max(o[k], v) : (o[k] != null ? o[k] : v); return o; };
   const mergeGame = ord(mergeGame0);
+  // Lớp giữ thói quen (retention.js, game.ret): hợp mốc/đồ/sự kiện, rương đã mở = max, khung = bản chọn sau cùng – cùng luật Ret.core.merge (kiểm thử retention.mjs)
+  function mergeRet(a, b) {
+    if (!b) return a; if (!a) return b;
+    const ev = {}; for (const src of [a.ev || {}, b.ev || {}]) for (const [id, arr] of Object.entries(src)) ev[id] = [...new Set([...(ev[id] || []), ...arr])].sort().slice(0, 7);
+    const lead = (+b.frameAt || 0) > (+a.frameAt || 0) ? b : a;
+    return { ms: { ...(b.ms || {}), ...(a.ms || {}) }, own: { ...(b.own || {}), ...(a.own || {}) }, evDone: { ...(b.evDone || {}), ...(a.evDone || {}) }, ev, opened: Math.max(+a.opened || 0, +b.opened || 0), frame: lead.frame || '', frameAt: +lead.frameAt || 0 };
+  }
   function mergeGame0(a, b) {
     if (!b) return a; if (!a) return b;
     const days = { ...a.days };
@@ -127,7 +134,7 @@
     // Lượt đóng băng: lấy theo bản nhiều XP hơn (tiến độ mới hơn); ngày đã đóng băng: hợp 2 bên
     const lead = (b.xp || 0) > (a.xp || 0) ? b : a;
     return { ...a, xp: Math.max(a.xp || 0, b.xp || 0), days, total, best, unitDone, freezes: lead.freezes || 0, freezeAt: Math.max(a.freezeAt || 0, b.freezeAt || 0), frozen: { ...(b.frozen || {}), ...(a.frozen || {}) },
-      listenDone: maxMerge(a.listenDone, b.listenDone), grammarDone: maxMerge(a.grammarDone, b.grammarDone), pronDone: maxMerge(a.pronDone, b.pronDone), listenBest: maxMerge(a.listenBest, b.listenBest), rtype: (() => { const o = { ...(b.rtype || {}) }; for (const [k, v] of Object.entries(a.rtype || {})) if (!o[k] || v.t > o[k].t) o[k] = v; return o; })(), toeicBest: (a.toeicBest || {}).total >= ((b.toeicBest || {}).total || 0) ? a.toeicBest : b.toeicBest, badges: { ...b.badges, ...a.badges }, readDone: { ...(b.readDone || {}), ...(a.readDone || {}) }, questsDone: { ...(b.questsDone || {}), ...(a.questsDone || {}) } };
+      listenDone: maxMerge(a.listenDone, b.listenDone), grammarDone: maxMerge(a.grammarDone, b.grammarDone), pronDone: maxMerge(a.pronDone, b.pronDone), listenBest: maxMerge(a.listenBest, b.listenBest), rtype: (() => { const o = { ...(b.rtype || {}) }; for (const [k, v] of Object.entries(a.rtype || {})) if (!o[k] || v.t > o[k].t) o[k] = v; return o; })(), toeicBest: (a.toeicBest || {}).total >= ((b.toeicBest || {}).total || 0) ? a.toeicBest : b.toeicBest, badges: { ...b.badges, ...a.badges }, readDone: { ...(b.readDone || {}), ...(a.readDone || {}) }, questsDone: { ...(b.questsDone || {}), ...(a.questsDone || {}) }, ...((a.ret || b.ret) ? { ret: mergeRet(a.ret, b.ret) } : {}) };
   }
 
   // Dấu “đã xóa” chỉ cần giữ đủ lâu để mọi thiết bị kịp đồng bộ → bỏ mục quá 90 ngày, tránh phình dữ liệu
@@ -569,7 +576,7 @@
     }
   }
   Sync.render = render;
-  Sync._m = { mergeCards, mergeStats, mergeGame, stable, snapHash }; // kiểm thử gộp (scripts/test/sync-drive.mjs)
+  Sync._m = { mergeCards, mergeStats, mergeGame, mergeRet, stable, snapHash }; // kiểm thử gộp (scripts/test/sync-drive.mjs)
   window.addEventListener('online', render); window.addEventListener('offline', render);
 
   // Khởi động trễ để không chặn giao diện

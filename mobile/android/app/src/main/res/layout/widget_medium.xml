@@ -35,6 +35,15 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_weight="1" />
+            <!-- Giáo viên (Ama/Carlos) cạnh chuỗi – chỉ hiện khi snapshot có "tch" (lớp giữ thói quen, cờ ret) -->
+            <ImageView
+                android:id="@+id/widget_teacher"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="4dp"
+                android:importantForAccessibility="no"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
             <TextView
                 android:id="@+id/widget_streak"
                 android:text="🔥 7"
