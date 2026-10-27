@@ -1,0 +1,18 @@
+# Dò kho CF_POOL ngay sau giờ nạp neuron (27/10): ~121 neuron/lần. Xem kết quả ở tóm tắt run. scripts/lib/cf-pool-probe.mjs
+name: cf-pool-probe
+on:
+  schedule:
+    - cron: '3 0 * * *'
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+permissions: { contents: read }
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/lib/cf-pool-probe.mjs
+        env: { CF_POOL: '${{ secrets.CF_POOL }}' }

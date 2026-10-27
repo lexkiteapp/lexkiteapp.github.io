@@ -681,6 +681,25 @@
    "_note": "Ảnh từ vựng tầng miễn phí, tất định: icon Noto/OpenMoji + ảnh Wikimedia (ánh xạ đã commit + soát tay) → lexkite-media; không AI, không neuron. Thứ Hai: đăng nghĩa mới nếu ánh xạ đổi."
   },
   {
+    "id": "cf-pool-probe",
+    "workflow": "cf-pool-probe.yml",
+    "cron": [
+      "3 0 * * *",
+      "30 0 * * *"
+    ],
+    "priority": "reports",
+    "resources": [
+      "gh_minutes"
+    ],
+    "minutes": 1,
+    "est": {
+      "neurons": 121
+    },
+    "lease": false,
+    "paused": false,
+    "_note": "27/10: dò kho CF_POOL ngay sau giờ nạp neuron (mỗi tài khoản 1 câu ~1 neuron) – kho có thật sự nạp lại lúc 00:00 UTC không, có ai khác dùng không. Kết quả ở tóm tắt run."
+  },
+  {
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [
