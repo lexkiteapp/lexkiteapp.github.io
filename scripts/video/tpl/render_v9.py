@@ -1173,9 +1173,10 @@ def board_contrast(F, im, r):   # WCAG contrast of the lightest marker ink (gree
     ring = cv2.dilate(A.astype(np.uint8), np.ones((9, 9), np.uint8)).astype(bool) & ~cv2.dilate(A.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
     if ring.sum() < 50: return None
     px = F[y0:y1, x0:x1][ring].astype(np.float32) / 255; lin = np.where(px <= 0.04045, px / 12.92, ((px + 0.055) / 1.055) ** 2.4)
-    Lb = float(np.percentile(lin[:, 2] * 0.2126 + lin[:, 1] * 0.7152 + lin[:, 0] * 0.0722, 5)); return round((Lb + 0.05) / (0.19 + 0.05), 2)
+    Lb = float(np.percentile(lin[:, 2] * 0.2126 + lin[:, 1] * 0.7152 + lin[:, 0] * 0.0722, 5)); Lt = 0.19 * min(1.0, Lb / 0.9)   # the lightest ink (green) under the SAME light as its board (lit ink)
+    return round((Lb + 0.05) / (Lt + 0.05), 2)
 CONTRAST = []
-def paste_board(F, im, reg, sc, al, dx, dy, wipe, s_cam):
+def paste_board(F, im, reg, sc, al, dx, dy, wipe, s_cam, lit=False):
     """Write a pop on the whiteboard: centred in its zone region, board perspective (GB), then the camera; returns the screen bbox."""
     if al <= 0.003 or sc <= 0.05: return None
     if sc < 0.8: im = im.resize((max(1, round(im.width * sc)), max(1, round(im.height * sc))), Image.LANCZOS); k = 1.0
@@ -1189,6 +1190,13 @@ def paste_board(F, im, reg, sc, al, dx, dy, wipe, s_cam):
     Mp = cv2.getPerspectiveTransform(np.float32([[0, 0], [im.width, 0], [im.width, im.height], [0, im.height]]), q - np.float32([x0, y0]))
     out = cv2.warpPerspective(pre, Mp, (x1 - x0, y1 - y0), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
     al_ = out[..., 3] / 255; rgb = out[..., :3] / np.maximum(al_[..., None], 1e-4)
+    if lit:   # v14 (owner 27/10 'chữ hơi giả'): marker ink takes the board's real light – the diagonal window shadow darkens the writing exactly as it darkens the board; soft ink edge
+        X0, Y0 = max(0, x0), max(0, y0); X1, Y1 = min(W, x1), min(H, y1)
+        if X1 > X0 and Y1 > Y0:
+            Lb = cv2.GaussianBlur(cv2.cvtColor(F[Y0:Y1, X0:X1], cv2.COLOR_BGR2GRAY).astype(np.float32), (0, 0), 9)
+            fac = np.clip(Lb / max(float(np.percentile(Lb, 97)), 1.0), 0.45, 1.0)
+            fl = np.ones(al_.shape, np.float32); fl[Y0 - y0:Y1 - y0, X0 - x0:X1 - x0] = fac; rgb = rgb * fl[..., None]
+        al_ = cv2.GaussianBlur(al_.astype(np.float32), (0, 0), 0.6) * 0.97
     over(F, rgb, al_, x0, y0, al); return [x0, y0, x1, y1]
 class Page:
     def __init__(s, wids, split=None):
@@ -1356,8 +1364,7 @@ for fi in range(NF):
             sx_ = max(0.0, ((rg[2] - rg[0]) - im.width * sc) / 2 - 2); sy_ = max(0.0, ((rg[3] - rg[1]) - im.height * sc) / 2 - 2)
             dx = max(-sx_, min(sx_, dx)); dy = max(0.0, min(2 * sy_, dy)) if V14 else max(-sy_, min(sy_, dy))   # slide / drop only inside the board region (no slack = a fade); v14 = top-aligned, so the slack is all below
             ink_ = V14 and p.kind != 'cta'
-            if ink_: im = board_halo(im)   # v14: marker ink on the board with a soft light halo (legible over the window shadow, still 'written on the board')
-            r = paste_board(out, im, rg, sc, al, dx, dy, wp, s); cr_ = board_contrast(out, im, r) if (ink_ and p.kind in ('lesson', 'note', 'rich') and r and al >= 0.999 and fi % 12 == 0) else None   # ink text only: quiz pills / picture tiles / stress chips carry their own dark plates (white on navy); pxs = round(p.px * sc * s, 1); ms = [[a_, round(v_ * sc * s * PSC, 1)] for a_, v_ in getattr(p, 'mcur', [])]
+            r = paste_board(out, im, rg, sc, al, dx, dy, wp, s, lit=ink_); cr_ = board_contrast(out, im, r) if (ink_ and p.kind in ('lesson', 'note', 'rich') and r and al >= 0.999 and fi % 12 == 0) else None   # ink text only: quiz pills / picture tiles / stress chips carry their own dark plates (white on navy); pxs = round(p.px * sc * s, 1); ms = [[a_, round(v_ * sc * s * PSC, 1)] for a_, v_ in getattr(p, 'mcur', [])]
         else:
             sc = min(sc, (CAPW - 2) / im.width if p.cx == CX else 9, (BAND_H - 2) / im.height); r = paste_scaled(out, im, p.cx + dx, BAND_CY + dy, sc, al, wp); pxs = round(p.px * sc, 1); ms = [['body', round(CAPR * p.px * sc, 1)]]
         if r and p.where == 'board' and cr_ is not None: CONTRAST.append(dict(t=round(T, 3), pop=p.id, cr=cr_))
