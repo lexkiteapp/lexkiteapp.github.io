@@ -1,16 +1,18 @@
 {
  "id": "sts_43b7bd40",
  "template": "mistake",
- "title": "Stop Saying This #8 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
- "teacher": "carlos",
+ "title": "Stop Saying This #4 – Stop saying \"They lack of experience.\" – say \"They lack experience.\"",
+ "teacher": "ama",
  "set": "classroom_board",
  "clips": [
-  "c01_carlos_board",
-  "c01t2_carlos_talk2",
-  "c01t3_carlos_talk3"
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
  ],
  "listen": [
-  "c01l_carlos_listen"
+  "a05l2_ama2_listen"
  ],
  "accent": "red",
  "active": "cream",
@@ -21,7 +23,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.65,
+ "speed": 0.75,
  "display": {
   "blank": "___"
  },
@@ -44,7 +46,7 @@
      2
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_k",
@@ -55,7 +57,7 @@
      4
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_y",
@@ -65,17 +67,19 @@
      2
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_x",
-   "text": "The team lacks money.",
-   "gap": 0.7,
+   "text": "The team lacks money. There's a lack of time.",
    "key": {
     "green": [
-     2
+     2,
+     6,
+     7
     ]
-   }
+   },
+   "gap": 0.65
   },
   {
    "id": "m_t",
@@ -85,7 +89,7 @@
      5
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_q",
@@ -96,7 +100,7 @@
      1
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_q2",
@@ -116,17 +120,17 @@
      4
     ]
    },
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_sh",
    "text": "Send this to a friend who says it!",
-   "gap": 0.7
+   "gap": 0.65
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.7
+   "gap": 0.65
   }
  ],
  "pops": [
@@ -317,6 +321,21 @@
       ],
       [
        "money."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "There's a "
+      ],
+      [
+       "lack of ",
+       "green"
+      ],
+      [
+       "time."
       ]
      ]
     }
@@ -540,7 +559,7 @@
  ],
  "series": {
   "name": "Stop Saying This",
-  "ep": 8
+  "ep": 4
  },
  "source": {
   "bank": "sb_43b7bd40",
