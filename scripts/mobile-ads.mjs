@@ -14,7 +14,7 @@ const SKAN = ['cstr6suwn9.skadnetwork']; // Google (developers.google.com/admob/
 function ids() {
   const c = { self: {} }; c.self = c; vm.createContext(c);
   vm.runInContext(fs.readFileSync('web/js/ads/config.js', 'utf8'), c);
-  const n = (c.ADS_CONFIG || {}).native || {};
+  const N = (c.ADS_CONFIG || {}).native || {}, n = N.testing ? N : N.live || {}; // App ID khớp ad unit: testing → mã thử, phát hành → mã thật (live)
   return { android: (n.android || {}).appId, ios: (n.ios || {}).appId };
 }
 const MARK_A = '<!-- lexkite-admob -->', MARK_I = '<!-- lexkite-admob -->';

@@ -92,8 +92,8 @@
 
   // ---------- App: AdMob + UMP ----------
   const AM = () => cap && cap.Plugins && cap.Plugins.AdMob;
-  const unit = k => ((C.native || {})[plat] || {})[k] || '';
   const testing = !!(C.native && C.native.testing);
+  const unit = k => ((testing ? C.native : (C.native || {}).live || {})[plat] || {})[k] || ''; // testing → mã thử của Google, không bao giờ mã thật
   let initP = null;
   const init = () => initP || (initP = (async () => {
     const A = AM(); if (!A) return false;

@@ -15,7 +15,10 @@ const rd = f => fs.readFileSync(f, 'utf8');
 const ctxP = {}; ctxP.self = ctxP; vm.createContext(ctxP); vm.runInContext(rd('web/js/ads/policy.js'), ctxP); vm.runInContext(rd('web/js/ads/config.js'), ctxP);
 const P = ctxP.AdsPolicy, CFG = ctxP.ADS_CONFIG;
 ok(CFG.enabled === false && /^ca-pub-\d{16}$/.test(CFG.web.client) && CFG.native.testing === true, 'ads/config.js: enabled=false (mã nhà xuất bản đã có, chưa bật), app dùng mã THỬ');
-ok(/3940256099942544/.test(JSON.stringify(CFG.native)) && !/ca-app-pub-(?!3940256099942544)\d{16}/.test(JSON.stringify(CFG.native)), 'AdMob: CHỈ mã thử của Google');
+{ const { live, ...act } = CFG.native, pub = CFG.web.client.replace(/^ca-pub-/, '');
+  ok(/3940256099942544/.test(JSON.stringify(act)) && !/ca-app-pub-(?!3940256099942544)\d{16}/.test(JSON.stringify(act)), 'AdMob: mã đang dùng (testing) CHỈ là mã thử của Google');
+  ok(['android', 'ios'].every(p => ['appId', 'banner', 'interstitial', 'rewarded'].every(k => new RegExp('^ca-app-pub-' + pub + '[~/]\\d{10}$').test((live[p] || {})[k] || ''))), 'AdMob: mã thật (live) đủ 2 nền tảng × 4 mã, cùng pub id với AdSense/app-ads.txt');
+  ok(/testing \? C\.native : \(C\.native \|\| \{\}\)\.live/.test(rd('web/js/ads/run.js')), 'run.js: testing → mã thử, chỉ bản phát hành mới dùng mã thật'); }
 const ON = { ads_web: '1', ads_android: '1', ios: '1', ads_ios: '1' }, LOCAL = { enabled: true };
 const f0 = P.flags({}, CFG), fOn = P.flags(ON, LOCAL);
 ok(!f0.web && !f0.android && !f0.ios, 'mặc định: mọi nền tảng TẮT');

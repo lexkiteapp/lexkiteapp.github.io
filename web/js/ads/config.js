@@ -15,6 +15,11 @@
       testing: true, // true = mã thử của Google (bắt buộc khi phát triển – bấm quảng cáo thật của chính mình = khóa tài khoản)
       // Mã thử chính thức của Google (developers.google.com/admob/android/test-ads, /ios/test-ads) – thay bằng mã thật khi tài khoản AdMob được duyệt
       android: { appId: 'ca-app-pub-3940256099942544~3347511713', banner: 'ca-app-pub-3940256099942544/9214589741', interstitial: 'ca-app-pub-3940256099942544/1033173712', rewarded: 'ca-app-pub-3940256099942544/5224354917' },
+      // Mã THẬT (AdMob tạo 27/10/2026, tài khoản LLC) – chỉ dùng khi testing = false (bản phát hành), app-ads.txt cùng pub id
+      live: {
+        android: { appId: 'ca-app-pub-2290668854727752~2111189757', banner: 'ca-app-pub-2290668854727752/9011640020', interstitial: 'ca-app-pub-2290668854727752/8469336665', rewarded: 'ca-app-pub-2290668854727752/2354732337' },
+        ios: { appId: 'ca-app-pub-2290668854727752~7780564813', banner: 'ca-app-pub-2290668854727752/2135028457', interstitial: 'ca-app-pub-2290668854727752/8293454723', rewarded: 'ca-app-pub-2290668854727752/9466935590' },
+      },
       ios: { appId: 'ca-app-pub-3940256099942544~1458002511', banner: 'ca-app-pub-3940256099942544/2435281174', interstitial: 'ca-app-pub-3940256099942544/4411468910', rewarded: 'ca-app-pub-3940256099942544/1712485313' },
     },
   };
