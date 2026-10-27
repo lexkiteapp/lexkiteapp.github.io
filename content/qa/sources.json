@@ -263,7 +263,8 @@
   {
    "id": "lesson",
    "paths": [
-    "web/js/lesson"
+    "web/js/lesson",
+    "content/lesson"
    ],
    "owner": "claude",
    "gen": false,
@@ -274,7 +275,7 @@
    "delegate": [
     "test/lesson.mjs"
    ],
-   "note": "#/lesson: gold.js sinh từ gold bank video (content/video/scripts/bank, đã qua cổng script-bank) – build-gold --check trong test/lesson.mjs; bộ demo/khởi đầu trong ui.js"
+   "note": "#/lesson: stories.js từ content/lesson/stories.json (tự soạn A1–A2, build-stories --check: lược đồ + 15 ngôn ngữ cặp ghép); gold.js sinh từ gold bank video (content/video/scripts/bank, đã qua cổng script-bank) – build-gold --check trong test/lesson.mjs; bộ demo/khởi đầu trong ui.js"
   },
   {
    "id": "ui-i18n",

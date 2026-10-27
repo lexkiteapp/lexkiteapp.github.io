@@ -136,7 +136,9 @@
     get done() { return !this.q.length; }
     get progress() { return this.total ? Math.min(1, this.solved / this.total) : 1; }
     answer(ok) {
-      const it = this.q.shift(); if (!it) return null; this.n++;
+      const it = this.q.shift(); if (!it) return null;
+      if (it.free) { this.solved++; return { ok: true, combo: this.combo, free: true }; } // câu thoại của truyện: chỉ tiến độ, không chấm
+      this.n++;
       const k = norm(it.word); this.log.push({ id: it.id, type: it.type, word: it.word, ok, retry: it.retry });
       if (ok) { this.solved++; this.combo++; this.best = Math.max(this.best, this.combo); if (!it.retry) { this.ok1++; if (!this.wrong.has(k)) this.firstOk.add(k); } return { ok, combo: this.combo }; }
       this.combo = 0; this.wrong.set(k, (this.wrong.get(k) || 0) + 1); this.firstOk.delete(k);
@@ -184,12 +186,29 @@
 
   /** Bản đồ chặng: 6 nút/chặng, tự trộn theo dữ liệu (người học không phải chọn). Nhiều thẻ đến hạn/hay quên → mở chặng bằng Ôn lỗi.
    *  → [{ kind: 'review'|'lesson'|'listen'|'speak' }] */
-  function pathPlan(cards, now = Date.now()) {
+  function pathPlan(cards, now = Date.now(), has = {}) {
     const list = Object.values(cards || {}).filter(c => c && c.srs), due = list.filter(c => isDue(c, now)).length, weak = list.filter(c => c.srs.lapses > 0).length;
-    return [due + weak >= 3 ? 'review' : 'lesson', 'listen', 'lesson', 'speak', 'lesson', 'review'].map(kind => ({ kind }));
+    const first = due + weak >= 3 ? 'review' : 'lesson';
+    return [first, has.story ? 'story' : 'listen', has.story ? 'listen' : 'lesson', 'speak', has.radio ? 'radio' : 'lesson', 'review'].map(kind => ({ kind }));
+  }
+  /** Truyện/Radio → hàng bài: mỗi câu thoại là 1 bước 'line' (free, không chấm); sau câu `at` chèn bài kiểm (tap = xếp câu, q = câu hỏi, match = ghép cặp).
+   *  lang: ngôn ngữ nghĩa của người học (cặp ghép). → [items] */
+  function storyItems(st, lang, seed) {
+    const r = rng(seed || 1), out = []; let id = 0;
+    const words = [...new Set(st.lines.flatMap(l => toks(l.en)).map(w => w.toLowerCase()))];
+    st.lines.forEach((l, i) => {
+      out.push({ id: ++id, type: 'line', free: true, word: '#story', card: null, retry: 0, who: l.who, sent: l.en, radio: st.kind === 'radio' });
+      (st.checks || []).filter(c => c.at === i).forEach(c => {
+        const base = { id: ++id, word: '#story', card: null, retry: 0 };
+        if (c.type === 'tap') { const T = toks(st.lines[c.line].en), extra = shuffle(words.filter(w => !T.some(x => x.toLowerCase() === w)), r).slice(0, 2); out.push(Object.assign(base, { type: 'build', sent: st.lines[c.line].en, who: st.lines[c.line].who, answer: T.join(' '), tiles: shuffle(T.concat(extra), r) })); }
+        else if (c.type === 'q') out.push(Object.assign(base, { type: 'q', prompt: c.q, answer: c.options[c.answer], options: shuffle(c.options.slice(), r) }));
+        else if (c.type === 'match') out.push(Object.assign(base, { type: 'match', pairs: c.pairs.map(p => ({ word: p.en, mean: p.m[lang] || p.m.en })) }));
+      });
+    });
+    return out;
   }
   // Dạng bài theo loại nút
   const KIND = { lesson: null, review: null, listen: ['gap', 'build', 'type', 'match'], speak: ['say', 'pic', 'gap'] };
 
-  g.LessonEngine = { pathPlan, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
+  g.LessonEngine = { pathPlan, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
 })(typeof self !== 'undefined' ? self : globalThis);

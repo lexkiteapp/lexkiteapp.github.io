@@ -49,19 +49,34 @@
         requestAnimationFrame(tick);
       })();
     }
+    let hq = null;
     const api = {
       who,
+      // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – miệng theo đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
         const my = ++run, rate = o.rate || 0.95, E = g.LessonEngine;
-        const dur = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate), cues = o.cues || (E ? E.visemes(text, dur) : [[0, 'X']]);
-        const end = () => { if (my === run) { run++; show(''); } if (o.onEnd) o.onEnd(); };
-        if (sp && L.length) lip(cues, dur, my);
-        if (g.UI && g.UI.tts) g.UI.tts(text, o.accent || 'en-US', rate, { onEnd: end }); else setTimeout(end, dur * 1000);
+        let ended = false; const end = () => { if (ended) return; ended = true; if (my === run) { run++; show(''); } if (o.onEnd) o.onEnd(); };
+        const tts = () => {
+          if (my !== run) return;
+          const dur = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate), cues = o.cues || (E ? E.visemes(text, dur) : [[0, 'X']]);
+          if (sp && L.length) lip(cues, dur, my);
+          if (g.UI && g.UI.tts) g.UI.tts(text, o.accent || 'en-US', rate, { onEnd: end }); else setTimeout(end, dur * 1000);
+        };
+        if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; }
+        const base = (g.AUDIO_BASES || [])[0];
+        if (!o.voice || !g.KVoice || !base || !g.Audio) return tts();
+        const a = hq = new g.Audio(base + g.KVoice.lineKey(o.voice, text) + '.mp3');
+        a.onloadedmetadata = () => { if (my === run && sp && L.length && isFinite(a.duration)) lip(o.cues || (E ? E.visemes(text, a.duration) : [[0, 'X']]), a.duration, my); };
+        if (rate < 0.9) a.playbackRate = 0.75; // 🐢 nghe chậm
+        a.onended = end;
+        a.onerror = () => { if (hq === a) { hq = null; tts(); } };
+        const p = a.play(); if (p && p.catch) p.catch(() => { if (hq === a) { hq = null; tts(); } });
       },
-      stop() { run++; show(''); try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
-      destroy() { dead = true; run++; if (ro) ro.disconnect(); if (vid) { try { vid.pause(); vid.removeAttribute('src'); vid.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
+      stop() { run++; show(''); if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; } try { if (g.UI && g.UI.stopSpeak) g.UI.stopSpeak(); } catch (e) { /* bỏ qua */ } },
+      destroy() { dead = true; run++; if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; } if (ro) ro.disconnect(); if (vid) { try { vid.pause(); vid.removeAttribute('src'); vid.load(); } catch (e) { /* bỏ qua */ } } el.innerHTML = ''; },
     };
     return api;
   }
-  g.LessonTeacher = { mount, lite };
+  const VOICE = { ama: 'af_heart', carlos: 'am_michael' }; // cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
+  g.LessonTeacher = { mount, lite, VOICE };
 })(self);

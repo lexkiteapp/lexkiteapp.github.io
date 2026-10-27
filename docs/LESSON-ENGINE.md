@@ -34,6 +34,12 @@
 - Bài 2–3 phút (4 từ ≈ 9 bài). Chữ hướng dẫn ≤ 5 từ; giải thích chỉ khi bấm **Vì sao?** (trọng âm, US/UK, gold `why`).
 - Mỗi câu: âm + rung (`Sfx`, theo Cài đặt › Hiệu ứng âm thanh), giáo viên gật/lắc + nói ("Nice!"/"Almost!") + emoji; ô chữ nảy, thanh tiến độ sáng, COMBO 🔥; màn kết pháo giấy + XP · % · thời gian, **1 chạm** sang bài tiếp. Chỉ transform/opacity (60 fps), tắt khi giảm chuyển động.
 
+## 2c. Truyện + Radio (nút trên bản đồ) · trang chủ = bản đồ
+- Nội dung `content/lesson/stories.json` (tự soạn A1–A2, Ama ↔ Carlos) → `scripts/lesson/build-stories.mjs` (kiểm lược đồ, cặp ghép đủ 15 ngôn ngữ) → `web/js/lesson/stories.js` (~5 KB gz, trong bundle `lesson`).
+- **Truyện**: từng câu thoại (người nói sáng lên, chữ hiện dạng chat) + bài kiểm xen giữa: xếp lại câu vừa nghe · câu hỏi hiểu · ghép cụm ↔ nghĩa (ngôn ngữ người học). **Radio**: chỉ nghe (không chữ, "ON AIR") rồi 3 câu hỏi.
+- Giọng: Kokoro **sinh sẵn trên CI** (`scripts/gen-audio.mjs`, `audio.yml` hằng đêm; Ama = af_heart, Carlos = am_michael) → `audio.lexkite.com/audio/l/<KVoice.lineKey>.mp3`; miệng sprite chạy theo đúng độ dài file; chưa có file → giọng máy. Cue Rhubarb theo âm vị: sau duyệt.
+- Câu thoại không tính điểm (chỉ tiến độ); hết bài → bài kế tiếp xoay vòng. Cờ `lesson_mix` bật → `#/home` = bản đồ (trang chủ đầy đủ ở `#/home?all=1`).
+
 ## 3. Bảy dạng bài (MVP)
 | Dạng | Cần dữ liệu | Chấm | Khi tắt nghe / nói |
 |---|---|---|---|
@@ -72,8 +78,8 @@
 | # | Hạng mục | Cách làm $0 | Tái dùng |
 |---|---|---|---|
 | 1 | **Bản đồ lộ trình**: mỗi unit trộn nút bài học · video · truyện · Radio · ôn tập (+XP) | nút = route lười; tiến độ IndexedDB | `path-day.js`, `lesson-video.js` |
-| 2 | **Truyện (Stories)**: hội thoại minh họa Ama ↔ Carlos, giữa truyện có "chạm từ bạn nghe" + ghép cặp cụm VN↔EN, câu hỏi hiểu | kịch bản JSON + Kokoro + cue Rhubarb **sinh sẵn trên CI** (tĩnh) | engine (`build`/`match`), `teacher.js` |
-| 3 | **Radio**: nghe 1–2 phút (2 giọng) + 3 câu hỏi | Kokoro sinh sẵn trên CI | `listening.js` qengine |
+| 2 | ✅ (MVP §2c) **Truyện (Stories)**: hội thoại minh họa Ama ↔ Carlos, giữa truyện có "chạm từ bạn nghe" + ghép cặp cụm VN↔EN, câu hỏi hiểu | kịch bản JSON + Kokoro + cue Rhubarb **sinh sẵn trên CI** (tĩnh) | engine (`build`/`match`), `teacher.js` |
+| 3 | ✅ (MVP §2c) **Radio**: nghe 1–2 phút (2 giọng) + 3 câu hỏi | Kokoro sinh sẵn trên CI | `listening.js` qengine |
 | 4 | **Practice Hub** hằng ngày: từ yếu · đến hạn · lỗi cũ | chỉ đọc FSRS + nhật ký Lỗi cũ trên máy | `dueList`, `LessonEngine.results` |
 | 5 | **Cuộc gọi Ama/Carlos**: kịch bản rẽ nhánh + **tổng kết** ("bạn đã dùng 11 từ") + **xem lại lời thoại** có ghi chú sửa (bread ≠ breast, "trả lời đầy đủ hơn") | khớp từ tại máy; cặp âm dễ nhầm từ `pron/pairs.js` | `call.js`, `pron` |
 | 6 | **Giải thích theo lớp lỗi** (giới từ, thì, mạo từ…) trước, Gemini Nano khi có (desktop) | luật trên máy, Nano trên máy | `writecheck-rules.js`, `ai-local.js` |

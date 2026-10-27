@@ -114,6 +114,24 @@ const C = {
   const rv = E.pickWords(weak, { now: NOW, n: 4, mode: 'review' });
   ok(rv[0].card.word === 'w1', 'nút Ôn lỗi: từ hay quên lên đầu');
 }
+{
+  vm.runInContext(fs.readFileSync(path.join(WEB, 'js/lesson/stories.js'), 'utf8'), ctx);
+  const SS = ctx.self.LESSON_STORIES, st = SS.find(x => x.kind === 'story'), ra = SS.find(x => x.kind === 'radio');
+  ok(SS.filter(x => x.kind === 'story').length >= 3 && SS.filter(x => x.kind === 'radio').length >= 2, 'stories: ≥ 3 truyện + ≥ 2 radio');
+  const P = E.pathPlan({}, NOW, { story: 1, radio: 1 }).map(x => x.kind);
+  ok(P.includes('story') && P.includes('radio') && P.includes('review') && P.length === 6, 'pathPlan: có nội dung → chặng có nút Truyện + Radio');
+  const it = E.storyItems(st, 'es', 3), lines = it.filter(i => i.type === 'line');
+  ok(lines.length === st.lines.length && it.some(i => i.type === 'build') && it.some(i => i.type === 'q') && it.some(i => i.type === 'match'), 'storyItems: câu thoại + xếp câu + câu hỏi + ghép cặp xen giữa');
+  const m = it.find(i => i.type === 'match');
+  ok(m.pairs.every(p => p.mean && !/[ăâđêôơư]/i.test(p.mean)), 'storyItems: nghĩa cặp ghép theo ngôn ngữ người học (es), không lẫn tiếng Việt');
+  const q = it.find(i => i.type === 'q');
+  ok(E.check(q, q.answer) && !E.check(q, q.options.find(o => o !== q.answer)), 'check: câu hỏi hiểu');
+  const S = new E.Session(it); let k = 0;
+  while (!S.done && k++ < 60) { const c = S.cur; S.answer(c.free ? true : E.check(c, c.type === 'build' ? c.answer.split(' ') : c.type === 'match' ? true : c.answer)); }
+  ok(S.done && S.n === it.filter(i => !i.free).length && S.accuracy === 100, 'Session: câu thoại không tính điểm, chỉ tiến độ');
+  ok(E.storyItems(ra, 'vi', 1).filter(i => i.type === 'q').length === 3 && E.storyItems(ra, 'vi', 1).every(i => i.type !== 'line' || i.radio), 'radio: nghe hết rồi 3 câu hỏi, không hiện chữ');
+}
+try { execFileSync('node', ['scripts/lesson/build-stories.mjs', '--check'], { stdio: 'pipe' }); ok(true, 'stories.js khớp nội dung + lược đồ (15 ngôn ngữ cặp ghép)'); } catch (e) { ok(false, 'stories: ' + String(e.stderr || e.message).slice(0, 300)); }
 try { execFileSync('node', ['scripts/lesson/build-gold.mjs', '--check'], { stdio: 'pipe' }); ok(true, 'gold.js khớp gold bank'); } catch (e) { ok(false, 'gold.js cũ – chạy node scripts/lesson/build-gold.mjs'); }
 
 // ---------- B. jsdom: chạy trọn 1 bài ----------
@@ -154,6 +172,8 @@ ok(!$('#lsn') && App.view.querySelector('a[href="#/home"]'), 'cờ tắt: #/less
 // Trả lời đúng mục hiện tại qua DOM (đáp án đọc từ trạng thái – chỉ test)
 async function solve(right) {
   const it = st().sess.cur;
+  if (it.type === 'line') { $('#lsnGo').click(); await tick(); return; }
+  if (it.type === 'q') { const opts = [...w.document.querySelectorAll('.lsn-opts .lsn-opt')]; (right ? opts.find(o => o.dataset.o === it.answer) : opts.find(o => o.dataset.o !== it.answer)).click(); $('#lsnCheck').click(); await tick(); return; }
   if (it.type === 'match') {
     const B = s2 => [...w.document.querySelectorAll(`.lsn-match .lsn-opt[data-s="${s2}"]`)];
     if (!right) { const a = B('w')[0], b = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); b.click(); }
@@ -213,12 +233,27 @@ ok(w.localStorage.getItem('lk.lsn.path.demo') === '1' && !w.localStorage.getItem
 ok($('#lsnAgain') && /Bài khác|Next lesson/.test($('#lsnAgain').textContent), 'màn kết: 1 chạm sang bài tiếp');
 w.location.hash = '#/lesson?demo=1'; await App.routes.lesson(); await tick(40);
 ok(w.document.querySelectorAll('.lsn-node.done').length === 1 && w.document.querySelectorAll('.lsn-node')[1].classList.contains('next'), 'bản đồ: nút 1 ✓, nút 2 phát sáng');
+// Nút Truyện (nút 2) và Radio (nút 5) của demo
+for (const [pos, kind] of [[1, 'story'], [4, 'radio']]) {
+  w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.localStorage.removeItem(`lk.lsn.s.${kind}.demo`);
+  w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(60);
+  ok(st().story && st().story.kind === kind && $('.lsn-duo') && $('#lsnTch2'), `${kind}: Ama + Carlos cùng lên màn`);
+  let g2 = 0, sawLine = false;
+  while (st() && st().sess && !st().sess.done && g2++ < 60) {
+    if (st().sess.cur.type === 'line') { sawLine = sawLine || (kind === 'story' ? !!$('#lsnChat .lsn-ln') : /🔊/.test($('#lsnBub').textContent)); await solve(true); continue; }
+    await solve(true); ok($('#lsnFoot.ok'), `${kind}: trả lời đúng (${st().sess.log.slice(-1)[0].type})`); $('#lsnNext').click(); await tick();
+  }
+  ok(sawLine, kind === 'story' ? 'truyện: hiện lời thoại theo từng câu' : 'radio: chỉ nghe, không hiện chữ');
+  ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent) && w.localStorage.getItem(`lk.lsn.s.${kind}.demo`) === '1', `${kind}: xong → lần sau bài kế tiếp`);
+}
 
 // Thật (cờ bật): từ sai → FSRS Quên, XP ghi
 w.localStorage.setItem('lk.lesson', '1');
 ok(App.lessonOn(), 'cờ bật bằng lk.lesson=1');
-App.routes.home(); await tick(60);
-ok(App.view.querySelector('a[href="#/lesson"]'), 'cờ bật: trang chủ có thẻ Bài học trộn');
+w.location.hash = '#/home'; await App.routes.home(); await tick(60);
+ok(App.view.querySelector('.lsn-map .lsn-node.next .lsn-start'), 'cờ bật: trang chủ = bản đồ chặng, 1 nút Bắt đầu');
+w.location.hash = '#/home?all=1'; App.routes.home(); await tick(60);
+ok(App.view.querySelector('a[href="#/lesson"]') && !App.view.querySelector('.lsn-map'), 'cờ bật: #/home?all=1 = trang chủ đầy đủ, có thẻ Bài học trộn');
 const now = Date.now();
 App.state.cards = {
   consider: { word: 'consider', pos: 'verb', vi: 'cân nhắc', ex: "We're considering moving to a new city.", contexts: [], srs: { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: now - 864e5, last: now - 4 * 864e5, step: 0, S: 3, D: 5 } },
