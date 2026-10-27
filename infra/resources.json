@@ -672,7 +672,8 @@
       "upgrade": "—",
       "status": "Đang dùng – app com.lexkite.app trên TestFlight, bản 1.0 chuẩn bị nộp duyệt",
       "match": [
-        "api.appstoreconnect.apple.com"
+        "api.appstoreconnect.apple.com",
+        "apps.apple.com"
       ]
     },
     {
@@ -683,8 +684,10 @@
       "console": "https://play.google.com/console",
       "free": "25 USD một lần",
       "upgrade": "—",
-      "status": "Chưa đăng ký",
-      "match": []
+      "status": "Đang dùng – com.lexkite.app đã phát hành trên Google Play (nút \"Tải app\" trên web trỏ tới, web/js/ext-config.js)",
+      "match": [
+        "play.google.com"
+      ]
     },
     {
       "key": "cws",

@@ -382,6 +382,13 @@
   'Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)': 'Choose <b>“Add to Home Screen”</b>',
   'Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app': 'Tap <b>Add</b>. The Lexkite icon will appear like any other app',
   'Đã hiểu': 'Got it',
+  // Nút "Tải app" (js/get-app.js – landing + menu app)
+  'Tải app': "Get the app",
+  'Cài Lexkite lên iPad': "Install Lexkite on iPad",
+  'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari': "Tap the <b>Share</b> button <span style=\"font-size:1.2rem\">⎋</span> in Safari’s top bar",
+  'Cài Lexkite lên Mac': "Install Lexkite on your Mac",
+  'Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>': "In Safari, choose <b>File › Add to Dock</b>",
+  'Bấm <b>Thêm</b> – Lexkite sẽ mở như một app': "Click <b>Add</b>. Lexkite will open like any other app",
   'Mất kết nối – vẫn ôn tập được, tra từ mới cần mạng': "You're offline. Reviews still work; looking up new words needs a connection",
   'Đã có mạng trở lại': 'Back online',
   'Chế độ thử nghiệm – dữ liệu tách riêng, không đồng bộ': 'Sandbox mode: data is kept separate and not synced',

@@ -338,6 +338,7 @@
   }
  ],
  "skip": {
+  "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
   "content/dict": "trạng thái mở index trang từ điển (stage.json) do dict-stage.yml ghi – không phải nội dung học; kiểm bằng scripts/test/dict-stage.mjs",
   "content/brand": "tài sản thương hiệu, không phải nội dung học",
   "content/landing": "trang giới thiệu – build-landing.mjs --check",
