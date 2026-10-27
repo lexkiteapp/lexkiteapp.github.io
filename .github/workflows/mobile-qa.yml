@@ -31,7 +31,7 @@ jobs:
       - name: Soát mobile + Lighthouse
         env: { MQA_LH: '1' }
         run: |
-          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          (node scripts/test/serve-web.mjs web 8080 >/dev/null 2>&1 &) ; sleep 1
           node scripts/test/mobile-qa.mjs http://localhost:8080 out/mobile-qa
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
@@ -48,7 +48,7 @@ jobs:
       - run: |
           git fetch -q origin claude/ads-pro && git worktree add -q /tmp/ap FETCH_HEAD
           npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install --with-deps chromium
-          (cd /tmp/ap/web && python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          (node scripts/test/serve-web.mjs /tmp/ap/web 8081 >/dev/null 2>&1 &) ; sleep 1
           MQA_WEB=/tmp/ap/web MQA_REPORT_ONLY=1 node scripts/test/mobile-qa.mjs http://localhost:8081 out/adspro
       - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4

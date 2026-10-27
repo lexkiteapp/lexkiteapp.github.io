@@ -36,7 +36,10 @@ function detect() {
   // 2) vùng chạm ≥ 44 px (bỏ link nằm trong đoạn văn – ngoại lệ WCAG 2.5.8 inline)
   for (const b of document.querySelectorAll('a[href],button,[role=button],[role=tab],[role=switch],input:not([type=hidden]),select,textarea,summary,.option,.chip,.btn')) {
     const r = vis(b); if (!r || b.closest('[aria-hidden="true"],[inert]')) continue;
-    if (r.bottom < 0 || r.top > document.scrollingElement.scrollHeight) continue;
+    if (r.bottom <= 0 || r.right <= 0 || r.left >= W) continue; // ngoài màn (skip-link ẩn, phần tử trượt ra)
+    const act = x => x.matches('a[href],button,input,select,textarea,summary,[role=button],[role=tab],[role=switch],[tabindex]:not([tabindex="-1"])') || !!x.onclick;
+    if (!act(b)) continue; // nhãn/chip chỉ để đọc
+    const outer = b.parentElement && b.parentElement.closest('a[href],button,[role=button]'); if (outer) continue; // nằm trong vùng chạm lớn hơn
     const cs = getComputedStyle(b); if (cs.display === 'inline' && b.closest('p,li,small,span,label,h1,h2,h3,td')) continue;
     if (/^(checkbox|radio)$/.test(b.type) && b.closest('label')) continue;
     if (b.tagName === 'A' && b.closest('button,.btn') && b.closest('button,.btn') !== b) continue;
@@ -49,7 +52,7 @@ function detect() {
   const hasSA = (e, edge) => { const ok = x => (x.getAttribute('style') || '').includes('safe-area-inset-' + edge) || saRules.some(([s, top, bot]) => (edge === 'top' ? top : bot) && (() => { try { return x.matches(s); } catch (er) { return false; } })()); if (ok(e)) return true; for (const c of e.querySelectorAll('*')) if (ok(c)) return true; for (let p = e.parentElement; p && p !== document.body; p = p.parentElement) if (ok(p)) return true; return false; };
   for (const e of document.body.querySelectorAll('*')) {
     const cs = getComputedStyle(e); if (cs.position !== 'fixed' && cs.position !== 'sticky') continue;
-    const r = vis(e); if (!r || r.width < W * 0.5 || r.height > H * 0.9 || e.closest('.sheet-bg,.modal-bg,.toast,.xp-float,[class*="confetti"]') && r.height < 4) continue;
+    const r = vis(e); if (!r || r.bottom <= 0 || r.top >= H || r.width < W * 0.5 || r.height > H * 0.9 || e.closest('.sheet-bg,.modal-bg,.toast,.xp-float,[class*="confetti"]') && r.height < 4) continue;
     if (cs.position === 'fixed' && r.bottom >= H - 1 && r.top > H * 0.4 && !hasSA(e, 'bottom')) push('safe-area-bottom', e, r);
     if (r.top <= 1 && r.bottom < H * 0.4 && (cs.position === 'fixed' || cs.position === 'sticky' && r.top <= 0.5) && !hasSA(e, 'top')) push('safe-area-top', e, r);
   }
@@ -88,8 +91,9 @@ async function open(browser, vp) {
   const page = await ctx.newPage();
   page.on('pageerror', e => errs.push(`${vp.w} pageerror: ${String(e.message).slice(0, 120)}`));
   await page.addInitScript(() => {
-    window.__cls = 0; window.__ev = [];
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
+    window.__cls = 0; window.__ev = []; window.__sh = [];
+    const sel = n => n && n.tagName ? n.tagName.toLowerCase() + [...n.classList].slice(0, 2).map(c => '.' + c).join('') + (n.id ? '#' + n.id : '') : '?';
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; window.__sh.push([+e.value.toFixed(4), (e.sources || []).slice(0, 3).map(s => sel(s.node)).join(' ')]); } }).observe({ type: 'layout-shift', buffered: true }); } catch (e) {}
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__ev.push([e.interactionId, e.duration, e.name, e.target && e.target.className || '']); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); } catch (e) {}
   });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
@@ -100,11 +104,12 @@ async function visit(page, route) {
   await page.waitForTimeout(1100);
 }
 // Trả lời hết quiz (câu đầu SAI để có câu cần ôn → ô "Cơ hội thứ 2"), đo INP; trả về true nếu tới thẻ kết quả
-async function playQuiz(page) {
+async function playQuiz(page, onSheet) {
   for (let i = 0; i < 40; i++) {
     const st = await page.evaluate(async i => {
       if (document.querySelector('#view .score-ring')) return 'done';
       const vis = e => e && e.getBoundingClientRect().width > 0 && !e.disabled;
+      const nq = document.getElementById('nextQ'); if (vis(nq)) { nq.click(); return 'next'; }
       const inp = [...document.querySelectorAll('#view input[type=text],#view input:not([type])')].find(vis);
       if (inp) { inp.value = i === 0 ? 'zzqx' : (inp.dataset.a || 'zzqx'); inp.dispatchEvent(new Event('input', { bubbles: true })); const ck = [...document.querySelectorAll('#view .btn.primary,#view button[type=submit]')].find(vis); if (ck) ck.click(); else inp.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); return 'typed'; }
       const opts = [...document.querySelectorAll('#view .option')].filter(vis);
@@ -116,7 +121,8 @@ async function playQuiz(page) {
     if (st === 'done') return true;
     if (st === 'stuck' || st === 'err') return false;
     if (st.startsWith('opt')) { const k = +st.slice(3); await page.locator('#view .option').nth(k).tap().catch(() => page.locator('#view .option').nth(k).click()); }
-    await page.waitForTimeout(st === 'next' ? 300 : 1300);
+    await page.waitForTimeout(st === 'next' ? 400 : 900);
+    if (i === 0 && st !== 'next' && onSheet) await onSheet(); // soát tấm đáp án (sheet) của câu đầu
   }
   return false;
 }
@@ -129,7 +135,7 @@ for (const vp of VPS) {
   const cdp = await ctx.newCDPSession(page);
   for (const route of ROUTES) {
     try {
-      await page.evaluate(() => { window.__cls = 0; window.__ev = []; });
+      await page.evaluate(() => { window.__cls = 0; window.__ev = []; window.__sh = []; });
       await visit(page, route); pages++;
       add(vp.w, route, await page.evaluate(detect));
       add(vp.w, route, await keyboard(page, vp));
@@ -139,10 +145,10 @@ for (const vp of VPS) {
         let done = false;
         if (route === 'review') {
           for (let i = 0; i < 6; i++) { const b = page.locator('#view .flash, #view .btn.primary').first(); if (!(await b.count())) break; await b.tap().catch(() => {}); await page.waitForTimeout(500); const g = page.locator('#view [data-g], #view .grade .btn, #view .option').first(); if (await g.count()) { await g.tap().catch(() => {}); await page.waitForTimeout(500); } }
-        } else done = await playQuiz(page);
+        } else done = await playQuiz(page, async () => { await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); add(vp.w, route + ' [đáp án]', await page.evaluate(detect)); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 }); });
         await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
-        const m = await page.evaluate(() => ({ cls: window.__cls, ev: window.__ev }));
-        perf.push({ vp: vp.w, route, cls: +m.cls.toFixed(4), inp: Math.round(inpOf(m.ev)), n: new Set(m.ev.map(e => e[0])).size, worst: m.ev.sort((a, b) => b[1] - a[1])[0] || null });
+        const m = await page.evaluate(() => ({ cls: window.__cls, ev: window.__ev, sh: window.__sh }));
+        perf.push({ vp: vp.w, route, cls: +m.cls.toFixed(4), shifts: m.sh.sort((a, b) => b[0] - a[0]).slice(0, 3), inp: Math.round(inpOf(m.ev)), n: new Set(m.ev.map(e => e[0])).size, worst: m.ev.sort((a, b) => b[1] - a[1])[0] || null });
         if (route.startsWith('practice/')) {
           if (!done) { errs.push(`${vp.w} ${route}: không tới được thẻ kết quả`); continue; }
           await page.waitForTimeout(1500); // chờ bundle adoffer tải lười
@@ -163,8 +169,8 @@ for (const vp of VPS) {
           }
         }
       } else {
-        const cls = await page.evaluate(() => window.__cls);
-        perf.push({ vp: vp.w, route, cls: +cls.toFixed(4), inp: null });
+        const m = await page.evaluate(() => ({ cls: window.__cls, sh: window.__sh }));
+        perf.push({ vp: vp.w, route, cls: +m.cls.toFixed(4), inp: null, shifts: m.sh.sort((a, b) => b[0] - a[0]).slice(0, 3) });
       }
     } catch (e) { errs.push(`${vp.w} #/${route}: ${String(e.message).split('\n')[0].slice(0, 120)}`); }
   }
@@ -210,7 +216,7 @@ const md = [`# Mobile QA – ${pages} trang × ${VPS.map(v => v.w).join('/')} px
   `| CLS tối đa (đổi màn + tương tác${LH ? ' + LH' : ''}) | ${maxCls} | ${BUDGET.cls} |`, `| INP (CPU 4×) | ${maxInp} ms | ${BUDGET.inp_ms} ms |`,
   ...(LH ? [`| LCP Lighthouse tối đa | ${maxLcp} ms | ${BUDGET.lcp_ms} ms |`, `| TBT Lighthouse tối đa | ${maxTbt} ms | ${BUDGET.tbt_ms} ms |`] : []), '',
   ...(lh.length ? ['## Lighthouse mobile', '| route | perf | a11y | LCP | CLS | TBT |', '|---|---|---|---|---|---|', ...lh.map(l => `| ${l.route} | ${l.perf} | ${l.a11y} | ${l.lcp} | ${l.cls} | ${l.tbt} |`), ''] : []),
-  '## INP / CLS theo màn', '| vp | route | CLS | INP | tương tác | chậm nhất |', '|---|---|---|---|---|---|', ...perf.map(p => `| ${p.vp} | ${p.route} | ${p.cls} | ${p.inp ?? ''} | ${p.n ?? ''} | ${p.worst ? Math.round(p.worst[1]) + ' ms ' + p.worst[2] + ' ' + String(p.worst[3]).slice(0, 30) : ''} |`), '',
+  '## INP / CLS theo màn', '| vp | route | CLS | INP | tương tác | chậm nhất | nguồn CLS |', '|---|---|---|---|---|---|---|', ...perf.map(p => `| ${p.vp} | ${p.route} | ${p.cls} | ${p.inp ?? ''} | ${p.n ?? ''} | ${p.worst ? Math.round(p.worst[1]) + ' ms ' + p.worst[2] + ' ' + String(p.worst[3]).slice(0, 30) : ''} | ${(p.shifts || []).filter(x => x[0] >= 0.005).map(x => x[0] + ' ' + x[1]).join('; ').replace(/\|/g, '/')} |`), '',
   `## Lỗi (${issues.length})`, '| loại | phần tử | vp | route | chi tiết |', '|---|---|---|---|---|', ...issues.slice(0, 150).map(i => `| ${i.t} | \`${i.k.replace(/\|/g, '/')}\` | ${i.vp} | ${i.route} | ${String(i.x).replace(/\|/g, '/')} |`), '',
   ...(errs.length ? ['## Lỗi chạy', ...errs.slice(0, 30).map(e => '- ' + e)] : []), `\nÔ Cơ hội thứ 2/x2 XP: ${hasOffer ? offerSeen + ' lần soát' : 'chưa có trong bản dựng'}`].join('\n');
 fs.writeFileSync(`${OUT}/REPORT.md`, md);
