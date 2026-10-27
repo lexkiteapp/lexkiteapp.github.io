@@ -125,6 +125,12 @@ ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Set
 await tick(30);
 ok($('#inboxN').textContent === '2' && $('#alertN').textContent === '1', 'huy hiệu hộp thư/cảnh báo: ' + $('#inboxN').textContent + '/' + $('#alertN').textContent);
 ok($('#drvN').textContent === '⚠1' && /17 file\(s\) have only 1 copy/.test($('#drvBanner').textContent), 'banner + huy hiệu Kho Drive');
+{ // banner toàn cục phải có chữ cho MỌI loại cảnh báo mà tab Kho Drive biết (27/10: 'ci' rơi về mặc định → hiện nhầm "Drive disconnected")
+  const src = f => rd('web/js/' + f), keys = s => [...s.matchAll(/(?:^|[{,]\s*)([a-z_0-9]+): '/g)].map(m => m[1]);
+  const tab = keys(src('admin-drive.js').match(/const alertTxt = a => \{[^]*?\}\[a\.t\]/)[0]), ban = keys(src('admin.js').match(/const DRV_T = \{[^\n]*\};/)[0]);
+  const miss = tab.filter(k => !ban.includes(k));
+  ok(tab.length >= 10 && !miss.length, 'banner DRV_T đủ loại cảnh báo: thiếu ' + (miss.join(',') || '–'));
+}
 
 // ---------- 3) Cài đặt ----------
 const fld = k => $(`.fld[data-k="${k}"]`), val = k => $('#set-' + k).value;
