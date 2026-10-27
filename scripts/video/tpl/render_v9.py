@@ -527,7 +527,7 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
         S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd)
         pad = S_(36); qr = S_(210) if (QR is not None and mode != 'compact') else 0
         tw = max(XB_(44).getlength('Learn English'), BD_(40).getlength('with Lexkite')); colw = S_(120) + S_(20) + tw
-        SL = wrap2(say + ' →', BD_(40), max(colw, XB_(66).getlength('lexkite.com'))); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
+        SL = wrap2(say + ' →', BD_(40), max(colw, XB_(66).getlength('lexkite.com'), (rw - 4 - pad * 2) if mode == 'wide' else 0)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
         if mode == 'wide': W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw) + (S_(40) + qr if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh
         else: W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw, BD_(40).getlength('App · Add-on · Web'), (qr + S_(24) + BD_(40).getlength('desktop / TV')) if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh + S_(56) + ((S_(30) + qr) if qr else 0)
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
@@ -547,7 +547,7 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
         return im
     def draw_low(k, mode):   # low / narrow boards: same parts, fewer rows (strip: one row + call; mini: icon+site / FREE / call)
         S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd); pad = S_(28); ic_ = S_(96)
-        sitew = XB_(60).getlength('lexkite.com'); pw = XB_(46).getlength('100% FREE') + S_(52); SL = [say + ' →'] if mode == 'strip' else wrap2(say + ' →', BD_(40), max(ic_ + S_(20) + pw, sitew)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
+        sitew = XB_(60).getlength('lexkite.com'); pw = XB_(46).getlength('100% FREE') + S_(52); SL = [say + ' →'] if mode == 'strip' else wrap2(say + ' →', BD_(40), max(ic_ + S_(20) + pw, sitew, rw - 4 - pad * 2)); sayw = max(BD_(40).getlength(l) for l in SL); sh = S_(54) * len(SL)
         if mode == 'strip': W_ = pad * 2 + ic_ + S_(20) + sitew + S_(24) + pw; H_ = pad * 2 + ic_ + S_(14) + sh
         else: W_ = pad * 2 + max(ic_ + S_(20) + pw, sitew, sayw); H_ = pad * 2 + ic_ + S_(14) + S_(70) + S_(14) + sh
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
