@@ -467,11 +467,11 @@
   // Chia theo chữ cái đầu (js/notes/a.json…) → chỉ tải phần cần; chỗ hiển thị là ô trống được điền khi dữ liệu về.
   const notesCache = {};
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
+  // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
+  App.lessonOn = () => { try { const f = localStorage.getItem('lk.lesson'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lesson_mix; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
   // 🖼️ Ảnh minh họa theo nghĩa (cờ vocab_img: true/false ghi đè, chưa đặt = TỰ ĐỘNG bật khi chỉ mục có ≥ 150 ảnh đã chấm; thử: localStorage lk.vimg=1 – docs/LEXICON.md § Ảnh minh họa). Tắt → không tải gì, không hộp.
   // Bật → tải trước module + chỉ mục lúc mở app; App.vimg() đồng bộ chỉ trả hộp cố định khi chỉ mục đã về và nghĩa có ảnh (CLS 0).
   const vimgOn = () => { try { const f = localStorage.getItem('lk.vimg'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.vocab_img; if (v === false || v === '0' || v === 'false') return false; if (localStorage.getItem('lk.vimg.adm') === '1' || v === '1' || v === true) return true; const p = c && c.v && c.v.vocab_img_pct, pct = p != null && p !== '' && !isNaN(+p) ? +p : 10, b = localStorage.getItem('lk.vb'); return b == null || +b < pct; } catch (e) { return false; } };   // bật dần: nhóm lk.vb < vocab_img_pct (mặc định 10 %) – module tự quyết lần đầu (tạo lk.vb)   // chưa đặt = tự động: module + chỉ mục nhỏ tự quyết (on ≥ 150 ảnh)
-  // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
-  App.lessonOn = () => { try { const f = localStorage.getItem('lk.lesson'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lesson_mix; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
   App.vimgReady = () => (vimgOn() ? App.need('vimg').then(() => window.VImg && VImg.ready()).catch(() => null) : Promise.resolve(null));
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
   App.vimgReady();
