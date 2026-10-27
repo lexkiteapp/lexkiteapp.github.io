@@ -5,11 +5,23 @@
   },
   "ddl": "14c24f2070e29d64"
  },
+ "_meta_oauth.js": {
+  "vers": {
+   "soc-oauth": 1
+  },
+  "ddl": "fe4de04e60349039"
+ },
  "_quota.js": {
   "vers": {
    "quota": 1
   },
   "ddl": "22c615637981bc55"
+ },
+ "_social_auto.js": {
+  "vers": {
+   "soc-lock": 2
+  },
+  "ddl": "38c6a9344509fed8"
  },
  "ai.js": {
   "vers": {
