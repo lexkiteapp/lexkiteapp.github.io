@@ -237,6 +237,6 @@ await br.close();
 // contact sheet
 ff(['-i', path.join(OUT, 'promo.mp4'), '-vf', 'fps=1/4.5,scale=480:-1,tile=4x3:padding=6:color=black', '-frames:v', '1', '-update', '1', path.join(TMP, 'cs1.jpg')]);
 ff(['-i', path.join(OUT, 'shots', '%d.png'), '-vf', 'scale=480:-1,tile=3x2:padding=6:color=black', '-frames:v', '1', '-update', '1', path.join(TMP, 'cs2.jpg')]);
-ff(['-i', path.join(TMP, 'cs1.jpg'), '-i', path.join(TMP, 'cs2.jpg'), '-filter_complex', '[1:v]scale=iw:-1[b];[0:v][b]vstack=inputs=2:shortest=0', '-q:v', '3', path.join(OUT, 'contact-sheet.jpg')]);
+ff(['-i', path.join(TMP, 'cs1.jpg'), '-i', path.join(TMP, 'cs2.jpg'), '-filter_complex', '[0:v]scale=1920:-2[a];[1:v]scale=1920:-2[b];[a][b]vstack=inputs=2', '-q:v', '3', path.join(OUT, 'contact-sheet.jpg')]);
 for (const f of fs.readdirSync(path.join(OUT, 'shots'))) console.log(f, (fs.statSync(path.join(OUT, 'shots', f)).size / 1024).toFixed(0) + ' KB');
 console.log('✓ xong', OUT);
