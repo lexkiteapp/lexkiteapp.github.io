@@ -75,6 +75,7 @@ function icons() {
   for (const s of document.querySelectorAll('button svg, a svg, .btn svg, [role=button] svg')) {
     const r = s.getBoundingClientRect(); if (r.width < 6 || r.height < 6) continue;
     const b = s.closest('button,a,.btn,[role=button]'), cs = getComputedStyle(s); if (cs.visibility === 'hidden' || +cs.opacity === 0 || b.closest('[aria-hidden="true"]')) continue;
+    if ([...s.querySelectorAll('[fill]')].some(p => !/^(none|currentcolor)$/i.test(p.getAttribute('fill')))) continue; // logo nhiều màu (vd. chữ G của Google) tự mang màu riêng
     let col = cs.stroke && cs.stroke !== 'none' && !/url/.test(cs.stroke) ? cs.stroke : cs.fill && cs.fill !== 'none' && !/url/.test(cs.fill) ? cs.fill : cs.color;
     const il = lum(col), bl = bgOf(s.parentElement); if (il === null || bl === null) continue;
     const cr = (Math.max(il, bl) + 0.05) / (Math.min(il, bl) + 0.05);

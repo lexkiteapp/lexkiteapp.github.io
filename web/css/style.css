@@ -847,11 +847,14 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .sheet.no .sheet-in { background: linear-gradient(135deg, #a82e12 0%, var(--primary) 50%, #d94b26 100%); border-top: 2px solid color-mix(in srgb, var(--primary) 55%, #fff); }
 .sheet-head { font-weight: 800; font-size: 1.1rem; margin-bottom: .6rem; }
 .sheet-word { display: flex; gap: .9rem; align-items: center; }
-.sheet-say { flex: none; width: 52px; height: 52px; border-radius: 50%; border: 0; background: #fff; font-size: 1.35rem; cursor: pointer; box-shadow: 0 4px 0 rgba(0,0,0,.15); }
+.sheet-say { flex: none; width: 52px; height: 52px; border-radius: 50%; border: 0; background: #fff; color: var(--brand-ink); display: grid; place-items: center; font-size: 1.35rem; cursor: pointer; box-shadow: 0 4px 0 rgba(0,0,0,.15); transition: transform .12s; }
+.sheet-say:hover { transform: scale(1.06); } .sheet-say:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,.15); }
+.sheet-say .i { width: 1.45rem; height: 1.45rem; }
+.sheet.no .sheet-say, .sheet.no .sheet-ex .ctx-say { color: #a82e12; } /* icon lấy màu chữ (trắng) → trùng nền nút trắng: đặt màu riêng */
 .sheet-word .sw { font-size: 1.5rem; } .sheet-word .sp { opacity: .85; } .sheet-word .sipa, .sheet-word .svi { opacity: .92; }
 .sheet-ex { margin-top: .7rem; line-height: 1.6; font-size: 1rem; }
 .sheet-ex mark { background: rgba(255,255,255,.25); color: #fff; border-radius: 4px; padding: 0 .15rem; }
-.sheet-ex .ctx-say { background: rgba(255,255,255,.9); border: 0; margin-left: .2rem; }
+.sheet-ex .ctx-say { background: #fff; color: var(--brand-ink); border: 0; margin-left: .2rem; opacity: 1; }
 .sheet-tr { margin-top: .3rem; opacity: .9; font-style: italic; }
 .sheet-next { margin-top: 1rem; background: #fff !important; color: #111 !important; border: 0 !important; box-shadow: 0 4px 0 rgba(0,0,0,.15); font-weight: 800; }
 .study-wrap:has(.sheet) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
