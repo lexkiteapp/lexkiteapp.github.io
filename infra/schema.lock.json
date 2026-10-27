@@ -5,6 +5,12 @@
   },
   "ddl": "14c24f2070e29d64"
  },
+ "_meta_oauth.js": {
+  "vers": {
+   "soc-oauth": 1
+  },
+  "ddl": "fe4de04e60349039"
+ },
  "_quota.js": {
   "vers": {
    "quota": 1
