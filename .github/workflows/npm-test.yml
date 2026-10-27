@@ -1,0 +1,25 @@
+# Bộ kiểm `npm test` DUY NHẤT (một định nghĩa): chạy trên MỌI pull_request vào main (cổng merge, đặt làm required check "npm test")
+# và được Prod release gọi lại (workflow_call) làm cổng sau-push → PR đỏ ở đây thì main không thể đỏ vì cùng lý do.
+# Không paths-filter (required check mà bị filter sẽ treo PR). Repo công khai → phút Actions miễn phí; PR không deploy Cloudflare Pages.
+name: npm test
+on:
+  pull_request:
+    branches: [main]
+  workflow_call:
+    inputs:
+      sha: { type: string, required: false, default: '' }
+permissions: { contents: read }
+concurrency: { group: 'npm-test-${{ github.event.pull_request.number || inputs.sha || github.sha }}', cancel-in-progress: ${{ github.event_name == 'pull_request' }} }
+jobs:
+  test:
+    name: npm test
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: '${{ inputs.sha || '' }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund
+      - name: npm test (cổng — cùng bộ kiểm với mergecheck/health/Prod release)
+        run: npm test
