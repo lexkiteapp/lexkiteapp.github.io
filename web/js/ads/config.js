@@ -7,7 +7,7 @@
     enabled: false,
     // ---- Web: Google AdSense (Ads → By ad unit → Display, kích thước cố định 300×250 / responsive trong ô cố định) ----
     web: {
-      client: '', // 'ca-pub-XXXXXXXXXXXXXXXX' – cùng số với web/ads.txt
+      client: 'ca-pub-2290668854727752', // tài khoản AdSense của LLC (27/10/2026) – cùng số với web/ads.txt; enabled vẫn false
       slots: { home: '', blog: '', done: '' }, // done = thẻ kết quả cuối lượt luyện (điểm nghỉ, ô cố định 0 CLS)
     },
     // ---- App: Google AdMob (@capacitor-community/admob, cài bằng ADS_NATIVE=1 scripts/mobile-ads.mjs) ----

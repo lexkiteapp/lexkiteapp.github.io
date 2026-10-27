@@ -14,7 +14,7 @@ const rd = f => fs.readFileSync(f, 'utf8');
 // ---------- 1) luật đặt chỗ ----------
 const ctxP = {}; ctxP.self = ctxP; vm.createContext(ctxP); vm.runInContext(rd('web/js/ads/policy.js'), ctxP); vm.runInContext(rd('web/js/ads/config.js'), ctxP);
 const P = ctxP.AdsPolicy, CFG = ctxP.ADS_CONFIG;
-ok(CFG.enabled === false && CFG.web.client === '' && CFG.native.testing === true, 'ads/config.js: enabled=false, chưa có mã nhà xuất bản, app dùng mã THỬ');
+ok(CFG.enabled === false && /^ca-pub-\d{16}$/.test(CFG.web.client) && CFG.native.testing === true, 'ads/config.js: enabled=false (mã nhà xuất bản đã có, chưa bật), app dùng mã THỬ');
 ok(/3940256099942544/.test(JSON.stringify(CFG.native)) && !/ca-app-pub-(?!3940256099942544)\d{16}/.test(JSON.stringify(CFG.native)), 'AdMob: CHỈ mã thử của Google');
 const ON = { ads_web: '1', ads_android: '1', ios: '1', ads_ios: '1' }, LOCAL = { enabled: true };
 const f0 = P.flags({}, CFG), fOn = P.flags(ON, LOCAL);
@@ -139,7 +139,7 @@ ok(S.places[0].fill === 0.8 && Math.abs(S.plat.web.rev - 0.16) < 1e-9 && S.conse
   ok(!(await verifySsv(`https://lexkite.com/api/ads-reward?${msg.replace('reward_amount=3', 'reward_amount=99')}&signature=${sig}&key_id=42`, keys)), 'SSV: sửa tham số → từ chối');
   const { onRequestGet } = await import('../../functions/api/ads-reward.js');
   ok((await onRequestGet({ request: new Request('https://lexkite.com/api/ads-reward?x=1'), env: {} })).status === 404, 'SSV: mặc định TẮT (ADS_SSV≠1 → 404)'); }
-ok(/pub-0000000000000000/.test(rd('web/ads.txt')) && /pub-0000000000000000/.test(rd('web/app-ads.txt')) && /f08c47fec0942fa0/.test(rd('web/ads.txt')), 'ads.txt + app-ads.txt giữ chỗ ở gốc');
+{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && rd('web/index.html').includes(`google-adsense-account" content="${CFG.web.client}`), 'ads.txt + app-ads.txt + thẻ xác minh trang chủ khớp mã trong config.js'); }
 // D1: truy vấn ext_events theo khoảng ngày dùng PK, không SCAN
 try {
   const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync(':memory:');
