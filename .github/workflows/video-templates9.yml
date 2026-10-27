@@ -10,7 +10,7 @@ on:
       templates: { description: 'comma list', default: 'mistake,words5,guess,pair,roleplay,pron' }
       dir: { description: 'spec folder under content/video/cine/news/ (templates-v2 = classroom, text on the whiteboard)', default: 'templates-v1' }
       plan: { description: 'true = dry run: voices + layout/timing plan JSON only (no frames, no render)', default: 'false' }
-      shards: { description: 'frame shards per template (1 = single-process render)', default: '4' }
+      shards: { description: 'frame shards per template (1 = single-process render, default: 4 shards only ~17 % faster wall-clock and 4x the jobs; proven equivalent, see PR)', default: '1' }
 permissions: { contents: read }
 concurrency: { group: 'video-templates9-${{ github.event.inputs.dir }}-${{ github.event.inputs.templates }}-${{ github.event.inputs.shards }}', cancel-in-progress: false }
 env:
@@ -24,7 +24,7 @@ jobs:
       - id: m
         run: |
           echo "list=$(python3 -c "import json,sys;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
-          N=${{ github.event.inputs.shards || 4 }}; [ "$N" -ge 1 ] || N=1
+          N=${{ github.event.inputs.shards || 1 }}; [ "$N" -ge 1 ] || N=1
           echo "shards=$(python3 -c "import json;print(json.dumps(list(range($N))))")" >> "$GITHUB_OUTPUT"
   voice:
     needs: setup
@@ -81,7 +81,7 @@ jobs:
     env:
       SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
       O: out/tpl9/${{ matrix.t }}
-      N: ${{ github.event.inputs.shards || 4 }}
+      N: ${{ github.event.inputs.shards || 1 }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/video9-setup
@@ -92,7 +92,7 @@ jobs:
           key: dm9-${{ matrix.t }}-${{ hashFiles(format('content/video/cine/news/{0}/{1}.json', env.DIR, matrix.t), 'content/video/cine/teachers.json', 'scripts/video/tpl/render_v9.py') }}
       - uses: actions/download-artifact@v4
         with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo }
-      - name: Render (shard ${{ matrix.i }} of ${{ github.event.inputs.shards || 4 }})
+      - name: Render (shard ${{ matrix.i }} of ${{ github.event.inputs.shards || 1 }})
         shell: bash
         run: |
           set -o pipefail
@@ -125,7 +125,7 @@ jobs:
     env:
       SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
       O: out/tpl9/${{ matrix.t }}
-      N: ${{ github.event.inputs.shards || 4 }}
+      N: ${{ github.event.inputs.shards || 1 }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/video9-setup
