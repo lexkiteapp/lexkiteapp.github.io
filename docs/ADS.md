@@ -11,7 +11,7 @@ Chuẩn tham chiếu: Duolingo / Quizlet – quảng cáo chỉ ở điểm ngh�
 2. Tài nguyên: khung app **−2,5 KB gz** (vỏ `js/ads.js` 0,95 KB thay cho 3,5 KB cũ); mã thật tải lười `js/ads/{config,policy,run}.js`; D1: ≤ 30 dòng ghi / phiên có quảng cáo (bảng `ext_events` sẵn có, 0 bảng mới); đọc: SEARCH theo PK, đệm 10 phút (Quản trị), cổng giữ chân ≤ 1 lần/giờ/trung tâm.
 3. Điểm hỏng + chặn: quảng cáo trong bài học → danh sách CHO PHÉP (deny-by-default, test 30 route); CLS → ô cố định 290 px + `contain: strict` (test Chromium); quảng cáo trước đồng ý → `pauseAdRequests` tới khi CMP trả lời; giữ chân tụt → tự giảm tần suất; mã từ xa trong add-on → `build-extension.sh` loại `js/ads/`.
 4. Công tắc tắt + quay lại: Quản trị › Quảng cáo › **TẮT TOÀN BỘ** (`ads_kill=1`, ≤ 1 giờ do đệm cấu hình); tắt từng nền tảng; `enabled: false` trong code; app gốc gỡ SDK: `node scripts/mobile-ads.mjs --disable`.
-5. Chủ file: `web/js/ads.js`, `web/js/ads/*`, `web/js/admin-ads.js`, `functions/api/_ads.js`, `functions/api/ads-reward.js`, `scripts/mobile-ads.mjs`, `scripts/test/ads*.mjs`, `docs/ADS.md`.
+5. Chủ file: `web/js/ads.js`, `web/js/ads/*`, `web/js/ad-offers.js`, `web/js/i18n/*/adoffer.js`, `web/js/admin-ads.js`, `functions/api/_ads.js`, `functions/api/ads-reward.js`, `scripts/mobile-ads.mjs`, `scripts/test/ads*.mjs`, `docs/ADS.md`.
 
 ## 1. Vị trí (không bao giờ làm hại việc học)
 | | Ở đâu | Luật |
@@ -19,6 +19,10 @@ Chuẩn tham chiếu: Duolingo / Quizlet – quảng cáo chỉ ở điểm ngh�
 | (a) Ô hiển thị | Trang **Hôm nay** của app web (cuối trang) · cuối bài **blog** (trước "Bài liên quan") | 300×250 trong ô cố định 290 px, nhãn "Quảng cáo/Advertisement" thấy được + `aria-label`, `<aside>` không nhận focus. App gốc: banner AdMob thích ứng ở đáy, CHỈ khi đang ở tab Hôm nay |
 | (b) Toàn màn hình cuối phiên | Chỉ app gốc, khi người dùng **xong 1 phiên** (`lexkite:practice-done` / `lexkite:test-done`) **và đã về tab chính** (home/vocab/skills/tests/me) | ≤ 1 lần / 3 phiên, ≤ 1 lần / 10 phút, **không bao giờ trong 24 giờ / ngày lịch đầu tiên**; Quản trị chỉ nới (3–20 phiên, 10–240 phút, 24–336 giờ), không dày hơn |
 | (c) Có thưởng (tự chọn) | Cứu chuỗi (modal sẵn có) · hết lượt AI chấm/giải thích (+3) · hết lượt Roleplay (+10) | Người dùng bấm "Xem video"; lượt AI cộng ở máy chủ qua **SSV** (chữ ký Google), ≤ 3 lần/tính năng/máy/ngày |
+| (c2) Có thưởng ở thẻ kết quả (`js/ad-offers.js`, tải lười) | **🎯 Cơ hội thứ 2**: làm lại đúng các câu sai, đúng hết → điểm tính lại (qua bài nếu ≥ 80 %) · **⚡ Nhân đôi XP** (điểm ≥ 60 %) | Chỉ khi sai lẻ tẻ (≤ max(2, 40 %) số câu – sai nhiều thì học lại); không có video → cơ hội 2 **miễn phí 1 lần/ngày** (web vẫn được lợi); x2 XP chỉ khi có video; 1 lời mời/loại/lượt; không bao giờ cho máy Lớp học (điểm bài giao phải thật) |
+| (d) Ô ở cuối trang kết quả (web) | Dưới thẻ kết quả cuối lượt luyện (điểm nghỉ) | Chỉ ≥ 24 giờ từ lần đầu, điểm ≥ 50 %, chèn dưới cùng (0 CLS), ô `done` trong `config.js` |
+
+**Thưởng cho người hợp tác / không "xát muối"** (`policy.js`): trần có thưởng/ngày `PER_DAY` (cứu chuỗi 1 · AI 3 · Roleplay 3 · cơ hội 2 · 3 · x2 XP 2) để thưởng có giá trị; vừa xem video có thưởng → **30 phút không toàn màn hình** (`CALM_MIN`); phiên vừa làm < 50 % → không toàn màn hình, không ô kết quả (`FAIL_PCT`). Vỏ: `Ads.rewarded(lý do, 1)` = chỉ hỏi "có video không" (không tải gì khi cờ tắt).
 
 **Không bao giờ** (mã: `web/js/ads/policy.js` `blocked()` + danh sách cho phép): lúc học/quiz/thi/ôn/nói/roleplay; Lớp học (`lk.edu`, `#/class…`) giáo viên & học sinh; người dùng `lk.u13` (< 13 – COPPA/an toàn trường học); add-on Chrome (`chrome-extension:`); Quản trị; `?sandbox`/`?demo`; trình duyệt tự động; **nhóm đối chứng 10 %** (băm `lk.vid`). Thư viện bài đọc trước đây có ô `list` – đã bỏ.
 

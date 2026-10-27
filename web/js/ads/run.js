@@ -78,7 +78,8 @@
     d.querySelectorAll('.ad-slot[data-ad]:not([data-done])').forEach(el => {
       const place = el.dataset.ad, unit = ((C.web || {}).slots || {})[place];
       el.dataset.done = '1';
-      if (!unit || !C.web.client || !P.slot({ ...c, route: place === 'blog' ? 'blog' : c.route }, f, place)) { el.hidden = true; return; }
+      const extra = place === 'done' ? { done: true, pct: el.dataset.pct === undefined ? 100 : +el.dataset.pct, ageH: (Date.now() - st.firstAt) / 3600e3 } : {};
+      if (!unit || !C.web.client || !P.slot({ ...c, ...extra, route: place === 'blog' ? 'blog' : c.route }, f, place)) { el.hidden = true; return; }
       el.classList.add('on'); bump('req:' + place);
       el.insertAdjacentHTML('beforeend', `<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="${C.web.client}" data-ad-slot="${unit}"></ins>`);
       const ins = el.querySelector('ins');
@@ -118,7 +119,7 @@
     else { bannerOn = false; d.documentElement.classList.remove('has-banner'); A.hideBanner().catch(() => {}); }
   };
   // Cuối phiên: study.js / qtips.js báo xong 1 lượt → chờ người dùng VỀ tab chính rồi mới xét quảng cáo toàn màn hình
-  const ended = () => { st.sessions = (st.sessions || 0) + 1; st.pending = 1; save(); };
+  const ended = e => { const x = (e && e.detail) || {}; if (x.second) return; const pct = typeof x.pct === 'number' ? x.pct : x.t ? Math.round(x.r / x.t * 100) : undefined; st.sessions = (st.sessions || 0) + 1; st.pending = 1; if (pct !== undefined) st.lastPct = pct; save(); };
   g.addEventListener('lexkite:practice-done', ended); g.addEventListener('lexkite:test-done', ended);
   const maybeInter = async () => {
     if (!P.interstitial(ctx(), F(), st, Date.now()) || !unit('interstitial')) return;
@@ -128,15 +129,18 @@
   };
 
   // ---------- Có thưởng (người dùng tự chọn) ----------
+  // Có video để mời không (chưa tải gì) – dùng để chọn nút "▶ Xem video" hay phương án miễn phí (js/ad-offers.js)
+  const canReward = reason => P.rewarded(ctx(), F(), reason) && !!unit('rewarded') && !!AM() && P.rewLeft(st, reason, iso()) > 0;
+  const counted = reason => { const day = iso(); if (!st.rw || st.rw.d !== day) st.rw = { d: day, n: {} }; st.rw.n[reason] = (st.rw.n[reason] || 0) + 1; st.rewAt = Date.now(); save(); };
   async function rewarded(reason) {
     const c = ctx(), f = F();
-    if (!P.rewarded(c, f, reason) || !unit('rewarded') || !(await init())) return reason === 'streak'; // không có quảng cáo: cứu chuỗi vẫn được như trước, lượt AI thì không
+    if (!P.rewarded(c, f, reason) || !unit('rewarded') || P.rewLeft(st, reason, iso()) <= 0 || !(await init())) return reason === 'streak'; // không có quảng cáo: cứu chuỗi vẫn được như trước, lượt AI/cơ hội 2/x2 XP thì không
     const A = AM(), uid = g.Sync && g.Sync.user && g.Sync.user.uid;
     bump('req:rew');
     try {
       await A.prepareRewardVideoAd({ adId: unit('rewarded'), isTesting: testing, ssv: { userId: (g.UI && g.UI.dev && g.UI.dev()) || '', customData: reason + (uid ? '|' + uid : '') } });
       bump('show:rew'); const r = await A.showRewardVideoAd();
-      if (r) bump('rewok:rew');
+      if (r) { bump('rewok:rew'); bump('rewok:' + reason); counted(reason); }
       return !!r;
     } catch (e) { bump('nofill:rew'); return false; }
   }
@@ -162,5 +166,5 @@
     fillWeb();
     if (v) new MutationObserver(fillWeb).observe(v, { childList: true, subtree: true });
   }
-  g.AdsRun = { start, rewarded, quota, _st: () => st, _ev: () => ev };
+  g.AdsRun = { start, rewarded, canReward, quota, _st: () => st, _ev: () => ev };
 })(typeof self !== 'undefined' ? self : this);
