@@ -30,7 +30,7 @@ SERIES = {
                               cta={'area': 'word-usage', 'link': 'https://lexkite.com/app/#/usage?c=pair', 'say': 'Compare tricky words'}),
     # 28/10 owner: "làm tiếp các series mới" – the other gold-bank types, same mistake template (wrong -> right -> why -> example -> quiz), own name/host/colour/opening line
     'which-little-word': dict(name='Which Little Word?', template='mistake', type='preposition', pre='wlw', L='n', teacher='carlos', set='classroom_board',
-                              clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='blue', active='cream', hook_style='tiny word: X badge + quoted error', motif='the small word lit in the sentence',
+                              clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='mint', active='cream', hook_style='tiny word: X badge + quoted error', motif='the small word lit in the sentence',
                               open='Small word, big mistake.', lead='Not', just='Say:', share='Send this to a friend who mixes these up!', cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
     'common-mix-ups': dict(name='Common Mix-ups', template='mistake', type='misunderstanding', pre='cmu', L='u', teacher='ama', set='classroom_board',
                            clips=['a05b_ama2', 'a05t2_ama2_present', 'a05e1_ama2_excited', 'a05e2_ama2_question', 'a05e3_ama2_wow'], listen=['a05l2_ama2_listen'], speed=0.75, accent='yellow', active='cream', hook_style='mix-up: X badge + quoted error', motif='meaning first, then the right sentence',
@@ -42,9 +42,11 @@ SERIES = {
                               clips=['a05b_ama2', 'a05t2_ama2_present', 'a05e1_ama2_excited', 'a05e2_ama2_question', 'a05e3_ama2_wow'], listen=['a05l2_ama2_listen'], speed=0.75, accent='green', active='cream', hook_style='real life: X badge + quoted error', motif='a real situation, the right words lit',
                               open='Real life, real English.', lead='Not', just='Say:', share='Send this to a friend!', cta={'area': 'dictionary', 'link': 'https://lexkite.com/app/', 'say': 'Look up any word'}),
     'verb-patterns': dict(name='Verb Patterns', template='mistake', type='verb-pattern', pre='vbp', L='v', teacher='carlos', set='classroom_board',
-                          clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='blue', active='cream', hook_style='pattern: X badge + quoted error', motif='verb + pattern lit together',
+                          clips=['c05_carlos2', 'c05t2_carlos2_present', 'c05e1_carlos2_excited', 'c05t3_carlos2_talk3', 'c05e2_carlos2_question', 'c05e3_carlos2_wow'], listen=['c05l_carlos2_listen'], speed=0.65, accent='navy2', active='cream', hook_style='pattern: X badge + quoted error', motif='verb + pattern lit together',
                           open='Which pattern is right?', lead='Not', just='Say:', share='Send this to a friend!', cta={'area': 'grammar-check', 'link': 'https://lexkite.com/app/#/fix', 'say': 'Check your grammar'}),
 }
+ACCENTS = {'white', 'red', 'green', 'yellow', 'cream', 'mint', 'navy', 'navy2'}   # render_v9 COL keys – a series accent outside this set crashes the render
+assert all(c['accent'] in ACCENTS and c['active'] in ACCENTS for c in SERIES.values()), 'series accent/active must be a render_v9 COL key'
 WMIN, WMAX, WSOFT, EST_MAX, HOOK_MAX = 50, 75, 71, 50.0, 6   # production standard: 50-75 words at speed 0.68-0.75 with 0.6-0.7 s gaps (<= 130 wpm)
 LINE_MAX, QOPT_MAX = 26, 12   # note line (desk board 502 px) and quiz option character limits
 EMO = re.compile('[←-⇿☀-➿\U0001F000-\U0001FAFF]️?')
