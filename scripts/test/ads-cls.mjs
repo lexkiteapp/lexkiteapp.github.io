@@ -65,14 +65,15 @@ async function run({ cmp = 'none', fill = true, dnt = false } = {}) {
       const f = 'web' + u.pathname; return fs.existsSync(f) && fs.statSync(f).isFile() ? r.fulfill({ contentType: f.endsWith('.css') ? 'text/css' : f.endsWith('.svg') ? 'image/svg+xml' : 'text/javascript', body: fs.readFileSync(f) }) : r.fulfill({ status: 404, body: '' }); });
     await p.goto('https://ads.test' + urlPath, { waitUntil: 'load' });
     // cuộn để ô (đầu tiên) nằm giữa màn hình TRƯỚC khi quảng cáo về → mọi xê dịch đều bị tính
-    await p.evaluate(() => { const h = document.querySelector('.ad-hold'); window.scrollTo(0, h.getBoundingClientRect().top + scrollY - 300); });
-    const y0 = await p.evaluate(() => { const h = document.querySelector('.ad-hold'); return Math.round(h.nextElementSibling.getBoundingClientRect().top); });
+    await p.evaluate(() => { const h = document.querySelector('.ad-hold'); window.scrollTo({ top: h.getBoundingClientRect().top + scrollY - 300, behavior: 'instant' }); });
+    await p.waitForTimeout(300);
+    const y0 = await p.evaluate(() => { const h = document.querySelector('.ad-hold'); return Math.round(h.nextElementSibling.getBoundingClientRect().top + scrollY); }); // tọa độ tài liệu (không phụ thuộc cuộn)
     await p.waitForTimeout(7500); // load → rảnh 3 s → static.js → policy/run → AdSense giả (600 ms)
-    const out = await p.evaluate(() => { const h = document.querySelector('.ad-hold'), a = h.querySelector('.ad-slot'); return { cls: window.__cls, y: Math.round(h.nextElementSibling.getBoundingClientRect().top), hh: Math.round(h.getBoundingClientRect().height), filled: !!a.querySelector('ins[data-ad-status="filled"]'), hidden: a.hidden, n: document.querySelectorAll('.ad-slot').length }; });
+    const out = await p.evaluate(() => { const h = document.querySelector('.ad-hold'), a = h.querySelector('.ad-slot'); return { cls: window.__cls, y: Math.round(h.nextElementSibling.getBoundingClientRect().top + scrollY), hh: Math.round(h.getBoundingClientRect().height), filled: !!a.querySelector('ins[data-ad-status="filled"]'), hidden: a.hidden, n: document.querySelectorAll('.ad-slot').length }; });
     await ctx.close(); return { ...out, y0 };
   }
   const bp = '/' + path.relative(path.join(T, 'b'), path.dirname(blogF)).split(path.sep).join('/') + '/', dp = '/' + path.relative(path.join(T, 'd', 'assets'), path.dirname(dictF)).split(path.sep).join('/') + '/';
-  { const r = await stat(blogF, bp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 2, `blog dài ${bp} (390px): ô giữa bài có quảng cáo, CLS = ${r.cls}, khung 290px, nội dung dưới ô không xê dịch, ${r.n} ô/bài`); }
+  { const r = await stat(blogF, bp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 2, `blog dài ${bp} (390px): ô giữa bài có quảng cáo, CLS = ${r.cls}, khung 290px, nội dung dưới ô không xê dịch, ${r.n} ô/bài ${JSON.stringify(r)}`); }
   { const r = await stat(blogF, bp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0 && r.hh === 290, `blog dài, nhóm đối chứng (ô bị ẩn): khung vẫn giữ 290px, CLS = ${r.cls} ${JSON.stringify(r)}`); }
   { const r = await stat(dictF, dp, av); ok(r.filled && r.cls === 0 && r.y === r.y0 && r.hh === 290 && r.n === 1, `trang từ điển ${dp} (390px): 1 ô có quảng cáo, CLS = ${r.cls}, nội dung dưới ô không xê dịch ${JSON.stringify(r)}`); }
   { const r = await stat(dictF, dp, hv); ok(r.hidden && r.cls === 0 && r.y === r.y0, `trang từ điển, nhóm đối chứng: CLS = ${r.cls} ${JSON.stringify(r)}`); }
