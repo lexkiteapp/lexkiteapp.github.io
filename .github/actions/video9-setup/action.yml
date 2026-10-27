@@ -14,7 +14,8 @@ runs:
       shell: bash
       run: |
         timeout 480 pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3 qrcode==7.4.2 pyflakes==3.2.0
-        sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null   # the runner image has no ffmpeg
+        # the runner image has no ffmpeg; try the image's package index first (no slow update), fall back to update
+        sudo apt-get -o Acquire::Retries=3 install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null 2>&1 || { sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-color-emoji >/dev/null; }
         ls -la /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf; ffmpeg -version | head -1
     - name: Footage (only the talk clips of this spec, sparse)
       shell: bash

@@ -36,6 +36,7 @@ ap.add_argument('--emoji', default='/usr/share/fonts/truetype/noto/NotoColorEmoj
 ap.add_argument('--kbps', type=int, default=8800)
 ap.add_argument('--preview', default='')
 ap.add_argument('--frames', default='', help='shard: render only frames a:b or shard i/N (cuts on multiples of 48) -> <out>.seg<a>.mp4 + <out>.shard<a>.json, then stop (no audio, no timeline)')
+ap.add_argument('--cache', default='', help='folder for the ghost-distance matrices (pure function of the clip frames; shared by reruns and shards)')
 ap.add_argument('--merge', action='store_true', help='merge the shards found next to <out> (segments + json), then the usual audio mux + timeline')
 ap.add_argument('--plan', default='', help='write the layout plan (pages, pops, joins, read times) to this JSON and stop (no frames)')
 o = ap.parse_args()
@@ -230,16 +231,29 @@ def _face(c, f):
 FACE_S = {c: [_face(c, f) for f in fr] for c, fr in RAW.items()}
 GHOST_T = 28   # grey-level step that reads as a double image when two frames are blended (an arm / hand / blink in two places)
 def _ghost(A, B):   # D[i, j] = share of pixels that differ by > GHOST_T (ghost area): whole frame (arms, hands, head outline) + 0.25 x the face crop
-    A = A.reshape(len(A), -1); B = B.reshape(len(B), -1); return np.stack([(np.abs(B - A[i][None]) > GHOST_T).mean(1) for i in range(len(A))])
+    A = A.reshape(len(A), -1).astype(np.uint8); B = B.reshape(len(B), -1).astype(np.uint8)   # grey levels are integers: uint8 |a-b| is exactly the float32 one, at a quarter of the memory traffic
+    return np.stack([((np.maximum(B, A[i][None]) - np.minimum(B, A[i][None])) > GHOST_T).mean(1) for i in range(len(A))])
 DM = {}
-for c1 in RAW:
-    for c2 in RAW:
+def _dm_pair(c1, c2):
+    if True:
         a1, a2 = np.stack(SMALL[c1]), np.stack(SMALL[c2]); D = _ghost(a1, a2)
         if FACE_S[c1][0].shape == FACE_S[c2][0].shape: D = D + 0.25 * _ghost(np.stack(FACE_S[c1]), np.stack(FACE_S[c2]))
         if BRD:   # v10: the moving body (arms, hands) weighs in on its own: a seam joins matching arm poses, never a raised arm into a lowered one
             ys_, xs_ = np.nonzero(_bmask(_bk[c1]['board']['body'])); y0_, y1_, x0_, x1_ = ys_.min() // 8, ys_.max() // 8 + 1, xs_.min() // 8, xs_.max() // 8 + 1
             D = D + 1.5 * _ghost(a1[:, y0_:y1_, x0_:x1_], a2[:, y0_:y1_, x0_:x1_])
-        DM[(c1, c2)] = D * 100   # percent of the frame
+        return D * 100   # percent of the frame
+import hashlib, pickle
+from concurrent.futures import ThreadPoolExecutor
+_h = hashlib.md5(); _h.update(repr((GHOST_T, BRD is not None)).encode())
+for c_ in sorted(RAW): _h.update(c_.encode()); _h.update(np.stack(SMALL[c_]).tobytes()); _h.update(np.stack(FACE_S[c_]).tobytes()); _h.update(json.dumps(_bk[c_]['board']['body'], default=str).encode() if BRD else b'')
+DMF = f'{o.cache}/dm-{_h.hexdigest()}.pkl' if o.cache else ''
+print(f'[timing] clips loaded {time.time() - T_START:.0f} s', flush=True)
+if DMF and os.path.exists(DMF): DM = pickle.load(open(DMF, 'rb')); print('ghost matrices: cache hit', flush=True)
+else:
+    _pairs = [(c1, c2) for c1 in RAW for c2 in RAW]
+    with ThreadPoolExecutor(os.cpu_count() or 2) as ex: DM = dict(zip(_pairs, ex.map(lambda q: _dm_pair(*q), _pairs)))   # numpy drops the GIL: the clip pairs run side by side
+    if DMF: os.makedirs(o.cache, exist_ok=True); pickle.dump(DM, open(DMF, 'wb'))
+print(f'[timing] ghost matrices {time.time() - T_START:.0f} s', flush=True)
 def dif(c1, i1, c2, i2): return float(DM[(c1, c2)][i1, i2])
 SEAM = {}   # SEAM[(c, n)][b, e] = mean distance over the whole dissolve (c: b-XF+1 .. b  ->  n: e .. e+XF-1), worst frame weighted in
 for (c1, c2), D in DM.items():
