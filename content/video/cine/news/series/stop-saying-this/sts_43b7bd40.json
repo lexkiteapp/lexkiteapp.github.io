@@ -21,7 +21,7 @@
   "link": "https://lexkite.com/app/#/fix",
   "say": "Check your grammar"
  },
- "speed": 0.68,
+ "speed": 0.64,
  "display": {
   "blank": "___"
  },
@@ -44,7 +44,7 @@
      2
     ]
    },
-   "gap": 0.65
+   "gap": 0.85
   },
   {
    "id": "m_k",
@@ -55,7 +55,7 @@
      4
     ]
    },
-   "gap": 0.65
+   "gap": 0.85
   },
   {
    "id": "m_y",
@@ -65,7 +65,7 @@
      2
     ]
    },
-   "gap": 0.65
+   "gap": 0.85
   },
   {
    "id": "m_x",
@@ -77,7 +77,7 @@
      7
     ]
    },
-   "gap": 0.65
+   "gap": 0.85
   },
   {
    "id": "m_t",
@@ -87,7 +87,7 @@
      5
     ]
    },
-   "gap": 0.65
+   "gap": 0.85
   },
   {
    "id": "m_q",
@@ -98,7 +98,7 @@
      1
     ]
    },
-   "gap": 0.65
+   "gap": 0.85
   },
   {
    "id": "m_q2",
@@ -118,12 +118,12 @@
      4
     ]
    },
-   "gap": 0.5
+   "gap": 1.4
   },
   {
    "id": "m_c",
    "text": "Save this, and check your grammar on lexkite.com.",
-   "gap": 0.65
+   "gap": 0.85
   }
  ],
  "pops": [

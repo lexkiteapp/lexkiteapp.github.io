@@ -10,7 +10,7 @@
    "cefr": "A1",
    "diff": "easy",
    "words": 69,
-   "est_s": 43.4,
+   "est_s": 40.7,
    "ipa": "/ˈlɪsn/",
    "content_hash": "b55aa934d72f4c5e"
   },
@@ -21,7 +21,7 @@
    "cefr": "A1",
    "diff": "easy",
    "words": 66,
-   "est_s": 41.9,
+   "est_s": 39.4,
    "ipa": "/əˈfreɪd/",
    "content_hash": "8fa3d6358bbeb213"
   },
@@ -32,7 +32,7 @@
    "cefr": "A1",
    "diff": "easy",
    "words": 62,
-   "est_s": 39.9,
+   "est_s": 37.6,
    "ipa": "/mɪˈsteɪk/",
    "content_hash": "33e520153ff00d6b"
   },
@@ -43,7 +43,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 58,
-   "est_s": 37.9,
+   "est_s": 35.8,
    "ipa": "/tʌtʃ/",
    "content_hash": "3f4d3cd2276cf8ca"
   },
@@ -54,7 +54,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 58,
-   "est_s": 39.6,
+   "est_s": 32.0,
    "ipa": "/læk/",
    "content_hash": "8b093b9e0dd5d18d"
   },
@@ -65,7 +65,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 62,
-   "est_s": 39.9,
+   "est_s": 37.6,
    "ipa": "/sliːp/",
    "content_hash": "ea06c4793cc2792e"
   },
@@ -76,7 +76,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 69,
-   "est_s": 43.4,
+   "est_s": 40.7,
    "ipa": "/noʊ/",
    "content_hash": "316f34e920cbca10"
   },
@@ -87,7 +87,7 @@
    "cefr": "B1",
    "diff": "medium",
    "words": 65,
-   "est_s": 41.4,
+   "est_s": 39.0,
    "ipa": "/dɪˈpend/",
    "content_hash": "646566e3c50ea78c"
   },
@@ -98,7 +98,7 @@
    "cefr": "C1",
    "diff": "hard",
    "words": 61,
-   "est_s": 39.4,
+   "est_s": 37.2,
    "ipa": "/səˈdʒest/",
    "content_hash": "7ee92b4afee65a55"
   },
@@ -109,7 +109,7 @@
    "cefr": "C1",
    "diff": "hard",
    "words": 58,
-   "est_s": 37.9,
+   "est_s": 35.8,
    "ipa": "/ˈrerli/",
    "content_hash": "689d14b87fca36a7"
   }
@@ -143,7 +143,7 @@
   {
    "bank": "sb_068cf065",
    "point": "Stop saying \"I'm considering to buy a car.\" – say \"I'm considering buying a car.\"",
-   "reason": "self-check: note fix line > 26 chars: [[\"I'm considering \"], ['buying ', 'green'], ['a car.']]; note ex line > 26 chars: [['She '], ['considered ', 'green'], ['taking a taxi.']]; note qs line > 26 chars: [[\"I'm considering \"], ['___ ', 'green'], ['a new phone.']]"
+   "reason": "self-check: note fix line > 26 chars: [[\"I'm considering \"], ['buying ', 'green'], ['a car.']]; note qs line > 26 chars: [[\"I'm considering \"], ['___ ', 'green'], ['a new phone.']]"
   },
   {
    "bank": "sb_14363e18",
@@ -173,7 +173,7 @@
   {
    "bank": "sb_0c359c74",
    "point": "Stop saying \"Translate this to English.\" – say \"Translate this into English.\"",
-   "reason": "self-check: note fix line > 26 chars: [['Translate this '], ['into ', 'green'], ['English.']]; note ex height 346 > 335"
+   "reason": "self-check: note fix line > 26 chars: [['Translate this '], ['into ', 'green'], ['English.']]"
   },
   {
    "bank": "sb_14311c65",
@@ -193,7 +193,7 @@
   {
    "bank": "sb_1c747068",
    "point": "Stop saying \"She is responsible of the budget.\" – say \"She is responsible for the budget.\"",
-   "reason": "self-check: note fix line > 26 chars: [['She is responsible '], ['for ', 'green'], ['the budget.']]; note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note ex line > 26 chars: [['Who is '], ['responsible for ', 'green'], ['this?']]; note ex line > 26 chars: [[\"He's \"], ['responsible for ', 'green'], ['sales.']]; note qs line > 26 chars: [[\"I'm responsible \"], ['___ ', 'green'], ['the team.']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
+   "reason": "self-check: note fix line > 26 chars: [['She is responsible '], ['for ', 'green'], ['the budget.']]; note fix line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]; note ex line > 26 chars: [['Who is '], ['responsible for ', 'green'], ['this?']]; note qs line > 26 chars: [[\"I'm responsible \"], ['___ ', 'green'], ['the team.']]; note save line > 26 chars: [['responsible', 'green'], ['  '], ['@ipa:/rɪˈspɑːnsəbl/']]"
   },
   {
    "bank": "sb_21612f29",
@@ -213,7 +213,7 @@
   {
    "bank": "sb_52fcf41b",
    "point": "Stop saying \"The flood caused many damages.\" – say \"The flood caused a lot of damage.\"",
-   "reason": "self-check: note fix line > 26 chars: [['The flood caused '], ['a lot of damage.', 'green']]; note ex line > 26 chars: [['The storm caused little '], ['damage.', 'green']]; note ex line > 26 chars: [['Was there any '], ['damage ', 'green'], ['to the car?']]; note qs line > 26 chars: [['The fire caused a lot of '], ['___.', 'green']]"
+   "reason": "self-check: note fix line > 26 chars: [['The flood caused '], ['a lot of damage.', 'green']]; note ex line > 26 chars: [['The storm caused little '], ['damage.', 'green']]; note qs line > 26 chars: [['The fire caused a lot of '], ['___.', 'green']]"
   },
   {
    "bank": "sb_55270c0b",
@@ -278,7 +278,7 @@
   {
    "bank": "sb_9f45e757",
    "point": "Say \"I'm interested in this role because I like helping people.\" instead of \"I am interesting in this job.\"",
-   "reason": "self-check: note fix line > 26 chars: [[\"I'm interested \", 'green'], ['in this job.']]; note ex line > 26 chars: [['The job sounds '], ['interesting.', 'green']]; note qs line > 26 chars: [[\"I'm really \"], ['___ ', 'green'], ['in this role.']]"
+   "reason": "self-check: note fix line > 26 chars: [[\"I'm interested \", 'green'], ['in this job.']]; note qs line > 26 chars: [[\"I'm really \"], ['___ ', 'green'], ['in this role.']]"
   },
   {
    "bank": "sb_b56e5263",
@@ -338,7 +338,7 @@
   {
    "bank": "sb_2b4d86ec",
    "point": "Say \"I see it a bit differently.\" instead of \"I think different.\"",
-   "reason": "self-check: note fix line > 26 chars: [['I '], ['see it a bit differently.', 'green']]; note ex line > 26 chars: [['He dresses '], ['differently ', 'green'], ['now.']]"
+   "reason": "self-check: note fix line > 26 chars: [['I '], ['see it a bit differently.', 'green']]"
   },
   {
    "bank": "sb_30c60846",
@@ -403,7 +403,7 @@
   {
    "bank": "sb_e42d6eb4",
    "point": "Say \"Are we all on the same page?\" instead of \"Everybody understand?\"",
-   "reason": "self-check: note fix line > 26 chars: [['Are we all on the same page?', 'green']]; note why line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; note qs line > 26 chars: [['Are we all on the same '], ['___?', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; error phrase in ['m_w', 'm_x']"
+   "reason": "self-check: note fix line > 26 chars: [['Are we all on the same page?', 'green']]; note why line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]; note qs line > 26 chars: [['Are we all on the same '], ['___?', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' Are we all on the same page', 'green']]"
   },
   {
    "bank": "sb_f940bc04",

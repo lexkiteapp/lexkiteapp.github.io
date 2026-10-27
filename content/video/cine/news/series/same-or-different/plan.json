@@ -9,8 +9,8 @@
    "point": "win (v) vs beat (v)",
    "cefr": "A1",
    "diff": "easy",
-   "words": 70,
-   "est_s": 45.9,
+   "words": 64,
+   "est_s": 34.2,
    "ipa": "/biːt/",
    "content_hash": "40adafa2cee70cd0"
   },
@@ -20,8 +20,8 @@
    "point": "rob (v) vs steal (v)",
    "cefr": "B1",
    "diff": "medium",
-   "words": 63,
-   "est_s": 42.3,
+   "words": 58,
+   "est_s": 32.0,
    "ipa": null,
    "content_hash": "3bc746c83b8fb10d"
   }

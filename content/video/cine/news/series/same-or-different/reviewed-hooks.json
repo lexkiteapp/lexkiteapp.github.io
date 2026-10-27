@@ -7,9 +7,9 @@
    "hook_true": true,
    "script_reviewed": true,
    "script": {
-    "p_h": "Win or beat? You probably mix these up.",
+    "p_h": "Win or beat? Don't mix them up.",
     "p_y": "You beat people. You win games.",
-    "p_x": "We won the game. She beat me at chess.",
+    "p_x": "We won the game.",
     "p_w": "Not: We won the other team.",
     "p_k": "Say: We beat the other team.",
     "p_t": "You win a prize, but beat a player!",
@@ -24,10 +24,6 @@
     "right": "We beat the other team.",
     "right_lines": [
      "p_k"
-    ],
-    "pair": [
-     "win",
-     "beat"
     ]
    },
    "source": "sb_7432d6cb",
@@ -40,9 +36,9 @@
    "hook_true": null,
    "script_reviewed": false,
    "script": {
-    "p_h": "Rob or steal? You probably mix these up.",
+    "p_h": "Rob or steal? Don't mix them up.",
     "p_y": "You steal things. You rob people or places.",
-    "p_x": "They robbed a store. My bike was stolen.",
+    "p_x": "They robbed a store.",
     "p_w": "Not: Someone robbed my phone.",
     "p_k": "Say: Someone stole my phone.",
     "p_t": "Thieves rob a bank and steal the money!",
@@ -57,10 +53,6 @@
     "right": "Someone stole my phone.",
     "right_lines": [
      "p_k"
-    ],
-    "pair": [
-     "rob",
-     "steal"
     ]
    },
    "source": "sb_47b3e9e9"
