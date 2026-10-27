@@ -187,4 +187,16 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   ok(cf.cfProvider(g.MODEL_DEFAULT, { CF_ACCOUNT_2: 'b', CF_AI_TOKEN_2: 'x' }).max === 0, 'VIMG_MAX_CF mặc định 0 = tắt');
   ok(cf.cfInput('@cf/black-forest-labs/flux-1-schnell', 'p').json.width === undefined && cf.cfInput('@cf/black-forest-labs/flux-2-dev', 'p').form, 'schnell không gửi cỡ; FLUX.2 gửi multipart');
 }
+
+// 7. chống tái phạm kho CF (26–27/10): vẽ không được làm đói giám khảo/kho từ; hết giám khảo → dừng vẽ; tự nối lượt so biến trong bash
+{
+  const wf = rd('.github/workflows/vocab-img-scene.yml'), share = [...wf.matchAll(/VIMG_DRAW_SHARE: '([\d.]+)'/g)].map(m => +m[1]);
+  ok(share.length >= 3 && share.every(x => x > 0 && x <= 0.6), 'mọi việc dùng kho CF đặt VIMG_DRAW_SHARE ≤ 0,6 (đuôi kho cho giám khảo + kho từ)');
+  ok(/vision_dead": true/.test(wf) && /touch \$OUT\/EXHAUSTED/.test(wf), 'giám khảo thị giác hết neuron → dừng vẽ (không vẽ ảnh không ai chấm)');
+  ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
+  const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
+  ok(!/if:.*vars\.[A-Z_]+ *[!=]= *'0'/.test(all), "không workflow nào so vars.X với '0' trong if: (GitHub coi '' == '0')");
+  const cf = await import('../vocab-img/cf-direct.mjs'), H = c => c.repeat(32), env = { CF_POOL: '0123456789'.split('').map(c => H(c) + ':t').join(','), VIMG_POOL_SKIP: '0', VIMG_DRAW_SHARE: '0.5', VIMG_MAX_CF: '10' };
+  ok(cf.cfProvider('@cf/black-forest-labs/flux-2-klein-4b', env).stats.accounts === 5, 'vẽ chỉ dùng nửa đầu kho khi VIMG_DRAW_SHARE=0.5');
+}
 console.log(`✓ vocab-img: ${n} kiểm`);
