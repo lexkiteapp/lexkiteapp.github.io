@@ -9894,6 +9894,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "journal#n": {
+   "ex": "She published her research in a science journal.",
+   "sc": "person A stands beside a table, holding an open thick magazine whose cover displays a stylized microscope illustration, indicating a scientific publication.",
+   "cap": "A researcher reading a scientific periodical",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "journalist#n": {
    "ex": "The journalist wrote an article about the floods.",
    "sc": "person A sits at a desk with notebook and pen, looking out a window at rising floodwater, a newspaper spread on the table showing waterlogged streets",
@@ -10042,6 +10049,13 @@
    "ex": "Most plastic packaging ends up in landfill sites.",
    "sc": "person A, wearing a safety vest, stands beside a large mound of mixed waste, with visible plastic bottles and bags protruding from the heap.",
    "cap": "a worker beside a pile of trash",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
+  "lane#n": {
+   "ex": "The left lane of the highway is closed for repairs this week.",
+   "sc": "a highway view showing two traffic lanes; the left lane is blocked by orange traffic cones and a worker in a reflective vest directing traffic, while the right lane remains open for cars",
+   "cap": "a worker blocks one side of a highway for repairs",
    "who": 1,
    "by": "@cf/openai/gpt-oss-120b"
   },
@@ -10925,6 +10939,13 @@
    "cap": "A presenter faces a faulty screen during a product launch",
    "who": 2,
    "by": "openai/gpt-oss-120b"
+  },
+  "margin#n": {
+   "ex": "Write your notes in the margin.",
+   "sc": "person A holds a pen and writes short notes in the empty side margin of a printed page lying on a table",
+   "cap": "Someone adds notes in the blank side of a page",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "mark#n": {
    "skip": "abstract scoring concept requires numbers or symbols to convey",
