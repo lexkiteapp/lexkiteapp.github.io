@@ -161,6 +161,11 @@
    "what": "trang từ điển tĩnh /dict (docs/SEO-DICT-PAGES.md)",
    "via": "loadBrowserIndex",
    "job": "dict-pages.yml (CI)"
+  },
+  "scripts/dict/wordnet.mjs": {
+   "what": "trích Open English WordNet → content/dict/wordnet.json, chỉ giữ từ đơn có trong kho (docs/SEO-DICT-PAGES.md)",
+   "via": "loadBrowserIndex",
+   "job": "tay (chạy lại khi kho từ lớn thêm) → build.mjs đọc file đã commit"
   }
  },
  "todo": {
