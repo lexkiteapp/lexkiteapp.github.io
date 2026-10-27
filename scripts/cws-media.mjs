@@ -216,7 +216,7 @@ const SCSS = `*{box-sizing:border-box;margin:0}body{width:${SW}px;height:${SH}px
 h1{font-size:50px;line-height:1.07;font-weight:800;letter-spacing:-.03em;margin-top:22px}p{font-size:21px;line-height:1.5;color:rgba(255,255,255,.82);margin-top:20px}
 .win{position:absolute;right:44px;top:96px;width:720px;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}.win img{display:block;width:100%}
 .bar{height:34px;background:#eef1f0;display:flex;align-items:center;gap:7px;padding:0 12px}.bar span{width:10px;height:10px;border-radius:50%;background:#ff5f57}.bar span:nth-child(2){background:#febc2e}.bar span:nth-child(3){background:#28c840}
-.pop{position:absolute;right:70px;top:80px;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.1)}.pop img{display:block;height:640px}`;
+.pop{position:absolute;right:44px;top:80px;max-width:720px;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.1)}.pop img{display:block;max-width:720px;max-height:640px;width:auto;height:auto}`;
 const b64 = f => 'data:image/png;base64,' + fs.readFileSync(path.join(TMP, f)).toString('base64');
 const win = f => `<div class="win"><div class="bar"><span></span><span></span><span></span></div><img src="${b64(f)}"></div>`;
 const SHOTS = [
