@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot B – viseme sprite</title>
+<!-- Pilot B (docs/TEACHER-IN-APP.md §5.3). 0 credits: base still + 7 mouth shapes + blink cut from the Ama 3D v2 bank (a05*) by
+     scripts/teacher/sprite_build.py; voice = Kokoro af_bella lines already in the bank; mouth cues = Rhubarb (CI) gated by audio VAD (sprite_cues.py). -->
+<style>
+  :root { --teal: #0F3D3E; --teal2: #17595A; --orange: #E5502F; --ok: #2FBF71; --text: #13201f; --muted: #5b6b6a; --card: #fff; --bg: #F4EFE6; }
+  @media (prefers-color-scheme: dark) { :root { --text: #EAF2F1; --muted: #9DB3B1; --card: #17292A; --bg: #0B1C1D; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); }
+  @media (max-width: 760px) { .wrap { grid-template-columns: 1fr; } }
+  .stage { position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 22px; overflow: hidden; background: #ddd; box-shadow: 0 10px 30px #0004; container-type: inline-size; }
+  .rig { position: absolute; inset: 0; transform-origin: 50% 90%; animation: breathe 4.2s ease-in-out infinite; }
+  @keyframes breathe { 50% { transform: translateY(-0.25%) scale(1.004); } }
+  .rig img, .rig div { position: absolute; }
+  .base { inset: 0; width: 100%; height: 100%; }
+  .mouth, .blink { background-repeat: no-repeat; }
+  .blink { opacity: 0; }
+  .blink.on { opacity: 1; }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  button { border: 0; border-radius: 99px; padding: 8px 14px; font: 600 14px system-ui; cursor: pointer; background: var(--teal2); color: #fff; }
+  button.alt { background: transparent; color: var(--text); border: 1px solid #0F3D3E44; }
+  .card { background: var(--card); border-radius: 14px; padding: 12px 14px; }
+  .card h2 { margin: 0 0 6px; font-size: 16px; } .card p { margin: 4px 0; color: var(--muted); font-size: 14px; }
+  .num { font: 13px/1.6 ui-monospace, Menlo, monospace; white-space: pre-wrap; }
+  .say { position: absolute; left: 10px; right: 10px; bottom: 10px; background: #fffd; color: #13201f; border-radius: 12px; padding: 6px 10px; font-size: 15px; z-index: 3; min-height: 1.5em; }
+  @media (prefers-reduced-motion: reduce) { .rig { animation: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div class="stage" id="stage">
+      <div class="rig" id="rig">
+        <img class="base" src="assets/ama_base.webp" alt="Ama, Lexkite teacher" width="480" height="640">
+        <div class="mouth" id="mouth"></div>
+        <div class="blink" id="blink"></div>
+      </div>
+      <div class="say" id="say" lang="en">Tap a line to hear Ama.</div>
+    </div>
+    <div class="bar" style="margin-top:12px" id="lines"></div>
+    <div class="bar" style="margin-top:8px">
+      <button class="alt" id="mode">Cues: gated (VAD)</button>
+      <button class="alt" id="all">▶ Play all 4</button>
+    </div>
+  </div>
+  <div style="display:grid;gap:12px;align-content:start">
+    <div class="card"><h2>Pilot B · viseme sprite (0 credits)</h2>
+      <p>One still of Ama 3D + 7 mouth shapes (Rhubarb A–F, X) + a blink, all cut from existing a05 footage. The mouth follows the <b>phonemes</b> of the Kokoro voice, not just the tempo.</p>
+      <p>"gated" = Rhubarb cues forced closed wherever the audio is silent (fixes Rhubarb keeping the mouth moving in a pause).</p></div>
+    <div class="card"><h2>Measured on this device</h2><div class="num" id="m">loading…</div></div>
+    <div class="card"><h2>Measured offline (CI data, 4 lines)</h2><div class="num" id="off">…</div></div>
+  </div>
+</div>
+<script>
+(async () => {
+  const $ = id => document.getElementById(id);
+  const MAP = { X: 'X', A: 'A', B: 'B', C: 'C', D: 'D', E: 'E', F: 'F', G: 'B', H: 'C' }; // G (F/V) ≈ B, H (L) ≈ C
+  const [sp, lines, timing] = await Promise.all(['assets/ama_sprite.json', 'assets/ama_lines.json', 'assets/timing.json'].map(u => fetch(u).then(r => r.json())));
+  const mouth = $('mouth'), blink = $('blink'), m = sp.mouth, b = sp.blink, pct = (v, t) => (v / t * 100) + '%';
+  Object.assign(mouth.style, { left: pct(m.x, sp.w), top: pct(m.y, sp.h), width: pct(m.w, sp.w), height: pct(m.h, sp.h), backgroundImage: 'url(assets/ama_mouths.webp)', backgroundSize: `${m.order.length * 100}% 100%` });
+  Object.assign(blink.style, { left: pct(b.x, sp.w), top: pct(b.y, sp.h), width: pct(b.w, sp.w), height: pct(b.h, sp.h), backgroundImage: 'url(assets/ama_blink.webp)', backgroundSize: '100% 100%' });
+  let cur = '';
+  const shape = k => { k = MAP[k] || 'X'; if (k === cur) return false; cur = k; const i = m.order.indexOf(k); mouth.style.backgroundPosition = `${i / (m.order.length - 1) * 100}% 0`; return true; };
+  shape('X');
+  // Blink every 2.5–5.5 s (120 ms)
+  (function bl() { setTimeout(() => { blink.classList.add('on'); setTimeout(() => blink.classList.remove('on'), 120); bl(); }, 2500 + Math.random() * 3000); })();
+
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const bufs = {}; let gated = true, playing = null;
+  const lag = [], frames = []; let t0 = performance.now(), n = 0;
+  (function fps() { n++; const t = performance.now(); if (t - t0 >= 1000) { frames.push(n * 1000 / (t - t0)); n = 0; t0 = t; } requestAnimationFrame(fps); })();
+  async function buf(id) { return bufs[id] || (bufs[id] = await fetch(`assets/${id}.mp3`).then(r => r.arrayBuffer()).then(a => new Promise((ok, no) => ctx.decodeAudioData(a, ok, no)))); }
+  async function play(id) {
+    if (ctx.state !== 'running') await ctx.resume();
+    const L = lines[id], cues = gated ? L.gated : L.cues, B = await buf(id);
+    const src = ctx.createBufferSource(); src.buffer = B; src.connect(ctx.destination);
+    const lat = (ctx.outputLatency || ctx.baseLatency || 0), start = ctx.currentTime + 0.05; src.start(start); playing = src;
+    $('say').textContent = L.text;
+    return new Promise(done => {
+      let i = 0;
+      (function tick() {
+        const t = ctx.currentTime - start - lat; // what the ear hears now
+        while (i < cues.length - 1 && cues[i + 1][0] <= t) i++;
+        if (t >= 0 && shape(cues[i][1])) lag.push((t - cues[i][0]) * 1000);
+        if (t < L.dur + 0.05 && playing === src) requestAnimationFrame(tick); else { shape('X'); done(); }
+      })();
+    });
+  }
+  Object.entries(lines).forEach(([id, L]) => { const bt = document.createElement('button'); bt.textContent = L.text; bt.onclick = () => play(id).then(report); $('lines').append(bt); });
+  $('mode').onclick = e => { gated = !gated; e.target.textContent = 'Cues: ' + (gated ? 'gated (VAD)' : 'raw Rhubarb'); };
+  $('all').onclick = async () => { for (const id of Object.keys(lines)) { await play(id); await new Promise(r => setTimeout(r, 400)); } report(); };
+
+  const q = (a, p) => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.floor(p * s.length))]; };
+  function report() {
+    const res = performance.getEntriesByType('resource').filter(r => /assets\//.test(r.name));
+    const kb = res.reduce((s, r) => s + (r.encodedBodySize || r.transferSize || 0), 0) / 1024;
+    const f = frames.slice(-10);
+    $('m').textContent = `assets loaded   ${kb.toFixed(0)} KB (${res.length} files, incl. audio played)\n` +
+      `render fps      ${f.length ? (f.reduce((a, b) => a + b, 0) / f.length).toFixed(0) : '–'} (rAF, last 10 s)\n` +
+      `mouth swaps     ${lag.length}\n` +
+      `sync lag        p50 ${q(lag, .5).toFixed(0)} ms · p95 ${q(lag, .95).toFixed(0)} ms (cue time → frame shown, after output latency ${(((ctx.outputLatency || ctx.baseLatency || 0)) * 1000).toFixed(0)} ms)\n` +
+      `device          ${navigator.deviceMemory || '?'} GB · ${navigator.hardwareConcurrency || '?'} cores · ${screen.width}×${screen.height}@${devicePixelRatio}`;
+  }
+  const e = timing.boundary_err_ms;
+  $('off').textContent = `Rhubarb raw vs audio speech/silence boundaries (16):\n  mean ${e.mean} ms · median ${e.median} ms · p90 ${e.p90} ms · max ${e.max} ms\n` +
+    `After VAD gating: boundaries snap to the audio (10 ms grid) → ≤ 10–20 ms by construction.\nPer line: ${Object.entries(timing.per_line).map(([k, v]) => k + ' [' + v.join(', ') + ']').join('\n  ')}`;
+  setTimeout(report, 1500);
+})();
+</script>
+</body>
+</html>

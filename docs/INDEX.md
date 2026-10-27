@@ -49,6 +49,7 @@
 - [PR-PLATFORMS.md](PR-PLATFORMS.md) — Nền tảng PR & backlink miễn phí: tiến độ đăng, thay đổi 2026, danh sách xếp hạng 32 mục, cảnh báo, lộ trình 4 tuần; đọc khi: làm PR/backlink
 - [QUALITY-SWEEP.md](QUALITY-SWEEP.md) — quality-sweep: quét lỗi tiềm ẩn hằng đêm (22:40 UTC, 0 token LLM) và journey-e2e; mở 1 issue + 1 dòng bản tin; đọc khi: sửa/đọc kết quả quét đêm
 - [QUOTAS.md](QUOTAS.md) — Hạn mức & chống lạm dụng: rà endpoint, danh tính/bậc, hạn mức mặc định, cầu dao nhà cung cấp (≤80% gói miễn phí), phản hồi 429; đọc khi: thêm endpoint tốn tài nguyên
+- [TEACHER-IN-APP.md](TEACHER-IN-APP.md) — Giáo viên 3D Ama/Carlos trong app: Call with Ama/Carlos local-first, khớp môi viseme (pilot A 3D vs B sprite), free-tier 1M DAU, ngân sách tải; đọc khi: làm call/pron/clip giáo viên
 - [README.md](README.md) — Mục lục đọc-trước của docs/: thứ tự đầu phiên và mô tả nhóm tài liệu; đọc khi: đầu phiên
 - [REMINDERS.md](REMINDERS.md) — Nhắc học thông minh: một nguồn lập lịch, máy chủ push.js (D1 nội bộ), hỏi quyền không dark pattern, cờ, FCM, test; đọc khi: sửa nhắc học/push
 - [REPORTS.md](REPORTS.md) — Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý; đọc khi: sửa luồng báo lỗi

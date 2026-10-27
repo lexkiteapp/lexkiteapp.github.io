@@ -1,0 +1,28 @@
+{
+ "w": 480,
+ "h": 640,
+ "mouth": {
+  "x": 140,
+  "y": 272,
+  "w": 176,
+  "h": 136,
+  "order": "XABCDEF"
+ },
+ "blink": {
+  "x": 112,
+  "y": 202,
+  "w": 256,
+  "h": 76
+ },
+ "src": {
+  "X": "a05t3_ama2_present#125",
+  "A": "a05b_ama2#185",
+  "B": "a05t2_ama2_present#187",
+  "C": "a05_ama2#127",
+  "D": "a05t2_ama2_present#151",
+  "E": "a05l_ama2_listen#52",
+  "F": "a05l_ama2_listen#47",
+  "blink": "a05b_ama2#208",
+  "base": "a05b_ama2#185 aligned to ama2_first"
+ }
+}
