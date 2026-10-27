@@ -6,6 +6,7 @@
  *    cron refresh hiện có (refreshIg) giữ tiếp.
  * Chống CSRF: lk/auto/oauth/start chỉ chạy sau adminGate → state = body.HMAC(KEYS_ENC_KEY) gồm {nền tảng, kênh, email quản trị, nonce, hạn 10 phút}
  *  + cookie HttpOnly lk_meta = nonce (Path /api/social/meta, SameSite=Lax) + nonce dùng 1 lần (D1 soc_oauth). Callback: GET /api/social/meta/callback.
+ * App dạng Business dùng "Facebook Login for Business": nếu Meta đòi cấu hình, đặt env META_LOGIN_CONFIG_ID (config_id thay cho scope; cấu hình gồm 3 quyền trên).
  * App ID không bí mật (env META_APP_ID / IG_APP_ID, mặc định app "Lexkite Autopilot"); App Secret: env META_APP_SECRET / IG_APP_SECRET,
  *  hoặc owner dán 1 lần ở Quản trị → D1 soc_app mã hóa AES-GCM (KEYS_ENC_KEY). Token/secret không bao giờ vào log, URL chuyển hướng hay nội dung trả về. */
 import { encryptKey, decryptKey, encReady } from './_keys.js';
@@ -92,7 +93,7 @@ export async function startOAuth(env, db, b, who, now = Date.now()) {
   const c = await appCreds(env, db, kind); if (!c.secret) throw fail(412, 'no-app-secret');
   const { state, nonce } = await signState(env, { kind, channel_id: ch, email: who }, now);
   const url = kind === 'fb'
-    ? `https://www.facebook.com/${VER}/dialog/oauth?` + new URLSearchParams({ client_id: c.id, redirect_uri: REDIRECT, state, scope: SCOPES.fb, response_type: 'code', auth_type: 'rerequest' })
+    ? `https://www.facebook.com/${VER}/dialog/oauth?` + new URLSearchParams({ client_id: c.id, redirect_uri: REDIRECT, state, response_type: 'code', auth_type: 'rerequest', ...(okId(env.META_LOGIN_CONFIG_ID) ? { config_id: String(env.META_LOGIN_CONFIG_ID) } : { scope: SCOPES.fb }) })
     : 'https://www.instagram.com/oauth/authorize?' + new URLSearchParams({ enable_fb_login: '0', force_authentication: '1', client_id: c.id, redirect_uri: REDIRECT, response_type: 'code', scope: SCOPES.ig, state });
   return { url, _cookie: `${COOKIE}=${nonce}; Path=/api/social/meta; Max-Age=${STATE_TTL}; HttpOnly; Secure; SameSite=Lax` };
 }
