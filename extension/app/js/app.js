@@ -479,8 +479,11 @@
   App.vimgReady = () => (vimgOn() ? App.need('vimg').then(() => window.VImg && VImg.ready()).catch(() => null) : Promise.resolve(null));
   App.vimg = (word, pos, gloss, w, ex) => (window.VImg ? VImg.slot(word, pos, gloss, w, ex) : ''); // w = vai (card|back|quiz|dict|words) hoặc px; ex = câu ví dụ (ảnh cảnh)
   App.vimgReady();
-  App.notesHtml = word => `<div class="wn-slot" data-notes="${esc(String(word || '').toLowerCase())}"></div>`;
-  const fillNotes = () => document.querySelectorAll('.wn-slot[data-notes]:not([data-done])').forEach(el => { el.dataset.done = 1; const w = el.dataset.notes; Promise.all([notesFile(w), App.need('wordcard').then(() => window.WordCard && WordCard.ready)]).then(([m]) => { const n = Object.hasOwn(m, w) && m[w]; if (n && el.isConnected && window.WordCard) el.innerHTML = WordCard.notes(n, w); }).catch(() => {}); });
+  // Khối "Hiểu sâu": HTML đã dựng nhớ theo từ → lần vẽ lại (từ điển: bản nhanh → bản đủ) vẽ luôn trong cùng lần, không chèn muộn đẩy nội dung bên dưới (CLS 0,66 #/dict @360)
+  const notesMem = new Map(), notesP = {};
+  App.notesReady = word => { const w = String(word || '').toLowerCase(); if (notesMem.has(w)) return Promise.resolve(notesMem.get(w)); return notesP[w] || (notesP[w] = Promise.all([notesFile(w), App.need('wordcard').then(() => window.WordCard && WordCard.ready)]).then(([m]) => { const n = Object.hasOwn(m, w) && m[w], h = n && window.WordCard ? WordCard.notes(n, w) : ''; notesMem.set(w, h); return h; }).catch(() => { delete notesP[w]; return ''; })); };
+  App.notesHtml = word => { const w = String(word || '').toLowerCase(), h = notesMem.get(w); return h != null ? `<div class="wn-slot" data-notes="${esc(w)}" data-done="1">${h}</div>` : `<div class="wn-slot" data-notes="${esc(w)}"></div>`; };
+  const fillNotes = () => document.querySelectorAll('.wn-slot[data-notes]:not([data-done])').forEach(el => { el.dataset.done = 1; App.notesReady(el.dataset.notes).then(h => { if (h && el.isConnected) el.innerHTML = h; }); });
   // Chip cụm từ/đồng nghĩa/họ từ: chạm = nghe · chạm lần 2 (hoặc giữ) = tra nghĩa tại chỗ (đang học) / mở từ điển
   App.chipsHtml = (list, icon, label) => (list || []).length ? `<div class="wc-chips"><span class="wc-clb">${icon} ${label}</span>${list.map(x => `<button type="button" class="chip wc-chip" data-wc-say="${esc(x)}" title="${t('Chạm để nghe · chạm lần nữa để tra nghĩa')}"><span lang="en">${esc(x)}</span></button>`).join('')}</div>` : '';
   { let last = null, at = 0, lp = 0, held = false;
@@ -999,6 +1002,7 @@
         <p class="small" style="margin-top:1rem">💡 ${t('Cài <b>add-on Chrome</b> để bấm đúp vào từ hoặc bôi đen câu trên bất kỳ trang web nào.')}</p></div>`;
       return;
     }
+    App.notesReady(q); // tải khối "Hiểu sâu" song song với tra từ (lần vẽ đủ chờ nó – xem dưới)
     $('#result').innerHTML = UI.skel(t('Đang tra “{q}”…', { q: esc(q) }), 4); // khung chờ hình mục từ (từ · phiên âm · nghĩa) thay vì ⏳
     // Hiện kết quả nhanh trước (nghĩa, phiên âm), rồi bổ sung âm thanh, hình, câu ví dụ
     let spoke = false;
@@ -1016,6 +1020,9 @@
     const lk = todayKey() + ':' + full.word;
     if (!lookedUp.has(lk)) { lookedUp.add(lk); reward({ lookups: 1 }); }
     extCta().then(x => x && x.lookup({ text: t('Bạn vừa tra vài từ. Với add-on Lexkite, bạn tra được ngay trên mọi trang web mình đọc – miễn phí.'), btn: t('Thêm vào Chrome'), close: t('Đóng') }));
+    // Chờ khối "Hiểu sâu" (đã tải song song từ lần vẽ nhanh, tối đa 1,5 s) rồi mới vẽ bản đủ → khối nằm sẵn trong lần vẽ, không chèn muộn phía trên ô lưu
+    await Promise.race([App.notesReady(full.word), new Promise(r => setTimeout(r, 1500))]);
+    if (!same()) return;
     paint(full, true);
 
     function paint(e, final) {
