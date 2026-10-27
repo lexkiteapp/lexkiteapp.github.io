@@ -11,7 +11,7 @@ import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { orgNode } from './lib/authority-links.mjs'; // Organization chuẩn + sameAs kênh thật (docs/SEO-AUTHORITY.md)
-import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS } from './lib/site-layout.mjs';
+import { CSS, esc, ld, siteHeader, siteFooter, LANG_NAMES, appHref, landingHref, langSwitch, LSW_CSS, LSW_JS, EXT_STORE, EXT_JS, GETAPP_JS } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES); // vi, en, es, pt, fr, de, id, th, zh, ja, ko, hi, ar, ru, tr
@@ -41,6 +41,17 @@ q.delete('source');q.delete('home');var t=q.toString();document.documentElement.
 l.replace('/app/'+(t?'?'+t:'')+(d?h:''))}catch(e){}})();`;
 // ----- Script 1b: đánh dấu Chromium máy tính (cùng điều kiện js/ext-cta.js) → CSS giữ sẵn chỗ nút "Thêm vào Chrome" (js/ext-cta.js bỏ hidden sau ~0,9 s) → CLS 0 -----
 export const DC_JS = `try{var u=navigator.userAgent;/Chrome\\/\\d/.test(u)&&!/Mobile|Android|CriOS|FxiOS|EdgiOS|iPhone|iPad|SamsungBrowser|YaBrowser|wv\\)|Firefox|Version\\/[\\d.]+ Safari/.test(u)&&(document.documentElement.className='dc')}catch(e){}`;
+// ----- Script 1c: điện thoại/máy tính bảng (Android, iPhone, iPad) → giữ sẵn chỗ nút "Tải app" (js/get-app.js bỏ hidden ngay khi chạy) → CLS 0 -----
+export const GA_JS = `try{var v=navigator.userAgent;(/Android|iPhone|iPad|iPod/.test(v)||/Macintosh/.test(v)&&navigator.maxTouchPoints>1)&&document.documentElement.classList.add('ga')}catch(e){}`;
+// Nút "Tải app" (header + chân trang) – đích theo nền tảng do js/get-app.js chọn; chữ lấy từ bản dịch app (cùng chữ với menu trong app)
+const PHONE = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 6.5v7m-3-3 3 3 3-3M10.5 18h3"/></svg>';
+const gaText = l => ({ iph: ['Cài Lexkite lên iPhone', 'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari', 'Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)', 'Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app'].map(k => ui(l, k)),
+  ipad: ['Cài Lexkite lên iPad', 'Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari'].map(k => ui(l, k)),
+  mac: ['Cài Lexkite lên Mac', 'Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>', 'Bấm <b>Thêm</b> – Lexkite sẽ mở như một app'].map(k => ui(l, k)), ok: ui(l, 'Đã hiểu') });
+// Chữ hướng dẫn cài (iPhone/iPad/Mac) → web/js/get-app/<lang>.json, js/get-app.js chỉ nạp khi mở hướng dẫn (giữ landing ≤ 16 KB gzip)
+export const gaFile = l => `/js/get-app/${l}.json`;
+export const gaJson = l => JSON.stringify(gaText(l)) + '\n';
+const gaBtn = (l, place, appQ, web) => `<a class="btn ghost gapp" href="${appQ}" data-get-app="${place}"${web ? ` data-web="${appQ}"` : ` aria-label="${esc(ui(l, 'Tải app'))}"`} hidden>${PHONE}<span>${esc(ui(l, 'Tải app'))}</span></a>`;
 // ----- Script 2: gợi ý trang đúng ngôn ngữ (chỉ người dùng thật, đóng được, nhớ lựa chọn) -----
 const SUG = Object.fromEntries(LANGS.map(l => [l, copyOf(l).suggest]));
 const URLS = Object.fromEntries(LANGS.map(l => [l, landingHref(l)]));
@@ -51,7 +62,8 @@ d.innerHTML='<span></span><a class="btn"></a><button type="button">×</button>';
 var x=function(){try{ls.setItem('lk.lhint','1')}catch(e){}};a.onclick=x;b.onclick=function(){x();d.remove()};document.body.appendChild(d)}catch(e){}})();`;
 
 // ----- CSS riêng của landing (chỉ token màu của site-layout / BRAND-RULES) -----
-const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-block!important;visibility:hidden}main{padding-top:8px}.lh{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:28px 0 12px}
+const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display:inline-block!important;visibility:hidden}.dc [data-get-app][hidden]:not([data-off]),.ga [data-get-app][hidden]:not([data-off]){display:inline-flex!important;visibility:hidden}
+.gapp{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;white-space:nowrap}.gapp svg{flex:none}.site-foot .gapp{margin-top:14px;min-width:0}main{padding-top:8px}.lh{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:28px 0 12px}
 .eyebrow{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:14px;padding:4px 12px;border-radius:999px}
 .lh h1{font-size:clamp(34px,5.4vw,56px);line-height:1.08;letter-spacing:-.03em;margin:16px 0 14px}.grad{background:linear-gradient(90deg,#E5502F,#FFB054);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:19px;color:var(--muted);max-width:56ch;margin:0}.ctas{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 10px;align-items:center}.btn.lg{font-size:17px;padding:13px 24px}
@@ -71,12 +83,29 @@ const LCSS = `[hidden]{display:none!important}.dc [data-ext-cta][hidden]{display
 [dir=rtl] .skip:not(:focus){left:auto;right:-999px}[dir=rtl] .kit{right:auto;left:-6px}@media (max-width:600px){[dir=rtl] .kit{left:0}}
 .lhint{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px rgba(20,20,60,.18);padding:10px 12px 10px 16px;font-size:15px}.lhint span{flex:1}.lhint .btn{padding:6px 14px;font-size:14px;white-space:nowrap}.lhint button{font:inherit;background:none;border:0;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;padding:4px 8px}
 @media (max-width:900px){nav.main{flex-wrap:nowrap}nav.main .hm{display:none}.lh{grid-template-columns:1fr;gap:44px}.demo{max-width:440px;margin:0 auto;width:100%}.feat,.res{grid-template-columns:1fr 1fr}}
-@media (max-width:600px){nav.main>a:not(.btn){display:none}nav.main{gap:8px}header.top .bar{flex-wrap:nowrap}.feat,.res,.steps{grid-template-columns:1fr}.lh{padding-top:12px}.lead{font-size:17px}.final{padding:28px 18px}.kit{top:-28px;right:0;width:64px;height:64px}}
+@media (max-width:360px){header .logo span{display:none}}
+@media (max-width:600px){header.top .bar{gap:8px}header .btn{white-space:nowrap}header .lsw-c{display:none}header .lsw-b{width:44px;min-height:44px;padding:0;justify-content:center}header .gapp{flex:none;width:44px;padding:0}header .gapp span{display:none}nav.main>a:not(.btn){display:none}nav.main{gap:8px}header.top .bar{flex-wrap:nowrap}.feat,.res,.steps{grid-template-columns:1fr}.lh{padding-top:12px}.lead{font-size:17px}.final{padding:28px 18px}.kit{top:-28px;right:0;width:64px;height:64px}}
 .xf h2{font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;line-height:1.2;margin:0 0 6px}.xf{display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:center}.xf ul{list-style:none;padding:0;margin:16px 0 20px;display:grid;gap:8px}.xf li::before{content:'✓ ';color:var(--accent);font-weight:800}.xf img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(15,61,62,.18)}
 @media (max-width:820px){.xf{grid-template-columns:1fr}}
 @media (prefers-color-scheme:dark){.eyebrow,.fc mark,.gr .ok{color:#7fd6cc}.final .btn{color:#0F3D3E!important}.steps li::before{color:#0f1017}}`;
 
+// ----- Bỏ CSS không dùng: khung chung (site-layout CSS) phục vụ cả trang SEO/blog; landing chỉ giữ luật có lớp/id/thẻ xuất hiện trong trang
+// (kể cả trong script nội tuyến – lớp do JS thêm như .lhint, .dc, .ga, lsw vẫn được giữ) → landing ≤ 16 KB gzip (scripts/test/landing-routing.mjs)
+const cssBlocks = s => { const out = []; let d = 0, st = 0; for (let i = 0; i < s.length; i++) { if (s[i] === '/' && s[i + 1] === '*') { i = s.indexOf('*/', i + 2) + 1; continue; } if (s[i] === '{') d++; else if (s[i] === '}' && --d === 0) { out.push(s.slice(st, i + 1)); st = i + 1; } } return out; };
+export function purgeCss(css, page) {
+  const has = new Map(), word = w => has.has(w) ? has.get(w) : has.set(w, new RegExp(`(?<![\\w-])${w.replace(/[-]/g, '\\-')}(?![\\w-])`).test(page)).get(w);
+  const used = sel => { const x = sel.replace(/\([^)]*\)/g, '').replace(/\[[^\]]*\]/g, '').replace(/::?[\w-]+/g, '');
+    return (x.match(/[.#][A-Za-z_][\w-]*/g) || []).every(t => word(t.slice(1))) && [...x.matchAll(/(?:^|[\s>+~])([a-z][a-z0-9]*)/g)].every(([, t]) => t === 'html' || t === 'body' || page.includes('<' + t + ' ') || page.includes('<' + t + '>')); };
+  return cssBlocks(css).map(b => { b = b.replace(/\/\*[\s\S]*?\*\//g, '').trim(); const j = b.indexOf('{'), sel = b.slice(0, j).trim();
+    if (/^@(media|supports)/.test(sel)) { const inner = purgeCss(b.slice(j + 1, -1), page); return inner ? sel + '{' + inner + '}' : ''; }
+    if (sel.startsWith('@')) return b;
+    const keep = sel.split(',').filter(used); return keep.length ? keep.join(',') + b.slice(j) : ''; }).join('');
+}
 export function render(lang) {
+  const html = renderFull(lang), m = html.match(/<style>([\s\S]*?)<\/style>/);
+  return html.replace(m[0], () => `<style>${purgeCss(m[1], html.replace(m[0], ''))}</style>`);
+}
+function renderFull(lang) {
   const c = copyOf(lang), rtl = lang === 'ar', url = pageUrl(lang), app = appHref(lang);
   const appQ = `/app/?hl=${lang}`, start = `${appQ}#/welcome/setup`, login = `${appQ}#/welcome/login`;
   const vi = lang === 'vi', vocab = vi ? '/tu-vung/' : '/en/vocabulary/', samples = vi ? '/samples/' : '/en/samples/', blog = `/${lang}/blog/`;
@@ -96,7 +125,7 @@ export function render(lang) {
 <head>
 <meta charset="utf-8">
 <script id="lk-route">${ROUTE_JS}</script>
-<script id="lk-dc">${DC_JS}</script>
+<script id="lk-dc">${DC_JS}${GA_JS}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(c.title)}</title>
 <meta name="description" content="${esc(c.description)}">
@@ -116,7 +145,7 @@ ${LCSS}</style>
 </head>
 <body>
 <a class="skip" href="#nd">${esc(c.skip)}</a>
-${siteHeader({ nav, open: [start, esc(c.nav.start)], home: landingHref(lang), lang, langHref: landingHref, label: c.langL })}
+${siteHeader({ nav, open: [start, esc(c.nav.start)], extra: gaBtn(lang, 'head', appQ), home: landingHref(lang), lang, langHref: landingHref, label: c.langL })}
 <main id="nd">
 <section class="lh" aria-labelledby="h1">
 <div>
@@ -146,9 +175,11 @@ ${siteHeader({ nav, open: [start, esc(c.nav.start)], home: landingHref(lang), la
 ${c.faq.map(([q, a], i) => `<details${i === 0 ? ' open' : ''}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n')}</section>
 <section class="final" aria-labelledby="hc"><h2 id="hc">${esc(c.finalH)}</h2><p>${esc(c.finalP)}</p><a class="btn lg" href="${start}">${esc(c.hero.cta)} ${rtl ? '←' : '→'}</a></section>
 </main>
-${siteFooter({ lang, text: esc(c.foot), tm: esc(c.tm), langHref: landingHref })}
+${siteFooter({ lang, text: esc(c.foot), tm: esc(c.tm), langHref: landingHref, getApp: gaBtn(lang, 'foot', appQ, true) })}
 <script>${hintJs(lang)}</script>
-<script>${EXT_JS}</script>
+<script>${EXT_JS}
+self.LK_GETAPP_T='${gaFile(lang)}';
+${GETAPP_JS}</script>
 </body>
 </html>
 `;
@@ -165,6 +196,11 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], 'file://').h
     const html = render(l), f = new URL(fileOf(l), R);
     if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== html) stale.push(fileOf(l)); continue; }
     fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, html);
+  }
+  for (const l of LANGS) { // chữ hướng dẫn "Tải app" theo ngôn ngữ
+    const f = new URL('web' + gaFile(l), R), j = gaJson(l);
+    if (check) { if (!fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== j) stale.push('web' + gaFile(l)); continue; }
+    fs.mkdirSync(new URL('.', f), { recursive: true }); fs.writeFileSync(f, j);
   }
   { const f = new URL('web/404.html', R), cur = fs.readFileSync(f, 'utf8'), html = render404(cur); if (check) { if (html !== cur) stale.push('web/404.html'); } else fs.writeFileSync(f, html); }
   if (stale.length && !process.env.CI) { // cục bộ (npm test): tự dựng lại cho khỏi dừng giữa chừng; trên CI (CI=true) vẫn nghiêm ngặt

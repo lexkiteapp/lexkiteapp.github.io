@@ -954,6 +954,12 @@
   // Lời mời cài add-on (chỉ Chromium máy tính, chưa cài – web/js/ext-cta.js quyết định), nạp lười; URL cửa hàng: js/ext-config.js
   let extP = null;
   const extCta = () => Store.isExtension ? Promise.resolve(null) : (extP || (extP = loadScript('js/ext-config.js').then(() => loadScript('js/ext-cta.js')).catch(() => {}))).then(() => { if (window.LKExt) LKExt.scan(view); return window.LKExt || null; });
+  // Nút "Tải app" (menu bên + trang Tôi + nút cài trên Android): js/get-app.js chọn CWS / Google Play / hướng dẫn cài theo nền tảng, nạp lười sau add-on
+  let gaP = null;
+  window.LK_GETAPP_T = () => ({ iph: [t('Cài Lexkite lên iPhone'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari'), t('Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)'), t('Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app')],
+    ipad: [t('Cài Lexkite lên iPad'), t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> trên thanh trên cùng của Safari')],
+    mac: [t('Cài Lexkite lên Mac'), t('Trong Safari, chọn <b>Tệp › Thêm vào Dock</b>'), t('Bấm <b>Thêm</b> – Lexkite sẽ mở như một app')], ok: t('Đã hiểu') });
+  App.getApp = root => Store.isExtension ? Promise.resolve(null) : (gaP || (gaP = extCta().then(() => loadScript('js/get-app.js')).catch(() => {}))).then(() => { if (window.LKGetApp) LKGetApp.scan(root || document); return window.LKGetApp || null; });
   routes.dict = App.guard(async function (q) {
     const fastP = q ? Dict.quick(q) : null, vimgP = App.vimgReady(); // tra song song với đọc 'recent' (từ trong kho: vài ms) + chỉ mục ảnh (cờ bật)
     const w = App.W, recent = await w(Store.get('recent', []));
@@ -1560,14 +1566,16 @@
   let installEvt = null;
   const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true || !!(window.VBNative && VBNative.is); // app gốc iOS/Android = đã cài → không mời "Cài app"/"Thêm vào MH chính"
   const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios|fxios/i.test(navigator.userAgent);
+  const playKind = () => !!(window.LKGetApp && LKGetApp.kind() === 'play'); // Android có bản Google Play → nút cài mở Play thay vì PWA
   function showInstallBtn() {
     if (Store.isExtension || isStandalone() || $('#installBtn')) return;
-    if (!installEvt && !isIOS()) return;
+    if (!installEvt && !isIOS() && !playKind()) return;
     const b = document.createElement('button');
     b.id = 'installBtn'; b.className = 'pill'; b.style.cursor = 'pointer'; b.style.color = 'var(--primary)';
-    b.innerHTML = `📲 <span class="hide-sm">${t('Cài app')}</span>`;
-    b.title = t('Cài Lexkite lên màn hình chính');
+    b.innerHTML = `📲 <span class="hide-sm">${playKind() ? t('Tải app') : t('Cài app')}</span>`;
+    b.title = playKind() ? t('Tải app') : t('Cài Lexkite lên màn hình chính');
     b.onclick = async () => {
+      if (playKind()) { LKGetApp.open('top'); return; }
       if (installEvt) { installEvt.prompt(); const r = await installEvt.userChoice; if (r.outcome === 'accepted') { b.remove(); toast('🎉 ' + t('Đã cài Lexkite!')); } installEvt = null; return; }
       modal(`<h2>📲 ${t('Cài Lexkite lên iPhone')}</h2><ol style="line-height:2;padding-left:1.2rem"><li>${t('Bấm nút <b>Chia sẻ</b> <span style="font-size:1.2rem">⎋</span> ở thanh dưới của Safari')}</li><li>${t('Chọn <b>“Thêm vào MH chính”</b> (Add to Home Screen)')}</li><li>${t('Bấm <b>Thêm</b> – biểu tượng Lexkite sẽ xuất hiện như một app')}</li></ol><button class="btn primary block" data-close>${t('Đã hiểu')}</button>`);
     };
@@ -1637,6 +1645,7 @@
     }
     setTimeout(() => idle(refreshIPA), 15000);
     if (isIOS()) setTimeout(() => App.installNudge && App.installNudge(), 25000);
+    if (!Store.isExtension && !isStandalone()) setTimeout(() => idle(() => App.getApp().then(() => showInstallBtn())), 3000); // menu "Tải app" + nút cài Android → Google Play
   };
   /* Thống kê ẩn danh + báo lỗi tự động (functions/api/hit.js) và thông báo đầu trang do quản trị đặt (functions/api/config.js).
    * Không cookie, không lưu IP: vid là mã ngẫu nhiên trên máy; 1 bản ghi mỗi phiên. Tắt khi ?sandbox / ?demo / trình duyệt tự động. */

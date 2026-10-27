@@ -14,6 +14,8 @@ const rdWeb = p => fs.readFileSync(new URL(`../../web/${p}`, import.meta.url), '
 const jsLite = s => s.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n');
 export const EXT_STORE = (rdWeb('js/ext-config.js').match(/store: '([^']+)'/) || [])[1];
 export const EXT_JS = jsLite(rdWeb('js/ext-config.js')) + '\n' + jsLite(rdWeb('js/ext-cta.js').replace(/\/\/ <nudge>[\s\S]*?\/\/ <\/nudge>\n/, ''));
+// Nút "Tải app" một chạm (CWS / Google Play / hướng dẫn cài PWA) – web/js/get-app.js; nội tuyến SAU EXT_JS (cần LK_EXT, LK_APPS, LKExt)
+export const GETAPP_JS = jsLite(rdWeb('js/get-app.js'));
 export const LSW_CSS = (rdWeb('css/style.css').match(/\/\* lsw [^*]*\*\/\n([\s\S]*?)\/\* \/lsw \*\//) || [, ''])[1].replace(/\n/g, '');
 export const LSW_JS = rdWeb('js/lang-menu.js').replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim().replace(/\s\/\/ [^'"]*$/, '')).filter(l => l && !l.startsWith('//')).join('\n');
 export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -194,6 +196,7 @@ const ABOUT = { vi: 'gioi-thieu', en: 'about', es: 'acerca-de', pt: 'sobre', fr:
 // App học nằm ở /app/ (SPA, hash route); / và /<lang>/ là trang giới thiệu tĩnh (scripts/build-landing.mjs)
 export const appHref = lang => lang === 'vi' ? '/app/' : `/app/?hl=${lang}`;
 export const landingHref = lang => lang === 'vi' ? '/' : `/${lang}/`;
+// getApp: HTML nút "Tải app" dưới đoạn giới thiệu (chỉ landing truyền)
 // lang: ngôn ngữ trang; text/tm: câu giới thiệu + ghi chú nhãn hiệu (theo ngôn ngữ); langHref(l): link bản ngôn ngữ l (mặc định trang chủ blog l)
 // Ghi chú nhãn hiệu (docs/BRAND-RULES.md § Nhãn hiệu): "Lexkite™" chỉ ở lần nhắc nổi bật đầu tiên + chân trang/pháp lý – không đổi logo/wordmark
 export const TM_OWNER = 'MODIAN LUXURY JEWELRY LLC';
@@ -216,14 +219,14 @@ export const TM_NOTE = {
 };
 // Lần nhắc đầu trong đoạn giới thiệu chân trang: "Lexkite – …" → "Lexkite™ – …" (không thêm nếu đã có)
 export const tmFirst = s => String(s || '').replace(/Lexkite(?!™)/, 'Lexkite™');
-export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref }) => {
+export const siteFooter = ({ lang = 'en', text = '', tm = '', year = new Date().getFullYear(), extra = [], langHref, getApp = '' }) => {
   const f = FOOT[lang] || FOOT.en, app = appHref(lang), vi = lang === 'vi', lg = `/${lang in LANG_NAMES ? lang : 'en'}`;
   const col = (h, items) => `<div><h2>${h}</h2><ul>${items.map(([u, n]) => `<li><a href="${u}">${n}</a></li>`).join('')}</ul></div>`;
   const product = [[app, f[3]], [`${app}#/settings`, f[4]]];
   const res = [[`${lg}/blog/`, f[5]], [vi ? '/tu-vung/' : '/en/vocabulary/', f[6]], ...(vi ? [['/ngu-phap/', f[9]]] : []), [vi ? '/samples/' : '/en/samples/', f[7]], [vi ? '/speaking/' : '/en/speaking/', f[8]], ...(SP[lang] ? [[`/${lang}/words/`, SP[lang].words], [`/${lang}/conversations/`, SP[lang].conv]] : []), ...toolFoot(lang), ...extra]; // + công cụ miễn phí (scripts/lib/tools-links.mjs) // trang tĩnh Từ điển + Giao tiếp (docs/SEO-ARCH.md)
   const co = [[authAbout(lang) || `${lg}/blog/${ABOUT[lang] || 'about'}/`, f[10]], ...authFoot(lang), [`${app}#/contact`, f[11]], [`${lg}/privacy`, f[12]], [`${lg}/terms`, f[13]], [`${lg}/privacy#cookies`, f[14]], [`${lg}/privacy#delete`, f[15]], [`${lg}/credits`, f[17] || FOOT.en[17]]];
   const langs = Object.entries(LANG_NAMES).map(([l, n]) => `<a href="${langHref ? langHref(l) : `/${l}/blog/`}" lang="${l}" hreflang="${l}"${l === lang ? ' aria-current="true"' : ''}>${n}</a>`).join('');
-  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p></div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
+  return `<footer class="site-foot"><div class="bar"><div class="fcols"><div class="fbrand"><a class="flogo" href="${landingHref(lang in LANG_NAMES ? lang : 'en')}"><img src="/icons/icon.svg?v=2" width="28" height="28" alt=""><span>lex<b>kite</b></span></a><p>${tmFirst(text)}</p>${getApp}</div>${col(f[0], product)}${col(f[1], res)}${col(f[2], co)}</div>
 <nav class="flangs" aria-label="${f[16]}"><span aria-hidden="true">🌐</span>${langs}</nav><p class="ftm">${tm}</p><p class="ftm">© ${year} Lexkite · ${TM_NOTE[lang] || TM_NOTE.en}</p></div></footer>
 <script>${LSW_JS}</script>`;
 };

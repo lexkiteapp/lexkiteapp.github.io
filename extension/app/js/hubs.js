@@ -252,6 +252,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
       + `</div><h3 class="set-h">${t('Ứng dụng')}</h3><div class="set-list">`
       + (isAdmin ? row(App.adminUrl(), UI.icon('shield'), t('Quản trị hệ thống'), t('Người dùng, hộp thư, phân tích, chất lượng, Gemini API'), true) : '')
       + row('#/settings', UI.icon('settings'), t('Cài đặt'), t('Tài khoản, nhắc học, âm thanh, giao diện'))
+      + row('#/me', UI.icon('smartphone'), t('Tải app')).replace('<a ', '<a data-get-app="me" hidden ') // js/get-app.js: Google Play / Chrome Web Store / hướng dẫn cài
       + `<button type="button" class="set-row me-row" data-exam-pick>
           <div class="me-row-left">
             <span class="me-icon-box" aria-hidden="true">${UI.icon(examObj.ic)}</span>
@@ -272,6 +273,7 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
       + row('#/resources', UI.icon('globe'), t('Tài nguyên miễn phí'))
       + (I18N.lang() === 'vi' ? [['samples', UI.icon('file-text'), 'Bài mẫu Writing Task 2'], ['speaking', UI.icon('message-circle'), 'Chủ đề Speaking'], ['tu-vung', UI.icon('library'), 'Từ vựng theo chủ đề'], ['ngu-phap', UI.icon('brain'), 'Ngữ pháp tiếng Anh'], ['viet-thu', UI.icon('mail'), 'Thư mẫu IELTS General']].map(([p, ic, l]) => row('https://lexkite.com/' + p + '/', ic, l, '', true)).join('') : '')
       + `</div></div>`;
+    if (App.getApp) App.getApp(view);
     const acct = view.querySelector('#meAcct'); if (acct) Sync.renderBox(acct); // thẻ tài khoản dùng chung với Cài đặt (sync.js) – tự cập nhật trạng thái
   });
 
