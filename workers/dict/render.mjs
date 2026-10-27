@@ -1,6 +1,7 @@
 // 📖 Trang từ điển Lexkite – bộ dựng HTML THUẦN (không fs, không Node API): chạy y hệt trong Worker lexkite-dict (trang đuôi dài, đọc JSON từ R2)
 // và trong CI (scripts/dict/build.mjs dựng sẵn tầng tĩnh + scripts/test/dict-pages.mjs kiểm). Thiết kế: docs/SEO-DICT-PAGES.md.
 // Vào: d = JSON một từ (v1, do build.mjs sinh), shell = khung chung (CSS/header/footer/JS, build.mjs sinh từ scripts/lib/site-layout.mjs).
+import { adHold, AD_JS } from '../lib/ad-slot.mjs'; // 💰 1 ô dưới phần nghĩa/ví dụ chính khi shell.ad (docs/ADS.md §1) – mặc định 0 byte
 export const SITE = 'https://lexkite.com';
 // URL theo cách người bản địa tìm (§2). Chỉ ngôn ngữ trong ENABLED được dựng; còn lại là kế hoạch (cần nhãn giao diện dịch thật – docs/I18N-PIPELINE.md).
 export const DICT_PATH = { vi: 'tu-dien', en: 'dictionary', es: 'diccionario', pt: 'dicionario', fr: 'dictionnaire', de: 'woerterbuch', id: 'kamus', tr: 'sozluk', ru: 'slovar', ja: 'jisho', ko: 'sajeon', zh: 'cidian', th: 'photchananukrom', hi: 'shabdkosh', ar: 'qamus' };
@@ -101,6 +102,8 @@ ${d.note && (d.note.m || d.note.e) ? `<div class="wn-x">${d.note.m ? `<div>💡 
 ${chips('🔗', t.goes, d.col.map(x => `<span class="chip wc-chip" lang="en" dir="ltr">${esc(x)}</span>`))}${chips('≈', t.synL, d.syn.map(link))}${chips('↔', t.ant, (d.ant || []).map(link))}${chips('🌱', t.fam, (d.fam || []).map(link))}
 ${d.noteHtml || (d.note ? `<div class="notes">${[['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => d.note[q]).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(d.note[q])}</p>`).join('')}</div>` : '')}
 </section>`,
+    // 💰 ③ ô quảng cáo (chỉ khi shell.ad): DƯỚI thẻ chính + ví dụ – không bao giờ phía trên nội dung chính (giữ LCP), khung cao cố định (0 CLS)
+    shell.ad ? adHold('dict', l) : '',
     d.patterns.length ? sec('t', t.pat, `<ul class="wc-use">${d.patterns.map(x => `<li><span class="wc-tag" lang="en">${esc(x.h)}</span><span>${esc(x.m)}${x.ex ? `<br><i lang="en" dir="ltr">${hl(x.ex)}</i>` : ''}</span></li>`).join('')}</ul>`, '📐') : '',
     d.confus.length ? sec('k', fill(t.conf, { w }), d.confus.map(c => `<div class="pair">${c.items.map(x => `<div class="pos-block"><div class="pos-head">${x.href ? `<a href="${x.href}" lang="en" dir="ltr"><b>${esc(x.h)}</b></a>` : `<b lang="en" dir="ltr">${esc(x.h)}</b>`}<span class="vi">${esc(x.m)}</span></div>${x.ex ? `<div class="ex" lang="en" dir="ltr">“${hl(x.ex)}”</div>` : ''}</div>`).join('')}${c.tip ? `<p class="tip">💡 ${md(c.tip)}</p>` : ''}</div>`).join(''), '⚖️') : '',
     d.mistakes.length ? sec('x', t.mis, pairs(d.mistakes), '⚠️') : '',
@@ -118,7 +121,7 @@ ${d.noteHtml || (d.note ? `<div class="notes">${[['m', t.nm], ['e', t.ne], ['u',
     crumbsLd(crumbs),
   ];
   const lh = x => (d.alts && d.alts[x] ? wordPath(x, d.alts[x].slug) : ENABLED.includes(x) ? hubPath(x) : landing(x));
-  return page({ l, title, desc, u, robots: idx ? '' : 'noindex,follow', hreflang, jl, crumbs, body, shell, lh });
+  return page({ l, title, desc, u, robots: idx ? '' : 'noindex,follow', hreflang, jl, crumbs, body, shell, lh, ad: !!shell.ad });
 }
 
 export function renderHub(l, all, shell, { open = {}, letter = '' } = {}) {
@@ -158,7 +161,7 @@ export function renderSitemap(rows) {
 const crumbsLd = items => ({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map(([name, u], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + u })) });
 const crumbsHtml = items => `<nav class="crumbs" aria-label="Breadcrumb">${items.map(([n, u], i) => (i === items.length - 1 ? `<span aria-current="page">${esc(n)}</span>` : `<a href="${u}">${esc(n)}</a>`)).join(' › ')}</nav>`;
 
-function page({ l, title, desc, u, robots, hreflang, jl, crumbs, body, shell, lh }) {
+function page({ l, title, desc, u, robots, hreflang, jl, crumbs, body, shell, lh, ad = false }) {
   const t = T[l], sh = (s = '') => s.replace(/__LH_([a-z]{2})__/g, (_, x) => lh(x));
   const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}">${robots ? `<meta name="robots" content="${robots}">` : ''}<meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${u}">${hreflang}<meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:url" content="${u}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${SITE}/og-default.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${jl.map(ld).join('')}`;
   return `<!doctype html><html lang="${l}"><head>${head}<style>${shell.css}</style></head><body><a class="skip" href="#nd">${esc(t.skip)}</a>
@@ -168,5 +171,5 @@ ${crumbsHtml(crumbs)}
 ${body.startsWith('<article') ? body : `<article class="page wd">\n${body}\n</article>`}
 </main>
 ${sh(shell.footer[l])}
-<script>${shell.js}</script></body></html>`;
+<script>${shell.js}</script>${ad ? AD_JS : ''}</body></html>`;
 }

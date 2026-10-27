@@ -3,11 +3,14 @@
 //  2) tần suất: toàn màn hình ≤ 1/3 phiên, ≤ 1/10 phút, không ngày đầu; quản trị chỉ nới rộng (không dày hơn); cổng giữ chân giãn/tắt
 //  3) khung app +0: vỏ js/ads.js ≤ 1000 B gzip, js/ads/* không nằm trong SHELL/app/index.html, add-on loại js/ads/
 //  4) a11y + 0 CLS (tĩnh): ô có nhãn "Quảng cáo" (aria-label + chữ thấy được), kích thước cố định, không nhận focus; hộp thoại có bẫy focus
+//  1b) trang nội dung tĩnh (blog + từ điển): luật đường dẫn, ≤ 2 ô/bài, bài < 1200 từ không có ô giữa, ô giữa sau đoạn văn cấp cao nhất, cờ tắt = 0 byte
 //  5) máy chủ: beacon chỉ nhận khóa hợp lệ, cổng giữ chân, SSV (chữ ký ECDSA thật), ads.txt giữ chỗ, truy vấn D1 dùng PK (EXPLAIN, không SCAN)
 import fs from 'node:fs'; import vm from 'node:vm'; import zlib from 'node:zlib';
 import { JSDOM } from 'jsdom';
 import { adRows, guardOf, stats, cohorts, region, derToRaw, verifySsv } from '../../functions/api/_ads.js';
 import { patchManifest, patchPlist } from '../mobile-ads.mjs';
+import { execFileSync } from 'node:child_process'; import os from 'node:os'; import path from 'node:path';
+import { midIndex, adHold, MAX_PER_PAGE, MID_MIN_WORDS } from '../../workers/lib/ad-slot.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.error('✗ ' + m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
 
@@ -37,9 +40,59 @@ ok(P.blocked({ path: '/admin.html' }) === 'admin' && P.blocked({ route: 'admin' 
 ok(P.blocked({ sandbox: true, vid }) === 'sandbox' && P.blocked({ bot: true, vid }) === 'bot', 'sandbox / trình duyệt tự động: không quảng cáo');
 ok(P.blocked({ vid: hvid }) === 'holdout' && !P.slot({ ...base, vid: hvid }, fOn, 'home'), 'nhóm đối chứng: không quảng cáo');
 let nh = 0; for (let i = 0; i < 4000; i++) nh += P.cohort('vid' + i) === 'h'; ok(nh > 300 && nh < 500, `đối chứng ≈ 10 % (${nh}/4000)`);
-ok(!P.slot(base, fOn, 'list') && !P.slot(base, fOn, 'article'), 'chỉ vị trí trong danh sách cho phép (home, blog)');
+ok(!P.slot(base, fOn, 'list') && !P.slot(base, fOn, 'article'), 'chỉ vị trí trong danh sách cho phép (home, blog, blog_mid, dict, done)');
 ok(P.slot({ ...base, route: 'blog' }, fOn, 'blog') && !P.slot({ ...base, route: 'blog' }, P.flags({ ads_android: '1' }, LOCAL), 'blog'), 'blog: theo cờ web');
 ok(P.npa({ dnt: '1' }) && P.npa({ gpc: true }) && P.npa({ consent: false }) && !P.npa({ dnt: '' }), 'DNT / GPC / chưa đồng ý → không cá nhân hóa');
+
+// ---------- 1b) trang nội dung tĩnh: blog (cuối + giữa bài dài) + trang từ điển ----------
+ok(CFG.web.slots.blog_mid === '' && CFG.web.slots.dict === '' && P.SLOTS.blog_mid && P.SLOTS.dict, 'config: khóa ô blog_mid + dict có sẵn, RỖNG (chưa có mã ô → không chèn)');
+ok(JSON.stringify(P.PER_PAGE) === JSON.stringify(MAX_PER_PAGE) && P.PER_PAGE.blog === 2 && P.PER_PAGE.dict === 1, 'trần ô/trang: blog 2, từ điển 1 (policy = ad-slot.mjs)');
+{ const post = { ...base, route: 'home', path: '/vi/blog/collocation-ielts/' }, word = { ...base, route: 'home', path: '/en/dictionary/run-out/' };
+  ok(P.slot(post, fOn, 'blog_mid') && P.slot({ ...post, path: '/en/blog/x/' }, fOn, 'blog_mid'), 'blog_mid: bài blog /<lang>/blog/<slug>/ (web) → được');
+  ok(!P.slot({ ...post, path: '/vi/blog/' }, fOn, 'blog_mid') && !P.slot({ ...post, path: '/vi/blog/chu-de/ielts/' }, fOn, 'blog_mid'), 'blog_mid: không ở trang danh sách/chuyên mục');
+  ok(P.slot(word, fOn, 'dict') && P.slot({ ...word, path: '/vi/tu-dien/abandon/' }, fOn, 'dict'), 'dict: trang 1 từ vi/en → được');
+  ok(!P.slot({ ...word, path: '/en/dictionary/' }, fOn, 'dict') && !P.slot({ ...word, path: '/en/dictionary/a/x/' }, fOn, 'dict'), 'dict: không ở hub / đường dẫn lạ');
+  ok(!P.slot({ ...base, route: 'dict', path: '/app/' }, fOn, 'dict') && !P.slot({ ...word, path: '/app/en/dictionary/run/' }, fOn, 'dict') && !P.slot({ ...post, path: '/app/' }, fOn, 'blog_mid'), 'tra từ TRONG app (#/dict, /app/) = đang học → không ô dict/blog_mid');
+  for (const pl of ['blog_mid', 'dict']) { const c = pl === 'dict' ? word : post;
+    ok(!P.slot(c, f0, pl) && !P.slot(c, P.flags(ON, CFG), pl) && !P.slot(c, P.flags({ ...ON, ads_kill: '1' }, LOCAL), pl), `${pl}: cờ tắt / config tắt / công tắc khẩn cấp → không`);
+    ok(!P.slot({ ...c, plat: 'android' }, fOn, pl) && !P.slot({ ...c, plat: 'ios' }, fOn, pl), `${pl}: không bao giờ trong app gốc`);
+    ok(!P.slot({ ...c, vid: hvid }, fOn, pl) && !P.slot({ ...c, bot: true }, fOn, pl) && !P.slot({ ...c, edu: true }, fOn, pl) && !P.slot({ ...c, u13: true }, fOn, pl), `${pl}: đối chứng / bot / lớp học / < 13 tuổi → không`); } }
+// midIndex (thuần): chỉ bài ≥ 1200 từ, sau <p> cấp cao nhất ở 40–50 %, khối sau không phải ảnh
+{ const P_ = n => `<p>${'word '.repeat(n)}</p>`, B = [P_(100), P_(100), '<ul><li>' + 'item '.repeat(100) + '</li></ul>', P_(100), P_(100), '<div class="tbl" tabindex="0"><table><tr><td>' + 'cell '.repeat(100) + '</td></tr></table></div>', P_(100), P_(100), P_(100), P_(100)];
+  ok(midIndex(B, MID_MIN_WORDS - 1) === -1 && midIndex(B, 400) === -1, 'bài < 1200 từ → không có ô giữa');
+  const k = midIndex(B, 1500); ok(k === 3, `bài dài → ô sau đoạn văn ở ~40–50 % (khối ${k})`);
+  ok(midIndex([P_(100), P_(100), P_(100), P_(100), '<figure><img src=x></figure>', P_(100), P_(100), P_(100), P_(100), P_(100)], 1500) === -1, 'đoạn văn đứng trước ảnh → không chèn (không dính sát ảnh)');
+  ok(midIndex([P_(100), P_(100), P_(100), '<p>' + 'word '.repeat(99) + 'examples:</p>', '<ul><li>a</li></ul>', P_(100), P_(100), P_(100), P_(100), P_(100)], 1500) === -1 && midIndex([P_(100), P_(100), P_(100), P_(100), '<ul><li>a</li></ul>', P_(100), P_(100), P_(100), P_(100), P_(100)], 1500) === 3, 'câu dẫn kết thúc bằng ":" + danh sách → không chèn; đoạn thường trước danh sách → được');
+  ok(midIndex([P_(100), '<ul><li>' + 'x '.repeat(800) + '</li></ul>', P_(100)], 1500) === -1, 'vùng 40–50 % nằm trong danh sách → không chèn (không chen giữa danh sách)');
+  const el = new JSDOM(adHold('blog_mid', 'vi')).window.document;
+  ok(el.querySelector('.ad-hold').style.height === '290px' && el.querySelector('aside.ad-slot[data-ad="blog_mid"]').style.height === '290px' && !el.querySelector('[tabindex]') && el.querySelector('aside').getAttribute('aria-label') === 'Quảng cáo' && /Quảng cáo/.test(el.body.textContent), 'ô giữa bài: khung giữ chỗ 290px (ô bị ẩn vẫn giữ chỗ), <aside> không tabindex, nhãn theo ngôn ngữ'); }
+// Trình dựng thật: cờ tắt → 0 byte; bật (config thử) → đúng số ô
+{ const T = fs.mkdtempSync(path.join(os.tmpdir(), 'ads-b-')), cfg = path.join(T, 'cfg.js');
+  fs.writeFileSync(cfg, rd('web/js/ads/config.js').replace('enabled: false', 'enabled: true').replace(/slots: \{[^}]*\}/, "slots: { home: '', blog: '111', blog_mid: '222', dict: '333', done: '' }"));
+  const sh = (f, env) => execFileSync(process.execPath, [f], { env: { ...process.env, BLOG_SKIP_CHECK: '1', ...env }, stdio: 'pipe' });
+  const pages = dir => { const out = []; const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (e.name === 'index.html') out.push(p); } }; if (fs.existsSync(dir)) walk(dir); return out; };
+  sh('scripts/build-blog.mjs', { BLOG_OUT: path.join(T, 'off'), ADS_CONFIG_FILE: '' });
+  ok(pages(path.join(T, 'off')).length > 50 && pages(path.join(T, 'off')).every(f => !/ad-slot|ads\/static\.js|ad-hold/.test(rd(f))), 'blog, cờ tắt: 0 ô, 0 script quảng cáo (0 byte)');
+  sh('scripts/build-blog.mjs', { BLOG_OUT: path.join(T, 'on'), ADS_CONFIG_FILE: cfg });
+  const posts = pages(path.join(T, 'on')).filter(f => /blog\/[^/]+\/index\.html$/.test(f.replace(/\\/g, '/')) && /"@type":"BlogPosting"/.test(rd(f)));
+  let mid = 0, short = 0, bad = [];
+  for (const f of posts) { const h = rd(f), wc = +(h.match(/"wordCount":(\d+)/) || [])[1], nAd = (h.match(/class="ad-slot"/g) || []).length, hasMid = /data-ad="blog_mid"/.test(h);
+    if (nAd > MAX_PER_PAGE.blog || !/data-ad="blog"/.test(h)) bad.push('trần/cuối ' + f);
+    if (wc < MID_MIN_WORDS) { short++; if (hasMid) bad.push('bài ngắn có ô giữa ' + f); }
+    if (hasMid) { mid++; const d = new JSDOM(h).window.document, hold = d.querySelector('.ad-hold'), prev = hold.previousElementSibling;
+      if (hold.parentElement.tagName !== 'ARTICLE' || !prev || prev.tagName !== 'P' || /^(FIGURE|ASIDE|HR|IMG|PICTURE)$/.test((hold.nextElementSibling || {}).tagName || '') || (!/^(P|H2|H3|H4)$/.test((hold.nextElementSibling || {}).tagName || '') && /[:：]\s*$/.test(prev.textContent)) || hold.closest('li,table,figure,blockquote')) bad.push('vị trí ' + f);
+      const lab = { vi: 'Quảng cáo', en: 'Advertisement' }[d.documentElement.lang]; if (lab && hold.querySelector('aside').getAttribute('aria-label') !== lab) bad.push('nhãn ' + f); } }
+  ok(posts.length > 50 && !bad.length, `blog bật: ${posts.length} bài, ${mid} có ô giữa, ≤ 2 ô/bài, bài < 1200 từ (${short}) không có ô giữa, ô giữa ngay sau <p> cấp cao nhất – ${bad.slice(0, 3).join(' | ')}`);
+  ok(mid > 0 && posts.every(f => /\/js\/ads\/static\.js/.test(rd(f))), 'blog bật: có ô giữa thật + mọi bài tải static.js (lúc rảnh)');
+  sh('scripts/dict/build.mjs', { DICT_OUT: path.join(T, 'dOff'), DICT_POOL: '40', ADS_CONFIG_FILE: '' });
+  ok(pages(path.join(T, 'dOff', 'assets')).every(f => !/ad-slot|ads\/static\.js/.test(rd(f))) && !/"ad":1/.test(rd(path.join(T, 'dOff/data/v1/shell.json'))), 'từ điển, cờ tắt: 0 ô, shell.ad = 0');
+  sh('scripts/dict/build.mjs', { DICT_OUT: path.join(T, 'dOn'), DICT_POOL: '40', ADS_CONFIG_FILE: cfg });
+  const dp = pages(path.join(T, 'dOn', 'assets')), words = dp.filter(f => /"@type":"DefinedTerm"/.test(rd(f))); let dbad = [];
+  for (const f of dp) { const h = rd(f), n1 = (h.match(/class="ad-slot"/g) || []).length, isW = words.includes(f);
+    if (isW ? n1 !== 1 : n1 !== 0) { dbad.push('số ô ' + f); continue; } if (!isW) continue;
+    const i = h.indexOf('class="ad-hold"'); if (i < h.indexOf('id="h-e"') || i < h.indexOf('<h1') || i > h.indexOf('class="cta"')) dbad.push('vị trí ' + f); }
+  ok(words.length >= 40 && !dbad.length, `từ điển bật: ${words.length} trang từ đúng 1 ô, DƯỚI thẻ chính + ví dụ (không trên nội dung chính), hub/A–Z 0 ô – ${dbad.slice(0, 3).join(' | ')}`);
+  fs.rmSync(T, { recursive: true, force: true }); }
 
 // ---------- 2) tần suất ----------
 const now = Date.parse('2026-10-20T10:00:00Z'), aCtx = { plat: 'android', route: 'home', vid }, st = (o = {}) => ({ pending: 1, sessions: 3, firstAt: now - 3 * 864e5, lastAt: 0, ...o });
