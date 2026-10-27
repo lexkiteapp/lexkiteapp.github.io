@@ -77,6 +77,10 @@ const chips = [300, 380, 460, 540].map(y => { const c = w.document.createElement
 w.UI.toast('Toast màn dày nút');
 ok(T.style.top && T.style.bottom === 'auto', 'nửa dưới kín nút bấm → toast lên mép trên (tính safe-area): top=' + T.style.top);
 chips.forEach(c => c.remove());
+bar.remove(); w.UI.toast('Toast trước khi vẽ lại'); T.style.bottom = '';
+const bar2 = w.document.createElement('div'); bar2.className = 'learn-bar'; bar2.getBoundingClientRect = () => ({ top: 600, bottom: 740, left: 0, right: 360, width: 360, height: 140 }); $('#view').appendChild(bar2); await tick(60);
+ok((parseFloat(T.style.bottom) || 0) >= 148, 'màn vẽ lại khi toast đang hiện → toast đặt lại phía trên nút mới (bottom=' + T.style.bottom + ')');
+bar2.remove(); await tick(60);
 bar.remove(); w.UI.toast('Toast thường');
 ok(!T.style.bottom, 'không vật cản → giữ vị trí CSS (đã gồm safe-area)');
 ok(/\.toast \{[^}]*bottom: calc\(28px \+ env\(safe-area-inset-bottom/.test(css), 'CSS toast tính safe-area');

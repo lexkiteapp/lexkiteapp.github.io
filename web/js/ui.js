@@ -48,7 +48,8 @@
   // Chọn chỗ đặt toast không đè vật cản: vị trí CSS gốc → ngay trên từng vật cản ở nửa dưới màn (≤ 55 %) → mép trên (dưới tai thỏ); hết chỗ thì giữ gốc
   function toastLift(t) {
     t.style.bottom = ''; t.style.top = ''; const H = g.innerHeight || document.documentElement.clientHeight || 0, W = g.innerWidth || document.documentElement.clientWidth || 0; if (!H) return;
-    const base = parseFloat(g.getComputedStyle(t).bottom) || 28, h = t.offsetHeight || 48, tw = Math.min(t.offsetWidth || W, W), x0 = (W - tw) / 2, x1 = x0 + tw;
+    const tr = t.getBoundingClientRect(), h = tr.height || 48, tw = Math.min(tr.width || W, W), x0 = (W - tw) / 2, x1 = x0 + tw; // không getComputedStyle (chậm)
+    const base = tr.height ? H - tr.bottom + (t.classList.contains('show') ? 0 : 20) : 28; // chưa .show: translateY(20px)
     const obs = [...document.querySelectorAll(AVOID)].map(el => el.getBoundingClientRect()).filter(r => r.height && r.width && r.top < H && r.bottom > 0 && (!W || (r.left < x1 && r.right > x0)));
     const free = (top, bot) => !obs.some(r => r.top < bot && r.bottom > top);
     if (free(H - base - h, H - base)) return;
@@ -61,7 +62,9 @@
   function toastShow(msg, ms) {
     const t = $('#toast'); if (!t) return;
     t.textContent = msg; toastLift(t); t.classList.add('show'); t._msg = [msg, ms];
-    clearTimeout(toast._t); toast._t = setTimeout(() => { t.classList.remove('show'); t._msg = null; if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift()); }, ms);
+    // Màn vẽ lại khi toast đang hiện (vd. hết bài → màn "Bạn đã học xong") → đặt lại chỗ để không đè nút mới
+    const v = document.getElementById('view'); if (v && g.MutationObserver && !toast._mo) { let q = 0; toast._mo = new MutationObserver(() => { if (q) return; q = 1; (g.requestAnimationFrame || setTimeout)(() => { q = 0; if (t._msg) toastLift(t); }); }); toast._mo.observe(v, { childList: true, subtree: true }); }
+    clearTimeout(toast._t); toast._t = setTimeout(() => { t.classList.remove('show'); t._msg = null; if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } if (toastQ.length && !modalOpen()) toastShow(...toastQ.shift()); }, ms);
   }
   function toast(msg, ms = 2400) {
     ms = Math.max(ms, Math.min(7000, 1400 + String(msg).length * 55)); // đủ thời gian đọc theo độ dài (WCAG 2.2.1): câu dài không biến mất giữa chừng
@@ -73,7 +76,7 @@
     const m = document.getElementById('modal'); if (!m || !g.MutationObserver) return;
     new MutationObserver(() => {
       const t = $('#toast'); if (!t) return;
-      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show'); } }
+      if (!m.hidden) { if (t._msg) { toastQ.unshift(t._msg); t._msg = null; clearTimeout(toast._t); t.classList.remove('show'); if (toast._mo) { toast._mo.disconnect(); toast._mo = null; } } }
       else if (toastQ.length && !t._msg) setTimeout(() => { if (!modalOpen() && toastQ.length && !t._msg) toastShow(...toastQ.shift()); }, 250);
     }).observe(m, { attributes: true, attributeFilter: ['hidden'] });
   }
