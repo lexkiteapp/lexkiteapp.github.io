@@ -302,6 +302,33 @@
     "count": true
    },
    "note": "Borrow = take temporarily (from); lend = give temporarily (to). 'My brother lent me $10' correct."
+  },
+  "t6_pron_comfortable_3d": {
+   "template": "pron",
+   "hook": "🔊 comfortable / com·for·TA·ble✗",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "Claude (expert American English teacher review, 26/10/2026: IPA from the app dictionary, 3-word guess round; no GrabCast)",
+   "script": {
+    "f_h": "You're probably saying this word wrong.",
+    "f_w": "Not com, for, table.",
+    "f_m": "That sounds like a table you can sit on!",
+    "f_s": "Slowly:",
+    "f_s2": "comfortable.",
+    "f_r": "Most Americans say three beats. Stress the first one.",
+    "f_n": "Normal speed: comfortable.",
+    "f_y": "Your turn. Repeat after me: comfortable.",
+    "f_e": "This chair is so comfortable!",
+    "f_b": "Same trick: vegetable has three beats, not four.",
+    "f_sh": "Send this to a friend who says it wrong!",
+    "f_c": "Save this, and practice pronunciation on lexkite.com."
+   },
+   "promise": {
+    "stress": "COMF",
+    "turn": true,
+    "slow_line": "f_s2"
+   },
+   "note": "Natural US speech: /ˈkʌmftərbəl/ (COMF-ter-ble, 3 beats, most common); the careful 4-syllable /ˈkʌmfərtəbl/ (app dictionary) also exists, so the script says 'most Americans'. 'com-for-TA-ble' is a learner error. 'vegetable' /ˈvedʒtəbl/ = 3 beats."
   }
  }
 }
