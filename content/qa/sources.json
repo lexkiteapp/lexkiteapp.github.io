@@ -261,6 +261,22 @@
    ]
   },
   {
+   "id": "lesson",
+   "paths": [
+    "web/js/lesson"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "pair"
+   ],
+   "delegate": [
+    "test/lesson.mjs"
+   ],
+   "note": "#/lesson: gold.js sinh từ gold bank video (content/video/scripts/bank, đã qua cổng script-bank) – build-gold --check trong test/lesson.mjs; bộ demo/khởi đầu trong ui.js"
+  },
+  {
    "id": "ui-i18n",
    "paths": [
     "content/i18n"
