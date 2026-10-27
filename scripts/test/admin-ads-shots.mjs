@@ -23,8 +23,8 @@ const STATES = {
   data: { ...base, real: revPack(rev, { at: Date.parse('2026-10-27T13:41:00Z'), srcs: ['adsense', 'admob'] }, { balance: '$42.17', last: { amount: '$118.40', date: '2026-09-21' } }, ev, ecpm, today, today), reporting: { connected: true } },
   empty: { ...base, real: revPack([], null, null, [], ecpm, today, today), reporting: { connected: false } },
 };
-const page0 = `<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/admin.css"></head>
-<body><main class="adm-main" id="main" style="padding:16px"></main><script src="/js/admin-ads.js"></script></body></html>`;
+const page0 = `<!doctype html><html lang="vi" style="--a-top:0px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/admin.css"></head>
+<body class="adm"><main class="adm-main" id="main" style="padding:16px"></main><script src="/js/admin-ads.js"></script></body></html>`;
 const report = [], fails = [];
 for (const [state, S] of Object.entries(STATES)) for (const theme of ['light', 'dark']) for (const [vp, size] of [['desktop', { width: 1280, height: 900 }], ['mobile', { width: 360, height: 780 }]]) {
   const ctx = await browser.newContext({ viewport: size, colorScheme: theme, deviceScaleFactor: 1 }), page = await ctx.newPage(), errs = [];
@@ -38,7 +38,9 @@ for (const [state, S] of Object.entries(STATES)) for (const theme of ['light', '
   const v = await page.evaluate(st => {
     const out = { overflow: document.scrollingElement.scrollWidth - window.innerWidth, overlap: [], clipped: [], junk: [] };
     const vis = el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && !el.closest('[hidden]') && !el.closest('details:not([open]) > :not(summary)'); };
-    const hits = [...document.querySelectorAll('#main button, #main select, #main input, #main a, #main summary')].filter(vis).map(el => ({ el, r: el.getBoundingClientRect() }));
+    // vùng nhìn thấy thật: cắt theo khung cuộn tổ tiên (thanh mục con cuộn ngang, bảng .tbl-x)
+    const clip = el => { const r = el.getBoundingClientRect(); let L = r.left, T = r.top, R = r.right, B = r.bottom; for (let p = el.parentElement; p; p = p.parentElement) { if (/auto|scroll|hidden|clip/.test(getComputedStyle(p).overflowX)) { const q = p.getBoundingClientRect(); L = Math.max(L, q.left); R = Math.min(R, q.right); T = Math.max(T, q.top); B = Math.min(B, q.bottom); } } return { left: L, top: T, right: R, bottom: B }; };
+    const hits = [...document.querySelectorAll('#main button, #main select, #main input, #main a, #main summary')].filter(vis).map(el => ({ el, r: clip(el) })).filter(h => h.r.right - h.r.left > 1 && h.r.bottom - h.r.top > 1);
     for (let i = 0; i < hits.length; i++) for (let j = i + 1; j < hits.length; j++) { const a = hits[i].r, b = hits[j].r; if (hits[i].el.contains(hits[j].el) || hits[j].el.contains(hits[i].el)) continue; const x = Math.min(a.right, b.right) - Math.max(a.left, b.left), y = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top); if (x > 2 && y > 2) out.overlap.push((hits[i].el.textContent || hits[i].el.name || '').trim().slice(0, 20) + ' × ' + (hits[j].el.textContent || hits[j].el.name || '').trim().slice(0, 20)); }
     for (const el of document.querySelectorAll('#main *')) { if (!vis(el) || !el.childNodes.length || ![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue; const cs = getComputedStyle(el); if (/hidden|clip/.test(cs.overflowX) && el.scrollWidth > el.clientWidth + 1 && !el.closest('.tbl-x') && !el.classList.contains('ax-sr')) out.clipped.push(el.className + ': ' + el.textContent.trim().slice(0, 30)); }
     const txt = document.getElementById('main').innerText; for (const w of ['NaN', 'undefined', 'Infinity', 'null']) if (new RegExp('\\b' + w + '\\b').test(txt)) out.junk.push(w);

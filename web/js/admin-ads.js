@@ -148,6 +148,7 @@
 .ax-body{min-height:60vh;outline:none}.ax-h{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:.6rem 1rem;margin-bottom:1rem}.ax-h h2{margin:0;font-size:1.2rem;font-weight:800}.ax-h p{margin:.2rem 0 0;color:var(--muted);font-size:.88rem;max-width:72ch}
 .ax-plats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:.85rem;margin-bottom:1rem}.ax-plat{display:flex;flex-direction:column;gap:.5rem}.ax-plat .row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
 .ax-kill{border-color:var(--a-bad);background:var(--a-bad-bg)}.ax-chart svg{width:100%;height:auto;display:block}.ax-chart text{fill:var(--muted);font-size:10px}.ax-legend{display:flex;gap:1rem;font-size:.8rem;color:var(--muted);margin:.4rem 0}.ax-legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:3px;margin-inline-end:.3rem;vertical-align:-.1rem}
+.ax .tbl-x{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}.ax .card,.ax section{min-width:0}
 .ax-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ax-upd{margin:-.5rem 0 .8rem}.ax-filt{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:flex-end;margin:0 0 .6rem}.ax-filt label{display:flex;flex-direction:column;gap:.2rem;font-size:.78rem;font-weight:650;color:var(--muted)}.ax-filt select,.ax-filt input{min-height:40px;min-width:8.5rem;max-width:100%}.ax-cust{display:flex;gap:.6rem;flex-wrap:wrap}
 .ax-meta{display:flex;flex-wrap:wrap;gap:.3rem .5rem;align-items:center;font-size:.82rem;color:var(--muted);margin:0 0 1rem}
@@ -217,7 +218,7 @@
     let tabSt = { tab: 'place', k: 'usd', dir: -1 };
     const money = x => (x == null ? '–' : usd(x)), dev = x => (x == null ? '–' : (x > 0 ? '+' : '') + pct(x));
     const info = id => `<details class="ax-i"><summary aria-label="${esc(A('Định nghĩa'))}">i</summary><p>${esc(A(DEF[id]))}</p></details>`;
-    const delta = (x, y) => { if (x == null || y == null || !(y > 0)) return `<span class="ax-d">–</span>`; const d = (x - y) / y, up = d >= 0; return `<span class="ax-d ${up ? 'up' : 'down'}"><span aria-hidden="true">${up ? '▲' : '▼'}</span> ${esc(pct(Math.abs(d)))}<span class="ax-sr"> ${esc(A(up ? 'tăng' : 'giảm'))}</span></span>`; };
+    const delta = (x, y) => { if (x == null || y == null || !(y > 0)) return `<span class="ax-d">–</span>`; const d = (x - y) / y, up = d >= 0; if (Math.abs(d) < 0.0005) return `<span class="ax-d">= ${esc(pct(0))}</span>`; return `<span class="ax-d ${up ? 'up' : 'down'}"><span aria-hidden="true">${up ? '▲' : '▼'}</span> ${esc(pct(Math.abs(d)))}<span class="ax-sr"> ${esc(A(up ? 'tăng' : 'giảm'))}</span></span>`; };
     const spark = (s, k) => { const v = s.map(x => +x[k] || 0), mx = Math.max(1e-9, ...v); return s.length < 2 ? '' : `<svg class="ax-sp" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="${v.map((y, i) => `${(i * 100 / (v.length - 1)).toFixed(1)},${(22 - y / mx * 20).toFixed(1)}`).join(' ')}"/></svg>`; };
     const lineChart = (s, key, title, fmt) => {
       const W = 600, H = 120, v = s.map(x => (x[key] == null ? 0 : +x[key])), mx = Math.max(1e-9, ...v), X = i => (s.length > 1 ? i * W / (s.length - 1) : W / 2), Y = y => H - 4 - y / mx * (H - 12);
