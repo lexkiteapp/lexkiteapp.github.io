@@ -245,7 +245,7 @@
       // Chuyển sang Drive: chỉ đẩy lên D1 khi tài khoản ĐÃ có dữ liệu ở D1 (để máy chưa cập nhật vẫn khớp) – người mới không tạo dòng D1 nào
       if (opt.migrate) { if (docs.meta) await push(); else setStatus('ok'); return !!docs.meta; }
       await push();
-      toast(docs.meta ? '☁️ ' + (extReady ? t('Đã đồng bộ dữ liệu học (kể cả add-on)') : t('Đã đồng bộ dữ liệu học')) : '☁️ ' + t('Đã sao lưu dữ liệu lên tài khoản'));
+      if (!opt.quiet) toast(docs.meta ? '☁️ ' + (extReady ? t('Đã đồng bộ dữ liệu học (kể cả add-on)') : t('Đã đồng bộ dữ liệu học')) : '☁️ ' + t('Đã sao lưu dữ liệu lên tài khoản'));
     } catch (e) {
       if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + 6 * 3600e3); setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); return; }
       console.warn('sync', e); setStatus('error', e.message);
@@ -274,7 +274,9 @@
   // ---------- Đồng bộ Drive (local-first, js/sync-drive.js) ----------
   const DS = 'https://www.googleapis.com/auth/drive.appdata';
   // Bật theo cấu hình tĩnh LK_SYNC.drive (firebase-config.js – 0 lượt gọi máy chủ); app gốc cần thêm LK_SYNC.native. lk.syncDrive = 1/0: ép bật/tắt trên máy này (thử nghiệm)
-  const driveOn = () => { try { const f = localStorage.getItem('lk.syncDrive'); if (f === '0') return false; if (f === '1') return true; } catch (e) { /* bỏ qua */ } return !!(window.LK_SYNC && LK_SYNC.drive) && (!isNative || !!LK_SYNC.native); };
+  // Công tắc từ xa LK_SYNC.mode: 'auto' (mặc định) · 'd1' = chỉ đường D1 · 'off' = chỉ lưu trên máy (không gọi mạng nào)
+  const syncMode = () => (window.LK_SYNC && LK_SYNC.mode) || 'auto';
+  const driveOn = () => { if (syncMode() !== 'auto') return false; try { const f = localStorage.getItem('lk.syncDrive'); if (f === '0') return false; if (f === '1') return true; } catch (e) { /* bỏ qua */ } return !!(window.LK_SYNC && LK_SYNC.drive) && (!isNative || !!LK_SYNC.native); };
   const isGoogle = u => ((u && u.providerData) || []).some(p => p.providerId === 'google.com');
   const drv = () => window.SyncDrive ? Promise.resolve(window.SyncDrive) : loadScript('js/sync-drive.js').then(() => window.SyncDrive);
   // Ảnh chụp v2 = toàn bộ dữ liệu học đã rút gọn (thẻ thư viện chỉ giữ phần riêng) – 500 thẻ ≈ 15 KB gzip, 5.000 thẻ ≈ 105 KB
@@ -313,13 +315,19 @@
       return r;
     }
     if (r === 'no-scope') { Sync.mode = 'd1'; Sync.driveOffer = true; return pullMerge(); } // bỏ ô Drive ở màn đồng ý → đường D1 cũ
+    if (r === 'newer') { Sync.mode = 'd1'; return pullMerge(); } // tệp do bản app MỚI hơn ghi → không ghi đè, dùng D1 tới khi app cập nhật
     setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); // hết ngân sách ngày / mất mạng / chờ token: dữ liệu an toàn trên máy
-    if (r === 'retry') { clearTimeout(retryT); const st = await D.load(Sync.user.uid); retryT = setTimeout(() => driveRun('retry'), Math.max(30e3, (st.nextAt || 0) - Date.now())); }
+    if (r === 'retry') {
+      clearTimeout(retryT); const st = await D.load(Sync.user.uid); retryT = setTimeout(() => driveRun('retry'), Math.max(30e3, (st.nextAt || 0) - Date.now()));
+      // Drive lỗi kéo dài (≥ 5 lượt liên tiếp) → bản sao an toàn qua D1, tối đa 1 lần/6 giờ (vẫn im lặng, không chặn việc học)
+      if (st.fail >= 5 && Date.now() - (st.d1SafeAt || 0) > 6 * 3600e3) { st.d1SafeAt = Date.now(); await D.save(Sync.user.uid, st); Sync.mode = 'd1'; await pullMerge({ quiet: true }); Sync.mode = 'drive'; }
+    }
     return r;
   }
   // Chọn đường đồng bộ khi đăng nhập/mở app; tự di chuyển từ D1 sang Drive ở lần đăng nhập đầu tiên có quyền Drive
   async function start() {
     const u = Sync.user; if (!u) return;
+    if (syncMode() === 'off') { Sync.mode = 'off'; return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); }
     Sync.driveOffer = false;
     if (!driveOn() || !isGoogle(u)) { Sync.mode = 'd1'; return pullMerge(); }
     const D = await drv(), st = await D.load(u.uid);
@@ -345,6 +353,15 @@
     const st = await D.load(u.uid); if (st.scope === 'no') { st.scope = ''; await D.save(u.uid, st); }
     return true;
   };
+  // Dry-run (Console/QA: await Sync.dryRun()): đọc D1 + Drive, tính kết quả gộp trong bộ nhớ – KHÔNG ghi máy, D1 hay Drive
+  Sync.dryRun = async () => {
+    const u = Sync.user; if (!u) return { ok: false, why: 'auth' };
+    if (App.need) await App.need('words', 'tsl').catch(() => {});
+    const local = await Cards.all(), del = await Store.get('deleted', {}), out = { local: Object.keys(local).length };
+    const count = (remote, rc) => { const d = { ...del, ...(remote.deleted || {}) }, m = mergeCards(local, rc, d); return { remote: Object.keys(rc).length, merged: Object.keys(m).length, added: Object.keys(m).filter(k => !local[k]).length, removed: Object.keys(local).filter(k => !m[k]).length }; };
+    if (window.SyncDrive) { const p = await SyncDrive.peek(u.uid).catch(e => ({ ok: false, why: e.message })); out.drive = p.ok && p.main && p.main.snap ? count(p.main.snap, Object.fromEntries(Object.entries(p.main.snap.cards).map(([k, v]) => [k, fat(v)]))) : p.main || p; out.backups = (p.backups || []).map(b => ({ slot: b.slot, ok: !!b.snap, error: b.error })); }
+    return out;
+  };
   // Nút "Sao lưu vào Google Drive của bạn" (thẻ tài khoản): người đăng nhập từ trước bản cập nhật / đã bỏ ô Drive – chỉ khi họ bấm
   Sync.driveConnect = async () => {
     const u = Sync.user; if (!u) return;
@@ -355,7 +372,7 @@
   };
 
   async function push() {
-    if (!Sync.user || !db || Sync.deleting) return;
+    if (!Sync.user || !db || Sync.deleting || Sync.mode === 'off') return;
     if (Date.now() < await Store.get('syncPausedUntil', 0)) return;
     setStatus('syncing');
     try {
@@ -401,7 +418,7 @@
     if (timer) return;
     // D1: tối đa 1 lần/3 phút; Drive: gom theo LK_SYNC.every (mặc định 10 phút) – cả hai đẩy ngay khi rời trang
     const drive = Sync.mode === 'drive' && window.SyncDrive;
-    timer = setTimeout(() => { timer = null; if (dirty) drive ? driveRun('push') : push(); }, drive ? SyncDrive.cfg().every : 180000);
+    timer = setTimeout(() => { timer = null; if (dirty) drive ? driveRun('push') : push(); }, drive ? SyncDrive.cfg().every : +((window.LK_SYNC && LK_SYNC.d1Every) || 180000));
   };
   const flush = () => { if (Sync.user && dirty) { clearTimeout(timer); timer = null; Sync.mode === 'drive' ? driveRun('hide') : push(); } };
   window.addEventListener('online', () => { if (Sync.mode === 'drive') driveRun('online'); });
@@ -447,6 +464,7 @@
   Sync.signOut = async () => { if (Sync.mode === 'drive') await driveRun('hide'); else await push(); sentHashes = {}; if (window.SyncDrive) SyncDrive.tok.clear(); Sync.mode = ''; await authOut(); if (extReady) extCall('linked', { email: '', name: '' }); toast(t('Đã đăng xuất – dữ liệu vẫn còn trên máy này')); };
   // "Đồng bộ ngay" là 1 cú bấm → được phép mở popup gia hạn token ngay trong sự kiện (trước mọi await)
   Sync.now = () => {
+    if (Sync.mode === 'off') return Promise.resolve();
     if (Sync.mode !== 'drive') return pullMerge();
     const D = window.SyncDrive, u = Sync.user;
     if (D && u && !D.tok.get(u.uid)) return renewTok(false).then(r => r && r.token && takeTok({ credential: { accessToken: r.token }, user: u })).catch(() => {}).then(() => driveRun('manual'));
