@@ -234,6 +234,14 @@ for (const [i, [k, h, sub, vis]] of SHOTS.entries()) {
   await sp.screenshot({ path: path.join(OUT, 'shots', `${i + 1}.png`) });
 }
 await card(path.join(OUT, 'tile.png'), `<div class="center" style="padding:0 30px"><img class="i" src="${ICON}" style="width:70px;height:70px;border-radius:16px"><h1 style="font-size:42px;margin-top:14px">Understand any word<br>in <em>1 click</em></h1><p style="font-size:18px;margin-top:10px">Free Chrome dictionary &amp; flashcards</p></div>`, true, 440, 280);
+// Ảnh thumbnail YouTube 1280×720: hook lớn bên trái + bảng tra thật bên phải + nhãn FREE (27/10)
+{ const tp = await br.newPage({ viewport: { width: 1280, height: 720 }, deviceScaleFactor: 1 });
+  await tp.setContent(`<!doctype html><html><head><meta charset="utf-8">${FONT}<style>${SCSS}body{width:1280px;height:720px}
+.t{position:absolute;left:60px;top:150px;width:560px}.t h1{font-size:104px;line-height:.95;letter-spacing:-.04em;margin:0;text-transform:uppercase}.t p{font-size:30px;font-weight:700;margin-top:26px;color:#fff}
+.pop{right:40px;top:70px;transform:rotate(2deg)}.pop img{max-width:600px;max-height:560px}.free{position:absolute;right:30px;top:24px;background:#F2553B;color:#fff;font-weight:900;font-size:46px;padding:10px 30px;border-radius:18px;transform:rotate(6deg);box-shadow:0 14px 30px rgba(0,0,0,.4)}</style></head>
+<body><div class="brand" style="top:44px"><img src="${ICON}"><span>lex<b>kite</b></span></div><div class="t"><h1>Double-click<br><em>any word</em></h1><p>Meaning · IPA · translation</p></div><div class="pop"><img src="${b64('card.png')}"></div><div class="free">FREE</div></body></html>`);
+  await tp.evaluate(() => document.fonts.ready); await sleep(300);
+  await tp.screenshot({ path: path.join(OUT, 'thumbnail.png') }); }
 await br.close();
 // contact sheet
 ff(['-i', path.join(OUT, 'promo.mp4'), '-vf', 'fps=1/4.5,scale=480:-1,tile=4x3:padding=6:color=black', '-frames:v', '1', '-update', '1', path.join(TMP, 'cs1.jpg')]);
