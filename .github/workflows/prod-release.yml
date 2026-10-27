@@ -77,3 +77,27 @@ jobs:
           git tag -fa prod-good "$SHA" -m "Bản production tốt cuối cùng (qua npm test + smoke): ${SHA}"
           git push -q -f origin refs/tags/prod-good
           echo "### ✅ prod-good → ${SHA::7}" >> "$GITHUB_STEP_SUMMARY"
+  # Bản web OTA cho app Android/iOS (docs/OTA.md): CHỈ sau khi gate (npm test) + smoke xanh. Cần secret OTA_SIGNING_KEY (node scripts/ota/keygen.mjs); chưa có → bỏ qua, không đỏ.
+  ota:
+    needs: [gate, smoke]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env: { OTA_SIGNING_KEY: '${{ secrets.OTA_SIGNING_KEY }}', GH_TOKEN: '${{ github.token }}' }
+    steps:
+      - name: Kiểm có khóa ký
+        id: key
+        run: |
+          if [ -z "$OTA_SIGNING_KEY" ]; then echo "has=0" >> "$GITHUB_OUTPUT"; echo "### ⏭️ OTA bỏ qua: chưa có secret OTA_SIGNING_KEY (docs/OTA.md)" >> "$GITHUB_STEP_SUMMARY"; else echo "has=1" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.key.outputs.has == '1'
+        with: { ref: '${{ github.event.inputs.sha || github.sha }}' }
+      - uses: actions/setup-node@v4
+        if: steps.key.outputs.has == '1'
+        with: { node-version: 22 }
+      - name: Dựng mobile/www + ký + phát bản OTA
+        if: steps.key.outputs.has == '1'
+        run: |
+          npm ci --no-audit --no-fund
+          npm ci --prefix mobile --no-audit --no-fund --ignore-scripts
+          OTA_ONLY=1 ./scripts/build-mobile.sh
+          node scripts/ota/release.mjs publish --sha "$SHA"

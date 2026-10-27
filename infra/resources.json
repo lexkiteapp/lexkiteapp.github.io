@@ -363,6 +363,20 @@
       ]
     },
     {
+      "key": "ota",
+      "name": "Bản web OTA cho app (GitHub Releases ota-<bản> + /api/ota)",
+      "kind": "storage",
+      "purpose": "Cập nhật giao diện/logic app Android/iOS không cần qua cửa hàng: prod-release.yml (job ota) zip mobile/www, ký ECDSA (secret OTA_SIGNING_KEY), đính GitHub Release ota-<bản> của repo chính; ota-manifest/latest.json trỏ bản đang phát, /api/ota phục vụ manifest (đệm 60 giây), app tải thẳng từ github.com. Rollback: ota-rollback.yml. docs/OTA.md",
+      "console": "https://github.com/lexkiteapp/lexkiteapp.github.io/releases",
+      "free": "GitHub Releases: file ≤ 2 GB, băng thông miễn phí; Functions /api/ota ~vài lượt/thiết bị/ngày (đệm biên)",
+      "upgrade": "Chuyển bundle sang R2 (lexkite-blog-media, prefix ota/) nếu GitHub giới hạn tải",
+      "status": "Miễn phí",
+      "match": [
+        "ota-manifest",
+        "/api/ota"
+      ]
+    },
+    {
       "key": "media",
       "name": "Kho ảnh blog lexkite-media (GitHub)",
       "kind": "storage",

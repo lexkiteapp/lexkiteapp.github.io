@@ -1,0 +1,24 @@
+# Quay bản web OTA về bản trước (hoặc bản chỉ định) – docs/OTA.md. Chỉ trỏ lại manifest ĐÃ KÝ sẵn của bản đích (không cần khóa riêng).
+# Máy đang chạy bản lỗi sẽ tải bản đích ở lần kiểm kế tiếp (mở app/quay lại app, cách nhau ≥ 6 giờ). Bản lỗi tự hỏng khi mở → plugin đã tự quay lại bản cũ sẵn.
+name: OTA rollback
+on:
+  workflow_dispatch:
+    inputs:
+      version: { description: 'Bản đích (vd 1.0.0-ota.202610270900.abc1234); trống = bản ngay trước bản đang phát', required: false }
+permissions: { contents: write }
+concurrency: { group: ota-manifest, cancel-in-progress: false }
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env: { GH_TOKEN: '${{ github.token }}', VERSION: '${{ github.event.inputs.version }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Bản hiện có
+        run: node scripts/ota/release.mjs list
+      - name: Rollback
+        run: node scripts/ota/release.mjs rollback $VERSION
+      - name: Sau rollback
+        run: node scripts/ota/release.mjs list

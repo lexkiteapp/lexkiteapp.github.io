@@ -106,5 +106,8 @@
   };
   g.VBNative.scheduleReminder = scheduleReminder;
   g.VBNative.openDeep = openDeep; // kiểm thử E2E (simctl openurl bị hộp "Mở bằng Lexkite?" của hệ thống chặn)
+  // OTA + nhắc cập nhật app (js/ota.js, docs/OTA.md): báo bản web chạy được NGAY (không báo → plugin tự quay về bản trước); phần còn lại nạp lười
+  if (P.CapacitorUpdater) P.CapacitorUpdater.notifyAppReady().catch(() => {});
+  if (P.CapacitorUpdater || P.AppUpdate) window.addEventListener('load', () => setTimeout(() => g.App && g.App.need('ota').then(() => g.VBOta.start()).catch(() => {}), 8000));
   window.addEventListener('load', () => setTimeout(() => scheduleReminder({ ask: false }), 3000));
 })(typeof self !== 'undefined' ? self : this);
