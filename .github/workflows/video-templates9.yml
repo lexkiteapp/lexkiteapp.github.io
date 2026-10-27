@@ -105,6 +105,16 @@ jobs:
           ls -la $O $O/phone
           { echo "## ${{ matrix.t }}"; echo '```'; cat $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           exit $rc
+      - uses: actions/upload-artifact@v4   # small preview for review (sheet + QC + logs, no frames / mp4)
+        if: always()
+        with:
+          name: prev-${{ matrix.t }}-${{ github.run_number }}
+          path: |
+            out/tpl9/${{ matrix.t }}/sheet.jpg
+            out/tpl9/${{ matrix.t }}/*.qc.json
+            out/tpl9/${{ matrix.t }}/qc.log
+            out/tpl9/${{ matrix.t }}/render.log
+            out/tpl9/${{ matrix.t }}/phone/*.mp4
       - uses: actions/upload-artifact@v4
         if: always()
         with:

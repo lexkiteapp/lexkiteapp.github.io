@@ -74,6 +74,15 @@ def _maxrect(free, hcap=None):   # largest axis-aligned rectangle of True cells 
             st.append((s_, h_))
     r_ = best[1]
     return (r_[0], r_[1], r_[2], min(r_[3], r_[1] + hcap)) if hcap else r_
+V14 = bool(BRD) and SP.get('layout', 'v14') == 'v14'   # owner 27/10 layout v14: medium shot (same head size for every teacher) under ONE fixed lesson card on top, inside the platform-safe area
+if V14:
+    _h = TR['clips'][SP['clips'][0]]['head']; _k = max(1.0, min(1.3, 420 / (_h[3] - _h[1])))   # head box (hair included) -> 420 px, never a downscale, at most 1.3x (Kling 1080p stays sharp)
+    _ox = min(max(0.0, (_h[0] + _h[2]) / 2 - 560 / _k), W - W / _k)   # face towards x 560 (the right 14 % is platform UI); no horizontal fill
+    _oy = min(max(-116 / _k, (_h[1] + _h[3]) / 2 - 1080 / _k), H - H / _k)   # head centre towards y 1080; at most 116 px of replicated wall on top (under the platform's top UI)
+    _ht = (_h[1] - _oy) * _k; _zf = [SAFE['x0'] + 34, SAFE['y0'] + 30, SAFE['x1'] - 34, int(_ht) - 64]   # card zone: safe area above the head (panel pad 26 + 38 px air)
+    assert _zf[3] - _zf[1] >= 240, ('v14: no room for the lesson card above the head', _zf)
+    _bk[SP['clips'][0]] = dict(_bk[SP['clips'][0]], crop=dict(k=round(_k, 4), ox=round(_ox, 1), oy=round(_oy, 1), sharp=0.4, sigma=1.0, zone_force=_zf))
+    BRD = {k_: v_ for k_, v_ in BRD.items() if k_ != 'zone_free'}
 if BRD and _bk[SP['clips'][0]].get('crop'):   # v10 punch-in: a fixed uniform crop (k, ox, oy) of the native frame, Lanczos + mild unsharp
     CROP = _bk[SP['clips'][0]]['crop']; _k, _ox, _oy = CROP['k'], CROP['ox'], CROP['oy']
     CA = np.float32([[_k, 0, -_ox * _k], [0, _k, -_oy * _k]])
@@ -387,7 +396,7 @@ if BRD:
     _cx_, _cy_ = (sum(p[0] for p in _dst) / 4, sum(p[1] for p in _dst) / 4)   # keep the warped zone inside the zone (shrink about its centre)
     _over = max(max(ZONE[0] - min(p[0] for p in _dst), max(p[0] for p in _dst) - ZONE[2], 0) / (ZW / 2), max(ZONE[1] - min(p[1] for p in _dst), max(p[1] for p in _dst) - ZONE[3], 0) / (ZH / 2))
     _dst = [(_cx_ + (p[0] - _cx_) / (1 + _over), _cy_ + (p[1] - _cy_) / (1 + _over)) for p in _dst]
-    GB = cv2.getPerspectiveTransform(np.float32(_src), np.float32(_dst))
+    GB = cv2.getPerspectiveTransform(np.float32(_src), np.float32(_dst)) if not V14 else np.eye(3, dtype=np.float64)   # v14: a flat screen card, not ink on the board
     print(f'board zone {ZONE} ({ZW}x{ZH}), perspective {[[round(a, 1) for a in p] for p in _dst]}, captions cx {CCX} w {CAPWC}', flush=True)
 PSC = 1.0
 if BRD:   # smallest vertical scale of the board perspective inside the zone: board text is set so its cap height clears the minimum after the warp
@@ -395,6 +404,7 @@ if BRD:   # smallest vertical scale of the board perspective inside the zone: bo
     PSC = min(_vs(x, y) for x in np.linspace(ZONE[0], ZONE[2], 5) for y in np.linspace(ZONE[1], ZONE[3], 5))
 MINF_HOOK = math.ceil(MIN_CAP['hook'] / CAPR / PSC) + 1; MINF_BODY = math.ceil(MIN_CAP['body'] / CAPR / PSC) + 1
 print(f'min sizes: caption {CAPF}px, hook {MINF_HOOK}px, body {MINF_BODY}px font (cap ratio {CAPR:.3f}, board perspective {PSC:.3f}), card picture {MIN_IMG}px', flush=True)
+KMAX = 133 if V14 else 100   # v14 mock: card type up to 1.33x the v12 mock (word 104, IPA 58, meaning 53, example 50)
 INK = False   # True while a pop is being built for the whiteboard (dark ink, no stroke, highlighter)
 INKCOL = dict(white=C['navy'], cream=C['navy'], navy=C['navy'], navy2=C['navy2'], ink=C['navy'], red=(214, 64, 34), green=(20, 138, 74), yellow=C['navy'], mint=C['navy'])
 HILITE = dict(yellow=(255, 201, 74), mint=(160, 222, 200))
@@ -694,13 +704,13 @@ class Pop:
     def build_lesson(s, rw, rh):   # largest scale <= 1 at which the FULL card (all items) fits the board region; never below 0.85 of the mock
         P = s.P; s.etype = 'card'; n = len(P['items'])
         s.paged = False
-        for k in [x / 100 for x in range(100, 88, -1)]:
+        for k in [x / 100 for x in range(KMAX, 88, -1)]:
             im, wneed = lesson_im(P, n, k, rw - 4)
             if wneed <= rw - 4 and im.height <= rh - 4: break
         else:   # low board strip (2D desk / board clips): ONE item per page, same mock typography (title kept when it fits)
             s.paged = True; best = None
             for sv in ([True, False] if P.get('save') else [False]):   # a framed SAVE card drops its frame on a very low strip before anything shrinks
-                for k in [x / 100 for x in range(100, 88, -1)]:
+                for k in [x / 100 for x in range(KMAX, 88, -1)]:
                     for tt in ([True, False] if P.get('title') else [False]):
                         Q = dict(P, title=P['title'] if tt else None, footer=None, save=sv)
                         if all(lesson_im(dict(Q, items=[it]), 1, k, rw - 4)[1] <= rw - 4 and lesson_im(dict(Q, items=[it]), 1, k, rw - 4)[0].height <= rh - 4 for it in P['items']): best = (k, tt, sv); break
@@ -715,7 +725,7 @@ class Pop:
         s.im = s.lesson_frame(n, rh - 4) if not s.paged else s.lesson_page(0)   # canvas = whole region height: the card sits at the TOP-left like the mock
     def build_note(s, rw, rh):   # mock typography at the largest scale <= 1 that fits; never below 0.85
         L_ = s.P['lines']; s.etype = 'card'
-        for k in [x / 100 for x in range(100, 88, -1)]:
+        for k in [x / 100 for x in range(KMAX, 88, -1)]:
             im, wneed = note_im(L_, k, rw - 4)
             if wneed <= rw - 4 and im.height <= rh - 4: break
         else: raise AssertionError(('note does not fit the board region at 0.89 of the mock size', s.id, round(wneed), im.height, rw, rh))
@@ -1073,6 +1083,26 @@ def paste_scaled(F, im, cx, cy, sc, al, wipe=1.0):
     x, y = round(cx - w / 2), round(cy - h / 2); rgb, a = rgba_np(r)
     if wipe < 1.0: a = a.copy(); a[:, int(w * wipe):] = 0
     over(F, rgb, a, x, y, al); return [x, y, x + w, y + h]
+def card_panel(F, vis):   # v14: ONE cream card (rounded, soft shadow, teal edge) hugging the visible board content, faded with it; stays inside SAFE
+    if not vis: return
+    bx = [1e9, 1e9, -1e9, -1e9]; amax = 0.0
+    for p, sc, al, dx, dy, im in vis:
+        cb = im.getchannel('A').getbbox()
+        if not cb: continue
+        rg = p.region; sc_ = min(sc, (rg[2] - rg[0]) / im.width, (rg[3] - rg[1]) / im.height); w, h = im.width * sc_, im.height * sc_
+        x0, y0 = (rg[0] + rg[2]) / 2 - w / 2, (rg[1] + rg[3]) / 2 - h / 2
+        bx = [min(bx[0], x0 + cb[0] * sc_), min(bx[1], y0 + cb[1] * sc_), max(bx[2], x0 + cb[2] * sc_), max(bx[3], y0 + cb[3] * sc_)]; amax = max(amax, al)
+    if bx[0] > 1e8: return
+    x0, y0 = max(SAFE['x0'], int(min(bx[0], ZONE[0]) - 26)), max(SAFE['y0'], int(bx[1] - 26)); x1, y1 = min(SAFE['x1'], int(max(bx[2], ZONE[2]) + 26)), min(SAFE['y1'], int(bx[3] + 26))
+    key = (x0, y0, x1, y1)
+    if key not in _PANEL:
+        if len(_PANEL) > 12: _PANEL.clear()
+        w, h = x1 - x0, y1 - y0; P = Image.new('RGBA', (w + 80, h + 80), (0, 0, 0, 0)); d = ImageDraw.Draw(P)
+        d.rounded_rectangle([40, 52, 40 + w, 52 + h], 40, fill=(0, 0, 0, 70)); P = P.filter(ImageFilter.GaussianBlur(16)); d = ImageDraw.Draw(P)
+        d.rounded_rectangle([40, 40, 40 + w, 40 + h], 40, fill=(255, 253, 246, 246)); d.rounded_rectangle([40, 40 + 36, 40 + 12, 40 + h - 36], 6, fill=(14, 124, 123, 255))
+        A = np.asarray(P).astype(np.float32); _PANEL[key] = (A[..., :3][..., ::-1].copy(), A[..., 3] / 255)
+    rgb, a = _PANEL[key]; over(F, rgb, a, x0 - 40, y0 - 40, amax)
+_PANEL = {}
 def paste_board(F, im, reg, sc, al, dx, dy, wipe, s_cam):
     """Write a pop on the whiteboard: centred in its zone region, board perspective (GB), then the camera; returns the screen bbox."""
     if al <= 0.003 or sc <= 0.05: return None
@@ -1242,11 +1272,12 @@ for fi in range(NF):
     else: F = np.clip(acc + 0.5, 0, 255).astype(np.uint8) if len(srcs) > 1 else Fm
     s = cam(T); mx, my = maps_c(s)
     out = cv2.remap(F, mx, my, cv2.INTER_LANCZOS4, borderMode=cv2.BORDER_REPLICATE) if s > 1.0001 else F.copy(); out = sharpen(out, s)
-    els = []
+    els = []; PRE = []
     for p in POPS:
         sc, al, dx, dy, wp = p.anim(T)
-        if al <= 0.003: continue
-        im = p.frame_im(T)
+        if al > 0.003: PRE.append((p, sc, al, dx, dy, wp, p.frame_im(T)))
+    if V14: card_panel(out, [(p, sc, al, dx, dy, im) for p, sc, al, dx, dy, wp, im in PRE if p.where == 'board' and p.kind != 'cta'])
+    for p, sc, al, dx, dy, wp, im in PRE:
         if p.where == 'board':
             rg = p.region; sc = min(sc, (rg[2] - rg[0]) / im.width, (rg[3] - rg[1]) / im.height)   # pre-fit: no entrance (stamp / spring) grows past the region
             sx_ = max(0.0, ((rg[2] - rg[0]) - im.width * sc) / 2 - 2); sy_ = max(0.0, ((rg[3] - rg[1]) - im.height * sc) / 2 - 2)
@@ -1323,7 +1354,7 @@ subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.out + '.video
                 '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000', '-ac', '2', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', o.out], check=True)
 os.remove(o.out + '.video.mp4')
 json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_ratio=CAPR, spec=SP, fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, cx=CX, capw=CAPW, band=BAND, smax=SMAX, anchor=[AX, AY], head=HEAD, joins=JOINS, xf=XF, xfe=XFE,
-               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, read_pad=READ_PAD,
+               beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, v14=dict(on=V14, crop=CROP, zone=ZONE, head=HEAD.get(SP['clips'][0])) if V14 else None, read_pad=READ_PAD,
                board=dict(zone=ZONE, popz=POPZ, quad=BRD['quad'], perspective=GB.tolist(), cap_box=STRIP1, body=BRD['body'], where={p.id: p.where for p in POPS}) if BRD else None, hook=dict(text=HOOK_TEXT, t0=HOOK.t0, t1=max(p.t1 for p in POPS if p.P.get('role') == 'hook'), kind=HOOK.kind),
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
