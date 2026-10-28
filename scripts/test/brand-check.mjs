@@ -91,6 +91,7 @@ for (const m of ['light', 'dark']) {
   for (const c of ['--cta-1', '--cta-2']) need(t['--cta-ink'], t[c], 4.5, `${m} chữ trên nút CTA gradient`);
   for (const s of ['--bg', '--surface']) need(t['--faint'], t[s], 3, `${m} icon khóa/mờ (--faint)/${s}`);
   for (const s of ['--surface', '--surface-2']) need(t['--sun'], t[s], 3, `${m} sao/XP (--sun)/${s}`);
+  need(t['--heading'], t['--bg'], 7, `${m} tiêu đề (--heading)/nền`); need(t['--heading'], t['--surface'], 7, `${m} tiêu đề (--heading)/thẻ`);
 }
 for (const k of TK.icon.kite) for (const b of [TK.icon.bgTop, TK.icon.bg]) need(k, b, 3, 'icon: diều/nền (đồ họa ≥ 3:1)');
 // 3) chặn màu lạ MỚI trong CSS app/add-on: chỉ token + bảng màu + màu cũ đã khóa (scripts/test/brand-colors.lock.json – chỉ được bớt)

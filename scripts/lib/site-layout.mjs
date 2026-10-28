@@ -10,8 +10,9 @@ import { authFoot, authAbout } from './authority-links.mjs'; // trang Giới thi
 import { S as SP } from './seo-pages-i18n.mjs';
 // ---------- Nút đổi ngôn ngữ đầu trang (mọi trang tĩnh) – nguồn DUY NHẤT dùng chung với app: web/js/lang-menu.js + khối /* lsw */ trong web/css/style.css ----------
 // Màu tối trang tĩnh lấy thẳng từ nguồn duy nhất brand/tokens.json (scripts/build-tokens.mjs, docs/BRAND-RULES.md)
-const TK = JSON.parse(fs.readFileSync(new URL('../../brand/tokens.json', import.meta.url), 'utf8')).dark;
+const TKALL = JSON.parse(fs.readFileSync(new URL('../../brand/tokens.json', import.meta.url), 'utf8')), TK = TKALL.dark;
 const DK = ['--bg', '--surface', '--text', '--muted', '--line'].map(k => `${k}:${TK[k]}`).join(';');
+const LT = ['--bg', '--surface', '--text', '--muted', '--line'].map(k => `${k}:${TKALL.light[k]}`).join(';'); // sáng = B Bright Day (cùng nguồn)
 const rdWeb = p => fs.readFileSync(new URL(`../../web/${p}`, import.meta.url), 'utf8');
 // ---------- Nút "Thêm vào Chrome" (add-on) – nguồn DUY NHẤT: web/js/ext-config.js (URL cửa hàng) + web/js/ext-cta.js (hiện/ẩn, đếm bấm) ----------
 const jsLite = s => s.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n');
@@ -32,7 +33,7 @@ export const EXTRA_TOKENS = ['#B93A1D', '#9fd8cf', '#7fd6cc', '#12807A', '#e3e5e
 // ---------- CSS gốc của blog (giữ nguyên từng byte – trang blog dựng ra không đổi) ----------
 // CSS footer chung (cũng dùng ở trang pháp lý scripts/build-legal.mjs – trang đó nạp /css/style.css của app nên dùng biến có sẵn ở cả 2 nơi)
 export const FOOT_CSS = `footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px;background:var(--surface);margin-top:40px}footer .bar{display:block;max-width:1080px;margin:0 auto;padding:28px 16px 20px}.flogo{display:inline-flex;align-items:center;min-height:44px;gap:8px;font-weight:800;font-size:18px;color:var(--text);text-decoration:none}.flogo b{color:var(--primary)}.flogo img{border-radius:8px}footer p{margin:.3em 0}.fcols{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}.fbrand p{max-width:34ch}footer h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--text);margin:4px 0 8px}footer ul{list-style:none;margin:0;padding:0}footer li{margin:6px 0}footer a{color:var(--muted)}footer a:hover{color:var(--link,var(--primary))}.flangs{display:flex;flex-wrap:wrap;gap:4px 14px;border-top:1px solid var(--line);margin-top:20px;padding-top:14px}.flangs a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px}.flangs a[aria-current]{color:var(--text);font-weight:700}.ftm{font-size:13px}@media (max-width:720px){.fcols{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}`;
-export const CSS = `:root{--bg:#f5f6fb;--surface:#fff;--text:#171827;--muted:#4e526b;--line:#e2e4ef;--primary:#CC3F1C;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#0D6964;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
+export const CSS = `:root{${LT};--primary:#CC3F1C;--primary-ink:#fff;--primary-soft:#FFEBE4;--accent:#0D6964;--accent-soft:#DDF1EE;--brand:#0F3D3E;--link:#B93A1D;--r:16px;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{${DK};--primary:#FF8466;--primary-ink:#1A0E0B;--primary-soft:#3A221C;--accent-soft:#10302f;--brand:#9fd8cf;--link:#FFA582}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 a{color:var(--link);text-underline-offset:2px}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}

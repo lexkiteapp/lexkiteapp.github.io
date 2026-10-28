@@ -294,7 +294,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-n{z-index:1}
 .ux1-n .lsn-dot{width:64px;height:64px;box-shadow:var(--hi),0 4px 0 var(--ledge)}
 .ux1-n.done .lsn-dot{background:var(--done);color:var(--on-done);box-shadow:var(--hi),0 4px 0 var(--done-ink)}
-.ux1-n.next .lsn-dot{width:76px;height:76px;background:var(--cta-grad);color:var(--cta-ink);box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 8px color-mix(in srgb,var(--cta-2) 20%,transparent);animation:ux1Ring 2.4s ease-in-out infinite}
+.ux1-n.next .lsn-dot{width:76px;height:76px;background:var(--cta-grad);color:var(--cta-ink);box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 6px color-mix(in srgb,var(--cta-2) 14%,transparent)}
 .ux1-n.lock .lsn-dot{width:60px;height:60px;background:var(--surface);color:var(--muted);border:1px solid var(--line);box-shadow:0 3px 0 var(--ledge)}
 .ux1-n.cp .lsn-dot{border-radius:var(--r-card)}
 .ux1-n.cp:not(.done):not(.next) .lsn-dot{background:var(--surface-2);color:var(--sun);border:1px solid var(--line);box-shadow:0 4px 0 var(--ledge)}
