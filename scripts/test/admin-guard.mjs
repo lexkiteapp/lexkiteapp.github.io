@@ -84,7 +84,7 @@ for (const [width, scheme, lang] of CONFIGS) {
     // khung: tràn ngang trang, nội dung lấp khung (không cột trống giữa thanh bên và nội dung)
     res.shell = await page.evaluate(() => {
       const o = [], over = document.scrollingElement.scrollWidth - innerWidth;
-      if (over > 1) { const sc = e => { for (let p = e.parentElement; p; p = p.parentElement) if (/auto|scroll|hidden/.test(getComputedStyle(p).overflowX)) return true; return false; };
+      if (over > 1) { const sc = e => { for (let p = e.parentElement; p; p = p.parentElement) if (/auto|scroll|hidden|clip/.test(getComputedStyle(p).overflowX) && p.getBoundingClientRect().right <= innerWidth + 1) return true; return false; };
         const who = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1 && !sc(e)).slice(-3).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 2).join('.') + ' "' + (e.textContent || '').trim().slice(0, 20) + '"');
         o.push(`trang tràn ngang ${over} px (${who.join(', ')})`); }
       const side = document.querySelector('#side'), main = document.querySelector('#main'), cont = document.querySelector('.adm-content');
