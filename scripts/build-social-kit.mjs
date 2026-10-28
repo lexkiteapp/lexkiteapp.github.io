@@ -603,6 +603,7 @@ async function main() {
     ['web/icons/icon-192.png', square, 192], ['web/icons/icon-512.png', square, 512], ['web/icons/apple-touch-icon.png', square, 180],
     ['web/icons/icon-maskable-512.png', maskable, 512], ['brand/lexkite-icon-512.png', square, 512],
     ['web/icons/icon-128-store.png', store, 128], ['store/icon-128.png', store, 128],
+    ['brand/social/logo/lexkite-app-icon-rounded.png', ICON, 1024], // end card video (scripts/video/tpl/render_v9.py)
   ];
   for (const [f, svg, n] of ICONS_OUT) fs.writeFileSync(path.join(ROOT, f), await sharp(rasterize(svg, n)).png({ compressionLevel: 9 }).toBuffer());
   console.log(`icon PNG: ${ICONS_OUT.length} tệp từ web/icons/icon.svg`);
