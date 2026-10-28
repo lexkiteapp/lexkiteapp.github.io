@@ -1,5 +1,8 @@
 # Web + add-on redesign from Stitch (Tactile A dark / B light)
 
+> TL;DR: 16 Stitch designs, one per page type (web + add-on + media/OG), mapped to their generators; port with tactile.css + tokens after #185/#177 merge, one PR per surface with owner-approved before/after sheet.
+> Đọc khi: đổi giao diện bất kỳ trang tĩnh, blog, công cụ, trang uy tín, add-on hoặc ảnh OG.
+
 Source: Stitch project "Lexkite English Exam Prep" (7268539912208977707), design system `assets/6aac787688a9449d9f98ac137f34491f`.
 One Stitch screen per page TYPE (28/10). PNG/HTML are references only: never paste Stitch Tailwind; rebuild with
 `web/css/tactile.css` (`.tk-card/.tk-tile/.tk-btn/.tk-chip/.tk-bar/.tk-num/.tk-display`, PR #185) + palette tokens (PR #177, `brand/tokens.json`).
