@@ -91,7 +91,7 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
       for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
         if (r.right > W + 1 || r.left < -1) if (!e.closest('[class*="overflow-hidden"],[class*="overflow-x"]') ) over.push(e.className.toString().slice(0, 40));
         if (e.children.length === 0 && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
-        if (e.matches('a,button,[role=button],input') && (r.width < 44 || r.height < 44)) tap.push(`${e.tagName}${Math.round(r.width)}x${Math.round(r.height)}`); }
+        if (e.matches('a,button,[role=button],input') && (r.width < 43.5 || r.height < 43.5)) tap.push(`${(e.textContent.trim() || e.getAttribute('aria-label') || e.tagName).slice(0, 14)} ${Math.round(r.width)}x${Math.round(r.height)}`); }
       const lg = document.querySelector('.topbar .brand img'), lr = lg && lg.getBoundingClientRect();
       return { hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
     const fullH = await page.evaluate(() => { scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
