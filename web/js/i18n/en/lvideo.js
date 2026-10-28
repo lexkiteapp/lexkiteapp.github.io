@@ -12,5 +12,6 @@
     "Đúng rồi! Đã thêm vào thẻ ôn.": "Correct! Added to your review cards.",
     "Chưa đúng. Đáp án: {a} – đã thêm vào thẻ ôn.": "Not quite. Answer: {a} – added to your review cards.",
     "Video tiếp theo": "Next video",
+    "Các phần của video": "Video chapters",
   });
 })(typeof self !== 'undefined' ? self : this);

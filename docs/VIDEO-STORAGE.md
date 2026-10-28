@@ -44,4 +44,10 @@ media đã kiểm sha trên kho + `.gitignore` → push. **Không viết lại l
 modestbranding; `ended` → câu đố EN). YouTube không sẵn sàng trong 4 s / lỗi / vùng chặn (múi giờ Trung Quốc, giao diện zh + máy zh-CN) → bản tự
 lưu trữ. Không có `youtube_id` → bản tự lưu trữ. Đo `yt_fallback` qua `/api/hit`.
 
+**Video nhúng bài học (28/10, cờ `lv_embed`, thử `?lvembed=1&vtest=1`):** `/data/videos.json` mảng `embeds[]` (tách `items` → trang /video/, sitemap
+không đổi; schema `validateEmbeds`) – mỗi mục có `renditions.sq45` (1080×1350) + `wide` (1920×1080) = mp4 + bìa JPG + `en.vtt` + `chapters.vtt`
+từ workflow video-motion (docs/VIDEO-MOTION.md §Embedded). `LessonVideo.embed()` chỉ chạy khi bước video của nút "Bài học" mở: 4:5 trên điện thoại,
+16:9 khi ≥ 900 px ngang; `<track>` phụ đề EN + chương (nút tua), `ended` → bài bấm chính nút Tiếp tục. Mẫu hiện là `test: true`, file CHƯA tải lên
+R2/YouTube (chờ chủ OK). Gác: `lesson-embed.yml` (fixture = artifact `motion-<t>-embed-*`, `scripts/test/lesson-embed-e2e.mjs`).
+
 Kiểm thử: `node scripts/test/shorts-scale.mjs` (công thức tất định, schema manifest, hàng chờ YouTube giả lập, tải resumable, luật kho, sức chứa, mặt tiền jsdom).

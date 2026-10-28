@@ -29354,5 +29354,35 @@
     "ar": "استمع إلى الصيغة الضعيفة في جملة: {s}",
     "ru": "Слабая форма в предложении: {s}",
     "tr": "Zayıf biçimi cümlede dinle: {s}"
+  },
+  "Xem video bài học": {
+    "es": "Mira el vídeo de la lección",
+    "pt": "Assista ao vídeo da lição",
+    "fr": "Regarde la vidéo de la leçon",
+    "de": "Sieh dir das Lektionsvideo an",
+    "id": "Tonton video pelajaran",
+    "th": "ดูวิดีโอบทเรียน",
+    "zh": "观看课程视频",
+    "ja": "レッスン動画を見よう",
+    "ko": "레슨 영상 보기",
+    "hi": "पाठ का वीडियो देखें",
+    "ar": "شاهد فيديو الدرس",
+    "ru": "Посмотри видео урока",
+    "tr": "Ders videosunu izle"
+  },
+  "Các phần của video": {
+    "es": "Capítulos del vídeo",
+    "pt": "Capítulos do vídeo",
+    "fr": "Chapitres de la vidéo",
+    "de": "Videokapitel",
+    "id": "Bab video",
+    "th": "บทของวิดีโอ",
+    "zh": "视频章节",
+    "ja": "動画のチャプター",
+    "ko": "영상 챕터",
+    "hi": "वीडियो के अध्याय",
+    "ar": "فصول الفيديو",
+    "ru": "Главы видео",
+    "tr": "Video bölümleri"
   }
 }

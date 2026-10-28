@@ -102,6 +102,10 @@
   const STORIES = kind => (window.LESSON_STORIES || []).filter(s => s.kind === kind);
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
 
+  // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
+  const lvOn = () => {
+    try { const m = /[?&]lvembed=([01])\b/.exec(location.href); if (m) ls.set('lk.lv_embed', m[1]); const f = ls.get('lk.lv_embed'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(ls.get('lk.cfg') || 'null'), v = c && c.v && c.v.lv_embed; return v === true || v === '1' || v === 'true'; } catch (e) { return false; }
+  };
   routes.lesson = async function (arg) {
     css(); cleanup();
     const demo = /[?&]demo=1\b/.test(location.hash);
@@ -117,6 +121,7 @@
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
+    if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), who = prev === 'ama' ? 'carlos' : 'ama'; ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     L = { demo, items, sess: new E.Session(items, { ease: ux }), picks, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
     if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
@@ -191,6 +196,7 @@
     const snd = LISTENS(it) ? `<div class="lsn-snd"><button class="lsn-big" id="lsnPlay" aria-label="${t('Nghe lại')}">${UI.icon('audio-lines')}</button><button class="lsn-big sm" id="lsnSlow" aria-label="${t('Nghe chậm hơn')}">🐢</button></div>` : '';
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
     if (it.type === 'line') return line(it);
+    if (it.type === 'video') return video(it);
     const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại (không lộ đáp án)
     if (it.type === 'q') {
       bub.innerHTML = tag + esc(TITLE(it)) + `<small lang="en">${esc(it.prompt)}</small>`;
@@ -230,6 +236,18 @@
     $('#lsnPlay').onclick = () => say(it.sent, false, it.who);
     $('#lsnGo').onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
     setTimeout(() => say(it.sent, false, it.who), 200);
+  }
+
+  // 🎞️ Bước xem video: gói lvideo + manifest chỉ tải khi bước này mở; video hết (end card "Next step →") → bấm chính nút Tiếp tục của bài
+  function video(it) {
+    $('#lsnBub').textContent = t('Xem video bài học');
+    $('#lsnBody').innerHTML = '<div class="lsn-vid" id="lsnVid"></div>';
+    const foot = $('#lsnFoot'); foot.className = 'lsn-foot';
+    foot.innerHTML = `<div><span class="grow"></span><button class="btn primary lg" id="lsnGo">${t('Tiếp tục')}</button></div>`;
+    const go = () => { if (!L || L.dead || L.sess.cur !== it) return; const v = $('#lsnVid video'); if (v) v.pause(); L.sess.answer(true); next(); };
+    $('#lsnGo').onclick = go;
+    App.need('lvideo').then(() => (window.LessonVideo ? LessonVideo.embed($('#lsnVid'), { words: it.words, onEnd: () => { const b = $('#lsnGo'); if (b && L && L.sess.cur === it) b.click(); } }) : false))
+      .then(ok => { if (!ok) go(); }).catch(go); // không có video (manifest rỗng / lỗi mạng) → bỏ qua bước, bài vẫn chạy
   }
 
   function bindItem(it, audioText) {

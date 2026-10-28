@@ -99,7 +99,7 @@ async function run(width, scheme, lang) {
     const w = wrong < 2;
     const r = await page.evaluate(async w => {
       const L = App._lsn, it = L.sess.cur, E = LessonEngine, $ = s => document.querySelector(s);
-      if (it.type === 'line') { $('#lsnGo').click(); return 'line'; }
+      if (it.type === 'line' || it.type === 'video') { $('#lsnGo').click(); return 'line'; } // video nhúng (cờ lv_embed): gác riêng ở lesson-embed-e2e.mjs
       if ($('#lsnNoS') && (it.type === 'say' || (it.type === 'pic' && !it.choice))) { $('#lsnNoS').click(); return 'skip'; }
       if (it.type === 'match') { for (const a of document.querySelectorAll('.lsn-match [data-s=w]')) { a.click(); $(`.lsn-match [data-s=m][data-m="${a.dataset.m}"]`).click(); } return 'ok'; }
       if (it.type === 'type') { const i = $('#lsnIn'); i.value = w ? 'zzz' : it.answer; i.dispatchEvent(new Event('input')); $('#lsnCheck').click(); return w ? 'wrong' : 'ok'; }
