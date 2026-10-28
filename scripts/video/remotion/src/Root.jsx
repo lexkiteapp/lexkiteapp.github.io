@@ -5,6 +5,7 @@ import { Composition } from 'remotion';
 import formats from '../../../../content/video/formats.json';
 import { Short } from './Short.jsx';
 import { DEMO } from './demo.js';
+import { PuppetSample } from './Puppet.jsx';
 
 const meta = ({ props }) => ({ durationInFrames: Math.max(1, props.durationInFrames || 300), fps: props.fps || 30, width: props.w || 1080, height: props.h || 1920 });
 
@@ -14,5 +15,7 @@ export const Root = () => (
       <Composition key={f.id} id={`fmt-${f.id}`} component={Short} width={1080} height={1920} fps={30} durationInFrames={300}
         defaultProps={{ ...DEMO, format: f.id, hook: { ...DEMO.hook, pattern: f.hook.pattern, badge: f.hook.badge } }} calculateMetadata={meta} />
     ))}
+    {/* 🎭 con rối 2D Ama – mẫu (scripts/puppet/sample.mjs → props.json; .github/workflows/puppet.yml) */}
+    <Composition id="PuppetSample" component={PuppetSample} width={1080} height={1920} fps={30} durationInFrames={300} defaultProps={{ tl: {}, lines: [], words: [] }} calculateMetadata={meta} />
   </>
 );
