@@ -9,10 +9,12 @@ export async function serve(ctx, ROOT) {
 }
 
 // Chạy trong trang. o.roots: các khung cần quét · o.layers: so chồng lấn trong từng lớp fixed/sticky (thanh dưới, chân bài học, cột phải)
-// · o.cover: cuộn tới cuối rồi tìm nút/ô bị thanh cố định phía dưới che mất (không bao giờ bấm được).
+// · luôn: #view không được hẹp hơn min(560, màn − 48) px · o.cover: cuộn tới cuối rồi tìm nút/ô bị thanh cố định phía dưới che mất (không bao giờ bấm được).
 export function scan(o = {}) {
   const ROOTS = o.roots || ['#view'], LAYERS = !!o.layers, COVER = !!o.cover;
-  const W = innerWidth, out = { overlap: [], clip: [], spill: [], dup: [], cover: [] };
+  const W = innerWidth, out = { overlap: [], clip: [], spill: [], dup: [], cover: [], squeeze: [] };
+  // khung nội dung bị ép hẹp (vd. lưới 3 cột ẩn thanh bên nhưng vẫn giữ cột 232 px → bài học/Ôn rơi vào cột hẹp)
+  const VW = document.getElementById('view'); if (VW && !document.querySelector('#modal:not([hidden])')) { const w = VW.getBoundingClientRect().width; if (w < Math.min(560, W - 48)) out.squeeze.push(`#view rộng ${Math.round(w)} px / màn ${W} px`); }
   const lab = el => (el.id ? '#' + el.id : el.tagName.toLowerCase() + (typeof el.className === 'string' && el.className.trim() ? '.' + el.className.trim().split(/\s+/).slice(0, 2).join('.') : '')) + ` "${(el.textContent || el.getAttribute('aria-label') || '').trim().replace(/\s+/g, ' ').slice(0, 24)}"`;
   const cs = el => getComputedStyle(el);
   const shown = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { const s = cs(e); if (s.display === 'none' || s.visibility === 'hidden' || +s.opacity < .05) return false; if (e.matches('[data-ov-ok], .flash .face, .skel, [aria-hidden="true"], details:not([open]) > :not(summary)')) return false; } return true; };

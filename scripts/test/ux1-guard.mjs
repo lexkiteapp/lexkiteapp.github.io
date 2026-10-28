@@ -3,7 +3,7 @@
 //      · #/lesson/go?demo=1: mọi dạng bài, phiếu đúng/sai, "Vì sao?", câu dễ sau 2 lần sai (ease), "Không nghe được", màn tổng kết
 //      · lịch chuỗi #/streak, mốc 7 ngày, rương quà, rã băng.
 // 360/390/412/1366/1920 px · sáng/tối · en/vi/ar(RTL)/de/ru. Hermetic: phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod, 0 tài khoản thật.
-// FAIL như ux-guard.mjs + (5) nút/ô bị thanh cố định phía dưới che ở cuối trang. Ngưỡng chỉ được siết, không nới.
+// FAIL như ux-guard.mjs + (5) nút/ô bị thanh cố định phía dưới che ở cuối trang + (6) khung nội dung bị ép hẹp. Ngưỡng chỉ được siết, không nới.
 // Dùng: node scripts/test/ux1-guard.mjs <web> [out] [--part i/n] [--shots]   (--shots: chụp MỌI bước → tờ trước/sau)
 import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
@@ -66,7 +66,9 @@ async function run(width, scheme, lang) {
   // 🧭 Chọn mục tiêu → bản đồ chặng (nút đầu) → bản đồ có nút xong/tiếp/khóa + chặng sau
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
-  await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await check('home-map-n4');
+  await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
+  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
+  await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
 
   // 🧩 Bài học thử (không ghi FSRS/XP): đi hết bài, 2 câu đầu cố ý sai (phiếu sai + câu dễ hơn), sau đó đúng
