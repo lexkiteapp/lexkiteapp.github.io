@@ -66,7 +66,7 @@ export function scan(o = {}) {
   for (const root of roots) for (const blk of root.querySelectorAll('.card, section, .sheet, .lsn-fb, .modal-box')) {
     if (blk.closest('.flash') || blk.querySelector('.card, section')) continue;
     const ipa = [...blk.querySelectorAll('.ipa, .sipa')].filter(shown).map(e => e.textContent.trim()).filter(Boolean);
-    const say = [...blk.querySelectorAll('[data-speak], [data-speak-text], [data-sayw]')].filter(shown).map(e => (e.dataset.speak || e.dataset.speakText || '#sayw').toLowerCase());
+    const say = [...blk.querySelectorAll('[data-speak], [data-speak-text], [data-sayw]')].filter(shown).map(e => (e.dataset.speak || e.dataset.speakText || '#sayw').toLowerCase() + '|' + (e.dataset.accent || '')); // UK + US của cùng 1 từ = 2 loa hợp lệ (#178)
     if (new Set(ipa).size < ipa.length || new Set(say).size < say.length) out.dup.push(`${lab(blk)} IPA ${ipa.length} · loa ${say.length}`);
   }
   // bị che: ở cuối trang mà nút vẫn nằm dưới thanh cố định phía dưới → không cách nào bấm được
