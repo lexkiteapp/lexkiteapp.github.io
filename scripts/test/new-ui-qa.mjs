@@ -64,7 +64,11 @@ const PROBE = () => {
       const inFixed = (() => { for (let p = e; p && p !== D.body; p = p.parentElement) if (/fixed|sticky/.test(getComputedStyle(p).position)) return true; return false; })();
       if (inFixed && r.bottom > innerHeight + 1) { add(fail, `cut-off ${sel(e)} «${txt(e)}» mép dưới ${Math.round(r.bottom)} > ${innerHeight}`); continue; }
       if (r.bottom > innerHeight) continue; // nằm dưới màn hình trong nội dung cuộn được
-      for (const [x, y] of [[r.left + r.width / 2, r.top + r.height / 2], [r.left + r.width / 2, r.bottom - 3]]) { const top = D.elementFromPoint(Math.min(innerWidth - 1, x), Math.min(innerHeight - 1, y)); if (top && !e.contains(top) && !top.contains(e)) { add(fail, `occluded ${sel(e)} «${txt(e)}» bị ${sel(top)} che (${Math.round(x)},${Math.round(y)})`); break; } }
+      for (const [x, y] of [[r.left + r.width / 2, r.top + r.height / 2], [r.left + r.width / 2, r.bottom - 3]]) { const top = D.elementFromPoint(Math.min(innerWidth - 1, x), Math.min(innerHeight - 1, y)); if (top && !e.contains(top) && !top.contains(e)) {
+          // nút trong nội dung cuộn nằm dưới thanh cố định (thanh dưới, chân bài học): cuộn được tới thì không phải lỗi
+          let fx = top; while (fx && fx !== D.body && getComputedStyle(fx).position !== 'fixed') fx = fx.parentElement;
+          const se = D.scrollingElement || D.documentElement;
+          if (!inFixed && fx && fx !== D.body && se.scrollHeight - innerHeight - se.scrollY >= r.bottom - fx.getBoundingClientRect().top) break; add(fail, `occluded ${sel(e)} «${txt(e)}» bị ${sel(top)} che (${Math.round(x)},${Math.round(y)})`); break; } }
     }
     // nút chỉ có biểu tượng (axe không đo): biểu tượng vs nền nút ≥ 3:1 (WCAG 1.4.11)
     const rgb = c => { const m = /rgba?\(([\d.]+), ([\d.]+), ([\d.]+)(?:, ([\d.]+))?/.exec(c); return m && (m[4] === undefined || +m[4] > 0.95) ? [+m[1], +m[2], +m[3]] : null; };
