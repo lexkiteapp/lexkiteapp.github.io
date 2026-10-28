@@ -23,6 +23,13 @@ const good = () => ({ w: 'forsake', pos: 'v', ipa: '/fəˈseɪk/', ipaUS: '/fər
   ok(!viBtOk({ w: 'caucus', def: 'to meet in order to choose a candidate or support a policy', syn: [], qa: { viBtw: ['to vote', 'to elect; to vote', 'to vote'] } }), 'vi AI: caucus "bầu chọn" → không khớp');
   ok(hasGap(gateEntry(ai('bỏ rơi', ['to abandon']))), 'vi AI: thiếu dịch ngược = lỗ → sinh lại, không vào hàng duyệt');
   ok(gateEntry({ ...good(), src: { tr: { vi: 'wiktionary' } } }).ok, 'vi Wiktionary: không cần dịch ngược'); }
+// pilot 20261028@13:31Z (LÕI 6/50): nghĩa phụ lọt cổng, vi Wiktionary sai nghĩa khoá, IPA Anh ký hiệu cũ əː
+{ const g = (vi, src, bts, o = {}) => gateEntry({ ...good(), vi, src: { tr: { vi: src } }, ...o, qa: { ...good().qa, viBtw: bts, viLem: o.lem || [] } });
+  ok(g('di chúc', 'ai', ['will', 'will; testament'], { w: 'bequest', def: 'a legal gift of personal property left in a will', syn: [] }).why.some(x => /dịch vi: AI lấp, dịch ngược không khớp/.test(x)), 'vi AI: chỉ khớp từ đuôi def (bequest "di chúc" = will) → trượt');
+  ok(viBtOk({ w: 'haven', def: 'a shelter that provides safety or sanctuary', syn: [], qa: { viBtw: ['place of shelter; refuge', 'safe place; shelter'] } }), 'vi AI: khớp lõi def (shelter) → đạt');
+  ok(g('tính hư ảo', 'wiktionary', ['illusoriness', 'futility; emptiness'], { w: 'vanity', def: 'feelings of excessive pride', syn: [] }).why.some(x => /dịch vi: Wiktionary, dịch ngược không khớp/.test(x)), 'vi Wiktionary: sai nghĩa khoá (vanity "tính hư ảo") → trượt');
+  ok(g('bỏ rơi; từ bỏ', 'wiktionary', ['to abandon', 'to forsake; to desert', 'to give up']).ok, 'vi Wiktionary: dịch ngược khớp → đạt');
+  ok(ukStyleBad('/ˈvɪnəɡəː/') && !ukStyleBad('/ˈvɪnɪɡə/') && !ukStyleBad('/bɜːd/'), 'ukStyleBad: əː (ký hiệu cũ) → lỗ'); }
 // pilot 20261028 (soát tay LÕI 8/50, DỊCH 2/50): IPA Anh sai kiểu kho, ví dụ không phải câu, nội dung tình dục → trượt
 ok(ukStyle('/brad/') === '/bræd/' && ukStyle('/ˈɑː(r)mtʃeə(r)/') === '/ˈɑːmtʃeə(r)/' && ukStyle('/ˈɔɪntm(ə)nt/') === '/ˈɔɪntmənt/' && ukStyle('/ˈtaɪfɔɪd/') === '/ˈtaɪfɔɪd/', 'ukStyle: a→æ, (ə)→ə, (r) giữa từ bỏ, aɪ/aʊ giữ');
 ok(ukStyleBad('/brad/') && ukStyleBad('/ˈfaɪbə(r)x/') && !ukStyleBad('/ˈfaɪbə(r)/') && !ukStyleBad('/aʊl/'), 'ukStyleBad: phát hiện a đơn / ( giữa từ');

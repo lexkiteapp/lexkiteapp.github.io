@@ -13,10 +13,10 @@ Cập nhật: 27/10/2026.
 
 ## Kho từ 20k (`lexicon-expand`) – cổng THEO TRƯỜNG, đang pilot
 - Kho vẫn 8.230 nghĩa. Mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi, 3 giám khảo) sai ≤ 1/50; 12 ngôn ngữ khác chỉ giữ khi Wiktionary khớp nghĩa + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd). IPA: `ipa-check.mjs` trong job + promote (Britfone/CMU).
-- Soát 28/10 lần 1 `20261028-pilot` (75 mục): LÕI 9/50, DỊCH 2/50 → trượt; thêm ukStyle, ví dụ phải là câu, ADULT, prompt vi cùng từ loại.
-- Soát 28/10 lần 2 `20261028-pilot@07:28Z` (38 mục < 50, TB 5,7 ngôn ngữ/mục): LÕI 5/38 (vi AI sai nghĩa mà 3 giám khảo cho 5: bight "cúm", caucus "bầu chọn", recollection "kỷ niệm", heighten "tăng cường" + ví dụ gượng; cornet vi Wiktionary "kèn coonê"), DỊCH 1/50 (invisible zh 无形), IPA 1/38 lệch (demolition Anh ≠ Britfone) → trượt, LX_PILOT=1.
-- Đã thêm: cổng dịch ngược vi cho vi do AI lấp (`viBtOk`, judge trả `bt_vi`; thiếu = lỗ, sinh lại) + test; requeue 38 mục. Còn ngỏ: vi từ Wiktionary phiên âm lạ (cornet).
-- Đã soát (so cả `at` của tệp, tên lô có thể trùng ngày): 20261027-pilot (lần 1–3), 20261028-pilot@lần 1, 20261028-pilot@07:28Z.
+- Trước: 20261027 (3 lần) + 20261028 lần 1 (LÕI 9/50) + lần 2 @07:28Z (LÕI 5/38, IPA 1 lệch) → trượt; đã thêm ukStyle, ví dụ là câu, ADULT, dịch ngược vi AI (`viBtOk`).
+- Soát 29/10 `20261028-pilot@13:31Z` (54 mục, TB 5,4 ngôn ngữ/mục): LÕI 7/50 (vi Wiktionary sai nghĩa khoá: vanity "tính hư ảo", sway "đu"; vi AI: bequest "di chúc", pyre "lò hỏa táng"; ví dụ khác nghĩa: muscular a.01 vs "very muscular", snail ví dụ gượng; vinegar IPA Anh /ˈvɪnəɡəː/), DỊCH 2/50 (detriment ko 상해, resuscitate fr ressusciter), IPA 0/54 lệch → trượt, LX_PILOT=1.
+- Đã thêm: dịch ngược vi cho MỌI nguồn vi (cả Wiktionary), gốc def chỉ 3 từ nội dung đầu, `əː` = lỗ IPA Anh; test; requeue 54 mục. Còn ngỏ: ví dụ dùng nghĩa lân cận (muscular) mà giám khảo vẫn "sense yes".
+- Đã soát (so cả `at`): 20261027-pilot (lần 1–3), 20261028-pilot@lần 1, @07:28Z, @13:31Z.
 
 ## Chờ chủ
 - Xoá `~/Downloads/keys_export.txt` (khoá thật dạng chữ thường); cân nhắc đổi khoá quan trọng.

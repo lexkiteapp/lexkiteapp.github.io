@@ -40,7 +40,8 @@ export function btOk(e, l) {
 // dịch ngược vi→Anh của giám khảo (qa.viBtw) phải khớp ở ≥ 2 giám khảo: đầu mục / đồng nghĩa / lemma WordNet (btMatch) hoặc cùng gốc 5 chữ với 1 từ nội dung của def.
 export function viBtOk(e) {
   const bts = (e.qa && e.qa.viBtw) || [], syn = [...(e.syn || []), ...((e.qa && e.qa.viLem) || [])], st = x => x.slice(0, 5);
-  const D = new Set(words(e.def).filter(x => x.length >= 4 && !STOP.has(x)).map(st));
+  // gốc def: chỉ 3 từ nội dung ĐẦU (lõi nghĩa) – bequest "…left in a will": "will" ở đuôi def không chứng minh "di chúc" đúng nghĩa
+  const D = new Set(words(e.def).filter(x => x.length >= 4 && !STOP.has(x)).slice(0, 3).map(st));
   return bts.filter(b => btMatch(b, e.w, syn) || words(b).some(t => t.length >= 4 && !STOP.has(t) && D.has(st(t)))).length >= 2;
 }
 // Lỗ dữ liệu NGUỒN (IPA từ Wiktionary/CMUdict/espeak – không do AI soạn) ≠ lỗi nội dung → không bao giờ vào hàng duyệt; lượt sau làm lại.
@@ -101,8 +102,9 @@ export function gateEntry(e, { keep } = {}) {
   if (CE.includes(e.level) && (e.cefrSrc || 'freq') === 'freq' && Array.isArray(e.qa.cefrJ)) { const off = e.qa.cefrJ.filter(x => CE.includes(x)).map(x => Math.abs(CE.indexOf(x) - CE.indexOf(e.level))); if (off.some(d => d >= 2)) why.push('cefr: giám khảo lệch ≥ 2 bậc (' + e.qa.cefrJ.join('/') + ' ≠ ' + e.level + ')'); }
   // vi khác Wiktionary → giám khảo phân xử: cả 2 "ok" (giữ) hoặc đã sửa theo Wiktionary; còn lại → hàng duyệt
   if (Array.isArray(e.qa.vi) && !(e.qa.vi.every(x => x === 'ok') || e.qa.vi.every(x => x === 'fixed'))) why.push('dịch vi: khác Wiktionary, giám khảo chưa chắc (' + e.qa.vi.join('/') + ')');
-  if (((e.src && e.src.tr) || {}).vi === 'ai' && e.qa.viBtw) { if (e.qa.viBtw.length < 2) why.push('dịch vi: thiếu dịch ngược (giám khảo bỏ sót bt_vi)');
-    else if (!viBtOk(e)) why.push('dịch vi: AI lấp, dịch ngược không khớp (' + e.qa.viBtw.join(' / ').slice(0, 80) + ')'); }
+  // vi Wiktionary cũng dịch ngược (pilot 20261028@13:31Z: vanity "tính hư ảo", sway "đu" – Wiktionary đúng nghĩa KHÁC của từ)
+  if (e.qa.viBtw) { const ai = ((e.src && e.src.tr) || {}).vi === 'ai'; if (e.qa.viBtw.length < 2) why.push('dịch vi: thiếu dịch ngược (giám khảo bỏ sót bt_vi)');
+    else if (!viBtOk(e)) why.push('dịch vi: ' + (ai ? 'AI lấp' : 'Wiktionary') + ', dịch ngược không khớp (' + e.qa.viBtw.join(' / ').slice(0, 80) + ')'); }
   let bt = 0; const drop = {};
   for (const l of LANGS) {
     const t = (e.m || {})[l], sc = (e.qa.tr || {})[l] || [];

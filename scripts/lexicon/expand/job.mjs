@@ -205,7 +205,7 @@ for (const x of items) {
     ent.qa = { n: 3, j: { ...(a ? { [JK[x.k].a]: +a.s } : {}), ...(b ? { [JK[x.k].b]: +b.s } : {}), ...(c ? { [JK[x.k].c]: +c.s } : {}) }, f: J3.map(j => j && j.f).filter(Boolean), tr: {}, bt: null };
     for (const l of LANGS) ent.qa.tr[l] = J3.map(j => j && j.tr && +j.tr[l]).filter(Number.isFinite);
     ent.qa.btw = Object.fromEntries(LANGS.map(l => [l, J3.map(j => j && j.bt && j.bt[l]).filter(Boolean)]));
-    if (ent.src.tr.vi === 'ai') { ent.qa.viBtw = J3.map(j => j && typeof j.bt_vi === 'string' && j.bt_vi.trim()).filter(Boolean); ent.qa.viLem = x.lemmas || []; } // cổng dịch ngược vi (lib.mjs viBtOk)
+    { ent.qa.viBtw = J3.map(j => j && typeof j.bt_vi === 'string' && j.bt_vi.trim()).filter(Boolean); ent.qa.viLem = x.lemmas || []; } // cổng dịch ngược vi (lib.mjs viBtOk) – mọi nguồn vi (AI lấp + Wiktionary)
     // khóa nghĩa · CEFR độc lập · cờ phiên âm/khác từ loại · vi đối chiếu Wiktionary (lib.mjs gateEntry)
     ent.qa.sense = J3.map(j => j && (j.sense === true || /^\s*yes/i.test(String(j.sense))) ? 'yes' : String((j && j.sense) ?? 'missing').toLowerCase());
     ent.qa.cefrJ = J3.map(j => String((j && j.cefr) || '').toUpperCase());
