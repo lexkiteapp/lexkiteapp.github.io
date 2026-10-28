@@ -1588,3 +1588,34 @@ a > .i-dir:first-child, button > .i-dir:first-child { margin-inline-end: .2em; }
 body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; }
 /* 📱 Nút cài app trên thanh trên: vùng chạm ≥ 44×44 ở 360 px (mobile-qa: 38×35) */
 .top-stats #installBtn { min-width: 44px; min-height: 44px; justify-content: center; }
+/* 📕 Thẻ Sổ lỗi sai (#/mistakes): đầu thẻ = câu hỏi + (IPA + 1 loa) · hàng Câu trả lời ✗ / Đáp án ✓ · giải thích ngắn · nút một hàng. Chỉ dùng token. */
+.card.mb { display: flex; flex-direction: column; gap: var(--sp-3); margin-bottom: var(--sp-3); }
+.mb-top { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-2); flex-wrap: wrap; }
+.mb-q { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-1) var(--sp-2); font-weight: 600; font-size: var(--fs-md); line-height: 1.4; }
+.mb-qt { min-width: 0; overflow-wrap: anywhere; }
+.mb-pron { display: inline-flex; align-items: center; gap: var(--sp-2); white-space: nowrap; font-weight: 400; }
+.mb-pron .ipa { font-size: var(--fs-sm); }
+.mb-rt { display: flex; gap: var(--sp-2); align-items: center; }
+.mb-rt .input { flex: 1; min-width: 0; }
+.mb-body { display: flex; flex-direction: column; gap: var(--sp-2); }
+.mb-body[hidden] { display: none; }
+.mb-rows { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: var(--sp-2) var(--sp-3); align-items: center; }
+.mb-row { display: contents; }
+.mb-row dt { font-size: var(--fs-xs); font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .02em; }
+.mb-row dd { margin: 0; display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-1) var(--sp-2); min-height: 36px; padding: var(--sp-1) var(--sp-3); border-radius: var(--r-sm); font-size: var(--fs-sm); font-weight: 600; }
+.mb-row.no dd { background: var(--again-soft); color: var(--again-text); }
+.mb-row.ok dd { background: var(--good-soft); color: var(--good-text); }
+.mb-ic { font-weight: 800; flex: none; }
+.mb-v { min-width: 0; overflow-wrap: anywhere; }
+.mb-row dd .mb-pron { margin-inline-start: auto; color: var(--text); }
+.mb-tip { margin: 0; display: flex; gap: var(--sp-2); align-items: flex-start; font-size: var(--fs-sm); color: var(--muted); }
+.mb-tip .i { flex: none; width: 16px; height: 16px; margin-top: 2px; }
+.mb-acts { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; padding-top: var(--sp-3); border-top: 1px solid var(--line); }
+.mb-body .mb-acts { border-top: 0; padding-top: 0; }
+@media (max-width: 420px) { .mb-rows { grid-template-columns: 1fr; gap: var(--sp-1); } .mb-row dd { margin-bottom: var(--sp-1); } }
+/* 🔊 Câu + loa dùng chung: chữ chiếm hết dòng, loa cố định ở mép cuối (LTR/RTL), không trôi theo chỗ xuống dòng */
+.say-line { display: flex; align-items: flex-start; gap: var(--sp-2); }
+.say-line > .say-tx { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.say-line > .icon-btn { margin-block: -3px; }
+.say-line > button { flex: none; }
+.say-line > .ctx-say { margin: 0; }

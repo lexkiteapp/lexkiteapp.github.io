@@ -14,7 +14,7 @@
   const LZ = ['q', 'given', 'explain'];
   const tr = (x, f) => (x[f + 'K'] ? t(x[f + 'K'].k, x[f + 'K'].v) : x[f]);
   // Bản ghi cũ (lưu chữ đã dịch): nhận lại khóa từ mẫu tiếng Việt / tiếng Anh / ngôn ngữ hiện tại
-  const MK = ['{title} – câu {n}: {q}', '{title} – Câu {n}: {q}', 'Test {t} – Câu {n}: {q}', 'Thi thử – câu {n}: {q}', 'Từ tiếng Anh nghĩa là “{vi}”?', 'Điền từ: {sentence}', 'Nghĩa của “{word}”?', '(bỏ trống)', 'Nghe: “…{cue}…”', 'Tham khảo: “…{cue}…”'];
+  const MK = ['{title} – câu {n}: {q}', '{title} – Câu {n}: {q}', 'Test {t} – Câu {n}: {q}', 'Thi thử – câu {n}: {q}', 'Từ tiếng Anh nghĩa là “{vi}”?', 'Điền từ: {sentence}', 'Nghĩa của “{word}”?', 'Gõ lại từ bạn nghe được', '(bỏ trống)', 'Nghe: “…{cue}…”', 'Tham khảo: “…{cue}…”'];
   const unkey = s => {
     const D = window.I18N_DICT || {};
     for (const k of MK) for (const pat of new Set([k, D.en && D.en[k], D[I18N.lang()] && D[I18N.lang()][k]].filter(Boolean))) {
@@ -35,11 +35,32 @@
   }));
   const KIND = () => ({ vocab: [UI.icon('a-large-small'), t('Từ vựng')], grammar: [UI.icon('ruler'), t('Ngữ pháp')], reading: [UI.icon('book-open'), t('Đọc hiểu')], listening: [UI.icon('headphones'), t('Nghe')] });
 
-  // Loa + IPA (owner 28/10): từ ở câu hỏi "Nghĩa của …?" (không lộ đáp án) · từ/đáp án tiếng Anh trong phần đáp án (ẩn tới khi lộ ở chế độ làm lại)
+  // Thẻ lỗi sai (owner 28/10): MỖI từ chỉ 1 IPA + 1 loa · hàng "Câu trả lời của bạn ✗" (không đọc to) / "Đáp án ✓" · giải thích chỉ hiện phần CHƯA có trên thẻ.
+  // App.mistakeView(x) → { q, qSay, qIpa, given, ans, ansSay, ansIpa, tip } (thuần, có test scripts/test/speak-ipa.mjs).
   const vWord = x => (x.kind === 'vocab' && x.ref && /^[a-z][a-z' .-]*$/i.test(x.ref) ? x.ref : '');
-  const qWord = x => (x.qK && x.qK.k === 'Nghĩa của “{word}”?' && x.qK.v && x.qK.v.word) || '';
   const isEn = s => /[a-z]{2}/i.test(s) && /^[\x20-\x7E‘’“”–—…]+$/.test(s) && !/_{2,}/.test(s);
-  const ansSay = x => { const a = String(x.answer || '').trim(); if (!a || !isEn(a)) return ''; if (x.kind === 'vocab') return ''; /* từ vựng: loa + IPA ở dòng giải thích bên dưới */ return ' ' + UI.sayBtn(a); };
+  const LISTEN_Q = 'Gõ lại từ bạn nghe được';
+  const norm = s => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  App.mistakeView = x => {
+    const word = vWord(x), ans = String(x.answer || '').trim();
+    let q = tr(x, 'q'), qK = x.qK && x.qK.k;
+    const qW = (qK === 'Nghĩa của “{word}”?' && x.qK.v && x.qK.v.word) || '';
+    // Bản ghi cũ: câu "nghe & gõ lại" bị lưu nhầm là "Nghĩa của X?" với đáp án = chính X → hiện đúng dạng câu nghe
+    if (qW && norm(qW) === norm(ans)) { qK = LISTEN_Q; q = t(LISTEN_Q); }
+    const v = { q, qSay: '', qIpa: '', given: x.given ? tr(x, 'given') : '', ans, ansSay: '', ansIpa: '', tip: '' };
+    const en = ans && isEn(ans), short = x.kind === 'vocab' && ans.split(/\s+/).length <= 3;
+    if (qK === LISTEN_Q) { v.qSay = word || (en ? ans : ''); if (en && short) v.ansIpa = ans; } // câu nghe: loa ở đầu thẻ (không lộ chữ), chữ + IPA ở đáp án
+    else if (qW) { v.qSay = qW; v.qIpa = qW; } // "Nghĩa của X?": X + IPA + loa ở đầu thẻ; đáp án là nghĩa → không đọc
+    else if (en) { v.ansSay = ans; if (short) v.ansIpa = ans; } // đáp án tiếng Anh: 1 loa (từ vựng thêm IPA)
+    // Giải thích: bỏ phần đã hiện (từ, IPA, nghĩa); không bao giờ thêm IPA/loa lần hai
+    let tip = String(tr(x, 'explain') || '').trim();
+    const auto = word && new RegExp('^' + word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*(/[^/]*/)?\\s*=\\s*([\\s\\S]+)$', 'i').exec(tip);
+    if (auto) tip = auto[2].trim(); // "word /ipa/ = nghĩa" → chỉ còn nghĩa
+    const shown = norm([v.q, v.given, v.ans].join(' | '));
+    if (tip && (norm(tip) === norm(ans) || (auto && shown.includes(norm(tip))))) tip = '';
+    v.tip = tip;
+    return v;
+  };
   routes.mistakes = App.guard(async function (arg, query) {
     const w = App.W;
     const retry = !!(query && query.get && query.get('retry'));
@@ -54,19 +75,19 @@
     const draw = k => {
       const rows = open.filter(x => !k || x.kind === k);
       if (retry) rows.sort((a, b) => (b.n || 1) - (a.n || 1)); // làm lại: câu sai nhiều lần nhất lên trước
-      $('#mList').innerHTML = rows.length ? rows.map((x, i) => `<div class="card" style="margin-bottom:.7rem">
-        <div class="row between"><span class="chip">${KIND()[x.kind] ? KIND()[x.kind][0] + ' ' + KIND()[x.kind][1] : x.kind}</span><span class="tiny muted">${t('sai {n} lần', { n: x.n })} · ${new Date(x.at).toLocaleDateString(I18N.lang())}</span></div>
-        <div style="margin-top:.4rem;font-weight:600">${esc(tr(x, 'q'))}${qWord(x) ? ` ${UI.ipaTag(qWord(x))}${UI.sayBtn(qWord(x))}` : ''}</div>
-        ${retry ? `<div class="row" style="margin-top:.5rem;gap:.4rem" data-rt="${esc(x.key)}">${String(x.answer || '').split(/\s+/).length <= 4 ? `<input class="input" style="flex:1;min-width:0" placeholder="${t('Gõ đáp án của bạn')}" data-in><button class="btn sm primary" data-chk>${t('Kiểm tra')}</button>` : `<button class="btn sm primary" data-show>${t('Hiện đáp án')}</button>`}</div><div data-ans hidden>` : '<div>'}
-        ${x.given ? `<div class="small" style="margin-top:.3rem"><span style="color:var(--again-text)">✗ ${esc(tr(x, 'given'))}</span></div>` : ''}
-        <div class="small"><span style="color:var(--good-text)">✓ ${esc(x.answer)}</span>${ansSay(x)}</div>
-        ${x.explain ? `<div class="small muted" style="margin-top:.3rem">${UI.icon('lightbulb')} ${esc(tr(x, 'explain'))}${vWord(x) ? (/\//.test(tr(x, 'explain')) ? '' : ' ' + UI.ipaTag(vWord(x))) + ' ' + UI.sayBtn(vWord(x)) : ''}</div>` : vWord(x) ? `<div class="small" style="margin-top:.3rem" lang="en"><b>${esc(vWord(x))}</b> ${UI.ipaTag(vWord(x))}${UI.sayBtn(vWord(x))}</div>` : ''}
-        ${retry ? `<div class="row" style="margin-top:.4rem" data-self><button class="btn sm" data-ok>${UI.icon('circle-check')} ${t('Mình làm đúng')}</button><button class="btn sm ghost" data-no>✗ ${t('Vẫn sai')}</button></div>` : ''}</div>
-        <div class="row" style="margin-top:.6rem"><button class="btn sm" data-fix="${esc(x.key)}">✓ ${t('Đã hiểu')}</button>
+      $('#mList').innerHTML = rows.length ? rows.map(x => { const v = App.mistakeView(x); return `<div class="card mb">
+        <div class="mb-top"><span class="chip">${KIND()[x.kind] ? KIND()[x.kind][0] + ' ' + KIND()[x.kind][1] : esc(x.kind)}</span><span class="tiny muted">${t('sai {n} lần', { n: x.n })} · ${new Date(x.at).toLocaleDateString(I18N.lang())}</span></div>
+        <div class="mb-q"><span class="mb-qt">${esc(v.q)}</span>${v.qIpa || v.qSay ? `<span class="mb-pron" lang="en" dir="ltr">${v.qIpa ? UI.ipaTag(v.qIpa) : ''}${UI.sayBtn(v.qSay)}</span>` : ''}</div>
+        ${retry ? `<div class="mb-rt" data-rt="${esc(x.key)}">${String(x.answer || '').split(/\s+/).length <= 4 ? `<input class="input" placeholder="${t('Gõ đáp án của bạn')}" aria-label="${t('Gõ đáp án của bạn')}" data-in><button class="btn sm primary" data-chk>${t('Kiểm tra')}</button>` : `<button class="btn sm primary" data-show>${t('Hiện đáp án')}</button>`}</div><div class="mb-body" data-ans hidden>` : '<div class="mb-body">'}
+        <dl class="mb-rows">${v.given ? `<div class="mb-row no"><dt>${t('Câu trả lời của bạn')}</dt><dd><span class="mb-ic" aria-hidden="true">✗</span><span class="mb-v">${esc(v.given)}</span></dd></div>` : ''}
+          <div class="mb-row ok"><dt>${t('Đáp án')}</dt><dd><span class="mb-ic" aria-hidden="true">✓</span><span class="mb-v"${v.ansIpa || v.ansSay ? ' lang="en" dir="ltr"' : ''}>${esc(v.ans)}</span>${v.ansIpa || v.ansSay ? `<span class="mb-pron" lang="en" dir="ltr">${v.ansIpa ? UI.ipaTag(v.ansIpa) : ''}${UI.sayBtn(v.ansSay)}</span>` : ''}</dd></div></dl>
+        ${v.tip ? `<p class="mb-tip">${UI.icon('lightbulb')}<span>${esc(v.tip)}</span></p>` : ''}
+        ${retry ? `<div class="mb-acts" data-self><button class="btn sm" data-ok>${UI.icon('circle-check')} ${t('Mình làm đúng')}</button><button class="btn sm ghost" data-no>✗ ${t('Vẫn sai')}</button></div>` : ''}</div>
+        <div class="mb-acts"><button class="btn sm" data-fix="${esc(x.key)}">✓ ${t('Đã hiểu')}</button>
           ${x.kind === 'grammar' && x.ref ? `<a class="btn sm ghost" href="#/grammar/${esc(x.ref)}">${UI.icon('ruler')} ${t('Xem lại bài')}</a>` : ''}
           ${x.kind === 'vocab' && x.ref ? `<a class="btn sm ghost" href="#/dict/${encodeURIComponent(x.ref)}">${UI.icon('search')} ${t('Tra lại từ')}</a>${App.inDeck(x.ref) ? '' : `<button class="btn sm ghost" data-add-seed="${esc(x.ref)}">+ Flashcard</button>`}` : ''}
           ${x.kind === 'reading' && x.ref ? `<a class="btn sm ghost" href="#/read/${esc(x.ref)}">${UI.icon('book-open')} ${t('Đọc lại bài')}</a>` : ''}
-          ${x.kind === 'listening' && x.ref ? `<a class="btn sm ghost" href="#/listen/${esc(x.ref)}">${UI.icon('headphones')} ${t('Nghe lại phần này')}</a>` : ''}</div></div>`).join('')
+          ${x.kind === 'listening' && x.ref ? `<a class="btn sm ghost" href="#/listen/${esc(x.ref)}">${UI.icon('headphones')} ${t('Nghe lại phần này')}</a>` : ''}</div></div>`; }).join('')
         : `<div class="card empty"><div class="em">${UI.icon('party-popper')}</div>${t('Không có lỗi sai nào cần xem lại.')}</div>`;
       App.bindCommon(); UI.fillIpa($('#mList'));
       // Làm lại: tự nhớ đáp án trước khi xem (active recall) → đúng thì gỡ khỏi sổ, sai thì tăng số lần sai
