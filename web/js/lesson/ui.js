@@ -48,7 +48,7 @@
 .lsn-snd{display:flex;gap:.5rem;align-items:center}.lsn-sent{font-size:1.2rem;line-height:1.6}.lsn-gap{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--primary);text-align:center}
 .lsn-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:.6rem}
 .lsn-opt,.lsn-tile{border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);border-radius:14px;padding:.7rem .8rem;font:inherit;font-weight:700;cursor:pointer;min-height:48px}
-.lsn-opt[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px}
+.lsn-opt[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px;min-width:44px}.lsn-opt:disabled,.lsn-tile:disabled{cursor:default;opacity:1}
 .lsn-ans{min-height:3.4rem;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:.4rem;padding:.3rem 0}.lsn-bank{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
 .lsn-tile.used{visibility:hidden}.lsn-pic{width:min(220px,60vw);aspect-ratio:1;border-radius:16px;background:var(--surface-2);margin:0 auto;display:block;object-fit:cover}
 .lsn-mic{display:flex;flex-direction:column;align-items:center;gap:.5rem}.lsn-mic .btn{min-width:200px}
@@ -57,9 +57,9 @@
 .lsn-foot.ok{background:var(--good-soft);border-color:var(--good)}.lsn-foot.bad{background:var(--again-soft);border-color:var(--again)}
 .lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
 .lsn-fb p{margin:.15rem 0}.lsn-xp{background:var(--surface);border-radius:12px;padding:.6rem .8rem;margin-top:.4rem;max-height:40vh;overflow:auto}
-.lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem}
+.lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem;min-height:44px}
 .lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
-.lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
+.lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-match .lsn-opt{flex:1}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
 .lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;border-radius:18px;overflow:hidden;position:relative;background:var(--surface-2);transition:transform .2s ease,box-shadow .2s ease}
 .lsn-duo .tch.talk{transform:scale(1.06);box-shadow:0 0 0 4px var(--primary)}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
@@ -69,12 +69,12 @@
 .lsn-node{position:relative;transform:translateX(var(--x));display:flex;flex-direction:column;align-items:center}
 .lsn-dot{width:76px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);box-shadow:0 6px 0 var(--line);text-decoration:none}
 .lsn-dot svg{width:32px;height:32px}.lsn-node.done .lsn-dot{background:var(--good);color:#fff;box-shadow:0 6px 0 var(--good-text)}
-.lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:#fff;box-shadow:0 7px 0 var(--primary-ink);animation:lsnGlow 1.6s ease-in-out infinite}
+.lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:var(--primary-ink);box-shadow:0 7px 0 color-mix(in srgb,var(--primary) 62%,#000);animation:lsnGlow 1.6s ease-in-out infinite}
 .lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
 @keyframes lsnGlow{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 14px var(--primary))}}
 @keyframes lsnBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 /* game feel */
-.lsn-big{width:84px;height:84px;border-radius:22px;border:0;background:var(--primary);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 0 var(--primary-ink);font-size:1.6rem}
+.lsn-big{width:84px;height:84px;border-radius:22px;border:0;background:var(--primary);color:var(--primary-ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 0 color-mix(in srgb,var(--primary) 62%,#000);font-size:1.6rem}
 .lsn-big.sm{width:60px;height:60px;background:var(--surface-2);color:var(--text);box-shadow:0 4px 0 var(--line)}.lsn-big svg{width:36px;height:36px}.lsn-big:active{transform:translateY(3px);box-shadow:none}
 .lsn-snd{justify-content:center}.lsn-tile.pop{animation:lsnPop .2s ease}
 .lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.6rem;opacity:0;transform:scale(.4)}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
@@ -90,7 +90,7 @@
 
   let L = null; // bài đang chạy
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
-  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; const f = $('#lsnFoot'); if (f) f.remove(); };
+  const cleanup = () => { if (L) { if (L.ro) L.ro.disconnect(); if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; const f = $('#lsnFoot'); if (f) f.remove(); };
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
   const PKEY = demo => (demo ? 'lk.lsn.path.demo' : 'lk.lsn.path');
@@ -127,6 +127,8 @@
         : `<div class="lsn-ask"><div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
       <div id="lsnBody"></div></div>`;
     const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
+    // khung phản hồi cao lên (Vì sao?, chữ dài) → chừa đúng chừng ấy chỗ dưới nội dung để cuộn xem câu/đáp án phía trên, không bị che
+    if (window.ResizeObserver) { L.ro = new ResizeObserver(() => { const v = $('#lsn'); if (v) v.style.paddingBottom = Math.max(144, foot.offsetHeight + 16) + 'px'; }); L.ro.observe(foot); }
     // Chỉ bài thử (?demo=1): CI soát hình (scripts/test/new-ui-qa.mjs) nhảy thẳng tới 1 dạng bài – không đụng dữ liệu thật
     App.lessonDemo = demo ? { jump(type) { if (!L || L.dead) return false; const it = L.sess.q.find(x => x.type === type) || E.build(E.pickWords(DEMO(), { n: 4 }), { seed: 7, pool: DEMO(), hasImg: (w, p) => !!imgUrl(w, p), only: [type] })[0]; if (!it) return false; L.sess.q = [it].concat(L.sess.q.filter(x => x !== it)); next(); return true; },
       answer(ok) { const it = L && L.sess.cur; if (!it || L.checked) return false; const tk = String(it.answer || '').split(' '); submit(ok ? ({ build: tk, tr: tk, say: 0.9, pic: it.choice ? it.answer : 0.9, match: true }[it.type] ?? it.answer) : ({ build: tk.slice().reverse(), tr: tk.slice().reverse(), say: 0.3, pic: it.choice ? '#' : 0.3, match: false }[it.type] ?? '#wrong')); return true; } } : null;
@@ -275,6 +277,7 @@
   function submit(ans, heard) {
     if (!L || L.checked) return; L.checked = true;
     const it = L.sess.cur, ok = E.check(it, ans), r = L.sess.answer(ok);
+    document.querySelectorAll('#lsnBody button:not(.lsn-big), #lsnBody input').forEach(b => { b.disabled = true; }); // đã chấm → khóa đáp án (không còn nút bấm được nằm dưới khung phản hồi)
     bar();
     react(ok, r.combo);
     feedback(it, ok, heard);

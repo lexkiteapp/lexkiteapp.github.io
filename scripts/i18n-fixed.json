@@ -29309,5 +29309,20 @@
     "ar": "لقد تعلمت:",
     "ru": "Вы изучили:",
     "tr": "Öğrendiklerin:"
+  },
+  "Chuỗi {n} ngày": {
+    "es": "Racha de {n} días",
+    "pt": "Sequência de {n} dias",
+    "fr": "Série de {n} jours",
+    "de": "{n}-Tage-Serie",
+    "id": "{n} hari beruntun",
+    "th": "ต่อเนื่อง {n} วัน",
+    "zh": "连续 {n} 天",
+    "ja": "{n}日連続",
+    "ko": "{n}일 연속",
+    "hi": "{n} दिन का सिलसिला",
+    "ar": "سلسلة {n} يوم",
+    "ru": "Серия: {n} дн.",
+    "tr": "{n} günlük seri"
   }
 }

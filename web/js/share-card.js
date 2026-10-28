@@ -1,7 +1,7 @@
 /* ✨ Thẻ khoe thành tích [S1] – ảnh Story 9:16 (1080×1920) & bài đăng 1:1 (1080×1080) vẽ bằng Canvas ngay trên máy.
  * Chỉ dùng số liệu THẬT của người học (chuỗi ngày, thẻ ôn hôm nay, XP 7 ngày, % nhớ của phiên vừa xong, mục tiêu thi).
  * Bảo vệ cái tôi: ô có giá trị 0 bị ẩn, % nhớ chỉ hiện khi ≥ 80%; chưa có gì để khoe → lời động viên, không có thẻ.
- * Kit lấy từ web/js/kit.js (nguồn duy nhất), QR từ js/lib/qr.js. Chia sẻ qua LKFile (js/lib/save-file.js): navigator.share({files}) / bảng chia sẻ app gốc → không hỗ trợ thì tải ảnh + chép link.
+ * Nhân vật: CHỈ giáo viên Ama/Carlos 3D (teach/<who>/poster.jpg, như lớp giữ thói quen – không Kit/mascot khác), QR từ js/lib/qr.js. Chia sẻ qua LKFile (js/lib/save-file.js): navigator.share({files}) / bảng chia sẻ app gốc → không hỗ trợ thì tải ảnh + chép link.
  * Nạp lười qua App.need('share') (BUNDLES trong app.js); CSS & bản tiếng Anh (js/i18n/en/share.js) cũng nạp khi mở. */
 (function (g) {
   'use strict';
@@ -19,7 +19,7 @@
     const st = d.createElement('style'); st.id = 'sc-css';
     st.textContent = `.sc{display:grid;gap:.9rem;justify-items:center;text-align:center}.sc h2{margin:0;font-size:1.2rem}
 .sc-tabs{display:inline-grid;grid-template-columns:1fr 1fr;gap:.3rem;background:var(--surface-2);padding:.3rem;border-radius:999px}
-.sc-tabs button{border:0;background:none;padding:.5rem 1rem;border-radius:999px;font:inherit;font-weight:700;color:var(--muted);cursor:pointer;min-height:40px}
+.sc-tabs button{border:0;background:none;padding:.5rem 1rem;border-radius:999px;font:inherit;font-weight:700;color:var(--muted);cursor:pointer;min-height:44px}
 .sc-tabs button[aria-selected=true]{background:var(--surface);color:var(--text);box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .sc canvas{display:block;width:auto;max-width:100%;height:auto;max-height:min(56vh,520px);border-radius:16px;box-shadow:0 14px 34px rgba(15,61,62,.25);background:${C.teal}}
 .sc-act{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center}.sc-act .btn{min-height:44px}`;
@@ -44,6 +44,7 @@
   function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); return; } ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
   // Chữ dài (tiếng Đức, Nga…) tự thu nhỏ cho vừa khung, không tràn
   function fit(ctx, text, x, y, maxW, size, weight, F) { let s = size; do { ctx.font = `${weight} ${s}px ${F}`; } while (ctx.measureText(text).width > maxW && (s -= 2) > 14); ctx.fillText(text, x, y); }
+  const TEACH = n => `teach/${n % 2 ? 'carlos' : 'ama'}/poster.jpg`;
   const img = src => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
 
   async function render(cv, S, story) {
@@ -62,10 +63,10 @@
     const lw = ctx.measureText('lex').width, kw = ctx.measureText('kite').width, wx = (W - lw - kw) / 2;
     ctx.save(); ctx.direction = 'ltr'; ctx.fillStyle = '#fff'; ctx.fillText('lex', wx, top);
     const kg = ctx.createLinearGradient(wx + lw, 0, wx + lw + kw, 0); kg.addColorStop(0, C.coral); kg.addColorStop(1, C.orange); ctx.fillStyle = kg; ctx.fillText('kite', wx + lw, top); ctx.restore();
-    // Kit trên đĩa kem (Kit màu teal đậm – cần nền sáng để nổi trên nền tối)
-    const ks = story ? 360 : 230, ky = story ? 250 : 150, cx = W / 2;
-    ctx.fillStyle = C.cream; ctx.beginPath(); ctx.arc(cx, ky + ks / 2, ks / 2 + (story ? 40 : 26), 0, Math.PI * 2); ctx.fill();
-    if (g.Kit) try { const sv = Kit.svg(S.acc || S.streak >= 3 ? 'win' : 'cheer', ks, false).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" '); ctx.drawImage(await img('data:image/svg+xml;charset=utf-8,' + encodeURIComponent(sv)), cx - ks / 2, ky, ks, ks); } catch (e) { /* bỏ qua */ }
+    // Giáo viên Ama/Carlos 3D trong khung tròn trên đĩa kem (mốc lẻ Carlos, chẵn Ama – cùng luật lớp giữ thói quen); ảnh 480×640 → cắt vuông phần đầu
+    const ks = story ? 360 : 230, ky = story ? 250 : 150, cx = W / 2, r0 = ks / 2;
+    ctx.fillStyle = C.cream; ctx.beginPath(); ctx.arc(cx, ky + r0, r0 + (story ? 40 : 26), 0, Math.PI * 2); ctx.fill();
+    try { const im = await img(TEACH(S.streak)); ctx.save(); ctx.beginPath(); ctx.arc(cx, ky + r0, r0, 0, Math.PI * 2); ctx.clip(); ctx.drawImage(im, 0, 0, 480, 480, cx - r0, ky, ks, ks); ctx.restore(); } catch (e) { /* ngoại tuyến chưa đệm ảnh → chỉ đĩa kem */ }
     // Tiêu đề & lời chúc
     const title = S.streak >= 3 ? '🔥 ' + T('Chuỗi {n} ngày', { n: S.streak }) : S.acc ? T('Trí nhớ siêu đỉnh!') : S.today >= S.goal ? T('Xong mục tiêu hôm nay!') : T('Hôm nay mình đã học bài!');
     const ty = story ? 760 : 480; ctx.textAlign = 'center'; ctx.fillStyle = '#fff';
@@ -104,7 +105,7 @@
     await dict(); css();
     const S = stats(+acc || 0), { modal, toast, download } = g.UI;
     if (!S.streak && !S.today) { // chưa có gì để khoe → động viên, không có thẻ
-      const box = modal(`<div class="sc">${g.Kit ? Kit.svg('sleep', 110) : '☕'}<h2>${T('Não bạn đang ở chế độ nghỉ dưỡng')}</h2><p class="muted">${T('Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.')}</p><div class="sc-act"><a class="btn primary" href="#/review" data-close>${T('Ôn ngay')}</a><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div></div>`);
+      const box = modal(`<div class="sc"><img src="${TEACH(0)}" alt="Ama" width="110" height="110" style="width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:top" decoding="async"><h2>${T('Não bạn đang ở chế độ nghỉ dưỡng')}</h2><p class="muted">${T('Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.')}</p><div class="sc-act"><a class="btn primary" href="#/review" data-close>${T('Ôn ngay')}</a><button type="button" class="btn ghost" data-close>${T('Đóng')}</button></div></div>`);
       box.setAttribute('aria-label', T('Khoe thành tích')); return;
     }
     const box = modal(`<div class="sc"><h2 id="scTitle">✨ ${T('Khoe thành tích')}</h2>
