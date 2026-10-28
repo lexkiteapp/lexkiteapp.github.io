@@ -32,4 +32,14 @@ for who in R['people']:
                 ImageDraw.Draw(base).text((20, H // 2), 'PENDING', fill=(220, 40, 40))
             sheet.paste(base.resize(CELL), (x, y + 20)); d.text((x, y + 4), f'{who} · {k}', fill=(0, 0, 0))
         y += CELL[1] + 24
+# 🔍 phóng 2× mép (đỉnh tóc · vai trái · vai phải) trên nền sáng + tối – soát viền: không quầng, không ánh xanh, không khung
+crops = []
+for who in R['people']:
+    im = Image.open(f'{T}/{who}/poster.webp').convert('RGBA'); A = im.getchannel('A'); x0, y0, x1, y1 = A.getbbox(); cx = (x0 + x1) // 2
+    for name, box in (('tóc', (cx - 50, max(0, y0 - 8), cx + 50, y0 + 67)), ('vai trái', (x0 - 8, H // 2, x0 + 92, H // 2 + 75)), ('vai phải', (x1 - 92, H // 2, x1 + 8, H // 2 + 75))):
+        for bg in BGS:
+            b = Image.new('RGBA', (box[2] - box[0], box[3] - box[1]), bg + (255,)); b.alpha_composite(im.crop(box)); crops.append((f'{who} {name}', b.convert('RGB').resize((200, 150), Image.NEAREST)))
+cols2 = 6; strip = Image.new('RGB', (sheet.width, ((len(crops) + cols2 - 1) // cols2) * 172 + 30), (255, 255, 255)); d2 = ImageDraw.Draw(strip); d2.text((6, 6), 'Mép phóng 2× (soát tách nền)', fill=(0, 0, 0))
+for i, (lbl, c) in enumerate(crops): x, y = 6 + (i % cols2) * 210, 26 + (i // cols2) * 172; strip.paste(c, (x, y + 16)); d2.text((x, y), lbl, fill=(0, 0, 0))
+full = Image.new('RGB', (sheet.width, sheet.height + strip.height), (255, 255, 255)); full.paste(sheet, (0, 0)); full.paste(strip, (0, sheet.height)); sheet = full
 os.makedirs(os.path.dirname(OUT) or '.', exist_ok=True); sheet.save(OUT, quality=85); print(OUT, sheet.size)

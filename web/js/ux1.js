@@ -223,7 +223,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-lbl{margin-top:.45rem;font-weight:700;font-size:var(--fs-sm);color:var(--text);text-align:center;display:flex;flex-direction:column;line-height:1.2}
 .ux1-lbl small{font-size:.68rem;color:var(--gold-text);text-transform:uppercase;letter-spacing:.05em;font-weight:800}
 .ux1-n.lock .ux1-lbl{color:var(--muted)}
-.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;background:var(--surface-2);border:3px solid var(--surface);box-shadow:var(--shadow)}
+.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:52px;height:52px;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 3px 3px rgb(0 0 0 / .22))}
 .ux1-go{animation:none!important;min-width:200px}
 @keyframes ux1Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
@@ -258,7 +258,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-stat span:first-child{color:var(--primary-text)}.ux1-stat span:last-child{color:var(--gold-text)}
 .ux1-today{display:flex;flex-direction:column;gap:.45rem;color:var(--text);text-decoration:none}.ux1-today small{color:var(--muted)}
 .ux1-promo{display:flex;gap:.5rem;flex-wrap:wrap}.ux1-promo:not(:has(a:not([hidden]))){display:none}.ux1-promo .btn{min-height:44px}
-@media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}.ux1-unit{flex-direction:column}.ux1-uside{flex-direction:row;flex-wrap:wrap;align-items:flex-start}.ux1-tch{width:40px;height:40px}}
+@media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}.ux1-unit{flex-direction:column}.ux1-uside{flex-direction:row;flex-wrap:wrap;align-items:flex-start}.ux1-tch{width:44px;height:44px}}
 /* chuyển động: chỉ transform/opacity (60 fps), View Transitions cho đổi tab, @starting-style cho thẻ cột phải */
 .ux1-n{animation:ux1In .34s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i,0) * 45ms)}
 @keyframes ux1In{from{opacity:0;transform:translateX(var(--x)) scale(.7)}to{opacity:1;transform:translateX(var(--x)) scale(1)}}

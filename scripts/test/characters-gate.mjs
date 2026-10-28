@@ -68,5 +68,19 @@ const off = lib.filter(i => !IDS.includes(i.who)), legacy = lib.filter(i => IDS.
 if (off.length || legacy.length) console.log(`⚠ kho video: ${off.length} ảnh nhân vật ngoài registry (${[...new Set(off.map(i => i.who))]}) + ${legacy.length} ảnh Ama/Carlos kiểu cũ – ${LIB_WAIVE}`);
 if (/HOST_CLIPS\s*=\s*dict\(/.test(fs.readFileSync('scripts/video/tpl/tokens.py', 'utf8'))) errs.push('scripts/video/tpl/tokens.py: HOST_CLIPS phải lấy từ registry (teach.registry.video_clips)');
 
+// ---------- 4) hoà vào nền: KHÔNG khung/ô màu/viền quanh giáo viên (chủ 28/10) + không ảnh mẫu/ảnh ngoài ----------
+const TCH = /\.(?:ux1-tch|ret-teach|tch|tch-rig|tch-poster|tch-cv|chr)(?![\w-])/, FRAME = /(?:^|;)\s*(?:border(?:-radius)?|outline|box-shadow|background(?:-color|-image)?)\s*:\s*(?!none|transparent|0\b)/;
+const PLACE = /https?:\/\/[^"'\s)]*(?:googleusercontent|unsplash|pravatar|picsum|randomuser|placehold|placeholder\.com|dummyimage|ui-avatars|gravatar|loremflickr|fakeimg|thispersondoesnotexist)/gi;
+for (const f of [...ROOTS, 'content/video', 'scripts/video', 'docs/mocks'].flatMap(walk)) {
+  if (!/\.(m?js|html|css|json|tsx?|py|svg)$/.test(f) || f === 'scripts/test/characters-gate.mjs') continue;
+  const s = fs.readFileSync(f, 'utf8'); if (s.length > 4e6) continue;
+  for (const m of s.matchAll(PLACE)) errs.push(`${f}: ảnh mẫu/ảnh người ngoài "${m[0].slice(0, 80)}" – chỉ dùng tài sản của mình (nhân vật: registry)`);
+  if (!/\.(m?js|css|html)$/.test(f)) continue;
+  for (const m of s.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const sel = m[1].split(',').filter(x => TCH.test(x) && !/::?(after|before)/.test(x));
+    if (sel.length && FRAME.test(m[2])) errs.push(`${f}: "${sel[0].trim().slice(-50)}" có khung/viền/nền (${m[2].match(FRAME)[0].trim()}) – giáo viên phải đứng tự do trên nền trang (drop-shadow, không ô/vòng tròn)`);
+  }
+}
+
 if (errs.length) { console.error(`✗ characters-gate: ${errs.length} lỗi\n  ` + errs.slice(0, 60).join('\n  ')); process.exit(1); }
 console.log(`✓ characters-gate: 2 giáo viên 2D (${IDS}), ${want.size} tệp khớp sha256, không tham chiếu nhân vật ngoài registry`);
