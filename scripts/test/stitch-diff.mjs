@@ -60,7 +60,10 @@ for (const scheme of ['dark', 'light']) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
     if (k === 'lesson' || k === 'feedback') await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
-    const buf = await page.screenshot({ fullPage: true }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
+    // ảnh trọn màn như mẫu: khung cao bằng nội dung → thanh dưới/chân cố định nằm đúng đáy, không lọt giữa ảnh; cuộn về đầu, bỏ focus
+    const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
+    await page.setViewportSize({ width: W, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(300);
+    const buf = await page.screenshot(); await page.setViewportSize({ width: W, height: 844 }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
     await page.addScriptTag({ path: AXE }).catch(() => {});
     a11y[`${k}-${scheme}`] = await page.evaluate(async () => { if (!window.axe || !document.querySelector('.st')) return { skipped: true };
       const r = await axe.run({ include: [...document.querySelectorAll('.st')] }, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } });
