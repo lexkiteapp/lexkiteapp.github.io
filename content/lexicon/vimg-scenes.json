@@ -17465,6 +17465,13 @@
    "who": 2,
    "by": "openai/gpt-oss-120b"
   },
+  "stick#v": {
+   "ex": "Stick the label on the front of the box.",
+   "sc": "person A stands in front of an open cardboard box, holding a rectangular paper in one hand and pressing it onto the box's front surface with the other hand",
+   "cap": "a person attaching a paper to a box",
+   "who": 1,
+   "by": "@cf/openai/gpt-oss-120b"
+  },
   "sticker#n": {
    "ex": "Please put a price sticker on each item before opening the store.",
    "sc": "a shop employee uses a hand to press a small adhesive sticker onto the price tag of a product on a shelf",
@@ -17591,6 +17598,13 @@
    "cap": "a person tying a parcel with a thin rope",
    "who": 1,
    "by": "openai/gpt-oss-120b"
+  },
+  "stripe#n": {
+   "ex": "The company logo has a bright blue stripe under its name.",
+   "sc": "a rectangular billboard displays a blank space where a name would be, and directly beneath it a wide horizontal bright blue band runs across the surface",
+   "cap": "a sign with a blue band below a blank title area",
+   "who": 0,
+   "by": "@cf/openai/gpt-oss-120b"
   },
   "strong#adj": {
    "ex": "You need strong shoes for walking in the mountains.",

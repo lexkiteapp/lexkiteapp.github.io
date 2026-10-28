@@ -79,12 +79,6 @@
    "why": "vision description-sentence sim 0.0577",
    "b": "40088424311"
   },
-  "color#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.18",
-   "b": "40276144478"
-  },
   "complain#v": {
    "at": "2026-10-24",
    "tries": 4,
@@ -168,12 +162,6 @@
    "tries": 4,
    "why": "clip-sentence sim 0.1688; vision description-sentence sim 0.091",
    "b": "40088424311"
-  },
-  "fine#adj": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.2101",
-   "b": "40276144478"
   },
   "flexible hours#n": {
    "at": "2026-10-24",
@@ -427,12 +415,6 @@
    "why": "vision: no (requester and specific example); clip-sentence sim 0.2003; vision description-sentence sim -0.0184",
    "b": "40088424311"
   },
-  "talk#v": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1727",
-   "b": "40276144478"
-  },
   "terrible#adj": {
    "at": "2026-10-26",
    "tries": 4,
@@ -462,12 +444,6 @@
    "tries": 4,
    "why": "vision: no (no clear improvement action); vision: text; vision description-sentence sim 0.1487",
    "b": "40088424311"
-  },
-  "water#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (request action unclear)",
-   "b": "40276144478"
   },
   "weak#adj": {
    "at": "2026-10-24",
