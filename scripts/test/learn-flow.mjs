@@ -307,7 +307,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   ok($$('#view .btn.primary.lg').length === 1 && $('#todayPlan.home-hero .home-hero-k') && $('#todayPlan details.plan-more .plan-item'), 'trang chủ: 1 thẻ Học tiếp, 1 nút chính, kế hoạch thu gọn trong thẻ');
   const more = $('.home-more');
   ok(more && ['.rings-card', '.quest-line', '#leagueHomeCard', 'a[href="#/quick"]', 'a[href="#/confidence"]', '.wotd'].every(s => more.querySelector(s)) && $('.home-more-h'), 'trang chủ: khối phụ đủ (3 vòng, nhiệm vụ, giải đấu, chơi nhanh, giao tiếp, từ của ngày) dưới "Thêm cho hôm nay"');
-  ok(!w.document.querySelector('.topbar [data-lsw]') && /lang-select|data-lang-pick/.test(w.App.langPicker()), 'thanh trên không còn nút ngôn ngữ (đổi ở Cài đặt)');
+  ok(w.document.querySelector('.topbar [data-lsw] #langBtn') && w.document.querySelector('.topbar #langMenu[data-lang-pick]') && /lang-select|data-lang-pick/.test(w.App.langPicker()), 'thanh trên CÓ nút ngôn ngữ 🌐 (chủ 28/10) + vẫn đổi được ở Cài đặt');
   ok(/\.bottom-nav \.badge \{[^}]*width: 9px[^}]*(font-size: 0|font-size: \d+px;[^}]*color: transparent)/.test(css), 'tab Từ vựng: chấm nhỏ thay số đỏ'); // số ẩn bằng font-size 0 hoặc chữ trong suốt (font audit #98)
   // chuyển dữ liệu người dùng cũ: kỳ thi → gói; giữ XP/chuỗi/bản ghi ngày cũ
   const xp0 = S.game.xp, rec0 = await w.Core.Store.get('pathDays', {});
