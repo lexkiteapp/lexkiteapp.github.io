@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ tới 20k (docs/LEXICON.md §Mở rộng 20k) – việc nền `lexicon-expand` (infra/jobs.json), chạy trên CI, tiếp tục được, idempotent.
-//   node scripts/lexicon/expand/job.mjs --candidates <candidates.json> --cmu <cmudict.dict> [--n 400] [--pilot] [--calls 400] [--batch <id>] [--dry] [--no-retry]
+//   node scripts/lexicon/expand/job.mjs --candidates <candidates.json> --cmu <cmudict.dict> [--britfone <britfone.main.csv>] [--n 400] [--pilot] [--calls 400] [--batch <id>] [--dry] [--no-retry]
 // Mỗi từ: IPA Mỹ CMUdict (BSD-2) · IPA Anh Wiktionary qua kaikki.org (CC BY-SA 4.0, ghi công) · nghĩa WordNet làm khung
 //   → /api/lexai lxgen (Gemini: định nghĩa ≤ B1, 2 ví dụ, cụm, đồng nghĩa, CEFR, chủ đề, vi, lỗi hay gặp vi) → lxtr (13 ngôn ngữ)
 //   → 2 giám khảo KHÁC HỌ (gemini + gemma) chấm mục + từng bản dịch + dịch ngược → cổng (scripts/lexicon/expand/lib.mjs gateEntry).
@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 // xuất = `promote.mjs` sau khi soát mẫu ≥ 5 % (docs/CONTENT-QA.md lớp 6) → content/lexicon/expand/<lô>.json + content/qa/batches/lx-<lô>.json.
 import fs from 'fs';
 import { execFileSync } from 'child_process';
-import { arpaToIpa, badChars } from '../ipa.mjs';
+import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
 import { gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap } from './lib.mjs';
@@ -17,6 +17,7 @@ import { createPool, judgeKey } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
 import { parseCmu, pickPron, heteronym, ipaAgrees } from './cmu.mjs';
+import { loadRefs, checkEntry } from '../ipa-check.mjs';
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const N = +arg('--n', 400), CALLS = +arg('--calls', 400), PILOT = process.argv.includes('--pilot'), DRY = process.argv.includes('--dry'), NORETRY = process.argv.includes('--no-retry'); // --no-retry: lượt kiểm nhỏ, không đụng danh sách làm lại
 const API = process.env.LEXAI_URL || 'https://lexkite.com/api/lexai';
@@ -42,6 +43,8 @@ console.log(`lexicon-expand ${BATCH}: ${pool.length} từ (đã có ${done.size}
 
 // ---- IPA: CMUdict (Mỹ) + Wiktionary/kaikki (Anh, Mỹ dự phòng)
 const CMU = parseCmu(fs.readFileSync(arg('--cmu'), 'latin1'));
+// Kiểm IPA trước khi ghi lô (ipa-check.mjs checkEntry): Anh ↔ Britfone (MIT), Mỹ ↔ CMUdict; thiếu --britfone → tải 1 lần (BRITFONE_URL)
+const REFS = { cmu: CMU, bf: (await loadRefs({ britfone: arg('--britfone'), cmu: arg('--cmu') })).bf };
 // Mỹ: biến thể CMUdict THEO TỪ LOẠI (cmu.mjs pickPron – reuse#v /riˈjuːz/). Anh: Wiktionary theo từ loại; từ đổi trọng âm/hữu thanh danh–động
 // (heteronym) → chọn ứng viên Anh KHỚP biến thể Mỹ đã chọn (ipaAgrees); không ứng viên nào khớp → trượt 'ipa-pos' (hàng duyệt, không đoán).
 // UK: Wiktionary → (thiếu) espeak-ng en-gb đã hiệu chuẩn (espeak-calib.mjs: 300 từ, khớp gần 94 % ≥ 90 %) → src.ipaUK = 'espeak'.
@@ -190,7 +193,7 @@ const queue = fs.existsSync(new URL(QUEUE, ROOT)) ? JSON.parse(rd(QUEUE)) : { _d
 const why = {}, gaps = new Set();
 for (const x of items) {
   const g = G[x.k], c = x._c;
-  const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk, ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: c.cefr, // CEFR: CEFR-J/Octanove → dải tần suất; AI KHÔNG đặt cấp (chỉ cờ lệch ở cổng)
+  const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk && ukStyle(x._ipa.uk), ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: c.cefr, // CEFR: CEFR-J/Octanove → dải tần suất; AI KHÔNG đặt cấp (chỉ cờ lệch ở cổng)
      cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
@@ -213,12 +216,18 @@ for (const x of items) {
   // hạ tầng (không sinh được / không dịch được / thiếu 2 giám khảo) ≠ lỗi nội dung → bỏ qua, lượt sau làm lại
   if (ent && ent.defChanged) { /* nội dung: viết lại đổi nghĩa → cổng */ } else if ((ent && g.keep !== false && g.def && (!T[x.k] || !JK[x.k] || ent.ex.length !== 2)) || !g) { // !g: gọi lỗi HOẶC mô hình bỏ sót mục → lượt sau làm lại (không đốt từ vào hàng duyệt)
     why.infra = (why.infra || 0) + 1; continue; }
+  // IPA khớp nguồn (chủ 28/10, pilot 20261028 uninteresting US /əˈnɪntrəstɪŋ/): lệch → sửa theo Britfone/CMU (1 phương án) hoặc trượt 'ipa: lệch Britfone/CMU …'
+  if (ent) { const c = checkEntry(ent, REFS);
+    if (c.fix.length) { ent.ipa = c.ipa; ent.ipaUS = c.ipaUS; ent.src.ipaFix = c.fix; if (c.fix.some(f => /ukToUs/.test(f))) ent.src.ipaUS = 'ukToUs'; stat.ipaFix = (stat.ipaFix || 0) + 1; }
+    if (c.bad.length) { ent.ipaBad = c.bad; stat.ipaBad = (stat.ipaBad || 0) + 1; } }
   const r = gateEntry(ent, { keep: g ? g.keep !== false : null, keepWhy: g && g.why });
   if (hasGap(r)) { why.gap = (why.gap || 0) + 1; gaps.add(x.k); continue; } // có lỗ dữ liệu nguồn (thiếu IPA…, kể cả kèm lỗi nội dung – vd. 20261027-pilot) → không vào hàng duyệt, lượt sau sinh lại
   if (r.ok) { ent.qa.bt = r.bt; delete ent.qa.btw; if (r.drop) { for (const l of Object.keys(r.drop)) delete ent.m[l]; ent.qa.trDrop = r.drop; ent.qa.trKeep = r.keep.filter(l => ent.m[l]); delete ent.perLang; } pend.items[x.k] = ent; }
   else if (!queueable(r, callOk.get(x.k))) { why.infra = (why.infra || 0) + 1; }
   else { why[r.why[0].split(':')[0]] = (why[r.why[0].split(':')[0]] || 0) + 1; queue.items = queue.items.filter(q => !(q.src === 'lexicon-expand' && q.id === x.k)); queue.items.push({ src: 'lexicon-expand', id: x.k, batch: BATCH, why: r.why.slice(0, 4), at: new Date().toISOString().slice(0, 10), ...(ent ? { data: ent } : {}) }); }
 }
+// lưới cuối: KHÔNG bao giờ ghi IPA lệch vào lô chờ (kể cả mục cũ của cùng lô) – cùng kiểm với promote.mjs
+for (const [k, e] of Object.entries(pend.items)) { const c = checkEntry(e, REFS); if (c.bad.length || c.fix.length) { console.error(`✗ ${k}: IPA lệch nguồn – bỏ khỏi lô (${[...c.fix, ...c.bad].join(' · ')})`); delete pend.items[k]; stat.ipaDrop = (stat.ipaDrop || 0) + 1; } }
 pend.n = Object.keys(pend.items).length;
 fs.mkdirSync(new URL('content/lexicon/expand/pending/', ROOT), { recursive: true });
 if (pend.n) wr(PEND, JSON.stringify(pend, null, 0).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
@@ -232,7 +241,7 @@ for (const x of items) { const e = pend.items[x.k]; if (!e || !e.src || !e.src.e
   for (const l of LANGS) cov.tr[(e.src.tr || {})[l] === 'wiktionary' ? 'wiktionary' : 'ai']++; cov.vi[(e.src.tr || {}).vi === 'wiktionary' ? 'wiktionary' : 'ai']++;
   cov.col[e.col.length ? 'src' : 'none']++; cov.syn[e.syn.length ? 'wordnet' : 'none']++; cov.cefr[e.cefrSrc] = (cov.cefr[e.cefrSrc] || 0) + 1; }
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
-const rep = { batch: BATCH, n: items.length, pass, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
+const rep = { batch: BATCH, n: items.length, pass, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
 AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 // kho AI cạn hoàn toàn (mọi mục bỏ qua hạ tầng, không mục nào vào hàng duyệt) = KHÔNG phải lỗi: lịch 3 giờ thử lại (27/10 – kho CF cửa sổ 24 giờ trượt)

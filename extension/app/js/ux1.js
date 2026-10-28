@@ -251,7 +251,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 @media (min-width:1024px){
   body.ux1 .shell{grid-template-columns:232px minmax(0,1fr) 340px}
   body.ux1:not(.focus):not(.bare) .ux1-rail{display:flex;flex-direction:column;gap:.8rem;position:sticky;top:0;height:100vh;overflow-y:auto;padding:1.2rem 1.2rem 1.2rem .4rem}
-  body.ux1.focus .shell,body.ux1.bare .shell{grid-template-columns:232px minmax(0,1fr)}
+  body.ux1.focus .shell,body.ux1.bare .shell{grid-template-columns:minmax(0,1fr)}
   body.ux1 .ux1-exam-top{display:none}
 }
 .ux1-stat{display:flex;gap:1rem;justify-content:space-around;font-size:var(--fs-md);padding:.3rem 0}.ux1-stat span{display:inline-flex;gap:.35rem;align-items:center}

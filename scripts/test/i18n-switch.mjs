@@ -22,7 +22,7 @@ const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replac
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));
 const rel = f => path.relative(process.cwd(), path.join(WEB, f));
-const EN = (() => { const c = { self: {} }; c.self = c; vm.createContext(c); vm.runInContext(fs.readFileSync(path.join(WEB, 'js/i18n/en.js'), 'utf8'), c); return c.I18N_DICT.en; })();
+const EN = (() => { const c = { self: {} }; c.self = c; vm.createContext(c); for (const f of ['js/i18n/en.js', 'js/i18n/en/lazyui.js']) vm.runInContext(fs.readFileSync(path.join(WEB, f), 'utf8'), c); return c.I18N_DICT.en; })(); // lazyui: khóa ra khỏi en.js 28/10, vẫn là khóa giao diện
 const VIK = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i; // khóa tiếng Việt (rộng hơn VI: VI chỉ gồm dấu không có trong es/fr/pt)
 const UI_KEYS = new Set(Object.keys(EN).filter(k => VIK.test(k) && !/\{\w+\}/.test(k)));
 const UI_TPL = Object.keys(EN).filter(k => VIK.test(k.replace(/\{\w+\}/g, '')) && k.replace(/\{\w+\}/g, '').trim().length >= 6 && /\{\w+\}/.test(k) && !/[<>]/.test(k))
