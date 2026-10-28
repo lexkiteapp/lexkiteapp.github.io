@@ -117,7 +117,7 @@
     $('#sVoice').onchange = e => { s.voice = { ...(s.voice || {}), [s.accent]: e.target.value }; save(); UI.tts('This is how I will read words and sentences to you.', s.accent); };
     $('#sRate').oninput = e => { s.ttsRate = +e.target.value; $('#vRate').textContent = s.ttsRate.toFixed(2) + '×'; save(); };
     $('#sTry').onclick = () => UI.tts('Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.', s.accent);
-    $('#sAccent').onchange = e => { s.accent = e.target.value; save(); fillVoices(); speak('pronunciation', s.accent); };
+    $('#sAccent').onchange = e => { s.accent = e.target.value; s.accentPicked = true; save(); fillVoices(); speak('pronunciation', s.accent); };
     $('#sAuto').onchange = e => { s.autoSpeak = e.target.checked; save(); };
     $('#sWhisper').onchange = e => { s.whisperMode = e.target.checked; save(); if (s.whisperMode) toast(t('Hãy đeo tai nghe và nói thì thầm vào micro – không làm phiền người xung quanh.'), 4500); };
     $('#sHq').onchange = e => { s.hqVoice = e.target.checked; save(); };

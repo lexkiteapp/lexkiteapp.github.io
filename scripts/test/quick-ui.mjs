@@ -21,7 +21,7 @@ global.t = window.t = (k, p) => {
   return s;
 };
 
-window.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, glyph: e => e, sayBtn: w => `<button type="button" class="icon-btn sm" data-speak="${w}"></button>`, ipaTag: () => "", fillIpa: () => {},
+window.UI = { icon: (n, cls) => `<svg class="i${cls ? ' ' + cls : ''}" aria-hidden="true"><use href="#i-${n}"/></svg>`, addIcons: () => {}, glyph: e => e, sayBtn: w => `<button type="button" class="icon-btn sm" data-speak="${w}"></button>`, ipaHtml: q => (q && q.ipa ? `<span class="ipa" translate="no">${q.ipa}</span>` : ""), ipaTag: () => "", fillIpa: () => {},
   $: s => document.querySelector(s),
   $$: s => document.querySelectorAll(s),
   esc: s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]),

@@ -29309,5 +29309,50 @@
     "ar": "لقد تعلمت:",
     "ru": "Вы изучили:",
     "tr": "Öğrendiklerin:"
+  },
+  "dạng yếu": {
+    "es": "forma débil",
+    "pt": "forma fraca",
+    "fr": "forme faible",
+    "de": "schwache Form",
+    "id": "bentuk lemah",
+    "th": "รูปเบา",
+    "zh": "弱读式",
+    "ja": "弱形",
+    "ko": "약형",
+    "hi": "कमज़ोर रूप",
+    "ar": "الصيغة الضعيفة",
+    "ru": "слабая форма",
+    "tr": "zayıf biçim"
+  },
+  "dạng mạnh": {
+    "es": "forma fuerte",
+    "pt": "forma forte",
+    "fr": "forme forte",
+    "de": "starke Form",
+    "id": "bentuk kuat",
+    "th": "รูปเน้น",
+    "zh": "强读式",
+    "ja": "強形",
+    "ko": "강형",
+    "hi": "मज़बूत रूप",
+    "ar": "الصيغة القوية",
+    "ru": "сильная форма",
+    "tr": "güçlü biçim"
+  },
+  "Nghe dạng yếu trong câu: {s}": {
+    "es": "Escucha la forma débil en una frase: {s}",
+    "pt": "Ouça a forma fraca numa frase: {s}",
+    "fr": "Écouter la forme faible dans une phrase : {s}",
+    "de": "Schwache Form im Satz anhören: {s}",
+    "id": "Dengarkan bentuk lemah dalam kalimat: {s}",
+    "th": "ฟังรูปเบาในประโยค: {s}",
+    "zh": "在句子中听弱读式：{s}",
+    "ja": "文の中で弱形を聞く：{s}",
+    "ko": "문장 속 약형 듣기: {s}",
+    "hi": "वाक्य में कमज़ोर रूप सुनें: {s}",
+    "ar": "استمع إلى الصيغة الضعيفة في جملة: {s}",
+    "ru": "Слабая форма в предложении: {s}",
+    "tr": "Zayıf biçimi cümlede dinle: {s}"
   }
 }

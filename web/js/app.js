@@ -917,7 +917,7 @@
           <div class="em">${esc(w.emoji || '📘')}</div>
           <div style="min-width:0">
             <div class="row"><a class="w" href="#/dict/${encodeURIComponent(w.word)}">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}
-              ${w.ipa ? `<span class="ipa small">${esc(w.ipa)}</span>` : ''}<button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Phát âm')}">🔊</button></div>
+              ${UI.ipaHtml(w, null, { cls: 'ipa small' })}<button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Phát âm')}">🔊</button></div>
             <div><b class="vi" style="font-size:1rem">${esc(App.meanOf(w))}</b>${w.def && App.meanOf(w) !== w.def ? ` <span class="muted small">— ${esc(w.def)}</span>` : ''}</div>
             ${w.ex ? `<div class="ex small">“${highlight(w.ex, w.word)}”</div>` : ''}
             ${w.col.length ? `<div class="small" style="margin-top:.2rem">🔗 ${w.col.map(esc).join(' · ')}</div>` : ''}
@@ -1067,8 +1067,7 @@
           <div>
             <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}${e.from ? `<span class="chip" data-from lang="en">${esc(e.from)} → ${esc(e.word)}</span>` : ''}</div>
             <div class="pron">
-              <span><b class="small">🇬🇧 UK</b> <span class="ipa">${esc(e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-GB" data-url="${esc(e.audio && /-uk/.test(e.audio) ? e.audio : '')}" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span>
-              <span><b class="small">🇺🇸 US</b> <span class="ipa">${esc(e.ipaUS || e.ipa || '—')}</span><button class="icon-btn sm" data-speak="${esc(e.word)}" data-accent="en-US" data-url="${esc(e.audioUS || '')}" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>
+              ${UI.pronHtml(e, { pills: true })}
               <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🔊</button></span>
             </div>
             ${I18N.meanLang() === 'en' ? '<div class="vi wi-native" data-dnative></div>' : `<div class="vi">${esc(e.vi)}</div>`}
@@ -1121,7 +1120,7 @@
       ${final ? `<div class="card" style="margin-top:1rem"><div id="phraseBox"></div><div id="related"></div></div>` : ''}`; /* 2 khối điền muộn (Lex.phrases, Datamuse) ở CUỐI trang: về muộn không đẩy ô lưu/ô ngữ cảnh (CLS 0,66 mobile-qa 360) */
     bindCommon();
     App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
-    if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, state.settings.accent === 'en-US' ? e.audioUS : e.audio); }
+    if (!spoke && state.settings.autoSpeak) { spoke = true; speak(e.word, state.settings.accent, UI.audioFor(e, state.settings.accent)); }
     if (final) { loadRelated(e); drawPhrases(e); if (window.Lex) Lex.phrases(e.word).then(l => { if (l && l.length && same() && $('#phraseBox')) drawPhrases(e, l); }).catch(() => {}); } // cụm từ theo mảnh (không nạp 2,3 MB gói từ)
     if (keep) { $('#ctx').value = keep; }
 
@@ -1261,7 +1260,7 @@
           <div style="min-width:0"><a href="#/dict/${encodeURIComponent(c.word)}"><b>${esc(c.word)}</b></a> <span class="ipa small">${esc(c.ipa)}</span><div class="small">${esc(App.meanOf(c))}</div></div>
           <div class="small muted hide-sm">${c.contexts[0] ? `📌 “${highlight(c.contexts[0].text.slice(0, 110), c.word)}${c.contexts[0].text.length > 110 ? '…' : ''}”` : esc((c.def || '').slice(0, 110))}</div>
           <div class="hide-sm small muted" style="text-align:right" title="${t('Đến hạn {date}', { date: new Date(c.srs.due).toLocaleDateString(I18N.lang()) })}">${masteryDots(c.srs)}${SRS.retention(c.srs) != null ? `<div class="tiny">🧠 ${Math.round(SRS.retention(c.srs) * 100)}%</div>` : ''}</div>
-          <div class="row nowrap" style="gap:.3rem"><button class="icon-btn sm" data-speak="${esc(c.word)}" data-url="${esc(c.audio)}">🔊</button><button class="icon-btn sm" data-edit="${esc(c.word)}" title="${t('Sửa')}">✏️</button></div>
+          <div class="row nowrap" style="gap:.3rem"><button class="icon-btn sm" data-speak="${esc(c.word)}" data-url="${esc(UI.audioFor(c))}">🔊</button><button class="icon-btn sm" data-edit="${esc(c.word)}" title="${t('Sửa')}">✏️</button></div>
         </div>`).join('') + (rows.length > 400 ? `<p class="muted small center">${t('Hiển thị 400/{n} từ – dùng bộ lọc để thu hẹp.', { n: rows.length })}</p>` : '')
         : `<div class="empty"><div class="em">📒</div>${list.length ? t('Không có từ phù hợp bộ lọc.') : t('Sổ từ đang trống. Hãy thêm từ từ <a href="#/library">thư viện</a> hoặc <a href="#/dict">tra từ</a>.')}</div>`;
       bindCommon();
@@ -1602,7 +1601,7 @@
   function bindCommon(after) {
     $$('[data-speak]').forEach(b => b.onclick = e => { e.preventDefault(); e.stopPropagation(); speak(b.dataset.speak, b.dataset.accent || state.settings.accent, b.dataset.url || ''); });
     $$('[data-speak-text]').forEach(b => b.onclick = e => { e.stopPropagation(); speak(b.dataset.speakText, state.settings.accent); });
-    $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); const w = INDEX[String(b.dataset.slow).toLowerCase()] || state.cards[String(b.dataset.slow).toLowerCase()]; speak(b.dataset.slow, state.settings.accent, w && (state.settings.accent === 'en-US' ? w.audioUS || w.audio : w.audio), true); });
+    $$('[data-slow]').forEach(b => b.onclick = e => { e.stopPropagation(); const w = INDEX[String(b.dataset.slow).toLowerCase()] || state.cards[String(b.dataset.slow).toLowerCase()]; speak(b.dataset.slow, state.settings.accent, w && UI.audioFor(w, state.settings.accent), true); });
     $$('[data-add-seed]').forEach(b => b.onclick = async e => {
       e.preventDefault();
       const k = b.dataset.addSeed.toLowerCase(), lr = !INDEX[k] && window.Lex ? await Lex.get(k).catch(() => null) : null;

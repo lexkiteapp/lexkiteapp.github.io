@@ -96,6 +96,9 @@
    "via": "loadAllPlus",
    "job": "—"
   },
+  "scripts/lexicon/ipa-audit.mjs": {
+   "skip": "kiểm IPA bộ viết tay (overrides.json); mục mở rộng có cổng IPA riêng khi nhập (expand/cmu.mjs ipa-pos + espeak-calib)"
+  },
   "scripts/lexicon/i18n-job.mjs": {
    "skip": "mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc)"
   },
