@@ -31,10 +31,10 @@ def bbox(mask, crop):   # bao alpha (ngưỡng 24) gộp mọi khung, toạ đ�
     return [min(b[0] for b in bs), min(b[1] for b in bs), max(b[2] for b in bs), max(b[3] for b in bs)] if bs else None
 
 
-def edge_qc(name, rgba):   # 🚧 tách nền sạch: mép trên/trái/phải trong suốt (không còn nền), viền tóc không ánh xanh, thân đặc
+def edge_qc(name, rgba, tol=2):   # tol: webp 2; video H.264 8 (nhiễu nén)   # 🚧 tách nền sạch: mép trên/trái/phải trong suốt (không còn nền), viền tóc không ánh xanh, thân đặc
     import numpy as np
     A = rgba[..., 3].astype(float); C = rgba[..., :3].astype(float)
-    if max(A[0].max(), A[:, 0].max(), A[:, -1].max()) > 2: errs.append(f'{name}: người/nền chạm mép trên/trái/phải (alpha > 2) – khung phải chứa trọn người, không che bằng làm mờ')
+    if max(A[0].max(), A[:, 0].max(), A[:, -1].max()) > tol: errs.append(f'{name}: người/nền chạm mép trên/trái/phải (alpha > {tol}) – khung phải chứa trọn người, không che bằng làm mờ')
     e = (A > 16) & (A < 240); col = C[e]
     if e.sum():
         spill = ((col[:, 1] > np.maximum(col[:, 0], col[:, 2]) + 22) & (col[:, 1] > 50)).mean()
@@ -96,9 +96,10 @@ for who, P in R['people'].items():
     for pose in R['poses']:
         o = f'{OUT}/{who}/{pose}.mp4'
         if not os.path.exists(o): continue
-        fr = subprocess.run(['ffmpeg', '-v', 'error', '-i', o, '-vf', 'select=eq(n\\,12)', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
-        im = np.frombuffer(fr, np.uint8).reshape(H * 2, W, 3).astype(float); a = im[H:, :, :1]; c = np.where(a > 0, np.clip(im[:H] * 255 / np.maximum(a, 1), 0, 255), 0)
-        edge_qc(f'{who}/{pose}.mp4', np.concatenate([c, a], 2).astype(np.uint8))
+        grab = lambda vf, fmt, ch: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', o, '-vf', f'select=eq(n\\,12),{vf}', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', fmt, '-'], capture_output=True).stdout, np.uint8).reshape(H, W, ch).astype(float)
+        a = grab(f'crop={W}:{H}:0:{H}', 'gray', 1); c = grab(f'crop={W}:{H}:0:0', 'rgb24', 3)   # alpha đọc thẳng luma (không lem chroma từ nửa màu)
+        c = np.where(a > 0, np.clip(c * 255 / np.maximum(a, 1), 0, 255), 0)
+        edge_qc(f'{who}/{pose}.mp4', np.concatenate([c, a], 2).astype(np.uint8), tol=8)
     kb = sum(os.path.getsize(f'{OUT}/{who}/{k}') for k in ('talk.mp4', 'listen.mp4', 'poster.webp')) // 1024
     if kb > 420: errs.append(f'{who}: talk+listen+poster {kb} KB > 420 KB')
 
