@@ -10,7 +10,20 @@ const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirS
 const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.mp4': 'video/mp4', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
 const SCREENS = { home: 'home', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', readiness: 'goal' };
-const W = 390, G = 6; // so ở 390 px, thu nhỏ 6× → lưới ~65 px
+const W = 390, G = 6;
+// Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
+const DRIVE = async k => { const q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
+  const pick = it => { const o = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)); if (o) o.click(); return !!o; };
+  for (let n = 0; n < 10 && !q('.lsn-opts .lsn-opt'); n++) { const it = App._lsn && App._lsn.sess.cur; if (!it) break;
+    if (q('#lsnGo')) { q('#lsnGo').click(); await w(300); continue; }
+    if (q('#lsnBank')) { const used = new Set(); for (const x of String(it.answer).split(/\s+/)) { const b = qa('#lsnBank .lsn-tile').find(t => !used.has(t) && t.textContent.trim() === x); if (b) { used.add(b); b.click(); } } }
+    else if (q('#lsnIn')) { q('#lsnIn').value = it.answer; q('#lsnIn').dispatchEvent(new Event('input')); }
+    else if (q('.lsn-match')) { for (const a of qa('.lsn-match [data-s="w"]')) { a.click(); const b = q(`.lsn-match [data-s="m"][data-m="${a.dataset.m}"]`); if (b) b.click(); await w(60); } }
+    else if (q('#lsnNoS')) { q('#lsnNoS').click(); await w(300); continue; }
+    await w(120); if (q('#lsnCheck') && !q('#lsnCheck').disabled) q('#lsnCheck').click(); await w(500); if (q('#lsnNext')) q('#lsnNext').click(); await w(400); }
+  const it = App._lsn && App._lsn.sess.cur; if (it) pick(it); await w(150);
+  if (k === 'feedback') { const c = q('#lsnCheck'); if (c && !c.disabled) c.click(); await w(900); if (document.activeElement) document.activeElement.blur(); }
+  scrollTo(0, 0); }; // so ở 390 px, thu nhỏ 6× → lưới ~65 px
 
 // ---- ảnh: giải mã PNG/JPG (JPG đổi sang PNG bằng ImageMagick) → ma trận xám W×H ----
 const toPng = f => { if (f.endsWith('.png')) return fs.readFileSync(f); const o = path.join(OUT, path.basename(f) + '.png'); execFileSync('convert', [f, o]); return fs.readFileSync(o); };
@@ -39,14 +52,13 @@ for (const scheme of ['dark', 'light']) {
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2500);
   await page.evaluate(async () => { // dữ liệu mẫu giống bối cảnh Stitch: IELTS mục tiêu 7.5, 1 lần thi thử có điểm 4 kỹ năng
-    localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+    localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 }));
   }).catch(e => errs.push(`${scheme}: seed ${e.message}`));
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
-    if (k === 'feedback') await page.evaluate(async () => { const q = s => document.querySelector(s), b = q('.lsn-opts .lsn-opt') || q('.lsn-bank .lsn-tile') || q('.lsn-match .lsn-opt'), i = q('#lsnIn');
-      if (b) b.click(); if (i) { i.value = 'x'; i.dispatchEvent(new Event('input')); } await new Promise(r => setTimeout(r, 150)); const c = q('#lsnCheck'); if (c && !c.disabled) c.click(); await new Promise(r => setTimeout(r, 900)); }).catch(() => {});
+    if (k === 'lesson' || k === 'feedback') await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     const buf = await page.screenshot({ fullPage: true }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
     await page.addScriptTag({ path: AXE }).catch(() => {});
@@ -65,13 +77,12 @@ for (const scheme of ['dark', 'light']) {
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`desk ${scheme}: ${e.message}`));
   const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
-  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
   for (const [k, h] of Object.entries(SCREENS)) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
-    if (k === 'feedback') await page.evaluate(async () => { const q = s => document.querySelector(s), b = q('.lsn-opts .lsn-opt') || q('.lsn-bank .lsn-tile') || q('.lsn-match .lsn-opt'), i = q('#lsnIn');
-      if (b) b.click(); if (i) { i.value = 'x'; i.dispatchEvent(new Event('input')); } await new Promise(r => setTimeout(r, 150)); const c = q('#lsnCheck'); if (c && !c.disabled) c.click(); await new Promise(r => setTimeout(r, 900)); }).catch(() => {});
+    if (k === 'lesson' || k === 'feedback') await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     await page.screenshot({ path: path.join(OUT, `desk-${k}-${scheme}.png`) });
   }
