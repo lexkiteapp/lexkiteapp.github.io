@@ -1,0 +1,85 @@
+# 🎭 So sánh NỀN cho con rối 2D Ama: (a) phòng cũ mờ + chỉnh màu vs (b) cảnh 2.5D SVG 3 lớp thị sai – CÙNG câu, CÙNG tư thế.
+# Không secret, 0 credit. Kết quả: artifact "puppet-bg" (bg-2up.mp4 + ảnh tĩnh soát mắt).
+name: Con rối 2D – so sánh nền
+on:
+  workflow_dispatch:
+    inputs:
+      script: { description: 'Kịch bản', required: false, default: 'content/video/puppet/sample-borrow.json' }
+  push:
+    branches: [puppet-bg-compare]
+    paths: ['scripts/video/remotion/src/PuppetBg.jsx', '.github/workflows/puppet-bg.yml']
+permissions:
+  contents: read
+concurrency:
+  group: puppet-bg-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SCRIPT: ${{ inputs.script || 'content/video/puppet/sample-borrow.json' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Cài ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg unzip >/dev/null
+      - name: Đệm Remotion (node_modules)
+        uses: actions/cache@v4
+        with:
+          path: scripts/video/remotion/node_modules
+          key: remotion-${{ hashFiles('scripts/video/remotion/package-lock.json') }}-v1
+      - name: Cài Remotion + thư viện cho Chrome Headless Shell
+        run: |
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
+          cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
+      - name: Đệm mô hình (Kokoro, whisper tiny.en)
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/kk/node_modules/@huggingface/transformers/.cache
+            ~/.cache/huggingface
+          key: video-models-kokoro82m-q8-whisper-tiny-en-v1
+      - name: Cài kokoro-js + faster-whisper + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          pip install -q faster-whisper==1.1.1 av==13.1.0 requests numpy
+          curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
+          echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
+      - name: 1 · Giọng Kokoro + mốc từ + khẩu hình Rhubarb → props.json
+        env: { KOKORO_NODE_PATH: /tmp/kk/node_modules }
+        run: node scripts/puppet/sample.mjs "$SCRIPT" out/puppet
+      - name: 2 · Dựng 2 phương án (cùng đoạn câu 3 – cử chỉ explain)
+        run: |
+          cd out/puppet
+          mkdir -p fonts rooms
+          cp "$GITHUB_WORKSPACE/brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf" fonts/body.ttf
+          curl -fsSL -o rooms/cafe.webp https://media.lexkite.com/library/rooms/cafe-01-day-9x16.webp
+          for b in old new; do python3 -c "import json,sys;p=json.load(open('props.json'));L=p['lines'];p['seg']=[round(L[2]['start']-0.3,2),round(L[2]['end']+0.4,2)];p['bg']=sys.argv[1];json.dump(p,open('props-'+sys.argv[1]+'.json','w'))" $b; done
+          cd "$GITHUB_WORKSPACE/scripts/video/remotion"
+          for b in old new; do npx remotion render src/index.jsx PuppetBg "$GITHUB_WORKSPACE/out/puppet/bg-$b.mp4" --props="$GITHUB_WORKSPACE/out/puppet/props-$b.json" --public-dir="$GITHUB_WORKSPACE/out/puppet" --codec=h264 --crf=18 --log=error; done
+      - name: 3 · Ghép 2-up + ảnh tĩnh soát mắt
+        run: |
+          cd out/puppet
+          ffmpeg -hide_banner -loglevel error -y -i bg-old.mp4 -i bg-new.mp4 -filter_complex "[0:v][1:v]hstack=inputs=2,scale=1080:-2,\
+            drawtext=fontfile=fonts/body.ttf:text='(a) phòng cũ mờ + chỉnh màu':x=30:y=30:fontsize=30:fontcolor=white:box=1:boxcolor=0x000000AA:boxborderw=10,\
+            drawtext=fontfile=fonts/body.ttf:text='(b) cảnh 2.5D SVG 3 lớp':x=570:y=30:fontsize=30:fontcolor=white:box=1:boxcolor=0x000000AA:boxborderw=10[v]" \
+            -map "[v]" -map 1:a -c:v libx264 -crf 20 -pix_fmt yuv420p -c:a aac -movflags +faststart bg-2up.mp4
+          D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 bg-2up.mp4)
+          ffmpeg -hide_banner -loglevel error -y -ss $(python3 -c "print($D/2)") -i bg-2up.mp4 -frames:v 1 -vf scale=720:-2 still-2up.jpg
+          ffmpeg -hide_banner -loglevel error -y -ss $(python3 -c "print($D/2)") -i bg-old.mp4 -frames:v 1 -vf "crop=540:540:270:900" crop-old.jpg
+          ffmpeg -hide_banner -loglevel error -y -ss $(python3 -c "print($D/2)") -i bg-new.mp4 -frames:v 1 -vf "crop=540:540:270:900" crop-new.jpg
+          ls -la bg-*.mp4 *.jpg
+      - name: Tải kết quả
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: puppet-bg
+          path: |
+            out/puppet/bg-*.mp4
+            out/puppet/*.jpg
+          retention-days: 14
