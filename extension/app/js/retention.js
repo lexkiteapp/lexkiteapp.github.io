@@ -101,7 +101,7 @@
 .ret-h{margin:.6rem 0 .1rem;font-size:1.9rem;font-weight:800}.ret-say{margin:.2rem auto .8rem;font-size:1.05rem;font-weight:600;max-width:320px}
 .ret-row{display:flex;gap:.7rem;justify-content:center;align-items:center;flex-wrap:wrap;margin:.4rem 0 1rem}
 .ret-chip{display:inline-flex;align-items:center;padding:.5rem .8rem;border-radius:16px;background:rgba(56,189,248,.18);font-size:1.3rem;font-weight:800}
-.ret-tile{display:flex;flex-direction:column;align-items:center;gap:.2rem;min-width:132px;padding:.7rem 1rem;border:2px dashed var(--line);border-radius:20px;background:var(--surface-2);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
+.ret-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-width:132px;max-width:200px;min-height:136px;box-sizing:border-box;padding:.7rem 1rem;text-align:center;border:2px dashed var(--line);border-radius:20px;background:var(--surface-2);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
 .ret-tile.open{border-style:solid;border-color:var(--primary);animation:retPop .45s ease-out;cursor:default}
 .ret-next{min-height:52px;font-size:1.1rem;max-width:360px;margin:0 auto}
 body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
@@ -218,7 +218,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
         if (!have.includes(k) && have.length < ev.need) {
           const r = await mutate(r => { r.ev = r.ev || {}; r.ev[ev.id] = [...(r.ev[ev.id] || []), k].sort(); if (r.ev[ev.id].length >= ev.need && !(r.evDone || {})[ev.id]) { r.evDone = { ...(r.evDone || {}), [ev.id]: Date.now() }; r.own = { ...(r.own || {}), ['f:' + ev.frame]: Date.now() }; } });
           const got = r.ev[ev.id].length;
-          if (location.hash.startsWith('#/streak')) setTimeout(() => page(null, true), 0); // đang ở trang chuỗi → vẽ lại để mảnh vừa nhận sáng lên ngay (không gọi lại check → không chúc mừng 2 lần)
+          if (location.hash.startsWith('#/streak')) setTimeout(() => page(null, null, true), 0); // đang ở trang chuỗi → vẽ lại để mảnh vừa nhận sáng lên ngay (không gọi lại check → không chúc mừng 2 lần)
           UI.toast(got >= ev.need ? `${ev.icon} ${t('Hoàn thành sự kiện! Bạn nhận khung mới và 1 rương quà.')}` : `${ev.icon} ${t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need })}`, 3500);
         }
       }
@@ -232,7 +232,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   Ret.widget = st => { const d = Core.activeDays(st || state), k = [...d].sort().pop() || ''; return { who: new Date().getDate() % 2 ? 'ama' : 'carlos', sd: k, ok: t('Hôm nay đã học'), risk: t('Giữ chuỗi hôm nay nhé!') }; };
 
   // ---------- Trang #/streak ----------
-  function page(arg, noCheck) {
+  function page(arg, query, noCheck) { // router gọi (arg, query) → cờ vẽ-lại-không-check là tham số thứ 3
     css(); applyFrame();
     const n = streakN(), nx = Core.next(n), r = ret(), fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 };
     const ev = Core.event(today()), got = ev ? ((r.ev || {})[ev.id] || []).length : 0, ch = Core.chests(r), own = r.own || {};
