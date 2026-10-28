@@ -87,7 +87,7 @@
    "$value": "#071215",
    "$extensions": {
     "com.lexkite.mode": {
-     "light": "#D8CFBC"
+     "light": "#D5DEDC"
     }
    }
   },
@@ -519,7 +519,7 @@
    "$value": "#0F2B2E",
    "$extensions": {
     "com.lexkite.mode": {
-     "light": "#EADEC8"
+     "light": "#E9EFEB"
     }
    }
   }
