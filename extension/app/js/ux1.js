@@ -168,7 +168,7 @@
     document.body.classList.add('st');
     view.innerHTML = ST.home({ demoNote: demo ? t('Bài thử (không lưu tiến độ)') : '', exam: examH, ucls: 'u-' + u.color, badge: t('Chặng học {n}', { n: u.no }), meta: X.short + ' · ' + (u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]), title: u.name, img: ST.tImg(coach.toLowerCase()),
       step: t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), xpTo: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', pct: Math.round(at / P.length * 100), aria: { now: at, max: P.length }, coach: { name: coach, tip: CAN()[u.id] || '' }, chips, nodes,
-      cta: { href: `#/lesson/go${Q}`, text: t('Tiếp tục chặng {n}', { n: u.no }) + ' • ' + t('{n} phút', { n: nxMin }) } });
+      cta: { href: `#/lesson/go${Q}`, text: t('Tiếp tục') } }); // mẫu v2: chỉ "Tiếp tục" (chặng + phút đã có ở băng chặng/nút hiện tại, cho trình đọc màn hình)
     App.onCleanup && App.onCleanup(() => document.body.classList.remove('st'));
     fillMock(view);
     const ol = view.querySelector('.ux1-path');

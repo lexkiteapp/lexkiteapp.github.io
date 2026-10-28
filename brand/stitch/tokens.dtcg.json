@@ -120,7 +120,7 @@
   },
   "lip-secondary": {
    "$type": "color",
-   "$value": "#239389",
+   "$value": "#0F3D3E",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#187770"
@@ -516,7 +516,7 @@
   },
   "trail": {
    "$type": "color",
-   "$value": "#1F343B",
+   "$value": "#0F2B2E",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#EADEC8"

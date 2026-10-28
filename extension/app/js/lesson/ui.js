@@ -193,6 +193,7 @@
     // chân trang: bỏ qua nghe/nói + Kiểm tra
     const foot = $('#lsnFoot'); foot.className = ST.FOOT;
     foot.innerHTML = ST.lsnFoot({ skips: [LISTENS(it) ? ['lsnNoL', t('Không nghe được lúc này')] : null, SPEAKS(it) ? ['lsnNoS', t('Không nói được lúc này')] : null].filter(Boolean), check: SPEAKS(it) ? '' : t('Kiểm tra') });
+    const slot = $('#lsnSndSlot'), sn = body.querySelector('.lsn-snd'); if (slot) { slot.innerHTML = ''; if (sn) slot.appendChild(sn); } // mẫu v2: 2 nút loa nằm trong bong bóng lời
     bindItem(it, audioText);
     if (LISTENS(it)) setTimeout(() => say(audioText, false, it.who), 250);
   }
@@ -272,15 +273,15 @@
   }
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
-  const chips = ok => ST.lsnChips({ ok, okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
+  const chips = ok => ST.lsnChips({ ok, face: ST.tFace(L.who === 'carlos' ? 'carlos' : 'ama', ok ? 'happy' : 'encourage', 'w-16 h-16 max-w-none object-cover object-top'), okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
   // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster": chip đúng/sai + chuỗi · thẻ giáo viên 2D · Tăng điểm · Vì sao? + Tiếp tục
   function feedback(it, ok, heard) {
     const foot = $('#lsnFoot'), lv = view.querySelector('#lsn');
     foot.className = ST.SHEET + ' ' + (ok ? ST.SHEET_OK : ST.SHEET_BAD); if (lv) lv.classList.add('st-dim'); // phần câu hỏi lùi lại sau tấm (mẫu: opacity 40 %)
     const c = it.card, w = L.who === 'carlos' ? 'carlos' : 'ama';
-    const coach = c ? ST.lsnCoach({ img: ST.tImg(w), face: ST.tFace(w, ok ? 'happy' : 'encourage', 'w-16 h-16 max-w-none object-cover object-top'), name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
-      body: `${ok ? '' : `<p class="m-0 font-body-md text-body-md text-on-surface"><b lang="en">${esc(it.answer)}</b></p>`}<p class="m-0 font-body-md text-body-md text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p>` }) : '';
-    foot.innerHTML = ST.lsnSheet({ chips: chips(ok), coach, card: !!c, head: ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng')), answer: !c && !ok && it.type !== 'match' ? it.answer : '',
+    const coach = c ? ST.lsnCoach({ why: t('Vì sao?'), name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
+      body: `${ok ? '' : `<p class="m-0 font-body-md text-body-md text-primary font-bold"><b lang="en">${esc(it.answer)}</b></p>`}<p class="m-0 font-headline-sm text-headline-sm text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> <span class="font-body-sm text-body-sm">${UI.pronHtml(c, { noEx: true })}</span></p><p class="m-0 font-body-md text-body-md text-on-surface-variant">${esc(meanOf(c))}</p>` }) : ''; // mẫu v2: từ (to) · phát âm · nghĩa (nhạt)
+    foot.innerHTML = ST.lsnSheet({ ok, chips: chips(ok), coach, card: !!c, head: ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng')), answer: !c && !ok && it.type !== 'match' ? it.answer : '',
       why: c ? t('Vì sao?') : '', next: t('Tiếp tục') });
     if (c) $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
