@@ -8,6 +8,8 @@ on:
       before: { description: 'Commit TRƯỚC (để trống = chỉ chụp bản hiện tại)', required: false, default: '' }
   push:
     branches: ['ux-cards*']
+  pull_request:
+    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'scripts/test/ux-guard.mjs']
 permissions:
   contents: read
 jobs:

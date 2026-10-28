@@ -1626,3 +1626,17 @@ body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "No
 .lg-hc-t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); }
 .lg-hc-cta { white-space: nowrap; }
 @container (max-width: 440px) { .lg-hc { grid-template-columns: auto minmax(0, 1fr); } .lg-hc-cta { grid-column: 1 / -1; justify-self: stretch; justify-content: center; } }
+/* <a class="card"> mặc định là inline → nền/viền vỡ thành mảnh rời đè thẻ khác (ảnh owner 28/10 trang chủ). Mọi thẻ-liên-kết là khối. */
+a.card { display: block; color: inherit; text-decoration: none; }
+/* 🏅 Thẻ Nhiệm vụ hôm nay (trang chủ): tiêu đề + a/b + từng nhiệm vụ có nhãn, số, thanh tiến độ */
+.quest-card { display: flex; flex-direction: column; gap: var(--sp-3); padding: var(--sp-4); }
+.qc-h { display: flex; align-items: center; gap: var(--sp-2); font-weight: 800; }
+.qc-t { flex: 1; min-width: 0; display: inline-flex; align-items: center; gap: var(--sp-2); }
+.qc-h .chev { color: var(--muted); }
+.qc-it { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-1) var(--sp-2); font-size: var(--fs-sm); }
+.qc-ic { grid-row: span 2; width: 32px; height: 32px; display: grid; place-items: center; border-radius: var(--r-xs); background: var(--gold-soft); }
+.qc-it.done .qc-ic { background: var(--good-soft); color: var(--good-text); }
+.qc-tx { font-weight: 600; overflow-wrap: anywhere; }
+.qc-n { color: var(--muted); font-variant-numeric: tabular-nums; font-size: var(--fs-xs); }
+.qc-bar { grid-column: 2 / -1; margin: 0; }
+.qc-it.done .qc-tx { color: var(--muted); text-decoration: line-through; }
