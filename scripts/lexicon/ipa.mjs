@@ -128,7 +128,8 @@ export function normUK(s, word = '') {
   if (!/nts|ntz/.test(w)) o = o.replace(/nts/g, 'ns');
   if (!/mpf|mph/.test(w)) o = o.replace(/mpf/g, 'mf');
   if (/ngth/.test(w)) o = o.replace(/ŋkθ/g, 'ŋθ');
-  if (/^(in|en|con|syn)[cgkq]/.test(w)) o = o.replace(/^(\/?[ˈˌ]?(?:ɪ|e|ə|kə|kɒ|sɪ))ŋ([ˈˌ]?[kɡ])/, '$1n$2');
+  // ink/inkjet: ŋ thuộc gốc từ, không phải tiền tố in- (ipa-audit 28/10)
+  if (/^(in|en|con|syn)[cgkq]/.test(w) && !/^ink/.test(w)) o = o.replace(/^(\/?[ˈˌ]?(?:ɪ|e|ə|kə|kɒ|sɪ))ŋ([ˈˌ]?[kɡ])/, '$1n$2');
   // hư từ dạng mạnh giữa cụm (chỉ khi số tiếng = số khúc IPA, khúc đó không mang trọng âm)
   const ts = w.split(/\s+/).filter(Boolean), inner = o.replace(/^\/|\/$/g, ''), ch = inner.split(/\s+/);
   if (ts.length > 1 && ts.length === ch.length) {
@@ -136,4 +137,35 @@ export function normUK(s, word = '') {
     if (out.join(' ') !== ch.join(' ')) o = (o.startsWith('/') ? '/' : '') + out.join(' ') + (o.endsWith('/') ? '/' : '');
   }
   return o;
+}
+
+// IPA Mỹ suy từ IPA Anh khi CMUdict không có từ (ecotourism, postcode, flatmate…) – quy tắc RP → GA, tất định:
+// əʊ→oʊ, ɒ→ɑː, BATH ɑː→æ (chính tả a không kèm r/l/h), r sau nguyên âm theo số "r cuối âm tiết" trong chính tả (ɜː ɪə eə ʊə ưu tiên, rồi ɑː ɔː ə),
+// ɪə→ɪr, eə→er, ʊə→ʊr, ɜː→ɜːr, ə+r→ər. Chỉ là dự phòng (ipa-audit đếm "usRule"); có CMU luôn dùng CMU.
+export function ukToUs(uk, word = '') {
+  const w = String(word).toLowerCase(); if (!uk) return '';
+  let budget = (w.match(/[aeiouy]r+(?:e(?=[^aeiouy]|$)|(?=[^aeiouyr]|s?$))/g) || []).length + (/[^aeiou]re$/.test(w) ? 1 : 0);
+  const hasAr = /ar(?![aeiouy])|are/.test(w); // ɑː có r (car, garden) hay BATH (dance)
+  const s = uk.replace(/^\/|\/$/g, '').replace(/əʊ/g, 'oʊ');
+  const out = [];
+  for (let i = 0; i < s.length;) {
+    const u = ['aɪə', 'aʊə', 'ɪə', 'eə', 'ʊə', 'ɜː', 'ɑː', 'ɔː'].find(x => s.startsWith(x, i));
+    if (u) {
+      const strongR = ['ɪə', 'eə', 'ʊə', 'ɜː', 'aɪə', 'aʊə'].includes(u);
+      const rNext = s[i + u.length] === 'r'; // r nối đã có (ˈjʊərəp, sɪˈkjʊərɪti) → không thêm, không đổi thành ɪə/uːə
+      const takeR = !rNext && budget > 0 && (strongR || (u === 'ɑː' && hasAr) || u === 'ɔː') && !/^[aeiouɑɒɔəɜɪʊʌæ]/.test(s.slice(i + u.length));
+      if (takeR) budget--;
+      const base = takeR || rNext || !['ɪə', 'eə', 'ʊə'].includes(u) ? null : { 'ɪə': 'iːə', 'eə': 'eɪə', 'ʊə': 'uːə' }[u]; // không r (idea aɪˈdiːə)
+      const base2 = base || { 'ɪə': 'ɪ', 'eə': 'e', 'ʊə': 'ʊ', 'ɜː': 'ɜː', 'ɑː': u === 'ɑː' && !takeR && !/al|ah|alm|ath|father/.test(w) && !hasAr ? 'æ' : 'ɑː', 'ɔː': 'ɔː', 'aɪə': 'aɪə', 'aʊə': 'aʊə' }[u];
+      out.push(base2 + (takeR ? 'r' : ''));
+      i += u.length; continue;
+    }
+    if (s[i] === 'ɒ') { out.push('ɑː'); i++; continue; }
+    if (s[i] === 'ə' && budget > 0 && (i === s.length - 1 || /[^aeiouɑɒɔəɜɪʊʌæːˈˌ]/.test(s[i + 1] || '') && !/^[aeiouɑɒɔəɜɪʊʌæ]/.test(s.slice(i + 1)))) {
+      // ə cuối hoặc trước phụ âm: thành ər nếu chính tả còn r ở vị trí tương ứng (teacher, sugar, motor) – chỉ cho ə cuối từ/khúc để tránh ə thường
+      if (i === s.length - 1 || s[i + 1] === ' ') { out.push('ər'); budget--; i++; continue; }
+    }
+    out.push(s[i]); i++;
+  }
+  return out.join('');
 }

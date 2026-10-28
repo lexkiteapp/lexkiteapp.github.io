@@ -111,6 +111,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/expand/existing.mjs` – đầu vào chọn từ (không trùng) | `loadExpand` | lexicon-expand |
 | `scripts/lexicon/expand/lib.mjs` – nguồn | `loadExpand` | — |
 | `scripts/lexicon/lib.mjs` – nạp kho | `loadAllPlus` | — |
+| `scripts/lexicon/ipa-audit.mjs` –  | bỏ qua: kiểm IPA bộ viết tay (overrides.json); mục mở rộng có cổng IPA riêng khi nhập (expand/cmu.mjs ipa-pos + espeak-calib) | — |
 | `scripts/lexicon/i18n-job.mjs` –  | bỏ qua: mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc) | — |
 | `scripts/lexicon/expand/espeak-calib.mjs` –  | bỏ qua: chỉ lấy mẫu từ kho viết tay để hiệu chuẩn IPA Anh espeak ↔ Wiktionary; không ghi/xuất | — |
 | `scripts/lexicon/cefr-check.mjs` –  | bỏ qua: chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry) | — |

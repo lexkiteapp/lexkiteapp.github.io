@@ -591,6 +591,7 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 .mouth { width: 100%; max-width: 200px; }
 .prow { display: flex; align-items: center; gap: .4rem; padding: .55rem 0; border-bottom: 1px dashed var(--line); }
 .prow:last-child { border-bottom: 0; }
+.prow > .grow { min-width: 0; } .prow .chip { white-space: normal; } /* ghi chú dài ("/ð/ – dạng yếu") xuống dòng thay vì đè nút 🔊 @360 (ux-guard) */
 .pscore { min-width: 46px; text-align: right; font-weight: 800; }
 .pmic.rec, .smic.rec { background: var(--again); color: #fff; animation: pulse 1.2s infinite; }
 
@@ -1613,3 +1614,26 @@ body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "No
 .say-line > .icon-btn { margin-block: -3px; }
 .say-line > button { flex: none; }
 .say-line > .ctx-say { margin: 0; }
+.say-pron { display: inline-flex; align-items: center; gap: var(--sp-1); white-space: nowrap; } /* IPA + loa luôn đi cùng nhau, không tách dòng */
+/* 🏆 Thẻ hạng trang chủ (league.js): lưới biểu tượng | chữ | nút; khung hẹp → nút xuống hàng, chữ tự xuống dòng (không tràn đè) */
+#leagueHomeCard { container-type: inline-size; }
+.lg-hc { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); }
+.lg-hc-tx { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
+.lg-hc-t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); }
+.lg-hc-cta { white-space: nowrap; }
+@container (max-width: 440px) { .lg-hc { grid-template-columns: auto minmax(0, 1fr); } .lg-hc-cta { grid-column: 1 / -1; justify-self: stretch; justify-content: center; } }
+/* <a class="card"> mặc định là inline → nền/viền vỡ thành mảnh rời đè thẻ khác (ảnh owner 28/10 trang chủ). Mọi thẻ-liên-kết là khối. */
+:where(a.card) { display: block; color: inherit; text-decoration: none; } /* :where → độ ưu tiên 0, không đè .hub-card/.lg-hc (flex/grid) */
+/* 🏅 Thẻ Nhiệm vụ hôm nay (trang chủ): tiêu đề + a/b + từng nhiệm vụ có nhãn, số, thanh tiến độ */
+.quest-card { display: flex; flex-direction: column; gap: var(--sp-3); padding: var(--sp-4); }
+.qc-h { display: flex; align-items: center; gap: var(--sp-2); font-weight: 800; }
+.qc-t { flex: 1; min-width: 0; display: inline-flex; align-items: center; gap: var(--sp-2); }
+.qc-h .chev { color: var(--muted); }
+.qc-it { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-1) var(--sp-2); font-size: var(--fs-sm); }
+.qc-ic { grid-row: span 2; width: 32px; height: 32px; display: grid; place-items: center; border-radius: var(--r-xs); background: var(--gold-soft); }
+.qc-it.done .qc-ic { background: var(--good-soft); color: var(--good-text); }
+.qc-tx { font-weight: 600; overflow-wrap: anywhere; }
+.qc-n { color: var(--muted); font-variant-numeric: tabular-nums; font-size: var(--fs-xs); }
+.qc-bar { grid-column: 2 / -1; margin: 0; }
+.qc-it.done .qc-tx { color: var(--muted); text-decoration: line-through; }
+.quest-card, .lg-hc { color: var(--text); } .quest-card:hover, .lg-hc:hover { text-decoration: none; } /* thẻ-liên-kết: chữ thường, không màu link */

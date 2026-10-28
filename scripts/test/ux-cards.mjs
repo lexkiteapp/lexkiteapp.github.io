@@ -1,11 +1,11 @@
-// 🃏 Ảnh trước/sau các THẺ HỌC có trạng thái (sổ lỗi sai có dữ liệu, làm lại, thẻ ôn đã lật, bài ngữ pháp) – bổ sung ux-shots.mjs (chỉ chụp trang trống).
+// 🃏 Ảnh trước/sau các THẺ HỌC có trạng thái (trang chủ có giải đấu, sổ lỗi sai có dữ liệu, làm lại, thẻ ôn đã lật, ngữ pháp, phát âm) – bổ sung ux-shots.mjs (chỉ chụp trang trống).
 // Điện thoại 360 px + máy tính · sáng/tối · en/vi/ar (RTL). Phục vụ thẳng web/ (page.route), ?sandbox=1 → 0 lượt chạm prod. Đo: tràn ngang, mỗi thẻ ≤1 loa/IPA cho cùng một từ, loa lệch hàng.
 // Dùng: node scripts/test/ux-cards.mjs <web-sau> [web-trước] [out=out/ux-cards]   (CI: .github/workflows/ux-cards.yml, đẩy nhánh ux-cards*)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
 const [AFTER, BEFORE, OUT = 'out/ux-cards'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const SHOTS = ['mistakes', 'mistakes?retry=1', 'review', 'grammar/tenses'];
+const SHOTS = ['home', 'mistakes', 'mistakes?retry=1', 'review', 'grammar/tenses', 'pron/th-sounds'];
 const CONFIGS = [['mobile', 'light', 'en'], ['mobile', 'dark', 'vi'], ['mobile', 'light', 'ar'], ['desktop', 'dark', 'vi'], ['desktop', 'light', 'en']];
 const MISTAKES = [
   { kind: 'vocab', q: 'Nghĩa của “compulsory”?', qK: { k: 'Nghĩa của “{word}”?', v: { word: 'compulsory' } }, answer: 'bắt buộc', given: 'tùy chọn', explain: 'compulsory /kəmˈpʌlsəri/ = bắt buộc', ref: 'compulsory', key: 'v1' },
@@ -30,11 +30,13 @@ async function run(TAG, ROOT, vn, scheme, lang) {
     await Core.Store.set('mistakes', M);
   }, MISTAKES).catch(e => report.errs.push(`${TAG}-${vn}-${lang}: seed ${e.message}`));
   await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500);
+  // Giải đấu như người dùng đã đăng nhập (thẻ hạng ở trang chủ, ảnh owner 28/10) – giả lập trong trang, không gọi mạng
+  await page.evaluate(() => { const S = window.Sync; if (!S) return; S.user = { uid: 'shots', getIdToken: async () => 'x' }; S.authed = async () => {}; S.league = async () => ({ member: { tier: 0, xp: 15 }, board: [{ me: true, rank: 1, zone: 'up' }, { rank: 2 }], week: { end: Date.now() + 4.85 * 864e5 } }); }).catch(() => {});
   for (const r of SHOTS) {
     await page.goto(url(r), { waitUntil: 'load' }); await page.waitForTimeout(1800);
     if (r === 'review') { await page.click('#flash').catch(() => {}); await page.waitForTimeout(700); }
     const name = `${TAG}-${vn}-${scheme}-${lang}-${r.replace(/[/?=]/g, '_')}`;
-    await page.screenshot({ path: path.join(OUT, name + '.jpg'), type: 'jpeg', quality: 70, fullPage: r.startsWith('mistakes') });
+    await page.screenshot({ path: path.join(OUT, name + '.jpg'), type: 'jpeg', quality: 70, fullPage: r !== 'review' });
     report.metrics[name] = await page.evaluate(() => {
       const out = { overflowX: document.documentElement.scrollWidth - innerWidth, dupSay: [], ragged: 0 };
       for (const c of document.querySelectorAll('#mList .card')) { const s = [...c.querySelectorAll('[data-speak]')].map(b => b.dataset.speak.toLowerCase()); if (new Set(s).size < s.length || c.querySelectorAll('.ipa').length > 1) out.dupSay.push(c.textContent.trim().slice(0, 30)); }
