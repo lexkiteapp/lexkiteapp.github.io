@@ -80,6 +80,15 @@ export const stressAt = s => { const v = vowels(phones(s)); return v.length > 1 
 export const same = (a, b) => dist(phones(a), phones(b)) === 0;
 export const cmuIpa = w => (cmu().get(norm(w)) || []).map(p => '/' + arpaToIpa(p) + '/');
 
+// ---------- ASR back-check: an ASR word that differs from the script still SOUNDS the same (homophone bored/board, US flap waiting/wading, keycard/key card)
+const flap = ph => ph.map((x, i) => (/^[td]$/.test(x.p) && i > 0 && (isV(ph[i - 1].p) || ph[i - 1].p === 'r') && ph[i + 1] && isV(ph[i + 1].p) && !ph[i + 1].s ? { ...x, p: 'ɾ' } : x));
+const prons = phrase => phrase.split(/\s+/).filter(Boolean).reduce((acc, w) => { const c = cmuIpa(w); return c.length ? acc.flatMap(a => c.slice(0, 3).map(x => a + x.replace(/\//g, ''))).slice(0, 27) : []; }, ['']);
+export function soundsSame(a, b) {
+  if (norm(a).replace(/[\s'-]/g, '') === norm(b).replace(/[\s'-]/g, '')) return true;   // keycard = key card
+  const A = prons(norm(a)), B = prons(norm(b));
+  return A.some(x => B.some(y => dist(flap(phones(x)), flap(phones(y))) === 0));
+}
+
 // ---------- IPA for a displayed token
 export async function ipaFor(token) {
   const w = norm(token); if (!w) return null;
@@ -180,6 +189,7 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === fs.realpathSync(proces
     R.lex = [...new Set(s.lines.filter(l => l.text).flatMap(l => l.text.split(/\s+/).map(norm)).filter(w => L[w]))];
     fs.writeFileSync(a[1], JSON.stringify(R, null, 1)); console.log(`pron: ${R.spoken.length} spoken mismatches, ${R.ipa.filter(x => !x.ok || !x.cmu_ok || !x.spoken_ok || x.taught === false).length}/${R.ipa.length} IPA off, lexicon ${R.lex.join(',') || '-'}`);
   }
+  else if (cmd === 'same') console.log(JSON.stringify(JSON.parse(a[0]).map(([x, y]) => soundsSame(x, y))));   // qc_v9 asr_match: [[script, asr], ...] -> [true|false]
   else if (cmd === 'spoken') console.log(JSON.stringify(await spokenWords(a.join(' '))));
   else if (cmd === 'audit') {
     let fail = 0;
