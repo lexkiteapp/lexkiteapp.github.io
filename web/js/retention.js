@@ -20,7 +20,6 @@
   const FRAMES = { teal: 'linear-gradient(135deg,#14b8a6,#0e7490)', ice: 'linear-gradient(135deg,#bae6fd,#38bdf8)', fire: 'linear-gradient(135deg,#fb923c,#dc2626)', gold: 'linear-gradient(135deg,#fde68a,#d97706)', night: 'linear-gradient(135deg,#6366f1,#1e1b4b)', rainbow: 'conic-gradient(#f43f5e,#f59e0b,#22c55e,#0ea5e9,#8b5cf6,#f43f5e)', leaf: 'linear-gradient(135deg,#f59e0b,#b45309)', snow: 'linear-gradient(135deg,#e0f2fe,#7dd3fc)', bloom: 'linear-gradient(135deg,#fbcfe8,#ec4899)' };
   const STICKERS = { star: '⭐', kite: '🪁', book: '📘', rocket: '🚀', crown: '👑', goal: '🎯', sun: '🌞', gem: '💎' };
   const POOL = ['f:ice', 's:star', 'f:fire', 's:kite', 's:book', 'f:gold', 's:rocket', 'f:night', 's:goal', 's:sun', 'f:rainbow', 's:gem', 's:crown'];
-  const TEACH = { ama: 'teach/ama/poster.webp', carlos: 'teach/carlos/poster.webp' }; // cùng bộ 2D tách nền với bài học (1 kiểu nhân vật/toàn app)
 
   // ---------- Lõi thuần (kiểm thử: scripts/test/retention.mjs) ----------
   const Core = {
@@ -73,7 +72,7 @@
   const today = () => keyOf(new Date());
   const reduce = () => g.matchMedia && g.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const teacherFor = n => (MILESTONES.indexOf(n) % 2 ? 'carlos' : 'ama');
-  const teachImg = (who, size) => `<img class="ret-teach" src="${TEACH[who]}" width="${size}" height="${size}" alt="${esc(who === 'ama' ? 'Ama' : 'Carlos')}" loading="lazy" decoding="async">`;
+  const teachImg = (who, size) => Chars.img(who, { cls: 'ret-teach', size, lazy: true }); // nhân vật: chỉ qua Chars (web/js/characters.js)
   const DOW = () => [t('T2'), t('T3'), t('T4'), t('T5'), t('T6'), t('T7'), t('CN')];
   const prizeName = p => {
     const [k, id] = p.split(':');
@@ -87,7 +86,7 @@
 .ret-d i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font-style:normal;font-size:1rem;background:var(--surface-2);border:2px solid transparent}
 .ret-d.done i{background:rgba(249,115,22,.16)}.ret-d.frozen i{background:rgba(56,189,248,.18)}.ret-d.today i{border-color:var(--primary)}.ret-d.miss i{opacity:.55}
 .ret-big{font-size:2.6rem;font-weight:800;line-height:1}.ret-bar{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden}.ret-bar i{display:block;height:100%;background:linear-gradient(90deg,#f59e0b,#f97316)}
-.ret-teach{border-radius:50%;object-fit:cover;object-position:50% 0;flex:none;background:var(--surface-2)}
+.ret-teach{border-radius:50%;object-fit:cover;flex:none;background:var(--surface-2)}
 .ret-cel{text-align:center;padding:.4rem 0}.ret-cel .ret-teach{box-shadow:0 0 0 4px rgba(249,115,22,.35);animation:retPop .5s ease-out}
 .ret-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:.6rem}
 .ret-item{display:flex;flex-direction:column;align-items:center;gap:.3rem;padding:.6rem .3rem;border:1px solid var(--line);border-radius:14px;background:none;color:var(--text);font:inherit;font-size:.78rem;min-height:44px;cursor:pointer}

@@ -343,7 +343,8 @@ async function prepActor(s, a, pub) {
   let file = a.asset && a.asset.kind !== 'none' && a.asset.file ? libFile(a.asset.file) : null, kind = a.asset ? a.asset.kind : 'none';
   if (file && !fs.existsSync(file)) file = null;
   if (!file && !STRICT) {
-    const c = [path.join(LIB, `chars/${a.who}/neutral.png`), ...['neutral.png', 'dna.png', 'a-rembg.png'].map(x => path.join(ROOT, `brand/characters/_candidates/${a.who}/${x}`))].find(x => fs.existsSync(x));
+    // KHÔNG lấp chỗ trống bằng ảnh nhân vật kiểu khác (chủ 28/10: 1 bộ 2D duy nhất, web/teach/characters.json) – chỉ ảnh kho của chính nhân vật đó
+    const c = [path.join(LIB, `chars/${a.who}/neutral.png`)].find(x => fs.existsSync(x));
     if (c) { file = c; kind = 'still'; todo(s, 'actor-placeholder'); console.log(`⚠️ ${a.who}: chưa có tài nguyên kho → ảnh tạm ${path.relative(ROOT, c)}`); }
   }
   if (!file) { console.log(`⚠️ ${a.who}: không có tài nguyên – bỏ khỏi cảnh`); todo(s, 'actor'); return null; }

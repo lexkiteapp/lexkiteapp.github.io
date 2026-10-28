@@ -1,0 +1,107 @@
+{
+  "_note": "NGUỒN DUY NHẤT nhân vật Lexkite (chủ 28/10): đúng 2 giáo viên 2D phông xanh, trang phục 1 – Ama (cô) + Carlos (thầy). Mọi màn hình/add-on/video lấy ảnh-clip qua đây (web/js/characters.js · Python: scripts/teach/registry.py). Cổng CI: scripts/test/characters-gate.mjs. Dựng: scripts/teach/build.py trên CI teach-build.yml. docs/CHARACTERS.md.",
+  "version": 2,
+  "frame": {
+    "w": 384,
+    "h": 480,
+    "eye_y": 0.32,
+    "eye_mouth": 50,
+    "avatar": 192,
+    "fps": 24,
+    "crf": 26
+  },
+  "poses": [
+    "talk",
+    "listen",
+    "explain",
+    "happy",
+    "encourage",
+    "thinking",
+    "laugh"
+  ],
+  "people": {
+    "ama": {
+      "name": "Ama",
+      "role": "female teacher",
+      "voice": {
+        "video": "af_bella",
+        "app": "af_heart"
+      },
+      "outfit": "outfit1 coral blouse + navy blazer, yellow headband",
+      "ref": "anchor/green/frames/ama_stand_ref.png",
+      "eye": [
+        530,
+        680
+      ],
+      "eye_mouth": 130,
+      "video_clip": "ga4_talk_natural",
+      "clips": {
+        "talk": {
+          "src": "ga2_talk"
+        },
+        "listen": {
+          "src": "ga2_listen"
+        },
+        "explain": {
+          "src": "ga2_explain"
+        },
+        "happy": {
+          "src": "ga2_talk_smile"
+        },
+        "encourage": {
+          "src": "ga7_onehand"
+        },
+        "thinking": {
+          "src": "ga7_hmm"
+        },
+        "laugh": {
+          "src": "ga2_react",
+          "from": 36
+        }
+      }
+    },
+    "carlos": {
+      "name": "Carlos",
+      "role": "male teacher",
+      "voice": {
+        "video": "am_fenrir",
+        "app": "am_michael"
+      },
+      "outfit": "outfit1 light-blue open-collar shirt + charcoal blazer",
+      "ref": "anchor/green/frames/carlos_stand_ref.png",
+      "eye": [
+        545,
+        390
+      ],
+      "eye_mouth": 106,
+      "video_clip": "gc4_talk_natural",
+      "clips": {
+        "talk": {
+          "src": "gc4_talk_natural"
+        },
+        "listen": {
+          "src": "gc4_listen"
+        },
+        "explain": {
+          "src": "gc9_explain",
+          "pending": "Kling outfit-1 clip đang tạo (CREDIT-RULES)"
+        },
+        "happy": {
+          "src": "gc7_smilenod"
+        },
+        "encourage": {
+          "src": "gc9_onehand",
+          "pending": "Kling outfit-1 clip đang tạo (CREDIT-RULES)"
+        },
+        "thinking": {
+          "src": "gc7_hmm",
+          "from": 40
+        },
+        "laugh": {
+          "src": "gc7_laugh"
+        }
+      }
+    }
+  },
+  "files": {}
+}

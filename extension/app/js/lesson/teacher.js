@@ -1,11 +1,10 @@
-/* 👩‍🏫 Ama / Carlos đọc lời nhắc trong bài học – clip PHÔNG XANH đã tách nền PRO (scripts/video/teach_build.sh, CI teach-build.yml), nền trong suốt, đủ đầu.
+/* 👩‍🏫 Ama / Carlos đọc lời nhắc trong bài học – clip PHÔNG XANH đã tách nền PRO (scripts/teach/build.py, CI teach-build.yml), nền trong suốt, đủ đầu.
  * Đang nói → vòng "talk" (miệng thật của clip, khớp nhịp), im/nghe → vòng "listen"; trộn 160 ms trong CÙNG 1 canvas (không 2 lớp chồng nhau).
  * Video H.264 "xếp chồng" (nửa trên màu đã nhân alpha, nửa dưới alpha) → WebGL ghép thành nền trong suốt: mọi trình duyệt, giải mã phần cứng.
- * Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: teach/<who>/{poster.webp,talk.mp4,listen.mp4}. */
+ * Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: chỉ qua Chars (poster, clip talk/listen). */
 (function (g) {
   const D = g.document;
   const lite = () => { try { const c = navigator.connection; return !!(c && (c.saveData || /2g/.test(c.effectiveType || ''))) || g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
-  const NAME = { ama: 'Ama', carlos: 'Carlos' };
   const VS = 'attribute vec2 p;varying vec2 v;void main(){v=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0.,1.);}';
   // u0/u1 = vòng nghe/nói; m = tỉ lệ trộn. Màu đã nhân alpha → xuất thẳng (premultipliedAlpha)
   const FS = 'precision mediump float;varying vec2 v;uniform sampler2D u0,u1;uniform float m;vec4 px(sampler2D t){vec2 c=vec2(v.x,v.y*.5);return vec4(texture2D(t,c).rgb,texture2D(t,c+vec2(0.,.5)).r);}void main(){vec4 a=px(u0),b=px(u1);vec4 o=mix(a,b,m);gl_FragColor=vec4(min(o.rgb,vec3(o.a)),o.a);}';
@@ -30,24 +29,23 @@
 
   /** mount(el, who) → { say(text, { rate, voice, onEnd }), stop(), destroy(), who } */
   function mount(el, who) {
-    who = NAME[who] ? who : 'ama';
-    const base = 'teach/' + who + '/';
-    el.classList.add('tch'); el.innerHTML = `<div class="tch-rig"><img class="tch-poster" src="${base}poster.webp" alt="${NAME[who]}" width="360" height="480" decoding="async"></div>`;
+    who = Chars.id(who); // nhân vật + tài sản: chỉ qua Chars (web/js/characters.js, nguồn web/teach/characters.json)
+    el.classList.add('tch'); el.innerHTML = `<div class="tch-rig">${Chars.img(who, { cls: 'tch-poster', kind: 'poster', size: 384 })}</div>`;
     const rig = el.firstChild;
     rig.firstChild.onerror = () => { el.style.display = 'none'; }; // thiếu tài sản (vd. bản add-on không kèm teach/) → ẩn giáo viên, bài vẫn chạy
     let run = 0, dead = false, want = 0, mix = 0, draw = null, raf = 0, last = 0, lastK = '';
     const V = [];
     if (!lite()) {
-      const cv = D.createElement('canvas'); cv.width = 360; cv.height = 480; cv.className = 'tch-cv'; cv.setAttribute('aria-hidden', 'true');
+      const cv = D.createElement('canvas'); cv.width = 384; cv.height = 480; cv.className = 'tch-cv'; cv.setAttribute('aria-hidden', 'true');
       try { draw = stage(cv); } catch (e) { draw = null; }
       if (draw) {
         ['listen', 'talk'].forEach((k, i) => {
           const v = V[i] = D.createElement('video');
           Object.assign(v, { muted: true, loop: true, playsInline: true, preload: i ? 'metadata' : 'auto', crossOrigin: 'anonymous' }); v.setAttribute('playsinline', '');
           v.onerror = () => { if (!i) { draw = null; cv.remove(); rig.classList.remove('live'); } else V[1] = null; };
-          v.src = base + k + '.mp4';
+          v.src = Chars.clip(who, k);
         });
-        V[0].oncanplay = () => { V[0].oncanplay = null; if (dead || !draw) return; cv.width = V[0].videoWidth || 360; cv.height = (V[0].videoHeight || 960) / 2; // khung theo dáng từng người (Carlos rộng hơn) – CSS contain + căn đáy
+        V[0].oncanplay = () => { V[0].oncanplay = null; if (dead || !draw) return; cv.width = V[0].videoWidth || 384; cv.height = (V[0].videoHeight || 960) / 2; // khung theo dáng từng người (Carlos rộng hơn) – CSS contain + căn đáy
           V[0].play().catch(() => {}); rig.appendChild(cv); rig.classList.add('live'); tick(); };
       }
     }

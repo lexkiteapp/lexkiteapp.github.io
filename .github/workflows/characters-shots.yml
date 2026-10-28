@@ -1,0 +1,29 @@
+# 👩‍🏫 Kiểm hình "1 bộ nhân vật" (docs/CHARACTERS.md): chụp các màn có giáo viên trên bản build (hermetic) + lexkite.com (live), so hash mọi ảnh/clip
+# nhân vật với web/teach/characters.json. Đẩy nhánh characters-shots* hoặc chạy tay. Artifact: ảnh chụp + audit.json + sheet.html.
+name: Characters shots
+on:
+  workflow_dispatch:
+    inputs:
+      live: { description: 'Soát thêm bản live (URL, để trống = chỉ bản build)', required: false, default: 'https://lexkite.com' }
+  push:
+    branches: ['characters-shots*']
+permissions:
+  contents: read
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp + so hash
+        env: { LIVE: "${{ github.event.inputs.live || 'https://lexkite.com' }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium >/dev/null
+          node scripts/test/characters-shots.mjs web out/characters/build
+          [ -z "$LIVE" ] || node scripts/test/characters-shots.mjs web out/characters/live --live "$LIVE" || echo "::warning::live còn tài sản nhân vật ngoài registry (trước khi deploy là đúng – xem audit.json)"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: characters-shots, path: out/characters, retention-days: 7 }

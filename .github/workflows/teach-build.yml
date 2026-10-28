@@ -1,7 +1,9 @@
-# 👩‍🏫 Dựng giáo viên trong bài học (web/teach/<who>/) từ clip phông xanh đã tách nền PRO – 0 credit, máy cá nhân không render.
-# Đẩy nhánh teach-build*: tải thưa 8 tệp từ lexkite-footage → scripts/video/teach_build.sh (H.264 xếp chồng alpha + poster) → commit lại nhánh.
+# 👩‍🏫 Dựng bộ nhân vật DUY NHẤT (web/teach/, nguồn web/teach/characters.json) từ clip phông xanh đã tách nền PRO – 0 credit, máy cá nhân không render.
+# Đẩy nhánh teach-build* (hoặc chạy tay): tải thưa đúng các clip nguồn trong characters.json từ lexkite-footage → scripts/teach/build.py
+# (cùng khung mọi tư thế, cùng cỡ đầu Ama/Carlos, H.264 xếp chồng alpha + poster + avatar + sha256) → tờ soát scripts/teach/sheet.py → commit lại nhánh.
 name: Teach build
 on:
+  workflow_dispatch:
   push:
     branches: ['teach-build*']
 permissions:
@@ -13,7 +15,7 @@ jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[teach-build]')"
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - name: Footage (sparse)
@@ -24,17 +26,18 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          P=""; for c in ga2_talk ga2_listen gc4_talk_natural gc4_listen; do P="$P /anchor/green/kfull_pro/$c.mp4 /anchor/green/kmask_pro/$c.mkv"; done
+          P=$(python3 -c "import json;R=json.load(open('web/teach/characters.json'));print(' '.join(f'/anchor/green/kfull_pro/{c[\"src\"]}.mp4 /anchor/green/kmask_pro/{c[\"src\"]}.mkv' for p in R['people'].values() for c in p['clips'].values()))")
           git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
       - name: Dựng
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-          bash scripts/video/teach_build.sh footage/anchor/green web/teach
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null; pip install -q pillow
+          python3 scripts/teach/build.py footage/anchor/green web/teach
+          python3 scripts/teach/sheet.py web/teach out/teach-sheet.jpg
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/teach
-          git diff --cached --quiet || { git commit -q -m "teach: giáo viên tách nền phông xanh (H.264 xếp chồng alpha + poster) [teach-build] [CF-Pages-Skip]"; git push -q origin HEAD:${GITHUB_REF_NAME}; }
+          git add -A web/teach
+          git diff --cached --quiet || { git commit -q -m "teach: bộ nhân vật 2D duy nhất (characters.json) [teach-build] [CF-Pages-Skip]"; git push -q origin HEAD:${GITHUB_REF_NAME}; }
       - if: always()
         uses: actions/upload-artifact@v4
-        with: { name: teach, path: web/teach, retention-days: 7 }
+        with: { name: teach, path: "web/teach\nout/teach-sheet.jpg", retention-days: 7 }

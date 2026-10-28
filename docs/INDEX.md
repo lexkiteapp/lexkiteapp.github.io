@@ -13,6 +13,7 @@
 - [BACKLOG.md](BACKLOG.md) — Việc tồn đọng theo thứ tự ưu tiên: đang làm, chờ anh chủ; việc xong chuyển xuống mục đã xong; đọc khi: chọn việc mới cần làm
 - [BLOG-RUNBOOK.md](BLOG-RUNBOOK.md) — Sổ tay vận hành blog & SEO: repo/dịch vụ, 15 ngôn ngữ và cụm bài, lịch đăng thông minh, workflow tự động, 6 bước viết bài; đọc khi: viết/lên lịch/sửa bài blog hoặc ảnh blog
 - [BRAND-RULES.md](BRAND-RULES.md) — Nguồn thương hiệu duy nhất cho Lexkite: bảng màu (Kit chỉ từ web/js/kit.js, teal), thứ đã bỏ (xanh cũ #2F62C0), đổi tên thương hiệu, watermark video; đọc khi: đụng logo, màu, tên, watermark
+- [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CI-RUNNERS.md](CI-RUNNERS.md) — Ngân sách 20 runner GitHub Actions: việc nền ≤ ~10 (max-parallel), concurrency PR hủy lượt cũ, prod-release 1 lượt chờ, lượt ma queued; đọc khi: thêm workflow ma trận/nền hoặc check PR phải xếp hàng
 - [SYNC-DRIVE.md](SYNC-DRIVE.md) — Đồng bộ local-first qua Google Drive appDataFolder của chính người học: so sánh hạn mức, thiết kế, di chuyển từ D1, việc chủ duyệt; đọc khi: sửa đồng bộ/đăng nhập/xóa tài khoản.
