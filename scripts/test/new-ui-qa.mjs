@@ -67,8 +67,9 @@ const PROBE = () => {
       for (const [x, y] of [[r.left + r.width / 2, r.top + r.height / 2], [r.left + r.width / 2, r.bottom - 3]]) { const top = D.elementFromPoint(Math.min(innerWidth - 1, x), Math.min(innerHeight - 1, y)); if (top && !e.contains(top) && !top.contains(e)) {
           // nút trong nội dung cuộn nằm dưới thanh cố định (thanh dưới, chân bài học): cuộn được tới thì không phải lỗi
           let fx = top; while (fx && fx !== D.body && getComputedStyle(fx).position !== 'fixed') fx = fx.parentElement;
-          const se = D.scrollingElement || D.documentElement;
-          if (!inFixed && fx && fx !== D.body && se.scrollHeight - innerHeight - se.scrollY >= r.bottom - fx.getBoundingClientRect().top) break; add(fail, `occluded ${sel(e)} «${txt(e)}» bị ${sel(top)} che (${Math.round(x)},${Math.round(y)})`); break; } }
+          let sc = e.parentElement; while (sc && sc !== D.body && !(/auto|scroll/.test(getComputedStyle(sc).overflowY) && sc.scrollHeight > sc.clientHeight)) sc = sc.parentElement; // khung cuộn thật (app cuộn trong .main, không phải document)
+          if (!sc || sc === D.body) sc = D.scrollingElement || D.documentElement;
+          if (!inFixed && fx && fx !== D.body && sc.scrollHeight - sc.clientHeight - sc.scrollTop >= r.bottom - fx.getBoundingClientRect().top - 1) break; add(fail, `occluded ${sel(e)} «${txt(e)}» bị ${sel(top)} che (${Math.round(x)},${Math.round(y)})`); break; } }
     }
     // nút chỉ có biểu tượng (axe không đo): biểu tượng vs nền nút ≥ 3:1 (WCAG 1.4.11)
     const rgb = c => { const m = /rgba?\(([\d.]+), ([\d.]+), ([\d.]+)(?:, ([\d.]+))?/.exec(c); return m && (m[4] === undefined || +m[4] > 0.95) ? [+m[1], +m[2], +m[3]] : null; };
