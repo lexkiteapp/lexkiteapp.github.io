@@ -146,7 +146,8 @@ const w = dom.window;
 w.scrollTo = () => {}; w.HTMLElement.prototype.scrollIntoView = () => {};
 w.matchMedia = () => ({ matches: false, addEventListener() {}, addListener() {} }); w.CSS = { escape: s => s };
 const IMG = JSON.parse(fs.readFileSync(path.join(WEB, 'js/lexicon-img.json'), 'utf8'));
-w.fetch = async u => (/lexicon-img\.json/.test(String(u)) ? { ok: true, json: async () => IMG } : { ok: false, status: 404, json: async () => ({}), text: async () => '' });
+const VSH = u => { const m = /js\/vimg\/(\d\d)\.json/.exec(String(u)); return m && JSON.parse(fs.readFileSync(path.join(WEB, 'js/vimg/' + m[1] + '.json'), 'utf8')); };   // mảnh chỉ mục ảnh v3
+w.fetch = async u => (/lexicon-img\.json/.test(String(u)) ? { ok: true, json: async () => IMG } : VSH(u) ? { ok: true, json: async () => VSH(u) } : { ok: false, status: 404, json: async () => ({}), text: async () => '' });
 const errors = [];
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);

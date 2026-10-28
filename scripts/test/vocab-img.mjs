@@ -38,9 +38,17 @@ ok(checkImg({ ...good, base: 'https://lexkite.com/vimg/' }, senses).some(e => e.
   ok(E({ photo: WK }).length === 0 && E({ photo: { ...WK, src: { ...WK.src, lic: 'CC0' } } }).length === 0, 'photo wiki CC BY-SA/CC0 + by + ref Commons hợp lệ');
   ok(E({ photo: { ...WK, src: { ...WK.src, lic: 'GFDL' } } }).some(e => e.includes('lic')) && E({ photo: { ...WK, src: { ...WK.src, ref: 'x' } } }).some(e => e.includes('Commons')), 'wiki: giấy phép ngoài CC0/PD/CC BY[-SA] hoặc thiếu ref → lỗi');
   { const g2 = { ...good, items: { 'apple#n': { alt: 'apple', photo: WK } } }; ok(checkImg(g2, senses).length === 0, 'mục chỉ có photo (không h) hợp lệ'); } }
-{ const ix = J('web/js/lexicon-img.json'), img = J('content/lexicon/img.json');
-  ok(ix.v === 2 && ix.base === img.base && Array.isArray(ix.x) && Array.isArray(ix.w) && Object.keys(ix.m).length === Object.values(img.items).filter(e => e.h).length, 'chỉ mục v2 {v, base, sv, m, x, w} khớp img.json');
-  ok(Object.entries(ix.m).every(([k, h]) => img.items[k].h === h) && !/"(photo|src|by|lic)"/.test(rd('web/js/lexicon-img.json')) && /m: Object\.fromEntries\(imgKeys\.map\(k => \[k, IMG\.items\[k\]\.h\]\)\)/.test(rd('scripts/build-lexicon.mjs')) && Object.entries(ix.p || {}).every(([k, h]) => img.items[k].photo.h === h && !Object.values(ix.m).includes(h)), 'chỉ mục app chỉ mang h (biểu tượng/minh họa) – không dữ liệu ảnh chụp');
+{ // chỉ mục v3 (28/10): ĐẦU nhỏ + 64 mảnh js/vimg/NN.json theo fnv(từ) – gộp mảnh phải đúng bằng img.json
+  const head = J('web/js/lexicon-img.json'), img = J('content/lexicon/img.json'), N = head.n;
+  const shards = Array.from({ length: N }, (_, i) => J(`web/js/vimg/${String(i).padStart(2, '0')}.json`));
+  const ix = { m: {}, x: [], w: [], p: {} }; for (const o of shards) { Object.assign(ix.m, o.m); Object.assign(ix.p, o.p); ix.x.push(...o.x); ix.w.push(...o.w); }
+  const SH = w => { let h = 0x811c9dc5; for (const ch of String(w).toLowerCase()) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h % N; };
+  ok(head.v === 3 && N === 64 && head.base === img.base && !('m' in head) && rd('web/js/lexicon-img.json').length < 200, 'đầu chỉ mục v3 nhỏ {v, base, sv, on, n} – không mang m');
+  ok(Object.keys(ix.m).length === Object.values(img.items).filter(e => e.h).length && shards.every((o, i) => Object.keys(o.m).every(k => SH(k.split('#')[0]) === i)), 'mảnh v3 gộp lại khớp img.json, mỗi khoá đúng mảnh fnv(từ) % 64');
+  ok(/const SH = \(w, n\) => \{ let h = 0x811c9dc5; for \(const ch of String\(w\)\.toLowerCase\(\)\) \{ h \^= ch\.codePointAt\(0\); h = Math\.imul\(h, 0x01000193\) >>> 0; \} return h % n; \}/.test(rd('web/js/vocab-img.js')) && /imgSh = w => \{ let h = 0x811c9dc5;/.test(rd('scripts/build-lexicon.mjs')), 'hàm mảnh app trùng build-lexicon');
+  ok(['.github/workflows/vocab-img-scene.yml', 'scripts/vocab-img/publish.mjs', 'scripts/vocab-img/publish-free.mjs'].every(f => /web\/js\/vimg/.test(rd(f)) && /extension\/app\/js\/vimg/.test(rd(f))), 'mọi bước tự commit ảnh có git add các mảnh js/vimg (không lệch → Prod đỏ)');
+  ok(Math.max(...shards.map((_, i) => rd(`web/js/vimg/${String(i).padStart(2, '0')}.json`).length)) < 60e3, 'mỗi mảnh < 60 KB (đủ 20k ảnh ~15 KB)');
+  ok(Object.entries(ix.m).every(([k, h]) => img.items[k].h === h) && shards.every((_, i) => !/"(photo|src|by|lic)"/.test(rd(`web/js/vimg/${String(i).padStart(2, '0')}.json`))) && Object.entries(ix.p || {}).every(([k, h]) => img.items[k].photo.h === h && !Object.values(ix.m).includes(h)), 'chỉ mục app chỉ mang h (biểu tượng/minh họa) – không dữ liệu ảnh chụp');
   ok(ix.x.every(k => img.items[k].x2 === true) && Object.keys(img.items).filter(k => img.items[k].x2 === true).length === ix.x.length, 'x = đúng các khoá x2'); }
 
 // 2. module UI: cờ mặc định TẮT → không tải gì, không hộp; bật → <picture> AVIF→WebP trong hộp cố định, 2x chỉ khi x2 và rộng > 192
@@ -59,6 +67,17 @@ const index = { v: 2, base, sv: 's1', m: { 'apple#n': H, 'kiss#v': H2, 'red#adj'
 { const { V } = sandbox({}, { ...index, on: true }); ok(await V.ready() === V && V.enabled() === true && /0123456789abcdef/.test(V.slot('apple', 'n')), 'tự động + chỉ mục on=true (≥ 150 ảnh đã chấm) → bật'); }
 { const { V, fetched } = sandbox({ 'lk.cfg': JSON.stringify({ at: Date.now(), v: { vocab_img: false } }) }, { ...index, on: true }); ok(await V.ready() === null && await V.get('apple', 'n') === null && fetched.length === 0, 'config vocab_img=false (công tắc tắt) → không tải chỉ mục dù on=true'); }
 { const { V } = sandbox({ 'lk.cfg': JSON.stringify({ at: Date.now(), v: { vocab_img: false } }) }, index); ok(V.enabled() === false, 'config vocab_img=false → tắt'); }
+// v3 (28/10): đầu nhỏ + mảnh theo nhu cầu – slot() không hộp tới khi mảnh của TỪ ĐÓ về; ready(list)/need tải đúng mảnh, 1 lần; mảnh lỗi = rỗng, không lặp
+{ const SH = w => { let h = 0x811c9dc5; for (const ch of String(w).toLowerCase()) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h % 64; };
+  const head = { v: 3, base, sv: 's1', on: true, n: 64 }, sh = String(SH('apple')).padStart(2, '0');
+  const store = { 'lk.vb': '3', 'lk.vimg': '1' }, fetched = [];
+  const ctx = { localStorage: { getItem: k => (k in store ? store[k] : null) }, URL, location: { href: 'https://lexkite.com/app/' }, document: { currentScript: null },
+    fetch: u => { fetched.push(String(u)); const m = /vimg\/(\d\d)\.json$/.exec(String(u)); return Promise.resolve(m ? (m[1] === sh ? { ok: true, json: () => Promise.resolve({ m: { 'apple#n': H }, x: [], w: [], a: [], s: [], p: {}, pw: [] }) } : { ok: false, json: () => Promise.resolve(null) }) : { ok: true, json: () => Promise.resolve(head) }); } };
+  ctx.self = ctx; vm.runInNewContext(code, ctx); const V = ctx.VImg;
+  await V.ready(); ok(fetched.length === 1 && V.slot('apple', 'n', 'táo', 160) === '', 'v3: chỉ đầu về → slot rỗng (không hộp) và tự xin mảnh');
+  await V.need(['apple']); ok(fetched.filter(u => u.endsWith(`/app/js/vimg/${sh}.json`)).length === 1 && /<picture>/.test(V.slot('apple', 'n', 'táo', 160)), 'v3: mảnh của từ về (1 lần, đúng js/vimg/NN.json) → có ảnh');
+  const n0 = fetched.length; await V.need(['zebra', 'zebra']); await V.need(['zebra']); ok(fetched.length === n0 + 1 && V.loaded('zebra') && V.slot('zebra', 'n', '', 160) === '', 'v3: mảnh lỗi/404 = rỗng, đánh dấu đã về, không tải lại vòng lặp');
+  ok(await V.ready(['apple']) === V && fetched.length === n0 + 1, 'v3: ready(list) với mảnh đã có không tải lại'); }
 { const { V, fetched } = sandbox({ 'lk.vimg': '1' }, index);
   ok(V.slot('apple', 'n', 'táo', 160) === '', 'bật nhưng chỉ mục CHƯA về → không giữ chỗ (không hộp rỗng đổi cỡ)');
   ok(await V.ready() === V, 'ready() tải trước chỉ mục → trả VImg');

@@ -209,6 +209,8 @@
     const key = session.queue[0];
     const c = state.cards[key];
     if (!c) { session.queue.shift(); return session.queue.length ? showCard() : reviewDone(false); }
+    // 🖼️ mảnh chỉ mục ảnh của thẻ này chưa về (vocab-img v3, ~5 KB) → tải rồi mới vẽ (không chèn hộp rỗng); lỗi mạng = mảnh rỗng, không lặp
+    if (window.VImg && VImg.loaded && !VImg.loaded(c.word)) { VImg.need(session.queue.slice(0, 4).map(k => state.cards[k]).filter(Boolean).map(x => x.word)).then(showCard); return; }
     // Thẻ thêm hàng loạt chưa có phiên âm/định nghĩa → bổ sung ngầm cho thẻ này và vài thẻ kế tiếp
     session.queue.slice(0, 3).forEach(k => { const x = state.cards[k]; if (x && (!x.ipa || !x.def) && App.enrichLater) App.enrichLater(k); });
     if (window.VImg) VImg.prefetch(session.queue.slice(1, 4).map(k => state.cards[k]).filter(Boolean).map(x => [x.word, x.pos])); // 🖼️ ảnh 3 thẻ kế – lúc rảnh
@@ -739,7 +741,7 @@
       const al = $('#addLearned');
       if (al) al.onclick = async () => { for (const w of notIn) await App.addWord(INDEX[w.word.toLowerCase()] || w, null, { silent: true }); al.disabled = true; al.textContent = '✓ ' + t('Đã thêm'); Sfx.win(); };
     };
-    startWhen(warmLib(), next); // như runQuiz: kho chuẩn hóa theo lát trước câu đầu
+    startWhen(Promise.all([warmLib(), window.VImg && VImg.need ? VImg.need(items.map(w => w.word)) : null]), next); // như runQuiz: kho chuẩn hóa theo lát trước câu đầu + mảnh chỉ mục ảnh của 8 từ (vocab-img v3)
   }
 
 })();
