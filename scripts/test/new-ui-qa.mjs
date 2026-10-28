@@ -151,6 +151,7 @@ async function combo(lang, vpk, scheme) {
     },
     async shot(state) {
       await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {}); await sleep(250);
+      await page.evaluate(() => { const x = document.querySelector('#toast.show'); if (x && /🧪/.test(x.textContent)) x.classList.remove('show'); }).catch(() => {}); // toast "chế độ thử nghiệm" chỉ có ở ?sandbox=1 của bộ thử – người dùng không thấy
       const dir = `${OUT}/shots/${state}`; fs.mkdirSync(dir, { recursive: true });
       const p = await page.evaluate(o => window.__NUQ(o), { lang, touch: !!vp.m }).catch(e => ({ fail: ['đầu dò lỗi: ' + e.message.slice(0, 100)], warn: [], texts: [] }));
       await sleep(120); await page.screenshot( // sau đầu dò: khối CSS cảm ứng đã bật
