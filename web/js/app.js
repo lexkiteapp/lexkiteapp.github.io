@@ -269,10 +269,10 @@
     adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
     i18nl: ['verbs', 'exams', 'skills'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
-    lesson: ['js/i18n/en/lesson.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
+    ux1: ['js/i18n/en/ux1.js', 'js/ux1.js'], lesson: ['js/i18n/en/lesson.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
-  const ROUTE_BUNDLE = { lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
+  const ROUTE_BUNDLE = { train: 'ux1', lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
     toefl: ['listening', 'toefl'], 'toefl-p': ['listening', 'toefl'],
     toeic: ['tsl', 'listening', 'toeic'], qstats: 'qstats', 'toeic-r': ['toeic'], 'toeic-sw': ['toeic'], 'toeic-test': ['listening', 'toeic'], library: ['words', 'tsl'], topic: ['words', 'tsl'], practice: ['words', 'tsl', 'lfx'], dict: ['vcore', 'uidx'], verb: ['vcore', 'verbs', 'uidx'], fix: ['fixer', 'uidx'], usage: ['vcore', 'uidx', 'usage'], write: 'writing', task1: 'writing', model: 'writing', models: 'writing', phrases: 'writing', ideas: 'writing', rtype: 'mock', speaking: 'speak', mock: ['listening', 'writing', 'speak', 'mock'], home: ['words', 'streak'], vocab: 'words', path: ['words', 'pathx'], day: ['words', 'pathx'], review: 'words', deck: 'words', stats: ['words', 'streak'], league: 'league', criteria: 'criteria', resources: 'resources', quick: ['words', 'quick'], style: 'quick'};
   const bundleP = {};
@@ -380,9 +380,10 @@
     if (STUDY.test(location.hash) && curHash && !STUDY.test(curHash)) backHash = /^#\/welcome/.test(curHash) ? '#/home' : curHash;
     else if (!STUDY.test(location.hash)) backHash = '';
     curHash = location.hash;
-    const b = [].concat(ROUTE_BUNDLE[name] || []);
+    const b = [].concat(ROUTE_BUNDLE[name] || []), ux1 = App.ux1On();
+    if (ux1) b.unshift('ux1'); // 🧭 cờ ux1: 5 tab + bản đồ – gói nạp trước mọi trang (lần sau tức thì)
     // đang ôn/luyện → tập trung 100% vào thẻ. Đổi bố cục (ẩn thanh trên) NGAY lúc chạm – không đợi tải gói: thay đổi trong 500 ms sau thao tác không tính CLS (mobile-qa)
-    document.body.classList.toggle('focus', name === 'review' || name === 'lesson' || (name === 'practice' && !!arg));
+    document.body.classList.toggle('focus', name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg)); // ux1: bản đồ #/lesson giữ thanh điều hướng
     // Khung chờ (skeleton) chỉ hiện khi tải lâu hơn 150 ms → không nháy màn hình khi tải nhanh
     let skel = null;
     if (b.some(x => !App.loaded(x))) skel = setTimeout(() => {
@@ -392,6 +393,7 @@
       view.innerHTML = name === 'review' ? skelReview : name === 'home' || !name ? skelHome : skelDefault;
     }, 150);
     if (b.length) { try { await App.need(...b); } catch (e) { if (my === routeSeq) errState(); throw e; } finally { clearTimeout(skel); } if (my !== routeSeq) return; }
+    if (ux1 && window.Ux1) Ux1.init();
     if (!routes[name] && ROUTE_ALIAS[name]) { location.replace(location.pathname + location.search + '#/' + [ROUTE_ALIAS[name], arg && encodeURIComponent(arg)].filter(Boolean).join('/') + (query.toString() ? '?' + query : '')); return; } // gõ nhầm quen thuộc (#/wellcom…) → trang đúng
     const fn = routes[name] || (name ? notFound : routes.home);
     // Đánh dấu mục đang mở: thanh dưới theo 5 mục chính, menu bên theo mục con; nhóm chứa trang hiện tại tự mở
@@ -483,7 +485,10 @@
   const notesCache = {};
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
   // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
-  App.lessonOn = () => { try { const f = localStorage.getItem('lk.lesson'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lesson_mix; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
+  // 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md): 5 tab, trang chủ = bản đồ, Luyện gom mọi tính năng. Thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1
+  App.ux1On = () => { try { if (/[?&]ux1=1\b/.test(location.search + location.hash)) sessionStorage.setItem('lk.ux1.pv', '1'); if (sessionStorage.getItem('lk.ux1.pv') === '1') return true; const f = localStorage.getItem('lk.ux1'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.ux1; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
+  App.updateChrome = () => updateChrome();
+  App.lessonOn = () => { if (App.ux1On()) return true; try { const f = localStorage.getItem('lk.lesson'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lesson_mix; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
   // 🖼️ Ảnh minh họa theo nghĩa (cờ vocab_img: true/false ghi đè, chưa đặt = TỰ ĐỘNG bật khi chỉ mục có ≥ 150 ảnh đã chấm; thử: localStorage lk.vimg=1 – docs/LEXICON.md § Ảnh minh họa). Tắt → không tải gì, không hộp.
   // Bật → tải trước module + chỉ mục lúc mở app; App.vimg() đồng bộ chỉ trả hộp cố định khi chỉ mục đã về và nghĩa có ảnh (CLS 0).
   const vimgOn = () => { try { const f = localStorage.getItem('lk.vimg'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.vocab_img; if (v === false || v === '0' || v === 'false') return false; if (localStorage.getItem('lk.vimg.adm') === '1' || v === '1' || v === true) return true; const p = c && c.v && c.v.vocab_img_pct, pct = p != null && p !== '' && !isNaN(+p) ? +p : 10, b = localStorage.getItem('lk.vb'); return b == null || +b < pct; } catch (e) { return false; } };   // bật dần: nhóm lk.vb < vocab_img_pct (mặc định 10 %) – module tự quyết lần đầu (tạo lk.vb)   // chưa đặt = tự động: module + chỉ mục nhỏ tự quyết (on ≥ 150 ảnh)
