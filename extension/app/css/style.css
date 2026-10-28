@@ -597,6 +597,7 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 .mouth { width: 100%; max-width: 200px; }
 .prow { display: flex; align-items: center; gap: .4rem; padding: .55rem 0; border-bottom: 1px dashed var(--line); }
 .prow:last-child { border-bottom: 0; }
+.prow > .grow { min-width: 0; } .prow .chip { white-space: normal; } /* ghi chú dài ("/ð/ – dạng yếu") xuống dòng thay vì đè nút 🔊 @360 (ux-guard) */
 .pscore { min-width: 46px; text-align: right; font-weight: 800; }
 .pmic.rec, .smic.rec { background: var(--again); color: #fff; animation: pulse 1.2s infinite; }
 
