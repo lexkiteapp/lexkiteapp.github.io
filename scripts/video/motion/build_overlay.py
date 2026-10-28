@@ -37,9 +37,9 @@ elif o.format == 'wide':   # lesson player: cards on the left (dark canvas), the
     W, H = 1920, 1080; _sy = max(0, HEAD_TOP - 170); _sh = min(1920 - _sy, 1250); _sw = round(_sh * 0.8)
     PLATE = dict(sx=1080 - _sw, sy=_sy, sw=_sw, sh=_sh, dx=1080, dy=40, dw=800, dh=1000, r=40)
     SAFE = dict(x0=64, x1=1016, y0=56, y1=1024)
-else:   # 4:5: the plate cropped around the teacher, cards over the board (top) and left of the body
-    W, H = 1080, 1350; _sy = min(max(0, HEAD_TOP - 600), 1920 - 1350)
-    PLATE = dict(sx=0, sy=_sy, sw=1080, sh=1350, dx=0, dy=0, dw=1080, dh=1350, r=0)
+else:   # 4:5 in-lesson: cards on the dark canvas (top + left column), the teacher in a rounded window lower-right
+    W, H = 1080, 1350; _sy = max(0, HEAD_TOP - 170); _sh = min(1920 - _sy, 1250); _sw = round(_sh * 0.8)
+    PLATE = dict(sx=1080 - _sw, sy=_sy, sw=_sw, sh=_sh, dx=460, dy=566, dw=576, dh=720, r=36)
     SAFE = dict(x0=44, x1=1036, y0=44, y1=1306)
 _k = PLATE['dw'] / PLATE['sw']
 def to_canvas(x, y): return PLATE['dx'] + (x - PLATE['sx']) * _k, PLATE['dy'] + (y - PLATE['sy']) * _k
@@ -95,11 +95,11 @@ for c in ([None] if HG else clips):   # puppet: its declared envelope; placehold
     for y, x0, x1 in (HG['envelope'] if HG else T['host_move'][c]): mark(x0, y, x1, y + 8, 14)   # the move mask is already dilated 1 cell
     hb = HG['head'] if HG else T['head'][c]; mark(hb[0], hb[1], hb[2], hb[3], 28)
 cs = T.get('cap_strip'); cap_top = ((cs[1] if cs else 1328) - 26) if not EMBED else SAFE['y1']   # caption plate (short: fixed lower band; embed: captions are a VTT track)
-if o.format == 'wide': Fb[:] = False; Fb[:, PLATE['dx'] - 40:] = True   # the teacher lives in its own window: the left panel is all free
-X0, X1, Y0 = SAFE['x0'], SAFE['x1'], SAFE['y0'] + 10
+if EMBED: Fb[:] = False; Fb[PLATE['dy'] - 40:, PLATE['dx'] - 40:] = True   # the teacher lives in its own window: everything else is free
+X0, X1, Y0 = SAFE['x0'], SAFE['x1'], SAFE['y0'] + 18   # + the 14 px exit lift stays inside SAFE
 TOP_Y1 = next((y for y in range(Y0, H) if Fb[y, X0:X1].any()), SAFE['y1']) - 6   # full-width card above the head
 def col_x1(y0, y1):   # left column right edge over rows y0..y1
-    row = Fb[y0:y1, X0:X1].any(0); return X0 + (int(np.argmax(row)) if row.any() else X1 - X0) - 18
+    row = Fb[y0:y1, X0:X1].any(0); return X0 + (int(np.argmax(row)) if row.any() else X1 - X0) - 14
 print(f'free: top card y {Y0}..{TOP_Y1} (h {TOP_Y1 - Y0}), caption top {cap_top}, clips {clips}', flush=True)
 
 NODES = []; CARDS = {}; IPA = []; CUES = []
@@ -182,14 +182,14 @@ def fix_ring(card, h_chip=60):   # move the ring item to the card's top-right co
 def pills(y0, opts, cues, reveal, right, cid='opts'):
     """Stacked A-D option pills in the left column; each appears on its spoken word, the index ring turns into a check on the reveal word."""
     x1 = col_x1(y0, y0 + len(opts) * 140); x1 = min(x1, X0 + 640); w = x1 - X0; h = 118; out = []   # embed (wide): pills keep a pill shape, not the full panel
-    need = max(tw(t, S_BODY) for t in opts) + 64 + 22 + 2 * 24
+    need = max(tw(t, S_BODY) for t in opts) + 60 + 18 + 2 * 20
     assert need <= w, ('option column too narrow', round(need), w)
     rin, rcue = cue(reveal, 'pop')
     for i, (txt, c) in enumerate(zip(opts, cues)):
         y = y0 + i * (h + 24); ins, cw = cue(c, 'rise'); CUES.append(dict(node=f'{cid}.{i}', **cw))
         st = [dict(t=round(rcue['at'] - 0.02, 4), s='right' if i == right else 'dim')]
         out.append(node(id=f'{cid}.{i}', type='pill', box=[X0, y, x1, y + h], idx='ABCD'[i], label=txt, size=S_BODY, **{'in': ins}, st=st, pal=PILL, card=cid))
-    out.append(node(id=f'{cid}.chk', type='check', parent=f'{cid}.{right}', box=[X0 + 24, y0 + right * (h + 24) + 27, X0 + 24 + 64, y0 + right * (h + 24) + 91], **{'in': rin}))
+    out.append(node(id=f'{cid}.chk', type='check', parent=f'{cid}.{right}', box=[X0 + 20, y0 + right * (h + 24) + 25, X0 + 20 + 60, y0 + right * (h + 24) + 85], **{'in': rin}))
     CUES.append(dict(node=f'{cid}.chk', **rcue))
     CARDS[cid] = dict(card=None, nodes=[n['id'] for n in out[:-1]], kind='lesson', group='pop', text=' / '.join(f'{"ABCD"[i]} {t}' for i, t in enumerate(opts)),
                       m=[['body', S_BODY * CAP_J]], px=S_BODY, extra={})
@@ -417,7 +417,7 @@ if T.get('board'): T['board'] = dict(T['board'], where={p['id']: 'overlay' for p
 T['board_contrast'] = None   # no marker ink on the board: the cards are gated by overlay_contrast
 T['motion'] = dict(fps=o.fps, nodes=len(NODES), layout=dict(top=[X0, Y0, X1, Y0 + max(_measure_top(c) for c in M['top'])], top_max_y=TOP_Y1, cap_top=cap_top))
 json.dump(T, open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
-props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate='plate.mp4', plateBox=PLATE, bg='#10191B', tag=(o.tag or None) if not o.host_geom else None, nodes=NODES, total=TOTAL, format=o.format, safe=SAFE)
+props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate='plate.mp4', audio='plate.wav', plateBox=PLATE, bg='#10191B', tag=(o.tag or None) if not o.host_geom else None, nodes=NODES, total=TOTAL, format=o.format, safe=SAFE)
 if EMBED:   # captions + chapters as WebVTT tracks (translatable, never burned in): one cue per spoken line, display forms ('blank' -> ___)
     D = SP.get('display', {}); vt = lambda x: f'{int(x // 3600):02d}:{int(x % 3600 // 60):02d}:{x % 60:06.3f}'
     cap = ['WEBVTT', '']

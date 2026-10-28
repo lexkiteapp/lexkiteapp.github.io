@@ -2,7 +2,7 @@
 // cards of scripts/video/motion/build_overlay.py, animated with core.mjs (same maths as the QC). Ported from the Stitch HTML/Tailwind frames
 // (project "Lexkite English Exam Prep"): tactile cards with a hard bottom ledge, chips, A–D pills, countdown ring, +XP, strike, stress dots, band bar, end card.
 import React, { useEffect, useState } from 'react';
-import { AbsoluteFill, OffthreadVideo, Img, staticFile, useCurrentFrame, useVideoConfig, delayRender, continueRender } from 'remotion';
+import { AbsoluteFill, OffthreadVideo, Audio, Img, staticFile, useCurrentFrame, useVideoConfig, delayRender, continueRender } from 'remotion';
 import { pose, state, value, clamp01 } from './core.mjs';
 import { HOSTS } from './hosts.js';
 
@@ -42,12 +42,12 @@ function Body({ n, t, w, h }) {
     case 'pill': { const [cur, prev, m] = state(n, t), A = n.pal[prev], B = n.pal[cur], c = k => mixc(A[k], B[k], m);
       return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 38, background: c('fill'), border: `3px solid ${c('edge')}`, borderBottom: `9px solid ${c('ledge')}`,
         boxShadow: cur === 'right' ? `0 10px 30px rgba(47,191,113,${0.35 * m})` : '0 10px 24px rgba(0,0,0,.28)' }}>
-        <div style={{ position: 'absolute', left: 21, top: 24, width: 64, height: 64, borderRadius: 32, background: c('ring'), border: '2px solid rgba(255,255,255,.10)', color: c('ring_ink'),
-          fontFamily: JAK, fontWeight: 800, fontSize: 34, lineHeight: '60px', textAlign: 'center' }}>{n.idx}</div>
-        <div style={{ position: 'absolute', left: 21 + 64 + 22, top: 0, height: h - 12, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 12}px`, color: c('ink'), whiteSpace: 'pre' }}>{n.label}</div>
+        <div style={{ position: 'absolute', left: 17, top: 25, width: 60, height: 60, borderRadius: 30, background: c('ring'), border: '2px solid rgba(255,255,255,.10)', color: c('ring_ink'),
+          fontFamily: JAK, fontWeight: 800, fontSize: 34, lineHeight: '56px', textAlign: 'center' }}>{n.idx}</div>
+        <div style={{ position: 'absolute', left: 17 + 60 + 18, top: 0, height: h - 12, fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 12}px`, color: c('ink'), whiteSpace: 'pre' }}>{n.label}</div>
       </div>; }
     case 'check':
-      return <svg width={w} height={h} viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#2FBF71" /><path d="M18 33l9 9 19-20" stroke="#0E2919" strokeWidth="7" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+      return <svg width={w} height={h} viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#2FBF71" /><path d="M18 33l9 9 19-20" stroke="#0E2919" strokeWidth="7" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>;
     case 'ring': { const { t0, t1 } = n.ring, rem = clamp01((t1 - t) / (t1 - t0)), d = Math.min(3, Math.max(1, Math.ceil(t1 - t - 1e-9))), r = w / 2 - 7, C = 2 * Math.PI * r;
       return <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`}><circle cx={w / 2} cy={h / 2} r={r} stroke="#203438" strokeWidth="9" fill="#10191B" />
         <circle cx={w / 2} cy={h / 2} r={r} stroke="#F2553B" strokeWidth="9" fill="none" strokeLinecap="round" strokeDasharray={C} strokeDashoffset={C * (1 - rem)} transform={`rotate(-90 ${w / 2} ${h / 2})`} />
@@ -91,20 +91,21 @@ function Node({ n, kids, t, ox, oy }) {
 }
 
 const Plate = ({ src, b }) => {   // the host plate (1080x1920) cropped sx/sy/sw/sh into the destination window dx/dy/dw/dh (short = full frame)
-  if (!b) return <OffthreadVideo src={staticFile(src)} />;
+  if (!b) return <OffthreadVideo src={staticFile(src)} muted />;
   const k = b.dw / b.sw;
   return <div style={{ position: 'absolute', left: b.dx, top: b.dy, width: b.dw, height: b.dh, overflow: 'hidden', borderRadius: b.r, boxShadow: b.r ? '0 30px 70px -20px rgba(0,0,0,.6)' : 'none' }}>
-    <OffthreadVideo src={staticFile(src)} style={{ position: 'absolute', left: -b.sx * k, top: -b.sy * k, width: 1080 * k, height: 1920 * k, maxWidth: 'none' }} /></div>;
+    <OffthreadVideo src={staticFile(src)} muted style={{ position: 'absolute', left: -b.sx * k, top: -b.sy * k, width: 1080 * k, height: 1920 * k, maxWidth: 'none' }} /></div>;
 };
 
-export const StitchShort = ({ nodes = [], plate, plateBox, bg = '#10191B', host = null, tag = null }) => {
+export const StitchShort = ({ nodes = [], plate, plateBox, bg = '#10191B', host = null, tag = null, total = 0, audio = null }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill style={{ background: bg }}>
       {host && host.kind !== 'plate' && HOSTS[host.kind] ? React.createElement(HOSTS[host.kind], { ...host, t, fps }) : plate ? <Plate src={plate} b={plateBox} /> : null}
-      {tag ? <div style={{ position: 'absolute', left: 24, top: 24, padding: '6px 14px', borderRadius: 999, background: 'rgba(16,25,27,.72)', color: '#FFC94A', fontFamily: JAK, fontWeight: 800, fontSize: 26, letterSpacing: '0.06em' }}>{tag}</div> : null}
+      {audio ? <Audio src={staticFile(audio)} /> : null}
+      {tag && t > 0.5 && t < (total || 1e9) - 0.6 ? <div style={{ position: 'absolute', left: 24, top: 24, padding: '6px 14px', borderRadius: 999, background: 'rgba(16,25,27,.72)', color: '#FFC94A', fontFamily: JAK, fontWeight: 800, fontSize: 26, letterSpacing: '0.06em' }}>{tag}</div> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} />)}</AbsoluteFill>
     </AbsoluteFill>
   );

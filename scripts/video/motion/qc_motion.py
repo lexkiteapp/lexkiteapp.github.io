@@ -71,7 +71,8 @@ for n in cards:
 for m in measured: m['pop'] = {'endcol': 'cta'}.get(m['pop'], m['pop'])   # card ids -> overlay pop ids (the builder renames the end column 'cta')
 TL['overlay']['measured'] = measured
 
-# ---------------- 2. qc_v9 on a 24 fps proxy (same frame grid as the plate timeline); embeds: overlay gates on their canvas ----------------
+# ---------------- 2. qc_v9: pixel gates (continuity, cut, sharpness, loop, file) on the host plate re-encoded at the delivery bitrate, timeline
+#      gates (hook, sizes, safe area, overlap, head, countdown, CTA, overlay_*) on the overlay geometry; embeds: overlay gates on their canvas ----------------
 if EMBED:
     sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import overlay_gates
     els = lambda f: [dict(zip(('name', 'text', 'x0', 'y0', 'x1', 'y1', 'alpha', 'px', 'group', 'digit', 'where', 'm'), e)) for e in f['els']]
@@ -91,7 +92,7 @@ if EMBED:
                                     note='embedded lesson video: no follow / site CTA, no QR; the end card hands over to the next lesson step')
 if not EMBED:
     px = o.master[:-4] + '.p24.mp4'
-    subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.master, '-vf', 'fps=24', '-c:v', 'libx264', '-preset', 'slow', '-b:v', '8800k', '-maxrate', '11880k', '-bufsize', '17600k',
+    subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.plate, '-c:v', 'libx264', '-preset', 'slow', '-b:v', '8800k', '-maxrate', '11880k', '-bufsize', '17600k',
                     '-pix_fmt', 'yuv420p', '-g', '48', '-c:a', 'copy', '-movflags', '+faststart', px], check=True)
     json.dump(TL, open(px + '.timeline.json', 'w'), default=str)
     for suf in ('.samples', '.src0.png'):
@@ -118,8 +119,19 @@ R['overlay_timing'] = dict(ok=bool(cues) and not late and not tok_bad, cues=len(
 ts = []
 for r in rows: ts += [r['appears'] - 0.30, r['appears'] - 0.15, r['appears'] + 0.20]
 FS = grab(o.master, ts); bad = []; early = []; okn = 0
+cardin = sorted((n['in']['t'], n['id']) for n in NODES if n['type'] == 'card')
+def handed(n):   # a card that takes over a slot right after another card left it (the outgoing fade sits in the 'before' window)
+    return n['type'] == 'card' and any(0 < n['in']['t'] - (m.get('out') or {}).get('t', -9) < 0.5 for m in NODES if m['type'] == 'card' and m is not n and inter(m['box'], n['box']))
+lum = lambda F, b: cv2.cvtColor(crop(F, b, 10).astype(np.uint8), cv2.COLOR_BGR2GRAY)
+frac = lambda F, b: float(((lum(F, b) < 80) if not EMBED else (lum(F, b) > 150)).mean())   # short: dark card on the light board; embed: light text on the dark canvas
+FSH = grab(o.master, [r['appears'] - 0.075 for r in rows if handed(BY[r['node']])])
 for r in rows:
     n = BY[r['node']]; b = n['box']; a, b0, c_ = [FS.get(round(r['appears'] + d, 4)) for d in (-0.30, -0.15, 0.20)]
+    if handed(n) and c_ is not None and FSH.get(round(r['appears'] - 0.075, 4)) is not None:   # the gap between the two cards: neither shown
+        f0, f1 = frac(FSH[round(r['appears'] - 0.075, 4)], b), frac(c_, b)
+        if f0 < 0.25 and f1 > max(0.4, f0 + 0.25): okn += 1
+        else: early.append((r['node'], 'handover', round(f0, 2), round(f1, 2)))
+        continue
     if a is None or b0 is None or c_ is None: bad.append((r['node'], 'no frame')); continue
     ch = float(np.abs(crop(c_, b, 4) - crop(b0, b, 4)).mean()); pre = float(np.abs(crop(b0, b, 4) - crop(a, b, 4)).mean())
     if ch < 4.0: bad.append((r['node'], round(ch, 2)))
