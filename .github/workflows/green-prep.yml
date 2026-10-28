@@ -32,7 +32,7 @@ jobs:
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
-          git -C footage sparse-checkout set --no-cone /anchor/tools/ /anchor/green/*.sh /anchor/green/*.py /anchor/green/qa/ "/anchor/tools/dl/$ID.mp4" "/anchor/tools/dl/$ID.720.mp4" '!/anchor/tools/dl/*' '!/anchor/tools/dl24/*' '!/anchor/tools/raw/*' '!/anchor/tools/meta/*'
+          git -C footage sparse-checkout set --no-cone /anchor/tools/ /anchor/green/*.sh /anchor/green/*.py /anchor/green/qa/ '!/anchor/tools/dl/*' '!/anchor/tools/dl24/*' '!/anchor/tools/raw/*' '!/anchor/tools/meta/*' "/anchor/tools/dl/$ID.mp4" "/anchor/tools/dl/$ID.720.mp4"
           git -C footage checkout -q; rm -f ~/.ssh/footage; ls -la footage/anchor/tools/dl/ | head
       - name: Deps
         run: sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null && pip install -q opencv-python-headless==4.10.0.84 numpy==2.1.3 scipy==1.14.1 pillow==11.0.0
