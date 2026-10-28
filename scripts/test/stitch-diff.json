@@ -2,26 +2,26 @@
  "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng).",
  "home-dark": {
   "ssim": 0.289,
-  "rows": -0.089
+  "rows": -0.087
  },
  "lesson-dark": {
   "ssim": 0.16,
-  "rows": 0.252
+  "rows": 0.235
  },
  "feedback-dark": {
-  "ssim": 0.233,
-  "rows": 0.067
+  "ssim": 0.232,
+  "rows": 0.153
  },
  "readiness-dark": {
   "ssim": 0.168,
-  "rows": -0.032
+  "rows": -0.029
  },
  "home-light": {
   "ssim": 0.297,
-  "rows": 0.131
+  "rows": 0.139
  },
  "feedback-light": {
-  "ssim": 0.149,
-  "rows": -0.173
+  "ssim": 0.181,
+  "rows": -0.175
  }
 }

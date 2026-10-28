@@ -120,7 +120,7 @@
   },
   "lip-secondary": {
    "$type": "color",
-   "$value": "#00504b",
+   "$value": "#239389",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#187770"
