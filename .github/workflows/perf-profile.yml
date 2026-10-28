@@ -25,4 +25,4 @@ jobs:
           rm -rf out/site && mkdir -p out && cp -R web out/site && rm -rf out/site/audio
           node scripts/app-loader.mjs out/site/app/index.html
           (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
-          node scripts/test/X
+          node scripts/test/profile-route.mjs http://localhost:8080 "${{ inputs.route || 'path' }}" 1
