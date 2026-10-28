@@ -38,7 +38,7 @@ for c, a in zip(frames(f'{G}/kfull_pro/{CLIP}.mp4', 'rgb24', 3), frames(f'{G}/km
     for img in (c, n2):
         for bg in ((24, 26, 36), (247, 248, 252)):
             comp = img * al[..., None] + np.array(bg, np.float32) * (1 - al[..., None])
-            y0 = max(0, int(EY - 3.2 * EM)); crop = comp[y0:y0 + int(cw * 1920 / 1080 * 0.6), int(EX - 0.9 * cw * 1.5):int(EX + 0.9 * cw * 1.5)]
+            hh = int(6.2 * EM); ww = int(hh * cw / VW); y0 = max(0, int(EY - 3.0 * EM)); x0 = max(0, int(EX - ww / 2)); crop = comp[y0:y0 + hh, x0:x0 + ww]   # đầu + vai
             t = np.ascontiguousarray(crop.astype(np.uint8)); tiles.append(t)
     row = np.concatenate([cv2.resize(t, (cw, VW)) for t in (tiles[0], tiles[2], tiles[1], tiles[3])], 1)   # trước tối | sau tối | trước sáng | sau sáng
     cmp_.stdin.write(row.tobytes()); n += 1
