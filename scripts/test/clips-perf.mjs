@@ -35,7 +35,7 @@ const R = await page.evaluate(async () => {
   const tc = host.querySelector('.cl-c b'); out.ellipsis = getComputedStyle(tc).textOverflow === 'ellipsis' && !!tc.title; out.cls = cls; return out;
 });
 // Trung tâm video (web/js/admin-video.js): mở thẳng #video/library → thẻ đầu tiên; chuyển mục con Chờ duyệt → hàng đợi hiện ra
-await page.addScriptTag({ content: fs.readFileSync('web/js/admin-video.js', 'utf8') });
+await page.addScriptTag({ content: fs.readFileSync('web/js/admin-chart.js', 'utf8') }); await page.addScriptTag({ content: fs.readFileSync('web/js/admin-video.js', 'utf8') });
 Object.assign(R, await page.evaluate(async () => {
   const wait = ms => new Promise(r => setTimeout(r, ms)), until = async (f, what) => { const t0 = performance.now(); while (!f()) { if (performance.now() - t0 > 8000) throw new Error('timeout waiting for ' + what); await wait(2); } }, raf = () => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
   document.getElementById('h').innerHTML = ''; const host = document.createElement('div'); document.body.appendChild(host); history.replaceState(null, '', location.pathname + '#video/library');
