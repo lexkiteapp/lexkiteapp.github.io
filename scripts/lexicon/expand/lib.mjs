@@ -2,7 +2,7 @@
 // Mọi giao diện/việc hạ nguồn đọc mục mở rộng QUA ĐÂY (loadExpand / expandRows) – test scripts/test/lexicon-consumers.mjs chặn việc bỏ sót.
 import fs from 'fs';
 import { ROOT, rd } from '../lib.mjs';
-import { badChars } from '../ipa.mjs';
+import { badChars, ukStyleBad } from '../ipa.mjs';
 import { agree, trIssues, VI, CE, SCRIPT } from '../../content-qa/lib.mjs';
 export const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
 export const QUEUE = 'content/qa/review-queue.json';
@@ -37,7 +37,8 @@ export function btOk(e, l) {
   return bts.some(b => words(b).some(t => t.length >= 4 && !STOP.has(t) && D.has(t)));
 }
 // Lỗ dữ liệu NGUỒN (IPA từ Wiktionary/CMUdict/espeak – không do AI soạn) ≠ lỗi nội dung → không bao giờ vào hàng duyệt; lượt sau làm lại.
-const GAP = /^ipa[ :]/;
+// 'ipa: lệch Britfone/CMU' (ipa-check.mjs checkEntry) KHÔNG phải lỗ: sinh lại vẫn ra cùng IPA nguồn → hàng duyệt (người soát sửa/giữ)
+const GAP = /^ipa(?=[ :])(?!: lệch Britfone)/;
 export const sourceGap = r => !!(r && !r.ok && r.why.length && r.why.every(x => GAP.test(x)));
 // Có ÍT NHẤT 1 lỗ nguồn (kể cả kèm lỗi nội dung) → không vào hàng duyệt (người soát không sửa được IPA nguồn); lượt sau sinh lại cả mục – cùng luật requeue.mjs --gaps
 export const hasGap = r => !!(r && !r.ok && (r.why || []).some(x => GAP.test(x)));
@@ -53,16 +54,24 @@ export function defPosOk(def, pos) {
   return true;
 }
 export const SENSITIVE = /\b(muslims?|islam(ic|ists?)?|jews?|jewish|christians?|christianity|hindus?|buddhists?|catholics?|protestants?|atheists?|gays?|lesbians?|homosexuals?|transgender|blacks|whites|negro(es)?|arabs?|immigrants?|refugees?|terrorists?)\b/i;
+// ví dụ cho người học tuổi teen: không nội dung tình dục (pilot 20261028: virgin "I am still a virgin.") → hàng duyệt
+export const ADULT = /\b(virgins?|virginity|sex|sexual(ly)?|sexy|intercourse|naked|nude|porn\w*|erotic|condoms?|prostitut\w*|orgasm\w*)\b/i;
+// ví dụ phải là CÂU hoàn chỉnh (pilot 20261028: ballet "a classically-trained ballet dancer" – cụm danh từ, không phải câu)
+export const isSentence = x => /^["'“‘(]?[A-Z0-9]/.test(String(x || '').trim()) && /[.!?]["'”’)]?$/.test(String(x || '').trim());
 export function gateEntry(e, { keep } = {}) {
   const why = [];
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
   if (keep === false) return { ok: false, why: ['keep: không phải mục từ chuẩn'] };
   if (!['n', 'v', 'adj', 'adv'].includes(e.pos)) why.push('schema: pos');
   if (!e.ipa) why.push('ipa: thiếu IPA Anh (Wiktionary + espeak)'); else if (badChars(e.ipa).length) why.push('ipa: ký hiệu ngoài bảng ' + badChars(e.ipa).join(''));
+  if (e.ipa && ukStyleBad(e.ipa)) why.push('ipa: Anh sai kiểu kho (a đơn / ký hiệu tuỳ chọn) ' + e.ipa);
+  // IPA lệch Britfone (Anh) / CMUdict (Mỹ) mà không tự sửa được (job.mjs chạy ipa-check.mjs checkEntry trước cổng) – chủ 28/10: không ghi IPA lệch vào kho
+  for (const b of [].concat(e.ipaBad || [])) why.push('ipa: lệch Britfone/CMU ' + b);
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);
   if (!Array.isArray(e.ex) || e.ex.length !== 2 || e.ex[0] === e.ex[1] || e.ex.some(s => !formOf(e.w, s))) why.push('schema: 2 ví dụ chứa từ');
+  else if (e.ex.some(x => !isSentence(x))) why.push('ví dụ: không phải câu hoàn chỉnh (viết hoa đầu, có dấu câu cuối)');
   if (!Array.isArray(e.col)) why.push('schema: cụm từ'); // source-first: cụm chỉ từ nguồn (WordNet/Tatoeba) – không có thì để trống, không bịa
   if (e.trBad && !e.perLang) for (const [l, w] of Object.entries(e.trBad)) why.push(`dịch ${l}: từ không có thật trong ngôn ngữ (wordfreq: ${[].concat(w).join(', ')})`);
   if (e.defChanged) why.push('def: viết lại khác nghĩa gloss WordNet (' + String(e.defChanged).slice(0, 80) + ')');
@@ -76,6 +85,7 @@ export function gateEntry(e, { keep } = {}) {
   const fl = (Array.isArray(e.qa.f) ? e.qa.f : [e.qa.f]).filter(x => x && String(x).trim()); if (fl.length) why.push('giám khảo nêu lỗi: ' + fl.join(' · ').slice(0, 120));
   // ví dụ cho người học tuổi teen: không nhắc nhóm tôn giáo/sắc tộc/xu hướng (pilot 20261027: categorize "…all Muslims as murderers")
   if (Array.isArray(e.ex) && e.ex.some(x => SENSITIVE.test(x))) why.push('ví dụ: nhắc nhóm tôn giáo/sắc tộc – không hợp người học teen');
+  if ([e.def].concat(e.ex || []).some(x => ADULT.test(String(x || '')))) why.push('ví dụ/định nghĩa: nội dung tình dục – không hợp người học teen');
   // KHÓA NGHĨA (pilot 7: prop/tweet lệch nghĩa): cả 2 giám khảo phải trả lời "yes" – thiếu = trượt
   if (Array.isArray(e.qa.sense) && !(e.qa.sense.length >= 2 && e.qa.sense.every(x => x === 'yes'))) why.push('nghĩa: ví dụ/dịch không đúng nghĩa khóa (' + e.qa.sense.join('/') + ')');
   if (e.posDrift) why.push('nghĩa: đổi từ loại ' + e.pos + '→' + e.posDrift);

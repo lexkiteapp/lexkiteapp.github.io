@@ -47,6 +47,8 @@ jobs:
           # vi do AI lấp chỉ nhận phương án có trong Viet74K (duyet/vietnamese-wordlist, GPL-2.0 – CHỈ để kiểm trong CI, không phân phối)
           curl -sfL -o "$RUNNER_TEMP/viet74k.txt" https://raw.githubusercontent.com/duyet/vietnamese-wordlist/master/Viet74K.txt || true
           curl -sfL -o "$RUNNER_TEMP/cmu.dict" https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict
+          # cổng IPA Anh (scripts/lexicon/ipa-check.mjs): Britfone 3.0.1 (MIT) – bắt buộc, thiếu thì job đỏ (không ghi IPA chưa kiểm)
+          curl -sfL -o "$RUNNER_TEMP/britfone.csv" https://raw.githubusercontent.com/JoseLlarena/Britfone/master/britfone.main.3.0.1.csv
           curl -sfL -o "$RUNNER_TEMP/bad.txt" https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
           # CEFR kiểu EVP: CEFR-J Wordlist 1.5 (Tono Lab TUFS, miễn phí kể cả thương mại, ghi nguồn) + Octanove C1/C2 (CC BY-SA 4.0) – openlanguageprofiles/olp-en-cefrj
           curl -sfL -o "$RUNNER_TEMP/cefrj.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/cefrj-vocabulary-profile-1.5.csv || true
@@ -72,7 +74,7 @@ jobs:
           echo "LX_RUN_N=$N" >> "$GITHUB_ENV"; echo "LX_RUN_PILOT=$P" >> "$GITHUB_ENV"
           # pilot theo lịch: lô pilot hôm nay đã có mục → không chạy thêm (chờ soát 50 mẫu, không phí neuron)
           if [ "$P" = 1 ] && [ -z "${{ github.event.inputs.pilot }}" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
-          LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
+          LEASE_AI_B_NEURONS="${{ github.event.inputs.neurons || '600000' }}" node scripts/lexicon/expand/job.mjs --candidates "$RUNNER_TEMP/candidates.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
       - name: Lưu kết quả (chờ soát – chưa xuất)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         run: |

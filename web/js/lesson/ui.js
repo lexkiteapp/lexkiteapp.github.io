@@ -34,7 +34,7 @@
   function css() {
     if ($('#lsnCss')) return;
     const st = document.createElement('style'); st.id = 'lsnCss';
-    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:9rem}
+    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:calc(var(--lsn-fh,8rem) + 1.5rem)}
 .lsn-top{display:flex;align-items:center;gap:.6rem}.lsn-x{flex:none}.lsn-bar{flex:1;height:14px;border-radius:99px;background:var(--surface-3);overflow:hidden}
 .lsn-bar i{display:block;height:100%;width:0;background:var(--done);border-radius:99px;transition:width .35s ease}
 .lsn-combo{flex:none;font-weight:800;color:var(--gold-text);background:var(--gold-soft);border-radius:99px;padding:.15rem .6rem;font-size:.85rem;visibility:hidden}.lsn-combo.on{visibility:visible;animation:lsnPop .3s ease}
@@ -52,7 +52,7 @@
 .lsn-ans{min-height:3.4rem;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:.4rem;padding:.3rem 0}.lsn-bank{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
 .lsn-tile.used{visibility:hidden}.lsn-pic{width:min(220px,60vw);aspect-ratio:1;border-radius:16px;background:var(--surface-2);margin:0 auto;display:block;object-fit:cover}
 .lsn-mic{display:flex;flex-direction:column;align-items:center;gap:.5rem}.lsn-mic .btn{min-width:200px}
-.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bg);border-top:2px solid var(--line);padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom))}
+.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:75vh;overflow-y:auto;background:var(--bg);border-top:2px solid var(--line);padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom))}
 .lsn-foot>div{max-width:640px;margin:0 auto;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.lsn-foot .grow{flex:1}
 .lsn-foot.ok{background:var(--good-soft);border-color:var(--good)}.lsn-foot.bad{background:var(--again-soft);border-color:var(--again)}
 .lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
@@ -90,7 +90,8 @@
 
   let L = null; // bài đang chạy
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
-  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; const f = $('#lsnFoot'); if (f) f.remove(); };
+  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; if (footRO) { footRO.disconnect(); footRO = null; } const f = $('#lsnFoot'); if (f) f.remove(); };
+  let footRO = null; // chân bài học cố định: đo chiều cao thật (phiếu đúng/sai + "Vì sao?") → chừa đủ chỗ cuối trang, không che nội dung
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
   const PKEY = demo => (demo ? 'lk.lsn.path.demo' : 'lk.lsn.path');
@@ -118,6 +119,7 @@
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
     const prev = ls.get('lk.lsn.who'), who = prev === 'ama' ? 'carlos' : 'ama'; ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     L = { demo, items, sess: new E.Session(items, { ease: ux }), picks, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
+    if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
     view.innerHTML = `<div class="lsn" id="lsn">
       <div class="lsn-top"><a class="icon-btn lsn-x" href="#/lesson${Q(demo)}" aria-label="${t('Thoát bài học')}">✕</a>
@@ -127,6 +129,7 @@
         : `<div class="lsn-ask"><div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
       <div id="lsnBody"></div></div>`;
     const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
+    if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
     next();
   };

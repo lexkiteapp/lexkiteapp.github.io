@@ -94,7 +94,8 @@ await until(() => $('.back .wc'));
 const wc = $('.back .wc');
 ok(wc && wc.getAttribute('aria-label'), 'khối Hiểu sâu hiện, có aria-label');
 ok(['m', 'e', 'u', 'f'].every(k => $(`.back details[data-wc="${k}"] summary`)), '4 mục: Mẹo nhớ · Lỗi hay gặp · Dùng khi thi · Họ từ');
-ok(/Mẹo nhớ/.test(txt('.back [data-wc=m] summary')) && /Lỗi hay gặp/.test(txt('.back [data-wc=e] summary')) && /Dùng khi thi/.test(txt('.back [data-wc=u] summary')) && /Họ từ/.test(txt('.back [data-wc=f] summary')), 'nhãn các mục');
+{ const has = (sel, k) => txt(sel).includes(w.t(k)); // nhãn đúng ngôn ngữ đang chạy (jsdom = en; lazyfix nạp en/lazyui.js như App.need)
+  ok(has('.back [data-wc=m] summary', 'Mẹo nhớ') && has('.back [data-wc=e] summary', 'Lỗi hay gặp') && has('.back [data-wc=u] summary', 'Dùng khi thi') && has('.back [data-wc=f] summary', 'Họ từ'), 'nhãn các mục'); }
 ok($('.back [data-wc=m]').open && !$('.back [data-wc=e]').open, 'mặc định chỉ mở Mẹo nhớ (gọn)');
 const pairs = $$('.back .wc-pair');
 ok(pairs.length === 2, '2 cặp sai/đúng, mỗi cặp 1 hàng');
