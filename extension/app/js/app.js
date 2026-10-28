@@ -1067,7 +1067,7 @@
           <div>
             <div class="row"><span class="entry-word">${esc(e.word)}</span>${posChip(e.pos)}${levelChip(e.level)}${e.from ? `<span class="chip" data-from lang="en">${esc(e.from)} → ${esc(e.word)}</span>` : ''}</div>
             <div class="pron">
-              <span>${UI.pronHtml(e)}</span>
+              ${UI.pronHtml(e, { pills: true })}
               <span><b class="small">🐢 ${t('Chậm')}</b><button class="icon-btn sm" data-slow="${esc(e.word)}" title="${t('Nghe chậm')}" aria-label="${t('Nghe chậm')}">🔊</button></span>
             </div>
             ${I18N.meanLang() === 'en' ? '<div class="vi wi-native" data-dnative></div>' : `<div class="vi">${esc(e.vi)}</div>`}

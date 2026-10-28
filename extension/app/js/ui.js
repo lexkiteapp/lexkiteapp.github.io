@@ -547,7 +547,10 @@
     const [a1, a2] = ord, h1 = one(a1), h2 = one(a2); if (!h1 && !h2) return `<span class="pron2">${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}</span>`; // chưa có IPA (đang tra) → vẫn nghe được 2 giọng
     const wk = weakOf(w, ipa(ord[0]), ord[0], ent.pos);
     const ex = wk && !o.noEx ? ` <span class="small muted ipa-wk">· ${T('dạng yếu')}</span> <button type="button" class="icon-btn sm" data-speak-text="${esc(wk.ex)}" title="${esc(wk.ex)}" aria-label="${esc(T('Nghe dạng yếu trong câu: {s}', { s: wk.ex }))}">🔊</button>` : '';
-    const body = !h1 || !h2 || h1 === h2 ? `${h1 || h2} ${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}` : `<span class="pron-acc">${lab(a1)} ${h1} ${btn(a1)}</span> <span class="muted">·</span> <span class="pron-acc">${lab(a2)} ${h2} ${btn(a2)}</span>`;
+    const same = !h1 || !h2 || h1 === h2;
+    // o.pills: mỗi giọng là 1 span con (viên .pron của trang từ điển), không bọc ngoài
+    if (o.pills) return same ? `<span>${h1 || h2} ${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}</span>${ex ? `<span>${ex}</span>` : ''}` : `<span>${lab(a1)} ${h1} ${btn(a1)}</span><span>${lab(a2)} ${h2} ${btn(a2)}</span>${ex ? `<span>${ex}</span>` : ''}`;
+    const body = same ? `${h1 || h2} ${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}` : `<span class="pron-acc">${lab(a1)} ${h1} ${btn(a1)}</span> <span class="muted">·</span> <span class="pron-acc">${lab(a2)} ${h2} ${btn(a2)}</span>`;
     return `<span class="pron2">${body}${ex}</span>`;
   }
   // Bản ghi người thật ĐÚNG giọng (Dict: audio có thể là bản -us khi thiếu bản Anh) – sai giọng → '' (speak tự dùng giọng đúng: Kokoro/máy)
