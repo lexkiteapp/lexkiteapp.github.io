@@ -14,7 +14,12 @@
   const navH = (tabs, cap) => `<div class="st flex justify-around items-center h-20 px-space-xs w-full">${tabs.map(([k, h, , l]) => `<a class="st-tab group relative flex flex-col items-center justify-center gap-1 min-w-0 flex-1 min-h-[48px] py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="${h}" data-tab="${k}"><div class="st-tabi flex items-center justify-center w-10 h-7 rounded-full">${ms(TABI[k] || 'circle', 'text-[22px]')}</div><span class="font-label-badge text-[11px] leading-4 font-bold whitespace-nowrap ${cap ? 'uppercase tracking-wide' : 'normal-case tracking-normal'}"><bdi>${esc(l)}</bdi></span>${k === 'review' ? '<i class="badge absolute top-0 right-2" data-due hidden></i>' : ''}</a>`).join('')}</div>`;
   // Lớp vỏ thanh tab + đầu trang theo Stitch (class đặt lên phần tử có sẵn của index.html – không thêm DOM)
   const NAV_CLS = 'pb-safe bg-surface-container-low/95 backdrop-blur-xl rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.35)] lt:shadow-[0_-4px_20px_rgba(15,61,62,0.06)] lt:border-t lt:border-outline-variant';
+  // Giáo viên: qua registry nhân vật (Chars, web/js/characters.js) khi có; chưa có → ảnh 2D hiện tại. Tư thế: happy encourage thinking…
+  const tImg = w => (window.Chars ? Chars.poster(w) : window.App && App.teacherImg ? App.teacherImg(w) : '');
+  const tClip = (w, p) => (window.Chars && Chars.clip && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) ? Chars.clip(w, p) : '');
+  // Khung giáo viên có biểu cảm: clip tư thế (phát 1 lần, tắt tiếng) trên nền ảnh tĩnh; giảm chuyển động / chưa có clip → ảnh tĩnh
+  const tFace = (w, pose, cls) => { const c = tClip(w, pose), i = tImg(w); return c ? `<video class="${cls}" src="${c}" poster="${i}" muted playsinline autoplay preload="metadata" aria-hidden="true"></video>` : `<img class="${cls}" src="${i}" alt="" decoding="async">`; };
   // Thẻ chung: bóng tối (A) ↔ viền mảnh + bóng mềm (B)
   const CARD = 'shadow-lg border-2 border-b-[5px] border-outline-variant/80 lt:shadow-card-soft lt:border-outline-variant'; // tối: viền mảnh tách tầng (như app lớn) · sáng: viền kem + bóng mềm
-  window.ST = { esc, ms, nav, NAV_CLS, CARD };
+  window.ST = { esc, ms, nav, NAV_CLS, CARD, tImg, tClip, tFace };
 })();

@@ -42,7 +42,7 @@
 .lsn-tile.used{visibility:hidden}.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
 .lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:80vh;overflow-y:auto;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom))}
 .lsn-foot>*{max-width:608px;margin-inline:auto}.lsn-foot.sheet{display:flex;flex-direction:column;gap:1rem;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}.lsn-foot.sheet>*{width:100%}
-.lsn.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);animation:st-fade .18s ease both;pointer-events:none} /* tấm phản hồi: phần câu hỏi lùi sau lớp phủ (mẫu Stitch) */
+.lsn.st-end .lsn-ask,.lsn.st-end .lsn-meta{display:none}.lsn.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);animation:st-fade .18s ease both;pointer-events:none} /* tấm phản hồi: phần câu hỏi lùi sau lớp phủ (mẫu Stitch) */
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
 .lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;position:relative;transition:transform .2s ease,filter .2s ease}
 .lsn-duo .tch.talk{transform:scale(1.06);filter:drop-shadow(0 0 5px var(--primary))}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
@@ -278,7 +278,7 @@
     const foot = $('#lsnFoot'), lv = view.querySelector('#lsn');
     foot.className = ST.SHEET + ' ' + (ok ? ST.SHEET_OK : ST.SHEET_BAD); if (lv) lv.classList.add('st-dim'); // phần câu hỏi lùi lại sau tấm (mẫu: opacity 40 %)
     const c = it.card, w = L.who === 'carlos' ? 'carlos' : 'ama';
-    const coach = c ? ST.lsnCoach({ img: App.teacherImg ? App.teacherImg(w) : 'teach/' + w + '/poster.webp', name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
+    const coach = c ? ST.lsnCoach({ img: ST.tImg(w), face: ST.tFace(w, ok ? 'happy' : 'encourage', 'w-16 h-16 max-w-none object-cover object-top'), name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
       body: `${ok ? '' : `<p class="m-0 font-body-md text-body-md text-on-surface"><b lang="en">${esc(it.answer)}</b></p>`}<p class="m-0 font-body-md text-body-md text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p>` }) : '';
     foot.innerHTML = ST.lsnSheet({ chips: chips(ok), coach, card: !!c, head: ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng')), answer: !c && !ok && it.type !== 'match' ? it.answer : '',
       why: c ? t('Vì sao?') : '', next: t('Tiếp tục') });
@@ -344,11 +344,12 @@
     const weak = [...s.wrong.keys()].filter(k => k[0] !== '#');
     view.querySelector('#lsnBody').innerHTML = '';
     $('#lsnBub').textContent = s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!');
-    view.querySelector('#lsnBody').innerHTML = `<div class="card lsn-end"><h2>🎉 ${t('Hoàn thành bài học!')}</h2>
-      <div class="lsn-stats"><div><b>+${xp}</b><span class="tiny muted">XP</span></div><div><b>${s.accuracy}%</b><span class="tiny muted">${t('Tỉ lệ trả lời đúng')}</span></div><div><b>🔥 ${s.best}</b><span class="tiny muted">${t('COMBO cao nhất')}</span></div><div><b>${Math.max(1, Math.round((Date.now() - L.t0) / 60000))}′</b><span class="tiny muted">${t('Thời gian')}</span></div></div>
-      ${(L.picks || []).length ? `<p class="small">📘 ${t('Bạn đã học:')} <b lang="en">${L.picks.map(p => esc(p.card.word)).join(' · ')}</b></p>` : ''}
-      ${weak.length ? `<p class="small">🔁 <b lang="en">${weak.map(esc).join(', ')}</b></p>` : `<p>⭐ ${t('Không sai câu nào!')}</p>`}
-      <button class="btn primary lg lsn-go" id="lsnAgain">${t('Bài khác')} →</button><p><a class="small" href="#/lesson${Q(L.demo)}">${UI.icon('map')} ${t('Bản đồ bài học')}</a></p></div>`;
+    const lv = view.querySelector('#lsn'); if (lv) lv.classList.add('st-end'); // 🎨 màn hoàn thành = khoảnh khắc ăn mừng (web/js/st/lesson.js lsnEnd)
+    const w = L.who === 'carlos' ? 'carlos' : 'ama', mins = Math.max(1, Math.round((Date.now() - L.t0) / 60000));
+    view.querySelector('#lsnBody').innerHTML = ST.lsnEnd({ face: ST.tFace(w, s.accuracy >= 80 ? 'happy' : 'encourage', 'absolute inset-0 w-full h-full object-contain object-bottom'),
+      title: t('Hoàn thành bài học!'), sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
+      stats: [{ icon: 'bolt', val: '+' + xp + ' XP', label: 'XP', tone: 'gold' }, { icon: 'target', val: s.accuracy + '%', label: t('Tỉ lệ trả lời đúng'), tone: 'teal' }, { icon: 'local_fire_department', val: String(s.best), label: t('COMBO cao nhất'), tone: 'coral' }, { icon: 'timer', val: mins + '′', label: t('Thời gian') }],
+      learnedL: t('Bạn đã học:'), learned: (L.picks || []).map(p => p.card.word).join(' · '), weak: weak.join(', '), perfect: t('Không sai câu nào!'), again: t('Bài khác'), mapHref: `#/lesson${Q(L.demo)}`, mapL: t('Bản đồ bài học') });
     bar();
     $('#lsnAgain').onclick = () => routes.lesson('go');
     $('#lsnAgain').focus();

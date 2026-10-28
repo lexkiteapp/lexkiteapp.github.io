@@ -73,6 +73,17 @@ for (const scheme of ['dark', 'light']) {
   }
   await ctx.close();
 }
+// ---- gallery (mọi component/dạng bài · màn hoàn thành) sáng + tối: soi đủ dạng bài mà 4 màn chính không chụp tới ----
+for (const scheme of ['dark', 'light']) {
+  const ctx = await browser.newContext({ viewport: { width: W, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, serviceWorkers: 'block' });
+  await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
+  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`gallery ${scheme}: ${e.message}`));
+  await page.goto(`https://lk.test/design/gallery.html?theme=${scheme}&dir=ltr`, { waitUntil: 'load' }); await page.waitForTimeout(800);
+  const h = await page.evaluate(() => document.documentElement.scrollHeight); await page.setViewportSize({ width: W, height: Math.min(9000, h) }); await page.waitForTimeout(200);
+  await page.screenshot({ path: path.join(OUT, `gallery-${scheme}.png`) }); await ctx.close();
+}
+try { execFileSync('montage', [path.join(OUT, 'gallery-dark.png'), path.join(OUT, 'gallery-light.png'), '-tile', '2x1', '-geometry', '+8+8', '-background', '#e9e9e9', path.join(OUT, 'gallery.png')]); execFileSync('convert', [path.join(OUT, 'gallery.png'), '-resize', 'x2400>', '-quality', '72', path.join(OUT, 'sm-gallery.jpg')]); } catch (e) { /* bỏ qua */ }
+
 // ---- máy tính 1280 px (Stitch chỉ có mẫu điện thoại → tờ duyệt đặt cạnh mẫu điện thoại để so phong cách) ----
 for (const scheme of ['dark', 'light']) {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 1, colorScheme: scheme, serviceWorkers: 'block' });

@@ -78,7 +78,7 @@
   // Bố cục bám mẫu Stitch "band_score_exam_readiness" (brand/stitch/readiness-*.jpg, cổng scripts/test/stitch-diff.mjs)
   async function readiness(g, cur, wl, hrs, next) {
     const ex = g.exam, [, mn, mx] = SCALE[ex], lab = v => App.goalLabel({ exam: ex, target: v }), who = new Date().getDate() % 2 ? 'ama' : 'carlos', WHO = who === 'ama' ? 'Ama' : 'Carlos';
-    const img = w => (App.teacherImg ? App.teacherImg(w) : 'teach/' + w + '/poster.webp');
+    const img = w => ST.tImg(w);
     let real = false, bands = null, hist = [];
     if (ex === 'ielts' || ex === 'ieltsgt') { hist = (await Core.Store.get('mocks', [])) || []; const m = hist[0]; if (m && m.overall) { real = true; bands = m.bands || null; } else real = !!(state.settings.placement || {}).band; }
     else if (ex === 'toeic') { const x = (state.game.toeicTests || []).slice(-1)[0]; if (x) { real = true; bands = { listening: x.ls, reading: x.rs }; hist = (state.game.toeicTests || []).slice().reverse().map(y => ({ bands: { listening: y.ls, reading: y.rs } })); } }
