@@ -38,6 +38,12 @@ const ADS = (() => {
   return { at: NOW, today, ...stats(ev, today, ecpm), guard: guardOf(ev, today, { prev: 1 }), ecpm, real: revPack(rows, { at: NOW, srcs: ['adsense', 'admob'] }, { balance: '$42.17', last: { amount: '$118.40', date: '2026-09-21' } }, ev, ecpm, today, today), reporting: { connected: true } };
 })();
 const GROW = { events: Array.from({ length: 30 }, (_, i) => ({ day: iso(i - 29).slice(0, 10), install: 3 + (i % 6), uninstall: i % 3 })), daily: Array.from({ length: 14 }, (_, i) => ({ day: iso(i - 13).slice(0, 10), dau: 40 + i * 3, lookup: 120 + i * 9, save: 30 + i, popup: 50, newtab: 12 })) };
+// Hạn mức (/api/quota): đủ trường admin-quota.js đọc (nhà cung cấp, top, chặn, cờ, cho phép, tính năng, nhật ký)
+const QUOTA = { day: iso(0).slice(0, 10), breaker: 0.8, providers: [{ p: 'gemini', unit: 'req', used: 640, cap: 1000, pct: 64 }, { p: 'cf-ai', unit: 'neurons', used: 2100, cap: 10000, pct: 21 }],
+  top: { lookup: [{ id: 'u1', email: 'learner@example.com', n: 42 }, { id: 'ip:ab12', n: 17 }] }, blocks: [{ id: 'ip:ff00', until: NOW + 864e5, reason: 'abuse', by: 'admin@example.com' }],
+  flags: [{ id: 'u9', feature: 'explain', strikes: 2, last: NOW }], allow: [{ id: 'u1', note: 'tester', by: 'admin@example.com', at: NOW }],
+  features: [{ feature: 'explain', free: 20, anon: 5, store: 'kv', custom: false, ipx: 3, bans: 0 }, { feature: 'tts', free: 50, anon: 10, store: 'kv', custom: true, ipx: 2, bans: 1 }],
+  audit: [{ at: NOW, by: 'admin@example.com', op: 'block', target: 'ip:ff00', detail: '24h' }] };
 const CONFIGS = [[1280, 'light', 'vi'], [1440, 'dark', 'vi'], [1736, 'dark', 'vi'], [1920, 'light', 'en'], [820, 'dark', 'vi'], [390, 'light', 'en']];
 const FB = `window.firebase = { initializeApp() {}, auth: Object.assign(() => window.__AUTH, { GoogleAuthProvider: function () { this.setCustomParameters = () => {}; } }) };
   const U = { uid: 'guard', email: 'admin@example.com', displayName: 'Guard', photoURL: '', getIdToken: async () => 'x' };
@@ -48,6 +54,7 @@ const api = (pathn, b) => {
   if (pathn === '/api/admin') return FX[b.op] || (b.op === 'adsStats' ? ADS : /^(growth|ext)/i.test(b.op) ? GROW : { ok: true, rows: [] });
   if (pathn === '/api/backlinks') return BFX[b.op] || { ok: true };
   if (pathn === '/api/drive') return { alerts: [] };
+  if (pathn === '/api/quota') return b.op === 'state' ? QUOTA : { day: QUOTA.day, jobs: [], runs: [], leases: [], budget: {} };
   return { ok: true, rows: [] };
 };
 const found = {}, errs = [], add = (k, v) => { (found[k] ||= []).push(v); };
@@ -76,7 +83,10 @@ for (const [width, scheme, lang] of CONFIGS) {
     const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav' }).catch(e => ({ err: [e.message] }));
     // khung: tràn ngang trang, nội dung lấp khung (không cột trống giữa thanh bên và nội dung)
     res.shell = await page.evaluate(() => {
-      const o = [], over = document.scrollingElement.scrollWidth - innerWidth; if (over > 1) o.push(`trang tràn ngang ${over} px`);
+      const o = [], over = document.scrollingElement.scrollWidth - innerWidth;
+      if (over > 1) { const sc = e => { for (let p = e.parentElement; p; p = p.parentElement) if (/auto|scroll|hidden/.test(getComputedStyle(p).overflowX)) return true; return false; };
+        const who = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1 && !sc(e)).slice(-3).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 2).join('.') + ' "' + (e.textContent || '').trim().slice(0, 20) + '"');
+        o.push(`trang tràn ngang ${over} px (${who.join(', ')})`); }
       const side = document.querySelector('#side'), main = document.querySelector('#main'), cont = document.querySelector('.adm-content');
       if (innerWidth > 900 && side && !side.hidden) {
         const sr = side.getBoundingClientRect(), mr = main.getBoundingClientRect(), cr = cont.getBoundingClientRect(), pad = parseFloat(getComputedStyle(cont).paddingLeft) + parseFloat(getComputedStyle(cont).paddingRight);
