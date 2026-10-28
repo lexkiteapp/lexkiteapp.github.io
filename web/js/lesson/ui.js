@@ -39,9 +39,8 @@
 .lsn-bar i{display:block;height:100%;width:0;background:var(--done);border-radius:99px;transition:width .35s ease}
 .lsn-combo{flex:none;font-weight:800;color:var(--gold-text);background:var(--gold-soft);border-radius:99px;padding:.15rem .6rem;font-size:.85rem;visibility:hidden}.lsn-combo.on{visibility:visible;animation:lsnPop .3s ease}
 @keyframes lsnPop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
-.lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:128px;border-radius:16px;overflow:hidden;position:relative;background:var(--surface-2)}
-.tch-rig{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-rig img,.tch-rig video{position:absolute;inset:0;width:480px;height:640px;object-fit:cover}
-.tch-face{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-m{position:absolute;background-repeat:no-repeat;opacity:0;transition:opacity 60ms linear}
+.lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:128px;position:relative}
+.tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
 .lsn-bub{position:relative;flex:1;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:.7rem .9rem;font-weight:700}
 .lsn-bub small{display:block;font-weight:400;color:var(--muted);margin-top:.2rem}.lsn-tag{display:inline-block;font-size:.75rem;font-weight:800;color:var(--again-text);background:var(--again-soft);border-radius:99px;padding:.05rem .5rem;margin-bottom:.3rem}
 .lsn-tag.own{color:var(--accent-text);background:var(--accent-soft)}
@@ -61,8 +60,8 @@
 .lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
 .lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
-.lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;border-radius:18px;overflow:hidden;position:relative;background:var(--surface-2);transition:transform .2s ease,box-shadow .2s ease}
-.lsn-duo .tch.talk{transform:scale(1.06);box-shadow:0 0 0 4px var(--primary)}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
+.lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;position:relative;transition:transform .2s ease,filter .2s ease}
+.lsn-duo .tch.talk{transform:scale(1.06);filter:drop-shadow(0 0 5px var(--primary))}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
 .lsn-chat{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem;max-height:38vh;overflow:auto}.lsn-ln{background:var(--surface-2);border-radius:14px;padding:.45rem .7rem;max-width:85%}.lsn-ln.carlos{align-self:flex-end;background:var(--primary-soft)}.lsn-ln b{display:block;font-size:.75rem;color:var(--muted)}
 /* bản đồ */
 .lsn-path{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
@@ -327,7 +326,7 @@
     }
     const c = it.card;
     foot.innerHTML = `<div><div class="lsn-fb" role="status">${chips(ok)}
-        <div class="tk-teacher lsn-coach"><img src="${(App.teacherImg ? App.teacherImg((L.who === 'carlos' ? 'carlos' : 'ama')) : 'teach/' + (L.who === 'carlos' ? 'carlos' : 'ama') + '/poster.jpg')}" alt="" width="56" height="56" decoding="async"><div>
+        <div class="tk-teacher lsn-coach"><img src="${(App.teacherImg ? App.teacherImg((L.who === 'carlos' ? 'carlos' : 'ama')) : 'teach/' + (L.who === 'carlos' ? 'carlos' : 'ama') + '/poster.webp')}" alt="" width="56" height="56" decoding="async"><div>
         <h3 class="tk-display">${ok ? t('Tuyệt!') : t('Đáp án')}</h3><small>${esc(TNAME(L.who))} · ${t('Giáo viên của bạn')}</small>
         ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
         <p><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p></div></div>
