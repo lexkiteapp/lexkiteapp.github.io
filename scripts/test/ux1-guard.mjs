@@ -72,7 +72,11 @@ async function run(width, scheme, lang) {
   for (const r of ROUTES) { await go(r); await check(r); }
 
   // 🧩 Bài học thử (không ghi FSRS/XP): đi hết bài, 2 câu đầu cố ý sai (phiếu sai + câu dễ hơn), sau đó đúng
+  // buổi "Ngày" cũ đang mở (vb.daySess) → thanh "Ngày n 0/6" KHÔNG được chen vào bài học tập trung
+  await page.evaluate(async () => { await App.need('pathx'); const d = (await DayPath.days())[0]; if (d) localStorage.setItem('vb.daySess', d.id); }).catch(e => errs.push(`${tag}: daySess ${e.message}`));
   await go('lesson/go?demo=1', 2200);
+  const chrome = await page.evaluate(() => { const vis = s => [...document.querySelectorAll(s)].some(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden'); return ['.day-bar', '#bnav', '.sidebar', '#ux1Rail > *', '.topbar'].filter(vis); });
+  if (chrome.length) (found.focus ||= []).push(`${tag} lesson: chế độ tập trung vẫn hiện ${chrome.join(', ')}`);
   const did = new Set(); let wrong = 0, easierNext = false, noListen = false;
   for (let k = 0; k < 80; k++) {
     const st = await page.evaluate(() => {
