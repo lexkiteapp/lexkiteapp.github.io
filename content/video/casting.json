@@ -1,35 +1,892 @@
 {
-  "_note": "Cổng nhất quán bối cảnh – nhân vật – lời thoại (docs/VIDEO-PIPELINE.md §8). scenes: tag bối cảnh → dàn hợp lệ + vai + trang phục mặc định. topics: khớp từ khóa trong chủ đề/tiêu đề (theo thứ tự, mục đầu khớp thắng) → bối cảnh được phép (mục đầu = mặc định) + dàn được phép. Kit (linh vật) hợp lệ mọi nơi, không đứng trên sàn. Sửa file này = đổi luật cho scripts/video/render.mjs.",
-  "voices": { "diane": "af_sarah", "carlos": "am_adam", "kit": "af_sky" },
-  "characters": {"_note": "Hướng nhìn & lật gương (round 2): clip ghi facing front|left|right trong kho (library.json → manifest dựng). Lật gương chỉ khi CLIP ghi mirrorOk:true VÀ nhân vật không bị cấm ở đây (chi tiết nhận diện lệch một bên).", "mia": {"mirrorOk": false, "asym": "kẹp tóc vàng bên phải + thẻ đeo"}, "leo": {"mirrorOk": false, "asym": "thẻ đeo lệch"}, "diane": {"mirrorOk": false, "asym": "lọn tóc bạc một bên"}, "carlos": {"asym": "(chưa ghi) – mặc định theo clip mirrorOk"}, "ama": {"asym": "(chưa ghi) – balo một quai, mặc định theo clip mirrorOk"}},
+  "_note": "Cổng nhất quán bối cảnh – nhân vật – lời thoại (docs/VIDEO-PIPELINE.md §8). scenes: tag bối cảnh → dàn hợp lệ + vai + trang phục mặc định. topics: khớp từ khóa trong chủ đề/tiêu đề (theo thứ tự, mục đầu khớp thắng) → bối cảnh được phép (mục đầu = mặc định) + dàn được phép. Kit (linh vật) hợp lệ mọi nơi, không đứng trên sàn. Sửa file này = đổi luật cho scripts/video/render.mjs. Dàn: CHỈ 2 giáo viên 2D registry Ama + Carlos (web/teach/characters.json, chủ 28/10) – dàn cũ Mia/Leo/Diane ở \"retired\", không bao giờ dùng (scripts/test/characters-gate.mjs chặn).",
+  "voices": {
+    "ama": "af_bella",
+    "carlos": "am_fenrir",
+    "kit": "af_sky"
+  },
+  "characters": {
+    "ama": {
+      "asym": "clip registry 2D chính diện – không lật gương",
+      "mirrorOk": false
+    },
+    "carlos": {
+      "asym": "clip registry 2D chính diện – không lật gương",
+      "mirrorOk": false
+    },
+    "_note": "Chỉ người trong web/teach/characters.json (chủ 28/10). Clip registry quay chính diện, không lật gương."
+  },
   "scenes": {
-    "office":     { "cast": ["mia", "leo", "diane", "kit"], "roles": { "mia": "coworker", "leo": "coworker", "diane": "boss | interviewer" }, "outfit": "office" },
-    "school":     { "cast": ["ama", "kit"], "roles": { "ama": "student" }, "outfit": "casual" },
-    "library":    { "cast": ["ama", "kit"], "roles": { "ama": "student" }, "outfit": "casual" },
-    "exam":       { "cast": ["ama", "kit"], "roles": { "ama": "test taker" }, "outfit": "casual" },
-    "cafe":       { "cast": ["carlos", "mia", "leo", "ama", "kit"], "roles": { "carlos": "barista", "mia": "customer", "leo": "customer", "ama": "customer" }, "outfit": "casual" },
-    "restaurant": { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "server", "mia": "customer", "leo": "customer" }, "outfit": "casual" },
-    "home":       { "cast": ["mia", "leo", "kit"], "roles": { "mia": "friend", "leo": "friend" }, "outfit": "casual" },
-    "airport":    { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "check-in agent", "mia": "traveler", "leo": "traveler" }, "outfit": "travel" },
-    "classroom":  { "cast": ["ama", "diane", "kit"], "roles": { "ama": "student", "diane": "teacher" }, "outfit": "casual" },
-    "clinic":     { "cast": ["diane", "mia", "leo", "kit"], "roles": { "diane": "receptionist", "mia": "patient", "leo": "patient" }, "outfit": "casual" },
-    "hotel-lobby": { "cast": ["carlos", "mia", "leo", "kit"], "roles": { "carlos": "receptionist", "mia": "guest", "leo": "guest" }, "outfit": "travel" },
-    "reception":  { "cast": ["diane", "mia", "leo", "kit"], "roles": { "diane": "receptionist", "mia": "visitor", "leo": "visitor" }, "outfit": "office" },
-    "supermarket": { "cast": ["carlos", "mia", "leo", "ama", "kit"], "roles": { "carlos": "cashier", "mia": "shopper", "leo": "shopper", "ama": "shopper" }, "outfit": "casual" }
+    "office": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "school": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "library": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "exam": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "cafe": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "restaurant": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "home": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "airport": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "classroom": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "clinic": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "hotel-lobby": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "reception": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    },
+    "supermarket": {
+      "cast": [
+        "ama",
+        "carlos",
+        "kit"
+      ],
+      "roles": {
+        "ama": "teacher (Ama)",
+        "carlos": "teacher (Carlos)"
+      },
+      "outfit": "outfit1"
+    }
   },
   "topics": [
-    { "id": "job-interview", "match": ["interview", "hiring", "recruiter", "tell me about yourself", "resume"], "scenes": ["office", "reception"], "cast": ["diane", "mia", "leo"] },
-    { "id": "ielts-exam", "match": ["ielts", "toefl", "toeic", "exam", "speaking test", "writing task", "band score"], "scenes": ["exam", "library", "school", "classroom"], "cast": ["ama"] },
-    { "id": "ordering-coffee", "match": ["coffee shop", "ordering coffee", "order coffee", "barista", "cafe", "café", "latte"], "scenes": ["cafe"], "cast": ["carlos", "mia", "leo", "ama"] },
-    { "id": "restaurant", "match": ["restaurant", "menu", "order food", "waiter", "the bill", "the check"], "scenes": ["restaurant"], "cast": ["carlos", "mia", "leo"] },
-    { "id": "hotel", "match": ["hotel", "front desk", "room key", "reservation", "booking", "check out of"], "scenes": ["hotel-lobby", "reception"], "cast": ["carlos", "mia", "leo"] },
-    { "id": "doctor-visit", "match": ["doctor", "clinic", "appointment", "symptom", "feel sick", "headache", "pharmacy", "hospital"], "scenes": ["clinic"], "cast": ["diane", "mia", "leo"] },
-    { "id": "shopping", "match": ["supermarket", "grocery", "groceries", "cashier", "checkout", "receipt", "discount", "shopping"], "scenes": ["supermarket"], "cast": ["carlos", "mia", "leo", "ama"] },
-    { "id": "travel", "match": ["airport", "flight", "check-in", "boarding", "passport", "hotel", "travel"], "scenes": ["airport"], "cast": ["carlos", "mia", "leo"] },
-    { "id": "office-english", "match": ["email", "etiquette", "meeting", "boss", "colleague", "coworker", "office", "circle back", "deadline", "agree", "small talk", "presentation"], "scenes": ["office"], "cast": ["mia", "leo", "diane"] },
-    { "id": "classroom-english", "match": ["classroom english", "teacher", "say that again", "in class"], "scenes": ["classroom"], "cast": ["ama", "diane"] },
-    { "id": "study-grammar", "match": ["grammar", "vocabulary", "pronunciation", "spelling", "quiz", "affect or effect", "\"an hour\"", "a university", "homework", "class"], "scenes": ["school", "library", "classroom"], "cast": ["ama"] },
-    { "id": "daily-life", "match": ["slang", "idiom", "spill the tea", "how are you", "textbook vs real", "weekend", "friends", "daily"], "scenes": ["home", "cafe"], "cast": ["mia", "leo"] }
+    {
+      "id": "job-interview",
+      "match": [
+        "interview",
+        "hiring",
+        "recruiter",
+        "tell me about yourself",
+        "resume"
+      ],
+      "scenes": [
+        "office",
+        "reception"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "ielts-exam",
+      "match": [
+        "ielts",
+        "toefl",
+        "toeic",
+        "exam",
+        "speaking test",
+        "writing task",
+        "band score"
+      ],
+      "scenes": [
+        "exam",
+        "library",
+        "school",
+        "classroom"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "ordering-coffee",
+      "match": [
+        "coffee shop",
+        "ordering coffee",
+        "order coffee",
+        "barista",
+        "cafe",
+        "café",
+        "latte"
+      ],
+      "scenes": [
+        "cafe"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "restaurant",
+      "match": [
+        "restaurant",
+        "menu",
+        "order food",
+        "waiter",
+        "the bill",
+        "the check"
+      ],
+      "scenes": [
+        "restaurant"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "hotel",
+      "match": [
+        "hotel",
+        "front desk",
+        "room key",
+        "reservation",
+        "booking",
+        "check out of"
+      ],
+      "scenes": [
+        "hotel-lobby",
+        "reception"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "doctor-visit",
+      "match": [
+        "doctor",
+        "clinic",
+        "appointment",
+        "symptom",
+        "feel sick",
+        "headache",
+        "pharmacy",
+        "hospital"
+      ],
+      "scenes": [
+        "clinic"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "shopping",
+      "match": [
+        "supermarket",
+        "grocery",
+        "groceries",
+        "cashier",
+        "checkout",
+        "receipt",
+        "discount",
+        "shopping"
+      ],
+      "scenes": [
+        "supermarket"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "travel",
+      "match": [
+        "airport",
+        "flight",
+        "check-in",
+        "boarding",
+        "passport",
+        "hotel",
+        "travel"
+      ],
+      "scenes": [
+        "airport"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "office-english",
+      "match": [
+        "email",
+        "etiquette",
+        "meeting",
+        "boss",
+        "colleague",
+        "coworker",
+        "office",
+        "circle back",
+        "deadline",
+        "agree",
+        "small talk",
+        "presentation"
+      ],
+      "scenes": [
+        "office"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "classroom-english",
+      "match": [
+        "classroom english",
+        "teacher",
+        "say that again",
+        "in class"
+      ],
+      "scenes": [
+        "classroom"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "study-grammar",
+      "match": [
+        "grammar",
+        "vocabulary",
+        "pronunciation",
+        "spelling",
+        "quiz",
+        "affect or effect",
+        "\"an hour\"",
+        "a university",
+        "homework",
+        "class"
+      ],
+      "scenes": [
+        "school",
+        "library",
+        "classroom"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    },
+    {
+      "id": "daily-life",
+      "match": [
+        "slang",
+        "idiom",
+        "spill the tea",
+        "how are you",
+        "textbook vs real",
+        "weekend",
+        "friends",
+        "daily"
+      ],
+      "scenes": [
+        "home",
+        "cafe"
+      ],
+      "cast": [
+        "ama",
+        "carlos"
+      ]
+    }
   ],
-  "fallback": { "id": "general", "scenes": ["office", "home"], "cast": ["mia", "leo"] }
+  "fallback": {
+    "id": "general",
+    "scenes": [
+      "office",
+      "home"
+    ],
+    "cast": [
+      "ama",
+      "carlos"
+    ]
+  },
+  "retired": {
+    "_note": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)",
+    "voices": {
+      "diane": "af_sarah",
+      "carlos": "am_adam",
+      "kit": "af_sky"
+    },
+    "characters": {
+      "_note": "Hướng nhìn & lật gương (round 2): clip ghi facing front|left|right trong kho (library.json → manifest dựng). Lật gương chỉ khi CLIP ghi mirrorOk:true VÀ nhân vật không bị cấm ở đây (chi tiết nhận diện lệch một bên).",
+      "mia": {
+        "mirrorOk": false,
+        "asym": "kẹp tóc vàng bên phải + thẻ đeo"
+      },
+      "leo": {
+        "mirrorOk": false,
+        "asym": "thẻ đeo lệch"
+      },
+      "diane": {
+        "mirrorOk": false,
+        "asym": "lọn tóc bạc một bên"
+      },
+      "carlos": {
+        "asym": "(chưa ghi) – mặc định theo clip mirrorOk"
+      },
+      "ama": {
+        "asym": "(chưa ghi) – balo một quai, mặc định theo clip mirrorOk"
+      }
+    },
+    "scenes": {
+      "office": {
+        "cast": [
+          "mia",
+          "leo",
+          "diane",
+          "kit"
+        ],
+        "roles": {
+          "mia": "coworker",
+          "leo": "coworker",
+          "diane": "boss | interviewer"
+        },
+        "outfit": "office"
+      },
+      "school": {
+        "cast": [
+          "ama",
+          "kit"
+        ],
+        "roles": {
+          "ama": "student"
+        },
+        "outfit": "casual"
+      },
+      "library": {
+        "cast": [
+          "ama",
+          "kit"
+        ],
+        "roles": {
+          "ama": "student"
+        },
+        "outfit": "casual"
+      },
+      "exam": {
+        "cast": [
+          "ama",
+          "kit"
+        ],
+        "roles": {
+          "ama": "test taker"
+        },
+        "outfit": "casual"
+      },
+      "cafe": {
+        "cast": [
+          "carlos",
+          "mia",
+          "leo",
+          "ama",
+          "kit"
+        ],
+        "roles": {
+          "carlos": "barista",
+          "mia": "customer",
+          "leo": "customer",
+          "ama": "customer"
+        },
+        "outfit": "casual"
+      },
+      "restaurant": {
+        "cast": [
+          "carlos",
+          "mia",
+          "leo",
+          "kit"
+        ],
+        "roles": {
+          "carlos": "server",
+          "mia": "customer",
+          "leo": "customer"
+        },
+        "outfit": "casual"
+      },
+      "home": {
+        "cast": [
+          "mia",
+          "leo",
+          "kit"
+        ],
+        "roles": {
+          "mia": "friend",
+          "leo": "friend"
+        },
+        "outfit": "casual"
+      },
+      "airport": {
+        "cast": [
+          "carlos",
+          "mia",
+          "leo",
+          "kit"
+        ],
+        "roles": {
+          "carlos": "check-in agent",
+          "mia": "traveler",
+          "leo": "traveler"
+        },
+        "outfit": "travel"
+      },
+      "classroom": {
+        "cast": [
+          "ama",
+          "diane",
+          "kit"
+        ],
+        "roles": {
+          "ama": "student",
+          "diane": "teacher"
+        },
+        "outfit": "casual"
+      },
+      "clinic": {
+        "cast": [
+          "diane",
+          "mia",
+          "leo",
+          "kit"
+        ],
+        "roles": {
+          "diane": "receptionist",
+          "mia": "patient",
+          "leo": "patient"
+        },
+        "outfit": "casual"
+      },
+      "hotel-lobby": {
+        "cast": [
+          "carlos",
+          "mia",
+          "leo",
+          "kit"
+        ],
+        "roles": {
+          "carlos": "receptionist",
+          "mia": "guest",
+          "leo": "guest"
+        },
+        "outfit": "travel"
+      },
+      "reception": {
+        "cast": [
+          "diane",
+          "mia",
+          "leo",
+          "kit"
+        ],
+        "roles": {
+          "diane": "receptionist",
+          "mia": "visitor",
+          "leo": "visitor"
+        },
+        "outfit": "office"
+      },
+      "supermarket": {
+        "cast": [
+          "carlos",
+          "mia",
+          "leo",
+          "ama",
+          "kit"
+        ],
+        "roles": {
+          "carlos": "cashier",
+          "mia": "shopper",
+          "leo": "shopper",
+          "ama": "shopper"
+        },
+        "outfit": "casual"
+      }
+    },
+    "topics": [
+      {
+        "id": "job-interview",
+        "match": [
+          "interview",
+          "hiring",
+          "recruiter",
+          "tell me about yourself",
+          "resume"
+        ],
+        "scenes": [
+          "office",
+          "reception"
+        ],
+        "cast": [
+          "diane",
+          "mia",
+          "leo"
+        ]
+      },
+      {
+        "id": "ielts-exam",
+        "match": [
+          "ielts",
+          "toefl",
+          "toeic",
+          "exam",
+          "speaking test",
+          "writing task",
+          "band score"
+        ],
+        "scenes": [
+          "exam",
+          "library",
+          "school",
+          "classroom"
+        ],
+        "cast": [
+          "ama"
+        ]
+      },
+      {
+        "id": "ordering-coffee",
+        "match": [
+          "coffee shop",
+          "ordering coffee",
+          "order coffee",
+          "barista",
+          "cafe",
+          "café",
+          "latte"
+        ],
+        "scenes": [
+          "cafe"
+        ],
+        "cast": [
+          "carlos",
+          "mia",
+          "leo",
+          "ama"
+        ]
+      },
+      {
+        "id": "restaurant",
+        "match": [
+          "restaurant",
+          "menu",
+          "order food",
+          "waiter",
+          "the bill",
+          "the check"
+        ],
+        "scenes": [
+          "restaurant"
+        ],
+        "cast": [
+          "carlos",
+          "mia",
+          "leo"
+        ]
+      },
+      {
+        "id": "hotel",
+        "match": [
+          "hotel",
+          "front desk",
+          "room key",
+          "reservation",
+          "booking",
+          "check out of"
+        ],
+        "scenes": [
+          "hotel-lobby",
+          "reception"
+        ],
+        "cast": [
+          "carlos",
+          "mia",
+          "leo"
+        ]
+      },
+      {
+        "id": "doctor-visit",
+        "match": [
+          "doctor",
+          "clinic",
+          "appointment",
+          "symptom",
+          "feel sick",
+          "headache",
+          "pharmacy",
+          "hospital"
+        ],
+        "scenes": [
+          "clinic"
+        ],
+        "cast": [
+          "diane",
+          "mia",
+          "leo"
+        ]
+      },
+      {
+        "id": "shopping",
+        "match": [
+          "supermarket",
+          "grocery",
+          "groceries",
+          "cashier",
+          "checkout",
+          "receipt",
+          "discount",
+          "shopping"
+        ],
+        "scenes": [
+          "supermarket"
+        ],
+        "cast": [
+          "carlos",
+          "mia",
+          "leo",
+          "ama"
+        ]
+      },
+      {
+        "id": "travel",
+        "match": [
+          "airport",
+          "flight",
+          "check-in",
+          "boarding",
+          "passport",
+          "hotel",
+          "travel"
+        ],
+        "scenes": [
+          "airport"
+        ],
+        "cast": [
+          "carlos",
+          "mia",
+          "leo"
+        ]
+      },
+      {
+        "id": "office-english",
+        "match": [
+          "email",
+          "etiquette",
+          "meeting",
+          "boss",
+          "colleague",
+          "coworker",
+          "office",
+          "circle back",
+          "deadline",
+          "agree",
+          "small talk",
+          "presentation"
+        ],
+        "scenes": [
+          "office"
+        ],
+        "cast": [
+          "mia",
+          "leo",
+          "diane"
+        ]
+      },
+      {
+        "id": "classroom-english",
+        "match": [
+          "classroom english",
+          "teacher",
+          "say that again",
+          "in class"
+        ],
+        "scenes": [
+          "classroom"
+        ],
+        "cast": [
+          "ama",
+          "diane"
+        ]
+      },
+      {
+        "id": "study-grammar",
+        "match": [
+          "grammar",
+          "vocabulary",
+          "pronunciation",
+          "spelling",
+          "quiz",
+          "affect or effect",
+          "\"an hour\"",
+          "a university",
+          "homework",
+          "class"
+        ],
+        "scenes": [
+          "school",
+          "library",
+          "classroom"
+        ],
+        "cast": [
+          "ama"
+        ]
+      },
+      {
+        "id": "daily-life",
+        "match": [
+          "slang",
+          "idiom",
+          "spill the tea",
+          "how are you",
+          "textbook vs real",
+          "weekend",
+          "friends",
+          "daily"
+        ],
+        "scenes": [
+          "home",
+          "cafe"
+        ],
+        "cast": [
+          "mia",
+          "leo"
+        ]
+      }
+    ],
+    "fallback": {
+      "id": "general",
+      "scenes": [
+        "office",
+        "home"
+      ],
+      "cast": [
+        "mia",
+        "leo"
+      ]
+    }
+  }
 }

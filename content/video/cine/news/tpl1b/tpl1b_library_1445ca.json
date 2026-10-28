@@ -10,8 +10,8 @@
  "cefr": "A2",
  "area": "grammar-check",
  "plate": "library",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
  "hook": {
   "line": "n_1445ca_h",
   "quote": "A solution for this problem is easy.",
