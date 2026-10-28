@@ -82,7 +82,6 @@
   // ---------- từ en/skills.js (khung app / add-on / trang tĩnh dùng) ----------
   'Nghe': 'Listen',
   'Dòng thời gian': 'Timeline',
-  'QUÁ KHỨ': 'PAST',
   'Công thức': 'Formula',
   'Chủ ngữ': 'Subject',
   'Động từ': 'Verb',
