@@ -70,7 +70,14 @@
 - **App**: `#/lesson…?puppet=1` hoặc `localStorage lk.puppet=1` → `teacher.js` tải `puppet.js` thay sprite (chỉ Ama). API giữ nguyên + `say(text, { kind })`, `cue(kind)`.
 - **Video**: `scripts/puppet/sample.mjs` (Kokoro → faster-whisper → Rhubarb → props.json) → Remotion `PuppetSample` (`scripts/video/remotion/src/Puppet.jsx`).
   Cổng `scripts/puppet/gate.mjs`: tương quan miệng↔năng lượng ≥ 0,45, lệch ≤ 2 khung, im lặng ngậm ≥ 95 %, đang nói không đứng yên ≥ 85 %, m/b/p mím ≥ 75 %.
-  CI: `.github/workflows/puppet.yml` (video + cổng + quay app/phòng thử `docs/mocks/teacher-pilot/puppet.html`). Carlos + thay footage: chỉ sau khi chủ duyệt.
+  CI: `.github/workflows/puppet.yml` (video + cổng + quay app/phòng thử `docs/mocks/teacher-pilot/puppet.html` + so sánh song song với footage 3D).
+- **Cổng QC** `scripts/puppet/qc.mjs` (chủ 28/10: không méo miệng, tay chân không chồng chéo, không giật): miệng trong viền mặt ≥ 6 px + chuyển 40–80 ms
+  (chuỗi chuyển tiếp liên tục, độ dốc ≤ smoothstep 40 ms) · góc khớp, tay không chạm mặt/nhau (trừ vỗ tay), thứ tự lớp · gia tốc khung-khung đầu/cổ tay ·
+  miệng bắt đầu ±60 ms quanh đầu từ, m/b/p mím ±60 ms · sha hình vẽ = `content/video/puppet/ama-ref.json` + tờ ảnh = `docs/mocks/teacher-pilot/ref/ama-sheet.png`
+  (`sheetdiff.py`) · không tham chiếu dịch vụ giới hạn. Video: số khung = durationInFrames (0 khung rơi).
+- **Tài sản 1 lần, chạy 100 % mã**: hình vẽ là mã SVG đã commit (không ảnh AI, không gọi API theo từng video/bài). Tư thế/trang phục mới = sửa tham số/màu trong
+  `puppet.js` → `qc.mjs --update-ref` + `geom.mjs` + cập nhật tờ tham chiếu. Chỉ khi cần nét vẽ mới hẳn mới tạo ảnh tham chiếu (AI Studio, 1 lần, chủ duyệt – `docs/CREDIT-RULES.md`).
+- **Host video** (khuôn stitch-short PR #191): `Teacher` + `hostTimeline` trong `Puppet.jsx`; hình học bố cục `content/video/puppet/ama.json` (`scripts/puppet/geom.mjs`).
 
 ## 5. Dung lượng (ngân sách TEACHER-IN-APP §2b)
 | Phần | Byte | Khi nào tải |

@@ -43,6 +43,17 @@ await rec('app', { width: 430, height: 932 }, 'http://localhost:8080/app/#/lesso
   perf.appTeacher = await page.evaluate(() => { const s = document.querySelector('#lsnTch svg'); const r = s && s.getBoundingClientRect(); return { puppet: !!s, w: r && r.width, h: r && r.height, js: performance.getEntriesByType('resource').filter(e => /puppet\.js/.test(e.name)).map(e => ({ kb: +(e.encodedBodySize / 1024).toFixed(1) })) }; });
 });
 
+// đồng nhất (ảnh): tờ 9 viseme + 6 biểu cảm + 5 cử chỉ chụp lại so với tờ tham chiếu đã commit (docs/mocks/teacher-pilot/ref/ama-sheet.png);
+// mạng: phòng thử chỉ được gọi localhost (động cơ không tải gì từ ngoài)
+{
+  const ctx = await browser.newContext({ viewport: { width: 1100, height: 900 }, reducedMotion: 'reduce' }); const page = await ctx.newPage(), ext = [];
+  page.on('request', r => { if (!/^http:\/\/localhost[:/]/.test(r.url())) ext.push(r.url()); });
+  await page.goto('http://localhost:8081/docs/mocks/teacher-pilot/puppet.html'); await sleep(800);
+  await page.addStyleTag({ content: '.live,h2:first-of-type{display:none} figcaption{visibility:hidden}' });
+  const m = await page.$('main'); await m.screenshot({ path: path.join(OUT, 'sheet.png') });
+  perf.network = { external: ext };
+  await ctx.close();
+}
 // giảm chuyển động: chỉ miệng + chớp mắt, không lắc/cử chỉ
 {
   const ctx = await browser.newContext({ viewport: { width: 760, height: 960 }, reducedMotion: 'reduce' }); const page = await ctx.newPage();
@@ -53,5 +64,6 @@ await rec('app', { width: 430, height: 932 }, 'http://localhost:8080/app/#/lesso
 await browser.close();
 fs.writeFileSync(path.join(OUT, 'perf.json'), JSON.stringify(perf, null, 1));
 console.log(JSON.stringify(perf));
+if (perf.network.external.length) { console.error('❌ phòng thử gọi ra ngoài: ' + perf.network.external.join(' ')); process.exit(1); }
 const bad = Object.entries(perf).filter(([, v]) => v && v.errors && v.errors.length);
 if (bad.length) { console.error('❌ lỗi JS: ' + JSON.stringify(bad)); process.exit(1); }

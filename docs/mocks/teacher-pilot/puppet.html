@@ -38,7 +38,7 @@
   const NAMES = { X: 'rest', A: 'M B P', B: 'K S T', C: 'EH AE', D: 'AA', E: 'AO ER', F: 'UW W', G: 'F V', H: 'L' };
   for (const v of Object.keys(P.VIS)) still($('vis'), v + ' · ' + NAMES[v], { cues: [[0, v], [9, 'X']], lead: 0 }, 1);
   for (const e of Object.keys(P.EXPR)) still($('exp'), e, { expr: [[0, e]] }, 1);
-  const PEAK = { explain: 0.9, point: 0.8, clap: 0.62, open: 0.9 }, GE = { explain: 'neutral', point: 'happy', clap: 'happy', open: 'encouraging' };
+  const PEAK = { explain: 0.9, point: 0.8, pointL: 0.8, clap: 0.62, open: 0.9 }, GE = { explain: 'neutral', point: 'happy', pointL: 'happy', clap: 'happy', open: 'encouraging' };
   for (const g of Object.keys(P.GEST)) { const fig = document.createElement('div'); $('ges').appendChild(fig); const tl = { gest: [[0, g]], expr: [[0, GE[g]]] };
     const f2 = document.createElement('figure'); f2.innerHTML = '<div class="box"></div><figcaption>' + g + '</figcaption>'; fig.replaceWith(f2);
     f2.firstChild.innerHTML = P.art(); P.apply(P.rig(f2.firstChild.firstChild), P.sample(tl, PEAK[g], {})); }

@@ -1,6 +1,6 @@
 // 🎭 Video mẫu con rối 2D Ama (docs/LESSON-ENGINE.md §4b) – CÙNG động cơ với giáo viên trong app (web/js/lesson/puppet.js): khung → t → sample → apply.
 // Props = out/puppet/props.json (scripts/puppet/sample.mjs): tl { cues Rhubarb, expr, gest }, words (faster-whisper), card, audio.
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring, interpolate, delayRender, continueRender } from 'remotion';
 import Pup from '../../../../web/js/lesson/puppet.js';
 
@@ -21,6 +21,31 @@ function PuppetLayer({ tl, t, style }) {
   useLayoutEffect(() => { if (rig.current) Pup.apply(rig.current, Pup.sample(tl, t)); });
   return <div ref={box} style={style} />;
 }
+
+// ---- Host cho khuôn stitch-short (PR #191: stitch/hosts.js → HOSTS.puppet = Teacher). host = { who, box:[x0,y0,x1,y1], lines:[{id, at, words:[{w,s,e}]}],
+//      gestures?:[{t, g}] (g = cử chỉ GEST hoặc kind KIND), cues? (Rhubarb [[t,v]] – có thì dùng, chính xác nhất), expr?:[[t,name]], pointTo?: 'left'|'right' }.
+//      Không có cues → miệng theo chữ từng từ trong đúng khung [s,e] của từ (mốc whisper) → khớp nhịp từng từ. Con rối 3:4 đặt đáy-giữa box.
+export function hostTimeline(h) {
+  const cues = [], expr = (h.expr || []).slice(), gest = [];
+  if (h.cues && h.cues.length) cues.push(...h.cues);
+  else for (const l of h.lines || []) for (const w of l.words || []) {
+    const c = Pup.fromText(w.w, Math.max(0.08, w.e - w.s));
+    if (cues.length && cues[cues.length - 1][1] === 'X' && cues[cues.length - 1][0] > w.s - 0.01) cues.pop();
+    for (const [t, v] of c) cues.push([+(w.s + t).toFixed(3), v]);
+  }
+  cues.sort((a, b) => a[0] - b[0]);
+  for (const g of h.gestures || []) {
+    const k = Pup.KIND[g.g], name = k ? k.gest : g.g, e = k && k.expr;
+    if (e) expr.push([g.t, e]);
+    if (name) gest.push([g.t, name === 'point' && h.pointTo !== 'right' ? 'pointL' : name]);
+  }
+  return { cues, expr: expr.sort((a, b) => a[0] - b[0]), gest: gest.sort((a, b) => a[0] - b[0]), seed: h.seed || 11, lead: 0.03 };
+}
+export const Teacher = ({ t, box = [0, 0, 1080, 1920], ...h }) => {
+  const tl = useMemo(() => hostTimeline(h), [h.lines, h.gestures, h.cues, h.expr]); // eslint-disable-line react-hooks/exhaustive-deps
+  const [x0, y0, x1, y1] = box, bw = x1 - x0, bh = y1 - y0, w = Math.min(bw, bh * 0.75), hgt = w / 0.75;
+  return <PuppetLayer tl={tl} t={t} style={{ position: 'absolute', left: x0 + (bw - w) / 2, top: y1 - hgt, width: w, height: hgt }} />;
+};
 
 function Card({ card, f, fps, pulse }) {
   const k = spring({ frame: f - 6, fps, config: { damping: 14 } }), s = 1 + 0.05 * pulse;
