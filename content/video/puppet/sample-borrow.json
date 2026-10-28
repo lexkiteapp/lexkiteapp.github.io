@@ -1,0 +1,16 @@
+{
+  "_doc": "Mẫu con rối 2D Ama (docs/LESSON-ENGINE.md §4b). tags: at = chỉ số từ (0 = đầu câu) hoặc chữ của từ; kind = question|correct|wrong|explain|point|greet|proud|encourage|surprised (puppet.js KIND) hoặc expr/gest trực tiếp.",
+  "who": "ama",
+  "voice": "af_heart",
+  "card": { "word": "borrow", "ipa": "/ˈbɒr.əʊ/", "pos": "verb", "hint": "take now, give back later" },
+  "lines": [
+    { "text": "Hi! I'm Ama, your English teacher.", "tags": [{ "at": 0, "kind": "greet" }] },
+    { "text": "Today's word is borrow.", "tags": [{ "at": "borrow", "kind": "point" }] },
+    { "text": "You borrow something when you take it, and give it back later.", "tags": [{ "at": 0, "kind": "explain" }, { "at": "back", "expr": "happy" }] },
+    { "text": "So, which one is right? Can you lend me your pen, or borrow me your pen?", "tags": [{ "at": 0, "kind": "question" }] },
+    { "text": "Lend me your pen!", "tags": [{ "at": 0, "kind": "surprised" }, { "at": "pen", "kind": "correct" }] },
+    { "text": "If you got it wrong, that's okay.", "tags": [{ "at": 0, "kind": "wrong" }] },
+    { "text": "Remember: borrow means take, and lend means give.", "tags": [{ "at": 0, "kind": "explain" }, { "at": "lend", "expr": "encouraging" }] },
+    { "text": "You'll remember it next time. I'm proud of you!", "tags": [{ "at": "proud", "kind": "proud" }] }
+  ]
+}

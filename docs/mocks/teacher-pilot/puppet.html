@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Puppet lab – Ama 2D</title>
+<!-- 🎭 Phòng thử con rối 2D (docs/LESSON-ENGINE.md §4b): bảng 9 viseme · 6 biểu cảm · 4 cử chỉ + 1 con rối sống. CI chụp/quay trang này (puppet.yml). Mở: máy chủ tĩnh ở gốc repo. -->
+<style>
+  :root { --bg: #F4F1EA; --card: #fff; --ink: #10191B; --mut: #5b6b6d; --teal: #0F3D3E; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.4 system-ui, sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  h2 { font-size: 15px; margin: 18px 0 8px; color: var(--teal); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+  .grid.big { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  figure { margin: 0; background: var(--card); border-radius: 14px; padding: 6px 6px 4px; text-align: center; box-shadow: 0 1px 2px #0001; }
+  figure .box { aspect-ratio: 3/4; overflow: hidden; border-radius: 10px; background: #E7F0EE; }
+  .face { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); } .face figure .box { aspect-ratio: 1; } .face svg { width: 267%; margin: -105% 0 0 -83%; }
+  figure svg { width: 100%; height: auto; display: block; }
+  figcaption { font-size: 12px; color: var(--mut); padding-top: 3px; }
+  .live { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  #live { width: 300px; aspect-ratio: 3/4; background: #E7F0EE; border-radius: 16px; overflow: hidden; }
+  .btns { display: flex; flex-wrap: wrap; gap: 6px; max-width: 560px; }
+  button { font: inherit; border: 0; border-radius: 99px; padding: 7px 12px; background: var(--teal); color: #fff; cursor: pointer; }
+  button.k { background: #2BA39A; }
+</style></head>
+<body><main>
+  <h2>Live (real-time, 60 fps)</h2>
+  <div class="live"><div id="live"></div><div class="btns" id="btns"></div></div>
+  <h2>9 visemes (Rhubarb X A B C D E F G H)</h2><div class="grid face" id="vis"></div>
+  <h2>6 expressions</h2><div class="grid face" id="exp"></div>
+  <h2>4 gestures</h2><div class="grid big" id="ges"></div>
+</main>
+<script src="../../../web/js/lesson/puppet.js"></script>
+<script>
+  const P = LexPuppet, $ = id => document.getElementById(id);
+  function still(host, label, tl, t) {
+    const fig = document.createElement('figure'); fig.innerHTML = '<div class="box"></div><figcaption></figcaption>';
+    fig.lastChild.textContent = label; host.appendChild(fig);
+    const box = fig.firstChild; box.innerHTML = P.art({ label: 'Ama ' + label }); P.apply(P.rig(box.firstChild), P.sample(tl, t, { still: true }));
+  }
+  const NAMES = { X: 'rest', A: 'M B P', B: 'K S T', C: 'EH AE', D: 'AA', E: 'AO ER', F: 'UW W', G: 'F V', H: 'L' };
+  for (const v of Object.keys(P.VIS)) still($('vis'), v + ' · ' + NAMES[v], { cues: [[0, v], [9, 'X']], lead: 0 }, 1);
+  for (const e of Object.keys(P.EXPR)) still($('exp'), e, { expr: [[0, e]] }, 1);
+  const PEAK = { explain: 0.9, point: 0.8, pointL: 0.8, clap: 0.62, open: 0.9 }, GE = { explain: 'neutral', point: 'happy', pointL: 'happy', clap: 'happy', open: 'encouraging' };
+  for (const g of Object.keys(P.GEST)) { const fig = document.createElement('div'); $('ges').appendChild(fig); const tl = { gest: [[0, g]], expr: [[0, GE[g]]] };
+    const f2 = document.createElement('figure'); f2.innerHTML = '<div class="box"></div><figcaption>' + g + '</figcaption>'; fig.replaceWith(f2);
+    f2.firstChild.innerHTML = P.art(); P.apply(P.rig(f2.firstChild.firstChild), P.sample(tl, PEAK[g], {})); }
+  const live = P.mount($('live'), { still: false });
+  const LINES = { question: 'So which one is right?', correct: 'Yes! That is correct. Great job!', wrong: "Not quite, but that's okay. Try again!", explain: 'You borrow something when you take it and give it back later.', point: 'Look at the card.', greet: "Hi! I'm Ama. Let's learn a new word." };
+  for (const k of Object.keys(LINES)) { const b = document.createElement('button'); b.className = 'k'; b.textContent = k; b.onclick = () => { live.cue(k); live.say(LINES[k], { dur: LINES[k].length * 0.06 }); }; $('btns').appendChild(b); }
+  for (const e of Object.keys(P.EXPR)) { const b = document.createElement('button'); b.textContent = e; b.onclick = () => live.expr(e); $('btns').appendChild(b); }
+  for (const g of Object.keys(P.GEST)) { const b = document.createElement('button'); b.textContent = '✋ ' + g; b.onclick = () => live.gesture(g); $('btns').appendChild(b); }
+  window.PUPPET_LIVE = live;
+</script>
+</body></html>

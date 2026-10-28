@@ -8,6 +8,12 @@ export const badChars = s => [...String(s || '')].filter(c => !ALLOWED.has(c));
 // 37 ký hiệu hỏng (kiểm định 10/2026): Wiktionary/khẩu âm lạ → ký hiệu chuẩn từ điển
 const BROKEN = [[/t͡ʃ/g, 'tʃ'], [/d͡ʒ/g, 'dʒ'], [/͡/g, ''], [/ä/g, 'a'], [/̞/g, ''], [/ʍ/g, 'w'], [/ᵿ/g, 'ʊ'], [/ᵻ/g, 'ɪ'], [/ʔ/g, 't'], [/ʈ/g, 't'],
   [/ɒ̃/g, 'ɒn'], [/ɔ̃/g, 'ɒn'], [/ɑ̃/g, 'ɒn'], [/̃/g, ''], [/oɪ/g, 'ɔɪ'], [/ɛ/g, 'e'], [/g/g, 'ɡ']];
+// Kiểu ô giọng Anh của kho (pilot 20261028: brad /brad/, armchair /ˈɑː(r)mtʃeə(r)/, ointment /ˈɔɪntm(ə)nt/):
+// a đơn (TRAP kiểu Cruttenden) → æ; (ə) tuỳ chọn → ə; (r) giữa từ → bỏ. (r) cuối từ kiểu Oxford giữ nguyên.
+export function ukStyle(s) {
+  return String(s || '').replace(/a(?![ɪʊː])/g, 'æ').replace(/\(ə\)/g, 'ə').replace(/\(r\)(?=[^\s\/,…‿-])/g, '');
+}
+export const ukStyleBad = s => /a(?![ɪʊː])|\((?!r\)(?:[\s\/,…‿-]|$))/.test(String(s || ''));
 export function fixBroken(s) { let o = s; for (const [a, b] of BROKEN) o = o.replace(a, b); return o; }
 
 // r kiểu Mỹ (r cuối âm tiết, không đứng trước nguyên âm) trong ô giọng Anh → RP không-r
