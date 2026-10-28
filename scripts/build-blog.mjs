@@ -422,6 +422,10 @@ ${list[0] ? `<lastBuildDate>${new Date(when(list[0])).toUTCString()}</lastBuildD
 }
 // Danh sách ngôn ngữ đã có bài đăng → app ẩn/hiện lối vào blog mà không phải dò rss từng ngôn ngữ (tránh lỗi 404 khi chưa có blog)
 fs.writeFileSync(path.join(OUT, 'blog-langs.json'), JSON.stringify(liveLangs));
+{ // /blog → trang chuyển blog-lang.html: ghi sẵn danh sách ngôn ngữ đã có bài → chuyển ngay, không chờ dò rss qua mạng
+  const f = path.join(OUT, 'blog-lang.html');
+  if (fs.existsSync(f)) { const h = fs.readFileSync(f, 'utf8'), n = h.replace('var LIVE = null;', `var LIVE = ${JSON.stringify(liveLangs)};`); if (n === h) throw new Error('blog-lang.html: không tìm thấy "var LIVE = null;" để ghi danh sách ngôn ngữ'); fs.writeFileSync(f, n); }
+}
 
 // Trang tĩnh của blog (giới thiệu, quy trình biên tập…): content/blog/pages/<lang>/<slug>.md → /blog/<slug>/
 // Bản các ngôn ngữ của cùng một trang: khóa translationKey (mặc định 'about' – mỗi ngôn ngữ hiện có đúng 1 trang giới thiệu) → nút đổi ngôn ngữ

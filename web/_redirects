@@ -1,6 +1,6 @@
-# Blog theo thư mục ngôn ngữ: /blog, /blog/ → trang chọn ngôn ngữ (blog-lang.html: theo lựa chọn trong app/trình duyệt, chưa có bài → tiếng Anh)
-/blog /blog-lang.html 200
-/blog/ /blog-lang.html 200
+# Blog theo thư mục ngôn ngữ: /blog, /blog/ → trang chọn ngôn ngữ (blog-lang.html: theo lựa chọn trong app/trình duyệt, chưa có bài → tiếng Anh). Đích viết không đuôi .html: Pages tự 308 /blog-lang.html → /blog-lang làm thanh địa chỉ đổi thành /blog-lang
+/blog /blog-lang 200
+/blog/ /blog-lang 200
 # bài cũ /blog/<slug> → /vi/blog/<slug> (301, giữ đường dẫn con)
 /blog/* /vi/blog/:splat 301
 # Trang giới thiệu tiếng Việt là "/" (bản ngôn ngữ khác: /<lang>/) – /vi/ không có trang riêng; /vi/blog/… giữ nguyên
