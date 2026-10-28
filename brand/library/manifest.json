@@ -1267,7 +1267,7 @@
       "file": "clips/registry/carlos_explain_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc10_explain",
+      "src": "gc10_explain_b",
       "pose": "explain",
       "part": "a",
       "outfit": "outfit3",
@@ -1297,7 +1297,7 @@
       "file": "clips/registry/carlos_explain_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc10_explain",
+      "src": "gc10_explain_b",
       "pose": "explain",
       "part": "b",
       "outfit": "outfit3",
@@ -1541,6 +1541,470 @@
       "tags": [
         "laugh",
         "smile"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_wave_a",
+      "who": "ama",
+      "file": "clips/registry/ama_wave_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_wave",
+      "pose": "wave",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "greet",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_wave_b",
+      "who": "ama",
+      "file": "clips/registry/ama_wave_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_wave",
+      "pose": "wave",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "greet",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_cheer_a",
+      "who": "ama",
+      "file": "clips/registry/ama_cheer_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_cheer",
+      "pose": "cheer",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_cheer_b",
+      "who": "ama",
+      "file": "clips/registry/ama_cheer_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_cheer",
+      "pose": "cheer",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_concern_a",
+      "who": "ama",
+      "file": "clips/registry/ama_concern_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_concern",
+      "pose": "concern",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wrong"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_concern_b",
+      "who": "ama",
+      "file": "clips/registry/ama_concern_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_concern",
+      "pose": "concern",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wrong"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_surprise_a",
+      "who": "ama",
+      "file": "clips/registry/ama_surprise_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_surprise",
+      "pose": "surprise",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_surprise_b",
+      "who": "ama",
+      "file": "clips/registry/ama_surprise_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_surprise",
+      "pose": "surprise",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_point_a",
+      "who": "ama",
+      "file": "clips/registry/ama_point_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_point",
+      "pose": "point",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "present",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_point_b",
+      "who": "ama",
+      "file": "clips/registry/ama_point_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_point",
+      "pose": "point",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "present",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_empathy_a",
+      "who": "ama",
+      "file": "clips/registry/ama_empathy_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_empathy",
+      "pose": "empathy",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "empathy"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_empathy_b",
+      "who": "ama",
+      "file": "clips/registry/ama_empathy_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_empathy",
+      "pose": "empathy",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "empathy"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_cheer_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_cheer_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_cheer",
+      "pose": "cheer",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_cheer_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_cheer_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_cheer",
+      "pose": "cheer",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_surprise_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_surprise_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_surprise",
+      "pose": "surprise",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_surprise_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_surprise_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_surprise",
+      "pose": "surprise",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
       ],
       "mouth": true,
       "roles": [
