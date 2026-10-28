@@ -56,9 +56,37 @@ assert.equal(UI.audioFor({ audio: 'https://x/of-uk.mp3' }, 'en-US'), '', 'US kh�
 
 // 4. Bề mặt dùng helper (không còn chèn c.ipa thẳng bên cạnh nút loa)
 const src = f => fs.readFileSync(f, 'utf8');
-assert.match(src('web/js/study.js'), /UI\.ipaHtml\(c\)/, 'thẻ học');
+assert.match(src('web/js/study.js'), /UI\.pronHtml\(c\)/, 'thẻ học: 2 giọng');
 assert.doesNotMatch(src('web/js/study.js'), /speak\([cw]\.word, accent\(\), [cw]\.audio\)/, 'thẻ học phát bản ghi đúng giọng');
-assert.match(src('web/js/app.js'), /UI\.ipaHtml\(e, 'en-GB'\)[\s\S]*UI\.ipaHtml\(e, 'en-US'\)/, 'từ điển 2 giọng');
-for (const f of ['web/js/quick.js', 'web/js/reading.js', 'web/js/listening.js', 'web/js/phrases.js', 'web/js/handsfree.js', 'web/js/lesson/ui.js']) assert.match(src(f), /UI\.ipaHtml\(/, f);
-assert.match(src('extension/popup.js'), /ipaAcc\(e\)/, 'popup add-on theo giọng');
+assert.match(src('web/js/app.js'), /UI\.pronHtml\(e\)/, 'từ điển 2 giọng');
+for (const f of ['web/js/quick.js', 'web/js/reading.js', 'web/js/listening.js', 'web/js/phrases.js', 'web/js/handsfree.js']) assert.match(src(f), /UI\.ipaHtml\(/, f);
+for (const f of ['web/js/lesson/ui.js', 'web/js/plan.js']) assert.match(src(f), /UI\.pronHtml\(/, f);
+assert.match(src('extension/popup.js'), /popPron\(e\)/, 'popup add-on 2 giọng');
+assert.match(src('web/js/settings.js'), /accentPicked = true/, 'chọn giọng ở Cài đặt → thứ tự theo người học');
+
+// 5. Khối 2 giọng (owner 28/10): thứ tự theo giọng đã chọn / kỳ thi; cùng IPA → 1 IPA + 2 loa; mỗi loa đúng giọng
+const ipaCount = (h, p) => h.split(p).length - 1;
+settings.exam = 'ielts'; delete settings.accentPicked;
+assert.deepEqual([...UI.accOrder()], ['en-GB', 'en-US'], 'IELTS → UK trước');
+settings.exam = 'toeic'; assert.deepEqual([...UI.accOrder()], ['en-US', 'en-GB'], 'TOEIC → US trước');
+settings.exam = 'toefl'; assert.equal(UI.accOrder()[0], 'en-US');
+settings.exam = ''; assert.equal(UI.accOrder()[0], 'en-US', 'chưa có mục tiêu → US');
+settings.exam = 'ielts'; settings.accentPicked = true; settings.accent = 'en-US'; assert.equal(UI.accOrder()[0], 'en-US', 'đã chọn giọng → giọng đó trước');
+settings.accentPicked = false; settings.accent = 'en-GB';
+const wt = UI.pronHtml({ word: 'water', ipa: '/ˈwɔːtə/', ipaUS: '/ˈwɔːtər/', audio: 'https://x/water-uk.mp3', audioUS: 'https://x/water-us.mp3' });
+assert.ok(wt.indexOf('UK') < wt.indexOf('US'), 'IELTS: UK trước');
+assert.match(wt, /UK<\/b> <span class="ipa" translate="no">\/ˈwɔːtə\/<\/span> <button[^>]*data-accent="en-GB" data-url="https:\/\/x\/water-uk\.mp3"/, 'loa UK phát bản UK, cạnh IPA UK');
+assert.match(wt, /US<\/b> <span class="ipa" translate="no">\/ˈwɔːtər\/<\/span> <button[^>]*data-accent="en-US" data-url="https:\/\/x\/water-us\.mp3"/, 'loa US phát bản US, cạnh IPA US');
+const cat = UI.pronHtml({ word: 'cat', ipa: '/kæt/' });
+assert.equal(ipaCount(cat, '/kæt/'), 1, 'cùng IPA → hiện 1 lần');
+assert.equal(ipaCount(cat, 'data-speak='), 2, '…với 2 loa');
+assert.match(cat, /data-accent="en-GB"[\s\S]*data-accent="en-US"/);
+const of = UI.pronHtml({ word: 'of', ipa: '/ɒv/', ipaUS: '/ʌv/', pos: 'prep' });
+assert.match(of, /UK<\/b> <span class="ipa" translate="no">\/əv\/<\/span> <span class="small muted ipa-st">\(dạng mạnh <span class="ipa" translate="no">\/ɒv\/<\/span>\)/, 'UK /əv/ (dạng mạnh /ɒv/)');
+assert.match(of, /US<\/b> <span class="ipa" translate="no">\/əv\/<\/span> <span class="small muted ipa-st">\(dạng mạnh <span class="ipa" translate="no">\/ʌv\/<\/span>\)/, 'US /əv/ (dạng mạnh /ʌv/)');
+assert.equal(ipaCount(of, 'data-speak-text'), 1, '1 nút câu mẫu cho cả khối');
+assert.equal(ipaCount(UI.pronHtml({ word: 'of', ipa: '/ɒv/', ipaUS: '/ʌv/' }, { noEx: true }), 'data-speak-text'), 0);
+for (const h of [wt, cat, of]) { const urls = [...h.matchAll(/data-accent="([^"]+)"/g)].map(m => m[1]); assert.equal(new Set(urls).size, urls.length, 'không lặp loa cùng giọng'); }
+assert.equal(UI.pronHtml({ word: '' }), '');
+assert.equal(ipaCount(UI.pronHtml({ word: 'zzz' }), 'data-speak='), 2, 'chưa có IPA → vẫn 2 loa');
 console.log('✓ ipa-accent');

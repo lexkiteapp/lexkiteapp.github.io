@@ -228,7 +228,7 @@
         <div class="muted small" style="margin-top:1rem">${t('Nhớ lại từ tiếng Anh, rồi chạm để lật')}</div>` : `
         ${pic(c)}
         <div class="entry-word">${esc(c.word)}</div>
-        <div class="row center">${UI.ipaHtml(c)}${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
+        <div class="row center">${UI.pronHtml(c, { noEx: true })}${posChip(c.pos)}</div>
         ${M ? M.ctx(c) : ''}
         <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd kbd-hint">Space</span></div>`;
 
@@ -250,7 +250,7 @@
           <div class="card face front">${front}</div>
           <div class="card face back">
             <div class="wc-hd"><div class="wc-wrow"><span class="entry-word wc-word">${esc(c.word)}</span><button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
-              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}${c.ipaUS && c.ipaUS !== c.ipa ? `<span class="wi-acc">🇬🇧 ${UI.ipaHtml(c, 'en-GB')}<button class="icon-btn sm" data-say-acc="en-GB" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span><span class="wi-acc">🇺🇸 ${UI.ipaHtml(c, 'en-US')}<button class="icon-btn sm" data-say-acc="en-US" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>` : UI.ipaHtml(c)}</div>
+              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}${UI.pronHtml(c)}</div>
               <div class="vi wi-vi">${esc(mean(c))}</div><div class="wi-native" data-native></div></div>
             ${App.vimg(c.word, c.pos, mean(c), 'back', (x => [].concat(x || [])[0] || '')(c.ex))}
             ${c.def && mean(c) !== c.def ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div lang="en">${esc(c.def)}</div></div>` : ''}

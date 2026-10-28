@@ -155,10 +155,18 @@
   // IPA + bản ghi ĐÚNG giọng đang chọn (như web UI.ipaHtml/audioFor): Mỹ → ipaUS (trống = như Anh); bản ghi sai giọng → bỏ, dùng giọng máy đúng giọng
   const isUS = () => settings.accent === 'en-US';
   const ipaAcc = x => (x && (isUS() && x.ipaUS ? x.ipaUS : x.ipa)) || '';
-  const audAcc = x => { const a = (x && x.audio) || '', us = /-us\.mp3$/i.test(a); return isUS() ? (x && x.audioUS) || (us ? a : '') : us ? '' : a; };
-  const speak = (w, url) => {
+  const audAcc = (x, acc) => { const a = (x && x.audio) || '', us = /-us\.mp3$/i.test(a); return (acc ? acc === 'en-US' : isUS()) ? (x && x.audioUS) || (us ? a : '') : us ? '' : a; };
+  // 2 giọng như web UI.pronHtml: thứ tự theo giọng đã chọn / kỳ thi (IELTS → UK, còn lại → US); cùng IPA → 1 IPA + 2 loa
+  const popPron = e => {
+    const ex = String(settings.exam || (settings.goal && settings.goal.exam) || ''), usFirst = settings.accentPicked ? isUS() : !/^ielts/.test(ex);
+    const ord = usFirst ? ['en-US', 'en-GB'] : ['en-GB', 'en-US'], ip = a => (a === 'en-US' && e.ipaUS ? e.ipaUS : e.ipa) || '';
+    const b = a => `<b class="small">${a === 'en-US' ? 'US' : 'UK'}</b> <button class="icon-btn" data-acc="${a}" aria-label="${esc(tx(a === 'en-US' ? 'Nghe giọng Anh–Mỹ' : 'Nghe giọng Anh–Anh'))}">🔊</button>`;
+    const [p1, p2] = ord.map(ip); if (!p1 && !p2) return '';
+    return p1 === p2 || !p1 || !p2 ? `<span class="ipa">${esc(p1 || p2)}</span> ${b(ord[0])} ${b(ord[1])}` : `<span class="ipa">${esc(p1)}</span> ${b(ord[0])} <span class="muted">·</span> <span class="ipa">${esc(p2)}</span> ${b(ord[1])}`;
+  };
+  const speak = (w, url, acc) => {
     if (url && !window.speechSynthesis) return new Audio(url).play().catch(() => {});
-    const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
+    const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = acc || settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
     if (speechSynthesis.getVoices().length) go(); else { let d = false; const f = () => { if (!d) { d = true; go(); } }; speechSynthesis.addEventListener('voiceschanged', f, { once: true }); setTimeout(f, 600); }
   };
 
@@ -173,11 +181,11 @@
     $('#res').innerHTML = `<div class="card"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">
       <div class="pic">${e.image ? `<img src="${esc(e.image)}" alt="">` : esc(e.emoji || '📘')}</div>
       <div><div class="row"><span class="entry-word">${esc(e.word)}</span>${e.pos ? `<span class="chip pos">${esc(e.pos)}</span>` : ''}${e.level ? `<span class="chip lv">${esc(e.level)}</span>` : ''}</div>
-        <div class="row"><span class="ipa">${esc(ipaAcc(e))}</span><button class="icon-btn" id="spk">🔊</button></div>
+        <div class="row">${popPron(e)}</div>
         <div class="vi">${esc(e.vi)}</div>
         <div class="small">${esc(e.def)}</div></div></div>
       <div class="row" style="margin-top:10px"><button class="btn sm primary" id="save" ${saved ? 'disabled' : ''}>${saved ? tx('✓ Đã có') : tx('+ Lưu flashcard')}</button><button class="btn sm" id="more">${tx('Chi tiết')}</button></div></div>`;
-    $('#spk').onclick = () => speak(e.word, audAcc(e));
+    document.querySelectorAll('#res [data-acc]').forEach(b => b.onclick = () => speak(e.word, audAcc(e, b.dataset.acc), b.dataset.acc));
     $('#more').onclick = () => open('#/dict/' + encodeURIComponent(e.word));
     $('#save').onclick = async () => { await Cards.add(e); $('#save').textContent = tx('✓ Đã lưu'); $('#save').disabled = true; try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} };
   };

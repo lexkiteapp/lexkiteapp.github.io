@@ -300,10 +300,9 @@
     foot.innerHTML = `<div><div class="lsn-fb" role="status">
         <h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + t('Chưa đúng')}</h3>
         ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
-        <p><b lang="en">${esc(c.word)}</b> ${UI.ipaHtml(c, 'en-US', { cls: 'ipa small', noEx: true })} <button class="icon-btn sm" id="lsnW" aria-label="${t('Nghe')}">🔊</button> · ${esc(meanOf(c))}</p>
+        <p><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p>
         <div class="lsn-xp" id="lsnXp" hidden></div></div>
       <button class="btn" id="lsnWhy">💡 ${t('Vì sao?')}</button><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
-    $('#lsnW').onclick = () => say(c.word);
     $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();

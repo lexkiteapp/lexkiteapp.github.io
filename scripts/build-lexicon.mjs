@@ -11,7 +11,7 @@
 import fs from 'fs';
 import { loadAll, saveAll, key, rd, wr, ROOT, SOURCES } from './lexicon/lib.mjs';
 import { checkImg } from './lexicon/img.mjs';
-import { fixBroken, fixUKr, stripMonoStress, arpaToIpa, stressIndex, arpaStressIndex, arpaHasStressAt, usSpellings, badChars, normUK } from './lexicon/ipa.mjs';
+import { ukToUs, fixBroken, fixUKr, stripMonoStress, arpaToIpa, stressIndex, arpaStressIndex, arpaHasStressAt, usSpellings, badChars, normUK } from './lexicon/ipa.mjs';
 
 const WRITE = process.argv.includes('--write');
 const ci = process.argv.indexOf('--cmu');
@@ -51,10 +51,11 @@ function hyphenUS(w, ukIpa) {
 const WEAK = { a: 'ə', an: 'ən', the: 'ðə', of: 'əv', to: 'tə', and: 'ənd', for: 'fər', at: 'ət', as: 'əz', than: 'ðən', from: 'frəm', or: 'ər', but: 'bət', some: 'səm', your: 'jər', can: 'kən', be: 'bi', been: 'bɪn', was: 'wəz', were: 'wər' };
 function usIpa(word, ukIpa) {
   const ts = tokens(word); if (!ts.length || ts.some(t => !/^[a-z'-]+$/.test(t))) return '';
-  if (ts.length === 1) { const s = cmuWord(ts[0], ukIpa.replace(/^\/|\/$/g, '')); return s ? '/' + s + '/' : ''; }
+  const rule = (t, u) => { const s = u ? ukToUs(u, t) : ''; if (s) stats.usRule++; return s; }; // CMU không có → suy từ IPA Anh (ipa.mjs ukToUs)
+  if (ts.length === 1) { const s = cmuWord(ts[0], ukIpa.replace(/^\/|\/$/g, '')) || rule(ts[0], ukIpa); return s ? '/' + s + '/' : ''; }
   // cụm: dạng yếu cho hư từ; trọng âm theo ô giọng Anh của cùng cụm (từ 1 âm tiết được đánh dấu như bản Anh)
-  const ps = ts.map(t => WEAK[t] || cmuWord(t)); if (!ps.every(Boolean)) return '';
   const uk = ukIpa.replace(/^\/|\/$/g, '').split(/\s+/);
+  const ps = ts.map((t, i) => WEAK[t] || cmuWord(t) || (uk.length === ts.length ? rule(t, uk[i]) : '')); if (!ps.every(Boolean)) return '';
   const out = ps.map((p, i) => (uk.length === ps.length && /^[ˈˌ]/.test(uk[i]) && !/[ˈˌ]/.test(p) ? uk[i][0] + p : p));
   return '/' + out.join(' ') + '/';
 }
@@ -64,7 +65,7 @@ const OV = JSON.parse(rd('content/lexicon/overrides.json'));
 const MUS = 'content/lexicon/ipaus-manual.json';
 if (!fs.existsSync(new URL(MUS, ROOT))) wr(MUS, JSON.stringify(Object.fromEntries(all.filter(e => e.row[10]).map(e => [key(e.row), e.row[10]])), null, 1) + '\n');
 const MANUAL_US = JSON.parse(rd(MUS));
-const stats = { normUK: 0, broken: 0, ukR: 0, mono: 0, usAdded: 0, viMerged: 0, override: 0 };
+const stats = { normUK: 0, broken: 0, ukR: 0, mono: 0, usAdded: 0, usRule: 0, viMerged: 0, override: 0 };
 const ipaUK = (s, w) => { if (!s) return s; let o = fixBroken(s); if (o !== s) stats.broken++; { const n = normUK(o, w); if (n !== o) { stats.normUK++; o = n; } } const r = fixUKr(o.replace(/oʊ/g, 'əʊ')); if (r !== o) stats.ukR++; const m = stripMonoStress(r); if (m !== r) stats.mono++; return m; };
 
 for (const e of all) {

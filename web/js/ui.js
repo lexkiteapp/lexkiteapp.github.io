@@ -533,6 +533,23 @@
     const T = g.t || (s => s);
     return `<span class="${cls}" translate="no">${esc(wk.weak)}</span> <span class="small muted ipa-wk">${T('dạng yếu')}</span>${o.noEx ? '' : ` <button type="button" class="icon-btn sm" data-speak-text="${esc(wk.ex)}" title="${esc(wk.ex)}" aria-label="${esc(T('Nghe dạng yếu trong câu: {s}', { s: wk.ex }))}">🔊</button>`}${wk.strong ? ` <span class="small muted ipa-st">· ${T('dạng mạnh')} <span class="ipa" translate="no">${esc(wk.strong)}</span></span>` : ''}`;
   }
+  // Thứ tự 2 giọng: người học đã chọn giọng (Cài đặt) → giọng đó trước; chưa chọn → theo kỳ thi (IELTS → UK; TOEIC/TOEFL → US; giao tiếp/chưa có → US)
+  const accOrder = () => { const s = prefs(), ex = String(s.exam || (s.goal && s.goal.exam) || ''); const us = s.accentPicked ? s.accent === 'en-US' : /^ielts/.test(ex) ? false : true; return us ? ['en-US', 'en-GB'] : ['en-GB', 'en-US']; };
+  // Khối phát âm 2 giọng kiểu Cambridge/Oxford: "UK /ɒv/ 🔊 · US /ʌv/ 🔊" – mỗi loa phát ĐÚNG giọng của nhãn, IPA khớp bản ghi.
+  // Hai giọng cùng IPA → 1 IPA + 2 loa (không lặp IPA). Hư từ: dạng yếu trước trong từng giọng "UK /əv/ (dạng mạnh /ɒv/)" + 1 nút câu mẫu cuối khối.
+  function pronHtml(e, o = {}) {
+    const ent = typeof e === 'string' ? { word: e } : (e || {}), w = String(ent.word || '').trim(); if (!w) return '';
+    const T = g.t || (s => s), ord = o.order || accOrder(), LB = { 'en-GB': 'UK', 'en-US': 'US' }, AR = { 'en-GB': 'Nghe giọng Anh–Anh', 'en-US': 'Nghe giọng Anh–Mỹ' };
+    const ipa = a => (ent.ipa ? (a === 'en-US' && ent.ipaUS ? ent.ipaUS : ent.ipa) : ipaOf(w, a));
+    const one = a => { const p = ipa(a); if (!p) return ''; const wk = weakOf(w, p, a, ent.pos); return wk ? `<span class="ipa" translate="no">${esc(wk.weak)}</span>${wk.strong ? ` <span class="small muted ipa-st">(${T('dạng mạnh')} <span class="ipa" translate="no">${esc(wk.strong)}</span>)</span>` : ''}` : `<span class="ipa" translate="no">${esc(p)}</span>`; };
+    const btn = a => `<button type="button" class="icon-btn sm" data-speak="${esc(w)}" data-accent="${a}" data-url="${esc(audioFor(ent, a))}" aria-label="${esc(T(AR[a]))}">🔊</button>`;
+    const lab = a => `<b class="small pron-lb">${LB[a]}</b>`;
+    const [a1, a2] = ord, h1 = one(a1), h2 = one(a2); if (!h1 && !h2) return `<span class="pron2">${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}</span>`; // chưa có IPA (đang tra) → vẫn nghe được 2 giọng
+    const wk = weakOf(w, ipa(ord[0]), ord[0], ent.pos);
+    const ex = wk && !o.noEx ? ` <span class="small muted ipa-wk">· ${T('dạng yếu')}</span> <button type="button" class="icon-btn sm" data-speak-text="${esc(wk.ex)}" title="${esc(wk.ex)}" aria-label="${esc(T('Nghe dạng yếu trong câu: {s}', { s: wk.ex }))}">🔊</button>` : '';
+    const body = !h1 || !h2 || h1 === h2 ? `${h1 || h2} ${lab(a1)} ${btn(a1)} ${lab(a2)} ${btn(a2)}` : `<span class="pron-acc">${lab(a1)} ${h1} ${btn(a1)}</span> <span class="muted">·</span> <span class="pron-acc">${lab(a2)} ${h2} ${btn(a2)}</span>`;
+    return `<span class="pron2">${body}${ex}</span>`;
+  }
   // Bản ghi người thật ĐÚNG giọng (Dict: audio có thể là bản -us khi thiếu bản Anh) – sai giọng → '' (speak tự dùng giọng đúng: Kokoro/máy)
   const audioFor = (e, accent) => { const a = (e && e.audio) || '', us = /-us\.mp3$/i.test(a); return accOf(accent) === 'en-US' ? (e && e.audioUS) || (us ? a : '') : us ? '' : a; };
   const ipaTag = (word, accent) => { const w = String(word || '').trim(); if (!w || w.split(/\s+/).length > 3) return ''; const p = ipaOf(w, accent); return p ? ipaHtml({ word: w, ipa: p }, accent, { cls: 'ipa small', noEx: true }) : `<span class="ipa small" translate="no" data-ipa-lazy="${esc(w)}"></span>`; };
@@ -547,5 +564,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, pronHtml, accOrder, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);
