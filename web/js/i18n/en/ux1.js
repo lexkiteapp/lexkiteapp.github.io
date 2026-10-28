@@ -30,4 +30,8 @@
   "TOEIC Part 5–7": "TOEIC Part 5–7",
   "Mọi bài luyện ở một chỗ.": "All your practice in one place.",
   "Bạn đã học:": "You learned:",
+  "Mốc": "Milestone",
+  "Bước {a}/{b}": "Step {a} of {b}",
+  "+{x} XP tới mốc kiểm tra": "+{x} XP to the checkpoint",
+  "Tiếp tục chặng {n}": "Continue unit {n}",
 }); })(typeof self !== 'undefined' ? self : this);

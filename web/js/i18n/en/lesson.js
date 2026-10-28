@@ -51,5 +51,12 @@
     'Bài học': "Lesson",
     'Truyện': 'Story',
     'Trả lời câu hỏi': 'Answer the question',
+    "Mục tiêu {s}": "Target {s}",
+    "Câu {a}/{b}": "Question {a} of {b}",
+    "Mẫu âm thanh": "Audio sample",
+    "Đúng rồi!": "Correct!",
+    "Giáo viên của bạn": "Your teacher",
+    "Tăng điểm": "Score booster",
+    "Nói hay hơn": "Better phrase",
   });
 })(typeof self !== 'undefined' ? self : this);

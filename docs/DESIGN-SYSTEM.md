@@ -51,6 +51,13 @@ If a Lottie is added later: lazy-load it with `App.need`, keep it out of the `SH
 - Section header: `.set-h` = small caps, muted, with an optional leading icon in `--accent-text`.
 - Page header: `.page-head` (h1 + muted subtitle + crumb). Bottom nav: icon on a pill when active, bold label, `aria-current`.
 
+## 5b. Tactile (Google Stitch "Lexkite English Exam Prep", owner-approved 28/10; source out/stitch/v1)
+- Colors only from `brand/tokens.json`: CTA gradient `--cta-1`→`--cta-2`, text `--cta-ink`, lip `--cta-lip`; floating tiles get a bottom ledge `--ledge`; stars/XP graphics `--sun` (text uses `--gold-text`). Contrast is checked in brand-check.
+- Shape/type in `style.css :root`: `--r-card` 16 px (cards), `--r-pill2` 24 px (options, sheets), `--lip`, `--hi` (top highlight), `--cta-grad`, `--font-display` = Bricolage Grotesque 700/800 (`display=optional`, has Vietnamese; Figtree lacks Vietnamese so it is not used). Body stays Be Vietnam Pro.
+- Screens: home path (`ux1.js` map: unit card + step/XP-to-checkpoint, S-trail, real stars from `lk.ux1.st`, START pill, milestone, sticky Continue CTA), lesson (`lesson/ui.js`: 720 px focus, segmented bar, question counter, prompt card, audio row, A–D options, full-width Check, feedback sheet with chips + teacher card + gold-bank booster), readiness (`goal.js`: estimate vs target, readiness bar, skill tiles, picked drill, mock schedule; empty state without real scores).
+- Owner overrides: no hearts/lives, 5 tabs, 3D Ama/Carlos only, UK/US IPA via `UI.pronHtml`, light + dark from tokens.
+- Bundle CSS outside the shell: `BCSS` in `app.js` (e.g. `css/exam.css` for mock/toeic/toefl).
+
 ## 6. Checks before shipping UI
 `npm test` (size budget: shell ≤ 377 KB gz, a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
 Mirror into the add-on with `bash scripts/build-extension.sh`. Never edit `extension/content.js` for app UI.
