@@ -513,7 +513,7 @@
   Sync.av = u => u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((u.displayName || u.email || '?')[0].toUpperCase());
   const remembered = () => { try { return JSON.parse(localStorage.getItem('lk.acct') || 'null'); } catch (e) { return null; } };
   // Phiên đã nhớ (lk.acct) mà Firebase chưa báo trạng thái → chờ thay vì vội hiện “Đăng nhập” (trang giải đấu, lớp học…)
-  let authDone = () => {}; const authP = new Promise(r => { authDone = r; });
+  /** @type {(v?: any) => void} */ let authDone = () => {}; const authP = new Promise(r => { authDone = r; });
   Sync.authed = (ms = 8000) => {
     if (Sync.user || Sync.ready || !supported || !remembered()) return Promise.resolve(Sync.user || null);
     init().catch(() => {});

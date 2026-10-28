@@ -175,6 +175,7 @@
   const show = async () => {
     await vimgP;
     const item = qi < queue.length ? queue[qi] : { w: await randomWord(), tag: 'lex' }; qi++;
+    if (window.VImg && VImg.need) await VImg.need([item.w]);   // mảnh chỉ mục ảnh của từ này (vocab-img v3)
     render(build(item.w, await info(item.w), cards[keyOf(item.w)]), item.tag);
   };
   const next = () => show();

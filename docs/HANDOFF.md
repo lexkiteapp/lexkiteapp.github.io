@@ -9,7 +9,7 @@ Cập nhật: 27/10/2026.
 - Vẽ `flux-2-klein-4b` qua kho CF_POOL (121 tài khoản, chỉ Lexkite dùng). Cơ chế, cổng chất lượng, bài học: `docs/VOCAB-IMG-STYLE.md` §11 – không chép lại ở đây.
 - Chạy: tự nối lượt → kho nửa đầu cạn (4006) thì dừng → `cf-pool-probe` (mỗi 3 giờ) thấy ≥ 30 tài khoản mở thì tự khởi động lại. Fill ≤ 5 máy GitHub cùng lúc. Tắt: biến `VIMG_SCHEDULE`≠1 / `VIMG_CHAIN=0`.
 - Số liệu: 639 ảnh (27/10 10:15 UTC); lượt đầu 6.000 ảnh → 264 đạt; ảnh chỉ tăng khi cả lượt xong (bước fillpub).
-- Chưa xong: soát giám khảo kép (`mode=rejudge lab_run=40271446755,40271452785` → tờ `cons-*.jpg`, sai > 1/20 thì đặt `VIMG_CONSENSUS: '0'`); neuron/ảnh thật chưa đo (token kho không có quyền analytics).
+- Giám khảo kép ĐÃ soát (28/10, run 40614789632): 13/13 ảnh nhận thêm đúng nghĩa; tỉ lệ đạt klein 2/40 → 10/40 → giữ `VIMG_CONSENSUS=1`. klein-4b ≈ 110 neuron/ảnh (đo 27/10); phần vẽ 70 % khi `LX_PILOT=1`, 50 % khi kho từ chạy hàng loạt.
 
 ## Kho từ 20k (`lexicon-expand`) – cổng THEO TRƯỜNG, đang pilot
 - Kho vẫn 8.230 nghĩa. Chủ chọn (27/10): mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi) đạt sai ≤ 1/50; mỗi ngôn ngữ khác chỉ giữ khi bản dịch Wiktionary khớp nghĩa chắc chắn + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd); thiếu → app dùng đường dịch hiện có. AI chỉ lấp vi.

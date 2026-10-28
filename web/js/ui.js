@@ -451,6 +451,7 @@
   for (const k in EMI) { if (!GLYPH[k]) GLYPH[k] = [EMI[k]]; if (!GLYPH[k + '\uFE0F']) GLYPH[k + '\uFE0F'] = [EMI[k]]; } // emoji đầu nút/liên kết/tiêu đề → icon Lucide (tự vẽ lại khi DOM đổi)
   const GRE = new RegExp('^(\\s*)(' + Object.keys(GLYPH).sort((a, b) => b.length - a.length).join('|') + ')(?=\\s|$)\\s*', 'u');
   const PAINT = 'button, a, .ctx-say, .fi-btn, summary, h1, h2, h3, .set-h';
+  const ICON_NODE = Object.create(null);
   const paintEl = el => {
     if (el.closest('[data-noicon], #lk-sprite, svg')) return;
     const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n, hit;
@@ -462,10 +463,11 @@
     const only = !el.textContent.replace(m[2], '').trim();
     const name = el.getAttribute('aria-label') || el.getAttribute('title') || el.getAttribute('aria-labelledby');
     if (only && !name) { if (!lab) return; el.setAttribute('aria-label', g.t ? g.t(lab) : lab); }
-    const t0 = document.createElement('template'); t0.innerHTML = icon(ic, dir ? 'i-dir' : '');
+    const k = ic + (dir ? '|d' : ''); let proto = ICON_NODE[k];
+    if (!proto) { const t0 = document.createElement('template'); t0.innerHTML = icon(ic, dir ? 'i-dir' : ''); proto = ICON_NODE[k] = t0.content.firstChild; } // phân tích HTML 1 lần/icon rồi nhân bản (mỗi lần innerHTML = 1 lượt parser → tác vụ dài khi vẽ bản đồ #/path, TBT mobile)
     hit.nodeValue = m[1] + (rest && !/^\s/.test(rest) ? ' ' : '') + rest;
     if (!hit.nodeValue.trim()) hit.nodeValue = '';
-    hit.parentNode.insertBefore(t0.content.firstChild, hit);
+    hit.parentNode.insertBefore(proto.cloneNode(true), hit);
     el.classList.add('has-i');
   };
   const paint = root => {

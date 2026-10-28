@@ -114,11 +114,21 @@ const IMG = fs.existsSync(new URL(IMGF, ROOT)) ? JSON.parse(rd(IMGF)) : { v: 1, 
 const imgKeys = Object.keys(IMG.items).filter(k => IMG.items[k].h), phKeys = Object.keys(IMG.items).filter(k => IMG.items[k].photo && IMG.items[k].photo.h);
 // p = {từ#loại: h ảnh Wikimedia/ảnh chụp} CHỈ cho trang từ điển (VImg.slot {photo:true}); pw = khoá p chỉ có WebP. on chỉ đếm icon/minh hoạ đã kiểm (h), không đếm p
 // on: bật TỰ ĐỘNG mọi bề mặt khi đủ ảnh đã chấm (≥ on_min, mặc định 150) – cờ config vocab_img true/false (Quản trị) vẫn ghi đè
-const imgIndex = JSON.stringify({ v: 2, base: IMG.base, sv: IMG.style.v, on: imgKeys.length >= (IMG.on_min || 150), m: Object.fromEntries(imgKeys.map(k => [k, IMG.items[k].h])), x: imgKeys.filter(k => IMG.items[k].x2 === true), w: imgKeys.filter(k => !(IMG.items[k].fmt || []).includes('avif')), ...(phKeys.length ? { p: Object.fromEntries(phKeys.map(k => [k, IMG.items[k].photo.h])), pw: phKeys.filter(k => !(IMG.items[k].photo.fmt || []).includes('avif')) } : {}),
-  a: imgKeys.filter(k => IMG.items[k].bg === 'alpha'), s: imgKeys.filter(k => IMG.items[k].kind === 'scene') });   // a = nền trong suốt (chế độ tối chỉ hiện các ảnh này + ảnh chụp) · s = ảnh CẢNH câu ví dụ (bề mặt phải kèm câu)
-for (const f of ['web/js/lexicon-img.json', 'extension/app/js/lexicon-img.json']) {
-  const ex = fs.existsSync(new URL(f, ROOT));
-  if (WRITE) { if (!ex || rd(f) !== imgIndex + '\n') wr(f, imgIndex + '\n'); } else if (!ex || rd(f) !== imgIndex + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);
+// chỉ mục v3 (28/10): ĐẦU nhỏ js/lexicon-img.json {v:3, base, sv, on, n} + n mảnh js/vimg/NN.json theo fnv(từ) % n – app chỉ tải mảnh của từ đang học
+// (một tệp v2 sẽ ~290 KB br khi đủ 20k ảnh; mảnh ~5 KB). Mảnh: m = {từ#loại: h}, x = có @2x, w = chỉ WebP, a = nền trong suốt, s = ảnh CẢNH,
+// p/pw = ảnh chụp Wikimedia (chỉ trang từ điển). Hàm mảnh PHẢI trùng web/js/vocab-img.js SH().
+const IMG_N = 64, imgSh = w => { let h = 0x811c9dc5; for (const ch of String(w).toLowerCase()) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h % IMG_N; };
+const imgHead = JSON.stringify({ v: 3, base: IMG.base, sv: IMG.style.v, on: imgKeys.length >= (IMG.on_min || 150), n: IMG_N });
+const imgShards = Array.from({ length: IMG_N }, () => ({ m: {}, x: [], w: [], a: [], s: [], p: {}, pw: [] }));
+for (const k of imgKeys) { const it = IMG.items[k], o = imgShards[imgSh(k.split('#')[0])]; o.m[k] = it.h; if (it.x2 === true) o.x.push(k); if (!(it.fmt || []).includes('avif')) o.w.push(k); if (it.bg === 'alpha') o.a.push(k); if (it.kind === 'scene') o.s.push(k); }
+for (const k of phKeys) { const it = IMG.items[k], o = imgShards[imgSh(k.split('#')[0])]; o.p[k] = it.photo.h; if (!(it.photo.fmt || []).includes('avif')) o.pw.push(k); }
+const imgFiles = [['js/lexicon-img.json', imgHead], ...imgShards.map((o, i) => [`js/vimg/${String(i).padStart(2, '0')}.json`, JSON.stringify(o)])];
+for (const root of ['web/', 'extension/app/']) {
+  if (WRITE) fs.mkdirSync(new URL(root + 'js/vimg/', ROOT), { recursive: true });
+  for (const [rel, body] of imgFiles) {
+    const f = root + rel, ex = fs.existsSync(new URL(f, ROOT));
+    if (WRITE) { if (!ex || rd(f) !== body + '\n') wr(f, body + '\n'); } else if (!ex || rd(f) !== body + '\n') errs.push(`${f} lệch content/lexicon/img.json → chạy: node scripts/build-lexicon.mjs --write`);
+  }
 }
 
 // CDN: mỗi mục img phải có file trên media.lexkite.com (HEAD mẫu 5 % tất định theo ngày) – chỉ khi CI (máy dev/offline bỏ qua; LEX_CDN_CHECK=0 tắt)
