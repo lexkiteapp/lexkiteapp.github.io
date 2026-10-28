@@ -17,4 +17,11 @@
   "Thi thử ngay tuần này để đo điểm": "Take a mock test this week to measure your score",
   "Còn {n} ngày đến kỳ thi": "{n} days until your exam",
   "~{h} giờ luyện còn lại": "~{h} study hours left",
+  "Phần 3–4: bám ý người nói": "Parts 3–4: follow the speaker",
+  "Đọc lướt tìm ý nhanh": "Fast skimming for main ideas",
+  "Task 2: liên kết ý": "Task 2: cohesion",
+  "Trôi chảy & từ nối": "Fluency & connectors",
+  "Khoảng cách": "Gap",
+  "Trọng tâm:": "Focus:",
+  "Đủ 4 kỹ năng": "All 4 skills",
 }); })(typeof self !== 'undefined' ? self : this);
