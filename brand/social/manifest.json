@@ -1,10 +1,12 @@
 {
- "generated": "2026-10-16",
+ "generated": "2026-10-28",
  "colors": {
   "teal": "#0F3D3E",
   "teal2": "#17595A",
   "tealDeep": "#0A2C2D",
   "tealGlow": "#2A7D7A",
+  "tealBright": "#1F7A75",
+  "tealBright2": "#2BA39A",
   "coral": "#F2553B",
   "coralUI": "#E5502F",
   "coralMid": "#FF7A4D",
