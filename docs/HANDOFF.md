@@ -14,8 +14,10 @@ Cập nhật: 27/10/2026.
 ## Kho từ 20k (`lexicon-expand`) – cổng THEO TRƯỜNG, đang pilot
 - Kho vẫn 8.230 nghĩa. Chủ chọn (27/10): mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi) đạt sai ≤ 1/50; mỗi ngôn ngữ khác chỉ giữ khi bản dịch Wiktionary khớp nghĩa chắc chắn + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd); thiếu → app dùng đường dịch hiện có. AI chỉ lấp vi.
 - Lịch sử: pilot 2 giám khảo ~9/50 sai, 3 giám khảo ~6–9/34 – lỗi gần hết ở dịch 12 ngôn ngữ do AI/bảng ghép nhầm.
-- Pilot `20261028-pilot` dispatch 27/10 23:17 UTC (n 400). Tác vụ hẹn giờ "lexicon-pilot-28-10" (mỗi 6 giờ) soát RIÊNG lõi (50 mục) + dịch (50 cặp) → cả 2 ≤ 1/50 thì LX_PILOT=0, LX_N=2400, promote, hàng loạt tự nối.
-- Đã soát: 20261027-pilot (lần 1–3).
+- Soát 28/10 `20261028-pilot` (75 mục, giữ TB 5,4 ngôn ngữ/mục): LÕI 9/50 sai (vi sai nghĩa/từ loại: fatal, derby, brad, rocky, outgrow; IPA Anh /brad/, armchair (r) giữa từ, ointment (ə); ví dụ cụm ballet; virgin không hợp teen), DỊCH 2/50 (relive ar أحيا, jeopardize zh 使受危险) → TRƯỢT, giữ LX_PILOT=1.
+- Đã thêm: ukStyle (ipa.mjs) + cổng IPA kiểu kho, cổng ví dụ phải là câu, cổng ADULT; prompt vi cùng từ loại + giám khảo bắt bảng Wiktionary khác nghĩa/calque; requeue 75 mục.
+- IPA (c) XONG 28/10: `ipa-check.mjs checkEntry` (Britfone đầy đủ + CMUdict) chạy trong job trước cổng + lưới cuối trước khi ghi pending; promote.mjs từ chối lô lệch (`--fix-ipa` áp bản sửa theo nguồn). Lô chờ cũ: pool-pilot5 (6 mục), pool-pilot8 (1), src-pilot9 (1) đang bị từ chối. Tác vụ "lexicon-pilot-28-10" soát lô kế.
+- Đã soát: 20261027-pilot (lần 1–3), 20261028-pilot.
 
 ## Chờ chủ
 - Xoá `~/Downloads/keys_export.txt` (khoá thật dạng chữ thường); cân nhắc đổi khoá quan trọng.
