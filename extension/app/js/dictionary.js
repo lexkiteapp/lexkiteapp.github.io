@@ -239,13 +239,18 @@
       return r && !r.unavailable && r.text ? String(r.text).trim() : '';
     } catch (e) { return ''; }
   }
+  // Translator API của Chrome có lúc treo mãi (create/translate không bao giờ xong, vd. trang mất tiêu điểm, mô hình kẹt) → luôn có hạn giờ;
+  // treo 1 lần = tắt đường này trong phiên để không chặn Google/MyMemory phía sau (bảng "Đang dịch…" từng kẹt mãi, 28/10)
+  const DEVICE_MS = 4000;
+  let deviceHung = false;
+  const devTimed = p => Promise.race([p, new Promise((res, rej) => setTimeout(() => { deviceHung = true; rej(new Error('device-timeout')); }, DEVICE_MS))]);
   async function onDeviceVi(text) {
     try {
       const nv = await nativeTr(text, 'en', 'vi'); if (nv) return fixVi(nv);
-      const TR = g.Translator; if (!TR || !localOk()) return '';
-      if (!localTr) { if ((await TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' })) !== 'available') return ''; localTr = await TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' }); }
-      return fixVi(await localTr.translate(text));
-    } catch (e) { return ''; }
+      const TR = g.Translator; if (!TR || !localOk() || deviceHung) return '';
+      if (!localTr) { if ((await devTimed(TR.availability({ sourceLanguage: 'en', targetLanguage: 'vi' }))) !== 'available') return ''; localTr = await devTimed(TR.create({ sourceLanguage: 'en', targetLanguage: 'vi' })); }
+      return fixVi(await devTimed(localTr.translate(text)));
+    } catch (e) { if (deviceHung) localTr = null; return ''; }
   }
   async function translateVi(text) {
     const dv = await onDeviceVi(text); if (dv && dv.trim()) return dv.trim(); // Translator trên máy (gói đã có sẵn) trước – nhanh, offline, không tốn lượt
@@ -262,12 +267,12 @@
   async function deviceTranslate(text, tl, sl = 'en') {
     try {
       const nv = await nativeTr(text, sl, tl); if (nv) return nv;
-      const T = g.Translator; if (!T || !T.availability || !localOk()) return null;
+      const T = g.Translator; if (!T || !T.availability || !localOk() || deviceHung) return null;
       const key = sl + '>' + tl;
-      if (!onDevice.has(key)) onDevice.set(key, T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null)).catch(() => null));
+      if (!onDevice.has(key)) onDevice.set(key, devTimed(T.availability({ sourceLanguage: sl, targetLanguage: tl }).then(a => (a === 'available' ? T.create({ sourceLanguage: sl, targetLanguage: tl }) : null))).catch(() => null));
       const tr = await onDevice.get(key); if (!tr) return null;
-      const out = await tr.translate(text); return out && out.trim() ? out.trim() : null;
-    } catch (e) { return null; }
+      const out = await devTimed(tr.translate(text)); return out && out.trim() ? out.trim() : null;
+    } catch (e) { if (deviceHung) onDevice.clear(); return null; }
   }
   async function translateTo(text, tl, sl = 'en') {
     if (!text || !tl || tl === sl) return '';

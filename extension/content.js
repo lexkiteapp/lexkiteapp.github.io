@@ -282,7 +282,9 @@
       b.style.maxHeight = '';
       const h = b.offsetHeight, below = vh - r.bottom - G - M, above = r.top - G - M;
       let top;
-      if (h <= below || below >= above) { top = r.bottom + G; if (h > below) b.style.maxHeight = Math.max(160, below) + 'px'; }
+      // Bảng DỊCH ĐOẠN (câu dài): ưu tiên phía TRÊN để không che các dòng sắp đọc; bảng tra từ giữ phía dưới như cũ
+      if (b.dataset.kind === 'tr' && h <= above) top = r.top - G - h;
+      else if (h <= below || below >= above) { top = r.bottom + G; if (h > below) b.style.maxHeight = Math.max(160, below) + 'px'; }
       else { const hh0 = h > above ? Math.max(160, above) : h; if (h > above) b.style.maxHeight = hh0 + 'px'; top = r.top - G - hh0; }
       const hh = Math.min(b.offsetHeight || h, vh - 2 * M);
       b.style.top = Math.max(M, Math.min(top, vh - hh - M)) + 'px';
@@ -477,7 +479,7 @@
     ensureHost();
     hideFab();
     const b = box();
-    b.hidden = false; b.classList.toggle('dark', pageDark(rect)); b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', word);
+    b.hidden = false; b.classList.toggle('dark', pageDark(rect)); b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', word); b.dataset.kind = '';
     b.innerHTML = H(`<div class="head"><div class="pic">📘</div><div class="f1"><div class="w">${esc(word)}</div><div class="sk w60"></div><div class="sk w40"></div></div></div><div class="body"><div class="sk"></div><div class="sk w80"></div></div>`);
     position(rect);
     current = word; trSeq++; // bảng dịch đoạn đang chờ kết quả không được ghi đè bảng tra từ mới
@@ -777,12 +779,13 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
   const AI_ERR = { QUOTA_DAY: 'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.', BUSY: 'AI đang bận – thử lại sau ít phút.', QUOTA: 'AI đang bận – thử lại sau ít phút.', OFFLINE: 'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.' };
 
   let trSeq = 0;
+  const TR_MS = () => globalThis.__lkTrMs || 15000; // test đặt nhỏ để thử đường hết giờ
   async function translateSelection(info, opts = {}) {
     ensureHost();
     hideFab();
     const b = box(), seq = ++trSeq, text = nfc(info.text).replace(/\s+/g, ' ').trim();
     const live = () => seq === trSeq && !b.hidden;
-    b.hidden = false; b.classList.toggle('dark', pageDark(info && info.rect));
+    b.hidden = false; b.classList.toggle('dark', pageDark(info && info.rect)); b.dataset.kind = 'tr';
     b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', tx('🌐 Dịch đoạn đã chọn').replace(/^\S+\s+/, '')); b.tabIndex = -1;
     current = info.text;
     const sl = srcLang(text), hint = sl === 'auto' && VI_ONLY.test(text) ? 'vi' : '', tl = ML();
@@ -814,8 +817,13 @@ Return ONLY JSON: {"meaning": string (meaning in THIS context, simple English), 
     position(info.rect);
     if (opts.focus) try { b.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ }
 
+    // Hạn giờ 15 giây/lượt + thử lại giãn cách (0,8 s → 1,6 s): service worker ngủ/mạng treo không bao giờ để bảng quay mãi
     let r;
-    try { r = await send({ type: 'translate', text, tl, sl, hint }); } catch (e) { r = { dead: true }; }
+    for (let i = 0; i < 3; i++) {
+      if (i) { await new Promise(res => later(res, (globalThis.__lkTrBackoff || 800) * 2 ** (i - 1))); if (!live()) return; }
+      try { r = await Promise.race([send({ type: 'translate', text, tl, sl, hint }), new Promise(res => later(() => res({ timeout: true }), TR_MS()))]); } catch (e) { r = { dead: true }; }
+      if (!r || r.dead || r.same || String(r.vi || '').trim()) break;
+    }
     if (!live()) return;
     r = r || {};
     const trEl = $('#tr'); trEl.removeAttribute('aria-busy');
