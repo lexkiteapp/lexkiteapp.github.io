@@ -64,28 +64,22 @@
           "src": "ga9_laugh"
         },
         "wave": {
-          "src": "ga9_wave",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "ga9_wave"
         },
         "cheer": {
-          "src": "ga9_cheer",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "ga9_cheer"
         },
         "concern": {
-          "src": "ga9_concern",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "ga9_concern"
         },
         "surprise": {
-          "src": "ga9_surprise",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "ga9_surprise"
         },
         "point": {
-          "src": "ga9_point",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "ga9_point"
         },
         "empathy": {
-          "src": "ga9_empathy",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "ga9_empathy"
         }
       }
     },
@@ -112,7 +106,7 @@
           "src": "gc10_listen_b"
         },
         "explain": {
-          "src": "gc10_explain"
+          "src": "gc10_explain_b"
         },
         "happy": {
           "src": "gc10_happy"
@@ -128,27 +122,25 @@
         },
         "wave": {
           "src": "gc10_wave",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "pending": "gc10_wave đã tạo, matte PRO chưa qua cổng"
         },
         "cheer": {
-          "src": "gc10_cheer",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "gc10_cheer"
         },
         "concern": {
           "src": "gc10_concern",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "pending": "miệng Carlos tự nhe răng – cần khung đầu môi khép"
         },
         "surprise": {
-          "src": "gc10_surprise",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "src": "gc10_surprise"
         },
         "point": {
           "src": "gc10_point",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "pending": "chưa tạo (hết ngân sách)"
         },
         "empathy": {
           "src": "gc10_empathy",
-          "pending": "kho cảm xúc đang tạo (Kling, CREDIT-RULES)"
+          "pending": "chưa tạo (hết ngân sách)"
         }
       }
     }
