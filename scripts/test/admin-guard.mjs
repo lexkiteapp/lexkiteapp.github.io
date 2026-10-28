@@ -86,7 +86,9 @@ for (const [width, scheme, lang] of CONFIGS) {
       const o = [], over = document.scrollingElement.scrollWidth - innerWidth;
       if (over > 1) { const sc = e => { for (let p = e.parentElement; p; p = p.parentElement) if (/auto|scroll|hidden|clip/.test(getComputedStyle(p).overflowX) && p.getBoundingClientRect().right <= innerWidth + 1) return true; return false; };
         const who = [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > innerWidth + 1 && !sc(e)).slice(-3).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 2).join('.') + ' "' + (e.textContent || '').trim().slice(0, 20) + '"');
-        o.push(`trang tràn ngang ${over} px (${who.join(', ')})`); }
+        const tw = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), txt = []; for (let t; (t = tw.nextNode());) { const rg = document.createRange(); rg.selectNodeContents(t); if (rg.getBoundingClientRect().right > innerWidth + 1 && !sc(t)) txt.push('chữ "' + t.textContent.trim().slice(0, 24) + '" trong ' + t.parentElement.tagName.toLowerCase() + '.' + [...t.parentElement.classList].slice(0, 2).join('.')); }
+        const wide = [...document.querySelectorAll('body *')].filter(e => e.scrollWidth > innerWidth).sort((x, y) => y.scrollWidth - x.scrollWidth).slice(0, 2).map(e => e.tagName.toLowerCase() + '.' + [...e.classList].slice(0, 2).join('.') + ':' + e.scrollWidth + '/' + Math.round(e.getBoundingClientRect().width));
+        o.push(`trang tràn ngang ${over} px (${[...who, ...txt.slice(-3)].join(', ')} · rộng: ${wide.join(', ')})`); }
       const side = document.querySelector('#side'), main = document.querySelector('#main'), cont = document.querySelector('.adm-content');
       if (innerWidth > 900 && side && !side.hidden) {
         const sr = side.getBoundingClientRect(), mr = main.getBoundingClientRect(), cr = cont.getBoundingClientRect(), pad = parseFloat(getComputedStyle(cont).paddingLeft) + parseFloat(getComputedStyle(cont).paddingRight);
