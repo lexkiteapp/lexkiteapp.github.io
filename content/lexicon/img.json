@@ -89,6 +89,59 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "accident#n": {
+   "h": "53dba05f9c354b82",
+   "url": "https://media.lexkite.com/vimg/53dba05f9c354b82.webp",
+   "alt": "accident",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.323,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "e4c69b39e199cb18",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "achieve#v": {
+   "h": "4a587b3deee5ed11",
+   "url": "https://media.lexkite.com/vimg/4a587b3deee5ed11.webp",
+   "alt": "achieve",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.253,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "f4842ec81bf09db3",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "action#n": {
    "h": "28b471c6128c847b",
    "url": "https://media.lexkite.com/vimg/28b471c6128c847b.webp",
@@ -902,6 +955,33 @@
    "b": "40088424311",
    "repo": "m4"
   },
+  "analyst#n": {
+   "h": "03735a569f9ff432",
+   "url": "https://media.lexkite.com/vimg/03735a569f9ff432.webp",
+   "alt": "analyst",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.326,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "b998e062c70f96d5",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "angry#adj": {
    "h": "9eb62043028ad6a6",
    "url": "https://media.lexkite.com/vimg/9eb62043028ad6a6.webp",
@@ -1004,6 +1084,33 @@
    "ph": "9bfe2481e5c20b6b",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "anxious#adj": {
+   "h": "0603ae57ace8d94f",
+   "url": "https://media.lexkite.com/vimg/0603ae57ace8d94f.webp",
+   "alt": "anxious",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.307,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "bdced030c6c1c667",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "anymore#adv": {
@@ -1555,6 +1662,32 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "attach#v": {
+   "h": "32fb677f6eca8b36",
+   "url": "https://media.lexkite.com/vimg/32fb677f6eca8b36.webp",
+   "alt": "attach",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.238,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "eea7c26e3980d29a",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "attendant#n": {
    "h": "7fcea506c973ac6c",
    "url": "https://media.lexkite.com/vimg/7fcea506c973ac6c.webp",
@@ -1631,6 +1764,84 @@
    "ph": "bbe4179aea5100bd",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "audience#n": {
+   "h": "2f7c7766b9cb60a1",
+   "url": "https://media.lexkite.com/vimg/2f7c7766b9cb60a1.webp",
+   "alt": "audience",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.202,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "94c899466b9d6cb6",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "audio#adj": {
+   "h": "7531dc14b03c6273",
+   "url": "https://media.lexkite.com/vimg/7531dc14b03c6273.webp",
+   "alt": "audio",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.259,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "bee099939bc54cc2",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "author#n": {
+   "h": "0fee98cc6e32f166",
+   "url": "https://media.lexkite.com/vimg/0fee98cc6e32f166.webp",
+   "alt": "author",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.204,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "9ff040b153c737c8",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "authority#n": {
@@ -2092,6 +2303,33 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "barcode#n": {
+   "h": "bfd2d00c6dfe31d0",
+   "url": "https://media.lexkite.com/vimg/bfd2d00c6dfe31d0.webp",
+   "alt": "barcode",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.293,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "9e9af12597f0430b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "bartender#n": {
    "h": "67d23ad20e1dca23",
@@ -2635,6 +2873,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "bidder#n": {
+   "h": "1689d93b04278702",
+   "url": "https://media.lexkite.com/vimg/1689d93b04278702.webp",
+   "alt": "bidder",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.19,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "bec49125c1c363de",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "big#adj": {
    "h": "904035e5d8328ae2",
    "url": "https://media.lexkite.com/vimg/904035e5d8328ae2.webp",
@@ -2761,6 +3025,58 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "blind#adj": {
+   "h": "f407fd2af2620225",
+   "url": "https://media.lexkite.com/vimg/f407fd2af2620225.webp",
+   "alt": "blind",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.244,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "bbb8d0c649cf0794",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "blocked#adj": {
+   "h": "ed28cc78241437ee",
+   "url": "https://media.lexkite.com/vimg/ed28cc78241437ee.webp",
+   "alt": "blocked",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.239,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "bb90c962c6c99667",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "blog#n": {
    "h": "5433cbd2a81ee0a6",
@@ -3250,6 +3566,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "break#v": {
+   "h": "98435ccca0b33264",
+   "url": "https://media.lexkite.com/vimg/98435ccca0b33264.webp",
+   "alt": "break",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.247,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "e9b5966a1c91c21f",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "breath#n": {
    "h": "cb916eeb2ee9c116",
    "url": "https://media.lexkite.com/vimg/cb916eeb2ee9c116.webp",
@@ -3339,6 +3681,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "brilliant#adj": {
+   "h": "bc7c1667839f0da9",
+   "url": "https://media.lexkite.com/vimg/bc7c1667839f0da9.webp",
+   "alt": "brilliant",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.133,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "fa98c1e7e09297a4",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "broom#n": {
    "h": "6c14c7cd93b67ba9",
@@ -3747,6 +4115,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "cable#n": {
+   "h": "0451752ca96c09b6",
+   "url": "https://media.lexkite.com/vimg/0451752ca96c09b6.webp",
+   "alt": "cable",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.248,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "f0b5825a9f8dd8c8",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "cake#n": {
    "h": "f9815bbd4bc3cb31",
    "url": "https://media.lexkite.com/vimg/f9815bbd4bc3cb31.webp",
@@ -3915,6 +4309,33 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "campaign#n": {
+   "h": "18807d9eed05ed53",
+   "url": "https://media.lexkite.com/vimg/18807d9eed05ed53.webp",
+   "alt": "campaign",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.226,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "b9a5c6d0c2369c4f",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "campsite#n": {
    "h": "31652d7e77eba604",
    "url": "https://media.lexkite.com/vimg/31652d7e77eba604.webp",
@@ -4070,6 +4491,32 @@
    "b": "40088424311",
    "repo": "m4"
   },
+  "carefully#adv": {
+   "h": "56c18400593178dc",
+   "url": "https://media.lexkite.com/vimg/56c18400593178dc.webp",
+   "alt": "carefully",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.213,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "afe5861a98c89acd",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "carpet#n": {
    "alt": "carpet",
    "photo": {
@@ -4085,6 +4532,33 @@
      "ref": "https://commons.wikimedia.org/wiki/File:Antique_Heriz_Serapi_Persian_Carpet.jpg"
     }
    }
+  },
+  "carry-on#adj": {
+   "h": "55932d4bda78a57e",
+   "url": "https://media.lexkite.com/vimg/55932d4bda78a57e.webp",
+   "alt": "carry-on",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.263,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "f196c369944bc5cc",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "cart#n": {
    "h": "59ee60ddca609682",
@@ -4451,6 +4925,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "championship#n": {
+   "h": "faf2946d41451534",
+   "url": "https://media.lexkite.com/vimg/faf2946d41451534.webp",
+   "alt": "championship",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.257,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "f9c790cd0e6a31f0",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "changing rooms#n": {
    "h": "ab18ee17be0f0288",
    "url": "https://media.lexkite.com/vimg/ab18ee17be0f0288.webp",
@@ -4667,6 +5167,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "childhood#n": {
+   "h": "3e82d0335a7cb119",
+   "url": "https://media.lexkite.com/vimg/3e82d0335a7cb119.webp",
+   "alt": "childhood",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.274,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b89c07e163479c37",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "chilly#adj": {
    "h": "074ad8a1a2a148b4",
@@ -4943,6 +5469,32 @@
    "ph": "bff0c1806f85c687",
    "at": "2026-10-28",
    "b": "40626212543",
+   "repo": "m4"
+  },
+  "clerk#n": {
+   "h": "ec8dc1879a6d8ad9",
+   "url": "https://media.lexkite.com/vimg/ec8dc1879a6d8ad9.webp",
+   "alt": "clerk",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.236,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "cab4b525b592e163",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "climate#n": {
@@ -5271,6 +5823,32 @@
     }
    }
   },
+  "combination#n": {
+   "h": "f1d3c8e08b4ec95b",
+   "url": "https://media.lexkite.com/vimg/f1d3c8e08b4ec95b.webp",
+   "alt": "combination",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.28,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "8f9ae8adb5e0e032",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "combine#v": {
    "h": "92616304394acb70",
    "url": "https://media.lexkite.com/vimg/92616304394acb70.webp",
@@ -5453,6 +6031,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "comparative#adj": {
+   "h": "e003af8c2cf3f48f",
+   "url": "https://media.lexkite.com/vimg/e003af8c2cf3f48f.webp",
+   "alt": "comparative",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.132,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "b8b2c38d46c3cd5c",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "compare#v": {
    "h": "17150fdaab889e52",
    "url": "https://media.lexkite.com/vimg/17150fdaab889e52.webp",
@@ -5479,6 +6083,32 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "compartment#n": {
+   "h": "8b5c96dd0cda7fcf",
+   "url": "https://media.lexkite.com/vimg/8b5c96dd0cda7fcf.webp",
+   "alt": "compartment",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.302,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "f743611326b8c9c7",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "competition#n": {
    "h": "c715fc51bd5c7241",
    "url": "https://media.lexkite.com/vimg/c715fc51bd5c7241.webp",
@@ -5503,6 +6133,33 @@
    "ph": "b3ea8c4389bcca3c",
    "at": "2026-10-26",
    "b": "40290059316",
+   "repo": "m4"
+  },
+  "competitive#adj": {
+   "h": "e7aae2c9150b6675",
+   "url": "https://media.lexkite.com/vimg/e7aae2c9150b6675.webp",
+   "alt": "competitive",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.202,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "b8d9c1078766cef0",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "complete#v": {
@@ -6256,6 +6913,33 @@
    "b": "40626212543",
    "repo": "m4"
   },
+  "creature#n": {
+   "h": "8f510a18e87de13c",
+   "url": "https://media.lexkite.com/vimg/8f510a18e87de13c.webp",
+   "alt": "creature",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.3,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "bbcacc35e5949164",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "credit#n": {
    "h": "98d7091e8a2bd15b",
    "url": "https://media.lexkite.com/vimg/98d7091e8a2bd15b.webp",
@@ -6306,6 +6990,32 @@
    "ph": "dea0609743ce85e7",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "crisis#n": {
+   "h": "fe72b8e332fb8572",
+   "url": "https://media.lexkite.com/vimg/fe72b8e332fb8572.webp",
+   "alt": "crisis",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.265,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "bdc3b8b563b83812",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "cross#v": {
@@ -6759,6 +7469,84 @@
    "b": "40088424311",
    "repo": "m4"
   },
+  "decision#n": {
+   "h": "29b41b41b11dae98",
+   "url": "https://media.lexkite.com/vimg/29b41b41b11dae98.webp",
+   "alt": "decision",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.283,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "b3cbf84c94b40cb3",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "decoration#n": {
+   "h": "aefc1163569cd6d6",
+   "url": "https://media.lexkite.com/vimg/aefc1163569cd6d6.webp",
+   "alt": "decoration",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.172,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "daa78c249da7245e",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "deeply#adv": {
+   "h": "76c391801639e2ce",
+   "url": "https://media.lexkite.com/vimg/76c391801639e2ce.webp",
+   "alt": "deeply",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.213,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "a5857a5a1a95796c",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "definitely#adv": {
    "h": "30f8399536aee2ec",
    "url": "https://media.lexkite.com/vimg/30f8399536aee2ec.webp",
@@ -6862,6 +7650,32 @@
    "ph": "e2f88d06b8e487ab",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "democracy#n": {
+   "h": "5174de0102df2305",
+   "url": "https://media.lexkite.com/vimg/5174de0102df2305.webp",
+   "alt": "democracy",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.258,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "fa9161c197c69e94",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "deposit#n": {
@@ -7033,6 +7847,32 @@
    "ph": "b996cf4196a9ba30",
    "at": "2026-10-28",
    "b": "40626212543",
+   "repo": "m4"
+  },
+  "determine#v": {
+   "h": "e612d65e1ae8b9cf",
+   "url": "https://media.lexkite.com/vimg/e612d65e1ae8b9cf.webp",
+   "alt": "determine",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.192,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "a5e5429e06d9989f",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "diamond#n": {
@@ -7270,6 +8110,32 @@
    "b": "40088424311",
    "repo": "m4"
   },
+  "disappoint#v": {
+   "h": "983745ba740a1ba2",
+   "url": "https://media.lexkite.com/vimg/983745ba740a1ba2.webp",
+   "alt": "disappoint",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.211,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "c4c03d3e7a983b2b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "discover#v": {
    "h": "449ea25bd0a1cf3e",
    "url": "https://media.lexkite.com/vimg/449ea25bd0a1cf3e.webp",
@@ -7416,6 +8282,33 @@
      "ref": "https://commons.wikimedia.org/wiki/File:Geschirrspuelmaschine.JPG"
     }
    }
+  },
+  "display#v": {
+   "h": "f4ddf8cf26420225",
+   "url": "https://media.lexkite.com/vimg/f4ddf8cf26420225.webp",
+   "alt": "display",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.24,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "bb9ed0e14e61c532",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "disposition#n": {
    "h": "629079a8c765f2f4",
@@ -7884,6 +8777,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "duly#adv": {
+   "h": "759921edf5977edf",
+   "url": "https://media.lexkite.com/vimg/759921edf5977edf.webp",
+   "alt": "duly",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.182,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "c8bae7e081973678",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "dust#n": {
    "h": "7e33ed4bf4754a34",
    "url": "https://media.lexkite.com/vimg/7e33ed4bf4754a34.webp",
@@ -7986,6 +8905,32 @@
    "ph": "bbb0e14b976cc807",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "easily#adv": {
+   "h": "5125097c358ca7bc",
+   "url": "https://media.lexkite.com/vimg/5125097c358ca7bc.webp",
+   "alt": "easily",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.216,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "b3949b664ccccc99",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "easy-going#adj": {
@@ -8119,6 +9064,32 @@
    "b": "40290059316",
    "repo": "m4"
   },
+  "effort#n": {
+   "h": "cccfa69045df1e0e",
+   "url": "https://media.lexkite.com/vimg/cccfa69045df1e0e.webp",
+   "alt": "effort",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.259,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b9f0462fd0ce9991",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "egg#n": {
    "h": "093726cb580ec9a7",
    "url": "https://media.lexkite.com/vimg/093726cb580ec9a7.webp",
@@ -8221,6 +9192,32 @@
    "ph": "fa84a3873e58783a",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "elegant#adj": {
+   "h": "f30a5286edcc40f0",
+   "url": "https://media.lexkite.com/vimg/f30a5286edcc40f0.webp",
+   "alt": "elegant",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.256,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b8c7c63a136d4db0",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "element#n": {
@@ -8427,6 +9424,59 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "employment#n": {
+   "h": "337af9c07cc90368",
+   "url": "https://media.lexkite.com/vimg/337af9c07cc90368.webp",
+   "alt": "employment",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.259,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "b7e38a56c93c60c9",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "end product#n": {
+   "h": "0021047efa11261c",
+   "url": "https://media.lexkite.com/vimg/0021047efa11261c.webp",
+   "alt": "end product",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.227,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b333920dc98ecdcc",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "energetic#adj": {
    "h": "8ab830446838702b",
    "url": "https://media.lexkite.com/vimg/8ab830446838702b.webp",
@@ -8530,6 +9580,33 @@
    "ph": "e3be4318f9a22666",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "entertain#v": {
+   "h": "b907f7906fda8532",
+   "url": "https://media.lexkite.com/vimg/b907f7906fda8532.webp",
+   "alt": "entertain",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.23,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b894c44bd362974f",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "entrée#n": {
@@ -8716,6 +9793,32 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "estate agent#n": {
+   "h": "0d32d7f6109b86d4",
+   "url": "https://media.lexkite.com/vimg/0d32d7f6109b86d4.webp",
+   "alt": "estate agent",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.228,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "9881e1c7b3969e78",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "evening#n": {
    "h": "b893d2c34ca8ddad",
    "url": "https://media.lexkite.com/vimg/b893d2c34ca8ddad.webp",
@@ -8898,6 +10001,32 @@
    "ph": "b9b3852ec6cc869c",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "explain#v": {
+   "h": "c523448411c95d82",
+   "url": "https://media.lexkite.com/vimg/c523448411c95d82.webp",
+   "alt": "explain",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.235,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 60,
+    "tries": 1
+   },
+   "ph": "fec42b99a4939cb0",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "explorer#n": {
@@ -9130,6 +10259,32 @@
    "ph": "e39e9c69c1946363",
    "at": "2026-10-28",
    "b": "40626212543",
+   "repo": "m4"
+  },
+  "fact#n": {
+   "h": "96244d92f3926873",
+   "url": "https://media.lexkite.com/vimg/96244d92f3926873.webp",
+   "alt": "fact",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.233,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "e838b7c6368790c7",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "factory#n": {
@@ -10001,6 +11156,32 @@
    "b": "40290059316",
    "repo": "m4"
   },
+  "firstly#adv": {
+   "h": "34a3623cf335f5c3",
+   "url": "https://media.lexkite.com/vimg/34a3623cf335f5c3.webp",
+   "alt": "firstly",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.183,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "a4fa07c9da1cad4a",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "fish#n": {
    "h": "794953f09679c1cb",
    "url": "https://media.lexkite.com/vimg/794953f09679c1cb.webp",
@@ -10040,6 +11221,33 @@
      "ref": "https://commons.wikimedia.org/wiki/File:Palais_des_Nations_unies,_%C3%A0_Gen%C3%A8ve_(cropped).jpg"
     }
    }
+  },
+  "flash#n": {
+   "h": "3d29e666ccf31383",
+   "url": "https://media.lexkite.com/vimg/3d29e666ccf31383.webp",
+   "alt": "flash",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.268,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "9ec1e1b0951ab5bc",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "flat#adj": {
    "h": "08f281b083a978a5",
@@ -10660,6 +11868,33 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "front desk#n": {
+   "h": "a6bf7eea80ab0470",
+   "url": "https://media.lexkite.com/vimg/a6bf7eea80ab0470.webp",
+   "alt": "front desk",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.308,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "9fe89cf0e485b134",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "frustrate#v": {
    "h": "b42117d176de4f26",
    "url": "https://media.lexkite.com/vimg/b42117d176de4f26.webp",
@@ -10738,6 +11973,32 @@
    "ph": "a7da9c25d886d172",
    "at": "2026-10-26",
    "b": "40290059316",
+   "repo": "m4"
+  },
+  "fun#n": {
+   "h": "014d668407ac3e40",
+   "url": "https://media.lexkite.com/vimg/014d668407ac3e40.webp",
+   "alt": "fun",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.234,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "a8d7c620fe3386b8",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "function#n": {
@@ -10928,6 +12189,32 @@
    "ph": "f9b1825e9669292d",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "generous#adj": {
+   "h": "8b2605f6c9521520",
+   "url": "https://media.lexkite.com/vimg/8b2605f6c9521520.webp",
+   "alt": "generous",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.258,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "bcb8f243c542e647",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "genre#n": {
@@ -11747,6 +13034,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "group work#n": {
+   "h": "522e70564df28100",
+   "url": "https://media.lexkite.com/vimg/522e70564df28100.webp",
+   "alt": "group work",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.261,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "a9ade2c29f1f6818",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "grow#v": {
    "h": "c7298a6eef0d8221",
    "url": "https://media.lexkite.com/vimg/c7298a6eef0d8221.webp",
@@ -11901,6 +13214,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "guy#n": {
+   "h": "ee335c7789dd0af0",
+   "url": "https://media.lexkite.com/vimg/ee335c7789dd0af0.webp",
+   "alt": "guy",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.254,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "bed82521dac2e1b5",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "habit#n": {
    "h": "840aff3d4ab7faca",
    "url": "https://media.lexkite.com/vimg/840aff3d4ab7faca.webp",
@@ -11925,6 +13264,59 @@
    "ph": "f09887e723c71e38",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "habitat loss#n": {
+   "h": "0097e5035246b7e3",
+   "url": "https://media.lexkite.com/vimg/0097e5035246b7e3.webp",
+   "alt": "habitat loss",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.3,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "be6b81b489c6b4a9",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "habitat#n": {
+   "h": "a9e34a6c4e9c661b",
+   "url": "https://media.lexkite.com/vimg/a9e34a6c4e9c661b.webp",
+   "alt": "habitat",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.21,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "999fb4689e04e61b",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "hamburger#n": {
@@ -12041,6 +13433,32 @@
    "ph": "bbecfc0239c6e2c0",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "hardly#adv": {
+   "h": "f707072adbcacb37",
+   "url": "https://media.lexkite.com/vimg/f707072adbcacb37.webp",
+   "alt": "hardly",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.234,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "edd1d12e9362960e",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "hat#n": {
@@ -12195,6 +13613,32 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "heart rate#n": {
+   "h": "e22189d511c1180e",
+   "url": "https://media.lexkite.com/vimg/e22189d511c1180e.webp",
+   "alt": "heart rate",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.201,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "caadd562c39316b4",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "heart#n": {
    "h": "c4e94786ef4093f7",
    "url": "https://media.lexkite.com/vimg/c4e94786ef4093f7.webp",
@@ -12218,6 +13662,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "heat#n": {
+   "h": "ad6d32614a9a1ebb",
+   "url": "https://media.lexkite.com/vimg/ad6d32614a9a1ebb.webp",
+   "alt": "heat",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.204,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "ecd212c5c2b835b7",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "heater#n": {
    "alt": "heater",
@@ -12973,6 +14443,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "hunt#v": {
+   "h": "f9c91272c49020ff",
+   "url": "https://media.lexkite.com/vimg/f9c91272c49020ff.webp",
+   "alt": "hunt",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.358,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "be8f0787e168489e",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "hurry#v": {
    "h": "90088f2ac7f8ca4a",
    "url": "https://media.lexkite.com/vimg/90088f2ac7f8ca4a.webp",
@@ -13311,6 +14807,33 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "impatient#adj": {
+   "h": "940549ed10143639",
+   "url": "https://media.lexkite.com/vimg/940549ed10143639.webp",
+   "alt": "impatient",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.312,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "f898c6778542c36b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "important#adj": {
    "h": "4a69f3abcd79a570",
    "url": "https://media.lexkite.com/vimg/4a69f3abcd79a570.webp",
@@ -13548,6 +15071,33 @@
    "ph": "b8a0c55ee74f9138",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "inevitable#adj": {
+   "h": "278410f27ad672c5",
+   "url": "https://media.lexkite.com/vimg/278410f27ad672c5.webp",
+   "alt": "inevitable",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.293,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "bed8a133c167c2b2",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "influencer#n": {
@@ -13838,6 +15388,58 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "intense#adj": {
+   "h": "a3613bad6fed64e8",
+   "url": "https://media.lexkite.com/vimg/a3613bad6fed64e8.webp",
+   "alt": "intense",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.243,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "bbe4c0964b3db443",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "intention#n": {
+   "h": "a29ba9503098d371",
+   "url": "https://media.lexkite.com/vimg/a29ba9503098d371.webp",
+   "alt": "intention",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.277,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b8c64fe397929232",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "intercept#v": {
    "h": "724af6dcec6fe34e",
    "url": "https://media.lexkite.com/vimg/724af6dcec6fe34e.webp",
@@ -13941,6 +15543,32 @@
    "ph": "f280add03f8a7af0",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "investigate#v": {
+   "h": "5ad5d31098b347f7",
+   "url": "https://media.lexkite.com/vimg/5ad5d31098b347f7.webp",
+   "alt": "investigate",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.162,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "f8bdb5ca84c38626",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "investment#n": {
@@ -14089,6 +15717,32 @@
     }
    }
   },
+  "jail#n": {
+   "h": "34a842cbc1bfe34e",
+   "url": "https://media.lexkite.com/vimg/34a842cbc1bfe34e.webp",
+   "alt": "jail",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.26,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "e68c1b994d66649b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "jam#n": {
    "h": "76acda651ef8fe50",
    "url": "https://media.lexkite.com/vimg/76acda651ef8fe50.webp",
@@ -14166,6 +15820,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "jet lag#n": {
+   "h": "3a54d03614166a96",
+   "url": "https://media.lexkite.com/vimg/3a54d03614166a96.webp",
+   "alt": "jet lag",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.28,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b7c4893be01b9e38",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "job offer#n": {
    "h": "79a9a5c93ba42b10",
    "url": "https://media.lexkite.com/vimg/79a9a5c93ba42b10.webp",
@@ -14190,6 +15870,32 @@
    "ph": "df80a55496a74c7a",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "join#v": {
+   "h": "872ed3be36c8ab7d",
+   "url": "https://media.lexkite.com/vimg/872ed3be36c8ab7d.webp",
+   "alt": "join",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.279,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "be95e8e1c1c69623",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "joke#n": {
@@ -14533,6 +16239,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "lab partner#n": {
+   "h": "4889c7c7744e478a",
+   "url": "https://media.lexkite.com/vimg/4889c7c7744e478a.webp",
+   "alt": "lab partner",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.273,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "bfa148e2e11f961a",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "label#n": {
    "h": "4f6e0bd3ad6aa8ed",
@@ -15130,6 +16862,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "library#n": {
+   "h": "95f17aa9f3c54f6a",
+   "url": "https://media.lexkite.com/vimg/95f17aa9f3c54f6a.webp",
+   "alt": "library",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.185,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "ef8a61b095919c76",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "lie#v": {
    "h": "26309b3d44c5aff0",
    "url": "https://media.lexkite.com/vimg/26309b3d44c5aff0.webp",
@@ -15155,6 +16913,59 @@
    "ph": "bf9be364c0e2c518",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "life#n": {
+   "h": "b15bf2b2f385f606",
+   "url": "https://media.lexkite.com/vimg/b15bf2b2f385f606.webp",
+   "alt": "life",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.251,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "cb9cc763c027bc68",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "light#n": {
+   "h": "4af29877598dd981",
+   "url": "https://media.lexkite.com/vimg/4af29877598dd981.webp",
+   "alt": "light",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.211,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "f5941ad9d98e7920",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "lighter#n": {
@@ -15926,6 +17737,33 @@
    "b": "40626212543",
    "repo": "m4"
   },
+  "mammal#n": {
+   "h": "3be81d9e90f4ca50",
+   "url": "https://media.lexkite.com/vimg/3be81d9e90f4ca50.webp",
+   "alt": "mammal",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.304,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "b831c3ce9c31996d",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "man#n": {
    "h": "dfc3fdda089b0b14",
    "url": "https://media.lexkite.com/vimg/dfc3fdda089b0b14.webp",
@@ -16442,6 +18280,33 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "meter#n": {
+   "h": "0320e8aa60f81f34",
+   "url": "https://media.lexkite.com/vimg/0320e8aa60f81f34.webp",
+   "alt": "meter",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.174,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "b38fcc338c4cf292",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "microphone#n": {
    "h": "1d7482e30aa0d3e2",
    "url": "https://media.lexkite.com/vimg/1d7482e30aa0d3e2.webp",
@@ -16540,6 +18405,32 @@
    "ph": "ae9fc738e0c0d3c4",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "migrate#v": {
+   "h": "086d34a4eaea2dbd",
+   "url": "https://media.lexkite.com/vimg/086d34a4eaea2dbd.webp",
+   "alt": "migrate",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.261,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "b3ec13cea163856c",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "milk#n": {
@@ -16801,6 +18692,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "model#n": {
+   "h": "95d1fb5976beeb62",
+   "url": "https://media.lexkite.com/vimg/95d1fb5976beeb62.webp",
+   "alt": "model",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.19,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "bde0d096c3ca461f",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "modem#n": {
    "alt": "modem",
    "photo": {
@@ -16916,6 +18833,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "monument#n": {
+   "h": "7b3a4887b2c626ea",
+   "url": "https://media.lexkite.com/vimg/7b3a4887b2c626ea.webp",
+   "alt": "monument",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.239,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "a6e299519b3c91e3",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "mood#n": {
    "h": "66af1bc91d115096",
@@ -17042,6 +18985,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "motion#n": {
+   "h": "74702594cf65726f",
+   "url": "https://media.lexkite.com/vimg/74702594cf65726f.webp",
+   "alt": "motion",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.244,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "e6b6481d91d91bc9",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "motivation#n": {
    "h": "c2ac7229d64742a7",
@@ -17446,6 +19415,33 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "nature reserve#n": {
+   "h": "f37d199c1b86d98a",
+   "url": "https://media.lexkite.com/vimg/f37d199c1b86d98a.webp",
+   "alt": "nature reserve",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.225,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "ea9ca56389669c1b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "necessarily#adv": {
    "h": "23b8fd70cb89f926",
    "url": "https://media.lexkite.com/vimg/23b8fd70cb89f926.webp",
@@ -17487,6 +19483,58 @@
      "ref": "https://commons.wikimedia.org/wiki/File:Captured_Pearls_Necklace.jpg"
     }
    }
+  },
+  "negotiator#n": {
+   "h": "8a023c7fb5b4a53c",
+   "url": "https://media.lexkite.com/vimg/8a023c7fb5b4a53c.webp",
+   "alt": "negotiator",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.228,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "96a1dc00f7235edc",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "neighbor#n": {
+   "h": "1ae4fc619bbf4133",
+   "url": "https://media.lexkite.com/vimg/1ae4fc619bbf4133.webp",
+   "alt": "neighbor",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.247,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "a5d8d92dc607e94c",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "neighborhood#n": {
    "h": "32a4beacabe2f3f6",
@@ -17930,6 +19978,58 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "novel#n": {
+   "h": "9660cfad1c509711",
+   "url": "https://media.lexkite.com/vimg/9660cfad1c509711.webp",
+   "alt": "novel",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.295,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "e5ee069678895b8c",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "nowhere#adv": {
+   "h": "f23b80e961f158a7",
+   "url": "https://media.lexkite.com/vimg/f23b80e961f158a7.webp",
+   "alt": "nowhere",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.236,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "aa85f98e85b3685c",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "nurse#n": {
    "h": "0e6731f46278b2cf",
    "url": "https://media.lexkite.com/vimg/0e6731f46278b2cf.webp",
@@ -18083,6 +20183,32 @@
    "b": "40290059316",
    "repo": "m4"
   },
+  "oil#n": {
+   "h": "8510ec2d0d106db6",
+   "url": "https://media.lexkite.com/vimg/8510ec2d0d106db6.webp",
+   "alt": "oil",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.203,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "e7a71be018d8c939",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "okay#adj": {
    "h": "2a7beaa868d110a9",
    "url": "https://media.lexkite.com/vimg/2a7beaa868d110a9.webp",
@@ -18228,6 +20354,58 @@
    "ph": "d8b096c767c2c9b4",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "operation#n": {
+   "h": "157d6160b0cca9e0",
+   "url": "https://media.lexkite.com/vimg/157d6160b0cca9e0.webp",
+   "alt": "operation",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.228,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "89e985433c9fd0a7",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "optimize#v": {
+   "h": "1177420e54766c61",
+   "url": "https://media.lexkite.com/vimg/1177420e54766c61.webp",
+   "alt": "optimize",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.169,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "dbaea440e181b797",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "orange#n": {
@@ -18488,6 +20666,58 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "packed#adj": {
+   "h": "ef4f0cf7ff20b4a9",
+   "url": "https://media.lexkite.com/vimg/ef4f0cf7ff20b4a9.webp",
+   "alt": "packed",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.246,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "ec8e91d29306ef68",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "packet#n": {
+   "h": "79179a81487340eb",
+   "url": "https://media.lexkite.com/vimg/79179a81487340eb.webp",
+   "alt": "packet",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.298,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "ba9cc123b6c3c07b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "painful#adj": {
    "h": "7e756902dd983f8f",
    "url": "https://media.lexkite.com/vimg/7e756902dd983f8f.webp",
@@ -18666,6 +20896,32 @@
    "ph": "ee999583b19ac0e3",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "partner#n": {
+   "h": "d36779ccfcb1e9a3",
+   "url": "https://media.lexkite.com/vimg/d36779ccfcb1e9a3.webp",
+   "alt": "partner",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.302,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b8c947e793163e18",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "pass#v": {
@@ -19362,6 +21618,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "pile#n": {
+   "h": "bbc12f0c1698136b",
+   "url": "https://media.lexkite.com/vimg/bbc12f0c1698136b.webp",
+   "alt": "pile",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.221,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "9efdc020e3619e0f",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "pill#n": {
    "h": "c0091dbbcd5e105e",
    "url": "https://media.lexkite.com/vimg/c0091dbbcd5e105e.webp",
@@ -19742,6 +22024,58 @@
    "ph": "bb68c0b69c93e2cc",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "point#n": {
+   "h": "882117dafdb1ead8",
+   "url": "https://media.lexkite.com/vimg/882117dafdb1ead8.webp",
+   "alt": "point",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.152,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "bb8a65e1f03e0d0b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "poison#n": {
+   "h": "38e03cdd985916e1",
+   "url": "https://media.lexkite.com/vimg/38e03cdd985916e1.webp",
+   "alt": "poison",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.241,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "9eb8e442cac6a717",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "police#n": {
@@ -20184,6 +22518,32 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "presentation#n": {
+   "h": "43ad3b577fac4cb8",
+   "url": "https://media.lexkite.com/vimg/43ad3b577fac4cb8.webp",
+   "alt": "presentation",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.24,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b891c4e343cf8727",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "press#v": {
    "h": "44cbb69834656f57",
    "url": "https://media.lexkite.com/vimg/44cbb69834656f57.webp",
@@ -20446,6 +22806,33 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "professionally#adv": {
+   "h": "32e59997b5a9ac0d",
+   "url": "https://media.lexkite.com/vimg/32e59997b5a9ac0d.webp",
+   "alt": "professionally",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.254,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "b3c6cd308bcd18c7",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "project#n": {
    "h": "64d17d03e6cb1fa5",
    "url": "https://media.lexkite.com/vimg/64d17d03e6cb1fa5.webp",
@@ -20680,6 +23067,33 @@
    "b": "40290059316",
    "repo": "m4"
   },
+  "property#n": {
+   "h": "bebc8c3e79fa6218",
+   "url": "https://media.lexkite.com/vimg/bebc8c3e79fa6218.webp",
+   "alt": "property",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.245,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "eae19dc19d509c53",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "prospect#n": {
    "h": "467727362835f08e",
    "url": "https://media.lexkite.com/vimg/467727362835f08e.webp",
@@ -20730,6 +23144,32 @@
    "ph": "f193c33829c6ce99",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "protest#n": {
+   "h": "bff3d4c0dcf215d7",
+   "url": "https://media.lexkite.com/vimg/bff3d4c0dcf215d7.webp",
+   "alt": "protest",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.2,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "ffa089c23c976869",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "prudent#adj": {
@@ -21151,6 +23591,32 @@
    "at": "2026-10-24",
    "b": "40077252813"
   },
+  "raw#adj": {
+   "h": "62b8076d33e5c6a2",
+   "url": "https://media.lexkite.com/vimg/62b8076d33e5c6a2.webp",
+   "alt": "raw",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.264,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "bfd0786180c9e69e",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "reach#v": {
    "h": "fac4b100a17055f6",
    "url": "https://media.lexkite.com/vimg/fac4b100a17055f6.webp",
@@ -21308,6 +23774,58 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "rearrange#v": {
+   "h": "1379b7537a2cc307",
+   "url": "https://media.lexkite.com/vimg/1379b7537a2cc307.webp",
+   "alt": "rearrange",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.23,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "fb8dd270a4b20e4b",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
+  "reason#n": {
+   "h": "85c880dc62788288",
+   "url": "https://media.lexkite.com/vimg/85c880dc62788288.webp",
+   "alt": "reason",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.216,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "bb91cd26c4cabe14",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "receipt#n": {
    "h": "b4c52ce8067db3e5",
    "url": "https://media.lexkite.com/vimg/b4c52ce8067db3e5.webp",
@@ -21356,6 +23874,33 @@
    "ph": "bacd40a1b53f3594",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "reconcile#v": {
+   "h": "10c9f059ce868637",
+   "url": "https://media.lexkite.com/vimg/10c9f059ce868637.webp",
+   "alt": "reconcile",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.253,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "e7e6941a99c99e90",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "record#n": {
@@ -21502,6 +24047,32 @@
    "ph": "dabcb0c10da5e1cd",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "regular#adj": {
+   "h": "850eb8715a71e8e8",
+   "url": "https://media.lexkite.com/vimg/850eb8715a71e8e8.webp",
+   "alt": "regular",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.205,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "9ebe61c0e6e1604f",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "relate#v": {
@@ -23110,6 +25681,32 @@
    "b": "40290059316",
    "repo": "m4"
   },
+  "scholar#n": {
+   "h": "53d7749517fff8e5",
+   "url": "https://media.lexkite.com/vimg/53d7749517fff8e5.webp",
+   "alt": "scholar",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.238,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "e5a612ca6c9999cd",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "school#n": {
    "h": "bfaf624e896448bb",
    "url": "https://media.lexkite.com/vimg/bfaf624e896448bb.webp",
@@ -23133,6 +25730,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "science#n": {
+   "h": "a0b062584fa6335f",
+   "url": "https://media.lexkite.com/vimg/a0b062584fa6335f.webp",
+   "alt": "science",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.288,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "efe512b89c9819c9",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "scientist#n": {
    "h": "2784ed61ee2a7a7a",
@@ -24309,6 +26932,33 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "size#n": {
+   "h": "7f29995649e3bd5e",
+   "url": "https://media.lexkite.com/vimg/7f29995649e3bd5e.webp",
+   "alt": "size",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.254,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "b296c3631c3cc7c9",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "skateboard#n": {
    "h": "be96e922cdc82c22",
    "url": "https://media.lexkite.com/vimg/be96e922cdc82c22.webp",
@@ -24767,6 +27417,32 @@
    "b": "40472935704",
    "repo": "m4"
   },
+  "society#n": {
+   "h": "cd59c59232a87873",
+   "url": "https://media.lexkite.com/vimg/cd59c59232a87873.webp",
+   "alt": "society",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.209,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "b9c6e4c34b96949c",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "sock#n": {
    "h": "816d355974de8e3e",
    "url": "https://media.lexkite.com/vimg/816d355974de8e3e.webp",
@@ -24865,6 +27541,32 @@
    "ph": "b8b0c38b4ccc8f4f",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "solar#adj": {
+   "h": "4d7c1582c7daf0a6",
+   "url": "https://media.lexkite.com/vimg/4d7c1582c7daf0a6.webp",
+   "alt": "solar",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.303,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "ecb085177ae2456d",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "soldier#n": {
@@ -25098,6 +27800,32 @@
    "ph": "be9cc0b7e3c06a43",
    "at": "2026-10-28",
    "b": "40626212543",
+   "repo": "m4"
+  },
+  "speak#v": {
+   "h": "90f8ef85cb1a967d",
+   "url": "https://media.lexkite.com/vimg/90f8ef85cb1a967d.webp",
+   "alt": "speak",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.224,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "9fd4e0e1a5853972",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "speaker#n": {
@@ -25769,6 +28497,33 @@
    "ph": "96f2c81e8fc99a89",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "strict#adj": {
+   "h": "22f922147884d3ad",
+   "url": "https://media.lexkite.com/vimg/22f922147884d3ad.webp",
+   "alt": "strict",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "bg": "alpha",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.304,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "b8b4c34ba44397ce",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "string#n": {
@@ -26635,6 +29390,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "target audience#n": {
+   "h": "d4428bf9044dc6b5",
+   "url": "https://media.lexkite.com/vimg/d4428bf9044dc6b5.webp",
+   "alt": "target audience",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.266,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 1
+   },
+   "ph": "eeba3040bf9f8c30",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "target market#n": {
    "h": "9f40fd090e920cf4",
    "url": "https://media.lexkite.com/vimg/9f40fd090e920cf4.webp",
@@ -26864,6 +29645,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "technology#n": {
+   "h": "87184c6c4fbfb879",
+   "url": "https://media.lexkite.com/vimg/87184c6c4fbfb879.webp",
+   "alt": "technology",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.286,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "b2f44f98384dc33a",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "teen#n": {
    "h": "50d01292caa6af82",
    "url": "https://media.lexkite.com/vimg/50d01292caa6af82.webp",
@@ -27062,6 +29869,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "terrible#adj": {
+   "h": "4a7467bd76cfb9bd",
+   "url": "https://media.lexkite.com/vimg/4a7467bd76cfb9bd.webp",
+   "alt": "terrible",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.284,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "ee3bc5c19e8691c4",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "thick#adj": {
    "h": "d5b65812d6eb0531",
@@ -27563,6 +30396,32 @@
     }
    }
   },
+  "town#n": {
+   "h": "413b28fe6370870e",
+   "url": "https://media.lexkite.com/vimg/413b28fe6370870e.webp",
+   "alt": "town",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.251,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "f8cb836c4786b865",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "track#n": {
    "h": "a678b849b7971214",
    "url": "https://media.lexkite.com/vimg/a678b849b7971214.webp",
@@ -27611,6 +30470,32 @@
    "ph": "afb8f2c88c90d33a",
    "at": "2026-10-26",
    "b": "40277982540",
+   "repo": "m4"
+  },
+  "traffic lights#n": {
+   "h": "026d21ddc0c365ee",
+   "url": "https://media.lexkite.com/vimg/026d21ddc0c365ee.webp",
+   "alt": "traffic lights",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.274,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 90,
+    "tries": 2
+   },
+   "ph": "9e8747b8b0e8d057",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "traffic update#n": {
@@ -28505,6 +31390,32 @@
     }
    }
   },
+  "victim#n": {
+   "h": "b38372c9dfa8cadb",
+   "url": "https://media.lexkite.com/vimg/b38372c9dfa8cadb.webp",
+   "alt": "victim",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.199,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "f89815a7e7429a6a",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "video#n": {
    "h": "1497c6f17748c17e",
    "url": "https://media.lexkite.com/vimg/1497c6f17748c17e.webp",
@@ -28584,6 +31495,32 @@
    "b": "40277982540",
    "repo": "m4"
   },
+  "violence#n": {
+   "h": "42dd8f5277c63492",
+   "url": "https://media.lexkite.com/vimg/42dd8f5277c63492.webp",
+   "alt": "violence",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.199,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "bfd091ee90c3c664",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
+  },
   "violent#adj": {
    "h": "48633a6b3598b00e",
    "url": "https://media.lexkite.com/vimg/48633a6b3598b00e.webp",
@@ -28634,6 +31571,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "virus#n": {
+   "h": "9725216b2d650c52",
+   "url": "https://media.lexkite.com/vimg/9725216b2d650c52.webp",
+   "alt": "virus",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.248,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "ab4eb82742663f32",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "vital#adj": {
    "h": "d31f3bc500cb55e3",
@@ -28687,6 +31650,32 @@
    "ph": "e2d2912d8d43bd1e",
    "at": "2026-10-27",
    "b": "40472935704",
+   "repo": "m4"
+  },
+  "vocational training#n": {
+   "h": "c26a0301c077c21f",
+   "url": "https://media.lexkite.com/vimg/c26a0301c077c21f.webp",
+   "alt": "vocational training",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.318,
+    "vision": "@cf/meta/llama-4-scout-17b-16e-instruct",
+    "conf": 80,
+    "tries": 2
+   },
+   "ph": "f9e184cf449eb294",
+   "at": "2026-10-28",
+   "b": "40656848274",
    "repo": "m4"
   },
   "voice#n": {
@@ -29053,6 +32042,32 @@
    },
    "at": "2026-10-24",
    "b": "40077252813"
+  },
+  "way#n": {
+   "h": "19ecda519ad8310e",
+   "url": "https://media.lexkite.com/vimg/19ecda519ad8310e.webp",
+   "alt": "way",
+   "sv": "s1",
+   "fmt": [
+    "webp",
+    "avif"
+   ],
+   "kind": "scene",
+   "src": {
+    "tier": "ai",
+    "lic": "own",
+    "by": "Lexkite"
+   },
+   "q": {
+    "score": 0.25,
+    "vision": "consensus:llama-4-scout-17b-16e-instruct+mistral-small-3.1-24b-instruct",
+    "conf": 80,
+    "tries": 1
+   },
+   "ph": "f3b2439ce88998cd",
+   "at": "2026-10-28",
+   "b": "40656848274",
+   "repo": "m4"
   },
   "wear#v": {
    "h": "df5bc40c661a1782",

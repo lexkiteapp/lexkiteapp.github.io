@@ -253,12 +253,6 @@
    "why": "clip-sentence sim 0.1906; vision description-sentence sim 0.1274",
    "b": "40088424311"
   },
-  "meter#n": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "vision: no (room and measurement value); clip-sentence sim 0.1313; vision description-sentence sim 0.0921",
-   "b": "40088424311"
-  },
   "mistake#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -293,12 +287,6 @@
    "at": "2026-10-26",
    "tries": 4,
    "why": "clip-sentence sim 0.1967",
-   "b": "40276144478"
-  },
-  "partner#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision: no (café background)",
    "b": "40276144478"
   },
   "party#n": {
@@ -379,12 +367,6 @@
    "why": "vision: no (schedule or calendar); clip-sentence sim 0.1449; vision description-sentence sim -0.0213",
    "b": "40088424311"
   },
-  "science#n": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.1962",
-   "b": "40276144478"
-  },
   "season#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -414,12 +396,6 @@
    "tries": 4,
    "why": "vision: no (requester and specific example); clip-sentence sim 0.2003; vision description-sentence sim -0.0184",
    "b": "40088424311"
-  },
-  "terrible#adj": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "vision description-sentence sim 0.1122",
-   "b": "40276144478"
   },
   "there#adv": {
    "at": "2026-10-26",
