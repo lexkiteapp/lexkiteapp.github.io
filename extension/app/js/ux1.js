@@ -14,7 +14,7 @@
   const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const cefrN = s => CEFR.indexOf(String(s || '').toUpperCase().slice(0, 2)) + 1;
   // Ảnh giáo viên trong app: MỘT nguồn (luật 1 phong cách nhân vật/ màn – đổi bộ ảnh = đổi dòng này)
-  App.teacherImg = w => 'teach/' + (w === 'carlos' ? 'carlos' : 'ama') + '/poster.webp'; // bộ 2D phông xanh tách nền (nền trong suốt; Ama 358×480, Carlos 514×480)
+  App.teacherImg = w => 'teach/' + (w === 'carlos' ? 'carlos' : 'ama') + '/poster.jpg';
   const keyOf = w => (window.Core && Core.keyOf ? Core.keyOf(w) : String(w || '').toLowerCase());
 
   // ---------- 5 tab ----------
@@ -245,7 +245,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-lbl{margin-top:.45rem;font-weight:700;font-size:var(--fs-sm);color:var(--text);text-align:center;display:flex;flex-direction:column;line-height:1.2}
 .ux1-lbl small{font-size:.68rem;color:var(--gold-text);text-transform:uppercase;letter-spacing:.05em;font-weight:800}
 .ux1-n.lock .ux1-lbl{color:var(--muted)}
-.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 0;background:var(--surface-2);border:3px solid var(--surface);box-shadow:var(--shadow)}
+.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 12%;border:3px solid var(--surface);box-shadow:var(--shadow)}
 .ux1-go{animation:none!important;min-width:200px}
 @keyframes ux1Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
@@ -289,7 +289,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-uprog{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:.8rem 0 .35rem;font-size:var(--fs-sm)}.ux1-uprog span{display:inline-flex;align-items:center;gap:.25rem;color:var(--gold-text);font-weight:800}
 .ux1-uprog svg{width:15px;height:15px}.ux1-ubar{height:10px}
 .ux1-hint{display:flex;align-items:center;gap:.6rem;margin:.8rem 0 0;padding:.55rem .7rem;border-radius:var(--r-md);background:var(--surface-2);font-size:var(--fs-sm);color:var(--text)}
-.ux1-hint img{width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:50% 0;background:var(--surface-2);flex:none;border:2px solid var(--done)}
+.ux1-hint img{width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:50% 12%;flex:none;border:2px solid var(--done)}
 .ux1-path{position:relative;padding-bottom:.5rem}
 .ux1-trail{position:absolute;left:50%;top:0;width:1px;height:1px;overflow:visible;pointer-events:none;z-index:0}
 .ux1-trail path{fill:none;stroke:var(--line-2);stroke-width:6;stroke-linecap:round;stroke-dasharray:2 12}.ux1-trail path.dn{stroke:var(--done-ink);stroke-dasharray:14 10}
