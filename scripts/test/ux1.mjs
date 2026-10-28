@@ -87,7 +87,7 @@ const start = $$('.ux1-home .lsn-start');
 ok($('.ux1-home') && start.length === 1 && start[0].getAttribute('href') === '#/lesson/go', 'chạm 2: MỘT nút Bắt đầu tới bài đầu tiên (≤ 2 chạm)');
 ok($('#bnav a[data-tab="learn"]').getAttribute('aria-current') === 'page' && !w.document.body.classList.contains('focus'), 'tab Học đang chọn, bản đồ giữ thanh điều hướng');
 const unitTx = ($('.ux1-unit') || {}).textContent || '';
-ok(/Bạn sẽ|You'll/.test(unitTx) && $('.ux1-unit h1') && $('.ux1-unit').getAttribute('style').includes('--u:'), 'băng chặng: tên chủ đề + câu "Bạn sẽ…" + màu riêng');
+ok(/Bạn sẽ|You'll/.test(unitTx) && $('.ux1-unit h1') && /\bu-(primary|accent|good|gold|again)\b/.test($('.ux1-unit').className), 'băng chặng: tên chủ đề + câu "Bạn sẽ…" + màu riêng');
 ok($$('.ux1-n').length === 6 && $$('.ux1-n .ux1-lbl').every(l => l.textContent.trim()) && $('.ux1-n.next .ux1-tch') && $$('.ux1-n.lock .ux1-lk').length, 'nút có nhãn (không cột icon trơn), nút hiện tại có giáo viên, nút khóa có ổ khóa');
 ok(/TOEIC/.test(($('.ux1-n.cp') || {}).textContent || ''), 'nút kiểm tra kỹ năng thi theo mục tiêu (TOEIC)');
 ok($('.ux1-exam') && /TOEIC · 750/.test($('.ux1-exam').textContent) && $('.ux1-exam a[href="#/toeic"]'), 'thẻ kỳ thi: kỳ thi + mục tiêu + 1 chạm thi thử');

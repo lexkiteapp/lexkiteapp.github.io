@@ -105,7 +105,7 @@
     general: ['travel', 'health', 'work', 'media', 'technology', 'education', 'environment', 'urban', 'society', 'crime'],
   };
   const CAN = () => ({ start: t('Bạn sẽ chào hỏi và kể về một ngày của mình'), education: t('Bạn sẽ nói về việc học và trường lớp'), environment: t('Bạn sẽ nêu nguyên nhân và giải pháp cho môi trường'), technology: t('Bạn sẽ nêu ưu và nhược điểm của công nghệ'), health: t('Bạn sẽ đưa lời khuyên về sức khỏe'), work: t('Bạn sẽ nói về công việc của mình'), society: t('Bạn sẽ so sánh và bảo vệ quan điểm'), media: t('Bạn sẽ bàn về tin tức và mạng xã hội'), urban: t('Bạn sẽ mô tả thành phố và đề xuất thay đổi'), travel: t('Bạn sẽ kể về chuyến đi và đặt dịch vụ'), crime: t('Bạn sẽ bàn về luật lệ và an toàn') });
-  const COLORS = ['#0D6964', '#CC3F1C', '#15803d', '#0F3D3E', '#92400e', '#17595A']; // token sẵn có (accent · primary · good · brand-ink · gold-text) + Kit teal – chữ trắng đạt AA
+  const COLORS = ['primary', 'accent', 'good', 'gold', 'again']; // màu chặng = cặp token sẵn có (nền + chữ đạt AA cả sáng/tối) → đổi bảng màu chỉ cần đổi token
   const topics = () => (window.IELTS_DATA && IELTS_DATA.TOPICS) || [];
   function units(ex, lvl) {
     const T = topics(), ids = ORDER[ex] || ORDER.ielts;
@@ -157,7 +157,7 @@
         <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async">` : ''}${dot}</span><span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}</span></li>`;
     }).join('');
     view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
-      <section class="ux1-unit" style="--u:${u.color}"><div class="grow"><small>${t('Chặng học {n}', { n: u.no })} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1>${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1><p>${esc(CAN()[u.id] || '')}</p></div>
+      <section class="ux1-unit u-${u.color}"><div class="grow"><small>${t('Chặng học {n}', { n: u.no })} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1>${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1><p>${esc(CAN()[u.id] || '')}</p></div>
         <div class="ux1-uside"><span class="ux1-chip">${at}/${P.length}</span>${u.words.length ? `<span class="ux1-chip" title="${t('Kiến thức đã có')}">${ic('library')} ${have}/${u.words.length}</span>` : ''}${(state.settings || {}).placement ? '' : `<a class="ux1-chip" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ')}</a>`}</div></section>
       <ol class="lsn-path ux1-path">${nodes}</ol></div>`;
     fillMock(view);
@@ -203,19 +203,21 @@ body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;paddin
 body.ux1 #nav a.active{color:var(--primary-text);background:var(--primary-soft);border-color:var(--primary)}
 body.ux1 #nav a .ic svg{width:26px;height:26px}
 .ux1-home{max-width:620px;margin:0 auto}
-.ux1-unit{display:flex;gap:.8rem;align-items:flex-start;background:var(--u);color:#fff;border-radius:var(--r-lg);padding:1rem 1.1rem;margin:.8rem 0 .4rem;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+body{--ux1-u:var(--primary);--ux1-uk:var(--primary-ink)}
+.ux1-unit.u-primary{--ux1-u:var(--primary);--ux1-uk:var(--primary-ink)}.ux1-unit.u-accent{--ux1-u:var(--accent-soft);--ux1-uk:var(--accent-text)}.ux1-unit.u-good{--ux1-u:var(--good-soft);--ux1-uk:var(--good-text)}.ux1-unit.u-gold{--ux1-u:var(--gold-soft);--ux1-uk:var(--gold-text)}.ux1-unit.u-again{--ux1-u:var(--again-soft);--ux1-uk:var(--again-text)}
+.ux1-unit{display:flex;gap:.8rem;align-items:flex-start;background:var(--ux1-u);color:var(--ux1-uk);border-radius:var(--r-lg);padding:1rem 1.1rem;margin:.8rem 0 .4rem;box-shadow:0 4px 0 color-mix(in srgb,var(--ux1-uk) 22%,transparent)}
 .ux1-unit small{font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.92}
-.ux1-unit h1{margin:.15rem 0;font-size:var(--fs-lg);color:#fff}.ux1-unit p{margin:0;font-size:var(--fs-sm);opacity:.95}
+.ux1-unit h1{margin:.15rem 0;font-size:var(--fs-lg);color:inherit}.ux1-unit p{margin:0;font-size:var(--fs-sm);opacity:.95}
 .ux1-uside{display:flex;flex-direction:column;gap:.35rem;align-items:flex-end;flex:none}
-.ux1-chip{display:inline-flex;align-items:center;gap:.3rem;min-height:30px;padding:.2rem .6rem;border-radius:var(--r-pill);background:rgba(255,255,255,.18);color:#fff;font-weight:700;font-size:var(--fs-xs);text-decoration:none;white-space:nowrap}
-a.ux1-chip{min-height:44px;border:1px solid rgba(255,255,255,.5)}
+.ux1-chip{display:inline-flex;align-items:center;gap:.3rem;min-height:30px;padding:.2rem .6rem;border-radius:var(--r-pill);background:color-mix(in srgb,currentColor 14%,transparent);color:inherit;font-weight:700;font-size:var(--fs-xs);text-decoration:none;white-space:nowrap}
+a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,transparent)}
 .ux1-chip svg{width:14px;height:14px}
 .ux1-path{gap:1.1rem;margin:1.2rem 0 1rem}
 .ux1-n .ux1-dw{position:relative;display:inline-flex}
 .ux1-n .lsn-dot{width:70px;height:64px}.ux1-n.next .lsn-dot{width:84px;height:78px;animation:ux1Pulse 2.2s ease-in-out infinite}
 .ux1-n.lock .lsn-dot{background:var(--surface-2);color:var(--text);border:2px solid var(--line)}
-.ux1-n.cp .lsn-dot{border-radius:22px;background:var(--gold-soft);color:var(--gold-text);box-shadow:0 6px 0 var(--gold)}
-.ux1-n.cp.done .lsn-dot{background:var(--good);color:#fff}.ux1-n.cp.next .lsn-dot{background:var(--gold);color:#1a1200}
+.ux1-n.cp:not(.done) .lsn-dot{border-radius:22px;background:var(--gold-soft);color:var(--gold-text);box-shadow:0 6px 0 var(--gold)}
+.ux1-n.cp.next .lsn-dot{background:var(--gold);color:var(--brand-ink)}
 .ux1-lk{position:absolute;right:-4px;bottom:-4px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--line);color:var(--muted)}
 .ux1-lk svg{width:13px!important;height:13px!important}
 .ux1-lbl{margin-top:.45rem;font-weight:700;font-size:var(--fs-sm);color:var(--text);text-align:center;display:flex;flex-direction:column;line-height:1.2}

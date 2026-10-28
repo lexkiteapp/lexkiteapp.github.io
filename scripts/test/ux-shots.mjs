@@ -19,7 +19,7 @@ async function run(TAG, ROOT, vn, scheme, lang) {
   const page = await ctx.newPage(); page.on('pageerror', e => report.errs.push(`${TAG}-${vn}-${lang}: ${e.message}`));
   const url = h => `https://lk.test/app/?sandbox=1&hl=${lang}#/${h}`;
   await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2500);
-  await page.evaluate(async () => {
+  await page.evaluate(async UX1 => {
     const C = Core.Cards, now = Date.now();
     const mk = async (e, srs) => { const c = C.make(e); c.srs = { ef: 2.5, interval: 5, reps: 3, lapses: 0, due: now - 1000, last: now - 5 * 864e5, step: 0, S: 5, D: 4, ...srs }; await C.update(c); };
     await mk({ word: 'accomplish', ipa: '/əˈkʌmplɪʃ/', pos: 'verb', vi: 'hoàn thành, đạt được', def: 'to succeed in doing something', ex: 'She accomplished her goal.' }, { D: 8 });
@@ -27,7 +27,7 @@ async function run(TAG, ROOT, vn, scheme, lang) {
     await mk({ word: 'sustainable', ipa: '/səˈsteɪnəbl/', pos: 'adjective', vi: 'bền vững', def: 'able to continue over a period of time', ex: 'We need sustainable energy.' }, { D: 3, reps: 4 });
     for (const [w, v] of [['river', 'dòng sông'], ['window', 'cửa sổ'], ['decline', 'suy giảm'], ['habit', 'thói quen']]) await mk({ word: w, pos: 'noun', vi: v, ex: '' }, { due: now + 9e9 });
     if (UX1) { localStorage.setItem('lk.ux1', '1'); App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '6.5'; await App.saveSettings(); }
-  }).catch(e => report.errs.push(`${TAG}-${vn}-${lang}: seed ${e.message}`));
+  }, UX1).catch(e => report.errs.push(`${TAG}-${vn}-${lang}: seed ${e.message}`));
   await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500);
   for (const r0 of ROUTES) {
     const [ra, rb] = r0.split('|'), r = ra, go = TAG === 'before' && rb ? rb : ra;
