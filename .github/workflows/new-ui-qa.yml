@@ -1,0 +1,59 @@
+# 🔍 Soát hình các màn MỚI (bài học trộn · Truyện/Radio · chuỗi/rã băng/rương/sự kiện/thẻ khoe · giáo viên sprite · mặt tiền YouTube) – docs/NEW-UI-QA.md
+# PR chạm các màn này → cổng nhanh (5 ngôn ngữ dài/RTL × 360 + 1280 × sáng/tối) – đỏ khi tràn chữ, nút < 44 px, tương phản < AA, ảnh hỏng, chữ Việt rò,
+# nhân vật lạ, CLS > 0, giáo viên bị che. Chạy tay full=1: đủ 15 ngôn ngữ × 4 khung × sáng/tối + contact sheet (artifact 14 ngày).
+name: New UI QA
+on:
+  pull_request:
+    paths: ['web/js/lesson/**', 'web/js/retention.js', 'web/js/streak-ui.js', 'web/js/share-card.js', 'web/js/lesson-video.js', 'web/js/i18n/**', 'web/teach/**', 'web/img/teach/**', 'web/css/**', 'web/style.css', 'web/app/**', 'docs/mocks/teacher-*/**', 'scripts/test/new-ui-*.mjs', 'scripts/test/journey-e2e/checks.js', '.github/workflows/new-ui-qa.yml']
+  push:
+    branches: ['nuq-*']   # nhánh soát hình: luôn chạy đủ (dispatch chỉ được khi workflow đã ở main)
+  workflow_dispatch:
+    inputs:
+      full: { description: '1 = 15 ngôn ngữ × 4 khung × sáng/tối + contact sheet', required: false, default: '1' }
+      label: { description: 'Nhãn bộ ảnh (before/after)', required: false, default: 'run' }
+permissions:
+  contents: read
+concurrency:
+  group: new-ui-qa-${{ github.ref }}-${{ github.event_name }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        lang: ${{ fromJSON((github.event_name == 'push' || github.event.inputs.full == '1') && '["en","vi","ar","de","es","fr","hi","id","ja","ko","pt","ru","th","tr","zh"]' || '["en,ar","ru,de","vi,ja,hi"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp + đầu dò
+        env:
+          VPS: ${{ (github.event_name == 'push' || github.event.inputs.full == '1') && '360,390,768,1280' || '360,1280' }}
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+          node scripts/test/new-ui-qa.mjs --root . --lang "${{ matrix.lang }}" --vp "$VPS" --out "nuq-${{ strategy.job-index }}"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: 'nuq-${{ strategy.job-index }}', path: 'nuq-${{ strategy.job-index }}', retention-days: 14 }
+  sheets:
+    needs: shots
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'nuq-*', path: nuq }
+      - name: Gộp báo cáo + chuỗi chưa dịch + contact sheet
+        run: |
+          command -v montage >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick)
+          node scripts/test/new-ui-sheets.mjs nuq sheets "${{ github.event.inputs.label || github.ref_name }}"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: 'new-ui-sheets-${{ github.event.inputs.label || github.ref_name }}', path: sheets, retention-days: 14 }

@@ -58,6 +58,7 @@ on:
       - 'matte-pro'
       - 'Native auth E2E'
       - 'Kiểm chuyển trang (mọi trình duyệt)'
+      - 'New UI QA'
       - 'news-voice'
       - 'news-auto'
       - 'video-e2e'
