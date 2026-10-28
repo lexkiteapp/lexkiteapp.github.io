@@ -38,12 +38,21 @@ jobs:
       per: ${{ steps.p.outputs.per }}
       skip: ${{ steps.p.outputs.skip }}
     steps:
+      - uses: actions/checkout@v4
+        if: github.event.inputs.mode == 'fill' || github.event_name == 'schedule'
+      - id: probe
+        if: github.event.inputs.mode == 'fill' || github.event_name == 'schedule'
+        run: PROBE_SHARE=0.5 PROBE_QUICK=1 node scripts/lib/cf-pool-probe.mjs
+        env: { CF_POOL: '${{ secrets.CF_POOL }}' }
       - id: p
+        env: { PROBE_ALIVE: '${{ steps.probe.outputs.alive || 99 }}' }
         run: |
           n=${{ github.event.inputs.shards || '1' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
           if [ -n "${{ github.event.inputs.from_run }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 26/10: lịch fill CHỈ chạy khi chủ bật biến repo VIMG_SCHEDULE=1 (bật lại workflow để chạy thử tay không kéo theo fill 4 lượt/ngày)
           if [ "${{ github.event_name }}" = schedule ] && [ "${{ vars.VIMG_SCHEDULE }}" != 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
+          # 28/10: fill – dò nhanh PHẦN VẼ của kho (~60 neuron) trước khi bật 10 máy; < 10 tài khoản còn neuron → bỏ lượt (đêm 27/10: 4 lượt rỗng, mỗi lượt cài giám khảo 10 máy rồi mới thấy kho cạn)
+          if [ "$MODE" = fill ] && [ "$PROBE_ALIVE" -lt 10 ]; then echo "⏹ phần vẽ của kho CF còn $PROBE_ALIVE tài khoản – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || '10' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
           G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }

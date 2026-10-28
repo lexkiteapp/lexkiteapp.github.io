@@ -193,6 +193,7 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const wf = rd('.github/workflows/vocab-img-scene.yml'), share = [...wf.matchAll(/VIMG_DRAW_SHARE: '([\d.]+)'/g)].map(m => +m[1]);
   ok(share.length >= 3 && share.every(x => x > 0 && x <= 0.6), 'mọi việc dùng kho CF đặt VIMG_DRAW_SHARE ≤ 0,6 (đuôi kho cho giám khảo + kho từ)');
   ok(/vision_dead": true/.test(wf) && /touch \$OUT\/EXHAUSTED/.test(wf), 'giám khảo thị giác hết neuron → dừng vẽ (không vẽ ảnh không ai chấm)');
+  ok(/PROBE_SHARE=0\.5 PROBE_QUICK=1/.test(wf) && /PROBE_ALIVE" -lt 10/.test(wf), 'fill dò nhanh phần vẽ của kho trước khi bật máy (không lượt rỗng)');
   ok(/fill:[\s\S]*?max-parallel: [1-5]\b/.test(wf), 'fill giữ ≤ 5 máy GitHub cùng lúc (chừa máy cho npm test/Prod release)');
   ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
   const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
