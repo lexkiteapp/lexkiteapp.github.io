@@ -42,7 +42,7 @@ jobs:
         if: github.event.inputs.mode == 'fill' || github.event_name == 'schedule'
       - id: probe
         if: github.event.inputs.mode == 'fill' || github.event_name == 'schedule'
-        run: PROBE_SHARE=0.5 PROBE_QUICK=1 node scripts/lib/cf-pool-probe.mjs
+        run: PROBE_SHARE=${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }} PROBE_QUICK=1 node scripts/lib/cf-pool-probe.mjs
         env: { CF_POOL: '${{ secrets.CF_POOL }}' }
       - id: p
         env: { PROBE_ALIVE: '${{ steps.probe.outputs.alive || 99 }}' }
@@ -70,7 +70,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: "${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }}"   # 28/10: kho từ pilot (~100k/ngày) → ảnh 70 %; hàng loạt (~600k) → 50 %. Biến chưa đặt = 0.5 (an toàn)   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -148,7 +148,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: "${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }}"   # 28/10: kho từ pilot (~100k/ngày) → ảnh 70 %; hàng loạt (~600k) → 50 %. Biến chưa đặt = 0.5 (an toàn)   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -245,7 +245,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: "${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }}"   # 28/10: kho từ pilot (~100k/ngày) → ảnh 70 %; hàng loạt (~600k) → 50 %. Biến chưa đặt = 0.5 (an toàn)   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}
@@ -426,7 +426,7 @@ jobs:
       VIMG_POOL_SKIP: '0'      # chủ 26/10: kho CF chỉ Lexkite dùng → dùng MỌI tài khoản,
       VIMG_CF_UNCAPPED: '1'    #   vẽ tới khi Cloudflare báo hết neuron ngày (4006) rồi chuyển tài khoản
       VIMG_CONSENSUS: '1'      # 26/10: giám khảo KÉP đối chứng cho ảnh trượt cổng mềm (local_judge.py consensus)
-      VIMG_DRAW_SHARE: '0.5'   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
+      VIMG_DRAW_SHARE: "${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }}"   # 28/10: kho từ pilot (~100k/ngày) → ảnh 70 %; hàng loạt (~600k) → 50 %. Biến chưa đặt = 0.5 (an toàn)   # 26/10: vẽ 60 % đầu kho; 40 % đuôi luôn còn cho giám khảo thị giác (đuôi→) + văn bản/kho từ (từ 60 %→) – lượt 26/10 vẽ cạn kho → 0 ảnh được chấm
       CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
       CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
       VIMG_MAX_CF: ${{ (github.event.inputs.provider || vars.VIMG_PROVIDER || 'cf') == 'cf' && needs.plan.outputs.per || '0' }}

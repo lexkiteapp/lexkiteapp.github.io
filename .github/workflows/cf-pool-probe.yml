@@ -17,7 +17,7 @@ jobs:
       - run: node scripts/lib/cf-pool-probe.mjs | tee probe.txt
         env: { CF_POOL: '${{ secrets.CF_POOL }}' }
       - id: head   # 28/10: quyết định khởi động theo PHẦN VẼ của kho (nửa đầu), không theo cả kho – đuôi còn neuron làm bật lượt ảnh rỗng
-        run: PROBE_SHARE=0.5 PROBE_QUICK=1 node scripts/lib/cf-pool-probe.mjs
+        run: PROBE_SHARE=${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }} PROBE_QUICK=1 node scripts/lib/cf-pool-probe.mjs
         env: { CF_POOL: '${{ secrets.CF_POOL }}' }
       - name: Kho mở mà ảnh không chạy → khởi động lại chuỗi fill (cron GitHub hay trễ hàng giờ)
         env: { GH_TOKEN: '${{ github.token }}', SCHED: '${{ vars.VIMG_SCHEDULE }}' }

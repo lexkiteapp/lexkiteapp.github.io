@@ -190,10 +190,10 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
 
 // 7. chống tái phạm kho CF (26–27/10): vẽ không được làm đói giám khảo/kho từ; hết giám khảo → dừng vẽ; tự nối lượt so biến trong bash
 {
-  const wf = rd('.github/workflows/vocab-img-scene.yml'), share = [...wf.matchAll(/VIMG_DRAW_SHARE: '([\d.]+)'/g)].map(m => +m[1]);
-  ok(share.length >= 3 && share.every(x => x > 0 && x <= 0.6), 'mọi việc dùng kho CF đặt VIMG_DRAW_SHARE ≤ 0,6 (đuôi kho cho giám khảo + kho từ)');
+  const wf = rd('.github/workflows/vocab-img-scene.yml'), share = [...wf.matchAll(/VIMG_DRAW_SHARE: "\$\{\{ vars\.LX_PILOT == '1' && '([\d.]+)' \|\| '([\d.]+)' \}\}"/g)].flatMap(m => [+m[1], +m[2]]);
+  ok(share.length >= 6 && share.every(x => x > 0 && x <= 0.7) && share.filter((x, i) => i % 2).every(x => x <= 0.5), 'VIMG_DRAW_SHARE ≤ 0,7 khi kho từ pilot, ≤ 0,5 khi hàng loạt/chưa đặt (đuôi kho cho giám khảo + kho từ)');
   ok(/vision_dead": true/.test(wf) && /touch \$OUT\/EXHAUSTED/.test(wf), 'giám khảo thị giác hết neuron → dừng vẽ (không vẽ ảnh không ai chấm)');
-  ok(/PROBE_SHARE=0\.5 PROBE_QUICK=1/.test(wf) && /PROBE_ALIVE" -lt 10/.test(wf), 'fill dò nhanh phần vẽ của kho trước khi bật máy (không lượt rỗng)');
+  ok(/PROBE_SHARE=\$\{\{ vars\.LX_PILOT == '1' && '0\.7' \|\| '0\.5' \}\} PROBE_QUICK=1/.test(wf) && /PROBE_ALIVE" -lt 10/.test(wf), 'fill dò nhanh phần vẽ của kho trước khi bật máy (không lượt rỗng)');
   ok(/fill:[\s\S]*?max-parallel: [1-5]\b/.test(wf), 'fill giữ ≤ 5 máy GitHub cùng lúc (chừa máy cho npm test/Prod release)');
   ok(/\[ "\$CHAIN" = 0 \]/.test(wf) && /gh workflow run vocab-img-scene\.yml/.test(wf), 'tự nối lượt: biến repo so trong bash');
   const all = fs.readdirSync(new URL('../../.github/workflows/', import.meta.url)).map(f => rd('.github/workflows/' + f)).join('\n');
