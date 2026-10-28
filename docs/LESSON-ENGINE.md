@@ -40,6 +40,8 @@
 - Giọng: Kokoro **sinh sẵn trên CI** (`scripts/gen-audio.mjs`, `audio.yml` hằng đêm; Ama = af_heart, Carlos = am_michael) → `audio.lexkite.com/audio/l/<KVoice.lineKey>.mp3`; miệng sprite chạy theo đúng độ dài file; chưa có file → giọng máy. Cue Rhubarb theo âm vị: sau duyệt.
 - Câu thoại không tính điểm (chỉ tiến độ); hết bài → bài kế tiếp xoay vòng. Cờ `lesson_mix` bật → `#/home` = bản đồ (trang chủ đầy đủ ở `#/home?all=1`).
 
+- Cờ `ux1` (5 tab, trang chủ = bản đồ theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi): xem [LEARNING-PATH.md](LEARNING-PATH.md).
+
 ## 3. Bảy dạng bài (MVP)
 | Dạng | Cần dữ liệu | Chấm | Khi tắt nghe / nói |
 |---|---|---|---|

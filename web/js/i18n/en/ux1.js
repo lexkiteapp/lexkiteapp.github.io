@@ -1,0 +1,33 @@
+/**
+ * English translations for UX1 "one app": 5 tabs, path map units, goal pick, practice hub, right rail (web/js/ux1.js) – docs/LEARNING-PATH.md
+ */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  "Ôn": "Review",
+  "Luyện": "Practice",
+  "Giải đấu": "Leagues",
+  "Điều hướng chính": "Main navigation",
+  "Tiến độ hôm nay": "Today's progress",
+  "Dự đoán ~{s}": "Predicted ~{s}",
+  "Chưa có điểm dự đoán": "No predicted score yet",
+  "Giao tiếp": "Conversation",
+  "Bạn học để làm gì?": "What are you learning for?",
+  "Chọn 1 mục tiêu, đổi lúc nào cũng được.": "Pick one goal. You can change it any time.",
+  "Bạn sẽ chào hỏi và kể về một ngày của mình": "You'll be able to greet people and talk about your day",
+  "Bạn sẽ nói về việc học và trường lớp": "You'll be able to talk about studying and school",
+  "Bạn sẽ nêu nguyên nhân và giải pháp cho môi trường": "You'll be able to explain environmental causes and solutions",
+  "Bạn sẽ nêu ưu và nhược điểm của công nghệ": "You'll be able to weigh the pros and cons of technology",
+  "Bạn sẽ đưa lời khuyên về sức khỏe": "You'll be able to give health advice",
+  "Bạn sẽ nói về công việc của mình": "You'll be able to talk about your job",
+  "Bạn sẽ so sánh và bảo vệ quan điểm": "You'll be able to compare views and defend your opinion",
+  "Bạn sẽ bàn về tin tức và mạng xã hội": "You'll be able to discuss the news and social media",
+  "Bạn sẽ mô tả thành phố và đề xuất thay đổi": "You'll be able to describe a city and suggest changes",
+  "Bạn sẽ kể về chuyến đi và đặt dịch vụ": "You'll be able to talk about trips and make bookings",
+  "Bạn sẽ bàn về luật lệ và an toàn": "You'll be able to discuss rules, law and safety",
+  "Tiếng Anh hằng ngày": "Everyday English",
+  "Kiến thức đã có": "What you already know",
+  "Ôn {a}/{b} thẻ": "Reviewed {a}/{b} cards",
+  "Luyện thi": "Exam prep",
+  "TOEIC Part 5–7": "TOEIC Part 5–7",
+  "Mọi bài luyện ở một chỗ.": "All your practice in one place.",
+  "Bạn đã học:": "You learned:",
+}); })(typeof self !== 'undefined' ? self : this);
