@@ -1,6 +1,6 @@
 /* Lexkite v2 */
 :root {
-  /* @tokens brand/tokens.json */ --bg: #f5f6fb; --surface: #ffffff; --surface-2: #f0f1f8; --surface-3: #e8e9f4; --text: #171827; --muted: #4e526b; --line: #e2e4ef; --line-2: #cfd3e2; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #1F7A75; --done-ink: #17595A; --on-done: #ffffff;
+  /* @tokens brand/tokens.json */ --bg: #f5f6fb; --surface: #ffffff; --surface-2: #f0f1f8; --surface-3: #e8e9f4; --text: #171827; --muted: #4e526b; --line: #e2e4ef; --line-2: #cfd3e2; --faint: #7C8197; --ledge: #cfd3e2; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #1F7A75; --done-ink: #17595A; --on-done: #ffffff; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22;
   --primary: #CC3F1C; /* đạt tương phản WCAG AA 4.9:1 với chữ trắng */
   --primary-2: #FF7A4D;
   --primary-ink: #ffffff;
@@ -37,7 +37,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    /* @tokens brand/tokens.json */ --bg: #10191B; --surface: #172427; --surface-2: #1E2F33; --surface-3: #26393E; --text: #EAF2F1; --muted: #A3B9B7; --line: #2A3E42; --line-2: #3A5256; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #10191B;
+    /* @tokens brand/tokens.json */ --bg: #10191B; --surface: #172427; --surface-2: #1E2F33; --surface-3: #26393E; --text: #F3F8F8; --muted: #A3B9B7; --line: #1F3337; --line-2: #23373B; --faint: #5A7175; --ledge: #132023; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #10191B; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22;
     --primary: #FF8466; --primary-2: #FFA582; --primary-ink: #1A0E0B; --primary-soft: #3A221C;
     --accent-soft: #10302f; --gold-soft: #3a2e12; --good-soft: #12301d; --again-soft: #3a1a1c;
     --primary-text: #FF8466; --accent-text: #5FD0C4; --good-text: #4ade80; --again-text: #ff7b7f; --gold-text: #fbbf24;
@@ -46,7 +46,7 @@
   }
 }
 :root[data-theme="dark"] {
-  /* @tokens brand/tokens.json */ --bg: #10191B; --surface: #172427; --surface-2: #1E2F33; --surface-3: #26393E; --text: #EAF2F1; --muted: #A3B9B7; --line: #2A3E42; --line-2: #3A5256; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #10191B;
+  /* @tokens brand/tokens.json */ --bg: #10191B; --surface: #172427; --surface-2: #1E2F33; --surface-3: #26393E; --text: #F3F8F8; --muted: #A3B9B7; --line: #1F3337; --line-2: #23373B; --faint: #5A7175; --ledge: #132023; --teal-1: #1F7A75; --teal-2: #2BA39A; --done: #2BA39A; --done-ink: #1F7A75; --on-done: #10191B; --cta-1: #FFB054; --cta-2: #F2553B; --cta-ink: #1A0E0B; --cta-lip: #B53A22;
   --primary: #FF8466; --primary-2: #FFA582; --primary-ink: #1A0E0B; --primary-soft: #3A221C;
   --accent-soft: #10302f; --gold-soft: #3a2e12; --good-soft: #12301d; --again-soft: #3a1a1c;
   --primary-text: #FF8466; --accent-text: #5FD0C4; --good-text: #4ade80; --again-text: #ff7b7f; --gold-text: #fbbf24;

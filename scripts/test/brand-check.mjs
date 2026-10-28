@@ -88,6 +88,8 @@ for (const m of ['light', 'dark']) {
   need(t['--muted'], t['--bg'], 7, `${m} chữ phụ/nền`); need(t['--muted'], t['--surface'], 7, `${m} chữ phụ/thẻ`); need(t['--muted'], t['--surface-2'], 4.5, `${m} chữ phụ/surface-2`);
   for (const s of ['--surface', '--surface-2', '--surface-3']) need(t['--done'], t[s], 3, `${m} teal sáng (tiến độ/nút đã học)/${s}`);
   need(t['--on-done'], t['--done'], 4.5, `${m} chữ trên teal sáng`);
+  for (const c of ['--cta-1', '--cta-2']) need(t['--cta-ink'], t[c], 4.5, `${m} chữ trên nút CTA gradient`);
+  for (const s of ['--bg', '--surface']) need(t['--faint'], t[s], 3, `${m} icon khóa/mờ (--faint)/${s}`);
 }
 for (const k of TK.icon.kite) for (const b of [TK.icon.bgTop, TK.icon.bg]) need(k, b, 3, 'icon: diều/nền (đồ họa ≥ 3:1)');
 // 3) chặn màu lạ MỚI trong CSS app/add-on: chỉ token + bảng màu + màu cũ đã khóa (scripts/test/brand-colors.lock.json – chỉ được bớt)

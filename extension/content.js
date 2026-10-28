@@ -186,7 +186,7 @@
     .src { color: #6b6f85; font-size: 13px; margin-bottom: 10px; max-height: 120px; overflow: auto; border-left: 3px solid #e3e5ef; padding-left: 8px; }
     .tr { font-size: 15.5px; line-height: 1.55; color: inherit; font-weight: 500; }
     /* Giao diện tối: chỉ khi TRANG tối (lớp .dark gắn lúc hiện bảng) – bảng sáng trên trang sáng dù máy để chế độ tối */
-    /*@tokens*/.box.dark{--d-bg:#10191B;--d-sf:#172427;--d-sf2:#1E2F33;--d-sf3:#26393E;--d-line:#2A3E42;--d-line2:#3A5256;--d-text:#EAF2F1;--d-muted:#A3B9B7}/*@end*/
+    /*@tokens*/.box.dark{--d-bg:#10191B;--d-sf:#172427;--d-sf2:#1E2F33;--d-sf3:#26393E;--d-line:#1F3337;--d-line2:#23373B;--d-text:#F3F8F8;--d-muted:#A3B9B7}/*@end*/
     .box.dark { background: var(--d-sf); color: var(--d-text); border-color: var(--d-line); }
     .dark .pg { border-color: var(--d-line); } .dark .wn-x { background: var(--d-sf2); color: var(--d-text); } .dark .pic, .dark .spk, .dark .chip { background: var(--d-sf3); }
     .dark .chip { color: var(--d-muted); } .dark .ipa, .dark .ex, .dark .src, .dark .pex, .dark .st-m, .dark .muted, .dark .x { color: var(--d-muted); }
