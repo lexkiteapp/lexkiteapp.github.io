@@ -3,7 +3,7 @@
 // Ngưỡng ở scripts/test/stitch-diff.json – CHỈ được nâng (ratchet), không hạ. Xuất tờ "Stitch | app" cho chủ duyệt.
 // Hermetic (phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod). Dùng: node scripts/test/stitch-diff.mjs [web] [out=out/stitch-diff]
 // CI: .github/workflows/stitch-diff.yml (cần playwright + pngjs + imagemagick). docs/DESIGN-SYSTEM.md §0.
-import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
+import fs from 'node:fs'; import path from 'node:path'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
 const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.min.js'), a11y = {}; // WCAG 2.2 AA (axe-core) trong vùng màn Stitch (.st)
 const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
@@ -93,6 +93,13 @@ for (const [k, v] of Object.entries(res)) { const l = LIM[k] || {}; for (const m
 fs.writeFileSync(path.join(OUT, 'scores.json'), JSON.stringify({ res, errs, a11y }, null, 1));
 for (const [k, v] of Object.entries(a11y)) { const sv = (v.violations || []).filter(x => x.impact === 'serious' || x.impact === 'critical'); console.log(`axe ${k}: ${(v.violations || []).length} vi phạm (${sv.length} nghiêm trọng) · ${v.passes || 0} đạt`); sv.forEach(x => bad.push(`axe ${k}: ${x.id} ×${x.n} – ${x.sample.join(' | ')}`)); }
 console.log(Object.entries(res).map(([k, v]) => `${k}: ssim ${v.ssim} · nhịp hàng ${v.rows}`).join('\n'));
+// Tóm tắt ngắn (đọc thay cho log/ảnh lớn): điểm SSIM, axe, dung lượng CSS
+{ const css = ['home', 'lesson', 'goal'].map(g => { const f = path.join(ROOT, 'css', `st-${g}.css`); if (!fs.existsSync(f)) return `st-${g}: –`; const b = fs.readFileSync(f); return `st-${g}.css ${(b.length / 1024).toFixed(1)} KB · gz ${(zlib.gzipSync(b, { level: 9 }).length / 1024).toFixed(2)} KB`; });
+  const md = ['## Stitch diff', '| màn | SSIM | nhịp hàng | axe (nghiêm trọng/tổng) |', '|---|---|---|---|',
+    ...Object.keys({ ...res, ...a11y }).sort().map(k => { const r = res[k] || {}, a = a11y[k] || {}, v = a.violations || []; return `| ${k} | ${r.ssim ?? '–'} | ${r.rows ?? '–'} | ${v.filter(x => x.impact === 'serious' || x.impact === 'critical').length}/${v.length}${v.length ? ' ' + v.map(x => x.id).join(',') : ''} |`; }),
+    '', ...css.map(x => '- ' + x), errs.length ? '- lỗi JS: ' + errs.slice(0, 5).join(' | ') : '- lỗi JS: 0', bad.length ? '- ✗ ' + bad.slice(0, 12).join('\n- ✗ ') : '- ✓ đạt ngưỡng'].join('\n');
+  fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md + '\n'); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
+  try { for (const k of Object.keys(SCREENS)) for (const f of [`side-${k}.jpg`, `desk-${k}.jpg`]) if (fs.existsSync(path.join(OUT, f))) execFileSync('convert', [path.join(OUT, f), '-resize', '900x900>', '-quality', '70', path.join(OUT, 'sm-' + f)]); } catch (e) { /* bỏ qua */ } }
 if (errs.length) console.log('lỗi JS:', errs.slice(0, 10));
 if (bad.length || errs.length) { console.error('✗ stitch-diff:\n  - ' + bad.concat(errs).join('\n  - ')); process.exit(1); }
 console.log('✓ stitch-diff: bám mẫu Stitch đạt ngưỡng (scripts/test/stitch-diff.json, chỉ được nâng)');
