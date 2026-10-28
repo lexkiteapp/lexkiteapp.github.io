@@ -61,7 +61,7 @@
     compactFoot();
     b.onclick = function () { b.disabled = true; load().then(function (R) { R.open(); }, function () {}).then(function () { b.disabled = false; }); };
     var html = d.documentElement, wide = w.matchMedia ? w.matchMedia('(min-width: 901px)') : null;
-    var off = false, lastY = w.scrollY || 0;
+    var off = false, lastY = 0; // sync() bên dưới đặt lại sau khung hình (đọc scrollY ngay sau khi chèn CSS = ép tính bố cục cả trang trong tác vụ khởi động)
     var setOff = function (v) { if (v !== off) { off = v; b.classList.toggle('off', v); } };
     var place = function () { // máy tính có thanh bên → vào chân thanh bên; còn lại → nút nổi
       var foot = d.querySelector('.side-foot'), side = !!(wide && wide.matches && foot);
@@ -70,7 +70,7 @@
       else if (b.parentNode !== d.body) d.body.appendChild(b);
       html.classList.toggle('lk-fab', !side && !b.hidden);
     };
-    var sync = function () { b.hidden = HIDE.test(location.hash); setOff(false); lastY = w.scrollY || 0; place(); };
+    var sync = function () { b.hidden = HIDE.test(location.hash); setOff(false); (w.requestAnimationFrame || setTimeout)(function () { lastY = w.scrollY || 0; }); place(); };
     w.addEventListener('hashchange', sync);
     if (wide && wide.addEventListener) wide.addEventListener('change', place);
     // Cuộn xuống → ẩn (nhường chỗ đọc), cuộn lên/về đầu trang → hiện lại
