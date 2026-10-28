@@ -82,6 +82,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
 - Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
 - Bản clone tạm tên chung (`$TMPDIR/lk`) bị phiên khác `rm -rf` giữa chừng (24/10, mất 1 lượt sửa) → clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad để chạy lại.
+- Video IPA lấy theo từ gốc (waiting /weɪt/) + whisper có prompt kịch bản che lỗi phát âm → IPA chỉ từ kho theo đúng token (`pron.mjs`), ASR không prompt (28/10).
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.

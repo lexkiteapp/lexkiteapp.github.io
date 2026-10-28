@@ -7,7 +7,10 @@ source frames, cross-dissolves >= 8 frames between talk clips, no reverse/ping-p
 is delivered: N cards, count + reveal, twin tiles + quiz, your-turn pause, stress dots), cta (deep link == content/video/ecosystem.json area link).
 Board mode (classroom, docs/VIDEO-TEACHERS.md §5): text_on_board (hook + text pops written inside the measured board zone, moved with the
 camera; widgets that fall back to the under-chin band are listed), caption_clear (caption boxes never touch the head mask or the measured
-moving-body envelope of the clip, bank.json board.body), caption_center on the measured caption column, locked camera allowed (smax 1.0)."""
+moving-body envelope of the clip, bank.json board.body), caption_center on the measured caption column, locked camera allowed (smax 1.0).
+Pronunciation (28/10): asr_match (unprompted faster-whisper base.en on every line: <= 20 % words off, every key/IPA word heard, caption word starts within
+300 ms of the ASR), pron_kokoro (Kokoro's espeak phonemes == CMUdict for every word, content/video/kokoro-lexicon.json fixes), ipa_token (every on-screen
+IPA == the audited bank's US IPA of the exact displayed token, stress == CMUdict) – scripts/video/tpl/pron.mjs."""
 import sys, os, re, json, subprocess
 import numpy as np, cv2
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -282,6 +285,32 @@ if T.get('board_contrast') is not None and T.get('v14'):   # v14 board writing m
     R['board_contrast'] = dict(ok=bool(_bc) and not _bad, min=min((x['cr'] for x in _bc), default=None), n=len(_bc), low=_bad[:6])
 R['host_sharp'] = dict(ok=bool(Sh) and len(enc) == len(Sh) and med(up) >= 0.80 and min(up) >= 0.65 and med(enc) >= 0.80,
                        push_vs_native_median=round(med(up), 3), push_vs_native_min=round(min(up, default=0), 3), encoded_vs_rendered_median=round(med(enc), 3), samples=len(Sh))
+# ---- pronunciation (docs/VIDEO-SERIES.md § Phát âm, owner 28/10 "phát âm bị lệch"): ASR back-check, Kokoro phonemes vs CMUdict, on-screen IPA == audited bank for the exact token
+import difflib
+_nw = lambda x: re.sub(r"[^a-z0-9']", '', x.lower().replace('’', "'"))
+_NUM = {'0': 'zero', '1': 'one', '2': 'two', '3': 'three', '4': 'four', '5': 'five', '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine', '10': 'ten'}
+_bad, _keys_missed, _late, _n = [], [], [], 0
+_ipa_tok = {_nw(w) for x in ((T.get('pron') or {}).get('ipa') or []) for w in (x.get('token') or '').split()}
+for lid, txt in S.items():
+    L_ = T['lines'].get(lid) or {}; aw = L_.get('asr_words')
+    if aw is None: _bad.append(dict(line=lid, why='no unprompted ASR (voice job too old)')); continue
+    a = [_nw(x) for x in txt.split()]; b = [_NUM.get(_nw(w['w']), _nw(w['w'])) for w in aw]
+    skip = {i for i, w in enumerate(a) if 'lexkite' in w or not w}   # brand domain: ASR spells it freely
+    m = [0] * len(a); sm = difflib.SequenceMatcher(None, a, b, autojunk=False)
+    for blk in sm.get_matching_blocks():
+        for k in range(blk.size):
+            m[blk.a + k] = 1; cw = (L_.get('words') or [])[blk.a + k] if blk.a + k < len(L_.get('words') or []) else None
+            if cw and abs(cw['s'] - aw[blk.b + k]['s']) > 0.30: _late.append((lid, a[blk.a + k], round(cw['s'] - aw[blk.b + k]['s'], 2)))
+    n = [i for i in range(len(a)) if i not in skip]; miss = [a[i] for i in n if not m[i]]; _n += len(n)
+    kidx = {i for v in (next((l_.get('key', {}) for l_ in SP['lines'] if l_.get('id') == lid), {}) or {}).values() for i in v} | {i for i, w in enumerate(a) if w in _ipa_tok}
+    km = [a[i] for i in sorted(kidx) if i < len(a) and i not in skip and not m[i]]
+    if km: _keys_missed.append(dict(line=lid, words=km, asr=L_.get('asr')))
+    if n and len(miss) / len(n) > 0.20: _bad.append(dict(line=lid, wer=round(len(miss) / len(n), 2), missed=miss, asr=L_.get('asr'), script=txt))
+R['asr_match'] = dict(ok=not _bad and not _keys_missed and len(_late) <= 2, words=_n, lines_off=_bad[:6], key_words_misheard=_keys_missed[:6], caption_vs_asr_over_300ms=_late[:6])
+_P = T.get('pron')
+R['pron_kokoro'] = dict(ok=_P is not None and not _P.get('spoken'), mismatches=(_P or {}).get('spoken', [])[:8], lexicon=(_P or {}).get('lex'), note=None if _P else 'no pron.json from the voice job')
+_ip = (_P or {}).get('ipa') or []; _ib = [x for x in _ip if not (x.get('ok') and x.get('cmu_ok') and x.get('spoken_ok') and x.get('token') and x.get('taught') is not False)]
+R['ipa_token'] = dict(ok=_P is not None and not _ib, checked=len(_ip), bad=[{k: x.get(k) for k in ('token', 'ipa', 'want', 'src', 'cmu_ok', 'spoken', 'taught', 'pop')} for x in _ib][:8])
 prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)
 v = [s_ for s_ in prb['streams'] if s_['codec_type'] == 'video'][0]; dur = float(prb['format']['duration']); vb = int(v.get('bit_rate') or 0) / 1e6
 R['file'] = dict(ok=18 <= dur <= 45.5 and (v['width'], v['height']) == (1080, 1920) and 8.0 <= vb <= 9.5, duration=round(dur, 2), video_mbps=round(vb, 2), size_mb=round(int(prb['format']['size']) / 1e6, 1), fps=v['r_frame_rate'])

@@ -213,7 +213,7 @@
        "  "
       ],
       [
-       "@ipa:/dɪˈpend/"
+       "@ipa:/dɪˈpendz/"
       ]
      ]
     },
@@ -430,6 +430,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "It all depends ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " you.",
+      "white"
+     ]
+    ]
+   ],
    "a": "on",
    "b": "of",
    "correct": "a",
@@ -500,7 +516,7 @@
        "  "
       ],
       [
-       "@ipa:/dɪˈpend/"
+       "@ipa:/dɪˈpendz/"
       ]
      ]
     }
@@ -541,6 +557,6 @@
   "pid": "cf:opinions:depends-on:x",
   "cefr": "B1",
   "diff": "medium",
-  "ipa": "/dɪˈpend/"
+  "ipa": "/dɪˈpendz/"
  }
 }

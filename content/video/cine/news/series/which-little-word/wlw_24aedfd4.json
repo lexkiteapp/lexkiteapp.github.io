@@ -216,14 +216,14 @@
      "st": "text",
      "segs": [
       [
-       "from",
+       "protects",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/frʌm/"
+       "@ipa:/prəˈtekts/"
       ]
      ]
     }
@@ -438,6 +438,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "This coat protects me ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " the rain.",
+      "white"
+     ]
+    ]
+   ],
    "a": "of",
    "b": "from",
    "correct": "b",
@@ -501,14 +517,14 @@
      "st": "text",
      "segs": [
       [
-       "from",
+       "protects",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/frʌm/"
+       "@ipa:/prəˈtekts/"
       ]
      ]
     }
@@ -549,6 +565,6 @@
   "pid": "u:p:protect:from",
   "cefr": "A2",
   "diff": "easy",
-  "ipa": "/frʌm/"
+  "ipa": "/prəˈtekts/"
  }
 }

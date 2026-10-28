@@ -432,6 +432,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Just tap your card. It's ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " payment.",
+      "white"
+     ]
+    ]
+   ],
    "a": "touchless",
    "b": "contactless",
    "correct": "b",

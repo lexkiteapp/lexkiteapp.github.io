@@ -192,7 +192,7 @@
        "  "
       ],
       [
-       "@ipa:/dɪˈpend/"
+       "@ipa:/dɪˈpendz/"
       ]
      ]
     },
@@ -407,6 +407,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "How much is it? It ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      ".",
+      "white"
+     ]
+    ]
+   ],
    "a": "depends",
    "b": "depend",
    "correct": "a",
@@ -477,7 +493,7 @@
        "  "
       ],
       [
-       "@ipa:/dɪˈpend/"
+       "@ipa:/dɪˈpendz/"
       ]
      ]
     }
@@ -518,6 +534,6 @@
   "pid": "w:it depends#phrase",
   "cefr": "A2",
   "diff": "easy",
-  "ipa": "/dɪˈpend/"
+  "ipa": "/dɪˈpendz/"
  }
 }

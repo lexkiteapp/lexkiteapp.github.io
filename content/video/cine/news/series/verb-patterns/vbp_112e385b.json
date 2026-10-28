@@ -142,9 +142,11 @@
     [
      [
       "@x"
-     ]
-    ],
-    [
+     ],
+     [
+      " ",
+      "white"
+     ],
      [
       "“We were ",
       "white"
@@ -207,14 +209,14 @@
      "st": "text",
      "segs": [
       [
-       "wait",
+       "made",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/weɪt/"
+       "@ipa:/meɪd/"
       ]
      ]
     }
@@ -436,6 +438,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "She was made ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " the form again.",
+      "white"
+     ]
+    ]
+   ],
    "a": "to fill",
    "b": "fill",
    "correct": "a",
@@ -499,14 +517,14 @@
      "st": "text",
      "segs": [
       [
-       "wait",
+       "made",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/weɪt/"
+       "@ipa:/meɪd/"
       ]
      ]
     }
@@ -547,6 +565,6 @@
   "pid": "u:v:make:pass",
   "cefr": "C1",
   "diff": "hard",
-  "ipa": "/weɪt/"
+  "ipa": "/meɪd/"
  }
 }

@@ -156,7 +156,7 @@ for l in LINE_SPEC:
     lid = l['id']; a = pcm(f'{o.vo}/{lid}.wav'); cj = json.load(open(f'{o.vo}/{lid}.json')); wj = json.load(open(f'{o.vo}/{lid}.words.json'))
     assert [w['w'] for w in wj['words']] == TXT[lid].split(), ('word timings must be on the exact script tokens', lid)
     LINES[lid] = dict(id=lid, text=TXT[lid], a=a, dur=len(a) / 24000, cues=cj['mouthCues'], gen=cj.get('generator'), words=refine(a, wj['words']),
-                      whisper=wj.get('whisper'), speed=l.get('speed', SP.get('speed', 1.0)))
+                      whisper=wj.get('whisper'), asr=wj.get('asr'), asr_words=wj.get('asr_words'), speed=l.get('speed', SP.get('speed', 1.0)))
 
 # ---------------- timeline: natural pacing, no stretch ----------------
 GAP0, GAPMAX, TAIL = 0.60, 0.80, 1.2   # teaching pace (owner 26/10: v10 'nói hơi nhanh'): a breath between sentences
@@ -1484,8 +1484,10 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, board_contrast=CONTRAST, moods=[[l, w, c, TR['clips'][c].get('mood', 'talk')] for l, w, c in MOODS], v14=dict(on=V14, crop=CROP, zone=ZONE, head=HEAD.get(SP['clips'][0])) if V14 else None, read_pad=READ_PAD,
                board=dict(zone=ZONE, popz=POPZ, quad=BRD['quad'], perspective=GB.tolist(), cap_box=STRIP1, body=BRD['body'], where={p.id: p.where for p in POPS}) if BRD else None, hook=dict(text=HOOK_TEXT, t0=HOOK.t0, t1=max(p.t1 for p in POPS if p.P.get('role') == 'hook'), kind=HOOK.kind),
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
-               emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
-               lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
+               emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP, pron=json.load(open(f'{o.vo}/pron.json')) if os.path.exists(f'{o.vo}/pron.json') else None,   # voice-job pronunciation audit (pron.mjs) -> qc_v9 ipa_token / pron_kokoro
+              
+               lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper'],
+                                    asr=LINES[lid]['asr'], asr_words=LINES[lid]['asr_words'], words=[dict(w=w['w'], s=w['s'], e=w['e']) for w in LINES[lid]['words']]) for lid, at in ATL.items()},
                words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), identity_hits=ID_HITS[:20], n_identity_hits=len(ID_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
 print(f'[timing] finished {time.time() - T_START:.0f} s')
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')

@@ -439,6 +439,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Sorry for the late ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      ".",
+      "white"
+     ]
+    ]
+   ],
    "a": "reply",
    "b": "answering",
    "correct": "a",

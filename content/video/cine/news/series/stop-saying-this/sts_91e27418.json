@@ -434,6 +434,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "I ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " drink coffee.",
+      "white"
+     ]
+    ]
+   ],
    "a": "don't rarely",
    "b": "rarely",
    "correct": "b",

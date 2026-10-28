@@ -3,7 +3,7 @@
   python3 scripts/cine/news_voice.py <NEWS_DIR> <lesson-id,...>
 NEWS_DIR/ci/lines.json (from content/video/cine/news/lines.json) -> for every line used by the given lessons and missing vis3/<id>.wav:
 Kokoro (tts.mjs) -> Rhubarb 1.13 (vis3/<id>.json) -> faster-whisper word timings aligned to the EXACT caption tokens (vis3/<id>.words.json:
-whisper order + times, tokens whisper missed are interpolated between neighbours). Env: KOKORO_NODE_PATH, RHUBARB."""
+whisper order + times, tokens whisper missed are interpolated between neighbours) + an unprompted ASR pass (asr, asr_words) for the pronunciation back-check. Env: KOKORO_NODE_PATH, RHUBARB."""
 import json, os, re, sys, shutil, subprocess, difflib
 ND, IDS = sys.argv[1], sys.argv[2].split(','); ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 V = f'{ND}/vis3'; os.makedirs(V, exist_ok=True)
@@ -47,6 +47,8 @@ for l in base['lines']:
     if l['id'] not in need or os.path.exists(f'{V}/{l["id"]}.words.json'): continue
     toks = l['text'].split(); segs, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, initial_prompt=l['text'])
     hw = [w for s in segs for w in s.words]; a, b = [norm(x) for x in toks], [norm(w.word) for w in hw]
+    asr, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, beam_size=5, condition_on_previous_text=False)   # ASR back-check: NO script prompt (the prompt hides mispronunciations) -> qc_v9 asr_match
+    aw = [dict(w=w.word.strip(), s=round(w.start, 3), e=round(w.end, 3), p=round(w.probability, 3)) for s_ in asr for w in s_.words]
     T = [None] * len(toks)
     for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():
         for k in range(blk.size): T[blk.a + k] = (hw[blk.b + k].start, hw[blk.b + k].end)
@@ -60,6 +62,6 @@ for l in base['lines']:
         T[i] = (t0 + (t1 - t0) * acc / tot, t0 + (t1 - t0) * (acc + len(toks[i])) / tot)
     for i in range(1, len(T)):   # strictly increasing starts
         if T[i][0] <= T[i - 1][0]: T[i] = (T[i - 1][0] + 0.05, max(T[i][1], T[i - 1][0] + 0.1))
-    json.dump(dict(words=[dict(w=w, s=round(t[0], 3), e=round(t[1], 3)) for w, t in zip(toks, T)], whisper=' '.join(w.word.strip() for w in hw), interpolated=miss),
+    json.dump(dict(words=[dict(w=w, s=round(t[0], 3), e=round(t[1], 3)) for w, t in zip(toks, T)], whisper=' '.join(w.word.strip() for w in hw), interpolated=miss, asr=' '.join(x['w'] for x in aw), asr_words=aw),
               open(f'{V}/{l["id"]}.words.json', 'w'))
     print(f'{l["id"]:28s} words {len(toks)} interp {miss}' + ('  WARN' if miss > 1 else ''))
