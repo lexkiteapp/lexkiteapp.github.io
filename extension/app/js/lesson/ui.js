@@ -101,7 +101,7 @@
     App.onCleanup(cleanup);
     const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
     document.body.classList.add('st'); App.onCleanup(() => document.body.classList.remove('st'));
-    view.innerHTML = ST.lsnShell({ close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: t('Bài học'), barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn'),
+    view.innerHTML = ST.lsnShell({ close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: KNAME(node.kind) || t('Bài học'), icon: { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio' }[node.kind] || 'star', barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn'),
       story: story ? ST.lsnStory(story.kind === 'radio' ? '● ON AIR' : '') : '' }); // 🎨 mẫu Stitch "Speaking Micro-Drill" (web/js/st/lesson.js)
     const foot = document.createElement('div'); foot.className = ST.FOOT; foot.id = 'lsnFoot'; document.body.appendChild(foot);
     if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
@@ -281,7 +281,7 @@
     const coach = c ? ST.lsnCoach({ img: App.teacherImg ? App.teacherImg(w) : 'teach/' + w + '/poster.webp', name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
       body: `${ok ? '' : `<p class="m-0 font-body-md text-body-md text-on-surface"><b lang="en">${esc(it.answer)}</b></p>`}<p class="m-0 font-body-md text-body-md text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p>` }) : '';
     foot.innerHTML = ST.lsnSheet({ chips: chips(ok), coach, card: !!c, head: ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng')), answer: !c && !ok && it.type !== 'match' ? it.answer : '',
-      why: c ? t('Vì sao?') : '', next: t('Tiếp tục'), tip: c ? t('Chạm cụm từ để nghe phát âm chuẩn') : '' });
+      why: c ? t('Vì sao?') : '', next: t('Tiếp tục') });
     if (c) $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();

@@ -4,13 +4,13 @@
  * #lsnBody .lsn-opts .lsn-opt[aria-pressed] .lsn-tile .lsn-bank #lsnAns #lsnIn #lsnFoot #lsnCheck #lsnNext #lsnWhy #lsnBoost #lsnXp .lsn-fb .lsn-chips. */
 (function () {
   const { esc, ms, CARD } = window.ST;
-  // @icons check close arrow_back arrow_forward volume_up slow_motion_video radio_button_unchecked check_circle verified cancel local_fire_department insights lightbulb mic record_voice_over
+  // @icons hearing_disabled mic_off star headphones mic replay auto_stories radio edit call check close arrow_back arrow_forward volume_up slow_motion_video radio_button_unchecked check_circle verified cancel local_fire_department insights lightbulb mic record_voice_over
   const S = window.ST;
   // Khung bài: đầu trang Stitch (quay lại · logo · tiêu đề · chuỗi đúng liền) + tiến độ chia đoạn + thẻ câu hỏi có giáo viên 2D
   S.lsnShell = d => `<div class="lsn st st-fade bg-surface font-body-md text-on-surface antialiased" id="lsn">
 <header class="lsn-top flex items-center justify-between gap-2 h-16 -mx-margin px-margin bg-surface-container-low/85 lt:bg-surface/90 lt:border-b lt:border-outline-variant/70 backdrop-blur-xl sticky top-0 z-20">
 <div class="flex items-center gap-space-xs min-w-0"><a class="lsn-x min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface hover:text-secondary transition-colors rounded-full no-underline" href="${d.close}" aria-label="${esc(d.closeLabel)}">${ms('arrow_back', 'text-[24px] ms-flip')}</a>
-<img class="h-8 w-8 object-contain" src="icons/icon.svg?v=2" alt="" width="32" height="32"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate m-0">${esc(d.title)}</h1></div>
+<span class="w-9 h-9 rounded-xl bg-secondary lt:bg-secondary-container text-on-secondary lt:text-white flex items-center justify-center shrink-0 shadow-[inset_0_2px_0_rgba(255,255,255,0.3),0_3px_0_0_rgb(var(--st-lip-secondary))]">${ms(d.icon || 'star', 'text-[22px]', true)}</span><h1 class="font-headline-sm text-headline-sm text-on-surface truncate m-0">${esc(d.title)}</h1></div>
 <span class="lsn-combo shrink-0 font-label-badge text-label-badge font-extrabold text-tertiary bg-tertiary-container/30 px-3 py-1.5 rounded-full" id="lsnCombo" aria-live="polite"></span></header>
 <div class="flex items-center justify-between gap-space-sm pt-space-xs pb-space-md"><div class="flex-1 flex flex-col gap-1.5">
 <div class="lsn-meta flex items-center justify-between"><b class="font-label-badge text-label-badge text-secondary font-bold tracking-wider uppercase" id="lsnQn"></b><span class="font-label-metric text-label-metric text-on-surface-variant font-bold" id="lsnPct" dir="ltr"></span></div>
@@ -19,7 +19,7 @@ ${d.story || `<div class="lsn-ask relative bg-surface-container border-2 border-
 <div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 lt:bg-primary-fixed/15 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
 ${d.chip ? `<div class="lsn-ex relative z-10 inline-flex items-center gap-1.5 bg-surface-container-high lt:bg-tertiary-container/15 px-2.5 py-1 rounded-full mb-space-sm"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="font-label-badge text-label-badge text-tertiary uppercase tracking-wider">${esc(d.chip)}</span></div>` : ''}
 <div class="flex items-end gap-space-sm relative z-10"><div class="lsn-tw relative shrink-0 self-end"><span class="absolute left-1/2 -translate-x-1/2 bottom-1 w-[92px] h-[92px] rounded-full bg-secondary/20 lt:bg-secondary-container/15" aria-hidden="true"></span><div class="lsn-av relative w-[92px] h-[124px]" id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div>
-<div class="flex-1 min-w-0 pb-space-md"><p class="font-label-badge text-label-badge text-on-surface-variant m-0 mb-1 truncate normal-case tracking-normal">${esc(d.who)}</p>
+<div class="flex-1 min-w-0 pb-space-md"><p class="sr-only">${esc(d.who)}</p>
 <div class="relative bg-surface-container-high lt:bg-surface border border-outline-variant/70 lt:border-outline-variant rounded-2xl px-space-sm py-2.5"><span class="absolute -left-[7px] bottom-4 w-3 h-3 rotate-45 bg-surface-container-high lt:bg-surface border-l border-b border-outline-variant/70 lt:border-outline-variant rtl:-right-[7px] rtl:left-auto rtl:border-l-0 rtl:border-b-0 rtl:border-r rtl:border-t" aria-hidden="true"></span>
 <div class="lsn-bub relative font-headline-sm text-headline-sm text-on-surface tracking-tight leading-snug" id="lsnBub" aria-live="polite"></div></div></div></div></div>`}
 <div id="lsnBody" class="flex flex-col gap-space-sm"></div></div>`;
@@ -60,9 +60,10 @@ ${ms('radio_button_unchecked', 'text-outline text-[20px] opacity-40 group-aria-p
   S.lsnMic = (label) => `<div class="lsn-mic flex flex-col items-center gap-2"><button class="${CTA} max-w-xs" id="lsnMic" type="button">${ms('mic', 'text-[22px]', true)}<span>${esc(label)}</span></button><p class="font-body-sm text-body-sm text-on-surface-variant m-0" id="lsnHeard" aria-live="polite"></p></div>`;
   // Chân bài (cố định đáy): bỏ qua nghe/nói + Kiểm tra
   S.FOOT = 'lsn-foot st bg-surface/95 lt:bg-surface/95 backdrop-blur-xl';
-  const SKIP = 'lsn-skip bg-transparent border-0 text-on-surface-variant font-body-sm text-body-sm font-bold underline cursor-pointer min-h-[44px] px-2';
-  S.lsnFoot = d => `<div class="flex flex-col gap-1">${d.skips.length ? `<div class="flex flex-wrap justify-center gap-x-3">${d.skips.map(([id, l]) => `<button class="${SKIP}" type="button" id="${id}">${esc(l)}</button>`).join('')}</div>` : ''}
-${d.check ? `<button class="${CTA}" type="button" id="lsnCheck" disabled><span>${esc(d.check)}</span>${ms('arrow_forward', 'text-[20px] font-bold ms-flip')}</button>` : ''}</div>`;
+  const SKIP = 'lsn-skip w-12 h-12 rounded-full bg-surface-container-high lt:bg-surface-container text-on-surface-variant flex items-center justify-center border-2 border-b-4 border-outline-variant cursor-pointer active:border-b-2 active:translate-y-[2px]';
+  const SKIPI = { lsnNoL: 'hearing_disabled', lsnNoS: 'mic_off' };
+  S.lsnFoot = d => `<div class="flex flex-col gap-1"><div class="flex items-center gap-3">${d.skips.map(([id, l]) => `<button class="${SKIP} shrink-0" type="button" id="${id}" aria-label="${esc(l)}" title="${esc(l)}">${ms(SKIPI[id], 'text-[22px]')}</button>`).join('')}
+${d.check ? `<button class="${CTA} flex-1" type="button" id="lsnCheck" disabled><span>${esc(d.check)}</span>${ms('arrow_forward', 'text-[20px] font-bold ms-flip')}</button>` : ''}</div></div>`;
   S.lsnGo = (play, go) => `<div class="flex items-center gap-3"><button class="lsn-big sm w-14 h-14 rounded-2xl bg-surface-container-high lt:bg-surface-container text-on-surface flex items-center justify-center shrink-0 border-2 border-b-[5px] border-outline-variant active:border-b-2 cursor-pointer" id="lsnPlay" type="button" aria-label="${esc(play)}">${ms('volume_up', 'text-[24px] ms-flip')}</button><button class="${CTA} flex-1" type="button" id="lsnGo"><span>${esc(go)}</span>${ms('arrow_forward', 'text-[20px] font-bold ms-flip')}</button></div>`;
   // Tấm phản hồi (Instant Feedback drawer): tay kéo · chip đúng/sai + chuỗi ngày · thẻ giáo viên · Tăng điểm · Vì sao? + Tiếp tục
   S.SHEET = 'lsn-foot sheet st bg-surface-container lt:bg-surface-container rounded-t-[32px] shadow-2xl lt:shadow-[0_-8px_32px_rgba(15,61,62,0.12)] st-rise';
@@ -76,7 +77,7 @@ ${d.streak ? `<span class="flex items-center gap-1 shrink-0 bg-tertiary-containe
 <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/10 lt:bg-primary-fixed/15 rounded-full blur-2xl pointer-events-none" aria-hidden="true"></div>
 <div class="relative shrink-0 flex flex-col items-center"><div class="relative w-16 h-16 rounded-2xl bg-gradient-to-b from-secondary/30 to-surface-container-highest ring-1 ring-secondary/30 lt:bg-none lt:bg-surface-container lt:border lt:border-outline-variant flex items-end justify-center overflow-hidden shadow-inner"><img class="w-16 h-16 max-w-none object-cover object-top" src="${esc(d.img)}" alt="" width="64" height="64" decoding="async"></div>
 <span class="font-label-badge text-[10px] text-tertiary lt:text-secondary font-black uppercase mt-1 tracking-wider">${esc(d.name)}</span></div>
-<div class="flex flex-col gap-1 min-w-0 flex-1 relative z-10"><div class="flex items-center gap-1.5 flex-wrap"><span class="font-label-metric text-label-metric text-secondary font-bold">${esc(d.name)}</span><span class="text-on-surface-variant font-body-sm text-body-sm">· ${esc(d.role)}</span></div>
+<div class="flex flex-col gap-1 min-w-0 flex-1 relative z-10"><div class="flex items-center gap-1.5 flex-wrap"><span class="font-label-metric text-label-metric text-secondary font-bold">${esc(d.name)}</span></div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface m-0">${esc(d.head)}</h3>${d.body}</div></div>`;
   S.lsnBoost = d => `<div class="flex items-center justify-between px-space-2xs"><div class="flex items-center gap-space-2xs">${ms('insights', 'text-secondary text-[18px]', true)}<b class="lsn-bh font-label-metric text-label-metric text-on-surface font-bold">${esc(d.title)}</b></div></div>
 <div class="bg-surface-container-high lt:bg-surface rounded-xl p-space-sm flex flex-col gap-1.5 shadow-sm lt:border lt:border-outline-variant/80">
