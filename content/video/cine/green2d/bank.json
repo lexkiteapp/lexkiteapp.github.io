@@ -1,0 +1,100 @@
+{
+ "_note": "Board measurements of the green2d family parents (scripts/video/tpl/board_detect.py on the clips composed by green_set.py; re-measured on every CI run, pure function of sets.json + footage).",
+ "clips": [
+  {
+   "id": "c8b_gc8_explain",
+   "set": "green2d_board",
+   "framing": "medium_standing",
+   "size": [
+    1080,
+    1916
+   ],
+   "fps": 24,
+   "frames": 121,
+   "file": "green2d/clips/c8b_gc8_explain.mp4",
+   "tags": [
+    "talk",
+    "standing",
+    "whiteboard",
+    "2d",
+    "green-pro"
+   ]
+  },
+  {
+   "id": "c8e_gc8_explain",
+   "set": "green2d_board",
+   "framing": "medium_standing",
+   "size": [
+    1080,
+    1916
+   ],
+   "fps": 24,
+   "frames": 121,
+   "file": "green2d/clips/c8e_gc8_explain.mp4",
+   "tags": [
+    "talk",
+    "standing",
+    "whiteboard",
+    "2d",
+    "green-pro"
+   ]
+  },
+  {
+   "id": "c7e_gc4_talk_natural",
+   "set": "green2d_board",
+   "framing": "medium_standing",
+   "size": [
+    1080,
+    1916
+   ],
+   "fps": 24,
+   "frames": 121,
+   "file": "green2d/clips/c7e_gc4_talk_natural.mp4",
+   "tags": [
+    "talk",
+    "standing",
+    "whiteboard",
+    "2d",
+    "green-pro"
+   ]
+  },
+  {
+   "id": "a7e_ga2_talk",
+   "set": "green2d_board",
+   "framing": "medium_standing",
+   "size": [
+    1080,
+    1916
+   ],
+   "fps": 24,
+   "frames": 121,
+   "file": "green2d/clips/a7e_ga2_talk.mp4",
+   "tags": [
+    "talk",
+    "standing",
+    "whiteboard",
+    "2d",
+    "green-pro"
+   ]
+  },
+  {
+   "id": "a7b_ga2_talk",
+   "set": "green2d_board",
+   "framing": "medium_standing",
+   "size": [
+    1080,
+    1916
+   ],
+   "fps": 24,
+   "frames": 121,
+   "file": "green2d/clips/a7b_ga2_talk.mp4",
+   "tags": [
+    "talk",
+    "standing",
+    "whiteboard",
+    "2d",
+    "green-pro"
+   ]
+  }
+ ]
+}

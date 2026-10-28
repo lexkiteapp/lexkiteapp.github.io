@@ -285,6 +285,15 @@ R['host_sharp'] = dict(ok=bool(Sh) and len(enc) == len(Sh) and med(up) >= 0.80 a
 prb = json.loads(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=codec_type,width,height,bit_rate,r_frame_rate', '-of', 'json', vid], capture_output=True, text=True).stdout)
 v = [s_ for s_ in prb['streams'] if s_['codec_type'] == 'video'][0]; dur = float(prb['format']['duration']); vb = int(v.get('bit_rate') or 0) / 1e6
 R['file'] = dict(ok=18 <= dur <= 45.5 and (v['width'], v['height']) == (1080, 1920) and 8.0 <= vb <= 9.5, duration=round(dur, 2), video_mbps=round(vb, 2), size_mb=round(int(prb['format']['size']) / 1e6, 1), fps=v['r_frame_rate'])
+WMK = T.get('watermark')
+if SP.get('watermark'):   # docs/BRAND-RULES.md "Watermark video": 36-44 px wordmark (<= 48 px with the kite), 55-70 % white, fixed x 60 / y 236 inside SAFE, in after the hook (>= 1.5 s), gone at the end card, never over another text box
+    wb_ = WMK['box'] if WMK else [0, 0, 0, 0]; lg = WMK['log'] if WMK else []; ct_ = min((p['t0'] for p in T['pops'] if p['kind'] == 'cta'), default=T['total'])
+    vis_ = [t for t, a in lg if a > 0.003]; wov = []
+    for f in fr:
+        if not any(abs(f['t'] - t) < 0.5 / fps for t in vis_): continue
+        wov += [(f['t'], e['name']) for e in els(f) if e['alpha'] > 0.3 and inter(wb_, [e['x0'], e['y0'], e['x1'], e['y1']])]
+    R['watermark'] = dict(ok=bool(WMK) and wb_[:2] == [60, 236] and 36 <= wb_[3] - wb_[1] <= 48 and wb_[0] >= SAFE['x0'] and wb_[1] >= SAFE['y0'] and 0.55 <= WMK['opacity'] <= 0.70
+                          and bool(vis_) and min(vis_) >= 1.5 and not [t for t in vis_ if t >= ct_ - 0.04] and not wov, box=wb_, first=min(vis_, default=None), last=max(vis_, default=None), cta_t0=ct_, overlaps=wov[:4])
 fails = [k for k, r in R.items() if not r['ok']]
 J = lambda x: x.item() if hasattr(x, 'item') else str(x)
 json.dump(dict(video=vid, template=SP['template'], ok=not fails, failed=fails, gates=R), open(vid + '.qc.json', 'w'), indent=1, default=J)

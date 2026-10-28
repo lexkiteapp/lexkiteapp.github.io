@@ -1,0 +1,474 @@
+{
+ "id": "g2_pron_comfortable",
+ "template": "pron",
+ "title": "Where's the Stress? – comfortable [2D green-screen teacher, PRO matte, family a7b on studio_board_b]",
+ "teacher": "ama",
+ "set": "green2d_board",
+ "clips": [
+  "a7b_ga2_talk",
+  "a7b_ga2_explain",
+  "a7b_ga2_talk_smile",
+  "a7b_ga7_tilt",
+  "a7b_ga7_onehand"
+ ],
+ "listen": [
+  "a7b_ga2_listen"
+ ],
+ "watermark": true,
+ "endcard": "tokens",
+ "host_fx": "raw",
+ "accent": "navy2",
+ "active": "mint",
+ "hook_style": "sound: teal plate, speaker icon, wrong stress wipes in left to right",
+ "motif": "syllable pills with stress dots, slow -> normal sweep",
+ "cta": {
+  "area": "pronunciation",
+  "link": "https://lexkite.com/app/#/pron",
+  "say": "Practice pronunciation"
+ },
+ "speed": 0.75,
+ "error_lines": [
+  "f_w"
+ ],
+ "error_re": "\\bcom, for, table\\b",
+ "lines": [
+  {
+   "id": "f_h",
+   "text": "You're probably saying this word wrong."
+  },
+  {
+   "id": "f_w",
+   "text": "Not com, for, table."
+  },
+  {
+   "id": "f_m",
+   "text": "That sounds like a table you can sit on!",
+   "gap": 0.6
+  },
+  {
+   "id": "f_s",
+   "text": "Slowly:",
+   "gap": 0.6
+  },
+  {
+   "id": "f_s2",
+   "text": "comfortable.",
+   "speed": 0.7,
+   "gap": 0.3
+  },
+  {
+   "id": "f_r",
+   "text": "Most Americans say three beats. Stress the first one.",
+   "key": {
+    "yellow": [
+     3,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "f_n",
+   "text": "Normal speed: comfortable."
+  },
+  {
+   "id": "f_y",
+   "text": "Your turn. Repeat after me: comfortable.",
+   "gap": 0.6
+  },
+  {
+   "id": "_turn",
+   "beat": "turn",
+   "dur": 2.6
+  },
+  {
+   "id": "f_e",
+   "text": "This chair is so comfortable!",
+   "key": {
+    "green": [
+     4
+    ]
+   }
+  },
+  {
+   "id": "f_b",
+   "text": "Same trick: vegetable has three beats, not four.",
+   "key": {
+    "green": [
+     2
+    ],
+    "yellow": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "f_sh",
+   "text": "Send this to a friend who says it wrong!",
+   "gap": 0.6
+  },
+  {
+   "id": "f_c",
+   "text": "Save this, and practice pronunciation on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "wipe",
+   "size": 80,
+   "plate": "navy2",
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "f_w",
+    -1,
+    "e",
+    0.3
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🔊"
+     ],
+     [
+      " comfortable",
+      "white"
+     ]
+    ],
+    [
+     [
+      "com·for·",
+      "white"
+     ],
+     [
+      "TA",
+      "red"
+     ],
+     [
+      "·ble",
+      "white"
+     ],
+     [
+      "@x"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "joke",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "f_m",
+    0,
+    "s",
+    -0.1
+   ],
+   "to": [
+    "f_s",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "NOT THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "com·for·",
+       "navy"
+      ],
+      [
+       "TA",
+       "red"
+      ],
+      [
+       "·ble",
+       "navy"
+      ],
+      [
+       "@emoji:❌"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🪑"
+      ],
+      [
+       " a table?",
+       "red"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "stress1",
+   "kind": "stress",
+   "anim": "spring",
+   "syl": [
+    "COMF",
+    "ter",
+    "ble"
+   ],
+   "stress": 0,
+   "from": [
+    "f_s",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_n",
+    -1,
+    "e",
+    0.4
+   ],
+   "sweep": [
+    "f_s2",
+    0
+   ],
+   "sweep2": [
+    "f_n",
+    2
+   ]
+  },
+  {
+   "id": "turn",
+   "kind": "turn",
+   "anim": "spring",
+   "beat": "_turn",
+   "rows": [
+    [
+     [
+      "@emoji:🎤"
+     ],
+     [
+      " Your turn!",
+      "yellow"
+     ]
+    ],
+    [
+     [
+      "COMF",
+      "mint"
+     ],
+     [
+      "·ter·ble",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "f_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_turn",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "_turn",
+    null,
+    "e",
+    0.0
+   ],
+   "to": [
+    "f_b",
+    0,
+    "s",
+    -0.1
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "IN A SENTENCE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "This chair is so"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "comfortable",
+       "hl"
+      ],
+      [
+       "!"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "@ipa:/ˈkʌmftərbəl/"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bonus",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "f_b",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "f_b",
+    -1,
+    "e",
+    0.3
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAME TRICK"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "VEG",
+       "green"
+      ],
+      [
+       "·ta·ble"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "3 beats",
+       "green"
+      ],
+      [
+       "@emoji:✅"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "share",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "f_b",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "f_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "COMF",
+       "green"
+      ],
+      [
+       "·ter·ble  "
+      ],
+      [
+       "@ipa:/ˈkʌmftərbəl/"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "VEG",
+       "green"
+      ],
+      [
+       "·ta·ble  ·  3 beats"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "f_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Where's the Stress?",
+  "ep": 1
+ },
+ "caption_cap": 42,
+ "source_spec": "content/video/cine/news/templates-v2/pron3d.json (t6_pron_comfortable_3d, owner-approved v14 27/10: same script, hook, pops)"
+}

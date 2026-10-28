@@ -122,3 +122,12 @@ V5 = dict(
     shot_max=2.6,                                                                # A: a cut (phrase boundary) at least every 2.6 s, usually 1-2 s
     b_flat=dict(sp=10, sr=26, blur=2.2, chroma=0.40, contrast=0.86, rim=0.42, shadow=0.34),   # B: mean-shift flat plate, host-palette grade, rim light, cast shadow
 )
+
+# Brand colours for end cards: ONE source = brand/tokens.json (docs/BRAND-RULES.md, PR #177); fallback = the same hexes from BRAND-RULES "Bảng màu"
+_BRAND_FALLBACK = dict(teal='#0F3D3E', teal2='#17595A', tealBright='#1F7A75', tealBright2='#2BA39A', coral='#F2553B', coralUI='#E5502F',
+                       apricot='#FFB054', sun='#FFC94A', cream='#FFE7C2', mint='#2FBF71')
+def BRAND_TOKENS():
+    import os, json
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'brand', 'tokens.json')
+    try: return dict(_BRAND_FALLBACK, **json.load(open(p))['brand'])
+    except (OSError, KeyError, ValueError): return dict(_BRAND_FALLBACK)

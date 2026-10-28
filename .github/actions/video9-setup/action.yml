@@ -38,11 +38,23 @@ runs:
         p = ['/anchor/tools/foley/ding.wav'] + [f"/{L}/{st[k]}" for k in ('amb', 'ding') if st.get(k)]
         for c in s['clips']: p += [f"/{L}/{st['path']}/{c}.mp4", f"/{L}/{st['path']}/{c}.json", f"/{L}/{st['meta']}/{c}/{s['teacher']}/"]
         for c in s['clips'] + s.get('listen', []): p += [f"/{L}/clips/{c}.mp4"]   # raw host: the original clips (owner 26/10)
+        if L == 'green2d':   # 2D green-screen teacher: PRO matte layers + board background, composed below (green_set.py)
+            import subprocess; p += subprocess.run(['python3', 'scripts/video/tpl/green_set.py', 'paths', '--spec', os.environ['SPEC']], capture_output=True, text=True, check=True).stdout.split()
         print(' '.join(p))
         PY
         )
         echo "$P"; git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage
         du -sh footage/*
+    - name: Green 2D set clips (PRO-matte teacher pre-composed on the board background) + board measurement
+      shell: bash
+      run: |
+        Q="${O:-out}/green2d-qa"
+        python3 scripts/video/tpl/green_set.py build --spec "$SPEC" --foot footage --qa "$Q"
+        if [ -d footage/green2d/clips ]; then
+          R=$(python3 -c "import json,os;s=json.load(open(os.environ['SPEC']));tr=json.load(open('content/video/cine/teachers.json'));print(','.join(sorted({tr['clips'][c].get('parent') or c for c in s['clips']})))")
+          python3 scripts/video/tpl/board_detect.py --foot footage --clips "$R" --bank content/video/cine/green2d/bank.json --debug "$Q"
+          git diff --stat content/video/cine/teachers.json content/video/cine/green2d/bank.json || true
+        fi
     - name: Vocab images (live CDN, content/lexicon/img.json)
       shell: bash
       run: |

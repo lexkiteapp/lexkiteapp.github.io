@@ -1,0 +1,16 @@
+{
+ "_note": "2D green-screen teachers (PRO matte, anchor/green/kfull_pro + kmask_pro) pre-composed onto a whiteboard background = the 'green2d' set clips of the v14 board engine (scripts/video/tpl/green_set.py, docs/VIDEO-SERIES.md 'Green 2D'). One family = one teacher + one outfit + one background; the first clip is the parent, the others are its chained children (same framing). Host is never upscaled (Ama 0.8 = equal head size with Carlos 1.0), one fixed transform per teacher (eye column + head_top..neck centred at y 1080, v14 framing k = 1.0) so every clip of a family has identical framing. The board is fitted from the background (largest white component) to x 56 / y 300 so the watermark sits on the wall above it. Moods follow render_v9 line_mood; listen = closed-mouth clip for silent beats.",
+ "hosts": {
+  "carlos": {"scale": 1.0, "eye": [545, 390], "eye_mouth": 106, "eye_x": 640, "head_top": 182},
+  "ama": {"scale": 0.8, "eye": [530, 680], "eye_mouth": 130, "eye_x": 600, "head_top": 378}
+ },
+ "board": {"left": 56, "top": 300, "width": 1010, "max_scale": 1.25},
+ "shadow": {"dx": 22, "dy": 10, "blur": 25, "opacity": 0.2},
+ "families": {
+  "c8b": {"who": "carlos", "outfit": 2, "bg": "studio_board_b", "talk": {"gc8_explain": "talk", "gc8_onehand": "present", "gc8_tilt": "question"}, "listen": "gc8_mmhm"},
+  "c8e": {"who": "carlos", "outfit": 2, "bg": "classroom_esl", "talk": {"gc8_explain": "talk", "gc8_onehand": "present", "gc8_tilt": "question"}, "listen": "gc8_mmhm"},
+  "c7e": {"who": "carlos", "outfit": 1, "bg": "classroom_esl", "talk": {"gc4_talk_natural": "talk", "gc7_shift": "present", "gc7_smilenod": "excited"}, "listen": "gc4_listen"},
+  "a7e": {"who": "ama", "outfit": 1, "bg": "classroom_esl", "talk": {"ga2_talk": "talk", "ga2_explain": "present", "ga2_talk_smile": "excited", "ga7_tilt": "question", "ga7_onehand": "present"}, "listen": "ga2_listen"},
+  "a7b": {"who": "ama", "outfit": 1, "bg": "studio_board_b", "talk": {"ga2_talk": "talk", "ga2_explain": "present", "ga2_talk_smile": "excited", "ga7_tilt": "question", "ga7_onehand": "present"}, "listen": "ga2_listen"}
+ }
+}

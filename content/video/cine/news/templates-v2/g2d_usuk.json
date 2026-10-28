@@ -1,0 +1,506 @@
+{
+ "id": "g2_usuk_cookie",
+ "template": "pair",
+ "title": "US or UK? – cookie vs biscuit [2D green-screen teacher, PRO matte, family c8b on studio_board_b]",
+ "teacher": "carlos",
+ "set": "green2d_board",
+ "clips": [
+  "c8b_gc8_explain",
+  "c8b_gc8_onehand",
+  "c8b_gc8_tilt"
+ ],
+ "listen": [
+  "c8b_gc8_mmhm"
+ ],
+ "watermark": true,
+ "endcard": "tokens",
+ "host_fx": "raw",
+ "accent": "navy2",
+ "active": "mint",
+ "hook_style": "versus: US vs UK tiles slide in with flags",
+ "motif": "twin tiles with flags, surprise fact card",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.68,
+ "display": {
+  "blank": "___"
+ },
+ "series": {
+  "name": "US or UK?",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "u_h",
+   "text": "US or UK? Which word do you use?"
+  },
+  {
+   "id": "u_s",
+   "text": "You want a sweet snack with your coffee.",
+   "gap": 0.7
+  },
+  {
+   "id": "u_us",
+   "text": "In America, it's a cookie.",
+   "key": {
+    "green": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "u_uk",
+   "text": "In Britain, it's a biscuit. Same snack!",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "u_tw",
+   "text": "Careful! In America, a biscuit is soft bread.",
+   "key": {
+    "yellow": [
+     4
+    ],
+    "red": [
+     6,
+     7
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "u_x",
+   "text": "Can I have a cookie, please?",
+   "key": {
+    "green": [
+     4
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "u_q",
+   "text": "Quick quiz! You're in London. What do you ask for?",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "u_a",
+   "text": "A biscuit! With tea, of course.",
+   "key": {
+    "green": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend who loves cookies!",
+   "gap": 0.7
+  },
+  {
+   "id": "u_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "u_h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "@emoji:🇺🇸"
+     ],
+     [
+      " or ",
+      "white"
+     ],
+     [
+      "@emoji:🇬🇧"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ],
+    [
+     [
+      "cookie",
+      "green"
+     ],
+     [
+      " · ",
+      "white"
+     ],
+     [
+      "biscuit",
+      "navy2"
+     ]
+    ]
+   ],
+   "align": "c"
+  },
+  {
+   "id": "sit",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_h",
+    -1,
+    "e",
+    0.3
+   ],
+   "to": [
+    "u_us",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SNACK TIME"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🍪"
+      ],
+      [
+       "@emoji:☕"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "What do you call it?"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lesson",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "u_us",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_tw",
+    0,
+    "s",
+    -0.08
+   ],
+   "title": "US vs UK",
+   "items": [
+    {
+     "icon": "🇺🇸",
+     "color": "green",
+     "word": "cookie",
+     "ipa": "/ˈkʊki/",
+     "mean": "= sweet snack (US)",
+     "ex": [
+      "“A ",
+      "cookie",
+      ", please!”"
+     ]
+    },
+    {
+     "icon": "🇬🇧",
+     "color": "blue",
+     "word": "biscuit",
+     "ipa": "/ˈbɪskɪt/",
+     "mean": "= same snack (UK)",
+     "ex": [
+      "“A ",
+      "biscuit",
+      " with tea.”"
+     ],
+     "at": [
+      "u_uk",
+      0,
+      "s",
+      -0.06
+     ]
+    }
+   ]
+  },
+  {
+   "id": "twist",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_tw",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_tw",
+    -1,
+    "e",
+    0.25
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "CAREFUL!"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🇺🇸"
+      ],
+      [
+       "biscuit",
+       "blue"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "= soft bread"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "“"
+      ],
+      [
+       "Biscuits",
+       "hl"
+      ],
+      [
+       " and gravy”"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "try",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_tw",
+    -1,
+    "e",
+    0.25
+   ],
+   "to": [
+    "u_q",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "TRY IT"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "“Can I have a"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "cookie",
+       "hl"
+      ],
+      [
+       ", please?”"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "u_q",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q",
+    5,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "@emoji:🇬🇧"
+      ],
+      [
+       "In London…",
+       "navy"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "from": [
+    "u_q",
+    5,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_a",
+    -1,
+    "e",
+    0.3
+   ],
+   "a": "cookie",
+   "b": "biscuit",
+   "correct": "b",
+   "reveal": [
+    "u_a",
+    0,
+    "s",
+    -0.04
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "u_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "🇺🇸",
+     "color": "green",
+     "word": "cookie",
+     "ipa": "/ˈkʊki/",
+     "mean": "= biscuit (UK)",
+     "ex": [
+      "“A ",
+      "cookie",
+      ", please!”"
+     ]
+    },
+    {
+     "icon": "🇺🇸",
+     "color": "blue",
+     "word": "biscuit",
+     "ipa": "/ˈbɪskɪt/",
+     "mean": "= soft bread (US)",
+     "ex": [
+      "“",
+      "Biscuits",
+      " & gravy”"
+     ]
+    }
+   ],
+   "footer": "lexkite.com"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "caption_cap": 42,
+ "source_spec": "content/video/cine/news/templates-v2/usuk3d.json (t7_usuk_cookie_3d, owner-approved v14 27/10: same script, hook, pops)"
+}

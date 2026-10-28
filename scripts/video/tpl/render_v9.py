@@ -23,7 +23,7 @@ T_START = time.time()
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
-sys.path.insert(0, HERE); from tokens import SAFE, C, bezier, EASE
+sys.path.insert(0, HERE); from tokens import SAFE, C, bezier, EASE, BRAND_TOKENS
 from capsplit import paginate, single_word_pages
 sys.path.insert(0, f'{ROOT}/scripts/cine'); import lipsync as LS
 
@@ -84,7 +84,7 @@ if V14:
     _ox = min(max(0.0, (_h[0] + _h[2]) / 2 - 560 / _k), W - W / _k)   # face towards x 560 (the right 14 % is platform UI); no horizontal fill
     _oy = min(max(-180 / _k, (_h[1] + _h[3]) / 2 - 1080 / _k), H - H / _k)   # head centre towards y 1080; at most 180 px of replicated wall on top (inside the platform's top UI band, y < 232)
     _ht = (_h[1] - _oy) * _k; _q = BRD['quad']; _bx1 = (min(_q[1][0], _q[2][0]) - _ox) * _k   # board right edge on screen
-    _zf = [SAFE['x0'] + 34, SAFE['y0'] + 30, int(min(SAFE['x1'] - 34, _bx1 - 30)), int(_ht) - 64]   # owner 27/10: lesson written ON the whiteboard above the head – safe area, inside the board's right edge, 64 px air over the hair
+    _zf = [max(SAFE['x0'] + 34, int((max(_q[0][0], _q[3][0]) - _ox) * _k) + 18 if SET.get('lib') == 'green2d' else 0), max(SAFE['y0'] + 30, 236 + 44 + 24 if SP.get('watermark') else 0, int((max(_q[0][1], _q[1][1]) - _oy) * _k) + 18 if SET.get('lib') == 'green2d' else 0), int(min(SAFE['x1'] - 34, _bx1 - 30)), int(_ht) - 64]   # owner 27/10: lesson written ON the whiteboard above the head – safe area, inside the board's right edge, 64 px air over the hair   # green2d: board left / top edge + 18 px (the board starts below the wall and the watermark)
     assert _zf[3] - _zf[1] >= 240, ('v14: no room for the lesson card above the head', _zf)
     _bk[SP['clips'][0]] = dict(_bk[SP['clips'][0]], crop=dict(k=round(_k, 4), ox=round(_ox, 1), oy=round(_oy, 1), zone_force=_zf))
     BRD = {k_: v_ for k_, v_ in BRD.items() if k_ != 'zone_free'}
@@ -584,10 +584,22 @@ def note_im(lines, k=1.0, rw=None):   # layout-v12 note: mock typography for eve
             d.text((x, y + S_(lh) / 2), t_, font=f_, fill=LCOL[c_] + (255,), anchor='lm'); x += w_
         wmax = max(wmax, x); y += S_(lh)
     return im, wmax
+# End card QR = the spec's deep link (docs/VIDEO.md: CTA deep-links to the exact app feature) with UTM before the '#' route; colours from
+# brand/tokens.json (one colour source, PR #177) when the spec sets "endcard": "tokens" (approved v14 specs keep their recipe).
+def _qr_url():
+    l = (SP.get('cta') or {}).get('link') or 'https://lexkite.com/'
+    if not SP.get('endcard'): return 'https://lexkite.com/?src=short'
+    base, _, route = l.partition('#'); q = f"utm_source=shorts&utm_medium=video&utm_campaign={re.sub(r'[^a-z0-9_-]+', '-', SP['id'].lower())}"
+    return base + ('&' if '?' in base else '?') + q + ('#' + route if route else '')
+QR_URL = _qr_url()
+if SP.get('endcard') == 'tokens':
+    _tk = BRAND_TOKENS(); _hx = lambda h: tuple(int(h.lstrip('#')[i:i + 2], 16) for i in (0, 2, 4))
+    EC = dict(pill=_hx(_tk['coralUI']), ink=_hx(_tk['teal']), sub=_hx(_tk['teal2'])); SITE_COL = _hx(_tk['tealBright'])
+else: EC = dict(pill=LCOL['green'], ink=LCOL['navy'], sub=LCOL['grey']); SITE_COL = (14, 124, 123)
 def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded app icon, call to action, 100% FREE, lexkite.com, platforms, QR for desktop/TV viewers
     RI = Image.open(f"{ROOT}/brand/social/logo/lexkite-app-icon-rounded.png").convert('RGBA')
     try:
-        import qrcode; QR = qrcode.make('https://lexkite.com/?src=short').convert('RGB')
+        import qrcode; QR = qrcode.make(QR_URL).convert('RGB')
     except Exception: QR = None
     def wrap2(t, fo, mw):   # the call line breaks into two balanced lines when it is wider than the card column
         if fo.getlength(t) <= mw: return [t]
@@ -604,19 +616,19 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
         if mode == 'wide': W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw) + (S_(40) + qr if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh
         else: W_ = pad * 2 + max(colw, XB_(66).getlength('lexkite.com'), sayw, BD_(40).getlength('App · Add-on · Web'), (qr + S_(24) + BD_(40).getlength('desktop / TV')) if qr else 0); H_ = pad * 2 + S_(120) + S_(24) + S_(82) + S_(20) + S_(80) + sh + S_(56) + ((S_(30) + qr) if qr else 0)
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-        d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(36), fill=(255, 253, 246, 252), outline=LCOL['navy'] + (255,), width=max(3, S_(5)))
+        d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(36), fill=(255, 253, 246, 252), outline=EC['ink'] + (255,), width=max(3, S_(5)))
         ic = RI.resize((S_(120), S_(120)), Image.LANCZOS); im.alpha_composite(ic, (pad, pad)); x = pad + S_(140)
-        d.text((x, pad + S_(8)), 'Learn English', font=XB_(44), fill=LCOL['navy'] + (255,)); d.text((x, pad + S_(66)), 'with Lexkite', font=BD_(40), fill=LCOL['grey'] + (255,))
+        d.text((x, pad + S_(8)), 'Learn English', font=XB_(44), fill=EC['ink'] + (255,)); d.text((x, pad + S_(66)), 'with Lexkite', font=BD_(40), fill=EC['sub'] + (255,))
         y = pad + S_(144); pw = XB_(50).getlength('100% FREE') + S_(60)
-        d.rounded_rectangle([pad, y, pad + pw, y + S_(82)], S_(41), fill=LCOL['green'] + (255,)); d.text((pad + pw / 2, y + S_(41)), '100% FREE', font=XB_(50), fill=(255, 255, 255, 255), anchor='mm')
-        y += S_(102); d.text((pad, y), 'lexkite.com', font=XB_(66), fill=(14, 124, 123, 255)); y += S_(80)
-        for l in SL: d.text((pad, y), l, font=BD_(40), fill=LCOL['navy'] + (255,)); y += S_(54)
-        if mode != 'wide': d.text((pad, y), 'App · Add-on · Web', font=BD_(40), fill=LCOL['grey'] + (255,)); y += S_(56)
+        d.rounded_rectangle([pad, y, pad + pw, y + S_(82)], S_(41), fill=EC['pill'] + (255,)); d.text((pad + pw / 2, y + S_(41)), '100% FREE', font=XB_(50), fill=(255, 255, 255, 255), anchor='mm')
+        y += S_(102); d.text((pad, y), 'lexkite.com', font=XB_(66), fill=SITE_COL + (255,)); y += S_(80)
+        for l in SL: d.text((pad, y), l, font=BD_(40), fill=EC['ink'] + (255,)); y += S_(54)
+        if mode != 'wide': d.text((pad, y), 'App · Add-on · Web', font=BD_(40), fill=EC['sub'] + (255,)); y += S_(56)
         if qr:
             q = QR.resize((qr, qr), Image.NEAREST).convert('RGBA')
             if mode == 'wide': qx, qy = im.width - pad - qr, (im.height - qr) // 2; im.alpha_composite(q, (int(qx), int(qy)))
             else:
-                y += S_(30); im.alpha_composite(q, (pad, int(y))); d.text((pad + qr + S_(24), y + qr * 0.38), 'Scan on', font=BD_(40), fill=LCOL['navy'] + (255,)); d.text((pad + qr + S_(24), y + qr * 0.38 + S_(50)), 'desktop / TV', font=BD_(40), fill=LCOL['navy'] + (255,))
+                y += S_(30); im.alpha_composite(q, (pad, int(y))); d.text((pad + qr + S_(24), y + qr * 0.38), 'Scan on', font=BD_(40), fill=EC['ink'] + (255,)); d.text((pad + qr + S_(24), y + qr * 0.38 + S_(50)), 'desktop / TV', font=BD_(40), fill=EC['ink'] + (255,))
         return im
     def draw_low(k, mode):   # low / narrow boards: same parts, fewer rows (strip: one row + call; mini: icon+site / FREE / call)
         S_ = lambda v: max(1, round(v * k)); XB_ = lambda z: font(S_(z)); BD_ = lambda z: font(S_(z), FBd); pad = S_(28); ic_ = S_(96)
@@ -628,12 +640,12 @@ def endcard_im(say, rw, rh):   # v13 end card (owner-approved mock C): rounded a
         elif mode == 'strip': W_ = pad * 2 + ic_ + S_(20) + sitew + S_(24) + pw; H_ = pad * 2 + ic_ + S_(14) + sh
         else: W_ = pad * 2 + max(ic_ + S_(20) + pw, sitew, sayw); H_ = pad * 2 + ic_ + S_(14) + S_(70) + S_(14) + sh
         im = Image.new('RGBA', (int(W_), int(H_)), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-        d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(30), fill=(255, 253, 246, 252), outline=LCOL['navy'] + (255,), width=max(3, S_(5)))
+        d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], S_(30), fill=(255, 253, 246, 252), outline=EC['ink'] + (255,), width=max(3, S_(5)))
         im.alpha_composite(RI.resize((ic_, ic_), Image.LANCZOS), (pad, pad))
-        if mode == 'strip': d.text((pad + ic_ + S_(20), pad + ic_ / 2), 'lexkite.com', font=XB_(60), fill=(14, 124, 123, 255), anchor='lm'); px_, py_ = pad + ic_ + S_(20) + sitew + S_(24), pad + (ic_ - S_(76)) / 2; y = pad + ic_ + S_(14)
-        else: px_, py_ = pad + ic_ + S_(20), pad + (ic_ - S_(76)) / 2; d.text((pad, pad + ic_ + S_(14) + S_(35)), 'lexkite.com', font=XB_(60), fill=(14, 124, 123, 255), anchor='lm'); y = pad + ic_ + S_(14) + S_(70) + S_(14)
-        d.rounded_rectangle([px_, py_, px_ + pw, py_ + S_(76)], S_(38), fill=LCOL['green'] + (255,)); d.text((px_ + pw / 2, py_ + S_(38)), '100% FREE', font=XB_(46), fill=(255, 255, 255, 255), anchor='mm')
-        for l in SL: d.text((pad, y), l, font=BD_(40), fill=LCOL['navy'] + (255,)); y += S_(54)
+        if mode == 'strip': d.text((pad + ic_ + S_(20), pad + ic_ / 2), 'lexkite.com', font=XB_(60), fill=SITE_COL + (255,), anchor='lm'); px_, py_ = pad + ic_ + S_(20) + sitew + S_(24), pad + (ic_ - S_(76)) / 2; y = pad + ic_ + S_(14)
+        else: px_, py_ = pad + ic_ + S_(20), pad + (ic_ - S_(76)) / 2; d.text((pad, pad + ic_ + S_(14) + S_(35)), 'lexkite.com', font=XB_(60), fill=SITE_COL + (255,), anchor='lm'); y = pad + ic_ + S_(14) + S_(70) + S_(14)
+        d.rounded_rectangle([px_, py_, px_ + pw, py_ + S_(76)], S_(38), fill=EC['pill'] + (255,)); d.text((px_ + pw / 2, py_ + S_(38)), '100% FREE', font=XB_(46), fill=(255, 255, 255, 255), anchor='mm')
+        for l in SL: d.text((pad, y), l, font=BD_(40), fill=EC['ink'] + (255,)); y += S_(54)
         if qrs: im.alpha_composite(QR.resize((qrs, qrs), Image.NEAREST).convert('RGBA'), (int(im.width - pad - qrs), int((im.height - qrs) // 2)))
         return im
     for mode in ('tall', 'wide', 'qrow', 'compact', 'strip', 'mini'):   # every mode with a QR comes before the QR-less ones
@@ -1366,6 +1378,24 @@ def identity_check():   # owner 27/10 "đồng nhất nhân vật": every source
     return hits
 ID_HITS = identity_check(); print('identity check:', len(ID_HITS), 'frames off-model', ID_HITS[:5], flush=True)
 FRAMES = []; SHARP = []; SHARP_DUE = False; BODY_HITS = []; MOVE = {c: move_mask(c) for c in {x[0] for f_ in SEQ for x in f_}} if BRD else {}; POPID = {f'pop.{p.id}': p for p in POPS}
+
+# Watermark (docs/BRAND-RULES.md "Watermark video"; spec 'watermark': true): white wordmark + kite (lexkite-logo-horizontal-white), 40 px wordmark
+# (44 px with the kite), 62 % opacity, soft shadow, fixed top-left x 60 / y 236 (safe area, on the wall above the board), fades in 1.5-2.0 s
+# after the hook, fades out before the end card (the end card shows the full logo). Logged as timeline 'watermark' -> qc_v9 gate 'watermark'.
+WM = None; WM_LOG = []
+if SP.get('watermark'):
+    _wi = Image.open(f'{ROOT}/brand/social/logo/lexkite-logo-horizontal-white.png').convert('RGBA'); _wi = _wi.crop(_wi.getbbox()); _wh = 44
+    _wi = _wi.resize((round(_wi.width * _wh / _wi.height), _wh), Image.LANCZOS); _wa = np.asarray(_wi)[..., 3].astype(np.float32) / 255
+    _sh = np.zeros((_wh + 12, _wi.width + 12), np.float32); _sh[4:4 + _wh, 4:4 + _wi.width] = _wa; _sh = cv2.GaussianBlur(_sh, (0, 0), 3) * 0.45
+    _ct = next((p.t0 for p in POPS if p.kind == 'cta'), TOTAL)
+    WM = dict(rgb=rgba_np(_wi)[0], al=_wa, sh=_sh, x=60, y=236, op=0.62, t_in=1.5, t_full=2.0, t_out0=max(2.2, _ct - 0.35), t_out1=max(2.4, _ct - 0.05), box=[60, 236, 60 + _wi.width, 236 + _wh])
+    print('watermark', WM['box'], 'visible', WM['t_in'], '->', round(WM['t_out1'], 2), flush=True)
+def wm_alpha(T):
+    if WM is None: return 0.0
+    if T < WM['t_in'] or T >= WM['t_out1']: return 0.0
+    if T < WM['t_full']: return WM['op'] * ease((T - WM['t_in']) / (WM['t_full'] - WM['t_in']), EASE['inout'])
+    if T > WM['t_out0']: return WM['op'] * (1 - ease((T - WM['t_out0']) / (WM['t_out1'] - WM['t_out0']), EASE['inout']))
+    return WM['op']
 if o.frames:   # sharded run: the sharpness-sample latch is state that crosses frames; replay it for the frames before this shard (SEQ is known without rendering)
     for fi in range(SEG0):
         if fi % 24 == 12: SHARP_DUE = True
@@ -1416,6 +1446,10 @@ for fi in (range(0) if o.merge else range(SEG0, SEG1) if o.frames else range(NF)
                 if cb: bb = [p_.region[0] + 2 + cb[0], p_.region[1] + 2 + cb[1], p_.region[0] + 2 + cb[2], p_.region[1] + 2 + cb[3]]
             x0_, y0_, x1_, y1_ = [max(0, int(v) // 8) for v in bb]; cells = Mv[y0_:max(y0_ + 1, y1_), x0_:max(x0_ + 1, x1_)]
             if cells.size and cells.mean() > 0.02: BODY_HITS.append((round(T, 2), e['name'], cm, round(float(cells.mean()), 3)))
+    wa_ = wm_alpha(T)
+    if wa_ > 0.003:
+        over(out, np.zeros_like(WM['rgb'], shape=WM['sh'].shape + (3,)), WM['sh'], WM['x'] - 2, WM['y'] - 1, wa_ / WM['op']); over(out, WM['rgb'], WM['al'], WM['x'], WM['y'], wa_)
+    if WM is not None and fi % 6 == 0: WM_LOG.append([round(T, 3), round(wa_, 3)])
     if PREV is not None: cv2.imwrite(f'{o.out}.preview/t{T:05.2f}.png', out); continue
     enc.stdin.write(out.tobytes())
     win = [AX - AX / s, AY - AY / s, AX + (W - AX) / s, AY + (H - AY) / s]
@@ -1486,6 +1520,6 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
-               words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), identity_hits=ID_HITS[:20], n_identity_hits=len(ID_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
+               words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), identity_hits=ID_HITS[:20], n_identity_hits=len(ID_HITS), frames=FRAMES, watermark=dict(box=WM['box'], opacity=WM['op'], t_in=WM['t_in'], t_out=round(WM['t_out1'], 3), log=WM_LOG) if WM else None), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
 print(f'[timing] finished {time.time() - T_START:.0f} s')
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')

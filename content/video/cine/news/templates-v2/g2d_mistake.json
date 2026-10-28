@@ -1,0 +1,499 @@
+{
+ "id": "g2_mistake_agree",
+ "template": "mistake",
+ "title": "Stop Saying This – I am agree [2D green-screen teacher, PRO matte, family a7e on classroom_esl]",
+ "teacher": "ama",
+ "set": "green2d_board",
+ "clips": [
+  "a7e_ga2_talk",
+  "a7e_ga2_explain",
+  "a7e_ga2_talk_smile",
+  "a7e_ga7_tilt",
+  "a7e_ga7_onehand"
+ ],
+ "listen": [
+  "a7e_ga2_listen"
+ ],
+ "watermark": true,
+ "endcard": "tokens",
+ "host_fx": "raw",
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.75,
+ "error_lines": [
+  "m_w",
+  "m_n"
+ ],
+ "error_re": "\\bam agree\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop! Native speakers never say this."
+  },
+  {
+   "id": "m_w",
+   "text": "I am agree.",
+   "key": {
+    "red": [
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: I agree. No am.",
+   "key": {
+    "green": [
+     2,
+     3
+    ],
+    "red": [
+     5
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_l",
+   "text": "Think of the word like.",
+   "key": {
+    "yellow": [
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_p",
+   "text": "You don't say: I am like pizza!",
+   "key": {
+    "red": [
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "id": "m_n",
+   "text": "So don't say: I am agree.",
+   "key": {
+    "red": [
+     4,
+     5
+    ]
+   },
+   "gap": 0.5
+  },
+  {
+   "id": "m_t",
+   "text": "Sound native: I totally agree!",
+   "key": {
+    "green": [
+     2,
+     3,
+     4
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "m_q",
+   "text": "Quick quiz! Which one is right?",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.6
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "B! I agree with you.",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   }
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.6
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.5
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_w",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Never say",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“I ",
+      "white"
+     ],
+     [
+      "am agree",
+      "red"
+     ],
+     [
+      "”",
+      "white"
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_l",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "I agree.",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@ipa:/aɪ əˈɡriː/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "no “"
+      ],
+      [
+       "am",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "like",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "m_l",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🍕"
+      ],
+      [
+       "I like pizza",
+       "green"
+      ],
+      [
+       "@emoji:✅"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:🍕"
+      ],
+      [
+       "I am like pizza",
+       "red"
+      ],
+      [
+       "@emoji:❌"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "agree works like "
+      ],
+      [
+       "like",
+       "hl"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "native",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SOUND NATIVE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💯"
+      ],
+      [
+       "I totally agree!",
+       "green"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "m_q",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_count",
+    null,
+    "s",
+    -0.02
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "Which one"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "is right?"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "from": [
+    "_count",
+    null,
+    "s",
+    0.0
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.3
+   ],
+   "a": "I am agree",
+   "b": "I agree",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ]
+  },
+  {
+   "id": "share",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " I am agree",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " I agree",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/əˈɡriː/"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 1
+ },
+ "caption_cap": 42,
+ "source_spec": "content/video/cine/news/templates-v2/mistake.json (t1_mistake_agree, owner-approved v14 27/10: same script, hook, pops)"
+}

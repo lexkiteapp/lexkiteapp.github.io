@@ -1,0 +1,365 @@
+{
+ "id": "g2_guess_elevator",
+ "template": "guess",
+ "title": "Guess the Word – elevator [2D green-screen teacher, PRO matte, family c7e on classroom_esl]",
+ "teacher": "carlos",
+ "set": "green2d_board",
+ "clips": [
+  "c7e_gc4_talk_natural",
+  "c7e_gc7_shift",
+  "c7e_gc7_smilenod"
+ ],
+ "listen": [
+  "c7e_gc4_listen"
+ ],
+ "watermark": true,
+ "endcard": "tokens",
+ "host_fx": "raw",
+ "accent": "mint",
+ "active": "mint",
+ "hook_style": "question: picture clue card + mint ? badge, spring",
+ "motif": "picture card with a countdown ring, US/UK twin tiles",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Look up any word"
+ },
+ "speed": 0.65,
+ "lines": [
+  {
+   "id": "g_h",
+   "text": "Guess these three hotel words. Three seconds each!"
+  },
+  {
+   "id": "g_1",
+   "text": "Number one. You pack your clothes in it.",
+   "gap": 0.6
+  },
+  {
+   "id": "_c1",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_1a",
+   "text": "Luggage! Carry my luggage?",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   }
+  },
+  {
+   "id": "g_2",
+   "text": "Number two. It takes you up and down.",
+   "gap": 0.68
+  },
+  {
+   "id": "_c2",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_2a",
+   "text": "Elevator! In the UK, they call it a lift.",
+   "key": {
+    "green": [
+     0
+    ],
+    "yellow": [
+     8
+    ]
+   }
+  },
+  {
+   "id": "g_3",
+   "text": "Number three. You get it after you pay.",
+   "gap": 0.68
+  },
+  {
+   "id": "_c3",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "g_3a",
+   "text": "Receipt! The p is silent.",
+   "key": {
+    "green": [
+     0
+    ],
+    "red": [
+     2
+    ]
+   }
+  },
+  {
+   "id": "g_r",
+   "text": "How many did you get? Tell me in the comments!",
+   "gap": 0.68
+  },
+  {
+   "id": "g_s",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "anim": "spring",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "g_1",
+    0,
+    "s",
+    -0.08
+   ],
+   "rows": [
+    [
+     [
+      "@q"
+     ],
+     [
+      " Guess 3",
+      "mint"
+     ]
+    ],
+    [
+     [
+      "hotel words",
+      "white"
+     ],
+     [
+      "@emoji:🏨"
+     ]
+    ]
+   ],
+   "role": "hook"
+  },
+  {
+   "id": "clue1",
+   "kind": "card",
+   "anim": "spring",
+   "img": "luggage#n",
+   "count": "_c1",
+   "from": [
+    "g_1",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_c1",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "rev1",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "g_1a",
+    0,
+    "s",
+    -0.04
+   ],
+   "to": [
+    "g_2",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "🧳",
+     "color": "green",
+     "word": "luggage",
+     "ipa": "/ˈlʌɡɪdʒ/",
+     "mean": "= bags for a trip",
+     "ex": [
+      "“Carry my ",
+      "luggage",
+      "?”"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clue2",
+   "kind": "card",
+   "anim": "spring",
+   "img": "elevator#n",
+   "count": "_c2",
+   "from": [
+    "g_2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_c2",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "rev2",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "g_2a",
+    0,
+    "s",
+    -0.04
+   ],
+   "to": [
+    "g_3",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "🛗",
+     "color": "green",
+     "word": "elevator",
+     "ipa": "/ˈeləveɪtər/",
+     "mean": "= lift (UK)",
+     "ex": [
+      "“Take the ",
+      "elevator",
+      ".”"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "clue3",
+   "kind": "card",
+   "anim": "spring",
+   "img": "receipt#n",
+   "count": "_c3",
+   "from": [
+    "g_3",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "_c3",
+    null,
+    "e",
+    0.0
+   ]
+  },
+  {
+   "id": "reveal",
+   "kind": "lesson",
+   "anim": "spring",
+   "from": [
+    "g_3a",
+    0,
+    "s",
+    -0.04
+   ],
+   "to": [
+    "g_r",
+    0,
+    "s",
+    -0.08
+   ],
+   "items": [
+    {
+     "icon": "🧾",
+     "color": "green",
+     "word": "receipt",
+     "ipa": "/rɪˈsiːt/",
+     "mean": "= silent p!",
+     "ex": [
+      "“A ",
+      "receipt",
+      ", please.”"
+     ]
+    }
+   ],
+   "role": "headline"
+  },
+  {
+   "id": "comment",
+   "kind": "note",
+   "anim": "spring",
+   "from": [
+    "g_r",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "g_s",
+    0,
+    "s",
+    -0.08
+   ],
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "YOUR SCORE?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💬"
+      ],
+      [
+       "Tell me in",
+       "navy"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "the comments!",
+       "green"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "g_s",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Guess the Word",
+  "ep": 1
+ },
+ "caption_cap": 42,
+ "source_spec": "content/video/cine/news/templates-v2/guess.json (t3_guess_elevator, owner-approved v14 27/10: same script, hook, pops)"
+}

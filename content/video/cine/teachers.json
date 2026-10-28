@@ -81,6 +81,16 @@
    "ding": "",
    "smax": 1.06,
    "bank": "brand/library/cine/teachers/bank.json"
+  },
+  "green2d_board": {
+   "lib": "green2d",
+   "path": "tools/dl24",
+   "meta": "tools/meta",
+   "amb": "tools/amb_classroom.wav",
+   "ding": "",
+   "smax": 1.0,
+   "bank": "content/video/cine/green2d/bank.json",
+   "camera": "locked (v14 k = 1.0): 2D green-screen teacher (PRO matte) pre-composed on a whiteboard background by scripts/video/tpl/green_set.py"
   }
  },
  "clips": {
@@ -1160,6 +1170,524 @@
    "raw": true,
    "note": "mood wow / reveal",
    "mood": "wow"
+  },
+  "c8b_gc8_explain": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    451,
+    856,
+    815,
+    1309
+   ],
+   "anchor": [
+    633,
+    856
+   ],
+   "raw": true,
+   "note": "green2d family c8b: gc8_explain (PRO matte, outfit 2) on studio_board_b, scale 1.0",
+   "mood": "talk"
+  },
+  "c8b_gc8_onehand": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    437,
+    854,
+    823,
+    1309
+   ],
+   "anchor": [
+    630,
+    854
+   ],
+   "raw": true,
+   "note": "green2d family c8b: gc8_onehand (PRO matte, outfit 2) on studio_board_b, scale 1.0",
+   "parent": "c8b_gc8_explain",
+   "mood": "present"
+  },
+  "c8b_gc8_tilt": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    433,
+    852,
+    825,
+    1309
+   ],
+   "anchor": [
+    629,
+    852
+   ],
+   "raw": true,
+   "note": "green2d family c8b: gc8_tilt (PRO matte, outfit 2) on studio_board_b, scale 1.0",
+   "parent": "c8b_gc8_explain",
+   "mood": "question"
+  },
+  "c8b_gc8_mmhm": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    447,
+    842,
+    809,
+    1309
+   ],
+   "anchor": [
+    628,
+    842
+   ],
+   "raw": true,
+   "note": "green2d family c8b: gc8_mmhm (PRO matte, outfit 2) on studio_board_b, scale 1.0",
+   "parent": "c8b_gc8_explain"
+  },
+  "c8e_gc8_explain": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    451,
+    856,
+    815,
+    1309
+   ],
+   "anchor": [
+    633,
+    856
+   ],
+   "raw": true,
+   "note": "green2d family c8e: gc8_explain (PRO matte, outfit 2) on classroom_esl, scale 1.0",
+   "mood": "talk"
+  },
+  "c8e_gc8_onehand": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    437,
+    854,
+    823,
+    1309
+   ],
+   "anchor": [
+    630,
+    854
+   ],
+   "raw": true,
+   "note": "green2d family c8e: gc8_onehand (PRO matte, outfit 2) on classroom_esl, scale 1.0",
+   "parent": "c8e_gc8_explain",
+   "mood": "present"
+  },
+  "c8e_gc8_tilt": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    433,
+    852,
+    825,
+    1309
+   ],
+   "anchor": [
+    629,
+    852
+   ],
+   "raw": true,
+   "note": "green2d family c8e: gc8_tilt (PRO matte, outfit 2) on classroom_esl, scale 1.0",
+   "parent": "c8e_gc8_explain",
+   "mood": "question"
+  },
+  "c8e_gc8_mmhm": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    447,
+    842,
+    809,
+    1309
+   ],
+   "anchor": [
+    628,
+    842
+   ],
+   "raw": true,
+   "note": "green2d family c8e: gc8_mmhm (PRO matte, outfit 2) on classroom_esl, scale 1.0",
+   "parent": "c8e_gc8_explain"
+  },
+  "c7e_gc4_talk_natural": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    407,
+    858,
+    835,
+    1309
+   ],
+   "anchor": [
+    621,
+    858
+   ],
+   "raw": true,
+   "note": "green2d family c7e: gc4_talk_natural (PRO matte, outfit 1) on classroom_esl, scale 1.0",
+   "mood": "talk"
+  },
+  "c7e_gc7_shift": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    445,
+    852,
+    801,
+    1309
+   ],
+   "anchor": [
+    623,
+    852
+   ],
+   "raw": true,
+   "note": "green2d family c7e: gc7_shift (PRO matte, outfit 1) on classroom_esl, scale 1.0",
+   "parent": "c7e_gc4_talk_natural",
+   "mood": "present"
+  },
+  "c7e_gc7_smilenod": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    451,
+    860,
+    803,
+    1309
+   ],
+   "anchor": [
+    627,
+    860
+   ],
+   "raw": true,
+   "note": "green2d family c7e: gc7_smilenod (PRO matte, outfit 1) on classroom_esl, scale 1.0",
+   "parent": "c7e_gc4_talk_natural",
+   "mood": "excited"
+  },
+  "c7e_gc4_listen": {
+   "set": "green2d_board",
+   "who": "carlos",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    415,
+    860,
+    817,
+    1309
+   ],
+   "anchor": [
+    616,
+    860
+   ],
+   "raw": true,
+   "note": "green2d family c7e: gc4_listen (PRO matte, outfit 1) on classroom_esl, scale 1.0",
+   "parent": "c7e_gc4_talk_natural"
+  },
+  "a7e_ga2_talk": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    334,
+    838,
+    845,
+    1323
+   ],
+   "anchor": [
+    589,
+    838
+   ],
+   "raw": true,
+   "note": "green2d family a7e: ga2_talk (PRO matte, outfit 1) on classroom_esl, scale 0.8",
+   "mood": "talk"
+  },
+  "a7e_ga2_explain": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    336,
+    835,
+    848,
+    1323
+   ],
+   "anchor": [
+    592,
+    835
+   ],
+   "raw": true,
+   "note": "green2d family a7e: ga2_explain (PRO matte, outfit 1) on classroom_esl, scale 0.8",
+   "parent": "a7e_ga2_talk",
+   "mood": "present"
+  },
+  "a7e_ga2_talk_smile": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    336,
+    836,
+    846,
+    1323
+   ],
+   "anchor": [
+    591,
+    836
+   ],
+   "raw": true,
+   "note": "green2d family a7e: ga2_talk_smile (PRO matte, outfit 1) on classroom_esl, scale 0.8",
+   "parent": "a7e_ga2_talk",
+   "mood": "excited"
+  },
+  "a7e_ga7_tilt": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    340,
+    838,
+    848,
+    1323
+   ],
+   "anchor": [
+    594,
+    838
+   ],
+   "raw": true,
+   "note": "green2d family a7e: ga7_tilt (PRO matte, outfit 1) on classroom_esl, scale 0.8",
+   "parent": "a7e_ga2_talk",
+   "mood": "question"
+  },
+  "a7e_ga7_onehand": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    350,
+    840,
+    843,
+    1323
+   ],
+   "anchor": [
+    596,
+    840
+   ],
+   "raw": true,
+   "note": "green2d family a7e: ga7_onehand (PRO matte, outfit 1) on classroom_esl, scale 0.8",
+   "parent": "a7e_ga2_talk",
+   "mood": "present"
+  },
+  "a7e_ga2_listen": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    352,
+    830,
+    842,
+    1323
+   ],
+   "anchor": [
+    597,
+    830
+   ],
+   "raw": true,
+   "note": "green2d family a7e: ga2_listen (PRO matte, outfit 1) on classroom_esl, scale 0.8",
+   "parent": "a7e_ga2_talk"
+  },
+  "a7b_ga2_talk": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    334,
+    838,
+    845,
+    1323
+   ],
+   "anchor": [
+    589,
+    838
+   ],
+   "raw": true,
+   "note": "green2d family a7b: ga2_talk (PRO matte, outfit 1) on studio_board_b, scale 0.8",
+   "mood": "talk"
+  },
+  "a7b_ga2_explain": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    336,
+    835,
+    848,
+    1323
+   ],
+   "anchor": [
+    592,
+    835
+   ],
+   "raw": true,
+   "note": "green2d family a7b: ga2_explain (PRO matte, outfit 1) on studio_board_b, scale 0.8",
+   "parent": "a7b_ga2_talk",
+   "mood": "present"
+  },
+  "a7b_ga2_talk_smile": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    336,
+    836,
+    846,
+    1323
+   ],
+   "anchor": [
+    591,
+    836
+   ],
+   "raw": true,
+   "note": "green2d family a7b: ga2_talk_smile (PRO matte, outfit 1) on studio_board_b, scale 0.8",
+   "parent": "a7b_ga2_talk",
+   "mood": "excited"
+  },
+  "a7b_ga7_tilt": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    340,
+    838,
+    848,
+    1323
+   ],
+   "anchor": [
+    594,
+    838
+   ],
+   "raw": true,
+   "note": "green2d family a7b: ga7_tilt (PRO matte, outfit 1) on studio_board_b, scale 0.8",
+   "parent": "a7b_ga2_talk",
+   "mood": "question"
+  },
+  "a7b_ga7_onehand": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    350,
+    840,
+    843,
+    1323
+   ],
+   "anchor": [
+    596,
+    840
+   ],
+   "raw": true,
+   "note": "green2d family a7b: ga7_onehand (PRO matte, outfit 1) on studio_board_b, scale 0.8",
+   "parent": "a7b_ga2_talk",
+   "mood": "present"
+  },
+  "a7b_ga2_listen": {
+   "set": "green2d_board",
+   "who": "ama",
+   "usable": [
+    0,
+    120
+   ],
+   "head": [
+    352,
+    830,
+    842,
+    1323
+   ],
+   "anchor": [
+    597,
+    830
+   ],
+   "raw": true,
+   "note": "green2d family a7b: ga2_listen (PRO matte, outfit 1) on studio_board_b, scale 0.8",
+   "parent": "a7b_ga2_talk"
   }
  }
 }
