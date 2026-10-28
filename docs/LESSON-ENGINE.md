@@ -3,7 +3,7 @@
 > TL;DR: Một bài 3–5 phút gồm 10–14 bài tập nhỏ trộn 7 dạng (nghe chọn từ thiếu · nghe xếp câu · nghe gõ lại · nói theo · nhìn ảnh nói từ · dịch bằng ô chữ · ghép cặp),
 > **cá nhân hóa** từ thẻ đến hạn FSRS + từ đã tra bằng add-on, **0 tim/năng lượng**, sai thì gặp lại trong bài ("Lỗi cũ") và vào hàng ôn FSRS,
 > phản hồi tức thì + "Giải thích đáp án" từ dữ liệu sẵn có (gold bank `why`, từ điển, IPA, trọng âm, US/UK – 0 lượt AI), thanh tiến độ + COMBO,
-> Ama/Carlos đọc lời nhắc bằng sprite khớp miệng (pilot B, PR #151). Mọi thứ trên máy, tải lười (khung app +~0,4 KB). MVP sau cờ `lesson_mix`.
+> Ama/Carlos đọc lời nhắc bằng clip phông xanh tách nền (nói/nghe). Mọi thứ trên máy, tải lười (khung app +~0,4 KB). MVP sau cờ `lesson_mix`.
 > Đọc khi: sửa/mở rộng màn `#/lesson`, thêm dạng bài, đổi cách chọn từ hoặc cách ghi FSRS.
 
 ## 1. Đã có gì (audit 27/10, main `938821c2e`) → tái dùng, không viết trùng
@@ -37,7 +37,7 @@
 ## 2c. Truyện + Radio (nút trên bản đồ) · trang chủ = bản đồ
 - Nội dung `content/lesson/stories.json` (tự soạn A1–A2, Ama ↔ Carlos) → `scripts/lesson/build-stories.mjs` (kiểm lược đồ, cặp ghép đủ 15 ngôn ngữ) → `web/js/lesson/stories.js` (~5 KB gz, trong bundle `lesson`).
 - **Truyện**: từng câu thoại (người nói sáng lên, chữ hiện dạng chat) + bài kiểm xen giữa: xếp lại câu vừa nghe · câu hỏi hiểu · ghép cụm ↔ nghĩa (ngôn ngữ người học). **Radio**: chỉ nghe (không chữ, "ON AIR") rồi 3 câu hỏi.
-- Giọng: Kokoro **sinh sẵn trên CI** (`scripts/gen-audio.mjs`, `audio.yml` hằng đêm; Ama = af_heart, Carlos = am_michael) → `audio.lexkite.com/audio/l/<KVoice.lineKey>.mp3`; miệng sprite chạy theo đúng độ dài file; chưa có file → giọng máy. Cue Rhubarb theo âm vị: sau duyệt.
+- Giọng: Kokoro **sinh sẵn trên CI** (`scripts/gen-audio.mjs`, `audio.yml` hằng đêm; Ama = af_heart, Carlos = am_michael) → `audio.lexkite.com/audio/l/<KVoice.lineKey>.mp3`; vòng nói chạy đúng độ dài file; chưa có file → giọng máy. Khớp âm vị: §4.
 - Câu thoại không tính điểm (chỉ tiến độ); hết bài → bài kế tiếp xoay vòng. Cờ `lesson_mix` bật → `#/home` = bản đồ (trang chủ đầy đủ ở `#/home?all=1`).
 
 - Cờ `ux1` (5 tab, trang chủ = bản đồ theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi): xem [LEARNING-PATH.md](LEARNING-PATH.md).
@@ -54,10 +54,10 @@
 | `match` ghép cặp (1/bài) | ≥ 4 từ có nghĩa | 4 cặp từ ↔ nghĩa, 0 lần nhầm = đúng | giữ |
 
 ## 4. Giáo viên Ama/Carlos
-- `web/js/lesson/teacher.js`: port tối giản của pilot B (`docs/mocks/teacher-pilot/b-sprite.html`, PR #151): vòng lặp 3 s + 10 hình miệng Rhubarb (X A B C1 C D E F G H) + bám mặt theo khung.
-- Lời nhắc trong bài là câu động (từ của người học) → chưa có mp3+cue sinh sẵn: miệng chạy theo **chữ → viseme** (bảng chữ cái → hình miệng) trong lúc `UI.tts` đang đọc (`onEnd` dừng). Câu cố định ("Nice!", "Try again") sau duyệt sẽ sinh sẵn Kokoro + Rhubarb trên CI (đúng §5 TEACHER-IN-APP) – driver đã nhận `cues` nếu có.
-- Hạ cấp: `saveData` / `prefers-reduced-motion` / thiếu tài sản → ảnh poster tĩnh; không có giáo viên → bài vẫn chạy.
-- Tài sản `web/teach/<ama|carlos>/` (chép từ pilot): poster 17 KB + loop 100–130 KB + miệng 20 KB + json 6 KB ≈ **≤ 180 KB lần đầu, 0 lần sau (SW)**.
+- Nguồn: clip **phông xanh 2D đã tách nền PRO** (Ama `ga2_talk/ga2_listen`, Carlos `gc4_talk_natural/gc4_listen`) → `scripts/video/teach_build.sh` trên CI macOS (`teach-build.yml`, đẩy nhánh `teach-build*`, 0 credit): khung 3:4 theo bao alpha chung (đủ đầu + khoảng thở), vòng ping-pong, VP9 alpha `.webm` + HEVC alpha `.mov` (Safari/iOS) + `poster.webp`.
+- `web/js/lesson/teacher.js`: nói → vòng `talk` (miệng thật của clip, khớp nhịp), im → `listen`, crossfade 160 ms; nền trong suốt, không khung vuông. Đã bỏ cách ghép mảng miệng từ nhiều clip (28/10: lệch màu, dính nền, trượt ~6,6 px).
+- Khớp từng âm vị: làm SAU, chỉ với hình miệng trích từ CHÍNH clip đang phát + cổng CI đo chênh màu viền/độ trượt; pilot 1 câu → chủ duyệt trước khi bật.
+- Hạ cấp: `saveData` / `prefers-reduced-motion` / thiếu tài sản → `poster.webp` tĩnh; không có giáo viên → bài vẫn chạy.
 
 ## 5. Dung lượng (ngân sách TEACHER-IN-APP §2b)
 | Phần | Byte | Khi nào tải |
