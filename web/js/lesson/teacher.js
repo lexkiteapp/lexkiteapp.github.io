@@ -47,7 +47,8 @@
           v.onerror = () => { if (!i) { draw = null; cv.remove(); rig.classList.remove('live'); } else V[1] = null; };
           v.src = base + k + '.mp4';
         });
-        V[0].oncanplay = () => { V[0].oncanplay = null; if (dead || !draw) return; V[0].play().catch(() => {}); rig.appendChild(cv); rig.classList.add('live'); tick(); };
+        V[0].oncanplay = () => { V[0].oncanplay = null; if (dead || !draw) return; cv.width = V[0].videoWidth || 360; cv.height = (V[0].videoHeight || 960) / 2; // khung theo dáng từng người (Carlos rộng hơn) – CSS contain + căn đáy
+          V[0].play().catch(() => {}); rig.appendChild(cv); rig.classList.add('live'); tick(); };
       }
     }
     // 1 vòng vẽ: chỉ chạy khi đang hiện (IntersectionObserver không cần – rAF tự dừng ở tab ẩn); trộn nói/nghe 160 ms

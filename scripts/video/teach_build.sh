@@ -5,7 +5,7 @@
 # + poster.webp (alpha) + teach.json. Chạy trên CI (.github/workflows/teach-build.yml). Dùng: teach_build.sh <footage/anchor/green> <out=web/teach>
 set -euo pipefail
 G=$1; OUT=${2:-web/teach}
-W=360; H=480                        # hiển thị ≤ 146 px CSS → đủ nét ở màn 3x
+H=480                               # cao hiển thị ≤ 146 px CSS → đủ nét ở màn 3x; rộng W tính theo khung từng người
 for who in ama carlos; do
   case $who in ama) t=ga2_talk l=ga2_listen;; carlos) t=gc4_talk_natural l=gc4_listen;; esac; mkdir -p "$OUT/$who"
   # bao alpha (ngưỡng 24/255) gộp mọi khung của cả 2 clip
@@ -15,6 +15,12 @@ for who in ama carlos; do
   # khung 3:4: trên = đỉnh tóc − 7 % chiều cao khung; cao = 0,52 khung gốc (đầu → hông); giữa theo tâm ngang người
   FH=$(ffprobe -v error -select_streams v -show_entries stream=height -of csv=p=0 "$G/kmask_pro/$t.mkv"); FW=$(ffprobe -v error -select_streams v -show_entries stream=width -of csv=p=0 "$G/kmask_pro/$t.mkv")
   CH=$(( FH * 52 / 100 / 4 * 4 )); CW=$(( CH * 3 / 4 / 2 * 2 )); CY=$(( Y1 - CH * 7 / 100 )); (( CY < 0 )) && CY=0
+  # bề ngang đo TRONG dải khung (đầu → hông); tay buông dưới hông nằm ngoài khung nên không tính
+  read X1 X2 < <(for c in $t $l; do ffmpeg -nostats -i "$G/kmask_pro/$c.mkv" -vf "format=gray,crop=$FW:$CH:0:$CY,bbox=min_val=24" -f null - 2>&1; done \
+    | sed -n 's/.*x1:\([0-9]*\) x2:\([0-9]*\) y1:.*/\1 \2/p' | awk 'NR==1{a=$1;c=$2} {if($1<a)a=$1; if($2>c)c=$2} END{print a,c}')
+  # dáng rộng (vai/tay ngoài 3:4) → nới bề ngang khung vừa đủ +6 %, ≤ khung gốc; video giữ cao H, rộng theo tỉ lệ (ô hiển thị căn đáy, phần thừa trong suốt)
+  BW=$(( (X2 - X1) * 106 / 100 )); (( BW > CW )) && CW=$(( BW / 2 * 2 )); (( CW > FW )) && CW=$FW
+  W=$(( H * CW / CH / 2 * 2 ))
   CX=$(( (X1 + X2) / 2 - CW / 2 )); (( CX < 0 )) && CX=0; (( CX + CW > FW )) && CX=$(( FW - CW ))
   echo "$who: bbox $X1,$Y1-$X2,$Y2 → crop ${CW}x${CH}+${CX}+${CY}"
   # 🚧 cổng: đầu không bị cắt (đỉnh tóc nằm dưới mép trên khung ≥ 3 %), thân không tràn ngang khung (trừ tay/vai lấn ≤ 4 %)
