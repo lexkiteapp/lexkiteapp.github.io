@@ -1,0 +1,130 @@
+
+# video-motion: Stitch overlay shorts (docs/VIDEO-MOTION.md). ONE sample per template in content/video/cine/news/templates-motion/<t>.json.
+# 0 credits: Kokoro + Rhubarb + faster-whisper word clock (voice) -> render_v9.py --overlay (host plate: teacher + captions + audio, high bitrate)
+# -> build_overlay.py (Stitch cards, layout from the measured host mask, every element keyed to its spoken word) -> Remotion 60 fps (stitch-short)
+# -> qc_motion.py (all qc_v9 gates on a 24 fps proxy + overlay timing / pixel sync / host clear / still while read / 60 fps / AV sync) -> phone copy.
+# No GrabCast / Groq / Kling, no store, no Drive, no publish (approval gate).
+name: video-motion
+on:
+  workflow_dispatch:
+    inputs:
+      templates: { description: 'comma list', default: 'drill,mistake,tip,ready' }
+  pull_request:
+    paths: ['scripts/video/motion/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', '.github/workflows/video-motion.yml']
+permissions: { contents: read }
+concurrency: { group: 'video-motion-${{ github.ref }}-${{ github.event.inputs.templates }}', cancel-in-progress: true }
+env:
+  DIR: templates-motion
+  HOOKS: content/video/cine/news/templates-v1/reviewed-hooks.json
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs: { list: '${{ steps.m.outputs.list }}' }
+    steps:
+      - id: m
+        run: echo "list=$(python3 -c "import json;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates || 'drill,mistake,tip,ready' }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
+  voice:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
+    env: { SPEC: 'content/video/cine/news/templates-motion/${{ matrix.t }}.json' }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reviewed script + hook verdict present
+        run: python3 -c "import json,sys;s=json.load(open('$SPEC'));v=json.load(open('$HOOKS'))['verdicts'].get(s['id']) or {};sys.exit(0 if v.get('hook_true') and v.get('script')=={l['id']:l['text'] for l in s['lines'] if l.get('text')} else 1)" || { echo "::error::script/hook not reviewed"; exit 1; }
+      - uses: actions/cache@v4
+        with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
+      - name: ffmpeg (static build, cached)
+        shell: bash
+        run: |
+          [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && curl -fsSL --retry 3 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg' '*/bin/ffprobe'; }
+          sudo ln -sf ~/ffbin/ffmpeg /usr/local/bin/ffmpeg; sudo ln -sf ~/ffbin/ffprobe /usr/local/bin/ffprobe
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/pip, key: 'pip-video9-voice-${{ hashFiles(''scripts/cine/requirements.txt'') }}-fw1.0.3' }
+      - name: Libraries
+        timeout-minutes: 8
+        run: pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3 requests==2.32.3
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; "$R" --version | grep -q 1.13
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice
+        run: |
+          python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
+          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+      - uses: actions/upload-artifact@v4
+        with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: vo/, retention-days: 3 }
+  render:
+    needs: [setup, voice]
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
+    env:
+      SPEC: content/video/cine/news/templates-motion/${{ matrix.t }}.json
+      O: out/motion/${{ matrix.t }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/video9-setup
+        with: { key: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+      - uses: actions/download-artifact@v4
+        with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: vo }
+      - name: Host plate (render_v9 --overlay)
+        shell: bash
+        run: |
+          set -o pipefail; mkdir -p $O
+          python3 -m pyflakes scripts/video/tpl/render_v9.py scripts/video/motion/*.py | grep -E 'undefined name|syntax error' && exit 1 || true
+          python3 scripts/video/tpl/render_v9.py --spec $SPEC --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --overlay --kbps 24000 --out $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
+          grep -v '^frame ' $O/plate.log | tail -12
+      - name: Stitch overlay (layout + word-keyed timing)
+        run: |
+          python3 scripts/video/motion/build_overlay.py --spec $SPEC --plate $O/plate.mp4 --fonts brand/social/src/fonts --public $O/pub --out $O/props.json
+          cp $O/plate.mp4 $O/pub/plate.mp4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/cache@v4
+        with: { path: scripts/video/remotion/node_modules, key: 'remotion-${{ hashFiles(''scripts/video/remotion/package-lock.json'') }}-v1' }
+      - name: Remotion (Chrome Headless Shell)
+        run: |
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
+          cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
+      - name: Render 60 fps (stitch-short)
+        run: |
+          cd scripts/video/remotion
+          npx remotion render src/index.jsx stitch-short "$GITHUB_WORKSPACE/$O/${{ matrix.t }}.mp4" --props="$GITHUB_WORKSPACE/$O/props.json" --public-dir="$GITHUB_WORKSPACE/$O/pub" \
+            --codec=h264 --crf=16 --audio-codec=aac --audio-bitrate=192k --log=error
+      - name: QC (qc_v9 on a 24 fps proxy + motion gates) + phone copy
+        shell: bash
+        run: |
+          rc=0; V=$O/${{ matrix.t }}.mp4; mkdir -p $O/phone
+          python3 scripts/video/motion/qc_motion.py --master $V --props $O/props.json --plate $O/plate.mp4 --hooks "$HOOKS" > $O/qc.log 2>&1 || rc=1
+          tail -60 $O/qc.log
+          ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 20 -maxrate 6500k -bufsize 13000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.t }}.mp4
+          S=$(stat -c %s $O/phone/${{ matrix.t }}.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+          rm -rf $O/pub/plate.mp4 $O/${{ matrix.t }}.p24.mp4.samples
+          { echo "## ${{ matrix.t }}"; echo '```'; grep -E '^(PASS|FAIL)|gates\)' $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: motion-prev-${{ matrix.t }}-${{ github.run_id }}
+          path: |
+            out/motion/${{ matrix.t }}/phone/*.mp4
+            out/motion/${{ matrix.t }}/*.sheet.jpg
+            out/motion/${{ matrix.t }}/*.motion-qc.json
+            out/motion/${{ matrix.t }}/qc.log
+            out/motion/${{ matrix.t }}/plate.log
+            out/motion/${{ matrix.t }}/props.json
+            out/motion/${{ matrix.t }}/*.frames/
+          retention-days: 14

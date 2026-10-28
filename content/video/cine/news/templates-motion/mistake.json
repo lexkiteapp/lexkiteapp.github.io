@@ -1,0 +1,253 @@
+{
+ "id": "mo_mistake_agree",
+ "template": "mistake",
+ "title": "Motion Mistake vs Better #1 – \"I am agree\" -> \"I agree\" (+ IPA, stress)",
+ "teacher": "ama",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "set": "classroom_board",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Fix your grammar"
+ },
+ "series": {
+  "name": "Mistake vs Better",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying: I am agree."
+  },
+  {
+   "id": "m_w",
+   "text": "Agree is a verb, so you don't need am.",
+   "gap": 0.7
+  },
+  {
+   "id": "m_b",
+   "text": "Just say: I agree with you.",
+   "gap": 0.7
+  },
+  {
+   "id": "m_s",
+   "text": "Listen: agree. The stress is on the end.",
+   "gap": 0.7
+  },
+  {
+   "id": "m_x",
+   "text": "And if you don't, say: I disagree.",
+   "gap": 0.7
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says I am agree!",
+   "gap": 0.7
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and fix your grammar on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "I am agree.",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "hook_text": "I am agree.",
+  "end_line": "m_c",
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Common mistake",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "I "
+       ],
+       [
+        "am",
+        "ink"
+       ],
+       [
+        " agree."
+       ]
+      ]
+     }
+    ],
+    "strike": [
+     {
+      "line": 0,
+      "run": 1,
+      "at": [
+       "m_w",
+       8
+      ]
+     }
+    ]
+   },
+   {
+    "id": "no",
+    "at": [
+     "m_x",
+     5
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Disagree politely",
+      "tone": "teal"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "I "
+       ],
+       [
+        "disagree.",
+        "teal"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "card",
+    "id": "better",
+    "at": [
+     "m_b",
+     3
+    ],
+    "tone": "green",
+    "ipa": {
+     "token": "agree",
+     "ipa": "/əˈɡriː/",
+     "syl": [
+      "a",
+      "gree"
+     ],
+     "stress": 1
+    },
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Better",
+      "tone": "green"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "agree",
+        "green"
+       ]
+      ]
+     },
+     {
+      "t": "ipa",
+      "runs": [
+       [
+        "/əˈɡriː/",
+        "muted"
+       ]
+      ]
+     },
+     {
+      "t": "dots",
+      "syl": [
+       "a",
+       "gree"
+      ],
+      "stress": 1,
+      "hit": [
+       "m_s",
+       1
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "I "
+       ],
+       [
+        "agree",
+        "green"
+       ],
+       [
+        " with you."
+       ]
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

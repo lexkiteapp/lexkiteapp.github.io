@@ -1,0 +1,298 @@
+{
+ "id": "mo_drill_risen",
+ "template": "drill",
+ "title": "Motion Quiz Drill #1 – has risen / rose / raised / rised (IELTS verb forms, 3-2-1, reveal + XP)",
+ "teacher": "carlos",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "set": "classroom_board",
+ "layout": "right",
+ "host_fx": "raw",
+ "speed": 0.7,
+ "accent": "navy2",
+ "active": "mint",
+ "display": {
+  "blank": "___"
+ },
+ "motif": "Stitch Tactile Night cards (project \"Lexkite English Exam Prep\"), Remotion motion layer keyed to the Kokoro word times (scripts/video/motion)",
+ "cta": {
+  "area": "verbs",
+  "link": "https://lexkite.com/app/#/verb",
+  "say": "Practice verb forms"
+ },
+ "series": {
+  "name": "Quiz Drill",
+  "ep": 1
+ },
+ "lines": [
+  {
+   "id": "d_h",
+   "text": "Only one answer is correct. Can you spot it?"
+  },
+  {
+   "id": "d_q",
+   "text": "The price of food has blank sharply.",
+   "gap": 0.7
+  },
+  {
+   "id": "d_o",
+   "text": "Rose, risen, raised, or rised?",
+   "gap": 0.7
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "d_a",
+   "text": "B! Risen. Rise, rose, risen.",
+   "gap": 0.7
+  },
+  {
+   "id": "d_w",
+   "text": "Raised needs an object, like: they raised prices.",
+   "gap": 0.7
+  },
+  {
+   "id": "d_sh",
+   "text": "Send this to a friend who's learning English!",
+   "gap": 0.7
+  },
+  {
+   "id": "d_c",
+   "text": "Save this, and practice verb forms on lexkite.com.",
+   "gap": 0.6
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "d_h",
+    -1,
+    "e",
+    0.25
+   ],
+   "rows": [
+    [
+     [
+      "Only one is",
+      "white"
+     ]
+    ],
+    [
+     [
+      "correct.",
+      "yellow"
+     ]
+    ]
+   ],
+   "align": "l"
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "d_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "motion": {
+  "hook_text": "Only ONE is correct.",
+  "end_line": "d_c",
+  "top": [
+   {
+    "id": "hook",
+    "hook": true,
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Quiz drill · IELTS",
+      "tone": "gold"
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "Only "
+       ],
+       [
+        "ONE",
+        "gold"
+       ],
+       [
+        " is"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "hook": true,
+      "runs": [
+       [
+        "correct."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "q",
+    "at": [
+     "d_q",
+     0
+    ],
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Writing · verb form",
+      "tone": "teal",
+      "ring": "_count"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "The price of food"
+       ]
+      ]
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "has "
+       ],
+       [
+        "_____",
+        "muted"
+       ],
+       [
+        " sharply."
+       ]
+      ],
+      "slot": {
+       "run": 1,
+       "word": "risen"
+      }
+     }
+    ],
+    "reveal": [
+     "d_a",
+     1
+    ],
+    "xp": [
+     {
+      "at": [
+       "d_a",
+       0
+      ],
+      "n": 10
+     }
+    ]
+   },
+   {
+    "id": "note",
+    "at": [
+     "d_w",
+     0
+    ],
+    "tone": "coral",
+    "rows": [
+     {
+      "t": "chip",
+      "text": "Watch out",
+      "tone": "coral"
+     },
+     {
+      "t": "line",
+      "runs": [
+       [
+        "raise",
+        "coral"
+       ],
+       [
+        " + object"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "runs": [
+       [
+        "They "
+       ],
+       [
+        "raised",
+        "coral"
+       ],
+       [
+        " prices."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "col": [
+   {
+    "t": "opts",
+    "id": "opts",
+    "opts": [
+     "rose",
+     "risen",
+     "raised",
+     "rised"
+    ],
+    "cues": [
+     [
+      "d_o",
+      0
+     ],
+     [
+      "d_o",
+      1
+     ],
+     [
+      "d_o",
+      2
+     ],
+     [
+      "d_o",
+      4
+     ]
+    ],
+    "reveal": [
+     "d_a",
+     0
+    ],
+    "right": 1
+   }
+  ]
+ }
+}
