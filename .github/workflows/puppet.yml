@@ -100,6 +100,7 @@ jobs:
           path: |
             out/puppet/*.mp4
             out/puppet/*.json
+            out/puppet/voice.wav
             out/puppet/sheet.jpg
             out/puppet/sheet.png
             out/puppet/sheetdiff.png

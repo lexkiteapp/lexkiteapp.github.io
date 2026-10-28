@@ -1,5 +1,5 @@
 // 🎭 Cổng khẩu hình con rối (đo trên CHÍNH hàm sample() mà app + Remotion dùng, so với âm thanh thật voice.wav) – docs/LESSON-ENGINE.md §4b.
-// Đo mỗi khung 30 fps: (1) tương quan độ mở miệng ↔ năng lượng giọng + độ lệch tốt nhất ≤ 2 khung (≤ 67 ms); (2) im lặng → miệng ngậm;
+// Đo mỗi khung 30 fps (độ mở miệng = phần do viseme lái): (1) tương quan độ mở ↔ năng lượng dải nguyên âm + độ lệch tốt nhất ≤ 2 khung (≤ 67 ms); (2) im lặng → miệng ngậm;
 // (3) đang nói → miệng không đứng yên (im lặng = miệng về dáng nghỉ của biểu cảm, không mấp máy); (4) từ bắt đầu bằng m/b/p → có hình mím môi A quanh đầu từ. Trượt → exit 1.
 // Dùng: node scripts/puppet/gate.mjs out/puppet   → out/puppet/gate.json
 import fs from 'node:fs';
@@ -11,16 +11,18 @@ import { fileURLToPath } from 'node:url';
 const DIR = process.argv[2] || 'out/puppet', ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const Pup = createRequire(import.meta.url)(path.join(ROOT, 'web/js/lesson/puppet.js'));
 const props = JSON.parse(fs.readFileSync(path.join(DIR, 'props.json'), 'utf8')), fps = props.fps, N = props.durationInFrames, SR = 16000;
-const b = execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', path.join(DIR, props.audio), '-f', 'f32le', '-ac', '1', '-ar', String(SR), '-'], { maxBuffer: 1 << 28 });
-const a = new Float32Array(b.buffer, b.byteOffset, b.length / 4), hop = SR / fps;
+const dec = af => { const b = execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', path.join(DIR, props.audio), ...(af ? ['-af', af] : []), '-f', 'f32le', '-ac', '1', '-ar', String(SR), '-'], { maxBuffer: 1 << 28 }); return new Float32Array(b.buffer, b.byteOffset, b.length / 4); };
+// năng lượng dải nguyên âm 200–1000 Hz (F1 ~ độ mở hàm) cho tương quan; năng lượng toàn dải cho im lặng/đang nói
+const a = dec(null), av = dec('highpass=f=200,lowpass=f=1000'), hop = SR / fps, vrms = [];
 
 const rms = [], db = [], open = [], press = [], rest = [], talk = [];
 for (let i = 0; i < N; i++) {
   let s = 0, n = 0; for (let j = Math.floor(i * hop); j < Math.min(a.length, Math.floor((i + 1) * hop)); j++, n++) s += a[j] * a[j];
+  let sv = 0; for (let j = Math.floor(i * hop); j < Math.min(av.length, Math.floor((i + 1) * hop)); j++) sv += av[j] * av[j]; vrms.push(n ? Math.sqrt(sv / n) : 0);
   const r = n ? Math.sqrt(s / n) : 0; rms.push(r); db.push(20 * Math.log10(r + 1e-9));
   const S = Pup.sample(props.tl, i / fps), m = S.m, v = S.vis; open.push(v.open); press.push(m.press); talk.push(S.talk); rest.push(v.open < 0.04 && v.press < 0.5 && v.teeth < 0.3);
 }
-const sm = rms.map((_, i) => (rms[Math.max(0, i - 1)] + 2 * rms[i] + rms[Math.min(N - 1, i + 1)]) / 4);
+const sm = vrms.map((_, i) => (vrms[Math.max(0, i - 1)] + 2 * vrms[i] + vrms[Math.min(N - 1, i + 1)]) / 4);
 function corr(lag) {
   const x = [], y = []; for (let i = 0; i < N; i++) { const j = i + lag; if (j >= 0 && j < N) { x.push(open[i]); y.push(sm[j]); } }
   const mx = x.reduce((p, v) => p + v, 0) / x.length, my = y.reduce((p, v) => p + v, 0) / y.length;
@@ -32,7 +34,7 @@ const [bestLag, bestR] = lags.reduce((p, q) => (q[1] > p[1] ? q : p)), r0 = corr
 
 // im lặng: đoạn ≥ 8 khung dưới -50 dB (bỏ 2 khung mép – chuyển tiếp miệng)
 const quiet = []; for (let i = 0; i < N;) { if (db[i] < -50) { let j = i; while (j < N && db[j] < -50) j++; if (j - i >= 8) for (let k = i + 2; k < j - 2; k++) quiet.push(k); i = j; } else i++; }
-const silOk = quiet.filter(i => talk[i] <= 0.15).length / Math.max(1, quiet.length);
+const silOk = quiet.filter(i => open[i] <= 0.06).length / Math.max(1, quiet.length);
 const loud = db.map((d, i) => (d > -32 ? i : -1)).filter(i => i >= 0), actOk = loud.filter(i => !rest[i]).length / Math.max(1, loud.length);
 const bil = (props.words || []).filter(w => /^[mbp]/i.test(String(w.w).replace(/[^a-z]/gi, '')));
 const bilOk = bil.filter(w => { for (let i = Math.floor((w.start - 0.1) * fps); i <= Math.ceil((w.start + 0.12) * fps); i++) if (press[i] >= 0.6) return true; return false; }).length / Math.max(1, bil.length);
