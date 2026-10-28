@@ -197,7 +197,7 @@ a.chip:hover { background: var(--primary-soft); color: var(--primary-text); }
 [dir="rtl"] .fade-end:not(.fade-start) { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 1.75rem), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 1.75rem), transparent); }
 [dir="rtl"] .fade-start:not(.fade-end) { -webkit-mask-image: linear-gradient(to left, transparent, #000 1.75rem); mask-image: linear-gradient(to left, transparent, #000 1.75rem); }
 .tabs { display: flex; gap: .35rem; padding: .3rem; background: var(--surface-2); border-radius: 14px; overflow-x: auto; scrollbar-width: none; max-width: 100%; } /* không tràn màn hình hẹp */
-.tabs button { border: 0; background: transparent; padding: .5rem .95rem; border-radius: 10px; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; }
+.tabs button { border: 0; background: transparent; padding: .5rem .95rem; border-radius: 10px; font-weight: 700; color: var(--muted); cursor: pointer; white-space: nowrap; flex: none; display: inline-flex; align-items: center; gap: var(--sp-1); } /* flex: none → tab không co nhỏ hơn chữ (chữ đè tab bên cạnh @360); hàng tab cuộn ngang */
 .tabs button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow-sm); }
 :root[data-theme="dark"] .tabs button.on { background: var(--surface-3); }
 @media (prefers-color-scheme: dark) {
