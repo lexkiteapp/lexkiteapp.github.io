@@ -4,6 +4,7 @@
 //         · nhân vật lạ (chỉ Ama/Carlos 3D bank v2: không Kit/Mia/mascot khác, không emoji mặt người/con vật) · CLS > 0 khi chuyển bước bằng thao tác thật · ar không RTL
 //   WARN: khung hình > 50 ms khi chuyển bước (runner không GPU → chỉ cảnh báo)
 // Cờ tính năng CHỈ bật trong trình duyệt thử (localStorage lk.lesson=1, ?ret=1, ?demo=1) – không đổi cấu hình người dùng. Hermetic: /api/* giả, host ngoài = rỗng.
+// Trình duyệt: Chrome thật (NUQ_CHANNEL=chrome, có H.264); NUQ_CHANNEL= (rỗng) = Chromium.
 // Dùng: node scripts/test/new-ui-qa.mjs [--root .] [--lang en,ar,...] [--vp 360,390,768,1280] [--scheme light,dark] [--only lesson,ret,teacher,video] [--out nuq-out]
 // Ra: <out>/shots/<state>/<vp>-<scheme>-<lang>.png · <out>/report.json {fail[], warn[], texts{}} · mã thoát 1 khi có FAIL (0 ảnh chụp → cũng FAIL).
 import { chromium } from 'playwright';
@@ -26,7 +27,7 @@ fs.mkdirSync(OUT + '/shots', { recursive: true });
 const report = { fail: [], warn: [], texts: {}, shots: 0 };
 const srv = await serve(path.join(ROOT, 'web'), 0), O = srv.origin, srvM = await serve(ROOT, 0), OM = srvM.origin; // app (<base href="/">) · mock docs/mocks (đường dẫn ../../../web)
 process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS ||= '1';
-const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required', '--mute-audio'] });
+const browser = await chromium.launch({ channel: (process.env.NUQ_CHANNEL ?? 'chrome') || undefined, args: ['--autoplay-policy=no-user-gesture-required', '--mute-audio'] });
 // Ảnh thay cho host ngoài (poster video, ảnh từ vựng media.lexkite.com): ảnh thật trong repo → "ảnh hỏng" chỉ bắt lỗi của chính trang
 const STAND_IN = fs.readFileSync(path.join(ROOT, 'web/img/ext-lookup-480.webp'));
 
@@ -39,12 +40,13 @@ const PROBE = () => {
   const txt = e => (e.innerText || e.textContent || e.getAttribute('aria-label') || '').replace(/\s+/g, ' ').trim().slice(0, 40);
   // Vùng của màn mới: nội dung, chân bài học, hộp thoại đang mở; trang mock (không có #view) = cả body
   const roots = () => { const m = D.querySelector('#modal:not([hidden]) #modalBox'); if (m && vis(m)) return [m]; return ['#view', '#lsnFoot', '.lv-slot'].map(s => D.querySelector(s)).filter(Boolean).concat(D.querySelector('#view') ? [] : [D.body]); };
-  const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+  const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chỉ chữ riêng tiếng Việt (â ê ô có ở fr/pt/tr)
   // Nhân vật lạ: emoji mặt người/người/con vật/mascot (ký hiệu đồ vật 🔥🧊🎁🎉 thì được)
   const FACE = /[\u{1F600}-\u{1F64F}\u{1F466}-\u{1F478}\u{1F47C}\u{1F481}-\u{1F487}\u{1F574}-\u{1F575}\u{1F57A}\u{1F645}-\u{1F64F}\u{1F6B6}\u{1F9D1}-\u{1F9DF}\u{1F42D}-\u{1F43E}\u{1F98A}\u{1F989}\u{1F99C}\u{1F916}\u{1F47E}\u{1F920}-\u{1F92F}\u{1F970}-\u{1F97A}]/u;
   const ALLOWED_IMG = /\/teach\/(ama|carlos)\/|\/img\/teach\/(ama|carlos)\.|teachers3d\/|teacher-(call|pilot)\/(clips|assets)\/(ama|carlos)_|ext-lookup-480\.webp|^data:image\/gif|^blob:/;
   // Máy cảm ứng thật khớp @media (pointer: coarse) → vùng chạm --tap 2.8rem; Chromium giả lập hasTouch KHÔNG đổi media "pointer" → tự bật các khối coarse/hover:none
   const touchify = () => { for (const ss of D.styleSheets) { let rules; try { rules = ss.cssRules; } catch (e) { continue; } for (const r of rules) if (r.media && r.conditionText !== undefined) { const c = r.conditionText; if (/pointer:\s*coarse|hover:\s*none/.test(c) && !/pointer:\s*fine|hover:\s*hover/.test(c)) r.media.mediaText = 'all'; else if (/pointer:\s*fine|hover:\s*hover/.test(c) && !/coarse|none/.test(c)) r.media.mediaText = 'not all'; } } };
+  const mOpen0 = () => { const m = D.querySelector('#modal:not([hidden]) #modalBox'); return !!(m && vis(m)); };
   return (o) => {
     if (o.touch) touchify();
     const fail = [], warn = [], add = (a, m) => a.push(m);
@@ -54,6 +56,24 @@ const PROBE = () => {
       if (e.disabled && !e.matches('.lsn-opt,.lsn-tile')) continue; const r = vis(e); if (!r || !inVp(r)) continue;
       if (e.matches('a') && getComputedStyle(e).display === 'inline' && e.closest('p,li')) continue; // liên kết trong câu chữ: WCAG loại trừ
       if (o.touch && (r.width < 43.5 || r.height < 43.5)) add(fail, `tap ${sel(e)} «${txt(e)}» ${Math.round(r.width)}×${Math.round(r.height)}`);
+    }
+    // nút bị che / bị cắt ở mép màn: điểm giữa + điểm sát mép dưới của nút phải trúng chính nút (elementFromPoint) – bắt mọi lớp đè, kể cả lớp "chrome" của app
+    for (const root of R) for (const e of root.querySelectorAll('button:not([disabled]), a.btn, [role="button"]')) {
+      const r = vis(e); if (!r || r.top >= innerHeight || r.bottom <= 0) continue;
+      if (e.closest('.lsn-path') || (mOpen0() && !e.closest('#modalBox'))) continue; // bản đồ cuộn dài: nút dưới màn hình là bình thường · nút trang dưới hộp thoại
+      const inFixed = (() => { for (let p = e; p && p !== D.body; p = p.parentElement) if (/fixed|sticky/.test(getComputedStyle(p).position)) return true; return false; })();
+      if (inFixed && r.bottom > innerHeight + 1) { add(fail, `cut-off ${sel(e)} «${txt(e)}» mép dưới ${Math.round(r.bottom)} > ${innerHeight}`); continue; }
+      if (r.bottom > innerHeight) continue; // nằm dưới màn hình trong nội dung cuộn được
+      for (const [x, y] of [[r.left + r.width / 2, r.top + r.height / 2], [r.left + r.width / 2, r.bottom - 3]]) { const top = D.elementFromPoint(Math.min(innerWidth - 1, x), Math.min(innerHeight - 1, y)); if (top && !e.contains(top) && !top.contains(e)) { add(fail, `occluded ${sel(e)} «${txt(e)}» bị ${sel(top)} che (${Math.round(x)},${Math.round(y)})`); break; } }
+    }
+    // nút chỉ có biểu tượng (axe không đo): biểu tượng vs nền nút ≥ 3:1 (WCAG 1.4.11)
+    const rgb = c => { const m = /rgba?\(([\d.]+), ([\d.]+), ([\d.]+)(?:, ([\d.]+))?/.exec(c); return m && (m[4] === undefined || +m[4] > 0.95) ? [+m[1], +m[2], +m[3]] : null; };
+    const lum = ([r, g, b]) => { const f = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+    for (const root of R) for (const e of root.querySelectorAll('button, a')) {
+      if ((e.innerText || '').trim().replace(/[^\p{L}\p{N}]/gu, '') || !e.querySelector('svg') || !vis(e)) continue;
+      const cs = getComputedStyle(e), fg = rgb(cs.color), bg = rgb(cs.backgroundColor); if (!fg || !bg) continue;
+      const [a1, b1] = [lum(fg), lum(bg)].sort((x, y) => y - x), cr = (a1 + 0.05) / (b1 + 0.05);
+      if (cr < 3) add(fail, `icon-contrast ${sel(e)} «${(e.getAttribute('aria-label') || '').slice(0, 30)}» ${cr.toFixed(2)}:1 < 3:1`);
     }
     // giáo viên / nút bị lớp cố định đè (chân bài học, thanh dưới…)
     const fixed = [...D.querySelectorAll('body *')].filter(e => getComputedStyle(e).position === 'fixed' && vis(e) && getComputedStyle(e).pointerEvents !== 'none');
@@ -70,7 +90,8 @@ const PROBE = () => {
         if (!ALLOWED_IMG.test(src) && !/\/img\/(lex|vocab|w)\/|lexicon|\/video\//.test(src)) add(warn, `img-src ${sel(im)} ${src.slice(-70)}`);
         if (/img\/call\/|mia|kit[-_.]/i.test(src)) add(fail, `character ${sel(im)} nhân vật ngoài Ama/Carlos: ${src.slice(-60)}`); }
       for (const v of root.querySelectorAll('video')) { if (v.error) add(fail, `broken-video ${sel(v)} ${String(v.currentSrc).slice(-60)}`); }
-      for (const k of root.querySelectorAll('svg[data-mood], .kit, [class*="kit-"]')) if (vis(k)) add(fail, `character Kit/mascot ${sel(k)} (chỉ Ama/Carlos 3D)`);
+      for (const k of root.querySelectorAll('svg[data-mood], .kit, [class*="kit-"]')) if (vis(k) && !(k.closest('#kitSay') && /^#\/home\?all=1/.test(location.hash))) add(fail, // trợ lý Kit của trang chủ CŨ (#/home?all=1) ngoài phạm vi màn mới – BRAND-RULES; mọi màn mới chỉ Ama/Carlos
+         `character Kit/mascot ${sel(k)} (chỉ Ama/Carlos 3D)`);
       const tw = D.createTreeWalker(root, NodeFilter.SHOW_TEXT); let n;
       while ((n = tw.nextNode())) { const s = n.textContent; if (!s.trim() || !n.parentElement || !vis(n.parentElement)) continue;
         if (FACE.test(s)) add(fail, `character emoji «${s.trim().slice(0, 30)}» trong ${sel(n.parentElement)}`);
