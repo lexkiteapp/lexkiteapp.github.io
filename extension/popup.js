@@ -71,9 +71,9 @@
       const c = dueList[qi];
       if (!c) { $('#quick').innerHTML = `<div class="pp-quick done">✓ ${tx('Xong {n} thẻ – tuyệt!', { n: dueList.length })}</div>`; return; }
       $('#quick').innerHTML = `<div class="pp-sec">${tx('⚡ Ôn nhanh {i}/{n}', { i: qi + 1, n: dueList.length })}</div>
-        <div class="pp-quick" id="qCard" role="button" tabindex="0"><b>${esc(c.word)}</b><span class="muted small">${esc(c.ipa || '')}</span><div class="q-back" hidden>${esc(qmean(c))}</div><div class="muted small q-hint">${tx('Chạm để lật')}</div></div>
+        <div class="pp-quick" id="qCard" role="button" tabindex="0"><b>${esc(c.word)}</b><span class="muted small">${esc(ipaAcc(c))}</span><div class="q-back" hidden>${esc(qmean(c))}</div><div class="muted small q-hint">${tx('Chạm để lật')}</div></div>
         <div class="pp-qbtn" hidden><button class="btn sm" data-q="0">${tx('Quên')}</button><button class="btn sm primary" data-q="2">${tx('Nhớ')}</button></div>`;
-      const flip = () => { $('#qCard .q-back').hidden = false; $('#qCard .q-hint').hidden = true; document.querySelector('.pp-qbtn').hidden = false; speak(c.word, settings.accent === 'en-US' ? c.audioUS : c.audio); };
+      const flip = () => { $('#qCard .q-back').hidden = false; $('#qCard .q-hint').hidden = true; document.querySelector('.pp-qbtn').hidden = false; speak(c.word, audAcc(c)); };
       $('#qCard').onclick = flip; $('#qCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } };
       document.querySelectorAll('[data-q]').forEach(b => b.onclick = async () => { await Cards.patch(c.word, card => { card.srs = Core.SRS.review(card.srs, +b.dataset.q); }); await Stats.logReview(false); try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} qi++; draw(); });
     };
@@ -87,7 +87,7 @@
     const mean = c => (UI_LANG === 'vi' ? String(c.vi || '') : String(c.def || '')).split(/[,;]/)[0];
     $('#recent').innerHTML = `<div class="pp-sec">${tx('🕘 Vừa lưu gần đây')}</div>${recent.map(c => { const [d, dl] = dot(c); return `<div class="pp-word" data-w="${esc(c.word)}"><span class="pp-dot ${d}" title="${esc(dl)}" aria-label="${esc(dl)}"></span><button type="button" class="pp-say" data-say="${esc(c.word)}" aria-label="${esc(tx('Nghe'))}: ${esc(c.word)}">🔊</button><a href="#" class="pp-w"><b>${esc(c.word)}</b></a><span>${esc(mean(c))}</span></div>`; }).join('')}`;
     document.querySelectorAll('.pp-word .pp-w').forEach(a => a.onclick = e => { e.preventDefault(); open('#/dict/' + encodeURIComponent(a.closest('.pp-word').dataset.w)); });
-    document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && (settings.accent === 'en-US' ? c.audioUS : c.audio)); });
+    document.querySelectorAll('.pp-say').forEach(b => b.onclick = e => { e.preventDefault(); const c = recent.find(x => x.word === b.dataset.say); speak(b.dataset.say, c && audAcc(c)); });
   }
   $('#open').onclick = e => { e.preventDefault(); open('#/home'); };
   // Báo lỗi: mở form trong trang ứng dụng; chỉ gửi kèm TÊN MIỀN của tab đang xem (không URL đầy đủ, không nội dung trang) – docs/REPORTS.md
@@ -152,6 +152,10 @@
     const sc = v => !v.lang.startsWith('en') ? -1 : (v.lang.replace('_', '-') === acc ? 100 : 10) + (/Natural|Neural|Online/i.test(v.name) ? 60 : 0) + (/^Google (UK|US) English/i.test(v.name) ? 50 : 0) + (/Premium|Enhanced|Siri/i.test(v.name) ? 45 : 0) + (/Daniel|Serena|Kate|Oliver|Samantha|Ava|Allison|Susan|Tom/i.test(v.name) ? 20 : 0);
     return speechSynthesis.getVoices().map(v => [v, sc(v)]).filter(x => x[1] > 0).sort((a, b) => b[1] - a[1]).map(x => x[0])[0] || null;
   };
+  // IPA + bản ghi ĐÚNG giọng đang chọn (như web UI.ipaHtml/audioFor): Mỹ → ipaUS (trống = như Anh); bản ghi sai giọng → bỏ, dùng giọng máy đúng giọng
+  const isUS = () => settings.accent === 'en-US';
+  const ipaAcc = x => (x && (isUS() && x.ipaUS ? x.ipaUS : x.ipa)) || '';
+  const audAcc = x => { const a = (x && x.audio) || '', us = /-us\.mp3$/i.test(a); return isUS() ? (x && x.audioUS) || (us ? a : '') : us ? '' : a; };
   const speak = (w, url) => {
     if (url && !window.speechSynthesis) return new Audio(url).play().catch(() => {});
     const go = () => { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(w); u.lang = settings.accent || 'en-GB'; u.rate = settings.ttsRate || .92; const v = bestVoice(u.lang); if (v) u.voice = v; speechSynthesis.speak(u); };
@@ -169,11 +173,11 @@
     $('#res').innerHTML = `<div class="card"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">
       <div class="pic">${e.image ? `<img src="${esc(e.image)}" alt="">` : esc(e.emoji || '📘')}</div>
       <div><div class="row"><span class="entry-word">${esc(e.word)}</span>${e.pos ? `<span class="chip pos">${esc(e.pos)}</span>` : ''}${e.level ? `<span class="chip lv">${esc(e.level)}</span>` : ''}</div>
-        <div class="row"><span class="ipa">${esc(e.ipa)}</span><button class="icon-btn" id="spk">🔊</button></div>
+        <div class="row"><span class="ipa">${esc(ipaAcc(e))}</span><button class="icon-btn" id="spk">🔊</button></div>
         <div class="vi">${esc(e.vi)}</div>
         <div class="small">${esc(e.def)}</div></div></div>
       <div class="row" style="margin-top:10px"><button class="btn sm primary" id="save" ${saved ? 'disabled' : ''}>${saved ? tx('✓ Đã có') : tx('+ Lưu flashcard')}</button><button class="btn sm" id="more">${tx('Chi tiết')}</button></div></div>`;
-    $('#spk').onclick = () => speak(e.word, settings.accent === 'en-US' ? e.audioUS : e.audio);
+    $('#spk').onclick = () => speak(e.word, audAcc(e));
     $('#more').onclick = () => open('#/dict/' + encodeURIComponent(e.word));
     $('#save').onclick = async () => { await Cards.add(e); $('#save').textContent = tx('✓ Đã lưu'); $('#save').disabled = true; try { chrome.runtime.sendMessage({ type: 'triggerSync' }).catch(() => {}); } catch (e) {} };
   };

@@ -128,7 +128,8 @@ export function normUK(s, word = '') {
   if (!/nts|ntz/.test(w)) o = o.replace(/nts/g, 'ns');
   if (!/mpf|mph/.test(w)) o = o.replace(/mpf/g, 'mf');
   if (/ngth/.test(w)) o = o.replace(/ŋkθ/g, 'ŋθ');
-  if (/^(in|en|con|syn)[cgkq]/.test(w)) o = o.replace(/^(\/?[ˈˌ]?(?:ɪ|e|ə|kə|kɒ|sɪ))ŋ([ˈˌ]?[kɡ])/, '$1n$2');
+  // ink/inkjet: ŋ thuộc gốc từ, không phải tiền tố in- (ipa-audit 28/10)
+  if (/^(in|en|con|syn)[cgkq]/.test(w) && !/^ink/.test(w)) o = o.replace(/^(\/?[ˈˌ]?(?:ɪ|e|ə|kə|kɒ|sɪ))ŋ([ˈˌ]?[kɡ])/, '$1n$2');
   // hư từ dạng mạnh giữa cụm (chỉ khi số tiếng = số khúc IPA, khúc đó không mang trọng âm)
   const ts = w.split(/\s+/).filter(Boolean), inner = o.replace(/^\/|\/$/g, ''), ch = inner.split(/\s+/);
   if (ts.length > 1 && ts.length === ch.length) {

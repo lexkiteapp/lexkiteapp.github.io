@@ -489,19 +489,57 @@
   // Nút loa + IPA dùng chung cho mọi nội dung tiếng Anh (cùng mẫu nút với study/phrases/app: .icon-btn.sm 🔊).
   // Từ/cụm ngắn → data-speak (giọng người thật/Kokoro theo từ nếu có, rồi giọng máy) · câu → data-speak-text. Nhãn đọc màn hình: app.js tự gắn.
   const sayBtn = (text, o = {}) => { const s = String(text || '').trim(); if (!s) return ''; return `<button type="button" class="icon-btn sm${o.cls ? ' ' + o.cls : ''}" ${s.split(/\s+/).length > 3 || /[.!?]$/.test(s) ? 'data-speak-text' : 'data-speak'}="${esc(s)}">🔊</button>`; };
-  // IPA lấy từ dữ liệu sẵn trong máy (kho từ → thẻ của người học → Lex); thiếu → '' (ipaTag để chỗ trống, fillIpa tra Dict.quick lười)
-  function ipaOf(word) {
+  // Hư từ: dạng YẾU (cách nói thật trong câu) trước, dạng MẠNH (đọc riêng/nhấn mạnh – bản ghi từ đơn đọc dạng này) sau.
+  // [yếu UK, yếu US, câu mẫu nghe dạng yếu, từ loại KHÔNG dùng dạng yếu]. Nguồn: Cambridge Dictionary, Longman Pronunciation Dictionary (Wells),
+  // Wikipedia "Weak and strong forms in English" (CC BY-SA). Kiểm trên CI: scripts/lexicon/ipa-audit.mjs (đối chiếu biến thể CMUdict) – docs/LEXICON.md § Kiểm IPA.
+  /* LK_WEAK-START */
+  const WEAK = {
+    a: ['ə', 'ə', 'I have a cat.'], an: ['ən', 'ən', 'I ate an egg.'], the: ['ðə', 'ðə', 'Close the door.'], and: ['ənd', 'ənd', 'Fish and chips.'],
+    but: ['bət', 'bət', 'Small but nice.'], or: ['ə', 'ər', 'Tea or coffee?'], as: ['əz', 'əz', 'As soon as possible.'], than: ['ðən', 'ðən', 'Older than me.'],
+    that: ['ðət', 'ðət', 'I know that you are right.', 'det|pron|adv'], of: ['əv', 'əv', 'A cup of tea.'], to: ['tə', 'tə', 'I want to go.'], for: ['fə', 'fər', 'This is for you.'],
+    from: ['frəm', 'frəm', 'I am from Hanoi.'], at: ['ət', 'ət', 'Meet me at noon.'], can: ['kən', 'kən', 'I can swim.', 'n'], could: ['kəd', 'kəd', 'Could you help me?'],
+    would: ['wəd', 'wəd', 'I would like some tea.'], should: ['ʃəd', 'ʃəd', 'You should go.'], must: ['məst', 'məst', 'You must try it.', 'n'], shall: ['ʃəl', 'ʃəl', 'Shall we go?'],
+    will: ['wəl', 'wəl', 'It will rain.', 'n'], am: ['əm', 'əm', 'I am fine.'], are: ['ə', 'ər', 'They are here.'], was: ['wəz', 'wəz', 'It was late.'], were: ['wə', 'wər', 'They were tired.'],
+    been: ['bɪn', 'bɪn', 'Where have you been?'], have: ['həv', 'həv', 'What have you done?'], has: ['həz', 'həz', 'She has gone home.'], had: ['həd', 'həd', 'We had left.'],
+    do: ['də', 'də', 'Do you like it?'], does: ['dəz', 'dəz', 'Does he know?'], some: ['səm', 'səm', 'Have some tea.', 'pron'], them: ['ðəm', 'ðəm', 'Call them now.'],
+    us: ['əs', 'əs', 'Tell us more.'], him: ['ɪm', 'ɪm', 'Ask him later.'], her: ['hə', 'hər', 'Give her the key.'], his: ['ɪz', 'ɪz', 'I like his car.'],
+    you: ['jə', 'jə', 'See you later.'], your: ['jə', 'jər', 'Wash your hands.']
+  };
+  /* LK_WEAK-END */
+  const accOf = a => (a === 'en-US' || a === 'US' ? 'en-US' : a === 'en-GB' || a === 'UK' ? 'en-GB' : prefs().accent === 'en-US' ? 'en-US' : 'en-GB');
+  const bare = s => String(s || '').trim().replace(/^\/|\/$/g, '');
+  // IPA lấy từ dữ liệu sẵn trong máy (kho từ → thẻ của người học → Lex) THEO GIỌNG đang phát (en-US → ipaUS, trống = như Anh); thiếu → ''
+  function ipaOf(word, accent) {
     const k = String(word || '').trim().toLowerCase(); if (!k) return '';
-    const D = g.IELTS_DATA && g.IELTS_DATA.INDEX && g.IELTS_DATA.INDEX[k]; if (D && D.ipa) return D.ipa;
-    const c = g.App && g.App.state && g.App.state.cards && g.App.state.cards[k]; if (c && c.ipa) return c.ipa;
-    try { const lx = g.Lex && g.Lex.peek && g.Lex.peek(k); if (lx && lx.ipa && String(lx.word || k).toLowerCase() === k) return lx.ipa; } catch (e) { /* Lex chưa tải */ }
+    const pick = x => (x && x.ipa ? (accOf(accent) === 'en-US' && x.ipaUS ? x.ipaUS : x.ipa) : '');
+    const D = g.IELTS_DATA && g.IELTS_DATA.INDEX && g.IELTS_DATA.INDEX[k]; if (D && D.ipa) return pick(D);
+    const c = g.App && g.App.state && g.App.state.cards && g.App.state.cards[k]; if (c && c.ipa) return pick(c);
+    try { const lx = g.Lex && g.Lex.peek && g.Lex.peek(k); if (lx && lx.ipa && String(lx.word || k).toLowerCase() === k) return pick(lx); } catch (e) { /* Lex chưa tải */ }
     return '';
   }
-  const ipaTag = word => { const w = String(word || '').trim(); if (!w || w.split(/\s+/).length > 3) return ''; const p = ipaOf(w); return p ? `<span class="ipa small" translate="no">${esc(p)}</span>` : `<span class="ipa small" translate="no" data-ipa-lazy="${esc(w)}"></span>`; };
+  // Dạng yếu của hư từ theo giọng: { weak, strong, ex } hoặc null (không phải hư từ / từ loại không có dạng yếu / yếu = mạnh)
+  function weakOf(word, strong, accent, pos) {
+    const w = String(word || '').trim(), x = Object.prototype.hasOwnProperty.call(WEAK, w) ? WEAK[w] : null; if (!x) return null; // phân biệt hoa/thường: "US" ≠ "us"
+    if (pos && x[3] && x[3].split('|').includes(String(pos).toLowerCase().replace(/^(noun)$/, 'n').replace(/^(pronoun)$/, 'pron').replace(/^(determiner)$/, 'det').replace(/^(adverb)$/, 'adv'))) return null;
+    const wk = x[accOf(accent) === 'en-US' ? 1 : 0], st = bare(strong);
+    return st && st.replace(/[ˈˌː]/g, '') === wk.replace(/ː/g, '') ? null : { weak: '/' + wk + '/', strong: st ? '/' + st + '/' : '', ex: x[2] };
+  }
+  // Markup IPA cho MỘT giọng (khớp giọng đọc của nút loa bên cạnh). e = mục {word, ipa, ipaUS, pos} hoặc chữ (tra ipaOf). Hư từ: "/əv/ dạng yếu 🔊 · dạng mạnh /ɒv/"
+  function ipaHtml(e, accent, o = {}) {
+    const ent = typeof e === 'string' ? { word: e } : (e || {}), w = String(ent.word || '').trim(); if (!w) return '';
+    const acc = accOf(accent), p = ent.ipa ? (acc === 'en-US' && ent.ipaUS ? ent.ipaUS : ent.ipa) : ipaOf(w, acc), cls = o.cls || 'ipa';
+    const wk = weakOf(w, p, acc, ent.pos);
+    if (!wk) return p ? `<span class="${cls}" translate="no">${esc(p)}</span>` : '';
+    const T = g.t || (s => s);
+    return `<span class="${cls}" translate="no">${esc(wk.weak)}</span> <span class="small muted ipa-wk">${T('dạng yếu')}</span>${o.noEx ? '' : ` <button type="button" class="icon-btn sm" data-speak-text="${esc(wk.ex)}" title="${esc(wk.ex)}" aria-label="${esc(T('Nghe dạng yếu trong câu: {s}', { s: wk.ex }))}">🔊</button>`}${wk.strong ? ` <span class="small muted ipa-st">· ${T('dạng mạnh')} <span class="ipa" translate="no">${esc(wk.strong)}</span></span>` : ''}`;
+  }
+  // Bản ghi người thật ĐÚNG giọng (Dict: audio có thể là bản -us khi thiếu bản Anh) – sai giọng → '' (speak tự dùng giọng đúng: Kokoro/máy)
+  const audioFor = (e, accent) => { const a = (e && e.audio) || '', us = /-us\.mp3$/i.test(a); return accOf(accent) === 'en-US' ? (e && e.audioUS) || (us ? a : '') : us ? '' : a; };
+  const ipaTag = (word, accent) => { const w = String(word || '').trim(); if (!w || w.split(/\s+/).length > 3) return ''; const p = ipaOf(w, accent); return p ? ipaHtml({ word: w, ipa: p }, accent, { cls: 'ipa small', noEx: true }) : `<span class="ipa small" translate="no" data-ipa-lazy="${esc(w)}"></span>`; };
   // Điền IPA còn thiếu: chỉ khi trang đã có Dict (không tự tải gói từ điển), mỗi từ 1 lần (Dict.quick có bộ nhớ đệm)
   function fillIpa(root = document) {
     const els = [...root.querySelectorAll('[data-ipa-lazy]')]; if (!els.length || !(g.Dict && g.Dict.quick)) return;
-    for (const el of els) { const w = el.dataset.ipaLazy; el.removeAttribute('data-ipa-lazy'); g.Dict.quick(w).then(e => { if (e && e.ipa) el.textContent = e.ipa; }).catch(() => {}); }
+    for (const el of els) { const w = el.dataset.ipaLazy; el.removeAttribute('data-ipa-lazy'); g.Dict.quick(w).then(e => { if (e && e.ipa) el.textContent = accOf() === 'en-US' && e.ipaUS ? e.ipaUS : e.ipa; }).catch(() => {}); }
   }
   // Dự phòng: nút loa sinh sau (phản hồi bài tập, khung bật lên…) chưa được App.bindCommon gắn onclick → vẫn đọc được
   if (typeof document !== 'undefined') document.addEventListener('click', e => {
@@ -509,5 +547,5 @@
     e.preventDefault(); const st = prefs();
     if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
   });
-  g.UI = { sayBtn, ipaOf, ipaTag, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  g.UI = { sayBtn, ipaOf, ipaTag, ipaHtml, weakOf, WEAK, audioFor, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);

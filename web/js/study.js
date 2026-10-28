@@ -166,7 +166,7 @@
       ${H ? `<div class="rev-hardest">
         <div class="rev-hard-head"><span class="small muted">${t('Từ cần chú ý nhất:')}</span>
           <span class="row nowrap" style="gap:.35rem"><button type="button" class="btn sm ghost" data-say-hard aria-label="${t('Nghe phát âm')}">🔊</button><a class="btn sm ghost" href="#/dict/${encodeURIComponent(H.w)}">${t('Tra từ')} →</a></span></div>
-        <div><b class="rev-hard-word">${esc(H.w)}</b>${H.c && H.c.ipa ? ` <span class="ipa">/${esc(String(H.c.ipa).replace(/^\/|\/$/g, ''))}/</span>` : ''}</div>
+        <div><b class="rev-hard-word">${esc(H.w)}</b>${H.c && H.c.ipa ? ' ' + UI.ipaHtml({ ...H.c, ipa: '/' + String(H.c.ipa).replace(/^\/|\/$/g, '') + '/' }, null, { noEx: true }) : ''}</div>
         ${H.c && mean(H.c) ? `<div class="rev-hard-mean small muted">${esc(mean(H.c))}</div>` : ''}
         ${H.others.length ? `<div class="rev-hard-more"><span class="tiny muted">${t('Từ vừa quên khác:')}</span> ${H.others.slice(0, 10).map(w => `<a class="chip" href="#/dict/${encodeURIComponent(w)}">${esc(w)}</a>`).join('')}</div>` : ''}
       </div>` : `<div class="tip rev-perfect">🌟 <b>${t('Phiên ôn xuất sắc!')}</b> ${t('Bạn không quên từ nào trong phiên này.')}</div>`}`}
@@ -228,7 +228,7 @@
         <div class="muted small" style="margin-top:1rem">${t('Nhớ lại từ tiếng Anh, rồi chạm để lật')}</div>` : `
         ${pic(c)}
         <div class="entry-word">${esc(c.word)}</div>
-        <div class="row center"><span class="ipa">${esc(c.ipa)}</span>${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
+        <div class="row center">${UI.ipaHtml(c)}${posChip(c.pos)}<button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
         ${M ? M.ctx(c) : ''}
         <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd kbd-hint">Space</span></div>`;
 
@@ -250,7 +250,7 @@
           <div class="card face front">${front}</div>
           <div class="card face back">
             <div class="wc-hd"><div class="wc-wrow"><span class="entry-word wc-word">${esc(c.word)}</span><button class="icon-btn sm" data-say aria-label="${t('Nghe')}">🔊</button></div>
-              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}${c.ipaUS && c.ipaUS !== c.ipa ? `<span class="wi-acc">🇬🇧 <span class="ipa">${esc(c.ipa)}</span><button class="icon-btn sm" data-say-acc="en-GB" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span><span class="wi-acc">🇺🇸 <span class="ipa">${esc(c.ipaUS)}</span><button class="icon-btn sm" data-say-acc="en-US" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>` : `<span class="ipa">${esc(c.ipa)}</span>`}</div>
+              <div class="wi-pron">${posChip(c.pos)}${levelChip(c.level)}${c.ipaUS && c.ipaUS !== c.ipa ? `<span class="wi-acc">🇬🇧 ${UI.ipaHtml(c, 'en-GB')}<button class="icon-btn sm" data-say-acc="en-GB" aria-label="${t('Nghe giọng Anh–Anh')}">🔊</button></span><span class="wi-acc">🇺🇸 ${UI.ipaHtml(c, 'en-US')}<button class="icon-btn sm" data-say-acc="en-US" aria-label="${t('Nghe giọng Anh–Mỹ')}">🔊</button></span>` : UI.ipaHtml(c)}</div>
               <div class="vi wi-vi">${esc(mean(c))}</div><div class="wi-native" data-native></div></div>
             ${App.vimg(c.word, c.pos, mean(c), 'back', (x => [].concat(x || [])[0] || '')(c.ex))}
             ${c.def && mean(c) !== c.def ? `<div class="wi-sec"><span class="wi-lb">📖 ${t('Định nghĩa')}</span><div lang="en">${esc(c.def)}</div></div>` : ''}
@@ -276,7 +276,7 @@
       <p class="muted tiny center kbd-hint" style="margin-top:1rem">${t('Phím tắt: <span class="kbd">Space</span> lật · <span class="kbd">1</span>–<span class="kbd">4</span> chấm điểm · <span class="kbd">P</span> phát âm')} · <span class="kbd">Z</span> ${t('hoàn tác')}</p>
     </div>`;
     App.bindCommon();
-    const say = () => speak(c.word, accent(), c.audio);
+    const say = () => speak(c.word, accent(), UI.audioFor(c, accent()));
     $$('[data-say]').forEach(b => b.onclick = e => { e.stopPropagation(); say(); });
     // Nghe riêng giọng UK/US
     $$('[data-say-acc]').forEach(b => b.onclick = e => { e.stopPropagation(); const a = b.dataset.sayAcc, u = c.audio || '', us = /-us\.mp3$/.test(u); speak(c.word, a, a === 'en-US' ? (us ? u : '') : (us ? '' : u)); });
@@ -449,8 +449,8 @@
       requestAnimationFrame(() => { const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
       if (FX && (!ok || (ty && ty.typo))) FX.explain(fb, w.word, fit); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
-      $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), w.audio);
-      if ((!ok || q.type.startsWith('type')) && !mute()) speak(w.word, accent(), w.audio);
+      $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), UI.audioFor(w, accent()));
+      if ((!ok || q.type.startsWith('type')) && !mute()) speak(w.word, accent(), UI.audioFor(w, accent()));
       $('#nextQ').focus({ preventScroll: true });
       let went = false; const t1 = Date.now();
       $('#nextQ').onclick = () => { if (went || Date.now() - t1 < 250) return; went = true; onDone(ok, $('#nextQ')); };
@@ -464,7 +464,7 @@
         : `<div class="vi" style="font-size:1.5rem">${esc(mean(w))}</div>${posChip(w.pos)}${w.ex ? `<div class="ctx" style="margin:1rem auto 0">“${cloze(w.ex, w.word)}”</div>` : ''}<div class="muted small" style="margin-top:.6rem">${t('Chọn từ tiếng Anh đúng')}</div>`;
       box.innerHTML = `<div class="card q-card">${prompt.replace('class="pic"', 'class="pic" style="width:110px;margin:0 auto"')}</div>
         <div class="options ${key === 'word' ? 'two' : ''}">${opts.map((o, i) => `<button class="option" data-o="${esc(o.word)}"><span class="kbd">${i + 1}</span>${esc(o[key])}</button>`).join('')}</div><div id="fb"></div>`;
-      const sw = $('[data-sayw]', box); if (sw) sw.onclick = () => speak(w.word, accent(), w.audio);
+      const sw = $('[data-sayw]', box); if (sw) sw.onclick = () => speak(w.word, accent(), UI.audioFor(w, accent()));
       const shownAt = Date.now();
       const pick = b => {
         if (answered || !b || Date.now() - shownAt < 250) return; // chạm đúp từ màn trước
@@ -494,7 +494,7 @@
         const n = /^[1-9]$/.test(e.key) ? +e.key : /^[a-dA-D]$/.test(e.key) ? e.key.toLowerCase().charCodeAt(0) - 96 : 0;
         if (n >= 1 && n <= opts.length) pick($$('.option', box)[n - 1]);
       };
-      if (q.type === 'mcq-vi' && state.settings.autoSpeak && !mute()) speak(w.word, accent(), w.audio);
+      if (q.type === 'mcq-vi' && state.settings.autoSpeak && !mute()) speak(w.word, accent(), UI.audioFor(w, accent()));
       return;
     }
 
@@ -523,9 +523,9 @@
         <div class="row center" style="margin-top:.5rem"><button type="button" class="btn sm ghost" id="skip">${t('Không biết – xem đáp án')}</button>${FX && q.type === 'type-listen' ? FX.skipAudioBtn() : ''}</div></form><div id="fb"></div>`;
     $('#ans').focus();
     if (q.type === 'type-listen') {
-      $('#play').onclick = () => speak(w.word, accent(), w.audio);
+      $('#play').onclick = () => speak(w.word, accent(), UI.audioFor(w, accent()));
       $('#slow').onclick = () => speak(w.word, accent(), w.audio, true);
-      setTimeout(() => speak(w.word, accent(), w.audio), 250);
+      setTimeout(() => speak(w.word, accent(), UI.audioFor(w, accent())), 250);
       const na = $('#lfxNoAudio'); if (na) na.onclick = () => { FX.pauseAudio(); q.type = 'type-vi'; document.onkeydown = null; renderQuestion(box, q, onDone); }; // 🔇 đổi câu này (và các câu nghe sau) sang dạng gõ nghĩa
     }
     $('#skip').onclick = () => finish(false);
@@ -695,9 +695,9 @@
           const flg = (I18N && I18N.flag ? I18N.flag(ll) : (ll === 'vi' ? '🇻🇳' : '🌐'));
           (ll === 'vi' ? Dict.translateVi(w.ex) : Dict.translateTo(w.ex, ll)).then(tr => { const e = $('#fiTr'); if (e && tr) e.textContent = flg + ' ' + tr; }).catch(() => {});
         }
-        $('#sayI').onclick = () => speak(w.word, accent(), w.audio);
+        $('#sayI').onclick = () => speak(w.word, accent(), UI.audioFor(w, accent()));
         $('#slowI').onclick = () => speak(w.word, accent(), w.audio, true);
-        speak(w.word, accent(), w.audio);
+        speak(w.word, accent(), UI.audioFor(w, accent()));
         $('#gotIt').focus({ preventScroll: true });
         let went = false;
         $('#gotIt').onclick = () => { if (went) return; went = true; queue.unshift(w); next(); };
