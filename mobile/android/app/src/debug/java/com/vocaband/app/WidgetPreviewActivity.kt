@@ -20,6 +20,13 @@ class WidgetPreviewActivity : Activity() {
             else """{"v":2,"at":$now,"due":12,"streak":7,"rtl":false,"words":[{"w":"meticulous","ipa":"/məˈtɪkjələs/","m":"tỉ mỉ, kỹ lưỡng","lv":"C1","due":0}],
                 "l":{"title":"Thẻ đến hạn hôm nay","streak":"Chuỗi ngày","review":"Ôn ngay","n":"{n} thẻ ôn lại"}}"""
         )
+        // --ez ret true → lớp giữ thói quen (cờ ret): giáo viên Ama/Carlos + ✓ đã học hôm nay (--es who carlos, --ez done false → chưa học)
+        if (intent.getBooleanExtra("ret", false)) {
+            val cal = java.util.Calendar.getInstance()
+            val today = String.format(java.util.Locale.US, "%04d-%02d-%02d", cal.get(java.util.Calendar.YEAR), cal.get(java.util.Calendar.MONTH) + 1, cal.get(java.util.Calendar.DAY_OF_MONTH))
+            snap.put("tch", JSONObject().put("who", intent.getStringExtra("who") ?: "ama").put("sd", if (intent.getBooleanExtra("done", true)) today else "2000-01-01")
+                .put("ok", if (ar) "تعلّمت اليوم" else "Hôm nay đã học").put("risk", if (ar) "حافظ على سلسلتك اليوم!" else "Giữ chuỗi hôm nay nhé!"))
+        }
         val dp = resources.displayMetrics.density
         val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding((24 * dp).toInt(), (64 * dp).toInt(), (24 * dp).toInt(), 0); setBackgroundColor(Color.parseColor("#3A4A5A")) }
         // --es kind word → widget "Từ mỗi giờ" (WordWidget.build): 4×2 có ví dụ, 2×2, 4×1 gọn; --ez quiz true = ẩn nghĩa
