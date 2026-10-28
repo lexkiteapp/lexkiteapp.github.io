@@ -3,6 +3,11 @@
  "template": "mistake",
  "title": "Motion Mistake vs Better #1 – \"I am agree\" -> \"I agree\" (+ IPA, stress)",
  "teacher": "ama",
+ "host": {
+  "kind": "puppet",
+  "who": "ama",
+  "note": "owner 28/10: the 2D puppet hosts every video (one style); the teacher clips only give render_v9 its word clock + audio mix, never shown"
+ },
  "clips": [
   "a05b_ama2",
   "a05t2_ama2_present",
@@ -35,37 +40,79 @@
  "lines": [
   {
    "id": "m_h",
-   "text": "Stop saying: I am agree."
+   "text": "Stop saying: I am agree.",
+   "tags": [
+    {
+     "at": 0,
+     "kind": "surprised"
+    }
+   ]
   },
   {
    "id": "m_w",
    "text": "Agree is a verb, so you don't need am.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "explain"
+    }
+   ]
   },
   {
    "id": "m_b",
    "text": "Just say: I agree with you.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": "agree",
+     "kind": "point"
+    }
+   ]
   },
   {
    "id": "m_s",
    "text": "Listen: agree. The stress is on the end.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "explain"
+    }
+   ]
   },
   {
    "id": "m_x",
    "text": "And if you don't, say: I disagree.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "encourage"
+    }
+   ]
   },
   {
    "id": "m_sh",
    "text": "Send this to a friend who says I am agree!",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "encourage"
+    }
+   ]
   },
   {
    "id": "m_c",
    "text": "Save this, and fix your grammar on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.6,
+   "tags": [
+    {
+     "at": "lexkite.com",
+     "kind": "point"
+    }
+   ]
   }
  ],
  "pops": [

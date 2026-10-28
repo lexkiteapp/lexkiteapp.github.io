@@ -3,6 +3,8 @@
 # 0 credits: Kokoro + Rhubarb + faster-whisper word clock (voice) -> render_v9.py --overlay (host plate: teacher + captions + audio, high bitrate)
 # -> build_overlay.py (Stitch cards, layout from the measured host mask, every element keyed to its spoken word) -> Remotion 60 fps (stitch-short)
 # -> qc_motion.py (all qc_v9 gates on a 24 fps proxy + overlay timing / pixel sync / host clear / still while read / 60 fps / AV sync) -> phone copy.
+# Host (owner 28/10): spec host.kind 'puppet' = the 2D puppet <Teacher/> on a clean Stitch canvas + captions, all drawn by Remotion; the render_v9 plate
+# then only supplies the word clock + audio mix (its footage is never shown). Puppet lip-sync gate = scripts/puppet/gate.mjs on the same cues.
 # No GrabCast / Groq / Kling, no store, no Drive, no publish (approval gate).
 name: video-motion
 on:
@@ -10,7 +12,7 @@ on:
     inputs:
       templates: { description: 'comma list', default: 'drill,mistake,tip,ready' }
   pull_request:
-    paths: ['scripts/video/motion/**', 'scripts/video/remotion/src/stitch/**', 'content/video/cine/news/templates-motion/**', '.github/workflows/video-motion.yml']
+    paths: ['scripts/video/motion/**', 'scripts/video/remotion/src/stitch/**', 'scripts/video/remotion/src/Puppet.jsx', 'web/js/lesson/puppet.js', 'content/video/puppet/**', 'content/video/cine/news/templates-motion/**', '.github/workflows/video-motion.yml']
 permissions: { contents: read }
 concurrency: { group: 'video-motion-${{ github.ref }}-${{ github.event.inputs.templates }}', cancel-in-progress: true }
 env:
@@ -62,7 +64,7 @@ jobs:
         run: |
           python3 scripts/video/motion/embed_spec.py $SPEC > embed.json
           for x in "$SPEC:vo" "embed.json:vo_e"; do S=${x%%:*}; D=${x##*:}
-            python3 -c "import json;s=json.load(open('$S'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
+            python3 -c "import json;s=json.load(open('$S'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][(s.get('host') or {}).get('who') or s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
             NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json $D; done
       - uses: actions/upload-artifact@v4
         with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: 'vo*/', retention-days: 3 }
@@ -99,7 +101,8 @@ jobs:
         run: |
           S=$SPEC; [ "${{ matrix.kind }}" = short ] || S=$O/spec.json
           for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do
-            python3 scripts/video/motion/build_overlay.py --format $f --fps $([ $f = short ] && echo 60 || echo 30) --spec $S --plate $O/plate.mp4 --fonts brand/social/src/fonts --public $O/pub --out $O/$f.json; done
+            python3 scripts/video/motion/build_overlay.py --format $f --fps $([ $f = short ] && echo 60 || echo 30) --spec $S --plate $O/plate.mp4 --fonts brand/social/src/fonts --public $O/pub --out $O/$f.json \
+              --vo $([ "${{ matrix.kind }}" = short ] && echo vo/vis3 || echo vo_e/vis3); done
           cp $O/plate.mp4 $O/pub/plate.mp4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
@@ -118,12 +121,23 @@ jobs:
               --codec=h264 $Q --audio-codec=aac --log=error
             [ $f = short ] || ffmpeg -nostdin -v error -y -ss $(python3 -c "import json;print(json.load(open('$GITHUB_WORKSPACE/$O/$f.json'))['poster_t'])") -i "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4" -frames:v 1 -q:v 4 "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.poster.jpg"
           done
+      - name: Puppet host – native stills + lip-sync gate
+        run: |
+          W=$GITHUB_WORKSPACE; [ -f $O/$([ "${{ matrix.kind }}" = short ] && echo short || echo wide).host.json ] || { echo "no puppet host"; exit 0; }
+          ffmpeg -nostdin -v error -y -i $O/plate.mp4 -vn -ac 1 -ar 48000 $O/voice.wav
+          for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do
+            node scripts/video/motion/lip_props.mjs $O/$f.json $O/lip-$f && cp $O/voice.wav $O/lip-$f/ && { node scripts/puppet/gate.mjs $O/lip-$f || true; }; done
+          if [ "${{ matrix.kind }}" = short ]; then   # host-only stills (canvas + puppet) at frame 0 + the host_sharp frames: the native host for qc no_stretch / host_sharp
+            cd scripts/video/remotion && npx remotion bundle src/index.jsx --public-dir="$W/$O/pub" --out-dir=/tmp/rb --log=error && mkdir -p $W/$O/host
+            for fi in 0 $(python3 -c "import json;print(' '.join(str(x['frame']) for x in json.load(open('$W/$O/short.json.timeline.json'))['sharp']))"); do
+              npx remotion still /tmp/rb stitch-short "$W/$O/host/f$(printf %04d $fi).png" --props="$W/$O/short.host.json" --frame=$((fi * 5 / 2)) --log=error; done
+          fi
       - name: QC (qc_v9 on a 24 fps proxy + motion gates) + phone copy
         shell: bash
         run: |
           rc=0; mkdir -p $O/phone
           for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do V=$O/${{ matrix.t }}-$f.mp4
-            python3 scripts/video/motion/qc_motion.py --master $V --props $O/$f.json --plate $O/plate.mp4 --hooks "$HOOKS" > $O/qc-$f.log 2>&1 || rc=1
+            python3 scripts/video/motion/qc_motion.py --master $V --props $O/$f.json --plate $O/plate.mp4 --hooks "$HOOKS" --host-stills $O/host --lip $O/lip-$f/gate.json > $O/qc-$f.log 2>&1 || rc=1
             cat $O/qc-$f.log >> $O/qc.log; tail -40 $O/qc-$f.log
             if [ $f = short ]; then
               ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 20 -maxrate 6500k -bufsize 13000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.t }}.mp4
@@ -147,4 +161,6 @@ jobs:
             ${{ env.O }}/plate.log
             ${{ env.O }}/*.json
             ${{ env.O }}/*.frames/
+            ${{ env.O }}/host/f0000.png
+            ${{ env.O }}/lip-*/gate.json
           retention-days: 14

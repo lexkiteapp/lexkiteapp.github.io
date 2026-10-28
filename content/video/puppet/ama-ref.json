@@ -1,0 +1,5 @@
+{
+ "who": "ama",
+ "sha": "23e441170337bc87",
+ "note": "sha của Pup.art({id:\"ref\"}) – đổi hình vẽ có chủ ý thì chạy qc.mjs --update-ref"
+}

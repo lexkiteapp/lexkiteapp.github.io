@@ -6,12 +6,19 @@ import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queuea
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
 import { parseCmu, pickPron, ipaAgrees } from '../lexicon/expand/cmu.mjs';
-import { arpaToIpa } from '../lexicon/ipa.mjs';
+import { arpaToIpa, ukStyle, ukStyleBad } from '../lexicon/ipa.mjs';
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 const TR = { es: 'abandonar', pt: 'abandonar', fr: 'abandonner', de: 'verlassen', id: 'meninggalkan', th: 'ละทิ้ง', zh: '放弃', ja: '見捨てる', ko: '버리다', hi: 'छोड़ देना', ar: 'يتخلى عن', ru: 'покидать', tr: 'terk etmek' };
 const good = () => ({ w: 'forsake', pos: 'v', ipa: '/fəˈseɪk/', ipaUS: '/fərˈseɪk/', def: 'to leave someone or something completely', ex: ['He would never forsake his friends.', 'She forsook her career for her family.'], col: ['forsake a friend'], syn: ['abandon', 'desert'], level: 'C1', cefrF: 'C2', emoji: '', topic: 'xw-actions', vi: 'bỏ rơi; từ bỏ', note_vi: '', m: { ...TR },
   qa: { j: { 'gemini:gemini-3.5-flash': 5, 'gemma:gemma-3-27b-it': 4 }, tr: Object.fromEntries(LANGS.map(l => [l, [5, 4]])), btw: Object.fromEntries(LANGS.map(l => [l, ['abandon']])) } });
+// pilot 20261028 (soát tay LÕI 8/50, DỊCH 2/50): IPA Anh sai kiểu kho, ví dụ không phải câu, nội dung tình dục → trượt
+ok(ukStyle('/brad/') === '/bræd/' && ukStyle('/ˈɑː(r)mtʃeə(r)/') === '/ˈɑːmtʃeə(r)/' && ukStyle('/ˈɔɪntm(ə)nt/') === '/ˈɔɪntmənt/' && ukStyle('/ˈtaɪfɔɪd/') === '/ˈtaɪfɔɪd/', 'ukStyle: a→æ, (ə)→ə, (r) giữa từ bỏ, aɪ/aʊ giữ');
+ok(ukStyleBad('/brad/') && ukStyleBad('/ˈfaɪbə(r)x/') && !ukStyleBad('/ˈfaɪbə(r)/') && !ukStyleBad('/aʊl/'), 'ukStyleBad: phát hiện a đơn / ( giữa từ');
+ok(gateEntry({ ...good(), ipa: '/brad/' }).why.some(x => /^ipa: Anh sai kiểu/.test(x)), 'cổng: IPA Anh a đơn → lỗ nguồn (sinh lại)');
+ok(gateEntry({ ...good(), ex: ['a forsaken old house', 'She forsook her career for her family.'] }).why.some(x => /không phải câu/.test(x)), 'cổng: ví dụ là cụm từ → trượt');
+ok(gateEntry({ ...good(), ex: ['He would never forsake his friends.', 'She forsook her career for her family.'] }).ok, 'cổng: 2 câu hoàn chỉnh vẫn đạt');
+ok(gateEntry({ ...good(), ex: ['He would never forsake his friends.', 'She forsook sex for her career.'] }).why.some(x => /tình dục/.test(x)), 'cổng: nội dung tình dục → hàng duyệt');
 // từ không có thật trong ngôn ngữ đích (trcheck.py wordfreq – pilot 11 mainline pt "inyectar") → trượt
 ok(gateEntry({ ...good(), trBad: { pt: ['inyectar'] } }).why.some(x => /dịch pt: từ không có thật/.test(x)), 'cổng: trBad (wordfreq) → trượt');
 // đồng thuận 3 giám khảo (chủ 27/10): qa.n = 3 mà chỉ 2 họ → trượt; bản dịch thiếu điểm giám khảo thứ 3 → trượt

@@ -3,6 +3,11 @@
  "template": "drill",
  "title": "Motion Quiz Drill #1 – has risen / rose / raised / rised (IELTS verb forms, 3-2-1, reveal + XP)",
  "teacher": "carlos",
+ "host": {
+  "kind": "puppet",
+  "who": "ama",
+  "note": "owner 28/10: the 2D puppet hosts every video (one style); the teacher clips only give render_v9 its word clock + audio mix, never shown"
+ },
  "clips": [
   "c05_carlos2",
   "c05t2_carlos2_present",
@@ -36,17 +41,35 @@
  "lines": [
   {
    "id": "d_h",
-   "text": "Only one answer is correct. Can you spot it?"
+   "text": "Only one answer is correct. Can you spot it?",
+   "tags": [
+    {
+     "at": "spot",
+     "kind": "point"
+    }
+   ]
   },
   {
    "id": "d_q",
    "text": "The price of food has blank sharply.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "explain"
+    }
+   ]
   },
   {
    "id": "d_o",
    "text": "Rose, risen, raised, or rised?",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "question"
+    }
+   ]
   },
   {
    "id": "_count",
@@ -56,22 +79,46 @@
   {
    "id": "d_a",
    "text": "B! Risen. Rise, rose, risen.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "correct"
+    }
+   ]
   },
   {
    "id": "d_w",
    "text": "Raised needs an object, like: they raised prices.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "explain"
+    }
+   ]
   },
   {
    "id": "d_sh",
    "text": "Send this to a friend who's learning English!",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "encourage"
+    }
+   ]
   },
   {
    "id": "d_c",
    "text": "Save this, and practice verb forms on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.6,
+   "tags": [
+    {
+     "at": "lexkite.com",
+     "kind": "point"
+    }
+   ]
   }
  ],
  "pops": [

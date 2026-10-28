@@ -3,6 +3,11 @@
  "template": "ready",
  "title": "Motion Readiness Hook #1 – Can you reach Band 7? (2 quick questions, band bar)",
  "teacher": "carlos",
+ "host": {
+  "kind": "puppet",
+  "who": "ama",
+  "note": "owner 28/10: the 2D puppet hosts every video (one style); the teacher clips only give render_v9 its word clock + audio mix, never shown"
+ },
  "clips": [
   "c05_carlos2",
   "c05t2_carlos2_present",
@@ -36,12 +41,24 @@
  "lines": [
   {
    "id": "r_h",
-   "text": "Can you reach Band 7? Let's check."
+   "text": "Can you reach Band 7? Let's check.",
+   "tags": [
+    {
+     "at": 0,
+     "kind": "greet"
+    }
+   ]
   },
   {
    "id": "r_q1",
    "text": "Which word is more formal: get, or obtain?",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "question"
+    }
+   ]
   },
   {
    "id": "_count",
@@ -51,12 +68,24 @@
   {
    "id": "r_a1",
    "text": "Obtain! The formal word for get.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "correct"
+    }
+   ]
   },
   {
    "id": "r_q2",
    "text": "The number of cars blank growing. Is, or are?",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "question"
+    }
+   ]
   },
   {
    "id": "_count2",
@@ -66,17 +95,35 @@
   {
    "id": "r_a2",
    "text": "Is! The number is singular.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": "singular",
+     "kind": "explain"
+    }
+   ]
   },
   {
    "id": "r_s",
    "text": "Two for two? You're on track for Band 7.",
-   "gap": 0.7
+   "gap": 0.7,
+   "tags": [
+    {
+     "at": 0,
+     "kind": "encourage"
+    }
+   ]
   },
   {
    "id": "r_c",
    "text": "Save this, and take a free mock test on lexkite.com.",
-   "gap": 0.6
+   "gap": 0.6,
+   "tags": [
+    {
+     "at": "lexkite.com",
+     "kind": "point"
+    }
+   ]
   }
  ],
  "pops": [

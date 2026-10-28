@@ -50,6 +50,15 @@ overlay_host (no card on the head box / moving-body mask, every frame) · overla
   `/data/videos.json`, docs/VIDEO-STORAGE.md) – no new service. Upload / manifest entry only after the owner's OK.
 
 ## Host layer (owner 28/10: the 2D/2.5D puppet hosts every video)
-The overlay never draws the teacher. `src/stitch/hosts.js` registry: `host.kind = 'puppet'` → the puppet component (`<Teacher {...host} t fps/>`,
-session puppet-2d-ama); geometry `content/video/puppet/<who>.json` {head, envelope rows} → `build_overlay.py --host-geom`. Until it lands the
-samples use the render_v9 footage plate as a placeholder, tagged "PLACEHOLDER HOST" (top-left, inside the platform UI band).
+The overlay never draws the teacher. `src/stitch/hosts.js`: `HOSTS.puppet = Teacher` (`src/Puppet.jsx`, same engine as the in-app teacher `web/js/lesson/puppet.js`).
+Spec `"host": {"kind": "puppet", "who": "ama"}` → `build_overlay.py` (auto, or `--host puppet --vo vo/vis3`):
+- geometry `content/video/puppet/<who>.json` (framing.right.box, head, body/hands envelope), scaled about the box bottom until the head clears the caption band;
+- lip-sync = the global Rhubarb track (`vo/vis3/<lid>.json` mouthCues + the line's `at`) + forced m/b/p · f/v closures (== `scripts/puppet/sample.mjs`);
+- gestures/expressions = spec line `tags` `[{at: word index | token, kind: question|correct|wrong|explain|point|greet|proud|encourage|surprised}]`;
+- background = a clean Stitch canvas drawn by Remotion (never footage); captions drawn by Remotion ABOVE the puppet = the render_v9 v13 pages
+  (CAP_LOG word x/y/size, band, dark plate, active word yellow, Be Vietnam Pro ExtraBold). The render_v9 `--overlay` plate only supplies the word clock + audio mix.
+- voice = `teachers[host.who]` (drill/ready still name Carlos clips for the timing plate only – no Carlos puppet yet).
+- QC: the builder's timeline describes the puppet (head/envelope, locked camera, one rig) → head_clear / overlay_host / caption gates on its geometry;
+  `host_one_style` = puppet only (no footage in the composition); `no_stretch` / `host_sharp` against host-only Remotion stills; `puppet_lipsync` =
+  `scripts/puppet/gate.mjs` on the same cues + the plate audio (`scripts/video/motion/lip_props.mjs`); `mood_restraint` on the puppet's strong moments.
+Without `host` the samples use the render_v9 footage plate as a placeholder, tagged "PLACEHOLDER HOST".

@@ -1,0 +1,108 @@
+# 🎭 Con rối 2D Ama (pilot – docs/LESSON-ENGINE.md §4b): video mẫu 20–30 s (Kokoro → Rhubarb + faster-whisper → Remotion, cùng động cơ web/js/lesson/puppet.js)
+# + cổng khẩu hình (gate.mjs) + quay màn hình app có cờ (record.mjs). Không secret, 0 credit. Kết quả: artifact "puppet".
+name: Con rối 2D – mẫu + cổng khẩu hình
+on:
+  workflow_dispatch:
+    inputs:
+      script: { description: 'Kịch bản', required: false, default: 'content/video/puppet/sample-borrow.json' }
+  push:
+    branches: [puppet-2d-ama]
+    paths: ['web/js/lesson/puppet.js', 'web/js/lesson/teacher.js', 'scripts/puppet/**', 'scripts/video/remotion/src/Puppet.jsx', 'content/video/puppet/**', 'docs/mocks/teacher-pilot/**', '.github/workflows/puppet.yml']
+permissions:
+  contents: read
+concurrency:
+  group: puppet-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      SCRIPT: ${{ inputs.script || 'content/video/puppet/sample-borrow.json' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Cài ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg unzip >/dev/null
+      - name: Đệm Remotion (node_modules)
+        uses: actions/cache@v4
+        with:
+          path: scripts/video/remotion/node_modules
+          key: remotion-${{ hashFiles('scripts/video/remotion/package-lock.json') }}-v1
+      - name: Cài Remotion + thư viện cho Chrome Headless Shell
+        run: |
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
+          cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
+      - name: Đệm mô hình (Kokoro, whisper tiny.en)
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/kk/node_modules/@huggingface/transformers/.cache
+            ~/.cache/huggingface
+          key: video-models-kokoro82m-q8-whisper-tiny-en-v1
+      - name: Cài kokoro-js + faster-whisper + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          pip install -q faster-whisper==1.1.1 av==13.1.0 requests numpy
+          curl -fsSL -o /tmp/rhubarb.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rhubarb && unzip -q /tmp/rhubarb.zip -d /tmp/rhubarb
+          echo "RHUBARB=$(find /tmp/rhubarb -type f -name rhubarb | head -1)" >> "$GITHUB_ENV"
+      - name: 1 · Giọng Kokoro + mốc từ + khẩu hình Rhubarb → props.json
+        env: { KOKORO_NODE_PATH: /tmp/kk/node_modules }
+        run: node scripts/puppet/sample.mjs "$SCRIPT" out/puppet
+      - name: 2 · Cổng khẩu hình (tương quan, độ lệch ≤ 67 ms, im lặng ngậm, m/b/p mím)
+        run: node scripts/puppet/gate.mjs out/puppet
+      - name: 2b · Cổng QC (miệng trong mặt + chuyển 40–80 ms, tay chân, chống giật, đồng bộ ±60 ms, đồng nhất, 0 gọi dịch vụ giới hạn)
+        run: node scripts/puppet/qc.mjs out/puppet
+      - name: 3 · Dựng video Remotion 1080×1920
+        run: |
+          mkdir -p out/puppet/fonts
+          cp brand/social/src/fonts/BricolageGrotesque-ExtraBold.ttf out/puppet/fonts/display.ttf
+          cp brand/social/src/fonts/BeVietnamPro-ExtraBold.ttf out/puppet/fonts/body.ttf
+          cd scripts/video/remotion
+          npx remotion render src/index.jsx PuppetSample "$GITHUB_WORKSPACE/out/puppet/ama-puppet.mp4" --props="$GITHUB_WORKSPACE/out/puppet/props.json" --public-dir="$GITHUB_WORKSPACE/out/puppet" --codec=h264 --crf=18 --log=error
+      - name: 4 · Tờ khung hình (soát mắt) + đo âm lượng
+        run: |
+          cd out/puppet
+          F=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames,r_frame_rate -of csv=p=0 ama-puppet.mp4); N=$(python3 -c "import json;print(json.load(open('props.json'))['durationInFrames'])")
+          echo "khung video: $F · mong đợi $N"; case "$F" in "30/1,$N") echo "✅ 0 khung rơi, 30 fps CFR";; *) echo "❌ số khung/fps lệch"; exit 1;; esac
+          ffmpeg -hide_banner -loglevel error -y -i ama-puppet.mp4 -vf "fps=2/3,scale=270:-1,tile=6x3" -frames:v 1 sheet.jpg
+          ffmpeg -hide_banner -i ama-puppet.mp4 -af ebur128 -f null - 2>&1 | grep -E "^\s+I:" | tail -1
+      - name: 4b · So sánh song song – footage 3D hiện tại (trái) vs con rối 2D (phải), CÙNG câu Kokoro
+        run: |
+          cd out/puppet
+          read A D <<< "$(python3 -c "import json;L=json.load(open('props.json'))['lines'];a=L[2]['start']-0.3;print(round(a,2),round(L[3]['end']+0.4-a,2))")"
+          curl -fsSL -o f3d.mp4 https://media.lexkite.com/library/clips/ama_talk_gesture.mp4
+          ffmpeg -hide_banner -loglevel error -y -stream_loop -1 -i f3d.mp4 -ss "$A" -t "$D" -i ama-puppet.mp4 -filter_complex "\
+            [0:v]split[c][m];[c]crop=iw:ih/2:0:0[col];[m]crop=iw:ih/2:0:ih/2,format=gray[al];[col][al]alphamerge,scale=-1:1300[fg];\
+            color=c=0x172427:s=1080x1920:r=30[bg];[bg][fg]overlay=(W-w)/2:H-h:shortest=1,trim=duration=$D[l];[1:v]setpts=PTS-STARTPTS[r];[l][r]hstack=inputs=2,scale=1080:-2,\
+            drawtext=fontfile=fonts/body.ttf:text='3D footage (hiện tại)':x=40:y=40:fontsize=34:fontcolor=white:box=1:boxcolor=0x000000AA:boxborderw=10,\
+            drawtext=fontfile=fonts/body.ttf:text='2D puppet (mới)':x=580:y=40:fontsize=34:fontcolor=white:box=1:boxcolor=0x000000AA:boxborderw=10[v]" \
+            -map "[v]" -map 1:a -t "$D" -c:v libx264 -crf 20 -pix_fmt yuv420p -c:a aac -movflags +faststart side-by-side.mp4
+          rm -f f3d.mp4; ls -la side-by-side.mp4
+      - name: 5 · Quay app (#/lesson/go?demo=1&puppet=1) + phòng thử
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; (python3 -m http.server 8081 >/dev/null 2>&1 &) ; sleep 1
+          pip install -q pillow numpy && node scripts/puppet/record.mjs out/puppet-rec
+          for n in lab app; do ffmpeg -hide_banner -loglevel error -y -i out/puppet-rec/$n.webm -c:v libx264 -crf 20 -pix_fmt yuv420p -movflags +faststart out/puppet-rec/$n.mp4; done
+          cp out/puppet-rec/*.mp4 out/puppet-rec/perf.json out/puppet/ && cp -r out/puppet-rec/shots out/puppet/
+          cp out/puppet-rec/sheet.png out/puppet/ && python3 scripts/puppet/sheetdiff.py out/puppet-rec/sheet.png docs/mocks/teacher-pilot/ref/ama-sheet.png out/puppet/sheetdiff.json
+      - name: Tải kết quả
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: puppet
+          path: |
+            out/puppet/*.mp4
+            out/puppet/*.json
+            out/puppet/voice.wav
+            out/puppet/sheet.jpg
+            out/puppet/sheet.png
+            out/puppet/sheetdiff.png
+            out/puppet/shots/
+          retention-days: 14

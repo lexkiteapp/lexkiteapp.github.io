@@ -20,11 +20,14 @@ sys.path.insert(0, HERE); import core as C
 
 ap = argparse.ArgumentParser()
 for a in ('master', 'props', 'plate', 'hooks'): ap.add_argument('--' + a, required=True)
+ap.add_argument('--host-stills', default='', help='puppet host: dir of host-only Remotion stills f<24fps frame>.png (canvas + puppet, no cards / captions) = the native host frames for no_stretch / host_sharp')
+ap.add_argument('--lip', default='', help='puppet host: gate.json of scripts/puppet/gate.mjs run on the same cues + the plate audio')
 o = ap.parse_args()
 P = json.load(open(o.props)); NODES = P['nodes']; BY = {n['id']: n for n in NODES}; TL = json.load(open(o.props + '.timeline.json'))
 PT = json.load(open(o.plate + '.timeline.json')); W_ = PT['words']; R = {}
 FMT = P.get('format', 'short'); EMBED = FMT != 'short'; PB = P.get('plateBox') or dict(sx=0, sy=0, sw=1080, dx=0, dy=0, dw=1080, dh=1920); KP = PB['dw'] / PB['sw']
 CW, CH = P.get('w', 1080), P.get('h', 1920)
+PUP = (TL.get('host') or {}).get('kind') == 'puppet'; HT = TL if PUP else PT   # puppet: the builder's timeline describes the host on screen (head, envelope, frames)
 inter = lambda a, b: a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
 
 def probe(v):
@@ -94,10 +97,21 @@ if not EMBED:
     subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.master, '-vf', 'fps=24', '-c:v', 'libx264', '-preset', 'slow', '-b:v', '8800k', '-maxrate', '11880k', '-bufsize', '17600k',
                     '-pix_fmt', 'yuv420p', '-g', '48', '-c:a', 'copy', '-movflags', '+faststart', px], check=True)
     json.dump(TL, open(px + '.timeline.json', 'w'), default=str)
-    for suf in ('.samples', '.src0.png'):
-        s_, d_ = o.plate + suf, px + suf
-        if os.path.isdir(s_): shutil.rmtree(d_, ignore_errors=True); shutil.copytree(s_, d_)
-        elif os.path.exists(s_): shutil.copy(s_, d_)
+    if PUP:   # native host frames = host-only stills of the SAME composition (canvas + puppet): no_stretch frame 0, host_sharp (encoded proxy vs rendered, no camera push)
+        assert o.host_stills, '--host-stills needed for the puppet host'
+        shutil.rmtree(px + '.samples', ignore_errors=True); os.makedirs(px + '.samples')
+        for x in TL['sharp']:
+            g_ = cv2.imread(f"{o.host_stills}/f{x['frame']:04d}.png"); r_ = x['rect']
+            if g_ is None: continue
+            shutil.copy(f"{o.host_stills}/f{x['frame']:04d}.png", f"{px}.samples/f{x['frame']:04d}.png")
+            x['var_native'] = x['var_render'] = round(float(cv2.Laplacian(cv2.cvtColor(g_, cv2.COLOR_BGR2GRAY)[r_[1]:r_[3], r_[0]:r_[2]], cv2.CV_64F).var()), 2)
+        TL['sharp'] = [x for x in TL['sharp'] if x['var_native'] is not None]
+        shutil.copy(f'{o.host_stills}/f0000.png', px + '.src0.png'); json.dump(TL, open(px + '.timeline.json', 'w'), default=str)
+    else:
+        for suf in ('.samples', '.src0.png'):
+            s_, d_ = o.plate + suf, px + suf
+            if os.path.isdir(s_): shutil.rmtree(d_, ignore_errors=True); shutil.copytree(s_, d_)
+            elif os.path.exists(s_): shutil.copy(s_, d_)
     q = subprocess.run([sys.executable, f'{ROOT}/scripts/video/tpl/qc_v9.py', px, o.hooks], capture_output=True, text=True); print(q.stdout[-6000:], q.stderr[-2000:])
     QV = json.load(open(px + '.qc.json')) if os.path.exists(px + '.qc.json') else dict(gates={}, failed=['qc_v9 crashed'])
     R.update({f'v9.{k}': v for k, v in QV['gates'].items()})
@@ -127,14 +141,14 @@ for r in rows:
     else: okn += 1
 R['overlay_sync_px'] = dict(ok=bool(rows) and not bad and not early, checked=len(rows), ok_n=okn, no_change=bad[:6], changed_early=early[:6],
                             note='mean |diff| inside the element box: after-vs-just-before its word >= 4, and the 0.15 s before it holds still')
-HM = {c: v for c, v in (PT.get('host_move') or {}).items()}; HD = PT['head']; hits = []; nchk = 0
+HM = {c: v for c, v in (HT.get('host_move') or {}).items()}; HD = HT['head']; hits = []; nchk = 0   # puppet: its declared body/hands envelope (scaled) + head box
 mask = {}
 for c, rws in HM.items():
     m_ = np.zeros((1920, 1080), bool)
     for y, x0, x1 in rws: m_[y:y + 8, x0:x1] = True
     mask[c] = m_
 for f in TL['frames']:
-    Mx = f['M']; s, tx, ty = Mx[0], Mx[2], Mx[5]; srcs = [c for c, k, w in f['src'] if w > 0.02]
+    Mx = f['M']; s, tx, ty = Mx[0], Mx[2], Mx[5]; srcs = [c for c, k, w in f['src'] if w > 0.02]   # TL frames carry the host on screen (plate clips, or 'puppet')
     for e in f['els']:
         if e[10] != 'overlay' or e[6] <= 0.004: continue
         cb = e[2:6]; bx = [(cb[0] - PB['dx']) / KP + PB['sx'], (cb[1] - PB['dy']) / KP + PB['sy'], (cb[2] - PB['dx']) / KP + PB['sx'], (cb[3] - PB['dy']) / KP + PB['sy']]   # canvas -> plate screen
@@ -172,8 +186,11 @@ for nid, (a_, b_) in tsel.items():
 R['overlay_still'] = dict(ok=not mv and not pxm, moving=mv[:4], pixels_moved=pxm[:4], checked=len(tsel), note='transform identity from settle to the next event (core) + card pixels hold still (|diff| <= 2, animated widgets excluded)')
 BANK = {x['id']: x for x in json.load(open(f'{ROOT}/brand/library/cine/teachers/bank.json'))['clips']}
 style = lambda c: None if c not in BANK else ('3d' if '3d' in (BANK[c].get('tags') or []) else '2d')
-used = sorted({c for f in PT['frames'] for c, k, w in f['src'] if w > 0.02}); par = PT.get('host_parent') or {}
+used = sorted({c for f in HT['frames'] for c, k, w in f['src'] if w > 0.02}); par = HT.get('host_parent') or {}
 styles = {c: style(par.get(c, c)) for c in used}
+if PUP:   # one style = the 2D puppet rig only: no footage plate in the composition, every frame's host is the puppet
+    styles = {c: ('puppet-2d' if c == 'puppet' else style(par.get(c, c))) for c in used}
+    if P.get('plate') or (P.get('host') or {}).get('kind') != 'puppet': styles['plate'] = 'footage'
 R['host_one_style'] = dict(ok=bool(used) and None not in styles.values() and len(set(styles.values())) == 1, styles=styles,
                            note='owner 28/10: one video = ONE host bank/style (all 3D or all 2D, never mixed); every clip on screen traced to its bank family')
 pm, pp = probe(o.master), probe(o.plate); vm = [s for s in pm['streams'] if s['codec_type'] == 'video'][0]; am = [s for s in pm['streams'] if s['codec_type'] == 'audio']
@@ -182,6 +199,9 @@ mbs = int(pm['format']['size']) / 1e6 / dm
 R['file'] = dict(ok=(vm['width'], vm['height']) == (CW, CH) and vm['r_frame_rate'] == ('60/1' if not EMBED else '30/1') and abs(dm - dp) <= 0.06 and bool(am) and am[0]['codec_name'] == 'aac'
                  and (not EMBED or (mbs <= 0.30 and os.path.exists(o.master[:-4] + '.poster.jpg'))), format=FMT, mb_per_s=round(mbs, 3),
                    fps=vm['r_frame_rate'], duration=round(dm, 3), plate=round(dp, 3), mbps=round(int(pm['format']['size']) * 8 / dm / 1e6, 2), audio=am[0]['codec_name'] if am else None)
+if PUP:   # exact lip-sync (owner 28/10): scripts/puppet/gate.mjs on the puppet's own sample() vs the plate audio (corr, lag <= 67 ms, silence closed, m/b/p press)
+    LG = json.load(open(o.lip)) if o.lip and os.path.exists(o.lip) else None
+    R['puppet_lipsync'] = dict(ok=bool(LG) and bool(LG.get('ok')), **({k: LG.get(k) for k in ('score', 'corr0', 'lagMs', 'silence', 'active', 'bilabial', 'pass')} if LG else dict(missing=o.lip)))
 def env(v):
     r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-i', v, '-t', '12', '-ac', '1', '-ar', '8000', '-f', 's16le', '-'], capture_output=True).stdout
     a = np.abs(np.frombuffer(r, np.int16).astype(np.float32)); return a[:len(a) // 8 * 8].reshape(-1, 8).mean(1)   # 1 ms envelope
