@@ -74,7 +74,7 @@
     });
   }
   /** Tải trước chỉ mục (cờ bật) → Promise<VImg | null>. Bề mặt chờ ready() rồi mới vẽ để slot() có hộp ngay từ lần vẽ đầu. */
-  /** list (tuỳ chọn) = từ sắp hiện → tải luôn mảnh của chúng trước khi bề mặt vẽ */
+  /** list (tùy chọn) = từ sắp hiện → tải luôn mảnh của chúng trước khi bề mặt vẽ */
   const ready = list => (mode() === 0 ? Promise.resolve(null) : need(list || []).then(() => (enabled() ? api : null)));
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   /** Markup thuần (dùng chung app/add-on/trang tĩnh build-seo-pages): hộp vuông rộng w px CSS cố định (số hoặc vai SIZE), 2x chỉ khi x2 và w > 192 (máy yếu: không);
