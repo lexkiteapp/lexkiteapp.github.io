@@ -51,5 +51,6 @@
     'Bài học': "Lesson",
     'Truyện': 'Story',
     'Trả lời câu hỏi': 'Answer the question',
+    'Bạn đã học:': 'You learned:', // màn kết (cũng ở ux1 – gói lesson không nạp ux1)
   });
 })(typeof self !== 'undefined' ? self : this);
