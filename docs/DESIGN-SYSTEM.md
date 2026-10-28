@@ -16,6 +16,8 @@ Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css
 | Extra components (lazy) | `web/css/tactile-x.css`: `.tk-opts/.tk-opt`(A–D, `aria-pressed`) `.tk-sheet`(`.ok .bad`) `.tk-teacher`(img + name + small) – app loads with lesson/goal via `BCSS` | same |
 - No hex in `tactile*.css` (brand-check). Light = B "Bright Day" (cream `--bg`, white cards, `--heading` deep teal), dark = A "Tactile Night"; Settings › theme Auto/Light/Dark. Hosts supply colour vars; fonts: Bricolage Grotesque 700/800 `display=optional` (has Vietnamese; Figtree has none).
 - Style options from the owner = change `tactile.css :root` + tokens only.
+- `--font-display` only for headings/numbers (`.tk-display`, `.tk-num`); buttons and form controls keep the page font (Font audit gate).
+- Characters: in the APP one set only (2D green-screen, owner 28/10) via `App.teacherImg(w)` in `ux1.js`; 3D stays for social/embed videos.
 
 ## 1. Icons: ONE family, Lucide (ISC)
 - Licence: ISC, © Lucide Contributors; parts © Cole Bemis (Feather, MIT). Credited on `/credits` (`content/legal/{en,vi}/credits.html`).
