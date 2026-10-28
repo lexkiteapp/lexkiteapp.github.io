@@ -125,6 +125,7 @@
     if (window.Sync && Sync.chrome) Sync.chrome(); else $('#avatarBtn').innerHTML = avatarInner(); // nút tài khoản đầu trang + thẻ thanh bên (sync.js)
     if (window.VBNative && VBNative.widget) VBNative.widget(state, st); // widget màn hình chính/khóa (chỉ app gốc)
     if (App.retTrack) App.retTrack(st); // đo D7 nhóm bật/đối chứng của cờ ret (1–2 lượt ghi/máy, cả đời)
+    if (App.ux1Track) App.ux1Track(st); // đo D1/D7 nhóm bật/đối chứng của cờ ux1 (≤ 3 lượt ghi/máy, cả đời)
   }
   const avatarInner = () => state.user && state.user.photoURL ? `<img src="${esc(state.user.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((state.user && (state.user.displayName || state.user.email) || 'L')[0].toUpperCase());
   const avatarHtml = () => `<span class="avatar">${avatarInner()}</span>`;
@@ -488,7 +489,16 @@
   const notesFile = w => { const c = /^[a-z]/.test(w) ? w[0] : '_'; return notesCache[c] || (notesCache[c] = fetch(`js/notes/${c}.json`).then(r => r.ok ? r.json() : {}).catch(() => { delete notesCache[c]; return {}; })); };
   // 🧩 Bài học trộn (cờ lesson_mix: config công khai true/false; thử: localStorage lk.lesson=1; demo #/lesson?demo=1 luôn mở – docs/LESSON-ENGINE.md)
   // 🧭 UX1 "Một app duy nhất" (cờ ux1, mặc định TẮT – docs/LEARNING-PATH.md): 5 tab, trang chủ = bản đồ, Luyện gom mọi tính năng. Thử: localStorage lk.ux1=1 · xem trước 1 phiên: #/home?ux1=1
-  App.ux1On = () => { try { if (/[?&]ux1=1\b/.test(location.search + location.hash)) sessionStorage.setItem('lk.ux1.pv', '1'); if (sessionStorage.getItem('lk.ux1.pv') === '1') return true; const f = localStorage.getItem('lk.ux1'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.ux1; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
+  // Bật dần (như ret, docs/LEARNING-PATH.md §Phát hành): config ux1 '0' tắt khẩn / '1' bật hết > ux1_pct: nhóm lk.ub (0–99 ngẫu nhiên, cố định theo máy, tách lk.rb của ret) < ux1_pct (trống/0 = tắt). Chốt 1 lần/lượt tải trang → không đổi giao diện giữa chừng
+  // Đo D1/D7: App.ux1Arm() 'on' | 'off' (đối chứng cùng cỡ: lk.ub ∈ [50, 50+pct)) | '' → ux1Track gửi 1 lần/máy seen, d1 (chuỗi ≥ 2), d7 (chuỗi ≥ 7) → ext_events 'ux1:ux1_<arm>_<ev>' (functions/api/hit.js UX1_EV)
+  const ux1Cfg = () => { try { return JSON.parse(localStorage.getItem('lk.cfg') || '{}').v || {}; } catch (e) { return {}; } };
+  const ux1B = () => { try { let b = localStorage.getItem('lk.ub'); if (b == null || isNaN(+b) || +b < 0 || +b > 99) { b = String(Math.floor(Math.random() * 100)); localStorage.setItem('lk.ub', b); } return +b; } catch (e) { return 99; } };
+  const ux1All = v => v === true || v === '1' || v === 'true', ux1Off = v => v === false || v === '0' || v === 'false';
+  App.ux1Arm = () => { const c = ux1Cfg(), p = +c.ux1_pct; if (ux1All(c.ux1) || ux1Off(c.ux1) || !(p > 0 && p <= 50)) return ''; const b = ux1B(); return b < p ? 'on' : b >= 50 && b < 50 + p ? 'off' : ''; };
+  let ux1R = null; // kết quả cờ từ config, chốt theo lượt tải trang
+  const ux1Remote = () => { if (ux1R == null) { const c = ux1Cfg(), p = +c.ux1_pct; ux1R = ux1Off(c.ux1) ? false : ux1All(c.ux1) ? true : p > 0 && ux1B() < p; } return ux1R; };
+  App.ux1On = () => { try { if (/[?&]ux1=1\b/.test(location.search + location.hash)) sessionStorage.setItem('lk.ux1.pv', '1'); if (sessionStorage.getItem('lk.ux1.pv') === '1') return true; const f = localStorage.getItem('lk.ux1'); if (f === '1' || f === '0') return f === '1'; return ux1Remote(); } catch (e) { return false; } };
+  App.ux1Track = st => { try { const a = App.ux1Arm(); if (!a || localStorage.getItem('lk.noTrack') === '1') return; const go = (k, ev) => { if (localStorage.getItem(k)) return; localStorage.setItem(k, '1'); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', d = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, d) : fetch(u, { method: 'POST', body: d, keepalive: true }).catch(() => {}); }; go('lk.ux', 'ux1_' + a + '_seen'); if (st >= 2) go('lk.ud1', 'ux1_' + a + '_d1'); if (st >= 7) go('lk.ud7', 'ux1_' + a + '_d7'); } catch (e) { /* bỏ qua */ } };
   App.updateChrome = () => updateChrome();
   App.lessonOn = () => { if (App.ux1On()) return true; try { const f = localStorage.getItem('lk.lesson'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lesson_mix; return v === true || v === '1' || v === 'true'; } catch (e) { return false; } };
   // 🖼️ Ảnh minh họa theo nghĩa (cờ vocab_img: true/false ghi đè, chưa đặt = TỰ ĐỘNG bật khi chỉ mục có ≥ 150 ảnh đã chấm; thử: localStorage lk.vimg=1 – docs/LEXICON.md § Ảnh minh họa). Tắt → không tải gì, không hộp.
