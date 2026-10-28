@@ -18,7 +18,7 @@ const CHAR = /\/(teach\/|img\/teach\/|img\/call\/|cine\/teachers|teachers3d|char
 // màn có giáo viên: bản đồ ux1 (giáo viên cạnh nút kế tiếp), bài học (Ama/Carlos đọc lời nhắc), truyện 2 người, chuỗi/ăn mừng, gọi, trang chủ
 const ROUTES = [['home', ''], ['train', 'train'], ['lesson', 'lesson/go'], ['story', 'lesson/go?story=1'], ['streak', 'streak'], ['call', 'call']];
 const browser = await chromium.launch(), rows = [], errs = [];
-for (const [w, scheme] of [[390, 'light'], [1366, 'dark']]) {
+for (const [w, scheme] of [[390, 'light'], [390, 'dark'], [1366, 'dark']]) {
   const ctx = await browser.newContext({ viewport: { width: w, height: w < 768 ? 844 : 900 }, deviceScaleFactor: w < 768 ? 2 : 1, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.ret', '1'); localStorage.setItem('lk.lesson_mix', '1'); } catch (e) { /* */ } });
   if (!LIVE) await serve(ctx, ROOT);
@@ -37,6 +37,27 @@ for (const [w, scheme] of [[390, 'light'], [1366, 'dark']]) {
     const onScreen = await page.evaluate(() => [...document.querySelectorAll('img,video,canvas.tch-cv')].filter(e => { const b = e.getBoundingClientRect(); return b.width > 8 && b.height > 8 && b.bottom > 0 && b.top < innerHeight; })
       .map(e => ({ tag: e.tagName, src: e.currentSrc || e.src || '', cls: e.className || '' }))).catch(() => []);
     await page.screenshot({ path: `${OUT}/${tag}.png` });
+    // 🌗 nền tối: tương phản dáng người – nền ≥ 3:1 ở viền (pixel khác nền rõ, sát mép ngoài), đo trên ảnh có/không giáo viên
+    if (scheme === 'dark') for (const sel of ['.tch', '.ux1-tch', '.ret-teach']) {
+      const el = await page.$(sel); if (!el || !(await el.isVisible())) continue;
+      const bb = await el.boundingBox(); if (!bb || bb.width < 20) continue;
+      const clip = { x: Math.max(0, bb.x - 24), y: Math.max(0, bb.y - 24), width: bb.width + 48, height: bb.height + 48 };
+      const on = (await page.screenshot({ clip })).toString('base64');
+      await el.evaluate(e => { e.dataset.v = e.style.visibility; e.style.visibility = 'hidden'; });
+      const off = (await page.screenshot({ clip })).toString('base64');
+      await el.evaluate(e => { e.style.visibility = e.dataset.v || ''; });
+      const c = await page.evaluate(async ([a, b]) => {
+        const px = async s => { const i = new Image(); i.src = 'data:image/png;base64,' + s; await i.decode(); const cv = document.createElement('canvas'); cv.width = i.width; cv.height = i.height; const x = cv.getContext('2d'); x.drawImage(i, 0, 0); return x.getImageData(0, 0, i.width, i.height); };
+        const A = await px(a), B = await px(b), W = A.width, H = A.height, L = (d, k) => { const f = v => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(d[k]) + 0.7152 * f(d[k + 1]) + 0.0722 * f(d[k + 2]); };
+        const S = new Uint8Array(W * H); for (let i = 0; i < W * H; i++) { const k = i * 4; S[i] = Math.abs(A.data[k] - B.data[k]) + Math.abs(A.data[k + 1] - B.data[k + 1]) + Math.abs(A.data[k + 2] - B.data[k + 2]) > 30 ? 1 : 0; }
+        const fg = [], bg = [];
+        for (let y = 2; y < H - 2; y++) for (let x = 2; x < W - 2; x++) { const i = y * W + x; if (!S[i]) continue; if (!S[i - 2] || !S[i + 2] || !S[i - 2 * W] || !S[i + 2 * W]) { fg.push(L(A.data, i * 4)); bg.push(L(B.data, i * 4)); } }
+        if (fg.length < 40) return null; const med = v => v.sort((p, q) => p - q)[v.length >> 1]; const f = med(fg), g2 = med(bg);
+        return { ratio: (Math.max(f, g2) + 0.05) / (Math.min(f, g2) + 0.05), edge: fg.length };
+      }, [on, off]);
+      if (!c) errs.push(`${tag} ${sel}: giáo viên gần như không thấy trên nền tối (viền khác nền < 40 px)`);
+      else { rows.push({ screen: tag, url: `${sel} tương phản viền ${c.ratio.toFixed(2)}:1`, registry: 'contrast', ok: c.ratio >= 3 }); if (c.ratio < 3) errs.push(`${tag} ${sel}: tương phản viền dáng người ${c.ratio.toFixed(2)}:1 < 3:1 trên nền tối`); }
+    }
     for (const g of got) {
       const reg = g.sha && OK.get(g.sha);
       if (g.status >= 400) continue;   // 404 = không có tài sản → app ẩn/poster, không phải nhân vật lạ
