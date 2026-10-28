@@ -1,0 +1,92 @@
+// 🎨 Stitch → CSS: biên dịch class Tailwind của mẫu Google Stitch (web/js/st/*.js) thành CSS nhỏ theo nhóm màn, nạp lười (BCSS).
+// Nguồn token: brand/stitch/tokens.dtcg.json (W3C DTCG; $value = tối A, $extensions.com.lexkite.mode.light = sáng B).
+// Màu → biến CSS dạng "R G B" để 1 DOM chạy cả sáng/tối và giữ được /opacity của Tailwind. Không CDN, không preflight (không đụng phần còn lại của app).
+// Dùng:  node scripts/build-stitch-css.mjs            → ghi web/css/st-<nhóm>.css, in kích thước gz (≤ 10 KB/nhóm)
+//        node scripts/build-stitch-css.mjs --check    → CI: biên dịch lại, ĐỎ nếu khác bản đã commit (trôi) hoặc vượt ngân sách
+//        node scripts/build-stitch-css.mjs --fonts    → tải lại font tự host (Plus Jakarta Sans latin/latin-ext/vietnamese + Material Symbols subset)
+// Cần tailwindcss@3.4.17 (CI: npm i --no-save). TAILWIND_BIN=… để chỉ đường khác. docs/DESIGN-SYSTEM.md §Stitch.
+import fs from 'node:fs'; import path from 'node:path'; import os from 'node:os'; import zlib from 'node:zlib'; import { execFileSync } from 'node:child_process';
+import { createRequire } from 'node:module';
+
+const ROOT = process.cwd(), A = new Set(process.argv.slice(2)), BUDGET = 10 * 1024;
+const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8'));
+// Nhóm màn = 1 file CSS. common.js (đầu trang, thanh tab, nút) góp vào mọi nhóm.
+const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['web/js/st/common.js', 'web/js/st/lesson.js'], goal: ['web/js/st/common.js', 'web/js/st/goal.js'] };
+const OUT = g => `web/css/st-${g}.css`;
+
+const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
+const C = Object.entries(TOK.color);
+const vars = mode => C.map(([k, v]) => `--st-${k}:${rgb(mode === 'light' ? v.$extensions['com.lexkite.mode'].light : v.$value)}`).join(';');
+const LIGHT = vars('light') + ';--st-hl:.7', DARK = vars('dark') + ';--st-hl:0'; // --st-hl: độ đậm viền mảnh (chỉ bản sáng B có viền)
+
+// ---- tiền tố CSS viết tay (không qua Tailwind): biến màu sáng/tối theo đúng cơ chế style.css, font tự host, icon, khung màn ----
+const UR = { latin: 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
+  'latin-ext': 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
+  vietnamese: 'U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB' };
+const PRE = [
+  `:root{${LIGHT}}@media (prefers-color-scheme:dark){:root:not([data-theme=light]){${DARK}}}:root[data-theme=dark]{${DARK}}`,
+  ...Object.entries(UR).map(([s, r]) => `@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400 800;font-display:swap;src:url(../fonts/pjs-${s}.woff2) format("woff2");unicode-range:${r}}`),
+  // Font dự phòng khớp số đo (capsize: size-adjust 104.98 %, ascent 98.88 %, descent 21.15 %) → không CLS khi font web tới
+  '@font-face{font-family:"Plus Jakarta Sans Fallback";src:local("Arial"),local("ArialMT"),local("Liberation Sans"),local("Helvetica"),local("Roboto");size-adjust:104.98%;ascent-override:98.88%;descent-override:21.15%;line-gap-override:0%}',
+  '@font-face{font-family:"Material Symbols Outlined";font-style:normal;font-weight:400 700;font-display:block;src:url(../fonts/msym.woff2) format("woff2")}',
+  '.material-symbols-outlined{font-family:"Material Symbols Outlined";font-weight:400;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";font-feature-settings:"liga";-webkit-font-smoothing:antialiased;width:1em;height:1em;overflow:hidden;flex-shrink:0;font-variation-settings:"FILL" 0}',
+  '.material-symbols-outlined.fill{font-variation-settings:"FILL" 1}[dir=rtl] .st .ms-flip{transform:scaleX(-1)}',
+  // Màn Stitch chiếm trọn #view (bỏ đệm/khung của app cũ); chuyển động: chỉ mờ dần 180 ms, tôn trọng giảm chuyển động
+  'body.st #view{padding:0;max-width:none;background:rgb(var(--st-surface))}.st{font-family:"Plus Jakarta Sans","Plus Jakarta Sans Fallback",system-ui,sans-serif;-webkit-tap-highlight-color:transparent}.st .grid{gap:0}.st button,.st a{font-family:inherit;-webkit-tap-highlight-color:transparent}.st :focus-visible{outline:3px solid rgb(var(--st-secondary));outline-offset:2px}',
+  // Vỏ app theo Stitch khi bật ux1: đầu trang (nền mờ + viên thuốc 44 px) và thanh tab dưới (lớp Tailwind đặt trên #bnav, ở đây chỉ gỡ kiểu cũ đè lên)
+  'body.ux1 .topbar{background:rgb(var(--st-surface-container-low)/.85);border-bottom:1px solid rgb(var(--st-outline-variant)/var(--st-hl));font-family:"Plus Jakarta Sans","Plus Jakarta Sans Fallback",system-ui,sans-serif}body.ux1 .topbar .pill,body.ux1 .topbar .icon-btn,body.ux1 .topbar .lsw-b,body.ux1 .gsearch input{background:rgb(var(--st-surface-container));border:1px solid rgb(var(--st-outline-variant)/var(--st-hl));border-radius:9999px;min-height:44px}body.ux1 .topbar .pill{font-size:12px;line-height:16px;font-weight:800;letter-spacing:.06em;padding:.375rem .625rem}body.ux1 #examChip{color:rgb(var(--st-secondary));text-transform:uppercase}body.ux1 .topbar .pill.fire{color:rgb(var(--st-tertiary))}body.ux1 .topbar .pill.xp{color:rgb(var(--st-secondary))}',
+  '.bottom-nav.st-nav{border-top-color:transparent;padding:0;align-items:stretch}.bottom-nav.st-nav a.st-tab{flex:1;font-size:12px;color:rgb(var(--st-on-surface-variant))}.bottom-nav.st-nav a.st-tab.active{color:rgb(var(--st-secondary))}.bottom-nav.st-nav a.st-tab span{font-size:12px;line-height:16px}.bottom-nav.st-nav a.st-tab .material-symbols-outlined{font-size:22px;line-height:1}.bottom-nav.st-nav a.st-tab.active .st-tabi{background:rgb(var(--st-surface-container-highest)/.6)}:root:not([data-theme=dark]) .bottom-nav.st-nav a.st-tab.active .st-tabi{background:rgb(var(--st-secondary-container)/.15)}@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .bottom-nav.st-nav a.st-tab.active .st-tabi{background:rgb(var(--st-surface-container-highest)/.6)}}',
+  '.st-fade{animation:st-fade .18s cubic-bezier(.2,0,0,1) both}@keyframes st-fade{from{opacity:0}to{opacity:1}}.st-rise{animation:st-rise .2s cubic-bezier(.2,0,0,1) both}@keyframes st-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media (prefers-reduced-motion:reduce){.st-fade,.st-rise{animation:none}.st *{transition:none!important}}',
+].join('\n');
+
+function config(content) {
+  const colors = Object.fromEntries(C.map(([k]) => [k, `rgb(var(--st-${k}) / <alpha-value>)`]));
+  const fontSize = Object.fromEntries(Object.entries(TOK.typography).map(([k, { $value: v }]) => [k, [v.fontSize, { lineHeight: v.lineHeight, letterSpacing: v.letterSpacing, fontWeight: String(v.fontWeight) }]]));
+  const fam = TOK.font.family.sans.$value, fontFamily = Object.fromEntries(Object.keys(TOK.typography).map(k => [k, fam]));
+  const dim = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, v.$value]));
+  const sh = TOK.shadow['card-soft'].$value.map(s => `${s.offsetX} ${s.offsetY} ${s.blur} ${s.spread} ${hexA(s.color)}`).join(', ');
+  return `const plugin = require(${JSON.stringify(path.join(twDir(), 'plugin'))});
+module.exports = { content: ${JSON.stringify(content.map(f => path.join(ROOT, f)))}, corePlugins: { preflight: false },
+  theme: { extend: { colors: ${JSON.stringify(colors)}, borderRadius: ${JSON.stringify(dim(TOK.radius))}, spacing: ${JSON.stringify(dim(TOK.spacing))},
+    fontFamily: ${JSON.stringify(fontFamily)}, fontSize: ${JSON.stringify(fontSize)}, boxShadow: { 'card-soft': ${JSON.stringify(sh)} } } },
+  plugins: [plugin(({ addVariant }) => { addVariant('lt', ['@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) & }', ':root[data-theme=light] &']); addVariant('dk', ['@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) & }', ':root[data-theme=dark] &']); addVariant('rtl', '[dir=rtl] &'); })] };`;
+}
+function hexA(h) { const a = h.length > 7 ? (parseInt(h.slice(7, 9), 16) / 255).toFixed(2) : 1; return `rgba(${rgb(h).replace(/ /g, ',')},${a})`; }
+function twDir() { if (process.env.TAILWIND_DIR) return process.env.TAILWIND_DIR; return path.dirname(createRequire(path.join(ROOT, 'package.json')).resolve('tailwindcss/package.json')); }
+
+function build(g) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
+  fs.writeFileSync(cfg, config(GROUPS[g])); fs.writeFileSync(inp, '@tailwind utilities;\n');
+  execFileSync(process.execPath, [path.join(twDir(), 'lib/cli.js'), '-c', cfg, '-i', inp, '-o', out, '--minify'], { stdio: ['ignore', 'ignore', 'pipe'] });
+  return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n`;
+}
+
+// ---- font tự host (chạy khi đổi danh sách icon): Google Fonts CSS2 API, UA Chrome để nhận WOFF2 ----
+async function fonts() {
+  const UA = { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36' };
+  const get = async u => { const r = await fetch(u, { headers: UA }); if (!r.ok) throw new Error(`${r.status} ${u}`); return r; };
+  fs.mkdirSync('web/fonts', { recursive: true });
+  const css = await (await get('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&display=swap')).text();
+  for (const s of Object.keys(UR)) { const m = css.match(new RegExp(`/\\* ${s} \\*/[^}]*?url\\((https:[^)]+\\.woff2)\\)`)); if (!m) throw new Error('thiếu subset ' + s); fs.writeFileSync(`web/fonts/pjs-${s}.woff2`, Buffer.from(await (await get(m[1])).arrayBuffer())); }
+  const names = icons(), mcss = await (await get(`https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400..700,0..1,0&icon_names=${names.join(',')}&display=block`)).text();
+  const mu = mcss.match(/url\((https:[^)]+)\)/); if (!mu) throw new Error('Material Symbols: không có url');
+  fs.writeFileSync('web/fonts/msym.woff2', Buffer.from(await (await get(mu[1])).arrayBuffer()));
+  fs.writeFileSync('web/fonts/msym.json', JSON.stringify(names) + '\n');
+  console.log('font:', fs.readdirSync('web/fonts').map(f => `${f} ${(fs.statSync('web/fonts/' + f).size / 1024).toFixed(1)} KB`).join(' · '));
+}
+// Tên icon dùng trong mẫu: ms('tên') hoặc chú thích "@icons a b c" (icon chọn theo dữ liệu)
+function icons() { const s = new Set(); for (const f of new Set(Object.values(GROUPS).flat())) { const t = fs.readFileSync(f, 'utf8'); for (const m of t.matchAll(/\bms\(\s*'([a-z_0-9]+)'/g)) s.add(m[1]); for (const m of t.matchAll(/@icons ([a-z_0-9 ]+)/g)) m[1].trim().split(/\s+/).forEach(x => s.add(x)); } return [...s].sort(); }
+
+if (A.has('--fonts')) await fonts();
+const bad = [];
+const used = icons(), have = fs.existsSync('web/fonts/msym.json') ? JSON.parse(fs.readFileSync('web/fonts/msym.json', 'utf8')) : [];
+const lack = used.filter(n => !have.includes(n)); if (lack.length) bad.push(`icon chưa có trong web/fonts/msym.woff2: ${lack.join(', ')} → chạy --fonts`);
+for (const g of Object.keys(GROUPS)) {
+  const css = build(g), gz = zlib.gzipSync(css, { level: 9 }).length;
+  console.log(`st-${g}.css: ${(css.length / 1024).toFixed(1)} KB · gz ${(gz / 1024).toFixed(2)} KB (ngân sách 10 KB)`);
+  if (gz > BUDGET) bad.push(`st-${g}.css gz ${gz} B > ${BUDGET} B`);
+  if (A.has('--check')) { if (!fs.existsSync(OUT(g)) || fs.readFileSync(OUT(g), 'utf8') !== css) bad.push(`${OUT(g)} lệch bản biên dịch (sửa web/js/st/* hoặc token mà chưa chạy node scripts/build-stitch-css.mjs)`); }
+  else fs.writeFileSync(OUT(g), css);
+}
+if (bad.length) { console.error('✗ stitch-css:\n  - ' + bad.join('\n  - ')); process.exit(1); }
+console.log('✓ stitch-css');

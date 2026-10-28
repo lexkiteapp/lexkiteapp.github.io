@@ -3,7 +3,7 @@
 name: Stitch diff
 on:
   pull_request:
-    paths: ['web/**', 'brand/stitch/**', 'scripts/test/stitch-diff.*', '.github/workflows/stitch-diff.yml']
+    paths: ['web/**', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-diff.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,9 +16,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: So với mẫu Stitch
+      - name: CSS Stitch khớp mẫu (Tailwind biên dịch sẵn, ≤ 10 KB gz/nhóm)
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
+          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0
+          node scripts/build-stitch-css.mjs --check
+      - name: So với mẫu Stitch
+        if: always()
+        run: |
           npx playwright install --with-deps chromium >/dev/null
           sudo apt-get install -y -qq imagemagick fonts-noto-core fonts-noto-color-emoji >/dev/null || true
           node scripts/test/stitch-diff.mjs web out/stitch-diff
