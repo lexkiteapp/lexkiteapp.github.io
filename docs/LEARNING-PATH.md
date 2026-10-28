@@ -49,3 +49,8 @@ INDEX: §1 Tâm lý → luật · §2 Cấu trúc lộ trình · §3 Đa dạng 
 - Gắn câu thi thật vào nút, kèm dự đoán điểm.
 - Thêm video vào nút.
 - Tách nghĩa từ chủ đề theo 13 ngôn ngữ (hiện dùng `App.meanOf`).
+
+## 6. Phát hành (bật dần)
+`App.ux1On()`: `?ux1=1` (1 phiên) > `lk.ux1` (máy này) > config `ux1` (`'0'` tắt khẩn, `'1'` bật hết) > `ux1_pct` (nhóm `lk.ub` 0–99 cố định theo máy, tách `lk.rb` của ret; `< ux1_pct` bật; 0/trống = tắt). Chốt theo lượt tải trang.
+Đặt: bảng `config` D1 lexkite-sync (Quản trị CONFIG_KEYS) – không cần deploy, hiệu lực ≤ 5 phút biên + ≤ 1 giờ đệm máy khách.
+Đo: nhóm bật `lk.ub < pct`, đối chứng `50 ≤ lk.ub < 50+pct` → `ext_events` kind `ux1:ux1_<on|off>_<seen|d1|d7>` (D1 = d1/seen, D7 = d7/seen, theo chuỗi ≥ 2 / ≥ 7). Tăng `ux1_pct` (≤ 50 còn đối chứng) sau ≥ 14 ngày nếu D1/D7 nhóm bật ≥ đối chứng và lỗi không tăng. Test: `scripts/test/ux1-rollout.mjs`.

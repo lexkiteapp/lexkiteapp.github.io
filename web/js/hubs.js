@@ -305,7 +305,10 @@ ${window.Sync && Sync.renderBox ? `<section class="card me-acct" id="meAcct" ari
     const k = a.dataset.l, vi = I18N.lang() === 'vi', u = k === 'privacy' || k === 'terms' ? App.legalUrl(k) : (sameSite ? '' : 'https://lexkite.com') + (k === 'about' ? (vi ? '/' : '/' + I18N.lang() + '/') + '?home=1' : k === 'vocab' ? (vi ? '/tu-vung/' : '/en/vocabulary/') : (vi ? '/samples/' : '/en/samples/')); // about: trang giới thiệu đúng ngôn ngữ, ?home=1 = không tự quay lại app
     if (sameSite) { a.href = u; return; } e.preventDefault(); window.open(u, '_blank', 'noopener');
   });
-  App.blogLive().then(on => document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; a.href = App.blogHref(on); }));
+  // Link Blog (menu + chân thanh bên) trỏ THẲNG /<lang>/blog/ ngay khi vẽ (theo bộ nhớ đệm blogLive) – không qua trang chuyển /blog/ → /blog-lang
+  const blogLinks = on => document.querySelectorAll('#nav a[data-blog], .side-foot a[data-blog]').forEach(a => { a.href = App.blogHref(on); });
+  try { const c = JSON.parse(localStorage.getItem('vb.blog.' + I18N.lang()) || 'null'); blogLinks(!!(c && c.on)); } catch (e) { blogLinks(false); }
+  App.blogLive().then(on => { blogLinks(on); document.querySelectorAll('#nav a[data-blog]').forEach(a => { a.hidden = false; }); });
 
   // ---------- Bản đồ điều hướng: trang → [mục chính, mục con] (đánh dấu menu, đường dẫn "Kỹ năng › Nghe") ----------
   const SKILL_OF = { listening: 'listening', listen: 'listening', dictation: 'listening', reading: 'reading', read: 'reading', rtype: 'reading', cbt: 'reading', 'toeic-r': 'reading', write: 'writing', task1: 'writing', letters: 'writing', ideas: 'writing', model: 'writing', models: 'writing', speaking: 'speaking', roleplay: 'speaking', call: 'speaking', fix: 'writing' };

@@ -19,6 +19,7 @@ import { adRows, guardOf } from './_ads.js';
 import { purgeConfig } from './config.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
+const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a}_${e}`)); // thử nghiệm cờ ux1 (web/js/app.js ux1Track) → kind 'ux1:<ev>' (D1 = d1/seen, D7 = d7/seen)
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge',
   ...['head', 'foot', 'menu', 'me', 'top'].flatMap(p => ['cws', 'play', 'ios', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
@@ -186,7 +187,7 @@ export async function onRequestPost({ request, env }) {
       await env.DB.batch(batch);
       // Lưu giữ: ~1/500 lượt ghi phiên dọn số liệu quá 400 ngày (Quản trị xem tối đa 365 ngày) – chính sách riêng tư "chỉ giữ khi cần"
       if (Math.random() < 0.002) await env.DB.batch([env.DB.prepare('DELETE FROM sessions WHERE day < ?').bind(dayOf(now - 400 * DAY)), /* theo chỉ mục sessions_day – at không có chỉ mục → quét cả bảng (docs/CAPACITY.md) */ env.DB.prepare('DELETE FROM pageviews_day WHERE day < ?').bind(dayOf(now - 400 * DAY))]);
-    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev))) {
+    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev) || UX1_EV.includes(b.ev))) {
       if (await limit('hq:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 60, 3600)) return ok();
       const today = dayOf(now);
       if (SMART_CTA_EV.includes(b.ev)) {
@@ -197,7 +198,7 @@ export async function onRequestPost({ request, env }) {
         if (page) batch.push(env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, `cta:${b.ev}:page:${page}`));
         await env.DB.batch(batch);
       } else {
-        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, (CTA_EV.includes(b.ev) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : 'blog:') + b.ev).run();
+        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, (CTA_EV.includes(b.ev) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : UX1_EV.includes(b.ev) ? 'ux1:' : 'blog:') + b.ev).run();
       }
     } else if (b.t === 'v' && VID_EV.includes(b.ev) && /^[a-z0-9_]{6,80}$/.test(b.id || '')) {
       // 🎬 Video bài học trên web (web/js/lesson-video.js): lượt xem / xem hết / câu đố đúng-sai theo clip → kind 'vid:<ev>:<id>' (Quản trị → Thư viện video → Web)
