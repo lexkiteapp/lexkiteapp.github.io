@@ -1,6 +1,6 @@
 // 🔍 new-ui-qa: soát hình TỪNG MÀN MỚI (bài học trộn #155/#160 · giữ thói quen #154/#157 · giáo viên #151 · mặt tiền video YouTube) – docs/NEW-UI-QA.md
 // Mỗi màn × trạng thái × khung (360×800, 390×844, 768×1024, 1280×800) × sáng/tối × ngôn ngữ: chụp ảnh + đầu dò trong trang:
-//   FAIL: tràn ngang · chữ bị cắt · lớp nổi đè nút / đè giáo viên · nút < 44 px · tương phản < WCAG AA (axe) · ảnh hỏng · chữ Việt rò ở ngôn ngữ khác
+//   FAIL: tràn ngang · chữ bị cắt · lớp nổi đè nút / đè giáo viên · nút < 44 px (khung cảm ứng 360/390/768, CSS pointer:coarse thật) · tương phản < WCAG AA (axe) · ảnh hỏng · chữ Việt rò ở ngôn ngữ khác
 //         · nhân vật lạ (chỉ Ama/Carlos 3D bank v2: không Kit/Mia/mascot khác, không emoji mặt người/con vật) · CLS > 0 khi chuyển bước bằng thao tác thật · ar không RTL
 //   WARN: khung hình > 50 ms khi chuyển bước (runner không GPU → chỉ cảnh báo)
 // Cờ tính năng CHỈ bật trong trình duyệt thử (localStorage lk.lesson=1, ?ret=1, ?demo=1) – không đổi cấu hình người dùng. Hermetic: /api/* giả, host ngoài = rỗng.
@@ -43,14 +43,17 @@ const PROBE = () => {
   // Nhân vật lạ: emoji mặt người/người/con vật/mascot (ký hiệu đồ vật 🔥🧊🎁🎉 thì được)
   const FACE = /[\u{1F600}-\u{1F64F}\u{1F466}-\u{1F478}\u{1F47C}\u{1F481}-\u{1F487}\u{1F574}-\u{1F575}\u{1F57A}\u{1F645}-\u{1F64F}\u{1F6B6}\u{1F9D1}-\u{1F9DF}\u{1F42D}-\u{1F43E}\u{1F98A}\u{1F989}\u{1F99C}\u{1F916}\u{1F47E}\u{1F920}-\u{1F92F}\u{1F970}-\u{1F97A}]/u;
   const ALLOWED_IMG = /\/teach\/(ama|carlos)\/|\/img\/teach\/(ama|carlos)\.|teachers3d\/|teacher-(call|pilot)\/(clips|assets)\/(ama|carlos)_|ext-lookup-480\.webp|^data:image\/gif|^blob:/;
+  // Máy cảm ứng thật khớp @media (pointer: coarse) → vùng chạm --tap 2.8rem; Chromium giả lập hasTouch KHÔNG đổi media "pointer" → tự bật các khối coarse/hover:none
+  const touchify = () => { for (const ss of D.styleSheets) { let rules; try { rules = ss.cssRules; } catch (e) { continue; } for (const r of rules) if (r.media && r.conditionText !== undefined) { const c = r.conditionText; if (/pointer:\s*coarse|hover:\s*none/.test(c) && !/pointer:\s*fine|hover:\s*hover/.test(c)) r.media.mediaText = 'all'; else if (/pointer:\s*fine|hover:\s*hover/.test(c) && !/coarse|none/.test(c)) r.media.mediaText = 'not all'; } } };
   return (o) => {
+    if (o.touch) touchify();
     const fail = [], warn = [], add = (a, m) => a.push(m);
     const R = roots();
     // nút/vùng chạm < 44 px (WCAG 2.5.5 AAA mức 44 – yêu cầu của chủ): mọi thứ bấm được trong vùng màn mới
     for (const root of R) for (const e of root.querySelectorAll('button, a[href], [role="button"], input, select, textarea, summary')) {
       if (e.disabled && !e.matches('.lsn-opt,.lsn-tile')) continue; const r = vis(e); if (!r || !inVp(r)) continue;
       if (e.matches('a') && getComputedStyle(e).display === 'inline' && e.closest('p,li')) continue; // liên kết trong câu chữ: WCAG loại trừ
-      if (r.width < 43.5 || r.height < 43.5) add(fail, `tap ${sel(e)} «${txt(e)}» ${Math.round(r.width)}×${Math.round(r.height)}`);
+      if (o.touch && (r.width < 43.5 || r.height < 43.5)) add(fail, `tap ${sel(e)} «${txt(e)}» ${Math.round(r.width)}×${Math.round(r.height)}`);
     }
     // giáo viên / nút bị lớp cố định đè (chân bài học, thanh dưới…)
     const fixed = [...D.querySelectorAll('body *')].filter(e => getComputedStyle(e).position === 'fixed' && vis(e) && getComputedStyle(e).pointerEvents !== 'none');
@@ -128,8 +131,9 @@ async function combo(lang, vpk, scheme) {
     async shot(state) {
       await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {}); await sleep(250);
       const dir = `${OUT}/shots/${state}`; fs.mkdirSync(dir, { recursive: true });
-      await page.screenshot({ path: `${dir}/${tag}.png` }); report.shots++;
-      const p = await page.evaluate(lang => window.__NUQ({ lang }), lang).catch(e => ({ fail: ['đầu dò lỗi: ' + e.message.slice(0, 100)], warn: [], texts: [] }));
+      const p = await page.evaluate(o => window.__NUQ(o), { lang, touch: !!vp.m }).catch(e => ({ fail: ['đầu dò lỗi: ' + e.message.slice(0, 100)], warn: [], texts: [] }));
+      await sleep(120); await page.screenshot( // sau đầu dò: khối CSS cảm ứng đã bật
+        { path: `${dir}/${tag}.png` }); report.shots++;
       const v = await page.evaluate(s => window.LKJC ? LKJC.visual(s) : { fail: [], warn: [] }, state).catch(() => ({ fail: [], warn: [] }));
       if (!(await page.evaluate(() => !!window.axe))) await page.addScriptTag({ content: AXE });
       const ax = await page.evaluate(async () => { const inc = ['#modal:not([hidden]) #modalBox', '#view', '#lsnFoot', '.lv-slot'].filter(s => document.querySelector(s)); const r = await axe.run(inc.length ? { include: inc.map(s => [s]) } : document, { runOnly: ['color-contrast'], resultTypes: ['violations'] }); return r.violations.flatMap(x => x.nodes.map(n => `${n.target.join(' ')} ${(n.any[0] && n.any[0].data && n.any[0].data.contrastRatio) || '?'}:1 «${String(n.html).replace(/<[^>]+>/g, '').trim().slice(0, 30)}»`)); }).catch(e => ['axe lỗi ' + e.message.slice(0, 80)]);
