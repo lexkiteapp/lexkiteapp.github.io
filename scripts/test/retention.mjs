@@ -77,7 +77,7 @@ state.game.ret = { ...(state.game.ret || {}), ms: { 3: 1 } };
 win.App.todayPlan = async () => [{ href: '#/review', done: true }, { href: '#/lesson/1', done: false }];
 await R.check(); await tick(1000);
 ok(modalEl && /7 ngày! 🔥/.test(modalEl.innerHTML), 'màn chúc mừng mốc 7');
-ok(/teach\/(ama|carlos)\/poster\.webp/.test(modalEl.innerHTML), 'màn chúc mừng có Ama/Carlos');
+ok(/img\/teach\/(ama|carlos)\.webp/.test(modalEl.innerHTML), 'màn chúc mừng có Ama/Carlos');
 ok(/🧊 \+1/.test(modalEl.innerHTML), 'báo +1 lượt đóng băng kiếm được');
 ok(modalEl.querySelectorAll('.btn.primary').length === 1 && modalEl.querySelector('#retNext'), 'đúng 1 nút chính: Bài tiếp theo');
 ok(modalEl.querySelector('.ret-say').textContent.split(/\s+/).length <= 7, 'lời giáo viên ngắn (≤ 7 chữ)');
