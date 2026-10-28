@@ -23,6 +23,8 @@ ap = argparse.ArgumentParser()
 for a in ('spec', 'plate', 'fonts', 'public', 'out'): ap.add_argument('--' + a, required=True)
 ap.add_argument('--fps', type=int, default=60)
 ap.add_argument('--format', default='short', choices=['short', 'wide', 'sq45'], help='short = 9:16 social; wide = 16:9 lesson/blog embed; sq45 = 4:5 in-lesson mobile embed (no burned captions: VTT track, no QR / follow CTA, calmer motion)')
+ap.add_argument('--host-geom', default='', help='host geometry JSON {head:[x0,y0,x1,y1], envelope:[[y,x0,x1],...]} in 1080x1920 canvas px (puppet host); default = the plate mask')
+ap.add_argument('--tag', default='PLACEHOLDER HOST', help='small label burned top-left (inside the platform UI band) while the host is the temporary footage plate; empty = none')
 ap.add_argument('--icon', default=f'{ROOT}/brand/social/logo/lexkite-app-icon.png')
 o = ap.parse_args()
 SP = json.load(open(o.spec)); T = json.load(open(o.plate + '.timeline.json')); M = SP['motion']
@@ -88,9 +90,10 @@ def mark(x0, y0, x1, y1, pad):
         a = [AX + (x0 - AX) * s, AY + (y0 - AY) * s, AX + (x1 - AX) * s, AY + (y1 - AY) * s]
         a = [*to_canvas(a[0], a[1]), *to_canvas(a[2], a[3])]
         Fb[max(0, int(a[1]) - pad):min(H, int(math.ceil(a[3])) + pad), max(0, int(a[0]) - pad):min(W, int(math.ceil(a[2])) + pad)] = True
-for c in clips:
-    for y, x0, x1 in T['host_move'][c]: mark(x0, y, x1, y + 8, 14)   # the move mask is already dilated 1 cell
-    hb = T['head'][c]; mark(hb[0], hb[1], hb[2], hb[3], 28)
+HG = json.load(open(o.host_geom)) if o.host_geom else None
+for c in ([None] if HG else clips):   # puppet: its declared envelope; placeholder plate: the measured move mask of every clip
+    for y, x0, x1 in (HG['envelope'] if HG else T['host_move'][c]): mark(x0, y, x1, y + 8, 14)   # the move mask is already dilated 1 cell
+    hb = HG['head'] if HG else T['head'][c]; mark(hb[0], hb[1], hb[2], hb[3], 28)
 cs = T.get('cap_strip'); cap_top = ((cs[1] if cs else 1328) - 26) if not EMBED else SAFE['y1']   # caption plate (short: fixed lower band; embed: captions are a VTT track)
 if o.format == 'wide': Fb[:] = False; Fb[:, PLATE['dx'] - 40:] = True   # the teacher lives in its own window: the left panel is all free
 X0, X1, Y0 = SAFE['x0'], SAFE['x1'], SAFE['y0'] + 10
@@ -414,7 +417,7 @@ if T.get('board'): T['board'] = dict(T['board'], where={p['id']: 'overlay' for p
 T['board_contrast'] = None   # no marker ink on the board: the cards are gated by overlay_contrast
 T['motion'] = dict(fps=o.fps, nodes=len(NODES), layout=dict(top=[X0, Y0, X1, Y0 + max(_measure_top(c) for c in M['top'])], top_max_y=TOP_Y1, cap_top=cap_top))
 json.dump(T, open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
-props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate='plate.mp4', plateBox=PLATE, bg='#10191B', nodes=NODES, total=TOTAL, format=o.format, safe=SAFE)
+props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate='plate.mp4', plateBox=PLATE, bg='#10191B', tag=(o.tag or None) if not o.host_geom else None, nodes=NODES, total=TOTAL, format=o.format, safe=SAFE)
 if EMBED:   # captions + chapters as WebVTT tracks (translatable, never burned in): one cue per spoken line, display forms ('blank' -> ___)
     D = SP.get('display', {}); vt = lambda x: f'{int(x // 3600):02d}:{int(x % 3600 // 60):02d}:{x % 60:06.3f}'
     cap = ['WEBVTT', '']

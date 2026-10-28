@@ -48,3 +48,8 @@ overlay_host (no card on the head box / moving-body mask, every frame) · overla
 - Gates: overlay_* on the format's own canvas/safe area, same text floors, timing / pixel sync / host / still / AV, vtt_captions, chapters, embed_no_follow_cta, file size.
 - Delivery: the existing lesson player `web/js/lesson-video.js` (lite YouTube facade, self-hosted fallback on R2 media.lexkite.com, manifest
   `/data/videos.json`, docs/VIDEO-STORAGE.md) – no new service. Upload / manifest entry only after the owner's OK.
+
+## Host layer (owner 28/10: the 2D/2.5D puppet hosts every video)
+The overlay never draws the teacher. `src/stitch/hosts.js` registry: `host.kind = 'puppet'` → the puppet component (`<Teacher {...host} t fps/>`,
+session puppet-2d-ama); geometry `content/video/puppet/<who>.json` {head, envelope rows} → `build_overlay.py --host-geom`. Until it lands the
+samples use the render_v9 footage plate as a placeholder, tagged "PLACEHOLDER HOST" (top-left, inside the platform UI band).

@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { AbsoluteFill, OffthreadVideo, Img, staticFile, useCurrentFrame, useVideoConfig, delayRender, continueRender } from 'remotion';
 import { pose, state, value, clamp01 } from './core.mjs';
+import { HOSTS } from './hosts.js';
 
 const JAK = 'LkJakarta', NOTO = 'LkNoto';
 const TONE = { gold: ['#2C2618', '#6B5A2A', '#FFC94A'], coral: ['#3A1C17', '#7A3A2E', '#FF8F75'], teal: ['#123634', '#2B6F69', '#6BD8CE'], green: ['#123A26', '#2C7A4E', '#2FBF71'] };
@@ -96,13 +97,14 @@ const Plate = ({ src, b }) => {   // the host plate (1080x1920) cropped sx/sy/sw
     <OffthreadVideo src={staticFile(src)} style={{ position: 'absolute', left: -b.sx * k, top: -b.sy * k, width: 1080 * k, height: 1920 * k, maxWidth: 'none' }} /></div>;
 };
 
-export const StitchShort = ({ nodes = [], plate, plateBox, bg = '#10191B' }) => {
+export const StitchShort = ({ nodes = [], plate, plateBox, bg = '#10191B', host = null, tag = null }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill style={{ background: bg }}>
-      {plate ? <Plate src={plate} b={plateBox} /> : null}
+      {host && host.kind !== 'plate' && HOSTS[host.kind] ? React.createElement(HOSTS[host.kind], { ...host, t, fps }) : plate ? <Plate src={plate} b={plateBox} /> : null}
+      {tag ? <div style={{ position: 'absolute', left: 24, top: 24, padding: '6px 14px', borderRadius: 999, background: 'rgba(16,25,27,.72)', color: '#FFC94A', fontFamily: JAK, fontWeight: 800, fontSize: 26, letterSpacing: '0.06em' }}>{tag}</div> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} />)}</AbsoluteFill>
     </AbsoluteFill>
   );
