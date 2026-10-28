@@ -41,6 +41,20 @@ for (const [i, l] of S.lines.entries()) {
 fs.writeFileSync(P('align-jobs.json'), JSON.stringify(lines.map(l => ({ wav: l.wav, text: l.text }))));
 const asr = JSON.parse(execFileSync(PY, [path.join(ROOT, 'scripts/video/align.py'), P('align-jobs.json'), '--model', process.env.WHISPER_MODEL || 'tiny.en'], { encoding: 'utf8', maxBuffer: 32 << 20, stdio: ['ignore', 'pipe', 'inherit'] }));
 
+// Rhubarb hay bỏ sót hình mím môi đầu từ (borrow, back, pen…): ta BIẾT chữ + mốc từ → ép đoạn khép môi A (m: từ đầu tiếng mũi; b/p: khép trước lúc bật hơi)
+// và môi-răng G cho f/v đầu từ, rồi trả lại hình đang chạy. Câu động trong app dùng fromText (đã bắt đầu bằng A/G đúng chữ).
+function closures(cues, ws) {
+  const at = (c, x) => { let v = 'X'; for (const [t0, s] of c) if (t0 <= x) v = s; else break; return v; };
+  let out = cues.slice();
+  for (const w of ws) {
+    const ch = norm(w.w)[0], [a, b, v] = ch === 'm' ? [w.start - 0.02, w.start + 0.07, 'A'] : ch === 'b' || ch === 'p' ? [w.start - 0.08, w.start + 0.01, 'A'] : ch === 'f' || ch === 'v' ? [w.start - 0.03, w.start + 0.06, 'G'] : [];
+    if (!v) continue;
+    const after = at(out, b);
+    out = out.filter(c => c[0] < a || c[0] > b).concat([[+a.toFixed(3), v], [+b.toFixed(3), after]]).sort((x, y) => x[0] - y[0]);
+  }
+  return out.filter((c, k) => !k || c[1] !== out[k - 1][1]);
+}
+
 // 3) Rhubarb (bộ hình mở rộng G H X, có văn bản câu → nhận dạng âm vị chính xác hơn)
 const cues = [], expr = [[0, 'neutral']], gest = [], words = [], outLines = [];
 let t = LEAD;
@@ -48,8 +62,8 @@ for (const [i, l] of lines.entries()) {
   const nn = String(i).padStart(2, '0'), dur = l.samples.length / RATE;
   execFileSync(RHUBARB, ['-q', '-f', 'json', '-d', P(`line-${nn}.txt`), '-o', P(`line-${nn}.vis.json`), l.wav], { stdio: ['ignore', 'ignore', 'inherit'] });
   const mc = JSON.parse(fs.readFileSync(P(`line-${nn}.vis.json`), 'utf8')).mouthCues;
-  for (const c of mc) cues.push([+(t + c.start).toFixed(3), c.value]);
   const ws = (asr[i] && asr[i].words || []).map(w => ({ w: w.w, start: +(t + w.start).toFixed(3), end: +(t + w.end).toFixed(3) }));
+  cues.push(...closures(mc.map(c => [+(t + c.start).toFixed(3), c.value]), ws));
   words.push(...ws.map(w => ({ ...w, line: i })));
   const toks = l.text.split(/\s+/);
   for (const g of l.tags || []) {

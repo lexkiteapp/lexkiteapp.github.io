@@ -197,7 +197,7 @@ ${arm('L')}${arm('R')}
     const bob = still ? 0 : (v.open * 2.2 + w * Math.sin(t * 9.5) * 0.6);
     const gz = still ? [0, 0] : gazeAt(t, seed);
     return {
-      t, m, e, blink: blinkAt(t, seed), gaze: [e.gx + gz[0] * (1 - 0.5 * w), e.gy + gz[1] * (1 - 0.5 * w)],
+      t, m, e, talk: w, vis: v, blink: blinkAt(t, seed), gaze: [e.gx + gz[0] * (1 - 0.5 * w), e.gy + gz[1] * (1 - 0.5 * w)],
       head: { tilt: e.tilt + sway, dy: breath * 1.6 + bob - e.chin * 0.2, chin: e.chin },
       body: { dy: breath * 2, sx: 1 + breath * 0.006 }, shrug: still ? 0 : shrugAt(tl.gest, t),
       L: armAt(tl.gest, t, 'L', still), R: armAt(tl.gest, t, 'R', still),

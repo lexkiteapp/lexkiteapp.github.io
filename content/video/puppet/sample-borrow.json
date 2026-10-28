@@ -10,6 +10,7 @@
     { "text": "So, which one is right? Can you lend me your pen, or borrow me your pen?", "tags": [{ "at": 0, "kind": "question" }] },
     { "text": "Lend me your pen!", "tags": [{ "at": 0, "kind": "surprised" }, { "at": "pen", "kind": "correct" }] },
     { "text": "If you got it wrong, that's okay.", "tags": [{ "at": 0, "kind": "wrong" }] },
+    { "text": "Remember: borrow means take, and lend means give.", "tags": [{ "at": 0, "kind": "explain" }, { "at": "lend", "expr": "encouraging" }] },
     { "text": "You'll remember it next time. I'm proud of you!", "tags": [{ "at": "proud", "kind": "proud" }] }
   ]
 }
