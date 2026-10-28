@@ -2,7 +2,7 @@
   "_note": "NGUỒN DUY NHẤT nhân vật Lexkite (chủ 28/10): đúng 2 giáo viên 2D phông xanh, trang phục 1 – Ama (cô) + Carlos (thầy). Mọi màn hình/add-on/video lấy ảnh-clip qua đây (web/js/characters.js · Python: scripts/teach/registry.py). Cổng CI: scripts/test/characters-gate.mjs. Dựng: scripts/teach/build.py trên CI teach-build.yml. docs/CHARACTERS.md.",
   "version": 2,
   "frame": {
-    "w": 516,
+    "w": 544,
     "h": 480,
     "eye_y": 0.32,
     "eye_mouth": 50,
@@ -155,68 +155,76 @@
   },
   "files": {
     "ama/avatar.webp": {
-      "sha256": "4c89b901006bdce3ec08a8ec5fd0ce27ff9274c415ec57e3fdd085ea9a42f5be",
-      "bytes": 7108
+      "sha256": "75d3878068f775454ae46c36d1cb882878a82c2109c47005158d98021e49e0ba",
+      "bytes": 6844
     },
     "ama/encourage.mp4": {
-      "sha256": "6d815822e9cd28a6d98ce1c1c6b9265f8a8a3a8dfe6215c2cab6c45b374d0c0d",
-      "bytes": 140108
+      "sha256": "dbf981c817e0a75f9a9814be72a8b7590a454e5877f66ed2f6cfbee463fdc808",
+      "bytes": 109309
     },
     "ama/explain.mp4": {
-      "sha256": "def4785890c48960953c87e05f7e23f436d06a0014f7b386a10c00792f8d8aad",
-      "bytes": 162824
+      "sha256": "69779a5d65d473c8719864afa9fc083156fe1212d3711a66cfbd168a8813ba19",
+      "bytes": 172207
     },
     "ama/happy.mp4": {
-      "sha256": "2edfbe86f5c23de568e6cd855b3d9457d61b56f4c719b7d12a1786a332da2172",
-      "bytes": 108915
+      "sha256": "f136710ef516116393fda3d192403c4d71921692c7132d983b019a8b726a761f",
+      "bytes": 113460
     },
     "ama/laugh.mp4": {
-      "sha256": "97ee6fd725962ee74b08c0bedc45a8dd4794fbfd48b2194a594d08385c9f523b",
-      "bytes": 102912
+      "sha256": "98f82b9675e7135f775ff6badcc8351d255db1c2d7b0cb6b52bb5648a0509d37",
+      "bytes": 78374
     },
     "ama/listen.mp4": {
-      "sha256": "3f8e00b68d75c8926f40b392b179d9778edced64583aa7bbc82dd02b169b30f5",
-      "bytes": 131240
+      "sha256": "8ee4eaa8bb2a0f2eb6edc3eb4860eddd6ab9b4453b6ee39f97b8896763051d51",
+      "bytes": 94436
     },
     "ama/poster.webp": {
-      "sha256": "aa34a3206385de06a59b4421727f5a12a4d3d1c3fb5ee6dcd4523164c8b6dd50",
-      "bytes": 14086
+      "sha256": "b3c72d8d11a020ce6fd743e288eebf5380690f699ee418f8f7c5225845ef5d4f",
+      "bytes": 13630
     },
     "ama/talk.mp4": {
-      "sha256": "0411104694e6deae9cf7fac3537540a84c2d0574c2b1c24c3d7471c141bb12e1",
-      "bytes": 154321
+      "sha256": "b0f1da47178eeb33aaf94d2d34779eb1f57c00e0bf0785cea5ba9ad7db81449d",
+      "bytes": 90121
     },
     "ama/thinking.mp4": {
-      "sha256": "782009290aa880baf3d893c875692561bf5d20cd5cbc063e6a78540fa6c3967c",
-      "bytes": 105676
+      "sha256": "85c8b7716723953014b87dd5ca852f677271a424b8c2a193a9ec2874520a4e6f",
+      "bytes": 86583
     },
     "carlos/avatar.webp": {
-      "sha256": "5d9745ec4fa59151f32c856b8eea267abe9137241714163ef857c1c7e9dd8ee4",
-      "bytes": 7088
+      "sha256": "cf1a9b0f3f1c43a75ee45c63075e0d3705c0b1e88da5c3841c8d75fe94d3a087",
+      "bytes": 6084
+    },
+    "carlos/encourage.mp4": {
+      "sha256": "7a80dcee9f651176f9a487618dabf4f9d7ceb322f479298580ecca56b3a683d6",
+      "bytes": 152537
+    },
+    "carlos/explain.mp4": {
+      "sha256": "b2284f1cd76f815ff09ed0c98779bbd913df6a07c165f46370597907a468ff5b",
+      "bytes": 138250
     },
     "carlos/happy.mp4": {
-      "sha256": "9998676777c25dafa3664b0051f954684870a68956bac5d2174402b62045ca05",
-      "bytes": 118789
+      "sha256": "4694a934ddd95f319b08a6e4a55266c3cfb50dabe1c5514468efd504507a7a50",
+      "bytes": 112296
     },
     "carlos/laugh.mp4": {
-      "sha256": "864e50ccca3854cd2687730923d8cccfb3442983fff63fcd1de812dc5cdfea25",
-      "bytes": 136595
+      "sha256": "b7b8954bfa7c567f4d1b19f2815d1c191054285c09ac1769a295366dda484504",
+      "bytes": 121413
     },
     "carlos/listen.mp4": {
-      "sha256": "f0b57ac35a21954c500b736bb224ac8f28c5fd56abcf2dcc8517052eed8da784",
-      "bytes": 114754
+      "sha256": "26e0ee4d377e3ca15f874eecd90e36fd9bc7236f3fafe3183b6f05f650393a33",
+      "bytes": 115401
     },
     "carlos/poster.webp": {
-      "sha256": "165e97478f659d8d71f3f41514ba2d8a10e11d16a7beb2d3308d87f09deb0c80",
-      "bytes": 17986
+      "sha256": "8e00ec64d7a50093508a179a2874559893af1b1350a366e2efe7d083ff5e32e7",
+      "bytes": 14998
     },
     "carlos/talk.mp4": {
-      "sha256": "a6f537fe24671c714f494db85bdbd14a8efcf1a8fdbdec02e9d5a933e9a90278",
-      "bytes": 136620
+      "sha256": "1b19d0b9cc712329f28efff3af88cafe0621fa9ea945d00505069004074d0755",
+      "bytes": 138539
     },
     "carlos/thinking.mp4": {
-      "sha256": "da5bf144c34e03df4adddb8548212f226c34ce83e4f02cb41e040ffeaa081ccb",
-      "bytes": 68609
+      "sha256": "26138c48495afb1bea5610224ef53c7afbe89d4ab5ae787a00f6f9466f2a092e",
+      "bytes": 136471
     }
   }
 }
