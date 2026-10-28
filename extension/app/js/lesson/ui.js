@@ -34,14 +34,13 @@
   function css() {
     if ($('#lsnCss')) return;
     const st = document.createElement('style'); st.id = 'lsnCss';
-    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:9rem}
+    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:calc(var(--lsn-fh,8rem) + 1.5rem)}
 .lsn-top{display:flex;align-items:center;gap:.6rem}.lsn-x{flex:none}.lsn-bar{flex:1;height:14px;border-radius:99px;background:var(--surface-3);overflow:hidden}
 .lsn-bar i{display:block;height:100%;width:0;background:var(--good);border-radius:99px;transition:width .35s ease}
 .lsn-combo{flex:none;font-weight:800;color:var(--gold-text);background:var(--gold-soft);border-radius:99px;padding:.15rem .6rem;font-size:.85rem;visibility:hidden}.lsn-combo.on{visibility:visible;animation:lsnPop .3s ease}
 @keyframes lsnPop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
-.lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:128px;border-radius:16px;overflow:hidden;position:relative;background:var(--surface-2)}
-.tch-rig{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-rig img,.tch-rig video{position:absolute;inset:0;width:480px;height:640px;object-fit:cover}
-.tch-face{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-m{position:absolute;background-repeat:no-repeat;opacity:0;transition:opacity 60ms linear}
+.lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:128px;position:relative}
+.tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
 .lsn-bub{position:relative;flex:1;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:.7rem .9rem;font-weight:700}
 .lsn-bub small{display:block;font-weight:400;color:var(--muted);margin-top:.2rem}.lsn-tag{display:inline-block;font-size:.75rem;font-weight:800;color:var(--again-text);background:var(--again-soft);border-radius:99px;padding:.05rem .5rem;margin-bottom:.3rem}
 .lsn-tag.own{color:var(--accent-text);background:var(--accent-soft)}
@@ -52,7 +51,7 @@
 .lsn-ans{min-height:3.4rem;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:.4rem;padding:.3rem 0}.lsn-bank{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
 .lsn-tile.used{visibility:hidden}.lsn-pic{width:min(220px,60vw);aspect-ratio:1;border-radius:16px;background:var(--surface-2);margin:0 auto;display:block;object-fit:cover}
 .lsn-mic{display:flex;flex-direction:column;align-items:center;gap:.5rem}.lsn-mic .btn{min-width:200px}
-.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bg);border-top:2px solid var(--line);padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom))}
+.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:75vh;overflow-y:auto;background:var(--bg);border-top:2px solid var(--line);padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom))}
 .lsn-foot>div{max-width:640px;margin:0 auto;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.lsn-foot .grow{flex:1}
 .lsn-foot.ok{background:var(--good-soft);border-color:var(--good)}.lsn-foot.bad{background:var(--again-soft);border-color:var(--again)}
 .lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
@@ -61,8 +60,8 @@
 .lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
 .lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
-.lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;border-radius:18px;overflow:hidden;position:relative;background:var(--surface-2);transition:transform .2s ease,box-shadow .2s ease}
-.lsn-duo .tch.talk{transform:scale(1.06);box-shadow:0 0 0 4px var(--primary)}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
+.lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;position:relative;transition:transform .2s ease,filter .2s ease}
+.lsn-duo .tch.talk{transform:scale(1.06);filter:drop-shadow(0 0 5px var(--primary))}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
 .lsn-chat{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem;max-height:38vh;overflow:auto}.lsn-ln{background:var(--surface-2);border-radius:14px;padding:.45rem .7rem;max-width:85%}.lsn-ln.carlos{align-self:flex-end;background:var(--primary-soft)}.lsn-ln b{display:block;font-size:.75rem;color:var(--muted)}
 /* bản đồ */
 .lsn-path{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
@@ -90,7 +89,8 @@
 
   let L = null; // bài đang chạy
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
-  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; const f = $('#lsnFoot'); if (f) f.remove(); };
+  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; if (footRO) { footRO.disconnect(); footRO = null; } const f = $('#lsnFoot'); if (f) f.remove(); };
+  let footRO = null; // chân bài học cố định: đo chiều cao thật (phiếu đúng/sai + "Vì sao?") → chừa đủ chỗ cuối trang, không che nội dung
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
   const PKEY = demo => (demo ? 'lk.lsn.path.demo' : 'lk.lsn.path');
@@ -118,6 +118,7 @@
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
     const prev = ls.get('lk.lsn.who'), who = prev === 'ama' ? 'carlos' : 'ama'; ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     L = { demo, items, sess: new E.Session(items, { ease: ux }), picks, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
+    if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
     view.innerHTML = `<div class="lsn" id="lsn">
       <div class="lsn-top"><a class="icon-btn lsn-x" href="#/lesson${Q(demo)}" aria-label="${t('Thoát bài học')}">✕</a>
@@ -127,6 +128,7 @@
         : `<div class="lsn-ask"><div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
       <div id="lsnBody"></div></div>`;
     const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
+    if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
     next();
   };
@@ -300,10 +302,9 @@
     foot.innerHTML = `<div><div class="lsn-fb" role="status">
         <h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + t('Chưa đúng')}</h3>
         ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
-        <p><b lang="en">${esc(c.word)}</b> <span class="ipa small">${esc(c.ipaUS || c.ipa || '')}</span> <button class="icon-btn sm" id="lsnW" aria-label="${t('Nghe')}">🔊</button> · ${esc(meanOf(c))}</p>
+        <p><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p>
         <div class="lsn-xp" id="lsnXp" hidden></div></div>
       <button class="btn" id="lsnWhy">💡 ${t('Vì sao?')}</button><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
-    $('#lsnW').onclick = () => say(c.word);
     $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();

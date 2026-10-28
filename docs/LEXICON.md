@@ -13,6 +13,15 @@
 3. **IPA Mỹ**: `content/lexicon/ipaus-manual.json` (viết tay) thắng; còn lại CMUdict → IPA kiểu Oxford US (ɑː ɔː iː uː oʊ ɜːr ər, không flap). Biến thể CMU chọn theo vị trí trọng âm của IPA Anh (record n/v). Trọng âm phụ chỉ giữ khi đứng trước ˈ cách ≥ 1 âm tiết. Chính tả Anh → Mỹ khi tra (analyse→analyze). Cụm: hư từ dạng yếu, trọng âm theo bản Anh. Trùng IPA Anh → để trống (giao diện dùng IPA Anh).
 4. Làm mới CMUdict: `curl -o $TMPDIR/cmu.dict https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict && node scripts/build-lexicon.mjs --cmu $TMPDIR/cmu.dict --write`.
 
+## Kiểm IPA (scripts/lexicon/ipa-audit.mjs – cổng trong `npm test`)
+- Ô Anh ↔ Britfone (`content/lexicon/britfone-subset.txt`), ô Mỹ ↔ CMUdict, so ÂM VỊ. Biến thể KHÔNG tính lỗi: trọng âm, độ dài, ký hiệu tương đương, nguyên âm yếu (ə ɪ i ʊ u), nguyên âm không nhấn ↔ ə, thêm/bớt ə, hoà âm j.
+- Tự sửa (`--fix` → `overrides.json`) chỉ khi: BATH (æ→ɑː, Britfone ɑː) hoặc Britfone + CMU khớp nhau, từ có 1 từ loại, không đổi trọng âm. Còn lại → `content/lexicon/ipa-review.json`; mục có `note` = đã duyệt (giữ/sửa tay). Lệch MỚI chưa duyệt → cổng đỏ.
+- Britfone/CMU nghiêng Mỹ ở vài từ (version ʃ/ʒ, asthma s/z, freelance ɑː) → luôn soát tay bản tự sửa trước khi gộp (lượt 28/10: 65 bản, 23 giữ, 10 sửa tay).
+- Hư từ: bảng dạng yếu/mạnh `web/js/ui.js` khối `LK_WEAK` (Cambridge, Longman Pronunciation Dictionary, Wikipedia "Weak and strong forms in English"); `UI.ipaHtml` hiện "/əv/ dạng yếu 🔊(câu mẫu) · dạng mạnh /ɒv/". Bản ghi từ đơn đọc dạng mạnh (docs/WORD-AUDIO.md).
+- Thẻ từ (học, từ điển, sổ lỗi, bài học, popup add-on): `UI.pronHtml` = "UK /ɒv/ 🔊 · US /ʌv/ 🔊", mỗi loa đúng giọng nhãn; cùng IPA → 1 IPA + 2 loa. Thứ tự: giọng đã chọn ở Cài đặt (`accentPicked`) → kỳ thi (IELTS UK, còn lại US). IPA Mỹ thiếu CMU → `ukToUs` (ipa.mjs, đếm `usRule`).
+- Từ mở rộng: `scripts/lexicon/ipa-check.mjs checkEntry` (cùng hàm so âm vị) + trọng âm chính khi CẢ Britfone lẫn CMU cùng nói khác + ranh giới tiền tố (un|interesting /ʌnˈɪn…/) – job.mjs sửa theo nguồn 1 phương án hoặc trượt `ipa: lệch Britfone/CMU` (hàng duyệt); promote.mjs từ chối lô lệch.
+- Giọng: `UI.ipaHtml/ipaOf` lấy IPA theo giọng của nút loa (en-US → ipaUS), `UI.audioFor` bỏ bản ghi sai giọng; từ điển + mặt sau thẻ hiện cả 2 giọng. Làm mới Britfone: `node scripts/lexicon/ipa-audit.mjs --britfone <britfone.main.csv>`.
+
 ## CEFR
 Cấp độ do người soạn; `content/wordlists/cefr-oxford.json` chỉ có cấp công khai cho NAWL/BSL. Kiểm tra: `node scripts/lexicon/cefr-check.mjs` (tần suất NGSL + độ dài/hình vị) chỉ **gắn cờ** mục lệch ≥ 2 bậc vào `content/lexicon/cefr-flags.json`, không tự đổi.
 

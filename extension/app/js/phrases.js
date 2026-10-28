@@ -545,19 +545,19 @@
       } else {
         const mText = App.meanOf ? App.meanOf(d) : d.vi;
         pop.innerHTML = `<div class="row between nowrap"><div><b style="font-size:1.2rem">${esc(d.word)}</b> ${UI.posChip ? UI.posChip(d.pos) : ''}</div><button class="icon-btn sm" data-x>✕</button></div>
-          <div class="row" style="gap:.3rem"><span class="ipa">${esc(d.ipa || '')}</span><button class="icon-btn sm" data-sp>🔊</button></div>
+          <div class="row" style="gap:.3rem">${UI.ipaHtml(d)}<button class="icon-btn sm" data-sp>🔊</button></div>
           ${mText ? `<div class="vi" style="font-size:1.05rem;margin:.2rem 0">${esc(mText)}</div>` : ''}
           ${d.def && d.def !== mText ? `<div class="small muted">${esc(d.def)}</div>` : ''}
           ${info.sentence && info.sentence !== info.text ? UI.ctxBox(info.sentence, d.word) : ''}
           <div class="row" style="margin-top:.6rem"><button class="btn sm primary" data-save>${App.inDeck(d.word) ? `+ ${t('Thêm ngữ cảnh')}` : `+ ${t('Lưu flashcard')}`}</button>${info.text.includes(' ') ? `<button class="btn sm" data-ph>${UI.icon('puzzle')} ${t('Lưu cụm')}</button>` : ''}<a class="btn sm ghost" href="#/dict/${encodeURIComponent(d.word)}">${t('Chi tiết')}</a></div>`;
-        $('[data-sp]', pop).onclick = () => UI.speak(d.word, state.settings.accent, d.audio);
+        $('[data-sp]', pop).onclick = () => UI.speak(d.word, state.settings.accent, UI.audioFor(d, state.settings.accent));
         $('[data-save]', pop).onclick = async ev => {
           const b = ev.currentTarget; b.disabled = true;
           const vi = info.sentence ? await translateSafe(info.sentence, L) : '';
           await App.addWord(d, info.sentence ? { text: info.sentence, vi, title: document.title.replace(/ – Lexkite$/, '') || 'Lexkite' } : null);
           b.textContent = `✓ ${t('Đã lưu')}`;
         };
-        if (state.settings.autoSpeak) UI.speak(d.word, state.settings.accent, d.audio);
+        if (state.settings.autoSpeak) UI.speak(d.word, state.settings.accent, UI.audioFor(d, state.settings.accent));
       }
       const ph = $('[data-ph]', pop); if (ph) ph.onclick = () => { pop.hidden = true; savePhraseDialog({ phrase: info.text, sentence: info.sentence, title: t('Lưu từ Lexkite') }); };
     }

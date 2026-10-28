@@ -154,7 +154,7 @@
       const label = cp ? cp.name : KNAME(p.kind), icon = st === 'done' ? 'circle-check' : cp ? cp.icon : KICON[p.kind] || 'star';
       const dot = st === 'next' ? `<a class="lsn-dot" href="#/lesson/go${Q}" aria-label="${esc(label)}">${ic(icon)}</a>` : `<span class="lsn-dot" role="img" aria-label="${esc(label)}${st === 'done' ? ' ✓' : ''}">${ic(icon)}${st === 'lock' ? `<i class="ux1-lk">${ic('lock')}</i>` : ''}</span>`;
       return `<li class="lsn-node ux1-n ${st}${cp ? ' cp' : ''}" style="--x:${x}px;--i:${i}">${st === 'next' ? `<a class="btn primary lg lsn-start ux1-go" href="#/lesson/go${Q}">${t('Bắt đầu')}</a>` : ''}
-        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async">` : ''}${dot}</span><span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}</span></li>`;
+        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.webp" alt="" width="48" height="48" decoding="async">` : ''}${dot}</span><span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}</span></li>`;
     }).join('');
     view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
       <section class="ux1-unit u-${u.color}"><div class="grow"><small>${t('Chặng học {n}', { n: u.no })} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1>${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1><p>${esc(CAN()[u.id] || '')}</p></div>
@@ -223,7 +223,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-lbl{margin-top:.45rem;font-weight:700;font-size:var(--fs-sm);color:var(--text);text-align:center;display:flex;flex-direction:column;line-height:1.2}
 .ux1-lbl small{font-size:.68rem;color:var(--gold-text);text-transform:uppercase;letter-spacing:.05em;font-weight:800}
 .ux1-n.lock .ux1-lbl{color:var(--muted)}
-.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 12%;border:3px solid var(--surface);box-shadow:var(--shadow)}
+.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 0;background:var(--surface-2);border:3px solid var(--surface);box-shadow:var(--shadow)}
 .ux1-go{animation:none!important;min-width:200px}
 @keyframes ux1Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
@@ -251,7 +251,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 @media (min-width:1024px){
   body.ux1 .shell{grid-template-columns:232px minmax(0,1fr) 340px}
   body.ux1:not(.focus):not(.bare) .ux1-rail{display:flex;flex-direction:column;gap:.8rem;position:sticky;top:0;height:100vh;overflow-y:auto;padding:1.2rem 1.2rem 1.2rem .4rem}
-  body.ux1.focus .shell,body.ux1.bare .shell{grid-template-columns:232px minmax(0,1fr)}
+  body.ux1.focus .shell,body.ux1.bare .shell{grid-template-columns:minmax(0,1fr)}
   body.ux1 .ux1-exam-top{display:none}
 }
 .ux1-stat{display:flex;gap:1rem;justify-content:space-around;font-size:var(--fs-md);padding:.3rem 0}.ux1-stat span{display:inline-flex;gap:.35rem;align-items:center}

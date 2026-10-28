@@ -55,38 +55,19 @@
     el.innerHTML = `<div class="card league-home-card"><div class="skel skel-l"></div></div>`;
     if (window.Sync && window.Sync.authed) await window.Sync.authed();
     if (!el.isConnected) return;
+    // Thẻ hạng ở trang chủ: lưới [biểu tượng | chữ | nút] – chữ tự xuống dòng, hẹp (<440 px khung) thì nút xuống hàng riêng; không còn .row.nowrap tràn đè thẻ bên cạnh (owner 28/10)
+    const card = (tag, href, ic, bg, color, title, sub, cta) => `<${tag} class="card${href ? ' hover' : ''} league-home-card lg-hc"${href ? ` href="${href}"` : ''}>
+        <span class="league-tier-ic" style="background:${bg};color:${color}" aria-hidden="true">${ic}</span>
+        <span class="lg-hc-tx"><span class="lg-hc-t">${title}</span><span class="muted small">${sub}</span></span>
+        ${cta}</${tag}>`;
     if (!window.Sync || !window.Sync.user) {
-      el.innerHTML = `
-        <div class="card league-home-card">
-          <div class="row between wrap" style="gap:.6rem;align-items:center">
-            <div class="row nowrap" style="gap:.75rem;align-items:center">
-              <span class="league-tier-ic" style="background:rgba(245,158,11,.15);color:#f59e0b" aria-hidden="true">${UI.icon('trophy')}</span>
-              <div>
-                <b>${t('Giải đấu tuần')}</b>
-                <div class="muted small">${t('Thi đua XP cùng 30 người học, thăng hạng mỗi tuần')}</div>
-              </div>
-            </div>
-            <a class="btn sm primary" href="#/league">${t('Khám phá')} →</a>
-          </div>
-        </div>`;
+      el.innerHTML = card('div', '', UI.icon('trophy'), 'rgba(245,158,11,.15)', '#f59e0b', `<b>${t('Giải đấu tuần')}</b>`, t('Thi đua XP cùng 30 người học, thăng hạng mỗi tuần'), `<a class="btn sm primary lg-hc-cta" href="#/league">${t('Khám phá')} →</a>`);
       return;
     }
     try {
       const res = await window.Sync.league('me');
       if (!res || !res.member) {
-        el.innerHTML = `
-          <div class="card league-home-card">
-            <div class="row between wrap" style="gap:.6rem;align-items:center">
-              <div class="row nowrap" style="gap:.75rem;align-items:center">
-                <span class="league-tier-ic" style="background:rgba(205,127,50,.15);color:#cd7f32" aria-hidden="true">🥉</span>
-                <div>
-                  <b>${t('Giải đấu tuần')} · <span class="muted">${t('Chưa tham gia')}</span></b>
-                  <div class="muted small">${t('Gia nhập nhóm 30 người tuần này để thi đua thăng hạng')}</div>
-                </div>
-              </div>
-              <a class="btn sm primary" href="#/league">${t('Tham gia ngay')} →</a>
-            </div>
-          </div>`;
+        el.innerHTML = card('div', '', '🥉', 'rgba(205,127,50,.15)', '#cd7f32', `<b>${t('Giải đấu tuần')}</b><span class="muted">${t('Chưa tham gia')}</span>`, t('Gia nhập nhóm 30 người tuần này để thi đua thăng hạng'), `<a class="btn sm primary lg-hc-cta" href="#/league">${t('Tham gia ngay')} →</a>`);
         return;
       }
       const tr = getTier(res.member.tier);
@@ -96,24 +77,7 @@
         : me && me.zone === 'down'
           ? `<span class="chip danger small">▼ ${t('Vùng xuống hạng')}</span>`
           : `<span class="chip small">● ${t('Vùng an toàn')}</span>`;
-
-      el.innerHTML = `
-        <a class="card hover league-home-card" href="#/league">
-          <div class="row between wrap" style="gap:.6rem;align-items:center">
-            <div class="row nowrap" style="gap:.75rem;align-items:center">
-              <span class="league-tier-ic" style="background:${tr.bg};color:${tr.color}" aria-hidden="true">${tr.ic}</span>
-              <div>
-                <div class="row nowrap" style="gap:.45rem;align-items:center">
-                  <b>${tr.name()}</b>
-                  <span class="league-rank-badge">#${me ? me.rank : '–'}/${(res.board || []).length || 30}</span>
-                  ${zoneChip}
-                </div>
-                <div class="muted small">${t('{xp} XP tuần này', { xp: (res.member.xp || 0).toLocaleString() })} · ${timeRemaining(res.week && res.week.end)}</div>
-              </div>
-            </div>
-            <span class="btn sm ghost">${t('Bảng xếp hạng')} →</span>
-          </div>
-        </a>`;
+      el.innerHTML = card('a', '#/league', tr.ic, tr.bg, tr.color, `<b>${tr.name()}</b><span class="league-rank-badge">#${me ? me.rank : '–'}/${(res.board || []).length || 30}</span>${zoneChip}`, `${t('{xp} XP tuần này', { xp: (res.member.xp || 0).toLocaleString() })} · ${timeRemaining(res.week && res.week.end)}`, `<span class="btn sm ghost lg-hc-cta">${t('Bảng xếp hạng')} →</span>`);
     } catch (e) {
       el.innerHTML = '';
     }
