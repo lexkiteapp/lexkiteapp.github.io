@@ -103,7 +103,7 @@
       try { if (D && D.pick) ds = D.pick(w, others, { n: 2, key: 'vi', mean, seed: Math.floor(Math.random() * 1e9) }).filter(ok); } catch (e) { ds = []; }
       if (ds.length < 2) ds = ds.concat(shuffle(others.filter(x => ok(x) && !ds.includes(x))).slice(0, 2 - ds.length));
       const opts = shuffle([right, ...ds.slice(0, 2).map(mean)]);
-      return { word: w.word, ipa: w.ipa || '', options: opts, correctIdx: opts.indexOf(right) };
+      return { word: w.word, ipa: w.ipa || '', ipaUS: w.ipaUS || '', pos: w.pos || '', options: opts, correctIdx: opts.indexOf(right) };
     };
     const qAt = i => questions[i] || (questions[i] = build(picked[i]));
 
@@ -158,7 +158,7 @@
           <div class="card qk-card">
             <div class="qk-badge">${UI.icon('zap')} ${t('Câu {i}/{total}', { i: qIdx + 1, total })}</div>
             <div class="qk-word" lang="en">${esc(q.word)}</div>
-            <div class="small muted row center" style="margin-bottom:.4rem;gap:.3rem">${q.ipa ? `<span class="ipa" translate="no">${esc(q.ipa)}</span>` : ''}${UI.sayBtn(q.word)}</div>
+            <div class="small muted row center" style="margin-bottom:.4rem;gap:.3rem">${UI.ipaHtml(q, null, { noEx: true })}${UI.sayBtn(q.word)}</div>
             <div class="qk-prompt">${t('Chọn nghĩa đúng')}</div>
           </div>
           <div class="qk-opts" id="qkOpts">

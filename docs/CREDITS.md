@@ -6,6 +6,8 @@
 | Dữ liệu | Nguồn | Giấy phép | Dùng ở |
 |---|---|---|---|
 | IPA Anh–Mỹ (ô `ipaUS`) | CMU Pronouncing Dictionary – github.com/cmusphinx/cmudict | BSD-2-Clause, © 1993-2015 Carnegie Mellon University | `content/lexicon/cmudict-subset.txt` → `scripts/build-lexicon.mjs` (ARPAbet → IPA kiểu Oxford) |
+| Kiểm IPA Anh (chỉ để kiểm, không hiển thị) | Britfone 3.0.1 – github.com/JoseLlarena/Britfone | MIT, © 2017 Jose Llarena | `content/lexicon/britfone-subset.txt` (kèm giấy phép) → `scripts/lexicon/ipa-audit.mjs` |
+| Dạng yếu/mạnh hư từ | Cambridge Dictionary, Longman Pronunciation Dictionary (J. C. Wells), Wikipedia "Weak and strong forms in English" (CC BY-SA 4.0) – dữ kiện ngữ âm, bảng tự soạn | – | `web/js/ui.js` `LK_WEAK` |
 | NGSL, NAWL, TSL, BSL | Browne, Culligan & Phillips | CC BY-SA 4.0 | `web/js/lib/*.js` (ghi ở đầu file) |
 | AWL | Coxhead (2000) | danh sách từ học thuật công khai | `web/js/lib/awl.js` |
 | Giọng đọc từ (Kokoro) | hexgrad/Kokoro-82M | Apache-2.0 | `audio.lexkite.com/w/…` (CI `word-audio.yml`) |
