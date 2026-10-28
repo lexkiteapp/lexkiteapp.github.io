@@ -49,7 +49,7 @@
     document.body.classList.add('ux1'); css();
     const tabs = TABS();
     const bn = document.getElementById('bnav');
-    if (bn) { bn.setAttribute('aria-label', t('Điều hướng chính')); bn.innerHTML = tabs.map(([k, h, i, l]) => `<a href="${h}" data-tab="${k}"><span class="bn-ic">${ic(i)}</span><bdi>${esc(l)}</bdi>${k === 'review' ? '<i class="badge" data-due hidden></i>' : ''}</a>`).join(''); }
+    if (bn) { bn.setAttribute('aria-label', t('Điều hướng chính')); bn.classList.add('st-nav', ...ST.NAV_CLS.split(' ')); bn.innerHTML = ST.nav(tabs); } // thanh tab kiểu Stitch (web/js/st/common.js)
     const nav = document.getElementById('nav');
     if (nav) nav.innerHTML = tabs.map(([k, h, i, l]) => `<a href="${h}" data-route="${k}" class="nav-top"><span class="ic">${ic(i)}</span><bdi>${esc(l)}</bdi>${k === 'review' ? '<i class="badge" data-due hidden></i>' : ''}</a>`).join('');
     const shell = document.querySelector('.shell');
@@ -147,43 +147,33 @@
   const KICON = { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'repeat', story: 'book-open', radio: 'audio-lines' };
   const KMIN = { lesson: 4, listen: 3, speak: 3, review: 3, story: 4, radio: 3, exam: 5 }; // phút ước tính mỗi loại bài (nhãn "· 4 phút")
   const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
-  const STARS = k => `<span class="ux1-st" role="img" aria-label="${t('{n}/3 sao', { n: k })}">${[1, 2, 3].map(i => `<i class="${i <= k ? 'on' : ''}">${ic('star')}</i>`).join('')}</span>`;
-  // Đường mòn chữ S nối tâm các nút: đoạn đã học liền (teal), đoạn sau gạch đứt. Tọa độ x tính từ giữa cột → co giãn ngang không lệch
-  function trail(ol, at) {
-    const b = ol.getBoundingClientRect(), mid = b.left + b.width / 2;
-    const P = [...ol.querySelectorAll('.lsn-dot')].map(d => { const r = d.getBoundingClientRect(); return [Math.round(r.left + r.width / 2 - mid), Math.round(r.top + r.height / 2 - b.top)]; });
-    if (P.length < 2) return; let dn = '', rest = '';
-    for (let i = 1; i < P.length; i++) { const [x0, y0] = P[i - 1], [x1, y1] = P[i], m = (y0 + y1) / 2, d = `M${x0} ${y0}C${x0} ${m} ${x1} ${m} ${x1} ${y1}`; if (i <= at) dn += d; else rest += d; }
-    const old = ol.querySelector('.ux1-trail'); if (old) old.remove();
-    ol.insertAdjacentHTML('afterbegin', `<svg class="ux1-trail" aria-hidden="true" focusable="false"><path class="dn" d="${dn}"/><path d="${rest}"/></svg>`);
-  }
   function map(o) {
     const { demo, plan: P, n } = o;
     if (!demo && !picked() && !/[?&]all=1\b/.test(location.hash)) return pick();
     if (/[?&]pick=1\b/.test(location.hash)) return pick();
     const at = n % P.length, u = unitAt(n, P.length), Q = demo ? '?demo=1' : '', who = ls.get('lk.lsn.who') === 'ama' ? 'carlos' : 'ama';
-    const have = u.words.length ? u.words.filter(w => (state.cards || {})[keyOf(w.word)]).length : 0, ST = demo ? {} : stars();
+    const have = u.words.length ? u.words.filter(w => (state.cards || {})[keyOf(w.word)]).length : 0, ST_ = demo ? {} : stars();
     const cpAt = P.findIndex((p, i) => i >= at && p.kind === 'exam'), xpTo = cpAt >= 0 ? (cpAt - at + 1) * 20 : 0, X = (App.EXAMS || {})[exam()] || { short: 'IELTS' };
     const nxMin = KMIN[(P[at] || {}).kind] || 4;
+    // 🎨 Màn Học = mẫu Stitch "IELTS Learning Path" (web/js/st/home.js · css/st-home.css nạp cùng gói ux1)
     const nodes = P.map((p, i) => {
-      const st = i < at ? 'done' : i === at ? 'next' : 'lock', x = [0, 44, 0, -44, 0, 44][i % 6], cp = p.kind === 'exam' ? check(n) : null, k = ST[n - at + i];
-      const label = cp ? cp.name : KNAME(p.kind), icon = st === 'done' ? 'circle-check' : cp ? cp.icon : KICON[p.kind] || 'star';
-      const dot = st === 'next' ? `<a class="lsn-dot" href="#/lesson/go${Q}" aria-label="${esc(label)}">${ic(icon)}</a>` : `<span class="lsn-dot" role="img" aria-label="${esc(label)}${st === 'done' ? ' ✓' : ''}">${ic(icon)}${st === 'lock' ? `<i class="ux1-lk">${ic('lock')}</i>` : ''}</span>`;
-      return `<li class="lsn-node ux1-n ${st}${cp ? ' cp' : ''}" style="--x:${x}px;--i:${i}">${st === 'next' ? `<a class="btn primary lg lsn-start ux1-go" href="#/lesson/go${Q}"><span class="ux1-gl" aria-hidden="true"></span>${t('Bắt đầu')} · +20 XP</a>` : ''}
-        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="${App.teacherImg(who)}" alt="" width="48" height="48" decoding="async">` : ''}${dot}${cp ? `<b class="ux1-ms">${t('Mốc')}</b>` : ''}</span>${st === 'done' && k ? STARS(k) : ''}<span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}${st === 'next' ? `<em>${t('{n} phút', { n: KMIN[p.kind] || 4 })}</em>` : ''}</span></li>`;
-    }).join('');
-    view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
-      <section class="ux1-unit tk-card u-${u.color}"><div class="ux1-uh"><div class="grow"><span class="tk-chip ux1-badge">${t('Chặng học {n}', { n: u.no })}</span> <small>${esc(X.short)} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1 class="tk-display">${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1></div>
-        <div class="ux1-uside">${u.words.length ? `<span class="ux1-chip" title="${t('Kiến thức đã có')}">${ic('library')} ${have}/${u.words.length}</span>` : ''}${(state.settings || {}).placement ? '' : `<a class="ux1-chip" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ')}</a>`}</div></div>
-        <div class="ux1-uprog"><b>${t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length })}</b>${xpTo ? `<span>${ic('zap')} ${t('+{x} XP tới mốc kiểm tra', { x: xpTo })}</span>` : ''}</div>
-        <span class="tk-bar ux1-ubar" role="progressbar" aria-valuemin="0" aria-valuemax="${P.length}" aria-valuenow="${at}"><i style="width:${Math.round(at / P.length * 100)}%"></i></span>
-        <p class="ux1-hint"><img src="${App.teacherImg(who === 'ama' ? 'carlos' : 'ama')}" alt="" width="32" height="32" decoding="async"><span><b>${who === 'ama' ? 'Carlos' : 'Ama'}:</b> ${esc(CAN()[u.id] || '')}</span></p></section>
-      <ol class="lsn-path ux1-path">${nodes}</ol>
-      <div class="ux1-cta"><a class="btn primary lg tk-btn wide" href="#/lesson/go${Q}" data-ux1-cta>${t('Tiếp tục chặng {n}', { n: u.no })} · ${t('{n} phút', { n: nxMin })} ${ic('chevron-right')}</a></div></div>`;
+      const st = i < at ? 'done' : i === at ? 'next' : 'lock', cp = p.kind === 'exam' ? check(n) : null, k = ST_[n - at + i];
+      const label = cp ? cp.name : KNAME(p.kind);
+      return { st, no: i + 1, label, cp: !!cp && st === 'lock', ms: t('Mốc'), stars: st === 'done' ? k || 0 : 0, href: `#/lesson/go${Q}`, start: t('Bắt đầu') + ' · +20 XP', sub: [cp ? t('Kiểm tra nhanh') : '', t('{n} phút', { n: KMIN[p.kind] || 4 })].filter(Boolean).join(' • '), tch: st === 'next' ? App.teacherImg(who) : '' };
+    });
+    const ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS', ic: 'graduation-cap' }, tg = target(), cur = current(ex), pc = pctOf(ex, cur, tg), g = (state.settings || {}).goal, left = g && g.date ? Math.ceil((new Date(g.date) - Date.now()) / 864e5) : 0, C = 2 * Math.PI * 20;
+    const examH = ST.exam({ cls: 'ux1-exam-top', p: pc, C, off: pc != null ? C * (1 - pc / 100) : 0, icon: { briefcase: 'work', landmark: 'account_balance', 'message-circle': 'forum' }[Xe.ic] || 'school', title: Xe.short + (tg ? ' · ' + tg : ''), sub: [cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '), href: MOCK[ex] || '#/tests', mock: t('Thi thử') });
+    const coach = who === 'ama' ? 'Carlos' : 'Ama', placed = !!(state.settings || {}).placement;
+    const chips = [u.words.length ? { icon: 'local_library', text: `${have}/${u.words.length}`, title: t('Kiến thức đã có') } : null, placed ? null : { href: '#/placement', icon: 'explore', text: t('Kiểm tra trình độ') }].filter(Boolean);
+    document.body.classList.add('st');
+    view.innerHTML = ST.home({ demoNote: demo ? t('Bài thử (không lưu tiến độ)') : '', exam: examH, ucls: 'u-' + u.color, badge: t('Chặng học {n}', { n: u.no }), meta: X.short + ' · ' + (u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]), title: u.name, img: App.teacherImg(coach.toLowerCase()),
+      step: t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), xpTo: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', pct: Math.round(at / P.length * 100), aria: { now: at, max: P.length }, coach: { name: coach, tip: CAN()[u.id] || '' }, chips, nodes,
+      cta: { href: `#/lesson/go${Q}`, text: t('Tiếp tục chặng {n}', { n: u.no }) + ' • ' + t('{n} phút', { n: nxMin }) } });
+    App.onCleanup && App.onCleanup(() => document.body.classList.remove('st'));
     fillMock(view);
     const ol = view.querySelector('.ux1-path');
-    requestAnimationFrame(() => { if (ol.isConnected) trail(ol, at); });
-    const cur = view.querySelector('.ux1-n.next'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
+    requestAnimationFrame(() => { if (ol.isConnected) ST.trail(ol, at); });
+    const nx = view.querySelector('.ux1-n.next'); if (nx && nx.getBoundingClientRect().bottom > innerHeight - 160) try { nx.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
   }
 
   // ---------- Cột phải (máy tính ≥ 1024 px) ----------
@@ -224,29 +214,6 @@ body.ux1 #nav{display:flex;flex-direction:column;gap:.2rem}
 body.ux1 #nav a{display:flex;align-items:center;gap:.7rem;min-height:48px;padding:.5rem .8rem;border-radius:var(--r-md);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.85rem;color:var(--muted);border:2px solid transparent}
 body.ux1 #nav a.active{color:var(--primary-text);background:var(--primary-soft);border-color:var(--primary)}
 body.ux1 #nav a .ic svg{width:26px;height:26px}
-.ux1-home{max-width:620px;margin:0 auto}
-body{--ux1-u:var(--primary);--ux1-uk:var(--primary-ink)}
-.ux1-unit.u-primary{--ux1-u:var(--primary);--ux1-uk:var(--primary-ink)}.ux1-unit.u-accent{--ux1-u:var(--accent-soft);--ux1-uk:var(--accent-text)}.ux1-unit.u-good{--ux1-u:var(--good-soft);--ux1-uk:var(--good-text)}.ux1-unit.u-gold{--ux1-u:var(--gold-soft);--ux1-uk:var(--gold-text)}.ux1-unit.u-again{--ux1-u:var(--again-soft);--ux1-uk:var(--again-text)}
-.ux1-unit{display:flex;gap:.8rem;align-items:flex-start;background:var(--ux1-u);color:var(--ux1-uk);border-radius:var(--r-lg);padding:1rem 1.1rem;margin:.8rem 0 .4rem;box-shadow:0 4px 0 color-mix(in srgb,var(--ux1-uk) 22%,transparent)}
-.ux1-unit small{font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.92}
-.ux1-unit h1{margin:.15rem 0;font-size:var(--fs-lg);color:inherit}.ux1-unit p{margin:0;font-size:var(--fs-sm);opacity:.95}
-.ux1-uside{display:flex;flex-direction:column;gap:.35rem;align-items:flex-end;flex:none}
-.ux1-chip{display:inline-flex;align-items:center;gap:.3rem;min-height:30px;padding:.2rem .6rem;border-radius:var(--r-pill);background:color-mix(in srgb,currentColor 14%,transparent);color:inherit;font-weight:700;font-size:var(--fs-xs);text-decoration:none;white-space:nowrap}
-a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,transparent)}
-.ux1-chip svg{width:14px;height:14px}
-.ux1-path{gap:1.1rem;margin:1.2rem 0 1rem}
-.ux1-n .ux1-dw{position:relative;display:inline-flex}
-.ux1-n .lsn-dot{width:70px;height:64px}.ux1-n.next .lsn-dot{width:84px;height:78px}
-.ux1-n.lock .lsn-dot{background:var(--surface-2);color:var(--text);border:2px solid var(--line)}
-.ux1-n.cp:not(.done) .lsn-dot{border-radius:22px;background:var(--gold-soft);color:var(--gold-text);box-shadow:0 6px 0 var(--gold)}
-.ux1-n.cp.next .lsn-dot{background:var(--gold);color:var(--brand-ink)}
-.ux1-lk{position:absolute;right:-4px;bottom:-4px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:2px solid var(--line);color:var(--muted)}
-.ux1-lk svg{width:13px!important;height:13px!important}
-.ux1-lbl{margin-top:.45rem;font-weight:700;font-size:var(--fs-sm);color:var(--text);text-align:center;display:flex;flex-direction:column;line-height:1.2}
-.ux1-lbl small{font-size:.68rem;color:var(--gold-text);text-transform:uppercase;letter-spacing:.05em;font-weight:800}
-.ux1-n.lock .ux1-lbl{color:var(--muted)}
-.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 0;background:var(--surface-2);border:3px solid var(--surface);box-shadow:var(--shadow)}
-.ux1-go{animation:none!important;min-width:200px}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}
@@ -279,44 +246,14 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-stat span:first-child{color:var(--primary-text)}.ux1-stat span:last-child{color:var(--gold-text)}
 .ux1-today{display:flex;flex-direction:column;gap:.45rem;color:var(--text);text-decoration:none}.ux1-today small{color:var(--muted)}
 .ux1-promo{display:flex;gap:.5rem;flex-wrap:wrap}.ux1-promo:not(:has(a:not([hidden]))){display:none}.ux1-promo .btn{min-height:44px}
-@media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}.ux1-unit{flex-direction:column}.ux1-uside{flex-direction:row;flex-wrap:wrap;align-items:flex-start}.ux1-tch{width:40px;height:40px}}
-/* Tactile (Stitch, docs/DESIGN-SYSTEM.md § Tactile): thẻ chặng nổi + gờ, đường mòn chữ S, nút có gờ dưới, CTA dính đáy – chỉ token */
-.ux1-unit{display:block;background:var(--surface);color:var(--text);border-radius:var(--r-card);box-shadow:var(--hi),var(--elev-card);padding:1rem 1.1rem}
-.ux1-uh{display:flex;gap:.8rem;align-items:flex-start}
-.ux1-badge{background:var(--ux1-u);color:var(--ux1-uk)}
-.ux1-unit small{color:var(--muted);opacity:1}.ux1-unit h1{margin:.35rem 0 0}
-.ux1-uprog{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:.8rem 0 .35rem;font-size:var(--fs-sm)}.ux1-uprog span{display:inline-flex;align-items:center;gap:.25rem;color:var(--gold-text);font-weight:800}
-.ux1-uprog svg{width:15px;height:15px}.ux1-ubar{height:10px}
-.ux1-hint{display:flex;align-items:center;gap:.6rem;margin:.8rem 0 0;padding:.55rem .7rem;border-radius:var(--r-md);background:var(--surface-2);font-size:var(--fs-sm);color:var(--text)}
-.ux1-hint img{width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:50% 0;background:var(--surface-2);flex:none;border:2px solid var(--done)}
-.ux1-path{position:relative;padding-bottom:.5rem}
-.ux1-trail{position:absolute;left:50%;top:0;width:1px;height:1px;overflow:visible;pointer-events:none;z-index:0}
-.ux1-trail path{fill:none;stroke:var(--line-2);stroke-width:6;stroke-linecap:round;stroke-dasharray:2 12}.ux1-trail path.dn{stroke:var(--done-ink);stroke-dasharray:14 10}
-.ux1-n{z-index:1}
-.ux1-n .lsn-dot{width:64px;height:64px;box-shadow:var(--hi),0 4px 0 var(--ledge)}
-.ux1-n.done .lsn-dot{background:var(--done);color:var(--on-done);box-shadow:var(--hi),0 4px 0 var(--done-ink)}
-.ux1-n.next .lsn-dot{width:76px;height:76px;background:var(--cta-grad);color:var(--cta-ink);box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 6px color-mix(in srgb,var(--cta-2) 14%,transparent)}
-.ux1-n.lock .lsn-dot{width:60px;height:60px;background:var(--surface);color:var(--muted);border:1px solid var(--line);box-shadow:0 3px 0 var(--ledge)}
-.ux1-n.cp .lsn-dot{border-radius:var(--r-card)}
-.ux1-n.cp:not(.done):not(.next) .lsn-dot{background:var(--surface-2);color:var(--sun);border:1px solid var(--line);box-shadow:0 4px 0 var(--ledge)}
-.ux1-ms{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);padding:.05rem .45rem;border-radius:var(--r-pill);background:var(--sun);color:var(--cta-ink);font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.ux1-st{display:inline-flex;gap:2px;margin-top:.35rem}.ux1-st i{display:inline-flex;color:var(--line-2)}.ux1-st i.on{color:var(--sun)}.ux1-st svg{width:15px;height:15px}.ux1-st i.on svg{fill:currentColor}
-.ux1-lbl em{font-style:normal;font-weight:700;font-size:var(--fs-xs);color:var(--done)}
-.ux1-n.next .ux1-lbl{font-family:var(--font-display);font-size:var(--fs-md)}
-.ux1-go.btn.primary{min-width:0;min-height:44px;padding:.35rem .9rem;margin-bottom:.8rem;border-radius:var(--r-pill);background:var(--surface-2);color:var(--text);border:1px solid var(--line);box-shadow:0 3px 0 var(--ledge);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
-.ux1-gl{width:8px;height:8px;border-radius:50%;background:var(--cta-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--cta-2) 30%,transparent)}
-.ux1-cta{position:sticky;bottom:.8rem;z-index:5;margin:.4rem 0 0;padding:.4rem 0 0}
-.ux1-cta .btn{font-size:var(--fs-md)}[dir=rtl] .ux1-cta svg{transform:scaleX(-1)}
-@media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))}}
-@media (prefers-reduced-motion:reduce){.ux1-n.next .lsn-dot{animation:none}}
+@media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))!important}}
 /* chuyển động: chỉ transform/opacity (60 fps), View Transitions cho đổi tab, @starting-style cho thẻ cột phải */
-.ux1-n{animation:ux1In .18s ease-out both}
-@keyframes ux1In{from{opacity:0}to{opacity:1}}
-.ux1-unit,.ux1-exam,.ux1-tile{transition:transform .15s ease,box-shadow .15s ease}.ux1-tile:active,.ux1-pk-main:active{transform:translateY(2px)}
+.ux1-exam,.ux1-tile{transition:transform .15s ease,box-shadow .15s ease}.ux1-tile:active,.ux1-pk-main:active{transform:translateY(2px)}
 .ux1-rail>*{transition:opacity .18s ease}@starting-style{.ux1-rail>*{opacity:0}}
 body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transition-name:ux1side}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
-@media (prefers-reduced-motion:reduce){.ux1-n,.ux1-n.next .lsn-dot{animation:none}.ux1-rail>*{transition:none}.ux1-tile:active,.ux1-pk-main:active{transform:none}}`;
+@media (prefers-reduced-motion:reduce){.ux1-rail>*{transition:none}.ux1-tile:active,.ux1-pk-main:active{transform:none}}`;
     document.head.appendChild(s);
   }
 

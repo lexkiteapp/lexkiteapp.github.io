@@ -355,6 +355,7 @@
   }
  ],
  "skip": {
+  "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
   "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
     "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
   "content/dict": "trạng thái mở index trang từ điển (stage.json) do dict-stage.yml ghi – không phải nội dung học; kiểm bằng scripts/test/dict-stage.mjs",
