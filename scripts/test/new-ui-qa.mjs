@@ -54,7 +54,9 @@ const PROBE = () => {
     }
     // giáo viên / nút bị lớp cố định đè (chân bài học, thanh dưới…)
     const fixed = [...D.querySelectorAll('body *')].filter(e => getComputedStyle(e).position === 'fixed' && vis(e) && getComputedStyle(e).pointerEvents !== 'none');
+    const mOpen = D.querySelector('#modal:not([hidden]) #modalBox');
     for (const tch of D.querySelectorAll('#lsnTch, #lsnTch2, .ret-teach, .tch')) {
+      if (mOpen && vis(mOpen) && !mOpen.contains(tch)) continue; // giáo viên của trang nằm dưới hộp thoại là đúng thiết kế
       const r = vis(tch); if (!r || !inVp(r)) continue;
       for (const f of fixed) { if (f.contains(tch) || tch.contains(f)) continue; const fr = f.getBoundingClientRect(); const ov = Math.max(0, Math.min(r.right, fr.right) - Math.max(r.left, fr.left)) * Math.max(0, Math.min(r.bottom, fr.bottom) - Math.max(r.top, fr.top)); if (ov > r.width * r.height * 0.05 && +getComputedStyle(f).zIndex >= 0) add(fail, `teacher-occluded ${sel(tch)} dưới ${sel(f)} ${Math.round(100 * ov / (r.width * r.height))} %`); }
     }
@@ -136,7 +138,7 @@ async function combo(lang, vpk, scheme) {
       for (const m of ax) F(state, 'contrast ' + m);
       (report.texts[state] = report.texts[state] || {})[tag] = p.texts;
     },
-    click: (s) => page.locator(s).first().click({ timeout: 8000 }),
+    click: (s) => page.locator(s).first().click({ timeout: 8000, force: true }), // force: nút có hiệu ứng lặp vô hạn (BẮT ĐẦU nhún) không bao giờ "đứng yên" – vẫn là cú chạm thật
   };
   const run = async (name, fn) => { try { await fn(h); } catch (e) { F(name, 'không dựng được trạng thái: ' + String(e.message).split('\n')[0].slice(0, 160)); } };
   if (ONLY.includes('lesson')) await lessonStates(h, run);
@@ -182,10 +184,11 @@ async function lessonStates(h, run) {
 async function retStates(h, run) {
   const P = h.page;
   const seedDays = n => P.evaluate(n => { const g = App.state.game; g.days = g.days || {}; for (let i = 0; i < n; i++) { const d = new Date(Date.now() - i * 864e5); g.days[Core.todayKey(d)] = { xp: 30, quizzes: 1 }; } }, n);
-  await run('ret-home', async () => { await h.boot('/home?all=1', '&ret=1'); await seedDays(7); await h.go('/home?all=2'); await P.waitForSelector('.ret-week', { timeout: 8000 }).catch(() => {}); await h.shot('ret-home'); });
-  await run('ret-celebrate', async () => { await P.waitForSelector('#modal:not([hidden]) .ret-cel', { timeout: 12000 }); await sleep(600); await h.shot('ret-celebrate'); });
-  await run('ret-chest', async () => { await h.act('ret-chest', () => h.click('#retChestTile')); await sleep(500); await h.shot('ret-chest'); await P.evaluate(() => UI.closeModal()); await sleep(400); });
-  await run('ret-page', async () => { await h.go('/streak'); await P.waitForSelector('.ret-big', { timeout: 8000 }); await h.shot('ret-page'); });
+  // 7 ngày liên tiếp → mở #/streak: mốc 7 chưa chúc → màn chúc mừng tự bật (check()) → rương → đóng → trang chuỗi → trang chủ có lịch tuần
+  await run('ret-celebrate', async () => { await h.boot('/stats', '&ret=1'); await seedDays(7); await h.go('/streak'); await P.waitForSelector('#modal:not([hidden]) .ret-cel', { timeout: 15000 }); await sleep(800); await h.shot('ret-celebrate'); });
+  await run('ret-chest', async () => { await h.act('ret-chest', () => h.click('#retChestTile')); await sleep(600); await h.shot('ret-chest'); await P.evaluate(() => UI.closeModal()); await sleep(500); });
+  await run('ret-page', async () => { await P.waitForSelector('.ret-big', { timeout: 8000 }); await h.shot('ret-page'); });
+  await run('ret-home', async () => { await P.evaluate(() => localStorage.setItem('lk.lesson', '0')); await h.go('/home?all=1'); await P.waitForSelector('.ret-week', { timeout: 8000 }); await h.shot('ret-home'); await P.evaluate(() => localStorage.setItem('lk.lesson', '1')); await h.go('/streak'); });
   await run('ret-thaw', async () => { await P.evaluate(() => Ret.thaw()); await sleep(500); await h.shot('ret-thaw'); for (let i = 0; i < 3; i++) { await h.click('#retIce'); await sleep(250); } await sleep(500); await h.shot('ret-thawed'); await P.evaluate(() => UI.closeModal()); await sleep(300); });
   await run('share-card', async () => { await P.evaluate(() => App.need('share').then(() => ShareCard.open(92))); await sleep(1500); await h.shot('share-card'); await P.evaluate(() => UI.closeModal && UI.closeModal()); });
 }
@@ -193,8 +196,8 @@ async function retStates(h, run) {
 // ---------- 🎬 mặt tiền YouTube (lesson-video.js): thẻ bìa → bấm → khung chờ/bản tự lưu ----------
 async function videoStates(h) {
   const P = h.page;
-  await h.boot('/home?all=1');
-  await P.evaluate(() => App.need('lvideo').then(() => { const d = document.createElement('div'); d.className = 'lv-slot'; d.hidden = true; d.dataset.lv = JSON.stringify({ mode: 'word', words: ['book'] }); document.querySelector('#view').prepend(d); return LessonVideo.scan(); }));
+  await h.boot('/home?all=1', '&vtest=1'); // 3 clip trong manifest đều là clip thử (test: true) → chỉ hiện với ?vtest=1
+  await P.evaluate(() => App.need('lvideo').then(() => { const d = document.createElement('div'); d.className = 'lv-slot'; d.hidden = true; d.dataset.lv = JSON.stringify({ mode: 'day', seed: 0, words: ['book', 'exit'], level: 'A2' }); document.querySelector('#view').prepend(d); return LessonVideo.scan(); }));
   await P.waitForSelector('.lv-card', { timeout: 10000 }); await h.shot('video-facade');
   await h.act('video-play', () => h.click('.lv-card')); await sleep(600); await h.shot('video-loading');
   await sleep(5000); await h.shot('video-fallback'); // YouTube không sẵn sàng (hermetic) → bản tự lưu
