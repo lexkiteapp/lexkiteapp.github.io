@@ -42,10 +42,10 @@ ok(mut(s => { s.lines[1].text = 'Was that okay? Great!'; }).length > 0, 'câu c�
 ok(mut(s => { s.lines[3].text = 'Stop saying it wrong: my brother doesn\'t drink coffee.'; }).includes('consistency'), 'Ama dùng clip sốc 2 lần (lặp clip) → cổng nhất quán');
 ok(mut(s => { s.scene = 'office'; }).some(k => ['t-scene', 'consistency'].includes(k)), 'chặn bối cảnh ngoài khuôn/chủ đề');
 ok(mut(s => { s.lines.forEach(l => { if (l.who === 'ama') l.who = 'leo'; }); }).some(k => ['cast', 'consistency', 't-beats'].includes(k)), 'chặn nhân vật không thuộc dàn bối cảnh / render sẽ đổi vai');
-// office: Leo chỉ có clip vẫy tay → không được giảng
+// nhân vật ngoài registry (Leo) giảng → chặn
 const office = J('content/video/samples/phrasal-verb--push-back.json'); office.script.lines[2].who = 'leo';
-ok(T.failed(T.preflight(office, ctx)).some(g => g.k === 'consistency' || g.k === 't-beats'), 'Leo (chỉ có wave_clasp) giảng bài → chặn');
-ok(T.failed(T.preflight(J('content/video/samples/sample.json'), ctx)).some(g => g.k === 'consistency'), 'sample.json cũ: Mia/Leo thiếu clip sốc/giảng → cổng nhất quán báo (như CI)');
+ok(T.failed(T.preflight(office, ctx)).some(g => g.k === 'consistency' || g.k === 't-beats'), 'Leo (ngoài registry) giảng bài → chặn');
+ok(!T.failed(T.preflight(J('content/video/samples/sample.json'), ctx)).some(g => g.k === 'consistency'), 'sample.json (Ama/Carlos registry) qua cổng nhất quán: đủ clip nói/nghe/hmm/cười');
 
 // 4) fill: thiếu biến báo rõ, viết hoa đầu câu, chọn mẫu ổn định theo seed
 let msg = ''; try { T.fill(T.loadTemplate('quiz-ab'), { topic: 'Quiz: x', scene: 'library', vars: { question: 'A or B?' } }); } catch (e) { msg = e.message; }

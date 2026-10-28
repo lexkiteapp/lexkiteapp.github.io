@@ -10,8 +10,8 @@
  "cefr": "C1",
  "area": "grammar-check",
  "plate": "clothing_store",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "carlos",
+ "clip": "gc4_talk_natural",
  "hook": {
   "line": "n_07d8ef_h",
   "quote": "This model is inferior than that one.",

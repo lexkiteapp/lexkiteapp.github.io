@@ -23,7 +23,7 @@ ok(V.matchWords(['colour'], [{ w: 'color', start: 0, end: 0.3 }], 0.5).matched =
 const lay = V.layoutLines([1, 2], { lead: 0.2, gap: 0.3 }); ok(lay[1].start === 1.5 && lay[1].end === 3.5, 'xếp câu nối tiếp + khoảng nghỉ');
 
 // 2) Phụ đề ASS
-const lines = [{ who: 'mia', text: 'Say {I} agree', start: 0.2, end: 1.4 }, { who: 'leo', text: 'Agree is a verb', start: 1.7, end: 3 }];
+const lines = [{ who: 'ama', text: 'Say {I} agree', start: 0.2, end: 1.4 }, { who: 'carlos', text: 'Agree is a verb', start: 1.7, end: 3 }];
 const words = lines.flatMap((l, i) => V.evenTiming(V.tokens(l.text), l.start, l.end).map(x => ({ line: i, ...x })));
 let ass = V.buildAss({ w: 1080, h: 1920, lines, words, keywords: ['verb'], hook: 'Stop saying I am agree', cta: { start: 3.5, end: 5 } });
 const dl = ass.split('\n').filter(x => x.startsWith('Dialogue:'));
@@ -58,11 +58,14 @@ ok(V.hookScore(1.9) === 15 && V.hookScore(2.8) === 10 && V.hookScore(4) === 5, '
 const st0 = V.buildStage({ job: sample, casting, manifest });
 ok(st0.fails.length === 0 && st0.topic === 'office-english' && st0.segs.length === 1 && st0.segs[0].room.id === 'office-01-day', 'kịch bản mẫu: chủ đề → office, 1 phòng, không lỗi');
 ok(st0.lines.every(l => l.actors.every(a => a.role === 'speaker' ? a.asset.mouth || l.who === 'kit' : ['idle', 'nod'].some(t => a.asset.tags.includes(t)))), 'người nói clip có miệng, người nghe idle/nod');
-ok(st0.lines[2].actors.find(a => a.who === 'mia').face === 'right' && st0.lines[2].actors.find(a => a.who === 'leo').asset.tags.includes('talk'), 'người nghe nhìn về phía người nói; giải thích → talk/point');
-ok(st0.lines[0].emotion === 'wrong' && st0.lines[0].actors[0].asset.tags.includes('shock'), 'câu "sai" → clip shock');
+ok(st0.lines[2].actors.find(a => a.who === 'ama').asset.tags.includes('listen') && !st0.lines[2].actors.find(a => a.who === 'ama').flip && st0.lines[2].actors.find(a => a.who === 'carlos').asset.tags.includes('talk'), 'người nghe dùng clip nghe registry (chính diện, không lật gương); giải thích → talk/point');
+ok(st0.lines.every(l => l.actors.every(a => a.asset.build === 'registry' && ['ama', 'carlos'].includes(a.who))), 'mọi diễn viên = clip registry 2D Ama/Carlos (chủ 28/10)');
+ok(st0.lines[0].emotion === 'wrong' && st0.lines[0].actors[0].asset.tags.includes('hmm'), 'câu "sai" → clip phản ứng hmm (registry không có tư thế sốc)');
 ok(new Set(st0.clips).size === st0.clips.length, 'không lặp clip hành động trong video');
+{ const pm = V.placeMedium(JSON.parse(JSON.stringify(st0))), as = pm.lines[2].actors, top = a => a.y - a.asset.foot[1] * a.h / a.asset.figH, bot = a => top(a) + a.asset.h * a.h / a.asset.figH;
+  ok(as.every(a => a.medium && Math.abs(bot(a) - 1920) < 2 && Math.abs(top(a) - 1920 * 0.44) < 2) && as.map(a => a.x).sort((x, y) => x - y).join() === '270,810', 'khung medium registry: đáy clip = đáy khung hình, cao 56 %, 2 người trải đều 270/810'); }
 const tweak = f => { const j = JSON.parse(JSON.stringify(sample)); f(j.script, j); return V.buildStage({ job: j, casting, manifest }).fails; };
-let fl = tweak(sc => { sc.lines[1].who = 'carlos'; }); ok(fl.some(f => f.k === 'brand' && /carlos/.test(f.reason)), 'Carlos ở văn phòng → lỗi brand');
+let fl = tweak(sc => { sc.lines[1].who = 'leo'; }); ok(fl.some(f => f.k === 'brand' && /leo/.test(f.reason)), 'nhân vật ngoài registry (Leo) → lỗi brand');
 fl = tweak(sc => { sc.lines[3].scene = 'cafe'; }); ok(fl.some(f => f.k === 'pacing' && /chuyển cảnh/.test(f.reason)) && fl.some(f => f.k === 'brand'), 'đổi phòng không chuyển cảnh + cafe ngoài chủ đề → lỗi');
 fl = tweak((sc, j) => { j.topic = 'Small talk: spill the tea'; sc.scene = 'home'; sc.lines[3].scene = 'cafe'; sc.lines[3].transition = 'fade'; }); ok(!fl.some(f => /chuyển cảnh/.test(f.reason)), 'đổi phòng có chủ đích (transition) → hợp lệ');
 fl = tweak(sc => { sc.lines[0].text = "That's totally wrong!"; sc.lines[0].expr = 'big laugh'; }); ok(fl.some(f => f.k === 'lipsync' && /biểu cảm/.test(f.reason)), 'câu "sai" mà cười lớn → lỗi biểu cảm');
@@ -74,7 +77,7 @@ fl = tweak(sc => { sc.lines[0].text = "That's totally wrong!"; sc.lines[0].expr 
 }
 fl = tweak(sc => { sc.time = 'night'; }); ok(fl.length === 0 || fl.every(f => f.k !== 'pacing'), 'tối có phòng tối riêng → không lỗi ánh sáng');
 fl = tweak(sc => { sc.outfit = 'travel'; }); ok(fl.some(f => f.k === 'lipsync' && /không có clip/.test(f.reason)), 'không có clip đúng trang phục → người nói thiếu clip miệng');
-const noClips = { ...manifest, clips: manifest.clips.filter(c => !c.mouth || c.id === 'mia_talk_point') };
+const noClips = { ...manifest, clips: manifest.clips.filter(c => !c.mouth || c.id === 'reg_ama_talk_a') };
 fl = V.buildStage({ job: sample, casting, manifest: noClips }).fails; ok(fl.some(f => /lặp lại/.test(f.reason)), 'clip hành động lặp trong video → lỗi');
 const vd = V.consistencyVerdict([{ k: 'brand', reason: 'x' }, { k: 'lipsync', reason: 'y' }, { k: 'brand', reason: 'z' }]);
 ok(!vd.ok && vd.zero.join() === 'brand,lipsync' && vd.reasons[0] === '[brand] x', 'lỗi → chấm 0 đúng mục + lý do');
@@ -88,23 +91,23 @@ ok(formats.music.every(x => !x.file), 'nhạc nền tự tổng hợp (không fi
 const date = new Date('2026-10-17T00:00:00Z');
 const a1 = X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abc', date }), a2 = X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abc', date });
 ok(JSON.stringify(a1.fp) === JSON.stringify(a2.fp) && JSON.stringify(X.pickVariant({ job: sample, formats, casting, manifest, history: [], seed: 'abd', date }).fp) !== JSON.stringify(a1.fp), 'cùng seed → cùng tổ hợp; khác seed → khác');
-ok(!a1.recast && a1.cast.to.join() === 'mia,leo' && !X.canRecast({ lines: [{ who: 'mia', text: 'Hi Leo!' }] }, casting), 'kịch bản ghi rõ who → giữ dàn; đổi vai chỉ khi lời thoại không gọi tên');
+ok(!a1.recast && a1.cast.to.join() === 'ama,carlos' && !X.canRecast({ lines: [{ who: 'ama', text: 'Hi Carlos!' }] }, casting), 'kịch bản ghi rõ who → giữ dàn; đổi vai chỉ khi lời thoại không gọi tên');
 { // dàn kịch bản: giữ nguyên khi có clip; recast:true mới đổi để đa dạng; người được gọi tên không có clip nói → đổi riêng người đó + lý do
-  const cafe = { topic: 'Ordering coffee like a local', script: { scene: 'cafe', lines: [{ who: 'carlos', beat: 'hook', text: 'Hi there.' }, { who: 'mia', beat: 'explain', text: 'Say could I get.' }] } };
-  const cm = { ...manifest, clips: [{ id: 'carlos_t', who: 'carlos', outfit: 'casual', mouth: true, tags: ['talk'], file: 'c' }, { id: 'mia_t', who: 'mia', outfit: 'casual', mouth: true, tags: ['talk'], file: 'm' }, { id: 'leo_t', who: 'leo', outfit: 'casual', mouth: true, tags: ['talk'], file: 'l' }] };
+  const cafe = { topic: 'Ordering coffee like a local', script: { scene: 'cafe', lines: [{ who: 'carlos', beat: 'hook', text: 'Hi there.' }, { who: 'ama', beat: 'explain', text: 'Say could I get.' }] } };
+  const cm = { ...manifest, clips: [{ id: 'carlos_t', who: 'carlos', outfit: 'outfit1', mouth: true, tags: ['talk'], file: 'c' }, { id: 'ama_t', who: 'ama', outfit: 'outfit1', mouth: true, tags: ['talk'], file: 'm' }] };
   const keep = [...Array(20)].map((_, i) => X.pickVariant({ job: cafe, formats, casting, manifest: cm, seed: 'k' + i, date }));
-  ok(keep.every(v => !v.recast && v.cast.to.join() === 'carlos,mia' && v.setting.scene === 'cafe'), 'cafe-order: Carlos + Mia ghi rõ → 20 seed đều giữ dàn');
+  ok(keep.every(v => !v.recast && v.cast.to.join() === 'carlos,ama' && v.setting.scene === 'cafe'), 'cafe-order: Carlos + Ama ghi rõ → 20 seed đều giữ dàn');
   const opt = [...Array(20)].map((_, i) => X.pickVariant({ job: { ...cafe, script: { ...cafe.script, recast: true } }, formats, casting, manifest: cm, seed: 'k' + i, date }));
   ok(opt.some(v => v.recast), 'recast:true → được đổi vai để đa dạng');
-  const noMia = { ...cm, clips: cm.clips.filter(c => c.who !== 'mia') }, rv = X.pickVariant({ job: cafe, formats, casting, manifest: noMia, seed: 'z', date });
-  ok(rv.recast && rv.cast.to[0] === 'carlos' && rv.cast.to[1] === 'leo' && /mia/.test(rv.recastReason), 'người được gọi tên thiếu clip → chỉ thay người đó + lý do');
+  const solo = { ...cafe, script: { ...cafe.script, lines: cafe.script.lines.map(l => ({ ...l, who: 'ama' })) } }, noAma = { ...cm, clips: cm.clips.filter(c => c.who !== 'ama') }, rv = X.pickVariant({ job: solo, formats, casting, manifest: noAma, seed: 'z', date });
+  ok(rv.recast && rv.cast.to.join() === 'carlos' && /ama/.test(rv.recastReason), 'người được gọi tên thiếu clip → chỉ thay người đó + lý do');
 }
-ok(X.applyCast(sample.script, { from: ['mia', 'leo'], to: ['leo', 'diane'] }).lines.map(l => l.who).join() === 'leo,diane,diane,leo,kit,leo', 'áp dàn mới, Kit giữ nguyên');
+ok(X.applyCast(sample.script, { from: ['ama', 'carlos'], to: ['carlos', 'ama'] }).lines.map(l => l.who).join() === 'carlos,ama,ama,carlos,kit,carlos', 'áp dàn mới, Kit giữ nguyên');
 const topicsQ = ['Don\'t say "I\'m agree"', 'Job interview: tell me about yourself', 'Ordering coffee like a local', 'IELTS speaking part 2', 'Leo explains "spill the tea"', 'At the airport check-in', 'Affect or effect quiz', 'Email etiquette', 'Restaurant: asking for the check'];
-const spk = { 'ielts-exam': ['ama'], 'study-grammar': ['ama'], 'ordering-coffee': ['carlos', 'mia'], restaurant: ['carlos', 'leo'], travel: ['carlos', 'mia'], 'job-interview': ['diane', 'mia'] };
+const spk = { 'ielts-exam': ['ama'], 'study-grammar': ['ama'], 'ordering-coffee': ['carlos', 'ama'], restaurant: ['carlos'], travel: ['carlos', 'ama'], 'job-interview': ['carlos', 'ama'] };
 const hist = [], choices = [], Rg = X.rng('test-1000'); let relaxed = 0, clipRepeat = 0, badStage = 0;
 for (let i = 0; i < 1000; i++) {
-  const topic = topicsQ[Math.floor(Rg() * topicsQ.length)], tid = V.resolveTopic({ topic }, casting).id, who = spk[tid] || ['mia', 'leo'];
+  const topic = topicsQ[Math.floor(Rg() * topicsQ.length)], tid = V.resolveTopic({ topic }, casting).id, who = spk[tid] || ['ama', 'carlos'];
   const script = { lines: [{ who: who[0], beat: 'hook', text: 'Wait, is that wrong?' }, { who: who[1] || who[0], beat: 'explain', text: 'Here is the natural way.' }, { who: who[0], beat: 'example', text: 'I agree with your plan.' }, { who: 'kit', beat: 'tip', text: "Kit's tip: say it twice." }, { who: who[1] || who[0], beat: 'cta', text: 'Practice this free on lexkite.com' }] };
   const job = { id: 'j' + i, topic, script }, v = X.pickVariant({ job, formats, casting, manifest, history: hist, seed: 'run' + i, date });
   if (v.relaxed) relaxed++;
@@ -126,7 +129,7 @@ ok(new Set(hist.map(h => X.MAIN.map(c => h[c]).join('|'))).size === 1000, '1.000
 const cov = X.coverage({ formats, casting, manifest, exists: () => true, emotionTags: V.EMOTION_TAGS, date });
 ok(cov.total > 100000 && cov.topics.length === casting.topics.length + 1, `độ phủ đủ lớn khi đủ tài nguyên (${cov.total.toLocaleString('en-US')} tổ hợp)`);
 const covNone = X.coverage({ formats, casting, manifest, exists: () => false, existsRepo: () => false, emotionTags: V.EMOTION_TAGS, date });
-ok(covNone.missing.some(x => /clip diane/.test(x)) && covNone.missing.some(x => /phòng office-01-day/.test(x)) && covNone.missing.some(x => /end card qr/.test(x)), 'báo thiếu tài nguyên (clip, phòng, end card)');
+ok(covNone.missing.some(x => /clip ama/.test(x)) && covNone.missing.some(x => /phòng office-01-day/.test(x)) && covNone.missing.some(x => /end card qr/.test(x)), 'báo thiếu tài nguyên (clip, phòng, end card)');
 
 if (fails) { console.error(`✗ video: ${fails} lỗi`); process.exit(1); }
 console.log(`✓ video: căn mốc từ, phụ đề ASS, đo QA, cổng nhất quán, bộ sinh biến thể (1.000 lượt không trùng), độ phủ đều đạt`);

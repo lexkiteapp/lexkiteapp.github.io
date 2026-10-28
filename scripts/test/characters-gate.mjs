@@ -61,11 +61,45 @@ const tc = Object.keys(T.characters); if (tc.join() !== IDS.join()) errs.push(`b
 for (const m of JSON.stringify(T).matchAll(/"char":"(\w+)"/g)) if (!IDS.includes(m[1])) errs.push(`templates.json dùng nhân vật ngoài registry: ${m[1]}`);
 for (const f of fs.readdirSync('brand/social/templates/assets/chars')) if (!IDS.some(i => f.startsWith(i + '-'))) errs.push(`brand/social/templates/assets/chars/${f}: nhân vật ngoài registry`);
 for (const d of ['brand/social/templates/svg', 'brand/social/templates/png']) for (const f of fs.readdirSync(d)) { const m = f.match(/^lower-third-(\w+)-/); if (m && m[1] !== 'kit' && !IDS.includes(m[1])) errs.push(`${d}/${f}: nhân vật ngoài registry`); }
-// kho dựng video hằng ngày (render.mjs): diễn viên 'char' phải là người trong registry; ảnh kho kiểu minh hoạ cũ = nợ có chủ (LIB_WAIVE)
-const LIB_WAIVE = 'việc riêng: chuyển diễn viên video hằng ngày (render.mjs/library.json) sang footage 2D của registry';
-const lib = JSON.parse(fs.readFileSync('content/video/library.json', 'utf8')).items.filter(i => i.kind === 'char' && i.who);
-const off = lib.filter(i => !IDS.includes(i.who)), legacy = lib.filter(i => IDS.includes(i.who));
-if (off.length || legacy.length) console.log(`⚠ kho video: ${off.length} ảnh nhân vật ngoài registry (${[...new Set(off.map(i => i.who))]}) + ${legacy.length} ảnh Ama/Carlos kiểu cũ – ${LIB_WAIVE}`);
+// ---------- 4) video: kho dựng, dàn, kịch bản, spec news – CHỈ registry (chủ 28/10; hết miễn trừ LIB_WAIVE → lỗi cứng) ----------
+const WHO = new Set([...IDS, 'kit']), J = f => JSON.parse(fs.readFileSync(f, 'utf8'));
+// kho tài nguyên: ảnh/clip nhân vật cũ (kiểu minh hoạ, Mia/Leo/Diane, Ama/Carlos cũ) phải ở trạng thái retired – không bao giờ vào render
+for (const i of J('content/video/library.json').items) if ((i.kind === 'char' || i.kind === 'clip' || (i.who && !IDS.includes(i.who))) && i.status !== 'retired')
+  errs.push(`content/video/library.json: ${i.id || i.file} (${i.kind}/${i.who}) status ${i.status} – nhân vật kho cũ phải retired; diễn viên = clip registry (brand/library/manifest.json build:"registry")`);
+// danh mục dựng: chỉ clip build:"registry" của Ama/Carlos, src = đúng clip phông xanh nguồn của tư thế trong characters.json; không ảnh tĩnh nhân vật
+const RM = J('brand/library/manifest.json');
+for (const c of RM.clips || []) {
+  const sp = R.people[c.who] && R.people[c.who].clips[c.pose];
+  if (c.build !== 'registry' || !sp || sp.src !== c.src || !c.medium) errs.push(`brand/library/manifest.json clip ${c.id}: chỉ được clip build:"registry" (who ${IDS}, pose+src khớp characters.json, khung medium)`);
+}
+for (const x of RM.stills || []) errs.push(`brand/library/manifest.json still ${x.file}: không dùng ảnh tĩnh nhân vật – chỉ clip registry`);
+for (const p of R.poses) for (const who of IDS) if (!(RM.clips || []).some(c => c.who === who && c.pose === p)) errs.push(`brand/library/manifest.json: thiếu clip registry ${who}/${p}`);
+// dàn (casting.json): giọng, nhân vật, mọi bối cảnh/chủ đề/dự phòng chỉ Ama/Carlos (+ Kit); dữ liệu cũ chỉ được nằm trong "retired"
+const CS = J('content/video/casting.json'), badCast = (where, arr) => { for (const w of arr) if (!WHO.has(w)) errs.push(`content/video/casting.json ${where}: "${w}" ngoài registry`); };
+badCast('voices', Object.keys(CS.voices)); badCast('characters', Object.keys(CS.characters).filter(k => k !== '_note')); badCast('fallback', CS.fallback.cast);
+for (const [k, sc] of Object.entries(CS.scenes)) { badCast(`scenes.${k}.cast`, sc.cast); badCast(`scenes.${k}.roles`, Object.keys(sc.roles || {})); }
+for (const t of CS.topics) badCast(`topics.${t.id}`, t.cast);
+for (const w of IDS) if (CS.voices[w] !== R.people[w].voice.video) errs.push(`casting.json voices.${w} ≠ registry voice.video (${R.people[w].voice.video})`);
+// lib.mjs CAST (kiểm kịch bản Studio) = registry + kit
+const castSrc = (fs.readFileSync('scripts/video/lib.mjs', 'utf8').match(/export const CAST = \[([^\]]*)\]/) || [])[1];
+if (!castSrc || castSrc.replace(/[\s']/g, '') !== [...IDS, 'kit'].join()) errs.push(`scripts/video/lib.mjs CAST [${castSrc}] ≠ registry + kit`);
+// kịch bản video tự động + khuôn + mẫu: who / vai chỉ registry
+for (const d of ['content/video/auto', 'content/video/templates', 'content/video/templates/examples', 'content/video/samples']) for (const f of fs.existsSync(d) ? fs.readdirSync(d).filter(f => f.endsWith('.json')) : []) {
+  const s = fs.readFileSync(`${d}/${f}`, 'utf8');
+  for (const m of s.matchAll(/"who"\s*:\s*"(\w+)"|"roles"\s*:\s*\{([^{}]*)\}/g)) for (const w of m[1] ? [m[1]] : [...m[2].matchAll(/"(\w+)"\s*(?=[,\]])/g)].map(x => x[1]))
+    if (!WHO.has(w)) errs.push(`${d}/${f}: "${w}" ngoài registry`);
+}
+// spec news (tpl/news.py, gold2lesson.py): host + người nói chỉ registry; pilot cũ dùng người khác chỉ khi tệp ghi "retired" đầu tệp (registry.check chặn dựng)
+const walkJ = p => fs.statSync(p).isDirectory() ? fs.readdirSync(p).flatMap(f => walkJ(path.join(p, f))) : p.endsWith('.json') ? [p] : [];
+for (const f of walkJ('content/video/cine/news')) {
+  if (f.endsWith('approved.json')) continue; // sổ lịch sử video đã duyệt
+  const s = fs.readFileSync(f, 'utf8');
+  for (const m of s.matchAll(/"host"\s*:\s*"(\w+)"/g)) if (!IDS.includes(m[1])) errs.push(`${f}: host "${m[1]}" ngoài registry`);
+  if (/^\{\s*"retired"/.test(s)) continue;
+  for (const m of s.matchAll(/"(?:who|teacher)"\s*:\s*"(\w+)"/g)) if (!WHO.has(m[1])) errs.push(`${f}: "${m[1]}" ngoài registry (pilot cũ → ghi "retired" đầu tệp)`);
+}
+const vc = Object.fromEntries(IDS.map(w => [w, R.people[w].video_clip]));
+for (const t of walkJ('content/video/cine/news/tpl1b').filter(f => /tpl1b_[^/]*\.json$/.test(f)).map(J)) if (vc[t.host] !== t.clip) errs.push(`tpl1b ${t.id}: clip ${t.clip} ≠ video_clip registry của ${t.host} (${vc[t.host]})`);
 if (/HOST_CLIPS\s*=\s*dict\(/.test(fs.readFileSync('scripts/video/tpl/tokens.py', 'utf8'))) errs.push('scripts/video/tpl/tokens.py: HOST_CLIPS phải lấy từ registry (teach.registry.video_clips)');
 
 if (errs.length) { console.error(`✗ characters-gate: ${errs.length} lỗi\n  ` + errs.slice(0, 60).join('\n  ')); process.exit(1); }

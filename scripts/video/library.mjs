@@ -576,7 +576,8 @@ function cmdApprove(id, opts) {
 /** CI dựng video: brand/library không nằm trong git → tải từ nguồn chính (media.lexkite.com) đúng các file manifest dựng cần, kiểm sha256. */
 async function cmdFetchRender() {
   const m = loadManifest(), rm = JSON.parse(fs.readFileSync(path.join(LIB, 'manifest.json'), 'utf8'));
-  const want = [...(rm.clips || []), ...(rm.rooms || []), ...(rm.stills || [])].filter(x => x.ready && x.file).map(x => x.file);
+  // clip nhân vật build:"registry" không tải – CI dựng tại chỗ từ footage (registry_clips.py, bước trước trong video.yml)
+  const want = [...(rm.clips || []), ...(rm.rooms || []), ...(rm.stills || [])].filter(x => x.ready && x.file && x.build !== 'registry').map(x => x.file);
   let ok = 0, miss = 0;
   for (const f of [...new Set(want)]) {
     const dest = path.join(LIB, f);
@@ -710,7 +711,10 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
   let rm; try { rm = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { rm = { _note: '', rooms: [], clips: [], stills: [] }; }
   rm.rooms = rm.rooms || []; rm.clips = rm.clips || []; rm.stills = rm.stills || [];
   const probs = [], done = new Set();
-  for (const e of m.items.filter(x => x.kind === 'clip' && x.status === 'approved')) {
+  // NHÂN VẬT (chủ 28/10): render chỉ dùng clip build:"registry" (scripts/video/registry_clips.py dựng trên CI từ web/teach/characters.json);
+  // clip kho cũ (status retired) không bao giờ vào danh mục dựng – kể cả khi ai đó đổi lại approved: người ngoài registry bị bỏ.
+  const REG_IDS = Object.keys(JSON.parse(fs.readFileSync(path.join(ROOT, 'web/teach/characters.json'), 'utf8')).people);
+  for (const e of m.items.filter(x => x.kind === 'clip' && x.status === 'approved' && REG_IDS.includes(x.who) && x.build === 'registry')) {
     const st = e.variants && e.variants.stacked, id = path.basename(e.id, '.mp4');
     let c = rm.clips.find(x => x.id === id);
     if (!st || st.status === 'FAIL' || !exists(e.id)) {
@@ -727,7 +731,7 @@ export function writeRenderManifest(m, file = path.join(LIB, 'manifest.json'), e
     const dc = driveCopies(st.drive); if (dc.length) c.drive = dc.map(x => ({ driveId: x.driveId, email_masked: x.email_masked || '', fileId: x.fileId })); // tra soát: bản stacked nằm ở Drive nào
     done.add(id);
   }
-  for (const c of rm.clips) if (!done.has(c.id)) {
+  for (const c of rm.clips) if (!done.has(c.id) && c.build !== 'registry') {
     const lib = m.items.find(x => x.id === c.file);
     c.ready = false;
     probs.push(`clip ${c.file}: ${!lib ? 'chưa có trong kho' : lib.status !== 'approved' ? 'kho ghi ' + lib.status : 'chưa có bản stacked đạt cổng'} → render bỏ qua (ready:false)`);

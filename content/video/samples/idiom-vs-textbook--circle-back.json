@@ -12,21 +12,21 @@
   "template": "idiom-vs-textbook",
   "lines": [
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "hook",
     "text": "Let's circle back on this.",
     "expr": "calm",
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "situation",
     "text": "So in my textbook, that's: we'll discuss it later?",
     "expr": "thinking",
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "explain",
     "text": "Oh, circle back means come back to a topic later.",
     "expr": "confident",
@@ -34,7 +34,7 @@
     "punch": true
    },
    {
-    "who": "diane",
+    "who": "carlos",
     "beat": "example",
     "text": "Can we circle back to the budget on Monday?",
     "expr": "curious",
@@ -48,7 +48,7 @@
     "gesture": ""
    },
    {
-    "who": "mia",
+    "who": "ama",
     "beat": "cta",
     "text": "Save useful phrases on lexkite.com",
     "expr": "happy smile",

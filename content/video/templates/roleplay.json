@@ -11,13 +11,13 @@
  "scenes": {
   "cafe": { "format_id": "cafe-carlos", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
   "supermarket": { "format_id": "repeat-after-me", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
-  "office": { "format_id": "interview-diane", "roles": { "learner": ["mia"], "staff": ["diane"] } },
-  "reception": { "format_id": "interview-diane", "roles": { "learner": ["mia"], "staff": ["diane"] } },
-  "restaurant": { "format_id": "restaurant-rescue", "roles": { "learner": ["mia", "leo"], "staff": ["carlos"] } },
-  "clinic": { "format_id": "repeat-after-me", "roles": { "learner": ["mia", "leo"], "staff": ["diane"] } },
-  "hotel-lobby": { "format_id": "repeat-after-me", "roles": { "learner": ["mia", "leo"], "staff": ["carlos"] } },
-  "airport": { "format_id": "airport-phrase", "roles": { "learner": ["mia", "leo"], "staff": ["carlos"] } },
-  "classroom": { "format_id": "repeat-after-me", "roles": { "learner": ["ama"], "staff": ["diane"] } }
+  "office": { "format_id": "interview-diane", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "reception": { "format_id": "interview-diane", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "restaurant": { "format_id": "restaurant-rescue", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "clinic": { "format_id": "repeat-after-me", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "hotel-lobby": { "format_id": "repeat-after-me", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "airport": { "format_id": "airport-phrase", "roles": { "learner": ["ama"], "staff": ["carlos"] } },
+  "classroom": { "format_id": "repeat-after-me", "roles": { "learner": ["ama"], "staff": ["carlos"] } }
  },
  "vars": {
   "phrase": { "desc": "câu mẫu chính (từ khóa) – người học sẽ nói", "required": true, "maxWords": 5 },

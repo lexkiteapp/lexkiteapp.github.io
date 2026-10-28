@@ -10,7 +10,7 @@
  "roles": { "learner": "người đặt câu hỏi (hook) + CTA (Ama)", "host": "người đọc câu có chỗ trống + đếm ngược", "revealer": "người công bố đáp án + 3 dạng", "modeler": "người dùng dạng đúng trong câu thật", "kit": "Kit – mẹo nhớ nhóm động từ" },
  "scenes": {
   "library": { "roles": { "learner": ["ama"], "host": ["ama"], "revealer": ["ama"], "modeler": ["ama"] } },
-  "classroom": { "roles": { "learner": ["ama"], "host": ["diane"], "revealer": ["diane"], "modeler": ["ama"] } }
+  "classroom": { "roles": { "learner": ["ama"], "host": ["carlos"], "revealer": ["carlos"], "modeler": ["ama"] } }
  },
  "vars": {
   "wrongForm": { "desc": "dạng sai người học hay nói (goed, buyed, teached) – 1 từ", "required": true, "maxWords": 1 },

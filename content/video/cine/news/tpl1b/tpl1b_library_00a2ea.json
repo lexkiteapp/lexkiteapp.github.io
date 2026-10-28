@@ -10,8 +10,8 @@
  "cefr": "A2",
  "area": "verbs",
  "plate": "library",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "ama",
+ "clip": "ga4_talk_natural",
  "hook": {
   "line": "n_00a2ea_h",
   "quote": "The report states the prices went up.",
