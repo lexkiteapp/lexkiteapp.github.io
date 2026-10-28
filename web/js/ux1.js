@@ -236,7 +236,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-chip svg{width:14px;height:14px}
 .ux1-path{gap:1.1rem;margin:1.2rem 0 1rem}
 .ux1-n .ux1-dw{position:relative;display:inline-flex}
-.ux1-n .lsn-dot{width:70px;height:64px}.ux1-n.next .lsn-dot{width:84px;height:78px;animation:ux1Pulse 2.2s ease-in-out infinite}
+.ux1-n .lsn-dot{width:70px;height:64px}.ux1-n.next .lsn-dot{width:84px;height:78px}
 .ux1-n.lock .lsn-dot{background:var(--surface-2);color:var(--text);border:2px solid var(--line)}
 .ux1-n.cp:not(.done) .lsn-dot{border-radius:22px;background:var(--gold-soft);color:var(--gold-text);box-shadow:0 6px 0 var(--gold)}
 .ux1-n.cp.next .lsn-dot{background:var(--gold);color:var(--brand-ink)}
@@ -247,7 +247,6 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-n.lock .ux1-lbl{color:var(--muted)}
 .ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 12%;border:3px solid var(--surface);box-shadow:var(--shadow)}
 .ux1-go{animation:none!important;min-width:200px}
-@keyframes ux1Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}
@@ -308,14 +307,13 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-gl{width:8px;height:8px;border-radius:50%;background:var(--cta-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--cta-2) 30%,transparent)}
 .ux1-cta{position:sticky;bottom:.8rem;z-index:5;margin:.4rem 0 0;padding:.4rem 0 0}
 .ux1-cta .btn{font-size:var(--fs-md)}[dir=rtl] .ux1-cta svg{transform:scaleX(-1)}
-@keyframes ux1Ring{0%,100%{box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 6px color-mix(in srgb,var(--cta-2) 22%,transparent)}50%{box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 12px color-mix(in srgb,var(--cta-2) 8%,transparent)}}
 @media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))}}
 @media (prefers-reduced-motion:reduce){.ux1-n.next .lsn-dot{animation:none}}
 /* chuyển động: chỉ transform/opacity (60 fps), View Transitions cho đổi tab, @starting-style cho thẻ cột phải */
-.ux1-n{animation:ux1In .34s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i,0) * 45ms)}
-@keyframes ux1In{from{opacity:0;transform:translateX(var(--x)) scale(.7)}to{opacity:1;transform:translateX(var(--x)) scale(1)}}
+.ux1-n{animation:ux1In .18s ease-out both}
+@keyframes ux1In{from{opacity:0}to{opacity:1}}
 .ux1-unit,.ux1-exam,.ux1-tile{transition:transform .15s ease,box-shadow .15s ease}.ux1-tile:active,.ux1-pk-main:active{transform:translateY(2px)}
-.ux1-rail>*{transition:opacity .22s ease,translate .22s ease}@starting-style{.ux1-rail>*{opacity:0;translate:0 6px}}
+.ux1-rail>*{transition:opacity .18s ease}@starting-style{.ux1-rail>*{opacity:0}}
 body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transition-name:ux1side}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
 @media (prefers-reduced-motion:reduce){.ux1-n,.ux1-n.next .lsn-dot{animation:none}.ux1-rail>*{transition:none}.ux1-tile:active,.ux1-pk-main:active{transform:none}}`;

@@ -15,7 +15,7 @@
 .tk-chip.ok{background:var(--good-soft);color:var(--good-text)}
 .tk-chip.bad{background:var(--again-soft);color:var(--again-text)}
 .tk-bar{display:block;height:10px;border-radius:999px;background:var(--surface-3);overflow:hidden}
-.tk-bar>i{display:block;height:100%;border-radius:999px;background:var(--done);transition:width .35s ease}
+.tk-bar>i{display:block;height:100%;border-radius:999px;background:var(--done);transition:width .18s ease}
 .tk-bar[style*="--seg"]{-webkit-mask:repeating-linear-gradient(90deg,black 0 calc(100% / var(--seg) - 5px),transparent 0 calc(100% / var(--seg)));mask:repeating-linear-gradient(90deg,black 0 calc(100% / var(--seg) - 5px),transparent 0 calc(100% / var(--seg)))}
 .tk-display,.page-head h1{font-family:var(--font-display);letter-spacing:-.015em;color:var(--heading,var(--text))}
 .tk-num{font-family:var(--font-display);font-variant-numeric:tabular-nums}

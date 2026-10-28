@@ -104,6 +104,10 @@
 .lsn-boost{margin-top:.6rem;border:1px solid var(--line);border-radius:var(--r-card);padding:.7rem .8rem;background:var(--bg)}
 .lsn-bh{display:block;margin-bottom:.35rem}.lsn-bw{margin:.1rem 0;color:var(--muted)}.lsn-bw small,.lsn-say small{font-size:var(--fs-xs);font-weight:800;letter-spacing:var(--track);text-transform:uppercase;margin-inline-end:.3rem}.lsn-bw small{color:var(--again-text)}
 .lsn-say{display:inline-flex;align-items:center;gap:.35rem;flex-wrap:wrap;min-height:44px;margin-top:.2rem;padding:.3rem .2rem;border:0;background:none;color:var(--done);font:inherit;font-weight:800;font-size:var(--fs-md);text-align:start;cursor:pointer}.lsn-say svg{width:18px;height:18px}
+/* Chuyển động tiết chế (chủ 28/10): chỉ mờ dần 150–200 ms, không nảy/rung/phát sáng/pháo giấy */
+.lsn-combo.on,.lsn-tile.pop,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-node.next .lsn-dot,.lsn-start,.lsn-big:active{animation:none;transform:none}
+.lsn-emo{display:none}.lsn-bar i{transition:width .18s ease}
+.lsn-foot.ok,.lsn-foot.bad{animation:lsnFade .18s ease-out}@keyframes lsnFade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on,.lsn-node.next .lsn-dot,.lsn-start,.lsn-tile.pop,.lsn-emo.on,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-foot.ok,.lsn-foot.bad{transition:none;animation:none}.lsn-emo.on{opacity:1;transform:none}}`;
     document.head.appendChild(st);
   }
@@ -384,7 +388,7 @@
     ls.set(PKEY(L.demo), String(pathN(L.demo) + 1));
     ls.set('lk.lsn.acc', String(s.accuracy)); // nút kế tiếp thích nghi theo bài này (ux1)
     if (L.story) ls.set(L.SK, String((parseInt(ls.get(L.SK) || '0', 10) || 0) + 1)); // truyện/radio kế tiếp lần sau // nút bản đồ xong (demo: khóa riêng)
-    try { if (window.Sfx) Sfx.win(); if (window.confetti && !matchMedia('(prefers-reduced-motion: reduce)').matches) confetti(90); } catch (e) { /* bỏ qua */ }
+    try { if (window.Sfx) Sfx.win(); /* không pháo giấy: chuyển động tiết chế (chủ 28/10) */ } catch (e) { /* bỏ qua */ }
     let added = 0; const xp = 10 + s.ok1 * 2 + (s.wrong.size ? 0 : 5); // XP hiện cả ở bài thử (không ghi)
     if (!L.demo) {
       for (const r of res) {
