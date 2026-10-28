@@ -103,16 +103,19 @@
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
 
   routes.lesson = async function (arg) {
+    const my = ++runId;
     css(); cleanup();
     const demo = /[?&]demo=1\b/.test(location.hash);
     if (!demo && !(App.lessonOn && App.lessonOn())) { view.innerHTML = `<div class="card center"><p>${t('Bài học trộn đang thử nghiệm, sắp ra mắt.')}</p><a class="btn primary" href="#/home">${t('Quay về trang chủ')}</a></div>`; return; }
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
+    if (my !== runId) return;
     const cards = demo ? DEMO() : Object.values(state.cards || {});
     const ux = !!(window.Ux1 && App.ux1On && App.ux1On()), has = { story: STORIES('story').length, radio: STORIES('radio').length }, n = pathN(demo); // 🧭 cờ ux1: chặng theo mục tiêu + trình độ (docs/LEARNING-PATH.md)
     const plan = ux ? Ux1.plan(E, cards, has, n) : E.pathPlan(cards, Date.now(), has), node = plan[n % plan.length];
     if (arg !== 'go') return ux ? Ux1.map({ demo, plan, n }) : map(demo, plan, n);
     if (node.kind === 'exam') { ls.set(PKEY(demo), String(n + 1)); location.hash = Ux1.check(n).href; return; } // nút kiểm tra kỹ năng thi → module thi có sẵn
     await imgP();
+    if (my !== runId) return;
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
