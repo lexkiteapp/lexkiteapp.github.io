@@ -10,20 +10,22 @@ for (let run = 0; run < N; run++) {
   const ctx = await browser.newContext({ viewport: { width: 412, height: 823 }, deviceScaleFactor: 1.75, isMobile: true, hasTouch: true, userAgent: UA });
   const page = await ctx.newPage(), cdp = await ctx.newCDPSession(page);
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  // Mạng như Lighthouse mobile (4G chậm: RTT 150 ms, 1,6 Mbps) → script về rải rác, thứ tự task giống lúc đo thật
+  await cdp.send('Network.enable'); await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 150, downloadThroughput: 1.6e6 / 8 * 0.9, uploadThroughput: 750e3 / 8 * 0.9 });
   await cdp.send('Profiler.enable'); await cdp.send('Profiler.setSamplingInterval', { interval: 200 }); await cdp.send('Profiler.start');
   // Đếm số lần trang được vẽ lại (#view thay .page-head) – vẽ 2 lần lúc khởi động = tác vụ dài thừa
   await page.addInitScript(() => { window.__draws = []; new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1 && n.classList.contains('page-head') && n.parentElement && n.parentElement.id === 'view') window.__draws.push(Math.round(performance.now()) + ':' + (n.textContent || '').trim().slice(0, 30) + ':' + new Error().stack.split('\n').slice(2, 6).join(' < ')); }).observe(document, { childList: true, subtree: true }); });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/${ROUTE}`, { waitUntil: 'load' });
-  await page.waitForTimeout(9000);
+  await page.waitForTimeout(14000);
   console.log('lần vẽ trang:', JSON.stringify(await page.evaluate(() => ({ draws: window.__draws, drawn: window.App && App.drawn && App.drawn() }))));
   const { profile: p } = await cdp.send('Profiler.stop');
   const byId = new Map(p.nodes.map(n => [n.id, n])), parent = new Map();
   for (const n of p.nodes) for (const c of n.children || []) parent.set(c, n.id);
-  const IDLE = new Set(['(idle)', '(program)', '(garbage collector)', '(root)']);
+  const IDLE = new Set(['(idle)', '(root)']); // (program) = việc gốc của trình duyệt (style/layout/parse HTML) – vẫn tính là bận như Lighthouse
   // Ghép mẫu liên tiếp "bận" (khoảng hở < 2 ms) thành task
   let t = p.startTime, cur = null; const tasks = [];
   p.samples.forEach((id, i) => {
-    t += p.timeDeltas[i]; const n = byId.get(id), busy = !IDLE.has(n.callFrame.functionName) || n.callFrame.functionName === '(garbage collector)';
+    t += p.timeDeltas[i]; const n = byId.get(id), busy = !IDLE.has(n.callFrame.functionName);
     if (busy) { if (!cur || t - cur.end > 2000) { cur = { start: t, end: t, s: [] }; tasks.push(cur); } cur.end = t; cur.s.push([id, p.timeDeltas[i + 1] || 200]); }
   });
   console.log(`\n===== #/${ROUTE} lần ${run + 1} =====`);
