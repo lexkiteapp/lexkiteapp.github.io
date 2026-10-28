@@ -1586,7 +1586,7 @@ body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "No
 .say-line > .ctx-say { margin: 0; }
 .say-pron { display: inline-flex; align-items: center; gap: var(--sp-1); white-space: nowrap; } /* IPA + loa luôn đi cùng nhau, không tách dòng */
 /* 🏆 Thẻ hạng trang chủ: container ở đây; lưới .lg-hc-* ở css/league.css (tải lười cùng gói league) */
-#leagueHomeCard { container-type: inline-size; }
+#leagueHomeCard, #ux1League { container-type: inline-size; }
 /* <a class="card"> mặc định là inline → nền/viền vỡ thành mảnh rời đè thẻ khác (ảnh owner 28/10 trang chủ). Mọi thẻ-liên-kết là khối. */
 :where(a.card) { display: block; color: inherit; text-decoration: none; } /* :where → độ ưu tiên 0, không đè .hub-card/.lg-hc (flex/grid) */
 /* 🏅 Thẻ Nhiệm vụ hôm nay (trang chủ): tiêu đề + a/b + từng nhiệm vụ có nhãn, số, thanh tiến độ */

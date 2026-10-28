@@ -96,7 +96,7 @@
   routes.path = lazy('map'); routes.day = lazy('page'); routes.tracks = lazy('tracks'); // 🧭 Gói học (tracks.js)
   // Thanh tiến độ buổi học (Ngày N · 3/6) trên các trang bài tập khi đang học dở 1 ngày
   const sess = () => { try { return localStorage.getItem('vb.daySess'); } catch (e) { return null; } };
-  App.afterRoute = name => { if (sess() && !/^(day|path|home|welcome|tracks)$/.test(name || 'home')) App.need('pathx').then(() => window.DayPath && DayPath.bar(name)).catch(() => {}); };
+  App.afterRoute = name => { if (sess() && !/^(day|path|home|welcome|tracks|lesson)$/.test(name || 'home')) App.need('pathx').then(() => window.DayPath && DayPath.bar(name)).catch(() => {}); };
 
   // Ghi nhận hoàn thành bài (gọi từ bài kiểm tra)
   App.completeUnit = async (id, pct) => {

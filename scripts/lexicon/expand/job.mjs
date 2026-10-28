@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 // xuất = `promote.mjs` sau khi soát mẫu ≥ 5 % (docs/CONTENT-QA.md lớp 6) → content/lexicon/expand/<lô>.json + content/qa/batches/lx-<lô>.json.
 import fs from 'fs';
 import { execFileSync } from 'child_process';
-import { arpaToIpa, badChars } from '../ipa.mjs';
+import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
 import { gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap } from './lib.mjs';
@@ -190,7 +190,7 @@ const queue = fs.existsSync(new URL(QUEUE, ROOT)) ? JSON.parse(rd(QUEUE)) : { _d
 const why = {}, gaps = new Set();
 for (const x of items) {
   const g = G[x.k], c = x._c;
-  const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk, ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: c.cefr, // CEFR: CEFR-J/Octanove → dải tần suất; AI KHÔNG đặt cấp (chỉ cờ lệch ở cổng)
+  const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk && ukStyle(x._ipa.uk), ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: c.cefr, // CEFR: CEFR-J/Octanove → dải tần suất; AI KHÔNG đặt cấp (chỉ cờ lệch ở cổng)
      cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
