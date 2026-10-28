@@ -165,6 +165,34 @@ export function validateManifest(m) {
     if ('youtube_id' in it && !/^[A-Za-z0-9_-]{11}$/.test(it.youtube_id || '')) bad('youtube_id');
     if ('origin' in it && !['r2', 'release'].includes(it.origin)) bad('origin');
   }
+  return err.concat(validateEmbeds(m.embeds));
+}
+
+/** Video nhúng bài học (docs/VIDEO-MOTION.md §Embedded): m.embeds[] = { id, title, words[], test, renditions: { sq45, wide } },
+ *  mỗi bản = { w, h, src (mp4), poster (jpg), vtt_en, chapters } trên media.lexkite.com. Chưa được chủ duyệt → test: true. */
+export function validateEmbeds(list) {
+  const err = [], seen = new Set(), U = ext => new RegExp(`^https://media\\.lexkite\\.com/video/[a-z0-9_]+/[a-z0-9_.-]+\\.${ext}$`);
+  if (list == null) return err;
+  if (!Array.isArray(list)) return ['embeds: cần mảng'];
+  for (const [i, it] of list.entries()) {
+    const p = `embeds[${i}]${it && it.id ? ' ' + it.id : ''}`, bad = s => err.push(`${p}: ${s}`);
+    if (!it || !/^[a-z0-9_]{6,80}$/.test(it.id || '')) { bad('id'); continue; }
+    if (seen.has(it.id)) bad('id trùng'); seen.add(it.id);
+    if (!S(it.title, 160) || !it.title) bad('title');
+    if (!Array.isArray(it.words)) bad('words');
+    if (typeof it.test !== 'boolean') bad('test');
+    if (!(it.duration > 3 && it.duration < 600)) bad('duration');
+    const R = it.renditions || {}, fm = Object.keys(R);
+    if (!fm.length || fm.some(f => !['sq45', 'wide'].includes(f))) bad('renditions: chỉ sq45 / wide');
+    for (const [f, [w, h]] of Object.entries({ sq45: [1080, 1350], wide: [1920, 1080] })) {
+      const r = R[f]; if (!r) continue;
+      if (r.w !== w || r.h !== h) bad(`${f}: cần ${w}×${h}`);
+      if (!U('mp4').test(r.src || '')) bad(`${f}.src`);
+      if (!U('jpg').test(r.poster || '')) bad(`${f}.poster`);
+      if (!U('vtt').test(r.vtt_en || '')) bad(`${f}.vtt_en`);
+      if ('chapters' in r && !U('vtt').test(r.chapters || '')) bad(`${f}.chapters`);
+    }
+  }
   return err;
 }
 

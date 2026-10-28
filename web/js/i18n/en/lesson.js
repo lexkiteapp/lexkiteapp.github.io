@@ -51,5 +51,6 @@
     'Bài học': "Lesson",
     'Truyện': 'Story',
     'Trả lời câu hỏi': 'Answer the question',
+    'Xem video bài học': 'Watch the lesson video',
   });
 })(typeof self !== 'undefined' ? self : this);

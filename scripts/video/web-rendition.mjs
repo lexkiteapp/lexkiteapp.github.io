@@ -126,7 +126,7 @@ if (cmd === 'manifest') {
   const yt = await ytWeb();   // youtube_id chỉ khi video xem được (unlisted, hoặc đã tới publishAt) – functions/api/youtube.js op ids
   for (const x of Object.values(by)) { if (yt[x.id]) x.youtube_id = yt[x.id]; else delete x.youtube_id; }
   const items = Object.values(by).filter(x => el.has(x.id)).sort((a, b) => (a.test - b.test) || String(b.created).localeCompare(String(a.created)));
-  const out = { version: 1, updated: new Date().toISOString().slice(0, 19) + 'Z', items };
+  const out = { version: 1, updated: new Date().toISOString().slice(0, 19) + 'Z', items, ...(Array.isArray(man.embeds) ? { embeds: man.embeds } : {}) };   // video nhúng bài học: giữ nguyên (docs/VIDEO-MOTION.md §Embedded)
   const err = validateManifest(out); if (err.length) { console.error('✗ manifest:\n' + err.join('\n')); process.exit(1); }
   fs.mkdirSync(path.dirname(MANIFEST), { recursive: true }); fs.writeFileSync(MANIFEST, JSON.stringify(out, null, 1) + '\n');
   for (const f of fs.existsSync(CAPTIONS_DIR) ? fs.readdirSync(CAPTIONS_DIR) : []) if (!el.has(f.replace(/\.json$/, ''))) fs.rmSync(`${CAPTIONS_DIR}/${f}`);   // clip bị gỡ duyệt → bỏ trang
