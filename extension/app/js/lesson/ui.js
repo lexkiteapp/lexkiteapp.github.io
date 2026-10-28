@@ -41,6 +41,8 @@
 @keyframes lsnPop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
 .lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:120px;position:relative;margin-bottom:-6px;z-index:1}
 .tch-rig{position:absolute;inset:0;filter:drop-shadow(0 4px 5px rgb(0 0 0 / .22))}.tch::after{content:"";position:absolute;left:18%;right:18%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(rgb(0 0 0 / .18),transparent 70%);z-index:-1}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
+/* bán thân: nhân vật 2D tách nền (đầu→hông) phóng lên cỡ đầu-vai như avatar; ngực mờ dần (không khung, không ô) – docs/CHARACTERS.md */
+.lsn-ask .tch,.lsn-duo .tch{-webkit-mask-image:linear-gradient(#000 70%,transparent 98%);mask-image:linear-gradient(#000 70%,transparent 98%)}.lsn-ask .tch .tch-rig,.lsn-duo .tch .tch-rig{overflow:hidden}.lsn-ask .tch-rig img,.lsn-ask .tch-rig canvas,.lsn-duo .tch-rig img,.lsn-duo .tch-rig canvas{inset:auto;left:50%;top:-3%;width:235%;height:auto;object-fit:fill;transform:translateX(-50%)}
 .lsn-bub{position:relative;flex:1;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:.7rem .9rem;font-weight:700}
 .lsn-bub small{display:block;font-weight:400;color:var(--muted);margin-top:.2rem}.lsn-tag{display:inline-block;font-size:.75rem;font-weight:800;color:var(--again-text);background:var(--again-soft);border-radius:99px;padding:.05rem .5rem;margin-bottom:.3rem}
 .lsn-tag.own{color:var(--accent-text);background:var(--accent-soft)}
