@@ -39,7 +39,7 @@
     point: { dur: 1.7, R: { a: 8, b: 160, hand: 'point', bend: 0 }, beat: [0, 3] },            // chỉ chéo lên phía bảng/thẻ
     pointL: { dur: 1.7, L: { a: 8, b: 160, hand: 'point', bend: 0 }, beat: [0, 3] },          // chỉ chéo lên phía trái (video: thẻ ở trên-trái)
     clap: { dur: 1.5, L: { a: -12, b: -130, hand: 'side', bend: -60 }, R: { a: -12, b: -130, hand: 'side', bend: -60 }, clap: 3, shut: -104 },
-    open: { dur: 1.8, L: { a: 18, b: 172, hand: 'open', bend: 0 }, R: { a: 18, b: 172, hand: 'open', bend: 0 }, shrug: 6 },
+    open: { dur: 1.8, L: { a: 28, b: 176, hand: 'open', bend: -4 }, R: { a: 28, b: 176, hand: 'open', bend: -4 }, shrug: 6 },
   };
   // ---- gắn kịch bản: loại lời nhắc → biểu cảm + cử chỉ (question → nghiêng đầu nghĩ, correct → vỗ tay, wrong → khích lệ, explain → tay giải thích)
   const KIND = {
@@ -149,23 +149,30 @@ ${arm('L')}${arm('R')}
     let i = -1; while (list && i < list.length - 1 && list[i + 1][0] <= t) i++;
     out.name = i >= 0 ? list[i][1] : 'neutral'; return out;
   }
-  function armAt(gest, t, side, still) {
-    let a = REST.a, b = REST.b, hand = REST.hand, bend = REST.bend;
-    if (gest && !still) for (let i = gest.length - 1; i >= 0; i--) {
-      const [t0, name] = gest[i], G = GEST[name], P = G && G[side]; if (!G || t < t0) continue; if (!P || t > t0 + G.dur) break;
-      const u = t - t0, kin = ease(u / 0.28), kout = ease((t0 + G.dur - t) / 0.34), k = Math.min(kin, kout);
-      let pb = P.b, pbend = P.bend;
-      if (G.clap) { const ph = clamp((u - 0.25) / (G.dur - 0.6), 0, 1), c = (1 + Math.cos(ph * Math.PI * 2 * G.clap)) / 2; pb = lerp(G.shut, P.b, c); } // vỗ tay: dao động cos mượt (không gãy tốc độ lúc chạm)
-      if (G.beat) { pb += Math.sin(u * 7.5) * G.beat[1] * k; pbend += Math.sin(u * 7.5 + 0.8) * 6 * k; }
-      a = lerp(a, P.a, k); b = lerp(b, pb, k); bend = lerp(bend, pbend, k); hand = k > 0.35 ? P.hand : REST.hand;
-      break;
-    }
-    return { a, b, hand, bend };
+  // Cử chỉ chồng nhau: cử chỉ mới XẾP HÀNG tới lúc cử chỉ trước bắt đầu thu tay (không gập khuỷu giữa chừng), bắt đầu từ tư thế THỰC lúc đó;
+  // góc giữ trong (-180, 180] → cẳng tay không bao giờ quét qua hướng thẳng đứng-lên (nơi khuỷu gập ngược); xoay xa thì chậm lại (tỉ lệ góc)
+  function schedule(gest) {
+    const out = []; let end = -1e9;
+    for (const [t0, name] of gest || []) { const G = GEST[name]; if (!G) continue; const s0 = Math.max(t0, end - 0.34); out.push([s0, name]); end = s0 + G.dur; }
+    return out;
   }
-  function shrugAt(gest, t) {
-    if (!gest) return 0;
-    for (let i = gest.length - 1; i >= 0; i--) { const [t0, name] = gest[i], G = GEST[name]; if (!G || t < t0) continue; if (t > t0 + G.dur || !G.shrug) return 0; return G.shrug * Math.min(ease((t - t0) / 0.3), ease((t0 + G.dur - t) / 0.4)); }
-    return 0;
+  const lastAt = (gs, t, n) => { let i = n - 1; while (i >= 0 && gs[i][0] > t) i--; return i; };
+  function armAt(gs, t, side, still, n = gs ? gs.length : 0) {
+    const i = still || !gs ? -1 : lastAt(gs, t, n);
+    if (i < 0) return Object.assign({}, REST);
+    const base = armAt(gs, t, side, still, i), [t0, name] = gs[i], G = GEST[name], P = G[side];
+    if (!P || t > t0 + G.dur) return base;
+    const b0 = armAt(gs, t0, side, still, i).b, sl = Math.max(1, Math.abs(P.b - b0) / 150), so = Math.max(1, Math.abs(P.b - REST.b) / 150);
+    const u = t - t0, kout = ease((t0 + G.dur - t) / (0.34 * so)), k = Math.min(ease(u / (0.32 * sl)), kout), ka = Math.min(ease(u / (0.2 * sl)), kout); // vai dẫn trước cẳng tay
+    let pb = P.b, pbend = P.bend;
+    if (G.clap) { const ph = clamp((u - 0.25) / (G.dur - 0.6), 0, 1), c = (1 + Math.cos(ph * Math.PI * 2 * G.clap)) / 2; pb = lerp(G.shut, P.b, c); } // vỗ tay: dao động cos mượt
+    if (G.beat) { pb += Math.sin(u * 7.5) * G.beat[1] * k; pbend += Math.sin(u * 7.5 + 0.8) * 6 * k; }
+    return { a: lerp(base.a, P.a, ka), b: lerp(base.b, pb, k), bend: lerp(base.bend, pbend, k), hand: k > 0.35 ? P.hand : base.hand };
+  }
+  function shrugAt(gs, t, n = gs ? gs.length : 0) {
+    const i = gs ? lastAt(gs, t, n) : -1; if (i < 0) return 0;
+    const base = shrugAt(gs, t, i), [t0, name] = gs[i], G = GEST[name]; if (t > t0 + G.dur) return base;
+    return lerp(base, G.shrug || 0, Math.min(ease((t - t0) / 0.3), ease((t0 + G.dur - t) / 0.4)));
   }
   // chớp mắt & liếc: lịch cố định theo seed (cùng t → cùng hình ở app và video)
   function blinkAt(t, seed) {
@@ -188,8 +195,9 @@ ${arm('L')}${arm('R')}
     return ease(1 - d / 0.2);
   }
   function sample(tl, t, o = {}) {
-    tl = tl || {}; const seed = tl.seed || 7, still = !!o.still;
-    const v = visAt(tl.cues, t, tl.lead == null ? 0.03 : tl.lead), e = exprAt(tl.expr, t);
+    tl = tl || {}; const seed = tl.seed || 7, still = !!o.still; const gs = schedule(tl.gest);
+    const v = Object.assign({}, visAt(tl.cues, t, tl.lead == null ? 0.03 : tl.lead)), e = exprAt(tl.expr, t);
+    if (tl.jaw) { const J = tl.jaw, x = (t + (tl.lead || 0)) * J.hz, i = Math.floor(x), g0 = J.g[Math.max(0, Math.min(J.g.length - 1, i))], g1 = J.g[Math.max(0, Math.min(J.g.length - 1, i + 1))]; v.open = Math.min(1, v.open * lerp(g0, g1, x - i)); } // hàm theo năng lượng nguyên âm (video)
     const w = talkW(tl.cues, t), m = {}; // w: 0 = im (miệng theo biểu cảm) → 1 = đang nói (miệng theo viseme), chuyển mượt 0,2 s
     for (const p of MK) m[p] = lerp(e.rest[p], v[p], w);
     m.shift = e.rest.shift * (1 - 0.7 * w); m.smile = e.smile * (1 - 0.4 * w);
@@ -199,8 +207,8 @@ ${arm('L')}${arm('R')}
     return {
       t, m, e, talk: w, vis: v, blink: blinkAt(t, seed), gaze: [e.gx + gz[0] * (1 - 0.5 * w), e.gy + gz[1] * (1 - 0.5 * w)],
       head: { tilt: e.tilt + sway, dy: breath * 1.6 + bob - e.chin * 0.2, chin: e.chin },
-      body: { dy: breath * 2, sx: 1 + breath * 0.006 }, shrug: still ? 0 : shrugAt(tl.gest, t),
-      L: armAt(tl.gest, t, 'L', still), R: armAt(tl.gest, t, 'R', still),
+      body: { dy: breath * 2, sx: 1 + breath * 0.006 }, shrug: still ? 0 : shrugAt(gs, t),
+      L: armAt(gs, t, 'L', still), R: armAt(gs, t, 'R', still),
     };
   }
 

@@ -7,6 +7,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { closures, silences, jaw } from './lipfix.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const [script = 'content/video/puppet/sample-borrow.json', OUT = 'out/puppet'] = process.argv.slice(2);
@@ -41,20 +42,6 @@ for (const [i, l] of S.lines.entries()) {
 fs.writeFileSync(P('align-jobs.json'), JSON.stringify(lines.map(l => ({ wav: l.wav, text: l.text }))));
 const asr = JSON.parse(execFileSync(PY, [path.join(ROOT, 'scripts/video/align.py'), P('align-jobs.json'), '--model', process.env.WHISPER_MODEL || 'tiny.en'], { encoding: 'utf8', maxBuffer: 32 << 20, stdio: ['ignore', 'pipe', 'inherit'] }));
 
-// Rhubarb hay bỏ sót hình mím môi đầu từ (borrow, back, pen…): ta BIẾT chữ + mốc từ → ép đoạn khép môi A (m: từ đầu tiếng mũi; b/p: khép trước lúc bật hơi)
-// và môi-răng G cho f/v đầu từ, rồi trả lại hình đang chạy. Câu động trong app dùng fromText (đã bắt đầu bằng A/G đúng chữ).
-function closures(cues, ws) {
-  const at = (c, x) => { let v = 'X'; for (const [t0, s] of c) if (t0 <= x) v = s; else break; return v; };
-  let out = cues.slice();
-  for (const w of ws) {
-    const ch = norm(w.w)[0], [a, b, v] = ch === 'm' ? [w.start - 0.02, w.start + 0.07, 'A'] : ch === 'b' || ch === 'p' ? [w.start - 0.08, w.start + 0.01, 'A'] : ch === 'f' || ch === 'v' ? [w.start - 0.03, w.start + 0.06, 'G'] : [];
-    if (!v) continue;
-    const after = at(out, b);
-    out = out.filter(c => c[0] < a || c[0] > b).concat([[+a.toFixed(3), v], [+b.toFixed(3), after]]).sort((x, y) => x[0] - y[0]);
-  }
-  return out.filter((c, k) => !k || c[1] !== out[k - 1][1]);
-}
-
 // 3) Rhubarb (bộ hình mở rộng G H X, có văn bản câu → nhận dạng âm vị chính xác hơn)
 const cues = [], expr = [[0, 'neutral']], gest = [], words = [], outLines = [];
 let t = LEAD;
@@ -87,6 +74,11 @@ fs.writeFileSync(P('voice.f32'), Buffer.from(buf.buffer));
 ff(['-f', 'f32le', '-ar', String(RATE), '-ac', '1', '-i', P('voice.f32'), '-c:a', 'pcm_s16le', P('voice.wav')]);
 fs.rmSync(P('voice.f32'));
 
-const props = { fps: FPS, durationInFrames: Math.ceil(total * FPS), w: 1080, h: 1920, who: S.who, card: S.card, tl: { cues, expr, gest, seed: 11, lead: 0.03 }, words, lines: outLines, audio: 'voice.wav' };
+// 5) khoảng ngừng thật → miệng ngậm; độ mở hàm theo năng lượng dải nguyên âm (lipfix.mjs)
+const env100 = af => { const b = execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', P('voice.wav'), ...(af ? ['-af', af] : []), '-f', 'f32le', '-ac', '1', '-ar', '16000', '-'], { maxBuffer: 1 << 28 }), x = new Float32Array(b.buffer, b.byteOffset, b.length / 4), out = [];
+  for (let i = 0; i * 160 < x.length; i++) { let q = 0, n = 0; for (let j = i * 160; j < Math.min(x.length, i * 160 + 160); j++, n++) q += x[j] * x[j]; out.push(Math.sqrt(q / (n || 1))); } return out; };
+const full100 = env100(null), db100 = full100.map(r => 20 * Math.log10(r + 1e-9)), vow100 = env100('highpass=f=200,lowpass=f=1000');
+const cuesFixed = silences(cues, db100);
+const props = { fps: FPS, durationInFrames: Math.ceil(total * FPS), w: 1080, h: 1920, who: S.who, card: S.card, tl: { cues: cuesFixed, expr, gest, seed: 11, lead: 0.03, jaw: jaw(vow100, db100) }, words, lines: outLines, audio: 'voice.wav' };
 fs.writeFileSync(P('props.json'), JSON.stringify(props));
-console.log(`props.json: ${total.toFixed(1)} s · ${cues.length} cue · ${expr.length} biểu cảm · ${gest.length} cử chỉ · ${words.length} từ`);
+console.log(`props.json: ${total.toFixed(1)} s · ${cuesFixed.length} cue · ${expr.length} biểu cảm · ${gest.length} cử chỉ · ${words.length} từ`);

@@ -1,9 +1,9 @@
 // 🎭 Cổng chất lượng con rối 2D (chủ 28/10: "đẹp đồng nhất, không méo miệng, tay chân không chồng chéo, không giật lag") – docs/LESSON-ENGINE.md §4b.
 // Chạy trên CHÍNH sample()/geom() mà app + Remotion dùng, cho (a) dòng thời gian video props.json và (b) mọi tổ hợp 9 viseme × 6 biểu cảm × 4 cử chỉ.
 //  1 miệng   – đường viền miệng (khóe, môi trên/dưới, cả độ dày môi) nằm trong đường viền mặt ≥ 6 px, dưới mũi; chuyển hình 40–80 ms, độ dốc ≤ mức smoothstep 40 ms (không "nhảy")
-//  2 tay chân – góc khớp trong giới hạn; bàn tay/cẳng tay không chạm mặt; 2 tay không chạm/cắt nhau (trừ vỗ tay – chủ ý); thứ tự lớp cố định
+//  2 tay chân – vai -20…45°, khuỷu gập ≤ 170°; bàn tay/cẳng tay không chạm mặt; 2 tay không chạm/cắt nhau (trừ vỗ tay – chủ ý); thứ tự lớp cố định
 //  3 mượt    – gia tốc khung-khung (60 fps) của đầu/cổ tay ≤ ngưỡng (kiểu cut_jump của qc_v9); số khung video = durationInFrames (0 khung rơi – kiểm ở workflow)
-//  4 đồng bộ – miệng bắt đầu mở trong ±60 ms quanh đầu từ (sau khoảng lặng); từ m/b/p có hình mím A trong ±60 ms
+//  4 đồng bộ – từ m/b/p có hình mím A trong ±60 ms quanh đầu từ (đầu cụm ±60 ms theo âm thanh thật: gate.mjs)
 //  5 đồng nhất – hình vẽ tĩnh = bản tham chiếu (sha), apply() chỉ đổi hình học (không đổi màu/nét), tham số động trong biên; ảnh so với tờ tham chiếu ở record.mjs
 //  6 mạng    – động cơ + dựng video không gọi dịch vụ giới hạn (quét mã)
 // Dùng: node scripts/puppet/qc.mjs [out/puppet] [--update-ref]  → <dir>/qc.json, exit 1 nếu trượt
@@ -55,7 +55,7 @@ for (const [name, tl, dur] of TLS) {
     const faceW = FACE.map(p => xf(G.head, p)), clap = clapAt(tl, f / 60);
     for (const side of ['L', 'R']) {
       const A = G[side];
-      if (A.a < -20 || A.a > 45 || A.b < -165 || A.b > 180) fail('limbs', `${name} t=${at}: góc khớp ${side} ngoài giới hạn (${A.a.toFixed(0)}, ${A.b.toFixed(0)})`);
+      const flex = (((A.b - A.a) % 360) + 540) % 360 - 180, nb = flex; if (A.a < -20 || A.a > 45 || Math.abs(flex) > 170) /* vai -20…45°, khuỷu gập ≤ 170° (cẳng tay không gập ngược vào cánh tay) */ fail('limbs', `${name} t=${at}: góc khớp ${side} ngoài giới hạn (${A.a.toFixed(0)}, ${nb.toFixed(0)})`);
       const hd = polyD(faceW, A.H) - A.hr, ad = Math.min(polyD(faceW, A.E), ...[0.25, 0.5, 0.75, 1].map(k => polyD(faceW, [A.E[0] + (A.W[0] - A.E[0]) * k, A.E[1] + (A.W[1] - A.E[1]) * k]))) - 23;
       r.handFaceMin = Math.min(r.handFaceMin, hd); r.armFaceMin = Math.min(r.armFaceMin, ad);
       if (hd < 4) fail('limbs', `${name} t=${at}: bàn tay ${side} chạm mặt (${hd.toFixed(1)} px)`);
@@ -80,7 +80,7 @@ for (const [name, tl, dur] of TLS) {
 // 4 đồng bộ với mốc từ (faster-whisper đã khớp năng lượng) – chỉ video
 if (props && props.words && props.words.length) {
   const W = props.words, on = [], bil = [];
-  const moving = s => { const m = Pup.sample(props.tl, s).m; return m.open > 0.05 || m.press > 0.5 || m.teeth > 0.3; };
+  const moving = s => { const m = Pup.sample(props.tl, s).vis; return m.open > 0.05 || m.press > 0.5 || m.teeth > 0.3; }; // phần miệng do lời nói lái (không tính dáng cười của biểu cảm)
   W.forEach((w, i) => {
     const gap = i === 0 || w.line !== W[i - 1].line || w.start - W[i - 1].end > 0.15;
     if (gap) { let o = null; for (let s = w.start - 0.25; s <= w.start + 0.25; s += 0.001) if (moving(s)) { o = s; break; } on.push(o == null ? 1 : Math.abs(o - w.start)); }
@@ -88,7 +88,7 @@ if (props && props.words && props.words.length) {
   });
   const okOn = on.filter(d => d <= 0.06).length / Math.max(1, on.length), okBil = bil.filter(Boolean).length / Math.max(1, bil.length);
   R.sync = { onsets: on.length, within60ms: +okOn.toFixed(3), medianMs: Math.round(on.slice().sort((a, b) => a - b)[on.length >> 1] * 1000), bilabials: bil.length, bilabialWithin60ms: +okBil.toFixed(3) };
-  if (okOn < 0.9) fail('sync', `miệng bắt đầu lệch > 60 ms ở ${on.length - Math.round(okOn * on.length)}/${on.length} đầu câu/cụm`);
+  // (đầu cụm ±60 ms đo theo ÂM THANH THẬT ở gate.mjs – mốc whisper có khe giả giữa các từ nói liền; ở đây chỉ báo số liệu)
   if (okBil < 0.8) fail('sync', `m/b/p không mím trong ±60 ms: ${bil.length - Math.round(okBil * bil.length)}/${bil.length}`);
 }
 
