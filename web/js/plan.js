@@ -35,6 +35,11 @@
   }));
   const KIND = () => ({ vocab: [UI.icon('a-large-small'), t('Từ vựng')], grammar: [UI.icon('ruler'), t('Ngữ pháp')], reading: [UI.icon('book-open'), t('Đọc hiểu')], listening: [UI.icon('headphones'), t('Nghe')] });
 
+  // Loa + IPA (owner 28/10): từ ở câu hỏi "Nghĩa của …?" (không lộ đáp án) · từ/đáp án tiếng Anh trong phần đáp án (ẩn tới khi lộ ở chế độ làm lại)
+  const vWord = x => (x.kind === 'vocab' && x.ref && /^[a-z][a-z' .-]*$/i.test(x.ref) ? x.ref : '');
+  const qWord = x => (x.qK && x.qK.k === 'Nghĩa của “{word}”?' && x.qK.v && x.qK.v.word) || '';
+  const isEn = s => /[a-z]{2}/i.test(s) && /^[\x20-\x7E‘’“”–—…]+$/.test(s) && !/_{2,}/.test(s);
+  const ansSay = x => { const a = String(x.answer || '').trim(); if (!a || !isEn(a)) return ''; if (x.kind === 'vocab') return ''; /* từ vựng: loa + IPA ở dòng giải thích bên dưới */ return ' ' + UI.sayBtn(a); };
   routes.mistakes = App.guard(async function (arg, query) {
     const w = App.W;
     const retry = !!(query && query.get && query.get('retry'));
@@ -51,11 +56,11 @@
       if (retry) rows.sort((a, b) => (b.n || 1) - (a.n || 1)); // làm lại: câu sai nhiều lần nhất lên trước
       $('#mList').innerHTML = rows.length ? rows.map((x, i) => `<div class="card" style="margin-bottom:.7rem">
         <div class="row between"><span class="chip">${KIND()[x.kind] ? KIND()[x.kind][0] + ' ' + KIND()[x.kind][1] : x.kind}</span><span class="tiny muted">${t('sai {n} lần', { n: x.n })} · ${new Date(x.at).toLocaleDateString(I18N.lang())}</span></div>
-        <div style="margin-top:.4rem;font-weight:600">${esc(tr(x, 'q'))}</div>
+        <div style="margin-top:.4rem;font-weight:600">${esc(tr(x, 'q'))}${qWord(x) ? ` ${UI.ipaTag(qWord(x))}${UI.sayBtn(qWord(x))}` : ''}</div>
         ${retry ? `<div class="row" style="margin-top:.5rem;gap:.4rem" data-rt="${esc(x.key)}">${String(x.answer || '').split(/\s+/).length <= 4 ? `<input class="input" style="flex:1;min-width:0" placeholder="${t('Gõ đáp án của bạn')}" data-in><button class="btn sm primary" data-chk>${t('Kiểm tra')}</button>` : `<button class="btn sm primary" data-show>${t('Hiện đáp án')}</button>`}</div><div data-ans hidden>` : '<div>'}
         ${x.given ? `<div class="small" style="margin-top:.3rem"><span style="color:var(--again-text)">✗ ${esc(tr(x, 'given'))}</span></div>` : ''}
-        <div class="small"><span style="color:var(--good-text)">✓ ${esc(x.answer)}</span></div>
-        ${x.explain ? `<div class="small muted" style="margin-top:.3rem">${UI.icon('lightbulb')} ${esc(tr(x, 'explain'))}</div>` : ''}
+        <div class="small"><span style="color:var(--good-text)">✓ ${esc(x.answer)}</span>${ansSay(x)}</div>
+        ${x.explain ? `<div class="small muted" style="margin-top:.3rem">${UI.icon('lightbulb')} ${esc(tr(x, 'explain'))}${vWord(x) ? (/\//.test(tr(x, 'explain')) ? '' : ' ' + UI.ipaTag(vWord(x))) + ' ' + UI.sayBtn(vWord(x)) : ''}</div>` : vWord(x) ? `<div class="small" style="margin-top:.3rem" lang="en"><b>${esc(vWord(x))}</b> ${UI.ipaTag(vWord(x))}${UI.sayBtn(vWord(x))}</div>` : ''}
         ${retry ? `<div class="row" style="margin-top:.4rem" data-self><button class="btn sm" data-ok>${UI.icon('circle-check')} ${t('Mình làm đúng')}</button><button class="btn sm ghost" data-no>✗ ${t('Vẫn sai')}</button></div>` : ''}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-fix="${esc(x.key)}">✓ ${t('Đã hiểu')}</button>
           ${x.kind === 'grammar' && x.ref ? `<a class="btn sm ghost" href="#/grammar/${esc(x.ref)}">${UI.icon('ruler')} ${t('Xem lại bài')}</a>` : ''}
@@ -63,7 +68,7 @@
           ${x.kind === 'reading' && x.ref ? `<a class="btn sm ghost" href="#/read/${esc(x.ref)}">${UI.icon('book-open')} ${t('Đọc lại bài')}</a>` : ''}
           ${x.kind === 'listening' && x.ref ? `<a class="btn sm ghost" href="#/listen/${esc(x.ref)}">${UI.icon('headphones')} ${t('Nghe lại phần này')}</a>` : ''}</div></div>`).join('')
         : `<div class="card empty"><div class="em">${UI.icon('party-popper')}</div>${t('Không có lỗi sai nào cần xem lại.')}</div>`;
-      App.bindCommon();
+      App.bindCommon(); UI.fillIpa($('#mList'));
       // Làm lại: tự nhớ đáp án trước khi xem (active recall) → đúng thì gỡ khỏi sổ, sai thì tăng số lần sai
       const settle = async (card, key, ok) => {
         const all = await Store.get('mistakes', []); const it = all.find(x => x.key === key);

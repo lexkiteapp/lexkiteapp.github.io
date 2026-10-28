@@ -484,5 +484,28 @@
   // Khung chờ dùng chung (thay chữ "Đang tải…" trơn): giữ bố cục → không nhảy trang khi nội dung về; trình đọc màn hình nghe nhãn
   const skel = (label, n = 3) => `<div class="card skel-block" role="status" aria-busy="true"><span class="sr-only">${label}</span><div class="skel skel-h"></div>${'<div class="skel skel-l"></div>'.repeat(n)}</div>`;
   const skelPage = (label, n = 4) => `<div class="skel-page" role="status" aria-busy="true"><span class="sr-only">${label}</span><div class="skel skel-h"></div><div class="skel skel-l"></div><div class="skel-grid">${'<div class="skel skel-card"></div>'.repeat(n)}</div></div>`;
-  g.UI = { icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
+  // Nút loa + IPA dùng chung cho mọi nội dung tiếng Anh (cùng mẫu nút với study/phrases/app: .icon-btn.sm 🔊).
+  // Từ/cụm ngắn → data-speak (giọng người thật/Kokoro theo từ nếu có, rồi giọng máy) · câu → data-speak-text. Nhãn đọc màn hình: app.js tự gắn.
+  const sayBtn = (text, o = {}) => { const s = String(text || '').trim(); if (!s) return ''; return `<button type="button" class="icon-btn sm${o.cls ? ' ' + o.cls : ''}" ${s.split(/\s+/).length > 3 || /[.!?]$/.test(s) ? 'data-speak-text' : 'data-speak'}="${esc(s)}">🔊</button>`; };
+  // IPA lấy từ dữ liệu sẵn trong máy (kho từ → thẻ của người học → Lex); thiếu → '' (ipaTag để chỗ trống, fillIpa tra Dict.quick lười)
+  function ipaOf(word) {
+    const k = String(word || '').trim().toLowerCase(); if (!k) return '';
+    const D = g.IELTS_DATA && g.IELTS_DATA.INDEX && g.IELTS_DATA.INDEX[k]; if (D && D.ipa) return D.ipa;
+    const c = g.App && g.App.state && g.App.state.cards && g.App.state.cards[k]; if (c && c.ipa) return c.ipa;
+    try { const lx = g.Lex && g.Lex.peek && g.Lex.peek(k); if (lx && lx.ipa && String(lx.word || k).toLowerCase() === k) return lx.ipa; } catch (e) { /* Lex chưa tải */ }
+    return '';
+  }
+  const ipaTag = word => { const w = String(word || '').trim(); if (!w || w.split(/\s+/).length > 3) return ''; const p = ipaOf(w); return p ? `<span class="ipa small" translate="no">${esc(p)}</span>` : `<span class="ipa small" translate="no" data-ipa-lazy="${esc(w)}"></span>`; };
+  // Điền IPA còn thiếu: chỉ khi trang đã có Dict (không tự tải gói từ điển), mỗi từ 1 lần (Dict.quick có bộ nhớ đệm)
+  function fillIpa(root = document) {
+    const els = [...root.querySelectorAll('[data-ipa-lazy]')]; if (!els.length || !(g.Dict && g.Dict.quick)) return;
+    for (const el of els) { const w = el.dataset.ipaLazy; el.removeAttribute('data-ipa-lazy'); g.Dict.quick(w).then(e => { if (e && e.ipa) el.textContent = e.ipa; }).catch(() => {}); }
+  }
+  // Dự phòng: nút loa sinh sau (phản hồi bài tập, khung bật lên…) chưa được App.bindCommon gắn onclick → vẫn đọc được
+  if (typeof document !== 'undefined') document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('[data-speak],[data-speak-text]'); if (!b || b.onclick || e.defaultPrevented) return;
+    e.preventDefault(); const st = prefs();
+    if (b.dataset.speak != null) speak(b.dataset.speak, b.dataset.accent || st.accent, b.dataset.url || ''); else speak(b.dataset.speakText, st.accent);
+  });
+  g.UI = { sayBtn, ipaOf, ipaTag, fillIpa, icon, glyph, addIcons, paintIcons: paint, skel, skelPage, dev, quotaText, quota: j => { toast(quotaText(j), 6000); if (g.Ads && g.Ads.quota) g.Ads.quota(j); }, ctxBox, recUrl, clearRecs, $, $$, esc, shuffle, wordRegex, highlight, cloze, clozeAnswer, similarity, toast, modal, closeModal, xpFloat, speak, tts, stopSpeak, recognize, stopRecognize, recErrorText, voicesFor, pickVoice, splitSentences, pic, levelChip, posChip, masteryDots, ring, download };
 })(typeof self !== 'undefined' ? self : this);
