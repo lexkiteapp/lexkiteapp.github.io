@@ -134,5 +134,18 @@ assert.ok(boardHtml.includes('Hạng Vàng'), 'Hiển thị đúng Hạng Vàng'
 assert.ok(boardHtml.includes('is-me'), 'Dòng của mình có class is-me');
 assert.ok(boardHtml.includes('450'), 'Hiển thị số XP của người dùng');
 
+// Phiên đã nhớ, Firebase báo trạng thái muộn → không được hiện nhầm “Đăng nhập với Google”
+const savedUser = { displayName: 'Quyen Khieu', uid: 'u1' };
+window.Sync.user = null;
+window.Sync.authed = () => new Promise(r => setTimeout(() => { window.Sync.user = savedUser; r(savedUser); }, 20));
+await window.App.routes.league();
+const lateHtml = document.getElementById('view').innerHTML;
+assert.ok(!lateHtml.includes('leagueSignInBtn'), 'Đã đăng nhập (báo muộn) → không hiện nút đăng nhập');
+assert.ok(lateHtml.includes('Hạng Vàng'), 'Đã đăng nhập (báo muộn) → hiện bảng xếp hạng');
+window.Sync.user = null; window.Sync.authed = async () => null;
+await window.App.routes.league();
+assert.ok(document.getElementById('view').innerHTML.includes('leagueSignInBtn'), 'Thật sự chưa đăng nhập → vẫn có nút đăng nhập');
+console.log('✓ League: chờ phiên đã nhớ, không hiện nhầm nút đăng nhập');
+
 console.log('✓ UI League: renderHomeCard & routes.league qua mọi trạng thái (khách, chưa tham gia, đã tham gia)');
 console.log('✓ league test PASS 100%');

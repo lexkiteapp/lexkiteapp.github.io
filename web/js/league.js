@@ -53,6 +53,8 @@
   League.renderHomeCard = async function (el) {
     if (!el) return;
     el.innerHTML = `<div class="card league-home-card"><div class="skel skel-l"></div></div>`;
+    if (window.Sync && window.Sync.authed) await window.Sync.authed();
+    if (!el.isConnected) return;
     if (!window.Sync || !window.Sync.user) {
       el.innerHTML = `
         <div class="card league-home-card">
@@ -179,6 +181,7 @@
     const body = $('#leagueBody');
     const meta = $('#leagueHeaderMeta');
 
+    if (window.Sync && window.Sync.authed) await w(window.Sync.authed()); // phiên đã nhớ: chờ Firebase, không hiện nhầm “Đăng nhập”
     // Trường hợp 1: Chưa đăng nhập
     if (!window.Sync || !window.Sync.user) {
       body.removeAttribute('aria-busy');

@@ -74,7 +74,7 @@
     }
     db = true;
     onAuth(async u => {
-      Sync.user = u; Sync.ready = true; App.state.user = u ? { uid: u.uid, displayName: u.displayName, email: u.email, photoURL: u.photoURL } : null;
+      Sync.user = u; Sync.ready = true; authDone(); App.state.user = u ? { uid: u.uid, displayName: u.displayName, email: u.email, photoURL: u.photoURL } : null;
       try { if (u) localStorage.setItem('lk.acct', JSON.stringify({ displayName: u.displayName || '', photoURL: u.photoURL || '' })); else localStorage.removeItem('lk.acct'); } catch (e) { /* bỏ qua */ }
       App.updateChrome(); render();
       if (u && /[?&]delete=account\b/.test(location.hash)) Sync.deleteAccount();
@@ -512,6 +512,13 @@
   Sync.authBtns = authBtns;
   Sync.av = u => u.photoURL ? `<img src="${esc(u.photoURL)}" alt="" referrerpolicy="no-referrer">` : esc((u.displayName || u.email || '?')[0].toUpperCase());
   const remembered = () => { try { return JSON.parse(localStorage.getItem('lk.acct') || 'null'); } catch (e) { return null; } };
+  // Phiên đã nhớ (lk.acct) mà Firebase chưa báo trạng thái → chờ thay vì vội hiện “Đăng nhập” (trang giải đấu, lớp học…)
+  let authDone = () => {}; const authP = new Promise(r => { authDone = r; });
+  Sync.authed = (ms = 8000) => {
+    if (Sync.user || Sync.ready || !supported || !remembered()) return Promise.resolve(Sync.user || null);
+    init().catch(() => {});
+    return Promise.race([authP, new Promise(r => setTimeout(r, ms))]).then(() => Sync.user || null);
+  };
   Sync.chrome = () => {
     if (noAuth) return;
     // Firebase chưa sẵn sàng → dùng tài khoản nhớ lần trước (không nháy nút đăng nhập với người đã đăng nhập)
