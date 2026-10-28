@@ -37,7 +37,8 @@ export function btOk(e, l) {
   return bts.some(b => words(b).some(t => t.length >= 4 && !STOP.has(t) && D.has(t)));
 }
 // Lỗ dữ liệu NGUỒN (IPA từ Wiktionary/CMUdict/espeak – không do AI soạn) ≠ lỗi nội dung → không bao giờ vào hàng duyệt; lượt sau làm lại.
-const GAP = /^ipa[ :]/;
+// 'ipa: lệch Britfone/CMU' (ipa-check.mjs checkEntry) KHÔNG phải lỗ: sinh lại vẫn ra cùng IPA nguồn → hàng duyệt (người soát sửa/giữ)
+const GAP = /^ipa(?=[ :])(?!: lệch Britfone)/;
 export const sourceGap = r => !!(r && !r.ok && r.why.length && r.why.every(x => GAP.test(x)));
 // Có ÍT NHẤT 1 lỗ nguồn (kể cả kèm lỗi nội dung) → không vào hàng duyệt (người soát không sửa được IPA nguồn); lượt sau sinh lại cả mục – cùng luật requeue.mjs --gaps
 export const hasGap = r => !!(r && !r.ok && (r.why || []).some(x => GAP.test(x)));
@@ -64,6 +65,8 @@ export function gateEntry(e, { keep } = {}) {
   if (!['n', 'v', 'adj', 'adv'].includes(e.pos)) why.push('schema: pos');
   if (!e.ipa) why.push('ipa: thiếu IPA Anh (Wiktionary + espeak)'); else if (badChars(e.ipa).length) why.push('ipa: ký hiệu ngoài bảng ' + badChars(e.ipa).join(''));
   if (e.ipa && ukStyleBad(e.ipa)) why.push('ipa: Anh sai kiểu kho (a đơn / ký hiệu tuỳ chọn) ' + e.ipa);
+  // IPA lệch Britfone (Anh) / CMUdict (Mỹ) mà không tự sửa được (job.mjs chạy ipa-check.mjs checkEntry trước cổng) – chủ 28/10: không ghi IPA lệch vào kho
+  for (const b of [].concat(e.ipaBad || [])) why.push('ipa: lệch Britfone/CMU ' + b);
   if (!e.ipaUS) why.push('ipa: thiếu IPA Mỹ'); else if (badChars(e.ipaUS).length) why.push('ipa: Mỹ ngoài bảng ' + badChars(e.ipaUS).join(''));
   if (!e.def || words(e.def).length > 18 || words(e.def).includes(e.w)) why.push('schema: định nghĩa');
   else if (!defPosOk(e.def, e.pos)) why.push('schema: định nghĩa sai hình từ loại ' + e.pos);

@@ -11,7 +11,8 @@
 // Kèm: kiểm bảng dạng yếu/mạnh (web/js/ui.js khối LK_WEAK) và file âm thanh từ đơn theo từng giọng (web/audio/w/s3.tsv) – chỉ báo số.
 import fs from 'fs';
 import { loadAll, key, rd, wr, ROOT } from './lib.mjs';
-import { arpaToIpa, usSpellings, stressIndex } from './ipa.mjs';
+import { usSpellings, stressIndex } from './ipa.mjs';
+import { P, isV, exact, near, nNear, cmuIpa, bfToOx, bathFix, look } from './ipa-check.mjs'; // so âm vị dùng chung với cổng mở rộng (expand/job.mjs, promote.mjs)
 
 const FIX = process.argv.includes('--fix');
 const all = loadAll();
@@ -30,50 +31,6 @@ const single = e => !/\s/.test(e.row[0].trim());
 
 const load = (f, sep, enc) => { const m = new Map(); for (const l of fs.readFileSync(new URL(f, ROOT), enc).split('\n')) { if (!l || l[0] === '#') continue; const i = l.indexOf(sep); const w = l.slice(0, i).replace(/\(\d+\)$/, '').toLowerCase(); (m.get(w) || m.set(w, []).get(w)).push(l.slice(i + 1).trim()); } return m; };
 const BF = load(BFS, ',', 'utf8'), CMU = load('content/lexicon/cmudict-subset.txt', ' ', 'latin1');
-const look = (m, w) => { for (const v of usSpellings(w)) if (m.has(v)) return m.get(v); return null; };
-
-// ---- âm vị
-const V = 'aeiouɑɒɔəɜɪʊʌæ', UNITS = ['tʃ', 'dʒ', 'eɪ', 'aɪ', 'ɔɪ', 'əʊ', 'aʊ']; // ɪə eə ʊə = 2 âm vị (Britfone ghi /iə/ cuối từ là ɪə: area ˈɛəɹɪə)
-const canon = s => String(s).toLowerCase().replace(/[/().‿ː\s-]/g, '').replace(/ɡ/g, 'g').replace(/ɹ/g, 'r').replace(/ɛ/g, 'e').replace(/ɐ/g, 'ʌ').replace(/ɚ/g, 'ər').replace(/ɝ/g, 'ɜr').replace(/oʊ/g, 'əʊ')
-  .replace(/əw(?=[aeiouɑɒɔəɜɪʊʌæ])/g, 'u').replace(/([ʒʃdʒtʃ])əwl$/, '$1uəl'); // CMU ghi /uə/ thành ə + w (ˈvɪʒəwl, ˈflʌktʃəweɪt)
-const yod = s => s.replace(/dj(?=[ˈˌ]?[uʊə])/g, 'dʒ').replace(/tj(?=[ˈˌ]?[uʊə])/g, 'tʃ').replace(/sj(?=[ˈˌ]?[uʊ])/g, 'ʃ').replace(/zj(?=[ˈˌ]?[uʊ])/g, 'ʒ');
-const isV = p => V.includes(p[0]);
-// âm vị kèm cờ nhấn (s): nguyên âm đầu tiên sau ˈ/ˌ; không có dấu nào + 1 nguyên âm → nhấn
-const P = str => { const c = yod(canon(str)), out = []; let pend = false;
-  for (let i = 0; i < c.length;) { if (c[i] === 'ˈ' || c[i] === 'ˌ') { pend = true; i++; continue; } const u = UNITS.find(x => c.startsWith(x, i)) || c[i]; const v = isV(u); out.push({ p: u, s: v && pend }); if (v) pend = false; i += u.length; }
-  if (!out.some(x => x.s)) { const vs = out.filter(x => isV(x.p)); if (vs.length === 1) vs[0].s = true; }
-  return out; };
-const WEAKV = new Set(['ə', 'ɪ', 'i', 'ʊ', 'u']);
-// khoảng cách: biến thể = 0, lệch thật = 1. Biến thể: nguyên âm yếu đổi nhau (ə ɪ i ʊ u), nguyên âm KHÔNG NHẤN ↔ ə (ədˈvæntɪdʒ ~ ædˈvæntɪdʒ), thêm/bớt ə
-function diff(a, b) {
-  const n = a.length, m = b.length, D = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
-  const sub = (x, y) => (x.p === y.p || (WEAKV.has(x.p) && WEAKV.has(y.p)) || (isV(x.p) && isV(y.p) && ((x.p === 'ə' && !y.s) || (y.p === 'ə' && !x.s))) ? 0 : 1);
-  const indel = x => (x.p === 'ə' ? 0 : 1);
-  for (let i = 1; i <= n; i++) D[i][0] = D[i - 1][0] + indel(a[i - 1]);
-  for (let j = 1; j <= m; j++) D[0][j] = D[0][j - 1] + indel(b[j - 1]);
-  for (let i = 1; i <= n; i++) for (let j = 1; j <= m; j++) D[i][j] = Math.min(D[i - 1][j - 1] + sub(a[i - 1], b[j - 1]), D[i - 1][j] + indel(a[i - 1]), D[i][j - 1] + indel(b[j - 1]));
-  return D[n][m];
-}
-const exact = (a, b) => P(a).map(x => x.p).join('') === P(b).map(x => x.p).join('');
-const near = (a, b) => diff(P(a), P(b)) === 0;
-// trung tính giọng (so Anh ↔ Mỹ): bỏ r sau nguyên âm, gộp ɑ/ɒ/ɔ
-const neutral = s => P(s).map((x, i, a) => (x.p === 'r' && i > 0 && isV(a[i - 1].p) && !(a[i + 1] && isV(a[i + 1].p)) ? null : /^[ɑɒɔ]$/.test(x.p) ? { ...x, p: 'ɑ' } : x)).filter(Boolean);
-const nNear = (a, b) => diff(neutral(a), neutral(b)) === 0;
-const cmuIpa = arr => (arr || []).map(p => '/' + arpaToIpa(p) + '/');
-// Britfone → ký hiệu kho (Oxford): ɛ→e, ɐ→ʌ, ɹ→r, g→ɡ, ˈ/ˌ dời về đầu âm tiết (âm đầu dài nhất hợp lệ), từ 1 âm tiết không ˈ
-const ONS = new Set(['pl', 'bl', 'kl', 'ɡl', 'fl', 'sl', 'pr', 'br', 'tr', 'dr', 'kr', 'ɡr', 'fr', 'θr', 'ʃr', 'tw', 'dw', 'kw', 'ɡw', 'sw', 'θw', 'pj', 'bj', 'kj', 'ɡj', 'mj', 'fj', 'vj', 'hj', 'nj', 'tj', 'dj', 'lj', 'sj', 'sp', 'st', 'sk', 'sm', 'sn', 'sf', 'spl', 'spr', 'str', 'skr', 'skw', 'spj', 'skj', 'stj']);
-function bfToOx(bf) {
-  const tk = bf.trim().split(/\s+/).map(t => t.replace(/ɛ/g, 'e').replace(/ɐ/g, 'ʌ').replace(/ɹ/g, 'r').replace(/g/g, 'ɡ'));
-  const nV = tk.filter(t => isV(t.replace(/^[ˈˌ]/, ''))).length, out = tk.map(t => t.replace(/^[ˈˌ]/, ''));
-  let prevV = -1;
-  tk.forEach((t, i) => {
-    const bare = t.replace(/^[ˈˌ]/, ''); if (!isV(bare)) return;
-    if (/^[ˈˌ]/.test(t) && nV > 1) { const cl = out.slice(prevV + 1, i); let k = prevV < 0 ? cl.length : 0; if (prevV >= 0) for (let n = Math.min(3, cl.length); n >= 1; n--) { const on = cl.slice(cl.length - n); if (n === 1 ? on[0] !== 'ŋ' : ONS.has(on.join(''))) { k = n; break; } } out[i - k] = t[0] + out[i - k]; }
-    prevV = i;
-  });
-  return '/' + out.join('').replace(/([^aeiouɑɒɔəɜɪʊʌæː])əl$/, '$1l').replace(/([tdszʃʒ])ən$/, '$1n') + '/';
-}
-const bathFix = (ours, bf) => { const o = ours.replace(/æ(?=(s|f|θ|n[tsdʃ]|mpl))/g, 'ɑː'); return o !== ours && bf.some(b => exact(o, '/' + b.replace(/\s+/g, '') + '/')) ? o : ''; };
 
 // ---- kiểm từng từ#loại (từ đơn)
 const OV = JSON.parse(rd(OVF)), MAN = JSON.parse(rd(MUS));

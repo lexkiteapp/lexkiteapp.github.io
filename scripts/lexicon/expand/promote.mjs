@@ -2,15 +2,24 @@
 // Xuất 1 lô mở rộng sau khi SOÁT MẪU (docs/CONTENT-QA.md lớp 6: ≥ 5 % mục, sai > 2 % → loại cả lô).
 //   node scripts/lexicon/expand/promote.mjs <lô> --checked <checked.json>   (checked = [{ id: "từ#loại", ok: true|false, note }])
 //   node scripts/lexicon/expand/promote.mjs <lô> --sample 25                 in mẫu ngẫu nhiên tất định để soát
+//   [--britfone <britfone.main.csv>] [--cmu <cmudict.dict>]  (thiếu → tải 1 lần) · [--fix-ipa] ghi bản sửa IPA theo nguồn vào lô chờ
+// Cổng IPA (chủ 28/10): lô có mục IPA lệch Britfone/CMUdict (scripts/lexicon/ipa-check.mjs checkEntry – cùng kiểm với job.mjs) → TỪ CHỐI, không ghi gì.
 // Đạt → content/lexicon/expand/<lô>.json + content/qa/batches/lx-<lô>.json (status published). Loại → status rejected, mục vào hàng duyệt, không xuất.
 import fs from 'fs';
 import crypto from 'crypto';
 import { ROOT, rd, wr } from '../lib.mjs';
 import { spot } from '../../content-qa/lib.mjs';
 import { QUEUE } from './lib.mjs';
+import { loadRefs, checkEntry } from '../ipa-check.mjs';
 const [id] = process.argv.slice(2), arg = n => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : null; };
 const PEND = `content/lexicon/expand/pending/${id}.json`, P = JSON.parse(rd(PEND)), keys = Object.keys(P.items);
 if (arg('--sample')) { const s = keys.slice().sort((a, b) => crypto.createHash('sha1').update(id + a).digest('hex') < crypto.createHash('sha1').update(id + b).digest('hex') ? -1 : 1).slice(0, +arg('--sample')); console.log(JSON.stringify(s.map(k => ({ k, ...P.items[k], qa: undefined, src: undefined })), null, 1)); process.exit(0); }
+{ const refs = await loadRefs({ britfone: arg('--britfone'), cmu: arg('--cmu') }), off = [];
+  for (const k of keys) { const c = checkEntry(P.items[k], refs); if (!c.fix.length && !c.bad.length) continue;
+    if (process.argv.includes('--fix-ipa') && !c.bad.length) { P.items[k] = { ...P.items[k], ipa: c.ipa, ipaUS: c.ipaUS, src: { ...(P.items[k].src || {}), ipaFix: c.fix } }; continue; }
+    off.push(`${k}: ${[...c.fix, ...c.bad].join(' · ')}`); }
+  if (process.argv.includes('--fix-ipa')) wr(PEND, JSON.stringify(P).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n');
+  if (off.length) { console.error(off.join('\n') + `\n✗ từ chối lô ${id}: ${off.length} mục IPA lệch Britfone/CMU (ipa-check.mjs) – sửa ở lô chờ (--fix-ipa nếu chỉ cần sửa theo nguồn) hoặc đưa mục về hàng duyệt`); process.exit(1); } }
 const checked = JSON.parse(fs.readFileSync(arg('--checked'), 'utf8')), b = { id, source: 'lexicon-expand', n: keys.length, checked, at: new Date().toISOString().slice(0, 10) };
 const s = spot(b); b.status = s.ok ? 'published' : 'rejected'; if (!s.ok) b.why = s.why;
 fs.mkdirSync(new URL('content/qa/batches/', ROOT), { recursive: true });
