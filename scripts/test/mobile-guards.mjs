@@ -24,7 +24,7 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
 { const sv = app.indexOf('id="saveCard"'), ph = app.indexOf('<div id="phraseBox"></div>'), rl = app.indexOf('<div id="related"></div>');
   ok(sv > 0 && ph > sv && rl > ph, 'từ điển: khối cụm từ (Lex.phrases) + từ liên quan (Datamuse, mạng ngoài) nằm SAU ô lưu → về muộn không gây CLS (0,66 @360)'); }
 { const st = rd('web/js/study.js'), ds = rd('web/js/distract.js');
-  ok(/startWhen\((?:warmLib\(\)|Promise\.all\(\[warmLib\(\), [^\n]*\]\)), next\)/.test(st) && /startWhen\(warmLib\(\)\.then\(\(\) => preDis\(seq\[0\]\)\), next\)/.test(st) && /view\.prepend\(bar\)/.test(st) && /setTimeout\(\(\) => preDis\(nq\), 0\)/.test(st) && /async function pickAsync\(/.test(ds) && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
-    'trắc nghiệm/học thông minh: kho từ + bộ nhớ Distract làm nóng theo lát ≤ 8 ms trước câu đầu; phương án nhiễu tính theo lát (pickAsync) trước câu đầu và lúc rảnh cho câu sau (TBT #/practice từng 205–418 ms)'); }
+  ok(/startWhen\(Promise\.all\(\[warmLib\(\), window\.VImg && VImg\.need \? VImg\.need\(items\.map\(w => w\.word\)\) : null\]\), next\)/.test(st) && /startWhen\(warmLib\(\)\.then\(\(\) => preDis\(seq\[0\]\)\), next\)/.test(st) && /view\.prepend\(bar\)/.test(st) && /setTimeout\(\(\) => preDis\(nq\), 0\)/.test(st) && /async function pickAsync\(/.test(ds) && /performance\.now\(\) - t0 < 8/.test(st) && /async function warm\(pool/.test(ds) && /Date\.now\(\) - t0 < 8/.test(ds),
+    'trắc nghiệm/học thông minh: kho từ (+ mảnh chỉ mục ảnh VImg ở học thông minh) + bộ nhớ Distract làm nóng theo lát ≤ 8 ms trước câu đầu; phương án nhiễu tính theo lát (pickAsync) trước câu đầu và lúc rảnh cho câu sau (TBT #/practice từng 205–418 ms)'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');
