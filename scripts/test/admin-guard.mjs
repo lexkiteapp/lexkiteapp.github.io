@@ -64,12 +64,13 @@ for (const [width, scheme, lang] of CONFIGS) {
     const f = path.join(WEB, decodeURIComponent(u.pathname)); return fs.existsSync(f) && fs.statSync(f).isFile() ? r.fulfill({ path: f }) : r.fulfill({ status: 404, body: '' });
   });
   const page = await ctx.newPage(), tag = `${width}-${scheme}-${lang}`;
-  page.on('pageerror', e => errs.push(`${tag}: ${e.message}`));
+  let cur = 'overview'; page.on('pageerror', e => errs.push(`${tag} #${cur}: ${e.message}`));
   await page.goto('https://lk.test/admin.html#overview', { waitUntil: 'load' });
   await page.waitForSelector('body.adm-in #tabs a[data-tab]', { state: 'attached', timeout: 15000 }); await page.waitForTimeout(800);
   const tabs = await page.$$eval('#tabs a[data-tab]', a => a.map(x => x.dataset.tab));
   const routes = [...tabs, ...['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'].map(s => 'video/' + s)];
   for (const r of routes) {
+    cur = r;
     await page.evaluate(h => { location.hash = h; }, r); await page.waitForTimeout(r.startsWith('video/') ? 900 : 700);
     await page.waitForFunction(() => !document.querySelector('#main [aria-busy="true"], #main .sk'), null, { timeout: 5000 }).catch(() => {});
     const res = await page.evaluate(scan, { root: '.adm-content', sel: ADMIN_SEL, okScroll: '.tbl-x, .cl-vp, .vx-nav' }).catch(e => ({ err: [e.message] }));
