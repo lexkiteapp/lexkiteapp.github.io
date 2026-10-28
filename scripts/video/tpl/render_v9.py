@@ -38,6 +38,8 @@ ap.add_argument('--preview', default='')
 ap.add_argument('--frames', default='', help='shard: render only frames a:b or shard i/N (cuts on multiples of 48) -> <out>.seg<a>.mp4 + <out>.shard<a>.json, then stop (no audio, no timeline)')
 ap.add_argument('--cache', default='', help='folder for the ghost-distance matrices (pure function of the clip frames; shared by reruns and shards)')
 ap.add_argument('--merge', action='store_true', help='merge the shards found next to <out> (segments + json), then the usual audio mux + timeline')
+ap.add_argument('--overlay', action='store_true', help='host plate for the Remotion motion layer (scripts/video/motion): pops are planned but NOT drawn (the overlay draws them), no pop sfx; writes the per-clip moving-body mask (timeline host_move) for the overlay gates')
+ap.add_argument('--clean', default='', help='with --overlay: ALSO write this caption-free plate (same frames before the captions are drawn, same audio) for the embedded lesson videos (captions = VTT track)')
 ap.add_argument('--plan', default='', help='write the layout plan (pages, pops, joins, read times) to this JSON and stop (no frames)')
 o = ap.parse_args()
 W, H, FPS = 1080, 1920, 24
@@ -78,10 +80,10 @@ def _maxrect(free, hcap=None):   # largest axis-aligned rectangle of True cells 
             st.append((s_, h_))
     r_ = best[1]
     return (r_[0], r_[1], r_[2], min(r_[3], r_[1] + hcap)) if hcap else r_
-V14 = bool(BRD) and SP.get('layout', 'v14') == 'v14'   # owner 27/10 layout v14: medium shot (same head size for every teacher) under ONE fixed lesson card on top, inside the platform-safe area
+V14 = bool(BRD) and SP.get('layout', 'v14') in ('v14', 'right')   # 'right' (motion layer, docs/VIDEO-MOTION.md): same v14 medium shot, but the host stays at its native x (right side) so the overlay gets the full-width top + the left column   # owner 27/10 layout v14: medium shot (same head size for every teacher) under ONE fixed lesson card on top, inside the platform-safe area
 if V14:
     _h = TR['clips'][SP['clips'][0]]['head']; _k = max(1.0, min(1.2, 420 / (_h[3] - _h[1])))   # head box (hair included) -> 420 px, never a downscale, at most 1.2x (the v10 crops: host_sharp passes up to 1.2 with the 0.6 unsharp)
-    _ox = min(max(0.0, (_h[0] + _h[2]) / 2 - 560 / _k), W - W / _k)   # face towards x 560 (the right 14 % is platform UI); no horizontal fill
+    _ox = 0.0 if SP.get('layout') == 'right' else min(max(0.0, (_h[0] + _h[2]) / 2 - 560 / _k), W - W / _k)   # face towards x 560 (the right 14 % is platform UI); no horizontal fill
     _oy = min(max(-180 / _k, (_h[1] + _h[3]) / 2 - 1080 / _k), H - H / _k)   # head centre towards y 1080; at most 180 px of replicated wall on top (inside the platform's top UI band, y < 232)
     _ht = (_h[1] - _oy) * _k; _q = BRD['quad']; _bx1 = (min(_q[1][0], _q[2][0]) - _ox) * _k   # board right edge on screen
     _zf = [SAFE['x0'] + 34, SAFE['y0'] + 30, int(min(SAFE['x1'] - 34, _bx1 - 30)), int(_ht) - 64]   # owner 27/10: lesson written ON the whiteboard above the head – safe area, inside the board's right edge, 64 px air over the hair
@@ -1346,6 +1348,10 @@ else:
     enc = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                             '-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation', '-b:v', f'{o.kbps}k', '-maxrate', f'{int(o.kbps * 1.35)}k', '-bufsize', f'{o.kbps * 2}k',
                             '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-g', '48', '-movflags', '+faststart', (f'{o.out}.seg{SEG0:05d}.mp4' if o.frames else o.out + '.video.mp4')], stdin=subprocess.PIPE)
+CLEAN = None
+if o.clean and o.overlay and enc is not None and not o.frames:
+    CLEAN = subprocess.Popen(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', 'slow', '-tune', 'animation',
+                              '-b:v', f'{o.kbps}k', '-pix_fmt', 'yuv420p', '-g', '48', '-movflags', '+faststart', o.clean + '.video.mp4'], stdin=subprocess.PIPE)
 SPK = [dict(cues=LINES[l]['cues'], at=at) for l, at in ATL.items()]
 VSEQ = [LS.viseme_at(SPK, fi / FPS) for fi in range(NF)]   # v11 mouth smoothing (owner 26/10: "mắt miệng ko tự nhiên"): no 1-frame shapes
 for fi in range(1, NF - 1):
@@ -1384,7 +1390,7 @@ for fi in (range(0) if o.merge else range(SEG0, SEG1) if o.frames else range(NF)
     els = []; PRE = []
     for p in POPS:
         sc, al, dx, dy, wp = p.anim(T)
-        if al > 0.003: PRE.append((p, sc, al, dx, dy, wp, p.frame_im(T)))
+        if al > 0.003 and not o.overlay: PRE.append((p, sc, al, dx, dy, wp, p.frame_im(T)))
     # v14 (owner 27/10): no cream panel – the lesson is written straight on the whiteboard in marker ink (a box on a board looked illogical); card_panel kept for reference
     for p, sc, al, dx, dy, wp, im in PRE:
         cr_ = None
@@ -1400,6 +1406,7 @@ for fi in (range(0) if o.merge else range(SEG0, SEG1) if o.frames else range(NF)
         if r: els.append(dict(name=f'pop.{p.id}', text=p.text, bbox=r, px=pxs, alpha=round(al, 3), group='hook' if p.P.get('role') == 'hook' else ('cta' if p.kind == 'cta' else 'pop'),
                               digit=getattr(p, 'digit', None) if p.kind in ('quiz', 'card') else None, where=p.where, m=ms))
     wipe = {}
+    if CLEAN is not None: CLEAN.stdin.write(out.tobytes())   # caption-free copy (embed formats: captions ship as a VTT track)
     for pi, p in enumerate(PAGES):
         if pi + 1 < len(PAGES) and PAGES[pi + 1].t0 <= T and p.t0 <= T and T < PAGES[pi + 1].t0 + 0.25:
             wipe.update({w: round(max(0.0, min(1.0, (tm - WORDS[w]['s']) / max(1e-3, WORDS[w]['e'] - WORDS[w]['s']))), 3) for w in p.wids})
@@ -1449,6 +1456,7 @@ if o.merge:
     for f in glob.glob(o.out + '.seg*.mp4') + glob.glob(o.out + '.shard*.json') + [o.out + '.concat.txt']: os.remove(f)
 else:
     enc.stdin.close(); assert enc.wait() == 0, 'ffmpeg encode failed'
+    if CLEAN is not None: CLEAN.stdin.close(); assert CLEAN.wait() == 0, 'ffmpeg encode (clean plate) failed'
 cv2.imwrite(o.out + '.src0.png', norm_frame(RAW[SEQ[0][0][0]][SEQ[0][0][1]]))   # the source frame actually shown at t = 0 (gated plan starts at the talk clip's first usable frame)
 
 # ---------------- audio: voices + set ambience (-40 dB) + ticks + ding + soft pops ----------------
@@ -1467,7 +1475,7 @@ for b in BEATS.values():
     else:
         for k in range(int(b['e'] - b['s'])): put(tick, b['s'] + k, 0.07)
 np_ = np.arange(int(0.06 * SR)); popw = (np.sin(2 * np.pi * (520 + 900 * np_ / len(np_)) * np_ / SR) * np.exp(-np_ / (0.015 * SR))).astype(np.float32)
-for p in POPS[1:]: put(popw, p.t0, 0.10)
+for p in ([] if o.overlay else POPS[1:]): put(popw, p.t0, 0.10)   # overlay plate: the motion layer owns the pop timing (no sfx at the planned board pops)
 ding = f"{LIB}/{SET['ding']}" if SET.get('ding') else ''
 if not (ding and os.path.exists(ding)): ding = f'{o.foot}/anchor/tools/foley/ding.wav'
 REV = [tm_of(p.P['reveal']) for p in POPS if p.kind == 'quiz'] + [p.t0 for p in POPS if p.id == 'reveal']
@@ -1479,6 +1487,8 @@ with wave.open(o.out + '.mix.wav', 'wb') as wv:
     wv.setnchannels(1); wv.setsampwidth(2); wv.setframerate(SR); wv.writeframes((np.clip(mix, -1, 1) * 32767).astype(np.int16).tobytes())
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.out + '.video.mp4', '-i', o.out + '.mix.wav', '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
                 '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11,alimiter=limit=0.89:level=0,aresample=48000', '-ac', '2', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', o.out], check=True)
+if o.clean and not o.frames and not o.merge:
+    subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.clean + '.video.mp4', '-i', o.out, '-map', '0:v', '-map', '1:a', '-c', 'copy', '-movflags', '+faststart', o.clean], check=True); os.remove(o.clean + '.video.mp4')
 os.remove(o.out + '.video.mp4')
 json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_ratio=CAPR, spec=SP, fps=FPS, size=[W, H], total=TOTAL, n=NF, safe=SAFE, cx=CX, capw=CAPW, band=BAND, smax=SMAX, anchor=[AX, AY], head=HEAD, joins=JOINS, xf=XF, xfe=XFE,
                beats=BEATS, gaps=GAPS, gap_max=GAP_GATE, cap_cx=CCX, cap_w=CAPWC, cap_cy=CAP_CY, cap_ink=CAPINK, cap_plate=PLATE, cap_strip=STRIP1, board_contrast=CONTRAST, moods=[[l, w, c, TR['clips'][c].get('mood', 'talk')] for l, w, c in MOODS], v14=dict(on=V14, crop=CROP, zone=ZONE, head=HEAD.get(SP['clips'][0])) if V14 else None, read_pad=READ_PAD,
@@ -1486,6 +1496,7 @@ json.dump(dict(style='v10', crop=CROP, min_cap=MIN_CAP, min_img=MIN_IMG, cap_rat
                pops=[dict(id=p.id, kind=p.kind, text=p.text, t0=round(p.t0, 3), t1=round(p.t1, 3), url=getattr(p, 'url', None), where=p.where, variant=p.variant, role=p.P.get('role'), need=p.need, region=p.region) for p in POPS],
                emoji=EMO_USED, script={k: TXT[k] for k in ATL}, display=DISP,
                lines={lid: dict(at=round(at, 3), dur=round(LINES[lid]['dur'], 3), gen=LINES[lid]['gen'], cues=len(LINES[lid]['cues']), speed=LINES[lid]['speed'], whisper=LINES[lid]['whisper']) for lid, at in ATL.items()},
+               overlay_plate=bool(o.overlay), host_parent={c: TR['clips'].get(c, {}).get('parent') or c for c in sorted({x[0] for f_ in SEQ for x in f_})}, host_move={c: [[int(y) * 8, int(np.flatnonzero(r)[0]) * 8, int(np.flatnonzero(r)[-1]) * 8 + 8] for y, r in enumerate(m_) if r.any()] for c, m_ in MOVE.items()} if o.overlay else None,
                words=WORDS, captions=CAP_LOG, sharp=SHARP, motion=MOTION, body_hits=BODY_HITS[:40], n_body_hits=len(BODY_HITS), identity_hits=ID_HITS[:20], n_identity_hits=len(ID_HITS), frames=FRAMES), open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
 print(f'[timing] finished {time.time() - T_START:.0f} s')
 print(f'done {o.out}: {TOTAL:.2f} s, {NF} frames')

@@ -76,6 +76,7 @@
 - [VIDEO-STORAGE.md](VIDEO-STORAGE.md) — Lưu trữ short theo công thức (recipe-first) $0, mở rộng tới 100k clip: nơi lưu, luồng, dựng lại từ công thức, di trú repo cũ; đọc khi: lưu/dựng lại short
 - [VIDEO-TEACHERS.md](VIDEO-TEACHERS.md) — Giáo viên video, bộ cảnh và clip nói (họ template v9): clip dùng ngay 0 credit, mặt nạ đầu, thêm giáo viên, bank CLASSROOM, chữ trên bảng; đọc khi: sửa giáo viên/cảnh video
 - [VIDEO-TEMPLATES.md](VIDEO-TEMPLATES.md) — Template video v1 (24/10) nhất quán theo thiết kế: lưới, thang chữ, màu từ kit.js, token chuyển động, luật, cấu trúc beat; đọc khi: sửa template video
+- [VIDEO-MOTION](VIDEO-MOTION.md) — Stitch overlay cards + Remotion motion keyed to the voice; read before touching scripts/video/motion or the stitch-short composition
 - [VIDEO-SERIES.md](VIDEO-SERIES.md) — 6 series video đánh số + bộ lọc chủ đề máy làm tốt + chuẩn pipeline quy mô lớn: lý do save/share, kho 10 tập đầu mỗi series, luật series, nhịp giảng; đọc khi: lên nội dung video
 - [VIDEO.md](VIDEO.md) — Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage; đọc khi: mọi việc video
 - [VISUAL-LEARNING-PLAN.md](VISUAL-LEARNING-PLAN.md) — Kế hoạch ảnh học ngoài thẻ từ vựng: các ứng viên theo giá trị/công sức, giai đoạn 1 (24/10), luật cho mọi giai đoạn; đọc khi: thêm ảnh minh họa mới
