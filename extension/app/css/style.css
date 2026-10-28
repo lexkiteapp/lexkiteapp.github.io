@@ -1410,7 +1410,8 @@ body.focus .topbar { visibility: hidden; transform: translateY(-100%); pointer-e
 .lsw-m [aria-current]::after,.lsw-m [aria-checked=true]::after{content:"\2713";color:var(--primary);font-weight:800}
 /* /lsw */
 .top-stats .lsw-b{border:0;background:var(--surface-2);padding:0 .75rem}
-@media (max-width:480px){.top-stats .lsw-b{width:36px;padding:0;justify-content:center}.top-stats .lsw-c{display:none}}
+@media (max-width:380px){.topbar{gap:.3rem;padding-left:.6rem;padding-right:.6rem}.topbar .gsearch{min-width:44px}.topbar .top-stats{gap:.25rem}} /* có nút 🌐: ô tra từ không bị ép < 44 px ở 360 px (mqa tap<44) */
+@media (max-width:480px){.top-stats .lsw-b{width:var(--tap, 44px);min-width:44px;min-height:44px;padding:0;justify-content:center}.top-stats .lsw-c{display:none}}
 #mTabs button .mdone { color: var(--good-text); font-weight: 800; }
 .qe-stats { margin-bottom: 1rem; }
 .qe-tbl { width: 100%; border-collapse: collapse; font-size: .88rem; margin-top: .6rem; }
