@@ -79,6 +79,11 @@ function icons() { const s = new Set(); for (const f of new Set(Object.values(GR
 
 if (A.has('--fonts')) await fonts();
 const bad = [];
+// Cổng ảnh: mẫu Stitch có ảnh giữ chỗ (người/ảnh ngẫu nhiên trên lh3.googleusercontent.com…) – KHÔNG BAO GIỜ dùng. Chỉ ảnh của mình (đường dẫn tương đối: teach/ = 2D Ama/Carlos, icons/, fonts/).
+const IMGBAD = /(googleusercontent|unsplash|pravatar|picsum|placeholder|randomuser|gstatic\.com\/images|lorempixel|placehold)/i, EXT = /(?:src|href|url)\s*[=(]\s*["']?https?:\/\//i;
+for (const f of [...new Set(Object.values(GROUPS).flat()), ...Object.keys(GROUPS).map(OUT), 'web/design/gallery.html'].filter(f => fs.existsSync(f))) { const t = fs.readFileSync(f, 'utf8');
+  if (IMGBAD.test(t)) bad.push(`${f}: có URL ảnh giữ chỗ/ngoài (${t.match(IMGBAD)[0]}) – chỉ dùng ảnh của Lexkite`);
+  if (EXT.test(t)) bad.push(`${f}: src/href/url trỏ ra ngoài (${t.match(EXT)[0]}…) – chỉ đường dẫn nội bộ`); }
 const used = icons(), have = fs.existsSync('web/fonts/msym.json') ? JSON.parse(fs.readFileSync('web/fonts/msym.json', 'utf8')) : [];
 const lack = used.filter(n => !have.includes(n)); if (lack.length) bad.push(`icon chưa có trong web/fonts/msym.woff2: ${lack.join(', ')} → chạy --fonts`);
 for (const g of Object.keys(GROUPS)) {
