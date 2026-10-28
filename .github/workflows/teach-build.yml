@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       matte_run: { description: 'id lượt matte-pro có artifact matte-<clip> (clip mới chưa vào kho footage)', required: false, default: '' }
+      matte_run2: { description: 'lượt matte-pro thứ 2 (tuỳ chọn)', required: false, default: '' }
   push:
     branches: ['teach-build*']
 permissions:
@@ -35,6 +36,9 @@ jobs:
         if: inputs.matte_run != ''
         uses: actions/download-artifact@v4
         with: { run-id: '${{ inputs.matte_run }}', pattern: 'matte-*', merge-multiple: true, path: footage/anchor/green, github-token: '${{ github.token }}' }
+      - if: inputs.matte_run2 != ''
+        uses: actions/download-artifact@v4
+        with: { run-id: '${{ inputs.matte_run2 }}', pattern: 'matte-*', merge-multiple: true, path: footage/anchor/green, github-token: '${{ github.token }}' }
       - name: Dựng
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null; pip install -q pillow numpy
