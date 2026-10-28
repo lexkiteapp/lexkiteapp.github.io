@@ -129,6 +129,9 @@
 
   // ---------- Bản đồ: chặng (gập/mở) → bài (tiến độ x/y ngày) → nút Ngày ----------
   // Nhường luồng chính giữa các bước dựng bản đồ (tính ngày ↔ vẽ; vẽ khung + điền chặng đang mở giữ CÙNG tác vụ để không CLS) → không có tác vụ dài (TBT mobile #/path 197–220 ms)
+  // Chờ qua 1 khung hình (rAF → setTimeout): mỗi khung chỉ phải tính style/bố cục cho 1 lô ngày mới. scheduler.yield ưu tiên chạy tiếp
+  // nên nhiều lô dồn vào cùng 1 khung → 1 lần Style+Layout 200–270 ms (trace CI #/path). Tab nền không có rAF → dự phòng 100 ms.
+  const nextFrame = () => new Promise(r => { let ok = 0; const go = () => { if (!ok) { ok = 1; setTimeout(r, 0); } }; if (g.requestAnimationFrame) requestAnimationFrame(go); setTimeout(go, 100); });
   const yieldMain = () => new Promise(r => (g.scheduler && g.scheduler.yield ? g.scheduler.yield().then(r) : setTimeout(r, 0)));
   async function map() {
     const h0 = location.hash;
@@ -190,7 +193,7 @@
       };
       put(chunk(Math.min(flat.length, Math.max(10, ciDay + 5))));
       while (pos < flat.length) {
-        await yieldMain(); if (!body.isConnected) return;
+        await nextFrame(); if (!body.isConnected) return;
         put(chunk(Math.min(flat.length, pos + 8)));
       }
     };
