@@ -102,11 +102,11 @@ const PROBE = () => {
         if (FACE.test(s)) add(fail, `character emoji «${s.trim().slice(0, 30)}» trong ${sel(n.parentElement)}`);
         if (o.lang !== 'vi' && VI.test(s) && !n.parentElement.closest('[lang="vi"]')) add(fail, `i18n-vi-leak «${s.trim().slice(0, 50)}» trong ${sel(n.parentElement)}`); }
     }
-    // ảnh nhân vật còn nền (phòng, bảng trắng): viền trên/trái/phải phải trong suốt (cùng nguồn → đọc được điểm ảnh)
+    // ảnh nhân vật còn nền (phòng, bảng trắng): 2 góc trên luôn là nền → phải trong suốt (tóc có thể chạm mép trên/hai bên) (cùng nguồn → đọc được điểm ảnh)
     for (const im of D.querySelectorAll('img.tch-poster, img.ret-teach, .sc img')) {
       if (!vis(im) || !im.complete || !im.naturalWidth || !/\/teach\//.test(im.currentSrc || im.src)) continue;
       try { const c = D.createElement('canvas'); c.width = 48; c.height = 64; const x = c.getContext('2d'); x.drawImage(im, 0, 0, 48, 64); const d = x.getImageData(0, 0, 48, 64).data; let s = 0, n = 0;
-        for (let y = 0; y < 64; y++) for (let xx = 0; xx < 48; xx++) if (y < 3 || ((xx < 3 || xx > 44) && y < 38)) { s += d[(y * 48 + xx) * 4 + 3]; n++; }
+        for (let y = 0; y < 64; y++) for (let xx = 0; xx < 48; xx++) if (y < 6 && (xx < 6 || xx > 41)) { s += d[(y * 48 + xx) * 4 + 3]; n++; }
         if (s / n > 26) add(fail, `character-bg ${sel(im)} ảnh nhân vật còn nền (alpha viền ${Math.round(s / n)}/255) – dùng bản tách nền`); } catch (e) { /* khác nguồn */ }
     }
     if (o.lang === 'ar' && D.documentElement.dir !== 'rtl' && D.querySelector('#view')) add(fail, 'rtl: <html dir> không phải rtl ở ar');
