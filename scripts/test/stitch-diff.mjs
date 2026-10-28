@@ -4,7 +4,8 @@
 // Hermetic (phục vụ thẳng web/, ?sandbox=1, 0 lượt chạm prod). Dùng: node scripts/test/stitch-diff.mjs [web] [out=out/stitch-diff]
 // CI: .github/workflows/stitch-diff.yml (cần playwright + pngjs + imagemagick). docs/DESIGN-SYSTEM.md §0.
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
-import { chromium } from 'playwright'; import { PNG } from 'pngjs';
+import { chromium } from 'playwright'; import { PNG } from 'pngjs'; import { createRequire } from 'node:module';
+const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.min.js'), a11y = {}; // WCAG 2.2 AA (axe-core) trong vùng màn Stitch (.st)
 const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.mp4': 'video/mp4', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
@@ -48,8 +49,31 @@ for (const scheme of ['dark', 'light']) {
       if (b) b.click(); if (i) { i.value = 'x'; i.dispatchEvent(new Event('input')); } await new Promise(r => setTimeout(r, 150)); const c = q('#lsnCheck'); if (c && !c.disabled) c.click(); await new Promise(r => setTimeout(r, 900)); }).catch(() => {});
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
     const buf = await page.screenshot({ fullPage: true }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
+    await page.addScriptTag({ path: AXE }).catch(() => {});
+    a11y[`${k}-${scheme}`] = await page.evaluate(async () => { if (!window.axe || !document.querySelector('.st')) return { skipped: true };
+      const r = await axe.run({ include: [...document.querySelectorAll('.st')] }, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } });
+      return { violations: r.violations.map(v => ({ id: v.id, impact: v.impact, n: v.nodes.length, sample: v.nodes.slice(0, 2).map(x => x.target.join(' ') + ' ' + (x.failureSummary || '').split('\n')[1]) })), passes: r.passes.length }; }).catch(e => ({ error: e.message }));
     const ref = `brand/stitch/${k}-${scheme}.jpg`;
     if (fs.existsSync(ref)) res[`${k}-${scheme}`] = score(ref, buf);
+  }
+  await ctx.close();
+}
+// ---- máy tính 1280 px (Stitch chỉ có mẫu điện thoại → tờ duyệt đặt cạnh mẫu điện thoại để so phong cách) ----
+for (const scheme of ['dark', 'light']) {
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, deviceScaleFactor: 1, colorScheme: scheme, serviceWorkers: 'block' });
+  await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
+  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`desk ${scheme}: ${e.message}`));
+  const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
+  await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
+  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+    await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
+    localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
+  for (const [k, h] of Object.entries(SCREENS)) {
+    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
+    if (k === 'feedback') await page.evaluate(async () => { const q = s => document.querySelector(s), b = q('.lsn-opts .lsn-opt') || q('.lsn-bank .lsn-tile') || q('.lsn-match .lsn-opt'), i = q('#lsnIn');
+      if (b) b.click(); if (i) { i.value = 'x'; i.dispatchEvent(new Event('input')); } await new Promise(r => setTimeout(r, 150)); const c = q('#lsnCheck'); if (c && !c.disabled) c.click(); await new Promise(r => setTimeout(r, 900)); }).catch(() => {});
+    await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    await page.screenshot({ path: path.join(OUT, `desk-${k}-${scheme}.png`) });
   }
   await ctx.close();
 }
@@ -57,13 +81,17 @@ await browser.close();
 
 // ---- tờ "Stitch | app" (sáng + tối) ----
 try { for (const k of Object.keys(SCREENS)) { const f = [`brand/stitch/${k}-dark.jpg`, path.join(OUT, `app-${k}-dark.png`), `brand/stitch/${k}-light.jpg`, path.join(OUT, `app-${k}-light.png`)];
-  const lab = ['Stitch – tối', 'App – tối', 'Stitch – sáng', 'App – sáng'], args = []; f.forEach((x, i) => { if (fs.existsSync(x)) args.push('-label', lab[i], x); else args.push('-label', lab[i] + ' (chưa có mẫu)', 'xc:#ccc'); });
-  execFileSync('montage', [...args, '-tile', '4x1', '-geometry', '390x1300>+8+8', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `side-${k}.jpg`)]); } } catch (e) { console.log('montage bỏ qua:', e.message); }
+  const lab = ['Stitch – tối', 'Lexkite – tối', 'Stitch – sáng', 'Lexkite – sáng'], args = []; f.forEach((x, i) => { if (fs.existsSync(x)) args.push('-label', lab[i], x); else args.push('-label', lab[i] + ' (chưa có mẫu)', 'xc:#ccc'); });
+  execFileSync('montage', [...args, '-tile', '4x1', '-geometry', '390x1300>+8+8', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `side-${k}.jpg`)]);
+  const d = [`brand/stitch/${k}-dark.jpg`, path.join(OUT, `desk-${k}-dark.png`), path.join(OUT, `desk-${k}-light.png`)], dl = ['Stitch (điện thoại, tối)', 'Lexkite máy tính – tối', 'Lexkite máy tính – sáng'], da = [];
+  d.forEach((x, i) => { if (fs.existsSync(x)) da.push('-label', dl[i], x); });
+  if (da.length) execFileSync('montage', [...da, '-tile', `${da.length / 3}x1`, '-geometry', '+8+8', '-resize', 'x900', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `desk-${k}.jpg`)]); } } catch (e) { console.log('montage bỏ qua:', e.message); }
 
 // ---- cổng ----
 const bad = [];
 for (const [k, v] of Object.entries(res)) { const l = LIM[k] || {}; for (const m of ['ssim', 'rows']) if (l[m] != null && v[m] < l[m]) bad.push(`${k} ${m} ${v[m]} < ${l[m]}`); }
-fs.writeFileSync(path.join(OUT, 'scores.json'), JSON.stringify({ res, errs }, null, 1));
+fs.writeFileSync(path.join(OUT, 'scores.json'), JSON.stringify({ res, errs, a11y }, null, 1));
+for (const [k, v] of Object.entries(a11y)) { const sv = (v.violations || []).filter(x => x.impact === 'serious' || x.impact === 'critical'); console.log(`axe ${k}: ${(v.violations || []).length} vi phạm (${sv.length} nghiêm trọng) · ${v.passes || 0} đạt`); sv.forEach(x => bad.push(`axe ${k}: ${x.id} ×${x.n} – ${x.sample.join(' | ')}`)); }
 console.log(Object.entries(res).map(([k, v]) => `${k}: ssim ${v.ssim} · nhịp hàng ${v.rows}`).join('\n'));
 if (errs.length) console.log('lỗi JS:', errs.slice(0, 10));
 if (bad.length || errs.length) { console.error('✗ stitch-diff:\n  - ' + bad.concat(errs).join('\n  - ')); process.exit(1); }

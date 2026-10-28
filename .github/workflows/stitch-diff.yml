@@ -20,7 +20,7 @@ jobs:
         with: { node-version: 22 }
       - name: CSS Stitch khớp mẫu (Tailwind biên dịch sẵn, ≤ 10 KB gz/nhóm)
         run: |
-          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0
+          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0 axe-core@4.10.2
           node scripts/build-stitch-css.mjs --check
       - name: So với mẫu Stitch
         if: always()

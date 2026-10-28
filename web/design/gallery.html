@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lexkite × Stitch – component gallery</title>
+<!-- Trang gallery tĩnh: mọi component của 4 màn Stitch (web/js/st/*.js) với dữ liệu mẫu, xem sáng / tối / RTL cạnh nhau.
+     Không có tham số → 3 khung (sáng · tối · RTL tiếng Ả Rập). ?theme=light|dark&dir=rtl → một khung. CSS = đúng file app dùng (css/st-*.css). -->
+<link rel="preload" href="../fonts/pjs-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/st-home.css"><link rel="stylesheet" href="../css/st-lesson.css"><link rel="stylesheet" href="../css/st-goal.css">
+<style>
+  html,body{margin:0;background:rgb(var(--st-surface));color:rgb(var(--st-on-surface))}
+  .frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(390px,1fr));gap:16px;padding:16px;background:#d9d9d9}
+  .frames iframe{width:100%;height:2600px;border:0;border-radius:16px;background:#fff}
+  .frames h2{font:700 14px system-ui;margin:0 0 6px}
+  .g{max-width:448px;margin:0 auto;padding:16px;display:flex;flex-direction:column;gap:24px}
+  .g>h2{font:800 12px/16px "Plus Jakarta Sans",system-ui;letter-spacing:.06em;text-transform:uppercase;color:rgb(var(--st-secondary));margin:24px 0 -12px}
+  .g .lsn{padding:0}.g .lsn-foot{position:static;max-height:none}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+  var q = new URLSearchParams(location.search);
+  if (!q.get('theme')) {
+    document.getElementById('root').innerHTML = '<div class="frames">' + [['light', 'ltr', 'Sáng (B)'], ['dark', 'ltr', 'Tối (A)'], ['dark', 'rtl', 'RTL (tối)']].map(function (f) { return '<div><h2>' + f[2] + '</h2><iframe title="' + f[2] + '" src="?theme=' + f[0] + '&dir=' + f[1] + '"></iframe></div>'; }).join('') + '</div>';
+  } else {
+    document.documentElement.setAttribute('data-theme', q.get('theme'));
+    if (q.get('dir') === 'rtl') { document.documentElement.dir = 'rtl'; document.documentElement.lang = 'ar'; }
+    window.t = function (s, v) { return String(s).replace(/\{(\w+)\}/g, function (_, k) { return v && v[k] != null ? v[k] : _; }); };
+  }
+</script>
+<script src="../js/st/common.js"></script><script src="../js/st/home.js"></script><script src="../js/st/lesson.js"></script><script src="../js/st/goal.js"></script>
+<script>
+  (function () {
+    if (!q.get('theme')) return;
+    var S = window.ST, img = '../teach/ama/poster.webp', img2 = '../teach/carlos/poster.webp', h = [];
+    var sec = function (n, html) { h.push('<h2>' + n + '</h2>' + html); };
+    sec('Exam card', S.exam({ p: 64, C: 125.66, off: 45.2, title: 'IELTS · 7.5', sub: 'Predicted ~7 · 18 days left', href: '#', mock: 'Mock test' }));
+    sec('Learning path', S.home({ badge: 'Unit 3', meta: 'IELTS · B2', title: 'Writing Task 1 & Cohesion', img: img2, step: 'Step 4/6', xpTo: '+60 XP to the checkpoint', pct: 50, aria: { now: 3, max: 6 }, coach: { name: 'Carlos', tip: 'Master linking words like "whereas" & "subsequently"' },
+      chips: [{ icon: 'local_library', text: '12/40' }, { href: '#', icon: 'explore', text: 'Level test' }],
+      nodes: [{ st: 'done', no: 1, label: 'Overview Trends', stars: 3 }, { st: 'done', no: 2, label: 'Vocabulary: Graphs', stars: 3 }, { st: 'done', no: 3, label: 'Comparative Data', stars: 2 },
+        { st: 'next', no: 4, label: 'Cohesive Devices', href: '#', start: 'Start · +20 XP', sub: '4 min', tch: img }, { st: 'lock', no: 5, label: 'Complex Sentences' }, { st: 'lock', no: 6, label: 'IELTS Writing', cp: true, ms: 'Milestone' }],
+      cta: { href: '#', text: 'Continue unit 3 • 4 min' } }));
+    sec('Lesson – question', S.lsnShell({ close: '#', closeLabel: 'Exit lesson', title: 'Lesson', barLabel: 'Lesson progress', chip: 'IELTS · Target 7.5', who: 'Ama · Your teacher' }));
+    sec('Audio sample', S.lsnSnd({ play: 'Play again', slow: 'Play slower', label: 'Audio sample', name: 'Carlos' }));
+    sec('Options', S.lsnOpts(['We had some big bad problems on the road.', 'We encountered unforeseen logistical bottlenecks along the route.', 'The trip was stopped for a very long period.']));
+    sec('Match', S.lsnMatch([{ i: 0, t: 'delay' }, { i: 1, t: 'route' }], [{ i: 1, t: 'path' }, { i: 0, t: 'hold-up' }]));
+    sec('Build', S.lsnBuild(['We', 'encountered', 'bottlenecks']));
+    sec('Type', S.lsnIn('Your answer'));
+    sec('Footer', '<div class="' + S.FOOT + '">' + S.lsnFoot({ skips: [['a', "Can't listen now"]], check: 'Check' }) + '</div>');
+    sec('Feedback – correct', '<div class="' + S.SHEET + ' ok">' + S.lsnSheet({ chips: S.lsnChips({ ok: true, okText: 'Correct! +2 XP', streak: '15 days in a row' }), card: true, why: 'Why?', next: 'Continue', tip: 'Tap a phrase to hear the native pronunciation',
+      coach: S.lsnCoach({ img: img, name: 'Ama', role: 'Your teacher', head: 'Great!', body: '<p class="m-0 font-body-md text-body-md text-on-surface"><b lang="en">bottleneck</b> /ˈbɒt.əl.nek/ · a point of congestion</p>' }) }) + '</div>');
+    sec('Feedback – wrong', '<div class="' + S.SHEET + ' bad">' + S.lsnSheet({ chips: S.lsnChips({ ok: false, badText: 'Not quite' }), head: '✗ Not quite', answer: 'unforeseen hold-up', next: 'Continue' }) + '</div>');
+    sec('Score booster', '<div class="' + S.BOOST + '">' + S.lsnBoost({ title: 'Score booster', bad: 'Common', good: 'Better phrase', w: 'big delay', r: 'logistical bottleneck' }) + '</div>');
+    sec('Exam readiness', S.ready({ aria: 'Exam readiness', chip: 'IELTS · Target 7.5', who: { img: img2, name: 'Carlos' }, real: true, pct: 84, cur: '7.0', target: '7.5', of: '9.0', curL: 'Estimated score', gapL: 'Gap', tgL: 'Target', readyL: 'Exam readiness', pctL: '84% ready', days: '18 days to your exam', hrs: '~12 study hours left', skH: 'Skill breakdown',
+      skills: [{ k: 'listening', name: 'Listening', band: 'Band 7.5', status: 'On track', bars: [33, 44, 56, 78, 83], href: '#' }, { k: 'reading', name: 'Reading', band: 'Band 7.5', status: 'On track', bars: [44, 56, 67, 83], href: '#' }, { k: 'speaking', name: 'Speaking', band: 'Band 6.5', weak: true, status: 'Needs practice', faLabel: 'Focus:', focus: 'Fluency & connectors', href: '#' }, { k: 'writing', name: 'Writing', band: 'Band 6.5', weak: true, status: 'Needs practice', faLabel: 'Focus:', focus: 'Task 2: cohesion', href: '#' }],
+      drill: { chip: 'Picked for you by Carlos', title: 'Focused Speaking practice', body: 'Your lowest skill – practise 5 minutes a day to lift your overall score.', cta: 'Start practice', href: '#' }, mock: { chip: 'All 4 skills', title: 'Next mock test: 11/11', sub: '18 days to your exam', cta: 'Mock test', href: '#' } }));
+    sec('Exam readiness – empty', S.ready({ aria: 'Exam readiness', chip: 'IELTS · Target 7.5', who: { img: img, name: 'Ama' }, real: false, pct: 0, empty: { title: 'No estimated score yet', body: 'Take a mock test so Lexkite can estimate your current score, readiness and the skills to practise.', cta: 'Take a mock test now', href: '#' }, skills: [], mock: { chip: 'All 4 skills', title: 'Take a mock test this week', cta: 'Mock test', href: '#' } }));
+    sec('Tab bar', '<nav class="bottom-nav st-nav ' + S.NAV_CLS + '" style="display:flex;position:static">' + S.nav([['learn', '#', '', 'Learn'], ['review', '#', '', 'Review'], ['train', '#', '', 'Practice'], ['league', '#', '', 'Leagues'], ['me', '#', '', 'Me']]) + '</nav>');
+    document.getElementById('root').innerHTML = '<main class="g st bg-surface font-body-md text-on-surface">' + h.join('') + '</main>';
+    var b = document.querySelector('.st-tab'); if (b) b.classList.add('active');
+    document.querySelectorAll('.lsn-opt')[1].setAttribute('aria-pressed', 'true');
+  })();
+</script>
+</body>
+</html>

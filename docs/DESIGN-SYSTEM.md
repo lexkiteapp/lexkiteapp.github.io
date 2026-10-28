@@ -72,6 +72,13 @@ If a Lottie is added later: lazy-load it with `App.need`, keep it out of the `SH
 - Owner overrides: no hearts/lives, 5 tabs, 3D Ama/Carlos only, UK/US IPA via `UI.pronHtml`, light + dark from tokens. QA: one `.lsn-foot`, answers disabled after Check, `dir=ltr` on +XP/% values.
 - Bundle CSS outside the shell: `BCSS` in `app.js` (`exam.css`, `adm.css`, `league.css`, `tactile-x.css`).
 
+## 5c. Stitch HTML port (28/10, PR #199 – HOLD until owner OK)
+The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) use **Google Stitch's exported DOM + Tailwind classes verbatim** – no reinterpretation.
+- Templates: `web/js/st/{common,home,lesson,goal}.js` (only these are Tailwind content; write classes literally). Data + `t()` replace static text; 2D teachers only; no hearts/gems; motion = 150–200 ms fades, reduced-motion respected.
+- Tokens: `brand/stitch/tokens.dtcg.json` (W3C DTCG; `$value` = dark A, `$extensions.com.lexkite.mode.light` = light B, text roles darkened for WCAG 2.2 AA). Colours become `rgb(var(--st-*) / α)` so one DOM serves both themes; `lt:` = light-only borders/soft shadows (Option B).
+- Build: `node scripts/build-stitch-css.mjs` → `web/css/st-{home,lesson,goal}.css` (Tailwind 3.4.17, no preflight, ≤ 10 KB gz each, lazy via BCSS). `--check` on CI = drift gate; `--fonts` re-downloads self-hosted Plus Jakarta Sans (latin/latin-ext/vietnamese WOFF2, swap) + Material Symbols subset (icon names from `ms('…')` / `@icons`).
+- Gate: `scripts/test/stitch-diff.mjs` (SSIM + row rhythm vs `brand/stitch/*.jpg`, thresholds only go up, axe WCAG 2.2 AA inside `.st`), owner sheets `side-*.jpg` / `desk-*.jpg`. Gallery: `web/design/gallery.html` (light/dark/RTL).
+
 ## 6. Checks before shipping UI
 `npm test` (size budget: shell ≤ 377 KB gz, a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.
 Mirror into the add-on with `bash scripts/build-extension.sh`. Never edit `extension/content.js` for app UI.
