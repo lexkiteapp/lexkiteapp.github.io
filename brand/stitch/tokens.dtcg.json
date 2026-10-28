@@ -3,7 +3,7 @@
  "color": {
   "background": {
    "$type": "color",
-   "$value": "#081518",
+   "$value": "#0B171A",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFF7EA"
@@ -66,7 +66,7 @@
   },
   "lip-lock": {
    "$type": "color",
-   "$value": "#041013",
+   "$value": "#071215",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#D8CFBC"
@@ -75,7 +75,7 @@
   },
   "lip-opt": {
    "$type": "color",
-   "$value": "#101e20",
+   "$value": "#0E1B20",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#EADEC8"
@@ -111,7 +111,7 @@
   },
   "on-background": {
    "$type": "color",
-   "$value": "#d7e5e9",
+   "$value": "#EEF6F7",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#0F3D3E"
@@ -210,7 +210,7 @@
   },
   "on-surface": {
    "$type": "color",
-   "$value": "#d7e5e9",
+   "$value": "#EEF6F7",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#0F3D3E"
@@ -219,7 +219,7 @@
   },
   "on-surface-variant": {
    "$type": "color",
-   "$value": "#e3beb8",
+   "$value": "#A9BFC1",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#4E6668"
@@ -264,7 +264,7 @@
   },
   "outline": {
    "$type": "color",
-   "$value": "#aa8983",
+   "$value": "#7E9599",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#8A9A98"
@@ -273,7 +273,7 @@
   },
   "outline-variant": {
    "$type": "color",
-   "$value": "#5a413c",
+   "$value": "#36505A",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#EADEC8"
@@ -372,7 +372,7 @@
   },
   "surface": {
    "$type": "color",
-   "$value": "#081518",
+   "$value": "#0B171A",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFF7EA"
@@ -381,7 +381,7 @@
   },
   "surface-bright": {
    "$type": "color",
-   "$value": "#2e3b3f",
+   "$value": "#37505A",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFFFFF"
@@ -390,7 +390,7 @@
   },
   "surface-container": {
    "$type": "color",
-   "$value": "#152225",
+   "$value": "#1A2C33",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFFFFF"
@@ -399,7 +399,7 @@
   },
   "surface-container-high": {
    "$type": "color",
-   "$value": "#1f2c2f",
+   "$value": "#22363D",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFFFFF"
@@ -408,7 +408,7 @@
   },
   "surface-container-highest": {
    "$type": "color",
-   "$value": "#2a373a",
+   "$value": "#2E444B",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#F3EAD9"
@@ -417,7 +417,7 @@
   },
   "surface-container-low": {
    "$type": "color",
-   "$value": "#101e20",
+   "$value": "#13232A",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFF7EA"
@@ -426,7 +426,7 @@
   },
   "surface-container-lowest": {
    "$type": "color",
-   "$value": "#041013",
+   "$value": "#071215",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFF7EA"
@@ -435,7 +435,7 @@
   },
   "surface-dim": {
    "$type": "color",
-   "$value": "#081518",
+   "$value": "#0B171A",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#FFF7EA"
@@ -453,7 +453,7 @@
   },
   "surface-variant": {
    "$type": "color",
-   "$value": "#2a373a",
+   "$value": "#2E444B",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#F3EAD9"
@@ -498,7 +498,7 @@
   },
   "trail": {
    "$type": "color",
-   "$value": "#152225",
+   "$value": "#1F343B",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#EADEC8"

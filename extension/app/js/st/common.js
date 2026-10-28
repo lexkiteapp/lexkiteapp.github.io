@@ -14,6 +14,6 @@
   // Lớp vỏ thanh tab + đầu trang theo Stitch (class đặt lên phần tử có sẵn của index.html – không thêm DOM)
   const NAV_CLS = 'pb-safe bg-surface-container-low/95 backdrop-blur-xl rounded-t-2xl shadow-[0_-4px_20px_rgba(0,0,0,0.35)] lt:shadow-[0_-4px_20px_rgba(15,61,62,0.06)] lt:border-t lt:border-outline-variant';
   // Thẻ chung: bóng tối (A) ↔ viền mảnh + bóng mềm (B)
-  const CARD = 'shadow-xl lt:shadow-card-soft lt:border lt:border-outline-variant/80';
+  const CARD = 'shadow-xl border border-outline-variant/60 lt:shadow-card-soft lt:border-outline-variant/80'; // tối: viền mảnh tách tầng (như app lớn) · sáng: viền kem + bóng mềm
   window.ST = { esc, ms, nav, NAV_CLS, CARD };
 })();
