@@ -24,7 +24,9 @@
   // Bài cũ (unitDone/pathSteps của "ngsl1") vẫn được tính cho mọi bài con → không mất tiến độ, không cần ghi lại dữ liệu.
   const CORE = ['ngsl1', 'ngsl2', 'ngsl3', 'ngsl4', 'ngsl5'], PART = 20, SUB = {};
   const parts = tp => Math.ceil(tp.words.length / PART);
-  const subIds = p => { const tp = App.topicOf(p); return tp ? Array.from({ length: parts(tp) }, (_, k) => p + '.' + (k + 1)) : []; };
+  // Nhớ đệm theo đúng bộ từ (cùng đối tượng + cùng số từ): STAGES[0].units gọi lại liên tục khi dựng lộ trình (tác vụ dài #/path – TBT mobile)
+  const SUBC = Object.create(null);
+  const subIds = p => { const tp = App.topicOf(p); if (!tp) return []; const c = SUBC[p]; if (c && c.tp === tp && c.n === tp.words.length) return c.ids.slice(); const ids = Array.from({ length: parts(tp) }, (_, k) => p + '.' + (k + 1)); SUBC[p] = { tp, n: tp.words.length, ids }; return ids.slice(); };
   const parentOf = id => String(id).split(/[.~]/)[0];
   // Mỗi Ngày học 6–8 từ mới (người mới ít từ hơn): chặng 0 → 7, chặng sau → 8 (cố định → id ngày không đổi giữa các phiên bản)
   const DAY_SIZE = { s0: 7 }, dayParts = (tp, st) => Math.max(1, Math.round(tp.words.length / (DAY_SIZE[st] || 8)));

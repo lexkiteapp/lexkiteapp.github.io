@@ -104,6 +104,8 @@
   }
   const masteredCount = () => Object.values(state.cards).filter(c => SRS.mastery(c.srs) === 3).length;
 
+  // Số < 1000 không có dấu phân nhóm → khỏi khởi tạo Intl/ICU (lần đầu ~70 ms ở CPU mobile, tác vụ dài lúc khởi động – TBT). 'ar' dùng chữ số Ả Rập-Ấn → luôn qua Intl.
+  const fmtInt = n => (Number.isInteger(n) && n >= 0 && n < 1000 && I18N.lang() !== 'ar' ? String(n) : n.toLocaleString(I18N.lang()));
   function updateChrome() {
     if (!state.game) return; // gọi sớm trước khi nạp xong dữ liệu (vd. đăng nhập gốc trả phiên lúc mở app) – nạp xong sẽ gọi lại
     if (App.updateExamChip) App.updateExamChip();
@@ -112,7 +114,7 @@
     const freezeCount = fi.left;
     $('#streakPill').innerHTML = `<i class="flame-icon" aria-hidden="true">${UI.icon('flame')}</i><span>${st}</span>${freezeCount ? `<span class="pill-sub">${UI.icon('snowflake')}${freezeCount}</span>` : ''}`;
     $('#streakPill').setAttribute('aria-label', freezeCount ? t('Chuỗi {n} ngày, {f} lượt đóng băng', { n: st, f: freezeCount }) : t('Chuỗi {n} ngày', { n: st }));
-    $('#xpPill').innerHTML = `${UI.icon('star')}<span>${state.game.xp.toLocaleString(I18N.lang())}</span>`;
+    $('#xpPill').innerHTML = `${UI.icon('star')}<span>${fmtInt(state.game.xp)}</span>`;
     const { total } = Cards.dueCount(state.cards, state.settings, state.stats);
     $$('[data-due]').forEach(b => { b.hidden = !total; b.textContent = total > 99 ? '99+' : total; b.title = t('{n} thẻ cần ôn', { n: total }); }); // tab Từ vựng: chấm nhỏ (CSS), số vẫn đọc được bằng trình đọc màn hình
     const L = Game.levelOf(state.game.xp);
