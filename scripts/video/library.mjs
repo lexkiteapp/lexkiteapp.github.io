@@ -593,7 +593,7 @@ async function cmdFetchRender() {
     for (const u of tries) {
       const api = u.startsWith('https://api.github.com/'), h = api ? { Accept: 'application/vnd.github.raw', 'User-Agent': 'lexkite-fetch-render', ...(process.env.GITHUB_TOKEN ? { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN } : {}) } : {};
       const r = await fetch(u, { headers: h }).catch(() => null); st = r ? r.status : 0; if (!r || !r.ok) continue;
-      let b; try { b = Buffer.from(await r.arrayBuffer()); } catch (e) { st = `luồng đứt: ${e.message}`; continue; } // mạng CI cắt giữa chừng → thử nguồn kế tiếp (blob git) if (!p.sha256 || sha256(b) === p.sha256) { buf = b; if (api) log(`  ${f}: CDN còn bản cũ → lấy blob git ${p.gitSha.slice(0, 8)}`); break; }
+      let b; try { b = Buffer.from(await r.arrayBuffer()); } catch (e) { st = `luồng đứt: ${e.message}`; continue; } /* luồng CI bị cắt → thử blob git */ if (!p.sha256 || sha256(b) === p.sha256) { buf = b; if (api) log(`  ${f}: CDN còn bản cũ → lấy blob git ${p.gitSha.slice(0, 8)}`); break; }
     }
     if (!buf) { log(`✗ ${f}: tải ${p.url} lỗi (${st}) hoặc sai sha256 (đã thử cả blob git)`); miss++; continue; }
     fs.mkdirSync(path.dirname(dest), { recursive: true }); fs.writeFileSync(dest, buf); ok++;
