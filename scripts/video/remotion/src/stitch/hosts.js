@@ -4,4 +4,6 @@
 //          import { Teacher } from '../Puppet.jsx'; HOSTS.puppet = Teacher;   (one line, no other change to the stitch files)
 // A host component receives { who, cues, box, t, fps, ...host } and draws inside box ([x0,y0,x1,y1] canvas px). The builder keeps the
 // cards off the host's declared geometry (content/video/puppet/<who>.json: head box + body/hands envelope rows, via --host-geom).
+import { Teacher } from '../Puppet.jsx';
 export const HOSTS = {};
+HOSTS.puppet = Teacher;   // owner 28/10: the 2D puppet hosts every learning video (build_overlay.py --host puppet)

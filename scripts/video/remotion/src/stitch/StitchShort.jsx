@@ -2,11 +2,11 @@
 // cards of scripts/video/motion/build_overlay.py, animated with core.mjs (same maths as the QC). Ported from the Stitch HTML/Tailwind frames
 // (project "Lexkite English Exam Prep"): tactile cards with a hard bottom ledge, chips, A–D pills, countdown ring, +XP, strike, stress dots, band bar, end card.
 import React, { useEffect, useState } from 'react';
-import { AbsoluteFill, OffthreadVideo, Img, staticFile, useCurrentFrame, useVideoConfig, delayRender, continueRender } from 'remotion';
+import { AbsoluteFill, OffthreadVideo, Img, Audio, staticFile, useCurrentFrame, useVideoConfig, delayRender, continueRender, Easing } from 'remotion';
 import { pose, state, value, clamp01 } from './core.mjs';
 import { HOSTS } from './hosts.js';
 
-const JAK = 'LkJakarta', NOTO = 'LkNoto';
+const JAK = 'LkJakarta', NOTO = 'LkNoto', BVP = 'LkCaption';
 const TONE = { gold: ['#2C2618', '#6B5A2A', '#FFC94A'], coral: ['#3A1C17', '#7A3A2E', '#FF8F75'], teal: ['#123634', '#2B6F69', '#6BD8CE'], green: ['#123A26', '#2C7A4E', '#2FBF71'] };
 const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
 const mixc = (a, b, m) => { const x = hex(a), y = hex(b); return `rgb(${x.map((v, i) => Math.round(v + (y[i] - v) * m)).join(',')})`; };
@@ -14,7 +14,7 @@ const mixc = (a, b, m) => { const x = hex(a), y = hex(b); return `rgb(${x.map((v
 function useFonts() {
   const [h] = useState(() => delayRender('stitch fonts'));
   useEffect(() => {
-    const f = [new FontFace(JAK, `url(${staticFile('fonts/jakarta.ttf')})`, { weight: '200 800' }), new FontFace(NOTO, `url(${staticFile('fonts/noto.ttf')})`, { weight: '500' })];
+    const f = [new FontFace(JAK, `url(${staticFile('fonts/jakarta.ttf')})`, { weight: '200 800' }), new FontFace(NOTO, `url(${staticFile('fonts/noto.ttf')})`, { weight: '500' }), new FontFace(BVP, `url(${staticFile('fonts/bvp.ttf')})`, { weight: '800' })];
     Promise.all(f.map(x => x.load().then(y => document.fonts.add(y)))).then(() => continueRender(h)).catch(() => continueRender(h));
   }, [h]);
 }
@@ -97,14 +97,43 @@ const Plate = ({ src, b }) => {   // the host plate (1080x1920) cropped sx/sy/sw
     <OffthreadVideo src={staticFile(src)} style={{ position: 'absolute', left: -b.sx * k, top: -b.sy * k, width: 1080 * k, height: 1920 * k, maxWidth: 'none' }} /></div>;
 };
 
-export const StitchShort = ({ nodes = [], plate, plateBox, bg = '#10191B', host = null, tag = null }) => {
+// Clean Stitch canvas (Tactile Night) + the puppet, laid out in the 1080x1920 plate space and cropped exactly like the footage plate (same plateBox),
+// so the builder's host geometry (head / envelope) holds in every format. Static: nothing behind the host moves.
+const Stage = ({ host, b, t, fps }) => {
+  const k = b ? b.dw / b.sw : 1, H = HOSTS[host.kind];
+  const [hx0, hy0, hx1] = host.box || [0, 0, 1080, 1920], gx = (hx0 + hx1) / 2, gy = hy0 + (hx1 - hx0) * 0.42;
+  const inner = <div style={{ position: 'absolute', left: b ? -b.sx * k : 0, top: b ? -b.sy * k : 0, width: 1080, height: 1920, transform: `scale(${k})`, transformOrigin: '0 0',
+    background: `radial-gradient(circle at ${gx}px ${gy}px, rgba(43,163,154,.30) 0, rgba(43,163,154,0) 520px), radial-gradient(rgba(243,248,248,.055) 1.6px, transparent 2px) 0 0 / 36px 36px, linear-gradient(180deg, #172427 0%, #10191B 62%)` }}>
+    {H ? React.createElement(H, { ...host, t, fps }) : null}</div>;
+  if (!b) return <AbsoluteFill style={{ overflow: 'hidden' }}>{inner}</AbsoluteFill>;
+  return <div style={{ position: 'absolute', left: b.dx, top: b.dy, width: b.dw, height: b.dh, overflow: 'hidden', borderRadius: b.r, boxShadow: b.r ? '0 30px 70px -20px rgba(0,0,0,.6)' : 'none' }}>{inner}</div>;
+};
+
+// Captions over the puppet = the render_v9 v13 plate style, page for page (scripts/video/tpl/render_v9.py Page.draw): fixed lower band, dark rounded
+// plate (15,24,28,a200) as wide as the page ink + 28 px a side, white words, the spoken word yellow (255,214,90), page entrance fade + 0.88->1 scale
+// in 0.10 s (ease out), soft drop shadow; word x / y / size from the plate timeline (exact same layout the caption gates measured).
+const EZ = Easing.bezier(0.22, 1, 0.36, 1);
+const Captions = ({ cap, t, fps }) => {
+  const tm = t + 0.5 / fps, p = cap.pages.find(q => q.t0 <= t && t < q.t1); if (!p) return null;
+  const a = EZ(clamp01((t - p.t0) / 0.10)), sc = 0.88 + 0.12 * a, w = p.ink[1] - p.ink[0] + 56, lh = p.asc + p.desc; if (a <= 0) return null;
+  return <AbsoluteFill>
+    <div style={{ position: 'absolute', left: cap.cx - Math.floor(w) / 2, top: cap.y - cap.h / 2, width: Math.floor(w), height: cap.h, borderRadius: 28, background: `rgba(15,24,28,${Math.floor(200 * a) / 255})` }} />
+    {p.words.map((x, i) => { const on = x.s <= tm && tm < x.e;
+      return <div key={i} style={{ position: 'absolute', left: cap.cx + (x.x - cap.cx) * sc, top: x.y - lh / 2, height: lh, transform: `translateX(-50%) scale(${sc})`, transformOrigin: '50% 50%',
+        fontFamily: BVP, fontWeight: 800, fontSize: p.size, lineHeight: `${lh}px`, whiteSpace: 'pre', color: on ? 'rgb(255,214,90)' : '#FFFFFF', opacity: a, textShadow: '0 5px 12px rgba(0,0,0,.5)' }}>{x.w}</div>; })}
+  </AbsoluteFill>;
+};
+
+export const StitchShort = ({ nodes = [], plate, plateBox, bg = '#10191B', host = null, tag = null, captions = null, audio = null }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill style={{ background: bg }}>
-      {host && host.kind !== 'plate' && HOSTS[host.kind] ? React.createElement(HOSTS[host.kind], { ...host, t, fps }) : plate ? <Plate src={plate} b={plateBox} /> : null}
+      {host && host.kind !== 'plate' ? <Stage host={host} b={plateBox} t={t} fps={fps} /> : plate ? <Plate src={plate} b={plateBox} /> : null}
+      {audio ? <Audio src={staticFile(audio)} /> : null}
       {tag ? <div style={{ position: 'absolute', left: 24, top: 24, padding: '6px 14px', borderRadius: 999, background: 'rgba(16,25,27,.72)', color: '#FFC94A', fontFamily: JAK, fontWeight: 800, fontSize: 26, letterSpacing: '0.06em' }}>{tag}</div> : null}
+      {captions ? <Captions cap={captions} t={t} fps={fps} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} />)}</AbsoluteFill>
     </AbsoluteFill>
   );

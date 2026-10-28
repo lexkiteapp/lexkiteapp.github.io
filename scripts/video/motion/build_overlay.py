@@ -23,14 +23,29 @@ ap = argparse.ArgumentParser()
 for a in ('spec', 'plate', 'fonts', 'public', 'out'): ap.add_argument('--' + a, required=True)
 ap.add_argument('--fps', type=int, default=60)
 ap.add_argument('--format', default='short', choices=['short', 'wide', 'sq45'], help='short = 9:16 social; wide = 16:9 lesson/blog embed; sq45 = 4:5 in-lesson mobile embed (no burned captions: VTT track, no QR / follow CTA, calmer motion)')
-ap.add_argument('--host-geom', default='', help='host geometry JSON {head:[x0,y0,x1,y1], envelope:[[y,x0,x1],...]} in 1080x1920 canvas px (puppet host); default = the plate mask')
+ap.add_argument('--host-geom', default='', help='host geometry JSON {head:[x0,y0,x1,y1], envelope:[[y,x0,x1],...], framing.right.box} in 1080x1920 canvas px (puppet host); default = content/video/puppet/<who>.json with --host puppet, else the plate mask')
+ap.add_argument('--host', default='', choices=['', 'plate', 'puppet'], help='plate = render_v9 footage plate (placeholder); puppet = the 2D puppet <Teacher/> on a clean Stitch canvas drawn by Remotion (captions too); default = spec host.kind')
+ap.add_argument('--vo', default='', help='--host puppet: the voice dir (vo/vis3) with the per-line Rhubarb mouthCues')
 ap.add_argument('--tag', default='PLACEHOLDER HOST', help='small label burned top-left (inside the platform UI band) while the host is the temporary footage plate; empty = none')
 ap.add_argument('--icon', default=f'{ROOT}/brand/social/logo/lexkite-app-icon.png')
 o = ap.parse_args()
 SP = json.load(open(o.spec)); T = json.load(open(o.plate + '.timeline.json')); M = SP['motion']
 WORDS = T['words']; TOTAL = T['total']; EMBED = o.format != 'short'
+PUP = (o.host or (SP.get('host') or {}).get('kind', 'plate')) == 'puppet'
+if PUP:   # owner 28/10: the 2D puppet hosts every video. The plate only gives the word clock + audio mix; Remotion draws canvas, puppet, captions
+    HW = SP['host']['who']; _G = json.load(open(o.host_geom or f'{ROOT}/content/video/puppet/{HW}.json')); _bx = _G['framing']['right']['box']
+    _cs = T.get('cap_strip') or [0, 1382, 0, 1478]
+    PK = round(max(1.0, (_bx[3] - (_cs[1] - 14)) / (_bx[3] - _G['head'][3])), 4)   # scale about the box bottom until the head clears the caption band (captions over the body, never the face)
+    _cx = (_bx[0] + _bx[2]) / 2; _px = lambda x: round(_cx + (x - _cx) * PK, 1); _py = lambda y: round(_bx[3] + (y - _bx[3]) * PK, 1)
+    PBOX = [_px(_bx[0]), _py(_bx[1]), _px(_bx[2]), _bx[3]]
+    _rows = {int(y): (x0, x1) for y, x0, x1 in _G['envelope']}; _env = []
+    for y in range(0, 1920, 8):   # the declared body/hands envelope re-gridded (8 px rows) after the scale, clipped to the frame
+        a_, b_ = _bx[3] + (y - _bx[3]) / PK, _bx[3] + (y + 8 - _bx[3]) / PK; xs_ = [v for k, v in _rows.items() if a_ - 8 < k < b_]
+        if xs_: _env.append([y, max(0, int(_px(min(v[0] for v in xs_)))), min(1080, int(math.ceil(_px(max(v[1] for v in xs_)))))])
+    HGP = dict(head=[_px(_G['head'][0]), _py(_G['head'][1]), _px(_G['head'][2]), _py(_G['head'][3])], envelope=_env)
+    print(f'puppet host {HW}: scale {PK}, box {PBOX}, head {HGP["head"]} (caption band top {_cs[1]})', flush=True)
 # ---------------- formats: canvas, where the host plate goes (source crop -> destination), the free area for the cards ----------------
-_hd = [T['head'][c] for c in SP['clips'] + SP.get('listen', []) if c in T['head']]; HEAD_TOP = min(b[1] for b in _hd)
+_hd = [HGP['head']] if PUP else [T['head'][c] for c in SP['clips'] + SP.get('listen', []) if c in T['head']]; HEAD_TOP = min(b[1] for b in _hd)
 if o.format == 'short':
     W, H = 1080, 1920; SAFE = SAFE_SHORT; PLATE = dict(sx=0, sy=0, sw=1080, sh=1920, dx=0, dy=0, dw=1080, dh=1920, r=0)
 elif o.format == 'wide':   # lesson player: cards on the left (dark canvas), the teacher in a rounded video window on the right
@@ -84,13 +99,13 @@ def cue(a, k):   # entrance keyed to a spoken word: appears (HALF) exactly at th
 Fb = np.zeros((H, W), bool)
 clips = [c for c in SP['clips'] + SP.get('listen', []) if c in (T.get('host_move') or {})]
 assert clips, 'plate has no host_move mask (render_v9.py --overlay)'
-SM = max(1.0, T.get('smax', 1.0)); AX, AY = T['anchor']
+SM = 1.0 if PUP else max(1.0, T.get('smax', 1.0)); AX, AY = T['anchor']   # puppet: locked camera
 def mark(x0, y0, x1, y1, pad):
     for s in (1.0, SM):
         a = [AX + (x0 - AX) * s, AY + (y0 - AY) * s, AX + (x1 - AX) * s, AY + (y1 - AY) * s]
         a = [*to_canvas(a[0], a[1]), *to_canvas(a[2], a[3])]
         Fb[max(0, int(a[1]) - pad):min(H, int(math.ceil(a[3])) + pad), max(0, int(a[0]) - pad):min(W, int(math.ceil(a[2])) + pad)] = True
-HG = json.load(open(o.host_geom)) if o.host_geom else None
+HG = HGP if PUP else json.load(open(o.host_geom)) if o.host_geom else None
 for c in ([None] if HG else clips):   # puppet: its declared envelope; placeholder plate: the measured move mask of every clip
     for y, x0, x1 in (HG['envelope'] if HG else T['host_move'][c]): mark(x0, y, x1, y + 8, 14)   # the move mask is already dilated 1 cell
     hb = HG['head'] if HG else T['head'][c]; mark(hb[0], hb[1], hb[2], hb[3], 28)
@@ -353,6 +368,7 @@ qr = qrcode.QRCode(border=2, box_size=12, error_correction=qrcode.constants.ERRO
 qr.make_image(fill_color='#10191B', back_color='white').save(f'{o.public}/qr.png')
 shutil.copy(o.icon, f'{o.public}/icon.png')
 os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fonts/jakarta.ttf'); shutil.copy(FN, f'{o.public}/fonts/noto.ttf')
+shutil.copy(f'{o.fonts}/BeVietnamPro-ExtraBold.ttf', f'{o.public}/fonts/bvp.ttf')   # captions (puppet host: drawn by Remotion)
 
 # ---------------- per-frame elements (24 fps plate grid) + overlay contract for qc_v9 / overlay_gates ----------------
 def card_nodes(cid):
@@ -416,8 +432,62 @@ T['spec'] = dict(T['spec'], pops=[dict(id=p['id'], kind=p['kind'], role=p['role'
 if T.get('board'): T['board'] = dict(T['board'], where={p['id']: 'overlay' for p in T['pops']})
 T['board_contrast'] = None   # no marker ink on the board: the cards are gated by overlay_contrast
 T['motion'] = dict(fps=o.fps, nodes=len(NODES), layout=dict(top=[X0, Y0, X1, Y0 + max(_measure_top(c) for c in M['top'])], top_max_y=TOP_Y1, cap_top=cap_top))
+HOST = None; CAPS = None
+if PUP:   # ---------------- puppet host: lip-sync cues, gestures, captions; the QC timeline describes the puppet instead of the footage ----------------
+    _norm = lambda w: ''.join(ch for ch in w.lower() if ch.isalpha() or ch == "'")
+    def closures(cues, ws):   # == scripts/puppet/sample.mjs: Rhubarb misses word-initial lip closures -> force A (m / b p) and G (f v) around the word start
+        out = list(cues)
+        for w in ws:
+            ch = (_norm(w['w']) or ' ')[0]
+            a, b, v = (w['s'] - 0.02, w['s'] + 0.07, 'A') if ch == 'm' else (w['s'] - 0.08, w['s'] + 0.01, 'A') if ch in 'bp' else (w['s'] - 0.03, w['s'] + 0.06, 'G') if ch in 'fv' else (0, 0, None)
+            if not v: continue
+            after = 'X'
+            for t_, x in out:
+                if t_ <= b: after = x
+                else: break
+            out = sorted([c for c in out if c[0] < a or c[0] > b] + [[round(a, 3), v], [round(b, 3), after]], key=lambda c: c[0])
+        return [c for k, c in enumerate(out) if not k or c[1] != out[k - 1][1]]
+    assert o.vo, '--host puppet needs --vo (per-line Rhubarb mouthCues)'
+    LS = sorted(T['lines'].items(), key=lambda x: x[1]['at']); HCUES = []; HLINES = []; GEST = []; EXPR = [[0.0, 'neutral']]; MOODP = []
+    SPL = {l['id']: l for l in SP['lines'] if l.get('text')}
+    MOOD_OF = dict(question='question', surprised='wow', correct='excited', proud='excited')   # qc_v9 mood_restraint ("ko lố") on the puppet's strong moments
+    for lid, L in LS:
+        n = sum(1 for k in WORDS if k.startswith(lid + '.')); ws = [WORDS[f'{lid}.{k}'] for k in range(n)]
+        mc = json.load(open(f'{o.vo}/{lid}.json'))['mouthCues']
+        HCUES += closures([[round(L['at'] + c['start'], 3), c['value']] for c in mc], ws)
+        HLINES.append(dict(id=lid, at=L['at'], words=[dict(w=w['w'], s=w['s'], e=w['e']) for w in ws]))
+        toks = [_norm(w['w']) for w in ws]
+        for g in SPL[lid].get('tags', []):   # spec line tags {at: word index | token, kind: question|correct|wrong|explain|point|greet|proud|encourage|surprised | expr | gest}
+            k = g.get('at', 0); k = toks.index(_norm(k)) if isinstance(k, str) else int(k); t_ = round(max(0.0, ws[k]['s'] - (0.15 if k == 0 else 0.12)), 3)
+            if g.get('kind'): GEST.append(dict(t=t_, g=g['kind'])); MOODP.append([lid, k, 'puppet', MOOD_OF.get(g['kind'], 'talk')])
+            if g.get('gest'): GEST.append(dict(t=t_, g=g['gest']))
+            if g.get('expr'): EXPR.append([t_, g['expr']])
+    HCUES.sort(key=lambda c: c[0]); speech_end = max(w['e'] for w in WORDS.values())
+    EXPR.append([round(speech_end + 0.25, 3), 'neutral'])   # back to the frame-0 face for the clean loop
+    HOST = dict(kind='puppet', who=HW, box=PBOX, lines=HLINES, cues=HCUES, gestures=GEST, expr=EXPR, pointTo='left', seed=11)
+    def vis_at(t_):
+        v = 'X'
+        for c in HCUES:
+            if c[0] <= t_: v = c[1]
+            else: break
+        return v
+    for i, f in enumerate(T['frames']):   # the host on screen is the puppet: one rig, locked camera, forward-only frames, mouth = its own cues
+        f.update(src=[['puppet', i, 1.0]], s=1.0, M=[1.0, 0, 0.0, 0, 1.0, 0.0], win=[0, 0, 1080, 1920], vis=vis_at(f['t']))
+    T.update(head={'puppet': HGP['head']}, host_move={'puppet': HGP['envelope']}, host_parent={'puppet': 'puppet'}, smax=1.0, joins=[], identity_hits=[], n_identity_hits=0,
+             moods=MOODP, host=dict(kind='puppet', who=HW, scale=PK, box=PBOX, cues=len(HCUES), gestures=GEST))
+    if T.get('v14'): T['v14'] = dict(T['v14'], head=HGP['head'])
+    _h = HGP['head']; _r = [int(max(0, _h[0])), int(max(0, _h[1])), int(min(1080, _h[2])), int(min(1920, _h[3]))]
+    T['sharp'] = [dict(frame=fi, s=1.0, rect=_r, var_native=None, var_render=None) for fi in range(12, T['n'] - 12, 96)][:6]   # even 24 fps frames (= exact 60 fps frames); filled by qc_motion from host-only stills
+    if not EMBED:   # captions drawn by Remotion ABOVE the puppet: the exact render_v9 v13 pages (sizes, word x, band), Be Vietnam Pro ExtraBold
+        FB = f'{o.fonts}/BeVietnamPro-ExtraBold.ttf'; _cs = T['cap_strip']; pages = []
+        for c in T['captions'].values():
+            asc, desc = ImageFont.truetype(FB, c['size']).getmetrics()
+            pages.append(dict(t0=c['t0'], t1=c['t1'], size=c['size'], asc=asc, desc=desc, ink=c['ink'],
+                              words=[dict(w=tx, x=x, y=y, s=WORDS[w]['s'], e=WORDS[w]['e']) for tx, x, y, w in zip(c['txt'], c['xs'], c['ys'], c['words'])]))
+        CAPS = dict(cx=T.get('cap_cx', 540), y=(_cs[1] + _cs[3]) / 2, h=_cs[3] - _cs[1], pages=sorted(pages, key=lambda p: p['t0']))
 json.dump(T, open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
-props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate='plate.mp4', plateBox=PLATE, bg='#10191B', tag=(o.tag or None) if not o.host_geom else None, nodes=NODES, total=TOTAL, format=o.format, safe=SAFE)
+props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate=None if PUP else 'plate.mp4', audio='plate.mp4' if PUP else None, plateBox=PLATE, bg='#10191B',
+             tag=(o.tag or None) if not (o.host_geom or PUP) else None, host=HOST, captions=CAPS, nodes=NODES, total=TOTAL, format=o.format, safe=SAFE)
 if EMBED:   # captions + chapters as WebVTT tracks (translatable, never burned in): one cue per spoken line, display forms ('blank' -> ___)
     D = SP.get('display', {}); vt = lambda x: f'{int(x // 3600):02d}:{int(x % 3600 // 60):02d}:{x % 60:06.3f}'
     cap = ['WEBVTT', '']
@@ -434,4 +504,5 @@ if EMBED:   # captions + chapters as WebVTT tracks (translatable, never burned i
     open(o.out[:-5] + '.chapters.vtt', 'w').write('\n'.join(ch))
     props['poster_t'] = round(next((n['in']['t'] + 0.8 for n in tops if n['id'] != 'hook'), 1.0), 3)
 json.dump(props, open(o.out, 'w'), indent=0)
+if PUP: json.dump(dict(props, nodes=[], captions=None, audio=None), open(o.out[:-5] + '.host.json', 'w'))   # host-only twin (canvas + puppet): native stills for qc no_stretch / host_sharp
 print(f'overlay: {len(NODES)} nodes, {len(CARDS)} cards, {len(CUES)} word cues, {len(IPA)} IPA -> {o.out}')

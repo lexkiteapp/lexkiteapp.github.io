@@ -1264,7 +1264,8 @@ def _solo_pairs(p):   # a one-word page: the two-word pages it could have joined
 for a, b in zip(PAGES, PAGES[1:]): a.t1 = min(a.t1, b.t0)
 CAP_LOG = {f'p{j}': dict(line=p.lid, words=p.wids, text=p.text, n=len(p.wids), rows=p.rows, size=p.sz, stroke=ST, ss=SS, cx=round((p.ink[0] + p.ink[1]) / 2, 1), ink=[round(v) for v in p.ink],
                          last=WORDS[p.wids[-1]]['k'] == len(LINES[p.lid]['words']) - 1, bounce=p.bounce, colw=round(CAPWC), nosplit=p.lid in NOSPLIT,
-                         solo_pairs=[round(_wpx(x, CAP['min'])) for x in _solo_pairs(p)] if len(p.wids) == 1 else None) for j, p in enumerate(PAGES)}
+                         solo_pairs=[round(_wpx(x, CAP['min'])) for x in _solo_pairs(p)] if len(p.wids) == 1 else None,
+                         txt=p.txt, xs=[round(p.cx[w], 2) for w in p.wids], ys=[round(p.cy[w], 2) for w in p.wids], t0=round(p.t0, 4), t1=round(p.t1, 4)) for j, p in enumerate(PAGES)}   # txt/xs/ys/t0/t1: the Remotion caption layer (puppet host) redraws the exact pages
 print('pages', ' | '.join(p.text.replace(' ', '/', 1) if p.rows > 1 else p.text for p in PAGES), flush=True)
 TALL = [(p.t0, p.t1) for p in PAGES if p.rows > 1] if CAPINK else []   # two-row board pages need the strip above them
 def nwords(t): return len(re.findall(r"[A-Za-z0-9$][A-Za-z0-9$'’.\-]*", t))
