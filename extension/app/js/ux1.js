@@ -13,6 +13,8 @@
   const ls = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* bỏ qua */ } } };
   const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const cefrN = s => CEFR.indexOf(String(s || '').toUpperCase().slice(0, 2)) + 1;
+  // Ảnh giáo viên trong app: MỘT nguồn (luật 1 phong cách nhân vật/ màn – đổi bộ ảnh = đổi dòng này)
+  App.teacherImg = w => 'teach/' + (w === 'carlos' ? 'carlos' : 'ama') + '/poster.webp'; // bộ 2D phông xanh tách nền (nền trong suốt; Ama 358×480, Carlos 514×480)
   const keyOf = w => (window.Core && Core.keyOf ? Core.keyOf(w) : String(w || '').toLowerCase());
 
   // ---------- 5 tab ----------
@@ -143,25 +145,45 @@
   // ---------- Bản đồ (gọi từ lesson/ui.js) ----------
   const KNAME = k => ({ lesson: t('Bài học'), listen: t('Nghe'), speak: t('Nói'), review: t('Ôn lỗi'), story: t('Truyện'), radio: 'Radio' }[k] || k);
   const KICON = { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'repeat', story: 'book-open', radio: 'audio-lines' };
+  const KMIN = { lesson: 4, listen: 3, speak: 3, review: 3, story: 4, radio: 3, exam: 5 }; // phút ước tính mỗi loại bài (nhãn "· 4 phút")
+  const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
+  const STARS = k => `<span class="ux1-st" role="img" aria-label="${t('{n}/3 sao', { n: k })}">${[1, 2, 3].map(i => `<i class="${i <= k ? 'on' : ''}">${ic('star')}</i>`).join('')}</span>`;
+  // Đường mòn chữ S nối tâm các nút: đoạn đã học liền (teal), đoạn sau gạch đứt. Tọa độ x tính từ giữa cột → co giãn ngang không lệch
+  function trail(ol, at) {
+    const b = ol.getBoundingClientRect(), mid = b.left + b.width / 2;
+    const P = [...ol.querySelectorAll('.lsn-dot')].map(d => { const r = d.getBoundingClientRect(); return [Math.round(r.left + r.width / 2 - mid), Math.round(r.top + r.height / 2 - b.top)]; });
+    if (P.length < 2) return; let dn = '', rest = '';
+    for (let i = 1; i < P.length; i++) { const [x0, y0] = P[i - 1], [x1, y1] = P[i], m = (y0 + y1) / 2, d = `M${x0} ${y0}C${x0} ${m} ${x1} ${m} ${x1} ${y1}`; if (i <= at) dn += d; else rest += d; }
+    const old = ol.querySelector('.ux1-trail'); if (old) old.remove();
+    ol.insertAdjacentHTML('afterbegin', `<svg class="ux1-trail" aria-hidden="true" focusable="false"><path class="dn" d="${dn}"/><path d="${rest}"/></svg>`);
+  }
   function map(o) {
     const { demo, plan: P, n } = o;
     if (!demo && !picked() && !/[?&]all=1\b/.test(location.hash)) return pick();
     if (/[?&]pick=1\b/.test(location.hash)) return pick();
     const at = n % P.length, u = unitAt(n, P.length), Q = demo ? '?demo=1' : '', who = ls.get('lk.lsn.who') === 'ama' ? 'carlos' : 'ama';
-    const have = u.words.length ? u.words.filter(w => (state.cards || {})[keyOf(w.word)]).length : 0;
+    const have = u.words.length ? u.words.filter(w => (state.cards || {})[keyOf(w.word)]).length : 0, ST = demo ? {} : stars();
+    const cpAt = P.findIndex((p, i) => i >= at && p.kind === 'exam'), xpTo = cpAt >= 0 ? (cpAt - at + 1) * 20 : 0, X = (App.EXAMS || {})[exam()] || { short: 'IELTS' };
+    const nxMin = KMIN[(P[at] || {}).kind] || 4;
     const nodes = P.map((p, i) => {
-      const st = i < at ? 'done' : i === at ? 'next' : 'lock', x = [0, 44, 0, -44, 0, 44][i % 6], cp = p.kind === 'exam' ? check(n) : null;
+      const st = i < at ? 'done' : i === at ? 'next' : 'lock', x = [0, 44, 0, -44, 0, 44][i % 6], cp = p.kind === 'exam' ? check(n) : null, k = ST[n - at + i];
       const label = cp ? cp.name : KNAME(p.kind), icon = st === 'done' ? 'circle-check' : cp ? cp.icon : KICON[p.kind] || 'star';
       const dot = st === 'next' ? `<a class="lsn-dot" href="#/lesson/go${Q}" aria-label="${esc(label)}">${ic(icon)}</a>` : `<span class="lsn-dot" role="img" aria-label="${esc(label)}${st === 'done' ? ' ✓' : ''}">${ic(icon)}${st === 'lock' ? `<i class="ux1-lk">${ic('lock')}</i>` : ''}</span>`;
-      return `<li class="lsn-node ux1-n ${st}${cp ? ' cp' : ''}" style="--x:${x}px;--i:${i}">${st === 'next' ? `<a class="btn primary lg lsn-start ux1-go" href="#/lesson/go${Q}">${t('Bắt đầu')}</a>` : ''}
-        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async">` : ''}${dot}</span><span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}</span></li>`;
+      return `<li class="lsn-node ux1-n ${st}${cp ? ' cp' : ''}" style="--x:${x}px;--i:${i}">${st === 'next' ? `<a class="btn primary lg lsn-start ux1-go" href="#/lesson/go${Q}"><span class="ux1-gl" aria-hidden="true"></span>${t('Bắt đầu')} · +20 XP</a>` : ''}
+        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="${App.teacherImg(who)}" alt="" width="48" height="48" decoding="async">` : ''}${dot}${cp ? `<b class="ux1-ms">${t('Mốc')}</b>` : ''}</span>${st === 'done' && k ? STARS(k) : ''}<span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}${st === 'next' ? `<em>${t('{n} phút', { n: KMIN[p.kind] || 4 })}</em>` : ''}</span></li>`;
     }).join('');
     view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
-      <section class="ux1-unit u-${u.color}"><div class="grow"><small>${t('Chặng học {n}', { n: u.no })} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1>${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1><p>${esc(CAN()[u.id] || '')}</p></div>
-        <div class="ux1-uside"><span class="ux1-chip">${at}/${P.length}</span>${u.words.length ? `<span class="ux1-chip" title="${t('Kiến thức đã có')}">${ic('library')} ${have}/${u.words.length}</span>` : ''}${(state.settings || {}).placement ? '' : `<a class="ux1-chip" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ')}</a>`}</div></section>
-      <ol class="lsn-path ux1-path">${nodes}</ol></div>`;
+      <section class="ux1-unit tk-card u-${u.color}"><div class="ux1-uh"><div class="grow"><span class="tk-chip ux1-badge">${t('Chặng học {n}', { n: u.no })}</span> <small>${esc(X.short)} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1 class="tk-display">${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1></div>
+        <div class="ux1-uside">${u.words.length ? `<span class="ux1-chip" title="${t('Kiến thức đã có')}">${ic('library')} ${have}/${u.words.length}</span>` : ''}${(state.settings || {}).placement ? '' : `<a class="ux1-chip" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ')}</a>`}</div></div>
+        <div class="ux1-uprog"><b>${t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length })}</b>${xpTo ? `<span>${ic('zap')} ${t('+{x} XP tới mốc kiểm tra', { x: xpTo })}</span>` : ''}</div>
+        <span class="tk-bar ux1-ubar" role="progressbar" aria-valuemin="0" aria-valuemax="${P.length}" aria-valuenow="${at}"><i style="width:${Math.round(at / P.length * 100)}%"></i></span>
+        <p class="ux1-hint"><img src="${App.teacherImg(who === 'ama' ? 'carlos' : 'ama')}" alt="" width="32" height="32" decoding="async"><span><b>${who === 'ama' ? 'Carlos' : 'Ama'}:</b> ${esc(CAN()[u.id] || '')}</span></p></section>
+      <ol class="lsn-path ux1-path">${nodes}</ol>
+      <div class="ux1-cta"><a class="btn primary lg tk-btn wide" href="#/lesson/go${Q}" data-ux1-cta>${t('Tiếp tục chặng {n}', { n: u.no })} · ${t('{n} phút', { n: nxMin })} ${ic('chevron-right')}</a></div></div>`;
     fillMock(view);
-    const cur = view.querySelector('.ux1-n.next'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 90) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
+    const ol = view.querySelector('.ux1-path');
+    requestAnimationFrame(() => { if (ol.isConnected) trail(ol, at); });
+    const cur = view.querySelector('.ux1-n.next'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
   }
 
   // ---------- Cột phải (máy tính ≥ 1024 px) ----------
@@ -214,7 +236,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-chip svg{width:14px;height:14px}
 .ux1-path{gap:1.1rem;margin:1.2rem 0 1rem}
 .ux1-n .ux1-dw{position:relative;display:inline-flex}
-.ux1-n .lsn-dot{width:70px;height:64px}.ux1-n.next .lsn-dot{width:84px;height:78px;animation:ux1Pulse 2.2s ease-in-out infinite}
+.ux1-n .lsn-dot{width:70px;height:64px}.ux1-n.next .lsn-dot{width:84px;height:78px}
 .ux1-n.lock .lsn-dot{background:var(--surface-2);color:var(--text);border:2px solid var(--line)}
 .ux1-n.cp:not(.done) .lsn-dot{border-radius:22px;background:var(--gold-soft);color:var(--gold-text);box-shadow:0 6px 0 var(--gold)}
 .ux1-n.cp.next .lsn-dot{background:var(--gold);color:var(--brand-ink)}
@@ -223,14 +245,13 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-lbl{margin-top:.45rem;font-weight:700;font-size:var(--fs-sm);color:var(--text);text-align:center;display:flex;flex-direction:column;line-height:1.2}
 .ux1-lbl small{font-size:.68rem;color:var(--gold-text);text-transform:uppercase;letter-spacing:.05em;font-weight:800}
 .ux1-n.lock .ux1-lbl{color:var(--muted)}
-.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 12%;border:3px solid var(--surface);box-shadow:var(--shadow)}
+.ux1-tch{position:absolute;inset-inline-end:calc(100% + 10px);top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 0;background:var(--surface-2);border:3px solid var(--surface);box-shadow:var(--shadow)}
 .ux1-go{animation:none!important;min-width:200px}
-@keyframes ux1Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 .ux1-exam{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;margin:0}
 .ux1-exam-tx{flex:1;min-width:0;display:flex;flex-direction:column;color:var(--text);text-decoration:none;min-height:44px;justify-content:center}
 .ux1-exam-tx small{color:var(--muted);font-size:var(--fs-xs)}
 .ux1-ring{width:44px;height:44px;flex:none;transform:rotate(-90deg)}.ux1-ring.ic{transform:none;display:grid;place-items:center;border-radius:50%;background:var(--accent-soft);color:var(--accent-text)}
-.ux1-ring circle{fill:none;stroke:var(--surface-3);stroke-width:5}.ux1-ring .fg{stroke:var(--accent);stroke-linecap:round}
+.ux1-ring circle{fill:none;stroke:var(--surface-3);stroke-width:5}.ux1-ring .fg{stroke:var(--done);stroke-linecap:round}
 .ux1-mock{min-height:44px;flex:none}
 .ux1-pick{max-width:720px;margin:0 auto;text-align:center}.ux1-pick h1{margin-bottom:.2rem}
 .ux1-pk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1rem 0;text-align:start}
@@ -259,11 +280,40 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-today{display:flex;flex-direction:column;gap:.45rem;color:var(--text);text-decoration:none}.ux1-today small{color:var(--muted)}
 .ux1-promo{display:flex;gap:.5rem;flex-wrap:wrap}.ux1-promo:not(:has(a:not([hidden]))){display:none}.ux1-promo .btn{min-height:44px}
 @media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}.ux1-unit{flex-direction:column}.ux1-uside{flex-direction:row;flex-wrap:wrap;align-items:flex-start}.ux1-tch{width:40px;height:40px}}
+/* Tactile (Stitch, docs/DESIGN-SYSTEM.md § Tactile): thẻ chặng nổi + gờ, đường mòn chữ S, nút có gờ dưới, CTA dính đáy – chỉ token */
+.ux1-unit{display:block;background:var(--surface);color:var(--text);border-radius:var(--r-card);box-shadow:var(--hi),var(--elev-card);padding:1rem 1.1rem}
+.ux1-uh{display:flex;gap:.8rem;align-items:flex-start}
+.ux1-badge{background:var(--ux1-u);color:var(--ux1-uk)}
+.ux1-unit small{color:var(--muted);opacity:1}.ux1-unit h1{margin:.35rem 0 0}
+.ux1-uprog{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:.8rem 0 .35rem;font-size:var(--fs-sm)}.ux1-uprog span{display:inline-flex;align-items:center;gap:.25rem;color:var(--gold-text);font-weight:800}
+.ux1-uprog svg{width:15px;height:15px}.ux1-ubar{height:10px}
+.ux1-hint{display:flex;align-items:center;gap:.6rem;margin:.8rem 0 0;padding:.55rem .7rem;border-radius:var(--r-md);background:var(--surface-2);font-size:var(--fs-sm);color:var(--text)}
+.ux1-hint img{width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:50% 0;background:var(--surface-2);flex:none;border:2px solid var(--done)}
+.ux1-path{position:relative;padding-bottom:.5rem}
+.ux1-trail{position:absolute;left:50%;top:0;width:1px;height:1px;overflow:visible;pointer-events:none;z-index:0}
+.ux1-trail path{fill:none;stroke:var(--line-2);stroke-width:6;stroke-linecap:round;stroke-dasharray:2 12}.ux1-trail path.dn{stroke:var(--done-ink);stroke-dasharray:14 10}
+.ux1-n{z-index:1}
+.ux1-n .lsn-dot{width:64px;height:64px;box-shadow:var(--hi),0 4px 0 var(--ledge)}
+.ux1-n.done .lsn-dot{background:var(--done);color:var(--on-done);box-shadow:var(--hi),0 4px 0 var(--done-ink)}
+.ux1-n.next .lsn-dot{width:76px;height:76px;background:var(--cta-grad);color:var(--cta-ink);box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 6px color-mix(in srgb,var(--cta-2) 14%,transparent)}
+.ux1-n.lock .lsn-dot{width:60px;height:60px;background:var(--surface);color:var(--muted);border:1px solid var(--line);box-shadow:0 3px 0 var(--ledge)}
+.ux1-n.cp .lsn-dot{border-radius:var(--r-card)}
+.ux1-n.cp:not(.done):not(.next) .lsn-dot{background:var(--surface-2);color:var(--sun);border:1px solid var(--line);box-shadow:0 4px 0 var(--ledge)}
+.ux1-ms{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);padding:.05rem .45rem;border-radius:var(--r-pill);background:var(--sun);color:var(--cta-ink);font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.ux1-st{display:inline-flex;gap:2px;margin-top:.35rem}.ux1-st i{display:inline-flex;color:var(--line-2)}.ux1-st i.on{color:var(--sun)}.ux1-st svg{width:15px;height:15px}.ux1-st i.on svg{fill:currentColor}
+.ux1-lbl em{font-style:normal;font-weight:700;font-size:var(--fs-xs);color:var(--done)}
+.ux1-n.next .ux1-lbl{font-family:var(--font-display);font-size:var(--fs-md)}
+.ux1-go.btn.primary{min-width:0;min-height:44px;padding:.35rem .9rem;margin-bottom:.8rem;border-radius:var(--r-pill);background:var(--surface-2);color:var(--text);border:1px solid var(--line);box-shadow:0 3px 0 var(--ledge);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
+.ux1-gl{width:8px;height:8px;border-radius:50%;background:var(--cta-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--cta-2) 30%,transparent)}
+.ux1-cta{position:sticky;bottom:.8rem;z-index:5;margin:.4rem 0 0;padding:.4rem 0 0}
+.ux1-cta .btn{font-size:var(--fs-md)}[dir=rtl] .ux1-cta svg{transform:scaleX(-1)}
+@media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))}}
+@media (prefers-reduced-motion:reduce){.ux1-n.next .lsn-dot{animation:none}}
 /* chuyển động: chỉ transform/opacity (60 fps), View Transitions cho đổi tab, @starting-style cho thẻ cột phải */
-.ux1-n{animation:ux1In .34s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i,0) * 45ms)}
-@keyframes ux1In{from{opacity:0;transform:translateX(var(--x)) scale(.7)}to{opacity:1;transform:translateX(var(--x)) scale(1)}}
+.ux1-n{animation:ux1In .18s ease-out both}
+@keyframes ux1In{from{opacity:0}to{opacity:1}}
 .ux1-unit,.ux1-exam,.ux1-tile{transition:transform .15s ease,box-shadow .15s ease}.ux1-tile:active,.ux1-pk-main:active{transform:translateY(2px)}
-.ux1-rail>*{transition:opacity .22s ease,translate .22s ease}@starting-style{.ux1-rail>*{opacity:0;translate:0 6px}}
+.ux1-rail>*{transition:opacity .18s ease}@starting-style{.ux1-rail>*{opacity:0}}
 body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transition-name:ux1side}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
 @media (prefers-reduced-motion:reduce){.ux1-n,.ux1-n.next .lsn-dot{animation:none}.ux1-rail>*{transition:none}.ux1-tile:active,.ux1-pk-main:active{transform:none}}`;

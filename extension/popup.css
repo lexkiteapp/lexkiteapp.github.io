@@ -20,7 +20,7 @@ body.popup { width: 360px; padding: 14px; margin: 0; }
 .pp-set { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
 .pp-set summary { cursor: pointer; font-size: 13px; font-weight: 700; }
 .sync-row span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-@media (prefers-color-scheme: dark) { .sync-row { background: #1d1e29; color: #e6e7ee; } }
+@media (prefers-color-scheme: dark) { .sync-row { background: var(--surface-2); color: var(--text); } }
 
 .pp-word .pp-w { flex: 1; min-width: 0; color: var(--text); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pp-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: #b8bcc8; }
