@@ -48,7 +48,7 @@
 .lsn-snd{display:flex;gap:.5rem;align-items:center}.lsn-sent{font-size:1.2rem;line-height:1.6}.lsn-gap{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--primary);text-align:center}
 .lsn-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:.6rem}
 .lsn-opt,.lsn-tile{border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);border-radius:14px;padding:.7rem .8rem;font:inherit;font-weight:700;cursor:pointer;min-height:48px}
-.lsn-opt[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px}
+.lsn-opt[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px;min-width:44px}.lsn-opt:disabled,.lsn-tile:disabled{cursor:default;opacity:1}
 .lsn-ans{min-height:3.4rem;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:.4rem;padding:.3rem 0}.lsn-bank{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
 .lsn-tile.used{visibility:hidden}.lsn-pic{width:min(220px,60vw);aspect-ratio:1;border-radius:16px;background:var(--surface-2);margin:0 auto;display:block;object-fit:cover}
 .lsn-mic{display:flex;flex-direction:column;align-items:center;gap:.5rem}.lsn-mic .btn{min-width:200px}
@@ -56,10 +56,10 @@
 .lsn-foot>div{max-width:640px;margin:0 auto;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.lsn-foot .grow{flex:1}
 .lsn-foot.ok{background:var(--good-soft);border-color:var(--good)}.lsn-foot.bad{background:var(--again-soft);border-color:var(--again)}
 .lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
-.lsn-fb p{margin:.15rem 0}.lsn-xp{background:var(--surface);border-radius:12px;padding:.6rem .8rem;margin-top:.4rem;max-height:40vh;overflow:auto}
-.lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem}
+.lsn-fb p{margin:.15rem 0}.lsn-xp{background:var(--surface);border-radius:12px;padding:.6rem .8rem;margin-top:.4rem;max-height:24vh;overflow:auto;overscroll-behavior:contain}
+.lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem;min-height:44px;flex:1 1 0;min-width:0;text-align:start}
 .lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
-.lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
+.lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-match .lsn-opt{flex:1}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
 .lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;border-radius:18px;overflow:hidden;position:relative;background:var(--surface-2);transition:transform .2s ease,box-shadow .2s ease}
 .lsn-duo .tch.talk{transform:scale(1.06);box-shadow:0 0 0 4px var(--primary)}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
@@ -69,12 +69,12 @@
 .lsn-node{position:relative;transform:translateX(var(--x));display:flex;flex-direction:column;align-items:center}
 .lsn-dot{width:76px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);box-shadow:0 6px 0 var(--line);text-decoration:none}
 .lsn-dot svg{width:32px;height:32px}.lsn-node.done .lsn-dot{background:var(--good);color:#fff;box-shadow:0 6px 0 var(--good-text)}
-.lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:#fff;box-shadow:0 7px 0 var(--primary-ink);animation:lsnGlow 1.6s ease-in-out infinite}
+.lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:var(--primary-ink);box-shadow:0 7px 0 color-mix(in srgb,var(--primary) 62%,#000);animation:lsnGlow 1.6s ease-in-out infinite}
 .lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
 @keyframes lsnGlow{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 14px var(--primary))}}
 @keyframes lsnBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 /* game feel */
-.lsn-big{width:84px;height:84px;border-radius:22px;border:0;background:var(--primary);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 0 var(--primary-ink);font-size:1.6rem}
+.lsn-big{width:84px;height:84px;border-radius:22px;border:0;background:var(--primary);color:var(--primary-ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 0 color-mix(in srgb,var(--primary) 62%,#000);font-size:1.6rem}
 .lsn-big.sm{width:60px;height:60px;background:var(--surface-2);color:var(--text);box-shadow:0 4px 0 var(--line)}.lsn-big svg{width:36px;height:36px}.lsn-big:active{transform:translateY(3px);box-shadow:none}
 .lsn-snd{justify-content:center}.lsn-tile.pop{animation:lsnPop .2s ease}
 .lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.6rem;opacity:0;transform:scale(.4)}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
@@ -90,7 +90,8 @@
 
   let L = null; // bài đang chạy
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
-  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; if (footRO) { footRO.disconnect(); footRO = null; } const f = $('#lsnFoot'); if (f) f.remove(); };
+  const cleanup = () => { if (L) { if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; if (footRO) { footRO.disconnect(); footRO = null; } document.querySelectorAll('.lsn-foot').forEach(f => f.remove()); }; // mọi chân cũ, không chỉ #lsnFoot đầu tiên
+  let runId = 0; // route chạy chồng (await giữa chừng) → chỉ lượt mới nhất được vẽ; trước đây 2 lượt = 2 chân #lsnFoot, chân rỗng đè nút Kiểm tra
   let footRO = null; // chân bài học cố định: đo chiều cao thật (phiếu đúng/sai + "Vì sao?") → chừa đủ chỗ cuối trang, không che nội dung
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
@@ -103,16 +104,19 @@
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
 
   routes.lesson = async function (arg) {
+    const my = ++runId;
     css(); cleanup();
     const demo = /[?&]demo=1\b/.test(location.hash);
     if (!demo && !(App.lessonOn && App.lessonOn())) { view.innerHTML = `<div class="card center"><p>${t('Bài học trộn đang thử nghiệm, sắp ra mắt.')}</p><a class="btn primary" href="#/home">${t('Quay về trang chủ')}</a></div>`; return; }
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
+    if (my !== runId) return;
     const cards = demo ? DEMO() : Object.values(state.cards || {});
     const ux = !!(window.Ux1 && App.ux1On && App.ux1On()), has = { story: STORIES('story').length, radio: STORIES('radio').length }, n = pathN(demo); // 🧭 cờ ux1: chặng theo mục tiêu + trình độ (docs/LEARNING-PATH.md)
     const plan = ux ? Ux1.plan(E, cards, has, n) : E.pathPlan(cards, Date.now(), has), node = plan[n % plan.length];
     if (arg !== 'go') return ux ? Ux1.map({ demo, plan, n }) : map(demo, plan, n);
     if (node.kind === 'exam') { ls.set(PKEY(demo), String(n + 1)); location.hash = Ux1.check(n).href; return; } // nút kiểm tra kỹ năng thi → module thi có sẵn
     await imgP();
+    if (my !== runId) return;
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
@@ -130,6 +134,9 @@
       <div id="lsnBody"></div></div>`;
     const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
     if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
+    // Chỉ bài thử (?demo=1): CI soát hình (scripts/test/new-ui-qa.mjs) nhảy thẳng tới 1 dạng bài – không đụng dữ liệu thật
+    App.lessonDemo = demo ? { jump(type) { if (!L || L.dead) return false; const it = L.sess.q.find(x => x.type === type) || E.build(E.pickWords(DEMO(), { n: 4 }), { seed: 7, pool: DEMO(), hasImg: (w, p) => !!imgUrl(w, p), only: [type] })[0]; if (!it) return false; L.sess.q = [it].concat(L.sess.q.filter(x => x !== it)); next(); return true; },
+      answer(ok) { const it = L && L.sess.cur; if (!it || L.checked) return false; const tk = String(it.answer || '').split(' '); submit(ok ? ({ build: tk, tr: tk, say: 0.9, pic: it.choice ? it.answer : 0.9, match: true }[it.type] ?? it.answer) : ({ build: tk.slice().reverse(), tr: tk.slice().reverse(), say: 0.3, pic: it.choice ? '#' : 0.3, match: false }[it.type] ?? '#wrong')); return true; } } : null;
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
     next();
   };
@@ -275,6 +282,7 @@
   function submit(ans, heard) {
     if (!L || L.checked) return; L.checked = true;
     const it = L.sess.cur, ok = E.check(it, ans), r = L.sess.answer(ok);
+    document.querySelectorAll('#lsnBody button:not(.lsn-big), #lsnBody input').forEach(b => { b.disabled = true; }); // đã chấm → khóa đáp án (không còn nút bấm được nằm dưới khung phản hồi)
     bar();
     react(ok, r.combo);
     feedback(it, ok, heard);
@@ -358,7 +366,7 @@
     view.querySelector('#lsnBody').innerHTML = '';
     $('#lsnBub').textContent = s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!');
     view.querySelector('#lsnBody').innerHTML = `<div class="card lsn-end"><h2>🎉 ${t('Hoàn thành bài học!')}</h2>
-      <div class="lsn-stats"><div><b>+${xp}</b><span class="tiny muted">XP</span></div><div><b>${s.accuracy}%</b><span class="tiny muted">${t('Tỉ lệ trả lời đúng')}</span></div><div><b>🔥 ${s.best}</b><span class="tiny muted">${t('COMBO cao nhất')}</span></div><div><b>${Math.max(1, Math.round((Date.now() - L.t0) / 60000))}′</b><span class="tiny muted">${t('Thời gian')}</span></div></div>
+      <div class="lsn-stats"><div><b dir="ltr">+${xp}</b><span class="tiny muted">XP</span></div><div><b dir="ltr">${s.accuracy}%</b><span class="tiny muted">${t('Tỉ lệ trả lời đúng')}</span></div><div><b>🔥 ${s.best}</b><span class="tiny muted">${t('COMBO cao nhất')}</span></div><div><b>${Math.max(1, Math.round((Date.now() - L.t0) / 60000))}′</b><span class="tiny muted">${t('Thời gian')}</span></div></div>
       ${(L.picks || []).length ? `<p class="small">📘 ${t('Bạn đã học:')} <b lang="en">${L.picks.map(p => esc(p.card.word)).join(' · ')}</b></p>` : ''}
       ${weak.length ? `<p class="small">🔁 <b lang="en">${weak.map(esc).join(', ')}</b></p>` : `<p>⭐ ${t('Không sai câu nào!')}</p>`}
       <button class="btn primary lg lsn-go" id="lsnAgain">${t('Bài khác')} →</button><p><a class="small" href="#/lesson${Q(L.demo)}">${UI.icon('map')} ${t('Bản đồ bài học')}</a></p></div>`;
