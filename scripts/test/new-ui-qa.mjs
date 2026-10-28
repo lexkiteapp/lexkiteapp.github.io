@@ -117,7 +117,7 @@ async function combo(lang, vpk, scheme) {
   await ctx.addInitScript(({ seed }) => {
     for (const [k, v] of Object.entries(seed)) try { localStorage.setItem(k, v); } catch { /* */ }
     window.__cls = 0; window.__clsReset = () => { window.__cls = 0; window.__clsSrc = []; }; window.__clsSrc = [];
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; const s = e.sources && e.sources[0] && e.sources[0].node; window.__clsSrc.push((s ? (s.id ? '#' + s.id : String(s.className || s.nodeName)).slice(0, 40) : '?') + ' ' + e.value.toFixed(4)); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput) { window.__cls += e.value; const s = e.sources && e.sources[0] && e.sources[0].node; const s0 = e.sources && e.sources[0]; window.__clsSrc.push((s ? (s.id ? '#' + s.id : String(s.className || s.nodeName)).slice(0, 40) : '?') + ' ' + e.value.toFixed(4) + (s0 ? ` ${Math.round(s0.previousRect.x)},${Math.round(s0.previousRect.y)} ${Math.round(s0.previousRect.width)}×${Math.round(s0.previousRect.height)}→${Math.round(s0.currentRect.x)},${Math.round(s0.currentRect.y)} ${Math.round(s0.currentRect.width)}×${Math.round(s0.currentRect.height)}` : '')); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
     window.__frames = () => new Promise(res => { const d = []; let t0 = performance.now(), end = t0 + 900; const f = t => { d.push(t - t0); t0 = t; if (t < end) requestAnimationFrame(f); else res(d); }; requestAnimationFrame(f); });
   }, { seed: { 'sbx.settings': JSON.stringify({ onboarded: true }), 'lk.lesson': '1' } });
   await ctx.addInitScript(CHECKS);
