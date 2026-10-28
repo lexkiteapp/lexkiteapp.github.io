@@ -158,7 +158,7 @@
           <div class="card qk-card">
             <div class="qk-badge">${UI.icon('zap')} ${t('Câu {i}/{total}', { i: qIdx + 1, total })}</div>
             <div class="qk-word" lang="en">${esc(q.word)}</div>
-            ${q.ipa ? `<div class="small muted" style="margin-bottom:.4rem">${esc(q.ipa)}</div>` : ''}
+            <div class="small muted row center" style="margin-bottom:.4rem;gap:.3rem">${q.ipa ? `<span class="ipa" translate="no">${esc(q.ipa)}</span>` : ''}${UI.sayBtn(q.word)}</div>
             <div class="qk-prompt">${t('Chọn nghĩa đúng')}</div>
           </div>
           <div class="qk-opts" id="qkOpts">
