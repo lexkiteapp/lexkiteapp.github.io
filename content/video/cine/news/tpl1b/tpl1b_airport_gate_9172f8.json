@@ -11,7 +11,7 @@
  "area": "roleplay",
  "plate": "airport_gate",
  "host": "carlos",
- "clip": "gc4_talk_natural",
+ "clip": "gc10_talk",
  "hook": {
   "line": "n_9172f8_h",
   "quote": "I lost my luggages.",

@@ -739,10 +739,10 @@
       "file": "clips/registry/ama_talk_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_talk",
+      "src": "ga9_talk",
       "pose": "talk",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture"
@@ -768,10 +768,10 @@
       "file": "clips/registry/ama_talk_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_talk",
+      "src": "ga9_talk",
       "pose": "talk",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture"
@@ -797,10 +797,10 @@
       "file": "clips/registry/ama_listen_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_listen",
+      "src": "ga9_listen",
       "pose": "listen",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "listen",
         "idle"
@@ -826,10 +826,10 @@
       "file": "clips/registry/ama_listen_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_listen",
+      "src": "ga9_listen",
       "pose": "listen",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "listen",
         "idle"
@@ -855,10 +855,10 @@
       "file": "clips/registry/ama_explain_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_explain",
+      "src": "ga9_explain",
       "pose": "explain",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "point",
@@ -885,10 +885,10 @@
       "file": "clips/registry/ama_explain_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_explain",
+      "src": "ga9_explain",
       "pose": "explain",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "point",
@@ -915,10 +915,10 @@
       "file": "clips/registry/ama_happy_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_talk_smile",
+      "src": "ga9_happy",
       "pose": "happy",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "smile"
@@ -944,10 +944,10 @@
       "file": "clips/registry/ama_happy_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_talk_smile",
+      "src": "ga9_happy",
       "pose": "happy",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "smile"
@@ -973,10 +973,10 @@
       "file": "clips/registry/ama_encourage_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga7_onehand",
+      "src": "ga9_encourage",
       "pose": "encourage",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture",
@@ -1003,10 +1003,10 @@
       "file": "clips/registry/ama_encourage_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga7_onehand",
+      "src": "ga9_encourage",
       "pose": "encourage",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture",
@@ -1033,10 +1033,10 @@
       "file": "clips/registry/ama_thinking_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga7_hmm",
+      "src": "ga9_thinking",
       "pose": "thinking",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "ask",
         "think",
@@ -1063,10 +1063,10 @@
       "file": "clips/registry/ama_thinking_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga7_hmm",
+      "src": "ga9_thinking",
       "pose": "thinking",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "ask",
         "think",
@@ -1093,10 +1093,10 @@
       "file": "clips/registry/ama_laugh_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_react",
+      "src": "ga9_laugh",
       "pose": "laugh",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "laugh",
         "smile"
@@ -1122,10 +1122,10 @@
       "file": "clips/registry/ama_laugh_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "ga2_react",
+      "src": "ga9_laugh",
       "pose": "laugh",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "laugh",
         "smile"
@@ -1151,10 +1151,10 @@
       "file": "clips/registry/carlos_talk_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc4_talk_natural",
+      "src": "gc10_talk",
       "pose": "talk",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture"
@@ -1180,10 +1180,10 @@
       "file": "clips/registry/carlos_talk_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc4_talk_natural",
+      "src": "gc10_talk",
       "pose": "talk",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture"
@@ -1209,10 +1209,10 @@
       "file": "clips/registry/carlos_listen_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc4_listen",
+      "src": "gc10_listen_b",
       "pose": "listen",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "listen",
         "idle"
@@ -1238,10 +1238,10 @@
       "file": "clips/registry/carlos_listen_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc4_listen",
+      "src": "gc10_listen_b",
       "pose": "listen",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "listen",
         "idle"
@@ -1267,10 +1267,10 @@
       "file": "clips/registry/carlos_explain_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc9_explain",
+      "src": "gc10_explain",
       "pose": "explain",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "point",
@@ -1297,10 +1297,10 @@
       "file": "clips/registry/carlos_explain_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc9_explain",
+      "src": "gc10_explain",
       "pose": "explain",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "point",
@@ -1327,10 +1327,10 @@
       "file": "clips/registry/carlos_happy_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc7_smilenod",
+      "src": "gc10_happy",
       "pose": "happy",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "smile"
@@ -1356,10 +1356,10 @@
       "file": "clips/registry/carlos_happy_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc7_smilenod",
+      "src": "gc10_happy",
       "pose": "happy",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "smile"
@@ -1385,10 +1385,10 @@
       "file": "clips/registry/carlos_encourage_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc9_onehand",
+      "src": "gc10_encourage",
       "pose": "encourage",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture",
@@ -1415,10 +1415,10 @@
       "file": "clips/registry/carlos_encourage_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc9_onehand",
+      "src": "gc10_encourage",
       "pose": "encourage",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture",
@@ -1445,10 +1445,10 @@
       "file": "clips/registry/carlos_thinking_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc7_hmm",
+      "src": "gc10_thinking",
       "pose": "thinking",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "ask",
         "think",
@@ -1475,10 +1475,10 @@
       "file": "clips/registry/carlos_thinking_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc7_hmm",
+      "src": "gc10_thinking",
       "pose": "thinking",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "ask",
         "think",
@@ -1505,10 +1505,10 @@
       "file": "clips/registry/carlos_laugh_a.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc7_laugh",
+      "src": "gc10_laugh",
       "pose": "laugh",
       "part": "a",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "laugh",
         "smile"
@@ -1534,10 +1534,10 @@
       "file": "clips/registry/carlos_laugh_b.mp4",
       "alpha": "stacked",
       "build": "registry",
-      "src": "gc7_laugh",
+      "src": "gc10_laugh",
       "pose": "laugh",
       "part": "b",
-      "outfit": "outfit1",
+      "outfit": "outfit3",
       "tags": [
         "laugh",
         "smile"

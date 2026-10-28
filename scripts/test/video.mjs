@@ -94,7 +94,7 @@ ok(JSON.stringify(a1.fp) === JSON.stringify(a2.fp) && JSON.stringify(X.pickVaria
 ok(!a1.recast && a1.cast.to.join() === 'ama,carlos' && !X.canRecast({ lines: [{ who: 'ama', text: 'Hi Carlos!' }] }, casting), 'kịch bản ghi rõ who → giữ dàn; đổi vai chỉ khi lời thoại không gọi tên');
 { // dàn kịch bản: giữ nguyên khi có clip; recast:true mới đổi để đa dạng; người được gọi tên không có clip nói → đổi riêng người đó + lý do
   const cafe = { topic: 'Ordering coffee like a local', script: { scene: 'cafe', lines: [{ who: 'carlos', beat: 'hook', text: 'Hi there.' }, { who: 'ama', beat: 'explain', text: 'Say could I get.' }] } };
-  const cm = { ...manifest, clips: [{ id: 'carlos_t', who: 'carlos', outfit: 'outfit1', mouth: true, tags: ['talk'], file: 'c' }, { id: 'ama_t', who: 'ama', outfit: 'outfit1', mouth: true, tags: ['talk'], file: 'm' }] };
+  const cm = { ...manifest, clips: [{ id: 'carlos_t', who: 'carlos', outfit: 'outfit3', mouth: true, tags: ['talk'], file: 'c' }, { id: 'ama_t', who: 'ama', outfit: 'outfit3', mouth: true, tags: ['talk'], file: 'm' }] };
   const keep = [...Array(20)].map((_, i) => X.pickVariant({ job: cafe, formats, casting, manifest: cm, seed: 'k' + i, date }));
   ok(keep.every(v => !v.recast && v.cast.to.join() === 'carlos,ama' && v.setting.scene === 'cafe'), 'cafe-order: Carlos + Ama ghi rõ → 20 seed đều giữ dàn');
   const opt = [...Array(20)].map((_, i) => X.pickVariant({ job: { ...cafe, script: { ...cafe.script, recast: true } }, formats, casting, manifest: cm, seed: 'k' + i, date }));

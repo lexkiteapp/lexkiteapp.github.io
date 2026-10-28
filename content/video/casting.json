@@ -27,7 +27,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "school": {
       "cast": [
@@ -39,7 +39,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "library": {
       "cast": [
@@ -51,7 +51,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "exam": {
       "cast": [
@@ -63,7 +63,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "cafe": {
       "cast": [
@@ -75,7 +75,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "restaurant": {
       "cast": [
@@ -87,7 +87,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "home": {
       "cast": [
@@ -99,7 +99,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "airport": {
       "cast": [
@@ -111,7 +111,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "classroom": {
       "cast": [
@@ -123,7 +123,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "clinic": {
       "cast": [
@@ -135,7 +135,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "hotel-lobby": {
       "cast": [
@@ -147,7 +147,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "reception": {
       "cast": [
@@ -159,7 +159,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     },
     "supermarket": {
       "cast": [
@@ -171,7 +171,7 @@
         "ama": "teacher (Ama)",
         "carlos": "teacher (Carlos)"
       },
-      "outfit": "outfit1"
+      "outfit": "outfit3"
     }
   },
   "topics": [

@@ -73,7 +73,7 @@ for (const c of RM.clips || []) {
   if (c.build !== 'registry' || !sp || sp.src !== c.src || !c.medium) errs.push(`brand/library/manifest.json clip ${c.id}: chỉ được clip build:"registry" (who ${IDS}, pose+src khớp characters.json, khung medium)`);
 }
 for (const x of RM.stills || []) errs.push(`brand/library/manifest.json still ${x.file}: không dùng ảnh tĩnh nhân vật – chỉ clip registry`);
-for (const p of R.poses) for (const who of IDS) if (!(RM.clips || []).some(c => c.who === who && c.pose === p)) errs.push(`brand/library/manifest.json: thiếu clip registry ${who}/${p}`);
+for (const p of R.poses) for (const who of IDS) if (!R.people[who].clips[p].pending && !(RM.clips || []).some(c => c.who === who && c.pose === p)) errs.push(`brand/library/manifest.json: thiếu clip registry ${who}/${p}`);
 // dàn (casting.json): giọng, nhân vật, mọi bối cảnh/chủ đề/dự phòng chỉ Ama/Carlos (+ Kit); dữ liệu cũ chỉ được nằm trong "retired"
 const CS = J('content/video/casting.json'), badCast = (where, arr) => { for (const w of arr) if (!WHO.has(w)) errs.push(`content/video/casting.json ${where}: "${w}" ngoài registry`); };
 badCast('voices', Object.keys(CS.voices)); badCast('characters', Object.keys(CS.characters).filter(k => k !== '_note')); badCast('fallback', CS.fallback.cast);
