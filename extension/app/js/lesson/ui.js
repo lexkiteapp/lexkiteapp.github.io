@@ -90,7 +90,8 @@
 
   let L = null; // bài đang chạy
   App.lessonState = () => L; // cho test CI (scripts/test/lesson.mjs) – chỉ đọc
-  const cleanup = () => { if (L) { if (L.ro) L.ro.disconnect(); if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; const f = $('#lsnFoot'); if (f) f.remove(); };
+  const cleanup = () => { if (L) { if (L.ro) L.ro.disconnect(); if (L.teacher) L.teacher.destroy(); if (L.rec && L.rec.stop) try { L.rec.stop(); } catch (e) { /* đã dừng */ } L.dead = true; } L = null; document.querySelectorAll('.lsn-foot').forEach(f => f.remove()); }; // mọi chân cũ (không chỉ #lsnFoot đầu tiên)
+  let runId = 0; // route chạy chồng (await giữa chừng) → chỉ lượt mới nhất được vẽ; trước đây 2 lượt = 2 chân #lsnFoot, chân rỗng đè mép dưới nút Kiểm tra
 
   // Tiến độ bản đồ: số nút đã xong (bền, không theo ngày – như lộ trình). Demo dùng khóa riêng.
   const PKEY = demo => (demo ? 'lk.lsn.path.demo' : 'lk.lsn.path');
@@ -102,14 +103,17 @@
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
 
   routes.lesson = async function (arg) {
+    const my = ++runId;
     css(); cleanup();
     const demo = /[?&]demo=1\b/.test(location.hash);
     if (!demo && !(App.lessonOn && App.lessonOn())) { view.innerHTML = `<div class="card center"><p>${t('Bài học trộn đang thử nghiệm, sắp ra mắt.')}</p><a class="btn primary" href="#/home">${t('Quay về trang chủ')}</a></div>`; return; }
     if (window.I18N && I18N.whenReady) await I18N.whenReady();
+    if (my !== runId) return;
     const cards = demo ? DEMO() : Object.values(state.cards || {});
     const plan = E.pathPlan(cards, Date.now(), { story: STORIES('story').length, radio: STORIES('radio').length }), n = pathN(demo), node = plan[n % plan.length];
     if (arg !== 'go') return map(demo, plan, n);
     await imgP();
+    if (my !== runId) return;
     // Truyện / Radio: bài tiếp theo chưa nghe (xoay vòng), Ama ↔ Carlos đọc bằng giọng Kokoro sinh sẵn
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: STARTER(), mode: node.kind }); // 4 từ ≈ 9 bài ≈ 2–3 phút

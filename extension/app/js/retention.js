@@ -218,6 +218,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
         if (!have.includes(k) && have.length < ev.need) {
           const r = await mutate(r => { r.ev = r.ev || {}; r.ev[ev.id] = [...(r.ev[ev.id] || []), k].sort(); if (r.ev[ev.id].length >= ev.need && !(r.evDone || {})[ev.id]) { r.evDone = { ...(r.evDone || {}), [ev.id]: Date.now() }; r.own = { ...(r.own || {}), ['f:' + ev.frame]: Date.now() }; } });
           const got = r.ev[ev.id].length;
+          if (location.hash.startsWith('#/streak')) setTimeout(() => page(null, true), 0); // đang ở trang chuỗi → vẽ lại để mảnh vừa nhận sáng lên ngay (không gọi lại check → không chúc mừng 2 lần)
           UI.toast(got >= ev.need ? `${ev.icon} ${t('Hoàn thành sự kiện! Bạn nhận khung mới và 1 rương quà.')}` : `${ev.icon} ${t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need })}`, 3500);
         }
       }
@@ -231,7 +232,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   Ret.widget = st => { const d = Core.activeDays(st || state), k = [...d].sort().pop() || ''; return { who: new Date().getDate() % 2 ? 'ama' : 'carlos', sd: k, ok: t('Hôm nay đã học'), risk: t('Giữ chuỗi hôm nay nhé!') }; };
 
   // ---------- Trang #/streak ----------
-  function page() {
+  function page(arg, noCheck) {
     css(); applyFrame();
     const n = streakN(), nx = Core.next(n), r = ret(), fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 };
     const ev = Core.event(today()), got = ev ? ((r.ev || {})[ev.id] || []).length : 0, ch = Core.chests(r), own = r.own || {};
@@ -249,7 +250,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     </div>`;
     const c = document.getElementById('retChest'); if (c) c.onclick = openChest;
     view().querySelectorAll('[data-ret-item]').forEach(b => { b.onclick = () => wear(b.dataset.retItem === 'f:teal' ? '' : b.dataset.retItem.slice(2)); });
-    check();
+    if (!noCheck) check();
   }
   App.routes.streak = page;
 
