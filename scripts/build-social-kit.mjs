@@ -605,8 +605,8 @@ async function main() {
     ['web/icons/icon-128-store.png', store, 128], ['store/icon-128.png', store, 128],
     ['brand/social/logo/lexkite-app-icon-rounded.png', ICON, 1024], // end card video (scripts/video/tpl/render_v9.py)
   ];
-  // PNG bảng màu có alpha: ≤ 192 px 64 màu (icon-192 nằm trong khung app – size-budget, ≈ cỡ cũ 2,8 KB), lớn hơn 256 màu; dither che dải gradient
-  for (const [f, svg, n] of ICONS_OUT) fs.writeFileSync(path.join(ROOT, f), await sharp(rasterize(svg, n)).png({ palette: true, quality: 100, effort: 10, colours: n <= 192 ? 64 : 256, dither: 0.8, compressionLevel: 9 }).toBuffer());
+  // PNG bảng màu có alpha: ≤ 192 px 64 màu (quality 100 thì sharp bỏ qua colours) (icon-192 nằm trong khung app – size-budget, ≈ cỡ cũ 2,8 KB), lớn hơn 256 màu; dither che dải gradient
+  for (const [f, svg, n] of ICONS_OUT) fs.writeFileSync(path.join(ROOT, f), await sharp(rasterize(svg, n)).png({ palette: true, quality: n <= 192 ? 90 : 100, effort: 10, colours: n <= 192 ? 64 : 256, dither: n <= 192 ? 1 : 0.6, compressionLevel: 9 }).toBuffer());
   console.log(`icon PNG: ${ICONS_OUT.length} tệp từ web/icons/icon.svg`);
   manifest.push(...Object.keys(logos).map((f) => ({ platform: 'logo', file: `logo/${f.replace('.svg', '.png')}`, svg: `logo/${f}`, use: f.replace(/^lexkite-|\.svg$/g, '').replace(/-/g, ' '), fmt: 'png' })));
   fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), colors: C, assets: manifest }, null, 1));
