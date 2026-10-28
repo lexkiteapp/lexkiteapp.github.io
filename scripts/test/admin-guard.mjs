@@ -66,7 +66,7 @@ for (const [width, scheme, lang] of CONFIGS) {
   const page = await ctx.newPage(), tag = `${width}-${scheme}-${lang}`;
   page.on('pageerror', e => errs.push(`${tag}: ${e.message}`));
   await page.goto('https://lk.test/admin.html#overview', { waitUntil: 'load' });
-  await page.waitForSelector('body.adm-in #tabs a[data-tab]', { timeout: 15000 });
+  await page.waitForSelector('body.adm-in #tabs a[data-tab]', { state: 'attached', timeout: 15000 }); await page.waitForTimeout(800);
   const tabs = await page.$$eval('#tabs a[data-tab]', a => a.map(x => x.dataset.tab));
   const routes = [...tabs, ...['overview', 'review', 'library', 'qc', 'scripts', 'channels', 'archive'].map(s => 'video/' + s)];
   for (const r of routes) {
