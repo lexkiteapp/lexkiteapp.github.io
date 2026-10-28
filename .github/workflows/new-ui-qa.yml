@@ -34,7 +34,7 @@ jobs:
           VPS: ${{ (github.event_name == 'push' || github.event.inputs.full == '1') && '360,390,768,1280' || '360,1280' }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          npx playwright install --with-deps chromium
+          npx playwright install --with-deps chrome   # Chrome thật (H.264) – Chromium mã nguồn mở không phát được mp4 giáo viên
           node scripts/test/new-ui-qa.mjs --root . --lang "${{ matrix.lang }}" --vp "$VPS" --out "nuq-${{ strategy.job-index }}"
       - if: always()
         uses: actions/upload-artifact@v4
