@@ -17,15 +17,30 @@ from PIL import ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, HERE); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C
-from tokens import SAFE
+from tokens import SAFE as SAFE_SHORT
 
 ap = argparse.ArgumentParser()
 for a in ('spec', 'plate', 'fonts', 'public', 'out'): ap.add_argument('--' + a, required=True)
 ap.add_argument('--fps', type=int, default=60)
+ap.add_argument('--format', default='short', choices=['short', 'wide', 'sq45'], help='short = 9:16 social; wide = 16:9 lesson/blog embed; sq45 = 4:5 in-lesson mobile embed (no burned captions: VTT track, no QR / follow CTA, calmer motion)')
 ap.add_argument('--icon', default=f'{ROOT}/brand/social/logo/lexkite-app-icon.png')
 o = ap.parse_args()
 SP = json.load(open(o.spec)); T = json.load(open(o.plate + '.timeline.json')); M = SP['motion']
-W, H = 1080, 1920; WORDS = T['words']; TOTAL = T['total']
+WORDS = T['words']; TOTAL = T['total']; EMBED = o.format != 'short'
+# ---------------- formats: canvas, where the host plate goes (source crop -> destination), the free area for the cards ----------------
+_hd = [T['head'][c] for c in SP['clips'] + SP.get('listen', []) if c in T['head']]; HEAD_TOP = min(b[1] for b in _hd)
+if o.format == 'short':
+    W, H = 1080, 1920; SAFE = SAFE_SHORT; PLATE = dict(sx=0, sy=0, sw=1080, sh=1920, dx=0, dy=0, dw=1080, dh=1920, r=0)
+elif o.format == 'wide':   # lesson player: cards on the left (dark canvas), the teacher in a rounded video window on the right
+    W, H = 1920, 1080; _sy = max(0, HEAD_TOP - 170); _sh = min(1920 - _sy, 1250); _sw = round(_sh * 0.8)
+    PLATE = dict(sx=1080 - _sw, sy=_sy, sw=_sw, sh=_sh, dx=1080, dy=40, dw=800, dh=1000, r=40)
+    SAFE = dict(x0=64, x1=1016, y0=56, y1=1024)
+else:   # 4:5: the plate cropped around the teacher, cards over the board (top) and left of the body
+    W, H = 1080, 1350; _sy = min(max(0, HEAD_TOP - 600), 1920 - 1350)
+    PLATE = dict(sx=0, sy=_sy, sw=1080, sh=1350, dx=0, dy=0, dw=1080, dh=1350, r=0)
+    SAFE = dict(x0=44, x1=1036, y0=44, y1=1306)
+_k = PLATE['dw'] / PLATE['sw']
+def to_canvas(x, y): return PLATE['dx'] + (x - PLATE['sx']) * _k, PLATE['dy'] + (y - PLATE['sy']) * _k
 
 # ---------------- Stitch "Tactile Night" tokens (DESIGN.md, 390 px frames x 2.77) ----------------
 INK, MUTED, DIM = '#F3F8F8', '#94A8AB', '#7F9497'
@@ -59,6 +74,7 @@ def at(a):
     if a[0] == 'beat': b = T['beats'][a[1]]; return b['s' if a[2] == 's' else 'e'] + (a[3] if len(a) > 3 else 0)
     w = word(a[0], a[1]); return w[a[2] if len(a) > 2 else 's'] + (a[3] if len(a) > 3 else 0)
 def cue(a, k):   # entrance keyed to a spoken word: appears (HALF) exactly at the word start
+    if EMBED and k == 'pop': k = 'fade'   # embed: calmer motion (no bounce)
     if a[0] in ('t', 'end', 'beat'): return dict(t=round(at(a), 4), k=k), None
     w = word(a[0], a[1]); return dict(t=round(w['s'] - C.HALF[k], 4), k=k), dict(w=f"{a[0]}.{a[1] % sum(1 for x in WORDS if x.startswith(a[0] + '.'))}", at=w['s'], tok=w['w'])
 
@@ -70,13 +86,15 @@ SM = max(1.0, T.get('smax', 1.0)); AX, AY = T['anchor']
 def mark(x0, y0, x1, y1, pad):
     for s in (1.0, SM):
         a = [AX + (x0 - AX) * s, AY + (y0 - AY) * s, AX + (x1 - AX) * s, AY + (y1 - AY) * s]
+        a = [*to_canvas(a[0], a[1]), *to_canvas(a[2], a[3])]
         Fb[max(0, int(a[1]) - pad):min(H, int(math.ceil(a[3])) + pad), max(0, int(a[0]) - pad):min(W, int(math.ceil(a[2])) + pad)] = True
 for c in clips:
     for y, x0, x1 in T['host_move'][c]: mark(x0, y, x1, y + 8, 14)   # the move mask is already dilated 1 cell
     hb = T['head'][c]; mark(hb[0], hb[1], hb[2], hb[3], 28)
-cs = T.get('cap_strip'); cap_top = (cs[1] if cs else 1328) - 26   # caption plate (plate style: fixed lower band)
+cs = T.get('cap_strip'); cap_top = ((cs[1] if cs else 1328) - 26) if not EMBED else SAFE['y1']   # caption plate (short: fixed lower band; embed: captions are a VTT track)
+if o.format == 'wide': Fb[:] = False; Fb[:, PLATE['dx'] - 40:] = True   # the teacher lives in its own window: the left panel is all free
 X0, X1, Y0 = SAFE['x0'], SAFE['x1'], SAFE['y0'] + 10
-TOP_Y1 = next((y for y in range(Y0, H) if Fb[y, X0:X1].any()), H) - 6   # full-width card above the head
+TOP_Y1 = next((y for y in range(Y0, H) if Fb[y, X0:X1].any()), SAFE['y1']) - 6   # full-width card above the head
 def col_x1(y0, y1):   # left column right edge over rows y0..y1
     row = Fb[y0:y1, X0:X1].any(0); return X0 + (int(np.argmax(row)) if row.any() else X1 - X0) - 18
 print(f'free: top card y {Y0}..{TOP_Y1} (h {TOP_Y1 - Y0}), caption top {cap_top}, clips {clips}', flush=True)
@@ -97,7 +115,7 @@ class Card:
         s.y += h
     def chip(s, text, tone, extra=None):
         h = 60; w = tw(text.upper(), S_CHIP, ls=0.06) + 52
-        it = [dict(type='chip', box=[s.pad, 0, s.pad + w, h], text=text.upper(), tone=tone, size=S_CHIP)]
+        it = [dict(type='chip', box=[s.pad, 0, s.pad + w, h], text=text.upper(), label=text, tone=tone, size=S_CHIP)]
         if extra: it += extra(h)
         s.add(h, it); s.text.append(text.upper()); s.m.append(['card', S_CHIP * CAP_J]); s.px.append(S_CHIP)
     def line(s, runs, size, mtype='body', ipa=False, slot=None, align='l'):
@@ -146,7 +164,7 @@ def handover(slots):   # cards sharing one slot: each leaves 0.17 s before the n
 def chip_ring(cid, beat):   # countdown ring at the right end of a chip row (3-2-1 beat)
     def f(h):
         d = 96; b = T['beats'][beat]
-        return [dict(id=f'{cid}.ring', type='ring', box=[0, 0, d, d], ring=dict(t0=b['s'], t1=b['e']), size=48, **{'in': dict(t=round(b['s'], 4), k='pop'), 'out': dict(t=round(b['e'] - 0.02, 4))})]
+        return [dict(id=f'{cid}.ring', type='ring', box=[0, 0, d, d], ring=dict(t0=b['s'], t1=b['e']), size=48, **{'in': dict(t=round(b['s'], 4), k='fade' if EMBED else 'pop'), 'out': dict(t=round(b['e'] - 0.02, 4))})]
     return f
 
 def top_card(cid, kind='lesson', group='pop', tone=None): return Card(cid, X0, Y0, X1 - X0, kind, group, tone)
@@ -160,7 +178,7 @@ def fix_ring(card, h_chip=60):   # move the ring item to the card's top-right co
 
 def pills(y0, opts, cues, reveal, right, cid='opts'):
     """Stacked A-D option pills in the left column; each appears on its spoken word, the index ring turns into a check on the reveal word."""
-    x1 = col_x1(y0, y0 + len(opts) * 140); w = x1 - X0; h = 118; out = []
+    x1 = col_x1(y0, y0 + len(opts) * 140); x1 = min(x1, X0 + 640); w = x1 - X0; h = 118; out = []   # embed (wide): pills keep a pill shape, not the full panel
     need = max(tw(t, S_BODY) for t in opts) + 64 + 22 + 2 * 24
     assert need <= w, ('option column too narrow', round(need), w)
     rin, rcue = cue(reveal, 'pop')
@@ -175,6 +193,13 @@ def pills(y0, opts, cues, reveal, right, cid='opts'):
     return out, y0 + len(opts) * (h + 24) - 24
 
 END_TOP_H = PAD + 132 + GAP + round(S_BODY * 1.18) + PAD + LEDGE_H
+def end_card_embed(c_line, top_h):
+    """Embed end card: no QR, no follow CTA – it hands over to the next lesson step (the lesson UI owns the real button)."""
+    ins, cw = cue([c_line, 0], 'rise'); CUES.append(dict(node='endtop', **cw)); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
+    A = top_card('endtop', kind='lesson', group='pop'); A.chip('Up next', 'teal'); A.line([[SP['cta']['say'], INK]], S_BODY, 'body')
+    ch = round(S_SUB * 1.2) + 44; A.custom(ch, [dict(type='cta', box=[A.pad, 0, A.pad + tw('Next step →', S_SUB) + 120, ch], lines=['Next step →'], size=S_SUB, lh=round(S_SUB * 1.2))], text='Next step →', m=['card', S_SUB * CAP_J], px=S_SUB)
+    A.place(h=max(top_h, A.height()), ins=ins, out=out); CARDS['endtop']['px'] = S_BODY
+
 def end_card(c_line, top_h, col_y0):
     """End card (Stitch end frame): app icon + Lexkite + 100% FREE on top; QR + gradient CTA + lexkite.com in the column."""
     cta = SP['cta']; ins, cw = cue([c_line, 0], 'rise'); CUES.append(dict(node='endtop', **cw)); out = dict(t=round(TOTAL - 0.40 - C.OUT, 4))
@@ -207,13 +232,18 @@ def build():
     assert Y0 + top_h <= TOP_Y1, ('top card does not fit above the head', top_h, TOP_Y1 - Y0)
     for c in M['top']: tops.append(_top(c, top_h))
     for c in M.get('col', []): cols.append(_col(c, col_y0))
-    if M.get('bar'): _bar(M['bar'], col_y0 + max(len(c['opts']) for c in M['col'] if c['t'] == 'opts') * 142 + 10)
-    end_card(M['end_line'], top_h, col_y0); tops.append(CARDS['endtop']['card']); cols.append(CARDS['endcol']['card'])
+    if M.get('bar'):   # under the option stack; wide: beside the (640 px) pills
+        if o.format == 'wide': _bar(M['bar'], col_y0, X0 + 640 + 28)
+        else: _bar(M['bar'], col_y0 + max(len(c['opts']) for c in M['col'] if c['t'] == 'opts') * 142 + 10)
+    if EMBED: end_card_embed(M['end_line'], top_h)
+    else: end_card(M['end_line'], top_h, col_y0)
+    tops.append(CARDS['endtop']['card'])
+    cols.append(CARDS['endcol']['card'] if 'endcol' in CARDS else CARDS['endtop']['card'])   # embed: the end card alone also closes the column slot
     handover(tops); handover([x for x in cols if x is not None])
-    if M.get('bar'): NODES_BY[M['bar']['id']]['out'] = dict(t=round(CARDS['endcol']['card']['in']['t'] - 0.17, 4))
+    if M.get('bar'): NODES_BY[M['bar']['id']]['out'] = dict(t=round(CARDS['endtop']['card']['in']['t'] - 0.17, 4))
     for oid, c in CARDS.items():   # option pills leave with the column slot that follows them
         if c.get('nodes'):
-            nxt = next((x for x in cols if x and x['in']['t'] > NODES_BY[c['nodes'][-1]]['in']['t']), None)
+            nxt = next((x for x in cols + [CARDS['endtop']['card']] if x and x['in']['t'] > NODES_BY[c['nodes'][-1]]['in']['t']), None)
             for nid in c['nodes']:
                 if nxt: NODES_BY[nid]['out'] = dict(t=round(nxt['in']['t'] - 0.17, 4))
     for n in NODES:   # children leave with their card
@@ -253,15 +283,16 @@ def _top(c, top_h):
         pre = ''.join(r[0] for r in ln['runs'][:x['run']]); sx = ln['box'][0] + tw(pre, ln['size']); sw = tw(ln['runs'][x['run']][0].rstrip(), ln['size'])
         cy = (ln['box'][1] + ln['box'][3]) / 2 + 4; ins_, cw_ = cue(x['at'], 'draw'); CUES.append(dict(node=f"{c['id']}.strike", **cw_))
         node(id=f"{c['id']}.strike", type='strike', parent=c['id'], box=[sx - 8, cy - 9, sx + sw + 8, cy + 9], color=CORAL, **{'in': ins_})
-    for x in c.get('xp', []):
+    for x in ([] if EMBED else c.get('xp', [])):   # +XP is a social-short reward; the embedded lesson stays calm
         ins_, cw_ = cue(x['at'], 'pop'); CUES.append(dict(node=f"{c['id']}.xp", **cw_)); wx = tw('+10 XP', S_CHIP) + 60
         node(id=f"{c['id']}.xp", type='xp', parent=c['id'], box=[cn['box'][2] - PAD - wx, cn['box'][1] + PAD - 4, cn['box'][2] - PAD, cn['box'][1] + PAD + 60], size=S_CHIP,
              val=dict(t=ins_['t'] + 0.05, d=0.45, a=0, b=x['n']), **{'in': ins_})
     return cn
 
-def _bar(b, y0):
+def _bar(b, y0, x0=None):
     """Band bar card (Stitch readiness gauge): chip + band number counting up + teal->gold track with ticks and the target flag; steps up on each correct answer."""
     cd = col_card(b['id'], y0, 'lesson', 'pop'); lo, hi = b['lo'], b['hi']
+    if x0: cd.w = cd.x0 + cd.w - x0; cd.x0 = x0
     segs = []
     for a_, v0, v1 in b['steps']:
         ins_, cw_ = cue(a_, 'pop'); segs.append(dict(t=round(cw_['at'], 4), d=0.6, a=v0, b=v1))
@@ -336,7 +367,7 @@ def els_at(t):
         E.append([f'pop.{cid}', c['text'], *[round(v) for v in bx], round(al, 3), c['px'], c['group'], digit_at(cid, t), 'overlay', c['m']])
     return E
 FPS_P = T['fps']
-for f in T['frames']: f['els'] = [e for e in f['els'] if not e[0].startswith('pop.')] + els_at(f['t'])
+for f in T['frames']: f['els'] = [e for e in f['els'] if not e[0].startswith('pop.') and not EMBED] + els_at(f['t'])   # embed: no burned captions
 
 def pairs_for(cid):   # every text colour on the fill it sits on, per state
     P = []
@@ -383,6 +414,21 @@ if T.get('board'): T['board'] = dict(T['board'], where={p['id']: 'overlay' for p
 T['board_contrast'] = None   # no marker ink on the board: the cards are gated by overlay_contrast
 T['motion'] = dict(fps=o.fps, nodes=len(NODES), layout=dict(top=[X0, Y0, X1, Y0 + max(_measure_top(c) for c in M['top'])], top_max_y=TOP_Y1, cap_top=cap_top))
 json.dump(T, open(o.out + '.timeline.json', 'w'), default=lambda x: x.item() if hasattr(x, 'item') else str(x))
-props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate='plate.mp4', nodes=NODES, total=TOTAL)
+props = dict(fps=o.fps, w=W, h=H, durationInFrames=int(round(TOTAL * o.fps)), plate='plate.mp4', plateBox=PLATE, bg='#10191B', nodes=NODES, total=TOTAL, format=o.format, safe=SAFE)
+if EMBED:   # captions + chapters as WebVTT tracks (translatable, never burned in): one cue per spoken line, display forms ('blank' -> ___)
+    D = SP.get('display', {}); vt = lambda x: f'{int(x // 3600):02d}:{int(x % 3600 // 60):02d}:{x % 60:06.3f}'
+    cap = ['WEBVTT', '']
+    for l in SP['lines']:
+        if not l.get('text'): continue
+        ws = [WORDS[f"{l['id']}.{k}"] for k in range(len(l['text'].split()))]
+        txt = ' '.join(D.get(w['w'].rstrip('.,?!:;').lower(), w['w'].rstrip('.,?!:;')) + w['w'][len(w['w'].rstrip('.,?!:;')):] for w in ws)
+        cap += [f"{vt(ws[0]['s'])} --> {vt(ws[-1]['e'] + 0.25)}", txt, '']
+    open(o.out[:-5] + '.en.vtt', 'w').write('\n'.join(cap))
+    ch = ['WEBVTT', '']; tops = sorted((n for n in NODES if n['type'] == 'card' and not n.get('parent') and n['box'][1] <= Y0 + 1), key=lambda n: n['in']['t'])
+    for i, n in enumerate(tops):
+        t1 = tops[i + 1]['in']['t'] if i + 1 < len(tops) else TOTAL; title = next((x.get('label') or x['text'] for x in NODES if x.get('parent') == n['id'] and x['type'] == 'chip'), n['id'])
+        ch += [f"{vt(max(0, n['in']['t']))} --> {vt(t1)}", title, '']
+    open(o.out[:-5] + '.chapters.vtt', 'w').write('\n'.join(ch))
+    props['poster_t'] = round(next((n['in']['t'] + 0.8 for n in tops if n['id'] != 'hook'), 1.0), 3)
 json.dump(props, open(o.out, 'w'), indent=0)
 print(f'overlay: {len(NODES)} nodes, {len(CARDS)} cards, {len(CUES)} word cues, {len(IPA)} IPA -> {o.out}')

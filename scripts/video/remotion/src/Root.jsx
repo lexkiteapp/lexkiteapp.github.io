@@ -17,6 +17,6 @@ export const Root = () => (
     ))}
     {/* Stitch overlay shorts (docs/VIDEO-MOTION.md): props = scripts/video/motion/build_overlay.py output, 60 fps over the render_v9 host plate */}
     <Composition id="stitch-short" component={StitchShort} width={1080} height={1920} fps={60} durationInFrames={600} defaultProps={{ nodes: [], plate: null }}
-      calculateMetadata={({ props }) => ({ durationInFrames: Math.max(1, props.durationInFrames || 600), fps: props.fps || 60, width: 1080, height: 1920 })} />
+      calculateMetadata={({ props }) => ({ durationInFrames: Math.max(1, props.durationInFrames || 600), fps: props.fps || 60, width: props.w || 1080, height: props.h || 1920 })} />
   </>
 );

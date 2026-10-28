@@ -249,5 +249,15 @@
     ]
    }
   ]
+ },
+ "embed": {
+  "drop": [
+   "m_sh",
+   "m_c"
+  ],
+  "end": {
+   "id": "m_n",
+   "text": "Next, let's fix a few more sentences."
+  }
  }
 }

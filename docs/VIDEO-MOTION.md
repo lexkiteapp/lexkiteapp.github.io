@@ -38,3 +38,13 @@ phone floor (cap: hook ≥ 72, body ≥ 56, card lines ≥ 25).
 ## Gates (qc_motion.py) – besides all qc_v9 gates
 overlay_timing (±80 ms vs the plate word clock, token match) · overlay_sync_px (pixel change across the word, none before) ·
 overlay_host (no card on the head box / moving-body mask, every frame) · overlay_still · file60 (60 fps, = plate duration, AAC) · av_sync (≤ 10 ms).
+
+## Embedded lesson videos (same data + components)
+- `embed_spec.py`: the short spec minus the social lines (`embed.drop`), plus ONE hand-over line (`embed.end`), TTS speed ×0.94, 0.8 s breaths.
+- Plate: `render_v9 --overlay --clean` (caption-free twin of the plate, same frames + audio). Formats (`build_overlay.py --format`):
+  `wide` 1920×1080 = cards on the dark canvas left + the teacher in a rounded window right; `sq45` 1080×1350 = plate cropped around the teacher.
+- Calmer motion (no bounce, no +XP), 30 fps, H.264 CRF 30 (≤ 0.30 MB/s), poster JPG, captions `*.en.vtt` (one cue per line, translatable) +
+  `*.chapters.vtt` (one per top card). End card = "Up next … / Next step →" (no QR, no follow, no lexkite.com).
+- Gates: overlay_* on the format's own canvas/safe area, same text floors, timing / pixel sync / host / still / AV, vtt_captions, chapters, embed_no_follow_cta, file size.
+- Delivery: the existing lesson player `web/js/lesson-video.js` (lite YouTube facade, self-hosted fallback on R2 media.lexkite.com, manifest
+  `/data/videos.json`, docs/VIDEO-STORAGE.md) – no new service. Upload / manifest entry only after the owner's OK.

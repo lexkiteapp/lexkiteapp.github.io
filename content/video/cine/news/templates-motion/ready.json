@@ -337,5 +337,14 @@
    "lo": 4.0,
    "hi": 9.0
   }
+ },
+ "embed": {
+  "drop": [
+   "r_c"
+  ],
+  "end": {
+   "id": "r_n",
+   "text": "Next, let's try a full practice test."
+  }
  }
 }

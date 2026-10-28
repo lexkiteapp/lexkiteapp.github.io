@@ -58,38 +58,48 @@ jobs:
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; "$R" --version | grep -q 1.13
           echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
-      - name: Voice
+      - name: Voice (short + embed spec)
         run: |
-          python3 -c "import json;s=json.load(open('$SPEC'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
-          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          python3 scripts/video/motion/embed_spec.py $SPEC > embed.json
+          for x in "$SPEC:vo" "embed.json:vo_e"; do S=${x%%:*}; D=${x##*:}
+            python3 -c "import json;s=json.load(open('$S'));t=json.load(open('content/video/cine/teachers.json'))['teachers'][s['teacher']];json.dump(dict(voices={s['teacher']:t['voice']},speed=s.get('speed',1.0),lines=[dict(id=l['id'],who=s['teacher'],text=l['text'],**({'speed':l['speed']} if 'speed' in l else {})) for l in s['lines'] if l.get('text')]),open('lines.json','w'),indent=1)"
+            NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json $D; done
       - uses: actions/upload-artifact@v4
-        with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: vo/, retention-days: 3 }
+        with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: 'vo*/', retention-days: 3 }
   render:
     needs: [setup, voice]
     runs-on: ubuntu-latest
     timeout-minutes: 75
     strategy:
       fail-fast: false
-      matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
+      matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}', kind: [short, embed] }   # embed = 16:9 + 4:5 lesson videos from the same data (caption-free plate, VTT)
     env:
       SPEC: content/video/cine/news/templates-motion/${{ matrix.t }}.json
-      O: out/motion/${{ matrix.t }}
+      O: out/motion/${{ matrix.t }}/${{ matrix.kind }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/video9-setup
         with: { key: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
       - uses: actions/download-artifact@v4
-        with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: vo }
+        with: { name: 'mvo-${{ matrix.t }}-${{ github.run_id }}', path: . }
       - name: Host plate (render_v9 --overlay)
         shell: bash
         run: |
           set -o pipefail; mkdir -p $O
           python3 -m pyflakes scripts/video/tpl/render_v9.py scripts/video/motion/*.py | grep -E 'undefined name|syntax error' && exit 1 || true
-          python3 scripts/video/tpl/render_v9.py --spec $SPEC --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --overlay --kbps 24000 --out $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
+          if [ "${{ matrix.kind }}" = short ]; then
+            python3 scripts/video/tpl/render_v9.py --spec $SPEC --vo vo/vis3 --foot footage --fonts brand/social/src/fonts --img img --overlay --kbps 24000 --out $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
+          else   # embed: its own script (no social lines, hand-over line, calmer) + a caption-free plate (captions ship as VTT)
+            python3 scripts/video/motion/embed_spec.py $SPEC > $O/spec.json
+            python3 scripts/video/tpl/render_v9.py --spec $O/spec.json --vo vo_e/vis3 --foot footage --fonts brand/social/src/fonts --img img --overlay --kbps 24000 --out $O/plate_cap.mp4 --clean $O/plate.mp4 > $O/plate.log 2>&1 || { tail -40 $O/plate.log; exit 1; }
+            cp $O/plate_cap.mp4.timeline.json $O/plate.mp4.timeline.json; rm -f $O/plate_cap.mp4
+          fi
           grep -v '^frame ' $O/plate.log | tail -12
       - name: Stitch overlay (layout + word-keyed timing)
         run: |
-          python3 scripts/video/motion/build_overlay.py --spec $SPEC --plate $O/plate.mp4 --fonts brand/social/src/fonts --public $O/pub --out $O/props.json
+          S=$SPEC; [ "${{ matrix.kind }}" = short ] || S=$O/spec.json
+          for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do
+            python3 scripts/video/motion/build_overlay.py --format $f --fps $([ $f = short ] && echo 60 || echo 30) --spec $S --plate $O/plate.mp4 --fonts brand/social/src/fonts --public $O/pub --out $O/$f.json; done
           cp $O/plate.mp4 $O/pub/plate.mp4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
@@ -99,32 +109,42 @@ jobs:
         run: |
           sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
           cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
-      - name: Render 60 fps (stitch-short)
+      - name: Render (short 60 fps CRF 16; embeds 30 fps, small)
         run: |
           cd scripts/video/remotion
-          npx remotion render src/index.jsx stitch-short "$GITHUB_WORKSPACE/$O/${{ matrix.t }}.mp4" --props="$GITHUB_WORKSPACE/$O/props.json" --public-dir="$GITHUB_WORKSPACE/$O/pub" \
-            --codec=h264 --crf=16 --audio-codec=aac --audio-bitrate=192k --log=error
+          for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do
+            Q="--crf=16 --audio-bitrate=192k"; [ $f = short ] || Q="--crf=30 --audio-bitrate=96k"
+            npx remotion render src/index.jsx stitch-short "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4" --props="$GITHUB_WORKSPACE/$O/$f.json" --public-dir="$GITHUB_WORKSPACE/$O/pub" \
+              --codec=h264 $Q --audio-codec=aac --log=error
+            [ $f = short ] || ffmpeg -nostdin -v error -y -ss $(python3 -c "import json;print(json.load(open('$GITHUB_WORKSPACE/$O/$f.json'))['poster_t'])") -i "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.mp4" -frames:v 1 -q:v 4 "$GITHUB_WORKSPACE/$O/${{ matrix.t }}-$f.poster.jpg"
+          done
       - name: QC (qc_v9 on a 24 fps proxy + motion gates) + phone copy
         shell: bash
         run: |
-          rc=0; V=$O/${{ matrix.t }}.mp4; mkdir -p $O/phone
-          python3 scripts/video/motion/qc_motion.py --master $V --props $O/props.json --plate $O/plate.mp4 --hooks "$HOOKS" > $O/qc.log 2>&1 || rc=1
-          tail -60 $O/qc.log
-          ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 20 -maxrate 6500k -bufsize 13000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.t }}.mp4
-          S=$(stat -c %s $O/phone/${{ matrix.t }}.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
-          rm -rf $O/pub/plate.mp4 $O/${{ matrix.t }}.p24.mp4.samples
+          rc=0; mkdir -p $O/phone
+          for f in $([ "${{ matrix.kind }}" = short ] && echo short || echo wide sq45); do V=$O/${{ matrix.t }}-$f.mp4
+            python3 scripts/video/motion/qc_motion.py --master $V --props $O/$f.json --plate $O/plate.mp4 --hooks "$HOOKS" > $O/qc-$f.log 2>&1 || rc=1
+            cat $O/qc-$f.log >> $O/qc.log; tail -40 $O/qc-$f.log
+            if [ $f = short ]; then
+              ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 20 -maxrate 6500k -bufsize 13000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.t }}.mp4
+              S=$(stat -c %s $O/phone/${{ matrix.t }}.mp4); [ "$S" -lt 30000000 ] || { echo "::error::phone copy $S bytes >= 30 MB"; rc=1; }
+            else cp $V $O/phone/; fi
+          done
+          rm -rf $O/pub/plate.mp4 $O/*.p24.mp4.samples
           { echo "## ${{ matrix.t }}"; echo '```'; grep -E '^(PASS|FAIL)|gates\)' $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
           exit $rc
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: motion-prev-${{ matrix.t }}-${{ github.run_id }}
+          name: motion-${{ matrix.t }}-${{ matrix.kind }}-${{ github.run_id }}
           path: |
-            out/motion/${{ matrix.t }}/phone/*.mp4
-            out/motion/${{ matrix.t }}/*.sheet.jpg
-            out/motion/${{ matrix.t }}/*.motion-qc.json
-            out/motion/${{ matrix.t }}/qc.log
-            out/motion/${{ matrix.t }}/plate.log
-            out/motion/${{ matrix.t }}/props.json
-            out/motion/${{ matrix.t }}/*.frames/
+            ${{ env.O }}/phone/*.mp4
+            ${{ env.O }}/*.sheet.jpg
+            ${{ env.O }}/*.poster.jpg
+            ${{ env.O }}/*.vtt
+            ${{ env.O }}/*.motion-qc.json
+            ${{ env.O }}/qc.log
+            ${{ env.O }}/plate.log
+            ${{ env.O }}/*.json
+            ${{ env.O }}/*.frames/
           retention-days: 14

@@ -89,13 +89,20 @@ function Node({ n, kids, t, ox, oy }) {
   );
 }
 
-export const StitchShort = ({ nodes = [], plate }) => {
+const Plate = ({ src, b }) => {   // the host plate (1080x1920) cropped sx/sy/sw/sh into the destination window dx/dy/dw/dh (short = full frame)
+  if (!b) return <OffthreadVideo src={staticFile(src)} />;
+  const k = b.dw / b.sw;
+  return <div style={{ position: 'absolute', left: b.dx, top: b.dy, width: b.dw, height: b.dh, overflow: 'hidden', borderRadius: b.r, boxShadow: b.r ? '0 30px 70px -20px rgba(0,0,0,.6)' : 'none' }}>
+    <OffthreadVideo src={staticFile(src)} style={{ position: 'absolute', left: -b.sx * k, top: -b.sy * k, width: 1080 * k, height: 1920 * k, maxWidth: 'none' }} /></div>;
+};
+
+export const StitchShort = ({ nodes = [], plate, plateBox, bg = '#10191B' }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
-    <AbsoluteFill style={{ background: '#10191B' }}>
-      {plate ? <OffthreadVideo src={staticFile(plate)} /> : null}
+    <AbsoluteFill style={{ background: bg }}>
+      {plate ? <Plate src={plate} b={plateBox} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} />)}</AbsoluteFill>
     </AbsoluteFill>
   );

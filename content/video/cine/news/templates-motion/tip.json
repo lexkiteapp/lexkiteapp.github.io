@@ -265,5 +265,15 @@
     ]
    }
   ]
+ },
+ "embed": {
+  "drop": [
+   "t_sh",
+   "t_c"
+  ],
+  "end": {
+   "id": "t_n",
+   "text": "Next, let's practice since and for."
+  }
  }
 }

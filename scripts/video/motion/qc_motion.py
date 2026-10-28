@@ -23,6 +23,8 @@ for a in ('master', 'props', 'plate', 'hooks'): ap.add_argument('--' + a, requir
 o = ap.parse_args()
 P = json.load(open(o.props)); NODES = P['nodes']; BY = {n['id']: n for n in NODES}; TL = json.load(open(o.props + '.timeline.json'))
 PT = json.load(open(o.plate + '.timeline.json')); W_ = PT['words']; R = {}
+FMT = P.get('format', 'short'); EMBED = FMT != 'short'; PB = P.get('plateBox') or dict(sx=0, sy=0, sw=1080, dx=0, dy=0, dw=1080, dh=1920); KP = PB['dw'] / PB['sw']
+CW, CH = P.get('w', 1080), P.get('h', 1920)
 inter = lambda a, b: a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
 
 def probe(v):
@@ -31,10 +33,10 @@ def grab(v, ts):   # BGR frames at times ts (exact frame = round(t * 60))
     out = {}
     for t in sorted(set(round(x, 4) for x in ts)):
         r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{max(0, t):.4f}', '-i', v, '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-'], capture_output=True).stdout
-        if len(r) == 1080 * 1920 * 3: out[t] = np.frombuffer(r, np.uint8).reshape(1920, 1080, 3)
+        if len(r) == CW * CH * 3: out[t] = np.frombuffer(r, np.uint8).reshape(CH, CW, 3)
     return out
 def crop(F, b, m=0):
-    x0, y0, x1, y1 = [int(round(v)) for v in b]; return F[max(0, y0 + m):min(1920, y1 - m), max(0, x0 + m):min(1080, x1 - m)].astype(np.float32)
+    x0, y0, x1, y1 = [int(round(v)) for v in b]; return F[max(0, y0 + m):min(CH, y1 - m), max(0, x0 + m):min(CW, x1 - m)].astype(np.float32)
 
 # ---------------- 1. measured card fills on the composited master ----------------
 def first(f, lo, hi, step=1 / 600):
@@ -69,19 +71,37 @@ for n in cards:
 for m in measured: m['pop'] = {'endcol': 'cta'}.get(m['pop'], m['pop'])   # card ids -> overlay pop ids (the builder renames the end column 'cta')
 TL['overlay']['measured'] = measured
 
-# ---------------- 2. qc_v9 on a 24 fps proxy (same frame grid as the plate timeline) ----------------
-px = o.master[:-4] + '.p24.mp4'
-subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.master, '-vf', 'fps=24', '-c:v', 'libx264', '-preset', 'slow', '-b:v', '8800k', '-maxrate', '11880k', '-bufsize', '17600k',
-                '-pix_fmt', 'yuv420p', '-g', '48', '-c:a', 'copy', '-movflags', '+faststart', px], check=True)
-json.dump(TL, open(px + '.timeline.json', 'w'), default=str)
-for suf in ('.samples', '.src0.png'):
-    s_, d_ = o.plate + suf, px + suf
-    if os.path.isdir(s_): shutil.rmtree(d_, ignore_errors=True); shutil.copytree(s_, d_)
-    elif os.path.exists(s_): shutil.copy(s_, d_)
-q = subprocess.run([sys.executable, f'{ROOT}/scripts/video/tpl/qc_v9.py', px, o.hooks], capture_output=True, text=True); print(q.stdout[-6000:], q.stderr[-2000:])
-QV = json.load(open(px + '.qc.json')) if os.path.exists(px + '.qc.json') else dict(gates={}, failed=['qc_v9 crashed'])
-R.update({f'v9.{k}': v for k, v in QV['gates'].items()})
-if not QV['gates']: R['v9.run'] = dict(ok=False, note='qc_v9 crashed', err=q.stderr[-800:])
+# ---------------- 2. qc_v9 on a 24 fps proxy (same frame grid as the plate timeline); embeds: overlay gates on their canvas ----------------
+if EMBED:
+    sys.path.insert(0, f'{ROOT}/scripts/video/tpl'); from overlay_gates import overlay_gates
+    els = lambda f: [dict(zip(('name', 'text', 'x0', 'y0', 'x1', 'y1', 'alpha', 'px', 'group', 'digit', 'where', 'm'), e)) for e in f['els']]
+    R.update({f'og.{k}': v for k, v in overlay_gates(TL, [(f['t'], els(f)) for f in TL['frames']], P['safe'], ROOT).items()})
+    low = [(f['t'], e[0], m_) for f in TL['frames'] for e in f['els'] if e[6] >= 0.999 for m_ in e[11] if m_[1] < {'hook': 72, 'body': 56, 'card': 25}[m_[0]] - 0.05]
+    R['min_text_px'] = dict(ok=not low, too_small=low[:4], note='same phone floors as the shorts: cap height hook >= 72, body >= 56, card lines >= 25')
+    import re as _re
+    vt = open(o.props[:-5] + '.en.vtt').read(); cues_ = _re.findall(r'(\d\d:\d\d:\d\d\.\d+) --> (\d\d:\d\d:\d\d\.\d+)\n(.+)', vt)
+    sec = lambda x: int(x[:2]) * 3600 + int(x[3:5]) * 60 + float(x[6:])
+    S_ = [l for l in TL['spec']['lines'] if l.get('text')] if TL['spec'].get('lines') else []
+    D = TL.get('display') or {}; norm = lambda x: ' '.join(D.get(w.rstrip('.,?!:;').lower(), w.rstrip('.,?!:;')) + w[len(w.rstrip('.,?!:;')):] for w in x.split())
+    vbad = [(a, t_, l['text']) for (a, b, t_), l in zip(cues_, S_) if t_ != norm(l['text']) or abs(sec(a) - W_[f"{l['id']}.0"]['s']) > 0.04]
+    R['vtt_captions'] = dict(ok=len(cues_) == len(S_) and not vbad, cues=len(cues_), lines=len(S_), bad=vbad[:3], note='one cue per spoken line == script (display forms), starts on its first word (<= 40 ms); burned captions off')
+    R['chapters'] = dict(ok=os.path.exists(o.props[:-5] + '.chapters.vtt') and open(o.props[:-5] + '.chapters.vtt').read().count('-->') >= 3)
+    cta_txt = ' '.join(n.get('text', '') + ' '.join(r[0] for r in n.get('runs', [])) + ' '.join(n.get('lines', [])) for n in NODES).lower()
+    R['embed_no_follow_cta'] = dict(ok=not any(w in cta_txt for w in ('follow', 'subscribe', 'lexkite.com', 'qr')) and not any(n.get('src') == 'qr.png' for n in NODES) and 'next step' in cta_txt,
+                                    note='embedded lesson video: no follow / site CTA, no QR; the end card hands over to the next lesson step')
+if not EMBED:
+    px = o.master[:-4] + '.p24.mp4'
+    subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', o.master, '-vf', 'fps=24', '-c:v', 'libx264', '-preset', 'slow', '-b:v', '8800k', '-maxrate', '11880k', '-bufsize', '17600k',
+                    '-pix_fmt', 'yuv420p', '-g', '48', '-c:a', 'copy', '-movflags', '+faststart', px], check=True)
+    json.dump(TL, open(px + '.timeline.json', 'w'), default=str)
+    for suf in ('.samples', '.src0.png'):
+        s_, d_ = o.plate + suf, px + suf
+        if os.path.isdir(s_): shutil.rmtree(d_, ignore_errors=True); shutil.copytree(s_, d_)
+        elif os.path.exists(s_): shutil.copy(s_, d_)
+    q = subprocess.run([sys.executable, f'{ROOT}/scripts/video/tpl/qc_v9.py', px, o.hooks], capture_output=True, text=True); print(q.stdout[-6000:], q.stderr[-2000:])
+    QV = json.load(open(px + '.qc.json')) if os.path.exists(px + '.qc.json') else dict(gates={}, failed=['qc_v9 crashed'])
+    R.update({f'v9.{k}': v for k, v in QV['gates'].items()})
+    if not QV['gates']: R['v9.run'] = dict(ok=False, note='qc_v9 crashed', err=q.stderr[-800:])
 
 # ---------------- 3. motion gates ----------------
 cues = TL['overlay'].get('cues') or []; late = []; tok_bad = []; rows = []
@@ -117,7 +137,9 @@ for f in TL['frames']:
     Mx = f['M']; s, tx, ty = Mx[0], Mx[2], Mx[5]; srcs = [c for c, k, w in f['src'] if w > 0.02]
     for e in f['els']:
         if e[10] != 'overlay' or e[6] <= 0.004: continue
-        bx = e[2:6]; sb = [int((bx[0] - tx) / s), int((bx[1] - ty) / s), int(math.ceil((bx[2] - tx) / s)), int(math.ceil((bx[3] - ty) / s))]
+        cb = e[2:6]; bx = [(cb[0] - PB['dx']) / KP + PB['sx'], (cb[1] - PB['dy']) / KP + PB['sy'], (cb[2] - PB['dx']) / KP + PB['sx'], (cb[3] - PB['dy']) / KP + PB['sy']]   # canvas -> plate screen
+        if EMBED and inter(cb, [PB['dx'], PB['dy'], PB['dx'] + PB['dw'], PB['dy'] + PB['dh']]) and FMT == 'wide': hits.append((f['t'], e[0], 'window', 'teacher window')); continue
+        sb = [int((bx[0] - tx) / s), int((bx[1] - ty) / s), int(math.ceil((bx[2] - tx) / s)), int(math.ceil((bx[3] - ty) / s))]
         for c in srcs:
             nchk += 1; hb = HD[c]
             if inter(bx, [s * hb[0] + tx, s * hb[1] + ty, s * hb[2] + tx, s * hb[3] + ty]): hits.append((f['t'], e[0], c, 'head'))
@@ -148,9 +170,17 @@ for nid, (a_, b_) in tsel.items():
     d = float(np.abs(mA - mB)[keep].mean()) if keep.any() else 0.0
     if d > 2.0: pxm.append((nid, a_, b_, round(d, 2)))
 R['overlay_still'] = dict(ok=not mv and not pxm, moving=mv[:4], pixels_moved=pxm[:4], checked=len(tsel), note='transform identity from settle to the next event (core) + card pixels hold still (|diff| <= 2, animated widgets excluded)')
+BANK = {x['id']: x for x in json.load(open(f'{ROOT}/brand/library/cine/teachers/bank.json'))['clips']}
+style = lambda c: None if c not in BANK else ('3d' if '3d' in (BANK[c].get('tags') or []) else '2d')
+used = sorted({c for f in PT['frames'] for c, k, w in f['src'] if w > 0.02}); par = PT.get('host_parent') or {}
+styles = {c: style(par.get(c, c)) for c in used}
+R['host_one_style'] = dict(ok=bool(used) and None not in styles.values() and len(set(styles.values())) == 1, styles=styles,
+                           note='owner 28/10: one video = ONE host bank/style (all 3D or all 2D, never mixed); every clip on screen traced to its bank family')
 pm, pp = probe(o.master), probe(o.plate); vm = [s for s in pm['streams'] if s['codec_type'] == 'video'][0]; am = [s for s in pm['streams'] if s['codec_type'] == 'audio']
 dm, dp = float(pm['format']['duration']), float(pp['format']['duration'])
-R['file60'] = dict(ok=(vm['width'], vm['height']) == (1080, 1920) and vm['r_frame_rate'] in ('60/1',) and abs(dm - dp) <= 0.06 and bool(am) and am[0]['codec_name'] == 'aac',
+mbs = int(pm['format']['size']) / 1e6 / dm
+R['file'] = dict(ok=(vm['width'], vm['height']) == (CW, CH) and vm['r_frame_rate'] == ('60/1' if not EMBED else '30/1') and abs(dm - dp) <= 0.06 and bool(am) and am[0]['codec_name'] == 'aac'
+                 and (not EMBED or (mbs <= 0.30 and os.path.exists(o.master[:-4] + '.poster.jpg'))), format=FMT, mb_per_s=round(mbs, 3),
                    fps=vm['r_frame_rate'], duration=round(dm, 3), plate=round(dp, 3), mbps=round(int(pm['format']['size']) * 8 / dm / 1e6, 2), audio=am[0]['codec_name'] if am else None)
 def env(v):
     r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-i', v, '-t', '12', '-ac', '1', '-ar', '8000', '-f', 's16le', '-'], capture_output=True).stdout
@@ -164,9 +194,9 @@ sel = sorted({round(min(P['total'] - 0.5, r['appears'] + 0.6), 3) for r in rows}
 FS3 = grab(o.master, sel); tiles = []
 for t in sel:
     if t not in FS3: continue
-    im = cv2.resize(FS3[t], (270, 480), interpolation=cv2.INTER_AREA); cv2.rectangle(im, (0, 0), (92, 26), (16, 25, 27), -1)
+    im = cv2.resize(FS3[t], (270, round(270 * CH / CW)), interpolation=cv2.INTER_AREA); cv2.rectangle(im, (0, 0), (92, 26), (16, 25, 27), -1)
     cv2.putText(im, f'{t:5.2f}s', (4, 19), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (243, 248, 248), 1, cv2.LINE_AA); tiles.append(im)
-cols = 6; rows_ = [tiles[i:i + cols] for i in range(0, len(tiles), cols)]
+tiles = [cv2.resize(x, (270, round(270 * CH / CW))) for x in tiles]; cols = 6; rows_ = [tiles[i:i + cols] for i in range(0, len(tiles), cols)]
 rows_ = [np.hstack(r + [np.zeros_like(tiles[0])] * (cols - len(r))) for r in rows_]
 cv2.imwrite(o.master[:-4] + '.sheet.jpg', np.vstack(rows_), [cv2.IMWRITE_JPEG_QUALITY, 82])
 fd = o.master[:-4] + '.frames'; os.makedirs(fd, exist_ok=True)

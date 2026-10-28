@@ -294,5 +294,15 @@
     "right": 1
    }
   ]
+ },
+ "embed": {
+  "drop": [
+   "d_sh",
+   "d_c"
+  ],
+  "end": {
+   "id": "d_n",
+   "text": "Next, let's practice verb forms together."
+  }
  }
 }
