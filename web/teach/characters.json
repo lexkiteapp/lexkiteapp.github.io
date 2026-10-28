@@ -109,7 +109,7 @@
       "bytes": 7108
     },
     "ama/encourage.mp4": {
-      "sha256": "041ed55fab20659525f43ed4fe002e5b608c1d1ecff5159257f2295e4c4b0687",
+      "sha256": "6d815822e9cd28a6d98ce1c1c6b9265f8a8a3a8dfe6215c2cab6c45b374d0c0d",
       "bytes": 140108
     },
     "ama/explain.mp4": {
@@ -145,16 +145,16 @@
       "bytes": 7088
     },
     "carlos/happy.mp4": {
-      "sha256": "43e9ab3d8bac000aca7e54c4e6a06be97b3d68dfadd4b247bcee35836453ce68",
-      "bytes": 118695
+      "sha256": "9998676777c25dafa3664b0051f954684870a68956bac5d2174402b62045ca05",
+      "bytes": 118789
     },
     "carlos/laugh.mp4": {
       "sha256": "864e50ccca3854cd2687730923d8cccfb3442983fff63fcd1de812dc5cdfea25",
       "bytes": 136595
     },
     "carlos/listen.mp4": {
-      "sha256": "511ba16c91712e674e1dbb745a629fbf76346da222f268ac1eafe825c0225058",
-      "bytes": 114865
+      "sha256": "f0b57ac35a21954c500b736bb224ac8f28c5fd56abcf2dcc8517052eed8da784",
+      "bytes": 114754
     },
     "carlos/poster.webp": {
       "sha256": "165e97478f659d8d71f3f41514ba2d8a10e11d16a7beb2d3308d87f09deb0c80",
@@ -165,8 +165,8 @@
       "bytes": 136620
     },
     "carlos/thinking.mp4": {
-      "sha256": "0d791f0c2654c42b2e4ec86b7de33454fe0f3b4e5c244dcc7c738b0a85705e1d",
-      "bytes": 68588
+      "sha256": "da5bf144c34e03df4adddb8548212f226c34ce83e4f02cb41e040ffeaa081ccb",
+      "bytes": 68609
     }
   }
 }
