@@ -43,7 +43,7 @@ const PROBE = () => {
   const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chỉ chữ riêng tiếng Việt (â ê ô có ở fr/pt/tr)
   // Nhân vật lạ: emoji mặt người/người/con vật/mascot (ký hiệu đồ vật 🔥🧊🎁🎉 thì được)
   const FACE = /[\u{1F600}-\u{1F64F}\u{1F466}-\u{1F478}\u{1F47C}\u{1F481}-\u{1F487}\u{1F574}-\u{1F575}\u{1F57A}\u{1F645}-\u{1F64F}\u{1F6B6}\u{1F9D1}-\u{1F9DF}\u{1F42D}-\u{1F43E}\u{1F98A}\u{1F989}\u{1F99C}\u{1F916}\u{1F47E}\u{1F920}-\u{1F92F}\u{1F970}-\u{1F97A}]/u;
-  const ALLOWED_IMG = /\/teach\/(ama|carlos)\/|\/img\/teach\/(ama|carlos)\.|teachers3d\/|teacher-(call|pilot)\/(clips|assets)\/(ama|carlos)_|ext-lookup-480\.webp|^data:image\/gif|^blob:/;
+  const ALLOWED_IMG = /\/teach\/(ama|carlos)\/|\/img\/teach\/(ama|carlos)\.|teachers3d\/|teacher-(call|pilot)\/(clips|assets)\/(ama|carlos)_|ext-lookup-480\.webp|\/vimg\/|^data:image\/gif|^blob:/;
   // Máy cảm ứng thật khớp @media (pointer: coarse) → vùng chạm --tap 2.8rem; Chromium giả lập hasTouch KHÔNG đổi media "pointer" → tự bật các khối coarse/hover:none
   const touchify = () => { for (const ss of D.styleSheets) { let rules; try { rules = ss.cssRules; } catch (e) { continue; } for (const r of rules) if (r.media && r.conditionText !== undefined) { const c = r.conditionText; if (/pointer:\s*coarse|hover:\s*none/.test(c) && !/pointer:\s*fine|hover:\s*hover/.test(c)) r.media.mediaText = 'all'; else if (/pointer:\s*fine|hover:\s*hover/.test(c) && !/coarse|none/.test(c)) r.media.mediaText = 'not all'; } } };
   const mOpen0 = () => { const m = D.querySelector('#modal:not([hidden]) #modalBox'); return !!(m && vis(m)); };
