@@ -12,9 +12,9 @@
   const E = window.CallEngine;
   const ACCENT = 'en-US';
   const WHO = { ama: 'Ama', carlos: 'Carlos' };
-  // poster.webp (bộ giáo viên mới teach-green, nền trong suốt) → lỗi thì poster.jpg (bộ sprite cũ) – chạy được trước & sau khi bộ mới merge
+  // Chỉ bộ giáo viên 2D (teach-green: poster.webp nền trong suốt) – chủ 28/10: một phong cách, KHÔNG trộn 3D. Thiếu ảnh → ô chữ cái trung tính (không lùi về ảnh 3D)
   const poster = w => 'teach/' + (WHO[w] ? w : 'ama') + '/poster.webp';
-  const poFix = root => $$('img[data-po]', root).forEach(i => { i.onerror = () => { i.onerror = null; i.src = i.src.replace(/\.webp$/, '.jpg'); }; });
+  const poFix = root => $$('img[data-po]', root).forEach(i => { i.onerror = () => { i.onerror = null; const d = document.createElement('span'); d.className = 'call-ini ' + (i.className || ''); d.setAttribute('aria-hidden', 'true'); d.textContent = (i.alt || i.dataset.po || 'A')[0]; i.replaceWith(d); }; });
   const NAME = {
     coffee: () => t('Mua cà phê cho cả nhóm'), weekend: () => t('Kể chuyện cuối tuần'), 'first-day': () => t('Ngày đầu đi làm ở Mỹ'), standup: () => t('Họp đầu ngày (stand-up)'), doctor: () => t('Đặt lịch khám bác sĩ'), apartment: () => t('Gọi hỏi thuê căn hộ'),
     'ielts-p1-home': () => t('IELTS Part 1: quê nhà, công việc, thời gian rảnh'), 'ielts-p2-place': () => t('IELTS Part 2: tả một nơi bạn thích đến'), 'ielts-p3-tech': () => t('IELTS Part 3: công nghệ và việc học'),
@@ -59,16 +59,16 @@
     const st = document.createElement('style'); st.id = 'callCss';
     st.textContent = `.call-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.8rem}
 .call-card{display:flex;gap:.8rem;align-items:center;padding:.9rem;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);color:var(--text);text-decoration:none;min-height:44px}
-.call-card:hover{border-color:var(--primary)}.call-card img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 0;background:#f4efe6;flex:none}.call-card b{display:block}
+.call-card:hover{border-color:var(--primary)}.call-card img,.call-card .call-ini{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 0;flex:none}.call-card b{display:block}
 .call-flt{display:flex;gap:.4rem;flex-wrap:wrap;margin:0 0 .8rem}.call-flt button{min-height:36px}
 .call-ov{position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;align-items:center;background:radial-gradient(120% 80% at 50% 0%,#1f4f4d 0%,#0f2223 55%,#0a1414 100%);color:#fff;padding:max(14px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));overflow-y:auto}
 .call-top{width:100%;max-width:560px;display:flex;justify-content:space-between;align-items:center;gap:.6rem;font-size:.85rem;opacity:.9}
-.call-av{position:relative;width:min(46vw,210px);aspect-ratio:3/4;margin:1.4vh auto .8vh;border-radius:22px;overflow:hidden;background:rgba(255,255,255,.06);box-shadow:0 0 0 4px rgba(255,255,255,.08);flex:none;transition:box-shadow .2s}
+.call-av{position:relative;width:min(46vw,210px);aspect-ratio:3/4;margin:1.4vh auto .8vh;border-radius:22px;overflow:hidden;background:transparent;box-shadow:0 0 0 4px rgba(255,255,255,.08);flex:none;transition:box-shadow .2s}
 .call-av>img.call-po{width:100%;height:100%;object-fit:contain;object-position:50% 100%}.call-av .tch{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
-.tch-rig{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-rig img,.tch-rig video{position:absolute;inset:0;width:480px;height:640px;object-fit:cover}
-/* bộ giáo viên mới (canvas WebGL, nền trong suốt): khung co theo ô, không phóng 480×640 */
-.tch-rig:has(canvas){inset:0;width:auto;height:auto;transform:none!important}.tch-rig:has(canvas) img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
-.tch-face{position:absolute;left:0;top:0;width:480px;height:640px;transform-origin:0 0}.tch-m{position:absolute;background-repeat:no-repeat;opacity:0;transition:opacity 60ms linear}
+.tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
+.call-ini{display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.4rem;color:var(--primary,#0D6964);background:rgba(13,105,100,.12);border-radius:50%}
+.call-rp{width:120px;height:160px;object-fit:contain;object-position:50% 100%;margin:0 auto}.call-ini.call-rp{border-radius:18px}
+.call-av .call-ini{width:100%;height:100%;border-radius:22px;font-size:3rem;color:#fff;background:rgba(255,255,255,.08)}
 .call-av.talk{box-shadow:0 0 0 4px rgba(255,165,130,.55),0 0 36px rgba(255,132,102,.4)}
 .call-av.listen{box-shadow:0 0 0 4px rgba(94,234,212,.75),0 0 40px rgba(94,234,212,.4)}
 .call-st{display:inline-flex;align-items:center;gap:.45rem;min-height:28px;padding:.15rem .7rem;border-radius:99px;background:rgba(255,255,255,.1);font-size:.85rem}
@@ -110,7 +110,7 @@ body.call-on{overflow:hidden}`;
     const groups = ['all', 'ielts', 'toeic', 'everyday'];
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${t('Gọi cho Ama & Carlos')}</h1><p class="muted">${t('Cuộc gọi video luyện nói: giáo viên hỏi, bạn trả lời bằng giọng nói. Câu hỏi rẽ nhánh theo câu trả lời, lỗi được sửa nhẹ nhàng, cuối cuộc gọi có tổng kết và luyện lại câu yếu.')}</p></div></div>
       <div class="call-flt" role="group" aria-label="${t('Lọc theo kỳ thi')}">${groups.map(gr => `<button type="button" class="btn sm ${flt === gr ? 'primary' : ''}" data-g="${gr}" aria-pressed="${flt === gr}">${gr === 'all' ? t('Tất cả') : GROUP[gr]()}</button>`).join('')}</div>
-      <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${WHO[x.who]} · <span lang="en">${esc(x.title)}</span></span></span></a>`).join('')}</div>
+      <div class="call-grid">${list.filter(x => flt === 'all' || groupOf(x) === flt).map(x => `<a class="call-card" href="#/call/${x.id}"><img data-po="${WHO[x.who]}" src="${poster(x.who)}" alt="" width="56" height="56" loading="lazy"><span><b>${x.em} ${esc(nameOf(x))}</b><span class="tiny muted"><span class="chip lv">${x.lv}</span> ${WHO[x.who]} · <span lang="en">${esc(x.title)}</span></span></span></a>`).join('')}</div>
       <p class="tiny muted" style="margin-top:1rem"><span id="callPriv">${PRIV.ask()}</span>${pref('asr') ? ` <button type="button" class="btn sm ghost" id="callAsr">${t('Đổi cách nhận dạng')}</button>` : ''}</p>`;
     const ab = $('#callAsr'); if (ab) ab.onclick = () => { try { localStorage.removeItem('vb.call.asr'); } catch (e) { /* bỏ qua */ } toast(t('Lần gọi sau Lexkite sẽ hỏi lại cách nhận dạng.')); routes.call(); };
     poFix(view);
@@ -122,7 +122,7 @@ body.call-on{overflow:hidden}`;
   function ring(c) {
     const nm = WHO[c.who];
     view.innerHTML = `<div class="page-head"><div><h1>📞 ${esc(nameOf(c))}</h1><p class="muted"><span class="chip lv">${c.lv}</span> <span lang="en">${esc(c.title)}</span></p></div></div>
-      <div class="card center"><img data-po src="${poster(c.who)}" alt="${nm}" width="120" height="160" style="object-fit:contain;object-position:50% 100%"><p><b>${nm}</b> – <span lang="en">${esc(c.role)}</span></p>
+      <div class="card center"><img class="call-rp" data-po src="${poster(c.who)}" alt="${nm}" width="120" height="160"><p><b>${nm}</b> – <span lang="en">${esc(c.role)}</span></p>
       <p class="tiny muted" id="callPriv">${PRIV.ask()}</p>
       <div class="row center" style="gap:.6rem;flex-wrap:wrap"><button class="btn primary lg" id="callGo">📞 ${t('Gọi ngay')}</button><a class="btn" href="#/call">${t('Cuộc gọi khác')}</a></div></div>`;
     poFix(view);
@@ -165,7 +165,8 @@ body.call-on{overflow:hidden}`;
     }, 500);
 
     // Giáo viên khớp môi: sprite (teacher.js) – lỗi/thiếu → ảnh poster tĩnh, cuộc gọi vẫn chạy
-    if (window.LessonTeacher) try { const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); } catch (e) { tch = null; }
+    // Giáo viên động chỉ khi bộ 2D có mặt (teach.json); không thì giữ poster 2D tĩnh – không bao giờ hiện bộ sprite 3D cũ
+    if (window.LessonTeacher) fetch('teach/' + c.who + '/teach.json', { method: 'HEAD' }).then(r => { if (!r.ok || dead || tch) return; const host = document.createElement('div'); host.className = 'tch'; $('#cAv', ov).appendChild(host); tch = LessonTeacher.mount(host, c.who); }).catch(() => {});
 
     // Phụ đề dịch (dòng 2): dịch sẵn mọi câu của giáo viên 1 lần – không chặn cuộc gọi; lỗi mạng thì chỉ hiện tiếng Anh
     const pieces = [...new Set(Object.values(c.nodes).flatMap(x => [x.m, x.re, ...(x.br || []).map(b => b[1])]).concat(c.end).filter(Boolean))];
