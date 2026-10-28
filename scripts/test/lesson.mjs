@@ -204,7 +204,8 @@ await App.routes.lesson(); await tick(60);
 ok(w.document.querySelectorAll('.lsn-node').length === 6 && w.document.querySelectorAll('.lsn-node.next').length === 1 && $('.lsn-node.next .lsn-start'), 'bản đồ: 6 nút, đúng MỘT nút "tiếp theo" có nút Bắt đầu');
 ok($('.lsn-start').getAttribute('href') === '#/lesson/go?demo=1' && !w.document.querySelector('.lsn-node.done'), 'bản đồ: Bắt đầu → #/lesson/go, chưa nút nào xong');
 w.location.hash = '#/lesson/go?demo=1';
-await App.routes.lesson('go'); await tick(320);
+await Promise.all([App.routes.lesson('go'), App.routes.lesson('go')]); await tick(320); // route chạy chồng (2 sự kiện gần nhau)
+ok(w.document.querySelectorAll('.lsn-foot').length === 1, 'route chạy chồng → đúng 1 chân bài học (trước đây chân rỗng thứ 2 đè mép dưới nút Kiểm tra)');
 ok($('#lsn') && $('.lsn-bar') && $('#lsnBub').textContent.length > 3, 'demo: dựng màn bài học (thanh tiến độ + lời nhắc)');
 const L0 = st();
 ok(L0.demo && L0.items.length >= 7 && L0.items.length <= 11, `demo: ${L0.items.length} bài (2–3 phút)`);
