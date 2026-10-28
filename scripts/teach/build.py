@@ -15,7 +15,7 @@ REG = f'{OUT}/characters.json'
 R = json.load(open(REG)); F = R['frame']; W, H = F['w'], F['h']
 errs = []
 # mép cắt dưới (hông/vai) mờ dần → không lộ đường cắt ngang/khung khi đặt trên nền trang (chủ: tách nền sạch, hoà vào nền, không khung)
-fade = lambda f: f"geq=lum='lum(X,Y)*min(1,(H-Y)/(H*{f}))'"
+fade = lambda f: f"geq=lum='lum(X,Y)*min(1,(H-Y)/(H*{f}))*min(1,X/(W*0.06))*min(1,(W-1-X)/(W*0.06))'"
 FADE = fade(0.10)
 
 
@@ -61,7 +61,7 @@ for who, P in R['people'].items():
     if CY < 0 or CY + CH > FH: errs.append(f'{who}: khung cao {CH}+{CY} ra ngoài clip {FW}x{FH}'); continue
     crop = f'{CW}:{CH}:{CX}:{CY}'; SC = f'scale={SW}:{H}:flags=lanczos,pad={W}:{H}:{PX}:0:black'
     # alpha: vùng đệm = 0 TUYỆT ĐỐI (pad xám tô 16 = 'đen dải hẹp' → lộ khung mờ), mép dưới mờ dần
-    FA = f"geq=lum='if(between(X,{PX},{PX + SW - 1}),lum(X,Y),0)*min(1,(H-Y)/(H*0.10))'"; print(f'{who}: crop {crop} → {SW}x{H} đệm {PX} → {W}x{H}')
+    FA = f"geq=lum='if(between(X,{PX},{PX + SW - 1}),lum(X,Y),0)*min(1,(H-Y)/(H*0.10))*min(1,X/(W*0.05))*min(1,(W-1-X)/(W*0.05))'"; print(f'{who}: crop {crop} → {SW}x{H} đệm {PX} → {W}x{H}')
     for pose in R['poses']:
         c = P['clips'][pose]; src = c['src']; cf, cm = f'{G}/kfull_pro/{src}.mp4', f'{G}/kmask_pro/{src}.mkv'
         if not (os.path.exists(cf) and os.path.exists(cm)):

@@ -36,7 +36,8 @@ for who in R['people']:
 crops = []
 for who in R['people']:
     im = Image.open(f'{T}/{who}/poster.webp').convert('RGBA'); A = im.getchannel('A'); x0, y0, x1, y1 = A.getbbox(); cx = (x0 + x1) // 2
-    for name, box in (('tóc', (cx - 50, max(0, y0 - 8), cx + 50, y0 + 67)), ('vai trái', (x0 - 8, H // 2, x0 + 92, H // 2 + 75)), ('vai phải', (x1 - 92, H // 2, x1 + 8, H // 2 + 75))):
+    ys = int(H * 0.5); row = [x for x in range(im.width) if A.getpixel((x, ys)) > 24]; l, r = (row[0], row[-1]) if row else (x0, x1)   # mép vai ở giữa khung
+    for name, box in (('tóc', (cx - 50, max(0, y0 - 8), cx + 50, y0 + 67)), ('vai trái', (l - 30, ys - 37, l + 70, ys + 38)), ('vai phải', (r - 70, ys - 37, r + 30, ys + 38))):
         for bg in BGS:
             b = Image.new('RGBA', (box[2] - box[0], box[3] - box[1]), bg + (255,)); b.alpha_composite(im.crop(box)); crops.append((f'{who} {name}', b.convert('RGB').resize((200, 150), Image.NEAREST)))
 cols2 = 6; strip = Image.new('RGB', (sheet.width, ((len(crops) + cols2 - 1) // cols2) * 172 + 30), (255, 255, 255)); d2 = ImageDraw.Draw(strip); d2.text((6, 6), 'Mép phóng 2× (soát tách nền)', fill=(0, 0, 0))
