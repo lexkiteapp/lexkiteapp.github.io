@@ -13,6 +13,8 @@
   const ls = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* bỏ qua */ } } };
   const CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const cefrN = s => CEFR.indexOf(String(s || '').toUpperCase().slice(0, 2)) + 1;
+  // Ảnh giáo viên trong app: MỘT nguồn (luật 1 phong cách nhân vật/ màn – đổi bộ ảnh = đổi dòng này)
+  App.teacherImg = w => 'teach/' + (w === 'carlos' ? 'carlos' : 'ama') + '/poster.jpg';
   const keyOf = w => (window.Core && Core.keyOf ? Core.keyOf(w) : String(w || '').toLowerCase());
 
   // ---------- 5 tab ----------
@@ -168,14 +170,14 @@
       const label = cp ? cp.name : KNAME(p.kind), icon = st === 'done' ? 'circle-check' : cp ? cp.icon : KICON[p.kind] || 'star';
       const dot = st === 'next' ? `<a class="lsn-dot" href="#/lesson/go${Q}" aria-label="${esc(label)}">${ic(icon)}</a>` : `<span class="lsn-dot" role="img" aria-label="${esc(label)}${st === 'done' ? ' ✓' : ''}">${ic(icon)}${st === 'lock' ? `<i class="ux1-lk">${ic('lock')}</i>` : ''}</span>`;
       return `<li class="lsn-node ux1-n ${st}${cp ? ' cp' : ''}" style="--x:${x}px;--i:${i}">${st === 'next' ? `<a class="btn primary lg lsn-start ux1-go" href="#/lesson/go${Q}"><span class="ux1-gl" aria-hidden="true"></span>${t('Bắt đầu')} · +20 XP</a>` : ''}
-        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async">` : ''}${dot}${cp ? `<b class="ux1-ms">${t('Mốc')}</b>` : ''}</span>${st === 'done' && k ? STARS(k) : ''}<span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}${st === 'next' ? `<em>${t('{n} phút', { n: KMIN[p.kind] || 4 })}</em>` : ''}</span></li>`;
+        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="${App.teacherImg(who)}" alt="" width="48" height="48" decoding="async">` : ''}${dot}${cp ? `<b class="ux1-ms">${t('Mốc')}</b>` : ''}</span>${st === 'done' && k ? STARS(k) : ''}<span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}${st === 'next' ? `<em>${t('{n} phút', { n: KMIN[p.kind] || 4 })}</em>` : ''}</span></li>`;
     }).join('');
     view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
       <section class="ux1-unit tk-card u-${u.color}"><div class="ux1-uh"><div class="grow"><span class="tk-chip ux1-badge">${t('Chặng học {n}', { n: u.no })}</span> <small>${esc(X.short)} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1 class="tk-display">${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1></div>
         <div class="ux1-uside">${u.words.length ? `<span class="ux1-chip" title="${t('Kiến thức đã có')}">${ic('library')} ${have}/${u.words.length}</span>` : ''}${(state.settings || {}).placement ? '' : `<a class="ux1-chip" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ')}</a>`}</div></div>
         <div class="ux1-uprog"><b>${t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length })}</b>${xpTo ? `<span>${ic('zap')} ${t('+{x} XP tới mốc kiểm tra', { x: xpTo })}</span>` : ''}</div>
         <span class="tk-bar ux1-ubar" role="progressbar" aria-valuemin="0" aria-valuemax="${P.length}" aria-valuenow="${at}"><i style="width:${Math.round(at / P.length * 100)}%"></i></span>
-        <p class="ux1-hint"><img src="teach/${who === 'ama' ? 'carlos' : 'ama'}/poster.jpg" alt="" width="32" height="32" decoding="async"><span><b>${who === 'ama' ? 'Carlos' : 'Ama'}:</b> ${esc(CAN()[u.id] || '')}</span></p></section>
+        <p class="ux1-hint"><img src="${App.teacherImg(who === 'ama' ? 'carlos' : 'ama')}" alt="" width="32" height="32" decoding="async"><span><b>${who === 'ama' ? 'Carlos' : 'Ama'}:</b> ${esc(CAN()[u.id] || '')}</span></p></section>
       <ol class="lsn-path ux1-path">${nodes}</ol>
       <div class="ux1-cta"><a class="btn primary lg tk-btn wide" href="#/lesson/go${Q}" data-ux1-cta>${t('Tiếp tục chặng {n}', { n: u.no })} · ${t('{n} phút', { n: nxMin })} ${ic('chevron-right')}</a></div></div>`;
     fillMock(view);
