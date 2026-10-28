@@ -700,7 +700,7 @@
       <section class="card today-card home-hero" id="todayPlan" aria-busy="true"><div class="skel skel-l"></div><div class="skel skel-l"></div><div class="skel skel-l"></div></section>
       <h2 class="home-more-h">${t('Thêm cho hôm nay')}</h2>
       <div class="home-more">
-        <div class="home-col">${ringsHtml()}<a class="quest-line small" href="#/stats?s=quests">${UI.icon('medal')} ${t('Nhiệm vụ hôm nay: {a}/{b}', { a: doneQ.length, b: quests.length })} · ${quests.filter(q => !doneQ.includes(q.id)).map(q => UI.glyph(q.icon)).join(' ')} <span aria-hidden="true">›</span></a><div id="leagueHomeCard"></div></div>
+        <div class="home-col">${ringsHtml()}<a class="card hover quest-card" href="#/stats?s=quests"><span class="qc-h"><span class="qc-t">${UI.icon('medal')} ${t('Nhiệm vụ hôm nay')}</span><span class="chip${doneQ.length === quests.length ? ' ok' : ''}">${doneQ.length}/${quests.length}</span><span class="chev" aria-hidden="true">›</span></span>${quests.map(q => { const v = Math.min(q.goal, (state.game.days[k] || {})[q.metric] || 0), ok = doneQ.includes(q.id); return `<span class="qc-it${ok ? ' done' : ''}"><span class="qc-ic" aria-hidden="true">${UI.glyph(ok ? 'circle-check' : q.icon)}</span><span class="qc-tx">${esc(q.text)}</span><span class="qc-n">${v}/${q.goal}</span><span class="progress thin xp qc-bar" aria-hidden="true"><i style="width:${v / q.goal * 100}%"></i></span></span>`; }).join('')}</a><div id="leagueHomeCard"></div></div>
         <div class="home-col">
           ${App.lessonOn() ? `<a class="card hover hub-card" href="#/lesson"><span class="hub-ic" aria-hidden="true">${UI.icon('sparkles')}</span><span class="hub-tx"><b>${t('Bài học trộn')}</b><small>${t('Nghe · nói · xếp câu từ chính các từ của bạn')}</small></span><span class="chev" aria-hidden="true">›</span></a>` : ''}
           <a class="card hover hub-card quick-play-card" href="#/quick"><span class="hub-ic" aria-hidden="true">${UI.icon('zap')}</span><span class="hub-tx"><b>${t('Chơi nhanh 15 giây')}</b><small>${t('4 câu cực ngắn · Không sợ sai, giữ phản xạ')}</small></span><span class="chip ok">${t('Chơi ngay')} →</span></a>
@@ -709,7 +709,7 @@
             ${pic(w)}
             <div>
               <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
-              <div class="row"><a class="wotd-w" href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
+              <div class="row"><a class="wotd-w" href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="say-pron" lang="en" dir="ltr"><span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></span></div>
               <div class="vi">${esc(App.meanOf(w))}</div>
               <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
             </div>

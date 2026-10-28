@@ -53,6 +53,8 @@ Rule: quality only goes up. No feature or content is removed to simplify.
 ## 5. How to re-check
 `git push <remote> HEAD:refs/heads/ux-shots-<n>` → **UX shots** workflow. It compares against the remote `main` (before) and this branch (after), then builds `sheet-{before,after}-*.jpg` and `report.json`. The run fails on a JS error in the after build.
 
+**Layout guard (every PR touching web/):** `ux-cards.yml` runs `scripts/test/ux-guard.mjs` over 20 main routes at 360/390/1366 px, light/dark, en/vi/ar. It fails on card/button overlap > 4 px, clipping by an `overflow:hidden` box or the screen edge (horizontal scrollers allowed), text spilling out of buttons/chips/tabs, and the same IPA or speaker twice in one block. Intended stacks: badges < 48 px, `.flash .face`, `[data-ov-ok]`. Stateful before/after sheets (home + league, mistakes, review, grammar, pron): push `ux-cards-<n>`.
+
 ## 6. UX v3: one icon family + tokens (25/10/2026)
 - **Icon family: Lucide** (ISC License, © Lucide Contributors; parts © Cole Bemis/Feather, MIT). Credited on `/credits`. Chosen over Phosphor because rounded 24 px strokes match Kit and the kite mark, and the paths are about 3× smaller.
 - The emoji UI chrome becomes one family:
