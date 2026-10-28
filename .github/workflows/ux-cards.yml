@@ -1,0 +1,33 @@
+# 🃏 Ảnh trước/sau các thẻ học có dữ liệu (scripts/test/ux-cards.mjs): sổ lỗi sai, làm lại, thẻ ôn đã lật, bài ngữ pháp – 360 px/máy tính, sáng/tối, en/vi/ar. Hermetic. Artifact 7 ngày.
+# Chạy: tay (before = commit trước khi sửa) hoặc đẩy nhánh ux-cards* (before = main trên remote).
+name: UX cards
+on:
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit TRƯỚC (để trống = chỉ chụp bản hiện tại)', required: false, default: '' }
+  push:
+    branches: ['ux-cards*']
+permissions:
+  contents: read
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install --with-deps chromium >/dev/null
+          sudo apt-get install -y -qq imagemagick fonts-noto-color-emoji fonts-noto-core >/dev/null || true
+          B=""
+          if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi
+          if [ -n "$BEFORE" ]; then git worktree add -q /tmp/before "$BEFORE"; B=/tmp/before/web; fi
+          node scripts/test/ux-cards.mjs web "$B" out/ux-cards
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: ux-cards, path: out/ux-cards, retention-days: 7 }

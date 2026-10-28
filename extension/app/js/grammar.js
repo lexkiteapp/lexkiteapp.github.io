@@ -59,6 +59,8 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   // Tên bài theo ngôn ngữ giao diện: tiếng Việt → tên Việt; ngôn ngữ khác → tên đã dịch, chưa dịch thì tên tiếng Anh (không lẫn tiếng Việt)
   const TTL = x => I18N.lang() === 'vi' ? x.title : (t(x.title) !== x.title ? t(x.title) : x.en);
   const sayBtn = s => `<button class="icon-btn sm" data-speak-text="${esc(s)}" title="${t('Nghe')}">🔊</button>`;
+  // Câu + loa: loa luôn ở mép cuối dòng (không trôi theo chỗ xuống dòng) – .say-line trong style.css
+  const sayLine = (html, s, cls = '', attrs = '') => `<div class="say-line${cls ? ' ' + cls : ''}"${attrs}><span class="say-tx">${html}</span>${sayBtn(s)}</div>`;
   // Ví dụ đánh dấu [[…]] = phần cấu trúc mục tiêu. Tách 1 lần: ex = chữ thuần (đọc, xếp câu, lưu), exm = bản đánh dấu (chỉ để vẽ)
   const prepHL = () => { for (const x of window.GRAMMAR || []) { if (x._hl) continue; x._hl = 1; for (const b of x.blocks || []) for (const o of b.type === 'uses' ? b.items : b.type === 'formula' ? b.rows : b.type === 'ielts' ? [b] : []) if (typeof o.ex === 'string' && o.ex.includes('[[')) { o.exm = o.ex; o.ex = o.ex.replace(/\[\[|\]\]/g, ''); } } };
   prepHL();
@@ -71,7 +73,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   const loadL1 = () => { const lg = I18N.lang(); if (!L1_LANGS.includes(lg)) return Promise.resolve(null); if (window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg) return Promise.resolve(GRAMMAR_L1);
     return l1P || (l1P = new Promise(res => { const s = document.createElement('script'); s.src = `js/grammar/l1/${lg}.js`; s.onload = () => res(window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg ? GRAMMAR_L1 : null); s.onerror = () => { l1P = null; res(null); }; document.head.appendChild(s); })); };
   const l1Html = (x, D) => { const ns = D && D.notes[x.id]; if (!ns || !ns.length) return '';
-    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">${UI.icon('globe')} ${esc(D.title)}</h3>${ns.map(([w, r, why]) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b> ${sayBtn(r)}</div><div class="small muted">${esc(why)}</div></div>`).join('')}</section>`; };
+    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">${UI.icon('globe')} ${esc(D.title)}</h3>${ns.map(([w, r, why]) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div>${sayLine(`<span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b>`, r)}<div class="small muted">${esc(why)}</div></div>`).join('')}</section>`; };
   const fillL1 = x => loadL1().then(D => { const slot = document.querySelector(`.g-l1-slot[data-l1="${x.id}"]`); if (slot && !slot.childElementCount) { const h = l1Html(x, D); if (h) { slot.innerHTML = h; App.bindCommon(); } } });
   const l1Slot = x => `<div class="g-l1-slot" data-l1="${esc(x.id)}"></div>`;
 
@@ -134,14 +136,14 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   }
   const formula = b => `<div class="g-block"><h3>🧮 ${t('Công thức')}</h3>${b.rows.map(r => `<div class="frow"><div class="flabel">${esc(r.label)}</div>
       <div class="fparts">${r.parts.map(p => `<span class="fp ${esc(p.c || '')}">${esc(p.t)}</span>`).join('<span class="fplus">+</span>')}</div>
-      ${r.ex ? `<div class="fex" lang="en">➜ ${hx(r)} ${sayBtn(r.ex)}</div>` : ''}</div>`).join('')}
+      ${r.ex ? sayLine(`➜ ${hx(r)}`, r.ex, 'fex', ' lang="en"') : ''}</div>`).join('')}
       <div class="tiny muted" style="margin-top:.4rem"><span class="fp subj">${t('Chủ ngữ')}</span> <span class="fp aux">${t('Trợ động từ')}</span> <span class="fp verb">${t('Động từ')}</span> <span class="fp neg">${t('Phủ định')}</span> <span class="fp obj">${t('Tân ngữ')}</span> <span class="fp time">${t('Thời gian')}</span></div></div>`;
-  const uses = b => `<div class="g-block"><h3>${UI.icon('target')} ${t('Khi nào dùng?')}</h3><div class="uses">${b.items.map((u, i) => `<div class="use"><span class="unum">${i + 1}</span><div><b>${esc(u.title)}</b><div class="uex" lang="en">${hx(u)} ${sayBtn(u.ex)}</div><div class="muted small">${esc(u.vi || '')}</div></div></div>`).join('')}</div></div>`;
+  const uses = b => `<div class="g-block"><h3>${UI.icon('target')} ${t('Khi nào dùng?')}</h3><div class="uses">${b.items.map((u, i) => `<div class="use"><span class="unum">${i + 1}</span><div><b>${esc(u.title)}</b>${sayLine(hx(u), u.ex, 'uex', ' lang="en"')}<div class="muted small">${esc(u.vi || '')}</div></div></div>`).join('')}</div></div>`;
   const signals = b => `<div class="g-block"><h3>🚦 ${t('Dấu hiệu nhận biết')}</h3><div class="row">${b.words.map(w => `<span class="chip lv">${esc(w)}</span>`).join('')}</div></div>`;
   const table = b => `<div class="g-block g-tbl" tabindex="0" role="region" aria-label="${esc(b.head.join(' · '))}"><table class="gtable"><thead><tr>${b.head.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
   const tip = b => `<div class="g-tip">${UI.icon('lightbulb')} ${esc(b.text)}</div>`;
-  const mistake = b => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(b.wrong)}</s></div><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(b.right)}</b> ${sayBtn(b.right)}</div><div class="small muted">${esc(b.why)}</div></div>`;
-  const ielts = b => `<div class="g-ielts"><b>${UI.icon('graduation-cap')} ${t('Trong IELTS:')}</b> ${esc(b.text)}${b.ex ? `<div class="ex" lang="en" style="margin-top:.3rem">“${hx(b)}” ${sayBtn(b.ex)}</div>` : ''}</div>`;
+  const mistake = b => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(b.wrong)}</s></div>${sayLine(`<span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(b.right)}</b>`, b.right)}<div class="small muted">${esc(b.why)}</div></div>`;
+  const ielts = b => `<div class="g-ielts"><b>${UI.icon('graduation-cap')} ${t('Trong IELTS:')}</b> ${esc(b.text)}${b.ex ? sayLine(`“${hx(b)}”`, b.ex, 'ex', ' lang="en" style="margin-top:.3rem"') : ''}</div>`;
   const diagram = b => `<div class="g-visual"><div class="flow">${b.steps.map(s => `<div class="fstep ${esc(s.c || '')}">${esc(s.t)}</div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
   const scale = b => `<div class="g-visual"><div class="scale">${b.items.slice().sort((x, y) => y.v - x.v).map(i => `<div class="srow"><b>${esc(i.t)}</b><div class="sbar"><i style="width:${i.v}%;background:hsl(${i.v * 1.2},70%,48%)"></i></div><span class="tiny muted">${i.v}%</span></div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
   const sort = b => `<div class="g-visual"><div class="grid g2">${b.groups.map(gr => `<div class="sortbox"><div style="font-size:1.6rem">${gr.emoji ? gi(gr.emoji) : ''}</div><b>${esc(gr.title)}</b><div class="row center" style="margin-top:.4rem">${gr.items.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div></div>`).join('')}</div>${b.caption ? `<div class="small muted center">${esc(b.caption)}</div>` : ''}</div>`;
@@ -242,7 +244,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   function recapHtml(x) {
     const f = (x.blocks.find(b => b.type === 'formula') || { rows: [] }).rows[0], m = x.blocks.find(b => b.type === 'mistake');
     return `<div class="g-recap" role="note"><h3>🧠 ${t('Tóm tắt bài học')}</h3><div class="small">${esc(x.summary)}</div>
-      ${f ? `<div class="frow" style="margin-top:.5rem"><div class="fparts">${f.parts.map(p => `<span class="fp ${esc(p.c || '')}">${esc(p.t)}</span>`).join('<span class="fplus">+</span>')}</div>${f.ex ? `<div class="fex" lang="en">➜ ${hx(f)} ${sayBtn(f.ex)}</div>` : ''}</div>` : ''}
+      ${f ? `<div class="frow" style="margin-top:.5rem"><div class="fparts">${f.parts.map(p => `<span class="fp ${esc(p.c || '')}">${esc(p.t)}</span>`).join('<span class="fplus">+</span>')}</div>${f.ex ? sayLine(`➜ ${hx(f)}`, f.ex, 'fex', ' lang="en"') : ''}</div>` : ''}
       ${m ? `<div class="small" style="margin-top:.4rem"><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(m.wrong)}</s> → <span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div>` : ''}</div>`;
   }
   // ---------- Bài tập tự luận: chia động từ, dạng từ, điền từ, viết lại câu, nối câu, tìm lỗi sai ----------
