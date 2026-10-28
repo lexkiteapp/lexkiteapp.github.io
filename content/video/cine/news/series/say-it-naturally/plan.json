@@ -9,8 +9,8 @@
    "point": "sorry for the late reply (phrase): an apology for responding slowly",
    "cefr": "A2",
    "diff": "easy",
-   "words": 71,
-   "est_s": 35.2,
+   "words": 72,
+   "est_s": 35.5,
    "ipa": "/rɪˈplaɪ/",
    "content_hash": "78123aa58cb92e2d"
   },
@@ -20,8 +20,8 @@
    "point": "it depends (phrase): used when the answer changes according to the situation",
    "cefr": "A2",
    "diff": "easy",
-   "words": 65,
-   "est_s": 33.1,
+   "words": 66,
+   "est_s": 33.4,
    "ipa": "/dɪˈpend/",
    "content_hash": "8aa94a110cc20b99"
   },
@@ -31,8 +31,8 @@
    "point": "split the bill (phrase): to share the cost of a meal or service between people",
    "cefr": "A2",
    "diff": "easy",
-   "words": 71,
-   "est_s": 35.2,
+   "words": 72,
+   "est_s": 35.5,
    "ipa": "/splɪt/",
    "content_hash": "2c4731b38d4ef873"
   }
@@ -41,12 +41,12 @@
   {
    "bank": "sb_0139ba3b",
    "point": "do not disturb (phrase): a sign asking hotel staff not to enter the room",
-   "reason": "self-check: 82 words (need 50-75); est pace 137 wpm; note fix line > 26 chars: [['not “'], ['Please, no disturbing me', 'red'], ['”']]"
+   "reason": "self-check: 83 words (need 50-75); est pace 137 wpm; note fix line > 26 chars: [['not “'], ['Please, no disturbing me', 'red'], ['”']]"
   },
   {
    "bank": "sb_0c7fd825",
    "point": "I would like to invite you to (phrase): (formal or semi-formal) used to invite someone to an event",
-   "reason": "self-check: 83 words (need 50-75); est pace 137 wpm; hook 7 words on screen"
+   "reason": "self-check: 84 words (need 50-75); est pace 137 wpm; hook 7 words on screen"
   },
   {
    "bank": "sb_0d57e20a",
@@ -56,12 +56,12 @@
   {
    "bank": "sb_151205ee",
    "point": "tidy up (phr v): to make a place neat by putting things where they belong",
-   "reason": "self-check: 80 words (need 50-75); est pace 136 wpm"
+   "reason": "self-check: 81 words (need 50-75); est pace 136 wpm"
   },
   {
    "bank": "sb_3311f3c9",
    "point": "check out (phr v): to pay your bill and leave a hotel",
-   "reason": "self-check: hook 7 words on screen"
+   "reason": "self-check: est pace 134 wpm; hook 7 words on screen"
   },
   {
    "bank": "sb_403980fc",
@@ -81,12 +81,12 @@
   {
    "bank": "sb_a80a371d",
    "point": "check in (phr v): to go to a desk at an airport or hotel to say you have arrived",
-   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [['not “'], ['register at the hotel', 'red'], ['”']]; hook 7 words on screen"
+   "reason": "self-check: 77 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [['not “'], ['register at the hotel', 'red'], ['”']]; hook 7 words on screen"
   },
   {
    "bank": "sb_23878717",
    "point": "save up (phr v): to keep money over time so you can buy something",
-   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [[\"I'm \"], ['saving up ', 'green'], ['for a new laptop.']]; note trick line 709 px > 695; hook 7 words on screen"
+   "reason": "self-check: 79 words (need 50-75); est pace 136 wpm; note fix line > 26 chars: [[\"I'm \"], ['saving up ', 'green'], ['for a new laptop.']]; note trick line 709 px > 695; hook 7 words on screen"
   },
   {
    "bank": "sb_2408f7fd",
@@ -96,47 +96,47 @@
   {
    "bank": "sb_002c30ac",
    "point": "be credited with (phrase): to be recognised as having done or achieved something",
-   "reason": "self-check: 76 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [['She is credited '], ['with ', 'green'], ['the idea.']]"
+   "reason": "self-check: 77 words (need 50-75); est pace 135 wpm; note fix line > 26 chars: [['She is credited '], ['with ', 'green'], ['the idea.']]"
   },
   {
    "bank": "sb_024874ec",
    "point": "I took the initiative to (phrase): showing that you acted without being told",
-   "reason": "self-check: 79 words (need 50-75); est pace 136 wpm; note fix line > 26 chars: [['I took the initiative to fix ', 'green'], ['it.']]; note fix line > 26 chars: [['not “'], ['Nobody told me, but did', 'red'], ['”']]; note why line > 26 chars: [['@emoji:✅'], [' I took the initiative to fix', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' I took the initiative to fix', 'green']]; hook 7 words on screen"
+   "reason": "self-check: 80 words (need 50-75); est pace 136 wpm; note fix line > 26 chars: [['I took the initiative to fix ', 'green'], ['it.']]; note fix line > 26 chars: [['not “'], ['Nobody told me, but did', 'red'], ['”']]; note why line > 26 chars: [['@emoji:✅'], [' I took the initiative to fix', 'green']]; note save line > 26 chars: [['@emoji:✅'], [' I took the initiative to fix', 'green']]; hook 7 words on screen"
   },
   {
    "bank": "sb_02626364",
    "point": "push back (phr v): to change an event to a later time",
-   "reason": "self-check: 77 words (need 50-75); est pace 135 wpm"
+   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm"
   },
   {
    "bank": "sb_0994b0f5",
    "point": "contribute to (phr v): to be one of the causes of something",
-   "reason": "self-check: note fix line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]; note save line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]"
+   "reason": "self-check: est pace 134 wpm; note fix line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]; note save line > 26 chars: [['contributes', 'green'], ['  '], ['@ipa:/kənˈtrɪbjuːt/']]"
   },
   {
    "bank": "sb_14b91513",
    "point": "head off (phr v): informal; to leave to go somewhere",
-   "reason": "self-check: note qs line > 26 chars: [[\"It's late. I need to head \"], ['___.', 'green']]"
+   "reason": "self-check: est pace 134 wpm; note qs line > 26 chars: [[\"It's late. I need to head \"], ['___.', 'green']]"
   },
   {
    "bank": "sb_17a4e51a",
    "point": "make up for (phr v): to do something good to correct a bad situation or a loss",
-   "reason": "self-check: 84 words (need 50-75); est pace 137 wpm; note fix line > 26 chars: [[\"I'll \"], ['make up for being late.', 'green']]"
+   "reason": "self-check: 85 words (need 50-75); est pace 138 wpm; note fix line > 26 chars: [[\"I'll \"], ['make up for being late.', 'green']]"
   },
   {
    "bank": "sb_1f332c48",
    "point": "cover for (phr v): to do another person's work while they are absent",
-   "reason": "self-check: 77 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['I '], ['covered for ', 'green'], ['Maria last week.']]; hook 7 words on screen"
+   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['I '], ['covered for ', 'green'], ['Maria last week.']]; hook 7 words on screen"
   },
   {
    "bank": "sb_1fe4b634",
    "point": "account for (phr v): to form a particular amount of something, or to explain it",
-   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['Rent '], ['accounts for ', 'green'], ['half my pay.']]"
+   "reason": "self-check: 79 words (need 50-75); est pace 136 wpm; note ex line > 26 chars: [['Rent '], ['accounts for ', 'green'], ['half my pay.']]"
   },
   {
    "bank": "sb_05870e28",
    "point": "in compliance with (phrase): obeying a rule or law",
-   "reason": "self-check: 78 words (need 50-75); est pace 135 wpm; note ex line > 26 chars: [['compliance with ', 'green'], ['safety laws.']]"
+   "reason": "self-check: 79 words (need 50-75); est pace 136 wpm; note ex line > 26 chars: [['compliance with ', 'green'], ['safety laws.']]"
   },
   {
    "bank": "sb_08e239a0",
@@ -151,7 +151,7 @@
   {
    "bank": "sb_22459a38",
    "point": "stem from (phr v): to be caused by something",
-   "reason": "self-check: hook 7 words on screen"
+   "reason": "self-check: est pace 134 wpm; hook 7 words on screen"
   }
  ]
 }

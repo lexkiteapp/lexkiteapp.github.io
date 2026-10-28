@@ -140,7 +140,7 @@ def pcm(p, sr=24000):
 def refine(a, words, sr=24000):
     hop = sr // 200; env = np.sqrt(np.convolve(a.astype(np.float64) ** 2, np.ones(sr // 50) / (sr // 50), 'same'))[::hop]
     thr = max(float(env.max()) * 0.06, 1e-4); sp = env > thr
-    on = ([0.0] if len(sp) and sp[0] else []) + [i * 0.005 for i in range(1, len(sp)) if sp[i] and not sp[max(0, i - 12):i].any()]   # a line whose audio starts voiced at sample 0 has its onset at 0 (was missed -> align_audio could not verify that line start)
+    on = [i * 0.005 for i in range(1, len(sp)) if sp[i] and not sp[max(0, i - 12):i].any()]
     out = []
     for k, w in enumerate(words):
         s, e = w['s'], w['e']; gap = k == 0 or s - words[k - 1]['e'] >= 0.06; rec = dict(w=w['w'], raw_s=s, raw_e=e, onset=None, checked=False)

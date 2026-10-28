@@ -535,7 +535,7 @@
    "hook_true": true,
    "script_reviewed": true,
    "script": {
-    "i_h": "Here's how natives say it.",
+    "i_h": "This is how natives say it.",
     "i_w": "Sorry for my answering late.",
     "i_k": "Natives say: Sorry for the late reply.",
     "i_y": "This is the fixed phrase for slow emails.",
@@ -558,7 +558,7 @@
     "wrong": "Sorry for my answering late."
    },
    "source": "sb_02938065",
-   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample, opener changed to \"This is how natives say it.\")"
   },
   "vbp_116f3374": {
    "template": "mistake",
@@ -621,6 +621,37 @@
    },
    "source": "sb_1dc7abe0",
    "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+  },
+  "sin_0a35f2ef": {
+   "template": "mistake",
+   "hook": "✗ Not / “Let's divide the bill.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "i_h": "This is how natives say it.",
+    "i_w": "Let's divide the bill.",
+    "i_k": "Natives say: Let's split the bill.",
+    "i_y": "For sharing a cost, we say split the bill.",
+    "i_x": "We always split the bill with friends.",
+    "i_t": "You can split a taxi too!",
+    "i_q": "Quick quiz! Dinner was great. Let's blank the bill.",
+    "i_q2": "Divide, or split?",
+    "i_a": "Split! Dinner was great. Let's split the bill.",
+    "i_sh": "Send this to a friend!",
+    "i_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Let's split the bill.",
+    "right_lines": [
+     "i_k"
+    ],
+    "wrong_line": "i_w",
+    "wrong": "Let's divide the bill."
+   },
+   "source": "sb_0a35f2ef",
+   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample, opener changed to \"This is how natives say it.\")"
   }
  }
 }
