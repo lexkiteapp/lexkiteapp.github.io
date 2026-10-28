@@ -107,7 +107,7 @@
       const fix = x.picked ? null : correct(x.text, n.m);
       const sl = x.picked ? [] : slips(x.text, c, n);
       const fl = fluency(x.text, n, x.secs);
-      const weak = !x.picked && (!!fix || sl.length > 0 || fl.short || (x.asr != null && x.asr < 50));
+      const weak = !x.picked && (!!fix || sl.length > 0 || fl.short); // không dùng điểm nhận dạng: câu tự do khác câu mẫu vẫn là câu tốt
       return { id: x.id, m: n.m, text: x.text, picked: !!x.picked, fix, slips: sl, fl, weak, model: (n.o || [])[0] || '' };
     });
     const spoken = turns.filter(x => !x.picked);

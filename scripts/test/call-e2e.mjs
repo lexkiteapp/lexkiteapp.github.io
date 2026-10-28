@@ -142,7 +142,7 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   await until(page, () => /Đến lượt bạn/.test(document.querySelector('#cStT').textContent));
   await page.evaluate(() => { window.__heard.push(...Array(6).fill('I really enjoy it because it is practical, interesting and useful for my future career')); });
   await page.click('#cMic');
-  await page.waitForSelector('[data-score]', { timeout: 30000 }).catch(() => {});
+  await until(page, () => !document.querySelector('.call-ov') && /Luyện lại/.test((document.querySelector('.page-head') || {}).textContent || ''), null, 30000).catch(() => {});
   ok(/Luyện lại/.test(await page.textContent('.page-head')), 'luyện lại xong → tổng kết mới');
   ok(!errs.length, 'desktop: không lỗi JS' + (errs.length ? ' – ' + errs.join(' | ').slice(0, 400) : ''));
   await ctx.close();
