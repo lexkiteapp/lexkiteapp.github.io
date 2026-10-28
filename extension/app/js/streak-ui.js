@@ -21,7 +21,7 @@
   }));
 
   const FLAME_CSS = `
-.streak-freeze-badge{display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;padding:.15rem .45rem;border-radius:999px;background:rgba(56,189,248,.15);color:#0284c7;border:1px solid rgba(56,189,248,.35);cursor:pointer;transition:transform .15s ease,background .15s;margin-left:.25rem}
+.streak-freeze-badge{display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;padding:.15rem .45rem;border-radius:999px;background:rgba(56,189,248,.15);color:#0369a1;border:1px solid rgba(56,189,248,.35);cursor:pointer;transition:transform .15s ease,background .15s;margin-left:.25rem}
 .streak-freeze-badge:hover{transform:scale(1.06);background:rgba(56,189,248,.25)}
 .pill.fire.flaming,.streak-flame.on{display:inline-flex;align-items:center;gap:.25rem;position:relative}
 .pill.fire.flaming i.flame-icon,.streak-flame i.flame-icon{display:inline-block;font-style:normal;will-change:transform,filter;animation:streakFlameBurn 1.6s ease-in-out infinite alternate}

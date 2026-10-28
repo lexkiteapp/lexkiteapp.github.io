@@ -409,7 +409,7 @@ html:has(.grade-bar) { scroll-padding-bottom: 6.5rem; }
 }
 
 /* Huy hiệu đóng băng chuỗi 🧊×N */
-.streak-freeze-badge { display: inline-flex; align-items: center; justify-content: center; gap: .25rem; padding: .15rem .5rem; margin-left: .35rem; border-radius: 999px; background: rgba(56, 189, 248, 0.16); color: #0284c7; border: 1px solid rgba(56, 189, 248, 0.4); font-size: .85rem; font-weight: 700; line-height: 1.2; cursor: pointer; vertical-align: middle; min-height: 28px; transition: transform .12s ease, background .15s ease, border-color .15s ease; }
+.streak-freeze-badge { display: inline-flex; align-items: center; justify-content: center; gap: .25rem; padding: .15rem .5rem; margin-left: .35rem; border-radius: 999px; background: rgba(56, 189, 248, 0.16); color: #0369a1; border: 1px solid rgba(56, 189, 248, 0.4); font-size: .85rem; font-weight: 700; line-height: 1.2; cursor: pointer; vertical-align: middle; min-height: 28px; transition: transform .12s ease, background .15s ease, border-color .15s ease; }
 .streak-freeze-badge:hover { background: rgba(56, 189, 248, 0.25); border-color: #38bdf8; transform: translateY(-1px); }
 .streak-freeze-badge:focus-visible { outline: 2px solid var(--focus, #38bdf8); outline-offset: 2px; }
 [data-theme="dark"] .streak-freeze-badge { background: rgba(56, 189, 248, 0.22); color: #38bdf8; border-color: rgba(56, 189, 248, 0.5); }

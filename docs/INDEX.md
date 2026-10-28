@@ -43,6 +43,7 @@
 - [JOBS.md](JOBS.md) — Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ; đọc khi: thêm cron/CI nền
 - [LESSON-ENGINE.md](LESSON-ENGINE.md) — Bài học trộn bài tập nhỏ #/lesson (nghe chọn từ, xếp câu, nói theo, ảnh→nói, dịch ô chữ): cá nhân hóa từ FSRS + add-on, lỗi cũ, COMBO, Giải thích 0 AI, Ama/Carlos sprite, cờ lesson_mix; đọc khi: sửa/mở rộng màn bài học
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
+- [NEW-UI-QA.md](NEW-UI-QA.md) — Soát hình các màn mới trên CI (15 ngôn ngữ × 4 khung × sáng/tối, đầu dò tràn/che/44 px/tương phản/nhân vật, contact sheet); đọc khi: sửa màn bài học, chuỗi, giáo viên, video
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
 - [MEDIA-QA-RUBRIC.md](MEDIA-QA-RUBRIC.md) — Thang chấm 100 cho tài nguyên nhân vật & video: ảnh nhân vật, bối cảnh, video, Call Mia, vòng lặp sau đăng; chỉ dùng khi ≥ 90; đọc khi: chấm lô ảnh/video
 - [OTA.md](OTA.md) — Cập nhật OTA cho app Android/iOS: bản web ký ECDSA phát qua GitHub Release, /api/ota, kiểm chữ ký/minNative/rollback, nhắc cập nhật native; đọc khi: sửa web/js/ota.js, scripts/ota, hoặc prod-release job ota
