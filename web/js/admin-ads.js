@@ -206,10 +206,7 @@
     go(m && SECS.some(s => s[0] === m[1]) ? m[1] : 'overview', false);
 
     // ---- biểu đồ cột SVG (doanh thu/ngày) ----
-    const bars = (series, key, fmt) => {
-      const W = 600, H = 150, max = Math.max(1e-9, ...series.map(x => x[key] || 0)), bw = W / series.length;
-      return `<div class="ax-chart" role="img" aria-label="${esc(series.map(x => x.day + ': ' + fmt(x[key])).slice(-7).join(', '))}"><svg viewBox="0 0 ${W} ${H + 16}" aria-hidden="true">${series.map((x, i) => { const v = x[key] || 0, bh = Math.round(v / max * H); return `<rect x="${i * bw + 1}" y="${H - bh}" width="${bw - 2}" height="${bh}" rx="2" fill="var(--primary)"><title>${esc(x.day + ': ' + fmt(v))}</title></rect>`; }).join('')}<text x="0" y="${H + 13}">${esc(series[0].day)}</text><text x="${W}" y="${H + 13}" text-anchor="end">${esc(series[series.length - 1].day)}</text></svg></div>`;
-    };
+    const bars = (series, key, fmt) => AdminChart.bars(series, { key, fmt, x: x => x.day.slice(5), aria: series.map(x => x.day + ': ' + fmt(x[key])).slice(-7).join(', '), empty: A('Chưa có dữ liệu') });
 
     const RANGES = [['today', 'Hôm nay'], ['yday', 'Hôm qua'], ['7d', '7 ngày'], ['28d', '28 ngày'], ['mtd', 'Tháng này'], ['lm', 'Tháng trước'], ['custom', 'Tùy chọn']];
     const DEF = { rev: 'Doanh thu ước tính Google ghi nhận (USD); Google có thể điều chỉnh tới khi chốt số cuối tháng.', ecpm: 'eCPM = doanh thu ÷ lượt hiển thị × 1.000.', rpm: 'RPM trang = doanh thu web ÷ lượt xem trang × 1.000 (chỉ AdSense).', imp: 'Lượt hiển thị Google tính là đã hiện (đã tải và vào màn hình).', fill: 'Tỉ lệ lấp đầy = yêu cầu có quảng cáo trả về ÷ tổng yêu cầu quảng cáo.', ctr: 'CTR = lượt bấm ÷ lượt hiển thị.' };
@@ -325,13 +322,12 @@
       const g = S.guard || {}, co = g.co || {}, a = co.a || {}, c = co.h || {}, gf = +(cv('ads_guard') || 1);
       const status = g.why === 'sample' ? A('Chưa đủ mẫu ({n}/{m} máy mỗi nhóm) – cổng chưa can thiệp.', { n: num(Math.min(a.n1 || 0, c.n1 || 0)), m: num(g.min || 200) }) : gf < 1 ? A('Đã giảm tần suất (×{f}): nhóm có QC tụt {p} so với đối chứng.', { f: gf, p: pct(g.worst) }) + (gf <= 0.25 ? ' · ' + A('Tắt toàn màn hình (×0,25)') : '') : A('Bình thường – tần suất đầy đủ.');
       const pair = (l, x, y, f) => `<div class="card kpi"><div class="l">${esc(A(l))}</div><div class="v">${esc(f(x))} <small>/ ${esc(f(y))}</small></div><div class="s">${esc(A('Nhóm có QC'))} / ${esc(A('Đối chứng'))}</div></div>`;
-      const tr = S.trend || [], W = 600, H = 140, mx = Math.max(0.01, ...tr.flatMap(p => [p.a.d1 || 0, p.h.d1 || 0]));
-      const line = (k, col) => `<polyline fill="none" stroke="${col}" stroke-width="2.5" points="${tr.map((p, i) => `${Math.round(i * (W - 20) / Math.max(1, tr.length - 1)) + 10},${Math.round(H - (p[k].d1 || 0) / mx * (H - 10))}`).join(' ')}"/>`;
+      const tr = S.trend || [];
       el.innerHTML = hd('Giữ chân', 'Nhóm có quảng cáo so với nhóm đối chứng (10 % không quảng cáo)')
         + `<div class="card ${gf < 1 ? 'ax-kill' : ''}" role="status"><b>×${esc(String(gf))}</b> – ${esc(status)}</div>`
         + `<div class="kpis">${pair('Giữ chân D1', a.d1, c.d1, pct)}${pair('Giữ chân D7', a.d7, c.d7, pct)}${pair('Thời lượng phiên TB', a.sl, c.sl, secs)}${kpi('máy mới', esc(num(a.n1)) + ' <small>/ ' + esc(num(c.n1)) + '</small>')}</div>`
         + `<section class="card"><h3 class="h3">${esc(A('Xu hướng D1 theo tuần'))}</h3><div class="ax-legend"><span><i style="background:var(--primary)"></i>${esc(A('Nhóm có QC'))}</span><span><i style="background:var(--muted)"></i>${esc(A('Đối chứng'))}</span></div>
-          <div class="ax-chart" role="img" aria-label="${esc(tr.map(p => `${p.day}: ${pct(p.a.d1)} / ${pct(p.h.d1)}`).join(', '))}"><svg viewBox="0 0 ${W} ${H + 16}" aria-hidden="true">${tr.length ? line('h', 'var(--muted)') + line('a', 'var(--primary)') : ''}${tr.map((p, i) => `<text x="${Math.round(i * (W - 20) / Math.max(1, tr.length - 1)) + 10}" y="${H + 13}" text-anchor="middle">${esc(p.day.slice(5))}</text>`).join('')}</svg></div></section>`
+          ${AdminChart.line(tr.map(p => ({ day: p.day, a: p.a.d1 || 0, h: p.h.d1 || 0 })), { keys: [{ k: 'h', c: 'var(--muted)' }, { k: 'a', c: 'var(--primary)' }], x: p => p.day.slice(5), fmt: pct, tip: p => `${p.day}: ${pct(p.a)} / ${pct(p.h)}`, aria: tr.map(p => `${p.day}: ${pct(p.a.d1)} / ${pct(p.h.d1)}`).join(', '), empty: A('Chưa có dữ liệu') })}</section>`
         + `<section class="card"><h3 class="h3">${esc(A('Lịch sử tự giảm tần suất'))}</h3>${(S.guardLog || []).length ? `<table class="tbl"><thead><tr><th>${esc(A('Ngày'))}</th><th>${esc(A('Hệ số'))}</th></tr></thead><tbody>${S.guardLog.slice().reverse().map(x => `<tr><td>${esc(x.day)}</td><td>×${esc(String(x.factor))}</td></tr>`).join('')}</tbody></table>` : `<p class="ax-note">${esc(A('Chưa có lần tự điều chỉnh nào.'))}</p>`}</section>`;
     }
 

@@ -18,7 +18,7 @@ const VI = /[ăâđêôơưàáạảãằắặẳẵầấậẩẫèéẹẻ�
 for (const lang of ['vi', 'en']) {
   const dom = new JSDOM(`<!doctype html><html lang="${lang}"><body><main id="main"></main></body></html>`, { url: 'https://lexkite.com/admin.html#ads', runScripts: 'outside-only', pretendToBeVisual: true });
   const w = dom.window, doc = w.document;
-  w.eval(fs.readFileSync('web/js/admin-ads.js', 'utf8'));
+  w.eval(fs.readFileSync('web/js/admin-chart.js', 'utf8')); w.eval(fs.readFileSync('web/js/admin-ads.js', 'utf8'));
   w.eval(fs.readFileSync('node_modules/axe-core/axe.min.js', 'utf8'));
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const L = (vi, vars) => (vars ? vi.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : vi);
@@ -27,7 +27,7 @@ for (const lang of ['vi', 'en']) {
   await tick(40);
   const main = doc.getElementById('main');
   ok(main.querySelectorAll('.ax-tab').length === 5 && main.querySelector('.ax-tab[aria-current="page"]'), `${lang}: thanh mục con 5 mục`);
-  ok(main.querySelectorAll('.ax-plat').length === 4 && /\$/.test(main.querySelector('.kpis').textContent) && main.querySelector('.ax-chart svg rect'), `${lang}: trạng thái 3 nền tảng + công tắc khẩn cấp + KPI + biểu đồ doanh thu`);
+  ok(main.querySelectorAll('.ax-plat').length === 4 && /\$/.test(main.querySelector('.kpis').textContent) && main.querySelector('.ach .ach-c .ach-b > i') && main.querySelector('.ach .ach-v.k'), `${lang}: trạng thái 3 nền tảng + công tắc khẩn cấp + KPI + biểu đồ doanh thu (js/admin-chart.js: cột + số cột cao nhất)`);
   const texts = [];
   for (const sec of ['overview', 'places', 'freq', 'guard', 'consent']) {
     main.querySelector(`[data-sec="${sec}"]`).click(); await tick(30);

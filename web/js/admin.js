@@ -647,12 +647,7 @@
   };
   // Đủ mọi ngày trong khoảng chọn (ngày không có phiên = 0) – tránh vài cột khổng lồ khi dữ liệu thưa
   const padDays = (rows, days) => { const by = Object.fromEntries((rows || []).map(r => [r.day, r])), out = []; for (let i = Math.min(days, 90) - 1; i >= 0; i--) { const d = vday(Date.now() - i * 864e5); out.push(by[d] || { day: d, s: 0, v: 0 }); } return out; };
-  const chart = (rows, key, label) => {
-    if (!rows.length) return NODATA();
-    const W = 600, H = 170, max = Math.max(1, ...rows.map(r => +r[key] || 0)), bw = W / rows.length;
-    // Nhãn để ngoài SVG: SVG co giãn (preserveAspectRatio=none) sẽ kéo méo chữ
-    return `<div class="chart-w"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(label)}">${rows.map((r, i) => { const h = (+r[key] || 0) / max * H; return `<rect x="${i * bw + 1}" y="${H - h}" width="${Math.max(bw - 2, 1)}" height="${h}" rx="2" fill="var(--primary)"><title>${esc(r.day)}: ${num(r[key])}</title></rect>`; }).join('')}</svg><span class="chart-max">${num(max)}</span><div class="chart-x"><span>${esc(rows[0].day)}</span><span>${esc(rows[rows.length - 1].day)}</span></div></div>`;
-  };
+  const chart = (rows, key, label) => AdminChart.bars(rows, { key, fmt: num, x: r => String(r.day).slice(5), aria: label, empty: L('Chưa có dữ liệu') }); // js/admin-chart.js – chữ cố định px, lưới, nhãn ngày tự giãn
 
   // ---------- Phân tích trực tiếp: thẻ KPI, biểu đồ vùng 14 ngày, bản đồ thế giới (jsvectormap tải lười) ----------
   let liveTimer = null, worldMap = null, mapKey = '', mapLib = null, mapRO = null;
