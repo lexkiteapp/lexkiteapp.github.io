@@ -11,8 +11,11 @@ for (let run = 0; run < N; run++) {
   const page = await ctx.newPage(), cdp = await ctx.newCDPSession(page);
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
   await cdp.send('Profiler.enable'); await cdp.send('Profiler.setSamplingInterval', { interval: 200 }); await cdp.send('Profiler.start');
+  // Đếm số lần trang được vẽ lại (#view thay .page-head) – vẽ 2 lần lúc khởi động = tác vụ dài thừa
+  await page.addInitScript(() => { window.__draws = []; new MutationObserver(ms => { for (const m of ms) for (const n of m.addedNodes) if (n.nodeType === 1 && n.classList.contains('page-head') && n.parentElement && n.parentElement.id === 'view') window.__draws.push(Math.round(performance.now()) + ':' + (n.textContent || '').trim().slice(0, 30) + ':' + new Error().stack.split('\n').slice(2, 6).join(' < ')); }).observe(document, { childList: true, subtree: true }); });
   await page.goto(`${BASE}/app/?sandbox=1&hl=en#/${ROUTE}`, { waitUntil: 'load' });
   await page.waitForTimeout(9000);
+  console.log('lần vẽ trang:', JSON.stringify(await page.evaluate(() => ({ draws: window.__draws, drawn: window.App && App.drawn && App.drawn() }))));
   const { profile: p } = await cdp.send('Profiler.stop');
   const byId = new Map(p.nodes.map(n => [n.id, n])), parent = new Map();
   for (const n of p.nodes) for (const c of n.children || []) parent.set(c, n.id);
