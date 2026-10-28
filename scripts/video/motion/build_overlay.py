@@ -130,9 +130,9 @@ class Card:
                     tok = (' ' if k_ else '') + wd
                     if cur and tw(''.join(x[0] for x in cur) + tok, size, ipa) > s.inner(): out.append(cur); cur = [[tok.lstrip(), c_]]
                     else: cur.append([tok, c_])
-            out.append(cur); last = None
-            for ln in out: last = s.line([[a_, c_] for a_, c_ in ln if a_], size, mtype, ipa, None, align)
-            return last
+            out.append(cur); allit = []
+            for ln in out: allit += [x for x in s.line([[a_, c_] for a_, c_ in ln if a_], size, mtype, ipa, None, align) if x['type'] == 'text']
+            return allit   # every wrapped line (a cue set by the caller applies to all of them)
         assert w <= s.inner() + 1, (s.id, 'line too wide', txt, round(w), round(s.inner()))
         x = s.pad if align == 'l' else s.pad + (s.inner() - w) / 2
         it = dict(type='text', box=[x, 0, x + w, lh], runs=[[a, COL_OF.get(b, b)] for a, b in runs], size=size, ipa=ipa)
@@ -333,7 +333,8 @@ def _col(c, y0):
                 ins_, cw_ = cue(r['at'], 'rise'); CUES.append(dict(node=f"{c['id']}.tile{n0}", **cw_))
                 for k_, x in enumerate(cd.rows[n0:]): x['in'] = ins_; x['id'] = x.get('id') or f"{c['id']}.tile{n0}" + ('' if not k_ else f'.{k_}')
             if r.get('ex'):
-                items = cd.line(runs_of(r['ex']), S_SUB, 'card'); ins_, cw_ = cue(r['ex_at'], 'rise'); items[0]['in'] = ins_; items[0]['id'] = f"{c['id']}.ex{len(cd.rows)}"
+                items = [x for x in cd.line(runs_of(r['ex']), S_SUB, 'card') if x['type'] == 'text']; ins_, cw_ = cue(r['ex_at'], 'rise')
+                for j_, x in enumerate(items): x['in'] = ins_; x['id'] = f"{c['id']}.ex{len(cd.rows)}" + (f'.{j_}' if j_ else '')
                 CUES.append(dict(node=items[0]['id'], **cw_))
     ins, cw = cue(c['at'], 'rise'); CUES.append(dict(node=c['id'], **cw))
     if c.get('ipa'): IPA.append(dict(pop=c['id'], **c['ipa']))
