@@ -174,7 +174,7 @@ ok(bad.status === 403, 'unsigned sync refused');
   const dom = new JSDOM('<!doctype html><div id="box"></div>', { url: 'https://lexkite.com/admin.html#video/channels', runScripts: 'outside-only' }), w = dom.window, calls = [];
   w.fetch = async () => ({ json: async () => ({ items: [{ id: 'cafe-l', youtube_id: 'LLLLLLLLLLL' }] }) });
   w.confirm = () => true; w.navigator.clipboard = { writeText: async v => calls.push(['clip', v]) };
-  w.eval(fs.readFileSync('web/js/admin-video.js', 'utf8'));
+  w.eval(fs.readFileSync('web/js/admin-chart.js', 'utf8')); w.eval(fs.readFileSync('web/js/admin-video.js', 'utf8'));
   const st = { channel: { status: 'ok', title: 'Lexkite', channel_id: 'UCx', is_default: true }, channels: [{ status: 'ok', title: 'Lexkite', channel_id: 'UCx', is_default: true, videos: 2, thumb: 'https://yt3.ggpht.com/a' }, { status: 'ok', title: 'Lexkite English', channel_id: 'UCy', videos: 0 }], quota: {}, queue: {}, settings: { mode: 'manual', privacy: 'private' }, manual: { ready: 1 }, scope: { ok: true }, sync: { at: Date.now(), scanned: 3, matched: 1, issues: [{ kind: 'no-marker', video_id: 'ZZZZZZZZZZZ', title: 'Mystery' }] } };
   const packs = { studio: 'https://studio.youtube.com/channel/UCx/videos/upload?d=ud', rows: [
     { id: 'cafe-r', state: 'ready', status: 'manual', pack: '/api/admin-shorts?f=x&k=z', title: 'Order <b>coffee</b>', description: 'Desc\nlk:cafe-r', tags: ['a', 'b'], marker: 'lk:cafe-r' },

@@ -3,7 +3,7 @@
  * Mọi dữ liệu hiển thị qua esc(); link chỉ nhận https:// (chặn javascript:). Mẫu thư/thông báo sinh tại chỗ, có chỗ trống [..] để anh tự điền (không lưu email/địa chỉ).
  * Tài liệu: docs/PR-PLATFORMS.md § Theo dõi tự động · docs/legal/DMCA-KIT.md */
 (function () {
-  const EN = {
+  const EN = { 'Bảng': 'Table',
     'Backlink, PR & Thương hiệu': 'Backlinks, PR & Brand', 'Đang tải…': 'Loading…', 'Không tải được': 'Could not load', 'Làm mới': 'Refresh',
     'Sự cố': 'Incidents', 'Thay đổi': 'Changes', 'Kiểm tay': 'Check manually', 'Ổn': 'OK', 'Bỏ qua': 'Skipped',
     'Lần kiểm cuối': 'Last check', 'chưa chạy': 'never run', 'Xem lần chạy': 'View run', 'Kiểm ngay': 'Check now', 'Thêm mục': 'Add item', 'Xuất JSON': 'Export JSON',
@@ -138,7 +138,7 @@
       const order = { regression: 0, change: 1, manual: 2, ok: 3, skip: 4 }; rows.sort((a, b) => (order[a.last ? a.last.level : 'skip'] ?? 5) - (order[b.last ? b.last.level : 'skip'] ?? 5) || a.platform.localeCompare(b.platform));
       const el = box.querySelector('#bwT');
       if (!rows.length) { el.innerHTML = `<p class="small muted">${esc(B('Không có mục nào khớp bộ lọc.'))}</p>`; return; }
-      el.innerHTML = `<table class="tbl bw-tbl"><thead><tr><th scope="col">${esc(B('Trang'))}</th><th scope="col">${esc(B('Loại'))}</th><th scope="col">${esc(B('Tài khoản'))}</th><th scope="col">${esc(B('Trạng thái'))}</th><th scope="col">${esc(B('Kiểm lúc'))}</th><th scope="col">HTTP</th><th scope="col">${esc(B('Link'))}</th><th scope="col">rel</th><th scope="col">${esc(B('Kết quả'))}</th><th scope="col">${esc(B('Lịch sử'))}</th><th scope="col"><span class="sr-only">${esc(B('Sửa'))}</span></th></tr></thead><tbody>${rows.map(p => {
+      el.innerHTML = `<div class="tbl-x" tabindex="0" role="region" aria-label="${esc(B('Bảng'))}"><table class="tbl bw-tbl"><thead><tr><th scope="col">${esc(B('Trang'))}</th><th scope="col">${esc(B('Loại'))}</th><th scope="col">${esc(B('Tài khoản'))}</th><th scope="col">${esc(B('Trạng thái'))}</th><th scope="col">${esc(B('Kiểm lúc'))}</th><th scope="col">HTTP</th><th scope="col">${esc(B('Link'))}</th><th scope="col">rel</th><th scope="col">${esc(B('Kết quả'))}</th><th scope="col">${esc(B('Lịch sử'))}</th><th scope="col"><span class="sr-only">${esc(B('Sửa'))}</span></th></tr></thead><tbody>${rows.map(p => {
         const l = p.last, t = TYPE[p.type] || ['🔗', p.type], lv = l ? LEVEL[l.level] || LEVEL.manual : null, act = l && (l.reasons.includes('listed') || l.reasons.includes('merged')) && p.status === 'pending';
         return `<tr data-id="${esc(p.id)}" class="${l && l.level === 'regression' ? 'bad-row' : ''}"><td><span aria-hidden="true">${t[0]}</span> <b>${esc(p.platform)}</b><div class="tiny bw-url">${ext(p.url, p.url ? p.url.replace(/^https:\/\//, '').slice(0, 60) : '–')}</div></td>
           <td class="small">${esc(B(t[1]))}</td><td class="small">${p.account ? '@' + esc(p.account) : '–'}</td><td>${chip(STATUS[p.status] || ['', p.status])}</td>
@@ -147,7 +147,7 @@
           <td>${lv ? chip(lv) : '–'}<div class="tiny muted">${l ? esc(why(l.reasons)) : ''}</div></td>
           <td><span class="bw-spark" role="img" aria-label="${esc(B('Lịch sử'))}">${(p.history || []).map(h => `<i class="bw-h ${esc((LEVEL[h.level] || LEVEL.skip)[0])}" title="${esc(when(h.at) + ' · ' + h.state + (h.http ? ' · ' + h.http : ''))}"></i>`).join('')}</span><div class="tiny muted">${l && l.change ? esc(B('Đổi lúc')) + ' ' + esc(when(l.change)) : ''}</div></td>
           <td class="nowrap">${act ? `<button type="button" class="btn sm primary" data-live="${esc(p.id)}">${esc(B('Đánh dấu live'))}</button> ` : ''}${l && l.level !== 'ok' && l.level !== 'skip' ? `<button type="button" class="btn sm ghost" data-play="${esc(p.id)}">${esc(B('Cách xử lý'))}</button> ` : ''}<button type="button" class="btn sm ghost" data-edit="${esc(p.id)}">${esc(B('Sửa'))}</button></td></tr>`;
-      }).join('')}</tbody></table>`;
+      }).join('')}</tbody></table></div>`;
       const byId = id => D.placements.find(p => p.id === id);
       el.querySelectorAll('[data-edit]').forEach(b => { b.onclick = () => form(byId(b.dataset.edit)); });
       el.querySelectorAll('[data-play]').forEach(b => { b.onclick = () => play(placementPlay(byId(b.dataset.play))); });
@@ -193,22 +193,22 @@
       const el = box.querySelector('#bwD'), rows = D.domains.slice().sort((a, b) => (a.level === 'regression' ? 0 : 1) - (b.level === 'regression' ? 0 : 1) || a.domain.localeCompare(b.domain));
       if (!rows.length) { el.innerHTML = `<p class="small muted">${esc(B('Chưa có dữ liệu – chờ lần kiểm đầu.'))}</p>`; return; }
       const rec = d => [d.a && 'A', d.aaaa && 'AAAA', d.mx && 'MX', d.ns && 'NS'].filter(Boolean).map(x => `<span class="chip ${x === 'MX' ? 'warn' : 'info'}">${x}</span>`).join(' ') || `<span class="small muted">${esc(B(d.status === 'nx' ? 'chưa đăng ký' : 'đã đăng ký'))}</span>`;
-      el.innerHTML = `<table class="tbl"><thead><tr><th scope="col">${esc(B('Tên miền'))}</th><th scope="col">${esc(B('Bản ghi'))}</th><th scope="col">${esc(B('Kết quả'))}</th><th scope="col">${esc(B('Từ'))}</th><th scope="col"><span class="sr-only">${esc(B('Cách xử lý'))}</span></th></tr></thead><tbody>${rows.map(d => `<tr class="${d.level === 'regression' ? 'bad-row' : ''}">
+      el.innerHTML = `<div class="tbl-x" tabindex="0" role="region" aria-label="${esc(B('Bảng'))}"><table class="tbl"><thead><tr><th scope="col">${esc(B('Tên miền'))}</th><th scope="col">${esc(B('Bản ghi'))}</th><th scope="col">${esc(B('Kết quả'))}</th><th scope="col">${esc(B('Từ'))}</th><th scope="col"><span class="sr-only">${esc(B('Cách xử lý'))}</span></th></tr></thead><tbody>${rows.map(d => `<tr class="${d.level === 'regression' ? 'bad-row' : ''}">
         <td><code>${esc(d.domain)}</code>${d.mxHosts && d.mxHosts.length ? `<div class="tiny muted">MX: ${esc(d.mxHosts.join(', '))}</div>` : ''}</td><td>${rec(d)}</td><td>${chip(LEVEL[d.level] || LEVEL.manual)}<div class="tiny muted">${esc(why(d.reasons))}</div></td>
-        <td class="small nowrap">${d.since ? esc(when(d.since)) : '–'}</td><td class="nowrap">${d.level === 'regression' ? `<button type="button" class="btn sm ghost" data-dplay="${esc(d.domain)}">${esc(B('Cách xử lý'))}</button> <button type="button" class="btn sm" data-ack="${esc(d.domain)}">${esc(B('Đã xem'))}</button>` : d.a || d.aaaa || d.mx ? `<button type="button" class="btn sm ghost" data-dplay="${esc(d.domain)}">${esc(B('Cách xử lý'))}</button>` : ''}</td></tr>`).join('')}</tbody></table>`;
+        <td class="small nowrap">${d.since ? esc(when(d.since)) : '–'}</td><td class="nowrap">${d.level === 'regression' ? `<button type="button" class="btn sm ghost" data-dplay="${esc(d.domain)}">${esc(B('Cách xử lý'))}</button> <button type="button" class="btn sm" data-ack="${esc(d.domain)}">${esc(B('Đã xem'))}</button>` : d.a || d.aaaa || d.mx ? `<button type="button" class="btn sm ghost" data-dplay="${esc(d.domain)}">${esc(B('Cách xử lý'))}</button>` : ''}</td></tr>`).join('')}</tbody></table></div>`;
       el.querySelectorAll('[data-ack]').forEach(b => { b.onclick = async () => { try { await bapi('domainAck', { domain: b.dataset.ack }); say(B('Đã đánh dấu đã xem')); load(); } catch (e) { say(B('Lỗi: {e}', { e: e.message }), 'bad'); } }; });
       el.querySelectorAll('[data-dplay]').forEach(b => { b.onclick = () => play(domainPlay(D.domains.find(d => d.domain === b.dataset.dplay))); });
     }
     // ---------- Tài khoản ----------
     function handles() {
       const el = box.querySelector('#bwH');
-      el.innerHTML = `<table class="tbl"><thead><tr><th scope="col">${esc(B('Nền tảng'))}</th><th scope="col">${esc(B('Tên'))}</th><th scope="col">${esc(B('Đã giữ'))}</th><th scope="col">${esc(B('Tình trạng'))}</th><th scope="col">${esc(B('Ghi chú'))}</th><th scope="col"><span class="sr-only">${esc(B('Cách xử lý'))}</span></th></tr></thead><tbody>${D.handles.map(h => {
+      el.innerHTML = `<div class="tbl-x" tabindex="0" role="region" aria-label="${esc(B('Bảng'))}"><table class="tbl"><thead><tr><th scope="col">${esc(B('Nền tảng'))}</th><th scope="col">${esc(B('Tên'))}</th><th scope="col">${esc(B('Đã giữ'))}</th><th scope="col">${esc(B('Tình trạng'))}</th><th scope="col">${esc(B('Ghi chú'))}</th><th scope="col"><span class="sr-only">${esc(B('Cách xử lý'))}</span></th></tr></thead><tbody>${D.handles.map(h => {
         const st = h.last ? HSTATE[h.last.state] || HSTATE.unknown : HSTATE.unknown;
         return `<tr class="${h.last && h.last.level === 'regression' ? 'bad-row' : ''}"><td>${esc(h.platform)}</td><td>${ext(h.url, '@' + h.handle)}</td>
           <td><input type="checkbox" data-own="${esc(h.k)}"${h.status === 'owned' ? ' checked' : ''} aria-label="${esc(B('Đã giữ') + ': ' + h.platform + ' @' + h.handle)}"></td>
           <td>${chip(st)}<div class="tiny muted">${h.last ? esc(why(h.last.reasons)) : ''}</div></td><td class="small">${esc(h.notes || '')}</td>
           <td class="nowrap"><button type="button" class="btn sm ghost" data-hplay="${esc(h.k)}">${esc(B('Cách xử lý'))}</button> <button type="button" class="btn sm ghost danger" data-hdel="${esc(h.k)}">${esc(B('Xóa'))}</button></td></tr>`;
-      }).join('')}</tbody></table>`;
+      }).join('')}</tbody></table></div>`;
       const byK = k => D.handles.find(h => h.k === k);
       el.querySelectorAll('[data-own]').forEach(c => { c.onchange = async () => { const h = byK(c.dataset.own); try { await bapi('handleSet', { row: { platform: h.platform, handle: h.handle, url: h.url, notes: h.notes, status: c.checked ? 'owned' : 'not-yet' } }); say(B('Đã lưu')); load(); } catch (e) { c.checked = !c.checked; say(B('Lỗi: {e}', { e: e.message }), 'bad'); } }; });
       el.querySelectorAll('[data-hplay]').forEach(b => { b.onclick = () => play(handlePlay(byK(b.dataset.hplay))); });
@@ -236,7 +236,7 @@
       if (c.configured === false) { el.innerHTML = `<p class="small warn-t">⚠ ${esc(B('Chưa bật dò tự động – cần secret GitHub BRAVE_SEARCH_KEY (docs/CONTENT-PROTECTION.md).'))}</p>`; return; }
       const hits = []; (c.probes || []).forEach((p, i) => (p.suspects || []).forEach((s, j) => hits.push({ p, s, k: i + ':' + j })));
       if (!hits.length) { el.innerHTML = `<p class="small muted">✓ ${esc(B('Không thấy trang nào chép ({n} câu đã dò).', { n: (c.probes || []).length }))} · ${esc(when(c.at))}</p>`; return; }
-      el.innerHTML = `<table class="tbl"><thead><tr><th scope="col">${esc(B('Trang nghi chép'))}</th><th scope="col">${esc(B('Bài gốc'))}</th><th scope="col"><span class="sr-only">${esc(B('Cách xử lý'))}</span></th></tr></thead><tbody>${hits.map(h => `<tr class="bad-row"><td>${ext(h.s.url)}<div class="tiny muted">${esc(h.s.title || '')}</div></td><td>${ext(h.p.url)}<div class="tiny muted">“${esc(h.p.sentence)}”</div></td><td><button type="button" class="btn sm ghost" data-cplay="${esc(h.k)}">${esc(B('Cách xử lý'))}</button></td></tr>`).join('')}</tbody></table>`;
+      el.innerHTML = `<div class="tbl-x" tabindex="0" role="region" aria-label="${esc(B('Bảng'))}"><table class="tbl"><thead><tr><th scope="col">${esc(B('Trang nghi chép'))}</th><th scope="col">${esc(B('Bài gốc'))}</th><th scope="col"><span class="sr-only">${esc(B('Cách xử lý'))}</span></th></tr></thead><tbody>${hits.map(h => `<tr class="bad-row"><td>${ext(h.s.url)}<div class="tiny muted">${esc(h.s.title || '')}</div></td><td>${ext(h.p.url)}<div class="tiny muted">“${esc(h.p.sentence)}”</div></td><td><button type="button" class="btn sm ghost" data-cplay="${esc(h.k)}">${esc(B('Cách xử lý'))}</button></td></tr>`).join('')}</tbody></table></div>`;
       el.querySelectorAll('[data-cplay]').forEach(b => { b.onclick = () => { const h = hits.find(x => x.k === b.dataset.cplay); play(copyPlay(h.p, h.s, c.at)); }; });
     }
     // ---------- Cách xử lý (playbook) + mẫu điền sẵn ----------
