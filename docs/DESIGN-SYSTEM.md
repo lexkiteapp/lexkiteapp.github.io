@@ -12,8 +12,9 @@ Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css
 |---|---|---|
 | Colours (light/dark) | `brand/tokens.json` → `build-tokens.mjs` → `style.css :root`, add-on `--d-*`, `site-layout.mjs` | all |
 | Shape · depth · type | `web/css/tactile.css :root` (`--r-card --r-pill2 --r-tile --lip-h --press --hi --elev-card --elev-sheet --cta-grad --font-display --track`) | all |
-| Components | `web/css/tactile.css`: `.tk-card` `.tk-tile` `.tk-btn`(`.wide`; = `.btn.primary` in app) `.tk-chip`(`.gold .ok .bad`) `.tk-bar`(`style="--seg:n"` = segmented) `.tk-opts/.tk-opt`(A–D, `aria-pressed`) `.tk-sheet`(`.ok .bad`) `.tk-teacher`(img + name + small) `.tk-display` `.tk-num` | app now; add-on/web/embeds next |
-- No hex in `tactile.css` (brand-check). Hosts supply colour vars; fonts: Bricolage Grotesque 700/800 `display=optional` (has Vietnamese; Figtree has none).
+| Core components (app shell) | `web/css/tactile.css`: `.tk-card` `.tk-tile` `.tk-btn`(`.wide`; = `.btn.primary` in app) `.tk-chip`(`.gold .ok .bad`) `.tk-bar`(`style="--seg:n"` = segmented) `.tk-display` `.tk-num` | app now; add-on/web/embeds next |
+| Extra components (lazy) | `web/css/tactile-x.css`: `.tk-opts/.tk-opt`(A–D, `aria-pressed`) `.tk-sheet`(`.ok .bad`) `.tk-teacher`(img + name + small) – app loads with lesson/goal via `BCSS` | same |
+- No hex in `tactile*.css` (brand-check). Light = B "Bright Day" (cream `--bg`, white cards, `--heading` deep teal), dark = A "Tactile Night"; Settings › theme Auto/Light/Dark. Hosts supply colour vars; fonts: Bricolage Grotesque 700/800 `display=optional` (has Vietnamese; Figtree has none).
 - Style options from the owner = change `tactile.css :root` + tokens only.
 
 ## 1. Icons: ONE family, Lucide (ISC)
@@ -66,7 +67,7 @@ If a Lottie is added later: lazy-load it with `App.need`, keep it out of the `SH
 - Shape/type/components: §0. Body text stays Be Vietnam Pro.
 - Screens: home path (`ux1.js` map: unit card + step/XP-to-checkpoint, S-trail, real stars from `lk.ux1.st`, START pill, milestone, sticky Continue CTA), lesson (`lesson/ui.js`: 720 px focus, segmented bar, question counter, prompt card, audio row, A–D options, full-width Check, feedback sheet with chips + teacher card + gold-bank booster), readiness (`goal.js`: estimate vs target, readiness bar, skill tiles, picked drill, mock schedule; empty state without real scores).
 - Owner overrides: no hearts/lives, 5 tabs, 3D Ama/Carlos only, UK/US IPA via `UI.pronHtml`, light + dark from tokens. QA: one `.lsn-foot`, answers disabled after Check, `dir=ltr` on +XP/% values.
-- Bundle CSS outside the shell: `BCSS` in `app.js` (e.g. `css/exam.css` for mock/toeic/toefl).
+- Bundle CSS outside the shell: `BCSS` in `app.js` (`exam.css`, `adm.css`, `league.css`, `tactile-x.css`).
 
 ## 6. Checks before shipping UI
 `npm test` (size budget: shell ≤ 377 KB gz, a11y/axe, ext-sync, brand-check) → `ux-shots.yml` before/after sheets (phone + desktop, light/dark, en/vi/ar): no overflow, no tap target < 44, no JS error.

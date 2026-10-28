@@ -1,0 +1,19 @@
+/* Tactile (mở rộng): .tk-opts/.tk-opt · .tk-sheet · .tk-teacher – dùng biến của tactile.css; app nạp lười cùng gói lesson/goal (BCSS). docs/DESIGN-SYSTEM.md §0 */
+.tk-opts{display:grid;grid-template-columns:minmax(0,1fr);gap:.6rem;counter-reset:tko}
+.tk-opt{display:flex;align-items:center;gap:.8rem;min-height:56px;padding:.6rem .8rem;text-align:start;color:var(--text);font:inherit;font-weight:700;cursor:pointer;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-pill2);box-shadow:var(--hi),var(--lip);transition:transform 60ms,box-shadow 60ms}
+.tk-opt::before{counter-increment:tko;content:counter(tko,upper-alpha);flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:var(--r-tile);background:var(--surface);color:var(--muted);font-weight:800}
+.tk-opt::after{content:"";flex:none;margin-inline-start:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2)}
+.tk-opt:active:not(:disabled){transform:translateY(var(--press));box-shadow:var(--hi)}
+.tk-opt[aria-pressed=true]{border-color:var(--done);background:color-mix(in srgb,var(--done) 14%,var(--surface-2));box-shadow:0 3px 0 var(--done-ink)}
+.tk-opt[aria-pressed=true]::before{background:var(--done);color:var(--on-done)}
+.tk-opt[aria-pressed=true]::after{border-color:var(--done);background:radial-gradient(circle,var(--done) 0 45%,transparent 50%)}
+.tk-opt:disabled{cursor:default}
+.tk-sheet{background:var(--surface);border-top:3px solid var(--line-2);border-radius:var(--r-pill2) var(--r-pill2) 0 0;box-shadow:var(--elev-sheet)}
+.tk-sheet::before{content:"";display:block;width:44px;height:5px;border-radius:3px;background:var(--line-2);margin:-.2rem auto .7rem}
+.tk-sheet.ok{border-top-color:var(--good)}
+.tk-sheet.bad{border-top-color:var(--again)}
+.tk-teacher{display:flex;gap:.8rem;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-card);padding:.8rem}
+.tk-teacher>img{width:56px;height:56px;flex:none;border-radius:14px;object-fit:cover;object-position:50% 12%}
+.tk-teacher>div{min-width:0;flex:1}
+.tk-teacher small{display:block;color:var(--muted);font-size:.75rem}
+@media (prefers-reduced-motion:reduce){.tk-opt{transition:none}}

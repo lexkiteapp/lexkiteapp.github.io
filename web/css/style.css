@@ -606,12 +606,6 @@ body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolut
 
 /* ---------- Thi thử trên máy (CBT) ---------- */
 body.cbt-mode .view { max-width: none; padding: 0; }
-/* Bố cục .cbt-* (thi thử trên máy) nằm trong js/cbt.js – tải lười cùng trang, không tính vào khung app */
-.cbt-split, .ck-split { width: 10px; background: var(--line); cursor: col-resize; position: relative; user-select: none; transition: background .15s ease, box-shadow .15s ease; z-index: 10; flex-shrink: 0; }
-.cbt-split:hover, .cbt-split.drag, .ck-split:hover, .ck-split.drag { background: var(--primary); box-shadow: 0 0 10px rgba(204, 63, 28, .35); }
-.cbt-split::after, .ck-split::after { content: ""; position: absolute; top: 50%; left: calc(50% - 2px); transform: translate(-50%, -50%); width: 2px; height: 26px; border-radius: 1px; background: currentColor; color: rgba(0, 0, 0, .28); box-shadow: 4px 0 0 currentColor; }
-@media (prefers-color-scheme: dark) { .cbt-split::after, .ck-split::after { color: rgba(255, 255, 255, .38); } }
-
 /* Task 1 */
 .chart-wrap { background: var(--surface-2); border-radius: 14px; padding: .8rem; }
 .chart { width: 100%; height: auto; display: block; }
@@ -1436,14 +1430,6 @@ mark.g-ok { background: rgba(21,128,61,.18); color: var(--good-text); font-weigh
 .course-head { margin: .6rem 0 1rem; } .course-unit .g-row.done b { color: var(--muted); } .course-unit .g-row.next { outline: 2px solid var(--primary); outline-offset: -2px; border-radius: 10px; }
 .pp-q { font-size: 1.25rem; font-weight: 700; color: var(--primary); }
 
-/* Mục Quản trị trong Cài đặt (chỉ admin): lưới ô lối vào từng phần của trang quản trị */
-.adm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .6rem; }
-.adm-tile { display: flex; gap: .75rem; align-items: center; padding: .85rem 1rem; border-radius: 14px; background: var(--card); border: 1px solid var(--line); color: inherit; text-decoration: none; transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease; }
-.adm-tile:hover, .adm-tile:focus-visible { transform: translateY(-1px); border-color: var(--primary); box-shadow: var(--shadow, 0 4px 14px rgba(0,0,0,.08)); }
-.adm-ic { width: 40px; height: 40px; flex: none; display: grid; place-items: center; font-size: 1.25rem; border-radius: 12px; background: var(--primary-soft); }
-.adm-tx { display: flex; flex-direction: column; min-width: 0; } .adm-tx b { font-size: .95rem; } .adm-tx small { color: var(--muted); font-size: .78rem; line-height: 1.35; }
-@media (max-width: 480px) { .adm-grid { grid-template-columns: 1fr 1fr; } .adm-tile { flex-direction: column; align-items: flex-start; gap: .45rem; padding: .75rem; } }
-
 /* Trang chào mừng trên màn hẹp: ẩn menu chữ (Tính năng/Thi thử/Add-on) để không xuống dòng – đã có nút Bắt đầu & Đăng nhập */
 @media (max-width: 600px) { .w-head .w-nav { display: none; } }
 html.native .w-nav a[href="#/settings"] { display: none; } /* trong app không quảng cáo add-on Chrome */
@@ -1599,13 +1585,8 @@ body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "No
 .say-line > button { flex: none; }
 .say-line > .ctx-say { margin: 0; }
 .say-pron { display: inline-flex; align-items: center; gap: var(--sp-1); white-space: nowrap; } /* IPA + loa luôn đi cùng nhau, không tách dòng */
-/* 🏆 Thẻ hạng trang chủ (league.js): lưới biểu tượng | chữ | nút; khung hẹp → nút xuống hàng, chữ tự xuống dòng (không tràn đè) */
+/* 🏆 Thẻ hạng trang chủ: container ở đây; lưới .lg-hc-* ở css/league.css (tải lười cùng gói league) */
 #leagueHomeCard { container-type: inline-size; }
-.lg-hc { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); }
-.lg-hc-tx { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
-.lg-hc-t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); }
-.lg-hc-cta { white-space: nowrap; }
-@container (max-width: 440px) { .lg-hc { grid-template-columns: auto minmax(0, 1fr); } .lg-hc-cta { grid-column: 1 / -1; justify-self: stretch; justify-content: center; } }
 /* <a class="card"> mặc định là inline → nền/viền vỡ thành mảnh rời đè thẻ khác (ảnh owner 28/10 trang chủ). Mọi thẻ-liên-kết là khối. */
 :where(a.card) { display: block; color: inherit; text-decoration: none; } /* :where → độ ưu tiên 0, không đè .hub-card/.lg-hc (flex/grid) */
 /* 🏅 Thẻ Nhiệm vụ hôm nay (trang chủ): tiêu đề + a/b + từng nhiệm vụ có nhãn, số, thanh tiến độ */

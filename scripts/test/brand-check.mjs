@@ -97,7 +97,7 @@ for (const k of TK.icon.kite) for (const b of [TK.icon.bgTop, TK.icon.bg]) need(
 // 3) chặn màu lạ MỚI trong CSS app/add-on: chỉ token + bảng màu + màu cũ đã khóa (scripts/test/brand-colors.lock.json – chỉ được bớt)
 const LOCK = 'scripts/test/brand-colors.lock.json', lock = fs.existsSync(LOCK) ? JSON.parse(fs.readFileSync(LOCK, 'utf8')) : {};
 const tokenHex = new Set([...Object.values(TK.brand), ...Object.values(TK.light), ...Object.values(TK.dark), ...TK.icon.kite, TK.icon.bgTop, TK.icon.bg].filter(v => /^#/.test(v)).map(norm));
-const APP = ['web/css/style.css', 'web/css/tactile.css', 'web/js/ux1.js', 'web/js/lesson/ui.js', 'extension/popup.css', 'extension/newtab.css', 'extension/content.js', 'extension/writecheck.js'];
+const APP = ['web/css/style.css', 'web/css/tactile.css', 'web/css/tactile-x.css', 'web/js/ux1.js', 'web/js/lesson/ui.js', 'extension/popup.css', 'extension/newtab.css', 'extension/content.js', 'extension/writecheck.js'];
 const fresh = {};
 for (const f of APP) {
   const legacy = new Set((lock[f] || []).map(norm));
