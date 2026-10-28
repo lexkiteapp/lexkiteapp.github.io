@@ -73,6 +73,33 @@ for (const scheme of ['dark', 'light']) {
   }
   await ctx.close();
 }
+// ---- QC khổ máy 360 / 412 (390 ở trên): tràn ngang, chữ tràn khung, chạm <44 px, logo diều – gate tràn; ảnh w-<màn>.jpg ----
+const qc = {};
+for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
+  const ctx = await browser.newContext({ viewport: { width: QW, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, colorScheme: scheme, serviceWorkers: 'block' });
+  await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
+  const page = await ctx.newPage(); page.on('pageerror', e => errs.push(`${scheme}@${QW}: ${e.message}`));
+  const url = h => `https://lk.test/app/?sandbox=1&hl=en#/${h}`;
+  await page.goto(url('home'), { waitUntil: 'load' }); await page.waitForTimeout(2000);
+  await page.evaluate(async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
+    await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]); localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 })); }).catch(() => {});
+  for (const [k, h] of Object.entries(SCREENS)) {
+    await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1500);
+    if (k === 'lesson' || k === 'feedback') await page.evaluate(DRIVE, k).catch(() => {});
+    await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    qc[`${k}-${scheme}-${QW}`] = await page.evaluate(() => { const W = innerWidth, over = [], clip = [], tap = [];
+      for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
+        if (r.right > W + 1 || r.left < -1) if (!e.closest('[class*="overflow-hidden"],[class*="overflow-x"]') ) over.push(e.className.toString().slice(0, 40));
+        if (e.children.length === 0 && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
+        if (e.matches('a,button,[role=button],input') && (r.width < 44 || r.height < 44)) tap.push(`${e.tagName}${Math.round(r.width)}x${Math.round(r.height)}`); }
+      const lg = document.querySelector('.topbar .brand img'), lr = lg && lg.getBoundingClientRect();
+      return { hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
+    const fullH = await page.evaluate(() => { scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
+    await page.setViewportSize({ width: QW, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(250);
+    await page.screenshot({ path: path.join(OUT, `w${QW}-${k}-${scheme}.png`) }); await page.setViewportSize({ width: QW, height: 844 });
+  }
+  await ctx.close();
+}
 // ---- gallery (mọi component/dạng bài · màn hoàn thành) sáng + tối: soi đủ dạng bài mà 4 màn chính không chụp tới ----
 for (const scheme of ['dark', 'light']) {
   const ctx = await browser.newContext({ viewport: { width: W, height: 844 }, deviceScaleFactor: 1, colorScheme: scheme, serviceWorkers: 'block' });
@@ -112,20 +139,24 @@ try { for (const k of Object.keys(SCREENS)) { const f = [`brand/stitch/${k}-dark
   const d = [`brand/stitch/${k}-dark.jpg`, path.join(OUT, `desk-${k}-dark.png`), path.join(OUT, `desk-${k}-light.png`)], dl = ['Stitch (điện thoại, tối)', 'Lexkite máy tính – tối', 'Lexkite máy tính – sáng'], da = [];
   d.forEach((x, i) => { if (fs.existsSync(x)) da.push('-label', dl[i], x); });
   if (da.length) execFileSync('montage', [...da, '-tile', `${da.length / 3}x1`, '-geometry', '+8+8', '-resize', 'x900', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `desk-${k}.jpg`)]); } } catch (e) { console.log('montage bỏ qua:', e.message); }
+// tờ khổ máy: 360 · 390 · 412 (tối rồi sáng) cho mỗi màn
+try { for (const k of Object.keys(SCREENS)) { const a = []; for (const sc of ['dark', 'light']) for (const [w, f] of [[360, `w360-${k}-${sc}.png`], [390, `app-${k}-${sc}.png`], [412, `w412-${k}-${sc}.png`]]) { const x = path.join(OUT, f); if (fs.existsSync(x)) a.push('-label', `${w} px – ${sc === 'dark' ? 'tối' : 'sáng'}`, x + `[${w}x1700+0+0]`); }
+  if (a.length) execFileSync('montage', [...a, '-tile', '6x1', '-geometry', 'x1300+6+6', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '75', path.join(OUT, `w-${k}.jpg`)]); } } catch (e) { console.log('montage khổ bỏ qua:', e.message); }
 
 // ---- cổng ----
 const bad = [];
 for (const [k, v] of Object.entries(res)) { const l = LIM[k] || {}; for (const m of ['ssim', 'rows']) if (l[m] != null && v[m] < l[m]) bad.push(`${k} ${m} ${v[m]} < ${l[m]}`); }
-fs.writeFileSync(path.join(OUT, 'scores.json'), JSON.stringify({ res, errs, a11y }, null, 1));
+for (const [k, v] of Object.entries(qc)) { if (v.hscroll || (v.over || []).length) bad.push(`tràn ngang ${k}: ${(v.over || []).join(' | ')}`); if ((v.clip || []).length) bad.push(`chữ bị cắt ${k}: ${v.clip.join(' | ')}`); if (v.logo && !/icon\.svg/.test(v.logo.src)) bad.push(`logo ${k}: ${v.logo.src}`); }
+fs.writeFileSync(path.join(OUT, 'scores.json'), JSON.stringify({ res, errs, a11y, qc }, null, 1));
 for (const [k, v] of Object.entries(a11y)) { const sv = (v.violations || []).filter(x => x.impact === 'serious' || x.impact === 'critical'); console.log(`axe ${k}: ${(v.violations || []).length} vi phạm (${sv.length} nghiêm trọng) · ${v.passes || 0} đạt`); sv.forEach(x => bad.push(`axe ${k}: ${x.id} ×${x.n} – ${x.sample.join(' | ')}`)); }
 console.log(Object.entries(res).map(([k, v]) => `${k}: ssim ${v.ssim} · nhịp hàng ${v.rows}`).join('\n'));
 // Tóm tắt ngắn (đọc thay cho log/ảnh lớn): điểm SSIM, axe, dung lượng CSS
 { const css = ['home', 'lesson', 'goal'].map(g => { const f = path.join(ROOT, 'css', `st-${g}.css`); if (!fs.existsSync(f)) return `st-${g}: –`; const b = fs.readFileSync(f); return `st-${g}.css ${(b.length / 1024).toFixed(1)} KB · gz ${(zlib.gzipSync(b, { level: 9 }).length / 1024).toFixed(2)} KB`; });
   const md = ['## Stitch diff', '| màn | SSIM | nhịp hàng | axe (nghiêm trọng/tổng) |', '|---|---|---|---|',
     ...Object.keys({ ...res, ...a11y }).sort().map(k => { const r = res[k] || {}, a = a11y[k] || {}, v = a.violations || []; return `| ${k} | ${r.ssim ?? '–'} | ${r.rows ?? '–'} | ${v.filter(x => x.impact === 'serious' || x.impact === 'critical').length}/${v.length}${v.length ? ' ' + v.map(x => x.id).join(',') : ''} |`; }),
-    '', ...css.map(x => '- ' + x), errs.length ? '- lỗi JS: ' + errs.slice(0, 5).join(' | ') : '- lỗi JS: 0', bad.length ? '- ✗ ' + bad.slice(0, 12).join('\n- ✗ ') : '- ✓ đạt ngưỡng'].join('\n');
+    '', '| khổ | tràn | chữ cắt | chạm <44 | logo |', '|---|---|---|---|---|', ...Object.entries(qc).map(([k, v]) => `| ${k} | ${v.hscroll || (v.over || []).length ? '✗' : '✓'} | ${(v.clip || []).length || '✓'} | ${v.tapN ?? '–'}${v.tapN ? ' ' + v.tap.slice(0, 3).join(',') : ''} | ${v.logo ? v.logo.w + 'px' : '–'} |`), '', ...css.map(x => '- ' + x), errs.length ? '- lỗi JS: ' + errs.slice(0, 5).join(' | ') : '- lỗi JS: 0', bad.length ? '- ✗ ' + bad.slice(0, 12).join('\n- ✗ ') : '- ✓ đạt ngưỡng'].join('\n');
   fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md + '\n'); if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n');
-  try { for (const k of Object.keys(SCREENS)) for (const f of [`side-${k}.jpg`, `desk-${k}.jpg`]) if (fs.existsSync(path.join(OUT, f))) execFileSync('convert', [path.join(OUT, f), '-resize', '900x900>', '-quality', '70', path.join(OUT, 'sm-' + f)]); } catch (e) { /* bỏ qua */ } }
+  try { for (const k of Object.keys(SCREENS)) for (const f of [`side-${k}.jpg`, `desk-${k}.jpg`, `w-${k}.jpg`]) if (fs.existsSync(path.join(OUT, f))) execFileSync('convert', [path.join(OUT, f), '-resize', '900x900>', '-quality', '70', path.join(OUT, 'sm-' + f)]); } catch (e) { /* bỏ qua */ } }
 if (errs.length) console.log('lỗi JS:', errs.slice(0, 10));
 if (bad.length || errs.length) { console.error('✗ stitch-diff:\n  - ' + bad.concat(errs).join('\n  - ')); process.exit(1); }
 console.log('✓ stitch-diff: bám mẫu Stitch đạt ngưỡng (scripts/test/stitch-diff.json, chỉ được nâng)');

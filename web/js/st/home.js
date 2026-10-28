@@ -44,7 +44,7 @@ ${o.stars ? stars(o.stars) : ''}<span class="ux1-lbl sr-only">${esc(o.label)}</s
 ${d.demoNote ? `<p class="text-center font-body-sm text-body-sm text-on-surface-variant m-0 mb-2">${esc(d.demoNote)}</p>` : ''}
 ${d.exam ? `<div class="mb-space-md">${d.exam}</div>` : ''}
 <section class="ux1-unit ${d.ucls || ''} w-full rounded-2xl p-space-md mb-space-lg relative overflow-hidden bg-banner lt:bg-[#0F3D3E] border-2 border-secondary-container shadow-[0_5px_0_rgb(var(--st-banner-2))] lt:shadow-[0_5px_0_#082526]">
-<div class="flex items-center justify-between gap-space-sm mb-3"><h1 class="font-headline-sm text-headline-sm text-white font-bold tracking-tight m-0 truncate"><span class="ux1-badge sr-only">${esc(d.badge)} · ${esc(d.meta)}: </span>${esc(d.title)}</h1>
+<div class="flex items-center justify-between gap-space-sm mb-3"><h1 class="min-w-0 font-headline-sm text-headline-sm text-white font-bold tracking-tight m-0 truncate"><span class="ux1-badge sr-only">${esc(d.badge)} · ${esc(d.meta)}: </span>${esc(d.title)}</h1>
 <span class="shrink-0 px-2.5 py-0.5 rounded-full bg-black/25 text-[#FFC94A] font-label-badge text-label-badge font-extrabold" dir="ltr">${d.pct}%</span></div>
 <div class="ux1-ubar w-full h-3 rounded-full bg-black/30 overflow-hidden" role="progressbar" aria-label="${esc(d.step)}" aria-valuemin="0" aria-valuemax="${d.aria.max}" aria-valuenow="${d.aria.now}"><div class="h-full rounded-full bg-gradient-to-r from-[#FFC94A] to-[#FFB054]" style="width:${Math.max(d.pct, 4)}%"></div></div>
 <p class="ux1-hint sr-only">${esc(d.coach.name)}: ${esc(d.coach.tip)}${d.xpTo ? ' · ' + esc(d.xpTo) : ''}</p>
