@@ -12,12 +12,11 @@ Cập nhật: 27/10/2026.
 - Giám khảo kép ĐÃ soát (28/10, run 40614789632): 13/13 ảnh nhận thêm đúng nghĩa; tỉ lệ đạt klein 2/40 → 10/40 → giữ `VIMG_CONSENSUS=1`. klein-4b ≈ 110 neuron/ảnh (đo 27/10); phần vẽ 70 % khi `LX_PILOT=1`, 50 % khi kho từ chạy hàng loạt.
 
 ## Kho từ 20k (`lexicon-expand`) – cổng THEO TRƯỜNG, đang pilot
-- Kho vẫn 8.230 nghĩa. Chủ chọn (27/10): mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi) đạt sai ≤ 1/50; mỗi ngôn ngữ khác chỉ giữ khi bản dịch Wiktionary khớp nghĩa chắc chắn + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd); thiếu → app dùng đường dịch hiện có. AI chỉ lấp vi.
-- Lịch sử: pilot 2 giám khảo ~9/50 sai, 3 giám khảo ~6–9/34 – lỗi gần hết ở dịch 12 ngôn ngữ do AI/bảng ghép nhầm.
-- Soát 28/10 `20261028-pilot` (75 mục, giữ TB 5,4 ngôn ngữ/mục): LÕI 9/50 sai (vi sai nghĩa/từ loại: fatal, derby, brad, rocky, outgrow; IPA Anh /brad/, armchair (r) giữa từ, ointment (ə); ví dụ cụm ballet; virgin không hợp teen), DỊCH 2/50 (relive ar أحيا, jeopardize zh 使受危险) → TRƯỢT, giữ LX_PILOT=1.
-- Đã thêm: ukStyle (ipa.mjs) + cổng IPA kiểu kho, cổng ví dụ phải là câu, cổng ADULT; prompt vi cùng từ loại + giám khảo bắt bảng Wiktionary khác nghĩa/calque; requeue 75 mục.
-- IPA (c) XONG 28/10: `ipa-check.mjs checkEntry` (Britfone đầy đủ + CMUdict) chạy trong job trước cổng + lưới cuối trước khi ghi pending; promote.mjs từ chối lô lệch (`--fix-ipa` áp bản sửa theo nguồn). Lô chờ cũ: pool-pilot5 (6 mục), pool-pilot8 (1), src-pilot9 (1) đang bị từ chối. Tác vụ "lexicon-pilot-28-10" soát lô kế.
-- Đã soát: 20261027-pilot (lần 1–3), 20261028-pilot.
+- Kho vẫn 8.230 nghĩa. Mục xuất khi LÕI (def/ví dụ/IPA/CEFR + vi, 3 giám khảo) sai ≤ 1/50; 12 ngôn ngữ khác chỉ giữ khi Wiktionary khớp nghĩa + 3 giám khảo ≥ 4 + dịch ngược + từ có thật (ca744dd). IPA: `ipa-check.mjs` trong job + promote (Britfone/CMU).
+- Soát 28/10 lần 1 `20261028-pilot` (75 mục): LÕI 9/50, DỊCH 2/50 → trượt; thêm ukStyle, ví dụ phải là câu, ADULT, prompt vi cùng từ loại.
+- Soát 28/10 lần 2 `20261028-pilot@07:28Z` (38 mục < 50, TB 5,7 ngôn ngữ/mục): LÕI 5/38 (vi AI sai nghĩa mà 3 giám khảo cho 5: bight "cúm", caucus "bầu chọn", recollection "kỷ niệm", heighten "tăng cường" + ví dụ gượng; cornet vi Wiktionary "kèn coonê"), DỊCH 1/50 (invisible zh 无形), IPA 1/38 lệch (demolition Anh ≠ Britfone) → trượt, LX_PILOT=1.
+- Đã thêm: cổng dịch ngược vi cho vi do AI lấp (`viBtOk`, judge trả `bt_vi`; thiếu = lỗ, sinh lại) + test; requeue 38 mục. Còn ngỏ: vi từ Wiktionary phiên âm lạ (cornet).
+- Đã soát (so cả `at` của tệp, tên lô có thể trùng ngày): 20261027-pilot (lần 1–3), 20261028-pilot@lần 1, 20261028-pilot@07:28Z.
 
 ## Chờ chủ
 - Xoá `~/Downloads/keys_export.txt` (khoá thật dạng chữ thường); cân nhắc đổi khoá quan trọng.
