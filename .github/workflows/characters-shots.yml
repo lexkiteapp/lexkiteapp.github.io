@@ -22,8 +22,9 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           npx playwright install --with-deps chromium >/dev/null
-          node scripts/test/characters-shots.mjs web out/characters/build
+          node scripts/test/characters-shots.mjs web out/characters/build || F=1
           [ -z "$LIVE" ] || node scripts/test/characters-shots.mjs web out/characters/live --live "$LIVE" || echo "::warning::live còn tài sản nhân vật ngoài registry (trước khi deploy là đúng – xem audit.json)"
+          [ -z "$F" ]
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: characters-shots, path: out/characters, retention-days: 7 }
