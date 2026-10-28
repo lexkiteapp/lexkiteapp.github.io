@@ -30,7 +30,7 @@ for (const [w, scheme] of [[390, 'light'], [1366, 'dark']]) {
       if (!/^image\/|^video\//.test(t) && !/\.(webp|png|jpe?g|mp4|webm|avif|gif)(\?|$)/.test(u)) return;
       if (!CHAR.test(u)) return;
       // video tải từng phần (206/range) → hash TRỌN tệp qua request riêng, không hash 1 mảnh
-      try { const b = r.status() === 206 || /^video\//.test(t) ? await (await page.request.get(u)).body() : await r.body(); got.push({ u, sha: crypto.createHash('sha256').update(b).digest('hex'), status: r.status() === 206 ? 200 : r.status() }); } catch (e) { got.push({ u, sha: null, status: r.status() }); }
+      try { const b = r.status() === 206 || /^video\//.test(t) ? (LIVE ? Buffer.from(await (await fetch(u)).arrayBuffer()) : fs.readFileSync(ROOT + decodeURIComponent(new URL(u).pathname))) : await r.body(); got.push({ u, sha: crypto.createHash('sha256').update(b).digest('hex'), status: r.status() === 206 ? 200 : r.status() }); } catch (e) { got.push({ u, sha: null, status: r.status() }); }
     });
     await page.goto(`${base}#/${hash}`, { waitUntil: 'load' }).catch(e => errs.push(`${tag}: ${e.message}`));
     await page.waitForTimeout(3500);
