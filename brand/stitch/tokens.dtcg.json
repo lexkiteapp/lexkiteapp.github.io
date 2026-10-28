@@ -111,7 +111,7 @@
   },
   "lip-primary": {
    "$type": "color",
-   "$value": "#900f00",
+   "$value": "#B53A22",
    "$extensions": {
     "com.lexkite.mode": {
      "light": "#C43820"
