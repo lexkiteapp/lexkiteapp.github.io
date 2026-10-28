@@ -125,6 +125,9 @@
         : `<div class="lsn-ask"><div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
       <div id="lsnBody"></div></div>`;
     const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
+    // Chỉ bài thử (?demo=1): CI soát hình (scripts/test/new-ui-qa.mjs) nhảy thẳng tới 1 dạng bài – không đụng dữ liệu thật
+    App.lessonDemo = demo ? { jump(type) { if (!L || L.dead) return false; const it = L.sess.q.find(x => x.type === type) || E.build(E.pickWords(DEMO(), { n: 4 }), { seed: 7, pool: DEMO(), hasImg: (w, p) => !!imgUrl(w, p), only: [type] })[0]; if (!it) return false; L.sess.q = [it].concat(L.sess.q.filter(x => x !== it)); next(); return true; },
+      answer(ok) { const it = L && L.sess.cur; if (!it || L.checked) return false; const tk = String(it.answer || '').split(' '); submit(ok ? ({ build: tk, tr: tk, say: 0.9, pic: it.choice ? it.answer : 0.9, match: true }[it.type] ?? it.answer) : ({ build: tk.slice().reverse(), tr: tk.slice().reverse(), say: 0.3, pic: it.choice ? '#' : 0.3, match: false }[it.type] ?? '#wrong')); return true; } } : null;
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
     next();
   };
