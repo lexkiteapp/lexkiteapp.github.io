@@ -59,7 +59,9 @@ for who, P in R['people'].items():
     CW, CX = (cx1 - cx0) // 2 * 2, cx0; SW = min(W, round(CW / s / 2) * 2); PX = min(W - SW, max(0, round((cx0 - X0) / s)))
     t0 = P['clips']['talk']['src']
     if CY < 0 or CY + CH > FH: errs.append(f'{who}: khung cao {CH}+{CY} ra ngoài clip {FW}x{FH}'); continue
-    crop = f'{CW}:{CH}:{CX}:{CY}'; SC = f'scale={SW}:{H}:flags=lanczos,pad={W}:{H}:{PX}:0:black'; print(f'{who}: crop {crop} → {SW}x{H} đệm {PX} → {W}x{H}')
+    crop = f'{CW}:{CH}:{CX}:{CY}'; SC = f'scale={SW}:{H}:flags=lanczos,pad={W}:{H}:{PX}:0:black'
+    # alpha: vùng đệm = 0 TUYỆT ĐỐI (pad xám tô 16 = 'đen dải hẹp' → lộ khung mờ), mép dưới mờ dần
+    FA = f"geq=lum='if(between(X\\,{PX}\\,{PX + SW - 1})\\,lum(X\\,Y)\\,0)*min(1\\,(H-Y)/(H*0.10))'"; print(f'{who}: crop {crop} → {SW}x{H} đệm {PX} → {W}x{H}')
     for pose in R['poses']:
         c = P['clips'][pose]; src = c['src']; cf, cm = f'{G}/kfull_pro/{src}.mp4', f'{G}/kmask_pro/{src}.mkv'
         if not (os.path.exists(cf) and os.path.exists(cm)):
@@ -71,7 +73,7 @@ for who, P in R['people'].items():
         if b[1] < CH * 0.03: errs.append(f'{who}/{pose}: đỉnh đầu sát/mất mép trên (y1={b[1]} / {CH})')
         fps = probe(cf, 'r_frame_rate').split(',')[0]
         n = min(int(probe(f, 'nb_read_frames')) for f in (cf, cm)); a, z = c.get('from', 0), min(c.get('to', n - 1), n - 1) + 1; N = z - a
-        g = (f"[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,format=gray,crop={crop},{SC},{FADE}[a];"
+        g = (f"[1:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,format=gray,crop={crop},{SC},{FA}[a];"
              f"[0:v]trim=start_frame={a}:end_frame={z},setpts=N/({fps})/TB,crop={crop},{SC},format=rgba[c];"
              "[c][a]alphamerge,premultiply=inplace=1,format=rgba,split[p1][p2];[p1]format=rgb24[pm];[p2]alphaextract,format=gray,format=rgb24[ar];"
              f"[pm][ar]vstack=2,split[f][r];[r]reverse,trim=start_frame=1:end_frame={N - 1},setpts=N/({fps})/TB[b];[f][b]concat=n=2:v=1,setpts=N/({fps})/TB,format=yuv420p")
@@ -83,7 +85,7 @@ for who, P in R['people'].items():
         if os.path.getsize(o) > 240 * 1024: errs.append(f'{o}: {os.path.getsize(o) // 1024} KB > 240 KB')
         print(f'  {pose:9s} {src}[{a}:{z}] {os.path.getsize(o) // 1024} KB')
     cf, cm = f'{G}/kfull_pro/{t0}.mp4', f'{G}/kmask_pro/{t0}.mkv'
-    run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={crop},{SC},{FADE}[a];[0:v]crop={crop},{SC}[c];[c][a]alphamerge',
+    run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={crop},{SC},{FA}[a];[0:v]crop={crop},{SC}[c];[c][a]alphamerge',
         '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', f'{OUT}/{who}/poster.webp')
     S = round(P['eye_mouth'] * 5 / 2) * 2; AX, AY = round(P['eye'][0] - S / 2), round(P['eye'][1] - P['eye_mouth'] * 2.6); A = F['avatar']
     run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={S}:{S}:{AX}:{AY},scale={A}:{A}:flags=lanczos,{fade(0.22)}[a];[0:v]crop={S}:{S}:{AX}:{AY},scale={A}:{A}:flags=lanczos[c];[c][a]alphamerge',
