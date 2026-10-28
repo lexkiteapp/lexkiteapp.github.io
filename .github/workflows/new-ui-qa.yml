@@ -53,7 +53,7 @@ jobs:
       - name: Gộp báo cáo + chuỗi chưa dịch + contact sheet
         run: |
           command -v montage >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick)
-          node scripts/test/new-ui-sheets.mjs nuq sheets "${{ github.event.inputs.label || github.ref_name }}"
+          node scripts/test/new-ui-sheets.mjs nuq sheets "${{ github.event.inputs.label || github.run_id }}"
       - if: always()
         uses: actions/upload-artifact@v4
-        with: { name: 'new-ui-sheets-${{ github.event.inputs.label || github.ref_name }}', path: sheets, retention-days: 14 }
+        with: { name: 'new-ui-sheets-${{ github.event.inputs.label || github.run_id }}', path: sheets, retention-days: 14 }
