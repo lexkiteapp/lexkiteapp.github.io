@@ -59,7 +59,7 @@
 .lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.2rem;opacity:0}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
 @keyframes lsnEmo{0%{opacity:0}25%{opacity:1}70%{opacity:1}100%{opacity:0}}
 /* Chuyển động tiết chế (chủ 28/10): chỉ mờ dần 150–200 ms, không nảy/rung/phát sáng/pháo giấy */
-.lsn-combo.on,.lsn-tile.pop,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-node.next .lsn-dot,.lsn-start,.lsn-big:active{animation:none;transform:none}
+.lsn-combo.on,.lsn-tile.pop,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-node.next .lsn-dot,.lsn-start{animation:none} /* nút nhún khi bấm do lớp active: (Stitch) – chủ mở luật 28/10 */
 .lsn-emo{display:none}.lsn-bar i{transition:width .18s ease}
 .lsn-foot.ok,.lsn-foot.bad{animation:lsnFade .18s ease-out}@keyframes lsnFade{from{opacity:0}to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on,.lsn-node.next .lsn-dot,.lsn-start,.lsn-tile.pop,.lsn-emo.on,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-foot.ok,.lsn-foot.bad{transition:none;animation:none}.lsn-emo.on{opacity:1;transform:none}}`;
