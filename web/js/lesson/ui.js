@@ -37,12 +37,12 @@
     st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;padding:0 1rem calc(var(--lsn-fh,8rem) + 1.5rem)}
 /* 🎨 Giao diện câu hỏi/tấm phản hồi = class Tailwind của mẫu Stitch (web/js/st/lesson.js · css/st-lesson.css); dưới đây chỉ bố cục + trạng thái */
 .lsn-combo{visibility:hidden}.lsn-combo.on{visibility:visible}
-.lsn-av .tch{width:48px;height:48px;position:relative}.tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
-.lsn-av .tch-rig img,.lsn-av .tch-rig canvas{object-fit:cover;object-position:50% 0;transform:scale(1.7);transform-origin:50% 6%}
+.lsn-av.tch{position:relative}.tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
+.lsn-av .tch-rig img,.lsn-av .tch-rig canvas{object-fit:cover;object-position:50% 0;transform:scale(1.25);transform-origin:50% 0}
 .lsn-tile.used{visibility:hidden}.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
 .lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:80vh;overflow-y:auto;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom))}
-.lsn-foot>*{max-width:608px;margin-inline:auto}.lsn-foot.tk-sheet{display:flex;flex-direction:column;gap:1rem;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}.lsn-foot.tk-sheet>*{width:100%}
-.lsn.st-dim>:not(.lsn-top){opacity:.4;transition:opacity .18s ease}
+.lsn-foot>*{max-width:608px;margin-inline:auto}.lsn-foot.sheet{display:flex;flex-direction:column;gap:1rem;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}.lsn-foot.sheet>*{width:100%}
+.lsn.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);animation:st-fade .18s ease both;pointer-events:none} /* tấm phản hồi: phần câu hỏi lùi sau lớp phủ (mẫu Stitch) */
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
 .lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;position:relative;transition:transform .2s ease,filter .2s ease}
 .lsn-duo .tch.talk{transform:scale(1.06);filter:drop-shadow(0 0 5px var(--primary))}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
