@@ -1642,3 +1642,4 @@ body:has(> main.doc) { --font: system-ui, -apple-system, "Segoe UI", Roboto, "No
 .qc-n { color: var(--muted); font-variant-numeric: tabular-nums; font-size: var(--fs-xs); }
 .qc-bar { grid-column: 2 / -1; margin: 0; }
 .qc-it.done .qc-tx { color: var(--muted); text-decoration: line-through; }
+.quest-card, .lg-hc { color: var(--text); } .quest-card:hover, .lg-hc:hover { text-decoration: none; } /* thẻ-liên-kết: chữ thường, không màu link */
