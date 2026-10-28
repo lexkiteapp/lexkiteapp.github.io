@@ -147,7 +147,9 @@ jobs:
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-dark.png
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-word-vi-dark.png
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-word-ar-dark.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar --ez ret true --es who carlos && sleep 3 && adb exec-out screencap -p > shots/android-widget-ret-ar-dark.png
             adb shell cmd uimode night no && sleep 2
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi --ez ret true && sleep 3 && adb exec-out screencap -p > shots/android-widget-ret-vi-light.png
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-light.png
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-light.png
             adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-word-vi-light.png
