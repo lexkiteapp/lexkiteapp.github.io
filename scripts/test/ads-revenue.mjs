@@ -141,7 +141,7 @@ if (!process.argv.includes('--no-dom')) {
     for (const lang of ['vi', 'en']) {
       const dom = new JSDOM(`<!doctype html><html lang="${lang}"><body><main id="main"></main></body></html>`, { url: 'https://lexkite.com/admin.html#ads/overview', runScripts: 'outside-only', pretendToBeVisual: true });
       const w = dom.window, doc = w.document;
-      w.eval(fs.readFileSync('web/js/admin-ads.js', 'utf8')); w.eval(fs.readFileSync(createRequire(import.meta.url).resolve('axe-core/axe.min.js'), 'utf8'));
+      w.eval(fs.readFileSync('web/js/admin-chart.js', 'utf8')); w.eval(fs.readFileSync('web/js/admin-ads.js', 'utf8')); w.eval(fs.readFileSync(createRequire(import.meta.url).resolve('axe-core/axe.min.js'), 'utf8'));
       const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
       const L = (vi, vars) => (vars ? vi.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? vars[k] : m)) : vi);
       const api = async op => { if (op === 'adsStats') return S; if (op === 'config') return { keys: [], values: {} }; throw new Error(op); };
