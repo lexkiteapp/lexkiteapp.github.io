@@ -236,7 +236,7 @@
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
     roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
     call: ['js/call/calls.js', 'js/call.js'], // Call Mia: cuộc gọi luyện nói có kịch bản
-    courses: ['js/courses.js'], goal: ['js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
+    courses: ['js/courses.js'], goal: ['js/i18n/en/goal.js', 'js/st/common.js', 'js/st/goal.js', 'js/goal.js'], // Mục tiêu & kế hoạch: tải lười (khung app chạm trần 380 KB)
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
     listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => `js/listen/test${n}.js`), 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
     writing: ['js/i18n/en/ideast.js', 'js/write/task2-more.js', 'js/write/task1-more.js', 'js/write/task1-more2.js', 'js/write/ideas.js', 'js/write.js', 'js/task1.js', 'js/models.js', 'js/write/models2.js', 'js/write/models3.js', 'js/write/models4.js', 'js/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js'],
@@ -272,7 +272,7 @@
     adoffer: ['js/i18n/en/adoffer.js', 'js/ad-offers.js'], // 🎁 Cơ hội 2 · x2 XP ở thẻ kết quả (docs/ADS.md §1c)
     i18nx: ['structs', 'toefl', 'league', 'call', 'handoff'].map(n => `js/i18n/en/${n}.js`), // chuỗi giao diện trang tải lười (xem App.need)
     i18nl: ['verbs', 'exams', 'skills', 'lazyui'].map(n => `js/i18n/en/${n}.js`), // chuỗi Chia động từ/Sửa ngữ pháp, đề thi, Ngữ pháp/Speaking/Phát âm (ra khỏi en.js 27/10; add-on không cần nên tách khỏi i18nx)
-    ux1: ['js/i18n/en/ux1.js', 'js/ux1.js'], lesson: ['js/i18n/en/lesson.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
+    ux1: ['js/i18n/en/ux1.js', 'js/st/common.js', 'js/st/home.js', 'js/ux1.js'], lesson: ['js/i18n/en/lesson.js', 'js/st/common.js', 'js/st/lesson.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/lesson/teacher.js', 'js/lesson/stories.js', 'js/lesson/ui.js'], lgold: ['js/lesson/gold.js'], // 🧩 Bài học trộn bài tập nhỏ (cờ lesson_mix, docs/LESSON-ENGINE.md) · gold bank cho "Giải thích"
     confidence: ['js/i18n/en/confidence.js', 'js/confidence/data.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
   const ROUTE_BUNDLE = { train: 'ux1', lesson: 'lesson', streak: ['streak', 'ret'], confidence: ['roleplay', 'confidence'], settings: ['remind', 'settings'], class: 'classroom', paraphrase: 'paraphrase', courses: 'courses', goal: 'goal', course: 'courses', handsfree: ['words', 'tsl', 'voice', 'handsfree'], reflex: ['words', 'voice', 'readings', 'reflex'], roleplay: 'roleplay', call: 'call', handoff: 'handoff', letters: 'writing', reading: 'readings', read: 'readings', cbt: 'readings', method: 'readings', grammar: ['grammar', 'lfx'], placement: ['words', 'grammar', 'placement'], pron: 'pron', listening: 'listening', listen: ['listening', 'toeic'], 'listen-test': 'listening', dictation: ['listening', 'toeic'],
@@ -300,7 +300,10 @@
   // i18nx: chuỗi giao diện của các trang tải lười (TOEFL, Giải đấu, Call Mia, Chuyển dữ liệu, Cấu trúc câu) – ra khỏi en.js (khung app),
   // nạp kèm (song song) gói đầu tiên được mở → module luôn vẽ khi đã có bản dịch; tiếng Việt (ngôn ngữ gốc) không cần
   let inflight = 0; // số gói đang tải – tải sẵn (prefetchAll) chờ về 0 để không giành băng thông với trang đang mở
-  const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript)).finally(() => { inflight--; }));
+  // CSS riêng của gói (ngoài khung app): nạp song song với JS, chờ xong (tối đa 1,5 s) → không nháy bố cục
+  const BCSS = { mock: 'css/exam.css', toeic: 'css/exam.css', toefl: 'css/exam.css', readings: 'css/exam.css', listening: 'css/exam.css', settings: 'css/adm.css', league: 'css/league.css', lesson: ['css/tactile-x.css', 'css/st-lesson.css'], goal: ['css/tactile-x.css', 'css/st-goal.css'], ux1: 'css/st-home.css' } // st-*.css: màn Stitch biên dịch sẵn (scripts/build-stitch-css.mjs), cssP = {};
+  const loadCss = h => cssP[h] || (cssP[h] = new Promise(res => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = h; l.onload = l.onerror = () => res(); setTimeout(res, 1500); document.head.appendChild(l); }));
+  const need1 = n => bundleP[n] || (inflight++, bundleP[n] = Promise.all(BUNDLES[n].map(loadScript).concat([].concat(BCSS[n] || []).map(loadCss))).finally(() => { inflight--; }));
   App.need = (...names) => Promise.all([...(window.I18N && I18N.lang() !== 'vi' ? ['i18nx', 'i18nl'].map(need1) : []), ...names.map(need1)]);
   App.loaded = n => !!bundleP[n];
   App.anki = async (tab, opts) => { try { await App.need('anki'); if (!window.AnkiUI) throw new Error('anki'); await AnkiUI.open(tab, opts || {}); } catch (e) { toast(t('Không tải được – thử lại sau')); } };
