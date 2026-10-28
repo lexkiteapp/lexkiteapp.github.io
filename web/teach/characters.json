@@ -2,7 +2,7 @@
   "_note": "NGUỒN DUY NHẤT nhân vật Lexkite (chủ 28/10): đúng 2 giáo viên 2D phông xanh, trang phục 1 – Ama (cô) + Carlos (thầy). Mọi màn hình/add-on/video lấy ảnh-clip qua đây (web/js/characters.js · Python: scripts/teach/registry.py). Cổng CI: scripts/test/characters-gate.mjs. Dựng: scripts/teach/build.py trên CI teach-build.yml. docs/CHARACTERS.md.",
   "version": 2,
   "frame": {
-    "w": 384,
+    "w": 516,
     "h": 480,
     "eye_y": 0.32,
     "eye_mouth": 50,
@@ -103,5 +103,70 @@
       }
     }
   },
-  "files": {}
+  "files": {
+    "ama/avatar.webp": {
+      "sha256": "4c89b901006bdce3ec08a8ec5fd0ce27ff9274c415ec57e3fdd085ea9a42f5be",
+      "bytes": 7108
+    },
+    "ama/encourage.mp4": {
+      "sha256": "041ed55fab20659525f43ed4fe002e5b608c1d1ecff5159257f2295e4c4b0687",
+      "bytes": 140108
+    },
+    "ama/explain.mp4": {
+      "sha256": "def4785890c48960953c87e05f7e23f436d06a0014f7b386a10c00792f8d8aad",
+      "bytes": 162824
+    },
+    "ama/happy.mp4": {
+      "sha256": "2edfbe86f5c23de568e6cd855b3d9457d61b56f4c719b7d12a1786a332da2172",
+      "bytes": 108915
+    },
+    "ama/laugh.mp4": {
+      "sha256": "97ee6fd725962ee74b08c0bedc45a8dd4794fbfd48b2194a594d08385c9f523b",
+      "bytes": 102912
+    },
+    "ama/listen.mp4": {
+      "sha256": "3f8e00b68d75c8926f40b392b179d9778edced64583aa7bbc82dd02b169b30f5",
+      "bytes": 131240
+    },
+    "ama/poster.webp": {
+      "sha256": "aa34a3206385de06a59b4421727f5a12a4d3d1c3fb5ee6dcd4523164c8b6dd50",
+      "bytes": 14086
+    },
+    "ama/talk.mp4": {
+      "sha256": "0411104694e6deae9cf7fac3537540a84c2d0574c2b1c24c3d7471c141bb12e1",
+      "bytes": 154321
+    },
+    "ama/thinking.mp4": {
+      "sha256": "782009290aa880baf3d893c875692561bf5d20cd5cbc063e6a78540fa6c3967c",
+      "bytes": 105676
+    },
+    "carlos/avatar.webp": {
+      "sha256": "5d9745ec4fa59151f32c856b8eea267abe9137241714163ef857c1c7e9dd8ee4",
+      "bytes": 7088
+    },
+    "carlos/happy.mp4": {
+      "sha256": "43e9ab3d8bac000aca7e54c4e6a06be97b3d68dfadd4b247bcee35836453ce68",
+      "bytes": 118695
+    },
+    "carlos/laugh.mp4": {
+      "sha256": "864e50ccca3854cd2687730923d8cccfb3442983fff63fcd1de812dc5cdfea25",
+      "bytes": 136595
+    },
+    "carlos/listen.mp4": {
+      "sha256": "511ba16c91712e674e1dbb745a629fbf76346da222f268ac1eafe825c0225058",
+      "bytes": 114865
+    },
+    "carlos/poster.webp": {
+      "sha256": "165e97478f659d8d71f3f41514ba2d8a10e11d16a7beb2d3308d87f09deb0c80",
+      "bytes": 17986
+    },
+    "carlos/talk.mp4": {
+      "sha256": "a6f537fe24671c714f494db85bdbd14a8efcf1a8fdbdec02e9d5a933e9a90278",
+      "bytes": 136620
+    },
+    "carlos/thinking.mp4": {
+      "sha256": "0d791f0c2654c42b2e4ec86b7de33454fe0f3b4e5c244dcc7c738b0a85705e1d",
+      "bytes": 68588
+    }
+  }
 }
