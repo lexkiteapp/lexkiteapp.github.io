@@ -4,7 +4,7 @@
 > Đọc khi: mọi thay đổi giao diện.
 
 One design language. Every UI change follows this page. Rule: quality only goes up. Never remove features or content.
-Sources: tokens in `web/css/style.css` `:root`, brand colours in `docs/BRAND-RULES.md` and `web/js/kit.js`, icons from `scripts/build-icons.mjs`.
+Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css` `:root` by `scripts/build-tokens.mjs` – never edit the `@tokens` lines), other tokens in `:root`, brand rules in `docs/BRAND-RULES.md`, Kit in `web/js/kit.js`, icons from `scripts/build-icons.mjs`.
 
 ## 1. Icons: ONE family, Lucide (ISC)
 - Licence: ISC, © Lucide Contributors; parts © Cole Bemis (Feather, MIT). Credited on `/credits` (`content/legal/{en,vi}/credits.html`).
@@ -30,7 +30,7 @@ Sources: tokens in `web/css/style.css` `:root`, brand colours in `docs/BRAND-RUL
 | Elevation | `--elev-1` rest (card) · `--elev-2` hover/raised · `--elev-3` modal/sheet | dark mode has its own, stronger shadow values |
 | Icon size | 16 (pills, small) · 18 (icon buttons, search) · 20 `--ic` (sidebar) · 24 (bottom nav) | stroke 2 (nav 1.9 → 2.2 when active) |
 
-Colour: only the brand palette and semantic tokens (`--primary*`, `--accent*`, `--good/again/gold*`, `--surface*`, `--text`, `--muted`, `--line`). Never write a new hex value outside `docs/BRAND-RULES.md`. The streak flame uses #F2553B and #FFB054; the XP star uses `--gold`.
+Colour: only the brand palette and semantic tokens (`--primary*` = CTA, `--accent*`, `--done/--done-ink/--on-done` = progress, done nodes, earned badges, `--good/again/gold*`, `--surface*`, `--text`, `--muted`, `--line`, `--line-2`). Never write a new hex value outside `docs/BRAND-RULES.md`. The streak flame uses #F2553B and #FFB054; the XP star uses `--gold`.
 
 ## 3. Motion (Material 3 / HIG)
 - `--dur-1` 120 ms (hover, press, colour) · `--dur-2` 200 ms (enter, page fade, card lift, tick). UI transitions never exceed 200 ms. The card flip (480 ms) and ambient loops (streak flame) are the only exceptions.

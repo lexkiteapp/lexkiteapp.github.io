@@ -31,12 +31,9 @@ const opentype = req('opentype.js');
 
 const COPY = JSON.parse(fs.readFileSync(path.join(SRC, 'copy.json'), 'utf8'));
 
-// ---------- bảng màu (khớp brand/brand-kit.html và web/css/style.css) ----------
-const C = {
-  teal: '#0F3D3E', teal2: '#17595A', tealDeep: '#0A2C2D', tealGlow: '#2A7D7A',
-  coral: '#F2553B', coralUI: '#E5502F', coralMid: '#FF7A4D', apricot: '#FFB054',
-  sun: '#FFC94A', cream: '#FFE7C2', paper: '#F4FBF8', sky: '#CFE9F2', mint: '#2FBF71',
-};
+// ---------- bảng màu: nguồn duy nhất brand/tokens.json (docs/BRAND-RULES.md) ----------
+const TOKENS = JSON.parse(fs.readFileSync(path.join(BRAND, 'tokens.json'), 'utf8'));
+const C = TOKENS.brand;
 
 // ---------- phông (Google Fonts, SIL OFL 1.1) ----------
 const loadFont = (f) => opentype.parse(fs.readFileSync(path.join(FONT_DIR, f)).buffer);
@@ -596,6 +593,19 @@ async function main() {
     const target = f.includes('horizontal') ? 1600 : f.includes('clearspace') ? vw : 1024;
     fs.writeFileSync(path.join(logoDir, f.replace('.svg', '.png')), await encode(svg, target, 'png'));
   }
+  // PNG icon app từ web/icons/icon.svg (scripts/build-tokens.mjs dựng SVG): vuông tràn viền (PWA/Apple/Play), bo góc (add-on), maskable (vùng an toàn 80 %), ô cửa hàng 128 (icon 96 + lề 16)
+  const ICON = fs.readFileSync(path.join(ROOT, 'web/icons/icon.svg'), 'utf8');
+  const square = ICON.replace(/ rx="230" ry="230"/, '');
+  const maskable = square.replace('<svg x="112" y="112" width="800" height="800"', '<svg x="192" y="192" width="640" height="640"');
+  const store = `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><svg x="16" y="16" width="96" height="96" viewBox="0 0 1024 1024">${ICON.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '')}</svg></svg>`;
+  const ICONS_OUT = [
+    ...[16, 32, 48, 128].flatMap((n) => [[`web/icons/icon-${n}.png`, ICON, n], [`extension/icons/icon-${n}.png`, ICON, n]]),
+    ['web/icons/icon-192.png', square, 192], ['web/icons/icon-512.png', square, 512], ['web/icons/apple-touch-icon.png', square, 180],
+    ['web/icons/icon-maskable-512.png', maskable, 512], ['brand/lexkite-icon-512.png', square, 512],
+    ['web/icons/icon-128-store.png', store, 128], ['store/icon-128.png', store, 128],
+  ];
+  for (const [f, svg, n] of ICONS_OUT) fs.writeFileSync(path.join(ROOT, f), await sharp(rasterize(svg, n)).png({ compressionLevel: 9 }).toBuffer());
+  console.log(`icon PNG: ${ICONS_OUT.length} tệp từ web/icons/icon.svg`);
   manifest.push(...Object.keys(logos).map((f) => ({ platform: 'logo', file: `logo/${f.replace('.svg', '.png')}`, svg: `logo/${f}`, use: f.replace(/^lexkite-|\.svg$/g, '').replace(/-/g, ' '), fmt: 'png' })));
   fs.writeFileSync(path.join(OUT, 'manifest.json'), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), colors: C, assets: manifest }, null, 1));
   fs.writeFileSync(path.join(OUT, 'index.html'), previewHtml(manifest));

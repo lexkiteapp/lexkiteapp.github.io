@@ -36,7 +36,7 @@
     const st = document.createElement('style'); st.id = 'lsnCss';
     st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:9rem}
 .lsn-top{display:flex;align-items:center;gap:.6rem}.lsn-x{flex:none}.lsn-bar{flex:1;height:14px;border-radius:99px;background:var(--surface-3);overflow:hidden}
-.lsn-bar i{display:block;height:100%;width:0;background:var(--good);border-radius:99px;transition:width .35s ease}
+.lsn-bar i{display:block;height:100%;width:0;background:var(--done);border-radius:99px;transition:width .35s ease}
 .lsn-combo{flex:none;font-weight:800;color:var(--gold-text);background:var(--gold-soft);border-radius:99px;padding:.15rem .6rem;font-size:.85rem;visibility:hidden}.lsn-combo.on{visibility:visible;animation:lsnPop .3s ease}
 @keyframes lsnPop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
 .lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:128px;border-radius:16px;overflow:hidden;position:relative;background:var(--surface-2)}
@@ -68,7 +68,7 @@
 .lsn-path{list-style:none;margin:1rem 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
 .lsn-node{position:relative;transform:translateX(var(--x));display:flex;flex-direction:column;align-items:center}
 .lsn-dot{width:76px;height:70px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);box-shadow:0 6px 0 var(--line);text-decoration:none}
-.lsn-dot svg{width:32px;height:32px}.lsn-node.done .lsn-dot{background:var(--good);color:#fff;box-shadow:0 6px 0 var(--good-text)}
+.lsn-dot svg{width:32px;height:32px}.lsn-node.done .lsn-dot{background:var(--done);color:var(--on-done);box-shadow:0 6px 0 var(--done-ink)}
 .lsn-node.next .lsn-dot{width:92px;height:84px;background:var(--primary);color:#fff;box-shadow:0 7px 0 var(--primary-ink);animation:lsnGlow 1.6s ease-in-out infinite}
 .lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
 @keyframes lsnGlow{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 14px var(--primary))}}

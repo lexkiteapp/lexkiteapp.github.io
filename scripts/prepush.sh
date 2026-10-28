@@ -3,6 +3,7 @@
 # Dùng: npm run prepush → xem `git status`, commit các file được dựng lại. Bộ test đầy đủ để CI chạy.
 set -e
 cd "$(dirname "$0")/.."
+node scripts/build-tokens.mjs           # brand/tokens.json → :root CSS, add-on, icon.svg (docs/BRAND-RULES.md)
 node scripts/ci/sync-triage.mjs          # workflow mới → ci-triage.yml
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
 node scripts/confidence/build.mjs        # sửa content/confidence → web/js/confidence/data.js

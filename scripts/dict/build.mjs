@@ -177,7 +177,7 @@ export function addonCss() {
     if (Dk.length) dark.push(Dk.join(',') + body);
   }
   const fix = '.lkb{position:static;width:auto;max-width:none;max-height:none;z-index:auto;margin:0 0 1rem;animation:none}.lkb .body{max-height:none;overflow:visible}.lkb .w{margin:0;display:inline;line-height:inherit}.lkb .btn{text-decoration:none;display:inline-flex;align-items:center;min-height:32px;padding:7px 12px;font-size:13px;font-weight:600;line-height:1;border-radius:10px;box-shadow:none;color:#1c1d2b!important}.lkb .btn.p{color:#fff!important}.lkb .foot{flex-wrap:wrap}.lkb .pic{font-size:32px}.lkb .pex .spk.mini{margin-left:4px}';
-  const fixDark = `${D} .btn{color:#ecedf5!important}${D} .btn.p{color:#fff!important}`;
+  const fixDark = `${D} .btn{color:#EAF2F1!important}${D} .btn.p{color:#fff!important}`;
   return [light.join(''), fix, `@media (prefers-color-scheme:dark){${dark.join('')}${fixDark}}`].join('\n').replace(/\s*\n\s*/g, ' ').replace(/\s*([{};,])\s*/g, '$1');
 }
 

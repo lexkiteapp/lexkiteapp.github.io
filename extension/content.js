@@ -186,15 +186,16 @@
     .src { color: #6b6f85; font-size: 13px; margin-bottom: 10px; max-height: 120px; overflow: auto; border-left: 3px solid #e3e5ef; padding-left: 8px; }
     .tr { font-size: 15.5px; line-height: 1.55; color: inherit; font-weight: 500; }
     /* Giao diện tối: chỉ khi TRANG tối (lớp .dark gắn lúc hiện bảng) – bảng sáng trên trang sáng dù máy để chế độ tối */
-    .box.dark { background: #1b1c26; color: #ecedf5; border-color: #2e3040; }
-    .dark .pg { border-color: #2e3040; } .dark .wn-x { background: #24233a; color: #ecedf5; } .dark .pic, .dark .spk, .dark .chip { background: #2a2b3a; }
-    .dark .chip { color: #c3c6d6; } .dark .ipa, .dark .ex, .dark .src, .dark .pex, .dark .st-m, .dark .muted, .dark .x { color: #b4b8cc; }
-    .dark .foot { background: #171821; border-color: #2e3040; }
-    .dark .btn { background: #2a2b3a; border-color: #3a3c50; color: #ecedf5; } .dark .btn.p { background: #CC3F1C; border-color: #CC3F1C; color: #fff; }
-    .dark .ctx { background: #2b2618; color: #f3ecd9; } .dark .st { background: #2a1f1b; border-color: #5a3a2e; color: #ecedf5; } .dark .st-v { color: #d6d8e4; } .dark .st-n, .dark .st-l { color: #ff9b7a; }
+    /*@tokens*/.box.dark{--d-bg:#10191B;--d-sf:#172427;--d-sf2:#1E2F33;--d-sf3:#26393E;--d-line:#2A3E42;--d-line2:#3A5256;--d-text:#EAF2F1;--d-muted:#A3B9B7}/*@end*/
+    .box.dark { background: var(--d-sf); color: var(--d-text); border-color: var(--d-line); }
+    .dark .pg { border-color: var(--d-line); } .dark .wn-x { background: var(--d-sf2); color: var(--d-text); } .dark .pic, .dark .spk, .dark .chip { background: var(--d-sf3); }
+    .dark .chip { color: var(--d-muted); } .dark .ipa, .dark .ex, .dark .src, .dark .pex, .dark .st-m, .dark .muted, .dark .x { color: var(--d-muted); }
+    .dark .foot { background: var(--d-bg); border-color: var(--d-line); }
+    .dark .btn { background: var(--d-sf3); border-color: var(--d-line2); color: var(--d-text); } .dark .btn.p { background: #CC3F1C; border-color: #CC3F1C; color: #fff; }
+    .dark .ctx { background: #2b2618; color: #f3ecd9; } .dark .st { background: #2a1f1b; border-color: #5a3a2e; color: var(--d-text); } .dark .st-v { color: #d6d8e4; } .dark .st-n, .dark .st-l { color: #ff9b7a; }
     .dark .st.ai { background: #13261b; border-color: #285c3a; }
     .dark .vi { color: #2dd4bf; } .dark .lv { background: #3a2620; color: #ff9b7a; } .dark .spk { color: #ffb199; } .dark .spk:hover { background: #CC3F1C; color: #fff; }
-    .dark .lw.chipw, .dark .chipw, .dark .back { background: #2a2b3a; color: #ecedf5; } .dark .lw:hover { background: #3a2620; color: #ffb199; }
+    .dark .lw.chipw, .dark .chipw, .dark .back { background: var(--d-sf3); color: var(--d-text); } .dark .lw:hover { background: #3a2620; color: #ffb199; }
     .dark .inDeck { background: #13261b; color: #6ee7a0; }
     /* ảnh minh họa: nút "Ảnh không đúng" khi rê chuột */
     .pic { position: relative; } .pic .noimg { position: absolute; right: 3px; top: 3px; width: 20px; height: 20px; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; font-size: 11px; line-height: 20px; cursor: pointer; opacity: 0; transition: opacity .15s; padding: 0; }
@@ -215,7 +216,7 @@
     .err { color: #A5300F; font-weight: 600; font-size: 14px; }
     .tiny { font-size: 11.5px; color: #6b6f85; margin-top: 6px; }
     .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-    .dark .note { background: #16302f; color: #d3efeb; } .dark .err { color: #ff9b7a; } .dark .tiny { color: #b4b8cc; }
+    .dark .note { background: #16302f; color: #d3efeb; } .dark .err { color: #ff9b7a; } .dark .tiny { color: var(--d-muted); }
     .dark .btn:hover:not([disabled]) { border-color: #565a70; } .dark .btn.p:hover:not([disabled]) { background: #B23412; }
     .dark .btn:focus-visible, .dark .x:focus-visible, .dark .lw:focus-visible, .dark .st-l:focus-visible { outline-color: #2dd4bf; }
     .f1 { flex: 1; } .mw0 { min-width: 0; } .mt4 { margin-top: 4px; } .mt8 { margin-top: 8px; }
