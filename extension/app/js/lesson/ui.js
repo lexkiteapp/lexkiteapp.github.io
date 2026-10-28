@@ -102,7 +102,7 @@
   const STORIES = kind => (window.LESSON_STORIES || []).filter(s => s.kind === kind);
   const meanLang = () => { try { return (I18N.meanLang && I18N.meanLang()) || I18N.lang() || 'en'; } catch (e) { return 'en'; } };
 
-  // 🎞️ Cờ lv_embed: bước đầu của nút "Bài học" = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
+  // 🎞️ Cờ lv_embed: bước đầu của bài từ vựng (học/nghe/nói/ôn, không truyện/radio) = video nhúng (4:5 / 16:9, docs/VIDEO-MOTION.md §Embedded). Thử: ?lvembed=1 (nhớ trên máy), ?lvembed=0 tắt; hoặc cấu hình xa lk.cfg.v.lv_embed.
   const lvOn = () => {
     try { const m = /[?&]lvembed=([01])\b/.exec(location.href); if (m) ls.set('lk.lv_embed', m[1]); const f = ls.get('lk.lv_embed'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(ls.get('lk.cfg') || 'null'), v = c && c.v && c.v.lv_embed; return v === true || v === '1' || v === 'true'; } catch (e) { return false; }
   };
@@ -121,7 +121,7 @@
     const SK = 'lk.lsn.s.' + node.kind + (demo ? '.demo' : ''), sl = STORIES(node.kind), story = sl.length ? sl[(parseInt(ls.get(SK) || '0', 10) || 0) % sl.length] : null;
     const picks = story ? [] : E.pickWords(cards, { n: 4, starter: ux ? Ux1.words(n, plan.length).map(w => Object.assign({}, w, { ctx: '', src: '', srs: SRS(now0, 0) })).concat(STARTER()) : STARTER(), mode: node.kind }); // ux1: từ chủ đề vừa sức (i+1) // 4 từ ≈ 9 bài ≈ 2–3 phút
     const items = story ? E.storyItems(story, meanLang(), n + 1) : E.build(picks, { seed: demo ? 7 + n : Date.now(), pool: cards.concat(STARTER()), hasImg: (w, p) => !!imgUrl(w, p), off: offNow(), only: E.KIND[node.kind], calm: ux });
-    if (!story && node.kind === 'lesson' && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
+    if (!story && lvOn()) items.unshift({ id: 0, type: 'video', free: true, word: '#video', card: null, retry: 0, words: picks.map(p => p.word) }); // 🎞️ demo video nhúng (cờ lv_embed)
     const prev = ls.get('lk.lsn.who'), who = prev === 'ama' ? 'carlos' : 'ama'; ls.set('lk.lsn.who', who); // xen kẽ Ama / Carlos mỗi bài
     L = { demo, items, sess: new E.Session(items, { ease: ux }), picks, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
     if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích

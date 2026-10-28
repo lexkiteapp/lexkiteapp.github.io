@@ -36,7 +36,7 @@ async function run(width, scheme, lang) {
   await ctx.route('https://media.lexkite.com/**', media);
   const page = await ctx.newPage(), net = [];
   page.on('pageerror', e => errs.push(`${tag}: ${e.message}`));
-  page.on('request', q => { if (/videos\.json|media\.lexkite\.com|lesson-video\.js/.test(q.url())) net.push(q.url()); });
+  page.on('request', q => { if (/videos\.json|media\.lexkite\.com/.test(q.url())) net.push(q.url()); });
   const bad = m => { errs.push(`${tag}: ${m}`); console.log(`✗ ${tag}: ${m}`); };
   const check = async step => {
     seen.push(`${tag} ${step}`);
