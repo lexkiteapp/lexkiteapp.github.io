@@ -86,7 +86,7 @@
       ctx.fillStyle = 'rgba(255,255,255,.08)'; rr(ctx, x, y, tw, th, 28); ctx.fill();
       ctx.strokeStyle = 'rgba(255,255,255,.16)'; ctx.lineWidth = 2; rr(ctx, x, y, tw, th, 28); ctx.stroke();
       ctx.textAlign = 'start'; const sx = rtl ? x + tw - 32 : x + 32;
-      ctx.fillStyle = col; fit(ctx, `${ic} ${v}`, sx, y + th * 0.4, tw - 64, story ? 64 : 48, 800, F);
+      ctx.fillStyle = col; fit(ctx, `${ic} \u2066${v}\u2069`, sx, y + th * 0.4, tw - 64, story ? 64 : 48, 800, F);
       ctx.fillStyle = 'rgba(255,255,255,.75)'; fit(ctx, lb, sx, y + th * 0.76, tw - 64, story ? 30 : 24, 600, F);
     });
     // Chân thẻ: QR + lexkite.com
