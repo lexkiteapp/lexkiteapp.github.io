@@ -62,7 +62,7 @@ jobs:
           [ -n "$KEY" ] || { echo "::error::missing FOOTAGE_DEPLOY_KEY"; exit 1; }
           mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
           ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
-          export git_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
           git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git /tmp/footage
           P=$(python3 -c "import json;R=json.load(open('web/teach/characters.json'));print(' '.join(f'/anchor/green/kfull_pro/{c[\"src\"]}.mp4 /anchor/green/kmask_pro/{c[\"src\"]}.mkv' for p in R['people'].values() for c in p['clips'].values()))")
           git -C /tmp/footage sparse-checkout set --no-cone $P; git -C /tmp/footage checkout -q; rm -f ~/.ssh/footage; du -sh /tmp/footage
