@@ -82,33 +82,31 @@
     else if (ex === 'general') real = !!state.settings.placement;
     const pct = real ? Math.max(4, Math.min(100, Math.round((cur - mn) / Math.max(.1, g.target - mn) * 100))) : 0;
     const days = Math.max(0, Math.ceil((new Date(g.date) - Date.now()) / DAY));
-    const top = real ? `<div class="rd-band"><div><small>${t('Điểm ước tính')}</small><b>${esc(lab(cur))}</b></div><span class="rd-arr" aria-hidden="true">→</span><div><small>${t('Mục tiêu')}</small><b class="tg">${esc(lab(g.target))}</b></div></div>
-        <div class="rd-ready"><div class="row between nowrap"><b>${t('Mức sẵn sàng thi')}</b><b class="rd-pct">${t('{p}% sẵn sàng', { p: pct })}</b></div><span class="progress rd-bar"><i style="width:${pct}%"></i></span></div>`
+    const top = real ? `<div class="rd-band"><div><small>${t('Điểm ước tính')}</small><b class="tk-num">${esc(lab(cur))}</b></div><span class="rd-arr" aria-hidden="true">→</span><div><small>${t('Mục tiêu')}</small><b class="tk-num tg">${esc(lab(g.target))}</b></div></div>
+        <div class="rd-ready"><div class="row between nowrap"><b>${t('Mức sẵn sàng thi')}</b><b class="rd-pct" dir="ltr">${t('{p}% sẵn sàng', { p: pct })}</b></div><span class="tk-bar rd-bar"><i style="width:${pct}%"></i></span></div>`
       : `<div class="rd-empty"><b>${t('Chưa có điểm ước tính')}</b><p class="small muted">${t('Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.')}</p><a class="btn primary" href="${MOCKH(ex)}">${ex === 'general' ? t('Làm bài kiểm tra trình độ') : t('Thi thử ngay')}</a></div>`;
-    const tiles = bands ? `<h3 class="rd-h">${t('Chẩn đoán từng kỹ năng')}</h3><div class="rd-sk">${SK().filter(([k]) => bands[k] != null).map(([k, i, n]) => { const v = +bands[k], weak = ex === 'toeic' ? v < g.target / 2 - 25 : v < g.target - .25;
-        return `<a class="rd-t${weak ? ' weak' : ''}" href="#/skill/${k}"><span class="rd-ti" aria-hidden="true">${UI.icon(i)}</span><span class="rd-bd">${ex === 'toeic' ? v : t('Band {b}', { b: v })}</span><b>${esc(n)}</b><small>${weak ? '! ' + t('Cần luyện thêm') : '✓ ' + t('Đạt nhịp mục tiêu')}</small></a>`; }).join('')}</div>` : '';
+    const tiles = bands ? `<h3 class="rd-h tk-display">${t('Chẩn đoán từng kỹ năng')}</h3><div class="rd-sk">${SK().filter(([k]) => bands[k] != null).map(([k, i, n]) => { const v = +bands[k], weak = ex === 'toeic' ? v < g.target / 2 - 25 : v < g.target - .25;
+        return `<a class="tk-card rd-t${weak ? ' weak' : ''}" href="#/skill/${k}"><span class="rd-ti" aria-hidden="true">${UI.icon(i)}</span><span class="rd-bd">${ex === 'toeic' ? v : t('Band {b}', { b: v })}</span><b>${esc(n)}</b><small>${weak ? '! ' + t('Cần luyện thêm') : '✓ ' + t('Đạt nhịp mục tiêu')}</small></a>`; }).join('')}</div>` : '';
     const weakest = bands ? SK().filter(([k]) => bands[k] != null).sort((a, b) => bands[a[0]] - bands[b[0]])[0] : null;
-    const drill = weakest ? `<div class="rd-drill"><span class="rd-cur">${t('{n} chọn cho bạn', { n: who === 'ama' ? 'Ama' : 'Carlos' })}</span><div class="row nowrap" style="gap:.7rem"><img src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async"><div><b>${t('Luyện {s} có trọng tâm', { s: weakest[2] })}</b><p class="small muted" style="margin:0">${t('Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.')}</p></div></div><a class="btn primary lg rd-go" href="#/skill/${weakest[0]}">${t('Bắt đầu luyện')}</a></div>` : '';
-    const sched = `<div class="rd-mock"><span class="rd-ti" aria-hidden="true">${UI.icon('timer')}</span><div class="grow"><b>${next ? t('Thi thử tiếp theo: {date}', { date: next.toLocaleDateString(I18N.lang()) }) : t('Thi thử ngay tuần này để đo điểm')}</b><small class="muted">${days ? t('Còn {n} ngày đến kỳ thi', { n: days }) + ' · ' + t('~{h} giờ luyện còn lại', { h: Math.round(hrs * wl) }) : ''}</small></div><a class="btn" href="${MOCKH(ex)}">${UI.icon('calendar')} ${t('Thi thử')}</a></div>`;
-    return `<section class="card rd" aria-label="${t('Mức sẵn sàng thi')}"><div class="rd-top"><span class="rd-chip">${esc(NAME[ex] || '')} · ${t('Mục tiêu')} ${esc(lab(g.target))}</span></div>${top}</section>${tiles}${drill}${sched}`;
+    const drill = weakest ? `<div class="tk-card rd-drill"><span class="tk-chip">${t('{n} chọn cho bạn', { n: who === 'ama' ? 'Ama' : 'Carlos' })}</span><div class="row nowrap" style="gap:.7rem"><img src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async"><div><b>${t('Luyện {s} có trọng tâm', { s: weakest[2] })}</b><p class="small muted" style="margin:0">${t('Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.')}</p></div></div><a class="btn primary lg tk-btn wide rd-go" href="#/skill/${weakest[0]}">${t('Bắt đầu luyện')}</a></div>` : '';
+    const sched = `<div class="tk-card rd-mock"><span class="rd-ti" aria-hidden="true">${UI.icon('timer')}</span><div class="grow"><b>${next ? t('Thi thử tiếp theo: {date}', { date: next.toLocaleDateString(I18N.lang()) }) : t('Thi thử ngay tuần này để đo điểm')}</b><small class="muted">${days ? t('Còn {n} ngày đến kỳ thi', { n: days }) + ' · ' + t('~{h} giờ luyện còn lại', { h: Math.round(hrs * wl) }) : ''}</small></div><a class="btn" href="${MOCKH(ex)}">${UI.icon('calendar')} ${t('Thi thử')}</a></div>`;
+    return `<section class="card tk-card rd" aria-label="${t('Mức sẵn sàng thi')}"><div class="rd-top"><span class="tk-chip">${esc(NAME[ex] || '')} · ${t('Mục tiêu')} ${esc(lab(g.target))}</span></div>${top}</section>${tiles}${drill}${sched}`;
   }
   const rdCss = () => { if (document.getElementById('rdCss')) return; const st = document.createElement('style'); st.id = 'rdCss'; st.textContent = `
-.rd{border-radius:var(--r-card);box-shadow:var(--hi),0 8px 24px -10px rgba(0,0,0,.35);margin-bottom:1rem}
-.rd-chip{display:inline-block;font-size:var(--fs-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--done);background:var(--surface-2);border-radius:var(--r-pill);padding:.2rem .7rem}
+.rd{margin-bottom:1rem}
 .rd-band{display:flex;align-items:center;justify-content:space-around;gap:1rem;margin:1rem 0;text-align:center}.rd-band small{display:block;color:var(--muted);font-size:var(--fs-sm)}
-.rd-band b{font-family:var(--font-display);font-size:2.6rem;line-height:1.1;font-variant-numeric:tabular-nums}.rd-band b.tg{color:var(--gold-text)}.rd-arr{font-size:1.4rem;color:var(--muted)}
+.rd-band b{font-size:2.6rem;line-height:1.1}.rd-band b.tg{color:var(--gold-text)}.rd-arr{font-size:1.4rem;color:var(--muted)}
 .rd-ready .rd-pct{color:var(--done)}.rd-bar{margin-top:.5rem;height:12px}.rd-bar i{background:linear-gradient(90deg,var(--done),var(--sun))}
 .rd-empty{text-align:center;padding:.6rem 0 .2rem}.rd-empty p{max-width:46ch;margin:.3rem auto .8rem}
-.rd-h{margin:1.2rem 0 .6rem;font-family:var(--font-display)}
+.rd-h{margin:1.2rem 0 .6rem}
 .rd-sk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}@media (min-width:760px){.rd-sk{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.rd-t{position:relative;display:flex;flex-direction:column;gap:.25rem;padding:.9rem;border-radius:var(--r-card);background:var(--surface);border:1px solid var(--line);box-shadow:var(--hi),0 4px 0 var(--ledge);color:var(--text);text-decoration:none;min-height:120px}
+.rd-t{position:relative;display:flex;flex-direction:column;gap:.25rem;padding:.9rem;box-shadow:var(--hi),var(--lip);color:var(--text);text-decoration:none;min-height:120px}
 .rd-t small{color:var(--done);font-weight:700}.rd-t.weak small{color:var(--again-text)}
 .rd-ti{width:40px;height:40px;flex:none;display:grid;place-items:center;border-radius:12px;background:var(--surface-2);color:var(--done)}.rd-t.weak .rd-ti{color:var(--again-text)}
 .rd-bd{position:absolute;top:.9rem;inset-inline-end:.9rem;font-weight:800;font-size:var(--fs-xs);padding:.15rem .5rem;border-radius:var(--r-pill);background:var(--surface-2);color:var(--done)}
-.rd-drill{margin-top:1rem;padding:1rem;border-radius:var(--r-card);background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:.7rem}
-.rd-drill img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 12%;flex:none}.rd-cur{align-self:flex-start;font-size:var(--fs-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--done);background:var(--surface-2);border-radius:var(--r-pill);padding:.15rem .6rem}
-.rd-go{width:100%;min-height:56px;border-radius:var(--r-pill)}
-.rd-mock{margin:1rem 0;display:flex;align-items:center;gap:.8rem;padding:.9rem 1rem;border-radius:var(--r-card);background:var(--surface);border:1px solid var(--line)}.rd-mock .grow{display:flex;flex-direction:column;min-width:0}.rd-mock .btn{min-height:44px;flex:none}
+.rd-drill{margin-top:1rem;padding:1rem;display:flex;flex-direction:column;gap:.7rem}
+.rd-drill img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 12%;flex:none}
+.rd-mock{margin:1rem 0;display:flex;align-items:center;gap:.8rem;padding:.9rem 1rem}.rd-mock .grow{display:flex;flex-direction:column;min-width:0}.rd-mock .btn{min-height:44px;flex:none}
 @media (max-width:420px){.rd-mock{flex-wrap:wrap}.rd-mock .btn{width:100%}}`; document.head.appendChild(st); };
 
   routes.goal = App.guard(async function () {

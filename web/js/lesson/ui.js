@@ -47,14 +47,14 @@
 .lsn-tag.own{color:var(--accent-text);background:var(--accent-soft)}
 .lsn-snd{display:flex;gap:.5rem;align-items:center}.lsn-sent{font-size:1.2rem;line-height:1.6}.lsn-gap{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--primary);text-align:center}
 .lsn-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:.6rem}
-.lsn-opt,.lsn-tile{border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);border-radius:14px;padding:.7rem .8rem;font:inherit;font-weight:700;cursor:pointer;min-height:48px}
-.lsn-opt[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px}
+.lsn-opt:not(.tk-opt),.lsn-tile{border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);border-radius:14px;padding:.7rem .8rem;font:inherit;font-weight:700;cursor:pointer;min-height:48px}
+.lsn-opt:not(.tk-opt)[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px}
 .lsn-ans{min-height:3.4rem;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:.4rem;padding:.3rem 0}.lsn-bank{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
 .lsn-tile.used{visibility:hidden}.lsn-pic{width:min(220px,60vw);aspect-ratio:1;border-radius:16px;background:var(--surface-2);margin:0 auto;display:block;object-fit:cover}
 .lsn-mic{display:flex;flex-direction:column;align-items:center;gap:.5rem}.lsn-mic .btn{min-width:200px}
 .lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--bg);border-top:2px solid var(--line);padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom))}
 .lsn-foot>div{max-width:640px;margin:0 auto;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.lsn-foot .grow{flex:1}
-.lsn-foot.ok{background:var(--good-soft);border-color:var(--good)}.lsn-foot.bad{background:var(--again-soft);border-color:var(--again)}
+
 .lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
 .lsn-fb p{margin:.15rem 0}.lsn-xp{background:var(--surface);border-radius:12px;padding:.6rem .8rem;margin-top:.4rem;max-height:40vh;overflow:auto}
 .lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem}
@@ -84,41 +84,25 @@
 .lsn-bar.glow i{animation:lsnBar .6s ease}@keyframes lsnBar{50%{box-shadow:0 0 12px var(--good);filter:brightness(1.2)}}
 .lsn-foot.ok,.lsn-foot.bad{animation:lsnUp .22s ease-out}@keyframes lsnUp{from{transform:translateY(40%);opacity:.4}to{transform:none;opacity:1}}
 .lsn-go{min-width:220px;margin:.4rem 0}
-/* Tactile (Stitch, docs/DESIGN-SYSTEM.md § Tactile) – chỉ token */
+/* Tactile: component chung ở css/tactile.css (tk-*), dưới đây chỉ bố cục riêng bài học */
 .lsn,.lsn-foot>div{max-width:720px}
-.lsn-meta{display:flex;justify-content:space-between;margin:-.5rem 0 0;font-size:var(--fs-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--done)}.lsn-meta span{color:var(--gold-text)}
-.lsn-bar{height:10px;background:var(--surface-3);-webkit-mask:repeating-linear-gradient(90deg,black 0 calc(100% / var(--seg,1) - 5px),transparent 0 calc(100% / var(--seg,1)));mask:repeating-linear-gradient(90deg,black 0 calc(100% / var(--seg,1) - 5px),transparent 0 calc(100% / var(--seg,1)))}
-.lsn-ask{flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);padding:.9rem;box-shadow:var(--hi),0 8px 24px -10px rgba(0,0,0,.35)}
-.lsn-ex{flex:1 1 100%;align-self:flex-start;width:fit-content;max-width:fit-content;font-size:var(--fs-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-text);background:var(--surface-2);border-radius:var(--r-pill);padding:.15rem .6rem}
+.lsn-meta{display:flex;justify-content:space-between;margin:-.5rem 0 0;font-size:var(--fs-xs);font-weight:800;letter-spacing:var(--track);text-transform:uppercase;color:var(--done)}.lsn-meta span{color:var(--gold-text)}
+.lsn-bar{height:10px}
+.lsn-ask{flex-wrap:wrap;padding:.9rem}.lsn-ex{flex:1 1 100%}
 .lsn-bub{border:0;background:none;padding:.2rem 0;font-family:var(--font-display);font-size:1.25rem;line-height:1.35;letter-spacing:-.01em}.lsn-bub small{font-family:var(--font);font-size:var(--fs-sm);letter-spacing:0}
-.lsn-snd{justify-content:flex-start;gap:.7rem;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-pill2);padding:.45rem .6rem;box-shadow:0 3px 0 var(--ledge)}
+.lsn-snd{justify-content:flex-start;gap:.7rem;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-pill2);padding:.45rem .6rem;box-shadow:var(--lip)}
 .lsn-snd .lsn-big{width:52px;height:52px;border-radius:50%;background:var(--done);color:var(--on-done);box-shadow:0 3px 0 var(--done-ink)}.lsn-snd .lsn-big svg{width:26px;height:26px}
-.lsn-snd .lsn-big.sm{width:44px;height:44px;background:var(--surface);color:var(--text);box-shadow:0 3px 0 var(--ledge)}
-.lsn-sl{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}.lsn-sl b{font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--done)}.lsn-sl small{color:var(--muted)}
+.lsn-snd .lsn-big.sm{width:44px;height:44px;background:var(--surface);color:var(--text);box-shadow:var(--lip)}
+.lsn-sl{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}.lsn-sl b{font-size:var(--fs-xs);letter-spacing:var(--track);text-transform:uppercase;color:var(--done)}.lsn-sl small{color:var(--muted)}
 .lsn-wave{display:flex;align-items:center;gap:3px;height:24px}.lsn-wave i{width:4px;border-radius:2px;background:var(--done);height:40%}.lsn-wave i:nth-child(2){height:80%}.lsn-wave i:nth-child(3){height:55%}.lsn-wave i:nth-child(4){height:100%}.lsn-wave i:nth-child(5){height:30%;background:var(--line-2)}
-.lsn-opts{grid-template-columns:minmax(0,1fr);counter-reset:lo}
-.lsn-opts .lsn-opt{display:flex;align-items:center;gap:.8rem;text-align:start;min-height:56px;padding:.6rem .8rem;border:1px solid var(--line);border-radius:var(--r-pill2);background:var(--surface-2);box-shadow:var(--hi),0 3px 0 var(--ledge);transition:transform 60ms,box-shadow 60ms}
-.lsn-opts .lsn-opt::before{counter-increment:lo;content:counter(lo,upper-alpha);flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:var(--surface);color:var(--muted);font-weight:800}
-.lsn-opts .lsn-opt::after{content:"";flex:none;margin-inline-start:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--line-2)}
-.lsn-opts .lsn-opt:active{transform:translateY(3px);box-shadow:var(--hi),0 0 0 var(--ledge)}
-.lsn-opts .lsn-opt[aria-pressed=true]{border-color:var(--done);background:color-mix(in srgb,var(--done) 14%,var(--surface-2));box-shadow:0 3px 0 var(--done-ink)}
-.lsn-opts .lsn-opt[aria-pressed=true]::before{background:var(--done);color:var(--on-done)}.lsn-opts .lsn-opt[aria-pressed=true]::after{border-color:var(--done);background:radial-gradient(circle,var(--done) 0 45%,transparent 50%)}
-.lsn-tile,.lsn-match .lsn-opt{border-width:1px;border-bottom-width:1px;border-radius:var(--r-md);box-shadow:var(--hi),0 3px 0 var(--ledge)}
+.lsn-tile,.lsn-match .lsn-opt{border-width:1px;border-bottom-width:1px;border-radius:var(--r-md);box-shadow:var(--hi),var(--lip)}
 .lsn-foot{background:var(--surface);border-top:1px solid var(--line)}
-.lsn-foot #lsnCheck,.lsn-foot #lsnNext,.lsn-foot #lsnGo{flex:1 1 220px;min-height:56px;border-radius:var(--r-pill);text-transform:uppercase;letter-spacing:.04em}
+.lsn-foot #lsnCheck,.lsn-foot #lsnNext,.lsn-foot #lsnGo{flex:1 1 220px;min-height:56px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
 .lsn-foot #lsnCheck{flex-basis:100%}
-.lsn-foot.ok,.lsn-foot.bad{background:var(--surface);border-top:3px solid var(--good);border-radius:var(--r-pill2) var(--r-pill2) 0 0;box-shadow:0 -8px 32px rgba(0,0,0,.45);max-height:88vh;overflow-y:auto}
-.lsn-foot.bad{border-top-color:var(--again)}
-.lsn-foot.ok::before,.lsn-foot.bad::before{content:"";display:block;width:44px;height:5px;border-radius:3px;background:var(--line-2);margin:-.2rem auto .7rem}
-.lsn-chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between;margin-bottom:.7rem}
-.lsn-res,.lsn-stk{display:inline-flex;align-items:center;min-height:36px;padding:0 .9rem;border-radius:var(--r-pill);font-weight:800;font-size:var(--fs-sm)}
-.lsn-foot.ok .lsn-res{background:var(--good-soft);color:var(--good-text)}.lsn-foot.bad .lsn-res{background:var(--again-soft);color:var(--again-text)}.lsn-stk{background:var(--gold-soft);color:var(--gold-text)}
-.lsn-coach{display:flex;gap:.8rem;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-card);padding:.8rem}
-.lsn-coach img{width:56px;height:56px;flex:none;border-radius:14px;object-fit:cover;object-position:50% 12%}.lsn-coach>div{min-width:0;flex:1}
-.lsn-coach h3{font-family:var(--font-display);margin:0}.lsn-who{display:block;color:var(--muted);font-size:var(--fs-xs);margin-bottom:.2rem}
-.lsn-foot.ok .lsn-fb h3{color:var(--done)}
+.lsn-chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between;margin-bottom:.7rem}.lsn-chips .tk-chip{min-height:36px;padding:0 .9rem;font-size:var(--fs-sm);letter-spacing:.02em}
+.lsn-coach h3{margin:0}.lsn-foot.ok .lsn-fb h3{color:var(--done)}
 .lsn-boost{margin-top:.6rem;border:1px solid var(--line);border-radius:var(--r-card);padding:.7rem .8rem;background:var(--bg)}
-.lsn-bh{display:block;margin-bottom:.35rem}.lsn-bw{margin:.1rem 0;color:var(--muted)}.lsn-bw small,.lsn-say small{font-size:var(--fs-xs);font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-inline-end:.3rem}.lsn-bw small{color:var(--again-text)}
+.lsn-bh{display:block;margin-bottom:.35rem}.lsn-bw{margin:.1rem 0;color:var(--muted)}.lsn-bw small,.lsn-say small{font-size:var(--fs-xs);font-weight:800;letter-spacing:var(--track);text-transform:uppercase;margin-inline-end:.3rem}.lsn-bw small{color:var(--again-text)}
 .lsn-say{display:inline-flex;align-items:center;gap:.35rem;flex-wrap:wrap;min-height:44px;margin-top:.2rem;padding:.3rem .2rem;border:0;background:none;color:var(--done);font:inherit;font-weight:800;font-size:var(--fs-md);text-align:start;cursor:pointer}.lsn-say svg{width:18px;height:18px}
 @media (prefers-reduced-motion:reduce){.lsn-bar i,.lsn-combo.on,.lsn-node.next .lsn-dot,.lsn-start,.lsn-tile.pop,.lsn-emo.on,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-foot.ok,.lsn-foot.bad{transition:none;animation:none}.lsn-emo.on{opacity:1;transform:none}}`;
     document.head.appendChild(st);
@@ -157,11 +141,11 @@
     App.onCleanup(cleanup);
     view.innerHTML = `<div class="lsn" id="lsn">
       <div class="lsn-top"><a class="icon-btn lsn-x" href="#/lesson${Q(demo)}" aria-label="${t('Thoát bài học')}">✕</a>
-        <div class="lsn-bar" role="progressbar" aria-label="${t('Tiến độ bài học')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+        <div class="lsn-bar tk-bar" role="progressbar" aria-label="${t('Tiến độ bài học')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
         <span class="lsn-combo" id="lsnCombo" aria-live="polite"></span></div>
-      <div class="lsn-meta"><b id="lsnQn"></b><span id="lsnPct"></span></div>
+      <div class="lsn-meta"><b id="lsnQn"></b><span id="lsnPct" dir="ltr"></span></div>
       ${story ? `<div class="lsn-duo">${story.kind === 'radio' ? '<span class="lsn-air">● ON AIR</span>' : ''}<div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-tw"><div id="lsnTch2"></div></div></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div><ol class="lsn-chat" id="lsnChat"></ol>`
-        : `<div class="lsn-ask">${examChip()}<div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
+        : `<div class="lsn-ask tk-card">${examChip()}<div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
       <div id="lsnBody"></div></div>`;
     const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
@@ -188,7 +172,7 @@
     if (T) T.say(text, { rate, voice: L.story && who && window.LessonTeacher ? LessonTeacher.VOICE[who] : null, onEnd }); else { UI.tts(text, 'en-US', rate, { onEnd }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
-  const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<span class="lsn-ex">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span>` : ''; };
+  const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
   const TNAME = w => (w === 'carlos' ? 'Carlos' : 'Ama');
   const TITLE = it => ({
     gap: t('Chọn từ còn thiếu'),
@@ -233,17 +217,17 @@
     const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại (không lộ đáp án)
     if (it.type === 'q') {
       bub.innerHTML = tag + esc(TITLE(it)) + `<small lang="en">${esc(it.prompt)}</small>`;
-      body.innerHTML = `<div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      body.innerHTML = `<div class="lsn-opts tk-opts" role="group">${it.options.map(o => `<button class="lsn-opt tk-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
     } else if (it.type === 'gap') {
       const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? `<span class="lsn-gap" id="lsnGap">&nbsp;</span>` : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
-      body.innerHTML = `${snd}<p class="lsn-sent" lang="en">${sent}</p><div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      body.innerHTML = `${snd}<p class="lsn-sent" lang="en">${sent}</p><div class="lsn-opts tk-opts" role="group">${it.options.map(o => `<button class="lsn-opt tk-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
     } else if (it.type === 'type') {
       body.innerHTML = `${snd}<input class="lsn-in" id="lsnIn" lang="en" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="${t('Câu trả lời của bạn')}">`;
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
       body.innerHTML = `<div class="lsn-match"><div>${L1.map(i => `<button class="lsn-opt" lang="en" data-m="${i}" data-s="w">${esc(it.pairs[i].word)}</button>`).join('')}</div><div>${L2.map(i => `<button class="lsn-opt" data-m="${i}" data-s="m">${esc(it.pairs[i].mean || meanOf(it.pairs[i]))}</button>`).join('')}</div></div>`;
     } else if (it.type === 'mean' || (it.type === 'pic' && it.choice)) {
-      body.innerHTML = `${it.type === 'pic' ? `<img class="lsn-pic" src="${esc(imgUrl(it.word, it.card.pos))}" alt="${esc(t('Ảnh minh họa'))}" width="220" height="220">` : ''}<div class="lsn-opts" role="group">${it.options.map(o => `<button class="lsn-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      body.innerHTML = `${it.type === 'pic' ? `<img class="lsn-pic" src="${esc(imgUrl(it.word, it.card.pos))}" alt="${esc(t('Ảnh minh họa'))}" width="220" height="220">` : ''}<div class="lsn-opts tk-opts" role="group">${it.options.map(o => `<button class="lsn-opt tk-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
     } else if (it.type === 'build' || it.type === 'tr') {
       body.innerHTML = `${snd}<div class="lsn-ans" id="lsnAns" aria-label="${t('Câu trả lời của bạn')}" lang="en"></div><div class="lsn-bank" id="lsnBank" lang="en">${it.tiles.map((w, i) => `<button class="lsn-tile" data-i="${i}">${esc(w)}</button>`).join('')}</div>`;
     } else {
@@ -314,6 +298,7 @@
   function submit(ans, heard) {
     if (!L || L.checked) return; L.checked = true;
     const it = L.sess.cur, ok = E.check(it, ans), r = L.sess.answer(ok);
+    document.querySelectorAll('#lsnBody button, #lsnIn').forEach(x => { x.disabled = true; }); // đã chấm: khóa đáp án (luật QA)
     bar();
     react(ok, r.combo);
     feedback(it, ok, heard);
@@ -332,18 +317,18 @@
   }
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
-  const chips = ok => `<div class="lsn-chips"><span class="lsn-res">${ok ? '✓ ' + t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' · +2 XP') : '✗ ' + t('Chưa đúng')}</span>${App.streak && App.streak() ? `<span class="lsn-stk">🔥 ${t('{n} ngày liên tiếp', { n: App.streak() })}</span>` : ''}</div>`;
+  const chips = ok => `<div class="lsn-chips"><span class="tk-chip ${ok ? 'ok' : 'bad'}">${ok ? '✓ ' + t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' · <span dir="ltr">+2 XP</span>') : '✗ ' + t('Chưa đúng')}</span>${App.streak && App.streak() ? `<span class="tk-chip gold">🔥 ${t('{n} ngày liên tiếp', { n: App.streak() })}</span>` : ''}</div>`;
   function feedback(it, ok, heard) {
     const foot = $('#lsnFoot');
-    foot.className = 'lsn-foot ' + (ok ? 'ok' : 'bad');
+    foot.className = 'lsn-foot tk-sheet ' + (ok ? 'ok' : 'bad');
     if (!it.card) { // ghép cặp: không gắn một từ
       foot.innerHTML = `<div><div class="lsn-fb" role="status">${chips(ok)}<h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'))}</h3>${!ok && it.type !== 'match' ? `<p><b lang="en">${esc(it.answer)}</b></p>` : ''}</div><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
       $('#lsnNext').onclick = () => next(); $('#lsnNext').focus(); return;
     }
     const c = it.card;
     foot.innerHTML = `<div><div class="lsn-fb" role="status">${chips(ok)}
-        <div class="lsn-coach"><img src="teach/${L.who === 'carlos' ? 'carlos' : 'ama'}/poster.jpg" alt="" width="56" height="56" decoding="async"><div>
-        <h3>${ok ? t('Tuyệt!') : t('Đáp án đúng')}</h3><small class="lsn-who">${esc(TNAME(L.who))} · ${t('Giáo viên của bạn')}</small>
+        <div class="tk-teacher lsn-coach"><img src="teach/${L.who === 'carlos' ? 'carlos' : 'ama'}/poster.jpg" alt="" width="56" height="56" decoding="async"><div>
+        <h3 class="tk-display">${ok ? t('Tuyệt!') : t('Đáp án đúng')}</h3><small>${esc(TNAME(L.who))} · ${t('Giáo viên của bạn')}</small>
         ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
         <p><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p></div></div>
         <div class="lsn-boost" id="lsnBoost" hidden></div>

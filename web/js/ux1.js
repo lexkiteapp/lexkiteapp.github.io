@@ -171,13 +171,13 @@
         <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async">` : ''}${dot}${cp ? `<b class="ux1-ms">${t('Mốc')}</b>` : ''}</span>${st === 'done' && k ? STARS(k) : ''}<span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}${st === 'next' ? `<em>${esc(KNAME(p.kind))} · ${t('{n} phút', { n: KMIN[p.kind] || 4 })}</em>` : ''}</span></li>`;
     }).join('');
     view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
-      <section class="ux1-unit u-${u.color}"><div class="ux1-uh"><div class="grow"><span class="ux1-badge">${t('Chặng học {n}', { n: u.no })}</span> <small>${esc(X.short)} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1>${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1></div>
+      <section class="ux1-unit tk-card u-${u.color}"><div class="ux1-uh"><div class="grow"><span class="tk-chip ux1-badge">${t('Chặng học {n}', { n: u.no })}</span> <small>${esc(X.short)} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1 class="tk-display">${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1></div>
         <div class="ux1-uside">${u.words.length ? `<span class="ux1-chip" title="${t('Kiến thức đã có')}">${ic('library')} ${have}/${u.words.length}</span>` : ''}${(state.settings || {}).placement ? '' : `<a class="ux1-chip" href="#/placement">${ic('compass')} ${t('Kiểm tra trình độ')}</a>`}</div></div>
         <div class="ux1-uprog"><b>${t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length })}</b>${xpTo ? `<span>${ic('zap')} ${t('+{x} XP tới mốc kiểm tra', { x: xpTo })}</span>` : ''}</div>
-        <span class="progress ux1-ubar" role="progressbar" aria-valuemin="0" aria-valuemax="${P.length}" aria-valuenow="${at}"><i style="width:${Math.round(at / P.length * 100)}%"></i></span>
+        <span class="tk-bar ux1-ubar" role="progressbar" aria-valuemin="0" aria-valuemax="${P.length}" aria-valuenow="${at}"><i style="width:${Math.round(at / P.length * 100)}%"></i></span>
         <p class="ux1-hint"><img src="teach/${who === 'ama' ? 'carlos' : 'ama'}/poster.jpg" alt="" width="32" height="32" decoding="async"><span><b>${who === 'ama' ? 'Carlos' : 'Ama'}:</b> ${esc(CAN()[u.id] || '')}</span></p></section>
       <ol class="lsn-path ux1-path">${nodes}</ol>
-      <div class="ux1-cta"><a class="btn primary lg" href="#/lesson/go${Q}" data-ux1-cta>${t('Tiếp tục chặng {n}', { n: u.no })} · ${t('{n} phút', { n: nxMin })} ${ic('chevron-right')}</a></div></div>`;
+      <div class="ux1-cta"><a class="btn primary lg tk-btn wide" href="#/lesson/go${Q}" data-ux1-cta>${t('Tiếp tục chặng {n}', { n: u.no })} · ${t('{n} phút', { n: nxMin })} ${ic('chevron-right')}</a></div></div>`;
     fillMock(view);
     const ol = view.querySelector('.ux1-path');
     requestAnimationFrame(() => { if (ol.isConnected) trail(ol, at); });
@@ -280,10 +280,10 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-promo{display:flex;gap:.5rem;flex-wrap:wrap}.ux1-promo:not(:has(a:not([hidden]))){display:none}.ux1-promo .btn{min-height:44px}
 @media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}.ux1-unit{flex-direction:column}.ux1-uside{flex-direction:row;flex-wrap:wrap;align-items:flex-start}.ux1-tch{width:40px;height:40px}}
 /* Tactile (Stitch, docs/DESIGN-SYSTEM.md § Tactile): thẻ chặng nổi + gờ, đường mòn chữ S, nút có gờ dưới, CTA dính đáy – chỉ token */
-.ux1-unit{display:block;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:var(--r-card);padding:1rem 1.1rem;box-shadow:var(--hi),0 8px 24px -10px rgba(0,0,0,.35)}
+.ux1-unit{display:block;color:var(--text);padding:1rem 1.1rem}
 .ux1-uh{display:flex;gap:.8rem;align-items:flex-start}
-.ux1-badge{display:inline-flex;align-items:center;min-height:24px;padding:0 .55rem;border-radius:var(--r-pill);background:var(--ux1-u);color:var(--ux1-uk);font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
-.ux1-unit small{color:var(--muted);opacity:1}.ux1-unit h1{font-family:var(--font-display);letter-spacing:-.015em;margin:.35rem 0 0}
+.ux1-badge{background:var(--ux1-u);color:var(--ux1-uk)}
+.ux1-unit small{color:var(--muted);opacity:1}.ux1-unit h1{margin:.35rem 0 0}
 .ux1-uprog{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;margin:.8rem 0 .35rem;font-size:var(--fs-sm)}.ux1-uprog span{display:inline-flex;align-items:center;gap:.25rem;color:var(--gold-text);font-weight:800}
 .ux1-uprog svg{width:15px;height:15px}.ux1-ubar{height:10px}
 .ux1-hint{display:flex;align-items:center;gap:.6rem;margin:.8rem 0 0;padding:.55rem .7rem;border-radius:var(--r-md);background:var(--surface-2);font-size:var(--fs-sm);color:var(--text)}
@@ -305,7 +305,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-go.btn.primary{min-width:0;min-height:44px;padding:.35rem .9rem;margin-bottom:.8rem;border-radius:var(--r-pill);background:var(--surface-2);color:var(--text);border:1px solid var(--line);box-shadow:0 3px 0 var(--ledge);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
 .ux1-gl{width:8px;height:8px;border-radius:50%;background:var(--cta-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--cta-2) 30%,transparent)}
 .ux1-cta{position:sticky;bottom:.8rem;z-index:5;margin:.4rem 0 0;padding:.4rem 0 0}
-.ux1-cta .btn{width:100%;min-height:56px;border-radius:var(--r-pill);font-size:var(--fs-md);text-transform:uppercase;letter-spacing:.03em}
+.ux1-cta .btn{font-size:var(--fs-md)}
 @keyframes ux1Ring{0%,100%{box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 6px color-mix(in srgb,var(--cta-2) 22%,transparent)}50%{box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 12px color-mix(in srgb,var(--cta-2) 8%,transparent)}}
 @media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))}}
 @media (prefers-reduced-motion:reduce){.ux1-n.next .lsn-dot{animation:none}}

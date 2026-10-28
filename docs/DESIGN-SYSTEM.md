@@ -1,10 +1,20 @@
 # Lexkite design system (web app /app/ + add-on extension/app)
 
-> TL;DR: Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên, không bỏ tính năng.
+> TL;DR: MỘT hệ thiết kế cho app, add-on, web/blog, nhúng video: màu `brand/tokens.json` + lớp Tactile dùng chung `web/css/tactile.css` (tk-*). Đổi phong cách = đổi biến, không sửa component.
+> Mục lục: §0 Lớp dùng chung · §1 Icon · §2 Token · §3 Chuyển động · §4 Vi hiệu ứng · §5 Thành phần · §5b Màn Tactile · §6 Kiểm tra.
 > Đọc khi: mọi thay đổi giao diện.
 
 One design language. Every UI change follows this page. Rule: quality only goes up. Never remove features or content.
 Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css` `:root` by `scripts/build-tokens.mjs` – never edit the `@tokens` lines), other tokens in `:root`, brand rules in `docs/BRAND-RULES.md`, Kit in `web/js/kit.js`, icons from `scripts/build-icons.mjs`.
+
+## 0. Shared Tactile layer (one source for every surface)
+| Layer | File | Who reuses |
+|---|---|---|
+| Colours (light/dark) | `brand/tokens.json` → `build-tokens.mjs` → `style.css :root`, add-on `--d-*`, `site-layout.mjs` | all |
+| Shape · depth · type | `web/css/tactile.css :root` (`--r-card --r-pill2 --r-tile --lip-h --press --hi --elev-card --elev-sheet --cta-grad --font-display --track`) | all |
+| Components | `web/css/tactile.css`: `.tk-card` `.tk-tile` `.tk-btn`(`.wide`; = `.btn.primary` in app) `.tk-chip`(`.gold .ok .bad`) `.tk-bar`(`style="--seg:n"` = segmented) `.tk-opts/.tk-opt`(A–D, `aria-pressed`) `.tk-sheet`(`.ok .bad`) `.tk-teacher`(img + name + small) `.tk-display` `.tk-num` | app now; add-on/web/embeds next |
+- No hex in `tactile.css` (brand-check). Hosts supply colour vars; fonts: Bricolage Grotesque 700/800 `display=optional` (has Vietnamese; Figtree has none).
+- Style options from the owner = change `tactile.css :root` + tokens only.
 
 ## 1. Icons: ONE family, Lucide (ISC)
 - Licence: ISC, © Lucide Contributors; parts © Cole Bemis (Feather, MIT). Credited on `/credits` (`content/legal/{en,vi}/credits.html`).
@@ -53,9 +63,9 @@ If a Lottie is added later: lazy-load it with `App.need`, keep it out of the `SH
 
 ## 5b. Tactile (Google Stitch "Lexkite English Exam Prep", owner-approved 28/10; source out/stitch/v1)
 - Colors only from `brand/tokens.json`: CTA gradient `--cta-1`→`--cta-2`, text `--cta-ink`, lip `--cta-lip`; floating tiles get a bottom ledge `--ledge`; stars/XP graphics `--sun` (text uses `--gold-text`). Contrast is checked in brand-check.
-- Shape/type in `style.css :root`: `--r-card` 16 px (cards), `--r-pill2` 24 px (options, sheets), `--lip`, `--hi` (top highlight), `--cta-grad`, `--font-display` = Bricolage Grotesque 700/800 (`display=optional`, has Vietnamese; Figtree lacks Vietnamese so it is not used). Body stays Be Vietnam Pro.
+- Shape/type/components: §0. Body text stays Be Vietnam Pro.
 - Screens: home path (`ux1.js` map: unit card + step/XP-to-checkpoint, S-trail, real stars from `lk.ux1.st`, START pill, milestone, sticky Continue CTA), lesson (`lesson/ui.js`: 720 px focus, segmented bar, question counter, prompt card, audio row, A–D options, full-width Check, feedback sheet with chips + teacher card + gold-bank booster), readiness (`goal.js`: estimate vs target, readiness bar, skill tiles, picked drill, mock schedule; empty state without real scores).
-- Owner overrides: no hearts/lives, 5 tabs, 3D Ama/Carlos only, UK/US IPA via `UI.pronHtml`, light + dark from tokens.
+- Owner overrides: no hearts/lives, 5 tabs, 3D Ama/Carlos only, UK/US IPA via `UI.pronHtml`, light + dark from tokens. QA: one `.lsn-foot`, answers disabled after Check, `dir=ltr` on +XP/% values.
 - Bundle CSS outside the shell: `BCSS` in `app.js` (e.g. `css/exam.css` for mock/toeic/toefl).
 
 ## 6. Checks before shipping UI

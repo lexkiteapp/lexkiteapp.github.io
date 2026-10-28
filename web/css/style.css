@@ -32,10 +32,6 @@
   --elev-1: var(--shadow-sm); --elev-2: var(--shadow); --elev-3: var(--shadow-lg);
   --dur-1: 120ms; --dur-2: 200ms; --ease-std: cubic-bezier(.2, 0, 0, 1); --ease-emph: cubic-bezier(.05, .7, .1, 1);
   --ic: 20px;
-  /* Tactile – docs/DESIGN-SYSTEM.md */
-  --r-card: 16px; --r-pill2: 24px; --lip: 0 4px 0 var(--ledge); --lip-press: 0 1px 0 var(--ledge); --hi: inset 0 1px 0 rgba(255,255,255,.08);
-  --cta-grad: linear-gradient(180deg, var(--cta-1), var(--cta-2)); --cta-shadow: 0 5px 0 var(--cta-lip), 0 12px 24px -6px color-mix(in srgb, var(--cta-2) 40%, transparent);
-  --font-display: "Bricolage Grotesque", var(--font);
   --sidebar: 248px;
   color-scheme: light;
 }
@@ -152,9 +148,6 @@ p { margin: .4rem 0; }
 .btn:active { transform: translateY(1px); }
 .btn.primary { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); box-shadow: 0 6px 18px color-mix(in srgb, var(--primary) 35%, transparent); }
 .btn.primary:hover { filter: brightness(1.07); }
-.btn.primary:not(.ghost) { background: var(--cta-grad); border-color: transparent; color: var(--cta-ink); box-shadow: var(--hi), var(--cta-shadow); font-family: var(--font-display); letter-spacing: .01em; }
-.btn.primary:not(.ghost):active:not(:disabled) { transform: translateY(3px); box-shadow: var(--hi), 0 2px 0 var(--cta-lip); }
-.btn.primary:disabled { background: var(--surface-3); color: var(--muted); box-shadow: 0 4px 0 var(--ledge); filter: none; }
 .btn.accent { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn.ghost { border-color: transparent; background: transparent; }
 .btn.ghost:hover { background: var(--surface-2); }

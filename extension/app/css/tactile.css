@@ -1,0 +1,41 @@
+/* Tactile – lớp dùng chung (app, add-on, web, nhúng). Màu từ brand/tokens.json; đổi phong cách = đổi biến :root. docs/DESIGN-SYSTEM.md §0 */
+:root {
+  --r-card: 16px; --r-pill2: 24px; --r-tile: 12px;
+  --lip-h: 4px; --press: 3px;
+  --lip: 0 var(--lip-h) 0 var(--ledge); --hi: inset 0 1px 0 rgba(255,255,255,.08);
+  --elev-card: 0 8px 24px -10px rgba(0,0,0,.35); --elev-sheet: 0 -8px 32px rgba(0,0,0,.45);
+  --cta-grad: linear-gradient(180deg, var(--cta-1), var(--cta-2));
+  --cta-shadow: 0 5px 0 var(--cta-lip), 0 12px 24px -6px color-mix(in srgb, var(--cta-2) 40%, transparent);
+  --font-display: "Bricolage Grotesque", var(--font, system-ui, sans-serif);
+  --track: .06em;
+}
+.tk-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); box-shadow: var(--hi), var(--elev-card); }
+.tk-tile { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-pill2); box-shadow: var(--hi), var(--lip); }
+.tk-btn, .btn.primary:not(.ghost) { background: var(--cta-grad); border: 0; color: var(--cta-ink); box-shadow: var(--hi), var(--cta-shadow); font-family: var(--font-display); letter-spacing: .01em; }
+.tk-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 56px; padding: 0 1.4rem; border-radius: 999px; font-weight: 800; text-decoration: none; cursor: pointer; }
+.tk-btn:active:not(:disabled), .btn.primary:not(.ghost):active:not(:disabled) { transform: translateY(var(--press)); box-shadow: var(--hi), 0 2px 0 var(--cta-lip); }
+.tk-btn:disabled, .btn.primary:disabled { background: var(--surface-3); color: var(--muted); box-shadow: var(--lip); filter: none; }
+.tk-btn.wide { width: 100%; min-height: 56px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; }
+.tk-chip { display: inline-flex; align-items: center; gap: .3rem; width: fit-content; min-height: 24px; padding: .1rem .6rem; border-radius: 999px; background: var(--surface-2); color: var(--done); font-size: .75rem; font-weight: 800; letter-spacing: var(--track); text-transform: uppercase; }
+.tk-chip.gold { color: var(--gold-text, var(--sun)); } .tk-chip.ok { background: var(--good-soft); color: var(--good-text); } .tk-chip.bad { background: var(--again-soft); color: var(--again-text); }
+.tk-bar { display: block; height: 10px; border-radius: 999px; background: var(--surface-3); overflow: hidden; }
+.tk-bar > i { display: block; height: 100%; border-radius: 999px; background: var(--done); transition: width .35s ease; }
+.tk-bar[style*="--seg"] { -webkit-mask: repeating-linear-gradient(90deg, black 0 calc(100% / var(--seg) - 5px), transparent 0 calc(100% / var(--seg))); mask: repeating-linear-gradient(90deg, black 0 calc(100% / var(--seg) - 5px), transparent 0 calc(100% / var(--seg))); }
+.tk-opts { display: grid; grid-template-columns: minmax(0, 1fr); gap: .6rem; counter-reset: tko; }
+.tk-opt { display: flex; align-items: center; gap: .8rem; min-height: 56px; padding: .6rem .8rem; text-align: start; color: var(--text); font: inherit; font-weight: 700; cursor: pointer; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-pill2); box-shadow: var(--hi), var(--lip); transition: transform 60ms, box-shadow 60ms; }
+.tk-opt::before { counter-increment: tko; content: counter(tko, upper-alpha); flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: var(--r-tile); background: var(--surface); color: var(--muted); font-weight: 800; }
+.tk-opt::after { content: ""; flex: none; margin-inline-start: auto; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line-2); }
+.tk-opt:active:not(:disabled) { transform: translateY(var(--press)); box-shadow: var(--hi); }
+.tk-opt[aria-pressed=true] { border-color: var(--done); background: color-mix(in srgb, var(--done) 14%, var(--surface-2)); box-shadow: 0 3px 0 var(--done-ink); }
+.tk-opt[aria-pressed=true]::before { background: var(--done); color: var(--on-done); }
+.tk-opt[aria-pressed=true]::after { border-color: var(--done); background: radial-gradient(circle, var(--done) 0 45%, transparent 50%); }
+.tk-opt:disabled { cursor: default; }
+.tk-sheet { background: var(--surface); border-top: 3px solid var(--line-2); border-radius: var(--r-pill2) var(--r-pill2) 0 0; box-shadow: var(--elev-sheet); }
+.tk-sheet::before { content: ""; display: block; width: 44px; height: 5px; border-radius: 3px; background: var(--line-2); margin: -.2rem auto .7rem; }
+.tk-sheet.ok { border-top-color: var(--good); } .tk-sheet.bad { border-top-color: var(--again); }
+.tk-teacher { display: flex; gap: .8rem; align-items: flex-start; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-card); padding: .8rem; }
+.tk-teacher > img { width: 56px; height: 56px; flex: none; border-radius: 14px; object-fit: cover; object-position: 50% 12%; }
+.tk-teacher > div { min-width: 0; flex: 1; } .tk-teacher small { display: block; color: var(--muted); font-size: .75rem; }
+.tk-display { font-family: var(--font-display); letter-spacing: -.015em; }
+.tk-num { font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .tk-bar > i, .tk-opt { transition: none; } }
