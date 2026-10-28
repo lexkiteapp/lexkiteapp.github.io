@@ -34,31 +34,15 @@
   function css() {
     if ($('#lsnCss')) return;
     const st = document.createElement('style'); st.id = 'lsnCss';
-    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;padding-bottom:calc(var(--lsn-fh,8rem) + 1.5rem)}
-.lsn-top{display:flex;align-items:center;gap:.6rem}.lsn-x{flex:none}.lsn-bar{flex:1;height:14px;border-radius:99px;background:var(--surface-3);overflow:hidden}
-.lsn-bar i{display:block;height:100%;width:0;background:var(--done);border-radius:99px;transition:width .35s ease}
-.lsn-combo{flex:none;font-weight:800;color:var(--gold-text);background:var(--gold-soft);border-radius:99px;padding:.15rem .6rem;font-size:.85rem;visibility:hidden}.lsn-combo.on{visibility:visible;animation:lsnPop .3s ease}
-@keyframes lsnPop{0%{transform:scale(.6)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
-.lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:96px;height:128px;position:relative}
-.tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
-.lsn-bub{position:relative;flex:1;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:.7rem .9rem;font-weight:700}
-.lsn-bub small{display:block;font-weight:400;color:var(--muted);margin-top:.2rem}.lsn-tag{display:inline-block;font-size:.75rem;font-weight:800;color:var(--again-text);background:var(--again-soft);border-radius:99px;padding:.05rem .5rem;margin-bottom:.3rem}
-.lsn-tag.own{color:var(--accent-text);background:var(--accent-soft)}
-.lsn-snd{display:flex;gap:.5rem;align-items:center}.lsn-sent{font-size:1.2rem;line-height:1.6}.lsn-gap{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--primary);text-align:center}
-.lsn-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:.6rem}
-.lsn-opt:not(.tk-opt),.lsn-tile{border:2px solid var(--line);border-bottom-width:4px;background:var(--surface);color:var(--text);border-radius:14px;padding:.7rem .8rem;font:inherit;font-weight:700;cursor:pointer;min-height:48px}
-.lsn-opt:not(.tk-opt)[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft)}.lsn-tile{padding:.45rem .7rem;min-height:44px}
-.lsn-ans{min-height:3.4rem;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:.4rem;padding:.3rem 0}.lsn-bank{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center}
-.lsn-tile.used{visibility:hidden}.lsn-pic{width:min(220px,60vw);aspect-ratio:1;border-radius:16px;background:var(--surface-2);margin:0 auto;display:block;object-fit:cover}
-.lsn-mic{display:flex;flex-direction:column;align-items:center;gap:.5rem}.lsn-mic .btn{min-width:200px}
-.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:75vh;overflow-y:auto;background:var(--bg);border-top:2px solid var(--line);padding:.8rem 1rem calc(.8rem + env(safe-area-inset-bottom))}
-.lsn-foot>div{max-width:640px;margin:0 auto;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.lsn-foot .grow{flex:1}
-
-.lsn-fb{flex:1 1 100%;min-width:0}.lsn-fb h3{margin:0 0 .2rem;font-size:1.15rem}.lsn-foot.ok h3{color:var(--good-text)}.lsn-foot.bad h3{color:var(--again-text)}
-.lsn-fb p{margin:.15rem 0}.lsn-xp{background:var(--surface);border-radius:12px;padding:.6rem .8rem;margin-top:.4rem;max-height:40vh;overflow:auto}
-.lsn-skip{background:none;border:0;color:var(--muted);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:.4rem}
-.lsn-in{width:100%;font:inherit;font-size:1.2rem;padding:.7rem .9rem;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--text)}
-.lsn-match{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.lsn-match>div{display:flex;flex-direction:column;gap:.5rem}.lsn-opt.done{opacity:.35;border-color:var(--good)}.lsn-opt.miss{border-color:var(--again);background:var(--again-soft)}
+    st.textContent = `.lsn{max-width:640px;margin:0 auto;display:flex;flex-direction:column;padding:0 1rem calc(var(--lsn-fh,8rem) + 1.5rem)}
+/* 🎨 Giao diện câu hỏi/tấm phản hồi = class Tailwind của mẫu Stitch (web/js/st/lesson.js · css/st-lesson.css); dưới đây chỉ bố cục + trạng thái */
+.lsn-combo{visibility:hidden}.lsn-combo.on{visibility:visible}
+.lsn-av .tch{width:48px;height:48px;position:relative}.tch-rig{position:absolute;inset:0}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
+.lsn-av .tch-rig img,.lsn-av .tch-rig canvas{object-fit:cover;object-position:50% 0;transform:scale(1.7);transform-origin:50% 6%}
+.lsn-tile.used{visibility:hidden}.lsn-opt.done{opacity:.35}.lsn-opt.miss{background:rgb(var(--st-error-container))}
+.lsn-foot{position:fixed;left:0;right:0;bottom:0;z-index:30;max-height:80vh;overflow-y:auto;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom))}
+.lsn-foot>*{max-width:608px;margin-inline:auto}.lsn-foot.tk-sheet{display:flex;flex-direction:column;gap:1rem;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}.lsn-foot.tk-sheet>*{width:100%}
+.lsn.st-dim>:not(.lsn-top){opacity:.4;transition:opacity .18s ease}
 .lsn-end{text-align:center}@media (max-width:420px){.lsn-stats{grid-template-columns:repeat(2,1fr)!important}}.lsn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin:1rem 0}.lsn-stats div{background:var(--surface-2);border-radius:14px;padding:.7rem .3rem}.lsn-stats b{display:block;font-size:1.4rem}
 .lsn-duo{position:relative;display:flex;justify-content:center;gap:1rem}.lsn-duo .tch{width:110px;height:146px;position:relative;transition:transform .2s ease,filter .2s ease}
 .lsn-duo .tch.talk{transform:scale(1.06);filter:drop-shadow(0 0 5px var(--primary))}.lsn-air{position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);z-index:2;font-size:.7rem;font-weight:800;color:#fff;background:var(--again);border-radius:99px;padding:.1rem .5rem}
@@ -72,37 +56,8 @@
 .lsn-map .lsn-start{margin-bottom:.7rem;min-width:180px;animation:lsnBob 1.6s ease-in-out infinite}
 @keyframes lsnGlow{0%,100%{filter:drop-shadow(0 0 0 transparent)}50%{filter:drop-shadow(0 0 14px var(--primary))}}
 @keyframes lsnBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-/* game feel */
-.lsn-big{width:84px;height:84px;border-radius:22px;border:0;background:var(--primary);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 0 var(--primary-ink);font-size:1.6rem}
-.lsn-big.sm{width:60px;height:60px;background:var(--surface-2);color:var(--text);box-shadow:0 4px 0 var(--line)}.lsn-big svg{width:36px;height:36px}.lsn-big:active{transform:translateY(3px);box-shadow:none}
-.lsn-snd{justify-content:center}.lsn-tile.pop{animation:lsnPop .2s ease}
-.lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.6rem;opacity:0;transform:scale(.4)}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
-@keyframes lsnEmo{0%{opacity:0;transform:scale(.4)}25%{opacity:1;transform:scale(1.2)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1) translateY(-10px)}}
-.tch.nod{animation:lsnNod .5s ease}.tch.shake{animation:lsnShake .4s ease}
-@keyframes lsnNod{0%,100%{transform:translateY(0)}40%{transform:translateY(5px)}}@keyframes lsnShake{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg)}70%{transform:rotate(3deg)}}
-.lsn-bar.glow i{animation:lsnBar .6s ease}@keyframes lsnBar{50%{box-shadow:0 0 12px var(--good);filter:brightness(1.2)}}
-.lsn-foot.ok,.lsn-foot.bad{animation:lsnUp .22s ease-out}@keyframes lsnUp{from{transform:translateY(40%);opacity:.4}to{transform:none;opacity:1}}
-.lsn-go{min-width:220px;margin:.4rem 0}
-/* Tactile: component chung ở css/tactile.css (tk-*), dưới đây chỉ bố cục riêng bài học */
-.lsn,.lsn-foot>div{max-width:720px}
-.lsn-meta{display:flex;justify-content:space-between;margin:-.5rem 0 0;font-size:var(--fs-xs);font-weight:800;letter-spacing:var(--track);text-transform:uppercase;color:var(--done)}.lsn-meta span{color:var(--gold-text)}
-.lsn-bar{height:10px}
-.lsn-ask{flex-wrap:wrap;padding:.9rem}.lsn-ex{flex:1 1 100%}
-.lsn-bub{border:0;background:none;padding:.2rem 0;font-family:var(--font-display);font-size:1.25rem;line-height:1.35;letter-spacing:-.01em}.lsn-bub small{font-family:var(--font);font-size:var(--fs-sm);letter-spacing:0}
-.lsn-snd{justify-content:flex-start;gap:.7rem;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-pill2);padding:.45rem .6rem;box-shadow:var(--lip)}
-.lsn-snd .lsn-big{width:52px;height:52px;border-radius:50%;background:var(--done);color:var(--on-done);box-shadow:0 3px 0 var(--done-ink)}.lsn-snd .lsn-big svg{width:26px;height:26px}
-.lsn-snd .lsn-big.sm{width:44px;height:44px;background:var(--surface);color:var(--text);box-shadow:var(--lip)}
-.lsn-sl{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}.lsn-sl b{font-size:var(--fs-xs);letter-spacing:var(--track);text-transform:uppercase;color:var(--done)}.lsn-sl small{color:var(--muted)}
-.lsn-wave{display:flex;align-items:center;gap:3px;height:24px}.lsn-wave i{width:4px;border-radius:2px;background:var(--done);height:40%}.lsn-wave i:nth-child(2){height:80%}.lsn-wave i:nth-child(3){height:55%}.lsn-wave i:nth-child(4){height:100%}.lsn-wave i:nth-child(5){height:30%;background:var(--line-2)}
-.lsn-tile,.lsn-match .lsn-opt{border-width:1px;border-bottom-width:1px;border-radius:var(--r-md);box-shadow:var(--hi),var(--lip)}
-.lsn-foot{background:var(--surface);border-top:1px solid var(--line)}
-.lsn-foot #lsnCheck,.lsn-foot #lsnNext,.lsn-foot #lsnGo{flex:1 1 220px;min-height:56px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
-.lsn-foot #lsnCheck{flex-basis:100%}
-.lsn-chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between;margin-bottom:.7rem}.lsn-chips .tk-chip{min-height:36px;padding:0 .9rem;font-size:var(--fs-sm);letter-spacing:.02em}
-.lsn-coach h3{margin:0}.lsn-foot.ok .lsn-fb h3{color:var(--done)}
-.lsn-boost{margin-top:.6rem;border:1px solid var(--line);border-radius:var(--r-card);padding:.7rem .8rem;background:var(--bg)}
-.lsn-bh{display:block;margin-bottom:.35rem}.lsn-bw{margin:.1rem 0;color:var(--muted)}.lsn-bw small,.lsn-say small{font-size:var(--fs-xs);font-weight:800;letter-spacing:var(--track);text-transform:uppercase;margin-inline-end:.3rem}.lsn-bw small{color:var(--again-text)}
-.lsn-say{display:inline-flex;align-items:center;gap:.35rem;flex-wrap:wrap;min-height:44px;margin-top:.2rem;padding:.3rem .2rem;border:0;background:none;color:var(--done);font:inherit;font-weight:800;font-size:var(--fs-md);text-align:start;cursor:pointer}.lsn-say svg{width:18px;height:18px}
+.lsn-tw{position:relative;flex:none}.lsn-emo{position:absolute;right:-8px;top:-8px;font-size:1.2rem;opacity:0}.lsn-emo.on{animation:lsnEmo .9s ease forwards}
+@keyframes lsnEmo{0%{opacity:0}25%{opacity:1}70%{opacity:1}100%{opacity:0}}
 /* Chuyển động tiết chế (chủ 28/10): chỉ mờ dần 150–200 ms, không nảy/rung/phát sáng/pháo giấy */
 .lsn-combo.on,.lsn-tile.pop,.tch.nod,.tch.shake,.lsn-bar.glow i,.lsn-node.next .lsn-dot,.lsn-start,.lsn-big:active{animation:none;transform:none}
 .lsn-emo{display:none}.lsn-bar i{transition:width .18s ease}
@@ -144,15 +99,11 @@
     L = { demo, items, sess: new E.Session(items, { ease: ux }), picks, who: story ? 'ama' : who, t0: Date.now(), spoken: 0, kind: node.kind, story, SK };
     if (demo) App._lsn = L; // bài thử: gác bố cục CI (scripts/test/ux1-guard.mjs) đọc câu hiện tại để trả lời đúng/sai có chủ đích
     App.onCleanup(cleanup);
-    view.innerHTML = `<div class="lsn" id="lsn">
-      <div class="lsn-top"><a class="icon-btn lsn-x" href="#/lesson${Q(demo)}" aria-label="${t('Thoát bài học')}">✕</a>
-        <div class="lsn-bar tk-bar" role="progressbar" aria-label="${t('Tiến độ bài học')}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
-        <span class="lsn-combo" id="lsnCombo" aria-live="polite"></span></div>
-      <div class="lsn-meta"><b id="lsnQn"></b><span id="lsnPct" dir="ltr"></span></div>
-      ${story ? `<div class="lsn-duo">${story.kind === 'radio' ? '<span class="lsn-air">● ON AIR</span>' : ''}<div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-tw"><div id="lsnTch2"></div></div></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div><ol class="lsn-chat" id="lsnChat"></ol>`
-        : `<div class="lsn-ask tk-card">${examChip()}<div class="lsn-tw"><div id="lsnTch"></div><span class="lsn-emo" id="lsnEmo" aria-hidden="true"></span></div><div class="lsn-bub" id="lsnBub" aria-live="polite"></div></div>`}
-      <div id="lsnBody"></div></div>`;
-    const foot = document.createElement('div'); foot.className = 'lsn-foot'; foot.id = 'lsnFoot'; document.body.appendChild(foot);
+    const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
+    document.body.classList.add('st'); App.onCleanup(() => document.body.classList.remove('st'));
+    view.innerHTML = ST.lsnShell({ close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: t('Bài học'), barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn'),
+      story: story ? ST.lsnStory(story.kind === 'radio' ? '● ON AIR' : '') : '' }); // 🎨 mẫu Stitch "Speaking Micro-Drill" (web/js/st/lesson.js)
+    const foot = document.createElement('div'); foot.className = ST.FOOT; foot.id = 'lsnFoot'; document.body.appendChild(foot);
     if (window.ResizeObserver) { footRO = new ResizeObserver(() => view.style.setProperty('--lsn-fh', foot.offsetHeight + 'px')); footRO.observe(foot); }
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), L.who) : null; if (story && L.teacher) L.teachers = { ama: L.teacher, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') }; } catch (e) { L.teacher = null; L.teachers = null; }
     next();
@@ -197,8 +148,7 @@
 
   function bar() {
     const s = L.sess, b = $('.lsn-bar'); if (!b) return;
-    b.firstChild.style.width = Math.round(s.progress * 100) + '%'; b.setAttribute('aria-valuenow', Math.round(s.progress * 100));
-    b.style.setProperty('--seg', Math.max(1, Math.min(12, s.total))); // thanh chia đoạn = số câu (Tactile)
+    const nS = Math.max(1, Math.min(12, s.total)); b.innerHTML = ST.lsnSegs(nS, Math.round(s.progress * nS)); b.setAttribute('aria-valuenow', Math.round(s.progress * 100)); // thanh chia đoạn = số câu (mẫu Stitch: viên thuốc)
     const qn = $('#lsnQn'), pc = $('#lsnPct'); if (qn) qn.textContent = t('Câu {a}/{b}', { a: Math.min(s.solved + 1, s.total), b: s.total }); if (pc) pc.textContent = Math.round(s.progress * 100) + '%';
     const c = $('#lsnCombo'); if (c) { c.textContent = s.combo >= 3 ? '🔥 ' + t('COMBO ×{n}', { n: s.combo }) : ''; c.classList.toggle('on', s.combo >= 3); }
   }
@@ -210,40 +160,39 @@
     if (!it) return finish();
     L.pick = null; L.tiles = []; L.checked = false;
     const bub = $('#lsnBub'), body = $('#lsnBody');
-    const tag = it.retry ? `<span class="lsn-tag">↺ ${t('Lỗi cũ')}</span><br>` : (it.own && (it.type === 'gap' || it.type === 'build') ? `<span class="lsn-tag own">🔎 ${t('Từ bạn đã tra')}</span><br>` : '');
+    const tag = it.retry ? ST.lsnTag('↺ ' + t('Lỗi cũ')) : (it.own && (it.type === 'gap' || it.type === 'build') ? ST.lsnTag('🔎 ' + t('Từ bạn đã tra'), true) : '');
+    const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
     let sub = '';
-    if (it.type === 'tr') sub = esc(it.prompt);
-    else if (it.type === 'mean') sub = esc(meanOf(it.card));
-    else if (it.type === 'type' && it.noAudio) sub = esc(meanOf(it.card));
-    else if (it.type === 'build' && it.noAudio) sub = esc(it.prompt || meanOf(it.card));
-    bub.innerHTML = tag + esc(TITLE(it)) + (sub ? `<small lang="${it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en'}">${sub}</small>` : '');
-    const snd = LISTENS(it) ? `<div class="lsn-snd"><button class="lsn-big" id="lsnPlay" aria-label="${t('Nghe lại')}">${UI.icon('volume-2')}</button><span class="lsn-sl"><b>${t('Mẫu âm thanh')}</b><small>${esc(TNAME(it.who || L.who))}</small></span><span class="lsn-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><button class="lsn-big sm" id="lsnSlow" aria-label="${t('Nghe chậm hơn')}">🐢</button></div>` : '';
+    if (it.type === 'tr') sub = it.prompt;
+    else if (it.type === 'mean') sub = meanOf(it.card);
+    else if (it.type === 'type' && it.noAudio) sub = meanOf(it.card);
+    else if (it.type === 'build' && it.noAudio) sub = it.prompt || meanOf(it.card);
+    bub.innerHTML = tag + esc(TITLE(it)) + (sub ? ST.lsnSub(sub, it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en') : '');
+    const snd = LISTENS(it) ? ST.lsnSnd({ play: t('Nghe lại'), slow: t('Nghe chậm hơn'), label: t('Mẫu âm thanh'), name: TNAME(it.who || L.who) }) : '';
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
     if (it.type === 'line') return line(it);
     const chat = $('#lsnChat'); if (chat) chat.hidden = true; // bài kiểm giữa truyện: ẩn lời thoại (không lộ đáp án)
     if (it.type === 'q') {
-      bub.innerHTML = tag + esc(TITLE(it)) + `<small lang="en">${esc(it.prompt)}</small>`;
-      body.innerHTML = `<div class="lsn-opts tk-opts" role="group">${it.options.map(o => `<button class="lsn-opt tk-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      bub.innerHTML = tag + esc(TITLE(it)) + ST.lsnSub(it.prompt, 'en');
+      body.innerHTML = ST.lsnOpts(it.options);
     } else if (it.type === 'gap') {
-      const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? `<span class="lsn-gap" id="lsnGap">&nbsp;</span>` : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
-      body.innerHTML = `${snd}<p class="lsn-sent" lang="en">${sent}</p><div class="lsn-opts tk-opts" role="group">${it.options.map(o => `<button class="lsn-opt tk-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      const T = it.blank.toks, sent = T.map((w, i) => (i === it.blank.i ? ST.GAP : i > it.blank.i && i < it.blank.i + it.blank.n ? '' : esc(w))).filter(Boolean).join(' ');
+      body.innerHTML = snd + ST.lsnSent(sent) + ST.lsnOpts(it.options);
     } else if (it.type === 'type') {
-      body.innerHTML = `${snd}<input class="lsn-in" id="lsnIn" lang="en" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="${t('Câu trả lời của bạn')}">`;
+      body.innerHTML = snd + ST.lsnIn(t('Câu trả lời của bạn'));
     } else if (it.type === 'match') {
       const L1 = E.shuffle(it.pairs.map((c, i) => i), Math.random), L2 = E.shuffle(it.pairs.map((c, i) => i), Math.random);
-      body.innerHTML = `<div class="lsn-match"><div>${L1.map(i => `<button class="lsn-opt" lang="en" data-m="${i}" data-s="w">${esc(it.pairs[i].word)}</button>`).join('')}</div><div>${L2.map(i => `<button class="lsn-opt" data-m="${i}" data-s="m">${esc(it.pairs[i].mean || meanOf(it.pairs[i]))}</button>`).join('')}</div></div>`;
+      body.innerHTML = ST.lsnMatch(L1.map(i => ({ i, t: it.pairs[i].word })), L2.map(i => ({ i, t: it.pairs[i].mean || meanOf(it.pairs[i]) })));
     } else if (it.type === 'mean' || (it.type === 'pic' && it.choice)) {
-      body.innerHTML = `${it.type === 'pic' ? `<img class="lsn-pic" src="${esc(imgUrl(it.word, it.card.pos))}" alt="${esc(t('Ảnh minh họa'))}" width="220" height="220">` : ''}<div class="lsn-opts tk-opts" role="group">${it.options.map(o => `<button class="lsn-opt tk-opt" lang="en" aria-pressed="false" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
+      body.innerHTML = (it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : '') + ST.lsnOpts(it.options);
     } else if (it.type === 'build' || it.type === 'tr') {
-      body.innerHTML = `${snd}<div class="lsn-ans" id="lsnAns" aria-label="${t('Câu trả lời của bạn')}" lang="en"></div><div class="lsn-bank" id="lsnBank" lang="en">${it.tiles.map((w, i) => `<button class="lsn-tile" data-i="${i}">${esc(w)}</button>`).join('')}</div>`;
+      body.innerHTML = snd + ST.lsnBuild(it.tiles); $('#lsnAns').setAttribute('aria-label', t('Câu trả lời của bạn'));
     } else {
-      body.innerHTML = `${it.type === 'pic' ? `<img class="lsn-pic" src="${esc(imgUrl(it.word, it.card.pos))}" alt="${esc(t('Ảnh minh họa'))}" width="220" height="220">` : `${snd}<p class="lsn-sent center" lang="en"><b>${esc(it.answer)}</b></p>`}
-        <div class="lsn-mic"><button class="btn primary lg" id="lsnMic">🎤 ${t('Chạm để nói')}</button><p class="tiny muted" id="lsnHeard" aria-live="polite"></p></div>`;
+      body.innerHTML = (it.type === 'pic' ? ST.lsnPic(imgUrl(it.word, it.card.pos), t('Ảnh minh họa')) : snd + ST.lsnSent(`<b>${esc(it.answer)}</b>`, true)) + ST.lsnMic('🎤 ' + t('Chạm để nói'));
     }
     // chân trang: bỏ qua nghe/nói + Kiểm tra
-    const foot = $('#lsnFoot'); foot.className = 'lsn-foot';
-    foot.innerHTML = `<div>${LISTENS(it) ? `<button class="lsn-skip" id="lsnNoL">${t('Không nghe được lúc này')}</button>` : ''}${SPEAKS(it) ? `<button class="lsn-skip" id="lsnNoS">${t('Không nói được lúc này')}</button>` : ''}<span class="grow"></span>
-      ${SPEAKS(it) ? '' : `<button class="btn primary lg" id="lsnCheck" disabled>${t('Kiểm tra')}</button>`}</div>`;
+    const foot = $('#lsnFoot'); foot.className = ST.FOOT;
+    foot.innerHTML = ST.lsnFoot({ skips: [LISTENS(it) ? ['lsnNoL', t('Không nghe được lúc này')] : null, SPEAKS(it) ? ['lsnNoS', t('Không nói được lúc này')] : null].filter(Boolean), check: SPEAKS(it) ? '' : t('Kiểm tra') });
     bindItem(it, audioText);
     if (LISTENS(it)) setTimeout(() => say(audioText, false, it.who), 250);
   }
@@ -251,11 +200,11 @@
   // Một câu thoại của truyện/radio: người nói sáng lên + đọc (giọng Kokoro), truyện hiện chữ (radio chỉ nghe), chạm Tiếp tục
   function line(it) {
     const name = it.who === 'carlos' ? 'Carlos' : 'Ama';
-    $('#lsnBub').innerHTML = `<b>${name}</b>` + (it.radio ? ` <span aria-hidden="true">🔊 · · ·</span>` : `<small lang="en">${esc(it.sent)}</small>`);
+    $('#lsnBub').innerHTML = `<b>${name}</b>` + (it.radio ? ` <span aria-hidden="true">🔊 · · ·</span>` : ST.lsnSub(it.sent, 'en'));
     const log = $('#lsnChat'); $('#lsnBody').innerHTML = ''; log.hidden = false;
     if (!it.radio) { const li = document.createElement('li'); li.className = 'lsn-ln ' + it.who; li.lang = 'en'; li.innerHTML = `<b>${name}</b> ${esc(it.sent)}`; log.appendChild(li); li.scrollIntoView({ block: 'nearest' }); }
-    const foot = $('#lsnFoot'); foot.className = 'lsn-foot';
-    foot.innerHTML = `<div><button class="lsn-big sm" id="lsnPlay" aria-label="${t('Nghe lại')}">${UI.icon('audio-lines')}</button><span class="grow"></span><button class="btn primary lg" id="lsnGo">${t('Tiếp tục')}</button></div>`;
+    const foot = $('#lsnFoot'); foot.className = ST.FOOT;
+    foot.innerHTML = ST.lsnGo(t('Nghe lại'), t('Tiếp tục'));
     $('#lsnPlay').onclick = () => say(it.sent, false, it.who);
     $('#lsnGo').onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };
     setTimeout(() => say(it.sent, false, it.who), 200);
@@ -286,7 +235,7 @@
     document.querySelectorAll('.lsn-opts .lsn-opt').forEach(b => { b.onclick = () => { if (L.checked) return; document.querySelectorAll('.lsn-opts .lsn-opt').forEach(x => x.setAttribute('aria-pressed', String(x === b))); L.pick = b.dataset.o; const g = $('#lsnGap'); if (g) g.textContent = L.pick; if (chk) chk.disabled = false; }; });
     const ans = $('#lsnAns'), bank = $('#lsnBank');
     if (bank) {
-      const draw = () => { ans.innerHTML = L.tiles.map((i, k) => `<button class="lsn-tile${k === L.tiles.length - 1 && L.popLast ? ' pop' : ''}" data-a="${i}">${esc(it.tiles[i])}</button>`).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
+      const draw = () => { ans.innerHTML = L.tiles.map(i => ST.lsnTile(it.tiles[i], `data-a="${i}"`)).join(''); bank.querySelectorAll('.lsn-tile').forEach(b => b.classList.toggle('used', L.tiles.includes(+b.dataset.i))); if (chk) chk.disabled = !L.tiles.length; };
       bank.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked || L.tiles.includes(+b.dataset.i)) return; L.tiles.push(+b.dataset.i); L.popLast = true; if (window.Sfx) Sfx.pop(); draw(); L.popLast = false; };
       ans.onclick = e => { const b = e.target.closest('.lsn-tile'); if (!b || L.checked) return; L.tiles = L.tiles.filter(i => i !== +b.dataset.a); draw(); };
     }
@@ -323,27 +272,20 @@
   }
 
   // Dải chip đầu tấm phản hồi (Tactile): đúng/sai + XP câu này + chuỗi ngày (không có "tim/mạng" – luật chủ app)
-  const chips = ok => `<div class="lsn-chips"><span class="tk-chip ${ok ? 'ok' : 'bad'}">${ok ? '✓ ' + t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' · <span dir="ltr">+2 XP</span>') : '✗ ' + t('Chưa đúng')}</span>${App.streak && App.streak() ? `<span class="tk-chip gold">🔥 ${t('{n} ngày liên tiếp', { n: App.streak() })}</span>` : ''}</div>`;
+  const chips = ok => ST.lsnChips({ ok, okText: t('Đúng rồi!') + (L.sess.log.slice(-1)[0] && L.sess.log.slice(-1)[0].retry ? '' : ' +2 XP'), badText: t('Chưa đúng'), streak: App.streak && App.streak() ? t('{n} ngày liên tiếp', { n: App.streak() }) : '' });
+  // 🎨 Tấm phản hồi = mẫu Stitch "Instant Feedback & Band Booster": chip đúng/sai + chuỗi · thẻ giáo viên 2D · Tăng điểm · Vì sao? + Tiếp tục
   function feedback(it, ok, heard) {
-    const foot = $('#lsnFoot');
-    foot.className = 'lsn-foot tk-sheet ' + (ok ? 'ok' : 'bad');
-    if (!it.card) { // ghép cặp: không gắn một từ
-      foot.innerHTML = `<div><div class="lsn-fb" role="status">${chips(ok)}<h3>${ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng'))}</h3>${!ok && it.type !== 'match' ? `<p><b lang="en">${esc(it.answer)}</b></p>` : ''}</div><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
-      $('#lsnNext').onclick = () => next(); $('#lsnNext').focus(); return;
-    }
-    const c = it.card;
-    foot.innerHTML = `<div><div class="lsn-fb" role="status">${chips(ok)}
-        <div class="tk-teacher lsn-coach"><img src="${(App.teacherImg ? App.teacherImg((L.who === 'carlos' ? 'carlos' : 'ama')) : 'teach/' + (L.who === 'carlos' ? 'carlos' : 'ama') + '/poster.webp')}" alt="" width="56" height="56" decoding="async"><div>
-        <h3 class="tk-display">${ok ? t('Tuyệt!') : t('Đáp án')}</h3><small>${esc(TNAME(L.who))} · ${t('Giáo viên của bạn')}</small>
-        ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
-        <p><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p></div></div>
-        <div class="lsn-boost" id="lsnBoost" hidden></div>
-        <div class="lsn-xp" id="lsnXp" hidden></div></div>
-      <button class="btn" id="lsnWhy">💡 ${t('Vì sao?')}</button><span class="grow"></span><button class="btn primary lg" id="lsnNext">${t('Tiếp tục')}</button></div>`;
-    $('#lsnWhy').onclick = () => explain(it);
+    const foot = $('#lsnFoot'), lv = view.querySelector('#lsn');
+    foot.className = ST.SHEET + ' ' + (ok ? 'ok' : 'bad'); if (lv) lv.classList.add('st-dim'); // phần câu hỏi lùi lại sau tấm (mẫu: opacity 40 %)
+    const c = it.card, w = L.who === 'carlos' ? 'carlos' : 'ama';
+    const coach = c ? ST.lsnCoach({ img: App.teacherImg ? App.teacherImg(w) : 'teach/' + w + '/poster.webp', name: TNAME(L.who), role: t('Giáo viên của bạn'), head: ok ? t('Tuyệt!') : t('Đáp án'),
+      body: `${ok ? '' : `<p class="m-0 font-body-md text-body-md text-on-surface"><b lang="en">${esc(it.answer)}</b></p>`}<p class="m-0 font-body-md text-body-md text-on-surface leading-snug"><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p>` }) : '';
+    foot.innerHTML = ST.lsnSheet({ chips: chips(ok), coach, card: !!c, head: ok ? '✓ ' + t('Tuyệt!') : '✗ ' + (it.type === 'match' ? t('Có cặp ghép nhầm') : t('Chưa đúng')), answer: !c && !ok && it.type !== 'match' ? it.answer : '',
+      why: c ? t('Vì sao?') : '', next: t('Tiếp tục'), tip: c ? t('Chạm cụm từ để nghe phát âm chuẩn') : '' });
+    if (c) $('#lsnWhy').onclick = () => explain(it);
     $('#lsnNext').onclick = () => next();
     $('#lsnNext').focus();
-    booster(it);
+    if (c) booster(it);
   }
 
   // ⚡ "Tăng điểm": lỗi hay gặp → cách nói tốt hơn (gold bank, 0 AI), chạm cụm để nghe. Từ chưa có cặp sai/đúng → ẩn
@@ -351,7 +293,7 @@
     try { await App.need('lgold'); } catch (e) { return; }
     const box = $('#lsnBoost'); if (!box || !L || L.sess.cur !== it) return;
     const x = ((window.LESSON_GOLD || {})[E.norm(it.card.word)] || []).find(g => g.w && g.r); if (!x) return;
-    box.innerHTML = `<b class="lsn-bh">⚡ ${t('Tăng điểm')}</b><p class="lsn-bw"><small>${t('Hay sai')}</small> <s lang="en">${esc(x.w)}</s></p><button class="lsn-say" lang="en" data-say="${esc(x.r)}"><small>${t('Nói hay hơn')}</small> ${UI.icon('volume-2')} ${esc(x.r)}</button>`;
+    box.innerHTML = ST.lsnBoost({ title: t('Tăng điểm'), bad: t('Hay sai'), good: t('Nói hay hơn'), w: x.w, r: x.r });
     box.hidden = false; box.querySelector('.lsn-say').onclick = e => say(e.currentTarget.dataset.say, false, L.who);
   }
 
@@ -407,7 +349,7 @@
       ${(L.picks || []).length ? `<p class="small">📘 ${t('Bạn đã học:')} <b lang="en">${L.picks.map(p => esc(p.card.word)).join(' · ')}</b></p>` : ''}
       ${weak.length ? `<p class="small">🔁 <b lang="en">${weak.map(esc).join(', ')}</b></p>` : `<p>⭐ ${t('Không sai câu nào!')}</p>`}
       <button class="btn primary lg lsn-go" id="lsnAgain">${t('Bài khác')} →</button><p><a class="small" href="#/lesson${Q(L.demo)}">${UI.icon('map')} ${t('Bản đồ bài học')}</a></p></div>`;
-    bar(); $('.lsn-bar').firstChild.style.width = '100%';
+    bar();
     $('#lsnAgain').onclick = () => routes.lesson('go');
     $('#lsnAgain').focus();
   }

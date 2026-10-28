@@ -58,5 +58,6 @@
     "Giáo viên của bạn": "Your teacher",
     "Tăng điểm": "Score booster",
     "Nói hay hơn": "Better phrase",
+    "Chạm cụm từ để nghe phát âm chuẩn": "Tap a phrase to hear the native pronunciation",
   });
 })(typeof self !== 'undefined' ? self : this);
