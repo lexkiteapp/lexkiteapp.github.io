@@ -104,7 +104,7 @@
 .ret-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-width:132px;max-width:200px;min-height:136px;box-sizing:border-box;padding:.7rem 1rem;text-align:center;border:2px dashed var(--line);border-radius:20px;background:var(--surface-2);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
 .ret-tile.open{border-style:solid;border-color:var(--primary);animation:retPop .45s ease-out;cursor:default}
 .ret-next{min-height:52px;font-size:1.1rem;max-width:360px;margin:0 auto}
-body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
+body[data-ret-frame] .avatar{box-sizing:border-box;padding:2px;background:var(--ret-frame)}
 @keyframes retPop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
 @media (prefers-reduced-motion: reduce){.ret-cel .ret-teach,.ret-chest.open,.ret-tile.open{animation:none}.ret-ice{transition:none}}`;
   function css() { if (document.getElementById('retCss')) return; const s = document.createElement('style'); s.id = 'retCss'; s.textContent = CSS; document.head.appendChild(s); }
