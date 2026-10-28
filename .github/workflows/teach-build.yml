@@ -1,0 +1,40 @@
+# 👩‍🏫 Dựng giáo viên trong bài học (web/teach/<who>/) từ clip phông xanh đã tách nền PRO – 0 credit, máy cá nhân không render.
+# Đẩy nhánh teach-build*: tải thưa 8 tệp từ lexkite-footage → scripts/video/teach_build.sh (VP9 alpha + HEVC alpha + poster) → commit lại nhánh.
+name: Teach build
+on:
+  push:
+    branches: ['teach-build*']
+permissions:
+  contents: write
+concurrency:
+  group: teach-build-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[teach-build]')"
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Footage (sparse)
+        env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
+        run: |
+          [ -n "$KEY" ] || { echo "::error::missing FOOTAGE_DEPLOY_KEY"; exit 1; }
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh; printf '%s\n' "$KEY" > ~/.ssh/footage && chmod 600 ~/.ssh/footage
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/footage -o IdentitiesOnly=yes"
+          git clone -q --depth 1 --filter=blob:none --no-checkout git@github.com:lexkiteapp/lexkite-footage.git footage
+          P=""; for c in ga2_talk ga2_listen gc4_talk_natural gc4_listen; do P="$P /anchor/green/kfull_pro/$c.mp4 /anchor/green/kmask_pro/$c.mkv"; done
+          git -C footage sparse-checkout set --no-cone $P; git -C footage checkout -q; rm -f ~/.ssh/footage; du -sh footage
+      - name: Dựng
+        run: |
+          brew install -q ffmpeg >/dev/null
+          bash scripts/video/teach_build.sh footage/anchor/green web/teach
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/teach
+          git diff --cached --quiet || { git commit -q -m "teach: giáo viên tách nền phông xanh (VP9/HEVC alpha + poster) [teach-build] [CF-Pages-Skip]"; git push -q origin HEAD:${GITHUB_REF_NAME}; }
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: teach, path: web/teach, retention-days: 7 }
