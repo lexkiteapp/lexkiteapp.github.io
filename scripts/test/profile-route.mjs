@@ -32,8 +32,11 @@ for (let run = 0; run < N; run++) {
       const seen = new Set(); let x = id;
       while (x != null) { const cf = byId.get(x).callFrame; const kk = `${cf.functionName || '(anon)'} ${short(cf.url)}:${cf.lineNumber + 1}`; if (!seen.has(kk) && !IDLE.has(cf.functionName)) { seen.add(kk); incl.set(kk, (incl.get(kk) || 0) + dt); } x = parent.get(x); }
     }
+    // Dòng nóng nhất (positionTicks) của 3 hàm self lớn nhất
+    const lines = new Map();
+    for (const [id] of k.s) { const n = byId.get(id); for (const pt of n.positionTicks || []) { const kk = `${short(n.callFrame.url)}:${pt.line}`; lines.set(kk, (lines.get(kk) || 0) + pt.ticks); } }
     const top = m => [...m].sort((a, b) => b[1] - a[1]).slice(0, 12).map(([k, v]) => `    ${(v / 1000).toFixed(1).padStart(6)} ms  ${k}`).join('\n');
-    console.log(`\n-- task @${((k.start - p.startTime) / 1000).toFixed(0)} ms dài ${((k.end - k.start) / 1000).toFixed(0)} ms (CPU 4×)\n  self:\n${top(self)}\n  inclusive:\n${top(incl)}`);
+    console.log(`\n-- task @${((k.start - p.startTime) / 1000).toFixed(0)} ms dài ${((k.end - k.start) / 1000).toFixed(0)} ms (CPU 4×)\n  self:\n${top(self)}\n  inclusive:\n${top(incl)}\n  dòng nóng (số mẫu):\n${[...lines].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, v]) => `    ${String(v).padStart(5)}  ${k}`).join('\n')}`);
   }
   await ctx.close();
 }
