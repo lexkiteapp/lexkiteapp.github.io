@@ -709,7 +709,7 @@
             ${pic(w)}
             <div>
               <div class="tiny muted" style="font-weight:700;text-transform:uppercase;letter-spacing:.06em">${t('Từ của ngày')}</div>
-              <div class="row"><a class="wotd-w" href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></div>
+              <div class="row"><a class="wotd-w" href="#/dict/${encodeURIComponent(w.word)}" style="font-size:1.3rem;font-weight:800;color:var(--text)">${esc(w.word)}</a>${posChip(w.pos)}${levelChip(w.level)}<span class="say-pron" lang="en" dir="ltr"><span class="ipa small">${esc(w.ipa)}</span><button class="icon-btn sm" data-speak="${esc(w.word)}" aria-label="${t('Nghe')}">🔊</button></span></div>
               <div class="vi">${esc(App.meanOf(w))}</div>
               <div class="row" style="margin-top:.4rem">${inDeck(w.word) ? `<span class="chip ok">✓ ${t('Đã có trong sổ')}</span>` : `<button class="btn sm" data-add-seed="${esc(w.word)}">+ Flashcard</button>`}</div>
             </div>
