@@ -87,6 +87,7 @@ for (const scheme of ['dark', 'light']) {
     await page.goto(url(h), { waitUntil: 'load' }); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800);
     if (k === 'lesson' || k === 'feedback') await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
     await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {});
+    await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); document.querySelectorAll('*').forEach(e => { if (e.scrollTop) e.scrollTop = 0; }); }).catch(() => {}); await page.waitForTimeout(200);
     await page.screenshot({ path: path.join(OUT, `desk-${k}-${scheme}.png`) });
   }
   await ctx.close();

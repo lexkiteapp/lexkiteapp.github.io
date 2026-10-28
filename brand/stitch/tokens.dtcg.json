@@ -10,6 +10,24 @@
     }
    }
   },
+  "banner": {
+   "$type": "color",
+   "$value": "#1F7A75",
+   "$extensions": {
+    "com.lexkite.mode": {
+     "light": "#1F7A75"
+    }
+   }
+  },
+  "banner-2": {
+   "$type": "color",
+   "$value": "#12514D",
+   "$extensions": {
+    "com.lexkite.mode": {
+     "light": "#12514D"
+    }
+   }
+  },
   "error": {
    "$type": "color",
    "$value": "#ffb4ab",
@@ -366,7 +384,7 @@
    "$value": "#2fbf71",
    "$extensions": {
     "com.lexkite.mode": {
-     "light": "#1F804C"
+     "light": "#1A7043"
     }
    }
   },
