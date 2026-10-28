@@ -19,6 +19,7 @@
 - Britfone/CMU nghiêng Mỹ ở vài từ (version ʃ/ʒ, asthma s/z, freelance ɑː) → luôn soát tay bản tự sửa trước khi gộp (lượt 28/10: 65 bản, 23 giữ, 10 sửa tay).
 - Hư từ: bảng dạng yếu/mạnh `web/js/ui.js` khối `LK_WEAK` (Cambridge, Longman Pronunciation Dictionary, Wikipedia "Weak and strong forms in English"); `UI.ipaHtml` hiện "/əv/ dạng yếu 🔊(câu mẫu) · dạng mạnh /ɒv/". Bản ghi từ đơn đọc dạng mạnh (docs/WORD-AUDIO.md).
 - Thẻ từ (học, từ điển, sổ lỗi, bài học, popup add-on): `UI.pronHtml` = "UK /ɒv/ 🔊 · US /ʌv/ 🔊", mỗi loa đúng giọng nhãn; cùng IPA → 1 IPA + 2 loa. Thứ tự: giọng đã chọn ở Cài đặt (`accentPicked`) → kỳ thi (IELTS UK, còn lại US). IPA Mỹ thiếu CMU → `ukToUs` (ipa.mjs, đếm `usRule`).
+- Từ mở rộng: `scripts/lexicon/ipa-check.mjs checkEntry` (cùng hàm so âm vị) + trọng âm chính khi CẢ Britfone lẫn CMU cùng nói khác + ranh giới tiền tố (un|interesting /ʌnˈɪn…/) – job.mjs sửa theo nguồn 1 phương án hoặc trượt `ipa: lệch Britfone/CMU` (hàng duyệt); promote.mjs từ chối lô lệch.
 - Giọng: `UI.ipaHtml/ipaOf` lấy IPA theo giọng của nút loa (en-US → ipaUS), `UI.audioFor` bỏ bản ghi sai giọng; từ điển + mặt sau thẻ hiện cả 2 giọng. Làm mới Britfone: `node scripts/lexicon/ipa-audit.mjs --britfone <britfone.main.csv>`.
 
 ## CEFR

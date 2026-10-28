@@ -7,6 +7,7 @@ import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
 import { parseCmu, pickPron, ipaAgrees } from '../lexicon/expand/cmu.mjs';
 import { arpaToIpa, ukStyle, ukStyleBad } from '../lexicon/ipa.mjs';
+import { checkEntry, prefixStress, parseBritfone, oxStress } from '../lexicon/ipa-check.mjs';
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 const TR = { es: 'abandonar', pt: 'abandonar', fr: 'abandonner', de: 'verlassen', id: 'meninggalkan', th: 'ละทิ้ง', zh: '放弃', ja: '見捨てる', ko: '버리다', hi: 'छोड़ देना', ar: 'يتخلى عن', ru: 'покидать', tr: 'terk etmek' };
@@ -184,4 +185,55 @@ bad2(e => e.posDrift = 'n', 'đổi từ loại');
 ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntry(Object.assign(g2(), { ipa: '', ipaPos: false }))), 'ipa-pos không phải lỗ nguồn');
 { const e = g2(); e.cefrSrc = 'cefrj'; e.level = 'B2'; e.qa.cefrJ = ['C2', 'C2']; ok(gateEntry(e).ok, 'CEFR-J thắng ý giám khảo'); }
 { const e = g2(); e.qa.vi = ['fixed', 'fixed']; ok(gateEntry(e).ok, 'vi đã sửa theo Wiktionary đạt'); }
+// ---- CỔNG IPA khớp nguồn (chủ 28/10: kho từ mới không dính lỗi phát âm; pilot 20261028 uninteresting US /əˈnɪntrəstɪŋ/):
+// job.mjs chạy ipa-check.mjs checkEntry trước khi ghi lô chờ (lệch → sửa theo Britfone/CMU nếu đúng 1 phương án, không thì trượt), promote.mjs từ chối lô lệch.
+{ const REFS = { bf: parseBritfone(['INTERESTING(1), ˈɪ n t ɹ ɪ s t ɪ ŋ', 'INTERESTING(2), ˈɪ n t ə ɹ ɪ s t ɪ ŋ', 'UNABLE, ɐ n ˈeɪ b ə l', 'MADNESS, m ˈæ d n ɪ s', 'DANCER, d ˈɑː n s ə',
+      'RECORD(1), ɹ ˈɛ k ɔː d', 'RECORD(2), ɹ ɪ k ˈɔː d', 'INTERSECTION, ˌɪ n t ə s ˈɛ k ʃ ə n', 'TRANSLATE, t ɹ ˌæ n s l ˈeɪ t', 'ABLE, ˈeɪ b ə l'].join('\n')),
+    cmu: parseCmu(['uninteresting AH0 N IH1 N T R AH0 S T IH0 NG', 'interesting IH1 N T R AH0 S T IH0 NG', 'interesting(2) IH1 N T R IH0 S T IH0 NG', 'unable AH0 N EY1 B AH0 L', 'able EY1 B AH0 L',
+      'madness M AE1 D N AH0 S', 'dancer D AE1 N S ER0', 'inert IH2 N ER1 T', 'record R AH0 K AO1 R D', 'record(2) R EH1 K ER0 D', 'intersection IH2 N T ER0 S EH1 K SH AH0 N', 'ecotourism'].join('\n')) };
+  const chk = (w, pos, ipa, ipaUS) => checkEntry({ w, pos, ipa, ipaUS }, REFS);
+  // uninteresting#adj: IPA Mỹ /əˈnɪntrəstɪŋ/ (arpaToIpa cắt n của un- sang gốc từ) → sửa /ʌnˈɪntrəstɪŋ/; trọng âm sai /ˈʌnɪntrəstɪŋ/ → sửa theo CMU
+  { const c = chk('uninteresting', 'adj', '/ʌnˈɪntrəstɪŋ/', '/əˈnɪntrəstɪŋ/'); ok(c.ipaUS === '/ʌnˈɪntrəstɪŋ/' && !c.bad.length && c.fix.length === 1, 'uninteresting#adj Mỹ /əˈnɪntrəstɪŋ/ phải được sửa: ' + JSON.stringify(c)); }
+  { const c = chk('uninteresting', 'adj', '/ʌnˈɪntrəstɪŋ/', '/ˈʌnɪntrəstɪŋ/'); ok(c.ipaUS === '/ʌnˈɪntrəstɪŋ/' && /CMUdict/.test(c.fix.join()), 'uninteresting#adj Mỹ nhấn sai âm tiết → sửa theo CMU: ' + JSON.stringify(c)); }
+  ok(arpaToIpa('AH0 N IH1 N T R AH0 S T IH0 NG') === 'əˈnɪntrəstɪŋ', 'arpaToIpa vẫn ra /əˈnɪn…/ (vì vậy cổng phải sửa ranh giới tiền tố)');
+  { const c = chk('unable', 'adj', '/əˈneɪbl/', '/əˈneɪbl/'); ok(c.ipa === '/ʌnˈeɪbl/' && c.ipaUS === '/ʌnˈeɪbl/' && !c.bad.length, 'unable: un|able cả Anh lẫn Mỹ'); }
+  ok(prefixStress('/ɪˈnɜːt/', 'inert', s => REFS.cmu.has(s)) === '/ɪˈnɜːt/', 'inert: "ert" không phải từ → giữ /ɪˈnɜːt/');
+  // khớp nguồn → không đụng; Oxford (r) cuối = không r; biến thể từ điển (ə ~ ɪ, ə thêm/bớt) vẫn khớp
+  { const c = chk('interesting', 'adj', '/ˈɪntrəstɪŋ/', '/ˈɪntrəstɪŋ/'); ok(!c.fix.length && !c.bad.length, 'interesting khớp nguồn: ' + JSON.stringify(c)); }
+  { const c = chk('dancer', 'n', '/ˈdɑːnsə(r)/', '/ˈdænsər/'); ok(!c.fix.length && !c.bad.length, 'dancer (r) Oxford khớp Britfone: ' + JSON.stringify(c)); }
+  // âm vị lệch Britfone (a đơn kiểu Wiktionary /ˈmadnəs/ sau ukStyle vẫn sai nếu nguyên âm khác) → sửa theo nguồn 1 phương án
+  { const c = chk('madness', 'n', '/ˈmɑːdnəs/', '/ˈmædnəs/'); ok(c.ipa === '/ˈmædnɪs/' && /Britfone/.test(c.fix.join()), 'madness Anh /ˈmɑːdnəs/ → sửa theo Britfone: ' + JSON.stringify(c)); }
+  // trọng âm sai mà CẢ HAI nguồn cùng nói khác (intersection kho cũ /ˈɪntəˌsekʃən/) → sửa; ˌ sát ˈ kiểu Britfone bị bỏ (Oxford)
+  { const c = chk('intersection', 'n', '/ˈɪntəˌsekʃən/', '/ˌɪntərˈsekʃn/'); ok(c.ipa === '/ˌɪntəˈsekʃn/', 'intersection Anh nhấn sai → sửa: ' + JSON.stringify(c)); }
+  ok(oxStress('/ˌtrænsˈleɪt/') === '/trænsˈleɪt/' && oxStress('/ˌɪntəˈsekʃn/') === '/ˌɪntəˈsekʃn/', 'oxStress: bỏ ˌ sát ˈ, giữ ˌ cách ≥ 1 âm tiết');
+  // không sửa được (nguồn có 2 phương án, bản cũ xa cả hai) → trượt qua gateEntry với lý do 'ipa: lệch Britfone/CMU', vào HÀNG DUYỆT (không phải lỗ nguồn)
+  { const c = chk('record', 'n', '/ˈwɪndəʊ/', '/ˈrekərd/'); ok(c.bad.length && /^Anh/.test(c.bad[0]), 'IPA Anh sai hẳn → bad: ' + JSON.stringify(c));
+    const r = gateEntry({ ...g2(), w: 'record', pos: 'n', ex: ['The record was broken.', 'She keeps a record of it.'], ipaBad: c.bad });
+    ok(!r.ok && r.why.some(x => /^ipa: lệch Britfone\/CMU Anh/.test(x)) && !hasGap(r) && !sourceGap(r), 'cổng: ipaBad → trượt "ipa: lệch Britfone/CMU …" → hàng duyệt: ' + JSON.stringify(r.why)); }
+  // không có trong CMU → IPA Mỹ suy từ IPA Anh (ukToUs)
+  { const c = chk('ecotourism', 'n', '/ˌiːkəʊˈtʊərɪzəm/', ''); ok(c.ipaUS === '/ˌiːkoʊˈtʊrɪzəm/', 'ecotourism: Mỹ = ukToUs(Anh): ' + JSON.stringify(c)); }
+  // sửa xong phải ổn định (lưới cuối job.mjs + promote.mjs kiểm lại bằng cùng hàm)
+  for (const [w, pos, a, b] of [['uninteresting', 'adj', '/ʌnˈɪntrəstɪŋ/', '/əˈnɪntrəstɪŋ/'], ['madness', 'n', '/ˈmɑːdnəs/', '/ˈmædnəs/'], ['intersection', 'n', '/ˈɪntəˌsekʃən/', '/ˌɪntərˈsekʃn/']]) {
+    const c = chk(w, pos, a, b), d = chk(w, pos, c.ipa, c.ipaUS); ok(!d.fix.length && !d.bad.length, `${w}: sửa phải ổn định ` + JSON.stringify(d)); }
+  // nối dây: job kiểm TRƯỚC cổng + lưới cuối trước khi ghi lô chờ; promote từ chối lô lệch; workflow tải Britfone
+  const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), PR = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/promote.mjs'), 'utf8'), WF = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
+  ok(J.indexOf('checkEntry(ent, REFS)') > 0 && J.indexOf('checkEntry(ent, REFS)') < J.indexOf('const r = gateEntry(ent') && J.indexOf('checkEntry(e, REFS)') < J.indexOf('if (pend.n) wr(PEND'), 'job.mjs: checkEntry trước gateEntry + lưới cuối trước khi ghi lô chờ');
+  ok(/checkEntry\(P\.items\[k\], refs\)/.test(PR) && PR.indexOf('process.exit(1)') < PR.indexOf("wr(`content/qa/batches/"), 'promote.mjs: kiểm IPA và thoát trước khi ghi gì');
+  ok(/britfone\.main\.3\.0\.1\.csv/.test(WF) && /--britfone "\$RUNNER_TEMP\/britfone\.csv"/.test(WF), 'lexicon-expand.yml: tải Britfone + truyền --britfone'); }
+// ---- ÂM THANH từ mới (word-audio.yml, WORD_AUDIO_EXPAND=1): giọng file khớp nhãn UK/US, và IPA hiển thị cạnh nút loa cùng giọng
+{ const { VOICES } = await import('../word-audio/lib.mjs'), { STRONG } = await import('../word-audio-strong.mjs');
+  const rd = f => fs.readFileSync(path.join(ROOT, f), 'utf8');
+  // Kokoro chọn giọng đọc theo chữ đầu mã giọng: b = en-GB, a = en-US. s3.tsv: từ \t <VOICES[0]> \t <VOICES[1]> = Anh \t Mỹ
+  ok(VOICES.length === 2 && /^b[fm]_/.test(VOICES[0]) && /^a[fm]_/.test(VOICES[1]), 'word-audio VOICES = [Anh (b*), Mỹ (a*)]: ' + VOICES);
+  ok(/WORD_AUDIO_EXPAND: '1'/.test(rd('.github/workflows/word-audio.yml')), 'word-audio.yml bật từ mở rộng');
+  // dạng mạnh viết tay: cột 0 cho giọng Anh (không r cuối, a kiểu Anh), cột 1 cho giọng Mỹ (r cuối, æ)
+  for (const w of ['for', 'or', 'nor', 'there']) ok(!/ɹ$/.test(STRONG[w][0]) && /ɹ$/.test(STRONG[w][1]), `STRONG ${w}: Anh không r / Mỹ có r ` + STRONG[w]);
+  for (const w of ['and', 'at', 'can', 'have']) ok(/a/.test(STRONG[w][0].replace(/aɪ|aʊ/g, '')) && /æ/.test(STRONG[w][1]), `STRONG ${w}: Anh a / Mỹ æ ` + STRONG[w]);
+  ok(/STRONG\[j\.word\]\[VOICES\.indexOf\(j\.voice\)\]/.test(rd('scripts/gen-word-audio.mjs')), 'gen-word-audio: phiên âm mạnh lấy đúng cột theo giọng');
+  // app: en-US → af_heart + ipaUS; còn lại → bf_emma + ipa (Anh). Add-on: us → af_heart
+  const UI = rd('web/js/ui.js'), NT = rd('extension/newtab.js');
+  ok(/accent === 'en-US' \? 'af_heart' : 'bf_emma'/.test(UI) && /acc === 'en-US' && ent\.ipaUS \? ent\.ipaUS : ent\.ipa/.test(UI), 'ui.js: giọng Mỹ ↔ af_heart ↔ ipaUS, giọng Anh ↔ bf_emma ↔ ipa');
+  ok(/acc === 'us' \? 'af_heart\|' : 'bf_emma\|'/.test(NT), 'newtab.js: us → af_heart, còn lại bf_emma');
+  // mục mở rộng vào app với ipaUS riêng (toIndex: trùng Anh → để trống = dùng Anh)
+  { const e = toIndex({ ...good(), ipa: '/ʌnˈɪntrəstɪŋ/', ipaUS: '/ʌnˈɪntrəstɪŋ/' }), f = toIndex({ ...good() }); ok(e.ipa === '/ʌnˈɪntrəstɪŋ/' && e.ipaUS === '' && f.ipaUS === '/fərˈseɪk/' && f.ipa === '/fəˈseɪk/', 'toIndex: ipa = Anh, ipaUS = Mỹ'); } }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
