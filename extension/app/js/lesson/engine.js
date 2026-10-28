@@ -104,7 +104,8 @@
     // Ghép cặp (từ ↔ nghĩa) giữa bài khi có ≥ 4 từ: 1 bài, không gắn từ riêng (card null → không ghi FSRS theo từ)
     const mp = picks.filter(p => p.card.vi || p.card.def).slice(0, 5);
     if (opts.match !== false && (!opts.only || opts.only.includes('match')) && mp.length >= 4) items.splice(Math.ceil(items.length / 2), 0, { id: ++id, type: 'match', word: '#match', card: null, retry: 0, answer: '', pairs: shuffle(mp, r).slice(0, 4).map(p => p.card) });
-    return items.map(it => adapt(it, off));
+    const out = items.map(it => adapt(it, off));
+    return opts.calm ? calm(out) : out;
   }
 
   /** Đổi dạng khi người học tắt nghe/nói ("Không nghe được lúc này" / "Không nói được lúc này") */
@@ -130,7 +131,7 @@
   class Session {
     constructor(items, opts = {}) {
       this.q = items.slice(); this.total = items.length; this.solved = 0; this.combo = 0; this.best = 0; this.n = 0; this.ok1 = 0;
-      this.wrong = new Map(); this.firstOk = new Set(); this.maxRetry = opts.maxRetry == null ? 2 : opts.maxRetry; this.log = [];
+      this.wrong = new Map(); this.firstOk = new Set(); this.maxRetry = opts.maxRetry == null ? 2 : opts.maxRetry; this.log = []; this.ease = !!opts.ease; this.miss = 0;
     }
     get cur() { return this.q[0] || null; }
     get done() { return !this.q.length; }
@@ -140,6 +141,9 @@
       if (it.free) { this.solved++; return { ok: true, combo: this.combo, free: true }; } // câu thoại của truyện: chỉ tiến độ, không chấm
       this.n++;
       const k = norm(it.word); this.log.push({ id: it.id, type: it.type, word: it.word, ok, retry: it.retry });
+      this.miss = ok ? 0 : this.miss + 1;
+      // chống nản (ease): sai 2 câu liền → câu kế tiếp là dạng dễ (chọn đáp án) nếu còn trong hàng
+      if (!ok && this.ease && this.miss >= 2 && this.q.length > 1 && HARD(this.q[0])) { const j = this.q.findIndex(x => !HARD(x) && !x.free); if (j > 0) { const [e] = this.q.splice(j, 1); this.q.unshift(e); } }
       if (ok) { this.solved++; this.combo++; this.best = Math.max(this.best, this.combo); if (!it.retry) { this.ok1++; if (!this.wrong.has(k)) this.firstOk.add(k); } return { ok, combo: this.combo }; }
       this.combo = 0; this.wrong.set(k, (this.wrong.get(k) || 0) + 1); this.firstOk.delete(k);
       if (it.retry < this.maxRetry) this.q.push(Object.assign({}, it, { retry: it.retry + 1 })); else this.solved++; // hết lượt gặp lại → vẫn tính xong (không kẹt bài)
@@ -191,6 +195,26 @@
     const first = due + weak >= 3 ? 'review' : 'lesson';
     return [first, has.story ? 'story' : 'listen', has.story ? 'listen' : 'lesson', 'speak', has.radio ? 'radio' : 'lesson', 'review'].map(kind => ({ kind }));
   }
+  /** Chặng ux1 (docs/LEARNING-PATH.md §2): từ mới → nghe → nói → truyện/radio → ôn → kiểm tra kỹ năng thi (has.exam).
+   *  Nhiều thẻ đến hạn/hay quên → mở chặng bằng Ôn lỗi. has.odd: chặng lẻ ưu tiên Radio (xoay vòng truyện ↔ radio). → [{ kind }] */
+  function unitPlan(cards, now = Date.now(), has = {}) {
+    const list = Object.values(cards || {}).filter(c => c && c.srs), due = list.filter(c => isDue(c, now)).length, weak = list.filter(c => c.srs.lapses > 0).length;
+    const mid = has.radio && (has.odd || !has.story) ? 'radio' : has.story ? 'story' : 'lesson';
+    return [due + weak >= 3 ? 'review' : 'lesson', 'listen', 'speak', mid, 'review', has.exam ? 'exam' : 'lesson'].map(kind => ({ kind }));
+  }
+  /** Nút hiện tại thích nghi (Flow/chống nản): bài trước < 60 % → Ôn lỗi thay cho Nói/Radio; ≥ 95 % và không còn thẻ đến hạn → học tiếp thay cho Ôn. */
+  function nextKind(kind, ctx = {}) {
+    if (ctx.acc != null && ctx.acc < 60 && (kind === 'speak' || kind === 'radio')) return 'review';
+    if (ctx.acc != null && ctx.acc >= 95 && kind === 'review' && !ctx.due) return 'lesson';
+    return kind;
+  }
+  // Dạng khó (phải tự tạo câu trả lời) – không để 3 bài khó liền nhau (calm)
+  const HARD = it => it.type === 'build' || it.type === 'tr' || it.type === 'type' || (it.type === 'say' && !it.spoke) || (it.type === 'pic' && !it.choice);
+  function calm(items) {
+    const a = items.slice();
+    for (let i = 2; i < a.length; i++) if (HARD(a[i]) && HARD(a[i - 1]) && HARD(a[i - 2])) { const j = a.findIndex((x, k) => k > i && !HARD(x)); if (j > 0) [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
   /** Truyện/Radio → hàng bài: mỗi câu thoại là 1 bước 'line' (free, không chấm); sau câu `at` chèn bài kiểm (tap = xếp câu, q = câu hỏi, match = ghép cặp).
    *  lang: ngôn ngữ nghĩa của người học (cặp ghép). → [items] */
   function storyItems(st, lang, seed) {
@@ -210,5 +234,5 @@
   // Dạng bài theo loại nút
   const KIND = { lesson: null, review: null, listen: ['gap', 'build', 'type', 'match'], speak: ['say', 'pic', 'gap'] };
 
-  g.LessonEngine = { pathPlan, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
+  g.LessonEngine = { pathPlan, unitPlan, nextKind, calm, HARD, storyItems, KIND, norm, toks, rng, shuffle, findWord, sentenceOf, fromExt, isDue, pickWords, build, adapt, check, Session, results, stress, usuk, visemes, DAY };
 })(typeof self !== 'undefined' ? self : globalThis);
