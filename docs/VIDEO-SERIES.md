@@ -84,6 +84,12 @@ Rotation fills zero-coverage areas first; each episode = one point, IPA, example
 - Rotation: 1 video/day, the 6 series in turn (mistake and pair twice a week). Difficulty mix 40 % easy / 40 % mid / 20 % "challenge".
 - Measure per series: save rate, share rate, completion ≥ 70 %. Weight next week's rotation toward the winners.
 
+## Pronunciation (owner 28/10 "phát âm bị lệch") – `scripts/video/tpl/pron.mjs`
+- On-screen IPA = the app's audited bank (US, every host is American Kokoro) for the EXACT displayed taught token: waiting /ˈweɪtɪŋ/ (bank-anchored CMUdict inflection, never the base /weɪt/), key not card; phrases use LK_WEAK weak forms; no source → no IPA.
+- Kokoro mispronunciations → `content/video/kokoro-lexicon.json` (sourced phonemes, applied in `scripts/cine/tts.mjs`); the board then shows what is said.
+- Gates (qc_v9): `asr_match` (unprompted whisper base.en: ≤ 20 % words off, key/IPA words heard, captions ≤ 300 ms), `pron_kokoro` (espeak phonemes == CMUdict), `ipa_token` (IPA == bank for the token, stress == CMUdict, Kokoro says it). `npm test`: `scripts/test/video-pron.mjs`.
+- Common Mix-ups uses only the curated confusable pairs in `content/video/scripts/bank/mixups.jsonl`.
+
 ## Gate (owner)
 Bulk episodes only after the owner approves the re-paced v10 samples (`video-approval-gate`). Until then: ≤ 3 samples per round.
 

@@ -1,7 +1,7 @@
 {
- "id": "cmu_0d6dc593",
+ "id": "cmu_1915c5c2",
  "template": "mistake",
- "title": "Common Mix-ups #1 – A common mix-up with \"spa\" (n): a place for health and beauty treatments",
+ "title": "Common Mix-ups #1 – bored vs boring",
  "teacher": "ama",
  "set": "classroom_board",
  "clips": [
@@ -31,7 +31,7 @@
  "error_lines": [
   "u_w"
  ],
- "error_re": "\\blet's\\W+buy\\W+medicine\\W+at\\b",
+ "error_re": "\\bi'm\\W+boring\\W+in\\b",
  "lines": [
   {
    "id": "u_h",
@@ -40,18 +40,17 @@
   },
   {
    "id": "u_w",
-   "text": "Let's buy medicine at the spa.",
+   "text": "I'm boring in this class.",
    "key": {
     "red": [
-     1,
-     2
+     1
     ]
    },
    "gap": 0.65
   },
   {
    "id": "u_k",
-   "text": "Natives say: Let's relax at the spa.",
+   "text": "Natives say: I'm bored in this class.",
    "key": {
     "green": [
      3
@@ -61,38 +60,33 @@
   },
   {
    "id": "u_y",
-   "text": "A spa is a place for massages and relaxing.",
+   "text": "Bored is how you feel. Boring is what makes you feel it.",
    "key": {
     "yellow": [
-     1,
-     8
+     4,
+     10
     ]
    },
    "gap": 0.65
   },
   {
    "id": "u_x",
-   "text": "The hotel has a spa.",
+   "text": "This movie is boring.",
    "gap": 0.65,
    "key": {
     "green": [
-     4
+     3
     ]
    }
   },
   {
    "id": "u_t",
-   "text": "A hot tub is sometimes called a spa too!",
-   "key": {
-    "yellow": [
-     7
-    ]
-   },
+   "text": "Tired and tiring work the same way!",
    "gap": 0.65
   },
   {
    "id": "u_q",
-   "text": "Quick quiz! The hotel blank offers massages.",
+   "text": "Quick quiz! This lesson is so blank!",
    "key": {
     "yellow": [
      0,
@@ -103,7 +97,7 @@
   },
   {
    "id": "u_q2",
-   "text": "Spa, or pool?"
+   "text": "Boring, or bored?"
   },
   {
    "id": "_count",
@@ -112,11 +106,11 @@
   },
   {
    "id": "u_a",
-   "text": "Spa! The hotel spa offers massages.",
+   "text": "Boring! This lesson is so boring!",
    "key": {
     "green": [
      0,
-     3
+     5
     ]
    },
    "gap": 0.65
@@ -143,19 +137,23 @@
     [
      [
       "@x"
+     ],
+     [
+      " Not",
+      "white"
      ]
     ],
     [
      [
-      "“Let's ",
+      "“I'm ",
       "white"
      ],
      [
-      "buy medicine ",
+      "boring ",
       "red"
      ],
      [
-      "at the spa.”",
+      "in this class.”",
       "white"
      ]
     ]
@@ -188,14 +186,14 @@
      "st": "text",
      "segs": [
       [
-       "Let's "
+       "I'm "
       ],
       [
-       "relax ",
+       "bored ",
        "green"
       ],
       [
-       "at the spa."
+       "in this class."
       ]
      ]
     },
@@ -203,14 +201,14 @@
      "st": "text",
      "segs": [
       [
-       "relax",
+       "bored",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/rɪˈlæks/"
+       "@ipa:/bɔːrd/"
       ]
      ]
     },
@@ -221,7 +219,7 @@
        "not “"
       ],
       [
-       "buy medicine",
+       "boring",
        "red"
       ],
       [
@@ -263,7 +261,7 @@
        "@emoji:❌"
       ],
       [
-       " buy medicine",
+       " boring",
        "red"
       ]
      ]
@@ -275,7 +273,7 @@
        "@emoji:✅"
       ],
       [
-       " relax",
+       " bored",
        "green"
       ]
      ]
@@ -311,10 +309,10 @@
      "st": "text",
      "segs": [
       [
-       "The hotel has a "
+       "This movie is "
       ],
       [
-       "spa.",
+       "boring.",
        "green"
       ]
      ]
@@ -353,11 +351,23 @@
        "@emoji:💡"
       ],
       [
-       " SPA ",
-       "hl"
+       " feel = "
       ],
       [
-       "= relax and care"
+       "-ED",
+       "hl"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "it does it = "
+      ],
+      [
+       "-ING",
+       "hl"
       ]
      ]
     }
@@ -392,19 +402,11 @@
      "st": "text",
      "segs": [
       [
-       "The hotel "
+       "This lesson is so "
       ],
       [
-       "___",
+       "___!",
        "green"
-      ]
-     ]
-    },
-    {
-     "st": "text",
-     "segs": [
-      [
-       "offers massages."
       ]
      ]
     }
@@ -425,8 +427,24 @@
   {
    "id": "quiz",
    "kind": "quiz",
-   "a": "spa",
-   "b": "pool",
+   "q": [
+    [
+     [
+      "This lesson is so ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      "!",
+      "white"
+     ]
+    ]
+   ],
+   "a": "boring",
+   "b": "bored",
    "correct": "a",
    "reveal": [
     "u_a",
@@ -467,7 +485,7 @@
        "@emoji:❌"
       ],
       [
-       " buy medicine",
+       " boring",
        "red"
       ]
      ]
@@ -479,7 +497,7 @@
        "@emoji:✅"
       ],
       [
-       " relax",
+       " bored",
        "green"
       ]
      ]
@@ -488,14 +506,14 @@
      "st": "text",
      "segs": [
       [
-       "relax",
+       "bored",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/rɪˈlæks/"
+       "@ipa:/bɔːrd/"
       ]
      ]
     }
@@ -532,10 +550,10 @@
   "ep": 1
  },
  "source": {
-  "bank": "sb_0d6dc593",
-  "pid": "m:spa#n",
+  "bank": "sb_1915c5c2",
+  "pid": "c:mixup:bored-boring",
   "cefr": "A2",
   "diff": "easy",
-  "ipa": "/rɪˈlæks/"
+  "ipa": "/bɔːrd/"
  }
 }

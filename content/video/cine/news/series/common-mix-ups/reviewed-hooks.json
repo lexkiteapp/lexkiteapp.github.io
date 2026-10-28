@@ -1,65 +1,277 @@
 {
  "_note": "Common Mix-ups: hook + script verdicts (qc_v9 hook_truth, video-series.yml gate). Generator writes hook_true null / script_reviewed false; a reviewer (scripts/video/tpl/review_queue.py) sets hook_true, script_reviewed, reviewer, note. Script must equal the spec word for word.",
  "verdicts": {
-  "cmu_0d6dc593": {
+  "cmu_1915c5c2": {
    "template": "mistake",
-   "hook": "✗ / “Let's buy medicine at the spa.”",
-   "hook_true": null,
-   "script_reviewed": false,
+   "hook": "✗ Not / “I'm boring in this class.”",
+   "hook_true": true,
+   "script_reviewed": true,
    "script": {
     "u_h": "Most learners mix this up.",
-    "u_w": "Let's buy medicine at the spa.",
-    "u_k": "Natives say: Let's relax at the spa.",
-    "u_y": "A spa is a place for massages and relaxing.",
-    "u_x": "The hotel has a spa.",
-    "u_t": "A hot tub is sometimes called a spa too!",
-    "u_q": "Quick quiz! The hotel blank offers massages.",
-    "u_q2": "Spa, or pool?",
-    "u_a": "Spa! The hotel spa offers massages.",
+    "u_w": "I'm boring in this class.",
+    "u_k": "Natives say: I'm bored in this class.",
+    "u_y": "Bored is how you feel. Boring is what makes you feel it.",
+    "u_x": "This movie is boring.",
+    "u_t": "Tired and tiring work the same way!",
+    "u_q": "Quick quiz! This lesson is so blank!",
+    "u_q2": "Boring, or bored?",
+    "u_a": "Boring! This lesson is so boring!",
     "u_sh": "Send this to a friend!",
     "u_c": "Save this, and look up any word on lexkite.com."
    },
    "promise": {
     "quiz": true,
     "count": true,
-    "right": "Let's relax at the spa.",
+    "right": "I'm bored in this class.",
     "right_lines": [
      "u_k"
     ],
     "wrong_line": "u_w",
-    "wrong": "Let's buy medicine at the spa."
+    "wrong": "I'm boring in this class."
    },
-   "source": "sb_0d6dc593"
+   "source": "sb_1915c5c2",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   },
-  "cmu_28a25c23": {
+  "cmu_209d5928": {
    "template": "mistake",
-   "hook": "✗ Not / “Cashback means I pay more.”",
+   "hook": "✗ “I need to make my homework.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {
     "u_h": "Most learners mix this up.",
-    "u_w": "Cashback means I pay more.",
-    "u_k": "Natives say: Cashback means I get some money back.",
-    "u_y": "Cashback returns money after you buy.",
-    "u_x": "This card gives two percent cashback.",
-    "u_t": "In some stores, cashback also means taking cash at the till!",
-    "u_q": "Quick quiz! With blank, you get money back.",
-    "u_q2": "Cashback, or cash out?",
-    "u_a": "Cashback! With cashback, you get money back.",
+    "u_w": "I need to make my homework.",
+    "u_k": "Natives say: I need to do my homework.",
+    "u_y": "Use do for tasks and jobs. Use make when you create something.",
+    "u_x": "I do my homework after dinner.",
+    "u_t": "You do the dishes, but you make dinner!",
+    "u_q": "Quick quiz! Did you blank your homework?",
+    "u_q2": "Do, or make?",
+    "u_a": "Do! Did you do your homework?",
     "u_sh": "Send this to a friend!",
     "u_c": "Save this, and look up any word on lexkite.com."
    },
    "promise": {
     "quiz": true,
     "count": true,
-    "right": "Cashback means I get some money back.",
+    "right": "I need to do my homework.",
     "right_lines": [
      "u_k"
     ],
     "wrong_line": "u_w",
-    "wrong": "Cashback means I pay more."
+    "wrong": "I need to make my homework."
    },
-   "source": "sb_28a25c23"
+   "source": "sb_209d5928"
+  },
+  "cmu_41267813": {
+   "template": "mistake",
+   "hook": "✗ Not / “She said me the truth.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "She said me the truth.",
+    "u_k": "Natives say: She told me the truth.",
+    "u_y": "Tell needs a person after it. Say does not.",
+    "u_x": "Tell me your name.",
+    "u_t": "You tell someone, but you say something!",
+    "u_q": "Quick quiz! Can you blank me the time?",
+    "u_q2": "Tell, or say?",
+    "u_a": "Tell! Can you tell me the time?",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "She told me the truth.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "She said me the truth."
+   },
+   "source": "sb_41267813"
+  },
+  "cmu_592551ad": {
+   "template": "mistake",
+   "hook": "✗ Not / “Learning English is funny.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "Learning English is funny.",
+    "u_k": "Natives say: Learning English is fun.",
+    "u_y": "Fun means you enjoy it. Funny makes you laugh.",
+    "u_x": "We had fun at the beach.",
+    "u_t": "Use funny for jokes and comedians!",
+    "u_q": "Quick quiz! We had a lot of blank at the party.",
+    "u_q2": "Fun, or funny?",
+    "u_a": "Fun! We had a lot of fun at the party.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Learning English is fun.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "Learning English is funny."
+   },
+   "source": "sb_592551ad"
+  },
+  "cmu_a90fd6ec": {
+   "template": "mistake",
+   "hook": "✗ Not / “I like hearing to music.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "I like hearing to music.",
+    "u_k": "Natives say: I like listening to music.",
+    "u_y": "Listen means you try to hear. Hearing just happens.",
+    "u_x": "Listen to me, please.",
+    "u_t": "Listen takes to before the thing you hear!",
+    "u_q": "Quick quiz! I blank to music daily.",
+    "u_q2": "Listen, or hear?",
+    "u_a": "Listen! I listen to music daily.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I like listening to music.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "I like hearing to music."
+   },
+   "source": "sb_a90fd6ec"
+  },
+  "cmu_d762c9a4": {
+   "template": "mistake",
+   "hook": "✗ Not / “I lost the bus today.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "I lost the bus today.",
+    "u_k": "Natives say: I missed the bus today.",
+    "u_y": "You miss a bus, a train or a class. You lose things, like keys.",
+    "u_x": "Don't miss the train!",
+    "u_t": "You can also miss a person you love!",
+    "u_q": "Quick quiz! Don't blank your flight!",
+    "u_q2": "Miss, or lose?",
+    "u_a": "Miss! Don't miss your flight!",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I missed the bus today.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "I lost the bus today."
+   },
+   "source": "sb_d762c9a4"
+  },
+  "cmu_586c600f": {
+   "template": "mistake",
+   "hook": "✗ “Please remember me about the meeting.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "Please remember me about the meeting.",
+    "u_k": "Natives say: Please remind me about the meeting.",
+    "u_y": "Remind means you help someone remember.",
+    "u_x": "Remind me at five.",
+    "u_t": "First you remind me, then I remember!",
+    "u_q": "Quick quiz! Please blank me to call Mom.",
+    "u_q2": "Remind, or remember?",
+    "u_a": "Remind! Please remind me to call Mom.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Please remind me about the meeting.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "Please remember me about the meeting."
+   },
+   "source": "sb_586c600f"
+  },
+  "cmu_95408ad1": {
+   "template": "mistake",
+   "hook": "✗ Not / “Someone robbed my phone.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "Someone robbed my phone.",
+    "u_k": "Natives say: Someone stole my phone.",
+    "u_y": "You steal a thing. You rob a person or a place.",
+    "u_x": "Someone stole my bike. They robbed a bank.",
+    "u_t": "Robbers rob banks, and thieves steal money!",
+    "u_q": "Quick quiz! He blank my wallet!",
+    "u_q2": "Stole, or robbed?",
+    "u_a": "Stole! He stole my wallet!",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "Someone stole my phone.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "Someone robbed my phone."
+   },
+   "source": "sb_95408ad1"
+  },
+  "cmu_fed8da72": {
+   "template": "mistake",
+   "hook": "✗ Not / “It effected my sleep.”",
+   "hook_true": null,
+   "script_reviewed": false,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "It effected my sleep.",
+    "u_k": "Natives say: It affected my sleep.",
+    "u_y": "Affect is the verb. Effect is the noun, the result.",
+    "u_x": "Stress can affect sleep. The effect was huge.",
+    "u_t": "Think A for action, E for end result!",
+    "u_q": "Quick quiz! Coffee can blank your sleep.",
+    "u_q2": "Affect, or effect?",
+    "u_a": "Affect! Coffee can affect your sleep.",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "It affected my sleep.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "It effected my sleep."
+   },
+   "source": "sb_fed8da72"
   }
  }
 }

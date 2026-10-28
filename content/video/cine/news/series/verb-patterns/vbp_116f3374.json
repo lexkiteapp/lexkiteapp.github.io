@@ -202,7 +202,7 @@
        "  "
       ],
       [
-       "@ipa:/weɪt/"
+       "@ipa:/ˈweɪtɪŋ/"
       ]
      ]
     },
@@ -415,6 +415,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "I hate ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " in traffic.",
+      "white"
+     ]
+    ]
+   ],
    "a": "sit",
    "b": "sitting",
    "correct": "b",
@@ -485,7 +501,7 @@
        "  "
       ],
       [
-       "@ipa:/weɪt/"
+       "@ipa:/ˈweɪtɪŋ/"
       ]
      ]
     }
@@ -526,6 +542,6 @@
   "pid": "u:v:hate:ing",
   "cefr": "A1",
   "diff": "easy",
-  "ipa": "/weɪt/"
+  "ipa": "/ˈweɪtɪŋ/"
  }
 }

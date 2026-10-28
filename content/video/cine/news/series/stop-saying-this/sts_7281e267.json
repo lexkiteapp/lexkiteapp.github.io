@@ -434,6 +434,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "So how ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " know Emma?",
+      "white"
+     ]
+    ]
+   ],
    "a": "you",
    "b": "do you",
    "correct": "b",

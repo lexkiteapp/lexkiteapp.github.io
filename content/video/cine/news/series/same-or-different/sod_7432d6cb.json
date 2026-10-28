@@ -381,6 +381,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Our team ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " them 3 to 1.",
+      "white"
+     ]
+    ]
+   ],
    "a": "beat",
    "b": "won",
    "correct": "a",

@@ -498,37 +498,6 @@
    "source": "sb_022772ea",
    "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
   },
-  "cmu_0d6dc593": {
-   "template": "mistake",
-   "hook": "✗ / “Let's buy medicine at the spa.”",
-   "hook_true": true,
-   "script_reviewed": true,
-   "script": {
-    "u_h": "Most learners mix this up.",
-    "u_w": "Let's buy medicine at the spa.",
-    "u_k": "Natives say: Let's relax at the spa.",
-    "u_y": "A spa is a place for massages and relaxing.",
-    "u_x": "The hotel has a spa.",
-    "u_t": "A hot tub is sometimes called a spa too!",
-    "u_q": "Quick quiz! The hotel blank offers massages.",
-    "u_q2": "Spa, or pool?",
-    "u_a": "Spa! The hotel spa offers massages.",
-    "u_sh": "Send this to a friend!",
-    "u_c": "Save this, and look up any word on lexkite.com."
-   },
-   "promise": {
-    "quiz": true,
-    "count": true,
-    "right": "Let's relax at the spa.",
-    "right_lines": [
-     "u_k"
-    ],
-    "wrong_line": "u_w",
-    "wrong": "Let's buy medicine at the spa."
-   },
-   "source": "sb_0d6dc593",
-   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
-  },
   "sin_02938065": {
    "template": "mistake",
    "hook": "✗ Not / “Sorry for my answering late.”",
@@ -589,7 +558,8 @@
     "wrong": "I hate wait."
    },
    "source": "sb_116f3374",
-   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   },
   "rle_1dc7abe0": {
    "template": "mistake",
@@ -620,7 +590,8 @@
     "wrong": "My room card doesn't work."
    },
    "source": "sb_1dc7abe0",
-   "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample ep1, gold bank via gold2v9)"
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   },
   "sin_0a35f2ef": {
    "template": "mistake",
@@ -652,6 +623,38 @@
    },
    "source": "sb_0a35f2ef",
    "reviewer": "Claude (expert American English teacher review, 28/10/2026: new-series sample, opener changed to \"This is how natives say it.\")"
+  },
+  "cmu_1915c5c2": {
+   "template": "mistake",
+   "hook": "✗ Not / “I'm boring in this class.”",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "u_h": "Most learners mix this up.",
+    "u_w": "I'm boring in this class.",
+    "u_k": "Natives say: I'm bored in this class.",
+    "u_y": "Bored is how you feel. Boring is what makes you feel it.",
+    "u_x": "This movie is boring.",
+    "u_t": "Tired and tiring work the same way!",
+    "u_q": "Quick quiz! This lesson is so blank!",
+    "u_q2": "Boring, or bored?",
+    "u_a": "Boring! This lesson is so boring!",
+    "u_sh": "Send this to a friend!",
+    "u_c": "Save this, and look up any word on lexkite.com."
+   },
+   "promise": {
+    "quiz": true,
+    "count": true,
+    "right": "I'm bored in this class.",
+    "right_lines": [
+     "u_k"
+    ],
+    "wrong_line": "u_w",
+    "wrong": "I'm boring in this class."
+   },
+   "source": "sb_1915c5c2",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   }
  }
 }

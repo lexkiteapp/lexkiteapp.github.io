@@ -4,8 +4,8 @@
   "rle_1dc7abe0": {
    "template": "mistake",
    "hook": "✗ Not / “My room card doesn't work.”",
-   "hook_true": null,
-   "script_reviewed": false,
+   "hook_true": true,
+   "script_reviewed": true,
    "script": {
     "r_h": "Real life, real English.",
     "r_w": "My room card doesn't work.",
@@ -29,7 +29,9 @@
     "wrong_line": "r_w",
     "wrong": "My room card doesn't work."
    },
-   "source": "sb_1dc7abe0"
+   "source": "sb_1dc7abe0",
+   "reviewer": "claude 28/10 (pronunciation fix)",
+   "note": "hook = the real error, delivered by the fix + quiz; IPA = taught word as displayed (pron.mjs bank), quiz pills keep the question"
   },
   "rle_0e2c3ad9": {
    "template": "mistake",
@@ -93,7 +95,7 @@
   },
   "rle_01d0269f": {
    "template": "mistake",
-   "hook": "✗ / “Don't go at the full hours.”",
+   "hook": "✗ “Don't go at the full hours.”",
    "hook_true": null,
    "script_reviewed": false,
    "script": {

@@ -209,14 +209,14 @@
      "st": "text",
      "segs": [
       [
-       "card",
+       "key",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/kɑːrd/"
+       "@ipa:/kiː/"
       ]
      ]
     },
@@ -442,6 +442,22 @@
   {
    "id": "quiz",
    "kind": "quiz",
+   "q": [
+    [
+     [
+      "Tap your ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " card to open the door.",
+      "white"
+     ]
+    ]
+   ],
    "a": "key",
    "b": "room",
    "correct": "a",
@@ -505,14 +521,14 @@
      "st": "text",
      "segs": [
       [
-       "card",
+       "key",
        "green"
       ],
       [
        "  "
       ],
       [
-       "@ipa:/kɑːrd/"
+       "@ipa:/kiː/"
       ]
      ]
     }
@@ -553,6 +569,6 @@
   "pid": "w:key card#n",
   "cefr": "A2",
   "diff": "easy",
-  "ipa": "/kɑːrd/"
+  "ipa": "/kiː/"
  }
 }
