@@ -4,11 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, follow">
+  <meta name="color-scheme" content="light dark">
   <title>Lexkite Blog</title>
   <link rel="canonical" href="https://lexkite.com/en/blog/">
+  <link rel="icon" href="/icons/icon.svg?v=2">
   <script>
-  /* /blog → blog đúng ngôn ngữ người dùng (lựa chọn trong app → trình duyệt), ngôn ngữ chưa có bài → tiếng Anh. Không đoán theo IP để giữ chuẩn SEO. */
+  /* /blog → blog đúng ngôn ngữ người dùng (lựa chọn trong app → trình duyệt), ngôn ngữ chưa có bài → tiếng Anh. Không đoán theo IP để giữ chuẩn SEO.
+     LIVE = danh sách ngôn ngữ đã có bài, build-blog.mjs ghi thẳng vào bản dist → chuyển NGAY, không chờ mạng. Bản web/ thô (LIVE = null) mới dò rss từng ngôn ngữ. */
   (function () {
+    var LIVE = null;
     var S = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'], want = [], s;
     try { s = localStorage.getItem('vb.uiLang'); } catch (e) { s = null; }
     if (s) want.push(s);
@@ -16,15 +20,42 @@
     want = want.filter(function (l, i) { return S.indexOf(l) >= 0 && want.indexOf(l) === i; });
     /* Chỉ lấy đuôi khi đường dẫn đúng dạng /blog/<đuôi>: "/blog-lang" (URL gọn của chính file này) từng bị cắt thành "-lang" → /vi/blog/-lang (404). Đuôi không bắt đầu bằng chữ/số là rác → bỏ. */
     var m = /^\/blog\/(.*)$/.exec(location.pathname), rest = m && /^[a-z0-9]/i.test(m[1]) ? m[1] : '';
+    var go = function (l) { location.replace('/' + l + '/blog/' + rest); };
+    if (LIVE) { for (var i = 0; i < want.length; i++) if (LIVE.indexOf(want[i]) >= 0) return go(want[i]); return go('en'); }
     (function next(i) {
       var l = want[i];
-      if (!l || l === 'en') return location.replace('/en/blog/' + rest);
+      if (!l || l === 'en') return go('en');
       fetch('/' + l + '/blog/rss.xml', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; })
-        .then(function (x) { if (x.indexOf('<item') >= 0) location.replace('/' + l + '/blog/' + rest); else next(i + 1); })
+        .then(function (x) { if (x.indexOf('<item') >= 0) go(l); else next(i + 1); })
         .catch(function () { next(i + 1); });
     })(0);
   })();
   </script>
+  <noscript><meta http-equiv="refresh" content="0; url=/en/blog/"></noscript>
+  <style>
+    :root { --bg: #f6f4ef; --card: #fff; --text: #1d2a2b; --muted: #5d6b6c; --line: #e3ded3; --primary: #1F7A72; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #0f1a1c; --card: #172427; --text: #e7eeee; --muted: #9db0b1; --line: #27393c; --primary: #3fb3a6; } }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; display: grid; place-items: center; padding: 16px; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    /* Chuyển trang thường xong trước khi kịp vẽ; chỉ khi mạng chậm mới hiện thẻ (sau 0,4 s) – không bao giờ là trang trắng với link trơn */
+    .box { display: grid; justify-items: center; gap: 14px; padding: 28px 32px; background: var(--card); border: 1px solid var(--line); border-radius: 20px; opacity: 0; animation: show .2s ease-out .4s forwards; }
+    .logo { width: 48px; height: 48px; }
+    .name { margin: 0; font-size: 1.15rem; font-weight: 700; }
+    .spin { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--primary); animation: rot .8s linear infinite; }
+    .go { color: var(--primary); font-weight: 600; text-decoration: none; padding: 8px 16px; border: 1.5px solid var(--primary); border-radius: 999px; }
+    .go:hover, .go:focus-visible { background: var(--primary); color: #fff; outline: none; }
+    @keyframes rot { to { transform: rotate(1turn); } }
+    @keyframes show { to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .spin { animation-duration: 2.4s; } .box { animation-delay: .4s; animation-duration: 0s; } }
+  </style>
 </head>
-<body><p style="font-family:sans-serif;text-align:center;margin-top:20vh"><a href="/en/blog/">Lexkite Blog →</a></p></body>
+<body>
+  <main class="box" aria-busy="true">
+    <img class="logo" src="/icons/icon.svg?v=2" alt="" width="48" height="48">
+    <p class="name">Lexkite Blog</p>
+    <div class="spin" role="status" aria-label="Loading"></div>
+    <a class="go" href="/en/blog/">Lexkite Blog →</a>
+  </main>
+</body>
 </html>
