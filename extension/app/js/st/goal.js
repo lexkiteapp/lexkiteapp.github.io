@@ -23,7 +23,7 @@
 <b class="font-display-hero-mobile text-display-hero-mobile text-secondary tracking-tight leading-none">${esc(d.real ? d.cur : '–')}</b>
 <span class="font-label-badge text-label-badge text-tertiary uppercase tracking-wider mt-1">${esc(d.tgL)} ${esc(d.target)}</span>
 ${d.real ? `<span class="rd-pct font-label-badge text-label-badge text-on-surface-variant mt-1" dir="ltr">${esc(d.pctL)}</span>` : ''}</div></div>`; };
-  const CTA = 'w-full h-14 rounded-xl bg-gradient-to-r from-primary-container to-primary-fixed text-on-primary-container font-title-pill text-title-pill font-extrabold uppercase tracking-wider flex items-center justify-center gap-space-xs no-underline shadow-[0_6px_0_rgb(var(--st-lip-primary))] active:translate-y-[4px] active:shadow-[0_2px_0_rgb(var(--st-lip-primary))] transition-all';
+  const CTA = 'w-full h-14 rounded-xl bg-gradient-to-r from-primary-container to-[#FFB054] text-on-primary-container font-title-pill text-title-pill font-extrabold uppercase tracking-wider flex items-center justify-center gap-space-xs no-underline shadow-[0_6px_0_rgb(var(--st-lip-primary))] active:translate-y-[4px] active:shadow-[0_2px_0_rgb(var(--st-lip-primary))] transition-all';
   window.ST.ready = d => `<div class="rd-wrap st st-fade flex flex-col w-full max-w-md mx-auto pb-6 gap-y-6 font-body-md text-on-surface antialiased">
 <section class="rd relative flex flex-col items-center gap-space-md pt-space-xs" aria-label="${esc(d.aria)}">
 <span class="sr-only">${esc(d.chip)} · ${esc(d.who.name)}${d.real ? ` · ${esc(d.curL)} ${esc(d.cur)}/${esc(d.of)} · ${esc(d.days)} · ${esc(d.hrs)}` : ''}</span>
