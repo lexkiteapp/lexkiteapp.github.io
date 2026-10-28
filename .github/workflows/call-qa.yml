@@ -6,7 +6,9 @@ on:
     paths: ['web/js/call.js', 'web/js/call/**', 'web/js/pron.js', 'web/js/pron/**', 'web/js/ui.js', 'scripts/test/call-e2e.mjs', 'scripts/qa/call-sheet.py', '.github/workflows/call-qa.yml']
   workflow_dispatch:
 permissions: { contents: read }
-concurrency: { group: call-qa-${{ github.ref }}, cancel-in-progress: true }
+concurrency:
+  group: call-qa-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   e2e:
     runs-on: ubuntu-latest
