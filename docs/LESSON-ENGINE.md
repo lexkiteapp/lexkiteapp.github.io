@@ -57,7 +57,7 @@
 - `web/js/lesson/teacher.js`: port tối giản của pilot B (`docs/mocks/teacher-pilot/b-sprite.html`, PR #151): vòng lặp 3 s + 10 hình miệng Rhubarb (X A B C1 C D E F G H) + bám mặt theo khung.
 - Lời nhắc trong bài là câu động (từ của người học) → chưa có mp3+cue sinh sẵn: miệng chạy theo **chữ → viseme** (bảng chữ cái → hình miệng) trong lúc `UI.tts` đang đọc (`onEnd` dừng). Câu cố định ("Nice!", "Try again") sau duyệt sẽ sinh sẵn Kokoro + Rhubarb trên CI (đúng §5 TEACHER-IN-APP) – driver đã nhận `cues` nếu có.
 - Hạ cấp: `saveData` / `prefers-reduced-motion` / thiếu tài sản → ảnh poster tĩnh; không có giáo viên → bài vẫn chạy.
-- Tài sản `web/teach/<ama|carlos>/` (chép từ pilot): poster 17 KB + loop 100–130 KB + miệng 20 KB + json 6 KB ≈ **≤ 180 KB lần đầu, 0 lần sau (SW)**.
+- Tài sản `web/teach/<ama|carlos>/` **đã tách nền** (TEACHER-IN-APP §5.5): `poster.webp` RGBA 19–29 KB + `loop-a.mp4` stacked alpha 194–223 KB + miệng 20 KB + json 7 KB ≈ **≤ 280 KB lần đầu (chỉ khi mở bài học), 0 lần sau (SW)**; nền thẻ = gradient theo theme của app.
 
 ## 5. Dung lượng (ngân sách TEACHER-IN-APP §2b)
 | Phần | Byte | Khi nào tải |

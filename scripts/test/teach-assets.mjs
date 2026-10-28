@@ -1,6 +1,6 @@
 // 👩‍🏫 Cổng tài sản giáo viên (docs/TEACHER-IN-APP.md §5.5): nhân vật trong app PHẢI đã tách nền – không bao giờ hiện nền phòng/bảng trắng.
 //  - mọi ảnh nhân vật (web/teach/<who>/poster.webp, web/img/teach/<who>.webp, drawable Android teach_<who>.webp) = WebP CÓ kênh alpha
-//  - vòng lặp = loop-a.mp4 dạng stacked alpha (cao = 2 × rộng), không còn loop.mp4 / poster.jpg (bản có nền)
+//  - vòng lặp = loop-a.mp4 dạng stacked alpha (rộng = sprite.w, cao = 2 × sprite.h: nửa trên màu, nửa dưới alpha), không còn loop.mp4 / poster.jpg (bản có nền)
 //  - mã app không tham chiếu ảnh/clip nhân vật .jpg/.png/.mp4 không-alpha
 // (Mép thật sự trong suốt: scripts/teacher/cutout.py QA + new-ui-qa đọc điểm ảnh viền khi chạy.) Dùng: node scripts/test/teach-assets.mjs
 import fs from 'node:fs';
@@ -25,7 +25,7 @@ for (const w of WHO) {
     const e = webpAlpha(f); if (e) errs.push(`${f}: ${e} (nhân vật phải tách nền)`);
   }
   const lp = `web/teach/${w}/loop-a.mp4`;
-  if (!fs.existsSync(lp)) errs.push(`${lp}: thiếu`); else { const s = mp4Size(lp); if (!s || Math.abs(s[1] - 2 * s[0]) > 2) errs.push(`${lp}: không phải stacked alpha (${s && s.join('×')})`); }
+  if (!fs.existsSync(lp)) errs.push(`${lp}: thiếu`); else { const s = mp4Size(lp), j = JSON.parse(fs.readFileSync(`web/teach/${w}/sprite.json`, 'utf8')); if (!s || s[0] !== j.w || s[1] !== 2 * j.h) errs.push(`${lp}: không phải stacked alpha ${j.w}×${2 * j.h} (đang ${s && s.join('×')})`); }
   for (const old of [`web/teach/${w}/poster.jpg`, `web/teach/${w}/loop.mp4`]) if (fs.existsSync(old)) errs.push(`${old}: bản CÒN NỀN – xóa, dùng bản tách nền`);
 }
 const SRC = ['web/js/lesson/teacher.js', 'web/js/lesson/ui.js', 'web/js/retention.js', 'web/js/share-card.js', 'web/js/streak-ui.js'];
