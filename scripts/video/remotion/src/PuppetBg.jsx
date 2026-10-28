@@ -16,8 +16,8 @@ function useFont() {
 
 // Bóng con rối: sáng trên-trái → bóng xuống-phải. 'old' = phòng sâu → bóng tường yếu, mềm; 'new' = tường gần → bóng rõ hơn.
 const SHADOW = {
-  old: 'drop-shadow(10px 14px 18px rgba(20,14,8,.38))',
-  new: 'drop-shadow(16px 20px 14px rgba(24,40,40,.30)) drop-shadow(46px 54px 40px rgba(24,40,40,.30))',
+  old: 'drop-shadow(14px 18px 22px rgba(20,14,8,.5))',
+  new: 'drop-shadow(14px 16px 10px rgba(30,40,38,.32)) drop-shadow(54px 40px 26px rgba(40,52,48,.42))',
 };
 function Puppet({ tl, t, style, bg }) {
   const box = useRef(null), rig = useRef(null);
@@ -31,11 +31,11 @@ function OldRoom() {
   return (
     <AbsoluteFill>
       <Img src={staticFile('rooms/cafe.webp')} style={{ position: 'absolute', inset: -120, width: 1320, height: 2160, objectFit: 'cover', transform: 'scaleX(-1)',
-        filter: 'blur(18px) saturate(.62) brightness(.86) contrast(.88)' }} />
-      <AbsoluteFill style={{ background: 'linear-gradient(160deg, #F2B66A 0%, #0A8F98 55%, #05343A 100%)', mixBlendMode: 'soft-light', opacity: 0.85 }} />
-      <AbsoluteFill style={{ background: 'radial-gradient(70% 45% at 12% 8%, #FFD9A0aa 0%, #FFD9A000 70%)', mixBlendMode: 'screen' }} />
-      <AbsoluteFill style={{ background: 'radial-gradient(120% 90% at 40% 35%, #0000 55%, #061a1dcc 100%)' }} />
-      <AbsoluteFill style={{ background: 'linear-gradient(180deg, #0000 72%, #0d0a0880 100%)' }} />
+        filter: 'blur(16px) saturate(.75) brightness(1.02) contrast(.85) sepia(.18)' }} />
+      <AbsoluteFill style={{ background: 'linear-gradient(160deg, #F7C27C 0%, #E8B98A 35%, #0A8F98 80%, #05343A 100%)', mixBlendMode: 'soft-light', opacity: 0.6 }} />
+      <AbsoluteFill style={{ background: 'radial-gradient(80% 55% at 10% 10%, #FFD9A0cc 0%, #FFD9A000 70%)', mixBlendMode: 'screen' }} />
+      <AbsoluteFill style={{ background: 'radial-gradient(120% 90% at 40% 35%, #0000 60%, #061a1d99 100%)' }} />
+      <AbsoluteFill style={{ background: 'linear-gradient(180deg, #0000 70%, #1a0f08a0 100%)' }} />
     </AbsoluteFill>
   );
 }
@@ -47,7 +47,7 @@ function Far({ dx, dy }) {
       <defs>
         <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4E3C6" /><stop offset=".55" stop-color="#D9D3BE" /><stop offset="1" stop-color="#8FB3AE" /></linearGradient>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF4DC" /><stop offset="1" stop-color="#BFE6E0" /></linearGradient>
-        <linearGradient id="shaft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7B8" stop-opacity=".75" /><stop offset="1" stop-color="#FFE7B8" stop-opacity="0" /></linearGradient>
+        <linearGradient id="shaft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7B8" stop-opacity=".5" /><stop offset="1" stop-color="#FFE7B8" stop-opacity="0" /></linearGradient>
         <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9875A" /><stop offset="1" stop-color="#7A5236" /></linearGradient>
       </defs>
       <rect width="1080" height="1920" fill="url(#wall)" />
@@ -124,7 +124,7 @@ function Captions({ lines, words, t }) {
   const k = interpolate(t, [L.start - 0.2, L.start], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return (
     <div style={{ position: 'absolute', left: 70, right: 70, top: 300, minHeight: 190, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: k }}>
-      <div style={{ font: `800 62px/1.25 ${FONT_B}`, color: '#F4F1EA', textAlign: 'center', textShadow: '0 4px 14px #000c' }}>
+      <div style={{ font: `800 62px/1.25 ${FONT_B}`, color: '#F4F1EA', textAlign: 'center', textShadow: '0 4px 14px #000c', background: '#10191Bb8', borderRadius: 36, padding: '22px 34px' }}>
         {items.map((w, i) => <span key={i} style={{ color: t >= w.start && t < w.end + 0.08 ? '#F5A031' : '#F4F1EA' }}>{w.w}{' '}</span>)}
       </div>
     </div>
