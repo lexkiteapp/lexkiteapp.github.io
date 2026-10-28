@@ -27,11 +27,15 @@ Shared tokens/components: [DESIGN-SYSTEM.md §0, §5b](DESIGN-SYSTEM.md). Stitch
 | 14 | Add-on bubble + Alt+L lookup + translate pill | extension/content.js (shadow DOM) | be05a167… |
 | 15 | Add-on new tab | extension/newtab.{html,css,js} | 386b32b7… |
 | 16 | Video facade + OG images | scripts/lib/video-web.mjs, OG renderer | 493a4c6e… |
+| 1B | Light (Bright Day) reference | landing only; other types derive light from tokens | 4545ec49… |
 
 ## Rules for the port (all types)
 - Keep 100 %: titles, canonical, hreflang, JSON-LD, breadcrumbs, 15 languages, every section and link (no cuts).
 - Use REAL content only. Stitch invented stats, people, credentials ("1.42M submissions", "former IELTS examiner",
   extra nav items, a stray "DRIVE" logo on #3/#4) → ignore; data comes from content/** as today.
+- Characters: Stitch drew generic people (#16 facade, avatars). Use only Ama/Carlos, ONE host style per surface
+  (all 3D, or all 2D green-screen bank), never mixed, no cut/paste composites; new assets only via CREDIT-RULES.md.
+  No real publisher names/logos in mockups (BBC, Economist…); article mockups use neutral placeholder text.
 - One header/footer for all static pages (site-layout.mjs `siteHeader`/`siteFooter`): wordmark, Words · Tools · Blog,
   language globe, "Add to Chrome" ghost + "Start free" CTA. Stitch headers differ per screen → unify.
 - Light (B) = `prefers-color-scheme: light` default, dark (A) = dark; both from tokens, AA contrast (brand-check).
