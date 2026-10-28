@@ -15,7 +15,7 @@
     if (document.getElementById('rhyCss')) return;
     const st = document.createElement('style'); st.id = 'rhyCss';
     st.textContent = `.rhy-s{display:flex;flex-wrap:wrap;gap:.25rem .5rem;align-items:flex-end;margin:.8rem 0;line-height:1.2}
-.rhy-w{display:inline-flex;flex-direction:column;align-items:center}.rhy-w b{font-size:1.35rem}.rhy-w b::before{content:'●';display:block;font-size:.5rem;text-align:center;color:var(--primary)}
+.rhy-w{display:inline-flex;flex-direction:column;align-items:center}.rhy-w b{font-size:1.35rem}.rhy-w b{border-top:3px solid var(--primary);padding-top:2px}
 .rhy-w span{font-size:.95rem;color:var(--muted)}.rhy-w .ipa{font-size:.75rem;color:var(--primary)}
 .rhy-pick{display:flex;gap:.35rem;flex-wrap:wrap}.rhy-pick button{min-width:44px;min-height:36px}`;
     document.head.appendChild(st);
@@ -71,7 +71,7 @@
               if (d.missingContent.length) tips.push(t('Nhấn rõ hơn các từ chính: {w}', { w: d.missingContent.join(', ') }));
               else if (d.missingWeak.length) tips.push(t('Máy nghe sót từ nhỏ: {w} – vẫn đọc nhẹ nhưng đừng bỏ hẳn.', { w: d.missingWeak.join(', ') }));
               const nx = C().next({ pairs: g.PronPairs, stats: g.PronPairs ? g.PronPairs.load() : {}, rhythm: load(), skill: x.id });
-              const sug = nx.map(s => s.kind === 'rhythm' ? `<button type="button" class="btn sm" data-goto="${s.k}">${t('Câu {n}', { n: s.k + 1 })}</button>` : `<a class="btn sm" href="#/pron/${encodeURIComponent(s.skill || s.id)}">${esc(s.kind === 'pair' && g.PronPairs ? g.PronPairs.label(g.PronPairs.CONTRASTS.find(c => c.id === s.id)) : t('Bài liên quan'))}</a>`).join('');
+              const sug = nx.map(s => s.kind === 'rhythm' ? `<button type="button" class="btn sm" data-goto="${s.k}">${t('Câu {n}', { n: s.k + 1 })}</button>` : `<a class="btn sm" href="#/pron/${encodeURIComponent(s.skill || s.id)}">${esc(s.kind === 'pair' && g.PronPairs ? g.PronPairs.label(g.PronPairs.CONTRASTS.find(c => c.id === s.id)) : ((g.PRON || []).find(l => l.id === s.id) || {}).title || t('Bài liên quan'))}</a>`).join('');
               render(`<div class="feedback ${b === 'again' ? 'no' : 'ok'}" style="position:static"><b>${sc}/100 · ${esc(BAND[b]())}</b>
                 <div class="small" lang="en" style="margin-top:.3rem">${t('Máy nghe được')}: “${esc(heard || '…')}”</div>${tips.map(x => `<div class="small">💡 ${esc(x)}</div>`).join('')}</div>
                 <div class="row" style="gap:.5rem;flex-wrap:wrap;margin-top:.5rem">${mine ? `<button class="btn sm" id="rhyMine">${ic('headphones')} ${t('Nghe lại giọng bạn')}</button><button class="btn sm" id="rhyMineS">${ic('turtle')} ${t('Giọng bạn chậm')}</button><button class="btn sm" id="rhyAB">${ic('repeat')} ${t('Mẫu rồi giọng bạn')}</button>` : ''}</div>
