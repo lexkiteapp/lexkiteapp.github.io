@@ -168,7 +168,7 @@
       const label = cp ? cp.name : KNAME(p.kind), icon = st === 'done' ? 'circle-check' : cp ? cp.icon : KICON[p.kind] || 'star';
       const dot = st === 'next' ? `<a class="lsn-dot" href="#/lesson/go${Q}" aria-label="${esc(label)}">${ic(icon)}</a>` : `<span class="lsn-dot" role="img" aria-label="${esc(label)}${st === 'done' ? ' ✓' : ''}">${ic(icon)}${st === 'lock' ? `<i class="ux1-lk">${ic('lock')}</i>` : ''}</span>`;
       return `<li class="lsn-node ux1-n ${st}${cp ? ' cp' : ''}" style="--x:${x}px;--i:${i}">${st === 'next' ? `<a class="btn primary lg lsn-start ux1-go" href="#/lesson/go${Q}"><span class="ux1-gl" aria-hidden="true"></span>${t('Bắt đầu')} · +20 XP</a>` : ''}
-        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async">` : ''}${dot}${cp ? `<b class="ux1-ms">${t('Mốc')}</b>` : ''}</span>${st === 'done' && k ? STARS(k) : ''}<span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}${st === 'next' ? `<em>${esc(KNAME(p.kind))} · ${t('{n} phút', { n: KMIN[p.kind] || 4 })}</em>` : ''}</span></li>`;
+        <span class="ux1-dw">${st === 'next' ? `<img class="ux1-tch" src="teach/${who}/poster.jpg" alt="" width="48" height="48" decoding="async">` : ''}${dot}${cp ? `<b class="ux1-ms">${t('Mốc')}</b>` : ''}</span>${st === 'done' && k ? STARS(k) : ''}<span class="ux1-lbl">${cp ? `<small>${t('Kiểm tra nhanh')}</small>` : ''}${esc(label)}${st === 'next' ? `<em>${t('{n} phút', { n: KMIN[p.kind] || 4 })}</em>` : ''}</span></li>`;
     }).join('');
     view.innerHTML = `<div class="ux1-home">${demo ? `<p class="tiny muted center" style="margin:0">${t('Bài thử (không lưu tiến độ)')}</p>` : ''}${examCard('ux1-exam-top')}
       <section class="ux1-unit tk-card u-${u.color}"><div class="ux1-uh"><div class="grow"><span class="tk-chip ux1-badge">${t('Chặng học {n}', { n: u.no })}</span> <small>${esc(X.short)} · ${u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]}</small><h1 class="tk-display">${u.emoji ? `<span aria-hidden="true">${esc(u.emoji)}</span> ` : ''}${esc(u.name)}</h1></div>
@@ -280,7 +280,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-promo{display:flex;gap:.5rem;flex-wrap:wrap}.ux1-promo:not(:has(a:not([hidden]))){display:none}.ux1-promo .btn{min-height:44px}
 @media (max-width:420px){.ux1-pk-grid{grid-template-columns:minmax(0,1fr)}.ux1-unit{flex-direction:column}.ux1-uside{flex-direction:row;flex-wrap:wrap;align-items:flex-start}.ux1-tch{width:40px;height:40px}}
 /* Tactile (Stitch, docs/DESIGN-SYSTEM.md § Tactile): thẻ chặng nổi + gờ, đường mòn chữ S, nút có gờ dưới, CTA dính đáy – chỉ token */
-.ux1-unit{display:block;color:var(--text);padding:1rem 1.1rem}
+.ux1-unit{display:block;background:var(--surface);color:var(--text);border-radius:var(--r-card);box-shadow:var(--hi),var(--elev-card);padding:1rem 1.1rem}
 .ux1-uh{display:flex;gap:.8rem;align-items:flex-start}
 .ux1-badge{background:var(--ux1-u);color:var(--ux1-uk)}
 .ux1-unit small{color:var(--muted);opacity:1}.ux1-unit h1{margin:.35rem 0 0}
@@ -305,7 +305,7 @@ a.ux1-chip{min-height:44px;border:1px solid color-mix(in srgb,currentColor 45%,t
 .ux1-go.btn.primary{min-width:0;min-height:44px;padding:.35rem .9rem;margin-bottom:.8rem;border-radius:var(--r-pill);background:var(--surface-2);color:var(--text);border:1px solid var(--line);box-shadow:0 3px 0 var(--ledge);font-size:var(--fs-xs);letter-spacing:.06em;text-transform:uppercase}
 .ux1-gl{width:8px;height:8px;border-radius:50%;background:var(--cta-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--cta-2) 30%,transparent)}
 .ux1-cta{position:sticky;bottom:.8rem;z-index:5;margin:.4rem 0 0;padding:.4rem 0 0}
-.ux1-cta .btn{font-size:var(--fs-md)}
+.ux1-cta .btn{font-size:var(--fs-md)}[dir=rtl] .ux1-cta svg{transform:scaleX(-1)}
 @keyframes ux1Ring{0%,100%{box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 6px color-mix(in srgb,var(--cta-2) 22%,transparent)}50%{box-shadow:var(--hi),0 5px 0 var(--cta-lip),0 0 0 12px color-mix(in srgb,var(--cta-2) 8%,transparent)}}
 @media (max-width:900px){.ux1-cta{bottom:calc(4.4rem + env(safe-area-inset-bottom,0px))}}
 @media (prefers-reduced-motion:reduce){.ux1-n.next .lsn-dot{animation:none}}

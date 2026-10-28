@@ -328,7 +328,7 @@
     const c = it.card;
     foot.innerHTML = `<div><div class="lsn-fb" role="status">${chips(ok)}
         <div class="tk-teacher lsn-coach"><img src="teach/${L.who === 'carlos' ? 'carlos' : 'ama'}/poster.jpg" alt="" width="56" height="56" decoding="async"><div>
-        <h3 class="tk-display">${ok ? t('Tuyệt!') : t('Đáp án đúng')}</h3><small>${esc(TNAME(L.who))} · ${t('Giáo viên của bạn')}</small>
+        <h3 class="tk-display">${ok ? t('Tuyệt!') : t('Đáp án')}</h3><small>${esc(TNAME(L.who))} · ${t('Giáo viên của bạn')}</small>
         ${ok ? '' : `<p><b lang="en">${esc(it.answer)}</b></p>`}
         <p><b lang="en">${esc(c.word)}</b> ${UI.pronHtml(c, { noEx: true })} · ${esc(meanOf(c))}</p></div></div>
         <div class="lsn-boost" id="lsnBoost" hidden></div>
