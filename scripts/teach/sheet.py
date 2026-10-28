@@ -36,7 +36,7 @@ for who in R['people']:
 crops = []
 for who in R['people']:
     im = Image.open(f'{T}/{who}/poster.webp').convert('RGBA'); A = im.getchannel('A'); x0, y0, x1, y1 = A.getbbox(); cx = (x0 + x1) // 2
-    ys = int(H * 0.5); row = [x for x in range(im.width) if A.getpixel((x, ys)) > 24]; l, r = (row[0], row[-1]) if row else (x0, x1)   # mép vai ở giữa khung
+    ys = int(H * 0.72); row = [x for x in range(im.width) if A.getpixel((x, ys)) > 24]; l, r = (row[0], row[-1]) if row else (x0, x1)   # mép vai ở giữa khung
     for name, box in (('tóc', (cx - 50, max(0, y0 - 8), cx + 50, y0 + 67)), ('vai trái', (l - 30, ys - 37, l + 70, ys + 38)), ('vai phải', (r - 70, ys - 37, r + 30, ys + 38))):
         for bg in BGS:
             b = Image.new('RGBA', (box[2] - box[0], box[3] - box[1]), bg + (255,)); b.alpha_composite(im.crop(box)); crops.append((f'{who} {name}', b.convert('RGB').resize((200, 150), Image.NEAREST)))
