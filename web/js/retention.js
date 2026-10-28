@@ -101,7 +101,7 @@
 .ret-h{margin:.6rem 0 .1rem;font-size:1.9rem;font-weight:800}.ret-say{margin:.2rem auto .8rem;font-size:1.05rem;font-weight:600;max-width:320px}
 .ret-row{display:flex;gap:.7rem;justify-content:center;align-items:center;flex-wrap:wrap;margin:.4rem 0 1rem}
 .ret-chip{display:inline-flex;align-items:center;padding:.5rem .8rem;border-radius:16px;background:rgba(56,189,248,.18);font-size:1.3rem;font-weight:800}
-.ret-tile{display:flex;flex-direction:column;align-items:center;gap:.2rem;min-width:132px;padding:.7rem 1rem;border:2px dashed var(--line);border-radius:20px;background:var(--surface-2);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
+.ret-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;min-width:132px;max-width:200px;min-height:136px;box-sizing:border-box;padding:.7rem 1rem;text-align:center;border:2px dashed var(--line);border-radius:20px;background:var(--surface-2);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
 .ret-tile.open{border-style:solid;border-color:var(--primary);animation:retPop .45s ease-out;cursor:default}
 .ret-next{min-height:52px;font-size:1.1rem;max-width:360px;margin:0 auto}
 body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
