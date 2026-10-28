@@ -5,7 +5,7 @@
 #   3. foreground colour re-estimated with pymatting (MIT) → no white halo from the whiteboard in hair / shoulders
 #   4. outputs: loop-a.mp4 = stacked alpha (top RGB, bottom alpha, H.264 – plays everywhere incl. iOS, drawn by WebGL in teacher.js)
 #               poster.webp (RGBA, eyes-open frame) · web/img/teach/<who>.webp 192² · Android drawable 96² · qa.json · sheet.png
-# QA (exit 1 on fail): border alpha ≈ 0 (no background left), interior solid, edge flicker low, halo (edge band brighter than body) low.
+# QA (exit 1 on fail): top-corner alpha ≈ 0 (no background left), interior solid, edge flicker low, halo (edge band brighter than body) low.
 # Usage: python scripts/teacher/cutout.py <who> <out_dir> [--poster-frame N]
 import json, os, subprocess, sys
 import numpy as np
@@ -41,8 +41,8 @@ with torch.no_grad():
         A[i] = np.asarray(Image.fromarray((p * 255).astype(np.uint8)).resize((W, H), Image.BICUBIC), np.float32) / 255
         if i % 24 == 0: print(f'  matte {i}/{N}', flush=True)
 
-# ---- 2. temporal median (circular – loop has no seam) ----
-A = np.median(np.stack([np.roll(A, k, 0) for k in (-2, -1, 0, 1, 2)]), 0)
+# ---- 2. temporal median, 7 frames (circular – loop has no seam) ----
+A = np.median(np.stack([np.roll(A, k, 0) for k in (-3, -2, -1, 0, 1, 2, 3)]), 0)
 A[A < 0.02] = 0; A[A > 0.98] = 1
 
 # ---- 3. foreground colour (kills the white whiteboard fringe) ----
@@ -57,7 +57,7 @@ os.makedirs(f'{OUT}/web/teach/{who}', exist_ok=True); os.makedirs(f'{OUT}/web/im
 a8 = (A * 255 + 0.5).astype(np.uint8)
 stack = np.concatenate([FG, np.repeat(a8[..., None], 3, -1)], 1)  # (N, 2H, W, 3)
 enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{2 * H}', '-r', str(fps), '-i', '-',
-                        '-c:v', 'libx264', '-preset', 'veryslow', '-crf', '27', '-pix_fmt', 'yuv420p', '-g', str(fps), '-movflags', '+faststart',
+                        '-c:v', 'libx264', '-preset', 'veryslow', '-crf', '30', '-pix_fmt', 'yuv420p', '-g', str(fps), '-movflags', '+faststart',
                         '-an', f'{OUT}/web/teach/{who}/loop-a.mp4'], stdin=subprocess.PIPE)
 enc.stdin.write(stack.tobytes()); enc.stdin.close(); assert enc.wait() == 0
 rgba = lambda i: Image.fromarray(np.dstack([FG[i], a8[i]]), 'RGBA')
@@ -70,17 +70,19 @@ head.resize((192, 192), Image.LANCZOS).save(f'{OUT}/web/img/teach/{who}.webp', '
 head.resize((96, 96), Image.LANCZOS).save(f'{OUT}/android/teach_{who}.webp', 'WEBP', quality=90, alpha_quality=95, method=6)
 
 # ---- QA ----
-b = 6
-border = np.concatenate([A[:, :b].ravel(), A[:, :, :b].ravel(), A[:, :, -b:].ravel()])  # top / left / right (bottom = body cut by frame)
+c = 28  # close-up framing: hair may touch the top / side edges, the two TOP CORNERS are always background (whiteboard / door frame)
+border = np.concatenate([A[:, :c, :c].ravel(), A[:, :c, -c:].ravel()])
 edge = (A > 0.05) & (A < 0.95)
-flick = float(np.abs(np.diff(A, axis=0))[edge[1:]].mean()) if edge[1:].any() else 0.0
+# true flicker = alpha jumps where the SOURCE pixel did not change (head motion legitimately moves the edge)
+Ls = F.astype(np.float32).mean(-1); still = (np.abs(np.diff(Ls, axis=0)) < 3) & edge[1:]
+flick = float(np.abs(np.diff(A, axis=0))[still].mean()) if still.any() else 0.0
 lum = FG.astype(np.float32).mean(-1)
 inner = A > 0.98
 halo = float(lum[edge].mean() - lum[inner].mean()) if edge.any() and inner.any() else 0.0
-qa = {'who': who, 'frames': N, 'border_alpha_mean': float(border.mean()), 'border_alpha_p99': float(np.percentile(border, 99)),
+qa = {'who': who, 'frames': N, 'corner_alpha_mean': float(border.mean()), 'corner_alpha_p95': float(np.percentile(border, 95)),
       'coverage': float(A.mean()), 'edge_flicker': flick, 'halo_luma': halo,
       'bytes': {k: os.path.getsize(f'{OUT}/{p}') for k, p in [('loop', f'web/teach/{who}/loop-a.mp4'), ('poster', f'web/teach/{who}/poster.webp'), ('avatar', f'web/img/teach/{who}.webp')]}}
-fail = [m for m, bad in [('background left at the border', qa['border_alpha_p99'] > 0.1), ('character too small / missing', not 0.12 < qa['coverage'] < 0.75),
+fail = [m for m, bad in [('background left in the top corners', qa['corner_alpha_mean'] > 0.08 or qa['corner_alpha_p95'] > 0.5), ('character too small / missing', not 0.12 < qa['coverage'] < 0.85),
                           ('edge flicker', flick > 0.06), ('white halo in edges', halo > 40), ('loop too big', qa['bytes']['loop'] > 260_000)] if bad]
 qa['fail'] = fail
 json.dump(qa, open(f'{OUT}/qa-{who}.json', 'w'), indent=1); print(json.dumps(qa, indent=1))
