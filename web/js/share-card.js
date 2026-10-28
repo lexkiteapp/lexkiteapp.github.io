@@ -1,7 +1,7 @@
 /* ✨ Thẻ khoe thành tích [S1] – ảnh Story 9:16 (1080×1920) & bài đăng 1:1 (1080×1080) vẽ bằng Canvas ngay trên máy.
  * Chỉ dùng số liệu THẬT của người học (chuỗi ngày, thẻ ôn hôm nay, XP 7 ngày, % nhớ của phiên vừa xong, mục tiêu thi).
  * Bảo vệ cái tôi: ô có giá trị 0 bị ẩn, % nhớ chỉ hiện khi ≥ 80%; chưa có gì để khoe → lời động viên, không có thẻ.
- * Nhân vật: CHỈ giáo viên Ama/Carlos 3D (teach/<who>/poster.jpg, như lớp giữ thói quen – không Kit/mascot khác), QR từ js/lib/qr.js. Chia sẻ qua LKFile (js/lib/save-file.js): navigator.share({files}) / bảng chia sẻ app gốc → không hỗ trợ thì tải ảnh + chép link.
+ * Nhân vật: CHỈ giáo viên Ama/Carlos 3D (teach/<who>/poster.webp đã tách nền, như lớp giữ thói quen – không Kit/mascot khác), QR từ js/lib/qr.js. Chia sẻ qua LKFile (js/lib/save-file.js): navigator.share({files}) / bảng chia sẻ app gốc → không hỗ trợ thì tải ảnh + chép link.
  * Nạp lười qua App.need('share') (BUNDLES trong app.js); CSS & bản tiếng Anh (js/i18n/en/share.js) cũng nạp khi mở. */
 (function (g) {
   'use strict';
@@ -44,7 +44,7 @@
   function rr(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) { ctx.roundRect(x, y, w, h, r); return; } ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
   // Chữ dài (tiếng Đức, Nga…) tự thu nhỏ cho vừa khung, không tràn
   function fit(ctx, text, x, y, maxW, size, weight, F) { let s = size; do { ctx.font = `${weight} ${s}px ${F}`; } while (ctx.measureText(text).width > maxW && (s -= 2) > 14); ctx.fillText(text, x, y); }
-  const TEACH = n => `teach/${n % 2 ? 'carlos' : 'ama'}/poster.jpg`;
+  const TEACH = n => `teach/${n % 2 ? 'carlos' : 'ama'}/poster.webp`; // đã tách nền (RGBA)
   const img = src => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
 
   async function render(cv, S, story) {

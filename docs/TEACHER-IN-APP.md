@@ -119,6 +119,11 @@ khóa 30 fps, không bóng/HDR, `powerPreference` mặc định, bắt `webglcon
 
 **A (3D realtime, mặt thay thế CC0)** – three.js r186 + TalkingHead 1.8.2, `mpfb.glb` 36,8 → 2,9 MB, JS 502 KB, lưới 84k tam giác/71 morph; không được chọn (chưa có mô hình Ama/Carlos, §5.1).
 
+### 5.5 Nhân vật tách nền (chủ 28/10: "không để nền phòng, chuẩn chỉnh")
+- `scripts/teacher/cutout.py` (CI `teach-cutout.yml`, 0 credit): BiRefNet-matting (MIT) từng khung `loop.mp4` → trung vị thời gian 5 khung (vòng lặp, không nhấp nháy) → pymatting tính lại màu (hết viền trắng) → `loop-a.mp4` stacked alpha + `poster.webp` RGBA + ảnh đại diện 192/96. QA tự đỏ: nền sót ở viền, nhấp nháy mép, viền trắng, > 260 KB.
+- `teacher.js` ghép bằng WebGL lên nền của app (gradient theo theme); không WebGL → poster trong suốt. Cổng: `teach-assets.mjs` (npm test) + `new-ui-qa` đọc alpha viền ảnh khi chạy.
+- Nếu matting không đạt chuẩn → dựng lại trên phông xanh bằng Kling theo `CREDIT-RULES.md` (phiếu + số credit chủ duyệt trước).
+
 ## 6. So với ông lớn (trung thực)
 Duolingo Video Call (gói Max), Praktika, Speak: nhân vật có khớp môi thật + LLM/TTS server trả phí. Ta: kịch bản + Nano trên máy + viseme sinh sẵn → khớp môi tương đương
 **cho câu kịch bản**; câu AI tự do ít hơn họ nhiều (server free ≈ vài nghìn lượt/ngày toàn hệ thống, Nano không có trên điện thoại). Muốn khớp viseme đầy đủ cho mọi câu
