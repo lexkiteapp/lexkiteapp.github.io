@@ -1126,6 +1126,19 @@
       "match": [
         "modal.com"
       ]
+    },
+    {
+      "key": "stitch",
+      "name": "Google Stitch (thiết kế UI, MCP)",
+      "kind": "design",
+      "purpose": "Sinh thiết kế màn hình app/web/add-on (project 'Lexkite English Exam Prep', hệ Tactile A tối / B sáng) qua MCP; chỉ dùng lúc thiết kế, KHÔNG chạy trong sản phẩm, không dán mã Tailwind",
+      "console": "https://stitch.withgoogle.com/",
+      "free": "Miễn phí ~400 credit/ngày/tài khoản",
+      "upgrade": "Hết quota → đổi tài khoản Google khác (chủ đăng nhập); khóa chỉ ở ~/.config/lexkite/stitch-key + cấu hình MCP người dùng, không vào repo",
+      "status": "Đang dùng (thiết kế)",
+      "match": [
+        "stitch.withgoogle.com"
+      ]
     }
   ],
   "links": {
