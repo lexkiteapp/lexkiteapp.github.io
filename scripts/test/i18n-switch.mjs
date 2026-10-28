@@ -117,7 +117,7 @@ if (args.includes('--scan')) {
     // Bấm chọn ngôn ngữ như người dùng → I18N.set lưu lựa chọn rồi tải lại trang (jsdom: không tải lại → mở trang mới với cùng localStorage)
     const { w: wv } = await boot(before, 'modules');
     // Nút ngôn ngữ ở thanh trên đã chuyển vào Cài đặt (trang chủ gọn) → chọn trong #/settings như người dùng
-    wv.location.hash = '#/settings'; for (let i = 0; i < 60 && !wv.document.querySelector('[data-lang-select], [data-lang-pick]'); i++) await tick(50);
+    wv.location.hash = '#/settings'; for (let i = 0; i < 60 && !wv.document.querySelector('#view [data-lang-select], #view [data-lang-pick]'); i++) await tick(50);
     const sel = wv.document.querySelector('#view [data-lang-select]');
     if (sel) { sel.value = lang; sel.dispatchEvent(new wv.Event('change', { bubbles: true })); }
     else { const pick = wv.document.querySelector(`#view [data-lang-pick] [data-v="${lang}"]`); if (pick) pick.click(); }

@@ -131,6 +131,25 @@ async function playQuiz(page, onSheet) {
   }
   return false;
 }
+// Nút đổi ngôn ngữ (🌐 #langBtn, js/lang-menu.js) phải HIỆN + CHẠM ĐƯỢC ở mọi trang không phải màn học, menu đủ mọi ngôn ngữ giao diện (chủ 28/10: từng bị gỡ khỏi thanh trên)
+async function langSwitch(page) {
+  const r = await page.evaluate(() => {
+    const b = document.getElementById('langBtn'); if (!b) return 'không có trong trang';
+    const q = b.getBoundingClientRect(), cs = getComputedStyle(b);
+    if (q.width < 20 || q.height < 20 || cs.visibility !== 'visible' || +cs.opacity === 0) return `bị ẩn (${Math.round(q.width)}×${Math.round(q.height)} ${cs.visibility})`;
+    const h = document.elementFromPoint(q.left + q.width / 2, q.top + q.height / 2);
+    if (!h || !(h === b || b.contains(h))) return 'bị che' + (h ? ' bởi ' + h.tagName.toLowerCase() + (h.className ? '.' + String(h.className).split(' ')[0] : '') : '');
+    return '';
+  }).catch(e => 'lỗi ' + String(e.message).slice(0, 60));
+  if (r) return r;
+  await page.locator('#langBtn').click().catch(() => {});
+  await page.waitForTimeout(500);
+  const n = await page.evaluate(() => { const m = document.getElementById('langMenu'); return { open: !!(m && !m.hidden && m.getBoundingClientRect().height > 0), n: m ? m.querySelectorAll('[role^=menuitem]').length : 0, want: (window.I18N && I18N.SUPPORTED || []).length }; }).catch(() => ({ open: false, n: 0, want: 0 }));
+  await page.keyboard.press('Escape').catch(() => {});
+  if (!n.open) return 'bấm không mở menu';
+  if (!n.want || n.n < n.want) return `menu thiếu ngôn ngữ (${n.n}/${n.want})`;
+  return '';
+}
 const inpOf = ev => { const by = new Map(); for (const [id, d] of ev) by.set(id, Math.max(by.get(id) || 0, d)); const v = [...by.values()].sort((a, b) => b - a); return v.length ? v[Math.min(v.length - 1, Math.floor(v.length / 50))] : 0; };
 
 const browser = await chromium.launch({ args: ['--disable-dev-shm-usage'] });
@@ -144,6 +163,7 @@ for (const vp of VPS) {
       await visit(page, route); pages++;
       add(vp.w, route, await page.evaluate(detect));
       add(vp.w, route, await keyboard(page, vp));
+      if (!route.startsWith('practice/') && route !== 'review') { const l = await langSwitch(page); if (l) errs.push(`${vp.w} #/${route}: nút ngôn ngữ ${l}`); }
       if (route.startsWith('practice/') || route === 'review') {
         await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
         await page.evaluate(() => { window.__ev = []; });
@@ -213,6 +233,7 @@ if (perf.filter(p => p.inp !== null && p.n > 0).length < VPS.length) fails.push(
 if (hasOffer && offerSeen < VPS.length) fails.push(`ô Cơ hội thứ 2/Nhân đôi XP chỉ soát được ${offerSeen} lần`);
 if (LH && lh.length < 4) fails.push(`Lighthouse chỉ chạy được ${lh.length} route`);
 if (errs.some(e => /không tới được thẻ kết quả|Nhân đôi XP/.test(e))) fails.push('luồng quiz/kết quả lỗi');
+if (errs.some(e => /nút ngôn ngữ/.test(e))) fails.push('nút đổi ngôn ngữ không hiện/không bấm được');
 
 const report = { at: new Date().toISOString(), pages, count, maxCls, maxInp, maxLcp, maxTbt, lh, perf, issues, errs, fails, hasOffer, offerSeen };
 fs.writeFileSync(`${OUT}/report.json`, JSON.stringify(report, null, 1));

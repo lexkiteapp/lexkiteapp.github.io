@@ -135,7 +135,7 @@
   }
   // Nút 🌐: menu ngôn ngữ js/lang-menu.js (tải lười) → I18N.set
   if ($('#langMenu')) { const cur = I18N.lang(); $('#langCode').textContent = cur.toUpperCase(); $('#langMenu').innerHTML = I18N.SUPPORTED.map(l => `<li role="none"><button type="button" role="menuitemradio" aria-checked="${l === cur}" data-v="${l}" lang="${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${I18N.LANGS[l][1]}</button></li>`).join('');
-    $('#langBtn').onclick = () => App.need('lsw').then(() => { if (window.LkLangMenu) { LkLangMenu($('#langBtn').parentNode); $('#langBtn').click(); } }); }
+    $('#langBtn').onclick = () => App.need('lsw').then(() => { const b = $('#langBtn'); if (!window.LkLangMenu) return; b.onclick = null; b.parentNode.lsw = 0; LkLangMenu(b.parentNode); b.click(); }); } // giao hẳn cho lang-menu.js (kể cả khi nó đã chạy trước từ trang chào) → không tự bấm lặp mở/đóng
   $('#themeBtn').onclick = () => {
     const order = ['auto', 'light', 'dark'];
     state.settings.theme = order[(order.indexOf(state.settings.theme) + 1) % 3];
