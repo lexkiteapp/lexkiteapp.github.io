@@ -28874,5 +28874,20 @@
     "ar": "أجب عن السؤال",
     "ru": "Ответьте на вопрос",
     "tr": "Soruyu cevapla"
+  },
+  "Chưa dịch được cả câu – nghĩa từng từ:": {
+    "es": "No se pudo traducir la frase completa. Significado de cada palabra:",
+    "pt": "Não foi possível traduzir a frase inteira. Significado de cada palavra:",
+    "fr": "Impossible de traduire toute la phrase. Sens de chaque mot :",
+    "de": "Der ganze Satz konnte nicht übersetzt werden. Bedeutung der einzelnen Wörter:",
+    "id": "Kalimat lengkap belum bisa diterjemahkan. Arti tiap kata:",
+    "th": "ยังแปลทั้งประโยคไม่ได้ ความหมายของแต่ละคำ:",
+    "zh": "暂时无法翻译整句。各个单词的意思：",
+    "ja": "文全体を翻訳できませんでした。各単語の意味：",
+    "ko": "문장 전체를 번역하지 못했습니다. 단어별 뜻:",
+    "hi": "पूरा वाक्य अनुवाद नहीं हो सका। हर शब्द का अर्थ:",
+    "ar": "تعذّرت ترجمة الجملة كاملة. معنى كل كلمة:",
+    "ru": "Не удалось перевести всё предложение. Значения отдельных слов:",
+    "tr": "Cümlenin tamamı çevrilemedi. Kelimelerin anlamları:"
   }
 }
