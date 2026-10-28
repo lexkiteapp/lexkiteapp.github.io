@@ -523,4 +523,4 @@ time[title] { text-decoration: underline dotted color-mix(in srgb, var(--muted) 
 .ach-empty { display: grid; place-items: center; min-height: 140px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: .88rem; text-align: center; padding: 1rem; margin-top: .4rem; }
 @container (max-width: 520px) { .ach-v.f:not(.k) { display: none; } .ach-x.xw { visibility: hidden; } .ach-x.xn { visibility: visible; } .ach-p { height: min(var(--ach-h, 200px), 170px); } }
 .ach.line .ach-cs { gap: 0; justify-content: stretch; } .ach.line .ach-c { max-width: none; }
-.tbl-x { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; } /* bảng rộng cuộn trong khung, không làm trang tràn ngang */
+.tbl-x { position: relative; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; } /* bảng rộng cuộn trong khung; relative = giữ cả .sr-only định vị tuyệt đối bên trong (không làm trang tràn ngang) */
