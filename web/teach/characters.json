@@ -40,46 +40,46 @@
         680
       ],
       "eye_mouth": 130,
-      "video_clip": "ga9_talk",
+      "video_clip": "ga11_talk",
       "clips": {
         "talk": {
-          "src": "ga9_talk"
+          "src": "ga11_talk"
         },
         "listen": {
-          "src": "ga9_listen"
+          "src": "ga11_listen_2"
         },
         "explain": {
-          "src": "ga9_explain"
+          "src": "ga11_explain"
         },
         "happy": {
-          "src": "ga9_happy"
+          "src": "ga11_happy"
         },
         "encourage": {
-          "src": "ga9_encourage"
+          "src": "ga11_encourage"
         },
         "thinking": {
-          "src": "ga9_thinking"
+          "src": "ga11_thinking"
         },
         "laugh": {
-          "src": "ga9_laugh"
+          "src": "ga11_laugh"
         },
         "wave": {
-          "src": "ga9_wave"
+          "src": "ga11_wave"
         },
         "cheer": {
-          "src": "ga9_cheer"
+          "src": "ga11_cheer"
         },
         "concern": {
-          "src": "ga9_concern"
+          "src": "ga11_concern_2"
         },
         "surprise": {
-          "src": "ga9_surprise"
+          "src": "ga11_surprise_3"
         },
         "point": {
-          "src": "ga9_point"
+          "src": "ga11_point"
         },
         "empathy": {
-          "src": "ga9_empathy"
+          "src": "ga11_empathy"
         }
       }
     },
@@ -97,50 +97,49 @@
         390
       ],
       "eye_mouth": 106,
-      "video_clip": "gc10_talk",
+      "video_clip": "gc11_talk",
       "clips": {
         "talk": {
-          "src": "gc10_talk"
+          "src": "gc11_talk"
         },
         "listen": {
-          "src": "gc10_listen_b"
+          "src": "gc11_listen"
         },
         "explain": {
-          "src": "gc10_explain_b"
+          "src": "gc11_explain"
         },
         "happy": {
-          "src": "gc10_happy"
+          "src": "gc11_happy"
         },
         "encourage": {
-          "src": "gc10_encourage"
+          "src": "gc11_happy",
+          "note": "thay bằng happy (chủ duyệt 29/10)"
         },
         "thinking": {
-          "src": "gc10_thinking"
+          "src": "gc11_thinking"
         },
         "laugh": {
-          "src": "gc10_laugh"
+          "src": "gc11_laugh"
         },
         "wave": {
-          "src": "gc10_wave",
-          "pending": "gc10_wave đã tạo, matte PRO chưa qua cổng"
+          "src": "gc11_wave_2"
         },
         "cheer": {
-          "src": "gc10_cheer"
+          "src": "gc11_cheer"
         },
         "concern": {
-          "src": "gc10_concern",
-          "pending": "miệng Carlos tự nhe răng – cần khung đầu môi khép"
+          "src": "gc11_empathy",
+          "note": "thay bằng empathy (chủ duyệt 29/10)"
         },
         "surprise": {
-          "src": "gc10_surprise"
+          "src": "gc11_surprise_2"
         },
         "point": {
-          "src": "gc10_point",
-          "pending": "chưa tạo (hết ngân sách)"
+          "src": "gc11_explain",
+          "note": "thay bằng explain (chủ duyệt 29/10)"
         },
         "empathy": {
-          "src": "gc10_empathy",
-          "pending": "chưa tạo (hết ngân sách)"
+          "src": "gc11_empathy"
         }
       }
     }
