@@ -285,8 +285,8 @@
   }
   function qDuo(it) {
     duoMode(true); L.v2 = true; L.who = it.who || L.who || 'ama';
-    const og = $('#lsnBody'), chk = $('#lsnCheck'); $('#lsnBub').textContent = it.prompt; og.textContent = '';
-    const paint = () => { og.textContent = ''; it.options.forEach((o, i) => { const n = L.tplq[L.pick === o ? 'on' : 'off'].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.classList.add('lsn-opt'); n.setAttribute('aria-checked', String(L.pick === o)); n.tabIndex = 0;
+    const og = $('#lsnBody'), chk = $('#lsnCheck'); { const qh = $('#lsnBub'); qh.textContent = it.prompt; qh.lang = 'en'; qh.dir = 'auto'; } og.textContent = '';
+    const paint = () => { og.textContent = ''; it.options.forEach((o, i) => { const n = L.tplq[L.pick === o ? 'on' : 'off'].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.dir = 'auto'; n.classList.add('lsn-opt'); n.setAttribute('aria-checked', String(L.pick === o)); n.tabIndex = 0;
       const sp = n.querySelectorAll(':scope > div > span'); sp[0].textContent = LET[i]; sp[1].textContent = o;
       const pickIt = () => { if (L.checked) return; L.pick = o; chk.disabled = false; paint(); const nb = og.children[i]; if (nb) nb.focus({ preventScroll: true }); };
       n.onclick = pickIt; n.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickIt(); } }; og.appendChild(n); }); };
@@ -297,7 +297,7 @@
     const chat = $('#lsnChat'), s = it.who === 'carlos' ? 'carlos' : 'ama', name = TNAME(it.who);
     if (L.log.indexOf(it) < 0) L.log.push(it); duoMode(false);
     const n = L.tl[s].cloneNode(true), p = n.querySelector('p'), b = n.querySelector('button');
-    n.querySelector(':scope > div:nth-child(1) > span').textContent = name; p.textContent = it.radio ? RADIO : it.sent; b.setAttribute('aria-label', t('Nghe lại') + ' · ' + name);
+    n.querySelector(':scope > div:nth-child(1) > span').textContent = name; p.textContent = it.radio ? RADIO : it.sent; p.dir = 'auto'; b.setAttribute('aria-label', t('Nghe lại') + ' · ' + name);
     chat.querySelectorAll('#lsnPlay').forEach(x => x.removeAttribute('id')); b.id = 'lsnPlay'; b.onclick = () => say(it.sent, false, it.who);
     chat.appendChild(n);
     const go = $('#lsnGo'); go.onclick = () => { if (L.teacher) L.teacher.stop(); if (L.teachers) L.teachers.carlos.stop(); L.sess.answer(true); next(); };

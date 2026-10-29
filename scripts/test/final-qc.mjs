@@ -21,7 +21,7 @@ for (const f of FINAL) {
   if (!S) { put(f.stitch, 'stitch-diff', false, `thiếu ${SD}/scores.json – chạy stitch-diff.mjs trước`); continue; }
   for (const sc of ['light', 'dark']) { const v = S.res[`${k}-${sc}`], l = LIM[`${k}-${sc}`] || {};
     if (!v) put(f.stitch, 'ssim', false, `${sc}: không có điểm (thiếu mẫu Stitch?)`);
-    else put(f.stitch, 'ssim', (l.ssim == null || v.ssim >= l.ssim) && (l.rows == null || v.rows >= l.rows), `${sc} ssim ${v.ssim}/${l.ssim ?? '–'} · nhịp ${v.rows}/${l.rows ?? '–'}`); }
+    else { const rb = Object.entries(l.reg || {}).filter(([n, x]) => v.reg && v.reg[n] < x).map(([n, x]) => `${n} ${v.reg[n]}<${x}`); put(f.stitch, 'ssim', (l.ssim == null || v.ssim >= l.ssim) && (l.rows == null || v.rows >= l.rows) && !rb.length, `${sc} ssim ${v.ssim}/${l.ssim ?? '–'} · nhịp ${v.rows}/${l.rows ?? '–'}${v.reg ? ' · vùng ' + Object.entries(v.reg).map(([n, x]) => n + ' ' + x).join(' ') : ''}${rb.length ? ' · VÙNG ĐỎ ' + rb.join(', ') : ''}`); } }
   const cm = Object.entries(S.contrast || {}).filter(([t]) => t.startsWith(k + '-')).flatMap(([t, v]) => v.miss.map(m => `${t.slice(k.length + 1)} ${m.t} ${m.cr}/${m.need}`));
   put(f.stitch, 'contrast', !cm.length, cm.slice(0, 4).join(' · '));
   const q = Object.entries(S.qc || {}).filter(([t]) => t.startsWith(k + '-'));
@@ -100,7 +100,9 @@ const LAYOUT = () => { const W = innerWidth, over = [], clip = [];
     if ((r.right > W + 1 || r.left < -1) && !e.closest('[class*="overflow-hidden"],[class*="overflow-x"]')) over.push(String(e.className).slice(0, 30));
     if (!e.children.length && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 20)); }
   const vi = (document.getElementById('view').innerText.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ][^\s]*/gi) || []);
-  return { dir: document.documentElement.dir, hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 4), clip: clip.slice(0, 4), vi: [...new Set(vi)].slice(0, 5) }; };
+  // bidi: chuỗi tiếng Anh (Latin, kết thúc ? . ! …) nằm trong khối hướng RTL mà không tự xác định hướng (dir=auto/ltr/bdi/isolate) → dấu câu nhảy sang đầu dòng ('?want')
+  const bidi = [...document.querySelectorAll('#view *')].filter(el => { if (el.children.length > 2) return false; const tx = [...el.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join('').trim(); if (!/^[A-Za-z][^\u0600-\u06FF]*[?.!…]$/.test(tx) || tx.length < 8) return false; const cs = getComputedStyle(el); return cs.direction === 'rtl' && !/isolate|plaintext/.test(cs.unicodeBidi) && el.closest('[dir="auto"],[dir="ltr"],bdi') == null; }).map(el => (el.textContent || '').trim().slice(0, 30)).slice(0, 4);
+  return { bidi, dir: document.documentElement.dir, hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 4), clip: clip.slice(0, 4), vi: [...new Set(vi)].slice(0, 5) }; };
 
 const browser = await chromium.launch(); const url = (h, hl) => `https://lk.test/app/?sandbox=1&hl=${hl}#/${h}`;
 async function visit(page, k, errs) {
@@ -124,6 +126,7 @@ for (const f of FINAL.filter(x => x.k)) {
   for (const scheme of ['light', 'dark']) { const { ctx, page, errs } = await session({ scheme, hl: 'ar' });
     await visit(page, k, errs); const L = await page.evaluate(LAYOUT).catch(e => ({ err: e.message }));
     put(f.stitch, 'rtl-ar', L.dir === 'rtl' && !L.hscroll && !(L.over || []).length && !(L.clip || []).length, `${scheme}: dir=${L.dir}${L.hscroll ? ' cuộn ngang' : ''} ${[...(L.over || []), ...(L.clip || [])].join(',')}`.trim());
+    put(f.stitch, 'bidi', !(L.bidi || []).length, (L.bidi || []).length ? `ar: dấu câu lạc hướng: ${L.bidi.join(' | ')}` : '');
     put(f.stitch, 'mixed-lang', !(L.vi || []).length, (L.vi || []).length ? `ar ${scheme}: ${L.vi.join(' ')}` : '');
     put(f.stitch, 'js-errors', !errs.length, errs.slice(0, 2).join(' · '));
     if (scheme === 'light') { const h = await page.evaluate(() => Math.min(2600, document.documentElement.scrollHeight)); await page.setViewportSize({ width: 390, height: Math.max(844, h) }); await page.waitForTimeout(200); await page.screenshot({ path: path.join(OUT, `ar-${f.stitch}.png`) }); }
@@ -168,11 +171,11 @@ for (const f of FINAL) { const k = f.k, a = [], add = (lab, file, crop) => { if 
     execFileSync('convert', [path.join(OUT, `sheet-${f.stitch}.jpg`), '-resize', '1400x1400>', '-quality', '68', path.join(OUT, `sm-sheet-${f.stitch}.jpg`)]); } catch (e) { console.log('montage bỏ qua:', e.message.split('\n')[0]); } }
 
 // ---------- D) SUMMARY.md ----------
-const COLS = ['port', 'ssim', 'contrast', 'tap44', 'overlap/clip', 'axe', 'js-errors', 'mixed-lang', 'rtl-ar', 'reduced-motion', 'teacher', 'teacher-pose', 'not-pasted-on', 'voice==teacher', 'lip-sync', 'sfx'];
+const COLS = ['port', 'ssim', 'contrast', 'tap44', 'overlap/clip', 'axe', 'js-errors', 'mixed-lang', 'rtl-ar', 'bidi', 'reduced-motion', 'teacher', 'teacher-pose', 'not-pasted-on', 'voice==teacher', 'lip-sync', 'sfx'];
 const cell = c => (!c ? '–' : c.ok ? '✓' : '✗');
 const pass = FINAL.filter(f => Object.values((R[f.stitch] || { checks: {} }).checks).every(c => c.ok));
 const md = [`# QC cuối 1-1 – ${pass.length}/${FINAL.length} màn đạt`, '', `| màn | ${COLS.join(' | ')} |`, `|---|${COLS.map(() => '---').join('|')}|`,
-  ...FINAL.map(f => `| ${f.stitch} | ${COLS.map(c => cell(R[f.stitch]?.checks[c])).join(' | ')} |`), '', '## Lỗi cần sửa',
+  ...FINAL.map(f => `| ${f.stitch} | ${COLS.map(c => cell(R[f.stitch]?.checks[c])).join(' | ')} |`), '', '## Giáo viên (1 dòng/màn: ai · tư thế · khuất sau mặt Stitch hay trôi nổi)', ...FINAL.filter(f => f.teacher).map(f => { const c = R[f.stitch]?.checks || {}, g = n => (c[n] ? (c[n].ok ? '✓' : '✗') + (c[n].note ? ' ' + c[n].note : '') : '–'); return `- **${f.stitch}** · giáo viên ${g('teacher')} · tư thế ${g('teacher-pose')} · gắn-dán/trôi nổi ${g('not-pasted-on')}`; }), '', '## Lỗi cần sửa',
   ...FINAL.flatMap(f => Object.entries(R[f.stitch]?.checks || {}).filter(([, c]) => !c.ok).map(([n, c]) => `- **${f.stitch}** · ${n}: ${c.note}`)), '',
   'Tờ từng màn: `sheet-<màn>.jpg` (bản nhỏ `sm-sheet-*`) · máy tính: `desk-<màn>.jpg`. Ngưỡng SSIM: scripts/test/stitch-diff.json (chỉ nâng).'].join('\n');
 fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), md + '\n'); fs.writeFileSync(path.join(OUT, 'report.json'), JSON.stringify(R, null, 1));

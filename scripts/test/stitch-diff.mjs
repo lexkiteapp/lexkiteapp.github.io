@@ -61,15 +61,17 @@ function gray(buf) { const p = PNG.sync.read(buf), s = W / p.width, h = Math.rou
 const shrink = (a, h) => { const w2 = Math.floor(W / G), h2 = Math.floor(h / G), o = new Float32Array(w2 * h2);
   for (let y = 0; y < h2; y++) for (let x = 0; x < w2; x++) { let t = 0; for (let j = 0; j < G; j++) for (let i = 0; i < G; i++) t += a[(y * G + j) * W + x * G + i]; o[y * w2 + x] = t / (G * G); }
   return { o, w: w2, h: h2 }; };
-function ssim(A, B, w, h) { const C1 = 6.5025, C2 = 58.5225, n = 8; let s = 0, k = 0; // cửa sổ 8×8, bước 4
-  for (let y = 0; y + n <= h; y += 4) for (let x = 0; x + n <= w; x += 4) { let ma = 0, mb = 0; for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) { ma += A[(y + j) * w + x + i]; mb += B[(y + j) * w + x + i]; } ma /= n * n; mb /= n * n;
+function ssim(A, B, w, h, ya = 0, yb = h) { const C1 = 6.5025, C2 = 58.5225, n = 8; let s = 0, k = 0; // cửa sổ 8×8, bước 4; ya..yb = dải hàng (SSIM theo vùng)
+  for (let y = ya; y + n <= yb; y += 4) for (let x = 0; x + n <= w; x += 4) { let ma = 0, mb = 0; for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) { ma += A[(y + j) * w + x + i]; mb += B[(y + j) * w + x + i]; } ma /= n * n; mb /= n * n;
     let va = 0, vb = 0, cv = 0; for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) { const a = A[(y + j) * w + x + i] - ma, b = B[(y + j) * w + x + i] - mb; va += a * a; vb += b * b; cv += a * b; } va /= n * n - 1; vb /= n * n - 1; cv /= n * n - 1;
     s += ((2 * ma * mb + C1) * (2 * cv + C2)) / ((ma * ma + mb * mb + C1) * (va + vb + C2)); k++; }
   return k ? s / k : 0; }
 const rows = (A, w, h) => Array.from({ length: h }, (_, y) => { let m = 0, v = 0; for (let x = 0; x < w; x++) m += A[y * w + x]; m /= w; for (let x = 0; x < w; x++) v += (A[y * w + x] - m) ** 2; return Math.sqrt(v / w); });
 const corr = (a, b) => { const n = Math.min(a.length, b.length), ma = a.slice(0, n).reduce((s, x) => s + x, 0) / n, mb = b.slice(0, n).reduce((s, x) => s + x, 0) / n; let c = 0, va = 0, vb = 0; for (let i = 0; i < n; i++) { c += (a[i] - ma) * (b[i] - mb); va += (a[i] - ma) ** 2; vb += (b[i] - mb) ** 2; } return va && vb ? c / Math.sqrt(va * vb) : 0; };
 function score(refFile, ourBuf) { const r = gray(toPng(refFile)), o = gray(ourBuf), h = Math.min(r.h, o.h), R = shrink(r.g, h), O = shrink(o.g, h);
-  return { ssim: +ssim(R.o, O.o, R.w, R.h).toFixed(3), rows: +corr(rows(R.o, R.w, R.h), rows(O.o, O.w, O.h)).toFixed(3) }; }
+  const hd = Math.round(56 / G), ct = R.h - Math.round(96 / G), bd = ct - hd, band = i => [hd + Math.round(bd * i / 3), hd + Math.round(bd * (i + 1) / 3)], // SSIM THEO VÙNG (tính trên khung Stitch): thanh đầu 56 px · thân chia 3 dải (trên = giáo viên/đầu bài, giữa = thẻ, dưới = đáp án) · chân CTA 96 px
+    reg = Object.fromEntries([['header', [0, hd]], ['top', band(0)], ['mid', band(1)], ['low', band(2)], ['cta', [ct, R.h]]].map(([n, [a, b]]) => [n, +ssim(R.o, O.o, R.w, R.h, a, b).toFixed(3)]));
+  return { reg, ssim: +ssim(R.o, O.o, R.w, R.h).toFixed(3), rows: +corr(rows(R.o, R.w, R.h), rows(O.o, O.w, O.h)).toFixed(3) }; }
 
 // ---- vẽ app ----
 const browser = await chromium.launch(), res = {}, errs = [];
@@ -181,14 +183,14 @@ try { for (const k of Object.keys(SCREENS)) { const a = []; for (const sc of ['d
 
 // ---- cổng ----
 const bad = [];
-for (const [k, v] of Object.entries(res)) { const l = LIM[k] || {}; for (const m of ['ssim', 'rows']) if (l[m] != null && v[m] < l[m]) bad.push(`${k} ${m} ${v[m]} < ${l[m]}`); }
+for (const [k, v] of Object.entries(res)) { const l = LIM[k] || {}; for (const m of ['ssim', 'rows']) if (l[m] != null && v[m] < l[m]) bad.push(`${k} ${m} ${v[m]} < ${l[m]}`); for (const [n, lim] of Object.entries(l.reg || {})) if (v.reg && v.reg[n] < lim) bad.push(`${k} vùng ${n} ssim ${v.reg[n]} < ${lim}`); }
 for (const [k, v] of Object.entries(qc)) { if (v.hscroll || (v.over || []).length) bad.push(`tràn ngang ${k}: ${(v.over || []).join(' | ')}`); if ((v.clip || []).length) bad.push(`chữ bị cắt ${k}: ${v.clip.join(' | ')}`); if (v.logo && !/icon\.svg/.test(v.logo.src)) bad.push(`logo ${k}: ${v.logo.src}`); }
 const cmiss = Object.entries(contrast).flatMap(([k, v]) => v.miss.map(m => ({ k, ...m }))).sort((a, b) => a.cr / a.need - b.cr / b.need);
 if (cmiss.length) bad.push(`tương phản: ${cmiss.length} chỗ < ngưỡng (xem bảng)`);
 for (const [k, v] of Object.entries(ph)) if (v.length) bad.push(`giữ chỗ ${k}: ${v.join(' | ')}`);
 fs.writeFileSync(path.join(OUT, 'scores.json'), JSON.stringify({ res, errs, a11y, qc, contrast, ph }, null, 1));
 for (const [k, v] of Object.entries(a11y)) { const sv = (v.violations || []).filter(x => x.impact === 'serious' || x.impact === 'critical'); console.log(`axe ${k}: ${(v.violations || []).length} vi phạm (${sv.length} nghiêm trọng) · ${v.passes || 0} đạt`); sv.forEach(x => bad.push(`axe ${k}: ${x.id} ×${x.n} – ${x.sample.join(' | ')}`)); }
-console.log(Object.entries(res).map(([k, v]) => `${k}: ssim ${v.ssim} · nhịp hàng ${v.rows}`).join('\n'));
+console.log(Object.entries(res).map(([k, v]) => `${k}: ssim ${v.ssim} · nhịp hàng ${v.rows} · vùng ${Object.entries(v.reg || {}).map(([n, x]) => n + ' ' + x).join(' ')}`).join('\n'));
 // Tóm tắt ngắn (đọc thay cho log/ảnh lớn): điểm SSIM, axe, dung lượng CSS
 { const css = ['home', 'lesson', 'goal'].map(g => { const f = path.join(ROOT, 'css', `st-${g}.css`); if (!fs.existsSync(f)) return `st-${g}: –`; const b = fs.readFileSync(f); return `st-${g}.css ${(b.length / 1024).toFixed(1)} KB · gz ${(zlib.gzipSync(b, { level: 9 }).length / 1024).toFixed(2)} KB`; });
   const md = ['## Stitch diff', '| màn | SSIM | nhịp hàng | axe (nghiêm trọng/tổng) |', '|---|---|---|---|',

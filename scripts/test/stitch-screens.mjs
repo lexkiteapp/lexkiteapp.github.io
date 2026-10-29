@@ -25,14 +25,16 @@ export const DRIVEN = /^(lesson|feedback|complete|story|call)/;
 export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!?;:]+$/, '').toLowerCase(), q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
   const pick = it => { const o = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)); if (o) o.click(); return !!o; };
   if (k === 'story') { // nút Truyện của bản đồ thử (chỉ số 3 của chặng ux1): vào khung story-duo, câu thoại đầu đang phát (Ama nói, Carlos nghe)
-    localStorage.setItem('lk.lsn.path.demo', '3'); localStorage.removeItem('lk.lsn.s.story.demo'); await App.routes.lesson('go'); await w(1200);
+    localStorage.setItem('lk.lsn.path.demo', '3'); localStorage.removeItem('lk.lsn.s.story.demo'); await App.need('lesson'); // ĐỀ QC = đúng nội dung mẫu Stitch story-duo (2 bong bóng + câu hỏi + A/B/C) để so như-với-như; dữ liệu bài thật giữ nguyên
+    window.LESSON_STORIES = [{ id: 's-qc', kind: 'story', cefr: 'B1', em: '🚆', title: 'Train timetable', lines: [{ who: 'ama', en: 'Did the new train timetable affect your morning commute?' }, { who: 'carlos', en: 'Yes, it had a huge impact on my schedule!' }], checks: [{ at: 1, type: 'q', q: 'What did the new timetable do to Carlos?', options: ['It altered his daily routine', 'It canceled his train tickets', 'It did not change anything'], answer: 0, keep: 1 }] }];
+    await App.routes.lesson('go'); await w(1200);
     for (let n = 0; n < 30; n++) { const qb = q('.lsn-qblk'); if (qb && qb.style.display !== 'none' && q('#lsnBody .lsn-opt')) break; // tới bước kiểm giữa truyện: 2 bong bóng + câu hỏi + thẻ A/B/C trên MỘT màn (như mẫu)
       const it = App._lsn && App._lsn.sess.cur; if (!it) break;
       if (q('#lsnGo')) { q('#lsnGo').click(); await w(500); continue; }
       if (q('#lsnBank')) { const used = new Set(); for (const x of String(it.answer).split(/\s+/)) { const b = qa('#lsnBank .lsn-tile').find(t => !used.has(t) && nz(t.textContent) === nz(x)); if (b) { used.add(b); b.click(); } } }
       else if (q('.lsn-match')) { for (const a of qa('.lsn-match [data-s="w"]')) { a.click(); const b = q(`.lsn-match [data-s="m"][data-m="${a.dataset.m}"]`); if (b) b.click(); await w(60); } }
       await w(150); if (q('#lsnCheck') && !q('#lsnCheck').disabled) q('#lsnCheck').click(); await w(500); if (q('#lsnNext')) q('#lsnNext').click(); await w(500); }
-    const bx = qa('#lsnBody .lsn-opt')[0]; if (bx) bx.click(); await w(200); if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); return; }
+    const sc = App._lsn && App._lsn.sess.cur, bx = qa('#lsnBody .lsn-opt').find(b => sc && b.dataset.o === String(sc.answer)) || qa('#lsnBody .lsn-opt')[0]; if (bx) bx.click(); await w(200); if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); return; }
   if (k === 'complete') { // bài thử: trả lời ĐÚNG mọi câu (chọn / xếp / gõ / ghép) tới khi hiện màn kết quả
     for (let n = 0; n < 40 && !q('.lsn-end'); n++) { const it = App._lsn && App._lsn.sess.cur; if (!it) break;
       if (q('#lsnGo')) { q('#lsnGo').click(); await w(300); continue; }
