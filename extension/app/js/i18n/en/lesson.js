@@ -28,6 +28,8 @@
     'Chưa có giải thích riêng cho từ này.': 'There is no extra explanation for this word yet.',
     'Làm tốt lắm, cứ tiếp tục nhé!': 'Good work – keep going!',
     'Hoàn thành bài học!': 'Lesson complete!',
+    'Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP': 'I just finished a Lexkite lesson: {a}% correct, +{x} XP',
+    'Đã sao chép': 'Copied',
     'Tỉ lệ trả lời đúng': 'Correct answers',
     'COMBO cao nhất': 'Best COMBO',
     'Không sai câu nào!': 'No mistakes at all!',

@@ -237,8 +237,8 @@ w.location.hash = '#/lesson?demo=1'; await App.routes.lesson(); await tick(40);
 ok(w.document.querySelectorAll('.lsn-node.done').length === 1 && w.document.querySelectorAll('.lsn-node')[1].classList.contains('next'), 'bản đồ: nút 1 ✓, nút 2 phát sáng');
 // 🧩 Stitch v2.1 lesson-question (cờ ux1): CÙNG các ý như bài cũ trên khung tự sinh – hook QC, chấm, Lỗi cũ, giọng giáo viên, Ama sau thẻ đục
 App.ux1On = () => true;
-for (const f of ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js']) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
-ok(w.ST2 && w.ST2['lesson-question'] && w.ST2['feedback-correct'] && w.ST2['feedback-wrong'], 'v2: khung lesson-question + tấm feedback-correct/feedback-wrong nạp được');
+for (const f of ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js']) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
+ok(w.ST2 && w.ST2['lesson-question'] && w.ST2['feedback-correct'] && w.ST2['feedback-wrong'] && w.ST2['lesson-complete'], 'v2: khung lesson-question + tấm feedback-correct/feedback-wrong + lesson-complete nạp được');
 w.localStorage.setItem('lk.lsn.path.demo', '0'); w.localStorage.removeItem('lk.lsn.who');
 w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(320);
 {
@@ -271,10 +271,16 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
     await solve(true);
     ok($('#lsnFoot.ok') && !$('#lsnFoot').hidden, `v2: đúng → sheet xanh (${it.type})`);
     ok($('#lsnFoot .v2s-feedback-correct') && /cheer/.test((D.querySelector('#lsnTch .tch-still') || {}).src || '') && $('#lsn').contains($('#lsnFoot')) && $('#lsnFoot').textContent.length > 8, `v2: đúng → tấm Stitch feedback-correct trong luồng + Ama cheer (${it.type})`);
+    if (['q', 'gap', 'mean', 'pic'].includes(it.type) && (it.options || []).length) { const gd = [...D.querySelectorAll('#lsnBody.lsn-opts .lsn-opt')].find(b => b.dataset.o === String(it.answer)); ok(gd && /bg-\[#E8F5F3\]/.test(gd.className) && gd.querySelector('.material-symbols-outlined') && D.querySelectorAll('#lsnBody.lsn-opts .opacity-90').length === it.options.length - 1, `v2: sau Kiểm tra đáp án đúng = thẻ teal ✓, thẻ khác mờ (${it.type})`); }
     $('#lsnNext').click(); await tick();
   }
   ok(seen.has('match') && seen.size >= 5, 'v2: đủ dạng bài trên khung mới (' + [...seen].join(',') + ')');
   ok(say0.length > 0 && say0.every(o => o.voice && o.voice === w.Chars.voice('ama')), 'v2: MỌI câu giáo viên nói dùng Chars.voice(Ama)');
+  ok(D.querySelector('.v2-lesson-complete') && $('.lsn-end') && /\+\d+/.test($('.lsn-stats').textContent) && /%/.test($('.lsn-stats').textContent) && $('.lsn-stats').children.length === 3, 'v2: màn kết trên khung Stitch lesson-complete (XP, đúng %, chuỗi)');
+  const sub = $('.lsn-sub'), tcw = $('.lsn-tchw');
+  ok(sub && /COMBO|Best/i.test(sub.textContent) && /\d′/.test(sub.textContent) && /:\s*\d+′|′/.test(sub.textContent) && (sub.textContent.length > 20), 'v2: màn kết giữ COMBO cao nhất + thời gian + từ đã học/không sai câu nào');
+  ok(tcw && sub && tcw.nextElementSibling === sub && /cheer/.test((D.querySelector('#lsnTch .tch-still') || {}).src || '') && sub.className.includes('z-10'), 'v2: màn kết Ama cheer đứng SAU thẻ đục lsn-sub');
+  ok($('#lsnX').getAttribute('href') === '#/lesson?demo=1' && $('#lsnX2').getAttribute('href') === '#/lesson?demo=1' && $('#lsnRev').getAttribute('href') && $('#lsnShare') && /Next lesson|Bài khác/.test($('#lsnAgain').textContent), 'v2: màn kết: Bài khác · Bản đồ/Sổ lỗi · Chia sẻ · X về bản đồ');
   ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent) && $('#lsnAgain') && updates.length === 0 && rewards.length === 0, 'v2: màn kết + demo không ghi FSRS/XP');
 }
 App.ux1On = () => false;

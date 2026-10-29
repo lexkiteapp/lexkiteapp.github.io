@@ -30899,5 +30899,50 @@
     "ar": "تحقق من الإجابة",
     "ru": "Проверить ответ",
     "tr": "Cevabı kontrol et"
+  },
+  "Chia sẻ kết quả": {
+    "es": "Compartir resultados",
+    "pt": "Compartilhar resultados",
+    "fr": "Partager les résultats",
+    "de": "Ergebnisse teilen",
+    "id": "Bagikan hasil",
+    "th": "แชร์ผลลัพธ์",
+    "zh": "分享成绩",
+    "ja": "結果をシェア",
+    "ko": "결과 공유",
+    "hi": "परिणाम साझा करें",
+    "ar": "شارك النتائج",
+    "ru": "Поделиться результатом",
+    "tr": "Sonuçları paylaş"
+  },
+  "Chuỗi": {
+    "es": "Racha",
+    "pt": "Sequência",
+    "fr": "Série",
+    "de": "Serie",
+    "id": "Beruntun",
+    "th": "สตรีค",
+    "zh": "连续",
+    "ja": "連続",
+    "ko": "연속",
+    "hi": "स्ट्रीक",
+    "ar": "التتابع",
+    "ru": "Серия",
+    "tr": "Seri"
+  },
+  "Chính xác": {
+    "es": "Precisión",
+    "pt": "Precisão",
+    "fr": "Précision",
+    "de": "Genauigkeit",
+    "id": "Akurasi",
+    "th": "ความแม่นยำ",
+    "zh": "准确率",
+    "ja": "正確率",
+    "ko": "정확도",
+    "hi": "सटीकता",
+    "ar": "الدقة",
+    "ru": "Точность",
+    "tr": "Doğruluk"
   }
 }

@@ -16,12 +16,22 @@ export const SEED_LEAGUE = () => {
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
   Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
 };
-export const SCREENS = { home: 'home', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee' };
+export const SCREENS = { home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee' };
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call' };
+export const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call' };
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 export const DRIVE = async k => { const q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
   const pick = it => { const o = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)); if (o) o.click(); return !!o; };
+  if (k === 'complete') { // bài thử: trả lời ĐÚNG mọi câu (chọn / xếp / gõ / ghép) tới khi hiện màn kết quả
+    for (let n = 0; n < 40 && !q('.lsn-end'); n++) { const it = App._lsn && App._lsn.sess.cur; if (!it) break;
+      if (q('#lsnGo')) { q('#lsnGo').click(); await w(300); continue; }
+      if (q('.lsn-opts .lsn-opt')) pick(it);
+      else if (q('#lsnBank')) { const used = new Set(); for (const x of String(it.answer).split(/\s+/)) { const b = qa('#lsnBank .lsn-tile').find(t => !used.has(t) && t.textContent.trim() === x); if (b) { used.add(b); b.click(); } } }
+      else if (q('#lsnIn')) { q('#lsnIn').value = it.answer; q('#lsnIn').dispatchEvent(new Event('input')); }
+      else if (q('.lsn-match')) { for (const a of qa('.lsn-match [data-s="w"]')) { a.click(); const b = q(`.lsn-match [data-s="m"][data-m="${a.dataset.m}"]`); if (b) b.click(); await w(60); } }
+      else if (q('#lsnNoS')) { q('#lsnNoS').click(); await w(300); continue; }
+      await w(150); if (q('#lsnCheck') && !q('#lsnCheck').disabled) q('#lsnCheck').click(); await w(500); if (q('#lsnNext')) q('#lsnNext').click(); await w(500); }
+    if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); return; }
   for (let n = 0; n < 10 && !q('.lsn-opts .lsn-opt'); n++) { const it = App._lsn && App._lsn.sess.cur; if (!it) break;
     if (q('#lsnGo')) { q('#lsnGo').click(); await w(300); continue; }
     if (q('#lsnBank')) { const used = new Set(); for (const x of String(it.answer).split(/\s+/)) { const b = qa('#lsnBank .lsn-tile').find(t => !used.has(t) && t.textContent.trim() === x); if (b) { used.add(b); b.click(); } } }
@@ -42,6 +52,6 @@ export const FINAL = [
   { stitch: 'leagues', k: 'leagues', teacher: null }, { stitch: 'me', k: 'me', teacher: null }, { stitch: 'streak', k: 'streak', teacher: ['encourage'] },
   { stitch: 'exam-readiness', k: 'readiness', teacher: null }, { stitch: 'teacher-call', k: 'call', teacher: ['talk', 'listen'], speaks: true },
   { stitch: 'lesson-question', k: 'lesson', teacher: ['listen', 'talk'], speaks: true }, { stitch: 'feedback-correct', k: 'feedback', teacher: ['cheer'], sfx: ['correct'] },
-  { stitch: 'feedback-wrong', k: 'feedback-wrong', teacher: ['concern'], sfx: ['wrong'] }, { stitch: 'lesson-complete', k: null, teacher: ['cheer'], sfx: ['win'] },
+  { stitch: 'feedback-wrong', k: 'feedback-wrong', teacher: ['concern'], sfx: ['wrong'] }, { stitch: 'lesson-complete', k: 'complete', teacher: ['cheer'], sfx: ['win'] },
   { stitch: 'story-duo', k: null, teacher: ['talk', 'listen'], duo: true, speaks: true },
 ];
