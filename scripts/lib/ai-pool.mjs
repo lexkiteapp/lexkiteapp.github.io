@@ -53,7 +53,9 @@ export const TASKS = {
   lxtr: { kind: 'gen', deny: ['llama'] },
   lxdef: { kind: 'gen', deny: ['llama'] }, // source-first 24/10: viết lại gloss WordNet (cấm đổi nghĩa)
   lxex: { kind: 'gen', deny: ['llama'] },  // ví dụ AI CHỈ khi không có câu người viết
-  lxsrc: { kind: 'judge', deny: [] },      // giám khảo nguồn: def ≡ gloss, câu nào đúng nghĩa, bảng dịch nào khớp
+  lxsrc: { kind: 'judge', deny: [] },
+  lxwsd: { kind: 'judge', deny: [] },      // trắc nghiệm nghĩa (29/10): mỗi câu/vi/bản dịch → số nghĩa WordNet, 3 giám khảo phải cùng chọn nghĩa khoá
+  lxvi: { kind: 'judge', deny: [] },       // nguồn vi thứ hai (họ khác lxtr) – vi chỉ nhận khi ≥ 2 nguồn độc lập trùng      // giám khảo nguồn: def ≡ gloss, câu nào đúng nghĩa, bảng dịch nào khớp
   xgen: { kind: 'gen', deny: ['llama'] },
   xtr: { kind: 'gen', deny: ['llama'] },
   vgen: { kind: 'gen', deny: [] },

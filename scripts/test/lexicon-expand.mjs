@@ -2,7 +2,8 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk } from '../lexicon/expand/lib.mjs';
+import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas } from '../lexicon/expand/lib.mjs';
+import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
 import { parseCmu, pickPron, ipaAgrees } from '../lexicon/expand/cmu.mjs';
@@ -123,6 +124,40 @@ const pub = loadExpand();
 if (pub.length) { const { buildShards } = await import('../lexicon/shards.mjs'); const b = buildShards(); const Lex = (await import('module')).createRequire(import.meta.url)(path.join(ROOT, 'web/js/lex.js'));
   for (const { k, e } of pub) { ok(gateEntry(e).ok, `${k} đã xuất nhưng trượt cổng`); ok(b.E.has(Lex.norm(e.w)), `${k} đã xuất nhưng không có trong mảnh tra từ`); } }
 if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand việc hạ nguồn còn thiếu: ' + Object.keys(REG.todo).join(', '));
+// ---- "RA LÀ OK" 29/10: mỗi lớp lỗi đã gặp (docs/LEXICON.md §Mở rộng 20k – bảng lớp lỗi) có test chặn
+{ const J3 = { 'gpt-oss:gpt-oss-120b': 5, 'llama:llama-3.3-70b': 4, 'mistral:mistral-small-3.1-24b-instruct': 5 };
+  const base = () => { const g = good(); g.perLang = true; g.qa = { ...g.qa, n: 3, j: J3, tr: Object.fromEntries(LANGS.map(l => [l, [5, 4, 5]])), wsd: { ex: [true, true], vi: true, tr: Object.fromEntries(LANGS.map(l => [l, true])) }, viSrc: ['wk', 'a'] };
+    g.src = { ...(g.src || {}), tr: Object.fromEntries(LANGS.map(l => [l, 'wiktionary'])) }; g.senseLock = 'wiktionary-1'; return g; };
+  ok(gateEntry(base()).ok, 'ra là ok: mục đủ trắc nghiệm nghĩa + 2 nguồn vi phải đạt: ' + JSON.stringify(gateEntry(base()).why));
+  // L1 vi sai nghĩa khoá (idol "thần tượng", bequest "di chúc"): vi chỉ 1 nguồn → trượt; vi không qua trắc nghiệm nghĩa → trượt
+  ok(gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['a'] } }).why.some(x => /≥ 2 nguồn/.test(x)), 'L1: vi 1 nguồn → trượt');
+  ok(gateEntry({ ...base(), qa: { ...base().qa, wsd: { ...base().qa.wsd, vi: false } } }).why.some(x => /dịch vi: chưa qua trắc nghiệm/.test(x)), 'L1: vi không qua trắc nghiệm nghĩa → trượt');
+  ok(viAgreeSources({ wk: ['thần tượng'], a: 'tượng thần', b: 'tượng thờ' }).length === 0 && viAgreeSources({ wk: ['thần tượng; tượng thần'], a: 'tượng thần' }).map(o => o.v).join() === 'tượng thần', 'L1: vi chỉ nhận phương án ≥ 2 nguồn trùng');
+  // L2 ví dụ nghĩa lân cận (railroad, palate, muscular, swimmer) / câu gượng: 3 giám khảo phải cùng chọn số nghĩa khoá – 2/3 hoặc thiếu phiếu = không
+  ok(wsdOk([2, 2, 2], 2) && !wsdOk([2, 2, 1], 2) && !wsdOk([2, 2], 2) && !wsdOk([2, 2, NaN], 2) && !wsdOk([0, 0, 0], 0 + 1), 'L2: trắc nghiệm nghĩa cần 3/3 đúng số');
+  ok(gateEntry({ ...base(), qa: { ...base().qa, wsd: { ...base().qa.wsd, ex: [true, false] } } }).why.some(x => /ví dụ chưa qua trắc nghiệm/.test(x)), 'L2: ví dụ không qua trắc nghiệm nghĩa → trượt');
+  // L3 nghĩa WordNet hiếm (conservatory "the faculty and students", fissure n.03): nghĩa 1 Wiktionary → số nghĩa 3/3, không thì null (bỏ từ)
+  ok(lockSense([3, 3, 3], [2, 2, 2], 1, 3).idx === 3 && lockSense([3, 3, 1], [1, 1, 1], 1, 3).idx === 1 && lockSense([3, 3, 1], [2, 2, 2], 1, 3) === null && lockSense([0, 0, 0], null, 1, 3) === null && lockSense([4, 4, 4], null, 1, 3) === null, 'L3: khoá nghĩa thông dụng');
+  ok(gateEntry({ ...base(), senseLock: false }).why.some(x => /không khoá được nghĩa thông dụng/.test(x)), 'L3: không khoá được nghĩa → trượt');
+  // D1 bảng Wiktionary ghép nhầm nghĩa (repress th กลั้น, cassette zh 卡式): phải có trong lemma OMW của synset; bản dịch chưa qua trắc nghiệm nghĩa → bỏ ngôn ngữ
+  ok(!omwHas('th', 'กลั้น', ['กำราบ', 'ปราบปราม']) && omwHas('ja', '抑圧する', ['圧伏+する', '抑圧+する']) && omwHas('ar', 'سِكَّة حَدِيد', ['سكة حديد']), 'D1: khớp lemma OMW (chuẩn hoá する/harakat)');
+  { const g = base(); g.qa.wsd.tr = { ...g.qa.wsd.tr, th: false }; const r = gateEntry(g); ok(r.ok && !r.keep.includes('th') && /trắc nghiệm/.test(r.drop.th), 'D1: bản dịch không qua trắc nghiệm nghĩa → bỏ ngôn ngữ, mục vẫn đạt'); }
+  { const g = base(); g.src.tr.ja = 'omw'; ok(gateEntry(g).keep.includes('ja'), 'D1: nguồn OMW (người viết) được nhận'); }
+  // D2 từ không tồn tại (ja 忙しむ, th ภมุ): trcheck --exist → trBad → bỏ ngôn ngữ
+  { const g = base(); g.trBad = { ja: ['忙しむ'] }; const r = gateEntry(g); ok(r.ok && !r.keep.includes('ja'), 'D2: từ không có thật → bỏ ngôn ngữ'); }
+  // D3 sai từ loại (carelessly es "descuidado" tính từ): hình từ loại tất định
+  ok(!posShapeOk('es', 'adv', 'descuidado', 'carelessly') && posShapeOk('es', 'adv', 'descuidadamente', 'carelessly') && !posShapeOk('ru', 'v', 'подавление', 'repress') && posShapeOk('ru', 'v', 'подавлять') && !posShapeOk('tr', 'v', 'baskı', 'repress') && !posShapeOk('ko', 'adj', '현기증') && posShapeOk('ko', 'adj', '어지러운'), 'D3: hình từ loại bản dịch');
+  { const g = { ...base(), w: 'carelessly', pos: 'adv', def: 'without care or concern', ex: ['He carelessly left the door open.', 'She carelessly dropped the glass.'], m: { ...base().m, es: 'descuidado' } };
+    const r = gateEntry(g); ok(r.ok && !r.keep.includes('es') && /từ loại/.test(r.drop.es), 'D3: es tính từ cho trạng từ → bỏ es'); }
+  // chấm tự động mẫu cố định: nhãn xấu lọt / chặn / sửa đúng
+  { const L = { bad: [{ k: 'idol#n', cls: 'L1', field: 'vi', bad: 'thần tượng', when: { sense: 'idol.n.01' } }, { k: 'repress#v', cls: 'D1', field: 'm.th', bad: 'กลั้น' }, { k: 'snail#n', cls: 'L2', field: 'ex', bad: 'We were late going to look for snails.' }], good: [{ k: 'haven#n' }] };
+    const it = { 'idol#n': { pass: true, ent: { vi: 'tượng thần; thần tượng', src: { sense: 'wordnet-3.0:idol.n.01' } } }, 'repress#v': { pass: true, ent: { m: { th: 'ปราบปราม' }, src: {} } }, 'snail#n': { pass: false, why: ['x'] }, 'haven#n': { pass: true, ent: {} } };
+    const g = grade(it, L); ok(g.bad.leak.length === 1 && /idol/.test(g.bad.leak[0]) && g.bad.fixed === 1 && g.bad.blocked === 1 && g.good.pass === 1, 'grade: lọt / sửa đúng / chặn');
+    ok(!applies({ src: { sense: 'wordnet-3.0:idol.n.02' } }, L.bad[0]) && hasBad({ ex: ['A Muslim prayed.'] }, { field: 'ex', bad: '\\bmuslims?\\b', re: true }), 'grade: when theo nghĩa + biểu thức'); }
+  // nhãn mẫu cố định: không bao giờ bớt (chỉ thêm)
+  { const L = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/lexicon/expand/pilot/labels.json'), 'utf8')), P = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/lexicon/expand/pilot/hard.json'), 'utf8')).items;
+    ok(L.bad.length >= 32 && L.good.length >= 45 && P.length >= 378 && L.bad.every(b => P.includes(b.k)) && ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'D1', 'D2', 'D3'].every(c => L.bad.some(b => b.cls === c)), 'mẫu cố định: đủ nhãn mọi lớp, mọi từ nhãn có trong pilot-hard'); }
+}
 if (fail) { console.error(`✗ lexicon-expand: ${fail} lỗi`); process.exit(1); }
 console.log(`✓ lexicon-expand: cổng mục + dịch ngược + ${Object.keys(REG.consumers).length} việc hạ nguồn · ${pub.length} mục đã xuất`);
 
