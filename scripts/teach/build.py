@@ -61,7 +61,13 @@ for who, P in R['people'].items():
     if CY < 0 or CY + CH > FH: errs.append(f'{who}: khung cao {CH}+{CY} ra ngoài clip {FW}x{FH}'); continue
     crop = f'{CW}:{CH}:{CX}:{CY}'; SC = f'scale={SW}:{H}:flags=lanczos,pad={W}:{H}:{PX}:0:black'
     # alpha: vùng đệm = 0 TUYỆT ĐỐI (pad xám tô 16 = 'đen dải hẹp' → lộ khung mờ), mép dưới mờ dần
-    FA = f"geq=lum='if(between(X,{PX},{PX + SW - 1})*gte(lum(X,Y),12),lum(X,Y),0)*min(1,(H-Y)/(H*0.10))'"; print(f'{who}: crop {crop} → {SW}x{H} đệm {PX} → {W}x{H}')
+    FA = f"geq=lum='if(between(X,{PX},{PX + SW - 1})*gte(lum(X,Y),12),lum(X,Y),0)*min(1,(H-Y)/(H*0.10))'"
+    # bản 2× (màn retina, chỗ lớn: ăn mừng, Call): cùng khung, gấp đôi điểm ảnh
+    SC2 = f'scale={SW * 2}:{H * 2}:flags=lanczos,pad={W * 2}:{H * 2}:{PX * 2}:0:black'
+    FA2 = f"geq=lum='if(between(X,{PX * 2},{PX * 2 + SW * 2 - 1})*gte(lum(X,Y),12),lum(X,Y),0)*min(1,(H-Y)/(H*0.10))'"
+    still = lambda cf, cm, fr, sc, fa, out: run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex',
+        f'[1:v]select=eq(n\\,{fr}),format=gray,crop={crop},{sc},{fa}[a];[0:v]select=eq(n\\,{fr}),crop={crop},{sc}[c];[c][a]alphamerge', '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', out)
+    print(f'{who}: crop {crop} → {SW}x{H} đệm {PX} → {W}x{H}')
     for pose in R['poses']:
         c = P['clips'][pose]; src = c['src']; cf, cm = f'{G}/kfull_pro/{src}.mp4', f'{G}/kmask_pro/{src}.mkv'
         if not (os.path.exists(cf) and os.path.exists(cm)):
@@ -84,15 +90,27 @@ for who, P in R['people'].items():
         if got != f'{W},{H * 2},{2 * N - 2}': errs.append(f'{o}: {got} (cần {W},{H * 2},{2 * N - 2})')
         if os.path.getsize(o) > 240 * 1024: errs.append(f'{o}: {os.path.getsize(o) // 1024} KB > 240 KB')
         print(f'  {pose:9s} {src}[{a}:{z}] {os.path.getsize(o) // 1024} KB')
+        # ảnh tĩnh từng tư thế @2× (khung tiêu biểu: 'still' trong registry, mặc định 40 % clip) – Chars.still / Chars.img({pose})
+        still(cf, cm, c.get('still', a + N * 2 // 5), SC2, FA2, f'{OUT}/{who}/still-{pose}.webp')
+        if pose in ('talk', 'listen'):   # clip HD cho chỗ lớn sống (Call): 2× điểm ảnh, ≤ 900 KB
+            oh = f'{OUT}/{who}/{pose}-hd.mp4'
+            run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g.replace(f',{SC},{FA}[a]', f',{SC2},{FA2}[a]').replace(f',{SC},format=rgba[c]', f',{SC2},format=rgba[c]'),
+                '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow', '-crf', str(F['crf']), '-tune', 'animation', '-movflags', '+faststart', oh)
+            if probe(oh, 'width,height,nb_read_frames') != f'{W * 2},{H * 4},{2 * N - 2}': errs.append(f'{oh}: sai cỡ/khung')
+            if os.path.getsize(oh) > 900 * 1024: errs.append(f'{oh}: {os.path.getsize(oh) // 1024} KB > 900 KB')
     cf, cm = f'{G}/kfull_pro/{t0}.mp4', f'{G}/kmask_pro/{t0}.mkv'
     run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={crop},{SC},{FA}[a];[0:v]crop={crop},{SC}[c];[c][a]alphamerge',
         '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', f'{OUT}/{who}/poster.webp')
     S = round(P['eye_mouth'] * 5 / 2) * 2; AX, AY = round(P['eye'][0] - S / 2), round(P['eye'][1] - P['eye_mouth'] * 2.6); A = F['avatar']
     run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={S}:{S}:{AX}:{AY},scale={A}:{A}:flags=lanczos,{fade(0.22)}[a];[0:v]crop={S}:{S}:{AX}:{AY},scale={A}:{A}:flags=lanczos[c];[c][a]alphamerge',
         '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', f'{OUT}/{who}/avatar.webp')
+    still(cf, cm, 0, SC2, FA2, f'{OUT}/{who}/poster-2x.webp')
+    A2 = A * 2
+    run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', f'[1:v]format=gray,crop={S}:{S}:{AX}:{AY},scale={A2}:{A2}:flags=lanczos,{fade(0.22)}[a];[0:v]crop={S}:{S}:{AX}:{AY},scale={A2}:{A2}:flags=lanczos[c];[c][a]alphamerge',
+        '-frames:v', '1', '-c:v', 'libwebp', '-q:v', '88', f'{OUT}/{who}/avatar-2x.webp')
     from PIL import Image
     import numpy as np
-    for k in ('poster', 'avatar'): edge_qc(f'{who}/{k}.webp', np.array(Image.open(f'{OUT}/{who}/{k}.webp').convert('RGBA')))
+    for k in ['poster', 'avatar', 'poster-2x', 'avatar-2x'] + [f'still-{p}' for p in R['poses'] if os.path.exists(f'{OUT}/{who}/still-{p}.webp')]: edge_qc(f'{who}/{k}.webp', np.array(Image.open(f'{OUT}/{who}/{k}.webp').convert('RGBA')))
     for pose in R['poses']:
         o = f'{OUT}/{who}/{pose}.mp4'
         if not os.path.exists(o): continue

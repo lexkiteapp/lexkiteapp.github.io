@@ -18,12 +18,12 @@ if (C.ids.join() !== IDS.join()) errs.push(`Chars.ids ${C.ids} ≠ characters.js
 if (C.poses.join() !== R.poses.join()) errs.push(`Chars.poses ≠ characters.json poses`);
 const want = new Set();
 for (const who of IDS) {
-  want.add(`${who}/poster.webp`).add(`${who}/avatar.webp`);
+  want.add(`${who}/poster.webp`).add(`${who}/avatar.webp`).add(`${who}/poster-2x.webp`).add(`${who}/avatar-2x.webp`);
   for (const p of R.poses) {
     const c = R.people[who].clips[p]; if (!c) { errs.push(`${who}: thiếu tư thế ${p}`); continue; }
     const pend = C.clip(who, p) !== `teach/${who}/${p}.mp4`;
     if (!!c.pending !== pend) errs.push(`${who}/${p}: pending trong JSON (${!!c.pending}) ≠ Chars (${pend})`);
-    if (!c.pending) want.add(`${who}/${p}.mp4`);
+    if (!c.pending) { want.add(`${who}/${p}.mp4`).add(`${who}/still-${p}.webp`); if (p === 'talk' || p === 'listen') want.add(`${who}/${p}-hd.mp4`); }
   }
 }
 for (const f of want) {
