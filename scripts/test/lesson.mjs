@@ -292,7 +292,7 @@ for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' 
   ok(D.querySelector('.v2-story-duo') && $('#lsn.lsn-v2') && T && T.ama && T.carlos && $('#lsnTch') && $('#lsnTch2') && $('.lsn-bar').getAttribute('role') === 'progressbar' && $('a.lsn-x').getAttribute('href') === '#/lesson?demo=1', `v2 ${kind}: khung story-duo, Ama + Carlos (2 LessonTeacher), thanh tiến độ, ✕ về bản đồ`);
   ok(D.querySelectorAll('.lsn-ln').length === 1 && $('#lsnPlay') && $('#lsnGo') && /Tiếp tục|Continue/.test($('#lsnGo').textContent), `v2 ${kind}: câu đầu hiện, nút Nghe lại + Tiếp tục`);
   const tw = [...D.querySelectorAll('.lsn-tchw')], ch = $('#lsnChat');
-  ok(tw.length === 2 && $('#lsnTch').compareDocumentPosition($('#lsnTch2')) & 4 && tw.every(x => x.compareDocumentPosition(ch) & 4) && /z-10/.test(ch.className) && /lt:bg-\[#FFF7EA\]/.test(ch.className), `v2 ${kind}: Ama trái + Carlos phải, cả hai đứng SAU khung chat đục z-10`);
+  ok(tw.length === 2 && $('#lsnTch').compareDocumentPosition($('#lsnTch2')) & 4 && tw.every(x => x.compareDocumentPosition(ch) & 4) && /z-10/.test(ch.className) && /lt:bg-\[#F0F4F3\]/.test(ch.className) && !/lt:bg-\[#FFF7EA\]/.test(ch.className), `v2 ${kind}: Ama trái + Carlos phải, cả hai đứng SAU khung chat là MẶT Stitch thấy được (khác màu nền trang) z-10`);
   ok(!D.querySelector('.lsn-tchw .rounded-full, .lsn-tchw [class*="ring"], .lsn-tchw [class*="mask"]'), `v2 ${kind}: không vòng / hào quang / khung quanh giáo viên`);
   for (const k of ['ama', 'carlos']) { const x = T[k], o = x.say; x.say = (txt, op) => { said.push({ k, op: op || {} }); return o.call(x, txt, op); }; }
   let g2 = 0, prevLines = 0;
@@ -305,7 +305,8 @@ for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' 
       else if (n) ok(D.querySelector('.lsn-ln:last-child p').textContent === it.sent, 'v2 story: bong bóng cuối = câu đang đọc');
       prevLines = n; await solve(true); continue;
     }
-    sawQ = sawQ || !!D.querySelector('.v2-lesson-question'); ok(!D.querySelector('#lsnChat'), `v2 ${kind}: bài kiểm (${it.type}) ẩn lời thoại, không lộ đáp án`);
+    const inDuo = it.type === 'q'; sawQ = sawQ || (inDuo ? !!D.querySelector('.v2-story-duo .lsn-qblk') && !!$('#lsnBody .lsn-opt') : !!D.querySelector('.v2-lesson-question'));
+    if (inDuo) { ok(D.querySelectorAll('.lsn-ln').length >= 1 && $('.lsn-qblk').style.display !== 'none' && $('#lsnCheck') && $('#lsnCheck').disabled && D.querySelectorAll('#lsnBody .lsn-opt').length === it.options.length, `v2 ${kind}: bài kiểm q = CÙNG khung story-duo (bong bóng + câu hỏi + thẻ A/B/C + Kiểm tra, 1 màn)`); if (kind === 'radio') ok(!/[A-Za-z]{3}/.test([...D.querySelectorAll('.lsn-ln p')].map(x => x.textContent).join('')), 'v2 radio: bài kiểm vẫn không lộ chữ lời thoại'); } else ok(!D.querySelector('#lsnChat'), `v2 ${kind}: bài kiểm (${it.type}) ẩn lời thoại, không lộ đáp án`);
     await solve(true); ok($('#lsnFoot.ok'), `v2 ${kind}: trả lời đúng (${it.type}) → tấm feedback-correct`); $('#lsnNext').click(); await tick();
   }
   ok(sawDuo && sawQ && sawLine, `v2 ${kind}: có cả khung hội thoại lẫn khung bài kiểm`);

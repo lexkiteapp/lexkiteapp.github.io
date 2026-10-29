@@ -76,7 +76,8 @@ const TEACH = async () => {
       if (edge) cut.push('chạm mép dưới ảnh (nửa người)'); if (soft > 0.5) cut.push('thân mờ dần ở đáy');
       body.tail = (bot - Math.round(fig * 0.15)) / H; } catch (err) { body = { err: String(err).slice(0, 60) }; } }
     // khuất sau mặt đục? lưới điểm trong dải đáy hình (15 % dưới của người → đáy thấy được): điểm trên cùng phải là phần tử KHÁC, nền đục (alpha ≥ .95)
-    const opaque = h => { for (let q = h, i = 0; q && i < 4 && !q.contains(e); q = q.parentElement, i++) { const c = getComputedStyle(q).backgroundColor.match(/[\d.]+/g) || []; if (c.length >= 3 && (c[3] == null ? 1 : +c[3]) >= 0.95) return true; } return false; };
+    const pg = (getComputedStyle(document.querySelector('#view > *') || document.body).backgroundColor.match(/[\d.]+/g) || []).slice(0, 3).join(), // mặt che phải là MẶT STITCH thấy được (khác màu nền trang): tấm cùng màu nền trang không che gì (thân vẫn như bị cắt ngang)
+      opaque = h => { for (let q = h, i = 0; q && i < 4 && !q.contains(e); q = q.parentElement, i++) { const c = getComputedStyle(q).backgroundColor.match(/[\d.]+/g) || []; if (c.length >= 3 && (c[3] == null ? 1 : +c[3]) >= 0.95 && c.slice(0, 3).join() !== pg) return true; } return false; };
     let occluded = false; if (cut.length) { const y0 = r.top + (body && body.tail != null ? body.tail : 0.8) * r.height, y1 = visBottom - 1, pts = [];
       for (let yi = 0; yi < 4; yi++) for (let xi = 0; xi < 5; xi++) pts.push([r.left + r.width * (0.3 + xi * 0.1), y0 + (y1 - y0) * (yi / 3)]);
       occluded = y1 > y0 && pts.every(([x, y]) => { if (y < 0 || y >= innerHeight) return false; const h = document.elementFromPoint(x, y); return h && h !== e && !e.contains(h) && !(tch && tch.contains(h)) && opaque(h); }); }

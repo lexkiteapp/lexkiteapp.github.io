@@ -1,8 +1,9 @@
 {
- "_doc": "Màn Truyện (#/lesson/go, node.kind=story|radio, cờ ux1): khung hội thoại Ama + Carlos. d do web/js/lesson/ui.js storyFrame() dựng. Cả 2 giáo viên (Chars) đứng SAU khung đối thoại đục (d.duo chèn sau thanh người nói; khung chat z-10 nền đục); câu thoại mới nối vào danh sách (khuôn lấy từ 2 bong bóng mẫu); nút 'CHECK ANSWER' = Tiếp tục (#lsnGo); phần câu hỏi/đáp án mẫu bỏ vì bài kiểm giữa truyện dùng khung lesson-question (Ama/người nói + thẻ đáp án + tấm phản hồi); radio: chữ ẩn, chip giữa = ON AIR.",
+ "_doc": "Màn Truyện (#/lesson/go, node.kind=story|radio, cờ ux1): khung hội thoại Ama + Carlos. d do web/js/lesson/ui.js storyFrame() dựng. Cả 2 giáo viên (Chars) đứng SAU khung đối thoại đục (d.duo chèn sau thanh người nói; khung chat z-10 nền đục); câu thoại mới nối vào danh sách (khuôn lấy từ 2 bong bóng mẫu); nút 'CHECK ANSWER' = Tiếp tục (#lsnGo); Bài kiểm giữa truyện (type 'q') = CÙNG khung Stitch: 2 bong bóng + câu hỏi (#lsnBub) + thẻ A/B/C (#lsnBody, khuôn tắt/bật lấy từ mẫu) + nút CHECK ANSWER (#lsnCheck); bước thoại ẩn khối câu hỏi, nút = Tiếp tục (#lsnGo); radio: chữ ẩn, chip giữa = ON AIR.",
  "i18n": {
   "Close session": "Thoát bài học",
-  "User Profile": "Hồ sơ người học"
+  "User Profile": "Hồ sơ người học",
+  "Answer options": "Các đáp án"
  },
  "text": {
   "Active Drill Session": "d.title",
@@ -10,7 +11,8 @@
   "Ama": "'Ama'",
   "Carlos": "'Carlos'",
   "CHECK ANSWER": "t('Tiếp tục')",
-  "Dialogue": "d.mid"
+  "Dialogue": "d.mid",
+  "What did the new timetable do to Carlos?": "d.qt"
  },
  "attr": {
   ":scope > header > div > button": {
@@ -47,6 +49,12 @@
   },
   ":scope .material-symbols-outlined": {
    "aria-hidden": "'true'"
+  },
+  ":scope > main > div > div:nth-child(3) > h2": {
+   "id": "'lsnBub'"
+  },
+  ":scope > main > div > div:nth-child(4)": {
+   "id": "'lsnBody'"
   }
  },
  "cls": {
@@ -68,17 +76,17 @@
  "addClass": {
   ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "lsn-mid",
-  ":scope > main > div > div:nth-child(2)": "relative z-10 lsn-chatp mt-[-3.5rem] rounded-t-[20px] lt:bg-[#FFF7EA] dk:bg-[#0B171A]",
+  ":scope > main > div > div:nth-child(2)": "relative z-10 lsn-chatp mt-[-3.5rem] rounded-t-[20px] lt:bg-[#F0F4F3] dk:bg-[#091518] px-[0.5rem] pb-[0.75rem]",
   ":scope > main > div > div:nth-child(5) > button": "lsn-gonext",
   ":scope > header > div > div:nth-child(2) > div:nth-child(2)": "lsn-bar",
-  ":scope > header > div > button": "lsn-x"
+  ":scope > header > div > button": "lsn-x",
+  ":scope > main > div > div:nth-child(4)": "lsn-opts",
+  ":scope > main > div > div:nth-child(3)": "lsn-qblk",
+  ":scope > main > div > div:nth-child(5)": "lsn-qfoot"
  },
  "after": {
   ":scope > main > div > div:nth-child(1)": "d.duo"
  },
- "remove": [
-  ":scope > main > div > div:nth-child(n+3):nth-child(-n+4)"
- ],
  "repeat": [
   {
    "list": "d.log",
@@ -130,6 +138,46 @@
      "html": {
       ":scope > div:nth-child(1) > span": "e(r.name)",
       ":scope > div:nth-child(2) > p": "e(r.en)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.opts",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(4) > div",
+   "pick": "r.v",
+   "variants": {
+    "off": ":scope > main > div > div:nth-child(4) > div:nth-child(2)",
+    "on": ":scope > main > div > div:nth-child(4) > div:nth-child(1)"
+   },
+   "bind": {
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-o": "r.o"
+      }
+     },
+     "addClass": {
+      ":scope": "lsn-opt"
+     },
+     "html": {
+      ":scope > div > span:nth-child(1)": "e(r.k)",
+      ":scope > div > span:nth-child(2)": "e(r.t)"
+     }
+    },
+    "on": {
+     "attr": {
+      ":scope": {
+       "data-o": "r.o"
+      }
+     },
+     "addClass": {
+      ":scope": "lsn-opt"
+     },
+     "html": {
+      ":scope > div > span:nth-child(1)": "e(r.k)",
+      ":scope > div > span:nth-child(2)": "e(r.t)"
      }
     }
    }

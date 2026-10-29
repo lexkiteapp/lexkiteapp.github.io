@@ -134,11 +134,11 @@
   // 🧩 Stitch v2.1 lesson-question (cờ ux1): khung tự sinh, Ama (Chars+LessonTeacher, 2D) đứng sau thẻ đề bài đục; trang cũ (ST.lsnShell) giữ làm dự phòng + cho Truyện/Radio (2 giáo viên)
   const v2On = () => !!(window.ST2 && window.ST2['lesson-question'] && window.Chars && window.LessonTeacher && App.ux1On && App.ux1On());
   const GRID = 'grid grid-cols-2 gap-[1rem] mb-[1rem] lsn-opts', FLOW = 'flex flex-col gap-3 mb-[1rem]', LET = 'ABCDEFGH';
-  const SLOW = 'w-full mb-3 min-h-[44px] flex items-center justify-center gap-1.5 py-2 px-4 rounded-[9999px] active:translate-y-[2px] transition-transform lt:bg-[#FFFFFF] lt:border lt:border-[#EADEC8] lt:text-[#4A5F65] dk:bg-[#142328] dk:border dk:border-[#233942] dk:text-[#A9BFC1] motion-reduce:transition-none';
+  const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
   function v2shell(sh) {
     const d = { close: sh.close, title: sh.title, pct: 0, combo: '', chip: sh.chip, play: t('Nghe lại'), who: sh.who,
       teacher: '<div class="lsn-tchw relative z-0 -mb-14 h-[172px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[200px] h-[172px] max-w-full"></div></div>',
-      slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span><span class="text-[13px] leading-[18px] font-extrabold uppercase tracking-wider">${esc(t('Nghe chậm hơn'))}</span></button>`,
+      slow: `<button id="lsnSlow" type="button" class="${SLOW}" hidden aria-label="${esc(t('Nghe chậm hơn'))}"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">slow_motion_video</span></button>`,
       opts: ['off', 'on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
     const root = ST2.mount(view, 'lesson-question', d, null); root.id = 'lsn'; root.classList.add('lsn-v2');
     const g = root.querySelector('#lsnBody'); L.tpl = { off: g.children[0], on: g.children[1] }; g.textContent = ''; // khuôn thẻ đáp án (chưa chọn / đã chọn) lấy từ khung Stitch
@@ -208,6 +208,7 @@
     if (!it) return finish();
     L.pick = null; L.tiles = []; L.checked = false;
     if (it.type === 'line' && L.frame === 'duo') return lineDuo(it);
+    if (it.type === 'q' && L.frame === 'duo') return qDuo(it);
     const bub = $('#lsnBub'), body = $('#lsnBody');
     const tag = it.retry ? ST.lsnTag('↺ ' + t('Lỗi cũ')) : (it.own && (it.type === 'gap' || it.type === 'build') ? ST.lsnTag('🔎 ' + t('Từ bạn đã tra'), true) : '');
     const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
@@ -216,7 +217,7 @@
     else if (it.type === 'mean') sub = meanOf(it.card);
     else if (it.type === 'type' && it.noAudio) sub = meanOf(it.card);
     else if (it.type === 'build' && it.noAudio) sub = it.prompt || meanOf(it.card);
-    bub.innerHTML = tag + esc(TITLE(it)) + (sub ? ST.lsnSub(sub, it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en') : '');
+    bub.innerHTML = tag + (L.v2 && it.type === 'gap' ? `<span class="sr-only">${esc(TITLE(it))}</span>` : esc(TITLE(it))) + (sub ? ST.lsnSub(sub, it.type === 'mean' || it.type === 'tr' || it.noAudio ? '' : 'en') : '');
     const V = L.v2, snd = LISTENS(it) && !V ? ST.lsnSnd({ play: t('Nghe lại'), slow: t('Nghe chậm hơn'), label: t('Mẫu âm thanh'), name: TNAME(it.who || L.who) }) : '';
     const fill = (html, grid) => { if (V) body.className = grid ? GRID : FLOW; body.innerHTML = V && grid ? '' : html; }; // v2: lưới 2 cột cho trắc nghiệm (bindItem vẽ thẻ), dạng khác = cột dọc cùng ô
     const audioText = it.type === 'gap' || it.type === 'build' ? it.sent : it.answer;
@@ -254,7 +255,7 @@
   // 🧩 Stitch v2.1 story-duo (cờ ux1): câu thoại = khung 'story-duo' (Ama trái + Carlos phải, cả hai Chars/LessonTeacher đứng SAU khung chat đục); bài kiểm giữa truyện = khung lesson-question (người nói của câu đó + thẻ đáp án + tấm phản hồi).
   const duoOn = () => v2On() && !!ST2['story-duo'], RADIO = '🔊 · · ·';
   function frame(it) {
-    const want = it.type === 'line' ? 'duo' : 'q-' + (it.who || 'ama'); if (L.frame === want) return;
+    const want = it.type === 'line' || (it.type === 'q' && L.duo) ? 'duo' : 'q-' + (it.who || 'ama'); if (L.frame === want) return;
     [L.teacher, L.teachers && L.teachers.carlos].forEach(x => { if (x) { try { x.destroy(); } catch (e) { /* bỏ qua */ } } }); L.teacher = null; L.teachers = null; L.frame = want;
     if (L.foot) { L.foot.hidden = true; L.foot.innerHTML = ''; L.foot.className = ST.FOOT; document.body.appendChild(L.foot); } // tấm phản hồi nằm trong khung cũ → đưa về body trước khi dựng khung mới
     if (want === 'duo') return duoMount();
@@ -266,16 +267,35 @@
     const row = x => ({ v: x.who === 'carlos' ? 'carlos' : 'ama', name: TNAME(x.who), en: x.radio ? RADIO : x.sent, play: t('Nghe lại') + ' · ' + TNAME(x.who) });
     const box = id => `<div class="lsn-tchw relative z-0 h-[160px] w-[150px] flex justify-center pointer-events-none" aria-hidden="true"><div id="${id}" class="relative w-[150px] h-[160px]"></div></div>`;
     const d = { close: L.sh.close, title: L.sh.title, pct: '0%', mid: L.story.kind === 'radio' ? '● ON AIR' : t('Đối thoại'), duo: `<div class="lsn-duo2 relative z-0 flex justify-between items-end">${box('lsnTch')}${box('lsnTch2')}</div>`,
-      log: [{ who: 'ama' }, { who: 'carlos' }].concat(L.log).map(row) };
+      log: [{ who: 'ama' }, { who: 'carlos' }].concat(L.log).map(row), qt: '', opts: ['on', 'off', 'off'].map((v, i) => ({ v, o: '', k: LET[i], t: '' })) };
     d.log[0].v = 'ama'; d.log[1].v = 'carlos';
     const root = ST2.mount(view, 'story-duo', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-story');
     const chat = $('#lsnChat'); L.tl = { ama: chat.children[0], carlos: chat.children[1] }; L.tl.ama.remove(); L.tl.carlos.remove(); // 2 bong bóng mẫu = khuôn cho câu thoại mới
+    const og = $('#lsnBody'); L.tplq = { on: og.children[0], off: og.children[1] }; og.textContent = ''; L.qblk = view.querySelector('.lsn-qblk'); L.qfootEl = view.querySelector('.lsn-qfoot'); L.qblk.style.display = og.style.display = 'none'; // khuôn thẻ đáp án (đã chọn / chưa) lấy từ mẫu; khối câu hỏi chỉ hiện ở bước kiểm
     chat.querySelectorAll('.lsn-ln button').forEach((b, i) => { b.onclick = () => say(L.log[i].sent, false, L.log[i].who); });
     try { const ama = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; L.teacher = ama; L.teachers = ama ? { ama, carlos: LessonTeacher.mount($('#lsnTch2'), 'carlos') } : null; } catch (e) { L.teacher = null; L.teachers = null; }
   }
+  // Khung story-duo có 2 chế độ trên MỘT màn: thoại (khối câu hỏi ẩn, nút = Tiếp tục #lsnGo) / kiểm (khối câu hỏi + thẻ A/B/C hiện, nút = Kiểm tra #lsnCheck)
+  function duoMode(q) {
+    const foot = $('#lsnFoot'); if (foot) { foot.hidden = true; foot.innerHTML = ''; foot.className = ST.FOOT; document.body.appendChild(foot); } // tấm phản hồi của câu trước → về body
+    const lv = view.querySelector('#lsn'); if (lv) lv.classList.remove('st-dim');
+    L.v2 = !!q; L.qblk.style.display = $('#lsnBody').style.display = q ? '' : 'none';
+    const b = L.qfootEl.querySelector('button'), sp = b.querySelector('span:not(.material-symbols-outlined)');
+    b.id = q ? 'lsnCheck' : 'lsnGo'; b.classList.toggle('lsn-gonext', !q); sp.textContent = q ? t('Kiểm tra đáp án') : t('Tiếp tục'); b.disabled = q;
+  }
+  function qDuo(it) {
+    duoMode(true); L.v2 = true; L.who = it.who || L.who || 'ama';
+    const og = $('#lsnBody'), chk = $('#lsnCheck'); $('#lsnBub').textContent = it.prompt; og.textContent = '';
+    const paint = () => { og.textContent = ''; it.options.forEach((o, i) => { const n = L.tplq[L.pick === o ? 'on' : 'off'].cloneNode(true); n.removeAttribute('id'); n.dataset.o = o; n.lang = 'en'; n.classList.add('lsn-opt'); n.setAttribute('aria-checked', String(L.pick === o)); n.tabIndex = 0;
+      const sp = n.querySelectorAll(':scope > div > span'); sp[0].textContent = LET[i]; sp[1].textContent = o;
+      const pickIt = () => { if (L.checked) return; L.pick = o; chk.disabled = false; paint(); const nb = og.children[i]; if (nb) nb.focus({ preventScroll: true }); };
+      n.onclick = pickIt; n.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickIt(); } }; og.appendChild(n); }); };
+    paint(); chk.onclick = () => submit(L.pick);
+    const c = $('#lsnChat'); c.scrollIntoView({ block: 'nearest' }); setTimeout(() => say(it.prompt, false, it.who), 200);
+  }
   function lineDuo(it) {
     const chat = $('#lsnChat'), s = it.who === 'carlos' ? 'carlos' : 'ama', name = TNAME(it.who);
-    if (L.log.indexOf(it) < 0) L.log.push(it);
+    if (L.log.indexOf(it) < 0) L.log.push(it); duoMode(false);
     const n = L.tl[s].cloneNode(true), p = n.querySelector('p'), b = n.querySelector('button');
     n.querySelector(':scope > div:nth-child(1) > span').textContent = name; p.textContent = it.radio ? RADIO : it.sent; b.setAttribute('aria-label', t('Nghe lại') + ' · ' + name);
     chat.querySelectorAll('#lsnPlay').forEach(x => x.removeAttribute('id')); b.id = 'lsnPlay'; b.onclick = () => say(it.sent, false, it.who);
@@ -391,8 +411,8 @@
     og.querySelectorAll('.lsn-opt').forEach(b => {
       const good = b.dataset.o === String(it.answer), bad = !ok && b.dataset.o === L.pick && !good;
       if (good) b.classList.add(...OPT_OK.split(' ')); else if (bad) b.classList.add(...OPT_BAD.split(' ')); else b.classList.add('opacity-90');
-      if (good || bad) { const hd = b.querySelector(':scope > div'); hd.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded').forEach(x => { const p = x.parentElement; (p !== hd && !p.textContent.replace(x.textContent, '').trim() ? p : x).remove(); }); } // cả vòng tròn chứa dấu ✓ // bỏ dấu ✓ 'đang chọn' của mẫu → chỉ còn 1 dấu kết quả
-      if (good || bad) b.querySelector(':scope > div').insertAdjacentHTML('beforeend', `<span class="material-symbols-outlined text-[20px] ${good ? 'lt:text-[#0D6964] dk:text-[#2BA39A]' : 'lt:text-[#ba1a1a] dk:text-[#F2553B]'}" style="font-variation-settings:'FILL' 1" aria-hidden="true">${good ? 'check_circle' : 'cancel'}</span>`);
+      if (good || bad) { const ds = b.querySelectorAll(':scope > div'), hd = ds[ds.length - 1]; if (ds.length > 1) hd.className = 'w-6 h-6 flex items-center justify-center shrink-0'; hd.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded').forEach(x => { const p = x.parentElement; (p !== hd && !p.textContent.replace(x.textContent, '').trim() ? p : x).remove(); }); } // cả vòng tròn chứa dấu ✓ // bỏ dấu ✓ 'đang chọn' của mẫu → chỉ còn 1 dấu kết quả
+      if (good || bad) { const ds = b.querySelectorAll(':scope > div'); ds[ds.length - 1].insertAdjacentHTML('beforeend', `<span class="material-symbols-outlined text-[20px] ${good ? 'lt:text-[#0D6964] dk:text-[#2BA39A]' : 'lt:text-[#ba1a1a] dk:text-[#F2553B]'}" style="font-variation-settings:'FILL' 1" aria-hidden="true">${good ? 'check_circle' : 'cancel'}</span>`); }
     });
   }
   function feedbackV2(it, ok) {
