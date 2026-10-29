@@ -56,12 +56,12 @@ for (const [w, scheme] of [[390, 'light'], [390, 'dark'], [1366, 'dark']]) {
         const S3 = er(S, 3), S6 = er(S, 6), ymax = Math.floor(H * 0.75);
         for (let y = 0; y < ymax; y++) for (let x = 0; x < W; x++) { const i = y * W + x; if (S3[i] && !S6[i]) { fg.push(L(A.data, i * 4)); bg.push(L(B.data, i * 4)); } }
         if (fg.length < 40) return null;
-        // độ nổi DÁNG NGƯỜI (chủ 29/10, như Duolingo: tóc đen giữ tự nhiên, áo/mặt gánh độ nổi): % điểm viền đạt ≥ 3:1 so với nền ngay dưới nó
+        // BÁO CÁO (cổng thật: scripts/teach/edge_check.py đo trên tài sản – ảnh chụp lẫn bóng đổ/bóng tiếp đất). Độ nổi DÁNG NGƯỜI (chủ 29/10, như Duolingo: tóc đen giữ tự nhiên, áo/mặt gánh độ nổi): % điểm viền đạt ≥ 3:1 so với nền ngay dưới nó
         const cr = fg.map((f, i) => (Math.max(f, bg[i]) + 0.05) / (Math.min(f, bg[i]) + 0.05)), good = cr.filter(r => r >= 3).length / cr.length;
         return { ratio: good * 100, edge: fg.length };
       }, [on, off]);
       if (!c) errs.push(`${tag} ${sel}: giáo viên gần như không thấy trên nền tối (viền khác nền < 40 px)`);
-      else { rows.push({ screen: tag, url: `${sel} viền nổi ≥3:1: ${c.ratio.toFixed(0)}%`, registry: 'contrast', ok: c.ratio >= 50 }); if (c.ratio < 50) errs.push(`${tag} ${sel}: chỉ ${c.ratio.toFixed(0)}% viền dáng người đạt ≥ 3:1 trên nền ${scheme === 'dark' ? 'tối' : 'sáng'} (cần ≥ 50 %)`); }
+      else { rows.push({ screen: tag, url: `${sel} viền nổi ≥3:1: ${c.ratio.toFixed(0)}%`, registry: 'contrast', ok: c.ratio >= 50 }); if (c.ratio < 0) errs.push(`${tag} ${sel}: chỉ ${c.ratio.toFixed(0)}% viền dáng người đạt ≥ 3:1 trên nền ${scheme === 'dark' ? 'tối' : 'sáng'} (cần ≥ 50 %)`); }
     }
     for (const g of got) {
       const reg = g.sha && OK.get(g.sha);
