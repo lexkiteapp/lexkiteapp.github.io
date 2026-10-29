@@ -92,7 +92,8 @@
    "bind": {
     "ama": {
      "addClass": {
-      ":scope": "lsn-ln ama lsn-lnA"
+      ":scope": "lsn-ln ama lsn-lnA",
+      ":scope > div:nth-child(2) > button": "relative after:absolute after:-inset-1.5 after:content-['']"
      },
      "attr": {
       ":scope": {
@@ -112,7 +113,8 @@
     },
     "carlos": {
      "addClass": {
-      ":scope": "lsn-ln carlos lsn-lnC"
+      ":scope": "lsn-ln carlos lsn-lnC",
+      ":scope > div:nth-child(2) > button:nth-child(2)": "relative after:absolute after:-inset-1.5 after:content-['']"
      },
      "attr": {
       ":scope": {

@@ -391,6 +391,7 @@
     og.querySelectorAll('.lsn-opt').forEach(b => {
       const good = b.dataset.o === String(it.answer), bad = !ok && b.dataset.o === L.pick && !good;
       if (good) b.classList.add(...OPT_OK.split(' ')); else if (bad) b.classList.add(...OPT_BAD.split(' ')); else b.classList.add('opacity-90');
+      if (good || bad) { const hd = b.querySelector(':scope > div'); hd.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded').forEach(x => x.remove()); } // bỏ dấu ✓ 'đang chọn' của mẫu → chỉ còn 1 dấu kết quả
       if (good || bad) b.querySelector(':scope > div').insertAdjacentHTML('beforeend', `<span class="material-symbols-outlined text-[20px] ${good ? 'lt:text-[#0D6964] dk:text-[#2BA39A]' : 'lt:text-[#ba1a1a] dk:text-[#F2553B]'}" style="font-variation-settings:'FILL' 1" aria-hidden="true">${good ? 'check_circle' : 'cancel'}</span>`);
     });
   }
@@ -401,7 +402,7 @@
     if (L.teacher && L.teacher.pose) L.teacher.pose(ok ? 'cheer' : 'concern');
     const PILL = 'inline-flex items-center gap-1 min-h-[28px] px-3 rounded-[9999px] border border-white/60 text-white text-[11px] leading-[14px] tracking-[0.04em] font-bold', CARD = ok ? 'bg-[#FFF4D4] text-[#422006]' : 'bg-[#FFFFFF] text-[#2A0700]';
     const pills = (streak ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">local_fire_department</span>${esc(t('{n} ngày liên tiếp', { n: streak }))}</span>` : '') + (combo >= 3 ? `<span class="${PILL}"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">bolt</span>${esc(t('COMBO ×{n}', { n: combo }))}</span>` : '');
-    const word = c ? `<div class="${CARD} rounded-[0.75rem] p-3 flex flex-col gap-0.5"><p class="m-0 text-[11px] leading-[14px] tracking-[0.04em] font-bold uppercase">${esc(TNAME(L.who))} · ${esc(t('Giáo viên của bạn'))}</p><p class="m-0 text-[22px] leading-[30px] font-extrabold"><b lang="en">${esc(c.word)}</b> <span class="text-[13px] leading-[18px] font-bold [&_*]:[color:inherit]">${UI.pronHtml(c, { noEx: true })}</span></p><p class="m-0 text-[16px] leading-[24px]">${esc(meanOf(c))}</p></div>` : '';
+    const word = c ? `<div class="${CARD} rounded-[0.75rem] p-3 flex flex-col gap-0.5"><p class="m-0 text-[11px] leading-[14px] tracking-[0.04em] font-bold uppercase">${esc(TNAME(L.who))} · ${esc(t('Giáo viên của bạn'))}</p><p class="m-0 text-[22px] leading-[30px] font-extrabold"><b lang="en">${esc(c.word)}</b> <span class="text-[13px] leading-[18px] font-bold [&_*]:[color:inherit] [&_button]:!bg-transparent [&_button]:!border-current">${UI.pronHtml(c, { noEx: true })}</span></p><p class="m-0 text-[16px] leading-[24px]">${esc(meanOf(c))}</p></div>` : '';
     const why = c ? `<button type="button" id="lsnWhy" class="min-h-[44px] self-start px-4 rounded-[9999px] border border-white/60 text-white flex items-center gap-1.5 text-[13px] leading-[18px] font-bold active:translate-y-0.5 motion-reduce:transition-none"><span class="material-symbols-outlined text-[18px]" aria-hidden="true">lightbulb</span>${esc(t('Vì sao?'))}</button>` : '';
     const box = c ? `<div class="${ST.BOOST}" id="lsnBoost" hidden></div><div class="${ST.XP}" id="lsnXp" hidden></div>` : '';
     const extra = `<div class="lsn-fb flex flex-col gap-[0.5rem]">${pills ? `<div class="flex flex-wrap gap-[0.5rem]">${pills}</div>` : ''}${word}${why}${box}</div>`;

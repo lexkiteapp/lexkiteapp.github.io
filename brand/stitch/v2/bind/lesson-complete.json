@@ -42,7 +42,8 @@
   },
   ":scope > header > div > div:nth-child(3)": {
    "data-href": "'#/me'",
-   "type": "'button'"
+   "type": "'button'",
+   "aria-label": "t('Hồ sơ người học')"
   },
   ":scope > main > div > div:nth-child(1) > button:nth-child(1)": {
    "href": "d.close",
