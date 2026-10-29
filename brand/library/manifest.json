@@ -1,5 +1,5 @@
 {
-  "_note": "Kho dựng video (scripts/video/render.mjs). Đường dẫn tương đối với brand/library/. File chưa có → render tự lùi: clip → ảnh tĩnh (stills) → bỏ nhân vật; phòng → nền màu thương hiệu. rooms: hồ sơ sàn theo docs/ASSET-LIBRARY.md §0 (floor, stand, scaleAt, light). clips: mp4 'stacked' = nửa trên màu, nửa dưới mặt nạ alpha (xuất bằng scripts/video/clip_to_layer.py --stacked, đã cắt bóng sàn dính – trim_floor_shadow); foot = [x, y] đế giày trong 1 nửa khung, figH = chiều cao người (px); facing = hướng nhìn gốc (left|right|front); mouth = clip có cử động miệng (bắt buộc cho người đang nói). Thêm tài nguyên = thêm file + mục ở đây. [library.mjs] Mục có file được cập nhật tự động từ content/video/library.json (clip: bản stacked clips/<id>.mp4 + foot/figH/w/h; gốc Kling ở clips/src/ – KHÔNG để clip gốc ở clips/; phòng: hồ sơ sàn tự động rooms/<room>.json, auto:true = chưa chỉnh tay). ready:false = chưa có file, render bỏ qua.",
+  "_note": "Kho dựng video (scripts/video/render.mjs). Đường dẫn tương đối với brand/library/. File chưa có → render tự lùi: clip → ảnh tĩnh (stills) → bỏ nhân vật; phòng → nền màu thương hiệu. rooms: hồ sơ sàn theo docs/ASSET-LIBRARY.md §0 (floor, stand, scaleAt, light). clips: mp4 'stacked' = nửa trên màu, nửa dưới mặt nạ alpha (xuất bằng scripts/video/clip_to_layer.py --stacked, đã cắt bóng sàn dính – trim_floor_shadow); foot = [x, y] đế giày trong 1 nửa khung, figH = chiều cao người (px); facing = hướng nhìn gốc (left|right|front); mouth = clip có cử động miệng (bắt buộc cho người đang nói). Thêm tài nguyên = thêm file + mục ở đây. [library.mjs] Mục có file được cập nhật tự động từ content/video/library.json (clip: bản stacked clips/<id>.mp4 + foot/figH/w/h; gốc Kling ở clips/src/ – KHÔNG để clip gốc ở clips/; phòng: hồ sơ sàn tự động rooms/<room>.json, auto:true = chưa chỉnh tay). ready:false = chưa có file, render bỏ qua. NHÂN VẬT: CHỈ clip build:\"registry\" – scripts/video/registry_clips.py dựng trên CI (video.yml) từ clip phông xanh nguồn của web/teach/characters.json (2D Ama/Carlos trang phục 1), khung \"medium\" nửa người neo đáy khung hình; kho cũ ở \"retired\", không bao giờ dùng.",
   "rooms": [
     {
       "id": "office-01-day",
@@ -734,1074 +734,2368 @@
   ],
   "clips": [
     {
-      "id": "mia_talk_point",
-      "who": "mia",
-      "file": "clips/mia_talk_point.mp4",
+      "id": "reg_ama_talk_a",
+      "who": "ama",
+      "file": "clips/registry/ama_talk_a.mp4",
       "alpha": "stacked",
-      "outfit": "office",
+      "build": "registry",
+      "src": "ga9_talk",
+      "pose": "talk",
+      "part": "a",
+      "outfit": "outfit3",
       "tags": [
         "talk",
-        "point"
+        "gesture"
       ],
       "mouth": true,
-      "facing": "right",
-      "ready": false
-    },
-    {
-      "id": "mia_ask_think",
-      "who": "mia",
-      "file": "clips/mia_ask_think.mp4",
-      "alpha": "stacked",
-      "outfit": "office",
-      "tags": [
-        "ask",
-        "think"
+      "roles": [
+        "speaker"
       ],
-      "mouth": true,
-      "facing": "right",
-      "ready": false
-    },
-    {
-      "id": "mia_shock_headgrab",
-      "who": "mia",
-      "file": "clips/mia_shock_headgrab.mp4",
-      "alpha": "stacked",
-      "outfit": "office",
-      "tags": [
-        "shock",
-        "headgrab"
-      ],
-      "mouth": true,
       "facing": "front",
-      "ready": false
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
     },
     {
-      "id": "mia_wave_thumbs",
-      "who": "mia",
-      "file": "clips/mia_wave_thumbs.mp4",
+      "id": "reg_ama_talk_b",
+      "who": "ama",
+      "file": "clips/registry/ama_talk_b.mp4",
       "alpha": "stacked",
-      "outfit": "office",
+      "build": "registry",
+      "src": "ga9_talk",
+      "pose": "talk",
+      "part": "b",
+      "outfit": "outfit3",
       "tags": [
-        "wave",
-        "thumbs"
+        "talk",
+        "gesture"
       ],
       "mouth": true,
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "id": "mia_nod_laugh",
-      "who": "mia",
-      "file": "clips/mia_nod_laugh.mp4",
-      "alpha": "stacked",
-      "outfit": "office",
-      "tags": [
-        "nod",
-        "laugh"
+      "roles": [
+        "speaker"
       ],
-      "mouth": false,
-      "facing": "right",
-      "ready": false
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
     },
     {
-      "id": "mia_idle",
-      "who": "mia",
-      "file": "clips/mia_idle.mp4",
+      "id": "reg_ama_listen_a",
+      "who": "ama",
+      "file": "clips/registry/ama_listen_a.mp4",
       "alpha": "stacked",
-      "outfit": "office",
+      "build": "registry",
+      "src": "ga9_listen",
+      "pose": "listen",
+      "part": "a",
+      "outfit": "outfit3",
       "tags": [
+        "listen",
         "idle"
       ],
       "mouth": false,
-      "facing": "right",
-      "ready": false
-    },
-    {
-      "id": "leo_talk_point",
-      "who": "leo",
-      "file": "clips/leo_talk_point.mp4",
-      "alpha": "stacked",
-      "outfit": "office",
-      "tags": [
-        "talk",
-        "point"
+      "roles": [
+        "listener"
       ],
-      "mouth": true,
-      "facing": "left",
-      "ready": false
-    },
-    {
-      "id": "leo_think_idea",
-      "who": "leo",
-      "file": "clips/leo_think_idea.mp4",
-      "alpha": "stacked",
-      "outfit": "office",
-      "tags": [
-        "think",
-        "ask"
-      ],
-      "mouth": true,
-      "facing": "left",
-      "ready": false
-    },
-    {
-      "id": "leo_shock_headgrab",
-      "who": "leo",
-      "file": "clips/leo_shock_headgrab.mp4",
-      "alpha": "stacked",
-      "outfit": "office",
-      "tags": [
-        "shock",
-        "headgrab"
-      ],
-      "mouth": true,
       "facing": "front",
-      "ready": false
-    },
-    {
-      "id": "leo_wave_thumbs",
-      "who": "leo",
-      "file": "clips/leo_wave_thumbs.mp4",
-      "alpha": "stacked",
-      "outfit": "office",
-      "tags": [
-        "wave",
-        "thumbs",
-        "laugh"
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
       ],
-      "mouth": true,
-      "facing": "front",
-      "ready": false
+      "figH": 1620,
+      "ready": true
     },
     {
-      "id": "leo_idle",
-      "who": "leo",
-      "file": "clips/leo_idle.mp4",
+      "id": "reg_ama_listen_b",
+      "who": "ama",
+      "file": "clips/registry/ama_listen_b.mp4",
       "alpha": "stacked",
-      "outfit": "office",
+      "build": "registry",
+      "src": "ga9_listen",
+      "pose": "listen",
+      "part": "b",
+      "outfit": "outfit3",
       "tags": [
-        "idle",
-        "nod"
+        "listen",
+        "idle"
       ],
       "mouth": false,
-      "facing": "left",
-      "ready": false
+      "roles": [
+        "listener"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
     },
     {
-      "id": "ama_ask_point",
+      "id": "reg_ama_explain_a",
       "who": "ama",
-      "file": "clips/ama_ask_point.mp4",
+      "file": "clips/registry/ama_explain_a.mp4",
       "alpha": "stacked",
-      "outfit": "casual",
+      "build": "registry",
+      "src": "ga9_explain",
+      "pose": "explain",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "point",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_explain_b",
+      "who": "ama",
+      "file": "clips/registry/ama_explain_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_explain",
+      "pose": "explain",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "point",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_happy_a",
+      "who": "ama",
+      "file": "clips/registry/ama_happy_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_happy",
+      "pose": "happy",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "smile"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_happy_b",
+      "who": "ama",
+      "file": "clips/registry/ama_happy_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_happy",
+      "pose": "happy",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "smile"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_encourage_a",
+      "who": "ama",
+      "file": "clips/registry/ama_encourage_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_encourage",
+      "pose": "encourage",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "gesture",
+        "encourage"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_encourage_b",
+      "who": "ama",
+      "file": "clips/registry/ama_encourage_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_encourage",
+      "pose": "encourage",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "gesture",
+        "encourage"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_thinking_a",
+      "who": "ama",
+      "file": "clips/registry/ama_thinking_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_thinking",
+      "pose": "thinking",
+      "part": "a",
+      "outfit": "outfit3",
       "tags": [
         "ask",
-        "talk",
-        "point"
-      ],
-      "mouth": true,
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "id": "ama_shock_headgrab",
-      "who": "ama",
-      "file": "clips/ama_shock_headgrab.mp4",
-      "alpha": "stacked",
-      "outfit": "casual",
-      "tags": [
-        "shock",
-        "headgrab"
-      ],
-      "mouth": true,
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "id": "ama_think_win",
-      "who": "ama",
-      "file": "clips/ama_think_win.mp4",
-      "alpha": "stacked",
-      "outfit": "casual",
-      "tags": [
         "think",
-        "thumbs"
+        "hmm"
       ],
       "mouth": true,
+      "roles": [
+        "speaker"
+      ],
       "facing": "front",
-      "ready": false
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
     },
     {
-      "id": "ama_wave_thumbs",
+      "id": "reg_ama_thinking_b",
       "who": "ama",
-      "file": "clips/ama_wave_thumbs.mp4",
+      "file": "clips/registry/ama_thinking_b.mp4",
       "alpha": "stacked",
-      "outfit": "casual",
+      "build": "registry",
+      "src": "ga9_thinking",
+      "pose": "thinking",
+      "part": "b",
+      "outfit": "outfit3",
       "tags": [
-        "wave",
-        "thumbs",
-        "laugh"
-      ],
-      "mouth": true,
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "id": "ama_idle",
-      "who": "ama",
-      "file": "clips/ama_idle.mp4",
-      "alpha": "stacked",
-      "outfit": "casual",
-      "tags": [
-        "idle",
-        "nod"
-      ],
-      "mouth": false,
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "id": "diane_talk_gesture",
-      "who": "diane",
-      "tags": [
-        "talk",
-        "gesture"
-      ],
-      "outfit": "office",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/diane_talk_gesture.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        256,
-        1560
-      ],
-      "figH": 1560,
-      "w": 984,
-      "h": 1562,
-      "ready": true
-    },
-    {
-      "id": "carlos_listen_thumbs",
-      "who": "carlos",
-      "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "casual",
-      "mouth": false,
-      "facing": "front",
-      "file": "clips/carlos_listen_thumbs.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
-      "foot": [
-        158,
-        1558
-      ],
-      "figH": 1558,
-      "w": 894,
-      "h": 1562,
-      "ready": true
-    },
-    {
-      "id": "carlos_talk_gesture",
-      "who": "carlos",
-      "tags": [
-        "talk",
-        "gesture"
-      ],
-      "outfit": "casual",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/carlos_talk_gesture.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        213,
-        1573
-      ],
-      "figH": 1573,
-      "w": 948,
-      "h": 1576,
-      "ready": true
-    },
-    {
-      "id": "mia_talk_gesture",
-      "who": "mia",
-      "tags": [
-        "talk",
-        "gesture"
-      ],
-      "outfit": "office",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/mia_talk_gesture.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        518,
-        1751
-      ],
-      "figH": 1751,
-      "w": 980,
-      "h": 1754,
-      "ready": true
-    },
-    {
-      "id": "mia_wave_clasp",
-      "who": "mia",
-      "tags": [
-        "wave",
-        "clasp"
-      ],
-      "outfit": "office",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/mia_wave_clasp.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        728,
-        1739
-      ],
-      "figH": 1739,
-      "w": 854,
-      "h": 1742,
-      "ready": true
-    },
-    {
-      "id": "ama_listen_thumbs",
-      "who": "ama",
-      "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "casual",
-      "mouth": false,
-      "facing": "front",
-      "file": "clips/ama_listen_thumbs.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
-      "foot": [
-        452,
-        1506
-      ],
-      "figH": 1506,
-      "w": 676,
-      "h": 1510,
-      "ready": true
-    },
-    {
-      "id": "diane_think_aha",
-      "who": "diane",
-      "tags": [
+        "ask",
         "think",
-        "aha"
+        "hmm"
       ],
-      "outfit": "office",
       "mouth": true,
-      "facing": "front",
-      "file": "clips/diane_think_aha.mp4",
-      "alpha": "stacked",
       "roles": [
         "speaker"
       ],
-      "foot": [
-        222,
-        1569
-      ],
-      "figH": 1569,
-      "w": 858,
-      "h": 1572,
-      "ready": true
-    },
-    {
-      "id": "leo_listen_thumbs",
-      "who": "leo",
-      "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "office",
-      "mouth": false,
       "facing": "front",
-      "file": "clips/leo_listen_thumbs.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        162,
-        1508
+        360,
+        1620
       ],
-      "figH": 1508,
-      "w": 776,
-      "h": 1510,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "leo_wave_clasp",
-      "who": "leo",
-      "tags": [
-        "wave",
-        "clasp"
-      ],
-      "outfit": "office",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/leo_wave_clasp.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        162,
-        1506
-      ],
-      "figH": 1506,
-      "w": 876,
-      "h": 1508,
-      "ready": true
-    },
-    {
-      "id": "diane_wave_clasp",
-      "who": "diane",
-      "tags": [
-        "wave",
-        "clasp"
-      ],
-      "outfit": "office",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/diane_wave_clasp.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        473,
-        1554
-      ],
-      "figH": 1554,
-      "w": 1114,
-      "h": 1562,
-      "ready": true
-    },
-    {
-      "id": "ama_shock_laugh",
+      "id": "reg_ama_laugh_a",
       "who": "ama",
-      "tags": [
-        "shock",
-        "laugh"
-      ],
-      "outfit": "casual",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/ama_shock_laugh.mp4",
+      "file": "clips/registry/ama_laugh_a.mp4",
       "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_laugh",
+      "pose": "laugh",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "laugh",
+        "smile"
+      ],
+      "mouth": true,
       "roles": [
         "speaker"
       ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        483,
-        1496
+        360,
+        1620
       ],
-      "figH": 1496,
-      "w": 666,
-      "h": 1498,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "ama_talk_gesture",
+      "id": "reg_ama_laugh_b",
       "who": "ama",
-      "tags": [
-        "talk",
-        "gesture"
-      ],
-      "outfit": "casual",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/ama_talk_gesture.mp4",
+      "file": "clips/registry/ama_laugh_b.mp4",
       "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_laugh",
+      "pose": "laugh",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "laugh",
+        "smile"
+      ],
+      "mouth": true,
       "roles": [
         "speaker"
       ],
-      "foot": [
-        588,
-        1462
-      ],
-      "figH": 1462,
-      "w": 752,
-      "h": 1464,
-      "ready": true
-    },
-    {
-      "id": "ama_think_aha",
-      "who": "ama",
-      "tags": [
-        "think",
-        "aha"
-      ],
-      "outfit": "casual",
-      "mouth": true,
       "facing": "front",
-      "file": "clips/ama_think_aha.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        421,
-        1471
+        360,
+        1620
       ],
-      "figH": 1471,
-      "w": 642,
-      "h": 1474,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "ama_wave_clasp",
-      "who": "ama",
-      "tags": [
-        "wave",
-        "clasp"
-      ],
-      "outfit": "casual",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/ama_wave_clasp.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        409,
-        1449
-      ],
-      "figH": 1449,
-      "w": 846,
-      "h": 1472,
-      "ready": true
-    },
-    {
-      "id": "diane_listen_thumbs",
-      "who": "diane",
-      "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "office",
-      "mouth": false,
-      "facing": "front",
-      "file": "clips/diane_listen_thumbs.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
-      "foot": [
-        240,
-        1559
-      ],
-      "figH": 1559,
-      "w": 986,
-      "h": 1562,
-      "ready": true
-    },
-    {
-      "id": "mia_listen_thumbs",
-      "who": "mia",
-      "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "office",
-      "mouth": false,
-      "facing": "front",
-      "file": "clips/mia_listen_thumbs.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
-      "foot": [
-        466,
-        1736
-      ],
-      "figH": 1736,
-      "w": 664,
-      "h": 1740,
-      "ready": true
-    },
-    {
-      "id": "mia_think_aha",
-      "who": "mia",
-      "tags": [
-        "think",
-        "aha"
-      ],
-      "outfit": "office",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/mia_think_aha.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        465,
-        1747
-      ],
-      "figH": 1747,
-      "w": 764,
-      "h": 1750,
-      "ready": true
-    },
-    {
-      "id": "ama_q_talk_nod",
-      "who": "ama",
-      "tags": [
-        "q",
-        "talk",
-        "nod"
-      ],
-      "outfit": "casual",
-      "mouth": true,
-      "facing": "right",
-      "file": "clips/ama_q_talk_nod.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        188,
-        1510
-      ],
-      "figH": 1510,
-      "w": 754,
-      "h": 1512,
-      "ready": true,
-      "mirrorOk": true
-    },
-    {
-      "id": "carlos_q_talk_thumbs",
+      "id": "reg_carlos_talk_a",
       "who": "carlos",
-      "tags": [
-        "q",
-        "talk",
-        "thumbs"
-      ],
-      "outfit": "casual",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/carlos_q_talk_thumbs.mp4",
+      "file": "clips/registry/carlos_talk_a.mp4",
       "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        534,
-        1581
-      ],
-      "figH": 1581,
-      "w": 988,
-      "h": 1584,
-      "ready": true,
-      "mirrorOk": true,
-      "facingSegments": [
-        {
-          "from": 0,
-          "to": 2.2,
-          "facing": "right"
-        }
-      ]
-    },
-    {
-      "id": "diane_talk_gesture_casual",
-      "who": "diane",
+      "build": "registry",
+      "src": "gc10_talk",
+      "pose": "talk",
+      "part": "a",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture"
       ],
-      "outfit": "casual",
       "mouth": true,
-      "facing": "front",
-      "file": "clips/diane_talk_gesture_casual.mp4",
-      "alpha": "stacked",
       "roles": [
         "speaker"
       ],
-      "foot": [
-        396,
-        1558
-      ],
-      "figH": 1558,
-      "w": 1216,
-      "h": 1560,
-      "ready": true
-    },
-    {
-      "id": "diane_listen_thumbs_casual",
-      "who": "diane",
-      "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "casual",
-      "mouth": false,
       "facing": "front",
-      "file": "clips/diane_listen_thumbs_casual.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        228,
-        1554
+        360,
+        1620
       ],
-      "figH": 1554,
-      "w": 888,
-      "h": 1558,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "diane_q_talk_nod_casual",
-      "who": "diane",
-      "tags": [
-        "q",
-        "talk",
-        "nod"
-      ],
-      "outfit": "casual",
-      "mouth": true,
-      "facing": "left",
-      "file": "clips/diane_q_talk_nod_casual.mp4",
+      "id": "reg_carlos_talk_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_talk_b.mp4",
       "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        452,
-        1573
-      ],
-      "figH": 1573,
-      "w": 630,
-      "h": 1582,
-      "ready": true,
-      "mirrorOk": false
-    },
-    {
-      "id": "mia_talk_gesture_casual",
-      "who": "mia",
+      "build": "registry",
+      "src": "gc10_talk",
+      "pose": "talk",
+      "part": "b",
+      "outfit": "outfit3",
       "tags": [
         "talk",
         "gesture"
       ],
-      "outfit": "casual",
       "mouth": true,
-      "facing": "front",
-      "file": "clips/mia_talk_gesture_casual.mp4",
-      "alpha": "stacked",
       "roles": [
         "speaker"
       ],
-      "foot": [
-        633,
-        1776
-      ],
-      "figH": 1776,
-      "w": 842,
-      "h": 1778,
-      "ready": true
-    },
-    {
-      "id": "mia_wave_clasp_casual",
-      "who": "mia",
-      "tags": [
-        "wave",
-        "clasp"
-      ],
-      "outfit": "casual",
-      "mouth": true,
       "facing": "front",
-      "file": "clips/mia_wave_clasp_casual.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        540,
-        1751
+        360,
+        1620
       ],
-      "figH": 1751,
-      "w": 750,
-      "h": 1756,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "mia_listen_thumbs_casual",
-      "who": "mia",
+      "id": "reg_carlos_listen_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_listen_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_listen_b",
+      "pose": "listen",
+      "part": "a",
+      "outfit": "outfit3",
       "tags": [
         "listen",
-        "thumbs"
+        "idle"
       ],
-      "outfit": "casual",
       "mouth": false,
-      "facing": "front",
-      "file": "clips/mia_listen_thumbs_casual.mp4",
-      "alpha": "stacked",
       "roles": [
         "listener"
       ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        473,
-        1768
+        360,
+        1620
       ],
-      "figH": 1768,
-      "w": 690,
-      "h": 1772,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "mia_think_aha_casual",
-      "who": "mia",
+      "id": "reg_carlos_listen_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_listen_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_listen_b",
+      "pose": "listen",
+      "part": "b",
+      "outfit": "outfit3",
       "tags": [
+        "listen",
+        "idle"
+      ],
+      "mouth": false,
+      "roles": [
+        "listener"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_explain_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_explain_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_explain_b",
+      "pose": "explain",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "point",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_explain_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_explain_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_explain_b",
+      "pose": "explain",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "point",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_happy_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_happy_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_happy",
+      "pose": "happy",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "smile"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_happy_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_happy_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_happy",
+      "pose": "happy",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "smile"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_encourage_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_encourage_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_encourage",
+      "pose": "encourage",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "gesture",
+        "encourage"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_encourage_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_encourage_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_encourage",
+      "pose": "encourage",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "talk",
+        "gesture",
+        "encourage"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_thinking_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_thinking_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_thinking",
+      "pose": "thinking",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "ask",
         "think",
-        "aha"
+        "hmm"
       ],
-      "outfit": "casual",
       "mouth": true,
-      "facing": "front",
-      "file": "clips/mia_think_aha_casual.mp4",
-      "alpha": "stacked",
       "roles": [
         "speaker"
       ],
-      "foot": [
-        456,
-        1747
-      ],
-      "figH": 1747,
-      "w": 764,
-      "h": 1750,
-      "ready": true
-    },
-    {
-      "id": "mia_wave_clasp_travel",
-      "who": "mia",
-      "tags": [
-        "wave",
-        "clasp"
-      ],
-      "outfit": "travel",
-      "mouth": true,
       "facing": "front",
-      "file": "clips/mia_wave_clasp_travel.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        309,
-        1743
+        360,
+        1620
       ],
-      "figH": 1743,
-      "w": 762,
-      "h": 1746,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "mia_listen_thumbs_travel",
-      "who": "mia",
-      "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "travel",
-      "mouth": false,
-      "facing": "front",
-      "file": "clips/mia_listen_thumbs_travel.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
-      "foot": [
-        508,
-        1753
-      ],
-      "figH": 1753,
-      "w": 694,
-      "h": 1756,
-      "ready": true
-    },
-    {
-      "id": "carlos_talk_gesture_travel",
+      "id": "reg_carlos_thinking_b",
       "who": "carlos",
-      "tags": [
-        "talk",
-        "gesture"
-      ],
-      "outfit": "travel",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/carlos_talk_gesture_travel.mp4",
+      "file": "clips/registry/carlos_thinking_b.mp4",
       "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        330,
-        1576
-      ],
-      "figH": 1576,
-      "w": 934,
-      "h": 1588,
-      "ready": true
-    },
-    {
-      "id": "carlos_listen_thumbs_travel",
-      "who": "carlos",
+      "build": "registry",
+      "src": "gc10_thinking",
+      "pose": "thinking",
+      "part": "b",
+      "outfit": "outfit3",
       "tags": [
-        "listen",
-        "thumbs"
-      ],
-      "outfit": "travel",
-      "mouth": false,
-      "facing": "front",
-      "file": "clips/carlos_listen_thumbs_travel.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "listener"
-      ],
-      "foot": [
-        195,
-        1570
-      ],
-      "figH": 1570,
-      "w": 740,
-      "h": 1572,
-      "ready": true
-    },
-    {
-      "id": "mia_talk_gesture_travel",
-      "who": "mia",
-      "tags": [
-        "talk",
-        "gesture"
-      ],
-      "outfit": "travel",
-      "mouth": true,
-      "facing": "front",
-      "file": "clips/mia_talk_gesture_travel.mp4",
-      "alpha": "stacked",
-      "roles": [
-        "speaker"
-      ],
-      "foot": [
-        642,
-        1747
-      ],
-      "figH": 1747,
-      "w": 820,
-      "h": 1750,
-      "ready": true
-    },
-    {
-      "id": "mia_think_aha_travel",
-      "who": "mia",
-      "tags": [
+        "ask",
         "think",
-        "aha"
+        "hmm"
       ],
-      "outfit": "travel",
       "mouth": true,
-      "facing": "front",
-      "file": "clips/mia_think_aha_travel.mp4",
-      "alpha": "stacked",
       "roles": [
         "speaker"
       ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        490,
-        1753
+        360,
+        1620
       ],
-      "figH": 1753,
-      "w": 750,
-      "h": 1756,
+      "figH": 1620,
       "ready": true
     },
     {
-      "id": "carlos_q_talk_nod_travel",
+      "id": "reg_carlos_laugh_a",
       "who": "carlos",
-      "tags": [
-        "q",
-        "talk",
-        "nod"
-      ],
-      "outfit": "travel",
-      "mouth": true,
-      "facing": "left",
-      "file": "clips/carlos_q_talk_nod_travel.mp4",
+      "file": "clips/registry/carlos_laugh_a.mp4",
       "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_laugh",
+      "pose": "laugh",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "laugh",
+        "smile"
+      ],
+      "mouth": true,
       "roles": [
         "speaker"
       ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
       "foot": [
-        484,
-        1590
+        360,
+        1620
       ],
-      "figH": 1590,
-      "w": 806,
-      "h": 1594,
-      "ready": true,
-      "mirrorOk": true
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_laugh_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_laugh_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_laugh",
+      "pose": "laugh",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "laugh",
+        "smile"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_wave_a",
+      "who": "ama",
+      "file": "clips/registry/ama_wave_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_wave",
+      "pose": "wave",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "greet",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_wave_b",
+      "who": "ama",
+      "file": "clips/registry/ama_wave_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_wave",
+      "pose": "wave",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "greet",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_cheer_a",
+      "who": "ama",
+      "file": "clips/registry/ama_cheer_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_cheer",
+      "pose": "cheer",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_cheer_b",
+      "who": "ama",
+      "file": "clips/registry/ama_cheer_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_cheer",
+      "pose": "cheer",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_concern_a",
+      "who": "ama",
+      "file": "clips/registry/ama_concern_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_concern",
+      "pose": "concern",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wrong"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_concern_b",
+      "who": "ama",
+      "file": "clips/registry/ama_concern_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_concern",
+      "pose": "concern",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wrong"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_surprise_a",
+      "who": "ama",
+      "file": "clips/registry/ama_surprise_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_surprise",
+      "pose": "surprise",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_surprise_b",
+      "who": "ama",
+      "file": "clips/registry/ama_surprise_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_surprise",
+      "pose": "surprise",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_point_a",
+      "who": "ama",
+      "file": "clips/registry/ama_point_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_point",
+      "pose": "point",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "present",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_point_b",
+      "who": "ama",
+      "file": "clips/registry/ama_point_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_point",
+      "pose": "point",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "present",
+        "gesture"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_empathy_a",
+      "who": "ama",
+      "file": "clips/registry/ama_empathy_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_empathy",
+      "pose": "empathy",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "empathy"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_ama_empathy_b",
+      "who": "ama",
+      "file": "clips/registry/ama_empathy_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "ga9_empathy",
+      "pose": "empathy",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "empathy"
+      ],
+      "mouth": false,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_cheer_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_cheer_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_cheer",
+      "pose": "cheer",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_cheer_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_cheer_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_cheer",
+      "pose": "cheer",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "celebrate"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_surprise_a",
+      "who": "carlos",
+      "file": "clips/registry/carlos_surprise_a.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_surprise",
+      "pose": "surprise",
+      "part": "a",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
+    },
+    {
+      "id": "reg_carlos_surprise_b",
+      "who": "carlos",
+      "file": "clips/registry/carlos_surprise_b.mp4",
+      "alpha": "stacked",
+      "build": "registry",
+      "src": "gc10_surprise",
+      "pose": "surprise",
+      "part": "b",
+      "outfit": "outfit3",
+      "tags": [
+        "react",
+        "wow"
+      ],
+      "mouth": true,
+      "roles": [
+        "speaker"
+      ],
+      "facing": "front",
+      "medium": true,
+      "w": 720,
+      "h": 1080,
+      "foot": [
+        360,
+        1620
+      ],
+      "figH": 1620,
+      "ready": true
     }
   ],
-  "stills": [
-    {
-      "who": "mia",
-      "file": "stills/mia_office.png",
-      "outfit": "office",
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "who": "leo",
-      "file": "stills/leo_office.png",
-      "outfit": "office",
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "who": "ama",
-      "file": "stills/ama_casual.png",
-      "outfit": "casual",
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "who": "mia",
-      "file": "stills/mia_casual.png",
-      "outfit": "casual",
-      "facing": "front",
-      "ready": false
-    },
-    {
-      "who": "leo",
-      "file": "stills/leo_casual.png",
-      "outfit": "casual",
-      "facing": "front",
-      "ready": false
-    }
-  ]
+  "stills": [],
+  "retired": {
+    "_note": "chủ 28/10: 1 bộ nhân vật duy nhất (web/teach/characters.json, 2D Ama/Carlos trang phục 1) – Mia/Leo/Diane + ảnh minh hoạ cũ không bao giờ dùng (docs/CHARACTERS.md)",
+    "clips": [
+      {
+        "id": "mia_talk_point",
+        "who": "mia",
+        "file": "clips/mia_talk_point.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "talk",
+          "point"
+        ],
+        "mouth": true,
+        "facing": "right",
+        "ready": false
+      },
+      {
+        "id": "mia_ask_think",
+        "who": "mia",
+        "file": "clips/mia_ask_think.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "ask",
+          "think"
+        ],
+        "mouth": true,
+        "facing": "right",
+        "ready": false
+      },
+      {
+        "id": "mia_shock_headgrab",
+        "who": "mia",
+        "file": "clips/mia_shock_headgrab.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "shock",
+          "headgrab"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "mia_wave_thumbs",
+        "who": "mia",
+        "file": "clips/mia_wave_thumbs.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "wave",
+          "thumbs"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "mia_nod_laugh",
+        "who": "mia",
+        "file": "clips/mia_nod_laugh.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "nod",
+          "laugh"
+        ],
+        "mouth": false,
+        "facing": "right",
+        "ready": false
+      },
+      {
+        "id": "mia_idle",
+        "who": "mia",
+        "file": "clips/mia_idle.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "idle"
+        ],
+        "mouth": false,
+        "facing": "right",
+        "ready": false
+      },
+      {
+        "id": "leo_talk_point",
+        "who": "leo",
+        "file": "clips/leo_talk_point.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "talk",
+          "point"
+        ],
+        "mouth": true,
+        "facing": "left",
+        "ready": false
+      },
+      {
+        "id": "leo_think_idea",
+        "who": "leo",
+        "file": "clips/leo_think_idea.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "think",
+          "ask"
+        ],
+        "mouth": true,
+        "facing": "left",
+        "ready": false
+      },
+      {
+        "id": "leo_shock_headgrab",
+        "who": "leo",
+        "file": "clips/leo_shock_headgrab.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "shock",
+          "headgrab"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "leo_wave_thumbs",
+        "who": "leo",
+        "file": "clips/leo_wave_thumbs.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "wave",
+          "thumbs",
+          "laugh"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "leo_idle",
+        "who": "leo",
+        "file": "clips/leo_idle.mp4",
+        "alpha": "stacked",
+        "outfit": "office",
+        "tags": [
+          "idle",
+          "nod"
+        ],
+        "mouth": false,
+        "facing": "left",
+        "ready": false
+      },
+      {
+        "id": "ama_ask_point",
+        "who": "ama",
+        "file": "clips/ama_ask_point.mp4",
+        "alpha": "stacked",
+        "outfit": "casual",
+        "tags": [
+          "ask",
+          "talk",
+          "point"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "ama_shock_headgrab",
+        "who": "ama",
+        "file": "clips/ama_shock_headgrab.mp4",
+        "alpha": "stacked",
+        "outfit": "casual",
+        "tags": [
+          "shock",
+          "headgrab"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "ama_think_win",
+        "who": "ama",
+        "file": "clips/ama_think_win.mp4",
+        "alpha": "stacked",
+        "outfit": "casual",
+        "tags": [
+          "think",
+          "thumbs"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "ama_wave_thumbs",
+        "who": "ama",
+        "file": "clips/ama_wave_thumbs.mp4",
+        "alpha": "stacked",
+        "outfit": "casual",
+        "tags": [
+          "wave",
+          "thumbs",
+          "laugh"
+        ],
+        "mouth": true,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "ama_idle",
+        "who": "ama",
+        "file": "clips/ama_idle.mp4",
+        "alpha": "stacked",
+        "outfit": "casual",
+        "tags": [
+          "idle",
+          "nod"
+        ],
+        "mouth": false,
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "id": "diane_talk_gesture",
+        "who": "diane",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "office",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/diane_talk_gesture.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          256,
+          1560
+        ],
+        "figH": 1560,
+        "w": 984,
+        "h": 1562,
+        "ready": false
+      },
+      {
+        "id": "carlos_listen_thumbs",
+        "who": "carlos",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "casual",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/carlos_listen_thumbs.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          158,
+          1558
+        ],
+        "figH": 1558,
+        "w": 894,
+        "h": 1562,
+        "ready": false
+      },
+      {
+        "id": "carlos_talk_gesture",
+        "who": "carlos",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/carlos_talk_gesture.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          213,
+          1573
+        ],
+        "figH": 1573,
+        "w": 948,
+        "h": 1576,
+        "ready": false
+      },
+      {
+        "id": "mia_talk_gesture",
+        "who": "mia",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "office",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_talk_gesture.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          518,
+          1751
+        ],
+        "figH": 1751,
+        "w": 980,
+        "h": 1754,
+        "ready": false
+      },
+      {
+        "id": "mia_wave_clasp",
+        "who": "mia",
+        "tags": [
+          "wave",
+          "clasp"
+        ],
+        "outfit": "office",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_wave_clasp.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          728,
+          1739
+        ],
+        "figH": 1739,
+        "w": 854,
+        "h": 1742,
+        "ready": false
+      },
+      {
+        "id": "ama_listen_thumbs",
+        "who": "ama",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "casual",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/ama_listen_thumbs.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          452,
+          1506
+        ],
+        "figH": 1506,
+        "w": 676,
+        "h": 1510,
+        "ready": false
+      },
+      {
+        "id": "diane_think_aha",
+        "who": "diane",
+        "tags": [
+          "think",
+          "aha"
+        ],
+        "outfit": "office",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/diane_think_aha.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          222,
+          1569
+        ],
+        "figH": 1569,
+        "w": 858,
+        "h": 1572,
+        "ready": false
+      },
+      {
+        "id": "leo_listen_thumbs",
+        "who": "leo",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "office",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/leo_listen_thumbs.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          162,
+          1508
+        ],
+        "figH": 1508,
+        "w": 776,
+        "h": 1510,
+        "ready": false
+      },
+      {
+        "id": "leo_wave_clasp",
+        "who": "leo",
+        "tags": [
+          "wave",
+          "clasp"
+        ],
+        "outfit": "office",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/leo_wave_clasp.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          162,
+          1506
+        ],
+        "figH": 1506,
+        "w": 876,
+        "h": 1508,
+        "ready": false
+      },
+      {
+        "id": "diane_wave_clasp",
+        "who": "diane",
+        "tags": [
+          "wave",
+          "clasp"
+        ],
+        "outfit": "office",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/diane_wave_clasp.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          473,
+          1554
+        ],
+        "figH": 1554,
+        "w": 1114,
+        "h": 1562,
+        "ready": false
+      },
+      {
+        "id": "ama_shock_laugh",
+        "who": "ama",
+        "tags": [
+          "shock",
+          "laugh"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/ama_shock_laugh.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          483,
+          1496
+        ],
+        "figH": 1496,
+        "w": 666,
+        "h": 1498,
+        "ready": false
+      },
+      {
+        "id": "ama_talk_gesture",
+        "who": "ama",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/ama_talk_gesture.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          588,
+          1462
+        ],
+        "figH": 1462,
+        "w": 752,
+        "h": 1464,
+        "ready": false
+      },
+      {
+        "id": "ama_think_aha",
+        "who": "ama",
+        "tags": [
+          "think",
+          "aha"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/ama_think_aha.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          421,
+          1471
+        ],
+        "figH": 1471,
+        "w": 642,
+        "h": 1474,
+        "ready": false
+      },
+      {
+        "id": "ama_wave_clasp",
+        "who": "ama",
+        "tags": [
+          "wave",
+          "clasp"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/ama_wave_clasp.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          409,
+          1449
+        ],
+        "figH": 1449,
+        "w": 846,
+        "h": 1472,
+        "ready": false
+      },
+      {
+        "id": "diane_listen_thumbs",
+        "who": "diane",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "office",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/diane_listen_thumbs.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          240,
+          1559
+        ],
+        "figH": 1559,
+        "w": 986,
+        "h": 1562,
+        "ready": false
+      },
+      {
+        "id": "mia_listen_thumbs",
+        "who": "mia",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "office",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/mia_listen_thumbs.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          466,
+          1736
+        ],
+        "figH": 1736,
+        "w": 664,
+        "h": 1740,
+        "ready": false
+      },
+      {
+        "id": "mia_think_aha",
+        "who": "mia",
+        "tags": [
+          "think",
+          "aha"
+        ],
+        "outfit": "office",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_think_aha.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          465,
+          1747
+        ],
+        "figH": 1747,
+        "w": 764,
+        "h": 1750,
+        "ready": false
+      },
+      {
+        "id": "ama_q_talk_nod",
+        "who": "ama",
+        "tags": [
+          "q",
+          "talk",
+          "nod"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "right",
+        "file": "clips/ama_q_talk_nod.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          188,
+          1510
+        ],
+        "figH": 1510,
+        "w": 754,
+        "h": 1512,
+        "ready": false,
+        "mirrorOk": true
+      },
+      {
+        "id": "carlos_q_talk_thumbs",
+        "who": "carlos",
+        "tags": [
+          "q",
+          "talk",
+          "thumbs"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/carlos_q_talk_thumbs.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          534,
+          1581
+        ],
+        "figH": 1581,
+        "w": 988,
+        "h": 1584,
+        "ready": false,
+        "mirrorOk": true,
+        "facingSegments": [
+          {
+            "from": 0,
+            "to": 2.2,
+            "facing": "right"
+          }
+        ]
+      },
+      {
+        "id": "diane_talk_gesture_casual",
+        "who": "diane",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/diane_talk_gesture_casual.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          396,
+          1558
+        ],
+        "figH": 1558,
+        "w": 1216,
+        "h": 1560,
+        "ready": false
+      },
+      {
+        "id": "diane_listen_thumbs_casual",
+        "who": "diane",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "casual",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/diane_listen_thumbs_casual.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          228,
+          1554
+        ],
+        "figH": 1554,
+        "w": 888,
+        "h": 1558,
+        "ready": false
+      },
+      {
+        "id": "diane_q_talk_nod_casual",
+        "who": "diane",
+        "tags": [
+          "q",
+          "talk",
+          "nod"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "left",
+        "file": "clips/diane_q_talk_nod_casual.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          452,
+          1573
+        ],
+        "figH": 1573,
+        "w": 630,
+        "h": 1582,
+        "ready": false,
+        "mirrorOk": false
+      },
+      {
+        "id": "mia_talk_gesture_casual",
+        "who": "mia",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_talk_gesture_casual.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          633,
+          1776
+        ],
+        "figH": 1776,
+        "w": 842,
+        "h": 1778,
+        "ready": false
+      },
+      {
+        "id": "mia_wave_clasp_casual",
+        "who": "mia",
+        "tags": [
+          "wave",
+          "clasp"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_wave_clasp_casual.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          540,
+          1751
+        ],
+        "figH": 1751,
+        "w": 750,
+        "h": 1756,
+        "ready": false
+      },
+      {
+        "id": "mia_listen_thumbs_casual",
+        "who": "mia",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "casual",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/mia_listen_thumbs_casual.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          473,
+          1768
+        ],
+        "figH": 1768,
+        "w": 690,
+        "h": 1772,
+        "ready": false
+      },
+      {
+        "id": "mia_think_aha_casual",
+        "who": "mia",
+        "tags": [
+          "think",
+          "aha"
+        ],
+        "outfit": "casual",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_think_aha_casual.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          456,
+          1747
+        ],
+        "figH": 1747,
+        "w": 764,
+        "h": 1750,
+        "ready": false
+      },
+      {
+        "id": "mia_wave_clasp_travel",
+        "who": "mia",
+        "tags": [
+          "wave",
+          "clasp"
+        ],
+        "outfit": "travel",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_wave_clasp_travel.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          309,
+          1743
+        ],
+        "figH": 1743,
+        "w": 762,
+        "h": 1746,
+        "ready": false
+      },
+      {
+        "id": "mia_listen_thumbs_travel",
+        "who": "mia",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "travel",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/mia_listen_thumbs_travel.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          508,
+          1753
+        ],
+        "figH": 1753,
+        "w": 694,
+        "h": 1756,
+        "ready": false
+      },
+      {
+        "id": "carlos_talk_gesture_travel",
+        "who": "carlos",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "travel",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/carlos_talk_gesture_travel.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          330,
+          1576
+        ],
+        "figH": 1576,
+        "w": 934,
+        "h": 1588,
+        "ready": false
+      },
+      {
+        "id": "carlos_listen_thumbs_travel",
+        "who": "carlos",
+        "tags": [
+          "listen",
+          "thumbs"
+        ],
+        "outfit": "travel",
+        "mouth": false,
+        "facing": "front",
+        "file": "clips/carlos_listen_thumbs_travel.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "listener"
+        ],
+        "foot": [
+          195,
+          1570
+        ],
+        "figH": 1570,
+        "w": 740,
+        "h": 1572,
+        "ready": false
+      },
+      {
+        "id": "mia_talk_gesture_travel",
+        "who": "mia",
+        "tags": [
+          "talk",
+          "gesture"
+        ],
+        "outfit": "travel",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_talk_gesture_travel.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          642,
+          1747
+        ],
+        "figH": 1747,
+        "w": 820,
+        "h": 1750,
+        "ready": false
+      },
+      {
+        "id": "mia_think_aha_travel",
+        "who": "mia",
+        "tags": [
+          "think",
+          "aha"
+        ],
+        "outfit": "travel",
+        "mouth": true,
+        "facing": "front",
+        "file": "clips/mia_think_aha_travel.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          490,
+          1753
+        ],
+        "figH": 1753,
+        "w": 750,
+        "h": 1756,
+        "ready": false
+      },
+      {
+        "id": "carlos_q_talk_nod_travel",
+        "who": "carlos",
+        "tags": [
+          "q",
+          "talk",
+          "nod"
+        ],
+        "outfit": "travel",
+        "mouth": true,
+        "facing": "left",
+        "file": "clips/carlos_q_talk_nod_travel.mp4",
+        "alpha": "stacked",
+        "roles": [
+          "speaker"
+        ],
+        "foot": [
+          484,
+          1590
+        ],
+        "figH": 1590,
+        "w": 806,
+        "h": 1594,
+        "ready": false,
+        "mirrorOk": true
+      }
+    ],
+    "stills": [
+      {
+        "who": "mia",
+        "file": "stills/mia_office.png",
+        "outfit": "office",
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "who": "leo",
+        "file": "stills/leo_office.png",
+        "outfit": "office",
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "who": "ama",
+        "file": "stills/ama_casual.png",
+        "outfit": "casual",
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "who": "mia",
+        "file": "stills/mia_casual.png",
+        "outfit": "casual",
+        "facing": "front",
+        "ready": false
+      },
+      {
+        "who": "leo",
+        "file": "stills/leo_casual.png",
+        "outfit": "casual",
+        "facing": "front",
+        "ready": false
+      }
+    ]
+  }
 }

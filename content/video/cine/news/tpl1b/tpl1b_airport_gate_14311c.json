@@ -10,8 +10,8 @@
  "cefr": "B1",
  "area": "roleplay",
  "plate": "airport_gate",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "ama",
+ "clip": "ga9_talk",
  "hook": {
   "line": "n_14311c_h",
   "quote": "They cancel my flight, give me other.",

@@ -44,6 +44,8 @@ W, H, FPS = 1080, 1920, 24
 SP = json.load(open(o.spec)); TR = json.load(open(o.teachers))
 SET = TR['sets'][SP['set']]; CL = {c: TR['clips'][c] for c in SP['clips'] + SP.get('listen', [])}   # listen = closed-mouth clips for the silent beats (owner 26/10)
 assert all(v['set'] == SP['set'] and v['who'] == SP['teacher'] for v in CL.values()), 'one teacher, one set'
+import os as _o, sys as _s; _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), '..', '..')); from teach.registry import check as _chk  # 1 bộ nhân vật 2D (characters.json)
+_chk(SP['teacher'], list(CL))
 WHO = SP['teacher']; LIB = f"{o.foot}/{SET['lib']}"; SMAX = SET['smax']
 BRD = None
 if SET.get('bank'):

@@ -1,4 +1,5 @@
 {
+ "retired": "owner 28/10: only 2D registry Ama/Carlos (web/teach/characters.json) – this pilot uses a non-registry character, kept as history only, never rendered (registry.check blocks it)",
  "id": "tv1_daniel_mistake_agree",
  "template": "mistake",
  "title": "Teachers v1 sample: Daniel, classroom (script = t1_mistake_agree)",
