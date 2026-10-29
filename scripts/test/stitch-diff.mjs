@@ -9,10 +9,10 @@ const AXE = createRequire(path.resolve('package.json')).resolve('axe-core/axe.mi
 const [ROOT = 'web', OUT = 'out/stitch-diff'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.mp4': 'video/mp4', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
-const SCREENS = { home: 'home', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', readiness: 'goal' };
+const SCREENS = { home: 'home', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train' };
 const W = 390, G = 6;
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', readiness: 'exam-readiness' }, V2PNG = process.env.STITCH_V2_PNG || 'out/stitch-v2/png';
+const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', readiness: 'exam-readiness', review: 'review', practice: 'practice' }, V2PNG = process.env.STITCH_V2_PNG || 'out/stitch-v2/png';
 const refOf = (k, sc) => { const v = path.join(V2PNG, `${V2REF[k] || k}-${sc}.png`); return fs.existsSync(v) ? v : `brand/stitch/${k}-${sc}.jpg`; };
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 const DRIVE = async k => { const q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
@@ -91,6 +91,7 @@ for (const scheme of ['dark', 'light']) {
   await page.evaluate(async () => { // dữ liệu mẫu giống bối cảnh Stitch: IELTS mục tiêu 7.5, 1 lần thi thử có điểm 4 kỹ năng
     localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.examTarget = '7.5'; await App.saveSettings();
     await Core.Store.set('mocks', [{ at: Date.now() - 3 * 864e5, bands: { listening: 7.5, reading: 7.5, writing: 6.5, speaking: 6.5 }, overall: 7 }]);
+    for (const [w, ctxs] of [['collocation', 'a strong collocation'], ['coherence', 'clear coherence'], ['mitigate', 'mitigate risk'], ['phrasal verb', 'a phrasal verb']]) await Core.Cards.add({ word: w, vi: w, ipa: '', def: w }, { text: ctxs, source: 'https://example.com/a' }).catch(() => {}); App.state.cards = await Core.Cards.all(); // thẻ mẫu cho màn Ôn (có thẻ đến hạn)
     localStorage.setItem('lk.lsn.path', '3'); localStorage.setItem('lk.ux1.st', JSON.stringify({ 0: 3, 1: 3, 2: 2 }));
   }).catch(e => errs.push(`${scheme}: seed ${e.message}`));
   for (const [k, h] of Object.entries(SCREENS)) {

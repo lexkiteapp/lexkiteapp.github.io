@@ -1,3 +1,3 @@
 /* UI ja – v2 (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"Hướng dẫn chặng":"ガイド","Bắt đầu bài học":"レッスン開始",});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"Đang luyện":"練習中","Ôn tập hằng ngày":"毎日の復習","Ôn ngắt quãng đang bật":"間隔反復オン","Thẻ sẵn sàng":"準備できたカード","Quản lý":"管理","Quản lý bộ thẻ":"デッキを管理","Nên ôn ngay":"今おすすめ","Nhớ lâu":"長期記憶","Mục tiêu nước rút":"スプリント目標","Mô-đun trọng tâm":"重点モジュール","Luyện từng kỹ năng nhỏ theo nhịp của bạn":"自分のペースで細かなスキルを練習","Bấm giờ như thi thật":"本番どおりに時間計測","Bài ôn giữ trí nhớ hôm nay":"今日の記憶ドリル","Hướng dẫn chặng":"ガイド","Bắt đầu bài học":"レッスン開始",});
 })(typeof self !== 'undefined' ? self : this);

@@ -121,8 +121,13 @@ w.localStorage.setItem('lk.lsn.path', '0');
 // Luyện: "Luyện thi" đầu tiên, mọi tính năng
 await go('#/train');
 ok($('#bnav a[data-tab="train"]').getAttribute('aria-current') === 'page', 'tab Luyện đang chọn');
-const firstG = $('.ux1-gh'), big = $('.ux1-tiles.big');
-ok(firstG && /Luyện thi|Exam prep/.test(firstG.textContent) && big && ['#/mock', '#/toeic', '#/toefl', '#/tests', '#/placement', '#/criteria'].every(h => big.querySelector(`a[href="${h}"]`)), 'Luyện: nhóm "Luyện thi" đầu tiên (IELTS · TOEIC · TOEFL · Thi thử · CEFR · tiêu chí)');
+const V2T = !!$('.v2-practice');
+const firstG = V2T ? $('.v2 [data-grp]:has(a[href="#/mock"])') : $('.ux1-gh'), big = V2T ? null : $('.ux1-tiles.big'), examG = V2T ? $$('.v2 [data-grp]').filter(x => x.dataset.grp === firstG.dataset.grp) : [];
+ok(firstG && /Luyện thi|Exam prep/.test(V2T ? firstG.dataset.grp : firstG.textContent) && (V2T ? ['#/mock', '#/toeic', '#/toefl', '#/tests', '#/placement', '#/criteria'].every(h => examG.some(x => x.querySelector(`a[href="${h}"]`))) : big && ['#/mock', '#/toeic', '#/toefl', '#/tests', '#/placement', '#/criteria'].every(h => big.querySelector(`a[href="${h}"]`))), 'Luyện: nhóm "Luyện thi" đầu tiên (IELTS · TOEIC · TOEFL · Thi thử · CEFR · tiêu chí)');
+if (V2T) { // khung Stitch v2: thẻ kỳ thi, nước rút, 8 mô-đun kỹ năng, hàng thi thử – và ĐỦ mọi mục của nhóm Kỹ năng
+  ok($('.v2-practice [role=progressbar]') && $('.v2-practice button[data-href]') && ['#/skill/listening', '#/skill/reading', '#/skill/writing', '#/skill/speaking', '#/grammar', '#/pron', '#/call'].every(h => $('.v2-practice a[href="' + h + '"]')), 'Luyện (Stitch v2): nước rút + 7 mô-đun kỹ năng đều mở được');
+  ok($('.v2-practice button[data-href="#/mock"], .v2-practice button[data-href="#/toeic"], .v2-practice button[data-href="#/toefl"], .v2-practice button[data-href="#/placement"]'), 'Luyện (Stitch v2): hàng thi thử đầy đủ mở đúng bài thi của mục tiêu');
+}
 const hub = new Set($$('#view a[href^="#/"]').map(a => a.getAttribute('href')));
 await go('#/me', '.me-head');
 ok($('#bnav a[data-tab="me"]').getAttribute('aria-current') === 'page', 'tab Tôi đang chọn');
@@ -131,6 +136,18 @@ const tabH = new Set(tabs.map(a => a.getAttribute('href')));
 const lost = OLD.filter(h => !hub.has(h) && !me.has(h) && !tabH.has(h));
 ok(OLD.length >= 20 && !lost.length, `không cắt: ${OLD.length} lối vào cũ đều tới được qua 5 tab / Luyện / Tôi` + (lost.length ? ' – thiếu: ' + lost.join(' ') : ''));
 for (const h of ['#/goal', '#/stats', '#/mistakes', '#/settings']) ok(me.has(h), 'Tôi có ' + h);
+// Ôn (Stitch v2): vào bằng thanh tab → màn hub; nút Bắt đầu mở phiên ôn THẬT; lối cũ (#/review trần, ?ahead=, ?src=) vẫn vào thẳng phiên ôn
+{ App.state.cards.hello = { word: 'hello', vi: 'xin chào', topic: 'mine', contexts: [], col: [], syn: [], ant: [], examples: [], added: Date.now(), srs: { ef: 2.5, interval: 3, reps: 2, lapses: 0, due: Date.now() - 1000, last: Date.now() - 4e8 } };
+  if (V2T) {
+    await go('#/review?hub=1', '.v2-review');
+    ok($('.v2-review') && $('.v2 nav a[data-tab="review"][aria-current="page"]') && !w.document.body.classList.contains('focus'), 'Ôn (Stitch v2): hub có thanh tab Stitch, tab Ôn đang chọn');
+    ok($('.v2-review button[data-href="#/review"], .v2-review button[data-href="#/review?ahead=2"]') && $('.v2-review [role=progressbar], .v2-review svg circle'), 'Ôn (Stitch v2): nút Bắt đầu → phiên ôn thật; vòng thẻ đến hạn');
+    ok($('.v2-review a[href^="#/deck?from="]') && $('.v2-review button[data-href="#/deck"]'), 'Ôn (Stitch v2): bộ thẻ theo nguồn + Quản lý → #/deck');
+    ok($('.v2-review button[data-href^="#/review"][aria-label]'), 'Ôn (Stitch v2): chip thẻ sắp quên → #/review?src=forgetting (hoặc phiên ôn)');
+    await go('#/review?ahead=2');
+    ok(!$('.v2-review'), 'Ôn: ?ahead= vẫn vào thẳng phiên ôn (không qua hub)');
+  }
+  delete App.state.cards.hello; }
 // Trang cũ vẫn chạy (không 404), có đường dẫn ngược về tab mới
 for (const h of ['#/skills', '#/tests', '#/vocab', '#/home?all=1', '#/skill/listening']) { await go(h); ok(!/Không tìm thấy trang|Page not found/.test(w.document.getElementById('view').textContent) && w.document.getElementById('view').children.length, 'trang cũ vẫn mở: ' + h); }
 await go('#/skill/listening');

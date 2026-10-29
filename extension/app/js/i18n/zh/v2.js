@@ -1,3 +1,3 @@
 /* UI zh – v2 (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {"Hướng dẫn chặng":"指南","Bắt đầu bài học":"开始课程",});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {"Đang luyện":"学习中","Ôn tập hằng ngày":"每日复习","Ôn ngắt quãng đang bật":"间隔重复已开启","Thẻ sẵn sàng":"待复习卡片","Quản lý":"管理","Quản lý bộ thẻ":"管理卡组","Nên ôn ngay":"现在推荐","Nhớ lâu":"长期记忆","Mục tiêu nước rút":"冲刺目标","Mô-đun trọng tâm":"重点模块","Luyện từng kỹ năng nhỏ theo nhịp của bạn":"按自己的节奏练习每项小技能","Bấm giờ như thi thật":"像真考一样计时","Bài ôn giữ trí nhớ hôm nay":"今日记忆训练","Hướng dẫn chặng":"指南","Bắt đầu bài học":"开始课程",});
 })(typeof self !== 'undefined' ? self : this);

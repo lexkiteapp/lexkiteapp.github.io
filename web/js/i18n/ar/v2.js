@@ -1,3 +1,3 @@
 /* UI ar – v2 (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Hướng dẫn chặng":"الدليل","Bắt đầu bài học":"ابدأ الدرس",});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Đang luyện":"قيد التدريب","Ôn tập hằng ngày":"مراجعة يومية","Ôn ngắt quãng đang bật":"التكرار المتباعد مفعّل","Thẻ sẵn sàng":"بطاقات جاهزة","Quản lý":"إدارة","Quản lý bộ thẻ":"إدارة المجموعات","Nên ôn ngay":"موصى به الآن","Nhớ lâu":"ذاكرة دائمة","Mục tiêu nước rút":"هدف السباق","Mô-đun trọng tâm":"الوحدات الرئيسية","Luyện từng kỹ năng nhỏ theo nhịp của bạn":"تدرّب على كل مهارة فرعية بإيقاعك","Bấm giờ như thi thật":"بتوقيت مثل الامتحان الحقيقي","Bài ôn giữ trí nhớ hôm nay":"تدريب الذاكرة اليوم","Hướng dẫn chặng":"الدليل","Bắt đầu bài học":"ابدأ الدرس",});
 })(typeof self !== 'undefined' ? self : this);

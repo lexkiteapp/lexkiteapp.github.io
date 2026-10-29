@@ -1,5 +1,18 @@
 /* English UI – v2 (màn Stitch v2: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  "Bài ôn giữ trí nhớ hôm nay": "Today's Retention Drill",
+  "Bấm giờ như thi thật": "Timed simulation",
   "Bắt đầu bài học": "START LESSON",
   "Hướng dẫn chặng": "Guide",
+  "Luyện từng kỹ năng nhỏ theo nhịp của bạn": "Master discrete sub-skills at your pace",
+  "Mô-đun trọng tâm": "Focus Modules",
+  "Mục tiêu nước rút": "Target Goal",
+  "Nhớ lâu": "Permanent",
+  "Nên ôn ngay": "RECOMMENDED NOW",
+  "Quản lý bộ thẻ": "Manage study decks",
+  "Quản lý": "Manage",
+  "Thẻ sẵn sàng": "Cards ready",
+  "Ôn ngắt quãng đang bật": "Spaced Repetition Active",
+  "Ôn tập hằng ngày": "Daily Review",
+  "Đang luyện": "In training",
 }); })(typeof self !== 'undefined' ? self : this);

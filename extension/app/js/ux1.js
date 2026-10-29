@@ -214,7 +214,47 @@
     [t('Kỹ năng'), '', [['#/skill/listening', 'headphones', t('Nghe hiểu')], ['#/skill/reading', 'newspaper', t('Đọc hiểu')], ['#/skill/writing', 'pen-line', t('Viết')], ['#/skill/speaking', 'mic', t('Nói')], ['#/grammar', 'ruler', t('Ngữ pháp')], ['#/pron', 'audio-lines', t('Phát âm')], ['#/confidence', 'message-circle', t('Giao tiếp tự tin')], ['#/courses', 'school', t('Khóa học theo lộ trình')], ['#/roleplay', 'users', t('Roleplay công sở')], ['#/call', 'phone', t('Gọi cho Mia')], ['#/fix', 'pencil', t('Sửa ngữ pháp')], ['#/skills', 'layout-grid', t('Tổng quan')]]],
     [t('Thêm'), '', [['#/home?all=1', 'calendar', t('Kế hoạch hôm nay')], ['#/handsfree', 'headphones', t('Học rảnh tay')], ['#/reflex', 'brain', t('Phản xạ 60 giây')], ['#/lesson', 'sparkles', t('Bài học trộn')], ['#/tracks', 'compass', t('Gói học')], ['#/class', 'school', t('Lớp học')], ['#/resources', 'globe', t('Tài nguyên miễn phí')], ['#/method', 'flask-conical', t('Cách Lexkite giúp bạn nhớ lâu')]]],
   ];
+  // 🎨 Stitch v2 "Practice" (khung tự sinh web/js/st/v2/practice.js · bind/practice.json): thẻ kỳ thi, nước rút hằng ngày, 8 mô-đun, hàng thi thử.
+  // Mọi mục còn lại của GROUPS() vẫn có: cùng khuôn ô mô-đun, huy hiệu = tên nhóm (không cắt tính năng nào).
+  // @icons headphones menu_book edit mic auto_fix_high graphic_eq call auto_stories school work account_balance flag checklist explore bar_chart map local_library edit_note bolt timer extension search text_fields grid_view forum groups event psychology auto_awesome public science
+  const MS = { 'graduation-cap': 'school', briefcase: 'work', landmark: 'account_balance', flag: 'flag', 'clipboard-list': 'checklist', compass: 'explore', 'chart-column': 'bar_chart', map: 'map', library: 'local_library', 'notebook-pen': 'edit_note', zap: 'bolt', timer: 'timer', puzzle: 'extension', search: 'search', 'a-large-small': 'text_fields', 'book-a': 'menu_book', 'layout-grid': 'grid_view', headphones: 'headphones', newspaper: 'menu_book', 'pen-line': 'edit', mic: 'mic', ruler: 'auto_fix_high', 'audio-lines': 'graphic_eq', 'message-circle': 'forum', school: 'school', users: 'groups', phone: 'call', pencil: 'edit', calendar: 'event', brain: 'psychology', sparkles: 'auto_awesome', globe: 'public', 'flask-conical': 'science' };
+  const FOCUS = ['#/skill/listening', '#/skill/reading', '#/skill/writing', '#/skill/speaking', '#/grammar', '#/pron', '#/call']; // 7 ô đầu = mục có sẵn của nhóm Kỹ năng; ô 8 = Truyện
+  async function trainV2() {
+    const tok = location.hash, ex = exam(), Xe = (App.EXAMS || {})[ex] || { short: 'IELTS' }, tg = target(), cur = current(ex), g = state.game || {}, k = window.Core && Core.todayKey ? Core.todayKey() : '';
+    const left = (state.settings || {}).goal && state.settings.goal.date ? Math.ceil((new Date(state.settings.goal.date) - Date.now()) / 864e5) : 0, hrs = Math.max(1, Math.ceil((new Date().setHours(24, 0, 0, 0) - Date.now()) / 36e5));
+    const leftT = left > 0 ? t('còn {n} ngày', { n: left }) : t('còn {n} giờ', { n: hrs });
+    let plan = []; try { plan = (App.todayPlan ? await App.todayPlan() : []) || []; } catch (e) { plan = []; }
+    if (location.hash !== tok) return; // đã sang trang khác trong lúc tải kế hoạch
+    const gr = GROUPS(), pool = new Map(); gr.forEach(([h, , items]) => items.forEach(([href, i, n, d]) => { const key = href + '|' + n; if (!pool.has(key)) pool.set(key, { href, icon: MS[i] || 'auto_awesome', title: n, sub: d || '', badge: h }); }));
+    const all = [...pool.values()], pick = h => all.find(x => x.href === h), skills = gr[2] ? gr[2][0] : '';
+    const focus = FOCUS.map(pick).filter(Boolean); focus.push({ href: '#/lesson', icon: 'auto_stories', title: t('Truyện'), sub: '', badge: gr[3] ? gr[3][0] : skills });
+    const rest = all.filter(x => !FOCUS.includes(x.href)), tiles = [...focus, ...rest].map((x, ci) => Object.assign({ ci }, x));
+    const tot = plan.length, dn = plan.filter(x => x.done).length, nx = plan.find(x => !x.done), pct = tot ? Math.round(dn / tot * 100) : 0, sprAria = t('Tiếp tục nước rút ngày');
+    const mockName = t('Thi thử {x} đầy đủ', { x: Xe.short }), mins = { ielts: 165, ieltsgt: 165, toeic: 120, toefl: 120 }[ex];
+    const d = { ex: { name: Xe.short, pred: cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), title: Xe.short + (tg ? ' · ' + tg : ''), left: leftT, leftAria: leftT },
+      sp: { xp: '+' + (((g.days || {})[k] || {}).xp || 0) + ' XP', title: t('Nước rút ngày {a}/{b}', { a: dn, b: tot }), left: t('Còn {n} bài', { n: tot - dn }), pct, aria: sprAria, cta: t('Tiếp tục'), href: nx && nx.href ? nx.href : '#/home?all=1' },
+      count: t('{n} mô-đun', { n: tiles.length }), tiles,
+      mock: { title: mockName, chip: mins ? t('{n} phút', { n: mins }) : Xe.short, cta: t('Bắt đầu'), href: MOCK[ex] || '#/mock', aria: t('Bắt đầu thi thử {x}', { x: Xe.short }) } };
+    ST2.mount(view, 'practice', d, 'train');
+  }
+  // 🎨 Stitch v2 "Review" (hub Ôn): số thẻ đến hạn, trí nhớ, bộ thẻ theo nguồn; nút Bắt đầu mở phiên ôn thật (#/review → study.js). study.js gọi khi vào bằng thanh tab (#/review?hub=1).
+  const ORI_IC = { youtube: 'smart_display', web: 'language', reading: 'auto_stories', dict: 'search', library: 'local_library', anki: 'style' }; // @icons smart_display language auto_stories search local_library style
+  function reviewHub() {
+    document.body.classList.remove('focus');
+    const { SRS, Cards, endOfToday } = Core, end = endOfToday(), all = Object.values(state.cards), dc = Cards.dueCount(state.cards, state.settings, state.stats), due = dc.total;
+    const studied = all.filter(c => c.srs.last || c.srs.reps > 0), rets = studied.map(c => SRS.retention(c.srs)).filter(x => x != null), avg = rets.length ? rets.reduce((a, b) => a + b, 0) / rets.length * 100 : 0;
+    const done = (state.stats.days || {})[window.Core.todayKey()] || 0, C = 2 * Math.PI * 50, crit = Math.min(App.forgetting().length, dc.due), soon = all.filter(c => c.srs.last && c.srs.due > end && c.srs.due <= end + 2 * 864e5).length;
+    const ahead = !due && soon > 0, groups = {}; all.forEach(c => { const o = App.origin(c); (groups[o] = groups[o] || []).push(c); });
+    const decks = Object.entries(groups).map(([o, l]) => { const dl = l.filter(c => (c.srs.last || c.srs.reps > 0) && c.srs.due <= end).length, rs = l.map(c => SRS.retention(c.srs)).filter(x => x != null), O = App.ORIGINS[o] || {};
+      return { k: o, name: O.name || o, icon: ORI_IC[o] || 'style', href: '#/deck?from=' + o, ret: rs.length ? Math.round(rs.reduce((a, b) => a + b, 0) / rs.length * 100) + '%' : '–', cards: t('{n} thẻ trong bộ', { n: l.length }), dueText: t('{n} đến hạn', { n: dl }), due: dl, n: l.length }; }).sort((a, b) => b.due - a.due || b.n - a.n);
+    const d = { due, off: due || done ? C * (1 - done / (done + due)) : C, mem: t('{p}% trí nhớ', { p: avg.toFixed(1) }), lock: t('Ghi {n} thẻ vào trí nhớ dài hạn', { n: due }),
+      critText: t('{n} sắp quên', { n: crit }), famText: t('{n} quen', { n: Math.max(0, dc.due - crit) }), critHref: crit ? '#/review?src=forgetting' : '#/review', critAria: t('Thẻ sắp quên: {n}', { n: crit }),
+      cta: ahead ? t('Ôn trước →') : t('Bắt đầu ôn'), startHref: ahead ? '#/review?ahead=2' : '#/review', startAria: t('Bắt đầu ôn: {n} thẻ đến hạn', { n: due }), est: t('Ước tính ~{m} phút', { m: Math.max(1, Math.ceil(due / 3)) }),
+      training: studied.filter(c => SRS.mastery(c.srs) < 3).length, perm: studied.filter(c => SRS.mastery(c.srs) === 3).length, decksTitle: t('Bộ thẻ • {n} đang dùng', { n: decks.length }), decks };
+    return ST2.mount(view, 'review', d, 'review');
+  }
   routes.train = function () {
+    if (self.ST2 && ST2.practice && on()) { trainV2(); return; }
     css();
     view.innerHTML = `<div class="page-head"><div><h1>${ic('target')} ${t('Luyện')}</h1><p class="muted">${t('Mọi bài luyện ở một chỗ.')}</p></div></div>`
       + GROUPS().map(([h, big, items]) => `<h2 class="set-h ux1-gh">${esc(h)}</h2><div class="ux1-tiles${big ? ' big' : ''}">${items.map(([href, i, n, d]) => `<a class="ux1-tile" href="${href}"><span class="ux1-ti" aria-hidden="true">${ic(i)}</span><b>${esc(n)}</b>${big && d ? `<small>${esc(d)}</small>` : ''}</a>`).join('')}</div>`).join('');
@@ -273,5 +313,5 @@ body.ux1 .bottom-nav{view-transition-name:ux1nav}body.ux1 .sidebar{view-transiti
     document.head.appendChild(s);
   }
 
-  window.Ux1 = { init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
+  window.Ux1 = { reviewHub, init, map, plan, words, units, unitAt, check, pick, choose, picked, rail, tabOf, level }; // init() do App.route gọi sau khi gói + bản dịch ngôn ngữ đã nạp xong (nhãn tab không bị kẹt tiếng Anh)
 })();

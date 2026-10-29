@@ -1,3 +1,3 @@
 /* UI tr – v2 (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Hướng dẫn chặng":"Rehber","Bắt đầu bài học":"DERSE BAŞLA",});
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Đang luyện":"Çalışılıyor","Ôn tập hằng ngày":"Günlük tekrar","Ôn ngắt quãng đang bật":"Aralıklı tekrar açık","Thẻ sẵn sàng":"Hazır kartlar","Quản lý":"Yönet","Quản lý bộ thẻ":"Desteleri yönet","Nên ôn ngay":"ŞİMDİ ÖNERİLİR","Nhớ lâu":"Kalıcı","Mục tiêu nước rút":"Sprint hedefi","Mô-đun trọng tâm":"Odak modülleri","Luyện từng kỹ năng nhỏ theo nhịp của bạn":"Her alt beceriyi kendi hızında çalış","Bấm giờ như thi thật":"Gerçek sınav gibi süreli","Bài ôn giữ trí nhớ hôm nay":"Bugünkü hafıza çalışması","Hướng dẫn chặng":"Rehber","Bắt đầu bài học":"DERSE BAŞLA",});
 })(typeof self !== 'undefined' ? self : this);
