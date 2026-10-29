@@ -173,7 +173,8 @@
       }
      },
      "addClass": {
-      ":scope": "lsn-opt"
+      ":scope": "lsn-opt",
+      ":scope > div > span:nth-child(1)": "dk:!text-[#091518]"
      },
      "html": {
       ":scope > div > span:nth-child(1)": "e(r.k)",
