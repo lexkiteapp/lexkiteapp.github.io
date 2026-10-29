@@ -7,6 +7,18 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 **Luật tài liệu: một chủ đề = một file sở hữu, link thay vì chép lại (bảng chủ đề → file: `docs/README.md`).**
 **Tiêu credit (Kling/mọi dịch vụ trả phí) → BẮT BUỘC `docs/CREDIT-RULES.md` trước.**
 
+## 0. Hướng hiện tại (tự đồng bộ mỗi giờ – chỉ sửa giữa 2 dấu)
+<!-- auto:direction:start -->
+- Giao diện: MỌI bề mặt (app, web, add-on, admin, iOS/Android, video) theo **"Lexkite Kit"** trên Stitch (design system `1b7a8a3d3d52404bb332d9ba3f783547`, tờ mẫu `39b977682d554b5da4b26651797f2c3f`, project `7268539912208977707`). Tối = A "Tactile Night", sáng = B "Bright Day". Dựng từ HTML Stitch + CI so ảnh (SSIM) từng màn; không chép ảnh/placeholder của Stitch.
+- Prompt Stitch: MỖI LẦN 1 MÀN, tả cảm giác/trải nghiệm, không liệt kê thông số.
+- Nhân vật: CHỈ 2 người Ama + Carlos 2D (tóc đen, trang phục sáng), lấy qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không khung/viền; cổng CI chặn ảnh khác.
+- Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối.
+- Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
+- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp; logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng.
+- Việc nặng (tách nền, render) CHỈ trên CI – script tự từ chối chạy ngoài `$CI`.
+- Phiên: ≤ 2 phiên làm việc; phiên con không nhắn nhau (trừ cặp điều phối được giao); phiên dài → phiên mới với bàn giao ngắn.
+<!-- auto:direction:end -->
+
 ## 1. Điều phối
 - Phiên chính = người DUY NHẤT ship. Agent phụ không commit/push trừ khi được giao rõ; chỉ `git add` đúng file của luồng mình.
 - Vùng file: `docs/COORDINATION.md` (cuối file). `web/js/app.js` chỉ thêm 2 dòng BUNDLES/ROUTE_BUNDLE khi được duyệt.
