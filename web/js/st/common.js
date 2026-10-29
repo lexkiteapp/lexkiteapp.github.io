@@ -18,6 +18,8 @@
   const tImg = w => (window.Chars ? Chars.poster(w) : window.App && App.teacherImg ? App.teacherImg(w) : '');
   const tClip = (w, p) => (window.Chars && Chars.clip && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) ? Chars.clip(w, p) : '');
   // Khung giáo viên có biểu cảm: clip tư thế (phát 1 lần, tắt tiếng) trên nền ảnh tĩnh; giảm chuyển động / chưa có clip → ảnh tĩnh
+  // Ảnh tĩnh theo tư thế (Chars.still khi registry có – teacher-pose-map: đúng = cheer, sai = concern); không khung/viền/nền quanh giáo viên
+  const tStill = (w, pose, cls) => `<img class="${cls || ''}" src="${window.Chars && Chars.still ? Chars.still(w, pose) : tImg(w)}" alt="" decoding="async">`;
   const tFace = (w, pose, cls) => { const c = tClip(w, pose), i = tImg(w); return c ? `<video class="${cls}" src="${c}" poster="${i}" muted playsinline autoplay preload="metadata" aria-hidden="true"></video>` : `<img class="${cls}" src="${i}" alt="" decoding="async">`; };
   // Thẻ chung: bóng tối (A) ↔ viền mảnh + bóng mềm (B)
   const CARD = 'shadow-lg border-2 border-b-[5px] border-outline-variant/80 lt:shadow-card-soft lt:border-outline-variant'; // tối: viền mảnh tách tầng (như app lớn) · sáng: viền kem + bóng mềm
@@ -25,5 +27,5 @@
   const BTN1 = 'flex items-center justify-center gap-2 h-16 rounded-2xl bg-gradient-to-r from-primary-container to-[#FFB054] text-[#2A0700] font-title-pill text-title-pill font-extrabold uppercase no-underline shadow-[0_6px_0_#B53A22] active:translate-y-[4px] active:shadow-[0_2px_0_#B53A22]';
   const BTN2 = 'flex items-center justify-center gap-2 h-14 rounded-2xl bg-surface-container lt:bg-surface border-2 border-b-[5px] border-outline-variant text-secondary font-title-pill text-title-pill font-extrabold uppercase no-underline active:translate-y-[3px] active:border-b-2';
   const PILL = 'inline-flex items-center gap-1 px-3 h-9 rounded-full border-2 border-star/45 bg-star/10 text-star lt:text-tertiary font-label-badge text-label-badge font-extrabold';
-  window.ST = { esc, ms, nav, NAV_CLS, CARD, BTN1, BTN2, PILL, tImg, tClip, tFace };
+  window.ST = { esc, ms, nav, NAV_CLS, CARD, BTN1, BTN2, PILL, tImg, tClip, tFace, tStill };
 })();
