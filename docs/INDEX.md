@@ -33,6 +33,7 @@
 - [CWS-FEATURED.md](CWS-FEATURED.md) — Checklist huy hiệu Featured trên Chrome Web Store: kỹ thuật & tuân thủ, listing & trải nghiệm, cách gửi xét, cách giữ huy hiệu; đọc khi: chuẩn bị listing add-on
 - [CWS-RULES.md](CWS-RULES.md) — Quy tắc Chrome Web Store và quy trình phát hành add-on: không mã từ xa, giới hạn cửa hàng, phát hành tự động, thiết lập workflow, kiểm thử; đọc khi: sửa extension/ hoặc phát hành add-on
 - [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) — Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên; đọc khi: mọi thay đổi giao diện
+- [GAME-FEEL.md](GAME-FEEL.md) — Lớp game feel: gói âm CC0, rung, chuyển động phản hồi (XP, thanh, combo), nhân vật phản ứng, cờ ?feel=1; đọc khi: sửa âm/hiệu ứng phản hồi
 - [DISTRIBUTION.md](DISTRIBUTION.md) — Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app; đọc khi: sửa phân phối/social
 - [EDGE-SUBMIT.md](EDGE-SUBMIT.md) — Gói hồ sơ đăng Lexkite lên Microsoft Edge Add-ons: dùng chung zip Chrome, các bước trên Partner Center, lưu ý chính sách; đọc khi: đăng/cập nhật add-on trên Edge
 - [EXPLAIN.md](EXPLAIN.md) — Lược đồ lời giải đáp án: một thẻ dùng chung explain-card.js, dữ liệu web/js/explain/<bộ>/<lang>.json, mặc định hiện Cấu trúc + Vì sao; đọc khi: sửa phản hồi bài luyện
