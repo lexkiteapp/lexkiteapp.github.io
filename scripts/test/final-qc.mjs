@@ -1,7 +1,7 @@
 // ✅ QC CUỐI 1-1 cho 13 màn Stitch v2.1 (cổng trước khi gửi chủ bộ ảnh & gộp #212). Chạy SAU stitch-diff.mjs (cùng job CI) và dùng lại kết quả của nó:
 //   từ stitch-diff (scores.json): SSIM/nhịp hàng sáng+tối so ngưỡng, tương phản pixel 360/390/412/1366, chạm ≥44, tràn/cắt chữ, axe WCAG 2.2 AA, chữ giữ chỗ/lẫn tiếng Việt
 //   tự chạy thêm: ar RTL (sáng+tối, tràn/cắt/lẫn ngôn ngữ/lỗi JS) · giảm chuyển động (không hoạt ảnh dài/lặp) · lỗi JS từng màn ·
-//   giáo viên: đúng tư thế theo trạng thái, KHÔNG "dán đè" (vòng tròn/hào quang/khung cắt/mặt nạ/thân mờ dần/chỉ nửa người), có bóng chân, tỉ lệ hợp lý ·
+//   giáo viên: đúng tư thế theo trạng thái, KHÔNG "dán đè" (vòng tròn/hào quang/khung/mặt nạ; thân mờ hay đường cắt LỘ RA – nửa người khuất gọn sau mặt đục của Stitch thì đạt), bóng chân hoặc đứng sau mặt, tỉ lệ ·
 //   giọng nghe == giáo viên hiện (Chars.voice) · khớp miệng (vòng nói bật/tắt theo câu) · âm hiệu ứng đúng sự kiện (đúng/sai/xong bài).
 // Ra: out/final-qc/sheet-<màn>.jpg (Stitch | app sáng/tối 390 · 360 · 1366 · ar) + SUMMARY.md + report.json. Đỏ khi còn 1 lỗi.
 // Dùng: node scripts/test/final-qc.mjs [web] [out/stitch-diff] [out/final-qc]   (ảnh mẫu: STITCH_V2_PNG=out/stitch-v2/png)
@@ -56,13 +56,14 @@ const TEACH = async () => {
     const live = e.tagName !== 'IMG', tch = e.closest('.tch'), pimg = live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
     if (!live && tch && tch.querySelector('canvas.tch-cv')) continue; // poster dưới clip đang chạy: đã tính qua canvas
     const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = live ? (tch && tch.classList.contains('speaking') ? 'talk' : 'listen') : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
-    const r = e.getBoundingClientRect(), bad = [];
+    e.scrollIntoView({ block: 'center' }); await new Promise(res => setTimeout(res, 60));
+    const r = e.getBoundingClientRect(), bad = [], cut = []; let visBottom = r.bottom; // cut = nửa người/mờ/cắt: ĐẠT nếu khuất hẳn sau 1 mặt đục của Stitch (thẻ/bàn/bảng che đường hông, kiểu Duolingo)
     // vòng tròn / hào quang / khung: chính nó hoặc 3 tổ tiên gần bo tròn ≥ 40 % cạnh ngắn có nền/viền/bóng, hoặc cắt tràn
     for (let q = e, i = 0; q && i < 4 && q.id !== 'view'; q = q.parentElement, i++) { const cs = getComputedStyle(q), qr = q.getBoundingClientRect(), br = parseFloat(cs.borderTopLeftRadius) || 0;
       if (br >= 0.4 * Math.min(qr.width, qr.height) && (cs.overflow !== 'visible' || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none')) bad.push('vòng tròn/hào quang');
       if (cs.maskImage && cs.maskImage !== 'none' || cs.webkitMaskImage && cs.webkitMaskImage !== 'none' || cs.clipPath && cs.clipPath !== 'none') bad.push('mặt nạ/clip-path');
-      if (i && cs.overflow !== 'visible' && (r.bottom > qr.bottom + 1 || r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1)) bad.push('đường cắt (khung cắt mất thân)'); }
-    if (kind === 'avatar' || kind === 'poster') bad.push(`ảnh ${kind} (chỉ đầu/nửa người)`);
+      if (i && cs.overflow !== 'visible') { if (r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1) bad.push('đường cắt (khung cắt đầu/tay)'); if (r.bottom > qr.bottom + 1) { cut.push('đường cắt ngang thân'); visBottom = Math.min(visBottom, qr.bottom); } } }
+    if (kind === 'avatar') bad.push('ảnh avatar (chỉ đầu – không phải người đứng)'); if (kind === 'poster') cut.push('ảnh nửa người');
     // toàn thân: ảnh gốc không chạm mép dưới & không mờ dần ở đáy (đo kênh alpha)
     let body = null;
     const im = pimg; if (im) { try { if (!im.complete) await new Promise(res => { im.onload = im.onerror = res; setTimeout(res, 3000); });
@@ -71,15 +72,22 @@ const TEACH = async () => {
       let top = 0, bot = H - 1; while (top < H && row(top).n < 2) top++; while (bot > top && row(bot).n < 2) bot--;
       const fig = bot - top + 1, edge = row(H - 1).n > W * 0.04, tail = Array.from({ length: Math.max(3, Math.round(fig * 0.12)) }, (_, j) => row(bot - j).mean), soft = tail.filter(v => v > 0.12 && v < 0.8).length / tail.length;
       body = { edge, soft: +soft.toFixed(2), fig: +(fig / H).toFixed(2) };
-      if (edge) bad.push('chạm mép dưới ảnh (không toàn thân)'); if (soft > 0.5) bad.push('thân mờ dần ở đáy'); } catch (err) { body = { err: String(err).slice(0, 60) }; } }
+      if (edge) cut.push('chạm mép dưới ảnh (nửa người)'); if (soft > 0.5) cut.push('thân mờ dần ở đáy');
+      body.tail = (bot - Math.round(fig * 0.15)) / H; } catch (err) { body = { err: String(err).slice(0, 60) }; } }
+    // khuất sau mặt đục? lưới điểm trong dải đáy hình (15 % dưới của người → đáy thấy được): điểm trên cùng phải là phần tử KHÁC, nền đục (alpha ≥ .95)
+    const opaque = h => { for (let q = h, i = 0; q && i < 4 && !q.contains(e); q = q.parentElement, i++) { const c = getComputedStyle(q).backgroundColor.match(/[\d.]+/g) || []; if (c.length >= 3 && (c[3] == null ? 1 : +c[3]) >= 0.95) return true; } return false; };
+    let occluded = false; if (cut.length) { const y0 = r.top + (body && body.tail != null ? body.tail : 0.8) * r.height, y1 = visBottom - 1, pts = [];
+      for (let yi = 0; yi < 4; yi++) for (let xi = 0; xi < 5; xi++) pts.push([r.left + r.width * (0.3 + xi * 0.1), y0 + (y1 - y0) * (yi / 3)]);
+      occluded = y1 > y0 && pts.every(([x, y]) => { if (y < 0 || y >= innerHeight) return false; const h = document.elementFromPoint(x, y); return h && h !== e && !e.contains(h) && !(tch && tch.contains(h)) && opaque(h); }); }
+    if (cut.length && !occluded) bad.push(...cut.map(x => x + ' – lộ ra, không khuất sau mặt Stitch'));
     // bóng chân: phần tử/::before/::after có radial-gradient hoặc blur nằm sát đáy hình (±28 px), chồng giữa hình
     const near = [...document.querySelectorAll('#view *')].some(q => { if (q === e) return false; const qr = q.getBoundingClientRect(), cx = r.left + r.width / 2;
       const hit = qr.width > 6 && qr.height > 1 && qr.height < 40 && Math.abs(qr.top + qr.height / 2 - r.bottom) < 28 && qr.left < cx && qr.right > cx;
       const sh = el => { const cs = getComputedStyle(el); return /radial-gradient/.test(cs.backgroundImage) || /blur/.test(cs.filter) || (cs.boxShadow !== 'none' && parseFloat(cs.borderTopLeftRadius) > 4); };
       return hit && sh(q); }) || ['::before', '::after'].some(p => { const pe = e.parentElement && getComputedStyle(e.parentElement, p); return pe && pe.content !== 'none' && /radial-gradient/.test(pe.backgroundImage); });
-    if (!near) bad.push('không có bóng chân (trôi nổi)');
+    if (!near && !occluded) bad.push('không có bóng chân / không đứng sau mặt nào (trôi nổi)');
     const sc = r.height / vh; if (sc < 0.12) bad.push(`quá nhỏ (${Math.round(sc * 100)} % cao màn)`); if (sc > 0.8) bad.push(`quá to (${Math.round(sc * 100)} %)`);
-    out.push({ who, pose: kind, h: Math.round(r.height), bad: [...new Set(bad)], body });
+    out.push({ who, pose: kind, h: Math.round(r.height), bad: [...new Set(bad)], body, occluded });
   }
   return out;
 };
