@@ -89,6 +89,11 @@
      "html": {
       ":scope > span": "e(r.l)",
       ":scope > div > span": "e(r.icon)"
+     },
+     "cls": {
+      ":scope > div > span:nth-child(1)": {
+       "lt:text-[#ffffff]": "'lt:text-[#261A00]'"
+      }
      }
     },
     "d5": {
@@ -100,6 +105,11 @@
      },
      "html": {
       ":scope > span": "e(r.l)"
+     },
+     "cls": {
+      ":scope > div > span:nth-child(1)": {
+       "lt:text-[#ffffff]": "'lt:text-[#261A00]'"
+      }
      }
     },
     "d6": {
@@ -177,5 +187,5 @@
  "addClass": {
   ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']"
  },
- "_contrast": "Chip ACTIVE bản tối 2.78 → chữ #261A00 (màu có sẵn trong Stitch, như sao nút vàng ở bind/path.json) trên nền #2BA39A. Hồ sơ (avatar) thành nút → #/me."
+ "_contrast": "Chip ACTIVE bản tối 2.78 → chữ #261A00 (màu có sẵn trong Stitch, như sao nút vàng ở bind/path.json) trên nền #2BA39A. Hồ sơ (avatar) thành nút → #/me. Icon lửa/dấu tick ô tuần bản sáng: trắng trên cam 1.6 → #261A00 (màu có sẵn trong Stitch)."
 }

@@ -253,6 +253,8 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   };
   const teach2 = who => Chars.img(who, { kind: 'still', pose: 'encourage', cls: 'w-16 h-auto select-none shrink-0', alt: '', size: 64, lazy: true }); // giáo viên: chỉ qua Chars (tư thế encourage ở chuỗi)
   const v2On = () => !!(g.ST2 && g.ST2.streak && App.ux1On && App.ux1On());
+  // @icons spa fitness_center whatshot calendar_today local_fire_department ac_unit eco local_florist check
+  const EV_IC = { autumn26: 'eco', winter26: 'ac_unit', spring27: 'local_florist' }; // biểu tượng Material thay emoji trong thẻ sự kiện v2 (emoji không đạt tương phản)
   const GOALS = [['casual', 'spa', 10, 5, 'Nhẹ nhàng'], ['regular', 'fitness_center', 20, 10, 'Đều đặn'], ['intense', 'whatshot', 50, 20, 'Tăng tốc']];
   function v2Extra() { // thẻ phụ cùng khuôn thẻ của mẫu: đóng băng + mốc kế, sự kiện, rương, bộ sưu tập (không bỏ tính năng nào của trang cũ)
     const n = streakN(), nx = Core.next(n), r = ret(), fi = g.Core && g.Core.Stats ? g.Core.Stats.freezeInfo(state.game) : { left: +state.game.freezes || 0, max: 2 };
@@ -263,8 +265,8 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
       <div class="${V.track}" role="progressbar" aria-valuemin="0" aria-valuemax="${nx}" aria-valuenow="${n}" aria-label="${esc(t('Mốc tiếp theo: {n} ngày', { n: nx }))}"><div class="${V.fill}" style="width:${Math.min(100, Math.round(n / nx * 100))}%"></div></div>
       <div class="flex items-center gap-3 pt-[0.5rem]">${teach2(n % 2 ? 'carlos' : 'ama')}<p class="${V.body}" data-noicon>${t('Mỗi mốc 🎁 · 7 ngày 🧊 · miễn phí')}</p></div>
       <div class="pt-[0.5rem]">${g.StreakUI ? g.StreakUI.badgeHtml(state.game) : `<span>🧊×${fi.left}</span>`}</div></section>`;
-    if (ev) h += `<section class="${V.card}">${head('calendar_today', ev.icon + ' ' + t('Gom {n} mảnh', { n: ev.need }))}<p class="${V.body}">${t('Học 1 ngày = 1 mảnh')}</p>
-      <div class="flex gap-1.5 pt-[0.5rem] text-[24px]" data-noicon aria-label="${esc(t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need }))}">${Array.from({ length: ev.need }, (_, i) => `<span class="${i < got ? '' : 'opacity-30 grayscale'}" aria-hidden="true">${ev.icon}</span>`).join('')}</div></section>`;
+    if (ev) h += `<section class="${V.card}">${head('calendar_today', t('Gom {n} mảnh', { n: ev.need }))}<p class="${V.body}">${t('Học 1 ngày = 1 mảnh')}</p>
+      <div class="flex gap-1.5 pt-[0.5rem]" data-noicon role="img" aria-label="${esc(t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need }))}">${Array.from({ length: ev.need }, (_, i) => `<span class="material-symbols-outlined text-[24px] [font-variation-settings:'FILL'_1] lt:text-[#B37800] dk:text-[#FFC94A] ${i < got ? '' : 'opacity-30'}" aria-hidden="true">${EV_IC[ev.id] || 'eco'}</span>`).join('')}</div></section>`;
     h += `<section class="${V.card} text-center"><div class="text-[48px]" aria-hidden="true" data-noicon>🎁</div><p class="${V.body} pb-[0.5rem]">${ch ? t('Bạn có {n} rương chưa mở', { n: ch }) : t('Mốc tiếp theo: {n} ngày', { n: nx })}</p>${ch ? `<button type="button" id="retChest" class="${V.off}">${t('Mở rương')}</button>` : ''}</section>
       <section class="${V.card}">${head('fitness_center', t('Bộ sưu tập'))}<div class="grid grid-cols-3 gap-2">${items.map(p => { const has = p === 'f:teal' || own[p], on = p[0] === 'f' && (r.frame || 'teal') === p.slice(2);
         return `<button type="button" data-noicon class="${on ? V.on : V.off}${has && p[0] === 'f' ? '' : ' opacity-60'}" data-ret-item="${esc(p)}" ${has && p[0] === 'f' ? '' : 'disabled'} aria-pressed="${on}">${prizeArt(p)}<span class="${V.body}">${has ? esc(prizeName(p)) : '🔒'}</span></button>`; }).join('')}</div></section>`;
@@ -274,7 +276,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const k = today(), se = state.settings || {}, goal = +se.dailyGoal || 20, now = ((state.stats || {}).days || {})[k] || 0, pct = Math.min(100, Math.round(now / goal * 100)), unit = t('lượt ôn');
     const n = o.n != null ? o.n : streakN(), L = DOW(), wk = Core.week(days(), (state.game || {}).frozen, Date.now());
     const lab = { done: t('Đã học'), frozen: t('Đóng băng giữ chuỗi'), today: t('Hôm nay'), future: '', miss: t('Chưa học') };
-    const week = wk.map(x => ({ v: x.st === 'done' && x.k === k ? 'd5' : x.st === 'done' || x.st === 'frozen' ? 'd1' : 'd6', l: L[x.dow], icon: x.st === 'frozen' ? '🧊' : 'local_fire_department', al: L[x.dow] + (lab[x.st] ? ': ' + lab[x.st] : '') }));
+    const week = wk.map(x => ({ v: x.st === 'done' && x.k === k ? 'd5' : x.st === 'done' || x.st === 'frozen' ? 'd1' : 'd6', l: L[x.dow], icon: x.st === 'frozen' ? 'ac_unit' : 'local_fire_department', al: L[x.dow] + (lab[x.st] ? ': ' + lab[x.st] : '') }));
     const gain = (((state.game || {}).days || {})[k] || {}).xp || 0, got = wk.filter(x => x.st === 'done' || x.st === 'frozen').length;
     return { n, title: o.title || t('Chuỗi {n} ngày!', { n }), say: o.say || (n % 2 ? t('Carlos: Thói quen tuyệt vời!') : t('Ama: Mỗi ngày một chút!')), gain: '+' + gain + ' XP', pct, now, goal, unit, off: (163.36 * (1 - pct / 100)).toFixed(2), wk: t('Đã học {a}/7 ngày', { a: got }),
       left: now >= goal ? t('Đã đạt mục tiêu hôm nay') : t('Còn {n} {u} hôm nay', { n: goal - now, u: unit }), goalAria: t('Mục tiêu mỗi ngày'),

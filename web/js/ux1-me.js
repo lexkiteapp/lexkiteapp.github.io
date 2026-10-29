@@ -10,6 +10,8 @@
   const ini = s => { const w = String(s || '').trim().split(/\s+/).filter(Boolean); return ((w.length > 1 ? w[0][0] + w[1][0] : (w[0] || 'L').slice(0, 2)) || 'L').toUpperCase(); };
   const THEMES = { auto: ['brightness_auto', () => t('Tự động')], light: ['light_mode', () => t('Sáng')], dark: ['dark_mode', () => t('Tối')] };
   const ACH_IC = { first: 'hotel_class', streak: 'local_fire_department' };
+  // Huy hiệu: Stitch vẽ biểu tượng Material trên ô màu (không dùng emoji). @icons hotel_class flash_on verified local_library menu_book school account_balance psychology emoji_events local_fire_department whatshot diamond rocket_launch military_tech mic auto_stories bolt bedtime wb_twilight target workspace_premium
+  const BADGE_IC = { first: 'hotel_class', words50: 'menu_book', words200: 'local_library', words500: 'account_balance', master10: 'psychology', master100: 'emoji_events', streak3: 'local_fire_department', streak7: 'whatshot', streak30: 'diamond', rev500: 'rocket_launch', perfect5: 'verified', speaker: 'mic', reader: 'auto_stories', speed: 'flash_on', night: 'bedtime', early: 'wb_twilight', hunter: 'target', level5: 'military_tech', level10: 'workspace_premium' };
 
   async function build() {
     const w = App.W || (p => p), u = state.user, g = state.game || {}, se = state.settings || {}, cards = state.cards || {}, ex = (App.EXAMS || {})[App.exam()] || { short: 'IELTS', name: 'IELTS' };
@@ -64,7 +66,7 @@
     secs.forEach(s => s.rows.forEach((r, i) => { r.v = r.tog ? 'tg' : r.value ? ['n1', 'n2', 'n3'][i % 3] : 'n2'; }));
     secs.forEach(s => { const out = []; s.rows.forEach((r, i) => { if (i) out.push({ v: 'hr' }); out.push(r); }); s.rows = out; });
     const have = g.badges || {}, B = (Game.BADGES || []).slice().sort((a, b) => (have[b.id] ? 1 : 0) - (have[a.id] ? 1 : 0) || (have[b.id] || 0) - (have[a.id] || 0));
-    const ach = B.slice(0, 3).map((b, i) => ({ icon: b.icon || ACH_IC.first, name: b.name, sub: have[b.id] ? t('Đã đạt') : t('Chưa đạt'), v: 'a' + (1 + i) }));
+    const ach = B.slice(0, 3).map((b, i) => ({ icon: BADGE_IC[b.id] || ACH_IC.first, name: b.name, sub: have[b.id] ? t('Đã đạt') : t('Chưa đạt'), v: 'a' + (1 + i) }));
     const photo = u && u.photoURL ? u.photoURL : '';
     return { ini: ini((u && (u.displayName || u.email)) || name), photo, name, target: goal, lEdit: t('Cài đặt'), lStreak: t('Chuỗi ngày'), lXp: t('Tổng XP'), lSaved: t('Đã lưu'), streak: num(streak || 0), xp: num(g.xp || 0), saved: num(totalC),
       lAch: t('Huy hiệu'), lAll: t('Xem tất cả'), ach, secs, out: u ? t('Đăng xuất') : (window.Sync && Sync.can === false ? '' : t('Đăng nhập')), ver: 'Lexkite' + (L.title ? ' · ' + L.title : '') };

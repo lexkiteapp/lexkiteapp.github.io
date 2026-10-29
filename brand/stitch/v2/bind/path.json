@@ -39,6 +39,9 @@
   },
   ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > div > div > span": {
    "dk:text-[#2BA39A]": "'dk:text-[#4FD1C5]'"
+  },
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(2) > button > span:nth-child(1)": {
+   "lt:text-[#0D6964]": "'lt:text-[#0F6B63]'"
   }
  },
  "tag": {

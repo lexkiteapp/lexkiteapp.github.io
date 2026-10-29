@@ -48,6 +48,9 @@
      "cls": {
       ":scope > div:nth-child(1) > div:nth-child(2)": {
        "dk:[color:#2BA39A]": "'dk:[color:#6bd8ce]'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(1) > span": {
+       "lt:text-[#B37800]": "'lt:text-[#8A5A00]'"
       }
      },
      "addClass": {
@@ -64,6 +67,11 @@
      },
      "addClass": {
       ":scope": "relative lg2-row"
+     },
+     "cls": {
+      ":scope > div:nth-child(2) > div:nth-child(1) > span": {
+       "lt:text-[#B37800]": "'lt:text-[#8A5A00]'"
+      }
      }
     },
     "p3": {
@@ -76,6 +84,11 @@
      },
      "addClass": {
       ":scope": "relative lg2-row"
+     },
+     "cls": {
+      ":scope > div:nth-child(2) > div:nth-child(1) > span": {
+       "lt:text-[#B37800]": "'lt:text-[#8A5A00]'"
+      }
      }
     },
     "row": {
@@ -88,6 +101,11 @@
      },
      "addClass": {
       ":scope": "relative lg2-row"
+     },
+     "cls": {
+      ":scope > div:nth-child(2) > div:nth-child(1) > span": {
+       "lt:text-[#B37800]": "'lt:text-[#8A5A00]'"
+      }
      }
     },
     "me": {
@@ -106,6 +124,9 @@
       },
       ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": {
        "dk:[color:#003733]": "'dk:[color:#0d1a1e]'"
+      },
+      ":scope > div:nth-child(2) > div:nth-child(1) > span": {
+       "lt:text-[#B37800]": "'lt:text-[#8A5A00]'"
       }
      },
      "attr": {
@@ -170,5 +191,6 @@
     }
    }
   }
- ]
+ ],
+ "_contrast": " Icon bolt bản sáng #B37800 → #8A5A00 (màu có sẵn trong Stitch me-light)."
 }

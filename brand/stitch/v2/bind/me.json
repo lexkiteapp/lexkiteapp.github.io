@@ -55,8 +55,14 @@
   }
  },
  "addClass": {
-  ":scope > main > div > div:nth-child(1) > div > button": "relative after:absolute after:-inset-1 after:inset-x-0 after:content-['']",
-  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
+  ":scope > main > div > div:nth-child(1) > div > button": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > a": "relative after:absolute after:-inset-y-3.5 after:inset-x-0 after:content-['']"
+ },
+ "cls": {
+  ":scope > main > div > div:nth-child(1) > div > div:nth-child(1) > div:nth-child(1) > div > span": {
+   "lt:text-[#0D6964]": "'lt:text-[#004f4b]'",
+   "dk:text-[#2BA39A]": "'dk:text-[#4FD1C5]'"
+  }
  },
  "repeat": [
   {
@@ -131,7 +137,7 @@
         "n1": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
+          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start inline-flex items-center min-h-[44px] after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
           ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
           ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
          },
@@ -147,7 +153,7 @@
         "n2": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
+          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start inline-flex items-center min-h-[44px] after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
           ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
           ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
          },
@@ -163,7 +169,7 @@
         "n3": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
+          ":scope > div:nth-child(1) > span": "'<' + (w.act ? 'button type=\"button\" data-act=\"' + e(w.act) + '\"' : 'a href=\"' + e(w.href) + '\"' + (w.ext ? ' target=\"_blank\" rel=\"noopener\"' : '') + (w.hook || '')) + ' class=\"text-start inline-flex items-center min-h-[44px] after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</' + (w.act ? 'button' : 'a') + '>'",
           ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
           ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
          },

@@ -95,7 +95,8 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     },
     "c2": {
@@ -114,7 +115,8 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     },
     "c3": {
@@ -133,7 +135,8 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     },
     "c4": {
@@ -152,7 +155,8 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     },
     "c5": {
@@ -171,7 +175,8 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     },
     "c6": {
@@ -190,7 +195,8 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     },
     "c7": {
@@ -209,7 +215,8 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     },
     "c8": {
@@ -228,15 +235,17 @@
       }
      },
      "addClass": {
-      ":scope": "relative"
+      ":scope": "relative",
+      ":scope > div:nth-child(1) > span": "relative after:absolute after:-inset-y-2 after:inset-x-0 after:content-['']"
      }
     }
    }
   }
  ],
  "cls": {
-  ":scope > main > div > div:nth-child(2) > div:nth-child(3) > div": {
-   "[width:60%]": "''"
+  ":scope > main > div > div:nth-child(2) > button, :scope > main > div > div:nth-child(2) > button > span": {
+   "text-[#2A0700]": "'!text-[#2A0700]'"
   }
- }
+ },
+ "_contrast": " CTA nước rút: chữ/icon #2A0700 ép !important (bản tối đo 2.5/1.8); chip kỹ năng thêm vùng chạm ≥44."
 }
