@@ -9,14 +9,18 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 0. Hướng hiện tại (tự đồng bộ mỗi giờ – chỉ sửa giữa 2 dấu)
 <!-- auto:direction:start -->
-- Giao diện: MỌI bề mặt (app, web, add-on, admin, iOS/Android, video) theo **"Lexkite Kit"** trên Stitch (design system `1b7a8a3d3d52404bb332d9ba3f783547`, tờ mẫu `39b977682d554b5da4b26651797f2c3f`, project `7268539912208977707`). Tối = A "Tactile Night", sáng = B "Bright Day". Dựng từ HTML Stitch + CI so ảnh (SSIM) từng màn; không chép ảnh/placeholder của Stitch.
+- Giao diện: MỌI bề mặt (app, web, add-on, admin, iOS/Android, video) theo **"Lexkite Kit"** trên Stitch (design system `1b7a8a3d3d52404bb332d9ba3f783547`, tờ mẫu `39b977682d554b5da4b26651797f2c3f`, project `7268539912208977707`). Tối = A "Tactile Night", sáng = B "Bright Day", mặc định theo hệ thống.
+- Stitch làm TẤT CẢ (bố cục, icon, nút, hình); code port trung thành HTML Stitch (Tailwind biên dịch trên CI, không CDN, SSIM so ảnh Stitch), chỉ thay logo diều Lexkite + ảnh giáo viên `Chars.*`. Sửa đẹp trong Stitch, không chỉnh lại bằng code.
 - Prompt Stitch: MỖI LẦN 1 MÀN, tả cảm giác/trải nghiệm, không liệt kê thông số.
-- Nhân vật: CHỈ 2 người Ama + Carlos 2D (tóc đen, trang phục sáng), lấy qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không khung/viền; cổng CI chặn ảnh khác.
+- Nhân vật: CHỈ 2 người Ama + Carlos 2D (tóc đen, trang phục sáng), lấy qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không khung/viền; cổng CI chặn ảnh khác. Đổi phong cách phải hỏi chủ.
+- Giọng = giáo viên: Ama luôn giọng nữ, Carlos giọng nam ở mọi nơi; voice id trong registry, CI kiểm giọng khớp người hiện.
 - Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối.
 - Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
-- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp; logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng.
+- Video: một pipeline Remotion + Stitch ra cả 9:16 và 16:9/1:1; tự QC rồi mẫu chủ duyệt trước khi chạy hàng loạt.
+- QC cuối: khi đủ nhân vật/âm thanh/UI, CI kiểm 1-1 từng màn/trạng thái (bố cục, tương phản, giọng, khớp môi, âm thanh, chuyển động, chồng lấn, lỗi JS) trước khi chủ duyệt.
+- Duyệt: mọi thay đổi GIAO DIỆN cần chủ OK trên ảnh trước khi gộp; logic gộp khi CI xanh. Không gộp khi CI đỏ, không nới ngưỡng. Shell ≤ 377 KB gz (Node 22).
 - Việc nặng (tách nền, render) CHỈ trên CI – script tự từ chối chạy ngoài `$CI`.
-- Phiên: ≤ 2 phiên làm việc; phiên con không nhắn nhau (trừ cặp điều phối được giao); phiên dài → phiên mới với bàn giao ngắn.
+- Phiên: mỗi khu vực một phiên chủ, không sửa file PR mở khác đang giữ; ≤ 2 phiên làm việc; phiên con không nhắn nhau (trừ cặp điều phối được giao); phiên dài → phiên mới với bàn giao ngắn.
 <!-- auto:direction:end -->
 
 ## 1. Điều phối
