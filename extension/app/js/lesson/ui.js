@@ -39,7 +39,7 @@
 .lsn-combo{visibility:hidden}.lsn-combo.on{visibility:visible}
 /* 🧩 Stitch v2.1 lesson-question (khung tự sinh: brand/stitch/v2/bind/lesson-question.json) – Ama đứng SAU thẻ đề bài đục; không vòng/hào quang/khung/mặt nạ */
 .lsn-v2 [hidden]{display:none}.lsn-v2 .lsn-fv2{margin:0 0 1rem}.lsn-v2 .tch-rig.posed img.tch-still{visibility:visible}.lsn-v2 .tch-rig.posed canvas,.lsn-v2 .tch-rig.posed img.tch-poster{visibility:hidden}.lsn-v2 .tch,.lsn-v2 .tch-rig{position:absolute;inset:0}.lsn-v2 .tch-rig img,.lsn-v2 .tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.lsn-v2 .tch-rig.live img{visibility:hidden}
-.lsn-v2.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);pointer-events:none}.lsn-v2.st-end .lsn-tchw,.lsn-v2.st-end .lsn-qcard,.lsn-v2.st-end .lsn-qfoot,.lsn-v2.st-end .lsn-qchips{display:none}
+.lsn-v2.st-dim::after{content:"";position:fixed;inset:0;z-index:25;background:rgb(var(--st-surface)/.6);pointer-events:none}.lsn-v2.st-end .lsn-tchw,.lsn-v2.st-end .lsn-qcard,.lsn-v2.st-end .lsn-qfoot,.lsn-v2.st-end .lsn-qchips{display:none}.lsn-v2.lsn-end .lsn-tchw.lsn-endt{display:flex}
 .lsn-ask{display:flex;align-items:flex-end;gap:.7rem}.lsn-ask .tch{flex:none;width:112px;height:138px;position:relative;margin-bottom:-6px;z-index:1}
 .tch-rig{position:absolute;inset:0;filter:drop-shadow(0 4px 5px rgb(0 0 0 / .22))}.tch::after{content:"";position:absolute;left:18%;right:18%;bottom:-3px;height:8px;border-radius:50%;background:radial-gradient(rgb(0 0 0 / .18),transparent 70%);z-index:-1}.tch-rig img,.tch-rig canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}.tch-rig.live img{visibility:hidden}
 /* bán thân: đầu + vai + áo tươi (áo gánh độ nổi trên nền tối như Duolingo, tóc giữ đen); eo mờ dần (không khung, không ô) – docs/CHARACTERS.md */
@@ -460,7 +460,7 @@
       off1: Math.round(490 * (1 - Math.min(100, s.accuracy) / 100)), off2: Math.round(414 * (1 - Math.min(1, s.ok1 / Math.max(1, s.total)))),
       sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: w.length ? t('Bạn đã học:') + ' ' + w.map(p => p.card.word).join(' · ') : ' ', more,
       rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'), revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
-      teacher: '<div class="lsn-tchw relative z-0 -mb-10 -mt-3 h-[132px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[154px] h-[132px] max-w-full"></div></div>' };
+      teacher: '<div class="lsn-tchw lsn-endt relative z-0 -mb-10 -mt-3 h-[132px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[154px] h-[132px] max-w-full"></div></div>' };
     if (L.teachers && L.teachers.carlos) { try { L.teachers.carlos.destroy(); } catch (e) { /* bỏ qua */ } } L.teachers = null;
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end');
