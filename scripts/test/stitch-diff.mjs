@@ -65,7 +65,11 @@ async function auditContrast(page, buf, tag) {
     for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { const i = (y * p.width + x) * 4, R = p.data[i], G2 = p.data[i + 1], B = p.data[i + 2];
       if (Math.abs(R - m[0]) + Math.abs(G2 - m[1]) + Math.abs(B - m[2]) < 90) continue; far++; const q = ((R >> 3) << 10) | ((G2 >> 3) << 5) | (B >> 3); H.set(q, (H.get(q) || 0) + 1); }
     if (far < 6) continue; let cr = 99;
-    for (const [q, c] of H) { if (c < far * 0.15) continue; const bg = [(q >> 10) * 8 + 4, ((q >> 5) & 31) * 8 + 4, (q & 31) * 8 + 4], fg = [0, 1, 2].map(k => m[k] * a + bg[k] * (1 - a)); cr = Math.min(cr, cratio(fg, bg)); }
+    // icon nét mảnh (calendar_today 16 px…): điểm khử răng cưa ở mép nét = màu TRỘN giữa icon và nền chính, không phải nền → bỏ cụm nằm trên đoạn icon–nền chính
+    //   (WCAG 1.4.11 so màu icon với nền kề; nền thật khác nền chính – gradient, ảnh, viên – vẫn đo đủ)
+    const rgb = q => [(q >> 10) * 8 + 4, ((q >> 5) & 31) * 8 + 4, (q & 31) * 8 + 4], top = [...H].sort((x, y) => y[1] - x[1])[0][0], B0 = rgb(top);
+    const blend = c => { const d = [0, 1, 2].map(k => B0[k] - m[k]), L = d[0] ** 2 + d[1] ** 2 + d[2] ** 2; if (!L) return false; const t = [0, 1, 2].reduce((s, k) => s + (c[k] - m[k]) * d[k], 0) / L; if (t <= 0.04 || t >= 0.96) return false; return Math.hypot(...[0, 1, 2].map(k => m[k] + t * d[k] - c[k])) < 20; };
+    for (const [q, c] of H) { if (c < far * 0.15) continue; const bg = rgb(q); if (it.t[0] === '⟨' && q !== top && blend(bg)) continue; const fg = [0, 1, 2].map(k => m[k] * a + bg[k] * (1 - a)); cr = Math.min(cr, cratio(fg, bg)); }
     if (cr === 99) continue; n++; const need = it.large ? 3 : 4.5; if (cr < need - 0.05) miss.push({ t: it.t, cr: +cr.toFixed(2), need, at: `${Math.round(it.x)},${Math.round(it.y)}`, cls: it.cls, fg: it.c }); }
   contrast[tag] = { n, miss }; }
 // gate: không ô giữ chỗ giáo viên / ảnh vỡ trong màn Stitch

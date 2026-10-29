@@ -1109,7 +1109,7 @@
           <button class="btn sm ghost" data-use-sent="${esc(s.en)}">📌 ${t('Dùng làm ngữ cảnh')}</button></div>`).join('')}
       </div>` : ''}
 
-      <div class="card" style="margin-top:1rem" id="saveCard">
+      ${final ? `<div class="card" style="margin-top:1rem" id="saveCard">
         <h3>${card ? '📌 ' + t('Thêm ngữ cảnh cho từ này') : '➕ ' + t('Lưu vào flashcard kèm ngữ cảnh')}</h3>
         <label class="field"><span class="muted small" style="font-weight:500">${t('Câu bạn gặp từ này (bài đọc, phim, báo…) – ngữ cảnh giúp nhớ lâu gấp nhiều lần')}</span>
           <textarea class="input" id="ctx" placeholder="${t('Dán câu có chứa “{w}”…', { w: esc(e.word) })}"></textarea></label>
@@ -1119,7 +1119,7 @@
           <button class="btn primary" id="saveWord">${card ? t('Thêm ngữ cảnh') : t('Lưu vào flashcard')}</button>
           ${card ? `<span class="muted small">${t('{n} ngữ cảnh', { n: card.contexts.length })} · ${masteryDots(card.srs)}</span>` : ''}
         </div>
-      </div>
+      </div>` : UI.skel(t('Đang tra “{q}”…', { q: esc(e.word) }), 3)} <!-- ô lưu kèm ngữ cảnh chỉ có ở lần vẽ ĐỦ: lần vẽ nhanh có ô thì người đang gõ/bàn phím mở sẽ bị lần vẽ đủ đẩy xô (CLS 0,68 mobile-qa dict 360) -->
       ${final ? `<div class="card" style="margin-top:1rem"><div id="phraseBox"></div><div id="related"></div></div>` : ''}`; /* 2 khối điền muộn (Lex.phrases, Datamuse) ở CUỐI trang: về muộn không đẩy ô lưu/ô ngữ cảnh (CLS 0,66 mobile-qa 360) */
     bindCommon();
     App.nativeFill($('#result [data-dnative]'), e.word, e.pos);
@@ -1140,6 +1140,8 @@
       $('#ctxVi').textContent = ctxVi ? `${flg} ${ctxVi}` : t('Không dịch được câu này.');
       return ctxVi;
     };
+    const qs = $('#quickSave');
+    if (!$('#ctx')) { if (qs) qs.onclick = async () => { await addWord(e, null); toast(t('Đã lưu “{w}” vào flashcard', { w: e.word })); routes.dict(e.word); }; return; } // lần vẽ nhanh: chưa có ô ngữ cảnh
     $('#trCtx').onclick = trCtx;
     $('#ctx').oninput = () => { ctxVi = ''; $('#ctxVi').textContent = ''; };
     $$('[data-use-sent]').forEach(b => b.onclick = () => {
@@ -1155,7 +1157,7 @@
       location.hash === `#/dict/${encodeURIComponent(e.word)}` ? routes.dict(e.word) : (location.hash = `#/dict/${encodeURIComponent(e.word)}`);
     };
     $('#saveWord').onclick = save;
-    const qs = $('#quickSave'); if (qs) qs.onclick = save;
+    if (qs) qs.onclick = save;
     }
   });
 
