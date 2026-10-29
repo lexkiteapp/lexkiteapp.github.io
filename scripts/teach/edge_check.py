@@ -18,10 +18,12 @@ def rl(c): c = c / 255; c = np.where(c <= 0.04045, c / 12.92, ((c + 0.055) / 1.0
 def pop(name, im):   # độ nổi dáng người: % điểm ở dải 2–4 px trong mép (75 % trên) đạt ≥ 3:1 so với nền app – cần ≥ 50 % trên CẢ 2 nền
     a = im[..., 3] >= 128; er = lambda m, r: m & np.roll(m, r, 0) & np.roll(m, -r, 0) & np.roll(m, r, 1) & np.roll(m, -r, 1)
     band = er(a, 2) & ~er(a, 4); band[int(a.shape[0] * 0.75):] = False; L = rl(im[..., :3].astype(np.float32))[band]
+    hair = L < 0.012   # tóc đen: chủ 29/10 chọn GIỮ tóc đen (kiểu Duolingo) – đo + báo cáo, KHÔNG chặn; cổng = áo/mặt (phần còn lại của viền)
     for t, bg in TOK.items():
-        lb = rl(np.array(bg, np.float32)); share = float(((np.maximum(L, lb) + 0.05) / (np.minimum(L, lb) + 0.05) >= 3).mean())
-        rows.append(f'{name} nền {t}: {share:.0%} viền nổi ≥ 3:1')
-        if share < 0.5: errs.append(f'{name}: chỉ {share:.0%} viền dáng người ≥ 3:1 trên nền {t} (cần ≥ 50 %)')
+        lb = rl(np.array(bg, np.float32)); ok = (np.maximum(L, lb) + 0.05) / (np.minimum(L, lb) + 0.05) >= 3
+        share, body = float(ok.mean()), float(ok[~hair].mean()) if (~hair).any() else 0.0
+        rows.append(f'{name} nền {t}: cả viền {share:.0%} · áo/mặt {body:.0%} ≥ 3:1 (tóc {hair.mean():.0%} viền)')
+        if body < 0.5: errs.append(f'{name}: áo/mặt chỉ {body:.0%} viền ≥ 3:1 trên nền {t} (cần ≥ 50 %)')
 for who in R['people']:
     pop(f'{who}/poster', np.asarray(Image.open(f'{T}/{who}/poster.webp').convert('RGBA')))
     for k in ('poster', 'avatar'):
