@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, user-scalable=no">
+  <title>Lexkite v2 — Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #050d0f;
+      color: #EEF6F7;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    
+    .mobile-container {
+      width: 390px;
+      min-height: 844px;
+      background-color: #0B171A;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(54, 80, 90, 0.3);
+    }
+
+    /* Tactile button & card ledge physics */
+    .tactile-card {
+      background-color: #142328;
+      border: 2px solid #233942;
+      border-bottom: 5px solid #0d1a1e;
+      border-radius: 18px;
+    }
+
+    .tactile-chip {
+      background: #112025;
+      border: 1.5px solid #20353c;
+      border-bottom: 3.5px solid #0c171a;
+      border-radius: 12px;
+      transition: all 0.1s ease;
+    }
+    .tactile-chip:active {
+      transform: translateY(2px);
+      border-bottom-width: 1.5px;
+    }
+
+    .tactile-btn-secondary {
+      background: #182a30;
+      border: 2px solid #2b454e;
+      border-bottom: 5px solid #0e1a1e;
+      border-radius: 16px;
+      transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+      filter: brightness(0.95);
+    }
+
+    /* Glossy 3D badges */
+    .badge-gloss {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 16px -2px rgba(0,0,0,0.5), inset 0 2px 2px rgba(255,255,255,0.45);
+    }
+    .badge-gloss::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 48%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.05) 100%);
+      border-radius: 999px 999px 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Custom tactile toggle switch */
+    .tactile-toggle-on {
+      width: 48px;
+      height: 28px;
+      background: #2BA39A;
+      border: 2px solid #1F7A75;
+      border-bottom: 3.5px solid #13534f;
+      border-radius: 9999px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.25);
+    }
+    .tactile-toggle-on::after {
+      content: '';
+      position: absolute;
+      right: 3px;
+      top: 2px;
+      width: 18px;
+      height: 18px;
+      background: #FFFFFF;
+      border-radius: 9999px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+    }
+
+    /* Subtle scrollbar hiding */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container">
+    
+    <!-- ======================================================== -->
+    <!-- v2 FIXED HEADER (56px) - 4 Evenly Spaced Metric Chips    -->
+    <!-- ======================================================== -->
+    <header class="h-[56px] px-3.5 flex items-center justify-between border-b border-[#1c3038] bg-[#091518]/95 backdrop-blur-md sticky top-0 z-30 select-none">
+      
+      <!-- 1. IELTS Shield Chip -->
+      <div class="tactile-chip flex items-center gap-1.5 px-2.5 py-1">
+        <svg class="w-4 h-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L4 5V11C4 16.5 7.4 21.6 12 23C16.6 21.6 20 16.5 20 11V5L12 2Z" fill="#1F7A75"/>
+          <path d="M12 2.5L5.5 5.2V11C5.5 15.8 8.3 20.2 12 21.6C15.7 20.2 18.5 15.8 18.5 11V5.2L12 2.5Z" fill="#2BA39A"/>
+          <path d="M12 4L12 20.5C15 19.3 17.5 15.5 17.5 11V5.8L12 4Z" fill="#49c6bd"/>
+          <circle cx="12" cy="11.5" r="2.5" fill="#EEF6F7"/>
+        </svg>
+        <span class="text-[12px] font-extrabold text-[#2BA39A] tracking-wider uppercase">IELTS</span>
+      </div>
+
+      <!-- 2. Streak Flame Chip (with small red notification dot) -->
+      <div class="tactile-chip flex items-center gap-1.5 px-2.5 py-1 relative">
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#F2553B] rounded-full border-2 border-[#0B171A]"></span>
+        <svg class="w-4 h-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C10.5 5 8.5 7 8.5 9.5C8.5 11.2 9.7 12.5 11.2 12.9C11 12 11.2 11.1 11.7 10.4C12.5 9.3 13.8 8.8 14.5 7.6C16.8 10.2 17.5 14 15.8 17.1C15.2 18.2 14.2 19 13.1 19.4C15.5 19 17 16.8 17 14.5C17 12.3 15.8 10.4 15 8.5C14.2 6.8 13.8 4.6 12 2Z" fill="#B53A22"/>
+          <path d="M12 4.5C10.8 6.8 9.5 8.2 9.5 10.5C9.5 12.5 11 13.8 12.5 14C12.2 13 12.5 12 13 11.2C13.8 10.2 14.8 9.8 15.2 8.8C16.6 11 17 13.8 15.8 16.2C15.4 17 14.6 17.6 13.7 18C15.2 17.6 16.2 15.8 16.2 14C16.2 12.2 15.2 10.8 14.5 9.2C13.8 7.8 13.5 6 12 4.5Z" fill="#F2553B"/>
+          <path d="M12 10C10.8 11.8 10.5 13.2 10.5 14.8C10.5 17 12 18.8 14 19.2C14.8 18.5 15.2 17.2 15 16C14.8 14.8 13.8 14 13.5 13C13.2 12.2 13.5 11 12 10Z" fill="#FFB054"/>
+        </svg>
+        <span class="text-[13px] font-extrabold text-[#FFB054] tracking-tight">14</span>
+      </div>
+
+      <!-- 3. XP Bolt Chip -->
+      <div class="tactile-chip flex items-center gap-1.5 px-2.5 py-1">
+        <svg class="w-4 h-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" viewBox="0 0 24 24" fill="none">
+          <path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" fill="#CC9214"/>
+          <path d="M12.5 3.2L5.5 13H11.5L10.7 20L18.5 11H12.2L12.5 3.2Z" fill="#FFC94A"/>
+          <path d="M12.5 3.2L12.2 11H18.5L10.7 20L11 15H5.5L12.5 3.2Z" fill="#FFE28A" opacity="0.6"/>
+        </svg>
+        <span class="text-[13px] font-extrabold text-[#FFC94A] tracking-tight">820</span>
+      </div>
+
+      <!-- 4. Daily Goal Ring Chip (14/20 in teal) -->
+      <div class="tactile-chip flex items-center gap-1.5 px-2.5 py-1">
+        <div class="relative w-4 h-4 flex items-center justify-center">
+          <svg class="w-4 h-4 -rotate-90" viewBox="0 0 20 20">
+            <circle cx="10" cy="10" r="7.5" fill="none" stroke="#182c32" stroke-width="2.8"/>
+            <circle cx="10" cy="10" r="7.5" fill="none" stroke="#2BA39A" stroke-width="2.8" stroke-dasharray="47.1" stroke-dashoffset="14.1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="text-[12px] font-extrabold text-[#2BA39A] tracking-tight">14/20</span>
+      </div>
+
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- MAIN SCROLLABLE CONTENT BODY                             -->
+    <!-- ======================================================== -->
+    <main class="flex-1 px-4 pt-4 pb-24 overflow-y-auto no-scrollbar space-y-4">
+      
+      <!-- 1. PROFILE HERO CARD -->
+      <section class="tactile-card p-4 relative overflow-hidden">
+        <!-- Subtle background glow -->
+        <div class="absolute -right-10 -top-10 w-36 h-36 bg-[#2BA39A]/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3.5">
+            <!-- Big Colorful Initials Avatar 'LK' -->
+            <div class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2BA39A] via-[#1F7A75] to-[#12514D] border-2 border-[#40cbc0] border-b-4 border-b-[#0c3f3c] flex items-center justify-center shadow-lg shadow-black/40">
+              <!-- Avatar Specular Gloss -->
+              <div class="absolute top-1 left-2 right-2 h-5 bg-white/25 rounded-full pointer-events-none"></div>
+              <span class="text-2xl font-extrabold text-white tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">LK</span>
+              <!-- Online status pip -->
+              <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-[#2FBF71] border-2 border-[#142328] rounded-full shadow-sm"></span>
+            </div>
+
+            <!-- Name & Target Pill -->
+            <div class="flex flex-col">
+              <div class="flex items-center gap-1.5">
+                <h1 class="text-[19px] font-extrabold text-[#EEF6F7] tracking-tight leading-tight">Learner Kai</h1>
+                <svg class="w-4 h-4 text-[#FFC94A]" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 1l2.6 5.8L19 7.6l-4.7 4.3 1.3 6.4L10 15l-5.6 3.3 1.3-6.4L1 7.6l6.4-.8L10 1z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+
+              <!-- Target IELTS Chip -->
+              <div class="mt-1 flex items-center gap-1.5">
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#102d31] border border-[#1e585f] text-[#2BA39A] text-[11px] font-extrabold tracking-wide uppercase">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A] animate-pulse"></span>
+                  Target: Band 7.5
+                </span>
+                <span class="text-[12px] font-semibold text-[#739299]">Joined Sep '24</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Edit Pencil Button -->
+          <button class="w-10 h-10 rounded-xl bg-[#192b31] border-2 border-[#2c4752] border-b-4 border-b-[#0f1d22] flex items-center justify-center text-[#A9BFC1] active:translate-y-0.5 active:border-b-2 hover:text-[#EEF6F7] transition-all" aria-label="Edit Profile">
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2. THREE CHUNKY STAT TILES (Streak coral, XP gold, Words teal) -->
+      <section class="grid grid-cols-3 gap-2.5">
+        
+        <!-- Tile 1: Streak (Coral #F2553B) -->
+        <div class="bg-[#142328] rounded-2xl p-3 border-2 border-[#F2553B]/70 border-b-[5px] border-b-[#7d2212] flex flex-col justify-between relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold text-[#F2553B] uppercase tracking-wider">Streak</span>
+            <div class="w-6 h-6 rounded-lg bg-[#3a1b16] border border-[#F2553B]/50 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C10.5 5 8.5 7 8.5 9.5C8.5 11.2 9.7 12.5 11.2 12.9C11 12 11.2 11.1 11.7 10.4C12.5 9.3 13.8 8.8 14.5 7.6C16.8 10.2 17.5 14 15.8 17.1C15.2 18.2 14.2 19 13.1 19.4C15.5 19 17 16.8 17 14.5C17 12.3 15.8 10.4 15 8.5C14.2 6.8 13.8 4.6 12 2Z" fill="#F2553B"/>
+                <path d="M12 10C10.8 11.8 10.5 13.2 10.5 14.8C10.5 17 12 18.8 14 19.2C14.8 18.5 15.2 17.2 15 16C14.8 14.8 13.8 14 13.5 13C13.2 12.2 13.5 11 12 10Z" fill="#FFB054"/>
+              </svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight leading-none">14</span>
+            <span class="text-[10px] font-bold text-[#F2553B] ml-0.5">days</span>
+          </div>
+        </div>
+
+        <!-- Tile 2: Total XP (Gold #FFC94A) -->
+        <div class="bg-[#142328] rounded-2xl p-3 border-2 border-[#FFC94A]/70 border-b-[5px] border-b-[#805e11] flex flex-col justify-between relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold text-[#FFC94A] uppercase tracking-wider">Total XP</span>
+            <div class="w-6 h-6 rounded-lg bg-[#382b10] border border-[#FFC94A]/50 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
+                <path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" fill="#FFC94A"/>
+              </svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight leading-none">820</span>
+            <span class="text-[10px] font-bold text-[#FFC94A] ml-0.5">pts</span>
+          </div>
+        </div>
+
+        <!-- Tile 3: Words (Teal #2BA39A) -->
+        <div class="bg-[#142328] rounded-2xl p-3 border-2 border-[#2BA39A]/70 border-b-[5px] border-b-[#0f4d48] flex flex-col justify-between relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold text-[#2BA39A] uppercase tracking-wider">Words</span>
+            <div class="w-6 h-6 rounded-lg bg-[#0e2a27] border border-[#2BA39A]/50 flex items-center justify-center">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6Z" fill="#2BA39A" opacity="0.3"/>
+                <path d="M7 8H17M7 12H14M7 16H11" stroke="#2BA39A" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="mt-2.5">
+            <span class="text-2xl font-extrabold text-[#EEF6F7] tracking-tight leading-none">142</span>
+            <span class="text-[10px] font-bold text-[#2BA39A] ml-0.5">saved</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 3. ACHIEVEMENTS ROW (3 Glossy 3D Badges with Level Ribbons) -->
+      <section class="tactile-card p-3.5">
+        <div class="flex items-center justify-between mb-3 px-1">
+          <div class="flex items-center gap-1.5">
+            <span class="text-[12px] font-extrabold text-[#EEF6F7] tracking-wider uppercase">Achievements</span>
+            <span class="px-1.5 py-0.2 bg-[#1d353d] text-[#2BA39A] text-[10px] font-extrabold rounded-full">3 unlocked</span>
+          </div>
+          <span class="text-[11px] font-bold text-[#2BA39A]">View all (18)</span>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2.5">
+          
+          <!-- Badge 1: Star (Consistency / Gold) -->
+          <div class="flex flex-col items-center bg-[#0d181c] p-2.5 rounded-xl border border-[#1b3138]">
+            <div class="relative w-14 h-14 rounded-full bg-gradient-to-b from-[#FFD25E] to-[#D98200] border-2 border-[#FFE89E] border-b-4 border-b-[#8C5200] flex items-center justify-center badge-gloss">
+              <svg class="w-7 h-7 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" viewBox="0 0 24 24" fill="#FFFFFF">
+                <path d="M12 2L14.9 8.2L21.7 9.1L16.7 13.9L18 20.7L12 17.3L6 20.7L7.3 13.9L2.3 9.1L9.1 8.2L12 2Z"/>
+              </svg>
+            </div>
+            <!-- Level Ribbon -->
+            <span class="mt-2 px-2 py-0.5 rounded-full bg-[#3a2908] border border-[#FFC94A]/60 text-[#FFC94A] text-[9px] font-extrabold tracking-wider uppercase shadow-sm">
+              LEVEL 3
+            </span>
+            <span class="text-[11px] font-extrabold text-[#EEF6F7] mt-1 text-center">Streak Star</span>
+          </div>
+
+          <!-- Badge 2: Bolt (Speed / Coral) -->
+          <div class="flex flex-col items-center bg-[#0d181c] p-2.5 rounded-xl border border-[#1b3138]">
+            <div class="relative w-14 h-14 rounded-full bg-gradient-to-b from-[#FF7A63] to-[#C9331B] border-2 border-[#FFA391] border-b-4 border-b-[#821D0D] flex items-center justify-center badge-gloss">
+              <svg class="w-7 h-7 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" viewBox="0 0 24 24" fill="#FFFFFF">
+                <path d="M13 2L4 14H12L11 22L20 10H12L13 2Z"/>
+              </svg>
+            </div>
+            <!-- Level Ribbon -->
+            <span class="mt-2 px-2 py-0.5 rounded-full bg-[#381611] border border-[#F2553B]/60 text-[#F2553B] text-[9px] font-extrabold tracking-wider uppercase shadow-sm">
+              LEVEL 2
+            </span>
+            <span class="text-[11px] font-extrabold text-[#EEF6F7] mt-1 text-center">Fast Drill</span>
+          </div>
+
+          <!-- Badge 3: Shield (Mastery / Teal) -->
+          <div class="flex flex-col items-center bg-[#0d181c] p-2.5 rounded-xl border border-[#1b3138]">
+            <div class="relative w-14 h-14 rounded-full bg-gradient-to-b from-[#38C6BC] to-[#176B66] border-2 border-[#76E4DC] border-b-4 border-b-[#0D4441] flex items-center justify-center badge-gloss">
+              <svg class="w-7 h-7 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" viewBox="0 0 24 24" fill="#FFFFFF">
+                <path d="M12 2L4 5V11C4 16.5 7.4 21.6 12 23C16.6 21.6 20 16.5 20 11V5L12 2Z"/>
+              </svg>
+            </div>
+            <!-- Level Ribbon -->
+            <span class="mt-2 px-2 py-0.5 rounded-full bg-[#0e2c28] border border-[#2BA39A]/60 text-[#2BA39A] text-[9px] font-extrabold tracking-wider uppercase shadow-sm">
+              LEVEL 4
+            </span>
+            <span class="text-[11px] font-extrabold text-[#EEF6F7] mt-1 text-center">Exam Pro</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. SETTINGS LIST AS CHUNKY CARDS (One Line Each) -->
+      <section class="space-y-2">
+        <h2 class="text-[11px] font-extrabold text-[#739299] tracking-wider uppercase px-1">Settings & Preferences</h2>
+
+        <!-- Item 1: Theme (Value: Tactile Night + chevron) -->
+        <div class="tactile-card p-3 flex items-center justify-between cursor-pointer active:translate-y-0.5 transition-transform">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-[#1b3138] border border-[#284954] flex items-center justify-center text-[#2BA39A] shadow-inner">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 11.5414 20.9657 11.0908 20.8996 10.65C19.8258 11.5036 18.4727 12 17 12C13.6863 12 11 9.31371 11 6C11 4.52729 11.4964 3.17421 12.35 2.10041C11.9092 2.03433 11.4586 2 11 2L12 3Z"/>
+              </svg>
+            </div>
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">Theme</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[13px] font-bold text-[#2BA39A]">Tactile Night</span>
+            <svg class="w-4 h-4 text-[#739299]" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Item 2: Language (English + chevron) -->
+        <div class="tactile-card p-3 flex items-center justify-between cursor-pointer active:translate-y-0.5 transition-transform">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-[#282e3b] border border-[#3b475e] flex items-center justify-center text-[#7C8DF5] shadow-inner">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">Language</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[13px] font-bold text-[#A9BFC1]">English</span>
+            <svg class="w-4 h-4 text-[#739299]" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Item 3: Notifications (Toggle on) -->
+        <div class="tactile-card p-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-[#34241c] border border-[#523526] flex items-center justify-center text-[#FFB054] shadow-inner">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.9 22 12 22ZM18 16V11C18 7.93 16.37 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.64 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16Z"/>
+              </svg>
+            </div>
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">Notifications</span>
+          </div>
+          <!-- Tactile toggle switch ON -->
+          <div class="tactile-toggle-on" role="switch" aria-checked="true"></div>
+        </div>
+
+        <!-- Item 4: Sound (Toggle on) -->
+        <div class="tactile-card p-3 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-[#142e2b] border border-[#1e4e48] flex items-center justify-center text-[#2FBF71] shadow-inner">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 9V15H7L12 20V4L7 9H3ZM16.5 12C16.5 10.23 15.48 8.71 14 7.97V16.02C15.48 15.29 16.5 13.77 16.5 12ZM14 3.23V5.29C16.89 6.15 19 8.83 19 12C19 15.17 16.89 17.85 14 18.71V20.77C18.01 19.86 21 16.28 21 12C21 7.72 18.01 4.14 14 3.23Z"/>
+              </svg>
+            </div>
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">Sound</span>
+          </div>
+          <!-- Tactile toggle switch ON -->
+          <div class="tactile-toggle-on" role="switch" aria-checked="true"></div>
+        </div>
+
+        <!-- Item 5: Exam Target (IELTS 7.5 + chevron) -->
+        <div class="tactile-card p-3 flex items-center justify-between cursor-pointer active:translate-y-0.5 transition-transform">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-[#321c19] border border-[#522923] flex items-center justify-center text-[#F2553B] shadow-inner">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </div>
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">Exam target</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="text-[13px] font-extrabold text-[#F2553B]">IELTS 7.5</span>
+            <svg class="w-4 h-4 text-[#739299]" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 5. SECONDARY 'LOG OUT' BUTTON WITH LEDGE -->
+      <div class="pt-2">
+        <button class="tactile-btn-secondary w-full py-3.5 flex items-center justify-center gap-2 text-[#F2553B] text-[15px] font-extrabold">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+            <polyline points="16 17 21 12 16 7"/>
+            <line x1="21" y1="12" x2="9" y2="12"/>
+          </svg>
+          Log out
+        </button>
+      </div>
+
+      <!-- App version footer tag -->
+      <div class="text-center pt-1 pb-2">
+        <span class="text-[11px] font-semibold text-[#48636b]">Lexkite v2.4 • 100% Free Prep</span>
+      </div>
+
+    </main>
+
+    <!-- ======================================================== -->
+    <!-- v2 ICON-ONLY FIXED BOTTOM TAB BAR (5 Tabs, Me Active)    -->
+    <!-- ======================================================== -->
+    <nav class="h-[68px] px-3 border-t border-[#1c3038] bg-[#091518]/95 backdrop-blur-md fixed bottom-0 w-[390px] z-30 flex items-center justify-around select-none">
+      
+      <!-- Tab 1: Learn (kite/map, teal) -->
+      <button class="w-12 h-12 rounded-xl flex items-center justify-center text-[#739299] hover:text-[#2BA39A] active:scale-95 transition-all" aria-label="Learn">
+        <svg class="w-7 h-7 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" viewBox="0 0 32 32" fill="none">
+          <path d="M16 3L27 14L16 29L5 14L16 3Z" fill="#175e5a"/>
+          <path d="M16 4.5L25.5 14L16 27L6.5 14L16 4.5Z" fill="#2BA39A"/>
+          <path d="M16 4.5L25.5 14L16 20L16 4.5Z" fill="#4fd1c7" opacity="0.6"/>
+          <circle cx="16" cy="14" r="3" fill="#EEF6F7"/>
+        </svg>
+      </button>
+
+      <!-- Tab 2: Review (cards stack, violet) with red dot badge -->
+      <button class="w-12 h-12 rounded-xl flex items-center justify-center text-[#739299] hover:text-[#9F7AEA] active:scale-95 transition-all relative" aria-label="Review">
+        <span class="absolute top-2 right-2.5 w-2 h-2 bg-[#F2553B] rounded-full border border-[#0B171A]"></span>
+        <svg class="w-7 h-7 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" viewBox="0 0 32 32" fill="none">
+          <rect x="7" y="10" width="18" height="15" rx="3.5" fill="#583191"/>
+          <rect x="5" y="7" width="18" height="15" rx="3.5" fill="#7C46C9"/>
+          <rect x="9" y="4" width="18" height="15" rx="3.5" fill="#9F7AEA"/>
+          <path d="M14 10H22M14 13H19" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <!-- Tab 3: Practice (bolt dumbbell, coral) -->
+      <button class="w-12 h-12 rounded-xl flex items-center justify-center text-[#739299] hover:text-[#F2553B] active:scale-95 transition-all" aria-label="Practice">
+        <svg class="w-7 h-7 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" viewBox="0 0 32 32" fill="none">
+          <path d="M18 4L8 18H16L14 28L24 14H16L18 4Z" fill="#B53A22"/>
+          <path d="M17.5 5.5L9.5 17H16L14.5 25.5L22.5 14H16L17.5 5.5Z" fill="#F2553B"/>
+          <path d="M17.5 5.5L16 14H22.5L14.5 25.5L15.2 19L17.5 5.5Z" fill="#FF836E" opacity="0.6"/>
+        </svg>
+      </button>
+
+      <!-- Tab 4: Leagues (trophy, gold) -->
+      <button class="w-12 h-12 rounded-xl flex items-center justify-center text-[#739299] hover:text-[#FFC94A] active:scale-95 transition-all" aria-label="Leagues">
+        <svg class="w-7 h-7 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" viewBox="0 0 32 32" fill="none">
+          <path d="M10 7H22V14C22 17.3 19.3 20 16 20C12.7 20 10 17.3 10 14V7Z" fill="#B38612"/>
+          <path d="M11 8H21V13.5C21 16.3 18.8 18.5 16 18.5C13.2 18.5 11 16.3 11 13.5V8Z" fill="#FFC94A"/>
+          <path d="M13 20H19V23H13V20Z" fill="#B38612"/>
+          <rect x="11" y="23" width="10" height="3" rx="1.5" fill="#FFC94A"/>
+          <path d="M10 10H6C5.4 10 5 10.4 5 11C5 13.5 7 15 9 15H10V10Z" fill="#FFC94A"/>
+          <path d="M22 10H26C26.6 10 27 10.4 27 11C27 13.5 25 15 23 15H22V10Z" fill="#FFC94A"/>
+        </svg>
+      </button>
+
+      <!-- Tab 5: Me (smiling profile, sky blue) — ACTIVE TAB -->
+      <!-- Active state = rounded square with 2px teal border and teal tint -->
+      <button class="w-12 h-12 rounded-2xl bg-[#2BA39A]/20 border-2 border-[#2BA39A] border-b-[3.5px] border-b-[#1b6b65] flex items-center justify-center text-[#38BDF8] shadow-sm shadow-[#2BA39A]/20" aria-label="Me">
+        <svg class="w-7 h-7 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="11" r="5" fill="#0284C7"/>
+          <circle cx="16" cy="10.5" r="4.2" fill="#38BDF8"/>
+          <path d="M7 25C7 21 10.5 18 16 18C21.5 18 25 21 25 25" fill="#0284C7"/>
+          <path d="M8 25C8 21.6 11.2 19 16 19C20.8 19 24 21.6 24 25" fill="#38BDF8"/>
+          <!-- Friendly smile curve -->
+          <path d="M14.5 11.5C15 12.2 17 12.2 17.5 11.5" stroke="#0369A1" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+    </nav>
+
+  </div>
+
+</body>
+</html>
+

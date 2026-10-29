@@ -1,330 +1,103 @@
-<!DOCTYPE html><html class="dark" lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-<title>Lexkite v2 — Feedback Correct</title>
-<!-- Material Symbols Outlined -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet">
-<!-- Plus Jakarta Sans -->
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet">
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "surface-variant": "#2a373a",
-            "on-primary": "#660800",
-            "on-tertiary-fixed": "#261a00",
-            "secondary-fixed": "#88f5ea",
-            "error": "#ffb4ab",
-            "tertiary": "#f4bf40",
-            "on-primary-fixed": "#3f0300",
-            "tertiary-container": "#b78900",
-            "tertiary-fixed": "#ffdf9e",
-            "on-secondary": "#003733",
-            "on-secondary-fixed": "#00201e",
-            "primary": "#ffb4a6",
-            "surface-dim": "#081518",
-            "secondary-container": "#28a198",
-            "surface-bright": "#2e3b3f",
-            "primary-container": "#fa5b40",
-            "primary-fixed-dim": "#ffb4a6",
-            "on-secondary-container": "#00302c",
-            "on-surface-variant": "#e3beb8",
-            "outline": "#aa8983",
-            "on-error": "#690005",
-            "surface-container-lowest": "#041013",
-            "on-tertiary": "#402e00",
-            "on-surface": "#d7e5e9",
-            "error-container": "#93000a",
-            "on-secondary-fixed-variant": "#00504b",
-            "on-primary-container": "#590600",
-            "on-tertiary-container": "#372700",
-            "on-error-container": "#ffdad6",
-            "surface": "#081518",
-            "secondary-fixed-dim": "#6bd8ce",
-            "surface-container-high": "#1f2c2f",
-            "on-tertiary-fixed-variant": "#5b4300",
-            "surface-container-low": "#101e20",
-            "secondary": "#6bd8ce",
-            "surface-tint": "#ffb4a6",
-            "surface-container-highest": "#2a373a",
-            "primary-fixed": "#ffdad3",
-            "background": "#081518",
-            "inverse-on-surface": "#253336",
-            "on-primary-fixed-variant": "#900f00",
-            "surface-container": "#152225",
-            "outline-variant": "#5a413c",
-            "inverse-surface": "#d7e5e9",
-            "on-background": "#d7e5e9",
-            "tertiary-fixed-dim": "#f4bf40",
-            "inverse-primary": "#b42814"
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          spacing: {
-            "space-xs": "0.5rem",
-            "space-md": "1rem",
-            "space-lg": "1.5rem",
-            "gutter-desktop": "1.5rem",
-            "gutter": "1rem",
-            "space-2xl": "3rem",
-            "space-sm": "0.75rem",
-            "margin-tablet": "1.5rem",
-            "space-xl": "2rem",
-            "space-2xs": "0.25rem",
-            "margin": "1rem",
-            "margin-desktop": "2.5rem"
-          },
-          fontFamily: {
-            "headline-md": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"],
-            "label-badge": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
-            "headline-lg": ["Plus Jakarta Sans"],
-            "display-hero": ["Plus Jakarta Sans"],
-            "body-sm": ["Plus Jakarta Sans"],
-            "title-pill": ["Plus Jakarta Sans"],
-            "label-metric": ["Plus Jakarta Sans"],
-            "headline-sm": ["Plus Jakarta Sans"],
-            "display-hero-mobile": ["Plus Jakarta Sans"]
-          },
-          fontSize: {
-            "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.015em", fontWeight: "700" }],
-            "body-md": ["15px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "500" }],
-            "label-badge": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
-            "body-lg": ["18px", { lineHeight: "26px", letterSpacing: "-0.05em", fontWeight: "500" }],
-            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "700" }],
-            "display-hero": ["40px", { lineHeight: "48px", letterSpacing: "-0.03em", fontWeight: "800" }],
-            "body-sm": ["13px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }],
-            "title-pill": ["16px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "700" }],
-            "label-metric": ["14px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "700" }],
-            "headline-sm": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }],
-            "display-hero-mobile": ["32px", { lineHeight: "38px", letterSpacing: "-0.025em", fontWeight: "800" }]
-          }
-        }
-      }
-    }
-  </script>
-<style>
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 1;
-    }
-    
-    /* Tactile push physics */
-    .tactile-btn-neutral {
-      box-shadow: 0 4px 0 0 #0d1719;
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
-    }
-    .tactile-btn-neutral:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 0 #0d1719;
-    }
+<!DOCTYPE html>
 
-    .tactile-btn-correct {
-      box-shadow: 0 4px 0 0 #13564f;
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
-    }
-    .tactile-btn-correct:active {
-      transform: translateY(3px);
-      box-shadow: 0 1px 0 0 #13564f;
-    }
-
-    .tactile-btn-emerald {
-      box-shadow: 0 5px 0 0 #125430;
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
-    }
-    .tactile-btn-emerald:active {
-      transform: translateY(4px);
-      box-shadow: 0 1px 0 0 #125430;
-    }
-
-    .tactile-btn-sub {
-      box-shadow: 0 3px 0 0 #15452b;
-      transition: transform 0.08s ease, box-shadow 0.08s ease;
-    }
-    .tactile-btn-sub:active {
-      transform: translateY(2px);
-      box-shadow: 0 1px 0 0 #15452b;
-    }
-  </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-[#0B171A] text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-secondary-container selection:text-white">
-<!-- Mobile Viewport Container (Clamped to 440px max) -->
-<main class="w-full max-w-[440px] min-h-screen bg-[#0B171A] relative flex flex-col justify-between overflow-x-hidden border-x border-[#16272b] shadow-2xl">
-<!-- Screen Content Wrapper (Top to Mid) -->
-<div class="w-full flex flex-col px-4 pt-3 pb-72">
-<!-- 1. Top Lesson Runner Chrome (56px) -->
-<header class="w-full h-14 flex items-center justify-between gap-3 relative z-10">
-<!-- Close Button -->
-<button aria-label="Close Drill" class="w-10 h-10 rounded-full bg-[#152326] border border-[#21383d] flex items-center justify-center text-[#95ACB0] hover:text-white tactile-btn-neutral flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]" data-icon="close" style="font-variation-settings: &quot;FILL&quot; 1, &quot;wght&quot; 600;">close</span>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><title>Lexkite v2.1 Dark — Feedback Correct</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary": "#ffffff", "secondary-fixed": "#ffdad3", "surface-bright": "#f8faf9", "text-primary": "#10191B", "cta-gradient-end": "#FF9E3B", "on-primary-container": "#98e5df", "on-tertiary-container": "#ffd08e", "surface-container-low": "#f2f4f3", "inverse-primary": "#87d4cd", "text-muted": "#4E5F62", "on-secondary": "#ffffff", "on-surface-variant": "#3f4947", "on-error": "#ffffff", "tertiary-fixed": "#ffddb2", "card-border": "#E2E8E7", "outline-variant": "#bec9c7", "on-secondary-fixed": "#3f0300", "background": "#f8faf9", "outline": "#6f7978", "tile-ledge": "#D5DEDC", "canvas-base": "#F6F8F7", "cta-gradient-start": "#F2553B", "surface-container-lowest": "#ffffff", "accent-teal": "#0D6964", "tertiary-fixed-dim": "#ffb94c", "on-surface": "#191c1c", "surface": "#f8faf9", "surface-container-high": "#e6e9e8", "primary-fixed": "#a3f0e9", "error-container": "#ffdad6", "secondary": "#b42814", "surface-variant": "#e1e3e2", "cta-ledge": "#B53A22", "on-tertiary-fixed-variant": "#624000", "surface-dim": "#d8dada", "on-secondary-fixed-variant": "#900f00", "on-tertiary": "#ffffff", "on-tertiary-fixed": "#291800", "on-primary-fixed": "#00201e", "secondary-container": "#fe5d42", "on-background": "#191c1c", "secondary-fixed-dim": "#ffb4a6", "primary": "#004f4b", "on-primary-fixed-variant": "#00504c", "surface-container": "#eceeed", "on-secondary-container": "#5e0700", "primary-container": "#0d6964", "inverse-surface": "#2e3131", "card-surface": "#FFFFFF", "surface-tint": "#0e6a65", "interactive-tile": "#F0F4F3", "inverse-on-surface": "#eff1f0", "tertiary-container": "#805500", "primary-fixed-dim": "#87d4cd", "tertiary": "#613f00", "accent-amber": "#B37800", "on-error-container": "#93000a", "surface-container-highest": "#e1e3e2", "error": "#ba1a1a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem", "space-xs": "0.25rem", "margin": "2rem", "margin-mobile": "1rem", "space-xl": "2.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;background-color:#FFF7EA;}body{overscroll-behavior:none;font-family:'Plus Jakarta Sans',sans-serif;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.25rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-[#0B171A] text-[#EEF6F7] antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-[#091518]/95 backdrop-blur-xl border-b border-[#233942]/60 shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-14 px-gutter-mobile flex items-center justify-between gap-space-md"><button aria-label="Close drill" class="w-11 h-11 flex items-center justify-center text-[#A9BFC1] hover:text-[#EEF6F7] transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">close</span></button><div class="flex-1 flex flex-col justify-center gap-1"><div class="flex justify-between items-center px-0.5"><span class="font-label-sm text-label-sm text-[#8FA9AF]">Active Drill Session</span><span class="font-label-sm text-label-sm text-[#2BA39A] font-bold">70%</span></div><div class="w-full h-2 rounded-full bg-[#1A2E35] overflow-hidden"><div class="h-full rounded-full bg-[#2BA39A] w-[70%]"></div></div></div><button aria-label="Profile" class="w-8 h-8 rounded-full bg-[#2BA39A] flex items-center justify-center shrink-0 border-0 p-0 cursor-pointer"><span class="material-symbols-outlined text-[#091518] text-[18px] font-bold">person</span></button></div></header><main class="flex-1 flex flex-col relative w-full pt-14 pb-safe bg-[#0B171A]"><div class="flex flex-col w-full px-gutter-mobile pb-space-lg select-none">
+<!-- Gamified Session Bar Stats -->
+<div class="flex items-center justify-between py-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs px-3 py-1 rounded-full bg-[#142328] shadow-sm border border-[#233942]">
+<span class="material-symbols-outlined text-[18px] text-[#FFC94A]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-md text-label-md text-[#FFC94A] font-extrabold tracking-wide">7 DAY STREAK</span>
+</div>
+<div class="flex items-center gap-space-xs px-3 py-1 rounded-full bg-[#142328] shadow-sm border border-[#233942]">
+<span class="material-symbols-outlined text-[16px] text-[#2BA39A]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-md text-label-md text-[#2BA39A] font-extrabold">SET 14 / 20</span>
+</div>
+</div>
+<!-- Practice Challenge Container (Exercise View) -->
+<div class="flex flex-col gap-space-md mb-space-lg">
+<!-- Prompt Card -->
+<div class="bg-[#142328] rounded-2xl p-space-md shadow-[0_4px_16px_rgba(0,0,0,0.25)] border-2 border-[#233942] relative overflow-hidden" style="border-radius: 20px; box-shadow: 0 5px 0 #0d1a1e;">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<button aria-label="Listen to sentence" class="flex items-center justify-center text-[#2BA39A] hover:opacity-80 p-0 border-0 bg-transparent" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
 </button>
-<!-- Chunky Rounded Progress Bar -->
-<div class="flex-1 h-3.5 bg-[#071012] rounded-full p-[2px] border border-[#1b2f33] shadow-inner relative overflow-hidden">
-<div class="h-full rounded-full bg-[#2BA39A] relative transition-all duration-500 ease-out" style="width: 68%;">
-<!-- Glossy specular highlight line -->
-<div class="absolute inset-x-1 top-0 h-[2px] bg-white/40 rounded-full"></div>
-<div class="absolute right-0 top-0 bottom-0 w-2 bg-white/20 rounded-r-full"></div>
+<span class="font-label-sm text-label-sm text-[#8FA9AF] uppercase tracking-wider font-semibold">Fill in the blank</span>
 </div>
-</div>
-<!-- Right Side: Streak & Avatar -->
-<div class="flex items-center gap-1.5 flex-shrink-0">
-<!-- Streak flame badge -->
-<div class="flex items-center gap-1 bg-[#192728] border border-[#263c3f] rounded-full px-2.5 py-1 tactile-btn-neutral">
-<span class="material-symbols-outlined text-[#FA5B40] text-[20px] leading-none" data-icon="local_fire_department" style="font-variation-settings: &quot;FILL&quot; 1, &quot;wght&quot; 600;">local_fire_department</span>
-<span class="font-label-badge text-label-badge text-[#FA5B40] font-extrabold tracking-tight">7</span>
-</div>
-<!-- Profile avatar icon -->
-<div class="w-10 h-10 rounded-full bg-[#182a2e] border-2 border-[#243d42] flex items-center justify-center text-[#73C8BF] font-headline-sm text-headline-sm shadow-sm flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]" data-icon="account_circle">account_circle</span>
-</div>
-</div>
-</header>
-<!-- 2. Badges Row Under Header -->
-<section class="flex items-center gap-2 mt-2.5">
-<!-- Flame Streak Pill -->
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#201c18] border border-[#3e2c1c] text-[#FFB054]">
-<span class="text-[11px] font-extrabold leading-none tracking-wider font-label-badge">★ 3 IN A ROW</span>
-</div>
-<!-- IELTS Band Shield Pill -->
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#122326] border border-[#1d3f44] text-[#6BD8CE]">
-<span class="material-symbols-outlined text-[14px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span class="text-[11px] font-extrabold leading-none tracking-wider font-label-badge uppercase">IELTS BAND 7.0 DRILL</span>
-</div>
-</section>
-<!-- 3. Teacher Area & Speech Bubble Prompt Card -->
-<section class="mt-4 flex items-start gap-2.5">
-<!-- Free-Standing Teacher Spot on Left (No illustration, clean tactile stage) -->
-<div class="w-11 h-28 flex flex-col items-center justify-end relative flex-shrink-0">
-<!-- Ambient upward beam glow -->
-<div class="absolute bottom-2 w-10 h-16 bg-[#2BA39A]/10 rounded-full blur-md"></div>
-<!-- Tactile pedestal ring -->
-<div class="w-9 h-3.5 rounded-[100%] bg-[#15272a] border border-[#213f44] shadow-inner mb-0.5"></div>
-<!-- Ground contact shadow -->
-<div class="w-11 h-2 rounded-[100%] bg-black/60 blur-[1px]"></div>
-</div>
-<!-- Speech Bubble Prompt Card -->
-<div class="flex-1 bg-[#142326] border border-[#21373b] rounded-2xl p-3.5 relative shadow-lg">
-<!-- Left arrow pointer pointing to teacher spot -->
-<div class="absolute -left-2 top-6 w-0 h-0 border-t-[7px] border-t-transparent border-r-[8px] border-r-[#142326] border-b-[7px] border-b-transparent"></div>
-<div class="absolute -left-[9px] top-6 w-0 h-0 border-t-[7px] border-t-transparent border-r-[8px] border-r-[#21373b] border-b-[7px] border-b-transparent -z-10"></div>
-<!-- Audio Trigger Row -->
-<div class="flex items-center gap-2 mb-2">
-<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1b3d3a] border border-[#2c615c] text-[#78E0D5] text-[12px] font-bold shadow-sm tactile-btn-neutral">
-<span class="material-symbols-outlined text-[15px]" data-icon="volume_up" data-weight="fill" style="font-variation-settings: 'FILL' 1;">volume_up</span>
-<span class="">0:02</span>
-</button>
-<span class="font-body-sm text-body-sm text-[#8EA6A9]">Tap to hear sentence</span>
-</div>
-<!-- Main Sentence with luminous badge -->
-<p class="font-headline-md text-headline-md text-white font-bold leading-snug">
-            I like 
-            <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#2BA39A]/20 border border-[#2BA39A] text-[#71F2E5] font-extrabold shadow-[0_0_12px_rgba(43,163,154,0.3)]">
-              listening
-            </span> 
-            to music.
-          </p>
-</div>
-</section>
-<!-- 4. 2x2 Grid of 4 Chunky Tactile Answer Cards -->
-<section class="mt-4 grid grid-cols-2 gap-2.5">
-<!-- Option A: listen -->
-<div class="h-[68px] rounded-xl bg-[#142326] border-2 border-[#20363a] px-3 flex items-center justify-between opacity-80 tactile-btn-neutral cursor-pointer">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-md bg-[#101b1d] border border-[#263e42] flex items-center justify-center font-label-badge text-label-badge text-[#678488]">A</span>
-<span class="font-title-pill text-title-pill text-[#b3c7cb]">listen</span>
-</div>
-</div>
-<!-- Option B: listening (SELECTED & CORRECT) -->
-<div class="h-[68px] rounded-xl bg-[#133433] border-2 border-[#2BA39A] px-3 flex items-center justify-between tactile-btn-correct relative cursor-pointer">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-md bg-[#1b5550] border border-[#3dc1b6] flex items-center justify-center font-label-badge text-label-badge text-white">B</span>
-<span class="font-title-pill text-title-pill text-white font-extrabold">listening</span>
-</div>
-<!-- Selected Checkmark Badge -->
-<div class="w-6 h-6 rounded-full bg-[#2BA39A] flex items-center justify-center text-white shadow-sm flex-shrink-0">
-<span class="material-symbols-outlined text-[16px] font-bold" data-icon="check">check</span>
-</div>
-</div>
-<!-- Option C: listened -->
-<div class="h-[68px] rounded-xl bg-[#142326] border-2 border-[#20363a] px-3 flex items-center justify-between opacity-80 tactile-btn-neutral cursor-pointer">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-md bg-[#101b1d] border border-[#263e42] flex items-center justify-center font-label-badge text-label-badge text-[#678488]">C</span>
-<span class="font-title-pill text-title-pill text-[#b3c7cb]">listened</span>
-</div>
-</div>
-<!-- Option D: listens -->
-<div class="h-[68px] rounded-xl bg-[#142326] border-2 border-[#20363a] px-3 flex items-center justify-between opacity-80 tactile-btn-neutral cursor-pointer">
-<div class="flex items-center gap-2">
-<span class="w-6 h-6 rounded-md bg-[#101b1d] border border-[#263e42] flex items-center justify-center font-label-badge text-label-badge text-[#678488]">D</span>
-<span class="font-title-pill text-title-pill text-[#b3c7cb]">listens</span>
-</div>
-</div>
-</section>
-<!-- Rule Tip Box underneath -->
-<section class="mt-3 px-3 py-2 rounded-xl bg-[#101c1f]/80 border border-[#1b2e32] flex items-start gap-2">
-<span class="material-symbols-outlined text-[#72C9BF] text-[18px] mt-0.5 flex-shrink-0" data-icon="lightbulb" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
-<p class="font-body-sm text-body-sm text-[#8EA7AA]">
-<strong class="text-[#cde4e8]">Rule:</strong> Use <span class="text-[#72C9BF] font-semibold">-ing</span> (gerund) directly after preference verbs such as <em class="not-italic text-white">like, love, enjoy</em>.
-        </p>
-</section>
-</div>
-<!-- 5. THE SLID-UP BOTTOM FEEDBACK SHEET (Full-width Rich Success Green) -->
-<section class="fixed bottom-0 inset-x-0 mx-auto max-w-[440px] z-50 rounded-t-[28px] bg-gradient-to-b from-[#259B5C] via-[#1E834D] to-[#16693D] border-t-2 border-[#54E297] shadow-[0_-12px_40px_rgba(15,84,48,0.7)] px-4 pt-3.5 pb-6">
-<!-- Sparkling Confetti specks & diamond lights -->
-<div class="absolute -top-3 left-6 w-2 h-2 rotate-45 bg-[#FFDF9E] shadow-[0_0_8px_#FFDF9E]"></div>
-<div class="absolute -top-1 left-24 w-1.5 h-1.5 rounded-full bg-[#71F2E5] shadow-[0_0_6px_#71F2E5]"></div>
-<div class="absolute -top-4 right-28 w-2 h-2 rotate-12 bg-[#FFDF9E] shadow-[0_0_8px_#FFDF9E]"></div>
-<div class="absolute top-2 right-12 w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_white]"></div>
-<!-- Top-Right Edge Teacher Spot Contact Shadow (Empty platform for future teacher avatar) -->
-<div class="absolute -top-5 right-5 w-16 h-8 pointer-events-none flex flex-col items-center justify-end">
-<div class="w-12 h-3 rounded-[100%] bg-black/40 blur-[2px]"></div>
-<div class="w-8 h-1 rounded-[100%] bg-[#54E297]/30 blur-[4px]"></div>
-</div>
-<!-- Handle bar indicator -->
-<div class="w-10 h-1 bg-white/30 rounded-full mx-auto mb-3"></div>
-<!-- Header Row: Check icon + Headline + XP Chip -->
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2.5">
-<!-- Big circular white check badge -->
-<div class="relative w-11 h-11 rounded-2xl bg-gradient-to-b from-[#2BB86F] to-[#125430] border-t border-[#71F2E5]/50 flex items-center justify-center shadow-[0_3px_0_#0D3D23,0_6px_14px_rgba(0,0,0,0.3)] flex-shrink-0"><div class="absolute inset-x-1.5 top-0.5 h-[2px] bg-white/40 rounded-full"></div><span class="material-symbols-outlined text-white text-[24px] font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]" data-icon="check" style="font-variation-settings: 'FILL' 1, 'wght' 600;">check</span></div>
-<!-- Bold Headline -->
-<h2 class="text-white font-headline-lg text-[24px] font-extrabold tracking-tight">Excellent!</h2>
-</div>
-<!-- Glossy Gold XP Chip -->
-<div class="px-2.5 py-1 rounded-full bg-gradient-to-b from-[#FFE5A3] to-[#E2A71E] border border-[#FFF2D1] text-[#402E00] font-label-badge text-label-badge font-extrabold flex items-center gap-1 shadow-sm"><span class="material-symbols-outlined text-[20px] leading-none drop-shadow-sm" data-icon="bolt" style="font-variation-settings: &quot;FILL&quot; 1, &quot;wght&quot; 600;">bolt</span><span class="tracking-tight">+10 XP</span></div>
-</div>
-<!-- Explanation Line -->
-<p class="mt-2 text-[#D2F9E3] font-body-md text-body-md font-medium leading-relaxed">
-<strong class="text-white font-bold">listening</strong> — enjoy doing something (gerund form)
+<p class="font-headline-sm text-headline-sm text-[#EEF6F7] tracking-tight mt-1 mb-2">
+        "I like <span class="inline-block px-2.5 py-0.5 rounded-lg bg-[#2BA39A]/20 font-bold text-[#2BA39A] border border-[#2BA39A]/40">listening</span> to music."
       </p>
-<!-- Action Buttons Stack -->
-<div class="mt-4 flex flex-col gap-2.5">
-<!-- Secondary "WHY?" Button -->
-<button class="w-full h-11 rounded-[14px] bg-[#175C37]/80 hover:bg-[#175C37] border border-[#2BB86F] text-[#E0FBEB] font-title-pill text-[14px] font-bold flex items-center justify-center gap-1.5 tactile-btn-sub"><span class="material-symbols-outlined text-[20px] text-[#71F2E5]" data-icon="help" style="font-variation-settings: &quot;FILL&quot; 1, &quot;wght&quot; 500;">help</span><span class="">WHY? (Grammar Explanation)</span></button>
-<!-- Full-Width Primary "CONTINUE ➔" Button -->
-<button class="w-full h-14 rounded-2xl bg-[#0F4F2D] hover:bg-[#0D4427] border-t border-[#3BD184] text-white font-title-pill text-[16px] font-extrabold tracking-wide flex items-center justify-center gap-2 tactile-btn-emerald"><span class="">CONTINUE</span><span class="material-symbols-outlined text-[22px] leading-none font-bold" data-icon="arrow_forward" style="font-variation-settings: &quot;FILL&quot; 1, &quot;wght&quot; 600;">arrow_forward</span></button>
+<div class="flex items-center gap-2 pt-space-xs border-t border-[#233942]/60">
+<span class="font-body-sm text-body-sm text-[#8FA9AF] italic">"Me gusta escuchar música."</span>
 </div>
-</section>
-</main>
-
-
-</body></html>
+</div>
+<!-- 2x2 Options Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Option A -->
+<button class="flex flex-col items-start p-space-md rounded-xl bg-[#142328] border-2 border-[#233942] opacity-90 text-left transition-all cursor-not-allowed" style="box-shadow: 0 4px 0 #0d1a1e;" type="button">
+<span class="font-label-sm text-label-sm text-[#8FA9AF] font-bold mb-0.5">A</span>
+<span class="font-label-lg text-label-lg text-[#EEF6F7]">listen</span>
+</button>
+<!-- Option B (Selected & Correct) -->
+<button class="flex flex-col items-start p-space-md rounded-xl bg-[#163632] border-2 border-[#2BA39A] text-left relative transition-all" style="box-shadow: 0 4px 0 #0f4f49;" type="button">
+<div class="absolute top-2 right-2 flex items-center justify-center w-5 h-5 rounded-full bg-[#2BA39A] text-[#091518]">
+<span class="material-symbols-outlined text-[14px] font-black">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#2BA39A] font-extrabold mb-0.5">B</span>
+<span class="font-label-lg text-label-lg text-[#2BA39A] font-bold">listening</span>
+</button>
+<!-- Option C -->
+<button class="flex flex-col items-start p-space-md rounded-xl bg-[#142328] border-2 border-[#233942] opacity-90 text-left transition-all cursor-not-allowed" style="box-shadow: 0 4px 0 #0d1a1e;" type="button">
+<span class="font-label-sm text-label-sm text-[#8FA9AF] font-bold mb-0.5">C</span>
+<span class="font-label-lg text-label-lg text-[#EEF6F7]">to listening</span>
+</button>
+<!-- Option D -->
+<button class="flex flex-col items-start p-space-md rounded-xl bg-[#142328] border-2 border-[#233942] opacity-90 text-left transition-all cursor-not-allowed" style="box-shadow: 0 4px 0 #0d1a1e;" type="button">
+<span class="font-label-sm text-label-sm text-[#8FA9AF] font-bold mb-0.5">D</span>
+<span class="font-label-lg text-label-lg text-[#EEF6F7]">listened</span>
+</button>
+</div>
+</div>
+<!-- Bottom Feedback Hero Success Banner -->
+<div class="relative w-full rounded-2xl bg-[#176B40] text-white p-space-md flex flex-col gap-space-md border border-[#279B61]/40 shadow-[0_12px_24px_rgba(23,107,64,0.35)]" style="border-radius: 20px; box-shadow: 0 5px 0 #0F492B, 0 12px 24px rgba(23,107,64,0.3);">
+<!-- Top Row of Feedback: Icon + Title + XP Badge -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#176B40] shadow-sm shrink-0" style="box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 16px;">
+<span class="material-symbols-outlined text-[26px] font-black">check</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-white font-extrabold leading-tight tracking-tight">Excellent!</span>
+</div>
+</div>
+<!-- Golden XP Pill -->
+<div class="flex items-center gap-1 bg-[#2C240E] text-[#FFC94A] px-3 py-1.5 rounded-full border border-[#FFC94A]/40 shadow-sm shrink-0" style="box-shadow: 0 2px 0 #1A1504;">
+<span class="material-symbols-outlined text-[16px] text-[#FFC94A]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm font-extrabold text-[#FFC94A] tracking-wide">+10 XP</span>
+</div>
+</div>
+<!-- Primary Full-Width CTA -->
+<div class="flex flex-col gap-2.5 mt-0.5">
+<button class="w-full py-3.5 px-space-md rounded-xl bg-[#091518] text-[#2BA39A] hover:bg-[#0D1D22] active:translate-y-[3px] transition-all flex items-center justify-center gap-2 border border-[#233942]" id="continue-button" style="border-radius: 9999px; box-shadow: 0 4px 0 #050B0D;" type="button">
+<span class="font-label-lg text-label-lg uppercase tracking-wider font-black text-[#2BA39A]">CONTINUE</span>
+<span class="material-symbols-outlined text-[20px] font-black text-[#2BA39A]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  const continueBtn = document.getElementById('continue-button');
+  if (continueBtn) {
+    continueBtn.addEventListener('mousedown', () => {
+      continueBtn.style.boxShadow = '0 1px 0 #050B0D';
+    });
+    continueBtn.addEventListener('mouseup', () => {
+      continueBtn.style.boxShadow = '0 4px 0 #050B0D';
+    });
+    continueBtn.addEventListener('touchstart', () => {
+      continueBtn.style.boxShadow = '0 1px 0 #050B0D';
+    });
+    continueBtn.addEventListener('touchend', () => {
+      continueBtn.style.boxShadow = '0 4px 0 #050B0D';
+    });
+  }
+</script></main></body></html>

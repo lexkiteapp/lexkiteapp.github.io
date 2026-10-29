@@ -1,23 +1,26 @@
-me-dark 135846f4f11f4b059e0f5046c9b00210    28465
-review-light 7873aafe2920411eb615a89a1880fcd6    23186
-leagues-light a84a6f30f7554156b98b4356411912ed    24270
-leagues-dark 25816bdfb2684ccbb90dc3beb68a4887    27532
-feedback-wrong-light eef43e22957d4be691418d9fb73a101a    13371
-streak-dark eabf361c52ba4e5b9266d16ada883ff4    20309
-exam-readiness-light 147ad9aaa44f4ec682120fba351c1b9a    19695
-practice-dark a89055f190d6430893e3349587562558 (Lexkite v2 Dark — Practice, màu-only từ bản sáng; cũ: _old/)
-me-light 4213115585124105aba6f559c5c2c5e1    19612
-path-light 0ddd46e33baa41f6975cfc7b1cb18ced    18195
-path-dark 7770cc91ff0c47378ce5d65552e3e92c    20491
-feedback-correct-light 33db211daf45449682217e03ffab4e5e    12992
-lesson-complete-light 02d7dc72cf634c7997fe9d1656ce88f9    15265
-teacher-call-light d5c26ebf2dbc4c48916c37c296137fe9    13645
-practice-light d434601a8fee4f54b89bea261c66cc5c    23972
-story-duo-light 82f2922d7bbc4b649e229e36f1a3b935    14772
-lesson-question-light f4591574a4554b8d86ce963aebb76cea    16235
-teacher-call-dark edf5924b55114427b04f8a96908ff076    13365
-review-dark 03816a6e39c242e59f5a043f9de0f94f    20587
-lesson-question-dark 007b232c7619463a93d62d144606f718    19791
-feedback-correct-dark be1f6325aabd40dfa45a11a811fffca1    18835
-streak-light 9b6ab84e900a41bf841ebde7be5e5066    21860
-lesson-complete-dark 9e1d8f9289b9426babb28b6e34cac803    16122
+path-light 8d1f597a13fd4b8db3dc4d94944d7fbb (Lexkite v2.1 Light — Learning Path)
+path-dark 9fa7728b45ad43d99b4210c7a22e736c (Lexkite v2.1 Dark — Learning Path)
+lesson-question-light e085ef8421be40f38803df57d627a977 (Lexkite v2.1 Light — Lesson Question)
+lesson-question-dark ddf7a88a3a114fd5a0d2a45ba09acd85 (Lexkite v2.1 Dark — Lesson Question)
+feedback-correct-light c72d4c719883453bb5145812695f3c27 (Lexkite v2.1 Light — Feedback Correct)
+feedback-correct-dark 703e71030425481a89ad01c3caca9823 (Lexkite v2.1 Dark — Feedback Correct)
+feedback-wrong-light c8dbf73e6bed40ef817f758506746c59 (Lexkite v2.1 Light — Feedback Wrong)
+feedback-wrong-dark 42a10453e2e644f3abc03c5b388b0be3 (Lexkite v2.1 Dark — Feedback Wrong)
+lesson-complete-light 55d0558ec56d4537917ad41bd20ed5f9 (Lexkite v2.1 Light — Lesson Complete)
+lesson-complete-dark d63ad24f842d44fea89f8502ff5dd63c (Lexkite v2.1 Dark — Lesson Complete)
+story-duo-light fc621f97b23a46c4b30ad9b599e62ab7 (Lexkite v2.1 Light — Story Duo)
+story-duo-dark 675739155da44473804649d127843f63 (Lexkite v2.1 Dark — Story Duo)
+review-light 8a4b46cfc4f54c8aad9ada6aea1483ac (Lexkite v2.1 Light — Review)
+review-dark 6e33e0dc01974c5ebe92d0bd8701d904 (Lexkite v2.1 Dark — Review)
+practice-light 6c30fd9f81d5429d995d2cf5b0347d38 (Lexkite v2.1 Light — Practice)
+practice-dark 87148eb006574640984bad3b853b638e (Lexkite v2.1 Dark — Practice)
+leagues-light 2f10f941d7354e1d9086d74d41eece64 (Lexkite v2.1 Light — Leagues)
+leagues-dark 028981cba1504210a499a2c5ef9155c8 (Lexkite v2.1 Dark — Leagues r3)
+streak-light dd88917b66a34645a4eb7c92348e4be5 (Lexkite v2.1 Light — Streak)
+streak-dark eeee38e1a4714a77bae9e6953f737ca2 (Lexkite v2.1 Dark — Streak)
+me-light 6bb9884c38854211bedaa887ca7fea1d (Lexkite v2.1 Light — Me r2)
+me-dark 5634a806ac4e441489dac7dd938a8404 (Lexkite v2.1 Dark — Me r3)
+teacher-call-light d5c26ebf2dbc4c48916c37c296137fe9 (Lexkite v2 Light — Teacher Call)
+teacher-call-dark d28f91a5ab534267ae1aae431d41bf7c (Lexkite v2.1 Dark — Teacher Call)
+exam-readiness-light 7f69405209b44c7c8fe1fbd8ff1c4dfc (Lexkite v2.1 Light — Exam Readiness)
+exam-readiness-dark c6877409bff24b0b9aa4f33f4c1a9532 (Lexkite v2.1 Dark — Exam Readiness r2)

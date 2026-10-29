@@ -1,383 +1,283 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lexkite v2 — Streak</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #050d0f;
-      color: #EEF6F7;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
 
-    /* Tactile button and card ledge styling */
-    .tactile-btn-primary {
-      background: linear-gradient(180deg, #FFB054 0%, #F2553B 100%);
-      box-shadow: 0 6px 0 #B53A22, 0 10px 18px rgba(242, 85, 59, 0.35);
-      transition: all 0.1s ease-in-out;
-    }
-    .tactile-btn-primary:active {
-      transform: translateY(3px);
-      box-shadow: 0 3px 0 #B53A22, 0 6px 10px rgba(242, 85, 59, 0.25);
-    }
-
-    .tactile-card {
-      background-color: #121f24;
-      border: 2px solid #253942;
-      box-shadow: 0 5px 0 #0d171b;
-      border-radius: 20px;
-    }
-
-    .tactile-goal-card {
-      background-color: #16262c;
-      border: 2px solid #273e47;
-      box-shadow: 0 4px 0 #0f1c21;
-      border-radius: 14px;
-      transition: all 0.12s ease;
-    }
-    .tactile-goal-card.active {
-      background: #112d2f;
-      border-color: #2BA39A;
-      box-shadow: 0 4px 0 #135550, 0 0 14px rgba(43, 163, 154, 0.25);
-    }
-
-    /* Ambient pulse & flame glow */
-    @keyframes flame-subtle {
-      0%, 100% {
-        transform: scale(1) translateY(0);
-        filter: drop-shadow(0 0 24px rgba(255, 140, 40, 0.55));
-      }
-      50% {
-        transform: scale(1.025) translateY(-3px);
-        filter: drop-shadow(0 0 36px rgba(255, 176, 84, 0.75));
-      }
-    }
-    .flame-hero-anim {
-      animation: flame-subtle 3s ease-in-out infinite;
-    }
-
-    @keyframes spark-float {
-      0%, 100% { transform: translateY(0) scale(0.9); opacity: 0.6; }
-      50% { transform: translateY(-6px) scale(1.1); opacity: 1; }
-    }
-    .spark-1 { animation: spark-float 2.4s ease-in-out infinite; }
-    .spark-2 { animation: spark-float 2.8s ease-in-out 0.8s infinite; }
-    .spark-3 { animation: spark-float 3.2s ease-in-out 1.5s infinite; }
-  </style>
-</head>
-<body class="bg-[#050d0f]">
-
-  <!-- Mobile Screen Container (390px fixed width representation) -->
-  <div class="w-full max-w-[390px] h-[844px] bg-[#0B171A] text-[#EEF6F7] flex flex-col justify-between relative overflow-hidden select-none shadow-2xl border border-[#1b2b30]/60 rounded-[44px]">
-
-    <!-- Ambient background gradient flares -->
-    <div class="absolute top-16 left-1/2 -translate-x-1/2 w-72 h-72 bg-[#f2553b]/15 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute top-36 left-1/3 w-40 h-40 bg-[#ffb054]/10 rounded-full blur-2xl pointer-events-none"></div>
-
-    <!-- Top Chrome / Header -->
-    <header class="w-full pt-4 px-5 flex items-center justify-between z-20">
-      <!-- Close button -->
-      <button class="w-10 h-10 rounded-full bg-[#142328] border border-[#273d45] flex items-center justify-center text-[#A9BFC1] hover:text-white hover:bg-[#1a2d33] active:translate-y-0.5 transition-all" aria-label="Close">
-        <svg class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
-      <!-- Subtitle badge chip -->
-      <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#14262b] border border-[#233f47]">
-        <span class="w-2 h-2 rounded-full bg-[#2BA39A] animate-pulse"></span>
-        <span class="text-[11px] font-extrabold tracking-wider uppercase text-[#2BA39A]">STREAK MASTER</span>
-      </div>
-
-      <!-- Free practice indicator / XP pill -->
-      <div class="flex items-center gap-1 px-3 py-1 rounded-full bg-[#18262b] border border-[#223a42] text-[13px] font-extrabold text-[#FFC94A]">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-          <path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/>
-        </svg>
-        <span>+25 XP</span>
-      </div>
-    </header>
-
-    <!-- Scrollable/Flow Content -->
-    <main class="flex-1 flex flex-col items-center px-5 pt-1 pb-2 z-10 overflow-y-auto overflow-x-hidden">
-
-      <!-- Hero Flame Section with Empty Teacher Grounding Spot -->
-      <div class="relative w-full flex items-center justify-center pt-2 pb-3">
-
-        <!-- Left Teacher Floor Shadow & Marker (Empty organic spot for Teacher Ama/Carlos) -->
-        <div class="absolute left-3 bottom-4 flex flex-col items-center pointer-events-none">
-          <!-- 3 soft star dust dots on floor -->
-          <div class="flex gap-1.5 mb-1.5 opacity-60">
-            <span class="w-1 h-1 rounded-full bg-[#A9BFC1] spark-1"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-[#FFB054] spark-2"></span>
-            <span class="w-1 h-1 rounded-full bg-[#2BA39A] spark-3"></span>
-          </div>
-          <!-- Grounded Teacher Floor Contact Shadow (100px wide soft oval) -->
-          <div class="w-24 h-5 rounded-[100%] bg-[#04080a]/90 blur-[5px] border-t border-[#1a2d33]/30"></div>
-          <!-- Subtle anchor indicator (minimal dashed outline helper, subtle & elegant) -->
-          <div class="w-16 h-28 -mt-28 rounded-2xl border border-dashed border-[#20363e]/40 flex items-center justify-center">
-            <span class="text-[9px] font-bold text-[#35525d] uppercase tracking-widest">TEACHER</span>
-          </div>
-        </div>
-
-        <!-- Center Flame Hero Graphic -->
-        <div class="flex flex-col items-center text-center relative z-10 ml-12">
-          <!-- Ambient Sparkles -->
-          <svg class="absolute -top-3 -right-4 w-6 h-6 text-[#FFC94A] spark-2" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L13.8 8.6L20 10.2L14.9 14.5L16.5 21L11.5 17.2L6.8 20.8L8.2 14.3L3.3 9.8L9.6 8.5L12 2Z"/>
-          </svg>
-          <svg class="absolute bottom-12 -left-5 w-4 h-4 text-[#FFB054] spark-3" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L13.8 8.6L20 10.2L14.9 14.5L16.5 21L11.5 17.2L6.8 20.8L8.2 14.3L3.3 9.8L9.6 8.5L12 2Z"/>
-          </svg>
-
-          <!-- Big Glossy 3D-Look Orange Flame SVG with number embedded -->
-          <div class="relative w-36 h-36 flex items-center justify-center flame-hero-anim">
-            <svg class="w-full h-full drop-shadow-xl" viewBox="0 0 140 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <!-- Flame outer gradient -->
-                <radialGradient id="flameOuter" cx="50%" cy="75%" r="65%">
-                  <stop offset="0%" stop-color="#FFBE3B"/>
-                  <stop offset="45%" stop-color="#F2553B"/>
-                  <stop offset="100%" stop-color="#C22B15"/>
-                </radialGradient>
-                <!-- Inner hot core -->
-                <linearGradient id="flameInner" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#FFF2A3"/>
-                  <stop offset="60%" stop-color="#FFB338"/>
-                  <stop offset="100%" stop-color="#FF7A1A"/>
-                </linearGradient>
-                <!-- White specular top shine -->
-                <linearGradient id="shineTop" x1="30%" y1="0%" x2="50%" y2="100%">
-                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
-                  <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.1"/>
-                  <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-                </linearGradient>
-                <!-- Underside 3D ledge -->
-                <linearGradient id="flameLedge" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#801908"/>
-                  <stop offset="100%" stop-color="#4A0C03"/>
-                </linearGradient>
-              </defs>
-
-              <!-- Flame Drop/Ledge Shadow -->
-              <path d="M70 148 C108 148 132 118 132 84 C132 46 102 24 88 4 C85 1 80 4 82 8 C88 28 80 44 68 52 C64 36 54 22 40 14 C36 12 33 16 35 19 C42 36 34 52 24 64 C12 78 8 96 8 110 C8 134 32 148 70 148Z"
-                    fill="url(#flameLedge)" transform="translate(0, 6)"/>
-
-              <!-- Outer Flame Body -->
-              <path d="M70 142 C108 142 132 114 132 80 C132 42 102 20 88 0 C85 -3 80 0 82 4 C88 24 80 40 68 48 C64 32 54 18 40 10 C36 8 33 12 35 15 C42 32 34 48 24 60 C12 74 8 92 8 106 C8 130 32 142 70 142Z"
-                    fill="url(#flameOuter)"/>
-
-              <!-- Glossy Top Crest Reflection -->
-              <path d="M70 12 C82 28 85 44 76 56 C73 40 65 28 50 18 C58 14 65 12 70 12Z"
-                    fill="url(#shineTop)"/>
-
-              <!-- Core Vibrant Flame -->
-              <path d="M70 134 C94 134 112 116 112 92 C112 66 94 48 84 34 C82 32 79 34 80 37 C84 50 78 62 70 68 C66 54 60 44 48 38 C45 37 43 40 44 42 C50 56 44 68 36 78 C28 88 26 100 26 110 C26 126 44 134 70 134Z"
-                    fill="url(#flameInner)"/>
-
-              <!-- Specular Oval Gloss Bubble -->
-              <ellipse cx="68" cy="98" rx="34" ry="24" fill="#FFFFFF" fill-opacity="0.18" />
-            </svg>
-
-            <!-- Huge Bold 14 Number with Physical Stroke -->
-            <div class="absolute inset-0 flex items-center justify-center pt-4">
-              <span class="text-[52px] font-black tracking-tighter text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.65)] leading-none select-none">
-                14
-              </span>
-            </div>
-          </div>
-
-          <!-- Headline Banner: '14 day streak!' one line -->
-          <h1 class="text-[28px] font-black text-white tracking-tight mt-1 leading-tight">
-            14 day streak!
-          </h1>
-          <p class="text-[13px] font-semibold text-[#A9BFC1] -mt-0.5">
-            You're on fire! Keep the momentum going.
-          </p>
-        </div>
-      </div>
-
-      <!-- 7-Day Week Strip Card -->
-      <div class="tactile-card w-full p-4 mb-3.5">
-        <div class="flex items-center justify-between mb-3 px-1">
-          <span class="text-[12px] font-extrabold uppercase tracking-wider text-[#A9BFC1]">THIS WEEK</span>
-          <span class="text-[12px] font-bold text-[#2BA39A] flex items-center gap-1">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-            </svg>
-            5 of 7 completed
-          </span>
-        </div>
-
-        <!-- 7 Days Strip (M T W T F S S) -->
-        <div class="grid grid-cols-7 gap-1.5 items-center justify-items-center">
-          
-          <!-- Mon: Done -->
-          <div class="flex flex-col items-center gap-1.5">
-            <span class="text-[11px] font-bold text-[#A9BFC1]">M</span>
-            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#FFB054] to-[#F2553B] shadow-[0_3px_0_#B53A22] flex items-center justify-center">
-              <svg class="w-5 h-5 text-white drop-shadow fill-current" viewBox="0 0 24 24">
-                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.52-2.73-8.41-6.64-10.1a.75.75 0 00-.98.92c.67 2.14.04 4.09-.98 5.16-1.07-2.32-3.15-4.14-5.74-5.1a.75.75 0 00-.97.9c.7 2.5-.2 4.9-1.39 6.27C4.69 11.9 4 13.9 4 16c0 3.86 3.58 7 8 7z"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Tue: Done -->
-          <div class="flex flex-col items-center gap-1.5">
-            <span class="text-[11px] font-bold text-[#A9BFC1]">T</span>
-            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#FFB054] to-[#F2553B] shadow-[0_3px_0_#B53A22] flex items-center justify-center">
-              <svg class="w-5 h-5 text-white drop-shadow fill-current" viewBox="0 0 24 24">
-                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.52-2.73-8.41-6.64-10.1a.75.75 0 00-.98.92c.67 2.14.04 4.09-.98 5.16-1.07-2.32-3.15-4.14-5.74-5.1a.75.75 0 00-.97.9c.7 2.5-.2 4.9-1.39 6.27C4.69 11.9 4 13.9 4 16c0 3.86 3.58 7 8 7z"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Wed: Done -->
-          <div class="flex flex-col items-center gap-1.5">
-            <span class="text-[11px] font-bold text-[#A9BFC1]">W</span>
-            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#FFB054] to-[#F2553B] shadow-[0_3px_0_#B53A22] flex items-center justify-center">
-              <svg class="w-5 h-5 text-white drop-shadow fill-current" viewBox="0 0 24 24">
-                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.52-2.73-8.41-6.64-10.1a.75.75 0 00-.98.92c.67 2.14.04 4.09-.98 5.16-1.07-2.32-3.15-4.14-5.74-5.1a.75.75 0 00-.97.9c.7 2.5-.2 4.9-1.39 6.27C4.69 11.9 4 13.9 4 16c0 3.86 3.58 7 8 7z"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Thu: Done -->
-          <div class="flex flex-col items-center gap-1.5">
-            <span class="text-[11px] font-bold text-[#A9BFC1]">T</span>
-            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#FFB054] to-[#F2553B] shadow-[0_3px_0_#B53A22] flex items-center justify-center">
-              <svg class="w-5 h-5 text-white drop-shadow fill-current" viewBox="0 0 24 24">
-                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.52-2.73-8.41-6.64-10.1a.75.75 0 00-.98.92c.67 2.14.04 4.09-.98 5.16-1.07-2.32-3.15-4.14-5.74-5.1a.75.75 0 00-.97.9c.7 2.5-.2 4.9-1.39 6.27C4.69 11.9 4 13.9 4 16c0 3.86 3.58 7 8 7z"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Fri (TODAY): Glowing Active Ring + Done Flame -->
-          <div class="flex flex-col items-center gap-1.5 relative">
-            <span class="text-[11px] font-black text-[#FFB054]">F</span>
-            <!-- Glowing double ring container -->
-            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#FFB054] to-[#F2553B] shadow-[0_3px_0_#B53A22] ring-2 ring-[#FFC94A] ring-offset-2 ring-offset-[#0B171A] flex items-center justify-center relative">
-              <svg class="w-5 h-5 text-white drop-shadow fill-current animate-pulse" viewBox="0 0 24 24">
-                <path d="M12 23c6.075 0 11-4.925 11-11 0-4.52-2.73-8.41-6.64-10.1a.75.75 0 00-.98.92c.67 2.14.04 4.09-.98 5.16-1.07-2.32-3.15-4.14-5.74-5.1a.75.75 0 00-.97.9c.7 2.5-.2 4.9-1.39 6.27C4.69 11.9 4 13.9 4 16c0 3.86 3.58 7 8 7z"/>
-              </svg>
-              <!-- Small star badge on today -->
-              <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#FFC94A] text-[#051013] rounded-full text-[9px] font-black flex items-center justify-center shadow">✓</span>
-            </div>
-          </div>
-
-          <!-- Sat: Future Grey -->
-          <div class="flex flex-col items-center gap-1.5">
-            <span class="text-[11px] font-bold text-[#556970]">S</span>
-            <div class="w-10 h-10 rounded-full bg-[#16252b] border border-[#233840] shadow-[0_3px_0_#0f1a1e] flex items-center justify-center">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#324952]"></span>
-            </div>
-          </div>
-
-          <!-- Sun: Future Grey with Lock or Goal Icon -->
-          <div class="flex flex-col items-center gap-1.5">
-            <span class="text-[11px] font-bold text-[#556970]">S</span>
-            <div class="w-10 h-10 rounded-full bg-[#16252b] border border-[#233840] shadow-[0_3px_0_#0f1a1e] flex items-center justify-center">
-              <span class="w-2.5 h-2.5 rounded-full bg-[#324952]"></span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Daily Goal Card with Teal Progress Ring and 3 Goal Choices -->
-      <div class="tactile-card w-full p-4 mb-2">
-
-        <!-- Progress ring header row -->
-        <div class="flex items-center justify-between pb-3.5 mb-3 border-b border-[#1c3038]">
-          <div class="flex items-center gap-3">
-            <!-- Teal Progress Ring (14 / 20 XP = 70%) -->
-            <div class="relative w-12 h-12 flex items-center justify-center">
-              <svg class="w-full h-full -rotate-90" viewBox="0 0 44 44">
-                <!-- Track -->
-                <circle cx="22" cy="22" r="17" fill="none" stroke="#1d3036" stroke-width="4.5" />
-                <!-- Progress (70% fill of 106.8 perimeter = 74.7) -->
-                <circle cx="22" cy="22" r="17" fill="none" stroke="#2BA39A" stroke-width="4.5"
-                        stroke-dasharray="106.8" stroke-dashoffset="32" stroke-linecap="round" />
-              </svg>
-              <!-- Center bolt icon -->
-              <div class="absolute inset-0 flex items-center justify-center text-[#2BA39A]">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M13 2L3 14h8l-2 8 10-12h-8l2-8z"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- Goal text -->
-            <div>
-              <div class="text-[11px] font-extrabold uppercase tracking-wider text-[#A9BFC1]">DAILY GOAL</div>
-              <div class="text-[17px] font-extrabold text-white flex items-center gap-1.5 leading-tight">
-                <span>14 / 20 XP</span>
-                <span class="text-[12px] font-semibold text-[#2BA39A] bg-[#16383a] px-2 py-0.5 rounded-full">70%</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Streak status pill -->
-          <div class="text-right">
-            <span class="text-[11px] font-bold text-[#A9BFC1] block">6 XP left today</span>
-            <span class="text-[12px] font-extrabold text-[#FFB054]">1 drill away</span>
-          </div>
-        </div>
-
-        <!-- Chunky Goal Choice Cards (10 XP Casual, 20 XP Regular [SELECTED], 50 XP Intense) -->
-        <div class="grid grid-cols-3 gap-2">
-
-          <!-- 10 XP Casual -->
-          <button class="tactile-goal-card p-2.5 text-center flex flex-col items-center justify-between active:translate-y-0.5">
-            <span class="text-[11px] font-extrabold text-[#A9BFC1] uppercase tracking-wide">Casual</span>
-            <span class="text-[16px] font-black text-white my-0.5">10 XP</span>
-            <span class="text-[10px] font-semibold text-[#668087]">5 min/day</span>
-          </button>
-
-          <!-- 20 XP Regular (SELECTED TEAL) -->
-          <button class="tactile-goal-card active p-2.5 text-center flex flex-col items-center justify-between relative">
-            <!-- Selected check badge chip -->
-            <span class="absolute -top-2 right-1/2 translate-x-1/2 bg-[#2BA39A] text-[#051013] text-[9px] font-extrabold px-1.5 py-0.2 rounded-full uppercase tracking-wider shadow">Active</span>
-            <span class="text-[11px] font-black text-[#2BA39A] uppercase tracking-wide mt-1">Regular</span>
-            <span class="text-[17px] font-black text-white my-0.5">20 XP</span>
-            <span class="text-[10px] font-bold text-[#2BA39A]">10 min/day</span>
-          </button>
-
-          <!-- 50 XP Intense -->
-          <button class="tactile-goal-card p-2.5 text-center flex flex-col items-center justify-between active:translate-y-0.5">
-            <span class="text-[11px] font-extrabold text-[#A9BFC1] uppercase tracking-wide">Intense</span>
-            <span class="text-[16px] font-black text-white my-0.5">50 XP</span>
-            <span class="text-[10px] font-semibold text-[#668087]">20 min/day</span>
-          </button>
-
-        </div>
-      </div>
-
-    </main>
-
-    <!-- Bottom Full-Width Sticky CTA Section (No Tab Bar) -->
-    <footer class="w-full p-5 pt-2 pb-6 bg-[#0B171A]/95 border-t border-[#17272e] z-20">
-      <button class="tactile-btn-primary w-full h-14 rounded-2xl flex items-center justify-center gap-2 text-white font-black text-[18px] tracking-wide uppercase select-none">
-        <span>Continue</span>
-        <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-        </svg>
-      </button>
-    </footer>
-
+<html class="dark" lang="en"><head><title>Lexkite v2.1 Dark — Streak</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "background": "#0B171A", "card-surface": "#142328", "primary": "#2BA39A", "text-primary": "#EEF6F7", "text-muted": "#8FA9AF", "secondary-text": "#A9BFC1", "accent-teal": "#2BA39A", "accent-amber": "#FFC94A", "cta-gradient-start": "#F2553B", "cta-gradient-end": "#FFB054", "cta-ledge": "#B53A22" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-sm": "0.5rem", "space-md": "1rem", "space-xs": "0.25rem", "margin": "2rem", "margin-mobile": "1rem", "space-xl": "2.5rem", "gutter-mobile": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "label-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["22px", { "lineHeight": "30px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;background-color:#0B171A;}body{overscroll-behavior:none;font-family:'Plus Jakarta Sans',sans-serif;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.25rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}body{min-height:max(884px,100dvh);}</style></head><body class="bg-[#0B171A] text-[#EEF6F7] antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-[#091518]/95 backdrop-blur-xl border-b border-[#233942]"><div class="h-14 px-gutter-mobile flex items-center justify-between gap-space-md"><button aria-label="Close session" class="w-11 h-11 flex items-center justify-center text-[#8FA9AF] hover:text-[#EEF6F7] transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">close</span></button><div class="flex-1 flex flex-col justify-center gap-1"><div class="flex justify-between items-center px-0.5"><span class="font-label-sm text-label-sm text-[#8FA9AF]">Active Drill Session</span><span class="font-label-sm text-label-sm text-[#2BA39A]">70%</span></div><div class="w-full h-2 rounded-full bg-[#1A2C33] overflow-hidden"><div class="h-full rounded-full bg-[#2BA39A] w-[70%]"></div></div></div><div aria-label="User Profile" class="w-8 h-8 rounded-full bg-[#142328] border border-[#2BA39A]/40 flex items-center justify-center shrink-0" role="button"><span class="material-symbols-outlined text-[#2BA39A] text-[18px]">person</span></div></div></header><main class="flex-1 flex flex-col relative w-full pt-14 pb-safe bg-[#0B171A]"><div class="flex flex-col w-full px-gutter-mobile pb-space-xl">
+<!-- Status Badge & Micro Chip Header Strip -->
+<div class="flex items-center justify-between pt-space-xs pb-space-sm">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F2553B]/15 border border-[#F2553B]/30 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#F2553B] animate-pulse"></span>
+<span class="font-label-sm text-label-sm tracking-wider font-extrabold text-[#FF8573]">STREAK MASTER</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FFC94A]/15 border border-[#FFC94A]/30 shadow-sm"><span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1; color: #FFC94A;">bolt</span><span class="font-label-sm text-label-sm font-extrabold text-[#FFC94A]">+25 XP</span></div>
+</div>
+<!-- Hero: Glossy 3D Streak Flame & Milestone Display -->
+<div class="flex flex-col items-center text-center mt-space-sm mb-space-lg">
+<!-- Tactile 3D Flame Container with Glowing Aura -->
+<div class="relative w-36 h-40 flex items-center justify-center my-space-xs">
+<!-- Ambient Glow Behind Flame -->
+<div class="absolute inset-1 rounded-full bg-gradient-to-tr from-[#F2553B]/40 via-[#FFB054]/30 to-transparent blur-2xl pointer-events-none"></div>
+<!-- Vector Flame with Radial Depths & Glossy Shield -->
+<svg class="w-full h-full drop-shadow-[0_12px_24px_rgba(242,85,59,0.45)]" fill="none" viewbox="0 0 120 140" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="flameBack" x1="60" x2="60" y1="10" y2="135">
+<stop offset="0%" stop-color="#FFB347"></stop>
+<stop offset="35%" stop-color="#F2553B"></stop>
+<stop offset="100%" stop-color="#B53A22"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="flameCore" x1="60" x2="60" y1="42" y2="128">
+<stop offset="0%" stop-color="#FFF0A0"></stop>
+<stop offset="55%" stop-color="#FFA834"></stop>
+<stop offset="100%" stop-color="#F2553B"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="innerSpark" x1="60" x2="60" y1="70" y2="122">
+<stop offset="0%" stop-color="#FFFFFF"></stop>
+<stop offset="100%" stop-color="#FFE17D"></stop>
+</lineargradient>
+</defs>
+<!-- Outer Sculpted Flame Silhouette -->
+<path d="M60 6C60 6 78 26 78 48C78 52 82 56 86 51C94 41 94 36 94 36C94 36 108 55 108 81C108 112 86.5 134 60 134C33.5 134 12 112 12 81C12 52 28 32 37 19C38 18 40 23 41 28C43 40 51 46 56 42C61 38 60 6 60 6Z" fill="url(#flameBack)"></path>
+<!-- Mid Fiery Tier -->
+<path d="M60 28C60 28 72 44 72 63C72 73 78 77 82 72C87 66 86 60 86 60C86 60 94 74 94 92C94 114 78.5 128 60 128C41.5 128 26 114 26 92C26 69 41 52 48 40C49 46 54 53 58 50C62 46 60 28 60 28Z" fill="url(#flameCore)"></path>
+<!-- Bottom Highlight / Core Luster -->
+<path d="M60 68C60 68 68 80 68 96C68 106 64 122 60 122C56 122 52 106 52 96C52 80 60 68 60 68Z" fill="url(#innerSpark)" opacity="0.9"></path>
+</svg>
+<!-- Mechanical Number Display in Center of Flame -->
+<div class="absolute inset-0 flex flex-col items-center justify-center pt-8">
+<span class="font-display-hero-mobile text-display-hero-mobile text-white font-extrabold tracking-tighter drop-shadow-[0_2px_4px_rgba(0,0,0,0.65)]">
+          14
+        </span>
+</div>
+</div>
+<!-- Motivational Copy -->
+<h1 class="font-headline-md text-headline-md text-[#EEF6F7] font-extrabold tracking-tight mt-1 mb-1">
+      14 day streak!
+    </h1>
+<p class="font-body-md text-body-md text-[#A9BFC1] font-medium max-w-xs">
+      You're on fire! Keep the momentum going.
+    </p>
+</div>
+<!-- Section 1: Weekly Tactile Calendar Card -->
+<div class="relative bg-[#142328] rounded-[20px] p-space-md mb-space-md" style="border: 2px solid #233942; box-shadow: 0 5px 0 #0d1a1e;">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#FFC94A]" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<span class="font-label-sm text-label-sm text-[#EEF6F7] uppercase tracking-wider font-extrabold">THIS WEEK</span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#2BA39A]/15 border border-[#2BA39A]/30">
+<span class="material-symbols-outlined text-[14px] text-[#2BA39A] font-bold">check_circle</span>
+<span class="font-label-sm text-label-sm text-[#2BA39A] font-bold">5 of 7 completed</span>
+</div>
+</div>
+<!-- 7-Day Matrix -->
+<div class="grid grid-cols-7 gap-1 pt-space-xs text-center">
+<!-- Monday -->
+<div class="flex flex-col items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-[#8FA9AF]">M</span>
+<div class="w-9 h-11 rounded-lg bg-gradient-to-b from-[#FFB054] to-[#F2553B] flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-white" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="flex flex-col items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-[#8FA9AF]">T</span>
+<div class="w-9 h-11 rounded-lg bg-gradient-to-b from-[#FFB054] to-[#F2553B] flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-white" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="flex flex-col items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-[#8FA9AF]">W</span>
+<div class="w-9 h-11 rounded-lg bg-gradient-to-b from-[#FFB054] to-[#F2553B] flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-white" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<!-- Thursday -->
+<div class="flex flex-col items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-[#8FA9AF]">T</span>
+<div class="w-9 h-11 rounded-lg bg-gradient-to-b from-[#FFB054] to-[#F2553B] flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-white" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+<!-- Friday (Current Active Day) -->
+<div class="flex flex-col items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-[#2BA39A] font-extrabold">F</span>
+<div class="w-9 h-11 rounded-lg bg-gradient-to-b from-[#FFB054] to-[#F2553B] flex flex-col items-center justify-center shadow-md relative ring-2 ring-[#FFB054]/50">
+<span class="material-symbols-outlined text-[18px] text-white font-bold">check</span>
+<span class="absolute -bottom-1 w-1.5 h-1.5 rounded-full bg-[#142328]"></span>
+</div>
+</div>
+<!-- Saturday (Weekend Pending) -->
+<div class="flex flex-col items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold text-[#8FA9AF]">S</span>
+<div class="w-9 h-11 rounded-lg bg-[#1A2C33] flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-[#36505A]"></div>
+</div>
+</div>
+<!-- Sunday (Weekend Pending) -->
+<div class="flex flex-col items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold text-[#8FA9AF]">S</span>
+<div class="w-9 h-11 rounded-lg bg-[#1A2C33] flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-[#36505A]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Daily Goal Progress Card -->
+<div class="relative bg-[#142328] rounded-[20px] p-space-md mb-space-md" style="border: 2px solid #233942; box-shadow: 0 5px 0 #0d1a1e;">
+<div class="flex items-center gap-space-md">
+<!-- Circular Progress Ring SVG (70% fill) -->
+<div class="relative w-16 h-16 shrink-0 flex items-center justify-center">
+<svg class="w-16 h-16 -rotate-90" viewbox="0 0 64 64">
+<!-- Background Well Track -->
+<circle cx="32" cy="32" fill="none" r="26" stroke="#1A2C33" stroke-width="6.5"></circle>
+<!-- Animated Accent Fill (Stroke-dasharray: 2 * PI * 26 ≈ 163.36; 70% is ~114.3) -->
+<circle cx="32" cy="32" fill="none" r="26" stroke="#2BA39A" stroke-dasharray="163.36" stroke-dashoffset="49" stroke-linecap="round" stroke-width="6.5"></circle>
+</svg>
+<span class="absolute material-symbols-outlined text-[20px] text-[#2BA39A]" style="font-variation-settings: 'FILL' 1;">target</span>
+</div>
+<!-- Detail Metric Strings -->
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-headline-sm text-headline-sm text-[#EEF6F7] font-extrabold tracking-tight leading-none mb-1">
+          14 <span class="text-[#8FA9AF] font-normal text-body-sm">/ 20 XP</span>
+<span class="font-label-md text-label-md text-[#2BA39A] ml-1">· 70%</span>
+</span>
+<span class="font-body-sm text-body-sm text-[#8FA9AF] flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#FFC94A]"></span>
+          6 XP left today • 1 drill away
+        </span>
+</div>
+</div>
+</div>
+<!-- Section 3: Difficulty Pacing Selector Chips -->
+<div class="flex flex-col gap-space-sm mb-space-lg" id="pace-selector"><!-- Option 1: Casual (Resting) -->
+<div class="group cursor-pointer transition-all duration-150 relative bg-[#142328] p-3.5 flex items-center justify-between rounded-[20px]" onclick="selectGoal(this, 'casual')" style="border: 2px solid #233942; box-shadow: 0 5px 0 #0d1a1e;">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#1A2C33] flex items-center justify-center text-[#8FA9AF]">
+<span class="material-symbols-outlined text-[20px]">spa</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-[#EEF6F7] font-bold">Casual</h4>
+<p class="font-body-sm text-body-sm font-medium text-[#8FA9AF]">5 min</p>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-[#1A2C33] font-label-md text-label-md text-[#A9BFC1] font-bold">
+    10 XP
   </div>
+</div>
+<!-- Option 2: Regular (ACTIVE Selected State) -->
+<div class="group cursor-pointer transition-all duration-150 relative bg-[#142328] p-3.5 flex items-center justify-between rounded-[20px]" onclick="selectGoal(this, 'regular')" style="border: 2px solid #2BA39A; box-shadow: 0 5px 0 #093c37;">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#2BA39A] flex items-center justify-center text-[#003733]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-lg text-label-lg text-[#2BA39A] font-extrabold">Regular</h4>
+<span class="px-1.5 py-0.2 rounded bg-[#2BA39A] text-[#003733] font-label-sm text-[10px] uppercase font-bold tracking-wide">ACTIVE</span>
+</div>
+<p class="font-body-sm text-body-sm font-semibold text-[#8FD6CF]">10 min</p>
+</div>
+</div>
+<div class="px-3 py-1 rounded-full bg-[#2BA39A]/20 border border-[#2BA39A]/40 font-label-md text-label-md text-[#2BA39A] font-extrabold shadow-xs">
+    20 XP
+  </div>
+</div>
+<!-- Option 3: Intense (Resting) -->
+<div class="group cursor-pointer transition-all duration-150 relative bg-[#142328] p-3.5 flex items-center justify-between rounded-[20px]" onclick="selectGoal(this, 'intense')" style="border: 2px solid #233942; box-shadow: 0 5px 0 #0d1a1e;">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#1A2C33] flex items-center justify-center text-[#8FA9AF]">
+<span class="material-symbols-outlined text-[20px]">whatshot</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-[#EEF6F7] font-bold">Intense</h4>
+<p class="font-body-sm text-body-sm font-medium text-[#8FA9AF]">20 min</p>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-full bg-[#1A2C33] font-label-md text-label-md text-[#A9BFC1] font-bold">
+    50 XP
+  </div>
+</div></div>
+<!-- Bottom Conversion CTA with Mechanical Ledge -->
+<button class="w-full h-14 font-label-lg text-label-lg uppercase tracking-wide flex items-center justify-center gap-2 transition-all active:translate-y-[3px] select-none rounded-full" id="streak-continue-btn" style="background: linear-gradient(135deg, #F2553B 0%, #FFB054 100%); box-shadow: 0 5px 0 #B53A22;"><span class="font-black text-[#2A0700]">CONTINUE</span><span class="material-symbols-outlined text-[20px] font-black text-[#2A0700]">arrow_forward</span></button>
+</div>
+<script>
+  function selectGoal(element, type) {
+    const container = document.getElementById('pace-selector');
+    if (!container) return;
+    
+    // Reset all options
+    const cards = container.children;
+    for (let card of cards) {
+      card.style.background = '#142328';
+      card.style.border = '2px solid #233942';
+      card.style.boxShadow = '0 5px 0 #0d1a1e';
+      
+      const badge = card.querySelector('.uppercase');
+      if (badge) badge.remove();
+      
+      const title = card.querySelector('h4');
+      if (title) {
+        title.className = 'font-label-lg text-label-lg text-[#EEF6F7] font-bold';
+      }
+      
+      const subtitle = card.querySelector('p');
+      if (subtitle) {
+        subtitle.className = 'font-body-sm text-body-sm text-[#8FA9AF] font-medium';
+      }
+      
+      const xpTag = card.lastElementChild;
+      if (xpTag) {
+        xpTag.className = 'px-2.5 py-1 rounded-full bg-[#1A2C33] font-label-md text-label-md text-[#A9BFC1] font-bold';
+      }
+      
+      const iconWrap = card.querySelector('.w-9');
+      if (iconWrap) {
+        iconWrap.className = 'w-9 h-9 rounded-lg bg-[#1A2C33] flex items-center justify-center text-[#8FA9AF]';
+      }
+    }
+    
+    // Activate target
+    element.style.background = '#142328';
+    element.style.border = '2px solid #2BA39A';
+    element.style.boxShadow = '0 5px 0 #093c37';
+    
+    const targetTitle = element.querySelector('h4');
+    if (targetTitle) {
+      targetTitle.className = 'font-label-lg text-label-lg text-[#2BA39A] font-extrabold';
+      
+      // Inject ACTIVE tag
+      const activeTag = document.createElement('span');
+      activeTag.className = 'px-1.5 py-0.2 rounded bg-[#2BA39A] text-[#003733] font-label-sm text-[10px] uppercase font-bold tracking-wide ml-1.5';
+      activeTag.innerText = 'ACTIVE';
+      targetTitle.parentNode.insertBefore(activeTag, targetTitle.nextSibling);
+    }
+    
+    const targetSubtitle = element.querySelector('p');
+    if (targetSubtitle) {
+      targetSubtitle.className = 'font-body-sm text-body-sm font-semibold text-[#8FD6CF]';
+    }
+    
+    const targetXp = element.lastElementChild;
+    if (targetXp) {
+      targetXp.className = 'px-3 py-1 rounded-full bg-[#2BA39A]/20 border border-[#2BA39A]/40 font-label-md text-label-md text-[#2BA39A] font-extrabold shadow-xs';
+    }
+    
+    const targetIconWrap = element.querySelector('.w-9');
+    if (targetIconWrap) {
+      targetIconWrap.className = 'w-9 h-9 rounded-lg bg-[#2BA39A] flex items-center justify-center text-[#003733]';
+    }
+  }
 
-</body>
-</html>
+  // Active click depression on CTA button
+  const ctaBtn = document.getElementById('streak-continue-btn');
+  if (ctaBtn) {
+    ctaBtn.addEventListener('mousedown', () => {
+      ctaBtn.style.boxShadow = '0 2px 0 #B53A22';
+      ctaBtn.style.transform = 'translateY(3px)';
+    });
+    ctaBtn.addEventListener('mouseup', () => {
+      ctaBtn.style.boxShadow = '0 5px 0 #B53A22';
+      ctaBtn.style.transform = 'translateY(0)';
+    });
+  }
+</script></main>
+</body></html>

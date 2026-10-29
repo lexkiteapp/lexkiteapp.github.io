@@ -53,7 +53,8 @@ for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(
   st.lowContrast = contrast(o, st.boxes); delete st.boxes; (info[s] ||= {})[m] = st; }
 await browser.close();
 // ---- báo cáo đồng bộ: PHẢI SỬA (đỏ) vs lệch nội dung (tham khảo) ----
-const W = t => new Set(t.join(' ').toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(w => w.length > 2 && !/^\d+$/.test(w)));
+const THEME = new Set(['tactile', 'night', 'bright', 'day', 'dark', 'light', 'mode']);
+const W = t => new Set(t.join(' ').toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(w => w.length > 2 && !/^\d+$/.test(w) && !THEME.has(w)));
 const norm = a => a.map(x => x.toLowerCase().replace(/\s+/g, ' ').trim()).sort().join(' | ');
 const rep = [], must = [];
 for (const s of ORDER) { const d = info[s]?.dark, l = info[s]?.light, R = [];
@@ -70,7 +71,8 @@ for (const s of ORDER) { const d = info[s]?.dark, l = info[s]?.light, R = [];
     const bd = new Set(d.buttons.map(x => x.toLowerCase())), bl = new Set(l.buttons.map(x => x.toLowerCase())), onlyD = [...bd].filter(x => !bl.has(x)), onlyL = [...bl].filter(x => !bd.has(x));
     if (onlyD.length || onlyL.length) R.push(`✗ nút khác: chỉ tối [${onlyD.slice(0, 8).join(', ')}] · chỉ sáng [${onlyL.slice(0, 8).join(', ')}]`);
     const wd = W(d.words), wl = W(l.words), inter = [...wd].filter(x => wl.has(x)).length, jac = inter / (wd.size + wl.size - inter || 1);
-    R.push(`ℹ chữ giống nhau ${(jac * 100).toFixed(0)} % · chỉ tối: ${[...wd].filter(x => !wl.has(x)).slice(0, 12).join(' ')} · chỉ sáng: ${[...wl].filter(x => !wd.has(x)).slice(0, 12).join(' ')}`); }
+    // v2.1: 1 bố cục cho 2 giao diện → chữ phải giống (trừ tên giao diện Tactile Night / Bright Day) – lệch > 5 % là lỗi đồng bộ
+    R.push(`${jac < 0.95 ? '✗' : 'ℹ'} chữ giống nhau ${(jac * 100).toFixed(0)} % · chỉ tối: ${[...wd].filter(x => !wl.has(x)).slice(0, 12).join(' ')} · chỉ sáng: ${[...wl].filter(x => !wd.has(x)).slice(0, 12).join(' ')}`); }
   for (const r of R) if (r.startsWith('✗')) must.push(`${s}: ${r.slice(2)}`);
   rep.push(`## ${s}\n${R.map(r => '- ' + r).join('\n') || '- ✓ khớp'}`); }
 fs.writeFileSync(path.join(OUT, 'consistency.md'), `# Stitch v2 – rà đồng bộ tối ↔ sáng (tự động)\nPHẢI SỬA: ${must.length}\n\n${rep.join('\n\n')}\n`);
