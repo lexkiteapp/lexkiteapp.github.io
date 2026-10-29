@@ -50,6 +50,7 @@
     'Ôn lỗi': "Fix mistakes",
     'Bài học': "Lesson",
     'Truyện': 'Story',
+    'Báo lỗi câu hỏi': 'Report question',
     'Trả lời câu hỏi': 'Answer the question',
     "Mục tiêu {s}": "Target {s}",
     "Câu {a}/{b}": "Question {a} of {b}",

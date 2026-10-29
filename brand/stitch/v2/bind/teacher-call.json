@@ -102,7 +102,8 @@
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "motion-reduce:animate-none",
   ":scope > main > div > div:nth-child(3) > div > div:nth-child(1) > div:nth-child(2) > div": "motion-reduce:animate-none",
   ":scope > main > div > div:nth-child(4) > div:nth-child(2) > div": "motion-reduce:animate-none",
-  ":scope > main > div > div:nth-child(2) > div": "isolate"
+  ":scope > main > div > div:nth-child(2) > div": "isolate",
+  ":scope > main > div > div:nth-child(1) > div > button": "relative after:absolute after:-inset-0.5 after:content-['']"
  },
  "remove": [
   ":scope > main > div > div:nth-child(2) > div > div:nth-child(4)"
@@ -111,5 +112,6 @@
   ":scope > main > div > div:nth-child(2) > div > div:nth-child(3)": "d.teacher",
   ":scope > main > div > div:nth-child(3) > div > p:nth-child(2)": "d.l2",
   ":scope > main > div > div:nth-child(3) > div > p:nth-child(3)": "d.opts"
- }
+ },
+ "_tap": " Vùng chạm ≥44: nới vô hình bằng ::after (không đổi hình Stitch)."
 }

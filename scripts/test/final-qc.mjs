@@ -53,8 +53,9 @@ const TEACH = async () => {
   const els = [...document.querySelectorAll('#view img[src*="teach/"], #view canvas.tch-cv, #view video[src*="teach/"]')].filter(e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 8 && r.height > 8 && cs.visibility !== 'hidden' && +cs.opacity > 0.05; });
   for (const e of els) {
     // clip sống (canvas/video trong .tch): tư thế = nói/nghe theo vòng đang chạy; khung hình đo trên ảnh poster cùng khung của clip
-    const live = e.tagName !== 'IMG', tch = e.closest('.tch'), pimg = live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
-    if (!live && tch && tch.querySelector('canvas.tch-cv')) continue; // poster dưới clip đang chạy: đã tính qua canvas
+    const tch = e.closest('.tch'), live = e.tagName !== 'IMG' || !!(tch && /poster/.test(e.getAttribute('src') || '')), // poster của .tch = giáo viên sống khi máy không phát được clip (Chromium CI không có H.264) → tư thế theo vòng nói/nghe
+      pimg = live ? tch && tch.querySelector('img[src*="teach/"]') : e, src = (pimg && pimg.getAttribute('src')) || e.getAttribute('src') || '';
+    if (e.tagName === 'IMG' && tch && tch.querySelector('canvas.tch-cv')) continue; // poster dưới clip đang chạy: đã tính qua canvas
     const m = src.match(/teach\/(ama|carlos)\/(?:still-)?([a-z]+)/) || [], who = m[1] || '?', kind = live ? (tch && tch.classList.contains('speaking') ? 'talk' : 'listen') : /avatar/.test(src) ? 'avatar' : /poster/.test(src) ? 'poster' : (m[2] || '?');
     e.scrollIntoView({ block: 'center' }); await new Promise(res => setTimeout(res, 60));
     const r = e.getBoundingClientRect(), bad = [], cut = []; let visBottom = r.bottom; // cut = nửa người/mờ/cắt: ĐẠT nếu khuất hẳn sau 1 mặt đục của Stitch (thẻ/bàn/bảng che đường hông, kiểu Duolingo)
@@ -130,6 +131,7 @@ for (const f of FINAL.filter(x => x.k)) {
     await visit(page, k, errs); await page.waitForTimeout(rm ? 900 : 2600);
     if (rm) { const a = await page.evaluate(RM).catch(() => []); put(f.stitch, 'reduced-motion', !a.length, a.slice(0, 3).join(' · ')); }
     else {
+      if (f.speaks) await page.waitForFunction(() => { const t = (window.__qc || {}).talk || []; return t.some(x => x.on) && !document.querySelector('.tch.speaking'); }, null, { timeout: 8000 }).catch(() => {}); // câu đầu nói xong (≤ 8 s)
       const T = await page.evaluate(TEACH).catch(e => [{ bad: ['lỗi đo ' + e.message] }]), log = await page.evaluate(() => window.__qc).catch(() => ({ voice: [], tts: [], sfx: [], talk: [] }));
       const want = f.teacher;
       if (!want) put(f.stitch, 'teacher', true, T.length ? `${T.length} hình (màn không bắt buộc)` : '');
@@ -139,7 +141,7 @@ for (const f of FINAL.filter(x => x.k)) {
         const pasted = T.filter(x => x.bad.length); put(f.stitch, 'not-pasted-on', T.length && !pasted.length, pasted.map(x => `${x.who}: ${x.bad.join(', ')}`).join(' · '));
         // giọng nghe == giáo viên đang hiện: mọi câu giáo viên nói phải dùng mp3 giọng registry của chính người đó; nói bằng giọng máy = sai
         const shown = [...new Set(T.map(x => x.who))].filter(w => w !== '?'), voices = await page.evaluate(ws => ws.map(w => window.Chars && Chars.voice ? Chars.voice(w) : null), shown);
-        const used = [...new Set(log.voice.map(v => v.voice))];
+        const used = [...new Set(log.voice.map(v => v.voice))], fall = new Set(log.voice.map(v => v.text)); log.tts = log.tts.filter(x => !fall.has(x.text)); // mp3 giọng giáo viên 404 trên CI → giọng máy dự phòng CÙNG câu = vẫn đúng đường giọng
         if (!log.voice.length && !log.tts.length) put(f.stitch, 'voice==teacher', !f.speaks, f.speaks ? 'giáo viên không nói câu nào trong 2,6 s (màn này phải nói)' : 'không nói (màn không bắt buộc)');
         else put(f.stitch, 'voice==teacher', log.voice.length > 0 && used.every(v => voices.includes(v)) && !log.tts.length, `hiện ${shown.join('+')} (${voices.join('/')}) · nghe ${used.join('/') || '–'}${log.tts.length ? ` · ${log.tts.length} câu giọng máy (không phải giọng giáo viên)` : ''}`);
         // khớp miệng: vòng nói bật trong ≤250 ms sau khi bắt đầu câu, và tắt lại sau đó

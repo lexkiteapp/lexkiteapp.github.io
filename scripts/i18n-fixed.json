@@ -30854,5 +30854,20 @@
     "ar": "يستمع",
     "ru": "Слушает",
     "tr": "Dinliyor"
+  },
+  "Báo lỗi câu hỏi": {
+    "es": "Reportar pregunta",
+    "pt": "Reportar pergunta",
+    "fr": "Signaler la question",
+    "de": "Frage melden",
+    "id": "Laporkan soal",
+    "th": "รายงานคำถาม",
+    "zh": "报告问题",
+    "ja": "問題を報告",
+    "ko": "문제 신고",
+    "hi": "प्रश्न की रिपोर्ट करें",
+    "ar": "الإبلاغ عن السؤال",
+    "ru": "Сообщить о вопросе",
+    "tr": "Soruyu bildir"
   }
 }
