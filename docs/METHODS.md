@@ -13,6 +13,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Stitch làm HẾT (bố cục, icon, nút, hình): code port HTML Stitch trung thành (Tailwind biên dịch trên CI, không CDN, CI so ảnh SSIM); chỉ thay logo (diều Lexkite) và giáo viên (`Chars.*`). Chỉnh đẹp TRONG Stitch, không style lại bằng code.
 - Prompt Stitch: MỖI LẦN 1 MÀN, tả cảm giác/trải nghiệm, không liệt kê thông số.
 - Nhân vật: CHỈ Ama + Carlos 2D (tóc đen, trang phục sáng), qua `Chars.*` từ `web/teach/characters.json`; không 3D, không trộn, không viền; đổi phong cách phải hỏi chủ. Ama = giọng nữ, Carlos = giọng nam ở mọi nơi (CI kiểm).
+- Đặt giáo viên trên màn (HARD): trông như một phần thiết kế kiểu Duolingo – cùng ánh sáng/tỉ lệ/chạm nền, viền sạch; cấm quầng cắt, đường cắt, khung, thân mờ dần hay kiểu "dán lên" (trượt QC, chủ duyệt ảnh).
 - Tương phản: CI đo mọi chữ/icon trên nền thật (thân ≥ 4,5:1, lớn/icon ≥ 3:1) cả sáng lẫn tối.
 - Chuyển động: nút nhún + ăn mừng nhẹ khi xong bài; còn lại fade; tôn trọng reduced-motion. Không tim/năng lượng.
 - Video: MỘT pipeline Remotion + Stitch ra 9:16 và 16:9/1:1 trên kho nhân vật 2D; tự QC rồi mẫu cho chủ duyệt trước khi chạy hàng loạt.
