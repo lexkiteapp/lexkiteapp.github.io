@@ -10,7 +10,13 @@ const browser = await chromium.launch(), ctx = await browser.newContext({ viewpo
 const done = {};
 for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(SRC, `${s}-${m}.html`); if (!fs.existsSync(f)) continue;
   const p = await ctx.newPage(); await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle' }).catch(() => {});
-  await p.addStyleTag({ content: STILL }); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(400);
+  await p.addStyleTag({ content: STILL });
+  // font icon (display=swap) tải muộn → ép tải MỌI font khai báo rồi mới chụp, nếu không icon hiện thành chữ ("close", "check")
+  await p.evaluate(async () => { await Promise.all([...document.fonts].map(f => f.load().catch(() => {}))); await document.fonts.ready; });
+  // thanh tab "fixed bottom" phải nằm cuối trang: kéo khung nhìn cao bằng cả trang (chụp fullPage giữ fixed ở mép khung 844 → chèn giữa trang)
+  const H = await p.evaluate(() => Math.max(844, document.documentElement.scrollHeight, document.body.scrollHeight)); await p.setViewportSize({ width: 390, height: H }); await p.waitForTimeout(500);
+  const miss = await p.evaluate(() => [...document.querySelectorAll('[class*="material-symbols"]')].filter(e => e.textContent.trim() && e.getBoundingClientRect().width > 1.6 * parseFloat(getComputedStyle(e).fontSize)).length);
+  if (miss) { console.error(`✗ ${s}-${m}: ${miss} icon chưa thành hình (font icon lỗi)`); process.exitCode = 1; }
   const o = path.join(OUT, 'png', `${s}-${m}.png`); await p.screenshot({ path: o, fullPage: true }); done[`${s}-${m}`] = o; await p.close(); }
 await browser.close();
 // tờ duyệt: 2 tờ (7 + 6 màn), mỗi ô thu 50 %, thiếu bản → ô xám "chưa có trong Stitch"
@@ -19,5 +25,5 @@ const cell = (s, m) => done[`${s}-${m}`] || (() => { const o = path.join(OUT, 'p
 for (const [i, part] of [ORDER.slice(0, 7), ORDER.slice(7)].entries()) {
   const tiles = [...part.map(s => cell(s, 'dark')), ...part.map(s => cell(s, 'light'))];
   execFileSync('montage', [...tiles, '-tile', `${part.length}x2`, '-geometry', '195x+8+8', '-gravity', 'north', '-background', '#e9eef0',
-    '-title', `Lexkite v2 – Stitch HTML (tĩnh, 390 px) · hàng trên: tối · hàng dưới: sáng · ${part.join(' · ')}`, '-pointsize', '14', path.join(OUT, `sheet-${i + 1}.png`)]); }
+    '-title', `Stitch v2 (HTML tĩnh 390 px) · trên: tối · dưới: sáng · tờ ${i + 1}/2`, '-pointsize', '20', path.join(OUT, `sheet-${i + 1}.png`)]); }
 console.log(`stitch-render: ${Object.keys(done).length} màn → ${OUT}/png, tờ ${OUT}/sheet-1.png, sheet-2.png`);
