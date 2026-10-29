@@ -57,7 +57,8 @@ const W = t => new Set(t.join(' ').toLowerCase().normalize('NFD').replace(/[^a-z
 const norm = a => a.map(x => x.toLowerCase().replace(/\s+/g, ' ').trim()).sort().join(' | ');
 const rep = [], must = [];
 for (const s of ORDER) { const d = info[s]?.dark, l = info[s]?.light, R = [];
-  if (!d || !l) { must.push(`${s}: thiếu bản ${!d ? 'tối' : 'sáng'} trong Stitch`); rep.push(`## ${s}\n- ✗ thiếu bản ${!d ? 'tối' : 'sáng'}`); if (!d && !l) continue; }
+  if (!d && !l) { must.push(`${s}: thiếu cả hai bản`); rep.push(`## ${s}\n- ✗ thiếu cả hai bản`); continue; }
+  if (!d || !l) R.push(`✗ thiếu bản ${!d ? 'tối' : 'sáng'} trong Stitch`);
   for (const [m, x] of Object.entries({ dark: d, light: l })) { if (!x) continue;
     if (x.navN && !x.navLabels.length) R.push(`✗ [${m}] thanh tab chỉ có icon, không chữ` + (x.navAria.length < x.navN ? ' VÀ thiếu aria-label (trình đọc màn hình im lặng)' : ''));
     if (x.iconOnly.length) R.push(`✗ [${m}] ${x.iconOnly.length} nút chỉ-icon không có tên (aria-label): ${x.iconOnly.slice(0, 5).join(', ')}`);
