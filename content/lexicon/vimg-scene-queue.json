@@ -127,12 +127,6 @@
    "why": "clip-sentence sim 0.1856",
    "b": "40276144478"
   },
-  "downstairs#adv": {
-   "at": "2026-10-26",
-   "tries": 4,
-   "why": "clip-sentence sim 0.196",
-   "b": "40276144478"
-  },
   "edit access#n": {
    "at": "2026-10-24",
    "tries": 4,
@@ -149,12 +143,6 @@
    "at": "2026-10-24",
    "tries": 4,
    "why": "vision description-sentence sim 0.2167",
-   "b": "40088424311"
-  },
-  "extremely#adv": {
-   "at": "2026-10-24",
-   "tries": 4,
-   "why": "clip-sentence sim 0.1688; vision description-sentence sim 0.091",
    "b": "40088424311"
   },
   "flexible hours#n": {
