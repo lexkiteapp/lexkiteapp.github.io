@@ -31,7 +31,7 @@ const DRIVE = async k => { const q = s => document.querySelector(s), qa = s => [
 const CSCAN = () => { const out = [];
   for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) {
     const icon = e.classList.contains('material-symbols-outlined'); if (!icon && ![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
-    if (e.closest('.sr-only,[disabled],[aria-disabled="true"],[hidden]') || (e.closest('.st-dim') && !e.closest('.lsn-foot'))) continue;
+    if (e.closest('.sr-only,[disabled],[aria-disabled="true"],[hidden],.brand,.wordmark') || (e.closest('.st-dim') && !e.closest('.lsn-foot'))) continue;
     const cs = getComputedStyle(e); if (cs.visibility === 'hidden') continue;
     let op = 1; for (let q = e; q && q.nodeType === 1; q = q.parentElement) op *= +getComputedStyle(q).opacity; if (op < 0.05) continue;
     const r = e.getBoundingClientRect(); if (r.width < 3 || r.height < 3 || r.bottom < 0 || r.top > innerHeight) continue;
@@ -44,7 +44,7 @@ const cratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) 
 const contrast = {}; // tag → { n, miss:[{t,cr,need}] }
 async function auditContrast(page, buf, tag) {
   const items = await page.evaluate(CSCAN).catch(() => []), p = PNG.sync.read(buf), miss = []; let n = 0;
-  for (const it of items) { const m = (it.c.match(/[\d.]+/g) || []).map(Number); if (m.length < 3) continue; const a = (m[3] ?? 1) * it.op;
+  for (const it of items) { const m = (it.c.match(/[\d.]+/g) || []).map(Number); if (m.length < 3) continue; const a = (m[3] ?? 1) * it.op; if (a < 0.05) continue; // trong suốt = cố ý ẩn (vòng ✓ chưa chọn)
     const x0 = Math.max(0, Math.floor(it.x)), y0 = Math.max(0, Math.floor(it.y)), x1 = Math.min(p.width, Math.ceil(it.x + it.w)), y1 = Math.min(p.height, Math.ceil(it.y + it.h)); if (x1 - x0 < 3 || y1 - y0 < 3) continue;
     const H = new Map(); let far = 0;
     for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { const i = (y * p.width + x) * 4, R = p.data[i], G2 = p.data[i + 1], B = p.data[i + 2];
