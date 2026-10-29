@@ -19,10 +19,11 @@ ap = argparse.ArgumentParser()
 for a in ('ep', 'vo', 'host', 'public', 'out'): ap.add_argument('--' + a, required=True)
 ap.add_argument('--format', default='short', choices=['short', 'wide'])
 ap.add_argument('--fps', type=int, default=30)
-ap.add_argument('--theme', default='', help='override the episode theme (dark | light)')
+ap.add_argument('--theme', default='', help='override the episode theme (dark | dusk | light)')
 ap.add_argument('--fonts', default=f'{ROOT}/brand/social/src/fonts')
 o = ap.parse_args()
-EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; TH = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json'))[THEME]
+EP = json.load(open(o.ep)); THEME = o.theme or EP['theme']; _TJ = json.load(open(f'{ROOT}/scripts/video/remotion/src/teach/theme.json')); TH = _TJ[THEME]
+TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carries it, so each series is recognisable from frame 0
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 FMT = dict(short=dict(W=1080, H=1920, region=[60, 324, 960, 1150], chip=[60, 236], safe=[48, 232, 960, 1497], cap=[60, 1168, 960, 1282], host_h=640, host_cx=540),
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 990], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=None, host_h=960, host_cx=1460))[o.format]
@@ -410,7 +411,7 @@ os.makedirs(f'{o.public}/fonts', exist_ok=True); shutil.copy(FJ, f'{o.public}/fo
 for k_ in ('talk', 'listen'): shutil.copy(f'{o.host}/{k_}.webm', f'{o.public}/host_{k_}.webm')
 
 # ---------------- props + QC timeline ----------------
-props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
+props = dict(w=W, h=H, fps=FPS, durationInFrames=NF, theme=THEME, tint=TINT, format=o.format, total=TOTAL, nodes=NODES, caps=CAPS, capBox=FMT['cap'], host=HOST, audio='voice.wav')
 json.dump(props, open(o.out, 'w'))
 json.dump(dict(ep=EP['id'], template=EP['template'], theme=THEME, format=o.format, fps=FPS, total=TOTAL, safe=FMT['safe'], region=FMT['region'], cap_box=FMT['cap'],
                lines={k: dict(t0=v['t0'], t1=v['t1'], text=v['text'], words=v['words'], interp=v['interp'], whisper=v['whisper'], pause=v['pause']) for k, v in LINES.items()},

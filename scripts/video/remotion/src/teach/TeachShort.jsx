@@ -90,9 +90,9 @@ function Node({ n, kids, t, ox, oy, T }) {
   );
 }
 
-const Canvas = ({ T, w, h }) => (   // Stitch Kit canvas: flat tokens, static soft blobs (no moving background, no blur on the teacher)
+const Canvas = ({ T, w, h, tint }) => (   // Stitch Kit canvas: flat tokens, static soft blobs (no moving background, no blur on the teacher)
   <AbsoluteFill style={{ background: `linear-gradient(180deg, ${T.bg} 0%, ${T.bg2} 100%)` }}>
-    <div style={{ position: 'absolute', left: -w * 0.25, top: -h * 0.08, width: w * 0.9, height: w * 0.9, borderRadius: '50%', background: `radial-gradient(circle, ${T.blobA} 0%, transparent 68%)` }} />
+    <div style={{ position: 'absolute', left: -w * 0.25, top: -h * 0.08, width: w * 0.9, height: w * 0.9, borderRadius: '50%', background: `radial-gradient(circle, ${tint || T.blobA} 0%, transparent 68%)` }} />
     <div style={{ position: 'absolute', right: -w * 0.3, top: h * 0.32, width: w * 0.9, height: w * 0.9, borderRadius: '50%', background: `radial-gradient(circle, ${T.blobB} 0%, transparent 68%)` }} />
     <div style={{ position: 'absolute', left: w * 0.1, bottom: -h * 0.1, width: w * 0.8, height: w * 0.8, borderRadius: '50%', background: `radial-gradient(circle, ${T.blobC} 0%, transparent 70%)` }} />
   </AbsoluteFill>
@@ -121,13 +121,13 @@ function Captions({ caps, box, t, T }) {
     </div>);
 }
 
-export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, theme = 'dark', audio = null, w = 1080, h = 1920 }) => {
+export const TeachShort = ({ nodes = [], caps = [], capBox = null, host = null, theme = 'dark', tint = null, audio = null, w = 1080, h = 1920 }) => {
   useFonts();
   const f = useCurrentFrame(), { fps } = useVideoConfig(), t = f / fps, T = THEMES[theme] || THEMES.dark;
   const kids = {}; for (const n of nodes) if (n.parent) (kids[n.parent] = kids[n.parent] || []).push(n);
   return (
     <AbsoluteFill>
-      <Canvas T={T} w={w} h={h} />
+      <Canvas T={T} w={w} h={h} tint={tint} />
       {host ? <Host host={host} f={f} /> : null}
       {audio ? <Audio src={staticFile(audio)} /> : null}
       <AbsoluteFill>{nodes.filter(n => !n.parent).map(n => <Node key={n.id} n={n} kids={kids} t={t} ox={0} oy={0} T={T} />)}</AbsoluteFill>

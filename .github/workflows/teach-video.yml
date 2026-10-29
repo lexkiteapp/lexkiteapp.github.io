@@ -93,13 +93,14 @@ jobs:
         run: |
           mkdir -p $O; W=$(python3 -c "import json;print(json.load(open('$E'))['teacher'])")
           python3 scripts/video/teach2d/host.py $W host > $O/host.log
-          TH=$(python3 -c "import json;print(json.load(open('$E'))['theme'])"); ALT=$([ $TH = dark ] && echo light || echo dark)
+          TH=$(python3 -c "import json;print(json.load(open('$E'))['theme'])"); echo "TH=$TH" >> "$GITHUB_ENV"
           python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --public $O/pub --out $O/props.json
-          python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $ALT --public $O/pub_alt --out $O/props_alt.json
-      - name: QC before render (timeline gates – stops here, no render minutes spent on a bad layout)
+          for A in dark dusk light; do [ $A = $TH ] && continue   # the other looks, for the owner's colour pick (stills only)
+            python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $A --public $O/pub_$A --out $O/props_$A.json; done
+      - name: QC before render (timeline gates, every look – stops here, no render minutes spent on a bad layout)
         run: |
           python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --out $O/qc_pre.json
-          python3 scripts/video/teach2d/qc.py --timeline $O/props_alt.json.timeline.json --out $O/qc_pre_alt.json
+          for A in dark dusk light; do [ $A = $TH ] || python3 scripts/video/teach2d/qc.py --timeline $O/props_$A.json.timeline.json --out $O/qc_pre_$A.json; done
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - uses: actions/cache@v4
@@ -112,8 +113,9 @@ jobs:
         run: |
           cd scripts/video/remotion; R=$GITHUB_WORKSPACE/$O; Q="--crf=17 --audio-bitrate=192k"; [ ${{ matrix.fmt }} = short ] || Q="--crf=26 --audio-bitrate=128k"
           npx remotion render src/index.jsx teach-short "$R/${{ matrix.ep }}-${{ matrix.fmt }}.mp4" --props="$R/props.json" --public-dir="$R/pub" --codec=h264 $Q --audio-codec=aac --concurrency=2 --log=error
-          for t in $(python3 -c "import json;T=json.load(open('$R/props_alt.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (1,len(L)//2,len(L)-3)))"); do
-            npx remotion still src/index.jsx teach-short "$R/alt_$t.png" --props="$R/props_alt.json" --public-dir="$R/pub_alt" --frame=$(python3 -c "print(int($t*30))") --log=error; done
+          for A in dark dusk light; do [ $A = $TH ] && continue
+            for t in $(python3 -c "import json;T=json.load(open('$R/props_$A.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (2,len(L)-3)))"); do
+              npx remotion still src/index.jsx teach-short "$R/alt_${A}_$t.png" --props="$R/props_$A.json" --public-dir="$R/pub_$A" --frame=$(python3 -c "print(int($t*30))") --log=error; done; done
       - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
         shell: bash
         run: |
@@ -122,7 +124,7 @@ jobs:
           python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --video $V --sheet $O/${{ matrix.ep }}-${{ matrix.fmt }}.sheet.jpg --out $O/qc.json | tee $O/qc.log
           ffmpeg -nostdin -v error -y -ss 3 -i $V -frames:v 1 -q:v 3 $O/${{ matrix.ep }}-${{ matrix.fmt }}.poster.jpg
           if [ ${{ matrix.fmt }} = short ]; then mkdir -p $O/phone; ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 20 -maxrate 6500k -bufsize 13000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.ep }}.mp4; fi
-          rm -rf $O/pub $O/pub_alt
+          rm -rf $O/pub $O/pub_*
           { echo "### ${{ matrix.ep }} · ${{ matrix.fmt }}"; echo '```'; grep -E '^(PASS|FAIL)|score' $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()

@@ -12,6 +12,7 @@
 5. **sheet** – `sheet.py`: one owner review sheet + score table; red if any pilot < 90 or a gate fails.
 
 ## Look (Stitch "Lexkite Kit", tokens `scripts/video/remotion/src/teach/theme.json`)
+- Three looks, same components: `dark` (A Tactile Night, = app dark), `dusk` (brighter teal dark for social feeds – owner 29/10 "màu hơi tối"), `light` (B Bright Day). Every pilot ships stills of the other two looks for the owner's pick; contrast gate runs on all three.
 - Canvas = flat Kit gradient + 3 static soft blobs (0 credits, no AI plate, no blur, nothing moving). Teacher bottom-centre, one fixed transform, never > 1.0× (short 640 px tall, embed 960 px).
 - Cards = Kit card (2 px border, darker ledge, radius 44) in ONE region above the head; series chip top-left; one-row karaoke caption between cards and head.
 - Motion: `soft` entrance (fade 0.24 s + 16 px ease-out, no spring – owner rejected #191's bounce), state colour mix 0.18 s, strike draw 0.30 s; ONE light celebration (✓ pop + confetti ≤ 0.9 s) on the quiz answer. Static while read.
@@ -25,6 +26,11 @@
 | `stress` | Where's the Stress? | audited IPA stress mark == lit syllable | `#/pron/<word>` |
 | `mistake` | Stop Saying This | gold bank `stop-saying` rows | `#/fix` |
 | `phrasal` | Phrasal Verb in 30s | gold bank `idiom-phrasal` rows | `#/phrases` |
+
+## Variety (owner 29/10: "đa dạng, đỡ nhàm chán")
+- Fixed per series (recognition): series chip + series tint on the canvas (`theme.json` tints: US/UK teal, Verbs gold, Stress coral, Stop Saying red-coral, Phrasal mint) + one teacher per series.
+- Rotating per episode (batch only after the owner's OK): hook style (question · challenge · "most learners…" · myth), card layout variant (2 per template), look (dark/dusk/light), example scene.
+- Planner rule: no two consecutive videos share template, teacher or look; a point (content hash) is never reused; ≥ 1 new template per month (`VIDEO-SERIES.md`).
 
 ## QC gates (`qc.py`, all must pass, weighted score ≥ 90)
 voice_teacher · pace ≤ 150 wpm · caption_sync (caption == script == whisper) · mouth (talk only while speaking, closed-mouth listen in pauses > 0.35 s) · hook · cue_timing ±80 ms ·
