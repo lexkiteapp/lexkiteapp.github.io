@@ -17,9 +17,9 @@
     d = Object.assign({ hdr: S.hdr(), tabs: S.tabs(tab) }, d);
     const o = S[k](d), sh = tab && S.shell ? S.shell(d) : { header: '', nav: '' };
     document.body.classList.add('st', 'v2on');
-    view.innerHTML = `<div class="${o.root}">${o.header || sh.header}${o.main}${o.nav || sh.nav}</div>`;
+    view.innerHTML = `<div class="v2s-${k}"><div class="${o.root}">${o.header || sh.header}${o.main}${o.nav || sh.nav}</div></div>`; // v2s-<màn>: phạm vi CSS của màn (build-stitch-css important)
     if (!bound) { bound = true; view.addEventListener('click', e => { const b = e.target.closest && e.target.closest('.v2 [data-href]'); if (b && b.getAttribute('data-href') && b.getAttribute('aria-disabled') !== 'true') { e.preventDefault(); location.hash = b.getAttribute('data-href'); } }); }
     App.onCleanup && App.onCleanup(() => document.body.classList.remove('st', 'v2on'));
-    return view.firstElementChild;
+    return view.firstElementChild.firstElementChild;
   };
 })();

@@ -56,9 +56,11 @@ const PRE = [
   '.st-fade{animation:st-fade .18s cubic-bezier(.2,0,0,1) both}@keyframes st-fade{from{opacity:0}to{opacity:1}}.st-rise{animation:st-rise .2s cubic-bezier(.2,0,0,1) both}@keyframes st-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media (prefers-reduced-motion:reduce){.st-fade,.st-rise{animation:none}.st *{transition:none!important}}',
 ].join('\n');
 
-function configV2(content) { // Tailwind mặc định + biến thể lt:/dk:/rtl: (không token cũ của app → bo góc/khoảng cách y như Stitch)
+function configV2(content, g) { // Tailwind mặc định + biến thể lt:/dk:/rtl: (không token cũ của app → bo góc/khoảng cách y như Stitch)
+  // important: '.v2s-<màn>' = khóa phạm vi: gói ux1 nạp CSS NHIỀU màn cùng lúc → rule cùng tên ở file nạp sau đè file trước (vd from-* đặt lại --tw-gradient-to → mất màu cuối gradient).
+  // Có phạm vi: rule chỉ áp trong khung màn đó, độ ưu tiên cao hơn CSS chung → thứ tự nạp file không còn ảnh hưởng. runtime.js bọc khung trong <div class="v2s-<màn>">.
   return `const plugin = require(${JSON.stringify(path.join(twDir(), 'plugin'))});
-module.exports = { content: ${JSON.stringify(content.map(f => path.join(ROOT, f)))}, corePlugins: { preflight: false },
+module.exports = { important: ${JSON.stringify('.v2s-' + g.slice(3))}, content: ${JSON.stringify(content.map(f => path.join(ROOT, f)))}, corePlugins: { preflight: false },
   plugins: [plugin(({ addVariant }) => { addVariant('lt', ['@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) & }', ':root[data-theme=light] &']); addVariant('dk', ['@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) & }', ':root[data-theme=dark] &']); addVariant('rtl', '[dir=rtl] &'); })] };`; }
 function config(content) {
   const colors = Object.fromEntries(C.map(([k]) => [k, `rgb(var(--st-${k}) / <alpha-value>)`]));
@@ -77,7 +79,7 @@ function twDir() { if (process.env.TAILWIND_DIR) return process.env.TAILWIND_DIR
 
 function build(g) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
-  fs.writeFileSync(cfg, (g.startsWith('v2-') ? configV2 : config)(GROUPS[g])); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
+  fs.writeFileSync(cfg, (g.startsWith('v2-') ? configV2 : config)(GROUPS[g], g)); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
   execFileSync(process.execPath, [path.join(twDir(), 'lib/cli.js'), '-c', cfg, '-i', inp, '-o', out, '--minify'], { stdio: ['ignore', 'ignore', 'pipe'] });
   return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n`;
 }
