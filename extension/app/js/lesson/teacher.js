@@ -73,7 +73,7 @@
         const tts = () => {
           if (my !== run) return;
           const dur = o.dur || Math.max(0.6, String(text || '').length * 0.065 / rate);
-          if (g.UI && g.UI.tts) g.UI.tts(text, o.accent || 'en-US', rate, { onEnd: end }); else setTimeout(end, dur * 1000);
+          if (g.UI && g.UI.tts) { const t0 = Date.now(); g.UI.tts(text, o.accent || 'en-US', rate, { onEnd: () => { const used = Date.now() - t0; if (used < 300 && my === run) setTimeout(end, Math.max(0, dur * 1000 - used)); else end(); } }); } else setTimeout(end, dur * 1000); // máy không có giọng → onEnd tức thì: giữ vòng nói đủ thời lượng ước tính (khớp miệng)
         };
         if (hq) { try { hq.pause(); } catch (e) { /* bỏ qua */ } hq = null; }
         const base = (g.AUDIO_BASES || [])[0];

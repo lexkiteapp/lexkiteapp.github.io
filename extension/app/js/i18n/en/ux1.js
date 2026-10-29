@@ -62,5 +62,6 @@
   'Ngôn ngữ': 'Language',
   'Đã đạt': 'Earned',
   'Chưa đạt': 'Not earned yet',
+  'Truyện': 'Story', // thẻ Luyện → Truyện (cùng nghĩa nhóm lesson; màn Luyện không tải nhóm lesson)
   'Xem tất cả': 'View all',
 }); })(typeof self !== 'undefined' ? self : this);
