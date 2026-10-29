@@ -3,11 +3,16 @@
 (function (g) {
   const NAME = { ama: 'Ama', carlos: 'Carlos' }, POSES = ['talk', 'listen', 'explain', 'happy', 'encourage', 'thinking', 'laugh', 'wave', 'cheer', 'concern', 'surprise', 'point', 'empathy'];
   const PENDING = { carlos: ['wave', 'concern', 'point', 'empathy'] }; // clip đang tạo → tạm dùng 'talk' cùng người (không bao giờ đổi kiểu/nhân vật)
-  const id = w => (NAME[w] ? w : 'ama'), f = (w, x) => 'teach/' + id(w) + '/' + x;
+  const id = w => (NAME[w] ? w : 'ama'), f = (w, x) => 'teach/' + id(w) + '/' + x, ok = (w, p) => POSES.includes(p) && !(PENDING[id(w)] || []).includes(p) ? p : 'talk';
   g.Chars = {
     ids: Object.keys(NAME), poses: POSES, name: w => NAME[id(w)], id,
     poster: w => f(w, 'poster.webp'), avatar: w => f(w, 'avatar.webp'),
-    clip: (w, p) => f(w, (POSES.includes(p) && !(PENDING[id(w)] || []).includes(p) ? p : 'talk') + '.mp4'),
-    img: (w, o = {}) => `<img class="${o.cls || 'chr'}" src="${f(w, (o.kind === 'poster' ? 'poster' : 'avatar') + '.webp')}" alt="${o.alt == null ? NAME[id(w)] : o.alt}" width="${o.size || 48}" height="${o.kind === 'poster' ? Math.round((o.size || 48) * 1.25) : o.size || 48}" decoding="async"${o.lazy ? ' loading="lazy"' : ''}>`,
+    still: (w, p) => f(w, 'still-' + ok(w, p) + '.webp'), // ảnh tĩnh từng tư thế (đã 2×, nền trong suốt)
+    clip: (w, p, o = {}) => f(w, ok(w, p) + (o.hd && /^(talk|listen)$/.test(ok(w, p)) ? '-hd' : '') + '.mp4'), // hd: chỗ lớn sống (Call), 2× điểm ảnh
+    // o.kind: 'avatar' (mặc định, vuông đầu-vai) | 'poster' (đầu→hông) | 'still' (+ o.pose) · luôn kèm bản 2× cho màn retina
+    img: (w, o = {}) => {
+      const k = o.kind || (o.pose ? 'still' : 'avatar'), sz = o.size || 48, sq = k === 'avatar', src = k === 'still' ? f(w, 'still-' + ok(w, o.pose) + '.webp') : f(w, k + '.webp');
+      return `<img class="${o.cls || 'chr'}" src="${src}"${k === 'still' ? '' : ` srcset="${src} 1x, ${f(w, k + '-2x.webp')} 2x"`} alt="${o.alt == null ? NAME[id(w)] : o.alt}" width="${sz}" height="${sq ? sz : Math.round(sz * 0.87)}" decoding="async"${o.lazy ? ' loading="lazy"' : ''}>`;
+    },
   };
 })(self);
