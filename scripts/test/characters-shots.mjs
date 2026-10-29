@@ -51,7 +51,10 @@ for (const [w, scheme] of [[390, 'light'], [390, 'dark'], [1366, 'dark']]) {
         const A = await px(a), B = await px(b), W = A.width, H = A.height, L = (d, k) => { const f = v => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(d[k]) + 0.7152 * f(d[k + 1]) + 0.0722 * f(d[k + 2]); };
         const S = new Uint8Array(W * H); for (let i = 0; i < W * H; i++) { const k = i * 4; S[i] = Math.abs(A.data[k] - B.data[k]) + Math.abs(A.data[k + 1] - B.data[k + 1]) + Math.abs(A.data[k + 2] - B.data[k + 2]) > 30 ? 1 : 0; }
         const fg = [], bg = [];
-        for (let y = 2; y < H - 2; y++) for (let x = 2; x < W - 2; x++) { const i = y * W + x; if (!S[i]) continue; if (!S[i - 2] || !S[i + 2] || !S[i - 2 * W] || !S[i + 2 * W]) { fg.push(L(A.data, i * 4)); bg.push(L(B.data, i * 4)); } }
+        // dải 3–5 px BÊN TRONG mép (mép ngoài cùng là điểm khử răng cưa, luôn lẫn nền); bỏ 25 % dưới (eo mờ dần, bóng tiếp đất)
+        const er = (M, r) => { const o = new Uint8Array(W * H); for (let y = r; y < H - r; y++) for (let x = r; x < W - r; x++) { const i = y * W + x; o[i] = M[i] && M[i - r] && M[i + r] && M[i - r * W] && M[i + r * W] ? 1 : 0; } return o; };
+        const S3 = er(S, 3), S6 = er(S, 6), ymax = Math.floor(H * 0.75);
+        for (let y = 0; y < ymax; y++) for (let x = 0; x < W; x++) { const i = y * W + x; if (S3[i] && !S6[i]) { fg.push(L(A.data, i * 4)); bg.push(L(B.data, i * 4)); } }
         if (fg.length < 40) return null;
         // độ nổi DÁNG NGƯỜI (chủ 29/10, như Duolingo: tóc đen giữ tự nhiên, áo/mặt gánh độ nổi): % điểm viền đạt ≥ 3:1 so với nền ngay dưới nó
         const cr = fg.map((f, i) => (Math.max(f, bg[i]) + 0.05) / (Math.min(f, bg[i]) + 0.05)), good = cr.filter(r => r >= 3).length / cr.length;
