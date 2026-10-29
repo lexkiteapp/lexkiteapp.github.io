@@ -206831,6 +206831,4201 @@
      "health.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "riddle#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about making holes, but the def is about making errors.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "riddle",
+    "pos": "v",
+    "ipa": "/ˈrɪdəl/",
+    "ipaUS": "/ˈrɪdl/",
+    "def": "to make many holes in something",
+    "ex": [
+     "After the drive-by shooting, the house was riddled with bullet holes."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.44,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:riddle.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:3862725"
+     ],
+     "tr": {},
+     "trSense": "to fill with holes like a riddle",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about making holes, but the def is about making errors.",
+    "tp": [
+     "technology.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "unheard#adj",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (added 'though it may not be silent' / The gloss is about not being heard, but th)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "unheard",
+    "pos": "adj",
+    "ipa": "/ʌnˈhɜːd/",
+    "ipaUS": "/ənˈhɜːrd/",
+    "def": "not heard, though it may not be silent",
+    "ex": [
+     "Her cries for help remained unheard."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.37,
+    "emoji": "",
+    "topic": "xw-people",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:unheard.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "wiktionary"
+     ],
+     "tr": {},
+     "trSense": "not heard",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "added 'though it may not be silent' / The gloss is about not being heard, but the def is about being silent.",
+    "tp": [
+     "xw-people.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "environmentalist#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet ('damage' is not the same as 'destruction')",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "environmentalist",
+    "pos": "n",
+    "ipa": "/enˌvaɪrənˈmentəˌlɪst/",
+    "ipaUS": "/ɪnˌvaɪrənˈmentəlɪst/",
+    "def": "a person who works to protect the environment from damage or pollution",
+    "ex": [
+     "We support the environmentalists completely.",
+     "I'm not a fan of environmentalists."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 2.92,
+    "emoji": "",
+    "topic": "environment",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:environmentalist.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:3271000",
+      "tatoeba:5608605"
+     ],
+     "tr": {},
+     "trSense": "one who advocates for the protection of the environment",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'damage' is not the same as 'destruction'",
+    "tp": [
+     "environment.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "harper#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet ('Harper' is a name, not a harp player)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "harper",
+    "pos": "n",
+    "ipa": "/ˈhɑːpə/",
+    "ipaUS": "/ˈhɑːrpər/",
+    "def": "a person who plays the harp",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "B2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 4.04,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:harpist.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'Harper' is a name, not a harp player",
+    "tp": [
+     "culture.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "mailbox#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet ('receiving' is not the same as 'delivery')",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "mailbox",
+    "pos": "n",
+    "ipa": "/ˈmeɪlbɒks/",
+    "ipaUS": "/ˈmeɪlbɑːks/",
+    "def": "a private box for receiving mail",
+    "ex": [
+     "Take everything out of the mailbox.",
+     "I found this in our mailbox."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.31,
+    "emoji": "",
+    "topic": "xw-objects",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:mailbox.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:13582010",
+      "tatoeba:3330351"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'receiving' is not the same as 'delivery'",
+    "tp": [
+     "xw-objects.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "freezer#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet ('Deepfreeze' is a brand name, not a definition)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "freezer",
+    "pos": "n",
+    "ipa": "/ˈfriːzə/",
+    "ipaUS": "/ˈfriːzər/",
+    "def": "an electric refrigerator that freezes and stores food for long periods",
+    "ex": [
+     "Is your freezer still working?",
+     "Put it in the freezer."
+    ],
+    "col": [
+     "freezer door"
+    ],
+    "syn": [
+     "deep-freeze"
+    ],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.66,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:deep-freeze.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:3830666",
+      "tatoeba:4498766"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'Deepfreeze' is a brand name, not a definition",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "elegantly#adv",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (uses \"graceful\" instead of \"elegant\" / “graceful” is not the same as “elegant”)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "elegantly",
+    "pos": "adv",
+    "ipa": "/ˈelɪɡəntli/",
+    "ipaUS": "/ˈelɪɡəntli/",
+    "def": "in a graceful and tasteful way",
+    "ex": [
+     "The young man was dressed elegantly."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 2.97,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:elegantly.r.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:4826144"
+     ],
+     "tr": {},
+     "trSense": "gracefully",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "uses \"graceful\" instead of \"elegant\" / “graceful” is not the same as “elegant”",
+    "tp": [
+     "xw-qualities.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "reggae#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (“lines” is not the same as “riffs”)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "reggae",
+    "pos": "n",
+    "ipa": "/ˈreɡeɪ/",
+    "ipaUS": "/ˈreɡeɪ/",
+    "def": "popular music from the West Indies with repetitive bass lines and off‑beat guitar chords",
+    "ex": [
+     "She likes reggae, doesn't she?",
+     "What do you think about reggae?"
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.47,
+    "emoji": "",
+    "topic": "xw-arts",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:reggae.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:7402324",
+      "tatoeba:2832537"
+     ],
+     "tr": {},
+     "trSense": "music genre",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "ipaFix": [
+      "Anh /ˈreɡiː/ → /ˈreɡeɪ/ (Britfone)"
+     ]
+    },
+    "qa": {},
+    "defChanged": "“lines” is not the same as “riffs”",
+    "tp": [
+     "xw-arts.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "plum#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (added tree / A plum is a fruit, not a tree.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "plum",
+    "pos": "n",
+    "ipa": "/plʌm/",
+    "ipaUS": "/plʌm/",
+    "def": "a tree that bears smooth, oval fruit with a hard stone",
+    "ex": [],
+    "col": [
+     "plum tree"
+    ],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.55,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:plum.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "added tree / A plum is a fruit, not a tree.",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "irritation#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about a psychological state, but the def is about a feeling.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "irritation",
+    "pos": "n",
+    "ipa": "/ˌɪrɪˈteɪʃən/",
+    "ipaUS": "/ˌɪrɪˈteɪʃn/",
+    "def": "the feeling of being annoyed or irritated",
+    "ex": [
+     "Mary smiled, but her voice had some irritation in it."
+    ],
+    "col": [],
+    "syn": [
+     "annoyance"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.42,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:irritation.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:1616604"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about a psychological state, but the def is about a feeling.",
+    "tp": [
+     "xw-feelings.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "purity#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "ipa: lệch Britfone/CMU Anh /ˈpjʊərɪti/ ≠ Britfone p j ˈʊə ɹ ɪ i / CMU /ˈpjʊrəti/ | /ˈpjʊrɪti/",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about being undiluted or unmixed, but the def is about being pure.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "purity",
+    "pos": "n",
+    "ipa": "/ˈpjʊərɪti/",
+    "ipaUS": "/ˈpjʊrəti/",
+    "def": "the state of being pure, without any other substances",
+    "ex": [
+     "Purity is at best an approximation.",
+     "She considered purity to be truly important."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.69,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:purity.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:2099613",
+      "tatoeba:12247982"
+     ],
+     "tr": {},
+     "trSense": "the state of being pure",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about being undiluted or unmixed, but the def is about being pure.",
+    "tp": [
+     "xw-qualities.n"
+    ],
+    "ipaBad": [
+     "Anh /ˈpjʊərɪti/ ≠ Britfone p j ˈʊə ɹ ɪ i / CMU /ˈpjʊrəti/ | /ˈpjʊrɪti/"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "authenticity#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about credibility, but the def is about genuineness.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "authenticity",
+    "pos": "n",
+    "ipa": "/ɔːθənˈtɪsɪti/",
+    "ipaUS": "/ˌɔːθənˈtɪsɪti/",
+    "def": "undisputed credibility or genuineness",
+    "ex": [
+     "I value authenticity in art.",
+     "Beauty is found in authenticity."
+    ],
+    "col": [],
+    "syn": [
+     "legitimacy"
+    ],
+    "level": "C2",
+    "cefrF": "C1",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.6,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:authenticity.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:13016426",
+      "tatoeba:12768286"
+     ],
+     "tr": {},
+     "trSense": "the quality of being genuine or not corrupted from the original",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about credibility, but the def is about genuineness.",
+    "tp": [
+     "xw-qualities.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fluency#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss includes writing, the def does not.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "fluency",
+    "pos": "n",
+    "ipa": "/ˈfluːənsi/",
+    "ipaUS": "/ˈfluːənsi/",
+    "def": "skill in speaking or writing",
+    "ex": [
+     "Mark can reach his fluency goals.",
+     "Consistent practice is key to language fluency."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.02,
+    "emoji": "",
+    "topic": "language",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fluency.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:11543337",
+      "tatoeba:11767020"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss includes writing, the def does not.",
+    "tp": [
+     "language.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "mutton#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss specifies domestic sheep, the def does not.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "mutton",
+    "pos": "n",
+    "ipa": "/ˈmʌtən/",
+    "ipaUS": "/ˈmʌtn/",
+    "def": "meat that comes from an adult farm sheep",
+    "ex": [
+     "I would like mutton, please.",
+     "I prefer mutton to beef."
+    ],
+    "col": [
+     "cut of mutton",
+     "mutton chop"
+    ],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.01,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:mouton.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:13714295",
+      "tatoeba:256869"
+     ],
+     "tr": {},
+     "trSense": "the flesh of sheep used as food",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss specifies domestic sheep, the def does not.",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "tee#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss specifies the starting place for each hole, the def does not.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "tee",
+    "pos": "n",
+    "ipa": "/tiː/",
+    "ipaUS": "/tiː/",
+    "def": "the place where each golf hole begins",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.82,
+    "emoji": "",
+    "topic": "sport",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:tee.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "golf: ground for hitting first shots",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss specifies the starting place for each hole, the def does not.",
+    "tp": [
+     "sport.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "salesmanship#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet ('persuade people to buy' is redundant)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "salesmanship",
+    "pos": "n",
+    "ipa": "/ˈseɪlzmənˌʃɪp/",
+    "ipaUS": "/ˈseɪlzmənʃɪp/",
+    "def": "the ability to sell things and persuade people to buy",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 2.19,
+    "emoji": "",
+    "topic": "dom-biz",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:salesmanship.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'persuade people to buy' is redundant",
+    "tp": [
+     "dom-biz.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "freestyle#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (too narrow / 'swimming' is too specific, 'race' is too specific)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "freestyle",
+    "pos": "n",
+    "ipa": "/ˈfriːstaɪl/",
+    "ipaUS": "/ˈfriːstaɪl/",
+    "def": "a swimming race where each swimmer can choose any style",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.8,
+    "emoji": "",
+    "topic": "sport",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:freestyle.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "too narrow / 'swimming' is too specific, 'race' is too specific",
+    "tp": [
+     "sport.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "rediscover#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet ('find' is too general)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "rediscover",
+    "pos": "v",
+    "ipa": "/ˌriːdɪˈskʌvə/",
+    "ipaUS": "/rɪdɪˈskʌvər/",
+    "def": "to find something again",
+    "ex": [
+     "She rediscovered her faith in religion.",
+     "I need to rediscover my inner nerd."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.8,
+    "emoji": "",
+    "topic": "education",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:rediscover.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [
+      "wiktionary",
+      "tatoeba:7357095"
+     ],
+     "tr": {},
+     "trSense": "to discover again",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'find' is too general",
+    "tp": [
+     "education.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "theological#adj",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet ('religion' is too general)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "theological",
+    "pos": "adj",
+    "ipa": "/θɪəˈlɒdʒɪkl/",
+    "ipaUS": "/ˌθiːəˈlɑːdʒɪkl/",
+    "def": "relating to the study of religion",
+    "ex": [
+     "Sami had a theological degree."
+    ],
+    "col": [
+     "theological system",
+     "theological doctrine"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.77,
+    "emoji": "",
+    "topic": "xw-religion-history",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:theological.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:6474648"
+     ],
+     "tr": {},
+     "trSense": "of or relating to theology",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'religion' is too general",
+    "tp": [
+     "xw-religion-history.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "cynicism#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet ('feeling' is too specific)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "cynicism",
+    "pos": "n",
+    "ipa": "/ˈsɪnɪˌsɪzəm/",
+    "ipaUS": "/ˈsɪnɪsɪzəm/",
+    "def": "a cynical feeling of distrust",
+    "ex": [
+     "What is toxic is your cynicism.",
+     "Your cynicism will destroy you one day."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.13,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:cynicism.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:10002982",
+      "tatoeba:5595605"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'feeling' is too specific",
+    "tp": [
+     "xw-feelings.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "brainwash#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet ('persuade' is too general)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "brainwash",
+    "pos": "v",
+    "ipa": "/ˈbreɪnwɒʃ/",
+    "ipaUS": "/ˈbreɪnwɑːʃ/",
+    "def": "to persuade someone completely, often by force",
+    "ex": [
+     "They claim they were brainwashed.",
+     "The news media brainwashed many people."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.66,
+    "emoji": "",
+    "topic": "government",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:brainwash.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:7410274",
+      "wiktionary"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "'persuade' is too general",
+    "tp": [
+     "government.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "pinch#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (tweet is not a synonym of pinch)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "pinch",
+    "pos": "v",
+    "ipa": "/pɪntʃ/",
+    "ipaUS": "/pɪntʃ/",
+    "def": "to squeeze something firmly between two fingers",
+    "ex": [
+     "He pinches me every now and then.",
+     "Why are you pinching me so much?"
+    ],
+    "col": [],
+    "syn": [
+     "squeeze",
+     "tweet",
+     "nip"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.76,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:pinch.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:14030596",
+      "tatoeba:9203783"
+     ],
+     "tr": {},
+     "trSense": "to squeeze a small amount of skin",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "tweet is not a synonym of pinch",
+    "tp": [
+     "xw-actions.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "brood#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (the gloss sense includes animals, not just young animals)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "brood",
+    "pos": "n",
+    "ipa": "/bruːd/",
+    "ipaUS": "/bruːd/",
+    "def": "the group of young animals that are cared for together",
+    "ex": [
+     "Tom brought his whole brood with him.",
+     "The hen keeps her brood under her."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.25,
+    "emoji": "",
+    "topic": "xw-objects",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:brood.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:11091792",
+      "tatoeba:31751"
+     ],
+     "tr": {},
+     "trSense": "the young of certain animals",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "the gloss sense includes animals, not just young animals",
+    "tp": [
+     "xw-objects.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "interlude#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (adds \"short\" not in gloss)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "interlude",
+    "pos": "n",
+    "ipa": "/ˈɪntəˌluːd/",
+    "ipaUS": "/ˈɪntərluːd/",
+    "def": "a short period or episode that comes between others",
+    "ex": [
+     "Democracy will only have been a short interlude in the history of humanity."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.09,
+    "emoji": "",
+    "topic": "xw-time-place",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:interlude.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:12236907"
+     ],
+     "tr": {},
+     "trSense": "intervening episode etc",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "adds \"short\" not in gloss",
+    "tp": [
+     "xw-time-place.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "jealousy#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (the gloss sense is about envy, not about fear of infidelity)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "jealousy",
+    "pos": "n",
+    "ipa": "/ˈdʒeləsi/",
+    "ipaUS": "/ˈdʒeləsi/",
+    "def": "a feeling of envy toward someone you see as a rival",
+    "ex": [
+     "Jealousy made him do that.",
+     "Love is never without jealousy."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.74,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:jealousy.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:328932",
+      "tatoeba:347606"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "the gloss sense is about envy, not about fear of infidelity",
+    "tp": [
+     "xw-feelings.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "remit#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (the gloss sense is about sending money, not about sending in general)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "remit",
+    "pos": "v",
+    "ipa": "/rɪˈmɪt/",
+    "ipaUS": "/rɪˈmɪt/",
+    "def": "to send money as a payment",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.09,
+    "emoji": "",
+    "topic": "us-money",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:remit.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "the gloss sense is about sending money, not about sending in general",
+    "tp": [
+     "us-money.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "chrysalis#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (the gloss is about a pupa inside a cocoon, but the def is about a pupa that is t)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "chrysalis",
+    "pos": "n",
+    "ipa": "/ˈkrɪsəˌlɪs/",
+    "ipaUS": "/ˈkrɪsəlɪs/",
+    "def": "the pupa of a moth or butterfly that is inside a cocoon",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.6,
+    "emoji": "",
+    "topic": "wildlife",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:chrysalis.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [],
+     "tr": {},
+     "trSense": "the pupa of a butterfly",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "the gloss is about a pupa inside a cocoon, but the def is about a pupa that is the cocoon",
+    "tp": [
+     "wildlife.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "blubber#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (the gloss is about a layer of fat under the skin, but the def is about a layer o)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "blubber",
+    "pos": "n",
+    "ipa": "/ˈblʌbə/",
+    "ipaUS": "/ˈblʌbər/",
+    "def": "a thick layer of fat under the skin of whales and marine mammals, used for oil",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.53,
+    "emoji": "",
+    "topic": "wildlife",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:blubber.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [],
+     "tr": {},
+     "trSense": "fatty layer of adipose tissue found immediately beneath the epidermis of whales and other cetaceans",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "the gloss is about a layer of fat under the skin, but the def is about a layer of fat that is the skin",
+    "tp": [
+     "wildlife.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "ala#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "ipa: lệch Britfone/CMU Anh /əˈlæ/ ≠ CMU /ˈælə/ | /ˈeɪlə/ (không có Britfone)",
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (the gloss is about a part of an organism, but the def is about an interjection)",
+    "dịch vi: không phải tiếng Việt"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "ala",
+    "pos": "n",
+    "ipa": "/əˈlæ/",
+    "ipaUS": "/ˈælə/",
+    "def": "a flat, wing-shaped part or process of an organism",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.53,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:ala.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "the gloss is about a part of an organism, but the def is about an interjection",
+    "tp": [
+     "science.n"
+    ],
+    "ipaBad": [
+     "Anh /əˈlæ/ ≠ CMU /ˈælə/ | /ˈeɪlə/ (không có Britfone)"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "uptown#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is a place, but the def is an area.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "uptown",
+    "pos": "n",
+    "ipa": "/ˈʌptaʊn/",
+    "ipaUS": "/ʌpˈtaʊn/",
+    "def": "a residential area of a town away from the main commercial centre",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.31,
+    "emoji": "",
+    "topic": "urban",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:uptown.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "the residential part of a city",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is a place, but the def is an area.",
+    "tp": [
+     "urban.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "conquest#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "ví dụ: không phải câu hoàn chỉnh (viết hoa đầu, có dấu câu cuối)",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is an act, but the def is a result.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "conquest",
+    "pos": "n",
+    "ipa": "/ˈkɒŋkwest/",
+    "ipaUS": "/ˈkɑːŋkwest/",
+    "def": "the act of taking control of a place or people",
+    "ex": [
+     "They extended their territory by conquest.",
+     "Alexander the Great's conquest of the Persians"
+    ],
+    "col": [
+     "norman conquest"
+    ],
+    "syn": [
+     "conquering"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.77,
+    "emoji": "",
+    "topic": "xw-military",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:conquest.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:306958",
+      "wiktionary"
+     ],
+     "tr": {},
+     "trSense": "act or instance of achieving victory through combat; subjugation of an enemy",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is an act, but the def is a result.",
+    "tp": [
+     "xw-military.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "regenerate#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss means to make something new or improved, not just to create it again.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "regenerate",
+    "pos": "v",
+    "ipa": "/riːˈdʒenəˌreɪt/",
+    "ipaUS": "/rɪˈdʒenəreɪt/",
+    "def": "to create again on a new or improved basis",
+    "ex": [
+     "If intelligent design is true, why can't we regenerate our teeth?"
+    ],
+    "col": [],
+    "syn": [
+     "renew"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.15,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:regenerate.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:13777962"
+     ],
+     "tr": {},
+     "trSense": "to construct or create anew, especially in an improved manner",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss means to make something new or improved, not just to create it again.",
+    "tp": [
+     "science.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "lookup#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is too technical and does not fit the headword.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "lookup",
+    "pos": "n",
+    "ipa": "/ˈlʊkʌp/",
+    "ipaUS": "/ˈlʊkəp/",
+    "def": "an operation that checks whether items have a specified property",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "search"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.86,
+    "emoji": "",
+    "topic": "technology",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:search.n.03",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is too technical and does not fit the headword.",
+    "tp": [
+     "technology.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "freshen#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss means to become or make fresh again, not to feel fresh.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "freshen",
+    "pos": "v",
+    "ipa": "/ˈfreʃən/",
+    "ipaUS": "/ˈfreʃn/",
+    "def": "to become or make oneself feel fresh again",
+    "ex": [
+     "I'm going to freshen up.",
+     "I need to freshen up."
+    ],
+    "col": [
+     "freshen up"
+    ],
+    "syn": [
+     "refresh"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.85,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:freshen.v.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:11965985",
+      "tatoeba:11825210"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss means to become or make fresh again, not to feel fresh.",
+    "tp": [
+     "health.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "walnut#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: định nghĩa",
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss describes the seed of the walnut tree, not the tree itself.)",
+    "dịch vi: không phải tiếng Việt"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "walnut",
+    "pos": "n",
+    "ipa": "/ˈwɔːlnʌt/",
+    "ipaUS": "/ˈwɔːlnʌt/",
+    "def": "the hard‑shelled, wrinkled, two‑lobed seed of a walnut tree",
+    "ex": [
+     "I used some of the walnuts you gave me in these cookies."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.56,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:walnut.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:6339394"
+     ],
+     "tr": {},
+     "trSense": "nut",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss describes the seed of the walnut tree, not the tree itself.",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "mistrust#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss means to regard someone as untrustworthy, not to regard something with)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "mistrust",
+    "pos": "v",
+    "ipa": "/mɪˈstrʌst/",
+    "ipaUS": "/mɪˈstrʌst/",
+    "def": "to regard someone as untrustworthy or suspect",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "distrust",
+     "suspect"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.06,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:distrust.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "to have no confidence in something",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss means to regard someone as untrustworthy, not to regard something with suspicion.",
+    "tp": [
+     "society.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "ling#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The headword is a plant, not the fruit.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "ling",
+    "pos": "n",
+    "ipa": "/lɪŋ/",
+    "ipaUS": "/lɪŋ/",
+    "def": "a water chestnut plant with fruit that has two spines",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.51,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:ling.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The headword is a plant, not the fruit.",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "swath#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about the space created by a tool, not the area cut.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "swath",
+    "pos": "n",
+    "ipa": "/swɒθ/",
+    "ipaUS": "/swɑːθ/",
+    "def": "the area cut by a scythe or mower",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.83,
+    "emoji": "",
+    "topic": "environment",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:swath.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "The track cut out by a scythe in mowing",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about the space created by a tool, not the area cut.",
+    "tp": [
+     "environment.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "innocence#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about naivete, not guilt.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "innocence",
+    "pos": "n",
+    "ipa": "/ˈɪnəsəns/",
+    "ipaUS": "/ˈɪnəsəns/",
+    "def": "the quality of being naive and without guilt",
+    "ex": [
+     "You must not take advantage of her innocence.",
+     "We need to protect our children and their innocence."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.83,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:artlessness.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:10832",
+      "tatoeba:2622503"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about naivete, not guilt.",
+    "tp": [
+     "society.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "hundredth#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about a position, not a number.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "hundredth",
+    "pos": "n",
+    "ipa": "/ˈhʌndrədθ/",
+    "ipaUS": "/ˈhʌndrədθ/",
+    "def": "the number that comes after ninety‑nine in a series",
+    "ex": [
+     "He died a few days before his hundredth birthday."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.81,
+    "emoji": "",
+    "topic": "education",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:hundredth.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:388384"
+     ],
+     "tr": {},
+     "trSense": "person or thing in the hundredth position",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about a position, not a number.",
+    "tp": [
+     "education.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "astronomer#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (A physicist is a type of scientist, but not all scientists are physicists.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "astronomer",
+    "pos": "n",
+    "ipa": "/əˈstrɒnəmə/",
+    "ipaUS": "/əˈstrɑːnəmər/",
+    "def": "a scientist who studies stars and space",
+    "ex": [
+     "I want to be an astronomer.",
+     "My dream is to become an astronomer."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.16,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:astronomer.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:8775002",
+      "tatoeba:8775000"
+     ],
+     "tr": {},
+     "trSense": "one who studies astronomy",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "A physicist is a type of scientist, but not all scientists are physicists.",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "gel#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (added 'jelly-like')",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "gel",
+    "pos": "n",
+    "ipa": "/dʒel/",
+    "ipaUS": "/dʒel/",
+    "def": "a thick jelly-like substance where tiny particles are suspended in a solid-like liquid",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.84,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:gel.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "suspension of solid in liquid",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "added 'jelly-like'",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "outwit#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss means to win by being cleverer, not just by using cleverness.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "outwit",
+    "pos": "v",
+    "ipa": "/aʊtˈwɪt/",
+    "ipaUS": "/ˈaʊtwɪt/",
+    "def": "to win by using cleverness",
+    "ex": [
+     "Tom managed to outwit Mary.",
+     "Tom is often outwitted by Mary."
+    ],
+    "col": [],
+    "syn": [
+     "beat",
+     "circumvent"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.48,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:outwit.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:9226604",
+      "tatoeba:8367469"
+     ],
+     "tr": {},
+     "trSense": "to beat in a battle of wits",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss means to win by being cleverer, not just by using cleverness.",
+    "tp": [
+     "society.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "commercialize#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss means to exploit for maximal profit, usually by sacrificing quality.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "commercialize",
+    "pos": "v",
+    "ipa": "/kəˈmɜːʃəˌlaɪz/",
+    "ipaUS": "/kəˈmɜːrʃəlaɪz/",
+    "def": "to use something mainly to make as much profit as possible",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.4,
+    "emoji": "",
+    "topic": "economy",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:commercialize.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss means to exploit for maximal profit, usually by sacrificing quality.",
+    "tp": [
+     "economy.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "gunshot#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (adds 'sound' aspect not in original gloss / added 'sound' / The gloss means the )",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "gunshot",
+    "pos": "n",
+    "ipa": "/ˈɡʌnʃɒt/",
+    "ipaUS": "/ˈɡʌnʃɑːt/",
+    "def": "the sound or act of firing a gun",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "gunfire"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.49,
+    "emoji": "",
+    "topic": "crime",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:gunfire.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "adds 'sound' aspect not in original gloss / added 'sound' / The gloss means the act of shooting a gun, not the sound or act of firing a gun.",
+    "tp": [
+     "crime.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "persuasion#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss includes 'attempting to persuade' and 'induce belief or action' which )",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "persuasion",
+    "pos": "n",
+    "ipa": "/pəˈsweɪʒən/",
+    "ipaUS": "/pərˈsweɪʒn/",
+    "def": "the act of trying to convince someone, using communication to cause belief or action",
+    "ex": [
+     "Persuasion is better than force.",
+     "Tom will need some persuasion."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.33,
+    "emoji": "",
+    "topic": "language",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:persuasion.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:10719015",
+      "tatoeba:3725641"
+     ],
+     "tr": {},
+     "trSense": "the act of persuading",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss includes 'attempting to persuade' and 'induce belief or action' which are not in the definition.",
+    "tp": [
+     "language.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "warp#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about making false by mutilation or addition, but the definition is)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "warp",
+    "pos": "v",
+    "ipa": "/ˈwɔːp/",
+    "ipaUS": "/wɔːrp/",
+    "def": "to make a message or story false by changing or adding parts",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "distort"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.63,
+    "emoji": "",
+    "topic": "media",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:falsify.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about making false by mutilation or addition, but the definition is about changing or adding parts.",
+    "tp": [
+     "media.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "straighten#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about making straight, but the definition includes 'to stand up str)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "straighten",
+    "pos": "v",
+    "ipa": "/ˈstreɪtən/",
+    "ipaUS": "/ˈstreɪtn/",
+    "def": "to make something straight or to stand up straight",
+    "ex": [
+     "I can't straighten out my back."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.27,
+    "emoji": "",
+    "topic": "xw-actions",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:straighten.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:241503"
+     ],
+     "tr": {},
+     "trSense": "to make straight",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about making straight, but the definition includes 'to stand up straight'.",
+    "tp": [
+     "xw-actions.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "swine#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is more specific about the animals' diet and body shape.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "swine",
+    "pos": "n",
+    "ipa": "/swaɪn/",
+    "ipaUS": "/swaɪn/",
+    "def": "large, short-legged animals that eat both plants and meat",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.46,
+    "emoji": "",
+    "topic": "wildlife",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:swine.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is more specific about the animals' diet and body shape.",
+    "tp": [
+     "wildlife.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "cheerfulness#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss mentions dispelling gloom, which is not in the definition.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "cheerfulness",
+    "pos": "n",
+    "ipa": "/ˈtʃɪəfəlnəs/",
+    "ipaUS": "/ˈtʃɪrfəlnəs/",
+    "def": "the quality of being happy and driving away gloom",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "cheer",
+     "sunshine"
+    ],
+    "level": "B2",
+    "cefrF": "C2",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 2.3,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:cheerfulness.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss mentions dispelling gloom, which is not in the definition.",
+    "tp": [
+     "xw-feelings.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "cringe#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss does not mention the mental aspect of cringing.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "cringe",
+    "pos": "v",
+    "ipa": "/krɪndʒ/",
+    "ipaUS": "/krɪndʒ/",
+    "def": "to pull back because of fear or pain",
+    "ex": [
+     "He cringed as the bird collided with the window."
+    ],
+    "col": [],
+    "syn": [
+     "flinch",
+     "funk",
+     "shrink"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.54,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:flinch.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wiktionary"
+     ],
+     "tr": {},
+     "trSense": "to cower, recoil, shrink, or tense, as in disgust, embarrassment, or fear",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss does not mention the mental aspect of cringing.",
+    "tp": [
+     "xw-feelings.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "tequila#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss specifies the plant source, which is missing in the definition.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "tequila",
+    "pos": "n",
+    "ipa": "/ˌtəˈkiːlə/",
+    "ipaUS": "/təˈkiːlə/",
+    "def": "a Mexican alcoholic drink made from fermented agave juice",
+    "ex": [
+     "I would like some tequila.",
+     "I really need some tequila!"
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.48,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:tequila.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:10244914",
+      "tatoeba:2510182"
+     ],
+     "tr": {},
+     "trSense": "liquor",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss specifies the plant source, which is missing in the definition.",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "thyroid#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "ipa: lệch Britfone/CMU Anh /ˈθaɪrɔɪd/ ≠ Britfone ð ˈaɪ ɹ ˌɔɪ d / CMU /ˈθaɪrɔɪd/",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss describes the location, not the function.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "thyroid",
+    "pos": "n",
+    "ipa": "/ˈθaɪrɔɪd/",
+    "ipaUS": "/ˈθaɪrɔɪd/",
+    "def": "a gland situated at the base of the neck",
+    "ex": [
+     "I've got a thyroid problem.",
+     "I have a thyroid problem."
+    ],
+    "col": [
+     "thyroid hormone"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.53,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:thyroid_gland.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:11266023",
+      "tatoeba:11865524"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss describes the location, not the function.",
+    "tp": [
+     "health.n"
+    ],
+    "ipaBad": [
+     "Anh /ˈθaɪrɔɪd/ ≠ Britfone ð ˈaɪ ɹ ˌɔɪ d / CMU /ˈθaɪrɔɪd/"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "flicker#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "ví dụ: không phải câu hoàn chỉnh (viết hoa đầu, có dấu câu cuối)",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss specifies the duration, which is not in the definition.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "flicker",
+    "pos": "n",
+    "ipa": "/ˈflɪkə/",
+    "ipaUS": "/ˈflɪkər/",
+    "def": "a brief flash of light",
+    "ex": [
+     "the flicker of the dying candle",
+     "the flicker of an old movie"
+    ],
+    "col": [],
+    "syn": [
+     "spark"
+    ],
+    "level": "C1",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 3.1,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:flicker.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "wiktionary",
+      "wiktionary"
+     ],
+     "tr": {},
+     "trSense": "an unsteady flash of light",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss specifies the duration, which is not in the definition.",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "epicenter#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (wrong sense)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "epicenter",
+    "pos": "n",
+    "ipa": "/ˈepɪˌsentə/",
+    "ipaUS": "/ˈepəsentər/",
+    "def": "the point on Earth's surface directly above an earthquake's focus",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.9,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:epicenter.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "wrong sense",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "rejuvenation#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is a phenomenon, the def is a process.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "rejuvenation",
+    "pos": "n",
+    "ipa": "/rɪˌdʒuːvəˈneɪʃən/",
+    "ipaUS": "/rɪˌdʒuːvəˈneɪʃn/",
+    "def": "the process of restoring vitality and freshness",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "greening"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.79,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:rejuvenation.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "the process of rendering young again",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is a phenomenon, the def is a process.",
+    "tp": [
+     "health.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "destructive#adj",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss says 'much damage', the def says 'great damage'.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "destructive",
+    "pos": "adj",
+    "ipa": "/dɪˈstrʌktɪv/",
+    "ipaUS": "/dɪˈstrʌktɪv/",
+    "def": "causing destruction or great damage",
+    "ex": [
+     "Small children can be very destructive.",
+     "Words can be more destructive than any weapon."
+    ],
+    "col": [
+     "destructive metabolism"
+    ],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.89,
+    "emoji": "",
+    "topic": "environment",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:destructive.a.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:267547",
+      "tatoeba:13011170"
+     ],
+     "tr": {},
+     "trSense": "causing destruction; damaging",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss says 'much damage', the def says 'great damage'.",
+    "tp": [
+     "environment.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "claustrophobia#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss says 'being closed in', the def says 'being in'.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "claustrophobia",
+    "pos": "n",
+    "ipa": "/ˌklɒstrəˈfəʊbiə/",
+    "ipaUS": "/ˌklɔːstrəˈfoʊbiə/",
+    "def": "a morbid fear of being in a confined space",
+    "ex": [
+     "I hope you don't suffer from claustrophobia.",
+     "Long elevator rides can be uncomfortable for those who suffer from claustrophobia."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.56,
+    "emoji": "",
+    "topic": "health",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:claustrophobia.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:3113718",
+      "tatoeba:11553951"
+     ],
+     "tr": {},
+     "trSense": "fear of closed, tight places",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss says 'being closed in', the def says 'being in'.",
+    "tp": [
+     "health.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "murderer#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss says 'another human being', the def says 'another person'.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "murderer",
+    "pos": "n",
+    "ipa": "/ˈmɜːdərə/",
+    "ipaUS": "/ˈmɜːrdərər/",
+    "def": "a criminal who commits unlawful premeditated killing of another person",
+    "ex": [
+     "Only the murderer would know that.",
+     "Who do you think the murderer is?"
+    ],
+    "col": [
+     "mass murderer",
+     "serial murderer",
+     "convicted murderer"
+    ],
+    "syn": [],
+    "level": "B1",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.82,
+    "emoji": "",
+    "topic": "crime",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:murderer.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:6367866",
+      "tatoeba:954649"
+     ],
+     "tr": {},
+     "trSense": "person who commits murder",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss says 'another human being', the def says 'another person'.",
+    "tp": [
+     "crime.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "recapture#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (missing 'anew' / The gloss says 'experience anew', the def says 'to experience a)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "recapture",
+    "pos": "v",
+    "ipa": "/rɪˈkæptʃə/",
+    "ipaUS": "/rɪˈkæptʃər/",
+    "def": "to experience again",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.2,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:recapture.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "missing 'anew' / The gloss says 'experience anew', the def says 'to experience again'.",
+    "tp": [
+     "xw-feelings.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "refrain#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss says 'where a soloist is joined by a group of singers', the def says ')",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "refrain",
+    "pos": "n",
+    "ipa": "/rɪˈfreɪn/",
+    "ipaUS": "/rɪˈfreɪn/",
+    "def": "the part of a song where a soloist is joined by a group",
+    "ex": [
+     "I only know the refrain.",
+     "Everyone joined in with the refrain."
+    ],
+    "col": [],
+    "syn": [
+     "chorus"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.63,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:refrain.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:10965979",
+      "tatoeba:9128421"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss says 'where a soloist is joined by a group of singers', the def says 'where a soloist is joined by a group'.",
+    "tp": [
+     "culture.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "cruelty#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss mentions deliberate infliction, but the def does not.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "cruelty",
+    "pos": "n",
+    "ipa": "/ˈkruːəlti/",
+    "ipaUS": "/ˈkruːlti/",
+    "def": "an act that intentionally causes pain and suffering",
+    "ex": [
+     "He was treated with great cruelty.",
+     "It's an act of cruelty to lock children in their rooms."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.76,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:cruelty.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:292526",
+      "tatoeba:9466151"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss mentions deliberate infliction, but the def does not.",
+    "tp": [
+     "society.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "showtime#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about the time something is supposed to begin, but the def is about)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "showtime",
+    "pos": "n",
+    "ipa": "/ˈʃəʊtaɪm/",
+    "ipaUS": "/ˈʃoʊtaɪm/",
+    "def": "the scheduled time when something should start",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "beginning",
+     "commencement",
+     "first"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.39,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:beginning.n.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about the time something is supposed to begin, but the def is about the scheduled time.",
+    "tp": [
+     "culture.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "overly#adv",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about exceeding normal or proper limits, but the def is about excee)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "overly",
+    "pos": "adv",
+    "ipa": "/ˈəʊvəˌlɪ/",
+    "ipaUS": "/ˈoʊvərli/",
+    "def": "more than is normal or proper",
+    "ex": [
+     "Don't be overly nice to people.",
+     "I'm not overly interested in the event."
+    ],
+    "col": [
+     "overly optimistic",
+     "overly concerned",
+     "seem overly"
+    ],
+    "syn": [
+     "excessively",
+     "too"
+    ],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.83,
+    "emoji": "",
+    "topic": "xw-qualities",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:excessively.r.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:10807993",
+      "tatoeba:45962"
+     ],
+     "tr": {},
+     "trSense": "to an excessive degree",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about exceeding normal or proper limits, but the def is about exceeding what is normal or proper.",
+    "tp": [
+     "xw-qualities.d"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "plunder#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (too broad / The gloss is about taking intellectual property illegally, but the d)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "plunder",
+    "pos": "v",
+    "ipa": "/ˈplʌndə/",
+    "ipaUS": "/ˈplʌndər/",
+    "def": "to take something illegally, including ideas",
+    "ex": [
+     "They’ve completely plundered the state.",
+     "The mercenaries plundered the small town."
+    ],
+    "col": [],
+    "syn": [
+     "loot"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.1,
+    "emoji": "",
+    "topic": "crime",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:loot.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:14032042",
+      "wiktionary"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "too broad / The gloss is about taking intellectual property illegally, but the def is about taking things illegally, including ideas.",
+    "tp": [
+     "crime.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "glint#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (added 'briefly' / The gloss is about being shiny, as if wet, but the def is abou)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "glint",
+    "pos": "v",
+    "ipa": "/ɡlɪnt/",
+    "ipaUS": "/ɡlɪnt/",
+    "def": "to shine briefly with a bright light",
+    "ex": [
+     "The light glinted off the water.",
+     "The gold was glinting in the sun."
+    ],
+    "col": [],
+    "syn": [
+     "glitter",
+     "gleam",
+     "shine"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.65,
+    "emoji": "",
+    "topic": "xw-objects",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:glitter.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:10206212",
+      "tatoeba:11498828"
+     ],
+     "tr": {},
+     "trSense": "to flash briefly",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "added 'briefly' / The gloss is about being shiny, as if wet, but the def is about shining briefly with a bright light.",
+    "tp": [
+     "xw-objects.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "wrangle#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The gloss is about quarreling noisily, angrily or disruptively, but the def is a)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "wrangle",
+    "pos": "v",
+    "ipa": "/ˈræŋɡəl/",
+    "ipaUS": "/ˈræŋɡl/",
+    "def": "to argue loudly and angrily",
+    "ex": [
+     "The two scholars wrangled over the meaning of an obscure Tibetan phrase."
+    ],
+    "col": [],
+    "syn": [
+     "brawl"
+    ],
+    "level": "C1",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.6,
+    "emoji": "",
+    "topic": "society",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:brawl.v.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:1534334"
+     ],
+     "tr": {},
+     "trSense": "to quarrel angrily and noisily — see also bicker",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The gloss is about quarreling noisily, angrily or disruptively, but the def is about arguing loudly and angrily.",
+    "tp": [
+     "society.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "arroyo#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (A stream or brook can be large or small.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "arroyo",
+    "pos": "n",
+    "ipa": "/əˈrɔɪəʊ/",
+    "ipaUS": "/ərˈɔɪoʊ/",
+    "def": "a small river or stream",
+    "ex": [
+     "The arroyos in Arizona sometimes run with water after a rainfall."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.95,
+    "emoji": "",
+    "topic": "environment",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:arroyo.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:8977690"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "A stream or brook can be large or small.",
+    "tp": [
+     "environment.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "socialism#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The government owning industry is not the same as advocating it.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "socialism",
+    "pos": "n",
+    "ipa": "/ˈsəʊʃəlɪzəm/",
+    "ipaUS": "/ˈsoʊʃəlɪzəm/",
+    "def": "a political idea that the government should own industry",
+    "ex": [
+     "I'm not a fan of socialism.",
+     "I do not believe in socialism."
+    ],
+    "col": [
+     "national socialism",
+     "state socialism",
+     "guild socialism"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.88,
+    "emoji": "",
+    "topic": "government",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:socialism.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:5608577",
+      "tatoeba:5607312"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The government owning industry is not the same as advocating it.",
+    "tp": [
+     "government.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "archipelago#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (A collection of islands can be small or large.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "archipelago",
+    "pos": "n",
+    "ipa": "/ˌɑːkɪˈpelɪɡəʊ/",
+    "ipaUS": "/ˌɑːrkəˈpeləɡoʊ/",
+    "def": "a collection of many islands in a sea",
+    "ex": [
+     "Japan is an enormous archipelago.",
+     "It's the largest island of the archipelago."
+    ],
+    "col": [
+     "japanese archipelago",
+     "alexander archipelago",
+     "arctic archipelago"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.33,
+    "emoji": "",
+    "topic": "travel",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:archipelago.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:11827370",
+      "tatoeba:12302181"
+     ],
+     "tr": {},
+     "trSense": "group of many islands",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "A collection of islands can be small or large.",
+    "tp": [
+     "travel.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "dampen#v",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (adds literal covering not in gloss / too general / To cover or hold back somethi)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "dampen",
+    "pos": "v",
+    "ipa": "/ˈdæmpən/",
+    "ipaUS": "/ˈdæmpən/",
+    "def": "to cover or hold back something",
+    "ex": [
+     "The acoustic foam dampened echoes.",
+     "The defeat didn't dampen his spirits."
+    ],
+    "col": [],
+    "syn": [
+     "stifle"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "octanove",
+    "perLang": true,
+    "z": 2.81,
+    "emoji": "",
+    "topic": "education",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:stifle.v.02",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "octanove",
+     "ex": [
+      "tatoeba:11958657",
+      "tatoeba:282433"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "adds literal covering not in gloss / too general / To cover or hold back something is not the same as to smother or suppress.",
+    "tp": [
+     "education.v"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "salsa#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The definition is too specific and does not fit the headword.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "salsa",
+    "pos": "n",
+    "ipa": "/ˈsælsə/",
+    "ipaUS": "/ˈsɔːlsə/",
+    "def": "a hot sauce made from tomatoes, onions and chili peppers, served with Mexican dishes",
+    "ex": [
+     "Did you get any salsa?",
+     "Can I have some salsa with that?"
+    ],
+    "col": [],
+    "syn": [],
+    "level": "B2",
+    "cefrF": "C1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 3.53,
+    "emoji": "",
+    "topic": "food",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:salsa.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "tatoeba:12262553",
+      "tatoeba:3731681"
+     ],
+     "tr": {},
+     "trSense": "spicy tomato sauce",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The definition is too specific and does not fit the headword.",
+    "tp": [
+     "food.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "fission#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "schema: 2 ví dụ chứa từ",
+    "def: viết lại khác nghĩa gloss WordNet (The definition does not fit the headword.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "fission",
+    "pos": "n",
+    "ipa": "/ˈfɪʃən/",
+    "ipaUS": "/ˈfɪʃn/",
+    "def": "a way some single-celled organisms reproduce by splitting into two similar cells",
+    "ex": [],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.11,
+    "emoji": "",
+    "topic": "science",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:fission.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {},
+     "trSense": "",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The definition does not fit the headword.",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "heather#n",
+   "batch": "20261029-pilot",
+   "why": [
+    "def: viết lại khác nghĩa gloss WordNet (The definition does not fit the headword.)",
+    "dịch vi: không phải tiếng Việt",
+    "giám khảo: cần 2 giám khảo độc lập (khác họ mô hình, hoặc cặp gpt-oss 120b + 20b)"
+   ],
+   "at": "2026-10-29",
+   "data": {
+    "w": "heather",
+    "pos": "n",
+    "ipa": "/ˈheðə/",
+    "ipaUS": "/ˈheðər/",
+    "def": "a low evergreen shrub found in many parts of the northern hemisphere",
+    "ex": [
+     "These heathers are looking really good.",
+     "Let's take a look at the heather."
+    ],
+    "col": [
+     "white heather",
+     "beach heather",
+     "golden heather"
+    ],
+    "syn": [
+     "ling",
+     "broom"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.87,
+    "emoji": "",
+    "topic": "wildlife",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:heather.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "@cf/openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:10860791",
+      "tatoeba:10860948"
+     ],
+     "tr": {},
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0"
+    },
+    "qa": {},
+    "defChanged": "The definition does not fit the headword.",
+    "tp": [
+     "wildlife.n"
+    ]
+   }
   }
  ]
 }
