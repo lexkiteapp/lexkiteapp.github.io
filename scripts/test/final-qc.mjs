@@ -107,6 +107,7 @@ async function visit(page, k, errs) {
   if (k === 'streak') { await page.evaluate(SEED_STREAK); await page.evaluate(() => App.route()); await page.waitForTimeout(600); }
   if (k === 'leagues') { await page.evaluate(SEED_LEAGUE); await page.evaluate(() => App.route()); await page.waitForTimeout(900); }
   if (/^(lesson|feedback|complete|story|call)/.test(k)) await page.evaluate(DRIVE, k).catch(e => errs.push('drive ' + e.message));
+  await page.addStyleTag({ content: '#toast{display:none!important}' }).catch(() => {}); // như stitch-diff: thông báo sandbox không che ảnh/đo
   await page.waitForTimeout(400);
 }
 async function session(o) {
