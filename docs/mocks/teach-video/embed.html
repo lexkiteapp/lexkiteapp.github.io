@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- Teach2D in-app embed preview (docs/VIDEO-TEACH2D.md): how a lesson-step video looks inside the app, Lexkite Kit light (B) / dark (A).
+     CI only (teach-video.yml job 'embed'): ?v=<file.mp4>&poster=<file.jpg>&vtt=<file.vtt>&theme=dark|light&title=..&chip=..  -> Playwright screenshots.
+     Real integration = web/js/lesson-video.js (PR #195, lv_embed flag) after the owner's OK; this page ships nothing to users. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lesson video embed</title>
+<style>
+@font-face { font-family: Jak; src: url(../../../brand/social/src/fonts/PlusJakartaSans-VF.ttf); font-weight: 200 800; }
+:root { --bg:#F6F8F7; --card:#FFFFFF; --edge:#E2E8E7; --ledge:#D5DEDC; --ink:#10191B; --muted:#4E5F62; --teal:#0D6964; --chip:#FFF1D6; --chipink:#624000; --chipedge:#E8C37A; }
+:root[data-theme="dark"] { --bg:#091518; --card:#162125; --edge:#2B373A; --ledge:#051013; --ink:#F2F7F8; --muted:#BCC9C7; --teal:#6BD8CE; --chip:#2C2618; --chipink:#FFC94A; --chipedge:#6B5A2A; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: Jak, system-ui, sans-serif; }
+header { height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; }
+.logo img { width: 28px; height: 28px; border-radius: 8px; }
+.pills { display: flex; gap: 8px; } .pill { padding: 4px 10px; border-radius: 999px; background: var(--card); border: 2px solid var(--edge); font-weight: 800; font-size: 13px; }
+.bar { height: 10px; margin: 4px 16px 0; border-radius: 6px; background: var(--edge); overflow: hidden; } .bar i { display: block; height: 100%; width: 38%; background: linear-gradient(90deg,#2BA39A,#FFC94A); }
+main { max-width: 760px; margin: 0 auto; padding: 16px; }
+.chip { display: inline-block; padding: 6px 14px; border-radius: 999px; background: var(--chip); color: var(--chipink); border: 2px solid var(--chipedge); font-weight: 800; font-size: 12px; letter-spacing: .06em; }
+h1 { font-size: 22px; line-height: 28px; margin: 12px 0 14px; font-weight: 800; }
+.card { background: var(--card); border: 2px solid var(--edge); border-bottom: 5px solid var(--ledge); border-radius: 16px; padding: 10px; }
+video { width: 100%; aspect-ratio: 16/9; border-radius: 10px; display: block; background: #000; }
+.meta { display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; font-size: 14px; padding: 10px 4px 2px; }
+.cta { margin-top: 18px; width: 100%; height: 56px; border: 0; border-radius: 16px; background: linear-gradient(90deg,#F2553B,#FF9E3B); box-shadow: 0 6px 0 #B53A22; color: #10191B; font: 800 17px Jak, sans-serif; letter-spacing: .04em; }
+</style></head>
+<body>
+<header><div class="logo"><img src="../../../brand/social/logo/lexkite-app-icon.png" alt="">Lexkite</div><div class="pills"><span class="pill">7 days</span><span class="pill">120 XP</span></div></header>
+<div class="bar"><i></i></div>
+<main>
+  <span class="chip" id="chip">LESSON · VIDEO</span>
+  <h1 id="title">Watch &amp; learn</h1>
+  <div class="card"><video id="v" controls playsinline preload="metadata" crossorigin="anonymous"></video>
+    <div class="meta"><span>CC English</span><span id="dur"></span></div></div>
+  <button class="cta">CONTINUE</button>
+</main>
+<script>
+const q = new URLSearchParams(location.search), v = document.getElementById('v');
+document.documentElement.dataset.theme = q.get('theme') === 'dark' ? 'dark' : 'light';
+if (q.get('title')) document.getElementById('title').textContent = q.get('title');
+if (q.get('chip')) document.getElementById('chip').textContent = q.get('chip');
+v.src = q.get('v') || ''; if (q.get('poster')) v.poster = q.get('poster');
+if (q.get('vtt')) { const t = document.createElement('track'); t.kind = 'captions'; t.srclang = 'en'; t.label = 'English'; t.src = q.get('vtt'); t.default = true; v.appendChild(t); }
+v.addEventListener('loadedmetadata', () => { document.getElementById('dur').textContent = Math.round(v.duration) + ' s'; });
+</script>
+</body></html>

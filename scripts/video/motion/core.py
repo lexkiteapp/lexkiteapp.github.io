@@ -1,6 +1,6 @@
 """Motion core of the Stitch overlay layer (docs/VIDEO-MOTION.md). SAME maths as scripts/video/remotion/src/stitch/core.mjs (parity test
 scripts/test/motion-core.mjs): the Remotion renderer draws with core.js, the builder + QC predict every frame with this file.
-A node animates with: in = {t, k} (k: rise | pop | fade | draw), out = {t} (fade + lift), st = [{t, s}] (state switches, 0.18 s colour mix),
+A node animates with: in = {t, k} (k: rise | pop | fade | draw | soft = calm fade + 16 px ease-out lift, no spring – teach2d templates), out = {t} (fade + lift), st = [{t, s}] (state switches, 0.18 s colour mix),
 val = {t, d, a, b} (count-up / fill, ease-out cubic). Closed-form springs (no simulation), so any frame is exact and stateless."""
 import math
 
@@ -11,10 +11,10 @@ def spring(tau, z, w):   # underdamped step response 0 -> 1
     return 1 - math.exp(-z * w * tau) * (math.cos(wd * tau) + z * w / wd * math.sin(wd * tau))
 def ease_out(x): x = clamp01(x); return 1 - (1 - x) ** 3
 
-FADE_IN = dict(rise=0.12, pop=0.06, fade=0.14, draw=0.0)   # alpha ramp per entrance kind
-HALF = dict(rise=0.06, pop=0.03, fade=0.07, draw=0.15)      # time from in.t to the "appears" instant (alpha 0.5 / half drawn): builders start in.t = word.s - HALF
-SETTLE = dict(rise=0.45, pop=0.40, fade=0.14, draw=0.30)    # after this the node is static (no motion while it is read)
-DRAW = 0.30; OUT = 0.16; MIX = 0.18; RISE_DY = 36; OUT_DY = 14
+FADE_IN = dict(rise=0.12, pop=0.06, fade=0.14, draw=0.0, soft=0.24)   # alpha ramp per entrance kind
+HALF = dict(rise=0.06, pop=0.03, fade=0.07, draw=0.15, soft=0.12)      # time from in.t to the "appears" instant (alpha 0.5 / half drawn): builders start in.t = word.s - HALF
+SETTLE = dict(rise=0.45, pop=0.40, fade=0.14, draw=0.30, soft=0.32)    # after this the node is static (no motion while it is read)
+DRAW = 0.30; OUT = 0.16; MIX = 0.18; RISE_DY = 36; OUT_DY = 14; SOFT_DY = 16; SOFT_T = 0.32
 
 def pose(n, t):
     """-> dict(a=alpha, s=scale, dy=px, p=draw progress) of node n at time t."""
@@ -24,6 +24,7 @@ def pose(n, t):
         a = clamp01(tau / FADE_IN[k]) if tau >= 0 else 0.0; p = 1.0
         if k == 'rise': sp = spring(tau, 0.8, 20.0); s = 0.94 + 0.06 * sp; dy = RISE_DY * (1 - sp)
         elif k == 'pop': s = spring(tau, 0.45, 24.0); dy = 0.0
+        elif k == 'soft': s = 1.0; dy = SOFT_DY * (1 - ease_out(tau / SOFT_T)) if tau >= 0 else SOFT_DY
         else: s = 1.0; dy = 0.0
     o = n.get('out')
     if o:

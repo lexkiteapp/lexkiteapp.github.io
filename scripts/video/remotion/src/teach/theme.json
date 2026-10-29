@@ -1,0 +1,25 @@
+{
+ "_note": "Teach2D colour tokens = Stitch design systems 'Lexkite Kit' (dark A Tactile Night, assets/1b7a8a3d3d52404bb332d9ba3f783547) and 'Bright Day Tactile' (light B, assets/72d685ef743a4ae7a36bd67dd84b15db). ONE source for Remotion (TeachShort.jsx) and the QC contrast gate (qc.py).",
+ "dark": {
+  "bg": "#091518", "bg2": "#0E2226", "blobA": "rgba(43,163,154,0.20)", "blobB": "rgba(242,85,59,0.12)", "blobC": "rgba(255,201,74,0.08)",
+  "card": "#162125", "edge": "#2B373A", "ledge": "#051013", "tile": "#202C2F", "tile_edge": "#3D4947", "tile_ledge": "#0B171A",
+  "ink": "#F2F7F8", "muted": "#BCC9C7", "primary": "#6BD8CE", "accent": "#FFC94A", "coral": "#FF8F75", "good": "#5BD68F", "bad": "#FF8F75",
+  "chip_bg": "#2C2618", "chip_edge": "#6B5A2A", "chip_ink": "#FFC94A",
+  "good_bg": "#123A26", "good_edge": "#2C7A4E", "bad_bg": "#3A1C17", "bad_edge": "#7A3A2E",
+  "pill": "#202C2F", "pill_edge": "#3D4947", "pill_ledge": "#0B171A", "ring_bg": "#10191B", "ring_track": "#203438", "ring_fg": "#F2553B", "ring_ink": "#FF8F75",
+  "dot_off": "#5A7175", "dot_on": "#FFC94A",
+  "cap_plate": "rgba(5,16,19,0.82)", "cap_ink": "#F2F7F8", "cap_now": "#FFC94A",
+  "cta_a": "#F2553B", "cta_b": "#FF9E3B", "cta_ledge": "#B53A22", "cta_ink": "#10191B", "qr_ink": "#10191B"
+ },
+ "light": {
+  "bg": "#F6F8F7", "bg2": "#E3F1EE", "blobA": "rgba(13,105,100,0.14)", "blobB": "rgba(242,85,59,0.10)", "blobC": "rgba(255,201,74,0.18)",
+  "card": "#FFFFFF", "edge": "#E2E8E7", "ledge": "#D5DEDC", "tile": "#F0F4F3", "tile_edge": "#D5DEDC", "tile_ledge": "#C3CFCC",
+  "ink": "#10191B", "muted": "#4E5F62", "primary": "#0D6964", "accent": "#805500", "coral": "#B42814", "good": "#1E7A46", "bad": "#B42814",
+  "chip_bg": "#FFF1D6", "chip_edge": "#E8C37A", "chip_ink": "#624000",
+  "good_bg": "#E3F6EA", "good_edge": "#9FD8B5", "bad_bg": "#FFE9E4", "bad_edge": "#F3B4A6",
+  "pill": "#FFFFFF", "pill_edge": "#D5DEDC", "pill_ledge": "#C3CFCC", "ring_bg": "#FFFFFF", "ring_track": "#E2E8E7", "ring_fg": "#F2553B", "ring_ink": "#B42814",
+  "dot_off": "#B9C6C4", "dot_on": "#E09A00",
+  "cap_plate": "rgba(255,255,255,0.94)", "cap_ink": "#10191B", "cap_now": "#0D6964",
+  "cta_a": "#F2553B", "cta_b": "#FF9E3B", "cta_ledge": "#B53A22", "cta_ink": "#10191B", "qr_ink": "#10191B"
+ }
+}

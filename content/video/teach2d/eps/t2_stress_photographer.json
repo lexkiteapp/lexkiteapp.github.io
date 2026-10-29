@@ -1,0 +1,112 @@
+{
+ "id": "t2_stress_photographer",
+ "template": "stress",
+ "series": "Where's the Stress?",
+ "part": 1,
+ "theme": "dark",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.9,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where's the stress? Photograph!",
+   "pause": 0.55
+  },
+  {
+   "id": "a",
+   "text": "Photograph. The stress is on the first part.",
+   "pause": 0.55
+  },
+  {
+   "id": "b",
+   "text": "Now say photographer.",
+   "pause": 0.55
+  },
+  {
+   "id": "m",
+   "text": "The stress moves to the second part.",
+   "pause": 0.55
+  },
+  {
+   "id": "r",
+   "text": "Say it with me: photographer.",
+   "pause": 1.8,
+   "repeat": true
+  },
+  {
+   "id": "t",
+   "text": "Photography moves it too.",
+   "pause": 0.55
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Where's the stress in photographer?",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "ans",
+   "text": "The second part. Photographer.",
+   "pause": 0.55
+  },
+  {
+   "id": "sh",
+   "text": "Tag a friend who loves taking photos!",
+   "pause": 0.55
+  },
+  {
+   "id": "c",
+   "text": "Save this, and check any word's stress on lexkite.com.",
+   "pause": 0.55
+  }
+ ],
+ "data": {
+  "a": {
+   "word": "photograph",
+   "syl": [
+    "pho",
+    "to",
+    "graph"
+   ],
+   "stress": 0,
+   "say": "first",
+   "ipa": "/ˈfoʊtəɡræf/"
+  },
+  "b": {
+   "word": "photographer",
+   "syl": [
+    "pho",
+    "to",
+    "gra",
+    "pher"
+   ],
+   "stress": 1,
+   "say": "second",
+   "ipa": "/fəˈtɑːɡrəfər/"
+  },
+  "quiz": {
+   "options": [
+    "PHO",
+    "TO"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/photographer",
+  "link": "https://lexkite.com/app/#/pron/photographer",
+  "say": "Check word stress"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where's the stress?"
+ },
+ "est": {
+  "words": 59,
+  "seconds": 34.9,
+  "wpm": 101
+ }
+}

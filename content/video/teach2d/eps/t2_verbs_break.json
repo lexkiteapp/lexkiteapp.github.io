@@ -1,0 +1,88 @@
+{
+ "id": "t2_verbs_break",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "light",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.9,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of break. Ready?",
+   "pause": 0.55
+  },
+  {
+   "id": "b",
+   "text": "Base form: break. Don't break the glass!",
+   "pause": 0.55
+  },
+  {
+   "id": "p",
+   "text": "Past: broke. Yesterday, I broke my phone.",
+   "pause": 0.55
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: broken. Now my phone is broken.",
+   "pause": 0.55
+  },
+  {
+   "id": "w",
+   "text": "Not breaked! Break is irregular.",
+   "pause": 0.55
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! The window is broke, or broken?",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Broken! The window is broken.",
+   "pause": 0.55
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend who says breaked!",
+   "pause": 0.55
+  },
+  {
+   "id": "c",
+   "text": "Save this, and practice verb forms on lexkite.com.",
+   "pause": 0.55
+  }
+ ],
+ "data": {
+  "base": "break",
+  "past": "broke",
+  "pp": "broken",
+  "over": "breaked",
+  "quiz": {
+   "stem": "The window is ___.",
+   "options": [
+    "broke",
+    "broken"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/break",
+  "link": "https://lexkite.com/app/#/verb/break",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "break · broke · broken"
+ },
+ "est": {
+  "words": 62,
+  "seconds": 34.4,
+  "wpm": 108
+ }
+}

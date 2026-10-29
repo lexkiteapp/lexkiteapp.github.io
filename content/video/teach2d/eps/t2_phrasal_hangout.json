@@ -1,0 +1,100 @@
+{
+ "id": "t2_phrasal_hangout",
+ "template": "phrasal",
+ "series": "Phrasal Verb in 30s",
+ "part": 1,
+ "theme": "dark",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.9,
+ "area": "phrases",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't say play together!",
+   "pause": 0.55
+  },
+  {
+   "id": "w",
+   "text": "Don't say: Want to play together this weekend?",
+   "pause": 0.55
+  },
+  {
+   "id": "r",
+   "text": "Say: Want to hang out this weekend?",
+   "pause": 0.55
+  },
+  {
+   "id": "m",
+   "text": "Hang out means relax together.",
+   "pause": 0.55
+  },
+  {
+   "id": "k",
+   "text": "Kids play. Adults hang out!",
+   "pause": 0.55
+  },
+  {
+   "id": "x",
+   "text": "We hung out at the beach.",
+   "pause": 0.55
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one sounds natural?",
+   "pause": 3.0,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Hang out! Want to hang out after class?",
+   "pause": 0.55
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend you hang out with!",
+   "pause": 0.55
+  },
+  {
+   "id": "c",
+   "text": "Save this, and learn phrasal verbs on lexkite.com.",
+   "pause": 0.55
+  }
+ ],
+ "data": {
+  "pv": "hang out",
+  "wrong": "Want to play together this weekend?",
+  "right": "Want to hang out this weekend?",
+  "strike": "play together",
+  "mean": "= spend free time together",
+  "aha": "Kids play. Adults hang out!",
+  "ex": "We hung out at the beach.",
+  "quiz": {
+   "stem": "Want to ___ after class?",
+   "options": [
+    "play together",
+    "hang out"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "phrases",
+  "route": "#/phrases",
+  "link": "https://lexkite.com/app/#/phrases",
+  "say": "Learn phrasal verbs"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Don't say “play together”"
+ },
+ "src": {
+  "gold": "sb_2408f7fd",
+  "pid": "w:hang out#phr v"
+ },
+ "est": {
+  "words": 67,
+  "seconds": 37.1,
+  "wpm": 108
+ }
+}

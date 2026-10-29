@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process';
 import * as C from '../video/remotion/src/stitch/core.mjs';
 const nodes = [
   { in: { t: 1.0, k: 'rise' }, out: { t: 3.2 } }, { in: { t: 0.5, k: 'pop' } }, { in: { t: 2, k: 'fade' }, out: { t: 2.5 } },
-  { in: { t: 1.2, k: 'draw' } }, { in: { t: 0.2, k: 'rise' }, val: [{ t: 0.5, d: 0.6, a: 5, b: 6 }, { t: 2.5, d: 0.5, a: 6, b: 6.5 }] }, { in: { t: 0, k: 'rise' }, st: [{ t: 1, s: 'right' }, { t: 2, s: 'dim' }], val: { t: 1.5, d: 0.6, a: 5.5, b: 6 } },
+  { in: { t: 1.2, k: 'draw' } }, { in: { t: 0.7, k: 'soft' }, out: { t: 3 } }, { in: { t: 0.2, k: 'rise' }, val: [{ t: 0.5, d: 0.6, a: 5, b: 6 }, { t: 2.5, d: 0.5, a: 6, b: 6.5 }] }, { in: { t: 0, k: 'rise' }, st: [{ t: 1, s: 'right' }, { t: 2, s: 'dim' }], val: { t: 1.5, d: 0.6, a: 5.5, b: 6 } },
 ];
 const ts = Array.from({ length: 241 }, (_, i) => i / 60);
 const js = nodes.map(n => ts.map(t => [C.pose(n, t), C.state(n, t), C.value(n, t)]));

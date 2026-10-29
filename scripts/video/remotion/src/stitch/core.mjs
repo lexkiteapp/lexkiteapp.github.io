@@ -7,8 +7,8 @@ export function spring(tau, z, w) {
   return 1 - Math.exp(-z * w * tau) * (Math.cos(wd * tau) + (z * w / wd) * Math.sin(wd * tau));
 }
 export const easeOut = x => 1 - (1 - clamp01(x)) ** 3;
-export const FADE_IN = { rise: 0.12, pop: 0.06, fade: 0.14, draw: 0 };
-export const DRAW = 0.3, OUT = 0.16, MIX = 0.18, RISE_DY = 36, OUT_DY = 14;
+export const FADE_IN = { rise: 0.12, pop: 0.06, fade: 0.14, draw: 0, soft: 0.24 };
+export const DRAW = 0.3, OUT = 0.16, MIX = 0.18, RISE_DY = 36, OUT_DY = 14, SOFT_DY = 16, SOFT_T = 0.32;
 const r = (x, d) => Math.round(x * 10 ** d) / 10 ** d;
 
 export function pose(n, t) {
@@ -19,6 +19,7 @@ export function pose(n, t) {
     a = tau >= 0 ? clamp01(tau / FADE_IN[k]) : 0; p = 1;
     if (k === 'rise') { const sp = spring(tau, 0.8, 20); s = 0.94 + 0.06 * sp; dy = RISE_DY * (1 - sp); }
     else if (k === 'pop') { s = spring(tau, 0.45, 24); dy = 0; }
+    else if (k === 'soft') { s = 1; dy = tau >= 0 ? SOFT_DY * (1 - easeOut(tau / SOFT_T)) : SOFT_DY; }
     else { s = 1; dy = 0; }
   }
   if (n.out) { const q = clamp01((t - n.out.t) / OUT); a *= 1 - q; dy -= OUT_DY * q; }

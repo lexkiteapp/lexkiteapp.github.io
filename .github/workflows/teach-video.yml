@@ -1,0 +1,184 @@
+# teach-video: Teach2D templates (docs/VIDEO-TEACH2D.md) – ONE pilot per template, short 9:16 + lesson embed 16:9, review sheet. 0 credits.
+# QC BEFORE render (script review, data facts, voice clock, layout / contrast / IPA / mouth / hook on the real timeline) and AFTER render
+# (file, -16 LUFS, teacher visible, no blank frame) – a red gate stops the job. Hosts = web/teach/characters.json 2D set (no footage clone).
+# No GrabCast / Groq / Kling, no store, no Drive, no publish (owner approval gate).
+name: teach-video
+on:
+  workflow_dispatch:
+    inputs:
+      eps: { description: 'comma list of episode ids (content/video/teach2d/eps), empty = all pilots', default: '' }
+  pull_request:
+    paths: ['scripts/video/teach2d/**', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
+permissions: { contents: read }
+concurrency: { group: 'teach-video-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs: { list: '${{ steps.m.outputs.list }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Specs regenerate identically + reviewed scripts
+        run: |
+          python3 scripts/video/teach2d/gen.py
+          git diff --exit-code content/video/teach2d/eps || { echo "::error::eps/*.json differ from gen.py output – regenerate and review"; exit 1; }
+          python3 - <<'PY'
+          import json, glob, sys
+          R = json.load(open('content/video/teach2d/reviewed.json'))['verdicts']; bad = []
+          for f in glob.glob('content/video/teach2d/eps/*.json'):
+              e = json.load(open(f)); v = R.get(e['id']) or {}
+              if not (v.get('hook_true') and v.get('script') == {l['id']: l['text'] for l in e['lines']}): bad.append(e['id'])
+          print('unreviewed:', bad); sys.exit(1 if bad else 0)
+          PY
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/test/motion-core.mjs
+      - id: m
+        run: echo "list=$(python3 -c "import json,glob,os;a='${{ github.event.inputs.eps }}'.strip();print(json.dumps([x.strip() for x in a.split(',') if x.strip()] or sorted(os.path.basename(f)[:-5] for f in glob.glob('content/video/teach2d/eps/*.json'))))")" >> "$GITHUB_OUTPUT"
+  voice:
+    needs: preqc
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy: { fail-fast: false, max-parallel: 5, matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
+      - name: ffmpeg (static build, cached)
+        run: |
+          [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && curl -fsSL --retry 3 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg' '*/bin/ffprobe'; }
+          sudo ln -sf ~/ffbin/ffmpeg /usr/local/bin/ffmpeg; sudo ln -sf ~/ffbin/ffprobe /usr/local/bin/ffprobe
+      - uses: actions/cache@v4
+        with: { path: ~/.cache/pip, key: 'pip-teach2d-voice-${{ hashFiles(''scripts/cine/requirements.txt'') }}-fw1.0.3' }
+      - run: timeout 480 pip install -q -r scripts/cine/requirements.txt faster-whisper==1.0.3
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - name: kokoro-js + Rhubarb
+        run: |
+          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
+          R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; "$R" --version | grep -q 1.13
+          echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
+      - name: Voice (Kokoro teacher voice from the registry -> Rhubarb -> whisper word clock)
+        run: |
+          E=content/video/teach2d/eps/${{ matrix.ep }}.json
+          python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text']) for l in e['lines']]),open('lines.json','w'),indent=1)"
+          NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo
+          n=$(ls vo/vis3/*.words.json | wc -l); echo "$n lines voiced"; [ "$n" -gt 5 ] || { echo "::error::no voice"; exit 1; }
+      - uses: actions/upload-artifact@v4
+        with: { name: 'tvo-${{ matrix.ep }}-${{ github.run_id }}', path: 'vo/vis3/', retention-days: 3 }
+  render:
+    needs: [preqc, voice]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy: { fail-fast: false, max-parallel: 6, matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
+    env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with: { path: ~/ffbin, key: ffmpeg-n8.1-linux64-gpl-v1 }
+      - name: ffmpeg (static build, cached)
+        run: |
+          [ -x ~/ffbin/ffmpeg ] || { mkdir -p ~/ffbin && curl -fsSL --retry 3 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-n8.1-latest-linux64-gpl-8.1.tar.xz | tar -xJ --wildcards --strip-components=2 -C ~/ffbin '*/bin/ffmpeg' '*/bin/ffprobe'; }
+          sudo ln -sf ~/ffbin/ffmpeg /usr/local/bin/ffmpeg; sudo ln -sf ~/ffbin/ffprobe /usr/local/bin/ffprobe
+      - run: pip install -q numpy==2.1.3 pillow==11.0.0 qrcode==7.4.2 pyflakes==3.2.0 && python3 -m pyflakes scripts/video/teach2d/*.py
+      - uses: actions/download-artifact@v4
+        with: { name: 'tvo-${{ matrix.ep }}-${{ github.run_id }}', path: vo }
+      - name: Host layer (registry 2D teacher -> VP9 alpha) + props
+        run: |
+          mkdir -p $O; W=$(python3 -c "import json;print(json.load(open('$E'))['teacher'])")
+          python3 scripts/video/teach2d/host.py $W host > $O/host.log
+          TH=$(python3 -c "import json;print(json.load(open('$E'))['theme'])"); ALT=$([ $TH = dark ] && echo light || echo dark)
+          python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --public $O/pub --out $O/props.json
+          python3 scripts/video/teach2d/build.py --ep $E --vo vo --host host --format ${{ matrix.fmt }} --theme $ALT --public $O/pub_alt --out $O/props_alt.json
+      - name: QC before render (timeline gates – stops here, no render minutes spent on a bad layout)
+        run: |
+          python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --out $O/qc_pre.json
+          python3 scripts/video/teach2d/qc.py --timeline $O/props_alt.json.timeline.json --out $O/qc_pre_alt.json
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/cache@v4
+        with: { path: scripts/video/remotion/node_modules, key: 'remotion-${{ hashFiles(''scripts/video/remotion/package-lock.json'') }}-v1' }
+      - name: Remotion (Chrome Headless Shell)
+        run: |
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0t64 libatk-bridge2.0-0t64 libgbm1 libasound2t64 libxrandr2 libxkbcommon0 libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2t64 >/dev/null
+          cd scripts/video/remotion && npm ci --no-audit --no-fund >/dev/null && npx remotion browser ensure >/dev/null && echo "Remotion OK"
+      - name: Render (30 fps, CRF 17 short / CRF 26 embed) + other-theme stills
+        run: |
+          cd scripts/video/remotion; R=$GITHUB_WORKSPACE/$O; Q="--crf=17 --audio-bitrate=192k"; [ ${{ matrix.fmt }} = short ] || Q="--crf=26 --audio-bitrate=128k"
+          npx remotion render src/index.jsx teach-short "$R/${{ matrix.ep }}-${{ matrix.fmt }}.mp4" --props="$R/props.json" --public-dir="$R/pub" --codec=h264 $Q --audio-codec=aac --concurrency=2 --log=error
+          for t in $(python3 -c "import json;T=json.load(open('$R/props_alt.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (1,len(L)//2,len(L)-3)))"); do
+            npx remotion still src/index.jsx teach-short "$R/alt_$t.png" --props="$R/props_alt.json" --public-dir="$R/pub_alt" --frame=$(python3 -c "print(int($t*30))") --log=error; done
+      - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
+        run: |
+          V=$O/${{ matrix.ep }}-${{ matrix.fmt }}.mp4
+          python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --video $V --sheet $O/${{ matrix.ep }}-${{ matrix.fmt }}.sheet.jpg --out $O/qc.json | tee $O/qc.log
+          ffmpeg -nostdin -v error -y -ss 3 -i $V -frames:v 1 -q:v 3 $O/${{ matrix.ep }}-${{ matrix.fmt }}.poster.jpg
+          if [ ${{ matrix.fmt }} = short ]; then mkdir -p $O/phone; ffmpeg -nostdin -v error -y -i $V -c:v libx264 -preset slow -crf 20 -maxrate 6500k -bufsize 13000k -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart $O/phone/${{ matrix.ep }}.mp4; fi
+          rm -rf $O/pub $O/pub_alt
+          { echo "### ${{ matrix.ep }} · ${{ matrix.fmt }}"; echo '```'; grep -E '^(PASS|FAIL)|score' $O/qc.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 'tv-${{ matrix.ep }}-${{ matrix.fmt }}-${{ github.run_id }}'
+          path: |
+            ${{ env.O }}/*.mp4
+            ${{ env.O }}/phone/*.mp4
+            ${{ env.O }}/*.jpg
+            ${{ env.O }}/*.png
+            ${{ env.O }}/*.vtt
+            ${{ env.O }}/qc*.json
+            ${{ env.O }}/*.log
+            ${{ env.O }}/props*.json*
+          retention-days: 14
+  embed:   # in-app embed preview screenshots (light + dark, phone + desktop) of every 16:9 lesson video
+    needs: render
+    if: always() && needs.render.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'tv-*-wide-${{ github.run_id }}', path: art, merge-multiple: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install --with-deps chromium >/dev/null
+      - name: Screenshots
+        run: |
+          mkdir -p shots; cat > shot.mjs <<'JS'
+          import { chromium } from 'playwright'; import fs from 'fs'; import path from 'path';
+          const b = await chromium.launch(); let n = 0;
+          for (const d of fs.readdirSync('art')) {
+            const dir = path.resolve('art', d), mp4 = fs.readdirSync(dir).find(f => f.endsWith('-wide.mp4')); if (!mp4) continue;
+            const id = mp4.replace('-wide.mp4', ''), vtt = fs.readdirSync(dir).find(f => f.endsWith('.vtt')), poster = fs.readdirSync(dir).find(f => f.endsWith('poster.jpg'));
+            for (const theme of ['light', 'dark']) for (const [w, h, tag] of [[390, 844, 'phone'], [1366, 900, 'desktop']]) {
+              const p = await b.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 2 });
+              const q = new URLSearchParams({ v: 'file://' + path.join(dir, mp4), poster: poster ? 'file://' + path.join(dir, poster) : '', vtt: vtt ? 'file://' + path.join(dir, vtt) : '', theme, title: id.split('_').slice(1, 2)[0].toUpperCase() + ' · watch & learn', chip: 'LESSON · VIDEO' });
+              await p.goto('file://' + path.resolve('docs/mocks/teach-video/embed.html') + '?' + q);
+              await p.waitForFunction(() => document.getElementById('v').readyState >= 2, null, { timeout: 15000 }).catch(() => {});
+              await p.evaluate(() => { const v = document.getElementById('v'); v.currentTime = 6; });
+              await p.waitForTimeout(800); await p.screenshot({ path: `shots/${id}-${theme}-${tag}.png` }); n++; await p.close();
+            }
+          }
+          await b.close(); console.log('screenshots', n); if (!n) process.exit(1);
+          JS
+          node shot.mjs
+      - uses: actions/upload-artifact@v4
+        with: { name: 'tv-embed-shots-${{ github.run_id }}', path: shots/, retention-days: 14 }
+  sheet:   # one review sheet for the owner: every pilot's frames + QC score, both themes
+    needs: [render, embed]
+    if: always() && needs.render.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'tv-*-${{ github.run_id }}', path: art }
+      - run: pip install -q pillow==11.0.0
+      - name: Review sheet + score table (red when any pilot < 90 or a gate fails, or nothing rendered)
+        run: python3 scripts/video/teach2d/sheet.py art review
+      - uses: actions/upload-artifact@v4
+        with: { name: 'tv-review-${{ github.run_id }}', path: review/, retention-days: 14 }
