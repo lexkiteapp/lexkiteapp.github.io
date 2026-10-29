@@ -175,6 +175,7 @@ ASK_Q = ('You check pictures for an English-learning app. Question: does this pi
          '"missing": "what is missing or wrong, max 8 words", "text": true if any letters, words or numbers are visible}}')
 def ask_q(t):
     """câu hỏi có/không cho ảnh cảnh/bìa/bài học – CÙNG mẫu cho ảnh cũ và mới (không dùng prompt vẽ)"""
+    if t['kind'] == 'scene' and t.get('ps'): return f'this scene: "{t["ps"]}" (it illustrates the sentence "{t.get("ex")}")'   # e4: chấm đúng câu cảnh đã vẽ
     if t['kind'] == 'scene': return f'the situation of this sentence: "{t.get("ex") or t.get("target")}"'
     if t['kind'] == 'cover': return f'the topic "{t["target"].replace("a picture about ", "")}" (recognisable objects or activity of this topic, not a generic room)'
     return f'this situation: "{t["target"]}"'
@@ -254,7 +255,7 @@ def features(im, k, t, T, LEX, keys_all, centroid):
     sc = {}
     if t.get('kind', 'object') != 'object':
         # tín hiệu RIÊNG cho cảnh (24/10): CLIP ảnh ↔ CÂU (không phải gloss), chú thích ↔ câu, giám khảo thị giác hỏi có/không về tình huống
-        sent = t.get('ex') or t['target']
+        sent = t.get('ps') or t.get('ex') or t['target']   # e4: so với câu cảnh (thứ thật sự được vẽ)
         dsent = [(T.get(d[0]) or {}).get('ex') or d[1] for d in ds]
         cs = emb_txt([sent] + dsent) @ v
         sc['hard_ex'] = dsent[int(np.argmax(cs[1:]))] if len(dsent) else None   # câu anh em CLIP thấy giống nhất → câu đối chứng cho giám khảo kép
@@ -263,7 +264,7 @@ def features(im, k, t, T, LEX, keys_all, centroid):
         sc['cap_ex'] = round(float(ss[0]), 4); sc['cap_ex_rank'] = int((ss[1:] > ss[0]).sum()) + 1; sc['cap_ex_margin'] = round(float(ss[0] - ss[1:].max()), 4)
     fr = framing(im)
     return {**sc, 'frame': fr, 'api': None, 'api_model': None, 'api_rank': None, 'api_sim': None,
-            '_ctx': {'st': st, 'refs': refs, 'R': R, 'sent': (t.get('ex') or t['target']) if t.get('kind', 'object') != 'object' else None},
+            '_ctx': {'st': st, 'refs': refs, 'R': R, 'sent': (t.get('ps') or t.get('ex') or t['target']) if t.get('kind', 'object') != 'object' else None},
             'clip_rank': rank, 'clip_margin': round(margin, 4), 'cap': c, 'cap_rank': crank, 'cap_sim': round(float(per[0]), 4),
             'cap_margin': round(float(per[0] - np.max(per[1:])), 4), 'ocr': ocr(im), 'nsfw': round(nsfw(im), 4),
             'style': round(float(v @ centroid), 4) if centroid is not None else None, 'ph': phash(im), '_v': v}
@@ -308,7 +309,7 @@ def _yesno(im, q, model):
     return None
 def consensus(im, t, f):
     """→ (ok, chi tiết). Chỉ gọi khi VIMG_CONSENSUS=1, ảnh cảnh, có câu ví dụ + câu đối chứng, và đã qua cổng cứng."""
-    sent, hard = t.get('ex') or t.get('target'), f.get('hard_ex')
+    sent, hard = t.get('ps') or t.get('ex') or t.get('target'), f.get('hard_ex')
     if not sent or not hard or not use_cf_vision(): return False, 'no-sentence/no-vision'
     det = []
     for m in CONS_MODELS:

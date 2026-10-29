@@ -220,4 +220,10 @@ ok(J('infra/resources.json').services.some(s => s.key === 'vocab-img'), 'đăng 
   const cf = await import('../vocab-img/cf-direct.mjs'), H = c => c.repeat(32), env = { CF_POOL: '0123456789'.split('').map(c => H(c) + ':t').join(','), VIMG_POOL_SKIP: '0', VIMG_DRAW_SHARE: '0.5', VIMG_MAX_CF: '10' };
   ok(cf.cfProvider('@cf/black-forest-labs/flux-2-klein-4b', env).stats.accounts === 5, 'vẽ chỉ dùng nửa đầu kho khi VIMG_DRAW_SHARE=0.5');
 }
+
+// 8. thẻ cảnh e4 (29/10): câu cảnh ngắn vẽ được + câu hỏi kiểm + điểm vẽ được; prompt ngắn; không vẽ thẻ draw < 4
+{ const sc = await import('../vocab-img/scene.mjs'), e = { w: 'cheap', pos: 'adj', ex: ['The food at the night market is cheap and tasty.'] };
+  const c = { ex: e.ex[0], ps: 'a woman hands one small coin to a smiling street vendor for a big steaming bowl of noodles', check: 'Is a big bowl of food being bought for one small coin?', cap: 'a woman buying noodles from a vendor', who: 2, draw: 4 };
+  ok(sc.sceneOk(e, c) === '' && /^skip: draw/.test(sc.sceneOk(e, { ...c, draw: 3 })) && sc.sceneOk(e, { ...c, ps: 'a man reads the price on a menu board at a small cafe today' }) !== '' && sc.sceneOk(e, { ...c, check: 'cheap' }) !== '', 'e4: thẻ hợp lệ; draw < 4 → bỏ; giá/chữ → loại; check phải là câu hỏi');
+  const p = sc.promptScene('cheap#adj', c, 1); ok(p.length < 520 && p.includes('hands one small coin') && p.indexOf('Flat vector') > p.indexOf('noodles') && !/a woman hands/.test(p), 'e4: prompt < 520 ký tự, câu cảnh trước phong cách, người đa dạng thay "a woman"'); }
 console.log(`✓ vocab-img: ${n} kiểm`);
