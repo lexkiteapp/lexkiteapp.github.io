@@ -30944,5 +30944,20 @@
     "ar": "الدقة",
     "ru": "Точность",
     "tr": "Doğruluk"
+  },
+  "Đối thoại": {
+    "es": "Diálogo",
+    "pt": "Diálogo",
+    "fr": "Dialogue",
+    "de": "Dialog",
+    "id": "Dialog",
+    "th": "บทสนทนา",
+    "zh": "对话",
+    "ja": "会話",
+    "ko": "대화",
+    "hi": "संवाद",
+    "ar": "حوار",
+    "ru": "Диалог",
+    "tr": "Diyalog"
   }
 }

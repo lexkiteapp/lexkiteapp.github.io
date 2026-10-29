@@ -63,5 +63,6 @@
     "Tăng điểm": "Score booster",
     "Nói hay hơn": "Better phrase",
     "Chạm cụm từ để nghe phát âm chuẩn": "Tap a phrase to hear the native pronunciation",
+    "Đối thoại": "Dialogue",
   });
 })(typeof self !== 'undefined' ? self : this);

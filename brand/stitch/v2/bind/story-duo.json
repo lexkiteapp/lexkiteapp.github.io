@@ -1,0 +1,136 @@
+{
+ "_doc": "Màn Truyện (#/lesson/go, node.kind=story|radio, cờ ux1): khung hội thoại Ama + Carlos. d do web/js/lesson/ui.js storyFrame() dựng. Cả 2 giáo viên (Chars) đứng SAU khung đối thoại đục (d.duo chèn sau thanh người nói; khung chat z-10 nền đục); câu thoại mới nối vào danh sách (khuôn lấy từ 2 bong bóng mẫu); nút 'CHECK ANSWER' = Tiếp tục (#lsnGo); phần câu hỏi/đáp án mẫu bỏ vì bài kiểm giữa truyện dùng khung lesson-question (Ama/người nói + thẻ đáp án + tấm phản hồi); radio: chữ ẩn, chip giữa = ON AIR.",
+ "i18n": {
+  "Close session": "Thoát bài học",
+  "User Profile": "Hồ sơ người học"
+ },
+ "text": {
+  "Active Drill Session": "d.title",
+  "70%": "d.pct",
+  "Ama": "'Ama'",
+  "Carlos": "'Carlos'",
+  "CHECK ANSWER": "t('Tiếp tục')",
+  "Dialogue": "d.mid"
+ },
+ "attr": {
+  ":scope > header > div > button": {
+   "href": "d.close",
+   "id": "'lsnX'",
+   "aria-label": "t('Thoát bài học')"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": {
+   "dir": "'ltr'",
+   "id": "'lsnPct'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-label": "t('Tiến độ bài học')",
+   "aria-valuemin": "'0'",
+   "aria-valuemax": "'100'",
+   "aria-valuenow": "'0'"
+  },
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:0%'",
+   "id": "'lsnFill'"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "data-href": "'#/me'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(2)": {
+   "id": "'lsnChat'",
+   "aria-live": "'polite'"
+  },
+  ":scope > main > div > div:nth-child(5) > button": {
+   "id": "'lsnGo'",
+   "type": "'button'"
+  },
+  ":scope .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  }
+ },
+ "cls": {
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
+   "w-[70%]": "''"
+  },
+  ":scope > main > div > div:nth-child(2)": {
+   "pt-[0.25rem]": "'pt-[0.75rem]'"
+  }
+ },
+ "tag": {
+  ":scope > header > div > button": {
+   "to": "a"
+  },
+  ":scope > header > div > div:nth-child(3)": {
+   "to": "button"
+  }
+ },
+ "addClass": {
+  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "lsn-mid",
+  ":scope > main > div > div:nth-child(2)": "relative z-10 lsn-chatp mt-[-3.5rem] rounded-t-[20px] lt:bg-[#FFF7EA] dk:bg-[#0B171A]",
+  ":scope > main > div > div:nth-child(5) > button": "lsn-gonext",
+  ":scope > header > div > div:nth-child(2) > div:nth-child(2)": "lsn-bar",
+  ":scope > header > div > button": "lsn-x"
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(1)": "d.duo"
+ },
+ "remove": [
+  ":scope > main > div > div:nth-child(n+3):nth-child(-n+4)"
+ ],
+ "repeat": [
+  {
+   "list": "d.log",
+   "as": "r",
+   "samples": ":scope > main > div > div:nth-child(2) > div",
+   "pick": "r.v",
+   "variants": {
+    "ama": ":scope > main > div > div:nth-child(2) > div:nth-child(1)",
+    "carlos": ":scope > main > div > div:nth-child(2) > div:nth-child(2)"
+   },
+   "bind": {
+    "ama": {
+     "addClass": {
+      ":scope": "lsn-ln ama lsn-lnA"
+     },
+     "attr": {
+      ":scope": {
+       "data-who": "'ama'",
+       "lang": "'en'"
+      },
+      ":scope > div:nth-child(2) > button": {
+       "type": "'button'",
+       "aria-label": "r.play",
+       "data-i": "i"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > span": "e(r.name)",
+      ":scope > div:nth-child(2) > p": "e(r.en)"
+     }
+    },
+    "carlos": {
+     "addClass": {
+      ":scope": "lsn-ln carlos lsn-lnC"
+     },
+     "attr": {
+      ":scope": {
+       "data-who": "'carlos'",
+       "lang": "'en'"
+      },
+      ":scope > div:nth-child(2) > button": {
+       "type": "'button'",
+       "aria-label": "r.play",
+       "data-i": "i"
+      }
+     },
+     "html": {
+      ":scope > div:nth-child(1) > span": "e(r.name)",
+      ":scope > div:nth-child(2) > p": "e(r.en)"
+     }
+    }
+   }
+  }
+ ]
+}
