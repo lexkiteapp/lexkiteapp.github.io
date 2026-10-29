@@ -68,7 +68,7 @@ off = [dict(node=c['node'], tag=c['tag'], d=round(N[c['node']]['in']['t'] + C.HA
 offb = [x for x in off if abs(x['d']) > 0.08 and N[x['node']]['in']['t'] >= N[N[x['node']]['parent']]['in']['t'] + 1e-6 if N[x['node']].get('parent')]
 gate('cue_timing', not offb, 2, checked=len(off), bad=offb[:6])
 # layout: sampled every 0.1 s
-SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags', 'candy', 'beat', 'ipapill', 'rhythm', 'vs', 'stamp', 'slot', 'opt', 'brick', 'plus', 'pic', 'letter', 'track', 'score'}
+SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags', 'candy', 'beat', 'ipapill', 'rhythm', 'vs', 'stamp', 'slot', 'opt', 'brick', 'plus', 'pic', 'letter', 'track', 'score', 'wave', 'flip', 'grade'}
 for i in range(int(T['total'] * 10)):
     t = i / 10; vis = [n for n in T['nodes'] if alpha(n, t) > 0.3]
     for n in vis:
@@ -133,7 +133,7 @@ for x in T['ipa']:
     if 'stress' in x and stress_index(x['ipa']) != x['stress']: ib.append(dict(token=x['token'], why='stress dot != IPA stress mark', ipa=x['ipa'], dot=x['stress']))
 gate('ipa', not ib, 3, checked=len(T['ipa']), bad=ib)
 # CTA deep link into the matching app feature
-cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review')
+cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review', '#/dictation')
 gate('cta', cta['link'].startswith('https://lexkite.com/app/') and cta['route'].startswith(ROUTES) and cta['link'].endswith(cta['route']), 2, **cta)
 gate('duration', (18 <= T['total'] <= 28) if T['format'] == 'short' else (15 <= T['total'] <= 42), 2, seconds=T['total'], want='18-28 s social short (owner 29/10)' if T['format'] == 'short' else '15-42 s lesson embed')
 # rendered file

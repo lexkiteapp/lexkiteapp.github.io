@@ -90,6 +90,21 @@ function Body({ n, t, w, h, T }) {
           borderBottom: `10px solid ${glow ? '#1E8C84' : T.tile_ledge}`, boxShadow: glow ? '0 0 40px rgba(95,217,204,.45)' : 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: 40, letterSpacing: '0.06em', color: glow ? '#0B3B37' : T.muted }}>{n.label}</div>
           <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${n.size + 6}px`, color: glow ? '#062A27' : T.ink }}>{n.word}</div></div></div>; }
+    case 'wave': { const on = (n.plays || []).some(([a, b]) => t >= a && t <= b);   // listening waveform: bars move only while the line plays, calm otherwise
+      return <div style={{ width: w, height: h, display: 'flex', alignItems: 'center', gap: 8 }}>{Array.from({ length: n.bars }, (_, i) => {
+        const base = 0.28 + 0.5 * Math.abs(Math.sin(i * 1.7)), k = on ? 0.35 + 0.65 * Math.abs(Math.sin(t * 9 + i * 0.9)) : 0.45;
+        return <div key={i} style={{ flex: 1, height: Math.max(10, h * base * k), borderRadius: 8, background: on ? T.primary : T.tile_edge }} />; })}</div>; }
+    case 'flip': { const [cur, , m] = state(n, t), k = cur === 'back' ? easeOut(m) : 0, front = k < 0.5, sx = Math.abs(Math.cos(Math.PI * k));   // flashcard flips once (scaleX, no 3D)
+      return <div style={{ position: 'absolute', inset: 0, transform: `scaleX(${Math.max(0.02, sx)})` }}>
+        <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 44, background: T.card, border: `2px solid ${front ? T.edge : T.primary}`, borderBottom: `10px solid ${T.ledge}`,
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 48px', textAlign: 'center', gap: 18 }}>
+          <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: 40, letterSpacing: '0.06em', color: T.muted }}>{front ? 'FRONT' : 'BACK'}</div>
+          {front ? <><div style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${n.size + 8}px`, color: T.primary }}>{n.word}</div>
+            <div style={{ fontFamily: NOTO, fontWeight: 500, fontSize: 48, color: T.muted }}>{n.ipa}</div></>
+            : <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.msize, lineHeight: `${n.msize + 12}px`, color: T.ink }}>{n.mean}</div>}</div></div>; }
+    case 'grade': { const [cur, , m] = state(n, t), k = cur === 'lit' ? m : 0, col = { bad: T.bad, amber: '#FFB859', good: T.good, easy: T.primary }[n.tone] || T.primary;   // the app's 4 review buttons
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 28, background: k ? mixc(T.pill, n.tone === 'bad' ? T.bad_bg : T.good_bg, k) : T.pill, border: `3px solid ${col}`,
+        borderBottom: `8px solid ${T.pill_ledge}`, boxShadow: k ? `0 0 ${28 * k}px ${col}66` : 'none', fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 12}px`, textAlign: 'center', color: T.ink }}>{n.text}</div>; }
     case 'plus':
       return <div style={{ width: w, height: h, borderRadius: '50%', background: T.card, border: `3px solid ${T.edge}`, color: T.primary, fontFamily: JAK, fontWeight: 800, fontSize: 56, lineHeight: `${h - 8}px`, textAlign: 'center' }}>+</div>;
     case 'pic': { const [cur, , m] = state(n, t), k = cur === 'clear' ? easeOut(m) : 0;   // polaroid: picture blurred until the answer, then sharp

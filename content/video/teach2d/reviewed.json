@@ -23,10 +23,10 @@
    "hook": "Don't say “play together”",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, no jargon, quiz answer spoken)",
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
    "script": {
     "h": "Don't say play together!",
-    "w": "Don't say: Want to play together this weekend?",
+    "w": "Not: Want to play together this weekend?",
     "r": "Say: Want to hang out this weekend?",
     "m": "Hang out means relax together.",
     "k": "Kids play. Adults hang out!",
@@ -41,17 +41,17 @@
    "hook": "Where's the stress?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, no jargon, quiz answer spoken)",
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
    "script": {
     "h": "Where's the stress? Photograph!",
-    "a": "Photograph. The stress is on the first part.",
+    "a": "Photograph. Stress on the first part.",
     "b": "Now say photographer.",
     "m": "The stress moves to the second part.",
     "r": "Say it with me: photographer.",
     "q": "Quick quiz! Where's the stress in photographer?",
     "ans": "The second part. Photographer.",
     "sh": "Send this to a friend!",
-    "c": "Save this, and check any word's stress on lexkite.com."
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_usuk_elevator": {
@@ -113,9 +113,9 @@
    "hook": "Textbook or real English?",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
    "script": {
-    "h": "Textbook English, or real English?",
+    "h": "Textbook or real English?",
     "w": "Textbook: I need to get a flu injection.",
     "r": "Natives say: I need to get a flu shot.",
     "y": "In everyday American English, it's a flu shot.",
@@ -164,17 +164,16 @@
    "hook": "Level check!",
    "hook_true": true,
    "script_reviewed": true,
-   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, quiz answer spoken; social cut ≤ 28 s)",
    "script": {
-    "h": "Level check! Three quick questions.",
+    "h": "Level check! Three questions.",
     "q1": "Question one.",
-    "a1": "It's ago! I started this job two years ago.",
+    "a1": "I started this job two years ago.",
     "q2": "Question two.",
-    "a2": "It's sitting! I hate sitting in traffic.",
+    "a2": "I hate sitting in traffic.",
     "q3": "Question three.",
-    "a3": "It's for! What's the reason for the change?",
-    "s": "Three out of three? You are ready for more!",
-    "sh": "Comment your score!",
+    "a3": "What's the reason for the change?",
+    "s": "Three out of three? Comment your score!",
     "c": "Save this. Free on lexkite.com."
    }
   },
@@ -194,6 +193,87 @@
     "sh": "Send this to a friend!",
     "c": "Save this. Free on lexkite.com."
    }
+  },
+  "t2_call_mytreat": {
+   "template": "call",
+   "hook": "“My treat”?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "What does my treat mean?",
+    "m": "Your teammate says: It's my treat today!",
+    "y": "My treat means: I will pay for you.",
+    "o": "Say: Thank you so much!",
+    "q": "Quick quiz! You pay for a friend. What do you say?",
+    "a": "It's my treat! I will pay for you.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app call script web/js/call/calls.js (phrase + meaning + reply option), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_dictation_surname": {
+   "template": "dictation",
+   "hook": "What did she say?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "What did she say? Listen!",
+    "s1": "Could you spell the surname for me, please?",
+    "g": "Once more. Fill the gap!",
+    "q": "Could you spell the surname for me, please?",
+    "a": "Spell the surname! Surname means your family name.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app listening script web/js/listen + audited word bank, quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_grammar_presentsimple": {
+   "template": "grammar",
+   "hook": "Present Simple in 60s",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "Present Simple. One rule!",
+    "r": "He, she or it? The verb gets an s.",
+    "w": "Not: She don't like crowded places.",
+    "b": "Say: She doesn't like crowded places.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Watches! My father watches the news every evening.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app grammar point web/js/grammar (formula, listed mistake, listed quiz item), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_review_deadline": {
+   "template": "review",
+   "hook": "Remember this word?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "Do you remember this word?",
+    "f": "Here's your card: deadline.",
+    "q": "Think! What does it mean?",
+    "b": "It means the time by which something must be finished.",
+    "x": "The deadline for the sales report is Friday afternoon.",
+    "g": "Got it? Tap Good. Forgot? Tap Again.",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from audited word bank + the app review grade labels (en i18n), quiz answer spoken; social cut ≤ 28 s)"
+  },
+  "t2_toeic_nextspring": {
+   "template": "toeic",
+   "hook": "TOEIC in 10 seconds",
+   "hook_true": true,
+   "script_reviewed": true,
+   "script": {
+    "h": "TOEIC question. Ten seconds!",
+    "s": "Brightwell Logistics blank its new distribution center in Da Nang next spring.",
+    "k": "Find the clue: next spring.",
+    "q": "Quick quiz! Which one fits?",
+    "a": "Will open! Next spring is the future.",
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
+   },
+   "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from app TOEIC reading bank Part 5 (answer key + cue), quiz answer spoken; social cut ≤ 28 s)"
   }
  }
 }

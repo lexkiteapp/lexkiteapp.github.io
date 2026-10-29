@@ -498,11 +498,124 @@ def T_level():
                 st=[dict(t=round(ans_t[i - 1] - C.MIX / 2, 4), s='right' if j == r else 'dim')], pairs=[[TH['ink'], TH['pill'], 72], [TH['ink'], TH['good_bg'], 72]])
         NODES.append(dict(id=nid('r'), type='ring', ring=dict(t0=round(end(f'q{i}') + 0.05, 3), t1=round(end(f'q{i}') + LINES[f'q{i}']['pause'] - 0.1, 3)), size=54,
                           box=[b[2] - 124, b[1] + 22, b[2] - 28, b[1] + 118], **{'in': cue(end(f'q{i}') + 0.05)}, out=dict(t=round(ans_t[i - 1] + 0.3, 3))))
-    c = Card(RY0, tone='good'); chip(c, '🏆 3 / 3', start('s'), tone='good'); c.text([['Ready for more!', 'ink']], S['hook'], start('s'), align='c'); c.place(start('s'), start('c') - 0.2, 'a')
+    c = Card(ys + 100, tone='good'); chip(c, '🏆 3 / 3', start('s'), tone='good'); c.text([['Comment your score!', 'ink']], S['hook'], at('s', 'comment'), align='c'); c.place(start('s'), start('c') - 0.2, 'a')   # same slot as the question cards (clear of their rings)
     end_card()
 
 
-dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, guess=T_guess, level=T_level)[EP['template']]()
+def bricks_row(items, y, bh, t_out, size=52):
+    """formula rail: snap-together bricks joined by + (Stitch 3fcef434… 'Grammar in 60s'); items = [(label, word, tone, t_in)], width fits the word."""
+    pg = 70
+    while True:   # largest word size (>= 40 px) at which the rail fits the card width
+        ws = [max(190, tw(wd, size) + 56) for _, wd, _, _ in items]; tot = sum(ws) + pg * (len(ws) - 1)
+        if tot <= RW or size <= 40: break
+        size -= 2
+    assert tot <= RW, ('formula rail too wide', tot); x = RX0 + (RW - tot) / 2
+    for i, ((lab, wd, tone, t_in), w_) in enumerate(zip(items, ws)):
+        top('brick', [x, y, x + w_, y + bh], t_in, out=t_out, label=lab, word=wd, tone=tone, size=size,
+            pairs=[['#062A27', '#5FD9CC', size]] if tone == 'glow' else [[TH['ink'], TH['tile'], size]]); x += w_
+        if i < len(items) - 1: top('plus', [x + pg / 2 - 30, y + bh / 2 - 30, x + pg / 2 + 30, y + bh / 2 + 30], items[i + 1][3], out=t_out); x += pg
+
+
+def T_grammar():
+    """Stitch 3fcef4347cac… 'Grammar in 60s': ONE RULE kicker + title, formula bricks (last one glows), ✗ row with strike → ✓ row, then the quiz."""
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2
+    y = title([[D['en'], 'ink'], [' · ' + D['level'], 'primary']], 84, RY0, None, t_out, hook=True) + 26
+    b = D['bricks']; bricks_row([('WHO', b[0], 'dark', at('r', 0)), ('VERB', b[1], 'dark', at('r', 'verb')), ('ADD', b[2], 'glow', at('r', -1))], y, 124, t_out)
+    y += 124 + 28
+    c = Card(y, tone='bad', badge='cross', t_badge=start('w')); tn = c.text([[D['wrong'], 'ink']], 52, start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    strike_on(tn, D['strike'], at('w', D['strike']) + 0.1)
+    c = Card(b1[3] + 20, tone='good', badge='check', t_badge=at('b', 'say')); c.text(runs_hl(D['right'], D['hl'], 'good'), 52, at('b', 'say')); c.place(at('b', 'say'), t_out, 'b')
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
+    save_card([[[f"{b[0]} + {b[1]}{b[2].split(' /')[0]}", 'primary']], [[D['right'], 'good']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_dictation():
+    """Stitch 96c97a4a8606… 'What did she say?': headline, listening card (headphones + waveform that moves only while the line plays + 1/2 · 2/2 pill),
+    sentence card with a glowing dashed gap that fills with the heard words on the answer."""
+    D = EP['data']; series_chip(); t_out = start('sh') - 0.2; t_rev = at('a', 0)
+    title([['What did she ', 'ink'], ['say', 'primary'], ['?', 'ink']], 104, RY0 + 120, None, start('s1') - 0.2, hook=True)
+    plays = [[start('s1'), end('s1')], [start('q'), end('q')]]; t_mean = start('a') - 0.2
+    c = Card(RY0, tone='card'); y_ = c.y; chip(c, '🎧 LISTEN', start('s1')); c.y = y_   # chip + play counter share the top row, the waveform sits under them
+    for txt, t_a, t_b in [('▶ 1 / 2', start('s1'), start('q') - 0.5), ('▶ 2 / 2', start('q'), None)]:
+        c.rows.append(dict(id=nid('h'), type='chip', text=txt, tone='chip', size=40, box=[PAD + c.inner - 200, y_, PAD + c.inner, y_ + 68],
+                           **{'in': cue(t_a)}, **({'out': dict(t=round(t_b, 3))} if t_b else {})))
+    c.y = y_ + 68 + GAP
+    c.add(dict(type='wave', bars=28, plays=[[round(a, 3), round(b_, 3)] for a, b_ in plays], box=[PAD, 0, PAD + c.inner, 0], **{'in': cue(start('s1'))}), 84, gap=GAP)
+    b1 = c.place(start('s1'), t_mean, 'a')
+    pre, post = D['line'].split(D['gap']); sz = 60; y = b1[3] + 30
+    c = Card(y, tone='card'); chip(c, f"FILL THE GAP · {len(D['gap'].split())} WORDS", start('g'))
+    # one row per wrapped line; the gap is a slot node sized to the heard words (the answer drops in on its spoken word)
+    gw = tw(D['gap'], sz) + 40; x = c.lp; yy = c.y; h = round(sz * 1.3)
+    for tok in re.findall(r'\S+|___', pre.rstrip() + ' ___ ' + post.lstrip()):
+        ww = gw if tok == '___' else tw(tok, sz)
+        if x + ww > c.lp + c.inner: x = c.lp; yy += h + 14
+        if tok == '___':
+            c.rows.append(dict(id=nid('s'), type='slot', word=D['gap'], size=sz, box=[x, yy - 4, x + ww, yy + h + 4], **{'in': cue(start('g'))}, st=[dict(t=round(t_rev, 4), s='filled')],
+                               pairs=[[TH['good'], TH['card'], sz]]))
+        else:
+            n = dict(id=nid('t'), type='text', runs=[[tok, 'ink']], size=sz, ipa=False, box=[x, yy, x + ww, yy + round(sz * 1.22)], **{'in': cue(start('g'))}); c.rows.append(n)
+        x += ww + tw(' ', sz)
+    CUES.append(dict(node=c.rows[1]['id'], t=start('g'), tag=D['line'])); c.y = yy + h + 14 + GAP
+    b2 = c.place(start('g'), t_out, 'b'); ring(b2, end('q') + 0.05, end('q') + LINES['q']['pause'] - 0.1)
+    c = Card(RY0, tone='good'); c.text([[D['word'], 'primary'], ['  ' + D['ipa'], 'muted']], S['body'], at('a', D['word'], 1 if D['word'] in D['gap'].lower() else 0), gap=8)   # meaning card takes the listening card's place
+    IPA.append(dict(token=D['word'], ipa=D['ipa'], node=c.rows[-1]['id'])); c.text([['= ' + D['mean'], 'ink']], S['sub'], at('a', 'means')); c.place(start('a'), t_out, 'a')
+    save_card([[[D['line'], 'ink']], [[D['word'], 'primary'], [' = ' + D['mean'], 'muted']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_toeic():
+    """TOEIC Word (Kit question card + 2×2 answer tiles from Stitch ac026299… Level Check): Part 5 tag, the clue phrase lights gold on 'clue', B turns green."""
+    D = EP['data']; series_chip(); t_out = start('sh') - 0.2; t_ans = at('a', 0)
+    title([['TOEIC', 'accent'], [' in 10 seconds', 'ink']], 84, RY0 + 160, None, start('s') - 0.2, hook=True)
+    c = Card(RY0, tone='card'); chip(c, f"PART 5 · Q{D['n']}", start('s'))
+    pre, post = D['stem'].split('___'); c.text(runs_hl(pre.rstrip() + ' _____ ' + post.lstrip(), D['cue'], 'accent'), S['sub'], start('s'))
+    c.text([['🔍 CLUE: ', 'muted'], [D['cue'], 'accent']], S['sub'], start('k')); b = c.place(start('s'), t_out, 'a')
+    tw2 = (RW - 30) / 2; yy = b[3] + 30
+    for j, o in enumerate(D['options']):
+        x = RX0 + (j % 2) * (tw2 + 30); y_ = yy + (j // 2) * 146; sz = min(56, int(56 * (tw2 - 50) / max(1, tw(o, 56))))
+        top('opt', [x, y_, x + tw2, y_ + 130], start('q'), out=t_out, text=o, size=sz, label='ABCD'[j],
+            st=[dict(t=round(t_ans - C.MIX / 2, 4), s='right' if j == D['answer'] else 'dim')], pairs=[[TH['ink'], TH['pill'], sz], [TH['ink'], TH['good_bg'], sz]])
+    NODES.append(dict(id=nid('r'), type='ring', ring=dict(t0=round(end('q') + 0.05, 3), t1=round(end('q') + LINES['q']['pause'] - 0.1, 3)), size=54,
+                      box=[b[2] - 124, b[1] + 22, b[2] - 28, b[1] + 118], **{'in': cue(end('q') + 0.05)}, out=dict(t=round(t_ans + 0.3, 3))))
+    save_card([[[D['cue'], 'accent'], [' → ', 'muted'], [D['right'], 'good']], [[D['stem'].replace('___', D['right']), 'ink']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_review():
+    """Remember This? (the app's flashcard): card front word + IPA, 3-2-1 think ring, flips to the meaning on 'means', example below, the app's 4 grade buttons."""
+    D = EP['data']; series_chip(); t_out = start('c') - 0.2; t_flip = at('b', 'means') - 0.1
+    title([['Remember ', 'ink'], ['this', 'primary'], ['?', 'ink']], 104, RY0 + 120, None, start('f') - 0.2, hook=True)
+    fh = 400; n = top('flip', [RX0 + 40, RY0, RX1 - 40, RY0 + fh], at('f', D['word']), out=t_out, word=D['word'], ipa=D['ipa'], mean=D['mean'], size=104, msize=60,
+                      st=[dict(t=round(t_flip, 4), s='back')], pairs=[[TH['ink'], TH['card'], 60], [TH['primary'], TH['card'], 104], [TH['muted'], TH['card'], 48]])
+    CUES.append(dict(node=n['id'], t=at('f', D['word']), tag=D['word'])); IPA.append(dict(token=D['word'], ipa=D['ipa'], node=n['id']))
+    NODES.append(dict(id=nid('r'), type='ring', ring=dict(t0=round(end('q') + 0.05, 3), t1=round(end('q') + LINES['q']['pause'] - 0.1, 3)), size=54,
+                      box=[RX1 - 40 - 124, RY0 + 22, RX1 - 40 - 28, RY0 + 118], **{'in': cue(end('q') + 0.05)}, out=dict(t=round(t_flip, 3))))
+    c = Card(RY0 + fh + 30, tone='card'); c.text(runs_hl(D['ex'], D['word'], 'primary'), S['sub'], start('x')); bx = c.place(start('x'), t_out, 'b')
+    gw = (RW - 3 * 20) / 4; y = bx[3] + 30; tone = dict(Again='bad', Hard='amber', Good='good', Easy='easy')
+    for i, g in enumerate(D['grades']):
+        x = RX0 + i * (gw + 20); t_g = at('g', g) if g in ('Good', 'Again') else start('g')
+        top('grade', [x, y, x + gw, y + 110], start('g'), out=t_out, text=g, tone=tone[g], size=48, st=[dict(t=round(t_g, 4), s='lit')] if g in ('Good', 'Again') else [],
+            pairs=[[TH['ink'], TH['pill'], 48]])
+    end_card()
+
+
+def T_call():
+    """Ask Ama → Call (the app's speaking call): call header (phone + call title + live dot), the caller's bubble with the phrase in gold,
+    meaning card, the reply chip the app offers, then the quiz."""
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2
+    title([[f"“{D['phrase'].capitalize()}”", 'accent'], ['?', 'ink']], 112, RY0 + 140, None, start('m') - 0.2, hook=True)
+    c = Card(RY0, tone='tile'); chip(c, f"📞 {D['em']} {D['title'].upper()}", start('m'))
+    c.text(runs_hl(D['line'], D['phrase'], 'accent'), S['body'], at('m', 'says')); b1 = c.place(start('m'), t_out, 'a')
+    c = Card(b1[3] + 28, tone='good', badge='check', t_badge=start('y')); c.text([[D['phrase'], 'primary'], [' = ' + D['mean'], 'ink']], S['body'], start('y')); b2 = c.place(start('y'), t_out, 'b')
+    c = Card(b2[3] + 28, tone='bubble_good', x0=RX0 + 120, w=RW - 120); c.tail = 'r'; chip(c, 'YOU SAY', at('o', 'say'), tone='good')
+    c.text([[D['reply'], 'ongood']], S['body'], at('o', 'say')); c.place(at('o', 'say'), t_out, 'c')
+    q = D['quiz']; quiz_card(None, q['options'], q['answer'], start('q'), at('a', 0), start('c') - 0.2)
+    end_card()
+
+
+dict(usuk=T_usuk, verbs=T_verbs, stress=T_stress, mistake=T_mistake, phrasal=T_phrasal, pair=T_pair, prep=T_prep, pattern=T_pattern, native=T_native, guess=T_guess, level=T_level,
+     grammar=T_grammar, dictation=T_dictation, toeic=T_toeic, review=T_review, call=T_call)[EP['template']]()
 
 # ---------------- region offset: card-local -> canvas; satellites (check, confetti, strike, badges) resolve their boxes ----------------
 BY = {n['id']: n for n in NODES}
@@ -621,7 +734,7 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
     seen = []
     for n in sorted(NODES, key=lambda n: n['in']['t']):
         t_ = n['in']['t']
-        if n.get('parent') or t_ < 0.3 or n['type'] not in ('card', 'split', 'candy', 'pic', 'brick') or any(abs(t_ - x) < 0.35 for x in seen): continue
+        if n.get('parent') or t_ < 0.3 or n['type'] not in ('card', 'split', 'candy', 'pic', 'brick', 'flip') or any(abs(t_ - x) < 0.35 for x in seen): continue
         put('whoosh', max(0, t_ - 0.12), -6); seen.append(t_)    # one soft whoosh per entering card group
         if n['type'] in ('candy', 'brick'): put('pop', t_ + 0.1, -2)
     for n in NODES:
@@ -629,7 +742,8 @@ if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite 
         if n['type'] in ('stamp', 'vs'): put('pop', n['in']['t'], 0)
     # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
     PRE = dict(usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
-               pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse')
+               pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse',
+               grammar='upbeat-claps', dictation='chill-keys', toeic='quiz-pulse', review='lofi-warm', call='pop-bright')
     mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', PRE.get(EP['template'], 'lofi-warm'), str(TOTAL + 0.5), mf], check=True, capture_output=True)
     with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
     if ch_ == 2: mu = mu.reshape(-1, 2).mean(1)

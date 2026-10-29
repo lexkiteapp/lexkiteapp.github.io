@@ -180,6 +180,83 @@
      "sb_022772ea"
     ]
    }
+  },
+  {
+   "id": "t2_grammar_presentsimple",
+   "template": "grammar",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "file": "tenses",
+    "gid": "present-simple",
+    "mistake": 1,
+    "quiz": 1,
+    "pick": 1,
+    "rule_say": "He, she or it? The verb gets an s.",
+    "bricks": [
+     "he / she / it",
+     "verb",
+     "-s / -es"
+    ],
+    "brick_check": [
+     "V-s/es",
+     "does"
+    ],
+    "strike": "don't",
+    "hl": "doesn't"
+   }
+  },
+  {
+   "id": "t2_dictation_surname",
+   "template": "dictation",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "file": "test1",
+    "pid": "t1p1",
+    "line": 6,
+    "gap": "spell the surname",
+    "word": "surname",
+    "mean_say": "your family name"
+   }
+  },
+  {
+   "id": "t2_toeic_nextspring",
+   "template": "toeic",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "file": "reading1",
+    "tid": "tr1",
+    "n": 102,
+    "cue": "next spring",
+    "why_say": "Next spring is the future."
+   }
+  },
+  {
+   "id": "t2_review_deadline",
+   "template": "review",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "word": "deadline"
+   }
+  },
+  {
+   "id": "t2_call_mytreat",
+   "template": "call",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "cid": "coffee",
+    "turn": 5,
+    "phrase": "my treat",
+    "reply": 0,
+    "alt": "no worries",
+    "quiz_say": "You pay for a friend. What do you say?",
+    "ans_say": "I will pay for you.",
+    "quote": "It's my treat today!"
+   }
   }
  ]
 }

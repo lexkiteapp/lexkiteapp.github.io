@@ -16,7 +16,7 @@
   },
   {
    "id": "a",
-   "text": "Photograph. The stress is on the first part.",
+   "text": "Photograph. Stress on the first part.",
    "pause": 0.42
   },
   {
@@ -53,7 +53,7 @@
   },
   {
    "id": "c",
-   "text": "Save this, and check any word's stress on lexkite.com.",
+   "text": "Save this. Free on lexkite.com.",
    "pause": 0.42
   }
  ],
@@ -100,8 +100,8 @@
   "text": "Where's the stress?"
  },
  "est": {
-  "words": 53,
-  "seconds": 33.3,
-  "wpm": 95
+  "words": 47,
+  "seconds": 30.4,
+  "wpm": 93
  }
 }

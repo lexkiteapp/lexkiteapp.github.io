@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Level check! Three quick questions.",
+   "text": "Level check! Three questions.",
    "pause": 0.42
   },
   {
@@ -22,7 +22,7 @@
   },
   {
    "id": "a1",
-   "text": "It's ago! I started this job two years ago.",
+   "text": "I started this job two years ago.",
    "pause": 0.42
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "id": "a2",
-   "text": "It's sitting! I hate sitting in traffic.",
+   "text": "I hate sitting in traffic.",
    "pause": 0.42
   },
   {
@@ -44,17 +44,12 @@
   },
   {
    "id": "a3",
-   "text": "It's for! What's the reason for the change?",
+   "text": "What's the reason for the change?",
    "pause": 0.42
   },
   {
    "id": "s",
-   "text": "Three out of three? You are ready for more!",
-   "pause": 0.42
-  },
-  {
-   "id": "sh",
-   "text": "Comment your score!",
+   "text": "Three out of three? Comment your score!",
    "pause": 0.42
   },
   {
@@ -109,8 +104,8 @@
   ]
  },
  "est": {
-  "words": 53,
-  "seconds": 36.1,
-  "wpm": 88
+  "words": 41,
+  "seconds": 29.8,
+  "wpm": 83
  }
 }

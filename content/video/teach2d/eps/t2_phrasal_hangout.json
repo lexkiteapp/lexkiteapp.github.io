@@ -16,7 +16,7 @@
   },
   {
    "id": "w",
-   "text": "Don't say: Want to play together this weekend?",
+   "text": "Not: Want to play together this weekend?",
    "pause": 0.42
   },
   {
@@ -88,8 +88,8 @@
   "pid": "w:hang out#phr v"
  },
  "est": {
-  "words": 54,
-  "seconds": 32.4,
+  "words": 53,
+  "seconds": 31.9,
   "wpm": 100
  }
 }

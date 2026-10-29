@@ -26,6 +26,11 @@
 | `stress` | Where's the Stress? | audited IPA stress mark == lit syllable | `#/pron/<word>` |
 | `mistake` | Stop Saying This | gold bank `stop-saying` rows | `#/fix` |
 | `phrasal` | Phrasal Verb in 30s | gold bank `idiom-phrasal` rows | `#/phrases` |
+| `grammar` | Grammar in 60s (Stitch `3fcef4347cac4fc58dcd3911fa1a3647`) | app grammar point (`web/js/grammar/*`: formula → bricks, listed mistake, listed quiz) | `#/grammar/<id>` |
+| `dictation` | What Did She Say? (Stitch `96c97a4a8606465f97f7b34d47297563`) | app listening script line (`web/js/listen/*`) said twice, gap fills; word meaning = audited bank | `#/dictation/<id>` |
+| `toeic` | TOEIC Word | app TOEIC Part 5 item (`web/js/toeic/reading*`: answer key + cue) | `#/toeic` |
+| `review` | Remember This? | audited word bank card + the app's 4 grade buttons (en i18n) | `#/review?w=<word>` |
+| `call` | Ask Ama | app call script (`web/js/call/calls.js`: phrase, meaning, reply) – in-app caller is Mia, so the CTA says "Practice a real call" | `#/call/<id>` |
 
 ## Variety (owner 29/10: "đa dạng, đỡ nhàm chán")
 - Fixed per series (recognition): series chip + series tint on the canvas (`theme.json` tints: US/UK teal, Verbs gold, Stress coral, Stop Saying red-coral, Phrasal mint) + one teacher per series.

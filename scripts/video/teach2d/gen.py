@@ -65,14 +65,14 @@ def stress(p):
     a, b = p['a'], p['b']
     return dict(lines=[
         L('h', f"Where's the stress? {a['word'].capitalize()}!"),
-        L('a', f"{a['word'].capitalize()}. The stress is on the {a['say']} part."),
+        L('a', f"{a['word'].capitalize()}. Stress on the {a['say']} part."),
         L('b', f"Now say {b['word']}."),
         L('m', f"The stress moves to the {b['say']} part."),
         L('r', f"Say it with me: {b['word']}.", 1.8, repeat=True),
         L('q', f"Quick quiz! Where's the stress in {b['word']}?", 3.0, quiz=True),
         L('ans', f"The {b['say']} part. {b['word'].capitalize()}."),
         L('sh', 'Send this to a friend!'),
-        L('c', "Save this, and check any word's stress on lexkite.com.")],
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(a=a, b=b, quiz=dict(options=[b['syl'][0].upper(), b['syl'][b['stress']].upper()], answer=1)),
         cta=cta('pronunciation', f"#/pron/{b['word']}", 'Check word stress'), hook=dict(line='h', text="Where's the stress?"))
 
@@ -96,7 +96,7 @@ def phrasal(p):
     g = GOLD[p['gold']]; q = g['quiz']
     return dict(lines=[
         L('h', p['hook_say']),
-        L('w', f"Don't say: {g['wrong']}"),
+        L('w', f"Not: {g['wrong']}"),
         L('r', f"Say: {g['right']}"),
         L('m', p['mean_say']),
         L('k', g['aha']),
@@ -168,7 +168,7 @@ def pattern(p):   # Verb Patterns (gold verb-pattern): formula bricks verb + pat
 def native(p):   # Say It Naturally (gold situational): textbook line vs native line with a NATIVE badge
     g = GOLD[p['gold']]; stem, opts, ans, right = gq(g)
     return dict(lines=[
-        L('h', 'Textbook English, or real English?'),
+        L('h', 'Textbook or real English?'),
         L('w', f"Textbook: {g['wrong']}"),
         L('r', f"Natives say: {g['right']}"),
         L('y', g['why']),
@@ -198,17 +198,112 @@ def guess(p):   # Guess the Word (audited word bank + img.json picture): 3 clues
 
 
 def level(p):   # Level Check (3 gold quiz items): progress dots, question card, score pill, trophy
-    Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Three quick questions.')]
+    Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Three questions.')]
     for i, (stem, opts, ans, right) in enumerate(Q, 1):
-        lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 2.4, quiz=True), L(f'a{i}', f"It's {right}! {stem.replace('___', right)}")]   # no lone word first: whisper drops it
-    lines += [L('s', 'Three out of three? You are ready for more!'), L('sh', 'Comment your score!'), L('c', 'Save this. Free on lexkite.com.')]
+        lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 2.4, quiz=True), L(f'a{i}', stem.replace('___', right))]   # the answer = the full sentence (no lone word first: whisper drops it)
+    lines += [L('s', 'Three out of three? Comment your score!'), L('c', 'Save this. Free on lexkite.com.')]
     return dict(lines=lines, data=dict(qs=[dict(stem=s_, options=o_, answer=a_) for s_, o_, a_, _ in Q]),
                 cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text='Level check!'), src=dict(gold=p['gold']))
 
 
-T = dict(usuk=usuk, verbs=verbforms, stress=stress, mistake=mistake, phrasal=phrasal, pair=pair, prep=prep, pattern=pattern, native=native, guess=guess, level=level)
+def appdata(files, expr):   # the app's own content files (web/js/...), evaluated exactly as the browser does -> JSON of `expr`
+    js = ("const vm=require('vm'),fs=require('fs');const c={};c.window=c;c.self=c;c.g=c;vm.createContext(c);"
+          "for(const f of JSON.parse(process.argv[1]))vm.runInContext(fs.readFileSync(f,'utf8'),c);"
+          "console.log(JSON.stringify(vm.runInContext(process.argv[2],c)))")
+    return json.loads(subprocess.run(['node', '-e', js, json.dumps([f'{ROOT}/web/js/{f}' for f in files]), expr], capture_output=True, text=True, check=True).stdout)
+
+
+def two(opts, ans, pick):   # 4-option bank item -> [right, chosen distractor] in the data's order
+    o = [opts[ans], opts[pick]]; return (o, 0) if ans < pick else (o[::-1], 1)
+
+
+def grammar(p):   # Grammar in 60s (app grammar point web/js/grammar/*): rule bricks from the formula, one listed mistake, one listed quiz item
+    G = appdata([f"grammar/{p['file']}.js"], f"GRAMMAR.find(x=>x.id==={json.dumps(p['gid'])})"); assert G, ('grammar point not found', p['gid'])
+    mk = [b for b in G['blocks'] if b['type'] == 'mistake'][p['mistake']]; q = G['quiz'][p['quiz']]
+    form = ' '.join(x['t'] for r in G['blocks'] if r['type'] == 'formula' for row in r['rows'] for x in row['parts'])
+    assert all(b in form for b in p['brick_check']), ('rule bricks not in the formula', p['brick_check'], form)
+    stem = re.sub(r'\s*\([^)]*\)', '', q['q']); right = q['options'][q['answer']]; opts, ans = two(q['options'], q['answer'], p['pick'])
+    return dict(lines=[
+        L('h', f"{G['en']}. One rule!"),
+        L('r', p['rule_say']),
+        L('w', f"Not: {mk['wrong']}"),
+        L('b', f"Say: {mk['right']}"),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
+        data=dict(en=G['en'], level=G['level'], bricks=p['bricks'], wrong=mk['wrong'], right=mk['right'], strike=p['strike'], hl=p['hl'], quiz=dict(stem=stem, options=opts, answer=ans)),
+        cta=cta('grammar', f"#/grammar/{p['gid']}", 'Learn this rule'), hook=dict(line='h', text=f"{G['en']} in 60s"), src=dict(grammar=p['gid']))
+
+
+def dictation(p):   # What Did She Say? (app listening script web/js/listen/*): the teacher says one script line twice, the gap fills on the answer
+    s = appdata([f"listen/{p['file']}.js"], f"LISTENING.find(x=>x.id==={json.dumps(p['pid'])}).script[{p['line']}].t")
+    assert p['gap'] in s and len(words(s)) >= 4, ('gap not in the script line', p['gap'], s)
+    ipa, dfn, _ = bank(p['word']); assert dfn, ('word not in the audited bank', p['word'])
+    return dict(lines=[
+        L('h', 'What did she say? Listen!'),
+        L('s1', s, 1.0),
+        L('g', 'Once more. Fill the gap!'),
+        L('q', s, 3.0, quiz=True),
+        L('a', f"{p['gap'][0].upper() + p['gap'][1:]}! {p['word'].capitalize()} means {p['mean_say']}."),
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
+        data=dict(line=s, gap=p['gap'], word=p['word'], ipa=ipa, mean=dfn),
+        cta=cta('dictation', f"#/dictation/{p['pid']}", 'Try free dictation'), hook=dict(line='h', text='What did she say?'), src=dict(listening=p['pid'], line=p['line']))
+
+
+def toeic(p):   # TOEIC Word (app TOEIC reading bank web/js/toeic/reading*.js, Part 5): the clue phrase decides the answer
+    it = appdata([f"toeic/{p['file']}.js"], f"TOEIC.reading.find(x=>x.id==={json.dumps(p['tid'])}).parts.find(x=>x.part===5).groups[0].items.find(x=>x.n==={p['n']})")
+    assert it and it['cue'] == p['cue'], ('TOEIC item / cue mismatch', p, it and it.get('cue'))
+    stem = it['q'].replace('-------', '___'); right = it['options'][it['a']]; say = stem.replace('___', 'blank')
+    return dict(lines=[
+        L('h', 'TOEIC question. Ten seconds!'),
+        L('s', say, 0.6),
+        L('k', f"Find the clue: {it['cue']}."),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', f"{right.capitalize()}! {p['why_say']}"),
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
+        data=dict(stem=stem, options=it['options'], answer=it['a'], cue=it['cue'], n=it['n'], right=right),
+        cta=cta('toeic', '#/toeic', 'Practice TOEIC free'), hook=dict(line='h', text='TOEIC in 10 seconds'), src=dict(toeic=p['tid'], n=it['n']))
+
+
+def review(p):   # Remember This? (SRS flashcard, audited word bank): front -> think 3 s -> flip -> example -> the app's 4 grade buttons
+    w = p['word']; ipa, dfn, ex = bank(w); assert dfn and ex, ('word not in the audited bank', w)
+    return dict(lines=[
+        L('h', 'Do you remember this word?'),
+        L('f', f"Here's your card: {w}."),
+        L('q', 'Think! What does it mean?', 3.0, quiz=True),
+        L('b', f"It means {dfn}."),
+        L('x', ex),
+        L('g', 'Got it? Tap Good. Forgot? Tap Again.'),
+        L('c', 'Save this. Free on lexkite.com.')],
+        data=dict(word=w, ipa=ipa, mean=dfn, ex=ex, grades=['Again', 'Hard', 'Good', 'Easy']),
+        cta=cta('review', f'#/review?w={w}', 'Review your words'), hook=dict(line='h', text='Remember this word?'))
+
+
+def call(p):   # Ask Ama -> Call (app speaking calls web/js/call/calls.js): one phrase from a real call script, its plain meaning, a reply option
+    C_ = appdata(['call/calls.js'], f"CALLS.find(x=>x.id==={json.dumps(p['cid'])})"); m = C_['turns'][p['turn']]
+    ph = dict(C_['phrases']); assert p['phrase'] in ph and p['phrase'] in p['quote'].lower() and p['quote'] in m['m'], ('phrase / quote not in the call', p['phrase'], p['quote'])
+    reply = m['o'][p['reply']].split('!')[0] + '!'; alt = p['alt']; assert alt in ph
+    return dict(lines=[
+        L('h', f"What does {p['phrase']} mean?"),
+        L('m', f"Your teammate says: {p['quote']}"),
+        L('y', f"{p['phrase'].capitalize()} means: {ph[p['phrase']]}."),
+        L('o', f"Say: {reply}"),
+        L('q', f"Quick quiz! {p['quiz_say']}", 3.0, quiz=True),
+        L('a', f"It's {p['phrase']}! {p['ans_say']}"),
+        L('c', 'Save this. Free on lexkite.com.')],
+        data=dict(title=C_['title'], em=C_['em'], line=p['quote'], phrase=p['phrase'], mean=ph[p['phrase']], reply=reply,
+                  quiz=dict(options=[f"It's {p['phrase']}!", f"{alt.capitalize()}!"], answer=0)),
+        cta=cta('call', f"#/call/{p['cid']}", 'Practice a real call'), hook=dict(line='h', text=f"“{p['phrase'].capitalize()}”?"), src=dict(call=p['cid'], turn=p['turn']))
+
+
+T = dict(usuk=usuk, verbs=verbforms, stress=stress, mistake=mistake, phrasal=phrasal, pair=pair, prep=prep, pattern=pattern, native=native, guess=guess, level=level,
+         grammar=grammar, dictation=dictation, toeic=toeic, review=review, call=call)
 SERIES = dict(usuk='US or UK?', verbs='Verb Forms Challenge', stress="Where's the Stress?", mistake='Stop Saying This', phrasal='Phrasal Verb in 30s',
-              pair='Same or Different?', prep='Which Little Word?', pattern='Verb Patterns', native='Say It Naturally', guess='Guess the Word', level='Level Check')
+              pair='Same or Different?', prep='Which Little Word?', pattern='Verb Patterns', native='Say It Naturally', guess='Guess the Word', level='Level Check',
+              grammar='Grammar in 60s', dictation='What Did She Say?', toeic='TOEIC Word', review='Remember This?', call='Ask Ama')
 
 
 def words(s): return re.findall(r"[A-Za-z0-9'’-]+", s)
