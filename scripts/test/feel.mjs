@@ -40,4 +40,13 @@ function boot({ muted = false, reduced = false } = {}) {
   const bar = { attrs: {}, hasAttribute: () => true, setAttribute(k, v) { this.attrs[k] = v; }, firstElementChild: { style: { width: '20%' } } };
   assert.equal(g.Feel.fill(bar, 60), null, 'giảm chuyển động: không chạy hoạt ảnh'); assert.equal(bar.firstElementChild.style.width, '60%'); assert.equal(bar.attrs['aria-valuenow'], '60');
 }
+{ // công tắc Cài đặt: tắt → trả đúng hàm cũ + mở khóa; streak-ui nạp lúc tắt → bật lại vẫn là âm mới, tắt lại ra bíp của streak-ui
+  const { g, Sfx } = boot();
+  const newCorrect = Sfx.correct; g.Feel.set(false);
+  assert.notEqual(Sfx.correct, newCorrect); assert.equal(Sfx.locked.length, 0);
+  const st = () => 'streak-ui'; Sfx.extend(() => ({ tap: st })); assert.equal(Sfx.tap, st);
+  g.Feel.set(true); assert.equal(Sfx.correct, newCorrect); assert.notEqual(Sfx.tap, st);
+  g.Feel.set(false); assert.equal(Sfx.tap, st, 'tắt lại phải ra bíp streak-ui');
+  const el = { textContent: '5', setAttribute() {}, removeAttribute() {} }; await g.Feel.count(el, 9); assert.equal(el.textContent, '9', 'tắt lớp: số nhảy thẳng');
+}
 console.log('feel: OK');

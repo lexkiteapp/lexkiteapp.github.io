@@ -29354,5 +29354,20 @@
     "ar": "استمع إلى الصيغة الضعيفة في جملة: {s}",
     "ru": "Слабая форма в предложении: {s}",
     "tr": "Zayıf biçimi cümlede dinle: {s}"
+  },
+  "Âm thanh & hiệu ứng kiểu trò chơi": {
+    "es": "Sonidos y animaciones de juego",
+    "pt": "Sons e animações de jogo",
+    "fr": "Sons et animations de jeu",
+    "de": "Spiel-Sounds und Animationen",
+    "id": "Suara dan animasi ala game",
+    "th": "เสียงและแอนิเมชันแบบเกม",
+    "zh": "游戏风格音效与动画",
+    "ja": "ゲーム風の効果音とアニメーション",
+    "ko": "게임 스타일 효과음 및 애니메이션",
+    "hi": "गेम जैसी आवाज़ें और एनिमेशन",
+    "ar": "أصوات وحركات بأسلوب الألعاب",
+    "ru": "Игровые звуки и анимации",
+    "tr": "Oyun tarzı sesler ve animasyonlar"
   }
 }

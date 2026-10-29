@@ -7,7 +7,7 @@
 (function (g) {
   'use strict';
   const Sfx = g.Sfx; if (!Sfx || g.Feel) return;
-  const rm = () => { try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
+  const rm = () => { if (g.Feel && !g.Feel.on) return true; try { return matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
   const muted = () => (g.Core && g.Core.sfxOff) || (g.App && g.App.state && g.App.state.settings && g.App.state.settings.sfx === false);
   const NAMES = ['tap', 'correct', 'wrong', 'combo', 'complete', 'streak'], VOL = { tap: 0.35, wrong: 0.6, complete: 0.8 };
   const base = (() => { const s = g.document && g.document.querySelector('script[src*="js/game.js"]'); return s ? s.getAttribute('src').replace(/js\/game\.js.*$/, '') : ''; })();
@@ -38,6 +38,7 @@
 
   // Ghi đè âm của Sfx: phát file; chưa giải mã xong → tiếng bíp cũ (cùng công thức game.js/streak-ui.js). Rung giữ nguyên.
   // Sfx.locked: streak-ui.js nạp sau không được ghi đè lại các khóa này.
+  const LOCK = ['correct', 'wrong', 'win', 'tap', 'combo', 'streak'], prev = {}, mine = {}; for (const k of LOCK) prev[k] = Sfx[k]; // tắt lớp → trả lại đúng hàm cũ
   const semi = n => Math.pow(2, Math.min(7, Math.max(0, ((n || 3) - 3) / 2)) / 12); // combo càng dài cao độ càng lên (tối đa +7 bán cung)
   Sfx.extend((tone, buzz) => {
     const MAP = {
@@ -52,7 +53,10 @@
     for (const k in MAP) { const [n, p, fb, rate] = MAP[k]; out[k] = (...a) => { if (!play(n, { rate: rate ? rate(...a) : 1 })) fb(); if (p) buzz(p); }; }
     return out;
   });
-  Sfx.locked = ['correct', 'wrong', 'win', 'tap', 'combo', 'streak'];
+  for (const k of LOCK) mine[k] = Sfx[k];
+  Sfx.locked = LOCK.slice();
+  // streak-ui.js nạp khi lớp đang tắt sẽ thêm tap/combo/streak bíp → ghi nhận làm "hàm cũ" để tắt lớp trả lại đúng nó
+  const ext = Sfx.extend; Sfx.extend = f => { if (!Feel.on) { ext(f); for (const k of LOCK) if (Sfx[k] !== mine[k]) prev[k] = Sfx[k]; return; } ext((tone, buzz) => { const o = f(tone, buzz); for (const k of LOCK) if (o[k]) prev[k] = o[k]; return o; }); };
 
   // ---------- Chuyển động ----------
   const EASE = 'cubic-bezier(.2,.9,.3,1)', OUT = 'cubic-bezier(.2,0,0,1)';
@@ -60,6 +64,8 @@
   const fmt = v => { try { return Math.round(v).toLocaleString(g.document.documentElement.lang || undefined); } catch (e) { return String(Math.round(v)); } };
   const Feel = {
     on: true, play, load,
+    // Bật/tắt ngay (công tắc Cài đặt): tắt → âm bíp cũ + chuyển động tắt (như giảm chuyển động)
+    set(v) { Feel.on = !!v; Object.assign(Sfx, v ? mine : prev); Sfx.locked = v ? LOCK.slice() : []; },
     // XP đếm lên (ví dụ +12 → 1 240 → 1 252). Trình đọc màn hình chỉ nghe số cuối (aria-live không đổi liên tục).
     count(el, to, o = {}) {
       if (!el) return Promise.resolve();
