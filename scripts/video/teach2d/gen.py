@@ -31,7 +31,7 @@ def cta(area, route, say): return dict(area=area, route=route, link=APP + route,
 def usuk(p):
     us, uk = p['us'], p['uk']
     return dict(lines=[
-        L('h', 'U.S. or U.K.? Which one?'),
+        L('h', 'U.S. or U.K.?'),
         L('s', p['situation']),
         L('us', f"In America, {p['us_say']}"),
         L('uk', f"In Britain, {p['uk_say']} Same thing!"),

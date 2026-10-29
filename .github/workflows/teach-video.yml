@@ -67,6 +67,8 @@ jobs:
           E=content/video/teach2d/eps/${{ matrix.ep }}.json
           python3 -c "import json;e=json.load(open('$E'));json.dump(dict(voices={e['teacher']:e['voice']},speed=e['speed'],lines=[dict(id=l['id'],who=e['teacher'],text=l['text']) for l in e['lines']]),open('lines.json','w'),indent=1)"
           python3 scripts/video/tpl/pilot5_voice.py lines.json vo   # lines faster than ~15 chars/s are re-synthesised slower (news_voice.py, floor 0.7)
+          # learner pace: lines > 4.6 syllables/s are voiced again slower (qc gate: <= 5.0); one pass, QC re-checks
+          if python3 scripts/video/teach2d/pace.py lines.json vo; then NV_KEEP_SPEED=1 python3 scripts/video/tpl/pilot5_voice.py lines.json vo; fi
           n=$(ls vo/vis3/*.words.json | wc -l); echo "$n lines voiced"; [ "$n" -gt 5 ] || { echo "::error::no voice"; exit 1; }
       - uses: actions/upload-artifact@v4
         with: { name: 'tvo-${{ matrix.ep }}-${{ github.run_id }}', path: 'vo/vis3/', retention-days: 3 }
@@ -145,12 +147,12 @@ jobs:
         with: { pattern: 'tv-*-wide-${{ github.run_id }}', path: art, merge-multiple: false }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && npx playwright install --with-deps chromium >/dev/null
+      - run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && (google-chrome --version || npx playwright install --with-deps chrome)
       - name: Screenshots
         run: |
           mkdir -p shots; cat > shot.mjs <<'JS'
           import { chromium } from 'playwright'; import fs from 'fs'; import path from 'path';
-          const b = await chromium.launch(); let n = 0;
+          const b = await chromium.launch({ channel: 'chrome' }); let n = 0;   // real Chrome: H.264 (Playwright's Chromium has no proprietary codecs)
           for (const d of fs.readdirSync('art')) {
             const dir = path.resolve('art', d), mp4 = fs.readdirSync(dir).find(f => f.endsWith('-wide.mp4')); if (!mp4) continue;
             const id = mp4.replace('-wide.mp4', ''), vtt = fs.readdirSync(dir).find(f => f.endsWith('.vtt')), poster = fs.readdirSync(dir).find(f => f.endsWith('poster.jpg'));
@@ -158,9 +160,10 @@ jobs:
               const p = await b.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 2 });
               const q = new URLSearchParams({ v: 'file://' + path.join(dir, mp4), poster: poster ? 'file://' + path.join(dir, poster) : '', vtt: vtt ? 'file://' + path.join(dir, vtt) : '', theme, title: id.split('_').slice(1, 2)[0].toUpperCase() + ' · watch & learn', chip: 'LESSON · VIDEO' });
               await p.goto('file://' + path.resolve('docs/mocks/teach-video/embed.html') + '?' + q);
-              await p.waitForFunction(() => document.getElementById('v').readyState >= 2, null, { timeout: 15000 }).catch(() => {});
-              await p.evaluate(() => { const v = document.getElementById('v'); v.currentTime = 6; });
-              await p.waitForTimeout(800); await p.screenshot({ path: `shots/${id}-${theme}-${tag}.png` }); n++; await p.close();
+              await p.waitForFunction(() => document.getElementById('v').readyState >= 2, null, { timeout: 20000 });
+              await p.evaluate(() => new Promise(r => { const v = document.getElementById('v'); v.addEventListener('seeked', r, { once: true }); v.currentTime = 6; }));
+              await p.waitForTimeout(500);
+              if (!(await p.evaluate(() => document.getElementById('v').videoWidth))) { console.error('video did not decode', id); process.exit(1); } await p.screenshot({ path: `shots/${id}-${theme}-${tag}.png` }); n++; await p.close();
             }
           }
           await b.close(); console.log('screenshots', n); if (!n) process.exit(1);

@@ -9,6 +9,7 @@ import argparse, json, os, re, subprocess, sys, difflib
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C  # noqa: E402
+sys.path.insert(0, HERE); import pace as P  # noqa: E402
 from overlay_gates import contrast as _cr, bank_ipa, stress_index  # noqa: E402
 def contrast(a, b): return _cr(*[[int(x[i:i + 2], 16) for i in (1, 3, 5)] for x in (a, b)])
 ap = argparse.ArgumentParser(); ap.add_argument('--timeline', required=True); ap.add_argument('--video'); ap.add_argument('--sheet'); ap.add_argument('--out')
@@ -26,9 +27,9 @@ def alpha(n, t):
 gate('voice_teacher', T['voice'] == REG['people'][T['teacher']]['voice']['video'], 3, voice=T['voice'], teacher=T['teacher'])
 # pace
 L = T['lines']; nw = sum(len(v['words']) for v in L.values()); span = max(v['words'][-1]['e'] for v in L.values()) - min(v['words'][0]['s'] for v in L.values())
-lw = {k: round(60 * len(v['words']) / max(0.3, v['words'][-1]['e'] - v['words'][0]['s'])) for k, v in L.items() if len(v['words']) >= 5}   # 2-word lines ("The lift!") are not a pace
-gate('pace', 60 * nw / span <= 150 and max(lw.values()) <= 260, 2,   # brief: <= 150 wpm over the episode; per line only a glitch guard (Kokoro short lines run fast)
-     wpm=round(60 * nw / span), line_wpm_max=max(lw.values()))
+lw = {k: P.rate(v['words']) for k, v in L.items() if len(v['words']) >= 5}
+gate('pace', 60 * nw / span <= 150 and max(lw.values()) <= P.MAX, 2,   # brief: <= 150 wpm over the episode; per line <= 5 syllables/s (short-word lines inflate wpm)
+     wpm=round(60 * nw / span), line_syl_per_s_max=max(lw.values()), fastest=max(lw, key=lw.get))
 # caption == script == whisper
 bad = []
 for k, v in L.items():

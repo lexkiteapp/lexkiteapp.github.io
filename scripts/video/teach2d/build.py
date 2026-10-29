@@ -341,7 +341,7 @@ for l in EP['lines']:
         if pg: CAPS.append(dict(words=pg, t0=round(pg[0]['s'] - 0.06, 3), t1=round(min(nxt, pg[-1]['e'] + 0.45), 3)))
     for i, w in enumerate(ws):
         ww = tw(w['w'] + ' ', S['cap'])
-        if page and pw + ww > (FMT['cap'][2] - FMT['cap'][0] - 80 if FMT['cap'] else 1e9): flush(page, w['s'] - 0.02); page, pw = [], 0
+        if page and (pw + ww > (FMT['cap'][2] - FMT['cap'][0] - 80 if FMT['cap'] else 1e9) or page[-1]['w'][-1] in '.!?'): flush(page, w['s'] - 0.02); page, pw = [], 0   # new page at each sentence end
         page.append(w); pw += ww
     flush(page, (ws[-1]['e'] + l['pause']))
     VTT.append(dict(t0=L_['t0'], t1=round(L_['t1'] + 0.2, 3), text=l['text']))

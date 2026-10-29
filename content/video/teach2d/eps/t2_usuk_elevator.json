@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "U.S. or U.K.? Which one?",
+   "text": "U.S. or U.K.?",
    "pause": 0.55
   },
   {
@@ -81,8 +81,8 @@
   "text": "US or UK?"
  },
  "est": {
-  "words": 64,
-  "seconds": 38.8,
-  "wpm": 99
+  "words": 62,
+  "seconds": 37.8,
+  "wpm": 98
  }
 }
