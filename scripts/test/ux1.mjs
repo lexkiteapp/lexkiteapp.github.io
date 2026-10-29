@@ -83,6 +83,21 @@ ok($('#bnav a[data-tab="review"] [data-due]'), 'tab Ôn có chấm thẻ đến 
 ok($('.ux1-pick') && $$('.ux1-pick [data-pk="ielts"]').length && $$('.ux1-pick [data-pk="toeic"]').length && $$('.ux1-pick [data-pk="toefl"]').length && $$('.ux1-pick [data-pk="general"]').length, 'lần đầu: chọn mục tiêu IELTS / TOEIC / TOEFL / Giao tiếp');
 $('.ux1-pk-tg [data-pk="toeic"][data-tg="750"]').click(); await tick(150);
 ok(App.state.settings.exam === 'toeic' && App.state.settings.examTarget === '750' && App.state.settings.goalPick && App.state.settings.goalPick.target === 750, 'chạm 1: lưu kỳ thi + điểm mục tiêu vào settings sẵn có');
+// Màn Học = khung Stitch v2 (web/js/st/v2/path.js): kiểm cùng các ý như bản cũ trên khung mới
+const V2 = !!$('.v2-path');
+if (V2) {
+  const starts = [...new Set($$('.v2 [data-cur][data-href]').map(b => b.getAttribute('data-href')))];
+  ok(starts.length === 1 && starts[0] === '#/lesson/go', 'chạm 2: MỘT đích Bắt đầu tới bài đầu tiên (≤ 2 chạm)');
+  ok($('.v2 nav a[data-tab="learn"][aria-current="page"]') && !w.document.body.classList.contains('focus'), 'tab Học đang chọn (thanh tab Stitch), bản đồ giữ thanh điều hướng');
+  const nodes = $$('.v2 [data-st]');
+  ok(nodes.length === 6 && nodes.every(b => (b.getAttribute('aria-label') || '').trim()) && $('.v2-path img[src*="teach/ama"]') && $$('.v2 [data-st="lock"][aria-disabled="true"]').length, 'nút có nhãn (aria), nút hiện tại có giáo viên Ama (Chars), nút khóa bị khóa');
+  ok(nodes.some(b => /TOEIC/.test(b.getAttribute('aria-label') || '')), 'nút kiểm tra kỹ năng thi theo mục tiêu (TOEIC)');
+  ok(($('.v2-path h1') || {}).textContent && /%/.test(($('.v2-path [role="progressbar"]') || { getAttribute: () => '' }).getAttribute('style') || ''), 'băng chặng: tên chủ đề + thanh tiến độ thật');
+  $('.v2 [data-act="guide"]').click(); await tick(80);
+  const mb = ($('#modalBox') || {}).textContent || '';
+  ok(/Bạn sẽ|You'll/.test(mb) && /TOEIC · 750/.test(mb) && $('#modalBox a[href="#/toeic"]'), 'nút Guide: câu "Bạn sẽ…" + thẻ kỳ thi + mục tiêu + 1 chạm thi thử (không mất tính năng cũ)');
+  if (w.UI && w.UI.closeModal) w.UI.closeModal();
+} else {
 const start = $$('.ux1-home .lsn-start');
 ok($('.ux1-home') && start.length === 1 && start[0].getAttribute('href') === '#/lesson/go', 'chạm 2: MỘT nút Bắt đầu tới bài đầu tiên (≤ 2 chạm)');
 ok($('#bnav a[data-tab="learn"]').getAttribute('aria-current') === 'page' && !w.document.body.classList.contains('focus'), 'tab Học đang chọn, bản đồ giữ thanh điều hướng');
@@ -91,6 +106,7 @@ ok(/Bạn sẽ|You'll/.test(unitTx) && $('.ux1-unit h1') && /\bu-(primary|accent
 ok($$('.ux1-n').length === 6 && $$('.ux1-n .ux1-lbl').every(l => l.textContent.trim()) && $('.ux1-n.next .ux1-tch') && $$('.ux1-n.lock .ux1-lk').length, 'nút có nhãn (không cột icon trơn), nút hiện tại có giáo viên, nút khóa có ổ khóa');
 ok(/TOEIC/.test(($('.ux1-n.cp') || {}).textContent || ''), 'nút kiểm tra kỹ năng thi theo mục tiêu (TOEIC)');
 ok($('.ux1-exam') && /TOEIC · 750/.test($('.ux1-exam').textContent) && $('.ux1-exam a[href="#/toeic"]'), 'thẻ kỳ thi: kỳ thi + mục tiêu + 1 chạm thi thử');
+}
 // Thứ tự chặng theo mục tiêu + trình độ
 const W = w.Ux1;
 ok(W.units('toeic', 2)[0].id === 'start' && W.units('toeic', 2)[1].id === 'work' && W.units('ielts', 2)[1].id === 'education', 'chặng theo mục tiêu: TOEIC → Công việc, IELTS → Giáo dục');

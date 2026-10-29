@@ -78,7 +78,12 @@ for (const s of ORDER) { const d = info[s]?.dark, l = info[s]?.light, R = [];
 fs.writeFileSync(path.join(OUT, 'consistency.md'), `# Stitch v2 – rà đồng bộ tối ↔ sáng (tự động)\nPHẢI SỬA: ${must.length}\n\n${rep.join('\n\n')}\n`);
 fs.writeFileSync(path.join(OUT, 'consistency.json'), JSON.stringify({ must, info }, null, 1));
 console.log(`stitch-render: rà đồng bộ → ${must.length} mục PHẢI SỬA (out/…/consistency.md)`); for (const x of must) console.log('  ✗ ' + x);
-if (must.length) process.exitCode = 1;
+// Lỗi MẪU đã biết (Stitch không sửa được sau 2 lượt – app phải tự sửa, cổng tương phản của app chặn): brand/stitch/v2/known-issues.json. Lỗi mẫu MỚI vẫn đỏ.
+const KNOWN = fs.existsSync(path.join(SRC, 'known-issues.json')) ? JSON.parse(fs.readFileSync(path.join(SRC, 'known-issues.json'), 'utf8')).issues : [];
+const nz = x => x.replace(/\d+(\.\d+)?(?=<|;|$)/g, '#').replace(/ \d+ chữ/, ' # chữ'), KN = KNOWN.map(nz), MN = must.map(nz); // bỏ số đo (lệch ±0,01 giữa các lần chụp)
+const fresh = must.filter((x, i) => !KN.includes(MN[i])), gone = KNOWN.filter((x, i) => !MN.includes(KN[i]));
+if (gone.length) console.log('ℹ lỗi mẫu đã hết (xóa khỏi known-issues.json):\n  ' + gone.join('\n  '));
+if (fresh.length) { console.error('✗ lỗi mẫu MỚI:\n  ' + fresh.join('\n  ')); process.exitCode = 1; }
 // tờ duyệt: 2 tờ (7 + 6 màn), mỗi ô thu 50 %, thiếu bản → ô xám "chưa có trong Stitch"
 const cell = (s, m) => done[`${s}-${m}`] || (() => { const o = path.join(OUT, 'png', `_missing-${s}-${m}.png`);
   execFileSync('convert', ['-size', '390x844', 'xc:#777', '-gravity', 'center', '-pointsize', '28', '-fill', 'white', '-annotate', '0', `${s}\n${m}\nchưa có trong Stitch`, o]); return o; })();

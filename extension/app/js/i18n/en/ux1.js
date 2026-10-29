@@ -38,4 +38,5 @@
   'Đã khóa': 'Locked',
   '{p}% hoàn thành': '{p}% completed',
   'Tiếp theo: {u}': 'Next: {u}',
+  'Đổi mục tiêu': 'Change goal',
 }); })(typeof self !== 'undefined' ? self : this);

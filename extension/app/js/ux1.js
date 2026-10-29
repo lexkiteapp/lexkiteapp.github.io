@@ -173,6 +173,11 @@
         nodes: nodes.map((x, i) => ({ st: x.st, kind: P[i].kind, cp: x.cp || (P[i].kind === 'exam'), label: x.label, title: x.label + (x.sub ? ' · ' + x.sub : ''), icon: x.icon, aria: `${x.label} – ${STT[x.st]}`, href: x.st === 'lock' ? '' : x.href, off: SNAKE[i % SNAKE.length] })) };
       const root = ST2.mount(view, 'path', d, 'learn');
       if (demo) { const s = document.createElement('p'); s.className = 'sr-only'; s.setAttribute('role', 'status'); s.textContent = t('Bài thử (không lưu tiến độ)'); root.prepend(s); if (App.toast) App.toast(t('Bài thử (không lưu tiến độ)')); }
+      // "Guide" (nút có sẵn trong mẫu Stitch) mở bảng giữ ĐỦ tính năng cũ của màn Học mà mẫu không vẽ: câu "Bạn sẽ…", kiến thức đã có, thẻ kỳ thi + thi thử, kiểm tra trình độ, đổi mục tiêu
+      const g = root.querySelector('[data-act="guide"]'); if (g) g.addEventListener('click', e => { e.preventDefault();
+        const ch = chips.map(c => c.href ? `<a class="btn sm" href="${c.href}">${ic(c.icon === 'explore' ? 'compass' : 'library')} ${esc(c.text)}</a>` : `<span class="chip" title="${esc(c.title || '')}">${ic('library')} ${esc(c.text)} · ${esc(c.title || '')}</span>`).join(' ');
+        const box = UI.modal(`<div class="ux1-guide"><p class="muted small">${esc(t('Chặng học {n}', { n: u.no }))} · ${esc(X.short)}</p><h2>${esc(u.name)}</h2>${CAN()[u.id] ? `<p class="ux1-unit-tip">${esc(CAN()[u.id])}</p>` : ''}${examCard('')}<p>${ch}</p><p><a class="btn" href="#/lesson?pick=1">${ic('target')} ${t('Đổi mục tiêu')}</a></p></div>`);
+        fillMock(box || document); });
       const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
       return;
     }

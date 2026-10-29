@@ -67,7 +67,7 @@ async function run(width, scheme, lang) {
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
   await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
-  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
+  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-st="done"]'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
   await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
 

@@ -87,6 +87,7 @@ function emit(root, bind, k) {
     for (const [sel, o] of Object.entries(b.attr || {})) for (const el of QA(scope, sel)) for (const [a, expr] of Object.entries(o)) el.setAttribute(a, mark(`e(${expr})`));
     for (const [sel, o] of Object.entries(b.cls || {})) for (const el of QA(scope, sel)) { const c = (el.getAttribute('class') || '').split(' ');
       for (const [from, expr] of Object.entries(o)) { const i = c.indexOf(from); if (i < 0) errs.push(`${k}: không có class ${from} ở ${sel}`); else c[i] = mark(expr); } el.setAttribute('class', c.join(' ')); }
+    for (const [sel, c] of Object.entries(b.addClass || {})) for (const el of QA(scope, sel)) el.setAttribute('class', ((el.getAttribute('class') || '') + ' ' + c).trim()); // chỉ class không đổi hình (cắt tràn, móc kiểm thử…)
     for (const [sel, o] of Object.entries(b.tag || {})) for (const el of QA(scope, sel)) { const n = el.ownerDocument.createElement(o.to); for (const a of el.attributes) n.setAttribute(a.name, a.value); // đổi thẻ (div → a href) giữ nguyên class
       if (o.addClass) n.setAttribute('class', (n.getAttribute('class') || '') + ' ' + o.addClass); n.append(...el.childNodes); el.replaceWith(n); }
     for (const sel of b.remove || []) for (const el of QA(scope, sel)) el.remove(); // chỉ phần tử Stitch giữ chỗ (người vẽ/ảnh mẫu) – thay bằng Chars qua html/after
