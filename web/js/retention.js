@@ -241,7 +241,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
   const V = {
     card: 'relative p-[1rem] mb-[1rem] lt:bg-[#FFFFFF] lt:rounded-[0.75rem] lt:shadow-[0_4px_12px_rgba(16,25,27,0.04)] lt:[border:1.5px_solid_rgb(234,_222,_200)] lt:[border-radius:20px] dk:bg-[#142328] dk:rounded-[20px] dk:[border:2px_solid_#233942] dk:[box-shadow:0_5px_0_#0d1a1e]',
     hd: 'flex items-center justify-between pb-[0.5rem]', hl: 'flex items-center gap-1.5',
-    ico: "material-symbols-outlined text-[16px] [font-variation-settings:'FILL'_1] lt:text-[#B37800] dk:text-[#FFC94A]",
+    ico: "material-symbols-outlined text-[16px] [font-variation-settings:'FILL'_1] lt:text-[#8A5A00] dk:text-[#FFD36B]", // màu vàng đậm/sáng có sẵn trong Stitch (đạt ≥ 3:1 trên ô vàng nhạt)
     lab: 'text-[11px] leading-[14px] uppercase tracking-wider font-extrabold lt:text-[#10191B] dk:text-[#EEF6F7]',
     pill: 'flex items-center gap-1 py-0.5 rounded-[9999px] lt:px-2 lt:bg-[#f2f4f3] dk:px-2.5 dk:bg-[#2BA39A]/15 dk:border dk:border-[#2BA39A]/30',
     pillT: 'text-[11px] leading-[14px] tracking-[0.04em] font-bold lt:text-[#0D6964] dk:text-[#4FD1C5]',
@@ -266,7 +266,7 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
       <div class="flex items-center gap-3 pt-[0.5rem]">${teach2(n % 2 ? 'carlos' : 'ama')}<p class="${V.body}" data-noicon>${t('Mỗi mốc 🎁 · 7 ngày 🧊 · miễn phí')}</p></div>
       <div class="pt-[0.5rem]">${g.StreakUI ? g.StreakUI.badgeHtml(state.game) : `<span>🧊×${fi.left}</span>`}</div></section>`;
     if (ev) h += `<section class="${V.card}">${head('calendar_today', t('Gom {n} mảnh', { n: ev.need }))}<p class="${V.body}">${t('Học 1 ngày = 1 mảnh')}</p>
-      <div class="flex gap-1.5 pt-[0.5rem]" data-noicon role="img" aria-label="${esc(t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need }))}">${Array.from({ length: ev.need }, (_, i) => `<span class="material-symbols-outlined text-[24px] [font-variation-settings:'FILL'_1] lt:text-[#B37800] dk:text-[#FFC94A] ${i < got ? '' : 'opacity-30'}" aria-hidden="true">${EV_IC[ev.id] || 'eco'}</span>`).join('')}</div></section>`;
+      <div class="flex gap-1.5 pt-[0.5rem]" data-noicon role="img" aria-label="${esc(t('Nhận 1 mảnh sự kiện ({a}/{b})', { a: got, b: ev.need }))}">${Array.from({ length: ev.need }, (_, i) => `<span class="material-symbols-outlined text-[24px] ${i < got ? "[font-variation-settings:'FILL'_1]" : ''} ${i < got ? "lt:text-[#8A5A00] dk:text-[#FFD36B]" : "[font-variation-settings:'FILL'_0] lt:text-[#4E5F62] dk:text-[#9DB5BA]"}" aria-hidden="true">${EV_IC[ev.id] || 'eco'}</span>`).join('')}</div></section>`;
     h += `<section class="${V.card} text-center"><div class="text-[48px]" aria-hidden="true" data-noicon>🎁</div><p class="${V.body} pb-[0.5rem]">${ch ? t('Bạn có {n} rương chưa mở', { n: ch }) : t('Mốc tiếp theo: {n} ngày', { n: nx })}</p>${ch ? `<button type="button" id="retChest" class="${V.off}">${t('Mở rương')}</button>` : ''}</section>
       <section class="${V.card}">${head('fitness_center', t('Bộ sưu tập'))}<div class="grid grid-cols-3 gap-2">${items.map(p => { const has = p === 'f:teal' || own[p], on = p[0] === 'f' && (r.frame || 'teal') === p.slice(2);
         return `<button type="button" data-noicon class="${on ? V.on : V.off}${has && p[0] === 'f' ? '' : ' opacity-60'}" data-ret-item="${esc(p)}" ${has && p[0] === 'f' ? '' : 'disabled'} aria-pressed="${on}">${prizeArt(p)}<span class="${V.body}">${has ? esc(prizeName(p)) : '🔒'}</span></button>`; }).join('')}</div></section>`;

@@ -69,7 +69,9 @@ async function auditContrast(page, buf, tag) {
     if (cr === 99) continue; n++; const need = it.large ? 3 : 4.5; if (cr < need - 0.05) miss.push({ t: it.t, cr: +cr.toFixed(2), need, at: `${Math.round(it.x)},${Math.round(it.y)}`, cls: it.cls, fg: it.c }); }
   contrast[tag] = { n, miss }; }
 // gate: không ô giữ chỗ giáo viên / ảnh vỡ trong màn Stitch
-const PHSCAN = () => { const bad = []; for (const s of document.querySelectorAll('.st')) { if (/TEACHER SLOT|\[teacher\]|placeholder/i.test(s.innerText)) bad.push('chữ giữ chỗ'); for (const i of s.querySelectorAll('img')) if (i.complete && !i.naturalWidth && i.getBoundingClientRect().width) bad.push('ảnh vỡ ' + (i.getAttribute('src') || '').slice(-40)); } return bad; };
+const PHSCAN = () => { const bad = []; for (const s of document.querySelectorAll('.st')) { if (/TEACHER SLOT|\[teacher\]|placeholder/i.test(s.innerText)) bad.push('chữ giữ chỗ');
+    // lẫn ngôn ngữ: trang chụp ở hl=en → chữ hiện ra có chữ cái riêng tiếng Việt = chuỗi chưa dịch (lọt khóa Việt)
+    if (document.documentElement.lang !== 'vi') { const vi = (s.innerText.match(/[^\s]*[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹĂÂĐÊÔƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼẾỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴỶỸ][^\s]*/g) || []); if (vi.length) bad.push('lẫn tiếng Việt: ' + [...new Set(vi)].slice(0, 6).join(' ')); } for (const i of s.querySelectorAll('img')) if (i.complete && !i.naturalWidth && i.getBoundingClientRect().width) bad.push('ảnh vỡ ' + (i.getAttribute('src') || '').slice(-40)); } return bad; };
 const ph = {};
 
 // ---- ảnh: giải mã PNG/JPG (JPG đổi sang PNG bằng ImageMagick) → ma trận xám W×H ----
@@ -139,8 +141,14 @@ for (const scheme of ['dark', 'light']) for (const QW of [360, 412]) {
       for (const e of document.querySelectorAll('.st *, .topbar *, .bottom-nav *')) { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); if (!r.width || cs.visibility === 'hidden' || e.closest('.sr-only')) continue;
         if (r.right > W + 1 || r.left < -1) if (!e.closest('[class*="overflow-hidden"],[class*="overflow-x"]') ) over.push(e.className.toString().slice(0, 40));
         if (e.children.length === 0 && e.textContent.trim() && cs.textOverflow !== 'ellipsis' && e.scrollWidth > e.clientWidth + 2 && cs.overflow !== 'visible') clip.push(e.textContent.trim().slice(0, 24));
-        if (e.matches('a,button,[role=button],input') && (() => { const x = getComputedStyle(e, '::after'), ab = x.content !== 'none' && x.position === 'absolute'; // vùng bấm thật = khung ∪ ::after phủ (nới vô hình)
-          const w = r.width + (ab ? Math.max(0, -parseFloat(x.left) || 0) + Math.max(0, -parseFloat(x.right) || 0) : 0), h = r.height + (ab ? Math.max(0, -parseFloat(x.top) || 0) + Math.max(0, -parseFloat(x.bottom) || 0) : 0); return w < 43.5 || h < 43.5; })()) tap.push(`${(e.textContent.trim() || e.getAttribute('aria-label') || e.tagName).slice(0, 14)} ${Math.round(r.width)}x${Math.round(r.height)}`); }
+        if (e.matches('a,button,[role=button],input') && (() => { // vùng bấm thật = khung ∪ hộp ::after (absolute: tính theo khối chứa định vị gần nhất – nới vô hình hoặc "stretched link" phủ cả thẻ)
+          const x = getComputedStyle(e, '::after'); let w = r.width, h = r.height;
+          if (x.content !== 'none' && x.position === 'absolute') { let cb = e; while (cb && cb !== document.body && getComputedStyle(cb).position === 'static') cb = cb.parentElement;
+            const c = (cb || document.body).getBoundingClientRect(), v = k => (x[k] === 'auto' ? null : parseFloat(x[k]));
+            const L = v('left') != null ? c.left + v('left') : null, R = v('right') != null ? c.right - v('right') : null, T = v('top') != null ? c.top + v('top') : null, B = v('bottom') != null ? c.bottom - v('bottom') : null;
+            const aw = L != null && R != null ? R - L : parseFloat(x.width) || 0, ah = T != null && B != null ? B - T : parseFloat(x.height) || 0;
+            w = Math.max(w, aw); h = Math.max(h, ah); }
+          return w < 43.5 || h < 43.5; })()) tap.push(`${(e.textContent.trim() || e.getAttribute('aria-label') || e.tagName).slice(0, 14)} ${Math.round(r.width)}x${Math.round(r.height)}`); }
       const lg = document.querySelector('.topbar .brand img'), lr = lg && lg.getBoundingClientRect();
       return { hscroll: document.documentElement.scrollWidth > W + 1, over: over.slice(0, 5), clip: clip.slice(0, 5), tap: tap.slice(0, 8), tapN: tap.length, logo: lg ? { src: lg.getAttribute('src'), w: Math.round(lr.width), h: Math.round(lr.height), nat: lg.naturalWidth } : null }; }).catch(e => ({ error: e.message }));
     const fullH = await page.evaluate(() => { scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
