@@ -5,7 +5,7 @@ Gates: voice_teacher · pace (<= 150 wpm) · caption_sync (caption == script == 
 · hook (on screen at frame 0, <= 6 words, spoken by 2.2 s) · cue_timing (+-80 ms on the word) · layout (text in SAFE, no overlap, head clear)
 · contrast (text >= 4.5:1, large >= 3:1, both on the real fill) · min_text · ipa (== audited bank, stress dot == IPA stress mark) · cta (deep link)
 · duration · file (fps, AAC, duration, -16 LUFS) · frames (teacher visible every second, no blank frame) – the last two need --video."""
-import argparse, json, os, re, subprocess, sys, difflib
+import argparse, json, os, re, subprocess, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{HERE}/../../..')
 sys.path.insert(0, f'{ROOT}/scripts/video/motion'); sys.path.insert(0, f'{ROOT}/scripts/video/tpl')
 import core as C  # noqa: E402
@@ -35,8 +35,7 @@ bad = []
 for k, v in L.items():
     script = [norm(w) for w in v['text'].split()]; spoken = [norm(w['w']) for w in v['words']]
     # coverage of the script's letters in what whisper heard (whisper may repeat the prompt after the audio ends and splits 'U.S.' -> 'U .S.')
-    a, b = ''.join(script), ''.join(norm(w) for w in v['whisper'].split())
-    r = sum(m.size for m in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks()) / max(1, len(a))
+    r = P.heard(v['text'], v['whisper'])
     if spoken != script or r < 0.9 or v['interp'] > 2: bad.append(dict(line=k, heard=round(r, 2), interp=v['interp']))
 if T['format'] == 'short':
     capw = [norm(w['w']) for c in T['caps'] for w in c['words']]; allw = [norm(w['w']) for v in L.values() for w in v['words']]
