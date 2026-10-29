@@ -49,6 +49,15 @@ miss = [w['w'] for v in L.values() for w in v['words'] if not all(talk[f] for f 
 sp = sorted(T['speech']); long_talk = []
 for (a0, a1), (b0, b1) in zip(sp, sp[1:]):
     if b0 - a1 > 0.35 and any(talk[f] for f in range(int((a1 + 0.15) * fps), int((b0 - 0.1) * fps))): long_talk.append(round(a1, 2))
+# host coverage on EVERY frame (same rule as TeachShort.jsx Host): an incoming clip fades in only over an outgoing one that can keep playing
+HS = T['segs']; XF = T.get('host_xfade', 4); HL = T.get('host_len') or {}
+can = lambda k: 0 <= k < len(HS) - 1 and HS[k]['start'] + HS[k]['dur'] + XF <= HL.get(HS[k]['clip'], 0)
+cov = [0.0] * nf
+for i, s_ in enumerate(HS):
+    for f in range(s_['from'], min(nf, s_['from'] + s_['dur'] + (XF if can(i) else 0))):
+        a_ = 1.0 if i == 0 or not XF or not can(i - 1) else C.ease_out((f - s_['from']) / XF); cov[f] = max(cov[f], a_)
+holes = [round(f / fps, 2) for f in range(nf) if cov[f] < 0.99]   # an outgoing clip under a fade counts 1.0
+gate('host_cover', not holes and HL, 3, holes=holes[:6], frames=nf)
 gate('mouth', not miss and not long_talk, 3, words_without_talk=miss[:5], talk_in_silence=long_talk[:5], segments=len(T['segs']))
 # hook
 hk = [n for n in T['nodes'] if n.get('hook')]

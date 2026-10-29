@@ -101,7 +101,9 @@ const Canvas = ({ T, w, h, tint }) => (   // Stitch Kit canvas: flat tokens, sta
 function Host({ host, f }) {   // speech-gated segments; the incoming clip fades in on top over xfade frames while the outgoing one keeps playing underneath
   const [x0, y0, x1, y1] = host.box, xf = host.xfade || 0;
   return host.segs.map((s, i) => {
-    const ext = i + 1 < host.segs.length && s.start + s.dur + xf <= (host.len || {})[s.clip] ? xf : 0, local = f - s.from, a = i === 0 || !xf ? 1 : easeOut(local / xf);
+    const canExt = k => k >= 0 && k + 1 < host.segs.length && host.segs[k].start + host.segs[k].dur + xf <= (host.len || {})[host.segs[k].clip];
+    // fade in only over an outgoing clip that keeps playing underneath; at a loop wrap (no overlap possible) the new clip is opaque at once
+    const ext = canExt(i) ? xf : 0, local = f - s.from, a = i === 0 || !xf || !canExt(i - 1) ? 1 : easeOut(local / xf);
     return (
       <Sequence key={i} from={s.from} durationInFrames={s.dur + ext} layout="none">
         <div style={{ position: 'absolute', left: x0, top: y0, width: x1 - x0, height: y1 - y0, opacity: a }}>
