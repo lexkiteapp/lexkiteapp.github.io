@@ -37,6 +37,7 @@
     'Chặng học {n}': "Unit {n}",
     'Vì sao?': "Why?",
     'Tuyệt!': "Great!",
+    'Kiểm tra đáp án': "Check answer",
     'Từ bạn đã tra': "Your lookup",
     'Ghép cặp': "Match the pairs",
     'Gõ từ bạn nghe': "Type what you hear",

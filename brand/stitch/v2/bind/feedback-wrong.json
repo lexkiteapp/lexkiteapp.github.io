@@ -1,0 +1,31 @@
+{
+ "_doc": "Tấm phản hồi SAI (#lsnFoot, #/lesson/go) – chỉ phần tấm (keep). d: head (Chưa đúng / Có cặp ghép nhầm), answer (đáp án đúng; trống = ẩn dòng), extra như feedback-correct. Đã hiểu = #lsnNext (sang câu kế).",
+ "keep": ":scope > main > div > div:nth-child(4)",
+ "i18n": {
+  "Correct answer:": "Đáp án đúng:"
+ },
+ "text": {
+  "Not quite": "d.head",
+  "listening": "d.answer",
+  "GOT IT": "t('Đã hiểu')"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1)": {
+   "role": "'status'"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > button": {
+   "id": "'lsnNext'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(4) .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "lsn-ans",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(2) > button > span:nth-child(1)": "uppercase"
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1)": "d.extra"
+ }
+}

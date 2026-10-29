@@ -22,5 +22,6 @@
   "Ôn tập hằng ngày": "Daily Review",
   "Đang chọn": "ACTIVE",
   "Đang luyện": "In training",
+  "Đáp án đúng:": "Correct answer:",
   "Đóng màn chuỗi": "Close session",
 }); })(typeof self !== 'undefined' ? self : this);

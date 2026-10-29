@@ -101,6 +101,7 @@ function emit(root, bind, k) {
     for (const e of [el, ...el.querySelectorAll('*')]) for (const a of ['aria-label', 'title', 'alt', 'placeholder']) { const v = e.getAttribute(a); if (v && !/\u0001/.test(v) && needT(v)) e.setAttribute(a, tr(v, a)); }
     return el.outerHTML.replace(/\s+/g, ' ').replace(/[`\\]|\$\{/g, m => '\\' + m).replace(/\u0001(\d+)\u0002/g, (_, i) => '${' + M[+i] + '}'); };
   apply(root, bind);
+  if (bind.keep) { const kp = QA(root, bind.keep)[0]; if (kp) { root.textContent = ''; root.append(kp); } } // keep: màn chỉ lấy MỘT phần khung (vd tấm phản hồi gắn vào khung câu hỏi có sẵn) – bộ chọn của các phép khác vẫn theo khung đầy đủ
   const part = sel => { const el = root.querySelector(sel); if (!el) return '``'; const s = textify(el); el.remove(); return '`' + s + '`'; };
   const header = part(':scope > header'), nav = part(':scope > nav'), main = '`' + textify(root).replace(/^<div[^>]*>|<\/div>$/g, '') + '`';
   return { header, nav, main, root: root.getAttribute('class') || '' }; }
@@ -111,6 +112,7 @@ for (const k of SCREENS) { const f = s => path.join(SRC, `${k}-${s}.html`); if (
   const L = new JSDOM(hl, { virtualConsole: VC }).window.document, D = new JSDOM(hd, { virtualConsole: VC }).window.document, RL = resolver(cfgOf(hl, k + '-light')), RD = resolver(cfgOf(hd, k + '-dark'));
   const doc = new JSDOM('<div></div>').window.document, body = merge(L.body, D.body, RL, RD, doc), root = doc.createElement('div');
   root.setAttribute('class', `st v2 v2-${k} ` + (body.getAttribute('class') || '')); root.append(...body.childNodes);
+  if (A.includes('--dump') && ONLY.length && !ONLY.includes(k)) continue;
   if (A.includes('--dump')) { const walk = (e, d, path) => { const cls = (e.getAttribute('class') || '').split(' ').filter(c => !/^(lt|dk):/.test(c)).slice(0, 4).join('.'), al = e.getAttribute('aria-label'), tx = [...e.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join(' ');
       console.log(`${'  '.repeat(d)}${path} <${e.tagName.toLowerCase()}> ${cls}${al ? ` [${al}]` : ''}${tx ? ` "${tx.slice(0, 40)}"` : ''}`); [...e.children].forEach((c, i) => walk(c, d + 1, `${path}>${i + 1}`)); };
     walk(root, 0, '·'); continue; }

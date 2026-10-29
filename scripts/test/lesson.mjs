@@ -237,8 +237,8 @@ w.location.hash = '#/lesson?demo=1'; await App.routes.lesson(); await tick(40);
 ok(w.document.querySelectorAll('.lsn-node.done').length === 1 && w.document.querySelectorAll('.lsn-node')[1].classList.contains('next'), 'bản đồ: nút 1 ✓, nút 2 phát sáng');
 // 🧩 Stitch v2.1 lesson-question (cờ ux1): CÙNG các ý như bài cũ trên khung tự sinh – hook QC, chấm, Lỗi cũ, giọng giáo viên, Ama sau thẻ đục
 App.ux1On = () => true;
-for (const f of ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js']) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
-ok(w.ST2 && w.ST2['lesson-question'], 'v2: khung lesson-question nạp được');
+for (const f of ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js']) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
+ok(w.ST2 && w.ST2['lesson-question'] && w.ST2['feedback-correct'] && w.ST2['feedback-wrong'], 'v2: khung lesson-question + tấm feedback-correct/feedback-wrong nạp được');
 w.localStorage.setItem('lk.lsn.path.demo', '0'); w.localStorage.removeItem('lk.lsn.who');
 w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(320);
 {
@@ -251,6 +251,17 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
   ok(!D.querySelector('.lsn-tchw .rounded-full, .lsn-tchw [class*="ring"], .lsn-tchw [class*="mask"]') && !/mask|clip-path/.test(tw.getAttribute('style') || ''), 'v2: không vòng / hào quang / khung / mặt nạ quanh giáo viên');
   const oS = T.say; T.say = (txt, o) => { say0.push(o || {}); return oS.call(T, txt, o); };
   ok(!!$('#lsnCheck') && ($('#lsnCheck').disabled || $('#lsnCheck').hidden), 'v2: nút Kiểm tra có sẵn, khóa tới khi chọn');
+  { // v2.1 feedback-wrong: tấm SAI trong luồng (không cố định), đáp án đúng, giáo viên concern, Đã hiểu → câu kế (giáo viên về nghe/nói sống)
+    const it0 = st().sess.cur, ans0 = String(it0.answer); await solve(false);
+    const f = $('#lsnFoot'), still = () => ($('#lsnTch .tch-still') || {}).src || '';
+    ok(f && f.classList.contains('bad') && !f.hidden && f.querySelector('.v2s-feedback-wrong') && $('#lsn').contains(f) && !/\blsn-foot\b/.test(f.className), 'v2: sai → tấm Stitch feedback-wrong nằm TRONG luồng (không cố định → không che đáp án)');
+    ok(it0.type === 'match' || f.textContent.includes(ans0.split(' ')[0]), 'v2: tấm sai có đáp án đúng');
+    ok(/concern/.test(still()) && $('#lsnTch .tch-rig').classList.contains('posed'), 'v2: sai → Ama ảnh tĩnh concern ngay chỗ cũ (sau thẻ đề bài)');
+    ok($('#lsnNext') && $('#lsnNext').textContent.trim().length > 2 && !$('#lsnCheck').offsetParent, 'v2: nút Đã hiểu (#lsnNext) thay chân Kiểm tra');
+    if (it0.card) { ok($('#lsnWhy') && f.textContent.includes(it0.card.word), 'v2: sai → từ + nút Vì sao? giữ nguyên'); $('#lsnWhy').click(); await tick(40); ok($('#lsnXp') && !$('#lsnXp').hidden && $('#lsnXp').textContent.length > 10, 'v2: Giải thích hiện ngay (0 AI) trong tấm sai'); }
+    $('#lsnNext').click(); await tick();
+    ok(!$('#lsnTch .tch-still') && !$('#lsnTch .tch-rig').classList.contains('posed') && $('#lsnFoot').hidden, 'v2: câu kế → giáo viên về nghe/nói sống, tấm phản hồi ẩn');
+  }
   const seen = new Set(); let g2 = 0;
   while (st() && st().sess && !st().sess.done && g2++ < 40) {
     const it = st().sess.cur; seen.add(it.type);
@@ -259,6 +270,7 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
     if (['q', 'gap', 'mean', 'pic'].includes(it.type) && (it.options || []).length) { const og = $('#lsnBody.lsn-opts'); ok(og && og.querySelectorAll('.lsn-opt[data-o]').length === it.options.length && !D.querySelector('#card-A, #card-B'), `v2: lưới đáp án A–D (${it.type})`); }
     await solve(true);
     ok($('#lsnFoot.ok') && !$('#lsnFoot').hidden, `v2: đúng → sheet xanh (${it.type})`);
+    ok($('#lsnFoot .v2s-feedback-correct') && /cheer/.test((D.querySelector('#lsnTch .tch-still') || {}).src || '') && $('#lsn').contains($('#lsnFoot')) && $('#lsnFoot').textContent.length > 8, `v2: đúng → tấm Stitch feedback-correct trong luồng + Ama cheer (${it.type})`);
     $('#lsnNext').click(); await tick();
   }
   ok(seen.has('match') && seen.size >= 5, 'v2: đủ dạng bài trên khung mới (' + [...seen].join(',') + ')');

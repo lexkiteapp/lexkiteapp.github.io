@@ -1,0 +1,27 @@
+{
+ "_doc": "Tấm phản hồi ĐÚNG (#lsnFoot, #/lesson/go) – chỉ phần tấm (keep); câu hỏi/đầu trang là khung lesson-question. d do web/js/lesson/ui.js feedback() dựng: head (Tuyệt!), xp (+2 XP, trống = ẩn viên XP), extra (giáo viên · từ · phát âm · nghĩa · Vì sao? · Tăng điểm · Giải thích – chỗ mẫu không vẽ, chèn dưới hàng tiêu đề). Tiếp tục = #lsnNext.",
+ "keep": ":scope > main > div > div:nth-child(3)",
+ "text": {
+  "Excellent!": "d.head",
+  "+10 XP": "d.xp",
+  "CONTINUE": "t('Tiếp tục')"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1)": {
+   "role": "'status'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > button": {
+   "id": "'lsnNext'",
+   "type": "'button'"
+  },
+  ":scope > main > div > div:nth-child(3) .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  }
+ },
+ "addClass": {
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)": "lsn-xpp"
+ },
+ "after": {
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1)": "d.extra"
+ }
+}

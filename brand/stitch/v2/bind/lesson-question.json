@@ -16,7 +16,7 @@
   "IELTS BAND 7.0 DRILL": "d.chip",
   "0:02 • Tap to hear sentence": "d.play",
   "British Received Pronunciation": "d.who",
-  "CHECK ANSWER": "t('Kiểm tra')"
+  "CHECK ANSWER": "t('Kiểm tra đáp án')"
  },
  "html": {
   ":scope > main > div > div:nth-child(2) > div > div:nth-child(2)": "''"
@@ -101,10 +101,11 @@
   ":scope > main > div > div:nth-child(2) > div": "relative z-10",
   ":scope > main > div > div:nth-child(1)": "lsn-qchips",
   ":scope > main > div > div:nth-child(4)": "lsn-qfoot",
-  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)": "lsn-skipb",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button:nth-child(1)": "lsn-skipb relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']",
   ":scope > main > div > div:nth-child(4) > button": "disabled:opacity-50 disabled:shadow-none disabled:active:translate-y-0 motion-reduce:transition-none",
   ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
-  ":scope > main > div > div:nth-child(2) > div > button": "relative after:absolute after:-inset-y-0.5 after:inset-x-0 after:content-['']"
+  ":scope > main > div > div:nth-child(2) > div > button": "relative after:absolute after:-inset-y-0.5 after:inset-x-0 after:content-['']",
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > button:nth-child(2)": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']"
  },
  "after": {
   ":scope > header > div > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "'<b class=\"sr-only\" id=\"lsnQn\"></b>'",

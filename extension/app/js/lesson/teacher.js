@@ -65,6 +65,10 @@
     let hq = null;
     const api = {
       who,
+      // pose('cheer'|'concern'…): ảnh tĩnh tư thế (đầu→hông) thay người đang đứng NGAY chỗ cũ (phản hồi đúng/sai); pose(null) → trả lại vòng nghe/nói sống
+      pose(p) { let im = rig.querySelector('.tch-still'); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
+        if (im) im.src = Chars.still(who, p); else { rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 })); }
+        rig.classList.add('posed'); },
       // o.voice (Kokoro, vd. af_heart): phát mp3 sinh sẵn trên CI (audio.lexkite.com, khóa KVoice.lineKey) – vòng nói chạy đúng độ dài file; thiếu file → giọng máy
       say(text, o = {}) {
         const my = ++run, rate = o.rate || 0.95;

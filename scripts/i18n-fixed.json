@@ -30869,5 +30869,35 @@
     "ar": "الإبلاغ عن السؤال",
     "ru": "Сообщить о вопросе",
     "tr": "Soruyu bildir"
+  },
+  "Đáp án đúng:": {
+    "es": "Respuesta correcta:",
+    "pt": "Resposta correta:",
+    "fr": "Bonne réponse :",
+    "de": "Richtige Antwort:",
+    "id": "Jawaban benar:",
+    "th": "คำตอบที่ถูกต้อง:",
+    "zh": "正确答案：",
+    "ja": "正解：",
+    "ko": "정답:",
+    "hi": "सही उत्तर:",
+    "ar": "الإجابة الصحيحة:",
+    "ru": "Правильный ответ:",
+    "tr": "Doğru cevap:"
+  },
+  "Kiểm tra đáp án": {
+    "es": "Comprobar respuesta",
+    "pt": "Verificar resposta",
+    "fr": "Vérifier la réponse",
+    "de": "Antwort prüfen",
+    "id": "Periksa jawaban",
+    "th": "ตรวจคำตอบ",
+    "zh": "检查答案",
+    "ja": "答えを確認",
+    "ko": "정답 확인",
+    "hi": "उत्तर जांचें",
+    "ar": "تحقق من الإجابة",
+    "ru": "Проверить ответ",
+    "tr": "Cevabı kontrol et"
   }
 }
