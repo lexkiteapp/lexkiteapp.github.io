@@ -167,7 +167,8 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
 // soát pilot 3 (29/10, LÕI 12/50): ví dụ chỉ chứa từ phái sinh (demography – "demographers"); IPA Mỹ ER0 trước nguyên âm nhấn (liberation, arithmetic);
 // def bám gloss WordNet thô (seawater, rifle) → lxdef/lxsrc nhận định nghĩa Wiktionary của ĐÚNG nghĩa khoá (wk)
 ok(!inflRe('demography').test('the demographers met') && inflRe('demography').test('Demography matters.') && inflRe('stop').test('stopped') && inflRe('bake').test('baking') && inflRe('happy').test('happier') && inflRe('peel').test('peels'), 'ví dụ: chỉ biến tố, không phái sinh');
-ok(arpaToIpa('L IH2 B ER0 EY1 SH AH0 N') === 'ˌlɪbəˈreɪʃn' && arpaToIpa('ER0 IH1 TH M AH0 T IH0 K') === 'əˈrɪθmətɪk' && arpaToIpa('P ER0 M IH1 T') === 'pərˈmɪt', 'IPA Mỹ: /r/ của ER0 làm âm đầu âm tiết nhấn kế tiếp');
+ok(arpaToIpa('L IH2 B ER0 EY1 SH AH0 N') === 'ˌlɪbəˈreɪʃn' && arpaToIpa('ER0 IH1 TH M AH0 T IH0 K') === 'əˈrɪθmətɪk' && arpaToIpa('P ER0 M IH1 T') === 'pərˈmɪt' && arpaToIpa('D IH0 F TH IH1 R IY0 AA0') === 'dɪfˈθɪriə' && arpaToIpa('S AH1 K Y AH0 L IH0 N T') === 'ˈsʌkjələnt', 'IPA Mỹ: ER0 trước nguyên âm nhấn; đuôi -ia /iə/, -lent /lənt/');
+{ const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'); ok(!/call\('lxex'/.test(J) && /exFail = 'ví dụ: không đủ 2 câu NGƯỜI VIẾT/.test(J), 'ví dụ chỉ từ nguồn người viết (pilot 4: AI gây 3/5 lỗi LÕI)'); }
 { const J = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8'), P = fs.readFileSync(path.join(ROOT, 'functions/api/lexai.js'), 'utf8');
   ok(/e\._wk = /.test(J) && /wk: e\._wk/.test(J) && /use "wk" as the main model/.test(P) && /\.\.\.\(x\.wk \? \{ wk: cut\(x\.wk/.test(P), 'def: định nghĩa Wiktionary của nghĩa khoá vào lxdef/lxsrc'); }
 if (fail) { console.error(`✗ lexicon-expand: ${fail} lỗi`); process.exit(1); }

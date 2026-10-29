@@ -103,6 +103,8 @@ export function arpaToIpa(phones, si) {
   // ER không nhấn đứng NGAY trước nguyên âm nhấn: /r/ là phụ âm đầu của âm tiết nhấn (soát pilot 29/10: liberation /ˌlɪbəˈreɪʃn/, arithmetic /əˈrɪθmətɪk/,
   // không phải /ˌlɪbɜːrˈeɪʃn/, /ərˈɪθmətɪk/)
   out = out.replace(/(ɜː|ə)r([ˈˌ])(?=[aeiouæɑɒɔəɛɪʊʌɜ])/g, 'ə$2r');
+  // CMUdict ghi đuôi -ia là IY0 AA0 (diphtheria) và -lent là L IH0 N T (succulent) → Mỹ chuẩn /iə/, /lənt/ (soát pilot 4, 29/10)
+  out = out.replace(/iɑː$/, 'iə').replace(/lɪnt$/, 'lənt');
   // phụ âm thành âm tiết cuối từ: ˈbɑːtl, ˈlɪsn
   out = out.replace(new RegExp(`([${CONS}])əl$`), '$1l').replace(/([tdszʃʒ])ən$/, '$1n');
   return out;

@@ -534,6 +534,52 @@
    "field": "m.ja",
    "bad": "腕輪",
    "note": "soát Sonnet pilot 3 29/10 12:52"
+  },
+  {
+   "k": "coffin#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "onto the church altar",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
+  },
+  {
+   "k": "demography#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "demography reports",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
+  },
+  {
+   "k": "succulent#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "^Succulent plants",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
+  },
+  {
+   "k": "succulent#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/ˈsʌkjəlɪnt/",
+   "note": "soát Sonnet pilot 4 29/10 13:56"
+  },
+  {
+   "k": "diphtheria#n",
+   "cls": "L5",
+   "field": "ipaUS",
+   "bad": "/dɪfˈθɪriɑː/",
+   "note": "soát Sonnet pilot 4 29/10 13:56"
+  },
+  {
+   "k": "subcontinent#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "smaller than a continent or part of a larger one",
+   "note": "soát Sonnet pilot 4 29/10 13:56",
+   "re": true
   }
  ],
  "good": [

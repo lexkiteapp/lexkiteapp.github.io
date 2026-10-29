@@ -145,7 +145,7 @@ for (const x of items) { const k = KK[x.k] || {}, re = formRe(x.w);
   const GW = CW(x.gloss + ' ' + x.lemmas.join(' ')), wk = (k.exs || []).filter(e => re.test(e.t) && ov(CW(e.g), GW) >= 1).slice(0, 3).map(e => ({ t: e.t, src: 'wiktionary' })), tt = ((EXT[x.k] || {}).ex || []).map(e => ({ t: e.t, src: 'tatoeba:' + e.id }));
   const wx = ((SY[x.k] || {}).wx || []).filter(t => re.test(t)).map(t => ({ t, src: 'wordnet:' + x._c.syn })); // ví dụ của CHÍNH synset (lớp L2)
   // ví dụ WordNet xếp CUỐI (soát pilot 3: moonlight "…the smuggler's enemy", despair – câu châm ngôn/trích dẫn)
-  x._cand = [...tt.slice(0, 8 - wk.length - wx.length), ...wk, ...wx]; x._cols = [...new Set([...(x._c.comp || []), ...((EXT[x.k] || {}).col || [])])].slice(0, 8); x._trg = k.trg || []; }
+  x._cand = [...tt.slice(0, 10 - wk.length - wx.length), ...wk, ...wx]; x._cols = [...new Set([...(x._c.comp || []), ...((EXT[x.k] || {}).col || [])])].slice(0, 8); x._trg = k.trg || []; }
 const live = items.filter(x => D[x.k] && D[x.k].keep !== false && D[x.k].def);
 async function srcPass(list) {
 await pmap(chunks(list, 10), 6, async ch => {
@@ -175,7 +175,7 @@ await srcPass(live);
 // 3. "RA LÀ OK" (29/10) – mỗi trường nhận khi qua TRẮC NGHIỆM NGHĨA 3 giám khảo (wsd3) + nguồn độc lập:
 //   vi (lớp L1): ≥ 2 nguồn trùng trong { Wiktionary (bảng khớp nghĩa ∪ vi cùng từ loại), lxtr (họ A), lxvi (họ khác) } – lib.mjs viAgreeSources
 //   12 ngôn ngữ (lớp D1–D3): bảng Wiktionary ∩ lemma OMW của synset (8 ngôn ngữ có OMW), không khớp → lemma OMW; ngôn ngữ không có OMW → bảng + từ có thật (trcheck --exist) + hình từ loại
-//   ví dụ (lớp L2): ứng viên giám khảo nguồn đã chọn → trắc nghiệm nghĩa; thiếu → lxex (AI) → trắc nghiệm nghĩa vòng 2; vẫn thiếu = hàng duyệt (không lặp vô hạn)
+//   ví dụ (lớp L2): ứng viên giám khảo nguồn đã chọn → trắc nghiệm nghĩa; thiếu = hàng duyệt (KHÔNG ví dụ AI từ 29/10 – pilot 4), không lặp vô hạn
 const okDef = live.filter(x => X[x.k] && X[x.k].defOk), VA = {}, VB = {}, VC = {}, FA = {}, AT = {};
 // lxtr (họ A): vi + 12 ngôn ngữ – bản AI chỉ là NGUỒN KIỂM CHỨNG thứ hai (pilot 29/10: detriment ko 상해 lọt khi bảng Wiktionary là nguồn duy nhất), không bao giờ nguồn duy nhất
 await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].exAll.slice(0, 2).map(e => e.t), need: ['vi', ...LANGS] })));
@@ -189,7 +189,7 @@ const OMWL = ['ja', 'zh', 'th', 'id', 'fr', 'es', 'pt', 'ar'];
 stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };
 const probe = {};
 for (const x of okDef) { const P = {}, X1 = X[x.k], om = (SY[x.k] || {}).omw || {};
-  X1.exAll.slice(0, 6).forEach((c, i) => { P['ex' + i] = c.t; });
+  X1.exAll.slice(0, 8).forEach((c, i) => { P['ex' + i] = c.t; });
   X1.viC = viAgreeSources({ wk: [...(X1.tr.vi || []), ...(VIW[x.k] || []).map(v => v.w)], a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }).slice(0, 3); stat.vi[X1.viC.length ? 'agree' : 'none']++;
   X1.viC.forEach((c, i) => { P['vi' + i] = c.v; });
   // vi Wiktionary lẻ (để kiểm phương án sửa vi_fix của lxjudge – chỉ nhận vi_fix đã qua trắc nghiệm nghĩa)
@@ -207,7 +207,7 @@ const bagOf = t => new Set(t.toLowerCase().match(/[a-z']+/g) || []), dup = (p, c
 function pickEx(X1, cands) { for (const c of cands.filter(c => c.ok).sort((p, q) => (/^wordnet/.test(p.src) - /^wordnet/.test(q.src)) || p.t.split(' ').length - q.t.split(' ').length)) if (X1.ex.length < 2 && !X1.ex.some(p => dup(p, c))) X1.ex.push(c); }
 for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (!v) { X1.wsdInfra = true; continue; }
   const ok = id => { const r = wsdOk(v[id], L); if (r) stat.wsd.ok++; return r; };
-  pickEx(X1, X1.exAll.slice(0, 6).map((c, i) => ({ ...c, ok: ok('ex' + i) })));
+  pickEx(X1, X1.exAll.slice(0, 8).map((c, i) => ({ ...c, ok: ok('ex' + i) })));
   const viOk = X1.viC.filter((c, i) => ok('vi' + i));
   X1.viOkSet = new Set([...viOk.map(c => c.v), ...X1.viW.filter((w, i) => ok('vw' + i))]);
   // vi chỉ AI (2 họ trùng, không Wiktionary): phải có trong từ điển tiếng Việt (Viet74K ∪ vi kho) – như cũ
@@ -217,17 +217,10 @@ for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (
   if (viKeep.length) { X1.m.vi = viKeep.map(c => c.v).join('; '); X1.trSrc.vi = viKeep.some(c => c.src.includes('wk')) ? 'wiktionary' : 'ai'; X1.viSrc = viKeep[0].src; }
   else X1.viFail = X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
   for (const l of LANGS) if (X1.trC[l] && ok('tr_' + l)) { X1.m[l] = X1.trC[l].t; X1.trSrc[l] = X1.trC[l].src; X1.wsdTr[l] = true; stat.tr[X1.trC[l].src]++; } }
-// ví dụ AI CHỈ khi thiếu câu người viết đúng nghĩa → trắc nghiệm nghĩa vòng 2 (cùng luật)
-const needEx = okDef.filter(x => !X[x.k].wsdInfra && X[x.k].ex.length < 2); stat.exAi = needEx.length;
-const AIX = {};
-await pmap(chunks(needEx, 10), 8, async ch => { const r = await call('lxex', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, def: D[x.k].def, lemmas: x.lemmas, wnex: x.wnex, n: 2 - X[x.k].ex.length + 2, avoid: X[x.k].ex.map(e => e.t) })));
-  if (r) for (const x of ch) { const ex = r.out[x.k] && r.out[x.k].ex; if (Array.isArray(ex)) AIX[x.k] = ex.filter(t => typeof t === 'string' && t.trim() && formRe(x.w).test(t)).slice(0, 4).map(t => ({ t: t.trim(), src: 'ai' })); } });
-const W2 = await wsd3(needEx.filter(x => (AIX[x.k] || []).length).map(x => ({ k: x.k, w: x.w, pos: x.pos, senses: sensesTxt(x._c), probes: Object.fromEntries(AIX[x.k].map((c, i) => ['ax' + i, c.t])) })));
-for (const x of needEx) { const X1 = X[x.k], c = AIX[x.k];
-  if (!c) { X1.wsdInfra = true; continue; } // lxex hỏng → hạ tầng
-  if (c.length && !W2[x.k]) { X1.wsdInfra = true; continue; }
-  pickEx(X1, c.map((e, i) => ({ ...e, ok: wsdOk((W2[x.k] || {})['ax' + i], lockIdx(x._c)) })));
-  if (X1.ex.length < 2) X1.exFail = 'ví dụ: không đủ 2 câu đúng nghĩa khoá (trắc nghiệm nghĩa 3 giám khảo, cả nguồn người viết lẫn AI)'; }
+// ví dụ CHỈ từ nguồn người viết (Tatoeba / Wiktionary / WordNet) – soát pilot 4 (29/10): ví dụ AI chiếm 12/69 mục đạt nhưng gây 3/5 lỗi LÕI
+// (coffin "onto the church altar", demography "demography reports", succulent dùng tính từ) dù đã qua trắc nghiệm nghĩa 3 giám khảo → thiếu 2 câu = hàng duyệt
+const needEx = okDef.filter(x => !X[x.k].wsdInfra && X[x.k].ex.length < 2); stat.exShort = needEx.length;
+for (const x of needEx) X[x.k].exFail = 'ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)';
 const ready = okDef.filter(x => !X[x.k].wsdInfra && X[x.k].ex.length === 2 && X[x.k].m.vi);
 // CỔNG TỪ CÓ THẬT: lẫn ngôn ngữ (trcheck.py – pilot 11 pt "inyectar") cho mọi bản dịch + (lớp D2) bản dịch CHỈ có nguồn Wiktionary phải có trong kho tần suất
 function trCheck(list, exist) { const tmp = (process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp') + '/lx-tr-' + process.pid, inp = {};
@@ -321,7 +314,7 @@ for (const x of items) { const e = pend.items[x.k]; if (!e || !e.src || !e.src.e
   for (const l of LANGS) { const t = (e.src.tr || {})[l]; if (t && e.m[l]) cov.tr[t] = (cov.tr[t] || 0) + 1; else cov.tr.none = (cov.tr.none || 0) + 1; } cov.vi[(e.src.tr || {}).vi === 'wiktionary' ? 'wiktionary' : 'ai']++;
   cov.col[e.col.length ? 'src' : 'none']++; cov.syn[e.syn.length ? 'wordnet' : 'none']++; cov.cefr[e.cefrSrc] = (cov.cefr[e.cefrSrc] || 0) + 1; }
 const sec = (Date.now() - t0) / 1000, pass = Object.keys(pend.items).length;
-const rep = { batch: BATCH, n: items.length, pass, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, exAi: stat.exAi || 0, trBad: stat.trBad || 0, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
+const rep = { batch: BATCH, n: items.length, pass, exShort: stat.exShort || 0, yield: +(pass / Math.max(1, items.length - (why.infra || 0) - (why.gap || 0))).toFixed(3), lock: stat.lock, resense: stat.resense, wsd: stat.wsd, vi: stat.vi, tr: stat.tr, trBad: stat.trBad || 0, cov, tatoeba: Object.values(EXT).filter(v => v.ex.length >= 2).length, review: items.length - pass - (why.infra || 0) - (why.gap || 0), skipped: why.infra || 0, gap: why.gap || 0, pool: stat.pool || 'ok', why, calls: stat.calls, fail: stat.fail, retry: stat.retry || 0, ukMiss: stat.ukMiss, ukEspeak: stat.ukEspeak || 0, ipaFix: stat.ipaFix || 0, ipaBad: stat.ipaBad || 0, ipaDrop: stat.ipaDrop || 0, sec: Math.round(sec), perHour: Math.round(items.length / sec * 3600), models: { gen: mGen, a: mA, b: mB }, ai: { routes: [...used], ...AI.stats() }, topics: buildTopicSets(Object.entries(pend.items).map(([k, e]) => ({ k, e })), TAX()).stats };
 AI.report('lexicon-expand'); fs.mkdirSync(new URL('reports/', ROOT), { recursive: true }); wr('reports/lexicon-expand.json', JSON.stringify(rep, null, 1));
 console.log('✓ lexicon-expand ' + JSON.stringify(rep));
 // kho AI cạn hoàn toàn (mọi mục bỏ qua hạ tầng, không mục nào vào hàng duyệt) = KHÔNG phải lỗi: lịch 3 giờ thử lại (27/10 – kho CF cửa sổ 24 giờ trượt)
