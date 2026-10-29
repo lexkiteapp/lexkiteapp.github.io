@@ -89,6 +89,6 @@
     };
     return api;
   }
-  const VOICE = { ama: 'af_heart', carlos: 'am_michael' }; // cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
+  const VOICE = { ama: g.Chars.voice('ama'), carlos: g.Chars.voice('carlos') }; // giọng app của giáo viên – chỉ qua Chars (registry), cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
   g.LessonTeacher = { mount, lite, VOICE };
 })(self);

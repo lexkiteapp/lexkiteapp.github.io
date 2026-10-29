@@ -3,9 +3,11 @@
 (function (g) {
   const NAME = { ama: 'Ama', carlos: 'Carlos' }, POSES = ['talk', 'listen', 'explain', 'happy', 'encourage', 'thinking', 'laugh', 'wave', 'cheer', 'concern', 'surprise', 'point', 'empathy'];
   const PENDING = { carlos: ['wave', 'concern', 'point', 'empathy'] }; // clip đang tạo → tạm dùng 'talk' cùng người (không bao giờ đổi kiểu/nhân vật)
+  const VOICE = { ama: 'af_heart', carlos: 'am_michael' }; // = characters.json people.<who>.voice.app (cổng characters-gate kiểm khớp) – giáo viên hiện trên màn nói bằng ĐÚNG giọng này
   const id = w => (NAME[w] ? w : 'ama'), f = (w, x) => 'teach/' + id(w) + '/' + x, ok = (w, p) => POSES.includes(p) && !(PENDING[id(w)] || []).includes(p) ? p : 'talk';
   g.Chars = {
     ids: Object.keys(NAME), poses: POSES, name: w => NAME[id(w)], id,
+    voice: w => VOICE[id(w)],
     poster: w => f(w, 'poster.webp'), avatar: w => f(w, 'avatar.webp'),
     still: (w, p) => f(w, 'still-' + ok(w, p) + '.webp'), // ảnh tĩnh từng tư thế (đã 2×, nền trong suốt)
     clip: (w, p, o = {}) => f(w, ok(w, p) + (o.hd && /^(talk|listen)$/.test(ok(w, p)) ? '-hd' : '') + '.mp4'), // hd: chỗ lớn sống (Call), 2× điểm ảnh
