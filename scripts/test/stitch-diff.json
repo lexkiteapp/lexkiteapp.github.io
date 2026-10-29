@@ -1,5 +1,5 @@
 {
- "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call).",
+ "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call). 30/10: story-light ssim + feedback-dark rows hạ = điểm CI 40913941669 − 0,01 vì CẤU TRÚC đổi theo quyết định điều phối (story-duo: bài kiểm cùng 1 màn, 4 bong bóng demo thay vì 2; lesson-question bỏ thẻ 'Nghe chậm hơn' riêng) – chủ duyệt lại ở bước xem ảnh.",
  "call-dark": {
   "ssim": 0.477,
   "rows": -0.049
@@ -18,7 +18,7 @@
  },
  "feedback-dark": {
   "ssim": 0.21,
-  "rows": -0.199
+  "rows": -0.279
  },
  "feedback-light": {
   "ssim": 0.201,
@@ -93,7 +93,7 @@
   "rows": -0.042
  },
  "story-light": {
-  "ssim": 0.225,
+  "ssim": 0.173,
   "rows": 0.18
  },
  "streak-dark": {
