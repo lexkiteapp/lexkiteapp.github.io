@@ -115,7 +115,7 @@ class Card:
     def place(s, t_in, t_out=None, slot='a', k='soft'):
         h = s.y - GAP + PAD + LEDGE; s.box = [s.x0, s.y0, s.x0 + s.w, s.y0 + h]
         assert s.box[3] <= RY1 + 2, ('card leaves the card region', s.box, RY1)
-        c = dict(id=s.id, type='card', tone=s.tone, box=s.box, **{'in': cue(t_in, k)}, **({'out': dict(t=round(t_out, 4))} if t_out else {}))
+        c = dict(id=s.id, type='card', tone=s.tone, box=s.box, **{'in': cue(t_in, k)}, **({'out': dict(t=round(t_out, 4))} if t_out else {}), **({'tail': s.tail} if getattr(s, 'tail', None) else {}))
         NODES.append(c)
         for n in s.rows:
             n['parent'] = s.id; n.setdefault('in', c['in']); n['in'] = dict(n['in'], t=max(n['in']['t'], c['in']['t']))
@@ -236,36 +236,45 @@ def quiz_card(stem_runs, opts, right, t_q, t_ans, t_out, opt_ws=None):
     b = c.place(t_q, t_out, 'a'); ring(b, end('q') + 0.05, end('q') + LINES['q']['pause'] - 0.1)
 
 
-def T_usuk():
-    D = EP['data']; series_chip()
-    hook_card([['US', 'primary'], [' or ', 'ink'], ['UK', 'coral'], ['?', 'ink']], at('us', D['us']) - 0.2,
-              extra=lambda c: c.add(dict(type='flags', box=[PAD + (c.inner - 300) / 2, 0, PAD + (c.inner + 300) / 2, 0]), 120))
-    # twin tiles (Stitch screen 4cb4e39f…: two candy tiles, flag tag chip, huge word, IPA, accent bar, '=' badge)
-    GAPT = 104; tw2 = (RW - GAPT) // 2; y = RY0; t_out = start('q') - 0.2   # gap wide enough for the '=' badge (never on a word)
-    for i, (cc, wd, ipa, col, lid) in enumerate([('us', D['us'], D['ipa_us'], 'primary', 'us'), ('uk', D['uk'], D['ipa_uk'], 'coral', 'uk')]):
-        c = Card(y, tone='tile', x0=RX0 + i * (tw2 + GAPT), w=tw2); t_w = at(lid, wd)
-        c.add(dict(type='tag', cc=cc, text=cc.upper(), size=S['chip'], box=[PAD, 0, PAD + 150, 0], **{'in': cue(t_w)}), S['chip'] + 28)
-        sz = min(S['big'], int(S['big'] * (c.inner) / max(1, tw(wd, S['big'])))); c.text([[wd, 'ink']], sz, t_w, align='c', gap=8)
-        c.text([[ipa, 'muted']], S['ipa'], t_w, align='c', ipa=True, gap=18); IPA.append(dict(token=wd, ipa=ipa, node=c.rows[-1]['id']))
-        c.add(dict(type='bar', tone=col, box=[PAD + (c.inner - 90) / 2, 0, PAD + (c.inner + 90) / 2, 0], **{'in': cue(t_w)}), 8)
-        bx = c.place(t_w, t_out, 'tiles' + cc)
-    NODES.append(dict(id='eq', type='eq', size=56, box=[RX0 + tw2 + GAPT / 2 - 44, y + 150, RX0 + tw2 + GAPT / 2 + 44, y + 238], **{'in': cue(at('uk', 'same'), 'pop')}, out=dict(t=round(t_out, 3))))
-    c = Card(bx[3] + 28); c.text([[D['same'], 'accent']], S['body'], at('uk', 'same'), align='c', gap=GAP)
-    c.text(runs_hl(LINES['x']['text'], D['us']), S['body'], start('x'), align='c'); c.place(at('uk', 'same'), t_out, 'b')
-    quiz_card([["You're in London.", 'ink']], [D['us'], D['uk']], 1, start('q'), at('a', D['uk']), start('sh') - 0.2)
-    save_card([[['US ', 'muted'], [D['us'], 'primary']], [['UK ', 'muted'], [D['uk'], 'coral']]], start('sh'), start('c') - 0.2)
-    end_card()
+def top(type_, box, t_in, k='soft', out=None, **kw):   # a free (card-less) element in canvas px
+    n = dict(id=nid(type_[0]), type=type_, box=[round(v, 1) for v in box], **{'in': (dict(t=-0.2, k='fade') if t_in is None else cue(t_in, k))}, **kw)   # None = on screen from frame 0
+    if out is not None: n['out'] = dict(t=round(out, 3))
+    NODES.append(n); return n
+
+
+def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1):
+    """free headline (Stitch frames put the title on the canvas, not in a card): one or more balanced lines, centred."""
+    c = Card(y, x0=x0, w=x1 - x0); lines = c.wrap(runs, size, width=x1 - x0); ns = []; yy = y
+    for ln in lines:
+        ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(r[0], size) for r in ln); h = round(size * 1.18)
+        xx = x0 + ((x1 - x0) - lw) / 2 if align == 'c' else x0
+        n = top('text', [xx, yy, xx + lw, yy + h], t_in, out=out, runs=ln, size=size, ipa=False)
+        if hook: n['hook'] = True
+        CUES.append(dict(node=n['id'], t=t_in, tag=''.join(r[0] for r in ln))); ns.append(n); yy += h + 4
+    return yy
+
+
+CANDY = dict(coral=dict(a='#FF7B60', b='#F2553B', edge='#FFA18F', ledge='#9E2B16', ink='#FFFFFF', lab='#4A1208'),
+             amber=dict(a='#FFB859', b='#FA8C16', edge='#FFD591', ledge='#AD4E00', ink='#381600', lab='#4A1F00'),
+             gold=dict(a='#FFE266', b='#FFC524', edge='#FFF1A8', ledge='#A87803', ink='#382600', lab='#4A3300'))
 
 
 def T_verbs():
-    D = EP['data']; series_chip()
-    hook_card([[D['base'], 'ink'], [' → ', 'muted'], ['?', 'accent'], [' → ', 'muted'], ['?', 'accent']], start('b') - 0.2)
-    c = Card(RY0); t_out = start('q') - 0.2
-    for lab, wd, lid, col in [('BASE', D['base'], 'b', 'ink'), ('PAST', D['past'], 'p', 'primary'), ('PAST PART.', D['pp'], 'pp', 'accent')]:
-        row2(c, lab, wd, col, at(lid, 0), at(lid, wd))
-    c.place(start('b'), t_out, 'a'); b1 = c.box
-    c2 = Card(b1[3] + 28, tone='bad', badge='cross', t_badge=start('w')); tn = c2.text([['Not ', 'ink'], [D['over'], 'bad'], ['!', 'ink']], S['body'], start('w'), align='c')[0]
-    c2.place(start('w'), t_out, 'b'); strike_on(tn, D['over'], at('w', D['over']) + 0.25)
+    """Stitch 8a2f4328… 'Climbing candy tiles': base → past → past participle climb a staircase, each on its spoken word; 'NOT BREAKED!' stamp."""
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2
+    y = title([['VERB CHALLENGE', 'primary']], 40, RY0, None, t_out)
+    y = title([['Three forms of ', 'ink'], [D['base'], 'accent']], 84, y + 4, None, t_out, hook=True)
+    cy = y + 36; tw_, th_ = 560, 172; steps = [(RX0 + 10, cy + 404), (RX0 + (RW - tw_) / 2, cy + 206), (RX1 - 10 - tw_, cy + 8)]
+    top('path', [RX0, cy, RX1, cy + 580], start('b'), out=t_out, pts=[[x + tw_ / 2 - RX0, yy + th_ / 2 - cy] for x, yy in steps])
+    for i, (lab, wd, lid, tone, hint) in enumerate([('BASE FORM', D['base'], 'b', 'coral', 'now · always'), ('PAST SIMPLE', D['past'], 'p', 'amber', 'yesterday'),
+                                                     ('PAST PARTICIPLE', D['pp'], 'pp', 'gold', 'has · have')]):
+        x, yy = steps[i]; P = CANDY[tone]; t_w = at(lid, wd)
+        n = top('candy', [x, yy, x + tw_, yy + th_], t_w, out=t_out, tone=tone, pal=P, label=lab, word=wd, step=i + 1, size=88, lsize=40,
+                pairs=[[P['ink'], P['b'], 88], [P['lab'], P['a'], 40]])
+        CUES.append(dict(node=n['id'], t=t_w, tag=wd))
+    x, yy = steps[0]
+    top('stamp', [x + tw_ - 50, yy + 44, x + tw_ + 300, yy + 128], at('w', D['over']), k='pop', out=t_out, text=f"NOT {D['over'].upper()}!", size=44, rot=-6,
+        pairs=[['#FFFFFF', '#C92A2A', 44]])
     stem = D['quiz']['stem']
     quiz_card([[stem, 'ink']], D['quiz']['options'], D['quiz']['answer'], start('q'), at('a', D['quiz']['options'][D['quiz']['answer']]), start('sh') - 0.2,
               opt_ws=[at('q', D['quiz']['options'][0]), at('q', D['quiz']['options'][1])])
@@ -273,19 +282,81 @@ def T_verbs():
     end_card()
 
 
+def beat_row(word, syl, stress, ipa, t_in, t_hit, t_out, y):
+    """Stitch 1af83ea9… 'Word stress beat': syllable tiles on a rhythm line; the stressed tile turns gold and lifts on the word that names it."""
+    y = title([['WORD STRESS BEAT', 'primary']], 40, y, t_in, t_out)
+    y = title([[word, 'ink']], 96, y + 2, t_in, t_out)
+    n = len(syl); gap = 22; big = 1.18; w = min(230, (RW - gap * (n - 1)) / (n - 1 + big)); h = 150; tot = w * (n - 1 + big) + gap * (n - 1); x = RX0 + (RW - tot) / 2
+    ty = y + 120; pts = []; nodes = []
+    for i, sy in enumerate(syl):
+        ww = w * big if i == stress else w; disp = sy.upper() if i == stress else sy
+        sz = min(84, int(84 * (ww - 30) / max(1, tw(disp, 84))))
+        nd = top('beat', [x, ty, x + ww, ty + h], t_in, out=t_out, text=disp, size=sz, big=i == stress, st=[dict(t=round(t_hit, 4), s='hit')] if i == stress else [],
+                 pairs=[[TH['ink'], TH['tile'], sz]] + ([['#382600', '#FFC524', sz]] if i == stress else []))
+        nodes.append(nd); pts.append([x + ww / 2 - RX0, ty + h / 2 - (y - 10)]); x += ww + gap
+    top('path', [RX0, y - 10, RX1, ty + h + 60], t_in, out=t_out, pts=pts, wave=True)
+    sb = nodes[stress]['box']
+    top('chip', [(sb[0] + sb[2]) / 2 - 200, ty - 116, (sb[0] + sb[2]) / 2 + 200, ty - 48], t_hit, out=t_out, text='PRIMARY STRESS', tone='chip', size=40)
+    y2 = ty + h + 70; iw = tw(ipa, 52, True) + 80
+    nip = top('ipapill', [RX0 + (RW - iw) / 2, y2, RX0 + (RW + iw) / 2, y2 + 88], t_in, out=t_out, text=ipa, size=52, pairs=[[TH['ink'], TH['card'], 52]])
+    rh = ' · '.join('DUM' if i == stress else 'da' for i in range(n)); rw = tw(rh, 44) + 60
+    top('rhythm', [RX0 + (RW - rw) / 2, y2 + 112, RX0 + (RW + rw) / 2, y2 + 182], t_hit, out=t_out, text=rh, stress=stress, size=44, pairs=[[TH['accent'], TH['card'], 44], [TH['muted'], TH['card'], 44]])
+    IPA.append(dict(token=word, ipa=ipa, syl=syl, stress=stress, node=nip['id']))
+    return y2 + 182
+
+
 def T_stress():
-    D = EP['data']; A, B = D['a'], D['b']; series_chip()
-    hook_card([["Where's the ", 'ink'], ['stress', 'accent'], ['?', 'ink']], start('a') - 0.2)
-    t_out = start('q') - 0.2
-    c = Card(RY0); dots(c, A['syl'], A['stress'], start('a'), at('a', 'first'))
-    c.text([[A['ipa'], 'muted']], S['ipa'], start('a'), align='c', ipa=True); IPA.append(dict(token=A['word'], ipa=A['ipa'], syl=A['syl'], stress=A['stress'], node=c.rows[-1]['id']))
-    c.place(start('a'), t_out, 'a'); b1 = c.box
-    c2 = Card(b1[3] + 28); dots(c2, B['syl'], B['stress'], at('b', B['word']), at('m', B['say']))
-    c2.text([[B['ipa'], 'muted']], S['ipa'], at('b', B['word']), align='c', ipa=True); IPA.append(dict(token=B['word'], ipa=B['ipa'], syl=B['syl'], stress=B['stress'], node=c2.rows[-1]['id']))
-    c2.text([['Say it with me!', 'primary']], S['sub'], start('r'), align='c'); c2.place(at('b', B['word']), t_out, 'b')
+    D = EP['data']; A, B = D['a'], D['b']; series_chip(); t_q = start('q') - 0.2
+    title([["Where's the ", 'ink'], ['stress', 'accent'], ['?', 'ink']], 96, RY0 + 120, None, start('a') - 0.2, hook=True)
+    beat_row(A['word'], A['syl'], A['stress'], A['ipa'], start('a'), at('a', 'first'), at('b', B['word']) - 0.2, RY0)
+    yb = beat_row(B['word'], B['syl'], B['stress'], B['ipa'], at('b', B['word']), at('m', B['say']), t_q, RY0)
+    top('chip', [RX0 + (RW - 380) / 2, yb + 24, RX0 + (RW + 380) / 2, yb + 92], start('r'), out=t_q, text='SAY IT WITH ME', tone='chip', size=40)
     o = D['quiz']['options']
     quiz_card([[B['word'], 'ink']], [f"{o[0]}-…", f"…-{o[1]}-…"], 1, start('q'), at('ans', B['say']), start('sh') - 0.2)
     save_card([[[A['word'] + ' → ', 'muted'], ['1st', 'accent']], [[B['word'] + ' → ', 'muted'], ['2nd', 'accent']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_mistake():
+    """Stitch 3036b5ac… 'chat bubbles': headline on the canvas, DON'T SAY bubble (strike on the extra word) → SAY THIS bubble → tip pill."""
+    D = EP['data']; series_chip(); t_out = start('q') - 0.2
+    ph = EP['hook']['text'].split('“')[-1].rstrip('”'); t_h = start('w') - 0.2
+    y = title([['Stop saying', 'ink']], 96, RY0 + 120, None, t_h, hook=True)
+    title([[f'“{ph}”!', 'coral']], 96, y, None, t_h, hook=True)
+    c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'
+    tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
+    strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
+    NODES.append(dict(id='guess', type='qmark', size=96, box=[RX1 - 114, b1[1] + 20, RX1 - 4, b1[1] + 130], **{'in': cue(start('g'))}, out=dict(t=round(at('r', 'better') - 0.2, 3))))
+    c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
+    c.text([[D['right'], 'ongood']], S['body'], at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
+    c = Card(b2[3] + 30, tone='card'); c.text([['⚡ ', 'accent'], [D['why'], 'ink']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')   # memory trick -> save card
+    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
+    save_card([[[D['right'], 'good']], [[D['memory'], 'muted']]], start('sh'), start('c') - 0.2)
+    end_card()
+
+
+def T_usuk():
+    """Stitch a5a31136… 'US vs UK battle': split card (US half | UK half) with a coral VS badge on the seam; example, then the quiz below it."""
+    D = EP['data']; series_chip(); t_split = start('sh') - 0.2
+    title([['US', 'primary'], [' or ', 'ink'], ['UK', 'coral'], ['?', 'ink']], 112, RY0 + 120, None, at('us', D['us']) - 0.2, hook=True)
+    top('flags', [RX0 + (RW - 300) / 2, RY0 + 290, RX0 + (RW + 300) / 2, RY0 + 390], None, out=at('us', D['us']) - 0.2)
+    H2 = 330; half = RW / 2
+    top('split', [RX0, RY0, RX1, RY0 + H2], at('us', D['us']), out=t_split)
+    for i, (cc, wd, ipa, col, lid, lab) in enumerate([('us', D['us'], D['ipa_us'], 'primary', 'us', 'US ENGLISH'), ('uk', D['uk'], D['ipa_uk'], 'coral', 'uk', 'UK ENGLISH')]):
+        x0 = RX0 + i * half; t_w = at(lid, wd); inner = half - 90
+        top('tag', [x0 + 30, RY0 + 30, x0 + 30 + tw(lab, 40) + 116, RY0 + 98], t_w, out=t_split, cc=cc, text=lab, size=40)
+        sz = min(104, int(104 * inner / max(1, tw(wd, 104)))); ww = tw(wd, sz)
+        nw = top('text', [x0 + (half - ww) / 2, RY0 + 130, x0 + (half + ww) / 2, RY0 + 130 + round(sz * 1.2)], t_w, out=t_split, runs=[[wd, col]], size=sz, ipa=False, parent=None)
+        CUES.append(dict(node=nw['id'], t=t_w, tag=wd)); iw = tw(ipa, 48, True)
+        ni = top('text', [x0 + (half - iw) / 2, RY0 + 260, x0 + (half + iw) / 2, RY0 + 318], t_w, out=t_split, runs=[[ipa, 'muted']], size=48, ipa=True)
+        IPA.append(dict(token=wd, ipa=ipa, node=ni['id']))
+    top('vs', [RX0 + half - 60, RY0 + H2 - 66, RX0 + half + 60, RY0 + H2 + 54]   # medallion on the bottom seam (never on a word)
+       , at('uk', 'Britain'), k='pop', out=t_split, size=60, pairs=[['#FFFFFF', '#E0482F', 60]])
+    c = Card(RY0 + H2 + 76); c.text([[D['same'], 'accent']], S['body'], at('uk', 'same'), align='c', gap=GAP)
+    c.text(runs_hl(LINES['x']['text'], D['us']), S['body'], start('x'), align='c'); c.place(at('uk', 'same'), start('q') - 0.2, 'b')
+    qc_ = Card(RY0 + H2 + 76); chip(qc_, 'QUICK QUIZ', start('q')); pills(qc_, [D['us'], D['uk']], start('q'), at('a', D['uk']), 1)
+    b = qc_.place(start('q'), t_split, 'b'); ring(b, end('q') + 0.05, end('q') + LINES['q']['pause'] - 0.1)
+    save_card([[['US ', 'muted'], [D['us'], 'primary']], [['UK ', 'muted'], [D['uk'], 'coral']]], start('sh'), start('c') - 0.2)
     end_card()
 
 
@@ -293,19 +364,6 @@ def _fix(D, t_hook_out, wrong_l, right_l, strike_tok_line):
     c = Card(RY0, tone='bad', badge='cross', t_badge=start(wrong_l)); tn = c.text([[D['wrong'], 'ink']], S['body'], start(wrong_l))[0]; b1 = c.place(start(wrong_l), start('q') - 0.2, 'a')
     strike_on(tn, D['strike'], at(wrong_l, D['strike'].split()[0]) + 0.15)
     return b1
-
-
-def T_mistake():
-    D = EP['data']; series_chip()
-    hook_card([[EP['hook']['text'], 'ink']], start('w') - 0.2)
-    b1 = _fix(D, None, 'w', 'r', None)
-    NODES.append(dict(id='guess', type='qmark', size=96, box=[RX1 - 130, b1[3] + 20, RX1 - 20, b1[3] + 130], **{'in': cue(start('g'))}, out=dict(t=round(start('r') - 0.2, 3))))
-    c = Card(b1[3] + 28, tone='good', badge='check', t_badge=at('r', 'better')); c.text(runs_hl(D['right'], 'discuss the', 'good'), S['body'], at('r', 'better'))
-    c.text([[D['why'], 'muted']], S['sub'], start('y'))
-    c.text([[D['memory'], 'accent']], S['sub'], start('k')); c.place(at('r', 'better'), start('q') - 0.2, 'b')
-    q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
-    save_card([[[D['right'], 'good']], [[D['memory'], 'muted']]], start('sh'), start('c') - 0.2)
-    end_card()
 
 
 def T_phrasal():

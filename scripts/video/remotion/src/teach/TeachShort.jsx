@@ -24,20 +24,56 @@ const Flag = ({ cc, w, h }) => cc === 'us'
   : <svg width={w} height={h} viewBox="0 0 30 20"><rect width="30" height="20" rx="3" fill="#26408F" /><path d="M0 0L30 20M30 0L0 20" stroke="#FFF" strokeWidth="4" /><path d="M0 0L30 20M30 0L0 20" stroke="#D22F3C" strokeWidth="1.6" />
       <path d="M15 0V20M0 10H30" stroke="#FFF" strokeWidth="6" /><path d="M15 0V20M0 10H30" stroke="#D22F3C" strokeWidth="3.4" /></svg>;
 
-const TONES = T => ({ card: [T.card, T.edge, T.ledge], tile: [T.tile, T.tile_edge, T.tile_ledge], good: [T.good_bg, T.good_edge, T.ledge], bad: [T.bad_bg, T.bad_edge, T.ledge] });
+const TONES = T => ({ card: [T.card, T.edge, T.ledge], tile: [T.tile, T.tile_edge, T.tile_ledge], good: [T.good_bg, T.good_edge, T.ledge], bad: [T.bad_bg, T.bad_edge, T.ledge],
+  bubble_bad: [T.bubble_bad, T.bubble_bad_edge, '#7A1E10'], bubble_good: [T.bubble_good, T.bubble_good_edge, '#0B4540'] });
 
 function Body({ n, t, w, h, T }) {
   const c = k => T[k] || k;
   switch (n.type) {
     case 'card': { const [f, e, l] = TONES(T)[n.tone] || TONES(T).card;
-      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', background: f, borderRadius: 44, border: `2px solid ${e}`, borderBottom: `10px solid ${l}`,
-        boxShadow: n.hook ? `0 18px 40px -18px ${T.ledge}` : 'none' }} />; }
+      return <div style={{ position: 'absolute', inset: 0 }}>
+        <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', background: f, borderRadius: n.tail ? 40 : 44, border: `2px solid ${e}`, borderBottom: `10px solid ${l}`,
+          boxShadow: n.hook ? `0 18px 40px -18px ${T.ledge}` : 'none' }} />
+        {n.tail ? <svg width="44" height="40" style={{ position: 'absolute', bottom: -26, [n.tail === 'l' ? 'left' : 'right']: 40 }} viewBox="0 0 44 40">
+          <path d={n.tail === 'l' ? 'M0 0 L44 0 L4 40 Z' : 'M0 0 L44 0 L40 40 Z'} fill={l} /><path d={n.tail === 'l' ? 'M2 0 L42 0 L6 30 Z' : 'M2 0 L42 0 L38 30 Z'} fill={f} /></svg> : null}</div>; }
     case 'text': { const [cur, , m] = state(n, t), hit = n.hit_col && cur === 'hit' ? m : 0;
       return <div style={{ width: w + 4, height: h, fontFamily: n.ipa ? NOTO : JAK, fontWeight: n.ipa ? 500 : 800, fontSize: n.size, lineHeight: `${h}px`, whiteSpace: 'pre' }}>
         {n.runs.map(([s, k], i) => <span key={i} style={{ color: hit ? mixc(c(k), c(n.hit_col), hit) : c(k) }}>{s}</span>)}</div>; }
-    case 'chip':
-      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: T.chip_bg, border: `2px solid ${T.chip_edge}`, color: T.chip_ink, fontFamily: JAK, fontWeight: 800,
-        fontSize: n.size, lineHeight: `${h - 4}px`, letterSpacing: '0.06em', textAlign: 'center', whiteSpace: 'pre' }}>{n.text}</div>;
+    case 'chip': { const [cb, ce, ci] = n.tone === 'bad' ? [T.bad_bg, T.bad_edge, T.bad] : n.tone === 'good' ? [T.good_bg, T.good_edge, T.good] : [T.chip_bg, T.chip_edge, T.chip_ink];
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: cb, border: `2px solid ${ce}`, color: ci, fontFamily: JAK, fontWeight: 800,
+        fontSize: n.size, lineHeight: `${h - 4}px`, letterSpacing: '0.06em', textAlign: 'center', whiteSpace: 'pre' }}>{n.text}</div>; }
+    // ---- Stitch video frames (project 7268539912208977707): candy staircase 8a2f4328, stress beat 1af83ea9, chat 3036b5ac, US vs UK battle a5a31136 ----
+    case 'candy': { const P = n.pal;
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 34, background: `linear-gradient(180deg, ${P.a} 0%, ${P.b} 100%)`, border: `3px solid ${P.edge}`,
+        boxShadow: `0 10px 0 ${P.ledge}, 0 22px 40px -12px ${P.b}88, inset 0 3px 6px rgba(255,255,255,.55)`, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 14 }}>
+        <div style={{ width: '80%', height: 12, borderRadius: 8, background: 'rgba(255,255,255,.45)' }} />
+        <div style={{ marginTop: 8, fontFamily: JAK, fontWeight: 800, fontSize: n.lsize, lineHeight: `${n.lsize + 4}px`, letterSpacing: '0.06em', color: P.lab }}>{n.label}</div>
+        <div style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${n.size + 4}px`, letterSpacing: '-0.01em', color: P.ink, textShadow: '0 2px 0 rgba(0,0,0,.12)' }}>{n.word}</div>
+        <div style={{ position: 'absolute', top: -22, right: -16, width: 62, height: 62, borderRadius: 31, background: '#FFFFFF', border: `4px solid ${P.edge}`, boxShadow: '0 4px 0 rgba(0,0,0,.25)',
+          fontFamily: JAK, fontWeight: 800, fontSize: 30, lineHeight: '54px', textAlign: 'center', color: P.ledge }}>{n.step}</div></div>; }
+    case 'stamp':
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 22, background: '#C92A2A', border: '4px dashed #FFA8A8', boxShadow: '0 12px 26px rgba(201,42,42,.45)',
+        transform: `rotate(${n.rot || -6}deg)`, color: '#FFFFFF', fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 8}px`, textAlign: 'center', letterSpacing: '0.04em', whiteSpace: 'pre' }}>{n.text}</div>;
+    case 'path': { const p = n.pts || []; if (p.length < 2) return null;
+      const d = n.wave ? p.map((q, i) => (i ? `Q ${(p[i - 1][0] + q[0]) / 2} ${Math.min(p[i - 1][1], q[1]) - 30} ${q[0]} ${q[1]}` : `M ${q[0]} ${q[1]}`)).join(' ') : p.map((q, i) => `${i ? 'L' : 'M'} ${q[0]} ${q[1]}`).join(' ');
+      return <svg width={w} height={h} style={{ overflow: 'visible' }}><path d={d} fill="none" stroke={n.wave ? T.primary : 'rgba(255,255,255,.28)'} strokeOpacity={n.wave ? 0.55 : 1} strokeWidth="5" strokeDasharray={n.wave ? '0' : '12 12'} strokeLinecap="round" /></svg>; }
+    case 'beat': { const [cur, , m] = state(n, t), on = n.big && cur === 'hit' ? easeOut(m) : 0;
+      return <div style={{ position: 'absolute', inset: 0, transform: `translateY(${-40 * on}px) scale(${1 + 0.06 * on})`, boxSizing: 'border-box', borderRadius: 30,
+        background: on ? `linear-gradient(180deg, ${mixc(T.tile, '#FFE266', on)} 0%, ${mixc(T.tile, '#FFC524', on)} 100%)` : T.tile, border: `3px solid ${on ? mixc(T.tile_edge, '#FFF1A8', on) : T.tile_edge}`,
+        boxShadow: `0 9px 0 ${on ? mixc(T.tile_ledge, '#A87803', on) : T.tile_ledge}${on ? `, 0 0 ${40 * on}px rgba(255,201,74,${0.5 * on})` : ''}`,
+        fontFamily: JAK, fontWeight: 800, fontSize: n.size, lineHeight: `${h - 12}px`, textAlign: 'center', color: on ? mixc(T.ink, '#382600', on) : T.ink }}>{n.text}</div>; }
+    case 'ipapill':
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 24, background: T.card, border: `2px solid ${T.edge}`, borderBottom: `6px solid ${T.ledge}`,
+        fontFamily: NOTO, fontWeight: 500, fontSize: n.size, lineHeight: `${h - 8}px`, textAlign: 'center', color: T.ink, whiteSpace: 'pre' }}>{n.text}</div>;
+    case 'rhythm':
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: 999, background: T.card, border: `2px solid ${T.edge}`, fontFamily: JAK, fontWeight: 800, fontSize: n.size,
+        lineHeight: `${h - 4}px`, textAlign: 'center', whiteSpace: 'pre' }}>{n.text.split(' · ').map((x, i) => <span key={i} style={{ color: x === 'DUM' ? T.accent : T.muted }}>{(i ? ' · ' : '') + x}</span>)}</div>;
+    case 'split':
+      return <div style={{ position: 'absolute', inset: 0, boxSizing: 'border-box', borderRadius: 44, background: T.card, border: `2px solid ${T.edge}`, borderBottom: `10px solid ${T.ledge}` }}>
+        <div style={{ position: 'absolute', left: '50%', top: 24, bottom: 24, width: 2, background: T.edge }} /></div>;
+    case 'vs':
+      return <div style={{ width: w, height: h, boxSizing: 'border-box', borderRadius: '50%', background: `radial-gradient(circle at 40% 30%, #FF8A65 0%, #E0482F 70%)`, border: '5px solid #FFC94A',
+        boxShadow: '0 8px 0 #9E2B16, 0 0 30px rgba(242,85,59,.5)', color: '#FFFFFF', fontFamily: JAK, fontWeight: 800, fontStyle: 'italic', fontSize: n.size, lineHeight: `${h - 10}px`, textAlign: 'center' }}>VS</div>;
     case 'tag':
       return <div style={{ height: h, display: 'flex', alignItems: 'center', gap: 12, boxSizing: 'border-box', padding: '0 18px 0 12px', borderRadius: 999, background: T.card, border: `2px solid ${T.edge}`, width: 'fit-content' }}>
         <Flag cc={n.cc} w={48} h={32} /><span style={{ fontFamily: JAK, fontWeight: 800, fontSize: n.size, color: T.ink, letterSpacing: '0.06em' }}>{n.text}</span></div>;

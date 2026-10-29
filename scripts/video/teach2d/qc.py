@@ -68,7 +68,7 @@ off = [dict(node=c['node'], tag=c['tag'], d=round(N[c['node']]['in']['t'] + C.HA
 offb = [x for x in off if abs(x['d']) > 0.08 and N[x['node']]['in']['t'] >= N[N[x['node']]['parent']]['in']['t'] + 1e-6 if N[x['node']].get('parent')]
 gate('cue_timing', not offb, 2, checked=len(off), bad=offb[:6])
 # layout: sampled every 0.1 s
-SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags'}
+SAFE = T['safe']; head = T['head']; prob = []; leaf = {'text', 'chip', 'pill', 'ring', 'img', 'cta', 'tag', 'cross', 'check', 'qmark', 'eq', 'flags', 'candy', 'beat', 'ipapill', 'rhythm', 'vs', 'stamp'}
 for i in range(int(T['total'] * 10)):
     t = i / 10; vis = [n for n in T['nodes'] if alpha(n, t) > 0.3]
     for n in vis:
@@ -79,7 +79,7 @@ for i in range(int(T['total'] * 10)):
     for a in range(len(tx)):
         for b in range(a + 1, len(tx)):
             A, B = tx[a], tx[b]
-            if inter(A['box'], B['box'], 2) and not ({A['type'], B['type']} & {'check'} and 'pill' in {A['type'], B['type']}) and not (A['type'] == 'ring' or B['type'] == 'ring') and A.get('parent') != B['id'] and B.get('parent') != A['id']:
+            if inter(A['box'], B['box'], 2) and not ({A['type'], B['type']} & {'check'} and 'pill' in {A['type'], B['type']}) and not {A['type'], B['type']} == {'stamp', 'candy'} and not (A['type'] == 'ring' or B['type'] == 'ring') and A.get('parent') != B['id'] and B.get('parent') != A['id']:
                 prob.append(dict(t=t, ids=[A['id'], B['id']], why='overlap'))
     cards = [n for n in vis if n['type'] == 'card' and not n.get('parent')]
     for a in range(len(cards)):
@@ -102,7 +102,7 @@ def rgb(c, over=None):
     if c.startswith('#'): return c
     m = re.match(r'rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)', c); r, g, b, a = int(m[1]), int(m[2]), int(m[3]), float(m[4]); ov = [int(over[i:i + 2], 16) for i in (1, 3, 5)]
     return '#' + ''.join(f'{round(x * a + y * (1 - a)):02x}' for x, y in zip((r, g, b), ov))
-FILL = dict(card=TH['card'], tile=TH['tile'], good=TH['good_bg'], bad=TH['bad_bg'])
+FILL = dict(card=TH['card'], tile=TH['tile'], good=TH['good_bg'], bad=TH['bad_bg'], bubble_bad=TH['bubble_bad'], bubble_good=TH['bubble_good'])
 low = []
 def need(sz): return 3.0 if sz >= 56 else 4.5
 for n in T['nodes']:
@@ -112,6 +112,10 @@ for n in T['nodes']:
             if s.strip():
                 cr = contrast(TH.get(k, k), bg)
                 if cr < need(n['size']): low.append(dict(id=n['id'], text=s.strip()[:20], cr=cr, need=need(n['size'])))
+for n in T['nodes']:   # Stitch components with their own fills (candy tiles, beat tiles, stamp, VS…) declare their text/fill pairs
+    for fg, bg, sz in n.get('pairs') or []:
+        cr = contrast(TH.get(fg, fg), TH.get(bg, bg))
+        if cr < need(sz): low.append(dict(id=n['id'], type=n['type'], fg=fg, bg=bg, cr=cr, need=need(sz)))
 pairs = [('chip', TH['chip_ink'], TH['chip_bg'], 40), ('pill', TH['ink'], TH['pill'], 56), ('pill-right', TH['ink'], TH['good_bg'], 56), ('pill-dim', TH['muted'], TH['pill'], 56),
          ('caption', TH['cap_ink'], rgb(TH['cap_plate'], TH['bg2']), 58), ('caption-now', TH['cap_now'], rgb(TH['cap_plate'], TH['bg2']), 58), ('cta', TH['cta_ink'], TH['cta_a'], 60), ('ring', TH['ring_ink'], TH['ring_bg'], 54)]
 for name, fg, bg, sz in pairs:

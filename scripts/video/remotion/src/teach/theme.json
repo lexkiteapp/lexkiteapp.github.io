@@ -42,7 +42,13 @@
   "cta_b": "#FF9E3B",
   "cta_ledge": "#B53A22",
   "cta_ink": "#10191B",
-  "qr_ink": "#10191B"
+  "qr_ink": "#10191B",
+  "onbad": "#FFFFFF",
+  "ongood": "#FFFFFF",
+  "bubble_bad": "#C83A23",
+  "bubble_bad_edge": "#F0826C",
+  "bubble_good": "#17786F",
+  "bubble_good_edge": "#5FC7BC"
  },
  "light": {
   "bg": "#F6F8F7",
@@ -86,7 +92,13 @@
   "cta_b": "#FF9E3B",
   "cta_ledge": "#B53A22",
   "cta_ink": "#10191B",
-  "qr_ink": "#10191B"
+  "qr_ink": "#10191B",
+  "onbad": "#FFFFFF",
+  "ongood": "#FFFFFF",
+  "bubble_bad": "#C83A23",
+  "bubble_bad_edge": "#F0826C",
+  "bubble_good": "#17786F",
+  "bubble_good_edge": "#5FC7BC"
  },
  "dusk": {
   "bg": "#15434A",
@@ -130,7 +142,13 @@
   "cta_b": "#FF9E3B",
   "cta_ledge": "#B53A22",
   "cta_ink": "#10191B",
-  "qr_ink": "#10191B"
+  "qr_ink": "#10191B",
+  "onbad": "#FFFFFF",
+  "ongood": "#FFFFFF",
+  "bubble_bad": "#C83A23",
+  "bubble_bad_edge": "#F0826C",
+  "bubble_good": "#17786F",
+  "bubble_good_edge": "#5FC7BC"
  },
  "tints": {
   "usuk": "rgba(107,216,206,0.30)",
