@@ -3,7 +3,7 @@
 name: Stitch diff
 on:
   pull_request:
-    paths: ['web/**', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/test/stitch-render.mjs', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-diff.yml']
+    paths: ['web/**', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/test/stitch-render.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-diff.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,7 +20,8 @@ jobs:
         with: { node-version: 22 }
       - name: CSS Stitch khớp mẫu (Tailwind biên dịch sẵn, ≤ 10 KB gz/nhóm)
         run: |
-          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0 axe-core@4.10.2
+          npm i --no-save --no-audit --no-fund tailwindcss@3.4.17 playwright@1.48.2 pngjs@7.0.0 axe-core@4.10.2 jsdom@25.0.1
+          node scripts/stitch-v2-convert.mjs --check
           node scripts/build-stitch-css.mjs --check
       - name: Vẽ HTML Stitch v2 tĩnh (tắt hoạt ảnh) → tờ duyệt tối/sáng
         if: always()

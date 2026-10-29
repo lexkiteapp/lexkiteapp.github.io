@@ -34,4 +34,8 @@
   "Bước {a}/{b}": "Step {a} of {b}",
   "+{x} XP tới mốc kiểm tra": "+{x} XP to the checkpoint",
   "Tiếp tục chặng {n}": "Continue unit {n}",
+  // Stitch v2 – màn Học (ux1.js map)
+  'Đã khóa': 'Locked',
+  '{p}% hoàn thành': '{p}% completed',
+  'Tiếp theo: {u}': 'Next: {u}',
 }); })(typeof self !== 'undefined' ? self : this);

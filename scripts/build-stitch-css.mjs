@@ -12,6 +12,11 @@ const ROOT = process.cwd(), A = new Set(process.argv.slice(2)), BUDGET = 10 * 10
 const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8'));
 // Nhóm màn = 1 file CSS. common.js (đầu trang, thanh tab, nút) góp vào mọi nhóm.
 const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['web/js/st/common.js', 'web/js/st/lesson.js'], goal: ['web/js/st/common.js', 'web/js/st/goal.js'] };
+// Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
+//   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
+const V2 = fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [];
+const V2DATA = { path: ['web/js/ux1.js'] }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
+for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', `web/js/st/v2/${k}.js`, ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
 const OUT = g => `web/css/st-${g}.css`;
 
 const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
@@ -42,9 +47,17 @@ const PRE = [
   '.bottom-nav.st-nav{border-top-color:transparent;padding:0;align-items:stretch}.bottom-nav.st-nav a.st-tab{flex:1;font-size:12px;color:rgb(var(--st-on-surface-variant))}.bottom-nav.st-nav a.st-tab.active{color:rgb(var(--st-secondary))}.bottom-nav.st-nav a.st-tab span{font-size:11px;line-height:16px}.bottom-nav.st-nav a.st-tab .material-symbols-outlined{font-size:22px;line-height:1}.bottom-nav.st-nav a.st-tab.active{border-color:rgb(var(--st-secondary-container));background:rgb(var(--st-secondary-container)/.15)}:root:not([data-theme=dark]) .bottom-nav.st-nav a.st-tab.active .st-tabi{background:rgb(var(--st-secondary-container)/.15)}@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .bottom-nav.st-nav a.st-tab.active .st-tabi{background:rgb(var(--st-surface-container-high));border-color:rgb(var(--st-secondary));box-shadow:0 4px 0 rgb(var(--st-lip-secondary))}}',
   // Chuyển động (chủ 28/10 mở luật): nút nhún 120 ms (lớp active: của Tailwind) · ăn mừng khi xong bài = pop ≤ 200 ms + vài hạt ≤ 1 s · tắt hết khi giảm chuyển động
   '.st [class*="active:translate-y"]{transition-duration:120ms}.st-pop{animation:st-pop .2s cubic-bezier(.2,.9,.3,1.25) both}@keyframes st-pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}.st-burst{position:absolute;inset:0;pointer-events:none;overflow:visible}.st-burst i{position:absolute;left:50%;top:45%;width:8px;height:8px;border-radius:2px;opacity:0;animation:st-burst .9s cubic-bezier(.15,.7,.3,1) .1s both}@keyframes st-burst{0%{opacity:1;transform:translate(-50%,-50%) scale(.6)}100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(var(--r)) scale(1)}}@media (prefers-reduced-motion:reduce){.st-pop{animation:none}.st-burst{display:none}}',
+  // v2: reset tối thiểu CHỈ trong .v2 (thay preflight của Tailwind mà Stitch dựa vào) – không đụng phần còn lại của app
+  '.v2,.v2 *,.v2 ::before,.v2 ::after{box-sizing:border-box;border:0 solid}.v2 :is(h1,h2,h3,h4,h5,p,figure,blockquote,dl,dd,ol,ul){margin:0}.v2 :is(h1,h2,h3,h4,h5){font-size:inherit;font-weight:inherit}.v2 :is(ol,ul){list-style:none;padding:0}.v2 button{background:transparent;padding:0;font:inherit;color:inherit;cursor:pointer;line-height:inherit}.v2 a{color:inherit;text-decoration:inherit}.v2 :is(img,svg,video){display:block;vertical-align:middle}.v2 :is(img,video){max-width:100%;height:auto}.v2 [hidden]{display:none}',
+  // v2 vỏ app: điện thoại (< 1024 px) dùng đầu trang + thanh tab Stitch (ẩn topbar/#bnav cũ) · máy tính giữ menu trái + đầu trang của app, ẩn vỏ Stitch
+  '@media (max-width:1023px){body.v2on .topbar,body.v2on #bnav{display:none!important}}body.v2on #view{padding:0;max-width:none}@media (min-width:1024px){body.v2on .v2>header,body.v2on .v2>nav{display:none}body.v2on .v2>main{padding-top:0;padding-bottom:0}body.v2on .v2{max-width:480px;margin:0 auto;min-height:0}}',
   '.st-fade{animation:st-fade .18s cubic-bezier(.2,0,0,1) both}@keyframes st-fade{from{opacity:0}to{opacity:1}}.st-rise{animation:st-rise .2s cubic-bezier(.2,0,0,1) both}@keyframes st-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media (prefers-reduced-motion:reduce){.st-fade,.st-rise{animation:none}.st *{transition:none!important}}',
 ].join('\n');
 
+function configV2(content) { // Tailwind mặc định + biến thể lt:/dk:/rtl: (không token cũ của app → bo góc/khoảng cách y như Stitch)
+  return `const plugin = require(${JSON.stringify(path.join(twDir(), 'plugin'))});
+module.exports = { content: ${JSON.stringify(content.map(f => path.join(ROOT, f)))}, corePlugins: { preflight: false },
+  plugins: [plugin(({ addVariant }) => { addVariant('lt', ['@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) & }', ':root[data-theme=light] &']); addVariant('dk', ['@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) & }', ':root[data-theme=dark] &']); addVariant('rtl', '[dir=rtl] &'); })] };`; }
 function config(content) {
   const colors = Object.fromEntries(C.map(([k]) => [k, `rgb(var(--st-${k}) / <alpha-value>)`]));
   const fontSize = Object.fromEntries(Object.entries(TOK.typography).map(([k, { $value: v }]) => [k, [v.fontSize, { lineHeight: v.lineHeight, letterSpacing: v.letterSpacing, fontWeight: String(v.fontWeight) }]]));
@@ -62,7 +75,7 @@ function twDir() { if (process.env.TAILWIND_DIR) return process.env.TAILWIND_DIR
 
 function build(g) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'st-')), cfg = path.join(tmp, 'tw.config.cjs'), inp = path.join(tmp, 'in.css'), out = path.join(tmp, 'out.css');
-  fs.writeFileSync(cfg, config(GROUPS[g])); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
+  fs.writeFileSync(cfg, (g.startsWith('v2-') ? configV2 : config)(GROUPS[g])); fs.writeFileSync(inp, '@tailwind base;\n@tailwind utilities;\n'); // base (preflight tắt) = chỉ biến mặc định --tw-* cho gradient/bóng/vòng
   execFileSync(process.execPath, [path.join(twDir(), 'lib/cli.js'), '-c', cfg, '-i', inp, '-o', out, '--minify'], { stdio: ['ignore', 'ignore', 'pipe'] });
   return `/* Stitch → Tailwind 3.4.17 (biên dịch sẵn, KHÔNG sửa tay): node scripts/build-stitch-css.mjs · nguồn web/js/st/${g}.js + brand/stitch/tokens.dtcg.json */\n${PRE}\n${fs.readFileSync(out, 'utf8').replace(/\/\*![^*]*\*\/\s*/, '')}\n`;
 }
@@ -81,7 +94,7 @@ async function fonts() {
   console.log('font:', fs.readdirSync('web/fonts').map(f => `${f} ${(fs.statSync('web/fonts/' + f).size / 1024).toFixed(1)} KB`).join(' · '));
 }
 // Tên icon dùng trong mẫu: ms('tên') hoặc chú thích "@icons a b c" (icon chọn theo dữ liệu)
-function icons() { const s = new Set(); for (const f of new Set(Object.values(GROUPS).flat())) { const t = fs.readFileSync(f, 'utf8'); for (const m of t.matchAll(/\bms\(\s*'([a-z_0-9]+)'/g)) s.add(m[1]); for (const m of t.matchAll(/@icons ([a-z_0-9 ]+)/g)) m[1].trim().split(/\s+/).forEach(x => s.add(x)); } return [...s].sort(); }
+function icons() { const s = new Set(); for (const f of new Set(Object.values(GROUPS).flat())) { const t = fs.readFileSync(f, 'utf8'); for (const m of t.matchAll(/\bms\(\s*'([a-z_0-9]+)'/g)) s.add(m[1]); for (const m of t.matchAll(/@icons ([a-z_0-9 ]+)/g)) m[1].trim().split(/\s+/).forEach(x => s.add(x)); for (const m of t.matchAll(/material-symbols-outlined[^>]*>\s*([a-z_0-9]+)\s*</g)) s.add(m[1]); } return [...s].sort(); }
 
 if (A.has('--fonts')) await fonts();
 const bad = [];

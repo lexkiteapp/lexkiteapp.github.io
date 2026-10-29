@@ -165,6 +165,17 @@
     const examH = ST.exam({ cls: 'ux1-exam-top', p: pc, C, off: pc != null ? C * (1 - pc / 100) : 0, icon: { briefcase: 'work', landmark: 'account_balance', 'message-circle': 'forum' }[Xe.ic] || 'school', title: Xe.short + (tg ? ' · ' + tg : ''), sub: [cur ? t('Dự đoán ~{s}', { s: cur }) : t('Chưa có điểm dự đoán'), left > 0 ? t('còn {n} ngày', { n: left }) : ''].filter(Boolean).join(' · '), href: MOCK[ex] || '#/tests', mock: t('Thi thử') });
     const coach = who === 'ama' ? 'Carlos' : 'Ama', placed = !!(state.settings || {}).placement;
     const chips = [u.words.length ? { icon: 'local_library', text: `${have}/${u.words.length}`, title: t('Kiến thức đã có') } : null, placed ? null : { href: '#/placement', icon: 'explore', text: t('Kiểm tra trình độ') }].filter(Boolean);
+    if (self.ST2 && ST2.path) { // 🎨 Stitch v2 "Learning Path" – khung tự sinh (web/js/st/v2/path.js · css/st-v2-path.css), chỉ gắn dữ liệu thật ở đây
+      const SNAKE = ['translate-x-6', '-translate-x-8', 'translate-x-0', 'translate-x-8', '-translate-x-6', 'translate-x-0'], STT = { done: t('Đã xong'), next: t('Đang học'), lock: t('Đã khóa') };
+      const nu = unitAt(n + P.length, P.length), pct = Math.round(at / P.length * 100);
+      const d = { unit: { title: u.name, pct, pctText: t('{p}% hoàn thành', { p: pct }), guideHref: '#/lesson?pick=1' }, stage: t('Chặng học {n}', { n: u.no }), step: `${Math.min(at + 1, P.length)}/${P.length}`,
+        nextUnit: t('Tiếp theo: {u}', { u: nu.name }), teacher: Chars.img('ama', { kind: 'still', pose: 'point', cls: 'absolute right-full bottom-2 mr-2 w-24 h-auto pointer-events-none select-none', alt: '', size: 96 }), // teacher-pose-map: Ama "point" chỉ nút đang học
+        nodes: nodes.map((x, i) => ({ st: x.st, kind: P[i].kind, cp: x.cp || (P[i].kind === 'exam'), label: x.label, title: x.label + (x.sub ? ' · ' + x.sub : ''), icon: x.icon, aria: `${x.label} – ${STT[x.st]}`, href: x.st === 'lock' ? '' : x.href, off: SNAKE[i % SNAKE.length] })) };
+      const root = ST2.mount(view, 'path', d, 'learn');
+      if (demo) { const s = document.createElement('p'); s.className = 'sr-only'; s.setAttribute('role', 'status'); s.textContent = t('Bài thử (không lưu tiến độ)'); root.prepend(s); if (App.toast) App.toast(t('Bài thử (không lưu tiến độ)')); }
+      const cur = root.querySelector('[data-cur]'); if (cur && cur.getBoundingClientRect().bottom > innerHeight - 160) try { cur.scrollIntoView({ block: 'center' }); } catch (e) { /* bỏ qua */ }
+      return;
+    }
     document.body.classList.add('st');
     view.innerHTML = ST.home({ demoNote: demo ? t('Bài thử (không lưu tiến độ)') : '', exam: examH, ucls: 'u-' + u.color, badge: t('Chặng học {n}', { n: u.no }), meta: X.short + ' · ' + (u.id === 'start' ? 'A1–A2' : CEFR[Math.max(2, Math.min(4, level()))]), title: u.name, img: ST.tImg(coach.toLowerCase()),
       step: t('Bước {a}/{b}', { a: Math.min(at + 1, P.length), b: P.length }), xpTo: xpTo ? t('+{x} XP tới mốc kiểm tra', { x: xpTo }) : '', pct: Math.round(at / P.length * 100), aria: { now: at, max: P.length }, coach: { name: coach, tip: CAN()[u.id] || '' }, chips, nodes,

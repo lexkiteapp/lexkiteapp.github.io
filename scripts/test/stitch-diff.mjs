@@ -11,6 +11,9 @@ const LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'))
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.jpg': 'image/jpeg', '.mp4': 'video/mp4', '.webmanifest': 'application/manifest+json', '.woff2': 'font/woff2' };
 const SCREENS = { home: 'home', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', readiness: 'goal' };
 const W = 390, G = 6;
+// Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
+const V2REF = { home: 'path', lesson: 'lesson-question', feedback: 'feedback-correct', readiness: 'exam-readiness' }, V2PNG = process.env.STITCH_V2_PNG || 'out/stitch-v2/png';
+const refOf = (k, sc) => { const v = path.join(V2PNG, `${V2REF[k] || k}-${sc}.png`); return fs.existsSync(v) ? v : `brand/stitch/${k}-${sc}.jpg`; };
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 const DRIVE = async k => { const q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
   const pick = it => { const o = qa('.lsn-opts .lsn-opt').find(b => b.dataset.o === String(it.answer)); if (o) o.click(); return !!o; };
@@ -102,7 +105,7 @@ for (const scheme of ['dark', 'light']) {
     a11y[`${k}-${scheme}`] = await page.evaluate(async () => { if (!window.axe || !document.querySelector('.st')) return { skipped: true };
       const r = await axe.run({ include: [...document.querySelectorAll('.st')] }, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } });
       return { violations: r.violations.map(v => ({ id: v.id, impact: v.impact, n: v.nodes.length, sample: v.nodes.slice(0, 2).map(x => x.target.join(' ') + ' ' + (x.failureSummary || '').split('\n')[1]) })), passes: r.passes.length }; }).catch(e => ({ error: e.message }));
-    const ref = `brand/stitch/${k}-${scheme}.jpg`;
+    const ref = refOf(k, scheme);
     if (fs.existsSync(ref)) res[`${k}-${scheme}`] = score(ref, buf);
   }
   await ctx.close();
@@ -167,10 +170,10 @@ for (const scheme of ['dark', 'light']) {
 await browser.close();
 
 // ---- tờ "Stitch | app" (sáng + tối) ----
-try { for (const k of Object.keys(SCREENS)) { const f = [`brand/stitch/${k}-dark.jpg`, path.join(OUT, `app-${k}-dark.png`), `brand/stitch/${k}-light.jpg`, path.join(OUT, `app-${k}-light.png`)];
-  const lab = ['Stitch – tối', 'Lexkite – tối', 'Stitch – sáng', 'Lexkite – sáng'], args = []; f.forEach((x, i) => { if (fs.existsSync(x)) args.push('-label', lab[i], x.endsWith('.png') ? x + '[390x1700+0+0]' : x); else args.push('-label', lab[i] + ' (chưa có mẫu)', 'xc:#ccc'); });
-  execFileSync('montage', [...args, '-tile', '4x1', '-geometry', '390x1300>+8+8', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `side-${k}.jpg`)]);
-  const d = [`brand/stitch/${k}-dark.jpg`, path.join(OUT, `desk-${k}-dark.png`), path.join(OUT, `desk-${k}-light.png`)], dl = ['Stitch (điện thoại, tối)', 'Lexkite máy tính – tối', 'Lexkite máy tính – sáng'], da = [];
+try { for (const k of Object.keys(SCREENS)) { const f = [refOf(k, 'dark'), path.join(OUT, `app-${k}-dark.png`), refOf(k, 'light'), path.join(OUT, `app-${k}-light.png`)];
+  const lab = ['Stitch – tối', 'Lexkite – tối', 'Stitch – sáng', 'Lexkite – sáng'], args = []; f.forEach((x, i) => { if (fs.existsSync(x)) args.push('-label', lab[i], x.endsWith('.png') ? x + '[390x2600+0+0]' : x); else args.push('-label', lab[i] + ' (chưa có mẫu)', 'xc:#ccc'); });
+  execFileSync('montage', [...args, '-tile', '4x1', '-geometry', '390x2600>+8+8', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `side-${k}.jpg`)]);
+  const d = [refOf(k, 'dark'), path.join(OUT, `desk-${k}-dark.png`), path.join(OUT, `desk-${k}-light.png`)], dl = ['Stitch (điện thoại, tối)', 'Lexkite máy tính – tối', 'Lexkite máy tính – sáng'], da = [];
   d.forEach((x, i) => { if (fs.existsSync(x)) da.push('-label', dl[i], x); });
   if (da.length) execFileSync('montage', [...da, '-tile', `${da.length / 3}x1`, '-geometry', '+8+8', '-resize', 'x900', '-pointsize', '18', '-background', '#e9e9e9', '-quality', '80', path.join(OUT, `desk-${k}.jpg`)]); } } catch (e) { console.log('montage bỏ qua:', e.message); }
 // tờ khổ máy: 360 · 390 · 412 (tối rồi sáng) cho mỗi màn
