@@ -534,7 +534,7 @@ def T_dictation():
     """Stitch 96c97a4a8606… 'What did she say?': headline, listening card (headphones + waveform that moves only while the line plays + 1/2 · 2/2 pill),
     sentence card with a glowing dashed gap that fills with the heard words on the answer."""
     D = EP['data']; series_chip(); t_out = start('sh') - 0.2; t_rev = at('a', 0)
-    title([['What did she ', 'ink'], ['say', 'primary'], ['?', 'ink']], 104, RY0 + 120, None, start('s1') - 0.2, hook=True)
+    title([['What did she ', 'ink'], ['say?', 'primary']], 92, RY0 + 140, None, start('s1') - 0.2, hook=True)
     plays = [[start('s1'), end('s1')], [start('q'), end('q')]]; t_mean = start('a') - 0.2
     c = Card(RY0, tone='card'); y_ = c.y; chip(c, '🎧 LISTEN', start('s1')); c.y = y_   # chip + play counter share the top row, the waveform sits under them
     for txt, t_a, t_b in [('▶ 1 / 2', start('s1'), start('q') - 0.5), ('▶ 2 / 2', start('q'), None)]:
@@ -569,12 +569,12 @@ def T_toeic():
     D = EP['data']; series_chip(); t_out = start('sh') - 0.2; t_ans = at('a', 0)
     title([['TOEIC', 'accent'], [' in 10 seconds', 'ink']], 84, RY0 + 160, None, start('s') - 0.2, hook=True)
     c = Card(RY0, tone='card'); chip(c, f"PART 5 · Q{D['n']}", start('s'))
-    pre, post = D['stem'].split('___'); c.text(runs_hl(pre.rstrip() + ' _____ ' + post.lstrip(), D['cue'], 'accent'), S['sub'], start('s'))
+    pre, post = D['stem'].split('___'); c.text(runs_hl(pre.rstrip() + ' _____ ' + post.lstrip(), D['cue'], 'accent'), 54, start('s'))
     c.text([['🔍 CLUE: ', 'muted'], [D['cue'], 'accent']], S['sub'], start('k')); b = c.place(start('s'), t_out, 'a')
     tw2 = (RW - 30) / 2; yy = b[3] + 30
     for j, o in enumerate(D['options']):
-        x = RX0 + (j % 2) * (tw2 + 30); y_ = yy + (j // 2) * 146; sz = min(56, int(56 * (tw2 - 50) / max(1, tw(o, 56))))
-        top('opt', [x, y_, x + tw2, y_ + 130], start('q'), out=t_out, text=o, size=sz, label='ABCD'[j],
+        x = RX0 + (j % 2) * (tw2 + 30); y_ = yy + (j // 2) * 156; sz = min(60, int(60 * (tw2 - 50) / max(1, tw(o, 60))))
+        top('opt', [x, y_, x + tw2, y_ + 140], start('q'), out=t_out, text=o, size=sz, label='ABCD'[j],
             st=[dict(t=round(t_ans - C.MIX / 2, 4), s='right' if j == D['answer'] else 'dim')], pairs=[[TH['ink'], TH['pill'], sz], [TH['ink'], TH['good_bg'], sz]])
     NODES.append(dict(id=nid('r'), type='ring', ring=dict(t0=round(end('q') + 0.05, 3), t1=round(end('q') + LINES['q']['pause'] - 0.1, 3)), size=54,
                       box=[b[2] - 124, b[1] + 22, b[2] - 28, b[1] + 118], **{'in': cue(end('q') + 0.05)}, out=dict(t=round(t_ans + 0.3, 3))))
