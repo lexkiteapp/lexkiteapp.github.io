@@ -210,6 +210,26 @@ def api_ask(im, q):
             time.sleep(3); continue
     _API['fails'] += 1; return None
 
+CHECK_Q = ('You check a picture for an English-learning app. Answer from the picture ONLY, strictly (if it is not clearly visible, the answer is no): {q} '
+           'Reply JSON only: {{"answer": "yes" or "no", "confidence": 0-100}}')
+def check_yes(im, q, model=None):
+    """e4 (29/10): câu hỏi kiểm NGHĨA của thẻ (vd. 'Is half of the class getting on the bus?') – bắt buộc yes ≥ VIMG_CHECK_CONF; None = không trả lời"""
+    if not q or not use_cf_vision(): return None
+    import io
+    b = io.BytesIO(); im.convert('RGB').resize((448, 448)).save(b, 'JPEG', quality=85)
+    for _ in range(2):
+        j = cf_vision(CHECK_Q.format(q=q), b.getvalue(), model)
+        if not j: return None
+        t = j['text'] or ''; m = re.search(r'\{.*\}', t, re.S)
+        try: o = json.loads(m.group(0)) if m else {}
+        except Exception: o = {}
+        a = str(o.get('answer', '')).strip().lower() or ('yes' if re.match(r'\W*yes', t, re.I) else 'no' if re.match(r'\W*no', t, re.I) else '')
+        if a in ('yes', 'no'):
+            try: c = float(o.get('confidence', 50))
+            except Exception: c = 50.0
+            return a == 'yes' and c >= float(os.environ.get('VIMG_CHECK_CONF', '70'))
+    return None
+
 def framing(im):
     """MỘT khuôn (chủ 24/10): chủ thể ở giữa, chừa lề ~10 %. Đo khung vật = điểm ảnh khác nền viền (trung vị) → lề nhỏ nhất (tỉ lệ cạnh) + lệch tâm."""
     a = np.asarray(im.convert('RGB').resize((128, 128)), np.int16); edge = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(edge, 0)
@@ -396,9 +416,17 @@ def main():
         else: ft['api_skipped'] = 'local fail'; _API['skipped'] += 1
         r = [] if a.features_only else verdict(ft, th, t['kind'])
         if dup: r.append('duplicate (pHash)')
+        # e4: ảnh cảnh đã qua (kể cả nhờ giám khảo kép) phải trả lời YES câu kiểm NGHĨA của thẻ – CẢ HAI mô hình (pilot 29/10: 'half', 'future' qua oan khi chỉ hỏi câu cảnh)
+        def _check(rr):
+            if rr or t['kind'] == 'object' or not t.get('check'): return rr
+            for m in CONS_MODELS:
+                y = check_yes(im, t['check'], m); ft.setdefault('chk', []).append(f"{m.split('/')[-1][:6]}:{y}")
+                if y is not True: return rr + [f'meaning check: {"no" if y is False else "no answer"} ({t["check"][:50]})']
+            return rr
         if r and os.environ.get('VIMG_CONSENSUS') == '1' and t['kind'] != 'object' and not any(x.startswith(HARD) for x in r):
             ok, det = consensus(im, t, ft); ft['cons'] = det
             if ok: ft['cons_soft'] = r; ft.update(ask_yes=True, ask_model='consensus:' + '+'.join(m.split('/')[-1] for m in CONS_MODELS), ask_conf=ft.get('ask_conf') or CONS_CONF); r = []   # nhận nhờ giám khảo kép; giữ lý do cổng mềm để soát
+        if not a.features_only: r = _check(r)
         seen_ph.append(ft['ph'])
         res[k] = {'pass': not r, 'reasons': r, 'kind': t['kind'], 'f': ft}
         print(k, 'PASS' if not r else 'FAIL', '; '.join(r)[:140], '·', ft['cap'][:70], flush=True)
