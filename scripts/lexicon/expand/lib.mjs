@@ -93,7 +93,8 @@ export function viAgreeSources(srcs) {
   return [...m.values()].filter(o => o.src.length >= 2);
 }
 /** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
-export const TR2 = /^(wiktionary\+omw|wiktionary\+ai|omw\+ai)$/;
+// soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → LUÔN cần AI họ A xác nhận + ≥ 1 nguồn người viết
+export const TR2 = /^(wiktionary|omw|wiktionary\+omw)\+ai$/;
 export function trNorm(l, t) { return String(t || '').split(/\s*;\s*/)[0].toLowerCase().trim().replace(/[\u064B-\u0652\u0670]/g, '').replace(/[+_]/g, l === 'ja' ? '' : ' ').replace(/\s+/g, ' ').replace(l === 'ja' ? /する$/ : /$^/, ''); }
 export const trIn = (l, t, list) => { const T = trNorm(l, t); return !!T && [].concat(list || []).flatMap(x => String(x || '').split(/\s*;\s*/)).some(x => trNorm(l, x) === T); };
 // HÌNH TỪ LOẠI của bản dịch (lớp D3: carelessly es "descuidado" tính từ, dizzy tr danh từ) – luật tất định cho đuôi rõ ràng; không có luật → đạt (giám khảo lxwsd chặn tiếp)

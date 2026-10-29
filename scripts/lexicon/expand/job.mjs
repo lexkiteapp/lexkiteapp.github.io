@@ -191,7 +191,7 @@ await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).f
   const b = await AI.judge(viReq(ch), { exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
   for (const [r, V] of [[b, VB], [c, VC]]) if (r) { used.add(r.route + ':' + r.model); for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) V[x.k] = o.vi.trim(); } } });
 const OMWL = ['ja', 'zh', 'th', 'id', 'fr', 'es', 'pt', 'ar'];
-stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };
+stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw+ai': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };
 const probe = {};
 for (const x of okDef) { const P = {}, X1 = X[x.k], om = (SY[x.k] || {}).omw || {};
   X1.exAll.slice(0, 6).forEach((c, i) => { P['ex' + i] = c.t; });
@@ -202,9 +202,9 @@ for (const x of okDef) { const P = {}, X1 = X[x.k], om = (SY[x.k] || {}).omw || 
   X1.trC = {};
   // HAI nguồn độc lập cho mỗi bản dịch (lib.mjs TR2): bảng Wiktionary ∩ OMW synset · OMW ∩ AI · Wiktionary ∩ AI; một nguồn = bỏ ngôn ngữ
   for (const l of LANGS) { const t = (X1.tr[l] || [])[0] || '', O = om[l] || [], ai = (AT[x.k] || {})[l] || '';
-    if (t && O.length && omwHas(l, t, O)) X1.trC[l] = { t, src: 'wiktionary+omw' };
-    else if (O.length && O.some(o => trIn(l, o, ai))) X1.trC[l] = { t: O.find(o => trIn(l, o, ai)), src: 'omw+ai' }; // bảng ghép nhầm nghĩa (D1) → lemma OMW được AI xác nhận
-    else if (t && trIn(l, t, ai)) X1.trC[l] = { t, src: 'wiktionary+ai' };
+    // phương án = tương đương AI (thứ tự AI: thông dụng trước) ĐẦU TIÊN có trong nguồn người viết (bảng Wiktionary khớp nghĩa / lemma OMW của synset)
+    const hit = String(ai).split(/\s*;\s*/).filter(Boolean).find(a => (t && trIn(l, a, t)) || trIn(l, a, O));
+    if (hit) { const inW = !!t && trIn(l, hit, t), inO = trIn(l, hit, O); X1.trC[l] = { t: inW ? t : O.find(o => trIn(l, o, hit)), src: [inW && 'wiktionary', inO && 'omw', 'ai'].filter(Boolean).join('+') }; }
     if (X1.trC[l]) P['tr_' + l] = X1.trC[l].t; }
   probe[x.k] = P; }
 const W1 = await wsd3(okDef.map(x => ({ k: x.k, w: x.w, pos: x.pos, senses: sensesTxt(x._c), probes: probe[x.k] })));
@@ -235,7 +235,7 @@ for (const x of needEx) { const X1 = X[x.k], c = AIX[x.k];
 const ready = okDef.filter(x => !X[x.k].wsdInfra && X[x.k].ex.length === 2 && X[x.k].m.vi);
 // CỔNG TỪ CÓ THẬT: lẫn ngôn ngữ (trcheck.py – pilot 11 pt "inyectar") cho mọi bản dịch + (lớp D2) bản dịch CHỈ có nguồn Wiktionary phải có trong kho tần suất
 function trCheck(list, exist) { const tmp = (process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp') + '/lx-tr-' + process.pid, inp = {};
-  for (const x of list) inp[x.k] = exist ? Object.fromEntries(Object.entries(X[x.k].m).filter(([l]) => X[x.k].trSrc[l] === 'wiktionary+ai' && l !== 'vi')) : X[x.k].m; fs.writeFileSync(tmp + '.in.json', JSON.stringify(inp));
+  for (const x of list) inp[x.k] = exist ? Object.fromEntries(Object.entries(X[x.k].m).filter(([l]) => !/omw/.test(X[x.k].trSrc[l] || '') && l !== 'vi')) : X[x.k].m; fs.writeFileSync(tmp + '.in.json', JSON.stringify(inp));
   try { console.log(execFileSync('python3', [fileURLToPath(new URL('trcheck.py', import.meta.url)), '--in', tmp + '.in.json', '--out', tmp + '.out.json', ...(exist ? ['--exist'] : [])], { encoding: 'utf8' }).trim()); return JSON.parse(fs.readFileSync(tmp + '.out.json', 'utf8')); }
   catch (e) { console.error('✗ trcheck.py', String(e.stderr || e.message).slice(-300)); return null; } }
 { const bad = trCheck(ready, false), bad2 = trCheck(ready, true);

@@ -220,6 +220,105 @@
    "cls": "D3",
    "field": "m.tr",
    "bad": "baş dönmesi"
+  },
+  {
+   "k": "owl#n",
+   "cls": "D1",
+   "field": "m.es",
+   "bad": "mochuelo",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "playground#n",
+   "cls": "D1",
+   "field": "m.de",
+   "bad": "Spielwiese",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "playground#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "操场",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "cassette#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "磁带盒",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "sunbathe#v",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "expor ao sol",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "motionless#adj",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "不活动的",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "motionless#adj",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "estático",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "drugstore#n",
+   "cls": "D1",
+   "field": "m.es",
+   "bad": "droguería",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "invisible#adj",
+   "cls": "D1",
+   "field": "m.id",
+   "bad": "gaib",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "astonishment#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "surpresa",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "astonishment#n",
+   "cls": "D1",
+   "field": "m.id",
+   "bad": "kekaguman",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "flea#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "蚤",
+   "note": "soát 50 mẫu pilot 29/10 10:34 (Sonnet)"
+  },
+  {
+   "k": "seawater#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "^water (that )?contain(s|ing) salts?$",
+   "note": "def quá rộng (gloss WordNet) – soát 29/10"
+  },
+  {
+   "k": "minefield#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "abandoned field became a dangerous minefield",
+   "re": true,
+   "note": "ví dụ AI vô lý – soát 29/10"
   }
  ],
  "good": [
