@@ -10,8 +10,8 @@
  "cefr": "B1",
  "area": "word-usage",
  "plate": "library",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "carlos",
+ "clip": "gc10_talk",
  "hook": {
   "line": "n_0073d3_h",
   "quote": "There were approximately 52 people exactly.",

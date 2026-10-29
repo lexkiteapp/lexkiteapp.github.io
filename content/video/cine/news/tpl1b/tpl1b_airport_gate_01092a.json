@@ -10,8 +10,8 @@
  "cefr": "A2",
  "area": "phrases",
  "plate": "airport_gate",
- "host": "mia",
- "clip": "gm1_talk_natural",
+ "host": "ama",
+ "clip": "ga9_talk",
  "hook": {
   "line": "n_01092a_h",
   "quote": "I forgot my sleep bag.",

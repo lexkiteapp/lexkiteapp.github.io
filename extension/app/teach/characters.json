@@ -1,0 +1,374 @@
+{
+  "_note": "NGUỒN DUY NHẤT nhân vật Lexkite (chủ 28/10): đúng 2 giáo viên 2D phông xanh, trang phục 1 – Ama (cô) + Carlos (thầy). Mọi màn hình/add-on/video lấy ảnh-clip qua đây (web/js/characters.js · Python: scripts/teach/registry.py). Cổng CI: scripts/test/characters-gate.mjs. Dựng: scripts/teach/build.py trên CI teach-build.yml. docs/CHARACTERS.md.",
+  "version": 2,
+  "frame": {
+    "w": 554,
+    "h": 480,
+    "eye_y": 0.32,
+    "eye_mouth": 50,
+    "avatar": 192,
+    "fps": 24,
+    "crf": 26
+  },
+  "poses": [
+    "talk",
+    "listen",
+    "explain",
+    "happy",
+    "encourage",
+    "thinking",
+    "laugh",
+    "wave",
+    "cheer",
+    "concern",
+    "surprise",
+    "point",
+    "empathy"
+  ],
+  "people": {
+    "ama": {
+      "name": "Ama",
+      "role": "female teacher",
+      "voice": {
+        "video": "af_bella",
+        "app": "af_heart"
+      },
+      "outfit": "outfit3 coral blazer, cream top, grey trousers, yellow headband (owner OK 28/10)",
+      "ref": "anchor/green/frames/ama_o3_ref.png",
+      "eye": [
+        530,
+        680
+      ],
+      "eye_mouth": 130,
+      "video_clip": "ga9_talk",
+      "clips": {
+        "talk": {
+          "src": "ga9_talk"
+        },
+        "listen": {
+          "src": "ga9_listen"
+        },
+        "explain": {
+          "src": "ga9_explain"
+        },
+        "happy": {
+          "src": "ga9_happy"
+        },
+        "encourage": {
+          "src": "ga9_encourage"
+        },
+        "thinking": {
+          "src": "ga9_thinking"
+        },
+        "laugh": {
+          "src": "ga9_laugh"
+        },
+        "wave": {
+          "src": "ga9_wave"
+        },
+        "cheer": {
+          "src": "ga9_cheer"
+        },
+        "concern": {
+          "src": "ga9_concern"
+        },
+        "surprise": {
+          "src": "ga9_surprise"
+        },
+        "point": {
+          "src": "ga9_point"
+        },
+        "empathy": {
+          "src": "ga9_empathy"
+        }
+      }
+    },
+    "carlos": {
+      "name": "Carlos",
+      "role": "male teacher",
+      "voice": {
+        "video": "am_fenrir",
+        "app": "am_michael"
+      },
+      "outfit": "outfit3 cornflower-blue blazer, white shirt, khaki trousers (owner OK 28/10)",
+      "ref": "anchor/green/frames/carlos_o3_ref.png",
+      "eye": [
+        545,
+        390
+      ],
+      "eye_mouth": 106,
+      "video_clip": "gc10_talk",
+      "clips": {
+        "talk": {
+          "src": "gc10_talk"
+        },
+        "listen": {
+          "src": "gc10_listen_b"
+        },
+        "explain": {
+          "src": "gc10_explain_b"
+        },
+        "happy": {
+          "src": "gc10_happy"
+        },
+        "encourage": {
+          "src": "gc10_encourage"
+        },
+        "thinking": {
+          "src": "gc10_thinking"
+        },
+        "laugh": {
+          "src": "gc10_laugh"
+        },
+        "wave": {
+          "src": "gc10_wave",
+          "pending": "gc10_wave đã tạo, matte PRO chưa qua cổng"
+        },
+        "cheer": {
+          "src": "gc10_cheer"
+        },
+        "concern": {
+          "src": "gc10_concern",
+          "pending": "miệng Carlos tự nhe răng – cần khung đầu môi khép"
+        },
+        "surprise": {
+          "src": "gc10_surprise"
+        },
+        "point": {
+          "src": "gc10_point",
+          "pending": "chưa tạo (hết ngân sách)"
+        },
+        "empathy": {
+          "src": "gc10_empathy",
+          "pending": "chưa tạo (hết ngân sách)"
+        }
+      }
+    }
+  },
+  "files": {
+    "ama/avatar-2x.webp": {
+      "sha256": "8cc317e54b3fdbba723b34b1382f24d7ef148c4c6ca6e41fa7eff6d5b2734076",
+      "bytes": 14590
+    },
+    "ama/avatar.webp": {
+      "sha256": "75d3878068f775454ae46c36d1cb882878a82c2109c47005158d98021e49e0ba",
+      "bytes": 6844
+    },
+    "ama/cheer.mp4": {
+      "sha256": "3f895e820d66af03486e6e69ecfb8a4a622ab650e5bfa1ba04899dc292966636",
+      "bytes": 163156
+    },
+    "ama/concern.mp4": {
+      "sha256": "af0762d227aad1059dd80c129e9d5b0ac5d15377c309f641790627a7d0abb88d",
+      "bytes": 95630
+    },
+    "ama/empathy.mp4": {
+      "sha256": "4ca7c1c5ddc7d66fc5676c8c27af99442c195f0861265f01f51d70c879018fc0",
+      "bytes": 126318
+    },
+    "ama/encourage.mp4": {
+      "sha256": "ac92e692db0428a3b5d0ce5b9dafa1b676c7df9e65b71eb40266cb7cbdda0735",
+      "bytes": 108685
+    },
+    "ama/explain.mp4": {
+      "sha256": "3eaa6ee86787b1f5791a07eb8fbb5f7a221e5b2043b7589806a0fe0bcb927b2b",
+      "bytes": 173256
+    },
+    "ama/happy.mp4": {
+      "sha256": "121c49c5e2e7eeee548d03fb99815d31873fb1e285bfaf23d7fc58984f843bef",
+      "bytes": 114322
+    },
+    "ama/laugh.mp4": {
+      "sha256": "1c0cc1c6f49d69409e139b8587a22ab0173b21a3ffd122b75275e2893800f65d",
+      "bytes": 79646
+    },
+    "ama/listen-hd.mp4": {
+      "sha256": "f16d1cd3454299e7b3dc5a84fe7d81a9d551ce4d53ad6ec9c3d36fa384e03bed",
+      "bytes": 206149
+    },
+    "ama/listen.mp4": {
+      "sha256": "4e29c7b019c441e8cfdb2ed43c489806d3fc1d2a9ddc878c0e6b5de07b5d3072",
+      "bytes": 93384
+    },
+    "ama/point.mp4": {
+      "sha256": "489d3e6cb2b84f0f14ef8b843e4cce4eb66e9f3f6d3d920bd7495b447e082288",
+      "bytes": 140976
+    },
+    "ama/poster-2x.webp": {
+      "sha256": "f544d91d067f212238625af6abbd0313ac07cf6961f0502506ac8bd5b32859ca",
+      "bytes": 30218
+    },
+    "ama/poster.webp": {
+      "sha256": "88d1c5543a02ddeaed5f99005d785738ce3581adb2192af823ec5dd8c0da802d",
+      "bytes": 13650
+    },
+    "ama/still-cheer.webp": {
+      "sha256": "28d8f1852dc93e84e1dd8ac3f77517955a87f1ae40f841bf31da732ef5006eab",
+      "bytes": 34242
+    },
+    "ama/still-concern.webp": {
+      "sha256": "353b8439d25b340c00987eec3c8a12b635a42400edd4cc46c5e8cbcac45dcf8c",
+      "bytes": 31072
+    },
+    "ama/still-empathy.webp": {
+      "sha256": "0bb7c3f28a1d4be9aca67575b9a5b04592b95e3586f19985bce2e6a49d2026ae",
+      "bytes": 33322
+    },
+    "ama/still-encourage.webp": {
+      "sha256": "6f688c401547162b423d1ba2936ec911ec6356dbc85c90a9bb4ef6f1ae5efaa4",
+      "bytes": 33114
+    },
+    "ama/still-explain.webp": {
+      "sha256": "0e6cfc0988103b9c7f8c5540aa8fd9c965b65b7500d7e6c35645ca029d45ecf8",
+      "bytes": 35558
+    },
+    "ama/still-happy.webp": {
+      "sha256": "fdd47a4432c077da674d877c82ce5105460b8204ae8f2a3a34bebbc38ca0a358",
+      "bytes": 30780
+    },
+    "ama/still-laugh.webp": {
+      "sha256": "fb8bdf89122af7d464610db84d1cce86f2a7100c877ae161f85bc630c6606c5b",
+      "bytes": 30186
+    },
+    "ama/still-listen.webp": {
+      "sha256": "0520e9a44385f7729194a61ffd587b99a433bb6592ac843c49499756f6981125",
+      "bytes": 31506
+    },
+    "ama/still-point.webp": {
+      "sha256": "dbca560fd85c55e69a258aeba20670699a0dfa6da6c4169714f2f68267d21887",
+      "bytes": 37116
+    },
+    "ama/still-surprise.webp": {
+      "sha256": "d6e167f1c56ecf0a79af749fc661111fc4e5d0bef8bf6c71e4e1163779a2c221",
+      "bytes": 32276
+    },
+    "ama/still-talk.webp": {
+      "sha256": "e16218eab77587543fa1b44b5cc0e10e49438b87b72885078e1c56a98f05e37c",
+      "bytes": 31024
+    },
+    "ama/still-thinking.webp": {
+      "sha256": "8d79f738891dee95130c931c8ff509e0f258a800b4bff8090f03979dbc3c0ec0",
+      "bytes": 31500
+    },
+    "ama/still-wave.webp": {
+      "sha256": "e27da85bcab292752b0d3a7eaf8301304438173de05fa6b6825867539765a4b3",
+      "bytes": 41442
+    },
+    "ama/surprise.mp4": {
+      "sha256": "d146c0d5762d95dd152dbf7650ae406fa624e0b14bb33ac2a30c8c9acebe27ad",
+      "bytes": 90038
+    },
+    "ama/talk-hd.mp4": {
+      "sha256": "f87b9963367d62df680adaedc7b82320ed752181ccbf1a1be21b79575cd10ff9",
+      "bytes": 195194
+    },
+    "ama/talk.mp4": {
+      "sha256": "076568f7899cca63da6ca60d91f5f7c06aa3839276b33f69237fdccef16b448e",
+      "bytes": 92767
+    },
+    "ama/thinking.mp4": {
+      "sha256": "309b2111ff35c3b9142e6c7b2f21fc815209bc8e871a4509939c2aed87c02bdd",
+      "bytes": 86998
+    },
+    "ama/wave.mp4": {
+      "sha256": "e02b4f05109e3cdf8aca23f0d16218d8713bcf1aacbec69076b9a1a9903257f4",
+      "bytes": 196462
+    },
+    "carlos/avatar-2x.webp": {
+      "sha256": "135954142625ef812284e99ee1d1a67c57a584a0712a5f7a6a1a0736f9f8f801",
+      "bytes": 12936
+    },
+    "carlos/avatar.webp": {
+      "sha256": "cf1a9b0f3f1c43a75ee45c63075e0d3705c0b1e88da5c3841c8d75fe94d3a087",
+      "bytes": 6084
+    },
+    "carlos/cheer.mp4": {
+      "sha256": "fe5d3975160e0b5289419fca55033940aa43465067f37280d2b06be87ffb6d7a",
+      "bytes": 230549
+    },
+    "carlos/encourage.mp4": {
+      "sha256": "c1cc594270a6d4240134323275b8506d13bf0f9d099fc5adaf297b5c434d6ebf",
+      "bytes": 153925
+    },
+    "carlos/explain.mp4": {
+      "sha256": "bd31479929a11648ad538e13493924c5de71964525d95c1249a115841f4e8864",
+      "bytes": 175055
+    },
+    "carlos/happy.mp4": {
+      "sha256": "e730966eee9428dca3125f7e681a68cc4876ba6399372d3239ebddd6a0baca96",
+      "bytes": 112305
+    },
+    "carlos/laugh.mp4": {
+      "sha256": "6dae7243532eac65d79c94ac9c3657540d36182ba0e1ce7cdf39304bef89e13b",
+      "bytes": 122439
+    },
+    "carlos/listen-hd.mp4": {
+      "sha256": "84387effd811e8392c3bf6835cfe45eee71ba21e9ca22467502119aa7f3f036b",
+      "bytes": 269746
+    },
+    "carlos/listen.mp4": {
+      "sha256": "7a1a257a5d607f9b2c245167ab9e6826ed6e911d972e720dc52e944cd7123469",
+      "bytes": 115749
+    },
+    "carlos/poster-2x.webp": {
+      "sha256": "6bfa2f4264571e74bc49bac3432cb4ec239f7e84fce6906d533d3bbdb980cad4",
+      "bytes": 33876
+    },
+    "carlos/poster.webp": {
+      "sha256": "d605e855e754f7b010c50102a013d42f088c1307ce97990355db5698a97bb334",
+      "bytes": 15168
+    },
+    "carlos/still-cheer.webp": {
+      "sha256": "30e1b4b572e2629bbb40092293efebd2ecbb7310ac9e6fae219a07c645a30644",
+      "bytes": 34920
+    },
+    "carlos/still-encourage.webp": {
+      "sha256": "3ffec796b18999db56b2c97b31dfdd969c152a0486bc78855e11f6da7008f7d4",
+      "bytes": 39254
+    },
+    "carlos/still-explain.webp": {
+      "sha256": "2a0dfb8eb1847f057219faedb46de8e68e5bdad6aa3808bd2d846568480fa595",
+      "bytes": 41612
+    },
+    "carlos/still-happy.webp": {
+      "sha256": "451314f63ef22106afec3746ffa268f6bde6e3ea6e97f6e3b4ec9a47bfcb2cde",
+      "bytes": 36472
+    },
+    "carlos/still-laugh.webp": {
+      "sha256": "b4c68e0e310ce3803a2a429b14ffa1bc6dd337ddb2d835ca642607d54a9c6661",
+      "bytes": 35532
+    },
+    "carlos/still-listen.webp": {
+      "sha256": "25ba96ef94e2623d950534fa1068e6db37d200f6e50e93a6563d44b0ee50dd3c",
+      "bytes": 34820
+    },
+    "carlos/still-surprise.webp": {
+      "sha256": "23b1d9a85f2bcfdb05fe3de8c5285c67c0a979c4fd1a946b18ef54c614a6bec6",
+      "bytes": 35362
+    },
+    "carlos/still-talk.webp": {
+      "sha256": "fa6c069fab1d7d9c7c722a5ba629469148d6cb4f048e7a878b7da8fbafdc4909",
+      "bytes": 35222
+    },
+    "carlos/still-thinking.webp": {
+      "sha256": "cd6d959936f1a3a5a130b8a54236bcf0aecc523baa64f0af71a9c57d4ab32364",
+      "bytes": 35302
+    },
+    "carlos/surprise.mp4": {
+      "sha256": "c9292c48c9b0fa9d8b8b86f2d6a0f91ef84738707cbe0e8a50144df0897db8fe",
+      "bytes": 123781
+    },
+    "carlos/talk-hd.mp4": {
+      "sha256": "325759822248b7cf946cca7c6c0547f7180ad03b6ab7ba5b81f7cdebf4d9c10d",
+      "bytes": 301758
+    },
+    "carlos/talk.mp4": {
+      "sha256": "a65500813ec5b3b4b43cf2b297ab7cbddc14642e08d5abc05e286ba676412832",
+      "bytes": 138681
+    },
+    "carlos/thinking.mp4": {
+      "sha256": "362d45546ff1eba7c79a8ddeb520d8a7662e948f1ca8b58b4e8fe2653bb973ff",
+      "bytes": 137818
+    }
+  }
+}
