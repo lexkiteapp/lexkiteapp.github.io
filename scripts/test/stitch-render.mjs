@@ -16,6 +16,9 @@ for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(
     if (!/Outlined/.test(h) && /Rounded/.test(h)) document.head.insertAdjacentHTML('beforeend', '<style>.material-symbols-outlined{font-family:"Material Symbols Rounded"!important}</style>'); });
   // font icon (display=swap) tải muộn → ép tải MỌI font khai báo rồi mới chụp, nếu không icon hiện thành chữ ("close", "check")
   await p.evaluate(async () => { await Promise.all([...document.fonts].map(f => f.load().catch(() => {}))); await document.fonts.ready; });
+  // màn tối Stitch cuộn TRONG khung cao 844 (h-screen + overflow-y-auto) → mở bung các khung cuộn lớn (≥ 300 px) để chụp đủ nội dung
+  await p.evaluate(() => { for (let k = 0; k < 3; k++) for (const e of document.querySelectorAll('body *')) { const cs = getComputedStyle(e);
+    if (e.clientHeight >= 300 && e.scrollHeight > e.clientHeight + 4 && /auto|scroll|hidden/.test(cs.overflowY)) Object.assign(e.style, { height: 'auto', maxHeight: 'none', overflowY: 'visible' }); } });
   // thanh tab "fixed bottom" phải nằm cuối trang: kéo khung nhìn cao bằng cả trang (chụp fullPage giữ fixed ở mép khung 844 → chèn giữa trang)
   const H = await p.evaluate(() => Math.max(844, document.documentElement.scrollHeight, document.body.scrollHeight)); await p.setViewportSize({ width: 390, height: H }); await p.waitForTimeout(500);
   const miss = await p.evaluate(() => [...document.querySelectorAll('[class*="material-symbols"]')].filter(e => e.textContent.trim() && e.getBoundingClientRect().width > 1.6 * parseFloat(getComputedStyle(e).fontSize)).length);
