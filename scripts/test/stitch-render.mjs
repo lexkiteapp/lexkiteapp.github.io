@@ -11,6 +11,9 @@ const done = {};
 for (const s of ORDER) for (const m of ['dark', 'light']) { const f = path.join(SRC, `${s}-${m}.html`); if (!fs.existsSync(f)) continue;
   const p = await ctx.newPage(); await p.goto('file://' + path.resolve(f), { waitUntil: 'networkidle' }).catch(() => {});
   await p.addStyleTag({ content: STILL });
+  // Lỗi xuất của Stitch (feedback-correct-dark): class material-symbols-outlined nhưng chỉ nạp font Rounded → dùng Rounded (app cũng tự host Rounded)
+  await p.evaluate(() => { const h = [...document.querySelectorAll('link[href*="Material+Symbols"]')].map(l => l.href).join(' ');
+    if (!/Outlined/.test(h) && /Rounded/.test(h)) document.head.insertAdjacentHTML('beforeend', '<style>.material-symbols-outlined{font-family:"Material Symbols Rounded"!important}</style>'); });
   // font icon (display=swap) tải muộn → ép tải MỌI font khai báo rồi mới chụp, nếu không icon hiện thành chữ ("close", "check")
   await p.evaluate(async () => { await Promise.all([...document.fonts].map(f => f.load().catch(() => {}))); await document.fonts.ready; });
   // thanh tab "fixed bottom" phải nằm cuối trang: kéo khung nhìn cao bằng cả trang (chụp fullPage giữ fixed ở mép khung 844 → chèn giữa trang)
