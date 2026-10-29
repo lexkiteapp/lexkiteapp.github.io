@@ -391,7 +391,7 @@
     og.querySelectorAll('.lsn-opt').forEach(b => {
       const good = b.dataset.o === String(it.answer), bad = !ok && b.dataset.o === L.pick && !good;
       if (good) b.classList.add(...OPT_OK.split(' ')); else if (bad) b.classList.add(...OPT_BAD.split(' ')); else b.classList.add('opacity-90');
-      if (good || bad) { const hd = b.querySelector(':scope > div'); hd.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded').forEach(x => x.remove()); } // bỏ dấu ✓ 'đang chọn' của mẫu → chỉ còn 1 dấu kết quả
+      if (good || bad) { const hd = b.querySelector(':scope > div'); hd.querySelectorAll('.material-symbols-outlined,.material-symbols-rounded').forEach(x => { const p = x.parentElement; (p !== hd && !p.textContent.replace(x.textContent, '').trim() ? p : x).remove(); }); } // cả vòng tròn chứa dấu ✓ // bỏ dấu ✓ 'đang chọn' của mẫu → chỉ còn 1 dấu kết quả
       if (good || bad) b.querySelector(':scope > div').insertAdjacentHTML('beforeend', `<span class="material-symbols-outlined text-[20px] ${good ? 'lt:text-[#0D6964] dk:text-[#2BA39A]' : 'lt:text-[#ba1a1a] dk:text-[#F2553B]'}" style="font-variation-settings:'FILL' 1" aria-hidden="true">${good ? 'check_circle' : 'cancel'}</span>`);
     });
   }

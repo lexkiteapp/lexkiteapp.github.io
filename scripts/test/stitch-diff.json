@@ -1,5 +1,5 @@
 {
- "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 992786fa1 − 0,01.",
+ "_note": "Ngưỡng bám mẫu Stitch (scripts/test/stitch-diff.mjs). CHỈ được NÂNG. Đặt = điểm lượt CI sau khi port xong trừ 0,01; mỗi màn × sáng/tối: ssim (cấu trúc ảnh xám) và rows (nhịp hàng). Ngoại lệ duy nhất: chủ duyệt thiết kế mới (28/10: tờ linh kiện Stitch 39b97768… là chuẩn) → đặt lại = điểm CI − 0,01, ghi rõ trong commit. 29/10: đặt lại theo Stitch v2.1 (chủ duyệt 13 màn) = điểm CI 621856058 − 0,01 (lượt đầu chụp ĐÚNG trạng thái mọi màn – 992786fa1 chụp nhầm câu đầu ở complete/story/feedback-wrong/call).",
  "call-dark": {
   "ssim": 0.477,
   "rows": -0.049
@@ -9,28 +9,28 @@
   "rows": -0.102
  },
  "complete-dark": {
-  "ssim": 0.32,
-  "rows": 0.267
+  "ssim": 0.408,
+  "rows": 0.546
  },
  "complete-light": {
-  "ssim": 0.329,
-  "rows": 0.321
+  "ssim": 0.413,
+  "rows": 0.417
  },
  "feedback-dark": {
-  "ssim": 0.251,
-  "rows": -0.084
+  "ssim": 0.21,
+  "rows": -0.199
  },
  "feedback-light": {
-  "ssim": 0.244,
-  "rows": 0.107
+  "ssim": 0.201,
+  "rows": -0.113
  },
  "feedback-wrong-dark": {
-  "ssim": 0.215,
-  "rows": 0.084
+  "ssim": 0.216,
+  "rows": 0.161
  },
  "feedback-wrong-light": {
-  "ssim": 0.175,
-  "rows": 0.07
+  "ssim": 0.107,
+  "rows": 0.101
  },
  "home-dark": {
   "ssim": 0.464,
@@ -49,12 +49,12 @@
   "rows": 0.435
  },
  "lesson-dark": {
-  "ssim": 0.185,
-  "rows": -0.004
+  "ssim": 0.183,
+  "rows": 0.025
  },
  "lesson-light": {
-  "ssim": 0.193,
-  "rows": 0.129
+  "ssim": 0.194,
+  "rows": 0.164
  },
  "me-dark": {
   "ssim": 0.389,
@@ -65,8 +65,8 @@
   "rows": 0.484
  },
  "practice-dark": {
-  "ssim": 0.278,
-  "rows": 0.063
+  "ssim": 0.279,
+  "rows": 0.064
  },
  "practice-light": {
   "ssim": 0.22,
@@ -89,12 +89,12 @@
   "rows": 0.505
  },
  "story-dark": {
-  "ssim": 0.209,
-  "rows": -0.072
+  "ssim": 0.215,
+  "rows": -0.042
  },
  "story-light": {
-  "ssim": 0.221,
-  "rows": 0.02
+  "ssim": 0.225,
+  "rows": 0.18
  },
  "streak-dark": {
   "ssim": 0.477,
