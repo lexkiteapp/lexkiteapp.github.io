@@ -31,6 +31,20 @@ def bbox(mask, crop):   # bao alpha (ngưỡng 24) gộp mọi khung, toạ đ�
     return [min(b[0] for b in bs), min(b[1] for b in bs), max(b[2] for b in bs), max(b[3] for b in bs)] if bs else None
 
 
+def vid_rgba(o, fr=12):   # khung fr của clip xếp chồng (màu trên / alpha dưới) → RGBA đã bỏ premultiply
+    import numpy as np
+    grab = lambda vf, fmt, ch: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', o, '-vf', f'select=eq(n\\,{fr}),{vf}', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', fmt, '-'], capture_output=True).stdout, np.uint8).reshape(H, F['w'], ch).astype(float)
+    a = grab(f"crop={F['w']}:{H}:0:{H}", 'gray', 1); c = grab(f"crop={F['w']}:{H}:0:0", 'rgb24', 3)   # alpha đọc thẳng luma (không lem chroma từ nửa màu)
+    c = np.where(a > 0, np.clip(c * 255 / np.maximum(a, 1), 0, 255), 0)
+    return np.concatenate([c, a], 2).astype(np.uint8)
+
+
+def vid_spill(o):   # cùng phép đo ánh xanh như edge_qc (video)
+    import numpy as np
+    r = vid_rgba(o).astype(float); A, C = r[..., 3], r[..., :3]; e = (A > 16) & (A < 240); col = C[e]
+    return float(((col[:, 1] > np.maximum(col[:, 0], col[:, 2]) + 22) & (col[:, 1] > 50)).mean()) if e.sum() else 0.0
+
+
 def edge_qc(name, rgba, tol=2):   # tol: webp 2; video H.264 8 (nhiễu nén)   # 🚧 tách nền sạch: mép trên/trái/phải trong suốt (không còn nền), viền tóc không ánh xanh, thân đặc
     import numpy as np
     A = rgba[..., 3].astype(float); C = rgba[..., :3].astype(float)
@@ -84,10 +98,17 @@ for who, P in R['people'].items():
              "[c][a]alphamerge,premultiply=inplace=1,format=rgba,split[p1][p2];[p1]format=rgb24[pm];[p2]alphaextract,format=gray,format=rgb24[ar];"
              f"[pm][ar]vstack=2,split[f][r];[r]reverse,trim=start_frame=1:end_frame={N - 1},setpts=N/({fps})/TB[b];[f][b]concat=n=2:v=1,setpts=N/({fps})/TB,format=yuv420p")
         o = f'{OUT}/{who}/{pose}.mp4'
-        for q in range(F['crf'], F['crf'] + 5):   # vượt 240 KB → nén thêm từng nấc (≤ +4), giữ nguyên ngưỡng + độ dài clip
+        def enc(q, cq):
             run('ffmpeg', '-v', 'error', '-y', '-i', cf, '-i', cm, '-filter_complex', g, '-an', '-r', fps, '-c:v', 'libx264', '-profile:v', 'main', '-preset', 'veryslow',
-                '-crf', str(q), '-tune', 'animation', '-movflags', '+faststart', o)
-            if os.path.getsize(o) <= 240 * 1024: break
+                '-crf', str(q), '-tune', 'animation', '-x264-params', f'chroma-qp-offset={cq}', '-movflags', '+faststart', o)
+            return os.path.getsize(o) <= 240 * 1024
+        # vượt 240 KB → nén thêm từng nấc (≤ +4); nấc nào lộ viền xanh do nén (lem chroma) → dồn bit cho chroma (offset −2/−4) thay vì hạ ngưỡng
+        done = False
+        for q in range(F['crf'], F['crf'] + 5):
+            for cq in (0, -2, -4):
+                if not enc(q, cq): break
+                if vid_spill(o) <= 0.004: done = True; break
+            if done: break
         got = probe(o, 'width,height,nb_read_frames')
         if got != f'{W},{H * 2},{2 * N - 2}': errs.append(f'{o}: {got} (cần {W},{H * 2},{2 * N - 2})')
         if os.path.getsize(o) > 240 * 1024: errs.append(f'{o}: {os.path.getsize(o) // 1024} KB > 240 KB')
@@ -116,10 +137,7 @@ for who, P in R['people'].items():
     for pose in R['poses']:
         o = f'{OUT}/{who}/{pose}.mp4'
         if not os.path.exists(o): continue
-        grab = lambda vf, fmt, ch: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', o, '-vf', f'select=eq(n\\,12),{vf}', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', fmt, '-'], capture_output=True).stdout, np.uint8).reshape(H, W, ch).astype(float)
-        a = grab(f'crop={W}:{H}:0:{H}', 'gray', 1); c = grab(f'crop={W}:{H}:0:0', 'rgb24', 3)   # alpha đọc thẳng luma (không lem chroma từ nửa màu)
-        c = np.where(a > 0, np.clip(c * 255 / np.maximum(a, 1), 0, 255), 0)
-        edge_qc(f'{who}/{pose}.mp4', np.concatenate([c, a], 2).astype(np.uint8), tol=8)
+        edge_qc(f'{who}/{pose}.mp4', vid_rgba(o), tol=8)
     kb = sum(os.path.getsize(f'{OUT}/{who}/{k}') for k in ('talk.mp4', 'listen.mp4', 'poster.webp')) // 1024
     if kb > 420: errs.append(f'{who}: talk+listen+poster {kb} KB > 420 KB')
 
