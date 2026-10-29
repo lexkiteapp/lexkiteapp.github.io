@@ -75,17 +75,27 @@ export function lockSense(v1, v2, semIdx, n) {
   const one = v => Array.isArray(v) && v.length >= 3 && v.every(x => Number(x) === Number(v[0])) && Number(v[0]) >= 1 && Number(v[0]) <= n ? Number(v[0]) : 0;
   if (one(v1)) return { idx: one(v1), by: 'wiktionary-1' };
   if (one(v2) && one(v2) === semIdx) return { idx: semIdx, by: 'wiktionary-2+semcor' };
+  // 2/3 giám khảo chọn nghĩa 1 Wiktionary = ĐÚNG nghĩa SemCor (tần suất ngữ liệu) → hai tín hiệu độc lập cùng chỉ một nghĩa (pilot 29/10: expel, transcend)
+  const maj = v => (Array.isArray(v) && v.length >= 3 ? [...new Set(v.map(Number))].find(x => x >= 1 && v.filter(y => Number(y) === x).length >= 2) : 0) || 0;
+  if (maj(v1) && maj(v1) === semIdx) return { idx: semIdx, by: 'wiktionary-1-2of3+semcor' };
   return null;
 }
 /** vi chuẩn hoá để so nguồn: thường, bỏ ngoặc, NFC */
 export const viNorm = v => String(v || '').toLowerCase().normalize('NFC').replace(/\([^)]*\)/g, '').split(/[;,]/).map(x => x.trim().replace(/\s+/g, ' ')).filter(Boolean);
 /** vi HAI NGUỒN ĐỘC LẬP (lớp L1): nguồn = { wk: Wiktionary (bảng khớp nghĩa ∪ mục vi cùng từ loại), a: lxtr, b: lxvi (họ khác) }.
  *  Trả [{ v, src: [...] }] theo thứ tự wk → a → b, chỉ phương án có ≥ 2 nguồn. */
+// khoá so khớp vi (pilot 29/10: "khinh bỉ" ≠ "sự khinh bỉ" → trượt oan): bỏ từ chỉ loại đầu (sự/việc/cái/con/nỗi/niềm/cuộc/chiếc; "tính" chỉ khi còn ≥ 2 âm tiết – tính toán ≠ toán; KHÔNG bỏ "lòng": lòng bàn tay ≠ bàn tay),
+// giữ thứ tự âm tiết (đảo = đổi nghĩa). Phương án hiển thị = dạng gặp đầu tiên (Wiktionary trước).
+export const viKey = v => viNorm(v)[0] ? viNorm(v)[0].replace(/^(sự|việc|cái|con|nỗi|niềm|cuộc|chiếc) (?=\S)/, '').replace(/^tính (?=\S+ \S)/, '') : ''; // KHÔNG đảo âm tiết: thần tượng ≠ tượng thần
 export function viAgreeSources(srcs) {
   const m = new Map();
-  for (const s of ['wk', 'a', 'b']) for (const v of [].concat(srcs[s] || []).flatMap(viNorm)) { const o = m.get(v) || m.set(v, { v, src: [] }).get(v); if (!o.src.includes(s)) o.src.push(s); }
+  for (const s of Object.keys(srcs)) for (const v of [].concat(srcs[s] || []).flatMap(viNorm)) { const k = viKey(v); if (!k) continue; const o = m.get(k) || m.set(k, { v, src: [] }).get(k); if (!o.src.includes(s)) o.src.push(s); }
   return [...m.values()].filter(o => o.src.length >= 2);
 }
+/** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
+export const TR2 = /^(wiktionary\+omw|wiktionary\+ai|omw\+ai)$/;
+export function trNorm(l, t) { return String(t || '').split(/\s*;\s*/)[0].toLowerCase().trim().replace(/[\u064B-\u0652\u0670]/g, '').replace(/[+_]/g, l === 'ja' ? '' : ' ').replace(/\s+/g, ' ').replace(l === 'ja' ? /する$/ : /$^/, ''); }
+export const trIn = (l, t, list) => { const T = trNorm(l, t); return !!T && [].concat(list || []).flatMap(x => String(x || '').split(/\s*;\s*/)).some(x => trNorm(l, x) === T); };
 // HÌNH TỪ LOẠI của bản dịch (lớp D3: carelessly es "descuidado" tính từ, dizzy tr danh từ) – luật tất định cho đuôi rõ ràng; không có luật → đạt (giám khảo lxwsd chặn tiếp)
 export function posShapeOk(l, pos, t, w = '') {
   const x = String(t || '').trim().split(/\s*;\s*/)[0] || '', f = x.split(/\s+/)[0], last = x.split(/\s+/).pop();
@@ -97,10 +107,7 @@ export function posShapeOk(l, pos, t, w = '') {
   return true;
 }
 /** khớp OMW (lớp D1): bản dịch (từ đầu) có trong lemma OMW của CHÍNH synset (chuẩn hoá: thường, bỏ harakat, bỏ "する" đuôi tiếng Nhật) */
-export function omwHas(l, t, list) {
-  const n = x => String(x || '').toLowerCase().trim().replace(/[\u064B-\u0652\u0670]/g, '').replace(/[+_]/g, l === 'ja' ? '' : ' ').replace(/\s+/g, ' ').replace(l === 'ja' ? /する$/ : /$^/, '');
-  const T = n(String(t || '').split(/\s*;\s*/)[0]); return !!T && (list || []).some(x => n(x) === T);
-}
+export const omwHas = (l, t, list) => trIn(l, t, list);
 export function gateEntry(e, { keep } = {}) {
   const why = [];
   if (!e) return { ok: false, why: ['gen: không sinh được'] };
@@ -155,6 +162,7 @@ export function gateEntry(e, { keep } = {}) {
       // CỔNG THEO TRƯỜNG (chủ 27/10): ngôn ngữ chỉ HIỆN khi bản dịch đó đạt – nguồn người viết (bảng Wiktionary khớp nghĩa chắc chắn), đủ 3 giám khảo ≥ 4,
       // từ có thật (trcheck), dịch ngược khớp; trượt → bỏ ngôn ngữ đó khỏi mục (app dùng đường dịch hiện có của kho), KHÔNG làm trượt cả mục.
       if (t && !/^(wiktionary|omw)/.test(((e.src && e.src.tr) || {})[l] || '')) is.push('không phải nguồn người viết (Wiktionary/OMW)');
+      else if (t && W && !TR2.test(((e.src && e.src.tr) || {})[l] || '')) is.push('cần 2 nguồn độc lập (Wiktionary / OMW / AI)');
       if (t && W && !(W.tr && W.tr[l] === true)) is.push('chưa qua trắc nghiệm nghĩa 3 giám khảo');
       if (t && !posShapeOk(l, e.pos, t, e.w)) is.push('sai hình từ loại ' + e.pos);
       if (t && e.trBad && e.trBad[l]) is.push('từ không có thật (wordfreq: ' + [].concat(e.trBad[l]).join(', ') + ')');

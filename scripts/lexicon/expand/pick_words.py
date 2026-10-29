@@ -95,9 +95,9 @@ def comps(w):
 out, seen, excl = [], set(), {}
 need = a.target - len(have)
 OLPW = {h for h, _ in OLP}
-nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – trần need × 1,25 (dư 25 % cho hàng duyệt/loại); từ danh sách người học luôn lấy hết
+nfreq = 0  # từ CHỈ có tần suất (ngoài danh sách người học) – trần need × 3 (dư 25 % cho hàng duyệt/loại); từ danh sách người học luôn lấy hết
 for w in top_n_list('en', 80000):
-    if nfreq >= need * 1.25 and w not in OLPW and not lists.get(w): continue
+    if nfreq >= need * 3 and w not in OLPW and not lists.get(w): continue  # ×3 (29/10): cổng chặt hơn → sản lượng pilot ~0,3–0,5; cần đủ ứng viên tới 20k
     if w in have or w in seen or not re.fullmatch(r'[a-z]{3,}(-[a-z]+)?', w) or w not in cmu and '-' not in w: continue
     if w in bad or any(b in bad for b in w.split('-')): continue
     syn = wn.synsets(w)

@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas } from '../lexicon/expand/lib.mjs';
+import { gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, posShapeOk, omwHas, trIn } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { normEspeak, compare } from '../lexicon/expand/espeak.mjs';
 import { clean } from '../lexicon/expand/wikt.mjs';
@@ -127,7 +127,7 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
 // ---- "RA LÀ OK" 29/10: mỗi lớp lỗi đã gặp (docs/LEXICON.md §Mở rộng 20k – bảng lớp lỗi) có test chặn
 { const J3 = { 'gpt-oss:gpt-oss-120b': 5, 'llama:llama-3.3-70b': 4, 'mistral:mistral-small-3.1-24b-instruct': 5 };
   const base = () => { const g = good(); g.perLang = true; g.qa = { ...g.qa, n: 3, j: J3, tr: Object.fromEntries(LANGS.map(l => [l, [5, 4, 5]])), wsd: { ex: [true, true], vi: true, tr: Object.fromEntries(LANGS.map(l => [l, true])) }, viSrc: ['wk', 'a'] };
-    g.src = { ...(g.src || {}), tr: Object.fromEntries(LANGS.map(l => [l, 'wiktionary'])) }; g.senseLock = 'wiktionary-1'; return g; };
+    g.src = { ...(g.src || {}), tr: Object.fromEntries(LANGS.map(l => [l, 'wiktionary+omw'])) }; g.senseLock = 'wiktionary-1'; return g; };
   ok(gateEntry(base()).ok, 'ra là ok: mục đủ trắc nghiệm nghĩa + 2 nguồn vi phải đạt: ' + JSON.stringify(gateEntry(base()).why));
   // L1 vi sai nghĩa khoá (idol "thần tượng", bequest "di chúc"): vi chỉ 1 nguồn → trượt; vi không qua trắc nghiệm nghĩa → trượt
   ok(gateEntry({ ...base(), qa: { ...base().qa, viSrc: ['a'] } }).why.some(x => /≥ 2 nguồn/.test(x)), 'L1: vi 1 nguồn → trượt');
@@ -142,7 +142,11 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
   // D1 bảng Wiktionary ghép nhầm nghĩa (repress th กลั้น, cassette zh 卡式): phải có trong lemma OMW của synset; bản dịch chưa qua trắc nghiệm nghĩa → bỏ ngôn ngữ
   ok(!omwHas('th', 'กลั้น', ['กำราบ', 'ปราบปราม']) && omwHas('ja', '抑圧する', ['圧伏+する', '抑圧+する']) && omwHas('ar', 'سِكَّة حَدِيد', ['سكة حديد']), 'D1: khớp lemma OMW (chuẩn hoá する/harakat)');
   { const g = base(); g.qa.wsd.tr = { ...g.qa.wsd.tr, th: false }; const r = gateEntry(g); ok(r.ok && !r.keep.includes('th') && /trắc nghiệm/.test(r.drop.th), 'D1: bản dịch không qua trắc nghiệm nghĩa → bỏ ngôn ngữ, mục vẫn đạt'); }
-  { const g = base(); g.src.tr.ja = 'omw'; ok(gateEntry(g).keep.includes('ja'), 'D1: nguồn OMW (người viết) được nhận'); }
+  { const g = base(); g.src.tr.ja = 'omw+ai'; g.src.tr.ko = 'wiktionary+ai'; g.src.tr.th = 'omw'; g.src.tr.zh = 'wiktionary'; const r = gateEntry(g);
+    ok(r.keep.includes('ja') && r.keep.includes('ko') && !r.keep.includes('th') && !r.keep.includes('zh') && /2 nguồn/.test(r.drop.th), 'D1: bản dịch cần 2 nguồn độc lập (detriment ko 상해 – chỉ bảng Wiktionary)'); }
+  ok(trIn('ko', '손해', '손해; 피해') && !trIn('ko', '상해', '손해; 피해') && trIn('ja', '損なう', ['損なうする']), 'D1: so khớp bản dịch giữa các nguồn');
+  ok(viAgreeSources({ wk: ['sự khinh bỉ'], a: 'khinh bỉ' }).length === 1 && viAgreeSources({ a: 'khóc than', c: 'than khóc' }).length === 0 && viAgreeSources({ a: 'thần tượng', b: 'tượng thần' }).length === 0 && viAgreeSources({ a: 'lòng bàn tay', b: 'bàn tay' }).length === 0 && viAgreeSources({ a: 'tính toán', b: 'toán' }).length === 0 && viAgreeSources({ a: 'tính kiêu ngạo', b: 'kiêu ngạo' }).length === 1 && viAgreeSources({ a: 'thần tượng', b: 'tượng thờ' }).length === 0, 'L1: khoá so khớp vi (bỏ "sự"; đảo âm tiết = khác nghĩa: thần tượng ≠ tượng thần)');
+  ok(lockSense([1, 4, 1], [1, 0, 0], 1, 4).idx === 1 && lockSense([2, 2, 1], null, 1, 4) === null, 'L3: 2/3 nghĩa 1 Wiktionary chỉ nhận khi trùng nghĩa SemCor');
   // D2 từ không tồn tại (ja 忙しむ, th ภมุ): trcheck --exist → trBad → bỏ ngôn ngữ
   { const g = base(); g.trBad = { ja: ['忙しむ'] }; const r = gateEntry(g); ok(r.ok && !r.keep.includes('ja'), 'D2: từ không có thật → bỏ ngôn ngữ'); }
   // D3 sai từ loại (carelessly es "descuidado" tính từ): hình từ loại tất định

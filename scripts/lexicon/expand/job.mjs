@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas } from './lib.mjs';
+import { gateEntry, defPosOk, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viNorm, omwHas, trIn } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -96,7 +96,7 @@ async function wsd3(list) { const out = {};
 // KHÓA NGHĨA THÔNG DỤNG cho MỌI từ (lớp L3, 29/10 – thay luật cũ chỉ khi SemCor < 2): nghĩa 1 (và 2) của Wiktionary – xếp theo độ thông dụng – là nghĩa
 // WordNet số mấy (lib.mjs lockSense: cả 3 giám khảo cùng số; nghĩa 2 chỉ xác nhận nghĩa SemCor). Không khoá được → hàng duyệt (bỏ từ), không đoán.
 // Wiktionary không có từ loại này → giữ nghĩa SemCor chỉ khi SemCor đủ chắc (cnt ≥ 2), còn lại cũng bỏ.
-stat.resense = 0; stat.lock = { 'wiktionary-1': 0, 'wiktionary-2+semcor': 0, semcor: 0, fail: 0, infra: 0 };
+stat.resense = 0; stat.lock = { 'wiktionary-1': 0, 'wiktionary-2+semcor': 0, 'wiktionary-1-2of3+semcor': 0, semcor: 0, fail: 0, infra: 0 };
 if (DRY) for (const e of pool) e._lock = 'dry'; else { const req = [];
   for (const e of pool) { const g1 = (KK[e.w + '#' + e.pos] || {}).g1 || [];
     if (!g1.length && (KK[e.w + '#' + e.pos] || {}).err) { e._lock = null; stat.lock.infra++; continue; } // kaikki lỗi mạng = hạ tầng, lượt sau làm lại
@@ -163,38 +163,48 @@ for (const x of list) { const s = S[x.k]; if (!s) continue;
   X[x.k] = { defOk: s.a.def === 'same' && s.b.def === 'same' && s.c.def === 'same', defWhy: [s.a, s.b, s.c].filter(j => j.def !== 'same').map(j => j.f || 'changed').join(' / '), exAll, ex: [], col, tr: grp ? grp.tr : {}, tg: grp ? grp.g : '' }; }
 }
 const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger);
+/** gloss WordNet → định nghĩa theo quy ước kho (động từ "to …", bỏ phần sau ";" – thường là ví dụ/ghi chú) */
+function glossDef(gloss, pos) { let g = String(gloss || '').split(';')[0].replace(/\s+/g, ' ').trim(); if (!g) return ''; if (pos === 'v' && !/^to /i.test(g)) g = 'to ' + g; return g; }
 const cov = { def: { wordnet: 0 }, ex: { wordnet: 0, tatoeba: 0, wiktionary: 0, ai: 0 }, tr: { wiktionary: 0, ai: 0 }, vi: { wiktionary: 0, ai: 0 }, col: { src: 0, none: 0 }, syn: { wordnet: 0, none: 0 }, cefr: {} };
 await srcPass(live);
 // def bị giám khảo bác → viết lại 1 lần theo lý do (gần chữ gloss hơn) rồi chấm lại; vẫn bác → hàng duyệt
 // + định nghĩa sai hình từ loại (defPosOk – pilot 11 purple#adj "a colour…") cũng viết lại 1 lần với lý do cụ thể
 { const posBad = x => !defPosOk(D[x.k].def, x.pos), redo = live.filter(x => X[x.k] && (!X[x.k].defOk || posBad(x))); stat.defRedo = redo.length; stat.defPosRedo = redo.filter(posBad).length;
   await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxdef', ch.map(x => ({ ...strip(x), fix: [X[x.k].defOk ? '' : X[x.k].defWhy || 'meaning changed', posBad(x) ? DEF_POS_FIX[x.pos] : ''].filter(Boolean).join('; ') }))); if (r) for (const x of ch) { const o = r.out[x.k]; if (o && o.def && o.keep !== false) { D[x.k] = { ...D[x.k], def: o.def }; delete S[x.k]; delete X[x.k]; } } });
-  await srcPass(redo.filter(x => !X[x.k])); stat.defRedoOk = redo.filter(x => X[x.k] && X[x.k].defOk).length; }
+  await srcPass(redo.filter(x => !X[x.k])); stat.defRedoOk = redo.filter(x => X[x.k] && X[x.k].defOk).length;
+  // viết lại vẫn bị bác (pilot 29/10: 51 mục – haven, mastery, resin) → dùng NGUYÊN gloss WordNet (người viết, đúng nghĩa theo định nghĩa) khi hợp quy ước kho;
+  // lxjudge vẫn chấm độ dễ/đúng ở bước sau (s ≥ 4 cả 3 giám khảo)
+  stat.defGloss = 0; for (const x of redo) { const X1 = X[x.k]; if (!X1 || X1.defOk) continue; const g = glossDef(x.gloss, x.pos);
+    if (g && defPosOk(g, x.pos) && g.split(/\s+/).length <= 18 && !new RegExp('\\b' + x.w + '\\b', 'i').test(g)) { D[x.k] = { ...D[x.k], def: g, src: 'wordnet-gloss' }; X1.defOk = true; X1.defWhy = ''; stat.defGloss++; } } }
 
 // 3. "RA LÀ OK" (29/10) – mỗi trường nhận khi qua TRẮC NGHIỆM NGHĨA 3 giám khảo (wsd3) + nguồn độc lập:
 //   vi (lớp L1): ≥ 2 nguồn trùng trong { Wiktionary (bảng khớp nghĩa ∪ vi cùng từ loại), lxtr (họ A), lxvi (họ khác) } – lib.mjs viAgreeSources
 //   12 ngôn ngữ (lớp D1–D3): bảng Wiktionary ∩ lemma OMW của synset (8 ngôn ngữ có OMW), không khớp → lemma OMW; ngôn ngữ không có OMW → bảng + từ có thật (trcheck --exist) + hình từ loại
 //   ví dụ (lớp L2): ứng viên giám khảo nguồn đã chọn → trắc nghiệm nghĩa; thiếu → lxex (AI) → trắc nghiệm nghĩa vòng 2; vẫn thiếu = hàng duyệt (không lặp vô hạn)
-const okDef = live.filter(x => X[x.k] && X[x.k].defOk), VA = {}, VB = {}, FA = {};
-await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].exAll.slice(0, 2).map(e => e.t), need: ['vi'] })));
-  if (r) for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) { VA[x.k] = o.vi.trim(); FA[x.k] = r.fam || familyOf(r.model); } } });
-await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls++;
-  const r = await AI.judge({ mode: 'lxvi', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def })) }, { exclude: [fa] });
-  if (r) { used.add(r.route + ':' + r.model); for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) VB[x.k] = o.vi.trim(); } } });
+const okDef = live.filter(x => X[x.k] && X[x.k].defOk), VA = {}, VB = {}, VC = {}, FA = {}, AT = {};
+// lxtr (họ A): vi + 12 ngôn ngữ – bản AI chỉ là NGUỒN KIỂM CHỨNG thứ hai (pilot 29/10: detriment ko 상해 lọt khi bảng Wiktionary là nguồn duy nhất), không bao giờ nguồn duy nhất
+await pmap(chunks(okDef, 10), 8, async ch => { const r = await call('lxtr', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def, ex: X[x.k].exAll.slice(0, 2).map(e => e.t), need: ['vi', ...LANGS] })));
+  if (r) for (const x of ch) { const o = r.out[x.k] || {}; AT[x.k] = o; if (typeof o.vi === 'string' && o.vi.trim()) { VA[x.k] = o.vi.trim(); FA[x.k] = r.fam || familyOf(r.model); } } });
+// lxvi: HAI họ khác (llama + mistral) – vi nhận khi ≥ 2 trong 4 nguồn trùng (Wiktionary · A · B · C)
+const viReq = ch => ({ mode: 'lxvi', items: ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, lemmas: x.lemmas, def: D[x.k].def })) });
+await pmap(chunks(okDef, 10), 6, async ch => { const fa = ch.map(x => FA[x.k]).find(Boolean) || 'gpt-oss'; stat.calls += 2;
+  const b = await AI.judge(viReq(ch), { exclude: [fa] }), c = b && await AI.judge(viReq(ch), { chain: ['cf2'], slot: 'C', exclude: [fa, b.fam], excludeModels: [b.model] });
+  for (const [r, V] of [[b, VB], [c, VC]]) if (r) { used.add(r.route + ':' + r.model); for (const x of ch) { const o = r.out[x.k] || {}; if (typeof o.vi === 'string' && o.vi.trim()) V[x.k] = o.vi.trim(); } } });
 const OMWL = ['ja', 'zh', 'th', 'id', 'fr', 'es', 'pt', 'ar'];
-stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw': 0, omw: 0, wiktionary: 0 };
+stat.vi = { agree: 0, none: 0 }; stat.tr = { 'wiktionary+omw': 0, 'omw+ai': 0, 'wiktionary+ai': 0 };
 const probe = {};
 for (const x of okDef) { const P = {}, X1 = X[x.k], om = (SY[x.k] || {}).omw || {};
   X1.exAll.slice(0, 6).forEach((c, i) => { P['ex' + i] = c.t; });
-  X1.viC = viAgreeSources({ wk: [...(X1.tr.vi || []), ...(VIW[x.k] || []).map(v => v.w)], a: VA[x.k] || '', b: VB[x.k] || '' }).slice(0, 3); stat.vi[X1.viC.length ? 'agree' : 'none']++;
+  X1.viC = viAgreeSources({ wk: [...(X1.tr.vi || []), ...(VIW[x.k] || []).map(v => v.w)], a: VA[x.k] || '', b: VB[x.k] || '', c: VC[x.k] || '' }).slice(0, 3); stat.vi[X1.viC.length ? 'agree' : 'none']++;
   X1.viC.forEach((c, i) => { P['vi' + i] = c.v; });
   // vi Wiktionary lẻ (để kiểm phương án sửa vi_fix của lxjudge – chỉ nhận vi_fix đã qua trắc nghiệm nghĩa)
   X1.viW = [...new Set((VIW[x.k] || []).map(v => viNorm(v.w)[0]).filter(v => v && !X1.viC.some(c => c.v === v)))].slice(0, 3); X1.viW.forEach((v, i) => { P['vw' + i] = v; });
   X1.trC = {};
-  for (const l of LANGS) { const t = (X1.tr[l] || [])[0] || '', O = om[l] || [], allT = new Set(x._trg.flatMap(g => g.tr[l] || []));
-    if (OMWL.includes(l) && O.length) { if (t && omwHas(l, t, O)) X1.trC[l] = { t, src: 'wiktionary+omw' };
-      else { const best = O.find(o => allT.has(o)) || O[0]; X1.trC[l] = { t: best, src: 'omw' }; } } // bảng ghép nhầm nghĩa (D1) → lemma OMW của synset (ưu tiên lemma cũng có trong bảng dịch của từ)
-    else if (t) X1.trC[l] = { t, src: 'wiktionary' };
+  // HAI nguồn độc lập cho mỗi bản dịch (lib.mjs TR2): bảng Wiktionary ∩ OMW synset · OMW ∩ AI · Wiktionary ∩ AI; một nguồn = bỏ ngôn ngữ
+  for (const l of LANGS) { const t = (X1.tr[l] || [])[0] || '', O = om[l] || [], ai = (AT[x.k] || {})[l] || '';
+    if (t && O.length && omwHas(l, t, O)) X1.trC[l] = { t, src: 'wiktionary+omw' };
+    else if (O.length && O.some(o => trIn(l, o, ai))) X1.trC[l] = { t: O.find(o => trIn(l, o, ai)), src: 'omw+ai' }; // bảng ghép nhầm nghĩa (D1) → lemma OMW được AI xác nhận
+    else if (t && trIn(l, t, ai)) X1.trC[l] = { t, src: 'wiktionary+ai' };
     if (X1.trC[l]) P['tr_' + l] = X1.trC[l].t; }
   probe[x.k] = P; }
 const W1 = await wsd3(okDef.map(x => ({ k: x.k, w: x.w, pos: x.pos, senses: sensesTxt(x._c), probes: probe[x.k] })));
@@ -214,8 +224,8 @@ for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (
 // ví dụ AI CHỈ khi thiếu câu người viết đúng nghĩa → trắc nghiệm nghĩa vòng 2 (cùng luật)
 const needEx = okDef.filter(x => !X[x.k].wsdInfra && X[x.k].ex.length < 2); stat.exAi = needEx.length;
 const AIX = {};
-await pmap(chunks(needEx, 10), 8, async ch => { const r = await call('lxex', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, def: D[x.k].def, lemmas: x.lemmas, wnex: x.wnex, n: 2 - X[x.k].ex.length + 1, avoid: X[x.k].ex.map(e => e.t) })));
-  if (r) for (const x of ch) { const ex = r.out[x.k] && r.out[x.k].ex; if (Array.isArray(ex)) AIX[x.k] = ex.filter(t => typeof t === 'string' && t.trim() && formRe(x.w).test(t)).slice(0, 3).map(t => ({ t: t.trim(), src: 'ai' })); } });
+await pmap(chunks(needEx, 10), 8, async ch => { const r = await call('lxex', ch.map(x => ({ k: x.k, w: x.w, pos: x.pos, gloss: x.gloss, def: D[x.k].def, lemmas: x.lemmas, wnex: x.wnex, n: 2 - X[x.k].ex.length + 2, avoid: X[x.k].ex.map(e => e.t) })));
+  if (r) for (const x of ch) { const ex = r.out[x.k] && r.out[x.k].ex; if (Array.isArray(ex)) AIX[x.k] = ex.filter(t => typeof t === 'string' && t.trim() && formRe(x.w).test(t)).slice(0, 4).map(t => ({ t: t.trim(), src: 'ai' })); } });
 const W2 = await wsd3(needEx.filter(x => (AIX[x.k] || []).length).map(x => ({ k: x.k, w: x.w, pos: x.pos, senses: sensesTxt(x._c), probes: Object.fromEntries(AIX[x.k].map((c, i) => ['ax' + i, c.t])) })));
 for (const x of needEx) { const X1 = X[x.k], c = AIX[x.k];
   if (!c) { X1.wsdInfra = true; continue; } // lxex hỏng → hạ tầng
@@ -225,7 +235,7 @@ for (const x of needEx) { const X1 = X[x.k], c = AIX[x.k];
 const ready = okDef.filter(x => !X[x.k].wsdInfra && X[x.k].ex.length === 2 && X[x.k].m.vi);
 // CỔNG TỪ CÓ THẬT: lẫn ngôn ngữ (trcheck.py – pilot 11 pt "inyectar") cho mọi bản dịch + (lớp D2) bản dịch CHỈ có nguồn Wiktionary phải có trong kho tần suất
 function trCheck(list, exist) { const tmp = (process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp') + '/lx-tr-' + process.pid, inp = {};
-  for (const x of list) inp[x.k] = exist ? Object.fromEntries(Object.entries(X[x.k].m).filter(([l]) => X[x.k].trSrc[l] === 'wiktionary' && l !== 'vi')) : X[x.k].m; fs.writeFileSync(tmp + '.in.json', JSON.stringify(inp));
+  for (const x of list) inp[x.k] = exist ? Object.fromEntries(Object.entries(X[x.k].m).filter(([l]) => X[x.k].trSrc[l] === 'wiktionary+ai' && l !== 'vi')) : X[x.k].m; fs.writeFileSync(tmp + '.in.json', JSON.stringify(inp));
   try { console.log(execFileSync('python3', [fileURLToPath(new URL('trcheck.py', import.meta.url)), '--in', tmp + '.in.json', '--out', tmp + '.out.json', ...(exist ? ['--exist'] : [])], { encoding: 'utf8' }).trim()); return JSON.parse(fs.readFileSync(tmp + '.out.json', 'utf8')); }
   catch (e) { console.error('✗ trcheck.py', String(e.stderr || e.message).slice(-300)); return null; } }
 { const bad = trCheck(ready, false), bad2 = trCheck(ready, true);
@@ -256,7 +266,7 @@ for (const x of items) {
   const g = G[x.k], c = x._c;
   const ent = g ? { w: x.w, pos: g.pos || x.pos, ipa: x._ipa.uk && ukStyle(x._ipa.uk), ipaUS: x._ipa.us, def: g.def || '', ex: g.ex || [], col: g.col || [], syn: g.syn || [], level: c.cefr, // CEFR: CEFR-J/Octanove → dải tần suất; AI KHÔNG đặt cấp (chỉ cờ lệch ở cổng)
      cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
-    src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
+    src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: (D[x.k] || {}).src || 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
       lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Wiktionary CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
   if (ent && X[x.k] && !X[x.k].defOk) ent.defChanged = X[x.k].defWhy || 'changed';
