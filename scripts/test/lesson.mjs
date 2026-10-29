@@ -149,6 +149,7 @@ const IMG = JSON.parse(fs.readFileSync(path.join(WEB, 'js/lexicon-img.json'), 'u
 const VSH = u => { const m = /js\/vimg\/(\d\d)\.json/.exec(String(u)); return m && JSON.parse(fs.readFileSync(path.join(WEB, 'js/vimg/' + m[1] + '.json'), 'utf8')); };   // mảnh chỉ mục ảnh v3
 w.fetch = async u => (/lexicon-img\.json/.test(String(u)) ? { ok: true, json: async () => IMG } : VSH(u) ? { ok: true, json: async () => VSH(u) } : { ok: false, status: 404, json: async () => ({}), text: async () => '' });
 const errors = [];
+w.Audio = class { constructor(u) { this.src = u; setTimeout(() => this.onerror && this.onerror(), 2); } play() { return Promise.resolve(); } pause() {} }; // mp3 giọng giáo viên chưa có cho câu động (404) → onerror → giọng máy dự phòng
 for (const f of scripts) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
 require('./lazyfix.js')(w, fs, path, WEB, errors);
 const tick = (ms = 30) => new Promise(r => setTimeout(r, ms));
@@ -234,6 +235,37 @@ ok(w.localStorage.getItem('lk.lsn.path.demo') === '1' && !w.localStorage.getItem
 ok($('#lsnAgain') && /Bài khác|Next lesson/.test($('#lsnAgain').textContent), 'màn kết: 1 chạm sang bài tiếp');
 w.location.hash = '#/lesson?demo=1'; await App.routes.lesson(); await tick(40);
 ok(w.document.querySelectorAll('.lsn-node.done').length === 1 && w.document.querySelectorAll('.lsn-node')[1].classList.contains('next'), 'bản đồ: nút 1 ✓, nút 2 phát sáng');
+// 🧩 Stitch v2.1 lesson-question (cờ ux1): CÙNG các ý như bài cũ trên khung tự sinh – hook QC, chấm, Lỗi cũ, giọng giáo viên, Ama sau thẻ đục
+App.ux1On = () => true;
+for (const f of ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js']) { try { w.eval(fs.readFileSync(path.join(WEB, f), 'utf8')); } catch (e) { errors.push(f + ': ' + e.message); } }
+ok(w.ST2 && w.ST2['lesson-question'], 'v2: khung lesson-question nạp được');
+w.localStorage.setItem('lk.lsn.path.demo', '0'); w.localStorage.removeItem('lk.lsn.who');
+w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(320);
+{
+  const D = w.document, V = $('#lsn.lsn-v2'), say0 = [];
+  ok(V && D.querySelector('.v2-lesson-question') && $('.lsn-bar') && $('#lsnBub').textContent.length > 3, 'v2: dựng khung Stitch (thanh tiến độ + lời nhắc), giữ #lsn');
+  ok(!D.querySelector('.lsn-ask, .lsn-duo') && $('a.lsn-x') && $('a.lsn-x').getAttribute('href') === '#/lesson?demo=1', 'v2: nút ✕ thoát về bản đồ; không còn khối giáo viên cũ');
+  ok($('.lsn-bar').getAttribute('role') === 'progressbar' && $('#lsnFill') && /%$/.test($('#lsnPct').textContent) && $('#lsnQn'), 'v2: thanh tiến độ ARIA + % + Câu n/m');
+  const T = st().teacher, tw = $('.lsn-tchw'), card = $('.lsn-qcard');
+  ok(T && T.who === 'ama' && $('#lsnTch') && tw && card && tw.compareDocumentPosition(card) & 4 && /z-10/.test(card.firstElementChild.className) && /-mb-1\d/.test(tw.className), 'v2: Ama (LessonTeacher) đứng SAU thẻ đề bài (thẻ z-10 kéo lên chồng đáy hình)');
+  ok(!D.querySelector('.lsn-tchw .rounded-full, .lsn-tchw [class*="ring"], .lsn-tchw [class*="mask"]') && !/mask|clip-path/.test(tw.getAttribute('style') || ''), 'v2: không vòng / hào quang / khung / mặt nạ quanh giáo viên');
+  const oS = T.say; T.say = (txt, o) => { say0.push(o || {}); return oS.call(T, txt, o); };
+  ok(!!$('#lsnCheck') && ($('#lsnCheck').disabled || $('#lsnCheck').hidden), 'v2: nút Kiểm tra có sẵn, khóa tới khi chọn');
+  const seen = new Set(); let g2 = 0;
+  while (st() && st().sess && !st().sess.done && g2++ < 40) {
+    const it = st().sess.cur; seen.add(it.type);
+    const listens = !it.noAudio && ['gap', 'build', 'say', 'type'].includes(it.type), speaks = it.type === 'say' || (it.type === 'pic' && !it.choice);
+    ok(!!$('#lsnPlay').hidden === !listens && (!speaks || $('#lsnNoS')) && (!listens || $('#lsnNoL')) && $('#lsnRep'), `v2: nút nghe/bỏ qua đúng dạng (${it.type})`);
+    if (['q', 'gap', 'mean', 'pic'].includes(it.type) && (it.options || []).length) { const og = $('#lsnBody.lsn-opts'); ok(og && og.querySelectorAll('.lsn-opt[data-o]').length === it.options.length && !D.querySelector('#card-A, #card-B'), `v2: lưới đáp án A–D (${it.type})`); }
+    await solve(true);
+    ok($('#lsnFoot.ok') && !$('#lsnFoot').hidden, `v2: đúng → sheet xanh (${it.type})`);
+    $('#lsnNext').click(); await tick();
+  }
+  ok(seen.has('match') && seen.size >= 5, 'v2: đủ dạng bài trên khung mới (' + [...seen].join(',') + ')');
+  ok(say0.length > 0 && say0.every(o => o.voice && o.voice === w.Chars.voice('ama')), 'v2: MỌI câu giáo viên nói dùng Chars.voice(Ama)');
+  ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent) && $('#lsnAgain') && updates.length === 0 && rewards.length === 0, 'v2: màn kết + demo không ghi FSRS/XP');
+}
+App.ux1On = () => false;
 // Nút Truyện (nút 2) và Radio (nút 5) của demo
 for (const [pos, kind] of [[1, 'story'], [4, 'radio']]) {
   w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.localStorage.removeItem(`lk.lsn.s.${kind}.demo`);

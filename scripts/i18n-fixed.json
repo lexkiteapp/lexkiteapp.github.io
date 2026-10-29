@@ -3051,6 +3051,21 @@
     "ru": "Нажмите и говорите",
     "tr": "Dokun ve konuş"
   },
+  "Bỏ qua câu hỏi": {
+    "es": "Omitir pregunta",
+    "pt": "Pular pergunta",
+    "fr": "Passer la question",
+    "de": "Frage überspringen",
+    "id": "Lewati pertanyaan",
+    "th": "ข้ามคำถาม",
+    "zh": "跳过此题",
+    "ja": "問題をスキップ",
+    "ko": "문제 건너뛰기",
+    "hi": "प्रश्न छोड़ें",
+    "ar": "تخطّي السؤال",
+    "ru": "Пропустить вопрос",
+    "tr": "Soruyu atla"
+  },
   "Bỏ qua": {
     "es": "Omitir",
     "pt": "Pular",

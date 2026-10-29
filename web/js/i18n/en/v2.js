@@ -4,6 +4,7 @@
   "Bấm giờ như thi thật": "Timed simulation",
   "Bậc thầy chuỗi": "STREAK MASTER",
   "Bắt đầu bài học": "START LESSON",
+  "Bỏ qua câu hỏi": "Skip question",
   "Hướng dẫn chặng": "Guide",
   "Hồ sơ người học": "User Profile",
   "Kết thúc": "Leave",
