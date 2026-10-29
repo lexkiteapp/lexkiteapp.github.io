@@ -115,7 +115,9 @@ jobs:
           for t in $(python3 -c "import json;T=json.load(open('$R/props_alt.json.timeline.json'));L=list(T['lines'].values());print(' '.join(str(round((L[i]['t0']+L[i]['t1'])/2,2)) for i in (1,len(L)//2,len(L)-3)))"); do
             npx remotion still src/index.jsx teach-short "$R/alt_$t.png" --props="$R/props_alt.json" --public-dir="$R/pub_alt" --frame=$(python3 -c "print(int($t*30))") --log=error; done
       - name: QC after render (file, loudness, teacher visible, frames) + contact sheet
+        shell: bash
         run: |
+          set -o pipefail
           V=$O/${{ matrix.ep }}-${{ matrix.fmt }}.mp4
           python3 scripts/video/teach2d/qc.py --timeline $O/props.json.timeline.json --video $V --sheet $O/${{ matrix.ep }}-${{ matrix.fmt }}.sheet.jpg --out $O/qc.json | tee $O/qc.log
           ffmpeg -nostdin -v error -y -ss 3 -i $V -frames:v 1 -q:v 3 $O/${{ matrix.ep }}-${{ matrix.fmt }}.poster.jpg

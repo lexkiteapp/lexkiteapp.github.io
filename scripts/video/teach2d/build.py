@@ -348,7 +348,7 @@ for l in EP['lines']:
 if not FMT['cap']: CAPS = []
 
 # ---------------- host: speech-gated talk / listen segments (frames), one fixed transform ----------------
-FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps']) for k in ('talk', 'listen')}
+FPS = o.fps; NF = int(round(TOTAL * FPS)); LEN = {k: int(HG['clips'][k]['frames'] * FPS / HG['clips'][k]['fps'] - 0.25 * FPS) for k in ('talk', 'listen')}   # loop 0.25 s before the clip end (alpha webm tail can decode empty)
 spk = np.zeros(NF, bool)
 for a, b in SPEECH: spk[max(0, int((a - 0.05) * FPS)):min(NF, int(math.ceil((b + 0.05) * FPS)))] = True
 # close short silences (< 0.3 s) so the mouth does not flicker shut between words of one sentence

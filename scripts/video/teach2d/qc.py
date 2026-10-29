@@ -126,13 +126,13 @@ if o.video:
     gate('file', eval(v['r_frame_rate']) == T['fps'] and a and a[0]['codec_name'] == 'aac' and abs(d - T['total']) < 0.2 and -17.5 <= I <= -14.5, 2,
          fps=v['r_frame_rate'], size=[v['width'], v['height']], dur=round(d, 2), lufs=I)
     import numpy as np
-    W, H = v['width'], v['height']; raw = subprocess.check_output(['ffmpeg', '-nostdin', '-v', 'error', '-i', o.video, '-vf', 'fps=1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
+    W, H = v['width'], v['height']; raw = subprocess.check_output(['ffmpeg', '-nostdin', '-v', 'error', '-i', o.video, '-vf', 'fps=4', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'])
     fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3); bgc = np.array([int(TH['bg2'][i:i + 2], 16) for i in (1, 3, 5)])
     hx = [int(max(0, x)) for x in T['body']]; hostvis = []; blank = []
     for i, im in enumerate(fr):
         crop = im[hx[1]:hx[3], hx[0]:hx[2]].astype(int); diff = (np.abs(crop - bgc).sum(2) > 60).mean(); hostvis.append(round(float(diff), 3))
         if im.std() < 4: blank.append(i)
-    gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), blank=blank)
+    gate('frames', min(hostvis) > 0.12 and not blank, 3, host_cover_min=min(hostvis), host_missing_s=[i / 4 for i, x in enumerate(hostvis) if x <= 0.12][:6], blank=blank)   # 4 samples / s
     if o.sheet:   # contact sheet: one frame per line (middle), for the review sheet
         ts = [round((x['t0'] + x['t1']) / 2, 2) for x in L.values()]
         sel = '+'.join(f'between(t\\,{t - 0.02}\\,{t + 0.02})' for t in ts)
