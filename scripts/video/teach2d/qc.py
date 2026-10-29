@@ -70,7 +70,7 @@ for i in range(int(T['total'] * 10)):
     for a in range(len(tx)):
         for b in range(a + 1, len(tx)):
             A, B = tx[a], tx[b]
-            if inter(A['box'], B['box'], 2) and not ({A['type'], B['type']} & {'check'}) and not (A['type'] == 'ring' or B['type'] == 'ring') and A.get('parent') != B['id'] and B.get('parent') != A['id']:
+            if inter(A['box'], B['box'], 2) and not ({A['type'], B['type']} & {'check'} and 'pill' in {A['type'], B['type']}) and not (A['type'] == 'ring' or B['type'] == 'ring') and A.get('parent') != B['id'] and B.get('parent') != A['id']:
                 prob.append(dict(t=t, ids=[A['id'], B['id']], why='overlap'))
     cards = [n for n in vis if n['type'] == 'card' and not n.get('parent')]
     for a in range(len(cards)):
@@ -81,6 +81,11 @@ rings = [n for n in T['nodes'] if n['type'] == 'ring']
 for r in rings:
     for n in T['nodes']:
         if n['type'] == 'text' and n.get('parent') and abs(r['in']['t'] - N[n['parent']]['in']['t']) < 6 and inter(r['box'], n['box']): prob.append(dict(id=n['id'], why='text under the countdown ring'))
+for n in T['nodes']:   # nothing may stay on screen after the card it belongs to (✓ of a quiz, strike, ring)
+    if n['type'] in ('check', 'confetti', 'ring', 'strike', 'eq', 'qmark') and not n.get('parent'):
+        owners = [c for c in T['nodes'] if c['type'] == 'card' and not c.get('parent') and inter(c['box'], n['box']) and c['in']['t'] <= n['in']['t'] + 0.3 and (not c.get('out') or c['out']['t'] > n['in']['t'] + 0.2)]   # cards on screen when it appears
+        ends = [c['out']['t'] for c in owners if c.get('out')]
+        if ends and (not n.get('out') or n['out']['t'] > max(ends) + 0.05): prob.append(dict(id=n['id'], why='outlives its card', type=n['type']))
 seen = set(); prob = [p for p in prob if not (json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True) in seen or seen.add(json.dumps({k: v for k, v in p.items() if k != 't'}, sort_keys=True)))]
 gate('layout', not prob, 3, problems=prob[:8])
 # contrast on the real fill (card tone / chip / pill / caption plate), both themes are separate renders

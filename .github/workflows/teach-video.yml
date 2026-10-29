@@ -165,7 +165,7 @@ jobs:
               await p.goto('http://127.0.0.1:8765/docs/mocks/teach-video/embed.html?' + q);
               await p.waitForFunction(() => document.getElementById('v').readyState >= 1, null, { timeout: 20000 });
               await p.evaluate(() => new Promise(r => { const v = document.getElementById('v'); v.addEventListener('seeked', r, { once: true }); v.currentTime = 6; }));
-              await p.waitForTimeout(500);
+              await p.waitForFunction(() => document.getElementById('v').readyState >= 3, null, { timeout: 20000 }); await p.waitForTimeout(1200);   // decoded frame, no loading spinner
               if (!(await p.evaluate(() => document.getElementById('v').videoWidth))) { console.error('video did not decode', id); process.exit(1); } await p.screenshot({ path: `shots/${id}-${theme}-${tag}.png` }); n++; await p.close();
             }
           }

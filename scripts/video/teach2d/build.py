@@ -234,15 +234,15 @@ def T_usuk():
     hook_card([['US', 'primary'], [' or ', 'ink'], ['UK', 'coral'], ['?', 'ink']], at('us', D['us']) - 0.2,
               extra=lambda c: c.add(dict(type='flags', box=[PAD + (c.inner - 300) / 2, 0, PAD + (c.inner + 300) / 2, 0]), 120))
     # twin tiles (Stitch screen 4cb4e39f…: two candy tiles, flag tag chip, huge word, IPA, accent bar, '=' badge)
-    tw2 = (RW - 28) // 2; y = RY0; t_out = start('q') - 0.2
+    GAPT = 104; tw2 = (RW - GAPT) // 2; y = RY0; t_out = start('q') - 0.2   # gap wide enough for the '=' badge (never on a word)
     for i, (cc, wd, ipa, col, lid) in enumerate([('us', D['us'], D['ipa_us'], 'primary', 'us'), ('uk', D['uk'], D['ipa_uk'], 'coral', 'uk')]):
-        c = Card(y, tone='tile', x0=RX0 + i * (tw2 + 28), w=tw2); t_w = at(lid, wd)
+        c = Card(y, tone='tile', x0=RX0 + i * (tw2 + GAPT), w=tw2); t_w = at(lid, wd)
         c.add(dict(type='tag', cc=cc, text=cc.upper(), size=S['chip'], box=[PAD, 0, PAD + 150, 0], **{'in': cue(t_w)}), S['chip'] + 28)
         sz = min(S['big'], int(S['big'] * (c.inner) / max(1, tw(wd, S['big'])))); c.text([[wd, 'ink']], sz, t_w, align='c', gap=8)
         c.text([[ipa, 'muted']], S['ipa'], t_w, align='c', ipa=True, gap=18); IPA.append(dict(token=wd, ipa=ipa, node=c.rows[-1]['id']))
         c.add(dict(type='bar', tone=col, box=[PAD + (c.inner - 90) / 2, 0, PAD + (c.inner + 90) / 2, 0], **{'in': cue(t_w)}), 8)
         bx = c.place(t_w, t_out, 'tiles' + cc)
-    NODES.append(dict(id='eq', type='eq', size=56, box=[RX0 + tw2 + 14 - 46, y + 150, RX0 + tw2 + 14 + 46, y + 242], **{'in': cue(at('uk', 'same'), 'pop')}, out=dict(t=round(t_out, 3))))
+    NODES.append(dict(id='eq', type='eq', size=56, box=[RX0 + tw2 + GAPT / 2 - 44, y + 150, RX0 + tw2 + GAPT / 2 + 44, y + 238], **{'in': cue(at('uk', 'same'), 'pop')}, out=dict(t=round(t_out, 3))))
     c = Card(bx[3] + 28); c.text([[D['same'], 'accent']], S['body'], at('uk', 'same'), align='c', gap=GAP)
     c.text(runs_hl(LINES['x']['text'], D['us']), S['body'], start('x'), align='c'); c.place(at('uk', 'same'), t_out, 'b')
     quiz_card([["You're in London.", 'ink']], [D['us'], D['uk']], 1, start('q'), at('a', D['uk']), start('sh') - 0.2)
@@ -327,6 +327,8 @@ for n in NODES:
     if n['type'] == 'strike' and n.get('_rel'):
         r = BY[n['_rel']]; n['parent'] = r.get('parent'); p = BY[n['parent']]['box']; n['abs'] = [p[0] + n['box'][0], p[1] + n['box'][1], p[0] + n['box'][2], p[1] + n['box'][3]]
     if n['type'] in ('check', 'confetti') and n.get('_pill'):
+        cd = BY[BY[n['_pill']]['parent']]
+        if cd.get('out'): n['out'] = dict(cd['out'])   # the ✓ / confetti leave with their quiz card
         pb = BY[n['_pill']]['abs']; d = 64; n['abs'] = [pb[2] - d - 26, (pb[1] + pb[3] - 8) / 2 - d / 2, pb[2] - 26, (pb[1] + pb[3] - 8) / 2 + d / 2] if n['type'] == 'check' else [pb[0], pb[1] - 120, pb[2], pb[3] + 40]
 for n in NODES:
     n['box'] = [round(v, 1) for v in n.pop('abs')]
@@ -341,7 +343,7 @@ for l in EP['lines']:
         if pg: CAPS.append(dict(words=pg, t0=round(pg[0]['s'] - 0.06, 3), t1=round(min(nxt, pg[-1]['e'] + 0.45), 3)))
     for i, w in enumerate(ws):
         ww = tw(w['w'] + ' ', S['cap'])
-        if page and (pw + ww > (FMT['cap'][2] - FMT['cap'][0] - 80 if FMT['cap'] else 1e9) or page[-1]['w'][-1] in '.!?'): flush(page, w['s'] - 0.02); page, pw = [], 0   # new page at each sentence end
+        if page and (pw + ww > (FMT['cap'][2] - FMT['cap'][0] - 80 if FMT['cap'] else 1e9) or (page[-1]['w'][-1] in '.!?' and not re.fullmatch(r'(?:[A-Z]\.)+', page[-1]['w']))): flush(page, w['s'] - 0.02); page, pw = [], 0   # new page at each sentence end
         page.append(w); pw += ww
     flush(page, (ws[-1]['e'] + l['pause']))
     VTT.append(dict(t0=L_['t0'], t1=round(L_['t1'] + 0.2, 3), text=l['text']))
