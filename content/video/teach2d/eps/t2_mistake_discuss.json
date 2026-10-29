@@ -12,54 +12,43 @@
   {
    "id": "h",
    "text": "Stop saying discuss about!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "w",
    "text": "Many learners say: We will discuss about the budget.",
-   "pause": 0.55
-  },
-  {
-   "id": "g",
-   "text": "What sounds right?",
-   "pause": 1.6,
-   "guess": true
+   "pause": 0.42
   },
   {
    "id": "r",
    "text": "Better: We will discuss the budget.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "y",
    "text": "Discuss needs no about. Discuss the plan.",
-   "pause": 0.55
-  },
-  {
-   "id": "k",
-   "text": "But you can talk about it!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q",
    "text": "Quick quiz! Which one fits?",
-   "pause": 3.0,
+   "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
    "text": "Discuss! We need to discuss the budget.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
-   "text": "Send this to a friend who says discuss about!",
-   "pause": 0.55
+   "text": "Send this to a friend!",
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and check your grammar on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -92,8 +81,8 @@
   "pid": "cf:work-meeting:well-discuss:x"
  },
  "est": {
-  "words": 65,
-  "seconds": 40.9,
-  "wpm": 95
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
  }
 }

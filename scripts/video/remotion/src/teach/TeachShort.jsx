@@ -169,7 +169,12 @@ const Canvas = ({ T, w, h, tint }) => (   // Stitch Kit canvas: flat tokens, sta
 );
 
 function Host({ host, f, T }) {   // speech-gated segments; bubble layout = the same clip framed in a round Kit call window
-  if (!host.bubble) return <HostClips host={host} f={f} ox={0} oy={0} />;
+  if (!host.bubble) {   // social camera: push / cut per shot, scale anchored at the top of the head (head never rises into the captions)
+    const c = host.cam, sh = c ? c.shots.find(x => f >= x.f0 && f < x.f1) || c.shots[c.shots.length - 1] : null;
+    if (!sh) return <HostClips host={host} f={f} ox={0} oy={0} />;
+    const p = clamp01((f - sh.f0) / Math.max(1, sh.f1 - sh.f0)), sc = sh.s0 + (sh.s1 - sh.s0) * (sh === c.shots[0] ? easeOut(p) : p);
+    return <div style={{ position: 'absolute', inset: 0, transformOrigin: `${c.ox}px ${c.oy}px`, transform: `translateX(${sh.dx}px) scale(${sc})` }}><HostClips host={host} f={f} ox={0} oy={0} /></div>;
+  }
   const [b0, b1, b2, b3] = host.bubble;
   return <div style={{ position: 'absolute', left: b0, top: b1, width: b2 - b0, height: b3 - b1, borderRadius: '50%', overflow: 'hidden', boxSizing: 'border-box',
     background: `radial-gradient(circle at 50% 40%, ${T.tile} 0%, ${T.card} 70%)`, border: `8px solid ${T.primary}`, boxShadow: `0 10px 0 ${T.ledge}` }}>

@@ -29,11 +29,12 @@ TINT = _TJ['tints'][EP['template']]   # series colour: the big canvas blob carri
 HG = json.load(open(f'{o.host}/geom.json')); EMBED = o.format == 'wide'
 LAYOUTS = dict(   # same cards / timing; only where the card region, captions and teacher sit (owner 29/10: varied layouts)
     corner=dict(region=[60, 324, 960, 1150], cap=[60, 1168, 960, 1282], host_h=640, host_cx=540),
-    side=dict(region=[60, 324, 960, 1150], cap=[480, 1196, 960, 1310], host_h=760, host_cx=260),
+    side=dict(region=[60, 324, 960, 1150], cap=[510, 1196, 960, 1310], host_h=760, host_cx=260),
     bubble=dict(region=[60, 324, 960, 1396], cap=[60, 1410, 610, 1496], host_h=744, host_cx=None, bubble=[632, 1440, 1032, 1840]))
 FMT = dict(short=dict(W=1080, H=1920, chip=[60, 236], safe=[48, 232, 960, 1497], **LAYOUTS[o.layout or 'corner']),
            wide=dict(W=1920, H=1080, region=[96, 150, 1056, 990], chip=[96, 70], safe=[60, 48, 1860, 1032], cap=None, host_h=960, host_cx=1460))[o.format]
 LAYOUT = (o.layout or 'corner') if o.format == 'short' else 'wide'
+SOCIAL = o.format == 'short'   # owner 29/10: social shorts get the cinematic layer (hook punch, camera push / cuts, whoosh + music); lesson embeds stay calm
 W, H = FMT['W'], FMT['H']; RX0, RY0, RX1, RY1 = FMT['region']; RW = RX1 - RX0
 S = dict(hook=96, big=104, body=60, sub=48, chip=40, ipa=48, cap=58, pill=56)
 PAD, GAP, LEDGE, RADIUS = 40, 24, 10, 44
@@ -250,7 +251,9 @@ def title(runs, size, y, t_in, out, hook=False, align='c', x0=RX0, x1=RX1):
         ln[-1][0] = ln[-1][0].rstrip(); lw = sum(tw(r[0], size) for r in ln); h = round(size * 1.18)
         xx = x0 + ((x1 - x0) - lw) / 2 if align == 'c' else x0
         n = top('text', [xx, yy, xx + lw, yy + h], t_in, out=out, runs=ln, size=size, ipa=False)
-        if hook: n['hook'] = True
+        if hook:
+            n['hook'] = True
+            if SOCIAL: n['in'] = dict(t=0.0, k='punch')   # hook slams in on frame 0 (fully readable at once)
         CUES.append(dict(node=n['id'], t=t_in, tag=''.join(r[0] for r in ln))); ns.append(n); yy += h + 4
     return yy
 
@@ -327,7 +330,7 @@ def T_mistake():
     c = Card(RY0, tone='bubble_bad', w=RW - 70, badge='cross', t_badge=start('w')); c.tail = 'l'
     tn = c.text([[D['wrong'], 'onbad']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike'].split()[0]) + 0.15)
-    NODES.append(dict(id='guess', type='qmark', size=96, box=[RX1 - 114, b1[1] + 20, RX1 - 4, b1[1] + 130], **{'in': cue(start('g'))}, out=dict(t=round(at('r', 'better') - 0.2, 3))))
+    if 'g' in LINES: NODES.append(dict(id='guess', type='qmark', size=96, box=[RX1 - 114, b1[1] + 20, RX1 - 4, b1[1] + 130], **{'in': cue(start('g'))}, out=dict(t=round(at('r', 'better') - 0.2, 3))))
     c = Card(b1[3] + 30, tone='bubble_good', x0=RX0 + 70, w=RW - 70, badge='check', t_badge=at('r', 'better')); c.tail = 'r'
     c.text([[D['right'], 'ongood']], S['body'], at('r', 'better')); b2 = c.place(at('r', 'better'), t_out, 'b')
     c = Card(b2[3] + 30, tone='card'); c.text([['⚡ ', 'accent'], [D['why'], 'ink']], S['sub'], start('y')); c.place(start('y'), t_out, 'c')   # memory trick -> save card
@@ -373,9 +376,7 @@ def T_phrasal():
     b1 = _fix(D, None, 'w', 'r', None)
     c = Card(b1[3] + 28, tone='good', badge='check', t_badge=at('r', 'say')); c.text(runs_hl(D['right'], D['pv'], 'good'), S['body'], at('r', 'say'))
     c.text([[D['pv'], 'primary'], [' ' + D['mean'], 'ink']], S['sub'], start('m'))
-    c.text([[D['aha'], 'accent']], S['sub'], start('k')); c.place(at('r', 'say'), start('x') - 0.2, 'b')
-    c3 = Card(b1[3] + 28); c3.text([['EXAMPLE', 'muted']], S['sub'], start('x'), gap=4); c3.text(runs_hl(D['ex'], 'hung out'), S['body'], start('x'))
-    c3.place(start('x'), start('q') - 0.2, 'b')
+    c.text([[D['aha'], 'accent']], S['sub'], start('k')); c.place(at('r', 'say'), start('q') - 0.2, 'b')   # social cut: the example line went to the save card
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[D['pv'], 'primary'], [' ' + D['mean'], 'ink']], [[D['aha'], 'muted']]], start('sh'), start('c') - 0.2)
     end_card()
@@ -563,10 +564,26 @@ if BB:   # round call window: head + shoulders centred, head ~55 % of the window
     x0, y0 = (BB[0] + BB[2]) / 2 - cx, BB[1] + 0.44 * D - cy; box = [round(x0, 1), round(y0, 1), round(x0 + hw, 1), round(y0 + HG['h'] * k, 1)]
 else: box = [round(FMT['host_cx'] - hw / 2, 1), H - FMT['host_h'], round(FMT['host_cx'] + hw / 2, 1), H]
 HOST = dict(who=EP['teacher'], talk='host_talk.webm', listen='host_listen.webm', box=box, segs=SEG, xfade=4, len=LEN, bubble=BB)
+# ---- camera (social shorts): push-in on the hook, then a hard cut to a new framing at every sentence start, slow push inside each shot.
+# Scale is anchored at the top of the teacher's head, so the head never rises into the captions; source pixels never exceed 1.0x.
+SHOTS = []
+if SOCIAL and not BB:
+    ox, oy = box[0] + (hb[0] + hb[2]) / 2 * k, box[1] + hb[1] * k; side = LAYOUT == 'side'
+    FR = [(0, 1.0, 0), (1, 1.07, 60), (2, 1.07, -60)]; cap_s = min(1.12, 1.0 / k)
+    ids = [l['id'] for l in EP['lines']]
+    for i, lid in enumerate(ids):
+        f0 = 0 if i == 0 else int(round(LINES[lid]['t0'] * o.fps)) - 2; f1 = int(round((LINES[ids[i + 1]]['t0'] if i + 1 < len(ids) else TOTAL) * o.fps)) - 2
+        if i == 0: s0, s1, dx = 1.0, min(cap_s, 1.08), 0          # the push-in on the hook
+        else: _, s0, dx = FR[i % 3]; s0 = min(cap_s, s0); s1 = min(cap_s, s0 + 0.03); dx = 0 if side else dx
+        SHOTS.append(dict(f0=max(0, f0), f1=f1, s0=round(s0, 4), s1=round(s1, 4), dx=dx))
+    HOST['cam'] = dict(ox=round(ox, 1), oy=round(oy, 1), shots=SHOTS)
 if BB: HEAD = list(BB); BODY = list(BB)
 else:
     HEAD = [box[0] + hb[0] * k, box[1] + hb[1] * k, box[0] + hb[2] * k, box[1] + hb[3] * k]
     BODY = [box[0] + HG['bbox'][0] * k, box[1] + HG['bbox'][1] * k, box[0] + HG['bbox'][2] * k, H]
+    if SHOTS:   # the head box in every framing (QC keeps cards / captions off all of them)
+        cx_, cy_ = HOST['cam']['ox'], HOST['cam']['oy']; hs = [[cx_ + (x - cx_) * sh_[q] + sh_['dx'], cy_ + (y - cy_) * sh_[q]] for sh_ in SHOTS for q in ('s0', 's1') for x, y in ((HEAD[0], HEAD[1]), (HEAD[2], HEAD[3]))]
+        HEAD = [min(p_[0] for p_ in hs), min(p_[1] for p_ in hs), max(p_[0] for p_ in hs), max(p_[1] for p_ in hs)]
 
 # ---------------- audio: voice track (-16 LUFS) + soft synth ticks (countdown 3-2-1, answer chime) after loudnorm ----------------
 os.makedirs(o.public, exist_ok=True); SR = 48000
@@ -591,7 +608,39 @@ def tone(t0, f0, dur, db, f1=None):
 for n in NODES:
     if n['type'] == 'ring':
         for d in range(3): tone(n['ring']['t0'] + d * (n['ring']['t1'] - n['ring']['t0']) / 3, 880, 0.09, -30)
-    if n['type'] == 'check' and n['in']['k'] == 'pop': tone(n['in']['t'] + C.HALF['pop'], 660, 0.22, -27, 990)
+    if n['type'] == 'check' and n['in']['k'] == 'pop' and not SOCIAL: tone(n['in']['t'] + C.HALF['pop'], 660, 0.22, -27, 990)
+if SOCIAL:   # owner 29/10: whoosh + light music for social shorts (CC0 Lexkite synth bank brand/library/sfx + scripts/video/synth.mjs), mixed AFTER the voice loudnorm
+    MAN = {x['id']: x for x in json.load(open(f'{ROOT}/brand/library/sfx/manifest.json'))['items']}
+    def sample(name):
+        with wave.open(f"{ROOT}/brand/library/{MAN[name]['file']}") as w: sr_ = w.getframerate(); a_ = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
+        return np.interp(np.arange(int(len(a_) * SR / sr_)) / SR, np.arange(len(a_)) / sr_, a_).astype(np.float32)
+    def put(name, t0, extra_db=0.0):
+        x = sample(name) * 10 ** ((MAN[name]['gainDb'] + extra_db) / 20); i0 = max(0, int(t0 * SR)); m_ = min(len(x), len(mix) - i0)
+        if m_ > 0: mix[i0:i0 + m_] += x[:m_]; SFX.append(dict(t=round(t0, 3), sfx=name, db=MAN[name]['gainDb'] + extra_db))
+    put('bass-drop', 0.0, -4)                                     # the hook slam
+    seen = []
+    for n in sorted(NODES, key=lambda n: n['in']['t']):
+        t_ = n['in']['t']
+        if n.get('parent') or t_ < 0.3 or n['type'] not in ('card', 'split', 'candy', 'pic', 'brick') or any(abs(t_ - x) < 0.35 for x in seen): continue
+        put('whoosh', max(0, t_ - 0.12), -6); seen.append(t_)    # one soft whoosh per entering card group
+        if n['type'] in ('candy', 'brick'): put('pop', t_ + 0.1, -2)
+    for n in NODES:
+        if n['type'] in ('check',) and n['in']['k'] == 'pop': put('riser', max(0, n['in']['t'] - 1.45), -8); put('ding', n['in']['t'], -4)
+        if n['type'] in ('stamp', 'vs'): put('pop', n['in']['t'], 0)
+    # music bed: preset by series, ~ -30 dBFS RMS, ducked 12 dB under the voice (smooth 0.25 s), fades in/out
+    PRE = dict(usuk='pop-bright', verbs='upbeat-claps', stress='chill-keys', mistake='quiz-pulse', phrasal='lofi-warm', pair='chill-keys', prep='pop-bright',
+               pattern='upbeat-claps', native='lofi-warm', guess='quiz-pulse', level='quiz-pulse')
+    mf = f'{o.public}/_music.wav'; subprocess.run(['node', f'{ROOT}/scripts/video/synth.mjs', '--music', PRE.get(EP['template'], 'lofi-warm'), str(TOTAL + 0.5), mf], check=True, capture_output=True)
+    with wave.open(mf) as w: sr_ = w.getframerate(); ch_ = w.getnchannels(); mu = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
+    if ch_ == 2: mu = mu.reshape(-1, 2).mean(1)
+    mu = np.interp(np.arange(len(mix)) / SR, np.arange(len(mu)) / sr_, mu).astype(np.float32); os.remove(mf)
+    mu *= 10 ** (-30 / 20) / max(1e-6, float(np.sqrt(np.mean(mu ** 2))))
+    duck = np.zeros(len(mix), np.float32)
+    for a_, b_ in SPEECH: duck[max(0, int((a_ - 0.1) * SR)):int((b_ + 0.15) * SR)] = 1
+    kk = int(0.25 * SR); duck = np.convolve(duck, np.ones(kk) / kk, 'same'); gain = 10 ** (-12 * duck / 20)
+    env = np.minimum(1, np.minimum(np.arange(len(mix)) / (0.6 * SR), (len(mix) - np.arange(len(mix))) / (0.8 * SR)))
+    mix += mu * gain * env; SFX.append(dict(music=PRE.get(EP['template']), rms_db=-30, duck_db=-12))
+    mix = np.tanh(mix * 1.1) / 1.1   # soft limiter
 wav_out(f'{o.public}/voice.wav', mix); os.remove(raw); os.remove(f'{o.public}/_voice_n.wav')
 
 # ---------------- assets ----------------

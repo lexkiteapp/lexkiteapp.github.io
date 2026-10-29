@@ -10,14 +10,12 @@
    "script": {
     "h": "Stop saying discuss about!",
     "w": "Many learners say: We will discuss about the budget.",
-    "g": "What sounds right?",
     "r": "Better: We will discuss the budget.",
     "y": "Discuss needs no about. Discuss the plan.",
-    "k": "But you can talk about it!",
     "q": "Quick quiz! Which one fits?",
     "a": "Discuss! We need to discuss the budget.",
-    "sh": "Send this to a friend who says discuss about!",
-    "c": "Save this, and check your grammar on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_phrasal_hangout": {
@@ -32,11 +30,10 @@
     "r": "Say: Want to hang out this weekend?",
     "m": "Hang out means relax together.",
     "k": "Kids play. Adults hang out!",
-    "x": "We hung out at the beach.",
     "q": "Quick quiz! Which one sounds natural?",
     "a": "Hang out! Want to hang out after class?",
-    "sh": "Send this to a friend you hang out with!",
-    "c": "Save this, and learn phrasal verbs on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_stress_photographer": {
@@ -51,10 +48,9 @@
     "b": "Now say photographer.",
     "m": "The stress moves to the second part.",
     "r": "Say it with me: photographer.",
-    "t": "Photography moves it too.",
     "q": "Quick quiz! Where's the stress in photographer?",
     "ans": "The second part. Photographer.",
-    "sh": "Tag a friend who loves taking photos!",
+    "sh": "Send this to a friend!",
     "c": "Save this, and check any word's stress on lexkite.com."
    }
   },
@@ -66,14 +62,13 @@
    "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, no jargon, quiz answer spoken)",
    "script": {
     "h": "U.S. or U.K.?",
-    "s": "You need to go up to the tenth floor.",
     "us": "In America, you take the elevator.",
     "uk": "In Britain, you take the lift. Same thing!",
     "x": "Excuse me, where's the elevator?",
     "q": "Quick quiz! You're in London. What do you look for?",
     "a": "The lift!",
-    "sh": "Send this to a friend who travels!",
-    "c": "Save this, and look up any word on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_verbs_break": {
@@ -84,14 +79,14 @@
    "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / verb engine / audited IPA bank, no jargon, quiz answer spoken)",
    "script": {
     "h": "Three forms of break. Ready?",
-    "b": "Base form: break. Don't break the glass!",
+    "b": "Base form: break.",
     "p": "Past: broke. Yesterday, I broke my phone.",
-    "pp": "Past participle: broken. Now my phone is broken.",
+    "pp": "Past participle: broken.",
     "w": "Not breaked! Break is irregular.",
     "q": "Quick quiz! The window is broke, or broken?",
     "a": "Broken! The window is broken.",
-    "sh": "Send this to a friend who says breaked!",
-    "c": "Save this, and practice verb forms on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_pair_raise": {
@@ -109,8 +104,8 @@
     "k": "The sun rises. Nobody raises it!",
     "q": "Quick quiz! Which one fits?",
     "a": "Rises! The sun rises at six.",
-    "sh": "Send this to a friend who mixes these up!",
-    "c": "Save this, and compare tricky words on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_native_flushot": {
@@ -124,11 +119,10 @@
     "w": "Textbook: I need to get a flu injection.",
     "r": "Natives say: I need to get a flu shot.",
     "y": "In everyday American English, it's a flu shot.",
-    "k": "A shot is any injection in casual talk!",
     "q": "Quick quiz! Which one fits?",
     "a": "Shot! Many people get a flu shot every fall.",
-    "sh": "Send this to a friend who is moving to the States!",
-    "c": "Save this, and learn real phrases on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_pattern_decide": {
@@ -142,11 +136,10 @@
     "w": "Many learners say: I decided going home.",
     "r": "Better: I decided to go home.",
     "y": "After decide, use to plus verb.",
-    "k": "Plan, hope and want also take to!",
     "q": "Quick quiz! Which one fits?",
     "a": "To buy! They decided to buy a new car.",
-    "sh": "Send this to a friend who is learning English!",
-    "c": "Save this, and practice verb patterns on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_guess_umbrella": {
@@ -162,8 +155,8 @@
     "c3": "Clue three: it starts with U.",
     "q": "Got it? Comment your guess!",
     "a": "Umbrella! Don't forget your umbrella; it might rain later.",
-    "sh": "Tag a friend who always forgets theirs!",
-    "c": "Save this, and look up any word on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_level_a2": {
@@ -182,7 +175,7 @@
     "a3": "It's for! What's the reason for the change?",
     "s": "Three out of three? You are ready for more!",
     "sh": "Comment your score!",
-    "c": "Save this, and take the free level test on lexkite.com."
+    "c": "Save this. Free on lexkite.com."
    }
   },
   "t2_prep_smile": {
@@ -196,11 +189,10 @@
     "s": "She smiled... me. To, or at?",
     "r": "At! She smiled at me.",
     "y": "You smile at a person, like you look at them.",
-    "k": "Laugh works the same way: laugh at!",
     "q": "Quick quiz! Which one fits?",
     "a": "At! The teacher smiled at the students.",
-    "sh": "Send this to a friend who smiles a lot!",
-    "c": "Save this, and check your grammar on lexkite.com."
+    "sh": "Send this to a friend!",
+    "c": "Save this. Free on lexkite.com."
    }
   }
  }

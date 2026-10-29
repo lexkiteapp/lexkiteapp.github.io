@@ -12,43 +12,43 @@
   {
    "id": "h",
    "text": "Guess the word in three clues!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "c1",
    "text": "Clue one: it protects you from rain.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "c2",
    "text": "Clue two: it has eight letters.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "c3",
    "text": "Clue three: it starts with U.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q",
    "text": "Got it? Comment your guess!",
-   "pause": 3.0,
+   "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
    "text": "Umbrella! Don't forget your umbrella; it might rain later.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
-   "text": "Tag a friend who always forgets theirs!",
-   "pause": 0.55
+   "text": "Send this to a friend!",
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and look up any word on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -70,8 +70,8 @@
   "text": "Guess the word!"
  },
  "est": {
-  "words": 56,
-  "seconds": 34.3,
-  "wpm": 98
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
  }
 }

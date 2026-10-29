@@ -12,55 +12,55 @@
   {
    "id": "h",
    "text": "Level check! Three quick questions.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q1",
    "text": "Question one.",
-   "pause": 3.0,
+   "pause": 2.4,
    "quiz": true
   },
   {
    "id": "a1",
    "text": "It's ago! I started this job two years ago.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q2",
    "text": "Question two.",
-   "pause": 3.0,
+   "pause": 2.4,
    "quiz": true
   },
   {
    "id": "a2",
    "text": "It's sitting! I hate sitting in traffic.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q3",
    "text": "Question three.",
-   "pause": 3.0,
+   "pause": 2.4,
    "quiz": true
   },
   {
    "id": "a3",
    "text": "It's for! What's the reason for the change?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "s",
    "text": "Three out of three? You are ready for more!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
    "text": "Comment your score!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and take the free level test on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -109,8 +109,8 @@
   ]
  },
  "est": {
-  "words": 58,
-  "seconds": 41.3,
-  "wpm": 84
+  "words": 53,
+  "seconds": 36.1,
+  "wpm": 88
  }
 }

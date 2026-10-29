@@ -135,7 +135,7 @@ gate('ipa', not ib, 3, checked=len(T['ipa']), bad=ib)
 # CTA deep link into the matching app feature
 cta = T['cta']; ROUTES = ('#/dict/', '#/verb/', '#/pron/', '#/fix', '#/phrases', '#/usage', '#/grammar', '#/lesson', '#/call', '#/confidence', '#/placement', '#/toeic', '#/reading', '#/review')
 gate('cta', cta['link'].startswith('https://lexkite.com/app/') and cta['route'].startswith(ROUTES) and cta['link'].endswith(cta['route']), 2, **cta)
-gate('duration', 18 <= T['total'] <= 42, 1, seconds=T['total'])
+gate('duration', (18 <= T['total'] <= 28) if T['format'] == 'short' else (15 <= T['total'] <= 42), 2, seconds=T['total'], want='18-28 s social short (owner 29/10)' if T['format'] == 'short' else '15-42 s lesson embed')
 # rendered file
 if o.video:
     pr = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'stream=codec_type,codec_name,width,height,r_frame_rate:format=duration', '-of', 'json', o.video]))

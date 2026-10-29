@@ -22,7 +22,7 @@ def verbs(base):
     return json.loads(subprocess.run(['node', '--input-type=module', '-e', js, f'{ROOT}/web/js/verbs-core.js', base], capture_output=True, text=True, check=True).stdout)
 
 
-def L(i, text, pause=0.55, **kw): return dict(id=i, text=text, pause=pause, **kw)
+def L(i, text, pause=0.42, **kw): return dict(id=i, text=text, pause=min(pause, 2.6), **kw)   # owner 29/10: social 18-28 s
 
 
 def cta(area, route, say): return dict(area=area, route=route, link=APP + route, say=say)
@@ -32,14 +32,13 @@ def usuk(p):
     us, uk = p['us'], p['uk']
     return dict(lines=[
         L('h', 'U.S. or U.K.?'),
-        L('s', p['situation']),
         L('us', f"In America, {p['us_say']}"),
         L('uk', f"In Britain, {p['uk_say']} Same thing!"),
         L('x', p['example']),
         L('q', f"Quick quiz! You're in {p['quiz_city']}. What do you look for?", 3.0, quiz=True),
         L('a', f"The {uk}!"),
-        L('sh', p['share']),
-        L('c', 'Save this, and look up any word on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(us=us, uk=uk, ipa_us=p['ipa_us'], ipa_uk=p['ipa_uk'], same=p['same'], quiz=dict(options=[us, uk], answer=1)),
         cta=cta('dictionary', f'#/dict/{us}', 'Look up any word'), hook=dict(line='h', text='US or UK?'))
 
@@ -50,14 +49,14 @@ def verbforms(p):
     assert f['irregular'] and over, ('verb template needs an irregular verb with an over-regularised mistake', base)
     return dict(lines=[
         L('h', f'Three forms of {base}. Ready?'),
-        L('b', f"Base form: {base}. {p['ex_base']}"),
+        L('b', f"Base form: {base}."),
         L('p', f"Past: {past}. {p['ex_past']}"),
-        L('pp', f"Past participle: {pp}. {p['ex_pp']}"),
+        L('pp', f"Past participle: {pp}."),
         L('w', f'Not {over}! {base.capitalize()} is irregular.'),
         L('q', f"Quick quiz! {p['quiz_q']}", 3.0, quiz=True),
         L('a', p['quiz_a']),
-        L('sh', f'Send this to a friend who says {over}!'),
-        L('c', 'Save this, and practice verb forms on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(base=base, past=past, pp=pp, over=over, quiz=dict(stem=p['quiz_stem'], options=[past, pp], answer=[past, pp].index(p['quiz_right']))),
         cta=cta('verbs', f'#/verb/{base}', 'Practice verb forms'), hook=dict(line='h', text=f'{base} · {past} · {pp}'))
 
@@ -70,10 +69,9 @@ def stress(p):
         L('b', f"Now say {b['word']}."),
         L('m', f"The stress moves to the {b['say']} part."),
         L('r', f"Say it with me: {b['word']}.", 1.8, repeat=True),
-        L('t', p['tip']),
         L('q', f"Quick quiz! Where's the stress in {b['word']}?", 3.0, quiz=True),
         L('ans', f"The {b['say']} part. {b['word'].capitalize()}."),
-        L('sh', p['share']),
+        L('sh', 'Send this to a friend!'),
         L('c', "Save this, and check any word's stress on lexkite.com.")],
         data=dict(a=a, b=b, quiz=dict(options=[b['syl'][0].upper(), b['syl'][b['stress']].upper()], answer=1)),
         cta=cta('pronunciation', f"#/pron/{b['word']}", 'Check word stress'), hook=dict(line='h', text="Where's the stress?"))
@@ -84,14 +82,12 @@ def mistake(p):
     return dict(lines=[
         L('h', p['hook_say']),
         L('w', f"Many learners say: {p['wrong_say']}"),
-        L('g', 'What sounds right?', 1.6, guess=True),
         L('r', f"Better: {p['right_say']}"),
         L('y', g['why']),
-        L('k', g['aha']),
         L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
         L('a', p['answer_say']),
-        L('sh', p['share']),
-        L('c', 'Save this, and check your grammar on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(wrong=p['wrong_say'], right=p['right_say'], strike=p['strike'], why=g['why'], memory=g['memory'], quiz=dict(stem=q['q'], options=q['options'], answer=q['answer'])),
         cta=cta('grammar-check', '#/fix', 'Check your grammar'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
 
@@ -104,11 +100,10 @@ def phrasal(p):
         L('r', f"Say: {g['right']}"),
         L('m', p['mean_say']),
         L('k', g['aha']),
-        L('x', g['ex'][0]),
         L('q', 'Quick quiz! Which one sounds natural?', 3.0, quiz=True),
         L('a', p['answer_say']),
-        L('sh', p['share']),
-        L('c', 'Save this, and learn phrasal verbs on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(pv=p['pv'], wrong=g['wrong'], right=g['right'], strike=p['strike'], mean=p['mean_card'], aha=g['aha'], ex=g['ex'][0],
                   quiz=dict(stem=q['q'], options=q['options'], answer=q['answer'])),
         cta=cta('phrases', '#/phrases', 'Learn phrasal verbs'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
@@ -134,8 +129,8 @@ def pair(p):   # Same or Different? (gold x-vs-y): two word cards with one-line 
         L('k', g['aha']),
         L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
         L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
-        L('sh', p['share']),
-        L('c', 'Save this, and compare tricky words on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(a=p['a'], b=p['b'], mean_a=m1, mean_b=m2, aha=g['aha'], right=g['right'], quiz=dict(stem=stem, options=opts, answer=ans)),
         cta=cta('word-usage', f"#/usage/{p['a']}-{p['b']}", 'Compare tricky words'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
 
@@ -147,11 +142,10 @@ def prep(p):   # Which Little Word? (gold preposition): sentence with a glowing 
         L('s', f"{p['slot_say']} {opts[1 - ans].capitalize()}, or {right}?", 1.6, guess=True),
         L('r', f"{right.capitalize()}! {g['right']}"),
         L('y', g['why']),
-        L('k', g['aha']),
         L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
         L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
-        L('sh', p['share']),
-        L('c', 'Save this, and check your grammar on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(slot=p['slot_text'], opts=[opts[1 - ans], right], right=right, full=g['right'], why=g['why'], aha=g['aha'], quiz=dict(stem=stem, options=opts, answer=ans)),
         cta=cta('grammar-check', '#/fix', 'Check your grammar'), hook=dict(line='h', text='Which little word?'), src=dict(gold=g['id'], pid=g['pid']))
 
@@ -163,11 +157,10 @@ def pattern(p):   # Verb Patterns (gold verb-pattern): formula bricks verb + pat
         L('w', f"Many learners say: {g['wrong']}"),
         L('r', f"Better: {g['right']}"),
         L('y', g['why']),
-        L('k', g['aha']),
         L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
         L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
-        L('sh', p['share']),
-        L('c', 'Save this, and practice verb patterns on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(verb=p['verb'], pat=p['pat'], good=p['good'], bad=p['bad'], wrong=g['wrong'], right=g['right'], why=g['why'], aha=g['aha'], quiz=dict(stem=stem, options=opts, answer=ans)),
         cta=cta('verbs', f"#/verb/{p['verb']}", 'Practice verb patterns'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
 
@@ -179,11 +172,10 @@ def native(p):   # Say It Naturally (gold situational): textbook line vs native 
         L('w', f"Textbook: {g['wrong']}"),
         L('r', f"Natives say: {g['right']}"),
         L('y', g['why']),
-        L('k', g['aha']),
         L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
         L('a', f"{right.capitalize()}! {stem.replace('___', right)}"),
-        L('sh', p['share']),
-        L('c', 'Save this, and learn real phrases on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(wrong=g['wrong'], right=g['right'], strike=p['strike'], hl=p['hl'], why=g['why'], aha=g['aha'], scene=p['scene'], quiz=dict(stem=stem, options=opts, answer=ans)),
         cta=cta('phrases', '#/phrases', 'Learn real phrases'), hook=dict(line='h', text='Textbook or real English?'), src=dict(gold=g['id'], pid=g['pid']))
 
@@ -199,8 +191,8 @@ def guess(p):   # Guess the Word (audited word bank + img.json picture): 3 clues
         L('c3', f'Clue three: it starts with {w[0].upper()}.'),
         L('q', 'Got it? Comment your guess!', 3.0, quiz=True),
         L('a', f"{w.capitalize()}! {ex}"),
-        L('sh', p['share']),
-        L('c', 'Save this, and look up any word on lexkite.com.')],
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
         data=dict(word=w, ipa=ipa, clue=clue, n=n, img=p['img'], ex=ex),
         cta=cta('dictionary', f'#/dict/{w}', 'Look up any word'), hook=dict(line='h', text='Guess the word!'))
 
@@ -208,8 +200,8 @@ def guess(p):   # Guess the Word (audited word bank + img.json picture): 3 clues
 def level(p):   # Level Check (3 gold quiz items): progress dots, question card, score pill, trophy
     Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Three quick questions.')]
     for i, (stem, opts, ans, right) in enumerate(Q, 1):
-        lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 3.0, quiz=True), L(f'a{i}', f"It's {right}! {stem.replace('___', right)}")]   # no lone word first: whisper drops it
-    lines += [L('s', 'Three out of three? You are ready for more!'), L('sh', 'Comment your score!'), L('c', 'Save this, and take the free level test on lexkite.com.')]
+        lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 2.4, quiz=True), L(f'a{i}', f"It's {right}! {stem.replace('___', right)}")]   # no lone word first: whisper drops it
+    lines += [L('s', 'Three out of three? You are ready for more!'), L('sh', 'Comment your score!'), L('c', 'Save this. Free on lexkite.com.')]
     return dict(lines=lines, data=dict(qs=[dict(stem=s_, options=o_, answer=a_) for s_, o_, a_, _ in Q]),
                 cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text='Level check!'), src=dict(gold=p['gold']))
 
@@ -232,7 +224,7 @@ def make(row):
     n = sum(len(words(l['text'])) for l in ep['lines']); est = n / (2.55 * ep['speed']) + sum(l['pause'] for l in ep['lines'])
     hk = ep['lines'][0]['text']
     assert len(words(hk)) <= 7, ('hook too long', hk)
-    assert 55 <= n <= 95, ('word count', n)
+    assert 30 <= n <= 70, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
     return ep

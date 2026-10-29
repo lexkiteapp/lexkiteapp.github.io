@@ -12,48 +12,48 @@
   {
    "id": "h",
    "text": "Three forms of break. Ready?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "b",
-   "text": "Base form: break. Don't break the glass!",
-   "pause": 0.55
+   "text": "Base form: break.",
+   "pause": 0.42
   },
   {
    "id": "p",
    "text": "Past: broke. Yesterday, I broke my phone.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "pp",
-   "text": "Past participle: broken. Now my phone is broken.",
-   "pause": 0.55
+   "text": "Past participle: broken.",
+   "pause": 0.42
   },
   {
    "id": "w",
    "text": "Not breaked! Break is irregular.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q",
    "text": "Quick quiz! The window is broke, or broken?",
-   "pause": 3.0,
+   "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
    "text": "Broken! The window is broken.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
-   "text": "Send this to a friend who says breaked!",
-   "pause": 0.55
+   "text": "Send this to a friend!",
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and practice verb forms on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -81,8 +81,8 @@
   "text": "break · broke · broken"
  },
  "est": {
-  "words": 62,
-  "seconds": 37.8,
-  "wpm": 98
+  "words": 47,
+  "seconds": 29.0,
+  "wpm": 97
  }
 }

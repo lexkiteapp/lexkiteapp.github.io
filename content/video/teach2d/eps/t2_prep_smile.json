@@ -12,7 +12,7 @@
   {
    "id": "h",
    "text": "One little word. Which one?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "s",
@@ -23,38 +23,33 @@
   {
    "id": "r",
    "text": "At! She smiled at me.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "y",
    "text": "You smile at a person, like you look at them.",
-   "pause": 0.55
-  },
-  {
-   "id": "k",
-   "text": "Laugh works the same way: laugh at!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q",
    "text": "Quick quiz! Which one fits?",
-   "pause": 3.0,
+   "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
    "text": "At! The teacher smiled at the students.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
-   "text": "Send this to a friend who smiles a lot!",
-   "pause": 0.55
+   "text": "Send this to a friend!",
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and check your grammar on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -91,8 +86,8 @@
   "pid": "u:p:smile:at"
  },
  "est": {
-  "words": 63,
-  "seconds": 39.3,
+  "words": 49,
+  "seconds": 30.7,
   "wpm": 96
  }
 }

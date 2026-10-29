@@ -12,53 +12,48 @@
   {
    "id": "h",
    "text": "Don't say play together!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "w",
    "text": "Don't say: Want to play together this weekend?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "r",
    "text": "Say: Want to hang out this weekend?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "m",
    "text": "Hang out means relax together.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "k",
    "text": "Kids play. Adults hang out!",
-   "pause": 0.55
-  },
-  {
-   "id": "x",
-   "text": "We hung out at the beach.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q",
    "text": "Quick quiz! Which one sounds natural?",
-   "pause": 3.0,
+   "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
    "text": "Hang out! Want to hang out after class?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
-   "text": "Send this to a friend you hang out with!",
-   "pause": 0.55
+   "text": "Send this to a friend!",
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and learn phrasal verbs on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -93,8 +88,8 @@
   "pid": "w:hang out#phr v"
  },
  "est": {
-  "words": 67,
-  "seconds": 40.8,
-  "wpm": 99
+  "words": 54,
+  "seconds": 32.4,
+  "wpm": 100
  }
 }

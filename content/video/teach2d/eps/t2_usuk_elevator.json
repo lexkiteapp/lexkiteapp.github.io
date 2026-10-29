@@ -12,48 +12,43 @@
   {
    "id": "h",
    "text": "U.S. or U.K.?",
-   "pause": 0.55
-  },
-  {
-   "id": "s",
-   "text": "You need to go up to the tenth floor.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "us",
    "text": "In America, you take the elevator.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "uk",
    "text": "In Britain, you take the lift. Same thing!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "x",
    "text": "Excuse me, where's the elevator?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q",
    "text": "Quick quiz! You're in London. What do you look for?",
-   "pause": 3.0,
+   "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
    "text": "The lift!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
-   "text": "Send this to a friend who travels!",
-   "pause": 0.55
+   "text": "Send this to a friend!",
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and look up any word on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -81,8 +76,8 @@
   "text": "US or UK?"
  },
  "est": {
-  "words": 62,
-  "seconds": 37.8,
-  "wpm": 98
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
  }
 }

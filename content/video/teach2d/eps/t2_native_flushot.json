@@ -12,48 +12,43 @@
   {
    "id": "h",
    "text": "Textbook English, or real English?",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "w",
    "text": "Textbook: I need to get a flu injection.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "r",
    "text": "Natives say: I need to get a flu shot.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "y",
    "text": "In everyday American English, it's a flu shot.",
-   "pause": 0.55
-  },
-  {
-   "id": "k",
-   "text": "A shot is any injection in casual talk!",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "q",
    "text": "Quick quiz! Which one fits?",
-   "pause": 3.0,
+   "pause": 2.6,
    "quiz": true
   },
   {
    "id": "a",
    "text": "Shot! Many people get a flu shot every fall.",
-   "pause": 0.55
+   "pause": 0.42
   },
   {
    "id": "sh",
-   "text": "Send this to a friend who is moving to the States!",
-   "pause": 0.55
+   "text": "Send this to a friend!",
+   "pause": 0.42
   },
   {
    "id": "c",
-   "text": "Save this, and learn real phrases on lexkite.com.",
-   "pause": 0.55
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
   }
  ],
  "data": {
@@ -88,8 +83,8 @@
   "pid": "w:flu shot#n"
  },
  "est": {
-  "words": 72,
-  "seconds": 42.7,
-  "wpm": 101
+  "words": 55,
+  "seconds": 32.5,
+  "wpm": 102
  }
 }
