@@ -319,6 +319,131 @@
    "bad": "abandoned field became a dangerous minefield",
    "re": true,
    "note": "ví dụ AI vô lý – soát 29/10"
+  },
+  {
+   "k": "sulfur#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "tasteless odorless",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "rhinoceros#n",
+   "cls": "L7",
+   "field": "def",
+   "bad": "‑|odd.toed",
+   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "re": true
+  },
+  {
+   "k": "despair#n",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "rescued from despair at the last minute",
+   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "re": true
+  },
+  {
+   "k": "mighty#adj",
+   "cls": "L2",
+   "field": "ex",
+   "bad": "lifted the mighty weight",
+   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "re": true
+  },
+  {
+   "k": "selfish#adj",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "tự lợi",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "expel#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "trục xuất",
+   "note": "soát Sonnet pilot 2 29/10 11:36",
+   "when": {
+    "def": "school|club|organi"
+   }
+  },
+  {
+   "k": "congregate#v",
+   "cls": "L1",
+   "field": "vi",
+   "bad": "tập trung",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "razor#n",
+   "cls": "D1",
+   "field": "m.de",
+   "bad": "Rasiermesser",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "razor#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "navalha",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "feather#n",
+   "cls": "D1",
+   "field": "m.ja",
+   "bad": "羽毛",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "spice#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "tempero",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "dizzy#adj",
+   "cls": "D1",
+   "field": "m.fr",
+   "bad": "vertigineux",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "sulfur#n",
+   "cls": "D1",
+   "field": "m.zh",
+   "bad": "硫磺",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "misery#n",
+   "cls": "D1",
+   "field": "m.es",
+   "bad": "miseria",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "misery#n",
+   "cls": "D1",
+   "field": "m.pt",
+   "bad": "miséria",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "misery#n",
+   "cls": "D1",
+   "field": "m.tr",
+   "bad": "sefalet",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
+  },
+  {
+   "k": "crow#n",
+   "cls": "D1",
+   "field": "m.fr",
+   "bad": "corbeau",
+   "note": "soát Sonnet pilot 2 29/10 11:36"
   }
  ],
  "good": [

@@ -93,8 +93,8 @@ export function viAgreeSources(srcs) {
   return [...m.values()].filter(o => o.src.length >= 2);
 }
 /** bản dịch 12 ngôn ngữ cũng cần ≥ 2 nguồn độc lập (pilot 29/10: detriment ko 상해 – chỉ bảng Wiktionary + trắc nghiệm nghĩa vẫn lọt) */
-// soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → LUÔN cần AI họ A xác nhận + ≥ 1 nguồn người viết
-export const TR2 = /^(wiktionary|omw|wiktionary\+omw)\+ai$/;
+// soát 50 mẫu pilot 29/10: 9/11 bản dịch sai chỉ 1 nguồn; 2 còn lại khớp Wiktionary ∩ OMW nhưng không tự nhiên (pt surpresa, zh 蚤) → AI họ A xác nhận + nguồn người viết;
+export const TR2 = /^wiktionary\+omw\+ai$/; // soát pilot 2: 5/7 lỗi dịch chỉ 2 nguồn (omw+ai, wiktionary+ai) → cần ĐỦ 3 nguồn
 export function trNorm(l, t) { return String(t || '').split(/\s*;\s*/)[0].toLowerCase().trim().replace(/[\u064B-\u0652\u0670]/g, '').replace(/[+_]/g, l === 'ja' ? '' : ' ').replace(/\s+/g, ' ').replace(l === 'ja' ? /する$/ : /$^/, ''); }
 export const trIn = (l, t, list) => { const T = trNorm(l, t); return !!T && [].concat(list || []).flatMap(x => String(x || '').split(/\s*;\s*/)).some(x => trNorm(l, x) === T); };
 // HÌNH TỪ LOẠI của bản dịch (lớp D3: carelessly es "descuidado" tính từ, dizzy tr danh từ) – luật tất định cho đuôi rõ ràng; không có luật → đạt (giám khảo lxwsd chặn tiếp)
@@ -145,7 +145,7 @@ export function gateEntry(e, { keep } = {}) {
   const W = e.qa.wsd;
   if (W) { if (!Array.isArray(W.ex) || W.ex.length !== 2 || !W.ex.every(Boolean)) why.push('nghĩa: ví dụ chưa qua trắc nghiệm nghĩa 3 giám khảo');
     if (W.vi !== true) why.push('dịch vi: chưa qua trắc nghiệm nghĩa 3 giám khảo');
-    if (!Array.isArray(e.qa.viSrc) || e.qa.viSrc.length < 2) why.push('dịch vi: cần ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)'); }
+    if (!Array.isArray(e.qa.viSrc) || e.qa.viSrc.length < 2 || !e.qa.viSrc.includes('wk')) why.push('dịch vi: cần Wiktionary + ≥ 1 AI trùng (2 nguồn độc lập)'); }
   if (e.ipaPos === false) why.push('ipa-pos: không có IPA Anh khớp từ loại (cặp đổi trọng âm danh–động)');
   // CEFR: nguồn kiểu EVP (CEFR-J/Octanove) thắng; chỉ dải tần suất → giám khảo kiểm, lệch ≥ 2 bậc → trượt (pilot 7: assault A2)
   if (CE.includes(e.level) && (e.cefrSrc || 'freq') === 'freq' && Array.isArray(e.qa.cefrJ)) { const off = e.qa.cefrJ.filter(x => CE.includes(x)).map(x => Math.abs(CE.indexOf(x) - CE.indexOf(e.level))); if (off.some(d => d >= 2)) why.push('cefr: giám khảo lệch ≥ 2 bậc (' + e.qa.cefrJ.join('/') + ' ≠ ' + e.level + ')'); }

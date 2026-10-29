@@ -163,19 +163,13 @@ for (const x of list) { const s = S[x.k]; if (!s) continue;
   X[x.k] = { defOk: s.a.def === 'same' && s.b.def === 'same' && s.c.def === 'same', defWhy: [s.a, s.b, s.c].filter(j => j.def !== 'same').map(j => j.f || 'changed').join(' / '), exAll, ex: [], col, tr: grp ? grp.tr : {}, tg: grp ? grp.g : '' }; }
 }
 const idx = v => (Array.isArray(v) ? v : []).map(Number).filter(Number.isInteger);
-/** gloss WordNet → định nghĩa theo quy ước kho (động từ "to …", bỏ phần sau ";" – thường là ví dụ/ghi chú) */
-function glossDef(gloss, pos) { let g = String(gloss || '').split(';')[0].replace(/\s+/g, ' ').trim(); if (!g) return ''; if (pos === 'v' && !/^to /i.test(g)) g = 'to ' + g; return g; }
 const cov = { def: { wordnet: 0 }, ex: { wordnet: 0, tatoeba: 0, wiktionary: 0, ai: 0 }, tr: { wiktionary: 0, ai: 0 }, vi: { wiktionary: 0, ai: 0 }, col: { src: 0, none: 0 }, syn: { wordnet: 0, none: 0 }, cefr: {} };
 await srcPass(live);
 // def bị giám khảo bác → viết lại 1 lần theo lý do (gần chữ gloss hơn) rồi chấm lại; vẫn bác → hàng duyệt
 // + định nghĩa sai hình từ loại (defPosOk – pilot 11 purple#adj "a colour…") cũng viết lại 1 lần với lý do cụ thể
 { const posBad = x => !defPosOk(D[x.k].def, x.pos), redo = live.filter(x => X[x.k] && (!X[x.k].defOk || posBad(x))); stat.defRedo = redo.length; stat.defPosRedo = redo.filter(posBad).length;
   await pmap(chunks(redo, 10), 8, async ch => { const r = await call('lxdef', ch.map(x => ({ ...strip(x), fix: [X[x.k].defOk ? '' : X[x.k].defWhy || 'meaning changed', posBad(x) ? DEF_POS_FIX[x.pos] : ''].filter(Boolean).join('; ') }))); if (r) for (const x of ch) { const o = r.out[x.k]; if (o && o.def && o.keep !== false) { D[x.k] = { ...D[x.k], def: o.def }; delete S[x.k]; delete X[x.k]; } } });
-  await srcPass(redo.filter(x => !X[x.k])); stat.defRedoOk = redo.filter(x => X[x.k] && X[x.k].defOk).length;
-  // viết lại vẫn bị bác (pilot 29/10: 51 mục – haven, mastery, resin) → dùng NGUYÊN gloss WordNet (người viết, đúng nghĩa theo định nghĩa) khi hợp quy ước kho;
-  // lxjudge vẫn chấm độ dễ/đúng ở bước sau (s ≥ 4 cả 3 giám khảo)
-  stat.defGloss = 0; for (const x of redo) { const X1 = X[x.k]; if (!X1 || X1.defOk) continue; const g = glossDef(x.gloss, x.pos);
-    if (g && defPosOk(g, x.pos) && g.split(/\s+/).length <= 18 && !new RegExp('\\b' + x.w + '\\b', 'i').test(g)) { D[x.k] = { ...D[x.k], def: g, src: 'wordnet-gloss' }; X1.defOk = true; X1.defWhy = ''; stat.defGloss++; } } }
+  await srcPass(redo.filter(x => !X[x.k])); stat.defRedoOk = redo.filter(x => X[x.k] && X[x.k].defOk).length; } // KHÔNG lấy nguyên gloss WordNet làm def (soát pilot 2 29/10: sulfur "tasteless odorless multivalent…" – thô, sai với người học)
 
 // 3. "RA LÀ OK" (29/10) – mỗi trường nhận khi qua TRẮC NGHIỆM NGHĨA 3 giám khảo (wsd3) + nguồn độc lập:
 //   vi (lớp L1): ≥ 2 nguồn trùng trong { Wiktionary (bảng khớp nghĩa ∪ vi cùng từ loại), lxtr (họ A), lxvi (họ khác) } – lib.mjs viAgreeSources
@@ -216,7 +210,8 @@ for (const x of okDef) { const X1 = X[x.k], v = W1[x.k], L = lockIdx(x._c); if (
   const viOk = X1.viC.filter((c, i) => ok('vi' + i));
   X1.viOkSet = new Set([...viOk.map(c => c.v), ...X1.viW.filter((w, i) => ok('vw' + i))]);
   // vi chỉ AI (2 họ trùng, không Wiktionary): phải có trong từ điển tiếng Việt (Viet74K ∪ vi kho) – như cũ
-  const viKeep = viOk.filter(c => c.src.includes('wk') || !VIOK.size || VIOK.has(c.v));
+  // vi PHẢI có nguồn người viết (Wiktionary) + ≥ 1 AI (soát pilot 2 29/10: vi chỉ AI đồng thuận – expel "trục xuất", congregate "tập trung" – sai nghĩa)
+  const viKeep = viOk.filter(c => c.src.includes('wk'));
   X1.m = {}; X1.trSrc = {}; X1.wsdTr = {};
   if (viKeep.length) { X1.m.vi = viKeep.map(c => c.v).join('; '); X1.trSrc.vi = viKeep.some(c => c.src.includes('wk')) ? 'wiktionary' : 'ai'; X1.viSrc = viKeep[0].src; }
   else X1.viFail = X1.viC.length ? 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo' : 'dịch vi: không có ≥ 2 nguồn độc lập trùng (Wiktionary / AI họ A / AI họ B)';
