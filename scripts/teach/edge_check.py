@@ -28,7 +28,7 @@ for who in R['people']:
         im = np.asarray(Image.open(f'{T}/{who}/{k}.webp').convert('RGBA')); check(f'{who}/{k}', im[..., :3].copy(), im[..., 3])
     for f in sorted(os.listdir(f'{T}/{who}')):
         if not f.endswith('.mp4'): continue
-        W, H = R['frame']['w'], R['frame']['h']
+        W, H2 = map(int, subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v', '-show_entries', 'stream=width,height', '-of', 'csv=p=0', f'{T}/{who}/{f}'], capture_output=True, text=True).stdout.strip().split(',')); H = H2 // 2   # thường + HD (2×)
         b = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{T}/{who}/{f}', '-vf', 'select=eq(n\\,12)', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'gray', '-'], capture_output=True).stdout
         c = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{T}/{who}/{f}', '-vf', 'select=eq(n\\,12)', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True).stdout
         a = np.frombuffer(b, np.uint8).reshape(H * 2, W)[H:]; rgb = np.frombuffer(c, np.uint8).reshape(H * 2, W, 3)[:H].copy()
