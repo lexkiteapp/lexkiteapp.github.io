@@ -208,7 +208,7 @@ def guess(p):   # Guess the Word (audited word bank + img.json picture): 3 clues
 def level(p):   # Level Check (3 gold quiz items): progress dots, question card, score pill, trophy
     Q = [gq(GOLD[x]) for x in p['gold']]; lines = [L('h', 'Level check! Three quick questions.')]
     for i, (stem, opts, ans, right) in enumerate(Q, 1):
-        lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 3.0, quiz=True), L(f'a{i}', f"{right.capitalize()}! {stem.replace('___', right)}")]
+        lines += [L(f'q{i}', f"Question {['one', 'two', 'three'][i - 1]}.", 3.0, quiz=True), L(f'a{i}', f"It's {right}! {stem.replace('___', right)}")]   # no lone word first: whisper drops it
     lines += [L('s', 'Three out of three? You are ready for more!'), L('sh', 'Comment your score!'), L('c', 'Save this, and take the free level test on lexkite.com.')]
     return dict(lines=lines, data=dict(qs=[dict(stem=s_, options=o_, answer=a_) for s_, o_, a_, _ in Q]),
                 cta=cta('placement', '#/placement', 'Take the level test'), hook=dict(line='h', text='Level check!'), src=dict(gold=p['gold']))

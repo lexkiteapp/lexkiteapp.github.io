@@ -48,7 +48,8 @@
   "bubble_bad": "#C83A23",
   "bubble_bad_edge": "#F0826C",
   "bubble_good": "#17786F",
-  "bubble_good_edge": "#5FC7BC"
+  "bubble_good_edge": "#5FC7BC",
+  "onhl": "#FFE08A"
  },
  "light": {
   "bg": "#F6F8F7",
@@ -98,7 +99,8 @@
   "bubble_bad": "#C83A23",
   "bubble_bad_edge": "#F0826C",
   "bubble_good": "#17786F",
-  "bubble_good_edge": "#5FC7BC"
+  "bubble_good_edge": "#5FC7BC",
+  "onhl": "#FFE08A"
  },
  "dusk": {
   "bg": "#15434A",
@@ -148,7 +150,8 @@
   "bubble_bad": "#C83A23",
   "bubble_bad_edge": "#F0826C",
   "bubble_good": "#17786F",
-  "bubble_good_edge": "#5FC7BC"
+  "bubble_good_edge": "#5FC7BC",
+  "onhl": "#FFE08A"
  },
  "tints": {
   "usuk": "rgba(107,216,206,0.30)",

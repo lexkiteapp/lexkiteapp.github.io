@@ -454,7 +454,7 @@ def T_native():
     title([['Textbook', 'muted'], [' or ', 'ink'], ['real', 'primary'], ['?', 'ink']], 104, RY0 + 140, None, start('w') - 0.2, hook=True)
     c = Card(RY0, tone='tile'); chip(c, f"TEXTBOOK · AT THE {D['scene'].upper()}", start('w')); tn = c.text([[D['wrong'], 'muted']], S['body'], start('w'))[0]; b1 = c.place(start('w'), t_out, 'a')
     strike_on(tn, D['strike'], at('w', D['strike']) + 0.1)
-    c = Card(b1[3] + 30, tone='bubble_good'); chip(c, '✨ NATIVE', at('r', 'natives'), tone='good'); c.text(runs_hl(D['right'], D['hl'], 'accent', 'ongood'), S['body'], at('r', 'natives'))
+    c = Card(b1[3] + 30, tone='bubble_good'); chip(c, '✨ NATIVE', at('r', 'natives'), tone='good'); c.text(runs_hl(D['right'], D['hl'], 'onhl', 'ongood'), S['body'], at('r', 'natives'))
     c.text([[D['why'], 'ongood']], S['sub'], start('y')); c.place(at('r', 'natives'), t_out, 'b')
     q = D['quiz']; quiz_card([[q['stem'], 'ink']], q['options'], q['answer'], start('q'), at('a', 0), start('sh') - 0.2)
     save_card([[[D['right'], 'primary']], [[D['aha'], 'muted']]], start('sh'), start('c') - 0.2)

@@ -11,7 +11,7 @@
  "lines": [
   {
    "id": "h",
-   "text": "Raise or rise? Same or different?",
+   "text": "Raise or rise? Same thing?",
    "pause": 0.55
   },
   {
@@ -92,8 +92,8 @@
   "pid": "u:c:rise-raise"
  },
  "est": {
-  "words": 57,
-  "seconds": 35.9,
+  "words": 56,
+  "seconds": 35.4,
   "wpm": 95
  }
 }

@@ -101,7 +101,7 @@
    "script_reviewed": true,
    "reviewer": "Claude (American English teacher review 29/10/2026: one point, facts from gold bank / audited word bank / img.json, quiz answer spoken)",
    "script": {
-    "h": "Raise or rise? Same or different?",
+    "h": "Raise or rise? Same thing?",
     "r": "Please raise your hand.",
     "w": "Not: please rise your hand.",
     "m1": "Raise moves something.",
@@ -175,11 +175,11 @@
    "script": {
     "h": "Level check! Three quick questions.",
     "q1": "Question one.",
-    "a1": "Ago! I started this job two years ago.",
+    "a1": "It's ago! I started this job two years ago.",
     "q2": "Question two.",
-    "a2": "Sitting! I hate sitting in traffic.",
+    "a2": "It's sitting! I hate sitting in traffic.",
     "q3": "Question three.",
-    "a3": "For! What's the reason for the change?",
+    "a3": "It's for! What's the reason for the change?",
     "s": "Three out of three? You are ready for more!",
     "sh": "Comment your score!",
     "c": "Save this, and take the free level test on lexkite.com."

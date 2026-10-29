@@ -22,7 +22,7 @@
   },
   {
    "id": "a1",
-   "text": "Ago! I started this job two years ago.",
+   "text": "It's ago! I started this job two years ago.",
    "pause": 0.55
   },
   {
@@ -33,7 +33,7 @@
   },
   {
    "id": "a2",
-   "text": "Sitting! I hate sitting in traffic.",
+   "text": "It's sitting! I hate sitting in traffic.",
    "pause": 0.55
   },
   {
@@ -44,7 +44,7 @@
   },
   {
    "id": "a3",
-   "text": "For! What's the reason for the change?",
+   "text": "It's for! What's the reason for the change?",
    "pause": 0.55
   },
   {
@@ -109,8 +109,8 @@
   ]
  },
  "est": {
-  "words": 55,
-  "seconds": 39.8,
-  "wpm": 83
+  "words": 58,
+  "seconds": 41.3,
+  "wpm": 84
  }
 }
